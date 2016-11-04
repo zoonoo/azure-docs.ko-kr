@@ -1,40 +1,31 @@
-<properties 
-	pageTitle="Application Insights를 사용하여 SharePoint 사이트 모니터링" 
-	description="새 계측 키를 사용하여 새 응용 프로그램 모니터링 시작" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Application Insights를 사용하여 SharePoint 사이트 모니터링
+description: 새 계측 키를 사용하여 새 응용 프로그램 모니터링 시작
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/24/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 03/24/2016
+ms.author: awills
 
+---
 # Application Insights를 사용하여 SharePoint 사이트 모니터링
-
-
 Visual Studio Application Insights는 응용 프로그램의 가용성, 성능 및 사용량을 모니터링합니다. 여기에서는 SharePoint 사이트에 맞게 설정하는 방법을 알아봅니다.
 
-
 ## Application Insights 리소스 만들기
-
-
 [Azure 포털](https://portal.azure.com)에서 새 Application Insights 리소스를 만듭니다. 응용 프로그램 유형으로 ASP.NET을 선택합니다.
 
 ![속성 클릭, 키 선택 및 ctrl+C 누르기](./media/app-insights-sharepoint/01-new.png)
 
-
 열리는 블레이드에서 앱의 성능 및 사용 데이터를 볼 수 있습니다. 다음에 Azure에 로그인할 때 다시 이 블레이드로 돌아가려면 시작 화면에서 해당 타일을 찾아야 합니다. 또는 찾아보기를 클릭하여 찾아야 합니다.
-    
-
 
 ## 웹 페이지에 스크립트 추가
-
 빠른 시작에서 웹 페이지용 스크립트를 가져옵니다.
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
@@ -44,33 +35,25 @@ Visual Studio Application Insights는 응용 프로그램의 가용성, 성능 �
 스크립트에는 Application Insights 리소스에 원격 분석을 전달하는 계측 키가 포함됩니다.
 
 ### 사이트 페이지에 코드를 추가합니다.
-
 #### 마스터 페이지에서
-
 사이트의 마스터 페이지를 편집할 수 있는 경우 사이트의 모든 페이지에 대한 모니터링을 제공합니다.
 
 마스터 페이지를 체크 아웃하고 SharePoint Designer 또는 다른 편집기를 사용하여 편집합니다.
 
 ![](./media/app-insights-sharepoint/03-master.png)
 
-
 </head> 태그 바로 앞에 코드를 추가합니다.
-
 
 ![](./media/app-insights-sharepoint/04-code.png)
 
 #### 또는 개별 페이지에서
-
 제한된 페이지 집합을 모니터링하려면 각 페이지에 개별적으로 스크립트를 추가합니다.
 
 웹 파트를 삽입하고 코드 조각을 포함합니다.
 
-
 ![](./media/app-insights-sharepoint/05-page.png)
 
-
 ## 앱에 대한 데이터 보기
-
 응용 프로그램을 다시 배포 합니다.
 
 [Azure 포털](https://portal.azure.com)에서 사용자 응용 프로그램 블레이드로 돌아갑니다.
@@ -91,54 +74,46 @@ Visual Studio Application Insights는 응용 프로그램의 가용성, 성능 �
 
 또는 사용자:
 
-
 ![](./media/app-insights-sharepoint/08-users.png)
 
-
 ## 사용자 ID 캡처
-
-
 표준 웹 페이지 코드 조각은 SharePoint에서 사용자 ID를 캡처하지 않지만 약간 수정하여 캡처할 수 있습니다.
-
 
 1. Application Insights의 Essentials 드롭 다운에서 앱의 계측 키를 복사합니다. 
 
-
     ![](./media/app-insights-sharepoint/02-props.png)
 
-2. 다음 코드 조각에서 'XXXX'에 대한 계측 키를 대체합니다.
-3. 포털에서 가져온 코드 조각 대신 SharePoint 앱에 스크립트를 포함합니다.
-
-
+1. 다음 코드 조각에서 'XXXX'에 대한 계측 키를 대체합니다.
+2. 포털에서 가져온 코드 조각 대신 SharePoint 앱에 스크립트를 포함합니다.
 
 ```
 
 
 <SharePoint:ScriptLink ID="ScriptLink1" name="SP.js" runat="server" localizable="false" loadafterui="true" /> 
 <SharePoint:ScriptLink ID="ScriptLink2" name="SP.UserProfiles.js" runat="server" localizable="false" loadafterui="true" /> 
-  
+
 <script type="text/javascript"> 
 var personProperties; 
-  
+
 // Ensure that the SP.UserProfiles.js file is loaded before the custom code runs. 
 SP.SOD.executeOrDelayUntilScriptLoaded(getUserProperties, 'SP.UserProfiles.js'); 
-  
+
 function getUserProperties() { 
     // Get the current client context and PeopleManager instance. 
     var clientContext = new SP.ClientContext.get_current(); 
     var peopleManager = new SP.UserProfiles.PeopleManager(clientContext); 
-     
+
     // Get user properties for the target user. 
     // To get the PersonProperties object for the current user, use the 
     // getMyProperties method. 
-    
+
     personProperties = peopleManager.getMyProperties(); 
-  
+
     // Load the PersonProperties object and send the request. 
     clientContext.load(personProperties); 
     clientContext.executeQueryAsync(onRequestSuccess, onRequestFail); 
 } 
-     
+
 // This function runs if the executeQueryAsync call succeeds. 
 function onRequestSuccess() { 
 var appInsights=window.appInsights||function(config){
@@ -149,7 +124,7 @@ function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){
     window.appInsights=appInsights;
     appInsights.trackPageView(document.title,window.location.href, {User: personProperties.get_displayName()});
 } 
-  
+
 // This function runs if the executeQueryAsync call fails. 
 function onRequestFail(sender, args) { 
 } 
@@ -161,16 +136,12 @@ function onRequestFail(sender, args) {
 
 
 ## 다음 단계
-
 * 사이트 가용성을 모니터링하는 [웹 테스트](app-insights-monitor-web-app-availability.md)
-
 * 다른 유형의 응용 프로그램에 대한 [Application Insights](app-insights-overview.md)
-
-
 
 <!--Link references-->
 
 
- 
+
 
 <!---HONumber=AcomDC_0608_2016-->

@@ -1,85 +1,73 @@
-<properties
-    pageTitle="릴레이된 메시징을 사용하는 서비스 버스 REST 자습서 | Microsoft Azure"
-    description="REST 기반 인터페이스를 표시하는 간단한 서비스 버스 릴레이 호스트 응용 프로그램을 구축합니다."
-    services="service-bus"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="09/27/2016"
-    ms.author="sethm" />
+---
+title: 릴레이된 메시징을 사용하는 서비스 버스 REST 자습서 | Microsoft Docs
+description: REST 기반 인터페이스를 표시하는 간단한 서비스 버스 릴레이 호스트 응용 프로그램을 구축합니다.
+services: service-bus
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/27/2016
+ms.author: sethm
 
+---
 # <a name="service-bus-relay-rest-tutorial"></a>Service Bus Relay REST 자습서
-
 이 자습서에서는 REST 기반 인터페이스를 표시하는 간단한 서비스 버스 호스트 응용 프로그램을 구축하는 방법을 설명합니다. REST는 웹 브라우저와 같은 웹 클라이언트가 HTTP 요청을 통해 서비스 버스 API에 액세스할 수 있도록 합니다.
 
 이 자습서에서는 Windows Communication Foundation(WCF) REST 프로그래밍 모델을 사용하여 서비스 버스에 REST 서비스를 구축합니다. 자세한 내용은 WCF 설명서의 [WCF REST 프로그래밍 모델](https://msdn.microsoft.com/library/bb412169.aspx) 및 [서비스 디자인 및 구현](https://msdn.microsoft.com/library/ms729746.aspx)을 참조하세요.
 
 ## <a name="step-1:-create-a-service-namespace"></a>1단계: 서비스 네임스페이스 만들기
-
 첫 단계는 네임스페이스를 만들고 SAS(공유 액세스 서명) 키를 확보합니다. 네임스페이스는 서비스 버스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 서비스 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 서비스 네임스페이스 및 SAS 키 조합은 서비스 버스에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
 
-[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="step-2:-define-a-rest-based-wcf-service-contract-to-use-with-service-bus"></a>2단계: 서비스 버스와 사용할 REST 기반 WCF 서비스 계약을 정의합니다.
-
 다른 서비스 버스 서비스와 마찬가지로 REST 스타일 서비스를 만들 때 계약을 정의해야 합니다. 계약은 호스트가 지원하는 작업을 지정합니다. 서비스 작업은 웹 서비스 메서드로 생각할 수 있습니다. 계약은 C++, C#, 또는 Visual Basic 인터페이스를 정의하여 만듭니다. 인터페이스의 각 메서드는 특정 서비스 작업에 해당합니다. [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 특성은 각 인터페이스에 반드시 적용되어야 하고, [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 속성은 각 작업에 반드시 적용되어야 합니다. [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx)을 포함하는 인터페이스의 메서드에 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx)이 없으면 해당 메서드는 드러나지 않습니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 표시됩니다.
 
 기본 Service Bus 계약과 REST 스타일 계약의 주요 차이는 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx)에 대한 속성이 추가되었다는 것입니다. 이 속성을 사용하면 인터페이스의 메서드를 인터페이스 반대편의 메서드로 매핑할 수 있습니다. 이 경우 [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx)을 사용하여 메서드를 HTTP GET으로 연결합니다. 이렇게 하면 서비스 버스가 인터페이스로 보낸 명령을 정확하게 검색하고 해석할 수 있습니다.
 
 ### <a name="to-create-a-service-bus-contract-with-an-interface"></a>인터페이스와 함께 서비스 버스 계약을 만들려면
-
 1. Visual Studio를 관리자 권한으로 열고 **시작 메뉴**에서 프로그램을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 클릭합니다.
-
 2. 새 콘솔 응용 프로그램 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**와 **프로젝트**를 선택합니다. **새 프로젝트** 대화 상자에서 **Visual C#**을 클릭하고 **콘솔 응용 프로그램** 템플릿을 선택하여 **ImageListener**로 이름을 지정합니다. 기본 **위치**를 사용합니다. **확인** 을 클릭하여 프로젝트를 만듭니다.
-
 3. C# 프로젝트의 경우 Visual Studio는 `Program.cs` 파일을 만듭니다. 이 클래스는 콘솔 응용 프로그램 프로젝트를 제대로 구축하는데 필요한 빈 `Main()` 메서드를 포함합니다.
-
 4. Service Bus에 참조를 추가하고 Service Bus NuGet 패키지를 설치하여 프로젝트에 **System.ServiceModel.dll**를 추가합니다. 이 패키지는 WCF **System.ServiceModel** 뿐만 아니라 Service Bus 라이브러리에 대한 참조를 자동으로 추가합니다. 솔루션 탐색기에서 **ImageListener**프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus`를 검색합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
-
 5. 프로젝트에 대해 **System.ServiceModel.Web.dll**에 참조를 명시적으로 추가해야 합니다.
-
+   
     a. 솔루션 탐색기에서 프로젝트 폴더 아래 **참조** 폴더를 마우스 오른쪽 단추로 클릭한 후 **참조 추가**를 클릭합니다.
-
+   
     b. **참조 추가** 대화 상자에서 왼쪽의 **프레임워크** 탭을 클릭하고 **검색** 상자에 **System.ServiceModel.Web**을 입력합니다. **System.ServiceModel.Web** 확인란을 선택한 다음 **확인**을 클릭합니다.
-
 6. Program.cs 파일 위에 다음 `using` 문을 추가합니다.
-
+   
     ```
     using System.ServiceModel;
     using System.ServiceModel.Channels;
     using System.ServiceModel.Web;
     using System.IO;
     ```
-
+   
     [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx)은 WCF의 기본 기능에 프로그래밍 방식의 액세스를 가능하게 하는 네임스페이스입니다. 서비스 버스는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다. 이 네임스페이스는 대부분의 서비스 버스 릴레이 응용 프로그램에서 사용됩니다. 마찬가지로 [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx)는 채널을 정의하는데 도움을 주는데, 이 개체를 통해 Service Bus 및 클라이언트 웹 브라우저와 통신하게 됩니다. 마지막으로 [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx)에는 웹 기반 응용 프로그램을 만들 수 있도록 하는 형식이 포함됩니다.
-
 7. `ImageListener` 네임스페이스의 이름을 **Microsoft.ServiceBus.Samples**로 바꿉니다.
-
+   
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         ...
     ```
-
 8. 네임스페이스 선언의 중괄호를 연 바로 다음에는 새 인터페이스를 정의하여 이름을 **IImageContract**로 정하고 해당 인터페이스에 **ServiceContractAttribute** 특성의 값을 `http://samples.microsoft.com/ServiceModel/Relay/`로 적용합니다. 네임스페이스 값은 코드 전반에 사용하는 네임스페이스에 따라 다릅니다. 네임스페이스 값은 이 계약에 대한 고유 식별자로 사용되며 버전 정보가 있어야 합니다. 자세한 내용은 [서비스 버전 관리](http://go.microsoft.com/fwlink/?LinkID=180498)를 참조하세요. 네임스페이스를 명시적으로 지정하면 기본 네임스페이스 값이 계약 이름에 추가되는 경우를 방지합니다.
-
+   
     ```
     [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
     public interface IImageContract
     {
     }
     ```
-
 9. `IImageContract` 인터페이스 내에서 `IImageContract` 계약이 인터페이스에 노출하는 단일 작업에 대한 메서드를 선언하고 공개 서비스 버스 계약의 일부로 노출하려는 메서드에 `OperationContractAttribute` 특성을 적용합니다.
-
+   
     ```
     public interface IImageContract
     {
@@ -87,9 +75,8 @@
         Stream GetImage();
     }
     ```
-
 10. **OperationContract** 특성에 **WebGet** 값을 추가합니다.
-
+    
     ```
     public interface IImageContract
     {
@@ -97,21 +84,18 @@
         Stream GetImage();
     }
     ```
-
+    
     그렇게 하면 Service Bus가 HTTP GET 요청을 `GetImage`로 라우팅할 수 있고 `GetImage`의 반환 값을 HTTP GETRESPONSE 회신으로 해석할 수 있습니다. 자습서 뒷부분에서 웹 브라우저를 사용하여 이 메서드를 액세스하고 브라우저에 이미지를 표시할 것입니다.
-
 11. `IImageContract` 정의 바로 다음에 `IImageContract` 및 `IClientChannel` 인터페이스로부터 상속되는 채널을 선언합니다.
-
+    
     ```
     public interface IImageChannel : IImageContract, IClientChannel { }
     ```
-
+    
     채널은 서비스 및 클라이언트가 서로 정보를 전달하는 WCF 개체입니다. 나중에 호스트 응용 프로그램에서 채널을 만들 것입니다. 그러면 Service Bus는 이 채널을 사용하여 브라우저의 HTTP GET 요청을 **GetImage** 구현으로 전달합니다. 또한 Service Bus는 이 채널을 사용하여 **GetImage** 반환 값을 가져온 후 클라이언트 브라우저에 대한 HTTP GETRESPONSE로 변환합니다.
-
 12. **빌드** 메뉴에서 **솔루션 빌드**를 클릭하여 지금까지 수행한 작업이 정확한지 확인합니다.
 
 ### <a name="example"></a>예
-
 다음 코드는 서비스 버스 계약을 정의하는 기본 인터페이스를 보여줍니다.
 
 ```
@@ -146,93 +130,82 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="step-3:-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>3단계: 서비스 버스를 사용할 REST 기반 WCF 서비스 계약을 구현합니다.
-
 REST 스타일 서비스 버스 서비스를 만들려면 첫째로 계약을 만들어야 하는데, 계약은 인터페이스를 사용하여 정의됩니다. 다음 단계는 인터페이스를 구현합니다. 이 과정 중에 사용자 정의 **IImageContract** 인터페이스를 구현하는 **ImageService**라는 클래스가 생성됩니다. 계약을 구현한 후 App.config 파일을 사용하여 인터페이스를 구현합니다. 구성 파일은 서비스 이름, 계약 이름, 서비스 버스와 통신에 사용되는 프로토콜 유형과 같은 응용 프로그램에 필요한 정보를 포함합니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다.
 
 이전 단계에서와 마찬가지로 REST 스타일 계약과 기본 서비스 버스 계약의 구현 간에는 거의 차이가 없습니다.
 
 ### <a name="to-implement-a-rest-style-service-bus-contract"></a>REST 스타일 서비스 버스 계약을 구현하려면
-
 1. **IImageContract** 인터페이스의 정의 바로 다음에 **ImageService**라는 새 클래스를 만듭니다. **ImageService** 클래스는 **IImageContract** 인터페이스를 구현합니다.
-
+   
     ```
     class ImageService : IImageContract
     {
     }
     ```
     다른 인터페이스 구현과 유사하게, 다른 파일에 정의를 구현할 수 있습니다. 하지만 이 자습서의 경우 구현은 인터페이스 정의 및 `Main()` 메서드와 동일한 파일에서 나타납니다.
-
 2. [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) 특성을 **IImageService** 클래스에 적용하여 클래스가 WCF 계약의 구현이라는 것을 나타냅니다.
-
+   
     ```
     [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
     class ImageService : IImageContract
     {
     }
     ```
-
+   
     앞에서 설명한 바와 같이 이 네임스페이스는 기존의 네임스페이스가 아닙니다. 대신, 계약을 식별하는 WCF 아키텍처의 일부입니다. 자세한 내용은 WCF 설명서의 [데이터 계약 이름](https://msdn.microsoft.com/library/ms731045.aspx) 항목을 참조하세요.
-
 3. .jpg 이미지를 프로젝트에 추가합니다.  
-
+   
     이것은 서비스가 수신 브라우저에 표시하는 그림입니다. 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **추가**를 클릭합니다. 그 다음 **기존 항목**을 클릭합니다. **기존 항목 추가** 대화 상자를 사용하여 적절한 .jpg을 찾은 다음 **추가**를 클릭합니다.
-
+   
     파일을 추가할 때 **파일 이름:** 필드 옆의 드롭다운 목록에서 **모든 파일**이 반드시 선택되어 있어야 합니다. 이 자습서의 나머지 부분에서는 이미지의 이름을 "image.jpg"로 가정합니다. 다른 파일이 있으면 이미지 이름을 변경하거나 보완하도록 코드를 변경해야 합니다.
-
 4. 실행 중인 서비스가 이미지 파일을 반드시 찾게 하려면 **솔루션 탐색기**에서 이미지 파일을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다. **속성** 창에서 **출력 디렉터리로 복사**를 **변경된 내용만 복사**로 설정합니다.
-
 5. 프로젝트에 대한 **System.Drawing.dll** 어셈블리에 참고를 추가하고 다음 연결된 `using` 문을 추가합니다.  
-
+   
     ```
     using System.Drawing;
     using System.Drawing.Imaging;
     using Microsoft.ServiceBus;
     using Microsoft.ServiceBus.Web;
     ```
-
 6. **ImageService** 클래스에서 비트맵을 로드하는 다음과 같은 생성자를 추가하고 클라이언트 브라우저로 보낼 준비를 합니다.
-
+   
     ```
     class ImageService : IImageContract
     {
         const string imageFileName = "image.jpg";
-
+   
         Image bitmap;
-
+   
         public ImageService()
         {
             this.bitmap = Image.FromFile(imageFileName);
         }
     }
     ```
-
 7. 이전 코드 바로 다음에 이미지를 포함하는 HTTP 메시지를 반환하기 위해 **ImageService** 클래스에 다음과 같은 **GetImage** 메서드를 추가합니다.
-
+   
     ```
     public Stream GetImage()
     {
         MemoryStream stream = new MemoryStream();
         this.bitmap.Save(stream, ImageFormat.Jpeg);
-
+   
         stream.Position = 0;
         WebOperationContext.Current.OutgoingResponse.ContentType = "image/jpeg";
-
+   
         return stream;
     }
     ```
-
+   
     이 구현은 **MemoryStream**을 사용하여 이미지를 가져오고 브라우저로의 스트리밍을 위해 준비시킵니다. 스트림 위치는 0에서 시작하고 스트림 콘텐츠를 jpeg로 선언하고 정보를 스트리밍합니다.
-
 8. **빌드** 메뉴에서 **솔루션 빌드**를 클릭합니다.
 
 ### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>서비스 버스에서 웹 서비스를 실행하기 위한 구성을 정의하려면
-
 1. **솔루션 탐색기**에서 **App.config**를 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
-
+   
     **App.config** 파일은 WCF 구성 파일과 유사하며 서비스 이름, 끝점(즉, 클라이언트와 호스트가 서로 통신하도록 Service Bus가 노출하는 위치) 및 바인딩(통신에 사용되는 프로토콜 유형)을 포함합니다. 여기서 주요 차이점은 구성된 서비스 끝점이 .NET Framework에 속하지 않는 [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx) 바인딩을 참조한다는 것입니다.
-
 2. `<system.serviceModel>` XML 요소는 하나 이상의 서비스를 정의하는 WCF 요소입니다. 여기서 서비스 이름 및 끝점을 정의하는데 사용됩니다. `<system.serviceModel>` 요소의 아래에(여전히 `<system.serviceModel>` 내에서) 다음과 같은 콘텐츠를 포함하는 `<bindings>` 요소를 추가합니다. 이것은 응용 프로그램에서 사용되는 바인딩을 정의합니다. 여러 바인딩을 정의할 수 있지만 이 자습서에서는 하나만 정의합니다.
-
+   
     ```
     <bindings>
         <!-- Application Binding -->
@@ -243,11 +216,10 @@ REST 스타일 서비스 버스 서비스를 만들려면 첫째로 계약을 �
         </webHttpRelayBinding>
     </bindings>
     ```
-
+   
     이 단계는 Service Bus [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx) 바인딩과 **relayClientAuthenticationType** 세트를 **None**으로 정의합니다. 이 설정은 이 바인딩을 사용하는 끝점에 클라이언트 자격 증명이 필요 없다는 것을 나타냅니다.
-
 3. `<bindings>` 요소 다음에 `<services>` 요소를 추가합니다. 바인딩과 유사하게 단일 구성 파일 내에 여러 서비스를 정의할 수 있습니다. 하지만 이 자습서에서는 하나만 정의합니다.
-
+   
     ```
     <services>
         <!-- Application Service -->
@@ -262,11 +234,10 @@ REST 스타일 서비스 버스 서비스를 만들려면 첫째로 계약을 �
         </service>
     </services>
     ```
-
+   
     이 단계는 이전에 정의된 기본 **webHttpRelayBinding**을 사용하는 서비스를 구성합니다. 기본 **sbTokenProvider**도 사용하며, 이것은 다음 단계에서 정의됩니다.
-
 4. `<services>` 요소 다음으로 다음과 같은 콘텐츠로 `<behaviors>` 요소를 만들고, "SAS_KEY"를 [Azure Portal][]로부터 이전에 확보한 *공유 액세스 서명*(SAS) 키로 대체합니다.
-
+   
     ```
     <behaviors>
         <endpointBehaviors>
@@ -285,9 +256,8 @@ REST 스타일 서비스 버스 서비스를 만들려면 첫째로 계약을 �
             </serviceBehaviors>
     </behaviors>
     ```
-
 5. 계속 App.config의 `<appSettings>` 요소에서 연결 문자열 값을 포털에서 이전에 얻은 전체 연결 문자열로 바꿉니다. 
-
+   
     ```
     <appSettings>
     <!-- Service Bus specific app settings for messaging connections -->
@@ -295,11 +265,9 @@ REST 스타일 서비스 버스 서비스를 만들려면 첫째로 계약을 �
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
-
 6. **빌드** 메뉴에서 **솔루션 빌드**를 클릭하여 전체 솔루션을 빌드합니다.
 
 ### <a name="example"></a>예
-
 다음 코드는 **WebHttpRelayBinding** 바인딩을 사용하여 Service Bus에서 실행되는 REST 기반 서비스에 대한 계약 및 서비스 구현을 보여줍니다.
 
 ```
@@ -456,44 +424,38 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="step-4:-host-the-rest-based-wcf-service-to-use-service-bus"></a>4단계: 서비스 버스를 사용하기 위해 REST 기반 WCF 서비스를 호스팅
-
 이 단계에서는 서비스 버스에서 콘솔 응용 프로그램을 사용하여 웹 서비스를 실행하는 방법을 설명합니다. 이 단계에서 작성되는 전체 코드는 과정을 수행하면서 예제에 제공됩니다.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>서비스에 대한 기본 주소를 만들려면
-
 1. `Main()` 함수 선언에서 서비스 버스 프로젝트의 네임스페이스를 저장할 변수를 만듭니다. `yourNamespace`를 이전에 만든 서비스 네임스페이스의 이름으로 바꿔야 합니다.
-
+   
     ```
     string serviceNamespace = "yourNamespace";
     ```
     서비스 버스는 네임스페이스 이름을 사용하여 고유 URI를 만듭니다.
-
 2. 네임스페이스를 기반으로 하는 서비스 기본 주소에 대한 `Uri` 인스턴스를 만듭니다.
-
+   
     ```
     Uri address = ServiceBusEnvironment.CreateServiceUri("https", serviceNamespace, "Image");
     ```
 
 ### <a name="to-create-and-configure-the-web-service-host"></a>웹 서비스 호스트를 만들고 구성하려면
-
-- 이 섹션 앞부분에서 만든 URI 주소를 사용하여 웹 서비스 호스트를 만듭니다.
-
+* 이 섹션 앞부분에서 만든 URI 주소를 사용하여 웹 서비스 호스트를 만듭니다.
+  
     ```
     WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
     ```
     서비스 호스트는 호스트 응용 프로그램을 인스턴스화하는 WCF 개체입니다. 이 예제는 만들려는 호스트의 형식(**ImageService**)을 전달하고 호스트 응용 프로그램을 노출하려는 주소를 전달합니다.
 
 ### <a name="to-run-the-web-service-host"></a>웹 서비스 호스트를 실행하려면
-
 1. 서비스를 엽니다.
-
+   
     ```
     host.Open();
     ```
     이제 서비스가 실행 중입니다.
-
 2. 서비스가 실행 중임을 나타내고 서비스를 중지하는 방법을 알리는 메시지를 표시합니다.
-
+   
     ```
     Console.WriteLine("Copy the following address into a browser to see the image: ");
     Console.WriteLine(address + "GetImage");
@@ -501,15 +463,13 @@ namespace Microsoft.ServiceBus.Samples
     Console.WriteLine("Press [Enter] to exit");
     Console.ReadLine();
     ```
-
 3. 완료되면 서비스 호스트를 닫습니다.
-
+   
     ```
     host.Close();
     ```
 
 ## <a name="example"></a>예
-
 다음 예제는 자습서에 포함된 이전 단계의 구현 및 서비스 계약을 포함하고 콘솔 응용 프로그램에 서비스를 호스트합니다. 다음 코드를 이름이 ImageListener.exe인 실행 파일로 컴파일 합니다.
 
 ```
@@ -585,22 +545,17 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ### <a name="compiling-the-code"></a>코드 컴파일
-
 솔루션을 빌드한 후 다음을 수행하여 응용 프로그램을 실행합니다.
 
 1. **F5** 키를 누르거나 실행 파일 위치(ImageListener\bin\Debug\ImageListener.exe)로 이동하여 서비스를 실행합니다. 다음 단계를 수행하는 데 필요하므로 앱을 실행 중인 상태로 둡니다.
-
 2. 이미지를 보려면 명령 프롬프트에서 주소를 복사하여 브라우저로 붙여 넣습니다.
-
 3. 완료되면 명령 프롬프트 창에서 **Enter** 키를 눌러 앱을 닫습니다.
 
 ## <a name="next-steps"></a>다음 단계
-
 이제 서비스 버스 릴레이를 사용하는 응용 프로그램을 빌드했습니다. 릴레이된 메시징에 대한 자세한 정보는 다음 문서를 참고하세요.
 
-- [Azure Service Bus 아키텍처 개요](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
-
-- [Service Bus Relay 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
+* [Azure Service Bus 아키텍처 개요](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
+* [Service Bus Relay 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
 
 [Azure 포털]: https://portal.azure.com
 

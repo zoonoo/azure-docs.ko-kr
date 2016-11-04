@@ -1,38 +1,39 @@
-<properties
-    pageTitle="C++에서 Blob 저장소(개체 저장소)를 사용하는 방법 | Microsoft Azure"
-    description="Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
-    services="storage"
-    documentationCenter=".net"
-    authors="dineshmurthy"
-    manager="jahogg"
-    editor="tysonn"/>
+---
+title: C++에서 Blob 저장소(개체 저장소)를 사용하는 방법 | Microsoft Docs
+description: Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다.
+services: storage
+documentationcenter: .net
+author: dineshmurthy
+manager: jahogg
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="dineshm"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: dineshm
 
+---
+# <a name="how-to-use-blob-storage-from-c++"></a>C++에서 Blob 저장소를 사용하는 방법
+[!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
-# <a name="how-to-use-blob-storage-from-c++"></a>C++에서 Blob 저장소를 사용하는 방법  
-
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
-<br/>
-[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+[!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>개요
-
 Azure Blob 저장소는 클라우드에 구조화되지 않은 데이터를 개체/Blob로 저장하는 서비스입니다. Blob 저장소는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob 저장소를 개체 저장소라고 합니다.
 
 이 가이드에서는 Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)를 사용합니다. 여기서 다루는 시나리오에는 Blob **업로드**, **나열**, **다운로드** 및 **삭제**가 포함됩니다.  
 
->[AZURE.NOTE] 이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. 권장되는 버전은 Storage Client Library 2.2.0이며, [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp)를 통해 사용 가능합니다.
+> [!NOTE]
+> 이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. 권장되는 버전은 Storage Client Library 2.2.0이며, [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp)를 통해 사용 가능합니다.
+> 
+> 
 
-[AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
-[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
+
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-c++-application"></a>C++ 응용 프로그램 만들기
 이 가이드에서는 C++ 응용 프로그램 내에서 실행할 수 있는 저장소 기능을 사용합니다.  
@@ -41,12 +42,12 @@ Azure Blob 저장소는 클라우드에 구조화되지 않은 데이터를 개�
 
 Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사용할 수 있습니다.
 
--   **Linux:**[Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.  
--   **Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 에 다음 명령을 입력하고 **ENTER**를 누릅니다.  
+* **Linux:**[Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.  
+* **Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 에 다음 명령을 입력하고 **ENTER**를 누릅니다.  
+  
+      Install-Package wastorage
 
-        Install-Package wastorage
-
-## <a name="configure-your-application-to-access-blob-storage"></a>Blob 저장소에 액세스하도록 응용 프로그램 구성  
+## <a name="configure-your-application-to-access-blob-storage"></a>Blob 저장소에 액세스하도록 응용 프로그램 구성
 Azure 저장소 API를 사용하여 Blob에 액세스하려는 C++ 파일의 맨 위에 다음 include 문을 추가합니다.  
 
     #include "was/storage_account.h"
@@ -79,8 +80,7 @@ Azure Storage 에뮬레이터를 시작하려면 **시작** 단추를 선택하�
     azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 
 ## <a name="how-to:-create-a-container"></a>방법: 컨테이너 만들기
-
-[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
+[!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 이 예제에서는 컨테이너가 없는 경우 만드는 방법을 보여 줍니다.  
 
@@ -238,14 +238,12 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **delete_blob** �
 ## <a name="next-steps"></a>다음 단계
 이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 Azure 저장소 작업에 대해 알아보세요.  
 
--   [C++에서 큐 저장소를 사용하는 방법](storage-c-plus-plus-how-to-use-queues.md)
--   [C++에서 테이블 저장소를 사용하는 방법](storage-c-plus-plus-how-to-use-tables.md)
--   [C++에서 Azure 저장소 리소스 나열](storage-c-plus-plus-enumeration.md)
--   [C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
--   [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
-- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
-
-
+* [C++에서 큐 저장소를 사용하는 방법](storage-c-plus-plus-how-to-use-queues.md)
+* [C++에서 테이블 저장소를 사용하는 방법](storage-c-plus-plus-how-to-use-tables.md)
+* [C++에서 Azure 저장소 리소스 나열](storage-c-plus-plus-enumeration.md)
+* [C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
+* [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
+* [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
 <!--HONumber=Oct16_HO2-->
 

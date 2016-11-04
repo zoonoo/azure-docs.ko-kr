@@ -1,21 +1,21 @@
-<properties
-   pageTitle="상태 정의 및 관리 | Microsoft Azure"
-   description="서비스 패브릭에서 서비스 상태를 정의하고 관리하는 방법"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+---
+title: 상태 정의 및 관리 | Microsoft Docs
+description: 서비스 패브릭에서 서비스 상태를 정의하고 관리하는 방법
+services: service-fabric
+documentationcenter: .net
+author: appi101
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"
-   ms.author="aprameyr"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: aprameyr
 
+---
 # 서비스 상태
 **서비스 상태**는 서비스가 작동하기 위해 필요한 데이터를 나타냅니다. 서비스가 작업을 수행하기 위해 읽고 쓰는 데이터 구조 및 변수를 포함합니다.
 
@@ -31,13 +31,10 @@ Azure 서비스 패브릭에서 첫 번째 서비스는 상태 비저장 서비�
 상태는 이 코드를 조작하는 코드와 함께 위치할 수도 있습니다. 서비스 패브릭의 상태 저장 서비스는 이 모델을 사용하여 빌드됩니다. 서비스 패브릭은 이 상태의 높은 가용성과 오류 발생 시 내결함성을 보장하는 인프라를 제공합니다.
 
 ## 다음 단계
-
 서비스 패브릭 개념에 대한 자세한 내용은 다음을 참조하세요.
 
-- [서비스 패브릭 서비스의 가용성](service-fabric-availability-services.md)
-
-- [서비스 패브릭 서비스의 확장성](service-fabric-concepts-scalability.md)
-
-- [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
+* [서비스 패브릭 서비스의 가용성](service-fabric-availability-services.md)
+* [서비스 패브릭 서비스의 확장성](service-fabric-concepts-scalability.md)
+* [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
 
 <!---HONumber=AcomDC_0810_2016-->

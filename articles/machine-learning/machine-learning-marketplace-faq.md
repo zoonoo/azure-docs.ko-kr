@@ -1,34 +1,30 @@
-<properties 
-	pageTitle="FAQ: Azure 마켓플레이스에서 기계 학습 앱 서비스 게시 및 사용 | Microsoft Azure" 
-	description="질문과 대답" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bharaths" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: 'FAQ: Azure 마켓플레이스에서 기계 학습 앱 서비스 게시 및 사용 | Microsoft Docs'
+description: 질문과 대답
+services: machine-learning
+documentationcenter: ''
+author: bharaths
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/11/2016" 
-	ms.author="bharaths"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/11/2016
+ms.author: bharaths
 
-#Azure 마켓플레이스에서 기계 학습 앱 게시 및 사용: FAQ
-
-##마켓플레이스에서의 사용 관련 질문
-
-
+---
+# Azure 마켓플레이스에서 기계 학습 앱 게시 및 사용: FAQ
+## 마켓플레이스에서의 사용 관련 질문
 **1. 웹 서비스에 입력한 후에 다음과 같은 오류 메시지가 표시되는 이유는 무엇인가요?**
 
 **요청으로 인해 백 엔드 시간 초과 또는 백 엔드 오류가 발생했습니다. 해당 팀에서 이 문제를 조사하고 있습니다. 불편을 드려 죄송합니다. (500)**
 
 입력 매개 변수가 특정 웹 서비스에 필요한 형식을 준수하지 않은 것일 수 있습니다. 이 웹 서비스의 입력 매개 변수에 대한 올바른 형식 및 제한을 찾으려면 해당 설명서 링크를 참조하세요.
 
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 **2. “이 데이터 집합 탐색” 페이지에 표시된 웹 서비스의 API 링크를 복사하여 다른 브라우저 창에 붙여 넣는 경우 결과에 액세스하는 데 사용해야 하는 자격 증명은 무엇이며, 결과를 보는 방법은 무엇인가요?**
 
@@ -44,9 +40,7 @@
 
 이것은 Azure 클래식 포털 마켓플레이스의 알려진 문제입니다. 이 문제 해결을 위한 작업이 진행되고 있습니다.
 
-
-##마켓플레이스에 있는 Azure 기계 학습에서의 게시에 대한 질문
-
+## 마켓플레이스에 있는 Azure 기계 학습에서의 게시에 대한 질문
 **1. 내 웹 서비스에 대해 내 로고 또는 이미지 트랜잭션 수가 새로 고쳐지지 않는 이유는 무엇인가요?**
 
 로고 및 이미지는 게시 포털에 캐싱되며 포털에서 새 로고 또는 이미지가 업데이트되기까지 최대 10일이 걸릴 수 있습니다.
@@ -69,12 +63,6 @@ Azure 기계 학습 웹 서비스에 직접 연결하는 경우와 마켓플레�
 
 **6. 데이터 게시자가 되는 것에 대한 질문이 있거나 게시 중에 문제가 있는 경우 도움을 얻기 위해 문의해야 하는 사람은 누구인가요?**
 
-자세한 내용은 <datamarketbd@microsoft.com>의 Azure 마켓플레이스 팀에 문의하세요.
-
-
-
-
-
- 
+자세한 내용은 <mailto:datamarketbd@microsoft.com>의 Azure 마켓플레이스 팀에 문의하세요.
 
 <!---HONumber=AcomDC_0914_2016-->

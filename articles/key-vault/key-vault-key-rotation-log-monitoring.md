@@ -1,32 +1,33 @@
-<properties
-	pageTitle="종단 간 키 회전 및 감사를 사용하여 주요 자격 증명 모음을 설정하는 방법 | Microsoft Azure"
-	description="키 회전 및 주요 자격 증명 모음 로그의 모니터링을 통해 설정을 가져오는 데 이 방법을 사용합니다."
-	services="key-vault"
-	documentationCenter=""
-	authors="swgriffith"
-	manager=""
-	tags=""/>
+---
+title: 종단 간 키 회전 및 감사를 사용하여 주요 자격 증명 모음을 설정하는 방법 | Microsoft Docs
+description: 키 회전 및 주요 자격 증명 모음 로그의 모니터링을 통해 설정을 가져오는 데 이 방법을 사용합니다.
+services: key-vault
+documentationcenter: ''
+author: swgriffith
+manager: ''
+tags: ''
 
-<tags
-	ms.service="key-vault"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/05/2016"
-	ms.author="jodehavi;stgriffi"/>
-#종단 간 키 회전 및 감사를 사용하여 주요 자격 증명 모음을 설정하는 방법
+ms.service: key-vault
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/05/2016
+ms.author: jodehavi;stgriffi
 
-##소개
-
+---
+# 종단 간 키 회전 및 감사를 사용하여 주요 자격 증명 모음을 설정하는 방법
+## 소개
 Azure 주요 자격 증명 모음을 만든 후에는 키와 암호 정보를 저장하는 데 자격 증명 모음을 활용할 수 있게 됩니다. 사용자 응용 프로그램에서는 키 또는 암호 정보를 더 이상 유지할 필요가 없으며 대신, 필요에 따라 주요 자격 증명 모음에서 요청합니다. 이렇게 하면 응용 프로그램의 동작에 영향을 주지 않고 키 및 암호 정보를 업데이트할 수 있으며 키 및 암호 정보 관리 동작에 대한 다양한 가능성이 제공됩니다.
 
 이 문서에서는 암호 정보(이 경우에는 응용 프로그램에서 액세스하는 Azure 저장소 계정 키)를 저장하는 데 Azure 주요 자격 증명 모음을 활용하는 예제를 안내합니다. 또한 해당 저장소 계정 키의 예약된 회전의 구현에 대해서도 살펴봅니다. 마지막으로, 예기치 않은 요청이 있을 때 주요 자격 증명 모음 감사 로그를 모니터하고 경고를 생성하는 방법도 살펴봅니다.
 
-> [AZURE.NOTE] 이 자습서는 Azure 주요 자격 증명 모음의 초기 설정에 대해서는 자세히 다루지 않습니다. 이에 대한 설명은 [Azure 주요 자격 증명 모음 시작](key-vault-get-started.md)을 참조하세요. 또는 플랫폼 간 명령줄 인터페이스 지침에 대한 참조는[이 해당 자습서](key-vault-manage-with-cli.md)를 참조하세요.
+> [!NOTE]
+> 이 자습서는 Azure 주요 자격 증명 모음의 초기 설정에 대해서는 자세히 다루지 않습니다. 이에 대한 설명은 [Azure 주요 자격 증명 모음 시작](key-vault-get-started.md)을 참조하세요. 또는 플랫폼 간 명령줄 인터페이스 지침에 대한 참조는[이 해당 자습서](key-vault-manage-with-cli.md)를 참조하세요.
+> 
+> 
 
-##KeyVault 설정
-
+## KeyVault 설정
 응용 프로그램을 통해 Azure 주요 자격 증명 모음에서 암호 정보를 검색하기 위해서는 먼저 암호 정보를 만들어 자격 증명 모음에 업로드해야 합니다. 이 작업은 아래와 같이 PowerShell을 통해 손쉽게 수행할 수 있습니다.
 
 Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정에 로그인합니다.
@@ -68,11 +69,13 @@ Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $
 Get-AzureKeyVaultSecret –VaultName <vaultName>
 ```
 
-##응용 프로그램 설정
-
+## 응용 프로그램 설정
 이제 암호 정보가 저장되어 있으며 해당 암호 정보를 검색하고 코드에서 사용하려고 합니다. 이를 위해서는 몇 가지 단계를 거쳐야 하며 첫 번째 가장 중요한 단계는 응용 프로그램을 Azure Active Directory에 등록한 후 Azure 주요 자격 증명 모음에 응용 프로그램 정보를 전달하여 해당 응용 프로그램에서 요청을 허용할 수 있도록 하는 것입니다.
 
-> [AZURE.NOTE] 응용 프로그램은 주요 자격 증명 모음과 동일한 Azure Active Directory에서 만들어야 합니다.
+> [!NOTE]
+> 응용 프로그램은 주요 자격 증명 모음과 동일한 Azure Active Directory에서 만들어야 합니다.
+> 
+> 
 
 먼저 Azure Active Directory의 응용 프로그램 탭을 엽니다.
 
@@ -142,7 +145,7 @@ using Microsoft.Azure.KeyVault;
 ```
 
 다음으로, 주요 자격 증명 모음을 호출하고 암호 정보를 검색하는 메서드 호출을 추가합니다. 이 메서드에 이전 단계에서 저장한 암호 정보 URI를 제공합니다. 위에서 만든 Utils 클래스의 GetToken 메서드를 사용합니다.
-    
+
 ```csharp
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 
@@ -151,8 +154,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 
 응용 프로그램을 실행하면 Azure Active Directory에 인증된 후 Azure 주요 자격 증명 모음에서 암호 정보 값을 검색합니다.
 
-##Azure 자동화를 사용하여 키 회전
-
+## Azure 자동화를 사용하여 키 회전
 Azure 주요 자격 증명 모음 암호 정보로 저장하는 값을 위한 회전 전략을 구현하는 다양한 옵션이 있습니다. 수동 프로세스의 일부로 암호를 회전할 수 있으며 API 호출을 활용하여 프로그래밍 방식으로 회전하거나 자동화 스크립트 방식으로 회전할 수 있습니다. 이 문서의 목적에 따라 Azure 자동화와 결합된 Azure PowerShell을 활용하여 Azure 저장소 계정 액세스 키를 변경한 후 주요 자격 증명 모음 암호 정보를 새 키로 업데이트합니다.
 
 Azure 자동화로 주요 자격 증명 모음의 암호 정보 값을 설정할 수 있도록 허용하기 위해서는 Azure 자동화 인스턴스를 설정할 때 'AzureRunAsConnection'이라는 이름으로 생성된 연결에 대한 클라이언트 ID를 가져와야 합니다. Azure 자동화 인스턴스에서 '자산'을 선택하여 이 ID를 가져올 수 있습니다. 여기에서 '연결'을 선택한 후 'AzureRunAsConnection' 서비스 사용자를 선택합니다. '응용 프로그램 ID'를 기록해 둡니다.
@@ -161,14 +163,17 @@ Azure 자동화로 주요 자격 증명 모음의 암호 정보 값을 설정할
 
 자산 창에 잇는 동안 '모듈'을 선택할 수도 있습니다. 모듈에서 '갤러리'를 선택한 후 다음 각 모듈의 업데이트된 버전을 검색하여 '가져오기'합니다.
 
-	Azure
-	Azure.Storage	
-	AzureRM.Profile
-	AzureRM.KeyVault
-	AzureRM.Automation
-	AzureRM.Storage
-	
-> [AZURE.NOTE] 이 문서를 작성할 당시 위에 명시된 모듈만 아래 공유된 스크립트에 대해 업데이트되어야 합니다. 자동화 작업이 실패하는 것으로 확인되면 필요한 모든 모듈이 있고 해당 종속성을 가져왔는지 확인해야 합니다.
+    Azure
+    Azure.Storage    
+    AzureRM.Profile
+    AzureRM.KeyVault
+    AzureRM.Automation
+    AzureRM.Storage
+
+> [!NOTE]
+> 이 문서를 작성할 당시 위에 명시된 모듈만 아래 공유된 스크립트에 대해 업데이트되어야 합니다. 자동화 작업이 실패하는 것으로 확인되면 필요한 모든 모듈이 있고 해당 종속성을 가져왔는지 확인해야 합니다.
+> 
+> 
 
 Azure 자동화 연결에 대한 응용 프로그램 ID를 검색한 후 이 응용 프로그램에서 자격 증명 모음의 암호 정보를 업데이트할 권한이 있음을 Azure 주요 자격 증명 모음에 알려야 합니다. 다음 PowerShell 명령을 사용하여 이 작업을 수행할 수 있습니다.
 
@@ -225,8 +230,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Secre
 
 편집기 창에서 '테스트 창'을 선택하여 스크립트를 테스트할 수 있습니다. 스크립트가 오류 없이 실행되면 '게시' 옵션을 선택한 후 runbook 구성 창에서 runbook에 대한 일정을 다시 적용할 수 있습니다.
 
-##주요 자격 증명 모음 감사 파이프라인
-
+## 주요 자격 증명 모음 감사 파이프라인
 Azure 주요 자격 증명 모음을 설정할 때 감사를 켜서 주요 자격 증명 모음에 대해 발생하는 액세스 요청에 대한 로그를 수집할 수 있습니다. 이러한 로그는 지정된 Azure 저장소 계정에 저장된 후 끌어내기되고 모니터링 및 분석될 수 있습니다. 아래에서는 자격 증명 모음의 암호 정보가 웹앱의 앱 ID와 일치하는 앱에서 검색되는 경우 Azure Functions, Azure Logic Apps 및 주요 자격 증명 모음을 활용하여 전자 메일을 보내는 파이프라인을 만드는 시나리오를 안내합니다.
 
 먼저 주요 자격 증명 모음에서 로깅을 사용하도록 설정해야 합니다. 이 작업은 다음 PowerShell 명령을 통해 수행할 수 있습니다(전체 설명은 [여기](key-vault-logging.md)에서 확인할 수 있음).
@@ -239,7 +243,10 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id
 
 이 작업이 활성화되면 감사 로그가 지정된 저장소 계정으로 수집되기 시작합니다. 이러한 로그에는 주요 자격 증명 모음을 어떻게, 언제, 누가 액세스하는지에 대한 이벤트가 포함됩니다.
 
-> [AZURE.NOTE] 주요 자격 증명 모음 작업 후 최대 10분 후에 로깅 정보에 액세스할 수 있습니다. 대부분의 경우 이것보다 빠릅니다.
+> [!NOTE]
+> 주요 자격 증명 모음 작업 후 최대 10분 후에 로깅 정보에 액세스할 수 있습니다. 대부분의 경우 이것보다 빠릅니다.
+> 
+> 
 
 다음은 [Azure Service Bus 큐를 만드는](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) 단계입니다. 여기에 주요 자격 증명 모음 감사 로그가 푸시됩니다. 큐에서 논리 앱이 로그를 선택하고 작업을 수행합니다. 서비스 버스를 비교적 간단하게 만들기 위한 간략한 단계는 다음과 같습니다.
 
@@ -256,7 +263,7 @@ Azure Function을 만든 경우 함수로 이동하여 타이머 함수 및 C#�
 
 ![Azure Functions 시작 블레이드](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
-_개발_ 탭에서 run.csx 코드를 다음 코드로 바꿉니다.
+*개발* 탭에서 run.csx 코드를 다음 코드로 바꿉니다.
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -366,11 +373,14 @@ static string GetContainerSasUri(CloudBlockBlob blob)
     return blob.Uri + sasBlobToken;
 }
 ```
-> [AZURE.NOTE] 위의 코드에 있는 변수를 주요 자격 증명 모음 로그가 기록된 저장소 계정, 이전에 생성한 서비스 버스 및 주요 자격 증명 모음 저장소 로그에 대한 특정 경로를 가리키도록 대체해야 합니다.
+> [!NOTE]
+> 위의 코드에 있는 변수를 주요 자격 증명 모음 로그가 기록된 저장소 계정, 이전에 생성한 서비스 버스 및 주요 자격 증명 모음 저장소 로그에 대한 특정 경로를 가리키도록 대체해야 합니다.
+> 
+> 
 
-이 함수는 주요 자격 증명 모음 로그가 기록된 저장소 계정에서 최신 로그 파일을 선택하고 해당 파일에서 최신 이벤트를 가져와 서비스 버스 큐에 푸시합니다. 단일 파일에는 여러 이벤트(예: 한 시간 동안)가 있을 수 있으므로 함수가 선택된 최신 이벤트의 타임스탬프를 결정하기 위해 확인하는 _sync.txt_ 파일을 만듭니다. 그러면 동일한 이벤트를 여러 번 푸시하지 않게 됩니다. 이 _sync.txt_ 파일은 최근에 발생한 이벤트에 대한 타임스탬프를 포함합니다. 로그(로드된 경우)는 바르게 정렬되도록 타임스탬프를 기반으로 정렬해야 합니다.
+이 함수는 주요 자격 증명 모음 로그가 기록된 저장소 계정에서 최신 로그 파일을 선택하고 해당 파일에서 최신 이벤트를 가져와 서비스 버스 큐에 푸시합니다. 단일 파일에는 여러 이벤트(예: 한 시간 동안)가 있을 수 있으므로 함수가 선택된 최신 이벤트의 타임스탬프를 결정하기 위해 확인하는 *sync.txt* 파일을 만듭니다. 그러면 동일한 이벤트를 여러 번 푸시하지 않게 됩니다. 이 *sync.txt* 파일은 최근에 발생한 이벤트에 대한 타임스탬프를 포함합니다. 로그(로드된 경우)는 바르게 정렬되도록 타임스탬프를 기반으로 정렬해야 합니다.
 
-이 함수에서는 Azure Functions에서 바로 사용할 수 없는 몇 가지 추가 라이브러리를 참조합니다. 이를 포함하려면 nuget을 사용하여 끌어오기 위해 Azure Functions가 필요합니다. _보기 파일_ 옵션을 선택합니다.
+이 함수에서는 Azure Functions에서 바로 사용할 수 없는 몇 가지 추가 라이브러리를 참조합니다. 이를 포함하려면 nuget을 사용하여 끌어오기 위해 Azure Functions가 필요합니다. *보기 파일* 옵션을 선택합니다.
 
 ![보기 파일 옵션](./media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
 
@@ -388,18 +398,17 @@ _project.json_이라는 새 파일에 다음 콘텐츠를 추가합니다.
        }
     }
 ```
-_저장_ 시 Azure Functions가 트리거되어 필요한 이진 파일이 다운로드됩니다.
+*저장* 시 Azure Functions가 트리거되어 필요한 이진 파일이 다운로드됩니다.
 
 **통합** 탭으로 전환하고 타이머 매개 변수에 함수 내에서 사용할 의미 있는 이름을 지정합니다. 위의 코드에서 타이머는 _myTimer_로 호출될 것으로 예상됩니다. 타이머에 대한 [CRON 식](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON)을 0 * * * * *로 지정하면 함수가 1분에 한 번 실행됩니다.
 
-동일한 **통합** 탭에서 _Azure Blob 저장소_ 형식의 입력을 추가합니다. 그러면 함수에서 확인하는 최신 이벤트의 타임스탬프를 포함하는 _sync.txt_ 파일을 가리키게 됩니다. 함수 내에서 매개 변수 이름으로 사용할 수 있게 됩니다. 위의 코드에서 Azure Blob 저장소 입력에 대한 매개 변수 이름은 _inputBlob_로 예상됩니다. _sync.txt_ 파일이 있는 저장소 계정(동일하거나 다른 저장소 계정일 수 있음)을 선택하고 경로 필드에서 파일이 거주하는 경로를 {container-name}/path/to/sync.txt 형식으로 제공합니다.
+동일한 **통합** 탭에서 *Azure Blob 저장소* 형식의 입력을 추가합니다. 그러면 함수에서 확인하는 최신 이벤트의 타임스탬프를 포함하는 *sync.txt* 파일을 가리키게 됩니다. 함수 내에서 매개 변수 이름으로 사용할 수 있게 됩니다. 위의 코드에서 Azure Blob 저장소 입력에 대한 매개 변수 이름은 *inputBlob_로 예상됩니다. _sync.txt* 파일이 있는 저장소 계정(동일하거나 다른 저장소 계정일 수 있음)을 선택하고 경로 필드에서 파일이 거주하는 경로를 {container-name}/path/to/sync.txt 형식으로 제공합니다.
 
-_Azure Blob 저장소_ 형식의 출력을 추가합니다. 마찬가지로 입력에서 방금 정의한 _sync.txt_ 파일을 가리키게 됩니다. 이 파일은 함수에서 확인하는 최신 이벤트의 타임스탬프를 작성하는 데 사용됩니다. 위의 코드에서는 이 매개 변수를 _outputBlob_라고 합니다.
+*Azure Blob 저장소* 형식의 출력을 추가합니다. 마찬가지로 입력에서 방금 정의한 *sync.txt* 파일을 가리키게 됩니다. 이 파일은 함수에서 확인하는 최신 이벤트의 타임스탬프를 작성하는 데 사용됩니다. 위의 코드에서는 이 매개 변수를 _outputBlob_라고 합니다.
 
 이제 함수가 준비되었습니다. **개발** 탭으로 다시 전환하고 코드를 _저장_해야 합니다. 출력 창에서 컴파일 오류를 확인하고 적절히 수정합니다. 컴파일된 경우 코드가 실행되며 분마다 주요 자격 증명 모음 로그를 확인하고 모든 새로운 이벤트를 정의된 서비스 버스 큐에 푸시합니다. 함수가 트리거될 때마다 로깅 정보가 로그 창에 기록된 것을 확인하게 됩니다.
 
-###Azure 논리 앱
-
+### Azure 논리 앱
 다음으로 함수가 서비스 버스 큐에 푸시하고 있는 이벤트를 선택할 Azure 논리 앱을 만들고 콘텐츠를 구문 분석한 후 일치하는 조건에 따라 전자 메일을 보내야 합니다.
 
 새로 만들기 -> 논리 앱으로 이동하여 [논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
@@ -416,7 +425,7 @@ _Azure Blob 저장소_ 형식의 출력을 추가합니다. 마찬가지로 입�
 
 이 식은 기본적으로 들어오는 이벤트(서비스 버스 메시지의 본문)의 **appid** 속성이 앱의 **appid**가 아닌 경우 **false**를 반환합니다.
 
-이제 _아니요인 경우, 아무 작업도 수행하지 않습니다..._ 옵션 아래에서 작업을 만듭니다.
+이제 *아니요인 경우, 아무 작업도 수행하지 않습니다...* 옵션 아래에서 작업을 만듭니다.
 
 ![Azure 논리 앱 선택 작업](./media/keyvault-keyrotation/Azure_LogicApp_Condition.png)
 

@@ -1,22 +1,21 @@
-<properties
-	pageTitle="감염 가능성이 있는 장치에서의 로그인"
-	description="일부 맬웨어(악성 소프트웨어)를 실행 중일 수 있는 장치에서 실행된 로그인 시도를 포함하는 보고서입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+---
+title: 감염 가능성이 있는 장치에서의 로그인
+description: 일부 맬웨어(악성 소프트웨어)를 실행 중일 수 있는 장치에서 실행된 로그인 시도를 포함하는 보고서입니다.
+services: active-directory
+documentationcenter: ''
+author: SSalahAhmed
+manager: gchander
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/04/2016
+ms.author: saah;kenhoff
 
-
+---
 # 감염 가능성이 있는 장치에서의 로그인
 이 보고서는 감염되었으며 이제 봇넷의 일부인 사용자 장치를 식별하려고 합니다. 봇넷 서버에 연결되어 있음을 알고 있는 IP 주소와 사용자 로그인의 IP 주소를 상호 연결합니다.
 

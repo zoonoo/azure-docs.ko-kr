@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Express 경로 FAQ"
-   description="Express 경로 FAQ는 Azure 서비스, 비용, 데이터 및 연결, SLA, 공급자 및 위치, 대역폭 및 추가 기술 세부 정보에 대한 정보를 포함합니다."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="cherylmc"/>
+---
+title: Express 경로 FAQ
+description: Express 경로 FAQ는 Azure 서비스, 비용, 데이터 및 연결, SLA, 공급자 및 위치, 대역폭 및 추가 기술 세부 정보에 대한 정보를 포함합니다.
+documentationcenter: na
+services: expressroute
+author: cherylmc
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: cherylmc
 
+---
 # <a name="expressroute-faq"></a>Express 경로 FAQ
-
-
 ## <a name="what-is-expressroute?"></a>Express 경로란?
 Express 경로는 온-프레미스 또는 공동 장소 환경의 Microsoft 데이터 센터와 인프라 사이에 개인 연결을 만들 수 있게 해 주는 서비스입니다. Express 경로 연결은 공용 인터넷을 사용하지 않으며 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
@@ -52,21 +50,20 @@ Express 경로는 Office 365를 포함한 현재 대부분의 Microsoft Azure �
 ## <a name="supported-services"></a>지원되는 서비스
 대부분의 Azure 서비스는 Express 경로를 통해 지원됩니다.
 
-- 가상 컴퓨터 및 가상 네트워크에 배포된 클라우드 서비스에 대한 연결은 개인 피어링 경로를 통해 지원됩니다.
-- Azure 웹 사이트는 공용 피어링 경로를 통해 지원됩니다.
-- IoT Hub는 공용 피어링 경로를 통해 지원됩니다.
-- Office 365는 Microsoft 피어링 경로를 통해 지원됩니다.
-- 다른 모든 서비스는 공용 피어링 경로를 통해 액세스할 수 있습니다. 예외는 다음과 같습니다.
-
+* 가상 컴퓨터 및 가상 네트워크에 배포된 클라우드 서비스에 대한 연결은 개인 피어링 경로를 통해 지원됩니다.
+* Azure 웹 사이트는 공용 피어링 경로를 통해 지원됩니다.
+* IoT Hub는 공용 피어링 경로를 통해 지원됩니다.
+* Office 365는 Microsoft 피어링 경로를 통해 지원됩니다.
+* 다른 모든 서비스는 공용 피어링 경로를 통해 액세스할 수 있습니다. 예외는 다음과 같습니다.
+  
     **다음 서비스는 지원되지 않습니다.**
-
-    - CDN
-    - Visual Studio Team Services 부하 테스트
-    - Multi-Factor 인증
-    - 트래픽 관리자
+  
+  * CDN
+  * Visual Studio Team Services 부하 테스트
+  * Multi-Factor 인증
+  * 트래픽 관리자
 
 ## <a name="data-and-connections"></a>데이터 및 연결
-
 ### <a name="are-there-limits-on-the-amount-of-data-that-i-can-transfer-using-expressroute?"></a>Express 경로를 사용하여 전송할 수 있는 데이터의 양에 제한이 있나요?
 데이터 전송 크기에 대한 제한을 설정하지 않습니다. 대역폭 요금에 대한 정보는 [가격 정보](https://azure.microsoft.com/pricing/details/expressroute/) 을 참조하세요.
 
@@ -79,7 +76,6 @@ Express 경로는 Office 365를 포함한 현재 대부분의 Microsoft Azure �
 서비스 공급자 및 위치 목록은 [Express 경로 파트너 및 위치](expressroute-locations.md) 를 참조하세요.
 
 ## <a name="technical-details"></a>기술 세부 정보
-
 ### <a name="what-are-the-technical-requirements-for-connecting-my-on-premises-location-to-azure?"></a>내 온-프레미스 위치를 Azure에 연결하기 위한 기술 요구 사항은 무엇인가요?
 요구 사항은 [Express 경로 필수 구성 요소 페이지](expressroute-prerequisites.md) 를 참조하세요.
 
@@ -89,11 +85,10 @@ Express 경로는 Office 365를 포함한 현재 대부분의 Microsoft Azure �
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail?"></a>내 Express 경로 링크 중 하나가 실패하면 연결이 끊어지나요?
 교차 연결 중 하나가 실패할 경우 연결이 손실되지 않습니다. 중복 연결은 네트워크의 로드를 지원하기 위해 사용할 수 있습니다. 오류 복구를 수행할 다른 피어링 위치에 여러 회로를 추가로 만들 수 있습니다.
 
-### <a name="<a-name="onep2plink"></a>if-i'm-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection,-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft?"></a><a name="onep2plink"></a>클라우드 교환에 공동 배치되지 않았으며 서비스 공급자가 점 대 점 연결을 공급하는 경우 온-프레미스 네트워크와 Microsoft 간에 두 개의 실제 연결을 주문해야 하나요? 
+### <a name="<a-name="onep2plink"></a>if-i'm-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection,-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft?"></a><a name="onep2plink"></a>클라우드 교환에 공동 배치되지 않았으며 서비스 공급자가 점 대 점 연결을 공급하는 경우 온-프레미스 네트워크와 Microsoft 간에 두 개의 실제 연결을 주문해야 하나요?
 아니요, 서비스 공급자가 실제 연결을 통해 두 개의 이더넷 가상 회로를 설정할 수 있는 경우 하나의 실제 연결만 필요합니다. 실제 연결(예: 광 파이버)은 레이어 1(L1) 장치에서 종료됩니다(아래 이미지 참조). 두 개의 이더넷 가상 회로는 서로 다른 VLAN ID로 태그 처리되는데 하나는 기본 회로용이고 하나는 보조 회로용입니다. 해당 VLAN ID는 외부 802.1Q 이더넷 헤더에 있습니다. 내부 802.1Q 이더넷 헤더(표시되지 않음)는 특정 [Express 경로 라우팅 도메인](expressroute-circuit-peerings.md)에 매핑됩니다. 
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
-
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute?"></a>Express 경로를 사용하여 Azure에 대한 내 VLAN 중 하나를 확장할 수 있나요?
 아니요. Azure까지의 계층 2 연결 확장을 지원하지 않습니다.
@@ -107,9 +102,9 @@ Express 경로는 Office 365를 포함한 현재 대부분의 Microsoft Azure �
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>가상 네트워크를 Express 경로 회로에 연결하려면 어떻게 해야 하나요?
 기본 단계는 다음과 같습니다.
 
-- Express 경로 회로를 설정하고 서비스 공급자를 사용하도록 설정해야 합니다.
-- 사용자 또는 공급자는 BGP 피어링을 구성해야 합니다.
-- 가상 네트워크를 Express 경로 회로에 연결해야 합니다.
+* Express 경로 회로를 설정하고 서비스 공급자를 사용하도록 설정해야 합니다.
+* 사용자 또는 공급자는 BGP 피어링을 구성해야 합니다.
+* 가상 네트워크를 Express 경로 회로에 연결해야 합니다.
 
 자세한 내용은 [회로에 대한 Express 경로 워크플로 프로비전 및 회로 상태](expressroute-workflows.md) 를 참조하세요.
 
@@ -166,8 +161,8 @@ BGP 세션이 삭제됩니다. 접두사 개수가 제한보다 적으면 재설
 1. Express 경로 회로에 공용 피어링을 설정합니다.
 2. DNS 조회를 수행하고 **kms.core.windows.net**
 3. 다음 두 항목 중 하나를 수행하면 키 관리 서비스가 Azure에서 해당 정품 인증 요청을 인식하고 요청을 인증합니다.
-    - 온-프레미스 네트워크에서 공용 피어링을 통해 Azure에 다시 IP 주소(2단계에서 얻은)를 대상으로 하는 트래픽을 라우팅합니다.
-    - NSP 공급자는 공용 피어링을 통해 Azure에 다시 트래픽을 hair-pin합니다.
+   * 온-프레미스 네트워크에서 공용 피어링을 통해 Azure에 다시 IP 주소(2단계에서 얻은)를 대상으로 하는 트래픽을 라우팅합니다.
+   * NSP 공급자는 공용 피어링을 통해 Azure에 다시 트래픽을 hair-pin합니다.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit?"></a>Express 경로 회로의 대역폭을 변경할 수 있나요?
 예. 종료하지 않고 Express 경로 회로의 대역폭을 늘릴 수 있습니다. 연결 공급자는 네트워크 내 스로틀을 업데이트하여 대역폭 증가를 지원하도록 후속 작업해야 합니다. 그러나 Express 경로 회로의 대역폭을 줄일 수 없습니다. 대역폭을 낮춰야 한다는 것은 Express 경로 회로의 삭제 및 재생성을 의미합니다.
@@ -176,21 +171,18 @@ BGP 세션이 삭제됩니다. 접두사 개수가 제한보다 적으면 재설
 업데이트 전용 회로 API 및 PowerShell cmdlet을 사용하여 Express 경로 회로의 대역폭을 업데이트할 수 있습니다.
 
 ## <a name="expressroute-premium"></a>Express 경로 프리미엄:
-
 ### <a name="what-is-expressroute-premium?"></a>Express 경로 프리미엄이란?
 Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 
- - 증가된 라우팅 테이블은 개인 피어링에 대해 4000개의 경로에서 경로 10, 000개의 경로로 제한합니다.
- - Express 경로 회로에 연결할 수 있는 VNets 수가 증가합니다(기본값은 10). 자세한 내용은 다음 표를 참조하세요.
- - Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 다른 지역의 Express 경로 회로를 지역의 VNet에 연결할 수 있습니다. **예:** 실리콘밸리에서 만든 Express 경로 회로에 서부 유럽에서 만든 VNet을 연결할 수 있습니다.
- - Office 365 서비스 및 CRM Online에 대한 연결
+* 증가된 라우팅 테이블은 개인 피어링에 대해 4000개의 경로에서 경로 10, 000개의 경로로 제한합니다.
+* Express 경로 회로에 연결할 수 있는 VNets 수가 증가합니다(기본값은 10). 자세한 내용은 다음 표를 참조하세요.
+* Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 다른 지역의 Express 경로 회로를 지역의 VNet에 연결할 수 있습니다. **예:** 실리콘밸리에서 만든 Express 경로 회로에 서부 유럽에서 만든 VNet을 연결할 수 있습니다.
+* Office 365 서비스 및 CRM Online에 대한 연결
 
 ### <a name="how-many-vnets-can-i-link-to-an-expressroute-circuit-if-i-enabled-expressroute-premium?"></a>Express 경로 프리미엄을 사용하는 경우, 얼마나 많은 VNet를 Express 경로 회로에 연결할 수 있나요?
 아래 표는 Express 경로 한도 및 Express 경로 회로당 VNet의 수를 보여 줍니다.
 
-
-[AZURE.INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
-
+[!INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
 
 ### <a name="how-do-i-enable-expressroute-premium?"></a>Express 경로 프리미엄을 사용하려면 어떻게 하나요?
 기능이 활성화되어 있고 회로 상태를 업데이트하여 종료될 수 있는 경우, Express 경로 프리미엄 기능을 사용할 수 있습니다. 경로 작성 시 Express 경로 프리미엄을 사용하거나 업데이트 전용 회로 API / PowerShell cmdlet을 호출하여 Express 경로 프리미엄을 사용할 수 있습니다.
@@ -208,17 +200,18 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 예. Express 경로 프리미엄 요금은 Express 경로 회로 요금 및 연결 공급자에서 필요한 요금 위에 적용됩니다.
 
 ## <a name="expressroute-and-office-365-services-and-crm-online"></a>Express 경로, Office 365 서비스 및 CRM Online
-
-[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+[!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-crm-online?"></a>Office 365 서비스 및 CRM Online에 연결하려면 어떻게 Express 경로 회로를 만드나요?
-
 1. [ExpressRoute 필수 구성 요소 페이지](expressroute-prerequisites.md) 를 검토하여 요구 사항을 충족하는지 확인합니다.
 2. 서비스 공급자 및 위치 목록을 [Express 경로 파트너 및 위치](expressroute-locations.md) 에서 검토하여 사용자 연결 요구 사항이 충족하는지 확인합니다.
 3. [Office 365에 대한 네트워크 계획 및 성능 튜닝](http://aka.ms/tune/)을 검토하여 용량 요구 사항을 계획합니다.
 4. [회로 프로비전 및 회로 상태에 대한 Express 경로 워크플로](expressroute-workflows.md)연결 설정 아래의 워크플로에 나열된 단계를 따르세요.
 
->[AZURE.IMPORTANT] Office 365 서비스 및 CRM Online에 대한 연결을 구성하는 경우 Express 경로 프리미엄 추가 기능을 사용하도록 설정했는지 확인합니다.
+> [!IMPORTANT]
+> Office 365 서비스 및 CRM Online에 대한 연결을 구성하는 경우 Express 경로 프리미엄 추가 기능을 사용하도록 설정했는지 확인합니다.
+> 
+> 
 
 ### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-crm-online?"></a>Office 365 서비스 및 CRM Online에 연결하려면 Azure 공용 피어링을 사용하도록 설정해야 하나요?
 아니요, Microsoft 피어링을 사용하도록 설정하기만 하면 됩니다. Azure AD에 대한 인증 트래픽은 Microsoft 피어링을 통해 전송됩니다. 
@@ -227,7 +220,6 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 예. 기존 Express 경로 회로가 Office 365 서비스에 대한 연결을 지원하도록 구성할 수 있나요? Office 365 서비스에 연결하는 데 용량이 충분한지 확인하고 프리미엄 추가 기능을 사용하도록 설정했는지 확인합니다. [Office 365에 대한 네트워크 계획 및 성능 튜닝](http://aka.ms/tune/) 은 연결 요구 사항을 계획하는 데 도움이 됩니다. [Express 경로 회로 만들기 및 수정](expressroute-howto-circuit-classic.md)도 참조하세요.
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection?"></a>Express 경로 연결을 통해 어느 Office 365 서비스에 액세스할 수 있나요?
-
 Express 경로에서 지원되는 최신 서비스 목록은 [Office 365 URL 및 IP 주소 범위](http://aka.ms/o365endpoints) 페이지를 참조하세요.
 
 ### <a name="how-much-does-expressroute-for-office-365-services-and-crm-online-cost?"></a>Office 365 서비스 및 CRM Online용 Express 경로 비용은 얼마인가요?
@@ -241,8 +233,6 @@ Express 경로가 지원되는 파트너 및 위치에 대한 자세한 내용�
 
 ### <a name="can-dynamics-ax-online-be-accessed-over-an-expressroute-connection?"></a>Express 경로 연결을 통해 Dynamics AX Online에 액세스할 수 있나요?
 아니요, 지원되지 않습니다.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

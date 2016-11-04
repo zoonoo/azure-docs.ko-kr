@@ -1,34 +1,33 @@
-<properties
-	pageTitle="PowerShell을 사용하여 Azure CDN 관리 | Microsoft Azure"
-	description="Azure PowerShell cmdlet을 사용하여 Azure CDN을 관리하는 방법에 대해 알아봅니다."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+---
+title: PowerShell을 사용하여 Azure CDN 관리 | Microsoft Docs
+description: Azure PowerShell cmdlet을 사용하여 Azure CDN을 관리하는 방법에 대해 알아봅니다.
+services: cdn
+documentationcenter: ''
+author: camsoper
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="casoper"/>
+ms.service: cdn
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: casoper
 
-
+---
 # PowerShell을 사용하여 Azure CDN 관리
-
 PowerShell은 Azure CDN 프로필 및 끝점을 관리하는 매우 유연한 방법 중 하나를 제공합니다. PowerShell을 대화형으로 또는 관리 작업을 자동화하는 스크립트를 작성하여 사용할 수 있습니다. 이 자습서에서는 PowerShell을 사용하여 Azure CDN 프로필 및 끝점의 관리를 달성할 수 있는 가장 일반적인 작업 몇 가지를 보여줍니다.
 
 ## 필수 조건
-
 PowerShell을 사용하여 Azure CDN 프로필 및 끝점을 관리하려면 Azure PowerShell 모듈이 설치되어 있어야 합니다. Azure PowerShell을 설치하고 `Login-AzureRmAccount` cmdlet을 사용하여 Azure에 연결하는 방법을 알아보려면 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
->[AZURE.IMPORTANT] `Login-AzureRmAccount`에 로그인해야 Azure PowerShell cmdlet을 실행할 수 있습니다.
+> [!IMPORTANT]
+> `Login-AzureRmAccount`에 로그인해야 Azure PowerShell cmdlet을 실행할 수 있습니다.
+> 
+> 
 
 ## Azure CDN cmdlet 목록화
-
 `Get-Command` cmdlet을 사용하여 모든 Azure CDN cmdlet을 나열할 수 있습니다.
 
 ```text
@@ -59,7 +58,6 @@ Cmdlet          Unpublish-AzureRmCdnEndpointContent                2.0.0      Az
 ```
 
 ## 도움말 보기
-
 `Get-Help` cmdlet을 사용하여 이러한 cmdlet에 대한 도움말을 볼 수 있습니다. `Get-Help`는 사용량 및 구문을 제공하며 선택적으로 예제를 표시합니다.
 
 ```text
@@ -91,7 +89,6 @@ REMARKS
 ```
 
 ## 기존 Azure CDN 프로필 목록화
-
 매개 변수 없는 `Get-AzureRmCdnProfile` cmdlet은 모든 기존 CDN 프로필을 검색합니다.
 
 ```powershell
@@ -114,10 +111,12 @@ Get-AzureRmCdnProfile | Where-Object { $_.Sku.Name -eq "StandardVerizon" }
 Get-AzureRmCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 ```
 
->[AZURE.TIP] 다른 리소스 그룹에 속하기만 하다면 같은 이름을 가진 여러 CDN 프로필이 있을 수 있습니다. `ResourceGroupName` 매개 변수를 생략함년 일치하는 이름을 가진 모든 프로필이 반환됩니다.
+> [!TIP]
+> 다른 리소스 그룹에 속하기만 하다면 같은 이름을 가진 여러 CDN 프로필이 있을 수 있습니다. `ResourceGroupName` 매개 변수를 생략함년 일치하는 이름을 가진 모든 프로필이 반환됩니다.
+> 
+> 
 
 ## 기존 CDN 끝점 목록화
-
 `Get-AzureRmCdnEndpoint`은 개별 끝점 또는 프로필의 모든 끝점을 검색할 수 있습니다.
 
 ```powershell
@@ -135,7 +134,6 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState
 ```
 
 ## CDN 프로필 및 끝점 만들기
-
 `New-AzureRmCdnProfile` 및 `New-AzureRmCdnEndpoint`는 CDN 프로필 및 끝점을 만드는 데 사용됩니다.
 
 ```powershell
@@ -151,7 +149,6 @@ New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku
 ```
 
 ## 끝점 이름 가용성 확인
-
 `Get-AzureRmCdnEndpointNameAvailability`은 끝점 이름을 사용할 수 있는지 여부를 나타내는 개체를 반환합니다.
 
 ```powershell
@@ -164,10 +161,12 @@ Else { Write-Host "No, that endpoint name is not available." }
 ```
 
 ## 사용자 지정 도메인 추가
-
 `New-AzureRmCdnCustomDomain`은 기존 끝점에 사용자 지정 도메인 이름을 추가합니다.
 
->[AZURE.IMPORTANT] [사용자 지정 도메인을 콘텐츠 배달 네트워크(CDN) 끝점에 매핑하는 방법](./cdn-map-content-to-custom-domain.md)에서 설명한 대로 DNS 공급자를 통해 CNAME을 설정해야 합니다. `Test-AzureRmCdnCustomDomain`를 사용하여 끝점을 수정하기 전에 매핑을 시험해야 합니다.
+> [!IMPORTANT]
+> [사용자 지정 도메인을 콘텐츠 배달 네트워크(CDN) 끝점에 매핑하는 방법](cdn-map-content-to-custom-domain.md)에서 설명한 대로 DNS 공급자를 통해 CNAME을 설정해야 합니다. `Test-AzureRmCdnCustomDomain`를 사용하여 끝점을 수정하기 전에 매핑을 시험해야 합니다.
+> 
+> 
 
 ```powershell
 # Get an existing endpoint
@@ -181,7 +180,6 @@ If($result.CustomDomainValidated){ New-AzureRmCdnCustomDomain -CustomDomainName 
 ```
 
 ## 끝점 수정
-
 `Set-AzureRmCdnEndpoint`은 기존 끝점을 수정합니다.
 
 ```powershell
@@ -197,7 +195,6 @@ Set-AzureRmCdnEndpoint -CdnEndpoint $endpoint
 ```
 
 ## CDN 자산 제거/사전 로드
-
 `Unpublish-AzureRmCdnEndpointContent`은 캐시된 자산을 제거하며, `Publish-AzureRmCdnEndpointContent`는 자산을 지원되는 끝점에 사전 로드합니다.
 
 ```powershell
@@ -226,7 +223,6 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Start-AzureRmCdnEndpoint
 ```
 
 ## CDN 리소스 삭제
-
 `Remove-AzureRmCdnProfile` 및 `Remove-AzureRmCdnEndpoint`를 사용하여 프로필 및 끝점을 제거할 수 있습니다.
 
 ```powershell
@@ -241,9 +237,8 @@ Remove-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 ```
 
 ## 다음 단계
+[.NET](cdn-app-dev-net.md) 또는 [Node.js](cdn-app-dev-node.md)를 사용하여 Azure CDN을 자동화하는 방법을 알아봅니다.
 
-[.NET](./cdn-app-dev-net.md) 또는 [Node.js](./cdn-app-dev-node.md)를 사용하여 Azure CDN을 자동화하는 방법을 알아봅니다.
-
-CDN 기능에 대해 알아보려면 [CDN 개요](./cdn-overview.md)를 참조하세요.
+CDN 기능에 대해 알아보려면 [CDN 개요](cdn-overview.md)를 참조하세요.
 
 <!---HONumber=AcomDC_0817_2016-->

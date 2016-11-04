@@ -1,24 +1,23 @@
-<properties 
-pageTitle="클라우드 서비스에서 역할에 대한 통신 | Microsoft Azure" 
-description="클라우드 서비스의 역할 인스턴스에는 다른 역할 인스턴스의 외부 또는 그 사이에서 통신하도록 정의된 끝점(http, https, tcp, udp)이 있을 수 있습니다." 
-services="cloud-services" 
-documentationCenter="" 
-authors="Thraka" 
-manager="timlt" 
-editor=""/>
-<tags 
-ms.service="cloud-services" 
-ms.workload="tbd" 
-ms.tgt_pltfrm="na" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.date="09/06/2016" 
-ms.author="adegeo"/>
+---
+title: 클라우드 서비스에서 역할에 대한 통신 | Microsoft Docs
+description: 클라우드 서비스의 역할 인스턴스에는 다른 역할 인스턴스의 외부 또는 그 사이에서 통신하도록 정의된 끝점(http, https, tcp, udp)이 있을 수 있습니다.
+services: cloud-services
+documentationcenter: ''
+author: Thraka
+manager: timlt
+editor: ''
 
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: adegeo
+
+---
 # Azure에서 역할 인스턴스에 통신 사용
-
 클라우드 서비스 역할은 내부 및 외부 연결을 통해 통신합니다. 외부 연결은 **입력 끝점**이라고 하는 반면 내부 연결을 **내부 끝점**이라고 합니다. 이 항목은 [서비스 정의](cloud-services-model-and-package.md#csdef)를 수정하는 방법을 설명하여 끝점을 만듭니다.
-
 
 ## 입력 끝점
 입력 끝점이 외부에 포트를 표시하려는 경우에 사용됩니다. 끝점에 대한 외부 및 내부 포트에 적용되는 끝점의 프로토콜 종류 및 형식을 지정합니다. 원할 경우 [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) 특성을 사용하여 끝점에 다른 내부 포트를 지정할 수 있습니다.
@@ -75,9 +74,7 @@ ms.author="adegeo"/>
 
 
 ## 작업자 역할 대 웹 역할
-
 작업자 및 웹 역할 모두를 사용하여 작업하는 경우 끝점과 한 가지 작은 차이가 있습니다. 웹 역할에는 최소한 **HTTP** 프로토콜을 사용하는 단일 입력 끝점이 있어야 합니다.
-
 
 ```xml
 <Endpoints>
@@ -89,7 +86,10 @@ ms.author="adegeo"/>
 ## .NET SDK를 사용하여 끝점에 액세스하려면
 Azure Managed Library는 역할 인스턴스에 대한 메서드를 제공하여 런타임 시 통신합니다. 역할 인스턴스 내에서 실행되는 코드에서 다른 역할 인스턴스 및 해당 끝점의 존재에 대한 정보 뿐만 아니라 현재 역할 인스턴스에 대한 정보를 검색할 수 있습니다.
 
-> [AZURE.NOTE] 클라우드 서비스에서 실행되고 적어도 하나 이상의 내부 끝점을 정의하는 역할 인스턴스에 대한 정보만을 검색할 수 있습니다. 다른 서비스에서 실행 중인 역할 인스턴스에 대한 데이터를 가져올 수 없습니다.
+> [!NOTE]
+> 클라우드 서비스에서 실행되고 적어도 하나 이상의 내부 끝점을 정의하는 역할 인스턴스에 대한 정보만을 검색할 수 있습니다. 다른 서비스에서 실행 중인 역할 인스턴스에 대한 데이터를 가져올 수 없습니다.
+> 
+> 
 
 [인스턴스](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) 속성을 사용하여 역할의 인스턴스를 검색할 수 있습니다. 먼저 [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx)를 사용하여 현재 역할 인스턴스에 참조를 반환한 다음 [역할](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) 속성을 사용하여 역할 자체에 참조를 반환합니다.
 
@@ -101,7 +101,10 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 
 **인스턴스** 속성은 **RoleInstance** 개체의 컬렉션을 반환합니다. 이 컬렉션은 항상 현재 인스턴스를 포함합니다. 역할이 내부 끝점을 정의하지 않으면 컬렉션에 현재 인스턴스를 포함하지만 다른 인스턴스는 포함하지 않습니다. 내부 끝점이 역할에 대해 정의되지 않는 경우 컬렉션에 있는 역할 인스턴스 수는 항상 1입니다. 역할이 내부 끝점을 정의하는 경우 해당 인스턴스는 런타임 시 검색 가능하고 컬렉션의 인스턴스 수는 서비스 구성 파일의 역할에 지정된 인스턴스 수에 해당합니다.
 
-> [AZURE.NOTE] Azure Managed Library는 다른 역할 인스턴스의 상태를 결정하는 수단을 제공하지는 않지만 서비스가 이 기능을 필요로 하는 경우 그러한 상태 평가를 직접 구현할 수 있습니다. [Azure 진단](cloud-services-dotnet-diagnostics.md)을 사용하여 역할 인스턴스를 실행하는 방법에 대한 정보를 얻을 수 있습니다.
+> [!NOTE]
+> Azure Managed Library는 다른 역할 인스턴스의 상태를 결정하는 수단을 제공하지는 않지만 서비스가 이 기능을 필요로 하는 경우 그러한 상태 평가를 직접 구현할 수 있습니다. [Azure 진단](cloud-services-dotnet-diagnostics.md)을 사용하여 역할 인스턴스를 실행하는 방법에 대한 정보를 얻을 수 있습니다.
+> 
+> 
 
 역할 인스턴스의 내부 끝점에서 포트 번호를 확인하려면 [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) 속성을 사용하여 끝점 이름과 해당 IP 주소 및 포트를 포함하는 Dictionary 개체를 반환합니다. [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) 속성은 끝점을 지정한 IP 주소 및 포트를 반환합니다. **PublicIPEndpoint** 속성은 끝점을 분산한 부하에 포트를 반환합니다. **PublicIPEndpoint** 속성의 IP 주소 부분을 사용하지 않습니다.
 
@@ -120,7 +123,10 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 
 서비스 정의를 통해 노출된 끝점을 가져오고 연결을 수신하기 시작하는 작업자 역할의 예는 다음과 같습니다.
 
-> [AZURE.WARNING] 이 코드는 배포된 서비스에서만 작동합니다. Azure 계산 에뮬레이터에서 실행되는 경우 직접 포트 끝점(**InstanceInputEndpoint** 요소)을 만드는 구성 요소 서비스를 무시합니다.
+> [!WARNING]
+> 이 코드는 배포된 서비스에서만 작동합니다. Azure 계산 에뮬레이터에서 실행되는 경우 직접 포트 끝점(**InstanceInputEndpoint** 요소)을 만드는 구성 요소 서비스를 무시합니다.
+> 
+> 
 
 ```csharp
 using System;
@@ -145,18 +151,18 @@ namespace WorkerRole1
         // Initialize method-wide variables
         var epName = "Endpoint1";
         var roleInstance = RoleEnvironment.CurrentRoleInstance;
-        
+
         // Identify direct communication port
         var myPublicEp = roleInstance.InstanceEndpoints[epName].PublicIPEndpoint;
         Trace.TraceInformation("IP:{0}, Port:{1}", myPublicEp.Address, myPublicEp.Port);
 
         // Identify public endpoint
         var myInternalEp = roleInstance.InstanceEndpoints[epName].IPEndpoint;
-                
+
         // Create socket listener
         var listener = new Socket(
           myInternalEp.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-                
+
         // Bind socket listener to internal endpoint and listen
         listener.Bind(myInternalEp);
         listener.Listen(10);
@@ -242,7 +248,10 @@ namespace WorkerRole1
 </ServiceDefinition>
 ```
 
-> [AZURE.NOTE] 고정되고 자동으로 할당된 포트의 내부 끝점으로 역할 간의 통신 제한이 발생할 수 있습니다.
+> [!NOTE]
+> 고정되고 자동으로 할당된 포트의 내부 끝점으로 역할 간의 통신 제한이 발생할 수 있습니다.
+> 
+> 
 
 기본적으로 내부 끝점이 정의된 후에 어떤 역할에서도 제한 없이 역할의 내부 끝점으로 통신할 수 있습니다. 통신을 제한하려면 **NetworkTrafficRules** 요소를 서비스 정의 파일의 **ServiceDefinition** 요소에 추가해야 합니다.
 

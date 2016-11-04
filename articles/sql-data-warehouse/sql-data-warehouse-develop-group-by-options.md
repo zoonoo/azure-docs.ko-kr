@@ -1,29 +1,29 @@
-<properties
-   pageTitle="SQL 데이터 웨어하우스 | Microsoft Azure의 GROUP BY 옵션"
-   description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 GROUP BY 옵션 구현을 위한 팁."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: SQL 데이터 웨어하우스 | Microsoft Docs
+description: 솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 GROUP BY 옵션 구현을 위한 팁.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # SQL 데이터 웨어하우스의 GROUP BY 옵션
-
-[GROUP BY][] 절을 사용하여 데이터를 요약 행 집합으로 집계합니다. 또한 Azure SQL 데이터 웨어하우스에서 직접 지원하지 않기 때문에 해결해야 하는 기능을 확장하는 몇 가지 옵션이 있습니다.
+[GROUP BY][GROUP BY] 절을 사용하여 데이터를 요약 행 집합으로 집계합니다. 또한 Azure SQL 데이터 웨어하우스에서 직접 지원하지 않기 때문에 해결해야 하는 기능을 확장하는 몇 가지 옵션이 있습니다.
 
 이들 옵션은
-- GROUP BY with ROLLUP
-- 그룹화 집합
-- GROUP BY with CUBE
+
+* GROUP BY with ROLLUP
+* 그룹화 집합
+* GROUP BY with CUBE
 
 ## 롤업 및 그룹화 집합 옵션
 여기서 가장 간단한 옵션은 명시적 구문에 의존하는 대신 `UNION ALL`을 사용하여 롤업을 수행하는 것입니다. 결과는 완전히 동일합니다.
@@ -44,9 +44,10 @@ GROUP BY ROLLUP (
 ```
 
 ROLLUP을 사용하여 다음과 같은 집계를 요청했습니다.
-- 국가 및 지역
-- 국가
-- 총합계
+
+* 국가 및 지역
+* 국가
+* 총합계
 
 이 요청을 바꾸려면 `UNION ALL`을 사용해야 하며, 동일한 결과가 반환되도록 필요한 집계를 명시적으로 지정합니다.
 
@@ -175,9 +176,8 @@ ORDER BY 1,2,3
 
 코드를 섹션으로 분할하고 반복 구성을 생성하면 코드의 관리 및 유지 관리가 더 쉬워집니다.
 
-
 ## 다음 단계
-더 많은 개발 팁은 [개발 개요][]를 참조하세요.
+더 많은 개발 팁은 [개발 개요][개발 개요]를 참조하세요.
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png

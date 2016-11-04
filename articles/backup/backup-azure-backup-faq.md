@@ -1,52 +1,52 @@
-<properties
-   pageTitle="Azure 백업 FAQ | Microsoft Azure"
-   description="백업 서비스, 백업 에이전트, 백업 및 보존, 복구, 보안 및 백업과 재해 복구와 관련된 자주 묻는 질문에 대한 대답입니다."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="백업 및 재해 복구; 백업 서비스"/>
+---
+title: Azure 백업 FAQ | Microsoft Docs
+description: 백업 서비스, 백업 에이전트, 백업 및 보존, 복구, 보안 및 백업과 재해 복구와 관련된 자주 묻는 질문에 대한 대답입니다.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: 백업 및 재해 복구; 백업 서비스
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="get-started-article"
-	 ms.date="08/29/2016"
-	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/29/2016
+ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 
+---
 # Azure 백업 서비스 - FAQ
-
-> [AZURE.SELECTOR]
-- [클래식 모드에 대한 백업 FAQ](backup-azure-backup-faq.md)
-- [Resource Manager 모드에 대한 백업 FAQ](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [클래식 모드에 대한 백업 FAQ](backup-azure-backup-faq.md)
+> * [Resource Manager 모드에 대한 백업 FAQ](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 이 문서는 Azure 백업 서비스에 대해 자주 묻는 질문(및 해당 답변) 목록입니다. 커뮤니티에서 신속하게 응답하고 자주 묻는 질문인 경우 이 문서에 추가합니다. 질문에 대한 대답은 일반적으로 참조 또는 지원 정보를 제공합니다. 이 문서 또는 관련 문서의 Disqus 섹션에서 Azure 백업에 대한 질문을 할 수 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure 백업 서비스에 대한 질문도 게시할 수 있습니다.
-
 
 ## 어떤 운영 체제에서 Azure 백업을 사용하여 Azure에 백업할 수 있나요? <br/>
 Azure 백업은 Azure 백업 서버 및 SCDPM을 사용하여 파일 폴더 백업, 응용 프로그램 백업에 대한 다음과 같은 목록의 운영 체제를 지원합니다.
 
 | 운영 체제 | 플랫폼 | SKU |
-| :------------- |-------------| :-----|
-| Windows 8 및 최신 SP | 64비트 | Enterprise, Pro |
-| Windows 7 및 최신 SP | 64비트 | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
-| Windows 8.1 및 최신 SP | 64비트 | Enterprise, Pro |
-| Windows 10 | 64비트 | Enterprise, Pro, Home |
-|Windows Server 2012 R2 및 최신 SP|	64비트|	Standard, Datacenter, Foundation|
-|Windows Server 2012 및 최신 SP|	64비트|	Datacenter, Foundation, Standard|
-|Windows Storage Server 2012 R2 및 최신 SP |64비트|	Standard, Workgroup|
-|Windows Storage Server 2012 및 최신 SP |64비트 |Standard, Workgroup
-|Windows Server 2012 R2 및 최신 SP |64비트|	Essential|
-|Windows Server 2008 R2 SP1 |64비트|	Standard, Enterprise, Datacenter, Foundation|
-|Windows Server 2008 SP2 |64비트|	Standard, Enterprise, Datacenter, Foundation|
+|:--- | --- |:--- |
+| Windows 8 및 최신 SP |64비트 |Enterprise, Pro |
+| Windows 7 및 최신 SP |64비트 |Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
+| Windows 8.1 및 최신 SP |64비트 |Enterprise, Pro |
+| Windows 10 |64비트 |Enterprise, Pro, Home |
+| Windows Server 2012 R2 및 최신 SP |64비트 |Standard, Datacenter, Foundation |
+| Windows Server 2012 및 최신 SP |64비트 |Datacenter, Foundation, Standard |
+| Windows Storage Server 2012 R2 및 최신 SP |64비트 |Standard, Workgroup |
+| Windows Storage Server 2012 및 최신 SP |64비트 |Standard, Workgroup |
+| Windows Server 2012 R2 및 최신 SP |64비트 |Essential |
+| Windows Server 2008 R2 SP1 |64비트 |Standard, Enterprise, Datacenter, Foundation |
+| Windows Server 2008 SP2 |64비트 |Standard, Enterprise, Datacenter, Foundation |
 
 Azure VM 백업의 경우,
 
-- **Linux**: Azure 백업은 Core OS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/virtual-machines-linux-endorsed-distros.md)을 지원합니다. 가상 컴퓨터에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 지속하는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
-- **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
+* **Linux**: Azure 백업은 Core OS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/virtual-machines-linux-endorsed-distros.md)을 지원합니다. 가상 컴퓨터에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 지속하는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
+* **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
 
 ## 최신 Azure 백업 에이전트를 어디서 다운로드할 수 있나요? <br/>
 Windows Server, System Center DPM 또는 Windows 클라이언트를 백업하기 위한 최신 에이전트를 [여기](http://aka.ms/azurebackup_agent)에서 다운로드할 수 있습니다. 가상 컴퓨터를 백업하려는 경우 VM 에이전트(적절한 확장을 자동으로 설치)를 사용합니다. Azure 갤러리에서 만든 가상 컴퓨터에는 VM 에이전트가 이미 있습니다.
@@ -72,26 +72,26 @@ SCDPM의 최신 업데이트 롤업(2016년 8월을 기준으로 UR11)에 [최�
 ## 어떤 종류의 드라이브에서 파일 및 폴더를 백업할 수 있나요? <br/>
 다음과 같은 드라이브/볼륨을 백업할 수 없습니다.
 
-- 이동식 미디어: 드라이브가 백업 항목 원본으로 사용하도록 고정된 것으로 보고해야 합니다.
-- 읽기 전용 볼륨: VSS(볼륨 섀도 복사본 서비스)가 작동하려면 볼륨에 데이터 쓰기가 가능해야 합니다.
-- 오프라인 볼륨: VSS가 작동하려면 볼륨이 온라인 상태여야 합니다.
-- 네트워크 공유: 온라인 백업을 사용하여 백업할 서버의 로컬 볼륨이어야 합니다.
-- Bitlocker 보호 된 볼륨: 볼륨의 잠금을 해제 해야 백업이 실행됩니다.
-- 파일 시스템 식별: NTFS 파일 시스템만 이 버전의 온라인 백업 서비스에 대해 지원됩니다.
+* 이동식 미디어: 드라이브가 백업 항목 원본으로 사용하도록 고정된 것으로 보고해야 합니다.
+* 읽기 전용 볼륨: VSS(볼륨 섀도 복사본 서비스)가 작동하려면 볼륨에 데이터 쓰기가 가능해야 합니다.
+* 오프라인 볼륨: VSS가 작동하려면 볼륨이 온라인 상태여야 합니다.
+* 네트워크 공유: 온라인 백업을 사용하여 백업할 서버의 로컬 볼륨이어야 합니다.
+* Bitlocker 보호 된 볼륨: 볼륨의 잠금을 해제 해야 백업이 실행됩니다.
+* 파일 시스템 식별: NTFS 파일 시스템만 이 버전의 온라인 백업 서비스에 대해 지원됩니다.
 
 ## 내 서버에서 어떤 파일 및 폴더 형식을 백업할 수 있나요?<br/>
 다음과 같은 형식이 지원됩니다.
 
-- 암호화
-- 압축
-- 스파스
-- 압축 + 스파스
-- 하드 링크: 지원되지 않음, 건너뜀
-- 재분석 지점: 지원되지 않음, 건너뜀
-- 암호화 + 압축: 지원되지 않음, 건너뜀
-- 암호화 + 스파스: 지원되지 않음, 건너뜀
-- 압축 스트림: 지원되지 않음, 건너뜀
-- 스파스 스트림: 지원되지 않음, 건너뜀
+* 암호화
+* 압축
+* 스파스
+* 압축 + 스파스
+* 하드 링크: 지원되지 않음, 건너뜀
+* 재분석 지점: 지원되지 않음, 건너뜀
+* 암호화 + 압축: 지원되지 않음, 건너뜀
+* 암호화 + 스파스: 지원되지 않음, 건너뜀
+* 압축 스트림: 지원되지 않음, 건너뜀
+* 스파스 스트림: 지원되지 않음, 건너뜀
 
 ## 캐시 폴더의 최소 크기 요구 사항은 무엇인가요? <br/>
 캐시 폴더의 크기는 백업하는 데이터의 양에 따라 결정됩니다. 캐시 폴더는 데이터 저장에 필요한 공간의 5%여야 합니다.
@@ -116,13 +116,13 @@ Azure VM 백업의 경우 작업이 취소되면 전송된 데이터가 무시�
 ## Azure 백업을 위해 구성해야 하는 방화벽 규칙은 무엇인가요? <br/>
 온-프레미스-Azure 및 워크로드-Azure 데이터의 원활한 보호를 위해 다음 URL과 통신하도록 방화벽을 허용하는 것이 좋습니다.
 
-- www.msftncsi.com
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.microsoftonline.com
-- *.windows.net
+* www.msftncsi.com
+* *.Microsoft.com
+* *.WindowsAzure.com
+* *.microsoftonline.com
+* *.windows.net
 
-##VM 확장을 사용하여 Azure 백업 서비스에서 이미 지원하는 Azure VM에 Azure 백업 에이전트를 설치할 수 있나요? <br/>
+## VM 확장을 사용하여 Azure 백업 서비스에서 이미 지원하는 Azure VM에 Azure 백업 에이전트를 설치할 수 있나요? <br/>
 그렇습니다. Azure 백업은 VM 확장을 사용하여 Azure VM에 대한 VM 수준 백업을 제공합니다. 게스트 OS에서 파일 및 폴더를 보호하기 위해 게스트 Windows OS에 Azure 백업 에이전트를 설치할 수 있습니다.
 
 ## Azure VM에 Azure 백업 에이전트를 설치하여 Azure VM에서 제공하는 임시 저장소에 존재하는 파일 및 폴더를 백업할 수 있나요? <br/>
@@ -131,10 +131,10 @@ Azure VM 백업의 경우 작업이 취소되면 전송된 데이터가 무시�
 ## 내 파일 및 폴더를 보호하기 위해 Azure 백업 에이전트를 설치했습니다. 이제 SCDPM을 설치하여 Azure에 온-프레미스 응용 프로그램/VM 워크로드를 보호하기 위해 Azure 백업 에이전트를 사용할 수 있나요? <br/>
 SCDPM으로 Azure 백업을 사용하려면 먼저 SCDPM을 설치한 다음에만 Azure 백업 에이전트를 설치하는 것이 좋습니다. 이렇게 하면 SCDPM으로 Azure 백업 에이전트를 원활하게 통합하고 SCDPM의 관리 콘솔에서 직접 Azure에 대한 파일/폴더인 응용 프로그램 워크로드 및 VM을 보호할 수 있습니다. 위에서 언급한 작업을 위해 Azure 백업 에이전트를 설치한 후에 SCDPM을 설치하는 것은 좋지 않으며 지원되지도 않습니다.
 
-## Azure 백업 에이전트를 사용하여 Azure 백업 정책의 일부로 지정할 수 있는 파일 경로의 길이 무엇인가요? <br/>  
+## Azure 백업 에이전트를 사용하여 Azure 백업 정책의 일부로 지정할 수 있는 파일 경로의 길이 무엇인가요? <br/>
 Azure 백업 에이전트는 NTFS에 의존합니다. [파일 경로 길이 사양은 Windows API에 의해 제한됩니다](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). 파일 경로 길이가 Windows API에서 지정한 것보다 긴 파일을 백업하는 경우 고객은 백업 파일의 상위 폴더 또는 디스크 드라이브를 백업하도록 선택할 수 있습니다.
 
-## Azure 백업 에이전트를 사용하는 Azure 백업 정책의 파일 경로에 어떤 문자가 허용되나요? <br>  
+## Azure 백업 에이전트를 사용하는 Azure 백업 정책의 파일 경로에 어떤 문자가 허용되나요? <br>
  Azure 백업 에이전트는 NTFS에 의존합니다. 파일 사양의 일부분으로 [NTFS 지원 문자](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions)를 사용할 수 있습니다.
 
 ## Azure 백업 서버를 사용하여 물리적 서버에 대한 BMR(완전 복구) 백업을 만들 수 있나요? <br/>
@@ -146,23 +146,23 @@ Azure 백업 에이전트는 NTFS에 의존합니다. [파일 경로 길이 사�
 ## 백업하는 각 데이터 원본의 크기에 제한이 있나요? <br/>
 자격 증명 모음 수준에서 백업할 수는 데이터의 양에 제한이 없지만 Azure 백업은 최대 크기의 데이터 원본을 제한합니다(실질적으로 이러한 한도는 매우 높음). 2015년 8월 기준으로, 지원되는 운영 체제의 최대 크기 데이터 원본은 다음과 같습니다.
 
-|S.No |	운영 체제 |	데이터 원본의 최대 크기 |
-| :-------------: |:-------------| :-----|
-|1| Windows Server 2012 이상| 54400GB|
-|2| Windows 8 이상| 54400GB|
-|3| Windows Server 2008, Windows Server 2008 R2 | 1700GB|
-|4| Windows 7 | 1700GB|
+| S.No | 운영 체제 | 데이터 원본의 최대 크기 |
+|:---:|:--- |:--- |
+| 1 |Windows Server 2012 이상 |54400GB |
+| 2 |Windows 8 이상 |54400GB |
+| 3 |Windows Server 2008, Windows Server 2008 R2 |1700GB |
+| 4 |Windows 7 |1700GB |
 
 다음 표에서는 각 데이터 원본 크기가 어떻게 결정되는지를 설명합니다.
 
-|	데이터 원본 |	세부 정보 |
-| :-------------: |:-------------|
-|볼륨 |서버 또는 클라이언트 컴퓨터의 단일 볼륨에서 백업되는 데이터 양|
-|Hyper-V 가상 컴퓨터 | 백업되는 가상 컴퓨터의 모든 VHD 데이터 합계|
-|Microsoft SQL Server 데이터베이스 | 백업되는 단일 SQL 데이터베이스 크기 |
-|Microsoft SharePoint |백업되는 SharePoint 팜 내의 콘텐츠 및 구성 데이터베이스 합계|
-|Microsoft Exchange |백업되는 Exchange 서버의 모든 Exchange 데이터베이스 합계|
-|BMR/시스템 상태 |백업되는 컴퓨터의 각 개별 BMR 복사본 또는 시스템 상태|
+| 데이터 원본 | 세부 정보 |
+|:---:|:--- |
+| 볼륨 |서버 또는 클라이언트 컴퓨터의 단일 볼륨에서 백업되는 데이터 양 |
+| Hyper-V 가상 컴퓨터 |백업되는 가상 컴퓨터의 모든 VHD 데이터 합계 |
+| Microsoft SQL Server 데이터베이스 |백업되는 단일 SQL 데이터베이스 크기 |
+| Microsoft SharePoint |백업되는 SharePoint 팜 내의 콘텐츠 및 구성 데이터베이스 합계 |
+| Microsoft Exchange |백업되는 Exchange 서버의 모든 Exchange 데이터베이스 합계 |
+| BMR/시스템 상태 |백업되는 컴퓨터의 각 개별 BMR 복사본 또는 시스템 상태 |
 
 ## 하루에 백업 작업을 예약할 수 있는 횟수에 제한이 있나요?<br/>
 예, Windows Server 또는 Windows 클라이언트에서는 하루 최대 3번까지 백업 작업을 실행할 수 있습니다. System Center DPM에서는 하루 2번까지 백업 작업을 실행할 수 있습니다. IaaS VM의 경우 하루에 한 번 백업 작업을 실행할 수 있습니다.
@@ -197,7 +197,7 @@ Azure 백업 에이전트는 NTFS에 의존합니다. [파일 경로 길이 사�
  Azure 백업 에이전트 또는 SCDPM 또는 Azure 백업 서버에서 백업된 모든 데이터를 전송하기 전에 압축하고 암호화합니다. 압축 및 암호화를 적용하면 백업 자격 증명 모음에 있는 데이터 크기가 30-40% 줄어듭니다.
 
 ## 백업 서비스에서 사용되는 대역폭의 양을 조정하는 방법이 있나요?<br/>
- 예, 백업 에이전트에서 **속성 변경** 옵션을 사용하여 대역폭을 조정합니다. 대역폭을 사용하는 경우 시간과 대역폭의 양을 조정합니다. 자세한 내용은 [네트워크 제한](../backup-configure-vault.md#enable-network-throttling)을 참조하세요.
+ 예, 백업 에이전트에서 **속성 변경** 옵션을 사용하여 대역폭을 조정합니다. 대역폭을 사용하는 경우 시간과 대역폭의 양을 조정합니다. 자세한 내용은 [네트워크 제한](backup-configure-vault.md#enable-network-throttling)을 참조하세요.
 
 ## 내 인터넷 대역폭은 백업해야 하는 데이터의 양에 대해 제한됩니다. 대량 네트워크 파이프가 있는 특정 위치에 데이터를 옮기고 해당 데이터를 Azure에 푸시할 수 있는 방법이 있나요? <br/>
 표준 온라인 백업 프로세스를 통해 Azure에 데이터를 백업할 수 있거나 Azure 가져오기/내보내기 서비스를 사용하여 Azure의 Blob 저장소에 데이터를 전송할 수 있습니다. Azure 저장소에 백업 날짜를 가져올 수 있는 다른 방법이 없습니다. Azure 백업으로 Azure 가져오기/내보내기 서비스를 사용하는 방법에 대한 정보는 [오프라인 백업 워크플로](backup-azure-backup-import-export.md) 문서를 참조하세요.
@@ -222,39 +222,38 @@ Azure 백업에서 수행할 수 있는 복구 횟수에는 제한이 없습니�
 
 ## Azure 백업 에이전트에 대해 지정된 캐시 위치를 변경하려면 어떻게 해야 하나요?<br/>
  아래 글머리 기호 목록을 통해 순차적으로 이동하여 캐시 위치를 변경합니다.
-- 관리자 권한 명령 프롬프트에서 다음 명령을 실행하여 백업 엔진을 중지합니다.
 
+* 관리자 권한 명령 프롬프트에서 다음 명령을 실행하여 백업 엔진을 중지합니다.
+  
   ```PS C:\> Net stop obengine```
+* 파일을 이동하지 마십시오. 대신 캐시 공간 폴더를 충분한 공간이 있는 다른 드라이브로 복사합니다. 백업이 새 캐시 공간으로 작업 중임을 확인한 후 원래 캐시 공간을 제거할 수 있습니다.
+* 다음 레지스트리 항목을 새 캐시 공간 폴더의 경로로 업데이트합니다.<br/>
 
-- 파일을 이동하지 마십시오. 대신 캐시 공간 폴더를 충분한 공간이 있는 다른 드라이브로 복사합니다. 백업이 새 캐시 공간으로 작업 중임을 확인한 후 원래 캐시 공간을 제거할 수 있습니다.
+| 레지스트리 경로 | 레지스트리 키 | 값 |
+| --- | --- | --- |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*새 캐시 폴더 위치* |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*새 캐시 폴더 위치* |
 
-- 다음 레지스트리 항목을 새 캐시 공간 폴더의 경로로 업데이트합니다.<br/>
-
-|레지스트리 경로 | 레지스트리 키 | 값 |
-| ------ | ------- | ------|
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *새 캐시 폴더 위치* |
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *새 캐시 폴더 위치* |
-
-- 관리자 권한 명령 프롬프트에서 다음 명령을 실행하여 백업 엔진을 다시 시작합니다.
-
+* 관리자 권한 명령 프롬프트에서 다음 명령을 실행하여 백업 엔진을 다시 시작합니다.
+  
   ```PS C:\> Net start obengine```
-
+  
   새 캐시 위치로 성공적으로 백업 작성이 완료되면 원래 캐시 폴더를 제거할 수 있습니다.
 
 ## 어디에 Azure 백업 에이전트에 대한 캐시 폴더를 설치해야 예상대로 작동할 수 있나요?<br/>
 다음 위치는 캐시 폴더에 권장되지 않습니다.
 
-- 네트워크 공유 또는 이동식 미디어: 캐시 폴더는 온라인 백업을 사용하여 백업해야 하는 서버에 대해 로컬에 있어야 합니다. 네트워크 위치 또는 USB 드라이브 같은 이동식 미디어는 지원되지 않습니다.
-- 오프라인 볼륨: 캐시 폴더는 Azure 백업 에이전트를 사용하는 예상된 백업을 위해 온라인 상태여야 합니다.
+* 네트워크 공유 또는 이동식 미디어: 캐시 폴더는 온라인 백업을 사용하여 백업해야 하는 서버에 대해 로컬에 있어야 합니다. 네트워크 위치 또는 USB 드라이브 같은 이동식 미디어는 지원되지 않습니다.
+* 오프라인 볼륨: 캐시 폴더는 Azure 백업 에이전트를 사용하는 예상된 백업을 위해 온라인 상태여야 합니다.
 
 ## 지원되지 않는 캐시 폴더의 특성이 있나요?<br/>
  다음과 같은 특성 또는 해당 조합은 캐시 폴더에 지원되지 않습니다.
 
-- 암호화
-- 중복 제거
-- 압축
-- 스파스
-- 재분석 지점
+* 암호화
+* 중복 제거
+* 압축
+* 스파스
+* 재분석 지점
 
 캐시 폴더 및 메타데이터 VHD에 Azure 백업 에이전트가 예상대로 작동되기 위해 위의 특성을 가지는 것이 좋습니다.
 

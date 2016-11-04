@@ -1,29 +1,25 @@
-<properties
-    pageTitle="Azure AD 페더레이션 메타데이터 | Microsoft Azure"
-    description="이 문서에서는 Azure Active Directory가 Azure Active Directory 토큰을 수락하는 서비스에 대해 게시하는 페더레이션 메타데이터 문서를 설명합니다."
-    services="active-directory"
-    documentationCenter=".net"
-    authors="priyamohanram"
-    manager="mbaldwin"
-    editor=""/>
+---
+title: Azure AD 페더레이션 메타데이터 | Microsoft Docs
+description: 이 문서에서는 Azure Active Directory가 Azure Active Directory 토큰을 수락하는 서비스에 대해 게시하는 페더레이션 메타데이터 문서를 설명합니다.
+services: active-directory
+documentationcenter: .net
+author: priyamohanram
+manager: mbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/03/2016"
-    ms.author="priyamo"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/03/2016
+ms.author: priyamo
 
-
-
+---
 # <a name="federation-metadata"></a>페더레이션 메타데이터
-
 Azure Active Directory(Azure AD)는 Azure AD가 발급하는 보안 토큰을 수락하도록 구성된 서비스에 대한 페더레이션 메타데이터 문서를 게시합니다. 페더레이션 메타데이터 문서 형식은 [Web Services Federation Language(WS-Federation) 버전 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html)에서 설명하며, [OASIS SAML(Security Assertion Markup Language) v2.0의 메타데이터](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf)를 확장합니다.
 
 ## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>테넌트별 및 테넌트에 독립적인 메타데이터 끝점
-
 Azure AD 테넌트별 및 테넌트 독립적 끝점을 게시합니다.
 
 테넌트별 끝점은 특정 테넌트에 대해 설계되었습니다. 테넌트별 페더레이션 메타데이터에는 테넌트별 발급자 및 끝점 정보를 포함하는 테넌트에 관한 정보가 포함됩니다. 테넌트별 끝점을 사용하는 단일 테넌트에 대한 액세스를 제한하는 응용 프로그램입니다.
@@ -31,24 +27,21 @@ Azure AD 테넌트별 및 테넌트 독립적 끝점을 게시합니다.
 테넌트 독립적 끝점은 모든 Azure AD 테넌트에 공통된 정보를 제공합니다. 이 정보는 *login.microsoftonline.com* 에서 호스트되는 테넌트에 적용되며 테넌트 간에 공유됩니다. 테넌트 독립적 끝점은 특정 테넌트와 연결되어있지 않으므로 다중 테넌트 응용 프로그램에 좋습니다.
 
 ## <a name="federation-metadata-endpoints"></a>페더레이션 메타데이터 끝점
-
 Azure AD는 페더레이션 메타데이터를 `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`에 게시합니다.
 
 **테넌트별 끝점**의 경우, `TenantDomainName`은(는) 다음 유형 중 하나가 될 수 있습니다.
 
-- Azure AD 테넌트의 등록된 도메인 이름, 예: `contoso.onmicrosoft.com`.
-- 도메인의 변경할 수 없는 ID, 예: `72f988bf-86f1-41af-91ab-2d7cd011db45`.
+* Azure AD 테넌트의 등록된 도메인 이름, 예: `contoso.onmicrosoft.com`.
+* 도메인의 변경할 수 없는 ID, 예: `72f988bf-86f1-41af-91ab-2d7cd011db45`.
 
 **테넌트에 독립적인 끝점**의 경우 `TenantDomainName`은(는) `common`입니다. 이 문서는 login.microsoftonline.com에서 호스트되는 모든 Azure AD 테넌트에 공통된 페더레이션 메타데이터 요소만을 나열합니다.
 
 예를 들어, 테넌트별 끝점은 `https:// login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`일 수 있습니다. 테넌트 독립적 끝점은 [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml)입니다. 브라우저에서 이 URL을 입력하여 페더레이션 메타데이터 문서를 볼 수 있습니다.
 
 ## <a name="contents-of-federation-metadata"></a>페더레이션 메타데이터의 내용
-
 다음 섹션에는 Azure AD에서 발급한 토큰을 사용하는 서비스에 필요한 정보를 제공합니다.
 
 ### <a name="entity-id"></a>엔터티 ID
-
 `EntityDescriptor` 요소는 `EntityID` 특성을 포함하고 있습니다. `EntityID` 특성의 값은 발급자, 즉, 토큰을 발행한 보안 토큰 서비스(STS)를 나타냅니다. 토큰을 받을 때 발급자 유효성을 검사해야 합니다.
 
 다음 메타데이터는 `EntityID` 요소가 있는 샘플 테넌트별 `EntityDescriptor` 요소를 보여줍니다.
@@ -71,7 +64,6 @@ entityID="https://sts.windows.net/{tenant}/">
 ```
 
 ### <a name="token-signing-certificates"></a>토큰 서명 인증서
-
 서비스는 Azure AD 테넌트에서 발급한 토큰을 받으면, 페더레이션 메타데이터 문서에 게시된 서명 키로 토큰의 서명  유효성을 검사해야 합니다. 페더레이션 메타데이터는 테넌트를 토큰 서명에 사용하는 인증서의 공개 부분을 포함합니다. 인증서 원시 바이트는 `KeyDescriptor` 요소에 표시됩니다. 토큰 서명 인증서는 `use` 특성의 값이 `signing`인 경우의 서명에만 유효합니다.
 
 Azure AD를 통해 게시된 페더레이션 메타데이터 문서에는 Azure AD가 서명 인증서 업데이트를 준비하는 경우와 같은 여러 서명 키가 있을 수 있습니다. 페더레이션 메타데이터 문서가 둘 이상의 인증서를 포함하는 경우, 토큰의 유효성을 검사하는 서비스는 문서에서 모든 인증서를 지원해야 합니다.
@@ -110,7 +102,6 @@ SAML 관련 섹션에서 WS-Federation 메타데이터 판독기는 `IDPSSODescr
 테넌트 관련 및 테넌트 독립적 인증서의 형식에는 차이가 없습니다.
 
 ### <a name="ws-federation-endpoint-url"></a>WS-Federation 끝점 URL
-
 페더레이션 메타데이터는 WS-Federation 프로토콜에서 단일 로그인 및 단일 로그 아웃에 Azure AD가 사용하는 URL을 포함합니다. 이 끝점이 `PassiveRequestorEndpoint` 요소에 나타납니다.
 
 다음 메타데이터는 테넌트별 끝점에 대한 샘플 `PassiveRequestorEndpoint` 요소를 보여줍니다.
@@ -137,7 +128,6 @@ https://login.microsoftonline.com/common/wsfed
 ```
 
 ### <a name="saml-protocol-endpoint-url"></a>SAML 프로토콜 끝점 URL
-
 페더레이션 메타데이터는 SAML 2.0 프로토콜에서 단일 로그인 및 단일 로그아웃에 Azure AD가 사용하는 URL을 포함합니다. 이 끝점은 `IDPSSODescriptor` 요소에 나타납니다.
 
 로그인 및 로그아웃 URL은 `SingleSignOnService` 및 `SingleLogoutService` 요소에 나타납니다.

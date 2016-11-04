@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Log Analytics에서 Active Directory 복제 상태 솔루션 | Microsoft Azure"
-    description="Active Directory 복제 상태 솔루션 팩은 정기적으로 모든 복제 오류에 대한 Active Directory 환경을 모니터링하고 OMS 대시보드에서 결과를 보고합니다."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: Log Analytics에서 Active Directory 복제 상태 솔루션 | Microsoft Docs
+description: Active Directory 복제 상태 솔루션 팩은 정기적으로 모든 복제 오류에 대한 Active Directory 환경을 모니터링하고 OMS 대시보드에서 결과를 보고합니다.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
-
+---
 # <a name="active-directory-replication-status-solution-in-log-analytics"></a>Log Analytics에서 Active Directory 복제 상태 솔루션
-
 Active Directory는 엔터프라이즈 IT 환경의 핵심 구성 요소입니다. 고가용성 및 고성능을 보장하기 위해 각 도메인 컨트롤러에 Active Directory 데이터베이스의 자체 복사본이 있습니다. 도메인 컨트롤러는 변경 내용을 엔터프라이즈 전체에 전파하기 위해 서로 복제합니다. 이 복제 프로세스의 오류는 엔터프라이즈에서 다양한 문제를 발생시킬 수 있습니다.
 
 AD 복제 상태 솔루션 팩은 정기적으로 모든 복제 오류에 대한 Active Directory 환경을 모니터링하고 OMS 대시보드에서 결과를 보고합니다.
@@ -26,31 +24,32 @@ AD 복제 상태 솔루션 팩은 정기적으로 모든 복제 오류에 대한
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-- 평가할 도메인의 구성원인 도메인 컨트롤러 또는 OMS에 AD 복제 데이터를 보내도록 구성된 구성원 서버에 에이전트를 설치해야 합니다. Windows 컴퓨터를 OMS에 직접 연결하는 방법을 알아보려면 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md)을 참조하세요. 도메인 컨트롤러가 이미 OMS에 연결하려는 기존 System Center Operations Manager 환경의 일부인 경우 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md)을 참조하세요.
-- [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에 설명된 프로세스를 사용하여 OMS 작업 영역에 Active Directory 복제 상태 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
-
+* 평가할 도메인의 구성원인 도메인 컨트롤러 또는 OMS에 AD 복제 데이터를 보내도록 구성된 구성원 서버에 에이전트를 설치해야 합니다. Windows 컴퓨터를 OMS에 직접 연결하는 방법을 알아보려면 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md)을 참조하세요. 도메인 컨트롤러가 이미 OMS에 연결하려는 기존 System Center Operations Manager 환경의 일부인 경우 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md)을 참조하세요.
+* [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에 설명된 프로세스를 사용하여 OMS 작업 영역에 Active Directory 복제 상태 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD 복제 상태 데이터 컬렉션 세부 정보
-
 다음 표에서는 데이터 수집 방법 및 AD 복제 상태에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
 
 | 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
-|---|---|---|---|---|---|---|
-|Windows|![예](./media/log-analytics-ad-replication-status/oms-bullet-green.png)|![예](./media/log-analytics-ad-replication-status/oms-bullet-green.png)|![아니요](./media/log-analytics-ad-replication-status/oms-bullet-red.png)|![아니요](./media/log-analytics-ad-replication-status/oms-bullet-red.png)|![예](./media/log-analytics-ad-replication-status/oms-bullet-green.png)| 5일마다|
-
+| --- | --- | --- | --- | --- | --- | --- |
+| Windows |![예](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![예](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![아니요](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![아니요](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![예](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |5일마다 |
 
 ## <a name="optionally,-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>필요에 따라 AD 데이터를 OMS에 전송하도록 비 도메인 컨트롤러 활성화
 OMS에 도메인 컨트롤러를 직접 연결하지 않으려면 도메인에서 OMS에 연결된 다른 컴퓨터를 사용하여 AD 복제 상태 솔루션 팩에 대한 데이터를 수집하고 데이터를 보낼 수도 있습니다.
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>AD 데이터를 OMS에 전송하도록 비 도메인 컨트롤러 활성화하기
-1.  AD 복제 상태 솔루션을 사용하여 컴퓨터가 모니터링하려는 도메인의 구성원인지 확인합니다.
-2.  연결되어 있지 않으면 [OMS에 Windows 컴퓨터를 연결](log-analytics-windows-agents.md)하거나 [기존 Operations Manager 환경을 사용하여 OMS에 연결](log-analytics-om-agents.md)합니다.
-3.  해당 컴퓨터에서 다음 레지스트리 키를 설정합니다.
-    - 키: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-    - 값: **IsTarge**
-    - 값 데이터: **true**
-
-    >[AZURE.NOTE]이러한 변경 내용은 Microsoft Monitoring Agent 서비스(HealthService.exe)를 다시 시작할 때까지 적용되지 않습니다.
+1. AD 복제 상태 솔루션을 사용하여 컴퓨터가 모니터링하려는 도메인의 구성원인지 확인합니다.
+2. 연결되어 있지 않으면 [OMS에 Windows 컴퓨터를 연결](log-analytics-windows-agents.md)하거나 [기존 Operations Manager 환경을 사용하여 OMS에 연결](log-analytics-om-agents.md)합니다.
+3. 해당 컴퓨터에서 다음 레지스트리 키를 설정합니다.
+   
+   * 키: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
+   * 값: **IsTarge**
+   * 값 데이터: **true**
+   
+   > [!NOTE]
+   > 이러한 변경 내용은 Microsoft Monitoring Agent 서비스(HealthService.exe)를 다시 시작할 때까지 적용되지 않습니다.
+   > 
+   > 
 
 ## <a name="understanding-replication-errors"></a>복제 오류 이해
 AD 복제 상태 데이터를 OMS에 전송하면 현재 복제 오류 수를 나타내는 OMS 대시보드에 다음과 유사한 타일이 표시됩니다.  
@@ -60,7 +59,6 @@ AD 복제 상태 데이터를 OMS에 전송하면 현재 복제 오류 수를 �
 
 타일을 클릭하면 오류에 대한 자세한 정보가 표시됩니다.
 ![AD 복제 상태 대시보드](./media/log-analytics-ad-replication-status/oms-ad-replication-dash.png)
-
 
 ### <a name="destination-server-status-and-source-server-status"></a>대상 서버 상태 및 원본 서버 상태
 이 블레이드에서 복제 오류가 발생하는 대상 서버와 원본 서버의 상태를 보여 줍니다. 각 도메인 컨트롤러 이름 다음의 숫자는 해당 도메인 컨트롤러의 복제 오류 수를 나타냅니다.
@@ -93,7 +91,10 @@ AD 복제 상태 데이터를 OMS에 전송하면 현재 복제 오류 수를 �
 
 앞에서 설명한 대로 AD 복제 상태 솔루션에 대한 대시보드 타일은 사용자 환경에서 *중요* 복제 오류 수를 표시하며 삭제 표시 수명의 75% 이상인 오류로 정의됩니다(TSL의 100%를 넘는 오류 포함). 이 값을 0으로 유지하도록 합니다.
 
->[AZURE.NOTE] 모든 삭제 표시 수명 백분율 계산은 Active Directory 포리스트에 대한 실제 삭제 표시 수명을 기준으로 하므로 삭제 표시 수명 값을 사용자 지정했더라도 해당 백분율이 정확하다는 것을 신뢰할 수 있습니다.
+> [!NOTE]
+> 모든 삭제 표시 수명 백분율 계산은 Active Directory 포리스트에 대한 실제 삭제 표시 수명을 기준으로 하므로 삭제 표시 수명 값을 사용자 지정했더라도 해당 백분율이 정확하다는 것을 신뢰할 수 있습니다.
+> 
+> 
 
 ### <a name="ad-replication-status-details"></a>AD 복제 상태 세부 정보
 목록 중 하나에 있는 항목을 클릭하면 로그 검색을 사용한 추가 세부 정보가 표시됩니다. 결과는 해당 항목과 관련된 오류만 표시하도록 필터링됩니다. 예를 들어 **대상 서버 상태(ADDC02)**아래에 나열된 첫 번째 도메인 컨트롤러를 클릭하면 대상 서버로 나열된 해당 도메인 컨트롤러와 함께 오류를 보여 주는 필터링된 검색 결과가 표시됩니다.
@@ -143,12 +144,8 @@ A: 예. 이 기능을 활성화하도록 레지스트리 키의 값을 설정할
 
 OMS 또는 SCOM에 도메인 컨트롤러를 직접 연결하지 않으려면 [AD 데이터를 OMS에 전송하도록 비 도메인 컨트롤러 활성화하기](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)를 참조하세요.
 
-
 ## <a name="next-steps"></a>다음 단계
-
-- [Log Analytics의 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 Active Directory 복제 상태 데이터를 봅니다.
-
-
+* [Log Analytics의 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 Active Directory 복제 상태 데이터를 봅니다.
 
 <!--HONumber=Oct16_HO2-->
 

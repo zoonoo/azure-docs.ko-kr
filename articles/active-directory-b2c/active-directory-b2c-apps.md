@@ -1,31 +1,30 @@
-<properties
-	pageTitle="Azure AD B2C | Microsoft Azure"
-	description="Azure Active Directory B2C에서 빌드할 수 있는 응용 프로그램의 유형입니다."
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+---
+title: Azure AD B2C | Microsoft Docs
+description: Azure Active Directory B2C에서 빌드할 수 있는 응용 프로그램의 유형입니다.
+services: active-directory-b2c
+documentationcenter: ''
+author: dstrockis
+manager: msmbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="07/22/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 07/22/2016
+ms.author: dastrock
 
+---
 # Azure Active Directory B2C: 응용 프로그램 유형
-
 Azure AD(Azure Active Directory) B2C는 다양한 최신 앱 아키텍처의 인증을 지원합니다. 모두 업계 표준 프로토콜인 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 또는 [OpenID Connect](active-directory-b2c-reference-protocols.md)를 기반으로 합니다. 이 문서에서는 선호하는 언어 또는 플랫폼에 독립적으로 빌드할 수 있는 앱 유형에 대해 간략하게 설명합니다. 또한 [응용 프로그램 빌드를 시작](active-directory-b2c-overview.md#getting-started)하기 전에 대략적인 시나리오에 대한 이해를 돕습니다
 
 ## 기본 사항
 Azure AD B2C를 사용하는 모든 앱은 [Azure 포털](https://portal.azure.com/)을 통해 [B2C 디렉터리](active-directory-b2c-get-started.md)에 등록해야 합니다. 앱 등록 프로세스는 몇 개의 값을 수집하고 앱에 할당합니다.
 
-- 앱을 고유하게 식별하는 **응용 프로그램 ID**
-- 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI**
-- 다른 모든 시나리오 관련 값. 자세한 내용은 [앱 등록](active-directory-b2c-app-registration.md) 방법을 참조하세요.
+* 앱을 고유하게 식별하는 **응용 프로그램 ID**
+* 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI**
+* 다른 모든 시나리오 관련 값. 자세한 내용은 [앱 등록](active-directory-b2c-app-registration.md) 방법을 참조하세요.
 
 앱이 등록되면 Azure AD v2.0 끝점에 요청을 보내 Azure AD와 통신합니다.
 
@@ -40,10 +39,10 @@ v2.0 끝점과 각 앱의 상호 작용은 높은 수준에서 비슷한 패턴�
 
 1. 앱이 사용자를 v2.0 끝점으로 보내어 [정책](active-directory-b2c-reference-policies.md)을 실행합니다.
 2. 사용자는 정책 정의에 따라 정책을 완료합니다.
-4. 앱이 v2.0 끝점에서 일종의 보안 토큰을 받습니다.
-5. 앱이 보안 토큰을 사용하여 보호된 정보 또는 보호된 리소스에 액세스합니다.
-6. 리소스 서버가 보안 토큰의 유효성을 검사하여 액세스 권한을 부여할 수 있는지 확인합니다.
-7. 앱이 주기적으로 보안 토큰을 새로 고칩니다.
+3. 앱이 v2.0 끝점에서 일종의 보안 토큰을 받습니다.
+4. 앱이 보안 토큰을 사용하여 보호된 정보 또는 보호된 리소스에 액세스합니다.
+5. 리소스 서버가 보안 토큰의 유효성을 검사하여 액세스 권한을 부여할 수 있는지 확인합니다.
+6. 앱이 주기적으로 보안 토큰을 새로 고칩니다.
 
 <!-- TODO: Need a page for libraries to link to -->
 이러한 단계는 빌드 중인 앱의 유형에 따라 약간씩 다를 수 있습니다. 오픈 소스 라이브러리로 사용자에 대한 세부 정보를 지정할 수 있습니다.
@@ -57,10 +56,10 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
 // Partial content of a decoded id_token
 {
-	"name": "John Smith",
-	"email": "john.smith@gmail.com",
-	"oid": "d9674823-dffc-4e3f-a6eb-62fe4bd48a58"
-	...
+    "name": "John Smith",
+    "email": "john.smith@gmail.com",
+    "oid": "d9674823-dffc-4e3f-a6eb-62fe4bd48a58"
+    ...
 }
 ```
 
@@ -91,8 +90,10 @@ Accept: application/json
 
 그러면 Web API는 토큰을 사용하여 API 호출자의 ID를 확인하고 토큰에 인코드된 클레임에서 호출자에 대한 정보를 추출할 수 있습니다. [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)에서 앱이 사용할 수 있는 토큰 및 클레임 유형에 대해 알아볼 수 있습니다.
 
-> [AZURE.NOTE]
-	Azure AD B2C는 현재 고유한 잘 알려진 클라이언트에서 액세스하는 Web API만을 지원합니다. 예를 들어 전체 앱이 iOS 앱, Android 앱 및 백 엔드 Web API를 포함할 수도 있습니다. 이 아키텍처를 완전히 지원합니다. 다른 iOS 앱과 같은 파트너 클라이언트에서 동일한 Web API에 액세스하는 것은 현재 지원되지 않습니다. 전체 앱의 모든 구성 요소는 단일 응용 프로그램 ID를 공유해야 합니다.
+> [!NOTE]
+> Azure AD B2C는 현재 고유한 잘 알려진 클라이언트에서 액세스하는 Web API만을 지원합니다. 예를 들어 전체 앱이 iOS 앱, Android 앱 및 백 엔드 Web API를 포함할 수도 있습니다. 이 아키텍처를 완전히 지원합니다. 다른 iOS 앱과 같은 파트너 클라이언트에서 동일한 Web API에 액세스하는 것은 현재 지원되지 않습니다. 전체 앱의 모든 구성 요소는 단일 응용 프로그램 ID를 공유해야 합니다.
+> 
+> 
 
 Web API는 웹앱, 데스크톱 및 모바일 앱, 단일 페이지 앱, 서버 쪽 데몬 및 다른 Web API까지 포함하여 많은 유형의 클라이언트에서 토큰을 받을 수 있습니다. 다음은 Web API를 호출하는 웹앱에 대한 전체 흐름을 보여주는 예입니다.
 
@@ -107,8 +108,10 @@ Azure AD B2C를 사용하여 Web API를 보호하는 방법을 알아보려면 [
 
 이 흐름에서 앱은 [정책](active-directory-b2c-reference-policies.md)을 실행하고 사용자가 정책을 완료하면 Azure AD에서 `authorization_code`를 수신합니다. `authorization_code`는 현재 로그인한 사용자를 대신하여 백 엔드 서비스를 호출할 앱의 사용 권한을 나타냅니다. 그러면 앱은 백그라운드에서 `id_token` 및 `refresh_token`에 대한 `authorization_code`를 교환할 수 있습니다. 앱은 HTTP 요청에서 백 엔드 Web API를 인증하는 데 `id_token`을 사용할 수 있습니다. 또한 이전 항목이 만료된 경우 `refresh_token`을 사용하여 새 `id_token`을 가져올 수도 있습니다.
 
-> [AZURE.NOTE]
-	Azure AD B2C는 현재 앱 자체의 백 엔드 웹 서비스에 액세스하는 데 사용되는 토큰만을 지원합니다. 예를 들어 전체 앱이 iOS 앱, Android 앱 및 백 엔드 Web API를 포함할 수도 있습니다. 이 아키텍처를 완전히 지원합니다. iOS 앱이 OAuth 2.0 액세스 토큰을 사용하여 파트너 Web API에 액세스하는 작업은 현재 지원되지 않습니다. 전체 앱의 모든 구성 요소는 단일 응용 프로그램 ID를 공유해야 합니다.
+> [!NOTE]
+> Azure AD B2C는 현재 앱 자체의 백 엔드 웹 서비스에 액세스하는 데 사용되는 토큰만을 지원합니다. 예를 들어 전체 앱이 iOS 앱, Android 앱 및 백 엔드 Web API를 포함할 수도 있습니다. 이 아키텍처를 완전히 지원합니다. iOS 앱이 OAuth 2.0 액세스 토큰을 사용하여 파트너 Web API에 액세스하는 작업은 현재 지원되지 않습니다. 전체 앱의 모든 구성 요소는 단일 응용 프로그램 ID를 공유해야 합니다.
+> 
+> 
 
 ![네이티브 앱 스윔 레인 이미지](./media/active-directory-b2c-apps/native.png)
 

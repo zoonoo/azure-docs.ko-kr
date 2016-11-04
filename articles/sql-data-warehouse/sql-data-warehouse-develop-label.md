@@ -1,21 +1,21 @@
-<properties
-   pageTitle="SQL 데이터 웨어하우스 | Microsoft Azure에서 레이블을 사용하여 쿼리 계측"
-   description="솔루션 개발을 위해 Azure SQL 데이터 웨어하우스에서 레이블을 사용하여 쿼리를 계측하기 위한 팁."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: SQL 데이터 웨어하우스 | Microsoft Docs
+description: 솔루션 개발을 위해 Azure SQL 데이터 웨어하우스에서 레이블을 사용하여 쿼리를 계측하기 위한 팁.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # SQL 데이터 웨어하우스에서 레이블을 사용하여 쿼리 계측
 SQL 데이터 웨어하우스는 쿼리 레이블이라는 개념을 지원합니다. 좀더 깊이 들어가기 전에 한 예를 살펴보겠습니다.
 
@@ -39,11 +39,13 @@ WHERE   r.[label] = 'My Query Label'
 ;
 ```
 
-> [AZURE.NOTE] 쿼리할 때 반드시 단어 레이블을 대괄호 또는 큰따옴표로 묶어야 합니다. 레이블은 예약어이며 구분하지 않으면 오류를 야기합니다.
-
+> [!NOTE]
+> 쿼리할 때 반드시 단어 레이블을 대괄호 또는 큰따옴표로 묶어야 합니다. 레이블은 예약어이며 구분하지 않으면 오류를 야기합니다.
+> 
+> 
 
 ## 다음 단계
-더 많은 개발 팁은 [개발 개요][]를 참조하세요.
+더 많은 개발 팁은 [개발 개요][개발 개요]를 참조하세요.
 
 <!--Image references-->
 

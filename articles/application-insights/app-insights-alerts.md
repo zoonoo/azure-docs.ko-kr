@@ -1,37 +1,38 @@
-<properties 
-	pageTitle="Application Insights에서 경고 설정" 
-	description="충돌, 예외, 메트릭 변경 사항에 대한 전자 메일을 받습니다." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Application Insights에서 경고 설정
+description: 충돌, 예외, 메트릭 변경 사항에 대한 전자 메일을 받습니다.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/20/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 06/20/2016
+ms.author: awills
+
+---
 # Application Insights에서 경고 설정
-
 [Visual Studio Application Insights][start]는 앱의 성능 및 사용 메트릭이 변경되면 사용자에게 경고할 수 있습니다.
 
 Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 모니터링하여 성능 문제를 진단하고 사용 패턴을 이해할 수 있습니다.
 
 경고의 종류는 두 가지입니다.
- 
+
 * **웹 테스트**는 인터넷에서 사이트를 사용할 수 없거나 응답 속도가 느려지면 그 사실을 알려줍니다. [자세히 알아봅니다][availability].
 * **메트릭 경고**는 어떤 메트릭이 실패 수, 메모리, 페이지 보기 등의 임계값을 일정 기간 동안 초과하면 그 사실을 알려줍니다. 
 
 [웹 테스트에 대한 별도의 페이지][availability]를 준비해 두었으니 지금은 메트릭 경고를 집중적으로 살펴보겠습니다.
 
-> [AZURE.NOTE] 또한 [사전 감지](app-insights-proactive-detection.md)에서 전자 메일을 가져올 수 있으며 이는 앱의 성능에서 비정상적인 패턴을 경고합니다. 경고와는 달리 이러한 알림은 설정하지 않고도 실행됩니다. 즉각적인 문제에 대한 경보를 발생시키는 것이 아니라 앱의 성능을 조정하는 것이 목표입니다.
+> [!NOTE]
+> 또한 [사전 감지](app-insights-proactive-detection.md)에서 전자 메일을 가져올 수 있으며 이는 앱의 성능에서 비정상적인 패턴을 경고합니다. 경고와는 달리 이러한 알림은 설정하지 않고도 실행됩니다. 즉각적인 문제에 대한 경보를 발생시키는 것이 아니라 앱의 성능을 조정하는 것이 목표입니다.
+> 
+> 
 
 ## 메트릭 경고
-
 앱에 대해 Application Insights를 설정하지 않았다면 일단 [설정 작업][start]부터 수행하세요.
 
 메트릭이 임계값을 초과할 때 전자 메일을 받으려면 메트릭 탐색기 또는 개요 블레이드의 경고 규칙 타일에서 시작합니다.
@@ -43,15 +44,17 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 * 경고에 입력하는 이름은 리소스 그룹(응용 프로그램 아님) 내에서 고유한 이름이어야 합니다.
 * "메일 소유자..." 확인란을 선택하면 이 리소스 그룹에 액세스하는 모든 사용자에게 메일을 통해 경고가 보내집니다. 사용자 집합을 확장하려면 [리소스 그룹 또는 구독](app-insights-resources-roles-access-control.md)(리소스 아님)에 추가합니다.
 * "추가 메일"을 지정하면 "메일 소유자..." 확인란의 선택 여부와 상관없이 이러한 개인 또는 그룹에게 경고가 보내집니다. 
-* 경고에 응답하는 웹앱을 설정한 경우 [웹후크 주소](../azure-portal/insights-webhooks-alerts.md)를 설정합니다. 경고가 활성화(즉, 트리거)될 때 및 해결될 때 모두 호출됩니다. 그러나 현재 쿼리 매개 변수는 웹후크 속성으로 전달되지 않습니다.
+* 경고에 응답하는 웹앱을 설정한 경우 [웹후크 주소](../monitoring-and-diagnostics/insights-webhooks-alerts.md)를 설정합니다. 경고가 활성화(즉, 트리거)될 때 및 해결될 때 모두 호출됩니다. 그러나 현재 쿼리 매개 변수는 웹후크 속성으로 전달되지 않습니다.
 * 블레이드 맨 위에 있는 단추를 참조하여 경고를 사용 또는 사용 안 함으로 설정할 수 있습니다.
 
 *경고 추가 단추가 보이지 않습니다.* - 조직 계정을 사용 중이신가요? 이 응용 프로그램 리소스에 소유자 또는 참가자 액세스가 가능하면 경고를 설정할 수 있습니다. 설정 -> 사용자를 살펴보세요. [액세스 제어에 대해 자세히 알아보세요][roles].
 
-> [AZURE.NOTE] 경고 블레이드에 [NRT 사전 진단](app-insights-nrt-proactive-diagnostics.md) 경고 설정이 이미 있습니다. 이는 특정 메트릭, 요청 실패율을 모니터링하는 자동 경고입니다. 따라서 이를 사용하지 않으려는 경우가 아니면 요청 실패율에 대한 자체 경고를 설정할 필요가 없습니다.
+> [!NOTE]
+> 경고 블레이드에 [NRT 사전 진단](app-insights-nrt-proactive-diagnostics.md) 경고 설정이 이미 있습니다. 이는 특정 메트릭, 요청 실패율을 모니터링하는 자동 경고입니다. 따라서 이를 사용하지 않으려는 경우가 아니면 요청 실패율에 대한 자체 경고를 설정할 필요가 없습니다.
+> 
+> 
 
 ## 경고 보기
-
 알림 상태가 비활성 및 활성 간에 변경될 때 전자 메일이 제공됩니다.
 
 각 알림의 현재 상태는 알림 규칙 블레이드에 표시됩니다.
@@ -64,36 +67,22 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 
 ![개요 블레이드에서 설정, 감사 로그를 클릭합니다.](./media/app-insights-alerts/09-alerts.png)
 
-
-
 ## 경고 작동 방식
-
 * 경고에는 "활성화되지 않음", "활성화됨", "해결됨"의 세 가지 상태가 있습니다. 활성화됨은 마지막으로 평가되었을 때 지정한 조건이 true였음을 의미합니다.
-
 * 경고 상태가 변경되면 알림이 생성됩니다. (경고를 만들었을 때 이미 경고 조건이 true인 경우 조건이 false가 될 때까지 알림이 발생되지 않을 수 있습니다.)
-
 * 메일 상자를 선택했거나 메일 주소를 제공한 경우 각 알림은 메일을 생성합니다. 알림 드롭다운 목록에서 찾아볼 수도 있습니다.
-
 * 메트릭이 도착할 때마다 경고가 평가되고 그렇지 않은 경우는 평가되지 않습니다.
-
 * 평가는 이전 기간에 대한 메트릭을 집계한 다음 임계값과 비교하여 새 상태를 결정합니다.
-
 * 선택하는 기간으로 메트릭이 집계되는 간격이 지정됩니다. 기간은 경고가 평가되는 빈도에는 영향을 주지 않습니다. 이는 메트릭 도착 빈도에 따라 다릅니다.
-
 * 일정 시간 동안 특정 메트릭에 대해 데이터가 도착하지 않는 경우 해당 간격은 메트릭 탐색기의 차트와 경고 평가에 다른 영향을 미칩니다. 메트릭 탐색기에서 데이터가 차트의 샘플링 간격보다 오랫동안 표시되지 않는 경우 차트 값에는 0이 표시됩니다. 하지만 동일한 메트릭에 따른 경고는 재평가되지 않으며 경고의 상태는 변경되지 않고 그대로 유지됩니다.
-
+  
     마침내 데이터가 도착하면 차트는 0이 아닌 값으로 이동합니다. 경고는 지정된 기간 동안 사용 가능한 데이터에 따라 평가합니다. 새 데이터 요소를 해당 기간에 하나만 사용할 수 있는 경우 집계는 해당 요소만 기반으로 합니다.
-
 * 경고는 긴 기간을 설정한 경우에도 경고와 정상 상태 사이에서 자주 깜박거릴 수 있습니다. 메트릭 값이 임계값 주위를 가리키는 경우 이런 현상이 발생할 수 있습니다. 임계값에는 이력이 없습니다. 경고로 전환되는 것과 정상으로 전환되는 것이 같은 값에서 발생합니다.
 
-
-
 ## 가용성 경고
-
 전세계 지점에서 모든 웹사이트를 테스트하도록 웹 테스트를 설정할 수 있습니다. [자세히 알아봅니다][availability].
 
 ## 어떤 경고를 설정하면 좋은가요?
-
 응용 프로그램에 따라 다릅니다. 처음에는 경고를 너무 많이 설정하지 않는 것이 좋습니다. 일단 앱이 실행되는 동안 메트릭 차트를 살펴보면서 정상적으로 작동할 때의 상태를 숙지합니다. 이렇게 하면 성능을 개선하는 방법을 찾는 데 도움이 됩니다. 그런 다음 메트릭이 정상 영역을 벗어나면 알려주는 경고를 설정합니다.
 
 다음은 많은 사람들이 사용하는 경고입니다.
@@ -104,17 +93,13 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 * **서버 예외**를 보려면 일부 [추가 설치](app-insights-asp-net-exceptions.md) 작업을 수행해야 합니다.
 
 ## 자동화
-
 * [PowerShell을 사용하여 경고 설정 자동화](app-insights-powershell-alerts.md)
-* [Webhook를 사용하여 경고에 대한 응답 자동화](../azure-portal/insights-webhooks-alerts.md)
+* [Webhook를 사용하여 경고에 대한 응답 자동화](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
 ## 참고 항목
-
 * [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)
 * [경고 설정 자동화](app-insights-powershell-alerts.md)
 * [자동 관리 검색](app-insights-proactive-detection.md) 
-
-
 
 <!--Link references-->
 
@@ -124,6 +109,6 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
- 
+
 
 <!---HONumber=AcomDC_0622_2016-->

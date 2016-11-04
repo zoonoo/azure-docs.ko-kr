@@ -1,25 +1,22 @@
-<properties
-    pageTitle="Service Bus Relay 개요 | Microsoft Azure"
-    description="서비스 버스 릴레이 개요"
-    services="service-bus"
-    documentationCenter=".net"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+---
+title: Service Bus Relay 개요 | Microsoft Docs
+description: 서비스 버스 릴레이 개요
+services: service-bus
+documentationcenter: .net
+author: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="multiple"
-    ms.topic="get-started-article"
-    ms.date="09/01/2016"
-    ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: get-started-article
+ms.date: 09/01/2016
+ms.author: sethm
 
-
-
+---
 # <a name="overview-of-service-bus-relay"></a>Service Bus Relay 개요
-
 Service Bus의 주요 구성 요소는 Azure 데이터 센터와 고유한 온-프레미스 엔터프라이즈 환경 모두에서 실행되는 하이브리드 응용 프로그램을 빌드할 수 있도록 하는 중앙 집중식(이지만 부하 분산된) *릴레이* 서비스입니다.  Service Bus Relay는 다양한 전송 프로토콜 및 웹 서비스 표준을 지원합니다. 여기에는 SOAP, WS-* 및 REST가 포함됩니다. 릴레이 서비스는 방화벽 연결을 열거나 회사 네트워크 인프라를 주입식으로 변경하지 않고도 회사 엔터프라이즈 네트워크 내에 있는 WCF(Windows Communication Foundation) 서비스를 공용 클라우드에 안전하게 노출할 수 있게 함으로써 이 작업을 도와줍니다. 
 
 ![릴레이 개념](./media/service-bus-relay-overview/sb-relay-01.png)
@@ -31,14 +28,10 @@ Service Bus의 주요 구성 요소는 Azure 데이터 센터와 고유한 온-�
 WCF “릴레이” 바인딩 모음을 사용하여 온-프레미스 서비스와 릴레이 서비스 사이의 연결을 시작합니다. 내부적으로, 릴레이 바인딩은 클라우드에서 서비스 버스와 통합하는 WCF 채널 구성 요소를 생성하도록 설계된 새로운 전송 바인딩 요소에 매핑합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-
 Service Bus Relay에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-- [Azure Service Bus 아키텍처 개요](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus Relay 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
-
- 
-
+* [Azure Service Bus 아키텍처 개요](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus Relay 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
 
 <!--HONumber=Oct16_HO2-->
 

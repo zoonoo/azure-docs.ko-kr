@@ -1,41 +1,37 @@
 
-<properties
-   pageTitle="내부 부하 분산 장치 개요 | Microsoft Azure"
-   description="내부 부하 분산 장치 및 해당 기능에 대한 개요입니다. Azure에 대한 부하 분산 장치의 작동 방식 및 내부 끝점을 구성하는 가능한 시나리오입니다."
-   services="load-balancer"
-   documentationCenter="na"
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
-<tags
-   ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/25/2016"
-   ms.author="sewhee" />
+---
+title: 내부 부하 분산 장치 개요 | Microsoft Docs
+description: 내부 부하 분산 장치 및 해당 기능에 대한 개요입니다. Azure에 대한 부하 분산 장치의 작동 방식 및 내부 끝점을 구성하는 가능한 시나리오입니다.
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: tysonn
 
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/25/2016
+ms.author: sewhee
 
+---
 # 내부 부하 분산 장치 개요
-
 인터넷 연결 부하 분산 장치와는 달리, ILB(내부 부하 분산 장치)는 클라우드 서비스 내의 리소스에만 액세스하거나 VPN을 사용하여 Azure 인프라에 액세스합니다. 이러한 인프라에서는 가상 네트워크 또는 클라우드 서비스의 부하 분산된 VIP(가상 IP) 주소가 인터넷 끝점에 직접 표시되지 않도록 이러한 주소에 대한 액세스를 제한합니다. 이렇게 하면 내부 기간 업무 응용 프로그램을 Azure에서 실행하고 온-프레미스의 리소스나 클라우드 내에서 해당 응용 프로그램에 액세스할 수 있습니다.
 
 ## 내부 부하 분산 장치에 대한 시나리오
-
 Azure ILB(내부 부하 분산)는 클라우드 서비스 또는 지역 범위의 가상 네트워크 내부에 있는 가상 컴퓨터 간의 부하 분산을 제공합니다. 지역 범위의 가상 네트워크 사용 및 구성에 대한 자세한 내용은 Azure 블로그의 [지역 가상 네트워크](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)를 참조하세요. 선호도 그룹에 대해 구성된 기존 가상 네트워크는 ILB를 사용할 수 없습니다.
 
 ILB에서는 다음과 같은 시나리오를 수행할 수 있습니다.
 
-- 클라우드 서비스 내의 가상 컴퓨터에서 동일한 클라우드 서비스 내에 있는 가상 컴퓨터 집합으로(그림 1 참조)
-- 가상 네트워크 내의 가상 컴퓨터에서 가상 네트워크의 동일한 클라우드 서비스 내에 있는 가상 컴퓨터 집합으로(그림 2 참조)
-- 크로스-프레미스 가상 네트워크의 경우 온-프레미스 컴퓨터에서 가상 네트워크의 동일한 클라우드 서비스 내에 있는 가상 컴퓨터 집합으로(그림 3 참조)
-- 백 엔드 계층이 인터넷에 연결되어 있지 않지만 인터넷 연결 계층에서 전송된 트래픽에 대한 부하 분산을 요구하는 인터넷 연결 다중 계층 응용 프로그램
-- 추가적인 부하 분산 장치 하드웨어 또는 소프트웨어 없이도 Azure에서 호스트되는 LOB(기간 업무) 응용 프로그램의 부하를 분산합니다. 트래픽 부하가 분산되는 컴퓨터 집합에 온-프레미스 서버 포함
+* 클라우드 서비스 내의 가상 컴퓨터에서 동일한 클라우드 서비스 내에 있는 가상 컴퓨터 집합으로(그림 1 참조)
+* 가상 네트워크 내의 가상 컴퓨터에서 가상 네트워크의 동일한 클라우드 서비스 내에 있는 가상 컴퓨터 집합으로(그림 2 참조)
+* 크로스-프레미스 가상 네트워크의 경우 온-프레미스 컴퓨터에서 가상 네트워크의 동일한 클라우드 서비스 내에 있는 가상 컴퓨터 집합으로(그림 3 참조)
+* 백 엔드 계층이 인터넷에 연결되어 있지 않지만 인터넷 연결 계층에서 전송된 트래픽에 대한 부하 분산을 요구하는 인터넷 연결 다중 계층 응용 프로그램
+* 추가적인 부하 분산 장치 하드웨어 또는 소프트웨어 없이도 Azure에서 호스트되는 LOB(기간 업무) 응용 프로그램의 부하를 분산합니다. 트래픽 부하가 분산되는 컴퓨터 집합에 온-프레미스 서버 포함
 
 ## 인터넷 연결 다중 계층 응용 프로그램
-
-
 웹 계층은 인터넷 클라이언트에 대한 인터넷 연결 끝점을 포함하며 부하 분산 집합의 일부입니다. 부하 분산 장치는 TCP 포트 443(HTTPS)에 대해 웹 클라이언트에서 들어오는 트래픽을 웹 서버로 배포합니다.
 
 데이터베이스 서버는 웹 서버가 저장소에 사용하는 ILB 끝점 뒤에 있습니다. 이 데이터베이스 서비스 부하 분산 끝점의 트래픽은 ILB 집합의 데이터베이스 서버 간에 부하 분산됩니다.
@@ -57,7 +53,6 @@ ILB에서는 다음과 같은 시나리오를 수행할 수 있습니다.
 ![클라우드 서비스 간의 내부 부하 분산](./media/load-balancer-internal-overview/IC744147.png)
 
 ## 인트라넷 LOB(기간 업무) 응용 프로그램
-
 온-프레미스 네트워크의 클라이언트에서 전송된 트래픽은 Azure 네트워크에 대한 VPN 연결을 통해 LOB 서버 집합에 부하 분산됩니다.
 
 클라이언트 컴퓨터는 지점과 사이트 간 VPN을 사용하여 Azure VPN 서비스의 IP 주소에 액세스할 수 있습니다. 이 경우 ILB 끝점 뒤에 호스트된 LOB 응용 프로그램을 사용할 수 있습니다.
@@ -72,9 +67,7 @@ LOB에 대한 다른 시나리오는 ILB 끝점이 구성된 가상 네트워크
 
 ![사이트 간 VPN을 사용한 내부 부하 분산](./media/load-balancer-internal-overview/IC744150.png)
 
-
 ## 다음 단계
-
 [인터넷 연결 부하 분산 장치 구성 시작](load-balancer-get-started-internet-arm-ps.md)
 
 [내부 부하 분산 장치 구성 시작](load-balancer-get-started-ilb-arm-ps.md)

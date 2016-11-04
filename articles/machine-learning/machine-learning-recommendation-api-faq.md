@@ -1,31 +1,32 @@
-<properties 
-	pageTitle="기계 학습 권장 사항 API 설정 및 사용 | Microsoft Azure" 
-	description="Azure 기계 학습을 사용하여 빌드한 Microsoft 권장 사항 API FAQ" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: 기계 학습 권장 사항 API 설정 및 사용 | Microsoft Docs
+description: Azure 기계 학습을 사용하여 빌드한 Microsoft 권장 사항 API FAQ
+services: machine-learning
+documentationcenter: ''
+author: LuisCabrer
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2016" 
-	ms.author="luisca"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2016
+ms.author: luisca
 
-#기계 학습 권장 사항 API 설정 및 사용에 대한 FAQ
-
-
+---
+# 기계 학습 권장 사항 API 설정 및 사용에 대한 FAQ
 **권장 사항이란 무엇입니까?**
 
->[AZURE.NOTE] 이 버전 대신 Recommendations API Cognitive 서비스를 사용하기 시작해야 합니다. Recommendations Cognitive 서비스가 이 서비스를 대체하게 되며, 모든 새로운 기능이 여기에서 개발됩니다. 일괄 처리 지원, 개선된 API 탐색기, 보다 깔끔한 API 노출 영역, 보다 일관적인 등록/청구 경험 등의 새로운 기능이 있습니다. [새로운 Cognitive 서비스로 마이그레이션](http://aka.ms/recomigrate)에 대해 자세히 알아보세요.
+> [!NOTE]
+> 이 버전 대신 Recommendations API Cognitive 서비스를 사용하기 시작해야 합니다. Recommendations Cognitive 서비스가 이 서비스를 대체하게 되며, 모든 새로운 기능이 여기에서 개발됩니다. 일괄 처리 지원, 개선된 API 탐색기, 보다 깔끔한 API 노출 영역, 보다 일관적인 등록/청구 경험 등의 새로운 기능이 있습니다. [새로운 Cognitive 서비스로 마이그레이션](http://aka.ms/recomigrate)에 대해 자세히 알아보세요.
+> 
+> 
 
 고객에 대한 교차 판매 및 상향 판매의 권장 사항에 의존하는 조직과 비즈니스를 위한 Azure 기계 학습 권장 사항은 셀프 서비스 권장 사항 엔진을 제공합니다. 이는 행렬 인수분해를 핵심 알고리즘으로 사용한 공동 작업 필터링 구현입니다. 응용 프로그램 개발자는 REST API를 사용하여 RECOMMENDATIONS에 액세스할 수 있습니다.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 **권장 사항으로 무엇을 수행할 수 있습니까?**
 
@@ -34,15 +35,14 @@
 **사용 제한이 있습니까?**
 
 권장 사항에는 다음과 같은 사용 제한이 있습니다.
+
 * 구독당 최대 모델 수: 10
 * 카탈로그에 포함할 수 있는 최대 항목 수: 100,000
 * 유지되는 사용 포인트의 최대 수는 5,000,000개입니다. 새 포인트가 업로드되거나 보고되면 가장 오래된 포인트가 삭제됩니다.
 * 메일로 전송할 수 있는 최대 데이터 크기(예: 카탈로그 데이터 가져오기, 사용 현황 데이터 가져오기)는 200MB입니다.
 * 활성화되지 않은 권장 사항 모델 빌드에 대한 TPS(초당 트랜잭션 수)는 최대 2TPS입니다. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
 
-##구매 및 요금 청구 
-
-
+## 구매 및 요금 청구
 **출시 기간 동안 권장 사항 비용은 얼마입니까?**
 
 권장 사항은 구독 기반 서비스입니다. 요금 청구는 월별 트랜잭션 볼륨 기준입니다. 가격 정보는 Microsoft Azure 마켓플레이스의 [제품 페이지](https://datamarket.azure.com/dataset/amla/recommendations)에서 확인할 수 있습니다.
@@ -93,8 +93,7 @@ Microsoft Azure 마켓플레이스의 [제품 페이지](https://datamarket.azur
 
 새 구독을 구입할 수 있도록 즉시 구독을 취소하려면 [Microsoft 지원](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn)에서 티켓을 발행하세요.
 
-##권장 사항 시작하기
-
+## 권장 사항 시작하기
 **권장 사항이 고객에게 적합합니까?**
 
 기계 학습 권장 사항은 고객에 대한 제품 또는 서비스의 교차 판매 및 상향 판매에 대한 권장 사항에 의존하는 조직과 비즈니스에 적합합니다. 고객을 응대하는 웹 사이트, 영업 인력, 내부 판매 인력 또는 콜 센터가 있고 수십 개의 제품이나 서비스가 포함된 카탈로그를 제공하는 경우 권장 사항을 활용하여 수익을 높일 수 있습니다.
@@ -119,8 +118,7 @@ API 설명서는 [Azure 기계 학습 권장 사항 - 빠른 시작 가이드](m
 
 카탈로그 및 사용 데이터를 업로드하는 두 가지 옵션이 있습니다. CRM 시스템 또는 기타 로그에서 이러한 데이터를 내보내고 권장 사항에 업로드하거나, 사용자 활동을 추적할 웹 사이트에 태그를 추가할 수 있습니다. 두 번째 방법을 사용하면 데이터가 Azure에 저장됩니다.
 
-##유지 관리 및 지원
-
+## 유지 관리 및 지원
 **내 데이터 집합은 얼마나 확장할 수 있습니까?**
 
 각 데이터 집합은 카탈로그 항목 최대 100,000 개와 사용 데이터 최대 2048MB를 포함할 수 있습니다. 또한 구독은 데이터 집합(모델) 최대 10개를 포함할 수 있습니다.
@@ -132,9 +130,5 @@ API 설명서는 [Azure 기계 학습 권장 사항 - 빠른 시작 가이드](m
 **사용 약관은 어디서 찾을 수 있습니까?**
 
 [Microsoft Azure 기계 학습 권장 사항 API 서비스 약관](https://datamarket.azure.com/dataset/amla/recommendations#terms)에서 찾을 수 있습니다.
-
-
-
- 
 
 <!---HONumber=AcomDC_0914_2016-->

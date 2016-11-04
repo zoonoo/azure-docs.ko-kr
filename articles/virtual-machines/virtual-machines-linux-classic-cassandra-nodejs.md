@@ -1,25 +1,26 @@
-<properties 
-	pageTitle="Azure에서 Linux로 Cassandra 실행 | Microsoft Azure" 
-	description="Node.js 앱에서 Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다." 
-	services="virtual-machines-linux" 
-	documentationCenter="nodejs" 
-	authors="hanuk" 
-	manager="wpickett" 
-	editor=""
-	tags="azure-service-management"/>
+---
+title: Azure에서 Linux로 Cassandra 실행 | Microsoft Docs
+description: Node.js 앱에서 Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다.
+services: virtual-machines-linux
+documentationcenter: nodejs
+author: hanuk
+manager: wpickett
+editor: ''
+tags: azure-service-management
 
-<tags 
-	ms.service="virtual-machines-linux" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2016" 
-	ms.author="hanuk;robmcm"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 08/11/2016
+ms.author: hanuk;robmcm
 
-# Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스 
+---
+# Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/)하는 방법을 알아봅니다.
+[Resource Manager 모델을 사용하여 이러한 단계를 수행](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/)하는 방법을 알아봅니다.
 
 ## 개요
 Microsoft Azure는 운영 체제, 응용 프로그램 서버, 메시징 미들웨어뿐 아니라 상용 및 오픈 소스 모델의 SQL 및 NoSQL 데이터베이스를 포함하는 Microsoft 및 타사 소프트웨어를 실행하는 개방형 클라우드 플랫폼입니다. Azure를 비롯한 공용 클라우드에 복원 서비스를 빌드하려면 응용 프로그램 서버 및 저장소 계층 둘 다의 신중한 계획과 세밀한 아키텍처가 필요합니다. Cassandra의 분산 저장소 아키텍처는 클러스터 오류에 대한 내결함성이 있는 고가용성 시스템 빌드에 도움이 됩니다. Cassandra는 cassandra.apache.org에서 Apache Software Foundation에 의해 유지 관리되는 클라우드 규모의 NoSQL 데이터베이스입니다. Cassandra는 Java로 작성되었으므로 Windows 및 Linux 플랫폼에서 모두 실행됩니다.
@@ -28,15 +29,15 @@ Microsoft Azure는 운영 체제, 응용 프로그램 서버, 메시징 미들�
 
 이 문서에서는 인프라 배포를 훨씬 용이하게 하는 Cassandra 클러스터 비교 Docker, Chef 또는 Puppet 빌드와 관련된 작업을 보여 주는 기본적인 접근 방법을 사용합니다.
 
-## 배포 모델 
+## 배포 모델
 Microsoft Azure 네트워킹을 사용하면 미세 조정된 네트워크 보안을 위해 액세스를 제한할 수 있는 격리된 개인 클러스터를 배포할 수 있습니다. 이 문서에서는 기본 수준의 Cassandra 배포를 보여 줄 것이므로 일관성 수준 및 처리량에 최적화된 저장소 디자인에는 중점을 두지 않습니다. 다음은 가상 클러스터에 대한 네트워킹 요구 사항 목록입니다.
 
-- 외부 시스템은 Azure 내부나 외부에서 Cassandra 데이터베이스에 액세스할 수 없어야 합니다.
-- Cassandra 클러스터는 쓰리프트 트래픽에 대한 부하 분산 장치 뒤에 있어야 합니다.
-- 클러스터 가용성 향상을 위해 각 데이터 센터의 두 그룹에 Cassandra 노드를 배포해야 합니다.
-- 응용 프로그램 서버 팜만 데이터베이스에 직접 액세스할 수 있도록 클러스터를 잠가야 합니다.
-- SSH 이외의 공용 네트워킹 끝점이 없어야 합니다.
-- 각 Cassandra 노드에 고정된 내부 IP 주소가 필요합니다.
+* 외부 시스템은 Azure 내부나 외부에서 Cassandra 데이터베이스에 액세스할 수 없어야 합니다.
+* Cassandra 클러스터는 쓰리프트 트래픽에 대한 부하 분산 장치 뒤에 있어야 합니다.
+* 클러스터 가용성 향상을 위해 각 데이터 센터의 두 그룹에 Cassandra 노드를 배포해야 합니다.
+* 응용 프로그램 서버 팜만 데이터베이스에 직접 액세스할 수 있도록 클러스터를 잠가야 합니다.
+* SSH 이외의 공용 네트워킹 끝점이 없어야 합니다.
+* 각 Cassandra 노드에 고정된 내부 IP 주소가 필요합니다.
 
 Cassandra는 작업의 분산 특성에 따라 단일 Azure 지역이나 여러 지역에 배포할 수 있습니다. 다중 지역 배포 모델을 활용하면 동일한 Cassandra 인프라를 통해 특정 지역에 더 가까운 곳에서 최종 사용자에게 서비스를 제공할 수 있습니다. Cassandra의 기본 제공 노드 복제는 여러 데이터 센터에서 발생한 다중 마스터 쓰기를 동기화하고 일관된 데이터 뷰를 응용 프로그램에 제공합니다. 또한 다중 지역 배포는 광범위한 Azure 서비스 중단 위험의 완화에도 도움이 될 수 있습니다. Cassandra의 조정 가능한 일관성 및 복제 토폴로지는 응용 프로그램의 다양한 RPO 요구를 충족하는 데 유용합니다.
 
@@ -64,14 +65,13 @@ Cassandra는 두 가지 유형의 데이터 무결성 모델, 즉 일관성과 �
 단일 지역 Cassandra 클러스터 구성:
 
 | 클러스터 매개 변수 | 값 | 설명 |
-| ----------------- | ----- | ------- |
-| 노드 수(N) | 8 | 클러스터의 총 노드 수 |
-| 복제 계수(RF) | 3 |	지정된 행의 복제본 수 |
-| 일관성 수준(쓰기) | QUORUM [(RF/2) +1= 2] 공식 결과는 버림됨 | 응답이 호출자에게 전송되기 전에 최대 2개의 복제본에 씁니다. 세 번째 복제본은 최종 일관성 방식으로 작성됩니다. |
-| 일관성 수준(읽기) | QUORUM [(RF/2) +1= 2] 공식 결과는 버림됨 | 호출자에게 응답을 보내기 전에 2개의 복제본을 읽습니다. |
-| 복제 전략 | NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) 참조 | 배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
-| Snitch | GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html)를 참조 | NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. |
-
+| --- | --- | --- |
+| 노드 수(N) |8 |클러스터의 총 노드 수 |
+| 복제 계수(RF) |3 |지정된 행의 복제본 수 |
+| 일관성 수준(쓰기) |QUORUM [(RF/2) +1= 2] 공식 결과는 버림됨 |응답이 호출자에게 전송되기 전에 최대 2개의 복제본에 씁니다. 세 번째 복제본은 최종 일관성 방식으로 작성됩니다. |
+| 일관성 수준(읽기) |QUORUM [(RF/2) +1= 2] 공식 결과는 버림됨 |호출자에게 응답을 보내기 전에 2개의 복제본을 읽습니다. |
+| 복제 전략 |NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) 참조 |배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
+| Snitch |GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html)를 참조 |NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. |
 
 **Cassandra 클러스터에 대한 Azure 고려 사항:** Microsoft Azure 가상 컴퓨터 기능은 디스크 지속성에 Azure Blob 저장소를 사용합니다. Azure 저장소는 내구성 향상을 위해 각 디스크의 복제본을 3개 저장합니다. 즉, Cassandra 테이블에 삽입된 데이터의 각 행은 3개의 복제본에 이미 저장되어 있으므로 복제 계수(RF)가 1이더라도 데이터 일관성이 처리됩니다. 복제 요소가 1인 가장 큰 문제는 단일 Cassandra 노드가 실패하는 경우더라도 응용 프로그램에서 작동 중단이 발생한다는 것입니다. 그러나 Azure 패브릭 컨트롤러에서 인식된 문제(예: 하드웨어, 시스템 소프트웨어 오류)에 대한 노드가 다운되는 경우, 동일한 저장소 드라이브를 사용하여 해당 위치에 새 노드를 프로비전합니다. 새 노드를 프로비전하여 이전 노드로 바꾸려면 몇 분 정도 걸릴 수 있습니다. 게스트 OS 변경 같이 계획된 유지 관리 작업과 마찬가지로, Cassandra가 업그레이드되고 응용 프로그램이 변경되어 Azure Fabric Controller는 클러스터에서 노드의 롤링 업그레이드를 수행합니다. 롤링 업그레이드도 한번에 몇 노드를 분해하므로 클러스터는 몇 파티션에 대해 간단한 가동 중지가 발생할 수 있습니다. 그러나 데이터는 기본 제공 Azure 저장소 중복으로 손실되지 않습니다.
 
@@ -98,26 +98,24 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 
 **두 지역 Cassandra 클러스터 구성**
 
-
 | 클러스터 매개 변수 | 값 | 설명 |
-| ----------------- | ----- | ------- |
-| 노드 수(N) | 8 + 8 | 클러스터의 총 노드 수 |
-| 복제 계수(RF) | 3 | 지정된 행의 복제본 수 |
-| 일관성 수준(쓰기) | LOCAL\_QUORUM [(sum(RF)/2) +1) = 4] 수식의 결과는 버림됨 | 2개 노드는 첫 번째 데이터 센터에 동기적으로 기록됩니다. 할당량에 필요한 추가 2개 노드는 두 번째 데이터 센터에 비동기적으로 기록됩니다. |
-| 일관성 수준(읽기) | LOCAL\_QUORUM ((RF/2) +1) = 2 공식 결과는 버림됨 | 읽기 요청은 한 지역에서만 충족됩니다. 응답이 클라이언트로 다시 전송되기 전에 2개 노드를 읽습니다. |
-| 복제 전략 | NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) 참조 | 배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
-| Snitch | GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html)를 참조 | NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. | 
- 
+| --- | --- | --- |
+| 노드 수(N) |8 + 8 |클러스터의 총 노드 수 |
+| 복제 계수(RF) |3 |지정된 행의 복제본 수 |
+| 일관성 수준(쓰기) |LOCAL\_QUORUM [(sum(RF)/2) +1) = 4] 수식의 결과는 버림됨 |2개 노드는 첫 번째 데이터 센터에 동기적으로 기록됩니다. 할당량에 필요한 추가 2개 노드는 두 번째 데이터 센터에 비동기적으로 기록됩니다. |
+| 일관성 수준(읽기) |LOCAL\_QUORUM ((RF/2) +1) = 2 공식 결과는 버림됨 |읽기 요청은 한 지역에서만 충족됩니다. 응답이 클라이언트로 다시 전송되기 전에 2개 노드를 읽습니다. |
+| 복제 전략 |NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) 참조 |배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
+| Snitch |GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html)를 참조 |NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. |
 
-##소프트웨어 구성
+## 소프트웨어 구성
 배포 중에 다음 소프트웨어 버전이 사용됩니다.
 
 <table>
 <tr><th>소프트웨어</th><th>원본</th><th>버전</th></tr>
-<tr><td>JRE	</td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
-<tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
+<tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
+<tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu	</td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
+<tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
 JRE를 다운로드하려면 Oracle 라이선스를 수동으로 승인해야 하므로 배포를 간소화하려면 클러스터 배포 전에 만들려는 Ubuntu 템플릿 이미지에 나중에 업로드할 필수 소프트웨어를 데스크톱에 모두 다운로드합니다.
@@ -126,10 +124,11 @@ JRE를 다운로드하려면 Oracle 라이선스를 수동으로 승인해야 �
 
 ### UBUNTU VM 만들기
 이 프로세스 단계에서는 여러 개의 Cassandra 노드를 프로비전하는 데 이미지를 다시 사용할 수 있도록 필수 조건 소프트웨어로 Ubuntu 이미지를 만듭니다.
-####1단계: SSH 키 쌍 생성
+
+#### 1단계: SSH 키 쌍 생성
 Azure는 프로비전 시간에 PEM 또는 DER 인코딩된 X509 공개 키를 필요로 합니다. Azure에서 Linux와 함께 SSH를 사용하는 방법에 설명된 지침에 따라 공개/개인 키 쌍을 생성합니다. Windows 또는 Linux에서 putty.exe를 SSH 클라이언트로 사용할 계획이면 PEM 인코딩된 RSA 개인 키를 puttygen.exe를 사용하여 PPK 형식으로 변환해야 합니다. 이에 대한 지침은 위의 웹 페이지를 참조하세요.
 
-####2단계: Ubuntu 템플릿 VM 만들기
+#### 2단계: Ubuntu 템플릿 VM 만들기
 템플릿 VM을 만들려면 Azure 클래식 포털에 로그인하고 다음 시퀀스를 사용합니다. NEW, COMPUTE, VIRTUAL MACHINE, FROM GALLERY, UBUNTU, Ubuntu Server 14.04 LTS를 클릭한 다음 오른쪽 화살표를 클릭합니다. Linux VM을 만드는 방법을 설명하는 자습서는 Linux를 실행하는 가상 컴퓨터 만들기를 참조하세요.
 
 "가상 컴퓨터 구성" 화면 #1에서 다음 정보를 입력합니다.
@@ -137,179 +136,179 @@ Azure는 프로비전 시간에 PEM 또는 DER 인코딩된 X509 공개 키를 �
 <table>
 <tr><th>필드 이름              </td><td>       필드 값               </td><td>         설명                </td><tr>
 <tr><td>버전 릴리스 날짜    </td><td> 드롭다운에서 날짜 선택</td><td></td><tr>
-<tr><td>가상 컴퓨터 이름    </td><td> cass-template	               </td><td> VM의 호스트 이름입니다. </td><tr>
-<tr><td>계층	                 </td><td> 표준	                       </td><td> 기본값을 그대로 둡니다.              </td><tr>
-<tr><td>크기	                 </td><td> A1                              </td><td>IO 요구에 따라 VM을 선택합니다. 여기서는 기본값을 그대로 둡니다. </td><tr>
-<tr><td> 새 사용자 이름	         </td><td> localadmin	                   </td><td> "admin"은 Ubuntu 12.xx 이상에서 예약된 사용자 이름입니다.</td><tr>
-<tr><td> 인증	     </td><td> 확인란을 클릭합니다.                 </td><td>SSH 키를 사용하여 보안을 유지하려면 선택합니다. </td><tr>
-<tr><td> 인증서	         </td><td> 공개 키 인증서의 파일 이름 </td><td> 이전에 생성된 공개 키를 사용합니다.</td><tr>
-<tr><td> 새 암호	</td><td> 강력한 암호 </td><td> </td><tr>
-<tr><td> 암호 확인	</td><td> 강력한 암호 </td><td></td><tr>
+<tr><td>가상 컴퓨터 이름    </td><td> cass-template                   </td><td> VM의 호스트 이름입니다. </td><tr>
+<tr><td>계층                     </td><td> 표준                           </td><td> 기본값을 그대로 둡니다.              </td><tr>
+<tr><td>크기                     </td><td> A1                              </td><td>IO 요구에 따라 VM을 선택합니다. 여기서는 기본값을 그대로 둡니다. </td><tr>
+<tr><td> 새 사용자 이름             </td><td> localadmin                       </td><td> "admin"은 Ubuntu 12.xx 이상에서 예약된 사용자 이름입니다.</td><tr>
+<tr><td> 인증         </td><td> 확인란을 클릭합니다.                 </td><td>SSH 키를 사용하여 보안을 유지하려면 선택합니다. </td><tr>
+<tr><td> 인증서             </td><td> 공개 키 인증서의 파일 이름 </td><td> 이전에 생성된 공개 키를 사용합니다.</td><tr>
+<tr><td> 새 암호    </td><td> 강력한 암호 </td><td> </td><tr>
+<tr><td> 암호 확인    </td><td> 강력한 암호 </td><td></td><tr>
 </table>
 
 "가상 컴퓨터 구성" 화면 #2에서 다음 정보를 입력합니다.
 
 <table>
-<tr><th>필드 이름             </th><th> 필드 값	                   </th><th> 설명                                 </th></tr>
-<tr><td> 클라우드 서비스	</td><td> 새 클라우드 서비스 만들기	</td><td>클라우드 서비스는 가상 컴퓨터와 같은 계산 리소스의 컨테이너입니다.</td></tr>
-<tr><td> 클라우드 서비스 DNS 이름	</td><td>ubuntu-template.cloudapp.net	</td><td>컴퓨터에 알 수 없는 부하 분산 장치 이름을 지정합니다.</td></tr>
-<tr><td> 지역/선호도 그룹/가상 네트워크 </td><td>	미국 서부	</td><td> 웹 응용 프로그램이 Cassandra 클러스터에 액세스하는 지역을 선택합니다.</td></tr>
-<tr><td>저장소 계정 </td><td>	기본값 사용	</td><td>기본 저장소 계정이나 특정 지역에 미리 생성된 저장소 계정을 사용합니다.</td></tr>
-<tr><td>가용성 집합 </td><td>	없음 </td><td>	비워 둡니다.</td></tr>
-<tr><td>끝점	</td><td>기본값 사용 </td><td>	기본 SSH 구성을 사용합니다. </td></tr>
+<tr><th>필드 이름             </th><th> 필드 값                       </th><th> 설명                                 </th></tr>
+<tr><td> 클라우드 서비스    </td><td> 새 클라우드 서비스 만들기    </td><td>클라우드 서비스는 가상 컴퓨터와 같은 계산 리소스의 컨테이너입니다.</td></tr>
+<tr><td> 클라우드 서비스 DNS 이름    </td><td>ubuntu-template.cloudapp.net    </td><td>컴퓨터에 알 수 없는 부하 분산 장치 이름을 지정합니다.</td></tr>
+<tr><td> 지역/선호도 그룹/가상 네트워크 </td><td>    미국 서부    </td><td> 웹 응용 프로그램이 Cassandra 클러스터에 액세스하는 지역을 선택합니다.</td></tr>
+<tr><td>저장소 계정 </td><td>    기본값 사용    </td><td>기본 저장소 계정이나 특정 지역에 미리 생성된 저장소 계정을 사용합니다.</td></tr>
+<tr><td>가용성 집합 </td><td>    없음 </td><td>    비워 둡니다.</td></tr>
+<tr><td>끝점    </td><td>기본값 사용 </td><td>    기본 SSH 구성을 사용합니다. </td></tr>
 </table>
 
 오른쪽 화살표를 클릭하고 화면 #3의 기본값을 그대로 둔 다음 "확인" 단추를 클릭하여 VM 프로비저닝 프로세스를 완료합니다. 몇 분 후에 이름이 "ubuntu-template"인 VM이 "실행 중" 상태가 되어야 합니다.
 
-###필수 소프트웨어 설치
-####1단계: tarball 업로드 
+### 필수 소프트웨어 설치
+#### 1단계: tarball 업로드
 scp 또는 pscp를 사용하여 다음 명령 형식으로 이전에 다운로드한 소프트웨어를 ~/downloads 디렉터리로 복사합니다.
 
-#####pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
-
+##### pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 JRE 및 Cassandra 비트에 대해 위 명령을 반복합니다.
 
-####2단계: 디렉터리 구조 준비 및 압축 파일 추출
+#### 2단계: 디렉터리 구조 준비 및 압축 파일 추출
 VM에 로그인한 다음 아래 bash 스크립트를 사용하여 슈퍼 사용자로 디렉터리 구조를 만들고 소프트웨어를 추출합니다.
 
-	#!/bin/bash
-	CASS_INSTALL_DIR="/opt/cassandra"
-	JRE_INSTALL_DIR="/opt/java"
-	CASS_DATA_DIR="/var/lib/cassandra"
-	CASS_LOG_DIR="/var/log/cassandra"
-	DOWNLOADS_DIR="~/downloads"
-	JRE_TARBALL="server-jre-8u5-linux-x64.tar.gz"
-	CASS_TARBALL="apache-cassandra-2.0.8-bin.tar.gz"
-	SVC_USER="localadmin"
-	
-	RESET_ERROR=1
-	MKDIR_ERROR=2
-	
-	reset_installation ()
-	{
-	   rm -rf $CASS_INSTALL_DIR 2> /dev/null
-	   rm -rf $JRE_INSTALL_DIR 2> /dev/null
-	   rm -rf $CASS_DATA_DIR 2> /dev/null
-	   rm -rf $CASS_LOG_DIR 2> /dev/null
-	}
-	make_dir ()
-	{
-	   if [ -z "$1" ]
-	   then
-	      echo "make_dir: invalid directory name"
-	      exit $MKDIR_ERROR
-	   fi
-	   
-	   if [ -d "$1" ]
-	   then
-	      echo "make_dir: directory already exists"
-	      exit $MKDIR_ERROR
-	   fi
-	
-	   mkdir $1 2>/dev/null
-	   if [ $? != 0 ]
-	   then
-	      echo "directory creation failed"
-	      exit $MKDIR_ERROR
-	   fi
-	}
-	
-	unzip()
-	{
-	   if [ $# == 2 ]
-	   then
-	      tar xzf $1 -C $2
-	   else
-	      echo "archive error"
-	   fi
-	   
-	}
-	
-	if [ -n "$1" ]
-	then
-	   SVC_USER=$1
-	fi
-	
-	reset_installation 
-	make_dir $CASS_INSTALL_DIR
-	make_dir $JRE_INSTALL_DIR
-	make_dir $CASS_DATA_DIR
-	make_dir $CASS_LOG_DIR
-	
-	#unzip JRE and Cassandra 
-	unzip $HOME/downloads/$JRE_TARBALL $JRE_INSTALL_DIR
-	unzip $HOME/downloads/$CASS_TARBALL $CASS_INSTALL_DIR
-	
-	#Change the ownership to the service credentials
-	
-	chown -R $SVC_USER:$GROUP $CASS_DATA_DIR
-	chown -R $SVC_USER:$GROUP $CASS_LOG_DIR
-	echo "edit /etc/profile to add JRE to the PATH"
-	echo "installation is complete"
+    #!/bin/bash
+    CASS_INSTALL_DIR="/opt/cassandra"
+    JRE_INSTALL_DIR="/opt/java"
+    CASS_DATA_DIR="/var/lib/cassandra"
+    CASS_LOG_DIR="/var/log/cassandra"
+    DOWNLOADS_DIR="~/downloads"
+    JRE_TARBALL="server-jre-8u5-linux-x64.tar.gz"
+    CASS_TARBALL="apache-cassandra-2.0.8-bin.tar.gz"
+    SVC_USER="localadmin"
+
+    RESET_ERROR=1
+    MKDIR_ERROR=2
+
+    reset_installation ()
+    {
+       rm -rf $CASS_INSTALL_DIR 2> /dev/null
+       rm -rf $JRE_INSTALL_DIR 2> /dev/null
+       rm -rf $CASS_DATA_DIR 2> /dev/null
+       rm -rf $CASS_LOG_DIR 2> /dev/null
+    }
+    make_dir ()
+    {
+       if [ -z "$1" ]
+       then
+          echo "make_dir: invalid directory name"
+          exit $MKDIR_ERROR
+       fi
+
+       if [ -d "$1" ]
+       then
+          echo "make_dir: directory already exists"
+          exit $MKDIR_ERROR
+       fi
+
+       mkdir $1 2>/dev/null
+       if [ $? != 0 ]
+       then
+          echo "directory creation failed"
+          exit $MKDIR_ERROR
+       fi
+    }
+
+    unzip()
+    {
+       if [ $# == 2 ]
+       then
+          tar xzf $1 -C $2
+       else
+          echo "archive error"
+       fi
+
+    }
+
+    if [ -n "$1" ]
+    then
+       SVC_USER=$1
+    fi
+
+    reset_installation 
+    make_dir $CASS_INSTALL_DIR
+    make_dir $JRE_INSTALL_DIR
+    make_dir $CASS_DATA_DIR
+    make_dir $CASS_LOG_DIR
+
+    #unzip JRE and Cassandra 
+    unzip $HOME/downloads/$JRE_TARBALL $JRE_INSTALL_DIR
+    unzip $HOME/downloads/$CASS_TARBALL $CASS_INSTALL_DIR
+
+    #Change the ownership to the service credentials
+
+    chown -R $SVC_USER:$GROUP $CASS_DATA_DIR
+    chown -R $SVC_USER:$GROUP $CASS_LOG_DIR
+    echo "edit /etc/profile to add JRE to the PATH"
+    echo "installation is complete"
 
 
 이 스크립트를 vim 창에 붙여 넣는 경우 다음 명령을 사용하여 캐리지 리턴('\\r')을 제거해야 합니다.
 
-	tr -d '\r' <infile.sh >outfile.sh
+    tr -d '\r' <infile.sh >outfile.sh
 
-####3단계: etc/profile 편집
+#### 3단계: etc/profile 편집
 다음 내용을 끝에 추가합니다.
 
-	JAVA_HOME=/opt/java/jdk1.8.0_05 
-	CASS_HOME= /opt/cassandra/apache-cassandra-2.0.8
-	PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$CASS_HOME/bin
-	export JAVA_HOME
-	export CASS_HOME
-	export PATH
+    JAVA_HOME=/opt/java/jdk1.8.0_05 
+    CASS_HOME= /opt/cassandra/apache-cassandra-2.0.8
+    PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$CASS_HOME/bin
+    export JAVA_HOME
+    export CASS_HOME
+    export PATH
 
-####4단계: 프로덕션 시스템용 JNA 설치
+#### 4단계: 프로덕션 시스템용 JNA 설치
 다음 명령 시퀀스를 사용하여 jna-3.2.7.jar 및 jna-platform-3.2.7.jar을 /usr/share.java directory sudo apt-get install libjna-java에 설치합니다.
 
 Cassandra 시작 스크립트에서 이러한 jar을 찾을 수 있도록 $CASS\_HOME/lib 디렉터리에 바로 가기 링크를 만듭니다.
 
-	ln -s /usr/share/java/jna-3.2.7.jar $CASS_HOME/lib/jna.jar
+    ln -s /usr/share/java/jna-3.2.7.jar $CASS_HOME/lib/jna.jar
 
-	ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
+    ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 
-####5단계: cassandra.yaml 구성
+#### 5단계: cassandra.yaml 구성
 모든 가상 컴퓨터에 필요한 구성을 반영하도록 각 VM에서 cassandra.yaml을 편집합니다.[실제 프로비저닝 중에는 이 내용이 조정됩니다.]
 
 <table>
-<tr><th>필드 이름   </th><th> 값  </th><th>	설명 </th></tr>
-<tr><td>cluster_name </td><td>	"CustomerService"	</td><td> 배포를 반영하는 이름을 사용합니다.</td></tr> 
-<tr><td>listen_address	</td><td>[비워 둠]	</td><td> "localhost"를 삭제합니다. </td></tr>
-<tr><td>rpc_addres   </td><td>[비워 둠]	</td><td> "localhost"를 삭제합니다. </td></tr>
-<tr><td>seeds	</td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"	</td><td>시드로 지정된 모든 IP 주소 목록입니다.</td></tr>
+<tr><th>필드 이름   </th><th> 값  </th><th>    설명 </th></tr>
+<tr><td>cluster_name </td><td>    "CustomerService"    </td><td> 배포를 반영하는 이름을 사용합니다.</td></tr> 
+<tr><td>listen_address    </td><td>[비워 둠]    </td><td> "localhost"를 삭제합니다. </td></tr>
+<tr><td>rpc_addres   </td><td>[비워 둠]    </td><td> "localhost"를 삭제합니다. </td></tr>
+<tr><td>seeds    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>시드로 지정된 모든 IP 주소 목록입니다.</td></tr>
 <tr><td>endpoint_snitch </td><td> org.apache.cassandra.locator.GossipingPropertyFileSnitch </td><td> NetworkTopologyStrateg에서 VM의 랙과 데이터 센터를 유추하는 데 사용됩니다.</td></tr>
 </table>
 
-####6단계: VM 이미지 캡처
+#### 6단계: VM 이미지 캡처
 이전에 만든 호스트 이름(hk-cas-template.cloudapp.net) 및 SSH 개인 키를 사용하여 가상 컴퓨터에 로그인합니다. 명령 ssh 또는 putty.exe를 사용하여 로그인하는 방법에 대한 자세한 내용은 Azure에서 Linux와 함께 SSH를 사용하는 방법을 참조하세요.
 
 다음 작업 시퀀스를 실행하여 이미지를 캡처합니다.
-#####1\. 프로비전 해제
+
+##### 1\. 프로비전 해제
 "sudo waagent –deprovision+user" 명령을 사용하여 가상 컴퓨터 인스턴스 특정 정보를 제거합니다. 이미지 캡처 프로세스에 대한 자세한 내용은 템플릿으로 사용할 [Linux 가상 컴퓨터를 캡처하는 방법](virtual-machines-linux-classic-capture-image.md)을 참조하세요.
 
-#####2: VM 종료
+##### 2: VM 종료
 가상 컴퓨터를 강조 표시하고 아래쪽 명령 모음에서 종료 링크를 클릭합니다.
 
-#####3: 이미지 캡처
+##### 3: 이미지 캡처
 가상 컴퓨터를 강조 표시하고 아래쪽 명령 모음에서 캡처 링크를 클릭합니다. 다음 화면에서 이미지 이름(예: hk-cas-2-08-ub-14-04-2014071) 및 적절한 이미지 설명을 제공하고 "확인" 표시를 클릭하여 캡처 프로세스를 마칩니다.
 
 이 작업은 몇 초 정도 걸리며, 이미지 갤러리의 내 이미지 섹션에서 해당 이미지를 사용할 수 있습니다. 이미지가 성공적으로 캡처되면 원본 VM이 자동으로 삭제됩니다.
 
-##단일 지역 배포 프로세스
+## 단일 지역 배포 프로세스
 **1단계: 가상 네트워크 만들기** Azure 클래식 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [Azure 클래식 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet-classic-portal.md)을 참조하세요.
 
 <table>
 <tr><th>VM 특성 이름</th><th>값</th><th>설명</th></tr>
-<tr><td>이름</td><td>vnet-cass-west-us</td><td></td></tr>	
-<tr><td>지역</td><td>미국 서부</td><td></td></tr>	
-<tr><td>DNS 서버	</td><td>없음</td><td>DNS 서버를 사용하지 않으므로 이 특성을 무시합니다.</td></tr>
+<tr><td>이름</td><td>vnet-cass-west-us</td><td></td></tr>    
+<tr><td>지역</td><td>미국 서부</td><td></td></tr>    
+<tr><td>DNS 서버    </td><td>없음</td><td>DNS 서버를 사용하지 않으므로 이 특성을 무시합니다.</td></tr>
 <tr><td>지점 및 사이트 간 VPN 구성</td><td>없음</td><td> 이 특성을 무시합니다.</td></tr>
 <tr><td>사이트 간 VPN 구성</td><td>None</td><td> 이 특성을 무시합니다.</td></tr>
-<tr><td>주소 공간</td><td>10.1.0.0/16</td><td></td></tr>	
-<tr><td>시작 IP</td><td>10.1.0.0</td><td></td></tr>	
+<tr><td>주소 공간</td><td>10.1.0.0/16</td><td></td></tr>    
+<tr><td>시작 IP</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
 </table>
 
@@ -326,130 +325,129 @@ Data 및 Web 서브넷은 이 문서를 범위를 벗어난 네트워크 보안 
 **2단계: 가상 컴퓨터 프로비전**이전에 만든 이미지를 사용하여 클라우드 서버 "hk-c-svc-west"에 다음 가상 컴퓨터를 만들고 아래와 같이 해당 서브넷에 바인딩합니다.
 
 <table>
-<tr><th>컴퓨터 이름    </th><th>서브넷	</th><th>IP 주소	</th><th>가용성 집합</th><th>DC/랙</th><th>시드 여부</th></tr>
-<tr><td>hk-c1-west-us	</td><td>데이터	</td><td>10.1.2.4	</td><td>hk-c-aset-1	</td><td>dc =WESTUS rack =rack1 </td><td>예</td></tr>
-<tr><td>hk-c2-west-us	</td><td>데이터	</td><td>10.1.2.5	</td><td>hk-c-aset-1	</td><td>dc =WESTUS rack =rack1	</td><td>아니요 </td></tr>
-<tr><td>hk-c3-west-us	</td><td>데이터	</td><td>10.1.2.6	</td><td>hk-c-aset-1	</td><td>dc =WESTUS rack =rack2	</td><td>예</td></tr>
-<tr><td>hk-c4-west-us	</td><td>데이터	</td><td>10.1.2.7	</td><td>hk-c-aset-1	</td><td>dc =WESTUS rack =rack2	</td><td>아니요 </td></tr>
-<tr><td>hk-c5-west-us	</td><td>데이터	</td><td>10.1.2.8	</td><td>hk-c-aset-2	</td><td>dc =WESTUS rack =rack3	</td><td>예</td></tr>
-<tr><td>hk-c6-west-us	</td><td>데이터	</td><td>10.1.2.9	</td><td>hk-c-aset-2	</td><td>dc =WESTUS rack =rack3	</td><td>아니요 </td></tr>
-<tr><td>hk-c7-west-us	</td><td>데이터	</td><td>10.1.2.10	</td><td>hk-c-aset-2	</td><td>dc =WESTUS rack =rack4	</td><td>예</td></tr>
-<tr><td>hk-c8-west-us	</td><td>데이터	</td><td>10.1.2.11	</td><td>hk-c-aset-2	</td><td>dc =WESTUS rack =rack4	</td><td>아니요 </td></tr>
-<tr><td>hk-w1-west-us	</td><td>web	</td><td>10.1.1.4	</td><td>hk-w-aset-1	</td><td>                       </td><td>해당 없음</td></tr>
-<tr><td>hk-w2-west-us	</td><td>web	</td><td>10.1.1.5	</td><td>hk-w-aset-1	</td><td>                       </td><td>해당 없음</td></tr>
+<tr><th>컴퓨터 이름    </th><th>서브넷    </th><th>IP 주소    </th><th>가용성 집합</th><th>DC/랙</th><th>시드 여부</th></tr>
+<tr><td>hk-c1-west-us    </td><td>데이터    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1 </td><td>예</td></tr>
+<tr><td>hk-c2-west-us    </td><td>데이터    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1    </td><td>아니요 </td></tr>
+<tr><td>hk-c3-west-us    </td><td>데이터    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>예</td></tr>
+<tr><td>hk-c4-west-us    </td><td>데이터    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>아니요 </td></tr>
+<tr><td>hk-c5-west-us    </td><td>데이터    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>예</td></tr>
+<tr><td>hk-c6-west-us    </td><td>데이터    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>아니요 </td></tr>
+<tr><td>hk-c7-west-us    </td><td>데이터    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>예</td></tr>
+<tr><td>hk-c8-west-us    </td><td>데이터    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>아니요 </td></tr>
+<tr><td>hk-w1-west-us    </td><td>web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>해당 없음</td></tr>
+<tr><td>hk-w2-west-us    </td><td>web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>해당 없음</td></tr>
 </table>
 
 위의 VM 목록을 만들려면 다음 프로세스가 필요합니다.
 
-1.  특정 지역에 빈 클라우드 서비스를 만듭니다.
-2.	이전에 캡처된 이미지에서 VM을 만든 다음 이전에 만든 가상 네트워크에 연결합니다. 모든 VM에 대해 이 단계를 반복합니다.
-3.	클라우드 서비스에 내부 부하 분산 장치를 추가하고 "data" 서브넷에 연결합니다.
-4.	이전에 만든 각 VM에 대해 이전에 만든 내부 부하 분산 장치에 연결된 부하 분산 집합을 통해 쓰리프트 트래픽에 대한 부하 분산 끝점을 추가합니다.
+1. 특정 지역에 빈 클라우드 서비스를 만듭니다.
+2. 이전에 캡처된 이미지에서 VM을 만든 다음 이전에 만든 가상 네트워크에 연결합니다. 모든 VM에 대해 이 단계를 반복합니다.
+3. 클라우드 서비스에 내부 부하 분산 장치를 추가하고 "data" 서브넷에 연결합니다.
+4. 이전에 만든 각 VM에 대해 이전에 만든 내부 부하 분산 장치에 연결된 부하 분산 집합을 통해 쓰리프트 트래픽에 대한 부하 분산 끝점을 추가합니다.
 
 위 프로세스는 Azure 클래식 포털을 사용하여 실행할 수 있습니다. Windows 컴퓨터를 사용하고(Windows 컴퓨터에 대한 액세스 권한이 없는 경우 Azure에서 VM 사용) 다음 PowerShell 스크립트를 사용하여 VM 8개를 모두 자동으로 프로비전합니다.
 
 **목록 1: 가상 컴퓨터 프로비전을 위한 PowerShell 스크립트**
-		
-		#Tested with Azure Powershell - November 2014	
-		#This powershell script deployes a number of VMs from an existing image inside an Azure region
-		#Import your Azure subscription into the current Powershell session before proceeding
-		#The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
-		
-		#fundamental variables - change these to reflect your subscription
-		$country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
-		$numVMs=8;$prefix = "hk-cass";$ilbIP="your_ilb_ip"
-		$subscriptionName = "Azure_subscription_name"; 
-		$vmSize="ExtraSmall"; $imageName="your_linux_image_name"
-		$ilbName="ThriftInternalLB"; $thriftEndPoint="ThriftEndPoint"
-		
-		#generated variables
-		$serviceName = "$prefix-svc-$region-$country"; $azureRegion = "$region $country"
-		
-		$vmNames = @()
-		for ($i=0; $i -lt $numVMs; $i++)
-		{
-		   $vmNames+=("$prefix-vm"+($i+1) + "-$region-$country" );
-		}
-		
-		#select an Azure subscription already imported into Powershell session
-		Select-AzureSubscription -SubscriptionName $subscriptionName -Current
-		Set-AzureSubscription -SubscriptionName $subscriptionName -CurrentStorageAccountName $storageAccount
-		
-		#create an empty cloud service
-		New-AzureService -ServiceName $serviceName -Label "hkcass$region" -Location $azureRegion
-		Write-Host "Created $serviceName"
-		
-		$VMList= @()   # stores the list of azure vm configuration objects
-		#create the list of VMs
-		foreach($vmName in $vmNames)
-		{
-		   $VMList += New-AzureVMConfig -Name $vmName -InstanceSize ExtraSmall -ImageName $imageName |
-		   Add-AzureProvisioningConfig -Linux -LinuxUser "localadmin" -Password "Local123" |
-		   Set-AzureSubnet "data"
-		}
-		
-		New-AzureVM -ServiceName $serviceName -VNetName $vnetName -VMs $VMList
-		
-		#Create internal load balancer
-		Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
-		Write-Host "Created $ilbName"
-		#Add add the thrift endpoint to the internal load balancer for all the VMs
-		foreach($vmName in $vmNames)
-		{
-		    Get-AzureVM -ServiceName $serviceName -Name $vmName |
-		        Add-AzureEndpoint -Name $thriftEndPoint -LBSetName "ThriftLBSet" -Protocol tcp -LocalPort 9160 -PublicPort 9160 -ProbePort 9160 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ilbName | 
-		        Update-AzureVM 
-		
-		    Write-Host "created $vmName"     
-		}
+
+        #Tested with Azure Powershell - November 2014    
+        #This powershell script deployes a number of VMs from an existing image inside an Azure region
+        #Import your Azure subscription into the current Powershell session before proceeding
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
+
+        #fundamental variables - change these to reflect your subscription
+        $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
+        $numVMs=8;$prefix = "hk-cass";$ilbIP="your_ilb_ip"
+        $subscriptionName = "Azure_subscription_name"; 
+        $vmSize="ExtraSmall"; $imageName="your_linux_image_name"
+        $ilbName="ThriftInternalLB"; $thriftEndPoint="ThriftEndPoint"
+
+        #generated variables
+        $serviceName = "$prefix-svc-$region-$country"; $azureRegion = "$region $country"
+
+        $vmNames = @()
+        for ($i=0; $i -lt $numVMs; $i++)
+        {
+           $vmNames+=("$prefix-vm"+($i+1) + "-$region-$country" );
+        }
+
+        #select an Azure subscription already imported into Powershell session
+        Select-AzureSubscription -SubscriptionName $subscriptionName -Current
+        Set-AzureSubscription -SubscriptionName $subscriptionName -CurrentStorageAccountName $storageAccount
+
+        #create an empty cloud service
+        New-AzureService -ServiceName $serviceName -Label "hkcass$region" -Location $azureRegion
+        Write-Host "Created $serviceName"
+
+        $VMList= @()   # stores the list of azure vm configuration objects
+        #create the list of VMs
+        foreach($vmName in $vmNames)
+        {
+           $VMList += New-AzureVMConfig -Name $vmName -InstanceSize ExtraSmall -ImageName $imageName |
+           Add-AzureProvisioningConfig -Linux -LinuxUser "localadmin" -Password "Local123" |
+           Set-AzureSubnet "data"
+        }
+
+        New-AzureVM -ServiceName $serviceName -VNetName $vnetName -VMs $VMList
+
+        #Create internal load balancer
+        Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
+        Write-Host "Created $ilbName"
+        #Add add the thrift endpoint to the internal load balancer for all the VMs
+        foreach($vmName in $vmNames)
+        {
+            Get-AzureVM -ServiceName $serviceName -Name $vmName |
+                Add-AzureEndpoint -Name $thriftEndPoint -LBSetName "ThriftLBSet" -Protocol tcp -LocalPort 9160 -PublicPort 9160 -ProbePort 9160 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ilbName | 
+                Update-AzureVM 
+
+            Write-Host "created $vmName"     
+        }
 
 **3단계: 각 VM에서 Cassandra 구성**
 
 VM에 로그인하고 다음을 수행합니다.
 
 * $CASS\_HOME/conf/cassandra-rackdc.properties를 편집하여 데이터 센터 및 랙 속성을 지정합니다.
-      
+  
        dc =EASTUS, rack =rack1
-
 * cassandra.yaml을 편집하여 시드 노드를 아래와 같이 구성합니다.
-     
+  
        Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
 
 **4단계: VM 시작 및 클러스터 테스트**
 
 노드 중 하나(예: hk-c1-west-us)에 로그인하고 다음 명령을 실행하여 클러스터의 상태를 확인합니다.
-       
+
        nodetool –h 10.1.2.4 –p 7199 status 
 
 8 노드 클러스터의 경우 아래와 유사한 표시가 나타나야 합니다.
 
 <table>
-<tr><th>가동 상태</th></th>주소	</th><th>로드	</th><th>토큰	</th><th>소유 비율 </th><th>호스트 ID	</th><th>랙</th></tr>
-<tr><th>UN	</td><td>10.1.2.4 	</td><td>87.81 KB	</td><td>256	</td><td>38.0%	</td><td>Guid(제거됨)</td><td>rack1</td></tr>
-<tr><th>UN	</td><td>10.1.2.5 	</td><td>41.08 KB	</td><td>256	</td><td>68.9%	</td><td>Guid(제거됨)</td><td>rack1</td></tr>
-<tr><th>UN	</td><td>10.1.2.6 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>Guid(제거됨)</td><td>rack2</td></tr>
-<tr><th>UN	</td><td>10.1.2.7 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>Guid(제거됨)</td><td>rack2</td></tr>
-<tr><th>UN	</td><td>10.1.2.8 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>Guid(제거됨)</td><td>rack3</td></tr>
-<tr><th>UN	</td><td>10.1.2.9 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>Guid(제거됨)</td><td>rack3</td></tr>
-<tr><th>UN	</td><td>10.1.2.10 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>Guid(제거됨)</td><td>rack4</td></tr>
-<tr><th>UN	</td><td>10.1.2.11 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>Guid(제거됨)</td><td>rack4</td></tr>
+<tr><th>가동 상태</th></th>주소    </th><th>로드    </th><th>토큰    </th><th>소유 비율 </th><th>호스트 ID    </th><th>랙</th></tr>
+<tr><th>UN    </td><td>10.1.2.4     </td><td>87.81 KB    </td><td>256    </td><td>38.0%    </td><td>Guid(제거됨)</td><td>rack1</td></tr>
+<tr><th>UN    </td><td>10.1.2.5     </td><td>41.08 KB    </td><td>256    </td><td>68.9%    </td><td>Guid(제거됨)</td><td>rack1</td></tr>
+<tr><th>UN    </td><td>10.1.2.6     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>Guid(제거됨)</td><td>rack2</td></tr>
+<tr><th>UN    </td><td>10.1.2.7     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>Guid(제거됨)</td><td>rack2</td></tr>
+<tr><th>UN    </td><td>10.1.2.8     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>Guid(제거됨)</td><td>rack3</td></tr>
+<tr><th>UN    </td><td>10.1.2.9     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>Guid(제거됨)</td><td>rack3</td></tr>
+<tr><th>UN    </td><td>10.1.2.10     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>Guid(제거됨)</td><td>rack4</td></tr>
+<tr><th>UN    </td><td>10.1.2.11     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>Guid(제거됨)</td><td>rack4</td></tr>
 </table>
 
 ## 단일 지역 클러스터 테스트
 클러스터를 테스트하려면 다음 단계를 사용합니다.
 
-1.    Powershell 명령 Get-AzureInternalLoadbalancer commandlet을 사용하여 내부 부하 분산 장치의 IP 주소를 가져옵니다(예: 10.1.2.101). 명령 구문은 다음과 같습니다. Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us”[주소와 함께 내부 부하 분산 장치의 세부 정보 표시]
-2.	Putty 또는 ssh를 사용하여 웹 팜 VM(예: hk-w1-west-us)에 로그인합니다.
-3.	$CASS\_HOME/bin/cqlsh 10.1.2.101 9160을 실행합니다.
-4.	다음 CQL 명령을 사용하여 클러스터가 작동하는지 확인합니다.
-
-		CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };	
-		USE customers_ks;
-		CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
-		INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
-		INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
-		
-		SELECT * FROM Customers;
+1. Powershell 명령 Get-AzureInternalLoadbalancer commandlet을 사용하여 내부 부하 분산 장치의 IP 주소를 가져옵니다(예: 10.1.2.101). 명령 구문은 다음과 같습니다. Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us”[주소와 함께 내부 부하 분산 장치의 세부 정보 표시]
+2. Putty 또는 ssh를 사용하여 웹 팜 VM(예: hk-w1-west-us)에 로그인합니다.
+3. $CASS\_HOME/bin/cqlsh 10.1.2.101 9160을 실행합니다.
+4. 다음 CQL 명령을 사용하여 클러스터가 작동하는지 확인합니다.
+   
+     CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };    
+     USE customers_ks;
+     CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
+     INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
+     INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
+   
+     SELECT * FROM Customers;
 
 아래와 같은 표시가 나타나야 합니다.
 
@@ -461,57 +459,55 @@ VM에 로그인하고 다음을 수행합니다.
 
 4단계에서 만든 keyspace는 replication\_factor 3으로 SimpleStrategy를 사용합니다. SimpleStrategy는 단일 데이터 세터 배포에 권장되고 NetworkTopologyStrategy는 다중 데이터 세터 배포에 권장됩니다. replication\_factor가 3이면 노드 오류에 대한 내결함성이 제공됩니다.
 
-##<a id="tworegion"> </a>다중 지역 배포 프로세스
+## <a id="tworegion"> </a>다중 지역 배포 프로세스
 완료된 단일 지역 배포를 활용하며 두 번째 지역 설치를 위해 동일한 프로세스를 반복합니다. 단일 지역 배포와 다중 지역 배포 간의 주요 차이점은 지역 간 통신을 위한 VPN 터널 설정입니다. 네트워크 설치에서 시작하여 VM을 프로비전하고 Cassandra를 구성하겠습니다.
 
-###1단계: 2번째 지역에 가상 네트워크 만들기
+### 1단계: 2번째 지역에 가상 네트워크 만들기
 Azure 클래식 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [Azure 클래식 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)을 참조하세요.
 
 <table>
-<tr><th>특성 이름    </th><th>값	</th><th>설명</th></tr>
-<tr><td>Name	</td><td>vnet-cass-east-us</td><td></td></tr>	
-<tr><td>지역	</td><td>미국 동부</td><td></td></tr>	
-<tr><td>DNS 서버		</td><td></td><td>DNS 서버를 사용하지 않으므로 이 특성을 무시합니다.</td></tr>
-<tr><td>지점 및 사이트 간 VPN 구성</td><td></td><td>		이 특성을 무시합니다.</td></tr>
-<tr><td>사이트 간 VPN 구성</td><td></td><td>		이 특성을 무시합니다.</td></tr>
-<tr><td>주소 공간	</td><td>10.2.0.0/16</td><td></td></tr>	
-<tr><td>시작 IP	</td><td>10.2.0.0	</td><td></td></tr>
-<tr><td>CIDR	</td><td>/16 (65531)</td><td></td></tr>
-</table>	
+<tr><th>특성 이름    </th><th>값    </th><th>설명</th></tr>
+<tr><td>Name    </td><td>vnet-cass-east-us</td><td></td></tr>    
+<tr><td>지역    </td><td>미국 동부</td><td></td></tr>    
+<tr><td>DNS 서버        </td><td></td><td>DNS 서버를 사용하지 않으므로 이 특성을 무시합니다.</td></tr>
+<tr><td>지점 및 사이트 간 VPN 구성</td><td></td><td>        이 특성을 무시합니다.</td></tr>
+<tr><td>사이트 간 VPN 구성</td><td></td><td>        이 특성을 무시합니다.</td></tr>
+<tr><td>주소 공간    </td><td>10.2.0.0/16</td><td></td></tr>    
+<tr><td>시작 IP    </td><td>10.2.0.0    </td><td></td></tr>
+<tr><td>CIDR    </td><td>/16 (65531)</td><td></td></tr>
+</table>    
 
 다음 서브넷을 추가합니다.
+
 <table>
-<tr><th>이름    </th><th>시작 IP	</th><th>CIDR	</th><th>설명</th></tr>
-<tr><td>web	</td><td>10.2.1.0	</td><td>/24 (251)	</td><td>웹 팜에 대한 서브넷입니다.</td></tr>
-<tr><td>데이터	</td><td>10.2.2.0	</td><td>/24 (251)	</td><td>데이터베이스 노드에 대한 서브넷입니다.</td></tr>
+<tr><th>이름    </th><th>시작 IP    </th><th>CIDR    </th><th>설명</th></tr>
+<tr><td>web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>웹 팜에 대한 서브넷입니다.</td></tr>
+<tr><td>데이터    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>데이터베이스 노드에 대한 서브넷입니다.</td></tr>
 </table>
 
 
-###2단계: 로컬 네트워크 만들기
+### 2단계: 로컬 네트워크 만들기
 Azure 가상 네트워킹의 로컬 네트워크는 개인 클라우드 또는 다른 Azure 지역을 비롯한 원격 사이트에 매핑되는 프록시 주소 공간입니다. 이 프록시 주소 공간은 네트워크를 올바른 네트워킹 대상에 라우팅하기 위해 원격 게이트웨이에 바인딩됩니다. VNET 간 연결 설정에 대한 자세한 내용은 [VNet 간 연결 구성](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
 
 다음 세부 정보당 두 개의 로컬 네트워크를 만듭니다.
 
 | 네트워크 이름 | VPN 게이트웨이 주소 | 주소 공간 | 설명 |
-| ------------ | ------------------- | ------------- | ------- |
-| hk-lnet-map-to-east-us | 23\.1.1.1 | 10\.2.0.0/16 | 로컬 네트워크를 만드는 동안 자리 표시자 게이트웨이 주소를 제공합니다. 게이트웨이를 만들고 나면 실제 게이트웨이 주소가 채워집니다. 주소 공간이 해당 원격 VNET과 정확히 일치하는지 확인합니다. 여기서는 미국 동부 지역에 생성된 VNET입니다. |
-| hk-lnet-map-to-west-us | 23\.2.2.2 | 10\.1.0.0/16 | 로컬 네트워크를 만드는 동안 자리 표시자 게이트웨이 주소를 제공합니다. 게이트웨이를 만들고 나면 실제 게이트웨이 주소가 채워집니다. 주소 공간이 해당 원격 VNET과 정확히 일치하는지 확인합니다. 여기서는 미국 서부 지역에 생성된 VNET입니다. |
+| --- | --- | --- | --- |
+| hk-lnet-map-to-east-us |23\.1.1.1 |10\.2.0.0/16 |로컬 네트워크를 만드는 동안 자리 표시자 게이트웨이 주소를 제공합니다. 게이트웨이를 만들고 나면 실제 게이트웨이 주소가 채워집니다. 주소 공간이 해당 원격 VNET과 정확히 일치하는지 확인합니다. 여기서는 미국 동부 지역에 생성된 VNET입니다. |
+| hk-lnet-map-to-west-us |23\.2.2.2 |10\.1.0.0/16 |로컬 네트워크를 만드는 동안 자리 표시자 게이트웨이 주소를 제공합니다. 게이트웨이를 만들고 나면 실제 게이트웨이 주소가 채워집니다. 주소 공간이 해당 원격 VNET과 정확히 일치하는지 확인합니다. 여기서는 미국 서부 지역에 생성된 VNET입니다. |
 
-
-###3단계: "로컬" 네트워크를 해당 VNET에 매핑
+### 3단계: "로컬" 네트워크를 해당 VNET에 매핑
 Azure 클래식 포털에서 다음 세부 정보당 각 vnet을 선택하고 "구성"을 클릭한 다음 "로컬 네트워크에 연결", 로컬 네트워크를 차례로 선택합니다.
 
-
 | 가상 네트워크 | 로컬 네트워크 |
-| --------------- | ------------- |
-| hk-vnet-west-us | hk-lnet-map-to-east-us |
-| hk-vnet-east-us | hk-lnet-map-to-west-us |
+| --- | --- |
+| hk-vnet-west-us |hk-lnet-map-to-east-us |
+| hk-vnet-east-us |hk-lnet-map-to-west-us |
 
-
-###4단계: VNET1 및 VNET2에 게이트웨이 만들기
+### 4단계: VNET1 및 VNET2에 게이트웨이 만들기
 두 가상 네트워크의 대시보드에서 게이트웨이 만들기를 클릭합니다. 그러면 VPN 게이트웨이 프로비저닝 프로세스가 트리거됩니다. 몇 분 후에 각 가상 네트워크의 대시보드에 실제 게이트웨이 주소가 표시되어야 합니다.
 
-###5단계: "로컬" 네트워크를 해당 "게이트웨이" 주소로 업데이트###
+### 5단계: "로컬" 네트워크를 해당 "게이트웨이" 주소로 업데이트
 두 로컬 네트워크를 편집하여 자리 표시자 게이트웨이 IP 주소를 방금 프로비전한 게이트웨이의 실제 IP 주소로 바꿉니다. 다음 매핑을 사용합니다.
 
 <table>
@@ -520,87 +516,82 @@ Azure 클래식 포털에서 다음 세부 정보당 각 vnet을 선택하고 "�
 <tr><td>hk-lnet-map-to-west-us </td><td>hk-vnet-east-us의 게이트웨이</td></tr>
 </table>
 
-###6단계: 공유 키 업데이트
+### 6단계: 공유 키 업데이트
 각 VPN 게이트웨이의 IPSec 키를 업데이트하려면 다음 Powershell 스크립트를 사용하여 [두 게이트웨이에서 sake 키 사용]: Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
-###7단계: VNET 간 연결 설정
+### 7단계: VNET 간 연결 설정
 Azure 클래식 포털에서 두 가상 네트워크의 "대시보드" 메뉴를 사용하여 게이트웨이 간 연결을 설정합니다. 아래쪽 도구 모음의 "연결" 메뉴 항목을 사용합니다. 몇 분 후에 대시보드에 연결 정보가 그래픽으로 표시되어야 합니다.
 
-###8단계: 지역 #2에 가상 컴퓨터 만들기 
+### 8단계: 지역 #2에 가상 컴퓨터 만들기
 동일한 단계를 수행하여 지역 #1 배포에서 설명한 대로 Ubuntu 이미지를 만들거나 이미지 VHD 파일을 지역 #2에 있는 Azure 저장소 계정에 복사하여 이미지를 만듭니다. 이 이미지를 사용하고 새 클라우드 서비스 hk-c-svc-east-us에 다음 가상 컴퓨터 목록을 만듭니다.
 
-
 | 컴퓨터 이름 | 서브넷 | IP 주소 | 가용성 집합 | DC/랙 | 시드 여부 |
-| ------------ | ------ | ---------- | ---------------- | ------- | ----- |
-| hk-c1-east-us | 데이터 | 10\.2.2.4 | hk-c-aset-1 | dc =EASTUS rack =rack1 | 예 |
-| hk-c2-east-us | 데이터 | 10\.2.2.5 | hk-c-aset-1 | dc =EASTUS rack =rack1 | 아니요 |
-| hk-c3-east-us | 데이터 | 10\.2.2.6 | hk-c-aset-1 | dc =EASTUS rack =rack2 | 예 |
-| hk-c5-east-us | 데이터 | 10\.2.2.8 | hk-c-aset-2 | dc =EASTUS rack =rack3 | 예 |
-| hk-c6-east-us | 데이터 | 10\.2.2.9 | hk-c-aset-2 | dc =EASTUS rack =rack3 | 아니요 |
-| hk-c7-east-us | 데이터 | 10\.2.2.10 | hk-c-aset-2 | dc =EASTUS rack =rack4 | 예 |
-| hk-c8-east-us | 데이터 | 10\.2.2.11 | hk-c-aset-2 | dc =EASTUS rack =rack4 | 아니요 |
-| hk-w1-east-us | web | 10\.2.1.4 | hk-w-aset-1 | 해당 없음 | 해당 없음 |
-| hk-w2-east-us | web | 10\.2.1.5 | hk-w-aset-1 | 해당 없음 | 해당 없음 |
-
+| --- | --- | --- | --- | --- | --- |
+| hk-c1-east-us |데이터 |10\.2.2.4 |hk-c-aset-1 |dc =EASTUS rack =rack1 |예 |
+| hk-c2-east-us |데이터 |10\.2.2.5 |hk-c-aset-1 |dc =EASTUS rack =rack1 |아니요 |
+| hk-c3-east-us |데이터 |10\.2.2.6 |hk-c-aset-1 |dc =EASTUS rack =rack2 |예 |
+| hk-c5-east-us |데이터 |10\.2.2.8 |hk-c-aset-2 |dc =EASTUS rack =rack3 |예 |
+| hk-c6-east-us |데이터 |10\.2.2.9 |hk-c-aset-2 |dc =EASTUS rack =rack3 |아니요 |
+| hk-c7-east-us |데이터 |10\.2.2.10 |hk-c-aset-2 |dc =EASTUS rack =rack4 |예 |
+| hk-c8-east-us |데이터 |10\.2.2.11 |hk-c-aset-2 |dc =EASTUS rack =rack4 |아니요 |
+| hk-w1-east-us |web |10\.2.1.4 |hk-w-aset-1 |해당 없음 |해당 없음 |
+| hk-w2-east-us |web |10\.2.1.5 |hk-w-aset-1 |해당 없음 |해당 없음 |
 
 지역 #1과 동일한 지침을 따르되 10.2.xxx.xxx 주소 공간을 사용합니다.
 
-###9단계: 각 VM에서 Cassandra 구성
+### 9단계: 각 VM에서 Cassandra 구성
 VM에 로그인하고 다음을 수행합니다.
 
 1. $CASS\_HOME/conf/cassandra-rackdc.properties를 편집하여 데이터 센터 및 랙 속성을 dc =EASTUS rack =rack1 형식으로 지정합니다.
 2. cassandra.yaml을 편집하여 시드 노드를 구성합니다. "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 
-###10단계: Cassandra 시작
+### 10단계: Cassandra 시작
 각 VM에 로그인하고 다음 명령을 실행하여 Cassandra를 백그라운드에서 시작합니다. $CASS\_HOME/bin/cassandra
 
 ## 다중 지역 클러스터 테스트
 지금까지 각 Azure 지역에 8개 노드씩, 16개 노드에 Cassandra가 배포되었습니다. 이러한 노드는 공통 클러스터 이름 및 시드 노드 구성으로 인해 동일한 클러스터에 있습니다. 클러스터를 테스트하려면 다음 프로세스를 사용합니다.
 
-###1단계: PowerShell을 사용하여 두 지역에 대한 내부 부하 분산 장치 IP 가져오기
-- Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
-- Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"
-
+### 1단계: PowerShell을 사용하여 두 지역에 대한 내부 부하 분산 장치 IP 가져오기
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"
+  
     표시되는 IP 주소를 확인합니다(예: 서부 - 10.1.2.101, 동부 - 10.2.2.101).
 
-###2단계: hk-w1-west-us에 로그인한 후 서부 지역에서 다음 실행
-1.    $CASS\_HOME/bin/cqlsh 10.1.2.101 9160을 실행합니다.
-2.	다음 CQL 명령을 실행합니다.
-
-		CREATE KEYSPACE customers_ks
-		WITH REPLICATION = { 'class' : 'NetworkToplogyStrategy', 'WESTUS' : 3, 'EASTUS' : 3};
-		USE customers_ks;
-		CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
-		INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
-		INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
-		SELECT * FROM Customers;
+### 2단계: hk-w1-west-us에 로그인한 후 서부 지역에서 다음 실행
+1. $CASS\_HOME/bin/cqlsh 10.1.2.101 9160을 실행합니다.
+2. 다음 CQL 명령을 실행합니다.
+   
+     CREATE KEYSPACE customers_ks
+     WITH REPLICATION = { 'class' : 'NetworkToplogyStrategy', 'WESTUS' : 3, 'EASTUS' : 3};
+     USE customers_ks;
+     CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
+     INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
+     INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
+     SELECT * FROM Customers;
 
 아래와 같은 표시가 나타나야 합니다.
 
 | customer\_id | firstname | Lastname |
-| ----------- | --------- | -------- |
-| 1 | John | Doe |
-| 2 | Jane | Doe |
+| --- | --- | --- |
+| 1 |John |Doe |
+| 2 |Jane |Doe |
 
-
-###3단계: hk-w1-east-us에 로그인한 후 동부 지역에서 다음 실행
-1.    $CASS\_HOME/bin/cqlsh 10.2.2.101 9160 실행
-2.	다음 CQL 명령을 실행합니다.
-
-		USE customers_ks;
-		CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
-		INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
-		INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
-		SELECT * FROM Customers;
+### 3단계: hk-w1-east-us에 로그인한 후 동부 지역에서 다음 실행
+1. $CASS\_HOME/bin/cqlsh 10.2.2.101 9160 실행
+2. 다음 CQL 명령을 실행합니다.
+   
+     USE customers_ks;
+     CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
+     INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
+     INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
+     SELECT * FROM Customers;
 
 서부 지역과 동일한 표시가 나타나야 합니다.
 
-
 | customer\_id | firstname | Lastname |
-|------------ | --------- | ---------- |
-| 1 | John | Doe |
-| 2 | Jane | Doe |
-
+| --- | --- | --- |
+| 1 |John |Doe |
+| 2 |Jane |Doe |
 
 삽입을 몇 개 더 실행하고 클러스터의 west-us 부분에 복제되는지 확인합니다.
 
@@ -612,97 +603,96 @@ VM에 로그인하고 다음을 수행합니다.
 1. Node.js 및 npm을 설치합니다.
 2. npm을 사용하여 노드 패키지 "cassandra-client"를 설치합니다.
 3. 검색된 데이터의 json 문자열을 표시하는 셸 프롬프트에서 다음 스크립트를 실행합니다.
+   
+        var pooledCon = require('cassandra-client').PooledConnection;
+        var ksName = "custsupport_ks";
+        var cfName = "customers_cf";
+        var hostList = ['internal_loadbalancer_ip:9160'];
+        var ksConOptions = { hosts: hostList,
+                             keyspace: ksName, use_bigints: false };
+   
+        function createKeyspace(callback){
+           var cql = 'CREATE KEYSPACE ' + ksName + ' WITH strategy_class=SimpleStrategy AND strategy_options:replication_factor=1';
+           var sysConOptions = { hosts: hostList,  
+                                 keyspace: 'system', use_bigints: false };
+           var con = new pooledCon(sysConOptions);
+           con.execute(cql,[],function(err) {
+           if (err) {
+             console.log("Failed to create Keyspace: " + ksName);
+             console.log(err);
+           }
+           else {
+             console.log("Created Keyspace: " + ksName);
+             callback(ksConOptions, populateCustomerData);
+           }
+           });
+           con.shutdown();
+        } 
+   
+        function createColumnFamily(ksConOptions, callback){
+          var params = ['customers_cf','custid','varint','custname',
+                        'text','custaddress','text'];
+          var cql = 'CREATE COLUMNFAMILY ? (? ? PRIMARY KEY,? ?, ? ?)';
+        var con =  new pooledCon(ksConOptions);
+          con.execute(cql,params,function(err) {
+              if (err) {
+                 console.log("Failed to create column family: " + params[0]);
+                 console.log(err);
+              }
+              else {
+                 console.log("Created column family: " + params[0]);
+                 callback();
+              }
+          });
+          con.shutdown();
+        } 
+   
+        //populate Data
+        function populateCustomerData() {
+           var params = ['John','Infinity Dr, TX', 1];
+           updateCustomer(ksConOptions,params);
+   
+           params = ['Tom','Fermat Ln, WA', 2];
+           updateCustomer(ksConOptions,params);
+        }
+   
+        //update will also insert the record if none exists
+        function updateCustomer(ksConOptions,params)
+        {
+          var cql = 'UPDATE customers_cf SET custname=?,custaddress=? where custid=?';
+          var con = new pooledCon(ksConOptions);
+          con.execute(cql,params,function(err) {
+              if (err) console.log(err);
+              else console.log("Inserted customer : " + params[0]);
+          });
+          con.shutdown();
+        }
+   
+        //read the two rows inserted above
+        function readCustomer(ksConOptions)
+        {
+          var cql = 'SELECT * FROM customers_cf WHERE custid IN (1,2)';
+          var con = new pooledCon(ksConOptions);
+          con.execute(cql,[],function(err,rows) {
+              if (err) 
+                 console.log(err);
+              else 
+                 for (var i=0; i<rows.length; i++)
+                    console.log(JSON.stringify(rows[i]));
+            });
+           con.shutdown();
+        }
+   
+        //exectue the code
+        createKeyspace(createColumnFamily);
+        readCustomer(ksConOptions)
 
-		var pooledCon = require('cassandra-client').PooledConnection;
-		var ksName = "custsupport_ks";
-		var cfName = "customers_cf";
-		var hostList = ['internal_loadbalancer_ip:9160'];
-		var ksConOptions = { hosts: hostList,
-		                     keyspace: ksName, use_bigints: false };
-		
-		function createKeyspace(callback){
-		   var cql = 'CREATE KEYSPACE ' + ksName + ' WITH strategy_class=SimpleStrategy AND strategy_options:replication_factor=1';
-		   var sysConOptions = { hosts: hostList,  
-		                         keyspace: 'system', use_bigints: false };
-		   var con = new pooledCon(sysConOptions);
-		   con.execute(cql,[],function(err) {
-		   if (err) {
-		     console.log("Failed to create Keyspace: " + ksName);
-		     console.log(err);
-		   }
-		   else {
-		     console.log("Created Keyspace: " + ksName);
-		     callback(ksConOptions, populateCustomerData);
-		   }
-		   });
-		   con.shutdown();
-		} 
-		
-		function createColumnFamily(ksConOptions, callback){
-		  var params = ['customers_cf','custid','varint','custname',
-		                'text','custaddress','text'];
-		  var cql = 'CREATE COLUMNFAMILY ? (? ? PRIMARY KEY,? ?, ? ?)';
-		var con =  new pooledCon(ksConOptions);
-		  con.execute(cql,params,function(err) {
-		      if (err) {
-		         console.log("Failed to create column family: " + params[0]);
-		         console.log(err);
-		      }
-		      else {
-		         console.log("Created column family: " + params[0]);
-		         callback();
-		      }
-		  });
-		  con.shutdown();
-		} 
-		
-		//populate Data
-		function populateCustomerData() {
-		   var params = ['John','Infinity Dr, TX', 1];
-		   updateCustomer(ksConOptions,params);
-		
-		   params = ['Tom','Fermat Ln, WA', 2];
-		   updateCustomer(ksConOptions,params);
-		}
-		
-		//update will also insert the record if none exists
-		function updateCustomer(ksConOptions,params)
-		{
-		  var cql = 'UPDATE customers_cf SET custname=?,custaddress=? where custid=?';
-		  var con = new pooledCon(ksConOptions);
-		  con.execute(cql,params,function(err) {
-		      if (err) console.log(err);
-		      else console.log("Inserted customer : " + params[0]);
-		  });
-		  con.shutdown();
-		}
-		
-		//read the two rows inserted above
-		function readCustomer(ksConOptions)
-		{
-		  var cql = 'SELECT * FROM customers_cf WHERE custid IN (1,2)';
-		  var con = new pooledCon(ksConOptions);
-		  con.execute(cql,[],function(err,rows) {
-		      if (err) 
-		         console.log(err);
-		      else 
-		         for (var i=0; i<rows.length; i++)
-		            console.log(JSON.stringify(rows[i]));
-		    });
-		   con.shutdown();
-		}
-		
-		//exectue the code
-		createKeyspace(createColumnFamily);
-		readCustomer(ksConOptions)
-
-
-## 결론 
+## 결론
 Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소스 소프트웨어를 둘 다 실행할 수 있게 해주는 유연한 플랫폼입니다. 여러 장애 도메인에 클러스터 노드를 분산하여 단일 데이터 센터에 고가용성 Cassandra 클러스터를 배포할 수 있습니다. 재해 증명 시스템을 위해 지역적으로 떨어진 여러 Azure 지역에 Cassandra 클러스터를 배포할 수도 있습니다. Azure와 Cassandra를 함께 사용하면 오늘날의 인터넷 규모 서비스에 필요한 고확장성, 고가용성 및 재해 복구 가능한 클라우드 서비스를 생성할 수 있습니다.
 
-##참조##
-- [http://cassandra.apache.org](http://cassandra.apache.org)
-- [http://www.datastax.com](http://www.datastax.com)
-- [http://www.nodejs.org](http://www.nodejs.org)
+## 참조
+* [http://cassandra.apache.org](http://cassandra.apache.org)
+* [http://www.datastax.com](http://www.datastax.com)
+* [http://www.nodejs.org](http://www.nodejs.org)
 
 <!---HONumber=AcomDC_0817_2016-->

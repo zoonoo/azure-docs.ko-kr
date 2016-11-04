@@ -1,25 +1,26 @@
 
-<properties
-    pageTitle="Azure RemoteApp과 함께 Office 사용 | Microsoft Azure" 
-    description="Office 및 Azure RemoteApp 연동 방법에 대해 알아봅니다."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Azure RemoteApp과 함께 Office 사용 | Microsoft Docs
+description: Office 및 Azure RemoteApp 연동 방법에 대해 알아봅니다.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
+---
 # Azure RemoteApp과 함께 Office 사용
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> [!IMPORTANT]
+> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> 
+> 
 
 Azure RemoteApp에서 Office 응용 프로그램 호스팅을 위한 두 가지 옵션으로, Office 365 ProPlus 또는 Office 2013 Professional Plus 평가판이 있습니다.
 
@@ -34,7 +35,6 @@ Office 365 공유 컴퓨터 정품 인증을 사용하려면 [사용자 지정 �
 
 [Office 365 관리 포털](https://portal.office365.com/)에서 사용자의 Office 365 라이선스를 관리할 수 있습니다. [Office 365 서비스 계획](http://technet.microsoft.com/library/office-365-plan-options.aspx)에 대한 자세한 내용을 읽어 보세요.
 
-
 ## Office 2013 Professional Plus 평가판
 RemoteApp의 30일 평가 기간 동안 Office 2013 Professional Plus(평가판) 템플릿 이미지를 사용하여 RemoteApp 컬렉션을 만들 수 있습니다. Azure Active Directory 작업 계정이나 Microsoft 계정을 사용하여 이 평가판 컬렉션에 사용자를 할당할 수 있습니다. 추가 구독은 필요하지 않습니다.
 
@@ -45,10 +45,9 @@ RemoteApp의 30일 평가 기간 동안 Office 2013 Professional Plus(평가판)
 
 계정을 활성화하면 계정의 모든 RemoteApp 컬렉션에 영향을 줍니다.
 
-- Windows Server 2012 R2 또는 Office 365 ProPlus 템플릿 이미지를 사용하여 실행되는 컬렉션이 프로덕션으로 매끄럽게 전환됩니다. 진행 중인 세션을 비롯한 모든 사용자 데이터와 설정은 원래대로 유지됩니다.
-- 업로드된 사용자 지정 템플릿 이미지가 있는 경우 이러한 이미지를 사용하는 컬렉션도 매끄럽게 전환됩니다.
-- Office 2013 Professional Plus(평가판) 템플릿 이미지는 평가 용도로만 사용됩니다. 이 템플릿 이미지를 사용하여 실행되는 컬렉션은 프로덕션으로 전환할 수 없습니다. "사용 안 함" 상태로 설정됩니다.
-
+* Windows Server 2012 R2 또는 Office 365 ProPlus 템플릿 이미지를 사용하여 실행되는 컬렉션이 프로덕션으로 매끄럽게 전환됩니다. 진행 중인 세션을 비롯한 모든 사용자 데이터와 설정은 원래대로 유지됩니다.
+* 업로드된 사용자 지정 템플릿 이미지가 있는 경우 이러한 이미지를 사용하는 컬렉션도 매끄럽게 전환됩니다.
+* Office 2013 Professional Plus(평가판) 템플릿 이미지는 평가 용도로만 사용됩니다. 이 템플릿 이미지를 사용하여 실행되는 컬렉션은 프로덕션으로 전환할 수 없습니다. "사용 안 함" 상태로 설정됩니다.
 
 평가판이 만료될 때까지 프로덕션 모드로 전환하지 않으면 RemoteApp 컬렉션을 사용할 수 없습니다. 걱정하지 마세요. 설정과 사용자 데이터는 90일 동안 저장되므로 데이터 손실 없이 서비스를 활성화하고 프로덕션 모드로 전환할 수 있습니다.
 

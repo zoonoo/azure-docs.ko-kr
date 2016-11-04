@@ -6,9 +6,9 @@
 
 Microsoft.WindowsAzure.CloudConfigurationManager에 대한 참조 없이 응용프로그램을 만드는 중이며 위에 표시된 대로 연결 문자열이 `web.config` 또는 `app.config`에 있는 경우 **ConfigurationManager**를 사용하여 연결 문자열을 검색할 수 있습니다. System.Configuration.dll에 대한 참조를 프로젝트에 추가하고 다른 네임스페이스 선언을 추가해야 합니다.
 
-	using System.Configuration;
-	...
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		ConfigurationManager.AppSettings["StorageConnectionString"]);
+    using System.Configuration;
+    ...
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        ConfigurationManager.AppSettings["StorageConnectionString"]);
 
 <!----HONumber=AcomDC_0309_2016-->

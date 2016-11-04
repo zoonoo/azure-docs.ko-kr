@@ -1,40 +1,39 @@
 
-<properties
-   pageTitle="Azure 가상 네트워크 피어링 | Microsoft Azure"
-   description="Azure에서 VNet 피어링에 대해 알아봅니다."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="NarayanAnnamalai"
-   manager="jefco"
-   editor="tysonn" />
-<tags
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
-   ms.author="narayan" />
+---
+title: Azure 가상 네트워크 피어링 | Microsoft Docs
+description: Azure에서 VNet 피어링에 대해 알아봅니다.
+services: virtual-network
+documentationcenter: na
+author: NarayanAnnamalai
+manager: jefco
+editor: tysonn
 
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 07/28/2016
+ms.author: narayan
+
+---
 # VNet 피어링
-
 VNet 피어링은 Azure 백본 네트워크를 통해 동일한 지역에 있는 두 개의 가상 네트워크를 연결하는 메커니즘입니다. 두 가상 네트워크가 피어링되면 모든 연결에 대해 하나로 표시됩니다. 여전히 별도 리소스로 관리할 수는 있지만 이러한 가상 네트워크의 가상 컴퓨터는 개인 IP 주소를 사용하여 직접 서로 통신할 수 있습니다.
 
 트래픽이 동일한 가상 네트워크에 있는 VM 간에 라우팅되는 것과 마찬가지로 피어링된 가상 네트워크에 있는 가상 컴퓨터 간의 트래픽은 Azure 인프라를 통해 라우팅됩니다. VNet 피어링을 사용하는 이점은 다음과 같습니다.
 
-- 다른 가상 네트워크에 있는 리소스 간에 짧은 대기 시간, 높은 대역폭 연결
-- 네트워크 가상 어플라이언스, VPN 게이트웨이와 같은 리소스를 피어링된 VNet에서 전송 지점으로 사용 가능
-- 클래식 배포 모델을 사용하는 가상 네트워크에 Azure Resource Manager 모델을 사용하는 가상 네트워크를 연결하고 이러한 가상 네트워크의 리소스 간의 전체 연결 사용 가능
+* 다른 가상 네트워크에 있는 리소스 간에 짧은 대기 시간, 높은 대역폭 연결
+* 네트워크 가상 어플라이언스, VPN 게이트웨이와 같은 리소스를 피어링된 VNet에서 전송 지점으로 사용 가능
+* 클래식 배포 모델을 사용하는 가상 네트워크에 Azure Resource Manager 모델을 사용하는 가상 네트워크를 연결하고 이러한 가상 네트워크의 리소스 간의 전체 연결 사용 가능
 
 VNet 피어링의 요구 사항 및 주요 측면은 다음과 같습니다.
 
-- 피어링된 두 개의 가상 네트워크는 동일한 Azure 지역에 있어야 합니다.
-- 피어링된 가상 네트워크에는 겹치지 않는 IP 주소 공간이 있어야 합니다.
-- VNet 피어링은 두 가상 네트워크 간에 가능하며 파생된 전이적 관계가 없습니다. 예를 들어, 가상 네트워크 A는 가상 네트워크 B와 피어링되고 가상 네트워크 B가 가상 네트워크 C와 피어링되더라도 가상 네트워크 A가 가상 네트워크 C와 피어링되었다고 해석하지 않습니다.
-- 양쪽 구독의 권한 있는 사용자가 피어링을 허용하면 서로 다른 두 구독에 있는 가상 네트워크 간에 피어링을 설정할 수 있고 구독은 동일한 Active Directory 테넌트에 연결됩니다.
-- Resource Manager 배포 모델을 사용하는 가상 네트워크는 이 모델을 사용하는 다른 가상 네트워크 또는 클래식 배포 모델을 사용하는 가상 네트워크와 피어링될 수 있습니다. 그러나 클래식 배포 모델을 사용하는 가상 네트워크는 서로 피어링될 수 없습니다.
-- 피어링된 가상 네트워크에 있는 가상 컴퓨터 간의 통신에 대역폭 제한이 추가되지 않더라도 VM 크기에 따른 대역폭 상한이 여전히 적용됩니다.
-
+* 피어링된 두 개의 가상 네트워크는 동일한 Azure 지역에 있어야 합니다.
+* 피어링된 가상 네트워크에는 겹치지 않는 IP 주소 공간이 있어야 합니다.
+* VNet 피어링은 두 가상 네트워크 간에 가능하며 파생된 전이적 관계가 없습니다. 예를 들어, 가상 네트워크 A는 가상 네트워크 B와 피어링되고 가상 네트워크 B가 가상 네트워크 C와 피어링되더라도 가상 네트워크 A가 가상 네트워크 C와 피어링되었다고 해석하지 않습니다.
+* 양쪽 구독의 권한 있는 사용자가 피어링을 허용하면 서로 다른 두 구독에 있는 가상 네트워크 간에 피어링을 설정할 수 있고 구독은 동일한 Active Directory 테넌트에 연결됩니다.
+* Resource Manager 배포 모델을 사용하는 가상 네트워크는 이 모델을 사용하는 다른 가상 네트워크 또는 클래식 배포 모델을 사용하는 가상 네트워크와 피어링될 수 있습니다. 그러나 클래식 배포 모델을 사용하는 가상 네트워크는 서로 피어링될 수 없습니다.
+* 피어링된 가상 네트워크에 있는 가상 컴퓨터 간의 통신에 대역폭 제한이 추가되지 않더라도 VM 크기에 따른 대역폭 상한이 여전히 적용됩니다.
 
 ![기본 VNet 피어링](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -82,10 +81,9 @@ VNet 피어링은 권한 있는 작업입니다. VirtualNetworks 네임스페이
 ## 가격
 VNet 피어링은 검토 기간 동안 요금이 청구되지 않습니다. 출시된 후에 피어링을 활용하는 송/수신 트래픽에 명목 요금이 부과됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-network)를 참조합니다.
 
-
 ## 다음 단계
-- [가상 네트워크 간에 피어링을 설정합니다](virtual-networks-create-vnetpeering-arm-portal.md).
-- [NSG](virtual-networks-nsg.md)에 대해 알아봅니다.
-- [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)에 대해 알아봅니다.
+* [가상 네트워크 간에 피어링을 설정합니다](virtual-networks-create-vnetpeering-arm-portal.md).
+* [NSG](virtual-networks-nsg.md)에 대해 알아봅니다.
+* [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)에 대해 알아봅니다.
 
 <!---HONumber=AcomDC_0928_2016-->

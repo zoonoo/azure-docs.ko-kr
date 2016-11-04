@@ -1,46 +1,47 @@
 
-<properties 
-    pageTitle="REST API를 사용하여 Media Services 엔터티 관리 | Microsoft Azure" 
-    description="REST API를 사용하여 미디어 서비스 엔터티를 관리하는 방법을 알아봅니다." 
-    authors="juliako" 
-    manager="dwrede" 
-    editor="" 
-    services="media-services" 
-    documentationCenter=""/>
+---
+title: REST API를 사용하여 Media Services 엔터티 관리 | Microsoft Docs
+description: REST API를 사용하여 미디어 서비스 엔터티를 관리하는 방법을 알아봅니다.
+author: juliako
+manager: dwrede
+editor: ''
+services: media-services
+documentationcenter: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/26/2016" 
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-#<a name="managing-media-services-entities-with-rest-api"></a>REST API를 사용하여 미디어 서비스 엔터티 관리
-
-> [AZURE.SELECTOR]
-- [REST (영문)](media-services-rest-manage-entities.md)
-- [.NET](media-services-dotnet-manage-entities.md)
+---
+# <a name="managing-media-services-entities-with-rest-api"></a>REST API를 사용하여 미디어 서비스 엔터티 관리
+> [!div class="op_single_selector"]
+> * [REST (영문)](media-services-rest-manage-entities.md)
+> * [.NET](media-services-dotnet-manage-entities.md)
+> 
+> 
 
 Microsoft Azure 미디어 서비스는 OData v3에 빌드된 REST 기반 서비스입니다. 이 때문에 다른 OData 서비스에서와 거의 같은 방법으로 엔터티를 추가, 쿼리, 업데이트 및 삭제할 수 있습니다. 예외는 해당하는 경우 호출됩니다. OData에 대한 자세한 내용은 [개방형 데이터 프로토콜 설명서](http://www.odata.org/documentation/)를 참조하세요.
 
-- 엔터티 추가 
-- 엔터티 쿼리 
-- 대용량 엔터티 컬렉션 열거
-- 엔터티 업데이트 
-- 엔터티 삭제 
+* 엔터티 추가 
+* 엔터티 쿼리 
+* 대용량 엔터티 컬렉션 열거
+* 엔터티 업데이트 
+* 엔터티 삭제 
 
->[AZURE.NOTE] 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
->
->미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+> [!NOTE]
+> 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
+> 
+> 미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+> 
+> https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect-programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다. 
+> 
+> 
 
->https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect-programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다. 
-
-
-##<a name="adding-entities"></a>엔터티 추가
-
+## <a name="adding-entities"></a>엔터티 추가
 미디어 서비스의 모든 엔터티는 POST HTTP 요청을 통해 Assets와 같은 엔터티 집합에 추가됩니다.
 
 다음 예제에서는 AccessPolicy를 만드는 방법을 보여 줍니다.
@@ -55,12 +56,11 @@ Microsoft Azure 미디어 서비스는 OData v3에 빌드된 REST 기반 서비�
     Host: media.windows.net
     Content-Length: 74
     Expect: 100-continue
-    
+
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
- 
-##<a name="querying-entities"></a>엔터티 쿼리
 
+## <a name="querying-entities"></a>엔터티 쿼리
 엔터티 쿼리 및 나열은 간단하고 GET HTTP 요청과 선택적 OData 작업만 관련됩니다.
 다음 예제에서는 모든 MediaProcessor 엔터티 목록을 검색합니다.
 
@@ -115,10 +115,12 @@ Microsoft Azure 미디어 서비스는 OData v3에 빌드된 REST 기반 서비�
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
     Host: media.windows.net
 
->[AZURE.NOTE]$expand 작업은 LINQ 고려 사항(WCF 데이터 서비스)에 설명된 지원되지 않는 LINQ 메서드 및 미디어 서비스에서 지원되지 않습니다.
+> [!NOTE]
+> $expand 작업은 LINQ 고려 사항(WCF 데이터 서비스)에 설명된 지원되지 않는 LINQ 메서드 및 미디어 서비스에서 지원되지 않습니다.
+> 
+> 
 
-##<a name="enumerating-through-large-collections-of-entities"></a>대용량 엔터티 컬렉션 열거
-
+## <a name="enumerating-through-large-collections-of-entities"></a>대용량 엔터티 컬렉션 열거
 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. **skip** 및 **top**을 사용하여 대용량 엔터티 컬렉션을 열거합니다. 
 
 다음 예제에서는 **skip** 및 **top**을 사용하여 처음 2000개의 작업을 건너뛰고 다음 1000개의 작업을 가져오는 방법을 보여 줍니다.  
@@ -132,8 +134,7 @@ Microsoft Azure 미디어 서비스는 OData v3에 빌드된 REST 기반 서비�
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
     Host: media.windows.net
 
-##<a name="updating-entities"></a>엔터티 업데이트
-
+## <a name="updating-entities"></a>엔터티 업데이트
 엔터티 형식 및 엔터티 상태에 따라 PATCH, PUT 또는 MERGE HTTP 요청을 통해 해당 엔터티의 속성을 업데이트할 수 있습니다. 이 작업에 대한 자세한 내용은 [PATCH/PUT/MERGE](https://msdn.microsoft.com/library/dd541276.aspx)를 참조하세요.
 
 다음 코드 예제에서는 Asset 엔터티의 Name 속성을 업데이트하는 방법을 보여 줍니다.
@@ -148,11 +149,10 @@ Microsoft Azure 미디어 서비스는 OData v3에 빌드된 REST 기반 서비�
     Host: media.windows.net
     Content-Length: 21
     Expect: 100-continue
-    
+
     {"Name" : "NewName" }
 
-##<a name="deleting-entities"></a>엔터티 삭제
-
+## <a name="deleting-entities"></a>엔터티 삭제
 DELETE HTTP 요청을 사용하여 미디어 서비스에서 엔터티를 삭제할 수 있습니다. 엔터티에 따라 엔터티 삭제 순서가 중요할 수 있습니다. 예를 들어 자산과 같은 엔터티는 자산을 삭제하기 전에 해당 특정 자산을 참조하는 모든 로케이터를 해지(또는 삭제)해야 합니다.
 
 다음 예제에서는 파일을 Blob 저장소로 업로드하는 데 사용된 로케이터를 삭제하는 방법을 보여 줍니다.
@@ -169,15 +169,11 @@ DELETE HTTP 요청을 사용하여 미디어 서비스에서 엔터티를 삭제
 
 
 
-##<a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>피드백 제공
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
+## <a name="provide-feedback"></a>피드백 제공
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 <!--HONumber=Oct16_HO2-->
 

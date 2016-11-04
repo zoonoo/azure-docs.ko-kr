@@ -1,54 +1,55 @@
-<properties
-	pageTitle="Microsoft Azure Logic Apps에서 사용하는 Microsoft 관리 커넥터 목록 | Microsoft Azure 앱 서비스 | Microsoft Azure"
-	description="Azure 앱 서비스에서 Logic Apps를 빌드하는 데 사용할 수 있는 Microsoft 관리 커넥터의 전체 목록 가져오기"
-	services="logic-apps"
-	documentationCenter=""
-	authors="MSFTMAN"
-	manager="erikre"
-	editor=""
-    tags="connectors"/>
+---
+title: Microsoft Azure Logic Apps에서 사용하는 Microsoft 관리 커넥터 목록 | Microsoft Docs
+description: Azure 앱 서비스에서 Logic Apps를 빌드하는 데 사용할 수 있는 Microsoft 관리 커넥터의 전체 목록 가져오기
+services: logic-apps
+documentationcenter: ''
+author: MSFTMAN
+manager: erikre
+editor: ''
+tags: connectors
 
-<tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/20/2016"
-	ms.author="deonhe"/>
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/20/2016
+ms.author: deonhe
 
+---
 # 커넥터 목록
-
 워크플로를 구축하는 방법에 대해 알아보려면 커넥터를 선택합니다.
 
 ## 표준 커넥터
+| 커넥터 |  |  |  |
+| --- | --- | --- | --- |
+| [![API 아이콘][API/Web-Appicon]<br/>**API/웹앱**][API/Web-Appdoc] |[![API 아이콘][Azure-Blobicon]<br/>**Azure Blob**][Azure-Blobdoc] |[![API 아이콘][Azure~Functionsicon]<br/>**Azure<br/>Functions**][Azure~Functionsdoc] |[![API 아이콘][Boxicon]<br/>**Box**][Boxdoc] |
+| [![API 아이콘][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc] |[![API 아이콘][DB2icon]<br/>**DB2**][db2doc] |[![API 아이콘][Delayicon]<br/>**지연**][Delaydoc] |[![API 아이콘][Dropboxicon]<br/>**Dropbox**][Dropboxdoc] |
+| [![API 아이콘][Facebookicon]<br/>**Facebook**][Facebookdoc] |[![API 아이콘][FTPicon]<br/>**FTP**][FTPdoc] |[![API 아이콘][GitHubicon]<br/>**GitHub**][GitHubdoc] |[![API 아이콘][Google-Driveicon]<br/>**Google 드라이브**][Google-Drivedoc] |
+| ![API 아이콘][Google-Sheetsicon]<br/>**Google Sheets** |![API 아이콘][Google-Tasksicon]<br/>**Google 태스크** |![API 아이콘][Google~Calendaricon]<br/>**Google<br/>달력** |[![API 아이콘][HTTPicon]<br/>**HTTP**][HTTPdoc] |
+| [![API 아이콘][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc] |[![API 아이콘][HTTP~Requesticon]<br/>**HTTP<br/>요청**][HTTP~Requestdoc] |[![API 아이콘][HTTP~Responseicon]<br/>**HTTP<br/>응답**][HTTP~Responsedoc] |[![API 아이콘][Informixicon]<br/>**Informix**][informixdoc] |
+| ![API 아이콘][Instagramicon]<br/>**Instagram** |[![API 아이콘][MailChimpicon]<br/>**MailChimp**][MailChimpdoc] |![API 아이콘][Mandrillicon]<br/>**Mandrill** |[![API 아이콘][Nested~Logic-Appicon]<br/>**중첩된<br/>논리 앱**][Nested~Logic-Appdoc] |
+| [![API 아이콘][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc] |[![API 아이콘][Office-365~Usersicon]<br/>**Office 365<br/>사용자**][Office-365~Usersdoc] |[![API 아이콘][Office-365~Videoicon]<br/>**Office 365<br/>비디오**][Office-365~Videodoc] |[![API 아이콘][OneDriveicon]<br/>**OneDrive**][OneDrivedoc] |
+| [![API 아이콘][OneDrive-for~Businessicon]<br/>**비즈니스용<br/>OneDrive**][OneDrive-for~Businessdoc] |[![API 아이콘][Outlookicon]<br/>**Outlook**][Outlookdoc] |[![API 아이콘][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc] |[![API 아이콘][Queryicon]<br/>**쿼리**][Querydoc] |
+| [![API 아이콘][Recurrenceicon]<br/>**되풀이**][Recurrencedoc] |[![API 아이콘][RSSicon]<br/>**RSS**][RSSdoc] |[![API 아이콘][Salesforceicon]<br/>**Salesforce**][Salesforcedoc] |[![API 아이콘][SendGridicon]<br/>**SendGrid**][SendGriddoc] |
+| [![API 아이콘][Service-Busicon]<br/>**서비스 버스**][Service-Busdoc] |[![API 아이콘][SFTPicon]<br/>**SFTP**][SFTPdoc] |[![API 아이콘][SharePointicon]<br/>**SharePoint**][SharePointdoc] |[![API 아이콘][Slackicon]<br/>**Slack**][Slackdoc] |
+| [![API 아이콘][SMTPicon]<br/>**SMTP**][SMTPdoc] |![API 아이콘][SparkPosticon]<br/>**SparkPost** |[![API 아이콘][SQLicon]<br/>**SQL**][SQLdoc] |[![API 아이콘][Translatoricon]<br/>**번역기**][Translatordoc] |
+| [![API 아이콘][Trelloicon]<br/>**Trello**][Trellodoc] |[![API 아이콘][Twilioicon]<br/>**Twilio**][Twiliodoc] |[![API 아이콘][Twittericon]<br/>**Twitter**][Twitterdoc] |[![API 아이콘][Webhookicon]<br/>**Webhook**][Webhookdoc] |
+| [![API 아이콘][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc] |[![API 아이콘][Yammericon]<br/>**Yammer**][Yammerdoc] |![API 아이콘][YouTubeicon]<br/>**YouTube** | |
 
-|커넥터||||
-|-----------|-----------|-----------|-----------|
-|[![API 아이콘][API/Web-Appicon]<br/>**API/웹앱**][API/Web-Appdoc]|[![API 아이콘][Azure-Blobicon]<br/>**Azure Blob**][Azure-Blobdoc]|[![API 아이콘][Azure~Functionsicon]<br/>**Azure<br/>Functions**][Azure~Functionsdoc]|[![API 아이콘][Boxicon]<br/>**Box**][Boxdoc]|
-|[![API 아이콘][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc]|[![API 아이콘][DB2icon]<br/>**DB2**][db2doc]|[![API 아이콘][Delayicon]<br/>**지연**][Delaydoc]|[![API 아이콘][Dropboxicon]<br/>**Dropbox**][Dropboxdoc]|
-|[![API 아이콘][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API 아이콘][FTPicon]<br/>**FTP**][FTPdoc]|[![API 아이콘][GitHubicon]<br/>**GitHub**][GitHubdoc]|[![API 아이콘][Google-Driveicon]<br/>**Google 드라이브**][Google-Drivedoc]|
-|![API 아이콘][Google-Sheetsicon]<br/>**Google Sheets**|![API 아이콘][Google-Tasksicon]<br/>**Google 태스크**|![API 아이콘][Google~Calendaricon]<br/>**Google<br/>달력**|[![API 아이콘][HTTPicon]<br/>**HTTP**][HTTPdoc]|
-|[![API 아이콘][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc]|[![API 아이콘][HTTP~Requesticon]<br/>**HTTP<br/>요청**][HTTP~Requestdoc]|[![API 아이콘][HTTP~Responseicon]<br/>**HTTP<br/>응답**][HTTP~Responsedoc]|[![API 아이콘][Informixicon]<br/>**Informix**][informixdoc]|
-|![API 아이콘][Instagramicon]<br/>**Instagram**|[![API 아이콘][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API 아이콘][Mandrillicon]<br/>**Mandrill**|[![API 아이콘][Nested~Logic-Appicon]<br/>**중첩된<br/>논리 앱**][Nested~Logic-Appdoc]|
-|[![API 아이콘][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc]|[![API 아이콘][Office-365~Usersicon]<br/>**Office 365<br/>사용자**][Office-365~Usersdoc]|[![API 아이콘][Office-365~Videoicon]<br/>**Office 365<br/>비디오**][Office-365~Videodoc]|[![API 아이콘][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|
-|[![API 아이콘][OneDrive-for~Businessicon]<br/>**비즈니스용<br/>OneDrive**][OneDrive-for~Businessdoc]|[![API 아이콘][Outlookicon]<br/>**Outlook**][Outlookdoc]|[![API 아이콘][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API 아이콘][Queryicon]<br/>**쿼리**][Querydoc]|
-|[![API 아이콘][Recurrenceicon]<br/>**되풀이**][Recurrencedoc]|[![API 아이콘][RSSicon]<br/>**RSS**][RSSdoc]|[![API 아이콘][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API 아이콘][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
-|[![API 아이콘][Service-Busicon]<br/>**서비스 버스**][Service-Busdoc]|[![API 아이콘][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![API 아이콘][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API 아이콘][Slackicon]<br/>**Slack**][Slackdoc]|
-|[![API 아이콘][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API 아이콘][SparkPosticon]<br/>**SparkPost**|[![API 아이콘][SQLicon]<br/>**SQL**][SQLdoc]|[![API 아이콘][Translatoricon]<br/>**번역기**][Translatordoc]|
-|[![API 아이콘][Trelloicon]<br/>**Trello**][Trellodoc]|[![API 아이콘][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API 아이콘][Twittericon]<br/>**Twitter**][Twitterdoc]|[![API 아이콘][Webhookicon]<br/>**Webhook**][Webhookdoc]|
-|[![API 아이콘][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API 아이콘][Yammericon]<br/>**Yammer**][Yammerdoc]|![API 아이콘][YouTubeicon]<br/>**YouTube**||
-
-> [AZURE.NOTE] Azure 계정에 등록하기 전에 Azure Logic Apps를 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> [!NOTE]
+> Azure 계정에 등록하기 전에 Azure Logic Apps를 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> 
+> 
 
 ## EIP(엔터프라이즈 통합 팩) 커넥터
 EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 대한 논리 앱을 만듭니다.
- 
-|EIP 커넥터 ||||
-|-----------|-----------|-----------|-----------|
-|[![API 아이콘][xmlvalidateicon]<br/>**XML <br/>유효성 검사**][xmlvalidatedoc]|[![API 아이콘][xmltransformicon]<br/>**XML<br/> 변환**][xmltransformdoc]|[![API 아이콘][flatfileicon]<br/>**플랫 파일</br>인코딩**][flatfiledoc]|[![API 아이콘][flatfiledecodeicon]<br/>**플랫 파일</br>디코딩**][flatfiledecodedoc]|
-|[![API 아이콘][as2icon]<br/>**AS2</br>디코딩**][as2decode]|[![API 아이콘][as2icon]<br/>**AS2</br>인코딩**][as2encode]|[![API 아이콘][x12icon]<br/>**X12</br>디코딩**][x12decode]|[![API 아이콘][x12icon]<br/>**X12</br>인코딩**][x12encode]|
-|[![API 아이콘][x12icon]<br/>**EDIFACT</br>디코딩**][EDIFACTdecode]|[![API 아이콘][x12icon]<br/>**EDIFACT</br>인코딩**][EDIFACTencode]||||
+
+| EIP 커넥터 |  |  |  |
+| --- | --- | --- | --- |
+| [![API 아이콘][xmlvalidateicon]<br/>**XML <br/>유효성 검사**][xmlvalidatedoc] |[![API 아이콘][xmltransformicon]<br/>**XML<br/> 변환**][xmltransformdoc] |[![API 아이콘][flatfileicon]<br/>**플랫 파일</br>인코딩**][flatfiledoc] |[![API 아이콘][flatfiledecodeicon]<br/>**플랫 파일</br>디코딩**][flatfiledecodedoc] |
+| [![API 아이콘][as2icon]<br/>**AS2</br>디코딩**][as2decode] |[![API 아이콘][as2icon]<br/>**AS2</br>인코딩**][as2encode] |[![API 아이콘][x12icon]<br/>**X12</br>디코딩**][x12decode] |[![API 아이콘][x12icon]<br/>**X12</br>인코딩**][x12encode] |
+| [![API 아이콘][x12icon]<br/>**EDIFACT</br>디코딩**][EDIFACTdecode] |[![API 아이콘][x12icon]<br/>**EDIFACT</br>인코딩**][EDIFACTencode] | | |
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### 커넥터는 트리거가 될 수 있습니다.
@@ -63,10 +64,9 @@ EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 �
 커넥터를 앱의 내부에서 작업으로 사용할 수도 있습니다. 작업은 앱의 실행에 사용될 수 있는 데이터를 조회하는 데 유용합니다. 예를 들어 주문을 처리할 때 SQL 데이터베이스에서 고객 데이터를 조회해야 할 수 있습니다. 또는 대상 테이블에서 데이터를 작성, 업데이트 또는 삭제해야 할 수 있습니다. 커넥터가 제공하는 작업을 사용하여 이를 수행할 수 있습니다. 작업은 Swagger 메타데이터에 정의된 작업에 매핑됩니다.
 
 ## 다음 단계
-
-- [이제 논리 앱 빌드](../app-service-logic/app-service-logic-create-a-logic-app.md)
-- [사용자 지정 커넥터 만들기](../app-service-logic/app-service-logic-create-api-app.md)
-- [논리 앱 모니터링](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
+* [이제 논리 앱 빌드](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [사용자 지정 커넥터 만들기](../app-service-logic/app-service-logic-create-api-app.md)
+* [논리 앱 모니터링](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
 [azure-blobdoc]: ./connectors-create-api-azureblobstorage.md "Blob 컨테이너에서 파일을 관리하는 Azure Blob에 연결합니다."

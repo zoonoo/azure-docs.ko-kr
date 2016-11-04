@@ -1,30 +1,29 @@
-<properties
-	pageTitle="Azure 앱 서비스에 대한 모범 사례"
-	description="Azure 앱 서비스에 대한 모범 사례 및 문제 해결에 대해 알아봅니다."
-	services="app-service"
-	documentationCenter=""
-	authors="dariagrigoriu"
-	manager="wpickett"
-	editor="mollybos"/>
+---
+title: Azure 앱 서비스에 대한 모범 사례
+description: Azure 앱 서비스에 대한 모범 사례 및 문제 해결에 대해 알아봅니다.
+services: app-service
+documentationcenter: ''
+author: dariagrigoriu
+manager: wpickett
+editor: mollybos
 
-<tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2016"
-	ms.author="dariagrigoriu"/>
-    
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/30/2016
+ms.author: dariagrigoriu
+
+---
 # Azure 앱 서비스에 대한 모범 사례
-
 이 문서는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)를 사용하는 모범 사례를 요약합니다.
 
 ## <a name="colocation"></a>공동 배치
 웹앱과 같은 솔루션을 작성하는 Azure 리소스와 데이터베이스가 다른 지역에 있는 경우 다음과 같은 영향이 있습니다.
 
-*  리소스 간 통신에 대한 대기 시간 증가
-*  [Azure 가격 책정 페이지](https://azure.microsoft.com/pricing/details/data-transfers)에서 설명한 것과 같이 지역 간 아웃바운드 데이터 전송에 대한 금전적인 청구
+* 리소스 간 통신에 대한 대기 시간 증가
+* [Azure 가격 책정 페이지](https://azure.microsoft.com/pricing/details/data-transfers)에서 설명한 것과 같이 지역 간 아웃바운드 데이터 전송에 대한 금전적인 청구
 
 동일한 지역의 공동 배치는 웹앱과 같은 솔루션과 콘텐츠 또는 데이터를 저장하는 데 사용되는 데이터베이스 또는 저장소 계정을 작성하는 Azure 리소스에 가장 적합합니다. 리소스를 만들 때 동일한 Azure 지역에 있어서는 안 되는 특정 비즈니스 또는 디자인 사유가 없는 한 동일한 Azure 지역에 있어야 합니다. 프리미엄 앱 서비스 계획 앱에서 현재 사용할 수 있는 [앱 서비스 복제 기능](app-service-web-app-cloning-portal.md)을 활용하여 앱 서비스 앱을 데이터베이스와 동일한 지역으로 이동할 수 있습니다.
 

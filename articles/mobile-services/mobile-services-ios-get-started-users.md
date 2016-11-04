@@ -1,52 +1,49 @@
-<properties
-	pageTitle="기존 Azure 모바일 서비스 앱에 인증 추가(iOS) | JavaScript 백 엔드 | Microsoft Azure"
-	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 iOS 앱 사용자를 인증하는 방법을 알아봅니다."
-	services="mobile-services"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="erikre"
-	editor=""/>
+---
+title: 기존 Azure 모바일 서비스 앱에 인증 추가(iOS) | Microsoft Docs
+description: 모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 iOS 앱 사용자를 인증하는 방법을 알아봅니다.
+services: mobile-services
+documentationcenter: ios
+author: krisragh
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh
 
+---
 # 기존 앱에 인증 추가
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[!INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > 이 항목에 해당하는 모바일 앱 버전은 [iOS 앱에 인증 추가](../app-service-mobile/app-service-mobile-ios-get-started-users.md)를 참조하세요.
+> 
+> 
 
 이 자습서에서는 지원되는 ID 공급자를 사용하여 [모바일 서비스 빠른 시작 자습서]에 인증을 추가합니다.
 
 먼저 [모바일 서비스 빠른 시작 자습서]를 완료하는 것이 좋습니다. 또는 iOS 빠른 시작 프로젝트를 방금 다운로드하면 됩니다. [Azure 클래식 포털]에서 > **모바일 서비스** > 사용자의 모바일 서비스 > 왼쪽 위의 클라우드 기호 > **iOS** > **새 iOS 앱 만들기** > **앱 다운로드 및 실행** > **Objective-C** > **다운로드**를 클릭하세요. 테이블을 아직 만들지 않은 경우는 **다운로드**를 클릭하기 전에 **TodoItem 테이블 만들기**를 클릭합니다.
 
-##<a name="register"></a>인증을 위한 앱 등록
+## <a name="register"></a>인증을 위한 앱 등록
+[!INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
+## <a name="permissions"></a>데이터 권한을 인증된 사용자로 제한
+[!INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-##<a name="permissions"></a>데이터 권한을 인증된 사용자로 제한
+## <a name="add-authentication"></a>앱에 인증 추가
+[!INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
-
-##<a name="add-authentication"></a>앱에 인증 추가
-
-[AZURE.INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
-
-##<a name="store-authentication"></a>앱에 인증 토큰 저장
-
-[AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
+## <a name="store-authentication"></a>앱에 인증 토큰 저장
+[!INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>다음 단계
-
 다음으로, [사용자 ID 값을 사용하여 반환된 데이터를 필터링하는 방법](mobile-services-javascript-backend-service-side-authorization.md)을 알아봅니다.
 
 <!-- Anchors. -->

@@ -1,60 +1,56 @@
-<properties 
-   pageTitle="Node.js용 Azure SDK를 사용하여 Azure Data Lake 저장소 관리 | Microsoft Azure"
-   description="데이터 레이크 저장소 계정 및 파일 시스템을 관리하는 방법을 알아봅니다." 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="jhubbard" 
-   editor="cgronlun"/>
- 
-<tags
-   ms.service="data-lake-store"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="09/13/2016"
-   ms.author="nitinme"/>
+---
+title: Node.js용 Azure SDK를 사용하여 Azure Data Lake 저장소 관리 | Microsoft Docs
+description: 데이터 레이크 저장소 계정 및 파일 시스템을 관리하는 방법을 알아봅니다.
+services: data-lake-store
+documentationcenter: ''
+author: nitinme
+manager: jhubbard
+editor: cgronlun
 
+ms.service: data-lake-store
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 09/13/2016
+ms.author: nitinme
+
+---
 # Node.js용 Azure SDK를 사용하여 Azure 데이터 레이크 저장소 관리
-
-> [AZURE.SELECTOR]
-- [포털](data-lake-store-get-started-portal.md)
-- [PowerShell](data-lake-store-get-started-powershell.md)
-- [.NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Java SDK](data-lake-store-get-started-java-sdk.md)
-- [REST API](data-lake-store-get-started-rest-api.md)
-- [Azure CLI](data-lake-store-get-started-cli.md)
-- [Node.JS](data-lake-store-manage-use-nodejs.md)
-
+> [!div class="op_single_selector"]
+> * [포털](data-lake-store-get-started-portal.md)
+> * [PowerShell](data-lake-store-get-started-powershell.md)
+> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
+> * [Java SDK](data-lake-store-get-started-java-sdk.md)
+> * [REST API](data-lake-store-get-started-rest-api.md)
+> * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Node.JS](data-lake-store-manage-use-nodejs.md)
+> 
+> 
 
 Node.js용 Azure SDK는 Azure Data Lake 저장소 계정은 물론 파일 시스템 작업을 관리하는 데 사용할 수 있습니다.
 
 현재는 다음이 지원됩니다.
 
-  *  **Node.js 버전: 0.10.0 이상**
-  *  **계정에 대한 REST API 버전: 2015-10-01-preview**
-  *  **FileSystem용 REST API 버전: 2015-10-01-preview**
+* **Node.js 버전: 0.10.0 이상**
+* **계정에 대한 REST API 버전: 2015-10-01-preview**
+* **FileSystem용 REST API 버전: 2015-10-01-preview**
 
-##필수 조건
-
+## 필수 조건
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ## 기능
-
-- 계정 관리: 만들기, 가져오기, 나열, 업데이트 및 삭제
-- 파일 시스템 관리: 만들기, 가져오기, 업로드, 추가, 다운로드, 읽기, 삭제, 나열
+* 계정 관리: 만들기, 가져오기, 나열, 업데이트 및 삭제
+* 파일 시스템 관리: 만들기, 가져오기, 업로드, 추가, 다운로드, 읽기, 삭제, 나열
 
 ## 설치 방법
-
 ```bash
 npm install azure-arm-datalake-store
 ```
 
 ## Azure Active Directory를 사용하여 인증
-
  ```javascript
  var msrestAzure = require('ms-rest-azure');
  //user authentication
@@ -64,7 +60,6 @@ npm install azure-arm-datalake-store
  ```
 
 ## Data Lake 분석 클라이언트 만들기
-
 ```javascript
 var adlsManagement = require("azure-arm-datalake-store");
 var acccountClient = new adlsManagement.DataLakeStoreAccountClient(credentials, "your-subscription-id");
@@ -72,7 +67,6 @@ var filesystemClient = new adlsManagement.DataLakeStoreFileSystemClient(credenti
 ```
 
 ## Data Lake 저장소 계정 만들기
-
 ```javascript
 var util = require('util');
 var resourceGroupName = 'testrg';
@@ -128,7 +122,6 @@ filesystemClient.fileSystem.listFileStatus(accountName, fileToCreate, options, f
 ```
 
 ## 파일 및 폴더 목록 가져오기
-
 ```javascript
 var util = require('util');
 var accountName = 'testadlsacct';
@@ -143,8 +136,7 @@ filesystemClient.fileSystem.listFileStatus(accountName, pathToEnumerate, functio
 ```
 
 ## 참고 항목
-
-- [Node.js용 Microsoft Azure SDK](https://github.com/azure/azure-sdk-for-node)
-- [Node.js용 Microsoft Azure SDK - Data Lake 분석 관리](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+* [Node.js용 Microsoft Azure SDK](https://github.com/azure/azure-sdk-for-node)
+* [Node.js용 Microsoft Azure SDK - Data Lake 분석 관리](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
 <!---HONumber=AcomDC_0914_2016-->

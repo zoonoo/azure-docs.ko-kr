@@ -1,29 +1,28 @@
-<properties
-	pageTitle="Azure Monitor 파트너 통합 | Microsoft Azure"
-	description="Azure Monitor의 파트너와, 파트너 통합을 위한 설명서에 액세스하는 방법을 살펴봅니다."
-	authors="johnkemnetz"
-	manager="rboucher"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Azure Monitor 파트너 통합 | Microsoft Docs
+description: Azure Monitor의 파트너와, 파트너 통합을 위한 설명서에 액세스하는 방법을 살펴봅니다.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/26/2016"
-	ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: johnkem
 
+---
 # Azure Monitor 파트너 통합
-
-|파트너|||
-|-----------|-----------|-----------|
-| [![파트너 로고][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![파트너 로고][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![파트너 로고][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![파트너 로고][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![파트너 로고][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![파트너 로고][datadog-logo]<br/>**DataDog**][datadog-anchor] |
-| [![파트너 로고][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![파트너 로고][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![파트너 로고][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
-| [![파트너 로고][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![파트너 로고][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![파트너 로고][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
+| 파트너 |  |  |
+| --- | --- | --- |
+| [![파트너 로고][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] |[![파트너 로고][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] |[![파트너 로고][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
+| [![파트너 로고][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |[![파트너 로고][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |[![파트너 로고][datadog-logo]<br/>**DataDog**][datadog-anchor] |
+| [![파트너 로고][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |[![파트너 로고][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |[![파트너 로고][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
+| [![파트너 로고][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |[![파트너 로고][splunk-logo]<br/>**Splunk**][splunk-anchor] |[![파트너 로고][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
 
 ## AlertLogic Log Manager
 Alert Logic Log Manager는 보안 분석 및 보존을 위해 VM, 응용 프로그램 및 Azure 플랫폼 로그를 수집합니다. 여기에는 Azure Insights API를 통한 Azure 감사 로그가 포함됩니다. 이 정보는 부정 행위를 탐지하고 규정 준수 요구 사항에 부합하는 데 사용됩니다.
@@ -59,7 +58,6 @@ Dynatrace OneAgent는 해당하는 Azure 확장 메커니즘을 통해 Azure VM 
 [설명서로 이동합니다.][dynatrace-doc]
 
 ## NewRelic
-
 [자세한 정보][newrelic-doc]
 
 ## OpsGenie
@@ -80,12 +78,11 @@ Microsoft Azure를 위한 Splunk 추가 기능은 Microsoft Azure에서 실행 �
 [설명서로 이동합니다.][splunk-doc]
 
 ## Sumo Logic
-
 [자세한 정보][sumologic-doc]
 
 ## 다음 단계
-- [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](../resource-group-audit.md)
-- [Azure 활동 로그를 이벤트 허브로 스트림](./monitoring-stream-activity-logs-event-hubs.md)
+* [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](../resource-group-audit.md)
+* [Azure 활동 로그를 이벤트 허브로 스트림](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 
 <!--Connectors Documentation-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"

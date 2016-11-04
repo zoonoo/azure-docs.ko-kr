@@ -1,30 +1,27 @@
-<properties 
-	pageTitle="Azure 앱 서비스에 ASP.NET MVC 5 모바일 웹 앱 배포" 
-	description="ASP.NET MVC 5 웹 응용 프로그램에서 모바일 기능을 사용하여 Azure 앱 서비스에 웹 앱을 배포하는 방법에 대해 설명하는 자습서입니다." 
-	services="app-service" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
-	editor="jimbe"/>
+---
+title: Azure 앱 서비스에 ASP.NET MVC 5 모바일 웹 앱 배포
+description: ASP.NET MVC 5 웹 응용 프로그램에서 모바일 기능을 사용하여 Azure 앱 서비스에 웹 앱을 배포하는 방법에 대해 설명하는 자습서입니다.
+services: app-service
+documentationcenter: .net
+author: cephalin
+manager: wpickett
+editor: jimbe
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="01/12/2016" 
-	ms.author="cephalin;riande"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 01/12/2016
+ms.author: cephalin;riande
 
-
+---
 # Azure 앱 서비스에 ASP.NET MVC 5 모바일 웹 앱 배포
-
 이 자습서에서는 모바일 친화적인 ASP.NET MVC 5 웹 앱을 만들고 Azure 앱 서비스에 배포하는 방법에 대한 기초적인 내용을 알려 줍니다. 이 자습서를 사용하려면 [Visual Studio Express 2013 for Web][Visual Studio Express 2013] 또는 이미 보유하고 있는 Visual Studio의 Professional 버전이 필요합니다. [Visual Studio 2015]를 사용할 수 있지만 스크린샷이 달라지게 되고 ASP.NET 4.x 템플릿을 사용해야 합니다.
 
-[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+[!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## 만들 내용
-
 이 자습서에서는 [시작 프로젝트][StarterProject]에 제공된 간단한 회의 목록 응용 프로그램에 모바일 기능을 추가합니다. 다음 스크린샷은 완료된 응용 프로그램에서의 ASP.NET 세션을 보여 줍니다. Internet Explorer 11 F12 개발자 도구에 있는 브라우저 에뮬레이터에서 이러한 세션을 볼 수 있습니다.
 
 ![][FixedSessionsByTag]
@@ -32,85 +29,71 @@
 Internet Explorer 11 F12 개발자 도구 및 [Fiddler 도구][Fiddler]를 사용하여 응용 프로그램을 디버그할 수 있습니다.
 
 ## 학습할 기술
-
 다음 내용을 학습하게 됩니다.
 
--	Visual Studio 2013을 사용하여 웹 응용 프로그램을 Azure 앱 서비스의 웹 앱에 직접 게시하는 방법
--   모바일 장치의 디스플레이를 향상하기 위해 ASP.NET MVC 5 템플릿에서 CSS 부트스트랩 프레임워크를 사용하는 방법
--   iPhone 및 Android 등 특정 모바일 브라우저를 대상으로 모바일 전용 뷰를 만드는 방법
--   반응형 뷰(장치 간의 서로 다른 브라우저에 반응하는 뷰)를 만드는 방법
+* Visual Studio 2013을 사용하여 웹 응용 프로그램을 Azure 앱 서비스의 웹 앱에 직접 게시하는 방법
+* 모바일 장치의 디스플레이를 향상하기 위해 ASP.NET MVC 5 템플릿에서 CSS 부트스트랩 프레임워크를 사용하는 방법
+* iPhone 및 Android 등 특정 모바일 브라우저를 대상으로 모바일 전용 뷰를 만드는 방법
+* 반응형 뷰(장치 간의 서로 다른 브라우저에 반응하는 뷰)를 만드는 방법
 
 ## 개발 환경 설정
-
 Azure SDK for .NET 2.5.1 이상을 설치하여 개발 환경을 설정합니다.
 
 1. Azure SDK for .NET을 설치하려면 아래 링크를 클릭합니다. Visual Studio 2013가 아직 설치되어 있지 않은 경우 링크를 통해 설치됩니다. 이 자습서를 완료하려면 Visual Studio 2013이 필요합니다. [Azure SDK for Visual Studio 2013][AzureSDKVs2013]
-1. 웹 플랫폼 설치 관리자 창에서 **설치**를 클릭하여 설치를 계속합니다.
+2. 웹 플랫폼 설치 관리자 창에서 **설치**를 클릭하여 설치를 계속합니다.
 
 모바일 브라우저 에뮬레이터도 필요합니다. 다음을 사용할 수 있습니다.
 
--   [Internet Explorer 11 F12 개발자 도구][EmulatorIE11]의 브라우저 에뮬레이터(모바일 브라우저 스크린샷에 사용됨) Windows Phone 8, Windows Phone 7 및 Apple iPad를 위한 사용자 에이전트 문자열 기본 설정이 있습니다.
--	[Google Chrome DevTools][EmulatorChrome]의 브라우저 에뮬레이터. Apple iPhone, Apple iPad, Amazon Kindle Fire 등 여러 Android 장치에 대한 기본 설정이 포함되어 있습니다. 터치 이벤트도 에뮬레이트합니다.
--   [Opera Mobile Emulator][EmulatorOpera]
+* [Internet Explorer 11 F12 개발자 도구][EmulatorIE11]의 브라우저 에뮬레이터(모바일 브라우저 스크린샷에 사용됨) Windows Phone 8, Windows Phone 7 및 Apple iPad를 위한 사용자 에이전트 문자열 기본 설정이 있습니다.
+* [Google Chrome DevTools][EmulatorChrome]의 브라우저 에뮬레이터. Apple iPhone, Apple iPad, Amazon Kindle Fire 등 여러 Android 장치에 대한 기본 설정이 포함되어 있습니다. 터치 이벤트도 에뮬레이트합니다.
+* [Opera Mobile Emulator][EmulatorOpera]
 
 C# 소스 코드를 사용하는 Visual Studio 프로젝트를 다음 항목과 함께 사용할 수 있습니다.
 
--   [시작 프로젝트 다운로드(영문)][StarterProject]
--   [완성된 프로젝트 다운로드(영문)][CompletedProject]
+* [시작 프로젝트 다운로드(영문)][StarterProject]
+* [완성된 프로젝트 다운로드(영문)][CompletedProject]
 
-##<a name="bkmk_DeployStarterProject"></a>Azure 웹 앱에 시작 프로젝트 배포
-
-1.	회의 목록 응용 프로그램 [시작 프로젝트][StarterProject](영문)를 다운로드합니다.
-
-2. 	그런 다음 Windows 탐색기에서 다운로드한 ZIP 파일을 마우스 오른쪽 단추로 클릭하고 *속성*을 선택합니다.
-
-3. 	**속성** 대화 상자에서 **차단 해제** 단추를 선택합니다. (차단 해제는 웹에서 다운로드한 *.zip* 파일을 사용하려고 할 때 발생하는 보안 경고를 막습니다.)
-
-4.	ZIP 파일을 마우스 오른쪽 단추로 클릭하고 **모두 압축 풀기**를 선택하여 파일의 압축을 풉니다.
-
-5. 	Visual Studio에서 *C#\\Mvc5Mobile.sln* 파일을 엽니다.
-
-6.  솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
-
-	![][DeployClickPublish]
-
-7.	웹 게시에서 **Microsoft Azure 앱 서비스**를 클릭합니다.
-
-	![][DeployClickWebSites]
-
-8.	Azure에 아직 로그인하지 않은 경우 **계정 추가**를 클릭합니다.
-
-	![][DeploySignIn]
-
-9.	표시되는 메시지에 따라 Azure 계정에 로그인합니다.
-
-11. 이제 앱 서비스 대화 상자가 로그인한 것으로 표시되어야 합니다. **새로 만들기**를 클릭합니다.
-
-	![][DeployNewWebsite]
-
-12. **웹앱 이름** 필드에서 고유한 앱 이름 접두사를 지정합니다. 정규화된 웹 앱 이름은 *&lt;prefix>*.azurewebsites.net입니다. 또한 **리소스 그룹**에서 새 리소스 그룹 이름을 선택하거나 지정합니다. 그런 다음 **새로 만들기**를 클릭하여 새 앱 서비스 계획을 만듭니다.
-
-	![][DeploySiteSettings]
-
-13. 새 앱 서비스 계획을 구성하고 **확인**을 클릭합니다.
-
+## <a name="bkmk_DeployStarterProject"></a>Azure 웹 앱에 시작 프로젝트 배포
+1. 회의 목록 응용 프로그램 [시작 프로젝트][StarterProject](영문)를 다운로드합니다.
+2. 그런 다음 Windows 탐색기에서 다운로드한 ZIP 파일을 마우스 오른쪽 단추로 클릭하고 *속성*을 선택합니다.
+3. **속성** 대화 상자에서 **차단 해제** 단추를 선택합니다. (차단 해제는 웹에서 다운로드한 *.zip* 파일을 사용하려고 할 때 발생하는 보안 경고를 막습니다.)
+4. ZIP 파일을 마우스 오른쪽 단추로 클릭하고 **모두 압축 풀기**를 선택하여 파일의 압축을 풉니다.
+5. Visual Studio에서 *C#\\Mvc5Mobile.sln* 파일을 엽니다.
+6. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
+   
+   ![][DeployClickPublish]
+7. 웹 게시에서 **Microsoft Azure 앱 서비스**를 클릭합니다.
+   
+   ![][DeployClickWebSites]
+8. Azure에 아직 로그인하지 않은 경우 **계정 추가**를 클릭합니다.
+   
+   ![][DeploySignIn]
+9. 표시되는 메시지에 따라 Azure 계정에 로그인합니다.
+10. 이제 앱 서비스 대화 상자가 로그인한 것으로 표시되어야 합니다. **새로 만들기**를 클릭합니다.
+    
+    ![][DeployNewWebsite]
+11. **웹앱 이름** 필드에서 고유한 앱 이름 접두사를 지정합니다. 정규화된 웹 앱 이름은 *&lt;prefix>*.azurewebsites.net입니다. 또한 **리소스 그룹**에서 새 리소스 그룹 이름을 선택하거나 지정합니다. 그런 다음 **새로 만들기**를 클릭하여 새 앱 서비스 계획을 만듭니다.
+    
+    ![][DeploySiteSettings]
+12. 새 앱 서비스 계획을 구성하고 **확인**을 클릭합니다.
+    
     ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7a.png)
-
 13. 다시 앱 서비스 만들기 대화 상자에서 **만들기**를 클릭합니다.
-
+    
     ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7b.png)
+14. Azure 리소스가 만들어진 후 웹 게시 대화 상자에 새 앱의 설정이 채워집니다. **게시**를 클릭합니다.
+    
+    ![][DeployPublishSite]
+    
+    Visual Studio에서 시작 프로젝트를 Azure 웹 앱에 게시하는 것이 완료된 후에는 데스크톱 브라우저가 열려서 라이브 웹 앱을 표시합니다.
+15. 모바일 브라우저 에뮬레이터를 시작하고 회의 응용 프로그램(*<prefix>*.azurewebsites.net)의 URL을 에뮬레이터에 복사한 다음 오른쪽 위에 있는 단추를 클릭하고 **태그로 찾아보기**를 선택합니다. Internet Explorer 11을 기본 브라우저로 사용 중인 경우에는 `F12` 및 `Ctrl+8`을 입력한 후에 브라우저 프로필을 **Windows Phone**으로 변경하면 됩니다. 아래 이미지는 *AllTags* 뷰를 세로 모드로 보여 줍니다(**태그로 찾아보기** 선택 시).
+    
+    ![][AllTags]
 
-13.	Azure 리소스가 만들어진 후 웹 게시 대화 상자에 새 앱의 설정이 채워집니다. **게시**를 클릭합니다.
-
-	![][DeployPublishSite]
-
-	Visual Studio에서 시작 프로젝트를 Azure 웹 앱에 게시하는 것이 완료된 후에는 데스크톱 브라우저가 열려서 라이브 웹 앱을 표시합니다.
-
-14.	모바일 브라우저 에뮬레이터를 시작하고 회의 응용 프로그램(*<prefix>*.azurewebsites.net)의 URL을 에뮬레이터에 복사한 다음 오른쪽 위에 있는 단추를 클릭하고 **태그로 찾아보기**를 선택합니다. Internet Explorer 11을 기본 브라우저로 사용 중인 경우에는 `F12` 및 `Ctrl+8`을 입력한 후에 브라우저 프로필을 **Windows Phone**으로 변경하면 됩니다. 아래 이미지는 *AllTags* 뷰를 세로 모드로 보여 줍니다(**태그로 찾아보기** 선택 시).
-
-	![][AllTags]
-
->[AZURE.TIP]Visual Studio 내에서 MVC 5 응용 프로그램을 디버깅할 수도 있고, 웹 앱을 Azure에 다시 게시하여 모바일 브라우저나 브라우저 에뮬레이터에서 라이브 웹 앱을 직접 확인할 수도 있습니다.
+> [!TIP]
+> Visual Studio 내에서 MVC 5 응용 프로그램을 디버깅할 수도 있고, 웹 앱을 Azure에 다시 게시하여 모바일 브라우저나 브라우저 에뮬레이터에서 라이브 웹 앱을 직접 확인할 수도 있습니다.
+> 
+> 
 
 이 화면은 모바일 장치에서 가독성이 뛰어납니다. 이미 부트스트랩 CSS 프레임워크에 의해 적용된 시각 효과 중 일부를 알고 있을 수도 있습니다. **ASP.NET** 링크를 클릭합니다.
 
@@ -118,8 +101,7 @@ C# 소스 코드를 사용하는 Visual Studio 프로젝트를 다음 항목과 
 
 ASP.NET 태그 뷰는 화면에 맞게 크기가 조정되어 있습니다. 크기 조정은 Bootstrap에서 자동으로 수행합니다. 하지만 모바일 브라우저에 더 알맞게 이 뷰를 향상할 수 있습니다. 예를 들어 **Date** 열은 읽기 어렵습니다. 이 자습서 뒷부분에서 *AllTags* 뷰를 모바일 친화적으로 변경해 볼 것입니다.
 
-##<a name="bkmk_bootstrap"></a> 부트스트랩 CSS 프레임워크
-
+## <a name="bkmk_bootstrap"></a> 부트스트랩 CSS 프레임워크
 MVC 5 템플릿의 새로운 점은 기본 제공 Bootstrap 지원입니다. 이것이 응용 프로그램에서 여러 가지 뷰를 즉시 향상하는 것을 이미 확인한 바 있습니다. 예를 들어 맨 위에 있는 탐색 표시줄은 브라우저 너비가 좁아질 때 자동으로 축소될 수 있습니다. 데스크톱 브라우저에서 브라우저 창의 크기를 조정하여 탐색 표시줄의 모양과 느낌이 어떻게 변하는지 확인해 보세요. 이것이 Bootstrap에 기본 제공되는 반응형 웹 디자인입니다.
 
 Bootstrap을 사용하지 않을 때 웹 앱이 어떻게 보이는지를 확인하려면 *App_Start\BundleConfig.cs*를 열고 *bootstrap.js* 및 *bootstrap.css*가 들어 있는 줄을 주석으로 처리하세요. 다음 코드는 변경한 후 `RegisterBundles` 메서드의 마지막 두 문을 보여 줍니다
@@ -146,8 +128,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 다음 섹션에서는 모바일 브라우저 전용 뷰를 제공하는 방법을 설명합니다.
 
-##<a name="bkmk_overrideviews"></a> 뷰, 레이아웃 및 부분 뷰 재정의
-
+## <a name="bkmk_overrideviews"></a> 뷰, 레이아웃 및 부분 뷰 재정의
 일반적인 모바일 브라우저, 개별 모바일 브라우저 또는 특정 브라우저용 뷰(레이아웃 및 부분 뷰 포함)를 재정의할 수 있습니다. 모바일 전용 뷰를 제공하기 위해 뷰 파일을 복사하여 파일 이름에 *.Mobile*을 추가할 수 있습니다. 예를 들어, 모바일 *인덱스* 뷰를 만들려면 *Views\Home\Index.cshtml*을 *Views\Home\Index.Mobile.cshtml*로 복사하면 됩니다.
 
 이 섹션에서는 모바일 전용 레이아웃 파일을 만듭니다.
@@ -175,8 +156,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
-##<a name="bkmk_browserviews"></a> 브라우저 전용 뷰 만들기
-
+## <a name="bkmk_browserviews"></a> 브라우저 전용 뷰 만들기
 모바일 전용 및 데스크톱 전용 뷰 외에도 개별 브라우저를 위한 뷰를 만들 수 있습니다. 예를 들어 iPhone 또는 Android 브라우저 전용의 뷰를 만들 수 있습니다. 이 섹션에서는 iPhone 브라우저를 위한 레이아웃과 iPhone 버전의 *AllTags* 뷰를 만들어 봅니다.
 
 *Global.asax* 파일을 열고 `Application_Start` 메서드의 맨 아래에 다음 코드를 추가합니다.
@@ -189,7 +169,10 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 이 코드는 각 수신 요청에 맞출 "iPhone"이라는 새로운 디스플레이 모드를 정의합니다. 수신 요청이 정의된 조건과 일치하는 경우(즉, 사용자 에이전트가 "iPhone" 문자열을 포함하는 경우) ASP.NET MVC는 이름에 "iPhone" 접미사가 들어 있는 뷰를 찾습니다.
 
->[AZURE.NOTE]iPhone 및 Android와 같은 모바일 브라우저 전용 디스플레이 모드를 추가할 때는 브라우저 전용 모드가 모바일 템플릿(*.Mobile.cshtml)보다 우선적으로 적용되도록 첫 번째 인수를 `0`으로 설정해야 합니다(목록 맨 위에 삽입). 반대로 모바일 템플릿이 목록의 맨 위에 있으면 의도한 디스플레이 모드가 아니라 해당 모바일 템플릿이 선택됩니다(첫 번째 일치 항목이 적용되는데 모바일 템플릿은 모든 모바일 브라우저와 일치함).
+> [!NOTE]
+> iPhone 및 Android와 같은 모바일 브라우저 전용 디스플레이 모드를 추가할 때는 브라우저 전용 모드가 모바일 템플릿(*.Mobile.cshtml)보다 우선적으로 적용되도록 첫 번째 인수를 `0`으로 설정해야 합니다(목록 맨 위에 삽입). 반대로 모바일 템플릿이 목록의 맨 위에 있으면 의도한 디스플레이 모드가 아니라 해당 모바일 템플릿이 선택됩니다(첫 번째 일치 항목이 적용되는데 모바일 템플릿은 모든 모바일 브라우저와 일치함).
+> 
+> 
 
 코드에서 `DefaultDisplayMode`를 마우스 오른쪽 단추로 클릭하고 **확인**을 선택한 다음 `using System.Web.WebPages;`를 선택합니다. 그러면 `System.Web.WebPages` 네임스페이스에 참조가 추가되고, 여기에서 `DisplayModeProvider` 및 `DefaultDisplayMode` 유형이 정의됩니다.
 
@@ -205,9 +188,9 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 응용 프로그램을 실행합니다. 모바일 브라우저 에뮬레이터를 실행하고, 사용자 에이전트가 "iPhone"으로 설정되었는지 확인하고, *AllTags* 뷰로 이동합니다. Internet Explorer 11 F12 개발자 도구에서 에뮬레이터를 사용 중인 경우 에뮬레이션을 다음과 같이 구성합니다.
 
--   브라우저 프로필 = **Windows Phone**
--   사용자 에이전트 문자열 = **Custom**
--   사용자 지정 문자열 = **Apple-iPhone5C1/1001.525**
+* 브라우저 프로필 = **Windows Phone**
+* 사용자 에이전트 문자열 = **Custom**
+* 사용자 지정 문자열 = **Apple-iPhone5C1/1001.525**
 
 다음 스크린샷은 Internet Explorer 11 F12 개발자 도구에서 에뮬레이터에 렌더링된 *AllTags* 뷰와 사용자 지정 사용자 에이전트 문자열(iPhone 5C 사용자 에이전트 문자열임)을 보여 줍니다.
 
@@ -239,11 +222,10 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 이 섹션에서는 모바일 레이아웃 및 뷰를 만드는 방법과 iPhone과 같은 특정 장치용의 레이아웃 및 뷰를 만드는 방법을 살펴보았습니다. 그러나 부트스트랩 CSS 프레임워크의 주요 이점은 반응형 레이아웃입니다. 이 레이아웃을 통해 데스크톱, 전화 및 태블릿 브라우저에 걸쳐 단일 스타일 시트를 적용하여 일관된 모양과 느낌을 줄 수 있습니다. 다음 섹션에서는 Bootstrap을 활용하여 모바일 친화적인 뷰를 만드는 방법을 설명합니다.
 
-##<a name="bkmk_Improvespeakerslist"></a> 발표자 목록 개선
-
+## <a name="bkmk_Improvespeakerslist"></a> 발표자 목록 개선
 방금 본 것처럼 *발표자* 뷰는 가독성은 있지만 링크가 작고 모바일 장치에서 누르기 어렵습니다. 이 섹션에서는 *AllSpeakers* 뷰를 모바일 친화적으로 만듭니다. 크고 누르기 쉬운 링크를 표시하고 발표자를 빨리 찾을 수 있는 검색 상자가 포함됩니다.
 
-부트스트랩 [연결된 목록 그룹][] 스타일을 사용하여 *발표자* 뷰를 개선할 수 있습니다. *Views\Home\AllSpeakers.cshtml*에서 Razor 파일의 내용을 아래의 코드로 바꿉니다.
+부트스트랩 [연결된 목록 그룹][연결된 목록 그룹] 스타일을 사용하여 *발표자* 뷰를 개선할 수 있습니다. *Views\Home\AllSpeakers.cshtml*에서 Razor 파일의 내용을 아래의 코드로 바꿉니다.
 
      @model IEnumerable<string>
 
@@ -266,7 +248,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][AllSpeakersFixed]
 
-부트스트랩 [연결된 목록 그룹][] 스타일은 각 링크의 전체 상자를 클릭 가능한 상태로 만들어서 사용자 환경을 더욱 개선합니다. 데스크톱 뷰로 전환해도 일관된 모양과 느낌이 유지됩니다.
+부트스트랩 [연결된 목록 그룹][연결된 목록 그룹] 스타일은 각 링크의 전체 상자를 클릭 가능한 상태로 만들어서 사용자 환경을 더욱 개선합니다. 데스크톱 뷰로 전환해도 일관된 모양과 느낌이 유지됩니다.
 
 ![][AllSpeakersFixedDesktop]
 
@@ -295,7 +277,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
         }
     </div>
 
-`<form>` 및 `<input>` 태그 모두에 Bootstrap 스타일이 적용되어 있습니다. `<span>` 요소는 Bootstrap [glyphicon][]을 검색 상자에 추가합니다.
+`<form>` 및 `<input>` 태그 모두에 Bootstrap 스타일이 적용되어 있습니다. `<span>` 요소는 Bootstrap [glyphicon][glyphicon]을 검색 상자에 추가합니다.
 
 *Scripts* 폴더에서 *filter.js*라는 JavaScript 파일을 추가합니다. 파일을 열고 다음 코드를 붙여 넣습니다.
 
@@ -337,8 +319,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][AllSpeakersFixedSearchBySC]
 
-##<a name="bkmk_improvetags"></a> 태그 목록 개선
-
+## <a name="bkmk_improvetags"></a> 태그 목록 개선
 *발표자* 뷰처럼 *태그* 뷰도 가독성은 있지만 링크가 작고 모바일 장치에서 누르기 어렵습니다. *발표자* 뷰를 수정한 것과 같은 방법으로 *태그* 뷰를 수정할 수 있습니다. 앞에서 설명한 대로 코드를 변경하되 *Views\Home\AllTags.cshtml*에서 다음 `Html.ActionLink` 메서드 구문을 사용하면 됩니다.
 
     @Html.ActionLink(tag, 
@@ -354,10 +335,12 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][AllTagsFixed]
 
->[AZURE.NOTE]모바일 브라우저에서 원래의 목록 형식이 그대로 있고, 보기 좋았던 Bootstrap 스타일이 사라진 것이 눈에 띌 것입니다. 이것은 앞서 모바일 전용 뷰를 만들었기 때문입니다. 하지만 이제는 부트스트랩 CSS 프레임워크를 사용하여 반응형 웹 디자인을 만드는 것이기 때문에 모바일 전용 뷰와 모바일 전용 레이아웃 뷰를 제거하세요. 그러면 새로 고친 모바일 브라우저에 Bootstrap 스타일이 표시될 것입니다.
+> [!NOTE]
+> 모바일 브라우저에서 원래의 목록 형식이 그대로 있고, 보기 좋았던 Bootstrap 스타일이 사라진 것이 눈에 띌 것입니다. 이것은 앞서 모바일 전용 뷰를 만들었기 때문입니다. 하지만 이제는 부트스트랩 CSS 프레임워크를 사용하여 반응형 웹 디자인을 만드는 것이기 때문에 모바일 전용 뷰와 모바일 전용 레이아웃 뷰를 제거하세요. 그러면 새로 고친 모바일 브라우저에 Bootstrap 스타일이 표시될 것입니다.
+> 
+> 
 
-##<a name="bkmk_improvedates"></a> 날짜 목록 개선
-
+## <a name="bkmk_improvedates"></a> 날짜 목록 개선
 *스피커* 및 *태그*에서 개선한 것과 같이 *날짜* 뷰를 개선할 수 있습니다. 앞에서 설명한 대로 코드를 변경하되 *Views\Home\AllDates.cshtml*에서 다음 `Html.ActionLink` 메서드 구문을 사용하면 됩니다.
 
     @Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
@@ -369,7 +352,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][AllDatesFixed]
 
-날짜-시간 값을 날짜별로 정리함으로써 *날짜* 뷰를 더욱 개선할 수 있습니다. Bootstrap [패널][] 스타일을 사용하면 됩니다. *Views\Home\AllDates.cshtml* 파일의 내용을 다음 코드를 사용하여 바꿉니다.
+날짜-시간 값을 날짜별로 정리함으로써 *날짜* 뷰를 더욱 개선할 수 있습니다. Bootstrap [패널][패널] 스타일을 사용하면 됩니다. *Views\Home\AllDates.cshtml* 파일의 내용을 다음 코드를 사용하여 바꿉니다.
 
     @model IEnumerable<DateTime>
 
@@ -397,7 +380,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
         </div>
     }
 
-이 코드는 목록에 있는 각 개별 날짜에 대해 별도의 `<div class="panel panel-primary">` 태그를 만들고 앞서와 마찬가지로 해당 링크에 [연결된 목록 그룹][]을 사용합니다. 이 코드를 실행하면 모바일 브라우저가 다음과 같이 표시됩니다.
+이 코드는 목록에 있는 각 개별 날짜에 대해 별도의 `<div class="panel panel-primary">` 태그를 만들고 앞서와 마찬가지로 해당 링크에 [연결된 목록 그룹][연결된 목록 그룹]을 사용합니다. 이 코드를 실행하면 모바일 브라우저가 다음과 같이 표시됩니다.
 
 ![][AllDatesFixed2]
 
@@ -405,8 +388,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][AllDatesFixed2Desktop]
 
-##<a name="bkmk_improvesessionstable"></a> SessionsTable 뷰 개선
-
+## <a name="bkmk_improvesessionstable"></a> SessionsTable 뷰 개선
 이 섹션에서는 *SessionsTable* 뷰를 보다 모바일 친화적으로 만듭니다. 앞서의 경우보다 변화의 폭이 더 큽니다.
 
 모바일 브라우저에서 **태그** 단추를 누르고 검색 상자에 `asp`를 입력합니다.
@@ -452,9 +434,9 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 이 코드는 세 가지 작업을 수행합니다.
 
--   부트스트랩 [사용자 지정 연결된 목록 그룹][]을 사용하여 세션 정보를 세로 형태로 정리하여 이 모든 정보를 모바일 브라우저에서 읽을 수 있게 만듭니다(list-group-item-text 등의 클래스 사용).
--   [그리드 시스템][]을 레이아웃에 적용하여 세션 항목이 데스크톱 브라우저에서 가로 방향으로 흐르고 모바일 브라우저에서는 세로 방향으로 흐르도록 합니다(col-md-4 클래스 사용).
--   모바일 브라우저에서 볼 때 [응답성이 뛰어난 유틸리티][]를 사용하여 세션 태그를 숨깁니다(hidden-xs 클래스 사용).
+* 부트스트랩 [사용자 지정 연결된 목록 그룹][사용자 지정 연결된 목록 그룹]을 사용하여 세션 정보를 세로 형태로 정리하여 이 모든 정보를 모바일 브라우저에서 읽을 수 있게 만듭니다(list-group-item-text 등의 클래스 사용).
+* [그리드 시스템][그리드 시스템]을 레이아웃에 적용하여 세션 항목이 데스크톱 브라우저에서 가로 방향으로 흐르고 모바일 브라우저에서는 세로 방향으로 흐르도록 합니다(col-md-4 클래스 사용).
+* 모바일 브라우저에서 볼 때 [응답성이 뛰어난 유틸리티][응답성이 뛰어난 유틸리티]를 사용하여 세션 태그를 숨깁니다(hidden-xs 클래스 사용).
 
 제목 링크를 눌러 해당 세션으로 이동할 수도 있습니다. 아래 이미지는 코드 변경 내용이 반영된 화면입니다.
 
@@ -466,8 +448,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 데스크톱 브라우저에서는 태그가 표시됩니다. 또한 적용한 부트스트랩 그리드 시스템이 세션 항목을 두 개의 열로 정렬합니다. 브라우저를 확대하면 세 개의 열로 정렬되는 것을 볼 수 있습니다.
 
-##<a name="bkmk_improvesessionbycode"></a> SessionByCode 뷰 개선
-
+## <a name="bkmk_improvesessionbycode"></a> SessionByCode 뷰 개선
 마지막으로, *SessionByCode* 뷰를 모바일 친화적으로 수정해 봅니다.
 
 모바일 브라우저에서 **태그** 단추를 누르고 검색 상자에 `asp`를 입력합니다.
@@ -531,25 +512,23 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 ![][SessionByCodeFixed3-644]
 
 ## 요약 및 검토
-
 이 자습서에서는 ASP.NET MVC 5를 사용하여 모바일 친화적인 웹 응용 프로그램을 개발하는 방법을 보여 주었습니다. 내용은 다음과 같습니다.
 
--	앱 서비스 웹 앱에 ASP.NET MVC 5 응용 프로그램 배포
--   MVC 5 응용 프로그램에서 Bootstrap을 사용하여 반응형 웹 레이아웃 만들기
--   모든 뷰에 대해 그리고 개별 뷰에 대해 레이아웃, 뷰 및 부분 뷰 재정의
--   `RequireConsistentDisplayMode` 속성을 사용하여 레이아웃 및 부분 재정의 작업 제어
--   iPhone 브라우저 등 특정 브라우저를 대상으로 하는 뷰 만들기
--   Razor 코드에서 Boostrap 스타일 적용
+* 앱 서비스 웹 앱에 ASP.NET MVC 5 응용 프로그램 배포
+* MVC 5 응용 프로그램에서 Bootstrap을 사용하여 반응형 웹 레이아웃 만들기
+* 모든 뷰에 대해 그리고 개별 뷰에 대해 레이아웃, 뷰 및 부분 뷰 재정의
+* `RequireConsistentDisplayMode` 속성을 사용하여 레이아웃 및 부분 재정의 작업 제어
+* iPhone 브라우저 등 특정 브라우저를 대상으로 하는 뷰 만들기
+* Razor 코드에서 Boostrap 스타일 적용
 
 ## 참고 항목
-
--   [반응형 웹 디자인의 9가지 기본 원칙](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
--   [Bootstrap][BootstrapSite]
--   [공식 부트스트랩 블로그][]
--   [Tutorial Republic의 Twitter Bootstrap 자습서][]
--   [Bootstrap 놀이터][]
--   [W3C에서 권장하는 모바일 웹 응용 프로그램 모범 사례][]
--   [미디어 쿼리에 대한 W3C 권장 사항][]
+* [반응형 웹 디자인의 9가지 기본 원칙](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
+* [Bootstrap][BootstrapSite]
+* [공식 부트스트랩 블로그][공식 부트스트랩 블로그]
+* [Tutorial Republic의 Twitter Bootstrap 자습서][Tutorial Republic의 Twitter Bootstrap 자습서]
+* [Bootstrap 놀이터][Bootstrap 놀이터]
+* [W3C에서 권장하는 모바일 웹 응용 프로그램 모범 사례][W3C에서 권장하는 모바일 웹 응용 프로그램 모범 사례]
+* [미디어 쿼리에 대한 W3C 권장 사항][미디어 쿼리에 대한 W3C 권장 사항]
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
@@ -622,6 +601,6 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 [SessionsTableFixedTagASP.NETDesktop]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsTable-Fixed-Tag-ASP.NET-Desktop.png
 [SessionByCode3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-3-644.png
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
- 
+
 
 <!---HONumber=AcomDC_0114_2016-->

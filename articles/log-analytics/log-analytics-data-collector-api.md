@@ -1,57 +1,50 @@
-<properties
-    pageTitle="Log Analytics HTTP 데이터 수집기 API | Microsoft Azure"
-    description="REST API를 호출할 수 있는 모든 클라이언트에서 Log Analytics HTTP 데이터 수집기 API를 사용하여 POST JSON 데이터를 Log Analytics 저장소에 추가할 수 있습니다. 이 문서는 API를 사용하는 방법을 설명하며, 다양한 프로그래밍 언어를 사용하여 데이터를 게시하는 방법을 예제로 제시합니다."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bwren"
-    manager="jwhit"
-    editor=""/>
+---
+title: Log Analytics HTTP 데이터 수집기 API | Microsoft Docs
+description: REST API를 호출할 수 있는 모든 클라이언트에서 Log Analytics HTTP 데이터 수집기 API를 사용하여 POST JSON 데이터를 Log Analytics 저장소에 추가할 수 있습니다. 이 문서는 API를 사용하는 방법을 설명하며, 다양한 프로그래밍 언어를 사용하여 데이터를 게시하는 방법을 예제로 제시합니다.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/11/2016"
-    ms.author="bwren"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/11/2016
+ms.author: bwren
 
-
-
-# <a name="log-analytics-http-data-collector-api"></a>Log Analytics HTTP 데이터 수집기 API  
-
+---
+# <a name="log-analytics-http-data-collector-api"></a>Log Analytics HTTP 데이터 수집기 API
 Log Analytics HTTP 데이터 수집기 API를 사용하면 REST API를 호출할 수 있는 모든 클라이언트에서 POST JSON(JavaScript Object Notation) 데이터를 Log Analytics 저장소에 추가할 수 있습니다. 이 방법으로 Azure Automation의 Runbook 같은 타사 응용 프로그램이나 스크립트에서 데이터를 보낼 수 있습니다.  
 
 ## <a name="create-a-request"></a>요청 만들기
-
 다음 두 표에서는 Log Analytics HTTP 데이터 수집기 API에 대한 각 요청에 필요한 속성을 보여 줍니다. 이 문서의 뒷부분에서 각각의 속성에 대해 자세히 설명합니다.
 
 ### <a name="request-uri"></a>요청 URI
-
 | 특성 | 속성 |
-|:--|:--|
-| 메서드 | POST |
-| URI | https://<WorkspaceID>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
-| 콘텐츠 형식 | application/json |
+|:--- |:--- |
+| 메서드 |POST |
+| URI |https://<WorkspaceID>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| 콘텐츠 형식 |application/json |
 
 ### <a name="request-uri-parameters"></a>URI 매개 변수 요청
 | 매개 변수 | 설명 |
-|:--|:--|
-| CustomerID  | Microsoft Operations Management Suite 작업 영역에 대한 고유 식별자입니다. |
-| 리소스    | API 리소스 이름: /api/logs |
-| API 버전 | 이 요청에 사용하는 API의 버전입니다. 현재 2016-04-01입니다. |
+|:--- |:--- |
+| CustomerID |Microsoft Operations Management Suite 작업 영역에 대한 고유 식별자입니다. |
+| 리소스 |API 리소스 이름: /api/logs |
+| API 버전 |이 요청에 사용하는 API의 버전입니다. 현재 2016-04-01입니다. |
 
 ### <a name="request-headers"></a>헤더 요청
 | 헤더 | 설명 |
-|:--|:--|
-| 권한 부여 | 권한 부여 서명입니다. 문서의 뒷부분에 HMAC-SHA256 헤더를 만드는 방법이 나와 있습니다. |
-| Log-Type | 제출 중인 데이터의 레코드 종류를 지정합니다. 현재는 로그 형식에서 영문자만 지원합니다. 숫자 또는 특수 문자는 지원되지 않습니다. |
-| x-ms-date | RFC 1123 형식의 요청이 처리된 날짜입니다. |
-| time-generated-field | 데이터 항목의 타임스탬프가 포함된 데이터의 필드 이름입니다. 필드를 지정하면 그 내용이 **TimeGenerated**에 사용됩니다. 이 필드를 지정하지 않으면 **TimeGenerated**의 기본값은 메시지가 수집된 시간입니다. 메시지 필드의 내용은 ISO 8601 형식 YYYY-MM-DDThh:mm:ssZ를 따라야 합니다. |
-
+|:--- |:--- |
+| 권한 부여 |권한 부여 서명입니다. 문서의 뒷부분에 HMAC-SHA256 헤더를 만드는 방법이 나와 있습니다. |
+| Log-Type |제출 중인 데이터의 레코드 종류를 지정합니다. 현재는 로그 형식에서 영문자만 지원합니다. 숫자 또는 특수 문자는 지원되지 않습니다. |
+| x-ms-date |RFC 1123 형식의 요청이 처리된 날짜입니다. |
+| time-generated-field |데이터 항목의 타임스탬프가 포함된 데이터의 필드 이름입니다. 필드를 지정하면 그 내용이 **TimeGenerated**에 사용됩니다. 이 필드를 지정하지 않으면 **TimeGenerated**의 기본값은 메시지가 수집된 시간입니다. 메시지 필드의 내용은 ISO 8601 형식 YYYY-MM-DDThh:mm:ssZ를 따라야 합니다. |
 
 ## <a name="authorization"></a>권한 부여
-
 Log Analytics HTTP 데이터 수집기 API에 대한 모든 요청에는 권한 부여 헤더가 포함되어야 합니다. 요청을 인증하려면 요청을 수행하는 작업 영역에 대한 기본 키 또는 보조 키를 통해 요청을 서명해야 합니다. 그런 다음 요청의 일부로 해당 서명을 전달합니다.   
 
 권한 부여 헤더의 형식은 다음과 같습니다.
@@ -87,7 +80,6 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 다음 섹션의 샘플은 권한 부여 헤더를 만드는 데 도움이 되는 예제 코드입니다.
 
 ## <a name="request-body"></a>요청 본문
-
 메시지의 본문은 JSON에 있어야 합니다. 다음 형식으로 속성 이름과 값 쌍을 갖는 하나 이상의 레코드를 포함해야 합니다.
 
 ```
@@ -117,7 +109,6 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ```
 
 ## <a name="record-type-and-properties"></a>레코드 유형 및 속성
-
 Log Analytics HTTP 데이터 수집기 API를 통해 데이터를 제출할 때 사용자 지정 레코드 유형을 정의합니다. 현재는 다른 데이터 형식과 솔루션으로 만든 기존 레코드 형식에 데이터를 쓸 수 없습니다. Log Analytics가 드러오는 데이터를 읽은 다음 입력한 값의 데이터 형식과 일치하는 속성을 만듭니다.
 
 Log Analytics API에 대한 각각의 요청은 레코드 형식의 이름과 함께 **Log-Type** 헤더를 포함해야 합니다. 이 사용자 지정 로그를 다른 로그 형식과 구분하기 위해 입력한 이름에는 접미사 **_CL**이 자동으로 추가됩니다. 예를 들어 **MyNewRecordType**을 입력하면 Log Analytics가 **MyNewRecordType_CL** 형식의 레코드를 만듭니다. 이렇게 하면 사용자가 만든 형식 이름과 Microsoft가 현재 또는 향후에 포함한 이름 사이의 충돌을 방지할 수 있습니다.
@@ -125,18 +116,17 @@ Log Analytics API에 대한 각각의 요청은 레코드 형식의 이름과 �
 속성의 데이터 형식을 식별하기 위해 Log Analytics가 속성 이름에 접미사를 추가합니다. 속성에 null 값이 있으면 속성이 해당 레코드에 포함되지 않습니다. 이 표는 속성 데이터 형식과 해당하는 접미사를 나열합니다.
 
 | 속성 데이터 형식 | 접미사 |
-|:--|:--|
-| 문자열    | _s |
-| Boolean   | _b |
-| Double    | _d |
-| 날짜/시간 | _t |
-| GUID      | _g |
-
+|:--- |:--- |
+| 문자열 |_s |
+| Boolean |_b |
+| Double |_d |
+| 날짜/시간 |_t |
+| GUID |_g |
 
 Log Analytics가 각 속성에 사용하는 데이터 형식은 새 레코드에 대한 레코드 형식이 이미 존재하는지 여부에 따라 달라집니다.
 
-- 레코드 형식이 없으면 Log Analytics가 새로 만듭니다. Log Analytics는 JSON 형식을 사용하여 새 레코드에 대한 각 속성의 데이터 형식을 결정합니다.
-- 레코드 형식이 없으면 Log Analytics가 기존 속성에 따라 새 레코드를 만들려 합니다. 새 레코드에서 속성에 대한 데이터 형식이 일치하지 않고 기존 형식으로 변환할 수 없거나, 레코드가 존재하지 않는 속성을 포함하는 경우 Log Analytics는 관련 접미사가 있는 새 속성을 만듭니다.
+* 레코드 형식이 없으면 Log Analytics가 새로 만듭니다. Log Analytics는 JSON 형식을 사용하여 새 레코드에 대한 각 속성의 데이터 형식을 결정합니다.
+* 레코드 형식이 없으면 Log Analytics가 기존 속성에 따라 새 레코드를 만들려 합니다. 새 레코드에서 속성에 대한 데이터 형식이 일치하지 않고 기존 형식으로 변환할 수 없거나, 레코드가 존재하지 않는 속성을 포함하는 경우 Log Analytics는 관련 접미사가 있는 새 속성을 만듭니다.
 
 예를 들어, 이 제출 항목은 **number_d**, **boolean_b**, **string_s** 등의 세 가지 속성이 있는 레코드를 만듭니다.
 
@@ -155,34 +145,30 @@ Log Analytics가 각 속성에 사용하는 데이터 형식은 새 레코드에
 ![샘플 레코드 4](media/log-analytics-data-collector-api/record-04.png)
 
 ## <a name="return-codes"></a>반환 코드
-
 HTTP 상태 코드 202는 요청이 처리를 위해 수락되었으나 처리가 아직 완료되지 않았음을 의미합니다. 이 항목은 작업이 성공적으로 완료되었음을 나타냅니다.
 
 이 표는 서비스에서 반환할 수 있는 전체 상태 코드 집합을 보여 줍니다.
 
 | 코드 | 가동 상태 | 오류 코드 | 설명 |
-|:--|:--|:--|:--|
-| 202 | 수락됨 |  | 요청이 성공적으로 수락되었습니다. |
-| 400 | 잘못된 요청 | InactiveCustomer | 작업 영역이 닫혔습니다. |
-| 400 | 잘못된 요청 | InvalidApiVersion | 지정한 API 버전이 서비스에서 인식되지 않았습니다. |
-| 400 | 잘못된 요청 | InvalidCustomerId | 지정된 작업 영역 ID가 올바르지 않습니다. |
-| 400 | 잘못된 요청 | InvalidDataFormat | 잘못된 JSON이 제출되었습니다. 응답 본문에 오류 해결 방법에 관한 추가 정보가 포함될 수 있습니다. |
-| 400 | 잘못된 요청 | InvalidLogType | 지정한 로그 형식이 특수 문자나 숫자를 포함합니다. |
-| 400 | 잘못된 요청 | MissingApiVersion | API 버전을 지정하지 않았습니다. |
-| 400 | 잘못된 요청 | MissingContentType | 콘텐츠 형식을 지정하지 않았습니다. |
-| 400 | 잘못된 요청 | MissingLogType | 필요한 값 로그 형식을 지정하지 않았습니다. |
-| 400 | 잘못된 요청 | UnsupportedContentType | 콘텐츠 형식이 **application/json**으로 설정되지 않았습니다. |
-| 403 | 사용할 수 없음 | InvalidAuthorization | 서비스가 요청을 인증하지 못했습니다. 작업 영역 ID 및 연결 키가 올바른지 확인합니다. |
-| 500 | 내부 서버 오류 | UnspecifiedError | 서비스에 내부 오류가 발생했습니다. 요청을 다시 시도하세요. |
-| 503 | 서비스를 사용할 수 없음 | ServiceUnavailable | 현재 서비스가 요청을 받을 수 없습니다. 요청을 다시 시도하세요. |
+|:--- |:--- |:--- |:--- |
+| 202 |수락됨 | |요청이 성공적으로 수락되었습니다. |
+| 400 |잘못된 요청 |InactiveCustomer |작업 영역이 닫혔습니다. |
+| 400 |잘못된 요청 |InvalidApiVersion |지정한 API 버전이 서비스에서 인식되지 않았습니다. |
+| 400 |잘못된 요청 |InvalidCustomerId |지정된 작업 영역 ID가 올바르지 않습니다. |
+| 400 |잘못된 요청 |InvalidDataFormat |잘못된 JSON이 제출되었습니다. 응답 본문에 오류 해결 방법에 관한 추가 정보가 포함될 수 있습니다. |
+| 400 |잘못된 요청 |InvalidLogType |지정한 로그 형식이 특수 문자나 숫자를 포함합니다. |
+| 400 |잘못된 요청 |MissingApiVersion |API 버전을 지정하지 않았습니다. |
+| 400 |잘못된 요청 |MissingContentType |콘텐츠 형식을 지정하지 않았습니다. |
+| 400 |잘못된 요청 |MissingLogType |필요한 값 로그 형식을 지정하지 않았습니다. |
+| 400 |잘못된 요청 |UnsupportedContentType |콘텐츠 형식이 **application/json**으로 설정되지 않았습니다. |
+| 403 |사용할 수 없음 |InvalidAuthorization |서비스가 요청을 인증하지 못했습니다. 작업 영역 ID 및 연결 키가 올바른지 확인합니다. |
+| 500 |내부 서버 오류 |UnspecifiedError |서비스에 내부 오류가 발생했습니다. 요청을 다시 시도하세요. |
+| 503 |서비스를 사용할 수 없음 |ServiceUnavailable |현재 서비스가 요청을 받을 수 없습니다. 요청을 다시 시도하세요. |
 
 ## <a name="query-data"></a>쿼리 데이터
-
 Log Analytics HTTP 데이터 수집기 API에서 제출한 데이터를 쿼리하려면 지정한 **LogType** 값에 **_CL**을 첨부한 것과 같은 **형식**의 레코드를 검색하십시오. 예를 들어, **MyCustomLog**를 사용한 경우**Type=MyCustomLog_CL**을 갖는 모든 레코드를 반환합니다.
 
-
 ## <a name="sample-requests"></a>샘플 요청
-
 다음 섹션에서는 다양한 프로그래밍 언어를 사용하여 Log Analytics HTTP 데이터 수집기에 데이터를 제출하는 방법의 샘플을 제공합니다.
 
 각각의 샘플에서 다음 절차를 통해 권한 부여 헤더에 대한 변수를 설정합니다.
@@ -194,7 +180,6 @@ Log Analytics HTTP 데이터 수집기 API에서 제출한 데이터를 쿼리�
 또는 로그 형식 및 JSON 데이터에 대한 변수를 변경할 수 있습니다.
 
 ### <a name="powershell-sample"></a>PowerShell 샘플
-
 ```
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
@@ -279,7 +264,6 @@ Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.E
 ```
 
 ### <a name="c#-sample"></a>C# 샘플
-
 ```
 using System;
 using System.Net;
@@ -347,7 +331,6 @@ namespace OIAPIExample
 ```
 
 ### <a name="python-sample"></a>Python 샘플
-
 ```
 import json
 import requests
@@ -431,10 +414,7 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>다음 단계
-
-- [뷰 디자이너](log-analytics-view-designer.md)를 사용하여 제출한 데이터에 대한 사용자 지정 보기를 구성할 수 있습니다.
-
-
+* [뷰 디자이너](log-analytics-view-designer.md)를 사용하여 제출한 데이터에 대한 사용자 지정 보기를 구성할 수 있습니다.
 
 <!--HONumber=Oct16_HO2-->
 

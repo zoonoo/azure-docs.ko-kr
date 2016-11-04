@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Resource Manager 템플릿을 사용하여 메트릭 경고 만들기 | Microsoft Azure"
-    description="Resource Manager 템플릿을 사용하여 이메일 또는 Webhook으로 알림을 받는 메트릭 경고를 만드는 방법을 알아봅니다."
-    authors="johnkemnetz"
-    manager="rboucher"
-    editor=""
-    services="monitoring-and-diagnostics"
-    documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Resource Manager 템플릿을 사용하여 메트릭 경고 만들기 | Microsoft Docs
+description: Resource Manager 템플릿을 사용하여 이메일 또는 Webhook으로 알림을 받는 메트릭 경고를 만드는 방법을 알아봅니다.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-    ms.service="monitoring-and-diagnostics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/26/2016"
-    ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: johnkem
 
-
+---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
-
 이 문서에서는 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md) 을 사용하여 Azure 메트릭 경고를 구성하는 방법을 설명합니다. 이를 통해 만든 리소스에 대한 경고를 자동으로 설정하여 모든 리소스가 정확하게 모니터링되도록 할 수 있습니다.
 
 기본적인 단계는 다음과 같습니다.
@@ -28,8 +26,7 @@
 
 아래에서는 먼저 경고만을 위한 Resource Manager 템플릿을 만들고 이후 다른 리소스를 만드는 동안 경고에 대한 템플릿을 만드는 방법을 설명합니다.
 
-## <a name="resource-manager-template-for-a-metric-alert"></a>메트릭 경고를 위한 Resource Manager 템플릿 
-
+## <a name="resource-manager-template-for-a-metric-alert"></a>메트릭 경고를 위한 Resource Manager 템플릿
 Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Insights/alertRules` 형식의 리소스를 만들어 관련 속성을 기입합니다. 다음은 경고 규칙을 만드는 템플릿입니다.
 
 ```json
@@ -180,7 +177,6 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
 경고 규칙에 대한 스키마 및 속성 설명은 [여기에서 제공합니다](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="resource-manager-template-for-a-resource-with-an-alert"></a>경고가 있는 리소스에 대한 Resource Manager 템플릿
-
 Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경고를 만들 때 가장 유용합니다. 예를 들어 가상 컴퓨터를 배포할 때마다 "CPU > 80%" 규칙을 설정할 수 있습니다. 이를 위해 VM 템플릿의 리소스 배열에 리소스로 경고 규칙을 추가하고 `dependsOn` 속성을 사용하여 VM 리소스 ID에 종속성을 추가합니다. Windows VM을 만들고 CPU 사용률이 80%를 넘었을 때 구독 관리자에게 알리는 경고를 추가하는 전체 예제는 다음과 같습니다.
 
 ```json
@@ -401,10 +397,8 @@ Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경�
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [경고에 대해 알아보기](./insights-receive-alert-notifications.md)
-- [진단 설정 추가](./monitoring-enable-diagnostic-logs-using-template.md) 
-
-
+* [경고에 대해 알아보기](../azure-portal/insights-receive-alert-notifications.md)
+* [진단 설정 추가](monitoring-enable-diagnostic-logs-using-template.md) 
 
 <!--HONumber=Oct16_HO2-->
 

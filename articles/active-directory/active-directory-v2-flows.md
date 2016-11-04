@@ -1,34 +1,35 @@
-<properties
-    pageTitle="v2.0 끝점의 형식 | Microsoft Azure"
-    description="Azure AD v2.0 끝점에서 지원되는 앱 형식 및 시나리오입니다."
-    services="active-directory"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+---
+title: v2.0 끝점의 형식 | Microsoft Docs
+description: Azure AD v2.0 끝점에서 지원되는 앱 형식 및 시나리오입니다.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/30/2016"
-    ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/30/2016
+ms.author: dastrock
 
-
+---
 # <a name="types-of-apps-for-the-v2.0-endpoint"></a>v2.0 끝점에 대한 앱 형식
 v2.0 끝점은 모두 업계 표준 프로토콜 [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) 및/또는 [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow)를 기반으로 하는 다양한 최신 앱 아키텍처에 대한 인증을 지원합니다.  이 문서에서는 선호하는 언어 또는 플랫폼에 독립적으로 빌드할 수 있는 앱 형식에 대해 간략하게 설명합니다.  [코드를 바로 시작](active-directory-appmodel-v2-overview.md#getting-started)하기 전에 높은 수준의 시나리오를 이해하는 데 도움이 됩니다.
 
-> [AZURE.NOTE]
-    일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다.  v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+> [!NOTE]
+> 일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다.  v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+> 
+> 
 
 ## <a name="the-basics"></a>기본 사항
 v2.0 끝점을 사용하는 각 앱을 [apps.dev.microsoft.com](https://apps.dev.microsoft.com)에 등록해야 합니다.  앱 등록 프로세스는 몇 개의 값을 수집하고 앱에 할당합니다.
 
-- 앱을 고유하게 식별하는 **응용 프로그램 ID**
-- 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI**
-- 다른 몇 가지 시나리오 관련 값.  자세한 내용은 [앱 등록](active-directory-v2-app-registration.md)방법을 참조하세요.
+* 앱을 고유하게 식별하는 **응용 프로그램 ID**
+* 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI**
+* 다른 몇 가지 시나리오 관련 값.  자세한 내용은 [앱 등록](active-directory-v2-app-registration.md)방법을 참조하세요.
 
 등록되면 앱이 Azure Active Directory v2.0 끝점에 요청을 전송하여 Azure AD와 통신합니다.  오픈 소스 프레임워크 및 이러한 요청에 대한 세부 정보를 관리하는 라이브러리를 제공하거나 이러한 끝점에 대 한 요청을 선별하여 직접 인증 논리를 구현할 수 있습니다.
 
@@ -89,7 +90,6 @@ authorization_code, refresh_token 및 access_token을 가져오는 세부 단계
 
 OAuth 2.0 access_token을 사용하여 Web API 보안을 유지하는 방법을 알아보려면 [시작 섹션](active-directory-appmodel-v2-overview.md#getting-started)에서 Web API 코드 샘플을 확인하세요.
 
-
 ## <a name="mobile-and-native-apps"></a>모바일 및 네이티브 앱
 모바일 및 데스크톱 앱과 같은 장치에 설치된 앱은 데이터를 저장하고 사용자 대신 다양한 기능을 수행하는 백 엔드 서비스 또는 Web API에 액세스해야 하는 경우가 많습니다.  이러한 앱은 [OAuth 2.0 인증 코드 흐름](active-directory-v2-protocols-oauth-code.md)을 사용하여 백 엔드 서비스에 로그인 및 권한 부여를 추가할 수 있습니다.  
 
@@ -122,8 +122,6 @@ OAuth 2.0 access_token을 사용하여 Web API 보안을 유지하는 방법을 
 많은 아키텍처에는 다른 다운스트림 Web API를 호출해야 하는 Web API가 포함되어 있으며 둘 다 v2.0 끝점에 의해 보안이 유지됩니다.  이 시나리오는 Web API 백 엔드를 포함하는 네이티브 클라이언트에서 일반적이며, Web API 백 엔드가 다시 Office 365 또는 Graph API와 같은 Microsoft 온라인 서비스를 호출합니다.
 
 [On-Behalf-Of 흐름](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow)이라고도 하는 OAuth 2.0 Jwt 전달자 자격 증명 권한 부여를 사용하여 이 연결된 Web API 시나리오를 지원할 수 있습니다.  그러나 On-Behalf-Of 흐름은 현재 v2.0 끝점에 구현되어 있지 않습니다.  일반 공급 Azure AD 서비스에서 이 흐름이 작동하는 방식을 확인하려면 [GitHub의 On-Behalf-Of 코드 샘플](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)을 참조하세요.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

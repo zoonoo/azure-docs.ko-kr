@@ -1,28 +1,30 @@
-<properties
-	pageTitle="PowerApps 엔터프라이즈에 Salesforce API 추가 | Microsoft Azure"
-	description="조직의 앱 서비스 환경에서 새 Salesforce API 만들기 또는 구성"
-	services=""
-    suite="powerapps"
-	documentationCenter="" 
-	authors="rajeshramabathiran"
-	manager="dwerde"
-	editor=""/>
+---
+title: PowerApps 엔터프라이즈에 Salesforce API 추가 | Microsoft Docs
+description: 조직의 앱 서비스 환경에서 새 Salesforce API 만들기 또는 구성
+services: ''
+suite: powerapps
+documentationcenter: ''
+author: rajeshramabathiran
+manager: dwerde
+editor: ''
 
-<tags
-   ms.service="powerapps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/02/2016"
-   ms.author="litran"/>
+ms.service: powerapps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/02/2016
+ms.author: litran
 
+---
 # PowerApps 엔터프라이즈에 새 Salesforce API 만들기
-
-> [AZURE.IMPORTANT] 이 항목은 보관되고 곧 제거될 예정입니다. 새 [PowerApps](https://powerapps.microsoft.com)의 새로운 내용을 살펴보세요.
+> [!IMPORTANT]
+> 이 항목은 보관되고 곧 제거될 예정입니다. 새 [PowerApps](https://powerapps.microsoft.com)의 새로운 내용을 살펴보세요.
 > 
-> - PowerApps에 대해 자세히 알아보고 시작하려면 [PowerApps](https://powerapps.microsoft.com)로 이동합니다.  
-> - PowerApps에서 사용 가능한 연결에 대해 자세히 알아보려면 [사용 가능한 연결](https://powerapps.microsoft.com/tutorials/connections-list/)로 이동합니다. 
+> * PowerApps에 대해 자세히 알아보고 시작하려면 [PowerApps](https://powerapps.microsoft.com)로 이동합니다.  
+> * PowerApps에서 사용 가능한 연결에 대해 자세히 알아보려면 [사용 가능한 연결](https://powerapps.microsoft.com/tutorials/connections-list/)로 이동합니다. 
+> 
+> 
 
 <!--Archived
 Add the Salesforce API to your organization's (tenant) app service environment. 
@@ -30,7 +32,7 @@ Add the Salesforce API to your organization's (tenant) app service environment.
 ## Create the API in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
- 
+
 2. Select **Browse** in the task bar:  
 ![][14]
 
@@ -44,7 +46,7 @@ Add the Salesforce API to your organization's (tenant) app service environment.
 ![Add API][2]
 
 6. Enter a descriptive **name** for your API.  
-	
+
 7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Salesforce**:  
 ![select Salesforce api][3]
 
@@ -53,7 +55,7 @@ Add the Salesforce API to your organization's (tenant) app service environment.
 
 9. Enter the *App Key* and *App Secret* of your Salesforce application. If you don't have one, see the "Register a Salesforce app for use with PowerApps" section in this topic to create the key and secret values you need.  
 
-	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
+    > [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
 10. Select **OK** to complete the steps.
 
@@ -74,17 +76,17 @@ If you don't have an existing Salesforce app with the key and secret values, the
 
 4. In **New Connected App**:  
 
-	1. Enter the value for **Connected App Name**.  
-	2. Enter the value for **API Name**.  
-	3. Enter the value for **Contact Email**.  
-	4. Under _API (Enable OAuth Settings)_, select **Enable OAuth Settings**, and set the **Callback URL** to the redirect URL you received when you added the new Salesforce API in the Azure Portal (in this topic).  
+    1. Enter the value for **Connected App Name**.  
+    2. Enter the value for **API Name**.  
+    3. Enter the value for **Contact Email**.  
+    4. Under _API (Enable OAuth Settings)_, select **Enable OAuth Settings**, and set the **Callback URL** to the redirect URL you received when you added the new Salesforce API in the Azure Portal (in this topic).  
 
 5. Under _Selected OAuth scopes_, add the following scopes to the **Selected OAuth Scopes**:  
 
-	- Access and manage your Chatter data (chatter_api)
-	- Access and manage your data (api)
-	- Allow access to your unique identifier (openid)
-	- Perform requests on your behalf at any time (refresh_token, offline_access)
+    - Access and manage your Chatter data (chatter_api)
+    - Access and manage your data (api)
+    - Allow access to your unique identifier (openid)
+    - Perform requests on your behalf at any time (refresh_token, offline_access)
 
 6. **Save** your changes:  
 ![Salesforce new app][8]

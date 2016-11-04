@@ -1,81 +1,75 @@
-<properties
-   pageTitle="Azure 서비스 패브릭에 기존 실행 파일 배포 | Microsoft Azure"
-   description="Azure 서비스 패브릭 클러스터에 배포할 수 있도록 기존 응용 프로그램을 게스트 실행 파일로 패키징하는 방법에 대한 연습"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager="timlt"
-   editor=""/>
+---
+title: Azure 서비스 패브릭에 기존 실행 파일 배포 | Microsoft Docs
+description: Azure 서비스 패브릭 클러스터에 배포할 수 있도록 기존 응용 프로그램을 게스트 실행 파일로 패키징하는 방법에 대한 연습
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="na"
-   ms.date="09/22/2016"
-   ms.author="msfussell;mikhegn"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 09/22/2016
+ms.author: msfussell;mikhegn
 
-
+---
 # <a name="deploy-a-guest-executable-to-service-fabric"></a>서비스 패브릭에 게스트 실행 파일 배포
-
 Azure Service Fabric에서 Node.js, Java 또는 네이티브 응용 프로그램과 같은 모든 유형의 응용 프로그램을 실행할 수 있습니다. Service Fabric에서는 이러한 유형의 응용 프로그램을 게스트 실행 파일이라고 합니다.
 게스트 실행 파일은 서비스 패브릭에서 상태 비저장 서비스처럼 취급됩니다. 결과적으로 가용성 및 기타 메트릭을 기반으로 클러스터의 노드에 배치됩니다. 이 문서에서는 Visual Studio 또는 명령줄 유틸리티를 사용하여 Service Fabric 클러스터에 게스트 실행 파일을 패키징 및 배포하는 방법을 설명합니다.
 
 이 문서에서는 게스트 실행 파일을 패키징하고 Service Fabric에 배포하는 단계를 다룹니다.  
 
 ## <a name="benefits-of-running-a-guest-executable-in-service-fabric"></a>서비스 패브릭에서 게스트 실행 파일을 실행할 때의 이점
-
 서비스 패브릭 클러스터에서 게스트 실행 파일을 실행하면 몇 가지 장점이 있습니다.
 
-- 고가용성. Service Fabric에서 실행되는 응용 프로그램은 고가용성 모드입니다. Service Fabric은 응용 프로그램 인스턴스가 실행 중인지 확인합니다.
-- 상태 모니터링. Service Fabric 상태 모니터링은 응용 프로그램이 실행 중인지 감지하고 오류가 있으면 진단 정보를 제공합니다.   
-- 응용 프로그램 수명 주기 관리. Service Fabric은 가동 중지 시간 없이 업그레이드를 제공할 뿐 아니라 업그레이드 중에 나쁜 상태 이벤트가 보고되면 이전 버전으로 자동 롤백을 제공합니다.    
-- 밀도. 한 클러스터에서 여러 응용 프로그램을 실행할 수 있으므로 응용 프로그램을 고유의 하드웨어에서 실행할 필요가 없습니다.
-
+* 고가용성. Service Fabric에서 실행되는 응용 프로그램은 고가용성 모드입니다. Service Fabric은 응용 프로그램 인스턴스가 실행 중인지 확인합니다.
+* 상태 모니터링. Service Fabric 상태 모니터링은 응용 프로그램이 실행 중인지 감지하고 오류가 있으면 진단 정보를 제공합니다.   
+* 응용 프로그램 수명 주기 관리. Service Fabric은 가동 중지 시간 없이 업그레이드를 제공할 뿐 아니라 업그레이드 중에 나쁜 상태 이벤트가 보고되면 이전 버전으로 자동 롤백을 제공합니다.    
+* 밀도. 한 클러스터에서 여러 응용 프로그램을 실행할 수 있으므로 응용 프로그램을 고유의 하드웨어에서 실행할 필요가 없습니다.
 
 ## <a name="overview-of-application-and-service-manifest-files"></a>응용 프로그램 및 서비스 매니페스트 파일 개요
-
 게스트 실행 파일을 배포하는 일환으로 [응용 프로그램 모델](service-fabric-application-model.md)에 설명된 Service Fabric 패키징 및 배포 모델을 이해하는 것이 유용합니다. Service Fabric 패키징 모델은 두 XML 파일(응용 프로그램 및 서비스 매니페스트)에 의존합니다. ApplicationManifest.xml 및 ServiceManifest.xml에 대한 스키마 정의는 Service Fabric SDK와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치됩니다.
 
 * **응용 프로그램 매니페스트** 응용 프로그램 매니페스트는 응용 프로그램을 설명하는 데 사용되며 응용 프로그램을 구성하는 서비스와 하나 이상의 서비스 배포 방법(예: 인스턴스 수)을 정의하는 데 사용되는 기타 매개 변수를 나열합니다.
-
+  
   Service Fabric에서 응용 프로그램은 배포 및 업그레이드 단위입니다. 응용 프로그램은 잠재적인 오류 및 잠재적 롤백이 관리되는 하나의 단위로 업그레이드될 수 있습니다. Service Fabric은 업그레이드 프로세스의 성공을 보장하며, 업그레이드가 실패할 경우 응용 프로그램을 알 수 없는/불안정한 상태로 남겨 두지 않습니다.
-
 * **서비스 매니페스트** 서비스 매니페스트는 서비스의 구성 요소를 설명합니다. 서비스의 이름 및 유형과 같은 데이터와 그에 대한 코드, 구성 및 데이터를 포함합니다. 또한 서비스 매니페스트는 서비스가 배포되면 서비스를 구성하는 데 사용할 수 있는 몇 가지 추가 매개 변수도 포함하고 있습니다.
-
 
 ## <a name="application-package-file-structure"></a>응용 프로그램 패키지 파일 구조
 응용 프로그램을 Service Fabric에 배포하려면 응용 프로그램은 미리 정의된 디렉터리 구조를 따라야 합니다. 다음은 해당 구조의 예입니다.
 
 ```
 |-- ApplicationPackageRoot
-  	|-- GuestService1Pkg
+      |-- GuestService1Pkg
         |-- Code
             |-- existingapp.exe
         |-- Config
             |-- Settings.xml
         |-- Data
         |-- ServiceManifest.xml
-  	|-- ApplicationManifest.xml
+      |-- ApplicationManifest.xml
 ```
 
 ApplicationPackageRoot는 응용 프로그램을 정의하는 ApplicationManifest.xml 파일을 포함합니다. 응용 프로그램에 포함된 각 서비스의 하위 디렉터리는 서비스에 필요한 모든 아티팩트(ServiceManifest.xml)를 포함하는 데 사용되며 일반적으로 다음 세 개 디렉터리입니다.
 
-- *Code*. 이 디렉터리는 서비스 코드를 포함합니다.
-- *Config*. 이 디렉터리는 런타임에 서비스가 액세스하여 특정 구성 설정을 검색할 수 있는 settings.xml 파일(필요한 경우 다른 파일도 포함)을 포함합니다.
-- *Data*. 서비스에 필요할 수도 있는 추가 로컬 데이터를 저장하는 추가 디렉터리입니다. 참고: Data 폴더는 사용 후 삭제되는 데이터를 저장하는 용도로만 사용해야 합니다. 예를 들어 장애 조치(failover) 중에 서비스를 다시 배치해야 하는 경우 서비스 패브릭은 변경 내용을 데이터 디렉터리에 복사/복제하지 않습니다.
+* *Code*. 이 디렉터리는 서비스 코드를 포함합니다.
+* *Config*. 이 디렉터리는 런타임에 서비스가 액세스하여 특정 구성 설정을 검색할 수 있는 settings.xml 파일(필요한 경우 다른 파일도 포함)을 포함합니다.
+* *Data*. 서비스에 필요할 수도 있는 추가 로컬 데이터를 저장하는 추가 디렉터리입니다. 참고: Data 폴더는 사용 후 삭제되는 데이터를 저장하는 용도로만 사용해야 합니다. 예를 들어 장애 조치(failover) 중에 서비스를 다시 배치해야 하는 경우 서비스 패브릭은 변경 내용을 데이터 디렉터리에 복사/복제하지 않습니다.
 
 참고: `config` 및 `data` 디렉터리가 필요 없으면 만들지 않아도 됩니다.
 
 ## <a name="packaging-an-existing-executable"></a>기존 실행 파일 패키징
-
 게스트 실행 파일을 패키징할 경우 Visual Studio 프로젝트 템플릿을 사용하거나 [응용 프로그램 패키지를 수동으로 만들도록](#manually)선택할 수 있습니다. Visual Studio를 사용하면 새 프로젝트 마법사에서 응용 프로그램 패키지 구조 및 매니페스트 파일을 생성합니다.
 
->[AZURE.NOTE] 기존 Windows 실행 파일을 서비스로 패키징하는 가장 쉬운 방법은 Visual Studio를 사용하는 것입니다.
+> [!NOTE]
+> 기존 Windows 실행 파일을 서비스로 패키징하는 가장 쉬운 방법은 Visual Studio를 사용하는 것입니다.
+> 
+> 
 
 ## <a name="using-visual-studio-to-package-an-existing-executable"></a>Visual Studio를 사용하여 기존 실행 파일 패키징
-
 Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 배포할 수 있도록 서비스 패브릭 서비스 템플릿을 제공합니다.
 
 다음을 수행하여 게시를 완료합니다.
@@ -83,19 +77,20 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
 1. 파일 -> 새 프로젝트를 선택하여 Service Fabric 응용 프로그램을 만듭니다.
 2. 게스트 실행 파일을 서비스 템플릿으로 선택합니다.
 3. 찾아보기를 클릭하여 실행 파일이 포함된 폴더를 선택하고 매개 변수의 나머지를 입력하여 서비스를 만듭니다.
-    - *코드 패키지 동작* 은 폴더의 모든 콘텐츠를 Visual Studio 프로젝트에 복사하도록 설정할 수 있으며 이것은 실행 파일이 변경되지 않는 경우에 유용합니다. 실행 파일을 변경하고 동적으로 새 빌드를 선택할 수 있는 기능을 원하는 경우 대신 폴더에 연결하도록 선택할 수 있습니다. Visual Studio에서 응용 프로그램 프로젝트를 만들 경우 연결된 폴더를 사용할 수 있습니다. 프로젝트 내에서 원본 위치에 연결되면 원본 대상에서 게스트 실행 파일을 업데이트할 수 있으며 빌드 시 해당 업데이트가 응용 프로그램 패키지의 일부가 됩니다.
-    - *프로그램* - 서비스를 시작하기 위해 실행해야 하는 실행 파일을 선택합니다.
-    - *인수* - 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.
-    - *WorkingFolder* - 시작될 프로세스에 대한 작업 디렉터리를 지정합니다. 세 가지 값을 지정할 수 있습니다.
-        - `CodeBase`는 작업 디렉터리가 응용 프로그램 패키지의 코드 디렉터리에 설정되도록 지정합니다(앞서 표시된 파일 구조의 `Code` 디렉터리).
-        - `CodePackage`는 작업 디렉터리가 응용 프로그램 패키지의 루트에 설정되도록 지정합니다(앞서 표시된 파일 구조의 `GuestService1Pkg`).
-        - `Work` 는 파일이 work라는 하위 디렉터리에 배치되도록 지정합니다.
+   * *코드 패키지 동작* 은 폴더의 모든 콘텐츠를 Visual Studio 프로젝트에 복사하도록 설정할 수 있으며 이것은 실행 파일이 변경되지 않는 경우에 유용합니다. 실행 파일을 변경하고 동적으로 새 빌드를 선택할 수 있는 기능을 원하는 경우 대신 폴더에 연결하도록 선택할 수 있습니다. Visual Studio에서 응용 프로그램 프로젝트를 만들 경우 연결된 폴더를 사용할 수 있습니다. 프로젝트 내에서 원본 위치에 연결되면 원본 대상에서 게스트 실행 파일을 업데이트할 수 있으며 빌드 시 해당 업데이트가 응용 프로그램 패키지의 일부가 됩니다.
+   * *프로그램* - 서비스를 시작하기 위해 실행해야 하는 실행 파일을 선택합니다.
+   * *인수* - 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.
+   * *WorkingFolder* - 시작될 프로세스에 대한 작업 디렉터리를 지정합니다. 세 가지 값을 지정할 수 있습니다.
+     * `CodeBase`는 작업 디렉터리가 응용 프로그램 패키지의 코드 디렉터리에 설정되도록 지정합니다(앞서 표시된 파일 구조의 `Code` 디렉터리).
+     * `CodePackage`는 작업 디렉터리가 응용 프로그램 패키지의 루트에 설정되도록 지정합니다(앞서 표시된 파일 구조의 `GuestService1Pkg`).
+     * `Work` 는 파일이 work라는 하위 디렉터리에 배치되도록 지정합니다.
 4. 서비스에 이름을 지정하고 확인을 클릭합니다.
 5. 서비스에서 통신에 끝점이 필요한 경우 이제 프로토콜, 포트, 형식을 ServiceManifest.xml 파일에 추가할 수 있습니다. 예: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. 이제 패키지를 사용하고 Visual Studio에서 솔루션을 디버깅하여 로컬 클러스터에 대해 작업을 게시할 수 있습니다. 준비가 되면 원격 클러스터로 응용 프로그램을 게시하거나 원본 제어에 대한 솔루션을 체크 인합니다.
 7. Service Fabric Explorer에서 실행 중인 게스트 실행 파일 서비스를 보는 방법을 보려면 이 문서의 끝으로 이동합니다.
 
 <a id="manually"></a>
+
 ## <a name="manually-packaging-and-deploying-an-existing-executable"></a>기존 실행 파일을 수동으로 패키징하고 배포하기
 게스트 실행 파일을 수동으로 패키징하는 과정은 다음 단계를 기반으로 합니다.
 
@@ -116,14 +111,17 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
 
 서비스 패브릭은 응용 프로그램 루트 디렉터리의 내용에 대한 xcopy를 수행하므로 두 상위 디렉터리인 code 및 settings를 만들지 않고도 사용할 수 있는 미리 정의된 구조가 없습니다. 하지만 원한다면 다른 이름을 선택할 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
 
->[AZURE.NOTE] 응용 프로그램이 필요한 모든 파일/종속성을 포함했는지 확인합니다. Service Fabric은 응용 프로그램의 서비스를 배포할 클러스터의 모든 노드에서 응용 프로그램 패키지의 콘텐츠를 복사합니다. 패키지에는 응용 프로그램 실행에 필요한 모든 코드가 있어야 합니다. 종속성이 이미 설치되어 있다고 가정하는 것은 좋지 않습니다.
+> [!NOTE]
+> 응용 프로그램이 필요한 모든 파일/종속성을 포함했는지 확인합니다. Service Fabric은 응용 프로그램의 서비스를 배포할 클러스터의 모든 노드에서 응용 프로그램 패키지의 콘텐츠를 복사합니다. 패키지에는 응용 프로그램 실행에 필요한 모든 코드가 있어야 합니다. 종속성이 이미 설치되어 있다고 가정하는 것은 좋지 않습니다.
+> 
+> 
 
 ### <a name="edit-the-service-manifest-file"></a>서비스 매니페스트 파일 편집
 다음 정보를 포함하도록 서비스 매니페스트 파일을 편집하는 것이 다음 단계입니다.
 
-- 서비스 형식 이름 서비스 패브릭이 서비스를 식별하기 위해 사용하는 ID입니다.
-- 응용 프로그램을 시작하기 위해 사용하는 명령(ExeHost).
-- 응용 프로그램을 설치/구성하기 위해 실행해야 하는 모든 스크립트(SetupEntrypoint)
+* 서비스 형식 이름 서비스 패브릭이 서비스를 식별하기 위해 사용하는 ID입니다.
+* 응용 프로그램을 시작하기 위해 사용하는 명령(ExeHost).
+* 응용 프로그램을 설치/구성하기 위해 실행해야 하는 모든 스크립트(SetupEntrypoint)
 
 다음은 `ServiceManifest.xml` 파일의 예제입니다.
 
@@ -158,15 +156,14 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
 업데이트해야 하는 파일의 다른 부분을 살펴보겠습니다.
 
 #### <a name="updating-the-servicetypes"></a>ServiceTypes 업데이트
-
 ```xml
 <ServiceTypes>
   <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true" />
 </ServiceTypes>
 ```
 
-- `ServiceTypeName`의 이름을 자유롭게 선택할 수 있습니다. 이 값은 `ApplicationManifest.xml` 파일에서 서비스를 식별하는 데 사용됩니다.
-- `UseImplicitHost="true"`를 지정해야 합니다. 이 특성은 서비스가 자체 포함된 앱을 기반으로 하므로 모든 서비스 패브릭이 응용 프로그램을 프로세스로 실행하여 상태를 모니터링해야 한다는 사실을 서비스 패브릭에 전달합니다.
+* `ServiceTypeName`의 이름을 자유롭게 선택할 수 있습니다. 이 값은 `ApplicationManifest.xml` 파일에서 서비스를 식별하는 데 사용됩니다.
+* `UseImplicitHost="true"`를 지정해야 합니다. 이 특성은 서비스가 자체 포함된 앱을 기반으로 하므로 모든 서비스 패브릭이 응용 프로그램을 프로세스로 실행하여 상태를 모니터링해야 한다는 사실을 서비스 패브릭에 전달합니다.
 
 #### <a name="updating-the-codepackage"></a>CodePackage 업데이트
 CodePackage 요소는 서비스 코드의 위치(및 버전)을 지정합니다.
@@ -176,8 +173,8 @@ CodePackage 요소는 서비스 코드의 위치(및 버전)을 지정합니다.
 ```
 
 `Name` 요소는 서비스 코드가 들어 있는 응용 프로그램 패키지의 디렉터리 이름을 지정하는 데 사용됩니다. `CodePackage`에도 `version` 특성이 있습니다. 이 요소는 코드 버전을 지정하는 데 사용할 수 있으며, 서비스 패브릭의 응용 프로그램 수명 주기 관리 인프라를 사용하여 서비스 코드를 업그레이드하는 데 사용할 수도 있습니다.
-#### <a name="optional:-updating-the-setupentrypoint"></a>선택 사항: SetupEntrypoint 업데이트
 
+#### <a name="optional:-updating-the-setupentrypoint"></a>선택 사항: SetupEntrypoint 업데이트
 ```xml
 <SetupEntryPoint>
    <ExeHost>
@@ -192,7 +189,6 @@ SetupEntrypoint가 하나밖에 없으므로 응용 프로그램의 설치/구�
 앞의 예제에서 SetupEntrypoint는 코드 디렉터리의 `scripts` 하위 디렉터리에 있는 `LaunchConfig.cmd`라는 배치 파일을 실행합니다(WorkingFolder 요소가 CodeBase로 설정되어 있다고 가정).
 
 #### <a name="updating-the-entrypoint"></a>Entrypoint 업데이트
-
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -205,17 +201,16 @@ SetupEntrypoint가 하나밖에 없으므로 응용 프로그램의 설치/구�
 
 서비스 매니페스트 파일의 `Entrypoint` 요소는 서비스를 시작하는 방법을 지정하는 데 사용됩니다. `ExeHost` 요소는 서비스를 시작하는 데 사용되어야 하는 실행 파일(및 인수)을 지정합니다.
 
-- `Program` 은 서비스를 시작하기 위해 실행되어야 하는 실행 파일의 이름을 지정합니다.
-- `Arguments` 는 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.
-- `WorkingFolder` 는 곧 시작될 프로세스의 작업 디렉터리를 지정합니다. 세 가지 값을 지정할 수 있습니다.
-    - `CodeBase`는 작업 디렉터리가 응용 프로그램 패키지의 코드 디렉터리에 설정되도록 지정합니다(이전 파일 구조의 `Code` 디렉터리).
-    - `CodePackage`는 작업 디렉터리가 응용 프로그램 패키지의 루트에 설정되도록 지정합니다(이전 파일 구조의 `GuestService1Pkg`).
-  - `Work` 는 파일이 work라는 하위 디렉터리에 배치되도록 지정합니다.
+* `Program` 은 서비스를 시작하기 위해 실행되어야 하는 실행 파일의 이름을 지정합니다.
+* `Arguments` 는 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.
+* `WorkingFolder` 는 곧 시작될 프로세스의 작업 디렉터리를 지정합니다. 세 가지 값을 지정할 수 있습니다.
+  * `CodeBase`는 작업 디렉터리가 응용 프로그램 패키지의 코드 디렉터리에 설정되도록 지정합니다(이전 파일 구조의 `Code` 디렉터리).
+  * `CodePackage`는 작업 디렉터리가 응용 프로그램 패키지의 루트에 설정되도록 지정합니다(이전 파일 구조의 `GuestService1Pkg`).
+    * `Work` 는 파일이 work라는 하위 디렉터리에 배치되도록 지정합니다.
 
 WorkingFolder는 응용 프로그램 또는 초기화 스크립트에서 상대 경로를 사용할 수 있도록 올바른 작업 디렉터리를 설정하는 데 유용합니다.
 
 #### <a name="updating-the-endpoints-and-registering-with-naming-service-for-communication"></a>통신을 위해 끝점을 업데이트하고 명명 서비스에 등록
-
 ```xml
 <Endpoints>
    <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />
@@ -237,7 +232,6 @@ WorkingFolder는 응용 프로그램 또는 초기화 스크립트에서 상대 
 이 주소를 [역방향 프록시](service-fabric-reverseproxy.md) 와 사용하여 서비스 간에 통신할 수 있습니다.
 
 ### <a name="edit-the-application-manifest-file"></a>응용 프로그램 매니페스트 파일 편집
-
 `Servicemanifest.xml` 파일을 구성했으면 `ApplicationManifest.xml` 파일을 변경하여 올바른 서비스 유형 및 이름이 사용되는지 확인해야 합니다.
 
 ```xml
@@ -250,7 +244,6 @@ WorkingFolder는 응용 프로그램 또는 초기화 스크립트에서 상대 
 ```
 
 #### <a name="servicemanifestimport"></a>ServiceManifestImport
-
 `ServiceManifestImport` 요소에서 앱에 포함할 서비스를 하나 이상 지정할 수 있습니다. 서비스는 `ServiceManifest.xml` 파일이 있는 디렉터리의 이름을 지정하는 `ServiceManifestName`으로 참조됩니다.
 
 ```xml
@@ -275,9 +268,9 @@ WorkingFolder는 응용 프로그램 또는 초기화 스크립트에서 상대 
 ```
 
 * `ConsoleRedirection`은 서비스 패브릭 클러스터의 응용 프로그램의 설치 또는 실행 중에 오류가 없음을 확인하는 데 사용할 수 있도록 콘솔 출력(stdout 및 stderr 모두)을 작업 디렉터리로 리디렉션하는 데 사용될 수 있습니다.
-
-    * `FileRetentionCount` 는 작업 디렉터리에 저장되는 파일의 수를 결정합니다. 예를 들어 값이 5이면 이전 5개 실행에 대한 로그 파일이 작업 디렉터리에 저장되었다는 뜻입니다.
-    * `FileMaxSizeInKb` 는 로그 파일의 최대 크기를 지정합니다.
+  
+  * `FileRetentionCount` 는 작업 디렉터리에 저장되는 파일의 수를 결정합니다. 예를 들어 값이 5이면 이전 5개 실행에 대한 로그 파일이 작업 디렉터리에 저장되었다는 뜻입니다.
+  * `FileMaxSizeInKb` 는 로그 파일의 최대 크기를 지정합니다.
 
 로그 파일은 서비스의 작업 디렉터리 중 하나에 저장됩니다. 파일이 어디에 있는지 확인하려면 Service Fabric Explorer를 사용하여 서비스가 실행 중인 노드와 현재 사용 중인 작업 디렉터리를 확인해야 합니다. 이 프로세스는 이 문서의 뒷부분에서 다루겠습니다.
 
@@ -304,13 +297,11 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 `New-ServiceFabricService` cmdlet의 `InstanceCount` 매개 변수는 서비스 패브릭 클러스터에서 실행되어야 하는 서비스의 인스턴스 개수를 지정하는 데 사용됩니다. 배포하는 응용 프로그램의 유형에 따라 `InstanceCount` 값을 설정할 수 있습니다. 가장 일반적인 두 가지 시나리오는 다음과 같습니다.
 
 * `InstanceCount = "1"`. 이 경우 단 한 개의 서비스 인스턴스가 클러스터에 배포됩니다. 서비스 패브릭의 스케줄러는 서비스를 배포할 노드를 결정합니다.
-
 * `InstanceCount ="-1"`. 이 경우 서비스의 단일 인스턴스가 Service Fabric 클러스터의 모든 노드에 배포됩니다. 그 결과 클러스터의 각 노드에 대한 서비스의 인스턴스를 하나(및 하나만) 갖게 됩니다.
 
 이 구성은 프런트 엔드 응용 프로그램(예: REST 끝점)에 유용합니다. 클라이언트 응용 프로그램은 끝점을 사용하려면 클러스터의 노드에 "연결"해야 하기 때문입니다. 또한 서비스 패브릭 클러스터의 모든 노드가 부하 분산 장치에 연결되어 있어서 클라이언트 트래픽을 클러스터의 모든 노드에서 실행되는 서비스로 분산할 수 있는 경우에도 이 구성을 사용할 수 있습니다.
 
 ## <a name="check-your-running-application"></a>실행 중인 응용 프로그램 확인
-
 서비스 패브릭 탐색기에서 서비스가 실행되고 있는 노드를 식별합니다. 이 예제에서는 Node1에서 실행됩니다.
 
 ![서비스가 실행 중인 노드](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
@@ -323,15 +314,12 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 
 ![로그 위치](./media/service-fabric-deploy-existing-app/loglocation.png)
 
-
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 게스트 실행 파일을 패키징하고 서비스 패브릭에 배포하는 방법을 배웠습니다. 다음 단계로 이 항목에 대한 추가 콘텐츠를 확인할 수 있습니다.
 
-- 패키징 도구 시험판의 링크를 포함하여 [GitHub에 게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
-- [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
-- [Visual Studio를 사용하여 처음으로 서비스 패브릭 응용 프로그램 만들기](service-fabric-create-your-first-application-in-visual-studio.md)
-
-
+* 패키징 도구 시험판의 링크를 포함하여 [GitHub에 게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
+* [Visual Studio를 사용하여 처음으로 서비스 패브릭 응용 프로그램 만들기](service-fabric-create-your-first-application-in-visual-studio.md)
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,34 +1,30 @@
-<properties 
-pageTitle="Azure VM에서 S/4 HANA 또는 BW/4 HANA 배포 | Microsoft Azure" 
-description="Azure VM에서 S/4 HANA 또는 BW/4 HANA 배포" 
-services="virtual-machines-linux" 
-documentationCenter="" 
-authors="hermanndms" 
-manager="timlt" 
-editor="" 
-tags="azure-resource-manager" 
-  keywords=""/> 
-<tags 
-  ms.service="virtual-machines-linux" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.tgt_pltfrm="vm-linux" 
-  ms.workload="infrastructure-services" 
-  ms.date="09/15/2016" 
-  ms.author="hermannd"/> 
+---
+title: Azure VM에서 S/4 HANA 또는 BW/4 HANA 배포 | Microsoft Docs
+description: Azure VM에서 S/4 HANA 또는 BW/4 HANA 배포
+services: virtual-machines-linux
+documentationcenter: ''
+author: hermanndms
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/15/2016
+ms.author: hermannd
 
-
-# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Microsoft Azure에서 S/4 HANA 또는 BW/4 HANA 배포 
-
+---
+# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Microsoft Azure에서 S/4 HANA 또는 BW/4 HANA 배포
 이 문서에서는 SAP 클라우드 어플라이언스 라이브러리 3.0을 통해 Microsoft Azure에서 S/4 HANA를 배포하는 방법을 설명합니다.
 스크린샷은 프로세스를 단계별로 보여줍니다. 프로세스 관점에서 동일한 방식으로 작동하는 BW/4 HANA와 같은 다른 SAP HANA 기반 솔루션을 배포합니다. 서로 다른 솔루션을 선택하면 됩니다.
 
 SAP 클라우드 어플라이언스 라이브러리(SAP CAL)를 시작하려면 [여기](https://cal.sap.com/)로 이동합니다. 새로운 [SAP 클라우드 어플라이언스 라이브러리 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience)에 대한 정보를 제공하는 SAP의 블로그가 있습니다. 
 
-
 다음 스크린샷은 Microsoft Azure에 S/4 HANA를 배포하는 방법을 단계별로 보여줍니다. 이 과정은 BW/4 HANA와 같은 다른 솔루션과 동일한 방식으로 작동합니다.
-
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-1b.jpg)
 
@@ -92,15 +88,6 @@ Azure 포털에서 가상 컴퓨터가 SAP CAL에 지정된 것과 동일한 인
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
 
 다른 옵션은 클라이언트 Windows VM에 로그인하고 예를 들어 미리 구성된 SAP GUI를 시작하는 것입니다.
-
-
-
-
-
-
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,59 +1,54 @@
 
 
-<properties
-    pageTitle="Azure Resource Manager 템플릿을 사용하여 Log Analytics 작업 영역 만들기 및 구성 | Microsoft Azure"
-    description="Azure Resource Manager 템플릿을 사용하여 Log Analytics 작업 영역 만들고 구성할 수 있습니다."
-    services="log-analytics"
-    documentationCenter=""
-    authors="richrundmsft"
-    manager="jochan"
-    editor=""/>
+---
+title: Azure Resource Manager 템플릿을 사용하여 Log Analytics 작업 영역 만들기 및 구성 | Microsoft Docs
+description: Azure Resource Manager 템플릿을 사용하여 Log Analytics 작업 영역 만들고 구성할 수 있습니다.
+services: log-analytics
+documentationcenter: ''
+author: richrundmsft
+manager: jochan
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="json"
-    ms.topic="article"
-    ms.date="08/25/2016"
-    ms.author="richrund"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: json
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: richrund
 
-
+---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용한 Log Analytics 관리
+[Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 Log Analytics 작업 영역을 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
 
-[Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Log Analytics 작업 영역을 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
-
-+ 작업 영역 만들기
-+ 솔루션 추가
-+ 저장된 검색 만들기
-+ 컴퓨터 그룹 만들기
-+ Windows 에이전트가 설치된 컴퓨터에서 IIS 로그 수집 활성화
-+ Linux 및 Windows 컴퓨터에서 성능 카운터 수집
-+ Linux 컴퓨터의 syslog에서 이벤트 수집 
-+ Windows 이벤트 로그에서 이벤트 수집
-+ 사용자 지정 이벤트 로그 수집
-+ Azure 가상 컴퓨터에 Log Analytics 에이전트 추가
-+ Azure 진단을 사용하여 수집된 데이터를 인덱싱하도록 Log Analytics 구성
-
+* 작업 영역 만들기
+* 솔루션 추가
+* 저장된 검색 만들기
+* 컴퓨터 그룹 만들기
+* Windows 에이전트가 설치된 컴퓨터에서 IIS 로그 수집 활성화
+* Linux 및 Windows 컴퓨터에서 성능 카운터 수집
+* Linux 컴퓨터의 syslog에서 이벤트 수집 
+* Windows 이벤트 로그에서 이벤트 수집
+* 사용자 지정 이벤트 로그 수집
+* Azure 가상 컴퓨터에 Log Analytics 에이전트 추가
+* Azure 진단을 사용하여 수집된 데이터를 인덱싱하도록 Log Analytics 구성
 
 이 문서에서는 템플릿에서 수행할 수 있는 몇 가지 구성을 보여 주는 템플릿 샘플을 제공합니다.
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기 및 구성
-
 다음 템플릿 샘플에서는 다음 작업의 방법을 보여 줍니다.
 
-1.  작업 영역 만들기
-2.  작업 영역에 솔루션 추가
-3.  저장된 검색 만들기
-4.  컴퓨터 그룹 만들기
-5.  Windows 에이전트가 설치된 컴퓨터에서 IIS 로그 수집 활성화
-6.  Linux 컴퓨터에서 논리 디스크 성능 카운터 수집(사용된 Inode 비율, 사용 가능한 MB, 사용된 공간 비율, 초당 디스크 전송, 초당 디스크 읽기, 초당 디스크 쓰기)
-7.  Linux 컴퓨터에서 syslog 이벤트 수집
-8.  Windows 컴퓨터에서 응용 프로그램 이벤트 로그의 오류 및 경고 이벤트 수집
-9.  Windows 컴퓨터에서 사용 가능한 메모리(MB) 성능 카운터 수집
+1. 작업 영역 만들기
+2. 작업 영역에 솔루션 추가
+3. 저장된 검색 만들기
+4. 컴퓨터 그룹 만들기
+5. Windows 에이전트가 설치된 컴퓨터에서 IIS 로그 수집 활성화
+6. Linux 컴퓨터에서 논리 디스크 성능 카운터 수집(사용된 Inode 비율, 사용 가능한 MB, 사용된 공간 비율, 초당 디스크 전송, 초당 디스크 읽기, 초당 디스크 쓰기)
+7. Linux 컴퓨터에서 syslog 이벤트 수집
+8. Windows 컴퓨터에서 응용 프로그램 이벤트 로그의 오류 및 경고 이벤트 수집
+9. Windows 컴퓨터에서 사용 가능한 메모리(MB) 성능 카운터 수집
 10. 사용자 지정 로그 수집 
 11. Azure 진단을 통해 저장소 계정에 기록한 Windows 이벤트 로그 및 IIS 로그 수집
-
 
 ```
 {
@@ -420,7 +415,6 @@
 
 ```
 ### <a name="deploying-the-sample-template"></a>샘플 템플릿 배포
-
 샘플 템플릿을 배포하려면
 
 1. 연결된 샘플을 파일(예: `azuredeploy.json`)에 저장합니다. 
@@ -428,11 +422,9 @@
 3. PowerShell 또는 명령줄을 사용하여 템플릿을 배포합니다.
 
 #### <a name="powershell"></a>PowerShell
-
 `New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
 
 #### <a name="command-line"></a>명령 줄
-
 ```
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
@@ -440,26 +432,18 @@ azure group deployment create <my-resource-group> <my-deployment-name> --Templat
 
 
 ## <a name="example-resource-manager-templates"></a>Resource Manager 템플릿 예
-
 Azure 빠른 시작 템플릿 갤러리에는 다음과 같이 Log Analytics를 위한 여러 템플릿이 포함되어 있습니다.
 
-+ [Log Analytics VM 확장을 사용하여 Windows를 실행하는 가상 컴퓨터 배포](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-+ [Log Analytics VM 확장을 사용하여 Linux를 실행하는 가상 컴퓨터 배포](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
-+ [기존 Log Analytics 작업 영역을 사용하여 Azure Site Recovery 모니터링](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
-+ [기존 Log Analytics 작업 영역을 사용하여 Azure Web Apps 모니터링](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-+ [기존 Log Analytics 작업 영역을 사용하여 SQL Azure 모니터링](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-+ [Service Fabric 클러스터 배포 및 기존 Log Analytics 작업 영역을 사용하여 모니터링](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-+ [Service Fabric 클러스터 배포 및 해당 클러스터를 모니터링할 Log Analytics 작업 영역 만들기](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
-
+* [Log Analytics VM 확장을 사용하여 Windows를 실행하는 가상 컴퓨터 배포](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
+* [Log Analytics VM 확장을 사용하여 Linux를 실행하는 가상 컴퓨터 배포](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
+* [기존 Log Analytics 작업 영역을 사용하여 Azure Site Recovery 모니터링](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
+* [기존 Log Analytics 작업 영역을 사용하여 Azure Web Apps 모니터링](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
+* [기존 Log Analytics 작업 영역을 사용하여 SQL Azure 모니터링](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
+* [Service Fabric 클러스터 배포 및 기존 Log Analytics 작업 영역을 사용하여 모니터링](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
+* [Service Fabric 클러스터 배포 및 해당 클러스터를 모니터링할 Log Analytics 작업 영역 만들기](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
 ## <a name="next-steps"></a>다음 단계
-
-+ [Resource Manager 템플릿을 사용하여 Azure VM에 에이전트 배포](log-analytics-azure-vm-extension.md)
-
-
-
-
-
+* [Resource Manager 템플릿을 사용하여 Azure VM에 에이전트 배포](log-analytics-azure-vm-extension.md)
 
 <!--HONumber=Oct16_HO2-->
 

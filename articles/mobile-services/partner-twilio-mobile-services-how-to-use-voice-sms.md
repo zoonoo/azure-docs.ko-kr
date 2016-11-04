@@ -1,24 +1,22 @@
-<properties
-	pageTitle="음성 및 SMS 기능을 위해 Twilio 사용 | Microsoft Azure"
-	description="Azure 모바일 서비스와 함께 Twilio API를 사용하여 일반적인 작업을 수행하는 방법에 대해 알아봅니다."
-	services="mobile-services"
-	documentationCenter=""
-	authors="devinrader"
-	manager="dwrede"
-	editor=""/>
+---
+title: 음성 및 SMS 기능을 위해 Twilio 사용 | Microsoft Docs
+description: Azure 모바일 서비스와 함께 Twilio API를 사용하여 일반적인 작업을 수행하는 방법에 대해 알아봅니다.
+services: mobile-services
+documentationcenter: ''
+author: devinrader
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: glenga
 
-
+---
 # 모바일 서비스에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
-
 이 항목에서는 Azure 모바일 서비스와 함께 Twilio API를 사용하여 일반적인 작업을 수행하는 방법을 설명합니다. 이 자습서에서는 Twilio API를 사용하는 사용자 지정 API 스크립트를 만들어 전화 통화를 시작하고 SMS(Short Message Service) 메시지를 보내는 방법을 배웁니다.
 
 ## <a id="WhatIs"></a>Twilio 정의
@@ -80,36 +78,36 @@ Twilio는 Node.js 라이브러리를 제공하며, 이 라이브러리는 Twilio
 모바일 서비스에서 Twilio node.js 라이브러리를 사용하려면 모바일 서비스 npm 모듈 지원을 사용해야 합니다. 이는 원본 제어에서 스크립트를 저장함으로써 사용할 수 있습니다.
 
 1. [소스 제어에 스크립트 저장](mobile-services-store-scripts-source-control.md) 자습서를 완료합니다. 이 자습서에서는 모바일 서비스에 대한 소스 제어를 설정하고 서버 스크립트를 Git 리포지토리에 저장하는 방법을 안내합니다.
-
 2. 모바일 서비스에 대해 소스 제어를 설정했으면 로컬 컴퓨터에서 리포지토리를 열고 `\services` 하위 폴더로 이동하고 텍스트 편집기에서 package.json 파일을 연 후 **종속성** 개체에 다음 필드를 추가합니다.
-
-		"twilio": "~1.7.0"
-
+   
+        "twilio": "~1.7.0"
 3. **종속성** 개체에 대한 Twilio 패키지 참조를 추가한 후 package.json 파일은 다음과 같이 표시 됩니다.
-
-		{
-		  "name": "todolist",
-		  "version": "1.0.0",
-		  "description": "todolist - hosted on Azure Mobile Services",
-		  "main": "server.js",
-		  "engines": {
-		    "node": ">= 0.8.19"
-		  },
-		  "dependencies": {
-			"twilio": "~1.7.0"
-		  },
-		  "devDependencies": {},
-		  "scripts": {},
-		  "author": "unknown",
-		  "licenses": [],
-		  "keywords":[]
-		}
-
-	>[AZURE.NOTE]Twilio에 대한 종속성은 (~)를 사용하여 `"twilio": "~1.7.0"`(으)로 추가해야 합니다. 캐럿(^)을 사용한 참조는 지원되지 않습니다.
-
+   
+        {
+          "name": "todolist",
+          "version": "1.0.0",
+          "description": "todolist - hosted on Azure Mobile Services",
+          "main": "server.js",
+          "engines": {
+            "node": ">= 0.8.19"
+          },
+          "dependencies": {
+            "twilio": "~1.7.0"
+          },
+          "devDependencies": {},
+          "scripts": {},
+          "author": "unknown",
+          "licenses": [],
+          "keywords":[]
+        }
+   
+   > [!NOTE]
+   > Twilio에 대한 종속성은 (~)를 사용하여 `"twilio": "~1.7.0"`(으)로 추가해야 합니다. 캐럿(^)을 사용한 참조는 지원되지 않습니다.
+   > 
+   > 
 4. 이 파일 업데이트를 커밋하고 모바일 서비스에 다시 업데이트를 푸시하세요.
-
-	package.json 파일에 이 업데이트를 적용하면 모바일 서비스가 다시 시작됩니다.
+   
+    package.json 파일에 이 업데이트를 적용하면 모바일 서비스가 다시 시작됩니다.
 
 이제 모바일 서비스에서 Twilio 패키지를 설치하고 로드하므로 사용자 지정 API 및 테이블 스크립트에서 Twilio 라이브러리를 사용하고 참조할 수 있습니다.
 
@@ -167,10 +165,12 @@ Twilio는 Node.js 라이브러리를 제공하며, 이 라이브러리는 Twilio
 
 
 ## <a id="howto_provide_twiml_responses"></a>방법: 고유한 웹 사이트에서 TwiML 응답 제공
-
 응용 프로그램에서 Twilio API에 대한 호출을 시작하면(예: client.InitiateOutboundCall 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 발신 전화 걸기의 예제: Twilio 제공 URL인 http://twimlets.com/message을(를) 사용하여 응답을 반환합니다.
 
-> [AZURE.NOTE] TwiML이 웹 서비스에 사용하도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [twimlet\_message\_url](http://twimlets.com/message)를 클릭하면 빈 &lt;Response&gt; 요소를 볼 수 있습니다. 또 다른 예로, [twimlet\_message\_url\_hello\_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World)를 클릭하면 &lt;Say&gt; 요소가 포함된 &lt;Response&gt; 요소를 볼 수 있습니다.
+> [!NOTE]
+> TwiML이 웹 서비스에 사용하도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [twimlet\_message\_url](http://twimlets.com/message)를 클릭하면 빈 &lt;Response&gt; 요소를 볼 수 있습니다. 또 다른 예로, [twimlet\_message\_url\_hello\_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World)를 클릭하면 &lt;Say&gt; 요소가 포함된 &lt;Response&gt; 요소를 볼 수 있습니다.
+> 
+> 
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 URL 사이트를 만들 수 있습니다. HTTP 응답을 반환하는 사이트는 어떤 언어로든 만들 수 있습니다. 이 항목에서는 ASP.NET 제네릭 처리기에서 URL을 호스트한다고 가정합니다.
 
@@ -207,8 +207,7 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 다음 코드 샘플�
         });
     };
 
-[AZURE.INCLUDE [twilio-additional-services-and-next-steps](../../includes/twilio-additional-services-and-next-steps.md)]
-
+[!INCLUDE [twilio-additional-services-and-next-steps](../../includes/twilio-additional-services-and-next-steps.md)]
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
 

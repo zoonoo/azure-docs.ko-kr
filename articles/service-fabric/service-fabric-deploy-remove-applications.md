@@ -1,26 +1,27 @@
-<properties
-   pageTitle="서비스 패브릭 응용 프로그램 배포 | Microsoft Azure"
-   description="서비스 패브릭에서 응용 프로그램을 배포 및 제거하는 방법"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+---
+title: 서비스 패브릭 응용 프로그램 배포 | Microsoft Docs
+description: 서비스 패브릭에서 응용 프로그램을 배포 및 제거하는 방법
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/25/2016"
-   ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/25/2016
+ms.author: ryanwi
 
+---
 # PowerShell을 사용하여 응용 프로그램 배포 및 제거
-
-> [AZURE.SELECTOR]
-- [PowerShell](service-fabric-deploy-remove-applications.md)
-- [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> [!div class="op_single_selector"]
+> * [PowerShell](service-fabric-deploy-remove-applications.md)
+> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> 
+> 
 
 <br/>
 
@@ -30,10 +31,12 @@
 2. 응용 프로그램 형식 등록
 3. 응용 프로그램 인스턴스 만들기
 
->[AZURE.NOTE] 로컬 개발 클러스터에서 개발 및 배포에 Visual Studio를 사용하는 경우 다음의 모든 단계는 응용 프로그램 프로젝트의 스크립트 폴더에 있는 PowerShell 스크립트를 통해 자동으로 처리됩니다. 이 문서에서는 해당 스크립트가 하는 일과, 그로 인해 Visual Studio 외부에서 동일한 작업을 수행할 수 있는 배경을 설명합니다.
+> [!NOTE]
+> 로컬 개발 클러스터에서 개발 및 배포에 Visual Studio를 사용하는 경우 다음의 모든 단계는 응용 프로그램 프로젝트의 스크립트 폴더에 있는 PowerShell 스크립트를 통해 자동으로 처리됩니다. 이 문서에서는 해당 스크립트가 하는 일과, 그로 인해 Visual Studio 외부에서 동일한 작업을 수행할 수 있는 배경을 설명합니다.
+> 
+> 
 
 ## 응용 프로그램 패키지 업로드
-
 응용 프로그램 패키지를 업로드하면 내부 서비스 패브릭 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. PowerShell을 사용하여 업로드를 수행할 수 있습니다. 이 문서에서는 PowerShell 명령을 실행하기에 앞서 언제나 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx)를 사용하여 서비스 패브릭 클러스터에 연결하는 것으로 시작합니다.
 
 필요한 응용 프로그램 매니페스트, 서비스 매니페스트, 코드/구성/데이터 패키지가 들어 있는 *MyApplicationType*이라는 폴더가 있다고 가정합니다. [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125905.aspx) 명령으로 패키지를 클러스터 이미지 저장소에 업로드합니다. 서비스 패브릭 SDK PowerShell 모듈의 일부인 **Get ImageStoreConnectionStringFromClusterManifest** cmdlet는 이미지 저장소 연결 문자열을 가져오는 데 사용됩니다. SDK 모듈을 가져오려면 다음을 실행합니다.
@@ -92,7 +95,6 @@ PS D:\temp>
 ~~~
 
 ## 응용 프로그램 패키지 등록
-
 응용 프로그램 패키지 등록은 응용 프로그램 매니페스트에서 사용하기 위해 응용 프로그램 형식과 버전을 사용할 수 있도록 합니다. 시스템은 이전 단계에서 업로드된 패키지를 읽고, 패키지를 확인하며(로컬에서 실행 중인 [Test-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125950.aspx)와 동일한지), 패키지 콘텐츠를 처리하고, 처리된 패키지를 내부 시스템 위치에 복사합니다.
 
 ~~~
@@ -113,7 +115,6 @@ PS D:\temp>
 [Get-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125871.aspx) 명령은 성공적으로 등록된 모든 응용 프로그램 형식 버전을 나열합니다.
 
 ## 응용 프로그램 만들기
-
 [New-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125913.aspx) 명령을 사용하여 성공적으로 등록된 모든 응용 프로그램 형식 버전을 사용하여 응용 프로그램을 인스턴스화할 수 있습니다. 각 응용 프로그램의 이름은 반드시 *fabric:* 체계로 시작하고 각 응용 프로그램 인스턴스에 대해 고유해야 합니다. 대상 응용 프로그램 형식의 응용 프로그램 매니페스트에 정의된 모든 기본 서비스가 이때 만들어집니다.
 
 ~~~
@@ -153,7 +154,6 @@ PS D:\temp>
 등록된 응용 프로그램 형식의 주어진 어떤 버전에 대해서도 여러 개의 응용 프로그램 인스턴스를 만들 수 있습니다. 각 응용 프로그램 인스턴스는 자체 작업 디렉터리 및 프로세스와는 별도로 실행됩니다.
 
 ## 응용 프로그램 제거
-
 응용 프로그램 인스턴스가 더 이상 필요하지 않은 경우 [Remove-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125914.aspx) 명령을 사용하여 영구적으로 제거할 수 있습니다. 이 명령은 모든 서비스 상태를 영구적으로 제거하고 해당 응용 프로그램에 속한 모든 서비스를 자동으로 제거합니다. 이 작업은 되돌릴 수 없으며 응용 프로그램 상태는 복구할 수 없습니다.
 
 ~~~
@@ -202,9 +202,7 @@ PS D:\temp>
 ~~~
 
 ## 문제 해결
-
 ### Copy-ServiceFabricApplicationPackage가 ImageStoreConnectionString을 요청함
-
 서비스 패브릭 SDK 환경은 이미 올바른 기본 설정값을 가지고 있습니다. 하지만 필요한 경우 모든 명령에 대한 ImageStoreConnectionString은 서비스 패브릭 클러스터가 사용 중인 값과 일치해야 합니다. [Get-ServiceFabricClusterManifest](https://msdn.microsoft.com/library/mt126024.aspx) 명령을 통해 검색된 클러스터 매니페스트에서 이 값을 찾을 수 있습니다.
 
 ~~~
@@ -232,7 +230,6 @@ PS D:\temp>
 ~~~
 
 ## 다음 단계
-
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
 [서비스 패브릭 상태 소개](service-fabric-health-introduction.md)

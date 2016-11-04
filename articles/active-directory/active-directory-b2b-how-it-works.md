@@ -1,22 +1,22 @@
-<properties
-   pageTitle="Azure AD B2B 공동 작업 미리 보기: 작동 방법 | Microsoft Azure"
-   description="Azure Active Directory B2B 공동 작업이 비즈니스 파트너가 선택적으로 회사 응용 프로그램에 액세스할 수 있게 함으로써 회사 간 관계를 지원하는 방법에 대해 설명합니다."
-   services="active-directory"
-   documentationCenter=""
-   authors="viv-liu"
-   manager="cliffdi"
-   editor=""
-   tags=""/>
+---
+title: 'Azure AD B2B 공동 작업 미리 보기: 작동 방법 | Microsoft Docs'
+description: Azure Active Directory B2B 공동 작업이 비즈니스 파트너가 선택적으로 회사 응용 프로그램에 액세스할 수 있게 함으로써 회사 간 관계를 지원하는 방법에 대해 설명합니다.
+services: active-directory
+documentationcenter: ''
+author: viv-liu
+manager: cliffdi
+editor: ''
+tags: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="identity"
-   ms.date="05/09/2016"
-   ms.author="viviali"/>
+ms.service: active-directory
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: identity
+ms.date: 05/09/2016
+ms.author: viviali
 
+---
 # Azure AD B2B 공동 작업 미리 보기: 작동 방법
 Azure AD B2B 공동 작업은 초대 및 충전 모델을 기반으로 합니다. 사용하려는 응용 프로그램과 함께 공동 작업하려는 대상의 메일 주소를 제공합니다. Azure AD는 링크가 포함된 메일 초대를 보냅니다. 파트너 사용자가 링크를 클릭하면 자신의 Azure AD 계정을 사용하여 로그인하거나 새 Azure AD 계정을 등록하라는 메시지가 표시됩니다.
 
@@ -30,18 +30,18 @@ Azure AD B2B 공동 작업은 초대 및 충전 모델을 기반으로 합니다
 
 Azure AD B2B를 사용하는 데 유료 Azure AD 구독(Basic 또는 Premium)이 필요하지 않지만 유료 Azure AD 구독(Basic 또는 Premium)이 있는 테넌트는 다음과 같은 추가 혜택을 받습니다.
 
- - 관리자가 그룹을 앱에 할당하여 초대한 사용자 액세스를 더 간편하게 관리할 수 있습니다.
- - 초대 메일과 사용 환경을 브랜딩하는 관리 테넌트 브랜딩을 사용하여 초대한 파트너 사용자에게 더 많은 컨텍스트를 제공합니다.
+* 관리자가 그룹을 앱에 할당하여 초대한 사용자 액세스를 더 간편하게 관리할 수 있습니다.
+* 초대 메일과 사용 환경을 브랜딩하는 관리 테넌트 브랜딩을 사용하여 초대한 파트너 사용자에게 더 많은 컨텍스트를 제공합니다.
 
 ## 관련 문서
  Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기
 
- - [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
- - [자세한 연습](active-directory-b2b-detailed-walkthrough.md)
- - [CSV 파일 형식 참조](active-directory-b2b-references-csv-file-format.md)
- - [외부 사용자 토큰 형식](active-directory-b2b-references-external-user-token-format.md)
- - [외부 사용자 개체 특성 변경 사항](active-directory-b2b-references-external-user-object-attribute-changes.md)
- - [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
- - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+* [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [자세한 연습](active-directory-b2b-detailed-walkthrough.md)
+* [CSV 파일 형식 참조](active-directory-b2b-references-csv-file-format.md)
+* [외부 사용자 토큰 형식](active-directory-b2b-references-external-user-token-format.md)
+* [외부 사용자 개체 특성 변경 사항](active-directory-b2b-references-external-user-object-attribute-changes.md)
+* [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
+* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
 <!---HONumber=AcomDC_0511_2016-->

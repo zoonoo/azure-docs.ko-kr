@@ -1,27 +1,25 @@
-<properties
-	pageTitle="Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업 | Microsoft Azure"
-	description="Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업에 대해 설명"
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+---
+title: Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업 | Microsoft Docs
+description: Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업에 대해 설명
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/22/2016"
-	ms.author="kgremban"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/22/2016
+ms.author: kgremban
 
+---
 # Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업
-
 기본 도메인을 사용하면 응용 프로그램 액세스를 위한 내외부 URL로 동일한 URL을 설정할 수 있으므로 사용자는 액세스 위치에 상관 없이 하나의 URL만 기억하면 해당 앱에 액세스할 수 있습니다. 또한 응용 프로그램에 대한 액세스 패널에서 단일 바로 가기를 만들 수 있습니다. Azure AD 응용 프로그램 프록시에 의해 제공되는 기본 도메인을 사용하면 추가 구성 없이도 사용자의 도메인을 사용할 수 있습니다. 사용자 지정 도메인을 사용하는 경우 응용 프로그램 프록시가 도메인을 인식하고 인증서의 유효성을 검사하도록 보장하기 위해 몇 가지를 수행해야 합니다.
 
 ## 사용자 지정 도메인 선택(영문)
-
 1. [응용 프로그램 프록시로 응용 프로그램 게시](active-directory-application-proxy-publish.md)에 있는 지침에 따라 응용 프로그램을 게시합니다.
 2. 응용 프로그램이 응용 프로그램 목록에 나타나면 선택하고 **구성**을 클릭합니다.
 3. **외부 URL** 아래에 사용자 지정 도메인을 입력합니다.
@@ -29,7 +27,6 @@
 5. 사용자 응용 프로그램 목록 내 응용 프로그램에 대한 내외부 액세스와 단일 바로 가기를 위해 동일한 URL을 갖게 해주는 응용 프로그램에 내부 URL을 라우팅하는 DNS 기록을 추가합니다.
 
 ## 사용자 지정 도메인 작업에 대한 질문과 대답
-
 Q: 이미 업로드한 인증서를 다시 업로드하지 않고 선택할 수 있습니까? A: 이전에 업로드된 인증서는 자동으로 응용 프로그램에 바인딩되며 응용 프로그램의 호스트 이름과 정확히 일치하는 하나의 인증서가 있습니다.
 
 Q: 인증서를 어떻게 추가하며 내보낸 인증서를 어떤 형식으로 업로드해야 하나요? A: 응용 프로그램 구성 페이지에서 인증서를 업로드해야 합니다. 인증서는 PFX 파일이어야 합니다.
@@ -56,13 +53,11 @@ Q: 자체 서명된 인증서를 사용할 수 있나요? A: 예, 자체 서명�
 
 Q: 내 테넌트에 대한 모든 인증서를 볼 수 있는 곳이 있습니까? A: 현재 버전에서는 지원되지 않습니다.
 
-
 ## 참고 항목
-
-- [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
-- [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
-- [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
-- [Azure AD에 사용자 지정 도메인 이름 추가](active-directory-add-domain.md)
+* [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
+* [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
+* [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
+* [Azure AD에 사용자 지정 도메인 이름 추가](active-directory-add-domain.md)
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)를 확인하세요.
 

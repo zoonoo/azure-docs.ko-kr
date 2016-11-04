@@ -1,38 +1,37 @@
-<properties 
-	pageTitle="Azure API 관리에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법" 
-	description="Azure API 관리에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법에 대해 알아봅니다." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Azure API 관리에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법
+description: Azure API 관리에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법에 대해 알아봅니다.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/24/2016" 
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Azure API 관리에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법
-
 API 관리에서는 클라이언트 인증서를 사용하여 API의 백 엔드 서비스에 대한 액세스를 보호하는 기능을 제공합니다. 이 가이드에서는 API 게시자 포털에서 인증서를 관리하는 방법과 인증서를 사용하여 백 엔드 서비스에 액세스하도록 API를 구성하는 방법을 설명합니다.
 
-API 관리 REST API를 사용하여 인증서를 관리하는 방법에 대한 자세한 내용은 [Azure API 관리 REST API 인증서 엔터티][]를 참조하세요.
+API 관리 REST API를 사용하여 인증서를 관리하는 방법에 대한 자세한 내용은 [Azure API 관리 REST API 인증서 엔터티][Azure API 관리 REST API 인증서 엔터티]를 참조하세요.
 
 ## <a name="prerequisites"> </a>필수 조건
-
-이 가이드에서는 클라이언트 인증서 인증을 사용하여 API의 백 엔드 서비스에 액세스하도록 API 관리 서비스 인스턴스를 구성하는 방법을 설명합니다. 이 항목의 단계를 수행하기 전에 클라이언트 인증서 인증을 사용하도록 백 엔드 서비스를 구성해야 하며([Azure 웹 사이트에서 인증서 인증을 구성하려면 이 문서 참조][]) API 관리 게시자 포털에서 업로드할 인증서 및 해당 인증서의 암호에 액세스할 수 있어야 합니다.
+이 가이드에서는 클라이언트 인증서 인증을 사용하여 API의 백 엔드 서비스에 액세스하도록 API 관리 서비스 인스턴스를 구성하는 방법을 설명합니다. 이 항목의 단계를 수행하기 전에 클라이언트 인증서 인증을 사용하도록 백 엔드 서비스를 구성해야 하며([Azure 웹 사이트에서 인증서 인증을 구성하려면 이 문서 참조][Azure 웹 사이트에서 인증서 인증을 구성하려면 이 문서 참조]) API 관리 게시자 포털에서 업로드할 인증서 및 해당 인증서의 암호에 액세스할 수 있어야 합니다.
 
 ## <a name="step1"> </a>클라이언트 인증서 업로드
-
 시작하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
 
 ![API 게시자 포털][api-management-management-console]
 
->아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][] 자습서의 [API 관리 서비스 인스턴스 만들기][]를 참조하세요.
+> 아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][Azure API 관리 시작] 자습서의 [API 관리 서비스 인스턴스 만들기][API 관리 서비스 인스턴스 만들기]를 참조하세요.
+> 
+> 
 
 왼쪽의 **API 관리** 메뉴에서 **보안**을 클릭하고 **클라이언트 인증서**를 클릭합니다.
 
@@ -44,20 +43,23 @@ API 관리 REST API를 사용하여 인증서를 관리하는 방법에 대한 �
 
 인증서를 찾은 다음 인증서의 암호를 입력합니다.
 
->인증서는 **.pfx** 형식이어야 합니다. 자체 서명된 인증서도 사용할 수 있습니다.
+> 인증서는 **.pfx** 형식이어야 합니다. 자체 서명된 인증서도 사용할 수 있습니다.
+> 
+> 
 
 ![인증서 업로드][api-management-upload-certificate-form]
 
 **업로드**를 클릭하여 인증서를 업로드합니다.
 
->이때 인증서 암호의 유효성을 검사하여 암호가 잘못된 경우 오류 메시지가 표시됩니다.
+> 이때 인증서 암호의 유효성을 검사하여 암호가 잘못된 경우 오류 메시지가 표시됩니다.
+> 
+> 
 
 ![업로드된 인증서][api-management-certificate-uploaded]
 
-업로드된 인증서는 **클라이언트 인증서** 탭에 표시됩니다. 인증서가 여러 개인 경우 제목이나 지문의 마지막 4자를 적어 둡니다. 이러한 항목은 인증서를 사용하도록 API를 구성할 때 인증서를 선택하는 데 사용됩니다. 여기에 대해서는 다음 섹션인 [게이트웨이 인증에 클라이언트 인증서를 사용하도록 API 구성][]에서 설명합니다.
+업로드된 인증서는 **클라이언트 인증서** 탭에 표시됩니다. 인증서가 여러 개인 경우 제목이나 지문의 마지막 4자를 적어 둡니다. 이러한 항목은 인증서를 사용하도록 API를 구성할 때 인증서를 선택하는 데 사용됩니다. 여기에 대해서는 다음 섹션인 [게이트웨이 인증에 클라이언트 인증서를 사용하도록 API 구성][게이트웨이 인증에 클라이언트 인증서를 사용하도록 API 구성]에서 설명합니다.
 
 ## <a name="step1a"> </a>클라이언트 인증서 삭제
-
 인증서를 삭제하려면 원하는 인증서 옆에 있는 **삭제**를 클릭합니다.
 
 ![인증서 삭제][api-management-certificate-delete]
@@ -71,7 +73,6 @@ API 관리 REST API를 사용하여 인증서를 관리하는 방법에 대한 �
 ![삭제 확인][api-management-confirm-delete-policy]
 
 ## <a name="step2"> </a>게이트웨이 인증에 클라이언트 인증서를 사용하도록 API 구성
-
 왼쪽의 **API 관리** 메뉴에서 **API**를 클릭하고 원하는 API의 이름을 클릭한 후에 **보안** 탭을 클릭합니다.
 
 ![API 보안][api-management-api-security]
@@ -86,19 +87,24 @@ API 관리 REST API를 사용하여 인증서를 관리하는 방법에 대한 �
 
 **저장**을 클릭하여 API에 대한 구성 변경 내용을 저장합니다.
 
->이 변경 내용은 즉시 적용되며 해당 API의 작업 호출은 인증서를 사용하여 백 엔드 서버에서 인증됩니다.
+> 이 변경 내용은 즉시 적용되며 해당 API의 작업 호출은 인증서를 사용하여 백 엔드 서버에서 인증됩니다.
+> 
+> 
 
 ![API 변경 내용 저장][api-management-save-api]
 
->API의 백 엔드 서비스에 대해 게이트웨이 인증을 위해 지정된 인증서는 해당 API의 정책에 포함되며 정책 편집기에서 볼 수 있습니다.
+> API의 백 엔드 서비스에 대해 게이트웨이 인증을 위해 지정된 인증서는 해당 API의 정책에 포함되며 정책 편집기에서 볼 수 있습니다.
+> 
+> 
 
 ![인증서 정책][api-management-certificate-policy]
 
 ## 다음 단계
-
 HTTP 기본 또는 공유 암호 인증과 같은 백 엔드 서비스를 보호하는 다른 방법에 대한 자세한 내용은 다음 비디오를 참조하세요.
 
-> [AZURE.VIDEO last-mile-security]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Last-mile-Security/player]
+> 
+> 
 
 [api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
 [api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png
@@ -138,6 +144,6 @@ HTTP 기본 또는 공유 암호 인증과 같은 백 엔드 서비스를 보호
 [Next steps]: #next-steps
 
 
- 
+
 
 <!---HONumber=AcomDC_0831_2016-->

@@ -1,5 +1,4 @@
 ## 동일한 구독에 있는 피어링 VNet
-
 이 시나리오에서는 동일한 구독에 속한 **VNet1** 및 **VNet2**라는 두 개의 VNet 간에 피어링을 만듭니다.
 
 ![기본 시나리오](./media/virtual-networks-create-vnetpeering-scenario-basic-include/figure01.PNG)

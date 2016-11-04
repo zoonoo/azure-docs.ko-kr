@@ -1,43 +1,43 @@
-<properties
-   pageTitle="Azure SQL 데이터 웨어하우스 쿼리(sqlcmd) | Microsoft Azure"
-   description="sqlcmd 명령줄 유틸리티를 사용하여 Azure SQL 데이터 웨어하우스를 쿼리합니다."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
-   editor=""/>
+---
+title: Azure SQL 데이터 웨어하우스 쿼리(sqlcmd) | Microsoft Docs
+description: sqlcmd 명령줄 유틸리티를 사용하여 Azure SQL 데이터 웨어하우스를 쿼리합니다.
+services: sql-data-warehouse
+documentationcenter: NA
+author: sonyam
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="09/06/2016"
-   ms.author="barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 09/06/2016
+ms.author: barbkess;sonyama
 
+---
 # Azure SQL 데이터 웨어하우스 쿼리(sqlcmd)
+> [!div class="op_single_selector"]
+> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Azure 기계 학습](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> 
+> 
 
-> [AZURE.SELECTOR]
-- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-- [Azure 기계 학습](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-
-이 연습에서는 [sqlcmd][] 명령줄 유틸리티를 사용하여 Azure SQL Data Warehouse를 쿼리합니다.
+이 연습에서는 [sqlcmd][sqlcmd] 명령줄 유틸리티를 사용하여 Azure SQL Data Warehouse를 쿼리합니다.
 
 ## 1\. 연결
+[sqlcmd][sqlcmd]를 시작하려면 명령 프롬프트를 열고 SQL 데이터 웨어하우스 데이터베이스에 대한 연결 문자열 뒤에 **sqlcmd**를 입력합니다. 연결 문자열에는 다음 매개 변수가 필요합니다.
 
-[sqlcmd][]를 시작하려면 명령 프롬프트를 열고 SQL 데이터 웨어하우스 데이터베이스에 대한 연결 문자열 뒤에 **sqlcmd**를 입력합니다. 연결 문자열에는 다음 매개 변수가 필요합니다.
-
-+ **서버(-S):**`<`서버 이름`>`.database.windows.net 형식의 서버
-+ **데이터베이스(-D):** 데이터베이스 이름
-+ **따옴표 붙은 식별자 설정(-I):** SQL Data Warehouse 인스턴스에 연결하려면 따옴표 붙은 식별자를 사용할 수 있어야 합니다.
+* **서버(-S):**`<`서버 이름`>`.database.windows.net 형식의 서버
+* **데이터베이스(-D):** 데이터베이스 이름
+* **따옴표 붙은 식별자 설정(-I):** SQL Data Warehouse 인스턴스에 연결하려면 따옴표 붙은 식별자를 사용할 수 있어야 합니다.
 
 SQL Server 인증을 사용하려면 사용자 이름/암호 매개 변수를 추가해야 합니다.
 
-+ **사용자 (-U):** `<`사용자`>` 형태의 서버 사용자
-+ **암호(-P):** 사용자와 연결된 암호
+* **사용자 (-U):** `<`사용자`>` 형태의 서버 사용자
+* **암호(-P):** 사용자와 연결된 암호
 
 예를 들어 연결 문자열은 다음과 같습니다.
 
@@ -47,7 +47,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 
 Azure Active Directory 통합 인증을 사용하려면 Azure Active Directory 매개 변수를 추가해야 합니다.
 
-+ **Azure Active Directory 인증(-G):** 인증을 위해 Azure Active Directory를 사용합니다.
+* **Azure Active Directory 인증(-G):** 인증을 위해 Azure Active Directory를 사용합니다.
 
 예를 들어 연결 문자열은 다음과 같습니다.
 
@@ -55,10 +55,12 @@ Azure Active Directory 통합 인증을 사용하려면 Azure Active Directory �
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
-> [AZURE.NOTE] Active Directory를 사용하여 인증하려면 [Azure Active Directory 인증을 사용하도록 설정](sql-data-warehouse-authentication.md)해야 합니다.
+> [!NOTE]
+> Active Directory를 사용하여 인증하려면 [Azure Active Directory 인증을 사용하도록 설정](sql-data-warehouse-authentication.md)해야 합니다.
+> 
+> 
 
 ## 2\. 쿼리
-
 연결 후, 인스턴스에 대해 지원되는 모든 TRANSACT-SQL 문을 실행할 수 있습니다. 이 예에서 쿼리는 대화형 모드로 전송됩니다.
 
 ```sql
@@ -79,7 +81,6 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## 다음 단계
-
 sqlcmd에서 사용할 수 있는 옵션에 대한 세부 정보는 [sqlcmd 설명서][sqlcmd]를 참조하세요.
 
 <!--Image references-->

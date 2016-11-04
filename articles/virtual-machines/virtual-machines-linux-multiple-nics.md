@@ -1,25 +1,28 @@
-<properties
-   pageTitle="Linux VM에서 여러 NIC 구성 | Microsoft Azure"
-   description="Azure CLI 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 연결된 VM을 만드는 방법에 알아봅니다."
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Linux VM에서 여러 NIC 구성 | Microsoft Docs
+description: Azure CLI 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 연결된 VM을 만드는 방법에 알아봅니다.
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="08/02/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 08/02/2016
+ms.author: iainfou
 
+---
 # 여러 NIC를 사용하여 VM 만들기
 Azure에서 여러 가상 NIC(네트워크 인터페이스)가 연결된 VM(가상 컴퓨터)을 만들 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 다른 서브넷을 사용하거나 모니터링 또는 백업 솔루션 전용 네트워크를 두는 것입니다. 이 문서에서는 여러 NIC가 연결된 VM을 만드는 빠른 명령을 제공합니다. 자체 Bash 스크립트 내에서 여러 NIC를 만드는 방법을 비롯한 자세한 내용은 [다중 NIC VM 배포](../virtual-network/virtual-network-deploy-multinic-arm-cli.md)에 대해 자세히 읽어보세요. [VM 크기](virtual-machines-linux-sizes.md)가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.
 
->[AZURE.WARNING] VM을 만들 때 여러 NIC를 연결해야 합니다. 기존 VM에 NIC를 추가할 수 없습니다. [가상 디스크에 따라 새 VM을 만들고](virtual-machines-linux-copy-vm.md) VM을 배포할 때 여러 NIC를 만들 수 있습니다.
+> [!WARNING]
+> VM을 만들 때 여러 NIC를 연결해야 합니다. 기존 VM에 NIC를 추가할 수 없습니다. [가상 디스크에 따라 새 VM을 만들고](virtual-machines-linux-copy-vm.md) VM을 배포할 때 여러 NIC를 만들 수 있습니다.
+> 
+> 
 
 ## 빠른 명령
 [Azure CLI](../xplat-cli-install.md)에 로그인하여 Resource Manager 모드(`azure config mode arm`)를 사용하는지 확인합니다.

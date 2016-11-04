@@ -1,26 +1,24 @@
-<properties
-	pageTitle="Linux 가상 컴퓨터 정보 | Microsoft Azure"
-	description="두 배포 모델을 사용하여 Azure의 Linux 가상 컴퓨터에 대한 기본 사항에 대해 알아봅니다."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager,azure-service-management"/>
+---
+title: Linux 가상 컴퓨터 정보 | Microsoft Docs
+description: 두 배포 모델을 사용하여 Azure의 Linux 가상 컴퓨터에 대한 기본 사항에 대해 알아봅니다.
+services: virtual-machines-linux
+documentationcenter: ''
+author: cynthn
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager,azure-service-management
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/15/2016"
-	ms.author="cynthn"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 06/15/2016
+ms.author: cynthn
 
-#Azure에서 Linux 가상 컴퓨터 정보
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
+---
+# Azure에서 Linux 가상 컴퓨터 정보
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Azure 가상 컴퓨터는 Azure가 제공하는 여러 유형의 확장성 있는 주문형 컴퓨팅 리소스 중 하나입니다. 일반적으로 계산 환경을 통해 더 많이 제어해야 하는 경우 다른 옵션 대신 가상 컴퓨터를 선택합니다.
 
@@ -28,12 +26,11 @@ Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어�
 
 이 표는 Azure를 통해 제공되는 선택 항목을 비교하는 데 도움이 됩니다.
 
-[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+[!INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
-[AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
+[!INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 ## 다음 단계
-
 간단한 가상 컴퓨터를 신속하게 만들어 가상 컴퓨터를 사용해봅니다. 지침은 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-quick-create-cli.md)를 참조하세요.
 
 이 자습서는 가상 컴퓨터를 신속하게 만들 수 있도록 안내하기 위해 가상 컴퓨터를 만들 때 사용할 수 있는 다양한 도구들을 설명하는 대신 한 가지 방법만 제공합니다. 이러한 도구 및 지침에 대한 링크 요약은 [Linux 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-linux-creation-choices.md)을 참조하세요.

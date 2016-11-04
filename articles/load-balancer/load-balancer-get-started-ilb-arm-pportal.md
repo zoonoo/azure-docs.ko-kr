@@ -1,35 +1,34 @@
-<properties
-   pageTitle="Resource Manager에서 Azure 포털을 사용하여 내부 부하 분산 장치 만들기 시작 | Microsoft Azure"
-   description="Azure 포털을 사용하여 Resource Manager에서 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
-   services="load-balancer"
-   documentationCenter="na"
-   authors="sdwheeler"
-   manager="carmonm"
-   editor=""
-   tags="azure-service-management"
-/>
-<tags
-   ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
-   ms.author="sewhee" />
+---
+title: Resource Manager에서 Azure 포털을 사용하여 내부 부하 분산 장치 만들기 시작 | Microsoft Docs
+description: Azure 포털을 사용하여 Resource Manager에서 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다.
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: ''
+tags: azure-service-management
 
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/31/2016
+ms.author: sewhee
+
+---
 # Azure 포털에서 내부 부하 분산 장치 만들기 시작
+[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+[!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+[classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
-
+[!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## Azure 포털을 사용하여 내부 부하 분산 장치 만들기 시작
-
 Azure 포털에서 내부 부하 분산 장치를 만들려면 다음 단계를 수행합니다.
 
 1. 브라우저에서 [Azure 포털](http://portal.azure.com)로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
@@ -37,23 +36,25 @@ Azure 포털에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 3. **부하 분산 장치 만들기** 블레이드에서 부하 분산 장치의 **이름**을 입력합니다.
 4. **구성표** 아래에서 **내부**를 클릭합니다.
 5. **가상 네트워크**를 클릭한 다음 부하 분산 장치를 만들 가상 네트워크를 선택합니다.
-
-    >[AZURE.NOTE] 사용하려는 가상 네트워크가 보이지 않으면 부하 분산 장치에 대해 사용 중인 **위치**를 확인하고 적절하게 변경합니다.
-
+   
+   > [!NOTE]
+   > 사용하려는 가상 네트워크가 보이지 않으면 부하 분산 장치에 대해 사용 중인 **위치**를 확인하고 적절하게 변경합니다.
+   > 
+   > 
 6. **서브넷**을 클릭한 다음 부하 분산 장치를 만들 서브넷을 선택합니다.
 7. **IP 주소 할당** 아래에서 부하 분산 장치의 IP 주소를 고정으로 할 것인지 유동으로 할 것인지에 따라 **동적** 또는 **정적**을 클릭합니다.
-
-    >[AZURE.NOTE] 고정 IP 주소를 사용하도록 선택하는 경우 부하 분산 장치에 대한 주소를 제공해야 합니다.
-
+   
+   > [!NOTE]
+   > 고정 IP 주소를 사용하도록 선택하는 경우 부하 분산 장치에 대한 주소를 제공해야 합니다.
+   > 
+   > 
 8. **리소스 그룹** 아래에서 부하 분산 장치에 대한 새 리소스 그룹의 이름을 지정하거나 **기존 선택**을 클릭하여 기존 리소스 그룹을 선택합니다.
 9. **만들기**를 클릭합니다.
 
 ## 부하 분산 규칙 구성
-
 부하 분산 장치를 만든 후 구성을 위해 부하 분산 장치 리소스로 이동합니다. 백 엔드 주소 풀 및 프로브를 먼저 구성한 후 부하 분산 규칙을 구성합니다.
 
 ### 1단계
-
 백 엔드 풀 구성:
 
 1. Azure 포털에서 **찾아보기** > **부하 분산 장치**를 클릭한 다음 위에서 만든 부하 분산 장치를 클릭합니다.
@@ -62,7 +63,6 @@ Azure 포털에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 4. **백 엔드 풀 추가** 블레이드에서 백 엔드 풀에 대한 **이름**을 입력한 후 **확인**을 클릭합니다.
 
 ### 2단계
-
 프로브 구성:
 
 1. Azure 포털에서 **찾아보기** > **부하 분산 장치**를 클릭한 다음 위에서 만든 부하 분산 장치를 클릭합니다.
@@ -77,7 +77,6 @@ Azure 포털에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 10. **확인**을 클릭하여 프로브를 만듭니다.
 
 ### 3단계
-
 부하 분산 규칙 구성:
 
 1. Azure 포털에서 **찾아보기** > **부하 분산 장치**를 클릭한 다음 위에서 만든 부하 분산 장치를 클릭합니다.
@@ -94,7 +93,6 @@ Azure 포털에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 12. **확인**을 클릭합니다.
 
 ## 다음 단계
-
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)

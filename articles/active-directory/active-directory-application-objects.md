@@ -1,21 +1,21 @@
-<properties
-pageTitle="Azure Active Directory 응용 프로그램 및 서비스 주체 개체 | Microsoft Azure"
-description="Azure Active Directory의 응용 프로그램 및 서비스 주체 개체 간의 관계에 대한 설명"
-documentationCenter="dev-center-name"
-authors="bryanla"
-manager="mbaldwin"
-services="active-directory"
-editor=""/>
+---
+title: Azure Active Directory 응용 프로그램 및 서비스 주체 개체 | Microsoft Docs
+description: Azure Active Directory의 응용 프로그램 및 서비스 주체 개체 간의 관계에 대한 설명
+documentationcenter: dev-center-name
+author: bryanla
+manager: mbaldwin
+services: active-directory
+editor: ''
 
-<tags
-ms.service="active-directory"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="identity"
-ms.date="08/10/2016"
-ms.author="bryanla;mbaldwin"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/10/2016
+ms.author: bryanla;mbaldwin
 
+---
 # Azure Active Directory의 응용 프로그램 및 서비스 주체 개체
 Azure Active Directory (AD) "응용 프로그램"에 관해 읽을 때 작성자가 정확히 무엇을 나타내는지 항상 명확하지는 않습니다. 이 문서의 목표는 [다중 테넌트 응용 프로그램](active-directory-dev-glossary.md#multi-tenant-application)에 대한 등록 및 동의에 대한 예제와 함께 Azure AD 응용 프로그램 통합의 개념 및 구체적인 측면을 정의함으로써 더욱 명확히 하려는 것입니다.
 
@@ -35,14 +35,17 @@ Azure AD 응용 프로그램은 응용 프로그램의 “홈” 테넌트라고
 
 서비스 주체 개체는 해당 테넌트에서 사용자 계정이 소유한 리소스에 안전하게 액세스할 수 있도록 응용 프로그램 사용의 인스턴스가 나타나야 하는 각 테넌트에서 필요합니다. 단일 테넌트 응용 프로그램에는 해당 홈 테넌트에 하나의 서비스 주체만 있습니다. 다중 테넌트 [웹 응용 프로그램](active-directory-dev-glossary.md#web-client)도 해당 테넌트의 관리자 또는 사용자가 리소스에 대한 액세스를 허용하도록 동의한 각 테넌트에 하나의 서비스 주체가 있습니다. 승인에 따라 향후 권한 부여 요청에 대해 서비스 주체 개체를 참조합니다.
 
-> [AZURE.NOTE] 응용 프로그램 개체에 대해 이뤄진 모든 변경은 또한 응용 프로그램의 홈 테넌트(그것이 등록된 테넌트)에만 있는 해당 서비스 주체 개체에도 반영됩니다. 다중 테넌트 응용 프로그램의 경우 소비자 테넌트가 액세스를 제거하고 다시 액세스 권한이 부여될 때까지 응용 프로그램 개체의 변경 내용은 모든 소비자 테넌트의 서비스 주체 개체에 반영되지 않습니다.
+> [!NOTE]
+> 응용 프로그램 개체에 대해 이뤄진 모든 변경은 또한 응용 프로그램의 홈 테넌트(그것이 등록된 테넌트)에만 있는 해당 서비스 주체 개체에도 반영됩니다. 다중 테넌트 응용 프로그램의 경우 소비자 테넌트가 액세스를 제거하고 다시 액세스 권한이 부여될 때까지 응용 프로그램 개체의 변경 내용은 모든 소비자 테넌트의 서비스 주체 개체에 반영되지 않습니다.
+> 
+> 
 
 ## 예
 다음 다이어그램은 **HR 앱**이라는 샘플 다중 테넌트 응용 프로그램의 컨텍스트에서 응용 프로그램의 응용 프로그램 개체와 해당 서비스 주체 개체를 보여 줍니다. 이 시나리오에는 세 가지 Azure AD 테넌트가 있습니다.
 
-- **Adatum** -**HR 앱**을 개발한 회사에서 사용하는 테넌트.
-- **Contoso** -**HR 앱**의 소비자인 Contoso 조직에서 사용하는 테넌트.
-- **Fabrikam** -**HR 앱**의 또 다른 소비자인 Fabrikam 조직에서 사용하는 테넌트.
+* **Adatum** -**HR 앱**을 개발한 회사에서 사용하는 테넌트.
+* **Contoso** -**HR 앱**의 소비자인 Contoso 조직에서 사용하는 테넌트.
+* **Fabrikam** -**HR 앱**의 또 다른 소비자인 Fabrikam 조직에서 사용하는 테넌트.
 
 ![응용 프로그램 개체 및 서비스 주체 개체 간의 관계](./media/active-directory-application-objects/application-objects-relationship.png)
 
@@ -56,8 +59,6 @@ Azure AD 응용 프로그램은 응용 프로그램의 “홈” 테넌트라고
 응용 프로그램의 응용 프로그램 개체는 OData [응용 프로그램 엔터티][AAD-Graph-App-Entity]에 의해 표시된 대로 Azure AD Graph API를 통해 액세스할 수 있습니다.
 
 응용 프로그램의 서비스 주체 개체는 OData [서비스 주체 엔터티][AAD-Graph-Sp-Entity]에 의해 표시된 대로 Azure AD Graph API를 통해 액세스할 수 있습니다.
-
-
 
 <!--Image references-->
 

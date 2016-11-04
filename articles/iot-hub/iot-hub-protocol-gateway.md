@@ -1,27 +1,25 @@
-<properties
-   pageTitle="Azure IoT 프로토콜 게이트웨이 | Microsoft Azure"
-   description="Azure IoT Hub의 기능 및 프로토콜 지원을 확장하기 위한 Azure IoT 프로토콜 게이트웨이 사용 방법을 설명합니다."
-   services="iot-hub"
-   documentationCenter=""
-   authors="kdotchkoff"
-   manager="timlt"
-   editor=""/>
+---
+title: Azure IoT 프로토콜 게이트웨이 | Microsoft Docs
+description: Azure IoT Hub의 기능 및 프로토콜 지원을 확장하기 위한 Azure IoT 프로토콜 게이트웨이 사용 방법을 설명합니다.
+services: iot-hub
+documentationcenter: ''
+author: kdotchkoff
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="iot-hub"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/23/2016"
-   ms.author="kdotchko"/>
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/23/2016
+ms.author: kdotchko
 
+---
 # IoT Hub에 대한 추가 프로토콜 지원
-
 Azure IoT Hub는 AMQP, MQTT, HTTP/1 프로토콜을 통한 통신을 기본적으로 지원합니다. 일부 경우 장치 또는 필드 게이트웨이에서 이러한 표준 프로토콜 중 하나를 사용하지 못할 수 있으므로 프로토콜 적응이 필요합니다. 이러한 경우 사용자 지정 게이트웨이를 사용할 수 있습니다. 사용자 지정 게이트웨이에서 IoT Hub로(부터)의 트래픽을 브리징하여 IoT Hub 끝점에 대한 프로토콜 적응을 사용할 수 있습니다. [Azure IoT 프로토콜 게이트웨이](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)를 사용자 지정 게이트웨이로 사용하여 IoT Hub에 대 한 프로토콜 적응을 사용할 수 있습니다.
 
 ## Azure IoT 프로토콜 게이트웨이
-
 Azure IoT 프로토콜 게이트웨이는 프로토콜 적응을 위한 프레임워크로 IoT Hub와 확장성이 뛰어난 양방향 장치 통신을 위해 디자인되었습니다. 프로토콜 게이트웨이는 특정 프로토콜을 통한 장치 연결을 수락하는 통과 구성 요소입니다. AMQP 1.0을 통해 IoT Hub에 트래픽을 브리징합니다. IoT 프로토콜 게이트웨이는 오픈 소스 소프트웨어 프로젝트로 사용 가능하여 유연하게 다양한 프로토콜 및 프로토콜 버전에 대한 지원을 추가할 수 있습니다.
 
 Azure 클라우드 서비스 작업자 역할을 사용하여 확장성이 뛰어난 방식으로 Azure에서 프로토콜 게이트웨이를 배포할 수 있습니다. 또한 프로토콜 게이트웨이는 필드 게이트웨이와 같은 온-프레미스 환경에서 배포될 수 있습니다.
@@ -33,7 +31,6 @@ Azure IoT 프로토콜 게이트웨이는 필요한 경우 MQTT 프로토콜 동
 유연성을 위해 프로토콜 게이트웨이 및 MQTT 구현은 오픈 소스 소프트웨어 프로젝트에서 제공됩니다. 필요에 따라 구현을 사용자 지정할 수 있습니다.
 
 ## 다음 단계
-
 Azure IoT 프로토콜 게이트웨이와 이를 IoT 솔루션의 일부로 사용하고 배포하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * [GitHub에서 Azure IoT 프로토콜 게이트웨이 리포지토리](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
@@ -41,15 +38,15 @@ Azure IoT 프로토콜 게이트웨이와 이를 IoT 솔루션의 일부로 사�
 
 IoT Hub 배포를 계획하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-- [이벤트 허브와 비교][lnk-compare]
-- [크기 조정, HA 및 DR][lnk-scaling]
+* [이벤트 허브와 비교][lnk-compare]
+* [크기 조정, HA 및 DR][lnk-scaling]
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-- [개발자 가이드][lnk-devguide]
-- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
-- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
-- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
+* [개발자 가이드][lnk-devguide]
+* [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+* [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
 
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md

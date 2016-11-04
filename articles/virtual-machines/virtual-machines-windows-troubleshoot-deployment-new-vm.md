@@ -1,40 +1,37 @@
-<properties
-   pageTitle="Windows VM 배포 RM 문제 해결 | Microsoft Azure"
-   description="Azure에서 새 Windows 가상 컴퓨터 생성 시 Resource Manager 배포 문제 해결"
-   services="virtual-machines-windows, azure-resource-manager"
-   documentationCenter=""
-   authors="JiangChen79"
-   manager="felixwu"
-   editor=""
-   tags="top-support-issue, azure-resource-manager"/>
+---
+title: Windows VM 배포 RM 문제 해결 | Microsoft Docs
+description: Azure에서 새 Windows 가상 컴퓨터 생성 시 Resource Manager 배포 문제 해결
+services: virtual-machines-windows, azure-resource-manager
+documentationcenter: ''
+author: JiangChen79
+manager: felixwu
+editor: ''
+tags: top-support-issue, azure-resource-manager
 
-<tags
-  ms.service="virtual-machines-windows"
-  ms.workload="na"
-  ms.tgt_pltfrm="vm-windows"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="09/09/2016"
-  ms.author="cjiang"/>
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 09/09/2016
+ms.author: cjiang
 
-
+---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Azure에서 새 Windows 가상 컴퓨터 생성 관련 Resource Manager 배포 문제 해결
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
-
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="collect-audit-logs"></a>감사 로그 수집
-
 문제 해결을 시작하려면 문제와 관련된 오류를 파악하기 위해 감사 로그를 수집합니다. 다음 링크에는 수행할 프로세스에 대한 자세한 내용이 포함되어 있습니다.
 
 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)
 
 [리소스 관리자로 작업 감사](../resource-group-audit.md)
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
+[!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
 **Y:** OS가 일반화된 Windows인 경우, 일반화된 설정을 사용하여 업로드되거나 캡처되고, 오류는 발생하지 않습니다. 마찬가지로 OS가 특수화된 Windows인 경우, 특수화된 설정을 사용하여 업로드되거나 캡처되고, 오류는 발생하지 않습니다.
 
@@ -65,26 +62,24 @@
 
 **해결 방법 1:**
 
-- 더 작은 VM 크기를 사용하여 요청을 다시 시도합니다.
-- 요청한 VM의 크기를 변경할 수 없으면:
-  - 가용성 집합의 VM을 모두 중지합니다.
-  **리소스 그룹** > *사용자의 리소스 그룹* > **리소스** > *사용자의 가용성 집합* > **가상 컴퓨터** > *사용자의 가상 컴퓨터* > **중지**를 클릭합니다.
-  - VM을 모두 중지한 후에, 원하는 크기로 VM을 새로 만듭니다.
-  - 먼저 VM을 시작한 후에 중지된 각각의 VM을 선택하고 **시작**을 클릭합니다.
+* 더 작은 VM 크기를 사용하여 요청을 다시 시도합니다.
+* 요청한 VM의 크기를 변경할 수 없으면:
+  * 가용성 집합의 VM을 모두 중지합니다.
+    **리소스 그룹** > *사용자의 리소스 그룹* > **리소스** > *사용자의 가용성 집합* > **가상 컴퓨터** > *사용자의 가상 컴퓨터* > **중지**를 클릭합니다.
+  * VM을 모두 중지한 후에, 원하는 크기로 VM을 새로 만듭니다.
+  * 먼저 VM을 시작한 후에 중지된 각각의 VM을 선택하고 **시작**을 클릭합니다.
 
 **원인 2:** 클러스터에 여유 리소스가 없습니다.
 
 **해결 방법 2:**
 
-- 요청을 나중에 다시 시도합니다.
-- 새 VM이 다른 가용성 집합의 일부가 될 수 있다면
-  - 다른 가용성 집합(동일한 지역의)에 새 VM을 만듭니다.
-  - 새 VM을 동일한 가상 네트워크에 추가합니다.
+* 요청을 나중에 다시 시도합니다.
+* 새 VM이 다른 가용성 집합의 일부가 될 수 있다면
+  * 다른 가용성 집합(동일한 지역의)에 새 VM을 만듭니다.
+  * 새 VM을 동일한 가상 네트워크에 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 중지된 Windows VM을 시작하거나 Azure에서 기존 Windows VM의 크기를 조정할 때 문제가 발생하면 [Azure의 기존 Windows 가상 컴퓨터 재시작 또는 크기 조정 관련 Resource Manager 배포 문제 해결](virtual-machines-windows-restart-resize-error-troubleshooting.md)을 참조하세요.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

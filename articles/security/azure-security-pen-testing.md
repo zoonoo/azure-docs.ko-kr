@@ -1,23 +1,22 @@
-<properties
-   pageTitle="펜 테스트 | Microsoft Azure"
-   description="이 문서는 침투 테스트 (pentest) 프로세스의 개요와 Azure 인프라에서 실행 중인 앱에 대해 pentest를 수행하는 방법을 제공합니다."
-   services="security"
-   documentationCenter="na"
-   authors="YuriDio"
-   manager="swadhwa"
-   editor="TomSh"/>
+---
+title: 펜 테스트 | Microsoft Docs
+description: 이 문서는 침투 테스트 (pentest) 프로세스의 개요와 Azure 인프라에서 실행 중인 앱에 대해 pentest를 수행하는 방법을 제공합니다.
+services: security
+documentationcenter: na
+author: YuriDio
+manager: swadhwa
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="yurid"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: yurid
 
+---
 # 펜 테스트
-
 응용 프로그램 테스트 및 배포를 위해 Microsoft Azure를 사용하는 장점은 응용 프로그램을 개발하고, 테스트하고, 배포하기 위해 온-프레미스 인프라를 준비할 필요가 없다는 것입니다. 모든 인프라는 Microsoft Azure Platform 서비스에서 처리합니다. 자신의 온-프레미스 하드웨어 요청, 구입, “래킹과 스태킹(racking and stacking)”에 대해 걱정할 필요가 없습니다.
 
 이것은 좋은 일입니다 – 그렇지만 여전히 일반적인 보안 실사는 수행해야 합니다. 수행해야 할 일 중 하나는 Azure에서 배포하는 응용 프로그램에 대한 침투 테스트를 하는 것입니다.
@@ -32,9 +31,9 @@ Microsoft가 [Azure 환경에서의 침투 테스트](https://gallery.technet.mi
 
 Azure 호스티드 응용 프로그램을 펜 테스트할 준비가 되면, 우리에게 알려주셔야 합니다. 여러분이 특정 테스트를 수행하리라는 것을 우리가 알고 있으면, 테스트가 Azure 펜 테스트 조건을 준수하는 한 (여러분이 테스트를 진행하는 IP 주소를 차단하는 등과 같이) 의도치 않게 종료하지 않을 것입니다. 여러분이 수행할 수 있는 표준 테스트는 다음과 같습니다.
 
-- [OWASP(Open Web Application Security Project) 취약점 상위 10개](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)을 찾아내기 위한 끝점 테스트
-- 끝점 [퍼지 테스트](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/)
-- 끝점 [포트 검색](https://en.wikipedia.org/wiki/Port_scanner)
+* [OWASP(Open Web Application Security Project) 취약점 상위 10개](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)을 찾아내기 위한 끝점 테스트
+* 끝점 [퍼지 테스트](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/)
+* 끝점 [포트 검색](https://en.wikipedia.org/wiki/Port_scanner)
 
 여러분이 수행할 수 없는 한가지 유형의 테스트는 모든 종류의 [서비스 거부 (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) 공격입니다. 이는 DoS 공격 자체를 시작하거나, 모든 종류의 DoS 공격을 결정, 시연 또는 시뮬레이션할 수도 있는 관련 테스트를 수행하는 것을 포함합니다.
 

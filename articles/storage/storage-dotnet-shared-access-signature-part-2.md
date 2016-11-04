@@ -1,46 +1,40 @@
-<properties
-    pageTitle="Blob 저장소와 함께 SAS 만들기 및 사용 | Microsoft Azure"
-    description="이 자습서에서는 Blob 저장소와 함께 사용할 공유 액세스 서명을 만드는 방법과 클라이언트 응용 프로그램에서 이를 사용하는 방법을 보여 줍니다."
-    services="storage"
-    documentationCenter=""
-    authors="tamram"
-    manager="carmonm"
-    editor="tysonn"/>
+---
+title: Blob 저장소와 함께 SAS 만들기 및 사용 | Microsoft Docs
+description: 이 자습서에서는 Blob 저장소와 함께 사용할 공유 액세스 서명을 만드는 방법과 클라이언트 응용 프로그램에서 이를 사용하는 방법을 보여 줍니다.
+services: storage
+documentationcenter: ''
+author: tamram
+manager: carmonm
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="tamram"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: tamram
 
-
-
+---
 # <a name="shared-access-signatures,-part-2:-create-and-use-a-sas-with-blob-storage"></a>공유 액세스 서명, 2부: Blob 저장소를 사용하여 SAS 만들기 및 사용
-
 ## <a name="overview"></a>개요
-
 [1부](storage-dotnet-shared-access-signature-part-1.md) 에서는 SAS(공유 액세스 서명)에 대해 설명하고 SAS 사용을 위한 모범 사례를 살펴보았습니다. 2부에서는 Blob 저장소를 사용하여 공유 액세스 서명을 생성한 다음 사용하는 방법에 대해 살펴봅니다. 예제는 C#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 시나리오에서는 공유 액세스 서명 작업의 다음과 같은 측면을 다룹니다.
 
-- 컨테이너에서 공유 액세스 서명 생성
-- Blob에서 공유 액세스 서명 생성
-- 컨테이너의 리소스에서 서명을 관리하는 저장된 액세스 정책 만들기
-- 클라이언트 응용 프로그램에서 공유 액세스 서명 테스트
+* 컨테이너에서 공유 액세스 서명 생성
+* Blob에서 공유 액세스 서명 생성
+* 컨테이너의 리소스에서 서명을 관리하는 저장된 액세스 정책 만들기
+* 클라이언트 응용 프로그램에서 공유 액세스 서명 테스트
 
 ## <a name="about-this-tutorial"></a>이 자습서 정보
-
 이 자습서에서는 두 콘솔 응용 프로그램을 만들어 컨테이너 및 Blob에 대한 공유 액세스 서명을 만드는 과정을 중점적으로 다룹니다. 첫 번째 콘솔 응용 프로그램에서는 컨테이너 및 Blob에 대한 공유 액세스 서명을 생성합니다. 이 응용 프로그램에서는 저장소 계정 키를 알고 있습니다. 클라이언트 응용 프로그램 역할을 하는 두 번째 콘솔 응용 프로그램에서는 첫 번째 응용 프로그램에서 만든 공유 액세스 서명을 사용하여 컨테이너 및 Blob 리소스에 액세스합니다. 이 응용 프로그램에서는 컨테이너 및 Blob 리소스에 대한 액세스를 인증하는 데에만 공유 액세스 서명을 사용하고, 계정 키에 대해 알지 못합니다.
 
 ## <a name="part-1:-create-a-console-application-to-generate-shared-access-signatures"></a>1부: 공유 액세스 서명을 생성하는 콘솔 응용프로그램 만들기
-
 먼저 Azure Storage Client Library for .NET을 설치했는지 확인합니다. 클라이언트 라이브러리에 대한 최신 어셈블리가 들어 있는 [NuGet 패키지](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 패키지")를 설치할 수 있습니다. 이는 최신 수정이 설치되어 있는지 확인하는 권장 방법입니다. 클라이언트 라이브러리를 최신 버전 [.NET용 Azure SDK](https://azure.microsoft.com/downloads/)의 일부로 다운로드할 수도 있습니다.
 
 Visual Studio에서 새 Windows 콘솔 응용 프로그램을 만들고 이름을 **GenerateSharedAccessSignatures**로 지정합니다. 다음 중 한 가지 방법을 사용하여 **Microsoft.WindowsAzure.Configuration.dll** 및 **Microsoft.WindowsAzure.Storage.dll**에 대한 참조를 추가합니다.
 
--   NuGet 패키지를 설치하려는 경우 먼저 [NuGet 클라이언트](https://docs.nuget.org/consume/installing-nuget)를 설치합니다. Visual Studio에서 **프로젝트 | NuGet 패키지 관리**를 선택하고 온라인에서 **Azure Storage**를 검색한 다음 지침에 따라 설치합니다.
--   또는 Azure SDK 설치에서 어셈블리를 찾은 다음 참조를 추가합니다.
+* NuGet 패키지를 설치하려는 경우 먼저 [NuGet 클라이언트](https://docs.nuget.org/consume/installing-nuget)를 설치합니다. Visual Studio에서 **프로젝트 | NuGet 패키지 관리**를 선택하고 온라인에서 **Azure Storage**를 검색한 다음 지침에 따라 설치합니다.
+* 또는 Azure SDK 설치에서 어셈블리를 찾은 다음 참조를 추가합니다.
 
 Program.cs 파일의 맨 위에 다음 **using** 문을 추가합니다.
 
@@ -61,7 +55,6 @@ Program.cs 파일의 맨 위에 다음 **using** 문을 추가합니다.
     </configuration>
 
 ### <a name="generate-a-shared-access-signature-uri-for-a-container"></a>컨테이너에 대한 공유 액세스 서명 URI 생성
-
 먼저 새 컨테이너에서 공유 액세스 서명을 생성하는 메서드를 추가합니다. 이 경우 서명은 저장된 액세스 정책과 연결되지 않으므로, URI에서 만료 시간과 허용된 권한을 나타내는 정보를 전달합니다.
 
 먼저 **Main()** 메서드에 저장소 계정에 대한 액세스를 인증하고 새 컨테이너를 만드는 코드를 추가합니다.
@@ -114,7 +107,6 @@ Program.cs 파일의 맨 위에 다음 **using** 문을 추가합니다.
 코드를 실행하면 컨테이너에서 만든 공유 액세스 서명은 다음 24시간동안 유효합니다. 서명은 클라이언트에게 컨테이너에 있는 Blob을 나열하고 컨테이너에 새 Blob을 쓸 수 있는 권한을 부여합니다.
 
 ### <a name="generate-a-shared-access-signature-uri-for-a-blob"></a>Blob에 대한 공유 액세스 서명 URI 생성
-
 이제 컨테이너 내에서 새 Blob을 만들고 해당 Blob에 대한 공유 액세스 서명을 생성하는 비슷한 코드를 작성합니다. 이 공유 액세스 서명은 저장된 액세스 정책과 연결되지 않으므로, URI에 대한 시작 시간, 만료 시간 및 권한 정보를 포함합니다.
 
 새 Blob을 만들고 이 Blob에 일부 텍스트를 쓴 다음 공유 액세스 서명을 생성하고 서명 URI를 반환하는 새 메서드를 추가합니다.
@@ -161,7 +153,6 @@ Program.cs 파일의 맨 위에 다음 **using** 문을 추가합니다.
     https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
 
 ### <a name="create-a-stored-access-policy-on-the-container"></a>컨테이너에 대한 저장된 액세스 정책 만들기
-
 이제 연결된 공유 액세스 서명에 대한 제약 조건을 정의하는 컨테이너에 대한 저장된 액세스 정책을 만들어 보겠습니다.
 
 이전 예제에서는 공유 액세스 서명 URI 자체에 대한 시작 시간(암시적 또는 명시적), 만료 시간 및 사용 권한을 지정했습니다. 다음 예제에서는 공유 액세스 서명이 아니라 저장된 액세스 정책에 대해 이러한 설정을 지정합니다. 그러면 공유 액세스 서명을 다시 실행하지 않고 제약 조건을 변경할 수 있습니다.
@@ -205,7 +196,6 @@ Program.cs 파일의 맨 위에 다음 **using** 문을 추가합니다.
 컨테이너에 대한 액세스 정책을 지우면 먼저 컨테이너의 기존 사용 권한을 가지고 사용 권한을 지운 다음 사용 권한을 다시 설정합니다.
 
 ### <a name="generate-a-shared-access-signature-uri-on-the-container-that-uses-an-access-policy"></a>액세스 정책을 사용하는 컨테이너에 대한 공유 액세스 서명 URI 생성
-
 이제 이전에 만든 컨테이너에 대한 다른 공유 액세스 서명을 만듭니다. 이번에는 이전 예제에서 만든 액세스 정책에 서명을 연결합니다.
 
 컨테이너에 대한 다른 공유 액세스 서명을 생성하는 새 메서드를 추가합니다.
@@ -227,7 +217,6 @@ Program.cs 파일의 맨 위에 다음 **using** 문을 추가합니다.
     Console.WriteLine();
 
 ### <a name="generate-a-shared-access-signature-uri-on-the-blob-that-uses-an-access-policy"></a>액세스 정책을 사용하는 Blob에 대한 공유 액세스 서명 URI 생성
-
 마지막으로 다른 Blob을 만들고 액세스 정책에 연결되는 공유 액세스 서명을 생성하는 비슷한 메서드를 추가합니다.
 
 Blob을 만들고 공유 액세스 서명을 생성하는 새 메서드를 추가합니다.
@@ -309,10 +298,12 @@ GenerateSharedAccessSignatures 콘솔 응용 프로그램을 실행하면 콘솔
 ![sas-console-output-1][sas-console-output-1]
 
 ## <a name="part-2:-create-a-console-application-to-test-the-shared-access-signatures"></a>2부: 공유 액세스 서명을 테스트하는 콘솔 응용프로그램 만들기
-
 이전 예제에서 만든 공유 액세스 서명을 테스트하려면 서명을 사용하여 컨테이너 및 Blob에서 작업을 수행하는 두 번째 콘솔 응용 프로그램을 만듭니다.
 
-> [AZURE.NOTE] 자습서의 1부를 완료한 후 24시간이 초과된 경우 생성된 서명은 더 이상 유효하지 않습니다. 이 경우, 첫 번째 콘솔 응용 프로그램에서 코드를 실행하여 자습서의 2부에서 사용할 공유 액세스 서명을 다시 생성해야 합니다.
+> [!NOTE]
+> 자습서의 1부를 완료한 후 24시간이 초과된 경우 생성된 서명은 더 이상 유효하지 않습니다. 이 경우, 첫 번째 콘솔 응용 프로그램에서 코드를 실행하여 자습서의 2부에서 사용할 공유 액세스 서명을 다시 생성해야 합니다.
+> 
+> 
 
 Visual Studio에서 새 Windows 콘솔 응용 프로그램을 만들고 이름을 **ConsumeSharedAccessSignatures**로 지정합니다. 앞에서 수행한 것과 같은 방법으로 **Microsoft.WindowsAzure.Configuration.dll** 및 **Microsoft.WindowsAzure.Storage.dll**에 참조를 추가합니다.
 
@@ -333,7 +324,6 @@ Program.cs 파일의 맨 위에 다음 **using** 문을 추가합니다.
     }
 
 ### <a name="add-a-method-to-try-container-operations-using-a-shared-access-signature"></a>공유 액세스 서명을 사용하여 컨테이너 작업을 수행하는 메서드 추가
-
 이제 컨테이너에서 공유 액세스 서명을 사용하여 일부 대표적인 컨테이너 작업을 테스트하는 메서드를 추가합니다. 공유 액세스 서명은 서명만을 기반으로 하여 컨테이너에 대한 액세스를 인증하여 컨테이너에 대한 참조를 반환하는 데 사용됩니다.
 
 Program.cs에 다음 메서드를 추가합니다.
@@ -443,7 +433,6 @@ Program.cs에 다음 메서드를 추가합니다.
 
 
 ### <a name="add-a-method-to-try-blob-operations-using-a-shared-access-signature"></a>공유 액세스 서명을 사용하여 Blob 작업을 수행하는 메서드 추가
-
 마지막으로 Blob에서 공유 액세스 서명을 사용하여 일부 대표적인 Blob 작업을 테스트하는 메서드를 추가합니다. 이 경우 공유 액세스 서명을 전달하여 Blob에 대한 참조를 반환하는 생성자 **CloudBlockBlob(String)**을 사용합니다. 다른 인증은 필요하지 않으며 서명만을 기반으로 합니다.
 
 Program.cs에 다음 메서드를 추가합니다.
@@ -543,7 +532,6 @@ Blob에서 만든 공유 액세스 서명을 모두 사용하여 **UseBlobSAS()*
 ![sas-console-output-2][sas-console-output-2]
 
 ## <a name="next-steps"></a>다음 단계
-
 [공유 액세서 서명, 1부: SAS 모델 이해하기](storage-dotnet-shared-access-signature-part-1.md)
 
 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)

@@ -1,29 +1,27 @@
-<properties
-   pageTitle="DSC를 사용하여 Azure에 자격 증명 전달 | Microsoft Azure"
-   description="PowerShell 필요한 상태 구성을 사용하여 Azure 가상 컴퓨터에 안전하게 자격 증명을 전달하는 방법의 개요"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="zjalexander"
-   manager="timlt"
-   editor=""
-   tags="azure-service-management,azure-resource-manager"
-   keywords=""/>
+---
+title: DSC를 사용하여 Azure에 자격 증명 전달 | Microsoft Docs
+description: PowerShell 필요한 상태 구성을 사용하여 Azure 가상 컴퓨터에 안전하게 자격 증명을 전달하는 방법의 개요
+services: virtual-machines-windows
+documentationcenter: ''
+author: zjalexander
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager
+keywords: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
-   ms.date="09/15/2016"
-   ms.author="zachal"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: na
+ms.date: 09/15/2016
+ms.author: zachal
 
-# Azure DSC 확장 처리기에 자격 증명 전달 #
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+---
+# Azure DSC 확장 처리기에 자격 증명 전달
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 이 문서에서는 Azure의 필요한 상태 구성 확장을 다룹니다. DSC 확장 처리기의 개요는 [Azure 필요한 상태 구성 확장 처리기 소개](virtual-machines-windows-extensions-dsc-overview.md)에 나와 있습니다.
-
 
 ## 자격 증명 전달
 구성 프로세스의 일부로, 사용자 계정을 설정하거나, 서비스에 액세스하거나, 사용자 컨텍스트에서 프로그램을 설치해야 할 수 있습니다. 이러한 작업을 수행하려면 자격 증명을 제공해야 합니다.
@@ -71,10 +69,10 @@ $configurationName = "Main"
 $configurationArguments = @{ Credential = Get-Credential }
 $configurationArchive = "user_configuration.ps1.zip"
 $vm = Get-AzureVM "example-1"
- 
+
 $vm = Set-AzureVMDSCExtension -VM $vm -ConfigurationArchive $configurationArchive 
 -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
- 
+
 $vm | Update-AzureVM
 ```
 ## 자격 증명의 보안을 유지하는 방법
@@ -82,9 +80,7 @@ $vm | Update-AzureVM
 
 이러한 동작은 [확장 처리기 없이 보안 구성을 사용](https://msdn.microsoft.com/powershell/dsc/securemof)하는 방법과는 다릅니다. Azure 환경에서는 인증서를 통해 구성 데이터를 안전하게 전송하는 방법을 제공합니다. DSC 확장 처리기를 사용할 때는 ConfigurationData에 $CertificatePath 또는 $CertificateID / $Thumbprint를 제공할 필요가 없습니다.
 
-
-## 다음 단계 ##
-
+## 다음 단계
 Azure DSC 확장 처리기에 대한 자세한 내용은 [Azure 필요한 상태 구성 확장 처리기 소개](virtual-machines-windows-extensions-dsc-overview.md)를 참조하세요.
 
 [DSC 확장에 대한 Azure Resource Manager 템플릿](virtual-machines-windows-extensions-dsc-template.md)을 검토합니다.

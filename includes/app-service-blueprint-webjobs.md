@@ -1,6 +1,5 @@
 
 ## 리소스
-
 * [전체 WebJobs 리소스 목록](../articles/app-service-web/websites-webjobs-resources.md)
 * [Azure WebJobs SDK 시작](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 * [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
@@ -18,7 +17,6 @@
 * [원격 디버깅 WebJobs](../articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebugwj)
 
 ## 비디오
-
 * [WebJobs 및 WebJobs SDK](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)
 * [Channel 9의 Azure WebJobs 비디오 시리즈](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 * [WebJobs Tooling for Visual Studio 소개](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster)

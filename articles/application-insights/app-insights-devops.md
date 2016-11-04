@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Application Insights로 웹앱과 서비스 심층 진단 | Microsoft Azure"
-	description="devOps 주기에 Application Insights를 적용하는 방법"
-	services="application-insights"
-    documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+---
+title: Application Insights로 웹앱과 서비스 심층 진단 | Microsoft Docs
+description: devOps 주기에 Application Insights를 적용하는 방법
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="08/26/2016"
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: multiple
+ms.topic: article
+ms.date: 08/26/2016
+ms.author: awills
 
+---
 # Application Insights로 웹앱 및 서비스 심층 진단
-
 ## Application Insights가 필요한 이유는 무엇일까요?
-
 Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와 성능 문제에 대해 알려주고 고객이 앱을 어떻게 사용하는지 분석하도록 도와줍니다. 다양한 플랫폼(예: ASP.NET, J2EE, Node.js)에서 실행되는 앱에 호환되고 클라우드 또는 온-프레미스에서 호스팅됩니다.
 
 ![Web Apps을 제공하는 방법의 복잡성 측면](./media/app-insights-devops/010.png)
@@ -30,7 +28,6 @@ Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와
 이 프로세스에서 가장 중요한 점은 진단입니다. 응용 프로그램에 오류가 발생하면 비즈니스에 손실이 발생합니다. 그러므로 모니터링 프레임워크의 주된 역할은 오류를 안정적으로 탐지하고, 즉시 개발자에게 알리고, 문제를 진단하는 데 필요한 정보를 제시하는 것입니다. 바로 Application Insights가 이런 작업을 수행합니다.
 
 ### 버그는 어디에서 발생할까요?
-
 일반적으로, 웹 시스템 오류는 구성 문제나 여러 구성 요소 간의 잘못된 상호 작용에서 발생합니다. 그러므로 라이브 사이트 문제를 해결하는 첫걸음은 문제가 발생하는 곳, 즉 어느 구성 요소 또는 관계가 원인인지 찾아내는 것입니다.
 
 지금 지긋이 나이를 먹은 분들은 컴퓨터 한 대에 하나의 프로그램만 실행하던 단순한 시절을 기억하실 겁니다. 그때는 개발자가 출시 전에 철저히 테스트를 했고, 한 번 출시한 프로그램을 다시 들여다 보거나 그에 대해 생각할 필요가 없었습니다. 당시 사용자들은 오랫동안 남아 있는 버그를 참는 수밖에 없었습니다.
@@ -44,7 +41,6 @@ Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와
 이러한 구성에서는 라이브 시스템 자체를 제외한 모든 가능한 오류 모드를 테스트하거나 예측하기는 어렵고 비용도 많이 듭니다.
 
 ### 질문...
-
 웹 시스템을 개발할 때 묻는 질문:
 
 * 내 앱이 충돌하는가?
@@ -56,13 +52,8 @@ Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와
 * 근본적 원인은 무엇인가? 오류의 원인은 구성 요소인가, 종속성인가? 통신 문제인가?
 * 얼마나 많은 사용자가 영향을 받았는가? 해결해야 할 문제가 둘 이상이라면, 그 중에서 가장 중요한 문제는 무엇인가?
 
-
-
 ## Application Insights란?
-
-
 ![Application Insights의 기본 워크플로](./media/app-insights-devops/020.png)
-
 
 1. Application Insights는 앱이 실행되는 동안 이를 계측하고 원격 분석을 전송합니다. Application Insights SDK를 앱에 빌드하거나 런타임에 계측을 적용할 수 있습니다. Application Insights SDK를 빌드하는 방법은 일반 모듈에 원격 분석을 추가할 수 있으므로 더욱 유연합니다.
 2. 원격 분석은 Application Insights 포털로 전송되고, 여기에서 원격 분석이 저장 및 처리됩니다. (Application Insights는 Microsoft Azure에서 호스팅되지만 Azure 앱뿐만 아니라 모든 웹앱을 모니터링할 수 있습니다.)
@@ -83,9 +74,7 @@ Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와
 * 비즈니스 이벤트를 추적하는 데 사용할 수 있는 사용자 지정 이벤트
 * 디버깅에 사용하는 로그 추적.
 
-
 ## 사례 연구: Real Madrid F.C.
-
 [Real Madrid Football Club](http://www.realmadrid.com/)의 웹 서비스는 전 세계 4억 5,000만 명의 팬에게 서비스를 제공합니다. 팬들은 웹 브라우저와 클럽 모바일 앱을 통해 액세스합니다. 팬은 입장권을 예매할 수 있을 뿐만 아니라 경기 결과, 선수, 예정 경기에 대한 정보와 비디오 클립에도 액세스할 수 있습니다. 골인 수 등의 필터로 검색도 가능합니다. 또한, 소셜 미디어에도 링크되어 있습니다. 사용자 경험은 매우 개인화되어 있으며, 팬의 참여를 유도하기 위해 양방향 통신으로 설계되었습니다.
 
 솔루션은 [Microsoft Azure의 서비스 및 응용 프로그램 시스템](https://www.microsoft.com/ko-KR/enterprise/microsoftcloud/realmadrid.aspx)입니다. 확장성은 핵심 요구 사항입니다. 트래픽은 변동이 심하고 경기 무렵이나 도중에 매우 높아질 수 있습니다.
@@ -98,11 +87,9 @@ Real Madrid에게는 시스템 성능을 모니터링하는 것이 매우 중요
 
 Real Madrid는 Power BI 모듈을 사용하여 원격 분석을 확인합니다.
 
-
 ![Application Insights 원격 분석의 Power BI 보기](./media/app-insights-devops/080.png)
 
 ## 스마트 감지
-
 [사전 진단](app-insights-nrt-proactive-diagnostics.md)은 최신 기능입니다. 사용자가 특별한 구성을 하지 않아도 Application Insights가 앱에서 실패율이 비정상적으로 증가하는 것을 자동으로 감지하고 알립니다. 이 기능은 매우 지능적이어서 백그라운드에서 때때로 일어나거나 요청 증가에 비례하여 증가하는 오류에 대해서는 무시합니다. 예를 들어, 사용하는 서비스에 오류가 발생하거나 방금 배포한 새 빌드가 제대로 작동하지 않는다면 이메일을 보는 즉시 그 사실을 알 수 있습니다. (또한 webhook이 있어 다른 앱을 트리거할 수 있습니다.)
 
 또한, 이 기능은 매일 심층적으로 원격 분석을 분석하여 발견하기 어려운 비정상적인 성능 패턴을 찾아냅니다. 예를 들어, 특정 지리적 영역 또는 특정 브라우저 버전과 관련된 성능 저하 문제를 찾을 수 있습니다.
@@ -114,19 +101,16 @@ Real Madrid는 Power BI 모듈을 사용하여 원격 분석을 확인합니다.
 Samtec 고객은 다음과 같이 말했습니다. "최근 기능 컷오버를 하면서 리소스 한도까지 올라가서 시간 초과를 발생시키는 축소된 데이터베이스를 발견했습니다. 이 문제를 분류하는 즉시 사전 감지 경고가 나왔습니다. 제품 광고에 나왔던 대로 거의 실시간에 가까운 속도였습니다. 이 경고는 Azure 플랫폼 경고와 더불어 문제를 즉시 해결하도록 도와주었습니다. 총 가동 중지 시간은 10분 미만이었습니다."
 
 ## 라이브 메트릭 스트림
-
 최신 빌드를 배포하는 작업은 많은 걱정을 수반하는 경험일 수 있습니다. 어떤 문제가 있을 경우 즉시 알아내어 필요 시 취소할 수 있어야 할 것입니다. 라이브 메트릭 스트림은 약 1초의 대기 시간으로 주요 메트릭을 제공합니다.
 
 ![라이브 메트릭](./media/app-insights-devops/040.png)
 
 ## 응용 프로그램 맵
-
 응용 프로그램 맵은 응용 프로그램 토폴로지를 자동으로 검색하고 그 위에 성능 정보를 배치하여, 배포된 환경 전반에 걸쳐 성능 병목 현상 및 문제가 있는 흐름을 쉽게 파악할 수 있도록 합니다. Azure 서비스에서 응용 프로그램 종속성을 검색할 수도 있습니다. 문제가 코드 관련인지 종속성 관련인지 분류하고, 한 곳에서부터 관련 진단 항목까지 파고들 수 있습니다. 예를 들어, SQL 계층에서 성능이 저하되어 응용 프로그램에 오류가 발생할 수 있습니다. 응용 프로그램 맵을 사용하면 SQL Index Advisor 또는 Query Insights 환경을 즉시 확인하고 자세히 살펴볼 수 있습니다.
 
 ![응용 프로그램 맵](./media/app-insights-devops/050.png)
 
 ## Application Insights Analytics
-
 [Analytics](app-insights-analytics.md)를 사용하면 SQL과 유사한 강력한 언어로 임의의 쿼리를 작성할 수 있습니다. 다양한 관점을 연결하고 서비스 성능과 비즈니스 메트릭, 고객 경험을 연관시킬 수 있는 올바른 질문을 던질 수 있으므로 전체 앱 스택 진단이 손쉬워집니다.
 
 포털에 저장된 모든 원격 분석 인스턴스와 메트릭 원시 데이터를 쿼리할 수 있습니다. 언어에는 필터, 조인, 집계 및 기타 연산자가 포함됩니다. 필드 계산과 통계 분석도 수행할 수 있습니다. 테이블 형식 및 그래픽 시각화가 모두 들어 있습니다.
@@ -143,16 +127,13 @@ Samtec 고객은 다음과 같이 말했습니다. "최근 기능 컷오버를 �
 
 DNN 고객은 다음과 같이 말했습니다. "Application Insights는 필요에 따라 데이터를 결합, 분류, 쿼리, 필터링하는 데 빠져 있는 부분을 채워주었습니다. 우리 팀은 자신의 창의력과 경험을 활용하여 강력한 쿼리 언어로 데이터를 찾아낼 수 있었고, 그 덕분에 통찰력을 얻고 미처 알지 못했던 문제를 찾아서 해결하였습니다. *'만약...'*이라는 질문에서 흥미로운 답이 수없이 나올 수 있습니다."
 
-## 개발 도구 통합 
-
+## 개발 도구 통합
 ### Application Insights 구성
-
 Visual Studio와 Eclipse는 개발 중인 프로젝트에 알맞은 SDK 패키지를 구성하는 도구가 내장되어 있습니다. Application Insights를 추가하는 메뉴 명령이 있습니다.
 
 Log4N, NLog, or System.Diagnostics.Trace와 같은 추적 로깅 프레임워크를 사용한다면 다른 원격 분석과 함께 로그를 Application Insights에 전송할 수 있는 옵션이 나타납니다. 이 기능을 통해 추적을 요청, 종속성 호출, 예외와 쉽게 연관시킬 수 있습니다.
 
 ### Visual Studio에서 원격 분석 검색
-
 기능을 개발하고 디버그하는 동안 웹 포털과 똑같은 검색 기능을 사용하여 Visual Studio에서 직접 원격 분석을 조회하고 검색할 수 있습니다.
 
 Application Insights가 예외를 기록하면 Visual Studio에서 데이터 포인트를 확인하고 바로 관련 코드로 넘어갈 수 있습니다.
@@ -162,26 +143,20 @@ Application Insights가 예외를 기록하면 Visual Studio에서 데이터 포
 디버그할 때는 원격 분석을 개발 컴퓨터에 보관하는 옵션이 있습니다. Visual Studio에서 볼 수는 있지만 포털에 전송하지는 않습니다. 이 로컬 옵션은 디버깅과 프로덕션 원격 분석이 섞이지 않도록 방지합니다.
 
 ### 빌드 주석
-
 Visual Studio Team Services를 사용하여 앱을 빌드하고 배포한다면 포털에 있는 차트에 배포 주석이 나타납니다. 최신 릴리스가 메트릭에 영향을 미칠 경우, 그 결과가 명확히 나타납니다.
 
 ![빌드 주석](./media/app-insights-devops/070.png)
 
-### 작업 항목 
-
+### 작업 항목
 경고가 발생하면 Application Insights는 작업 추적 시스템(현재는 Visual Studio Team Services만 해당)에서 작업 항목이 자동으로 만들어집니다.
 
-
 ## 기타 사항
-
 * [개인 정보 보호 및 저장소](app-insights-data-retention-privacy.md) - 원격 분석은 Azure 보안 서버에 보관됩니다.
 * 성능 - 성능에 미치는 영향이 매우 낮습니다. 원격 분석은 일괄 처리됩니다.
 * [지원](app-insights-get-dev-support.md) - Azure 지원 프로그램을 활용할 수 있습니다. 개발자로부터 답변을 받을 수 있는 실시간 포럼이 있습니다. 그리고 마지막 수단으로 개별 도움말을 제공할 수 있습니다.
 * [가격 책정](app-insights-pricing.md) - 무료로 시작할 수 있고 낮은 볼륨에서는 계속 무료로 이용할 수 있습니다.
 
-
 ## 다음 단계
-
 Application Insights로 시작하기가 쉽습니다. 기본 옵션:
 
 * 이미 실행 중인 웹앱을 계측합니다. 모든 내장 성능 원격 분석을 제공합니다. [Java](app-insights-java-live.md), [IIS 서버](app-insights-monitor-performance-live-website-now.md), [Azure Web Apps](app-insights-azure.md)에서 사용할 수 있습니다.

@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Azure AD Connect 동기화: 디렉터리 확장 | Microsoft Azure"
-   description="이 항목에서는 Azure AD Connect의 디렉터리 확장 기능을 설명합니다."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Azure AD Connect 동기화: 디렉터리 확장 | Microsoft Docs'
+description: 이 항목에서는 Azure AD Connect의 디렉터리 확장 기능을 설명합니다.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="08/19/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/19/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect-sync:-directory-extensions"></a>Azure AD Connect 동기화: 디렉터리 확장
 디렉터리 확장을 사용하면 온-프레미스 Active Directory의 사용자 고유 특성을 사용하여 Azure AD에서 스키마를 확장할 수 있습니다. 이 기능을 통해 온-프레미스를 계속 관리하는 특성을 이용하는 LOB 앱을 빌드할 수 있습니다. 이러한 특성은 [Azure AD Graph 디렉터리 확장](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) 또는 [Microsoft Graph](https://graph.microsoft.io/)를 통해 이용할 수 있습니다. 각각 [Azure AD Graph 탐색기](https://graphexplorer.cloudapp.net) 및 [Microsoft Graph 탐색기](https://graphexplorer2.azurewebsites.net/)를 통해 사용할 수 있는 특성을 볼 수 있습니다.
 
@@ -25,9 +24,9 @@
 설치 마법사의 사용자 지정 설정 경로에서 동기화할 추가 속성을 구성합니다.
 ![스키마 확장 마법사](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) 설치 시 다음과 같은 특성이 표시됩니다. 이러한 특성은 유효한 후보입니다.
 
-- 사용자 및 그룹 개체 유형
-- 단일 값 특성: 문자열, 부울, 정수, 이진
-- 다중 값 특성: 문자열, 이진
+* 사용자 및 그룹 개체 유형
+* 단일 값 특성: 문자열, 부울, 정수, 이진
+* 다중 값 특성: 문자열, 이진
 
 특성 목록은 Azure AD Connect 설치 도중에 만들어진 캐시에서 읽힙니다. 추가 특성을 사용하여 Active Directory 스키마를 확장한 경우 [스키마를 새로 고쳐야](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) 이러한 새 특성을 볼 수 있습니다.
 
@@ -45,8 +44,6 @@ Azure AD Connect를 설치하는 동안 이러한 특성을 사용할 수 있는
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

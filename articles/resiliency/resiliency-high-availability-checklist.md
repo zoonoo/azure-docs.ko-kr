@@ -1,86 +1,86 @@
-<properties
-   pageTitle="고가용성 검사 목록 | Microsoft Azure"
-   description="Azure에서 응용 프로그램 가용성을 향상시키도록 설정하고 조치할 수 있는 빠른 검사 목록."
-   services=""
-   documentationCenter="na"
-   authors="adamglick"
-   manager="saladki"
-   editor=""/>
+---
+title: 고가용성 검사 목록 | Microsoft Docs
+description: Azure에서 응용 프로그램 가용성을 향상시키도록 설정하고 조치할 수 있는 빠른 검사 목록.
+services: ''
+documentationcenter: na
+author: adamglick
+manager: saladki
+editor: ''
 
-<tags
-   ms.service="resiliency"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/18/2016"
-   ms.author="aglick"/>
+ms.service: resiliency
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/18/2016
+ms.author: aglick
 
-
-#<a name="high-availability-checklist"></a>고가용성 검사 목록
+---
+# <a name="high-availability-checklist"></a>고가용성 검사 목록
 Azure 사용의 커다란 장점 중 하나는 클라우드의 도움을 받아서 응용 프로그램의 가용성(및 확장성)을 증가시킬 수 있다는 점입니다. 이러한 옵션을 최대한 활용하여, 응용 프로그램의 복원력을 보장하기 위한 주요 인프라 기본 사항 중 일부를 아래에 검사 목록으로 제공합니다. 
 
->[AZURE.NOTE] 아래 제공되는 대부분의 제안 사항은 응용 프로그램에 언제든 구현할 수 있는 내용이기 때문에 “빠른 픽스”에 유용합니다. 장기적인 최적의 솔루션은 클라우드 구축에 사용된 응용 프로그램 디자인과 관련된 경우가 많습니다.  이러한 내용(디자인 중심 영역)에 대한 검사 목록은 [가용성 검사 목록](../best-practices-availability-checklist.md)을 참조하세요.
+> [!NOTE]
+> 아래 제공되는 대부분의 제안 사항은 응용 프로그램에 언제든 구현할 수 있는 내용이기 때문에 “빠른 픽스”에 유용합니다. 장기적인 최적의 솔루션은 클라우드 구축에 사용된 응용 프로그램 디자인과 관련된 경우가 많습니다.  이러한 내용(디자인 중심 영역)에 대한 검사 목록은 [가용성 검사 목록](../best-practices-availability-checklist.md)을 참조하세요.
+> 
+> 
 
-###<a name="are-you-using-traffic-manager-in-front-of-your-resources?"></a>리소스 앞에 트래픽 관리자를 사용하나요?
+### <a name="are-you-using-traffic-manager-in-front-of-your-resources?"></a>리소스 앞에 트래픽 관리자를 사용하나요?
 트래픽 관리자를 사용하면 Azure 지역 또는 Azure와 온-프레미스 위치 전역에서 인터넷 트래픽을 라우팅하는 데 도움이 됩니다. 이렇게 하는 데에는 대기 시간 및 가용성을 비롯한 수많은 이유가 있습니다. 트래픽 관리자를 사용하여 복원력을 높이고 트래픽을 많은 지역에 분산하는 방법에 대해 자세히 알아보려면 [고가용성을 위해 Azure의 여러 데이터 센터에서 VM 실행](../guidance/guidance-compute-multiple-datacenters.md)을 참고하세요.
 
-__트래픽 관리자를 사용하지 않으면 어떻게 되나요?__  응용 프로그램 앞에 트래픽 관리자를 사용하지 않으면, 리소스의 단일 지역으로 제한됩니다. 이것은 규모를 제한하고, 선택한 지역에 근접하지 않은 사용자에 대한 대기 시간을 증가시키고, 지역 전체 서비스에 중단이 발생하는 경우 보호를 약화시킵니다.
+**트래픽 관리자를 사용하지 않으면 어떻게 되나요?**  응용 프로그램 앞에 트래픽 관리자를 사용하지 않으면, 리소스의 단일 지역으로 제한됩니다. 이것은 규모를 제한하고, 선택한 지역에 근접하지 않은 사용자에 대한 대기 시간을 증가시키고, 지역 전체 서비스에 중단이 발생하는 경우 보호를 약화시킵니다.
 
-###<a name="have-you-avoided-using-a-single-virtual-machine-for-any-role?"></a>어떠한 역할에든 단일 가상 컴퓨터 사용을 피한 적이 있나요?
+### <a name="have-you-avoided-using-a-single-virtual-machine-for-any-role?"></a>어떠한 역할에든 단일 가상 컴퓨터 사용을 피한 적이 있나요?
 좋은 디자인은 단일 실패 지점을 지양합니다. 이것은 모든 서비스 디자인(온-프레미스 또는 클라우드)에 중요하지만 강화(보다 강력한 가상 컴퓨터를 사용하는)보다는 규모 확장(가상 컴퓨터를 추가하는)을 통해 확장성과 복원력을 높일 수 있기 때문에 클라우드에 특히 유용합니다. 확장성 있는 응용 프로그램 디자인에 대해 자세히 알아보려면, [Microsoft Azure에 빌드된 응용 프로그램에 대한 고가용성](resiliency-high-availability-azure-applications.md)을 참조하세요.
 
-__하나의 역할에 대해 단일 가상 컴퓨터를 두면 어떻게 되나요?__ 단일 컴퓨터가 단일 실패 지점이 되며 [Azure 가상 컴퓨터 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/)을 참조하세요. 최상의 경우에 응용 프로그램은 제대로 실행될 수도 있지만 이것은 복원력이 있는 디자인이 아니며 Azure 가상 컴퓨터 SLA에 해당되지도 않을 뿐더러 단일 실패 지점이 있는 경우 가동 중지 시간이 발생할 가능성도 높아집니다.
+**하나의 역할에 대해 단일 가상 컴퓨터를 두면 어떻게 되나요?** 단일 컴퓨터가 단일 실패 지점이 되며 [Azure 가상 컴퓨터 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/)을 참조하세요. 최상의 경우에 응용 프로그램은 제대로 실행될 수도 있지만 이것은 복원력이 있는 디자인이 아니며 Azure 가상 컴퓨터 SLA에 해당되지도 않을 뿐더러 단일 실패 지점이 있는 경우 가동 중지 시간이 발생할 가능성도 높아집니다.
 
-###<a name="are-you-using-a-load-balancer-in-front-of-your-application's-internet-facing-vms?"></a>응용 프로그램의 인터넷 연결 VM 앞에 부하 분산 장치를 사용하나요?
+### <a name="are-you-using-a-load-balancer-in-front-of-your-application's-internet-facing-vms?"></a>응용 프로그램의 인터넷 연결 VM 앞에 부하 분산 장치를 사용하나요?
 부하 분산 장치는 들어오는 트래픽을 임의의 수의 컴퓨터의 응용 프로그램에 분산할 수 있도록 합니다. 부하 분산 장치에 언제든 컴퓨터를 추가/제거할 수 있기 때문에, 가상 컴퓨터(및 가상 컴퓨터 크기 집합의 자동 크기 조절)를 통해 트래픽 증가 또는 VM 오류를 손쉽게 처리할 수 있습니다. 부하 분산 장치에 대한 자세한 내용을 알고 싶다면 [Azure Load Balancer 개요](../load-balancer/load-balancer-overview.md) 및 [확장성 및 가용성을 위해 Azure에서 여러 VM 실행](../guidance/guidance-compute-multi-vm.md)을 참조하세요.
 
-__인터넷 연결 VM의 앞에 부하 분산 장치를 사용하지 않으면 어떻게 되나요?__  부하 분산 장치가 없으면, 규모 확장(가상 컴퓨터 추가)이 불가능하기 때문에 강화(웹에 연결된 가상 컴퓨터의 크기 확대)만이 유일한 옵션이 됩니다. 또한 해당 가상 컴퓨터이 실패한 단일 지점을 직면하게 됩니다. 인터넷 연결 컴퓨터가 손실되었는지 알리고 이 컴퓨터를 대신하기 위해 시작하는 새 컴퓨터에 DNS 항목을 매핑하는 DNS 코드도 작성해야 합니다.
+**인터넷 연결 VM의 앞에 부하 분산 장치를 사용하지 않으면 어떻게 되나요?**  부하 분산 장치가 없으면, 규모 확장(가상 컴퓨터 추가)이 불가능하기 때문에 강화(웹에 연결된 가상 컴퓨터의 크기 확대)만이 유일한 옵션이 됩니다. 또한 해당 가상 컴퓨터이 실패한 단일 지점을 직면하게 됩니다. 인터넷 연결 컴퓨터가 손실되었는지 알리고 이 컴퓨터를 대신하기 위해 시작하는 새 컴퓨터에 DNS 항목을 매핑하는 DNS 코드도 작성해야 합니다.
 
-###<a name="are-you-using-availability-sets-for-your-stateless-application-and-web-servers?"></a>상태 비저장 응용 프로그램 및 웹 서버에 대해 가용성 집합을 사용하나요?
+### <a name="are-you-using-availability-sets-for-your-stateless-application-and-web-servers?"></a>상태 비저장 응용 프로그램 및 웹 서버에 대해 가용성 집합을 사용하나요?
 컴퓨터를 가용성 집합의 동일한 응용 프로그램 계층에 배치하면 VM이 Azure VM SLA를 충족하게 됩니다. 가용성 집합의 일부가 되면, 컴퓨터가 다른 업데이트 도메인(즉, 다른 시기에 패치가 적용된 여러 호스트 컴퓨터) 및 장애 도메인(즉, 공통 전원 및 네트워크 스위치를 공유하는 호스트 컴퓨터)에 속하게 됩니다. 가용성 집합에 속하지 않으면, VM이 동일한 호스트 컴퓨터에 배치될 수 있기 때문에 사용자에게 보이지 않는 단일 실패 지점이 있을 수 있습니다. 가용성 집합을 사용하여 VM의 가용성을 높이는 방법에 대해 자세히 알아보려면 [가상 컴퓨터의 가용성 관리](../virtual-machines/virtual-machines-windows-manage-availability.md)를 참조하세요.
 
-__상태 비저장 응용 프로그램 및 웹 서버에 가용성 집합을 사용하지 않으면 어떻게 되나요?__  가용성 집합을 사용하지 않으면 Azure VM SLA를 활용할 수 없습니다. 또한 호스트 컴퓨터(사용 중인 VM을 호스트하는 컴퓨터)에 업데이트가 있거나 공통적인 하드웨어 오류가 발생하면, 응용 프로그램의 해당 계층에 속하는 모든 컴퓨터가 오프라인이 될 수 있습니다.
+**상태 비저장 응용 프로그램 및 웹 서버에 가용성 집합을 사용하지 않으면 어떻게 되나요?**  가용성 집합을 사용하지 않으면 Azure VM SLA를 활용할 수 없습니다. 또한 호스트 컴퓨터(사용 중인 VM을 호스트하는 컴퓨터)에 업데이트가 있거나 공통적인 하드웨어 오류가 발생하면, 응용 프로그램의 해당 계층에 속하는 모든 컴퓨터가 오프라인이 될 수 있습니다.
 
-###<a name="are-you-using-virtual-machine-scale-sets-(vmss)-for-your-stateless-application-or-web-servers?"></a>상태 비저장 응용 프로그램 또는 웹 서버에 대해 가상 컴퓨터 크기 집합(VMSS)을 사용하나요?
+### <a name="are-you-using-virtual-machine-scale-sets-(vmss)-for-your-stateless-application-or-web-servers?"></a>상태 비저장 응용 프로그램 또는 웹 서버에 대해 가상 컴퓨터 크기 집합(VMSS)을 사용하나요?
 확장성과 복원력이 뛰어난 디자인은 응용 프로그램 계층(예: 웹 계층)의 컴퓨터 수를 늘리거나 축소할 수 있도록 VMSS를 사용합니다. VMSS를 사용하면 응용 프로그램 계층의 규모를 조정하는(선택한 조건을 기반으로 서버를 추가하거나 제거하는) 방식을 정의할 수 있습니다. Azure 가상 컴퓨터 규모 집합을 사용하여 트래픽 급증에 대한 복원력을 높이는 방법에 대해 자세히 알아보려면 [가상 컴퓨터 규모 집합 개요](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)를 참조하세요.
 
-__웹 서버의 상태 비저장 응용 프로그램에 가상 컴퓨터 규모 집합을 사용하지 않으면 어떻게 되나요?__  VMSS를 사용하지 않으면, 한도 없이 규모를 조정하고 리소스 사용을 최적화하는 기능이 제한됩니다. VMSS가 결여된 디자인에는 추가적인 코드(또는 수동으)로 처리해야 하는 규모 조정 상한이 존재합니다. VMSS가 없으면 대대적인 트래픽 급등(예: 판촉 기간 또는 사이트/앱/제품이 인기를 끄는 경우)을 처리하도록 지원하기 위해 응용 프로그램에서 컴퓨터를 손쉽게 추가하고 제거할 수도 없습니다.
+**웹 서버의 상태 비저장 응용 프로그램에 가상 컴퓨터 규모 집합을 사용하지 않으면 어떻게 되나요?**  VMSS를 사용하지 않으면, 한도 없이 규모를 조정하고 리소스 사용을 최적화하는 기능이 제한됩니다. VMSS가 결여된 디자인에는 추가적인 코드(또는 수동으)로 처리해야 하는 규모 조정 상한이 존재합니다. VMSS가 없으면 대대적인 트래픽 급등(예: 판촉 기간 또는 사이트/앱/제품이 인기를 끄는 경우)을 처리하도록 지원하기 위해 응용 프로그램에서 컴퓨터를 손쉽게 추가하고 제거할 수도 없습니다.
 
-###<a name="are-you-using-premium-storage-and-separate-storage-accounts-for-each-of-your-virtual-machines?"></a>각각의 가상 컴퓨터에 별도의 저장소 계정 및 프리미엄 저장소를 사용하나요?
+### <a name="are-you-using-premium-storage-and-separate-storage-accounts-for-each-of-your-virtual-machines?"></a>각각의 가상 컴퓨터에 별도의 저장소 계정 및 프리미엄 저장소를 사용하나요?
 프로덕션 가상 컴퓨터에 프리미엄 저장소를 사용하는 것이 바람직합니다. 또한, 각각의 가상 컴퓨터에 별도의 저장소 계정을 사용해야 합니다.(이것은 소규모 배포에도 적용됩니다.) 대규모 배포의 경우 여러 컴퓨터에 저장소 계정을 다시 사용할 수 있지만 응용 프로그램의 업데이트 도메인 및 모든 계층에 균형이 잡히도록 부하를 분산해야 합니다. Azure Storage 성능 및 확장성에 대해 자세히 알아보려면 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../storage/storage-performance-checklist.md)을 참조하세요.
 
-__각각의 가상 컴퓨터에 별도의 저장소 계정을 사용하지 않으면 어떻게 되나요?__  저장소 계정은, 다른 많은 리소스와 마찬가지로 단일 실패 지점입니다. Azure 저장소에는 보호 및 복원 기능이 많이 있지만, 단일 실패 지점은 절대 바람직한 디자인이 아닙니다. 예를 들어, 해당 계정에 대한 액세스 권한이 손상되면 저장소 한도에 도달하거나 [IOPS 한도](../azure-subscription-service-limits.md#virtual-machine-disk-limits) 에 도달하게 되고 해당 저장소 계정을 사용하는 모든 가상 컴퓨터가 영향을 받게 됩니다. 또한, 해당 저장소 계정을 포함하는 저장소 스탬프에 영향을 미치는 서비스 중단이 발생하면 여러 대의 가상 컴퓨터가 영향을 받을 수 있습니다.
+**각각의 가상 컴퓨터에 별도의 저장소 계정을 사용하지 않으면 어떻게 되나요?**  저장소 계정은, 다른 많은 리소스와 마찬가지로 단일 실패 지점입니다. Azure 저장소에는 보호 및 복원 기능이 많이 있지만, 단일 실패 지점은 절대 바람직한 디자인이 아닙니다. 예를 들어, 해당 계정에 대한 액세스 권한이 손상되면 저장소 한도에 도달하거나 [IOPS 한도](../azure-subscription-service-limits.md#virtual-machine-disk-limits) 에 도달하게 되고 해당 저장소 계정을 사용하는 모든 가상 컴퓨터가 영향을 받게 됩니다. 또한, 해당 저장소 계정을 포함하는 저장소 스탬프에 영향을 미치는 서비스 중단이 발생하면 여러 대의 가상 컴퓨터가 영향을 받을 수 있습니다.
 
-###<a name="are-you-using-a-load-balancer-or-a-queue-between-each-tier-of-your-application?"></a>응용 프로그램의 각 계층 사이에 큐 또는 부하 분산 장치를 사용하나요?
+### <a name="are-you-using-a-load-balancer-or-a-queue-between-each-tier-of-your-application?"></a>응용 프로그램의 각 계층 사이에 큐 또는 부하 분산 장치를 사용하나요?
 응용 프로그램의 각 계층 사이에 큐 또는 부하 분산 장치를 사용하면 응용 프로그램 각 계층의 규모를 독립적으로 손쉽게 조정할 수 있습니다. 대기 시간, 복잡성, 배포(예: 앱을 배포하는 범위)의 필요성을 기반으로 이 두 가지 기술 중 하나를 선택해야 합니다. 일반적으로, 큐는 대기 시간이 더 길고 복잡하지만, 복원력이 더 높고 보다 넓은 영역을 대상으로(여러 지역에 걸쳐) 응용 프로그램을 배포할 수 있다는 장점이 있습니다. 내부 부하 분산 장치 또는 큐를 사용하는 방법에 대해 자세히 알아보려면 [내부 부하 분산 장치 개요](../load-balancer/load-balancer-internal-overview.md) 및 [Azure 큐 및 Service Bus 큐 - 비교 및 대조](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조하세요.
 
-__응용 프로그램의 각 계층 사이에 큐 또는 부하 분산 장치를 사용하지 않으면 어떻게 되나요?__  응용 프로그램의 각 계층 사이에 부하 분산 장치나 큐가 없으면, 응용 프로그램의 규모를 확장하거나 축소하고 여러 컴퓨터에 부하를 분산하는 것이 어렵습니다. 이렇게 하지 않으면 리소스 프로비전이 과도하거나 부족해질 수 있고, 트래픽이 예상치 않게 변경되거나 시스템에 오류가 발생하는 경우, 가동 중지 시간이 발생하거나 사용자 환경이 열악해질 위험이 있습니다.
- 
-###<a name="are-your-sql-databases-using-active-geo-replication?"></a>SQL 데이터베이스에 활성 지역 복제를 사용하나요? 
+**응용 프로그램의 각 계층 사이에 큐 또는 부하 분산 장치를 사용하지 않으면 어떻게 되나요?**  응용 프로그램의 각 계층 사이에 부하 분산 장치나 큐가 없으면, 응용 프로그램의 규모를 확장하거나 축소하고 여러 컴퓨터에 부하를 분산하는 것이 어렵습니다. 이렇게 하지 않으면 리소스 프로비전이 과도하거나 부족해질 수 있고, 트래픽이 예상치 않게 변경되거나 시스템에 오류가 발생하는 경우, 가동 중지 시간이 발생하거나 사용자 환경이 열악해질 위험이 있습니다.
+
+### <a name="are-your-sql-databases-using-active-geo-replication?"></a>SQL 데이터베이스에 활성 지역 복제를 사용하나요?
 활성 지역 복제를 사용하면 동일하거나 다른 지역에 최대 4개의 읽기 기능한 보조 데이터베이스를 구성할 수 있습니다. 보조 데이터베이스는 서비스 중단 또는 주 데이터베이스에 연결하지 못하는 경우 사용할 수 있습니다. SQL 데이터베이스 활성 지역 복제에 대해 자세히 알아보려면 [개요: SQL 데이터베이스 활성 지역 복제](../sql-database/sql-database-geo-replication-overview.md)를 참조하세요.
- 
- __SQL Database에 활성 지역 복제를 사용하지 않으면 어떻게 되나요?__ 활성 지역 복제를 사용하지 않는 경우, 주 데이터베이스가 오프라인이 되면(계획된 유지 관리, 서비스 중단, 하드웨어 오류 등) 주 데이터베이스를 정상적인 온라인 상태로 되돌릴 수 있을 때까지 응용 프로그램 데이터베이스도 오프라인이 됩니다. 
- 
-###<a name="are-you-using-a-cache-(azure-redis-cache)-in-front-of-your-databases?"></a>데이터베이스 앞에 캐시(Azure Redis Cache)를 사용하나요?
+
+ **SQL Database에 활성 지역 복제를 사용하지 않으면 어떻게 되나요?** 활성 지역 복제를 사용하지 않는 경우, 주 데이터베이스가 오프라인이 되면(계획된 유지 관리, 서비스 중단, 하드웨어 오류 등) 주 데이터베이스를 정상적인 온라인 상태로 되돌릴 수 있을 때까지 응용 프로그램 데이터베이스도 오프라인이 됩니다. 
+
+### <a name="are-you-using-a-cache-(azure-redis-cache)-in-front-of-your-databases?"></a>데이터베이스 앞에 캐시(Azure Redis Cache)를 사용하나요?
 응용 프로그램에 대부분의 데이터베이스 호출을 읽어서 데이터베이스 로드가 높은 부분이 있으면, 이러한 읽기 작업을 오프로드할 캐싱 레이어를 데이터베이스 앞에 구현하면, 응용 프로그램 속도를 높이고 데이터베이스 로드를 줄일 수 있습니다. 데이터베이스 앞에 캐싱 레이어를 배치하면 응용 프로그램 속도를 높이고 데이터베이스 로드를 줄일 수(따라서 처리할 수 있는 규모를 증가시킬 수) 있습니다. Azure Redis Cache에 대해 자세히 알아보려면 [캐싱 지침](../best-practices-caching.md)을 참조하세요.
- 
- __데이터베이스 앞에 캐시를 사용하지 않으면 어떻게 되나요?__ 데이터베이스 컴퓨터가 주어진 트래픽 로드를 처리할 만큼 충분히 강력하면 응용 프로그램은 정상적으로 응답합니다. 다만, 낮은 로드에 대해 필요 이상으로 비싼 데이터베이스 컴퓨터에 비용을 지출할 수도 있습니다. 데이터베이스 컴퓨터가 로드를 처리할 만큼 충분히 강력하지 않으면, 응용 프로그램의 사용자 환경(대기 시간, 시간 제한, 서비스 가동 중지)이 열악해질 수 있습니다.
- 
-###<a name="have-you-contacted-microsoft-azure-support-if-you-are-expecting-a-high-scale-event?"></a>대규모 이벤트가 예상되는 경우 Microsoft Azure 지원에 문의한 적이 있나요?
+
+ **데이터베이스 앞에 캐시를 사용하지 않으면 어떻게 되나요?** 데이터베이스 컴퓨터가 주어진 트래픽 로드를 처리할 만큼 충분히 강력하면 응용 프로그램은 정상적으로 응답합니다. 다만, 낮은 로드에 대해 필요 이상으로 비싼 데이터베이스 컴퓨터에 비용을 지출할 수도 있습니다. 데이터베이스 컴퓨터가 로드를 처리할 만큼 충분히 강력하지 않으면, 응용 프로그램의 사용자 환경(대기 시간, 시간 제한, 서비스 가동 중지)이 열악해질 수 있습니다.
+
+### <a name="have-you-contacted-microsoft-azure-support-if-you-are-expecting-a-high-scale-event?"></a>대규모 이벤트가 예상되는 경우 Microsoft Azure 지원에 문의한 적이 있나요?
 Azure 지원은 트래픽이 많은 예정된 이벤트에 대처하기 위해 서비스 한도를 늘리도록 도움을 제공할 수 있습니다. Azure 지원은 사용자 계정 팀과 함께 디자인을 검토하고 대규모 이벤트 수요를 충족하는 최고의 솔루션을 찾는데 도움을 줄 수 있는 전문가와 연결되도록 도와드릴 수도 있습니다. Azure 지원에 문의하는 방법에 대해 자세히 알아보려면 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
-__Azure 지원에 대규모 이벤트를 문의하지 않으면 어떻게 되나요?__ 트래픽이 많은 이벤트를 알리거나 계획하지 않으면 [Azure 서비스 한도](../azure-subscription-service-limits.md) 에 도달하여 이벤트 기간 동안 사용자 환경이 열악해질(또는 가동이 중지될) 위험이 있습니다. 급격한 증가가 발생하기 전에 아키텍처를 검토하고 의견을 교환하면 위험을 완화하는 데 도움이 됩니다.
+**Azure 지원에 대규모 이벤트를 문의하지 않으면 어떻게 되나요?** 트래픽이 많은 이벤트를 알리거나 계획하지 않으면 [Azure 서비스 한도](../azure-subscription-service-limits.md) 에 도달하여 이벤트 기간 동안 사용자 환경이 열악해질(또는 가동이 중지될) 위험이 있습니다. 급격한 증가가 발생하기 전에 아키텍처를 검토하고 의견을 교환하면 위험을 완화하는 데 도움이 됩니다.
 
-###<a name="are-you-using-a-content-delivery-network-(azure-cdn)-in-front-of-your-web-facing-storage-blobs-and-static-assets?"></a>웹과 연결되는 저장소 BLOB 및 정적 자산 앞에 콘텐츠 배달 네트워크(Azure CDN)를 사용하나요?
+### <a name="are-you-using-a-content-delivery-network-(azure-cdn)-in-front-of-your-web-facing-storage-blobs-and-static-assets?"></a>웹과 연결되는 저장소 BLOB 및 정적 자산 앞에 콘텐츠 배달 네트워크(Azure CDN)를 사용하나요?
 CDN을 사용하면 전세계에 있는 CDN POP/에지 위치에 콘텐츠를 캐시하여 서버의 로드를 줄이는 데 도움이 됩니다. 이를 통해 서비스 거부(DOS) 공격으로부터 보호하는 전략의 일환으로 지연 시간을 줄이고, 확장성을 높이고, 서버 부하를 줄일 수 있습니다. Azure CDN을 사용하여 복원력을 높이고 고객 대기 시간을 줄이는 방법에 대해 자세히 알아보려면 [Azure CDN(콘텐츠 배달 네트워크) 개요](../cdn/cdn-overview.md)를 참조하세요.
 
-__CDN을 사용하지 않으면 어떻게 되나요?__  CDN을 사용하지 않으면, 모든 고객 트래픽이 리소스로 직접 오게 됩니다. 이렇게 되면 서버의 로드가 높아지고 확장성이 떨어집니다. 또한, CDN이 전세계에서 고객에게 보다 가까운 위치를 제안하면서, 고객의 대기 시간이 길어질 수 있습니다.
+**CDN을 사용하지 않으면 어떻게 되나요?**  CDN을 사용하지 않으면, 모든 고객 트래픽이 리소스로 직접 오게 됩니다. 이렇게 되면 서버의 로드가 높아지고 확장성이 떨어집니다. 또한, CDN이 전세계에서 고객에게 보다 가까운 위치를 제안하면서, 고객의 대기 시간이 길어질 수 있습니다.
 
-##<a name="next-steps:"></a>다음 단계:
+## <a name="next-steps:"></a>다음 단계:
 응용 프로그램이 높은 가용성을 갖도록 디자인하는 방법에 대해 알아보려면 [Microsoft Azure에 구축된 응용 프로그램에 대한 고가용성](resiliency-high-availability-azure-applications.md)을 참조하세요.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

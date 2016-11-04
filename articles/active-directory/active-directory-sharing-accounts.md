@@ -1,42 +1,39 @@
-<properties
-    pageTitle="Azure AD를 사용한 계정 공유 | Microsoft Azure"
-    description="Azure Active Directory를 통해 조직이 온-프레미스 앱과 소비자 클라우드 서비스에 대해 안전하게 계정을 공유할 수 있는 방법을 설명합니다."
-    services="active-directory"
-    documentationCenter=""
-    authors="msStevenPo"
-    manager="femila"
-    editor=""/>
+---
+title: Azure AD를 사용한 계정 공유 | Microsoft Docs
+description: Azure Active Directory를 통해 조직이 온-프레미스 앱과 소비자 클라우드 서비스에 대해 안전하게 계정을 공유할 수 있는 방법을 설명합니다.
+services: active-directory
+documentationcenter: ''
+author: msStevenPo
+manager: femila
+editor: ''
 
- <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/09/2016"  
-    ms.author="stevenpo"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/09/2016
+ms.author: stevenpo
 
-
+---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD와 계정 공유
-
 ## <a name="overview"></a>개요
 경우에 따라 조직에서는 여러 사용자에 단일 사용자 이름 및 암호를 사용해야 합니다. 일반적으로 다음 두 경우가 여기에 해당합니다.
 
-- 온-프레미스 앱이나 소비자 클라우드 서비스 등, 각 사용자에 대한 고유의 로그인과 암호가 필요한 응용 프로그램을 액세스할 때(예: 기업 소셜 미디어 계정)
-- 다중 사용자 환경을 만들 때. 상승된 권한을 갖는 단일 로컬 계정을 만들고 이 계정을 사용하여 핵심 설정, 관리 및 복구 작업을 수행할 수 있습니다(예: Office 365에는 로컬 “글로벌 관리자" 계정, Salesforce에는 루트 계정).
+* 온-프레미스 앱이나 소비자 클라우드 서비스 등, 각 사용자에 대한 고유의 로그인과 암호가 필요한 응용 프로그램을 액세스할 때(예: 기업 소셜 미디어 계정)
+* 다중 사용자 환경을 만들 때. 상승된 권한을 갖는 단일 로컬 계정을 만들고 이 계정을 사용하여 핵심 설정, 관리 및 복구 작업을 수행할 수 있습니다(예: Office 365에는 로컬 “글로벌 관리자" 계정, Salesforce에는 루트 계정).
 
 일반적으로 이러한 계정은 자격 증명(사용자 이름/암호)을 적합한 개인에게 배포하거나 신뢰할 수 있는 여러 에이전트가 액세스할 수 있는 공유 위치에 저장하여 공유합니다.
 
 전통적인 공유 모델에는 몇 가지 단점이 있습니다.
 
-- 새 응용 프로그램에 대한 액세스를 활성화하려면 액세스가 필요한 모든 사용자에게 자격 증명을 배포해야 합니다.
-- 각 공유 응용 프로그램에는 공유 자격 증명의 고유한 자체 세트가 필요할 수 있으므로 사용자가 여러 자격 증명 세트를 기억해야 합니다. 사용자가 여러 자격 증명을 기억해야 한다면, 편의를 위해 위험한 행동을 할 가능성이 높아집니다. (예: 암호를 적어).
-- 응용 프로그램에 누가 액세스 권한이 있는지 알 수 없습니다.
-- 응용 프로그램에 누가 *액세스했는지* 알 수 없습니다.
-- 응용 프로그램에 대한 액세스를 제거해야 할 때 자격 증명을 업데이트하고 다시 해당 응용 프로그램에 액세스가 필요한 모든 사용자에게 배포해야 합니다.
+* 새 응용 프로그램에 대한 액세스를 활성화하려면 액세스가 필요한 모든 사용자에게 자격 증명을 배포해야 합니다.
+* 각 공유 응용 프로그램에는 공유 자격 증명의 고유한 자체 세트가 필요할 수 있으므로 사용자가 여러 자격 증명 세트를 기억해야 합니다. 사용자가 여러 자격 증명을 기억해야 한다면, 편의를 위해 위험한 행동을 할 가능성이 높아집니다. (예: 암호를 적어).
+* 응용 프로그램에 누가 액세스 권한이 있는지 알 수 없습니다.
+* 응용 프로그램에 누가 *액세스했는지* 알 수 없습니다.
+* 응용 프로그램에 대한 액세스를 제거해야 할 때 자격 증명을 업데이트하고 다시 해당 응용 프로그램에 액세스가 필요한 모든 사용자에게 배포해야 합니다.
 
 ## <a name="azure-active-directory-account-sharing"></a>Azure Active Directory 계정 공유
-
 Azure AD는 이러한 단점을 제거하는 새로운 방법의 공유 계정 사용을 제공합니다.
 
 Azure AD 관리자는 해당 응용 프로그램에 대해 액세스 패널을 사용하고 가장 적합한 Single Sign On 형식을 선택하여 액세스할 수 있는 응용 프로그램을 구성합니다. 이러한 유형 중 하나인 *암호 기반 Single Sign-on*을 통해 Azure AD는 해당 앱의 로그온 프로세스 중에 일종의 "broker"로 작동합니다.
@@ -49,32 +46,29 @@ Azure AD는 모든 유형의 암호 Single Sign-on 응용 프로그램 전체에
 
 계정에 공유를 사용하는 Azure AD 기능은 다음과 같습니다.
 
-- [암호 SSO(Single sign-on)](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
-- 암호 SSO(Single sign-on) 에이전트
-- [그룹 할당](active-directory-accessmanagement-self-service-group-management.md)
-- 사용자 지정 암호 앱
-- [앱 사용 대시보드/보고서](active-directory-passwords-get-insights.md)
-- 최종 사용자 액세스 패널
-- [앱 프록시](active-directory-application-proxy-get-started.md)
-- [Active Directory 마켓플레이스](https://azure.microsoft.com/marketplace/active-directory/all/)
+* [암호 SSO(Single sign-on)](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
+* 암호 SSO(Single sign-on) 에이전트
+* [그룹 할당](active-directory-accessmanagement-self-service-group-management.md)
+* 사용자 지정 암호 앱
+* [앱 사용 대시보드/보고서](active-directory-passwords-get-insights.md)
+* 최종 사용자 액세스 패널
+* [앱 프록시](active-directory-application-proxy-get-started.md)
+* [Active Directory 마켓플레이스](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## <a name="sharing-an-account"></a>계정 공유
 Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 
-- 응용 프로그램 [앱 갤러리](https://azure.microsoft.com/marketplace/active-directory/)나 [사용자 지정 응용 프로그램](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx) 추가
-- 암호 SSO(Single Sign-On)에 대한 응용 프로그램 구성
-- [그룹 기반 할당](active-directory-accessmanagement-group-saasapps.md) 을 사용하고 옵션을 선택하여 공유 자격 증명 입력
-- 선택 사항: Facebook, Twitter 또는 LinkedIn 등의 일부 응용 프로그램에서는 [Azure AD 자동 암호 롤오버](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
+* 응용 프로그램 [앱 갤러리](https://azure.microsoft.com/marketplace/active-directory/)나 [사용자 지정 응용 프로그램](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx) 추가
+* 암호 SSO(Single Sign-On)에 대한 응용 프로그램 구성
+* [그룹 기반 할당](active-directory-accessmanagement-group-saasapps.md) 을 사용하고 옵션을 선택하여 공유 자격 증명 입력
+* 선택 사항: Facebook, Twitter 또는 LinkedIn 등의 일부 응용 프로그램에서는 [Azure AD 자동 암호 롤오버](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
 
 또한 MFA(Multi-Factor Authentication)로 공유 계정의 보안을 강화하고([Azure AD를 통한 응용 프로그램 보호](../multi-factor-authentication/multi-factor-authentication-get-started.md)에 대한 자세한 정보) [Azure AD 셀프 서비스](active-directory-accessmanagement-self-service-group-management.md) 그룹 관리를 사용하여 응용 프로그램에 대한 액세스 권한이 있는 관리자에게 기능을 위임할 수 있습니다.
 
 ## <a name="related-articles"></a>관련 문서
-
-- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-- [조건부 액세스를 사용한 앱 보호](active-directory-conditional-access.md)
-- [셀프 서비스 그룹 관리/SSAA](active-directory-accessmanagement-self-service-group-management.md)
-
-
+* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+* [조건부 액세스를 사용한 앱 보호](active-directory-conditional-access.md)
+* [셀프 서비스 그룹 관리/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
 <!--HONumber=Oct16_HO2-->
 

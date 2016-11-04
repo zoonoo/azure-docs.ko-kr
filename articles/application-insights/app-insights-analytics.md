@@ -1,31 +1,27 @@
-<properties 
-	pageTitle="Analytics - Application Insights의 강력한 검색 도구 | Microsoft Azure" 
-	description="Application Insights의 강력한 진단 검색 도구인 분석의 개요입니다. " 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Analytics - Application Insights의 강력한 검색 도구 | Microsoft Docs
+description: 'Application Insights의 강력한 진단 검색 도구인 분석의 개요입니다. '
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/25/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 07/25/2016
+ms.author: awills
 
-
+---
 # Application Insights의 분석
-
-
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
 * **[소개 비디오 보기](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**
 * 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우 **[시뮬레이션된 데이터에 대한 드라이브 분석을 테스트](https://analytics.applicationinsights.io/demo)**합니다.
 
 ## 분석의 쿼리
- 
 일반적인 쿼리는 *원본* 테이블이며 그 뒤에 `|`(으)로 구분된 일련의 *연산자*가 있습니다.
 
 예를 들어 하이데라바드의 시민들이 하루 중 언제 웹앱을 시도하는지 살펴보겠습니다. 그리고 그곳에 있는 동안 해당 HTTP 요청에 반환되는 결과 코드를 알아보겠습니다.
@@ -47,11 +43,9 @@
 
 이 앱은 하이데라바드에서 점심 시간 및 취침 시간에 가장 인기 있는 것 같습니다. (또한 이러한 500개 코드를 조사해야 합니다.)
 
-
 또한 강력한 통계 작업이 있습니다.
 
 ![](./media/app-insights-analytics/025.png)
-
 
 언어에 다음과 같은 많은 유용한 기능이 있습니다.
 
@@ -61,32 +55,17 @@
 * 복잡한 쿼리에 대해 SQL만큼 강력하지만 훨씬 쉽게 중첩문 대신 하나의 기본 연산에서 다음 연산으로 데이터를 파이프합니다.
 * 즉각적이고 강력하게 시각화합니다.
 
-
-
-
-
-
-
 ## Application Insights 데이터에 연결
-
-
 Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에서 분석을 엽니다.
 
 ![portal.azure.com에서 Application Insights 리소스를 열고 분석을 클릭합니다.](./media/app-insights-analytics/001.png)
 
-
 ## 제한
-
 현재, 쿼리 결과는 지난 주의 데이터로 제한됩니다.
 
-
-
-[AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
+[!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 ## 다음 단계
-
-
 * [언어 둘러보기](app-insights-analytics-tour.md)를 시작하는 것이 좋습니다.
 
 <!---HONumber=AcomDC_0831_2016-->

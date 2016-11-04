@@ -1,23 +1,22 @@
-<properties
-   pageTitle="REST 기반 응용 프로그램 수명 주기 샘플 | Microsoft Azure"
-   description="서비스 패브릭 REST 인터페이스를 사용하여 응용 프로그램 수명 주기를 보여 주는 Microsoft Azure 서비스 패브릭 샘플입니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+---
+title: REST 기반 응용 프로그램 수명 주기 샘플 | Microsoft Docs
+description: 서비스 패브릭 REST 인터페이스를 사용하여 응용 프로그램 수명 주기를 보여 주는 Microsoft Azure 서비스 패브릭 샘플입니다.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="rest-api"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/25/2016"
-   ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.devlang: rest-api
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/25/2016
+ms.author: ryanwi
 
+---
 # REST 기반 응용 프로그램 수명 주기 샘플
-
 이 샘플에서는 REST API 호출을 통해 서비스 패브릭 응용 프로그램 수명 주기를 보여 줍니다. 서비스 패브릭 응용 프로그램 수명 주기에 대한 자세한 내용은 [서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)를 참조하세요.
 
 이 샘플에서는 다음을 수행합니다.
@@ -37,15 +36,13 @@
 * 1\.0.0 버전의 WordCount 샘플을 프로비전 해제합니다.
 * 응용 프로그램 유형 목록을 표시합니다. 응용 프로그램 유형 목록에 WordCount가 포함됩니다.
 
-
 ## 필수 조건
-
 이 샘플에서는 [WordCount 샘플](http://aka.ms/servicefabricsamples)(**시작** 샘플에 있음)을 사용합니다. 먼저 WordCount 샘플을 빌드한 후 두 응용 프로그램 패키지를 이미지 저장소에 복사해야 합니다.
 
-|폴더|설명|
-|------|-----------|
-|WordCount|WordCount 샘플 응용 프로그램. **ApplicationManifest.xml** 파일은 **ApplicationTypeVersion="1.0.0"**을 포함합니다.|
-|WordCountUpgrade|WordCount 샘플 응용 프로그램. 응용 프로그램 업그레이드가 발생하도록 허용하려면 ApplicationManifest.xml 파일을 **ApplicationTypeVersion="1.1.0"**으로 변경해야 합니다.|
+| 폴더 | 설명 |
+| --- | --- |
+| WordCount |WordCount 샘플 응용 프로그램. **ApplicationManifest.xml** 파일은 **ApplicationTypeVersion="1.0.0"**을 포함합니다. |
+| WordCountUpgrade |WordCount 샘플 응용 프로그램. 응용 프로그램 업그레이드가 발생하도록 허용하려면 ApplicationManifest.xml 파일을 **ApplicationTypeVersion="1.1.0"**으로 변경해야 합니다. |
 
 응용 프로그램 패키지를 만들고 이미지 저장소에 복사하려면 다음 단계를 따릅니다.
 
@@ -74,7 +71,6 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpg
 PowerShell 스크립트가 완료되면 이 응용 프로그램을 실행할 준비가 완료됩니다.
 
 ## 예
-
 다음 예에서는 서비스 패브릭 응용 프로그램 수명 주기를 보여 줍니다.
 
 ```csharp
@@ -706,7 +702,6 @@ namespace ServiceFabricRestCaller
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
-
 [서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)
 
 <!---HONumber=AcomDC_0831_2016-->

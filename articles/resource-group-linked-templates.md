@@ -1,29 +1,27 @@
-<properties
-   pageTitle="Resource Manager와 연결된 템플릿 | Microsoft Azure"
-   description="Azure Resource Manager 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="timlt"
-   editor="tysonn"/>
+---
+title: Resource Manager와 연결된 템플릿 | Microsoft Docs
+description: Azure Resource Manager 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/02/2016"
-   ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/02/2016
+ms.author: tomfitz
 
+---
 # Azure Resource Manager에서 연결된 템플릿 사용
-
 하나의 Azure Resource Manager 템플릿 내에서 다른 템플릿에 연결하여 배포를 특정 용도의 템플릿 집합으로 분해할 수 있습니다. 응용 프로그램을 여러 코드 클래스로 분해하는 경우처럼 이러한 분해는 테스트, 다시 사용 및 가독성 측면에서 이점을 제공합니다.
 
 주 템플릿의 매개 변수를 연결된 템플릿에 전달할 수 있으며 이러한 매개 변수는 호출하는 템플릿이 노출하는 매개 변수 또는 변수에 직접 매핑될 수 있습니다. 또한 연결된 템플릿은 원본 템플릿에 출력 변수를 다시 전달할 수 있으므로 템플릿 간에 양방향 데이터 교환이 가능해집니다.
 
 ## 템플릿에 연결
-
 연결된 템플릿을 가리키는 주 템플릿 내에 배포 리소스를 추가하여 두 템플릿 간에 링크를 만듭니다. **templateLink** 속성을 연결된 템플릿의 URI로 설정합니다. 템플릿에 직접 값을 지정하거나 매개 변수 파일에 연결하여 매개 변수 값을 연결된 템플릿에 제공할 수 있습니다. 다음 예제에서는 **parameters** 속성을 사용하여 매개 변수 값을 직접 지정합니다.
 
     "resources": [ 
@@ -76,7 +74,6 @@ Resource Manager 서비스는 연결된 템플릿에 액세스할 수 있어야 
 토큰이 보안 문자열로 전달되었지만 SAS 토큰을 포함한 링크된 템플릿 URI가 해당 리소스 그룹의 배포 작업에 로그됩니다. 노출을 최소화하려면 토큰에 만료 날짜를 설정합니다.
 
 ## 매개 변수 파일에 연결
-
 다음 예제는 **parametersLink** 속성을 사용하여 매개 변수 파일에 연결합니다.
 
     "resources": [ 
@@ -101,7 +98,6 @@ Resource Manager 서비스는 연결된 템플릿에 액세스할 수 있어야 
 연결된 매개 변수 파일의 URI 값은 로컬 파일일 수 없으며 **http** 또는 **https** 중 하나를 포함해야 합니다. 매개 변수 파일은 SAS 토큰으로 액세스를 제한할 수 있습니다.
 
 ## 변수를 사용하여 템플릿 연결
-
 앞의 예제에서는 템플릿 링크에 대한 하드 코딩된 URL 값을 보여 주었습니다. 이 방법은 간단한 템플릿에는 적용될 수 있지만 대규모 모듈식 템플릿 집합으로 작업하는 경우에는 가능하지 않습니다. 대신, 주 템플릿에 대한 기본 URL을 보관하는 정적 변수를 만든 다음 해당 기본 URL에서 연결된 템플릿에 대한 URL을 동적으로 만들 수 있습니다. 이 방식의 경우 주 템플릿에서만 정적 변수를 변경하면 되므로 템플릿을 쉽게 이동하거나 분기할 수 있다는 장점이 있습니다. 주 템플릿은 분해된 템플릿 전체에서 올바른 URI를 전달합니다.
 
 다음 예제에서는 기본 URL을 사용하여 연결된 템플릿에 대한 두 개의 URL을 만드는 방법을 보여 줍니다(**sharedTemplateUrl** 및 **vmTemplate**).
@@ -132,7 +128,6 @@ Resource Manager 서비스는 연결된 템플릿에 액세스할 수 있어야 
     }
 
 ## 조건부로 템플릿에 연결
-
 연결된 템플릿의 URI를 생성하는 데 사용되는 매개 변수 값을 전달하여 다른 템플릿에 연결할 수 있습니다. 이 방법은 배포하는 동안 사용할 연결된 템플릿을 지정해야 하는 경우에 효과적으로 작동합니다. 예를 들어 기존 저장소 계정에 사용할 하나의 템플릿을 지정하고 새 저장소 계정에 사용할 다른 템플릿을 지정할 수 있습니다.
 
 다음 예제는 저장소 계정 이름에 대한 매개 변수 및 저장소 계정이 신규 또는 기존인지 여부를 지정할 매개 변수를 보여 줍니다.
@@ -233,7 +228,6 @@ URI는 **existingStorageAccount.json** 또는 **newStorageAccount.json**이라�
     }
 
 ## 전체 예제
-
 다음 예제 템플릿은 이 문서의 여러 가지 개념을 설명하기 위해 링크된 템플릿의 단순화된 배열을 보여줍니다. 이 예제는 템플릿이 공용 액세스가 꺼진 저장소 계정에 있는 동일한 컨테이너에 추가되었다고 가정합니다. 링크된 템플릿은 **출력** 섹션의 기본 템플릿에 값을 다시 전달합니다.
 
 **parent.json** 파일은 다음과 같이 구성됩니다.
@@ -269,19 +263,19 @@ URI는 **existingStorageAccount.json** 또는 **newStorageAccount.json**이라�
 **helloworld.json** 파일은 다음과 같이 구성됩니다.
 
     {
-	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {},
-	  "variables": {},
-	  "resources": [],
-	  "outputs": {
-		"result": {
-			"value": "Hello World",
-			"type" : "string"
-		}
-	  }
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {
+        "result": {
+            "value": "Hello World",
+            "type" : "string"
+        }
+      }
     }
-    
+
 PowerShell에서는 컨테이너용 토큰을 얻고 다음을 사용하여 템플릿을 배포합니다.
 
     Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -297,7 +291,7 @@ Azure CLI에서는 컨테이너용 토큰을 얻고 다음 코드를 사용하�
 SAS 토큰을 매개 변수로 제공하라는 메시지가 나타납니다. **?**로 토큰을 삽입해야 합니다.
 
 ## 다음 단계
-- 리소스 배포 순서를 정의하는 방법을 알아보려면 [Azure Resource Manager 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요.
-- 하나의 리소스를 정의하되 해당 리소스의 여러 인스턴스를 만드는 방법을 알아보려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
+* 리소스 배포 순서를 정의하는 방법을 알아보려면 [Azure Resource Manager 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요.
+* 하나의 리소스를 정의하되 해당 리소스의 여러 인스턴스를 만드는 방법을 알아보려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 
 <!---HONumber=AcomDC_0907_2016-->

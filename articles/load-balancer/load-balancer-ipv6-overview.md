@@ -1,26 +1,23 @@
-<properties
-    pageTitle="Azure Load Balancer의 IPv6에 대한 개요 | Microsoft Azure"
-    description="Azure Load Balancer 및 부하 분산된 VM에 대한 IPv6 지원 이해하기."
-    services="load-balancer"
-    documentationCenter="na"
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-    keywords="ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot"
-/>
-<tags
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="09/14/2016"
-    ms.author="sewhee"
-/>
+---
+title: Azure Load Balancer의 IPv6에 대한 개요 | Microsoft Docs
+description: Azure Load Balancer 및 부하 분산된 VM에 대한 IPv6 지원 이해하기.
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: ''
+keywords: ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot
 
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/14/2016
+ms.author: sewhee
 
+---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer의 IPv6에 대한 개요
-
 인터넷 연결 부하 분산 장치는 IPv6 주소를 사용해 배포할 수 있습니다. IPv4 연결 외에도 다음과 같은 기능을 사용할 수 있습니다.
 
 * 부하 분산 장치를 통한 공용 인터넷 클라이언트와 Azure Virtual Machines(VM) 사이의 네이티브 종단 간 IPv6 연결.
@@ -33,7 +30,6 @@
 배포된 후 IPv4 또는 IPv6 사용 가능 인터넷 클라이언트는 Azure 인터넷 연결 Load Balancer의 공용 IPv4 또는 IPv6 주소(또는 호스트 이름)와 통신할 수 있습니다. 부하 분산 장치는 NAT(네트워크 주소 변환)를 사용하여 VM의 개인 IPv6 주소로 IPv6 패킷을 라우팅합니다. IPv6 인터넷 클라이언트는 VM의 IPv6 주소와 직접 통신할 수 없습니다.
 
 ## <a name="features"></a>기능
-
 Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원은 다음을 제공합니다.
 
 1. 인터넷에서 IPv6 클라이언트에 대해 부하 분산된 IPv6 서비스
@@ -42,14 +38,12 @@ Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원
 4. TCP, UDP, HTTP(S)와 같은 지원되는 프로토콜은 서비스 아키텍처의 전체 범위를 사용하도록 설정합니다.
 
 ## <a name="benefits"></a>이점
-
 이 기능을 통해 다음과 같은 주요 이점을 사용할 수 있습니다.
 
 * 새 응용 프로그램이 IPv6 전용 클라이언트에 액세스할 수 있도록 한 정부 규정을 충족합니다.
 * 모바일 및 IoT(사물 인터넷) 개발자가 성장하는 모바일 및 IoT 시장에 대처하기 위해 이중 스택된(IPv6+IPv4) Azure Virtual Machines를 사용할 수 있도록 설정합니다.
 
 ## <a name="details-and-limitations"></a>세부 사항 및 제한 사항
-
 세부 정보
 
 * Azure DNS 서비스는 IPv4 및 IPv6 AAAA 이름 레코드를 모두 포함하며 부하 분산 장치에 대해 두 레코드와 반응합니다. 클라이언트는 어떤 주소(IPv4 또는 IPv6)와 통신할지 선택합니다.
@@ -71,15 +65,12 @@ Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원
 * IPv6에 대한 IdleTimeout 매개 변수 변경은 **현재 지원 되지 않습니다**. 기본 값은 4분입니다.
 
 ## <a name="next-steps"></a>다음 단계
-
 IPv6를 사용하여 부하 분산 장치를 배포하는 방법을 알아봅니다.
 
 * [지역별 IPv6 가용성](https://go.microsoft.com/fwlink/?linkid=828357)
 * [템플릿을 사용하여 IPv6와 함께 부하 분산 장치 배포하기](load-balancer-ipv6-internet-template.md)
 * [Azure PowerShell을 사용하여 IPv6와 함께 부하 분산 장치 배포하기](load-balancer-ipv6-internet-ps.md)
 * [Azure CLI를 사용하여 IPv6와 함께 부하 분산 장치 배포하기](load-balancer-ipv6-internet-cli.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

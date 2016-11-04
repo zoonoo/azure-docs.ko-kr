@@ -1,29 +1,27 @@
-<properties
-   pageTitle="Azure 이벤트 허브로 SQL 데이터 끌어오기 | Microsoft Azure"
-   description="SQL 샘플에서 이벤트 허브 가져오기 개요"
-   services="event-hubs"
-   documentationCenter="na"
-   authors="spyrossak"
-   manager="timlt"
-   editor=""/>
+---
+title: Azure 이벤트 허브로 SQL 데이터 끌어오기 | Microsoft Docs
+description: SQL 샘플에서 이벤트 허브 가져오기 개요
+services: event-hubs
+documentationcenter: na
+author: spyrossak
+manager: timlt
+editor: ''
 
-<tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/25/2016"
-   ms.author="spyros;sethm" />
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/25/2016
+ms.author: spyros;sethm
 
+---
 # SQL에서 Azure 이벤트 허브로 데이터 끌어오기
-
 실시간 데이터 처리를 위한 응용 프로그램의 일반적인 아키텍처에는 먼저 데이터를 Azure 이벤트 허브로 푸시하는 과정이 포함됩니다. 이는 IoT 시나리오(예: 여러 갈래의 고속도로에 대한 교통 현황 모니터링), 게임 시나리오(예: 한 무리의 적의 행동 모니터링) 또는 엔터프라이즈 시나리오(예: 건물 거주자 모니터링)일 수 있습니다. 이러한 경우 데이터 생산자는 일반적으로 사용자가 수집, 분석, 저장 및 작업해야 하는 시계열 데이터를 생산하는 외부 개체이며, 사용자는 이러한 프로세스를 위한 인프라를 구축하는 데 많은 노력을 기울였을 수 있습니다. 스트리밍 데이터의 소스 대신 데이터베이스와 같은 것에서 데이터를 가져와 다른 스트리밍 데이터와 함께 사용하려면 어떻게 해야 할까요? Azure 스트림 분석, RDX(Remote Data Explorer) 또는 다른 도구를 사용하여 Microsoft Dynamics AX 또는 사용자 지정 시설 관리 시스템에서 느리게 변화하는 데이터를 분석하고 조치를 취하려는 경우를 고려해 보겠습니다. 이 문제를 해결하기 위해 SQL 테이블에서 데이터를 끌어와 Azure 이벤트 허브에 푸시한 후 다운스트림 분석 응용 프로그램의 입력으로 사용할 수 있으며 수정 및 배포 가능한 소규모 클라우드 샘플을 작성하여 오픈 소스화했습니다. 이는 드문 시나리오이며, 이벤트 허브에서 일반적으로 수행하는 작업과 다릅니다. 그러나 이러한 작업을 수행해야 하는 경우 [여기](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-import-from-sql/)의 Azure 샘플 갤러리에서 코드를 찾을 수 있습니다.
 
 이 샘플의 코드는 샘플일 뿐입니다. 프로덕션 응용 프로그램용이 **아니며** 그런 환경에서 사용하기에 적합하도록 만들어지지도 않았습니다. 이는 엄격하게 DIY로, 개발자에게만 초점을 맞춘 예제입니다. 모든 종류의 보안, 성능, 기능 및 비용 요소를 검토한 다음 종단 간 아키텍처를 해결해야 합니다.
 
 ## 응용 프로그램 구조
-
 응용 프로그램은 C#으로 작성되고 샘플의 readme.md 파일은 응용 프로그램을 수정, 빌드 및 게시해야 하는 모든 정보를 포함합니다. 다음 섹션에서는 응용 프로그램 동작에 대한 대략적인 개요를 제공합니다.
 
 SQL Azure 테이블에 대한 액세스 권한이 있다고 가정하고 시작하겠습니다. 또한 Azure 이벤트 허브를 설정하거나 여기에 액세스하기 위해 필요한 연결 문자열을 알아야 할 수 있습니다.
@@ -39,7 +37,6 @@ SqlToEventHub 솔루션을 시작하면 readme.md 파일에 설명된 대로 많
 5. 마지막으로, 구성 파일에 정의된 "DataQuery" 쿼리는 SQL 테이블에서 레코드를 끌어오기 위해 실행되는 쿼리입니다. 현재 최적화를 위해 각 통과 루프에는 상위 1,000개의 레코드로 제한되어 있습니다. 예를 들어 마지막 쿼리 후 25,000개의 레코드가 데이터베이스에 추가된 경우 쿼리를 실행하는 데 시간이 오래 걸릴 수 있습니다. 쿼리를 한 번에 1,000개의 레코드로 제한하면 쿼리가 훨씬 빨라집니다. 상위 1,000개를 선택하면 레코드 1,000개의 연속 배치가 이벤트 허브로 푸시됩니다.
 
 ## 다음 단계
-
 솔루션을 배포하려면 SqlToEventHub 응용 프로그램을 복제하거나 다운로드하고 App.config 파일을 편집하고 빌드한 다음 마지막으로 게시합니다. 응용 프로그램을 게시한 후에는 Azure 클래식 포털의 클라우드 서비스에서 실행하고 이벤트 허브로 들어오는 이벤트를 모니터링할 수 있습니다. 빈도는 두 가지 항목, 즉 SQL 테이블의 업데이트 빈도와 응용 프로그램의 구성 파일에 지정한 대기 간격에 따라 결정됩니다.
 
 <!---HONumber=AcomDC_0831_2016-->

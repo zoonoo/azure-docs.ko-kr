@@ -1,6 +1,5 @@
 
 ## 계획 및 구현
-
 제목: Azure 가상 컴퓨터에서 SAP NetWeaver - 계획 및 구현 가이드
 
 요약: Azure 가상 컴퓨터에서 SAP NetWeaver를 실행하는 것을 고려하는 경우 시작하기 위한 문서입니다. 이 계획 및 구현 가이드를 사용하면 기존 또는 계획된 SAP NetWeaver 기반 시스템을 Azure 가상 컴퓨터 환경에 배포할 수 있는지 여부를 평가할 수 있습니다. 여러 SAP NetWeaver 배포 시나리오를 다루며 Azure에 고유한 SAP 구성을 포함합니다. 문서는 SAP/Azure 측면에서 하이브리드 SAP 환경을 실행하는 데 필요한 모든 구성 정보를 나열하고 설명합니다. IaaS에서 SAP NetWeaver 기반 시스템의 고가용성을 보장하기 위해 수행할 수 있는 측정값에 대해서도 다룹니다.
@@ -8,6 +7,7 @@
 업데이트 날짜: 2015년 8월
 
 [지금 이 가이드 다운로드](http://go.microsoft.com/fwlink/?LinkId=397963)
+
 ## 배포
 제목: Azure 가상 컴퓨터에서 SAP NetWeaver - 배포 가이드
 
@@ -27,7 +27,6 @@
 [지금 이 가이드 다운로드](http://go.microsoft.com/fwlink/?LinkId=397965)
 
 ## Azure에서 SAP NetWeaver
-
 제목: SAP NetWeaver - Azure 기반 재해 복구 솔루션 빌드
 
 요약: 이 문서는 SAP NetWeaver용 Azure 기반 재해 복구 솔루션 빌드에 대한 단계별 지침을 제공합니다. 설명된 솔루션은 SAP 환경이 Hyper-V에 따라 가상화된 온-프레미스를 실행하고 있는 것을 가정합니다. 문서의 첫 번째 부분에서 ASR(Azure Site Recovery) 서비스가 해당 구성 요소에서 도입됩니다. 문서의 두 번째 부분에서는 SAP NetWeaver 기반 환경에 대한 세부 사항을 설명합니다. SAP NetWeaver 응용 프로그램 인스턴스 및 SAP Central Services와 함께 ASR 사용에 대한 가능성을 소개하고 설명합니다. 두 번째 부분의 초점은 Windows Server 장애 조치 클러스터 구성을 통해 보호되는 SAP Central Services에 대한 ASR 활용입니다.

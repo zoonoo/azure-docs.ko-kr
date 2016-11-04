@@ -1,8 +1,8 @@
-| | **클래식 배포** | **리소스 관리자 배포** |
-|----------------------------------------|--------------|----------------------|
-| **클래식 포털** |[문서*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) | 지원되지 않음 |
-| **Azure 포털** | 지원됨** | [문서](vpn-gateway-howto-site-to-site-resource-manager-portal.md)|
-| **PowerShell** |[문서+](..articles/vpn-gateway/vpn-gateway-multi-site.md) | [문서](..articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)| 
+|  | **클래식 배포** | **리소스 관리자 배포** |
+| --- | --- | --- |
+| **클래식 포털** |[문서*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |지원되지 않음 |
+| **Azure 포털** |지원됨** |[문서](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) |
+| **PowerShell** |[문서+](../articles/vpn-gateway/vpn-gateway-multi-site.md) |[문서](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) |
 
 (*)는 클래식 포털이 하나의 S2S VPN 연결을 만들도록 지원할 수 있음을 나타냅니다.
 

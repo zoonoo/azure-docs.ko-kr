@@ -1,23 +1,21 @@
-<properties
-    pageTitle="Azure AD Connect 동기화: 선언적 프로비전 식 이해 | Microsoft Azure"
-    description="선언적 프로비전 식에 대해 설명합니다."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+---
+title: 'Azure AD Connect 동기화: 선언적 프로비전 식 이해 | Microsoft Docs'
+description: 선언적 프로비전 식에 대해 설명합니다.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/31/2016"
-    ms.author="markusvi;andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/31/2016
+ms.author: markusvi;andkjell
 
-
-
+---
 # <a name="azure-ad-connect-sync:-understanding-declarative-provisioning-expressions"></a>Azure AD Connect 동기화: 선언적 프로비전 식 이해
 Azure AD Connect 동기화는 Forefront Identity Manager 2010에 처음 도입된 선언적 프로비전을 기반으로 합니다. 컴파일된 코드를 작성할 필요 없이 전체 ID 통합 비즈니스 논리를 구현할 수 있습니다.
 
@@ -28,14 +26,13 @@ Azure AD Connect 동기화는 Forefront Identity Manager 2010에 처음 도입�
 특성은 강력한 형식입니다. 함수는 올바른 형식의 특성만 허용합니다. 대/소문자를 구분하기도 합니다. 함수 이름과 특성 이름은 모두 적절한 대/소문자를 가지고 있어야 하며 그렇지 않으면 오류가 발생합니다.
 
 ## <a name="language-definitions-and-identifiers"></a>언어 정의 및 식별자
-
-- 함수는 다음과 같이 이름 뒤에 대괄호로 인수가 붙습니다. FunctionName(인수 1, 인수 N).
-- 특성은 다음과 같이 대괄호로 식별됩니다. [attributeName]
-- 매개 변수는 다음과 같이 백분율 기호로 식별됩니다. % ParameterName %
-- 문자열 상수는 따옴표를 사용합니다(예: "Contoso"). (참고: 둥근 따옴표 “”가 아닌 직선 따옴표 ""를 사용)
-- 숫자 값은 따옴표 없이 표현되고 10진수입니다. 16진수 값은 접두사 &H가 붙습니다. 예: 98052, &HFF
-- 부울 값은 다음과 같은 상수로 표시됩니다. True, False
-- 기본 제공 상수 및 리터럴은 자신의 이름으로만 표현됩니다. NULL, CRLF, IgnoreThisFlow
+* 함수는 다음과 같이 이름 뒤에 대괄호로 인수가 붙습니다. FunctionName(인수 1, 인수 N).
+* 특성은 다음과 같이 대괄호로 식별됩니다. [attributeName]
+* 매개 변수는 다음과 같이 백분율 기호로 식별됩니다. % ParameterName %
+* 문자열 상수는 따옴표를 사용합니다(예: "Contoso"). (참고: 둥근 따옴표 “”가 아닌 직선 따옴표 ""를 사용)
+* 숫자 값은 따옴표 없이 표현되고 10진수입니다. 16진수 값은 접두사 &H가 붙습니다. 예: 98052, &HFF
+* 부울 값은 다음과 같은 상수로 표시됩니다. True, False
+* 기본 제공 상수 및 리터럴은 자신의 이름으로만 표현됩니다. NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>함수
 선언적 프로비전은 여러 함수를 사용하여 특성 값을 변환할 수 있도록 합니다. 함수의 결과가 다른 함수로 전달되도록 이러한 함수는 중첩될 수 있습니다.
@@ -51,12 +48,12 @@ Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매
 
 | 매개 변수 이름 | 주석 |
 | --- | --- |
-| Domain.Netbios | 현재 가져오는 도메인의 Netbios 형식(예: FABRIKAMSALES) |
-| Domain.FQDN | 현재 가져오는 도메인의 FQDN 형식(예: sales.fabrikam.com) |
-| Domain.LDAP | 현재 가져오는 도메인의 LDAP 형식(예: DC=sales,DC=fabrikam,DC=com) |
-| Forest.Netbios | 현재 가져오는 포리스트 이름의 Netbios 형식(예: FABRIKAMCORP) |
-| Forest.FQDN | 현재 가져오는 포리스트 이름의 FQDN 형식(예: fabrikam.com) |
-| Forest.LDAP | 현재 가져오는 포리스트 이름의 LDAP 형식(예: DC=fabrikam,DC=com) |
+| Domain.Netbios |현재 가져오는 도메인의 Netbios 형식(예: FABRIKAMSALES) |
+| Domain.FQDN |현재 가져오는 도메인의 FQDN 형식(예: sales.fabrikam.com) |
+| Domain.LDAP |현재 가져오는 도메인의 LDAP 형식(예: DC=sales,DC=fabrikam,DC=com) |
+| Forest.Netbios |현재 가져오는 포리스트 이름의 Netbios 형식(예: FABRIKAMCORP) |
+| Forest.FQDN |현재 가져오는 포리스트 이름의 FQDN 형식(예: fabrikam.com) |
+| Forest.LDAP |현재 가져오는 포리스트 이름의 LDAP 형식(예: DC=fabrikam,DC=com) |
 
 시스템은 현재 실행 중인 커넥터의 ID를 가져오는 데 사용되는 다음 매개 변수를 제공합니다.  
 `Connector.ID`
@@ -67,11 +64,11 @@ Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매
 ### <a name="operators"></a>연산자
 다음과 같은 연산자를 사용할 수 있습니다.
 
-- **비교**: <, <=, <>, =, >, >=
-- **수학**: +, -, \*, -
-- **문자열**: &(연결)
-- **논리**: &&(및), ||(또는)
-- **계산 순서**: ( )
+* **비교**: <, <=, <>, =, >, >=
+* **수학**: +, -, \*, -
+* **문자열**: &(연결)
+* **논리**: &&(및), ||(또는)
+* **계산 순서**: ( )
 
 연산자는 왼쪽에서 오른쪽으로 계산되며 계산 우선 순위가 같습니다. 즉, \*(승수)는 -(빼기) 전에 계산되지 않습니다. 2\*(5+3)은 2\*5+3과 같지 않습니다. 대괄호 ()는 왼쪽에서 오른쪽 계산 순서가 적절하지 않을 때 계산 순서를 변경하는 데 사용됩니다.
 
@@ -84,21 +81,18 @@ Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` SIP 주소를 찾아서 값을 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-- [선언적 프로비전 이해](active-directory-aadconnectsync-understanding-declarative-provisioning.md)에서 구성 모델에 대해 자세히 알아봅니다.
-- [기본 구성 이해](active-directory-aadconnectsync-understanding-default-configuration.md)에서 선언적 프로비전이 기본으로 사용되는 방법을 참조하세요.
-- [기본 구성으로 변경하는 방법](active-directory-aadconnectsync-change-the-configuration.md)에서 선언적 프로비전을 사용하여 실용적으로 변경하는 방법을 참조하세요.
+* [선언적 프로비전 이해](active-directory-aadconnectsync-understanding-declarative-provisioning.md)에서 구성 모델에 대해 자세히 알아봅니다.
+* [기본 구성 이해](active-directory-aadconnectsync-understanding-default-configuration.md)에서 선언적 프로비전이 기본으로 사용되는 방법을 참조하세요.
+* [기본 구성으로 변경하는 방법](active-directory-aadconnectsync-change-the-configuration.md)에서 선언적 프로비전을 사용하여 실용적으로 변경하는 방법을 참조하세요.
 
 **개요 항목**
 
-- [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
-- [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
+* [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
+* [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
 **참조 항목**
 
-- [Azure AD 동기화 연결: 함수 참조](active-directory-aadconnectsync-functions-reference.md)
-
-
+* [Azure AD 동기화 연결: 함수 참조](active-directory-aadconnectsync-functions-reference.md)
 
 <!--HONumber=Oct16_HO2-->
 

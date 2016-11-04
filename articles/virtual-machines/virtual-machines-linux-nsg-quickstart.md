@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Linux VM에 대한 포트 열기 | Microsoft Azure"
-   description="Azure Resource Manager 배포 모드 및 Azure CLI를 사용하여 Linux VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Linux VM에 대한 포트 열기 | Microsoft Docs
+description: Azure Resource Manager 배포 모드 및 Azure CLI를 사용하여 Linux VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="08/08/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 08/08/2016
+ms.author: iainfou
 
+---
 # Azure에서 Linux VM에 포트 열기
 서브넷 또는 VM 네트워크 인터페이스에서 네트워크 필터를 만들어, Azure에서 VM(가상 컴퓨터)에 대한 포트를 열거나 끝점을 만듭니다. 인바운드 및 아웃바운드 트래픽을 모두 제어하는 이러한 필터를 트래픽을 수신하는 리소스에 연결된 네트워크 보안 그룹에 배치합니다. 포트 80에서 웹 트래픽의 일반적인 예제를 사용해 보겠습니다.
 
@@ -57,8 +57,8 @@ azure network vnet subnet set --resource-group TestRG --name TestSubnet --networ
 ## 다음 단계
 이 예제에서는 HTTP 트래픽을 허용하는 간단한 규칙을 만들었습니다. 다음 문서에서 보다 자세한 환경을 만들기 위한 정보를 찾을 수 있습니다.
 
-- [Azure Resource Manager 개요](../resource-group-overview.md)
-- [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
-- [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer2 /load-balancer-arm.md)
+* [Azure Resource Manager 개요](../resource-group-overview.md)
+* [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
+* [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer/load-balancer-arm.md)
 
 <!---HONumber=AcomDC_0907_2016-->

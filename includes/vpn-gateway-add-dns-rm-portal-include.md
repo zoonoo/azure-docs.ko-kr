@@ -4,7 +4,7 @@
 2. **DNS 서버** 페이지의 **DNS 서버**에서 **사용자 지정 DNS**를 선택합니다.
 3. **주 DNS 서버** 필드에서 이름 확인에 사용하려는 DNS 서버의 IP 주소를 입력합니다.
 4. 블레이드의 맨 위에서 **저장**을 클릭하여 구성을 저장합니다.
-
-	![사용자 지정 DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
+   
+    ![사용자 지정 DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
 
 <!---HONumber=AcomDC_0406_2016-->

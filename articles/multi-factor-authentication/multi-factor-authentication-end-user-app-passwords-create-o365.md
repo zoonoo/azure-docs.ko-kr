@@ -1,29 +1,28 @@
-<properties
-	pageTitle="Azure Multi-Factor Authentication에 대해 Office 365 포털에서 앱 암호 만들기"
-	description="이 페이지에서는 Office 365 포털에서 추가 앱 암호를 만드는 방법을 보여 줍니다."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Azure Multi-Factor Authentication에 대해 Office 365 포털에서 앱 암호 만들기
+description: 이 페이지에서는 Office 365 포털에서 추가 앱 암호를 만드는 방법을 보여 줍니다.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Azure Multi-Factor Authentication을 위해 Office 365 포털에서 앱 암호 만들기 또는 삭제
-
 Office 365에서 Multi-Factor Authentication을 사용하는 경우 Office 365 포털을 통해 앱 암호를 만들고 삭제할 수 있습니다.
 
 ## Office 365 포털에서 앱 암호를 만들려면
---------------------------------------------------------------------------------
-
+- - -
 <ol>
+
 <li>Office 365 포털에 로그인</li>
 <li>오른쪽 위 구석에서 설정 위젯을 선택합니다.</li>
 <li>왼쪽에서 추가 보안 확인을 선택합니다.</li>
@@ -46,9 +45,9 @@ Office 365에서 Multi-Factor Authentication을 사용하는 경우 Office 365 �
 
 
 ## Office 365 포털에서 앱 암호를 삭제하려면
---------------------------------------------------------------------------------
-
+- - -
 <ol>
+
 <li>Office 365 포털에 로그인</li>
 <li>오른쪽 위 모서리에서 위젯을 선택하고 Office 365 설정을 선택합니다.</li>
 <li>아래쪽에서 추가 보안 인증을 클릭하고 **Update your phone numbers used for account security(계정 보안에 사용되는 전화 번호 업데이트)**를 선택합니다.3</li>

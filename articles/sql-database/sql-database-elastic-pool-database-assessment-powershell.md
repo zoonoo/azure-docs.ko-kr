@@ -1,46 +1,45 @@
-<properties
-    pageTitle="풀에 적합한 단일 데이터베이스를 식별하는 Powershell 스크립트 | Microsoft Azure"
-    description="탄력적 데이터베이스 풀은 탄력적 데이터베이스 그룹에서 공유하는 가용 리소스의 컬렉션입니다. 이 문서는 탄력적 데이터베이스 풀을 사용하여 데이터베이스의 그룹에 대한 적합성을 평가하는데 유용한 Powershell 스크립트를 제공합니다."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+---
+title: 풀에 적합한 단일 데이터베이스를 식별하는 Powershell 스크립트 | Microsoft Docs
+description: 탄력적 데이터베이스 풀은 탄력적 데이터베이스 그룹에서 공유하는 가용 리소스의 컬렉션입니다. 이 문서는 탄력적 데이터베이스 풀을 사용하여 데이터베이스의 그룹에 대한 적합성을 평가하는데 유용한 Powershell 스크립트를 제공합니다.
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
 
-<tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.date="09/28/2016"
-    ms.author="sstein"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.date: 09/28/2016
+ms.author: sstein
+ms.workload: data-management
+ms.topic: article
+ms.tgt_pltfrm: NA
 
-
+---
 # <a name="powershell-script-for-identifying-databases-suitable-for-an-elastic-database-pool"></a>탄력적 데이터베이스 풀에 적합한 데이터베이스를 식별하기 위한 PowerShell 스크립트
-
 이 문서의 샘플 PowerShell 스크립트는 SQL 데이터베이스 서버의 사용자 데이터베이스에 대한 eDTU 집계 값을 예측합니다. 이 스크립트는 실행되는 동안 데이터를 수집하며, 일반적인 프로덕션 워크로드의 경우에는 하루 이상 이 스크립트를 실행해야 합니다. 이론적으로는 데이터베이스의 워크로드가 보통으로 나타나는 시간에 스크립트를 실행하는 것이 가장 좋습니다. 데이터베이스의 보통 및 최대 사용률을 나타내는 데이터를 캡처할 수 있도록 스크립트를 길게 실행합니다. 1주 또는 그 이상 스크립트를 실행하면 좀 더 정확한 예측값을 얻을 수 있습니다.
 
 이 스크립트는 v11 서버에서 데이터베이스를 평가하고 풀이 지원되는 v12 서버로 마이그레이션하는 데 유용합니다. v12 서버에서 SQL Database에는 과거 사용량 원격 분석을 수행하고 가장 비용 효율적인 풀을 권장하는 기본 제공 인텔리전스 기능이 있습니다. 자세한 내용은 [Elastic Database 풀 모니터링, 관리 및 크기 조정](sql-database-elastic-pool-manage-portal.md)을 참조하세요.
 
-> [AZURE.IMPORTANT] 스크립트를 실행하는 동안 PowerShell 창을 열어 두어야 합니다. 필요한 시간 동안 스크립트를 실행할 때까지 PowerShell 창을 닫지 않도록 합니다. 
+> [!IMPORTANT]
+> 스크립트를 실행하는 동안 PowerShell 창을 열어 두어야 합니다. 필요한 시간 동안 스크립트를 실행할 때까지 PowerShell 창을 닫지 않도록 합니다. 
+> 
+> 
 
-## <a name="prerequisites"></a>필수 조건 
-
+## <a name="prerequisites"></a>필수 조건
 스크립트를 실행하기 전에 다음을 설치합니다.
 
-- 최신 Azure PowerShell. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
-- [SQL Server 2014 기능 팩](https://www.microsoft.com/download/details.aspx?id=42295)
+* 최신 Azure PowerShell. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+* [SQL Server 2014 기능 팩](https://www.microsoft.com/download/details.aspx?id=42295)
 
 ## <a name="script-details"></a>스크립트 세부 정보
-
 클라우드의 VM 또는 로컬 컴퓨터에서 스크립트를 실행할 수 있습니다. 로컬 컴퓨터에서 실행할 경우에 스크립트를 대상 데이터베이스에서 데이터를 다운로드 해야 하기 때문에 데이터 송신 요금이 발생할 수도 있습니다. 다음은 대상 데이터베이스의 수와 스크립트 실행 기간에 따라 예상되는 데이터 볼륨을 보여 줍니다. Azure 데이터 전송 비용은 [데이터 전송 가격 책정 정보](https://azure.microsoft.com/pricing/details/data-transfers/)를 참조하세요.
-       
- -     시간당 1 데이터베이스 = 38KB
- -     하루 1 데이터베이스 = 900KB
- -     주당 1 데이터베이스 = 6MB
- -     하루 100 데이터베이스 = 90MB
- -     주당 500 데이터베이스 = 3GB
+
+* 시간당 1 데이터베이스 = 38KB
+* 하루 1 데이터베이스 = 900KB
+* 주당 1 데이터베이스 = 6MB
+* 하루 100 데이터베이스 = 90MB
+* 주당 500 데이터베이스 = 3GB
 
 스크립트는 다음 데이터베이스에 대한 정보를 컴파일하지 않습니다.
 
@@ -54,16 +53,14 @@
 스크립트는 대상 서버(Elastic Database 풀 후보)에 연결하는 데 사용할 자격 증명을 전체 서버 이름 <*dbname*>**.database.windows.net**으로 제공해야 합니다. 스크립트는 한 번에 둘 이상의 서버에 분석을 지원하지 않습니다.
 
 초기 매개 변수 집합에 대한 값을 제출한 후 Azure 계정에 로그온하라는 메시지가 표시됩니다. 출력 데이터베이스 서버가 아닌 대상 서버에 로그온 됩니다.
-    
+
 다음 경고가 뜬 경우에는, 경고를 무시하고 스크립트를 실행할 수 있습니다.
 
-- 경고: Switch-azuremode cmdlet이 반대되었습니다.
-- 경고: SQL Server 서비스 정보를 얻을 수 없습니다. 다음 오류로 인해 'Microsoft.Azure.Commands.Sql.dll’의 WMI에 연결 하지 못했습니다: RPC 서버를 사용할 수 없습니다.
+* 경고: Switch-azuremode cmdlet이 반대되었습니다.
+* 경고: SQL Server 서비스 정보를 얻을 수 없습니다. 다음 오류로 인해 'Microsoft.Azure.Commands.Sql.dll’의 WMI에 연결 하지 못했습니다: RPC 서버를 사용할 수 없습니다.
 
 스크립트가 완료되면 대상 서버의 모든 후보 데이터베이스를 포함하는 풀에 필요한 eDTU의 예상 수를 출력합니다. 이 예상 eDTU는 풀을 만들고 구성하는 데 사용할 수 있습니다. 풀을 만들고 데이터베이스를 풀로 이동한 후 며칠 동안 풀을 면밀히 모니터링하고 필요에 따라 풀 eDTU 구성을 조정해야 합니다. [탄력적 데이터베이스 풀 모니터링, 관리 및 크기 조정](sql-database-elastic-pool-manage-portal.md)을 참조하세요.
 
-
-    
 ```
 param (
 [Parameter(Mandatory=$true)][string]$AzureSubscriptionName, # Azure Subscription name - can be found on the Azure portal: https://portal.azure.com/
@@ -270,7 +267,7 @@ $data = Invoke-Sqlcmd -ServerInstance $outputServerName -Database $outputdatabas
 $data | %{'{0}' -f $_[0]}
 }
 ```
-        
+
 
 
 

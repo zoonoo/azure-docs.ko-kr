@@ -1,25 +1,23 @@
-<properties
-	pageTitle="PHP용 Azure SDK 다운로드"
-	description="Azure SDK for PHP를 다운로드하여 설치하는 방법에 대해 알아봅니다."
-	documentationCenter="php"
-	services="app-service\web"
-	authors="allclark"
-	manager="douge"
-	editor=""/>
+---
+title: PHP용 Azure SDK 다운로드
+description: Azure SDK for PHP를 다운로드하여 설치하는 방법에 대해 알아봅니다.
+documentationcenter: php
+services: app-service\web
+author: allclark
+manager: douge
+editor: ''
 
-<tags
-	ms.service="app-service-web"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="PHP"
-	ms.topic="article"
-	ms.date="06/01/2016"
-	ms.author="allclark;yaqiyang"/>
+ms.service: app-service-web
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: PHP
+ms.topic: article
+ms.date: 06/01/2016
+ms.author: allclark;yaqiyang
 
-#PHP용 Azure SDK 다운로드
-
+---
+# PHP용 Azure SDK 다운로드
 ## 개요
-
 PHP용 Azure SDK에는 Azure용 PHP 응용 프로그램을 개발, 배포 및 관리할 수 있는 구성 요소가 포함되어 있습니다. 구체적으로 말해서 PHP용 Azure SDK에는 다음이 포함되어 있습니다.
 
 * **Azure용 PHP 클라이언트 라이브러리**. 이러한 클래스 라이브러리는 Azure 기능(예: 데이터 관리 서비스 및 클라우드 서비스)에 액세스하기 위한 인터페이스를 제공합니다.  
@@ -31,51 +29,45 @@ PHP용 Azure SDK에는 Azure용 PHP 응용 프로그램을 개발, 배포 및 �
 
 이 항목의 지침은 [PHP][install-php]가 설치되어 있다고 가정합니다.
 
-> [AZURE.NOTE] Azure용 PHP 클라이언트 라이브러리를 사용하려면 PHP 5.5 이상이 있어야 합니다.
+> [!NOTE]
+> Azure용 PHP 클라이언트 라이브러리를 사용하려면 PHP 5.5 이상이 있어야 합니다.
+> 
+> 
 
-##Azure용 PHP 클라이언트 라이브러리
-
+## Azure용 PHP 클라이언트 라이브러리
 Azure용 PHP 클라이언트 라이브러리는 운영 체제에서 Azure 기능(예: 데이터 관리 서비스 및 클라우드 서비스)에 액세스하기 위한 인터페이스를 제공합니다. 이러한 라이브러리는 작성기를 통해 설치할 수 있습니다.
 
 Azure용 PHP 클라이언트 라이브러리를 사용하는 방법에 대한 내용은 [Blob 서비스 사용 방법][blob-service], [테이블 서비스 사용 방법][table-service] 및 [큐 서비스 사용 방법][queue-service]을 참조하세요.
 
-###작성기를 통해 설치
-
+### 작성기를 통해 설치
 1. [Git를 설치][install-git]합니다.
 
+    > [AZURE.NOTE] Windows에서는 PATH 환경 변수에도 Git 실행 파일을 추가해야 합니다.
 
-	> [AZURE.NOTE] Windows에서는 PATH 환경 변수에도 Git 실행 파일을 추가해야 합니다.
-
-2. 프로젝트 루트에 **composer.json**이라는 파일을 만들고 다음 코드를 추가합니다.
-
+1. 프로젝트 루트에 **composer.json**이라는 파일을 만들고 다음 코드를 추가합니다.
+   
         {
-			"require": {
-				"microsoft/windowsazure": "^0.4"
-			}
+            "require": {
+                "microsoft/windowsazure": "^0.4"
+            }
         }
+2. 프로젝트 루트에 **[composer.phar][composer-phar]**을 다운로드합니다.
+3. 명령 프롬프트를 열고 프로젝트 루트에서 이 파일을 실행합니다.
+   
+        php composer.phar install
 
-3. 프로젝트 루트에 **[composer.phar][composer-phar]**을 다운로드합니다.
-
-4. 명령 프롬프트를 열고 프로젝트 루트에서 이 파일을 실행합니다.
-
-		php composer.phar install
-
-##Azure PowerShell 및 Azure 에뮬레이터
-
+## Azure PowerShell 및 Azure 에뮬레이터
 Azure PowerShell는 Azure 서비스(예: 클라우드 서비스 및 가상 컴퓨터)를 배포 및 관리하기 위한 PowerShell cmdlet 집합입니다. Azure 에뮬레이터는 응용 프로그램을 로컬로 테스트할 수 있는 클라우드 서비스 및 데이터 관리 서비스의 에뮬레이터입니다. 이러한 구성 요소는 Windows에서만 지원됩니다.
 
 Azure PowerShell 및 Azure 에뮬레이터는 [Microsoft 웹 플랫폼 설치 관리자][download-wpi]를 사용하여 설치하는 것이 좋습니다. PHP, SQL Server, PHP용 Microsoft Drivers for SQL Server, WebMatrix와 같은 다른 개발 구성 요소를 설치하도록 선택할 수도 있습니다.
 
 Azure PowerShell 사용 방법에 대한 내용은 [Azure PowerShell 사용 방법][powershell-tools]을 참조하십시오.
 
-##Azure CLI
-
+## Azure CLI
 Azure CLI는 Azure 웹 사이트 및 Azure 가상 컴퓨터와 같은 Azure 서비스를 배포 및 관리하기 위한 명령 집합입니다. Azure CLI를 설치하는 방법에 대한 자세한 내용은 [Azure CLI 설치](xplat-cli-install.md)를 참조하세요.
 
 ## 다음 단계
-
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
-
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer

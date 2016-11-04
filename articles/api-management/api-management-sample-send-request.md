@@ -1,24 +1,22 @@
-<properties
-	pageTitle="API 관리 서비스를 사용하여 HTTP 요청 생성"
-	description="API 관리에서 요청 및 응답 정책을 사용하여 API에서 외부 서비스를 호출하는 방법을 알아봅니다."
-	services="api-management"
-	documentationCenter=""
-	authors="darrelmiller"
-	manager=""
-	editor=""/>
+---
+title: API 관리 서비스를 사용하여 HTTP 요청 생성
+description: API 관리에서 요청 및 응답 정책을 사용하여 API에서 외부 서비스를 호출하는 방법을 알아봅니다.
+services: api-management
+documentationcenter: ''
+author: darrelmiller
+manager: ''
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/09/2016"
-	ms.author="darrmi"/>
+ms.service: api-management
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: darrmi
 
-
+---
 # Azure API 관리 서비스에서 외부 서비스 사용
-
 Azure API 관리 서비스에서 사용할 수 있는 정책은 순수하게 들어오는 요청, 보내는 응답 및 기본 구성 정보에 기반하여 다양한 범위의 유용한 작업을 수행할 수 있습니다. 그러나 API 관리 정책에서 외부 서비스와 상호 작용할 수 있으면 더 많은 기회를 얻게 됩니다.
 
 [로깅, 모니터링 및 분석에 대한 Azure 이벤트 허브 서비스](api-management-log-to-eventhub-sample.md)와 상호 작용할 수 있는 방법은 이전에 살펴보았습니다. 이 문서에서는 외부 HTTP 기반 서비스와 상호 작용할 수 있도록 하는 정책을 보여줍니다. 이러한 정책은 원격 이벤트를 트리거하거나 원래 요청 및 응답을 몇 가지 방식으로 조작하는 데 사용할 정보를 검색하는 데에 사용할 수 있습니다.
@@ -130,17 +128,17 @@ API 관리의 주요 기능은 백 엔드 리소스를 보호하는 것입니다
       </send-request>
 
       <choose>
-  			<!-- Check active property in response -->
-  			<when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
-  				<!-- Return 401 Unauthorized with http-problem payload -->
-  				<return-response response-variable-name="existing response variable">
-  					<set-status code="401" reason="Unauthorized" />
-  					<set-header name="WWW-Authenticate" exists-action="override">
-  						<value>Bearer error="invalid_token"</value>
-  					</set-header>
-  				</return-response>
-  			</when>
-  		</choose>
+              <!-- Check active property in response -->
+              <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
+                  <!-- Return 401 Unauthorized with http-problem payload -->
+                  <return-response response-variable-name="existing response variable">
+                      <set-status code="401" reason="Unauthorized" />
+                      <set-header name="WWW-Authenticate" exists-action="override">
+                          <value>Bearer error="invalid_token"</value>
+                      </set-header>
+                  </return-response>
+              </when>
+          </choose>
       <base />
     </inbound>
 
@@ -149,7 +147,7 @@ API 관리의 주요 기능은 백 엔드 리소스를 보호하는 것입니다
 ## 응답 컴퍼지션
 이전 예제에서 살펴본 대로 `send-request` 정책은 백 엔드 시스템에 대한 기본 요청을 개선하기 위해 사용되거나 백 엔드 호출의 전체 바꾸기로 사용될 수 있습니다. 이 기술을 사용하여 여러 다른 시스템에서 집계되는 복합 리소스를 쉽게 만들 수 있습니다.
 
-### 대시보드 작성   
+### 대시보드 작성
 예를 들어 대시보드를 통하여 여러 백 엔드 시스템에 존재하는 정보를 노출시키려고 할 수 있습니다. KPI는 모두 다른 백 엔드에서 가져오지만 직접 액세스를 제공하는 편을 선호하지 않으며 단일 요청에서 모든 정보를 검색할 수 있는 경우가 좋습니다. 아마도 일부 백 엔드 정보는 먼저 조각화 및 분할 및 처리가 필요합니다! 해당 복합 리소스를 캐시할 수 있으면 사용자는 성능이 저하된 메트릭이 변경되는지 알아보기 위해 F5 키를 계속 누르는 습관이 있기 때문에 백 엔드 부하를 줄이는데 유용합니다.
 
 ### 리소스 가장
@@ -192,7 +190,6 @@ API 관리의 주요 기능은 백 엔드 리소스를 보호하는 것입니다
 이러한 요청은 순서 대로 실행되며 이는 가장 좋은 방법은 아닙니다. 예정된 릴리스에서 이러한 요청을 병렬로 실행할 수 있도록 하는 `wait`라는 새 정책을 도입합니다.
 
 ### 응답
-
 복합 응답을 생성하려면 [반환-응답](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) 정책을 사용할 수 있습니다. `set-body` 요소는 속성으로 포함 된 모든 구성 요소 표현을 사용하여 새 `JObject`을 생성하도록 식을 사용할 수 있습니다.
 
     <return-response response-variable-name="existing response variable">
@@ -212,7 +209,7 @@ API 관리의 주요 기능은 백 엔드 리소스를 보호하는 것입니다
 완성된 정책은 다음과 같습니다.
 
     <policies>
-    	<inbound>
+        <inbound>
 
       <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
       <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
@@ -250,13 +247,13 @@ API 관리의 주요 기능은 백 엔드 리소스를 보호하는 것입니다
                           ).ToString())
           </set-body>
         </return-response>
-    	</inbound>
-    	<backend>
-    		<base />
-    	</backend>
-    	<outbound>
-    		<base />
-    	</outbound>
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
     </policies>
 
 데이터의 특성이 한 시간 전에 만료되더라도 사용자에게 중요한 정보를 전달하는 데 충분히 효율적이기 때문에 자리 표시자 작업의 구성에서 대시보드 리소스를 최소 한 시간 동안 캐시되도록 구성합니다.
@@ -267,6 +264,8 @@ Azure API 관리 서비스는 HTTP 트래픽에 선택적으로 적용할 수 �
 ## 이러한 정책에 대한 동영상 개요 시청
 이 문서에서 다루는 [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) 및 [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) 정책에 대한 자세한 내용은 다음 동영상을 시청하세요.
 
-> [AZURE.VIDEO send-request-and-return-response-policies]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
+> 
+> 
 
 <!---HONumber=AcomDC_0810_2016-->

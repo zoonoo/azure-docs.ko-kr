@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Reliable Services WC 통신 스택 | Microsoft Azure"
-   description="서비스 패브릭의 기본 제공 WCF 통신 스택은 Reliable Services를 위한 클라이언트-서비스 WCF 통신을 제공합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="BharatNarasimman"
-   manager="timlt"
-   editor="vturecek"/>
+---
+title: Reliable Services WC 통신 스택 | Microsoft Docs
+description: 서비스 패브릭의 기본 제공 WCF 통신 스택은 Reliable Services를 위한 클라이언트-서비스 WCF 통신을 제공합니다.
+services: service-fabric
+documentationcenter: .net
+author: BharatNarasimman
+manager: timlt
+editor: vturecek
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="07/26/2016"
-   ms.author="bharatn"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: required
+ms.date: 07/26/2016
+ms.author: bharatn
 
+---
 # Reliable Services에 대한 WCF 기반 통신 스택
 Reliable Services 프레임워크를 사용하면 서비스 작성자가 서비스에 사용하려는 통신 스택을 결정할 수 있습니다. 선택한 통신 스택을 [CreateServiceReplicaListeners 또는 CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) 메서드에서 반환되는 **ICommunicationListener**를 통해 플러그인할 수 있습니다. 이 프레임워크는 WCF 기반 통신을 사용하려는 서비스 작성자를 위한 WCF(Windows Communication Foundation) 기반 통신 스택 구현을 제공합니다.
 
@@ -113,13 +113,14 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
                 client => client.Channel.Add(2, 3)).Result;
 
 ```
->[AZURE.NOTE] 기본 ServicePartitionResolver는 클라이언트가 서비스와 동일한 클러스터에서 실행되고 있다고 가정합니다. 그렇지 않은 경우 ServicePartitionResolver 개체를 만들고 클러스터 연결 끝점에 전달합니다.
+> [!NOTE]
+> 기본 ServicePartitionResolver는 클라이언트가 서비스와 동일한 클러스터에서 실행되고 있다고 가정합니다. 그렇지 않은 경우 ServicePartitionResolver 개체를 만들고 클러스터 연결 끝점에 전달합니다.
+> 
+> 
 
 ## 다음 단계
 * [Reliable Services 원격을 사용하여 원격 프로시저 호출](service-fabric-reliable-services-communication-remoting.md)
-
 * [Reliable Services에서 OWIN을 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)
-
 * [Reliable Services에 대한 통신 보안 유지](service-fabric-reliable-services-secure-communication.md)
 
 <!---HONumber=AcomDC_0727_2016-->

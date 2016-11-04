@@ -1,32 +1,30 @@
- <properties
-   pageTitle="Azure 및 Linux | Microsoft Azure"
-   description="Linux 가상 컴퓨터를 사용하여 Azure 계산, 저장소 및 네트워킹 서비스를 설명합니다."
-   services="virtual-machines-linux"
-   documentationCenter="virtual-machines-linux"
-   authors="vlivech"
-   manager="timlt"
-   editor=""/>
+---
+title: Azure 및 Linux | Microsoft Docs
+description: Linux 가상 컴퓨터를 사용하여 Azure 계산, 저장소 및 네트워킹 서비스를 설명합니다.
+services: virtual-machines-linux
+documentationcenter: virtual-machines-linux
+author: vlivech
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="09/14/2016"
-   ms.author="v-livech"/>
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 09/14/2016
+ms.author: v-livech
 
+---
 # Azure 및 Linux
-
 Microsoft Azure는 솔루션을 호스팅하는 데 적합한 분석, 가상 컴퓨터, 데이터베이스, 모바일, 네트워킹, 저장소 및 웹을 비롯한 나날이 다양해지는 통합 공용 클라우드 서비스입니다. Microsoft Azure는 온-프레미스 하드웨어에 투자하지 않고 원하는 때에 사용에 대한 비용을 지불할 수 있도록 확장할 수 있는 계산 플랫폼을 제공합니다. Azure는 솔루션을 강화하고 클라이언트의 요구를 맞추기 위해 필요한 규모에 준비되어 있습니다.
 
 Amazon의 AWS의 다양한 기능에 익숙한 경우 Azure과 AWS 비교 [정의 매핑 문서](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)를 검토할 수 있습니다.
 
-
 ## 영역
 Microsoft Azure 리소스는 전 세계 여러 지리적 지역에 걸쳐 분산됩니다. "지역"은 동일한 지리적 지역에서 여러 데이터 센터를 나타냅니다. 2016년 1월 1일을 기준으로 아메리카 8곳, 유럽 2곳, 아시아 태평양 6곳, 중국 본토 2곳, 인도 3곳이 포함됩니다. Azure 지역 모두의 전체 목록을 원하는 경우 기존 및 새로 발표된 지역의 목록이 있습니다.
 
-- [Azure 지역](https://azure.microsoft.com/regions/)
+* [Azure 지역](https://azure.microsoft.com/regions/)
 
 ## Availability
 배포가 99.95 VM 서비스 수준 계약에 적합하도록 하기 위해 가용성 집합 내부에서 워크로드를 실행하는 두 개 이상의 VM을 배포해야 합니다. 이렇게 하면 VM이 데이터 센터에서 여러 오류 도메인 간에 분산될 뿐만 아니라 다양한 유지 관리 창이 있는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
@@ -51,30 +49,27 @@ Azure에서 VM을 배포할 경우 워크로드에 적합한 크기의 시리즈
 
 참고: DS 시리즈 및 GS 시리즈 VM은 I/O가 많은 워크로드에 SSD가 지원하는 높은 성능과 짧은 대기 시간을 갖는 저장소인 프리미엄 저장소에 대한 권한을 갖습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-- [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage.md)
+* [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage.md)
 
 ## 자동화
 적절한 DevOps 문화권을 얻으려면 모든 인프라가 코드여야 합니다. 모든 인프라가 코드로 되어 있으면 쉽게 다시 만들 수 있습니다(Phoenix 서버). Azure는 Ansible, Chef, SaltStack 및 Puppet과 같은 모든 주요 자동화 도구와 함께 작동합니다. 또한 Azure는 자체 자동화 도구도 제공합니다.
 
-- [Azure 템플릿](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-
-- [Azure VMAccess](virtual-machines-linux-using-vmaccess-extension.md)
+* [Azure 템플릿](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+* [Azure VMAccess](virtual-machines-linux-using-vmaccess-extension.md)
 
 Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](http://cloud-init.io/)에 대한 지원을 롤아웃하고 있습니다. 현재 Canonical의 Ubuntu VM은 기본적으로 사용하도록 설정된 cloud-init와 함께 배포됩니다. RedHats RHEL, CentOS 및 Fedora는 cloud-init를 지원하지만 RedHat에서 유지 관리하는 Azure 이미지에는 cloud-init가 설치되어 있지 않습니다. RedHat 제품군 OS에서 cloud-init를 사용하려면 cloud-init가 설치된 사용자 지정 이미지를 만들어야 합니다.
 
-- [Azure Linux VM에서 cloud-init 사용](virtual-machines-linux-using-cloud-init.md)
+* [Azure Linux VM에서 cloud-init 사용](virtual-machines-linux-using-cloud-init.md)
 
 ## 할당량
 각 Azure 구독에는 프로젝트에 대해 많은 수의 VM을 배포하는 데 영향을 줄 수 있는 기본 할당량 한도가 있습니다. 구독별 기준으로 현재 제한은 지역당 20대의 VM입니다. 할당량 제한은 제한 증가를 요구하는 지원 티켓을 제출하여 증가될 수 있습니다. 할당량 제한에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure 구독 서비스 제한](../azure-subscription-service-limits.md)
-
+* [Azure 구독 서비스 제한](../azure-subscription-service-limits.md)
 
 ## 파트너
-
 Microsoft는 파트너와 긴밀히 협력하여 사용 가능한 이미지가 업데이트되고 Azure 런타임에 대해 최적화되도록 합니다. 파트너에 대한 자세한 내용은 아래의 해당 마켓플레이스 페이지를 확인하세요.
 
-- [Azure 인증 배포의 Linux](virtual-machines-linux-endorsed-distros.md)
+* [Azure 인증 배포의 Linux](virtual-machines-linux-endorsed-distros.md)
 
 Redhat - [Azure 마켓플레이스 - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 
@@ -96,7 +91,6 @@ Docker - [Azure 마켓플레이스 - Azure Container Service with Docker Swarm](
 
 Jenkins - [Azure 마켓플레이스 - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
 
-
 ## Azure의 설정 가져오기
 Azure 사용을 시작하려면 Azure 계정, 설치된 Azure CLI, SSH 공용 및 개인 키 쌍이 필요합니다.
 
@@ -115,53 +109,39 @@ Azure 계정이 설정되고, Azure CLI가 설치되고, SSH 키가 생성되었
 ## CLI를 사용하여 VM 만들기
 CLI에서 Linux VM을 만들 경우 작업 중인 터미널을 빠져 나가지 않고 VM을 빠르게 배포할 수 있습니다. 웹 포털에서 지정할 수 있는 모든 사항은 명령줄 플래그 또는 스위치를 통해 사용할 수 있습니다.
 
-- [CLI를 사용하여 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md)
+* [CLI를 사용하여 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md)
 
 ## 포털에서 VM 만들기
 Azure 웹 포털에서 Linux VM을 만들 경우 배포를 진행하기 위한 다양한 옵션을 쉽게 가리키고 클릭할 수 있습니다. 명령줄 플래그 또는 스위치를 사용하는 대신, 다양한 옵션 및 설정으로 이루어진 멋진 웹 레이아웃을 볼 수 있습니다. 명령줄 인터페이스를 통해 사용 가능한 모든 사항은 포털에서도 사용할 수 있습니다.
 
-- [포털을 사용하여 Linux VM 만들기](virtual-machines-linux-quick-create-portal.md)
+* [포털을 사용하여 Linux VM 만들기](virtual-machines-linux-quick-create-portal.md)
 
 ## SSH를 사용하여 암호 없이 로그인
 VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다. 암호를 사용하여 SSH를 통해 로그인하는 것은 안전하지 않으며 시간이 많이 소요됩니다. SSH 키를 사용하는 것이 가장 안전하고 로그인하는 데 가장 빠른 방법입니다. 포털 또는 CLI를 통해 Linux VM을 만들 경우 두 가지 인증 중에서 선택해야 합니다. SSH에 대한 암호를 선택하면 Azure에서 암호를 통한 로그인을 허용하도록 VM이 구성됩니다. SSH 공개 키를 사용하기로 선택한 경우 Azure에서 SSH 키를 통한 로그인만 허용하도록 VM을 구성하고 암호 로그인은 사용할 수 없게 설정합니다. SSH 키 로그인만 허용하여 Linux VM을 보호하려면 포털 또는 CLI에서 VM을 만드는 동안 SSH 공개 키 옵션을 사용합니다.
 
-- [SSHD를 구성하여 Linux VM에 SSH 암호 사용 안 함](virtual-machines-linux-mac-disable-ssh-password-usage.md)
+* [SSHD를 구성하여 Linux VM에 SSH 암호 사용 안 함](virtual-machines-linux-mac-disable-ssh-password-usage.md)
 
 ## 관련 Azure 구성 요소
-
 ## 저장소
-
-- [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)
-
-- [ 사용하여 Linux VM에 디스크 추가](virtual-machines-linux-add-disk.md)
-
-- [Azure 포털에서 Linux VM에 데이터 디스크를 연결하는 방법](virtual-machines-linux-attach-disk-portal.md)
+* [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)
+* [ 사용하여 Linux VM에 디스크 추가](virtual-machines-linux-add-disk.md)
+* [Azure 포털에서 Linux VM에 데이터 디스크를 연결하는 방법](virtual-machines-linux-attach-disk-portal.md)
 
 ## 네트워킹
-
-- [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)
-
-- [Azure의 IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-
-- [Azure에서 Linux VM에 포트 열기](virtual-machines-linux-nsg-quickstart.md)
-
-- [Azure 포털에서 정규화된 도메인 이름 만들기](virtual-machines-linux-portal-create-fqdn.md)
-
+* [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)
+* [Azure의 IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [Azure에서 Linux VM에 포트 열기](virtual-machines-linux-nsg-quickstart.md)
+* [Azure 포털에서 정규화된 도메인 이름 만들기](virtual-machines-linux-portal-create-fqdn.md)
 
 ## 컨테이너
-
-- [Azure 가상 컴퓨터 및 컨테이너](virtual-machines-linux-containers.md)
-
-- [Azure 컨테이너 서비스 소개](../container-service/container-service-intro.md)
-
-- [Azure 컨테이너 서비스 클러스터 배포](../container-service/container-service-deployment.md)
+* [Azure 가상 컴퓨터 및 컨테이너](virtual-machines-linux-containers.md)
+* [Azure 컨테이너 서비스 소개](../container-service/container-service-intro.md)
+* [Azure 컨테이너 서비스 클러스터 배포](../container-service/container-service-deployment.md)
 
 ## 다음 단계
-
 이제 Azure의 Linux를 대략적으로 이해하게 되었을 것입니다. 다음 단계로는 좀 더 깊이 들어가서 몇 개의 VM을 만들어 보겠습니다.
 
-- [포털을 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-portal.md)
-
-- [CLI를 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md)
+* [포털을 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-portal.md)
+* [CLI를 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md)
 
 <!---HONumber=AcomDC_0928_2016-->

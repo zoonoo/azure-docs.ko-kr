@@ -2,7 +2,6 @@
 
 
 ## 사용량 세부 정보에서 태그 보기
-
 리소스 관리자를 통해 계산, 네트워크 및 저장소 리소스에 배치된 태그는 [청구 포털](https://account.windowsazure.com/)의 사용량 세부 정보에 채워집니다.
 
 **사용량 세부 정보 다운로드**를 클릭하여 구독의 사용량 세부 정보를 표시합니다.
@@ -18,5 +17,4 @@
 ![Azure 포털의 태그 열](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
 
 조직에서는 사용량과 함께 이러한 태그를 분석하여 소비 데이터에 대한 새로운 통찰력을 얻을 수 있습니다.
-
 

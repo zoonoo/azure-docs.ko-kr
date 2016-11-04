@@ -1,37 +1,35 @@
-<properties
-	pageTitle="PowerShell을 사용하여 서비스 패브릭 응용 프로그램 관리 자동화 | Microsoft Azure"
-	description="PowerShell을 사용하여 서비스 패브릭 응용 프로그램 배포, 업그레이드, 테스트 및 제거"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="rwike77"
-	manager="timlt"
-	editor=""/>
+---
+title: PowerShell을 사용하여 서비스 패브릭 응용 프로그램 관리 자동화 | Microsoft Docs
+description: PowerShell을 사용하여 서비스 패브릭 응용 프로그램 배포, 업그레이드, 테스트 및 제거
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="service-fabric"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/25/2016"
-	ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: ryanwi
 
+---
 # PowerShell을 사용하여 응용 프로그램 수명 주기 자동화
-
 [서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)의 여러 측면을 자동화할 수 있습니다. 이 문서에서는 PowerShell을 사용해 Azure 서비스 패브릭 응용 프로그램을 배포, 업그레이드, 제거 및 테스트하는 일반적인 작업을 자동화하는 방법을 보여줍니다. 앱 관리를 위한 관리되는 API 및 HTTP API도 사용 가능합니다. 자세한 내용은 [앱 수명 주기](service-fabric-application-lifecycle.md)를 참조하세요.
 
 ## 필수 조건
 다음은 문서의 작업으로 넘어가기 전에 해야 할 일입니다.
 
-+ [서비스 패브릭의 기술 개요](service-fabric-technical-overview.md)에 설명된 서비스 패브릭 개념을 숙지합니다.
-+ [런타임, SDK 및 도구를 설치](service-fabric-get-started.md)합니다. **ServiceFabric** PowerShell 모듈도 함께 설치될 것입니다.
-+ [PowerShell 스크립트 실행을 활성화](service-fabric-get-started.md#enable-powershell-script-execution)합니다.
-+ 로컬 클러스터를 시작합니다. 관리자로 새 PowerShell 창을 시작한 다음 SDK 폴더에서 클러스터 설치 스크립트를 실행합니다. `& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"`
-+ 이 문서에서는 PowerShell 명령을 실행하기에 앞서 [**Connect-ServiceFabricCluster**](https://msdn.microsoft.com/library/azure/mt125938.aspx)를 사용하여 로컬 서비스 패브릭 클러스터에 먼저 연결합니다. `Connect-ServiceFabricCluster localhost:19000`
-+ 다음 작업에서 배포에는 v1 응용 프로그램 패키지, 업그레이드에는 v2 응용 프로그램 패키지가 필요합니다. [**WordCount** 응용 프로그램 예제](http://aka.ms/servicefabricsamples)(시작 샘플에 있음)를 다운로드합니다. 솔루션 탐색기에서 **WordCount**를 마우스 오른쪽 단추로 클릭하고 **패키지**를 선택하여 Visual Studio에서 응용 프로그램을 빌드 및 패키지합니다. `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug`의 v1 패키지를 `C:\Temp\WordCount`에 복사합니다. `C:\Temp\WordCount`를 `C:\Temp\WordCountV2`에 복사하여 업그레이드에 사용할 v2 응용 프로그램 패키지를 만듭니다. 텍스트 편집기에서 `C:\Temp\WordCountV2\ApplicationManifest.xml` 파일을 엽니다. **ApplicationManifest** 요소에서 **ApplicationTypeVersion** 특성을 "1.0.0"에서 "2.0.0"으로 변경하여 앱 버전 번호를 업데이트합니다. 변경된 ApplicationManifest.xml 파일을 저장합니다.
+* [서비스 패브릭의 기술 개요](service-fabric-technical-overview.md)에 설명된 서비스 패브릭 개념을 숙지합니다.
+* [런타임, SDK 및 도구를 설치](service-fabric-get-started.md)합니다. **ServiceFabric** PowerShell 모듈도 함께 설치될 것입니다.
+* [PowerShell 스크립트 실행을 활성화](service-fabric-get-started.md#enable-powershell-script-execution)합니다.
+* 로컬 클러스터를 시작합니다. 관리자로 새 PowerShell 창을 시작한 다음 SDK 폴더에서 클러스터 설치 스크립트를 실행합니다. `& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"`
+* 이 문서에서는 PowerShell 명령을 실행하기에 앞서 [**Connect-ServiceFabricCluster**](https://msdn.microsoft.com/library/azure/mt125938.aspx)를 사용하여 로컬 서비스 패브릭 클러스터에 먼저 연결합니다. `Connect-ServiceFabricCluster localhost:19000`
+* 다음 작업에서 배포에는 v1 응용 프로그램 패키지, 업그레이드에는 v2 응용 프로그램 패키지가 필요합니다. [**WordCount** 응용 프로그램 예제](http://aka.ms/servicefabricsamples)(시작 샘플에 있음)를 다운로드합니다. 솔루션 탐색기에서 **WordCount**를 마우스 오른쪽 단추로 클릭하고 **패키지**를 선택하여 Visual Studio에서 응용 프로그램을 빌드 및 패키지합니다. `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug`의 v1 패키지를 `C:\Temp\WordCount`에 복사합니다. `C:\Temp\WordCount`를 `C:\Temp\WordCountV2`에 복사하여 업그레이드에 사용할 v2 응용 프로그램 패키지를 만듭니다. 텍스트 편집기에서 `C:\Temp\WordCountV2\ApplicationManifest.xml` 파일을 엽니다. **ApplicationManifest** 요소에서 **ApplicationTypeVersion** 특성을 "1.0.0"에서 "2.0.0"으로 변경하여 앱 버전 번호를 업데이트합니다. 변경된 ApplicationManifest.xml 파일을 저장합니다.
 
 ## 작업: 서비스 패브릭 응용 프로그램 배포
-
 응용 프로그램을 빌드 및 패키지(또는 응용 프로그램 패키지를 다운로드)한 후에는 로컬 서비스 패브릭 클러스터로 응용 프로그램을 배포할 수 있습니다. 배포에는 응용 프로그램 패키지를 업로드하고 응용 프로그램 형식을 등록하며 응용 프로그램 인스턴스를 만드는 작업이 포함됩니다. 이 섹션의 지침에 따라 새 응용 프로그램을 클러스터에 배포합니다.
 
 ### 1단계: 응용 프로그램 패키지 업로드
@@ -90,7 +88,7 @@ Register-ServiceFabricApplicationType WordCountV2
 ```
 
 ### 3단계: 업그레이드 시작
-응용 프로그램 업그레이드에는 다양한 업그레이드 매개 변수, 제한 시간 및 상태 기준을 적용할 수 있습니다. 자세히 알아보려면 [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md) 문서를 읽어보세요. 모든 서비스 및 인스턴스는 업그레이드 후 _정상_ 상태여야 합니다. **HealthCheckStableDuration**을 60초로 설정하면 서비스는 다음 업그레이드 도메인으로 업그레이드를 진행하기 전에 적어도 20초간 정상 상태로 유지됩니다. 또한 **UpgradeDomainTimeout**을 1200초로, **UpgradeTimeout**을 3000초로 설정합니다. 마지막으로 업그레이드하는 동안 문제가 발생한 경우 서비스 패브릭이 응용 프로그램을 이전 버전으로 롤백하도록 요청하는 **롤백**으로 **UpgradeFailureAction**을 설정합니다.
+응용 프로그램 업그레이드에는 다양한 업그레이드 매개 변수, 제한 시간 및 상태 기준을 적용할 수 있습니다. 자세히 알아보려면 [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md) 문서를 읽어보세요. 모든 서비스 및 인스턴스는 업그레이드 후 *정상* 상태여야 합니다. **HealthCheckStableDuration**을 60초로 설정하면 서비스는 다음 업그레이드 도메인으로 업그레이드를 진행하기 전에 적어도 20초간 정상 상태로 유지됩니다. 또한 **UpgradeDomainTimeout**을 1200초로, **UpgradeTimeout**을 3000초로 설정합니다. 마지막으로 업그레이드하는 동안 문제가 발생한 경우 서비스 패브릭이 응용 프로그램을 이전 버전으로 롤백하도록 요청하는 **롤백**으로 **UpgradeFailureAction**을 설정합니다.
 
 이제 [**Start-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125975.aspx) cmdlet을 사용하여 응용 프로그램 업그레이드를 시작할 수 있습니다.
 
@@ -110,7 +108,6 @@ Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 잠시 후에 [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) cmdlet을 실행하면 모든 업그레이드 도메인이 업그레이드되었으며 작업이 완료되었음이 표시됩니다.
 
 ## 작업: 서비스 패브릭 응용 프로그램 테스트
-
 고품질 서비스를 작성하려면 개발자는 불안정한 인프라 결함을 유도하여 서비스의 안정성을 테스트할 수 있어야 합니다. 서비스 패브릭은 비정상 및 장애 조치(failover) 테스트 시나리오를 사용하여 개발자에게 오류가 있는 상황에서 서비스를 테스트할 수 있도록 오류 작업을 유도하는 기능을 제공합니다. 자세한 내용은 [테스트 용이성 개요](service-fabric-testability-overview.md)를 읽어보세요.
 
 ### 1단계: 비정상 상황 테스트 시나리오 실행

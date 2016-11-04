@@ -1,39 +1,38 @@
-<properties
-	pageTitle="iOS에서 인증된 사용자에게 푸시 알림 보내기(JavaScript 백 엔드)"
-	description="특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아보기"
-	services="mobile-services,notification-hubs"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+---
+title: iOS에서 인증된 사용자에게 푸시 알림 보내기(JavaScript 백 엔드)
+description: 특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아보기
+services: mobile-services,notification-hubs
+documentationcenter: ios
+author: krisragh
+manager: dwrede
+editor: ''
 
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh"/>
-
+---
 # 인증된 사용자에게 푸시 알림 보내기
-
-[AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+[!INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > 이 항목에 해당하는 모바일 앱 버전은 [방법: 인증된 사용자에게 태그를 사용하여 푸시 알림 보내기](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#push-user)를 참조하세요.
+> 
+> 
 
 이 항목에서는 iOS에서 인증된 사용자에게 푸시 알림을 보내는 방법에 대해 배웁니다. 이 자습서를 시작하기 전에 [인증 시작] 및 [푸시 알림 시작]을 먼저 완료합니다.
 
 이 자습서에서는 인증된 사용자만 해당 알림을 보내기 위해 먼저 인증하고, 푸시 알림에 대한 알림 허브에 등록하고, 서버 스크립트를 업데이트하도록 사용자에게 요청합니다.
 
-
-##<a name="register"></a>등록에 인증이 필요하도록 서비스 업데이트
-
-[AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
+## <a name="register"></a>등록에 인증이 필요하도록 서비스 업데이트
+[!INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
 `insert` 함수를 다음의 코드로 바꾼 후 **저장**을 클릭합니다. 이 삽입 스크립트는 사용자 ID 태그를 사용하여 로그인된 사용자의 모든 iOS 앱 등록에 푸시 알림을 보냅니다.
 
@@ -54,15 +53,11 @@ function insert(item, user, request) {
 }
 ```
 
-##<a name="update-app"></a>등록 전에 로그인하도록 앱 업데이트
+## <a name="update-app"></a>등록 전에 로그인하도록 앱 업데이트
+[!INCLUDE [mobile-services-ios-push-notifications-app-users-login](../../includes/mobile-services-ios-push-notifications-app-users-login.md)]
 
-[AZURE.INCLUDE [mobile-services-ios-push-notifications-app-users-login](../../includes/mobile-services-ios-push-notifications-app-users-login.md)]
-
-##<a name="test"></a>앱 테스트
-
-[AZURE.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
-
-
+## <a name="test"></a>앱 테스트
+[!INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
 <!-- Anchors. -->
 [Updating the service to require authentication for registration]: #register

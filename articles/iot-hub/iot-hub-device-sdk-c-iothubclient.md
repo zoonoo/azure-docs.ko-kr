@@ -1,23 +1,22 @@
-<properties
-	pageTitle="C용 Azure IoT 장치 SDK – IoTHubClient | Microsoft Azure"
-	description="C용 Azure IoT 장치 SDK에서 IoTHubClient 라이브러리 사용에 대한 자세한 정보"
-	services="iot-hub"
-	documentationCenter=""
-	authors="olivierbloch"
-	manager="timlt"
-	editor=""/>
+---
+title: C용 Azure IoT 장치 SDK – IoTHubClient | Microsoft Docs
+description: C용 Azure IoT 장치 SDK에서 IoTHubClient 라이브러리 사용에 대한 자세한 정보
+services: iot-hub
+documentationcenter: ''
+author: olivierbloch
+manager: timlt
+editor: ''
 
-<tags
-     ms.service="iot-hub"
-     ms.devlang="cpp"
-     ms.topic="article"
-     ms.tgt_pltfrm="na"
-     ms.workload="na"
-     ms.date="09/06/2016"
-     ms.author="obloch"/>
+ms.service: iot-hub
+ms.devlang: cpp
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/06/2016
+ms.author: obloch
 
+---
 # C용 Microsoft Azure IoT 장치 SDK – IoTHubClient에 대한 자세한 정보
-
 이 시리즈의 [첫 번째 문서](iot-hub-device-sdk-c-intro.md)에서는 **C용 Microsoft Azure IoT 장치 SDK**에 대해 소개했습니다. 첫 번째 문서에서 SDK에 두 아키텍처 계층이 있다는 것을 설명했습니다. 맨 하단은 IoT Hub와의 통신을 직접 관리하는 **IoTHubClient** 라이브러리입니다. 직렬화 서비스를 제공하기 위해 위쪽에 구축되는 **serializer** 라이브러리도 있습니다. 이 문서에서는 **IoTHubClient** 라이브러리에 대한 추가 세부 정보를 제공합니다.
 
 이전 문서에서는 **IoTHubClient** 라이브러리를 사용하여 이벤트를 IoT Hub로 전송하고 메시지를 수신하는 방법을 설명했습니다. 이 문서에서는 **하위 수준 API**를 소개하여 데이터를 전송 및 수신하는 *시간*을 보다 정확하게 관리하는 방법에 대한 설명으로 논의를 확대합니다. 또한 **IoTHubClient** 라이브러리의 속성 처리 기능을 사용하여 이벤트에 속성을 첨부하고 메시지에서 검색하는 방법도 설명합니다. 마지막으로 IoT Hub에서 수신한 메시지를 처리하는 다양한 방법에 대한 추가 설명을 제공합니다.
@@ -29,7 +28,6 @@
 [Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) GitHub 리포지토리에서 **C에 대한 Azure IoT 장치 SDK**를 찾고 [C API 참조](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html)에서 API의 세부 정보를 볼 수 있습니다.
 
 ## 하위 수준 API
-
 이전 문서에서는 **iothub\_client\_sample\_amqp** 응용 프로그램 컨텍스트 내에 있는 **IotHubClient**의 기본적인 동작을 설명했습니다. 예를 들어 다음 코드를 사용하여 라이브러리를 초기화하는 방법을 설명했습니다.
 
 ```
@@ -58,14 +56,10 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 그러나 이러한 각 API에는 도우미 함수가 있습니다.
 
--   IoTHubClient\_LL\_CreateFromConnectionString
-
--   IoTHubClient\_LL\_SendEventAsync
-
--   IoTHubClient\_LL\_SetMessageCallback
-
--   IoTHubClient\_LL\_Destroy
-
+* IoTHubClient\_LL\_CreateFromConnectionString
+* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LL\_SetMessageCallback
+* IoTHubClient\_LL\_Destroy
 
 이러한 함수는 모두 API 이름에 "LL"을 포함합니다. 그 외에, 이러한 각 함수의 매개 변수는 비-LL 해당 항목과 동일합니다. 그러나 이러한 함수의 동작은 한 가지 중요한 방식에서 서로 다릅니다.
 
@@ -129,20 +123,16 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 
 어떤 모델을 선택하든 사용하는 API와 일관되어야 합니다. **IoTHubClient\_LL\_CreateFromConnectionString**을 호출하여 시작하는 경우 후속 작업에 해당하는 하위 수준 API만 사용해야 합니다.
 
--   IoTHubClient\_LL\_SendEventAsync
-
--   IoTHubClient\_LL\_SetMessageCallback
-
--   IoTHubClient\_LL\_Destroy
-
--   IoTHubClient\_LL\_DoWork
+* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LL\_SetMessageCallback
+* IoTHubClient\_LL\_Destroy
+* IoTHubClient\_LL\_DoWork
 
 반대의 경우도 마찬가지입니다. **IoTHubClient\_CreateFromConnectionString**으로 시작한 후 비-LL API를 사용하여 추가 처리를 계속합니다.
 
 C용 Azure IoT 장치 SDK에서 하위 수준 API에 대한 전체 예제는 **iothub\_client\_sample\_http** 응용 프로그램을 참조하세요. 비-LL API의 전체 예제는 **iothub\_client\_sample\_amqp** 응용 프로그램을 참조하면 됩니다.
 
 ## 속성 처리
-
 지금까지 데이터 전송에 대해 설명할 때 메시지 본문을 참조했습니다. 다음 코드를 예로 들 수 있습니다.
 
 ```
@@ -201,24 +191,21 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 응용 프로그램에서 속성을 사용할 필요가 없습니다. 하지만 이벤트에 속성을 설정하거나 메시지에서 속성을 가져와야 하는 경우 **IoTHubClient** 라이브러리로 쉽게 작업할 수 있습니다.
 
 ## 메시지 처리
-
 앞서 설명한 것처럼 IoT Hub에서 메시지가 도착할 때 **IoTHubClient** 라이브러리가 등록된 콜백 함수를 호출하여 응답합니다. 이 함수에는 반환 매개 변수가 있으며 이에 대한 추가 설명이 필요합니다. 다음은 **iothub\_client\_sample\_http** 응용 프로그램 예제에 있는 콜백 함수를 발췌한 것입니다.
 
 ```
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
 {
-	. . .
+    . . .
     return IOTHUBMESSAGE_ACCEPTED;
 }
 ```
 
 반환 형식은 **IOTHUBMESSAGE\_DISPOSITION\_RESULT**이며 이 특수한 경우에서는 **IOTHUBMESSAGE\_ACCEPTED**를 반환합니다. 이 함수에서 다른 값을 반환할 수 있으며 이 값으로 **IoTHubClient** 라이브러리가 메시지 콜백에 반응하는 방식을 변경합니다. 옵션은 다음과 같습니다.
 
--   **IOTHUBMESSAGE\_ACCEPTED** – 메시지가 성공적으로 처리되었습니다. **IoTHubClient** 라이브러리가 동일한 메시지로 콜백 함수를 다시 호출하지 않습니다.
-
--   **IOTHUBMESSAGE\_REJECTED** – 메시지가 처리되지 않았으며 나중에도 처리되지 않습니다. **IoTHubClient** 라이브러리는 같은 메시지로 콜백 함수를 다시 호출하지 않아야 합니다.
-
--   **IOTHUBMESSAGE\_ABANDONED** – 메시지가 성공적으로 처리되지 않았지만 **IoTHubClient** 라이브러리는 같은 메시지로 콜백 함수를 다시 호출해야 합니다.
+* **IOTHUBMESSAGE\_ACCEPTED** – 메시지가 성공적으로 처리되었습니다. **IoTHubClient** 라이브러리가 동일한 메시지로 콜백 함수를 다시 호출하지 않습니다.
+* **IOTHUBMESSAGE\_REJECTED** – 메시지가 처리되지 않았으며 나중에도 처리되지 않습니다. **IoTHubClient** 라이브러리는 같은 메시지로 콜백 함수를 다시 호출하지 않아야 합니다.
+* **IOTHUBMESSAGE\_ABANDONED** – 메시지가 성공적으로 처리되지 않았지만 **IoTHubClient** 라이브러리는 같은 메시지로 콜백 함수를 다시 호출해야 합니다.
 
 처음 두 반환 코드에서 **IoTHubClient** 라이브러리는 IoT Hub에 메시지를 전송하며 해당 메시지를 장치의 큐에서 삭제하고 다시 전달하지 않아야 함을 나타냅니다. 최종 결과는 동일하지만(장치의 큐에서 메시지가 삭제됨) 메시지를 수락 또는 거부할지 여부는 계속 기록됩니다. 이러한 구분을 기록하는 것은 피드백을 수신 대기하고 장치가 특정 메시지를 수락 또는 거부했는지를 파악하는 메시지 보낸 사람에게 유용합니다.
 
@@ -227,7 +214,6 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 어떤 경우든 다양한 반환 코드를 파악하여 **IoTHubClient** 라이브러리에서 원하는 동작을 유도할 수 있습니다.
 
 ## 대체 장치 자격 증명
-
 이전에 설명한 것처럼 **IoTHubClient** 라이브러리로 작업할 때 가장 먼저 할 일은 다음과 같은 호출로 **IOTHUB\_CLIENT\_HANDLE**을 얻는 것입니다.
 
 ```
@@ -260,7 +246,6 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_LL_Create(&iotHubClientCo
 보다 구체적인 초기화 메서드보다 **IoTHubClient\_CreateFromConnectionString**을 사용하려는 것이 분명해보일 수 있습니다. 하지만 장치를 IoT Hub에 등록할 때 연결 문자열이 아닌, 장치 ID 및 장치 키를 얻게 되는 것을 유의해야 합니다. [이전 문서](iot-hub-device-sdk-c-intro.md)에서 소개한 **장치 관리자** SDK 도구는 **Azure IoT 서비스 SDK**의 라이브러리를 사용하여 장치 ID, 장치 키 및 IoT Hub 호스트 이름에서 연결 문자열을 만듭니다. 따라서 **IoTHubClient\_LL\_Create**를 호출하면 연결 문자열을 생성하는 단계가 필요 없으므로 더 적합할 수 있습니다. 어떤 것이든 편한 방법을 사용하세요.
 
 ## 구성 옵션
-
 지금까지 **IoTHubClient** 라이브러리가 작동하는 방법에 대해 설명한 모든 내용은 기본 동작에 대한 것입니다. 하지만 라이브러리가 작동하는 방식을 변경하도록 설정 가능한 몇 가지 옵션이 있습니다. 이 작업은 **IoTHubClient\_LL\_SetOption** API를 활용하여 수행합니다. 다음 예를 살펴보세요.
 
 ```
@@ -270,24 +255,22 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 일반적으로 사용되는 몇 가지 옵션이 있습니다.
 
--   **SetBatching**(bool) – **true**이면 IoT Hub로 전송된 데이터가 일괄 처리로 전송됩니다. **false**이면 메시지가 개별적으로 전송됩니다. 기본값은 **false**입니다. 참고로 **SetBatching** 옵션은 HTTP 프로토콜에만 적용되며 AMQP 또는 MQTT 프로토콜에는 적용되지 않습니다.
-
--   **Timeout**(unsigned int) – 이 값은 밀리초 단위로 표시됩니다. HTTP 요청을 전송하고 응답을 수신하는 경우 이 시간보다 오래 걸리면 연결이 시간 초과됩니다.
+* **SetBatching**(bool) – **true**이면 IoT Hub로 전송된 데이터가 일괄 처리로 전송됩니다. **false**이면 메시지가 개별적으로 전송됩니다. 기본값은 **false**입니다. 참고로 **SetBatching** 옵션은 HTTP 프로토콜에만 적용되며 AMQP 또는 MQTT 프로토콜에는 적용되지 않습니다.
+* **Timeout**(unsigned int) – 이 값은 밀리초 단위로 표시됩니다. HTTP 요청을 전송하고 응답을 수신하는 경우 이 시간보다 오래 걸리면 연결이 시간 초과됩니다.
 
 일괄 처리 옵션은 중요합니다. 기본적으로 라이브러리는 개별적으로 이벤트를 수신합니다(**IoTHubClient\_LL\_SendEventAsync**에 전달한 단일 이벤트). 일괄 처리 옵션이 **true**인 경우 라이브러리는 버퍼에서 가져올 수 있는 만큼 이벤트를 수집합니다(IoT Hub에서 수락하는 최대 메시지 크기까지). 이벤트 일괄 처리는 단일 HTTP 호출로 IoT Hub에 전송됩니다(개별 이벤트는 JSON 배열에 번들됨). 일괄 처리를 설정하면 네트워크 왕복이 감소되므로 성능상 이점이 상당합니다. 각 개별 이벤트에 대한 헤더 집합이 아닌, 이벤트 일괄 처리가 포함된 한 집합의 HTTP 헤더를 전송하므로 대역폭도 크게 감소합니다. 다른 이유가 없는 한, 일반적으로 일괄 처리를 사용하도록 설정하는 것이 좋습니다.
 
 ## 다음 단계
-
 이 문서에서는 **C용 Azure IoT 장치 SDK**에 있는 **IoTHubClient** 라이브러리의 동작에 대해 자세히 설명했습니다. 이 정보로 **IoTHubClient** 라이브러리의 기능에 대해 제대로 이해해야 합니다. [다음 문서](iot-hub-device-sdk-c-serializer.md)에서는 **serializer** 라이브러리에 대한 유사한 세부 정보를 제공합니다.
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 [IoT Hub SDK][lnk-sdks]를 참조하세요.
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-- [솔루션 디자인][lnk-design]
-- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
-- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
-- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
+* [솔루션 디자인][lnk-design]
+* [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+* [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
 
 [lnk-sdks]: iot-hub-sdks-summary.md
 

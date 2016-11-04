@@ -1,28 +1,26 @@
-<properties
-    pageTitle="Data Catalog 개발자 개념 | Microsoft Azure"
-    description="카탈로그 REST API를 통해 노출된 것으로 Azure 데이터 카탈로그 개념적 모델의 주요 개념을 소개합니다."
-    services="data-catalog"
-    documentationCenter=""
-    authors="spelluru"
-    manager="jhubbard"
-    editor=""
-    tags=""/>
-<tags
-    ms.service="data-catalog"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-catalog"
-    ms.date="10/11/2016"
-    ms.author="spelluru"/>  
+---
+title: Data Catalog 개발자 개념 | Microsoft Docs
+description: 카탈로그 REST API를 통해 노출된 것으로 Azure 데이터 카탈로그 개념적 모델의 주요 개념을 소개합니다.
+services: data-catalog
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: ''
+tags: ''
 
+ms.service: data-catalog
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-catalog
+ms.date: 10/11/2016
+ms.author: spelluru
 
+---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure 데이터 카탈로그 개발자 개념
-
 Microsoft **Azure 데이터 카탈로그**는 데이터 원본 검색 및 크라우드소싱 데이터 원본 메타데이터에 대한 기능을 제공하는 완전히 관리되는 클라우드 서비스입니다. 개발자는 REST API를 통해 서비스를 사용할 수 있습니다. 서비스에서 구현되는 개념을 이해 하는 것은 개발자가 **Azure 데이터 카탈로그**를 성공적으로 통합하는 데 중요합니다.
 
 ## <a name="key-concepts"></a>주요 개념
-
 **Azure Data Catalog** 개념적 모델은 **카탈로그**, **사용자**, **자산** 및 **주석**의 4개의 주요 개념에 기반합니다.
 
 ![개념][1]
@@ -30,13 +28,11 @@ Microsoft **Azure 데이터 카탈로그**는 데이터 원본 검색 및 크라
 *그림 1-Azure 데이터 카탈로그 단순 개념적 모델*
 
 ### <a name="catalog"></a>카탈로그
-
 **카탈로그**는 조직이 저장하는 모든 메타데이터에 대한 최상위 컨테이너입니다. Azure 계정당 하나의 **카탈로그**가 허용합니다. 카탈로그는 Azure 구독에 연결되어 있지만, 계정에 여러 구독이 있을 수 있더라도 지정된 Azure 계정에 대해 **카탈로그**를 한 개만 만들 수 있습니다.
 
 카탈로그에는 **사용자** 및 **자산**이 포함됩니다.
 
 ### <a name="users"></a>사용자
-
 사용자는 카탈로그에서 작업(카탈로그 검색, 항목 추가, 편집 또는 제거 등)을 수행할 권한이 있는 보안 주체입니다.
 
 사용자가 할 수 있는 여러 역할이 있습니다. 역할에 대한 자세한 내용은 역할 및 권한 부여 섹션을 참조하세요.
@@ -46,7 +42,6 @@ Microsoft **Azure 데이터 카탈로그**는 데이터 원본 검색 및 크라
 Azure 데이터 카탈로그는 관리를 식별하고 액세스하기 위해 Azure Active Directory를 사용합니다. 각 카탈로그 사용자는 계정에 대해 Active Directory의 구성원이어야 합니다.
 
 ### <a name="assets"></a>자산
-
 **카탈로그**에는 데이터 자산이 포함됩니다. **자산**은 카탈로그에서 관리하는 세분성의 단위입니다.
 
 자산의 세분성은 데이터 소스에 따라 다릅니다. SQL Server 또는 Oracle 데이터베이스에서 자산은 테이블 또는 뷰가 될 수 있습니다. SQL Server Analysis Services에서 자산은 측정값, 차원, 또는 KPI(주요 성능 표시기)가 될 수 있습니다. SQL Server Reporting Services에서 자산은 보고서입니다.
@@ -56,20 +51,18 @@ Azure 데이터 카탈로그는 관리를 식별하고 액세스하기 위해 Az
 **자산**은 이름, 위치, 형식과 자산을 자세히 설명하는 주석으로 구성됩니다.
 
 ### <a name="annotations"></a>주석
-
 주석은 자산에 대한 메타데이터를 나타내는 항목입니다.
 
 주석의 예는 설명, 태그, 스키마 및 설명서 등입니다. 자산 형식 및 주석 형식의 전체 목록은 자산 개체 모델 섹션에 있습니다.
 
 ## <a name="crowdsourcing-annotations-and-user-perspective-(multiplicity-of-opinion)"></a>크라우드소싱 주석 및 사용자 관점(의견의 복합성)
-
 Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터의 크라우드소싱을 지원하는 방법입니다. 하나의 의견만 있고 마지막 기록자가 우선하는 wiki 접근 방식과 대비하여, Azure 데이터 카탈로그 모델은 시스템에 여러 의견이 나란히 있도록 허용합니다.
 
 이 방법은 여러 사용자가 지정된 자산에 대해 다른 관점을 가질 수 있는 기업 데이터의 실제 세계를 반영합니다.
 
--   데이터베이스 관리자는 대량 ETL 작업에 대한 서비스 수준 계약 또는 사용 가능한 처리 창에 대한 정보를 제공할 수 있습니다.
--   데이터 담당자는 자산이 적용되는 비즈니스 프로세스 또는 비즈니스가 적용되는 분류에 대한 정보를 제공할 수 있습니다.
--   재무 분석가는 보고 작업 종료의 기간 동안 데이터를 사용하는 방법에 대한 정보를 제공할 수 있습니다.
+* 데이터베이스 관리자는 대량 ETL 작업에 대한 서비스 수준 계약 또는 사용 가능한 처리 창에 대한 정보를 제공할 수 있습니다.
+* 데이터 담당자는 자산이 적용되는 비즈니스 프로세스 또는 비즈니스가 적용되는 분류에 대한 정보를 제공할 수 있습니다.
+* 재무 분석가는 보고 작업 종료의 기간 동안 데이터를 사용하는 방법에 대한 정보를 제공할 수 있습니다.
 
 이 예시를 지원하기 위해 각 사용자(DBA, 데이터 담당자 및 분석가)는 카탈로그에 등록된 단일 테이블에 대한 설명을 추가할 수 있습니다. 모든 설명은 시스템 및 모든 설명이 표시되는 Azure 데이터 카탈로그에서 유지 관리됩니다.
 
@@ -79,20 +72,17 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 
 이 때 UX는 조합을 표시하는 방법을 선택할 수 있습니다. 디스플레이 대한 세 가지 다른 패턴이 있습니다.
 
--   가장 간단한 패턴은 "모두 표시"입니다. 이 패턴에서 모든 개체는 목록 보기에 표시됩니다. Azure Data Catalog 포털 UX는 설명에 대해 이 패턴을 사용합니다.
--   다른 패턴은 "병합"입니다. 이 패턴에서 다른 사용자의 모든 값 중복을 제거하여 함께 병합됩니다. Azure 데이터 카탈로그 포털 UX에서 이 패턴의 예는 태그 및 전문가 속성입니다.
--   세 번째 패턴은 "마지막 기록자 우선"입니다. 이 패턴에서는 입력한 가장 최근의 값만 표시 됩니다. friendlyName은 이 패턴의 예입니다.
+* 가장 간단한 패턴은 "모두 표시"입니다. 이 패턴에서 모든 개체는 목록 보기에 표시됩니다. Azure Data Catalog 포털 UX는 설명에 대해 이 패턴을 사용합니다.
+* 다른 패턴은 "병합"입니다. 이 패턴에서 다른 사용자의 모든 값 중복을 제거하여 함께 병합됩니다. Azure 데이터 카탈로그 포털 UX에서 이 패턴의 예는 태그 및 전문가 속성입니다.
+* 세 번째 패턴은 "마지막 기록자 우선"입니다. 이 패턴에서는 입력한 가장 최근의 값만 표시 됩니다. friendlyName은 이 패턴의 예입니다.
 
 ## <a name="asset-object-model"></a>자산 개체 모델
-
 주요 개념 섹션에 소개된 것처럼 **Azure 데이터 카탈로그** 개체 모델에는 자산 또는 주석일 수 있는 항목이 포함됩니다. 항목에는 선택 또는 필수가 될 수 있는 속성이 있습니다. 일부 속성은 모든 항목에 적용 됩니다. 일부 속성은 모든 자산에 적용 됩니다. 일부 속성은 특정 자산 형식에만 적용 됩니다.
 
 ### <a name="system-properties"></a>시스템 속성
-
 <table><tr><td><b>속성 이름</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>마지막으로 항목이 수정된 시간. 이 필드는 항목을 삽입하고 항목이 업데이트될 때마다 서버에서 생성됩니다. 게시 작업의 입력에서 이 속성의 값은 무시됩니다.</td></tr><tr><td>id</td><td>Uri</td><td>항목의 절대 url입니다(읽기 전용). 항목에 대한 고유한 주소 지정 가능 URI입니다.  게시 작업의 입력에서 이 속성의 값은 무시됩니다.</td></tr><tr><td>type</td><td>String</td><td>자산의 유형입니다(읽기 전용).</td></tr><tr><td>etag</td><td>String</td><td>카탈로그에서 항목을 업데이트하는 작업을 수행할 때 낙관적 동시성 제어에 사용할 수 있는 항목의 버전에 해당하는 문자열입니다. "*"은 값을 일치시키는 데 사용할 수 있습니다.</td></tr></table>
 
 ### <a name="common-properties"></a>공용 속성
-
 이러한 속성은 모든 루트 자산 형식 및 모든 주석 형식에 적용 됩니다.
 
 <table>
@@ -103,10 +93,10 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 ### <a name="common-root-properties"></a>공용 루트 속성
 <p>
 이러한 속성은 모든 루트 자산 형식에 적용 됩니다.
+
 <table><tr><td><b>속성 이름</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>name</td><td>String</td><td>데이터 원본 위치 정보에서 파생된 이름</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>고유하게 데이터 원본을 설명하고 자산에 대한 식별자 중 하나입니다. (이중 ID 섹션 참조).  dsl의 구조는 프로토콜 및 원본 유형에 따라 달라집니다.</td></tr><tr><td>DataSource</td><td>DataSourceInfo</td><td>자산 형식에 대한 세부 정보.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>이 자산을 가장 최근에 등록한 사용자를 설명합니다.  사용자(upn)뿐만 아니라 표시 이름(lastName과 firstName)에 대한 고유 ID를 포함합니다.</td></tr><tr><td>containerId</td><td>String</td><td>데이터 원본에 대한 컨테이너 자산의 ID입니다. 이 속성은 컨테이너 형식에 대해 지원되지 않습니다.</td></tr></table>
 
 ### <a name="common-non-singleton-annotation-properties"></a>일반적인 단일 항목이 아닌 주석 속성
-
 이러한 속성은 모든 단일 항목이 아닌 주석 형식에 적용됩니다(자산별 여러 개를 허용하는 주석).
 
 <table>
@@ -115,14 +105,12 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 </table>
 
 ### <a name="root-asset-types"></a>루트 자산 형식
-
 루트 자산 형식은 카탈로그에 등록 될 수 있는 다양한 유형의 데이터 자산을 나타내는 자산 형식입니다. 각 루트 형식에는 뷰에 포함된 자산 및 주석을 설명하는 뷰가 있습니다. 뷰 이름은 REST API를 사용하여 자산을 게시할 때, 해당하는 {view_name} URL 세그먼트에 사용되어야 합니다.
 
 <table><tr><td><b>자산 유형(뷰 이름)</b></td><td><b>추가 속성</b></td><td><b>데이터 형식</b></td><td><b>허용된 주석</b></td><td><b>설명</b></td></tr><tr><td>테이블 ("tables")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>스키마<p>ColumnDescription<p>ColumnTag<p> 전문가<p>미리 보기<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>설명서<p></td><td>테이블은 모든 테이블 형식 데이터를 나타냅니다.  예를 들어 SQL 테이블, SQL 보기, Analysis Services 테이블 형식 테이블, Analysis Services 다차원 차원, Oracle 테이블 등이 포함됩니다.   </td></tr><tr><td>측정값("measures")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서<p></td><td>이 유형은 Analysis Services 측정값을 나타냅니다.</td></tr><tr><td></td><td>측정값</td><td>열</td><td></td><td>측정값을 설명하는 메타데이터</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>측정값이 계산할지 여부를 지정합니다.</td></tr><tr><td></td><td>측정값 그룹</td><td>String</td><td></td><td>측정값에 대한 물리적 컨테이너</td></tr><td>KPI("kpis")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서</td><td></td></tr><tr><td></td><td>측정값 그룹</td><td>String</td><td></td><td>측정값에 대한 물리적 컨테이너</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>KPI의 목표값을 반환하는 MDX 숫자 식 또는 계산.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>KPI의 실제 값을 반환하는 MDX 숫자 식.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>특정 시점에 지정한 KPI의 상태를 나타내는 MDX 식.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>시간이 지남에 따라 KPI 값을 계산하는 MDX 식.  특정 비즈니스 컨텍스트에서 유용한 시간 기반 조건이 추세가 될 수 있습니다.</td>
 <tr><td>보고서("reports")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서<p></td><td>이 형식은 SQL Server Reporting Services 보고서를 나타냅니다. </td></tr><tr><td></td><td>assetCreatedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>String</td><td></td><td></td></tr><tr><td>컨테이너("containers")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서<p></td><td>이 형식은 SQL 데이터베이스, Azure Blob 컨테이너 또는 Analysis Services 모델과 같은 다른 자산의 컨테이너를 나타냅니다.</td></tr></table>
 
 ### <a name="annotation-types"></a>주석 형식
-
 주석 형식은 카탈로그 내에서 다른 형식으로 할당할 수 있는 메타데이터의 형식을 나타냅니다.
 
 <table>
@@ -178,8 +166,8 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 </table>
 
 ### <a name="common-types"></a>일반 형식
-
 일반 형식 속성에 대 한 형식으로 사용할 수 있지만 항목은 없습니다.
+
 <table>
 <tr><td><b>일반 형식</b></td><td><b>속성</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
@@ -248,18 +236,15 @@ Azure Data Catalog에는 몇 가지 데이터 원본 프로토콜이 기본으�
 </table>
 
 ## <a name="roles-and-authorization"></a>역할 및 권한 부여
-
 Microsoft Azure 데이터 카탈로그는 자산 및 주석에 대한 CRUD 작업에 대해 권한 부여 기능을 제공합니다.
 
 ## <a name="key-concepts"></a>주요 개념
-
 Azure 데이터 카탈로그는 두 가지 권한 부여 메커니즘을 사용합니다.
 
-- 역할 기반 권한 부여
-- 사용 권한 기반의 권한 부여
+* 역할 기반 권한 부여
+* 사용 권한 기반의 권한 부여
 
 ### <a name="roles"></a>역할
-
 **관리자**, **소유자** 및 **참여자** 등 3가지 역할이 있습니다.  각 역할에는 다음 표에 요약된 범위와 권한이 있습니다.
 
 <table><tr><td><b>역할</b></td><td><b>범위</b></td><td><b>권한</b></td></tr><tr><td>관리자</td><td>카탈로그(카탈로그의 모든 자산/주석)</td><td>Read Delete ViewRoles
@@ -268,12 +253,14 @@ ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>소유자</td>
 
 ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>참여자</td><td>각 개별 자산 및 주석</td><td>읽기/업데이트/삭제/권한보기/참고(Read Update Delete ViewRoles Note): 항목에서 읽기(Read) 권한을 참여자가 해지하는 경우 모든 권한이 취소 됩니다.</td></tr></table>
 
-> [AZURE.NOTE] **읽기**, **업데이트**, **삭제**, **역할 보기** 권한은 모든 항목 (자산 또는 주석)에 적용할 수 있으며, 반면에 **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions**는 루트 자산에만 적용됩니다.
->
->**삭제** 권한은 항목뿐만 그 아래에 있는 모든 하위 항목 또는 단일 항목에 적용됩니다. 예를 들어, 자산을 삭제하면 해당 자산에 대한 모든 주석도 삭제됩니다.
+> [!NOTE]
+> **읽기**, **업데이트**, **삭제**, **역할 보기** 권한은 모든 항목 (자산 또는 주석)에 적용할 수 있으며, 반면에 **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions**는 루트 자산에만 적용됩니다.
+> 
+> **삭제** 권한은 항목뿐만 그 아래에 있는 모든 하위 항목 또는 단일 항목에 적용됩니다. 예를 들어, 자산을 삭제하면 해당 자산에 대한 모든 주석도 삭제됩니다.
+> 
+> 
 
 ### <a name="permissions"></a>권한
-
 권한은 액세스 제어 항목의 목록입니다. 각 액세스 제어 항목은 보안 주체에 대한 권한의 집합을 할당합니다. 권한은 자산(즉, 루트 항목)에만 지정할 수 있으며 자산 및 모든 하위 항목에 적용됩니다.
 
 **Azure Data Catalog** 미리 보기 중에 권한 목록에서 **읽기** 권한만이 지원되어 자산의 표시를 제한하는 시나리오를 사용합니다.
@@ -281,23 +268,26 @@ ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>참여자</td>
 기본적으로 모든 인증된 사용자는 권한의 주체 집합에 표시를 제한하지 않는 한 카탈로그에 있는 모든 항목에 대해 **읽기** 권한이 있습니다.
 
 ## <a name="rest-api"></a>REST API
-
 **PUT** 및 **POST** 보기 항목 요청은 역할 및 권한을 제어하는 데 사용할 수 있습니다. 항목 페이로드 외에도 두 시스템 속성은 **roles** 및 **permissions**를 지정할 수 있습니다.
 
-> [AZURE.NOTE]
->
+> [!NOTE]
 > **permissions**은 루트 항목에만 적용됩니다.
->
+> 
 > **소유자** 역할은 루트 항목에만 적용됩니다.
->
+> 
 > 기본적으로 카탈로그에서 항목을 만들면 **참여자**는 현재 인증된 사용자로 설정됩니다. 누구나 항목을 업데이트할 수 있도록 하려면 항목을 처음 게시할 때 **역할** 속성에서 **참여자**를 &lt;Everyone&gt; 특수 보안 주체로 설정해야 합니다(다음 예를 참조). **참여자**는 변경할 수 없으며 항목의 수명 동안 동일하게 유지됩니다. **관리자**나 **소유자**도 **참여자**를 변경할 수 있는 권한은 없습니다. **참여자**의 명시적 설정에 지원되는 유일한 값은 &lt;Everyone&gt;입니다. **참여자**는 항목 또는 &lt;Everyone&gt;을 만든 사용자로만 설정할 수 있습니다.
+> 
+> 
 
-###<a name="examples"></a>예
+### <a name="examples"></a>예
 **항목을 게시할 때 참여자를 &lt;Everyone&gt;으로 설정합니다.**
 특수 보안 주체 &lt;Everyone&gt;에는 objectId "00000000-0000-0000-0000-000000000201"이 있습니다.
   **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
 
-  > [AZURE.NOTE] 일부 HTTP 클라이언트 구현은 302에 대한 응답으로 요청을 다시 보낼 수 있지만, 일반적으로 요청의 권한 부여 헤더를 제거합니다. Azure Data Catalog에 요청을 보내려면 권한 부여 헤더가 필요하기 때문에 Azure Data Catalog가 지정한 리디렉션 위치로 요청을 다시 보낼 때 권한 부여 헤더가 계속 제공되어야 합니다. 다음은 .NET HttpWebRequest 개체를 사용하여 이를 보여 주는 샘플 코드입니다.
+> [!NOTE]
+> 일부 HTTP 클라이언트 구현은 302에 대한 응답으로 요청을 다시 보낼 수 있지만, 일반적으로 요청의 권한 부여 헤더를 제거합니다. Azure Data Catalog에 요청을 보내려면 권한 부여 헤더가 필요하기 때문에 Azure Data Catalog가 지정한 리디렉션 위치로 요청을 다시 보낼 때 권한 부여 헤더가 계속 제공되어야 합니다. 다음은 .NET HttpWebRequest 개체를 사용하여 이를 보여 주는 샘플 코드입니다.
+> 
+> 
 
 **본문**
 
@@ -358,7 +348,10 @@ ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>참여자</td>
         ]
     }
 
-> [AZURE.NOTE] PUT에서 본문에는 항목 페이로드 지정은 필수 사항이 아닙니다. PUT은 역할 및/또는 사용 권한을 업데이트 하는 데에만 사용할 수 있습니다.
+> [!NOTE]
+> PUT에서 본문에는 항목 페이로드 지정은 필수 사항이 아닙니다. PUT은 역할 및/또는 사용 권한을 업데이트 하는 데에만 사용할 수 있습니다.
+> 
+> 
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png

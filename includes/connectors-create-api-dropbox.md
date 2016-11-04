@@ -1,5 +1,5 @@
 ### 필수 조건
-- [Dropbox](https://www.Dropbox.com/) 계정 
+* [Dropbox](https://www.Dropbox.com/) 계정 
 
 논리 앱에서 Dropbox 계정을 사용하려면 먼저 Dropbox 계정에 연결하도록 논리 앱에 권한을 부여해야 합니다. 다행히 Azure 포털의 논리 앱 내에서 이를 쉽게 수행할 수 있습니다.
 
@@ -10,3 +10,4 @@ Dropbox 계정에 연결하도록 논리 앱에 권한을 부여하는 단계는
 3. Dropbox 사용자 이름 및 암호를 제공하여 논리 앱에 권한을 부여합니다. ![Dropbox 3단계](./media/connectors-create-api-dropbox/dropbox-3.png)   
 4. 논리 앱에 권한을 부여하여 Dropbox 계정을 사용합니다. ![Dropbox 4단계](./media/connectors-create-api-dropbox/dropbox-4.png)
 5. 연결이 만들어졌으면 논리 앱의 다른 단계를 진행할 수 있습니다. ![Dropbox 5단계](./media/connectors-create-api-dropbox/dropbox-5.png)   
+

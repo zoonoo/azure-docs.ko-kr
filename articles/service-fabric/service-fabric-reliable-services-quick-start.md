@@ -1,27 +1,25 @@
-<properties
-   pageTitle="Reliable Services 시작 |Microsoft Azure "
-   description="상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure 서비스 패브릭 응용 프로그램 만들기 소개"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor=""/>
+---
+title: Reliable Services 시작 | Microsoft Docs
+description: 상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure 서비스 패브릭 응용 프로그램 만들기 소개
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/06/2016"
-   ms.author="vturecek"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/06/2016
+ms.author: vturecek
 
+---
 # 서비스 패브릭 Reliable Services 시작
-
 Azure 서비스 패브릭 응용 프로그램에는 코드를 실행하는 하나 이상의 서비스가 포함되어 있습니다. 이 가이드에서는 [Reliable Services](service-fabric-reliable-services-introduction.md)를 사용하여 상태 비저장 및 상태 저장 서비스 패브릭 응용 프로그램을 만드는 방법을 보여 줍니다.
 
 ## 상태 비저장 서비스 만들기
-
 상태 비저장 서비스는 현재 클라우드 응용 프로그램에서 정상인 서비스 유형입니다. 서비스 자체가 안정적으로 저장되거나 항상 사용 가능해야 하는 데이터를 포함하기 때문에 상태 비저장으로 간주됩니다. 상태 비저장 서비스의 인스턴스가 종료되면 모든 내부 상태가 손실됩니다. 이러한 서비스 유형에서는 Azure 테이블 또는 SQL 데이터베이스와 같은 외부 저장소에 상태를 항상 유지하고 이를 위해 높은 가용성과 안정성을 유지해야 합니다.
 
 관리자 권한으로 Visual Studio 2015를 시작하고 *HelloWorld*라는 새로운 서비스 패브릭 응용 프로그램 프로젝트를 만듭니다.
@@ -34,15 +32,13 @@ Azure 서비스 패브릭 응용 프로그램에는 코드를 실행하는 하�
 
 이제 솔루션에는 2개의 프로젝트가 있습니다.
 
- - *HelloWorld*. *서비스*가 포함된 *응용 프로그램* 프로젝트입니다. 또한 응용 프로그램을 배포하는 데 도움이 되는 다양한 PowerShell 스크립트 뿐만 아니라 응용 프로그램을 설명하는 응용 프로그램 매니페스트가 포함되어 있습니다.
- - *HelloWorldStateless*. 서비스 프로젝트입니다. 상태 비저장 서비스 구현을 포함합니다.
-
+* *HelloWorld*. *서비스*가 포함된 *응용 프로그램* 프로젝트입니다. 또한 응용 프로그램을 배포하는 데 도움이 되는 다양한 PowerShell 스크립트 뿐만 아니라 응용 프로그램을 설명하는 응용 프로그램 매니페스트가 포함되어 있습니다.
+* *HelloWorldStateless*. 서비스 프로젝트입니다. 상태 비저장 서비스 구현을 포함합니다.
 
 ## 서비스 구현
-
 서비스 프로젝트에서 **HelloWorldStateless.cs** 파일을 엽니다. 서비스 패브릭에서 서비스는 모든 비즈니스 논리를 실행할 수 있습니다. 서비스 API는 코드에 대한 두 진입점을 제공합니다.
 
- - 장기 실행 계산 워크로드 등 모든 워크로드의 실행을 시작할 수 있는 *RunAsync*라는 개방형 진입점 메서드.
+* 장기 실행 계산 워크로드 등 모든 워크로드의 실행을 시작할 수 있는 *RunAsync*라는 개방형 진입점 메서드.
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -51,7 +47,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
- - ASP.NET Web API와 같이 원하는 통신 스택을 연결할 수 있는 통신 진입점. 사용자 및 다른 서비스에서 요청을 수신하도록 시작할 수 있습니다.
+* ASP.NET Web API와 같이 원하는 통신 스택을 연결할 수 있는 통신 진입점. 사용자 및 다른 서비스에서 요청을 수신하도록 시작할 수 있습니다.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -62,11 +58,12 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 이 자습서에서는 `RunAsync()` 진입점 메서드에 집중합니다. 바로 코드를 실행하기 시작할 수 있습니다. 프로젝트 템플릿에는 롤링 횟수를 증분하는 `RunAsync()`의 샘플 구현이 포함됩니다.
 
-> [AZURE.NOTE] 통신 스택을 사용하는 방법에 대한 자세한 내용은 [OWIN 자체 호스팅으로 서비스 패브릭 Web API 서비스](service-fabric-reliable-services-communication-webapi.md)를 참조하세요.
-
+> [!NOTE]
+> 통신 스택을 사용하는 방법에 대한 자세한 내용은 [OWIN 자체 호스팅으로 서비스 패브릭 Web API 서비스](service-fabric-reliable-services-communication-webapi.md)를 참조하세요.
+> 
+> 
 
 ### RunAsync
-
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
@@ -88,10 +85,10 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 서비스의 인스턴스가 배치되어 실행할 준비가 되면 플랫폼이 이 메서드를 호출합니다. 상태 비저장 서비스의 경우 이는 간단히 말해 서비스 인스턴스가 열릴 때를 의미합니다. 서비스 인스턴스를 종료해야 하는 경우 취소 토큰이 제공됩니다. 서비스 패브릭에서 서비스 인스턴스의 열림-닫힘 주기는 서비스의 수명 동안 전체적으로 여러 번 발생할 수 있습니다. 다음을 포함하여 여러 가지 이유로 발생할 수 있습니다.
 
-- 시스템은 리소스 분산을 위해 서비스 인스턴스를 이동시킵니다.
-- 오류는 코드에서 발생합니다.
-- 응용 프로그램 또는 시스템 업그레이드됩니다.
-- 기본 하드웨어가 중단됩니다.
+* 시스템은 리소스 분산을 위해 서비스 인스턴스를 이동시킵니다.
+* 오류는 코드에서 발생합니다.
+* 응용 프로그램 또는 시스템 업그레이드됩니다.
+* 기본 하드웨어가 중단됩니다.
 
 이러한 오케스트레이션은 서비스의 가용성을 높게 유지하고 제대로 균형을 유지하기 위해 시스템에 의해 관리됩니다.
 
@@ -100,7 +97,6 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 이 상태 비저장 서비스 예에서는 개수가 로컬 변수에 저장됩니다. 하지만 이는 상태 비저장 서비스이므로 저장되는 값은 해당 서비스 인스턴스의 현재 주기에만 존재합니다. 서비스가 이동하거나 다시 시작되면 값이 손실됩니다.
 
 ## 상태 저장 서비스 만들기
-
 서비스 패브릭은 상태 저장하는 서비스의 새로운 종류를 도입합니다. 상태 저장 서비스는 서비스를 사용하는 코드와 함께 위치한 서비스 자체 내에서 안정적으로 상태를 유지할 수 있습니다. 외부 저장소에 상태를 유지하지 않고도 서비스 패브릭에서 상태는 높은 가용성을 가집니다.
 
 서비스가 이동하거나 다시 시작하는 경우에도 카운터 값을 상태 비저장에서 항상 사용 가능하고 지속되게 만들려면 상태 저장 서비스가 필요합니다.
@@ -150,11 +146,9 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 ```
 
 ### RunAsync
-
 `RunAsync()`은 상태 저장 및 상태 비저장 서비스에서 비슷하게 작동합니다. 그러나 상태 저장 서비스에서 플랫폼은 `RunAsync()`을 실행하기 전에 사용자 대신 추가 작업을 수행합니다. 이 작업은 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션을 사용할 준비가 되도록 포함할 수 있습니다.
 
 ### 신뢰할 수 있는 컬렉션 및 신뢰할 수 있는 상태 관리자
-
 ```csharp
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
@@ -163,16 +157,14 @@ var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<str
 
 신뢰할 수 있는 컬렉션은 사용자 지정 형식을 포함하여 모든 .NET 유형을 저장할 수 있습니다. 단, 몇 가지 주의 사항이 있습니다.
 
- - 서비스 패브릭은 노드의 상태를 *복제*하고 신뢰할 수 있는 컬렉션은 데이터를 각 복제본의 로컬 디스크에 저장합니다. 즉, 신뢰할 수 있는 컬렉션에 저장된 모든 항목이 *직렬화 가능* 상태가 됩니다. 신뢰할 수 있는 컬렉션은 기본적으로 [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx)를 사용하여 직렬화를 수행하므로 기본 직렬 변환기를 사용할 때 해당 유형이 [데이터 계약 직렬 변환기에서 지원되는지](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) 확인하는 것이 중요합니다.
-
- - 신뢰할 수 있는 컬렉션의 트랜잭션을 커밋하면 고가용성을 위해 개체가 복제됩니다. 신뢰할 수 있는 컬렉션에 저장된 개체는 서비스의 로컬 메모리에 유지됩니다. 즉, 개체에 대한 로컬 참조가 있습니다.
-
-    트랜잭션의 신뢰할 수 있는 컬렉션에서 업데이트 작업을 수행하지 않고 해당 개체의 로컬 인스턴스를 변환하지 않는 것이 중요합니다. 개체의 로컬 인스턴스에 대한 변경 내용은 자동으로 복제되지 않기 때문입니다. 개체를 디렉터리에 다시 삽입하거나 디렉터리의 *update* 메서드 중 하나를 사용해야 합니다.
+* 서비스 패브릭은 노드의 상태를 *복제*하고 신뢰할 수 있는 컬렉션은 데이터를 각 복제본의 로컬 디스크에 저장합니다. 즉, 신뢰할 수 있는 컬렉션에 저장된 모든 항목이 *직렬화 가능* 상태가 됩니다. 신뢰할 수 있는 컬렉션은 기본적으로 [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx)를 사용하여 직렬화를 수행하므로 기본 직렬 변환기를 사용할 때 해당 유형이 [데이터 계약 직렬 변환기에서 지원되는지](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) 확인하는 것이 중요합니다.
+* 신뢰할 수 있는 컬렉션의 트랜잭션을 커밋하면 고가용성을 위해 개체가 복제됩니다. 신뢰할 수 있는 컬렉션에 저장된 개체는 서비스의 로컬 메모리에 유지됩니다. 즉, 개체에 대한 로컬 참조가 있습니다.
+  
+   트랜잭션의 신뢰할 수 있는 컬렉션에서 업데이트 작업을 수행하지 않고 해당 개체의 로컬 인스턴스를 변환하지 않는 것이 중요합니다. 개체의 로컬 인스턴스에 대한 변경 내용은 자동으로 복제되지 않기 때문입니다. 개체를 디렉터리에 다시 삽입하거나 디렉터리의 *update* 메서드 중 하나를 사용해야 합니다.
 
 신뢰할 수 있는 상태 관리자는 사용자에 대한 신뢰할 수 있는 컬렉션을 관리합니다. 언제든지 서비스의 어느 위치에서든 신뢰할 수 있는 컬렉션에 대한 신뢰할 수 있는 상태 관리자를 단순히 요청할 수 있습니다. 신뢰할 수 있는 상태 관리자는 참조를 다시 가져오도록 합니다. 클래스 멤버 변수 또는 속성에서 신뢰할 수 있는 컬렉션 인스턴스에 대한 참조를 저장하는 것이 좋습니다. 서비스 수명 주기에서 항상 참조가 인스턴스로 설정되어 있도록 특별히 주의해야 합니다. 신뢰할 수 있는 상태 관리자는 사용자를 위해 이 작업을 처리하고 반복 방문에 최적화됩니다.
 
 ### 트랜잭션 및 비동기 작업
-
 ```C#
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
@@ -189,18 +181,18 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 신뢰할 수 있는 컬렉션 작업은 *트랜잭션*이므로 여러 신뢰할 수 있는 컬렉션 및 작업에서 상태를 일관성 있게 유지할 수 있습니다. 예를 들어 신뢰할 수 있는 큐에서 작업 항목을 제거하고, 작업을 수행하고, 신뢰할 수 있는 사전의 결과를 모두 단일 트랜잭션 내에 저장할 수 있습니다. 이는 원자성 작업으로 처리되며, 전체 작업이 성공하거나 롤백되도록 보장합니다. 항목을 큐에서 제거한 다음이지만 결과를 저장하기 전에 오류가 발생하면 전체 트랜잭션이 롤백되고 항목이 처리를 위해 큐에 남아 있습니다.
 
 ## 응용 프로그램 실행
-
 *HelloWorld* 응용 프로그램으로 돌아갑니다. 이제 서비스를 빌드하고 배포할 수 있습니다. **F5** 키를 누르면 응용 프로그램이 빌드되고 로컬 클러스터에 배포됩니다.
 
 서비스가 실행되기 시작한 후에 **진단 이벤트** 창에서 생성된 ETW(Windows용 이벤트 추적) 이벤트를 볼 수 있습니다. 응용 프로그램의 상태 비저장 서비스 및 상태 저장 서비스 모두에서 이벤트가 표시됩니다. **일시 중지** 단추를 클릭하여 스트림을 일시 중지할 수 있습니다. 그런 다음 해당 메시지를 확장하여 메시지의 세부 정보를 검사할 수 있습니다.
 
->[AZURE.NOTE] 응용 프로그램을 실행하기 전에 로컬 개발 클러스터가 실행 중인지 확인합니다. 로컬 환경 설정의 자세한 내용은 [시작 가이드](service-fabric-get-started.md)를 확인합니다.
+> [!NOTE]
+> 응용 프로그램을 실행하기 전에 로컬 개발 클러스터가 실행 중인지 확인합니다. 로컬 환경 설정의 자세한 내용은 [시작 가이드](service-fabric-get-started.md)를 확인합니다.
+> 
+> 
 
 ![Visual Studio에서 진단 이벤트 보기](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
-
 ## 다음 단계
-
 [Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
 
 [시작: OWIN 자체 호스팅을 사용하는 서비스 패브릭 Web API 서비스](service-fabric-reliable-services-communication-webapi.md)

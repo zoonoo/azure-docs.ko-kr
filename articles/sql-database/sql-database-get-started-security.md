@@ -1,51 +1,45 @@
-<properties
-	pageTitle="SQL 데이터베이스 자습서: 보안 시작"
-	description="데이터베이스에 액세스하고 관리하기 위해 사용자 계정을 만드는 방법에 대해 알아봅니다."
-	keywords=""
-	services="sql-database"
-	documentationCenter=""
-	authors="CarlRabeler"
-	manager="jhubbard"
-	editor=""/>
+---
+title: 'SQL 데이터베이스 자습서: 보안 시작'
+description: 데이터베이스에 액세스하고 관리하기 위해 사용자 계정을 만드는 방법에 대해 알아봅니다.
+keywords: ''
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
 
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/17/2016
+ms.author: carlrab
 
-<tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="08/17/2016"
-	ms.author="carlrab"/>
-
+---
 # SQL 데이터베이스 자습서: 데이터베이스에 액세스하고 관리하도록 SQL 데이터베이스 사용자 계정 만들기
-
-
-> [AZURE.SELECTOR]
-- [시작 자습서](sql-database-get-started-security.md)
-- [액세스 권한 부여](sql-database-manage-logins.md)
+> [!div class="op_single_selector"]
+> * [시작 자습서](sql-database-get-started-security.md)
+> * [액세스 권한 부여](sql-database-manage-logins.md)
+> 
+> 
 
 이 자습서에서는 SSMS(SQL Server Management Studio)를 사용하는 방법을 알아봅니다.
 
-- 서버 수준 보안 주체 로그인을 사용하여 SQL 데이터베이스에 로그인
-- SQL 데이터베이스 사용자 계정 만들기
-- SQL 데이터베이스 사용자 [db\_owner 권한 부여](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0)
-- 서버 수준의 주체가 아닌 사용자 계정으로 SQL 데이터베이스에 연결
+* 서버 수준 보안 주체 로그인을 사용하여 SQL 데이터베이스에 로그인
+* SQL 데이터베이스 사용자 계정 만들기
+* SQL 데이터베이스 사용자 [db\_owner 권한 부여](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0)
+* 서버 수준의 주체가 아닌 사용자 계정으로 SQL 데이터베이스에 연결
 
-[AZURE.INCLUDE [로그인](../../includes/azure-getting-started-portal-login.md)]
+[!INCLUDE [로그인](../../includes/azure-getting-started-portal-login.md)]
 
+[!INCLUDE [SQL 데이터베이스 논리 서버 만들기](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
-[AZURE.INCLUDE [SQL 데이터베이스 논리 서버 만들기](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
+[!INCLUDE [SQL 데이터베이스 데이터베이스 만들기](../../includes/sql-database-create-new-database-user.md)]
 
+[!INCLUDE [SQL 데이터베이스 데이터베이스 만들기](../../includes/sql-database-grant-database-user-dbo-permissions.md)]
 
-[AZURE.INCLUDE [SQL 데이터베이스 데이터베이스 만들기](../../includes/sql-database-create-new-database-user.md)]
-
-
-[AZURE.INCLUDE [SQL 데이터베이스 데이터베이스 만들기](../../includes/sql-database-grant-database-user-dbo-permissions.md)]
-
-
-[AZURE.INCLUDE [SQL 데이터베이스 데이터베이스 만들기](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
-
+[!INCLUDE [SQL 데이터베이스 데이터베이스 만들기](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
 
 ## 다음 단계
 이제 이 SQL 데이터베이스 자습서를 완료하고 사용자 계정을 만들고 사용자 계정 dbo 권한을 부여했으므로 [SQL 데이터베이스 보안](sql-database-manage-logins.md)에 대해 자세히 알아볼 준비가 되었습니다.

@@ -1,47 +1,47 @@
-<properties
-	pageTitle="앱에 푸시 알림 추가(iOS) | JavaScript 백 엔드"
-	description="Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
-	services="mobile-services,notification-hubs"
-	documentationCenter="ios"
-	manager="dwrede"
-	editor=""
-	authors="krisragh"/>
+---
+title: 앱에 푸시 알림 추가(iOS) | Microsoft Docs
+description: Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다.
+services: mobile-services,notification-hubs
+documentationcenter: ios
+manager: dwrede
+editor: ''
+author: krisragh
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh
 
+---
 # iOS 앱 및 JavaScript 백 엔드에 푸시 알림 추가
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[!INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > 이 항목에 해당하는 모바일 앱 버전은 [iOS 앱에 푸시 알림 추가](../app-service-mobile/app-service-mobile-ios-get-started-push.md)를 참조하세요.
+> 
+> 
 
 이 항목에서는 [빠른 시작 프로젝트](mobile-services-ios-get-started.md)에 푸시 알림을 추가하는 방법을 보여주어 레코드를 삽입할 때마다 모바일 서비스가 푸시 알림을 보냅니다. 먼저 [모바일 서비스 시작]을 완료해야 합니다.
 
-> [AZURE.NOTE] [iOS 시뮬레이터는 푸시 알림을 지원하지 않으므로](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html) 실제 iOS 장치를 사용해야 합니다. [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/)에 유료 등록해야 합니다.
+> [!NOTE]
+> [iOS 시뮬레이터는 푸시 알림을 지원하지 않으므로](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html) 실제 iOS 장치를 사용해야 합니다. [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/)에 유료 등록해야 합니다.
+> 
+> 
 
-[AZURE.INCLUDE [Apple 푸시 알림 사용](../../includes/enable-apple-push-notifications.md)]
-
+[!INCLUDE [Apple 푸시 알림 사용](../../includes/enable-apple-push-notifications.md)]
 
 ## <a id="configure"></a>푸시 알림을 전송하도록 Azure 구성
-
-[AZURE.INCLUDE [Azure 모바일 서비스에서 푸시 알림 구성](../../includes/mobile-services-apns-configure-push.md)]
+[!INCLUDE [Azure 모바일 서비스에서 푸시 알림 구성](../../includes/mobile-services-apns-configure-push.md)]
 
 ## <a id="update-scripts"></a>푸시 알림을 전송하도록 백 엔드 스크립트 업데이트
-
 * [Azure 클래식 포털]에서 **데이터** 탭을 클릭한 후 **TodoItem**을 클릭합니다. **TodoItem**에서 **스크립트** 탭을 클릭하고 **삽입**을 선택합니다. **TodoItem** 테이블에 삽입 시 호출되는 함수가 표시됩니다.
-
 * 삽입 함수를 다음의 코드로 바꾼 후 **저장**을 클릭합니다. 새 삽입 스크립트가 등록되며, 이 스크립트는 [apns 개체]를 사용하여 삽입 요청에 제공된 장치에 푸시 알림(삽입된 텍스트)을 보냅니다. 이 스크립트는 앱을 닫고 푸시 알림을 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
-
 
 ```
         function insert(item, user, request) {
@@ -59,10 +59,9 @@
         }
 ```
 
-[AZURE.INCLUDE [앱에 푸시 알림 추가](../../includes/add-push-notifications-to-app.md)]
+[!INCLUDE [앱에 푸시 알림 추가](../../includes/add-push-notifications-to-app.md)]
 
-[AZURE.INCLUDE [앱에서 푸시 알림 테스트](../../includes/test-push-notifications-in-app.md)]
-
+[!INCLUDE [앱에서 푸시 알림 테스트](../../includes/test-push-notifications-in-app.md)]
 
 <!-- Anchors. -->
 

@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Azure 보안 개요 | Microsoft Azure"
-   description="Azure.com의 Microsoft Azure 보안 정보 사이트는 Azure 보안 질문에 대한 기술적 답변을 확인할 수 있는 곳입니다."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Azure 보안 개요 | Microsoft Docs
+description: Azure.com의 Microsoft Azure 보안 정보 사이트는 Azure 보안 질문에 대한 기술적 답변을 확인할 수 있는 곳입니다.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Azure 보안 개요
-
 Azure.com의 Microsoft Azure 보안 정보 사이트는 Azure 보안 질문에 대한 기술적 답변을 확인할 수 있는 곳입니다. Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있을 경우 [Microsoft 보안 센터](https://www.microsoft.com/TrustCenter/default.aspx)를 방문하세요.
 
 보안은 클라우드의 작업이며 Azure 보안에 대한 정확하고 시기 적절한 정보를 찾는 것이 얼마나 중요한지 알고 있습니다. 응용 프로그램 및 서비스에 Azure를 사용하는 가장 좋은 이유 중 하나는 제공하는 광범위한 보안 도구 및 기능을 활용한다는 점입니다. 이러한 도구 및 기능을 통해 안전한 Azure 플랫폼에서 안전한 솔루션을 만들 수 있습니다.
@@ -31,18 +30,21 @@ Azure.com의 Microsoft Azure 보안 정보 사이트는 Azure 보안 질문에 �
 
 Azure 보안 정보 사이트에서는 현재 다음과 같은 범주를 다루고 있습니다.
 
-- 리소스
-- 네트워크 보안
-- 저장소 보안
-- 가상 컴퓨터 보안
-- Endpoint Protection
-- 보안 관리 및 모니터링
-- ID 관리
-- PaaS 서비스
-- 산업별
-- 아키텍처
+* 리소스
+* 네트워크 보안
+* 저장소 보안
+* 가상 컴퓨터 보안
+* Endpoint Protection
+* 보안 관리 및 모니터링
+* ID 관리
+* PaaS 서비스
+* 산업별
+* 아키텍처
 
-> [AZURE.NOTE] Azure 보안 정보 사이트에 있는 모든 문서는 페이지의 왼쪽 탐색 창에 나타납니다. 모든 문서를 보려는 경우 범주 목록 맨 아래에서 **자세히 보기**를 클릭하거나 탭하세요.
+> [!NOTE]
+> Azure 보안 정보 사이트에 있는 모든 문서는 페이지의 왼쪽 탐색 창에 나타납니다. 모든 문서를 보려는 경우 범주 목록 맨 아래에서 **자세히 보기**를 클릭하거나 탭하세요.
+> 
+> 
 
 사용자의 의견을 원합니다! 추가하고 싶은 범주가 있다면 알려 주세요! 기존 범주에 추가하고 싶은 문서가 있는 경우에도 알려 주세요! 아래 의견 섹션을 사용하거나 [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com)으로 보내 주시면 권장해 주신 내용을 계획에 통합하겠습니다.
 

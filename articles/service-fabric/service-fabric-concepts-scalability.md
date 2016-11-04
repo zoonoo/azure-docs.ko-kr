@@ -1,28 +1,27 @@
-<properties
-   pageTitle="서비스 패브릭 서비스의 확장성 | Microsoft Azure"
-   description="서비스 패브릭 서비스의 규모를 조정하는 방법을 설명합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+---
+title: 서비스 패브릭 서비스의 확장성 | Microsoft Docs
+description: 서비스 패브릭 서비스의 규모를 조정하는 방법을 설명합니다.
+services: service-fabric
+documentationcenter: .net
+author: appi101
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"
-   ms.author="aprameyr"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: aprameyr
 
+---
 # 서비스 패브릭 응용 프로그램 크기 조정
 Azure 서비스 패브릭을 사용하면 클러스터의 모든 노드에서 부하 분산 서비스, 파티션 및 복제본에 의해 확장 가능한 응용 프로그램의 빌드가 쉬워집니다. 최대 리소스 사용률을 가능하게 합니다.
 
 서비스 패브릭 응용 프로그램의 높은 규모는 다음 두 가지 방법으로 얻을 수 있습니다.
 
 1. 파티션 수준에서 크기 조정
-
 2. 서비스 이름 수준에서 크기 조정
 
 ## 파티션 수준에서 크기 조정
@@ -46,18 +45,14 @@ Azure 서비스 패브릭을 사용하면 클러스터의 모든 노드에서 �
 
 그러나 이 접근 방식은 서비스 패브릭 지식 범위 밖의 특정 이름 지정 정보 응용 프로그램을 사용하는 클라이언트에 기반합니다.
 
-- *이름 지정 규칙 사용*: 2013년에 사용할 응용 프로그램이 있는 경우 fabric:/app/service2013라는 이름의 서비스를 만듭니다. 2013년 2/4분기를 향해 fabric:/app/service2014라는 이름의 다른 서비스를 만듭니다. 이 두 서비스는 동일한 서비스 유형입니다. 이 접근 방법에서는 클라이언트가 연도를 기준으로 적절한 서비스 이름을 생성하는 논리가 있어야 합니다.
-
-- *조회 서비스 사용*: 다른 패턴은 원하는 키에 대한 서비스의 이름을 제공할 수 있는 보조 “조회 서비스”를 사용하는 것입니다. 그러면 조회 서비스에 의해새 서비스 인스턴스가 만들어집니다. 조회 서비스 자체는 생성한 서비스 이름에 대한 데이터 외에는 어떤 응용 프로그램 데이터도 유지하지 않습니다. 따라서 같은 해에 기반한 위 예제의 경우, 클라이언트는 먼저 조회 서비스에 연결하여 주어진 해에 대한 서비스 처리 데이터의 이름을 확인한 후 그 서비스 이름을 사용하여 실제 작업을 수행합니다. 첫 번째 조회 결과는 캐시될 수 있습니다.
+* *이름 지정 규칙 사용*: 2013년에 사용할 응용 프로그램이 있는 경우 fabric:/app/service2013라는 이름의 서비스를 만듭니다. 2013년 2/4분기를 향해 fabric:/app/service2014라는 이름의 다른 서비스를 만듭니다. 이 두 서비스는 동일한 서비스 유형입니다. 이 접근 방법에서는 클라이언트가 연도를 기준으로 적절한 서비스 이름을 생성하는 논리가 있어야 합니다.
+* *조회 서비스 사용*: 다른 패턴은 원하는 키에 대한 서비스의 이름을 제공할 수 있는 보조 “조회 서비스”를 사용하는 것입니다. 그러면 조회 서비스에 의해새 서비스 인스턴스가 만들어집니다. 조회 서비스 자체는 생성한 서비스 이름에 대한 데이터 외에는 어떤 응용 프로그램 데이터도 유지하지 않습니다. 따라서 같은 해에 기반한 위 예제의 경우, 클라이언트는 먼저 조회 서비스에 연결하여 주어진 해에 대한 서비스 처리 데이터의 이름을 확인한 후 그 서비스 이름을 사용하여 실제 작업을 수행합니다. 첫 번째 조회 결과는 캐시될 수 있습니다.
 
 ## 다음 단계
-
 서비스 패브릭 개념에 대한 자세한 내용은 다음을 참조하세요.
 
-- [서비스 패브릭 서비스의 가용성](service-fabric-availability-services.md)
-
-- [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
-
-- [상태 정의 및 관리](service-fabric-concepts-state.md)
+* [서비스 패브릭 서비스의 가용성](service-fabric-availability-services.md)
+* [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
+* [상태 정의 및 관리](service-fabric-concepts-state.md)
 
 <!---HONumber=AcomDC_0810_2016-->

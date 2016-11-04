@@ -1,110 +1,94 @@
-<properties 
-   pageTitle="Azure Mobile Engagement 사용자 인터페이스 - 설정" 
-   description="Azure Mobile Engagement를 사용하여 응용 프로그램의 전역 설정을 관리하는 방법 알아보기" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: Azure Mobile Engagement 사용자 인터페이스 - 설정
+description: Azure Mobile Engagement를 사용하여 응용 프로그램의 전역 설정을 관리하는 방법 알아보기
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # 응용 프로그램의 전역 설정을 관리하는 방법
-
 응용 프로그램에서 제공하는 **설정** 메뉴 옵션은 응용 프로그램의 플랫폼과 응용 프로그램에 대해 부여한 권한에 따라 달라집니다. 설정에는 세부 정보, 프로젝트, 네이티브 푸시, 푸시 속도, 태그(앱 정보) 및 상업적 압력 등이 있습니다. 설정 섹션의 태그(앱 정보) 메뉴 옵션은 응용 프로그램(SDK 사용) 또는 백 엔드(장치 API 사용)에서 관리할 수 있습니다.
 
-
->[AZURE.NOTE] **Mobile Engagement** 포털 UI의 여러 섹션에는 **도움말 표시** 단추가 포함되어 있습니다. 섹션에 대해 더 자세한 문맥 정보를 보려면 이 단추를 누릅니다.
+> [!NOTE]
+> **Mobile Engagement** 포털 UI의 여러 섹션에는 **도움말 표시** 단추가 포함되어 있습니다. 섹션에 대해 더 자세한 문맥 정보를 보려면 이 단추를 누릅니다.
+> 
+> 
 
 ## 세부 정보
-
 응용 프로그램의 이름과 설명을 변경하고 응용 프로그램 소유자와 역할 권한을 확인할 수 있습니다.
 
 분석 구성에서는 주의 시작 요일과 보존 기간을 확인하거나 변경할 수 있습니다.
- 
-  ![settings1][46]
- 
-## 프로젝트
 
+  ![settings1][46]
+
+## 프로젝트
 응용 프로그램을 표시할 모든 프로젝트를 선택할 수 있습니다.
 
 또한 프로젝트를 검색하고 응용 프로그램이 속한 프로젝트의 이름, 설명, 소유자, 역할 권한을 확인할 수 있습니다.
 
 자세한 내용은 [UI 설명서 - 홈][Link 13]을 참조하세요.
- 
+
   ![settings3][48]
 
 ## 네이티브 푸시
-
 네이티브 푸시에 사용할 새 인증서를 등록하거나 기존 인증서를 삭제할 수 있습니다. Azure Mobile Engagement에서는 네이티브 푸시를 통해 응용 프로그램이 실행 중이지 않을 때라도 언제든지 응용 프로그램에 푸시를 보낼 수 있습니다.
 
 하나 이상의 네이티브 푸시 서비스에 대해 자격 증명이나 인증서를 제공한 후에는 도달률 캠페인을 만들 때 "항상"을 선택할 수 있으며 푸시 API에서 "알림 구성 요소" 매개 변수도 사용할 수 있습니다.
 
-
-
 ### APNS(Apple 푸시 알림 서비스)
-
 Apple 푸시 알림 서비스를 사용하여 네이티브 푸시를 사용하도록 설정하려면 인증서를 등록해야 합니다. 인증서 유형은 개발(DEV) 또는 프로덕션(PROD)으로 지정해야 합니다. 그런 후에 인증서와 암호를 업로드해야 합니다.
 
 자세한 내용은 [SDK 설명서 - iOS - Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법][Link 5]을 참조하세요.
- 
+
 ![settings4][49]
- 
+
 ### WPNS(Windows 푸시 알림 서비스)
-
 Windows 알림 서비스를 사용하여 네이티브 푸시를 사용하도록 설정하려면 응용 프로그램의 자격 증명을 제공해야 합니다. 이렇게 하려면 패키지 SID(보안 식별자)와 비밀 키가 필요합니다.
- 
-![settings5][50]
- 
-### Google Cloud Messaging for Android(GCM)
 
+![settings5][50]
+
+### Google Cloud Messaging for Android(GCM)
 GCM을 사용하여 네이티브 푸시를 사용하도록 설정하려면 Google의 지침을 따라야 합니다. 그런 후에 IP 제한 없이 구성된 서버의 단순 API 키를 붙여 넣어야 합니다. 이렇게 하려면 Android v1.12.0 이상 버전용 SDK를 통합해야 합니다.
 
 자세한 내용은 다음을 참조하세요.
 
-- [SDK 설명서 Android GCM을 통합하는 방법][Link 5]
-- [Google 개발자 GCM 가이드](http://developer.android.com/guide/google/gcm/gs.html)
- 
-### Amazon Device Messaging for Android(ADM)
+* [SDK 설명서 Android GCM을 통합하는 방법][Link 5]
+* [Google 개발자 GCM 가이드](http://developer.android.com/guide/google/gcm/gs.html)
 
+### Amazon Device Messaging for Android(ADM)
 ADM을 사용하여 네이티브 푸시를 사용하도록 설정하려면 클라이언트 ID와 클라이언트 암호로 구성된 Amazon <OAuth 자격 증명>을 제공해야 합니다. 이렇게 하려면 Android v2.1.0 이상 버전용 SDK를 통합해야 합니다.
 
 자세한 내용은 다음을 참조하세요.
 
-- [SDK 설명서 Android ADM을 통합하는 방법][Link 5]
-- [Amazon 개발자 ADM 설명서](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
- 
+* [SDK 설명서 Android ADM을 통합하는 방법][Link 5]
+* [Amazon 개발자 ADM 설명서](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
+
 ![settings6][51]
 
 ## 푸시 속도
-
 응용 프로그램의 현재 푸시 속도가 표시되며 원하는 푸시 속도를 정의할 수 있습니다.
- 
+
   ![settings7][52]
 
 ## 태그(앱 정보)
-
 ![settings11][56]
-  
+
 ## 상업적 압력
-
-
 ![settings12][57]
 
-
 ## 참고 항목
-
-- [개념][Link 6]
-- [문제 해결 가이드 서비스][Link 24]
-
- 
+* [개념][Link 6]
+* [문제 해결 가이드 서비스][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -200,6 +184,6 @@ ADM을 사용하여 네이티브 푸시를 사용하도록 설정하려면 클�
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

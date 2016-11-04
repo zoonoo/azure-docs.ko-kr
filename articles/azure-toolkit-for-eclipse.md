@@ -1,33 +1,34 @@
-<properties
-	pageTitle="Eclipse용 Azure 도구 키트 | Microsoft Azure"
-	description="Eclipse용 Azure 도구 키트에 대해 알아봅니다."
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""/>
+---
+title: Eclipse용 Azure 도구 키트 | Microsoft Docs
+description: Eclipse용 Azure 도구 키트에 대해 알아봅니다.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: wpickett
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="multiple"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="09/20/2016" 
-	ms.author="robmcm;asirveda"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 09/20/2016
+ms.author: robmcm;asirveda
 
+---
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
 
 # Eclipse용 Azure 도구 키트
-
 Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프로그램을 쉽게 작성, 개발, 테스트 및 배포할 수 있는 템플릿과 기능을 제공합니다. 다음 프로젝트 사이트를 통해 MIT 라이선스에 따라 소스 코드 사용이 허가된 오픈 소스 프로젝트입니다.
 
 * <https://github.com/microsoft/azure-tools-for-java>
 
-> [AZURE.NOTE] IntelliJ IDE용 Azure 도구 키트도 있습니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트]를 참조하세요.
+> [!NOTE]
+> IntelliJ IDE용 Azure 도구 키트도 있습니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트]를 참조하세요.
+> 
+> 
 
 ## Eclipse용 Azure 도구 키트 시작
-
 다음은 Eclipse용 Azure 도구 키트 사용을 시작할 때 유용한 문서입니다.
 
 * [Eclipse용 Azure 도구 키트의 새로운 기능]
@@ -36,7 +37,6 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 * [Eclipse에서 Azure용 Hello World 웹앱 만들기]
 
 ## Azure 프로젝트 설정 구성
-
 다음 문서는 Eclipse용 Azure 도구 키트를 사용하여 Azure 프로젝트의 설정을 구성하는 방법을 보여 줍니다.
 
 * [Azure 프로젝트 속성]
@@ -47,7 +47,6 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 * [Eclipse에서 Azure 배포에 대한 원격 액세스를 사용하도록 설정]
 
 ## Eclipse용 Azure 도구 키트 사용
-
 다음 문서는 Eclipse용 Azure 도구 키트를 사용하여 Java 프로젝트에 Azure 기능을 추가하는 방법을 보여 줍니다.
 
 * [Eclipse에서 Java용 Azure 라이브러리 패키지의 Javadoc 콘텐츠 표시]
@@ -57,17 +56,16 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 * [Eclipse용 HDInsight 도구 플러그 인을 사용하여 HDInsight Spark Linux 클러스터용 Spark 응용 프로그램 만들기][HDInsight Tools Plugin for Eclipse]
 
 ## 참고 항목
-
 Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-- *Eclipse용 Azure 도구 키트(이 문서)*
-  - [Eclipse용 Azure 도구 키트 설치]
-  - [Eclipse에서 Azure용 Hello World 웹앱 만들기]
-  - [Eclipse용 Azure 도구 키트의 새로운 기능]
-- [IntelliJ용 Azure 도구 키트]
-  - [IntelliJ용 Azure 도구 키트 설치]
-  - [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
-  - [IntelliJ용 Azure 도구 키트의 새로운 기능]
+* *Eclipse용 Azure 도구 키트(이 문서)*
+  * [Eclipse용 Azure 도구 키트 설치]
+  * [Eclipse에서 Azure용 Hello World 웹앱 만들기]
+  * [Eclipse용 Azure 도구 키트의 새로운 기능]
+* [IntelliJ용 Azure 도구 키트]
+  * [IntelliJ용 Azure 도구 키트 설치]
+  * [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
+  * [IntelliJ용 Azure 도구 키트의 새로운 기능]
 
 Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 

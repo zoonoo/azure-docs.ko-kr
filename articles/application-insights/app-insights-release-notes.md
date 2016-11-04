@@ -1,23 +1,21 @@
-<properties 
-	pageTitle="Application Insights에 대한 릴리스 정보" 
-	description="최신 업데이트입니다." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Application Insights에 대한 릴리스 정보
+description: 최신 업데이트입니다.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/28/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 01/28/2016
+ms.author: awills
+
+---
 # SDK 릴리스 정보 - Application Insights
-
-
 자세한 릴리스 정보 및 SDK에 대한 업데이트 지침은 다음과 같습니다.
 
 * [ASP.NET 웹 서버 SDK](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)

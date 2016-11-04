@@ -1,42 +1,36 @@
-<properties
-	pageTitle="TDSP(팀 데이터 과학 프로세스)의 기능 선택 | Microsoft Azure" 
-	description="기능 선택의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: TDSP(팀 데이터 과학 프로세스)의 기능 선택 | Microsoft Docs
+description: 기능 선택의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다.
+services: machine-learning
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="zhangya;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/19/2016
+ms.author: zhangya;bradsev
 
-
+---
 # TDSP(팀 데이터 과학 프로세스)의 기능 선택
-
 이 문서에서는 기능 선택의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이들 예는 Azure 기계 학습 스튜디오에서 가져온 것입니다.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 이 토픽은 기능 선택의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이들 예는 Azure 기계 학습 스튜디오에서 가져온 것입니다.
 
 기능의 엔지니어링 및 선택은 [팀 데이터 과학 프로세스란 무엇입니까?](data-science-process-overview.md)에 설명된 TDSP의 한 부분입니다. 기능 엔지니어링 및 선택은 TDSP의 **개발 기능** 단계의 일부입니다.
 
 * **기능 엔지니어링** 이 프로세스에서는 데이터의 기존 원시 기능에서 추가 관련 기능을 만들고 학습 알고리즘의 예측 능력을 향상시키려 합니다.
-
 * **선택 기능**: 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 원래 데이터 기능의 주요 하위 집합을 선택합니다.
 
 일반적으로 추가 기능을 생성하기 위해 **기능 엔지니어링**을 먼저 적용한 다음, 관련이 없는 중복 기능이나 고도로 상관된 기능을 제거하기 위해 **기능 선택** 단계가 수행됩니다.
 
-
-## 데이터에서 기능 필터링 - 기능 선택 
-
+## 데이터에서 기능 필터링 - 기능 선택
 기능 선택은 분류 또는 회귀 작업과 같은 예측 모델링 작업의 학습 데이터 집합을 생성하는 데 일반적으로 적용되는 프로세스입니다. 최소한의 기능 집합을 사용하여 데이터의 최대 분산 크기를 표시함으로써 차원수를 줄이는 원래 데이터 집합의 하위 집합을 선택하기 위해 사용합니다. 이 기능 하위 집합은 모델을 학습하기 위해 포함되는 유일한 기능입니다. 기능 선택은 두 가지 기본 용도로 사용됩니다.
 
 * 첫째 기능 선택을 수행하면 관련이 없는 중복된 기능이나 고도로 상관된 기능을 제거하여 분류 정확도를 높입니다.
@@ -49,7 +43,6 @@
 Azure 기계 학습 스튜디오에서는 기능 선택에 제공되는 모듈이 있습니다. 다음 그림에 표시된 대로 이러한 모듈에는 [필터 기반 기능 선택][filter-based-feature-selection] 및 [피셔 선형 판별식 분석][fisher-linear-discriminant-analysis]이 포함됩니다.
 
 ![기능 선택 예](./media/machine-learning-data-science-select-features/feature-Selection.png)
-
 
 예를 들어, [필터 기반 기능 선택][filter-based-feature-selection] 모듈 사용을 고려하세요. 편의상 위에 개요된 텍스트 마이닝 예를 계속 사용하겠습니다. [기능 해싱][feature-hashing] 모듈을 통해 256개의 기능 집합을 생성한 후 회귀 모델을 빌드하려고 하며, 응답 변수는 "Col1"이고 1 ~ 5 범위의 서적 검토 등급을 나타낸다고 가정합니다. "기능 점수 매기기 메서드”를 "Pearson 상관"으로 설정하고 "대상 열”은 "Col1"로 설정하며 "원하는 기능 수"는 50으로 설정합니다. 그러면 [필터 기반 기능 선택][filter-based-feature-selection] 모듈에서 대상 특성이 "Col1"과 함께 50개의 기능이 포함된 데이터 집합을 생성합니다. 다음 그림에서는 방금 설명한 입력 매개 변수와 이 실험의 흐름을 보여줍니다.
 
@@ -74,6 +67,6 @@ Azure 기계 학습 스튜디오에서는 기능 선택에 제공되는 모듈�
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
- 
+
 
 <!---HONumber=AcomDC_0921_2016-->

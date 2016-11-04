@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Azure Data Factory에서 Spark 프로그램 호출" 
-	description="MapReduce 작업을 사용하여 Azure Data Factory에서 Spark 프로그램을 호출하는 방법에 대해 알아봅니다." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+---
+title: Azure Data Factory에서 Spark 프로그램 호출
+description: MapReduce 작업을 사용하여 Azure Data Factory에서 Spark 프로그램을 호출하는 방법에 대해 알아봅니다.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: spelluru
 
+---
 # Data Factory에서 Spark 프로그램 호출
 ## 소개
 Data Factory 파이프라인에서 MapReduce 작업을 사용하여 HDInsight Spark 클러스터에서 Spark 프로그램을 실행할 수 있습니다. 활동 사용에 대한 자세한 내용을 보려면 이 문서를 확인하기 전에 [MapReduce 활동](data-factory-map-reduce.md) 문서를 참조하세요.
@@ -34,17 +34,18 @@ Data Factory 파이프라인에서 MapReduce 작업을 사용하여 HDInsight Sp
 
 MapReduce 활동은 StorageLinkedService.json에 지정된 Azure Storage의 **adflibs** 컨테이너에 있는 **com.adf.sparklauncher.jar**을 호출하도록 구성됩니다. 이 프로그램의 소스 코드는 Spark-ADF/src/main/java/com/adf/ 폴더에 있으며 spark-submit을 호출하고 Spark 작업을 실행합니다.
 
-> [AZURE.IMPORTANT] 
-샘플을 사용하기 전에 [README.TXT](https://github.com/Azure/Azure-DataFactory/blob/master/Samples/Spark/README.txt)를 확인하여 최신 정보와 추가 정보를 파악하세요.
->  
+> [!IMPORTANT]
+> 샘플을 사용하기 전에 [README.TXT](https://github.com/Azure/Azure-DataFactory/blob/master/Samples/Spark/README.txt)를 확인하여 최신 정보와 추가 정보를 파악하세요.
+> 
 > MapReduce 활동을 사용하여 Spark 프로그램을 호출하려면 이 방식에서 고유한 HDInsight Spark 클러스터를 사용해야 합니다. 주문형 HDInsight 클러스터 사용은 지원되지 않습니다.
-
+> 
+> 
 
 ## 참고 항목
-- [Hive 작업](data-factory-hive-activity.md)
-- [Pig 작업](data-factory-pig-activity.md)
-- [MapReduce 작업](data-factory-map-reduce.md)
-- [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
-- [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Hive 작업](data-factory-hive-activity.md)
+* [Pig 작업](data-factory-pig-activity.md)
+* [MapReduce 작업](data-factory-map-reduce.md)
+* [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
+* [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
 <!---HONumber=AcomDC_0831_2016-->

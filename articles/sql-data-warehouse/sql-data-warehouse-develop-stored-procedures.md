@@ -1,23 +1,22 @@
-<properties
-   pageTitle="SQL 데이터 웨어하우스의 저장 프로시저 | Microsoft Azure"
-   description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 저장 프로시저 구현을 위한 팁"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: SQL 데이터 웨어하우스의 저장 프로시저 | Microsoft Docs
+description: 솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 저장 프로시저 구현을 위한 팁
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/30/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # SQL 데이터 웨어하우스의 저장된 프로시저
-
 SQL 데이터 웨어하우스는 SQL Server에 있는 여러 TRANSACT-SQL 기능을 지원합니다. 무엇보다도 솔루션의 성능을 최대화하기 위해 활용하고자 하는 특정 기능 확장 사항이 있습니다.
 
 그러나 SQL 데이터 웨어하우스의 크기와 성능을 유지하기 위해, 동작의 차이가 있는 일부 기능 및 지원되지 않는 일부 다른 기능이 있습니다.
@@ -42,6 +41,7 @@ SQL 데이터 웨어하우스는 최대 8개의 중첩 수준을 지원합니다
 EXEC prc_nesting
 ```
 저장된 프로시저는 또한 다른 EXEC 호출을 만든 다음 중첩 수준을 2로 증가시킵니다.
+
 ```sql
 CREATE PROCEDURE prc_nesting
 AS
@@ -50,6 +50,7 @@ GO
 EXEC prc_nesting
 ```
 그 다음 두 번째 프로시저가 일부 동적 SQL을 실행하면 다음 중첩 수준이 3으로 증가합니다.
+
 ```sql
 CREATE PROCEDURE prc_nesting_2
 AS
@@ -66,25 +67,24 @@ SQL 데이터 웨어하우스는 INSERT 문을 사용하여 저장된 프로시�
 이 작업을 수행하는 방법의 예는 [임시 테이블]의 다음 문서를 참조하세요.
 
 ## 제한 사항
-
 SQL 데이터 웨어하우스에서 구현되지 않은 TRANSACT-SQL 저장된 프로시저의 일부 측면이 있습니다.
 
 아래에 이 계정과 키의 예제가 나와 있습니다.
 
-- 임시 저장 프로시저
-- 숫자가 매겨진 저장 프로시저
-- 확장된 저장 프로시저
-- CLR 저장 프로시저
-- 암호화 옵션
-- 복제 옵션
-- 테이블 반환 매개 변수
-- 읽기 전용 매개 변수
-- 기본 매개 변수
-- 실행 컨텍스트
-- return 문
+* 임시 저장 프로시저
+* 숫자가 매겨진 저장 프로시저
+* 확장된 저장 프로시저
+* CLR 저장 프로시저
+* 암호화 옵션
+* 복제 옵션
+* 테이블 반환 매개 변수
+* 읽기 전용 매개 변수
+* 기본 매개 변수
+* 실행 컨텍스트
+* return 문
 
 ## 다음 단계
-더 많은 개발 팁은 [개발 개요][]를 참조하세요.
+더 많은 개발 팁은 [개발 개요][개발 개요]를 참조하세요.
 
 <!--Image references-->
 

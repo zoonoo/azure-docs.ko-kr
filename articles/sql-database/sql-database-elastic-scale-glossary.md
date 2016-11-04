@@ -1,21 +1,21 @@
-<properties 
-    pageTitle="탄력적 데이터베이스 도구 용어집 | Microsoft Azure" 
-    description="탄력적 데이터베이스 도구에 쓰이는 용어 설명." 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="ddove" 
-    editor=""/>
+---
+title: 탄력적 데이터베이스 도구 용어집 | Microsoft Docs
+description: 탄력적 데이터베이스 도구에 쓰이는 용어 설명.
+services: sql-database
+documentationcenter: ''
+manager: jhubbard
+author: ddove
+editor: ''
 
-<tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/27/2016" 
-    ms.author="ddove"/>
+ms.service: sql-database
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/27/2016
+ms.author: ddove
 
+---
 # 탄력적 데이터베이스 도구 용어집
 Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md), 기능에 대해 정의된 용어는 다음과 같습니다. 이 도구는 [분할 데이터베이스 맵](sql-database-elastic-scale-shard-map-management.md)을 관리하는 데 사용하며 [클라이언트 라이브러리](sql-database-elastic-database-client-library.md), [분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md), [탄력적 풀](sql-database-elastic-pool.md), [쿼리](sql-database-elastic-query-overview.md)를 포함합니다.
 
@@ -65,9 +65,7 @@ Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-databa
 
 ![매핑][2]
 
-
-##동사
-
+## 동사
 **수평적 크기 조정**: 분할 맵에 분할을 추가하거나 제거하여 아래와 같이 분할 컬렉션을 규모 확장(또는 규모 감축)하는 작업입니다.
 
 ![수평 및 수직적 크기 조정][3]
@@ -82,12 +80,12 @@ Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-databa
 
 **수직적 크기 조정**: 개별 분할된 데이터베이스의 성능 수준을 확장 또는 축소하는 작업입니다. 예를 들어, 표준에서 프리미엄(더 많은 컴퓨팅 리소스 결과)으로 분할된 데이터베이스를 변경합니다.
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
 [2]: ./media/sql-database-elastic-scale-glossary/mappings.png
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
- 
+
 
 <!---HONumber=AcomDC_0601_2016-->

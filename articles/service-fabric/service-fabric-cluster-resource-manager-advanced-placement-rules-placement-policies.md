@@ -1,21 +1,21 @@
-<properties
-   pageTitle="서비스 패브릭 클러스터 리소스 관리자 - 배치 정책 | Microsoft Azure"
-   description="서비스 패브릭 서비스에 대한 추가 배치 정책 및 규칙 개요"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: 서비스 패브릭 클러스터 리소스 관리자 - 배치 정책 | Microsoft Docs
+description: 서비스 패브릭 서비스에 대한 추가 배치 정책 및 규칙 개요
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # 서비스 패브릭 서비스에 대한 배치 정책
 서비스 패브릭 클러스터가 지리적으로 널리 분포된 경우, 즉 데이터 센터나 Azure 지역이 여러 곳에 배치된 경우 또는 환경이 지정학적으로 널리 분산된 경우(또는 법적 경계나 정책 경계를 고려해야 하는 경우 또는 관련된 거리에 실제 성능/지연 영향이 있는 경우) 여러 가지 규칙을 추가로 고려해야 합니다. 이러한 사항은 노드 속성 및 배치 제약 조건을 통해 구성할 수 있지만 일부는 더 복잡합니다. 상황을 좀 더 간단히 만들기 위해 이러한 추가 명령을 제공합니다. 배치 정책은 배치 제약 조건처럼 이름이 지정된 서비스 인스턴스 단위로 구성할 수 있습니다.
 
@@ -96,7 +96,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 현재 지리적으로 분산되지 않은 클러스터의 서비스에 대해 이러한 구성을 사용할 수 있나요? 물론 가능합니다. 그렇지만 그렇게 해야 할 중대한 이유도 없습니다. 특히, 실제로 지리적으로 분산된 클러스터를 실행하고 있지 않다면 유효하지 않은 필수 기본 도메인 구성은 피해야 합니다. 다양한 형식의 하드웨어 또는 워크로드 구분이 진행되지 않을 경우 지정된 워크로드를 강제로 단일 랙에서 실행하거나 일부 로컬 클러스터 세그먼트를 다른 세그먼트보다 선호하는 것은 타당하지 않으며, 이러한 경우는 정상적인 배치 제약조건을 통해 처리할 수 있습니다.
 
 ## 다음 단계
-- 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)에서 다른 클러스터 Resource Manager 구성에 대한 항목을 확인하세요.
+* 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)에서 다른 클러스터 Resource Manager 구성에 대한 항목을 확인하세요.
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png

@@ -1,29 +1,29 @@
-<properties 
-	pageTitle="Order By를 사용하여 DocumentDB 데이터 정렬 | Microsoft Azure" 
-	description="LINQ 및 SQL의 DocumentDB 쿼리에서 ORDER BY를 사용하는 방법 및 ORDER BY 쿼리에 대한 인덱싱 정책을 지정하는 방법에 대해 알아봅니다." 
-	services="documentdb" 
-	authors="arramac" 
-	manager="jhubbard" 
-	editor="cgronlun" 
-	documentationCenter=""/>
+---
+title: Order By를 사용하여 DocumentDB 데이터 정렬 | Microsoft Docs
+description: LINQ 및 SQL의 DocumentDB 쿼리에서 ORDER BY를 사용하는 방법 및 ORDER BY 쿼리에 대한 인덱싱 정책을 지정하는 방법에 대해 알아봅니다.
+services: documentdb
+author: arramac
+manager: jhubbard
+editor: cgronlun
+documentationcenter: ''
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2016" 
-	ms.author="arramac"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/07/2016
+ms.author: arramac
 
+---
 # Order By를 사용하여 DocumentDB 데이터 정렬
 Microsoft Azure DocumentDB는 JSON 문서에 대해 SQL을 사용한 문서 쿼리를 지원합니다. SQL 쿼리 문에서 ORDER BY 절을 사용하여 쿼리 결과를 주문할 수 있습니다.
 
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
-- 어떻게 Order By로 쿼리합니까?
-- Order By에 대한 색인 정책 구성 방법
-- 다음 단계
+* 어떻게 Order By로 쿼리합니까?
+* Order By에 대한 색인 정책 구성 방법
+* 다음 단계
 
 [샘플](#samples) 및 [FAQ](#faq)도 제공됩니다.
 
@@ -60,38 +60,43 @@ Books.ShippingDetails.Weight와 같은 문서 내에서 중첩된 모든 속성�
 DocumentDB는 곧 추가 쿼리 형식을 가진 단일 숫자, 문자열 또는 쿼리 당 부울 속성으로 순서를 지정하도록 지원합니다. 자세한 내용은 [다음 단계](#Whats_coming_next)를 참조하세요.
 
 ## Order By로 색인 정책 구성
-
 DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 특정 경로/속성, 데이터 형식(문자열/숫자) 및 다른 전체 자릿수 값(최대 전체 자릿수 또는 고정된 전체 자릿수 값)에 대해 설정된다는 사실에 유의하십시오. DocumentDB가 기본적으로 인덱싱 해시를 사용하기 때문에 Order By를 사용하려면 숫자, 문자열 또는 둘 모두의 범위에 사용자 지정 인덱싱 정책을 사용하여 새 컬렉션을 만들어야 합니다.
 
->[AZURE.NOTE] 문자열 범위 인덱스는 2015년 7월 7일에 REST API 버전 2015-06-03에서 도입되었습니다. 문자열에 대해 Order By을 위한 정책을 만들려면 NET SDK의 SDK 버전 1.2.0. 또는 버전 1.1.0 Python, Node.js 또는 Java SDK를 사용해야 합니다.
->
->REST API 버전 2015-06-03 전에 기본 컬렉션 인덱싱 정책은 문자열과 숫자를 위한 해시였습니다. 문자열을 위한 해시 및 숫자에 대한 범위로 변경되었습니다.
+> [!NOTE]
+> 문자열 범위 인덱스는 2015년 7월 7일에 REST API 버전 2015-06-03에서 도입되었습니다. 문자열에 대해 Order By을 위한 정책을 만들려면 NET SDK의 SDK 버전 1.2.0. 또는 버전 1.1.0 Python, Node.js 또는 Java SDK를 사용해야 합니다.
+> 
+> REST API 버전 2015-06-03 전에 기본 컬렉션 인덱싱 정책은 문자열과 숫자를 위한 해시였습니다. 문자열을 위한 해시 및 숫자에 대한 범위로 변경되었습니다.
+> 
+> 
 
 자세한 내용은 [DocumentDB 색인 정책](documentdb-indexing-policies.md)을 참조하세요.
 
 ### 모든 속성에 대한 Order By의 인덱싱
 다음은 JSON 문서 내에서 표시되는 임의/모든 숫자 또는 문자열 속성에 대해 Order By로 인덱싱된 "모든 범위"를 가지고 컬렉션을 만들 수 있는 방법입니다. 다음은 최대 전체 자릿수(-1)에서 범위에 대한 문자열 값의 기본 인덱스 유형을 무시합니다.
-                   
+
     DocumentCollection books = new DocumentCollection();
     books.Id = "books";
     books.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
-    
+
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), books);  
 
->[AZURE.NOTE] 오직 Order By이 RangeIndex로 인덱싱되는 데이터 형식(문자열 및 숫자)의 결과를 반환합니다. 예를 들어 숫자에 RangeIndex가 있는 기본 인덱싱 정책이 있다면 문자열 값을 가진 경로에 대한 Order By는 어떤 문서도 반환하지 않습니다.
->
+> [!NOTE]
+> 오직 Order By이 RangeIndex로 인덱싱되는 데이터 형식(문자열 및 숫자)의 결과를 반환합니다. 예를 들어 숫자에 RangeIndex가 있는 기본 인덱싱 정책이 있다면 문자열 값을 가진 경로에 대한 Order By는 어떤 문서도 반환하지 않습니다.
+> 
 > 컬렉션에 대한 파티션 키를 정의하는 경우 Order By는 단일 분할 키에 대해 필터링되는 쿼리 내에서만 지원됩니다.
+> 
+> 
 
 ### 단일 속성에 대한 Order By의 인덱싱
 다음은 문자열인 제목 속성에 대해 인덱스가 Order By인 컬렉션을 만들 수 있는 방법입니다. 범위 인덱싱을 가진 제목 속성("/Title/?")에 대한 경로와 기본 인덱싱 체계를 가진 다른 모든 속성에 대해 문자열에 대한 해시 및 숫자에 대한 범위인 경로 등 두 개의 경로가 있습니다.
-    
+
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
             Path = "/Title/?", 
             Indexes = new Collection<Index> { 
                 new RangeIndex(DataType.String) { Precision = -1 } } 
             });
-    
+
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), booksCollection);  
 
 
@@ -99,11 +104,9 @@ DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 
 정책 인덱싱 정책 만들기 및 Order By를 사용한 페이징을 포함하여 Order By를 사용하는 방법을 나타내는 이 [Github 샘플 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)을 살펴 보세요. 샘플은 오픈 소스이며, 다른 DocumentDB 개발자에게 도움이 되는 정보와 함께 끌어오기 요청을 제출하는 것이 좋습니다. 참여하는 방법에 대한 지침은 [참여 지침](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md)을 참조하세요.
 
 ## FAQ
-
 **Order By 쿼리의 예상된 요청 단위(RU) 소비**
 
 Order By는 조회에 대한 DocumentDB 인덱스를 사용하므로 Order By 쿼리에서 사용되는 요청 단위의 수는 Order By 없이 해당 쿼리와 유사합니다. DocumentDB에서의 다른 모든 작업과 마찬가지로, 요청 단위 수는 문서의 크기/모양 및 쿼리의 복잡성에 따라 달라집니다.
-
 
 **Order By에 대한 예상 인덱싱 오버헤드**
 
@@ -118,15 +121,14 @@ Order By를 사용하여 쿼리 결과를 정렬하기 위해 컬렉션의 인�
 Order By는 속성, 숫자 또는 문자열에 대해 최대 자릿수(-1)로 인덱스된 범위인 경우에만 지정될 수 있습니다.
 
 다음을 수행할 수 없습니다.
- 
-- id, \_rid 및 \_self(서비스 예정)와 같은 내부 문자열 속성으로 Order By
-- 문서 간 조인의 결과로 파생된 속성으로 Order By(서비스 예정).
-- 다중 속성으로 Order By(서비스 예정).
-- 데이터베이스, 컬렉션, 사용자, 사용 권한 또는 첨부 파일에 대한 쿼리로 Order By.(서비스 예정)
-- 표현식 또는 UDF/내장 함수의 결과와 같은 계산된 속성으로 Order By.
+
+* id, \_rid 및 \_self(서비스 예정)와 같은 내부 문자열 속성으로 Order By
+* 문서 간 조인의 결과로 파생된 속성으로 Order By(서비스 예정).
+* 다중 속성으로 Order By(서비스 예정).
+* 데이터베이스, 컬렉션, 사용자, 사용 권한 또는 첨부 파일에 대한 쿼리로 Order By.(서비스 예정)
+* 표현식 또는 UDF/내장 함수의 결과와 같은 계산된 속성으로 Order By.
 
 ## 다음 단계
-
 [Github 샘플 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)를 분기하고 주문 데이터를 시작합니다.
 
 ## 참조
@@ -134,6 +136,5 @@ Order By는 속성, 숫자 또는 문자열에 대해 최대 자릿수(-1)로 �
 * [DocumentDB 인덱싱 정책 참조](documentdb-indexing-policies.md)
 * [DocumentDB SQL 참조(영문)](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 * [DocumentDB Order By 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
- 
 
 <!---HONumber=AcomDC_0713_2016-->

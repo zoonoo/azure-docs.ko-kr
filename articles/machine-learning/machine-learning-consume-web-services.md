@@ -1,27 +1,23 @@
-<properties
-    pageTitle="Machine Learning 웹 서비스 사용 | Microsoft Azure"
-    description="Machine Learning 서비스가 배포된 후에는 요청-응답 서비스 또는 배치 실행 서비스로 RESTFul 웹 서비스를 사용할 수 있습니다."
-    services="machine-learning"
-    documentationCenter=""
-    authors="garyericson"
-    manager="jhubbard"
-    editor="cgronlun" />
+---
+title: Machine Learning 웹 서비스 사용 | Microsoft Docs
+description: Machine Learning 서비스가 배포된 후에는 요청-응답 서비스 또는 배치 실행 서비스로 RESTFul 웹 서비스를 사용할 수 있습니다.
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="tbd"
-    ms.date="10/04/2016"
-    ms.author="garye" />
+ms.service: machine-learning
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 10/04/2016
+ms.author: garye
 
-
-
+---
 # <a name="how-to-consume-an-azure-machine-learning-web-service-that-has-been-deployed-from-a-machine-learning-experiment"></a>Azure Machine Learning 실험에서 배포된 Machine Learning 웹 서비스를 사용하는 방법
-
 ## <a name="introduction"></a>소개
-
 웹 서비스로 배포된 경우 Azure Machine Learning 실험에서는 광범위한 장치 및 플랫폼에서 사용할 수 있는 REST API 및 JSON 형식 메시지를 제공합니다. Azure Machine Learning 포털에서는 웹 서비스를 호출하는 데 사용할 수 있는 R, C# 및 Python 코드를 제공합니다. 
 
 다음 세 가지 기준을 충족하는 모든 장치에서 모든 프로그래밍 언어로 이러한 서비스를 호출할 수 있습니다.
@@ -30,35 +26,34 @@
 * HTTPS 요청을 수행할 SSL 기능이 있어야 합니다.
 * 직접 또는 지원 라이브러리를 통해 JSON을 구문 분석할 수 있습니다.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]  
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 Azure Machine Learning 웹 서비스는 요청-응답 서비스 및 배치 실행 서비스의 두 가지 방법 중 하나로 사용할 수 있습니다. 각 시나리오에서 기능은 실험이 배포된 후에 사용할 수 있는 RESTFul 웹 서비스를 통해 제공됩니다.
 
-> [AZURE.TIP] 예측 웹 서비스에 액세스하는 웹앱을 손쉽게 만드는 방법은 [웹앱 템플릿을 사용한 Azure Machine Learning 웹 서비스 사용](machine-learning-consume-web-service-with-web-app-template.md)을 참조하세요.
+> [!TIP]
+> 예측 웹 서비스에 액세스하는 웹앱을 손쉽게 만드는 방법은 [웹앱 템플릿을 사용한 Azure Machine Learning 웹 서비스 사용](machine-learning-consume-web-service-with-web-app-template.md)을 참조하세요.
+> 
+> 
 
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning Web service endpoints using the REST API, see **Azure machine learning Web service endpoints**.
 -->
 
-Azure Machine Learning 웹 서비스를 만들고 배포하는 방법은 [Azure Machine Learning 웹 서비스 배포] [publish]를 참조하세요. Machine Learning 실험을 만들고 배포하는 단계별 연습은 [Azure Machine Learning을 사용하여 예측 솔루션 개발] [walkthrough]를 참조하세요.
+Azure Machine Learning 웹 서비스를 만들고 배포하는 방법은 [Azure Machine Learning 웹 서비스 배포][publish]를 참조하세요. Machine Learning 실험을 만들고 배포하는 단계별 연습은 [Azure Machine Learning을 사용하여 예측 솔루션 개발][walkthrough]를 참조하세요.
 
 ## <a name="requestresponse-service-rrs"></a>RRS(요청-응답 서비스)
-
 대기 시간이 짧고 확장성 있는 웹 서비스인 RRS(요청-응답 서비스)는 Azure Machine Learning Studio 실험에서 만들어지고 배포된 상태 비저장 모델에 대한 인터페이스를 제공하는 데 사용됩니다. 사용 중인 응용 프로그램에서 실시간 응답을 예상하는 시나리오를 가능하게 합니다.
 
 RRS는 단일 행 또는 여러 행의 입력 매개 변수를 허용하며 단일 행 또는 여러 행을 출력으로 생성할 수 있습니다. 출력 행에는 여러 열이 포함될 수 있습니다.
 
 RRS 예제에서는 응용 프로그램의 신뢰성을 검증합니다. 이 경우 수억 회의 응용 프로그램 설치를 예상할 수 있습니다. 응용 프로그램을 시작하면 관련 입력으로 RRS 서비스를 호출합니다. 그런 다음 서비스로부터 응용 프로그램 실행을 허용하거나 차단하는 유효성 검사 응답을 받습니다.
 
-
 ## <a name="batch-execution-service-bes"></a>BES(일괄 처리 실행 서비스)
-
 BES(일괄 처리 실행 서비스)는 많은 데이터 레코드의 점수 매기기를 일괄적으로 처리하는 비동기 서비스입니다. BES 입력에는 Blob, Azure 테이블, SQL Azure, HDInsight(예: Hive 쿼리 결과) 및 HTTP 원본 등 다양한 원본의 레코드 배치가 포함되어 있습니다. BES의 출력에는 점수 매기기 결과가 포함되어 있습니다. 결과는 Azure Blob 저장소의 파일 출력이며 저장소 끝점의 데이터는 응답으로 반환됩니다.
 
 BES는 개인 또는 IOT(사물 인터넷) 장치에 대한 정기적으로 예약된 점수 매기기와 같이 응답이 즉시 필요하지 않은 경우에 유용합니다.
 
 ## <a name="examples"></a>예
-
 여기서는 Azure 웹 서비스 예제를 사용하여 RRS 및 BES의 작동 방식을 모두 보여 줍니다. 이 서비스는 IOT(사물 인터넷) 시나리오에서 사용됩니다. 단순함을 유지하기 위해 장치에서는 하나의 값인 `cog_speed`만 전송하고 단일 응답을 받습니다.
 
 실험이 배포된 후에 RRS 또는 BES 서비스를 호출하는 데 필요한 네 가지 정보는 다음과 같습니다.
@@ -70,11 +65,10 @@ BES는 개인 또는 IOT(사물 인터넷) 장치에 대한 정기적으로 예�
 
 이 정보를 찾는 방법은 배포된 서비스 유형(새 웹 서비스 또는 기존 웹 서비스)에 따라 다릅니다.
 
-### <a name="information-location-in-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning 웹 서비스 포털에서의 정보 위치 
-
+### <a name="information-location-in-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning 웹 서비스 포털에서의 정보 위치
 필요한 정보를 찾으려면
 
-1. [Azure Machine Learning 웹 서비스 포털] [webservicesportal]에 로그인합니다.
+1. [Azure Machine Learning 웹 서비스 포털][webservicesportal]에 로그인합니다.
 2. **웹 서비스** 또는 **기존 웹 서비스**를 클릭합니다.
 3. 사용하고 있는 웹 서비스를 클릭합니다. 
 4. 기존 웹 서비스로 작업하는 경우 사용하고 있는 끝점을 클릭합니다.
@@ -86,12 +80,11 @@ BES는 개인 또는 IOT(사물 인터넷) 장치에 대한 정기적으로 예�
 * **Swagger API** 페이지에서 예상 API **요청 헤더**, **응답 헤더** 및 **본문**을 사용할 수 있습니다.
 
 ### <a name="information-locations-in-machine-learning-studio-classic-web-service-only"></a>Machine Learning Studio에서의 정보 위치(기존 웹 서비스에만 해당)
-
 두 위치, 즉 Machine Learning Studio 또는 Azure Machine Learning 웹 서비스 포털에서 필요한 정보를 찾을 수 있습니다.
 
 Machine Learning Studio에서 필요한 정보를 찾으려면
 
-1. [Machine Learning Studio] [mlstudio]에 로그인합니다.
+1. [Machine Learning Studio][mlstudio]에 로그인합니다.
 2. 화면 왼쪽에서 **웹 서비스**를 클릭합니다.
 3. 사용하고 있는 웹 서비스를 클릭합니다. 
 
@@ -101,12 +94,11 @@ Machine Learning Studio에서 필요한 정보를 찾으려면
 * API 도움말 페이지에서 **요청 URI**를 사용할 수 있습니다.
 * API 도움말 페이지에서 예상 API **요청 헤더**, **응답 헤더** 및 **본문**을 사용할 수 있습니다.
 
-
 API 도움말 페이지에 액세스하려면 작업에 필요한 **요청/응답** 또는 **배치 실행** 링크를 클릭합니다.
 
 Azure Machine Learning 웹 서비스 포털에서 필요한 정보를 찾으려면
 
-1. [Azure Machine Learning 웹 서비스 포털] [webservicesportal]에 로그인합니다.
+1. [Azure Machine Learning 웹 서비스 포털][webservicesportal]에 로그인합니다.
 2. **기존 웹 서비스**를 클릭합니다.
 3. 사용하고 있는 웹 서비스를 클릭합니다. 
 4. 사용하고 있는 끝점을 클릭합니다.
@@ -120,9 +112,6 @@ Azure Machine Learning 웹 서비스 포털에서 필요한 정보를 찾으려�
 아래의 두 예제에서는 필요한 코드에 대해 C# 언어로 설명하고 있습니다.
 
 ### <a name="rrs-example"></a>RRS 예제
-
-
-
 다음 샘플 요청에서는 샘플 서비스의 API 호출에 대한 페이로드를 API 입력에 보여 줍니다. 기존 웹 서비스의 경우 **API 도움말 페이지** 또는 Machine Learning 웹 서비스 포털의 **Swagger API** 페이지에서 페이로드 샘플을 찾을 수 있습니다. 새 웹 서비스의 경우 Machine Learning 웹 서비스 포털의 **Swagger API** 페이지에서 페이로드 샘플을 찾을 수 있습니다.
 
 **샘플 요청**
@@ -261,16 +250,16 @@ Azure Machine Learning 웹 서비스 포털에서 필요한 정보를 찾으려�
           * @return response from the REST API
           */    
         public static String rrsHttpPost() {
-        
+
             HttpPost post;
             HttpClient client;
             StringEntity entity;
-        
+
             try {
                     // create HttpPost and HttpClient object
                     post = new HttpPost(apiurl);
                     client = HttpClientBuilder.create().build();
-            
+
                     // setup output message by copying JSON body into 
                     // apache StringEntity object along with content type
                     entity = new StringEntity(jsonBody, HTTP.UTF_8);
@@ -280,35 +269,34 @@ Azure Machine Learning 웹 서비스 포털에서 필요한 정보를 찾으려�
                     // add HTTP headers
                     post.setHeader("Accept", "text/json");
                     post.setHeader("Accept-Charset", "UTF-8");
-        
+
                     // set Authorization header based on the API key
                     post.setHeader("Authorization", ("Bearer "+apikey));
                     post.setEntity(entity);
 
                     // Call REST API and retrieve response content
                     HttpResponse authResponse = client.execute(post);
-            
+
                     return EntityUtils.toString(authResponse.getEntity());
-            
+
             }
             catch (Exception e) {
-            
+
                     return e.toString();
             }
-    
+
         }
-    
-        
- 
+
+
+
 
 ### <a name="bes-example"></a>BES 예제
-
 RRS 서비스와 달리 BES는 비동기 서비스입니다. 즉, BES API는 실행할 작업을 큐에 넣기만 하고 호출자는 작업이 완료되었는지 확인하기 위해 작업 상태를 폴링합니다. 다음은 일괄 처리 작업에 대해 현재 지원되는 작업입니다.
 
 1. 일괄 처리 작업 만들기(제출)
-1. 이 일괄 처리 작업 시작
-1. 일괄 처리 작업의 상태 또는 결과 가져오기
-1. 실행 중인 일괄 처리 작업 취소
+2. 이 일괄 처리 작업 시작
+3. 일괄 처리 작업의 상태 또는 결과 가져오기
+4. 실행 중인 일괄 처리 작업 취소
 
 **1. 일괄 처리 실행 작업 만들기**
 
@@ -317,11 +305,12 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
 * **Input**: 배치 작업의 입력이 저장되는 Blob 참조를 나타냅니다.
 * **GlobalParameters**: 실험에 정의할 수 있는 전역 매개 변수 집합을 나타냅니다. Azure 기계 학습 실험에는 서비스의 실행을 사용자 지정하는 필수 및 선택적 매개 변수가 모두 있을 수 있으며, 호출자는 해당되는 경우 필수 매개 변수를 모두 제공해야 합니다. 이러한 매개 변수는 키-값 쌍의 컬렉션으로 지정됩니다.
 * **Outputs**: 서비스에서 출력을 하나 이상 정의한 경우 호출자에서 그 중 하나를 Azure Blob 위치로 리디렉션할 수 있습니다. 이 매개 변수를 설정하면 서비스의 출력을 예측 가능한 이름으로 기본 설정 위치에 저장할 수 있습니다. 그렇지 않으면 출력 Blob 이름이 임의로 생성됩니다. 
-
+  
     서비스에서는 해당 형식에 따라 출력 내용을 예상하여 다음과 같이 지원되는 형식으로 저장해야 합니다.
-  - 데이터 집합 출력: **.csv,.tsv,.arff**
-  - 학습한 모델 출력: **.ilearner**
-
+  
+  * 데이터 집합 출력: **.csv,.tsv,.arff**
+  * 학습한 모델 출력: **.ilearner**
+    
     출력 위치를 출력 이름 컬렉션 또는 Blob 참조 쌍으로 재정의하도록 지정합니다. *출력 이름*은 특정 출력 노드의 사용자 정의 이름이며, *Blob 참조*는 출력을 리디렉션할 Azure blob 위치에 대한 참조입니다. *출력 이름*은 서비스의 API 도움말 페이지에서 보여 줍니다.
 
 작업 만들기 매개 변수는 모두 서비스의 속성에 따라 선택할 수 있습니다. 예를 들어 정의된 입력 노드가 없는 서비스에서는 *Input* 매개 변수를 제출할 필요가 없습니다. 마찬가지로 출력 위치 재정의 기능은 선택적입니다. 그렇지 않으면 Azure Machine Learning 작업 영역에 설정된 기본 저장소 계정에 출력이 저장됩니다. 다음은 입력 정보만 전달되는 서비스에 대한 샘플 요청 페이로드입니다.
@@ -401,7 +390,6 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
 언제든지 지정된 *CancelJob* API를 호출하고 작업 ID를 제출하여 실행 중인 배치 작업을 취소할 수 있습니다. 작업을 완료하는 데 시간이 너무 오래 걸리는 것과 같이 여러 가지 이유로 작업을 삭제할 수 있습니다.
 
 #### <a name="using-the-bes-sdk"></a>BES SDK 사용
-
 [BES SDK Nuget package](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/)는 BES 호출을 간소화하여 배치 모드에서 점수를 매기는 함수를 제공합니다. Nuget 패키지를 설치하려면 Visual Studio의 **도구** 메뉴에서 **Nuget 패키지 관리자**를 선택하고 **패키지 관리자 콘솔**을 클릭합니다.
 
 웹 서비스로 배포되는 Azure Machine Learning 실험에 웹 서비스 입력 모듈을 포함할 수 있습니다. 이는 웹 서비스에 대한 입력을 Blob 위치에 대한 참조 형식으로 웹 서비스 호출을 통해 제공해야 한다는 것을 의미합니다. 또한 웹 서비스 입력 모듈을 사용하지 않고 대신 **데이터 가져오기** 모듈을 사용하는 옵션도 있습니다. 이 경우 **데이터 가져오기** 모듈에서는 런타임에 쿼리를 사용하여 SQL DB와 같은 데이터 원본에서 데이터를 읽어들입니다. 웹 서비스 매개 변수를 사용하여 다른 서버 또는 테이블 등을 동적으로 가리킬 수 있습니다. SDK는 이 두 패턴을 모두 지원합니다.
@@ -409,7 +397,6 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
 다음 코드 샘플에서는 BES SDK를 사용하여 Azure Machine Learning 서비스에 대해 배치 작업을 제출하고 모니터링하는 방법을 보여 줍니다. 주석에는 설정 및 호출에 대한 세부 정보가 포함됩니다.
 
 #### <a name="sample-code"></a>**샘플 코드**
-
     // This code requires the Nuget package Microsoft.Azure.MachineLearning to be installed.
     // Instructions for doing this in Visual Studio:
     // Tools -> Nuget Package Manager -> Package Manager Console
@@ -537,9 +524,7 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
     }
 
 #### <a name="sample-code-in-java-for-bes"></a>BES용 Java의 샘플 코드
-
 다음 샘플에서 보여 주듯이 배치 실행 서비스 REST API는 입력 샘플 csv 및 출력 샘플 csv에 대한 참조로 구성된 JSON을 사용하고 Azure ML에서 작업을 만들어 배치 예측을 수행합니다. [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp)에서 전체 코드를 볼 수 있습니다. 이 Java 샘플을 사용하려면 [apache http 클라이언트 라이브러리](https://hc.apache.org/downloads.cgi)가 필요합니다. 
-
 
     { "GlobalParameters": {}, 
         "Inputs": { "input1": { "ConnectionString":     "DefaultEndpointsProtocol=https;
@@ -551,57 +536,55 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
     } 
 
 
-##### <a name="create-a-bes-job"></a>BES 작업 만들기  
-        
+##### <a name="create-a-bes-job"></a>BES 작업 만들기
         /**
          * Call REST API to create a job to Azure ML 
          * for batch predictions
          * @return response from the REST API
          */ 
         public static String besCreateJob() {
-            
+
             HttpPost post;
             HttpClient client;
             StringEntity entity;
-            
+
             try {
                 // create HttpPost and HttpClient object
                 post = new HttpPost(apiurl);
                 client = HttpClientBuilder.create().build();
-                
+
                 // setup output message by copying JSON body into 
                 // apache StringEntity object along with content type
                 entity = new StringEntity(jsonBody, HTTP.UTF_8);
                 entity.setContentEncoding(HTTP.UTF_8);
                 entity.setContentType("text/json");
-    
+
                 // add HTTP headers
                 post.setHeader("Accept", "text/json");
                 post.setHeader("Accept-Charset", "UTF-8");
-            
+
                 // set Authorization header based on the API key
                 // note a space after the word "Bearer " - don't miss that
                 post.setHeader("Authorization", ("Bearer "+apikey));
                 post.setEntity(entity);
-    
+
                 // Call REST API and retrieve response content
                 HttpResponse authResponse = client.execute(post);
-                
+
                 jobId = EntityUtils.toString(authResponse.getEntity()).replaceAll("\"", "");
-                
-                
+
+
                 return jobId;
-                
+
             }
             catch (Exception e) {
-                
+
                 return e.toString();
             }
-        
+
         }
-        
-##### <a name="start-a-previously-created-bes-job"></a>이전에 만든 BES 작업 시작        
-    
+
+##### <a name="start-a-previously-created-bes-job"></a>이전에 만든 BES 작업 시작
         /**
          * Call REST API for starting prediction job previously submitted 
          * 
@@ -612,37 +595,36 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
             HttpPost post;
             HttpClient client;
             StringEntity entity;
-            
+
             try {
                 // create HttpPost and HttpClient object
                 post = new HttpPost(startJobUrl+"/"+job+"/start?api-version=2.0");
                 client = HttpClientBuilder.create().build();
-             
+
                 // add HTTP headers
                 post.setHeader("Accept", "text/json");
                 post.setHeader("Accept-Charset", "UTF-8");
-            
+
                 // set Authorization header based on the API key
                 post.setHeader("Authorization", ("Bearer "+apikey));
-    
+
                 // Call REST API and retrieve response content
                 HttpResponse authResponse = client.execute(post);
-                
+
                 if (authResponse.getEntity()==null)
                 {
                     return authResponse.getStatusLine().toString();
                 }
-                
+
                 return EntityUtils.toString(authResponse.getEntity());
-                
+
             }
             catch (Exception e) {
-                
+
                 return e.toString();
             }
         }
 ##### <a name="cancel-a-previously-created-bes-job"></a>이전에 만든 BES 작업 취소
-        
         /**
          * Call REST API for canceling the batch job 
          * 
@@ -653,37 +635,36 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
             HttpDelete post;
             HttpClient client;
             StringEntity entity;
-            
+
             try {
                 // create HttpPost and HttpClient object
                 post = new HttpDelete(startJobUrl+job);
                 client = HttpClientBuilder.create().build();
-             
+
                 // add HTTP headers
                 post.setHeader("Accept", "text/json");
                 post.setHeader("Accept-Charset", "UTF-8");
-            
+
                 // set Authorization header based on the API key
                 post.setHeader("Authorization", ("Bearer "+apikey));
-    
+
                 // Call REST API and retrieve response content
                 HttpResponse authResponse = client.execute(post);
-             
+
                 if (authResponse.getEntity()==null)
                 {
                     return authResponse.getStatusLine().toString();
                 }
                 return EntityUtils.toString(authResponse.getEntity());
-                
+
             }
             catch (Exception e) {
-                
+
                 return e.toString();
             }
         }
-        
-### <a name="other-programming-environments"></a>다른 프로그래밍 환경
 
+### <a name="other-programming-environments"></a>다른 프로그래밍 환경
 [swagger.io](http://swagger.io/) 사이트에 제공된 지침에 따라 여러 가지 다른 언어로 코드를 생성할 수도 있습니다. 기존 웹 서비스의 경우 다음과 같이 수행하여 swagger 문서를 가져올 수 있습니다.
 
 * API 도움말 페이지에서 직접 
@@ -717,7 +698,6 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
 
 **샘플 API 도움말 페이지**
 
-
     {
       "swagger": "2.0",
       "info": {
@@ -742,7 +722,7 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
           "get": {
             "summary": "Get swagger API document for the Web service",
             "operationId": "getSwaggerDocument",
-            
+
 <!-- Relative Links -->
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md

@@ -1,34 +1,33 @@
-<properties
-    pageTitle="Azure AD의 그룹 관리를 위한 Azure Active Directory PowerShell 미리 보기 cmdlet | Microsoft Azure"
-    description="이 페이지에는 Azure Active Directory에서 그룹을 관리하는 데 도움이 되는 PowerShell 예제가 나와 있습니다."
-    keywords="Azure AD, Azure Active Directory, PowerShell, 그룹, 그룹 관리"
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+---
+title: Azure AD의 그룹 관리를 위한 Azure Active Directory PowerShell 미리 보기 cmdlet | Microsoft Docs
+description: 이 페이지에는 Azure Active Directory에서 그룹을 관리하는 데 도움이 되는 PowerShell 예제가 나와 있습니다.
+keywords: Azure AD, Azure Active Directory, PowerShell, 그룹, 그룹 관리
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/29/2016"
-    ms.author="curtand"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/29/2016
+ms.author: curtand
 
-
+---
 # <a name="azure-active-directory-preview-cmdlets-for-group-management"></a>그룹 관리를 위한 Azure Active Directory 미리 보기 cmdlet
-
-> [AZURE.SELECTOR]
-- [Azure 포털](active-directory-groups-create-azure-portal.md)
-- [Azure 클래식 포털](active-directory-accessmanagement-manage-groups.md)
-- [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+> [!div class="op_single_selector"]
+> * [Azure 포털](active-directory-groups-create-azure-portal.md)
+> * [Azure 클래식 포털](active-directory-accessmanagement-manage-groups.md)
+> * [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+> 
+> 
 
 다음 문서에서는 Azure AD(Azure Active Directory)에서 PowerShell을 사용하여 그룹을 관리하는 방법의 예제를 제공합니다.  또한 Azure AD PowerShell 미리 보기 모듈을 사용하여 설정하는 방법에 대한 정보를 제공합니다. 먼저 [Azure AD PowerShell 모듈을 다운로드](http://go.microsoft.com/fwlink/p/?LinkId=828627)해야 합니다.
 
 ## <a name="installing-the-azure-ad-powershell-module"></a>Azure AD PowerShell 모듈 설치
-
 Azure AD PowerShell 미리 보기 모듈을 설치하려면 다음 명령을 사용합니다.
 
     PS C:\Windows\system32> install-module azureadpreview
@@ -222,14 +221,10 @@ Azure AD PowerShell cmdlet은 OData 쿼리 표준을 구현합니다. 자세한 
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="next-steps"></a>다음 단계
-
 [Azure Active Directory Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=808260)에서 더 많은 Azure Active Directory PowerShell 설명서를 찾을 수 있습니다.
 
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
-
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

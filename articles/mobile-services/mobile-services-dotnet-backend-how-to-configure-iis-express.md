@@ -1,24 +1,23 @@
-<properties
-	pageTitle="로컬 모바일 서비스 테스트를 위해 IIS Express 구성 | Azure 모바일 서비스"
-	description="테스트를 위해 로컬 모바일 서비스 프로젝트에 대한 연결을 허용하도록 IIS Express를 구성하는 방법을 알아봅니다."
-	authors="ggailey777"
-	manager="dwrede"
-	services="mobile-services"
-	documentationCenter=""
-	editor=""/>
+---
+title: 로컬 모바일 서비스 테스트를 위해 IIS Express 구성 | Microsoft Docs
+description: 테스트를 위해 로컬 모바일 서비스 프로젝트에 대한 연결을 허용하도록 IIS Express를 구성하는 방법을 알아봅니다.
+author: ggailey777
+manager: dwrede
+services: mobile-services
+documentationcenter: ''
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: glenga
 
+---
 # 로컬 모바일 서비스에 연결할 수 있도록 로컬 웹 서버 구성
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 &nbsp;
 
@@ -26,6 +25,6 @@ Azure 모바일 서비스에서는 지원되는 .NET 언어 중 하나를 사용
 
 에뮬레이터, 가상 컴퓨터 또는 별도의 워크스테이션에서 클라이언트를 실행하여 모바일 서비스를 로컬에서 테스트할 수 있으려면 워크스테이션의 IP 주소 및 포트에 연결할 수 있도록 로컬 웹 서버와 호스트 컴퓨터를 구성해야 합니다. 이 항목에서는 로컬에서 호스트한 모바일 서비스에 연결할 수 있도록 IIS Express를 구성하는 방법을 보여 줍니다.
 
-[AZURE.INCLUDE [mobile-services-how-to-configure-iis-express](../../includes/mobile-services-how-to-configure-iis-express.md)]
+[!INCLUDE [mobile-services-how-to-configure-iis-express](../../includes/mobile-services-how-to-configure-iis-express.md)]
 
 <!---HONumber=AcomDC_0727_2016-->

@@ -1,72 +1,58 @@
-<properties
-	pageTitle="Azure Multi-Factor Authentication FAQ"
-	description="Azure multi-factor Authentication과 관련된 질문과 대답 목록을 제공합니다. Multi-Factor Authentication은 사용자 이름 및 암호 이상을 요구하여 사용자 ID를 확인하는 방법입니다. 이 기능은 사용자 로그인 및 트랜잭션에 대한 보안의 추가 계층을 제공합니다."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtand"/>
+---
+title: Azure Multi-Factor Authentication FAQ
+description: Azure multi-factor Authentication과 관련된 질문과 대답 목록을 제공합니다. Multi-Factor Authentication은 사용자 이름 및 암호 이상을 요구하여 사용자 ID를 확인하는 방법입니다. 이 기능은 사용자 로그인 및 트랜잭션에 대한 보안의 추가 계층을 제공합니다.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtand
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/22/2016
+ms.author: kgremban
 
+---
 # Azure Multi-Factor Authentication FAQ
-
-
 이 FAQ에서는 청구 모델 및 유용성에 대한 질문을 포함하여 Azure Multi-factor Authentication 및 Multi-Factor Authentication 서비스 사용에 대한 일반적인 질문에 대한 답변을 제공합니다.
 
 ## 일반
-
 **Q: Azure Multi-Factor Authentication에 대한 도움을 받으려면 어떻게 해야 하나요?**
 
-- [Microsoft 지원 기술 자료 검색](https://www.microsoft.com/ko-KR/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport)
-
+* [Microsoft 지원 기술 자료 검색](https://www.microsoft.com/ko-KR/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport)
+  
   기술 자료에서 일반적인 기술 문제에 대한 해결 방법을 검색합니다.
-
-- [Microsoft Azure Active Directory 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
-
+* [Microsoft Azure Active Directory 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
+  
   커뮤니티에서 기술 질문 및 대답을 검색하고 찾아보거나 [Azure Active Directory 포럼](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)에서 직접 원하는 질문을 할 수 있습니다.
-
-- [암호 재설정](mailto:phonefactorsupport@microsoft.com)
-
+* [암호 재설정](mailto:phonefactorsupport@microsoft.com)
+  
   기존 PhoneFactor 고객이며 암호를 재설정에 대해 질문이 있거나 도움이 필요한 경우 [암호 재설정](mailto:phonefactorsupport@microsoft.com) 링크를 사용하여 지원 사례를 개설하세요.
-
-- [Azure Multi-Factor Authentication 서버(PhoneFactor) 지원](https://support.microsoft.com/oas/default.aspx?prid=14947)
-
+* [Azure Multi-Factor Authentication 서버(PhoneFactor) 지원](https://support.microsoft.com/oas/default.aspx?prid=14947)
+  
   이 링크를 사용하여 Microsoft 기술 지원 엔지니어에게 문의합니다. 전자 메일, 온라인 제출 또는 전화 지원이 포함될 수 있는 지원 옵션을 확인하는 데 도움이 되는 몇 가지 질문이 요구됩니다.
-
-
 
 **Q: Azure Multi-Factor Authentication 서버는 사용자 데이터를 어떻게 처리하나요?**
 
 Multi-Factor Authentication 서버를 사용하면 사용자의 데이터가 온-프레미스 서버에만 저장됩니다. 영구 사용자 데이터는 클라우드에 저장되지 않습니다. 사용자가 2단계 인증을 수행하는 경우 Multi-factor Authentication 서버는 인증을 위해 Azure Multi-factor Authentication 클라우드 서비스에 데이터를 보냅니다. 인증 요청이 클라우드 서비스에 전송되면 다음 목록에 포함된 필드의 데이터가 요청 및 로그에 전송되어 고객의 인증 및 사용 보고서에서 사용할 수 있게 됩니다. 일부 필드는 선택 사항이며 Multi-factor Authentication 서버에서 구성할 수 있습니다. Multi-factor Authentication 서버에서 Multi-factor Authentication 클라우드 서비스로의 통신에는 포트 443 아웃바운드을 통해 SSL(Secure Sockets Layer) 또는 TLS(전송 계층 보안)가 사용됩니다. 2단계 인증 로그에 포함된 데이터 필드는 다음과 같습니다.
 
-- **고유 ID**(사용자 이름 또는 온-프레미스 Multi-Factor Authentication 서버 ID)
-- **이름과 성**(선택 사항)
-- **전자 메일 주소**(선택 사항)
-- **전화 번호**(음성 통화 또는 SMS 인증을 수행할 때)
-- **장치 토큰**(모바일 앱 인증을 수행할 때)
-- **인증 모드**
-- **인증 결과**
-- **Multi-Factor Authentication 서버 이름**
-- **Multi-Factor Authentication 서버 IP**
-- **클라이언트 IP**(사용 가능한 경우)
-
-
+* **고유 ID**(사용자 이름 또는 온-프레미스 Multi-Factor Authentication 서버 ID)
+* **이름과 성**(선택 사항)
+* **전자 메일 주소**(선택 사항)
+* **전화 번호**(음성 통화 또는 SMS 인증을 수행할 때)
+* **장치 토큰**(모바일 앱 인증을 수행할 때)
+* **인증 모드**
+* **인증 결과**
+* **Multi-Factor Authentication 서버 이름**
+* **Multi-Factor Authentication 서버 IP**
+* **클라이언트 IP**(사용 가능한 경우)
 
 이러한 필드 외에도 인증 결과(성공 또는 거부) 및 모든 거부 사유는 인증 데이터와 함께 저장되어 인증 및 사용 보고서에서 사용할 수 있습니다.
 
-
-
-
 ## 결제
-
 **Q: 사용자를 인증하는 데 사용되는 전화 통화 또는 문자 메시지 요금은 조직에 청구되나요?**
 
 모든 비용은 서비스의 사용자 단위 또는 인증 단위 비용으로 산정됩니다. 조직에는 Azure Multi-Factor Authentication을 통해 사용자에게 전달된 개별 전화 통화 또는 문자 메시지에 대한 요금이 부과되지 않습니다. 전화 서비스 통신사는 전화 명의자가 전화 또는 문자 메시지를 받을 때 로밍 관련 또는 기타 비용을 부과할 수 있습니다.
@@ -75,15 +61,17 @@ Multi-Factor Authentication 서버를 사용하면 사용자의 데이터가 온
 
 Azure Multi-Factor Authentication은 사용자 및 인증 청구 옵션당 독립 실행형 서비스로 사용 가능하거나 Azure Active Directory Premium, Enterprise Mobility Suite 또는 Enterprise Cloud Suite와 함께 제공됩니다. 독립 실행형 서비스는 조직의 Azure 약정 금액에 대해 월별로 또는 Microsoft 기업 계약, Microsoft Open License 프로그램, Microsoft CSP(클라우드 솔루션 공급자) 프로그램 또는 Direct를 통해 사용할 수 있는 사용자당 연간 라이선스로 청구되는 소비를 기반으로 사용할 수 있습니다.
 
->[AZURE.IMPORTANT]
-오스트레일리아 지역은 사업 소재지가 오스트레일리아나 뉴질랜드로 되어 있는 고객만 사용할 수 있습니다.
+> [!IMPORTANT]
+> 오스트레일리아 지역은 사업 소재지가 오스트레일리아나 뉴질랜드로 되어 있는 고객만 사용할 수 있습니다.
+> 
+> 
 
-청구 모델 | 가격
-------------- | ------------- |
-사용자 당 소비(Azure 약정 금액)| 1\.40$/월(무제한 인증)
-인증 단위 소비(Azure 약정 금액)|$1.40에 10건 인증
-사용자당 연간 라이선스(직접)|1\.40$/월(무제한 인증)
-사용자당 연간 라이선스(볼륨 라이선스)|[기업 계약 담당자](https://www.microsoft.com/ko-KR/licensing/licensing-programs/enterprise.aspx)에 문의합니다.
+| 청구 모델 | 가격 |
+| --- | --- |
+| 사용자 당 소비(Azure 약정 금액) |1\.40$/월(무제한 인증) |
+| 인증 단위 소비(Azure 약정 금액) |$1.40에 10건 인증 |
+| 사용자당 연간 라이선스(직접) |1\.40$/월(무제한 인증) |
+| 사용자당 연간 라이선스(볼륨 라이선스) |[기업 계약 담당자](https://www.microsoft.com/ko-KR/licensing/licensing-programs/enterprise.aspx)에 문의합니다. |
 
 **Q: 사용자 단위 청구 모델은 Multi-Factor Authentication을 사용하도록 구성된 사용자 수를 기반으로 청구되나요? 아니면 확인을 수행하는 사용자의 수에 따라 요금이 청구되나요?**
 
@@ -113,13 +101,10 @@ Azure Multi-Factor Authentication 공급자가 해당하는 Azure Active Directo
 
 조직에서 사용량 기반 청구 모델을 사용하는 경우 Azure Active Directory가 필요하지 않습니다. 디렉터리에 Multi-Factor Authentication 공급자를 연결하는 것은 선택 사항입니다. 조직이 디렉터리에 연결되어 있지 않은 경우 Azure Multi-factor Authentication 서버 또는 Azure Multi-factor Authentication SDK 온-프레미스를 배포할 수 있습니다. 라이선스를 구입하고 디렉터리의 사용자에게 할당할 때 라이선스가 디렉터리에 추가되기 때문에 라이선스 모델에 대해 Azure Active Directory가 필요합니다.
 
-
 ## 유용성
-
 **Q: 사용자가 전화로 응답을 받지 못하거나 사용자가 전화를 사용할 수 없는 경우 어떻게 해야 하나요?**
 
 이전에 백업 휴대폰을 구성한 경우 로그인 페이지에서 확인 메시지가 표시될 때 해당 휴대폰을 선택하여 다시 시도합니다. 사용자에게 다른 방법이 구성되어 있지 않으면 사용자는 조직의 관리자에게 문의하고 사용자의 기본 전화(휴대폰 또는 사무실 전화)에 할당된 번호를 업데이트하도록 요청해야 합니다.
-
 
 **Q: 사용자가 더 이상 액세스할 수 없는 계정에 대한 문의할 경우 관리자는 어떻게 해야 하나요?**
 
@@ -131,15 +116,17 @@ Azure Multi-Factor Authentication 공급자가 해당하는 Azure Active Directo
 
 **Q: 사용자가 비브라우저 앱에 로그인할 수 없으면 어떻게 하나요?**
 
-- Multi-Factor Authentication을 사용하도록 구성된 사용자는 일부 비브라우저 앱에 로그인하기 위해 앱 암호가 필요합니다.
-- 사용자는 로그인 정보를 지우고(삭제), 앱을 다시 시작하고, 자신의 사용자 이름 및 앱 암호를 사용하여 로그인해야 합니다.
+* Multi-Factor Authentication을 사용하도록 구성된 사용자는 일부 비브라우저 앱에 로그인하기 위해 앱 암호가 필요합니다.
+* 사용자는 로그인 정보를 지우고(삭제), 앱을 다시 시작하고, 자신의 사용자 이름 및 앱 암호를 사용하여 로그인해야 합니다.
 
 앱 암호 만들기에 대한 자세한 내용 및 기타 [앱 암호에 대한 도움말](multi-factor-authentication-end-user-app-passwords.md)을 확인하세요.
 
-
->[AZURE.NOTE] Office 2013 클라이언트에 대한 최신 인증
->
+> [!NOTE]
+> Office 2013 클라이언트에 대한 최신 인증
+> 
 > Office 2013 클라이언트(Outlook 포함)는 새 인증 프로토콜을 지원합니다. Office 2013을 Multi-Factor Authentication을 지원하도록 구성할 수 있습니다. Office 2013을 구성한 후에 Office 2013 클라이언트에 대해 앱 암호가 필요합니다. 자세한 내용은 [발표된 Office 2013 최신 인증 공개 미리 보기](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)를 참조하세요.
+> 
+> 
 
 **Q: 문자 메시지가 수신되지 않거나 양방향 문자 메시지에 응답했으나 확인 제한 시간이 초과되면 어떻게 해야 하나요?**
 
@@ -163,9 +150,7 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-factor Authenticat
 
 경우에 따라 Multi-Factor Authentication 호출이 공용 전화망을 통해 이루어진 경우 발신자 번호를 지원하지 않는 통신 회사를 통해 라우팅됩니다. 이 때문에 항상 Multi-Factor Authentication에서 호출자 ID를 보내더라도 이 ID가 보장되지 않습니다.
 
-
 ## 오류
-
 **Q: 사용자가 모바일 앱 알림을 사용하여 인증할 때 "활성화된 계정에 대한 인증 요청이 아닙니다." 오류 메시지가 표시되는 경우 어떻게 해야 하나요?**
 
 다음 절차를 따릅니다.
@@ -175,9 +160,6 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-factor Authenticat
 3. **추가 보안 확인**을 클릭합니다.
 4. 모바일 앱에서 기존 계정을 제거합니다.
 5. **구성**을 클릭하고 지침에 따라 모바일 앱을 다시 구성합니다.
-
-
-
 
 **Q: 사용자가 비브라우저 응용 프로그램을 사용하여 로그인하려고 할 때 0x800434D4L 오류 메시지가 표시되면 어떻게 해야 하나요?**
 

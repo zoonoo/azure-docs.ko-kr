@@ -1,23 +1,22 @@
-<properties
-   pageTitle="서비스 패브릭 클러스터 리소스 관리자 - 선호도 | Microsoft Azure"
-   description="서비스 패브릭 서비스에 대한 선호도 구성의 개요"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: 서비스 패브릭 클러스터 리소스 관리자 - 선호도 | Microsoft Docs
+description: 서비스 패브릭 서비스에 대한 선호도 구성의 개요
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # 서비스 패브릭에서 서비스 선호도 구성 및 사용
-
 선호도는 주로 더 큰 모놀리식 응용 프로그램을 클라우드 및 마이크로 서비스 환경으로 쉽게 전환하도록 해주는 컨트롤입니다. 부작용이 있더라도 서비스 성능 향상을 위한 합법적인 최적화로 특정 경우에 사용될 수도 있습니다.
 
 더 큰 앱 또는 마이크로 서비스를 염두에 두지 않고 설계한 앱을 서비스 패브릭으로 가져오는 경우를 가정해봅니다. 이러한 전환은 실제로는 흔하게 나타나며 이러한 상황에 있는 고객(내부 및 외부)이 다수 있었습니다. 먼저 전체 앱을 환경 속에 넣고 패키지하여 실행합니다. 그런 다음 여러 개의 작은 서비스로 나눈 다음 서로 통신할 수 있도록 합니다.
@@ -25,8 +24,8 @@
 그러면 "Oops..."가 나타납니다. "Oops"는 일반적으로 이러한 범주 중 하나에 해당합니다.
 
 1. 모놀리식 앱의 구성 요소 X는 구성 요소 Y에 대해 문서화되지 않은 종속성을 가지며, 이러한 구성 요소들을 별도의 서비스로 전환했습니다. 현재 이러한 구성 요소들은 클러스터의 다른 노드에서 실행되고 있으므로 분리된 상태입니다.
-2.	이들은 (파이프라는 이름의 로컬 항목 | 공유 메모리 | 디스크의 파일)을 통해 통신하지만 개별적으로 업데이트하여 속도를 조금 높일 수 있습니다. 나중에 강한 종속성을 제거하겠습니다.
-3.	모든 것이 좋지만, 이들 두 구성 요소는 실제 매우 통신이 잦고 성능에 매우 민감한 것으로 나타났습니다. 이들을 별도의 서비스로 이동시켰을 때 응용 프로그램의 전반적인 성능이 나빠지거나 대기 시간이 늘어났습니다. 결과적으로, 전체 응용 프로그램은 기대를 충족하지 못하게 됩니다.
+2. 이들은 (파이프라는 이름의 로컬 항목 | 공유 메모리 | 디스크의 파일)을 통해 통신하지만 개별적으로 업데이트하여 속도를 조금 높일 수 있습니다. 나중에 강한 종속성을 제거하겠습니다.
+3. 모든 것이 좋지만, 이들 두 구성 요소는 실제 매우 통신이 잦고 성능에 매우 민감한 것으로 나타났습니다. 이들을 별도의 서비스로 이동시켰을 때 응용 프로그램의 전반적인 성능이 나빠지거나 대기 시간이 늘어났습니다. 결과적으로, 전체 응용 프로그램은 기대를 충족하지 못하게 됩니다.
 
 이러한 경우에 리팩터링 작업을 손실하는 것과 모놀리식으로 되돌아가는 것은 좋지 않지만, 어느 정도의 지역성은 필요합니다. 자연스럽게 서비스로 작동하도록 구성 요소를 다시 디자인할 수 있거나, 가능한 경우 다른 방법으로 성능 기대치를 해결할 수 있게 될 때까지 이러한 상황은 계속 유지됩니다.
 
@@ -62,8 +61,8 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 마지막으로 선호도에 대해 알아두어야 할 사항으로 선호도 관계는 부모가 분할된 곳에서는 지원되지 않습니다. 이는 나중에 지원하겠지만, 지금은 허용되지 않습니다.
 
 ## 다음 단계
-- 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)에서 다른 클러스터 Resource Manager 구성에 대한 항목을 확인하세요.
-- 사람들이 서비스를 작은 집합의 컴퓨터로 제한하고 서비스 컬렉션의 부하를 집계하려는 것과 같은 선호도를 사용하려는 많은 이유는 응용 프로그램 그룹을 통해 더 잘 지원되기 때문입니다. [응용 프로그램 그룹](service-fabric-cluster-resource-manager-application-groups.md) 확인
+* 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)에서 다른 클러스터 Resource Manager 구성에 대한 항목을 확인하세요.
+* 사람들이 서비스를 작은 집합의 컴퓨터로 제한하고 서비스 컬렉션의 부하를 집계하려는 것과 같은 선호도를 사용하려는 많은 이유는 응용 프로그램 그룹을 통해 더 잘 지원되기 때문입니다. [응용 프로그램 그룹](service-fabric-cluster-resource-manager-application-groups.md) 확인
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png

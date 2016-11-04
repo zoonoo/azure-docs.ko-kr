@@ -1,27 +1,25 @@
-<properties
-   pageTitle="Application Insights를 사용하여 클라우드 서비스 문제 해결 | Microsoft Azure"
-   description="Application Insights를 통해 Azure 진단의 데이터를 처리하여 클라우드 서비스 문제를 해결하는 방법에 대해 알아봅니다."
-   services="cloud-services"
-   documentationCenter=".net"
-   authors="sbtron"
-   manager="timlt"
-   editor="tysonn" />
-<tags
-   ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/15/2015"
-   ms.author="saurabh" />
+---
+title: Application Insights를 사용하여 클라우드 서비스 문제 해결 | Microsoft Docs
+description: Application Insights를 통해 Azure 진단의 데이터를 처리하여 클라우드 서비스 문제를 해결하는 방법에 대해 알아봅니다.
+services: cloud-services
+documentationcenter: .net
+author: sbtron
+manager: timlt
+editor: tysonn
 
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 12/15/2015
+ms.author: saurabh
 
+---
 # Application Insights를 사용하여 클라우드 서비스 문제 해결
-
 [Azure SDK 2.8](https://azure.microsoft.com/downloads/) 및 Azure 진단 확장 1.5를 사용하면 클라우드 서비스에 대한 Azure 진단 데이터를 Application Insights로 직접 보낼 수 있습니다. 응용 프로그램 로그, Windows 이벤트 로그, ETW 로그 및 성능 카운터를 포함하여 Azure 진단에서 수집한 다양한 형식의 로그를 Application Insights로 보내 Application Insights 포털 UI에서 시각화할 수 있습니다. Application Insights SDK와 함께 사용할 경우 응용 프로그램의 메트릭 및 로그뿐만 아니라 Azure 진단의 시스템 및 인프라 수준 데이터를 이해할 수 있습니다.
 
 ## Application Insights에 데이터를 보내도록 Azure 진단 구성
-
 Application Insights로 Azure 진단 데이터를 보내도록 클라우드 서비스 프로젝트를 설정하려면 다음 단계를 수행합니다.
 
 1) Visual Studio 솔루션 탐색기에서 역할을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택하여 역할 디자이너를 엽니다.
@@ -51,24 +49,22 @@ Azure 진단 원격 분석이 해당 클라우드 서비스에 대해 구성된 
 
 다음은 다양한 Azure 진단 로그 형식이 Application Insights 개념에 어떻게 매핑되는지 나타낸 것입니다.
 
--  성능 카운터는 Application Insights에서 사용자 지정 메트릭으로 표시됩니다.
--  Windows 이벤트 로그는 Application Insights에서 추적 및 사용자 지정 이벤트로 표시됩니다.
--  응용 프로그램 로그, ETW 로그 및 진단 인프라 로그는 Application Insights에서 추적으로 표시됩니다.
+* 성능 카운터는 Application Insights에서 사용자 지정 메트릭으로 표시됩니다.
+* Windows 이벤트 로그는 Application Insights에서 추적 및 사용자 지정 이벤트로 표시됩니다.
+* 응용 프로그램 로그, ETW 로그 및 진단 인프라 로그는 Application Insights에서 추적으로 표시됩니다.
 
 Application Insights에서 Azure 진단 데이터를 보려면 다음을 수행합니다.
 
-- [메트릭 탐색기](../application-insights/app-insights-metrics-explorer.md)를 사용하여 사용자 지정 성능 카운터 또는 다양한 형식의 Windows 이벤트 로그 이벤트 수를 시각화합니다.
+* [메트릭 탐색기](../application-insights/app-insights-metrics-explorer.md)를 사용하여 사용자 지정 성능 카운터 또는 다양한 형식의 Windows 이벤트 로그 이벤트 수를 시각화합니다.
 
 ![메트릭 탐색기의 사용자 지정 메트릭][5]
 
-- [검색](../application-insights/app-insights-diagnostic-search.md)을 사용하여 Azure 진단에서 보낸 다양한 추적 로그를 검색합니다. 예를 들어 역할에 처리되지 않은 예외가 있어 역할이 충돌 및 재활용되는 경우 해당 정보가 *Windows 이벤트 로그*의 *응용 프로그램* 채널에 표시됩니다. 검색 기능을 사용하여 Windows 이벤트 로그 오류를 확인하고 예외에 대한 전체 스택 추적을 가져와서 문제의 근본 원인을 찾을 수 있습니다.
+* [검색](../application-insights/app-insights-diagnostic-search.md)을 사용하여 Azure 진단에서 보낸 다양한 추적 로그를 검색합니다. 예를 들어 역할에 처리되지 않은 예외가 있어 역할이 충돌 및 재활용되는 경우 해당 정보가 *Windows 이벤트 로그*의 *응용 프로그램* 채널에 표시됩니다. 검색 기능을 사용하여 Windows 이벤트 로그 오류를 확인하고 예외에 대한 전체 스택 추적을 가져와서 문제의 근본 원인을 찾을 수 있습니다.
 
 ![추적 검색][6]
 
 ## 다음 단계
-
-- [Application Insights SDK를 클라우드 서비스에 추가](../application-insights/app-insights-cloudservices.md)하여 응용 프로그램에서 요청, 예외, 종속성 및 모든 사용자 지정 원격 분석에 대한 데이터를 보냅니다. Azure 진단 데이터와 함께 사용하여 동일한 Application Insight 리소스에 있는 모든 응용 프로그램 및 시스템을 전체적으로 확인할 수 있습니다.  
-
+* [Application Insights SDK를 클라우드 서비스에 추가](../application-insights/app-insights-cloudservices.md)하여 응용 프로그램에서 요청, 예외, 종속성 및 모든 사용자 지정 원격 분석에 대한 데이터를 보냅니다. Azure 진단 데이터와 함께 사용하여 동일한 Application Insight 리소스에 있는 모든 응용 프로그램 및 시스템을 전체적으로 확인할 수 있습니다.  
 
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/solution-explorer-properties.png

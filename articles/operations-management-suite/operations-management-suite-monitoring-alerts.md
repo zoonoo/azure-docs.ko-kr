@@ -1,23 +1,22 @@
-<properties 
-   pageTitle="Microsoft 모니터링 제품의 경고 관리 | Microsoft Azure"
-   description="경고는 관리자가 주목해야 하는 문제를 나타냅니다.  이 문서는 SCOM(System Center Operations Manager)과 Log Analytics에서 경고를 생성 및 관리하는 방식의 차이에 대해 설명하며 하이브리드 경고 관리 전략에 두 가지 제품을 활용하는 모범 사례를 제공합니다." 
-   services="operations-management-suite"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags 
-   ms.service="operations-management-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
-   ms.author="bwren" />
+---
+title: Microsoft 모니터링 제품의 경고 관리 | Microsoft Docs
+description: 경고는 관리자가 주목해야 하는 문제를 나타냅니다.  이 문서는 SCOM(System Center Operations Manager)과 Log Analytics에서 경고를 생성 및 관리하는 방식의 차이에 대해 설명하며 하이브리드 경고 관리 전략에 두 가지 제품을 활용하는 모범 사례를 제공합니다.
+services: operations-management-suite
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: operations-management-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/06/2016
+ms.author: bwren
 
-# <a name="managing-alerts-with-microsoft-monitoring"></a>Microsoft 모니터링으로 경고 관리 
-
+---
+# <a name="managing-alerts-with-microsoft-monitoring"></a>Microsoft 모니터링으로 경고 관리
 경고는 관리자가 주목해야 하는 문제를 나타냅니다.  OMS(Operations Management Suite)의 Log Analytics 및 SCOM(System Center Operations Manager)은 경고의 생성 방식, 관리 및 분석 방식, 중요 문제가 검색되었음을 알리는 방식에서 분명한 차이가 있습니다.
 
 ## <a name="alerts-in-operations-manager"></a>Operations Manager의 경고
@@ -59,7 +58,7 @@ SCOM 경고는 운영 콘솔에서만 수정할 수 있기 때문에 Log Analyti
 
 ## <a name="alert-remediation"></a>경고 수정
 [수정](http://technet.microsoft.com/library/mt614775.aspx) 은 경고에서 식별한 문제를 자동으로 수정하려는 시도를 나타냅니다.
-  
+
 SCOM에서는 비정상 상태로 전환된 모니터에 대응하여 진단 및 복구를 실행할 수 있습니다.  이 작업은 모니터가 경고를 생성하는 작업과 동시에 실행됩니다.  진단 및 복구는 일반적으로 에이전트에서 실행되는 스크립트로 구현됩니다.  진단은 검색된 문제에 대한 자세한 정보를 수집하려는 시도를 하며 복구는 문제를 해결하려는 시도를 합니다.
 
 Log Analytics에서는 Log Analytics 경고에 대응하여 [Azure Automation Runbook](https://azure.microsoft.com/documentation/services/automation/)을 시작하거나 웹후크를 호출할 수 있습니다.  Runbook에는 PowerShell에 구현된 복잡한 논리를 포함할 수 있습니다.  스크립트는 Azure에서 실행되며 클라우드에서 사용 가능한 Azure 리소스 또는 외부 리소스에 액세스할 수 있습니다.  Azure 자동화는 로컬 데이터 센터의 서버에서 Runbook을 실행할 수 있지만 현재 이 기능은 Log Analytics 경고에 대응하여 Runbook을 시작할 경우에는 사용할 수 없습니다.
@@ -69,9 +68,7 @@ SCOM의 복구와 OMS의 Runbook 모두 PowerShell 스크립트를 포함할 수
 Log Analytics의 데이터 원본으로 SCOM을 사용하는 경우 OMS 리포지토리에 저장된 SCOM 경고를 검색하려면 로그 쿼리를 사용하여 Log Analytics 경고를 만듭니다.  그러면 SCOM 경고에 대응하여 Azure 자동화 Runbook을 실행할 수 있습니다.  물론 Runbook은 Azure에서 실행되기 때문에 온-프레미스 문제를 복구하는 전략으로는 적합하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-- [SCOM(System Center Operations Manager)의 경고](https://technet.microsoft.com/library/hh212913.aspx)에 대해 자세히 알아봅니다.
-
+* [SCOM(System Center Operations Manager)의 경고](https://technet.microsoft.com/library/hh212913.aspx)에 대해 자세히 알아봅니다.
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,27 +1,28 @@
-<properties
-   pageTitle="복구 서비스 자격 증명 모음 FAQ | Microsoft Azure"
-   description="이 버전의 FAQ는 Azure 백업 서비스의 공개 미리 보기 릴리스를 지원합니다. 백업 에이전트, 백업 및 보존, 복구, 보안 및 Azure 백업 솔루션과 관련하여 자주 묻는 질문에 대한 대답입니다."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="백업 솔루션; 백업 서비스"/>
+---
+title: 복구 서비스 자격 증명 모음 FAQ | Microsoft Docs
+description: 이 버전의 FAQ는 Azure 백업 서비스의 공개 미리 보기 릴리스를 지원합니다. 백업 에이전트, 백업 및 보존, 복구, 보안 및 Azure 백업 솔루션과 관련하여 자주 묻는 질문에 대한 대답입니다.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: 백업 솔루션; 백업 서비스
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="get-started-article"
-	 ms.date="08/21/2016"
-	 ms.author="trinadhk; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/21/2016
+ms.author: trinadhk; markgal; jimpark;
 
+---
 # 복구 서비스 자격 증명 모음 - FAQ
-
-> [AZURE.SELECTOR]
-- [클래식 모드에 대한 백업 FAQ](backup-azure-backup-faq.md)
-- [Resource Manager 모드에 대한 백업 FAQ](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [클래식 모드에 대한 백업 FAQ](backup-azure-backup-faq.md)
+> * [Resource Manager 모드에 대한 백업 FAQ](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 이 문서에서는 복구 서비스 자격 증명 모음에 지정된 정보를 제공하고 [Azure 백업 FAQ](backup-azure-backup-faq.md)를 보완합니다. Azure 백업 FAQ는 Azure 백업 서비스에 대한 질문 및 답변의 전체 집합을 제공합니다.
 

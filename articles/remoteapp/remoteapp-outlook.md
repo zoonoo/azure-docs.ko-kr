@@ -1,25 +1,25 @@
-<properties
-    pageTitle="Azure RemoteApp에서 Outlook 사용 | Microsoft Azure" 
-    description="Azure RemoteApp에서 Outlook을 구성 및 사용하는 방법 알아보기 | Microsoft Azure"
-    services="remoteapp"
-    documentationCenter=""
-    authors="pavithir"
-    manager="mbaldwin" />
+---
+title: Azure RemoteApp에서 Outlook 사용 | Microsoft Docs
+description: Azure RemoteApp에서 Outlook을 구성 및 사용하는 방법 알아보기 | Microsoft Azure
+services: remoteapp
+documentationcenter: ''
+author: pavithir
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # <a name="using-microsoft-outlook-in-azure-remoteapp"></a>Azure RemoteApp에서 Microsoft Outlook 사용
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp은 중단될 예정입니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> 
+> 
 
 Azure RemoteApp은 Microsoft Outlook O365를 지원합니다. [Azure RemoteApp에서 Office가 작동하는 방식](remoteapp-officesubscription.md)에 대해 자세히 알아보세요. Azure RemoteApp에서 사용하는 경우 Outlook에 대한 몇 가지 권장되는 설정이 있습니다.
 
@@ -32,8 +32,6 @@ Azure RemoteApp은 Microsoft Outlook O365를 지원합니다. [Azure RemoteApp�
 
 ## <a name="search"></a>검색
 Azure RemoteApp에서 Outlook 내의 검색을 사용하는 데는 제한 사항이 있습니다. Azure RemoteApp은 사용자 세션을 수용하기 위해 풀링된 VM을 사용합니다. 검색 인덱싱은 VM마다 다른 컴퓨터 ID에 따라 달라집니다. 사용자가 Azure RemoteApp에 로그인할 때마다 새 VM에 전달될 수 있습니다. 따라서 로컬 검색을 사용하는 경우 컴퓨터 ID가 변경될 때마다 인덱서가 실행됩니다(사용자가 다른 VM에 있는 경우). .OST 파일의 크기에 따라 인덱서를 완료하는 데 시간이 오래 걸릴 수 있으며 다른 앱에 필요한 리소스까지도 소진할 수 있습니다. 검색 속도도 느리고 결과가 생성되지 않을 수도 있습니다. 온라인 모드 계정 프로필을 사용하면 이 문제를 해결할 수 있지만 전반적인 성능이 로컬 캐시의 부족으로 인해 저하될 수 있습니다(캐시된 모드와 온라인 모드 간의 차이점에 대한 자세한 내용은 위의 링크 참조). 아쉽게도 Outlook 2013에서는 기본적으로 인덱싱된/로컬 검색을 비활성화할 수 없으며 온라인 검색을 활성화할 수 없습니다.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

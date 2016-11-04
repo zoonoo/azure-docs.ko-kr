@@ -1,31 +1,30 @@
-<properties
- pageTitle="사물 인터넷에 대한 Azure 솔루션 | Microsoft Azure"
- description="샘플 솔루션 아키텍처 및 이를 Azure IoT Hub, 장치 SDK 및 미리 구성된 솔루션과 연결하는 방법을 포함한 Azure IoT 개요"
- services="iot-hub"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: 사물 인터넷에 대한 Azure 솔루션 | Microsoft Docs
+description: 샘플 솔루션 아키텍처 및 이를 Azure IoT Hub, 장치 SDK 및 미리 구성된 솔루션과 연결하는 방법을 포함한 Azure IoT 개요
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="10/05/2016"
- ms.author="dobett"/>
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/05/2016
+ms.author: dobett
 
-[AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
+---
+[!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## 다음 단계
-
 Azure IoT Hub는 응용 프로그램 백 엔드와 수백 만개의 IoT 장치 간에 안정적이고 신뢰할 수 있는 양방향 통신이 가능하도록 해주는 Azure 서비스입니다. 이것을 사용하면 응용 프로그램 백 엔드에서 다음 작업이 가능합니다.
 
-- 장치로부터 대규모 원격 분석을 수신합니다.
-- 장치에서 스트림 이벤트 프로세서로 데이터를 라우팅합니다.
-- 장치로부터 파일 업로드를 수신합니다.
-- 특정 장치에 클라우드-장치 명령을 보냅니다.
+* 장치로부터 대규모 원격 분석을 수신합니다.
+* 장치에서 스트림 이벤트 프로세서로 데이터를 라우팅합니다.
+* 장치로부터 파일 업로드를 수신합니다.
+* 특정 장치에 클라우드-장치 명령을 보냅니다.
 
 사용자 고유의 솔루션 백 엔드를 구현하기 위해 IoT Hub를 사용할 수 있습니다. 또한 IoT Hub에는 장치, 보안 자격 증명, 허브에 연결하는 권한을 프로비전하는 데 사용된 장치 ID 레지스트리가 포함되어 있습니다. IoT Hub에 대해 자세히 알아보려면 [IoT Hub란?][lnk-iot-hub]을 참조하세요.
 

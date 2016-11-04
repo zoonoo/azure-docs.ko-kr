@@ -1,37 +1,39 @@
-<properties 
-   pageTitle="리소스 관리자에서 미리 보기 포털을 사용하여 NSG 관리 | Microsoft Azure"
-   description="리소스 관리자에서 미리 보기 포털을 사용하여 NSG를 관리하는 방법에 대해 알아봅니다."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="jimdial"
-   manager="carmonm"
-   editor=""
-   tags="azure-resource-manager"
-/>
-<tags  
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/14/2016"
-   ms.author="jdial" />
+---
+title: 리소스 관리자에서 미리 보기 포털을 사용하여 NSG 관리 | Microsoft Docs
+description: 리소스 관리자에서 미리 보기 포털을 사용하여 NSG를 관리하는 방법에 대해 알아봅니다.
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: carmonm
+editor: ''
+tags: azure-resource-manager
 
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/14/2016
+ms.author: jdial
+
+---
 # Preview 포털을 사용하여 NSG 관리
+> [!div class="op_single_selector"]
+> * [포털](virtual-network-manage-nsg-arm-portal.md)
+> * [PowerShell](virtual-network-manage-nsg-arm-ps.md)
+> * [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
+> 
+> 
 
-> [AZURE.SELECTOR]
-- [포털](virtual-network-manage-nsg-arm-portal.md)
-- [PowerShell](virtual-network-manage-nsg-arm-ps.md)
-- [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
+[!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
+[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델.
+클래식 배포 모델.
 
-[AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
+[!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## 정보 검색
-
 기존 NSG를 보고 기존 NSG에 대한 규칙을 검색하며 NSG가 연결된 리소스에 대해 알아볼 수 있습니다.
 
 ### 기존 NSG 보기
@@ -42,7 +44,7 @@
 
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure1.png)
 
-3. **네트워크 보안 그룹** 블레이드에서 NSG 목록을 확인합니다.
+1. **네트워크 보안 그룹** 블레이드에서 NSG 목록을 확인합니다.
 
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure2.png)
 
@@ -52,12 +54,11 @@
 
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure3.png)
 
-2. 리소스의 목록에서 아래 **리소스** 블레이드에서처럼 NSG 아이콘을 표시하는 항목을 찾습니다.
+1. 리소스의 목록에서 아래 **리소스** 블레이드에서처럼 NSG 아이콘을 표시하는 항목을 찾습니다.
 
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure4.png)
-		 
-### NSG에 대한 모든 규칙 나열
 
+### NSG에 대한 모든 규칙 나열
 **NSG-FrontEnd**로 명명된 NSG의 규칙을 보려면 아래 단계를 실행합니다.
 
 1. **네트워크 보안 그룹** 블레이드에서 또는 위에 표시된 **리소스** 블레이드에서 **NSG-FrontEnd**를 클릭합니다.
@@ -65,16 +66,18 @@
 
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure5.png)
 
-3. **인바운드 보안 규칙** 블레이드는 아래와 같이 표시됩니다.
+1. **인바운드 보안 규칙** 블레이드는 아래와 같이 표시됩니다.
 
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure6.png)
 
-4. **설정** 탭에서 **아웃바운드 보안 규칙**을 클릭하여 아웃바운드 규칙을 볼 수 있습니다.
+1. **설정** 탭에서 **아웃바운드 보안 규칙**을 클릭하여 아웃바운드 규칙을 볼 수 있습니다.
 
->[AZURE.NOTE] 기본 규칙을 보려면 규칙을 표시하는 블레이드 맨 위에서 **규칙 기본** 아이콘을 클릭합니다.
+> [!NOTE]
+> 기본 규칙을 보려면 규칙을 표시하는 블레이드 맨 위에서 **규칙 기본** 아이콘을 클릭합니다.
+> 
+> 
 
 ### NSG 연결 보기
-
 **NSG-FrontEnd** NSG가 연결된 리소스를 보려면 아래 단계를 수행합니다.
 
 1. **네트워크 보안 그룹** 블레이드에서 또는 위에 표시된 **리소스** 블레이드에서 **NSG-FrontEnd**를 클릭합니다.
@@ -82,14 +85,12 @@
 
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure7.png)
 
-3. **설정** 탭에서 **네트워크 인터페이스**를 클릭하여 NSG에 연결된 NIC를 볼 수 있습니다.
+1. **설정** 탭에서 **네트워크 인터페이스**를 클릭하여 NSG에 연결된 NIC를 볼 수 있습니다.
 
 ## 규칙 관리
-
 기존 NSG에 규칙을 추가하고 기존 규칙을 편집하며 규칙을 제거할 수 있습니다.
 
 ### 규칙 추가
-
 컴퓨터에서 **NSG-FrontEnd** NSG에 포트 **443**에 대한 **인바운드** 트래픽을 허용하는 규칙을 추가하려면 아래 단계를 수행합니다.
 
 1. **네트워크 보안 그룹** 블레이드에서 또는 위에 표시된 **리소스** 블레이드에서 **NSG-FrontEnd**를 클릭합니다.
@@ -98,12 +99,11 @@
 
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure8.png)
 
-4. 몇 초 후에 **인바운드 보안 규칙** 블레이드에서 새 규칙이 공지됩니다.
+1. 몇 초 후에 **인바운드 보안 규칙** 블레이드에서 새 규칙이 공지됩니다.
 
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure9.png)
 
 ### 규칙 변경
-
 **인터넷**에서 인바운드 트래픽을 허용하도록 위에서 만든 규칙을 변경하려면는 아래 단계를 수행합니다.
 
 1. **네트워크 보안 그룹** 블레이드에서 또는 위에 표시된 **리소스** 블레이드에서 **NSG-FrontEnd**를 클릭합니다.
@@ -113,7 +113,6 @@
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure10.png)
 
 ### 규칙 삭제
-
 위에서 만든 규칙을 삭제하려면 다음 단계를 수행합니다.
 
 1. **네트워크 보안 그룹** 블레이드에서 또는 위에 표시된 **리소스** 블레이드에서 **NSG-FrontEnd**를 클릭합니다.
@@ -123,11 +122,9 @@
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure11.png)
 
 ## 연결 관리
-
 NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 리소스에서 NSG를 분리할 수 있습니다.
 
 ### NIC에 NSG 연결
-
 **NSG-FrontEnd** NSG를 **TestNICWeb1** NIC에 연결하려면 아래 단계를 수행합니다.
 
 1. **네트워크 보안 그룹** 블레이드에서 또는 위에 표시된 **리소스** 블레이드에서 **NSG-FrontEnd**를 클릭합니다.
@@ -136,7 +133,6 @@ NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure12.png)
 
 ### NIC에서 NSG 분리
-
 **NSG-FrontEnd** NSG를 **TestNICWeb1** NIC에서 분리하려면 아래 단계를 수행합니다.
 
 1. Azure 포털에서 **리소스 그룹 >** > **RG-NSG** > **...** > **TestNICWeb1**을 클릭합니다.
@@ -144,10 +140,12 @@ NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 
 
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure13.png)
 
->[AZURE.NOTE] 또한 NIC를 기존 NSG에 연결하려면이 블레이드를 사용할 수 있습니다.
+> [!NOTE]
+> 또한 NIC를 기존 NSG에 연결하려면이 블레이드를 사용할 수 있습니다.
+> 
+> 
 
 ### 서브넷에서 NSG 분리
-
 **NSG-FrontEnd** NSG를 **FrontEnd** 서브넷에서 분리하려면 아래 단계를 수행합니다.
 
 1. Azure 포털에서 **리소스 그룹 >** > **RG-NSG** > **...** > **TestVNet**을 클릭합니다.
@@ -155,22 +153,23 @@ NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 
 
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure14.png)
 
-3. **FrontEnd** 블레이드에서 **저장**을 클릭합니다.
+1. **FrontEnd** 블레이드에서 **저장**을 클릭합니다.
 
 ![Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure15.png)
 
 ### 서브넷에 NSG 연결
-
 **NSG-FrontEnd** NSG를 **FronEnd** 서브넷에 다시 연결하려면 아래 단계를 수행합니다.
 
 1. Azure 포털에서 **리소스 그룹 >** > **RG-NSG** > **...** > **TestVNet**을 클릭합니다.
 2. **설정** 블레이드에서 **서브넷** > **FrontEnd** > **네트워크 보안 그룹** > **NSG-FrontEnd**를 클릭합니다.
 3. **FrontEnd** 블레이드에서 **저장**을 클릭합니다.
 
->[AZURE.NOTE] 또한 NSG의 **설정** 블레이드에서 서브넷에 NSG를 연결할 수 있습니다.
+> [!NOTE]
+> 또한 NSG의 **설정** 블레이드에서 서브넷에 NSG를 연결할 수 있습니다.
+> 
+> 
 
 ## NSG 삭제
-
 리소스에 연결되지 않은 경우 NSG를 삭제할 수 있습니다. NSG를 삭제하려면 다음 단계를 수행합니다.
 
 1. Azure 포털에서 **리소스 그룹 >** > **RG-NSG** > **...** > **NSG-FrontEnd**를 클릭합니다.
@@ -184,7 +183,6 @@ NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 
 [Azure 포털 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
 
 ## 다음 단계
-
-- NSG에 대한 [로깅을 사용합니다](virtual-network-nsg-manage-log.md).
+* NSG에 대한 [로깅을 사용합니다](virtual-network-nsg-manage-log.md).
 
 <!---HONumber=AcomDC_0914_2016-->

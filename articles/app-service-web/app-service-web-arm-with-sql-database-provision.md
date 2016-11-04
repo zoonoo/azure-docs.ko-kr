@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="SQL 데이터베이스를 사용하는 웹앱을 프로비전" 
-	description="SQL 데이터베이스가 포함된 웹앱을 배포하는 Azure 리소스 관리자 템플릿을 사용합니다." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: SQL 데이터베이스를 사용하는 웹앱을 프로비전
+description: SQL 데이터베이스가 포함된 웹앱을 배포하는 Azure 리소스 관리자 템플릿을 사용합니다.
+services: app-service
+documentationcenter: ''
+author: cephalin
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2016" 
-	ms.author="cephalin"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 04/27/2016
+ms.author: cephalin
 
+---
 # SQL 데이터베이스를 사용하는 웹앱을 프로비전
-
 이 항목에서는 웹앱 및 SQL 데이터베이스를 배포하는 Azure 리소스 관리자 템플릿을 만드는 방법을 배웁니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
 템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하세요.
@@ -26,29 +25,26 @@
 
 전체 서식 파일을 보려면 [SQL 데이터베이스 템플릿을 사용하는 웹앱](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json)을 참조하세요.
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 배포할 내용
-
 이 서식 파일에서 다음을 배포합니다:
 
-- 웹앱
-- SQL 데이터베이스 서버
-- SQL 데이터베이스
-- 자동 크기 조정 설정
-- 경고 규칙
-- App Insights
+* 웹앱
+* SQL 데이터베이스 서버
+* SQL 데이터베이스
+* 자동 크기 조정 설정
+* 경고 규칙
+* App Insights
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
 [![Azure에 배포](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)로 바꿉니다.
 
 ## 지정할 매개변수
-
-[AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
+[!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 ### administratorLogin
-
 데이터베이스 서버 관리자에 사용할 계정 이름입니다.
 
     "administratorLogin": {
@@ -56,7 +52,6 @@
     }
 
 ### administratorLoginPassword
-
 데이터베이스 서버 관리자에 사용할 암호입니다.
 
     "administratorLoginPassword": {
@@ -64,7 +59,6 @@
     }
 
 ### databaseName
-
 만들려는 새 데이터베이스의 이름입니다.
 
     "databaseName": {
@@ -73,7 +67,6 @@
     }
 
 ### collation
-
 문자의 적절한 사용을 제어하기 위해 사용하는 데이터베이스 데이터 정렬입니다.
 
     "collation": {
@@ -82,7 +75,6 @@
     }
 
 ### edition
-
 만들려는 데이터베이스의 형식입니다.
 
     "edition": {
@@ -99,7 +91,6 @@
     }
 
 ### maxSizeBytes
-
 (바이트)는 데이터베이스의 최대 크기입니다.
 
     "maxSizeBytes": {
@@ -108,7 +99,6 @@
     }
 
 ### requestedServiceObjectiveName
-
 버전에 대한 성능 수준에 해당하는 이름입니다.
 
     "requestedServiceObjectiveName": {
@@ -129,7 +119,6 @@
     }
 
 ## 이름에 대한 변수
-
 이 템플릿에는 템플릿에 사용되는 이름을 생성하는 변수가 포함되어 있습니다. 변수 값은 **uniqueString** 함수를 사용하여 리소스 그룹 id의 이름을 생성합니다.
 
     "variables": {
@@ -140,9 +129,7 @@
 
 
 ## 배포할 리소스
-
 ### SQL Server 및 데이터베이스
-
 새 SQL Server 및 데이터베이스를 만듭니다. 서버 이름은 **serverName** 매개 변수에 지정되고 위치는 **serverLocation** 매개변수에 지정됩니다. 새 서버를 만들 때 데이터베이스 서버 관리자용 로그인 이름 및 암호를 제공해야 합니다.
 
     {
@@ -192,11 +179,9 @@
       ]
     },
 
-[AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
-
+[!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 ### 웹앱
-
     {
       "apiVersion": "2015-08-01",
       "name": "[variables('webSiteName')]",
@@ -233,7 +218,6 @@
 
 
 ### 자동 크기 조정
-
     {
       "apiVersion": "2014-04-01",
       "name": "[concat(variables('hostingPlanName'), '-', resourceGroup().name)]",
@@ -302,8 +286,7 @@
     },
 
 
-### 경고는 상태 코드 403 및 500's, 높은 CPU 사용률 및 HTTP 큐 길이를 규정해야 합니다. 
-
+### 경고는 상태 코드 403 및 500's, 높은 CPU 사용률 및 HTTP 큐 길이를 규정해야 합니다.
     {
       "apiVersion": "2014-04-01",
       "name": "[concat('ServerErrors ', variables('webSiteName'))]",
@@ -440,9 +423,8 @@
         }
       }
     },
-    
-### App Insights
 
+### App Insights
     {
       "apiVersion": "2014-04-01",
       "name": "[concat('AppInsights', variables('webSiteName'))]",
@@ -461,18 +443,15 @@
     }
 
 ## 배포 실행 명령
-
-[AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
-
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 ### Azure CLI
-
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
- 
+
 
 <!---HONumber=AcomDC_0810_2016-->

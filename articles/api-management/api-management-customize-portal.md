@@ -1,27 +1,25 @@
-<properties
-	pageTitle="Azure API 관리에서 개발자 포털 사용자 지정 | Microsoft Azure"
-	description="Azure API 관리에서 개발자 포털을 사용자 지정하는 방법에 대해 알아봅니다."
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="erikre"
-	editor=""/>
+---
+title: Azure API 관리에서 개발자 포털 사용자 지정 | Microsoft Docs
+description: Azure API 관리에서 개발자 포털을 사용자 지정하는 방법에 대해 알아봅니다.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2016"
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Azure API 관리에서 개발자 포털 사용자 지정
-
 이 가이드에서는 브랜드와 일관성을 유지하기 위해 Azure API 관리에서 개발자 포털의 모양과 느낌을 수정하는 방법을 보여 줍니다.
 
 ## <a name="change-page-headers"> </a>페이지 머리글의 텍스트 또는 로고 변경
-
 포털 사용자 지정에서 중요한 측면 중 하나는 모든 페이지의 맨 위에 있는 텍스트를 회사 이름이나 로고로 바꾸는 것입니다.
 
 개발자 포털 내의 콘텐츠는 게시자 포털을 통해 수정되며, 이 포털에는 Azure 클래식 포털을 통해 액세스합니다. API 게시자 포털에 연결하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다.
@@ -37,9 +35,10 @@
 이제 개발자 포털 내의 모든 페이지에서 새 머리글을 볼 수 있습니다.
 
 > 게시자 포털에 있는 동안 개발자 포털을 열려면 위쪽 막대에서 **개발자 포털**을 클릭합니다.
+> 
+> 
 
 ## <a name="change-headers-styling"> </a>머리글의 스타일 변경
-
 포털에서 페이지의 색, 글꼴, 크기, 간격 및 기타 스타일 관련 요소는 스타일 규칙에 따라 정의됩니다. 스타일을 편집하려면 게시자 포털의 **개발자 포털** 메뉴에서 **모양**을 클릭한 후 **사용자 지정 시작**을 클릭하여 스타일 편집기를 사용합니다.
 
 브라우저가 개발자 포털 내의 숨겨진 페이지로 전환되며, 이 페이지에는 사이트의 임의의 위치에서 사용되는 모든 스타일 규칙의 예제와 함께 콘텐츠 샘플이 들어 있습니다. 스타일 편집기를 열려면 페이지의 맨 왼쪽에 있는 가느다란 회색 세로선으로 커서를 가져갑니다. 편집기 도구 모음이 나타납니다.
@@ -52,7 +51,9 @@
 
 각 규칙은 선택한 요소의 스타일 속성을 나타냅니다. 예를 들어 위에서 선택한 머리글 텍스트의 경우 텍스트의 크기는 @font-size-h1이고, 대체 항목이 있는 글꼴의 이름은 @headings-font-family입니다.
 
-> [부트스트랩][]\(영문)에 익숙한 경우, 이 규칙은 실제로 개발자 포털에서 사용되는 부트스트랩 테마 내의 [LESS 변수][]\(영문)입니다.
+> [부트스트랩][부트스트랩]\(영문)에 익숙한 경우, 이 규칙은 실제로 개발자 포털에서 사용되는 부트스트랩 테마 내의 [LESS 변수][LESS 변수]\(영문)입니다.
+> 
+> 
 
 이제 제목 텍스트의 색을 변경하겠습니다. **@headings-color** 필드에서 항목을 선택하고 **#000000**을 입력합니다. 이는 검정색의 16진 코드입니다. 이 과정에서 텍스트 상자 끝부분에 사각형 색 표시기가 나타나는 것이 확인됩니다. 이 표시기를 클릭하면 색 선택을 통해 색을 선택할 수 있습니다.
 
@@ -63,9 +64,10 @@
 ![게시 메뉴][api-management-customization-toolbar-publish-form]
 
 > 페이지상의 다른 요소에 적용되는 스타일 규칙을 변경하려면 머리글의 경우와 동일한 절차를 따릅니다. 스타일 편집기에서 **요소 선택**을 클릭하고 원하는 요소를 선택한 후 화면에 표시되는 스타일 규칙의 값을 수정하기 시작합니다.
+> 
+> 
 
 ## <a name="edit-page-contents"> </a>페이지의 콘텐츠 편집
-
 개발자 포털은 API, 제품, 응용 프로그램, 문제 등과 같이 자동으로 생성되는 페이지 및 수동으로 작성되는 콘텐츠로 구성됩니다. 콘텐츠 관리 시스템을 기반으로 하므로, 필요에 따라 이러한 콘텐츠를 만들 수 있습니다.
 
 모든 기존 콘텐츠 페이지 목록을 표시하려면 게시자 포털의 **개발자 포털** 메뉴에서 **콘텐츠**를 클릭합니다.
@@ -75,10 +77,11 @@
 개발자 포털의 홈페이지에 표시되는 내용을 편집하려면 **시작** 페이지를 클릭합니다. 원하는 대로 변경하고 필요하면 미리 본 다음, **지금 게시**를 클릭하여 모든 사람이 볼 수 있도록 합니다.
 
 > 홈페이지에서는 맨 위에 배너를 표시할 수 있는 특별한 레이아웃이 사용됩니다. 이 배너는 **콘텐츠** 섹션에서 편집할 수 없습니다. 이 배너를 편집하려면 **개발자 포털** 메뉴에서 **위젯**을 클릭하고 **현재 레이어** 드롭다운 목록에서 **홈페이지**를 선택한 다음 **추천 섹션**에서 **배너** 항목을 엽니다. 이 위젯의 콘텐츠는 다른 페이지와 마찬가지로 편집할 수 있습니다.
+> 
+> 
 
 ## <a name="next-steps"> </a>다음 단계
-
--	[개발자 포털 템플릿](api-management-developer-portal-templates.md)을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 방법 알아보기.
+* [개발자 포털 템플릿](api-management-developer-portal-templates.md)을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 방법 알아보기.
 
 [Change the text/logo in the page headers]: #change-page-headers
 [Change the styling of the headers]: #change-headers-styling

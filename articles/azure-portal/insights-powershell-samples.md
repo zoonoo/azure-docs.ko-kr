@@ -1,35 +1,31 @@
-<properties
-	pageTitle="Azure Insights: Azure Insights PowerShell 빠른 시작 샘플입니다. | Microsoft Azure"
-	description="Azure Insights 빠른 시작 샘플 PowerShell 명령을 사용하여 Azure Insights 모니터링 기능에 신속하게 액세스할 수 있습니다."
-	authors="kamathashwin"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: 'Azure Insights: Azure Insights PowerShell 빠른 시작 샘플입니다. | Microsoft Docs'
+description: Azure Insights 빠른 시작 샘플 PowerShell 명령을 사용하여 Azure Insights 모니터링 기능에 신속하게 액세스할 수 있습니다.
+author: kamathashwin
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2016"
-	ms.author="ashwink"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/30/2016
+ms.author: ashwink
 
+---
 # Azure Insights PowerShell 빠른 시작 샘플
-
 이 문서에서는 Azure Insights 모니터링 기능에 신속하게 액세스할 수 있는 샘플 PowerShell 명령을 보여 줍니다. Azure Insights는 클라우드 서비스, 가상 컴퓨터 및 웹 앱의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터의 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.
 
 ## PowerShell 설정
 아직 PowerShell이 컴퓨터에서 실행되도록 설정하지 않았으면 지금 설정합니다. 자세한 내용은 [PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 ## 이 문서의 예
-
 문서의 예에서는 Azure Insights cmdlet을 사용하는 방법을 보여 줍니다. [Azure Insights Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx)에서 Azure Insights(모니터링) PowerShell cmdlet의 전체 목록을 살펴볼 수도 있습니다.
 
-
 ## 로그인 후 구독 사용
-
 먼저 Azure 구독에 로그인합니다.
 
 ```
@@ -90,7 +86,10 @@ Get-AzureRmLog -MaxEvents 1000
 
 `Get-AzureRmLog` 명령은 여러 다른 매개 변수를 지원합니다. 자세한 내용은 `Get-AzureRmLog` 참조를 확인하세요.
 
->[AZURE.NOTE] `Get-AzureRmLog` 명령은 15일 간의 기록만 제공합니다. **-MaxEvents** 매개 변수를 사용하면 15일 이후의 N개 이벤트를 쿼리할 수 있습니다. 15일이 지난 이벤트에 액세스하려면 REST API 또는 SDK(SDK를 사용하는 C# 샘플)을 사용합니다. **StartTime**을 포함하지 않으면 **EndTime**에서 1시간을 뺀 값이 기본값입니다. **EndTime**을 포함하지 않으면 현재 시간이 기본값입니다. 모든 시간은 UTC입니다.
+> [!NOTE]
+> `Get-AzureRmLog` 명령은 15일 간의 기록만 제공합니다. **-MaxEvents** 매개 변수를 사용하면 15일 이후의 N개 이벤트를 쿼리할 수 있습니다. 15일이 지난 이벤트에 액세스하려면 REST API 또는 SDK(SDK를 사용하는 C# 샘플)을 사용합니다. **StartTime**을 포함하지 않으면 **EndTime**에서 1시간을 뺀 값이 기본값입니다. **EndTime**을 포함하지 않으면 현재 시간이 기본값입니다. 모든 시간은 UTC입니다.
+> 
+> 
 
 ## 경고 기록 검색
 모든 경고 이벤트를 보려면 다음 예제를 사용하여 ARM(Azure Resource Manager) 로그를 쿼리하면 됩니다.
@@ -106,7 +105,6 @@ Get-AzureRmAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/provide
 ```
 
 `Get-AzureRmAlertHistory` cmdlet은 다양한 매개 변수를 지원합니다. 자세한 내용은 [Get AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx)를 참조하세요.
-
 
 ## 경고 규칙에 대한 정보 검색
 다음 명령은 모두 "montest"라는 리소스 그룹에 적용됩니다.
@@ -141,20 +139,19 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 ### 메트릭에 대한 경고 규칙
 다음은 메트릭을 사용하여 경고를 만드는 데 사용되는 매개 변수 및 값을 설명하는 테이블입니다.
 
-
-|매개 변수|value|
-|---|---|
-|이름|	simpletestdiskwrite|
-|이 경고 규칙의 위치|	미국 동부|
-|ResourceGroup|	montest|
-|TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|생성된 경고의 MetricName|	\\PhysicalDisk (\_Total) \\Disk writes/sec. 정확한 메트릭 이름을 검색하는 방법은 아래의 `Get-MetricDefinitions` cmdlet를 참조하세요.|
-|operator|	GreaterThan|
-|임계값(이 메트릭의 경우 수/초)|	1|
-|WindowSize(h:mm:ss 형식)|	00:05:00|
-|집계(이 경우, 평균 횟수를 사용하는 메트릭 통계)|	평균|
-|사용자 지정 전자 메일(문자열 배열)|'foo@example.com','bar@example.com'|
-|소유자, 참가자 및 일기 권한자에게 전자 메일 보내기|	-SendToServiceOwners|
+| 매개 변수 | value |
+| --- | --- |
+| 이름 |simpletestdiskwrite |
+| 이 경고 규칙의 위치 |미국 동부 |
+| ResourceGroup |montest |
+| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
+| 생성된 경고의 MetricName |\\PhysicalDisk (\_Total) \\Disk writes/sec. 정확한 메트릭 이름을 검색하는 방법은 아래의 `Get-MetricDefinitions` cmdlet를 참조하세요. |
+| operator |GreaterThan |
+| 임계값(이 메트릭의 경우 수/초) |1 |
+| WindowSize(h:mm:ss 형식) |00:05:00 |
+| 집계(이 경우, 평균 횟수를 사용하는 메트릭 통계) |평균 |
+| 사용자 지정 전자 메일(문자열 배열) |'foo@example.com','bar@example.com' |
+| 소유자, 참가자 및 일기 권한자에게 전자 메일 보내기 |-SendToServiceOwners |
 
 전자 메일 동작 만들기
 
@@ -183,8 +180,10 @@ Get-AzureRmAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 지정된 속성에 대한 경고 규칙이 이미 있으면 경고 추가 cmdlet도 규칙을 업데이트합니다. 경고 규칙을 비활성화하려면 **-DisableRule** 매개 변수를 포함하세요.
 
 ### 감사 로그 이벤트에 대한 경고
-
->[AZURE.NOTE] 이 기능은 아직 미리 보기 버전입니다.
+> [!NOTE]
+> 이 기능은 아직 미리 보기 버전입니다.
+> 
+> 
 
 이 시나리오의 경우 제 구독의 리소스 그룹 *abhingrgtest123*에서 웹 사이트가 성공적으로 시작되면 전자 메일을 보내게 됩니다.
 
@@ -229,7 +228,6 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 `Get-AzureRmMetricDefinition`에 사용 가능한 옵션 전체 목록은 [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx)에 있습니다.
 
-
 ## 자동 크기 조정 설정 및 관리
 웹 앱, VM, 클라우드 서비스 또는 VM 규모 집합 같은 리소스는 자동 크기 조정 설정을 하나만 구성할 수 있습니다. 그러나 각 자동 크기 조정 설정이 여러 개의 프로필을 가질 수 있습니다. 예를 들어 하나는 성능 기반 규모 프로필이고, 다른 하나는 일정 기반 프로필일 수 있습니다. 각 프로필에 여러 규칙을 구성할 수 있습니다. 자동 크기 조정에 대한 자세한 내용은 [응용 프로그램의 크기 자동 조정 방법](../cloud-services/cloud-services-how-to-scale.md)을 참조하세요.
 
@@ -246,7 +244,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 ```
 $rule1 = New-AzureRmAutoscaleRule -MetricName "\Processor(_Total)\% Processor Time" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 0.01 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue 1
-```		
+```        
 
 다음으로, 인스턴스 수가 감소하는 규모 감축 규칙을 만듭니다.
 
@@ -318,26 +316,22 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## 감사 로그에 대한 로그 프로필 관리
-
 *로그 프로필*을 만들어서 감사 로그에서 저장소 계정으로 데이터를 내보낸 후 해당 데이터의 보존 기간을 구성할 수 있습니다. 필요에 따라 이벤트 허브로 데이터를 스트리밍할 수도 있습니다. 이 기능은 현재 미리 보기 버전이며 구독당 로그 프로필을 하나만 만들 수 있습니다. 현재 구독과 함께 다음 cmdlet을 사용하여 로그 프로필을 만들고 관리할 수 있습니다. 또한 특정 구독을 선택할 수 있습니다. PowerShell이 현재 구독의 기본값이지만 언제든지 `Set-AzureRmContext` 명령을 사용하여 변경할 수 있습니다. 해당 구독 내의 저장소 계정 또는 이벤트 허브로 데이터를 라우팅하도록 감사 로그를 구성할 수 있습니다. 데이터는 JSON 형식의 blob 파일로 기록됩니다.
 
 ### 로그 프로필 가져오기
 기존 로그 프로필을 가져오려면 `Get-AzureRmLogProfile` cmdlet을 사용합니다.
 
 ### 데이터를 보존하지 않는 로그 프로필 추가
-
 ```
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
 ```
 
 ### 로그 프로필 제거
-
 ```
 Remove-AzureRmLogProfile -name my_log_profile_s1
 ```
 
 ### 데이터를 보존하는 로그 프로필 추가
-
 **-RetentionInDays** 속성을 양의 정수로 지정하여 데이터가 보존되는 일 수를 지정할 수 있습니다.
 
 ```
@@ -355,7 +349,6 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 여러 Azure 서비스는 Azure 네트워크 보안 그룹, 소프트웨어 부하 분산 장치, 키 자격 증명 모음, Azure 검색 서비스, 논리 앱을 포함하여 추가 로그 및 원격 분석을 제공하며, Azure 저장소 계정에 데이터를 저장하도록 로그를 구성할 수 있습니다. 이 작업은 리소스 수준에서만 수행할 수 있으며 저장소 계정이 진단 설정이 구성되는 대상 리소스와 같은 지역에 있어야 합니다.
 
 ### 진단 설정 가져오기
-
 ```
 Get-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp
 ```

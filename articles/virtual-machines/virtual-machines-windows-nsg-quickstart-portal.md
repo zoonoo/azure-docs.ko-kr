@@ -1,23 +1,23 @@
-<properties
-   pageTitle="Azure 포털을 사용하여 VM으로 포트 열기 | Microsoft Azure"
-   description="Azure 포털의 Resource Manager 배포 모델을 사용하여 Windows VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Azure 포털을 사용하여 VM으로 포트 열기 | Microsoft Docs
+description: Azure 포털의 Resource Manager 배포 모델을 사용하여 Windows VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기
+services: virtual-machines-windows
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="08/08/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 08/08/2016
+ms.author: iainfou
 
+---
 # Azure 포털을 사용하여 Azure에서 VM으로 포트 열기
-[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
+[!INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## 빠른 명령
 [Azure PowerShell을 사용하여 수행할 수도 있습니다](virtual-machines-windows-nsg-quickstart-powershell.md).
@@ -48,7 +48,6 @@
 
 이제 네트워크 보안 그룹을 만들고, 포트 80에서 트래픽을 허용하는 인바운드 규칙을 만들었으며 해당 규칙을 서브넷과 연결했습니다. 해당 서브넷에 연결하는 모든 VM은 포트 80에 연결할 수 있게 됩니다.
 
-
 ## 네트워크 보안 그룹에 대한 자세한 정보
 여기서 빠른 명령을 사용하면 VM으로 트래픽이 이동되도록 할 수 있습니다. 네트워크 보안 그룹은 리소스에 대한 액세스를 제어하는 많은 기능과 세분성을 제공합니다. [여기서 네트워크 보안 그룹 및 ACL 규칙 만들기](../virtual-network/virtual-networks-create-nsg-arm-ps.md)에 대해 자세히 읽어보세요.
 
@@ -59,8 +58,8 @@
 ## 다음 단계
 이 예제에서는 HTTP 트래픽을 허용하는 간단한 규칙을 만들었습니다. 다음 문서에서 보다 자세한 환경을 만들기 위한 정보를 찾을 수 있습니다.
 
-- [Azure Resource Manager 개요](../resource-group-overview.md)
-- [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
-- [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer/load-balancer-arm.md)
+* [Azure Resource Manager 개요](../resource-group-overview.md)
+* [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
+* [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer/load-balancer-arm.md)
 
 <!---HONumber=AcomDC_0907_2016-->

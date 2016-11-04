@@ -1,37 +1,31 @@
-<properties
-   pageTitle="서비스 패브릭의 응용 프로그램 수명 주기 | Microsoft Azure"
-   description="서비스 패브릭 응용 프로그램 개발, 배포, 테스트, 업그레이드, 유지 관리 및 제거를 설명합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+---
+title: 서비스 패브릭의 응용 프로그램 수명 주기 | Microsoft Docs
+description: 서비스 패브릭 응용 프로그램 개발, 배포, 테스트, 업그레이드, 유지 관리 및 제거를 설명합니다.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/25/2016
+ms.author: ryanwi
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/25/2016"
-   ms.author="ryanwi"/>
-
-
+---
 # 서비스 패브릭 응용 프로그램 수명 주기
 다른 플랫폼과 마찬가지로, Azure 서비스 패브릭 기반의 응용 프로그램은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. 서비스 패브릭은 개발부터 배포, 일상적인 관리, 유지 관리 및 최종적인 서비스 해제에 이르기까지 클라우드 응용 프로그램의 전체 응용 프로그램 수명 주기 관리에 대해 최고 수준의 지원을 제공합니다. 여러 역할이 응용 프로그램 수명 주기에 독립적으로 참가할 수 있는 서비스 모델이 제공됩니다. 이 문서에서는 서비스 패브릭 응용 프로그램 수명 주기의 모든 단계에서 여러 역할이 사용하는 방법 및 API에 대한 개요를 제공합니다.
 
 ## 서비스 모델 역할
 서비스 모델은 다음과 같습니다.
 
-- **서비스 개발자**: 유형이 같은 또는 유형이 다른 여러 응용 프로그램에서 재사용할 수 있는 모듈식 및 일반 서비스를 개발합니다. 예를 들어 큐 서비스를 사용하여 발권 응용 프로그램(헬프데스크) 또는 전자 상거래 응용 프로그램(장바구니)을 만들 수 있습니다.
-
-- **응용 프로그램 개발자**: 특정 요구 사항 또는 시나리오를 충족하도록 서비스 컬렉션을 통합하여 응용 프로그램을 만듭니다. 예를 들어 전자 상거래 웹 사이트에 "JSON 상태 비저장 프런트엔드 서비스", "경매 상태 저장 서비스" 및 "큐 상태 저장 서비스"를 통합하여 경매 솔루션을 빌드합니다.
-
-- **응용 프로그램 관리자**: 응용 프로그램 구성(구성 템플릿 매개 변수를 입력), 배포(사용 가능한 리소스에 매핑) 및 서비스의 품질에 대한 결정을 내립니다. 예를 들어 응용 프로그램 관리자가 응용 프로그램의 언어 로캘을 결정합니다(예: 미국은 영어, 일본은 일본어). 배포된 다른 응용 프로그램을 다르게 설정할 수 있습니다.
-
-- **운영자**: 응용 프로그램 관리자가 지정한 응용 프로그램 구성 및 요구 사항에 따라 응용 프로그램을 배포합니다. 예를 들어 운영자가 응용 프로그램을 프로비전 및 배포하고 Azure에서 실행되고 있는지 확인합니다. 운영자는 응용 프로그램 상태 및 성능 정보를 모니터링 하고 필요에 따라 실제 인프라를 유지 관리합니다.
-
+* **서비스 개발자**: 유형이 같은 또는 유형이 다른 여러 응용 프로그램에서 재사용할 수 있는 모듈식 및 일반 서비스를 개발합니다. 예를 들어 큐 서비스를 사용하여 발권 응용 프로그램(헬프데스크) 또는 전자 상거래 응용 프로그램(장바구니)을 만들 수 있습니다.
+* **응용 프로그램 개발자**: 특정 요구 사항 또는 시나리오를 충족하도록 서비스 컬렉션을 통합하여 응용 프로그램을 만듭니다. 예를 들어 전자 상거래 웹 사이트에 "JSON 상태 비저장 프런트엔드 서비스", "경매 상태 저장 서비스" 및 "큐 상태 저장 서비스"를 통합하여 경매 솔루션을 빌드합니다.
+* **응용 프로그램 관리자**: 응용 프로그램 구성(구성 템플릿 매개 변수를 입력), 배포(사용 가능한 리소스에 매핑) 및 서비스의 품질에 대한 결정을 내립니다. 예를 들어 응용 프로그램 관리자가 응용 프로그램의 언어 로캘을 결정합니다(예: 미국은 영어, 일본은 일본어). 배포된 다른 응용 프로그램을 다르게 설정할 수 있습니다.
+* **운영자**: 응용 프로그램 관리자가 지정한 응용 프로그램 구성 및 요구 사항에 따라 응용 프로그램을 배포합니다. 예를 들어 운영자가 응용 프로그램을 프로비전 및 배포하고 Azure에서 실행되고 있는지 확인합니다. 운영자는 응용 프로그램 상태 및 성능 정보를 모니터링 하고 필요에 따라 실제 인프라를 유지 관리합니다.
 
 ## 개발
 1. *서비스 개발자*는 [신뢰할 수 있는 행위자](service-fabric-reliable-actors-introduction.md) 또는 [신뢰할 수 있는 서비스](service-fabric-reliable-services-introduction.md) 프로그래밍 모델을 사용하여 여러 유형의 서비스를 개발합니다.
@@ -43,82 +37,58 @@
 
 ## 배포
 1. *응용 프로그램 관리자*는 응용 프로그램 매니페스트에 있는 **ApplicationType** 요소의 매개 변수를 적절하게 지정하여 응용 프로그램 유형을 서비스 패브릭 클러스터에 배포할 특정 응용 프로그램으로 맞춤화합니다.
-
 2. *운영자*는 [**CopyApplicationPackage** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) 또는 [**Copy-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx)를 사용하여 응용 프로그램 패키지를 클러스터 이미지 저장소에 업로드합니다. 응용 프로그램 패키지는 응용 프로그램 매니페스트 및 서비스 패키지 컬렉션을 포함합니다. 서비스 패브릭이 이미지 저장소에 저장된 응용 프로그램 패키지의 응용 프로그램을 배포합니다. ImageStore는 Azure Blob 저장소일 수도 있고 서비스 패브릭 시스템 서비스일 수도 있습니다.
-
 3. 그런 다음 *운영자*가 [**ProvisionApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx) 또는 [**응용 프로그램 프로비전** REST 작업](https://msdn.microsoft.com/library/azure/dn707672.aspx)을 사용하여 업로드된 응용 프로그램 패키지의 대상 클러스터에 응용 프로그램 유형을 프로비전합니다.
-
 4. 응용 프로그램을 프로비전한 후 *운영자*가 [**CreateApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync.aspx), [**New-ServiceFabricApplication** cmdlet](https://msdn.microsoft.com/library/azure/mt125913.aspx) 또는 [**Create Application** 작업](https://msdn.microsoft.com/library/azure/dn707676.aspx)을 사용하여 *응용 프로그램 관리자*가 제공한 매개 변수로 응용 프로그램을 시작합니다.
-
 5. 응용 프로그램이 배포된 후 *운영자*가 [**CreateServiceAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.createserviceasync.aspx), [**New-ServiceFabricService** cmdlet](https://msdn.microsoft.com/library/azure/mt125874.aspx) 또는 [**서비스 만들기** REST 작업](https://msdn.microsoft.com/library/azure/dn707657.aspx)을 사용하여 제공되는 서비스 유형에 따라 응용 프로그램에 대한 새 서비스 인스턴스를 만듭니다.
-
 6. 이제 서비스 패브릭 클러스터에서 응용 프로그램이 실행됩니다.
 
 예는 [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)를 참조하세요.
 
 ## 테스트
 1. 로컬 개발 클러스터 또는 클러스터에 배포한 후 *서비스 개발자*가 [**FailoverTestScenarioParameters**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.failovertestscenarioparameters.aspx) 및 [**FailoverTestScenario**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.failovertestscenario.aspx) 클래스 또는 [**Invoke-ServiceFabricFailoverTestScenario** cmdlet](https://msdn.microsoft.com/library/azure/mt644783.aspx)를 사용하여 기본 제공 장애 조치(failover) 테스트 시나리오를 실행합니다. 장애 조치(failover) 테스트 시나리오는 중요한 전환 및 장애 조치(failover)를 통해 지정된 서비스를 실행하여 서비스가 중단 없이 작동되도록 보장합니다.
-
 2. 그런 다음 *서비스 개발자*가 [**ChaosTestScenarioParameters**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.chaostestscenarioparameters.aspx) 및 [**ChaosTestScenario**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.chaostestscenario.aspx) 클래스 또는 [**Invoke-ServiceFabricChaosTestScenario** cmdlet](https://msdn.microsoft.com/library/azure/mt644774.aspx)를 사용하여 기본 제공 비정상 상황 테스트 시나리오를 실행합니다. 비정상 상황 테스트 시나리오는 임의로 여러 노드, 코드 패키지 및 복제 오류를 클러스터로 유도합니다.
-
 3. *서비스 개발자*는 클러스터에서 주 복제본을 이동하는 테스트 시나리오를 작성하여 [서비스 간 통신을 테스트](service-fabric-testability-scenarios-service-communication.md)합니다.
 
 자세한 내용은 [오류 분석 서비스 소개](service-fabric-testability-overview.md)를 참조하세요.
 
 ## 업그레이드
 1. *서비스 개발자*는 인스턴스화된 응용 프로그램의 구성 서비스를 업데이트 하고/하거나 버그를 수정하고 새로운 서비스 매니페스트 버전을 제공합니다.
-
 2. *응용 프로그램 개발자*는 구성 서비스의 구성 및 배포 설정을 재정의 및 매개 변수화하고 새로운 응용 프로그램 매니페스트 버전을 제공합니다. 그런 다음 응용 프로그램 개발자가 새로운 서비스 매니페스트 버전을 응용 프로그램에 통합하고 업데이트된 응용 프로그램 패키지에 새로운 버전의 응용 프로그램 유형을 제공합니다.
-
 3. *응용 프로그램 관리자*는 적절한 매개 변수를 업데이트하여 새로운 버전의 응용 프로그램 유형을 대상 응용 프로그램에 통합합니다.
-
-5. *운영자*는 [**CopyApplicationPackage** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) 또는 [**Copy-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx)를 사용하여 업데이트된 응용 프로그램 패키지를 클러스터 ImageStore에 업로드합니다. 응용 프로그램 패키지는 응용 프로그램 매니페스트 및 서비스 패키지 컬렉션을 포함합니다.
-
-6. 그런 다음 *운영자*가 [**ProvisionApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx) 또는 [**Provision an Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707672.aspx)을 사용하여 대상 클러스터에 새로운 응용 프로그램 버전을 프로비전합니다.
-
-7. *운영자*가 [**UpgradeApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx), [**Start-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125975.aspx) 또는 [**응용 프로그램 업그레이드** REST 작업](https://msdn.microsoft.com/library/azure/dn707633.aspx)을 사용하여 대상 응용 프로그램을 새 버전으로 업그레이드합니다.
-
-8. *운영자*가 [**GetApplicationUpgradeProgressAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx), [**Get-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125988.aspx) 또는 [**Get Application Upgrade Progress** REST 작업](https://msdn.microsoft.com/library/azure/dn707631.aspx)을 사용하여 업그레이드 진행 상황을 확인합니다.
-
-9. 필요한 경우 *운영자*가 [**UpdateApplicationUpgradeAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx), [**Update-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt126030.aspx) 또는 [**Update Application Upgrade** 작업](https://msdn.microsoft.com/library/azure/mt628489.aspx)을 사용하여 현재 응용 프로그램 업그레이드의 매개 변수를 수정하고 다시 적용합니다.
-
-10. 필요한 경우 *운영자*가 [**RollbackApplicationUpgradeAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx), [**Start-ServiceFabricApplicationRollback** cmdlet](https://msdn.microsoft.com/library/azure/mt125833.aspx) 또는 [**Rollback Application Upgrade** 작업](https://msdn.microsoft.com/library/azure/mt628494.aspx)을 사용하여 현재 응용 프로그램 업그레이드를 롤백합니다.
-
-11. 모든 구성 서비스가 제공되는 상태로 서비스 패브릭이 클러스터에서 실행되는 대상 응용 프로그램을 업그레이드합니다.
+4. *운영자*는 [**CopyApplicationPackage** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) 또는 [**Copy-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx)를 사용하여 업데이트된 응용 프로그램 패키지를 클러스터 ImageStore에 업로드합니다. 응용 프로그램 패키지는 응용 프로그램 매니페스트 및 서비스 패키지 컬렉션을 포함합니다.
+5. 그런 다음 *운영자*가 [**ProvisionApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx) 또는 [**Provision an Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707672.aspx)을 사용하여 대상 클러스터에 새로운 응용 프로그램 버전을 프로비전합니다.
+6. *운영자*가 [**UpgradeApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx), [**Start-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125975.aspx) 또는 [**응용 프로그램 업그레이드** REST 작업](https://msdn.microsoft.com/library/azure/dn707633.aspx)을 사용하여 대상 응용 프로그램을 새 버전으로 업그레이드합니다.
+7. *운영자*가 [**GetApplicationUpgradeProgressAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx), [**Get-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125988.aspx) 또는 [**Get Application Upgrade Progress** REST 작업](https://msdn.microsoft.com/library/azure/dn707631.aspx)을 사용하여 업그레이드 진행 상황을 확인합니다.
+8. 필요한 경우 *운영자*가 [**UpdateApplicationUpgradeAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx), [**Update-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt126030.aspx) 또는 [**Update Application Upgrade** 작업](https://msdn.microsoft.com/library/azure/mt628489.aspx)을 사용하여 현재 응용 프로그램 업그레이드의 매개 변수를 수정하고 다시 적용합니다.
+9. 필요한 경우 *운영자*가 [**RollbackApplicationUpgradeAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx), [**Start-ServiceFabricApplicationRollback** cmdlet](https://msdn.microsoft.com/library/azure/mt125833.aspx) 또는 [**Rollback Application Upgrade** 작업](https://msdn.microsoft.com/library/azure/mt628494.aspx)을 사용하여 현재 응용 프로그램 업그레이드를 롤백합니다.
+10. 모든 구성 서비스가 제공되는 상태로 서비스 패브릭이 클러스터에서 실행되는 대상 응용 프로그램을 업그레이드합니다.
 
 예제는 [응용 프로그램 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)를 참조하세요.
 
 ## 유지 관리
 1. 운영 체제 업그레이드 및 패치의 경우 클러스터에서 실행 중인 모든 응용 프로그램의 가용성을 보장하기 위해 서비스 패브릭이 Azure 인프라와 상호 작용합니다.
-
 2. 서비스 패브릭 플랫폼 업그레이드 및 패치의 경우 클러스터에서 실행 중인 응용 프로그램의 가용성을 손실하지 서비스 패브릭이 자체적으로 업그레이드됩니다.
-
 3. *응용 프로그램 관리자*가 용량 사용률 데이터 및 향후 예상 수요를 분석한 후 클러스터에 대한 노드 추가 또는 제거를 승인합니다.
-
 4. *운영자*는 *응용 프로그램 관리자*가 지정한 노드를 추가 또는 제거합니다.
-
 5. 클러스터에 새 노드가 추가되거나 기존 노드 클러스터에서 노드가 제거되면 서비스 패브릭이 실행 중인 응용 프로그램의 부하를 클러스터의 모든 노드로 분산하여 최적의 성능을 유지합니다.
 
 ## 제거
 1. *운영자*는 [**DeleteServiceAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), [**Remove-ServiceFabricService** cmdlet](https://msdn.microsoft.com/library/azure/mt126033.aspx) 또는 [**Delete Service** REST 작업](https://msdn.microsoft.com/library/azure/dn707687.aspx)을 사용하여 전체 응용 프로그램을 제거하지 않고 클러스터에서 실행 중인 특정 인스턴스를 삭제할 수 있습니다.
-
 2. 또한 *운영자*는 [**DeleteApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx), [**Remove-ServiceFabricApplication** cmdlet](https://msdn.microsoft.com/library/azure/mt125914.aspx) 또는 [**Delete Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707651.aspx)을 사용하여 응용 프로그램 인스턴스 및 모든 서비스를 삭제할 수 있습니다.
-
 3. 응용 프로그램 및 서비스가 중지되면 *운영자*는 [**UnprovisionApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync.aspx), [**Unregister-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125885.aspx) 또는 [**Unprovision an Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707671.aspx)을 사용하여 응용 프로그램 유형의 프로비전을 해제할 수 있습니다. 응용 프로그램 유형의 프로비전을 해제해도 ImageStore에서 응용 프로그램 패키지가 제거되지는 않습니다. 따라서 응용 프로그램 패키지를 수동으로 제거해야 합니다.
-
 4. *운영자*가 [**RemoveApplicationPackage** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage.aspx) 또는 [**Remove-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt163532.aspx)를 사용하여 ImageStore에서 응용 프로그램 패키지를 제거합니다.
 
 예는 [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)를 참조하세요.
 
 ## 다음 단계
-
 서비스 패브릭 응용 프로그램 및 서비스의 개발, 테스트 및 관리에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-- [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-- [Reliable Services](service-fabric-reliable-services-introduction.md)
-- [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
-- [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
-- [테스트 용이성 개요](service-fabric-testability-overview.md)
-- [REST 기반 응용 프로그램 수명 주기 샘플](service-fabric-rest-based-application-lifecycle-sample.md)
+* [Reliable Actors](service-fabric-reliable-actors-introduction.md)
+* [Reliable Services](service-fabric-reliable-services-introduction.md)
+* [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
+* [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+* [테스트 용이성 개요](service-fabric-testability-overview.md)
+* [REST 기반 응용 프로그램 수명 주기 샘플](service-fabric-rest-based-application-lifecycle-sample.md)
 
 <!---HONumber=AcomDC_0831_2016-->

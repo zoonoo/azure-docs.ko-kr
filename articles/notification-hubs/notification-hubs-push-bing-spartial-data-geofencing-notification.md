@@ -1,37 +1,38 @@
-<properties
-	pageTitle="Azure 알림 허브 및 Bing 공간 데이터가 있는 지역 구분 푸시 알림 | Microsoft Azure"
-	description="이 자습서에서는 Azure 알림 허브 및 Bing 공간 데이터로 위치 기반 푸시 알림을 전달하는 방법을 알아봅니다."
-	services="notification-hubs"
-	documentationCenter="windows"
-    keywords="푸시 알림, 푸시 알림"
-	authors="dend"
-	manager="yuaxu"
-	editor="dend"/>
+---
+title: Azure 알림 허브 및 Bing 공간 데이터가 있는 지역 구분 푸시 알림 | Microsoft Docs
+description: 이 자습서에서는 Azure 알림 허브 및 Bing 공간 데이터로 위치 기반 푸시 알림을 전달하는 방법을 알아봅니다.
+services: notification-hubs
+documentationcenter: windows
+keywords: 푸시 알림, 푸시 알림
+author: dend
+manager: yuaxu
+editor: dend
 
-<tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-phone"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="05/31/2016"
-	ms.author="dendeli"/>
-    
+ms.service: notification-hubs
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-windows-phone
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 05/31/2016
+ms.author: dendeli
+
+---
 # Azure 알림 허브 및 Bing 공간 데이터가 있는 지역 구분 푸시 알림
- 
- > [AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02)을 참조하세요.
+> [!NOTE]
+> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02)을 참조하세요.
+> 
+> 
 
 이 자습서에서는 유니버설 Windows 플랫폼 응용 프로그램 내에서 활용된 Azure 알림 허브 및 Bing 공간 데이터로 위치 기반 푸시 알림을 전달하는 방법을 알아봅니다.
 
-##필수 조건
+## 필수 조건
 무엇보다도, 모든 소프트웨어 및 서비스 필수 구성 요소를 갖추어야 합니다.
 
 * [Visual Studio 2015 업데이트 1](https://www.visualstudio.com/ko-KR/downloads/download-visual-studio-vs.aspx) 이상([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)도 가능). 
 * 최신 버전의 [Azure SDK](https://azure.microsoft.com/downloads/). 
 * [Bing 맵 개발자 센터 계정](https://www.bingmapsportal.com/)(무료로 만들거나 Microsoft 계정으로 연결할 수 있음). 
 
-##시작하기
-
+## 시작하기
 프로젝트를 만들어 보겠습니다. Visual Studio에서 **비어 있는 앱(유니버설 Windows)** 형식의 새 프로젝트를 시작합니다.
 
 ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
@@ -39,17 +40,16 @@
 프로젝트 생성이 완료되면 앱 자체에 대한 테스트 도구가 있어야 합니다. 이제 지역 구분 인프라에 모든 항목을 설정해 보겠습니다. 이에 대해 Bing 서비스를 사용하기 때문에 특정 위치 프레임을 쿼리할 수 있는 공용 REST API 끝점이 있습니다.
 
     http://spatial.virtualearth.net/REST/v1/data/
-    
+
 다음 매개 변수를 지정하여 작동시켜야 합니다.
 
 * **데이터 원본 ID** 및 **데이터 원본 이름** – Bing 맵 API에서 데이터 원본은 작업하는 위치 및 업무 시간 등 다양하게 버킷 구성된 메타데이터를 포함합니다. 이에 대한 자세한 내용은 여기에서 확인할 수 있습니다. 
 * **엔터티 이름** – 알림에 대한 참조 지점으로 사용하려는 엔터티. 
 * **Bing 맵 API 키** – Bing 개발자 센터 계정을 만들 경우 이전에 얻은 키입니다.
- 
+
 위의 요소 각각에 대한 설정에서 자세하게 살펴 보겠습니다.
 
-##데이터 소스 설정
-
+## 데이터 소스 설정
 Bing 맵 개발자 센터에서 작업할 수 있습니다. 위쪽 탐색 모음에서 **데이터 원본**을 클릭하고 **데이터 원본 관리**를 선택합니다.
 
 ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
@@ -63,14 +63,17 @@ Bing 맵 개발자 센터에서 작업할 수 있습니다. 위쪽 탐색 모음
     Bing Spatial Data Services, 1.0, TestBoundaries
     EntityID(Edm.String,primaryKey)|Name(Edm.String)|Longitude(Edm.Double)|Latitude(Edm.Double)|Boundary(Edm.Geography)
     1|SanFranciscoPier|||POLYGON ((-122.389825 37.776598,-122.389438 37.773087,-122.381885 37.771849,-122.382186 37.777022,-122.389825 37.776598))
-    
+
 위는 이 엔터티를 나타냅니다.
 
 ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 
 위의 문자열을 새 파일에 복사하고 붙여 넣은 다음 **NotificationHubsGeofence.pipe**로 저장하고 Bing 개발자 센터에 업로드합니다.
 
->[AZURE.NOTE]**쿼리 키**와 다른 **마스터 키**에 대한 새 키를 지정하라는 메시지가 표시될 수 있습니다. 대시보드를 통해 새 키를 만들고 데이터 원본 업로드 페이지를 새로 고칩니다.
+> [!NOTE]
+> **쿼리 키**와 다른 **마스터 키**에 대한 새 키를 지정하라는 메시지가 표시될 수 있습니다. 대시보드를 통해 새 키를 만들고 데이터 원본 업로드 페이지를 새로 고칩니다.
+> 
+> 
 
 데이터 파일을 업로드하면 데이터 원본을 게시하는지 확인해야 합니다.
 
@@ -100,8 +103,7 @@ Bing 맵 개발자 센터에서 작업할 수 있습니다. 위쪽 탐색 모음
 
 ![](./media/notification-hubs-geofence/bing-maps-nores.png)
 
-##UWP 응용 프로그램 설정
-
+## UWP 응용 프로그램 설정
 이제 데이터 원본을 준비했으므로 이전에 부트스트랩된 UWP 응용 프로그램에서 작업을 시작할 수 있습니다.
 
 무엇보다도, 응용 프로그램에 위치 서비스를 사용하도록 설정해야 합니다. 이 작업을 수행하려면 **솔루션 탐색기**에서 `Package.appxmanifest` 파일을 두 번 클릭합니다.
@@ -198,8 +200,7 @@ Bing 맵 개발자 센터에서 작업할 수 있습니다. 위쪽 탐색 모음
         });
     }
 
-##백 엔드 설정
-
+## 백 엔드 설정
 [GitHub에서 .NET 백 엔드 샘플](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)을 다운로드합니다. 다운로드가 완료되면 `NotifyUsers` 폴더를 열고 이후 `NotifyUsers.sln` 파일을 엽니다.
 
 `AppBackend` 프로젝트를 **시작 프로젝트**로 설정하고 시작합니다.
@@ -275,7 +276,10 @@ Bing 맵 개발자 센터에서 작업할 수 있습니다. 위쪽 탐색 모음
         }
     }
 
->[AZURE.NOTE] API 끝점을 앞의 Bing 개발자 센터에서 얻은 쿼리 URL로 대체하도록 합니다(API 키에도 동일하게 적용).
+> [!NOTE]
+> API 끝점을 앞의 Bing 개발자 센터에서 얻은 쿼리 URL로 대체하도록 합니다(API 키에도 동일하게 적용).
+> 
+> 
 
 쿼리에 대한 결과가 있는 경우, 즉, 지정된 지점이 지역 구분의 경계 내에 있으므로 `true`을 반환합니다. 결과가 없는 경우 Bing은 지점이 조회 프레임 외부에 있다고 알리므로 `false`를 반환합니다.
 
@@ -302,8 +306,7 @@ Bing 맵 개발자 센터에서 작업할 수 있습니다. 위쪽 탐색 모음
 
 이런 방식으로 지점이 경계 내에 있는 경우 알림이 전송됩니다.
 
-##UWP 앱에서 푸시 알림 테스트
-
+## UWP 앱에서 푸시 알림 테스트
 UWP 앱으로 다시 돌아가면 이제 알림을 테스트할 수 있어야 합니다. `LocationHelper` 클래스 내에서 새 함수 `SendLocationToBackend`를 만듭니다.
 
     public static async Task SendLocationToBackend(string pns, string userTag, string message, string latitude, string longitude)
@@ -325,7 +328,10 @@ UWP 앱으로 다시 돌아가면 이제 알림을 테스트할 수 있어야 �
         }
     }
 
->[AZURE.NOTE] `POST_URL`을 이전 섹션에서 만든 배포된 웹 응용 프로그램의 위치로 교체합니다. 이제 로컬에서 실행해도 되지만 공용 버전을 배포할 경우 외부 공급자로 호스트해야 합니다.
+> [!NOTE]
+> `POST_URL`을 이전 섹션에서 만든 배포된 웹 응용 프로그램의 위치로 교체합니다. 이제 로컬에서 실행해도 되지만 공용 버전을 배포할 경우 외부 공급자로 호스트해야 합니다.
+> 
+> 
 
 푸시 알림에 UWP 앱을 등록했는지 확인합니다. Visual Studio에서 **프로젝트** > **저장** > **스토어와 앱 연결**을 클릭합니다.
 
@@ -370,8 +376,7 @@ UWP 앱으로 다시 돌아가면 이제 알림을 테스트할 수 있어야 �
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-##다음 단계
-
+## 다음 단계
 위의 단계 이외에 솔루션이 프로덕션을 준비하도록 수행해야 하는 두 가지 단계가 있습니다.
 
 무엇보다도, 지역 구분이 동적인지 확인해야 합니다. 기존 데이터 원본 내에서 새 경계를 업로드할 수 있도록 Bing API와 함께 몇 가지 작업이 필요합니다. 주제에 대한 자세한 내용은 [Bing 공간 데이터 서비스 API 설명서](https://msdn.microsoft.com/library/ff701734.aspx)를 참조합니다.

@@ -1,35 +1,32 @@
-<properties 
-	pageTitle="Azure API 관리 정책에 속성을 사용하는 방법" 
-	description="Azure API 관리 정책에 속성을 사용하는 방법을 알아봅니다." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Azure API 관리 정책에 속성을 사용하는 방법
+description: Azure API 관리 정책에 속성을 사용하는 방법을 알아봅니다.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/09/2016
+ms.author: sdanie
 
-
+---
 # Azure API 관리 정책에 속성을 사용하는 방법
-
 API 관리 정책은 게시자가 구성을 통해 API 동작을 변경할 수 있도록 하는 시스템의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 정책 설명은 리터럴 텍스트 값, 정책 식 및 속성을 사용하여 생성할 수 있습니다.
 
 각 API 관리 서비스 인스턴스에는 해당 서비스 인스턴스에 전역인 키/값 쌍의 속성 컬렉션이 있습니다. 이러한 속성을 사용하여 모든 API 구성 및 정책에서 상수 문자열 값을 관리할 수 있습니다. 각 속성에는 다음과 같은 특성이 있습니다.
 
-
 | 특성 | 형식 | 설명 |
-|-----------|-----------------|---------------------------------------------------------------------------------------------------------|
-| Name | string | 속성의 이름입니다. 문자, 숫자, 마침표, 대시 및 밑줄 문자만 포함할 수 있습니다. |
-| 값 | string | 속성의 값입니다. 비워 두거나 공백만으로 구성될 수 없습니다. |
-| Secret | 부울 | 값이 암호인지, 그리고 암호화해야 하는지 여부를 결정합니다. |
-| 태그 | 문자열의 배열 | 제공된 경우 속성 목록을 필터링하는 데 사용할 수 있는 선택적 태그입니다. |
+| --- | --- | --- |
+| Name |string |속성의 이름입니다. 문자, 숫자, 마침표, 대시 및 밑줄 문자만 포함할 수 있습니다. |
+| 값 |string |속성의 값입니다. 비워 두거나 공백만으로 구성될 수 없습니다. |
+| Secret |부울 |값이 암호인지, 그리고 암호화해야 하는지 여부를 결정합니다. |
+| 태그 |문자열의 배열 |제공된 경우 속성 목록을 필터링하는 데 사용할 수 있는 선택적 태그입니다. |
 
 속성은 게시자 포털의 **속성** 탭에서 구성됩니다. 다음 예제에는 세 가지 속성이 구성되어 있습니다.
 
@@ -38,16 +35,15 @@ API 관리 정책은 게시자가 구성을 통해 API 동작을 변경할 수 �
 속성 값은 리터럴 문자열 및 [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx)을 포함할 수 있습니다. 다음 표에서는 위의 세 가지 샘플 속성 및 해당 특성을 보여 줍니다. `ExpressionProperty` 값은 현재 날짜 및 시간이 포함된 문자열을 반환하는 정책 식입니다. `ContosoHeaderValue` 속성은 암호 표식이 있으므로 해당 값이 표시되지 않습니다.
 
 | Name | 값 | Secret | 태그 |
-|--------------------|----------------------------|--------|---------|
-| ContosoHeader | TrackingId | False | Contoso |
-| ContosoHeaderValue | •••••••••••••••••••••• | True | Contoso |
-| ExpressionProperty | @(DateTime.Now.ToString()) | False | |
+| --- | --- | --- | --- |
+| ContosoHeader |TrackingId |False |Contoso |
+| ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
+| ExpressionProperty |@(DateTime.Now.ToString()) |False | |
 
 ## 속성을 사용하려면
-
 정책에서 속성을 사용하려면 다음 예제와 같이 이중 중괄호 쌍 안에 속성 이름을 배치합니다(예: `{{ContosoHeader}}`).
 
-	<set-header name="{{ContosoHeader}}" exists-action="override">
+    <set-header name="{{ContosoHeader}}" exists-action="override">
       <value>{{ContosoHeaderValue}}</value>
     </set-header>
 
@@ -57,9 +53,9 @@ API 관리 정책은 게시자가 구성을 통해 API 동작을 변경할 수 �
 
 또한 속성은 정책 식을 포함할 수 있습니다. 다음 예제에서는 `ExpressionProperty`가 사용됩니다.
 
-	<set-header name="CustomHeader" exists-action="override">
-		<value>{{ExpressionProperty}}</value>
-	</set-header>
+    <set-header name="CustomHeader" exists-action="override">
+        <value>{{ExpressionProperty}}</value>
+    </set-header>
 
 이 정책을 평가할 때 `{{ExpressionProperty}}`는 해당 값 `@(DateTime.Now.ToString())`으로 바뀝니다. 이 값은 정책 식이므로 식이 계산되고 정책이 계속 실행됩니다.
 
@@ -74,7 +70,6 @@ API 관리 정책은 게시자가 구성을 통해 API 동작을 변경할 수 �
 속성 값은 정책 식을 포함할 수 있지만 다른 속성을 포함할 수는 없습니다. 속성 참조를 포함하는 텍스트가 속성 값에 사용된 경우(예: `Property value text {{MyProperty}}`) 해당 속성 참조는 바뀌지 않으며 속성 값의 일부로 포함됩니다.
 
 ## 속성을 만들려면
-
 속성을 만들려면 **속성** 탭에서 **속성 추가**를 클릭합니다.
 
 ![속성 추가][api-management-properties-add-property-menu]
@@ -90,7 +85,6 @@ API 관리 정책은 게시자가 구성을 통해 API 동작을 변경할 수 �
 REST API를 사용하여 속성을 만드는 방법에 대한 자세한 내용은 [REST API를 사용하여 속성 만들기](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put)를 참조하세요.
 
 ## 속성을 편집하려면
-
 속성을 편집하려면 편집할 속성 옆의 **편집**을 클릭합니다.
 
 ![속성 편집][api-management-properties-edit]
@@ -102,7 +96,6 @@ REST API를 사용하여 속성을 만드는 방법에 대한 자세한 내용�
 REST API를 사용하여 속성을 편집하는 방법에 대한 자세한 내용은 [REST API를 사용하여 속성 편집](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch)을 참조하세요.
 
 ## 속성을 삭제하려면
-
 속성을 삭제하려면 삭제할 속성 옆의 **삭제**를 클릭합니다.
 
 ![속성 삭제][api-management-properties-delete]
@@ -111,12 +104,14 @@ REST API를 사용하여 속성을 편집하는 방법에 대한 자세한 내�
 
 ![삭제 확인][api-management-delete-confirm]
 
->[AZURE.IMPORTANT] 속성을 참조하는 정책이 있는 경우 이러한 모든 정책에서 속성을 제거할 때까지 속성을 성공적으로 삭제할 수 없습니다.
+> [!IMPORTANT]
+> 속성을 참조하는 정책이 있는 경우 이러한 모든 정책에서 속성을 제거할 때까지 속성을 성공적으로 삭제할 수 없습니다.
+> 
+> 
 
 REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내용은 [REST API를 사용하여 속성 삭제](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete)를 참조하세요.
 
 ## 속성을 검색하고 필터링하려면
-
 **속성** 탭에는 속성을 관리하는 데 유용한 검색 및 필터링 기능이 있습니다. 속성 이름으로 속성 목록을 필터링하려면 **속성 검색** 텍스트 상자에 검색 용어를 입력합니다. 모든 속성을 표시하려면 **속성 검색** 텍스트 상자를 지우고 Enter 키를 누릅니다.
 
 ![검색][api-management-properties-search]
@@ -126,15 +121,15 @@ REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내�
 ![Filter][api-management-properties-filter]
 
 ## 다음 단계
-
--	정책 작업에 대한 자세한 정보
-	-	[API 관리의 정책](api-management-howto-policies.md)
-	-	[정책 참조](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-	-	[정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+* 정책 작업에 대한 자세한 정보
+  * [API 관리의 정책](api-management-howto-policies.md)
+  * [정책 참조](https://msdn.microsoft.com/library/azure/dn894081.aspx)
+  * [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
 ## 비디오 개요 보기
-
-> [AZURE.VIDEO use-properties-in-policies]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Use-Properties-in-Policies/player]
+> 
+> 
 
 [api-management-properties]: ./media/api-management-howto-properties/api-management-properties.png
 [api-management-properties-add-property]: ./media/api-management-howto-properties/api-management-properties-add-property.png

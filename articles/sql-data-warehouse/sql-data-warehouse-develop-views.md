@@ -1,27 +1,28 @@
-<properties
-   pageTitle="SQL 데이터 웨어하우스의 뷰 | Microsoft Azure"
-   description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 Transact-SQL 뷰 사용을 위한 팁"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: SQL 데이터 웨어하우스의 뷰 | Microsoft Docs
+description: 솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 Transact-SQL 뷰 사용을 위한 팁
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="07/01/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 07/01/2016
+ms.author: jrj;barbkess;sonyama
 
-
+---
 # SQL 데이터 웨어하우스의 뷰
-
 뷰는 SQL 데이터 웨어하우스에서 특히 유용합니다. 여러가지 다양한 방법을 사용하여 솔루션의 품질을 개선할 수 있습니다. 이 문서에서는 고려해야 할 제한 사항 뿐만 아니라 뷰를 통해 솔루션을 보완하는 방법의 예도 중점적으로 설명되어 있습니다.
 
-> [AZURE.NOTE] `CREATE VIEW`에 대한 구문은 이 문서에서 다루지 않습니다. 이 참조 정보에 대해서는 MSDN의 [CREATE VIEW][] 문서를 참조하세요.
+> [!NOTE]
+> `CREATE VIEW`에 대한 구문은 이 문서에서 다루지 않습니다. 이 참조 정보에 대해서는 MSDN의 [CREATE VIEW][CREATE VIEW] 문서를 참조하세요.
+> 
+> 
 
 ## 아키텍처 추상화
 매우 일반적인 응용 프로그램 패턴은 CREATE TABLE AS SELECT (CTAS) 뒤에 데이터 로드 중 개체 이름 바꾸기 패턴을 사용하여 테이블을 다시 작성하는 것입니다.
@@ -54,15 +55,14 @@ RENAME OBJECT DimDate_New TO DimDate;
 ## 제한 사항
 SQL 데이터 웨어하우스의 뷰는 메타데이터 전용입니다. 따라서 다음 옵션을 사용할 수 없습니다.
 
-- 	스키마 바인딩 옵션이 없습니다.
-- 	뷰를 통해 기본 테이블을 업데이트할 수 없습니다.
-- 	임시 테이블에 대해 뷰를 만들 수 없습니다.
-- 	EXPAND / NOEXPAND 힌트에 대한 지원이 없습니다.
-- 	SQL 데이터 웨어하우스에 인덱싱된 뷰가 없습니다.
-
+* 스키마 바인딩 옵션이 없습니다.
+* 뷰를 통해 기본 테이블을 업데이트할 수 없습니다.
+* 임시 테이블에 대해 뷰를 만들 수 없습니다.
+* EXPAND / NOEXPAND 힌트에 대한 지원이 없습니다.
+* SQL 데이터 웨어하우스에 인덱싱된 뷰가 없습니다.
 
 ## 다음 단계
-더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요. `CREATE VIEW` 구문에 대해서는 [CREATE VIEW][]를 참조하세요.
+더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][SQL 데이터 웨어하우스 개발 개요]를 참조하세요. `CREATE VIEW` 구문에 대해서는 [CREATE VIEW][CREATE VIEW]를 참조하세요.
 
 <!--Image references-->
 

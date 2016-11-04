@@ -5,10 +5,10 @@ MongoLab 데이터베이스를 프로비전하면 MongoLab에서 MongoDB의 표�
 다음 단계에 따라 Azure 포털에서 이 URI를 검색할 수 있습니다.
 
 1. **Add-ons**를 선택합니다. ![AddonsButton][button-addons]
-1. 추가 기능 목록에서 해당 MongoLab 서비스를 찾습니다. ![MongolabEntry][entry-mongolabaddon]
-1. 추가 기능의 이름을 클릭하여 추가 기능 페이지에 액세스합니다.
-1. **Connection Info**를 클릭합니다. ![ConnectionInfoButton][button-connectioninfo] 해당 MongoLab URI가 표시됩니다. ![ConnectionInfoScreen][screen-connectioninfo]  
-1.  MONGOLAB\_URI 값의 오른쪽에 있는 클립보드 단추를 클릭하여 전체 값을 클립보드로 복사합니다.
+2. 추가 기능 목록에서 해당 MongoLab 서비스를 찾습니다. ![MongolabEntry][entry-mongolabaddon]
+3. 추가 기능의 이름을 클릭하여 추가 기능 페이지에 액세스합니다.
+4. **Connection Info**를 클릭합니다. ![ConnectionInfoButton][button-connectioninfo] 해당 MongoLab URI가 표시됩니다. ![ConnectionInfoScreen][screen-connectioninfo]  
+5. MONGOLAB\_URI 값의 오른쪽에 있는 클립보드 단추를 클릭하여 전체 값을 클립보드로 복사합니다.
 
 [entry-mongolabaddon]: ./media/howto-get-connectioninfo-mongolab/entry-mongolabaddon.png
 [button-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/button-connectioninfo.png

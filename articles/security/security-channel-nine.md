@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Channel 9의 Azure 보안 동영상 | Microsoft Azure"
-   description="이 문서는 Channel 9의 엄선된 Azure 보안 프레젠테이션 목록입니다. Channel 9은 제품 뒤 사용자와 제품을 사용하는 사용자를 연결하는 커뮤니티입니다."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Channel 9의 Azure 보안 동영상 | Microsoft Docs
+description: 이 문서는 Channel 9의 엄선된 Azure 보안 프레젠테이션 목록입니다. Channel 9은 제품 뒤 사용자와 제품을 사용하는 사용자를 연결하는 커뮤니티입니다.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Channel 9의 Azure 보안 동영상
-
 [Channel 9](https://channel9.msdn.com/)은 제품 뒤 사용자를 앞으로 내보내 고객과 연결하는 커뮤니티입니다.
 
 이들은 소프트웨어에 멋진 미래가 있고 이 점에 대해 기대하고 있습니다. Channel 9은 지속적인 대화에 참가할 수 있는 커뮤니티입니다.
@@ -46,9 +45,9 @@ Jack Richins는 [Scott](https://channel9.msdn.com/Niners/Glucose)에게 가상 �
 
 이 비디오에서 다루는 영역
 
-- 암호화 및 SQL Server 이해
-- 데이터 보호 API, 마스터 키 및 인증서 이해
-- SQL 명령을 사용하여 마스터 키 및 인증서를 만들고 데이터베이스 암호화
+* 암호화 및 SQL Server 이해
+* 데이터 보호 API, 마스터 키 및 인증서 이해
+* SQL 명령을 사용하여 마스터 키 및 인증서를 만들고 데이터베이스 암호화
 
 [DevTest Lab에서 보안 설정 방법](https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-security-in-your-DevTest-Lab)
 
@@ -66,11 +65,11 @@ Azure에서 배포하는 모든 중대한 앱에는 중요 암호(연결 문자�
 
 Azure AD(Active Directory) Privileged Identity Management는 권한 있는 ID 및 리소스에 대한 액세스를 검색하고 제한하며 모니터링할 수 있는 프리미엄 기능입니다. 필요한 경우 주문형으로 시간에 맞추어 관리 권한을 적용할 수도 있습니다. 자세한 정보:
 
-- Office 365 워크로드 특정 관리 역할에 대한 보호 관리
-- 권한 있는 역할 활성화에 대해 Azure MFA(Multi-Factor Authentication) 구성
-- 테넌트 보안 포스처 측정 및 개선
-- 보안 결과 모니터링 및 수정
-- 정기 재인증 워크플로에 대한 권한 있는 역할을 유지해야 하는 사용자 검토
+* Office 365 워크로드 특정 관리 역할에 대한 보호 관리
+* 권한 있는 역할 활성화에 대해 Azure MFA(Multi-Factor Authentication) 구성
+* 테넌트 보안 포스처 측정 및 개선
+* 보안 결과 모니터링 및 수정
+* 정기 재인증 워크플로에 대한 권한 있는 역할을 유지해야 하는 사용자 검토
 
 [Amit Bapat와 Azure 주요 자격 증명 모음](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 

@@ -1,30 +1,26 @@
-<properties 
-    pageTitle="폴링 장기 실행 작업 | Microsoft Azure" 
-    description="이 토픽에서는 장기 실행 작업을 폴링하는 방법을 보여 줍니다." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="juliako" 
-    manager="erikre" 
-    editor=""/>
+---
+title: 폴링 장기 실행 작업 | Microsoft Docs
+description: 이 토픽에서는 장기 실행 작업을 폴링하는 방법을 보여 줍니다.
+services: media-services
+documentationcenter: ''
+author: juliako
+manager: erikre
+editor: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/26/2016" 
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-
-#<a name="delivering-live-streaming-with-azure-media-services"></a>Azure 미디어 서비스를 사용하여 라이브 스트리밍 제공
-
-##<a name="overview"></a>개요
-
+---
+# <a name="delivering-live-streaming-with-azure-media-services"></a>Azure 미디어 서비스를 사용하여 라이브 스트리밍 제공
+## <a name="overview"></a>개요
 Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중지 또는 삭제)을 시작하도록 미디어 서비스에 요청을 보내는 API를 제공합니다. 이러한 작업은 장기 실행됩니다.
 
-미디어 서비스 .NET SDK는 요청을 보내고 작업이 완료되기를 기다리는 API를 제공합니다(내부적으로 API는 일정 간격으로 작업 진행을 폴링함). 예를 들어 channel.Start()를 호출하면, 채널이 시작된 후 메서드가 반환됩니다. 비동기 버전: await channel.StartAsync()를 사용할 수도 있습니다(작업 기반 비동기 패턴에 대한 내용은 [TAP](https://msdn.microsoft.com/library/hh873175(v=vs.110).aspx) 참조). 작업 요청을 보낸 다음 작업이 완료될 때까지 상태에 대해 폴링하는 API를 "폴링 메서드"라고 합니다. 리치 클라이언트 응용 프로그램 및/또는 상태 저장 서비스에 이 메서드 (특히 비동기 버전)를 사용하는 것이 좋습니다.
+미디어 서비스 .NET SDK는 요청을 보내고 작업이 완료되기를 기다리는 API를 제공합니다(내부적으로 API는 일정 간격으로 작업 진행을 폴링함). 예를 들어 channel.Start()를 호출하면, 채널이 시작된 후 메서드가 반환됩니다. 비동기 버전: await channel.StartAsync()를 사용할 수도 있습니다(작업 기반 비동기 패턴에 대한 내용은 [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx) 참조). 작업 요청을 보낸 다음 작업이 완료될 때까지 상태에 대해 폴링하는 API를 "폴링 메서드"라고 합니다. 리치 클라이언트 응용 프로그램 및/또는 상태 저장 서비스에 이 메서드 (특히 비동기 버전)를 사용하는 것이 좋습니다.
 
 응용 프로그램이 장기 실행하는 http 요청을 기다릴 수 없는 시나리오가 있으며 수동으로 작업 진행 상태를 폴링하려는 경우도 있습니다. 전형적인 예는 상태 비저장 웹 서비스와 상호작용하는 브라우저입니다. 브라우저가 채널을 만들도록 요청하면 웹 서비스는 장기 실행 작업을 시작하고 브라우저에 작업 ID를 반환합니다. 브라우저는 ID에 따라 작업 상태를 가져오도록 웹 서비스에 요청할 수 있습니다. 미디어 서비스 .NET SDK는 이 시나리오에 유용한 API를 제공합니다. 이 API를 “비 폴링 메서드”라고 합니다.
 "비 폴링 메서드"에는 Send*OperationName*Operation(예: SendCreateOperation)과 같은 이름 지정 패턴이 있습니다. Send*OperationName*Operation 메서드는 **IOperation** 개체를 반환합니다. 반환된 개체는 작업을 추적하는 데 사용할 수 있는 정보를 포함합니다. Send*OperationName*OperationAsync 메서드는 **Task<IOperation>**를 반환합니다.
@@ -33,15 +29,12 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
 
 작업 상태에 대해 폴링하려면 **GetOperation** 메서드를 **OperationBaseCollection** 클래스에서 사용합니다. **Channel** 및 **StreamingEndpoint** 작업에 대한 작업 상태를 다음 간격으로 확인하려면, 30초를 사용합니다. **Program** 작업에 대해서는 10초를 사용합니다.
 
-
-##<a name="example"></a>예
-
+## <a name="example"></a>예
 다음 예제에서는 **ChannelOperations**라는 클래스를 정의합니다. 이 클래스 정의는 웹 서비스 클래스 정의 시작 지점이 될 수 있습니다. 간단히 하기 위해 다음 예제에서는 메서드의 비동기 버전을 사용합니다.
 
 또한 이 예제에서는 클라이언트에서 이 클래스를 사용하는 방법을 보여줍니다.
 
-###<a name="channeloperations-class-definition"></a>ChannelOperations 클래스 정의
-
+### <a name="channeloperations-class-definition"></a>ChannelOperations 클래스 정의
     /// <summary> 
     /// The ChannelOperations class only implements 
     /// the Channel’s creation operation. 
@@ -53,18 +46,18 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
             ConfigurationManager.AppSettings["MediaServicesAccountName"];
         private static readonly string _mediaServicesAccountKey =
             ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-    
+
         // Field for service context.
         private static CloudMediaContext _context = null;
         private static MediaServicesCredentials _cachedCredentials = null;
-    
+
         public ChannelOperations()
         {
                 _cachedCredentials = new MediaServicesCredentials(_mediaServicesAccountName,
                     _mediaServicesAccountKey);
-    
+
                 _context = new CloudMediaContext(_cachedCredentials);    }
-    
+
         /// <summary>  
         /// Initiates the creation of a new channel.  
         /// </summary>  
@@ -83,10 +76,10 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
                     Preview = CreateChannelPreview(),
                     Output = CreateChannelOutput()
                 });
-    
+
             return operation.Id;
         }
-    
+
         /// <summary> 
         /// Checks if the operation has been completed. 
         /// If the operation succeeded, the created channel Id is returned in the out parameter.
@@ -100,9 +93,9 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
         {
             IOperation operation = _context.Operations.GetOperation(operationId);
             bool completed = false;
-    
+
             channelId = null;
-    
+
             switch (operation.State)
             {
                 case OperationState.Failed:
@@ -120,8 +113,8 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
             }
             return completed;
         }
-    
-    
+
+
         private static ChannelInput CreateChannelInput()
         {
             return new ChannelInput
@@ -141,7 +134,7 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
                 }
             };
         }
-    
+
         private static ChannelPreview CreateChannelPreview()
         {
             return new ChannelPreview
@@ -160,7 +153,7 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
                 }
             };
         }
-    
+
         private static ChannelOutput CreateChannelOutput()
         {
             return new ChannelOutput
@@ -170,34 +163,29 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
         }
     }
 
-###<a name="the-client-code"></a>The client code
-
+### <a name="the-client-code"></a>The client code
     ChannelOperations channelOperations = new ChannelOperations();
     string opId = channelOperations.StartChannelCreation("MyChannel001");
-    
+
     string channelId = null;
     bool isCompleted = false;
-    
+
     while (isCompleted == false)
     {
         System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
         isCompleted = channelOperations.IsCompleted(opId, out channelId);
     }
-    
+
     // If we got here, we should have the newly created channel id.
     Console.WriteLine(channelId);
- 
 
 
-##<a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>피드백 제공
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
+## <a name="provide-feedback"></a>피드백 제공
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 <!--HONumber=Oct16_HO2-->
 

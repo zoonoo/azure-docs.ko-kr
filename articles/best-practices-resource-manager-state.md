@@ -1,30 +1,27 @@
-<properties
-	pageTitle="Resource Manager 템플릿의 상태 처리 | Microsoft Azure"
-	description="복잡한 개체를 사용하여 Azure 리소스 관리자 템플릿 및 연결된 템플릿과 상태 데이터를 공유하는 권장 방법을 보여 줍니다."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="timlt"
-	editor="tysonn"/>
+---
+title: Resource Manager 템플릿의 상태 처리 | Microsoft Docs
+description: 복잡한 개체를 사용하여 Azure 리소스 관리자 템플릿 및 연결된 템플릿과 상태 데이터를 공유하는 권장 방법을 보여 줍니다.
+services: azure-resource-manager
+documentationcenter: ''
+author: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/12/2016
+ms.author: tomfitz
 
+---
 # Azure 리소스 관리자 템플릿에서 상태 공유
-
 이 항목에서는 템플릿 내에서 상태를 관리 및 공유하는 방법에 대한 모범 사례를 보여 줍니다. 이 항목에 표시된 매개 변수 및 변수는 배포 요구 사항을 편리하게 구성하기 위해 정의할 수 있는 개체 유형의 예입니다. 이러한 예를 통해 사용자 환경에 맞는 속성 값으로 고유한 개체를 구현할 수 있습니다.
 
 이 항목은 더 큰 백서의 일부입니다. 전체 문서를 읽으려면 [세계 클래스 ARM 템플릿 고려 사항 및 입증된 사례](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World 클래스 ARM 템플릿 - 고려 사항 및 입증된 사례.pdf)를 다운로드합니다.
 
-
 ## 표준 구성 설정 제공
-
 절대적인 유연성과 수많은 변형을 제공하는 템플릿을 제공하는 대신 알려진 구성(실제로 샌드박스, 대, 중, 소 같은 표준 티셔츠 크기)을 선택하는 기능을 제공하는 것이 일반적인 패턴입니다. 티셔츠 크기의 다른 예에는 커뮤니티 버전이나 엔터프라이즈 버전 같은 제품이 있습니다. 그 외 경우에는 Map Reduce 또는 No SQL 같은 특정 워크로드에 대한 기술 구성이 있습니다.
 
 복잡한 개체의 경우 "속성 모음"이라고도 하는 데이터 컬렉션을 포함하는 변수를 만들고 해당 데이터를 사용하여 템플릿에서 리소스 선언을 실행할 수 있습니다. 이러한 접근 방식은 고객을 위해 미리 구성된 다양한 크기의 좋은, 알려진 구성을 제공합니다. 알려진 구성이 없는 경우, 최종 고객은 자체적으로 클러스터 크기, 플랫폼 리소스 제약 조건의 요소를 결정해야 하고 그에 따라 파생되는 저장소 계정 및 기타 리소스(클러스터 크기 및 리소스 제약 조언에 따른)에 대한 분할을 식별하기 위해 수학을 해야 합니다. 고객을 위한 환경을 개선하는 것 외에도, 소수의 알려진 구성은 지원하기가 쉽고 높은 수준의 밀도를 제공하는데 도움이 됩니다.
@@ -166,21 +163,20 @@
     }
 
 ## 템플릿에 상태 전달
-
 배포 중에 직접 제공한 매개 변수를 통해 템플릿으로 상태를 공유합니다.
 
 다음 표에는 템플릿 내에서 일반적으로 사용되는 매개 변수가 나와 있습니다.
 
-이름 | 값 | 설명
----- | ----- | -----------
-location | 제한된 Azure 영역 목록의 문자열 | 리소스가 배포될 위치입니다.
-storageAccountNamePrefix | 문자열 | VM의 디스크가 배치될 저장소 계정의 고유 DNS 이름
-domainName | 문자열 | 공개적으로 액세스할 수 있는 jumpbox VM의 도메인 이름 형식: **{domainName}.{location}.cloudapp.com** 예: **mydomainname.westus.cloudapp.azure.com**
-adminUsername | 문자열 | VM의 사용자 이름
-adminPassword | 문자열 | VM에 대한 암호
-tshirtSize | 제공된 티셔츠 크기의 제한된 목록에서 가져온 문자열 | 프로비전할 명명된 배율 단위 크기. 예: "Small", "Medium", "Large"
-virtualNetworkName | 문자열 | 소비자가 사용하려는 가상 네트워크의 이름.
-enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | 환경에 대해 jumpbox를 사용하도록 설정할지 여부를 식별하는 매개 변수입니다. 값: "enabled", "disabled"
+| 이름 | 값 | 설명 |
+| --- | --- | --- |
+| location |제한된 Azure 영역 목록의 문자열 |리소스가 배포될 위치입니다. |
+| storageAccountNamePrefix |문자열 |VM의 디스크가 배치될 저장소 계정의 고유 DNS 이름 |
+| domainName |문자열 |공개적으로 액세스할 수 있는 jumpbox VM의 도메인 이름 형식: **{domainName}.{location}.cloudapp.com** 예: **mydomainname.westus.cloudapp.azure.com** |
+| adminUsername |문자열 |VM의 사용자 이름 |
+| adminPassword |문자열 |VM에 대한 암호 |
+| tshirtSize |제공된 티셔츠 크기의 제한된 목록에서 가져온 문자열 |프로비전할 명명된 배율 단위 크기. 예: "Small", "Medium", "Large" |
+| virtualNetworkName |문자열 |소비자가 사용하려는 가상 네트워크의 이름. |
+| enableJumpbox |제한된 목록에서 가져온 문자열(enabled/disabled) |환경에 대해 jumpbox를 사용하도록 설정할지 여부를 식별하는 매개 변수입니다. 값: "enabled", "disabled" |
 
 이전 섹션에서 사용된 **tshirtSize** 매개 변수는 다음으로 정의됩니다.
 
@@ -201,11 +197,9 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
 
 
 ## 연결된 템플릿에 상태 전달
-
 연결된 템플릿에 연결할 경우 정적 변수와 생성된 변수를 혼합해서 사용하게 됩니다.
 
 ### 정적 변수
-
 정적 변수는 템플릿 전체에서 사용되는 URL과 같은 기본값을 제공하는 데 종종 사용됩니다.
 
 아래에 발췌한 템플릿에서 `templateBaseUrl`은 GitHub에서 템플릿의 루트 위치를 지정합니다. 다음 줄은 기본 URL을 공유 리소스 템플릿의 알려진 이름에 연결하는 새 변수 `sharedTemplateUrl`을 작성합니다. 그 아래에 나오는 복잡한 개체 변수는 티셔츠 크기를 저장하는 데 사용됩니다. 여기서 기본 URL은 알려진 구성 템플릿 위치에 연결되어 `vmTemplate` 속성에 저장됩니다.
@@ -232,15 +226,12 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
     }
 
 ### 생성된 변수
-
 정적 변수 외에도 다양한 변수가 동적으로 생성됩니다. 이 섹션에서는 생성된 변수의 몇 가지 일반적인 유형에 대해 설명합니다.
 
 #### tshirtSize
-
 위 예제에서 생성된 이 변수는 이미 잘 알고 있을 것입니다.
 
 #### networkSettings
-
 용량, 기능 또는 전체 범위의 솔루션 템플릿에서 연결된 템플릿은 일반적으로 네트워크에 존재하는 리소스를 만듭니다. 한 가지 간단한 방법은 복잡한 개체를 사용하여 네트워크 설정을 저장하고 연결된 템플릿에 전달하는 것입니다.
 
 아래에서 네트워크 설정을 전달하는 예제를 볼 수 있습니다.
@@ -263,7 +254,6 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
     }
 
 #### availabilitySettings
-
 연결된 템플릿에서 만든 리소스는 종종 가용성 집합에 배치됩니다. 다음 예에서는 가용성 집합 이름이 지정되고, 사용할 장애 도메인 및 업데이트 도메인 수도 지정됩니다.
 
     "availabilitySetSettings": {
@@ -275,7 +265,6 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
 여러 가용성 집합(예를 들어 마스터 노드용 하나와 데이터 노드용 하나)이 필요한 경우 이름을 접두사로 사용하거나, 여러 가용성 집합을 지정하거나, 앞서 제시된 특정 티셔츠 크기에 해당하는 변수 생성 방법 예를 따라 진행할 수 있습니다.
 
 #### storageSettings
-
 저장소 세부 정보는 연결된 템플릿과 종종 공유됩니다. 아래 예제에서 *storageSettings* 개체는 저장소 계정 및 컨테이너 이름에 대한 세부 정보를 제공합니다.
 
     "storageSettings": {
@@ -285,7 +274,6 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
     }
 
 #### osSettings
-
 연결된 템플릿을 사용할 경우 알려진 여러 구성 유형의 다양한 노드 형식에 운영 체제 설정을 전달해야 할 수 있습니다. 복잡한 개체는 운영 체제 정보를 쉽게 저장 및 공유하고 운영 체제에서 제공되는 다양한 배포 옵션을 보다 쉽게 지원할 수 있도록 하는 간편한 방법입니다.
 
 다음 예제에는 *osSettings*용 개체가 나와 있습니다.
@@ -300,7 +288,6 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
     }
 
 #### machineSettings
-
 생성된 변수 *machineSettings*는 새 VM을 만들기 위한 핵심 변수인 관리자의 사용자 이름과 암호, VM 이름의 접두사 및 운영 체제 이미지 참조 등을 포함하는 복잡한 개체입니다.
 
     "machineSettings": {
@@ -318,7 +305,6 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
 *osImageReference*는 주 템플릿에 정의된 *osSettings* 변수에서 값을 검색합니다. 즉, VM에 대한 운영 체제를 완전히 또는 템플릿 소비자의 기본 설정에 따라 쉽게 변경할 수 있습니다.
 
 #### vmScripts
-
 *vmScripts* 개체에는 외부 및 내부 참조를 포함하여 VM 인스턴스에서 다운로드 및 실행할 스크립트에 대한 세부 정보가 포함됩니다. 외부 참조는 인프라를 포함합니다. 내부 참조에는 설치된 소프트웨어와 구성이 포함됩니다.
 
 *scriptsToDownload* 속성을 사용하여 VM으로 다운로드할 스크립트 목록을 표시합니다.
@@ -341,7 +327,6 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
 
 
 ## 템플릿에서 상태 반환
-
 템플릿으로 데이터를 전달할 뿐만 아니라 호출 템플릿과 다시 데이터를 공유할 수도 있습니다. 연결된 템플릿의 **출력** 섹션에서는 원본 템플릿에서 사용될 수 있는 키/값 쌍을 제공할 수 있습니다.
 
 다음 예제에서는 연결된 템플릿에서 생성된 개인 IP 주소를 전달하는 방법을 보여 줍니다.
@@ -364,11 +349,10 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
         "value": "[reference('master-node').outputs.masterip.value]",
         "type": "string"
       }
-     
+
 연결된 템플릿의 출력 섹션을 사용하여 가상 컴퓨터에 대한 데이터 디스크를 반환하는 예제는 [가상 컴퓨터에 대한 여러 데이터 디스크 만들기](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine)를 참조하세요.
 
 ## 가상 컴퓨터에 대한 인증 설정 정의
-
 위에 표시된 동일한 패턴을 구성 설정에 사용하여 가상 컴퓨터의 인증 설정을 지정할 수 있습니다. 인증 형식을 전달하기 위한 매개 변수를 만듭니다.
 
     "parameters": {
@@ -423,7 +407,7 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
 
 
 ## 다음 단계
-- 템플릿의 섹션에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
-- 템플릿 내에서 사용할 수 있는 모든 함수는 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
+* 템플릿의 섹션에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
+* 템플릿 내에서 사용할 수 있는 모든 함수는 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 
 <!---HONumber=AcomDC_0713_2016-->

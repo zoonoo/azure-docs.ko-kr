@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Azure Active Directory에 대해 인증된 AppSource 가져오는 방법 | Microsoft Azure"
-   description="Azure Active Directory에 대해 인증된 응용 프로그램 AppSource 가져오는 방법에 대한 세부 정보."
-   services="active-directory"
-   documentationCenter=""
-   authors="skwan"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Azure Active Directory에 대해 인증된 AppSource 가져오는 방법 | Microsoft Docs
+description: Azure Active Directory에 대해 인증된 응용 프로그램 AppSource 가져오는 방법에 대한 세부 정보.
+services: active-directory
+documentationcenter: ''
+author: skwan
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/22/2016"
-   ms.author="skwan;bryanla"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/22/2016
+ms.author: skwan;bryanla
 
-
-#<a name="how-to-get-appsource-certified-for-azure-active-directory-(ad)"></a>Azure Active Directory (AD)에 대해 인증된 AppSource 가져오는 방법 
-
+---
+# <a name="how-to-get-appsource-certified-for-azure-active-directory-(ad)"></a>Azure Active Directory (AD)에 대해 인증된 AppSource 가져오는 방법
 Azure AD에 대한 AppSource 인증을 받으려면 응용 프로그램은 OpenID Connect, OAuth 2.0 또는 SAML 2.0 프로토콜을 사용하여 Azure AD로 다중 테넌트 로그인 패턴을 구현해야 합니다. 
 
 Azure AD 로그인 또는 다중 테넌트 응용 프로그램 개발에 대해 잘 알지 못하는 경우 다음을 수행합니다.

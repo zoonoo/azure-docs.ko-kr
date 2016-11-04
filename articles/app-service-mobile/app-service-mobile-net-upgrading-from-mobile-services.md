@@ -1,52 +1,51 @@
-<properties
-	pageTitle="모바일 서비스에서 Azure 앱 서비스로 업그레이드"
-	description="모바일 서비스 응용 프로그램을 앱 서비스 모바일 앱으로 쉽게 업그레이드하는 방법을 알아봅니다."
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="mattchenderson"
-	manager="dwrede"
-	editor=""/>
+---
+title: 모바일 서비스에서 Azure 앱 서비스로 업그레이드
+description: 모바일 서비스 응용 프로그램을 앱 서비스 모바일 앱으로 쉽게 업그레이드하는 방법을 알아봅니다.
+services: app-service\mobile
+documentationcenter: ''
+author: mattchenderson
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="mahender"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/25/2016
+ms.author: mahender
 
+---
 # 기존 .NET Azure 모바일 서비스를 앱 서비스로 업그레이드
-
 앱 서비스 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로그램을 빌드하는 새로운 방법입니다. 자세한 내용은 [모바일 앱 정의]를 참조하세요.
 
-이 항목에서는 기존 .NET 백 엔드 응용 프로그램을 Azure 모바일 서비스에서 새로운 앱 서비스 모바일 앱으로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 모바일 서비스 응용 프로그램이 계속 작동할 수 있습니다. Node.js 백 엔드 응용 프로그램을 업그레이드해야 하는 경우 [Node.js 모바일 서비스 업그레이드](./app-service-mobile-node-backend-upgrading-from-mobile-services.md)를 참조하세요.
+이 항목에서는 기존 .NET 백 엔드 응용 프로그램을 Azure 모바일 서비스에서 새로운 앱 서비스 모바일 앱으로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 모바일 서비스 응용 프로그램이 계속 작동할 수 있습니다. Node.js 백 엔드 응용 프로그램을 업그레이드해야 하는 경우 [Node.js 모바일 서비스 업그레이드](app-service-mobile-node-backend-upgrading-from-mobile-services.md)를 참조하세요.
 
 모바일 백 엔드가 Azure 앱 서비스로 업그레이드되면 모든 앱 서비스 기능에 액세스할 수 있고 모바일 서비스 가격 책정이 아닌 [앱 서비스 가격 책정]에 따라 요금이 청구됩니다.
 
-##마이그레이션과 업그레이드 비교
+## 마이그레이션과 업그레이드 비교
+[!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
-[AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
+> [!TIP]
+> 업그레이드를 진행하기 전에 [마이그레이션을 수행](app-service-mobile-migrating-from-mobile-services.md)하는 것이 좋습니다. 이러한 방식으로 동일한 앱 서비스 계획에 두 버전의 응용 프로그램을 모두 추가 비용 없이 둘 수 있습니다.
+> 
+> 
 
->[AZURE.TIP] 업그레이드를 진행하기 전에 [마이그레이션을 수행](app-service-mobile-migrating-from-mobile-services.md)하는 것이 좋습니다. 이러한 방식으로 동일한 앱 서비스 계획에 두 버전의 응용 프로그램을 모두 추가 비용 없이 둘 수 있습니다.
-
-###모바일 앱 .NET 서버 SDK에서 향상된 기능
-
+### 모바일 앱 .NET 서버 SDK에서 향상된 기능
 새 [모바일 앱 SDK](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/)의 업그레이드는 다음과 같은 이점을 제공합니다.
 
-- NuGet 종속성에서 유연성이 증가합니다. 호스팅 환경이 고유한 버전의 NuGet 패키지를 더 이상 제공하지 않으므로 호환되는 대체 버전을 사용할 수 있습니다. 그러나 모바일 서버 SDK 또는 종속성에 대한 새 주요 오류수정 또는 보안 업데이트가 있는 경우 서비스를 수동으로 업데이트해야 합니다.
+* NuGet 종속성에서 유연성이 증가합니다. 호스팅 환경이 고유한 버전의 NuGet 패키지를 더 이상 제공하지 않으므로 호환되는 대체 버전을 사용할 수 있습니다. 그러나 모바일 서버 SDK 또는 종속성에 대한 새 주요 오류수정 또는 보안 업데이트가 있는 경우 서비스를 수동으로 업데이트해야 합니다.
+* 모바일 SDK에서 유연성이 증가합니다. 인증, 테이블 API 및 푸시 등록 끝점 등 어떤 기능 및 경로를 설정할 것인지 명시적으로 제어할 수 있습니다. 자세한 내용은 [Azure 모바일 앱에 .NET 서버 SDK를 사용하는 방법](app-service-mobile-net-upgrading-from-mobile-services.md#server-project-setup)을 참조하세요.
+* 다른 ASP.NET 프로젝트 형식 및 경로를 지원합니다. 이제 모바일 백 엔드 프로젝트와 동일한 프로젝트에서 MVC 및 Web API 컨트롤러를 호스팅할 수 있습니다.
+* 새로운 앱 서비스 인증 기능을 지원하며 이는 웹 및 모바일 앱에서 일반 인증 구성을 사용할 수 있게 합니다.
 
-- 모바일 SDK에서 유연성이 증가합니다. 인증, 테이블 API 및 푸시 등록 끝점 등 어떤 기능 및 경로를 설정할 것인지 명시적으로 제어할 수 있습니다. 자세한 내용은 [Azure 모바일 앱에 .NET 서버 SDK를 사용하는 방법](app-service-mobile-net-upgrading-from-mobile-services.md#server-project-setup)을 참조하세요.
-
-- 다른 ASP.NET 프로젝트 형식 및 경로를 지원합니다. 이제 모바일 백 엔드 프로젝트와 동일한 프로젝트에서 MVC 및 Web API 컨트롤러를 호스팅할 수 있습니다.
-
-- 새로운 앱 서비스 인증 기능을 지원하며 이는 웹 및 모바일 앱에서 일반 인증 구성을 사용할 수 있게 합니다.
-
-##<a name="overview"></a>기본 업그레이드 개요
-
+## <a name="overview"></a>기본 업그레이드 개요
 대부분의 경우 새 모바일 앱 서버 SDK로 전환한 다음 새 모바일 앱 인스턴스에 코드를 다시 게시하기만 하면 간단히 업그레이드할 수 있습니다. 그러나 고급 인증 시나리오 및 예약된 작업 사용과 같이 추가 구성이 필요한 일부 시나리오도 있습니다. 각 시나리오는 이후 섹션에서 설명합니다.
 
->[AZURE.TIP] 업그레이드를 시작하기 전에 이 항목의 나머지 부분을 읽고 완전히 이해하는 것이 좋습니다. 아래 설명선에 표시된 사용하는 기능을 모두 기록해 두세요.
+> [!TIP]
+> 업그레이드를 시작하기 전에 이 항목의 나머지 부분을 읽고 완전히 이해하는 것이 좋습니다. 아래 설명선에 표시된 사용하는 기능을 모두 기록해 두세요.
+> 
+> 
 
 모바일 서비스 클라이언트 SDK는 새 모바일 앱 서버 SDK와 호환할 수 **없습니다**. 앱에 대한 서비스 연속성을 제공하기 위해 현재 게시된 클라이언트를 제공하는 사이트에 변경 내용을 게시하지 않아야 합니다. 대신 중복으로 제공한 새 모바일 앱을 만들어야 합니다. 이 응용 프로그램을 동일한 앱 서비스 계획에 두어 추가 비용이 발생하지 않도록 할 수 있습니다.
 
@@ -59,7 +58,7 @@
 3. 새 버전의 클라이언트 응용 프로그램 릴리스
 4. (선택 사항) 원래 마이그레이션된 인스턴스 삭제
 
-##<a name="mobile-app-version"></a>두 번째 응용 프로그램 인스턴스 만들기
+## <a name="mobile-app-version"></a>두 번째 응용 프로그램 인스턴스 만들기
 업그레이드의 첫 번째 단계는 새 버전의 응용 프로그램을 호스트할 모바일 앱 리소스를 만드는 것입니다. 기존 모바일 서비스를 이미 마이그레이션한 경우 동일한 호스팅 계획에 이 버전을 만들려고 합니다. [Azure 포털]을 열고 마이그레이션된 응용 프로그램으로 이동합니다. 앱 서비스 계획에서 실행 중인지 확인합니다.
 
 다음으로 [.NET 백 엔드 만들기 지침](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app)을 수행하여 두 번째 응용 프로그램 인스턴스를 만듭니다. 앱 서비스 계획 또는 "호스팅 계획"을 선택하라는 메시지가 나타나면 마이그레이션된 응용 프로그램의 계획을 선택합니다.
@@ -69,7 +68,6 @@
 응용 프로그램에 대한 ASP.NET 프로젝트의 복사본을 만들고 새 사이트에 게시합니다. 새 URL를 통해 업데이트된 클라이언트 응용 프로그램의 복사본을 사용하여 모든 작업이 예상 대로 작동하는 것을 확인합니다.
 
 ## 서버 프로젝트 업데이트
-
 모바일 앱은 모바일 서비스 런타임과 동일한 기능을 대부분 제공하는 새로운 [모바일 앱 서버 SDK]를 제공합니다. 먼저 모바일 서비스 패키지에 대한 모든 참조를 제거해야 합니다. NuGet 패키지 관리자에서 `WindowsAzure.MobileServices.Backend`를 검색합니다. 대부분의 앱에서 `WindowsAzure.MobileServices.Backend.Tables` 및 `WindowsAzure.MobileServices.Backend.Entity`를 포함하여 여러 패키지가 나타납니다. 이 경우 `Entity`와 같은 종속성 트리에서 가장 낮은 패키지를 시작하고 제거합니다. 메시지가 표시되면 모든 종속 패키지를 제거하지 마십시오. `WindowsAzure.MobileServices.Backend` 자체를 제거할 때까지 이 프로세스를 반복합니다.
 
 이 시점에서 더 이상 모바일 서비스 SDK를 참조하지 않는 프로젝트가 있습니다.
@@ -79,7 +77,6 @@
 SDK 간의 차이로 인해 발생하는 몇 가지 컴파일러 오류가 있지만 쉽게 해결할 수 있으며 이 섹션의 나머지 부분에서 다루게 됩니다.
 
 ### 기본 구성
-
 그런 다음 WebApiConfig.cs에서
 
         // Use this class to set configuration options for your mobile service
@@ -95,7 +92,10 @@ SDK 간의 차이로 인해 발생하는 몇 가지 컴파일러 오류가 있�
             .UseDefaultConfiguration()
         .ApplyTo(config);
 
->[AZURE.NOTE] 앱에서 기능을 추가/제거하는 방법 및 새 .NET 서버 SDK에 대한 자세한 내용을 보려면, [.NET 서버 SDK를 사용하는 방법] 항목을 참조하세요.
+> [!NOTE]
+> 앱에서 기능을 추가/제거하는 방법 및 새 .NET 서버 SDK에 대한 자세한 내용을 보려면, [.NET 서버 SDK를 사용하는 방법] 항목을 참조하세요.
+> 
+> 
 
 또한 앱이 인증 기능을 사용하는 경우 OWIN 미들웨어를 등록해야 합니다. 이 경우 새 OWIN 시작 클래스에 위의 구성 코드를 이동해야 합니다.
 
@@ -111,7 +111,6 @@ SDK 간의 차이로 인해 발생하는 몇 가지 컴파일러 오류가 있�
 아래 전체 인증 섹션에서 다루는 인증에 관련된 추가 변경 내용이 있습니다.
 
 ### 데이터 작업
-
 모바일 서비스에서 모바일 앱 이름은 Entity Framework 설치 프로그램의 기본 스키마 이름으로 제공되었습니다.
 
 이전에 참조된 동일한 스키마가 있는지 확인하려면 다음을 사용하여 응용 프로그램에 DbContext의 스키마를 설정합니다.
@@ -121,29 +120,26 @@ SDK 간의 차이로 인해 발생하는 몇 가지 컴파일러 오류가 있�
 위의 작업을 수행하는 경우 MS\_MobileServiceName을 설정해야 합니다. 또한 응용 프로그램이 이전에 사용자 지정한 경우 다른 스키마 이름을 제공할 수 있습니다.
 
 ### 시스템 속성
-
 #### 이름 지정
-
 Azure 모바일 서비스 서버 SDK에서 시스템 속성은 항상 속성에 대해 두 개의 밑줄(`__`) 접두사를 포함합니다.
 
-- \_\_createdAt
-- \_\_updatedAt
-- \_\_deleted
-- \_\_version
+* \_\_createdAt
+* \_\_updatedAt
+* \_\_deleted
+* \_\_version
 
 모바일 서비스 클라이언트 SDK는 이 형식에서 시스템 속성을 구문 분석하기 위한 특수한 논리입니다.
 
 Azure 모바일 앱에서 시스템 속성에는 더 이상 특별 한 형식 및 다음과 같은 이름이 없습니다.
 
-- createdAt
-- updatedAt
-- deleted
-- 버전
+* createdAt
+* updatedAt
+* deleted
+* 버전
 
 모바일 앱 클라이언트 SDK는 새 시스템 속성 이름을 사용하므로 클라이언트 코드에는 변경이 필요하지 않습니다. 그러나 서비스에 직접 REST 호출을 하는 경우 쿼리를 적절하게 변경해야 합니다.
 
 #### 로컬 저장소
-
 시스템 속성의 이름에 변경 사항이 있으면 모바일 서비스에 대한 오프라인 동기화 로컬 데이터베이스가 모바일 앱과 호환되지 않습니다. 가능한 경우 보류 중인 변경 내용이 서버에 보내진 이후까지 모바일 서비스에서 모바일 앱에 클라이언트 앱 업그레이드하지 않도록 해야 합니다. 그런 다음 업그레이드된 앱은 새 데이터베이스 파일 이름을 사용해야 합니다.
 
 작업 큐에 오프라인 변경 내용을 보류 중인 동안 클라이언트 앱이 모바일 서비스에서 모바일 앱으로 업그레이드되면 시스템 데이터베이스는 새 열 이름을 사용하도록 업데이트되어야 합니다. iOS에서 열 이름을 변경하는 간단한 마이그레이션을 사용하여 수행할 수 있습니다. Android 및 .NET 관리된 클라이언트에서 사용자 지정 SQL을 작성하여 데이터 개체 테이블에 대한 열 이름을 바꿔야 합니다.
@@ -151,14 +147,13 @@ Azure 모바일 앱에서 시스템 속성에는 더 이상 특별 한 형식 �
 iOS에서 다음과 일치하도록 데이터 엔터티에 대한 핵심 데이터 스키마를 변경해야 합니다. 속성 `createdAt`, `updatedAt` 및 `version`에는 더 이상 `ms_` 접두사가 없습니다.
 
 | 특성 | 형식 | 참고 |
-|---------- |  ------ | -----------------------------------------------------|
-| id | 문자열, 필수로 표시 | 원격 저장소의 기본 키 |
-| createdAt | Date | (옵션) createdAt 시스템 속성에 매핑됩니다. |
-| updatedAt | Date | (옵션) updatedAt 시스템 속성에 매핑됩니다. |
-| 버전 | String | (옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |
+| --- | --- | --- |
+| id |문자열, 필수로 표시 |원격 저장소의 기본 키 |
+| createdAt |Date |(옵션) createdAt 시스템 속성에 매핑됩니다. |
+| updatedAt |Date |(옵션) updatedAt 시스템 속성에 매핑됩니다. |
+| 버전 |String |(옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |
 
 #### 시스템 속성 쿼리
-
 Azure 모바일 서비스에서 시스템 속성은 기본적으로 전송되지 않지만 쿼리 문자열 `__systemProperties`을 사용하여 요청된 경우에만 그렇습니다. 반면 Azure 모바일 앱 시스템에서 속성은 서버 SDK 개체 모델의 일부이기 때문에 **항상 선택**됩니다.
 
 이 변경 사항은 `MappedEntityDomainManager`의 확장과 같은 도메인 관리자의 사용자 지정 구현에 주로 영향을 줍니다. 모바일 서비스에서 클라이언트가 시스템 속성을 요구하지 않으면 모든 속성이 실제로 매핑되지 않는 `MappedEntityDomainManager`를 사용할 수 있습니다. 그러나 Azure 모바일 앱에서 이러한 매핑되지 않은 속성은 가져오기 쿼리에서 오류를 발생시킵니다.
@@ -193,7 +188,6 @@ Azure 모바일 서비스에서 시스템 속성은 기본적으로 전송되지
 참고: `NotMapped`에 오류가 발생하는 경우 어셈블리 `System.ComponentModel.DataAnnotations`에 참조를 추가합니다.
 
 ### CORS
-
 모바일 서비스는 ASP.NET CORS 솔루션을 래핑하여 CORS에 대한 지원을 포함합니다. 래핑 계층이 개발자에게 더 많은 제어를 제공하도록 제거되었으므로 직접 [ASP.NET CORS 지원](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)을 활용할 수 있습니다.
 
 우려되는 부분은 CORS를 사용하는 경우 클라이언트 SDK가 제대로 작동하려면 `eTag` 및 `Location` 헤더를 허용해야 한다는 점입니다.
@@ -216,8 +210,7 @@ Azure 모바일 서비스에서 시스템 속성은 기본적으로 전송되지
     ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
     traceWriter.Info("Hello, World");  
 
-##<a name="authentication"></a>인증 고려 사항
-
+## <a name="authentication"></a>인증 고려 사항
 이제 모바일 서비스의 인증 구성 요소는 앱 서비스 인증/권한 부여 기능으로 옮겨졌습니다. [모바일 앱에 인증 추가](app-service-mobile-ios-get-started-users.md) 항목을 읽어서 사이트에 이 옵션을 사용하는 데 대해 알아볼 수 있습니다.
 
 AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그램에서 기존 등록을 활용할 수 있어야 합니다. 단순히 ID 공급자의 포털로 이동하고 새 리디렉션 URL을 등록에 추가해야 합니다. 그런 다음 클라이언트 ID 및 암호를 통해 앱 서비스 인증/권한 부여를 구성합니다.
@@ -226,7 +219,6 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 `[AuthorizeLevel(AuthorizationLevel.User)]` 특성의 인스턴스는 이제 표준 ASP.NET `[Authorize]` 특성을 사용하도록 변경되어야 합니다. 또한 컨트롤러는 다른 ASP.NET 응용 프로그램에서와 같이 이제 기본적으로 익명입니다. 관리자 또는 응용 프로그램을 같은 다른 AuthorizeLevel 옵션 중 하나를 사용하는 경우 이러한 내용이 사라지도록 합니다. 대신 공유 암호에 AuthorizationFilters를 설정하거나 AAD 서비스 주체를 구성하여 서비스 간 호출을 안전하게 사용하도록 할 수 있습니다.
 
 ### 추가 사용자 정보 가져오기
-
 `GetAppServiceIdentityAsync()` 메서드를 통해 액세스 토큰을 포함하는 추가 사용자 정보를 가져올 수 있습니다.
 
         FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
@@ -238,10 +230,9 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 앱이 사용자 ID에 종속된 경우 가능하면 ID 공급자와 함께 동일한 등록을 활용하는 것이 중요합니다. 일반적으로 사용자 ID의 범위는 사용된 응용 프로그램 등록으로 지정되므로 새 등록을 도입하면 사용자를 해당 데이터에 일치시킬 때 문제가 발생할 수 있습니다.
 
 ### 사용자 지정 인증
-
 앱이 사용자 지정 인증 솔루션을 사용하는 경우 업그레이드된 사이트가 시스템에 액세스하도록 하려 합니다. [.NET 서버 SDK 개요]에서 사용자 지정 인증에 대한 새 지침을 수행하여 솔루션을 통합할 수 있습니다. 사용자 지정 인증 구성 요소가 여전히 미리 보기 상태입니다.
 
-##<a name="updating-clients"></a>클라이언트 업데이트
+## <a name="updating-clients"></a>클라이언트 업데이트
 작동하는 모바일 앱 백 엔드가 있으면 그것을 사용하는 클라이언트 응용 프로그램의 새 버전에서 작동할 수 있습니다. 또한 모바일 앱은 클라이언트 SDK의 새 버전을 포함하고 위의 서버 업그레이드와 유사합니다. 따라서 모바일 앱 버전을 설치하기 전에 모바일 서비스 SDK에 대한 모든 참조를 제거해야 합니다.
 
 버전 간의 주요 변경 사항 중 하나는 생성자가 응용 프로그램 키를 더 이상 필요로 하지 않는다는 점입니다. 이제 모바일 앱의 URL에 간단히 전달할 수 있습니다. 예를 들어 .NET 클라이언트에서 `MobileServiceClient` 생성자는 다음과 같습니다.
@@ -252,8 +243,8 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 
 아래 링크를 통해 새 SDK를 설치하고 새 구조를 사용하는 데 대한 내용을 읽을 수 있습니다.
 
-- [iOS 버전 3.0.0 이상](app-service-mobile-ios-how-to-use-client-library.md)
-- [.NET(Windows/Xamarin) 버전 2.0.0 이상](app-service-mobile-dotnet-how-to-use-client-library.md)
+* [iOS 버전 3.0.0 이상](app-service-mobile-ios-how-to-use-client-library.md)
+* [.NET(Windows/Xamarin) 버전 2.0.0 이상](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 응용 프로그램이 푸시 알림을 사용하면 일부 변경 사항이 있는 경우와 같이 각 플랫폼에 대한 특정 등록 지침을 기록합니다.
 

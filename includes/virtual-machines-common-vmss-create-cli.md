@@ -13,7 +13,6 @@
 1. 크기 집합의 VM 인스턴스에 데이터 디스크를 연결할 수 없습니다. 대신 Blob 저장소, Azure 파일, Azure 테이블 또는 다른 저장소 솔루션을 사용해야 합니다.
 
 ## Azure CLI를 사용한 빠른 생성
-
 [Azure 구독 무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 및 [Azure 계정에 연결된](../articles/xplat-cli-connect.md) [Azure CLI](../articles/xplat-cli-install.md)를 가져올 수 있습니다. 그러면 다음 명령을 실행하여 VM 크기 집합을 신속하게 만들 수 있습니다.
 
 ```bash
@@ -71,7 +70,6 @@ ssh -p 50000 $FQDN
 ```
 
 ## 다음 단계
-
 일반적인 정보는 [VM 크기 집합에 대한 주 방문 페이지](https://azure.microsoft.com/services/virtual-machine-scale-sets/)를 확인하세요.
 
 설명서는 [VM 크기 집합에 대한 주 설명서 페이지](https://azure.microsoft.com/documentation/services/virtual-machines-scale-sets/)를 참조하세요.

@@ -1,33 +1,30 @@
-<properties
-   pageTitle="Azure Portal 대시보드 | Microsoft Azure"
-   description="이 문서에서는 Azure Portal에서 대시보드를 만들고 편집하는 방법을 설명합니다."
-   services="azure-portal"
-   documentationCenter=""
-   authors="sewatson"
-   manager="timlt"
-   editor="tysonn"/>
+---
+title: Azure Portal 대시보드 | Microsoft Docs
+description: 이 문서에서는 Azure Portal에서 대시보드를 만들고 편집하는 방법을 설명합니다.
+services: azure-portal
+documentationcenter: ''
+author: sewatson
+manager: timlt
+editor: tysonn
 
-<tags
-   ms.service="multiple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="na"
-   ms.date="09/06/2016"
-   ms.author="sewatson"/>
+ms.service: multiple
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 09/06/2016
+ms.author: sewatson
 
+---
 # Azure Portal에서 대시보드 만들기 및 공유
-
 여러 개의 대시보드를 만들고 Azure 구독에 액세스할 수 있는 다른 사용자와 공유할 수 있습니다. 이 게시물에서는 대시보드 만들기/편집, 게시 및 액세스 관리의 기본 사항을 알아봅니다.
 
 ## 대시보드 및 블레이드 사용자 지정
-
 몇 달 전에 대시보드를 출시했기 때문에 블레이드사용자 지정이 꾸준히 감소하고 대시보드 사용자 지정이 급증했습니다. 이 강력한 사용 추세는 블레이드를 통한 대시보드의 사용자 지정을 선호한다는 것을 보여 줍니다. 해당 추세를 지원하기 위해 블레이드를 사용자 지정하는 기능을 제거하고 대시보드 기능을 향상시키는 데 주력할 예정입니다. 블레이드를 사용자 지정한 경우 사용자 지정은 곧 제거됩니다. 해당 사용자 지정을 유지하려면 사용자 지정된 타일을 대시보드에 고정합니다. 타일을 오른쪽 단추로 클릭하고 다음 이미지에 보이는 대로 **대시보드에 고정**을 선택합니다.
 
 ![사용자 지정된 타일 저장](./media/azure-portal-dashboards/save-customization.png)
 
 ## 대시보드 만들기
-
 대시보드를 만들려면 현재 대시보드 이름 옆에 있는 **새 대시보드** 단추를 선택합니다.
 
 ![대시보드 만들기](./media/azure-portal-dashboards/new-dashboard.png)
@@ -43,7 +40,6 @@
 ![Markdown 추가](./media/azure-portal-dashboards/add-markdown.png)
 
 ## 대시보드 편집
-
 대시보드를 만든 후에 타일 갤러리 또는 블레이드의 타일 표현에서 타일을 고정할 수 있습니다. 리소스 그룹의 표현을 고정해 보겠습니다. 해당 항목을 검색할 때 또는 리소스 그룹 블레이드에서 고정할 수 있습니다. 두 가지 방법은 리소스 그룹의 타일 표시를 고정합니다.
 
 ![대시보드에 고정](./media/azure-portal-dashboards/pin-to-dashboard.png)
@@ -57,7 +53,7 @@ Markdown 타일 및 대시보드에 고정된 리소스 그룹이 있으므로 �
 "..."에 마우스를 가져가고 선택하거나 타일을 마우스 오른쪽 단추로 클릭하여 해당 타일에 대한 상황에 맞는 모든 명령을 볼 수 있습니다. 기본적으로 두 가지 항목이 있습니다.
 
 1. **대시보드에서 고정 해제** – 대시보드에서 타일을 제거합니다.
-2.	**사용자 지정** – 사용자 지정 모드로 실행됩니다.
+2. **사용자 지정** – 사용자 지정 모드로 실행됩니다.
 
 ![타일 사용자 지정](./media/azure-portal-dashboards/customize-tile.png)
 
@@ -76,7 +72,6 @@ Markdown 타일 및 대시보드에 고정된 리소스 그룹이 있으므로 �
 대시보드의 사용자 지정을 완료한 후에 사용자 지정 모드를 종료하려면 **사용자 지정 완료**를 선택하거나 상황에 맞는 메뉴에서 **사용자 지정 완료**를 마우스 오른쪽 단추로 클릭하고 선택합니다.
 
 ## 대시보드 게시 및 액세스 제어 관리
-
 대시보드를 만들 때 기본적으로 비공개입니다. 즉, 볼 수 있는 유일한 사람은 사용자입니다. 다른 사람이 볼 수 있도록 하려면 다른 대시보드 명령 옆에 나타나는 **공유** 단추를 사용합니다.
 
 ![대시보드 공유](./media/azure-portal-dashboards/share-dashboard.png)
@@ -98,8 +93,7 @@ Azure 구독을 보유하고 구독의 **소유자**, **참여자** 또는 **읽
 ![액세스 제어 관리](./media/azure-portal-dashboards/manage-access.png)
 
 ## 다음 단계
-
-- 리소스를 관리하려면 [포털을 통한 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
-- 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure Portal을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
+* 리소스를 관리하려면 [포털을 통한 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
+* 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure Portal을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
 
 <!---HONumber=AcomDC_0907_2016-->

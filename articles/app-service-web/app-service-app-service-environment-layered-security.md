@@ -1,25 +1,23 @@
-<properties 
-	pageTitle="앱 서비스 환경으로 계층화된 보안 아키텍처" 
-	description="앱 서비스 환경으로 계층화된 보안 아키텍처 구현" 
-	services="app-service" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: 앱 서비스 환경으로 계층화된 보안 아키텍처
+description: 앱 서비스 환경으로 계층화된 보안 아키텍처 구현
+services: app-service
+documentationcenter: ''
+author: stefsch
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/30/2016" 
-	ms.author="stefsch"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/30/2016
+ms.author: stefsch
 
+---
 # 앱 서비스 환경으로 계층화된 보안 아키텍처 구현
-
-## 개요 ##
- 
+## 개요
 앱 서비스 환경이 가상 네트워크에 배포된 격리된 런타임 환경을 제공하므로 개발자는 실제 응용 프로그램 계층 각각에 서로 다른 수준으로 네트워크 액세스를 제공하는 계층화된 보안 아키텍처를 만들 수 있습니다.
 
 일반적으로 일반 인터넷 액세스로부터 API 백 엔드를 숨기거나 API가 업스트림 웹앱에서 호출될 수 있도록 하기 원합니다. [네트워크 보안 그룹(NSG)][NetworkSecurityGroups]는 앱 서비스 환경을 포함하는 서브넷에서 사용되어 API 응용 프로그램에 대한 공용 액세스를 제한할 수 있습니다.
@@ -32,15 +30,15 @@
 
 이 항목의 나머지 부분에서는 "apiase"를 포함하는 서브넷에 네트워크 보안 그룹을 구성하는 데 필요한 단계를 안내합니다.
 
-## 네트워크 동작 확인 ##
+## 네트워크 동작 확인
 어떤 네트워크 보안 규칙이 필요한지 알기 위해 어떤 네트워크 클라이언트가 API 앱을 포함하는 앱 서비스 환경에 연결할 수 있고 어떤 클라이언트를 차단할지 결정해야 합니다.
 
 [네트워크 보안 그룹(NSG)][NetworkSecurityGroups]이 서브넷에 적용되고 앱 서비스 환경이 서브넷에 배포되기 때문에 NSG에 포함된 규칙은 앱 서비스 환경에서 실행하는 **모든** 앱에 적용됩니다. 네트워크 보안 그룹이 "apiase"를 포함하는 서브넷에 적용되면 이 문서에 대한 샘플 아키텍처를 사용하여 "apiase" 앱 서비스 환경에서 실행되는 모든 앱은 동일한 집합의 보안 규칙에 의해 보호됩니다.
 
-- **업스트림 호출자의 아웃 바운드 IP 주소 확인:** IP 주소 또는 업스트림 호출자의 주소는 무엇입니까? 이러한 주소는 NSG에서 명시적으로 액세스하도록 허용해야 합니다. 앱 서비스 환경 간의 호출이 "Internet" 호출을 고려하기 때문에 각 세 업스트림 응용 프로그램 서비스 환경에 할당된 아웃 바운드 IP 주소는 "apiase" 서브넷에 대한 NSG에서 액세스하도록 허용해야 한다는 것을 의미합니다. 앱 서비스 환경에서 실행되는 앱에 대한 아웃 바운드 IP 주소를 확인하는 데 대한 자세한 내용은 [네트워크 아키텍처][NetworkArchitecture] 개요 문서를 참조하세요.
-- **백 엔드 API 앱 자체를 호출해야 합니까?** 때로는 간과되고 미묘한 점은 백 엔드 응용 프로그램이 자신을 호출해야 한다는 시나리오입니다. 또한 앱 서비스 환경에서 백 엔드 API 응용 프로그램이 자신을 호출하는 경우 "인터넷" 호출로 처리됩니다. 샘플 아키텍처에서는 "apiase" 앱 서비스 환경의 아웃 바운드 IP 주소에서 액세스하도록 허락이 필요합니다.
+* **업스트림 호출자의 아웃 바운드 IP 주소 확인:** IP 주소 또는 업스트림 호출자의 주소는 무엇입니까? 이러한 주소는 NSG에서 명시적으로 액세스하도록 허용해야 합니다. 앱 서비스 환경 간의 호출이 "Internet" 호출을 고려하기 때문에 각 세 업스트림 응용 프로그램 서비스 환경에 할당된 아웃 바운드 IP 주소는 "apiase" 서브넷에 대한 NSG에서 액세스하도록 허용해야 한다는 것을 의미합니다. 앱 서비스 환경에서 실행되는 앱에 대한 아웃 바운드 IP 주소를 확인하는 데 대한 자세한 내용은 [네트워크 아키텍처][NetworkArchitecture] 개요 문서를 참조하세요.
+* **백 엔드 API 앱 자체를 호출해야 합니까?** 때로는 간과되고 미묘한 점은 백 엔드 응용 프로그램이 자신을 호출해야 한다는 시나리오입니다. 또한 앱 서비스 환경에서 백 엔드 API 응용 프로그램이 자신을 호출하는 경우 "인터넷" 호출로 처리됩니다. 샘플 아키텍처에서는 "apiase" 앱 서비스 환경의 아웃 바운드 IP 주소에서 액세스하도록 허락이 필요합니다.
 
-## 네트워크 보안 그룹 설치 ##
+## 네트워크 보안 그룹 설치
 아웃 바운드 IP 주소 집합을 모두 알고 나면 다음 단계에서 네트워크 보안 그룹을 생성합니다. 클래식 가상 네트워크뿐만 아니라 가상 네트워크를 기반으로 하는 두 Resource Manager에 네트워크 보안 그룹을 만들 수 있습니다. 아래 예제에서는 Powershell을 사용하여 기존 가상 네트워크에 NSG를 만들고 구성하는 방법을 보여 줍니다.
 
 샘플 아키텍처의 경우 환경은 미국 중남부에 있으므로 빈 NSG는 해당 지역에서 만들어집니다.
@@ -51,7 +49,7 @@
 
     #Open ports for access by Azure management infrastructure
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
-    
+
 다음으로 첫 번째 업스트림 앱 서비스 환경("fe1ase")에서 HTTP 및 HTTPS 호출을 허용하도록 두 규칙을 추가합니다.
 
     #Grant access to requests from the first upstream web front-end
@@ -63,7 +61,7 @@
     #Grant access to requests from the second upstream web front-end
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe2ase" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '191.238.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe2ase" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '191.238.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
-    
+
     #Grant access to requests from the third upstream web front-end
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe3ase" -Type Inbound -Priority 600 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe3ase" -Type Inbound -Priority 700 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
@@ -87,8 +85,7 @@
 
 서브넷에 적용된 NSG를 사용하여 3개의 업스트림 앱 서비스 환경 및 API 백 엔드를 포함하는 앱 서비스 환경은 "apiase" 환경으로 호출하도록 합니다.
 
-
-## 추가 링크 및 정보 ##
+## 추가 링크 및 정보
 앱 서비스 환경에 대한 모든 문서와 지침은 [응용 프로그램 서비스 환경의 추가 정보](../app-service/app-service-app-service-environments-readme.md)에 있습니다.
 
 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 대한 정보.
@@ -97,9 +94,9 @@
 
 앱 서비스 환경에서 사용되는 [네트워크 포트][InboundTraffic]
 
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/

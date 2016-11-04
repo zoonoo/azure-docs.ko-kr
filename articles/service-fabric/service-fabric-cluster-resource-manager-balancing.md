@@ -1,29 +1,29 @@
-<properties
-   pageTitle="Azure 서비스 패브릭 클러스터 리소스 관리자를 사용한 클러스터 분산 | Microsoft Azure"
-   description="서비스 패브릭 클러스터 리소스 관리자를 사용한 클러스터 분산에 대한 소개"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Azure 서비스 패브릭 클러스터 리소스 관리자를 사용한 클러스터 분산 | Microsoft Docs
+description: 서비스 패브릭 클러스터 리소스 관리자를 사용한 클러스터 분산에 대한 소개
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # 서비스 패브릭 클러스터 분산
 서비스 패브릭 클러스터 Resource Manager에서는 동적 로드를 보고하고, 클러스터의 변경 사항에 대응하며, 제약 조건 위반을 수정하고, 필요한 경우 클러스터 균형을 다시 조정할 수 있습니다. 그렇지만 이러한 작업이 얼마나 자주 수행되며 어떤 요인으로 시작될까요? 이와 관련된 다수의 컨트롤이 있습니다.
 
 균형 조정과 관련된 첫 번째 컨트롤 집합은 타이머 집합입니다. 이러한 타이머는 클러스터 Resource Manager에서 해결해야 하는 항목에 대한 클러스터의 상태를 검사하는 빈도를 제어합니다. 각각 고유한 자체 타이머를 포함하는 세 가지 작업 범주가 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
-1.	배치 – 이 단계는 상태 저장 복제본 또는 누락된 상태 비저장 인스턴스 배치를 처리합니다. 새로운 서비스 및 상태 저장 복제본 또는 실패하여 다시 만들어야 하는 상태 비저장 인스턴스를 모두 다룹니다. 복제본 또는 인스턴스 삭제와 제거도 여기에서 다룹니다.
-2.	제약 조건 검사 - 이 단계에서는 시스템 내에서 여러 배치 제약 조건(규칙)을 검사하고 위반을 수정합니다. 규칙의 예는 노드 용량을 초과하지 않고 서비스 배치 제약 조건(나중에 자세히 다룸)을 충족하도록 하는 것들입니다.
-3.	분산 - 다른 메트릭에 대한 분산의 원하는 구성 수준에 따라 사전 균형 조정이 필요한지 그리고 좀더 균형이 잡힌 클러스터의 배열을 찾을지 검사합니다.
+1. 배치 – 이 단계는 상태 저장 복제본 또는 누락된 상태 비저장 인스턴스 배치를 처리합니다. 새로운 서비스 및 상태 저장 복제본 또는 실패하여 다시 만들어야 하는 상태 비저장 인스턴스를 모두 다룹니다. 복제본 또는 인스턴스 삭제와 제거도 여기에서 다룹니다.
+2. 제약 조건 검사 - 이 단계에서는 시스템 내에서 여러 배치 제약 조건(규칙)을 검사하고 위반을 수정합니다. 규칙의 예는 노드 용량을 초과하지 않고 서비스 배치 제약 조건(나중에 자세히 다룸)을 충족하도록 하는 것들입니다.
+3. 분산 - 다른 메트릭에 대한 분산의 원하는 구성 수준에 따라 사전 균형 조정이 필요한지 그리고 좀더 균형이 잡힌 클러스터의 배열을 찾을지 검사합니다.
 
 ## 클러스터 리소스 관리자 단계 및 타이머 구성
 클러스터 Resource Manager에서 수행할 수 있는 이러한 각 형식의 수정 작업은 해당 빈도를 제어하는 다른 타이머에 의해 제어됩니다. 예를 들어, 클러스터에 새로운 서비스 작업 부하를 매시간 배치하는 것만 처리하려 하지만(모두 일괄 처리) 몇 초마다 정규 분산 검사를 수행하려는 경우, 해당 동작을 구성할 수 있습니다. 각 타이머가 실행되면 작업이 예약됩니다. 기본적으로 Resource Manager에서는 상태를 검색하여 1/10초마다 업데이트를 적용하고(노드가 다운되었다는 것을 확인한 경우처럼 마지막 검색 이후에 발생한 모든 변경 내용을 일괄 처리) 1초마다 배치 및 제약 조건 검사 플래그를, 5초마다 분산 플래그를 설정합니다.
@@ -104,10 +104,9 @@ ClusterManifest.xml
 ![분산 서비스 함께 사용][Image5]
 
 ## 다음 단계
-- 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.
-- 이동 비용은 특정 서비스가 다른 서비스에 비해 이동하는 데 비용이 더 많이 드는 것을 클러스터 리소스 관리자에게 알리는 한 가지 방법입니다. 이동 비용에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-movement-cost.md)를 참조하세요.
-- 클러스터 리소스 관리자에는 클러스터에서 이탈을 늦추도록 구성할 수 있는 몇 가지 제한이 있습니다. 일반적으로 필요하지는 않지만 필요할 경우 [여기](service-fabric-cluster-resource-manager-advanced-throttling.md)에서 알아볼 수 있습니다.
-
+* 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.
+* 이동 비용은 특정 서비스가 다른 서비스에 비해 이동하는 데 비용이 더 많이 드는 것을 클러스터 리소스 관리자에게 알리는 한 가지 방법입니다. 이동 비용에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-movement-cost.md)를 참조하세요.
+* 클러스터 리소스 관리자에는 클러스터에서 이탈을 늦추도록 구성할 수 있는 몇 가지 제한이 있습니다. 일반적으로 필요하지는 않지만 필요할 경우 [여기](service-fabric-cluster-resource-manager-advanced-throttling.md)에서 알아볼 수 있습니다.
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

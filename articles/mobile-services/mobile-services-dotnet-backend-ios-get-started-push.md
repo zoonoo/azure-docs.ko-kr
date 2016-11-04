@@ -1,43 +1,41 @@
-<properties
-	pageTitle="앱에 푸시 알림 추가(iOS) | .NET 백 엔드"
-	description="Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
-	services="mobile-services,notification-hubs"
-	documentationCenter="ios"
-	manager="dwrede"
-	editor=""
-	authors="krisragh"/>
+---
+title: 앱에 푸시 알림 추가(iOS) | Microsoft Docs
+description: Azure 모바일 서비스를 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다.
+services: mobile-services,notification-hubs
+documentationcenter: ios
+manager: dwrede
+editor: ''
+author: krisragh
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh
 
-
+---
 # iOS 앱 및 .NET 백 엔드에 푸시 알림 추가
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[!INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > 이 항목에 해당하는 모바일 앱 버전은 [iOS 앱에 푸시 알림 추가](../app-service-mobile/app-service-mobile-ios-get-started-push.md)를 참조하세요.
+> 
+> 
 
 이 항목에서는 [빠른 시작 프로젝트](mobile-services-dotnet-backend-ios-get-started.md)에 푸시 알림을 추가하는 방법을 보여주어 레코드를 삽입할 때마다 모바일 서비스가 푸시 알림을 보냅니다. 먼저 [모바일 서비스 시작]을 완료해야 합니다.
 
-[AZURE.INCLUDE [Apple 푸시 알림 사용](../../includes/enable-apple-push-notifications.md)]
+[!INCLUDE [Apple 푸시 알림 사용](../../includes/enable-apple-push-notifications.md)]
 
 ## <a id="configure"></a>푸시 알림을 전송하도록 Azure 구성
+[!INCLUDE [Azure 모바일 서비스에서 푸시 알림 구성](../../includes/mobile-services-apns-configure-push.md)]
 
-[AZURE.INCLUDE [Azure 모바일 서비스에서 푸시 알림 구성](../../includes/mobile-services-apns-configure-push.md)]
-
-##<a id="update-server"></a>푸시 알림을 전송하도록 백 엔드 코드 업데이트
-
+## <a id="update-server"></a>푸시 알림을 전송하도록 백 엔드 코드 업데이트
 * Visual Studio 프로젝트 > **Controllers** 폴더 > **TodoItemController.cs** > `PostTodoItem` 메서드를 엽니다. 메서드를 다음으로 바꿉니다. todo 항목을 삽입하면 이 코드가 항목의 텍스트와 함께 푸시 알림을 보냅니다. 오류가 있으면 코드에서는 포털의 로그 섹션을 통해 볼 수 있는 오류 로그 항목을 추가합니다.
-
 
 ```
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
@@ -59,13 +57,12 @@
         }
 ```
 
-##<a name="publish-the-service"></a>Azure에 모바일 서비스 게시
+## <a name="publish-the-service"></a>Azure에 모바일 서비스 게시
+[!INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
+[!INCLUDE [앱에 푸시 알림 추가](../../includes/add-push-notifications-to-app.md)]
 
-[AZURE.INCLUDE [앱에 푸시 알림 추가](../../includes/add-push-notifications-to-app.md)]
-
-[AZURE.INCLUDE [앱에서 푸시 알림 테스트](../../includes/test-push-notifications-in-app.md)]
+[!INCLUDE [앱에서 푸시 알림 테스트](../../includes/test-push-notifications-in-app.md)]
 
 <!-- Anchors.  -->
 [Generate the certificate signing request]: #certificates

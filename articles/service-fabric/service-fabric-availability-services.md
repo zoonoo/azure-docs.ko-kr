@@ -1,21 +1,21 @@
-<properties
-   pageTitle="서비스 패브릭 서비스의 가용성 | Microsoft Azure"
-   description="서비스에 대한 오류 검색, 장애 조치(Failover) 및 복구를 설명합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+---
+title: 서비스 패브릭 서비스의 가용성 | Microsoft Docs
+description: 서비스에 대한 오류 검색, 장애 조치(Failover) 및 복구를 설명합니다.
+services: service-fabric
+documentationcenter: .net
+author: appi101
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"
-   ms.author="aprameyr"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: aprameyr
 
+---
 # 서비스 패브릭 서비스의 가용성
 Azure 서비스 패브릭 서비스는 상태 저장 또는 상태 비저장이 모두 될 수 있습니다. 이 문서에서는 서비스 패브릭이 오류 발생 시 서비스의 가용성을 유지하는 방법에 대한 개요를 설명합니다.
 
@@ -38,16 +38,16 @@ Azure 서비스 패브릭 서비스는 상태 저장 또는 상태 비저장이 
 ### 복제본 역할
 복제본의 역할은 해당 복제본에 의해 관리되는 상태의 수명 주기를 관리하는 데 사용됩니다. 주 역할의 복제본은 읽기 요청을 서비스합니다. 또한 해당 상태를 업데이트하여 쓰기 요청을 서비스하고 변경 사항을 해당 복제본 세트의 활성 보조에 복제합니다. 활성 보조 역할은 주 복제본이 복제되고 상태 보기를 업데이트하는 상태 변경을 수신하는 것입니다.
 
->[AZURE.NOTE] [Reliable Actors 프레임워크](service-fabric-reliable-actors-introduction.md)와 같은 더 높은 수준의 프로그래밍 모델은 개발자의 복제본 역할의 개념을 추상화합니다.
+> [!NOTE]
+> [Reliable Actors 프레임워크](service-fabric-reliable-actors-introduction.md)와 같은 더 높은 수준의 프로그래밍 모델은 개발자의 복제본 역할의 개념을 추상화합니다.
+> 
+> 
 
 ## 다음 단계
-
 서비스 패브릭 개념에 대한 자세한 내용은 다음을 참조하세요.
 
-- [서비스 패브릭 서비스의 확장성](service-fabric-concepts-scalability.md)
-
-- [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
-
-- [상태 정의 및 관리](service-fabric-concepts-state.md)
+* [서비스 패브릭 서비스의 확장성](service-fabric-concepts-scalability.md)
+* [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
+* [상태 정의 및 관리](service-fabric-concepts-state.md)
 
 <!---HONumber=AcomDC_0810_2016-->

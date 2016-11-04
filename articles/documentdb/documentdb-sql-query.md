@@ -1,35 +1,37 @@
-<properties 
-	pageTitle="DocumentDB에 대한 SQL 구문 및 SQL 쿼리 | Microsoft Azure" 
-	description="SQL 구문, DocumentDB에 대한 데이터베이스 개념 및 SQL 쿼리, NoSQL 데이터베이스에 대해 알아봅니다. SQL은 DocumentDB에서 JSON 쿼리 언어로 사용될 수 있습니다." 
-	keywords="sql 구문, sql 쿼리, 여러 SQL 쿼리, json 쿼리 언어, 데이터베이스 개념 및 sql 쿼리, 집계 함수"
-	services="documentdb" 
-	documentationCenter="" 
-	authors="arramac" 
-	manager="jhubbard" 
-	editor="monicar"/>
+---
+title: DocumentDB에 대한 SQL 구문 및 SQL 쿼리 | Microsoft Docs
+description: SQL 구문, DocumentDB에 대한 데이터베이스 개념 및 SQL 쿼리, NoSQL 데이터베이스에 대해 알아봅니다. SQL은 DocumentDB에서 JSON 쿼리 언어로 사용될 수 있습니다.
+keywords: sql 구문, sql 쿼리, 여러 SQL 쿼리, json 쿼리 언어, 데이터베이스 개념 및 sql 쿼리, 집계 함수
+services: documentdb
+documentationcenter: ''
+author: arramac
+manager: jhubbard
+editor: monicar
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="arramac"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/22/2016
+ms.author: arramac
 
+---
 # DocumentDB의 SQL 쿼리 및 SQL 구문
 Microsoft Azure DocumentDB는 JSON 쿼리 언어인 SQL(구조적 쿼리 언어)을 사용한 문서 쿼리를 지원합니다. DocumentDB는 스키마가 없습니다. DocumentDB는 데이터베이스 엔진 내에 직접 JSON 데이터 모델을 커밋하므로 명시적 스키마나 보조 인덱스 생성을 요구하지 않고 JSON 문서의 자동 인덱싱을 제공합니다.
 
 DocumentDB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려했습니다.
 
--	새 JSON 쿼리 언어를 고안하는 대신 SQL 언어를 지원하려고 했습니다. SQL은 가장 익숙하고 많이 사용하는 쿼리 언어 중 하나입니다. DocumentDB SQL은 JSON 문서에 대한 풍부한 쿼리를 위한 공식 프로그래밍 모델을 제공합니다.
--	데이터베이스 엔진에서 직접 JavaScript를 실행할 수 있는 JSON 문서 데이터베이스로서, JavaScript의 프로그래밍 모델을 쿼리 언어의 기초로 사용하려고 했습니다. DocumentDB SQL은 JavaScript의 형식 시스템, 식 평가 및 함수 호출을 기반으로 합니다. 따라서 관계형 프로젝션, JSON 문서에 대한 계층적 탐색, 자체 조인, 공간 쿼리, JavaScript로만 작성된 UDF(사용자 정의 함수) 호출 등을 위한 일반 프로그래밍 모델을 제공합니다.
+* 새 JSON 쿼리 언어를 고안하는 대신 SQL 언어를 지원하려고 했습니다. SQL은 가장 익숙하고 많이 사용하는 쿼리 언어 중 하나입니다. DocumentDB SQL은 JSON 문서에 대한 풍부한 쿼리를 위한 공식 프로그래밍 모델을 제공합니다.
+* 데이터베이스 엔진에서 직접 JavaScript를 실행할 수 있는 JSON 문서 데이터베이스로서, JavaScript의 프로그래밍 모델을 쿼리 언어의 기초로 사용하려고 했습니다. DocumentDB SQL은 JavaScript의 형식 시스템, 식 평가 및 함수 호출을 기반으로 합니다. 따라서 관계형 프로젝션, JSON 문서에 대한 계층적 탐색, 자체 조인, 공간 쿼리, JavaScript로만 작성된 UDF(사용자 정의 함수) 호출 등을 위한 일반 프로그래밍 모델을 제공합니다.
 
 이러한 기능은 응용 프로그램과 데이터베이스 간의 충돌을 줄이는 데 도움이 되며 개발자 생산성에 중요합니다.
 
 먼저 Aravind Ramachandran이 DocumentDB의 쿼리 기능을 보여 주는 다음 동영상을 보고, DocumentDB를 사용해 보고 데이터 집합에 대해 SQL 쿼리를 실행하는 [쿼리 실습](http://www.documentdb.com/sql/demo)을 방문하는 것이 좋습니다.
 
-> [AZURE.VIDEO dataexposedqueryingdocumentdb]
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
+> 
+> 
 
 그런 다음 이 문서로 돌아와 SQL 쿼리 자습서로 몇 가지 간단한 JSON 문서 및 SQL 명령을 연습합니다.
 
@@ -38,55 +40,55 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
 
 **문서**
 
-	{
-	    "id": "AndersenFamily",
-	    "lastName": "Andersen",
-	    "parents": [
-	       { "firstName": "Thomas" },
-	       { "firstName": "Mary Kay"}
-	    ],
-	    "children": [
-	       {
-	           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-	           "pets": [{ "givenName": "Fluffy" }]
-	       }
-	    ],
-	    "address": { "state": "WA", "county": "King", "city": "seattle" },
-	    "creationDate": 1431620472,
-	    "isRegistered": true
-	}
+    {
+        "id": "AndersenFamily",
+        "lastName": "Andersen",
+        "parents": [
+           { "firstName": "Thomas" },
+           { "firstName": "Mary Kay"}
+        ],
+        "children": [
+           {
+               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+               "pets": [{ "givenName": "Fluffy" }]
+           }
+        ],
+        "address": { "state": "WA", "county": "King", "city": "seattle" },
+        "creationDate": 1431620472,
+        "isRegistered": true
+    }
 
 
 다음은 한 가지 미묘한 차이점이 있는 두 번째 문서입니다. `givenName` 및 `familyName`이 `firstName` 및 `lastName` 대신 사용됩니다.
 
 **문서**
 
-	{
-	    "id": "WakefieldFamily",
-	    "parents": [
-	        { "familyName": "Wakefield", "givenName": "Robin" },
-	        { "familyName": "Miller", "givenName": "Ben" }
-	    ],
-	    "children": [
-	        {
-	            "familyName": "Merriam", 
-	            "givenName": "Jesse", 
-	            "gender": "female", "grade": 1,
-	            "pets": [
-	                { "givenName": "Goofy" },
-	                { "givenName": "Shadow" }
-	            ]
-	        },
-	        { 
-	            "familyName": "Miller", 
-	             "givenName": "Lisa", 
-	             "gender": "female", 
-	             "grade": 8 }
-	    ],
-	    "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
-	    "creationDate": 1431620462,
-	    "isRegistered": false
-	}
+    {
+        "id": "WakefieldFamily",
+        "parents": [
+            { "familyName": "Wakefield", "givenName": "Robin" },
+            { "familyName": "Miller", "givenName": "Ben" }
+        ],
+        "children": [
+            {
+                "familyName": "Merriam", 
+                "givenName": "Jesse", 
+                "gender": "female", "grade": 1,
+                "pets": [
+                    { "givenName": "Goofy" },
+                    { "givenName": "Shadow" }
+                ]
+            },
+            { 
+                "familyName": "Miller", 
+                 "givenName": "Lisa", 
+                 "gender": "female", 
+                 "grade": 8 }
+        ],
+        "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+        "creationDate": 1431620462,
+        "isRegistered": false
+    }
 
 
 
@@ -94,98 +96,92 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
 
 **쿼리**
 
-	SELECT * 
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT * 
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **결과**
 
-	[{
-	    "id": "AndersenFamily",
-	    "lastName": "Andersen",
-	    "parents": [
-	       { "firstName": "Thomas" },
-	       { "firstName": "Mary Kay"}
-	    ],
-	    "children": [
-	       {
-	           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-	           "pets": [{ "givenName": "Fluffy" }]
-	       }
-	    ],
-	    "address": { "state": "WA", "county": "King", "city": "seattle" },
-	    "creationDate": 1431620472,
-	    "isRegistered": true
-	}]
+    [{
+        "id": "AndersenFamily",
+        "lastName": "Andersen",
+        "parents": [
+           { "firstName": "Thomas" },
+           { "firstName": "Mary Kay"}
+        ],
+        "children": [
+           {
+               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+               "pets": [{ "givenName": "Fluffy" }]
+           }
+        ],
+        "address": { "state": "WA", "county": "King", "city": "seattle" },
+        "creationDate": 1431620472,
+        "isRegistered": true
+    }]
 
 
 이제 JSON 출력을 다른 형식으로 변경해야 하는 경우를 고려해 보겠습니다. 이 쿼리는 주소의 구/군/시 이름이 시/도와 같은 경우 두 개의 선택한 필드인 이름 및 구/군/시와 함께 새 JSON 개체를 프로젝션합니다. 이 경우 "NY, NY"가 일치합니다.
 
 **쿼리**
 
-	SELECT {"Name":f.id, "City":f.address.city} AS Family 
-	FROM Families f 
-	WHERE f.address.city = f.address.state
+    SELECT {"Name":f.id, "City":f.address.city} AS Family 
+    FROM Families f 
+    WHERE f.address.city = f.address.state
 
 **결과**
 
-	[{
-	    "Family": {
-	        "Name": "WakefieldFamily", 
-	        "City": "NY"
-	    }
-	}]
+    [{
+        "Family": {
+            "Name": "WakefieldFamily", 
+            "City": "NY"
+        }
+    }]
 
 
 다음 쿼리는 ID가 거주 도시의 순서로 정렬한 `WakefieldFamily`와 일치하는 가족의 자녀 이름을 모두 반환합니다.
 
 **쿼리**
 
-	SELECT c.givenName 
-	FROM Families f 
-	JOIN c IN f.children 
-	WHERE f.id = 'WakefieldFamily'
-	ORDER BY f.address.city ASC
+    SELECT c.givenName 
+    FROM Families f 
+    JOIN c IN f.children 
+    WHERE f.id = 'WakefieldFamily'
+    ORDER BY f.address.city ASC
 
 **결과**
 
-	[
-	  { "givenName": "Jesse" }, 
-	  { "givenName": "Lisa"}
-	]
+    [
+      { "givenName": "Jesse" }, 
+      { "givenName": "Lisa"}
+    ]
 
 
 지금까지 확인한 예제를 통해 DocumentDB 쿼리 언어의 몇 가지 중요한 측면을 살펴보겠습니다.
- 
--	DocumentDB SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예: `Node1.Node2.Node3…..Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.
--	구조적 쿼리 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 문서에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.
--	DocumentDB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)을 참조하세요.
--	DocumentDB 컬렉션은 JSON 문서의 스키마 없는 컨테이너입니다. 컬렉션의 문서 내 및 문서 간 데이터 엔터티의 관계는 기본 키 및 외래 키 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 문서 내 조인과 관련해서 주의할 중요한 측면입니다.
+
+* DocumentDB SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예: `Node1.Node2.Node3…..Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.
+* 구조적 쿼리 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 문서에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.
+* DocumentDB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)을 참조하세요.
+* DocumentDB 컬렉션은 JSON 문서의 스키마 없는 컨테이너입니다. 컬렉션의 문서 내 및 문서 간 데이터 엔터티의 관계는 기본 키 및 외래 키 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 문서 내 조인과 관련해서 주의할 중요한 측면입니다.
 
 ## DocumentDB 인덱싱
-
 DocumentDB SQL 구문을 시작하기 전에 DocumentDB의 인덱싱 설계를 살펴보는 것이 좋습니다.
 
 데이터베이스 인덱스의 목적은 우수한 처리량과 짧은 대기 시간을 제공하는 동시에 다양한 형태와 모양의 쿼리를 최소 리소스 사용(예: CPU, 입출력)으로 처리하는 것입니다. 데이터베이스 쿼리에 올바른 인덱스를 선택하려면 대체로 많은 계획과 실험이 필요합니다. 이 접근 방법은 데이터가 엄격한 스키마를 준수하지 않고 빠르게 발전하는 스키마 없는 데이터베이스에 문제를 제기합니다.
 
 따라서 DocumentDB 인덱싱 하위 시스템을 설계할 때 다음 목표를 설정했습니다.
 
--	스키마가 필요 없는 문서 인덱싱: 인덱싱 하위 시스템에 스키마 정보가 필요 없거나 문서 스키마에 대한 가정을 하지 않습니다.
-
--	효율적이고 풍부한 계층적 관계형 쿼리 지원: 인덱스는 계층적 관계형 프로젝션 지원을 포함하여 DocumentDB 쿼리 언어를 효율적으로 지원합니다.
-
--	지속적인 쓰기 볼륨에서도 일관성 있는 쿼리 지원: 일관성 있는 쿼리와 더불어 높은 쓰기 처리량 워크로드를 위해 지속적인 쓰기 볼륨에서도 인덱스가 온라인에서 효율적으로 증분 업데이트됩니다. 일관성 있는 인덱스 업데이트는 사용자가 문서 서비스를 구성한 일관성 수준으로 쿼리를 처리하는 데 중요합니다.
-
--	다중 테넌트 지원: 테넌트의 리소스 거버넌스를 위한 예약 기반 모델을 고려하여 복제본당 할당된 시스템 리소스(CPU, 메모리, 초당 입출력 작업 수) 예산 내에서 인덱스 업데이트가 수행됩니다.
-
--	저장소 효율성: 비용 효율성을 위해 인덱스의 디스크에 있는 저장소 오버헤드가 제한되고 예측 가능합니다. 이 목표는 DocumentDB를 사용할 경우 개발자가 비용을 기반으로 인덱스 오버헤드와 쿼리 성능 간을 절충할 수 있기 때문에 중요합니다.
+* 스키마가 필요 없는 문서 인덱싱: 인덱싱 하위 시스템에 스키마 정보가 필요 없거나 문서 스키마에 대한 가정을 하지 않습니다.
+* 효율적이고 풍부한 계층적 관계형 쿼리 지원: 인덱스는 계층적 관계형 프로젝션 지원을 포함하여 DocumentDB 쿼리 언어를 효율적으로 지원합니다.
+* 지속적인 쓰기 볼륨에서도 일관성 있는 쿼리 지원: 일관성 있는 쿼리와 더불어 높은 쓰기 처리량 워크로드를 위해 지속적인 쓰기 볼륨에서도 인덱스가 온라인에서 효율적으로 증분 업데이트됩니다. 일관성 있는 인덱스 업데이트는 사용자가 문서 서비스를 구성한 일관성 수준으로 쿼리를 처리하는 데 중요합니다.
+* 다중 테넌트 지원: 테넌트의 리소스 거버넌스를 위한 예약 기반 모델을 고려하여 복제본당 할당된 시스템 리소스(CPU, 메모리, 초당 입출력 작업 수) 예산 내에서 인덱스 업데이트가 수행됩니다.
+* 저장소 효율성: 비용 효율성을 위해 인덱스의 디스크에 있는 저장소 오버헤드가 제한되고 예측 가능합니다. 이 목표는 DocumentDB를 사용할 경우 개발자가 비용을 기반으로 인덱스 오버헤드와 쿼리 성능 간을 절충할 수 있기 때문에 중요합니다.
 
 컬렉션에 대한 인덱싱 정책을 구성하는 방법을 보여 주는 샘플은 MSDN에서 [DocumentDB 샘플](https://github.com/Azure/azure-documentdb-net)을 참조하세요. 이제 DocumentDB SQL 구문의 세부 정보를 살펴보겠습니다.
 
-
 ## DocumentDB SQL 쿼리의 기본 사항
 ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음 WHERE 절의 필터를 소스에 적용하여 JSON 문서의 하위 집합을 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다.
-    
+
     SELECT [TOP <top_expression>] <select_list> 
     [FROM <from_specification>] 
     [WHERE <filter_condition>]
@@ -197,64 +193,62 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
 
 `SELECT * FROM Families`와 유사한 쿼리는 전체 Families 컬렉션이 열거할 소스임을 나타냅니다. 컬렉션 이름을 사용하는 대신 특수 식별자 ROOT를 사용하여 컬렉션을 나타낼 수 있습니다. 다음 목록은 쿼리 단위로 적용되는 규칙입니다.
 
-- 컬렉션을 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 여기서 `f`는 `Families`와 동등합니다. `AS`는 식별자를 별칭으로 지정하는 선택적 키워드입니다.
+* 컬렉션을 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 여기서 `f`는 `Families`와 동등합니다. `AS`는 식별자를 별칭으로 지정하는 선택적 키워드입니다.
+* 별칭으로 지정한 후에는 원본 소스를 바인딩할 수 없습니다. 예를 들어 `SELECT Families.id FROM Families f`는 "Families" 식별자를 더 이상 예약할 수 없으므로 구문이 잘못되었습니다.
+* 참조해야 하는 모든 속성을 정규화해야 합니다. 엄격한 스키마 준수가 없을 경우 모호한 바인딩을 방지하기 위해 적용됩니다. 따라서 `SELECT id FROM Families f`는 `id` 속성이 바인딩되지 않았으므로 구문이 잘못되었습니다.
 
--	별칭으로 지정한 후에는 원본 소스를 바인딩할 수 없습니다. 예를 들어 `SELECT Families.id FROM Families f`는 "Families" 식별자를 더 이상 예약할 수 없으므로 구문이 잘못되었습니다.
-
--	참조해야 하는 모든 속성을 정규화해야 합니다. 엄격한 스키마 준수가 없을 경우 모호한 바인딩을 방지하기 위해 적용됩니다. 따라서 `SELECT id FROM Families f`는 `id` 속성이 바인딩되지 않았으므로 구문이 잘못되었습니다.
-	
 ### 하위 문서
 소스를 더 작은 하위 집합으로 줄일 수도 있습니다. 예를 들어 각 문서에서 하위 트리만을 열거하려는 경우 다음 예제에서처럼 하위 루트가 소스가 될 수 있습니다.
 
 **쿼리**
 
-	SELECT * 
-	FROM Families.children
+    SELECT * 
+    FROM Families.children
 
 **결과**
 
-	[
-	  [
-	    {
-	        "firstName": "Henriette Thaulow",
-	        "gender": "female",
-	        "grade": 5,
-	        "pets": [
-	          {
-	              "givenName": "Fluffy"
-	          }
-	        ]
-	    }
-	  ],
-	  [
-	    {
-	        "familyName": "Merriam",
-	        "givenName": "Jesse",
-	        "gender": "female",
-	        "grade": 1
-	    },
-	    {
-	        "familyName": "Miller",
-	        "givenName": "Lisa",
-	        "gender": "female",
-	        "grade": 8
-	    }
-	  ]
-	]
+    [
+      [
+        {
+            "firstName": "Henriette Thaulow",
+            "gender": "female",
+            "grade": 5,
+            "pets": [
+              {
+                  "givenName": "Fluffy"
+              }
+            ]
+        }
+      ],
+      [
+        {
+            "familyName": "Merriam",
+            "givenName": "Jesse",
+            "gender": "female",
+            "grade": 1
+        },
+        {
+            "familyName": "Miller",
+            "givenName": "Lisa",
+            "gender": "female",
+            "grade": 8
+        }
+      ]
+    ]
 
 위 예제에서는 배열을 소스로 사용했지만 다음 예제에 나온 대로 개체를 소스로 사용할 수도 있습니다. 소스에 있는 유효한 모든 JSON 값(undefined 제외)이 쿼리 결과에 포함되기 위해 고려됩니다. 일부 가족에 `address.state` 값이 없는 경우 쿼리 결과에서 제외됩니다.
 
 **쿼리**
 
-	SELECT * 
-	FROM Families.address.state
+    SELECT * 
+    FROM Families.address.state
 
 **결과**
 
-	[
-	  "WA", 
-	  "NY"
-	]
+    [
+      "WA", 
+      "NY"
+    ]
 
 
 ## WHERE 절
@@ -264,31 +258,32 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 
 **쿼리**
 
-	SELECT f.address
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT f.address
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **결과**
 
-	[{
-	  "address": {
-	    "state": "WA", 
-	    "county": "King", 
-	    "city": "seattle"
-	  }
-	}]
+    [{
+      "address": {
+        "state": "WA", 
+        "county": "King", 
+        "city": "seattle"
+      }
+    }]
 
 
 앞의 예제는 단순한 같음 쿼리를 보여 주었습니다. DocumentDB SQL은 다양한 스칼라 식도 지원합니다. 가장 일반적으로 사용되는 식은 이항 및 단항 식입니다. 소스 JSON 개체의 속성 참조도 유효한 식입니다.
 
 현재 지원되며 다음 예제와 같이 쿼리에 사용할 수 있는 이항 연산자는 다음과 같습니다.
+
 <table>
 <tr>
-<td>산술</td>	
+<td>산술</td>    
 <td>+,-,*,/,%</td>
 </tr>
 <tr>
-<td>비트</td>	
+<td>비트</td>    
 <td>|, &amp;, ^, &lt;&lt;, >>, >>>(0 채우기 오른쪽 시프트) </td>
 </tr>
 <tr>
@@ -296,39 +291,39 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 <td>AND, OR, NOT</td>
 </tr>
 <tr>
-<td>비교</td>	
+<td>비교</td>    
 <td>=, !=, &lt;, >, &lt;=, >=, &lt;></td>
 </tr>
 <tr>
-<td>String</td>	
+<td>String</td>    
 <td>||(연결)</td>
 </tr>
 </table>  
 
 이항 연산자를 사용한 몇 가지 쿼리를 살펴보겠습니다.
 
-	SELECT * 
-	FROM Families.children[0] c
-	WHERE c.grade % 2 = 1     -- matching grades == 5, 1
-	
-	SELECT * 
-	FROM Families.children[0] c
-	WHERE c.grade ^ 4 = 1    -- matching grades == 5
-	
-	SELECT *
-	FROM Families.children[0] c
-	WHERE c.grade >= 5     -- matching grades == 5
+    SELECT * 
+    FROM Families.children[0] c
+    WHERE c.grade % 2 = 1     -- matching grades == 5, 1
+
+    SELECT * 
+    FROM Families.children[0] c
+    WHERE c.grade ^ 4 = 1    -- matching grades == 5
+
+    SELECT *
+    FROM Families.children[0] c
+    WHERE c.grade >= 5     -- matching grades == 5
 
 
 단항 연산자 +,-, ~ 및 NOT도 지원되며 다음 예제에 표시된 대로 쿼리 내부에 사용할 수 있습니다.
 
-	SELECT *
-	FROM Families.children[0] c
-	WHERE NOT(c.grade = 5)  -- matching grades == 1
-	
-	SELECT *
-	FROM Families.children[0] c
-	WHERE (-c.grade = -5)  -- matching grades == 5
+    SELECT *
+    FROM Families.children[0] c
+    WHERE NOT(c.grade = 5)  -- matching grades == 1
+
+    SELECT *
+    FROM Families.children[0] c
+    WHERE (-c.grade = -5)  -- matching grades == 5
 
 
 
@@ -336,6 +331,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 
 ### 같음 및 비교 연산자
 다음 표는 DocumentDB SQL에서 두 JSON 형식 간의 같음 비교 결과를 보여 줍니다.
+
 <table style = "width:300px">
    <tbody>
       <tr>
@@ -551,8 +547,8 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 
 다른 비교 연산자(예: >, >=, !=, < 및 <=)의 경우
 
--	형식 비교 결과가 Undefined입니다.
--	두 개체 또는 두 배열 간 비교 결과가 Undefined입니다.
+* 형식 비교 결과가 Undefined입니다.
+* 두 개체 또는 두 배열 간 비교 결과가 Undefined입니다.
 
 필터의 스칼라 식 결과가 Undefined인 경우 Undefined는 논리적으로 "true"가 아니므로 해당 문서가 결과에 포함되지 않습니다.
 
@@ -577,27 +573,27 @@ DocumentDB와 ANSI SQL에서 BETWEEN 사용의 주요 차이점은 혼합 형식
 ### 논리(AND, OR 및 NOT) 연산자
 논리 연산자는 부울 값에 작동합니다. 다음 표에는 이 연산자의 논리적 진위 표가 나와 있습니다.
 
-또는|True|False|Undefined
----|---|---|---
-True|True|True|True
-False|True|False|Undefined
-Undefined|True|Undefined|Undefined
+| 또는 | True | False | Undefined |
+| --- | --- | --- | --- |
+| True |True |True |True |
+| False |True |False |Undefined |
+| Undefined |True |Undefined |Undefined |
 
-AND|True|False|Undefined
----|---|---|---
-True|True|False|Undefined
-False|False|False|False
-Undefined|Undefined|False|Undefined
+| AND | True | False | Undefined |
+| --- | --- | --- | --- |
+| True |True |False |Undefined |
+| False |False |False |False |
+| Undefined |Undefined |False |Undefined |
 
-NOT| |
----|---
-True|False
-False|True
-Undefined|Undefined
+| NOT |  |
+| --- | --- |
+| True |False |
+| False |True |
+| Undefined |Undefined |
 
 ### IN 키워드
 IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확인하는 데 사용할 수 있습니다. 예를 들어 이 쿼리는 id가 "WakefieldFamily" 또는 "AndersenFamily" 중 하나인 가족 문서를 모두 반환합니다.
- 
+
     SELECT *
     FROM Families 
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
@@ -612,12 +608,12 @@ IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확�
 3항 및 병합 연산자를 사용하여 널리 사용되는 프로그래밍 언어(예: C# 및 JavaScript)와 유사하게 조건 식을 작성할 수 있습니다.
 
 3항(?) 연산자는 새로운 JSON 속성을 즉시 생성할 때 매우 간편하게 사용할 수 있습니다. 예를 들어 쿼리를 작성하여 아래에 표시된 대로 Beginner/Intermediate/Advanced와 같이 사람이 읽을 수 있는 형식으로 클래스 수준을 분류할 수 있습니다.
- 
+
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
      FROM Families.children[0] c
 
 또한 아래 쿼리에서처럼 연산자에 대한 호출을 중첩할 수 있습니다.
- 
+
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
 
@@ -643,19 +639,19 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 **쿼리**
 
-	SELECT f.address
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT f.address
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **결과**
 
-	[{
-	  "address": {
-	    "state": "WA", 
-	    "county": "King", 
-	    "city": "seattle"
-	  }
-	}]
+    [{
+      "address": {
+        "state": "WA", 
+        "county": "King", 
+        "city": "seattle"
+      }
+    }]
 
 
 ### 중첩 속성
@@ -663,57 +659,57 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 **쿼리**
 
-	SELECT f.address.state, f.address.city
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT f.address.state, f.address.city
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **결과**
 
-	[{
-	  "state": "WA", 
-	  "city": "seattle"
-	}]
+    [{
+      "state": "WA", 
+      "city": "seattle"
+    }]
 
 
 다음 예제와 같이 프로젝션은 JSON 식도 지원합니다.
 
 **쿼리**
 
-	SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **결과**
 
-	[{
-	  "$1": {
-	    "state": "WA", 
-	    "city": "seattle", 
-	    "name": "AndersenFamily"
-	  }
-	}]
+    [{
+      "$1": {
+        "state": "WA", 
+        "city": "seattle", 
+        "name": "AndersenFamily"
+      }
+    }]
 
 
 여기서 `$1`의 역할을 살펴보겠습니다. `SELECT` 절은 JSON 개체를 만들어야 하며 키가 제공되지 않았으므로 `$1`로 시작하는 암시적 인수 변수 이름을 사용합니다. 예를 들어 이 쿼리는 `$1` 및 `$2` 레이블이 지정된 두 개의 암시적 인수 변수를 반환합니다.
 
 **쿼리**
 
-	SELECT { "state": f.address.state, "city": f.address.city }, 
-	       { "name": f.id }
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT { "state": f.address.state, "city": f.address.city }, 
+           { "name": f.id }
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **결과**
 
-	[{
-	  "$1": {
-	    "state": "WA", 
-	    "city": "seattle"
-	  }, 
-	  "$2": {
-	    "name": "AndersenFamily"
-	  }
-	}]
+    [{
+      "$1": {
+        "state": "WA", 
+        "city": "seattle"
+      }, 
+      "$2": {
+        "name": "AndersenFamily"
+      }
+    }]
 
 
 ### 별칭 지정
@@ -723,23 +719,23 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 **쿼리**
 
-	SELECT 
-	       { "state": f.address.state, "city": f.address.city } AS AddressInfo, 
-	       { "name": f.id } NameInfo
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT 
+           { "state": f.address.state, "city": f.address.city } AS AddressInfo, 
+           { "name": f.id } NameInfo
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **결과**
 
-	[{
-	  "AddressInfo": {
-	    "state": "WA", 
-	    "city": "seattle"
-	  }, 
-	  "NameInfo": {
-	    "name": "AndersenFamily"
-	  }
-	}]
+    [{
+      "AddressInfo": {
+        "state": "WA", 
+        "city": "seattle"
+      }, 
+      "NameInfo": {
+        "name": "AndersenFamily"
+      }
+    }]
 
 
 ### 스칼라 식
@@ -747,45 +743,45 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 **쿼리**
 
-	SELECT "Hello World"
+    SELECT "Hello World"
 
 **결과**
 
-	[{
-	  "$1": "Hello World"
-	}]
+    [{
+      "$1": "Hello World"
+    }]
 
 
 다음은 스칼라 식을 사용하는 보다 복잡한 예제입니다.
 
 **쿼리**
 
-	SELECT ((2 + 11 % 7)-2)/3	
+    SELECT ((2 + 11 % 7)-2)/3    
 
 **결과**
 
-	[{
-	  "$1": 1.33333
-	}]
+    [{
+      "$1": 1.33333
+    }]
 
 
 다음 예제에서 스칼라 식의 결과는 부울입니다.
 
 **쿼리**
 
-	SELECT f.address.city = f.address.state AS AreFromSameCityState
-	FROM Families f	
+    SELECT f.address.city = f.address.state AS AreFromSameCityState
+    FROM Families f    
 
 **결과**
 
-	[
-	  {
-	    "AreFromSameCityState": false
-	  }, 
-	  {
-	    "AreFromSameCityState": true
-	  }
-	]
+    [
+      {
+        "AreFromSameCityState": false
+      }, 
+      {
+        "AreFromSameCityState": true
+      }
+    ]
 
 
 ### 개체 및 배열 만들기
@@ -793,134 +789,133 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 
 **쿼리**
 
-	SELECT [f.address.city, f.address.state] AS CityState 
-	FROM Families f	
+    SELECT [f.address.city, f.address.state] AS CityState 
+    FROM Families f    
 
 **결과**
 
-	[
-	  {
-	    "CityState": [
-	      "seattle", 
-	      "WA"
-	    ]
-	  }, 
-	  {
-	    "CityState": [
-	      "NY", 
-	      "NY"
-	    ]
-	  }
-	]
+    [
+      {
+        "CityState": [
+          "seattle", 
+          "WA"
+        ]
+      }, 
+      {
+        "CityState": [
+          "NY", 
+          "NY"
+        ]
+      }
+    ]
 
 ### VALUE 키워드
 **VALUE** 키워드는 JSON 값을 반환하는 방법을 제공합니다. 예를 들어 아래 표시된 쿼리는 `{$1: "Hello World"}` 대신 스칼라 `"Hello World"`를 반환합니다.
 
 **쿼리**
 
-	SELECT VALUE "Hello World"
+    SELECT VALUE "Hello World"
 
 **결과**
 
-	[
-	  "Hello World"
-	]
+    [
+      "Hello World"
+    ]
 
 
 다음 쿼리는 `"address"` 레이블이 없는 JSON 값을 결과에 반환합니다.
 
 **쿼리**
 
-	SELECT VALUE f.address
-	FROM Families f	
+    SELECT VALUE f.address
+    FROM Families f    
 
 **결과**
 
-	[
-	  {
-	    "state": "WA", 
-	    "county": "King", 
-	    "city": "seattle"
-	  }, 
-	  {
-	    "state": "NY", 
-	    "county": "Manhattan", 
-	    "city": "NY"
-	  }
-	]
+    [
+      {
+        "state": "WA", 
+        "county": "King", 
+        "city": "seattle"
+      }, 
+      {
+        "state": "NY", 
+        "county": "Manhattan", 
+        "city": "NY"
+      }
+    ]
 
 다음 예제에서는 이 코드를 확장하여 JSON 기본 값(JSON 트리 리프 수준)을 반환하는 방법을 보여 줍니다.
 
 **쿼리**
 
-	SELECT VALUE f.address.state
-	FROM Families f	
+    SELECT VALUE f.address.state
+    FROM Families f    
 
 **결과**
 
-	[
-	  "WA",
-	  "NY"
-	]
+    [
+      "WA",
+      "NY"
+    ]
 
 
-### * 연산자 
+### * 연산자
 특수 연산자 (*)는 문서를 있는 그대로 프로젝션하도록 지원됩니다. 사용할 경우 프로젝션되는 유일한 필드여야 `SELECT * FROM Families f`와 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f ` 및 `SELECT *, f.id FROM Families f `와 같은 쿼리는 유효하지 않습니다.
 
 **쿼리**
 
-	SELECT * 
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT * 
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **결과**
 
-	[{
-	    "id": "AndersenFamily",
-	    "lastName": "Andersen",
-	    "parents": [
-	       { "firstName": "Thomas" },
-	       { "firstName": "Mary Kay"}
-	    ],
-	    "children": [
-	       {
-	           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-	           "pets": [{ "givenName": "Fluffy" }]
-	       }
-	    ],
-	    "address": { "state": "WA", "county": "King", "city": "seattle" },
-	    "creationDate": 1431620472,
-	    "isRegistered": true
-	}]
+    [{
+        "id": "AndersenFamily",
+        "lastName": "Andersen",
+        "parents": [
+           { "firstName": "Thomas" },
+           { "firstName": "Mary Kay"}
+        ],
+        "children": [
+           {
+               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+               "pets": [{ "givenName": "Fluffy" }]
+           }
+        ],
+        "address": { "state": "WA", "county": "King", "city": "seattle" },
+        "creationDate": 1431620472,
+        "isRegistered": true
+    }]
 
-###TOP 연산자
+### TOP 연산자
 쿼리에서 값의 수를 제한하는 데 TOP 키워드를 사용할 수 있습니다. TOP를 ORDER BY 절과 함께 사용하면 결과 집합이 정렬된 값의 처음 N개로 제한되고 그렇지 않은 경우 정의되지 않은 순서의 처음 N개 결과가 반환됩니다. SELECT 문에서는 항상 TOP 절과 함께 ORDER BY 절을 사용하는 것이 좋습니다. TOP의 영향을 받는 행을 예측 가능하게 나타내는 유일한 방법입니다.
-
 
 **쿼리**
 
-	SELECT TOP 1 * 
-	FROM Families f 
+    SELECT TOP 1 * 
+    FROM Families f 
 
 **결과**
 
-	[{
-	    "id": "AndersenFamily",
-	    "lastName": "Andersen",
-	    "parents": [
-	       { "firstName": "Thomas" },
-	       { "firstName": "Mary Kay"}
-	    ],
-	    "children": [
-	       {
-	           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-	           "pets": [{ "givenName": "Fluffy" }]
-	       }
-	    ],
-	    "address": { "state": "WA", "county": "King", "city": "seattle" },
-	    "creationDate": 1431620472,
-	    "isRegistered": true
-	}]
+    [{
+        "id": "AndersenFamily",
+        "lastName": "Andersen",
+        "parents": [
+           { "firstName": "Thomas" },
+           { "firstName": "Mary Kay"}
+        ],
+        "children": [
+           {
+               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+               "pets": [{ "givenName": "Fluffy" }]
+           }
+        ],
+        "address": { "state": "WA", "county": "King", "city": "seattle" },
+        "creationDate": 1431620472,
+        "isRegistered": true
+    }]
 
 위에 나와 있는 것처럼 상수 값 또는 매개 변수가 있는 쿼리를 사용하는 변수 값과 함께 TOP를 사용할 수 있습니다. 자세한 내용은 아래의 매개 변수가 있는 쿼리를 참조하세요.
 
@@ -931,123 +926,123 @@ ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 
 
 **쿼리**
 
-	SELECT f.id, f.address.city
-	FROM Families f 
-	ORDER BY f.address.city
-	
+    SELECT f.id, f.address.city
+    FROM Families f 
+    ORDER BY f.address.city
+
 **결과**
-	
-	[
-	  {
-	    "id": "WakefieldFamily",
-	    "city": "NY"
-	  },
-	  {
-	    "id": "AndersenFamily",
-	    "city": "Seattle"	
-	  }
-	]
+
+    [
+      {
+        "id": "WakefieldFamily",
+        "city": "NY"
+      },
+      {
+        "id": "AndersenFamily",
+        "city": "Seattle"    
+      }
+    ]
 
 다음은 Epoch 시간, 즉 1970년 1월 1일부터 경과된 시간(초 단위)을 나타내는 숫자로 저장된 만든 날짜 순으로 가족을 검색하는 쿼리입니다.
 
 **쿼리**
 
-	SELECT f.id, f.creationDate
-	FROM Families f 
-	ORDER BY f.creationDate DESC
-	
+    SELECT f.id, f.creationDate
+    FROM Families f 
+    ORDER BY f.creationDate DESC
+
 **결과**
-	
-	[
-	  {
-	    "id": "WakefieldFamily",
-	    "creationDate": 1431620462
-	  },
-	  {
-	    "id": "AndersenFamily",
-	    "creationDate": 1431620472	
-	  }
-	]
-	
+
+    [
+      {
+        "id": "WakefieldFamily",
+        "creationDate": 1431620462
+      },
+      {
+        "id": "AndersenFamily",
+        "creationDate": 1431620472    
+      }
+    ]
+
 ## 고급 데이터베이스 개념 및 SQL 쿼리
 ### 반복
 JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 통해 새 구문을 추가했습니다. FROM 소스에서 반복 지원을 제공합니다. 다음 예제로 시작하겠습니다.
 
 **쿼리**
 
-	SELECT * 
-	FROM Families.children
+    SELECT * 
+    FROM Families.children
 
 **결과**
 
-	[
-	  [
-	    {
-	      "firstName": "Henriette Thaulow", 
-	      "gender": "female", 
-	      "grade": 5, 
-	      "pets": [{ "givenName": "Fluffy"}]
-	    }
-	  ], 
-	  [
-	    {
-	        "familyName": "Merriam", 
-	        "givenName": "Jesse", 
-	        "gender": "female", 
-	        "grade": 1
-	    }, 
-	    {
-	        "familyName": "Miller", 
-	        "givenName": "Lisa", 
-	        "gender": "female", 
-	        "grade": 8
-	    }
-	  ]
-	]
+    [
+      [
+        {
+          "firstName": "Henriette Thaulow", 
+          "gender": "female", 
+          "grade": 5, 
+          "pets": [{ "givenName": "Fluffy"}]
+        }
+      ], 
+      [
+        {
+            "familyName": "Merriam", 
+            "givenName": "Jesse", 
+            "gender": "female", 
+            "grade": 1
+        }, 
+        {
+            "familyName": "Miller", 
+            "givenName": "Lisa", 
+            "gender": "female", 
+            "grade": 8
+        }
+      ]
+    ]
 
 이제 컬렉션의 자식을 반복하는 다른 쿼리를 살펴보겠습니다. 출력 배열의 차이점을 확인합니다. 이 예제에서는 `children`을 분할하고 결과를 단일 배열로 평면화합니다.
 
 **쿼리**
 
-	SELECT * 
-	FROM c IN Families.children
+    SELECT * 
+    FROM c IN Families.children
 
 **결과**
 
-	[
-	  {
-	      "firstName": "Henriette Thaulow",
-	      "gender": "female",
-	      "grade": 5,
-	      "pets": [{ "givenName": "Fluffy" }]
-	  },
-	  {
-	      "familyName": "Merriam",
-	      "givenName": "Jesse",
-	      "gender": "female",
-	      "grade": 1
-	  },
-	  {
-	      "familyName": "Miller",
-	      "givenName": "Lisa",
-	      "gender": "female",
-	      "grade": 8
-	  }
-	]
+    [
+      {
+          "firstName": "Henriette Thaulow",
+          "gender": "female",
+          "grade": 5,
+          "pets": [{ "givenName": "Fluffy" }]
+      },
+      {
+          "familyName": "Merriam",
+          "givenName": "Jesse",
+          "gender": "female",
+          "grade": 1
+      },
+      {
+          "familyName": "Miller",
+          "givenName": "Lisa",
+          "gender": "female",
+          "grade": 8
+      }
+    ]
 
 이 예제를 사용하여 다음 예제에 나온 대로 배열의 각 개별 항목을 필터링할 수도 있습니다.
 
 **쿼리**
 
-	SELECT c.givenName
-	FROM c IN Families.children
-	WHERE c.grade = 8
+    SELECT c.givenName
+    FROM c IN Families.children
+    WHERE c.grade = 8
 
 **결과**
 
-	[{
-	  "givenName": "Lisa"
-	}]
+    [{
+      "givenName": "Lisa"
+    }]
 
 ### 조인
 관계형 데이터베이스에서는 테이블 간 조인 요구가 매우 중요합니다. 이는 정규화된 스키마 설계의 필연적인 논리적 결과입니다. 이와 반대로 DocumentDB는 스키마 없는 문서의 비정규화된 데이터 모델을 처리합니다. 이는 논리적으로 "자체 조인"과 동등합니다.
@@ -1058,65 +1053,65 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 
 **쿼리**
 
-	SELECT f.id
-	FROM Families f
-	JOIN f.NonExistent
+    SELECT f.id
+    FROM Families f
+    JOIN f.NonExistent
 
 **결과**
 
-	[{
-	}]
+    [{
+    }]
 
 
 다음 예제에서는 문서 루트와 `children` 하위 루트 간의 조인이 수행됩니다. 두 JSON 개체 간의 교차곱입니다. 자식 배열인 단일 루트를 다루기 때문에 자식이 배열이라는 사실은 JOIN에 적용되지 않습니다. 따라서 각 문서와 배열의 교차곱에서 정확히 한 개의 문서만 생성하므로 결과에 두 개의 결과만 포함됩니다.
 
 **쿼리**
 
-	SELECT f.id
-	FROM Families f
-	JOIN f.children
- 
+    SELECT f.id
+    FROM Families f
+    JOIN f.children
+
 **결과**
 
-	[
-	  {
-	    "id": "AndersenFamily"
-	  }, 
-	  {
-	    "id": "WakefieldFamily"
-	  }
-	]
+    [
+      {
+        "id": "AndersenFamily"
+      }, 
+      {
+        "id": "WakefieldFamily"
+      }
+    ]
 
 
 다음 예제에서는 보다 기본적인 조인을 보여 줍니다.
 
 **쿼리**
 
-	SELECT f.id
-	FROM Families f
-	JOIN c IN f.children 
+    SELECT f.id
+    FROM Families f
+    JOIN c IN f.children 
 
 **결과**
 
-	[
-	  {
-	    "id": "AndersenFamily"
-	  }, 
-	  {
-	    "id": "WakefieldFamily"
-	  }, 
-	  {
-	    "id": "WakefieldFamily"
-	  }
-	]
+    [
+      {
+        "id": "AndersenFamily"
+      }, 
+      {
+        "id": "WakefieldFamily"
+      }, 
+      {
+        "id": "WakefieldFamily"
+      }
+    ]
 
 
 
 확인할 첫 번째 사항은 **JOIN** 절의 `from_source`가 반복기라는 것입니다. 따라서 이 경우의 흐름은 다음과 같습니다.
 
--	배열의 각 자식 요소 **c**를 확장합니다.
--	문서 루트 **f**와 첫 번째 단계에서 평면화된 각 자식 요소 **c**의 교차곱을 적용합니다.
--	마지막으로, 루트 개체 **f**의 이름 속성만 프로젝션합니다.
+* 배열의 각 자식 요소 **c**를 확장합니다.
+* 문서 루트 **f**와 첫 번째 단계에서 평면화된 각 자식 요소 **c**의 교차곱을 적용합니다.
+* 마지막으로, 루트 개체 **f**의 이름 속성만 프로젝션합니다.
 
 첫 번째 문서(`AndersenFamily`)에는 하나의 자식 요소만 포함되어 있으므로 이 문서에 해당하는 단일 개체만 결과 집합에 포함됩니다. 두 번째 문서(`WakefieldFamily`)에는 두 개의 자식이 포함되어 있습니다. 따라서 교차곱을 통해 각 자식에 대한 개별 개체가 생성되므로 이 문서에 해당하는 각 자식에 하나씩, 두 개의 개체가 생성됩니다. 교차곱에서 예상한 대로 두 문서의 루트 필드는 동일합니다.
 
@@ -1124,52 +1119,52 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
 
 **쿼리**
 
-	SELECT 
-		f.id AS familyName,
-		c.givenName AS childGivenName,
-		c.firstName AS childFirstName,
-		p.givenName AS petName 
-	FROM Families f 
-	JOIN c IN f.children 
-	JOIN p IN c.pets
- 
+    SELECT 
+        f.id AS familyName,
+        c.givenName AS childGivenName,
+        c.firstName AS childFirstName,
+        p.givenName AS petName 
+    FROM Families f 
+    JOIN c IN f.children 
+    JOIN p IN c.pets
+
 **결과**
 
-	[
-	  {
-	    "familyName": "AndersenFamily", 
-	    "childFirstName": "Henriette Thaulow", 
-	    "petName": "Fluffy"
-	  }, 
-	  {
-	    "familyName": "WakefieldFamily", 
-	    "childGivenName": "Jesse", 
-	    "petName": "Goofy"
-	  }, 
-	  {
-	   "familyName": "WakefieldFamily", 
-	   "childGivenName": "Jesse", 
-	   "petName": "Shadow"
-	  }
-	]
+    [
+      {
+        "familyName": "AndersenFamily", 
+        "childFirstName": "Henriette Thaulow", 
+        "petName": "Fluffy"
+      }, 
+      {
+        "familyName": "WakefieldFamily", 
+        "childGivenName": "Jesse", 
+        "petName": "Goofy"
+      }, 
+      {
+       "familyName": "WakefieldFamily", 
+       "childGivenName": "Jesse", 
+       "petName": "Shadow"
+      }
+    ]
 
 
 
 이 예제는 이전 예제의 일반 확장이며 이중 조인을 수행합니다. 따라서 교차곱을 다음 의사 코드로 볼 수 있습니다.
 
-	for-each(Family f in Families)
-	{	
-		for-each(Child c in f.children)
-		{
-			for-each(Pet p in c.pets)
-			{
-				return (Tuple(f.id AS familyName, 
-	              c.givenName AS childGivenName, 
-	              c.firstName AS childFirstName,
-	              p.givenName AS petName));
-			}
-		}
-	}
+    for-each(Family f in Families)
+    {    
+        for-each(Child c in f.children)
+        {
+            for-each(Pet p in c.pets)
+            {
+                return (Tuple(f.id AS familyName, 
+                  c.givenName AS childGivenName, 
+                  c.firstName AS childFirstName,
+                  p.givenName AS petName));
+            }
+        }
+    }
 
 `AndersenFamily`에는 애완 동물 한 마리를 키우는 자식 한 명이 있습니다. 따라서 이 가족의 교차곱은 하나의 행(1*1*1)을 생성합니다. 그러나 WakefieldFamily에는 자녀 두 명이 있지만 그중에 "Jesse"만 애완 동물을 두 마리 키우고 있습니다. 따라서 이 가족의 교차곱은 1*1*2 = 2개의 행을 생성합니다.
 
@@ -1177,136 +1172,137 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
 
 **쿼리**
 
-	SELECT 
-		f.id AS familyName,
-		c.givenName AS childGivenName,
-		c.firstName AS childFirstName,
-		p.givenName AS petName 
-	FROM Families f 
-	JOIN c IN f.children 
-	JOIN p IN c.pets
-	WHERE p.givenName = "Shadow"
+    SELECT 
+        f.id AS familyName,
+        c.givenName AS childGivenName,
+        c.firstName AS childFirstName,
+        p.givenName AS petName 
+    FROM Families f 
+    JOIN c IN f.children 
+    JOIN p IN c.pets
+    WHERE p.givenName = "Shadow"
 
 **결과**
 
-	[
-	  {
-	   "familyName": "WakefieldFamily", 
-	   "childGivenName": "Jesse", 
-	   "petName": "Shadow"
-	  }
-	]
+    [
+      {
+       "familyName": "WakefieldFamily", 
+       "childGivenName": "Jesse", 
+       "petName": "Shadow"
+      }
+    ]
 
 
 ## JavaScript 통합
 DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해 직접 JavaScript 기반 응용 프로그램 논리를 실행하기 위한 프로그래밍 모델을 제공합니다. 이 경우 다음 두 가지 기능을 모두 사용할 수 있습니다.
 
--	데이터베이스 엔진 내에 직접 JavaScript 런타임이 전체 통합되므로 컬렉션의 문서에 대해 고성능 트랜잭션 CRUD 작업 및 쿼리를 수행할 수 있습니다.
--	데이터베이스 트랜잭션을 사용하여 제어 흐름, 변수 범위 지정 및 예외 처리 기본 형식의 할당과 통합을 기본적으로 모델링할 수 있습니다. DocumentDB의 JavaScript 통합 지원에 대한 자세한 내용은 JavaScript 서버 쪽 프로그래밍 기능 설명서를 참조하세요.
+* 데이터베이스 엔진 내에 직접 JavaScript 런타임이 전체 통합되므로 컬렉션의 문서에 대해 고성능 트랜잭션 CRUD 작업 및 쿼리를 수행할 수 있습니다.
+* 데이터베이스 트랜잭션을 사용하여 제어 흐름, 변수 범위 지정 및 예외 처리 기본 형식의 할당과 통합을 기본적으로 모델링할 수 있습니다. DocumentDB의 JavaScript 통합 지원에 대한 자세한 내용은 JavaScript 서버 쪽 프로그래밍 기능 설명서를 참조하세요.
 
-###UDF(사용자 정의 함수)
+### UDF(사용자 정의 함수)
 이 문서에 이미 정의되어 있는 형식과 더불어 DocumentDB SQL 사용자 정의 함수(UDF)를 지원합니다. 특히 개발자가 0개 또는 많은 인수를 전달하고 단일 인수 결과를 반환할 수 있는 스칼라 UDF가 지원됩니다. 이러한 각 인수가 유효한 JSON 값인지 확인됩니다.
 
 이러한 사용자 정의 함수를 사용한 사용자 지정 응용 프로그램 논리를 지원하기 위해 DocumentDB SQL 구문이 확장됩니다. UDF를 DocumentDB에 등록한 다음 SQL 쿼리의 일부로 참조할 수 있습니다. 실제로 UDF는 쿼리에서 호출되도록 설계되었습니다. 이 선택의 필연적인 결과로 UDF는 다른 JavaScript 형식(저장 프로시저 및 트리거)과 달리 컨텍스트 개체에 액세스할 수 없습니다. 쿼리는 읽기 전용으로 실행되므로 주 복제본 또는 보조 복제본에서 실행될 수 있습니다. 따라서 UDF는 다른 JavaScript 형식과 달리 보조 복제본에서 실행되도록 설계되었습니다.
 
 다음은 DocumentDB 데이터베이스의 문서 컬렉션 아래에 UDF를 등록할 수 있는 방법의 예입니다.
 
-   
-	   UserDefinedFunction regexMatchUdf = new UserDefinedFunction
-	   {
-	       Id = "REGEX_MATCH",
-	       Body = @"function (input, pattern) { 
-	                   return input.match(pattern) !== null;
-	               };",
-	   };
-	   
-	   UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
-	       UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
-	       regexMatchUdf).Result;  
-                                                                             
-위 예제에서는 이름이 `REGEX_MATCH`인 UDF를 만듭니다. 두 JSON 문자열 값 `input` 및 `pattern`을 받아들이고 JavaScript의 string.match() 함수를 사용하여 첫 번째 값이 두 번째 값에 지정된 패턴과 일치하는지를 확인합니다.
+       UserDefinedFunction regexMatchUdf = new UserDefinedFunction
+       {
+           Id = "REGEX_MATCH",
+           Body = @"function (input, pattern) { 
+                       return input.match(pattern) !== null;
+                   };",
+       };
 
+       UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
+           UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
+           regexMatchUdf).Result;  
+
+위 예제에서는 이름이 `REGEX_MATCH`인 UDF를 만듭니다. 두 JSON 문자열 값 `input` 및 `pattern`을 받아들이고 JavaScript의 string.match() 함수를 사용하여 첫 번째 값이 두 번째 값에 지정된 패턴과 일치하는지를 확인합니다.
 
 이제 이 UDF를 프로젝트의 쿼리에 사용할 수 있습니다. 쿼리 내에서 호출하는 경우 대/소문자를 구분하는 접두사 "udf."를 사용하여 UDF를 한정해야 합니다.
 
->[AZURE.NOTE] 2015년 3월 17일 이전에는 DocumentDB가 SELECT REGEX\_MATCH()와 같이 "udf." 접두사가 없는 UDF 호출을 지원했습니다. 이 호출 패턴은 더 이상 사용되지 않습니다.
+> [!NOTE]
+> 2015년 3월 17일 이전에는 DocumentDB가 SELECT REGEX\_MATCH()와 같이 "udf." 접두사가 없는 UDF 호출을 지원했습니다. 이 호출 패턴은 더 이상 사용되지 않습니다.
+> 
+> 
 
 **쿼리**
 
-	SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
-	FROM Families
+    SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
+    FROM Families
 
 **결과**
 
-	[
-	  {
-	    "$1": true
-	  }, 
-	  {
-	    "$1": false
-	  }
-	]
+    [
+      {
+        "$1": true
+      }, 
+      {
+        "$1": false
+      }
+    ]
 
 아래 예제와 같이 "udf." 접두사로 한정된 UDF를 필터 내부에 사용할 수도 있습니다.
 
 **쿼리**
 
-	SELECT Families.id, Families.address.city
-	FROM Families
-	WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
+    SELECT Families.id, Families.address.city
+    FROM Families
+    WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
 
 **결과**
 
-	[{
-	    "id": "AndersenFamily",
-	    "city": "Seattle"
-	}]
+    [{
+        "id": "AndersenFamily",
+        "city": "Seattle"
+    }]
 
 
 기본적으로 UDF는 유효한 스칼라 식이며 프로젝션과 필터 둘 다에 사용될 수 있습니다.
 
 UDF 기능을 확장하기 위해 조건부 논리가 포함된 다른 예제를 살펴보겠습니다.
 
-	   UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
-	   {
-	       Id = "SEALEVEL",
-	       Body = @"function(city) {
-	       		switch (city) {
-	       		    case 'seattle':
-	       		        return 520;
-	       		    case 'NY':
-	       		        return 410;
-	       		    case 'Chicago':
-	       		        return 673;
-	       		    default:
-	       		        return -1;
-	                }"
+       UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
+       {
+           Id = "SEALEVEL",
+           Body = @"function(city) {
+                   switch (city) {
+                       case 'seattle':
+                           return 520;
+                       case 'NY':
+                           return 410;
+                       case 'Chicago':
+                           return 673;
+                       default:
+                           return -1;
+                    }"
             };
 
             UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(
                 UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
                 seaLevelUdf);
-	
-	
+
+
 다음은 UDF를 실행하는 예제입니다.
 
 **쿼리**
 
-	SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
-	FROM Families f	
+    SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
+    FROM Families f    
 
 **결과**
 
-	 [
-	  {
-	    "city": "seattle", 
-	    "seaLevel": 520
-	  }, 
-	  {
-	    "city": "NY", 
-	    "seaLevel": 410
-	  }
-	]
+     [
+      {
+        "city": "seattle", 
+        "seaLevel": 520
+      }, 
+      {
+        "city": "NY", 
+        "seaLevel": 410
+      }
+    ]
 
 
 앞의 예제에서 소개한 대로 UDF는 JavaScript 언어 기능과 DocumentDB SQL을 통합하여 내장된 JavaScript 런타임 기능을 통해 복잡한 절차적 조건부 논리를 수행하는 풍부한 프로그래밍 가능 인터페이스를 제공합니다.
@@ -1352,28 +1348,28 @@ DocumentDB는 익숙한 @ 표기법으로 표현된 매개 변수가 있는 쿼�
 
 매개 변수 값은 유효한 모든 JSON(문자열, 숫자, 부울, null, 짝수 배열 또는 중첩된 JSON)일 수 있습니다. 또한 DocumentDB는 스키마가 없으므로 모든 형식에 대해 매개 변수의 유효성이 검사되지 않습니다.
 
-##기본 제공 함수
+## 기본 제공 함수
 DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지원하며, UDF(사용자 정의 함수)처럼 쿼리 내에서 이러한 함수를 사용할 수 있습니다.
 
 <table>
 <tr>
-<td>수치 연산 함수</td>	
+<td>수치 연산 함수</td>    
 <td>ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, SIN, 및 TAN</td>
 </tr>
 <tr>
-<td>형식 검사 함수</td>	
+<td>형식 검사 함수</td>    
 <td>IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, 및 IS_PRIMITIVE</td>
 </tr>
 <tr>
-<td>문자열 함수</td>	
+<td>문자열 함수</td>    
 <td>CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING, 및 UPPER</td>
 </tr>
 <tr>
-<td>배열 함수</td>	
+<td>배열 함수</td>    
 <td>ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH, 및 ARRAY_SLICE</td>
 </tr>
 <tr>
-<td>공간 함수</td>	
+<td>공간 함수</td>    
 <td>ST_DISTANCE, ST_WITHIN, ST_ISVALID 및 ST_ISVALIDDETAILED</td>
 </tr>
 </table>  
@@ -1389,96 +1385,96 @@ DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지�
 <td><strong>설명</strong></td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_abs">ABS (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_abs">ABS (num_expr)</a></td>    
 <td>지정한 숫자 식의 절대(양수) 값을 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ceiling">CEILING (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ceiling">CEILING (num_expr)</a></td>    
 <td>지정한 숫자 식보다 크거나 같은 가장 작은 정수 값을 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_floor">FLOOR (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_floor">FLOOR (num_expr)</a></td>    
 <td>지정한 숫자 식보다 작거나 같은 가장 큰 정수 값을 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_exp">EXP (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_exp">EXP (num_expr)</a></td>    
 <td>지정한 숫자 식의 지수를 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log">LOG (num_expr [,base])</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log">LOG (num_expr [,base])</a></td>    
 <td>지정한 숫자 식의 자연 로그 또는 지정한 밑을 사용하는 로그를 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log10">LOG10 (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log10">LOG10 (num_expr)</a></td>    
 <td>지정한 숫자 식의 상용 로그를 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_round">ROUND (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_round">ROUND (num_expr)</a></td>    
 <td>가장 가까운 정수 값으로 반올림한 숫자 값을 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_trunc">TRUNC (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_trunc">TRUNC (num_expr)</a></td>    
 <td>가장 가까운 정수 값으로 버린 숫자 값을 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sqrt">SQRT (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sqrt">SQRT (num_expr)</a></td>    
 <td>지정한 숫자 식의 제곱근을 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_square">SQUARE (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_square">SQUARE (num_expr)</a></td>    
 <td>지정한 숫자 식의 거듭제곱을 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_power">POWER (num_expr, num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_power">POWER (num_expr, num_expr)</a></td>    
 <td>지정한 값까지 지정한 숫자 식의 거듭제곱을 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sign">SIGN (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sign">SIGN (num_expr)</a></td>    
 <td>지정한 숫자 식의 부호 값(-1, 0, 1)을 반환합니다.</td>
 </tr>
 <tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_acos">ACOS (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_acos">ACOS (num_expr)</a></td>    
 <td>코사인 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 아크코사인이라고도 합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_asin">ASIN (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_asin">ASIN (num_expr)</a></td>    
 <td>사인 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 아크사인이라고도 합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atan">ATAN (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atan">ATAN (num_expr)</a></td>    
 <td>탄젠트 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 아크탄젠트라고도 합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atn2">ATN2 (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atn2">ATN2 (num_expr)</a></td>    
 <td>x와 y가 두 지정된 float 식의 값인 양의 x축과 원점부터 (y, x) 지점의 선 사이의 라디안에서 각도를 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cos">COS (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cos">COS (num_expr)</a></td>    
 <td>지정된 식의 라디안에서 지정된 각도의 삼각 코사인을 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cot">COT (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cot">COT (num_expr)</a></td>    
 <td>지정된 숫자 식의 라디안에서 지정된 각도의 삼각 코탄젠트를 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_degrees">DEGREES (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_degrees">DEGREES (num_expr)</a></td>    
 <td>라디안에서 지정된 각도로 해당하는 각도를 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_pi">PI ()</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_pi">PI ()</a></td>    
 <td>PI의 상수 값을 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_radians">RADIANS (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_radians">RADIANS (num_expr)</a></td>    
 <td>숫자 식을 단위로 입력하면 라디안을 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sin">SIN (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sin">SIN (num_expr)</a></td>    
 <td>지정된 식의 라디안에서 지정된 각도의 삼각 사인을 반환합니다.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_tan">TAN (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_tan">TAN (num_expr)</a></td>    
 <td>지정된 식에서 입력 식의 탄젠트를 반환합니다.</td>
 </tr>
 
@@ -1552,24 +1548,24 @@ DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데
 ### 문자열 함수
 다음 스칼라 함수는 문자열 입력 값에 대해 작업을 수행하고 문자열, 숫자 또는 부울 값을 반환합니다. 기본 제공 문자열 함수의 테이블은 다음과 같습니다.
 
-사용 현황|설명
----|---
-[LENGTH (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length)|지정한 문자열 식의 문자 수를 반환합니다.
-[CONCAT (str\_expr, str\_expr [, str\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat)|둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다.
-[SUBSTRING (str\_expr, num\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring)|문자열 식의 일부를 반환합니다.
-[STARTSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith)|첫 번째 문자열 식이 두 번째로 끝나지를 나타내는 부울을 반환합니다.
-[ENDSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith)|첫 번째 문자열 식이 두 번째로 끝나지를 나타내는 부울을 반환합니다.
-[CONTAINS (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains)|첫번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다.
-[INDEX\_OF (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of)|지정된 첫 번째 문자열 식 내의 두 번째 문자열 식에서 첫 번째로 나타나는 시작 위치를 반환하거나 문자열을 찾을 수 없는 경우 -1을 반환합니다.
-[LEFT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left)|지정된 수의 문자로 문자열의 왼쪽 부분을 반환합니다.
-[RIGHT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right)|지정된 수의 문자로 문자열의 오른쪽 부분을 반환합니다.
-[LTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim)|선행 공백을 제거한 후에 문자열 식을 반환합니다.
-[RTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim)|후행 공백을 잘라낸 후에 문자열 식을 반환합니다.
-[LOWER (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower)|대문자 데이터를 소문자로 변환한 후에 문자열 식을 반환합니다.
-[UPPER (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper)|소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다.
-[REPLACE (str\_expr, str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace)|지정된 문자열 값의 모든 항목을 다른 문자열 값으로 바꿉니다.
-[REPLICATE (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate)|문자열 값을 지정한 횟수 만큼 반복합니다.
-[REVERSE (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse)|문자열 값의 순서와 반대로 반환합니다.
+| 사용 현황 | 설명 |
+| --- | --- |
+| [LENGTH (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |지정한 문자열 식의 문자 수를 반환합니다. |
+| [CONCAT (str\_expr, str\_expr [, str\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다. |
+| [SUBSTRING (str\_expr, num\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |문자열 식의 일부를 반환합니다. |
+| [STARTSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |첫 번째 문자열 식이 두 번째로 끝나지를 나타내는 부울을 반환합니다. |
+| [ENDSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |첫 번째 문자열 식이 두 번째로 끝나지를 나타내는 부울을 반환합니다. |
+| [CONTAINS (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |첫번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다. |
+| [INDEX\_OF (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |지정된 첫 번째 문자열 식 내의 두 번째 문자열 식에서 첫 번째로 나타나는 시작 위치를 반환하거나 문자열을 찾을 수 없는 경우 -1을 반환합니다. |
+| [LEFT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) |지정된 수의 문자로 문자열의 왼쪽 부분을 반환합니다. |
+| [RIGHT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |지정된 수의 문자로 문자열의 오른쪽 부분을 반환합니다. |
+| [LTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) |선행 공백을 제거한 후에 문자열 식을 반환합니다. |
+| [RTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) |후행 공백을 잘라낸 후에 문자열 식을 반환합니다. |
+| [LOWER (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |대문자 데이터를 소문자로 변환한 후에 문자열 식을 반환합니다. |
+| [UPPER (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다. |
+| [REPLACE (str\_expr, str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |지정된 문자열 값의 모든 항목을 다른 문자열 값으로 바꿉니다. |
+| [REPLICATE (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate) |문자열 값을 지정한 횟수 만큼 반복합니다. |
+| [REVERSE (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |문자열 값의 순서와 반대로 반환합니다. |
 
 이제 이러한 함수를 사용하여 다음과 같은 쿼리를 실행할 수 있습니다. 예를 들어 다음과 같이 대문자로 제품군 이름을 반환할 수 있습니다.
 
@@ -1622,12 +1618,12 @@ DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데
 ### 배열 함수
 다음 스칼라 함수는 배열 입력 값에 대해 작업을 수행하고 숫자, 부울, 또는 배열 값을 반환합니다. 기본 제공 배열 함수의 테이블은 다음과 같습니다.
 
-사용 현황|설명
----|---
-[ARRAY\_LENGTH (arr\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length)|지정된 배열 식의 요소 수를 반환합니다.
-[ARRAY\_CONCAT (arr\_expr, arr\_expr [, arr\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat)|둘 이상의 배열 값을 연결한 결과인 배열을 반환합니다.
-[ARRAY\_CONTAINS (arr\_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains)|지정된 값이 배열에 포함되는지를 나타내는 부울 값을 반환합니다.
-[ARRAY\_SLICE (arr\_expr, num\_expr [, num\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice)|배열 식의 일부를 반환합니다.
+| 사용 현황 | 설명 |
+| --- | --- |
+| [ARRAY\_LENGTH (arr\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |지정된 배열 식의 요소 수를 반환합니다. |
+| [ARRAY\_CONCAT (arr\_expr, arr\_expr [, arr\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |둘 이상의 배열 값을 연결한 결과인 배열을 반환합니다. |
+| [ARRAY\_CONTAINS (arr\_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |지정된 값이 배열에 포함되는지를 나타내는 부울 값을 반환합니다. |
+| [ARRAY\_SLICE (arr\_expr, num\_expr [, num\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |배열 식의 일부를 반환합니다. |
 
 배열 함수는 JSON 내 배열을 조작하는 데 사용할 수 있습니다. 예를 들어 다음은 부모 중 한 사람이 "Robin Wakefield"인 모든 문서를 반환하는 쿼리입니다.
 
@@ -1662,7 +1658,6 @@ DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데
     }]
 
 ### 공간 함수
-
 DocumentDB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial Consortium) 기본 제공 함수를 지원합니다. DocumentDB의 지리 공간 지원에 대한 자세한 내용은 [Azure DocumentDB에서 지리 공간 데이터 작업](documentdb-geospatial.md)을 참조하세요.
 
 <table>
@@ -1713,8 +1708,8 @@ ST\_WITHIN의 다각형 인수에는 단일 링만 포함될 수 있습니다. �
     SELECT * 
     FROM Families f 
     WHERE ST_WITHIN(f.location, {
-    	'type':'Polygon', 
-    	'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+        'type':'Polygon', 
+        'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
     })
 
 **결과**
@@ -1722,8 +1717,11 @@ ST\_WITHIN의 다각형 인수에는 단일 링만 포함될 수 있습니다. �
     [{
       "id": "WakefieldFamily",
     }]
-    
->[AZURE.NOTE] DocumentDB 쿼리에서 일치하지 않는 형식이 작동하는 방식과 비슷하게, 인수에 지정된 위치 값이 잘못되었거나 형식이 잘못된 경우 **정의되지 않음**으로 평가되고 평가된 문서는 쿼리 결과에서 생략됩니다. 쿼리에서 결과가 반환되지 않는 경우 ST\_ISVALIDDETAILED를 실행하여 공간 형식이 잘못된 이유를 디버그합니다.
+
+> [!NOTE]
+> DocumentDB 쿼리에서 일치하지 않는 형식이 작동하는 방식과 비슷하게, 인수에 지정된 위치 값이 잘못되었거나 형식이 잘못된 경우 **정의되지 않음**으로 평가되고 평가된 문서는 쿼리 결과에서 생략됩니다. 쿼리에서 결과가 반환되지 않는 경우 ST\_ISVALIDDETAILED를 실행하여 공간 형식이 잘못된 이유를 디버그합니다.
+> 
+> 
 
 ST\_ISVALID 및 ST\_ISVALIDDETAILED를 사용하여 공간 개체가 유효한지 확인할 수 있습니다. 예를 들어 다음 쿼리는 위도 값(-132.8)이 범위를 벗어난 점의 유효성을 검사합니다. ST\_ISVALID는 부울 값만 반환하고 ST\_ISVALIDDETAILED는 부울 및 잘못된 것으로 간주된 이유를 포함하는 문자열을 반환합니다.
 
@@ -1742,18 +1740,18 @@ ST\_ISVALID 및 ST\_ISVALIDDETAILED를 사용하여 공간 개체가 유효한�
 **쿼리**
 
     SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
-    	[ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
-    	]]})
+        [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
+        ]]})
 
 **결과**
 
     [{
        "$1": { 
-      	  "valid": false, 
-      	  "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
-      	}
+            "valid": false, 
+            "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
+          }
     }]
-    
+
 공간 함수 및 DocumentDB에 대한 SQL 구문을 래핑합니다. 이제 지금까지 나타난 LINQ 쿼리 작동 방법 및 구문 조작 방법을 살펴봤습니다.
 
 ## LINQ to DocumentDB SQL
@@ -1762,88 +1760,86 @@ LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로�
 아래 그림은 DocumentDB를 사용한 LINQ 쿼리를 지원하는 아키텍처를 보여 줍니다. 개발자는 DocumentDB 클라이언트를 사용하여 쿼리를 DocumentDB 쿼리 공급자로 보내는 **IQueryable** 개체를 만들 수 있습니다. 쿼리 공급자가 LINQ 쿼리를 DocumentDB 쿼리로 변환합니다. 그런 다음 JSON 형식으로 결과 집합을 검색하기 위해 쿼리가 DocumentDB 서버로 전달됩니다. 반환된 결과는 클라이언트 쪽에서 .NET 개체 스트림으로 역직렬화됩니다.
 
 ![DocumentDB를 사용한 LINQ 쿼리를 지원하는 아키텍처 - SQL 구문, JSON 쿼리 언어, 데이터베이스 개념 및 SQL 쿼리][1]
- 
-
 
 ### .NET 및 JSON 매핑
 .NET 개체와 JSON 문서 간의 매핑은 기본적으로 수행됩니다. 각 데이터 멤버 필드가 JSON 개체에 매핑됩니다. 여기서 필드 이름은 개체의 "키" 부분에 매핑되고 "값" 부분은 개체의 값 부분에 재귀적으로 매핑됩니다. 아래 예제를 고려해 보세요. 만들어진 Family 개체는 아래와 같이 JSON 문서에 매핑됩니다. 반대로 JSON 문서는 다시 .NET 개체에 매핑됩니다.
 
 **C# 클래스**
 
-	public class Family
-	{
-	    [JsonProperty(PropertyName="id")]
-	    public string Id;
-	    public Parent[] parents;
-	    public Child[] children;
-	    public bool isRegistered;
-	};
-	
-	public struct Parent
-	{
-	    public string familyName;
-	    public string givenName;
-	};
-	
-	public class Child
-	{
-	    public string familyName;
-	    public string givenName;
-	    public string gender;
-	    public int grade;
-	    public List<Pet> pets;
-	};
-	
-	public class Pet
-	{
-	    public string givenName;
-	};
-	
-	public class Address
-	{
-	    public string state;
-	    public string county;
-	    public string city;
-	};
-	
-	// Create a Family object.
-	Parent mother = new Parent { familyName= "Wakefield", givenName="Robin" };
-	Parent father = new Parent { familyName = "Miller", givenName = "Ben" };
-	Child child = new Child { familyName="Merriam", givenName="Jesse", gender="female", grade=1 };
-	Pet pet = new Pet { givenName = "Fluffy" };
-	Address address = new Address { state = "NY", county = "Manhattan", city = "NY" };
-	Family family = new Family { Id = "WakefieldFamily", parents = new Parent [] { mother, father}, children = new Child[] { child }, isRegistered = false };
+    public class Family
+    {
+        [JsonProperty(PropertyName="id")]
+        public string Id;
+        public Parent[] parents;
+        public Child[] children;
+        public bool isRegistered;
+    };
+
+    public struct Parent
+    {
+        public string familyName;
+        public string givenName;
+    };
+
+    public class Child
+    {
+        public string familyName;
+        public string givenName;
+        public string gender;
+        public int grade;
+        public List<Pet> pets;
+    };
+
+    public class Pet
+    {
+        public string givenName;
+    };
+
+    public class Address
+    {
+        public string state;
+        public string county;
+        public string city;
+    };
+
+    // Create a Family object.
+    Parent mother = new Parent { familyName= "Wakefield", givenName="Robin" };
+    Parent father = new Parent { familyName = "Miller", givenName = "Ben" };
+    Child child = new Child { familyName="Merriam", givenName="Jesse", gender="female", grade=1 };
+    Pet pet = new Pet { givenName = "Fluffy" };
+    Address address = new Address { state = "NY", county = "Manhattan", city = "NY" };
+    Family family = new Family { Id = "WakefieldFamily", parents = new Parent [] { mother, father}, children = new Child[] { child }, isRegistered = false };
 
 
 **JSON**
 
-	{
-	    "id": "WakefieldFamily",
-	    "parents": [
-	        { "familyName": "Wakefield", "givenName": "Robin" },
-	        { "familyName": "Miller", "givenName": "Ben" }
-	    ],
-	    "children": [
-	        {
-	            "familyName": "Merriam", 
-	            "givenName": "Jesse", 
-	            "gender": "female", 
-	            "grade": 1,
-	            "pets": [
-	                { "givenName": "Goofy" },
-	                { "givenName": "Shadow" }
-	            ]
-	        },
-	        { 
-	          "familyName": "Miller", 
-	          "givenName": "Lisa", 
-	          "gender": "female", 
-	          "grade": 8 
-	        }
-	    ],
-	    "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
-	    "isRegistered": false
-	};
+    {
+        "id": "WakefieldFamily",
+        "parents": [
+            { "familyName": "Wakefield", "givenName": "Robin" },
+            { "familyName": "Miller", "givenName": "Ben" }
+        ],
+        "children": [
+            {
+                "familyName": "Merriam", 
+                "givenName": "Jesse", 
+                "gender": "female", 
+                "grade": 1,
+                "pets": [
+                    { "givenName": "Goofy" },
+                    { "givenName": "Shadow" }
+                ]
+            },
+            { 
+              "familyName": "Miller", 
+              "givenName": "Lisa", 
+              "gender": "female", 
+              "grade": 8 
+            }
+        ],
+        "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+        "isRegistered": false
+    };
 
 
 
@@ -1852,46 +1848,42 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 먼저 형식 시스템에 대해 모든 JSON 기본 형식(숫자 형식, 부울, 문자열 및 null)을 지원합니다. 이러한 JSON 형식만 지원됩니다. 다음 스칼라 식이 지원됩니다.
 
--	상수 값 – 쿼리가 평가될 때 기본 데이터 형식의 상수 값을 포함합니다.
-
--	속성/배열 인덱스 식 – 이러한 식은 개체 또는 배열 요소의 속성을 참조합니다.
-
-		family.Id;
-		family.children[0].familyName;
-		family.children[0].grade;
-		family.children[n].grade; //n is an int variable
-
--	산술 식 - 숫자 및 부울 값에 대한 일반 산술 식을 포함합니다. 전체 목록은 SQL 사양을 참조하세요.
-
-		2 * family.children[0].grade;
-		x + y;
-
--	문자열 비교 식 - 문자열 값과 상수 문자열 값 비교를 포함합니다.
- 
-		mother.familyName == "Smith";
-		child.givenName == s; //s is a string variable
-
--	개체/배열 만들기 식 - 복합 값 형식 또는 무명 형식의 개체나 이러한 개체의 배열을 반환합니다. 해당 값을 중첩할 수 있습니다.
-
-		new Parent { familyName = "Smith", givenName = "Joe" };
-		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
-		new int[] { 3, child.grade, 5 };
+* 상수 값 – 쿼리가 평가될 때 기본 데이터 형식의 상수 값을 포함합니다.
+* 속성/배열 인덱스 식 – 이러한 식은 개체 또는 배열 요소의 속성을 참조합니다.
+  
+     family.Id;
+     family.children[0].familyName;
+     family.children[0].grade;
+     family.children[n].grade; //n is an int variable
+* 산술 식 - 숫자 및 부울 값에 대한 일반 산술 식을 포함합니다. 전체 목록은 SQL 사양을 참조하세요.
+  
+     2 * family.children[0].grade;
+     x + y;
+* 문자열 비교 식 - 문자열 값과 상수 문자열 값 비교를 포함합니다.
+  
+     mother.familyName == "Smith";
+     child.givenName == s; //s is a string variable
+* 개체/배열 만들기 식 - 복합 값 형식 또는 무명 형식의 개체나 이러한 개체의 배열을 반환합니다. 해당 값을 중첩할 수 있습니다.
+  
+     new Parent { familyName = "Smith", givenName = "Joe" };
+     new { first = 1, second = 2 }; //an anonymous type with 2 fields              
+     new int[] { 3, child.grade, 5 };
 
 ### 지원되는 LINQ 연산자 목록
 다음은 DocumentDB .NET SDK에 포함된 LINQ 공급자에서 지원되는 LINQ 연산자의 목록입니다.
 
--	**Select**: 프로젝션이 개체 생성을 포함하는 SQL SELECT로 변환합니다.
--	**Where**: 필터가 SQL WHERE로 변환하고 && , || 및 ! 간의 SQL 연산자로 변환을 지원합니다.
--	**SelectMany**: SQL JOIN 절에 대한 배열 해제를 허용합니다. 배열 요소를 필터링하는 데 체인/중첩 식을 사용할 수 있습니다.
--	**OrderBy 및 OrderByDescending**: ORDER BY 오름차순/내림차순으로 변환합니다.
--	**CompareTo**: 범위 비교로 변환합니다. .NET에서 비교 불가능하므로 문자열에 대해 일반적으로 사용됩니다.
--	**Take**: 쿼리에서 결과를 제한하기 위해 SQL TOP으로 변환합니다.
--	**수치 연산 함수**: NET의 Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate를 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
--	**문자열 함수**: .NET의 Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper를 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
--	**배열 함수**: .NET의 oncat, Contains 및 Count를 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
--	**지리 공간 확장 함수**: 스텁 메서드 Distance, Within, IsValid 및 IsValidDetailed에서 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
--	**사용자 정의 함수 확장 함수**: 스텁 메서드 UserDefinedFunctionProvider.Invoke에서 해당하는 사용자 정의 함수로의 변환을 지원합니다.
--	**기타**: coalesce 및 조건부 연산자의 변환을 지원합니다. 컨텍스트에 따라 Contains는 문자열 CONTAINS, ARRAY\_CONTAINS 또는 SQL IN으로 변환할 수 있습니다.
+* **Select**: 프로젝션이 개체 생성을 포함하는 SQL SELECT로 변환합니다.
+* **Where**: 필터가 SQL WHERE로 변환하고 && , || 및 ! 간의 SQL 연산자로 변환을 지원합니다.
+* **SelectMany**: SQL JOIN 절에 대한 배열 해제를 허용합니다. 배열 요소를 필터링하는 데 체인/중첩 식을 사용할 수 있습니다.
+* **OrderBy 및 OrderByDescending**: ORDER BY 오름차순/내림차순으로 변환합니다.
+* **CompareTo**: 범위 비교로 변환합니다. .NET에서 비교 불가능하므로 문자열에 대해 일반적으로 사용됩니다.
+* **Take**: 쿼리에서 결과를 제한하기 위해 SQL TOP으로 변환합니다.
+* **수치 연산 함수**: NET의 Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate를 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
+* **문자열 함수**: .NET의 Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper를 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
+* **배열 함수**: .NET의 oncat, Contains 및 Count를 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
+* **지리 공간 확장 함수**: 스텁 메서드 Distance, Within, IsValid 및 IsValidDetailed에서 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
+* **사용자 정의 함수 확장 함수**: 스텁 메서드 UserDefinedFunctionProvider.Invoke에서 해당하는 사용자 정의 함수로의 변환을 지원합니다.
+* **기타**: coalesce 및 조건부 연산자의 변환을 지원합니다. 컨텍스트에 따라 Contains는 문자열 CONTAINS, ARRAY\_CONTAINS 또는 SQL IN으로 변환할 수 있습니다.
 
 ### SQL 쿼리 연산자
 다음은 표준 LINQ 쿼리 연산자 중 일부가 DocumentDB 쿼리로 변환되는 방법을 보여 주는 몇 가지 예제입니다.
@@ -1901,41 +1893,41 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 **LINQ 람다 식**
 
-	input.Select(family => family.parents[0].familyName);
+    input.Select(family => family.parents[0].familyName);
 
 **SQL**
 
-	SELECT VALUE f.parents[0].familyName
-	FROM Families f
+    SELECT VALUE f.parents[0].familyName
+    FROM Families f
 
 
 
 **LINQ 람다 식**
 
-	input.Select(family => family.children[0].grade + c); // c is an int variable
+    input.Select(family => family.children[0].grade + c); // c is an int variable
 
 
 **SQL**
 
-	SELECT VALUE f.children[0].grade + c
-	FROM Families f 
+    SELECT VALUE f.children[0].grade + c
+    FROM Families f 
 
 
 
 **LINQ 람다 식**
 
-	input.Select(family => new
-	{
-	    name = family.children[0].familyName,
-	    grade = family.children[0].grade + 3
-	});
+    input.Select(family => new
+    {
+        name = family.children[0].familyName,
+        grade = family.children[0].grade + 3
+    });
 
 
 **SQL**
 
-	SELECT VALUE {"name":f.children[0].familyName, 
-	              "grade": f.children[0].grade + 3 }
-	FROM Families f
+    SELECT VALUE {"name":f.children[0].familyName, 
+                  "grade": f.children[0].grade + 3 }
+    FROM Families f
 
 
 
@@ -1944,12 +1936,12 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 **LINQ 람다 식**
 
-	input.SelectMany(family => family.children);
+    input.SelectMany(family => family.children);
 
 **SQL**
 
-	SELECT VALUE child
-	FROM child IN Families.children
+    SELECT VALUE child
+    FROM child IN Families.children
 
 
 
@@ -1958,133 +1950,130 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 **LINQ 람다 식**
 
-	input.Where(family=> family.parents[0].familyName == "Smith");
+    input.Where(family=> family.parents[0].familyName == "Smith");
 
 **SQL**
 
-	SELECT *
-	FROM Families f
-	WHERE f.parents[0].familyName = "Smith" 
+    SELECT *
+    FROM Families f
+    WHERE f.parents[0].familyName = "Smith" 
 
 
 
 **LINQ 람다 식**
 
-	input.Where(
-	    family => family.parents[0].familyName == "Smith" && 
-	    family.children[0].grade < 3);
+    input.Where(
+        family => family.parents[0].familyName == "Smith" && 
+        family.children[0].grade < 3);
 
 **SQL**
 
-	SELECT *
-	FROM Families f
-	WHERE f.parents[0].familyName = "Smith"
-	AND f.children[0].grade < 3
+    SELECT *
+    FROM Families f
+    WHERE f.parents[0].familyName = "Smith"
+    AND f.children[0].grade < 3
 
 
 ### 복합 SQL 쿼리
 위 연산자를 구성하여 보다 강력한 쿼리를 만들 수 있습니다. DocumentDB는 중첩 컬렉션을 지원하므로 해당 컴퍼지션을 연결하거나 중첩할 수 있습니다.
 
-#### 연결 
-
+#### 연결
 구문은 `input(.|.SelectMany())(.Select()|.Where())*`입니다. 연결된 쿼리는 선택적 `SelectMany` 쿼리로 시작하며 그 뒤에 여러 `Select` 또는 `Where` 연산자가 올 수 있습니다.
 
-
 **LINQ 람다 식**
 
-	input.Select(family=>family.parents[0])
-	    .Where(familyName == "Smith");
+    input.Select(family=>family.parents[0])
+        .Where(familyName == "Smith");
 
 **SQL**
 
-	SELECT *
-	FROM Families f
-	WHERE f.parents[0].familyName = "Smith"
-
-
-
-**LINQ 람다 식**
-
-	input.Where(family => family.children[0].grade > 3)
-	    .Select(family => family.parents[0].familyName);
-
-**SQL**
-
-	SELECT VALUE f.parents[0].familyName
-	FROM Families f
-	WHERE f.children[0].grade > 3
+    SELECT *
+    FROM Families f
+    WHERE f.parents[0].familyName = "Smith"
 
 
 
 **LINQ 람다 식**
 
-	input.Select(family => new { grade=family.children[0].grade}).
-	    Where(anon=> anon.grade < 3);
-            
+    input.Where(family => family.children[0].grade > 3)
+        .Select(family => family.parents[0].familyName);
+
 **SQL**
 
-	SELECT *
-	FROM Families f
-	WHERE ({grade: f.children[0].grade}.grade > 3)
+    SELECT VALUE f.parents[0].familyName
+    FROM Families f
+    WHERE f.children[0].grade > 3
 
 
 
 **LINQ 람다 식**
 
-	input.SelectMany(family => family.parents)
-	    .Where(parent => parents.familyName == "Smith");
+    input.Select(family => new { grade=family.children[0].grade}).
+        Where(anon=> anon.grade < 3);
 
 **SQL**
 
-	SELECT *
-	FROM p IN Families.parents
-	WHERE p.familyName = "Smith"
+    SELECT *
+    FROM Families f
+    WHERE ({grade: f.children[0].grade}.grade > 3)
+
+
+
+**LINQ 람다 식**
+
+    input.SelectMany(family => family.parents)
+        .Where(parent => parents.familyName == "Smith");
+
+**SQL**
+
+    SELECT *
+    FROM p IN Families.parents
+    WHERE p.familyName = "Smith"
 
 
 
 #### 중첩
-
 구문은 `input.SelectMany(x=>x.Q())`입니다. 여기서 Q는 `Select`, `SelectMany` 또는 `Where` 연산자입니다.
 
 중첩 쿼리에서는 외부 컬렉션의 각 요소에 내부 쿼리가 적용됩니다. 한 가지 중요한 기능은 자체 조인처럼 내부 쿼리가 외부 컬렉션의 요소 필드를 참조할 수 있다는 것입니다.
 
 **LINQ 람다 식**
 
-	input.SelectMany(family=> 
-	    family.parents.Select(p => p.familyName));
+    input.SelectMany(family=> 
+        family.parents.Select(p => p.familyName));
 
 **SQL**
 
-	SELECT VALUE p.familyName
-	FROM Families f
-	JOIN p IN f.parents
+    SELECT VALUE p.familyName
+    FROM Families f
+    JOIN p IN f.parents
 
 
 **LINQ 람다 식**
 
-	input.SelectMany(family => 
-	    family.children.Where(child => child.familyName == "Jeff"));
-            
+    input.SelectMany(family => 
+        family.children.Where(child => child.familyName == "Jeff"));
+
 **SQL**
 
-	SELECT *
-	FROM Families f
-	JOIN c IN f.children
-	WHERE c.familyName = "Jeff"
+    SELECT *
+    FROM Families f
+    JOIN c IN f.children
+    WHERE c.familyName = "Jeff"
 
 
 
 **LINQ 람다 식**
-            
-	input.SelectMany(family => family.children.Where(
-	    child => child.familyName == family.parents[0].familyName));
+
+    input.SelectMany(family => family.children.Where(
+        child => child.familyName == family.parents[0].familyName));
 
 **SQL**
 
-	SELECT *
-	FROM Families f
-	JOIN c IN f.children
-	WHERE c.familyName = f.parents[0].familyName
+    SELECT *
+    FROM Families f
+    JOIN c IN f.children
+    WHERE c.familyName = f.parents[0].familyName
 
 
 ## SQL 쿼리 실행
@@ -2099,13 +2088,12 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 다음 예제에서는 지금까지 검토한 두 개의 샘플 문서가 포함된 컬렉션에 대한 DocumentDB 쿼리의 POST를 보여 줍니다. 이 쿼리는 JSON 이름 속성에 단순한 필터가 있습니다. `x-ms-documentdb-isquery` 및 Content-Type: `application/query+json` 헤더를 사용하여 작업이 쿼리임을 나타냅니다.
 
-
 **요청**
 
-	POST https://<REST URI>/docs HTTP/1.1
-	...
-	x-ms-documentdb-isquery: True
-	Content-Type: application/query+json
+    POST https://<REST URI>/docs HTTP/1.1
+    ...
+    x-ms-documentdb-isquery: True
+    Content-Type: application/query+json
 
     {      
         "query": "SELECT * FROM Families f WHERE f.id = @familyId",     
@@ -2113,111 +2101,111 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
             {"name": "@familyId", "value": "AndersenFamily"}         
         ] 
     }
-	
+
 
 **결과**
 
-	HTTP/1.1 200 Ok
-	x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
-	x-ms-item-count: 1
-	x-ms-request-charge: 0.32
-	
-	<indented for readability, results highlighted>
-	
-	{  
-	   "_rid":"u1NXANcKogE=",
-	   "Documents":[  
-	      {  
-	         "id":"AndersenFamily",
-	         "lastName":"Andersen",
-	         "parents":[  
-	            {  
-	               "firstName":"Thomas"
-	            },
-	            {  
-	               "firstName":"Mary Kay"
-	            }
-	         ],
-	         "children":[  
-	            {  
-	               "firstName":"Henriette Thaulow",
-	               "gender":"female",
-	               "grade":5,
-	               "pets":[  
-	                  {  
-	                     "givenName":"Fluffy"
-	                  }
-	               ]
-	            }
-	         ],
-	         "address":{  
-	            "state":"WA",
-	            "county":"King",
-	            "city":"seattle"
-	         },
-	         "_rid":"u1NXANcKogEcAAAAAAAAAA==",
-	         "_ts":1407691744,
-	         "_self":"dbs\/u1NXAA==\/colls\/u1NXANcKogE=\/docs\/u1NXANcKogEcAAAAAAAAAA==\/",
-	         "_etag":"00002b00-0000-0000-0000-53e7abe00000",
-	         "_attachments":"_attachments\/"
-	      }
-	   ],
-	   "count":1
-	}
+    HTTP/1.1 200 Ok
+    x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
+    x-ms-item-count: 1
+    x-ms-request-charge: 0.32
+
+    <indented for readability, results highlighted>
+
+    {  
+       "_rid":"u1NXANcKogE=",
+       "Documents":[  
+          {  
+             "id":"AndersenFamily",
+             "lastName":"Andersen",
+             "parents":[  
+                {  
+                   "firstName":"Thomas"
+                },
+                {  
+                   "firstName":"Mary Kay"
+                }
+             ],
+             "children":[  
+                {  
+                   "firstName":"Henriette Thaulow",
+                   "gender":"female",
+                   "grade":5,
+                   "pets":[  
+                      {  
+                         "givenName":"Fluffy"
+                      }
+                   ]
+                }
+             ],
+             "address":{  
+                "state":"WA",
+                "county":"King",
+                "city":"seattle"
+             },
+             "_rid":"u1NXANcKogEcAAAAAAAAAA==",
+             "_ts":1407691744,
+             "_self":"dbs\/u1NXAA==\/colls\/u1NXANcKogE=\/docs\/u1NXANcKogEcAAAAAAAAAA==\/",
+             "_etag":"00002b00-0000-0000-0000-53e7abe00000",
+             "_attachments":"_attachments\/"
+          }
+       ],
+       "count":1
+    }
 
 
 두 번째 예제에서는 조인의 여러 결과를 반환하는 보다 복잡한 쿼리를 보여 줍니다.
 
 **요청**
 
-	POST https://<REST URI>/docs HTTP/1.1
-	...
-	x-ms-documentdb-isquery: True
-	Content-Type: application/query+json
-	
+    POST https://<REST URI>/docs HTTP/1.1
+    ...
+    x-ms-documentdb-isquery: True
+    Content-Type: application/query+json
+
     {      
         "query": "SELECT 
-				     f.id AS familyName, 
-				     c.givenName AS childGivenName, 
-				     c.firstName AS childFirstName, 
-				     p.givenName AS petName 
-				  FROM Families f 
-				  JOIN c IN f.children 
-				  JOIN p in c.pets",     
+                     f.id AS familyName, 
+                     c.givenName AS childGivenName, 
+                     c.firstName AS childFirstName, 
+                     p.givenName AS petName 
+                  FROM Families f 
+                  JOIN c IN f.children 
+                  JOIN p in c.pets",     
         "parameters": [] 
     }
 
 
 **결과**
 
-	HTTP/1.1 200 Ok
-	x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
-	x-ms-item-count: 1
-	x-ms-request-charge: 7.84
-	
-	<indented for readability, results highlighted>
-	
-	{  
-	   "_rid":"u1NXANcKogE=",
-	   "Documents":[  
-	      {  
-	         "familyName":"AndersenFamily",
-	         "childFirstName":"Henriette Thaulow",
-	         "petName":"Fluffy"
-	      },
-	      {  
-	         "familyName":"WakefieldFamily",
-	         "childGivenName":"Jesse",
-	         "petName":"Goofy"
-	      },
-	      {  
-	         "familyName":"WakefieldFamily",
-	         "childGivenName":"Jesse",
-	         "petName":"Shadow"
-	      }
-	   ],
-	   "count":3
-	}
+    HTTP/1.1 200 Ok
+    x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
+    x-ms-item-count: 1
+    x-ms-request-charge: 7.84
+
+    <indented for readability, results highlighted>
+
+    {  
+       "_rid":"u1NXANcKogE=",
+       "Documents":[  
+          {  
+             "familyName":"AndersenFamily",
+             "childFirstName":"Henriette Thaulow",
+             "petName":"Fluffy"
+          },
+          {  
+             "familyName":"WakefieldFamily",
+             "childGivenName":"Jesse",
+             "petName":"Goofy"
+          },
+          {  
+             "familyName":"WakefieldFamily",
+             "childGivenName":"Jesse",
+             "petName":"Shadow"
+          }
+       ],
+       "count":3
+    }
 
 
 쿼리 결과가 단일 결과 페이지에 모두 들어가지 않는 경우 REST API에서 `x-ms-continuation-token` 응답 헤더를 통해 연속 토큰을 반환합니다. 클라이언트는 후속 결과에 헤더를 포함하여 결과에 페이지를 매길 수 있습니다. `x-ms-max-item-count` 숫자 헤더를 통해 페이지당 결과 수를 제어할 수도 있습니다.
@@ -2229,13 +2217,12 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 ### C#(.NET) SDK
 .NET SDK는 LINQ 및 SQL 쿼리를 둘 다 지원합니다. 다음 예제에서는 이 문서의 앞부분에서 소개한 단순한 필터 쿼리를 수행하는 방법을 보여 줍니다.
 
+    foreach (var family in client.CreateDocumentQuery(collectionLink, 
+        "SELECT * FROM Families f WHERE f.id = "AndersenFamily""))
+    {
+        Console.WriteLine("\tRead {0} from SQL", family);
+    }
 
-	foreach (var family in client.CreateDocumentQuery(collectionLink, 
-	    "SELECT * FROM Families f WHERE f.id = "AndersenFamily""))
-	{
-	    Console.WriteLine("\tRead {0} from SQL", family);
-	}
-	
     SqlQuerySpec query = new SqlQuerySpec("SELECT * FROM Families f WHERE f.id = @familyId");
     query.Parameters = new SqlParameterCollection();
     query.Parameters.Add(new SqlParameter("@familyId", "AndersenFamily"));
@@ -2245,72 +2232,70 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
         Console.WriteLine("\tRead {0} from parameterized SQL", family);
     }
 
-	foreach (var family in (
-	    from f in client.CreateDocumentQuery(collectionLink)
-	    where f.Id == "AndersenFamily"
-	    select f))
-	{
-	    Console.WriteLine("\tRead {0} from LINQ query", family);
-	}
-	
-	foreach (var family in client.CreateDocumentQuery(collectionLink)
-	    .Where(f => f.Id == "AndersenFamily")
-	    .Select(f => f))
-	{
-	    Console.WriteLine("\tRead {0} from LINQ lambda", family);
-	}
+    foreach (var family in (
+        from f in client.CreateDocumentQuery(collectionLink)
+        where f.Id == "AndersenFamily"
+        select f))
+    {
+        Console.WriteLine("\tRead {0} from LINQ query", family);
+    }
+
+    foreach (var family in client.CreateDocumentQuery(collectionLink)
+        .Where(f => f.Id == "AndersenFamily")
+        .Select(f => f))
+    {
+        Console.WriteLine("\tRead {0} from LINQ lambda", family);
+    }
 
 
 이 샘플은 각 문서 내에서 두 속성이 같은지 비교하고 익명 프로젝션을 사용합니다.
 
+    foreach (var family in client.CreateDocumentQuery(collectionLink,
+        @"SELECT {""Name"": f.id, ""City"":f.address.city} AS Family 
+        FROM Families f 
+        WHERE f.address.city = f.address.state"))
+    {
+        Console.WriteLine("\tRead {0} from SQL", family);
+    }
 
-	foreach (var family in client.CreateDocumentQuery(collectionLink,
-	    @"SELECT {""Name"": f.id, ""City"":f.address.city} AS Family 
-	    FROM Families f 
-	    WHERE f.address.city = f.address.state"))
-	{
-	    Console.WriteLine("\tRead {0} from SQL", family);
-	}
-	
-	foreach (var family in (
-	    from f in client.CreateDocumentQuery<Family>(collectionLink)
-	    where f.address.city == f.address.state
-	    select new { Name = f.Id, City = f.address.city }))
-	{
-	    Console.WriteLine("\tRead {0} from LINQ query", family);
-	}
-	
-	foreach (var family in
-	    client.CreateDocumentQuery<Family>(collectionLink)
-	    .Where(f => f.address.city == f.address.state)
-	    .Select(f => new { Name = f.Id, City = f.address.city }))
-	{
-	    Console.WriteLine("\tRead {0} from LINQ lambda", family);
-	}
+    foreach (var family in (
+        from f in client.CreateDocumentQuery<Family>(collectionLink)
+        where f.address.city == f.address.state
+        select new { Name = f.Id, City = f.address.city }))
+    {
+        Console.WriteLine("\tRead {0} from LINQ query", family);
+    }
+
+    foreach (var family in
+        client.CreateDocumentQuery<Family>(collectionLink)
+        .Where(f => f.address.city == f.address.state)
+        .Select(f => new { Name = f.Id, City = f.address.city }))
+    {
+        Console.WriteLine("\tRead {0} from LINQ lambda", family);
+    }
 
 
 다음 샘플은 LINQ SelectMany를 통해 표현된 조인을 보여 줍니다.
 
+    foreach (var pet in client.CreateDocumentQuery(collectionLink,
+          @"SELECT p
+            FROM Families f 
+                 JOIN c IN f.children 
+                 JOIN p in c.pets 
+            WHERE p.givenName = ""Shadow"""))
+    {
+        Console.WriteLine("\tRead {0} from SQL", pet);
+    }
 
-	foreach (var pet in client.CreateDocumentQuery(collectionLink,
-	      @"SELECT p
-	        FROM Families f 
-	             JOIN c IN f.children 
-	             JOIN p in c.pets 
-	        WHERE p.givenName = ""Shadow"""))
-	{
-	    Console.WriteLine("\tRead {0} from SQL", pet);
-	}
-	
-	// Equivalent in Lambda expressions
-	foreach (var pet in
-	    client.CreateDocumentQuery<Family>(collectionLink)
-	    .SelectMany(f => f.children)
-	    .SelectMany(c => c.pets)
-	    .Where(p => p.givenName == "Shadow"))
-	{
-	    Console.WriteLine("\tRead {0} from LINQ lambda", pet);
-	}
+    // Equivalent in Lambda expressions
+    foreach (var pet in
+        client.CreateDocumentQuery<Family>(collectionLink)
+        .SelectMany(f => f.children)
+        .SelectMany(c => c.pets)
+        .Where(p => p.givenName == "Shadow"))
+    {
+        Console.WriteLine("\tRead {0} from LINQ lambda", pet);
+    }
 
 
 
@@ -2320,74 +2305,71 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 쿼리가 포함된 추가 샘플은 [DocumentDB .NET 샘플](https://github.com/Azure/azure-documentdb-net)을 참조하세요.
 
-### JavaScript 서버 쪽 API 
+### JavaScript 서버 쪽 API
 DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대해 직접 JavaScript 기반 응용 프로그램 논리를 실행하기 위한 프로그래밍 모델을 제공합니다. 그런 다음 컬렉션 수준에서 등록된 JavaScript 논리가 지정된 컬렉션의 문서에 대해 데이터베이스 작업을 실행할 수 있습니다. 해당 작업은 앰비언트 ACID 트랜잭션에 래핑됩니다.
 
 다음 예제에서는 JavaScript 서버 API에서 queryDocuments를 사용하여 저장 프로시저와 트리거 내부에서 쿼리를 수행하는 방법을 보여 줍니다.
 
+    function businessLogic(name, author) {
+        var context = getContext();
+        var collectionManager = context.getCollection();
+        var collectionLink = collectionManager.getSelfLink()
 
-	function businessLogic(name, author) {
-	    var context = getContext();
-	    var collectionManager = context.getCollection();
-	    var collectionLink = collectionManager.getSelfLink()
-	
-	    // create a new document.
-	    collectionManager.createDocument(collectionLink,
-	        { name: name, author: author },
-	        function (err, documentCreated) {
-	            if (err) throw new Error(err.message);
-	
-	            // filter documents by author
-	            var filterQuery = "SELECT * from root r WHERE r.author = 'George R.'";
-	            collectionManager.queryDocuments(collectionLink,
-	                filterQuery,
-	                function (err, matchingDocuments) {
-	                    if (err) throw new Error(err.message);
-	context.getResponse().setBody(matchingDocuments.length);
-	
-	                    // Replace the author name for all documents that satisfied the query.
-	                    for (var i = 0; i < matchingDocuments.length; i++) {
-	                        matchingDocuments[i].author = "George R. R. Martin";
-	                        // we don't need to execute a callback because they are in parallel
-	                        collectionManager.replaceDocument(matchingDocuments[i]._self,
-	                            matchingDocuments[i]);
-	                    }
-	                })
-	        });
-	}
+        // create a new document.
+        collectionManager.createDocument(collectionLink,
+            { name: name, author: author },
+            function (err, documentCreated) {
+                if (err) throw new Error(err.message);
+
+                // filter documents by author
+                var filterQuery = "SELECT * from root r WHERE r.author = 'George R.'";
+                collectionManager.queryDocuments(collectionLink,
+                    filterQuery,
+                    function (err, matchingDocuments) {
+                        if (err) throw new Error(err.message);
+    context.getResponse().setBody(matchingDocuments.length);
+
+                        // Replace the author name for all documents that satisfied the query.
+                        for (var i = 0; i < matchingDocuments.length; i++) {
+                            matchingDocuments[i].author = "George R. R. Martin";
+                            // we don't need to execute a callback because they are in parallel
+                            collectionManager.replaceDocument(matchingDocuments[i]._self,
+                                matchingDocuments[i]);
+                        }
+                    })
+            });
+    }
 
 ## 집계 함수
-
 집계 함수에 대한 네이티브 지원이 진행 중이지만 그 동안 카운트 또는 합계 기능이 필요한 경우 다른 방법으로 동일한 결과를 달성할 수 있습니다.
 
 읽기 경로에서:
 
-- 데이터를 검색하고 로컬로 카운트를 수행하여 집계 함수를 수행할 수 있습니다. `SELECT * FROM c`와 같은 전체 문서 대신 `SELECT VALUE 1`과 같은 저렴한 쿼리 프로젝션을 사용하는 것이 좋습니다. 이렇게 하면 각 결과 페이지에서 처리되는 문서 수를 최대화할 수 있으므로 필요한 경우 서비스에 대한 추가 왕복을 피할 수 있습니다.
-- 또한 저장 프로시저를 사용하여 반복된 왕복에서 네트워크 대기 시간을 최소화할 수 있습니다. 지정된 필터 쿼리에 대한 카운트를 계산하는 저장 프로시저 샘플은 [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js)를 참조하세요. 저장 프로시저를 통해 사용자는 다양한 비즈니스 논리를 집계 작업과 함께 효율적으로 결합할 수 있습니다.
+* 데이터를 검색하고 로컬로 카운트를 수행하여 집계 함수를 수행할 수 있습니다. `SELECT * FROM c`와 같은 전체 문서 대신 `SELECT VALUE 1`과 같은 저렴한 쿼리 프로젝션을 사용하는 것이 좋습니다. 이렇게 하면 각 결과 페이지에서 처리되는 문서 수를 최대화할 수 있으므로 필요한 경우 서비스에 대한 추가 왕복을 피할 수 있습니다.
+* 또한 저장 프로시저를 사용하여 반복된 왕복에서 네트워크 대기 시간을 최소화할 수 있습니다. 지정된 필터 쿼리에 대한 카운트를 계산하는 저장 프로시저 샘플은 [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js)를 참조하세요. 저장 프로시저를 통해 사용자는 다양한 비즈니스 논리를 집계 작업과 함께 효율적으로 결합할 수 있습니다.
 
 쓰기 경로에서:
 
-- 다른 일반적인 패턴은 "쓰기 경로"에서 결과를 미리 집계하는 것입니다. 이 방법은 "읽기" 요청의 볼륨이 "쓰기" 요청의 볼륨보다 높은 경우 특히 유용합니다. 미리 집계되었으면 단일 지점 읽기 요청으로 결과를 사용할 수 있습니다. DocumentDB에서 미리 집계를 수행하는 가장 좋은 방법은 각 "쓰기"로 호출되는 트리거를 설정하고 구체화되는 쿼리에 대해 최신 결과를 포함하는 메타데이터 문서를 업데이트하는 것입니다. 예를 들어 [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js) 샘플을 살펴보세요. 여기서는 컬렉션에 대한 메타데이터 문서의 minSize, maxSize 및 totalSize를 업데이트합니다. 카운터, 합계 등을 업데이트하도록 샘플을 확장할 수 있습니다.
+* 다른 일반적인 패턴은 "쓰기 경로"에서 결과를 미리 집계하는 것입니다. 이 방법은 "읽기" 요청의 볼륨이 "쓰기" 요청의 볼륨보다 높은 경우 특히 유용합니다. 미리 집계되었으면 단일 지점 읽기 요청으로 결과를 사용할 수 있습니다. DocumentDB에서 미리 집계를 수행하는 가장 좋은 방법은 각 "쓰기"로 호출되는 트리거를 설정하고 구체화되는 쿼리에 대해 최신 결과를 포함하는 메타데이터 문서를 업데이트하는 것입니다. 예를 들어 [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js) 샘플을 살펴보세요. 여기서는 컬렉션에 대한 메타데이터 문서의 minSize, maxSize 및 totalSize를 업데이트합니다. 카운터, 합계 등을 업데이트하도록 샘플을 확장할 수 있습니다.
 
-##참조
-1.	[Azure DocumentDB 소개][introduction]
-2.	[DocumentDB SQL 사양](http://go.microsoft.com/fwlink/p/?LinkID=510612)
-3.	[DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)
-4.	[DocumentDB 일관성 수준][consistency-levels]
-5.	ANSI SQL 2011 [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6.	JSON [http://json.org/](http://json.org/)
-7.	Javascript 사양 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
-8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx)
-9.	대형 데이터베이스에 대한 쿼리 평가 기술 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
-10.	병렬 관계 데이터베이스 시스템의 쿼리 처리, IEEE Computer Society Press, 1994
-11.	Lu, Ooi, Tan, 병렬 관계 데이터베이스 시스템의 쿼리 처리, IEEE Computer Society Press, 1994.
-12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
-13.     G. Graefe. The Cascades framework for query optimization. IEEE 데이터 Eng. Bull., 18(3): 1995.
-
+## 참조
+1. [Azure DocumentDB 소개][introduction]
+2. [DocumentDB SQL 사양](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+3. [DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)
+4. [DocumentDB 일관성 수준][consistency-levels]
+5. ANSI SQL 2011 [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+6. JSON [http://json.org/](http://json.org/)
+7. Javascript 사양 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
+8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx)
+9. 대형 데이터베이스에 대한 쿼리 평가 기술 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+10. 병렬 관계 데이터베이스 시스템의 쿼리 처리, IEEE Computer Society Press, 1994
+11. Lu, Ooi, Tan, 병렬 관계 데이터베이스 시스템의 쿼리 처리, IEEE Computer Society Press, 1994.
+12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
+13. G. Graefe. The Cascades framework for query optimization. IEEE 데이터 Eng. Bull., 18(3): 1995.
 
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: documentdb-introduction.md
 [consistency-levels]: documentdb-consistency-levels.md
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

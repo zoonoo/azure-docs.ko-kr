@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Azure 저장소 클라이언트 도구 | Microsoft Azure"
-    description="Azure 저장소 데이터를 보고 상호 작용할 수 있는 도구 목록입니다."
-    services="storage"
-    documentationCenter=""
-    authors="micurd"
-    manager="jahogg"
-    editor="tysonn"/>
+---
+title: Azure 저장소 클라이언트 도구 | Microsoft Docs
+description: Azure 저장소 데이터를 보고 상호 작용할 수 있는 도구 목록입니다.
+services: storage
+documentationcenter: ''
+author: micurd
+manager: jahogg
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="micurd"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: micurd
 
-
+---
 # <a name="azure-storage-client-tools"></a>Azure 저장소 클라이언트 도구
-
 Azure 저장소의 사용자는 Azure 저장소 클라이언트 도구를 사용하여 데이터를 보기/상호 작용하려는 경우가 많습니다. 아래 표에는 이 작업을 수행할 수 있게 해 주는 여러 도구가 나와 있습니다. 해당 도구가 데이터 추상화를 열거 및/또는 액세스할 수 있는 기능을 제공하는 경우 각 블록에 "X" 표시를 합니다. 또한 도구가 무료인지 여부도 나와 있습니다. “평가판”은 무료 평가판이 있음을 나타내지만 정품은 무료가 아님을 나타냅니다. "Y/N"는 특정 버전은 무료로 제공되지만 다른 버전은 구매할 수 있는지를 나타냅니다.
 
 사용 가능한 Azure 저장소 클라이언트 도구의 스냅숏만 제공합니다. 이러한 도구의 기능은 계속 개선 및 확장될 수 있습니다. 수정 사항이나 업데이트가 있는 경우 의견을 남겨주세요. 여기에 포함해야 할 도구가 있는 경우에도 알려주시면 추가해 드리겠습니다.

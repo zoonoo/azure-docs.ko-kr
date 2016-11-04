@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Azure AD 및 응용 프로그램: 사용자 할당 요구 | Microsoft Azure"
-	description="Azure 응용 프로그램에 대해 사용자 할당을 요구하는 방법."
-	services="active-directory"
-	documentationCenter=""
-	authors="IHenkel"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD 및 응용 프로그램: 사용자 할당 요구 | Microsoft Docs'
+description: Azure 응용 프로그램에 대해 사용자 할당을 요구하는 방법.
+services: active-directory
+documentationcenter: ''
+author: IHenkel
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/09/2015"
-	ms.author="inhenk"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/09/2015
+ms.author: inhenk
 
+---
 # Azure AD 및 응용 프로그램: 사용자 할당 요구
-
 ## 사용자 할당 요구
 1. 관리자 계정으로 Azure 포털에 로그인합니다.
 2. 주 메뉴에서 **모든 항목** 항목을 클릭합니다.
@@ -31,6 +30,6 @@
 이제 응용 프로그램에 사용자 및/또는 그룹을 할당해야 합니다. [응용 프로그램에 사용자 지정](active-directory-applications-guiding-developers-assigning-users.md) 및 [응용 프로그램에 그룹 지정](active-directory-applications-guiding-developers-assigning-groups.md)을 참조하세요.
 
 ## 다음 단계
-[AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
+[!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
 <!---HONumber=AcomDC_0928_2016-->

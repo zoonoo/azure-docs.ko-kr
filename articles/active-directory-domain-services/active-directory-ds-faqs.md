@@ -1,32 +1,28 @@
-<properties
-    pageTitle="FAQ - Azure Active Directory Domain Services | Microsoft Azure"
-    description="Azure Active Directory 도메인 서비스에 대해 자주 묻는 질문과 대답입니다."
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+---
+title: FAQ - Azure Active Directory Domain Services | Microsoft Docs
+description: Azure Active Directory 도메인 서비스에 대해 자주 묻는 질문과 대답입니다.
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: stevenpo
+editor: curtand
 
-<tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/07/2016"
-    ms.author="maheshu"/>
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/07/2016
+ms.author: maheshu
 
-
+---
 # <a name="azure-active-directory-domain-services:-frequently-asked-questions-(faqs)"></a>Azure Active Directory Domain Services: 자주 묻는 질문과 대답(FAQ)
-
 이 페이지는 Azure Active Directory Domain Services에 대한 자주 묻는 질문을 응답합니다. 업데이트를 계속 확인합니다.
 
 ### <a name="troubleshooting-guide"></a>문제 해결 가이드
 Azure AD 도메인 서비스를 구성 또는 관리할 때 발생하는 일반적인 문제에 대한 솔루션은 [문제 해결 가이드](active-directory-ds-troubleshooting.md) 를 참조합니다.
 
-
 ### <a name="configuration"></a>구성
-
 #### <a name="can-i-create-multiple-domains-for-a-single-azure-ad-directory?"></a>단일 Azure AD 디렉터리에 여러 도메인을 만들 수 있나요?
 아니요. 단일 Azure AD 디렉터리에 대해 Azure AD 도메인 서비스에서 서비스되는 단일 도메인만 만들 수 있습니다.  
 
@@ -43,7 +39,6 @@ Azure AD 도메인 서비스의 PowerShell/자동화된 배포는 현재 사용�
 아니요. Azure AD 도메인 서비스에서 제공하는 도메인은 관리되는 도메인입니다. 이 도메인에 대해 도메인 컨트롤러를 프로비전, 구성 또는 다른 방식으로 관리하지 않아도 됩니다. 이러한 관리 작업은 Microsoft에서 서비스로 제공합니다. 따라서 관리되는 도메인에 대해 추가 도메인 컨트롤러(읽기-쓰기 또는 읽기 전용)를 추가할 수 없습니다.
 
 ### <a name="administration-and-operations"></a>관리 및 운영
-
 #### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop?"></a>원격 데스크톱을 사용하여 관리되는 도메인의 도메인 컨트롤러에 연결할 수 있습니까?
 아니요. 사용자에게는 원격 데스크톱을 통해 관리되는 도메인의 도메인 컨트롤러에 연결할 사용 권한이 없습니다. 'AAD DC Administrators' 그룹의 멤버는ADAC(Active Directory 관리 센터) 또는 AD PowerShell 같은 AD 관리 도구를 사용하여 관리되는 도메인을 관리할 수 있습니다. 이러한 도구는 관리되는 도메인에 가입된 Windows 서버의 '원격 서버 관리 도구' 기능을 사용하여 설치할 수 있습니다.
 
@@ -63,7 +58,6 @@ Azure AD 도메인 서비스의 PowerShell/자동화된 배포는 현재 사용�
 예. 관리되는 도메인에서 DNS 레코드를 수정하기 위해 'AAD DC Administrators' 그룹에 속하는 사용자에게 'DNS 관리자' 권한을 부여합니다. 이러한 사용자가 DNS를 관리하기 위해 관리되는 도메인에 가입한 Windows Server를 실행하는 컴퓨터에서 DNS 관리자 콘솔을 사용할 수 있습니다. DNS 관리자 콘솔을 사용하려면 서버의 '원격 서버 관리 도구' 선택적 기능의 일부인 'DNS 서버 도구'를 설치합니다. [DNS를 관리하고, 모니터링하고 문제를 해결하는 유틸리티](https://technet.microsoft.com/library/cc753579.aspx) 에 대한 자세한 정보는 TechNet를 참조하세요.
 
 ### <a name="billing-and-availability"></a>요금 청구 및 가용성
-
 #### <a name="is-azure-ad-domain-services-a-paid-service?"></a>Azure AD Domain Services는 유료 서비스인가요?
 예. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory-ds/)를 참조하세요.
 
@@ -75,8 +69,6 @@ Azure AD 도메인 서비스의 PowerShell/자동화된 배포는 현재 사용�
 
 #### <a name="what-azure-regions-is-the-service-available-in?"></a>어떤 Azure 지역에서 서비스를 사용할 수 있습니까?
 Azure AD Domain Services를 사용할 수 있는 Azure 지역의 목록은 [지역 페이지](active-directory-ds-regions.md) 를 참조하세요.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,54 +1,49 @@
-<properties
-    pageTitle="Azure AD Domain Services: DIY 도메인 컨트롤러와 Azure AD Domain Services 비교 | Microsoft Azure"
-    description="DIY 도메인 컨트롤러와 Azure Active Directory Domain Services 비교"
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+---
+title: 'Azure AD Domain Services: DIY 도메인 컨트롤러와 Azure AD Domain Services 비교 | Microsoft Docs'
+description: DIY 도메인 컨트롤러와 Azure Active Directory Domain Services 비교
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: stevenpo
+editor: curtand
 
-<tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="maheshu"/>
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: maheshu
 
-
+---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Azure AD Domain Services가 사용 사례에 적합한지 결정하는 방법
 Azure AD Domain Services를 사용하면 ID 인프라를 유지 관리하는 방법에 대해 걱정할 필요없이 Azure 인프라 서비스에서 워크로드를 배포할 수 있습니다. 이 관리되는 서비스는 고유한 서비스에 배포하고 관리하는 일반적인 Windows Server Active Directory 배포와 다릅니다. 서비스는 배포의 용이성, 자동화된 상태 모니터링 및 수정, 그리고 클라우드에 대한 간단한 ID 인프라를 위해 디자인되었습니다. 서비스를 지속적으로 개발하여 일반적인 배포 시나리오에 대한 지원을 추가할 예정입니다.
 
 Azure AD Domain Services를 사용할지 Azure에서 고유한 AD 인프라(자체)를 스핀업하고 관리할지 결정하려면 다음을 수행합니다.
 
-- [Azure AD Domain Services에서 제공하는 기능](active-directory-ds-features.md)목록을 봅니다.
-
-- 일반적인 [Azure AD Domain Services용 배포 시나리오](active-directory-ds-scenarios.md)를 검토합니다.
-
-- 마지막으로 [Azure AD Domain Services를 자체 AD 옵션과 비교](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure)합니다.
-
+* [Azure AD Domain Services에서 제공하는 기능](active-directory-ds-features.md)목록을 봅니다.
+* 일반적인 [Azure AD Domain Services용 배포 시나리오](active-directory-ds-scenarios.md)를 검토합니다.
+* 마지막으로 [Azure AD Domain Services를 자체 AD 옵션과 비교](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure)합니다.
 
 ## <a name="compare-azure-ad-domain-services-to-diy-ad-domain-in-azure"></a>Azure에서 DIY AD 도메인과 Azure AD Domain Services 비교
 다음 테이블에서는 Azure AD Domain Services를 사용할지 아니면 Azure에서 고유한 AD 인프라를 관리할지를 결정하도록 도와줍니다.
 
-|**기능**|**Azure AD Domain Services**|**Azure VM의 '직접' AD**|
-|---|:---:|:---:|
-|[**관리되는 서비스**](active-directory-ds-comparison.md#managed-service)|**&#x2713;**|**&#x2715;**|
-|[**보안 배포**](active-directory-ds-comparison.md#secure-deployments)|**&#x2713;**|관리자는 배포를 보호해야 합니다.|
-|[**DNS 서버**](active-directory-ds-comparison.md#dns-server)|**&#x2713;**(관리되는 서비스)|**&#x2713;**|
-|[**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges)|**&#x2715;**|**&#x2713;**|
-|[**도메인 가입**](active-directory-ds-comparison.md#domain-join)|**&#x2713;**|**&#x2713;**|
-|[**NTLM 및 Kerberos를 사용하여 도메인 인증**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos)|**&#x2713;**|**&#x2713;**|
-|[**사용자 지정 OU 구조**](active-directory-ds-comparison.md#custom-ou-structure)|**&#x2713;**|**&#x2713;**|
-|[**스키마 확장**](active-directory-ds-comparison.md#schema-extensions)|**&#x2715;**|**&#x2713;**|
-|[**AD 도메인/포리스트 트러스트**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts)|**&#x2715;**|**&#x2713;**|
-|[**LDAP read**](active-directory-ds-comparison.md#ldap-read)|**&#x2713;**|**&#x2713;**|
-|[**보안 LDAP(LDAPS)**](active-directory-ds-comparison.md#secure-ldap)|**&#x2713;**|**&#x2713;**|
-|[**LDAP write**](active-directory-ds-comparison.md#ldap-write)|**&#x2715;**|**&#x2713;**|
-|[**Group Policy**](active-directory-ds-comparison.md#group-policy)|간단한|전체|
-|[**지리적으로 분산된 배포**](active-directory-ds-comparison.md#geo-dispersed-deployments)|**&#x2715;**|**&#x2713;**|
-
+| **기능** | **Azure AD Domain Services** | **Azure VM의 '직접' AD** |
+| --- |:---:|:---:|
+| [**관리되는 서비스**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
+| [**보안 배포**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |관리자는 배포를 보호해야 합니다. |
+| [**DNS 서버**](active-directory-ds-comparison.md#dns-server) |**&#x2713;**(관리되는 서비스) |**&#x2713;** |
+| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
+| [**도메인 가입**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
+| [**NTLM 및 Kerberos를 사용하여 도메인 인증**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
+| [**사용자 지정 OU 구조**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
+| [**스키마 확장**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
+| [**AD 도메인/포리스트 트러스트**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
+| [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
+| [**보안 LDAP(LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
+| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
+| [**Group Policy**](active-directory-ds-comparison.md#group-policy) |간단한 |전체 |
+| [**지리적으로 분산된 배포**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>관리되는 서비스
 Azure AD Domain Services 도메인은 Microsoft에서 관리합니다. 패치, 업데이트, 모니터링, 백업 그리고 도메인의 가용성 보장을 걱정할 필요가 없습니다. 이러한 관리 태스크는 Microsoft Azure에서 관리되는 도메인에 대해 서비스로 제공합니다.
@@ -92,29 +87,24 @@ Azure AD Domain Services를 구성하여 인터넷을 포함하여 관리되는 
 #### <a name="geo-dispersed-deployments"></a>지역 분산된 배포
 Azure AD Domain Services 관리되는 도메인은 Azure의 단일 가상 네트워크에서 사용할 수 있습니다. 도메인 컨트롤러를 전 세계 여러 Azure 지역에서 사용할 수 있어야 하는 시나리오의 경우 Azure IaaS VM에서 도메인 컨트롤러를 설정하는 것이 적절한 대안이 될 수 있습니다.
 
-
 ## <a name="'do-it-yourself'-(diy)-ad-deployment-options"></a>DIY('직접') AD 배포 옵션
 Windows Server AD 설치에서 제공되는 기능 중 일부가 필요한 배포 사용 사례가 있을 수 있습니다. 이러한 경우에는 다음 DIY(직접) 옵션 중 하나를 고려해 보세요.
 
-- **독립 실행형 클라우드 도메인:** 도메인 컨트롤러로 구성된 Azure 가상 컴퓨터를 사용하여 독립 실행형 '클라우드 도메인'을 설정할 수 있습니다. 이 인프라는 온-프레미스 AD 환경과 통합되지 않습니다. 이 옵션에서는 다른 '클라우드 자격 증명' 집합이 로그인하거나 클라우드에서 VM을 관리해야 합니다.
+* **독립 실행형 클라우드 도메인:** 도메인 컨트롤러로 구성된 Azure 가상 컴퓨터를 사용하여 독립 실행형 '클라우드 도메인'을 설정할 수 있습니다. 이 인프라는 온-프레미스 AD 환경과 통합되지 않습니다. 이 옵션에서는 다른 '클라우드 자격 증명' 집합이 로그인하거나 클라우드에서 VM을 관리해야 합니다.
+* **리소스 포리스트 배포:** 도메인 컨트롤러로 구성된 Azure 가상 컴퓨터를 사용하여 리소스 포리스트 토폴로지에서 도메인을 설정할 수 있습니다. 다음으로 온-프레미스 AD 환경으로 AD 트러스트 관계를 구성할 수 있습니다. 클라우드에서 이 리소스 포리스트에 컴퓨터(Azure VM)를 도메인 가입시킬 수 있습니다. 사용자 인증은 온-프레미스 디렉터리에 대한 VPN/ExpressRoute 연결 중 하나를 통해 발생합니다.
+* **온-프레미스 도메인을 Azure로 확장:** Azure VM이 온-프레미스 AD에 가입할 수 있도록 VPN/ExpressRoute 연결을 사용하여 온-프레미스 네트워크에 Azure 가상 네트워크를 연결할 수 있습니다. 또 다른 방법은 Azure에서 온-프레미스 도메인의 복제 도메인 컨트롤러를 VM으로 승격하는 것입니다. 온-프레미스 디렉터리에 대한 VPN/ExpressRoute 연결을 통해 복제되도록 설정할 수 있습니다. 이 배포 모드는 Azure에 온-프레미스 도메인을 효과적으로 확장합니다.
 
-- **리소스 포리스트 배포:** 도메인 컨트롤러로 구성된 Azure 가상 컴퓨터를 사용하여 리소스 포리스트 토폴로지에서 도메인을 설정할 수 있습니다. 다음으로 온-프레미스 AD 환경으로 AD 트러스트 관계를 구성할 수 있습니다. 클라우드에서 이 리소스 포리스트에 컴퓨터(Azure VM)를 도메인 가입시킬 수 있습니다. 사용자 인증은 온-프레미스 디렉터리에 대한 VPN/ExpressRoute 연결 중 하나를 통해 발생합니다.
-
-- **온-프레미스 도메인을 Azure로 확장:** Azure VM이 온-프레미스 AD에 가입할 수 있도록 VPN/ExpressRoute 연결을 사용하여 온-프레미스 네트워크에 Azure 가상 네트워크를 연결할 수 있습니다. 또 다른 방법은 Azure에서 온-프레미스 도메인의 복제 도메인 컨트롤러를 VM으로 승격하는 것입니다. 온-프레미스 디렉터리에 대한 VPN/ExpressRoute 연결을 통해 복제되도록 설정할 수 있습니다. 이 배포 모드는 Azure에 온-프레미스 도메인을 효과적으로 확장합니다.
-
-> [AZURE.NOTE] 배포 사용 사례에 DIY 옵션이 더 적합한지 결정할 수 있습니다. [의견 공유](active-directory-ds-contact-us.md) 를 고려하여 나중에 Azure AD Domain Services를 선택하는 데 도움이 되는 기능을 이해할 수 있습니다. 이 피드백은 서비스를 배포 요구 사항 및 사용 사례에 적합하도록 발전시키는 데 도움이 됩니다.
+> [!NOTE]
+> 배포 사용 사례에 DIY 옵션이 더 적합한지 결정할 수 있습니다. [의견 공유](active-directory-ds-contact-us.md) 를 고려하여 나중에 Azure AD Domain Services를 선택하는 데 도움이 되는 기능을 이해할 수 있습니다. 이 피드백은 서비스를 배포 요구 사항 및 사용 사례에 적합하도록 발전시키는 데 도움이 됩니다.
+> 
+> 
 
 [Azure Virtual Machines에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx) 을 게시하여 DIY 설치를 보다 쉽게 만들 수 있습니다.
 
-
 ## <a name="related-content"></a>관련 콘텐츠
-- [기능 - Azure AD Domain Services](active-directory-ds-features.md)
-
-- [배포 시나리오 - Azure AD Domain Services](active-directory-ds-scenarios.md)
-
-- [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-
-
+* [기능 - Azure AD Domain Services](active-directory-ds-features.md)
+* [배포 시나리오 - Azure AD Domain Services](active-directory-ds-scenarios.md)
+* [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
 <!--HONumber=Oct16_HO2-->
 

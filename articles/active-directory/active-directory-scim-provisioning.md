@@ -1,25 +1,23 @@
-<properties
-	pageTitle="SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용 | Microsoft Azure"
-	description="Azure Active Directory는 SCIM 프로토콜 사양에서 정의된 인터페이스를 가진 웹 서비스가 향하는 응용 프로그램 또는 ID 저장소에 사용자 및 그룹을 자동으로 프로비전합니다. "
-	services="active-directory"
-	documentationCenter=""
-	authors="asmalser-msft"
-	manager="femila"
-	editor=""/>
+---
+title: SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용 | Microsoft Docs
+description: 'Azure Active Directory는 SCIM 프로토콜 사양에서 정의된 인터페이스를 가진 웹 서비스가 향하는 응용 프로그램 또는 ID 저장소에 사용자 및 그룹을 자동으로 프로비전합니다. '
+services: active-directory
+documentationcenter: ''
+author: asmalser-msft
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/09/2016"
-	ms.author="asmalser-msft"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/09/2016
+ms.author: asmalser-msft
 
-#SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용
-
-##개요
-
+---
+# SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용
+## 개요
 Azure Active Directory는 [SCIM 2.0 프로토콜 사양](https://tools.ietf.org/html/draft-ietf-scim-api-19)에서 정의된 인터페이스를 가진 웹 서비스가 향하는 응용 프로그램 또는 ID 저장소에 사용자 및 그룹을 자동으로 프로비전합니다. Azure Active Directory는 이 웹 서비스에 할당된 사용자 및 그룹을 만들고 수정하며 삭제하는 요청을 보내며 이는 대상 ID 저장소의 작업으로 해당 요청을 번역할 수 있습니다.
 
 ![][1] *그림: 웹 서비스를 통해 Azure Active Directory에서 ID 저장소에 프로비전*
@@ -29,66 +27,55 @@ Azure Active Directory는 [SCIM 2.0 프로토콜 사양](https://tools.ietf.org/
 Azure Active Directory에서 SCIM에 대한 두 가지 사용 사례가 있습니다.
 
 * **SCIM을 지원하는 응용 프로그램에 사용자 및 그룹 프로비전** - SCIM 2.0을 지원하며 인증에 OAuth 전달자 토큰을 사용할 수 있는 응용 프로그램은 Azure AD에서 바로 작동합니다.
-
 * **다른 API 기반 프로비전을 지원하는 응용 프로그램에 대한 프로비전 솔루션 작성** - 비 SCIM 응용 프로그램의 경우 Azure AD의 SCIM 끝점과 응용 프로그램이 사용자 프로비전을 지원하는 API 간에 번역할 SCIM 끝점을 만들 수 있습니다. SCIM 끝점의 개발을 지원하려면 SCIM 끝점을 제공하고 SCIM 메시지를 번역하는 방법을 보여주는 코드 샘플과 함께 CLI 라이브러리를 제공합니다.
 
-##SCIM을 지원하는 응용 프로그램에 사용자 및 그룹 프로비전
-
+## SCIM을 지원하는 응용 프로그램에 사용자 및 그룹 프로비전
 Azure Active Directory은 [도메인간 ID 관리용 시스템 2(SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) 웹 서비스를 구현하고 인증에 대한 OAuth 전달자 토큰을 수락하는 응용 프로그램에 자동으로 할당된 사용자 및 그룹을 프로비전하도록 구성할 수 있습니다. SCIM 2.0 사양 내에서 응용 프로그램은 다음의 요구 사항을 충족해야 합니다.
 
 * SCIM 프로토콜의 섹션 3.3에 따라 사용자 및/또는 그룹 만들기를 지원합니다.
-
 * SCIM 프로토콜의 섹션 3.5.2에 따라 패치를 사용하여 사용자 및/또는 그룹 수정을 지원합니다.
-
 * SCIM 프로토콜의 섹션 3.4.1에 따라 알려진 리소스 검색을 지원합니다.
-
-*  SCIM 프로토콜의 섹션 3.4.2에 따라 사용자 및/또는 그룹 쿼리를 지원합니다. 기본적으로 사용자는 externalId에서 쿼리되고 그룹은 displayName에서 쿼리됩니다.
-
+* SCIM 프로토콜의 섹션 3.4.2에 따라 사용자 및/또는 그룹 쿼리를 지원합니다. 기본적으로 사용자는 externalId에서 쿼리되고 그룹은 displayName에서 쿼리됩니다.
 * SCIM 프로토콜의 섹션 3.4.2에 따라 ID 및 관리자에 의한 사용자 쿼리를 지원합니다.
-
 * SCIM 프로토콜의 섹션 3.4.2에 따라 ID 및 멤버에 의한 그룹 쿼리를 지원합니다.
-
 * SCIM 프로토콜의 섹션 2.1에 따라 권한 부여에 대한 OAuth 전달자 토큰을 수락합니다.
 
 이러한 요구 사항와의 호환성 문에 대한 응용 프로그램 공급자 또는 응용 프로그램 공급자의 설명서를 확인해야 합니다.
- 
-###시작하기
 
+### 시작하기
 Azure AD 응용 프로그램 갤러리에 있는 "사용자 지정" 앱 기능을 사용하여 위에서 설명한 SCIM 프로필을 지원하는 응용 프로그램을 Azure Active Directory에 연결할 수 있습니다. 연결되면 Azure AD는 할당된 사용자 및 그룹에 응용 프로그램의 SCIM 끝점을 쿼리하고 할당 정보에 따라 사용자 및 그룹을 만들거나 수정하는 동기화 프로세스를 5분 마다 실행합니다.
 
 **SCIM을 지원하는 응용 프로그램을 연결하려면:**
 
-1.	웹 브라우저에서 https://manage.windowsazure.com에 Azure 관리 포털을 시작합니다.
-2.	**Active Directory > 디렉터리 > [사용자의 디렉터리] > 응용 프로그램**으로 이동하고 **추가 > 갤러리에서 응용 프로그램 추가**를 선택합니다.
-3.	왼쪽에서 **사용자 지정** 탭을 선택하고 응용 프로그램에 이름을 입력한 다음 확인 표시 아이콘을 클릭하여 앱 개체를 만듭니다.
+1. 웹 브라우저에서 https://manage.windowsazure.com에 Azure 관리 포털을 시작합니다.
+2. **Active Directory > 디렉터리 > [사용자의 디렉터리] > 응용 프로그램**으로 이동하고 **추가 > 갤러리에서 응용 프로그램 추가**를 선택합니다.
+3. 왼쪽에서 **사용자 지정** 탭을 선택하고 응용 프로그램에 이름을 입력한 다음 확인 표시 아이콘을 클릭하여 앱 개체를 만듭니다.
 
 ![][2]
 
-4.	결과 화면에서 두 번째 **계정 프로비전 구성** 단추를 선택합니다.
-5.	**프로비전 끝점 URL** 필드에 응용 프로그램의 SCIM 끝점 URL을 입력합니다.
-6.	SCIM 끝점에 Azure AD 이외 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 복사하여 **인증 토큰(선택 사항)** 필드에 입력합니다. 이 필드를 비워 두면 Azure AD에 각 요청에 따라 Azure AD에서 발급한 OAuth 전달자 토큰이 포함됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
-7.	**다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 SCIM 끝점에 연결하는 데 Azure Active Directory를 시도합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.
-8.	응용 프로그램에 연결하려는 시도가 성공하면 남아 있는 화면에서 **다음**을 클릭한 다음 **완료**를 클릭하여 대화 상자를 종료합니다.
-9.	결과 화면에서 세 번째 **계정 할당** 단추를 선택합니다. 사용자 및 그룹 결과 섹션에서 응용 프로그램에 프로비전하려는 사용자 또는 그룹을 할당합니다.
-10.	사용자 및 그룹이 할당되면 화면 위쪽의 **구성** 탭을 클릭합니다.
-11.	**계정 프로비전**에서 상태가 켜기로 설정되었는지 확인합니다.
-12.	**도구**에서 **계정 프로비전 다시시작**을 클릭하여 프로비전 프로세스를 시작합니다.
+1. 결과 화면에서 두 번째 **계정 프로비전 구성** 단추를 선택합니다.
+2. **프로비전 끝점 URL** 필드에 응용 프로그램의 SCIM 끝점 URL을 입력합니다.
+3. SCIM 끝점에 Azure AD 이외 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 복사하여 **인증 토큰(선택 사항)** 필드에 입력합니다. 이 필드를 비워 두면 Azure AD에 각 요청에 따라 Azure AD에서 발급한 OAuth 전달자 토큰이 포함됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
+4. **다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 SCIM 끝점에 연결하는 데 Azure Active Directory를 시도합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.
+5. 응용 프로그램에 연결하려는 시도가 성공하면 남아 있는 화면에서 **다음**을 클릭한 다음 **완료**를 클릭하여 대화 상자를 종료합니다.
+6. 결과 화면에서 세 번째 **계정 할당** 단추를 선택합니다. 사용자 및 그룹 결과 섹션에서 응용 프로그램에 프로비전하려는 사용자 또는 그룹을 할당합니다.
+7. 사용자 및 그룹이 할당되면 화면 위쪽의 **구성** 탭을 클릭합니다.
+8. **계정 프로비전**에서 상태가 켜기로 설정되었는지 확인합니다.
+9. **도구**에서 **계정 프로비전 다시시작**을 클릭하여 프로비전 프로세스를 시작합니다.
 
 프로비전 프로세스가 SCIM 끝점에 요청을 보내려고 시작하기 전에 5-10분이 경과될 수 있습니다. 연결 시도의 요약은 응용 프로그램의 대시보드 탭에서 제공되고 프로비전 활동에 대한 보고서 및 프로비전 오류는 모두 디렉터리의 보고서 탭에서 다운로드할 수 있습니다.
 
-##응용 프로그램에 대한 고유한 프로비전 솔루션 구축
-
+## 응용 프로그램에 대한 고유한 프로비전 솔루션 구축
 Azure Active Directory와 상호 작용하는 SCIM 웹 서비스를 만들어서 REST 또는 SOAP 사용자 프로비전 API를 제공하는 거의 모든 응용 프로그램에 대한 Single Sign-On 및 자동 사용자 프로비전을 사용하도록 설정할 수 있습니다.
 
 방법은 다음과 같습니다.
 
-1.	Azure AD는 [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/)로 명명된 공용 언어 인프라 라이브러리를 제공합니다. 시스템 통합 업체 및 개발자는 이 라이브러리를 사용하여 응용 프로그램 ID 저장소에 Azure AD를 연결할 수 있는 SCIM 기반 웹 서비스 끝점을 만들고 배포할 수 있습니다.
-2.	매핑은 웹 서비스에서 구현되어 스키마에 응용 프로그램에서 필요한 사용자 스키마 및 프로토콜에 표준화된 사용자 스키마를 매핑합니다.
-3.	끝점 URL은 응용 프로그램 갤러리에서 사용자 지정 응용 프로그램의 일부로 Azure AD에 등록됩니다.
-4.	사용자 및 그룹은 Azure AD에서 이 응용 프로그램에 할당됩니다. 할당 시 큐에 저장하여 대상 응용 프로그램에 동기화됩니다. 큐를 처리하는 동기화 프로세스는 5분 마다 실행됩니다.
+1. Azure AD는 [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/)로 명명된 공용 언어 인프라 라이브러리를 제공합니다. 시스템 통합 업체 및 개발자는 이 라이브러리를 사용하여 응용 프로그램 ID 저장소에 Azure AD를 연결할 수 있는 SCIM 기반 웹 서비스 끝점을 만들고 배포할 수 있습니다.
+2. 매핑은 웹 서비스에서 구현되어 스키마에 응용 프로그램에서 필요한 사용자 스키마 및 프로토콜에 표준화된 사용자 스키마를 매핑합니다.
+3. 끝점 URL은 응용 프로그램 갤러리에서 사용자 지정 응용 프로그램의 일부로 Azure AD에 등록됩니다.
+4. 사용자 및 그룹은 Azure AD에서 이 응용 프로그램에 할당됩니다. 할당 시 큐에 저장하여 대상 응용 프로그램에 동기화됩니다. 큐를 처리하는 동기화 프로세스는 5분 마다 실행됩니다.
 
-###코드 샘플
-
+### 코드 샘플
 이 과정을 보다 쉽게 하려면 [코드 샘플](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)의 집합이 SCIM 웹 서비스 끝점을 만들고 자동 프로비전을 보여주도록 제공됩니다. 한 가지 샘플은 사용자 및 그룹을 나타내는 쉼표로 구분된 값의 행이 있는 파일을 유지 관리하는 공급자입니다. 다른 샘플은 Amazon 웹 서비스 ID 및 액세스 관리 서비스에서 작동하는 공급자입니다.
 
 **필수 구성 요소**
@@ -99,52 +86,47 @@ Azure Active Directory와 상호 작용하는 SCIM 웹 서비스를 만들어서
 * [Azure AD Premium의 평가판 또는 사용이 허가된 버전의 Azure 구독](https://azure.microsoft.com/services/active-directory/)
 * Amazon AWS 샘플에는 [Visual Studio용 AWS Toolkit](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html)의 라이브러리가 필요합니다. 추가 세부 정보는 샘플에 포함된 추가 정보 파일을 참조하세요.
 
-###시작하기
-
+### 시작하기
 Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현하는 가장 쉬운 방법은 쉼표로 구분된 값(CSV) 파일에 프로비전된 사용자를 출력하는 코드 샘플을 빌드하고 배포하는 것입니다.
 
 **샘플 SCIM 끝점을 만들려면:**
 
-1.	[https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)에서 코드 샘플 패키지를 다운로드합니다.
-2.	패키지의 압축을 풀고 C:\\AzureAD-BYOA-Provisioning-Samples와 같은 위치에서 Windows 컴퓨터에 넣습니다.
-3.	이 폴더에 Visual Studio에 있는 FileProvisioningAgent 솔루션을 시작합니다.
-4.	**도구 > 라이브러리 패키지 관리자 > 패키지 관리자 콘솔**을 선택하고 FileProvisioningAgent 프로젝트에 다음과 같은 명령을 실행하여 솔루션 참조를 확인합니다.
-
-    Install-Package Microsoft.SystemForCrossDomainIdentityManagement Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory Install-Package Microsoft.Owin.Diagnostics Install-Package Microsoft.Owin.Host.SystemWeb
-
-5.	FileProvisioningAgent 프로젝트를 빌드합니다.
-6.	관리자 권한으로 Windows에서 명령 프롬프트 응용 프로그램을 시작하고 **cd** 명령을 사용하여 디렉터리를 **\\AzureAD-BYOA-Provisioning-Samples\\ProvisioningAgent\\bin\\Debug** 폴더로 변경합니다.
-7.	아래 명령을 실행하여 <ip-address>를 Windows 컴퓨터의 IP 또는 도메인 이름으로 바꿉니다.
-
-    FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
-
-8.	Windows의 **Windows 설정 > 네트워크 및 인터넷 설정**에서 **Windows 방화벽 > 고급 설정**을 선택하고 포트 9000에 인바운드 액세스를 허용하는 **인바운드 규칙**을 만듭니다.
-9.	Windows 컴퓨터가 라우터 뒤에 있는 경우 라우터는 인터넷에 노출되는 포트 9000과 Windows 컴퓨터에 있는 포트 9000 사이의 네트워크 액세스 변환을 수행하도록 구성되어야 합니다. Azure AD의 경우 클라우드에서 이 끝점에 액세스할 수 있으려면 이것이 필요합니다.
-
+1. [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)에서 코드 샘플 패키지를 다운로드합니다.
+2. 패키지의 압축을 풀고 C:\\AzureAD-BYOA-Provisioning-Samples와 같은 위치에서 Windows 컴퓨터에 넣습니다.
+3. 이 폴더에 Visual Studio에 있는 FileProvisioningAgent 솔루션을 시작합니다.
+4. **도구 > 라이브러리 패키지 관리자 > 패키지 관리자 콘솔**을 선택하고 FileProvisioningAgent 프로젝트에 다음과 같은 명령을 실행하여 솔루션 참조를 확인합니다.
+   
+   Install-Package Microsoft.SystemForCrossDomainIdentityManagement Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory Install-Package Microsoft.Owin.Diagnostics Install-Package Microsoft.Owin.Host.SystemWeb
+5. FileProvisioningAgent 프로젝트를 빌드합니다.
+6. 관리자 권한으로 Windows에서 명령 프롬프트 응용 프로그램을 시작하고 **cd** 명령을 사용하여 디렉터리를 **\\AzureAD-BYOA-Provisioning-Samples\\ProvisioningAgent\\bin\\Debug** 폴더로 변경합니다.
+7. 아래 명령을 실행하여 <ip-address>를 Windows 컴퓨터의 IP 또는 도메인 이름으로 바꿉니다.
+   
+   FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
+8. Windows의 **Windows 설정 > 네트워크 및 인터넷 설정**에서 **Windows 방화벽 > 고급 설정**을 선택하고 포트 9000에 인바운드 액세스를 허용하는 **인바운드 규칙**을 만듭니다.
+9. Windows 컴퓨터가 라우터 뒤에 있는 경우 라우터는 인터넷에 노출되는 포트 9000과 Windows 컴퓨터에 있는 포트 9000 사이의 네트워크 액세스 변환을 수행하도록 구성되어야 합니다. Azure AD의 경우 클라우드에서 이 끝점에 액세스할 수 있으려면 이것이 필요합니다.
 
 **Azure AD에서 샘플 SCIM 끝점을 등록하려면:**
 
-1.	웹 브라우저에서 https://manage.windowsazure.com을 통해 Azure 관리 포털을 시작합니다.
-2.	**Active Directory > 디렉터리 > [사용자의 디렉터리] > 응용 프로그램**으로 이동하고 **추가 > 갤러리에서 응용 프로그램 추가**를 선택합니다.
-3.	왼쪽에서 **사용자 지정** 탭을 선택하고 "SCIM 테스트 앱"과 같은 이름을 입력한 다음 확인 표시 아이콘을 클릭하여 앱 개체를 만듭니다. 만든 응용 프로그램 개체는 SCIM 끝점 뿐만 아니라 Single Sign-On을 프로비전하고 구현하는 대상 앱을 나타내도록 합니다.
+1. 웹 브라우저에서 https://manage.windowsazure.com을 통해 Azure 관리 포털을 시작합니다.
+2. **Active Directory > 디렉터리 > [사용자의 디렉터리] > 응용 프로그램**으로 이동하고 **추가 > 갤러리에서 응용 프로그램 추가**를 선택합니다.
+3. 왼쪽에서 **사용자 지정** 탭을 선택하고 "SCIM 테스트 앱"과 같은 이름을 입력한 다음 확인 표시 아이콘을 클릭하여 앱 개체를 만듭니다. 만든 응용 프로그램 개체는 SCIM 끝점 뿐만 아니라 Single Sign-On을 프로비전하고 구현하는 대상 앱을 나타내도록 합니다.
 
 ![][2]
 
-4.	결과 화면에서 두 번째 **계정 프로비전 구성** 단추를 선택합니다.
-5.	대화 상자에서 인터넷에 노출된 URL 및 프로그램 SCIM 끝점의 포트를 입력합니다. <ip-address>가 인터넷 노출된 IP 주소인 경우 http://testmachine.contoso.com:9000 또는 http://<ip-address>:9000/과 같습니다.
-6.	**다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 Azure Active Directory에서 SCIM 끝점에 연결을 시도하게 합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.
-7.	웹 서비스에 연결하려는 시도가 성공하면 나머지 화면에서 **다음**을 클릭한 다음 **완료**를 클릭하여 대화 상자를 종료합니다.
-8.	결과 화면에서 세 번째 **계정 할당** 단추를 선택합니다. 사용자 및 그룹 결과 섹션에서 응용 프로그램에 프로비전하려는 사용자 또는 그룹을 할당합니다.
-9.	사용자 및 그룹이 할당되면 화면 위쪽의 **구성** 탭을 클릭합니다.
-10.	**계정 프로비전**에서 상태가 켜기로 설정되었는지 확인합니다.
-11.	**도구**에서 **계정 프로비전 다시시작**을 클릭하여 프로비전 프로세스를 시작합니다.
+1. 결과 화면에서 두 번째 **계정 프로비전 구성** 단추를 선택합니다.
+2. 대화 상자에서 인터넷에 노출된 URL 및 프로그램 SCIM 끝점의 포트를 입력합니다. <ip-address>가 인터넷 노출된 IP 주소인 경우 http://testmachine.contoso.com:9000 또는 http://<ip-address>:9000/과 같습니다.
+3. **다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 Azure Active Directory에서 SCIM 끝점에 연결을 시도하게 합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.
+4. 웹 서비스에 연결하려는 시도가 성공하면 나머지 화면에서 **다음**을 클릭한 다음 **완료**를 클릭하여 대화 상자를 종료합니다.
+5. 결과 화면에서 세 번째 **계정 할당** 단추를 선택합니다. 사용자 및 그룹 결과 섹션에서 응용 프로그램에 프로비전하려는 사용자 또는 그룹을 할당합니다.
+6. 사용자 및 그룹이 할당되면 화면 위쪽의 **구성** 탭을 클릭합니다.
+7. **계정 프로비전**에서 상태가 켜기로 설정되었는지 확인합니다.
+8. **도구**에서 **계정 프로비전 다시시작**을 클릭하여 프로비전 프로세스를 시작합니다.
 
 프로비전 프로세스가 SCIM 끝점에 요청을 보내려고 시작하기 전에 5-10분이 경과될 수 있습니다. 연결 시도의 요약은 응용 프로그램의 대시보드 탭에서 제공되고 프로비전 활동에 대한 보고서 및 프로비전 오류는 모두 디렉터리의 보고서 탭에서 다운로드할 수 있습니다.
 
 이 샘플을 확인하는 마지막 단계는 Windows 컴퓨터에서 \\AzureAD-BYOA-Provisioning-Samples\\ProvisioningAgent\\bin\\Debug 폴더에 TargetFile.csv 파일을 여는 것입니다. 프로비전 프로세스가 실행되면 이 파일은 할당되고 프로비전된 모든 사용자 및 그룹의 세부 사항을 표시합니다.
 
-###개발 라이브러리
-
+### 개발 라이브러리
 SCIM 사양을 준수하는 웹 서비스를 개발하려면 먼저 개발 프로세스를 가속화하기 위해 Microsoft에서 제공하는 다음 라이브러리를 숙지합니다.
 
 **1:** 공용 언어 인프라 라이브러리는 C#과 같은 해당 인프라에 따라 언어와 함께 사용하기 위해 제공됩니다. 이러한 라이브러리 중 하나인 [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/)는 아래 그림에 표시된 인터페이스 Microsoft.SystemForCrossDomainIdentityManagement.IProvider를 선언합니다. 라이브러리를 사용하는 개발자는 일반적으로 공급자로 참조될 수 있는 클래스를 사용하여 해당 인터페이스를 구현합니다. 라이브러리를 사용하면 개발자는 SCIM 사양을 준수하는 웹 서비스를 쉽게 배포할 수 있으며 이는 인터넷 정보 서비스 또는 실행 가능한 공용 언어 인프라 어셈블리 내에서 호스팅됩니다. 해당 웹 서비스에 대한 요청은 공급자의 메서드에 호출로 해석되며 이는 개발자에 의해 일부 ID 저장소에서 작동하도록 프로그래밍됩니다.
@@ -153,8 +135,7 @@ SCIM 사양을 준수하는 웹 서비스를 개발하려면 먼저 개발 프�
 
 **2:** [Express 경로 처리기](http://expressjs.com/guide/routing.html)는 node.js 웹 서비스에 수행된(SCIM 사양에 정의된 대로) 호출을 나타내는 node.js 요청 개체를 구문 분석하는 데 사용할 수 있습니다.
 
-###사용자 지정 SCIM 끝점 빌드
-
+### 사용자 지정 SCIM 끝점 빌드
 위에서 설명한 라이브러리를 사용하여 해당 라이브러리를 사용하는 개발자는 실행 가능한 공용 언어 인프라 어셈블리 또는 인터넷 정보 서비스 내에서 해당 서비스를 호스팅할 수 있습니다. 다음은 http://localhost:9000 주소에 있는 실행 가능한 어셈블리 내에서 서비스를 호스트하기 위한 샘플 코드입니다.
 
     private static void Main(string[] arguments)
@@ -163,7 +144,7 @@ SCIM 사양을 준수하는 웹 서비스를 개발하려면 먼저 개발 프�
     // Microsoft.SystemForCrossDomainIdentityManagement.IProvider and 
     // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
     // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
-    
+
     Microsoft.SystemForCrossDomainIdentityManagement.IMonitor monitor = 
       new DevelopersMonitor();
     Microsoft.SystemForCrossDomainIdentityManagement.IProvider provider = 
@@ -241,7 +222,7 @@ SCIM 사양을 준수하는 웹 서비스를 개발하려면 먼저 개발 프�
 서버 인증 인증서는 네트워크 셸 유틸리티를 사용하여 다음과 같이 Windows 호스트의 포트에 바인딩될 수 있습니다.
 
     netsh http add sslcert ipport=0.0.0.0:443 certhash=0000000000003ed9cd0c315bbb6dc1c08da5e6 appid={00112233-4455-6677-8899-AABBCCDDEEFF}  
- 
+
 여기에서 appid 인수에 제공된 값이 임의의 전역 고유 식별자인 반면 certhash 인수에 제공된 값은 인증서의 지문입니다.
 
 인터넷 정보 서비스 내에서 서비스를 호스팅하려면 개발자는 어셈블리의 기본 네임스페이스의 설치로 명명된 클래스를 사용하여 공용 언어 인프라 코드 라이브러리 어셈블리를 빌드합니다. 이러한 클래스의 샘플은 다음과 같습니다.
@@ -274,8 +255,7 @@ SCIM 사양을 준수하는 웹 서비스를 개발하려면 먼저 개발 프�
     }
     }
 
-###끝점 인증 처리
-
+### 끝점 인증 처리
 Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다. 요청을 받는 모든 서비스는 예상된 Azure Active Directory 테넌트 대신 Azure Active Directory의 Graph 웹 서비스에 액세스하는 데 대해 발급자를 Azure Active Directory로 인증해야 합니다. 토큰에서 발급자는 "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"와 같은 iss 클레임으로 식별됩니다. 이 예제에서 상대 주소 세그먼트인 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422가 토큰이 발급된 대신 Azure Active Directory 테넌트의 고유한 발급자인 반면 클레임 값의 기본 주소인 https://sts.windows.net는 Azure Active Directory를 발급자로 식별합니다. 토큰이 Azure Active Directory의 Graph 웹 서비스에 액세스하기 위해 발급되었다면 해당 서비스의 실별자인 00000002-0000-0000-c000-000000000000는 토큰의 aud 클레임의 값에 있어야 합니다.
 
 SCIM 서비스 구축을 위해 Microsoft에서 제공하는 공용 언어 인프라 라이브러리를 사용하는 개발자는 Microsoft.Owin.Security.ActiveDirectory 패키지로 다음 단계를 수행하여 Azure Active Directory에서 요청을 인증할 수 있습니다.
@@ -327,51 +307,45 @@ SCIM 서비스 구축을 위해 Microsoft에서 제공하는 공용 언어 인�
       applicationBuilder.UseWindowsAzureActiveDirectoryBearerAuthentication(authenticationOptions);
     }
 
-##사용자 및 그룹 스키마
-
+## 사용자 및 그룹 스키마
 Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프로비전할 수 있습니다. 이러한 형식의 리소스는 사용자 및 그룹입니다.
 
 사용자 리소스는 http://tools.ietf.org/html/draft-ietf-scim-core-schema 프로토콜 사양에 포함된 스키마 식별자 urn: ietf:params:scim:schemas:extension:enterprise:2.0:User로 식별됩니다. urn: ietf:params:scim:schemas:extension:enterprise:2.0:User 리소스의 특성에 Azure Active Directory에서 사용자의 특성을 기본 매핑한 작업은 아래 테이블 1에서 제공됩니다.
 
 그룹 리소스는 스키마 식별자 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group으로 식별됩니다. 아래 표 2에서는 Azure Active Directory의 그룹 특성과 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 리소스 특성 간의 기본 매핑을 보여 줍니다.
 
-###테이블 1: 기본 사용자 특성 매핑
-
+### 테이블 1: 기본 사용자 특성 매핑
 | Azure Active Directory 사용자 | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
-| ------------- | ------------- |
-| IsSoftDeleted | 활성 |
-| displayName | displayName |
-| Facsimile-TelephoneNumber | phoneNumbers[type eq "fax"].value |
-| givenName | name.givenName |
-| jobTitle | title |
-| mail | emails[type eq "work"].value |
-| mailNickname | externalId |
-| manager | manager |
-| mobile | phoneNumbers[type eq "mobile"].value |
-| objectId | id |
-| postalCode | addresses[type eq "work"].postalCode |
-| proxy-Addresses | emails[type eq "other"].Value |
-| physical-Delivery-OfficeName | addresses[type eq "other"].Formatted |
-| streetAddress | addresses[type eq "work"].streetAddress |
-| surname | name.familyName |
-| telephone-Number | phoneNumbers[type eq "work"].value |
-| user-PrincipalName | userName |
+| --- | --- |
+| IsSoftDeleted |활성 |
+| displayName |displayName |
+| Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
+| givenName |name.givenName |
+| jobTitle |title |
+| mail |emails[type eq "work"].value |
+| mailNickname |externalId |
+| manager |manager |
+| mobile |phoneNumbers[type eq "mobile"].value |
+| objectId |id |
+| postalCode |addresses[type eq "work"].postalCode |
+| proxy-Addresses |emails[type eq "other"].Value |
+| physical-Delivery-OfficeName |addresses[type eq "other"].Formatted |
+| streetAddress |addresses[type eq "work"].streetAddress |
+| surname |name.familyName |
+| telephone-Number |phoneNumbers[type eq "work"].value |
+| user-PrincipalName |userName |
 
-
-###테이블 2: 기본 그룹 특성 매핑
-
+### 테이블 2: 기본 그룹 특성 매핑
 | Azure Active Directory 그룹 | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
-| ------------- | ------------- |
-| displayName | externalId |
-| mail | emails[type eq "work"].value |
-| mailNickname | displayName |
-| members | members |
-| objectId | id |
-| proxyAddresses | emails[type eq "other"].Value |
+| --- | --- |
+| displayName |externalId |
+| mail |emails[type eq "work"].value |
+| mailNickname |displayName |
+| members |members |
+| objectId |id |
+| proxyAddresses |emails[type eq "other"].Value |
 
-
-##사용자 프로비전 및 프로비전 해제
-
+## 사용자 프로비전 및 프로비전 해제
 아래 그림은 다른 ID 저장소에 사용자의 수명 주기를 관리하도록 Azure Active Directory가 SCIM 서비스를 보낸다는 메세지를 보여줍니다. 또한 다이어그램은 이러한 서비스 구축을 위해 Microsoft에서 제공하는 공용 언어 인프라 라이브러리를 사용하여 구현된 SCIM 서비스가 이러한 요청을 어떻게 공급자의 메서드에 호출로 번역하는지를 보여줍니다.
 
 ![][4] *그림: 사용자 프로비전 및 시퀀스 프로비전 해제*
@@ -403,13 +377,13 @@ Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters 인터페이�
     }
 
     public interface Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
-	{
+    {
       system.Collections.Generic.IReadOnlyCollection<string> ExcludedAttributePaths 
       { get; }
       System.Collections.Generic.IReadOnlyCollection<string> RequestedAttributePaths 
       { get; }
       string SchemaIdentifier 
-	  { get; }
+      { get; }
     }
 
     public interface Microsoft.SystemForCrossDomainIdentityManagement.IFilter
@@ -423,7 +397,7 @@ Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters 인터페이�
         string ComparisonValue 
           { get; }
     }
-    
+
     public enum Microsoft.SystemForCrossDomainIdentityManagement.ComparisonOperator
     {
         Equals
@@ -496,7 +470,7 @@ SCIM 서비스 구현에 대해 Microsoft에서 제공하는 공용 언어 인�
          Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
            parameters, 
            string correlationIdentifier);
-    
+
     public interface 
       Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters:   
         IRetrievalParameters
@@ -604,7 +578,7 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
     public Microsoft.SystemForCrossDomainIdentityManagement.OperationName 
       Name
       { get; set; }
-    
+
     public Microsoft.SystemForCrossDomainIdentityManagement.IPath 
       Path
       { get; set; }
@@ -635,7 +609,7 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
     {
       public string Reference
       { get; set; }
-      
+
       public string Value
       { get; set; }
     }
@@ -657,7 +631,7 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
 
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
-	
+
 서비스가 SCIM 서비스 구현에 대해 Microsoft에서 제공하는 공용 언어 인프라 라이브러리를 사용하여 작성되면 요청이 서비스 공급자의 삭제 메서드 호출로 번역됩니다. 해당 매서드에는 다음 서명이 있습니다.
 
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -667,14 +641,13 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
       Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier  
         resourceIdentifier, 
       string correlationIdentifier);
- 
+
 앞서 언급한 사용자의 프로비전을 해제하는 요청의 예에서 resourceIdentifier 인수의 값으로 제공되는 개체는 다음과 같은 속성 값이 적용됩니다.
 
 * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-##그룹 프로비전 및 프로비전 해제
-
+## 그룹 프로비전 및 프로비전 해제
 아래 그림은 다른 ID 저장소에 그룹의 수명 주기를 관리하도록 Azure Active Directory가 SCIM 서비스를 보낸다는 메세지를 보여줍니다. 이러한 메시지는 세 가지 부분에서 사용자에 관련된 메시지가 다릅니다.
 
 * 그룹 리소스의 스키마는 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group으로 식별됩니다.
@@ -683,18 +656,15 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
 
 ![][5] *그림: 그룹 프로비전 및 시퀀스 프로비전 해제*
 
-##관련 문서
+## 관련 문서
+* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+* [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](active-directory-saas-app-provisioning.md)
+* [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)
+* [특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+* [사용자 프로 비전에 대 한 필터 범위 지정](active-directory-saas-scoping-filters.md)
+* [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
+* [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 
-- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-- [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](active-directory-saas-app-provisioning.md)
-- [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)
-- [특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-- [사용자 프로 비전에 대 한 필터 범위 지정](active-directory-saas-scoping-filters.md)
-- [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
-- [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-
-
-	
 <!--Image references-->
 [1]: ./media/active-directory-scim-provisioning/scim-figure-1.PNG
 [2]: ./media/active-directory-scim-provisioning/scim-figure-2.PNG

@@ -1,50 +1,52 @@
-<properties
-   pageTitle="Azure 검색에서 다국어 문서에 대한 인덱스 정의 만들기| Microsoft Azure | 호스트된 클라우드 검색 서비스"
-   description=" Azure 검색은 Lucene 및 Microsoft 제공 자연어 처리 기술을 통해 56개 언어를 지원합니다."
-   services="search"
-   documentationCenter=""
-   authors="yahnoosh"
-   manager="pablocas"
-   editor=""/>
+---
+title: Azure 검색에서 다국어 문서에 대한 인덱스 정의 만들기| Microsoft Docs
+description: " Azure 검색은 Lucene 및 Microsoft 제공 자연어 처리 기술을 통해 56개 언어를 지원합니다."
+services: search
+documentationcenter: ''
+author: yahnoosh
+manager: pablocas
+editor: ''
 
-<tags
-   ms.service="search"
-   ms.devlang="na"
-   ms.workload="search"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.date="07/14/2016"
-   ms.author="jlembicz"/>
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 07/14/2016
+ms.author: jlembicz
 
+---
 # Azure 검색에서 다국어 문서에 대한 인덱스 만들기
-> [AZURE.SELECTOR]
-- [포털](search-language-support.md)
-- [REST (영문)](https://msdn.microsoft.com/library/azure/dn879793.aspx)
-- [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
+> [!div class="op_single_selector"]
+> * [포털](search-language-support.md)
+> * [REST (영문)](https://msdn.microsoft.com/library/azure/dn879793.aspx)
+> * [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
+> 
+> 
 
 인덱스 정의의 검색 가능한 필드에서 한 가지 속성만 설정하면 간단히 언어 분석기를 활용할 수 있습니다. 이제 포털에서 이 단계를 수행할 수 있습니다.
 
 다음은 사용자가 인덱스 스키마를 정의할 수 있는 Azure 검색의 Azure 포털 블레이드의 스크린샷입니다. 이 블레이드로부터 사용자가 모든 필드를 만들고 각각에 대한 분석기 속성을 설정할 수 있습니다.
 
-> [AZURE.IMPORTANT] 처음부터 새 인덱스를 만들거나 새 필드를 기존 인덱스에 추가할 때처럼 필드 정의 중에 언어 분석기를 설정하기만 하면 됩니다. 필드를 만들 때 분석기를 포함한 모든 속성을 완전히 지정했는지 확인합니다. 변경 내용을 저장한 후에는 속성을 편집하거나 분석기 형식을 변경할 수 없습니다.
+> [!IMPORTANT]
+> 처음부터 새 인덱스를 만들거나 새 필드를 기존 인덱스에 추가할 때처럼 필드 정의 중에 언어 분석기를 설정하기만 하면 됩니다. 필드를 만들 때 분석기를 포함한 모든 속성을 완전히 지정했는지 확인합니다. 변경 내용을 저장한 후에는 속성을 편집하거나 분석기 형식을 변경할 수 없습니다.
+> 
+> 
 
 ## 새 필드 정의
-
 1. [Azure 포털](https://portal.azure.com)에 로그인하고 검색 서비스의 서비스 블레이드를 엽니다.
 2. 서비스 대시보드 위쪽의 명령 모음에 있는 **인덱스 추가**를 클릭하여 새 인덱스를 시작하거나, 기존 인덱스를 여러 기존 인덱스에 추가하는 새 필드에 대해 분석기를 설정합니다.
 3. 언어 분석기 선택을 위한 분석기 탭 등, 인덱스 스키마 정의 옵션을 제공하는 필드 블레이드가 나타납니다.
 4. 필드에서 이름을 입력하고 데이터 형식을 선택하며 필드를 전체 텍스트 검색 가능, 검색 결과에서 검색 가능, 패싯 탐색 구조에서 사용 가능, 정렬 가능 등으로 표시하는 속성을 설정하여 필드 정의를 시작합니다.
 5. 다음 필드로 이동하기 전에 **분석기** 탭을 엽니다.
 
-   
 ![][1] *분석기를 선택하려면 필드 블레이드의 분석기 탭을 클릭합니다.*
 
 ## 분석기 선택
-
-6. 스크롤하여 정의하는 필드를 찾습니다.
-7. 필드를 **검색 가능**으로 표시하지 않은 경우 지금 확인란을 클릭하여 검색 가능으로 표시합니다.
-8. 분석기 영역을 클릭하여 사용 가능한 분석기 목록을 표시합니다.
-9. 사용할 분석기를 선택합니다.
+1. 스크롤하여 정의하는 필드를 찾습니다.
+2. 필드를 **검색 가능**으로 표시하지 않은 경우 지금 확인란을 클릭하여 검색 가능으로 표시합니다.
+3. 분석기 영역을 클릭하여 사용 가능한 분석기 목록을 표시합니다.
+4. 사용할 분석기를 선택합니다.
 
 ![][2] *각 필드에 대해 지원되는 분석기 중 하나를 선택합니다.*
 

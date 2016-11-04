@@ -1,24 +1,22 @@
-<properties
-	pageTitle="기계 학습 스튜디오에서 샘플 데이터 집합 사용 | Microsoft Azure"
-	description="기계 학습 스튜디오에 포함된 샘플 모델에 사용되는 데이터 집합에 대한 설명 실험에 대해 이 샘플 데이터 집합을 사용할 수 있습니다."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: 기계 학습 스튜디오에서 샘플 데이터 집합 사용 | Microsoft Docs
+description: 기계 학습 스튜디오에 포함된 샘플 모델에 사용되는 데이터 집합에 대한 설명 실험에 대해 이 샘플 데이터 집합을 사용할 수 있습니다.
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: garye
 
-
+---
 # Azure 기계 학습 스튜디오에서 예제 데이터 집합 사용
-
 [top]: #machine-learning-sample-datasets
 
 Azure 기계 학습에서 새 작업 영역을 만들 때 다양한 샘플 데이터 집합 및 실험이 기본적으로 포함됩니다. 이 샘플 데이터 집합의 많은 부분이 [Azure Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)에서 샘플 모델로 사용되며, 일반적으로 나머지는 기계 학습에 사용되는 데이터의 다양한 형식의 예제로 포함됩니다.
@@ -27,15 +25,13 @@ Azure 기계 학습에서 새 작업 영역을 만들 때 다양한 샘플 데�
 
 이러한 샘플 데이터 집합의 나머지는 기계 학습 스튜디오에서 새 실험을 만들거나 열 때 실험 캔버스 왼쪽에 있는 모듈 팔레트의 **Saved Datasets** 아래에 나열됩니다. 실험 캔버스로 끌어와 이러한 데이터 집합을 실험에서 사용할 수 있습니다.
 
-
 <!--
 For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
 
 [sample-experiments]: machine-learning-sample-experiments.md
 -->
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 <table>
 

@@ -4,15 +4,15 @@
 
 이 항목에서는 다음에 대해 설명합니다.
 
-+ [Docker 및 Linux 컨테이너]
-+ [Azure와 함께 Docker VM 확장을 사용하는 방법]
-+ [Linux 및 Windows용 가상 컴퓨터 확장]
+* [Docker 및 Linux 컨테이너]
+* [Azure와 함께 Docker VM 확장을 사용하는 방법]
+* [Linux 및 Windows용 가상 컴퓨터 확장]
 
 Docker 사용 가능 VM을 즉시 만들려면 다음 항목을 참조하세요.
 
-+ [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장을 사용하는 방법]
-+ [Azure 클래식 포털에서 Docker VM 확장을 사용하는 방법]
-+ [Azure 마켓플레이스에서 Docker를 신속하게 시작하는 방법]
+* [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장을 사용하는 방법]
+* [Azure 클래식 포털에서 Docker VM 확장을 사용하는 방법]
+* [Azure 마켓플레이스에서 Docker를 신속하게 시작하는 방법]
 
 확장 및 작동 원리에 대한 자세한 내용은 [Docker 확장 사용자 가이드](https://github.com/Azure/azure-docker-extension/blob/master/README.md)를 참조하세요.
 
@@ -26,30 +26,28 @@ Docker 및 기타 *컨테이너* 접근 방법은 Linux 커널의 프로세스 �
 다음 표에서는 하이퍼바이저와 Linux 컨테이너 간의 기능 차이에 대해 매우 간략하게 설명합니다. 개별 응용 프로그램 요구 사항에 따라 보다 적합한 기능도 있고 그렇지 않은 기능도 있습니다.
 
 | 기능 | 하이퍼바이저 | 컨테이너 |
-| :------------- |-------------| ----------- |
-| 프로세스 격리 | 어느 정도 완전함 | 루트를 가져오는 경우 컨테이너 호스트가 손상될 수 있음 |
-| 디스크에 필요한 메모리 | 전체 OS + 앱 | 앱 요구 사항만 적용됨 |
-| 시작 소요 시간 | 매우 김: OS 부팅 및 앱 로딩 | 매우 짧음: 커널이 이미 실행 중이므로 앱만 시작하면 됨 |
-| 컨테이너 자동화 | OS와 앱에 따라 크게 다름 | [Docker 이미지 갤러리](https://registry.hub.docker.com/)/기타
+|:--- | --- | --- |
+| 프로세스 격리 |어느 정도 완전함 |루트를 가져오는 경우 컨테이너 호스트가 손상될 수 있음 |
+| 디스크에 필요한 메모리 |전체 OS + 앱 |앱 요구 사항만 적용됨 |
+| 시작 소요 시간 |매우 김: OS 부팅 및 앱 로딩 |매우 짧음: 커널이 이미 실행 중이므로 앱만 시작하면 됨 |
+| 컨테이너 자동화 |OS와 앱에 따라 크게 다름 |[Docker 이미지 갤러리](https://registry.hub.docker.com/)/기타 |
 
 컨테이너와 해당 이점에 대한 간략한 설명을 확인하려면 [Docker 요약 화이트보드](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)를 참조하세요.
 
 Docker 정의 및 실제 작동 방식에 대한 자세한 내용은 [Docker 정의](https://www.docker.com/whatisdocker/)를 참조하세요.
 
 #### Docker 및 Linux 컨테이너 보안 모범 사례
-
 컨테이너는 호스트 컴퓨터의 커널에 대한 액세스를 공유하므로 악성 코드가 침투할 수 있으면 호스트 컴퓨터뿐 아니라 다른 컨테이너에도 액세스할 수 있게 됩니다. 컨테이너 시스템 보안을 기본 구성보다 강화하기 위한 [Docker 권장 사항](https://docs.docker.com/articles/security/)에는 그룹 정책 또는 [역할 기반 보안](http://en.wikipedia.org/wiki/Role-based_access_control)(예: [SELinux](http://selinuxproject.org/page/Main_Page) 또는 [AppArmor](http://wiki.apparmor.net/index.php/Main_Page))을 추가로 사용하거나 컨테이너에 부여되는 커널 기능을 최대한 축소하는 방법 등이 있습니다. 또한 Docker와 같은 컨테이너를 사용한 보안 접근 방법을 설명하는 다른 많은 문서가 인터넷에 있습니다.
 
 ## Azure와 함께 Docker VM 확장을 사용하는 방법
-
 Docker VM 확장은 사용자가 만드는 VM 인스턴스에 설치되는 구성 요소로, 자체적으로 Docker 엔진을 설치하고 VM과의 원격 통신을 관리합니다. 두 가지 방법으로 VM 확장을 설치할 수 있습니다. 그 중 하나는 관리 포털을 통해 VM을 만드는 것이고, 다른 하나는 Azure 명령줄 인터페이스(Azure CLI)에서 VM을 만드는 것입니다.
 
 포털을 사용하면 호환되는 모든 Linux VM에 Docker VM 확장을 추가할 수 있습니다. 현재 확장을 지원하는 이미지는 7월 이후의 Ubuntu 14.04 LTS 이미지뿐입니다. 그러나 Azure CLI 명령줄을 사용하는 경우에는 VM 인스턴스를 만들 때 Docker VM 확장 설치 및 Docker 통신 인증서 업로드를 모두 동시에 수행할 수 있습니다.
 
 Docker 사용 가능 VM을 즉시 만들려면 다음 항목을 참조하세요.
 
-+ [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장을 사용하는 방법]
-+ [Azure 클래식 포털에서 Docker VM 확장을 사용하는 방법]
+* [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장을 사용하는 방법]
+* [Azure 클래식 포털에서 Docker VM 확장을 사용하는 방법]
 
 ## Linux 및 Windows용 가상 컴퓨터 확장
 [Azure용 Docker VM 확장](https://github.com/Azure/azure-docker-extension/blob/master/README.md)은 특수 동작을 제공하는 여러 VM 확장 중 하나일 뿐이며 추가 VM이 개발 중입니다. 예를 들어 보안 기능, 커널 및 네트워킹 기능 등을 비롯한 [Linux VM 에이전트 확장](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md)의 여러 기능을 사용하여 가상 컴퓨터를 수정하고 관리할 수 있습니다. 예제용 VMAccess 확장을 사용하여 관리자 암호 또는 SSH 키를 다시 설정할 수 있습니다.

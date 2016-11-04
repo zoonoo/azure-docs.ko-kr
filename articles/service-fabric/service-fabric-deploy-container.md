@@ -1,46 +1,49 @@
-<properties
-   pageTitle="Service Fabric 및 컨테이너 배포 | Microsoft Azure"
-   description="Service Fabric 및 마이크로 서비스 응용 프로그램 배포를 위한 컨테이너 사용. 이 문서는 Service Fabric이 컨테이너에 대해 제공하는 기능과 클러스터에 컨테이너 이미지를 배포하는 방법을 알려줍니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager=""
-   editor=""/>
+---
+title: Service Fabric 및 컨테이너 배포 | Microsoft Docs
+description: Service Fabric 및 마이크로 서비스 응용 프로그램 배포를 위한 컨테이너 사용. 이 문서는 Service Fabric이 컨테이너에 대해 제공하는 기능과 클러스터에 컨테이너 이미지를 배포하는 방법을 알려줍니다.
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: ''
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/25/2016"
-   ms.author="msfussell"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/25/2016
+ms.author: msfussell
 
-
+---
 # <a name="preview:-deploy-a-container-to-service-fabric"></a>미리 보기: 컨테이너를 Service Fabric에 배포
-
->[AZURE.NOTE] 이 기능은 Linux용 미리 보기 상태이며 Windows Server에서는 현재 사용할 수 없습니다. Windows Server 2016 GA 후 Service Fabric의 다음 릴리스에서 Windows Server용 미리 보기로 제공된 후에 후속 릴리스에서 지원될 예정입니다.
+> [!NOTE]
+> 이 기능은 Linux용 미리 보기 상태이며 Windows Server에서는 현재 사용할 수 없습니다. Windows Server 2016 GA 후 Service Fabric의 다음 릴리스에서 Windows Server용 미리 보기로 제공된 후에 후속 릴리스에서 지원될 예정입니다.
+> 
+> 
 
 Service Fabric에는 컨테이너화된 마이크로 서비스로 구성된 응용 프로그램을 빌드하는 데 도움을 주는 몇 가지 컨테이너 기능이 있습니다. 이것을 컨테이너화된 서비스라고 합니다. 기능은 다음과 같습니다.
 
-- 컨테이너 이미지 배포 및 활성화
-- 리소스 관리
-- 리포지토리 인증
-- 포트 매핑을 호스트하는 컨테이너 포트
-- 컨테이너 간 검색 및 통신
-- 환경 변수를 구성하고 설정할 수 있는 기능
+* 컨테이너 이미지 배포 및 활성화
+* 리소스 관리
+* 리포지토리 인증
+* 포트 매핑을 호스트하는 컨테이너 포트
+* 컨테이너 간 검색 및 통신
+* 환경 변수를 구성하고 설정할 수 있는 기능
 
 컨테이너화된 서비스가 응용 프로그램에 포함되도록 패키징 하는 경우의 각 기능을 차례차례 살펴보겠습니다.
 
 ## <a name="packaging-a-container"></a>컨테이너 패키징
-
 컨테이너를 패키징할 경우 Visual Studio 프로젝트 템플릿을 사용하거나 [응용 프로그램 패키지를 수동으로 만들도록](#manually)선택할 수 있습니다. Visual Studio를 사용하면 새 프로젝트 마법사에서 응용 프로그램 패키지 구조 및 매니페스트 파일을 생성합니다.
 
 ## <a name="using-visual-studio-to-package-an-existing-executable"></a>Visual Studio를 사용하여 기존 실행 파일 패키징
-
->[AZURE.NOTE] Visual Studio 도구 SDK 향후 릴리스에서는 현재 게스트 실행 파일을 추가하는 것과 비슷한 방식으로 컨테이너를 응용 프로그램에 추가할 수 있게 됩니다. [Service Fabric에 게스트 실행 파일 배포](service-fabric-deploy-existing-app.md) 항목을 참조하세요. 현재는 아래 설명에 따라 수동으로 패키징해야 합니다.
+> [!NOTE]
+> Visual Studio 도구 SDK 향후 릴리스에서는 현재 게스트 실행 파일을 추가하는 것과 비슷한 방식으로 컨테이너를 응용 프로그램에 추가할 수 있게 됩니다. [Service Fabric에 게스트 실행 파일 배포](service-fabric-deploy-existing-app.md) 항목을 참조하세요. 현재는 아래 설명에 따라 수동으로 패키징해야 합니다.
+> 
+> 
 
 <a id="manually"></a>
+
 ## <a name="manually-packaging-and-deploying-container"></a>컨테이너 수동 패키징 및 배포
 컨테이너화된 서비스를 수동으로 패키징하는 프로세스는 다음 단계를 기반으로 합니다.
 
@@ -68,14 +71,16 @@ Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)
 ## <a name="resource-governance"></a>리소스 관리
 리소스 관리는 컨테이너의 기능이며 컨테이너가 호스트에서 사용할 수 있는 리소스를 제한합니다. 응용 프로그램 매니페스트에 지정된 `ResourceGovernancePolicy`는 서비스 코드 패키지에 대한 리소스 제한을 선언할 수 있는 기능을 제공합니다. 리소스 제한은 다음에 항목에 대해 설정할 수 있습니다.
 
-- 메모리
-- MemorySwap
-- CpuShares(CPU 상대적 가중치)
-- MemoryReservationInMB  
-- BlkioWeight(BlockIO 상대적 가중치) 
+* 메모리
+* MemorySwap
+* CpuShares(CPU 상대적 가중치)
+* MemoryReservationInMB  
+* BlkioWeight(BlockIO 상대적 가중치) 
 
->[AZURE.NOTE] 향후 릴리스에서는 IOP, 읽기/쓰기 BPS 등과 같은 특정 블록 IO 제한 지정에 대한 지원이 가능해질 예정입니다.
-
+> [!NOTE]
+> 향후 릴리스에서는 IOP, 읽기/쓰기 BPS 등과 같은 특정 블록 IO 제한 지정에 대한 지원이 가능해질 예정입니다.
+> 
+> 
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -89,7 +94,6 @@ Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)
 ## <a name="repository-authentication"></a>리포지토리 인증
 컨테이너를 다운로드하려면 컨테이너 리포지토리에 대한 로그인 자격 증명을 제공해야 할 수 있습니다. *application* 매니페스트에 지정된 로그인 자격 증명이 로그인 정보 또는 이미지 리포지토리에서 컨테이너 이미지를 다운로드하기 위해 SSH 키를 지정하는 데 사용됩니다.  다음 예제는 *TestUser* 라는 계정과 암호를 일반 텍스트로 보여줍니다. 이것은 권장되지 **않습니다** .
 
-
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
@@ -102,7 +106,6 @@ Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)
 암호는 컴퓨터에 배포된 인증서를 사용하여 암호화되어야 합니다.
 
 다음 예제는 *TestUser*라는 계정과 *MyCert*라는 인증서를 사용하여 암호화된 암호를 보여줍니다. `Invoke-ServiceFabricEncryptText` Powershell 명령을 사용하여 암호에 대한 암호 텍스트를 만들 수 있습니다. 자세한 방법은 [Service Fabric 응용 프로그램의 암호 관리](service-fabric-application-secret-management.md) 를 참조하세요. 암호 해독을 위한 인증서의 개인 키는 대역외 메서드로(Azure에서는 Resource Manager를 통해) 로컬 컴퓨터에 배포되어야 합니다. 그런 다음 Service Fabric이 컴퓨터에 서비스 패키지를 배포할 때 계정 이름과 함께 암호를 해독하고 이 자격 증명을 사용하여 컨테이너 리포지토리로 인증할 수 있습니다.
-
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -118,7 +121,6 @@ Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)
 
 ## <a name="container-port-to-host-port-mapping"></a>포트 매핑을 호스트하는 컨테이너 포트
 응용 프로그램 매니페스트에 `PortBinding` 을 지정하여 컨테이너와의 통신에 사용되는 호스트 포트를 구성할 수 있습니다. 포트 바인딩은 컨테이너 내에서 서비스가 수신 대기 중인 포트를 호스트의 포트로 매핑합니다.
-
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -184,7 +186,6 @@ Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)
 
 ## <a name="complete-examples-for-application-and-service-manifest"></a>응용 프로그램 및 서비스 매니페스트에 대한 전체 예제
 다음은 컨테이너 기능을 보여주는 예제 응용 프로그램 매니페스트입니다.
-
 
     <ApplicationManifest ApplicationTypeName="SimpleContainerApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Description>A simple service container application</Description>

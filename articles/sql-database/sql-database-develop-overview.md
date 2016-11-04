@@ -1,22 +1,21 @@
-<properties
-	pageTitle="SQL 데이터베이스 개발 개요 | Microsoft Azure"
-	description="사용 가능한 연결 라이브러리 및 SQL 데이터베이스에 연결하는 응용 프로그램에 대한 모범 사례를 알아봅니다."
-	services="sql-database"
-	documentationCenter=""
-	authors="annemill"
-	manager="jhubbard"
-	editor="genemi"/>
+---
+title: SQL 데이터베이스 개발 개요 | Microsoft Docs
+description: 사용 가능한 연결 라이브러리 및 SQL 데이터베이스에 연결하는 응용 프로그램에 대한 모범 사례를 알아봅니다.
+services: sql-database
+documentationcenter: ''
+author: annemill
+manager: jhubbard
+editor: genemi
 
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: annemill
 
-<tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="annemill"/>
-
+---
 # SQL 데이터베이스 개발 개요
 이 문서는 Azure SQL 데이터베이스에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다.
 
@@ -64,7 +63,6 @@ SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하�
 * [Azure SQL 데이터베이스 탄력적인 확장 미리 보기 시작](sql-database-elastic-scale-get-started.md)
 
 ## 다음 단계
-
 모든 [SQL 데이터베이스의 기능](https://azure.microsoft.com/services/sql-database/)을 탐색합니다.
 
 <!---HONumber=AcomDC_0817_2016-->

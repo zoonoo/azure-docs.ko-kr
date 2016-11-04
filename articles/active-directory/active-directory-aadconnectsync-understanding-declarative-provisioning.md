@@ -1,23 +1,21 @@
-<properties
-    pageTitle="Azure AD Connect 동기화: 선언적 프로비전 이해 | Microsoft Azure"
-    description="Azure AD connect에서 선언적 프로비전 구성 모델을 설명합니다."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+---
+title: 'Azure AD Connect 동기화: 선언적 프로비전 이해 | Microsoft Docs'
+description: Azure AD connect에서 선언적 프로비전 구성 모델을 설명합니다.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/29/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/29/2016
+ms.author: billmath
 
-
-
+---
 # <a name="azure-ad-connect-sync:-understanding-declarative-provisioning"></a>Azure AD Connect 동기화: 선언적 프로비전 이해
 이 항목에서는 Azure AD Connect에서 구성 모델을 설명합니다. 이 모델은 선언적 프로비전이라고 하고 구성을 쉽게 변경할 수 있습니다. 이 항목에서 설명하는 여러 가지 항목은 고급이며 대부분의 고객 시나리오에 필요하지 않습니다.
 
@@ -30,12 +28,12 @@
 
 ![파이프라인 동기화](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/pipeline.png)  
 
-- 원본, 원본 개체
-- [범위](#scope), 범위에 있는 모든 동기화 규칙을 찾습니다.
-- [조인](#join), 커넥터 공간과 메타버스 간의 관계를 결정합니다.
-- [변환](#transform), 특성을 변환하는 방법 및 흐름을 계산합니다.
-- [우선 순위](#precedence), 특성 기여의 충돌을 해결합니다.
-- 대상, 대상 개체
+* 원본, 원본 개체
+* [범위](#scope), 범위에 있는 모든 동기화 규칙을 찾습니다.
+* [조인](#join), 커넥터 공간과 메타버스 간의 관계를 결정합니다.
+* [변환](#transform), 특성을 변환하는 방법 및 흐름을 계산합니다.
+* [우선 순위](#precedence), 특성 기여의 충돌을 해결합니다.
+* 대상, 대상 개체
 
 ## <a name="scope"></a>범위
 범위 모듈은 개체를 평가하고 범위 내에서 처리에 포함되어야 하는 규칙을 결정합니다. 개체에 대한 특성 값에 따라 다른 동기화 규칙이 범위에 있다고 평가됩니다. 예를 들어 사서함이 없는 비활성화된 사용자에게는 사서함이 있는 활성화된 사용자보다 다양한 규칙이 적용됩니다.  
@@ -48,18 +46,18 @@
 
 범위 모듈은 다음 작업을 지원합니다.
 
-작업 | 설명
---- | ---
-EQUAL, NOTEQUAL | 값이 특성의 값과 같은지 평가하는 문자열 비교입니다. 다중값 특성의 경우 ISIN 및 ISNOTIN를 확인합니다.
-LESSTHAN, LESSTHAN_OR_EQUAL | 값이 특성의 값보다 적은지 평가하는 문자열 비교입니다.
-CONTAINS, NOTCONTAINS | 값이 특성의 값 내의 어딘가에 있을 수 있는지 평가하는 문자열 비교입니다.
-STARTSWITH, NOTSTARTSWITH | 값이 특성 값의 시작 부분에 있는지 평가하는 문자열 비교입니다.
-ENDSWITH, NOTENDSWITH | 값이 특성 값의 끝 부분에 있는지 평가하는 문자열 비교입니다.
-GREATERTHAN, GREATERTHAN_OR_EQUAL | 값이 특성의 값보다 큰지 평가하는 문자열 비교입니다.
-ISNULL, ISNOTNULL | 특성이 개체에서 없는지 평가합니다. 특성이 나타나지 않고 null인 경우 규칙은 범위 내에 있습니다.
-ISIN, ISNOTIN | 값이 정의된 특성에 있는지 평가합니다. 이 작업은 EQUAL 및 NOTEQUAL 다중값 변형입니다. 특성은 다중값 특성이어야 하고 값이 특성 값 중 하나에 있는 경우 규칙은 범위 내에 있습니다.
-ISBITSET, ISNOTBITSET | 특정 비트가 설정되었는지 평가합니다. 예를 들어 사용자가 활성화되었는지 비활성화되었는지를 확인하기 위해 userAccountControl에서 비트를 평가하는 데 사용할 수 있습니다.
-ISMEMBEROF, ISNOTMEMBEROF | 값은 커넥터 공간의 그룹에서 DN을 포함해야 합니다. 개체가 지정된 그룹의 멤버인 경우 규칙은 범위 내에 있습니다.
+| 작업 | 설명 |
+| --- | --- |
+| EQUAL, NOTEQUAL |값이 특성의 값과 같은지 평가하는 문자열 비교입니다. 다중값 특성의 경우 ISIN 및 ISNOTIN를 확인합니다. |
+| LESSTHAN, LESSTHAN_OR_EQUAL |값이 특성의 값보다 적은지 평가하는 문자열 비교입니다. |
+| CONTAINS, NOTCONTAINS |값이 특성의 값 내의 어딘가에 있을 수 있는지 평가하는 문자열 비교입니다. |
+| STARTSWITH, NOTSTARTSWITH |값이 특성 값의 시작 부분에 있는지 평가하는 문자열 비교입니다. |
+| ENDSWITH, NOTENDSWITH |값이 특성 값의 끝 부분에 있는지 평가하는 문자열 비교입니다. |
+| GREATERTHAN, GREATERTHAN_OR_EQUAL |값이 특성의 값보다 큰지 평가하는 문자열 비교입니다. |
+| ISNULL, ISNOTNULL |특성이 개체에서 없는지 평가합니다. 특성이 나타나지 않고 null인 경우 규칙은 범위 내에 있습니다. |
+| ISIN, ISNOTIN |값이 정의된 특성에 있는지 평가합니다. 이 작업은 EQUAL 및 NOTEQUAL 다중값 변형입니다. 특성은 다중값 특성이어야 하고 값이 특성 값 중 하나에 있는 경우 규칙은 범위 내에 있습니다. |
+| ISBITSET, ISNOTBITSET |특정 비트가 설정되었는지 평가합니다. 예를 들어 사용자가 활성화되었는지 비활성화되었는지를 확인하기 위해 userAccountControl에서 비트를 평가하는 데 사용할 수 있습니다. |
+| ISMEMBEROF, ISNOTMEMBEROF |값은 커넥터 공간의 그룹에서 DN을 포함해야 합니다. 개체가 지정된 그룹의 멤버인 경우 규칙은 범위 내에 있습니다. |
 
 ## <a name="join"></a>Join
 동기화 파이프라인에서 조인 모듈은 원본의 개체와 대상의 개체 간의 관계를 찾는 작업을 담당합니다. 인바운드 규칙에서 이 관계는 메타버스의 개체에 대한 관계를 찾는 커넥터 공간의 개체일 수 있습니다.  
@@ -147,22 +145,19 @@ ImportedValue 함수는 특성 이름을 대괄호 대신 따옴표로 묶어야
 ![동일한 mv 개체에 조인된 여러 개체](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
 
 ## <a name="next-steps"></a>다음 단계
-
-- [선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)에서 식 언어에 대해 자세히 알아봅니다.
-- [기본 구성 이해](active-directory-aadconnectsync-understanding-default-configuration.md)에서 선언적 프로비전이 기본으로 사용되는 방법을 참조하세요.
-- [기본 구성으로 변경하는 방법](active-directory-aadconnectsync-change-the-configuration.md)에서 선언적 프로비전을 사용하여 실용적으로 변경하는 방법을 참조하세요.
-- [사용자 및 연락처 이해](active-directory-aadconnectsync-understanding-users-and-contacts.md)에서 사용자 및 연락처를 함께 작동하는 방법을 계속해서 알아봅니다.
+* [선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)에서 식 언어에 대해 자세히 알아봅니다.
+* [기본 구성 이해](active-directory-aadconnectsync-understanding-default-configuration.md)에서 선언적 프로비전이 기본으로 사용되는 방법을 참조하세요.
+* [기본 구성으로 변경하는 방법](active-directory-aadconnectsync-change-the-configuration.md)에서 선언적 프로비전을 사용하여 실용적으로 변경하는 방법을 참조하세요.
+* [사용자 및 연락처 이해](active-directory-aadconnectsync-understanding-users-and-contacts.md)에서 사용자 및 연락처를 함께 작동하는 방법을 계속해서 알아봅니다.
 
 **개요 항목**
 
-- [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
-- [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
+* [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
+* [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
 **참조 항목**
 
-- [Azure AD 동기화 연결: 함수 참조](active-directory-aadconnectsync-functions-reference.md)
-
-
+* [Azure AD 동기화 연결: 함수 참조](active-directory-aadconnectsync-functions-reference.md)
 
 <!--HONumber=Oct16_HO2-->
 

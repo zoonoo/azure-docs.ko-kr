@@ -1,32 +1,29 @@
-<properties 
-pageTitle="Microsoft Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포 | Microsoft Azure" 
-description="Microsoft Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포" 
-services="virtual-machines-windows" 
-documentationCenter="" 
-authors="hermanndms" 
-manager="timlt" 
-editor="" 
-tags="azure-resource-manager" 
-keywords=""/>
-<tags  
-ms.service="virtual-machines-windows" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.tgt_pltfrm="vm-windows" 
-ms.workload="infrastructure-services" 
-ms.date="09/16/2016" 
-ms.author="hermannd"/>
+---
+title: Microsoft Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포 | Microsoft Docs
+description: Microsoft Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
+services: virtual-machines-windows
+documentationcenter: ''
+author: hermanndms
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 09/16/2016
+ms.author: hermannd
 
-# Microsoft Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포 
-
+---
+# Microsoft Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
 이 문서에서는 SAP 클라우드 어플라이언스 라이브러리 3.0을 통해 Microsoft Azure에서 SQL Server 및 Windows OS와 함께 실행되는 SAP IDES를 배포하는 방법을 설명합니다. 스크린샷은 프로세스를 단계별로 보여줍니다. 목록의 다른 솔루션 배포는 프로세스 관점에서 동일한 방식으로 작동합니다. 서로 다른 솔루션을 선택하면 됩니다.
 
 SAP 클라우드 어플라이언스 라이브러리(SAP CAL)를 시작하려면 [여기](https://cal.sap.com/)로 이동합니다. 새로운 [SAP 클라우드 어플라이언스 라이브러리 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience)에 대한 정보를 제공하는 SAP의 블로그가 있습니다.
 
-
 다음 스크린샷은 Microsoft Azure에 SAP IDES를 배포하는 방법을 단계별로 보여줍니다. 이 과정은 다른 솔루션과 동일한 방식으로 작동합니다.
-
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic1.jpg)
 

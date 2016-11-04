@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Azure AD Connect: 미리 보기의 기능 | Microsoft Azure"
-   description="이 항목에서는 Azure AD Connect에서 미리 보기 상태인 기능을 더 자세하게 설명합니다."
-   services="active-directory"
-   documentationCenter=""
-   authors="andkjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Azure AD Connect: 미리 보기의 기능 | Microsoft Docs'
+description: 이 항목에서는 Azure AD Connect에서 미리 보기 상태인 기능을 더 자세하게 설명합니다.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"  
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="06/27/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/27/2016
+ms.author: billmath
 
-
+---
 # <a name="more-details-about-features-in-preview"></a>미리 보기 기능에 대한 자세한 내용
 이 항목에서는 현재 미리 보기 상태인 기능을 사용하는 방법에 대해 설명합니다.
 
@@ -29,22 +28,26 @@ Office 365 그룹에 대한 자세한 내용 및 사용 방법은 [여기](http:
 
 **미리 보기 중 참고**
 
-- 미리 보기에서 현재 주소록 특성이 채워지지 않습니다. 이 특성이 없으면 그룹이 GAL에 표시되지 않습니다. 이 특성을 채우는 가장 쉬운 방법은 Exchange PowerShell cmdlet `update-recipient`를 사용하는 것입니다.
-- Exchange 스키마가 있는 포리스트만 그룹에 대한 유효한 대상이 됩니다. 검색된 Exchange가 없는 경우, 그룹 쓰기 저장을 사용하도록 설정할 수 없습니다.
-- 현재 단일 포리스트 Exchange 조직 배포만 지원합니다. 둘 이상의 Exchange 조직 온-프레미스가 있는 경우 이러한 그룹을 다른 포리스트에 표시하려면 온-프레미스 GALSync 솔루션이 필요합니다.
-- 그룹 쓰기 저장 기능은 현재 보안 그룹 또는 배포 그룹을 처리하지 않습니다.
+* 미리 보기에서 현재 주소록 특성이 채워지지 않습니다. 이 특성이 없으면 그룹이 GAL에 표시되지 않습니다. 이 특성을 채우는 가장 쉬운 방법은 Exchange PowerShell cmdlet `update-recipient`를 사용하는 것입니다.
+* Exchange 스키마가 있는 포리스트만 그룹에 대한 유효한 대상이 됩니다. 검색된 Exchange가 없는 경우, 그룹 쓰기 저장을 사용하도록 설정할 수 없습니다.
+* 현재 단일 포리스트 Exchange 조직 배포만 지원합니다. 둘 이상의 Exchange 조직 온-프레미스가 있는 경우 이러한 그룹을 다른 포리스트에 표시하려면 온-프레미스 GALSync 솔루션이 필요합니다.
+* 그룹 쓰기 저장 기능은 현재 보안 그룹 또는 배포 그룹을 처리하지 않습니다.
 
->[AZURE.NOTE] Azure AD Premium에 대한 구독은 그룹 쓰기 저장에 필요합니다.
+> [!NOTE]
+> Azure AD Premium에 대한 구독은 그룹 쓰기 저장에 필요합니다.
+> 
+> 
 
 ## <a name="user-writeback"></a>사용자 쓰기 저장
-> [AZURE.IMPORTANT] 사용자 쓰기 저장 미리 보기 기능은 Azure AD Connect 2015년 8월 업데이트에서 제거되었습니다. 이 기능을 사용하도록 설정한 경우 사용하지 않도록 설정해야 합니다.
+> [!IMPORTANT]
+> 사용자 쓰기 저장 미리 보기 기능은 Azure AD Connect 2015년 8월 업데이트에서 제거되었습니다. 이 기능을 사용하도록 설정한 경우 사용하지 않도록 설정해야 합니다.
+> 
+> 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure AD Connect의 사용자 지정 설치](./aad-connect/active-directory-aadconnect-get-started-custom.md)를 계속 진행합니다.
+[Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)를 계속 진행합니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

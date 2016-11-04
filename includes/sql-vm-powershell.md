@@ -1,10 +1,11 @@
 
 ## <a name="start-your-powershell-session"></a>PowerShell 세션 시작
-
 우선 최신 [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) 을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../articles/powershell-install-configure.md)을 참조하세요.
 
-
->[AZURE.NOTE] 이 항목의 예제에서는 [Azure Resource Manager 배포 모델](../articles/resource-group-overview.md)을 사용하므로 예제에 [Azure Resource Manager cmdlet](http://msdn.microsoft.com/library/azure/mt125356.aspx)이 사용됩니다. 
+> [!NOTE]
+> 이 항목의 예제에서는 [Azure Resource Manager 배포 모델](../articles/resource-group-overview.md)을 사용하므로 예제에 [Azure Resource Manager cmdlet](http://msdn.microsoft.com/library/azure/mt125356.aspx)이 사용됩니다. 
+> 
+> 
 
 [**Add-AzureRmAccount**](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 실행하면 자격 증명을 입력할 수 있는 로그인 화면이 나타납니다. Azure 포털에 로그인하는 데 사용하는 동일한 자격 증명을 사용합니다.
 

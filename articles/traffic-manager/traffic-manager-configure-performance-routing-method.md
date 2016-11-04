@@ -1,26 +1,25 @@
-<properties 
-   pageTitle="성능 트래픽 라우팅 방법 구성 | Microsoft Azure"
-   description="이 문서는 트래픽 관리자에서 성능 트래픽 라우팅 방법을 구성하는 데 도움이 됩니다."
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="sewhee" />
+---
+title: 성능 트래픽 라우팅 방법 구성 | Microsoft Docs
+description: 이 문서는 트래픽 관리자에서 성능 트래픽 라우팅 방법을 구성하는 데 도움이 됩니다.
+services: traffic-manager
+documentationcenter: ''
+author: sdwheeler
+manager: carmonm
+editor: tysonn
 
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/17/2016
+ms.author: sewhee
+
+---
 # 성능 트래픽 라우팅 방법 구성
-
 전 세계 여러 데이터 센터(지역이라고도 함)에 있는 클라우드 서비스와 웹 사이트에 대한 트래픽을 라우팅하기 위해 들어오는 트래픽을 요청하는 클라이언트에서 대기 시간이 가장 짧은 끝점으로 보낼 수 있습니다. 일반적으로 대기 시간이 가장 짧은 데이터 센터는 지리적 거리가 가장 가까운 데이터 센터에 해당합니다. 성능 트래픽 라우팅 방법을 사용하면 가장 짧은 대기 시간을 기준으로 분산할 수 있지만 네트워크 구성이나 부하에서 발생하는 실시간 변경 내용은 고려할 수 없습니다. Azure 트래픽 관리자가 제공하는 다양한 트래픽 라우팅 방법에 대한 자세한 내용은 [트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-routing-methods.md)를 참조하세요.
 
 ## 가장 짧은 대기 시간을 기준으로 일련의 끝점에 트래픽 라우팅:
-
 1. Azure 클래식 포털의 왼쪽 창에서 **트래픽 관리자** 아이콘을 클릭하여 트래픽 관리자 창을 엽니다. 트래픽 관리자 프로필을 아직 만들지 않은 경우 기본 트래픽 관리자 프로필을 만드는 단계는 [트래픽 관리자 프로필 관리](traffic-manager-manage-profiles.md)를 참조하세요.
 2. Azure 클래식 포털의 트래픽 관리자 창에서 수정할 설정이 포함된 트래픽 관리자 프로필을 찾은 다음 프로필 이름 옆에 있는 화살표를 클릭합니다. 프로필에 대한 설정 페이지가 열립니다.
 3. 프로필 페이지에서 페이지 맨 위의 **끝점**을 클릭하고 구성에 포함할 서비스 끝점이 있는지 확인합니다. 프로필에서 끝점을 추가하거나 제거하는 단계는 [트래픽 관리자에서 끝점 관리](traffic-manager-endpoints.md)를 참조하세요.
@@ -32,8 +31,6 @@
 9. 트래픽 관리자 프로필이 설정되어 작동하면 회사 도메인 이름이 트래픽 관리자 도메인 이름을 가리키도록 권한 있는 DNS 서버의 DNS 레코드를 편집합니다. 작업 방법에 대한 자세한 내용은 [회사 인터넷 도메인에서 트래픽 관리자 도메인 가리키기](traffic-manager-point-internet-domain.md)를 참조하세요.
 
 ## 다음 단계
-
-
 [회사 인터넷 도메인이 트래픽 관리자 도메인을 가리키도록 설정](traffic-manager-point-internet-domain.md)
 
 [트래픽 관리자 라우팅 방법](traffic-manager-routing-methods.md)
@@ -47,6 +44,5 @@
 [트래픽 관리자 - 프로필 사용 안 함, 사용 또는 삭제](disable-enable-or-delete-a-profile.md)
 
 [트래픽 관리자 - 끝점 사용 안 함 또는 사용](disable-or-enable-an-endpoint.md)
- 
 
 <!---HONumber=AcomDC_0824_2016-->

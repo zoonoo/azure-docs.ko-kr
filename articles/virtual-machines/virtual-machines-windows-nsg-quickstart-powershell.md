@@ -1,23 +1,23 @@
-<properties
-   pageTitle="PowerShell을 사용하여 VM으로 포트 열기 | Microsoft Azure"
-   description="Azure Resource Manager 배포 모델 및 Azure PowerShell을 사용하여 Windows VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: PowerShell을 사용하여 VM으로 포트 열기 | Microsoft Docs
+description: Azure Resource Manager 배포 모델 및 Azure PowerShell을 사용하여 Windows VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기
+services: virtual-machines-windows
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="08/08/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 08/08/2016
+ms.author: iainfou
 
+---
 # PowerShell을 사용하여 Azure에서 VM으로 포트 열기
-[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
+[!INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## 빠른 명령
 네트워크 보안 그룹 및 ACL 규칙을 만들려면 [최신 버전의 Azure PowerShell을 설치](../powershell-install-configure.md)해야 합니다. [Azure 포털을 사용하여 수행할 수도 있습니다](virtual-machines-windows-nsg-quickstart-portal.md).
@@ -68,8 +68,8 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ## 다음 단계
 이 예제에서는 HTTP 트래픽을 허용하는 간단한 규칙을 만들었습니다. 다음 문서에서 보다 자세한 환경을 만들기 위한 정보를 찾을 수 있습니다.
 
-- [Azure Resource Manager 개요](../resource-group-overview.md)
-- [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
-- [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer/load-balancer-arm.md)
+* [Azure Resource Manager 개요](../resource-group-overview.md)
+* [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
+* [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer/load-balancer-arm.md)
 
 <!---HONumber=AcomDC_0907_2016-->

@@ -1,38 +1,31 @@
 
-<properties
-   pageTitle="서비스 패브릭 클러스터 보안: 클라이언트 역할 | Microsoft Azure"
-   description="이 문서에서는 두 개의 클라이언트 역할 및 역할에 제공된 사용 권한을 설명합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="mani-ramaswamy"
-   manager="coreysa"
-   editor=""/>
+---
+title: '서비스 패브릭 클러스터 보안: 클라이언트 역할 | Microsoft Docs'
+description: 이 문서에서는 두 개의 클라이언트 역할 및 역할에 제공된 사용 권한을 설명합니다.
+services: service-fabric
+documentationcenter: .net
+author: mani-ramaswamy
+manager: coreysa
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/14/2016"
-   ms.author="subramar"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/14/2016
+ms.author: subramar
 
-
-
+---
 # 서비스 패브릭 클라이언트용 역할 기반 액세스 제어
-
 Azure 서비스 패브릭은 서비스 패브릭 클러스터에 연결된 클라이언트 즉, 관리자 및 사용자에 대한 액세스 제어 형식을 지원합니다. 액세스 제어를 사용하면 클러스터 관리자가 사용자 그룹마다 특정 클러스터 작업에 대한 액세스를 제한하여 클러스터의 보안을 강화할 수 있습니다.
 
 **관리자**는 관리 기능(읽기/쓰기 기능만 포함)에 대한 모든 권한을 가집니다. 기본적으로 **사용자**는 관리 기능(예: 쿼리 기능)에 대한 읽기 권한 및 응용 프로그램과 서비스를 확인하는 기능만 갖습니다.
 
 클러스터 생성 시 각각에 대해 개별 인증서를 제공하여 두 개의 클라이언트 역할(관리자 및 클라이언트)을 지정합니다. 안전한 서비스 패브릭 클러스터를 설정하는 방법에 대한 자세한 내용은 [서비스 패브릭 클러스터 보안](service-fabric-cluster-security.md)을 참조하세요.
 
-
 ## 기본 액세스 제어 설정
-
-
 관리자 액세스 제어 형식에는 모든 FabricClient API에 대한 전체 권한이 있습니다. 다음 작업을 포함하여 서비스 패브릭 클러스터에 대해 읽기 및 쓰기를 수행할 수 있습니다.
-
 
 ### 응용 프로그램 및 서비스 작업
 * **CreateService**: 서비스 만들기
@@ -53,7 +46,6 @@ Azure 서비스 패브릭은 서비스 패브릭 클러스터에 연결된 클�
 * **RecoverPartitions**: 파티션 복구
 * **RecoverServicePartitions**: 서비스 파티션 복구
 * **RecoverSystemPartitions**: 시스템 서비스 파티션 복구
-
 
 ### 클러스터 작업
 * **ProvisionFabric**: MSI 및/또는 클러스터 매니페스트 프로비전
@@ -84,8 +76,6 @@ Azure 서비스 패브릭은 서비스 패브릭 클러스터에 연결된 클�
 * **Query**: 허용된 모든 쿼리
 * **NameExists**: 이름 지정 URI 존재 확인
 
-
-
 사용자 액세스 제어 형식은 기본적으로 다음 작업으로 제한됩니다.
 
 * **EnumerateSubnames**: 이름 지정 URI 열거
@@ -106,11 +96,9 @@ Azure 서비스 패브릭은 서비스 패브릭 클러스터에 연결된 클�
 또한 관리자 액세스 제어는 앞의 작업에 액세스할 수 있습니다.
 
 ## 클라이언트 역할의 기본 설정 변경
-
 클러스터 매니페스트 파일에서는 필요한 경우 클라이언트에 대한 관리 기능을 제공합니다. [클러스터 생성](service-fabric-cluster-creation-via-portal.md) 중 **패브릭 설정** 옵션으로 이동하고 **이름**, **관리**, **사용자** 및 **값** 필드에 앞의 설정을 제공하여 기본값을 변경할 수 있습니다.
 
 ## 다음 단계
-
 [서비스 패브릭 클러스터 보안](service-fabric-cluster-security.md)
 
 [서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-via-portal.md)

@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Reliable Actors 이벤트 | Microsoft Azure"
-   description="서비스 패브릭 Reliable Actors의 이벤트에 대해 소개합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor=""/>
+---
+title: Reliable Actors 이벤트 | Microsoft Docs
+description: 서비스 패브릭 Reliable Actors의 이벤트에 대해 소개합니다.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/30/2016"
-   ms.author="amanbha"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/30/2016
+ms.author: amanbha
 
-
+---
 # 행위자 이벤트
 행위자 이벤트는 행위자에서 클라이언트로 최상의 알림을 보낼 수 있는 방법을 제공합니다. 행위자 이벤트는 행위자-클라이언트 간 통신을 위해 디자인되었으며 행위자-행위자 간 통신에는 사용하지 않아야 합니다.
 
@@ -73,9 +72,9 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
 ## 다음 단계
- - [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
- - [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
- - [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [샘플 코드](https://github.com/Azure/servicefabric-samples)
+* [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
+* [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
+* [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [샘플 코드](https://github.com/Azure/servicefabric-samples)
 
 <!---HONumber=AcomDC_0907_2016-->

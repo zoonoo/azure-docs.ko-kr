@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Express 경로 라우팅 최적화 | Microsoft Azure"
-   description="이 페이지에서는 고객에게 Microsoft 및 고객의 회사 네트워크에 연결되는 하나 이상의 Express 경로 회로가 있는 경우 라우팅을 최적화하는 방법에 대한 자세한 정보를 제공합니다."
-   documentationCenter="na"
-   services="expressroute"
-   authors="charwen"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="charwen"/>
+---
+title: Express 경로 라우팅 최적화 | Microsoft Docs
+description: 이 페이지에서는 고객에게 Microsoft 및 고객의 회사 네트워크에 연결되는 하나 이상의 Express 경로 회로가 있는 경우 라우팅을 최적화하는 방법에 대한 자세한 정보를 제공합니다.
+documentationcenter: na
+services: expressroute
+author: charwen
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: charwen
 
+---
 # <a name="optimize-expressroute-routing"></a>Express 경로 라우팅 최적화
 여러 개의 Express 경로 회로가 있는 경우 Microsoft에 연결되는 하나 이상의 경로가 있습니다. 결과적으로 최적이 아닌 라우팅이 발생할 수 있습니다. 즉, 트래픽이 Microsoft에, Microsoft에서 다시 네트워크로 도달하는 경로가 더 길어질 수 있습니다. 네트워크 경로가 길어질수록 대기 시간도 늘어납니다. 대기 시간은 응용 프로그램 성능 및 사용자 환경에 직접적인 영향을 줍니다. 이 문서에서는 이 문제를 보여 주고 표준 라우팅 기술을 사용하여 라우팅을 최적화하는 방법을 설명합니다.
 
@@ -39,13 +39,17 @@
 
 두 번째 방법은 어떤 접두사가 어떤 사무실에 근접한지 힌트를 제공하는 것 외에도 두 Express 경로 회로에서 두 접두사를 계속해서 알리는 것입니다. BGP AS Path 앞에 추가를 지원하므로 라우팅에 영향을 주는 접두사에 대한 AS Path를 구성할 수 있습니다. 이 예제에서는 미국 동부 172.2.0.0/31에 대한 AS PATH를 연장할 수 있으므로 이 접두사에 대해 전송되는 트래픽에는 미국 서부의 Express 경로 회로를 선호하게 됩니다(네트워크에서 이 접두사에 대한 경로가 서부에서 더 짧다고 생각하므로). 마찬가지로 미국 동부에서 Express 경로 회로를 선호하도록 미국 서부에서 172.2.0.2/31에 대한 AS PATH를 연장할 수 있습니다. 두 사무소 모두에 대해 라우팅이 최적화됩니다. 이 디자인에서 한 Express 경로 회로가 중단되면 Exchange Online에서 다른 Express 경로 회로 및 WAN을 통해 계속 연결할 수 있습니다. 
 
->[AZURE.IMPORTANT] Microsoft 피어링에서 수신한 접두사에 대한 AS PATH에서 개인 AS 번호를 제거합니다. Microsoft 피어링을 위한 라우팅에 영향을 주는 AS PATH에 공용 AS 번호를 추가해야 합니다.
+> [!IMPORTANT]
+> Microsoft 피어링에서 수신한 접두사에 대한 AS PATH에서 개인 AS 번호를 제거합니다. Microsoft 피어링을 위한 라우팅에 영향을 주는 AS PATH에 공용 AS 번호를 추가해야 합니다.
+> 
+> 
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
->[AZURE.IMPORTANT] 여기에 지정된 예제는 Microsoft 및 공용 피어링에 대한 것으로 개인 피어링에 대해 동일한 기능을 지원하지 않습니다. 또한 앞에 추가된 AS 경로는 기본 경로 및 보조 경로의 선택에 영향을 주는 하나의 단일 ExpressRoute 회로 내에서 작동합니다.
-
-
+> [!IMPORTANT]
+> 여기에 지정된 예제는 Microsoft 및 공용 피어링에 대한 것으로 개인 피어링에 대해 동일한 기능을 지원하지 않습니다. 또한 앞에 추가된 AS 경로는 기본 경로 및 보조 경로의 선택에 영향을 주는 하나의 단일 ExpressRoute 회로 내에서 작동합니다.
+> 
+> 
 
 <!--HONumber=Oct16_HO2-->
 

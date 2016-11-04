@@ -1,22 +1,22 @@
-<properties
-	pageTitle="DocumentDB 저장소 및 성능 | Microsoft Azure" 
-	description="DocumentDB의 데이터 저장소 및 문서 저장소와 응용 프로그램의 용량 요구 사항을 충족하기 위해 DocumentDB를 확장하는 방법에 대해 알아봅니다." 
-	keywords="문서 저장소"
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="cgronlun" 
-	documentationCenter=""/>
+---
+title: DocumentDB 저장소 및 성능 | Microsoft Docs
+description: DocumentDB의 데이터 저장소 및 문서 저장소와 응용 프로그램의 용량 요구 사항을 충족하기 위해 DocumentDB를 확장하는 방법에 대해 알아봅니다.
+keywords: 문서 저장소
+services: documentdb
+author: mimig1
+manager: jhubbard
+editor: cgronlun
+documentationcenter: ''
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/18/2016" 
-	ms.author="mimig"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/18/2016
+ms.author: mimig
 
+---
 # DocumentDB의 저장소 및 예측 가능한 성능 프로비전에 대한 자세한 정보
 Azure DocumentDB는 JSON 문서에 대한 완전히 관리되고 확장성 있는 문서 지향 NoSQL 데이터베이스 서비스입니다. DocumentDB를 사용하면 가상 컴퓨터를 임대하거나, 소프트웨어를 배포하거나, 데이터베이스를 모니터링할 필요가 없습니다. 세계적 수준의 가용성, 성능 및 데이터 보호를 제공하기 위해 Microsoft 엔지니어가 DocumentDB를 작동하고 지속적으로 모니터링합니다.
 
@@ -42,26 +42,31 @@ DocumentDB를 사용하면 응용 프로그램을 확장할 필요에 따라 컬
 컬렉션은 DocumentDB에서 하나 이상의 물리적 서버에 자동으로 분할됩니다. 컬렉션을 만들 때 초당 요청 단위 및 파티션 키 속성 면에서 프로비전된 처리량을 지정할 수 있습니다. 이 속성 값은 DocumentDB에서 파티션 간에 문서를 분산시키고 쿼리와 같은 요청을 라우팅하는 데 사용됩니다. 파티션 키 값은 저장 프로시저 및 트리거에 대한 트랜잭션 경계 역할도 수행합니다. 각 컬렉션에는 동일 계정에서 다른 컬렉션과 공유되지 않는 해당 컬렉션에 해당되는 예약된 처리량을 갖습니다. 따라서 저장소 및 처리량의 측면에서 응용 프로그램의 규모를 확장할 수 있습니다.
 
 [Azure 포털](documentdb-create-collection.md)을 통해 또는 [DocumentDB SDK](documentdb-sdk-dotnet.md) 중 하나를 통해 컬렉션을 만들 수 있습니다.
- 
-## 요청 단위 및 데이터베이스 작업
 
+## 요청 단위 및 데이터베이스 작업
 컬렉션을 만들 때 초당 [RU(요청 단위)](documentdb-request-units.md) 면에서 처리량을 예약합니다. 하드웨어 리소스를 고려하고 관리하는 대신 다양한 데이터베이스 작업을 수행하고 응용 프로그램 요청을 처리하는 데 필요한 리소스의 단일 측정값으로 **RU(요청 단위)**를 고려할 수 있습니다. 컬렉션에 저장된 항목 수 또는 동시에 실행되는 요청 수에 관계없이 1KB 문서를 읽는 데 동일한 1RU가 소비됩니다. SQL 쿼리와 같은 복잡한 작업을 포함하여 DocumentDB에 대한 모든 요청은 개발 시 결정될 수 있는 예측 가능한 RU 값을 가집니다. 응용 프로그램에 대해 지원할 문서 크기와 각 작업(읽기, 쓰기 및 쿼리)의 빈도를 알고 있는 경우 응용 프로그램 요구 사항을 충족하는 정확한 양의 처리량을 프로비전하고 성능 변화에 따라 데이터베이스를 확장 및 축소할 수 있습니다.
 
 초당 수백 요청 단위부터 수백만 요청 단위까지 초당 100RU 블록의 처리량으로 각 컬렉션을 예약할 수 있습니다. 프로비전된 처리량은 변화하는 처리 요구에 맞고 응용 프로그램의 패턴에 액세스하는 컬렉션의 수명 동안 조정할 수 있습니다. 자세한 내용은 [DocumentDB 성능 수준](documentdb-performance-levels.md)을 참조하세요.
 
->[AZURE.IMPORTANT] 컬렉션은 청구 가능한 엔터티입니다. 비용은 소비된 총 저장소(기가바이트)와 함께 초당 요청 단위로 측정되는 컬렉션의 프로비전된 처리량에 의해 결정됩니다.
+> [!IMPORTANT]
+> 컬렉션은 청구 가능한 엔터티입니다. 비용은 소비된 총 저장소(기가바이트)와 함께 초당 요청 단위로 측정되는 컬렉션의 프로비전된 처리량에 의해 결정됩니다.
+> 
+> 
 
 삽입, 삭제, 쿼리 또는 저장 프로시저 실행과 같은 특정 작업에서 소비하는 요청 단위 수는 몇 개인가요? 요청 단위는 요청 처리 비용의 정규화된 측정값입니다. 1KB 문서 읽기가 1RU이지만 동일한 문서를 삽입, 대체 또는 삭제하는 요청은 서비스에서 추가 처리를 사용하므로 더 많은 요청 단위가 사용됩니다. 서비스의 각 응답에는 요청에 사용된 요청 단위를 보고하는 사용자 지정 헤더(`x-ms-request-charge`)가 포함됩니다. 이 헤더는 [SDK](documentdb-sdk-dotnet.md)를 통해 액세스할 수도 있습니다. .NET SDK에서 [RequestCharge](https://msdn.microsoft.com/library/azure/dn933057.aspx#P:Microsoft.Azure.Documents.Client.ResourceResponse`1.RequestCharge)는 [ResourceResponse](https://msdn.microsoft.com/library/azure/dn799209.aspx) 개체의 속성입니다. 단일 호출을 수행하기 전에 처리량 요구를 예측하려는 경우 [Capacity Planner](documentdb-request-units.md#estimating-throughput-needs)를 사용하여 예측을 수행할 수 있습니다.
 
->[AZURE.NOTE] 1KB 문서에 대한 1 요청 단위의 기준선은 [세션 일관성](documentdb-consistency-levels.md)이 있는 문서의 간단한 GET에 해당합니다.
+> [!NOTE]
+> 1KB 문서에 대한 1 요청 단위의 기준선은 [세션 일관성](documentdb-consistency-levels.md)이 있는 문서의 간단한 GET에 해당합니다.
+> 
+> 
 
 DocumentDB 데이터베이스 계정에 대한 작업에 사용되는 요청 단위에 영향을 주는 여러 요인이 있습니다. 이러한 요인은 다음과 같습니다.
 
-- 문서 크기. 문서 크기가 증가할수록 데이터를 읽거나 쓰는 데 사용되는 단위도 증가합니다.
-- 속성 수. 모든 속성의 기본 인덱싱을 가정할 경우 속성 수가 증가할수록 문서를 쓰는 데 사용되는 단위가 증가합니다.
-- 데이터 일관성. 강력 또는 제한된 부실 데이터 일관성 수준을 사용하는 경우 문서를 읽는 데 추가 단위가 사용됩니다.
-- 인덱싱되는 속성. 각 컬렉션의 인덱스 정책에 따라 기본적으로 인덱싱되는 속성이 결정됩니다. 인덱싱되는 속성 수를 제한하면 요청 단위 사용을 줄일 수 있습니다.
-- 문서 인덱싱. 기본적으로 각 문서가 자동으로 인덱싱되며, 일부 문서를 인덱싱하지 않도록 선택하면 더 적은 요청 단위가 사용됩니다.
+* 문서 크기. 문서 크기가 증가할수록 데이터를 읽거나 쓰는 데 사용되는 단위도 증가합니다.
+* 속성 수. 모든 속성의 기본 인덱싱을 가정할 경우 속성 수가 증가할수록 문서를 쓰는 데 사용되는 단위가 증가합니다.
+* 데이터 일관성. 강력 또는 제한된 부실 데이터 일관성 수준을 사용하는 경우 문서를 읽는 데 추가 단위가 사용됩니다.
+* 인덱싱되는 속성. 각 컬렉션의 인덱스 정책에 따라 기본적으로 인덱싱되는 속성이 결정됩니다. 인덱싱되는 속성 수를 제한하면 요청 단위 사용을 줄일 수 있습니다.
+* 문서 인덱싱. 기본적으로 각 문서가 자동으로 인덱싱되며, 일부 문서를 인덱싱하지 않도록 선택하면 더 적은 요청 단위가 사용됩니다.
 
 자세한 내용은 [DocumentDB 요청 단위](documentdb-request-units.md)를 참조하세요.
 
@@ -116,7 +121,6 @@ DocumentDB 데이터베이스 계정에 대한 작업에 사용되는 요청 단
 
 쿼리, 저장 프로시저 및 트리거는 수행하는 작업의 복잡성에 따라 요청 단위를 사용합니다. 응용 프로그램을 개발하면서 요청 요금 헤더를 검사하면 각 작업이 요청 단위 용량을 어떻게 사용하는지 파악하는 데 도움이 됩니다.
 
-
 ## 일관성 수준 및 처리량 선택
 기본 일관성 수준 선택은 처리량 및 대기 시간에 영향을 줍니다. 프로그래밍 방식으로 및 Azure 포털을 통해 기본 일관성 수준을 설정할 수 있습니다. 요청 단위로 일관성 수준을 재정의할 수도 있습니다. 기본 일관성 수준은 일정한 읽기/쓰기 및 고유한 쓰기 읽기를 보장하는 **세션**으로 설정됩니다. 세션 일관성은 사용자 중심 응용 프로그램에 유용하며 일관성과 성능 절충의 최적 균형을 제공합니다.
 
@@ -128,10 +132,8 @@ DocumentDB에서는 단일 파티션과 분할된 컬렉션을 모두 만들 수
 기본적으로 모든 문서가 DocumentDB에서 자동으로 인덱싱됩니다. 그러나 [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)에서 설명한 대로 인덱스 오버헤드를 미세 조정하려면 문서를 삽입하거나 바꿀 때 특정 문서가 인덱싱되지 않도록 제거할 수 있습니다. 컬렉션 내의 모든 문서를 인덱싱에서 제외하도록 DocumentDB 컬렉션을 구성할 수 있습니다. [컬렉션의 인덱싱 정책 구성](documentdb-indexing-policies.md#configuring-the-indexing-policy-of-a-collection)의 설명과 같이 JSON 문서의 와일드카드가 있는 특정 속성이나 경로만 선택적으로 인덱싱하도록 DocumentDB 컬렉션을 구성할 수도 있습니다. 속성이나 문서를 제외하면 쓰기 처리량도 향상되므로 사용하는 요청 단위가 줄어듭니다.
 
 ## 다음 단계
-
 DocumentDB가 작동하는 방식에 대해 자세히 알아보려면 [Azure DocumentDB에서 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
 
 Azure 포털에서 성능 수준 모니터링에 대한 지침은 [DocumentDB 계정 모니터링](documentdb-monitor-accounts.md)을 참조하세요. 컬렉션에 대한 성능 수준 선택에 대한 자세한 내용은 [DocumentDB의 성능 수준](documentdb-performance-levels.md)을 참조하세요.
- 
 
 <!---HONumber=AcomDC_0824_2016-->

@@ -1,28 +1,25 @@
-<properties 
-	pageTitle="템플릿을 사용하여 Azure API 관리 개발자 포털을 사용자 지정하는 방법 | Microsoft Azure" 
-	description="템플릿을 사용하여 Azure API 관리 개발자 포털을 사용자 지정하는 방법을 알아봅니다." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: 템플릿을 사용하여 Azure API 관리 개발자 포털을 사용자 지정하는 방법 | Microsoft Docs
+description: 템플릿을 사용하여 Azure API 관리 개발자 포털을 사용자 지정하는 방법을 알아봅니다.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/09/2016
+ms.author: sdanie
 
-
+---
 # 템플릿을 사용하여 Azure API 관리 개발자 포털을 사용자 지정하는 방법
-
 Azure API 관리는 관리자가 [개발자 포털의 모양과 느낌을 사용자 지정](api-management-customize-portal.md)하고 페이지 콘텐츠를 구성하는 템플릿 집합을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정할 수 있도록 여러 사용자 지정 기능을 제공합니다. 이러한 템플릿에서 [DotLiquid](http://dotliquidmarkup.org/) 구문 및 제공된 지역화 문자열 리소스, 아이콘 및 페이지 컨트롤을 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.
 
 ## 개발자 포털 템플릿 개요
-
 개발자 포털 템플릿은 API 관리 서비스 인스턴스의 관리자가 개발자 포털에서 관리합니다. 개발자 템플릿을 관리하려면 Azure 클래식 포털에서 API 관리 서비스 인스턴스로 이동하여 **찾아보기**를 클릭합니다.
 
 ![개발자 포털][api-management-browse]
@@ -59,68 +56,67 @@ Azure API 관리는 관리자가 [개발자 포털의 모양과 느낌을 사용
 
 앞의 예제에는 다음 예제와 같이 **템플릿 데이터** 창에 표시된 데이터에서 가져온 두 개의 제품이 개발자 포털에 표시되어 있습니다.
 
-	{
-		"Paging": {
-			"Page": 1,
-			"PageSize": 10,
-			"TotalItemCount": 2,
-			"ShowAll": false,
-			"PageCount": 1
-		},
-		"Filtering": {
-			"Pattern": null,
-			"Placeholder": "Search products"
-		},
-		"Products": [
-			{
-				"Id": "56ec64c380ed850042060001",
-				"Title": "Starter",
-				"Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
-				"Terms": "",
-				"ProductState": 1,
-				"AllowMultipleSubscriptions": false,
-				"MultipleSubscriptionsCount": 1
-			},
-			{
-				"Id": "56ec64c380ed850042060002",
-				"Title": "Unlimited",
-				"Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
-				"Terms": null,
-				"ProductState": 1,
-				"AllowMultipleSubscriptions": false,
-				"MultipleSubscriptionsCount": 1
-			}
-		]
-	}
+    {
+        "Paging": {
+            "Page": 1,
+            "PageSize": 10,
+            "TotalItemCount": 2,
+            "ShowAll": false,
+            "PageCount": 1
+        },
+        "Filtering": {
+            "Pattern": null,
+            "Placeholder": "Search products"
+        },
+        "Products": [
+            {
+                "Id": "56ec64c380ed850042060001",
+                "Title": "Starter",
+                "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
+                "Terms": "",
+                "ProductState": 1,
+                "AllowMultipleSubscriptions": false,
+                "MultipleSubscriptionsCount": 1
+            },
+            {
+                "Id": "56ec64c380ed850042060002",
+                "Title": "Unlimited",
+                "Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+                "Terms": null,
+                "ProductState": 1,
+                "AllowMultipleSubscriptions": false,
+                "MultipleSubscriptionsCount": 1
+            }
+        ]
+    }
 
 **제품 목록** 템플릿의 태그는 데이터를 처리하고 제품 컬렉션에 대해 반복하여 정보 및 각 개별 제품에 대한 링크를 표시함으로써 원하는 결과를 제공합니다. 태그의 `<search-control>` 및 `<page-control>` 요소를 참조하세요. 이러한 요소는 페이지에서 검색 및 페이징 컨트롤 표시를 제어합니다. `ProductsStrings|PageTitleProducts`는 페이지의 `h2` 머리글 텍스트를 포함하는 지역화된 문자열 참조입니다. 개발자 포털 템플릿에서 사용할 수 있는 문자열 리소스, 페이지 컨트롤 및 아이콘 목록은 [API 관리 개발자 포털 템플릿 참조](https://msdn.microsoft.com/library/azure/mt697540.aspx)를 참조하세요.
 
-	<search-control></search-control>
-	<div class="row">
-	    <div class="col-md-9">
-	        <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>
-	    </div>
-	</div>
-	<div class="row">
-	    <div class="col-md-12">
-		{% if products.size > 0 %}
-		<ul class="list-unstyled">
-		{% for product in products %}
-			<li>
-				<h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
-				{{product.description}}
-			</li>	
-		{% endfor %}
-		</ul>
-		<paging-control></paging-control>
-		{% else %}
-		{% localized "CommonResources|NoItemsToDisplay" %}
-		{% endif %}
-		</div>
-	</div>
+    <search-control></search-control>
+    <div class="row">
+        <div class="col-md-9">
+            <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+        {% if products.size > 0 %}
+        <ul class="list-unstyled">
+        {% for product in products %}
+            <li>
+                <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
+                {{product.description}}
+            </li>    
+        {% endfor %}
+        </ul>
+        <paging-control></paging-control>
+        {% else %}
+        {% localized "CommonResources|NoItemsToDisplay" %}
+        {% endif %}
+        </div>
+    </div>
 
 ## 템플릿을 저장하려면
-
 템플릿을 저장하려면 템플릿 편집기에서 저장을 클릭합니다.
 
 ![템플릿 저장][api-management-save-template]
@@ -128,7 +124,6 @@ Azure API 관리는 관리자가 [개발자 포털의 모양과 느낌을 사용
 저장된 변경 내용은 게시할 때까지 개발자 포털에 적용되지 않습니다.
 
 ## 템플릿을 게시하려면
-
 저장된 템플릿은 개별적으로 또는 모두 함께 게시할 수 있습니다. 개별 템플릿을 게시하려면 템플릿 편집기에서 게시를 클릭합니다.
 
 ![템플릿 게시][api-management-publish-template]
@@ -148,7 +143,6 @@ Azure API 관리는 관리자가 [개발자 포털의 모양과 느낌을 사용
 새로 게시된 템플릿은 개발자 포털에서 즉시 적용됩니다.
 
 ## 템플릿을 이전 버전으로 되돌리려면
-
 템플릿을 이전에 게시된 버전으로 되돌리려면 템플릿 편집기에서 되돌리기를 클릭합니다.
 
 ![템플릿 되돌리기][api-management-revert-template]
@@ -160,7 +154,6 @@ Azure API 관리는 관리자가 [개발자 포털의 모양과 느낌을 사용
 되돌리기 작업이 완료되면 이전에 게시된 템플릿 버전이 개발자 포털에 적용됩니다.
 
 ## 템플릿을 기본 버전으로 복원하려면
-
 템플릿을 기본 버전으로 복원하는 작업은 두 단계로 이루어집니다. 먼저 템플릿을 복원한 다음 복원된 버전을 게시해야 합니다.
 
 단일 템플릿을 기본 버전으로 복원하려면 템플릿 편집기에서 복원을 클릭합니다.
@@ -178,15 +171,14 @@ Azure API 관리는 관리자가 [개발자 포털의 모양과 느낌을 사용
 그런 다음 [템플릿을 게시하려면](#to-publish-a-template) 단계에 따라 복원된 템플릿을 개별적으로 또는 한 번에 게시해야 합니다.
 
 ## 개발자 포털 템플릿 참조
-
 개발자 포털 템플릿, 문자열 리소스, 아이콘 및 페이지 컨트롤에 대한 참조 정보는 [API 관리 개발자 포털 템플릿 참조](https://msdn.microsoft.com/library/azure/mt697540.aspx)를 참조하세요.
 
 ## 비디오 개요 보기
-
 템플릿을 사용하여 개발자 포털의 API 및 작업 페이지에 토론 게시판 및 등급을 추가하는 방법은 다음 동영상을 참조하세요.
 
-> [AZURE.VIDEO adding-developer-portal-functionality-using-templates-in-azure-api-management]
-
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Adding-Developer-Portal-functionality-using-Templates-in-Azure-API-Management/player]
+> 
+> 
 
 [api-management-customize-menu]: ./media/api-management-developer-portal-templates/api-management-customize-menu.png
 [api-management-templates-menu]: ./media/api-management-developer-portal-templates/api-management-templates-menu.png

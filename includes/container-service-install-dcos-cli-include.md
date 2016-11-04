@@ -1,24 +1,27 @@
-<properties
-   pageTitle="DC/OS CLI 설치 | Microsoft Azure"
-   description="DC/OS CLI를 설치합니다."
-   services="container-service"
-   documentationCenter=""
-   authors="rgardler"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="컨테이너, 마이크로 서비스, DC/OS, Azure"/>
+---
+title: DC/OS CLI 설치 | Microsoft Docs
+description: DC/OS CLI를 설치합니다.
+services: container-service
+documentationcenter: ''
+author: rgardler
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: 컨테이너, 마이크로 서비스, DC/OS, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/10/2016"
-   ms.author="rogardle"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/10/2016
+ms.author: rogardle
 
->[AZURE.NOTE] DC/OS 기반 ACS 클러스터와 함께 작업하기 위한 것입니다. Swarm 기반 ACS 클러스터에 대해 이 작업을 수행하지 않아도 됩니다.
+---
+> [!NOTE]
+> DC/OS 기반 ACS 클러스터와 함께 작업하기 위한 것입니다. Swarm 기반 ACS 클러스터에 대해 이 작업을 수행하지 않아도 됩니다.
+> 
+> 
 
 먼저, [DC/OS 기반 ACS 클러스터에 연결](../articles/container-service/container-service-connect.md)합니다. 이 작업을 수행한 후 아래 명령을 사용하여 클라이언트 컴퓨터에서 DC/OS CLI를 설치할 수 있습니다.
 

@@ -1,22 +1,22 @@
 
-<properties
-	pageTitle="AD DS와 함께 Azure AD Connect Health 사용 | Microsoft Azure"
-	description="AD DS를 모니터링하는 방법을 설명하는 Azure AD Connect Health 페이지입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="arluca"
-	manager="samueld"
-	editor="curtand"/>
+---
+title: AD DS와 함께 Azure AD Connect Health 사용 | Microsoft Docs
+description: AD DS를 모니터링하는 방법을 설명하는 Azure AD Connect Health 페이지입니다.
+services: active-directory
+documentationcenter: ''
+author: arluca
+manager: samueld
+editor: curtand
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/30/2016"
-	ms.author="arluca"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/30/2016
+ms.author: arluca
 
+---
 # AD DS와 함께 Azure AD Connect Health 사용
 다음 문서는 Azure AD Connect Health와 함께 Active Directory 도메인 서비스를 모니터링하는 방법에 중점을 둡니다. 지원되는 AD DS 버전은 Windows Server 2008 R2, Windows Server 2012, 및 Windows Server 2012 R2입니다.
 
@@ -51,7 +51,6 @@ AD DS용 Azure AD Connect Health 내의 경고 섹션은 도메인 컨트롤러�
 기본적으로 미리 선택한 네 개의 성능 카운터가 있습니다. 그러나 필터 명령을 클릭하고 원하는 성능 카운터를 선택하거나 선택을 취소하여 다른 성능 카운터를 포함할 수 있습니다. 또한, 성능 카운터 그래프를 두 번 클릭하면 새 블레이드가 열리며, 여기에는 모니터링되는 각각의 도메인 컨트롤러에 대한 데이터 요소가 포함됩니다.
 
 ## 관련 링크
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Agent 설치](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)

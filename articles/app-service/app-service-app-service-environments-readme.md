@@ -1,30 +1,29 @@
-<properties 
-	pageTitle="앱 서비스 환경 | Microsoft Azure" 
-	description="Azure App 서비스 환경이란? 앱 서비스 환경 소개" 
-	keywords="Azure App 서비스 환경, 가상 네트워크, 보안 네트워킹"
-	services="app-service" 
-	documentationCenter="" 
-	authors="yochay" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: 앱 서비스 환경 | Microsoft Docs
+description: Azure App 서비스 환경이란? 앱 서비스 환경 소개
+keywords: Azure App 서비스 환경, 가상 네트워크, 보안 네트워킹
+services: app-service
+documentationcenter: ''
+author: yochay
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/15/2016" 
-	ms.author="stefsch"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/15/2016
+ms.author: stefsch
 
+---
 # 앱 서비스 환경 설명서
-
 앱 서비스 환경은 Azure 앱 서비스의 [프리미엄][PremiumTier] 서비스 계획 옵션으로, [웹앱][WebApps], [모바일 앱][MobileApps] 및 [API 앱][APIApps]을 포함하여 높은 확장성에서 Azure 앱 서비스 앱을 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공합니다.
 
 앱 서비스 환경은 다음을 필요로 하는 응용 프로그램 작업에 적합합니다.
 
-- 매우 높은 확장성
-- 격리 및 보안된 네트워크 액세스
+* 매우 높은 확장성
+* 격리 및 보안된 네트워크 액세스
 
 고객은 단일 Azure 지역 내뿐만 아니라 여러 Azure 지역에 걸쳐서 여러 앱 서비스 환경을 만들 수 있습니다. 따라서 앱 서비스 환경은 높은 RPS 작업을 지원하여 상태가 없는 응용 프로그램 계층을 수평적으로 확장하는 데 적합합니다.
 
@@ -41,14 +40,14 @@
 * [네트워크 보안 및 아키텍처](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
 ## 방법
-
-[AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
-
+[!INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
 
 ## 비디오
-[AZURE.VIDEO azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps]
+[!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player]
 
-[AZURE.VIDEO microsoft-ignite-2015-running-enterprise-web-and-mobile-apps-on-azure-app-service]
+
+[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
+
 
 
 <!-- LINKS -->

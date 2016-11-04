@@ -1,38 +1,33 @@
-<properties
-    pageTitle="기계 학습을 위한 R 언어의 빠른 시작 자습서 | Microsoft Azure"
-    description="이 R 프로그래밍 자습서를 사용하여 신속하게 Azure 기계 학습 스튜디오에서 R 언어를 사용하여 예측 솔루션을 만듭니다."
-    keywords="빠른 시작, r 언어, r 프로그래밍 언어, r 프로그래밍 자습서"
-    services="machine-learning"
-    documentationCenter=""
-    authors="garyericson"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: 기계 학습을 위한 R 언어의 빠른 시작 자습서 | Microsoft Docs
+description: 이 R 프로그래밍 자습서를 사용하여 신속하게 Azure 기계 학습 스튜디오에서 R 언어를 사용하여 예측 솔루션을 만듭니다.
+keywords: 빠른 시작, r 언어, r 프로그래밍 언어, r 프로그래밍 자습서
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/12/2016"
-    ms.author="garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/12/2016
+ms.author: garye
 
-
+---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Azure 기계 학습에 대한 프로그래밍 언어는 R에 대한 빠른 시작 자습서
-
 Stephen F Elston, Ph.D.
 
-##  <a name="introduction"></a>소개
-
+## <a name="introduction"></a>소개
 이 빠른 시작 자습서는 R 프로그래밍 언어를 사용하여 Azure 기계 학습을 빠르게 확장하는 데 도움이 됩니다. 이 R 프로그래밍 자습서를 따라 Azure 기계 학습 내에서 R 코드를 만들고 테스트하고 실행합니다. 자습서를 진행하면서 Azure 기계 학습에서 R 언어를 사용하여 완벽한 예측 솔루션이 만들어집니다.  
 
 Microsoft Azure 기계 학습에는 강력한 기계 학습 및 데이터 조작 모듈이 많이 포함되어 있습니다. 강력한 R 언어는 분석의 대표 언어라고 표현되어 왔습니다. R을 사용하여 Azure 기계 학습의 분석 및 데이터 조작을 확장할 수 있습니다. 이렇게 하면 R의 유연성 및 심층 분석을 통해 쉽게 Azure 기계 학습을 배포하고 확장할 수 있습니다.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-
-###<a name="forecasting-and-the-dataset"></a>예측 및 데이터 집합
-
+### <a name="forecasting-and-the-dataset"></a>예측 및 데이터 집합
 예측은 널리 활용되고 매우 유용한 분석 방법입니다. 이는 계절성 품목의 매출 예측 및 최적의 재고 수준 결정에서부터 거시 경제 변수 예측에 이르기까지 일반적으로 사용됩니다. 일반적으로 예측은 시계열 모델을 통해 수행됩니다.
 
 시계열 데이터는 값에 시간 인덱스가 있는 데이터입니다. 시간 인덱스는 예를 들어 매월 또는 매분처럼 규칙적이거나 불규칙적일 수 있습니다. 시계열 모델은 시계열 데이터를 기반으로 합니다. R 프로그래밍 언어는 시계열 데이터를 위한 유연한 프레임워크 및 광범위한 분석이 포함되어 있습니다.
@@ -42,27 +37,20 @@ Microsoft Azure 기계 학습에는 강력한 기계 학습 및 데이터 조작
 이 문서에 사용된 데이터 및 R 스크립트는 [여기서 다운로드][download]할 수 있습니다. 이 데이터는 원래 위스콘신 대학교의 http://future.aae.wisc.edu/tab/production.html에서 사용할 수 있는 정보에서 만들어졌습니다.
 
 ### <a name="organization"></a>조직
-
 몇몇 단계를 통해 Azure 기계 학습 환경에서 분석 및 데이터 조작 R 코드를 작성, 테스트 및 실행하는 방법을 배우게 됩니다.  
 
 * 먼저 Azure 기계 학습 스튜디오 환경에서의 R 언어 사용에 대한 기본 사항을 살펴봅니다.
-
 * 그 다음 Azure 기계 학습 환경에서 데이터, R 코드, 그래픽의 I/O에 대해 다양한 측면으로 알아봅니다.
-
 * 그런 다음 데이터 정리 및 변환용 코드를 만들어 예측 솔루션의 첫 번째 부분을 만듭니다.
-
 * 준비된 데이터를 가지고 데이터 집합에서 여러 변수 간의 상관관계를 분석합니다.
-
 * 마지막으로 우유 생산의 계절성 시계열 예측 모델을 만듭니다.
 
-##<a name="a-idmlstudioainteract-with-r-language-in-machine-learning-studio"></a><a id="mlstudio"></a>기계 학습 스튜디오에서 R 언어와 상호 작용
-
+## <a name="a-idmlstudioainteract-with-r-language-in-machine-learning-studio"></a><a id="mlstudio"></a>기계 학습 스튜디오에서 R 언어와 상호 작용
 이 섹션에서는 기계 학습 스튜디오 환경에서 R 프로그래밍 언어와 상호 작용하는 방법에 대한 일부 기본적인 과정을 안내합니다. R 언어는 Azure 기계 학습 환경에서 사용자 지정된 분석 및 데이터 조작 모듈을 만드는 강력한 도구를 제공합니다.
 
 작은 규모로 R 코드를 개발, 테스트 및 디버그하기 위해 RStudio를 사용합니다. 그런 다음 이 코드를 잘라내고 Machine Learning Studio에서 [R 스크립트 실행][execute-r-script] 모듈에 붙여넣어 실행할 준비를 합니다.  
 
-###<a name="the-execute-r-script-module"></a>R 스크립트 실행 모듈
-
+### <a name="the-execute-r-script-module"></a>R 스크립트 실행 모듈
 Machine Learning Studio에서 R 스크립트는 [R 스크립트 실행][execute-r-script] 모듈 내에서 실행됩니다. 그림 1에서는 Machine Learning Studio에서의 [R 스크립트 실행 모듈][execute-r-script]의 예를 보여 줍니다.
 
  ![R 프로그래밍 언어: R 스크립트 실행 모듈이 기계 학습 스튜디오에서 선택됩니다.][1]
@@ -71,29 +59,23 @@ Machine Learning Studio에서 R 스크립트는 [R 스크립트 실행][execute-
 
 그림 1을 참고하여 [R 스크립트 실행][execute-r-script] 모듈 작업을 위한 몇 가지 주요한 Machine Learning Studio 환경을 살펴보겠습니다.
 
-- 가운데 창에 실험에 사용된 모듈이 표시됩니다.
-
-- 오른쪽 창의 윗 부분은 R 스크립트를 보고 편집하는 창입니다.  
-
-- 오른쪽 창의 아래 부분에는 [R 스크립트 실행][execute-r-script]의 일부 속성이 나와 있습니다. 이 창에서 적절한 지점을 클릭하여 오류 및 출력 로그를 볼 수 있습니다.
+* 가운데 창에 실험에 사용된 모듈이 표시됩니다.
+* 오른쪽 창의 윗 부분은 R 스크립트를 보고 편집하는 창입니다.  
+* 오른쪽 창의 아래 부분에는 [R 스크립트 실행][execute-r-script]의 일부 속성이 나와 있습니다. 이 창에서 적절한 지점을 클릭하여 오류 및 출력 로그를 볼 수 있습니다.
 
 물론 이 문서의 나머지 부분에서 [R 스크립트 실행][execute-r-script]에 대해 더 자세히 설명합니다.
 
 복잡한 R 함수를 사용할 경우에는 RStudio에서 편집, 테스트 및 디버그하는 것이 좋습니다. 모든 소프트웨어 개발에서와 마찬가지로 코드를 점차적으로 확장하고 간단한 작은 테스트 사례에서 테스트하세요. 그런 다음 함수를 잘라내어 [R 스크립트 실행][execute-r-script] 모듈의 R 스크립트 창에 붙여넣습니다. 이 방법을 사용하면 RStudio IDE(통합 개발 환경)와 Azure 기계 학습의 강력한 기능을 모두 이용할 수 있습니다.  
 
-####<a name="execute-r-code"></a>R 코드 실행
-
+#### <a name="execute-r-code"></a>R 코드 실행
 [R 스크립트 실행][execute-r-script] 모듈의 R 코드는 **실행** 단추를 클릭하여 실험을 실행할 때 실행됩니다. 실행이 완료되면 [R 스크립트 실행][execute-r-script] 아이콘에 확인 표시가 나타납니다.
 
-####<a name="defensive-r-coding-for-azure-machine-learning"></a>Azure 기계 학습용 방어 R 코딩
-
+#### <a name="defensive-r-coding-for-azure-machine-learning"></a>Azure 기계 학습용 방어 R 코딩
 Azure 기계 학습을 사용하여 웹 서비스용 R 코드를 개발하는 경우 코드가 예기치 않은 데이터 입력 및 예외를 처리할 방법을 확실히 계획해야 합니다. 정확성을 유지하기 위해 표시된 대부분의 코드 예제에서 확인 또는 예외를 처리하는 데 필자는 거의 관여하지 않았습니다. 하지만 계속 진행하면서 R의 예외 처리 기능을 사용하는 몇 가지 함수 예를 제공하겠습니다.  
 
 R 예외 처리를 보다 완벽하게 수행하려면 [부록 B - 추가 정보](#appendixb)에 나열된 Wickham의 저서에서 해당 섹션을 읽어보시기 바랍니다
 
-
-####<a name="debug-and-test-r-in-machine-learning-studio"></a>기계 학습 스튜디오에서 R 디버깅 및 테스트
-
+#### <a name="debug-and-test-r-in-machine-learning-studio"></a>기계 학습 스튜디오에서 R 디버깅 및 테스트
 다시 한 번 강조하지만 RStudio에서 작은 규모로 R 코드를 테스트 및 디버그하는 것이 좋습니다. 그러나 [R 스크립트 실행][execute-r-script] 자체에서 R 코드 문제를 추적해야 하는 경우도 있습니다. 또한 기계 학습 스튜디오에서 결과를 확인하는 것이 좋습니다.
 
 R 코드 및 Azure 기계 학습 플랫폼에서의 실행 출력은 주로 output.log에서 찾을 수 있습니다. 일부 추가 정보는 error.log에 표시됩니다.  
@@ -113,12 +95,11 @@ R 코드를 실행하는 동안 기계 학습 스튜디오에서 오류가 발�
 
 R 오류 메시지를 보려면 output.log에서 살펴봐야 할 것 같습니다. [R 스크립트 실행][execute-r-script]을 클릭한 다음 오른쪽 **속성 창**에서 **output.log 보기** 항목을 클릭합니다. 새 브라우저 창이 열리고 다음이 표시됩니다.
 
-
     [Critical]     Error: Error 0063: The following error occurred during evaluation of R script:
     ---------- Start of error message from R ----------
     object 'y' not found
-    
-    
+
+
     object 'y' not found
     ----------- End of error message from R -----------
 
@@ -126,8 +107,7 @@ R 오류 메시지를 보려면 output.log에서 살펴봐야 할 것 같습니�
 
 R의 개체 값을 검사하기 위해 output.log 파일에 해당 값을 인쇄할 수 있습니다. 개체 값 검사 규칙은 기본적으로 대화형 R 세션에서와 같습니다. 예를 들어 줄에 변수 이름을 입력하면 해당 개체 값이 output.log 파일에 인쇄됩니다.  
 
-####<a name="packages-in-machine-learning-studio"></a>기계 학습 스튜디오의 패키지
-
+#### <a name="packages-in-machine-learning-studio"></a>기계 학습 스튜디오의 패키지
 Azure 기계 학습은 350개가 넘는 사전 설치된 R 언어 패키지를 함께 제공합니다. [R 스크립트 실행][execute-r-script] 모듈에서 다음 코드를 사용하여 사전 설치된 패키지 목록을 검색할 수 있습니다.
 
     data.set <- data.frame(installed.packages())
@@ -136,7 +116,6 @@ Azure 기계 학습은 350개가 넘는 사전 설치된 R 언어 패키지를 �
 이 코드의 마지막 줄이 지금 이해되지 않아도 괜찮습니다. 이 문서의 나머지 부분에서 Azure 학습 환경에서의 R 사용에 대해 광범위하게 설명됩니다.
 
 ### <a name="introduction-to-rstudio"></a>RStudio 소개
-
 RStudio는 R용으로 널리 사용되는 IDE입니다. 이 빠른 시작 가이드에서 사용되는 일부 R 코드는 RStudio를 사용하여 편집, 테스트, 디버그합니다. R 코드를 테스트하여 준비가 되면 RStudio 편집기에서 잘라내어 Machine Learning Studio의 [R 스크립트 실행][execute-r-script] 모듈에 붙여넣기만 하면 됩니다.  
 
 데스크톱 컴퓨터에 R 프로그래밍 언어가 설치되어 있지 않으면 지금 설치하는 것이 좋습니다. 오픈 소스 R 언어는 광범위한 R 보관 네트워크 또는 [http://www.r-project.org/](http://www.r-project.org/)의 CRAN에서 무료로 다운로드할 수 있습니다. Windows, Mac OS, Linux/UNIX용 다운로드가 있습니다. 인접한 미러를 선택하고 다운로드 지침을 따르세요. 또한 CRAN에는 유용한 분석 및 데이터 조작 패키지가 풍부하게 들어 있습니다.
@@ -147,49 +126,33 @@ RStudio에 대한 자습서 소개는 https://support.rstudio.com/hc/sections/20
 
 [부록 A][appendixa]에 RStudio 사용에 대한 추가 정보가 일부 제공됩니다.  
 
-##<a name="a-idscriptmoduleaget-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>R 스크립트 실행 모듈의 데이터 입출력 가져오기
-
+## <a name="a-idscriptmoduleaget-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>R 스크립트 실행 모듈의 데이터 입출력 가져오기
 이 섹션에서는 [R 스크립트 실행][execute-r-script] 모듈의 데이터를 입력 및 출력하는 방법을 설명합니다. [R 스크립트 실행][execute-r-script] 모듈의 내부 및 외부로 읽은 다양한 데이터 형식을 처리하는 방법을 검토합니다.
 
 이 섹션의 전체 코드는 앞서 다운로드한 zip 파일에 들어 있습니다.
 
-###<a name="load-and-check-data-in-machine-learning-studio"></a>기계 학습 스튜디오에서 데이터 로드 및 확인
-
-####<a name="a-idloadingaload-the-dataset"></a><a id="loading"></a>데이터 집합 로드
-
+### <a name="load-and-check-data-in-machine-learning-studio"></a>기계 학습 스튜디오에서 데이터 로드 및 확인
+#### <a name="a-idloadingaload-the-dataset"></a><a id="loading"></a>데이터 집합 로드
 **csdairydata.csv** 파일을 Azure 기계 학습 스튜디오로 로드하여 시작합니다.
 
-- Azure 기계 학습 스튜디오 환경을 시작합니다.
+* Azure 기계 학습 스튜디오 환경을 시작합니다.
+* 화면의 왼쪽 아래에 있는 __+ 새로 만들기__를 클릭하고 **데이터 집합**을 선택합니다.
+* **로컬 파일에서**를 선택한 다음 **찾아보기**를 선택하여 파일을 선택합니다.
+* **Generic CSV file with header (.csv)(헤더가 포함된 일반 CSV 파일(.csv))**를 데이터 집합 형식으로 선택했는지 확인합니다.
+* 확인 표시를 클릭합니다.
+* 데이터 집합을 업로드한 후 **데이터 집합** 탭을 클릭하여 새 데이터 집합을 확인해야 합니다.  
 
-- 화면의 왼쪽 아래에 있는 __+ 새로 만들기__를 클릭하고 **데이터 집합**을 선택합니다.
-
-- **로컬 파일에서**를 선택한 다음 **찾아보기**를 선택하여 파일을 선택합니다.
-
-- **Generic CSV file with header (.csv)(헤더가 포함된 일반 CSV 파일(.csv))**를 데이터 집합 형식으로 선택했는지 확인합니다.
-
-- 확인 표시를 클릭합니다.
-
-- 데이터 집합을 업로드한 후 **데이터 집합** 탭을 클릭하여 새 데이터 집합을 확인해야 합니다.  
-
-####<a name="create-an-experiment"></a>실험 만들기
-
+#### <a name="create-an-experiment"></a>실험 만들기
 이제 기계 학습 스튜디오에 일부 데이터가 있으므로 분석을 수행하기 위한 실험을 만들어야 합니다.  
 
-- 왼쪽 아래에 있는 __+ 새로 만들기__를 클릭하고 **실험**, **빈 실험**을 차례로 선택합니다.
-
-- 페이지 위쪽에 있는 **Experiment created on ...(...에서 만든 실험)**을 선택하고 수정하여 실험의 이름을 지정할 수 있습니다. 예를 들어 **CA Dairy Analysis**로 변경합니다.
-
-- 실험 페이지의 왼쪽에서 **저장된 데이터 집합**, **내 데이터 집합**을 차례로 확장합니다. 이전에 업로드한 **cadairydata.csv**가 표시되어야 합니다.
-
-- **csdairydata.csv 데이터 집합**을 실험에 끌어다 놓습니다.
-
-- 왼쪽 창 맨 위의 **실험 항목 검색** 상자에 [R 스크립트 실행][execute-r-script]을 입력합니다. 검색 목록에 모듈이 표시됩니다.
-
-- [R 스크립트 실행][execute-r-script] 모듈을 팔레트에 끌어다 놓습니다.  
-
-- **csdairydata.csv 데이터 집합**의 출력을 [R 스크립트 실행][execute-r-script]의 가장 왼쪽에 있는 입력(**Dataset1**)에 연결합니다.
-
-- **반드시 '저장'을 클릭하세요.**  
+* 왼쪽 아래에 있는 __+ 새로 만들기__를 클릭하고 **실험**, **빈 실험**을 차례로 선택합니다.
+* 페이지 위쪽에 있는 **Experiment created on ...(...에서 만든 실험)**을 선택하고 수정하여 실험의 이름을 지정할 수 있습니다. 예를 들어 **CA Dairy Analysis**로 변경합니다.
+* 실험 페이지의 왼쪽에서 **저장된 데이터 집합**, **내 데이터 집합**을 차례로 확장합니다. 이전에 업로드한 **cadairydata.csv**가 표시되어야 합니다.
+* **csdairydata.csv 데이터 집합**을 실험에 끌어다 놓습니다.
+* 왼쪽 창 맨 위의 **실험 항목 검색** 상자에 [R 스크립트 실행][execute-r-script]을 입력합니다. 검색 목록에 모듈이 표시됩니다.
+* [R 스크립트 실행][execute-r-script] 모듈을 팔레트에 끌어다 놓습니다.  
+* **csdairydata.csv 데이터 집합**의 출력을 [R 스크립트 실행][execute-r-script]의 가장 왼쪽에 있는 입력(**Dataset1**)에 연결합니다.
+* **반드시 '저장'을 클릭하세요.**  
 
 이때 실험이 그림 3과 같이 표시됩니다.
 
@@ -197,8 +160,7 @@ RStudio에 대한 자습서 소개는 https://support.rstudio.com/hc/sections/20
 
 *그림 3. 데이터 집합이 있는 캘리포니아 유제품 분석 실험 및 R 스크립트 실행 모듈*
 
-####<a name="check-on-the-data"></a>데이터 확인
-
+#### <a name="check-on-the-data"></a>데이터 확인
 실험에 로드한 데이터를 살펴보겠습니다. 실험에서 **cadairydata.csv 데이터 집합**의 출력을 클릭하고 **시각화**를 선택합니다. 그림 4와 같이 표시됩니다.  
 
 ![cadairydata.csv 데이터 집합 요약][4]
@@ -208,7 +170,6 @@ RStudio에 대한 자습서 소개는 https://support.rstudio.com/hc/sections/20
 여기에서 많은 유용한 정보를 볼 수 있습니다. 또한 해당 데이터 집합의 처음 몇 행도 볼 수 있습니다. 열을 선택하면 해당 열에 관한 추가 정보가 통계 섹션에 표시됩니다. 예를 들어 Feature Type 행은 Azure 기계 학습 스튜디오가 열에 할당된 데이터 형식을 보여줍니다. 중요한 작업을 시작하기 전에 이렇게 빠르게 확인하면 온전성을 검사하는 데 좋습니다.
 
 ### <a name="first-r-script"></a>첫 번째 R 스크립트
-
 Azure 기계 학습 스튜디오에서 실험할 간단한 첫 번째 R 스크립트를 만들어 보겠습니다. RStudio에서 다음 스크립트를 만들고 테스트했습니다.  
 
     ## Only one of the following two lines should be used
@@ -225,7 +186,6 @@ Azure 기계 학습 스튜디오에서 실험할 간단한 첫 번째 R 스크�
 이제 이 스크립트를 Azure 기계 학습 스튜디오로 전송해야 합니다. 간단히 잘라내고 붙여넣을 수 있지만 이 경우에서는 R 스크립트를 zip 파일을 통해 전송하겠습니다.
 
 ### <a name="data-input-to-the-execute-r-script-module"></a>R 스크립트 실행 모듈에 데이터 입력
-
 [R 스크립트 실행][execute-r-script] 모듈에 대한 입력을 살펴보겠습니다. 이 예제에서는 캘리포니아 유제품 데이터를 [R 스크립트 실행][execute-r-script] 모듈로 읽어옵니다.  
 
 [R 스크립트 실행][execute-r-script] 모듈에 대해 사용 가능한 입력에는 세 가지가 있습니다. 응용 프로그램에 따라 이러한 입력을 하나만 사용하거나 모두 사용할 수 있습니다. 또한 입력이 전혀 없는 R 스크립트를 사용하는 것도 합리적일 수 있습니다.  
@@ -233,18 +193,20 @@ Azure 기계 학습 스튜디오에서 실험할 간단한 첫 번째 R 스크�
 이 입력을 각각 왼쪽에서 오른쪽으로 살펴보겠습니다. 입력 위에 커서를 놓고 도구 설명을 읽어 각 입력의 이름을 볼 수 있습니다.  
 
 #### <a name="script-bundle"></a>스크립트 번들
-
 스크립트 번들 입력을 사용하면 zip 파일의 내용을 [R 스크립트 실행][execute-r-script] 모듈에 전달할 수 있습니다. 다음 명령 중 하나를 사용하여 zip 파일의 내용을 R 코드에 읽어올 수 있습니다.
 
     source("src/yourfile.R") # Reads a zipped R script
     load("src/yourData.rdata") # Reads a zipped R data file
 
-> [AZURE.NOTE] Azure 기계 학습은 src/ 디렉터리에 있는 것처럼 파일을 zip 파일로 처리하므로 이 디렉터리 이름을 파일 이름 앞에 붙여야 합니다. 예를 들어 zip 파일의 루트에 `yourfile.R` 및 `yourData.rdata` 파일이 포함된 경우 `source` 및 `load`를 사용할 때 이러한 파일을 `src/yourfile.R` 및 `src/yourData.rdata`로 처리합니다.
+> [!NOTE]
+> Azure 기계 학습은 src/ 디렉터리에 있는 것처럼 파일을 zip 파일로 처리하므로 이 디렉터리 이름을 파일 이름 앞에 붙여야 합니다. 예를 들어 zip 파일의 루트에 `yourfile.R` 및 `yourData.rdata` 파일이 포함된 경우 `source` 및 `load`를 사용할 때 이러한 파일을 `src/yourfile.R` 및 `src/yourData.rdata`로 처리합니다.
+> 
+> 
 
 데이터 집합 로드는 [데이터 집합 로드](#loading)에서 이미 설명했습니다. 이전 섹션에 나와 있는 R 스크립트를 만들고 테스트한 후에는 다음을 수행하세요.
 
 1. R 스크립트를 .R 파일로 저장합니다. 이 스크립트 파일을 "simpleplot.R"이라고 하겠습니다. 콘텐츠는 다음과 같습니다.
-
+   
         ## Only one of the following two lines should be used
         ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
         ## If in RStudio, use the second line with read.csv()
@@ -255,18 +217,12 @@ Azure 기계 학습 스튜디오에서 실험할 간단한 첫 번째 R 스크�
         ## The following line should be executed only when running in
         ## Azure Machine Learning Studio
         maml.mapOutputPort('cadairydata')
-
-2.  Zip 파일을 만들고 스크립트를 이 zip 파일에 복사합니다. Windows에서 파일을 마우스 오른쪽 단추로 클릭하고 __보내기__를 선택한 다음 __압축 폴더__를 선택할 수 있습니다. 그러면 "simpleplot.R" 파일을 포함하는 zip 파일이 새로 만들어집니다.
-
-3.  파일을 **zip** 형식으로 지정하여 Machine Learning Studio의 **데이터 집합**에 추가합니다. 이제 데이터 집합에 zip 파일이 표시됩니다.
-
-4.  Zip 파일을 **데이터 집합**에서 **ML Studio 캔버스**로 끌어다 놓습니다.
-
-5.  **Zip 데이터** 아이콘의 출력을 [R 스크립트 실행][execute-r-script] 모듈의 **스크립트 번들** 입력에 연결합니다.
-
-6.  `source()` 함수를 zip 파일 이름과 함께 [R 스크립트 실행][execute-r-script] 모듈의 코드 창에 입력합니다. 제 경우 `source("src/simpleplot.R")`를 입력합니다.  
-
-7.  반드시 **저장**을 클릭하세요.
+2. Zip 파일을 만들고 스크립트를 이 zip 파일에 복사합니다. Windows에서 파일을 마우스 오른쪽 단추로 클릭하고 __보내기__를 선택한 다음 __압축 폴더__를 선택할 수 있습니다. 그러면 "simpleplot.R" 파일을 포함하는 zip 파일이 새로 만들어집니다.
+3. 파일을 **zip** 형식으로 지정하여 Machine Learning Studio의 **데이터 집합**에 추가합니다. 이제 데이터 집합에 zip 파일이 표시됩니다.
+4. Zip 파일을 **데이터 집합**에서 **ML Studio 캔버스**로 끌어다 놓습니다.
+5. **Zip 데이터** 아이콘의 출력을 [R 스크립트 실행][execute-r-script] 모듈의 **스크립트 번들** 입력에 연결합니다.
+6. `source()` 함수를 zip 파일 이름과 함께 [R 스크립트 실행][execute-r-script] 모듈의 코드 창에 입력합니다. 제 경우 `source("src/simpleplot.R")`를 입력합니다.  
+7. 반드시 **저장**을 클릭하세요.
 
 이러한 단계가 완료되면 [R 스크립트 실행][execute-r-script] 모듈은 실험이 실행될 때 해당 zip 파일의 R 스크립트를 실행합니다. 이때 실험이 그림 5와 같이 표시됩니다.
 
@@ -275,7 +231,6 @@ Azure 기계 학습 스튜디오에서 실험할 간단한 첫 번째 R 스크�
 *그림 5. 압축된 R 스크립트를 사용한 실험*
 
 #### <a name="dataset1"></a>Dataset1
-
 Dataset1 입력을 사용하여 사각형의 데이터 테이블을 R 코드에 전달할 수 있습니다. 간단한 이 스크립트에서 `maml.mapInputPort(1)` 함수는 포트 1에서 데이터를 읽습니다. 그런 다음 이 데이터는 코드에서 데이터 프레임 변수 이름에 할당됩니다. 간단한 이 스크립트에서 코드의 첫 번째 줄은 할당을 수행합니다.
 
     cadairydata <- maml.mapInputPort(1)
@@ -317,16 +272,16 @@ Dataset1 입력을 사용하여 사각형의 데이터 테이블을 R 코드에 
 
 결과는 거의 예상대로 dataframe에 228번의 관찰과 9개의 열이 나왔습니다. 각 열의 열 이름, R 데이터 형식, 샘플을 볼 수 있습니다.
 
-> [AZURE.NOTE] 이와 동일한 인쇄된 출력은 [R 스크립트 실행][execute-r-script] 모듈의 R 장치 출력에서 편리하게 사용할 수 있습니다. 다음 섹션에서 [R 실행 모듈Script][execute-r-script]의 출력을 설명합니다.  
+> [!NOTE]
+> 이와 동일한 인쇄된 출력은 [R 스크립트 실행][execute-r-script] 모듈의 R 장치 출력에서 편리하게 사용할 수 있습니다. 다음 섹션에서 [R 실행 모듈Script][execute-r-script]의 출력을 설명합니다.  
+> 
+> 
 
-####<a name="dataset2"></a>Dataset2
-
+#### <a name="dataset2"></a>Dataset2
 Dataset2 입력의 동작은 Dataset1과 동일합니다. 이 입력을 사용하여 두 번째 사각형의 데이터 테이블을 R 코드에 전달할 수 있습니다. 인수 2를 가진 `maml.mapInputPort(2)`함수를 사용하여 이 데이터를 전달합니다.  
 
-###<a name="execute-r-script-outputs"></a>R 스크립트 실행 출력
-
-####<a name="output-a-dataframe"></a>데이터 프레임 출력
-
+### <a name="execute-r-script-outputs"></a>R 스크립트 실행 출력
+#### <a name="output-a-dataframe"></a>데이터 프레임 출력
 `maml.mapOutputPort()` 함수를 사용하여 결과 데이터 집합 1 포트를 통해 R 데이터 프레임의 내용을 사각형 테이블처럼 출력할 수 있습니다. 간단한 이 R 스크립트에서는 다음 줄을 통해 이를 수행할 수 있습니다.
 
     maml.mapOutputPort('cadairydata')
@@ -340,7 +295,6 @@ Dataset2 입력의 동작은 Dataset1과 동일합니다. 이 입력을 사용�
 이 출력은 예상대로 입력과 같아 보입니다.  
 
 ### <a name="r-device-output"></a>R 장치 출력
-
 [R 스크립트 실행][execute-r-script] 모듈의 장치 출력은 메시지 및 그래픽 출력을 포함합니다. R의 표준 출력 및 표준 오류 메시지는 둘 다 R 장치 출력 포트로 전송됩니다.  
 
 R 장치 출력을 보려면 해당 포트를 클릭한 다음 **시각화**를 클릭하세요. 그림 7에서 R 스크립트의 표준 출력 및 표준 오류를 볼 수 있습니다.
@@ -355,8 +309,7 @@ R 장치 출력을 보려면 해당 포트를 클릭한 다음 **시각화**를 
 
 *그림 8. R 장치 포트의 그래픽 출력*  
 
-##<a name="a-idfilteringadata-filtering-and-transformation"></a><a id="filtering"></a>데이터 필터링 및 변환
-
+## <a name="a-idfilteringadata-filtering-and-transformation"></a><a id="filtering"></a>데이터 필터링 및 변환
 이 섹션에서는 캘리포니아 유제품 데이터에 몇 가지 기본 데이터 필터링 및 변환 작업을 수행합니다. 이 섹션의 끝 부분에서 분석 모델을 구축하기에 적합한 형식의 데이터를 얻게 됩니다.  
 
 더욱 구체적으로 설명하자면 이 섹션에서 여러 일반적인 데이터 정리 및 변환 작업(형식 변환, 데이터 프레임 필터링, 새 계산 열 추가, 값 변환)을 수행합니다. 이 경험이 실제로 겪게 될 많은 다양한 문제를 해결하는 데 도움이 될 것입니다.
@@ -364,7 +317,6 @@ R 장치 출력을 보려면 해당 포트를 클릭한 다음 **시각화**를 
 이 섹션의 전체 R 코드는 앞서 다운로드한 zip 파일에서 사용할 수 있습니다.
 
 ### <a name="type-transformations"></a>형식 변환
-
 이제 캘리포니아 유제품 데이터를 [R 스크립트 실행][execute-r-script] 모듈의 R 코드로 읽어올 수 있으므로 열의 데이터가 지정된 형식 및 서식으로 되어 있는지 확인해야 합니다.  
 
 R은 동적으로 입력되는 언어이므로 필요에 따라 데이터 형식이 강제 변환됩니다. R의 원자 데이터 형식에는 숫자, 논리값, 문자가 포함됩니다. 요소 형식은 범주 데이터를 조밀하게 저장하는 데 사용됩니다. [부록 B - 추가 정보](#appendixb)의 참고 자료에서 데이터 형식에 대해 훨씬 더 많은 정보를 찾을 수 있습니다.
@@ -376,11 +328,8 @@ R은 동적으로 입력되는 언어이므로 필요에 따라 데이터 형식
 이러한 변환 구문은 다음과 같이 간단합니다. `as.datatype()` 이러한 형식 변환 함수는 다음과 같습니다.
 
 * `as.numeric()`
-
 * `as.character()`
-
 * `as.logical()`
-
 * `as.factor()`
 
 우리가 이전 섹션에서 입력한 열의 데이터 유형을 보면 모든 열의 형식은 문자 형식인 'Month'라고 지정된 열을 제외하고는 모두 숫자 형식입니다. 이 형식을 요소로 변환하고 결과를 테스트해보겠습니다.  
@@ -468,13 +417,15 @@ R은 동적으로 입력되는 언어이므로 필요에 따라 데이터 형식
 
 이제 요소 변수의 수준이 원하는 대로 12가 되었습니다.
 
-###<a name="basic-data-frame-filtering"></a>기본 데이터 프레임 필터링
-
+### <a name="basic-data-frame-filtering"></a>기본 데이터 프레임 필터링
 R 데이터 프레임은 강력한 필터링 기능을 지원합니다. 행이나 열에 논리 필터를 사용하여 데이터 집합을 하위 집합으로 만들 수 있습니다. 대부분의 경우 복잡한 필터 조건을 입력해야 합니다. [부록 B-추가 자료](#appendixb) 의 참고 자료에 데이터 프레임 필터링에 대한 방대한 예가 포함되어 있습니다.  
 
 이 데이터 집합에서 수행해야 하는 필터링이 하나 있습니다. cadairydata 데이터 프레임의 열을 살펴보면 두 개의 불필요한 열을 볼 수 있습니다. 첫 번째 열은 단지 행 번호만 가지고 있으며 그리 유용하지 않습니다. 두 번째 열인 Year.Month에는 불필요한 정보가 포함되어 있습니다. 다음 R 코드를 사용하여 이 두 열을 쉽게 제외시킬 수 있습니다.
 
-> [AZURE.NOTE] 지금부터 이 섹션에서 [R 스크립트 실행][execute-r-script] 모듈에 추가하는 추가 코드만 보여드리겠습니다. 새 줄은 `str()` 함수 **앞**에 추가합니다. 이 함수는 Azure 기계 학습 스튜디오에서 결과를 확인하는 데 사용됩니다.
+> [!NOTE]
+> 지금부터 이 섹션에서 [R 스크립트 실행][execute-r-script] 모듈에 추가하는 추가 코드만 보여드리겠습니다. 새 줄은 `str()` 함수 **앞**에 추가합니다. 이 함수는 Azure 기계 학습 스튜디오에서 결과를 확인하는 데 사용됩니다.
+> 
+> 
 
 다음 줄을 [R 스크립트 실행][execute-r-script] 모듈의 R 코드에 추가합니다.
 
@@ -509,8 +460,7 @@ R 데이터 프레임은 강력한 필터링 기능을 지원합니다. 행이�
 
 기쁘게도 원하는 결과를 얻었습니다.
 
-###<a name="add-a-new-column"></a>새 열 추가
-
+### <a name="add-a-new-column"></a>새 열 추가
 시계열 모델을 만들려면 시계열 시작 이후의 월을 포함하는 열을 사용하는 것이 편리합니다. 'Month.Count'라는 열을 새로 만듭니다.
 
 코드 구성을 돕기 위해 먼저 간단한 `num.month()`함수를 만듭니다. 그런 다음 이 함수를 적용하여 데이터 프레임에 새 열을 만듭니다. 새 코드는 다음과 같습니다.
@@ -559,8 +509,7 @@ R 데이터 프레임은 강력한 필터링 기능을 지원합니다. 행이�
 
 모두 제대로 작동하는 것 같으며 원하는 값을 가진 새 열이 데이터 프레임에 포함되었습니다.
 
-###<a name="value-transformations"></a>값 변환
-
+### <a name="value-transformations"></a>값 변환
 이 섹션에서는 데이터 프레임 열 중 일부 열의 값을 간단히 변환해보겠습니다. R 언어는 거의 임의의 값 변환을 지원합니다. [부록 B-추가 자료](#appendixb) 의 참고 자료에 방대한 예가 포함되어 있습니다.
 
 데이터 프레임 요약에서 값을 살펴보면 이상한 점을 확인할 수 있습니다. 캘리포니아에서 아이스크림이 우유보다 더 많이 생산되나요? 아닙니다. 물론 말이 안 되지만 일부 아이스크림 애호가로 인해 이렇게 된 것 같습니다. 단위도 다릅니다. 금액은 미국 파운드, 우유는 1M 미국 파운드, 아이스크림은 1,000 미국 갤론, 코티지 치즈는 1,000 미국 파운드 단위로 되어 있습니다. 갤론당 아이스크림 무게가 약 6.5파운드라고 가정하면 모두 동일하게 1,000파운드 단위가 되도록 곱셈을 사용하여 이러한 값을 쉽게 변환할 수 있습니다.
@@ -607,11 +556,8 @@ R 데이터 프레임은 강력한 필터링 기능을 지원합니다. 행이�
 R에서 방어적 프로그래밍이 익숙하지 않으면 이 코드가 모두 약간 부담스러울 수 있습니다. 주요 단계를 안내합니다.
 
 1. 네 개 메시지의 벡터가 정의됩니다. 이러한 메시지는 이 코드에서 발생할 수 있는 일부 오류 및 예외에 대한 정보를 전달하는 데 사용됩니다.
-
 2. 각각의 경우에 대해 NA 값을 반환합니다. 부작용이 더 적을 수 있는 다른 가능성이 많습니다. 예를 들어 0의 벡터나 원래 입력 벡터를 반환할 수 있습니다.
-
 3. 함수에 대한 인수를 확인합니다. 오류가 감지되는 경우에는 기본값이 반환되며 `warning()` 함수가 메시지를 생성합니다. `stop()`은 실행을 종료하므로 방지하려는 경우에는 `warning()`을 사용합니다. 이 코드의 경우 함수 접근 방법으로 작성하면 복잡하고 난해해 보이므로 프로시저 방식으로 작성하였습니다.
-
 4. 예외가 발생해 프로세스를 갑자기 중단하지 않도록 로그 계산이 `tryCatch()` 로 래핑됩니다. `tryCatch()`가 없으면 R 함수에 의해 발생한 대부분의 오류는 중지 작업을 수행하는 중지 신호가 됩니다.
 
 자체 실험에서 이 R 코드를 실행하고 output.log 파일의 인쇄된 출력을 살펴보세요. 그림 13에서 볼 수 있듯이 이제 로그에 있는 네 개의 열 값이 변환된 것을 확인할 수 있습니다.
@@ -646,27 +592,23 @@ R에서 방어적 프로그래밍이 익숙하지 않으면 이 코드가 모두
 
 이 시점에서 데이터가 정리되며 모델링할 준비가 됩니다. [R 스크립트 실행][execute-r-script] 모듈의 Result Dataset 출력에 대한 시각화된 요약을 보면 'Month' 열이 바로 우리가 원하는 12개의 고유값을 가진 'Categorical'이라는 것을 알 수 있습니다.
 
-##<a name="a-idtimeseriesatime-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>시계열 개체 및 상관관계 분석
-
+## <a name="a-idtimeseriesatime-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>시계열 개체 및 상관관계 분석
 이 섹션에서는 몇 가지 기본 R 시계열 개체를 살펴보고 일부 변수 간의 상관관계를 분석합니다. 여기서는 여러 지연 상황에서 쌍별 상관관계 정보를 포함하는 데이터 프레임을 출력하는 것이 목표입니다.
 
 이 섹션의 전체 R 코드는 앞서 다운로드한 zip 파일에 들어 있습니다.
 
-###<a name="time-series-objects-in-r"></a>R의 시계열 개체
-
+### <a name="time-series-objects-in-r"></a>R의 시계열 개체
 이미 언급했듯이 시계열은 시간으로 인덱싱된 일련의 데이터 값입니다. R 시계열 개체는 시간 인덱스를 만들고 관리하는 데 사용됩니다. 시계열 개체를 사용하면 다음과 같은 몇 가지 이점이 있습니다. 시계열 개체를 사용하면 개체에 캡슐화된 시계열 인덱스 값을 관리하지 않아도 됩니다. 또한 시계열 개체를 통해 그리기, 인쇄, 모델링을 위한 다양한 시계열 메서드를 사용할 수 있습니다.
 
 POSIXct 시계열 클래스가 일반적으로 사용되며 비교적 간단합니다. 이 시계열 클래스는 1970년 1월 1일 Epoch 시작부터 시간을 측정합니다. 이 예제에서는 POSIXct 시계열 개체를 사용합니다. 널리 사용되는 다른 R 시계열 개체 클래스에는 확장 가능한 시계열인 zoo와 xts가 있습니다.
 <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ### <a name="time-series-object-example"></a>시계열 개체 예
-
 예제로 시작해 보겠습니다. **새** [R 스크립트 실행][execute-r-script] 모듈을 실험에 끌어다 놓습니다. 기존 [R 스크립트 실행][execute-r-script] 모듈의 Result Dataset1 출력 포트를 새 [R 스크립트 실행][execute-r-script] 모듈의 Dataset1 입력 포트에 연결합니다.
 
 첫 번째 예제에서와 마찬가지로 예제를 진행하는 동안 어떤 부분에서는 각 단계에서 추가된 R 코드 줄만 표시하겠습니다.  
 
-####    <a name="reading-the-dataframe"></a>데이터 프레임 읽기
-
+#### <a name="reading-the-dataframe"></a>데이터 프레임 읽기
 우선 데이터 프레임을 읽고 원하는 결과를 얻는지 확인합니다. 다음 코드가 작업을 수행해야 합니다.
 
     # Comment the following if using RStudio
@@ -699,8 +641,7 @@ POSIXct 시계열 클래스가 일반적으로 사용되며 비교적 간단합�
 
 이 데이터의 형식 및 서식이 예상한 것과 같습니다. 'Month' 열은 요소 형식으로 되어 있으며 수준 개수가 예상대로 입니다.
 
-####<a name="creating-a-time-series-object"></a>시계열 개체 만들기
-
+#### <a name="creating-a-time-series-object"></a>시계열 개체 만들기
 시계열 개체를 데이터 프레임에 추가해야 합니다. 현재 코드를 다음과 같이 새 POSIXct 클래스 열을 추가하도록 바꿉니다.
 
     # Comment the following if using RStudio
@@ -740,8 +681,7 @@ POSIXct 시계열 클래스가 일반적으로 사용되며 비교적 간단합�
 
 요약에서 보면 새 열이 POSIXct 클래스라는 사실을 알 수 있습니다.
 
-###<a name="exploring-and-transforming-the-data"></a>데이터 탐색 및 변환
-
+### <a name="exploring-and-transforming-the-data"></a>데이터 탐색 및 변환
 이 데이터 집합에서 일부 변수를 살펴보겠습니다. 산점도 행렬은 간단히 살펴보기에 좋습니다. 이전 R 코드의 `str()` 함수를 다음 줄로 바꿉니다.
 
     pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata, main = "Pairwise Scatterplots of dairy time series")
@@ -754,8 +694,7 @@ POSIXct 시계열 클래스가 일반적으로 사용되며 비교적 간단합�
 
 이러한 변수 간의 관계가 약간 이상해 보입니다. 변수를 표준화하지 않은 점과 데이터의 추세로 인해 이렇게 된 것 같습니다.
 
-###<a name="correlation-analysis"></a>상관관계 분석
-
+### <a name="correlation-analysis"></a>상관관계 분석
 상관관계 분석을 수행하려면 변수를 비추세화하고 표준화해야 합니다. 간단히 R `scale()` 함수를 사용하여 변수를 중심값으로 하고 그 크기를 조정할 수 있습니다. 이 함수가 더 빨리 실행될 수 있지만 R의 방어적 프로그래밍 예를 보여주려고 합니다.
 
 아래 표시된 `ts.detrend()` 함수는 이러한 작업을 모두 수행합니다. 다음 두 줄의 코드는 데이터를 비추세화한 후 값을 표준화합니다.
@@ -893,8 +832,7 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
 
 각 지연에 대해 상관관계 값이 있습니다. 이러한 상관관계 값은 크지 않아서 모두 중요하지 않습니다. 따라서 각 변수를 독립적으로 모델링할 수 있다는 결론을 얻을 수 있습니다.
 
-###<a name="output-a-dataframe"></a>데이터 프레임 출력
-
+### <a name="output-a-dataframe"></a>데이터 프레임 출력
 쌍별 상관관계는 R ccf 개체 목록으로서 계산되었습니다. Result Dataset 출력 포트에서 실제로 데이터 프레임이 필요한 경우 이로 인해 약간의 문제가 발생합니다. 또한 ccf 개체는 그 자체가 목록이며, 이 목록의 첫 번째 요소 값 및 다양한 지연에서의 상관관계만 필요합니다.
 
 다음 코드는 개체 자체가 목록인 ccf 개체의 목록에서 지연 값을 추출합니다.
@@ -923,11 +861,9 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
 
 코드의 첫 번째 줄이 조금 어려워서 약간의 설명이 줄을 이해하는 데 도움이 됩니다. 다음과 같이 안의 함수에서 바깥의 함수 순서로 처리합니다.
 
-1.  인수가 '**1**'인 '**[[**' 연산자는 ccf 개체 목록의 첫 번째 요소의 지연에서 상관관계의 벡터를 선택합니다.
-
-2.  `do.call()` 함수는 `lapply()`가 반환하는 목록의 요소에 `rbind()` 함수를 적용합니다.
-
-3.  `data.frame()` 함수는 `do.call()`에 의해 생성된 결과를 데이터 프레임에 강제 반환합니다.
+1. 인수가 '**1**'인 '**[[**' 연산자는 ccf 개체 목록의 첫 번째 요소의 지연에서 상관관계의 벡터를 선택합니다.
+2. `do.call()` 함수는 `lapply()`가 반환하는 목록의 요소에 `rbind()` 함수를 적용합니다.
+3. `data.frame()` 함수는 `do.call()`에 의해 생성된 결과를 데이터 프레임에 강제 반환합니다.
 
 행 이름은 데이터 프레임의 열에 있습니다. 이렇게 하면 [R 스크립트 실행][execute-r-script]에서 출력될 때 행 이름이 유지됩니다.
 
@@ -937,8 +873,7 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
 
 *그림 19. 상관관계 분석 결과 출력*
 
-##<a name="a-idseasonalforecastingatime-series-example-seasonal-forecasting"></a><a id="seasonalforecasting"></a>시계열 예: 계절별 예측
-
+## <a name="a-idseasonalforecastingatime-series-example-seasonal-forecasting"></a><a id="seasonalforecasting"></a>시계열 예: 계절별 예측
 이제 데이터가 분석에 적합한 형식이 되었으며 변수 간에는 중요한 상관관계가 없습니다. 이제 시계열 예측 모델을 만들어 보겠습니다. 이 모델을 사용하여 2013년 12개월 동안의 캘리포니아 우유 생산을 예측합니다.
 
 예측 모델에는 두 가지 구성 요소, 즉 추세 구성 요소와 계절 구성 요소가 포함됩니다. 이 두 구성 요소를 통해 완벽하게 예측할 수 있습니다. 이런 형식의 모델을 승법 모형이라고 합니다. 대안으로는 가법 모형이 있습니다. 이 분석을 다룰 수 있는 변수에 이미 로그 변환을 적용했습니다.
@@ -946,7 +881,6 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
 이 섹션의 전체 R 코드는 앞서 다운로드한 zip 파일에 들어 있습니다.
 
 ### <a name="creating-the-dataframe-for-analysis"></a>분석을 위한 데이터 프레임 만들기
-
 **새** [R 스크립트 실행][execute-r-script] 모듈을 실험에 추가하여 시작하세요. 기존 [R 스크립트 실행][execute-r-script] 모듈의 **Result Dataset** 출력을 새 모듈의 **Dataset1** 입력에 연결합니다. 결과는 그림 20과 같이 표시됩니다.
 
 ![새 R 스크립트 실행 모듈이 추가된 실험][21]
@@ -992,8 +926,7 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
 
 이제 분석을 시작할 준비가 되었습니다.
 
-###<a name="create-a-training-dataset"></a>학습 데이터 집합 만들기
-
+### <a name="create-a-training-dataset"></a>학습 데이터 집합 만들기
 생성된 데이터 프레임을 사용하여 학습 데이터 집합을 만들어야 합니다. 이 데이터는 테스트 데이터 집합인 2013년의 마지막 12월을 제외한 모든 관찰 결과를 포함합니다. 다음 코드는 데이터 프레임을 하위 집합으로 만들고 유제품 생산 및 가격 변수 도표를 만듭니다. 네 개의 생산 및 가격 변수 도표를 만들겠습니다. 익명 함수를 사용하여 도표에 일부 인수를 정의한 후 `Map()`을 사용하여 다른 두 인수 목록을 반복합니다. 여기서는 For 루프가 잘 작동했겠지만 R은 함수 언어이므로 함수를 사용한 접근 방식을 보여 주고 있습니다.
 
     cadairytrain <- cadairydata[1:216, ]
@@ -1018,7 +951,6 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
 *그림 22. 캘리포니아 유제품 생산 및 가격 데이터의 시계열 도표*
 
 ### <a name="a-trend-model"></a>추세 모델
-
 시계열 개체를 만들고 데이터를 살펴보았으면 캘리포니아 우유 생산 데이터의 추세 모델을 생성해 보겠습니다. 시계열 회귀로 이 작업을 수행할 수 있습니다. 하지만 도표에서 보면 학습 데이터에서 관찰한 추세를 정확하게 모델링하려면 기울기와 절편이 두 개 이상 필요하다는 사실을 알 수 있습니다.
 
 주어진 데이터가 적으면 RStudio에서 추세 모델을 구축한 후 생성된 모델을 잘라서 Azure 기계 학습에 붙여넣습니다. RStudio는 이러한 유형의 대화형 분석에 대화형 환경을 제공합니다.
@@ -1094,8 +1026,7 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
 
 추세 모델이 데이터와 잘 맞는 것 같습니다. 또한 모델 곡선이 이상하게 흔들리듯이 크게 맞춘 것 같지 않습니다.  
 
-###<a name="seasonal-model"></a>계절 모델
-
+### <a name="seasonal-model"></a>계절 모델
 현재 다루고 있는 추세 모델을 계속 사용하며 계절의 영향을 포함해야 합니다. 선형 모델에서 월을 더미 변수로 사용하여 월별 영향을 파악합니다. 요소 변수를 모델에 삽입할 때 절편을 계산하면 안 됩니다. 절편을 계산하면 수식이 과도하게 지정되고 R이 절편항은 유지한 채 원하는 요소 중 하나를 삭제합니다.
 
 추세 모델이 만족스러우므로 `update()` 함수를 사용하여 기존 모델에 새 항을 추가할 수 있습니다. 업데이트 식의 -1은 절편항을 삭제합니다. 우선은 RStudio에서 계속합니다.
@@ -1193,8 +1124,7 @@ Azure 기계 학습에서 이 코드를 실행하면 그림 24와 같은 도표�
 
 이러한 도표에서 몇 가지 큰 영향을 주는 사항이 발견되었으나 크게 신경 쓸 정도는 아닙니다. 또한 오차가 일반적 분포와 근접한 일반 Q-Q 도표에서 선형 모델의 중요한 가정을 볼 수 있습니다.
 
-###<a name="forecasting-and-model-evaluation"></a>예측 및 모델 평가
-
+### <a name="forecasting-and-model-evaluation"></a>예측 및 모델 평가
 예제를 완료하기 위해 한 가지 작업이 더 있습니다. 예측을 계산하고 실제 데이터에 대한 오류를 측정해야 합니다. 2013년의 12개월에 대해 예측합니다. 학습 데이터 집합의 일부가 아닌 실제 데이터에 이 예측의 오차 측정을 계산할 수 있습니다. 또한 18년의 훈련 데이터를 12개월의 테스트 데이터와 성능을 비교할 수 있습니다.  
 
 시계열 모델의 성능을 측정하는 데 여러 측정 기준이 사용됩니다. 이 경우 RMS(제곱 평균 오차)를 사용합니다. 다음 함수는 두 계열 간의 RMS 오차를 계산합니다.  
@@ -1273,45 +1203,36 @@ RMS 오차를 측정하는 함수를 사용하여 RMS 오차가 포함된 데이
 
 이러한 결과를 통해 모델에 계절 요소를 추가하면 RMS 오차가 현저히 감소한다는 사실을 알 수 있습니다. 별로 놀랍지는 않지만 학습 데이터의 RMS 오차는 예측의 RMS 오차보다 약간 적습니다.
 
-##<a name="a-idappendixaaappendix-a-guide-to-rstudio"></a><a id="appendixa"></a>부록 A - RStudio 가이드
-
+## <a name="a-idappendixaaappendix-a-guide-to-rstudio"></a><a id="appendixa"></a>부록 A - RStudio 가이드
 RStudio는 문서화된 관련 증거가 많으므로 이 부록에서는 시작할 수 있도록 RStudio 설명서의 주요 섹션에 대한 일부 링크를 제공합니다.
 
-1.  프로젝트 만들기
+1. 프로젝트 만들기
+   
+   R RStudio를 사용하여 R 코드를 프로젝트에서 구성하고 관리할 수 있습니다. 프로젝트 사용에 관한 설명서는 https://support.rstudio.com/hc/articles/200526207-Using-Projects(영문)에서 찾을 수 있습니다.
+   
+   지침에 따라 이 문서의 R 코드 예제 프로젝트를 만들어 보는 것이 좋습니다.  
+2. R 코드 편집 및 실행
+   
+   RStudio는 R 코드의 편집 및 실행을 위해 통합 환경을 제공합니다. 설명서는 https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code(영문)에서 찾을 수 있습니다.
+3. 디버그
+   
+   RStudio에는 강력한 디버그 기능이 포함되어 있습니다. 이러한 기능에 대한 설명서는 https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio(영문)에서 찾을 수 있습니다.
+   
+   중단점 문제 해결 기능은 https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting(영문)에 문서화되어 있습니다.
 
-    R RStudio를 사용하여 R 코드를 프로젝트에서 구성하고 관리할 수 있습니다. 프로젝트 사용에 관한 설명서는 https://support.rstudio.com/hc/articles/200526207-Using-Projects(영문)에서 찾을 수 있습니다.
-
-    지침에 따라 이 문서의 R 코드 예제 프로젝트를 만들어 보는 것이 좋습니다.  
-
-2.  R 코드 편집 및 실행
-
-    RStudio는 R 코드의 편집 및 실행을 위해 통합 환경을 제공합니다. 설명서는 https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code(영문)에서 찾을 수 있습니다.
-
-3.  디버그
-
-    RStudio에는 강력한 디버그 기능이 포함되어 있습니다. 이러한 기능에 대한 설명서는 https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio(영문)에서 찾을 수 있습니다.
-
-    중단점 문제 해결 기능은 https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting(영문)에 문서화되어 있습니다.
-
-##<a name="a-idappendixbaappendix-b-further-reading"></a><a id="appendixb"></a>부록 B - 추가 정보
-
+## <a name="a-idappendixbaappendix-b-further-reading"></a><a id="appendixb"></a>부록 B - 추가 정보
 이 R 프로그래밍 자습서는 Azure 기계 학습 스튜디오에서 R 언어를 사용해야 하는 기본 사항을 소개합니다. R에 익숙하지 않은 경우 CRAN에서 두 가지 소개 자료를 사용할 수 있습니다.
 
-- R을 시작하기에 좋은 자료인 R for Beginners by Emmanuel Paradis는 http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf(영문)에 있습니다.  
-
-- W. N. Venables et. al. 이 쓴 'An Introduction to R(R에 대한 소개)'에서 더 심도있게 다루고 있으며 http://cran.r-project.org/doc/manuals/R-intro.html(영문)에서 확인할 수 있습니다.
+* R을 시작하기에 좋은 자료인 R for Beginners by Emmanuel Paradis는 http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf(영문)에 있습니다.  
+* W. N. Venables et. al. 이 쓴 'An Introduction to R(R에 대한 소개)'에서 더 심도있게 다루고 있으며 http://cran.r-project.org/doc/manuals/R-intro.html(영문)에서 확인할 수 있습니다.
 
 R을 시작하는 데 도움을 되는 서적이 많이 있습니다. 몇 가지 유용한 서적은 다음과 같습니다.
 
-- 'The Art of R Programming: A Tour of Statistical Software Design'(저자: Norman Matloff)(영문)은 훌륭한 R 프로그래밍 입문서입니다.  
-
-- 'R Cookbook'(저자: Paul Teetor)(영문)은 R을 사용한 문제 및 해결 접근 방식을 제공합니다.  
-
-- 'R in Action'(저자: Robert Kabacoff)(영문)도 유용한 입문서입니다. Quick R 동반 웹 사이트도 유용한 리소스이며 http://www.statmethods.net/(영문)에서 확인할 수 있습니다.
-
-- 'R Inferno'(저자: Patrick Burns)는 R로 프로그래밍할 때 발생할 수 있는 많은 까다롭고 어려운 문제를 놀랍도록 유쾌하게 다룹니다. 이 책은 http://www.burns-stat.com/documents/books/the-r-inferno/(영문)에서 무료로 사용할 수 있습니다.
-
-- R에 대한 깊이 있는 정보는 'Advanced R'(저자: Hadley Wickham)(영문)에서 확인해 보세요. 이 책의 온라인 버전은 http://adv-r.had.co.nz/(영문)에서 무료로 사용할 수 있습니다.
+* 'The Art of R Programming: A Tour of Statistical Software Design'(저자: Norman Matloff)(영문)은 훌륭한 R 프로그래밍 입문서입니다.  
+* 'R Cookbook'(저자: Paul Teetor)(영문)은 R을 사용한 문제 및 해결 접근 방식을 제공합니다.  
+* 'R in Action'(저자: Robert Kabacoff)(영문)도 유용한 입문서입니다. Quick R 동반 웹 사이트도 유용한 리소스이며 http://www.statmethods.net/(영문)에서 확인할 수 있습니다.
+* 'R Inferno'(저자: Patrick Burns)는 R로 프로그래밍할 때 발생할 수 있는 많은 까다롭고 어려운 문제를 놀랍도록 유쾌하게 다룹니다. 이 책은 http://www.burns-stat.com/documents/books/the-r-inferno/(영문)에서 무료로 사용할 수 있습니다.
+* R에 대한 깊이 있는 정보는 'Advanced R'(저자: Hadley Wickham)(영문)에서 확인해 보세요. 이 책의 온라인 버전은 http://adv-r.had.co.nz/(영문)에서 무료로 사용할 수 있습니다.
 
 R 시계열 패키지 카탈로그는 CRAN Task View for time series analysis(http://cran.r-project.org/web/views/TimeSeries.html, 영문)에서 찾을 수 있습니다. 특정 시계열 개체 패키지에 대한 자세한 내용은 해당 패키지에 대한 설명서를 참조하세요.
 
@@ -1319,11 +1240,9 @@ R 시계열 패키지 카탈로그는 CRAN Task View for time series analysis(ht
 
 다음은 유용한 인터넷 리소스입니다.
 
-- DataCamp: 브라우저에서 편안하게 비디오 레슨 및 코드 연습을 배울 수 있습니다. 최신 R 기술 및 패키지에 대한 대화형 자습서가 제공됩니다. 무료 대화형 R 자습서를 https://www.datacamp.com/courses/introduction-to-r에서 확인하세요.  
-
-- 클라크슨 대학교의 Kelly Black이 제공하는 빠른 R 자습서 http://www.cyclismo.org/tutorial/R/
-
-- 60 개 이상의 R 리소스 http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
+* DataCamp: 브라우저에서 편안하게 비디오 레슨 및 코드 연습을 배울 수 있습니다. 최신 R 기술 및 패키지에 대한 대화형 자습서가 제공됩니다. 무료 대화형 R 자습서를 https://www.datacamp.com/courses/introduction-to-r에서 확인하세요.  
+* 클라크슨 대학교의 Kelly Black이 제공하는 빠른 R 자습서 http://www.cyclismo.org/tutorial/R/
+* 60 개 이상의 R 리소스 http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
 <!--Image references-->
 [1]: ./media/machine-learning-r-quickstart/fig1.png

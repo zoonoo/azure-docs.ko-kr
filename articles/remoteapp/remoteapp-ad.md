@@ -1,33 +1,30 @@
 
-<properties 
-    pageTitle="Azure AD + Azure RemoteApp에 대한 Active Directory 요구 사항 | Microsoft Azure" 
-    description="Azure RemoteApp과 작동하도록 Active Directory를 설정하는 방법에 대해 알아봅니다." 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+---
+title: Azure AD + Azure RemoteApp에 대한 Active Directory 요구 사항 | Microsoft Docs
+description: Azure RemoteApp과 작동하도록 Active Directory를 설정하는 방법에 대해 알아봅니다.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
-
+---
 # Azure AD + Azure RemoteApp에 대한 Active Directory 요구 사항
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
-
+> [!IMPORTANT]
+> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> 
+> 
 
 Azure RemoteApp 하이브리드 컬렉션 또는 AD Connect를 사용하여 페더레이션하려는 클라우드 컬렉션의 경우 다음을 수행해야 합니다.
 
 ### Azure AD 및 Active Directory 연결
-
 Azure AD 테넌트와 온-프레미스 Active Directory 환경을 연결하려면 AD Connect를 사용합니다. [4번 클릭](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/)만으로 두 개의 디렉터리를 연결할 수 있습니다.
 
 참고 - 하이브리드 컬렉션에는 디렉터리 동기화가 필요합니다.
@@ -42,8 +39,8 @@ Azure AD에서 UPN 도메인 접미사를 설정한 후 Azure RemoteApp에 로�
 ### Azure RemoteApp에 대한 개체 만들기
 다음과 같은 온-프레미스 Active Directory 개체도 만들어야 합니다.
 
-- RDSH 끝점을 온-프레미스 도메인에 연결하여 RemoteApp 프로그램에 도메인 리소스에 대한 액세스 권한을 제공할 서비스 계정.
-- RemoteApp 컴퓨터 개체를 포함할 OU(조직 구성 단위). 필수는 아니지만 OU를 통해 RemoteApp에 사용할 계정과 정책을 격리시키는 것이 좋습니다.
+* RDSH 끝점을 온-프레미스 도메인에 연결하여 RemoteApp 프로그램에 도메인 리소스에 대한 액세스 권한을 제공할 서비스 계정.
+* RemoteApp 컴퓨터 개체를 포함할 OU(조직 구성 단위). 필수는 아니지만 OU를 통해 RemoteApp에 사용할 계정과 정책을 격리시키는 것이 좋습니다.
 
 RemoteApp 컬렉션을 만들 때 이러한 두 개체가 필요하므로 이 단계를 먼저 수행해야 합니다.
 

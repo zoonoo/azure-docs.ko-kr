@@ -1,22 +1,21 @@
-<properties
-   pageTitle="사용자 지정 서비스 패브릭 상태 보고서 추가 | Microsoft Azure"
-   description="Azure 서비스 패브릭 상태 엔터티에 사용자 지정 상태 보고서를 보내는 방법을 설명합니다. 고품질 상태 보고서 설계 및 구현에 대한 권장 사항을 제공합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="oanapl"
-   manager="timlt"
-   editor=""/>
+---
+title: 사용자 지정 서비스 패브릭 상태 보고서 추가 | Microsoft Docs
+description: Azure 서비스 패브릭 상태 엔터티에 사용자 지정 상태 보고서를 보내는 방법을 설명합니다. 고품질 상태 보고서 설계 및 구현에 대한 권장 사항을 제공합니다.
+services: service-fabric
+documentationcenter: .net
+author: oanapl
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/28/2016"
-   ms.author="oanapl"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/28/2016
+ms.author: oanapl
 
-
+---
 # <a name="add-custom-service-fabric-health-reports"></a>사용자 지정 서비스 패브릭 상태 보고서 추가
 Azure 서비스 패브릭은 특정 엔터티의 비정상 클러스터 및 응용 프로그램 상태에 플래그를 적용하도록 설계된 [상태 모델](service-fabric-health-introduction.md) 을 도입했습니다. 상태 모델은 **Health 보고서** (시스템 구성 요소 및 Watchdog)를 사용합니다. 쉽고 빠른 진단을 목표로 합니다. 서비스 작성자는 상태를 미리 고려해야 합니다. 상태에 영향을 줄 수 있는 모든 조건이 보고되어야 하며, 특히 근본 원인에 가까운 문제를 플래깅하는 데 도움이 되는 경우에는 반드시 보고가 이루어져야 합니다. 상태 모델은 서비스가 클라우드(사설 또는Azure)에서 대규모로 실행되면 이를 통해 디버깅과 조사에 들어가는 많은 시간과 노력을 줄일 수 있습니다.
 
@@ -24,44 +23,43 @@ Azure 서비스 패브릭은 특정 엔터티의 비정상 클러스터 및 응�
 
 상태 보고를 설계하고 구현하기 위하여 Watchdog 및 시스템 구성 요소는 다음을 수행해야 합니다.
 
-- 관심 있는 조건, 해당 조건을 모니터링하는 방식, 클러스터 또는 응용 프로그램 기능에 미치는 영향을 정의합니다. 이 정보를 기반으로 상태 보고서 속성 및 상태를 판단합니다.
-
-- 보고서가 적용되는 [엔터티](service-fabric-health-introduction.md#health-entities-and-hierarchy) 를 정의합니다.
-
-- 보고를 서비스 내에서 수행할 것인지 아니면 내부 또는 외부 Watchdog에서 수행할 것인지 보고 위치를 정의합니다.
-
-- 보고자를 식별하는데 사용할 소스를 정의합니다.
-
-- 주기적 또는 전환기 중에서 보고 전략을 선택합니다. 주기적 방식을 선택하면 코드가 더 간단하고 오류가 발생할 가능성이 적기 때문에 주기적 방식을 권장합니다.
-
-- 비정상 조건에 대한 보고서를 Health 스토어에 보관할 기간과 보고서를 지우는 방식을 결정합니다. 이 정보를 사용하여 보고서의 지속 시간 및 만료 시 제거 동작을 결정합니다.
+* 관심 있는 조건, 해당 조건을 모니터링하는 방식, 클러스터 또는 응용 프로그램 기능에 미치는 영향을 정의합니다. 이 정보를 기반으로 상태 보고서 속성 및 상태를 판단합니다.
+* 보고서가 적용되는 [엔터티](service-fabric-health-introduction.md#health-entities-and-hierarchy) 를 정의합니다.
+* 보고를 서비스 내에서 수행할 것인지 아니면 내부 또는 외부 Watchdog에서 수행할 것인지 보고 위치를 정의합니다.
+* 보고자를 식별하는데 사용할 소스를 정의합니다.
+* 주기적 또는 전환기 중에서 보고 전략을 선택합니다. 주기적 방식을 선택하면 코드가 더 간단하고 오류가 발생할 가능성이 적기 때문에 주기적 방식을 권장합니다.
+* 비정상 조건에 대한 보고서를 Health 스토어에 보관할 기간과 보고서를 지우는 방식을 결정합니다. 이 정보를 사용하여 보고서의 지속 시간 및 만료 시 제거 동작을 결정합니다.
 
 언급된 바와 같이, 보고가 가능한 위치는 다음과 같습니다.
 
-- 모니터링되는 서비스 패브릭 서비스 복제본.
+* 모니터링되는 서비스 패브릭 서비스 복제본.
+* Service Fabric 서비스로 배포되는 내부 Watchdog(예: 조건 및 문제 보고서를 모니터링하는 Service Fabric 상태 비저장 서비스). Watchdog는 모든 노드에 배포되거나 모니터링되는 서비스로 규합될 수 있습니다.
+* 서비스 패브릭 노드에서 실행되지만 서비스 패브릭 서비스로 구현되지 *않는* 내부 watchdog.
+* Service Fabric 클러스터 *외부* 의 리소스를 조사하는 외부 Watchdog(예: Gomez와 같은 모니터링 서비스).
 
-- Service Fabric 서비스로 배포되는 내부 Watchdog(예: 조건 및 문제 보고서를 모니터링하는 Service Fabric 상태 비저장 서비스). Watchdog는 모든 노드에 배포되거나 모니터링되는 서비스로 규합될 수 있습니다.
-
-- 서비스 패브릭 노드에서 실행되지만 서비스 패브릭 서비스로 구현되지 *않는* 내부 watchdog.
-
-- Service Fabric 클러스터 *외부* 의 리소스를 조사하는 외부 Watchdog(예: Gomez와 같은 모니터링 서비스).
-
-> [AZURE.NOTE] 기본적으로, 클러스터는 시스템 구성 요소에 의해 전송되는 상태 보고서로 채워집니다. 추가 정보는 [시스템 상태 보고서를 사용하여 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)을 참조하세요. 사용자 보고서는 시스템에 의해 이미 생성된 [상태 엔터티](service-fabric-health-introduction.md#health-entities-and-hierarchy) 로 보내야 합니다.
+> [!NOTE]
+> 기본적으로, 클러스터는 시스템 구성 요소에 의해 전송되는 상태 보고서로 채워집니다. 추가 정보는 [시스템 상태 보고서를 사용하여 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)을 참조하세요. 사용자 보고서는 시스템에 의해 이미 생성된 [상태 엔터티](service-fabric-health-introduction.md#health-entities-and-hierarchy) 로 보내야 합니다.
+> 
+> 
 
 상태 보고 설계가 명확하면 상태 보고서를 간편하게 보낼 수 있습니다. 클러스터가 [보안](service-fabric-cluster-security.md) 상태가 아니거나 패브릭 클라이언트에 관리자 권한이 있는 경우 [FabricClient](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.aspx)를 사용하여 상태를 보고할 수 있습니다. 이 작업은 PowerShell 또는 REST를 통해 [FabricClient.HealthManager.ReportHealth](https://msdn.microsoft.com/library/system.fabric.fabricclient.healthclient.reporthealth.aspx)를 사용하여 API를 통해 수행할 수 있습니다. 성능 향상을 위한 구성 노브 배치 보고서가 있습니다.
 
-> [AZURE.NOTE] 상태 보고서는 동기화되며 클라이언트 쪽의 유효성 검사 작업만 표시합니다. 상태 클라이언트나 `Partition` 또는 `CodePackageActivationContext` 개체에서 보고서를 수용한다고 해서 저장소에 적용된다는 의미는 아닙니다. 비동기적으로 전송되며 다른 보고서와 함께 일괄 처리될 수도 있습니다. 시퀀스 번호가 오래되었거나 보고서가 적용되어야 하는 엔터티가 삭제되는 등의 이유로 서버 쪽에서의 처리가 실패할 수도 있습니다.
+> [!NOTE]
+> 상태 보고서는 동기화되며 클라이언트 쪽의 유효성 검사 작업만 표시합니다. 상태 클라이언트나 `Partition` 또는 `CodePackageActivationContext` 개체에서 보고서를 수용한다고 해서 저장소에 적용된다는 의미는 아닙니다. 비동기적으로 전송되며 다른 보고서와 함께 일괄 처리될 수도 있습니다. 시퀀스 번호가 오래되었거나 보고서가 적용되어야 하는 엔터티가 삭제되는 등의 이유로 서버 쪽에서의 처리가 실패할 수도 있습니다.
+> 
+> 
 
 ## <a name="health-client"></a>상태 클라이언트
 상태 보고서는 패브릭 클라이언트 내에 있는 상태 클라이언트를 통해 Health 스토어로 전송됩니다. 상태 클라이언트는 다음과 같이 구성될 수 있습니다.
 
-- **HealthReportSendInterval**: 보고서가 클라이언트에 추가되는 시간과 보고서가 Health 스토어로 전송되는 시간 사이의 지연 간격입니다. 각 보고서에 메시지를 하나씩 전송하는 대신 보고서를 하나의 메시지로 일괄 처리하는데 사용됩니다. 일괄 처리를 하면 성능이 향상됩니다. 기본값: 30초.
+* **HealthReportSendInterval**: 보고서가 클라이언트에 추가되는 시간과 보고서가 Health 스토어로 전송되는 시간 사이의 지연 간격입니다. 각 보고서에 메시지를 하나씩 전송하는 대신 보고서를 하나의 메시지로 일괄 처리하는데 사용됩니다. 일괄 처리를 하면 성능이 향상됩니다. 기본값: 30초.
+* **HealthReportRetrySendInterval**: 상태 클라이언트가 축적된 상태 보고서를 Health 스토어에 재전송하는 간격입니다. 기본값: 30초.
+* **HealthOperationTimeout**: Health 스토어로 전송된 보고서 메시지의 제한 시간입니다. 메시지 시간이 초과되면 상태 클라이언트는 Health 스토어에서 보고서 처리를 확인할 때까지 재시도합니다. 기본값: 2분.
 
-- **HealthReportRetrySendInterval**: 상태 클라이언트가 축적된 상태 보고서를 Health 스토어에 재전송하는 간격입니다. 기본값: 30초.
-
-- **HealthOperationTimeout**: Health 스토어로 전송된 보고서 메시지의 제한 시간입니다. 메시지 시간이 초과되면 상태 클라이언트는 Health 스토어에서 보고서 처리를 확인할 때까지 재시도합니다. 기본값: 2분.
-
-> [AZURE.NOTE] 보고서가 일괄 처리되는 경우 보고서가 전송될 수 있도록 적어도 HealthReportSendInterval 동안 패브릭 클라이언트가 유지되어야 합니다. 일시적인 오류로 인하여 메시지가 손실되거나 Health 스토어가 메시지를 적용할 수 없는 경우 작업을 다시 시도할 수 있도록 패브릭 클라이언트가 더 오래 유지되어야 합니다.
+> [!NOTE]
+> 보고서가 일괄 처리되는 경우 보고서가 전송될 수 있도록 적어도 HealthReportSendInterval 동안 패브릭 클라이언트가 유지되어야 합니다. 일시적인 오류로 인하여 메시지가 손실되거나 Health 스토어가 메시지를 적용할 수 없는 경우 작업을 다시 시도할 수 있도록 패브릭 클라이언트가 더 오래 유지되어야 합니다.
+> 
+> 
 
 클라이언트에서의 버퍼링은 보고서의 고유성을 고려합니다. 예를 들어 어떤 악성 보고자가 동일한 엔터티의 동일한 속성에 대해 초당 100개의 보고서를 보내는 경우 해당 보고서는 최신 버전으로 교체됩니다. 이러한 보고서는 기껏해야 클라이언트 큐에 하나 존재합니다. 일괄 작업이 구성되면 Health 스토어에 전송되는 보고서의 개수는 전송 간격당 하나뿐이며, 이 보고서가 엔터티의 최신 상태를 반영하는 맨 마지막으로 추가된 보고서입니다.
 상태 관련 항목에 원하는 값을 포함한 [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx)를 전달하여 `FabricClient`를 만들 때 모든 구성 매개 변수를 지정할 수 있습니다.
@@ -106,24 +104,25 @@ GatewayInformation   : {
                        }
 ```
 
-> [AZURE.NOTE] 권한이 없는 서비스가 클러스터 내의 엔터티에 대한 상태를 보고할 수 없도록 하려면 보안이 확인된 클라이언트에서 보내는 요청만을 받아들이도록 서버를 구성합니다. 보고에 사용되는 `FabricClient` 는 클러스터와 통신할 수 있도록 보안이 활성화되어야 합니다(예: Kerberos 또는 인증서 인증). [클러스터 보안](service-fabric-cluster-security.md)에 대해 자세히 알아봅니다.
+> [!NOTE]
+> 권한이 없는 서비스가 클러스터 내의 엔터티에 대한 상태를 보고할 수 없도록 하려면 보안이 확인된 클라이언트에서 보내는 요청만을 받아들이도록 서버를 구성합니다. 보고에 사용되는 `FabricClient` 는 클러스터와 통신할 수 있도록 보안이 활성화되어야 합니다(예: Kerberos 또는 인증서 인증). [클러스터 보안](service-fabric-cluster-security.md)에 대해 자세히 알아봅니다.
+> 
+> 
 
 ## <a name="report-from-within-low-privilege-services"></a>권한이 낮은 서비스 내에서 보고
 클러스터에 대해 관리자 액세스 권한이 없는 서비스 패브릭 서비스 내에서 `Partition` 또는 `CodePackageActivationContext`를 통해 현재 컨텍스트에서 엔터티에 대한 상태를 보고할 수 있습니다.
 
-- 상태 비저장 서비스의 경우에는 [IStatelessServicePartition.ReportInstanceHealth](https://msdn.microsoft.com/library/system.fabric.istatelessservicepartition.reportinstancehealth.aspx) 를 사용하여 현재 서비스 인스턴스에 대해 보고합니다.
+* 상태 비저장 서비스의 경우에는 [IStatelessServicePartition.ReportInstanceHealth](https://msdn.microsoft.com/library/system.fabric.istatelessservicepartition.reportinstancehealth.aspx) 를 사용하여 현재 서비스 인스턴스에 대해 보고합니다.
+* 상태 저장 서비스의 경우에는 [IStatefulServicePartition.ReportReplicaHealth](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.reportreplicahealth.aspx) 를 사용하여 현재 복제본에 대해 보고합니다.
+* 현재 파티션 엔터티에 대해 보고하려면 [IServicePartition.ReportPartitionHealth](https://msdn.microsoft.com//library/system.fabric.iservicepartition.reportpartitionhealth.aspx) 를 사용합니다.
+* 현재 응용 프로그램에 대해 보고하려면 [CodePackageActivationContext.ReportApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportapplicationhealth.aspx) 를 사용합니다.
+* 현재 노드에 배포된 현재 응용 프로그램에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth.aspx) 를 사용합니다.
+* 현재 노드에 배포된 현재 응용 프로그램의 서비스 패키지에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth.aspx) 를 사용합니다.
 
-- 상태 저장 서비스의 경우에는 [IStatefulServicePartition.ReportReplicaHealth](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.reportreplicahealth.aspx) 를 사용하여 현재 복제본에 대해 보고합니다.
-
-- 현재 파티션 엔터티에 대해 보고하려면 [IServicePartition.ReportPartitionHealth](https://msdn.microsoft.com//library/system.fabric.iservicepartition.reportpartitionhealth.aspx) 를 사용합니다.
-
-- 현재 응용 프로그램에 대해 보고하려면 [CodePackageActivationContext.ReportApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportapplicationhealth.aspx) 를 사용합니다.
-
-- 현재 노드에 배포된 현재 응용 프로그램에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth.aspx) 를 사용합니다.
-
-- 현재 노드에 배포된 현재 응용 프로그램의 서비스 패키지에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth.aspx) 를 사용합니다.
-
-> [AZURE.NOTE] 내부적으로 `Partition` 및 `CodePackageActivationContext`는 기본 설정으로 구성된 상태 클라이언트를 포함합니다. [상태 클라이언트](service-fabric-report-health.md#health-client)에 대해 설명된 동일한 고려 사항이 적용됩니다. 즉, 보고서가 일괄 처리되고 타이머에 전송되므로 보고서를 보내려면 개체가 활성 상태여야 합니다.
+> [!NOTE]
+> 내부적으로 `Partition` 및 `CodePackageActivationContext`는 기본 설정으로 구성된 상태 클라이언트를 포함합니다. [상태 클라이언트](service-fabric-report-health.md#health-client)에 대해 설명된 동일한 고려 사항이 적용됩니다. 즉, 보고서가 일괄 처리되고 타이머에 전송되므로 보고서를 보내려면 개체가 활성 상태여야 합니다.
+> 
+> 
 
 ## <a name="design-health-reporting"></a>상태 보고 설계
 고품질 보고서를 생성하는 첫 단계는 서비스 상태에 영향을 미칠 수 있는 조건을 파악하는 것입니다. 문제가 시작될 때 또는 가장 이상적으로 문제가 발생하기 전에 서비스 또는 클러스터의 문제를 플래깅하는 데 도움이 되는 모든 조건을 파악하면 잠재적으로 수십억 달러를 절약할 수 있습니다. 그러면 중지 시간을 줄이고, 문제 조사와 복구에 소요되는 야간 시간을 절약하고, 고객 만족도를 높일 수 있습니다.
@@ -138,7 +137,10 @@ GatewayInformation   : {
 
 Watchdog 세부 정보가 마무리되면 Watchdog를 고유하게 식별하는 소스 ID를 결정해야 합니다. 클러스터에 동일한 유형의 Watchdog가 여러 개 있는 경우 서로 다른 엔터티에 보고하거나, 동일한 엔터티에 보고한다면 소스 ID나 속성이 서로 달라야 합니다. 그래야만 보고서가 공존할 수 있습니다. 상태 보고서 속성은 모니터링되는 조건을 포착해야 합니다. 위의 예제에서 속성은 **ShareSize**일 수 있습니다. 같은 조건에 여러 보고서가 적용되는 경우 보고서가 공존할 수 있도록 속성에 동적 정보가 포함되어야 합니다. 예를 들어 여러 개의 공유를 모니터링해야 하는 경우 속성 이름으로 **ShareSize-sharename**을 사용할 수 있습니다.
 
-> [AZURE.NOTE] 상태 저장소는 상태 정보를 유지하는데 사용되지 *않아야* 합니다. 상태와 관련된 정보만 보고되어야 합니다. 이 정보는 엔터티 상태 평가에 영향을 미치기 때문입니다. Health 스토어는 범용 저장소로 설계되지 않았습니다. Health 스토어는 상태 평가 논리를 사용하여 모든 데이터를 성능 상태로 집계합니다. 상태와 무관한 정보(예: 정상 상태 보고)를 전송해도 집계된 성능 상태에는 영향을 미치지 않지만 Health 스토어의 성능에 부정적인 영향을 미칠 수 있습니다.
+> [!NOTE]
+> 상태 저장소는 상태 정보를 유지하는데 사용되지 *않아야* 합니다. 상태와 관련된 정보만 보고되어야 합니다. 이 정보는 엔터티 상태 평가에 영향을 미치기 때문입니다. Health 스토어는 범용 저장소로 설계되지 않았습니다. Health 스토어는 상태 평가 논리를 사용하여 모든 데이터를 성능 상태로 집계합니다. 상태와 무관한 정보(예: 정상 상태 보고)를 전송해도 집계된 성능 상태에는 영향을 미치지 않지만 Health 스토어의 성능에 부정적인 영향을 미칠 수 있습니다.
+> 
+> 
 
 다음으로 결정할 내용은 보고할 엔터티를 결정하는 것입니다. 대부분의 경우 조건을 기반으로 명확한 결정이 가능합니다. 최대한 세분화하여 엔터티를 선택해야 합니다. 조건이 파티션 내의 모든 복제본에 영향을 미치는 경우에는 서비스가 아닌 파티션에 대해 보고합니다. 그런데 세심한 주의가 필요한 사각 지대가 있습니다. 조건이 복제본 같은 하나의 엔터티에만 영향을 미치지만 복제본 수명 기간이 지난 후에도 조건에 플래그를 달고자 한다면 파티션에 대해 보고해야 합니다. 그렇게 하지 않으면 복제본이 삭제된 후에는 해당 복제본과 관련된 모든 보고서가 저장소에서 삭제됩니다. 따라서 Watchdog 작성자는 엔터티 및 보고서의 수명도 고려해야 합니다. 저장소에서 보고서가 삭제되는 시점(예: 한 엔터티에 대해 보고된 오류가 더 이상 적용되는 않는 시점)도 명확해야 합니다.
 
@@ -148,11 +150,9 @@ Watchdog 세부 정보가 마무리되면 Watchdog를 고유하게 식별하는 
 
 모니터링된 조건은 일정 시간(**t1**, 예를 들어 10분) 내에 작업이 완료되지 않으면 경고로 해석될 수 있습니다. 작업이 시간(**t2**, 예를 들어 20분) 내에 완료되지 않으면 모니터링된 조건이 오류로 해석될 수 있습니다. 이러한 보고는 여러 가지 방법으로 수행될 수 있습니다.
 
-- 마스터 주 복제본은 주기적으로 자체 보고합니다. 큐에 있는 모든 보류 중인 작업에 대해 하나의 속성을 사용할 수 있습니다. 하나 이상의 작업이 더 오래 걸리면 **PendingTasks** 속성에 대한 상태가 상황에 따라 경고 또는 오류로 보고됩니다. 보류 중인 작업이 없거나 모든 작업이 실행을 시작한 경우에는 보고서 상태가 정상입니다. 작업은 지속됩니다. 주 복제본이 다운되면 새로 승격된 주 복제본이 계속해서 제대로 보고할 수 있습니다.
-
-- (클라우드 또는 외부에 존재하는) 다른 Watchdog 프로세스는 작업 완료 여부를 보기 위하여 (원하는 작업 결과를 기반으로 외부에서) 작업을 확인합니다. 이러한 프로세스가 임계값을 준수하지 않으면 마스터 서비스에 대한 보고서가 전송됩니다. 작업 식별자(예: **PendingTask + taskId**)가 들어 있는 각 작업에 대한 보고서도 전송됩니다. 비정상 상태에 대한 보고서만 전송되어야 합니다. TTL(Time To Live)을 몇 분 정도로 설정하고 만료되면 보고서가 제거되도록 표시해 두어, 확실히 제거되도록 합니다.
-
-- 작업을 수행하는 보조는 작업 수행에 예상보다 긴 시간이 소요되면 보고합니다. **PendingTasks**속성의 서비스 인스턴스를 보고합니다. 보고서는 문제가 있는 서비스 인스턴스를 정확히 찾아내지만 인스턴스가 사라지는 상황을 포착하지는 않습니다. 보고서는 그때 삭제됩니다. 보조 서비스를 보고할 수 있습니다. 보조가 작업을 완료하면 보조 인스턴스가 저장소에서 보고서를 삭제합니다. 보고서는 인증 메시지가 손실되고 마스터의 관점에서 작업이 마무리되지 않은 상황을 포착하지 않습니다.
+* 마스터 주 복제본은 주기적으로 자체 보고합니다. 큐에 있는 모든 보류 중인 작업에 대해 하나의 속성을 사용할 수 있습니다. 하나 이상의 작업이 더 오래 걸리면 **PendingTasks** 속성에 대한 상태가 상황에 따라 경고 또는 오류로 보고됩니다. 보류 중인 작업이 없거나 모든 작업이 실행을 시작한 경우에는 보고서 상태가 정상입니다. 작업은 지속됩니다. 주 복제본이 다운되면 새로 승격된 주 복제본이 계속해서 제대로 보고할 수 있습니다.
+* (클라우드 또는 외부에 존재하는) 다른 Watchdog 프로세스는 작업 완료 여부를 보기 위하여 (원하는 작업 결과를 기반으로 외부에서) 작업을 확인합니다. 이러한 프로세스가 임계값을 준수하지 않으면 마스터 서비스에 대한 보고서가 전송됩니다. 작업 식별자(예: **PendingTask + taskId**)가 들어 있는 각 작업에 대한 보고서도 전송됩니다. 비정상 상태에 대한 보고서만 전송되어야 합니다. TTL(Time To Live)을 몇 분 정도로 설정하고 만료되면 보고서가 제거되도록 표시해 두어, 확실히 제거되도록 합니다.
+* 작업을 수행하는 보조는 작업 수행에 예상보다 긴 시간이 소요되면 보고합니다. **PendingTasks**속성의 서비스 인스턴스를 보고합니다. 보고서는 문제가 있는 서비스 인스턴스를 정확히 찾아내지만 인스턴스가 사라지는 상황을 포착하지는 않습니다. 보고서는 그때 삭제됩니다. 보조 서비스를 보고할 수 있습니다. 보조가 작업을 완료하면 보조 인스턴스가 저장소에서 보고서를 삭제합니다. 보고서는 인증 메시지가 손실되고 마스터의 관점에서 작업이 마무리되지 않은 상황을 포착하지 않습니다.
 
 하지만 위에 설명된 상황에서 보고가 수행되며, 상태를 평가할 때 응용 프로그램 상태에서 보고서가 포착됩니다.
 
@@ -289,7 +289,6 @@ HealthEvents          :
 원하는 엔터티로 이동하는 POST 요청과 REST를 사용하고 본문에 상태 보고서 설명을 넣어서 상태 보고서를 보냅니다. 예를 들어, REST [클러스터 상태 보고서](https://msdn.microsoft.com/library/azure/dn707640.aspx) 또는 [서비스 상태 보고서](https://msdn.microsoft.com/library/azure/dn707640.aspx)를 보내는 방법을 참조하세요. 모든 엔터티가 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-
 상태 데이터를 기반으로 서비스 작성자 및 클러스터/응용 프로그램 관리자는 정보를 소비하는 방식에 대해 생각할 수 있습니다. 예를 들어 성능 상태를 기반으로 경고를 설정하면 서비스가 중단되기 전에 심각한 문제를 포착할 수 있습니다. 또한 관리자는 자동으로 문제를 해결하는 복구 시스템을 설정할 수 있습니다.
 
 [서비스 패브릭 상태 모니터링 소개](service-fabric-health-introduction.md)
@@ -303,8 +302,6 @@ HealthEvents          :
 [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

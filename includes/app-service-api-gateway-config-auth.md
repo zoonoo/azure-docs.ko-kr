@@ -1,24 +1,22 @@
-4. API 앱의 게이트웨이 블레이드로 이동합니다.
-
-	![게이트웨이 클릭](./media/app-service-api-gateway-config-auth/gateway.png)
-
-7. **게이트웨이** 블레이드에서 **설정**을 클릭한 후 **ID**를 클릭합니다.
-
-	![설정 클릭](./media/app-service-api-gateway-config-auth/clicksettingsingateway.png)
-
-	![ID 클릭](./media/app-service-api-gateway-config-auth/clickidentity.png)
-
-	**ID** 블레이드에서 Azure Active Directory 및 기타 여러 공급자를 사용하여 인증을 구성하기 위한 다른 블레이드로 이동할 수 있습니다.
-
-	![ID 블레이드](./media/app-service-api-gateway-config-auth/identityblade.png)
-  
+1. API 앱의 게이트웨이 블레이드로 이동합니다.
+   
+    ![게이트웨이 클릭](./media/app-service-api-gateway-config-auth/gateway.png)
+2. **게이트웨이** 블레이드에서 **설정**을 클릭한 후 **ID**를 클릭합니다.
+   
+    ![설정 클릭](./media/app-service-api-gateway-config-auth/clicksettingsingateway.png)
+   
+    ![ID 클릭](./media/app-service-api-gateway-config-auth/clickidentity.png)
+   
+    **ID** 블레이드에서 Azure Active Directory 및 기타 여러 공급자를 사용하여 인증을 구성하기 위한 다른 블레이드로 이동할 수 있습니다.
+   
+    ![ID 블레이드](./media/app-service-api-gateway-config-auth/identityblade.png)
 3. 사용할 ID 공급자를 선택하고 해당 문서의 단계에 따라 해당 공급자를 사용하여 API 앱을 구성합니다. 이러한 문서는 모바일 앱용으로 작성되었지만 절차는 API 앱에 대해서도 동일합니다. 일부 절차를 수행하려면 [Azure 포털]을 사용해야 합니다.
-
- - [Microsoft 계정](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md)
- - [Facebook 로그인](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)
- - [Twitter 로그인](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md)
- - [Google 로그인](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md)
- - [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
+   
+   * [Microsoft 계정](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md)
+   * [Facebook 로그인](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)
+   * [Twitter 로그인](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md)
+   * [Google 로그인](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md)
+   * [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
 
 예를 들어 다음 스크린샷은 Azure Active Directory 인증을 설정한 후 [Azure 포털] 페이지 및 [Azure Preview 포털] 블레이드에 표시되어야 하는 내용을 보여 줍니다.
 

@@ -1,5 +1,5 @@
 ### 필수 조건
-- [ProjectOnline](https://products.office.com/Project/project-online-with-project-for-office-365) 계정 
+* [ProjectOnline](https://products.office.com/Project/project-online-with-project-for-office-365) 계정 
 
 논리 앱에서 ProjectOnline 계정을 사용하려면 먼저 ProjectOnline 계정에 연결하도록 논리 앱에 권한을 부여해야 합니다. 다행히 Azure 포털의 논리 앱 내에서 이를 쉽게 수행할 수 있습니다.
 
@@ -9,3 +9,4 @@ ProjectOnline 계정에 연결하도록 논리 앱에 권한을 부여하는 단
 2. 이전에 ProjectOnline에 대한 연결을 만들지 않은 경우 ProjectOnline 자격 증명을 제공하라는 메시지가 표시됩니다. 이러한 자격 증명을 사용하여 ProjectOnline 계정의 데이터에 연결하도록 논리 앱에 권한을 부여하고 해당 데이터에 액세스할 수 있습니다. ![ProjectOnline 2단계](./media/connectors-create-api-projectonline/projectonline-2.png)
 3. ProjectOnline 사용자 이름 및 암호를 제공하여 논리 앱에 권한을 부여합니다. ![ProjectOnline 3단계](./media/connectors-create-api-projectonline/projectonline-3.png)   
 4. 연결이 만들어졌으면 논리 앱의 다른 단계를 진행할 수 있습니다. ![ProjectOnline 4단계](./media/connectors-create-api-projectonline/projectonline-4.png)   
+

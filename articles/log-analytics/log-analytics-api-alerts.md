@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Log Analytics 경고 REST API"
-   description="Log Analytics 경고 REST API를 사용하여 OMS(Operations Management Suite)에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다."
-   services="log-analytics"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags
-   ms.service="log-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/18/2016"
-   ms.author="bwren" />
+---
+title: Log Analytics 경고 REST API
+description: Log Analytics 경고 REST API를 사용하여 OMS(Operations Management Suite)에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: log-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/18/2016
+ms.author: bwren
 
+---
 # <a name="log-analytics-alert-rest-api"></a>Log Analytics 경고 REST API
-
 Log Analytics 경고 REST API를 사용하여 OMS(Operations Management Suite)에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
 
 Log Analytics 검색 REST API는 RESTful이며 Azure Resource Manager REST API를 통해 액세스할 수 있습니다. 이 문서에서 API가 Azure Resource Manager API를 호출하여 단순화하는 공개 소스 명령줄 도구인 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용하여 PowerShell 명령줄에서 액세스하는 예제를 찾을 수 있습니다. ARMClient 및 PowerShell의 사용은 Log Analytics 검색 API에 액세스하는 다양한 옵션 중 하나입니다. 이러한 도구를 사용하면 RESTful Azure Resource Manager API를 통해 OMS 작업 영역을 호출하고 작업 영역 내에서 검색 명령을 수행할 수 있습니다. API은 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 검색 결과를 사용하게 됩니다.
@@ -29,11 +28,11 @@ Log Analytics 검색 REST API는 RESTful이며 Azure Resource Manager REST API�
 저장된 검색은 하나 이상의 일정을 가질 수 있습니다. 일정은 검색이 실행되는 빈도 및 조건이 식별되는 기간을 정의합니다.
 일정은 다음 표의 속성을 가집니다.
 
-| 속성  | 설명 |
-|:--|:--|
-| 간격 | 검색이 실행되는 빈도입니다. 분 단위로 측정됩니다. |
-| QueryTimeSpan | 조건이 평가되는 시간 간격입니다. 간격보다 크거나 같아야 합니다. 분 단위로 측정됩니다. |
-| 버전 | 사용 중인 API 버전입니다.  현재 항상 1로 설정해야 합니다. |
+| 속성 | 설명 |
+|:--- |:--- |
+| 간격 |검색이 실행되는 빈도입니다. 분 단위로 측정됩니다. |
+| QueryTimeSpan |조건이 평가되는 시간 간격입니다. 간격보다 크거나 같아야 합니다. 분 단위로 측정됩니다. |
+| 버전 |사용 중인 API 버전입니다.  현재 항상 1로 설정해야 합니다. |
 
 예를 들어 간격이 15 분이고 Timespan이 30 분인 이벤트 쿼리를 고려합니다. 이 경우 쿼리는 매 15 분마다 실행되며 조건이 30 분의 기간 동안 계속 True로 확인되었으면 경고가 트리거될 수 있습니다.
 
@@ -81,10 +80,10 @@ Get 메서드를 사용하여 저장된 검색에 대한 모든 일정을 검색
 모든 작업은 다음 표의 속성을 가집니다.  서로 다른 유형의 경고는 아래에 설명하는 서로 다른 추가 속성을 가집니다.
 
 | 속성 | 설명 |
-|:--|:--|
-| 형식 | 작업의 유형입니다.  현재 가능한 값은 경고 및 웹후크입니다. |
-| 이름 | 경고에 대한 표시 이름입니다. |
-| 버전 | 사용 중인 API 버전입니다.  현재 항상 1로 설정해야 합니다. |
+|:--- |:--- |
+| 형식 |작업의 유형입니다.  현재 가능한 값은 경고 및 웹후크입니다. |
+| 이름 |경고에 대한 표시 이름입니다. |
+| 버전 |사용 중인 API 버전입니다.  현재 항상 1로 설정해야 합니다. |
 
 ### <a name="retrieving-actions"></a>작업 검색
 Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
@@ -111,10 +110,10 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 일정은 경고 작업을 한 개만 가져야 합니다.  경고 작업은 다음 표의 섹션 중 하나 이상을 가집니다.  아래에서 각 섹션을 자세히 설명합니다.
 
 | 섹션 | 설명 |
-|:--|:--|
-| 임계값 | 작업이 실행되기 위한 조건입니다. |  
-| EmailNotification | 복수의 받는 사람에게 메일을 보냅니다. |
-| 재구성 | Azure 자동화에서 식별된 문제의 해결을 시도하는 Runbook을 시작합니다. |
+|:--- |:--- |
+| 임계값 |작업이 실행되기 위한 조건입니다. |
+| EmailNotification |복수의 받는 사람에게 메일을 보냅니다. |
+| 재구성 |Azure 자동화에서 식별된 문제의 해결을 시도하는 Runbook을 시작합니다. |
 
 #### <a name="thresholds"></a>임계값
 경고 작업은 임계값을 한 개만 가져야 합니다.  저장된 검색의 결과가 해당 검색과 연결된 작업의 임계값과 일치하는 경우 해당 작업의 다른 프로세스가 실행됩니다.  작업은 임계값을 포함하지 않은 다른 유형의 작업과 함께 사용할 수 있도록 하는 임계값만 포함할 수 있습니다.
@@ -122,9 +121,9 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 임계값은 다음 표의 속성을 가집니다.
 
 | 속성 | 설명 |
-|:--|:--|
-| 연산자 | 임계값 비교를 위한 연산자입니다. <br> gt = 보다 큰 <br>  lt = 보다 작은 |
-| 값 | 임계값에 대한 값입니다. |
+|:--- |:--- |
+| 연산자 |임계값 비교를 위한 연산자입니다. <br> gt = 보다 큰 <br>  lt = 보다 작은 |
+| 값 |임계값에 대한 값입니다. |
 
 예를 들어 간격이 15 분이고 Timespan이 30 분이고 임계값이 10보다 큰 이벤트 쿼리를 고려합니다. 이 경우 쿼리는 매 15 분마다 실행되며 경고는 30 분의 기간 동안 생성된 이벤트 10개를 반환하면 경고가 트리거될 수 있습니다.
 
@@ -155,11 +154,11 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 전자 메일 알림은 한 명 이상의 받는 사람에게 메일을 보냅니다.  이들은 다음 표의 속성을 가집니다.
 
 | 속성 | 설명 |
-|:--|:--|
-| 받는 사람 | 메일 주소 목록입니다. |
-| 제목
- | 메일의 제목입니다. |
-| 첨부 파일 | 첨부 파일은 현재 지원되지 않으므로이에 대한 값은 항상 "없음"입니다. |
+|:--- |:--- |
+| 받는 사람 |메일 주소 목록입니다. |
+| 제목 | |
+| 메일의 제목입니다. | |
+| 첨부 파일 |첨부 파일은 현재 지원되지 않으므로이에 대한 값은 항상 "없음"입니다. |
 
 다음은 임계값을 가진 전자 메일 알림 작업에 대한 샘플 응답입니다.  
 
@@ -198,10 +197,10 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 수정은 다음 표의 속성을 포함합니다.
 
 | 속성 | 설명 |
-|:--|:--|
-| RunbookName | Runbook의 이름입니다. 이는 OMS 작업 영역의 자동화 솔루션에서 구성한 자동화 계정의 게시된 Runbook과 일치해야 합니다. |
-| WebhookUri | 웹후크의 URI입니다.
-| Expiry | 웹후크의 만료 날짜 및 시간입니다.  웹후크에 대해 만료를 지정하지 않은 경우 이는 유효한 미래 날짜일 수 있습니다. |
+|:--- |:--- |
+| RunbookName |Runbook의 이름입니다. 이는 OMS 작업 영역의 자동화 솔루션에서 구성한 자동화 계정의 게시된 Runbook과 일치해야 합니다. |
+| WebhookUri |웹후크의 URI입니다. |
+| Expiry |웹후크의 만료 날짜 및 시간입니다.  웹후크에 대해 만료를 지정하지 않은 경우 이는 유효한 미래 날짜일 수 있습니다. |
 
 다음은 임계값을 가진 수정 작업에 대한 샘플 응답입니다.
 
@@ -255,9 +254,9 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 웹후크 작업은 다음 표의 속성을 포함합니다.
 
 | 속성 | 설명 |
-|:--|:--|
-| WebhookUri | 메일의 제목입니다. |
-| CustomPayload | 웹후크에 보낼 사용자 지정 페이로드입니다.  형식은 예상하는 웹후크에 따라 달라집니다. |
+|:--- |:--- |
+| WebhookUri |메일의 제목입니다. |
+| CustomPayload |웹후크에 보낼 사용자 지정 페이로드입니다.  형식은 예상하는 웹후크에 따라 달라집니다. |
 
 다음은 웹후크 작업 및 임계값을 가진 연결된 경고에 대한 샘플 응답입니다.
 
@@ -306,10 +305,7 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
 
 ## <a name="next-steps"></a>다음 단계
-
-- Log Analytics에서 [REST API를 사용하여 로그 검색을 수행](log-analytics-log-search-api.md) 합니다.
-
-
+* Log Analytics에서 [REST API를 사용하여 로그 검색을 수행](log-analytics-log-search-api.md) 합니다.
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,45 +1,38 @@
-<properties
-    pageTitle="Azure Active Directory Reporting 감사 API 샘플 | Microsoft Azure"
-    description="Azure Active Directory Reporting API를 시작하는 방법"
-    services="active-directory"
-    documentationCenter=""
-    authors="dhanyahk"
-    manager="femila"
-    editor=""/>
+---
+title: Azure Active Directory Reporting 감사 API 샘플 | Microsoft Docs
+description: Azure Active Directory Reporting API를 시작하는 방법
+services: active-directory
+documentationcenter: ''
+author: dhanyahk
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="09/28/2016"
-    ms.author="dhanyahk;markvi"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/28/2016
+ms.author: dhanyahk;markvi
 
-
+---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Azure Active Directory Reporting 감사 API 샘플
-
 이 항목은 Azure Active Directory Reporting API에 대한 항목 컬렉션의 일부입니다.  
 Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데이터에 액세스할 수 있는 API를 제공합니다.
 이 항목은 **감사 API**에 대한 샘플 코드를 제공하는 방법을 다룹니다.
 
 다음을 참조하세요.
 
-- [감사 로그](active-directory-reporting-azure-portal.md#audit-logs) 를 참조하세요.
-
-- [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md) 을 참조하세요.
+* [감사 로그](active-directory-reporting-azure-portal.md#audit-logs) 를 참조하세요.
+* [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md) 을 참조하세요.
 
 질문, 문제 또는 피드백은 [AAD Reporting 도움말](mailto:aadreportinghelp@microsoft.com)에 문의하세요.
 
-
 ## <a name="prerequisites"></a>필수 조건
 이 항목에서 샘플을 사용하기 전에 [Azure AD Reporting API에 액세스하기 위한 필수 구성 요소](active-directory-reporting-api-prerequisites.md)를 완료해야 합니다.  
-  
 
 ## <a name="known-issue"></a>알려진 문제
-
 테넌트가 EU 지역에 있는 경우는 앱 인증이 작동하지 않습니다. 이 문제를 해결하기 전까지는 해결 방법으로 감사 API에 액세스하는 데 사용자 인증을 사용하세요. 
-
 
 ## <a name="powershell-script"></a>PowerShell 스크립트
     # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
@@ -71,7 +64,7 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
             foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
                 Write-Output ($event | ConvertTo-Json)
             }
-        
+
             # save the query page to an output file
             Write-Output "Save the output to a file audit$i.json"
             $myReport.Content | Out-File -FilePath audit$i.json -Force
@@ -91,9 +84,7 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
 
 스크립트는 JSON 형식으로 감사 보고서에서 출력을 반환합니다. 또한 동일한 출력으로 `audit.json` 파일을 만듭니다. 다른 보고서의 데이터를 반환하도록 스크립트를 수정하고 필요 없는 출력 형식을 주석으로 처리할 수 있습니다.
 
-
 ## <a name="bash-script"></a>Bash 스크립트
-
     #!/bin/bash
 
     # Author: Ken Hoff (kenhoff@microsoft.com)
@@ -122,7 +113,6 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
     echo $REPORT | ./jq-win64.exe -r '.value' | ./jq-win64.exe -r ".[]"
 
 ## <a name="python-script"></a>Python 스크립트
-
     # Author: Michael McLaughlin (michmcla@microsoft.com)
     # Date: January 20, 2016
     # This requires the Python Requests module: http://docs.python-requests.org
@@ -168,14 +158,9 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
 
 
 ## <a name="next-steps"></a>다음 단계
-
-- 이 항목의 샘플을 사용자 지정하시겠습니까? [Azure Active Directory 감사 API 참조](active-directory-reporting-api-audit-reference.md)를 확인하세요. 
-
-- Azure Active Directory Reporting API를 사용하는 전체적인 개요를 확인하려는 경우 [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
-
-- Azure Active Directory Reporting에 대한 자세한 내용을 알아보려면 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)를 참조하세요.  
-
-
+* 이 항목의 샘플을 사용자 지정하시겠습니까? [Azure Active Directory 감사 API 참조](active-directory-reporting-api-audit-reference.md)를 확인하세요. 
+* Azure Active Directory Reporting API를 사용하는 전체적인 개요를 확인하려는 경우 [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
+* Azure Active Directory Reporting에 대한 자세한 내용을 알아보려면 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)를 참조하세요.  
 
 <!--HONumber=Oct16_HO2-->
 

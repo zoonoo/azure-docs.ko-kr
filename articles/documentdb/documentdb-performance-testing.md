@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="DocumentDB 규모 및 성능 테스트 | Microsoft Azure" 
-	description="Azure DocumentDB를 사용하여 규모 및 성능 테스트를 수행하는 방법에 대해 알아봅니다."
-	keywords="성능 테스트"
-	services="documentdb" 
-	authors="arramac" 
-	manager="jhubbard" 
-	editor="" 
-	documentationCenter=""/>
+---
+title: DocumentDB 규모 및 성능 테스트 | Microsoft Docs
+description: Azure DocumentDB를 사용하여 규모 및 성능 테스트를 수행하는 방법에 대해 알아봅니다.
+keywords: 성능 테스트
+services: documentdb
+author: arramac
+manager: jhubbard
+editor: ''
+documentationcenter: ''
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/21/2016" 
-	ms.author="arramac"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: arramac
 
+---
 # Azure DocumentDB를 사용한 성능 및 규모 테스트
 성능 및 규모 테스트는 응용 프로그램 개발의 핵심 단계입니다. 대부분의 응용 프로그램에서 데이터베이스 계층은 전반적인 성능 및 확장성에 큰 영향을 미치므로 성능 테스트의 주요 구성 요소입니다. [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)는 탄력적인 규모 및 예측 가능한 성능을 위해 작성되었으므로 고성능 데이터베이스 계층을 필요로 하는 응용 프로그램에 가장 적합합니다.
 
@@ -24,12 +24,15 @@
 
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
-- Azure DocumentDB의 성능 테스트를 위한 샘플 .NET 클라이언트 응용 프로그램은 어디에서 찾을 수 있나요?
-- 클라이언트 응용 프로그램에서 Azure DocumentDB를 사용하여 높은 처리량 수준을 달성하려면 어떻게 하나요?
+* Azure DocumentDB의 성능 테스트를 위한 샘플 .NET 클라이언트 응용 프로그램은 어디에서 찾을 수 있나요?
+* 클라이언트 응용 프로그램에서 Azure DocumentDB를 사용하여 높은 처리량 수준을 달성하려면 어떻게 하나요?
 
 코드를 시작하려면 [DocumentDB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)에서 프로젝트를 다운로드합니다.
 
-> [AZURE.NOTE] 이 응용 프로그램의 목표는 적은 수의 클라이언트 컴퓨터를 사용하여 DocumentDB에서 더 나은 성능의 추출하는 모범 사례를 제시하는 것입니다. 제한 없이 확장할 수 있는 서비스의 최대 용량을 보여 주려는 것은 아닙니다.
+> [!NOTE]
+> 이 응용 프로그램의 목표는 적은 수의 클라이언트 컴퓨터를 사용하여 DocumentDB에서 더 나은 성능의 추출하는 모범 사례를 제시하는 것입니다. 제한 없이 확장할 수 있는 서비스의 최대 용량을 보여 주려는 것은 아닙니다.
+> 
+> 
 
 DocumentDB의 성능 향상을 위해 클라이언트 쪽 구성 옵션이 필요한 경우 [DocumentDB 성능 팁](documentdb-performance-tips.md)을 참조하세요.
 
@@ -40,52 +43,55 @@ DocumentDB의 성능 향상을 위해 클라이언트 쪽 구성 옵션이 필�
 
 **2단계:** App.config에서 EndpointUrl, AuthorizationKey, CollectionThroughput 및 DocumentTemplate(옵션)에 대한 설정을 수정합니다.
 
-> [AZURE.NOTE] 높은 처리량의 컬렉션을 프로비전하기 전에 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하여 컬렉션당 비용을 추정합니다. DocumentDB는 시간 단위로 저장소 및 처리량의 비용을 별도로 청구하므로 테스트 후에 DocumentDB 컬렉션의 처리량을 삭제하거나 낮추어 비용을 절감할 수 있습니다.
+> [!NOTE]
+> 높은 처리량의 컬렉션을 프로비전하기 전에 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하여 컬렉션당 비용을 추정합니다. DocumentDB는 시간 단위로 저장소 및 처리량의 비용을 별도로 청구하므로 테스트 후에 DocumentDB 컬렉션의 처리량을 삭제하거나 낮추어 비용을 절감할 수 있습니다.
+> 
+> 
 
 **3단계:** 명령줄에서 콘솔 앱을 컴파일하고 실행합니다. 다음과 유사한 출력이 표시됩니다.
 
-	Summary:
-	---------------------------------------------------------------------
-	Endpoint: https://docdb-scale-demo.documents.azure.com:443/
-	Collection : db.testdata at 50000 request units per second
-	Document Template*: Player.json
-	Degree of parallelism*: 500
-	---------------------------------------------------------------------
+    Summary:
+    ---------------------------------------------------------------------
+    Endpoint: https://docdb-scale-demo.documents.azure.com:443/
+    Collection : db.testdata at 50000 request units per second
+    Document Template*: Player.json
+    Degree of parallelism*: 500
+    ---------------------------------------------------------------------
 
-	DocumentDBBenchmark starting...
-	Creating database db
-	Creating collection testdata
-	Creating metric collection metrics
-	Retrying after sleeping for 00:03:34.1720000
-	Starting Inserts with 500 tasks
-	Inserted 661 docs @ 656 writes/s, 6860 RU/s (18B max monthly 1KB reads)
-	Inserted 6505 docs @ 2668 writes/s, 27962 RU/s (72B max monthly 1KB reads)
-	Inserted 11756 docs @ 3240 writes/s, 33957 RU/s (88B max monthly 1KB reads)
-	Inserted 17076 docs @ 3590 writes/s, 37627 RU/s (98B max monthly 1KB reads)
-	Inserted 22106 docs @ 3748 writes/s, 39281 RU/s (102B max monthly 1KB reads)
-	Inserted 28430 docs @ 3902 writes/s, 40897 RU/s (106B max monthly 1KB reads)
-	Inserted 33492 docs @ 3928 writes/s, 41168 RU/s (107B max monthly 1KB reads)
-	Inserted 38392 docs @ 3963 writes/s, 41528 RU/s (108B max monthly 1KB reads)
-	Inserted 43371 docs @ 4012 writes/s, 42051 RU/s (109B max monthly 1KB reads)
-	Inserted 48477 docs @ 4035 writes/s, 42282 RU/s (110B max monthly 1KB reads)
-	Inserted 53845 docs @ 4088 writes/s, 42845 RU/s (111B max monthly 1KB reads)
-	Inserted 59267 docs @ 4138 writes/s, 43364 RU/s (112B max monthly 1KB reads)
-	Inserted 64703 docs @ 4197 writes/s, 43981 RU/s (114B max monthly 1KB reads)
-	Inserted 70428 docs @ 4216 writes/s, 44181 RU/s (115B max monthly 1KB reads)
-	Inserted 75868 docs @ 4247 writes/s, 44505 RU/s (115B max monthly 1KB reads)
-	Inserted 81571 docs @ 4280 writes/s, 44852 RU/s (116B max monthly 1KB reads)
-	Inserted 86271 docs @ 4273 writes/s, 44783 RU/s (116B max monthly 1KB reads)
-	Inserted 91993 docs @ 4299 writes/s, 45056 RU/s (117B max monthly 1KB reads)
-	Inserted 97469 docs @ 4292 writes/s, 44984 RU/s (117B max monthly 1KB reads)
-	Inserted 99736 docs @ 4192 writes/s, 43930 RU/s (114B max monthly 1KB reads)
-	Inserted 99997 docs @ 4013 writes/s, 42051 RU/s (109B max monthly 1KB reads)
-	Inserted 100000 docs @ 3846 writes/s, 40304 RU/s (104B max monthly 1KB reads)
+    DocumentDBBenchmark starting...
+    Creating database db
+    Creating collection testdata
+    Creating metric collection metrics
+    Retrying after sleeping for 00:03:34.1720000
+    Starting Inserts with 500 tasks
+    Inserted 661 docs @ 656 writes/s, 6860 RU/s (18B max monthly 1KB reads)
+    Inserted 6505 docs @ 2668 writes/s, 27962 RU/s (72B max monthly 1KB reads)
+    Inserted 11756 docs @ 3240 writes/s, 33957 RU/s (88B max monthly 1KB reads)
+    Inserted 17076 docs @ 3590 writes/s, 37627 RU/s (98B max monthly 1KB reads)
+    Inserted 22106 docs @ 3748 writes/s, 39281 RU/s (102B max monthly 1KB reads)
+    Inserted 28430 docs @ 3902 writes/s, 40897 RU/s (106B max monthly 1KB reads)
+    Inserted 33492 docs @ 3928 writes/s, 41168 RU/s (107B max monthly 1KB reads)
+    Inserted 38392 docs @ 3963 writes/s, 41528 RU/s (108B max monthly 1KB reads)
+    Inserted 43371 docs @ 4012 writes/s, 42051 RU/s (109B max monthly 1KB reads)
+    Inserted 48477 docs @ 4035 writes/s, 42282 RU/s (110B max monthly 1KB reads)
+    Inserted 53845 docs @ 4088 writes/s, 42845 RU/s (111B max monthly 1KB reads)
+    Inserted 59267 docs @ 4138 writes/s, 43364 RU/s (112B max monthly 1KB reads)
+    Inserted 64703 docs @ 4197 writes/s, 43981 RU/s (114B max monthly 1KB reads)
+    Inserted 70428 docs @ 4216 writes/s, 44181 RU/s (115B max monthly 1KB reads)
+    Inserted 75868 docs @ 4247 writes/s, 44505 RU/s (115B max monthly 1KB reads)
+    Inserted 81571 docs @ 4280 writes/s, 44852 RU/s (116B max monthly 1KB reads)
+    Inserted 86271 docs @ 4273 writes/s, 44783 RU/s (116B max monthly 1KB reads)
+    Inserted 91993 docs @ 4299 writes/s, 45056 RU/s (117B max monthly 1KB reads)
+    Inserted 97469 docs @ 4292 writes/s, 44984 RU/s (117B max monthly 1KB reads)
+    Inserted 99736 docs @ 4192 writes/s, 43930 RU/s (114B max monthly 1KB reads)
+    Inserted 99997 docs @ 4013 writes/s, 42051 RU/s (109B max monthly 1KB reads)
+    Inserted 100000 docs @ 3846 writes/s, 40304 RU/s (104B max monthly 1KB reads)
 
-	Summary:
-	---------------------------------------------------------------------
-	Inserted 100000 docs @ 3834 writes/s, 40180 RU/s (104B max monthly 1KB reads)
-	---------------------------------------------------------------------
-	DocumentDBBenchmark completed successfully.
+    Summary:
+    ---------------------------------------------------------------------
+    Inserted 100000 docs @ 3834 writes/s, 40180 RU/s (104B max monthly 1KB reads)
+    ---------------------------------------------------------------------
+    DocumentDBBenchmark completed successfully.
 
 
 **4단계(필요한 경우):** 도구에서 보고된 처리량(RU/s)은 컬렉션의 프로비전된 처리량과 같거나 많아야 합니다. 그렇지 않은 경우 DegreeOfParallelism을 조금씩 늘리면 제한에 도달하는 데 도움이 될 수 있습니다. 클라이언트 앱의 처리량이 안정화될 경우 같거나 다른 컴퓨터에서 앱의 여러 인스턴스를 시작하면 여러 다른 인스턴스 간에 프로비전된 제한에 도달하는 데 도움이 됩니다. 이 단계에 대해 도움이 필요한 경우 askdocdb@microsoft.com으로 전자 메일을 보내거나 지원 티켓을 작성합니다.

@@ -1,44 +1,42 @@
-<properties
-   pageTitle="데이터로 대답할 수 있는 질문하기 - 질문 작성 | Microsoft Azure"
-   description="초급자를 위한 데이터 과학 비디오 3에서 데이터 과학 질문을 작성하는 방법을 알아봅니다. 분류 및 회귀 질문에 대한 비교가 포함되어 있습니다."
-   keywords="질문 선택,데이터 과학 질문,질문 작성, 질문 작성,회귀 질문,분류 질문,정확한 질문"
-   services="machine-learning"
-   documentationCenter="na"
-   authors="brohrer-ms"
-   manager="jhubbard"
-   editor="cjgronlund"/>
+---
+title: 데이터로 대답할 수 있는 질문하기 - 질문 작성 | Microsoft Docs
+description: 초급자를 위한 데이터 과학 비디오 3에서 데이터 과학 질문을 작성하는 방법을 알아봅니다. 분류 및 회귀 질문에 대한 비교가 포함되어 있습니다.
+keywords: 질문 선택,데이터 과학 질문,질문 작성, 질문 작성,회귀 질문,분류 질문,정확한 질문
+services: machine-learning
+documentationcenter: na
+author: brohrer-ms
+manager: jhubbard
+editor: cjgronlund
 
-<tags
-   ms.service="machine-learning"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+ms.service: machine-learning
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/15/2016
+ms.author: cgronlun;brohrer;garye
 
+---
 # 데이터로 대답할 수 있는 질문하기
-
 ## 비디오 3: 초급자를 위한 데이터 과학 시리즈
-
 초급자를 위한 데이터 과학 비디오 3에서 데이터 과학 질문을 작성하는 방법을 알아봅니다. 이 비디오에는 분류 및 회귀 알고리즘 질문에 대한 비교가 포함되어 있습니다.
 
 시리즈를 최대한 활용하려면 순서대로 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
-> [AZURE.VIDEO data-science-for-beginners-ask-a-question-you-can-answer-with-data]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
+> 
+> 
 
 ## 이 시리즈의 다른 비디오
-
 *초급자를 위한 데이터 과학*은 다섯 개의 짧은 비디오를 통해 데이터 과학을 간략히 소개합니다.
 
-  * 비디오 1: [데이터 과학으로 답변할 수 있는 5가지 질문](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5분 14초)*
-  * 비디오 2: [데이터 과학에 사용할 수 있게 데이터가 준비되었나요?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4분 56초)*
-  * 비디오 3: 데이터로 대답할 수 있는 질문하기
-  * 비디오 4: [단순 모델을 사용하여 답변 예측](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7분 42초)*
-  * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
+* 비디오 1: [데이터 과학으로 답변할 수 있는 5가지 질문](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5분 14초)*
+* 비디오 2: [데이터 과학에 사용할 수 있게 데이터가 준비되었나요?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4분 56초)*
+* 비디오 3: 데이터로 대답할 수 있는 질문하기
+* 비디오 4: [단순 모델을 사용하여 답변 예측](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7분 42초)*
+* 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
 ## 비디오 내용: 데이터로 대답할 수 있는 질문하기
-
 "초급자를 위한 데이터 과학" 시리즈 중 3번째 비디오를 시작합니다.
 
 여기에서는 데이터로 답할 수 있는 질문을 작성하는 방법과 관련된 몇 가지 팁을 얻을 수 있습니다.
@@ -46,7 +44,6 @@
 이 시리즈에 포함된 두 가지의 이전 비디오, “데이터 과학으로 답변할 수 있는 5가지 질문” 및 “데이터 과학에 사용할 수 있게 데이터가 준비되었나요?”를 보면 더 많은 내용을 얻을 수 있습니다.
 
 ## 정확하게 질문하기
-
 데이터 과학이 왜 이름(범주 또는 레이블)과 숫자를 사용하여 질문에 대한 답변을 예측하는 프로세스인가에 대해 알아보았습니다. 하지만 아무 질문이나 되는 것은 아니고 *정확한 질문*이어야 합니다.
 
 모호한 질문에는 이름이나 숫자로 답변할 필요가 없습니다. 하지만 정확한 질문에는 그렇게 해야만 합니다.
@@ -58,7 +55,6 @@
 하지만, “다음 주 내 주식의 판매 가격은 얼마가 될까요?”라고 정확하게 질문하면, 지니는 구체적인 답을 주고 판매 가격을 예측해 주지 않고는 못 배길 것입니다.
 
 ## 답변에 대한 사례: 대상 데이터
-
 질문을 작성하고 난 후, 답변에 대한 사례가 데이터에 있는지를 확인합니다.
 
 질문이 “다음 주 내 주식의 판매 가격이 어떻게 될까요?”라면, 주식 가격 내역이 데이터에 포함되어 있어야 합니다.
@@ -72,7 +68,6 @@
 대상 데이터가 없으면, 확보해야 합니다. 이러한 데이터가 없으면 질문에 답변할 수 없습니다.
 
 ## 질문 다시 작성
-
 보다 유용한 답변을 얻기 위해서 질문을 바꾸어 말할 수 있습니다.
 
 “이것은 데이터 요소 A입니까? 아니면 B입니까?”라는 질문은 범주(또는 이름 또는 레이블)를 예측합니다. 여기에 답변하려면 *분류 알고리즘*을 사용합니다.
@@ -95,10 +90,8 @@
 
 Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 있는 다른 비디오도 확인해보세요.
 
-
 ## 다음 단계
-
-  * [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
-  * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
+* [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
+* [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
 
 <!---HONumber=AcomDC_0914_2016-->

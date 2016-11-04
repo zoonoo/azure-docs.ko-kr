@@ -1,28 +1,26 @@
-<properties 
-   pageTitle="Microsoft 모니터링 제품 비교 | Microsoft Azure"
-   description="Microsoft Operations Management Suite(OMS)란 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.  이 문서는 OMS에 포함된 다양한 서비스를 식별하고 자세한 내용에 대한 링크를 제공합니다."
-   services="operations-management-suite"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags 
-   ms.service="operations-management-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/27/2016"
-   ms.author="bwren" />
+---
+title: Microsoft 모니터링 제품 비교 | Microsoft Docs
+description: Microsoft Operations Management Suite(OMS)란 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.  이 문서는 OMS에 포함된 다양한 서비스를 식별하고 자세한 내용에 대한 링크를 제공합니다.
+services: operations-management-suite
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: operations-management-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/27/2016
+ms.author: bwren
 
+---
 # <a name="microsoft-monitoring-product-comparison"></a>Microsoft 모니터링 제품 비교
-
 이 문서는 OMS(Operations Management Suite)의 Log Analytics과 SCOM(System Center Operations Manager)의 차이를 아키텍처, 리소스 모니터링 방식의 논리, 수집한 데이터 분석 방식 측면에서 비교, 설명하며  각각의 차이와 상대적 강점에 대한 기본적 내용을 이해하기 위한 정보를 제공합니다.  
 
 ## <a name="basic-architecture"></a>기본 아키텍처
 ### <a name="system-center-operations-manager"></a>System Center Operations Manager
-
 모든 SCOM 구성 요소는 데이터 센터에 설치하며  [에이전트](http://technet.microsoft.com/library/hh551142.aspx)는 SCOM에서 관리하는 Windows 및 Linux 컴퓨터에 설치합니다.  에이전트는 SCOM 데이터베이스 및 데이터 웨어하우스와 통신하는 [관리 서버](https://technet.microsoft.com/library/hh301922.aspx)와 연결합니다.  에이전트는 도메인 인증에 의존하여 관리 서버에 연결합니다.  신뢰할 수 있는 도메인 밖에 있는 에이전트는 인증서 인증을 수행하거나 [게이트웨이 서버](https://technet.microsoft.com/library/hh212823.aspx)에 연결할 수 있습니다.
 
 SCOM은 운영 데이터용 SQL 데이터베이스와 보고 및 데이터 분석을 지원하는 데이터 웨어하우스용 SQL 데이터베이스가 필요합니다.  [보고 서버](https://technet.microsoft.com/library/hh298611.aspx) 는 SQL Reporting Services를 실행하여 데이터 웨어하우스의 데이터에 대해 보고합니다. 
@@ -34,27 +32,25 @@ SCOM은 [Azure](https://www.microsoft.com/download/details.aspx?id=38414), [Offi
 ![SCOM 아키텍처](media/operations-management-suite-monitoring-product-comparison/scom-architecture.png)
 
 ### <a name="log-analytics"></a>Log Analytics
-
 대부분의 OMS 구성 요소가 Azure 클라우드에 있으므로 최소한의 비용과 관리 활동으로 배포 및 관리할 수 있습니다.  Log Analytics에서 수집한 모든 데이터는 OMS 리포지토리에 저장됩니다.
 
 Log Analytics는 다음 세 가지 원본 중 하나에서 데이터를 수집할 수 있습니다.
 
-- Windows 및 [MMA(Microsoft Management Agent)](https://technet.microsoft.com/library/mt484108.aspx) 또는 Linux 및 [Linux용 Operations Management Suite 에이전트](https://technet.microsoft.com/library/mt622052.aspx)를 실행하는 물리적 및 가상 컴퓨터.  이러한 컴퓨터는 Azure 또는 다른 클라우드에서 온-프레미스 또는 가상 컴퓨터일 수 있습니다.
-- Azure의 작업자 역할, 웹 역할 또는 가상 컴퓨터에서 [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md) 데이터를 수집하는 Azure 저장소 계정.
-- [SCOM 관리 그룹에 연결](https://technet.microsoft.com/library/mt484104.aspx).  이 구성에서는 에이전트가 SCOM 데이터베이스에 데이터를 제공하는 SCOM 관리 서버와 통신합니다. 그런 다음 이 데이터는 OMS 데이터 저장소로 배달됩니다.
-관리자는 수집된 데이터를 분석하고 OMS 포털(Azure에 호스팅되어 있으며 모든 브라우저에서 액세스할 수 있음)을 사용하여 Log Analytics를 분석할 수 있습니다.  이 데이터에 액세스하는 모바일 앱은 표준 플랫폼에 사용할 수 있습니다.
+* Windows 및 [MMA(Microsoft Management Agent)](https://technet.microsoft.com/library/mt484108.aspx) 또는 Linux 및 [Linux용 Operations Management Suite 에이전트](https://technet.microsoft.com/library/mt622052.aspx)를 실행하는 물리적 및 가상 컴퓨터.  이러한 컴퓨터는 Azure 또는 다른 클라우드에서 온-프레미스 또는 가상 컴퓨터일 수 있습니다.
+* Azure의 작업자 역할, 웹 역할 또는 가상 컴퓨터에서 [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md) 데이터를 수집하는 Azure 저장소 계정.
+* [SCOM 관리 그룹에 연결](https://technet.microsoft.com/library/mt484104.aspx).  이 구성에서는 에이전트가 SCOM 데이터베이스에 데이터를 제공하는 SCOM 관리 서버와 통신합니다. 그런 다음 이 데이터는 OMS 데이터 저장소로 배달됩니다.
+  관리자는 수집된 데이터를 분석하고 OMS 포털(Azure에 호스팅되어 있으며 모든 브라우저에서 액세스할 수 있음)을 사용하여 Log Analytics를 분석할 수 있습니다.  이 데이터에 액세스하는 모바일 앱은 표준 플랫폼에 사용할 수 있습니다.
 
 ![Log Analytics 아키텍처](media/operations-management-suite-monitoring-product-comparison/log-analytics-architecture.png)
 
 ### <a name="integrating-scom-and-log-analytics"></a>SCOM 및 Log Analytics 통합
-
 SCOM을 Log Analytics의 데이터 원본으로 사용할 경우 하이브리드 모니터링 환경에서 두 제품의 기능을 활용할 수 있습니다.  SCOM에서 계속해서 관리 팩을 실행하는 것 이외에, 운영 콘솔을 통해 OMS에서 기존 SCOM 에이전트를 관리하도록 구성할 수 있습니다.  
 연결된 SCOM 관리 그룹의 데이터는 네 가지 방법 중 하나를 사용하여 Log Analytics로 배달됩니다.
 
-- 이벤트 및 성능 데이터는 에이전트에서 수집되어 SCOM으로 배달됩니다.  그런 다음 SCOM의 관리 서버가 Log Analytics로 데이터를 배달합니다.
-- IIS 로그와 같은 일부 이벤트 및 보안 이벤트는 계속해서 에이전트에서 Log Analytics로 직접 배달됩니다.
-- 일부 솔루션은 에이전트에 추가 소프트웨어를 배달합니다. 또는 추가 데이터를 수집하기 위해 소프트웨어를 설치해야 합니다.  이 데이터는 일반적으로 Log Analytics에 직접 전송됩니다.
-- 일부 솔루션은 에이전트에서 발생하지 않는 데이터를 SCOM 관리 서버에서 직접 수집합니다.  예를 들어 [경고 관리 솔루션](https://technet.microsoft.com/library/mt484092.aspx) 은 경고가 생성된 이후 SCOM에서 경고를 수집합니다.
+* 이벤트 및 성능 데이터는 에이전트에서 수집되어 SCOM으로 배달됩니다.  그런 다음 SCOM의 관리 서버가 Log Analytics로 데이터를 배달합니다.
+* IIS 로그와 같은 일부 이벤트 및 보안 이벤트는 계속해서 에이전트에서 Log Analytics로 직접 배달됩니다.
+* 일부 솔루션은 에이전트에 추가 소프트웨어를 배달합니다. 또는 추가 데이터를 수집하기 위해 소프트웨어를 설치해야 합니다.  이 데이터는 일반적으로 Log Analytics에 직접 전송됩니다.
+* 일부 솔루션은 에이전트에서 발생하지 않는 데이터를 SCOM 관리 서버에서 직접 수집합니다.  예를 들어 [경고 관리 솔루션](https://technet.microsoft.com/library/mt484092.aspx) 은 경고가 생성된 이후 SCOM에서 경고를 수집합니다.
 
 ## <a name="monitoring-logic"></a>모니터링 논리
 SCOM 및 Log Analytics는 에이전트에서 수집한 데이터와 유사한 데이터를 사용하지만 데이터 수집에 논리를 정의 및 구현하는 방식 및 수집한 데이터를 분석하는 방식이 기본적으로 다릅니다.
@@ -91,7 +87,6 @@ SCOM에는 일반적으로 데이터의 구체적 기준을 정의하는 여러 
 
 예를 들어 [변경 추적 솔루션](https://technet.microsoft.com/library/mt484099.aspx) 이 에이전트 시스템에서 구성 변경 사항을 검색하고 OMS 리포지토리에 이벤트를 쓰면 여러 그래픽 뷰로 분석하여 검색된 변경 사항을 요약할 수 있습니다.  요약된 뷰에서 로그 쿼리로 드릴다운하여 솔루션에서 수집한 상세 데이터를 표시할 수 있습니다.
 
-
 구독에 추가할 솔루션을 선택할 수 있지만 현재는 고유 솔루션을 만드는 기능은 없습니다.  수집할 이벤트 및 성능 카운터를 선택하고 고유 로그 쿼리를 기준으로 사용자 지정 뷰를 만들 수 있습니다.
 
 Log Analytics의 모니터링 논리는 아래 다이어그램에 요약되어 있습니다.
@@ -127,7 +122,6 @@ OMS에는 응용 프로그램을 모델링하거나 실시간 상태를 측정�
 SCOM 및 Log Analytics은 수집된 데이터를 각각 다른 방법으로 분석합니다.  SCOM은 운영 콘솔에 최근 데이터를 다양한 형식으로 분석하기 위한 뷰와 대시보드, 데이터 웨어하우스의 데이터를 탭 형식으로 표시하는 보고서가 있습니다.  Log Analytics는 OMS 리포지터리의 데이터 분석에 대한 완전한 로그 쿼리 언어와 인터페이스를 제공합니다.  SCOM을 Log Analytics의 데이터 원본으로 사용하는 경우 리포지토리에 SCOM에서 수집한 데이터가 포함되므로 Log Analytics 도구를 사용하여 두 시스템의 데이터를 분석할 수 있습니다.
 
 ### <a name="operations-manager"></a>Operations Manager
-
 #### <a name="views"></a>뷰
 운영 콘솔의 뷰를 사용하면 SCOM에서 수집한 데이터를 다양한 형식으로 볼 수 있습니다. 일반적으로 이벤트, 경고, 상태 데이터에는 탭 형식을 사용하고 성능 데이터에는 선 그래프를 사용합니다.  뷰는 데이터에 대해 최소의 분석 또는 통합을 수행하지만 특정 기준으로 필터링할 수도 있습니다. 
 
@@ -171,11 +165,8 @@ Log Analytics의 쿼리로 임시 분석을 제공하는 기능 이외에, 나�
 ![OMS 대시보드](media/operations-management-suite-monitoring-product-comparison/log-analytics-dashboard.png)
 
 ## <a name="next-steps"></a>다음 단계
-
-- [SCOM(System Center Operations Manager)](https://technet.microsoft.com/library/hh205987.aspx)을 배포합니다.
-- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics)에 등록합니다.  
-
-
+* [SCOM(System Center Operations Manager)](https://technet.microsoft.com/library/hh205987.aspx)을 배포합니다.
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics)에 등록합니다.  
 
 <!--HONumber=Oct16_HO2-->
 

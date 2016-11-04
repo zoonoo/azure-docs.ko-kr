@@ -1,24 +1,26 @@
-<properties
-	pageTitle="온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법"
-	description="Azure AD 응용 프로그램 프록시를 사용하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법을 설명합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+---
+title: 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법
+description: Azure AD 응용 프로그램 프록시를 사용하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법을 설명합니다.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2016"
-	ms.author="kgremban"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: kgremban
 
+---
 # 온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법
-
-> [AZURE.NOTE] 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+> [!NOTE]
+> 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+> 
+> 
 
 요즈음 직원은 어디서나 언제든지 어느 장치에서나 생산성을 높이기를 원합니다. 태블릿, 휴대폰 또는 랩톱을 막론하고 자신의 장치에서 일하기를 원합니다. 그리고 해당하는 모든 응용 프로그램인 클라우드의 SaaS 앱 및 회사 앱 온-프레미스 모두에도 액세스할 수 있다고 예상합니다. 온-프레미스 응용 프로그램에 대한 액세스를 제공하려면 일반적으로 가상 사설망(VPN), 완충 영역(DMZ) 또는 온-프레미스 역방향 프록시가 필요했습니다. 이러한 솔루션은 복잡하고 안전하게 만들기도 어려울 뿐만 아니라 설정과 관리에도 비용이 많이 듭니다.
 
@@ -34,21 +36,18 @@ Azure AD 응용 프로그램 프록시는 모든 온-프레미스 응용 프로�
 
 Azure AD 응용 프로그램 프록시:
 
-- 클라우드에서 작업하므로 시간과 비용을 절약할 수 있습니다. 온-프레미스 솔루션을 사용 하려면 DMZ, 에지 서버 또는 기타 복잡한 인프라를 설정하고 유지 관리해야 합니다.
-
-- 방화벽을 통해 인바운드 연결을 열 필요가 없으므로 온-프레미스 솔루션보다 설정과 보안 확보가 더 쉽습니다.
-
-- 또한 훌륭한 보안을 제공합니다. Azure AD 응용 프로그램 프록시를 사용하여 앱을 게시하면 Azure의 다양한 권한 부여 제어 및 보안 분석을 이용할 수 있습니다. 즉, 앱을 변경할 필요 없이 모든 기존 앱에 대해 고급 보안 기능을 얻습니다.
-
-- 사용자에게 일관된 인증 환경을 제공합니다. SSO(Single Sign-On)는 최종 사용자에게 생산성을 높여야 하는 모든 앱에 대해 암호 하나를 사용하는 쉽고 단순한 액세스를 제공합니다.
+* 클라우드에서 작업하므로 시간과 비용을 절약할 수 있습니다. 온-프레미스 솔루션을 사용 하려면 DMZ, 에지 서버 또는 기타 복잡한 인프라를 설정하고 유지 관리해야 합니다.
+* 방화벽을 통해 인바운드 연결을 열 필요가 없으므로 온-프레미스 솔루션보다 설정과 보안 확보가 더 쉽습니다.
+* 또한 훌륭한 보안을 제공합니다. Azure AD 응용 프로그램 프록시를 사용하여 앱을 게시하면 Azure의 다양한 권한 부여 제어 및 보안 분석을 이용할 수 있습니다. 즉, 앱을 변경할 필요 없이 모든 기존 앱에 대해 고급 보안 기능을 얻습니다.
+* 사용자에게 일관된 인증 환경을 제공합니다. SSO(Single Sign-On)는 최종 사용자에게 생산성을 높여야 하는 모든 앱에 대해 암호 하나를 사용하는 쉽고 단순한 액세스를 제공합니다.
 
 ## 어떤 종류의 응용 프로그램이 Azure AD 응용 프로그램 프록시에서 작동합니까?
 Azure AD 응용 프로그램 프록시를 사용하면 다양한 유형의 내부 응용 프로그램에 액세스할 수 있습니다.
 
-- 인증을 위해 Windows 통합 인증을 사용하는 웹 응용 프로그램
-- 폼 기반 액세스를 사용하는 웹 응용 프로그램
-- 여러 장치에서 다양한 응용 프로그램을 표시하려는 웹 API
-- 원격 데스크톱 게이트웨이 뒤에서 호스트되는 응용 프로그램
+* 인증을 위해 Windows 통합 인증을 사용하는 웹 응용 프로그램
+* 폼 기반 액세스를 사용하는 웹 응용 프로그램
+* 여러 장치에서 다양한 응용 프로그램을 표시하려는 웹 API
+* 원격 데스크톱 게이트웨이 뒤에서 호스트되는 응용 프로그램
 
 ## 작동 원리
 응용 프로그램 프록시는 네트워크 내에서 커넥터라는 간단한 Windows Server 서비스를 설치하여 사용합니다. 커넥터를 사용하면 인바운드 포트를 열거나 DMZ에 항목을 저장할 필요가 없습니다. 앱에 대한 트래픽이 많은 경우 커넥터를 더 추가하면 서비스에서 부하 분산을 처리합니다. 커넥터는 상태를 저장하지 않으며 필요에 따라 클라우드에서 모든 항목을 가져옵니다.
@@ -79,10 +78,10 @@ Azure AD 기본 또는 프리미엄 구독이 있고 자신이 전역 관리자�
 ## 다음 작업
 응용 프로그램 프록시를 사용하여 수행할 수 있는 작업은 많습니다.
 
-- [고유한 도메인 이름을 사용하여 응용 프로그램 게시](active-directory-application-proxy-custom-domains.md)
-- [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
-- [클레임 인식 응용 프로그램으로 작업](active-directory-application-proxy-claims-aware-apps.md)
-- [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
+* [고유한 도메인 이름을 사용하여 응용 프로그램 게시](active-directory-application-proxy-custom-domains.md)
+* [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
+* [클레임 인식 응용 프로그램으로 작업](active-directory-application-proxy-claims-aware-apps.md)
+* [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)를 확인하세요.
 

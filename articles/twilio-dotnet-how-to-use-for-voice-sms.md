@@ -1,23 +1,22 @@
-<properties
-	pageTitle="음성 및 SMS에 Twilio를 사용하는 방법(.NET) | Microsoft Azure"
-	description="Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET으로 작성되었습니다."
-	services=""
-	documentationCenter=".net"
-	authors="devinrader"
-	manager="twilio"
-	editor=""/>
+---
+title: 음성 및 SMS에 Twilio를 사용하는 방법(.NET) | Microsoft Docs
+description: Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET으로 작성되었습니다.
+services: ''
+documentationcenter: .net
+author: devinrader
+manager: twilio
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="04/24/2015"
-	ms.author="devinrader"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 04/24/2015
+ms.author: devinrader
 
+---
 # Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
-
 이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS 사용 방법과 Twilio에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
 
 ## <a id="WhatIs"></a>Twilio 정의
@@ -93,17 +92,18 @@ Twilio.Client.Capability|Twilio 클라이언트 JavaScript SDK와 함께 사용�
 
 기본적으로, Microsoft Visual Studio 2010은 버전 1.2의 NuGet을 설치합니다. Twilio 라이브러리를 설치하려면 버전 1.6 이상의 NuGet이 필요합니다. NuGet 설치 또는 업데이트에 대해서는 [http://nuget.org/][nuget](영문)를 참조하십시오.
 
-> [AZURE.NOTE] 최신 버전의 NuGet을 설치하려면 먼저 Visual Studio 확장 관리자를 사용하여 로드된 버전을 제거해야 합니다. 이를 위해서는 Visual Studio를 관리자 권한으로 실행해야 합니다. 관리자 권한으로 실행하지 않으면 제거 단추를 사용할 수 없습니다.
+> [!NOTE]
+> 최신 버전의 NuGet을 설치하려면 먼저 Visual Studio 확장 관리자를 사용하여 로드된 버전을 제거해야 합니다. 이를 위해서는 Visual Studio를 관리자 권한으로 실행해야 합니다. 관리자 권한으로 실행하지 않으면 제거 단추를 사용할 수 없습니다.
+> 
+> 
 
 ### <a id="use_nuget"></a>Visual Studio 프로젝트에 Twilio 라이브러리를 추가하려면
-
-1.  Visual Studio에서 솔루션을 엽니다.
-2.  **참조**를 마우스 오른쪽 단추로 클릭합니다.
-3.  **NuGet 패키지 관리...**를 클릭합니다.
-4.  **온라인**을 클릭합니다.
-5.  온라인 검색 상자에 *twilio*를 입력합니다.
-6.  Twilio 패키지에서 **설치**를 클릭합니다.
-
+1. Visual Studio에서 솔루션을 엽니다.
+2. **참조**를 마우스 오른쪽 단추로 클릭합니다.
+3. **NuGet 패키지 관리...**를 클릭합니다.
+4. **온라인**을 클릭합니다.
+5. 온라인 검색 상자에 *twilio*를 입력합니다.
+6. Twilio 패키지에서 **설치**를 클릭합니다.
 
 ## <a id="howto_make_call"></a>방법: 발신 전화 걸기
 다음은 **TwilioRestClient** 클래스를 사용하여 발신 전화를 거는 방법을 보여 줍니다. 또한 이 코드는 Twilio 제공 사이트를 사용하여 TwiML(Twilio Markup Language) 응답을 반환합니다. **From** 및 **To** 전화 번호의 값을 바꾸고, 코드를 실행하기 전에 Twilio 계정의 **From** 번호를 확인하십시오.
@@ -164,7 +164,10 @@ Twilio.Client.Capability|Twilio 클라이언트 JavaScript SDK와 함께 사용�
 ## <a id="howto_provide_twiml_responses"></a>방법: 고유한 웹 사이트에서 TwiML 응답 제공
 응용 프로그램에서 Twilio API에 대한 호출을 시작하면(예: **client.InitiateOutboundCall** 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. [방법: 발신 전화 걸기](#howto_make_call)의 예제에서는 Twilio 제공 URL인 [http://twimlets.com/message][twimlet_message_url]를 사용하여 응답을 반환합니다.
 
-> [AZURE.NOTE] TwiML이 웹 서비스에 사용하도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [http://twimlets.com/message](twimlet_message_url)를 클릭하면 빈 &lt;Response&gt; 요소가 표시됩니다. 또 다른 예로 [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world)를 클릭하면 &lt;Say&gt; 요소를 포함하는 &lt;Response&gt; 요소가 표시됩니다.
+> [!NOTE]
+> TwiML이 웹 서비스에 사용하도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [http://twimlets.com/message](twimlet_message_url.md)를 클릭하면 빈 &lt;Response&gt; 요소가 표시됩니다. 또 다른 예로 [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world.md)를 클릭하면 &lt;Say&gt; 요소를 포함하는 &lt;Response&gt; 요소가 표시됩니다.
+> 
+> 
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 URL 사이트를 만들 수 있습니다. HTTP 응답을 반환하는 사이트는 어떤 언어로든 만들 수 있습니다. 이 항목에서는 ASP.NET 제네릭 처리기에서 URL을 호스트한다고 가정합니다.
 
@@ -255,11 +258,7 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 **client.InitiateOutb
 
 Azure에서 ASP.NET과 함께 Twilio 사용에 대한 자세한 내용은 [Azure의 웹 역할에서 Twilio를 사용하여 전화를 거는 방법][howto_phonecall_dotnet]을 참조하십시오.
 
-[AZURE.INCLUDE [twilio-additional-services-and-next-steps](../includes/twilio-additional-services-and-next-steps.md)]
-
-
-
-
+[!INCLUDE [twilio-additional-services-and-next-steps](../includes/twilio-additional-services-and-next-steps.md)]
 
 [howto_phonecall_dotnet]: partner-twilio-cloud-services-dotnet-phone-call-web-role.md
 

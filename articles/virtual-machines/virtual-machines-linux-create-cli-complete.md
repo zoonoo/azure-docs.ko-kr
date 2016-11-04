@@ -1,34 +1,33 @@
 
-<properties
-   pageTitle="Azure CLI를 사용하여 완전한 Linux 환경 만들기 | Microsoft Azure"
-   description="Azure CLI를 사용하여 저장소, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 장치, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다."
-   services="virtual-machines-linux"
-   documentationCenter="virtual-machines"
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Azure CLI를 사용하여 완전한 Linux 환경 만들기 | Microsoft Docs
+description: Azure CLI를 사용하여 저장소, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 장치, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다.
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: iainfoulds
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="08/23/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 08/23/2016
+ms.author: iainfou
 
+---
 # Azure CLI를 사용하여 완전한 Linux 환경 만들기
-
 이 문서에서는 개발 및 간단한 계산에 유용한 부하 분산 장치와 한 쌍의 VM을 사용하여 간단한 네트워크를 빌드해 보겠습니다. 인터넷 어디에서나 안전하게 실행되는 두 개의 Linux VM에 연결할 수 있을 때까지 프로세스를 명령별로 진행합니다. 그 후에는 좀 더 복잡한 네트워크 및 환경으로 넘어갈 수 있습니다.
 
 그 과정에서 Resource Manager 배포 모델이 제공하는 종속성 계층 구조와 강력한 기능을 이해할 수 있을 것입니다. 시스템이 빌드되는 방식을 이해하면 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 시스템을 훨씬 더 빠르게 다시 빌드할 수 있습니다. 또한 환경의 여러 부분이 서로 어떻게 연결되는지 파악하고 나면 이러한 환경 부분을 자동화하는 템플릿을 더 쉽게 만들 수 있습니다.
 
 환경에는 다음이 포함됩니다.
 
-- 가용성 집합에 포함된 두 VM
-- 포트 80에서 부하 분산 규칙이 있는 부하 분산 장치
-- 원치 않는 트래픽으로부터 VM을 보호하기 위한 NSG(네트워크 보안 그룹) 규칙
+* 가용성 집합에 포함된 두 VM
+* 포트 80에서 부하 분산 규칙이 있는 부하 분산 장치
+* 원치 않는 트래픽으로부터 VM을 보호하기 위한 NSG(네트워크 보안 그룹) 규칙
 
 ![기본 환경 개요](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
@@ -74,7 +73,6 @@ azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.
 ```
 
 JSON 파서를 사용하여 가상 네트워크 및 서브넷을 확인합니다.
-
 
 ```bash
 azure network vnet show TestRG TestVNet --json | jq '.'
@@ -240,7 +238,6 @@ azure resource export TestRG
 다음에 나오는 자세한 단계는 작업 환경을 빌드할 때 각 명령이 수행하는 작업을 설명합니다. 이러한 개념은 개발 또는 프로덕션에 맞는 고유한 사용자 지정 환경을 빌드할 때 도움이 됩니다.
 
 ## 리소스 그룹 만들기 및 배포 위치 선택
-
 Azure 리소스 그룹은 리소스 배포를 논리적으로 관리할 수 있는 구성 정보 및 메타데이터를 포함하는 논리적 배포 엔터티입니다.
 
 ```bash
@@ -264,7 +261,6 @@ info:    group create command OK
 ```
 
 ## 저장소 계정 만들기
-
 VM 디스크 및 추가하려는 추가 데이터 디스크에 대한 저장소 계정이 필요합니다. 리소스 그룹을 만든 후 거의 즉시 저장소 계정을 만들게 됩니다.
 
 여기서는 `azure storage account create` 명령을 사용하여 계정 위치, 계정을 제어할 리소스 그룹, 원하는 저장소 지원 형식을 전달합니다.
@@ -370,7 +366,6 @@ info:    storage container list command OK
 ```
 
 ## 가상 네트워크 및 서브넷 만들기
-
 다음에는 Azure에서 실행되는 가상 네트워크와 VM을 설치할 수 있는 서브넷을 만들어야 합니다.
 
 ```bash
@@ -499,7 +494,6 @@ azure network vnet show TestRG TestVNet --json | jq '.'
 ```
 
 ## PIP(공용 IP 주소) 만들기
-
 이제 부하 분산 장치에 할당할 PIP(공용 IP 주소)를 만들어 보겠습니다. 이 주소가 있으면 `azure network public-ip create` 명령을 사용하여 인터넷에서 VM에 연결할 수 있습니다. 기본 주소는 동적이기 때문에 `-d testsubdomain` 옵션을 사용하여 **cloudapp.azure.com** 도메인에 명명된 DNS 항목을 만듭니다.
 
 ```bash
@@ -784,7 +778,6 @@ info:    network lb rule create command OK
 ```
 
 ## 부하 분산 장치 상태 프로브 만들기
-
 상태 프로브는 부하 분산 장치에 설정된 VM을 주기적으로 검사하여 VM이 정의된 대로 작동하며 요청에 응답하는지 확인합니다. 그렇지 않을 경우 사용자가 오류가 발생한 VM으로 연결되지 않도록 작동을 중단합니다. 상태 프로브에 대한 사용자 지정 검사, 간격, 시간 제한 값을 정의할 수 있습니다. 상태 프로브에 대한 자세한 내용은 [부하 분산 장치 프로브](../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
 
 ```bash
@@ -941,7 +934,6 @@ azure network lb show -g TestRG -n TestLB --json | jq '.'
 ```
 
 ## Linux VM과 함께 사용할 NIC 만들기
-
  NIC는 사용할 때 규칙을 적용할 수 있으므로 프로그래밍 방식으로 사용할 수 있습니다. 2개 이상 있을 수도 있습니다. 다음 `azure network nic create` 명령에서 NIC를 부하 백 엔드 IP 풀에 연결하고 SSH 트래픽을 허용하기 위한 NAT 규칙을 연결했습니다. 이 작업을 하려면 `<GUID>` 대신 Azure 구독의 구독 ID를 지정해야 합니다.
 
 ```bash
@@ -1034,7 +1026,6 @@ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name T
 ```
 
 ## 네트워크 보안 그룹 및 규칙 만들기
-
 이번에는 NSG 및 NIC 액세스를 제어하는 인바운드 규칙을 만들겠습니다.
 
 ```bash
@@ -1053,10 +1044,12 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-> [AZURE.NOTE] 인바운드 규칙은 인바운드 네트워크 연결에 대한 필터입니다. 이 예제에서는 NSG를 VM 가상 NIC에 바인딩합니다. 이 경우 포트 22에 대한 모든 요청이 VM의 NIC로 통과합니다. 이것은 끝점이 아닌 네트워크 연결에 대한 인바운드 규칙으로, 클래식 배포와 관련이 있습니다. 포트를 열려면 `--source-port-range`를 '*'(기본값)로 설정하여 **모든** 요청 포트의 인바운드 요청을 수락해야 합니다. 포트는 일반적으로 동적입니다.
+> [!NOTE]
+> 인바운드 규칙은 인바운드 네트워크 연결에 대한 필터입니다. 이 예제에서는 NSG를 VM 가상 NIC에 바인딩합니다. 이 경우 포트 22에 대한 모든 요청이 VM의 NIC로 통과합니다. 이것은 끝점이 아닌 네트워크 연결에 대한 인바운드 규칙으로, 클래식 배포와 관련이 있습니다. 포트를 열려면 `--source-port-range`를 '*'(기본값)로 설정하여 **모든** 요청 포트의 인바운드 요청을 수락해야 합니다. 포트는 일반적으로 동적입니다.
+> 
+> 
 
 ## NIC에 바인딩
-
 NSG를 NIC에 바인딩:
 
 ```bash
@@ -1078,18 +1071,17 @@ azure availset create -g TestRG -n TestAvailSet -l westeurope
 
 업그레이드 도메인은 동시에 재부팅할 수 있는 가상 컴퓨터 그룹과 기본 물리적 하드웨어를 나타냅니다. 업그레이드 도메인의 재부팅 순서는 계획된 유지 보수 중 순차적으로 진행되지 않을 수 있으며, 한 번에 하나의 업그레이드만 재부팅됩니다. 또한 Azure는 가용성 집합에 VM을 배치할 때 VM을 업그레이드 도메인에 자동으로 분산합니다.
 
-[VM의 가용성 관리](./virtual-machines-linux-manage-availability.md)에 대한 자세한 내용을 참조하세요.
+[VM의 가용성 관리](virtual-machines-linux-manage-availability.md)에 대한 자세한 내용을 참조하세요.
 
 ## Linux VM 만들기
-
 인터넷에서 액세스 가능한 VM을 지원하기 위해 저장소 및 네트워크 리소스를 만들었습니다. 이제 해당 VM을 만들고 암호 없이 SSH 키를 사용하여 VM을 보호하겠습니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](virtual-machines-linux-cli-ps-findimage.md)에 설명된 대로 `azure vm image list` 명령을 사용하여 해당 이미지 정보를 찾을 것입니다.
 
 `azure vm image list westeurope canonical | grep LTS` 명령을 사용하여 이미지는 선택했습니다. 이 경우 `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`을 사용합니다. 나중에 항상 가장 최근 빌드를 가져오도록 마지막 필드에는 `latest`를 제공합니다. (사용하는 문자열은 `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`입니다.)
 
 다음 단계는 **ssh-keygen -t rsa -b 2048**을 사용하여 Linux 또는 Mac에서 ssh rsa 공개 키 및 개인 키 쌍을 만든 경험이 있는 사용자에게 익숙할 것입니다. `~/.ssh` 디렉터리에 인증서 키 쌍이 없으면 다음과 같이 만들 수 있습니다.
 
-- `azure vm create --generate-ssh-keys` 옵션을 사용하여 자동으로
-- [직접 만드는 명령](virtual-machines-linux-mac-create-ssh-keys.md)을 사용하여 수동으로
+* `azure vm create --generate-ssh-keys` 옵션을 사용하여 자동으로
+* [직접 만드는 명령](virtual-machines-linux-mac-create-ssh-keys.md)을 사용하여 수동으로
 
 또는 VM이 만들어진 후 --admin-password 메서드를 사용하여 SSH 연결을 인증할 수 있습니다. 이 메서드는 일반적으로 보안 수준이 낮습니다.
 
@@ -1269,7 +1261,6 @@ azure group deployment create -f TestRG.json -g NewRGFromTemplate
 [템플릿에서 배포하는 방법에 대해 자세히 읽어볼 수 있습니다](../resource-group-template-deploy-cli.md). 환경을 점진적으로 업데이트하고, 매개 변수 파일을 사용하고, 단일 저장소 위치에서 템플릿에 액세스하는 방법을 알아봅니다.
 
 ## 다음 단계
-
 이제 여러 네트워킹 구성 요소 및 VM을 사용할 준비가 되셨습니다. 이 샘플 환경에 사용하여 여기에 소개된 핵심 구성 요소로 응용 프로그램을 빌드할 수 있습니다.
 
 <!---HONumber=AcomDC_0914_2016-->

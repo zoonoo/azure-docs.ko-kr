@@ -1,4 +1,4 @@
-* **QSTodoListViewController.m**을 열고 다음 메서드를 추가합니다. Facebook을 ID 공급자로 사용하지 않는 경우 _facebook_을 _microsoftaccount_, _twitter_, _google_ 또는 _windowsazureactivedirectory_로 변경합니다.
+* **QSTodoListViewController.m**을 열고 다음 메서드를 추가합니다. Facebook을 ID 공급자로 사용하지 않는 경우 *facebook_을 _microsoftaccount*, *twitter*, *google* 또는 _windowsazureactivedirectory_로 변경합니다.
 
 ```
         - (void) loginAndGetData

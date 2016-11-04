@@ -1,32 +1,30 @@
-<properties
-	pageTitle="Azure Active Directory B2C: 확장할 수 있는 정책 프레임워크 | Microsoft Azure"
-	description="Azure Active Directory B2C의 확장 가능한 정책 프레임워크 및 다양한 정책 형식을 만드는 방법에 대한 항목"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+---
+title: 'Azure Active Directory B2C: 확장할 수 있는 정책 프레임워크 | Microsoft Docs'
+description: Azure Active Directory B2C의 확장 가능한 정책 프레임워크 및 다양한 정책 형식을 만드는 방법에 대한 항목
+services: active-directory-b2c
+documentationcenter: ''
+author: swkrish
+manager: msmbaldwin
+editor: bryanla
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/24/2016
+ms.author: swkrish
 
+---
 # Azure Active Directory B2C: 확장할 수 있는 정책 프레임워크
-
 ## 기본 사항
-
 Azure Active Directory(Azure AD) B2C의 확장할 수 있는 정책 프레임워크는 서비스의 핵심 장점입니다. 정책은 등록, 로그인 또는 프로필 편집과 같은 소비자 ID 환경을 완벽하게 설명합니다. 예를 들어 등록 정책을 사용하면 다음 설정을 구성하여 동작을 제어할 수 있습니다.
 
-- 소비자가 응용 프로그램에 등록하는 데 사용할 수 있는 계정 유형(Facebook 같은 소셜 계정 또는 전자 메일 주소 같은 로컬 계정암호)입니다.
-- 등록 시 소비자에게서 수집할 특성(예: 이름, 우편 번호 및 신발 크기)입니다.
-- 다단계 인증 사용.
-- 모든 등록 페이지의 모양과 느낌입니다.
-- 정책 실행을 마쳤을 때 응용 프로그램이 수신하는 정보(토큰의 클레임으로 매니페스트함)입니다.
+* 소비자가 응용 프로그램에 등록하는 데 사용할 수 있는 계정 유형(Facebook 같은 소셜 계정 또는 전자 메일 주소 같은 로컬 계정암호)입니다.
+* 등록 시 소비자에게서 수집할 특성(예: 이름, 우편 번호 및 신발 크기)입니다.
+* 다단계 인증 사용.
+* 모든 등록 페이지의 모양과 느낌입니다.
+* 정책 실행을 마쳤을 때 응용 프로그램이 수신하는 정보(토큰의 클레임으로 매니페스트함)입니다.
 
 테넌트에 다른 형식의 여러 정책을 만들고 필요에 따라 응용 프로그램에서 사용할 수 있습니다. 응용 프로그램에 정책을 다시 사용할 수 있습니다. 이렇게 하면 개발자가 해당 코드를 변경하지 않거나 변경을 최소로 하여 소비자 ID 환경을 정의하고 수정할 수 있습니다.
 
@@ -63,7 +61,6 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 정책 프레임워크에 대한 자세한 내용은 이 [블로그 게시물](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx)을 참조하세요.
 
 ## 등록 정책 만들기
-
 응용 프로그램에 등록을 사용하려면 등록 정책을 만들어야 합니다. 이 정책은 등록하는 동안 소비자가 경험한 환경 및 응용 프로그램이 성공적인 등록을 수신하는 토큰의 콘텐츠를 설명합니다.
 
 1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -77,12 +74,13 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 9. "**B2C\_1\_SiUp**"을 클릭하여 정책을 엽니다.
 10. **응용 프로그램** 드롭다운에서 "Contoso B2C app" 및 **회신 URL/리디렉션 URI** 드롭다운에서 `https://localhost:44321/`을 선택합니다.
 11. **지금 실행**을 클릭합니다. 새 브라우저 탭이 열리고 응용 프로그램에 등록한 사용자 환경을 실행할 수 있습니다.
-
-    > [AZURE.NOTE]
-    정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
+    
+    > [!NOTE]
+    > 정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
+    > 
+    > 
 
 ## 로그인 정책 만들기
-
 응용 프로그램에 로그인을 사용하려면 로그인 정책을 만들어야 합니다. 이 정책은 로그인하는 동안 소비자가 경험한 환경 및 응용 프로그램이 성공적인 로그인을 수신하는 토큰의 콘텐츠를 설명합니다.
 
 1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -95,12 +93,13 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 8. "**B2C\_1\_SiIn**"을 클릭하여 정책을 엽니다.
 9. **응용 프로그램** 드롭다운에서 "Contoso B2C app" 및 **회신 URL/리디렉션 URI** 드롭다운에서 `https://localhost:44321/`을 선택합니다.
 10. **지금 실행**을 클릭합니다. 새 브라우저 탭이 열리고 응용 프로그램에 로그인한 사용자 환경을 실행할 수 있습니다.
-
-    > [AZURE.NOTE]
-    정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
+    
+    > [!NOTE]
+    > 정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
+    > 
+    > 
 
 ## 등록 또는 로그인 정책 만들기
-
 이 정책은 단일 구성으로 등록 및 로그인 환경을 모두 처리합니다. 소비자는 컨텍스트에 따라 올바른 경로(등록 또는 로그인)를 진행합니다. 또한 성공적인 등록 또는 로그인 시 응용 프로그램에서 수신할 토큰 내용도 설명합니다. 등록 또는 로그인 정책에 대한 코드 샘플은 [여기에서 사용할 수 있습니다](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
 
 1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -114,12 +113,13 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 9. "**B2C\_1\_SiUpIn**"을 클릭하여 정책을 엽니다.
 10. **응용 프로그램** 드롭다운에서 "Contoso B2C app" 및 **회신 URL/리디렉션 URI** 드롭다운에서 `https://localhost:44321/`을 선택합니다.
 11. **지금 실행**을 클릭합니다. 새 브라우저 탭이 열리고 구성된 등록 또는 로그인 소비자 환경을 실행할 수 있습니다.
-
-    > [AZURE.NOTE]
-    정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
+    
+    > [!NOTE]
+    > 정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
+    > 
+    > 
 
 ## 프로필 편집 정책 만들기
-
 응용 프로그램을 편집하는 프로필을 사용하려면 정책을 편집하는 프로필을 만들어야 합니다. 이 정책은 프로필을 편집하는 동안 소비자가 경험한 환경 및 응용 프로그램이 성공적인 완료를 수신하는 토큰의 콘텐츠를 설명합니다.
 
 1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -133,12 +133,13 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 9. "**B2C\_1\_SiPe**"를 클릭하여 정책을 엽니다.
 10. **응용 프로그램** 드롭다운에서 "Contoso B2C app" 및 **회신 URL/리디렉션 URI** 드롭다운에서 `https://localhost:44321/`을 선택합니다.
 11. **지금 실행**을 클릭합니다. 새 브라우저 탭이 열리고 응용 프로그램에서 프로필 편집 사용자 환경을 실행할 수 있습니다.
-
-    > [AZURE.NOTE]
-    정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
     
-## 암호 재설정 정책 만들기
+    > [!NOTE]
+    > 정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
+    > 
+    > 
 
+## 암호 재설정 정책 만들기
 응용 프로그램에서 세분화된 암호 재설정을 사용하려면 암호 재설정 정책을 만들어야 합니다. [여기](active-directory-b2c-reference-sspr.md)에 지정된 테넌트 전체 암호 재설정 옵션이 로그인 정책에 계속 적용됩니다. 이 정책은 암호를 재설정하는 동안 소비자가 경험한 환경 및 응용 프로그램이 성공적인 완료를 수신하는 토큰의 콘텐츠를 설명합니다.
 
 1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -151,12 +152,13 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 8. "**B2C\_1\_SSPR**"을 클릭하여 정책을 엽니다.
 9. **응용 프로그램** 드롭다운에서 "Contoso B2C app" 및 **회신 URL/리디렉션 URI** 드롭다운에서 `https://localhost:44321/`을 선택합니다.
 10. **지금 실행**을 클릭합니다. 새 브라우저 탭이 열리고 응용 프로그램에서 암호 재설정 사용자 환경을 실행할 수 있습니다.
-
-    > [AZURE.NOTE]
-    정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
+    
+    > [!NOTE]
+    > 정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
+    > 
+    > 
 
 ## 추가 리소스
-
-- [토큰, 세션 및 Single Sign-On 구성](active-directory-b2c-token-session-sso.md)
+* [토큰, 세션 및 Single Sign-On 구성](active-directory-b2c-token-session-sso.md)
 
 <!---HONumber=AcomDC_0727_2016-->

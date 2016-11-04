@@ -1,31 +1,20 @@
 공용 클라우드에서의 ID 관리는 온-프레미스에서만큼 중요합니다. ID 관리 기능을 보다 강화하기 위해 Azure는 다양한 클라우드 ID 기술을 지원합니다. 대표적인 옵션은 다음과 같습니다.
 
-- Azure 가상 컴퓨터로 만든 가상 컴퓨터를 사용하여 클라우드에서 Windows Server Active Directory(일반적으로 간단히 AD라고 함)를 실행할 수 있습니다. 이 방법은 Azure를 사용하여 온-프레미스 데이터 센터를 클라우드로 확장할 때 적합합니다.
-
-
-- Azure Active Directory를 사용하면 사용자가 [SaaS(Software as a Service)](https://azure.microsoft.com/overview/what-is-saas/) 응용 프로그램에서 Single Sign-On을 사용하도록 제공할 수 있습니다. 이 기술은 Microsoft Office 365에서 사용되며, Azure 또는 기타 클라우드 플랫폼에서 실행하는 응용 프로그램에서도 이 기술을 사용할 수 있습니다.
-
-
-- 클라우드 또는 온-프레미스에서 실행되는 응용 프로그램에서 Azure Active Directory 액세스 제어를 사용하면 Facebook, Google, Microsoft 등 다른 ID 공급자에게서 받은 ID를 사용하여 사용자가 로그인할 수 있게 할 수 있습니다.
-
+* Azure 가상 컴퓨터로 만든 가상 컴퓨터를 사용하여 클라우드에서 Windows Server Active Directory(일반적으로 간단히 AD라고 함)를 실행할 수 있습니다. 이 방법은 Azure를 사용하여 온-프레미스 데이터 센터를 클라우드로 확장할 때 적합합니다.
+* Azure Active Directory를 사용하면 사용자가 [SaaS(Software as a Service)](https://azure.microsoft.com/overview/what-is-saas/) 응용 프로그램에서 Single Sign-On을 사용하도록 제공할 수 있습니다. 이 기술은 Microsoft Office 365에서 사용되며, Azure 또는 기타 클라우드 플랫폼에서 실행하는 응용 프로그램에서도 이 기술을 사용할 수 있습니다.
+* 클라우드 또는 온-프레미스에서 실행되는 응용 프로그램에서 Azure Active Directory 액세스 제어를 사용하면 Facebook, Google, Microsoft 등 다른 ID 공급자에게서 받은 ID를 사용하여 사용자가 로그인할 수 있게 할 수 있습니다.
 
 이 문서에서는 이러한 세 가지 옵션을 모두 설명합니다.
 
 ## 목차
-
-- [가상 컴퓨터에서 Windows Server Active Directory 실행](#adinvm)
-
-- [Azure Active Directory 사용](#ad)
-
-- [Azure Active Directory 액세스 제어 사용](#ac)
-
+* [가상 컴퓨터에서 Windows Server Active Directory 실행](#adinvm)
+* [Azure Active Directory 사용](#ad)
+* [Azure Active Directory 액세스 제어 사용](#ac)
 
 ## <a name="adinvm"></a>가상 컴퓨터에서 Windows Server Active Directory 실행
-
 Azure 가상 컴퓨터에서 Windows Server AD를 실행하는 것은 온-프레미스에서 실행하는 것과 비슷합니다. [그림 1](#fig1)은 일반적인 실행 예시를 보여 줍니다.
 
 ![가상 컴퓨터 내의 Azure Active Directory](./media/identity/identity_01_ADinVM.png)
-
 
 <a name="Fig1"></a>그림 1: Windows Server Active Directory는 Azure 가상 네트워크를 사용하여 조직의 온-프레미스 데이터 센터에 연결된 Azure 가상 컴퓨터에서 실행할 수 있습니다.
 
@@ -33,34 +22,27 @@ Azure 가상 컴퓨터에서 Windows Server AD를 실행하는 것은 온-프레
 
 클라우드에 있는 도메인 컨트롤러와 온-프레미스에서 실행하는 도메인 컨트롤러를 연결하는 옵션은 다양합니다.
 
-- 모든 도메인 컨트롤러를 단일 Active Directory 도메인에 할당할 수 있습니다.
-
-- 동일 포리스트에 속하는 AD 도메인을 온-프레미스와 클라우드별로 따로 만들 수 있습니다.
-
-- 온-프레미스와 클라우드에 별도 AD 포리스트를 만든 후에 해당 포리스트를 Azure의 가상 컴퓨터에서 실행 가능한 상호 포리스트 트러스트나 Windows Server ADFS(Active Directory Federation Services)를 사용하여 연결할 수 있습니다.
+* 모든 도메인 컨트롤러를 단일 Active Directory 도메인에 할당할 수 있습니다.
+* 동일 포리스트에 속하는 AD 도메인을 온-프레미스와 클라우드별로 따로 만들 수 있습니다.
+* 온-프레미스와 클라우드에 별도 AD 포리스트를 만든 후에 해당 포리스트를 Azure의 가상 컴퓨터에서 실행 가능한 상호 포리스트 트러스트나 Windows Server ADFS(Active Directory Federation Services)를 사용하여 연결할 수 있습니다.
 
 어떤 것을 선택하더라도 클라우드 링크가 온-프레미스 네트워크보다 속도가 떨어지므로 관리자는 온-프레미스 사용자 인증 요청이 필요한 경우에만 클라우드 도메인 컨트롤러를 사용하도록 설정해야 합니다. 클라우드와 온-프레미스 도메인 컨트롤러에 연결할 때 고려할 다른 요소는 복제할 때 발생하는 트래픽입니다. 클라우드에 있는 도메인 컨트롤러는 일반적으로 관리자가 얼마나 자주 복제를 할지 일정을 예약할 수 있는 해당 AD 사이트에 있습니다. Azure는 Azure 데이터 센터에서 내보내는 트래픽에 요금을 부과(들어오는 트래픽에는 부과 안 함)하기 때문에 관리자가 복제할 때 이 부분을 고려할 수 있습니다. Azure에서도 자체 DNS(도메인 이름 서비스)를 지원합니다. 다만 이 서비스에는 Active Directory에서 필요한 기능(동적 DNS 및 SRV 레코드 지원)이 빠져있습니다. 이 때문에 Windows Server AD를 Azure에서 실행할 때는 클라우드에서 자체 DNS 서버를 설정해야 합니다.
 
 다양한 상황에서 Azure VM에서 Windows Server AD를 실행하는 것이 적합할 수 있습니다. 다음은 몇 가지 예입니다.
 
-- 자체 소유의 데이터 센터의 확장으로 Azure 가상 컴퓨터를 사용 중인 경우 Windows 통합 인증 요청, LDAP 쿼리 등을 처리하기 위해 로컬 도메인 컨트롤러가 필요한 응용 프로그램을 실행할 수 있습니다. 예를 들어 SharePoint가 Active Directory와 자주 상호 작용하고 Azure에서 온-프레미스 디렉터리를 사용하여 SharePoint 팜을 실행할 수 있기 때문에 클라우드에 도메인 컨트롤러를 설정하면 성능을 현저하게 향상할 수 있습니다. 필수적인 설정 항목은 아니지만 많은 응용 프로그램이 클라우드에서 온-프레미스 컨트롤러를 사용하여 성공적으로 실행된다는 점은 중요하게 볼 필요가 있습니다.
-
-- 멀리 떨어진 지사에서 자체 도메인 컨트롤러를 실행할 리소스가 부족하다고 가정해 보겠습니다. 현재 이 지사의 사용자들은 지구 반대편에 있는 도메인 컨트롤러에서 인증을 받아야 해서 로그인 속도가 느립니다. 가까운 Microsoft 데이터 센터의 Azure에서 Active Directory를 실행하면 지사에 서버를 늘리지 않고도 속도를 향상할 수 있습니다.
-
-- 재난 복구용으로 Azure를 사용하는 조직은 클라우드에 도메인 컨트롤러를 포함하여 소규모로 활성화된 VM 세트를 관리할 수도 있습니다. 이렇게 하면 다른 곳에 오류가 발생했을 때 필요에 따라 이 사이트를 다른 곳으로 확장하도록 준비해둘 수 있습니다.
+* 자체 소유의 데이터 센터의 확장으로 Azure 가상 컴퓨터를 사용 중인 경우 Windows 통합 인증 요청, LDAP 쿼리 등을 처리하기 위해 로컬 도메인 컨트롤러가 필요한 응용 프로그램을 실행할 수 있습니다. 예를 들어 SharePoint가 Active Directory와 자주 상호 작용하고 Azure에서 온-프레미스 디렉터리를 사용하여 SharePoint 팜을 실행할 수 있기 때문에 클라우드에 도메인 컨트롤러를 설정하면 성능을 현저하게 향상할 수 있습니다. 필수적인 설정 항목은 아니지만 많은 응용 프로그램이 클라우드에서 온-프레미스 컨트롤러를 사용하여 성공적으로 실행된다는 점은 중요하게 볼 필요가 있습니다.
+* 멀리 떨어진 지사에서 자체 도메인 컨트롤러를 실행할 리소스가 부족하다고 가정해 보겠습니다. 현재 이 지사의 사용자들은 지구 반대편에 있는 도메인 컨트롤러에서 인증을 받아야 해서 로그인 속도가 느립니다. 가까운 Microsoft 데이터 센터의 Azure에서 Active Directory를 실행하면 지사에 서버를 늘리지 않고도 속도를 향상할 수 있습니다.
+* 재난 복구용으로 Azure를 사용하는 조직은 클라우드에 도메인 컨트롤러를 포함하여 소규모로 활성화된 VM 세트를 관리할 수도 있습니다. 이렇게 하면 다른 곳에 오류가 발생했을 때 필요에 따라 이 사이트를 다른 곳으로 확장하도록 준비해둘 수 있습니다.
 
 다른 경우도 있습니다. 예를 들어 클라우드에 있는 Windows Server AD를 온-프레미스 데이터 센터에 연결할 필요가 없습니다. 예를 들어 모든 사용자가 클라우드 기반 ID를 가지고 로그인하는 특정 사용자 그룹을 지원하는 SharePoint 팜을 실행하는 경우 Azure에서 독립형 포리스트를 만들 수 있습니다. 원하는 바에 따라 다양하게 기술을 활용할 수 있습니다. Azure에서 Windows Server AD를 사용하는 방법에 대한 자세한 지침을 보려면 [여기를 참조하세요](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 ## <a name="ad"></a>Azure Active Directory 사용
-
 SaaS 응용 프로그램이 점차 일반화되면서 당연한 질문이 제기되고 있습니다. 이러한 클라우드 기반 응용 프로그램에는 어떤 종류의 디렉터리 서비스를 사용해야 하나요? 이 질문에 대한 Microsoft의 대답은 Azure Active Directory입니다.
 
 클라우드에서 이 디렉터리 서비스를 사용하는 데는 두 가지 기본 옵션이 있습니다.
 
-- SaaS 응용 프로그램만 사용하는 개인 또는 조직은 Azure Active Directory를 단독 디렉터리 서비스로 사용할 수 있습니다.
-
-- Windows Server Active Directory를 사용하는 조직이 온-프레미스 디렉터리를 Azure Active Directory에 연결하고 나면, 이를 사용자가 SaaS 응용 프로그램에 Single Sign-On을 하는 데 사용합니다.
-
+* SaaS 응용 프로그램만 사용하는 개인 또는 조직은 Azure Active Directory를 단독 디렉터리 서비스로 사용할 수 있습니다.
+* Windows Server Active Directory를 사용하는 조직이 온-프레미스 디렉터리를 Azure Active Directory에 연결하고 나면, 이를 사용자가 SaaS 응용 프로그램에 Single Sign-On을 하는 데 사용합니다.
 
 [그림 2](#fig2)는 이 두 가지 중에 첫 번째 옵션을 보여 줍니다. 이 옵션에는 Azure Active Directory만 필요합니다.
 
@@ -91,7 +73,6 @@ Azure AD를 사용하려면 본인의 온-프레미스 Active Directory 도메�
 오늘날 Azure AD가 온-프레미스 Windows Server AD의 완전한 대안은 아닙니다. 이미 언급한 것과 같이 클라우드 디렉터리는 무척 단순한 스키마를 가지고 있고 그룹 정책, 컴퓨터에 관한 정보 저장 기능, LDAP 지원 등을 제공하지 않습니다. (사실상 Windows 컴퓨터는 사용자가 Azure AD만으로 로그인하도록 구성할 수 없으므로 이는 지원되지 않는 시나리오입니다.) Azure AD의 초기 목표는 엔터프라이즈 사용자가 클라우드에 있는 응용 프로그램에 별도 로그인을 관리하지 않고도 액세스할 수 있도록 하여 온-프레미스 디렉터리 관리자가 직접 온-프레미스 디렉터리를 조직 사용자가 사용하는 모든 SaaS 응용 프로그램에 동기화하는 작업에 매여있지 않도록 하는 데 있었습니다. 시간이 흐르면서 이 클라우드 디렉터리 서비스에 기대되는 시나리오 영역이 더욱 넓어진 것입니다.
 
 ## <a name="ac"></a>Azure Active Directory 액세스 제어 사용
-
 클라우드를 기반으로 하는 ID 기술은 다양한 문제를 해결하는 데에 사용될 수 있습니다. 예를 들어 Azure Active Directory를 사용하면 조직의 사용자가 여러 SaaS 응용 프로그램에 Single Sign-On할 수 있습니다. 그러나 클라우드에 있는 ID 기술은 다른 방법으로도 사용될 수 있습니다.
 
 예를 들어 응용 프로그램에서 사용자가 여러 *IdP(ID 공급자)*가 발행한 토큰을 사용하여 로그인하는 경우를 가정합니다. 현재 Facebook, Google, Microsoft 등 다양한 ID 공급자가 있으며, 대개 응용 프로그램에서는 사용자가 이러한 ID 중 하나를 사용하여 로그인할 수 있도록 해 줍니다. 왜 응용 프로그램에서 기존 ID를 사용하지 않고 자체적으로 사용자와 암호 목록을 관리해야 할까요? 기존의 ID를 사용하면 사용자는 사용자 이름과 암호를 하나 더 적게 기억해도 되고 응용 프로그램 제공자는 자체 사용자 이름과 암호 목록을 더 이상 유지 관리하지 않아도 되므로 편리한 면이 있습니다.
@@ -116,8 +97,7 @@ Azure AD를 사용하려면 본인의 온-프레미스 Active Directory 도메�
 
 ID 관련 작업은 대부분의 응용 프로그램에서 중요한 부분을 차지합니다. 액세스 제어의 목표는 다양한 ID 공급자가 발행하는 ID를 사용하는 응용 프로그램을 작성하는 개발자들을 쉽게 만들어주는 것입니다. 이 서비스를 클라우드에서 제공함으로써 Microsoft는 어떤 플랫폼에서나 어떤 응용 프로그램을 사용할 수 있는 서비스를 구현해냈습니다.
 
-##저자 정보
-
+## 저자 정보
 David Chappell은 미국 캘리포니아주 샌프란시스코에 있는 Chappell & Associates([www.davidchappell.com](http://www.davidchappell.com))의 대표이며
 
 <!---HONumber=AcomDC_0727_2016-->

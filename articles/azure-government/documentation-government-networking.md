@@ -1,26 +1,24 @@
-<properties
-	pageTitle="Azure Government 설명서 | Microsoft Azure"
-	description="e 정부에 대한 개인 연결을 위한 기능 및 지침 비교를 제공합니다."
-	services="Azure-Government"
-	cloud="gov" 
-	documentationCenter=""
-	authors="ryansoc"
-	manager="zakramer"
-	editor=""/>
+---
+title: Azure Government 설명서 | Microsoft Docs
+description: e 정부에 대한 개인 연결을 위한 기능 및 지침 비교를 제공합니다.
+services: Azure-Government
+cloud: gov
+documentationcenter: ''
+author: ryansoc
+manager: zakramer
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="azure-government"
-	ms.date="08/25/2016"
-	ms.author="ryansoc"/>
+ms.service: multiple
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: azure-government
+ms.date: 08/25/2016
+ms.author: ryansoc
 
-#  Azure Government 네트워킹
-
-##  ExpressRoute(개인 연결)
-
+---
+# Azure Government 네트워킹
+## ExpressRoute(개인 연결)
 Azure Government에 대한 개인 네트워크 연결을 제공하는 두 가지 기본 서비스: VPN(일반 조직에 대한 사이트 간) 및 ExpressRoute가 있습니다.
 
 Azure ExpressRoute는 Azure Government 데이터 센터와 온-프레미스 인프라 또는 공동 장소 환경 사이에 개인 연결을 만드는 데 사용됩니다. ExpressRoute 연결은 공용 인터넷을 사용하지 않으며 일반적인 인터넷 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧습니다. 경우에 따라 온-프레미스 시스템과 Azure 간 데이터 전송에 ExpressRoute 연결을 사용하여 상당한 비용 혜택을 얻습니다.

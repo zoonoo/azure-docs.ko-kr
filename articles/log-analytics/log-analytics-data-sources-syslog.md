@@ -1,55 +1,52 @@
-<properties 
-   pageTitle="Log Analytics의 Syslog 메시지 | Microsoft Azure"
-   description="Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.   이 문서에서는 Log Analytics의 Syslog 메시지 수집을 구성하는 방법을 설명하고, OMS 리포지토리에 생성되는 레코드에 대한 자세한 정보를 제공합니다."
-   services="log-analytics"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags 
-   ms.service="log-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
-   ms.author="bwren" />
+---
+title: Log Analytics의 Syslog 메시지 | Microsoft Docs
+description: Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.   이 문서에서는 Log Analytics의 Syslog 메시지 수집을 구성하는 방법을 설명하고, OMS 리포지토리에 생성되는 레코드에 대한 자세한 정보를 제공합니다.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: log-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/06/2016
+ms.author: bwren
 
-
+---
 # <a name="syslog-data-sources-in-log-analytics"></a>Log Analytics의 Syslog 데이터 원본
-
 Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.  응용 프로그램은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다.  Linux용 OMS 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다.  그러면 에이전트는 Log Analytics에 해당 메시지를 보내며 OMS 리포지토리에 해당 레코드가 만들어집니다.  
 
-> [AZURE.NOTE]Log Analytics는 rsyslog 또는 syslog-ng에서 보낸 메시지의 수집을 지원합니다. Red Hat Enterprise Linux 버전 5, CentOS, 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 [rsyslog 디먼](http://rsyslog.com) 을 설치하고 sysklog를 대체하도록 구성해야 합니다.
+> [!NOTE]
+> Log Analytics는 rsyslog 또는 syslog-ng에서 보낸 메시지의 수집을 지원합니다. Red Hat Enterprise Linux 버전 5, CentOS, 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 [rsyslog 디먼](http://rsyslog.com) 을 설치하고 sysklog를 대체하도록 구성해야 합니다.
+> 
+> 
 
 ![Syslog 수집](media/log-analytics-data-sources-syslog/overview.png)
-
 
 ## <a name="configuring-syslog"></a>Syslog 구성
 Linux용 OMS 에이전트는 해당 구성에 지정된 기능 및 심각도에 따라서만 이벤트를 수집합니다.  OMS 포털을 통해 또는 Linux 에이전트의 구성 파일을 관리하여 Syslog를 구성할 수 있습니다.
 
-
 ### <a name="configure-syslog-in-the-oms-portal"></a>OMS 포털에서 Syslog 구성
-
 [Log Analytics 설정의 데이터 메뉴](log-analytics-data-sources.md#configuring-data-sources)에서 Syslog를 구성합니다.  이 구성은 각 Linux 에이전트의 구성 파일에 전달됩니다.
 
 해당 이름을 입력하고 **+**에서 Syslog를 구성합니다.  각 기능에 대해, 선택한 심각도의 메시지만 수집됩니다.  수집하려는 특정 기능의 심각도를 확인합니다.  이벤트를 필터링하는 추가 조건을 제공할 수는 없습니다.
 
 ![Syslog 구성](media/log-analytics-data-sources-syslog/configure.png)
 
-
 기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다.  각 Linux 에이전트에서 Syslog를 수동으로 구성하려면 *내 Linux 컴퓨터에 아래 구성 적용*확인란을 선택 취소합니다.
 
-
 ### <a name="configure-syslog-on-linux-agent"></a>Linux 에이전트에서 Syslog 구성
-
 [OMS 에이전트가 Linux 클라이언트에 설치](log-analytics-linux-agents.md)되어 있으면 OMS 에이전트는 수집되는 메시지의 기능 및 심각도를 정의하는 기본 syslog 구성 파일을 설치합니다.  이 파일을 수정하여 구성을 변경할 수 있습니다.  구성 파일은 클라이언트가 설치한 Syslog 디먼에 따라 다릅니다.
 
-> [AZURE.NOTE] Syslog 구성을 편집하는 경우, 변경 내용을 적용하려면 syslog 디먼을 다시 시작해야 합니다.
+> [!NOTE]
+> Syslog 구성을 편집하는 경우, 변경 내용을 적용하려면 syslog 디먼을 다시 시작해야 합니다.
+> 
+> 
 
 #### <a name="rsyslog"></a>rsyslog
-
 rsyslog에 대한 구성 파일은 **/etc/rsyslog.d/95-omsagent.conf**에 있습니다.  기본 내용은 아래와 같습니다.  이 파일은 경고 이상 수준의 모든 기능에 대해 로컬 에이전트에서 전송된 syslog 메시지를 수집합니다.
 
     kern.warning       @127.0.0.1:25224
@@ -76,7 +73,6 @@ rsyslog에 대한 구성 파일은 **/etc/rsyslog.d/95-omsagent.conf**에 있습
 
 
 #### <a name="syslog-ng"></a>syslog-ng
-
 rsyslog의 구성 파일은 **/etc/syslog-ng/syslog-ng.conf**에 있습니다.  기본 내용은 아래와 같습니다.  이 파일은 모든 기능 및 모든 심각도에 대해 로컬 에이전트에서 전송된 syslog 메시지를 수집합니다.   
 
     #
@@ -84,7 +80,7 @@ rsyslog의 구성 파일은 **/etc/syslog-ng/syslog-ng.conf**에 있습니다.  
     #
     destination warn { file("/var/log/warn" fsync(yes)); };
     log { source(src); filter(f_warn); destination(warn); };
-    
+
     #OMS_Destination
     destination d_oms { udp("127.0.0.1" port(25224)); };
 
@@ -107,23 +103,23 @@ rsyslog의 구성 파일은 **/etc/syslog-ng/syslog-ng.conf**에 있습니다.  
     #OMS_facility = kern
     filter f_kern_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(kern); };
     log { source(src); filter(f_kern_oms); destination(d_oms); };
-    
+
     #OMS_facility = local0
     filter f_local0_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(local0); };
     log { source(src); filter(f_local0_oms); destination(d_oms); };
-    
+
     #OMS_facility = local1
     filter f_local1_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(local1); };
     log { source(src); filter(f_local1_oms); destination(d_oms); };
-    
+
     #OMS_facility = mail
     filter f_mail_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(mail); };
     log { source(src); filter(f_mail_oms); destination(d_oms); };
-    
+
     #OMS_facility = syslog
     filter f_syslog_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(syslog); };
     log { source(src); filter(f_syslog_oms); destination(d_oms); };
-    
+
     #OMS_facility = user
     filter f_user_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(user); };
     log { source(src); filter(f_user_oms); destination(d_oms); };
@@ -136,7 +132,6 @@ rsyslog의 구성 파일은 **/etc/syslog-ng/syslog-ng.conf**에 있습니다.  
 
 
 ### <a name="changing-the-syslog-port"></a>Syslog 포트 변경
-
 OMS 에이전트는 포트 25224에서 로컬 클라이언트의 Syslog 메시지를 수신합니다.  **/etc/opt/microsoft/omsagent/conf/omsagent.conf**에 있는 OMS 에이전트 구성 파일에 다음 섹션을 추가하여 이 포트를 변경할 수 있습니다.  **포트** 항목의 25224를 원하는 포트 번호로 바꿉니다.  이 포트로 메시지를 보내기 위해 Syslog 디먼의 구성 파일도 수정해야 합니다.
 
     <source>
@@ -149,45 +144,36 @@ OMS 에이전트는 포트 25224에서 로컬 클라이언트의 Syslog 메시�
 
 
 ## <a name="data-collection"></a>데이터 수집
-
 OMS 에이전트는 포트 25224에서 로컬 클라이언트의 Syslog 메시지를 수신합니다. Syslog 디먼의 구성 파일은 응용 프로그램에서 보낸 Syslog 메시지를 이 포트로 전달하며, 해당 메시지는 Log Analytics에서 수집됩니다.
 
-
 ## <a name="syslog-record-properties"></a>Syslog 레코드 속성
-
 Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니다.
 
 | 속성 | 설명 |
-|:--|:--|
-| 컴퓨터 | 이벤트가 수집된 컴퓨터입니다. |
-| Facility | 메시지를 생성한 시스템의 부분을 정의합니다. |
-| HostIP | 메시지를 보내는 시스템의 IP 주소입니다.  |
-| HostName | 메시지를 보내는 시스템의 이름입니다. |
-| SeverityLevel | 이벤트의 심각도 수준입니다. |
-| SyslogMessage | 메시지의 텍스트입니다. |
-| ProcessID | 메시지를 생성한 프로세스의 ID입니다. |
-| EventTime | 이벤트가 생성된 날짜 및 시간입니다.
-
-
+|:--- |:--- |
+| 컴퓨터 |이벤트가 수집된 컴퓨터입니다. |
+| Facility |메시지를 생성한 시스템의 부분을 정의합니다. |
+| HostIP |메시지를 보내는 시스템의 IP 주소입니다. |
+| HostName |메시지를 보내는 시스템의 이름입니다. |
+| SeverityLevel |이벤트의 심각도 수준입니다. |
+| SyslogMessage |메시지의 텍스트입니다. |
+| ProcessID |메시지를 생성한 프로세스의 ID입니다. |
+| EventTime |이벤트가 생성된 날짜 및 시간입니다. |
 
 ## <a name="log-queries-with-syslog-records"></a>Syslog 레코드를 포함하는 로그 쿼리
-
 다음 표에는 Syslog 레코드를 검색하는 로그 쿼리의 여러 예제가 나와 있습니다.
 
 | 쿼리 | 설명 |
-|:--|:--|
-| Type=Syslog | 모든 Syslog입니다. |
-| Type=Syslog SeverityLevel=error | 심각도가 오류인 모든 Syslog 레코드입니다. |
-| Type=Syslog &#124; measure count() by Computer | 컴퓨터별 Syslog 레코드 수입니다. |
-| Type=Syslog &#124; measure count() by Facility | 기능별 Syslog 레코드 수입니다. |
+|:--- |:--- |
+| Type=Syslog |모든 Syslog입니다. |
+| Type=Syslog SeverityLevel=error |심각도가 오류인 모든 Syslog 레코드입니다. |
+| Type=Syslog &#124; measure count() by Computer |컴퓨터별 Syslog 레코드 수입니다. |
+| Type=Syslog &#124; measure count() by Facility |기능별 Syslog 레코드 수입니다. |
 
 ## <a name="next-steps"></a>다음 단계
-
-- 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다. 
-- [사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 syslog 레코드의 데이터를 개별 필드로 구문 분석합니다.
-- [Linux 에이전트를 구성](log-analytics-linux-agents.md) 합니다. 
-
-
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다. 
+* [사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 syslog 레코드의 데이터를 개별 필드로 구문 분석합니다.
+* [Linux 에이전트를 구성](log-analytics-linux-agents.md) 합니다. 
 
 <!--HONumber=Oct16_HO2-->
 

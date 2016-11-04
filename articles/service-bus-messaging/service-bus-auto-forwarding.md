@@ -1,28 +1,26 @@
-<properties 
-    pageTitle="서비스 버스 메시징 엔터티 자동 전달 | Microsoft Azure"
-    description="큐 또는 구독을 다른 큐 또는 토픽에 연결하는 방법"
-    services="service-bus"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" /> 
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="09/29/2016"
-    ms.author="sethm" />
+---
+title: 서비스 버스 메시징 엔터티 자동 전달 | Microsoft Docs
+description: 큐 또는 구독을 다른 큐 또는 토픽에 연결하는 방법
+services: service-bus
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/29/2016
+ms.author: sethm
 
+---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>자동 전달을 사용한 서비스 버스 엔터티 연결
-
 *자동 전달* 기능을 통해 동일한 네임스페이스의 일부인 다른 큐 또는 토픽에 큐 또는 구독을 연결할 수 있습니다. 자동 전달을 사용하도록 설정하면 Service Bus가 자동으로 첫 번째 큐 또는 구독(원본)에 있는 메시지를 제거하고 두 번째 큐 또는 토픽(대상)에 넣습니다. 대상 엔터티에 직접 메시지를 보내는 것은 여전히 가능합니다. 또한 배달 못한 메시지 큐와 같은 하위 큐를 다른 큐나 토픽으로 연결할 수도 없습니다.
 
 ## <a name="using-auto-forwarding"></a>자동 전달 사용
-
-자동 전달은 다음 예와 같이 [QueueDescription][] 또는 [SubscriptionDescription][] 개체를 원본으로 하는 [QueueDescription.ForwardTo][] 또는 [SubscriptionDescription.ForwardTo][] 속성을 설정하여 사용할 수 있습니다.
+자동 전달은 다음 예와 같이 [QueueDescription][QueueDescription] 또는 [SubscriptionDescription][SubscriptionDescription] 개체를 원본으로 하는 [QueueDescription.ForwardTo][QueueDescription.ForwardTo] 또는 [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] 속성을 설정하여 사용할 수 있습니다.
 
 ```
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -43,7 +41,6 @@ namespaceManager.CreateSubscription(srcSubscription));
 Alice가 휴가를 가면 ERP 토픽이 아닌 그녀의 개인 큐가 채워집니다. 이러한 경우 영업 담당자가 메시지를 확인하지 못하기 때문에 어떤 ERP 토픽도 할당량에 도달하지 못합니다.
 
 ## <a name="auto-forwarding-considerations"></a>자동 전달 고려 사항
-
 대상 엔터티에 많은 메시지가 누적되어 있어 할당량을 초과했거나 대상 엔터티가 사용하지 않도록 설정된 경우, 원본 엔터티는 대상에 공간이 생길 때까지(또는 엔터티가 다시 사용하도록 설정됨) 메시지를 [배달 못한 큐](service-bus-dead-letter-queues.md)에 추가합니다. 이러한 메시지는 배달 못한 큐에 계속 남아 있으므로, 배달 못한 큐에서 직접 수령하여 처리해야 합니다.
 
 여러 구독이 있는 복합 토픽을 받기 위해 개별 토픽을 연결하는 경우, 첫 번째 수준의 토픽에 있는 구독의 수를 조정하고 두 번째 수준의 토픽에 많은 구독이 있도록 하는 것이 좋습니다. 예를 들어 첫 번째 수준의 토픽에 20개의 구독이 있고, 각 구독이 두 번째 수준의 토픽에 있는 200개 구독에 연결될 경우, 첫 번째 수준의 토픽에 200개 구독이 있고 각 구독이 두 번째 토픽에 있는 20개의 구독에 연결되는 것보다 처리량이 높습니다.
@@ -53,22 +50,21 @@ Alice가 휴가를 가면 ERP 토픽이 아닌 그녀의 개인 큐가 채워집
 다른 큐나 토픽에 연결될 구독을 만들려면 구독을 만든 사람에게 원본과 대상 엔터티에 대한 **관리** 권한이 있어야 합니다. 원본 토픽에 메시지를 보낼 때는 원본 토픽에 대한 **보내기** 권한만 있으면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-
 자동 전달에 대한 자세한 내용은 다음 참조 항목을 참조하세요.
 
-- [SubscriptionDescription.ForwardTo][]
-- [QueueDescription][]
-- [SubscriptionDescription][]
+* [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo]
+* [QueueDescription][QueueDescription]
+* [SubscriptionDescription][SubscriptionDescription]
 
-Service Bus 성능 향상에 대한 자세한 내용은 [분할된 메시징 엔터티][]를 참조하세요.
+Service Bus 성능 향상에 대한 자세한 내용은 [분할된 메시징 엔터티][분할된 메시징 엔터티]를 참조하세요.
 
-  [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-  [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
-  [QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
-  [SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
-  [0]: ./media/service-bus-auto-forwarding/IC628631.gif
-  [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-  [분할된 메시징 엔터티]: service-bus-partitioning.md
+[QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
+[SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
+[QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
+[SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
+[0]: ./media/service-bus-auto-forwarding/IC628631.gif
+[1]: ./media/service-bus-auto-forwarding/IC628632.gif
+[분할된 메시징 엔터티]: service-bus-partitioning.md
 
 
 <!--HONumber=Oct16_HO2-->

@@ -1,41 +1,39 @@
-<properties 
-   pageTitle="Azure SQL 데이터베이스 관리자" 
-   description="Azure SQL 데이터베이스 관리자는 현재 쿼리 성능을 향상시킬 수 있는 기존 SQL 데이터베이스에 대한 권장 사항을 제공합니다." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jhubbard" 
-   editor="monicar"/>
+---
+title: Azure SQL 데이터베이스 관리자
+description: Azure SQL 데이터베이스 관리자는 현재 쿼리 성능을 향상시킬 수 있는 기존 SQL 데이터베이스에 대한 권장 사항을 제공합니다.
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: monicar
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management" 
-   ms.date="06/23/2016"
-   ms.author="sstein"/>
+ms.service: sql-database
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 06/23/2016
+ms.author: sstein
 
+---
 # SQL 데이터베이스 관리자
-
-> [AZURE.SELECTOR]
-- [SQL 데이터베이스 관리자 개요](sql-database-advisor.md)
-- [포털](sql-database-advisor-portal.md)
+> [!div class="op_single_selector"]
+> * [SQL 데이터베이스 관리자 개요](sql-database-advisor.md)
+> * [포털](sql-database-advisor-portal.md)
+> 
+> 
 
 Azure SQL 데이터베이스는 인덱스 만들기 및 삭제, 쿼리 매개 변수화, 스키마 문제 해결에 대한 권장 사항을 제공합니다. SQL 데이터베이스 관리자는 SQL 데이터베이스의 사용 기록을 분석하여 성능을 평가합니다. 데이터베이스의 일반적인 워크로드를 실행하는 데 가장 적합한 권장 사항을 사용하는 것이 좋습니다.
 
 다음 권장 사항은 V12 서버에 대해 사용할 수 있습니다(V11 서버에는 권장 사항을 사용할 수 없습니다). 현재는 만들기 및 삭제 인덱스 권장 사항이 자동으로 적용되도록 설정할 수 있습니다. 자세한 내용은 [자동 인덱스 관리](sql-database-advisor-portal.md#enable-automatic-index-management)를 참조하세요.
 
-## 인덱스 만들기 권장 사항 
-
+## 인덱스 만들기 권장 사항
 **인덱스 만들기** 권장 사항은 SQL 데이터베이스 서비스에서 인덱스 누락을 감지하면 나타나며(생성된 경우) 데이터베이스 워크로드에 유용할 수 있습니다(비클러스터형 인덱스만).
 
 ## 인덱스 삭제 권장 사항
-
 **인덱스 삭제** 권장 사항은 SQL 데이터베이스 서비스에서 중복된 인덱스를 감지하면 나타납니다(현재 미리 보기 상태이며 중복 인덱스에만 적용됨).
 
 ## 쿼리 매개 변수화 권장 사항
-
 **쿼리 매개 변수화** 권장 사항은 SQL 데이터베이스 서비스가 사용자에게 지속적으로 다시 컴파일되지만 동일한 쿼리 실행 계획으로 종료되는 하나 이상의 쿼리가 있음을 감지하면 나타납니다. 그러면 강제 매개 변수화를 적용할 기회가 생기며 이를 통해 쿼리 계획을 캐시하고 다시 사용하여 향후 성능을 향상시키고 리소스 사용량을 줄일 수 있습니다.
 
 SQL Server에 대해 실행되는 모든 쿼리는 쿼리 실행에 사용되는 실행 계획을 생성하기 위해 초기에 컴파일되어야 합니다. 생성된 각 계획은 계획 캐시에 추가되고, 이후에 동일한 쿼리를 실행할 때 캐시에서 이 계획이 다시 사용될 수 있으므로 추가 컴파일이 필요하지 않게 됩니다.
@@ -47,33 +45,30 @@ SQL Server에 대해 실행되는 모든 쿼리는 쿼리 실행에 사용되는
 이 권장 사항을 적용하면 몇 분 이내에 데이터베이스에 대해 강제 매개 변수화가 설정되며, 모니터링 프로세스가 시작됩니다. 이 프로세스는 약 24시간 동안 진행됩니다. 이 기간 후에는 권장 사항을 적용하기 24시간 전 및 24시간 후의 데이터베이스 CPU 사용량을 보여 주는 유효성 검사 보고서를 볼 수 있습니다. SQL 데이터베이스 관리자는 성능 저하가 감지될 경우 적용된 권장 사항을 자동으로 되돌리는 안전 메커니즘을 제공합니다.
 
 ## 스키마 문제 해결 권장 사항
-
 **스키마 문제 해결** 권장 사항은 SQL 데이터베이스 서비스가 Azure SQL 데이터베이스에서 발생하는 여러 스키마 관련 SQL 오류에서 이상을 확인하면 나타납니다. 이 권장 사항은 데이터베이스에서 한 시간 내에 여러 스키마 관련 오류(잘못된 열 이름, 잘못된 개체 이름 등...)를 발견한 경우에 일반적으로 나타납니다.
 
 "스키마 문제"는 SQL 쿼리 정의와 데이터베이스 스키마 정의가 잘 맞지 않을 때(예를 들어 쿼리에서 예상되는 열 중 하나가 대상 테이블에 없거나 그 반대의 경우 발생) 발생하는 SQL Server의 구문 오류 클래스입니다.
 
 “스키마 문제 해결” 권장 사항은 Azure SQL 데이터베이스 서비스가 Azure SQL 데이터베이스에서 발생하는 여러 스키마 관련 SQL 오류에서 이상을 확인하면 나타납니다. 아래 표에는 스키마 문제와 관련된 오류가 나와 있습니다.
 
-|SQL 오류 코드|Message|
-|--------------|-------|
-|201|프로시저 또는 함수 '*'에서 매개 변수 '*'이(가) 필요하지만 제공되지 않았습니다.|
-|207|잘못된 열 이름: '*'.|
-|208|잘못된 개체 이름: '*'. |
-|213|제공된 값의 개수나 열 이름이 테이블 정의와 일치하지 않습니다. |
-|2812|저장 프로시저를 찾을 수 없습니다. '*'. |
-|8144|프로시저 또는 함수 *에 너무 많은 인수가 지정되었습니다. |
+| SQL 오류 코드 | Message |
+| --- | --- |
+| 201 |프로시저 또는 함수 '*'에서 매개 변수 '*'이(가) 필요하지만 제공되지 않았습니다. |
+| 207 |잘못된 열 이름: '*'. |
+| 208 |잘못된 개체 이름: '*'. |
+| 213 |제공된 값의 개수나 열 이름이 테이블 정의와 일치하지 않습니다. |
+| 2812 |저장 프로시저를 찾을 수 없습니다. '*'. |
+| 8144 |프로시저 또는 함수 *에 너무 많은 인수가 지정되었습니다. |
 
 ## 다음 단계
-
 권장 사항을 모니터링하고 개선된 성능을 계속 적용합니다. 데이터베이스 워크로드는 동적 이며 지속적으로 변경합니다. SQL 데이터베이스 관리자는 데이터베이스 성능을 잠재적으로 향상시킬 권장 사항을 계속 제공하고 모니터링할 것입니다.
 
- - Azure 포털에서 SQL 데이터베이스 관리자를 사용하는 방법에 대한 단계는 [Azure 포털의 SQL 데이터베이스 관리자](sql-database-advisor-portal.md)를 참조하세요.
- - 상위 쿼리의 성능에 미치는 영향을 알아보려면 [Query Performance Insights](sql-database-query-performance.md)를 참조하세요.
+* Azure 포털에서 SQL 데이터베이스 관리자를 사용하는 방법에 대한 단계는 [Azure 포털의 SQL 데이터베이스 관리자](sql-database-advisor-portal.md)를 참조하세요.
+* 상위 쿼리의 성능에 미치는 영향을 알아보려면 [Query Performance Insights](sql-database-query-performance.md)를 참조하세요.
 
 ## 추가 리소스
-
-- [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
-- [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-- [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
+* [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
+* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+* [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
 
 <!---HONumber=AcomDC_0629_2016-->

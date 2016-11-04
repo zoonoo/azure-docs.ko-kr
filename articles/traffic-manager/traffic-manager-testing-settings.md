@@ -1,42 +1,38 @@
-<properties 
-   pageTitle="트래픽 관리자 설정 테스트 | Microsoft Azure"
-   description="이 문서는 트래픽 관리자 설정을 테스트 하는 데 도움이 됩니다."
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="sewhee" />
+---
+title: 트래픽 관리자 설정 테스트 | Microsoft Docs
+description: 이 문서는 트래픽 관리자 설정을 테스트 하는 데 도움이 됩니다.
+services: traffic-manager
+documentationcenter: ''
+author: sdwheeler
+manager: carmonm
+editor: tysonn
 
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/17/2016
+ms.author: sewhee
+
+---
 # 트래픽 관리자 설정 테스트
-
 트래픽 관리자 설정을 테스트하는 가장 좋은 방법은 여러 개의 클라이언트를 설정한 다음, 클라우드 서비스와 웹 사이트로 구성되는 끝점을 한 번에 하나씩 프로필로 가져오는 것입니다. 다음은 트래픽 관리자 프로필을 테스트하는 데 도움이 되는 팁입니다.
 
 ## 기본 테스트 단계
-
-- 변경이 신속하게(예: 30초) 전파되도록 **DNS TTL을 매우 낮게 설정**합니다.
-- 테스트 중인 프로필에서 **Azure 클라우드 서비스 및 웹 사이트의 IP 주소를 알고** 있습니다.
-- **DNS 이름을 IP 주소로 확인할 수 있는 도구를 사용**하여 해당 주소를 표시합니다. 회사 도메인 이름이 사용자 프로필에서 끝점의 IP 주소로 확인되는지 검사 중입니다. 트래픽 관리자 프로필의 트래픽 라우팅 방법과 일치하는 방식으로 해결해야 합니다. Windows를 실행하는 컴퓨터에 있는 경우, 명령이 나 Windows PowerShell 프롬프트에서 Nslookup.exe 도구를 사용할 수 있습니다. IP 주소를 확인할 수 있는, 공개적으로 사용 가능한 다른 도구들도 인터넷에서 제공됩니다.
+* 변경이 신속하게(예: 30초) 전파되도록 **DNS TTL을 매우 낮게 설정**합니다.
+* 테스트 중인 프로필에서 **Azure 클라우드 서비스 및 웹 사이트의 IP 주소를 알고** 있습니다.
+* **DNS 이름을 IP 주소로 확인할 수 있는 도구를 사용**하여 해당 주소를 표시합니다. 회사 도메인 이름이 사용자 프로필에서 끝점의 IP 주소로 확인되는지 검사 중입니다. 트래픽 관리자 프로필의 트래픽 라우팅 방법과 일치하는 방식으로 해결해야 합니다. Windows를 실행하는 컴퓨터에 있는 경우, 명령이 나 Windows PowerShell 프롬프트에서 Nslookup.exe 도구를 사용할 수 있습니다. IP 주소를 확인할 수 있는, 공개적으로 사용 가능한 다른 도구들도 인터넷에서 제공됩니다.
 
 ### nslookup을 사용하여 트래픽 관리자 프로필을 확인하려면
-
 1. 관리자로 명령 또는 Windows PowerShell 프롬프트를 엽니다.
 2. `ipconfig /flushdns`를 입력하여 DNS 확인자 캐시를 플러시합니다.
 3. `nslookup <your Traffic Manager domain name>`를 입력합니다. 예를 들어 다음 명령은 접두사가 *myapp.contoso*인 도메인 이름, nslookup myapp.contoso.trafficmanager.net을 확인합니다. 일반적인 결과는 다음을 표시합니다.
-   - 이 트래픽 관리자 도메인을 확인하기 위해 액세스하는 DNS 서버의 DNS 이름 및 IP 주소입니다.
-   - 명령줄에서 "nslookup" 뒤에 입력한 트래픽 관리자 도메인 이름 및 트래픽 관리자 도메인이 확인하는 IP 주소입니다. 두 번째 IP 주소는 중요 확인 사항입니다. 테스트 중인 트래픽 관리자 프로필에서 웹 사이트 또는 클라우드 서비스 중 하나에 대한 공용 가상 IP(VIP) 주소와 일치해야 합니다.
+   * 이 트래픽 관리자 도메인을 확인하기 위해 액세스하는 DNS 서버의 DNS 이름 및 IP 주소입니다.
+   * 명령줄에서 "nslookup" 뒤에 입력한 트래픽 관리자 도메인 이름 및 트래픽 관리자 도메인이 확인하는 IP 주소입니다. 두 번째 IP 주소는 중요 확인 사항입니다. 테스트 중인 트래픽 관리자 프로필에서 웹 사이트 또는 클라우드 서비스 중 하나에 대한 공용 가상 IP(VIP) 주소와 일치해야 합니다.
 
 ## 트래픽 라우팅 방법 테스트
-
 ### 장애 조치(Failover) 트래픽 라우팅 방법을 테스트하려면
-
 1. 모든 끝점을 실행 상태로 둡니다.
 2. 단일 클라이언트를 사용합니다.
 3. Nslookup.exe 도구나 유사한 유틸리티를 사용하여 회사의 도메인 이름에 대한 DNS 확인을 요청합니다.
@@ -48,7 +44,6 @@
 9. 보조 끝점을 종료한 후 세 번째 서비스를 종료하는 등 프로세스를 반복합니다. 종료할 때마다 DNS 확인이 목록에 있는 다음 서비스의 IP 주소를 반환하는지 확인합니다. 모든 끝점이 종료되면 다시 기본 끝점의 IP 주소를 얻게 됩니다.
 
 ### 라운드 로빈 트래픽 라우팅 방법을 테스트하려면
-
 1. 모든 끝점을 실행 상태로 둡니다.
 2. 단일 클라이언트를 사용합니다.
 3. Nslookup.exe 도구나 유사한 유틸리티를 사용하여 회사의 도메인 이름에 대한 DNS 확인을 요청합니다.
@@ -56,20 +51,13 @@
 5. DNS 클라이언트 캐시를 플러시하고 3단계와 4단계를 계속 반복합니다. 각 끝점에 대해 서로 다른 IP 주소가 반환되어야 합니다. 그런 다음 프로세스가 반복됩니다.
 
 ### 성능 트래픽 라우팅 방법을 테스트하려면
-
 성능 트래픽 라우팅 방법을 효과적으로 테스트하려면 전 세계의 각기 다른 곳에 클라이언트가 있어야 합니다. Azure에서 회사 도메인 이름을 통해 서비스 호출을 시도하는 클라이언트를 만들 수 있습니다. 또는 글로벌 기업인 경우 세계 다른 지역에서 원격으로 클라이언트에 로그인하여 해당 클라이언트에서 테스트할 수 있습니다.
 
 웹 기반 DNS 조회를 해제하고 사용할 수 있는 서비스를 이용합니다. 그중 일부에는 다양한 위치에서 DNS 이름을 확인할 수 있는 기능이 있습니다. 예제를 보려면 "DNS 조회"를 검색합니다. 다른 옵션은 Gomez 또는 Keynote와 같은 타사 솔루션을 사용하여 정책이 예상대로 트래픽을 분산하는지 확인하는 것입니다.
 
 ## 다음 단계
-
 [트래픽 관리자 성능 고려 사항](traffic-manager-performance-considerations.md)
 
 [트래픽 관리자 성능 저하 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
-
-
-
-
- 
 
 <!---HONumber=AcomDC_0824_2016-->

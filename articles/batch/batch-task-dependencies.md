@@ -1,40 +1,36 @@
-<properties
-    pageTitle="Azure 배치의 태스크 종속성| Microsoft Azure"
-    description="Azure 배치에서 MapReduce 스타일과 비슷한 빅 데이터 워크로드를 처리하기 위해 다른 태스크를 성공적으로 완료하는 데 종속된 태스크를 만듭니다."
-    services="batch"
-    documentationCenter=".net"
-    authors="mmacy"
-    manager="timlt"
-    editor="" />
+---
+title: Azure 배치의 태스크 종속성| Microsoft Docs
+description: Azure 배치에서 MapReduce 스타일과 비슷한 빅 데이터 워크로드를 처리하기 위해 다른 태스크를 성공적으로 완료하는 데 종속된 태스크를 만듭니다.
+services: batch
+documentationcenter: .net
+author: mmacy
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="batch"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="big-compute"
-    ms.date="09/28/2016"
-    ms.author="marsma" />
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 09/28/2016
+ms.author: marsma
 
-
+---
 # <a name="task-dependencies-in-azure-batch"></a>Azure 배치의 태스크 종속성
-
 Azure 배치의 태스크 종속성은 다음을 처리하려는 경우에 솔루션이 될 수 있습니다.
 
-- 클라우드에서 MapReduce 스타일의 컴퓨팅 워크로드
-- DAG(방향성 비순환 그래프)으로 표현할 수 있는 태스크의 데이터 처리 작업
-- 다운스트림 태스크가 업스트림 태스크의 출력에 따라 달라지는 다른 작업
+* 클라우드에서 MapReduce 스타일의 컴퓨팅 워크로드
+* DAG(방향성 비순환 그래프)으로 표현할 수 있는 태스크의 데이터 처리 작업
+* 다운스트림 태스크가 업스트림 태스크의 출력에 따라 달라지는 다른 작업
 
 배치 작업 종속성을 통해 하나 이상의 다른 태스크를 성공적으로 완료한 후에 계산 노드에서 실행하기 위해 예약된 태스크를 만들 수 있습니다. 예를 들어, 별도의 병렬 태스크를 포함한 3D 동영상의 각 프레임을 렌더링하는 작업을 만들 수 있습니다. 해당 최종 작업인 "병합 태스크"는 전체 프레임이 성공적으로 렌더링된 경우에만 렌더링된 프레임을 완전한 영화로 함께 병합합니다.
 
 일대일 또는 일대다 관계에서 다른 태스크에 따라 달라지는 태스크를 만들 수 있으며, 태스크 ID의 특정 범위 내에서 태스크 그룹이 완료되는 데 따라 태스크가 달라지는 범위 종속성을 만들 수도 있습니다. 다대다 관계를 만들기 위해 다음 세 가지 기본 시나리오를 결합할 수 있습니다.
 
 ## <a name="task-dependencies-with-batch-net"></a>배치 .NET을 사용한 태스크 종속성
-
 이 문서에서는 [배치 .NET][net_msdn] 라이브러리를 사용하여 태스크 종속성을 구성하는 방법을 설명합니다. 먼저는 작업에서 [태스크 종속성을 사용](#enable-task-dependencies)하는 방법을 보여 주고 [종속성을 사용하여 태스크를 구성](#create-dependent-tasks)하는 방법을 설명합니다. 마지막으로 배치에서 지원되는 [종속성 시나리오](#dependency-scenarios)를 설명합니다.
 
 ## <a name="enable-task-dependencies"></a>태스크 종속성 사용
-
 배치 응용 프로그램에서 태스크 종속성을 사용하려면 먼저 배치 서비스에 작업이 태스크 종속성을 사용한다고 알려야 합니다. 배치 .NET에서 해당 [UsesTaskDependencies][net_usestaskdependencies] 속성을 `true`으로 설정하여 [CloudJob][net_cloudjob]에서 이를 사용합니다.
 
 ```csharp
@@ -48,7 +44,6 @@ unboundJob.UsesTaskDependencies = true;
 앞의 코드 조각에서 "batchClient"는 [BatchClient][net_batchclient] 클래스의 인스턴스입니다.
 
 ## <a name="create-dependent-tasks"></a>종속성 태스크 만들기
-
 하나 이상의 태스크를 성공적으로 완료하는 데 종속된 태스크를 만들기 위해 배치에 태스크가 다른 태스크"에 종속"되었다고 알립니다. 배치 .NET에서 [TaskDependencies][net_taskdependencies] 클래스의 인스턴스를 사용하여 [CloudTask][net_cloudtask].[DependsOn][net_dependson] 속성을 구성합니다.
 
 ```csharp
@@ -62,22 +57,26 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 
 이 코드 조각은 "비"와 "태양"의 ID를 가진 태스크가 성공적으로 완료된 후에 계산 노드에서 실행되도록 예약된 "꽃"의 ID를 가진 태스크를 만듭니다.
 
- > [AZURE.NOTE] 태스크가 완료 상태이고 해당 **종료 코드**가 `0`인 경우 **완료**되었다고 간주됩니다. 즉, 배치 .NET에서 `Completed`의 [CloudTask][net_cloudtask].[State][net_taskstate] 속성 값 및 CloudTask의 [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] 속성 값은 `0`입니다.
+> [!NOTE]
+> 태스크가 완료 상태이고 해당 **종료 코드**가 `0`인 경우 **완료**되었다고 간주됩니다. 즉, 배치 .NET에서 `Completed`의 [CloudTask][net_cloudtask].[State][net_taskstate] 속성 값 및 CloudTask의 [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] 속성 값은 `0`입니다.
+> 
+> 
 
 ## <a name="dependency-scenarios"></a>종속성 시나리오
-
 Azure 배치에서 사용할 수 있는 세 가지 기본 태스크 종속성 시나리오는 일대일, 일대다 및 태스크 ID 범위 종속성입니다. 네 번째 시나리오인 다대다를 제공하도록 결합될 수 있습니다.
 
- 시나리오&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 예 | |
- :-------------------: | ------------------- | -------------------
- [일대일](#one-to-one) | *taskB*가 *taskA*에 종속됨 <p/> *taskB*는 *taskA*가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 | ![다이어그램: 일대일 태스크 종속성][1]
- [일대다](#one-to-many) | *taskC*는 *taskA* 및 *taskB*에 종속됨 <p/> *taskC*는 *taskA* 및 *taskB*가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 | ![다이어그램: 일대다 태스크 종속성][2]
- [태스크 ID 범위](#task-id-range) | *taskD*가 태스크의 범위에 종속됨 <p/> *taskD*는 ID *1*-*10*을 가진 태스크가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 | ![다이어그램: 태스크 ID 범위 종속성][3]
+| 시나리오&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 예 |  |
+|:---:| --- | --- |
+|  [일대일](#one-to-one) |*taskB*가 *taskA*에 종속됨 <p/> *taskB*는 *taskA*가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 일대일 태스크 종속성][1] |
+|  [일대다](#one-to-many) |*taskC*는 *taskA* 및 *taskB*에 종속됨 <p/> *taskC*는 *taskA* 및 *taskB*가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 일대다 태스크 종속성][2] |
+|  [태스크 ID 범위](#task-id-range) |*taskD*가 태스크의 범위에 종속됨 <p/> *taskD*는 ID *1*-*10*을 가진 태스크가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 태스크 ID 범위 종속성][3] |
 
->[AZURE.TIP] 태스크 C, D, E 및 F는 각각 태스크 A 및 B에 종속되는 경우 **다대다** 관계를 만들 수 있습니다. 예를 들어, 다운스트림 태스크가 여러 업스트림 태스크의 출력에 따라 달라지는 병렬화된 전처리 시나리오에서 유용합니다.
+> [!TIP]
+> 태스크 C, D, E 및 F는 각각 태스크 A 및 B에 종속되는 경우 **다대다** 관계를 만들 수 있습니다. 예를 들어, 다운스트림 태스크가 여러 업스트림 태스크의 출력에 따라 달라지는 병렬화된 전처리 시나리오에서 유용합니다.
+> 
+> 
 
 ### <a name="onetoone"></a>일대일
-
 다른 하나의 태스크를 성공적으로 완료하는 데 종속성을 가진 태스크를 만들려면 [CloudTask][net_cloudtask]의 [DependsOn][net_dependson] 속성을 채우는 경우 단일 태스크 ID를 [TaskDependencies][net_taskdependencies].[OnId][net_onid] 정적 메서드에 제공합니다.
 
 ```csharp
@@ -92,7 +91,6 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="onetomany"></a>일대다
-
 여러 태스크를 성공적으로 완료하는 데 종속성을 가진 태스크를 만들려면 [CloudTask][net_cloudtask]의 [DependsOn][net_dependson] 속성을 채우는 경우 태스크 ID의 컬렉션을 [TaskDependencies][net_taskdependencies].[OnId][net_onid] 정적 메서드에 제공합니다.
 
 ```csharp
@@ -109,10 +107,12 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ```
 
 ### <a name="task-id-range"></a>태스크 ID 범위
-
 ID가 범위 내에 있는 태스크 그룹을 성공적으로 완료하는 데 종속성을 가진 태스크를 만들려면 [CloudTask][net_cloudtask]의 [DependsOn][net_dependson] 속성을 채우는 경우 범위의 첫 번째와 마지막 태스크 ID를 [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] 정적 메서드에 제공합니다.
 
->[AZURE.IMPORTANT] 종속성에 대한 태스크 ID 범위를 사용하는 경우 범위의 태스크 ID는 정수 값의 문자열 *표시여야* 합니다. 또한 범위의 모든 태스크는 종속 태스크의 실행을 예약하도록 성공적으로 완료되어야 합니다.
+> [!IMPORTANT]
+> 종속성에 대한 태스크 ID 범위를 사용하는 경우 범위의 태스크 ID는 정수 값의 문자열 *표시여야* 합니다. 또한 범위의 모든 태스크는 종속 태스크의 실행을 예약하도록 성공적으로 완료되어야 합니다.
+> 
+> 
 
 ```csharp
 // Tasks 1, 2, and 3 don't depend on any other tasks. Because
@@ -133,17 +133,13 @@ new CloudTask("4", "cmd.exe /c echo 4")
 ```
 
 ## <a name="code-sample"></a>코드 샘플
-
 [TaskDependencies][github_taskdependencies] 샘플 프로젝트는 GitHub의 [Azure 배치 코드 샘플][github_samples] 중 하나입니다. 이 Visual Studio 2015 솔루션에서는 작업에 태스크 종속성을 사용하고 다른 태스크에 종속된 태스크를 만들며 계산 노드의 풀에서 해당 태스크를 실행하는 방법을 보여 줍니다.
 
 ## <a name="next-steps"></a>다음 단계
-
 ### <a name="application-deployment"></a>응용 프로그램 배포
-
 배치의 [응용 프로그램 패키지](batch-application-packages.md) 기능은 계산 노드에서 태스크를 실행하는 응용 프로그램을 배포하고 버전을 관리하는 쉬운 방법을 제공합니다.
 
 ### <a name="installing-applications-and-staging-data"></a>응용 프로그램 설치 및 데이터 준비
-
 태스크를 실행하기 위해 노드를 준비하는 다양한 방법의 개요는 Azure 배치 포럼에서 [배치 계산 노드에서 응용 프로그램 설치 및 데이터 스테이징][forum_post] 게시물을 확인합니다. Azure 배치 팀 멤버 중 하나가 작성한 이 게시물은 계산 노드에 (응용 프로그램 및 태스크 입력 데이터를 모두 포함한) 파일을 가져오는 다른 방법에 대한 좋은 기초이며,
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch

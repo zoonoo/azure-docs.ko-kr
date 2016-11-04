@@ -1,60 +1,58 @@
-<properties
-    pageTitle="4단계: 예측 분석 모델 학습 및 평가 | Microsoft Azure"
-    description="예측 솔루션 개발 연습 4단계: Azure 기계 학습 스튜디오에서 다중 모델을 학습하고, 점수를 매기고, 평가합니다."
-    services="machine-learning"
-    documentationCenter=""
-    authors="garyericson"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: '4단계: 예측 분석 모델 학습 및 평가 | Microsoft Docs'
+description: '예측 솔루션 개발 연습 4단계: Azure 기계 학습 스튜디오에서 다중 모델을 학습하고, 점수를 매기고, 평가합니다.'
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/04/2016
+ms.author: garye
 
-
-
+---
 # <a name="walkthrough-step-4:-train-and-evaluate-the-predictive-analytic-models"></a>연습 4단계: 예측 분석 모델 학습 및 평가
-
 이 토픽에는 연습의 4번째 단계인 [Azure Machine Learning에서 예측 분석 솔루션 개발](machine-learning-walkthrough-develop-predictive-solution.md)이 포함되어 있습니다.
 
+1. [기계 학습 작업 영역 만들기](machine-learning-walkthrough-1-create-ml-workspace.md)
+2. [기존 데이터 업로드](machine-learning-walkthrough-2-upload-data.md)
+3. [새 실험 만들기](machine-learning-walkthrough-3-create-new-experiment.md)
+4. **모델 학습 및 평가**
+5. [웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)
+6. [웹 서비스 액세스](machine-learning-walkthrough-6-access-web-service.md)
 
-1.  [기계 학습 작업 영역 만들기](machine-learning-walkthrough-1-create-ml-workspace.md)
-2.  [기존 데이터 업로드](machine-learning-walkthrough-2-upload-data.md)
-3.  [새 실험 만들기](machine-learning-walkthrough-3-create-new-experiment.md)
-4.  **모델 학습 및 평가**
-5.  [웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)
-6.  [웹 서비스 액세스](machine-learning-walkthrough-6-access-web-service.md)
-
-----------
-
+- - -
 Azure 기계 학습 스튜디오를 사용하여 기계 학습 모델을 만들 때의 이점 중 하나는 실험에서 한 번에 두 개 이상의 모델 유형을 시도하고 결과를 비교할 수 있다는 점입니다. 이 유형의 실험을 사용하면 문제에 대한 최상의 솔루션을 찾을 수 있습니다.
 
 이 연습으로 개발하고 있는 실험에서는 두 가지 모델을 만들고 모델의 점수 매기기 결과를 비교하여 최종 실험에서 사용할 알고리즘을 결정합니다.  
 
 다양한 모델을 선택할 수 있습니다. 사용할 수 있는 모델을 보려면 모듈 팔레트에서 **Machine Learning** 노드를 확장하고 **모델 초기화** 및 그 아래 노드를 확장합니다. 이 실험에서는 SVM(Support Vector Machine) 및 2클래스 향상된 의사 결정 트리 모듈을 선택합니다.    
 
-> [AZURE.TIP] 해결하려는 특정 문제에 가장 적합한 기계 학습 알고리즘을 결정하는 데 대한 도움말을 보려면 [Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법](machine-learning-algorithm-choice.md)을 참조하세요.
+> [!TIP]
+> 해결하려는 특정 문제에 가장 적합한 기계 학습 알고리즘을 결정하는 데 대한 도움말을 보려면 [Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법](machine-learning-algorithm-choice.md)을 참조하세요.
+> 
+> 
 
-##<a name="train-the-models"></a>모델 학습
+## <a name="train-the-models"></a>모델 학습
 먼저 향상된 의사 결정 트리 모델을 설정해 보겠습니다.  
 
-1.  모듈 팔레트에서 [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈을 찾고 캔버스로 끌어서 놓습니다.
-2.  [모델 학습][train-model] 모듈을 찾고 캔버스로 끌고 나서 향상된 의사 결정 트리 모듈의 출력을 [모델 학습][train-model] 모듈의 왼쪽 입력 포트("학습되지 않은 모델")에 연결합니다.
-    
-    [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈은 일반 모델을 초기화하고 [모델 학습][train-model]에서는 학습 데이터를 사용하여 모델을 학습합니다. 
-     
-3.  [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력("결과 데이터 집합")을 [모델 학습][train-model] 모듈의 오른쪽 입력 포트("데이터 집합")에 연결합니다.
-
-    > [AZURE.TIP] 이 실험에서는 [R 스크립트 실행][execute-r-script] 모듈에 대해 두 개의 입력과 하나의 출력이 필요하지 않으므로 연결되지 않은 상태로 유지합니다. 
-
-4.  [모델 학습][train-model] 모듈을 선택합니다. **속성** 창에서 **열 선택기 시작**을 클릭하고 **사용 가능한 열**의 드롭다운에서 **모든 형식**을 선택한 후, 텍스트 필드에 "신용 위험"을 입력합니다. **선택한 열** 아래 드롭다운에서 **모든 형식**을 선택합니다. "신용 위험"을 선택하고 강조 표시된 화살표 단추를 클릭하여 **선택한 열**로 이동시킵니다. 
-5.  **Save**를 클릭합니다.
-
+1. 모듈 팔레트에서 [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈을 찾고 캔버스로 끌어서 놓습니다.
+2. [모델 학습][train-model] 모듈을 찾고 캔버스로 끌고 나서 향상된 의사 결정 트리 모듈의 출력을 [모델 학습][train-model] 모듈의 왼쪽 입력 포트("학습되지 않은 모델")에 연결합니다.
+   
+   [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈은 일반 모델을 초기화하고 [모델 학습][train-model]에서는 학습 데이터를 사용하여 모델을 학습합니다. 
+3. [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력("결과 데이터 집합")을 [모델 학습][train-model] 모듈의 오른쪽 입력 포트("데이터 집합")에 연결합니다.
+   
+   > [!TIP]
+   > 이 실험에서는 [R 스크립트 실행][execute-r-script] 모듈에 대해 두 개의 입력과 하나의 출력이 필요하지 않으므로 연결되지 않은 상태로 유지합니다. 
+   > 
+   > 
+4. [모델 학습][train-model] 모듈을 선택합니다. **속성** 창에서 **열 선택기 시작**을 클릭하고 **사용 가능한 열**의 드롭다운에서 **모든 형식**을 선택한 후, 텍스트 필드에 "신용 위험"을 입력합니다. **선택한 열** 아래 드롭다운에서 **모든 형식**을 선택합니다. "신용 위험"을 선택하고 강조 표시된 화살표 단추를 클릭하여 **선택한 열**로 이동시킵니다. 
+5. **Save**를 클릭합니다.
 
 실험의 이 부분은 이제 다음과 같이 표시됩니다.  
 
@@ -66,17 +64,16 @@ Azure 기계 학습 스튜디오를 사용하여 기계 학습 모델을 만들 
 
 SVM 모델을 설정하려면 다음을 수행합니다.
 
-1.  모듈 팔레트에서 [2클래스 Support Vector Machine][two-class-support-vector-machine] 모듈을 찾고 캔버스로 끌어서 놓습니다.
-2.  [모델 학습][train-model] 모듈을 마우스 오른쪽 단추로 클릭하고 **복사**를 선택한 다음 캔버스를 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다. [모델 학습][train-model] 모듈의 복사본에는 원래 모듈과 같은 열이 선택되어 있습니다.
-3.  SVM 모듈의 출력을 두 번째 [모델 학습][train-model] 모듈의 왼쪽 입력 포트("학습되지 않은 모델")에 연결합니다.
-4.  [데이터 정규화][normalize-data] 모듈을 찾고 캔버스로 끌어옵니다.
-5.  이 모듈의 입력을 왼쪽 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력에 연결합니다. (모듈의 출력 포트는 두 개 이상의 다른 모듈에 연결할 수도 있습니다.)
-6.  [데이터 정규화][normalize-data] 모듈의 왼쪽 출력 포트("변환된 데이터 집합")를 두 번째 [모델 학습][train-model] 모듈의 오른쪽 입력 포트("데이터 집합")에 연결합니다.
-7.  [데이터 정규화][normalize-data] 모듈에 대한 **속성** 창에서 **변환 메서드** 매개 변수에 대해 **Tanh**을 선택합니다.
-8.  **열 선택기 시작**을 클릭하고 **시작 문자**에 대해 "열 없음"을 선택한 후, 첫 번째 드롭다운에서 **포함**을, 두 번째 드롭다운에서 **열 형식**을, 세 번째 드롭다운에서 **숫자**를 선택합니다. 이렇게 하면 모든 숫자 열(및 숫자만)이 변환되도록 지정됩니다.
-9.  이 행 오른쪽에 있는 더하기 기호(+)를 클릭하면 새 드롭다운 행이 만들어집니다. 첫 번째 드롭다운에서 **제외**를 선택하고, 두 번째 드롭다운에서 **열 이름**을 선택한 다음, 텍스트 필드를 클릭하고 열 목록에서 "신용 위험"을 선택합니다. 이렇게 하면 신용 위험 열이 무시됩니다. 이 열은 숫자이므로 그렇지 않은 경우 변환되기 때문에 이 작업이 필요합니다.
+1. 모듈 팔레트에서 [2클래스 Support Vector Machine][two-class-support-vector-machine] 모듈을 찾고 캔버스로 끌어서 놓습니다.
+2. [모델 학습][train-model] 모듈을 마우스 오른쪽 단추로 클릭하고 **복사**를 선택한 다음 캔버스를 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다. [모델 학습][train-model] 모듈의 복사본에는 원래 모듈과 같은 열이 선택되어 있습니다.
+3. SVM 모듈의 출력을 두 번째 [모델 학습][train-model] 모듈의 왼쪽 입력 포트("학습되지 않은 모델")에 연결합니다.
+4. [데이터 정규화][normalize-data] 모듈을 찾고 캔버스로 끌어옵니다.
+5. 이 모듈의 입력을 왼쪽 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력에 연결합니다. (모듈의 출력 포트는 두 개 이상의 다른 모듈에 연결할 수도 있습니다.)
+6. [데이터 정규화][normalize-data] 모듈의 왼쪽 출력 포트("변환된 데이터 집합")를 두 번째 [모델 학습][train-model] 모듈의 오른쪽 입력 포트("데이터 집합")에 연결합니다.
+7. [데이터 정규화][normalize-data] 모듈에 대한 **속성** 창에서 **변환 메서드** 매개 변수에 대해 **Tanh**을 선택합니다.
+8. **열 선택기 시작**을 클릭하고 **시작 문자**에 대해 "열 없음"을 선택한 후, 첫 번째 드롭다운에서 **포함**을, 두 번째 드롭다운에서 **열 형식**을, 세 번째 드롭다운에서 **숫자**를 선택합니다. 이렇게 하면 모든 숫자 열(및 숫자만)이 변환되도록 지정됩니다.
+9. 이 행 오른쪽에 있는 더하기 기호(+)를 클릭하면 새 드롭다운 행이 만들어집니다. 첫 번째 드롭다운에서 **제외**를 선택하고, 두 번째 드롭다운에서 **열 이름**을 선택한 다음, 텍스트 필드를 클릭하고 열 목록에서 "신용 위험"을 선택합니다. 이렇게 하면 신용 위험 열이 무시됩니다. 이 열은 숫자이므로 그렇지 않은 경우 변환되기 때문에 이 작업이 필요합니다.
 10. **확인**을 클릭합니다.  
-
 
 이제 [데이터 정규화][normalize-data] 모듈은 신용 위험 열을 제외한 모든 숫자 열에서 Tanh 변환을 수행하도록 설정됩니다.  
 
@@ -84,26 +81,24 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 
 ![두 번째 모델 학습][2]  
 
-##<a name="score-and-evaluate-the-models"></a>모델 점수 매기기 및 평가
-
+## <a name="score-and-evaluate-the-models"></a>모델 점수 매기기 및 평가
 [데이터 분할][split] 모듈을 통해 구분된 테스트 데이터를 사용하여 학습된 모델의 점수를 매깁니다. 그리고 나서 두 모델의 결과를 비교하여 더 나은 결과를 생성한 모듈을 확인할 수 있습니다.  
 
-1.  [모델 점수 매기기][score-model] 모듈을 찾아 캔버스로 끌어서 놓습니다.
-2.  [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈에 연결되어 있는 [모델 학습][train-model] 모듈을 [모델 점수 매기기][score-model] 모듈의 왼쪽 입력 포트에 연결합니다.
-3.  [모델 점수 매기기][score-model] 모듈의 오른쪽 입력 포트를 오른쪽 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력에 연결합니다.
-
-    이제 [모델 점수 매기기][score-model] 모듈에서 테스트 데이터의 신용 정보를 사용하고, 모델을 통해 실행하고, 모델이 생성하는 예측을 테스트 데이터의 실제 신용 위험 열과 비교할 수 있습니다.
-
-4.  [모델 점수 매기기][score-model] 모듈을 복사하여 붙여넣어 두 번째 복사본을 만들거나 새 모듈을 캔버스로 끌어옵니다.
-5.  이 모듈의 왼쪽 입력 포트를 SVM 모델에 연결합니다(즉, [2클래스 Support Vector Machine][two-class-support-vector-machine] 모듈에 연결된 [모델 학습][train-model] 모듈의 출력 포트에 연결).
-6.  SVM 모델에서는 학습 데이터에 대해 수행한 것과 같은 변환을 테스트 데이터에 대해 수행해야 합니다. 따라서 [데이터 정규화][normalize-data] 모듈을 복사하여 붙여넣어 두 번째 복사본을 만들고 오른쪽 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력에 연결합니다.
-7.  [모델 점수 매기기][score-model] 모듈의 오른쪽 입력 포트를 [데이터 정규화][normalize-data] 모듈의 왼쪽 출력에 연결합니다.  
+1. [모델 점수 매기기][score-model] 모듈을 찾아 캔버스로 끌어서 놓습니다.
+2. [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈에 연결되어 있는 [모델 학습][train-model] 모듈을 [모델 점수 매기기][score-model] 모듈의 왼쪽 입력 포트에 연결합니다.
+3. [모델 점수 매기기][score-model] 모듈의 오른쪽 입력 포트를 오른쪽 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력에 연결합니다.
+   
+   이제 [모델 점수 매기기][score-model] 모듈에서 테스트 데이터의 신용 정보를 사용하고, 모델을 통해 실행하고, 모델이 생성하는 예측을 테스트 데이터의 실제 신용 위험 열과 비교할 수 있습니다.
+4. [모델 점수 매기기][score-model] 모듈을 복사하여 붙여넣어 두 번째 복사본을 만들거나 새 모듈을 캔버스로 끌어옵니다.
+5. 이 모듈의 왼쪽 입력 포트를 SVM 모델에 연결합니다(즉, [2클래스 Support Vector Machine][two-class-support-vector-machine] 모듈에 연결된 [모델 학습][train-model] 모듈의 출력 포트에 연결).
+6. SVM 모델에서는 학습 데이터에 대해 수행한 것과 같은 변환을 테스트 데이터에 대해 수행해야 합니다. 따라서 [데이터 정규화][normalize-data] 모듈을 복사하여 붙여넣어 두 번째 복사본을 만들고 오른쪽 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력에 연결합니다.
+7. [모델 점수 매기기][score-model] 모듈의 오른쪽 입력 포트를 [데이터 정규화][normalize-data] 모듈의 왼쪽 출력에 연결합니다.  
 
 점수 매기기 결과 두 개를 평가하려면 [모델 평가][evaluate-model] 모듈을 사용합니다.  
 
-1.  [모델 평가][evaluate-model] 모듈을 찾아 캔버스로 끕니다.
-2.  왼쪽 입력 포트를 향상된 의사 결정 트리 모델과 연결된 [모델 점수 매기기][score-model] 모듈의 출력 포트에 연결합니다.
-3.  오른쪽 입력 포트를 다른 [모델 점수 매기기][score-model] 모듈에 연결합니다.  
+1. [모델 평가][evaluate-model] 모듈을 찾아 캔버스로 끕니다.
+2. 왼쪽 입력 포트를 향상된 의사 결정 트리 모델과 연결된 [모델 점수 매기기][score-model] 모듈의 출력 포트에 연결합니다.
+3. 오른쪽 입력 포트를 다른 [모델 점수 매기기][score-model] 모듈에 연결합니다.  
 
 실험을 실행하려면 캔버스 아래에서 **실행** 단추를 클릭합니다. 몇 분이 걸릴 수 있습니다. 각 모듈에 실행 중임을 나타내는 회전 표시기가 표시되고 나서 모듈이 완료되면 녹색 확인 표시가 표시됩니다. 모든 모듈에 확인 표시가 있으면 실험 실행이 완료된 것입니다.
 
@@ -121,15 +116,16 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 
 이러한 값을 검토하면 찾고 있는 결과에 가장 근접한 모델을 결정할 수 있습니다. 돌아가서 다른 모델에서 값을 변경하여 실험을 반복할 수 있습니다. 
 
-> [AZURE.TIP] 실험을 실행할 때마다 해당 반복에 대한 레코드가 실행 기록에서 유지됩니다. 이러한 반복을 확인하고 캔버스 아래에서 **실행 기록 보기**를 클릭하여 원하는 반복으로 돌아갈 수 있습니다. **속성** 창에서 **이전 실행**을 클릭하여 열었던 반복의 바로 이전 반복으로 돌아갈 수도 있습니다.
+> [!TIP]
+> 실험을 실행할 때마다 해당 반복에 대한 레코드가 실행 기록에서 유지됩니다. 이러한 반복을 확인하고 캔버스 아래에서 **실행 기록 보기**를 클릭하여 원하는 반복으로 돌아갈 수 있습니다. **속성** 창에서 **이전 실행**을 클릭하여 열었던 반복의 바로 이전 반복으로 돌아갈 수도 있습니다.
 > 
-캔버스 아래에서 **다른 이름으로 저장**을 클릭하여 실험을 반복하도록 복사본을 만들 수 있습니다. 실험의 **요약** 및 **설명** 속성을 사용하면 실험 반복에서 시도한 항목을 기록할 수 있습니다.
+> 캔버스 아래에서 **다른 이름으로 저장**을 클릭하여 실험을 반복하도록 복사본을 만들 수 있습니다. 실험의 **요약** 및 **설명** 속성을 사용하면 실험 반복에서 시도한 항목을 기록할 수 있습니다.
+> 
+> 자세한 내용은 [Azure 기계 학습 스튜디오에서 실험 반복 관리](machine-learning-manage-experiment-iterations.md)를 참조하세요.  
+> 
+> 
 
->  자세한 내용은 [Azure 기계 학습 스튜디오에서 실험 반복 관리](machine-learning-manage-experiment-iterations.md)를 참조하세요.  
-
-
-----------
-
+- - -
 **다음: [웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)**
 
 [1]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train1.png

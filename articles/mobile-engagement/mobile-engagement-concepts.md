@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Mobile Engagement 개념 | Microsoft Azure"
-	description="Azure Mobile Engagement 개념"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+---
+title: Mobile Engagement 개념 | Microsoft Docs
+description: Azure Mobile Engagement 개념
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/19/2016"
-	ms.author="piyushjo" />
+ms.service: mobile-engagement
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Azure Mobile Engagement 개념
-
 Mobile Engagement는 지원되는 모든 플랫폼에 공통되는 몇 가지 개념을 정의합니다. 이 문서에서는 이러한 개념을 간략하게 설명합니다.
 
 Mobile Engagement를 처음 사용하는 경우 이 문서부터 참조하면 좋습니다. 또한 사용 중인 플랫폼과 관련된 문서를 읽어보세요. 자세한 정보 및 예제뿐만 아니라 가능한 제한 사항을 통해 이 문서에 설명된 개념을 구체적으로 설명해 줍니다.
@@ -79,10 +78,9 @@ Mobile Engagement SDK의 API 또는 Mobile Engagement 플랫폼의 장치 API를
 키/값 쌍의 전체 트리는 JSON 개체로 저장됩니다. 그러나 첫 번째 수준의 키/값은 Segments와 같은 일부 고급 함수에서 직접 액세스할 수 있도록 구성 해제됩니다. 예를 들어 지난 달에 추가 키 "content\_type"이 "scifi" 값으로 설정된 "content\_viewed"라는 이벤트를 10번 이상 전송한 모든 사용자로 구성된 "SciFi 팬" 세그먼트를 쉽게 정의할 수 있습니다. 따라서 스칼라 값(예: 문자열, 날짜, 정수 또는 부울)을 사용하여 키/값 쌍의 간단한 목록으로 구성된 기타 데이터만 보내는 것이 좋습니다.
 
 ## 다음 단계
-
-- [Azure Mobile Engagement의 Windows 유니버설 SDK 개요](mobile-engagement-windows-store-sdk-overview.md)
-- [Azure Mobile Engagement의 Windows Phone Silverlight SDK 개요](mobile-engagement-windows-phone-sdk-overview.md)
-- [Azure Mobile Engagement용 iOS SDK](mobile-engagement-ios-sdk-overview.md)
-- [Azure Mobile Engagement용 Android SDK](mobile-engagement-android-sdk-overview.md)
+* [Azure Mobile Engagement의 Windows 유니버설 SDK 개요](mobile-engagement-windows-store-sdk-overview.md)
+* [Azure Mobile Engagement의 Windows Phone Silverlight SDK 개요](mobile-engagement-windows-phone-sdk-overview.md)
+* [Azure Mobile Engagement용 iOS SDK](mobile-engagement-ios-sdk-overview.md)
+* [Azure Mobile Engagement용 Android SDK](mobile-engagement-android-sdk-overview.md)
 
 <!---HONumber=AcomDC_0824_2016-->

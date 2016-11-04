@@ -1,60 +1,58 @@
-<properties
-	pageTitle="Azure Active Directory B2C | Microsoft Azure"
-	description="Azure Active Directory B2C를 사용하여 로그인, 등록 및 프로필 관리를 포함하는 웹 응용 프로그램을 빌드하는 방법입니다."
-	services="active-directory-b2c"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+---
+title: Azure Active Directory B2C | Microsoft Docs
+description: Azure Active Directory B2C를 사용하여 로그인, 등록 및 프로필 관리를 포함하는 웹 응용 프로그램을 빌드하는 방법입니다.
+services: active-directory-b2c
+documentationcenter: .net
+author: dstrockis
+manager: msmbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/22/2016
+ms.author: dastrock
 
+---
 # Azure AD B2C: .NET 웹앱 빌드
-
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Azure AD(Azure Active Directory) B2C를 사용하여 몇 가지 간단한 단계에서 강력한 셀프 서비스 ID 관리 기능을 웹앱에 추가할 수 있습니다. 이 문서에서는 사용자 등록, 로그인 및 프로필 관리를 포함하는 .NET Model-View-Controller(MVC) 웹앱을 만드는 방법을 보여 줍니다. 이 앱은 사용자 이름 또는 전자 메일을 사용하고 Facebook 및 Google과 같은 소셜 계정을 사용하여 등록 및 로그인에 대한 지원을 포함합니다.
 
 ## Azure AD B2C 디렉터리 가져오기
-
 Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다. 디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 아직 없는 경우 [B2C 디렉터리를 만든](active-directory-b2c-get-started.md) 후에 이 가이드를 계속 진행합니다.
 
 ## 응용 프로그램 만들기
-
 다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
 
-- 응용 프로그램에서 **웹앱/웹 API**를 포함합니다.
-- `https://localhost:44316/`을 **리디렉션 URI**으로 입력합니다. 이 코드 샘플에 대한 기본 URL입니다.
-- 앱에 할당된 **응용 프로그램 ID**를 적복사합니다. 이 시간은 나중에 필요합니다.
+* 응용 프로그램에서 **웹앱/웹 API**를 포함합니다.
+* `https://localhost:44316/`을 **리디렉션 URI**으로 입력합니다. 이 코드 샘플에 대한 기본 URL입니다.
+* 앱에 할당된 **응용 프로그램 ID**를 적복사합니다. 이 시간은 나중에 필요합니다.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 정책 만들기
-
 Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 코드 샘플은 등록, 로그인 및 프로필 편집 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다.
 
->[AZURE.NOTE] 또한 Azure AD B2C는 이 자습서에서는 자세히 다루지 않는 통합된 등록 또는 로그인 정책을 지원합니다. 등록 또는 로그인 정책은 [이 해당 자습서](active-directory-b2c-devquickstarts-web-dotnet-susi.md)에 제공됩니다.
+> [!NOTE]
+> 또한 Azure AD B2C는 이 자습서에서는 자세히 다루지 않는 통합된 등록 또는 로그인 정책을 지원합니다. 등록 또는 로그인 정책은 [이 해당 자습서](active-directory-b2c-devquickstarts-web-dotnet-susi.md)에 제공됩니다.
+> 
+> 
 
 세 가지 정책을 만들 때 다음을 확인합니다.
 
-- ID 공급자 블레이드에서 **사용자 ID 등록** 또는 **전자 메일 등록**을 선택합니다.
-- 등록 정책에서 **표시 이름** 및 다른 등록 특성을 선택합니다.
-- 모든 정책에서 **표시 이름** 클레임을 응용 프로그램 클레임으로 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-- 각 정책을 만든 후에 **이름**을 복사합니다. 이러한 정책 이름이 나중에 필요합니다.
+* ID 공급자 블레이드에서 **사용자 ID 등록** 또는 **전자 메일 등록**을 선택합니다.
+* 등록 정책에서 **표시 이름** 및 다른 등록 특성을 선택합니다.
+* 모든 정책에서 **표시 이름** 클레임을 응용 프로그램 클레임으로 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
+* 각 정책을 만든 후에 **이름**을 복사합니다. 이러한 정책 이름이 나중에 필요합니다.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 세 가지 정책을 만들었다면 앱을 빌드할 준비가 되었습니다.
 
 ## 코드 다운로드 및 인증 구성
-
 이 샘플에 대한 코드는 [GitHub에서 유지 관리](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet)됩니다. 진행하면서 샘플을 작성하기 위해 [골격 프로젝트를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip)할 수 있습니다. 구조를 복제할 수도 있습니다.
 
 ```
@@ -95,7 +93,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ...
 ```
 
-[AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+[!INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 다음으로 `Startup.cs`라는 프로젝트에 OWIN 시작 클래스를 추가합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** 및 **새 항목**을 선택한 다음 OWIN을 검색합니다. **클래스 선언을 `public partial class Startup`으로 변경해야 합니다**. 다른 파일에서 이 클래스의 일부를 구현했습니다. OWIN 미들웨어는 앱이 시작되면 `Configuration(...)` 메서드를 호출합니다. 이 메서드에서 `ConfigureAuth(...)`를 호출하여 앱에 대한 인증을 설정합니다.
 
@@ -266,8 +264,8 @@ OpenID Connect를 사용하여 사용자를 인증할 때 Azure AD는 **클레�
 [Authorize]
 public ActionResult Claims()
 {
-	Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
-	ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
+    Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
+    ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
     return View();
 }
 ```
@@ -275,19 +273,17 @@ public ActionResult Claims()
 동일한 방식으로 응용 프로그램에서 수신하는 클레임을 액세스할 수 있습니다. 앱이 수신하는 모든 클레임 목록은 **클레임** 페이지에서 사용할 수 있습니다.
 
 ## 샘플 앱 실행
-
 마지막으로 앱을 빌드하고 실행할 수 있습니다. 메일 주소 또는 사용자 이름을 사용하여 앱에 등록합니다. 로그아웃했다가 동일한 사용자로 다시 로그인합니다. 해당 사용자의 프로필을 편집합니다. 로그아웃했다가 다른 사용자로 등록합니다. **클레임** 탭에 표시되는 정보가 정책에 구성한 정보와 어떻게 일치하는지 확인합니다.
 
 ## 소셜 IDP 추가
-
 현재, 앱은 **로컬 계정**을 사용하여 사용자 등록 및 로그인만 지원합니다. 이들은 사용자 이름 및 암호를 사용하는 B2C 디렉터리에 저장된 계정입니다. Azure AD B2C를 사용하면 코드를 변경하지 않고도 다른 **IDP(ID 공급자)**에 대한 지원을 추가할 수 있습니다.
 
 소셜 IDP를 앱에 추가하려면 이 문서 중에서 상세한 지침을 수행하여 시작합니다. 지원하려는 각 IDP의 경우 해당 시스템에서 응용 프로그램을 등록하고 클라이언트 ID를 얻어야 합니다.
 
-- [Facebook을 IDP로 설정](active-directory-b2c-setup-fb-app.md)
-- [Google을 IDP로 설정](active-directory-b2c-setup-goog-app.md)
-- [Amazon을 IDP로 설정](active-directory-b2c-setup-amzn-app.md)
-- [LinkedIn을 IDP로 설정](active-directory-b2c-setup-li-app.md)
+* [Facebook을 IDP로 설정](active-directory-b2c-setup-fb-app.md)
+* [Google을 IDP로 설정](active-directory-b2c-setup-goog-app.md)
+* [Amazon을 IDP로 설정](active-directory-b2c-setup-amzn-app.md)
+* [LinkedIn을 IDP로 설정](active-directory-b2c-setup-li-app.md)
 
 B2C 디렉터리에 ID 공급자를 추가한 후 [정책 참조 문서](active-directory-b2c-reference-policies.md)에서 설명한 대로 새 IDP를 포함하도록 세 가지 정책을 각각 편집해야 합니다. 정책을 저장한 후 앱을 다시 실행합니다. ID 환경 각각에서 로그인 및 등록으로 추가된 새 IDP가 표시되어야 합니다.
 

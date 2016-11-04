@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Log Analytics의 로그 검색 | Microsoft Azure"
-    description="로그 검색을 사용하면 사용자 환경 내에서 여러 소스의 컴퓨터 데이터를 서로 연결하고 결합할 수 있습니다."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: Log Analytics의 로그 검색 | Microsoft Docs
+description: 로그 검색을 사용하면 사용자 환경 내에서 여러 소스의 컴퓨터 데이터를 서로 연결하고 결합할 수 있습니다.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
-
+---
 # <a name="log-searches-in-log-analytics"></a>Log Analytics의 로그 검색
-
 Log Analytics의 핵심은 사용자 환경 내에서 여러 원본의 모든 컴퓨터 데이터를 서로 연결하고 결합할 수 있게 하는 로그 검색 기능입니다. 솔루션도 로그 검색에서 제공되어 특정 문제 영역 주위에 피벗된 메트릭을 가져옵니다.
 
 검색 페이지에서, 쿼리를 만든 다음 검색 시 패싯 컨트롤을 사용하여 결과를 필터링할 수 있습니다. 변환, 필터링 및 결과를 보고하는 고급 쿼리를 만들 수도 있습니다.
@@ -32,11 +30,9 @@ Log Analytics의 핵심은 사용자 환경 내에서 여러 원본의 모든 �
 검색 기술을 숙지한 후에 [Log Analytics log search reference](log-analytics-search-reference.md)(Log Analytics 로그 검색 참조)를 검토할 수 있습니다.
 
 ## <a name="use-basic-filters"></a>기본 필터 사용
-
 먼저 알아야 할 점은 검색 쿼리의 첫 번째 부분("|" 세로줄 문자 앞에 나오는)은 항상 *필터*라는 점입니다. TSQL에서 WHERE 절로 생각할 수 있으며 이는 OMS 데이터 저장소에서 *어떤* 데이터의 하위 집합을 가져올지 결정합니다. 데이터 저장소에 대한 검색은 대개 추출하려는 데이터의 특성을 지정하므로 쿼리가 WHERE 절과 함께 시작하는 것이 자연스럽습니다.
 
 사용할 수 있는 가장 기본적인 필터는 ‘오류’ 또는 ‘시간 제한’ 또는 컴퓨터 이름과 같은 *키워드*입니다. 이러한 유형의 간단한 쿼리는 일반적으로 동일한 결과 집합 내에서 다양한 모양의 데이터를 반환합니다. Log Analytics는 시스템에 다양한 데이터 *유형* 이 있기 때문입니다.
-
 
 ### <a name="to-conduct-a-simple-search"></a>단순 검색을 수행하려면
 1. OMS 포털에서 **로그 검색**을 클릭합니다.  
@@ -57,7 +53,7 @@ Log Analytics의 핵심은 사용자 환경 내에서 여러 원본의 모든 �
 이렇게 하면 성능 카운터 이름이 "% 프로세서 시간"인 성능 데이터만 얻을 수 있습니다.
 
 ### <a name="to-search-for-processor-time-performance-data"></a>프로세서 시간 성능 데이터를 검색 하려면
-- 검색 쿼리 필드에 `Type=Perf CounterName="% Processor Time"`
+* 검색 쿼리 필드에 `Type=Perf CounterName="% Processor Time"`
 
 또한 더욱 구체적 지정이 가능하여 쿼리에서 Windows 성능 카운터인 **InstanceName=_'Total'**를 사용할 수 있습니다. 또한 패싯 및 다른 **field:value**을 선택할 수 있습니다. 필터는 쿼리 표시줄의 필터에 자동으로 추가됩니다. 다음 그림에서 볼 수 있습니다. 아무것도 입력하지 않고 쿼리에 **InstanceName:’_Total’**을 추가하려는 경우 클릭할 위치를 보여줍니다.
 
@@ -66,6 +62,7 @@ Log Analytics의 핵심은 사용자 환경 내에서 여러 원본의 모든 �
 쿼리는 `Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
 
 이 예제에서 이 결과를 얻으려면 **Type=Perf** 를 지정할 필요가 없습니다. 필드 CounterName 및 InstanceName는 Type=Perf의 레코드에만 존재하므로 쿼리는 더 긴 이전과 같은 결과를 반환할 만큼 구체적입니다.
+
 ```
 CounterName="% Processor Time" InstanceName="_Total"
 ```
@@ -94,7 +91,6 @@ EventLog=Application EventLog=System
 
 
 ## <a name="use-additional-filters"></a>추가 필터 사용
-
 다음 쿼리는 데이터를 전송하는 모든 컴퓨터에 대한 2개의 이벤트 로그에 항목을 반환합니다.
 
 ```
@@ -137,7 +133,6 @@ CounterName="% Processor Time"  AND InstanceName="_Total" AND (Computer=SERVER1.
 ### <a name="boolean-operators"></a>부울 연산자
 날짜/시간 및 숫자 필드를 사용하여 *보다 큼*, *보다 작음*, *보다 작거나 같음*을 사용하는 값을 검색할 수 있습니다. 쿼리 검색 표시줄에서 >, < , >=, <= , != 와 같은 간단한 연산자를 사용할 수 있습니다.
 
-
 특정 기간에 특정 이벤트 로그를 쿼리할 수 있습니다. 예를 들어 지난 24시간을 다음 mnemonic 식으로 표현합니다.
 
 ```
@@ -146,7 +141,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>부울 연산자를 사용하여 검색하려면
-- 검색 쿼리 필드에 `EventLog=System TimeGenerated>NOW-24HOURS"`  
+* 검색 쿼리 필드에 `EventLog=System TimeGenerated>NOW-24HOURS"`  
     ![부울 값을 사용하여 검색](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 시간 간격을 그래픽으로 제어할 수 있지만, 그렇게 하려는 대부분의 시간에 쿼리에 직접 하는 시간 필터를 포함하여 장점이 있습니다. 예를 들어 이 방식은 대시보드 페이지에서 *전역* 시간 선택기와 무관하게 각 타일에 대한 시간을 재정의할 수 있는 경우 대시보드와 잘 작동합니다. 자세한 내용은 [대시보드에서 시간 문제](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/)를 참조하십시오.
@@ -161,9 +156,9 @@ TimeGenerated 필드에 사용되는 비교 연산자가 다른 경우에도 유
 
 예를 들어 구성 평가 경고는 다음의 심각도 값을 가진다고 가정합니다.
 
-- 0 = 정보
-- 1 = 경고
-- 2 = 중요
+* 0 = 정보
+* 1 = 경고
+* 2 = 중요
 
 경고 및 중요한 알림을 쿼리하고 다음 쿼리로 정보를 제외할 수 있습니다.
 
@@ -179,10 +174,12 @@ Type=Event EventLog="Operations Manager" EventID:[2100..2199]
 ```
 
 
->[AZURE.NOTE] 사용해야 하는 범위 구문은 콜론(:) field:value 구분이고 등호(=)는 *아닙니다* . 아래쪽과 위쪽의 범위 끝을 대괄호로 묶고 두 마침표(..)로 구분합니다.
+> [!NOTE]
+> 사용해야 하는 범위 구문은 콜론(:) field:value 구분이고 등호(=)는 *아닙니다* . 아래쪽과 위쪽의 범위 끝을 대괄호로 묶고 두 마침표(..)로 구분합니다.
+> 
+> 
 
 ## <a name="manipulate-search-results"></a>검색 결과 조작
-
 데이터를 검색할 때 검색 쿼리를 구체화하고 결과를 어느 정도 제어합니다. 결과를 검색할 때 이를 변환하는 명령을 적용할 수 있습니다.
 
 Log Analytics 검색에서 명령은 세로줄 문자(|) 뒤에 *와야* 합니다. 필터는 쿼리 문자열의 첫번째 부분에 항상 있어야 합니다. 작업하는 데이터 집합을 정의하고 이러한 결과를 명령으로 "파이프"합니다. 다음 명령을 추가하려면 파이프를 사용할 수 있습니다. 이것은 Windows PowerShell 파이프라인과 대강 비슷합니다.
@@ -192,7 +189,6 @@ Log Analytics 검색에서 명령은 세로줄 문자(|) 뒤에 *와야* 합니�
 명령은 동사의 이름이 있으므로 수행할 작업을 쉽게 알 수 있습니다.  
 
 ### <a name="sort"></a>정렬
-
 정렬 명령을 사용하면 하나 또는 여러 필드에서 정렬 순서를 정의할 수 있습니다. 기본적으로 사용하지 않아도 시간 내림차순으로 정렬되도록 적용됩니다. 가장 최근의 결과가 검색 결과 위쪽에 항상 표시됩니다. 즉, `Type=Event EventID=1234` 로 검색을 실행하면 실제로 실행되는 작업은 다음과 같습니다.
 
 ```
@@ -231,17 +227,15 @@ Type=Event EventID=600 | Top 1
 
 
 #### <a name="to-search-using-top"></a>Top을 사용하여 검색하려면
-- 검색 쿼리 필드에 `Type=Event EventID=600 | Top 1` 을 입력합니다  
+* 검색 쿼리 필드에 `Type=Event EventID=600 | Top 1` 을 입력합니다  
     ![상위 검색](./media/log-analytics-log-searches/oms-search-top.png)
 
 위의 이미지에서 EventID=600인 레코드는 358개가 있습니다. 왼쪽에서 필드, 패싯 및 필터는 항상 쿼리의 *필터 부분으로* 반환된 결과에 대한 정보를 표시하며 이는 모든 파이프 문자 앞에 오는 부분입니다. **결과** 창은 예제 명령이 결과를 모양을 만들고 변환하기 때문에 가장 최근 1개의 결과를 반환합니다.
 
 ### <a name="select"></a>여기서
-
 SELECT 명령은 PowerShell에서 Select-Object 처럼 동작합니다. 자신의 원래 속성을 모두 갖지 않는 필터된 결과를 반환합니다. 대신 지정한 속성을 선택합니다.
 
 #### <a name="to-run-a-search-using-the-select-command"></a>선택 명령을 사용하는 검색을 실행하려면
-
 1. 검색에서 `Type=Event` 을 입력하고 **검색**을 클릭합니다.
 2. 있는 모든 속성을 보려면 결과 중 하나에서 **+자세히 표시** 를 클릭합니다.
 3. 그 중 일부를 명시적으로 선택하고 쿼리가 `Type=Event | Select Computer,EventID,RenderedDescription`로 변경됩니다.  
@@ -249,14 +243,10 @@ SELECT 명령은 PowerShell에서 Select-Object 처럼 동작합니다. 자신�
 
 검색 출력을 제어하고 탐색을 위한 중요 데이터의 일부만 선택하려는 경우 특히 유용한 명령으로 종종 전체 레코드는 아닙니다. 이 기능은 다른 유형의 레코드들이 *일부* 공통 속성이 있지만 *일부* 속성은 공통이 아닌 경우에도 유용합니다. CSV 파일로 내보낸 다음 Excel에서 massaged되는 경우 테이블처럼 더 자연스럽게 보이거나 잘 작동하는 출력을 생성할 수 있습니다.
 
-
-
 ## <a name="use-the-measure-command"></a>측정값 명령 사용
-
 MEASURE는 Log Analytics 검색에서 가장 용도가 많은 명령 중 하나입니다. 데이터에 통계 *함수* 를 적용하고 지정된 필드가 그룹화된 결과를 집계할 수 있습니다. 측정값이 지원하는 여러 통계 함수가 있습니다.
 
 ### <a name="measure-count()"></a>개수() 측정
-
 작업할 첫번째 통계 함수에서 이해하기 가장 간단한 것은 *count()* 함수입니다.
 
 `Type=Event`과 같은 모든 검색 쿼리에서 나온 결과는 검색 결과의 왼쪽에 패싯이라고 하는 필터를 표시합니다. 필터는 실행된 검색에서 결과에 지정된 필드에 의해 값의 분포를 표시합니다.
@@ -264,7 +254,6 @@ MEASURE는 Log Analytics 검색에서 가장 용도가 많은 명령 중 하나�
 ![측정값 개수 검색](./media/log-analytics-log-searches/oms-search-measure-count01.png)
 
 예를 들어 위 이미지에는 **컴퓨터** 필드가 있으며 결과에 739,000개의 이벤트가 있고 이 레코드 중에서 **컴퓨터** 필드에 고유한 값은 68개입니다. 타일은 **컴퓨터** 필드에 기록되는 가장 일반적인 5개의 값인 상위 5개만을 표시하며) 해당 필드에 특정 값을 포함하는 문서 수를 기준으로 정렬됩니다. 이 이미지에 있는 거의 369,000개 이미지 중 90,000개는 OpsInsights04.contoso.com 컴퓨터에서, 83,000개는 DB03.contoso.com 컴퓨터 등에서 생성된 것입니다.
-
 
 타일이 상위 5개만 표시하므로 모든 값을 보려면 어떻게 해야 합니까?
 
@@ -293,11 +282,9 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 ```
 
 #### <a name="to-search-using-measure-count"></a>측정값 개수를 사용하여 검색
-
-- 검색 쿼리 필드에 `Type=Event | Measure count() by EventID`
-- 쿼리의 끝에 `| Select EventID` 를 추가합니다.
-- 마지막으로 쿼리의 끝에 `| Sort EventID asc` 을 추가합니다.
-
+* 검색 쿼리 필드에 `Type=Event | Measure count() by EventID`
+* 쿼리의 끝에 `| Select EventID` 를 추가합니다.
+* 마지막으로 쿼리의 끝에 `| Sort EventID asc` 을 추가합니다.
 
 몇가지 중요한 사항 및 강조를 알아봅니다.
 
@@ -306,7 +293,6 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 두 번째로 **개수 측정** 은 현재 상위 100개의 고유한 결과만 반환합니다. 이 제한은 다른 통계 함수에 적용되지 않습니다. 따라서 측정값 개수()를 적용하기 전에 특정 항목을 검색하려면 일반적으로 보다 정밀한 필터를 사용해야 합니다.
 
 ## <a name="use-the-max-and-min-functions-with-the-measure-command"></a>측정값 명령과 최대 및 최소 함수 사용
-
 **Measure Max()** 및 **Measure Min()**이 유용한 다양한 시나리오가 있습니다. 그러나 각 함수는 서로 반대이므로 최대()를 설명하고 최소()를 직접 시험해 보겠습니다.
 
 보안 이벤트를 쿼리할 경우 **레벨** 속성이 있을 수 있습니다. 예:
@@ -340,7 +326,6 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ```
 
 ## <a name="use-the-avg-function-with-the-measure-command"></a>측정값 명령과 평균 함수 사용
-
 측정값을 사용한 평균() 통계 함수를 사용하면 일부 필드에 대한 평균값을 계산하고 동일한 또는 다른 필드 결과를 그룹화할 수 있습니다. 다양한 성능 데이터와 같은 경우에 유용합니다.
 
 성능 데이터를 시작하겠습니다. OMS는 현재 Windows 및 Linux 컴퓨터 양쪽 모두에 대한 성능 카운터를 수집합니다.
@@ -357,9 +342,9 @@ Type=Perf
 
 위 이미지에서 다음과 같은 내용을 나타내는 표시된 필드의 두 집합이 있습니다.
 
-- 첫 번째 집합은 쿼리 필터에서 Windows 성능 카운터 이름, 개체 이름 및 인스턴스 이름을 식별합니다. 가장 일반적으로 사용할 패싯/필터 필드입니다.
-- **CounterValue**는 카운터의 실제 값입니다. 이 예에서 이 값은 *75*입니다.
-- **TimeGenerated**는 24시간 형식으로 12:51입니다.
+* 첫 번째 집합은 쿼리 필터에서 Windows 성능 카운터 이름, 개체 이름 및 인스턴스 이름을 식별합니다. 가장 일반적으로 사용할 패싯/필터 필드입니다.
+* **CounterValue**는 카운터의 실제 값입니다. 이 예에서 이 값은 *75*입니다.
+* **TimeGenerated**는 24시간 형식으로 12:51입니다.
 
 다음은 메트릭의 그래프입니다.
 
@@ -382,8 +367,7 @@ Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor T
 ```
 
 ### <a name="to-search-using-the-avg-function-with-the-measure-command"></a>측정값 명령과 평균 함수 사용를 사용하여 검색하려면
-- 검색 쿼리 박스에 `Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor Time" TimeGenerated>NOW-6HOURS | Measure Avg(CounterValue) by Computer`를 입력합니다.
-
+* 검색 쿼리 박스에 `Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor Time" TimeGenerated>NOW-6HOURS | Measure Avg(CounterValue) by Computer`를 입력합니다.
 
 컴퓨터 *간에* 데이터를 집계하고 상호 연결할 수 있습니다. 예를 들어 각 노드가 서로 동일한 종류의 일부 팜에서 호스트 집합이 있고 이들이 모두 같은 유형의 작업을 한다고 가정하면 부하가 대략적으로 분산되어야 합니다. 다음의 쿼리로 이동하는 하나에 모든 카운터를 가져오고 전체 팜에 대한 평균을 가져올 수 있습니다. 다음 예제로 컴퓨터를 선택하여 시작할 수 있습니다.
 
@@ -413,13 +397,11 @@ Type=Perf  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Proces
 
 ![avg 그룹화 검색](./media/log-analytics-log-searches/oms-search-avg04.png)
 
-
 대시보드에서 검색 쿼리를 쉽게 사용할 수 있습니다. 예를 들어 검색 쿼리를 저장하고 여기에서 *Web Farm KPIs*라는 대시보드를 만들 수 있습니다. 대시보드 사용에 대해 자세히 알아보려면 [Log Analytics에서 사용자 지정 대시보드 만들기](log-analytics-dashboards.md)를 참조하세요.
 
 ![avg 대시보드 검색](./media/log-analytics-log-searches/oms-search-avg05.png)
 
 ### <a name="use-the-sum-function-with-the-measure-command"></a>측정값 명령과 합계 함수 사용
-
 합계 함수는 측정값 명령의 다른 함수와 비슷합니다. 합계 함수를 사용하는 방법에 대한 예제는 [Microsoft Azure Operational Insights의 W3C IIS 로그 검색](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx)에서 볼 수 있습니다.
 
 숫자, 날짜 시간 및 텍스트 문자열이 포함된  Max() 및 Min()을 사용할 수 있습니다. 텍스트 문자열을 이용하여 사전순으로 정렬하고 처음 및 마지막을 가져옵니다.
@@ -427,7 +409,6 @@ Type=Perf  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Proces
 그러나 숫자 필드가 아닌 어느 것도 합계()를 사용할 수 없습니다. 평균()에도 적용됩니다.
 
 ### <a name="use-the-percentile-function-with-the-measure-command"></a>measure 명령과 percentile 함수 사용
-
 percentile 함수는 숫자 필드에만 사용할 수 있다는 면에서 Avg() 및 Sum()과 유사합니다. 숫자 필드에 1과 99 사이의 모든 백분위 수를 사용할 수 있습니다. **percentile** 및 **pct** 명령을 모두 사용할 수 있습니다. 다음은 몇 가지 예입니다.  
 
 ```
@@ -438,7 +419,6 @@ Type:Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Compute
 ```
 
 ## <a name="use-the-where-command"></a>Where 명령 사용
-
 명령이 필터와 같이 작동하지만 쿼리의 시작 부분에서 필터링된 원시 결과와 반대로 파이프라인에 적용하여 측정값 명령이 생성한 집계된 결과를 자세히 필터링할 수 있습니다.
 
 예:
@@ -460,7 +440,6 @@ Microsoft System Center Operations Manager에 익숙하다면 where 명령을 �
 ![모바일 대시보드](./media/log-analytics-log-searches/oms-search-mobile.png)
 
 ## <a name="use-the-in-operator"></a>in 연산자 사용
-
 *IN* 연산자와 *NOT IN* 연산자를 사용하면 인수로 다른 검색이 포함된 검색인 하위 검색을 사용할 수 있습니다. 이러한 연산자는 다른 *기본* 또는 *외부* 검색 내 중괄호 {} 안에 포함됩니다. 하위 검색의 결과(흔히, 고유한 결과 목록)는 기본 검색의 인수로 사용됩니다.
 
 검색 식에 직접적으로 설명할 수 없는, 하지만 검색을 통해 생성될 수 있는 데이터의 하위 집합에 맞추기 위해 하위 검색을 사용할 수 있습니다. 예를 들어, *보안 업데이트가 없는 컴퓨터*에서 모든 이벤트를 찾는 검색을 사용하려면 해당 호스트에 속하는 이벤트를 찾기 전에 *보안 업데이트가 없는 컴퓨터*를 먼저 식별하는 하위 검색을 디자인해야 합니다.
@@ -480,7 +459,6 @@ Type=Event Computer IN {Type:Update UpdateState=Needed Optional=false Classifica
 ```
 ![IN 검색 예제](./media/log-analytics-log-searches/oms-search-in02-revised.png)
 
-
 또한, 시스템 업데이트 평가에서 24시간마다 모든 컴퓨터의 스냅숏을 만들기 때문에, 내부 검색에 사용되는 시간 필터에 유의합니다. 하루 동안만 검색하면 내부 쿼리를 보다 가볍고 정확하게 만들 수 있습니다. 대신, 외부 검색은 마지막 7일간의 이벤트를 검색하는, 사용자 인터페이스의 시간 선택을 사용합니다. time 연산자에 대한 자세한 내용은 [부울 연산자](#boolean-operators) 참조하세요.
 
 내부 검색의 결과를 외부 검색에 대한 필터 값으로만 사용하기 때문에, 외부 검색에 명령을 적용할 수 있습니다. 예를 들어, 위의 이벤트를 다른 measure 명령을 사용하여 그룹화할 수 있습니다.
@@ -490,7 +468,6 @@ Type=Event Computer IN {Type:Update UpdateState=Needed Optional=false Classifica
 ```
 
 ![IN 검색 예제](./media/log-analytics-log-searches/oms-search-in03-revised.png)
-
 
 일반적으로, Log Analytics에 서비스 쪽 제한 시간이 있고 소량의 결과를 반환하기 때문에 내부 쿼리가 신속하게 실행되기를 바랍니다. 내부 쿼리가 더 많은 결과를 반환하면, 결과 목록이 잘리고, 이렇게 되면 외부 검색이 잘못된 결과를 반환하도록 유발할 가능성이 있습니다.
 
@@ -525,7 +502,6 @@ Type=SecurityEvent EventID=4624   Account!="BACONLAND\\jochan" Computer IN { Typ
 ```
 
 ## <a name="use-the-distinct-command"></a>distinct 명령 사용
-
 이름에서 알 수 있듯이, 이 명령은 필드의 고유 값 목록을 제공합니다. 매우 간단하지만 유용합니다. 아래에서 볼 수 있듯이, measure count() 명령을 사용하면 같은 결과를 낼 수 있습니다.
 
 ```
@@ -583,19 +559,17 @@ Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval
 ![OMS-multiaggregates1](./media/log-analytics-log-searches/oms-multiaggregates1.png)
 
 다른 예제입니다.
+
  ```
 * | measure countdistinct(Computer) as Computers, count() as TotalRecords by Type
 ```
 
 
 ## <a name="next-steps"></a>다음 단계
-
 로그 검색에 대한 자세한 내용은 다음을 참조하십시오.
 
-- [Log Analytics의 사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 로그 검색을 확장합니다.
-- Log Analytics에 제공되는 모든 검색 필드 및 패싯을 보려면 [Log Analytics log search reference](log-analytics-search-reference.md) (Log Analytics 로그 검색 참조)를 검토합니다.
-
-
+* [Log Analytics의 사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 로그 검색을 확장합니다.
+* Log Analytics에 제공되는 모든 검색 필드 및 패싯을 보려면 [Log Analytics log search reference](log-analytics-search-reference.md) (Log Analytics 로그 검색 참조)를 검토합니다.
 
 <!--HONumber=Oct16_HO2-->
 

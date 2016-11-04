@@ -1,39 +1,37 @@
-<properties
-    pageTitle="Log Analytics 뷰 디자이너 | Microsoft Azure"
-    description="Log Analytics에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있는 데이터의 서로 다른 시각화 요소를 포함하고 있는 OMS 콘솔에서 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 포함되어 있습니다."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bwren"
-    manager="jwhit"
-    editor=""/>
+---
+title: Log Analytics 뷰 디자이너 | Microsoft Docs
+description: Log Analytics에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있는 데이터의 서로 다른 시각화 요소를 포함하고 있는 OMS 콘솔에서 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 포함되어 있습니다.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/27/2016"
-    ms.author="bwren"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: bwren
 
-
+---
 # <a name="log-analytics-view-designer"></a>Log Analytics 뷰 디자이너
 Log Analytics에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있는 데이터의 서로 다른 시각화 요소를 포함하고 있는 OMS 콘솔에서 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 포함되어 있습니다.
 
 뷰 디자이너에 적용할 수 있는 다른 문서는 다음과 같습니다.
 
-- [타일 참조](log-analytics-view-designer-tiles.md) - 사용자 지정 보기에 사용할 수 있는 타일 각각의 설정에 대한 참조 
-- [시각화 요소 참조](log-analytics-view-designer-parts.md) - 사용자 지정 보기에 사용할 수 있는 타일 각각의 설정에 대한 참조 
-
+* [타일 참조](log-analytics-view-designer-tiles.md) - 사용자 지정 보기에 사용할 수 있는 타일 각각의 설정에 대한 참조 
+* [시각화 요소 참조](log-analytics-view-designer-parts.md) - 사용자 지정 보기에 사용할 수 있는 타일 각각의 설정에 대한 참조 
 
 ## <a name="concepts"></a>개념
 뷰 디자이너에서 만드는 보기에 포함되는 요소는 다음 표와 같습니다.
 
 | 부 | 설명 |
-|:--|:--|
-| 타일 | 기본 Log Analytics 개요 대시보드에서 표시됩니다.  사용자 지정 보기에 있는 정보를 요약하는 시각적 개체를 포함하고 있습니다.  타일 유형마다 OMS 리포지토리에 있는 레코드에 대해 차별화된 시각화를 제공합니다.  타일을 클릭하면 사용자 지정 보기가 열립니다. |
-| 사용자 지정 보기 | 사용자가 타일을 클릭할 때 표시됩니다.  시각화 요소를 하나 이상 포함하고 있습니다. |
-| 시각화 요소 | OMS 리포지토리의 데이터에 대한 [로그 검색](log-analytics-log-searches.md) 하나 이상에 기반한 시각화입니다.  대부분의 요소에는 높은 수준의 시각화와 상위 결과 목록을 제공하는 머리글이 포함되어 있습니다.  요소 유형마다 OMS 리포지토리에 있는 레코드에 대해 차별화된 시각화를 제공합니다.  요소의 항목을 클릭하면 상세 레코드를 제공하는 로그 검색을 수행합니다. |
+|:--- |:--- |
+| 타일 |기본 Log Analytics 개요 대시보드에서 표시됩니다.  사용자 지정 보기에 있는 정보를 요약하는 시각적 개체를 포함하고 있습니다.  타일 유형마다 OMS 리포지토리에 있는 레코드에 대해 차별화된 시각화를 제공합니다.  타일을 클릭하면 사용자 지정 보기가 열립니다. |
+| 사용자 지정 보기 |사용자가 타일을 클릭할 때 표시됩니다.  시각화 요소를 하나 이상 포함하고 있습니다. |
+| 시각화 요소 |OMS 리포지토리의 데이터에 대한 [로그 검색](log-analytics-log-searches.md) 하나 이상에 기반한 시각화입니다.  대부분의 요소에는 높은 수준의 시각화와 상위 결과 목록을 제공하는 머리글이 포함되어 있습니다.  요소 유형마다 OMS 리포지토리에 있는 레코드에 대해 차별화된 시각화를 제공합니다.  요소의 항목을 클릭하면 상세 레코드를 제공하는 로그 검색을 수행합니다. |
 
 ![뷰 디자이너 개요](media/log-analytics-view-designer/overview.png)
 
@@ -43,7 +41,6 @@ Log Analytics에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있�
 ![미리 보기 사용](media/log-analytics-view-designer/preview.png)
 
 ## <a name="creating-and-editing-views"></a>보기 만들기 및 편집
-
 ### <a name="create-a-new-view"></a>새 보기 만들기
 기본 OMS 대시보드에서 뷰 디자이너 타일을 클릭하여 **뷰 디자이너**에서 새 보기를 엽니다.
 
@@ -91,13 +88,9 @@ Log Analytics에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있�
 ### <a name="rearrange-visualization-parts"></a>시각화 요소 다시 정렬
 보기에는 시각화 요소의 행 하나만 있습니다.  기존 요소를 클릭하여 새 위치로 끌어가면 보기에서 해당 요소를 다시 정렬할 수 있습니다.
 
-
 ## <a name="next-steps"></a>다음 단계
-
-- 사용자 지정 보기에 [타일](log-analytics-view-designer-tiles.md) 추가
-- 사용자 지정 보기에 [시각화 요소](log-analytics-view-designer-parts.md) 추가
-
-
+* 사용자 지정 보기에 [타일](log-analytics-view-designer-tiles.md) 추가
+* 사용자 지정 보기에 [시각화 요소](log-analytics-view-designer-parts.md) 추가
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,21 +1,21 @@
-<properties
-   pageTitle="서비스 패브릭 클러스터에서 비정상 상황 유도 | Microsoft Azure"
-   description="오류 삽입 및 클러스터 분석 서비스 API를 사용하여 클러스터의 비정상 상황을 관리합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="motanv"
-   manager="rsinha"
-   editor="toddabel"/>
+---
+title: 서비스 패브릭 클러스터에서 비정상 상황 유도 | Microsoft Docs
+description: 오류 삽입 및 클러스터 분석 서비스 API를 사용하여 클러스터의 비정상 상황을 관리합니다.
+services: service-fabric
+documentationcenter: .net
+author: motanv
+manager: rsinha
+editor: toddabel
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/19/2016"
-   ms.author="motanv"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/19/2016
+ms.author: motanv
 
+---
 # 서비스 패브릭 클러스터에서 제어되는 비정상 상황 유도
 클라우드 인프라와 같은 대규모 분산 시스템은 기본적으로 안정적이지 않습니다. Azure 서비스 패브릭을 사용하면 개발자들은 불안정한 인프라 위에 안정적인 서비스를 작성할 수 있습니다. 강력한 서비스를 작성하기 위해 개발자는 불안정한 인프라와 같은 결함을 유도하여 서비스의 안정성을 테스트할 수 있어야 합니다.
 
@@ -24,12 +24,12 @@
 ## 비정상 상황에서 유도되는 오류
 비정상 상황에서는 전체 서비스 패브릭 클러스터에서 오류가 생성되며 수개월 또는 수년에 걸쳐 확인된 오류가 몇 시간으로 압축됩니다. 인터리브 오류를 높은 오류 비율과 결합하면 놓치기 쉬운 특이한 사례를 발견할 수 있습니다. 이러한 비정상 상황에 대처하는 연습을 통해 서비스 코드 품질을 대폭 개선할 수 있습니다. 비정상 상황은 다음 범주에서 오류를 유도합니다.
 
- - 노드 다시 시작
- - 배포된 코드 패키지 다시 시작
- - 복제본 제거
- - 복제본 다시 시작
- - 주 복제본 이동(구성 가능)
- - 보조 복제본 이동(구성 가능)
+* 노드 다시 시작
+* 배포된 코드 패키지 다시 시작
+* 복제본 제거
+* 복제본 다시 시작
+* 주 복제본 이동(구성 가능)
+* 보조 복제본 이동(구성 가능)
 
 비정상 상황에서는 지정된 기간 동안 오류 및 클러스터 유효성 검사가 여러 차례 반복해서 실행됩니다. 클러스터가 안정화되고 유효성 검사가 성공하는 데 걸리는 시간을 구성할 수 있습니다. 클러스터 유효성 검사에 오류가 있으면 비정상 상황이 생성되며 UTC 타임스탬프 및 오류 세부 정보로 ValidationFailedEvent가 유지됩니다.
 
@@ -38,16 +38,16 @@
 현재 형식에서 비정상 상황은 안전 오류만 유도합니다. 즉, 외부 오류가 없으면 쿼럼 손실 또는 데이터 손실이 발생하지 않습니다.
 
 ## 중요 구성 옵션
- - **TimeToRun**: 성공적으로 완료될 때까지 비정상 상황이 실행되는 총 시간입니다. StopChaos API를 통해 TimeToRun 기간 동안 실행되기 전에 비정상 상황을 중지할 수 있습니다.
- - **MaxClusterStabilizationTimeout**: 다시 검사하기 전에 클러스터가 정상 상태가 될 때까지 기다리는 최대 시간입니다. 이렇게 대기되므로 복구되는 동안 클러스터의 부하를 줄일 수 있습니다. 수행되는 검사
-    - 클러스터 상태가 정상인 경우
-    - 서비스 상태가 정상임
-    - 서비스 파티션에 대해 목표 복제본 집합 크기가 달성됩니다.
-    - InBuild 복사본이 없습니다.
- - **MaxConcurrentFaults**: 각 반복에서 유도되는 동시 오류의 최대 수입니다. 숫자가 클수록 비정상 상황이 좀 더 공격적이므로 더 복잡한 장애 조치(failover)와 전환 조합으로 이어집니다. 외부 오류가 없으면 이 숫자를 얼마나 높게 구성하든 쿼럼 또는 데이터 손실이 없습니다.
- - **EnableMoveReplicaFaults**: 주 복제본 또는 보조 복제본을 이동하게 만드는 오류를 설정하거나 해제합니다. 이러한 오류는 기본적으로 해제됩니다.
- - **WaitTimeBetweenIterations**: 반복 사이의 대기 시간입니다(예: 오류 및 그에 해당하는 유효성 검사 후).
- - **WaitTimeBetweenFaults**: 반복에서 두 개의 연속 오류 사이에 대기하는 시간입니다.
+* **TimeToRun**: 성공적으로 완료될 때까지 비정상 상황이 실행되는 총 시간입니다. StopChaos API를 통해 TimeToRun 기간 동안 실행되기 전에 비정상 상황을 중지할 수 있습니다.
+* **MaxClusterStabilizationTimeout**: 다시 검사하기 전에 클러스터가 정상 상태가 될 때까지 기다리는 최대 시간입니다. 이렇게 대기되므로 복구되는 동안 클러스터의 부하를 줄일 수 있습니다. 수행되는 검사
+  * 클러스터 상태가 정상인 경우
+  * 서비스 상태가 정상임
+  * 서비스 파티션에 대해 목표 복제본 집합 크기가 달성됩니다.
+  * InBuild 복사본이 없습니다.
+* **MaxConcurrentFaults**: 각 반복에서 유도되는 동시 오류의 최대 수입니다. 숫자가 클수록 비정상 상황이 좀 더 공격적이므로 더 복잡한 장애 조치(failover)와 전환 조합으로 이어집니다. 외부 오류가 없으면 이 숫자를 얼마나 높게 구성하든 쿼럼 또는 데이터 손실이 없습니다.
+* **EnableMoveReplicaFaults**: 주 복제본 또는 보조 복제본을 이동하게 만드는 오류를 설정하거나 해제합니다. 이러한 오류는 기본적으로 해제됩니다.
+* **WaitTimeBetweenIterations**: 반복 사이의 대기 시간입니다(예: 오류 및 그에 해당하는 유효성 검사 후).
+* **WaitTimeBetweenFaults**: 반복에서 두 개의 연속 오류 사이에 대기하는 시간입니다.
 
 ## 비정상 상황을 실행하는 방법
 C# 샘플

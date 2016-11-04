@@ -1,25 +1,26 @@
 
-<properties 
-    pageTitle="Azure RemoteApp 네트워크 대역폭 사용량 예측 | Microsoft Azure"
-	description="Azure RemoteApp 컬렉션 및 앱에 대한 네트워크 대역폭 요구 사항을 알아봅니다."
-	services="remoteapp"
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" />
+---
+title: Azure RemoteApp 네트워크 대역폭 사용량 예측 | Microsoft Docs
+description: Azure RemoteApp 컬렉션 및 앱에 대한 네트워크 대역폭 요구 사항을 알아봅니다.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-# Azure RemoteApp 네트워크 대역폭 사용량 예측 
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+---
+# Azure RemoteApp 네트워크 대역폭 사용량 예측
+> [!IMPORTANT]
+> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> 
+> 
 
 Azure RemoteApp은 RDP(원격 데스크톱 프로토콜)를 사용하여 Azure 클라우드에서 실행 중인 응용 프로그램과 사용자 간에 통신합니다. 이 문서에서는 네트워크 사용량을 계산하고 잠재적으로 Azure RemoteApp 사용자당 네트워크 대역폭 사용량을 평가하는 데 사용할 수 있는 몇 가지 기본 지침을 제공합니다.
 
@@ -29,13 +30,11 @@ Azure RemoteApp은 RDP(원격 데스크톱 프로토콜)를 사용하여 Azure �
 
 고려할 요소, 기준선 권장 사항, 예측에 포함되지 않은 항목 등의 자세한 내용은 다음 문서를 확인하세요.
 
-- [네트워크 대역폭과 환경 품질을 함께 작동하는 방식은 무엇인가요?](remoteapp-bandwidthexperience.md)
-- [몇 가지 일반적인 시나리오로 네트워크 대역폭 사용량 테스트](remoteapp-bandwidthtests.md)
-- [테스트할 시간 또는 능력이 없는 경우의 빠른 지침](remoteapp-bandwidthguidelines.md)
-
+* [네트워크 대역폭과 환경 품질을 함께 작동하는 방식은 무엇인가요?](remoteapp-bandwidthexperience.md)
+* [몇 가지 일반적인 시나리오로 네트워크 대역폭 사용량 테스트](remoteapp-bandwidthtests.md)
+* [테스트할 시간 또는 능력이 없는 경우의 빠른 지침](remoteapp-bandwidthguidelines.md)
 
 ## 포함하지 않은 항목
-
 제안된 테스트와 전반적인(그리고 일반적인) 권장 사항을 고려할 때 여기에 포함되지 않은 몇 가지 요소가 있다는 점을 알아야 합니다. 예를 들어 업로드 대역폭과 다운로드 대역폭의 비대칭 특성으로 인한 사용자 환경의 복잡성입니다. 대부분의 Wi-Fi 네트워크의 비대칭 특성은 성능과 사용자 환경 인식에 추가적으로 영향을 줍니다. 대화형 시나리오의 경우 다운스트림 트래픽이 업스트림보다 우선 순위가 낮을 수 있으므로 손실되는 비디오 및 오디오 프레임 수가 증가할 수 있습니다. 따라서 스트리밍 환경에 대한 사용자 인식이 영향을 받을 수 있습니다. 직접 실험을 통해 특정 사용 사례 및 네트워크에 적합한지 확인할 수 있습니다.
 
 장치 리디렉션에 대해 다루지만 저장소, 프린터, 스캐너, 웹 카메라 및 기타 USB 장치와 같은 연결된 장치로 인한 네트워크 트래픽의 대역폭 영향은 고려하지 않았습니다. 이러한 장치는 일반적으로 대역폭 수요를 일시적으로 급증시키며 작업이 완료되면 효과가 사라집니다. 그러나 자주 수행되는 경우 대역폭 수요가 상당히 증가할 수 있습니다.

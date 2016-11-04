@@ -1,47 +1,43 @@
-<properties
-    pageTitle="Machine Learning 웹 서비스 배포 | Microsoft Azure"
-    description="학습 실험을 예측 실험으로 변환하고 배포할 준비를 한 다음 Azure Machine Learning 웹 서비스로 배포하는 방법입니다."
-    services="machine-learning"
-    documentationCenter=""
-    authors="garyericson"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: Machine Learning 웹 서비스 배포 | Microsoft Docs
+description: 학습 실험을 예측 실험으로 변환하고 배포할 준비를 한 다음 Azure Machine Learning 웹 서비스로 배포하는 방법입니다.
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/04/2016
+ms.author: garye
 
-
+---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Azure Machine Learning 웹 서비스 배포
-
 Azure Machine Learning을 사용하면 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다.
 
 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
 
-- **[학습 실험 만들기]** - Azure 기계 학습 스튜디오는 사용자가 제공하는 학습 데이터를 사용하여 예측 분석 모델을 학습하고 테스트하는 데 사용하는 시각적 공동 개발 환경입니다.
-- **[예측 실험으로 변환]** - 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 예측을 위해 실험을 준비하고 간소화합니다.
-- **웹 서비스로 배포** - 예측 실험을 [신규] 또는 [기존] Azure 웹 서비스로 배포할 수 있습니다. 사용자 모델에 데이터를 보내고 모델의 예측을 받을 수 있습니다.
+* **[학습 실험 만들기]** - Azure 기계 학습 스튜디오는 사용자가 제공하는 학습 데이터를 사용하여 예측 분석 모델을 학습하고 테스트하는 데 사용하는 시각적 공동 개발 환경입니다.
+* **[예측 실험으로 변환]** - 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 예측을 위해 실험을 준비하고 간소화합니다.
+* **웹 서비스로 배포** - 예측 실험을 [신규] 또는 [기존] Azure 웹 서비스로 배포할 수 있습니다. 사용자 모델에 데이터를 보내고 모델의 예측을 받을 수 있습니다.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="create-a-training-experiment"></a>학습 실험 만들기
-
 예측 분석 모델을 학습시키려면 Azure 기계 학습 스튜디오에서 학습 데이터를 로드하고, 필요한 대로 데이터를 준비하며, 기계 학습 알고리즘을 적용하고 결과를 평가하는 다양한 모듈을 포함하는 학습 실험을 만듭니다. 실험은 반복할 수 있으며 여러 다른 기계 학습 알고리즘을 시도하여 결과를 비교하고 평가할 수 있습니다.
 
 학습 실험을 만들고 관리하는 프로세스는 다른 부분에서 더욱 철저히 다룹니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure 기계 학습 스튜디오에서 간단한 실험 만들기](machine-learning-create-experiment.md)
-- [Azure 기계 학습을 사용하여 예측 솔루션 개발](machine-learning-walkthrough-develop-predictive-solution.md)
-- [Azure 기계 학습 스튜디오에 학습 데이터 가져오기](machine-learning-data-science-import-data.md)
-- [Azure 기계 학습 스튜디오에서 반복 실험 관리](machine-learning-manage-experiment-iterations.md)
+* [Azure 기계 학습 스튜디오에서 간단한 실험 만들기](machine-learning-create-experiment.md)
+* [Azure 기계 학습을 사용하여 예측 솔루션 개발](machine-learning-walkthrough-develop-predictive-solution.md)
+* [Azure 기계 학습 스튜디오에 학습 데이터 가져오기](machine-learning-data-science-import-data.md)
+* [Azure 기계 학습 스튜디오에서 반복 실험 관리](machine-learning-manage-experiment-iterations.md)
 
 ## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>학습 실험에서 예측 실험으로 변환
-
 모델을 학습했으면 학습 실험을 예측 실험으로 변환하여 새 데이터의 점수를 매길 준비가 된 것입니다.
 
 예측 실험으로 변환하면 학습된 모델을 점수 매기기 웹 서비스로 배포할 준비가 완료됩니다. 웹 서비스 사용자가 입력 데이터를 모델로 보내면 모델에서 예측 결과를 다시 전송합니다. 따라서 예측 실험을 변환할 때 다른 사람이 사용할 모델을 어떻게 예측할 것인지를 염두에 두어야 합니다.
@@ -55,19 +51,17 @@ Azure Machine Learning을 사용하면 예측 분석 솔루션을 빌드, 테스
 다음 단계에서는 예측 실험을 새 웹 서비스로 배포하는 방법을 설명합니다. 실험을 기존 웹 서비스로 배포할 수도 있습니다.
 
 ## <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>예측 실험을 새 웹 서비스로 배포
-
 이제 예측 실험이 준비되었으므로 이를 Azure 웹 서비스로 배포할 수 있습니다. 웹 서비스를 사용하면 사용자가 모델에 데이터를 보낼 수 있으며, 이 경우 모델에서 해당 예측을 반환합니다.
 
 예측 실험을 배포하려면 실험 캔버스의 맨 아래에서 **실행**을 클릭합니다. 실험 실행이 완료되면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]**를 선택합니다.  Machine Learning 웹 서비스 포털의 배포 페이지가 열립니다. 
 
 ### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Machine Learning 웹 서비스 포털 배포 실험 페이지
-
 실험 배포 페이지에서 웹 서비스의 이름을 입력합니다.
 가격 책정 계획을 선택합니다. 기존 가격 책정 계획이 있는 경우 해당 계획을 선택하고 그렇지 않으면 서비스에 대한 새 가격 계획을 만들어야 합니다. 
 
-1.  **가격 계획** 드롭다운에서 기존 계획을 선택하거나 **새 계획 선택** 옵션을 선택합니다.
-2.  **계획 이름**에 청구서의 계획을 식별하는 이름을 입력합니다.
-3.  **월별 계획 계층**중 하나를 선택합니다. 계획 계층이 기본적으로 기본 하위 지역에 대한 계획으로 설정되고 웹 서비스는 해당 하위 지역에 배포됩니다.
+1. **가격 계획** 드롭다운에서 기존 계획을 선택하거나 **새 계획 선택** 옵션을 선택합니다.
+2. **계획 이름**에 청구서의 계획을 식별하는 이름을 입력합니다.
+3. **월별 계획 계층**중 하나를 선택합니다. 계획 계층이 기본적으로 기본 하위 지역에 대한 계획으로 설정되고 웹 서비스는 해당 하위 지역에 배포됩니다.
 
 **배포**를 클릭하면 웹 서비스에 대한 **빠른 시작** 페이지를 엽니다.
 
@@ -76,7 +70,6 @@ Azure Machine Learning을 사용하면 예측 분석 솔루션을 빌드, 테스
 <!-- ![Deploy the Web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)-->
 
 ### <a name="test-your-web-service"></a>웹 서비스 테스트
-
 새 웹 서비스를 테스트하려면 일반 작업에서 **웹 서비스 테스트**를 클릭합니다. 테스트 페이지에서 웹 서비스를 RRS(요청-응답 서비스) 또는 BES(일괄 처리 실행 서비스)로 테스트할 수 있습니다. 
 
 RRS 테스트 페이지에서는 실험에 대해 정의된 입력, 출력 및 모든 전역 매개 변수를 표시합니다. 웹 서비스를 테스트하려면 입력에 적절한 값을 수동으로 입력하거나 테스트 값을 포함하는 CSV(쉼표로 구분된 값) 형식의 파일을 제공할 수 있습니다. 
@@ -103,12 +96,11 @@ BES를 테스트하려면 **배치**를 클릭합니다. 배치 테스트 페이
 
 웹 서비스를 배포한 후 다음 작업을 수행할 수 있습니다.
 
-- 웹 서비스 API를 통한 **액세스**
-- Azure Machine Learning 웹 서비스 포털 또는 Azure 클래식 포털을 통한 **관리** 
-- 모델이 변경되는 경우 **업데이트**
+* 웹 서비스 API를 통한 **액세스**
+* Azure Machine Learning 웹 서비스 포털 또는 Azure 클래식 포털을 통한 **관리** 
+* 모델이 변경되는 경우 **업데이트**
 
 ### <a name="access-the-web-service"></a>웹 서비스 액세스
-
 Machine Learning Studio에서 웹 서비스를 배포하면 서비스에 데이터를 보내고 프로그래밍 방식으로 응답을 받을 수 있습니다.
 
 **사용** 페이지에서는 웹 서비스에 액세스하는 데 필요한 모든 정보를 제공합니다. 예를 들어, 서비스에 대한 권한이 부여된 액세스를 허용하도록 API 키를 제공합니다. 
@@ -116,11 +108,9 @@ Machine Learning Studio에서 웹 서비스를 배포하면 서비스에 데이�
 Machine Learning 웹 서비스 액세스에 대한 자세한 내용은 [배포된 Azure Machine Learning 웹 서비스를 사용하는 방법](machine-learning-consume-Web-services.md)을 참조하세요.
 
 ### <a name="manage-your-new-web-service"></a>새 웹 서비스 관리
-
 기존 웹 서비스 Machine Learning 웹 서비스 포털을 관리할 수 있습니다. [기본 포털 페이지](https://services.azureml-test.net/)에서 **웹 서비스**를 클릭합니다. 웹 서비스 페이지에서 서비스를 삭제하거나 복사할 수 있습니다. 특정 서비스를 모니터링하려면 서비스를 클릭한 다음 **대시보드**를 클릭합니다. 웹 서비스와 연결된 Batch 작업을 모니터링하려면 **Batch 요청 로그**를 클릭합니다.
 
 ## <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>예측 실험을 기존 웹 서비스로 배포
-
 이제 예측 실험이 충분히 준비되었으므로 이를 Azure 웹 서비스로 배포할 수 있습니다. 웹 서비스를 사용하면 사용자가 모델에 데이터를 보낼 수 있으며, 이 경우 모델에서 해당 예측을 반환합니다.
 
 예측 실험을 배포하려면 실험 캔버스의 맨 아래에서 **실행**을 클릭한 다음 **웹 서비스 배포**를 클릭합니다. 웹 서비스가 설정되고 웹 서비스 대시보드에 배치됩니다.
@@ -144,7 +134,6 @@ Machine Learning 웹 서비스 액세스에 대한 자세한 내용은 [배포�
 또한 앞서 새 웹 서비스 섹션에 나온 절차와 유사하게 Azure Machine Learning 웹 서비스 포털에서 웹 서비스에 대한 끝점을 구성할 수 있습니다. 옵션은 여러 가지가 있습니다. 서비스 설명을 추가하거나 변경하고, 로깅을 사용하도록 설정하고, 테스트에 사용할 샘플 데이터를 사용하도록 설정할 수 있습니다.
 
 ### <a name="access-the-web-service"></a>웹 서비스 액세스
-
 Machine Learning Studio에서 웹 서비스를 배포하면 서비스에 데이터를 보내고 프로그래밍 방식으로 응답을 받을 수 있습니다.
 
 대시보드에서는 웹 서비스에 액세스하는 데 필요한 모든 정보를 제공합니다. 예를 들어, 서비스에 대해 권한 부여된 액세스가 가능하도록 API 키가 제공되고, 코드 작성을 시작하는 데 도움이 되도록 API 도움말 페이지가 제공됩니다.
@@ -152,27 +141,27 @@ Machine Learning Studio에서 웹 서비스를 배포하면 서비스에 데이�
 Machine Learning 웹 서비스 액세스에 대한 자세한 내용은 [배포된 Azure Machine Learning 웹 서비스를 사용하는 방법](machine-learning-consume-Web-services.md)을 참조하세요.
 
 ### <a name="manage-the-web-service"></a>웹 서비스 관리
-
 다양한 작업을 통해 웹 서비스를 모니터링할 수 있습니다. 업데이트 및 삭제할 수 있습니다. 배포할 때 생성되는 기본 끝점 외에, 기존 웹 서비스에 추가 끝점도 추가할 수 있습니다.
 
 자세한 내용은 [Azure Machine Learning 작업 영역 관리](machine-learning-manage-workspace.md) 및 [Azure Machine Learning 웹 서비스 포털을 사용하여 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요.
-  
+
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning Web service endpoints using the REST API, see **Azure machine learning Web service endpoints**.
 -->
 
 ## <a name="update-the-web-service"></a>웹 서비스 업데이트
-
 추가 학습 데이터로 모델을 업데이트하는 것과 같이 웹 서비스를 변경하고 다시 배포하여 원래 웹 서비스를 덮어쓸 수 있습니다.
 
 웹 서비스를 업데이트하려면 웹 서비스를 배포하는 데 사용한 원래 예측 실험을 열고 **다른 이름으로 저장**을 클릭하여 편집 가능한 사본을 만듭니다. 변경한 다음 **웹 서비스 배포**를 클릭합니다. 
 
 이 실험을 이전에 배포했기 때문에 덮어쓸(기존 웹 서비스) 것인지 업데이트할(새 웹 서비스) 것인지 묻는 메시지가 표시됩니다. **예** 또는 **업데이트**를 클릭하여 기존 웹 서비스를 중지하고 대신 새 예측 실험을 배포합니다.
 
-> [AZURE.NOTE] 예를 들어, 새 표시 이름 또는 설명을 입력하여 원래 웹 서비스의 구성을 변경한 경우 해당 값을 다시 입력해야 합니다.
+> [!NOTE]
+> 예를 들어, 새 표시 이름 또는 설명을 입력하여 원래 웹 서비스의 구성을 변경한 경우 해당 값을 다시 입력해야 합니다.
+> 
+> 
 
 웹 서비스를 업데이트하기 위한 한 가지 옵션은 프로그래밍 방식으로 모델을 다시 학습하는 것입니다. 자세한 내용은 [프로그래밍 방식으로 기계 학습 모델 다시 학습](machine-learning-retrain-models-programmatically.md)을 참조하세요.
-
 
 <!-- internal links -->
 [학습 실험 만들기]: #create-a-training-experiment

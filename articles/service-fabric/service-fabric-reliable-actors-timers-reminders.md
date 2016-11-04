@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Reliable Actors 타이머 및 미리 알림 | Microsoft Azure"
-   description="서비스 패브릭 Reliable Actors의 타이머 및 미리 알림에 대해 소개합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor="amanbha"/>
+---
+title: Reliable Actors 타이머 및 미리 알림 | Microsoft Docs
+description: 서비스 패브릭 Reliable Actors의 타이머 및 미리 알림에 대해 소개합니다.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: amanbha
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="07/06/2016"
-   ms.author="vturecek"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 07/06/2016
+ms.author: vturecek
 
-
+---
 # 행위자 타이머 및 미리 알림
 행위자는 타이머 또는 미리 알림을 등록하여 정기적인 작업을 예약할 수 있습니다. 이 문서에서는 타이머와 미리 알림을 사용하는 방법을 보여 주고 둘 간의 차이점을 설명합니다.
 
@@ -119,10 +118,10 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 위에 나온 것처럼 `UnregisterReminder` 메서드는 `IActorReminder` 인터페이스를 허용합니다. 행위자 기본 클래스는 미리 알림 이름에 전달하여 `IActorReminder` 인터페이스를 검색하는 데 사용할 수 있는 `GetReminder` 메서드를 지원합니다. 이 방법은 행위자가 `RegisterReminder` 메서드에서 반환된 `IActorReminder` 인터페이스를 유지할 필요가 없기 때문에 편리합니다.
 
 ## 다음 단계
- - [행위자 이벤트](service-fabric-reliable-actors-events.md)
- - [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
- - [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
- - [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [샘플 코드](https://github.com/Azure/servicefabric-samples)
+* [행위자 이벤트](service-fabric-reliable-actors-events.md)
+* [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
+* [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
+* [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [샘플 코드](https://github.com/Azure/servicefabric-samples)
 
 <!---HONumber=AcomDC_0713_2016-->

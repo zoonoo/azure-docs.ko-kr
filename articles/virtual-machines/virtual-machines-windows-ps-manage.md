@@ -1,39 +1,35 @@
-<properties
-	pageTitle="리소스 관리자 및 PowerShell을 사용하여 VM 관리 | Microsoft Azure"
-	description="Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리"
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: 리소스 관리자 및 PowerShell을 사용하여 VM 관리 | Microsoft Docs
+description: Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리
+services: virtual-machines-windows
+documentationcenter: ''
+author: davidmu1
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="na"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="davidmu"/>
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 06/07/2016
+ms.author: davidmu
 
+---
 # 리소스 관리자 및 PowerShell을 사용하여 Azure 가상 컴퓨터 관리
-
 ## Azure PowerShell 설치
- 
 최신 버전의 Azure PowerShell을 설치하는 방법, 사용할 구독을 선택하는 방법, Azure 계정에 로그인하는 방법은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
 ## 변수 설정
-
 이 문서의 모든 명령은 가상 컴퓨터가 있는 리소스 그룹 이름 및 관리할 가상 컴퓨터 이름이 필요합니다. **$rgName** 값을 가상 컴퓨터를 포함하는 리소스 그룹 이름으로 바꿉니다. **$vmName** 값을 VM 이름으로 바꿉니다. 변수를 만듭니다.
 
     $rgName = "resource-group-name"
     $vmName = "VM-name"
 
 ## 가상 컴퓨터에 대한 정보 표시
-
 가상 컴퓨터 정보를 가져옵니다.
-  
+
     Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 이때 반환되는 내용은 다음과 같습니다.
@@ -105,7 +101,6 @@
                                 rg1/providers/Microsoft.Network/networkInterfaces/nc1}
 
 ## 가상 컴퓨터 시작
-
 가상 컴퓨터를 시작합니다.
 
     Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
@@ -117,7 +112,6 @@
                               True          OK  OK
 
 ## 가상 컴퓨터 중지
-
 가상 컴퓨터를 중지합니다.
 
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
@@ -127,7 +121,7 @@
     Virtual machine stopping operation
     This cmdlet will stop the specified virtual machine. Do you want to continue?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-        
+
 가상 컴퓨터를 중지하려면 **Y**를 입력합니다.
 
 몇 분 후 다음과 같이 반환됩니다.
@@ -137,7 +131,6 @@
                               True          OK  OK
 
 ## 가상 컴퓨터 다시 시작
-
 가상 컴퓨터를 다시 시작합니다.
 
     Restart-AzureRmVM -ResourceGroupName $rgName -Name $vmName
@@ -149,12 +142,14 @@
                               True          OK  OK
 
 ## 가상 컴퓨터 삭제
-
 가상 컴퓨터를 삭제합니다.
 
     Remove-AzureRmVM -ResourceGroupName $rgName –Name $vmName
 
-> [AZURE.NOTE] **–Force** 매개 변수를 사용하여 확인 프롬프트를 건너뜁니다.
+> [!NOTE]
+> **–Force** 매개 변수를 사용하여 확인 프롬프트를 건너뜁니다.
+> 
+> 
 
 -Force 매개 변수를 사용하지 않은 경우 확인하라는 메시지가 나타납니다.
 
@@ -169,24 +164,22 @@
                               True          OK  OK
 
 ## 가상 컴퓨터 크기 조정
-
 이 예제에서는 가상 컴퓨터 크기를 업데이트하는 방법을 보여 줍니다.
-        
+
     $vmSize = "Standard_A1"
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     $vm.HardwareProfile.vmSize = $vmSize
     Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
-    
+
 이때 반환되는 내용은 다음과 같습니다.
 
     RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
     ---------  -------------------  ----------  ------------
                               True          OK  OK
-                              
+
 가상 컴퓨터에 사용 가능한 크기 목록은 [Azure에서 가상 컴퓨터에 대한 크기](virtual-machines-windows-sizes.md)를 참조하세요.
 
 ## 데이터 디스크를 가상 컴퓨터에 추가
-
 이 예제는 기존 가상 컴퓨터에 데이터 디스크를 추가하는 방법을 보여줍니다.
 
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
@@ -219,7 +212,6 @@
     }
 
 ## 다음 단계
-
 배포에 문제가 있는 경우 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴보세요.
 
 <!---HONumber=AcomDC_0907_2016-->

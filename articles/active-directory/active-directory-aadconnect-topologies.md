@@ -1,38 +1,36 @@
-<properties
-    pageTitle="Azure AD Connect: 지원되는 토폴로지 | Microsoft Azure"
-    description="이 항목은 Azure AD Connect에 대해 지원되고 지원되지 않는 토폴로지에 대해 자세히 설명합니다."
-    services="active-directory"
-    documentationCenter=""
-    authors="AndKjell"
-    manager="femila"
-    editor=""/>
-<tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.topic="article"
-    ms.date="06/27/2016"
-    ms.author="billmath"/>
+---
+title: 'Azure AD Connect: 지원되는 토폴로지 | Microsoft Docs'
+description: 이 항목은 Azure AD Connect에 대해 지원되고 지원되지 않는 토폴로지에 대해 자세히 설명합니다.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
+ms.service: active-directory
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.topic: article
+ms.date: 06/27/2016
+ms.author: billmath
 
+---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
-
 이 항목의 목적은 주요 통합 솔루션인 Azure AD Connect Sync와 함께 여러 온-프레미스 및 Azure AD 토폴로지에 대해 설명하는 것입니다. 지원되거나 지원되지 않는 구성에 대해 설명합니다.
 
 문서 내 그림에 대한 범례:
 
-설명 | 아이콘
------|-----
-온-프레미스 Active Directory 포리스트| ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)
-필터링된 가져오기를 사용한 Active Directory| ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)
-Azure AD Connect Sync 서버| ![동기화](./media/active-directory-aadconnect-topologies/LegendSync1.png)
-Azure AD Connect Sync 서버 “스테이징 모드"| ![동기화](./media/active-directory-aadconnect-topologies/LegendSync2.png)
-FIM2010 또는 MIM2016로 GALSync| ![동기화](./media/active-directory-aadconnect-topologies/LegendSync3.png)
-Azure AD Connect Sync 서버, 자세히 설명됨| ![동기화](./media/active-directory-aadconnect-topologies/LegendSync4.png)
-Azure AD Directory |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)
-지원되지 않는 시나리오 | ![지원되지 않음](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
-
+| 설명 | 아이콘 |
+| --- | --- |
+| 온-프레미스 Active Directory 포리스트 |![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png) |
+| 필터링된 가져오기를 사용한 Active Directory |![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png) |
+| Azure AD Connect Sync 서버 |![동기화](./media/active-directory-aadconnect-topologies/LegendSync1.png) |
+| Azure AD Connect Sync 서버 “스테이징 모드" |![동기화](./media/active-directory-aadconnect-topologies/LegendSync2.png) |
+| FIM2010 또는 MIM2016로 GALSync |![동기화](./media/active-directory-aadconnect-topologies/LegendSync3.png) |
+| Azure AD Connect Sync 서버, 자세히 설명됨 |![동기화](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
+| Azure AD Directory |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
+| 지원되지 않는 시나리오 |![지원되지 않음](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
 
 ## <a name="single-forest,-single-azure-ad-directory"></a>단일 포리스트, 단일 Azure AD Directory
 ![단일 포리스트 단일 디렉터리](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
@@ -64,8 +62,8 @@ Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니�
 
 사용자 환경이 이러한 가정과 일치하지 않는 경우 다음이 수행됩니다.
 
-- 둘 이상의 활성 계정 또는 둘 이상의 사서함이 있으면 동기화 엔진은 하나를 선택하고 다른 하나는 무시합니다.
-- 다른 활성 계정이 없으면 연결된 사서함을 Azure AD로 내보내지 않습니다. 임의 그룹의 구성원으로 사용자 계정이 표시되지 않습니다. DirSync에서는 연결된 사서함이 일반 사서함으로 항상 나타나므로 이 변경은 여러 포리스트 시나리오의 지원을 향상시키기 위한 의도적인 다른 동작입니다.
+* 둘 이상의 활성 계정 또는 둘 이상의 사서함이 있으면 동기화 엔진은 하나를 선택하고 다른 하나는 무시합니다.
+* 다른 활성 계정이 없으면 연결된 사서함을 Azure AD로 내보내지 않습니다. 임의 그룹의 구성원으로 사용자 계정이 표시되지 않습니다. DirSync에서는 연결된 사서함이 일반 사서함으로 항상 나타나므로 이 변경은 여러 포리스트 시나리오의 지원을 향상시키기 위한 의도적인 다른 동작입니다.
 
 자세한 내용은 [기본 구성 이해](active-directory-aadconnectsync-understanding-default-configuration.md)에서 확인할 수 있습니다.
 
@@ -119,10 +117,10 @@ Exchange가 둘 이상의 포리스트에 있다면 온-프레미스 GALSync 솔
 ## <a name="office-365-and-topology-considerations"></a>Office 365 및 토폴로지 고려 사항
 일부 Office 365 워크로드의 경우 지원되는 토폴로지에 특정 제한이 있습니다. 이 중 하나를 사용하려는 경우 워크로드의 지원되는 토폴로지 항목을 참조하세요.
 
-워크로드 |  
---------- | ---------
-Exchange Online | 둘 이상의 Exchange 조직 온-프레미스의 경우(즉, Exchange가 둘 이상 포리스트에 배포된 경우) Exchange 2013 SP1 이상을 사용해야 합니다. 자세한 내용은 [여러 Active Directory 포리스트가 있는 하이브리드 배포](https://technet.microsoft.com/library/jj873754.aspx)에서 확인할 수 있습니다.
-비즈니스용 Skype | 다중 포리스트 온-프레미스를 사용하는 경우 계정 리소스 포리스트 토폴로지만 지원됩니다. 지원되는 토폴로지에 대한 자세한내용은 [Business Server 2015용 Skype에 대한 환경 요구사항](https://technet.microsoft.com/library/dn933910.aspx)에서 확인할 수 있습니다.
+| 워크로드 |
+| --- | --- |
+| Exchange Online |
+| 비즈니스용 Skype |
 
 ## <a name="staging-server"></a>스테이징 서버
 ![준비 서버](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -139,9 +137,9 @@ Azure AD Connect는 **준비 모드**에서 두 번째 서버의 설치를 지�
 Microsoft는 조직을 위해 Azure AD에 단일 디렉터리를 보유할 것을 권장합니다.
 여러 Azure AD 디렉터리를 사용하도록 계획하기 전에 다음 항목에서는 단일 디렉터리의 사용을 허용하는 일반적인 시나리오를 다룹니다.
 
-항목 |  
---------- | ---------
-관리 단위를 사용하여 위임 | [Azure AD 에서 관리 단위 관리 ](active-directory-administrative-units-management.md)
+| 항목 |
+| --- | --- |
+| 관리 단위를 사용하여 위임 |
 
 ![다중 포리스트 다중 디렉터리](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -156,28 +154,28 @@ Azure AD 디렉터리 인스턴스 사이에는 GALsync가 없습니다. Exchang
 
 이 토폴로지는 그 외의 시나리오에 대해 다음과 같은 제한 사항이 있습니다.
 
-- 하나의 Azure AD 디렉터리만 온-프레미스 Active Directory를 사용하여 Exchange 하이브리드를 활성화할 수 있습니다.
-- Windows 10 장치는 하나의 Azure AD 디렉터리와만 연결할 수 있습니다.
+* 하나의 Azure AD 디렉터리만 온-프레미스 Active Directory를 사용하여 Exchange 하이브리드를 활성화할 수 있습니다.
+* Windows 10 장치는 하나의 Azure AD 디렉터리와만 연결할 수 있습니다.
 
 상호 배타적인 집합 개체에 대한 요구 사항은 쓰기 저장에도 적용됩니다. 일부 쓰기 저장 기능은 이러한 특성이 온-프레미스의 단일 구성을 가정하므로 이 토폴로지에서 지원되지 않습니다.
 
--   기본 구성으로 쓰기 저장 그룹화
--   장치 쓰기 저장
+* 기본 구성으로 쓰기 저장 그룹화
+* 장치 쓰기 저장
 
 ### <a name="each-object-multiple-times-in-an-azure-ad-directory"></a>Azure AD 디렉터리에서 각 개체가 여러 번
 ![지원되지 않는 단일 포리스트 다중 디렉터리](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![지원되지 않는 단일 포리스트 다중 커넥터](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
 
-- 동일한 사용자를 여러 Azure AD 디렉터리에 동기화하는 것은 지원되지 않습니다.
-- 하나의 Azure AD에 있는 사용자가 다른 Azure AD Directory 내의 연락처로 표시되도록 구성을 변경하는 것이 지원되지 않습니다.
-- Azure AD Connect Sync를 여러 Azure AD 디렉터리에 연결되도록 수정하는 것이 지원되지 않습니다.
+* 동일한 사용자를 여러 Azure AD 디렉터리에 동기화하는 것은 지원되지 않습니다.
+* 하나의 Azure AD에 있는 사용자가 다른 Azure AD Directory 내의 연락처로 표시되도록 구성을 변경하는 것이 지원되지 않습니다.
+* Azure AD Connect Sync를 여러 Azure AD 디렉터리에 연결되도록 수정하는 것이 지원되지 않습니다.
 
 ### <a name="galsync-by-using-writeback"></a>쓰기 저장을 사용한 GALsync
 ![MultiForestMultiDirectoryGALSync1Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![MultiForestMultiDirectoryGALSync2Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
 
 Azure AD 디렉터리는 설계상 격리되어 있습니다.
 
-- 다른 Azure AD 디렉터리에서 데이터를 읽도록 Azure AD Connect 동기화의 구성을 변경하는 것은 지원되지 않습니다.
-- Azure AD Connect Sync를 사용하여 사용자를 온-프레미스 AD에 연락처로 내보내는 것이 지원되지 않습니다.
+* 다른 Azure AD 디렉터리에서 데이터를 읽도록 Azure AD Connect 동기화의 구성을 변경하는 것은 지원되지 않습니다.
+* Azure AD Connect Sync를 사용하여 사용자를 온-프레미스 AD에 연락처로 내보내는 것이 지원되지 않습니다.
 
 ### <a name="galsync-with-on-premises-sync-server"></a>온-프레미스 동기화 서버로 GALsync
 ![MultiForestMultiDirectoryGALSync](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync.png)
@@ -185,13 +183,11 @@ Azure AD 디렉터리는 설계상 격리되어 있습니다.
 두 개의 Exchange 조직 사이에서 GALsync 사용자에게 FIM2010/MIM2016 온-프레미스를 사용하도록 지원합니다. 한 조직 내의 사용자가 다른 조직에서 외부 사용자/연락처로 표시됩니다. 이러한 여러 온-프레미스 AD를 각각 자체 Azure AD 디렉터리에 동기화할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이러한 시나리오에 대해 Azure AD Connect를 설치하는 방법을 알아보려면 [Azure AD Connect의 사용자 지정 설치](./aad-connect/active-directory-aadconnect-get-started-custom.md)를 참조하세요.
+이러한 시나리오에 대해 Azure AD Connect를 설치하는 방법을 알아보려면 [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)를 참조하세요.
 
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

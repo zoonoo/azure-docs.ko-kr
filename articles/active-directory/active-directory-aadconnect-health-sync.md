@@ -1,22 +1,22 @@
 
-<properties
-	pageTitle="동기화와 함께 Azure AD Connect Health 사용 | Microsoft Azure"
-	description="Azure AD Connect 동기화를 모니터링하는 방법을 설명하는 Azure AD Connect Health 페이지입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="femila"
-	editor="curtand"/>
+---
+title: 동기화와 함께 Azure AD Connect Health 사용 | Microsoft Docs
+description: Azure AD Connect 동기화를 모니터링하는 방법을 설명하는 Azure AD Connect Health 페이지입니다.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/08/2016"
-	ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/08/2016
+ms.author: billmath
 
+---
 # 동기화에 대한 Azure AD Connect Health 사용
 다음 문서는 Azure AD Connect Health와 함께 Azure AD Connect (동기화) 모니터링에 중점을 둡니다. Azure AD Connect Health와 함께 AD FS 모니터링에 대한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory 도메인 서비스를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)을 참조하세요.
 
@@ -43,8 +43,8 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 ## 동기화 정보
 동기화에 대한 Azure AD Connect Health의 최신 릴리스에는 다음과 같은 새로운 기능이 추가되었습니다.
 
-- 동기화 작업의 대기 시간
-- 개체 변경 추세
+* 동기화 작업의 대기 시간
+* 개체 변경 추세
 
 ### 동기화 대기 시간
 이 기능은 커넥터에 대한 동기화 작업(가져오기, 내보내기, 등)의 대기 시간을 그래픽 추세로 표시니다. 작업의 대기 시간(변경 사항이 대규모인 경우 적합)뿐만 아니라 대기 시간에 좀 더 조사가 필요한 이상을 감지하는 방법을 빠르고 쉽게 이해하는 방법을 제공합니다.
@@ -59,7 +59,6 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 ![동기화 대기 시간](./media/active-directory-aadconnect-health-sync/syncobjectchanges.png)
 
 ## 관련 링크
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Agent 설치](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)

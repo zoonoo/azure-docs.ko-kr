@@ -1,39 +1,37 @@
-<properties
-	pageTitle="Azure PowerShell을 사용하여 RBAC(역할 기반 액세스 제어) 관리 | Microsoft Azure"
-	description="Azure PowerShell에서 역할을 나열하고, 역할을 할당하고, 역할 할당을 제거하는 등 RBAC를 관리하는 방법입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+---
+title: Azure PowerShell을 사용하여 RBAC(역할 기반 액세스 제어) 관리 | Microsoft Docs
+description: Azure PowerShell에서 역할을 나열하고, 역할을 할당하고, 역할 할당을 제거하는 등 RBAC를 관리하는 방법입니다.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/22/2016"
-	ms.author="kgremban"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 07/22/2016
+ms.author: kgremban
 
+---
 # Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리
-
-> [AZURE.SELECTOR]
-- [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
-
+> [!div class="op_single_selector"]
+> * [PowerShell](role-based-access-control-manage-access-powershell.md)
+> * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+> * [REST API](role-based-access-control-manage-access-rest.md)
+> 
+> 
 
 Azure 포털의 RBAC(역할 기반 액세스 제어) 및 Azure 리소스 관리 API를 사용하여 세밀한 수준에서 구독에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
 PowerShell을 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
 
-- Azure PowerShell 버전 0.8.8 이상. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
-
-- Azure Resource Manager cmdlet. PowerShell에서 [Azure Resource Manager cmdlet](https://msdn.microsoft.com/library/mt125356.aspx)을 설치합니다.
+* Azure PowerShell 버전 0.8.8 이상. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+* Azure Resource Manager cmdlet. PowerShell에서 [Azure Resource Manager cmdlet](https://msdn.microsoft.com/library/mt125356.aspx)을 설치합니다.
 
 ## 역할 나열
-
 ### 사용 가능한 모든 역할 나열
 할당할 수 있는 RBAC 역할을 나열하고 액세스 권한을 부여하는 작업을 검사하려면 `Get-AzureRmRoleDefinition`을 사용합니다.
 
@@ -57,7 +55,7 @@ Get-AzureRmRoleDefinition Contributor | FL Actions, NotActions
 ## 액세스 권한이 있는 사용자 확인
 RBAC 액세스 할당을 나열하려면 `Get-AzureRmRoleAssignment`를 사용합니다.
 
-###	특정 범위의 역할 할당 나열
+### 특정 범위의 역할 할당 나열
 지정된 구독, 리소스 그룹 또는 리소스에 대한 모든 액세스 할당을 확인할 수 있습니다. 예를 들어 리소스 그룹에 대한 모든 활성 할당을 확인하려면 `Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>`을 사용합니다.
 
 ```
@@ -180,7 +178,6 @@ Set-AzureRmRoleDefinition -Role $role)
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
 
 ## 사용자 지정 역할 삭제
-
 사용자 지정 역할을 삭제하려면 `Remove-AzureRmRoleDefinition` 명령을 사용합니다.
 
 다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할을 제거합니다.
@@ -209,7 +206,7 @@ Get-AzureRmRoleDefinition | FT Name, IsCustom
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## 참고 항목
-- [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md) 
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+* [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md) 
+  [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 <!---HONumber=AcomDC_0810_2016-->

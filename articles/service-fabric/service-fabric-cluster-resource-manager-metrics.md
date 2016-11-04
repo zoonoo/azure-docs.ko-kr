@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Azure 서비스 패브릭 클러스터 리소스 관리자를 사용한 메트릭 관리 | Microsoft Azure"
-   description="서비스 패브릭에서 메트릭을 구성하고 사용하는 방법에 대해 알아봅니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Azure 서비스 패브릭 클러스터 리소스 관리자를 사용한 메트릭 관리 | Microsoft Docs
+description: 서비스 패브릭에서 메트릭을 구성하고 사용하는 방법에 대해 알아봅니다.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # 메트릭을 사용하여 서비스 패브릭에서 리소스 부하 및 소비 관리
 메트릭은 서비스가 고려하고, 클러스터의 노드에서 제공하는 리소스에 대한 서비스 패브릭 내의 일반적인 용어입니다. 일반적으로 메트릭은 서비스의 성능을 다루기 위해 관리하려는 모든 항목입니다.
 
@@ -24,21 +24,22 @@
 ## 기본 메트릭
 시작하려고 하지만 어떤 리소스를 사용할지 또는 어떤 리소스가 중요한지에 대해 알지 못한다고 가정해 보겠습니다. 그러면 구현으로 이동하여 다음 메트릭을 지정하지 않고 서비스를 만듭니다. 이것으로 끝입니다. 몇 가지 메트릭을 선택해 드립니다. 사용자 고유의 메트릭 중 하나를 지정하지 않으면 사용자를 위해 PrimaryCount, ReplicaCount 및 (대략 깨달은) 횟수라는 기본 메트릭을 사용합니다. 아래 테이블에서는 각 서비스 개체와 연결된 이러한 각 메트릭에 대한 부하의 양을 보여 줍니다.
 
-| 메트릭 | 상태 비저장 인스턴스 부하 |	상태 저장 보조 부하 |	상태 저장 기본 부하 |
-|--------|--------------------------|-------------------------|-----------------------|
-| PrimaryCount | 0 |	0 |	1 |
-| ReplicaCount | 0 | 1 | 1 |
-| 개수 |	1 |	1 |	1 |
+| 메트릭 | 상태 비저장 인스턴스 부하 | 상태 저장 보조 부하 | 상태 저장 기본 부하 |
+| --- | --- | --- | --- |
+| PrimaryCount |0 |0 |1 |
+| ReplicaCount |0 |1 |1 |
+| 개수 |1 |1 |1 |
 
 네, 따라서 이러한 기본 메트릭을 사용하여 무엇을 가져올 수 있나요? 기본 워크로드에 작업을 잘 배포하게 됩니다. 아래 예제에서 세 개의 파티션과 세 개의 대상 복제본 세트 크기가 있는 하나의 상태 저장 서비스 및 세 개의 인스턴스가 있는 단일 상태 비저장 서비스를 만드는 경우 어떤 상황이 발생하는지 확인하면 다음과 같습니다.
 
 ![기본 메트릭으로 클러스터 레이아웃][Image1]
 
 이 예제에서는 다음을 확인합니다
--	상태 저장 서비스에 대한 기본 복제본은 단일 노드에 저장되지 않습니다
--	동일한 파티션에 대한 복제본은 동일한 노드에 있지 않습니다
--	기본 복제본 및 보조 복제본의 총 수는 클러스터에 잘 배포됩니다
--	서비스 개체(상태 비저장 및 상태 저장)의 총 수는 각 노드에 균등하게 할당됩니다.
+
+* 상태 저장 서비스에 대한 기본 복제본은 단일 노드에 저장되지 않습니다
+* 동일한 파티션에 대한 복제본은 동일한 노드에 있지 않습니다
+* 기본 복제본 및 보조 복제본의 총 수는 클러스터에 잘 배포됩니다
+* 서비스 개체(상태 비저장 및 상태 저장)의 총 수는 각 노드에 균등하게 할당됩니다.
 
 유용합니다.
 
@@ -101,13 +102,13 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 고유의 메트릭을 정의하는 방법을 보여주었으므로 메트릭이 가질 수 있는 다양한 속성에 대해 살펴보겠습니다. 이미 보여주었지만 실제 의미에 대해 알아보겠습니다. 현재 메트릭이 가질 수 있는 네 개의 다른 속성이 있습니다.
 
--	메트릭 이름: 메트릭의 이름입니다. 리소스 관리자의 관점에서 클러스터 내의 메트릭에 대한 고유한 식별자입니다.
-- 기본 부하: 기본 부하는 서비스가 상태 비저장 서비스인지 또는 상태 저장 서비스인지에 따라 다르게 표현됩니다.
-  - 상태 비저장 서비스의 경우 각 메트릭에는 기본 부하라는 단일 속성만 있습니다.
-  - 상태 저장 서비스의 경우 다음을 정의합니다.
-    -	PrimaryDefaultLoad: 해당 서비스가 이 메트릭에 대해 기본으로 행사하는 부하의 기본 크기입니다.
-    -	SecondaryDefaultLoad: 해당 서비스가 이 메트릭에 대해 보조 복제본으로 행사하는 부하의 기본 크기입니다.
--	무게: 이 메트릭이 이 서비스에 대해 구성된 다른 메트릭에 가지는 중요도입니다.
+* 메트릭 이름: 메트릭의 이름입니다. 리소스 관리자의 관점에서 클러스터 내의 메트릭에 대한 고유한 식별자입니다.
+* 기본 부하: 기본 부하는 서비스가 상태 비저장 서비스인지 또는 상태 저장 서비스인지에 따라 다르게 표현됩니다.
+  * 상태 비저장 서비스의 경우 각 메트릭에는 기본 부하라는 단일 속성만 있습니다.
+  * 상태 저장 서비스의 경우 다음을 정의합니다.
+    * PrimaryDefaultLoad: 해당 서비스가 이 메트릭에 대해 기본으로 행사하는 부하의 기본 크기입니다.
+    * SecondaryDefaultLoad: 해당 서비스가 이 메트릭에 대해 보조 복제본으로 행사하는 부하의 기본 크기입니다.
+* 무게: 이 메트릭이 이 서비스에 대해 구성된 다른 메트릭에 가지는 중요도입니다.
 
 ## 로드
 부하는 지정된 메트릭이 지정된 노드에서 일부 서비스 인스턴스 또는 복제본에 의해 소비되는 양의 일반적인 개념입니다.
@@ -151,15 +152,15 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 주목할 만한 몇 가지가 있습니다.
 
--	복제본 또는 인스턴스가 고유한 부하를 보고할 때까지 서비스의 기본 부하를 사용하기 때문에 상태 저장 서비스의 파티션 1 내부에 있는 복제본은 자체적으로 부하를 보고하지 않았습니다.
--	파티션 내 보조 복제본은 고유한 부하를 가질 수 있습니다.
--	전반적인 메트릭이 매우 훌륭합니다. 1.75(메모리에 대한 최대 노드를 가진 노드는 N3이며 최소는 N2, 또한 28/16 = 1.75임)의 요인인 노드(메모리의 경우 - 가장 고려한다고 언급한 사용자 지정 메트릭)의 최대 및 최소 부하 간의 차이도 균형 잡혀 있습니다.
+* 복제본 또는 인스턴스가 고유한 부하를 보고할 때까지 서비스의 기본 부하를 사용하기 때문에 상태 저장 서비스의 파티션 1 내부에 있는 복제본은 자체적으로 부하를 보고하지 않았습니다.
+* 파티션 내 보조 복제본은 고유한 부하를 가질 수 있습니다.
+* 전반적인 메트릭이 매우 훌륭합니다. 1.75(메모리에 대한 최대 노드를 가진 노드는 N3이며 최소는 N2, 또한 28/16 = 1.75임)의 요인인 노드(메모리의 경우 - 가장 고려한다고 언급한 사용자 지정 메트릭)의 최대 및 최소 부하 간의 차이도 균형 잡혀 있습니다.
 
 설명해야 하는 몇 가지가 있습니다
 
--	1\.75의 비율이 합리적인지를 무엇이 결정했나요? 충분한지 아니면 수행할 작업이 있는지 어떻게 아나요?
--	언제 부하가 분산되나요?
--	메모리의 가중치가 "높음"은 무슨 의미인가요?
+* 1\.75의 비율이 합리적인지를 무엇이 결정했나요? 충분한지 아니면 수행할 작업이 있는지 어떻게 아나요?
+* 언제 부하가 분산되나요?
+* 메모리의 가중치가 "높음"은 무슨 의미인가요?
 
 ## 메트릭 가중치
 메트릭 가중치는 두 개의 서비스가 동일한 메트릭을 보고하도록 하지만 해당 메트릭의 부하를 분산하는 중요성을 다르게 볼 수 있습니다. 예를 들어 메모리 내 분석 엔진 및 영구 데이터베이스를 가정합니다. 아마도 둘 다 "메모리" 메트릭을 고려하지만 메모리 내 서비스는 "디스크" 메트릭을 신경 쓰지 않을 것입니다. 일부를 소비할 수 있지만 서비스의 성능에 중요하지 않기 때문입니다. 따라서 보고조차 하지 않을 수 있습니다. 클러스터 Resource Manager가 클러스터에서 실제 소비를 추적하고 노드가 용량을 초과하지 않도록 하는 것이므로 다른 서비스에서 동일한 메트릭을 추적할 수 있는 편이 유용합니다.
@@ -190,11 +191,11 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 메트릭 가중치를 고려해서 전역 부하 분산은 각 서비스에 대해 구성된 메트릭 가중치의 평균에 따라 계산됩니다. 고유하게 정의된 메트릭 가중치와 관련하여 서비스를 부하를 분산합니다.
 
 ## 다음 단계
-- 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)에서 다른 클러스터 Resource Manager 구성에 대한 항목을 확인하세요.
-- 조각 모음 메트릭 정의는 노드의 부하를 분배하는 대신 통합하는 한 가지 방법입니다. 조각 모음을 구성하는 방법에 대해 알아보려면 [이 문서](service-fabric-cluster-resource-manager-defragmentation-metrics.md)를 참조하세요.
-- 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)에 대한 문서를 확인하세요.
-- 처음부터 시작 및 [서비스 패브릭 클러스터 Resource Manager 소개](service-fabric-cluster-resource-manager-introduction.md)
-- 이동 비용은 특정 서비스가 다른 서비스에 비해 이동하는 데 비용이 더 많이 드는 것을 클러스터 리소스 관리자에게 알리는 한 가지 방법입니다. 이동 비용에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-movement-cost.md)를 참조하세요.
+* 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)에서 다른 클러스터 Resource Manager 구성에 대한 항목을 확인하세요.
+* 조각 모음 메트릭 정의는 노드의 부하를 분배하는 대신 통합하는 한 가지 방법입니다. 조각 모음을 구성하는 방법에 대해 알아보려면 [이 문서](service-fabric-cluster-resource-manager-defragmentation-metrics.md)를 참조하세요.
+* 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)에 대한 문서를 확인하세요.
+* 처음부터 시작 및 [서비스 패브릭 클러스터 Resource Manager 소개](service-fabric-cluster-resource-manager-introduction.md)
+* 이동 비용은 특정 서비스가 다른 서비스에 비해 이동하는 데 비용이 더 많이 드는 것을 클러스터 리소스 관리자에게 알리는 한 가지 방법입니다. 이동 비용에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-movement-cost.md)를 참조하세요.
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png

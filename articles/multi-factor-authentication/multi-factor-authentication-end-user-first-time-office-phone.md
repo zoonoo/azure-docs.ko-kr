@@ -1,28 +1,27 @@
-<properties
-	pageTitle="Azure MFA와 함께 연락 방법으로 사무실 전화 사용"
-	description="이 페이지에서는 Azure MFA에 대한 기본 연락 방법으로 사무실 전화를 사용하는 방법을 보여 줍니다."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Azure MFA와 함께 연락 방법으로 사무실 전화 사용
+description: 이 페이지에서는 Azure MFA에 대한 기본 연락 방법으로 사무실 전화를 사용하는 방법을 보여 줍니다.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Azure Multi-factor Authentication과 함께 연락 방법으로 사무실 전화 사용
-
 기본 연락 방법으로 사무실 전화를 사용하려는 경우 이 문서를 사용할 수 있습니다. 이 문서에서는 연락 방법으로 사무실 전화를 사용하도록 다단계 인증을 설정하는 과정을 안내합니다.
 
 ## 사무실 전화를 연락 방법으로 사용하려면
-
 <ol>
+
 <li>드롭다운 메뉴에서 사무실 전화를 선택합니다.</li>
 
 <center>![Setup](./media/multi-factor-authentication-end-user-first-time-office-phone/office.png)</center>

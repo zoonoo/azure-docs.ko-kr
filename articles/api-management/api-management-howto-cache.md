@@ -1,38 +1,41 @@
-<properties
-	pageTitle="Azure API 관리에서 캐싱을 추가하여 성능 향상 | Microsoft Azure"
-	description="대기 시간, 대역폭 사용 및 API 관리 서비스 호출에 대한 웹 서비스 부하를 개선하는 방법에 대해 알아봅니다."
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="erikre"
-	editor=""/>
+---
+title: Azure API 관리에서 캐싱을 추가하여 성능 향상 | Microsoft Docs
+description: 대기 시간, 대역폭 사용 및 API 관리 서비스 호출에 대한 웹 서비스 부하를 개선하는 방법에 대해 알아봅니다.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2016"
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Azure API 관리에서 캐싱을 추가하여 성능 향상
-
 응답 캐싱을 위해 API 관리의 작업을 구성할 수 있습니다. 응답 캐싱은 그다지 사용되지 않는 데이터에 대한 API 대기 시간, 대역폭 사용량 및 웹 서비스 부하를 상당히 줄일 수 있습니다.
 
 이 가이드에서는 API에 대해 응답 캐싱을 추가하고 샘플 Echo API 작업에 대한 정책을 구성하는 방법을 보여 줍니다. 그런 다음 개발자 포털에서 작업을 호출하여 캐싱 작동을 확인할 수 있습니다.
 
->[AZURE.NOTE] 정책 식을 사용하여 키별 캐싱 항목에 대한 자세한 내용은 [Azure API 관리에서 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
+> [!NOTE]
+> 정책 식을 사용하여 키별 캐싱 항목에 대한 자세한 내용은 [Azure API 관리에서 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
+> 
+> 
 
 ## 필수 조건
-
-이 가이드의 단계를 수행하기 전에 API와 제품이 구성된 API 관리 서비스 인스턴스가 있어야 합니다. 아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][] 자습서의 [API 관리 서비스 인스턴스 만들기][]를 참조하세요.
+이 가이드의 단계를 수행하기 전에 API와 제품이 구성된 API 관리 서비스 인스턴스가 있어야 합니다. 아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][Azure API 관리 시작] 자습서의 [API 관리 서비스 인스턴스 만들기][API 관리 서비스 인스턴스 만들기]를 참조하세요.
 
 ## <a name="configure-caching"> </a>캐싱을 위해 작업 구성
-
 이 단계에서는 샘플 Echo API의 **GET Resource(캐시됨)** 작업에 대한 캐싱 설정을 검토합니다.
 
->[AZURE.NOTE] 각 API 관리 서비스 인스턴스는 실험해 보고 API 관리에 대해 알아보는 데 사용할 수 있는 Echo API가 미리 구성되어 제공됩니다. 자세한 내용은 [Azure API 관리 시작][]을 참조하세요.
+> [!NOTE]
+> 각 API 관리 서비스 인스턴스는 실험해 보고 API 관리에 대해 알아보는 데 사용할 수 있는 Echo API가 미리 구성되어 제공됩니다. 자세한 내용은 [Azure API 관리 시작][Azure API 관리 시작]을 참조하세요.
+> 
+> 
 
 시작하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
 
@@ -59,7 +62,6 @@
 이 예제에서 캐싱 구성을 사용하면 **GET Resource(캐시됨)** 작업에 대한 첫 번째 요청이 백 엔드 서비스의 응답을 반환합니다. 이 응답은 지정된 헤더 및 쿼리 문자열 매개 변수를 통해 캐시 및 입력됩니다. 일치하는 매개 변수를 사용하는, 작업에 대한 후속 호출은 캐시 기간 간격이 만료될 때까지 캐시된 응답을 반환합니다.
 
 ## <a name="caching-policies"> </a>캐싱 정책 검토
-
 이 단계에서는 샘플 Echo API의 **GET Resource(캐시됨)** 작업에 대한 캐싱 설정을 검토합니다.
 
 **캐싱** 탭에서 작업에 대한 캐싱 설정을 구성한 경우 작업에 대한 캐싱 정책이 추가됩니다. 정책 편집기에서 이러한 정책을 보고 편집할 수 있습니다.
@@ -74,25 +76,27 @@
 
 이 작업에 대한 정책 정의에는 이전 단계에서 **캐싱** 탭을 사용하여 검토한 캐싱 구성을 정의하는 정책이 포함됩니다.
 
-	<policies>
-		<inbound>
-			<base />
-			<cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-				<vary-by-header>Accept</vary-by-header>
-				<vary-by-header>Accept-Charset</vary-by-header>
-			</cache-lookup>
-			<rewrite-uri template="/resource" />
-		</inbound>
-		<outbound>
-			<base />
-			<cache-store caching-mode="cache-on" duration="3600" />
-		</outbound>
-	</policies>
+    <policies>
+        <inbound>
+            <base />
+            <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+                <vary-by-header>Accept</vary-by-header>
+                <vary-by-header>Accept-Charset</vary-by-header>
+            </cache-lookup>
+            <rewrite-uri template="/resource" />
+        </inbound>
+        <outbound>
+            <base />
+            <cache-store caching-mode="cache-on" duration="3600" />
+        </outbound>
+    </policies>
 
->[AZURE.NOTE] 정책 편집기의 캐싱 정책 변경 내용은 작업의 **캐싱** 탭에 반영되며, 그 반대도 가능합니다.
+> [!NOTE]
+> 정책 편집기의 캐싱 정책 변경 내용은 작업의 **캐싱** 탭에 반영되며, 그 반대도 가능합니다.
+> 
+> 
 
 ## <a name="test-operation"> </a>작업 호출 및 캐싱 테스트
-
 적용 중인 캐싱을 보려면 개발자 포털에서 작업을 호출할 수 있습니다. 오른쪽 위 메뉴에서 **개발자 포털**을 클릭합니다.
 
 ![개발자 포털][api-management-developer-portal-menu]
@@ -101,7 +105,9 @@
 
 ![Echo API][api-management-apis-echo-api]
 
->API 한 개만 구성했거나 계정에 표시한 경우에는 API를 클릭하면 해당 API에 대한 작업으로 직접 연결됩니다.
+> API 한 개만 구성했거나 계정에 표시한 경우에는 API를 클릭하면 해당 API에 대한 작업으로 직접 연결됩니다.
+> 
+> 
 
 **GET Resource(캐시됨)** 작업을 선택하고 **콘솔 열기**를 클릭합니다.
 
@@ -128,9 +134,8 @@
 응답의 **sampleheader** 값은 이제 **value2**입니다. 작업 결과가 쿼리 문자열을 통해 입력되므로, 이전의 캐시된 응답은 반환되지 않았습니다.
 
 ## <a name="next-steps"> </a>다음 단계
-
--	캐싱 정책에 대한 자세한 내용은 [API 관리 정책 참조][]의 [캐싱 정책][]을 참조하세요.
--	정책 식을 사용하여 키별 캐싱 항목에 대한 자세한 내용은 [Azure API 관리에서 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
+* 캐싱 정책에 대한 자세한 내용은 [API 관리 정책 참조][API 관리 정책 참조]의 [캐싱 정책][캐싱 정책]을 참조하세요.
+* 정책 식을 사용하여 키별 캐싱 항목에 대한 자세한 내용은 [Azure API 관리에서 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

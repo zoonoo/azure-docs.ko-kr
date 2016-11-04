@@ -1,27 +1,28 @@
-<properties
-	pageTitle="v2.0 앱 등록 | Microsoft Azure"
-	description="v2.0 끝점을 사용하여 Microsoft 서비스 로그인 및 액세스를 사용하도록 설정하기 위해 Microsoft에 앱을 등록하는 방법"
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: v2.0 앱 등록 | Microsoft Docs
+description: v2.0 끝점을 사용하여 Microsoft 서비스 로그인 및 액세스를 사용하도록 설정하기 위해 Microsoft에 앱을 등록하는 방법
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: dastrock
 
+---
 # v2.0 끝점을 사용하여 앱을 등록하는 방법
-
 MSA 와 Azure AD 로그인 모두를 허용하는 앱을 빌드하려면, 먼저 Microsoft에 앱을 등록해야 합니다. 지금은 Azure AD나 MSA를 사용하여 가지고 있는 기존의 앱은 사용할 수 없습니다. - 새 앱을 만들어야 합니다.
 
-> [AZURE.NOTE]
-	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+> [!NOTE]
+> 일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+> 
+> 
 
 ## Microsoft 앱 등록 포털 방문
 가장 먼저 해야할 일입니다. - [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com)로 이동합니다. 이곳은 Microsoft 앱을 관리할 수 있는 새로운 앱 등록 포털입니다.
@@ -35,16 +36,19 @@ MSA 와 Azure AD 로그인 모두를 허용하는 앱을 빌드하려면, 먼저
 
 다음으로, 앱에서 사용할 플랫폼을 추가합니다.
 
-- 웹 기반 앱의 경우 로그인 메시지를 보낼 수 있는 **리디렉션 URI**를 제공합니다.
-- 모바일 앱의 경우 자동으로 만들어진 기본 리디렉션 URI를 적어둡니다.
+* 웹 기반 앱의 경우 로그인 메시지를 보낼 수 있는 **리디렉션 URI**를 제공합니다.
+* 모바일 앱의 경우 자동으로 만들어진 기본 리디렉션 URI를 적어둡니다.
 
 필요에 따라 프로필 섹션에서 로그인 페이지의 디자인을 사용자 할당할 수 있습니다. 다음 단계로 넘어가기 전에 **저장**을 클릭하십시오.
 
-> [AZURE.NOTE] [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com)을 사용하여 응용 프로그램을 만드는 경우 응용 프로그램은 포털에 로그인하는 데 사용하는 계정의 홈 테넌트에 등록됩니다. 즉, 개인 Microsoft 계정을 사용하여 Azure AD 테넌트에 응용 프로그램을 등록할 수 없습니다. 응용 프로그램을 특정 테넌트에 명시적으로 등록하려면 해당 테넌트에 원래 만든 계정을 사용하여 로그인합니다.
+> [!NOTE]
+> [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com)을 사용하여 응용 프로그램을 만드는 경우 응용 프로그램은 포털에 로그인하는 데 사용하는 계정의 홈 테넌트에 등록됩니다. 즉, 개인 Microsoft 계정을 사용하여 Azure AD 테넌트에 응용 프로그램을 등록할 수 없습니다. 응용 프로그램을 특정 테넌트에 명시적으로 등록하려면 해당 테넌트에 원래 만든 계정을 사용하여 로그인합니다.
+> 
+> 
 
 ## 빠른 시작 앱 빌드하기
 이제 Microsoft 앱을 가지고 있으므로 v2.0 빠른 시작 자습서 중 하나를 완료할 수 있습니다. 몇가지 권장 사항입니다.
 
-[AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
 <!---HONumber=AcomDC_0921_2016-->

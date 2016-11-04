@@ -1,33 +1,33 @@
-<properties
-   pageTitle="웹 서비스 확장 | Microsoft Azure"
-   description="동시성을 늘리고 새 끝점을 추가하여 웹 서비스를 확장하는 방법을 알아봅니다."
-   services="machine-learning"
-   documentationCenter=""
-   authors="neerajkh"
-   manager="srikants"
-   editor="cgronlun"
-   keywords="azure 기계 학습, 웹 서비스, 조작화, 확장, 끝점, 동시성"
-   />
-<tags
-   ms.service="machine-learning"
-   ms.devlang="NA"
-   ms.workload="data-services"
-   ms.tgt_pltfrm="na"
-   ms.topic="article"
-   ms.date="10/05/2016"
-   ms.author="neerajkh"/>
+---
+title: 웹 서비스 확장 | Microsoft Docs
+description: 동시성을 늘리고 새 끝점을 추가하여 웹 서비스를 확장하는 방법을 알아봅니다.
+services: machine-learning
+documentationcenter: ''
+author: neerajkh
+manager: srikants
+editor: cgronlun
+keywords: azure 기계 학습, 웹 서비스, 조작화, 확장, 끝점, 동시성
 
+ms.service: machine-learning
+ms.devlang: NA
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.date: 10/05/2016
+ms.author: neerajkh
 
+---
 # <a name="scaling-a-web-service"></a>웹 서비스 확장
-
->[AZURE.NOTE] 이 토픽에서는 기존 Machine Learning 웹 서비스에 적용되는 기술을 설명합니다. 
+> [!NOTE]
+> 이 토픽에서는 기존 Machine Learning 웹 서비스에 적용되는 기술을 설명합니다. 
+> 
+> 
 
 기본적으로 게시된 각각의 웹 서비스는 20개의 동시 요청을 지원하고 최대 200개의 동시 요청을 지원할 수 있도록 구성됩니다. Azure 클래식 포털은 이 값을 설정하는 방법을 제공하지만 Azure Machine Learning은 웹 서비스에 대한 최상의 성능을 제공하기 위해 설정을 자동으로 최적화하고 포털 값은 무시됩니다. 
 
 최대 동시 호출 값인 200에서 지원하는 것보다 많은 부하를 가진 API를 호출하려는 경우 동일한 웹 서비스에서 여러 끝점을 만들어야 합니다. 그런 다음 모든 끝점에 부하를 무작위로 분산해야 합니다.
 
 ## <a name="add-new-endpoints-for-same-web-service"></a>동일한 웹 서비스에 대한 새 끝점 추가
-
 웹 서비스의 크기를 조정하는 것은 일반적인 작업입니다. 크기를 조정하는 몇 가지 이유는 200개 이상의 동시 요청을 지원하거나, 여러 끝점을 통해 가용성을 높이거나, 웹 서비스에 대 한 별도의 끝점을 제공하기 위해서 입니다. [Azure 클래식 포털](https://manage.windowsazure.com/) 또는 [Azure Machine Learning 웹 서비스](https://services.azureml.net/) 포털을 통해 동일한 웹 서비스에 대한 추가 끝점을 추가하여 규모를 증가시킬 수 있습니다.
 
 새로운 끝점 추가에 대한 자세한 내용은 [끝점 만들기](machine-learning-create-endpoint.md)를 참조하세요.

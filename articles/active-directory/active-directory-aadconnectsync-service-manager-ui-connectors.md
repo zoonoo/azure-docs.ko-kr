@@ -1,46 +1,44 @@
-<properties
-	pageTitle="Azure AD Connect 동기화: Synchronization Service Manager UI | Microsoft Azure"
-	description="Azure AD Connect의 Synchronization Service Manager에 있는 커넥터 탭을 이해합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD Connect 동기화: Synchronization Service Manager UI | Microsoft Docs'
+description: Azure AD Connect의 Synchronization Service Manager에 있는 커넥터 탭을 이해합니다.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/07/2016
+ms.author: andkjell
 
-
+---
 # Azure AD Connect 동기화: Synchronization Service Manager
-
-[Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [커넥터](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [메타버스 디자이너](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [메타버스 검색](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
---- | --- | --- | ---
+| [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [커넥터](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [메타버스 디자이너](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [메타버스 검색](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
+| --- | --- | --- | --- |
+|  | | | |
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
 커넥터 탭은 동기화 엔진이 연결된 모든 시스템을 관리하는 데 사용됩니다.
 
 ## 커넥터 작업
-
-작업 | 주석
---- | ---
-생성 | 사용 안 함. 추가 AD 포리스트에 연결하려면 설치 마법사를 사용합니다.
-속성 | 모든 도메인 및 OU 필터링에 사용
-[삭제](#delete) | 커넥터 공간에서 데이터를 삭제하거나 포리스트에 대한 연결을 삭제하는 데 사용
-[실행 프로필 구성](#configure-run-profiles) | 여기서는 도메인 필터링만 구성 이 작업을 사용하여 이미 구성된 실행 프로필을 볼 수 있습니다.
-실행 | 프로필의 일회성 실행을 시작하는 데 사용
-중지 | 현재 프로필을 실행하는 커넥터 중지
-커넥터 내보내기 | 사용 안 함.
-커넥터 가져오기 | 사용 안 함.
-커넥터 업데이트 | 사용 안 함.
-스키마 새로 고침 | 캐시된 스키마를 새로 고칩니다. 동기화 규칙도 업데이트되므로 대신 설치 마법사를 사용하는 것이 좋습니다.
-[커넥터 공간 검색](#search-connector-space) | 개체를 찾고 [시스템 전체에서 개체 및 해당 데이터의 흐름을 따르는](#follow-an-object-and-its-data-through-the-system) 데 사용됩니다.
+| 작업 | 주석 |
+| --- | --- |
+| 생성 |사용 안 함. 추가 AD 포리스트에 연결하려면 설치 마법사를 사용합니다. |
+| 속성 |모든 도메인 및 OU 필터링에 사용 |
+| [삭제](#delete) |커넥터 공간에서 데이터를 삭제하거나 포리스트에 대한 연결을 삭제하는 데 사용 |
+| [실행 프로필 구성](#configure-run-profiles) |여기서는 도메인 필터링만 구성 이 작업을 사용하여 이미 구성된 실행 프로필을 볼 수 있습니다. |
+| 실행 |프로필의 일회성 실행을 시작하는 데 사용 |
+| 중지 |현재 프로필을 실행하는 커넥터 중지 |
+| 커넥터 내보내기 |사용 안 함. |
+| 커넥터 가져오기 |사용 안 함. |
+| 커넥터 업데이트 |사용 안 함. |
+| 스키마 새로 고침 |캐시된 스키마를 새로 고칩니다. 동기화 규칙도 업데이트되므로 대신 설치 마법사를 사용하는 것이 좋습니다. |
+| [커넥터 공간 검색](#search-connector-space) |개체를 찾고 [시스템 전체에서 개체 및 해당 데이터의 흐름을 따르는](#follow-an-object-and-its-data-through-the-system) 데 사용됩니다. |
 
 ### 삭제
 삭제 작업은 두 가지 작업에 사용됩니다. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)

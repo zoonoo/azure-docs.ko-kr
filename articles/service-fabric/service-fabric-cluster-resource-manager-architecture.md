@@ -1,21 +1,21 @@
-<properties
-   pageTitle="리소스 관리자 아키텍처 | Microsoft Azure"
-   description="서비스 패브릭 클러스터 리소스 관리자의 아키텍처 개요"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: 리소스 관리자 아키텍처 | Microsoft Docs
+description: 서비스 패브릭 클러스터 리소스 관리자의 아키텍처 개요
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # 클러스터 리소스 관리자 아키텍처 개요
 클러스터의 리소스를 관리하려면 서비스 패브릭 클러스터 Resource Manager에게 일부 정보가 있어야 합니다. 현재 존재하는 서비스와 서비스를 소비하는 리소스의 현재(또는 기본) 양을 알아야 합니다. 클러스터에서 노드의 실제 용량과 클러스터에서 특정 노드의 전체 용량과 나머지 용량에 대해 사용할 수 있는 리소스 양을 알아야 합니다. 주어진 서비스의 리소스 소모량은 지남에 따라 변할 수 있으며, 서비스는 일반적으로 여러 리소스를 관리한다는 사실도 다루어야 합니다. 다른 많은 서비스 중에, 메모리 및 디스크 소비량과 같은 메트릭으로 측정 및 보고되는 물리적 리소스와, "WorkQueueDepth" 또는 "TotalRequests" 등과 같은 논리적 메트릭(더 일반적임)으로 측정되는 서비스도 있을 수 있습니다. 이러한 논리적 메트릭 및 실제 메트릭은 모두 다양한 형식의 여러 서비스에서 사용되거나 몇 가지 서비스에서만 한정적으로 사용될 수도 있습니다.
 
@@ -34,7 +34,7 @@
 ![리소스 분산 아키텍처][Image2]
 
 ## 다음 단계
-- 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)하는 이 문서를 확인하세요.
+* 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)하는 이 문서를 확인하세요.
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png

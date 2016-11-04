@@ -1,25 +1,23 @@
-<properties
-    pageTitle="리소스 관리자 모드에서 Azure CLI 명령 | Microsoft Azure"
-    description="리소스 관리자 배포 모델에서 리소스를 관리하는 Azure CLI(명령줄 인터페이스) 명령"
-    services="virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services"
-    documentationCenter=""
-    authors="dlepow"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+---
+title: 리소스 관리자 모드에서 Azure CLI 명령 | Microsoft Docs
+description: 리소스 관리자 배포 모델에서 리소스를 관리하는 Azure CLI(명령줄 인터페이스) 명령
+services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
+documentationcenter: ''
+author: dlepow
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-    ms.service="multiple"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="command-line-interface"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/05/2016"
-    ms.author="danlep"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: command-line-interface
+ms.devlang: na
+ms.topic: article
+ms.date: 08/05/2016
+ms.author: danlep
 
-
+---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>리소스 관리자 모드에서 Azure CLI 명령
-
 이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. Azure 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.  
 
 시작하려면 먼저 회사 또는 학교 계정 또는 Microsoft 계정 ID를 사용하여 [Azure CLI를 설치](../xplat-cli-install.md)하고 [Azure 구독에 연결](../xplat-cli-connect.md)합니다.
@@ -31,13 +29,14 @@
 여기에 언급된 명령 관련 선택적 매개 변수 이외에 요청 옵션, 상태 코드 등과 같은 자세한 출력을 표시하는 데 사용할 수 있는 세 가지 선택적 매개 변수가 있습니다. `-v` 매개 변수는 자세한 정보를 출력하고 `-vv` 매개 변수는 훨씬 더 자세한 정보를 출력합니다. `--json` 옵션은 결과를 원시 JSON 형식으로 결과를 출력합니다.
 
 ## <a name="setting-the-resource-manager-mode"></a>리소스 관리자 모드 설정
-
 다음 명령을 사용하여 Azure CLI Resource Manager 모드 명령을 사용하도록 설정합니다.
 
     azure config mode arm
 
->[AZURE.NOTE] CLI의 Azure Resource Manager 모드 및 Azure 서비스 관리 모드는 함께 사용할 수 없습니다. 즉, 한 모드에서 만든 리소스는 다른 모드에서 관리할 수 없습니다.
-
+> [!NOTE]
+> CLI의 Azure Resource Manager 모드 및 Azure 서비스 관리 모드는 함께 사용할 수 없습니다. 즉, 한 모드에서 만든 리소스는 다른 모드에서 관리할 수 없습니다.
+> 
+> 
 
 ## <a name="azure-account:-manage-your-account-information"></a>Azure account: 계정 정보 관리
 Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
@@ -67,7 +66,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     account env delete [options] [environment]
 
 ## <a name="azure-ad:-commands-to-display-active-directory-objects"></a>azure ad: Active Directory 개체를 표시하는 명령
-
 **Active Directory 응용 프로그램을 표시하는 명령**
 
     ad app create [options]
@@ -95,7 +93,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     ad user show [options]
 
 ## <a name="azure-availset:-commands-to-manage-your-availability-sets"></a>azure availset: 가용성 집합을 관리하는 명령
-
 **리소스 그룹 내 가용성 집합 만들기**
 
     availset create [options] <resource-group> <name> <location> [tags]
@@ -113,7 +110,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     availset delete [options] <resource-group> <name>
 
 ## <a name="azure-config:-commands-to-manage-your-local-settings"></a>azure config: 로컬 설정을 관리하는 명령
-
 **Azure CLI 구성 설정 나열**
 
     config list [options]
@@ -132,7 +128,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 
 ## <a name="azure-feature:-commands-to-manage-account-features"></a>azure feature: 계정 기능을 관리하는 명령
-
 **구독에 대해 사용할 수 있는 모든 기능 나열**
 
     feature list [options]
@@ -146,7 +141,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     feature register [options] <providerName> <featureName>
 
 ## <a name="azure-group:-commands-to-manage-your-resource-groups"></a>azure group: 리소스 그룹을 관리하는 명령
-
 **리소스 그룹 만들기**
 
     group create [options] <name> <location>
@@ -186,7 +180,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     group template validate [options] <resource-group>
 
 ## <a name="azure-hdinsight:-commands-to-manage-your-hdinsight-clusters"></a>azure hdinsight: HDInsight 클러스터를 관리하는 명령
-
 **클러스터 구성 파일을 만들거나 클러스터 구성 파일에 추가하는 명령**
 
     hdinsight config create [options] <configFilePath> <overwrite>
@@ -305,24 +298,20 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
 ## <a name="azure-insights:-commands-related-to-monitoring-insights-(events,-alert-rules,-autoscale-settings,-metrics)"></a>azure insight: Insights 모니터링 관련 명령(이벤트, 경고 규칙, 자동 크기 조정 설정, 메트릭)
-
 **구독, 상관 관계 ID, 리소스 그룹, 리소스 또는 리소스 공급자에 대한 작업 로그 검색**
 
     insights logs list [options]
 
 ## <a name="azure-location:-commands-to-get-the-available-locations-for-all-resource-types"></a>azure location: 모든 리소스 유형에 사용 가능한 위치를 가져오는 명령
-
 **사용 가능한 위치 나열**
 
     location list [options]
 
 ## <a name="azure-network:-commands-to-manage-network-resources"></a>azure network: 네트워크 리소스를 관리하는 명령
-
 **가상 네트워크를 관리하는 명령**
 
     network vnet create [options] <resource-group> <name> <location>
 가상 네트워크를 만듭니다. 다음 예제에서는 미국 서부 지역의 myresourcegroup 리소스 그룹에 대한 newvnet이라는 가상 네트워크를 만듭니다.
-
 
     azure network vnet create myresourcegroup newvnet "west us"
     info:    Executing command network vnet create
@@ -415,7 +404,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 리소스 그룹의 모든 가상 네트워크를 나열하는 명령입니다.
 
-
     C:\>azure network vnet list myresourcegroup
 
     info:    Executing command network vnet list
@@ -429,7 +417,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     info:    network vnet list command OK
 
 매개 변수 옵션:
-
 
       -h, --help                             output usage information
       -v, --verbose                          use verbose output
@@ -520,7 +507,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     network vnet subnet set [options] <resource-group> <vnet-name> <name>
 
 리소스 그룹 내 특정 가상 네트워크 서브넷을 설정합니다.
-
 
     C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
@@ -1206,7 +1192,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 다음 예제에서는 부하 분산 장치가 네트워크 트래픽을 전송하는 데 사용하는 인바운드 수신 대기 포트 및 아웃바운드 포트로 프런트 엔드 IP("azure network frontend-ip" 명령을 사용하여 이전에 정의됨)에서 NAT 규칙을 만들었습니다.
 
-
     azure network lb inbound-nat-rule create -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 80 -b 8080 -i myfrontendip
 
     info:    Executing command network lb inbound-nat-rule create
@@ -1590,7 +1575,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     network gateway list [options] <resource-group>
 
 ## <a name="azure-provider:-commands-to-manage-resource-provider-registrations"></a>azure provider: 리소스 공급자 등록을 관리하는 명령
-
 **Resource Manager에 현재 등록된 공급자 나열**
 
     provider list [options]
@@ -1608,7 +1592,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     provider unregister [options] <namespace>
 
 ## <a name="azure-resource:-commands-to-manage-your-resources"></a>azure group: 리소스를 관리하는 명령
-
 **리소스 그룹에 리소스 만들기**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1630,7 +1613,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
 ## <a name="azure-role:-commands-to-manage-your-azure-roles"></a>azure role: Azure 역할을 관리하는 명령
-
 **모든 사용 가능한 역할 정의 가져오기**
 
     role list [options]
@@ -1646,7 +1628,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
 ## <a name="azure-storage:-commands-to-manage-your-storage-objects"></a>azure storage: 저장소 개체를 관리하는 명령
-
 **저장소 계정을 관리하는 명령**
 
     storage account list [options]
@@ -1770,7 +1751,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     storage table policy delete [options] [table] [name]
 
 ## <a name="azure-tag:-commands-to-manage-your-resource-manager-tag"></a>azure tag: 리소스 관리자 태그를 관리하는 명령
-
 **태그 추가**
 
     tag create [options] <name> <value>
@@ -1788,7 +1768,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     tag show [options] [name]
 
 ## <a name="azure-vm:-commands-to-manage-your-azure-virtual-machines"></a>azure vm: Azure 가상 컴퓨터를 관리하는 명령
-
 **VM 만들기**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1796,8 +1775,11 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 **기본 리소스를 사용하여 VM 만들기**
 
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
-    
->[AZURE.TIP]CLI 0.10 버전부터 일부 인기 있는 마켓플레이스 이미지에 대한 `image-urn`으로 "UbuntuLTS" 또는 "Win2012R2Datacenter"와 같은 짧은 별칭을 제공할 수 있습니다. 옵션으로 `azure help vm quick-create`를 실행합니다. 또한 0.10 버전부터 `azure vm quick-create` 는 선택한 영역에서 사용 가능한 경우 기본적으로 프리미엄 저장소를 사용합니다.
+
+> [!TIP]
+> CLI 0.10 버전부터 일부 인기 있는 마켓플레이스 이미지에 대한 `image-urn`으로 "UbuntuLTS" 또는 "Win2012R2Datacenter"와 같은 짧은 별칭을 제공할 수 있습니다. 옵션으로 `azure help vm quick-create`를 실행합니다. 또한 0.10 버전부터 `azure vm quick-create` 는 선택한 영역에서 사용 가능한 경우 기본적으로 프리미엄 저장소를 사용합니다.
+> 
+> 
 
 **계정 내에서 가상 컴퓨터 나열**
 

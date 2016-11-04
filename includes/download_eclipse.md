@@ -1,10 +1,9 @@
-##Eclipse용 Azure 도구 키트
-
+## Eclipse용 Azure 도구 키트
 필수 조건:
 
 1. Windows 7, Windows 8, Windows 10, Windows Server 2008 또는 Windows Server 2012.
 2. [Eclipse용 Azure 도구 키트의 새로운 기능] 문서에 나열된 Macintosh 또는 Linux 운영 체제입니다.
-2. Eclipse Indigo 이상.
+3. Eclipse Indigo 이상.
 
 설치 단계:
 

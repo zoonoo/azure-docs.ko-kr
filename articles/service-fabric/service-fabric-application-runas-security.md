@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Service Fabric 응용 프로그램 및 서비스 보안 정책의 이해 | Microsoft Azure"
-   description="응용 프로그램이 시작되려면 일부 권한 있는 작업을 수행해야 하는 SetupEntry 지점을 포함하여 시스템 및 로컬 보안 계정을 통해 서비스 패브릭 응용 프로그램을 실행하는 방법에 대한 개요"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager="timlt"
-   editor=""/>
+---
+title: Service Fabric 응용 프로그램 및 서비스 보안 정책의 이해 | Microsoft Docs
+description: 응용 프로그램이 시작되려면 일부 권한 있는 작업을 수행해야 하는 SetupEntry 지점을 포함하여 시스템 및 로컬 보안 계정을 통해 서비스 패브릭 응용 프로그램을 실행하는 방법에 대한 개요
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/22/2016"
-   ms.author="mfussell"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/22/2016
+ms.author: mfussell
 
-
+---
 # <a name="configure-security-policies-for-your-application"></a>응용 프로그램에 대한 보안 정책 구성
 Azure Service Fabric은 다른 사용자 계정을 통해 클러스터에서 실행 중인 응용 프로그램을 보호하는 기능을 제공합니다. 또한 Service Fabric은 배포 시 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 응용 프로그램에서 사용하는 리소스도 보호합니다. 따라서 공유되는 호스티드 환경에서도 서로 안전하게 응용 프로그램을 실행할 수 있습니다. 
 
@@ -27,7 +26,6 @@ Azure Service Fabric은 다른 사용자 계정을 통해 클러스터에서 실
 사용자 그룹을 정의하고 만들었으므로 각 그룹에 사용자를 한 명 이상 추가하여 한꺼번에 관리할 수 있습니다. 이 기능은 여러 서비스 진입점에 대한 사용자가 여러 명 있고 그 사용자들에게 그룹 수준에서 특정 공통 권한을 부여해야 하는 경우 유용합니다.
 
 ## <a name="configure-the-policy-for-service-setupentrypoint"></a>서비스 SetupEntryPoint에 대한 정책 구성
-
 [응용 프로그램 모델](service-fabric-application-model.md)에서 설명한 것처럼 **SetupEntryPoint**는 Service Fabric과 같은 자격 증명(일반적으로 *NetworkService* 계정)을 사용하여 다른 진입점보다 먼저 실행되는 권한 있는 진입점입니다. **EntryPoint**를 통해 지정되는 실행 파일은 일반적으로 장기 실행 서비스 호스트입니다. 따라서 별도의 설정 진입점을 두면 한동안은 높은 권한을 사용하여 실행할 수 있는 서비스 호스트를 실행하지 않아도 됩니다. **EntryPoint**를 통해 지정된 실행 파일은 **SetupEntryPoint**가 성공적으로 종료된 후 실행됩니다. 종료되지 않거나 충돌하는 경우 결과 프로세스를 모니터링하여 다시 시작합니다(**SetupEntryPoint**를 사용하여 다시 시작).
 
 다음은 서비스에 대한 SetupEntryPoint 및 기본 EntryPoint를 보여주는 서비스 매니페스트의 간단한 예입니다.
@@ -57,7 +55,6 @@ Azure Service Fabric은 다른 사용자 계정을 통해 클러스터에서 실
 ~~~
 
 ### <a name="configure-the-policy-using-a-local-account"></a>로컬 계정을 사용하여 정책 구성
-
 설치 항목 지점이 있도록 서비스를 구성한 후에 응용 프로그램 매니페스트에서 아래에서 실행되는 보안 권한을 변경할 수 있습니다. 다음은 사용자 관리자 계정 권한으로 실행되도록 서비스를 구성하는 방법을 보여 주는 예제입니다.
 
 ~~~
@@ -117,7 +114,7 @@ MyValue
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
-###  <a name="configure-the-policy-using-local-system-accounts"></a>로컬 시스템 계정을 사용하여 정책 구성
+### <a name="configure-the-policy-using-local-system-accounts"></a>로컬 시스템 계정을 사용하여 정책 구성
 앞에 표시된 대로 관리자 계정이 아닌 로컬 시스템 계정을 사용하여 스크립트의 시작을 실행하는 것이 일반적으로 더 좋습니다. 컴퓨터는 기본적으로 UAC(사용자 액세스 제어)를 사용하도록 설정되어 있기 때문에 관리자로 RunAs 정책을 실행하면 일반적으로 잘 작동하지 않습니다. 이러한 경우 **관리자 그룹에 추가된 로컬 사용자 대신 LocalSystem으로 SetupEntryPoint를 실행하는 것이 좋습니다**. 다음 예제에서는 LocalSystem으로 실행하도록 SetupEntryPoint를 설정합니다.
 
 ~~~
@@ -138,9 +135,8 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 </ApplicationManifest>
 ~~~
 
-##  <a name="launch-powershell-commands-from-a-setupentrypoint"></a>SetupEntryPoint에서 PowerShell 명령 시작
+## <a name="launch-powershell-commands-from-a-setupentrypoint"></a>SetupEntryPoint에서 PowerShell 명령 시작
 **SetupEntryPoint** 지점에서 PowerShell을 실행하려면 PowerShell 파일을 가리키는 배치 파일에서 **PowerShell.exe**를 실행하면 됩니다. 먼저 서비스 프로젝트(예: **MySetup.ps1**)에 PowerShell 파일을 추가합니다. 이 파일도 서비스 패키지에 포함되도록 *변경된 내용만 복사* 속성을 설정해야 합니다. 다음은 **TestVariable**이라는 시스템 환경 변수를 설정하는 PowerShell 파일 MySetup.ps1을 실행하는 간단한 배치 파일을 보여 주는 예제입니다.
-
 
 PowerShell 파일을 시작하기 위한 MySetup.bat입니다.
 
@@ -191,7 +187,7 @@ Echo "Test console redirection which writes to the application log folder on the
 
 **스크립트를 디버그한 후 즉시 이 콘솔 리디렉션 정책을 제거합니다.**
 
-## <a name="configure-policy-for-service-code-packages"></a>서비스 코드 패키지에 대한 정책 구성 
+## <a name="configure-policy-for-service-code-packages"></a>서비스 코드 패키지에 대한 정책 구성
 이전 단계에서 SetupEntryPoint에 RunAs 정책을 적용하는 방법을 살펴보았습니다. 이번에는 서비스 정책으로 적용할 수 있는 다양한 주체를 만드는 방법을 좀 더 자세히 살펴보겠습니다.
 
 ### <a name="create-local-user-groups"></a>로컬 사용자 그룹 만들기
@@ -365,7 +361,6 @@ Echo "Test console redirection which writes to the application log folder on the
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
-
 * [응용 프로그램 모델의 이해](service-fabric-application-model.md)
 * [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)
 * [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)

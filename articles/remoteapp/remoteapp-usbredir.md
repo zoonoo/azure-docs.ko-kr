@@ -1,26 +1,25 @@
-<properties 
-    pageTitle="Azure RemoteApp에서 USB 장치를 리디렉션하려면 어떻게 합니까? | Microsoft Azure" 
-    description="Azure RemoteApp에서 USB 장치에 대해 리디렉션을 사용하는 방법을 알아봅니다." 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+---
+title: Azure RemoteApp에서 USB 장치를 리디렉션하려면 어떻게 합니까? | Microsoft Docs
+description: Azure RemoteApp에서 USB 장치에 대해 리디렉션을 사용하는 방법을 알아봅니다.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
-
+---
 # Azure RemoteApp에서 USB 장치를 리디렉션하려면 어떻게 합니까?
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> [!IMPORTANT]
+> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> 
+> 
 
 장치 리디렉션을 통해 사용자가 자신의 컴퓨터나 Azure RemoteApp의 앱과 태블릿에 연결된 USB 장치를 사용할 수 있습니다. 예를 들어 Azure RemoteApp을 통해 Skype를 공유한 경우 사용자가 자신의 장치 카메라를 사용할 수 있어야 합니다.
 
@@ -32,11 +31,11 @@ Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://g
 Azure RemoteApp은 원격 데스크톱 서비스에 대해 사용할 수 있는 것과 매우 유사한 메커니즘을 USB 장치 리디렉션에 사용합니다. 기반 기술을 통해 지정된 장치에 알맞은 리디렉션 방법을 선택하고**usbdevicestoredirect:s:** 명령을 사용하여 고급 및 RemoteFX USB 장치 리디렉션을 모두 최대한 이용할 수 있습니다. 이 명령에 4개의 요소가 있습니다.
 
 | 처리 순서 | 매개 변수 | 설명 |
-|------------------|---------------------|----------------------------------------------------------------------------------------------------------------------------|
-| 1 | * | 고급 리디렉션에 의해 선택되지 않은 모든 장치를 선택합니다. 참고: 설계상 USB 웹 카메라에 대해서는 *가 작동하지 않습니다. |
-| | {장치 클래스 GUID} | 지정된 장치 설정 클래스와 일치하는 모든 장치를 선택합니다. |
-| | USB\\InstanceID | 지정된 인스턴스 ID에 대해 지정된 USB 장치를 선택합니다. |
-| 2 | -USB\\인스턴스 ID | 지정된 장치에 대한 리디렉션 설정을 제거합니다. |
+| --- | --- | --- |
+| 1 |* |고급 리디렉션에 의해 선택되지 않은 모든 장치를 선택합니다. 참고: 설계상 USB 웹 카메라에 대해서는 *가 작동하지 않습니다. |
+| {장치 클래스 GUID} |지정된 장치 설정 클래스와 일치하는 모든 장치를 선택합니다. | |
+| USB\\InstanceID |지정된 인스턴스 ID에 대해 지정된 USB 장치를 선택합니다. | |
+| 2 |-USB\\인스턴스 ID |지정된 장치에 대한 리디렉션 설정을 제거합니다. |
 
 ## 장치 클래스 GUID를 사용하여 USB 장치 리디렉션
 두 가지 방법으로 리디렉션에 사용할 수 있는 장치 클래스 GUID를 찾을 수 있습니다.
@@ -51,16 +50,15 @@ Azure RemoteApp은 원격 데스크톱 서비스에 대해 사용할 수 있는 
 
 예:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
+        Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
 
 동일한 Cmdlet에서 여러 장치 리디렉션을 결합할 수 있습니다. 예: 로컬 저장소와 USB 웹 카메라를 리디렉션하려면 Cmdlet은 다음과 같습니다.
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
+        Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
 
 클래스 GUID에 의해 장치 리디렉션을 설정하면 지정된 컬렉션에서 해당 클래스 GUID와 일치하는 모든 장치가 리디렉션됩니다. 예를 들어 로컬 네트워크에 동일한 USB 웹 카메라를 가진 여러 대의 컴퓨터가 있는 경우 단일 Cmdlet을 실행하여 모든 웹 카메라를 리디렉션할 수 있습니다.
 
 ## 장치 인스턴스 GUID를 사용하여 USB 장치 리디렉션
-
 더 정밀한 제어를 원하여 장치별로 리디렉션을 제어하려면 **USB\\InstanceID** 리디렉션 매개 변수를 사용할 수 있습니다.
 
 이 방법의 가장 어려운 부분은 USB 장치 인스턴스 ID를 찾는 것입니다. 컴퓨터 및 특정 USB 장치에 액세스해야 합니다. 그러고 나서 다음 단계를 수행합니다.
@@ -73,11 +71,11 @@ Azure RemoteApp은 원격 데스크톱 서비스에 대해 사용할 수 있는 
 
 이제 다음 Cmdlet에서 인스턴스 ID를 사용합니다.
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB<Device InstanceID value>"
+    Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB<Device InstanceID value>"
 
 
 
-### 의견 보내기 
+### 의견 보내기
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
 <!---HONumber=AcomDC_0817_2016-->

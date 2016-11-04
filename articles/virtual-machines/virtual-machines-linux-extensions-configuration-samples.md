@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Linux VM 확장에 대한 샘플 구성 | Microsoft Azure"
-   description="Linux VM용 확장을 사용하여 템플릿을 작성하기 위한 샘플 구성"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Linux VM 확장에 대한 샘플 구성 | Microsoft Docs
+description: Linux VM용 확장을 사용하여 템플릿을 작성하기 위한 샘플 구성
+services: virtual-machines-linux
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="09/13/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/13/2016
+ms.author: kundanap
 
-
+---
 # <a name="linux-vm-extension-configuration-samples"></a>Linux VM 확장 구성 샘플
-
-> [AZURE.SELECTOR]
-- [PowerShell - 템플릿](virtual-machines-windows-extensions-configuration-samples.md)
-- [CLI - 템플릿](virtual-machines-linux-extensions-configuration-samples.md)
+> [!div class="op_single_selector"]
+> * [PowerShell - 템플릿](virtual-machines-windows-extensions-configuration-samples.md)
+> * [CLI - 템플릿](virtual-machines-linux-extensions-configuration-samples.md)
+> 
+> 
 
 <br>
 
@@ -56,7 +56,6 @@
       }
 
 ## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>VM 규모 집합에서 VM 확장에 대한 샘플 템플릿 코드 조각
-
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
           ....
@@ -217,8 +216,6 @@
 다음은 확장을 사용하여 Linux VM을 만들기 위한 전체 VM 템플릿입니다.
 
 [Linux VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

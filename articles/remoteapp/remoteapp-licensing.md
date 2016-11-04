@@ -1,25 +1,25 @@
-<properties
-    pageTitle="Azure RemoteApp 라이선스 요구 사항 | Microsoft Azure"
-    description="Azure RemoteApp의 라이선스 작동 방식에 대해 알아봅니다."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Azure RemoteApp 라이선스 요구 사항 | Microsoft Docs
+description: Azure RemoteApp의 라이선스 작동 방식에 대해 알아봅니다.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # Azure RemoteApp의 라이선스 작동 방식
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp은 중단될 예정입니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> [!IMPORTANT]
+> Azure RemoteApp은 중단될 예정입니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> 
+> 
 
 이제 Azure RemoteApp 서비스를 설정하고 템플릿을 만들었으며 사용자에게 앱을 게시할 준비가 되었습니다. 하지만 마지막으로 확인해야 할 사항이 있습니다. 바로 라이선스입니다. RemoteApp 및 RemoteApp을 통해 공유하는 앱에 대해 라이선스는 어떻게 작동하나요?
 

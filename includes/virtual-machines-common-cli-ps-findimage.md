@@ -1,8 +1,10 @@
 
 
 ## Azure CLI
-
-> [AZURE.NOTE] 이 문서에서는 최근 설치된 Azure CLI 또는 Azure PowerShell을 사용하여 가상 컴퓨터 이미지를 탐색 및 선택하는 방법을 설명합니다. 전제 조건으로 리소스 관리자 모드를 변경해야 할 수 있습니다. Azure CLI로 `azure config mode arm`을(를) 입력하여 해당 모드를 입력합니다.
+> [!NOTE]
+> 이 문서에서는 최근 설치된 Azure CLI 또는 Azure PowerShell을 사용하여 가상 컴퓨터 이미지를 탐색 및 선택하는 방법을 설명합니다. 전제 조건으로 리소스 관리자 모드를 변경해야 할 수 있습니다. Azure CLI로 `azure config mode arm`을(를) 입력하여 해당 모드를 입력합니다.
+> 
+> 
 
 `azure vm quick-create`와 함께 사용하거나 리소스 그룹 템플릿 파일을 만들 이미지를 찾는 가장 쉽고 빠른 방법은 `azure vm image list` 명령을 호출하고 위치, 게시자 이름(대/소문자 구분 없음) 및 제안(제안을 알고 있는 경우)을 전달하는 것입니다. 예를 들어 다음 목록은 "UbuntuServer" 제안에 대한 게시자가 “Canonical"임을 알고 있는 경우의 간단한 예제일 뿐이며, 대부분의 목록은 매우 깁니다.
 
@@ -115,14 +117,16 @@
 이제 사용할 이미지를 정밀하게 선택할 수 있습니다. 방금 찾은 URN 정보를 사용하여 가상 컴퓨터를 빠르게 만들거나 해당 URN 정보로 템플릿을 사용하려면 [Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md)을 참조하세요.
 
 ## PowerShell
-
-> [AZURE.NOTE] [최신 Azure PowerShell](../articles/powershell-install-configure.md)을 설치하고 구성합니다. Azure PowerShell 모듈 1.0 이전을 사용 중인 경우 다음 명령을 사용하지만 먼저 `Switch-AzureMode AzureResourceManager`를 사용해야 합니다.
+> [!NOTE]
+> [최신 Azure PowerShell](../articles/powershell-install-configure.md)을 설치하고 구성합니다. Azure PowerShell 모듈 1.0 이전을 사용 중인 경우 다음 명령을 사용하지만 먼저 `Switch-AzureMode AzureResourceManager`를 사용해야 합니다.
+> 
+> 
 
 Azure 리소스 관리자를 사용하여 새 가상 컴퓨터를 만들 때 다음 이미지 속성을 조합하여 이미지를 지정해야 하는 경우도 있습니다.
 
-- 게시자
-- 제안
-- SKU
+* 게시자
+* 제안
+* SKU
 
 예를 들어 만들 가상 컴퓨터 형식을 지정해야 하는 리소스 그룹 템플릿 파일 또는 `Set-AzureRMVMSourceImage` PowerShell cmdlet에 대해 이러한 값이 필요합니다.
 
@@ -131,7 +135,6 @@ Azure 리소스 관리자를 사용하여 새 가상 컴퓨터를 만들 때 다
 1. 이미지 게시자를 나열합니다.
 2. 지정된 게시자에 제안을 나열합니다.
 3. 지정된 제안에 SKU를 나열합니다.
-
 
 먼저 다음 명령을 사용하여 게시자를 나열합니다.
 
@@ -205,7 +208,6 @@ Windows-Server-Technical-Preview
 ```
 
 이 목록에서 선택한 SKU 이름을 복사합니다. 그러면 `Set-AzureRMVMSourceImage` PowerShell cmdlet 또는 리소스 그룹 템플릿에 대한 모든 정보를 알 수 있습니다.
-
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png

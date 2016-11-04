@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect: FAQ | Microsoft Azure"
-    description="이 페이지에는 Azure AD Connect에 대해 자주 묻는 질문과 대답이 있습니다."
-    services="active-directory"
-    documentationCenter=""
-    authors="billmath"
-    manager="femila"
-    editor="curtand"/>
+---
+title: 'Azure AD Connect: FAQ | Microsoft Docs'
+description: 이 페이지에는 Azure AD Connect에 대해 자주 묻는 질문과 대답이 있습니다.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/08/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/08/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect-faq"></a>Azure AD Connect FAQ
-
 ## <a name="general-installation"></a>일반 설치
 **Q: Azure AD 전역 관리자가 2FA를 사용하도록 설정한 경우 설치가 작동하나요?**  
  2016년 2월 빌드에서 지원됩니다.
@@ -59,8 +57,8 @@
 **Q: Azure AD의 UPN(userPrincipalName) 특성이 온-프레미스 UPN가 일치하지 않습니다. 왜 그런가요?**  
  아래 문서를 참조하세요.
 
-- [Office 365, Azure 또는 Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치하지 않습니다(영문).](https://support.microsoft.com/en-us/kb/2523192)
-- [다른 페더레이션된 도메인을 사용하기 위해 사용자 계정의 UPN을 변경한 후에 Azure Active Directory 동기화 도구에서 변경 사항이 동기화되지 않습니다(영문).](https://support.microsoft.com/en-us/kb/2669550)
+* [Office 365, Azure 또는 Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치하지 않습니다(영문).](https://support.microsoft.com/en-us/kb/2523192)
+* [다른 페더레이션된 도메인을 사용하기 위해 사용자 계정의 UPN을 변경한 후에 Azure Active Directory 동기화 도구에서 변경 사항이 동기화되지 않습니다(영문).](https://support.microsoft.com/en-us/kb/2669550)
 
 [Azure AD Connect 동기화 서비스 기능](active-directory-aadconnectsyncservice-features.md)에 설명된 대로 동기화 엔진이 userPrincipalName을 업그레이드할 수 있도록 Azure AD를 구성할 수도 있습니다.
 
@@ -76,17 +74,15 @@
 
 [Microsoft KB(기술 자료) 검색](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
-- Microsoft KB(기술 자료)에서 Azure AD Connect 지원에 대한 일반적인 고장 수리 문제에 대한 기술 솔루션을 검색하세요.
+* Microsoft KB(기술 자료)에서 Azure AD Connect 지원에 대한 일반적인 고장 수리 문제에 대한 기술 솔루션을 검색하세요.
 
 [Microsoft Azure Active Directory 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 
-- 커뮤니티에서 기술 질문 및 대답을 검색하고 찾아보거나 [여기](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)를 클릭하여 직접 질문을 할 수 있습니다.
+* 커뮤니티에서 기술 질문 및 대답을 검색하고 찾아보거나 [여기](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)를 클릭하여 직접 질문을 할 수 있습니다.
 
 [Azure AD Connect 고객 지원](https://manage.windowsazure.com/?getsupport=true)
 
-- Azure 포털을 통해 지원을 받으려면 이 링크를 사용합니다.
-
-
+* Azure 포털을 통해 지원을 받으려면 이 링크를 사용합니다.
 
 <!--HONumber=Oct16_HO2-->
 

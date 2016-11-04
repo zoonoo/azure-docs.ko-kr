@@ -1,22 +1,22 @@
-<properties
-   pageTitle="Azure의 FreeBSD 소개 | Microsoft Azure"
-   description="Azure에서 FreeBSD 가상 컴퓨터를 사용하는 방법을 알아봅니다."
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="KylieLiang"
-   manager="timlt"
-   editor=""
-   tags="azure-service-management"/>
+---
+title: Azure의 FreeBSD 소개 | Microsoft Docs
+description: Azure에서 FreeBSD 가상 컴퓨터를 사용하는 방법을 알아봅니다.
+services: virtual-machines-linux
+documentationcenter: ''
+author: KylieLiang
+manager: timlt
+editor: ''
+tags: azure-service-management
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="08/27/2016"
-   ms.author="kyliel"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 08/27/2016
+ms.author: kyliel
 
+---
 # Azure의 FreeBSD 소개
 이 항목에서는 Azure에서 FreeBSD 가상 컴퓨터를 실행하는 방법의 개요를 제공합니다.
 
@@ -30,28 +30,26 @@ FreeBSD 가상 컴퓨터 배포 작업은 [Azure 마켓플레이스](https://azu
 FreeBSD에서 지원되는 VM 확장은 다음과 같습니다.
 
 ### VMAccess
-
 [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) 확장으로 다음을 수행할 수 있습니다.
 
-- 원래 sudo 사용자의 암호를 다시 설정합니다.
-- 지정된 암호를 사용하여 새 sudo 사용자를 만듭니다.
-- 지정된 키로 공개 호스트 키를 설정합니다.
-- 호스트 키가 제공되지 않은 경우 VM 프로비전 중에 제공된 공개 호스트 키를 다시 설정합니다.
-- SSH 포트(22)를 열고, reset\_ssh가 true로 설정된 경우 복원합니다.
-- 기존 사용자를 제거합니다.
-- 디스크를 확인합니다.
-- 추가된 디스크를 복구합니다.
+* 원래 sudo 사용자의 암호를 다시 설정합니다.
+* 지정된 암호를 사용하여 새 sudo 사용자를 만듭니다.
+* 지정된 키로 공개 호스트 키를 설정합니다.
+* 호스트 키가 제공되지 않은 경우 VM 프로비전 중에 제공된 공개 호스트 키를 다시 설정합니다.
+* SSH 포트(22)를 열고, reset\_ssh가 true로 설정된 경우 복원합니다.
+* 기존 사용자를 제거합니다.
+* 디스크를 확인합니다.
+* 추가된 디스크를 복구합니다.
 
 ### CustomScript
-
 [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) 확장으로 다음을 수행할 수 있습니다.
 
-- 제공될 경우 Azure Storage 또는 외부 공용 저장소(예: GitHub)에서 사용자 지정된 스크립트를 다운로드합니다.
-- 진입점 스크립트를 실행합니다.
-- 인라인 명령을 지원합니다.
-- 셸 및 Python 스크립트에서 Windows 스타일 줄 바꿈 문자를 자동으로 변환합니다.
-- 셸 및 Python 스크립트의 BOM을 자동으로 제거합니다.
-- CommandToExecute의 중요 데이터를 보호합니다.
+* 제공될 경우 Azure Storage 또는 외부 공용 저장소(예: GitHub)에서 사용자 지정된 스크립트를 다운로드합니다.
+* 진입점 스크립트를 실행합니다.
+* 인라인 명령을 지원합니다.
+* 셸 및 Python 스크립트에서 Windows 스타일 줄 바꿈 문자를 자동으로 변환합니다.
+* 셸 및 Python 스크립트의 BOM을 자동으로 제거합니다.
+* CommandToExecute의 중요 데이터를 보호합니다.
 
 ## 인증: 사용자 이름, 암호 및 SSH 키
 Azure 포털을 사용하여 FreeBSD 가상 컴퓨터를 만들 때 사용자 이름, 암호 또는 SSH 공개 키를 제공해야 합니다. Azure에서 FreeBSD 가상 컴퓨터를 배포하기 위한 사용자 이름은 가상 컴퓨터에 이미 있는 시스템 계정 이름(UID <100)(예: "root")과 일치해서는 안 됩니다. 현재는 RSA SSH 키만 지원됩니다. 여러 줄로 된 SSH 키는 "---- BEGIN SSH2 PUBLIC KEY ----"로 시작하고 "---- END SSH2 PUBLIC KEY ----"로 끝나야 합니다.
@@ -64,7 +62,7 @@ Azure에서 가상 컴퓨터 인스턴스를 배포하는 동안 지정한 사�
 선택적으로 sudo -s를 사용하여 루트 셸을 얻을 수 있습니다.
 
 ## 다음 단계
-- [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)로 가서 FreeBSD VM을 만듭니다.
-- 자체 FreeBSD를 Azure로 가져오려면 [FreeBSD VHD 만들기 및 Azure로 업로드](../virtual-machines-linux-classic-freebsd-create-upload-vhd.md)를 참조하세요.
+* [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)로 가서 FreeBSD VM을 만듭니다.
+* 자체 FreeBSD를 Azure로 가져오려면 [FreeBSD VHD 만들기 및 Azure로 업로드](../virtual-machines-linux-classic-freebsd-create-upload-vhd.md)를 참조하세요.
 
 <!---HONumber=AcomDC_0914_2016-->

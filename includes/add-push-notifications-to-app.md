@@ -1,6 +1,5 @@
 
 ## <a id="add-push"></a>앱에 푸시 알림 추가
-
 * QSAppDelegate.m에서 iOS SDK 및 QSTodoService.h를 가져옵니다.
 
 ```

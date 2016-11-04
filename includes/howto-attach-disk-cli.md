@@ -1,7 +1,7 @@
 
 디스크에 대한 자세한 내용은 [Azure의 가상 컴퓨터 디스크 정보](http://go.microsoft.com/fwlink/p/?LinkId=403697)를 참조하세요.
 
-##<a id="cliattachempty"></a>방법: 빈 디스크 연결
+## <a id="cliattachempty"></a>방법: 빈 디스크 연결
 빈 디스크 연결은 데이터 디스크를 추가하는 간단한 방법입니다. 다음 명령을 실행하여 새로운 빈 디스크를 연결합니다.
 
     vm disk attach-new <vm-name> <size-in-gb> [blob-url]

@@ -1,25 +1,23 @@
-<properties 
-    pageTitle="DocumentDB 디자인 패턴: 소셜 미디어 앱 | Microsoft Azure" 
-    description="DocumentDB 및 기타 Azure 서비스의 저장소 유연성을 활용하여 소셜 네트워크에 대한 디자인 패턴을 알아봅니다." 
-    keywords="소셜 미디어 앱"
-    services="documentdb" 
-    authors="ealsur" 
-    manager="jhubbard" 
-    editor="" 
-    documentationCenter=""/>
+---
+title: 'DocumentDB 디자인 패턴: 소셜 미디어 앱 | Microsoft Docs'
+description: DocumentDB 및 기타 Azure 서비스의 저장소 유연성을 활용하여 소셜 네트워크에 대한 디자인 패턴을 알아봅니다.
+keywords: 소셜 미디어 앱
+services: documentdb
+author: ealsur
+manager: jhubbard
+editor: ''
+documentationcenter: ''
 
-<tags 
-    ms.service="documentdb" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/27/2016" 
-    ms.author="mimig"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: mimig
 
-
+---
 # <a name="going-social-with-documentdb"></a>DocumentDB를 사용하여 소셜 네트워크 디자인
-
 광범위하게 상호 연결된 사회에서 살고 있다는 것은 삶의 어느 시점에서 **소셜 네트워크**의 일부가 된다는 것을 의미합니다. 우리는 소셜 네트워크를 사용하여 친구, 동료, 가족 등과 연락하거나, 때로는 공통의 관심사를 가진 사람들과 열정을 공유합니다.
 
 엔지니어 또는 개발자로서 우리는 이러한 네트워크가 데이터를 저장하고 상호 연결하는 방법 또는 특정 틈새 시장을 위한 새로운 소셜 네트워크를 만들거나 설계하는 데 활용되어 왔을 수 있는 방법이 궁금할 수 있습니다. 특히 이 모든 데이터가 어떻게 저장되는지가 매우 궁금할 때 더욱 그렇습니다.
@@ -41,7 +39,6 @@
 물론 이 많은 조인으로 수천 개의 쿼리를 해결할 정도의 방대한 SQL 인스턴스를 사용하여 콘텐츠를 제공할 수 있지만 보다 간단한 솔루션이 있는 데 그래야 하는 이유가 있을까요?
 
 ## <a name="the-nosql-road"></a>NoSQL
-
 [Azure](http://neo4j.com/developer/guide-cloud-deployment/#_windows_azure) 에서 실행할 수 있지만 저렴하지 않고 IaaS 서비스(Infrastructure-as-a-Service, 주로 가상 컴퓨터) 및 유지 관리가 필요한 특수 그래프 데이터베이스가 있습니다. 이 문서의 목적은 대부분의 시나리오에 적합하고 Azure의 NoSQL 데이터베이스 [DocumentDB](https://azure.microsoft.com/services/documentdb/)에서 실행되는 보다 저렴한 솔루션을 소개하는 것입니다. [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 접근 방식을 사용하여 데이터를 JSON 형식으로 저장하고 [역정규화](https://en.wikipedia.org/wiki/Denormalization)를 적용하면 이전의 복잡한 게시물을 단일 [문서](https://en.wikipedia.org/wiki/Document-oriented_database)로 변환할 수 있습니다.
 
     {
@@ -135,7 +132,6 @@ Azure DocumentDB는 모든 속성이 자체 [자동 인덱싱](documentdb-indexi
 또한 팔로워의 실제 그래프는 간단한 "A 다음에 B"를 저장하고 검색하도록 허용하는 [확장](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) 을 사용하여 Azure 저장소 테이블에 저장할 수 있습니다. 이렇게 Azure 저장소 테이블에 대한 정확한 팔로워 목록(필요한 경우)을 검색하는 프로세스를 삭제할 수 있지만 단축 번호 조회의 경우 DocumentDB를 계속 사용합니다.
 
 ## <a name="the-“ladder”-pattern-and-data-duplication"></a>"사다리" 패턴 및 데이터 중복
-
 게시물을 참조하는 JSON 문서에서 볼 수 있듯이 하나의 사용자가 여러 번 발생합니다. 이는 이러한 역정규화가 주어진 경우 사용자를 나태는 정보가 여러 곳에 표시될 수 있음을 의미합니다.
 
 데이터 중복이 발생하도록 둔 것은 더 빠른 쿼리를 허용하기 위해서입니다. 그 부작용으로 인한 문제는 일부 작업으로 인해 사용자의 데이터가 변경된 경우 해당 사용자가 지금까지 수행한 모든 활동을 찾아서 모두 업데이트해야 한다는 점입니다. 그다지 실용적으로 들리지 않죠, 그렇죠?
@@ -157,7 +153,7 @@ Azure DocumentDB는 모든 속성이 자체 [자동 인덱싱](documentdb-indexi
         "totalPoints":100,
         "totalPosts":24
     }
-    
+
 이 정보를 보면 중요한 정보와 중요하지 않은 정보를 신속하게 감지할 수 있으므로 다음과 같은 “사다리”가 만들어집니다.
 
 ![사다리 패턴의 다이어그램](./media/documentdb-social-media-apps/social-media-apps-ladder.png)
@@ -194,19 +190,17 @@ Azure DocumentDB는 모든 속성이 자체 [자동 인덱싱](documentdb-indexi
 청크의 특성 중 하나가 영향을 받는 곳에서 편집 작업이 수행된 경우 인덱싱된 특성(SELECT * FROM posts p WHERE p.createdBy.id == “edited_user_id”)을 가리키는 쿼리를 사용한 후 청크를 업데이트하여 영향을 받는 문서를 쉽게 찾을 수 있습니다.
 
 ## <a name="the-search-box"></a>검색 상자
-
 다행히 사용자는 많은 콘텐츠를 생성합니다. 우리는 콘텐츠 스트림에 없을 수 있는 콘텐츠를 검색하고 찾을 수 있는 기능을 제공할 수 있어야 합니다. 만든 사람을 추적하지 않거나 6개월 전에 게시한 오래된 게시물을 찾으려고 할 수 있기 때문입니다.
 
 다행히 Azure DocumentDB를 사용하기 때문에 단일 코드 줄을 입력하지 않고도 [Azure 검색](https://azure.microsoft.com/services/search/) 을 통해 몇 분 이내에 검색 엔진을 쉽게 구현할 수 있습니다(검색 프로세스 및 UI가 아님).
 
 이 작업이 이렇게 쉬운 이유는 무엇일까요?
 
-Azure Search는 데이터 리포지토리에 후크되는 백그라운드 프로세스인 [인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx)를 호출하여 인덱스에서 개체를 자동으로 추가, 업데이트 또는 제거하는 기능을 구현하기 때문입니다. Azure Search는 [Azure SQL Database 인덱서](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blob 인덱서](../search/search-howto-indexing-azure-blob-storage.md) 그리고 다행이도 [Azure DocumentDB 인덱서](../documentdb/documentdb-search-indexer.md)를 지원합니다. DocumentDB에서 Azure Search로 정보를 전환하는 것은 간단합니다. 둘 다 정보를 JSON 형식으로 저장하기 때문에 [인덱스를 만들고](../search/search-create-index-portal.md) 문서에서 인덱싱할 특성을 매핑하기만 하면 됩니다. 그러면 몇 분(데이터 크기에 따라 다름) 이내에 클라우드 인프라에서 제공되는 최고의 SaaS(Search-as-a-Service) 솔루션을 통해 모든 콘텐츠를 검색할 수 있게 됩니다. 
+Azure Search는 데이터 리포지토리에 후크되는 백그라운드 프로세스인 [인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx)를 호출하여 인덱스에서 개체를 자동으로 추가, 업데이트 또는 제거하는 기능을 구현하기 때문입니다. Azure Search는 [Azure SQL Database 인덱서](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blob 인덱서](../search/search-howto-indexing-azure-blob-storage.md) 그리고 다행이도 [Azure DocumentDB 인덱서](documentdb-search-indexer.md)를 지원합니다. DocumentDB에서 Azure Search로 정보를 전환하는 것은 간단합니다. 둘 다 정보를 JSON 형식으로 저장하기 때문에 [인덱스를 만들고](../search/search-create-index-portal.md) 문서에서 인덱싱할 특성을 매핑하기만 하면 됩니다. 그러면 몇 분(데이터 크기에 따라 다름) 이내에 클라우드 인프라에서 제공되는 최고의 SaaS(Search-as-a-Service) 솔루션을 통해 모든 콘텐츠를 검색할 수 있게 됩니다. 
 
 Azure 검색에 대한 자세한 내용은 [Hitchhiker의 검색 가이드](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/)를 참조하세요.
 
 ## <a name="the-underlying-knowledge"></a>기본 지식
-
 매일 증가하는 이 모든 콘텐츠를 저장한 후에는 이 모든 사용자 정보 스트림으로 수행할 수 있는 작업이 무엇인지 궁금할 수 있습니다.
 
 대답은 간단합니다. 사용할 수 있도록 구성한 후 학습하는 것입니다.
@@ -215,14 +209,13 @@ Azure 검색에 대한 자세한 내용은 [Hitchhiker의 검색 가이드](http
 
 이제 간단한 데이터베이스 및 파일에서 이러한 패턴과 정보를 추출하려면 수학 박사가 필요하다고 생각하겠지만 그렇지 않습니다.
 
-[Cortana Intelligence 제품군](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx)의 일부인 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)은 완전히 관리되는 클라우드 서비스로서, 간단한 끌어서 놓기 인터페이스에서 알고리즘을 사용하여 워크플로를 만들거나, [R](https://en.wikipedia.org/wiki/R_(programming_language))에서 사용자 고유의 알고리즘을 코딩하거나, 이미 빌드되고 즉시 사용 가능한 API(예: [텍스트 분석](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) 또는 [추천](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2))를 사용할 수 있도록 해줍니다.
+[Cortana Intelligence 제품군](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx)의 일부인 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)은 완전히 관리되는 클라우드 서비스로서, 간단한 끌어서 놓기 인터페이스에서 알고리즘을 사용하여 워크플로를 만들거나, [R](https://en.wikipedia.org/wiki/R_\(programming_language\))에서 사용자 고유의 알고리즘을 코딩하거나, 이미 빌드되고 즉시 사용 가능한 API(예: [텍스트 분석](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) 또는 [추천](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2))를 사용할 수 있도록 해줍니다.
 
 이러한 Machine Learning 시나리오를 달성하려면 [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/)를 사용하여 다양 한 원본에서 정보를 수집하고 [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/)을 사용하여 정보를 처리하고 Azure Machine Learning에서 처리할 수 있는 출력을 생성할 수 있습니다.
 
 또 다른 사용 가능한 옵션은 [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services)를 사용하여 사용자의 콘텐츠를 분석하는 것입니다. 이를 통해 보다 잘 이해할 수 있을 뿐만 아니라([Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)로 작성한 것을 분석하여) 원치 않거나 성숙한 콘텐츠를 검색하고 [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api)를 사용하여 그에 따라 동작할 수 있습니다. Cognitive Services는 사용하기 위해 Machine Learning의 지식이 필요하지 않은 많은 기본 제공 솔루션을 포함합니다.
 
 ## <a name="conclusion"></a>결론
-
 이 문서에서는 완전히 Azure에서 저렴한 서비스를 사용하여 소셜 네트워크를 만들고, 다중 계층 저장소 솔루션 및 “사다리”라는 데이터 분산을 사용하도록 권장하여 뛰어난 결과를 제공하는 대안에 대해 살펴보았습니다.
 
 ![소셜 네트워킹에 대한 Azure 서비스 간 상호 작용의 다이어그램](./media/documentdb-social-media-apps/social-media-apps-azure-solution.png)
@@ -230,12 +223,9 @@ Azure 검색에 대한 자세한 내용은 [Hitchhiker의 검색 가이드](http
 이러한 종류의 시나리오에 대한 묘책은 없습니다. 이는 뛰어난 경험을 구축할 수 있도록 해주는 유용한 서비스의 조합으로 생성되는 시너지입니다. 예를 들어 뛰어난 소셜 응용 프로그램을 제공하는 Azure DocumentDB의 속도와 자유로움, Azure 검색과 같은 최고 수준의 검색 솔루션에 숨은 인텔리전스, 언어에 관계없는 응용 프로그램뿐 아니라 강력한 백그라운드 프로세스를 호스트하는 Azure 앱 서비스의 유연성, 방대한 양의 데이터를 저장하는 확장 가능한 Azure 저장소 및 Azure SQL 데이터베이스, 프로세스에 대한 피드백을 제공할 수 있는 지식과 인텔리전스를 만들고 올바른 사용자에게 올바른 콘텐츠를 제공하도록 도와주는 Azure 기계 학습의 분석 기능 등이 조합된 결과입니다.
 
 ## <a name="next-steps"></a>다음 단계
-
 데이터 모델링에 대한 자세한 내용은 [DocumentDB의 데이터 모델링](documentdb-modeling-data.md) 문서를 참조하세요. DocumentDB의 다른 사용 사례에 관심이 있는 경우 [일반적인 DocumentDB 사용 사례](documentdb-use-cases.md)를 참조하세요.
 
 또는 [DocumentDB 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 수행하여 DocumentDB에 대해 자세히 알아보세요.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

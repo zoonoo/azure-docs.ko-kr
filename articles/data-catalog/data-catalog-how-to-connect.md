@@ -1,24 +1,23 @@
-<properties
-   pageTitle="데이터 원본에 연결하는 방법 | Microsoft Azure"
-   description="Azure 데이터 카탈로그를 사용하여 검색된 데이터 원본에 연결하는 방법을 강조 표시한 방법 문서"
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="09/15/2016"
-   ms.author="maroche"/>
+---
+title: 데이터 원본에 연결하는 방법 | Microsoft Docs
+description: Azure 데이터 카탈로그를 사용하여 검색된 데이터 원본에 연결하는 방법을 강조 표시한 방법 문서
+services: data-catalog
+documentationcenter: ''
+author: steelanddata
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: data-catalog
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-catalog
+ms.date: 09/15/2016
+ms.author: maroche
 
+---
 # 데이터 원본에 연결하는 방법
-
 ## 소개
 **Microsoft Azure 데이터 카탈로그**는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 **Azure 데이터 카탈로그**는 사람들이 데이터 원본을 검색하고 이해하고 사용하도록 도우면서 조직의 기존 데이터로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다. 이 시나리오의 중요한 측면은 데이터를 사용하는 것입니다. 사용자가 데이터 원본을 검색하고 용도를 이해하면 다음 단계는 해당 데이터를 사용할 수 있도록 데이터 원본에 연결하는 것입니다.
 
@@ -39,12 +38,12 @@ Azure Data Catalog 포털에서 데이터 원본에 대한 "열기..." 메뉴를
 
 | 응용 프로그램에서 열기 | 파일 확장명 / 프로토콜 | 지원되는 응용 프로그램 버전 |
 | --- | --- | --- |
-| Excel | .odc | Excel 2010 이상 |
-| Excel (상위 1000) | .odc | Excel 2010 이상 |
-| 파워 쿼리 | .xlsx | Excel용 파워 쿼리 추가 기능이 설치된 Excel 2016 또는 Excel 2010 또는 Excel 2013
-| Power BI Desktop | .pbix | Power BI Desktop 2016년 7월 이상 |
-| SQL Server Data Tools | vsweb:// | SQL Server 도구가 설치된 Visual Studio 2013 업데이트 4 이상 |
-| 보고서 관리자 | http:// | [SQL Server Reporting Services에 대한 브라우저 요구 사항](https://technet.microsoft.com/ko-KR/library/ms156511.aspx)을 참조하세요. |
+| Excel |.odc |Excel 2010 이상 |
+| Excel (상위 1000) |.odc |Excel 2010 이상 |
+| 파워 쿼리 |.xlsx |Excel용 파워 쿼리 추가 기능이 설치된 Excel 2016 또는 Excel 2010 또는 Excel 2013 |
+| Power BI Desktop |.pbix |Power BI Desktop 2016년 7월 이상 |
+| SQL Server Data Tools |vsweb:// |SQL Server 도구가 설치된 Visual Studio 2013 업데이트 4 이상 |
+| 보고서 관리자 |http:// |[SQL Server Reporting Services에 대한 브라우저 요구 사항](https://technet.microsoft.com/ko-KR/library/ms156511.aspx)을 참조하세요. |
 
 ## 데이터, 도구
 메뉴에서 사용 가능한 옵션은 현재 선택한 데이터 자산 유형에 따라 달라집니다. 물론 모든 가능한 도구는 "다음에서 열기..." 메뉴에 포함되지 않지만 모든 클라이언트 도구를 사용하여 데이터 원본에 여전히 쉽게 연결할 수 있습니다. 데이터 자산이 **Azure 데이터 카탈로그** 포털에서 선택된 경우 전체 위치가 속성 창에 표시됩니다.
@@ -60,10 +59,10 @@ Azure Data Catalog 포털에서 데이터 원본에 대한 "열기..." 메뉴를
 
  ![제공된 액세스 요청 지침을 사용한 연결 정보](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
 
-##요약
+## 요약
 데이터 원본을 **Azure 데이터 카탈로그**에 등록하면 구조적 메타데이터 및 설명이 포함된 메타데이터를 데이터 원본에서 카탈로그 서비스로 복사하여 데이터를 검색할 수 있게 합니다. 데이터 원본이 등록되고 검색되면 사용자는 **Azure 데이터 카탈로그** 포털 "다음에서 열기..." "메뉴 또는 선택한 자신의 데이터 도구를 사용하여 데이터 원본에 연결할 수 있습니다.
 
 ## 참고 항목
-- 데이터 원본에 연결하는 방법에 대한 단계별 세부 정보에 대한 [Azure Data Catalog 시작](data-catalog-get-started.md) 자습서.
+* 데이터 원본에 연결하는 방법에 대한 단계별 세부 정보에 대한 [Azure Data Catalog 시작](data-catalog-get-started.md) 자습서.
 
 <!---HONumber=AcomDC_0921_2016-->

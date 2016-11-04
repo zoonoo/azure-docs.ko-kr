@@ -1,24 +1,23 @@
-<properties
-pageTitle="Excel 커넥터 추가 | Microsoft Azure"
-description="REST API 매개 변수를 사용하는 Excel 커넥터 개요"
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
-editor=""
-tags="connectors"/>
+---
+title: Excel 커넥터 추가 | Microsoft Docs
+description: REST API 매개 변수를 사용하는 Excel 커넥터 개요
+services: ''
+documentationcenter: ''
+author: msftman
+manager: erikre
+editor: ''
+tags: connectors
 
-<tags
-ms.service="multiple"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="08/23/2016"
-ms.author="deonhe"/>
+ms.service: multiple
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/23/2016
+ms.author: deonhe
 
+---
 # Excel 커넥터 시작
-
 현재는 논리 앱에 Excel 커넥터가 없습니다.
 
 ## Excel 데이터를 사용하려면

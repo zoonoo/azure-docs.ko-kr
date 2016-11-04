@@ -1,28 +1,27 @@
-<properties
-   pageTitle="PowerShell 커넥터 | Microsoft Azure"
-   description="이 문서에서는 Microsoft의 Windows PowerShell 커넥터를 구성하는 방법을 설명합니다."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: PowerShell 커넥터 | Microsoft Docs
+description: 이 문서에서는 Microsoft의 Windows PowerShell 커넥터를 구성하는 방법을 설명합니다.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="08/30/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/30/2016
+ms.author: billmath
 
-
+---
 # <a name="windows-powershell-connector-technical-reference"></a>WIndows PowerShell 커넥터 기술 참조
 이 문서에서는 Windows PowerShell 커넥터를 설명합니다. 이 문서는 다음 제품에 적용됩니다.
 
-- Microsoft Identity Manager 2016 (MIM2016)
-- Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   핫픽스 4.1.3671.0 이상 [KB3092178](https://support.microsoft.com/kb/3092178)을 사용해야 합니다.
+* Microsoft Identity Manager 2016 (MIM2016)
+* Forefront Identity Manager 2010 R2 (FIM2010R2)
+  * 핫픽스 4.1.3671.0 이상 [KB3092178](https://support.microsoft.com/kb/3092178)을 사용해야 합니다.
 
 MIM2016와 FIM2010R2의 경우 커넥터는 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=717495)에서 다운로드로 사용할 수 있습니다.
 
@@ -32,8 +31,8 @@ PowerShell 커넥터를 사용하면 동기화 서비스를 Windows PowerShell �
 ### <a name="prerequisites"></a>필수 조건
 커넥터를 사용하기 전에 동기화 서버에 다음 사항이 있는지 확인합니다.
 
-- Microsoft.NET 4.5.2 Framework 이상
-- Windows PowerShell 2.0, 3.0 또는 4.0
+* Microsoft.NET 4.5.2 Framework 이상
+* Windows PowerShell 2.0, 3.0 또는 4.0
 
 동기화 서비스 서버의 실행 정책은 커넥터가 Windows PowerShell 스크립트를 실행하도록 구성되어야 합니다. 커넥터가 실행될 스크립트가 디지털로 서명되지 않으면 이 명령을 실행하여 실행 정책을 구성합니다.  
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
@@ -56,16 +55,16 @@ PowerShell 커넥터를 만들려면 **동기화 서비스**에서 **관리 에�
 
 **연결**
 
-매개 변수 | 기본값 | 목적
---- | --- | ---
-서버 | <Blank> | 커넥터가 연결해야 하는 서버 이름입니다.
-도메인 | <Blank> | 커넥터를 실행할 때 사용하기 위해 저장하는 자격 증명의 도메인입니다.
-사용자 | <Blank> | 커넥터를 실행할 때 사용하기 위해 저장하는 자격 증명의 사용자 이름입니다.
-암호 | <Blank> | 커넥터를 실행할 때 사용하기 위해 저장하는 자격 증명의 암호입니다.
-커넥터 계정 가장 | False | true인 경우 동기화 서비스는 제공된 자격 증명의 컨텍스트에서 Windows PowerShell 스크립트를 실행합니다. 가능하면 각 스크립트에 전달된 **$Credentials** 매개 변수가 가장 대신 사용되는 것이 좋습니다. 이 옵션을 사용하는 데 필요한 추가 사용 권한에 대한 자세한 내용은 [가장에 대한 추가 구성](#additional-configuration-for-impersonation)을 참조하세요.
-가장 시 사용자 프로필 로드 | False | 가장하는 동안 Windows가 커넥터의 자격 증명에서 사용자 프로필을 로드하도록 지시합니다. 가장된 사용자에게 로밍 프로필이 있는 경우 커넥터는 로밍 프로필을 로드하지 않습니다. 이 매개 변수를 사용하는 데 필요한 추가 사용 권한에 대한 자세한 내용은 [가장에 대한 추가 구성](#additional-configuration-for-impersonation)을 참조하세요.
-가장 시 로그온 형식 | 없음 | 가장하는 동안 로그온 형식입니다. 자세한 내용은 [dwLogonType][dw] 설명서를 참조하세요.
-서명된 스크립트만 해당 | False | true인 경우 Windows PowerShell 커넥터는 각 스크립트에 유효한 디지털 서명이 있는지 확인합니다. false인 경우 동기화 서비스 서버의 Windows PowerShell 실행 정책이 RemoteSigned 또는 무제한인지 확인합니다.
+| 매개 변수 | 기본값 | 목적 |
+| --- | --- | --- |
+| 서버 |<Blank> |커넥터가 연결해야 하는 서버 이름입니다. |
+| 도메인 |<Blank> |커넥터를 실행할 때 사용하기 위해 저장하는 자격 증명의 도메인입니다. |
+| 사용자 |<Blank> |커넥터를 실행할 때 사용하기 위해 저장하는 자격 증명의 사용자 이름입니다. |
+| 암호 |<Blank> |커넥터를 실행할 때 사용하기 위해 저장하는 자격 증명의 암호입니다. |
+| 커넥터 계정 가장 |False |true인 경우 동기화 서비스는 제공된 자격 증명의 컨텍스트에서 Windows PowerShell 스크립트를 실행합니다. 가능하면 각 스크립트에 전달된 **$Credentials** 매개 변수가 가장 대신 사용되는 것이 좋습니다. 이 옵션을 사용하는 데 필요한 추가 사용 권한에 대한 자세한 내용은 [가장에 대한 추가 구성](#additional-configuration-for-impersonation)을 참조하세요. |
+| 가장 시 사용자 프로필 로드 |False |가장하는 동안 Windows가 커넥터의 자격 증명에서 사용자 프로필을 로드하도록 지시합니다. 가장된 사용자에게 로밍 프로필이 있는 경우 커넥터는 로밍 프로필을 로드하지 않습니다. 이 매개 변수를 사용하는 데 필요한 추가 사용 권한에 대한 자세한 내용은 [가장에 대한 추가 구성](#additional-configuration-for-impersonation)을 참조하세요. |
+| 가장 시 로그온 형식 |없음 |가장하는 동안 로그온 형식입니다. 자세한 내용은 [dwLogonType][dw] 설명서를 참조하세요. |
+| 서명된 스크립트만 해당 |False |true인 경우 Windows PowerShell 커넥터는 각 스크립트에 유효한 디지털 서명이 있는지 확인합니다. false인 경우 동기화 서비스 서버의 Windows PowerShell 실행 정책이 RemoteSigned 또는 무제한인지 확인합니다. |
 
 **일반 모듈**  
  커넥터를 사용하면 구성에 공유 Windows PowerShell 모듈을 저장할 수 있습니다. 커넥터가 스크립트를 실행할 때 Windows PowerShell 모듈을 파일 시스템에 추출하므로 각 스크립트에서 가져올 수 있습니다.
@@ -79,17 +78,17 @@ MAData 폴더에서 FIMPowerShellConnectorModule.psm1이라는 모듈을 로드�
 **매개 변수 유효성 검사**  
  유효성 검사 스크립트는 관리자가 제공한 커넥터 구성 매개 변수가 유효한지 확인하는 데 사용될 수 있는 선택적 Windows PowerShell 스크립트입니다. 서버, 연결 자격 증명 및 연결 매개 변수의 유효성을 검사하는 작업은 유효성 검사 스크립트의 일반적인 사용입니다. 유효성 검사 스크립트는 다음과 같은 탭 뒤에 호출되고 대화 상자에서 수정됩니다.
 
-- 연결
-- 글로벌 매개 변수
-- 파티션 구성
+* 연결
+* 글로벌 매개 변수
+* 파티션 구성
 
 유효성 검사 스크립트는 커넥터에서 다음 매개 변수를 받습니다.
 
-Name | 데이터 형식 | 설명
---- | --- | ---
-ConfigParameterPage | [ConfigParameterPage][cpp] | 유효성 검사 요청을 트리거한 구성 탭 또는 대화 상자입니다.
-ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | 커넥터에 대한 구성 매개 변수의 테이블입니다.
-자격 증명 | [PSCredential][pscred] | 연결 탭에서 관리자가 입력한 자격 증명을 포함합니다.
+| Name | 데이터 형식 | 설명 |
+| --- | --- | --- |
+| ConfigParameterPage |[ConfigParameterPage][cpp] |유효성 검사 요청을 트리거한 구성 탭 또는 대화 상자입니다. |
+| ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |커넥터에 대한 구성 매개 변수의 테이블입니다. |
+| 자격 증명 |[PSCredential][pscred] |연결 탭에서 관리자가 입력한 자격 증명을 포함합니다. |
 
 유효성 검사 스크립트는 단일 ParameterValidationResult 개체를 파이프라인에 반환해야 합니다.
 
@@ -98,10 +97,10 @@ ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | 커
 
 스키마 검색 스크립트는 커넥터에서 다음 매개 변수를 받습니다.
 
-Name | 데이터 형식 | 설명
---- | --- | ---
-ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | 커넥터에 대한 구성 매개 변수의 테이블입니다.
-자격 증명 | [PSCredential][pscred] | 연결 탭에서 관리자가 입력한 자격 증명을 포함합니다.
+| Name | 데이터 형식 | 설명 |
+| --- | --- | --- |
+| ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |커넥터에 대한 구성 매개 변수의 테이블입니다. |
+| 자격 증명 |[PSCredential][pscred] |연결 탭에서 관리자가 입력한 자격 증명을 포함합니다. |
 
 스크립트는 단일 [스키마][schema] 개체를 파이프라인에 반환해야 합니다. 스키마 개체는 개체 형식(예: 사용자 및 그룹)을 나타내는 [SchemaType][schemaT] 개체로 구성됩니다. SchemaType 개체는 형식의 특성(예: 지정된 이름, 성 및 우편 주소)을 나타내는 [SchemaAttribute][schemaA] 개체의 컬렉션을 보유합니다.
 
@@ -117,25 +116,25 @@ ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | 커
 
 ![기능](./media/active-directory-aadconnectsync-connector-powershell/capabilities.png)
 
-기능 | 설명 |
---- | --- |
-[고유 이름 스타일][dnstyle] | 커넥터가 고유 이름을 지원하는지, 그렇다면 어떤 스타일을 지원하는지를 나타냅니다.
-[내보내기 형식][exportT] | 내보내기 스크립트에 표시되는 개체의 형식을 결정합니다. <li>AttributeReplace – 특성이 변경될 때 다중값 특성에 대한 값의 전체 집합을 포함합니다.</li><li>AttributeUpdate – 특성이 변경될 때 다중값 특성의 델타만 포함합니다.</li><li>MultivaluedReferenceAttributeUpdate - 비참조 다중값 특성에 대한 값의 전체 집합과 다중값 참조 특성에 대한 델타만 포함합니다.</li><li>ObjectReplace – 특성을 변경하는 경우 개체에 대한 모든 특성을 포함합니다.</li>
-[데이터 정규화][DataNorm] | 스크립트에 제공되기 전에 앵커 특성을 정규화하도록 동기화 서비스에 지시합니다.
-[개체 확인][oconf] | 동기화 서비스에서 보류 중인 가져오기 동작을 구성합니다. <li>Normal – 가져오기를 통해 모든 내보낸 변경 내용을 확인하는 기본 동작</li><li>NoDeleteConfirmation – 개체를 삭제하면 생성 보류 중인 가져오기 작업이 없습니다.</li><li>NoAddAndDeleteConfirmation – 개체를 생성하거나 삭제하면 생성 보류 중인 가져오기 작업이 없습니다.</li>
-앵커로 DN 사용 | 또한 고유 이름 스타일이 LDAP로 설정되면 커넥터 공간에 대한 앵커 특성은 고유 이름입니다.
-여러 커넥터의 동시 작업 | 옵션을 선택하면 여러 Windows PowerShell 커넥터는 동시에 실행할 수 있습니다.
-파티션 | 옵션을 선택하면 커넥터는 여러 파티션 및 파티션 검색을 지원합니다.
-계층 구조 | 옵션을 선택하면 커넥터는 LDAP 스타일 계층 구조를 지원합니다.
-가져오기 사용 | 옵션을 선택하면 커넥터는 가져오기 스크립트를 통해 데이터를 가져옵니다.
-델타 가져오기 사용 | 옵션을 선택하면 커넥터는 가져오기 스크립트를 통해 델타를 요청할 수 있습니다.
-내보내기 사용 | 옵션을 선택하면 커넥터는 내보내기 스크립트를 통해 데이터를 내보냅니다.
-전체 내보내기 사용 | 옵션을 선택하면 내보내기 스크립트는 전체 커넥터 공간을 내보내도록 지원합니다. 또한 이 옵션을 사용하려면 내보내기 사용을 선택해야 합니다.
-첫 번째 내보내기 단계에서 참조 값 없음 | 옵션을 선택하면 두 번째 내보내기 과정에서 참조 특성을 내보냅니다.
-개체 이름 바꾸기 사용 | 옵션을 선택하면 고유 이름을 수정할 수 있습니다.
-바꾸기로 삭제-추가 | 옵션을 선택하면 삭제-추가 작업이 단일 교체로 내보내집니다.
-암호 작업 사용 | 옵션을 선택하면 암호 동기화 스크립트가 지원됩니다.
-첫 번째 패스에서 암호 내보내기 사용 | 옵션을 선택하면 개체를 만들 때 프로비전하는 동안 암호 설정이 내보내집니다.
+| 기능 | 설명 |
+| --- | --- |
+| [고유 이름 스타일][dnstyle] |커넥터가 고유 이름을 지원하는지, 그렇다면 어떤 스타일을 지원하는지를 나타냅니다. |
+| [내보내기 형식][exportT] |내보내기 스크립트에 표시되는 개체의 형식을 결정합니다. <li>AttributeReplace – 특성이 변경될 때 다중값 특성에 대한 값의 전체 집합을 포함합니다.</li><li>AttributeUpdate – 특성이 변경될 때 다중값 특성의 델타만 포함합니다.</li><li>MultivaluedReferenceAttributeUpdate - 비참조 다중값 특성에 대한 값의 전체 집합과 다중값 참조 특성에 대한 델타만 포함합니다.</li><li>ObjectReplace – 특성을 변경하는 경우 개체에 대한 모든 특성을 포함합니다.</li> |
+| [데이터 정규화][DataNorm] |스크립트에 제공되기 전에 앵커 특성을 정규화하도록 동기화 서비스에 지시합니다. |
+| [개체 확인][oconf] |동기화 서비스에서 보류 중인 가져오기 동작을 구성합니다. <li>Normal – 가져오기를 통해 모든 내보낸 변경 내용을 확인하는 기본 동작</li><li>NoDeleteConfirmation – 개체를 삭제하면 생성 보류 중인 가져오기 작업이 없습니다.</li><li>NoAddAndDeleteConfirmation – 개체를 생성하거나 삭제하면 생성 보류 중인 가져오기 작업이 없습니다.</li> |
+| 앵커로 DN 사용 |또한 고유 이름 스타일이 LDAP로 설정되면 커넥터 공간에 대한 앵커 특성은 고유 이름입니다. |
+| 여러 커넥터의 동시 작업 |옵션을 선택하면 여러 Windows PowerShell 커넥터는 동시에 실행할 수 있습니다. |
+| 파티션 |옵션을 선택하면 커넥터는 여러 파티션 및 파티션 검색을 지원합니다. |
+| 계층 구조 |옵션을 선택하면 커넥터는 LDAP 스타일 계층 구조를 지원합니다. |
+| 가져오기 사용 |옵션을 선택하면 커넥터는 가져오기 스크립트를 통해 데이터를 가져옵니다. |
+| 델타 가져오기 사용 |옵션을 선택하면 커넥터는 가져오기 스크립트를 통해 델타를 요청할 수 있습니다. |
+| 내보내기 사용 |옵션을 선택하면 커넥터는 내보내기 스크립트를 통해 데이터를 내보냅니다. |
+| 전체 내보내기 사용 |옵션을 선택하면 내보내기 스크립트는 전체 커넥터 공간을 내보내도록 지원합니다. 또한 이 옵션을 사용하려면 내보내기 사용을 선택해야 합니다. |
+| 첫 번째 내보내기 단계에서 참조 값 없음 |옵션을 선택하면 두 번째 내보내기 과정에서 참조 특성을 내보냅니다. |
+| 개체 이름 바꾸기 사용 |옵션을 선택하면 고유 이름을 수정할 수 있습니다. |
+| 바꾸기로 삭제-추가 |옵션을 선택하면 삭제-추가 작업이 단일 교체로 내보내집니다. |
+| 암호 작업 사용 |옵션을 선택하면 암호 동기화 스크립트가 지원됩니다. |
+| 첫 번째 패스에서 암호 내보내기 사용 |옵션을 선택하면 개체를 만들 때 프로비전하는 동안 암호 설정이 내보내집니다. |
 
 ### <a name="global-parameters"></a>글로벌 매개 변수
 관리 에이전트 디자이너에서 전역 매개 변수 탭을 통해 커넥터를 통해 실행되는 Windows PowerShell 스크립트를 구성할 수 있습니다. 연결 탭에 정의된 사용자 지정 구성 설정에 대한 전역 값을 구성할 수도 있습니다.
@@ -145,10 +144,10 @@ ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | 커
 
 파티션 검색 스크립트는 커넥터에서 다음 매개 변수를 받습니다.
 
-Name | 데이터 형식 | 설명
---- | --- | ---
-ConfigParameters  | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | 커넥터에 대한 구성 매개 변수의 테이블입니다.
-자격 증명 | [PSCredential][pscred] | 연결 탭에서 관리자가 입력한 자격 증명을 포함합니다.
+| Name | 데이터 형식 | 설명 |
+| --- | --- | --- |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |커넥터에 대한 구성 매개 변수의 테이블입니다. |
+| 자격 증명 |[PSCredential][pscred] |연결 탭에서 관리자가 입력한 자격 증명을 포함합니다. |
 
 스크립트는 단일 [파티션][part] 개체 또는 파티션 개체의 목록[T]를 파이프라인에 반환해야 합니다.
 
@@ -157,11 +156,11 @@ ConfigParameters  | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | 커
 
 계층 구조 검색 스크립트는 커넥터에서 다음 매개 변수를 받습니다.
 
-Name | 데이터 형식 | 설명
---- | --- | ---
-ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | 커넥터에 대한 구성 매개 변수의 테이블입니다.
-자격 증명 | [PSCredential][pscred] | 연결 탭에서 관리자가 입력한 자격 증명을 포함합니다.
-ParentNode | [HierarchyNode][hn] | 스크립트에서 계층의 루트 노드는 직접 하위 항목을 반환해야 합니다.
+| Name | 데이터 형식 | 설명 |
+| --- | --- | --- |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |커넥터에 대한 구성 매개 변수의 테이블입니다. |
+| 자격 증명 |[PSCredential][pscred] |연결 탭에서 관리자가 입력한 자격 증명을 포함합니다. |
+| ParentNode |[HierarchyNode][hn] |스크립트에서 계층의 루트 노드는 직접 하위 항목을 반환해야 합니다. |
 
 스크립트는 단일 하위 HierarchyNode 개체 또는 하위 HierarchyNode 개체의 목록[T]를 파이프라인에 반환해야 합니다.
 
@@ -173,12 +172,12 @@ ParentNode | [HierarchyNode][hn] | 스크립트에서 계층의 루트 노드는
 
 가져오기 시작 스크립트는 커넥터에서 다음 매개 변수를 받습니다.
 
-Name | 데이터 형식 | 설명
---- | --- | ---
-ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | 커넥터에 대한 구성 매개 변수의 테이블입니다.
-자격 증명 | [PSCredential][pscred] | 연결 탭에서 관리자가 입력한 자격 증명을 포함합니다.
-OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | 가져오기 실행(델타 또는 전체), 파티션, 계층, 워터 마크 및 예상된 페이지 크기의 형식에 대한 스크립트를 알립니다.
-형식 | [스키마][schema] | 가져올 커넥터 공간에 대한 스키마입니다.
+| Name | 데이터 형식 | 설명 |
+| --- | --- | --- |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |커넥터에 대한 구성 매개 변수의 테이블입니다. |
+| 자격 증명 |[PSCredential][pscred] |연결 탭에서 관리자가 입력한 자격 증명을 포함합니다. |
+| OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |가져오기 실행(델타 또는 전체), 파티션, 계층, 워터 마크 및 예상된 페이지 크기의 형식에 대한 스크립트를 알립니다. |
+| 형식 |[스키마][schema] |가져올 커넥터 공간에 대한 스키마입니다. |
 
 스크립트는 단일 [OpenImportConnectionResults][oicres] 개체를 파이프라인에 반환해야 합니다. 예: `Write-Output (New-Object Microsoft.MetadirectoryServices.OpenImportConnectionResults)`
 
@@ -187,13 +186,13 @@ OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | 가져오�
 
 데이터 가져오기 스크립트는 커넥터에서 다음 매개 변수를 받습니다.
 
-Name | 데이터 형식 | 설명
---- | --- | ---
-ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | 커넥터에 대한 구성 매개 변수의 테이블입니다.
-자격 증명 | [PSCredential][pscred] | 연결 탭에서 관리자가 입력한 자격 증명을 포함합니다.
-GetImportEntriesRunStep | [ImportRunStep][irs] | 페이징 가져오기 및 델타 가져오기를 수행하는 동안 사용될 수 있는 워터 마크(CustomData)를 보유합니다.
-OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | 가져오기 실행(델타 또는 전체), 파티션, 계층, 워터 마크 및 예상된 페이지 크기의 형식에 대한 스크립트를 알립니다.
-형식 | [스키마][schema] | 가져올 커넥터 공간에 대한 스키마입니다.
+| Name | 데이터 형식 | 설명 |
+| --- | --- | --- |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |커넥터에 대한 구성 매개 변수의 테이블입니다. |
+| 자격 증명 |[PSCredential][pscred] |연결 탭에서 관리자가 입력한 자격 증명을 포함합니다. |
+| GetImportEntriesRunStep |[ImportRunStep][irs] |페이징 가져오기 및 델타 가져오기를 수행하는 동안 사용될 수 있는 워터 마크(CustomData)를 보유합니다. |
+| OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |가져오기 실행(델타 또는 전체), 파티션, 계층, 워터 마크 및 예상된 페이지 크기의 형식에 대한 스크립트를 알립니다. |
+| 형식 |[스키마][schema] |가져올 커넥터 공간에 대한 스키마입니다. |
 
 데이터 가져오기 스크립트는 목록[[CSEntryChange][csec]] 개체를 파이프라인에 작성해야 합니다. 이 컬렉션은 가져오는 각 개체를 나타내는 CSEntryChange 특성으로 구성됩니다. 전체 가져오기를 실행하는 동안 이 컬렉션에는 모든 개체에 대한 속성을 모두 가진 CSEntryChange 개체의 전체 집합이 있어야 합니다. 델타를 가져오는 동안 CSEntryChange 개체는 가져올 각 개체 또는 변경된(대체 모드) 개체의 전체 표시에 대한 특성 수준 델타 중에 하나를 포함해야 합니다.
 
@@ -202,12 +201,12 @@ OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | 가져오�
 
 최종 가져오기 스크립트는 커넥터에서 다음 매개 변수를 받습니다.
 
-Name | 데이터 형식 | 설명
---- | --- | ---
-ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | 커넥터에 대한 구성 매개 변수의 테이블입니다.
-자격 증명 | [PSCredential][pscred] | 연결 탭에서 관리자가 입력한 자격 증명을 포함합니다.
-OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | 가져오기 실행(델타 또는 전체), 파티션, 계층, 워터 마크 및 예상된 페이지 크기의 형식에 대한 스크립트를 알립니다.
-CloseImportConnectionRunStep | [CloseImportConnectionRunStep][cecrs] | 가져오기가 종료된 이유에 대한 스크립트를 알립니다.
+| Name | 데이터 형식 | 설명 |
+| --- | --- | --- |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |커넥터에 대한 구성 매개 변수의 테이블입니다. |
+| 자격 증명 |[PSCredential][pscred] |연결 탭에서 관리자가 입력한 자격 증명을 포함합니다. |
+| OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |가져오기 실행(델타 또는 전체), 파티션, 계층, 워터 마크 및 예상된 페이지 크기의 형식에 대한 스크립트를 알립니다. |
+| CloseImportConnectionRunStep |[CloseImportConnectionRunStep][cecrs] |가져오기가 종료된 이유에 대한 스크립트를 알립니다. |
 
 스크립트는 단일 [CloseImportConnectionResults][cicres] 개체를 파이프라인에 반환해야 합니다. 예: `Write-Output (New-Object Microsoft.MetadirectoryServices.CloseImportConnectionResults)`
 
@@ -219,12 +218,12 @@ CloseImportConnectionRunStep | [CloseImportConnectionRunStep][cecrs] | 가져오
 
 내보내기 시작 스크립트는 커넥터에서 다음 매개 변수를 받습니다.
 
-Name | 데이터 형식 | 설명
---- | --- | ---
-ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | 커넥터에 대한 구성 매개 변수의 테이블입니다.
-자격 증명 | [PSCredential][pscred] | 연결 탭에서 관리자가 입력한 자격 증명을 포함합니다.
-OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | 내보내기 실행(델타 또는 전체), 파티션, 계층 및 예상된 페이지 크기의 형식에 대한 스크립트를 알립니다.
-형식 | [스키마][schema] | 내보낼 커넥터 공간에 대한 스키마입니다.
+| Name | 데이터 형식 | 설명 |
+| --- | --- | --- |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |커넥터에 대한 구성 매개 변수의 테이블입니다. |
+| 자격 증명 |[PSCredential][pscred] |연결 탭에서 관리자가 입력한 자격 증명을 포함합니다. |
+| OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |내보내기 실행(델타 또는 전체), 파티션, 계층 및 예상된 페이지 크기의 형식에 대한 스크립트를 알립니다. |
+| 형식 |[스키마][schema] |내보낼 커넥터 공간에 대한 스키마입니다. |
 
 스크립트는 파이프라인에 출력을 반환해야 합니다.
 
@@ -233,13 +232,13 @@ OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | 내보내�
 
 데이터 내보내기 스크립트는 커넥터에서 다음 매개 변수를 받습니다.
 
-Name | 데이터 형식 | 설명
---- | --- | ---
-ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | 커넥터에 대한 구성 매개 변수의 테이블입니다.
-자격 증명 | [PSCredential][pscred] | 연결 탭에서 관리자가 입력한 자격 증명을 포함합니다.
-CSEntries | IList[CSEntryChange][csec] | 이 단계 동안 보류 중인 내보내기를 통해 모든 커넥터 공간 개체의 목록을 처리합니다.
-OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | 내보내기 실행(델타 또는 전체), 파티션, 계층 및 예상된 페이지 크기의 형식에 대한 스크립트를 알립니다.
-형식 | [스키마][schema] | 내보낼 커넥터 공간에 대한 스키마입니다.
+| Name | 데이터 형식 | 설명 |
+| --- | --- | --- |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |커넥터에 대한 구성 매개 변수의 테이블입니다. |
+| 자격 증명 |[PSCredential][pscred] |연결 탭에서 관리자가 입력한 자격 증명을 포함합니다. |
+| CSEntries |IList[CSEntryChange][csec] |이 단계 동안 보류 중인 내보내기를 통해 모든 커넥터 공간 개체의 목록을 처리합니다. |
+| OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |내보내기 실행(델타 또는 전체), 파티션, 계층 및 예상된 페이지 크기의 형식에 대한 스크립트를 알립니다. |
+| 형식 |[스키마][schema] |내보낼 커넥터 공간에 대한 스키마입니다. |
 
 데이터 내보내기 스크립트는 [PutExportEntriesResults][peeres] 개체를 파이프라인에 반환해야 합니다. 앵커 특성에 대한 오류 또는 변경이 발생하지 않으면 이 개체는 내보낸 각 커넥터에 대한 결과 정보를 포함할 필요가 없습니다. 예를 들어, PutExportEntriesResults 개체를 파이프라인에 반환하려면: `Write-Output (New-Object Microsoft.MetadirectoryServices.PutExportEntriesResults)`
 
@@ -248,12 +247,12 @@ OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | 내보내�
 
 최종 내보내기 스크립트는 커넥터에서 다음 매개 변수를 받습니다.
 
-Name | 데이터 형식 | 설명
---- | --- | ---
-ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | 커넥터에 대한 구성 매개 변수의 테이블입니다.
-자격 증명 | [PSCredential][pscred] | 연결 탭에서 관리자가 입력한 자격 증명을 포함합니다.
-OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | 내보내기 실행(델타 또는 전체), 파티션, 계층 및 예상된 페이지 크기의 형식에 대한 스크립트를 알립니다.
-CloseExportConnectionRunStep | [CloseExportConnectionRunStep][cecrs] | 내보내기가 종료된 이유에 대한 스크립트를 알립니다.
+| Name | 데이터 형식 | 설명 |
+| --- | --- | --- |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |커넥터에 대한 구성 매개 변수의 테이블입니다. |
+| 자격 증명 |[PSCredential][pscred] |연결 탭에서 관리자가 입력한 자격 증명을 포함합니다. |
+| OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |내보내기 실행(델타 또는 전체), 파티션, 계층 및 예상된 페이지 크기의 형식에 대한 스크립트를 알립니다. |
+| CloseExportConnectionRunStep |[CloseExportConnectionRunStep][cecrs] |내보내기가 종료된 이유에 대한 스크립트를 알립니다. |
 
 스크립트는 파이프라인에 출력을 반환해야 합니다.
 
@@ -262,35 +261,34 @@ Windows PowerShell 커넥터는 암호 변경/재설정에 대한 대상으로 �
 
 암호 스크립트는 커넥터에서 다음 매개 변수를 받습니다.
 
-Name | 데이터 형식 | 설명
---- | --- | ---
-ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | 커넥터에 대한 구성 매개 변수의 테이블입니다.
-자격 증명 | [PSCredential][pscred] | 연결 탭에서 관리자가 입력한 자격 증명을 포함합니다.
-파티션 | [Partition][part] | CSEntry가 위치한 디렉터리 파티션입니다.
-CSEntry | [CSEntry][cse] | 암호 변경 또는 재설정을 받는 개체에 대한 커넥터 공간 항목입니다.
-OperationType | 문자열 | 작업이 다시 설정(**SetPassword**)인지 또는 변경(**ChangePassword**)인지를 나타냅니다.
-PasswordOptions | [PasswordOptions][pwdopt] | 의도된 암호 재설정 동작을 지정하는 플래그입니다. 이 매개 변수는 OperationType이 **SetPassword**인 경우에만 사용할 수 있습니다.
-OldPassword | 문자열 | 암호 변경에 대한 개체의 이전 암호를 사용하여 채워졌습니다. 이 매개 변수는 OperationType이 **ChangePassword**인 경우에만 사용할 수 있습니다.
-NewPassword | 문자열 | 스크립트가 설정해야 하는 개체의 새 암호를 사용하여 채워졌습니다.
+| Name | 데이터 형식 | 설명 |
+| --- | --- | --- |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |커넥터에 대한 구성 매개 변수의 테이블입니다. |
+| 자격 증명 |[PSCredential][pscred] |연결 탭에서 관리자가 입력한 자격 증명을 포함합니다. |
+| 파티션 |[Partition][part] |CSEntry가 위치한 디렉터리 파티션입니다. |
+| CSEntry |[CSEntry][cse] |암호 변경 또는 재설정을 받는 개체에 대한 커넥터 공간 항목입니다. |
+| OperationType |문자열 |작업이 다시 설정(**SetPassword**)인지 또는 변경(**ChangePassword**)인지를 나타냅니다. |
+| PasswordOptions |[PasswordOptions][pwdopt] |의도된 암호 재설정 동작을 지정하는 플래그입니다. 이 매개 변수는 OperationType이 **SetPassword**인 경우에만 사용할 수 있습니다. |
+| OldPassword |문자열 |암호 변경에 대한 개체의 이전 암호를 사용하여 채워졌습니다. 이 매개 변수는 OperationType이 **ChangePassword**인 경우에만 사용할 수 있습니다. |
+| NewPassword |문자열 |스크립트가 설정해야 하는 개체의 새 암호를 사용하여 채워졌습니다. |
 
 암호 스크립트는 Windows PowerShell 파이프라인에 아무 결과도 반환하지 않을 것으로 예상됩니다. 암호 스크립트에서 오류가 발생하는 경우 스크립트는 문제에 대한 동기화 서비스를 알리는 다음 예외 중 하나를 throw해야 합니다.
 
-- [PasswordPolicyViolationException][pwdex1] – 암호가 연결된 시스템에서 암호 정책을 충족하지 않는 경우 throw됩니다.
-- [PasswordIllFormedException][pwdex2] – 암호가 연결된 시스템에 허용되지 않는 경우 throw됩니다.
-- [PasswordExtension][pwdex3] – 암호 스크립트의 다른 모든 오류에 대해 throw됩니다.
+* [PasswordPolicyViolationException][pwdex1] – 암호가 연결된 시스템에서 암호 정책을 충족하지 않는 경우 throw됩니다.
+* [PasswordIllFormedException][pwdex2] – 암호가 연결된 시스템에 허용되지 않는 경우 throw됩니다.
+* [PasswordExtension][pwdex3] – 암호 스크립트의 다른 모든 오류에 대해 throw됩니다.
 
 ## <a name="sample-connectors"></a>샘플 커넥터
 사용 가능한 샘플 커넥터의 전체적인 개요는 [Windows PowerShell 커넥터 샘플 커넥터 컬렉션][samp]를 참조하세요.
 
 ## <a name="other-notes"></a>기타 참고 사항
-
 ### <a name="additional-configuration-for-impersonation"></a>가장에 대한 추가 구성
 동기화 서비스 서버에 다음 사용 권한을 가장하는 사용자에게 권한을 부여합니다.
 
 다음 레지스트리 키에 대한 액세스를 읽습니다.
 
-- HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Software\Microsoft\PowerShell
-- HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Environment
+* HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Software\Microsoft\PowerShell
+* HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Environment
 
 동기화 서비스 서비스 계정의 보안 식별자(SID)를 확인하려면 다음 PowerShell 명령을 실행합니다.
 
@@ -301,15 +299,14 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 
 다음 파일 시스템 폴더에 대한 액세스를 읽습니다.
 
-- %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\Extensions
-- %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\ExtensionsCache
-- %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\MaData\\{ConnectorName}
+* %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\Extensions
+* %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\ExtensionsCache
+* %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\MaData\\{ConnectorName}
 
 {ConnectorName} 자리 표시자에 대한 Windows PowerShell 커넥터의 이름으로는 대체합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
-
--   커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731)참조하세요.
+* 커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731)참조하세요.
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [cpp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameterpage.aspx

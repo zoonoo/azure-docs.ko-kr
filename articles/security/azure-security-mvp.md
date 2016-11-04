@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Azure 보안 MVP 프로그램 | Microsoft Azure"
-   description="문서는 MVP 프로그램의 Azure 보안 기여 부문에 대한 개요를 제공합니다."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="StevenPo"
-   editor="TomSh"/>
+---
+title: Azure 보안 MVP 프로그램 | Microsoft Docs
+description: 문서는 MVP 프로그램의 Azure 보안 기여 부문에 대한 개요를 제공합니다.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: StevenPo
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/02/2016"
-   ms.author="yurid"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/02/2016
+ms.author: yurid
 
+---
 # Azure 보안 MVP 프로그램
-
 Microsoft MVP(Most Valuable Professional)는 다른 사용자가 그들이 쌓아온 Microsoft 기술에서의 경험을 최대한 활용할 수 있도록 돕기 위해 모범을 보여왔던 커뮤니티 리더입니다. 놀라운 열정, 실제 지식 및 기술적 전문성을 커뮤니티 및 Microsoft와 공유합니다.
 
 Microsoft Azure에서 Azure 보안에 특별한 전문성을 갖춘 커뮤니티 전문가들을 공인함을 알려드리게 되어 기쁩니다. Microsoft MVP는 Azure 보안 기여 부문에서 Microsoft Azure의 MVP를 수상할 수 있습니다.

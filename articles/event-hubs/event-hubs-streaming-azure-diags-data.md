@@ -1,52 +1,50 @@
-<properties
-	pageTitle="이벤트 허브를 사용하여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍 | Microsoft Azure"
-	description="일반적인 시나리오에 대한 지침을 포함하여 이벤트 허브에 Azure 진단을 완벽하게 구성하는 방법을 보여 줍니다."
-	services="event-hubs"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor="" />
-<tags
-	ms.service="event-hubs"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="07/14/2016"
-	ms.author="sethm" />
+---
+title: 이벤트 허브를 사용하여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍 | Microsoft Docs
+description: 일반적인 시나리오에 대한 지침을 포함하여 이벤트 허브에 Azure 진단을 완벽하게 구성하는 방법을 보여 줍니다.
+services: event-hubs
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: event-hubs
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/14/2016
+ms.author: sethm
+
+---
 # 이벤트 허브를 사용하여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍
-
 Azure 진단에서는 클라우드 서비스 VM(가상 컴퓨터)에서 메트릭 및 로그를 수집하고 결과를 Azure 저장소로 전송하는 유연한 방법을 제공합니다. 2016년 3월(SDK 2.9)부터 [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs/)를 사용하여 데이터 원본을 완벽하게 사용자 지정하고 몇 초 만에 실행 부하 과다 경로 데이터를 전송할 수 있는 진단을 싱크할 수 있습니다.
 
 지원되는 데이터 유형은 다음과 같습니다.
 
-- Windows (ETW) 이벤트에 대한 이벤트 추적
-- 성능 카운터
-- Windows 이벤트 로그
-- 응용 프로그램 로그
-- Azure 진단 인프라 로그
+* Windows (ETW) 이벤트에 대한 이벤트 추적
+* 성능 카운터
+* Windows 이벤트 로그
+* 응용 프로그램 로그
+* Azure 진단 인프라 로그
 
 이 문서에서는 이벤트 허브에 Azure 진단을 구성하는 방법을 완벽하게 보여 줍니다. 다음과 같은 일반적인 시나리오에 대한 지침도 제공됩니다.
 
-- 이벤트 허브에 싱크된 로그 및 메트릭을 사용자 지정하는 방법
-- 각 환경에서 구성을 변경하는 방법
-- 이벤트 허브 스트림 데이터를 보는 방법
-- 연결 문제를 해결하는 방법
+* 이벤트 허브에 싱크된 로그 및 메트릭을 사용자 지정하는 방법
+* 각 환경에서 구성을 변경하는 방법
+* 이벤트 허브 스트림 데이터를 보는 방법
+* 연결 문제를 해결하는 방법
 
 ## 필수 조건
-
 Azure 진단에서 싱크하는 이벤트 허브는 Azure SDK 2.9 및 해당 Visual Studio용 Azure 도구에서 시작하는 클라우드 서비스, VM, 가상 컴퓨터 크기 집합 및 서비스 패브릭에서 지원됩니다.
 
-- Azure 진단 확장 1.6(기본적으로 [Azure SDK for .NET 2.9 이상](https://azure.microsoft.com/downloads/) 대상)
-- [Visual Studio 2013 이상](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-- *.wadcfgx* 파일과 다음 방법 중 하나를 사용하는 응용 프로그램에서 Azure 진단의 기존 구성은 다음과 같습니다.
-	- Visual Studio: [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 구성](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-	- Windows PowerShell: [PowerShell을 사용하여 Azure 클라우드 서비스에서 진단 사용](../cloud-services/cloud-services-diagnostics-powershell.md)
-- [이벤트 허브 시작](./event-hubs-csharp-ephcs-getstarted.md) 문서에 따라 프로비저닝된 이벤트 허브 네임스페이스
+* Azure 진단 확장 1.6(기본적으로 [Azure SDK for .NET 2.9 이상](https://azure.microsoft.com/downloads/) 대상)
+* [Visual Studio 2013 이상](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+* *.wadcfgx* 파일과 다음 방법 중 하나를 사용하는 응용 프로그램에서 Azure 진단의 기존 구성은 다음과 같습니다.
+  * Visual Studio: [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 구성](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+  * Windows PowerShell: [PowerShell을 사용하여 Azure 클라우드 서비스에서 진단 사용](../cloud-services/cloud-services-diagnostics-powershell.md)
+* [이벤트 허브 시작](event-hubs-csharp-ephcs-getstarted.md) 문서에 따라 프로비저닝된 이벤트 허브 네임스페이스
 
 ## 이벤트 허브 싱크에 Azure 진단 연결
-
 Azure 진단은 항상 기본적으로 Azure 저장소 계정에 로그 및 메트릭을 싱크합니다. 응용 프로그램은 새로운 **싱크** 섹션을 *.wadcfgx* 파일의 **PublicConfig** 섹션에 있는 **WadCfg** 요소에 추가하여 이벤트 허브에 추가로 싱크할 수 있습니다. Visual Studio에서 *.wadcfgx* 파일은 **클라우드 서비스 프로젝트** > **역할** > **(RoleName)** > **diagnostics.wadcfgx** 파일이라는 경로에 저장됩니다.
 
 ```
@@ -63,7 +61,10 @@ Azure 진단은 항상 기본적으로 Azure 저장소 계정에 로그 및 메�
 
 **싱크** 이름의 경우 같은 값이 구성 파일 전체에서 일관되게 사용되고 있다면 유효한 문자열로 설정할 수 있습니다.
 
-> [AZURE.NOTE]  이 섹션에서 구성된 *applicationInsights*와 같은 추가 싱크가 있을 수 있습니다. 각 싱크가 **PrivateConfig** 섹션에서도 선언되어 있는 경우 Azure 진단을 통해 하나 이상의 싱크를 정의할 수 있습니다.
+> [!NOTE]
+> 이 섹션에서 구성된 *applicationInsights*와 같은 추가 싱크가 있을 수 있습니다. 각 싱크가 **PrivateConfig** 섹션에서도 선언되어 있는 경우 Azure 진단을 통해 하나 이상의 싱크를 정의할 수 있습니다.
+> 
+> 
 
 또한, 이벤트 허브 싱크도 *.wadcfgx* 구성 파일의 **PrivateConfig** 섹션에서 선언되고 정의되어야 합니다.
 
@@ -76,10 +77,12 @@ Azure 진단은 항상 기본적으로 Azure 저장소 계정에 로그 및 메�
 
 `SharedAccessKeyName` 값은 **이벤트 허브** 네임스페이스에서 정의된 SAS(공유 액세스 서명) 키 및 정책과 일치해야 합니다. [Azure 포털](https://manage.windowsazure.com)의 이벤트 허브 대시보드로 이동하고 **구성** 탭을 클릭하고 *보내기* 권한이 있는 명명된 정책(예: "SendRule")을 설정합니다. 또한 **StorageAccount**도 **PrivateConfig**에서 선언되어 있습니다. 값이 작동 중인 경우 변경할 필요가 없습니다. 이 예제에서는 값을 비워 둡니다. 이는 다운스트림 자산이 값을 설정한다는 의미입니다. 예를 들어 *ServiceConfiguration.Cloud.cscfg* 환경 구성 파일은 환경에 적절한 이름 및 키를 설정합니다.
 
-> [AZURE.WARNING] 이벤트 허브 SAS 키는 *.wadcfgx* 파일에 일반 텍스트로 저장되어 있습니다. 이 키는 때로 소스 코드 제어에서 발견되거나 빌드 서버에서 자산으로 사용할 수 있는 경우가 있으므로 적절하게 보호해야 합니다. 악의적인 사용자가 SAS 키를 이벤트 허브에 작성하기만 하고 수신하거나 관리하지 않을 수 있으므로 여기서 *보내기 전용* 권한으로 사용하는 것이 좋습니다.
+> [!WARNING]
+> 이벤트 허브 SAS 키는 *.wadcfgx* 파일에 일반 텍스트로 저장되어 있습니다. 이 키는 때로 소스 코드 제어에서 발견되거나 빌드 서버에서 자산으로 사용할 수 있는 경우가 있으므로 적절하게 보호해야 합니다. 악의적인 사용자가 SAS 키를 이벤트 허브에 작성하기만 하고 수신하거나 관리하지 않을 수 있으므로 여기서 *보내기 전용* 권한으로 사용하는 것이 좋습니다.
+> 
+> 
 
 ## Azure 진단 로그 및 메트릭을 구성하여 이벤트 허브와 싱크
-
 앞에서 설명한 대로 모든 기본 및 사용자 지정 진단 데이터(예: 메트릭 및 로그)는 구성된 간격으로 Azure 저장소로 자동 싱크됩니다. 이벤트 허브 및 추가 싱크를 사용하여 이벤트 허브와 싱크할 계층 구조에서 루트 또는 리프 노드를 지정할 수 있습니다. 여기에는 ETW 이벤트, 성능 카운터, Windows 이벤트 로그 및 응용 프로그램 로그가 포함되어 있습니다.
 
 얼마나 많은 데이터 요소를 실제로 이벤트 허브로 전송해야 하는지 고려하는 것이 중요합니다. 일반적으로 개발자는 신속하게 사용하고 해석해야 하는 대기 시간이 짧은 실행 부하 과다 경로 데이터를 전송합니다. 예는 경고를 모니터링하고 규칙을 자동 크기 조정하는 시스템입니다. 개발자는 대체 분석 또는 검색 저장소(예: Azure 스트림 분석, ElasticSearch, 사용자 지정 모니터링 시스템 또는 즐겨찾는 타사 모니터링 시스템)를 구성할 수도 있습니다.
@@ -125,7 +128,6 @@ Azure 진단은 항상 기본적으로 Azure 저장소 계정에 로그 및 메�
 이 예제에서 싱크는 로그에 적용되며 오류 슈준 추적으로만 필터링됩니다.
 
 ## 클라우드 서비스 응용 프로그램과 진단 구성 배포 및 업데이트
-
 Visual Studio에서는 응용 프로그램 및 이벤트 허브 싱크 구성을 배포하는 가장 쉬운 방법을 제공합니다. 파일을 보고 편집하려면 Visual Studio에서 *.wadcfgx* 파일을 열고 편집하고 저장합니다. 경로는 **클라우드 서비스 프로젝트** > **역할** > **(RoleName)** > **diagnostics.wadcfgx**입니다.
 
 이 시점에서 Visual Studio의 모든 배포 및 배포 업데이트 작업, Visual Studio Team System 및 MSBuild에 기반하고 **/t:publish** 대상을 사용하는 모든 명령 또는 스크립트에는 패키징 프로세스에 있는 *.wadcfgx*가 포함됩니다. 또한 배포 및 업데이트는 VM에서 적절한 Azure 진단 에이전트 확장을 사용하여 파일을 Azure에 배포합니다.
@@ -136,13 +138,15 @@ Visual Studio에서는 응용 프로그램 및 이벤트 허브 싱크 구성을
 
 ![][0]
 
-> [AZURE.NOTE] Azure 진단 구성 파일(.wadcfgx)을 업데이트할 경우 Visual Studio 게시 또는 Windows PowerShell 스크립트를 사용하여 구성 뿐만 아니라 전체 응용 프로그램에 대한 업데이트를 푸시하는 것이 좋습니다.
+> [!NOTE]
+> Azure 진단 구성 파일(.wadcfgx)을 업데이트할 경우 Visual Studio 게시 또는 Windows PowerShell 스크립트를 사용하여 구성 뿐만 아니라 전체 응용 프로그램에 대한 업데이트를 푸시하는 것이 좋습니다.
+> 
+> 
 
 ## 실행 부하 과다 경로 데이터 보기
-
 이전에 설명한 대로 이벤트 허브 데이터를 수신하고 처리하는 많은 사용 사례가 있습니다.
 
-한 가지 간단한 접근 방법은 이벤트 허브를 수신하고 출력 스트림을 인쇄하기 위한 작은 테스트 콘솔 응용 프로그램을 만드는 것입니다. [이벤트 허브 시작](./event-hubs-csharp-ephcs-getstarted.md) 문서에서 더 자세히 설명되어 있는 다음 코드를 콘솔 응용 프로그램에 배치할 수 있습니다.
+한 가지 간단한 접근 방법은 이벤트 허브를 수신하고 출력 스트림을 인쇄하기 위한 작은 테스트 콘솔 응용 프로그램을 만드는 것입니다. [이벤트 허브 시작](event-hubs-csharp-ephcs-getstarted.md) 문서에서 더 자세히 설명되어 있는 다음 코드를 콘솔 응용 프로그램에 배치할 수 있습니다.
 
 콘솔 응용 프로그램에는 [이벤트 프로세서 호스트 Nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)가 포함되어 있어야 합니다.
 
@@ -186,8 +190,8 @@ namespace EventHubListener
             foreach (EventData eventData in messages)
             {
                 string data = Encoding.UTF8.GetString(eventData.GetBytes());
-	                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
-	                    context.Lease.PartitionId, data));
+                    Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
+                        context.Lease.PartitionId, data));
 
                 foreach (var x in eventData.Properties)
                 {
@@ -230,25 +234,20 @@ namespace EventHubListener
 ```
 
 ## 이벤트 허브 싱크 문제 해결
-
-- 이벤트 허브가 들어오거나 나가는 이벤트 활동을 예상대로 표시하지 않습니다.
-
-	이벤트 허브가 성공적으로 프로비저닝되었는지 확인합니다. *.wadcfgx*의 **PrivateConfig** 섹션에 있는 모든 연결 정보는 포털에서 보이는 리소스의 값과 일치해야 합니다. 포털에 정의된 SAS 정책(예에서는 "SendRule")이 있고 *보내기* 권한이 부여되도록 해야 합니다.
-
-- 업데이트 이후에 이벤트 허브는 들어오거나 나가는 이벤트 작업을 더 이상 표시하지 않습니다.
-
-	우선 이벤트 허브 및 구성 정보가 이전에 설명한 대로 정확한지를 확인합니다. 때로는 배포 업데이트에서 **PrivateConfig**가 다시 설정됩니다. 권장되는 해결 방법은 프로젝트에서 *.wadcfgx*에 모든 변경 사항을 적용한 다음 전체 응용 프로그램 업데이트를 푸시하는 것입니다. 불가능한 경우 진단 업데이트가 SAS 키를 포함하여 전체 **PrivateConfig**를 푸시하도록 해야 합니다.
-
-- 제안된 방법을 시도했지만 이벤트 허브가 여전히 작동하지 않습니다.
-
-	Azure 진단 자체에 대한 로그 및 오류가 포함된 Azure 저장소 테이블(**WADDiagnosticInfrastructureLogsTable**)을 살펴봅니다. 한 가지 옵션은 [Azure 저장소 탐색기](http://www.storageexplorer.com) 등의 도구를 사용하여 이 저장소 계정에 연결하고 이 테이블을 본 후 지난 24시간 동안의 타임스탬프에 대한 쿼리를 추가하는 것입니다. 이 도구를 사용하여 .csv 파일을 내보내고 Microsoft Excel과 같은 응용 프로그램에서 열 수 있습니다. Excel를 통해 어떤 오류가 보고되는지 확인하는 **EventHubs**와 같은 전화 카드 문자열을 쉽게 검색할 수 있습니다.
+* 이벤트 허브가 들어오거나 나가는 이벤트 활동을 예상대로 표시하지 않습니다.
+  
+    이벤트 허브가 성공적으로 프로비저닝되었는지 확인합니다. *.wadcfgx*의 **PrivateConfig** 섹션에 있는 모든 연결 정보는 포털에서 보이는 리소스의 값과 일치해야 합니다. 포털에 정의된 SAS 정책(예에서는 "SendRule")이 있고 *보내기* 권한이 부여되도록 해야 합니다.
+* 업데이트 이후에 이벤트 허브는 들어오거나 나가는 이벤트 작업을 더 이상 표시하지 않습니다.
+  
+    우선 이벤트 허브 및 구성 정보가 이전에 설명한 대로 정확한지를 확인합니다. 때로는 배포 업데이트에서 **PrivateConfig**가 다시 설정됩니다. 권장되는 해결 방법은 프로젝트에서 *.wadcfgx*에 모든 변경 사항을 적용한 다음 전체 응용 프로그램 업데이트를 푸시하는 것입니다. 불가능한 경우 진단 업데이트가 SAS 키를 포함하여 전체 **PrivateConfig**를 푸시하도록 해야 합니다.
+* 제안된 방법을 시도했지만 이벤트 허브가 여전히 작동하지 않습니다.
+  
+    Azure 진단 자체에 대한 로그 및 오류가 포함된 Azure 저장소 테이블(**WADDiagnosticInfrastructureLogsTable**)을 살펴봅니다. 한 가지 옵션은 [Azure 저장소 탐색기](http://www.storageexplorer.com) 등의 도구를 사용하여 이 저장소 계정에 연결하고 이 테이블을 본 후 지난 24시간 동안의 타임스탬프에 대한 쿼리를 추가하는 것입니다. 이 도구를 사용하여 .csv 파일을 내보내고 Microsoft Excel과 같은 응용 프로그램에서 열 수 있습니다. Excel를 통해 어떤 오류가 보고되는지 확인하는 **EventHubs**와 같은 전화 카드 문자열을 쉽게 검색할 수 있습니다.
 
 ## 다음 단계
-
 • [이벤트 허브에 대해 자세히 알아보기](https://azure.microsoft.com/services/event-hubs/)
 
 ## 부록: Azure 진단 구성 파일(.wadcfgx) 예제 완료
-
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">

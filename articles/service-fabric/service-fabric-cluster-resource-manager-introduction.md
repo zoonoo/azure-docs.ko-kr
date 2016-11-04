@@ -1,21 +1,21 @@
-<properties
-   pageTitle="서비스 패브릭 클러스터 리소스 관리자 소개 | Microsoft Azure"
-   description="서비스 패브릭 클러스터 리소스 관리자를 소개합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: 서비스 패브릭 클러스터 리소스 관리자 소개 | Microsoft Docs
+description: 서비스 패브릭 클러스터 리소스 관리자를 소개합니다.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # 서비스 패브릭 클러스터 리소스 관리자 소개
 일반적으로 IT 시스템 또는 일련의 서비스를 관리하는 작업은 해당 특정 서비스 또는 시스템 전용인 몇 대의 물리적 또는 가상 컴퓨터를 가져오는 것입니다. 대부분의 주요 서비스는 캐시와 같은 몇 가지 기타 특별한 구성 요소와 함께 "웹" 계층 및 "데이터" 또는 "저장소" 계층으로 나뉩니다. 다른 유형의 응용 프로그램에는 요청이 이동하는 메시징 계층이 있으며 메시징의 일부로 필요한 분석 또는 변환을 위한 작업 계층에 연결됩니다. 각 워크로드 형식에 특정 컴퓨터가 전용으로 지정되어 있습니다. 데이터베이스에도 전용으로 사용하는 컴퓨터가 몇 대 있고 웹 서버에도 몇 대가 있습니다. 특정 형식의 워크로드를 실행하는 컴퓨터가 너무 뜨거워지면 해당 워크로드를 실행하도록 구성된 형식의 워크로드가 있는 컴퓨터를 추가하거나 일부 컴퓨터를 더 큰 컴퓨터로 바꿉니다. 간편성. 컴퓨터에 오류가 발생한 경우 컴퓨터를 복원할 수 있을 때까지 전체 응용 프로그램 중 해당 부분은 낮은 최대 용량으로 실행합니다. (재미는 없더라도)아직 상당히 쉽습니다.
 
@@ -49,11 +49,11 @@ Orchestrator(사람 아님)는 컴퓨터가 실패하거나 예기치 않은 이
 이러한 전략 중 일부는 흥미롭지만 서비스 패브릭 클러스터 리소스 관리자는 네트워크 부하 분산 장치 또는 캐시와 전혀 다릅니다. 네트워크 부하 분산 장치는 서비스가 실행되는 위치에 트래픽을 이동하여 프런트 엔드의 부하를 분산하도록 합니다. 반면 서비스 패브릭 클러스터 Resource Manager는 완전히 다른 전략을 수행하며 기본적으로 서비스 패브릭은 *서비스*를 가장 합리적인 위치로 이동시킵니다(그리고 뒤따를 트래픽 또는 부하 예상). 예를 들어 여기 위치하는 서비스가 현재 많은 작업을 수행하지 않기 때문에 현재 콜드이거나 삭제 또는 이동된 노드일 수 있습니다. 또 다른 예로, 클러스터 Resource Manager는 업그레이드될 예정이거나 실행되던 서비스의 급격한 증가로 인해 오버로드되는 컴퓨터에서 다른 위치로 서비스를 이동할 수도 있습니다. 클러스터 Resource Manager는 서비스를 이동하는 일을 담당하므로(서비스가 이미 있는 위치로 네트워크 트래픽을 전달하지 않음) 네트워크 부하 분산 장치에서 찾을 수 있는 기능과 비교할 때 크게 다른 기능 집합을 포함하며, 클러스터의 하드웨어 리소스가 잘 활용되도록 하기 위해 기본적으로 다른 전략을 사용합니다.
 
 ## 다음 단계
-- 클러스터 Resource Manager 내의 아키텍처 및 정보 흐름에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-architecture.md)를 확인하세요.
-- 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)하는 이 문서를 확인하세요.
-- 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)에서 다른 클러스터 Resource Manager 구성에 대한 항목을 확인하세요.
-- 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.
-- 클러스터 리소스 관리자는 서비스 패브릭의 관리 기능으로 작동합니다. 해당 통합에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-management-integration.md)를 참조하세요.
-- 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)에 대한 문서를 확인하세요.
+* 클러스터 Resource Manager 내의 아키텍처 및 정보 흐름에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-architecture.md)를 확인하세요.
+* 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)하는 이 문서를 확인하세요.
+* 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)에서 다른 클러스터 Resource Manager 구성에 대한 항목을 확인하세요.
+* 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.
+* 클러스터 리소스 관리자는 서비스 패브릭의 관리 기능으로 작동합니다. 해당 통합에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-management-integration.md)를 참조하세요.
+* 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)에 대한 문서를 확인하세요.
 
 <!---HONumber=AcomDC_0824_2016-->

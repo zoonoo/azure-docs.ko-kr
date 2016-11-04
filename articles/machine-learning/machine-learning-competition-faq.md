@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Cortana Intelligence 대회 관련 FAQ | Microsoft Azure"
-	description="Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문입니다."
-	services="machine-learning"
-	documentationCenter=""
-	authors="hning86"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Cortana Intelligence 대회 관련 FAQ | Microsoft Docs
+description: Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문입니다.
+services: machine-learning
+documentationcenter: ''
+author: hning86
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/06/2016"
-	ms.author="haining;chlovel;garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: haining;chlovel;garye
 
+---
 # Microsoft Cortana Intelligence 대회 관련 FAQ
-
 **Cortana Intelligence 대회는 무엇입니까?**
 
 Microsoft에서는 Cortana Intelligence 대회를 발표하고 있습니다. Cortana Intelligence 대회는 전 세계의 데이터 전문가 커뮤니티가 한 자리에 모여서 가장 복잡한 데이터 과학 문제를 집단적으로 해결하는 대회입니다. 전 세계의 데이터 전문가들이 Cortana Intelligence 대회를 통해 서로 실력을 겨루고, 매우 정확하고 지능적인 데이터 과학 모델을 만들 수 있습니다. Microsoft가 주최하는 대회는 대중에게 최초로 공개된 고유한 데이터 집합을 기반으로 합니다. 상위 10위에 이름을 올린 참가자는 보상을 받거나 이름을 널리 알릴 수 있습니다. 대회 홈 페이지에 액세스하려면 [여기](http://aka.ms/CIComp)로 이동하세요.
@@ -35,11 +34,8 @@ Microsoft에서는 Cortana Intelligence 대회를 발표하고 있습니다. Cor
 Cortana Intelligence 갤러리를 통해 대회 홈 페이지에 액세스합니다. 운영 중인 모든 대회가 이 페이지에 포함되어 있습니다. 각 대회의 로그인 페이지에 구체적인 지침과 참가 규칙, 상품 및 대회 기간이 나와 있을 것입니다. 대회 홈 페이지에 액세스하려면 [여기](http://aka.ms/CIComp)로 이동하세요.
 
 1. Cortana Intelligence 갤러리에서 참가하고 싶은 대회를 찾아서 모든 지침을 읽고 자습서 비디오를 시청한 다음, “대회 참가” 단추를 클릭하여 기존 Azure 기계 학습 작업 영역에 시작 실험을 복사합니다. 아직 작업 영역에 액세스할 수 없는 경우 작업 영역부터 만들어야 합니다. 시작 실험을 실행하고, 성능 메트릭을 관찰한 다음, 창의력을 발휘하여 모델의 성능을 개선합니다. 아마도 대부분의 시간을 이 단계에서 보내게 될 것입니다.
-
 2. 시작 실험의 학습된 모델을 사용하여 서술적 실험을 만듭니다. 그런 다음 웹 서비스의 입력 및 출력 스키마가 대회 설명서에 지정된 요구 사항을 준수하도록 신중하게 조정합니다. 이에 대한 지침은 일반적으로 자습서 문서에 자세히 설명되어 있습니다. 자습서 비디오가 제공되는 경우 비디오를 시청하셔도 됩니다.
-
 3. 서술적 실험에서 웹 서비스를 배포합니다. 테스트 단추 또는 자동으로 생성되는 Excel 템플릿을 사용하여 웹 서비스가 올바르게 작동하는지 테스트합니다.
-
 4. 웹 서비스를 대회 응모작으로 제출하고, Cortana 인텔리전스 갤러리 대회 페이지에서 공용 점수를 확인합니다. 리더 보드에 내 이름이 있다면 정말 좋겠죠! 응모작을 제출한 후, 복사한 시작 실험으로 다시 돌아가서, 같은 과정을 반복하고, 서술적 실험을 업데이트하고, 웹 서비스를 업데이트하고, 새로운 응모작을 제출할 수 있습니다.
 
 **오픈 소스 도구를 사용하여 이 대회에 참가할 수 있나요?**
@@ -51,11 +47,8 @@ Cortana Intelligence 갤러리를 통해 대회 홈 페이지에 액세스합니
 아니요. 데이터 과학에 관심이 있는 데이터 고급 사용자와 데이터 과학자를 꿈꾸는 분이라면 누구나 참가할 수 있습니다. 지원 문서는 모든 사용자가 경쟁할 수 있도록 디자인되었습니다. 참가 대상은 다음과 같습니다.
 
 * 데이터 개발자, 데이터 과학자, BI 및 분석 전문가: 서비스를 이용할 다른 사람을 위해 데이터 및 분석 콘텐츠를 만드는 사람.
-
 * 데이터 관리자: 해당 데이터, 데이터의 의미와 사용 의도 및 목적에 대한 지식이 있는 사람.
-
 * 학생 및 연구원: 대학에서 교육 프로그램을 통해 데이터 관련 기술을 배우고 익히는 사람 또는 MOOC(Massive Open Online Courses) 참가자
-
 
 **동료들과 함께 팀으로 응모할 수 있나요?**
 
@@ -65,22 +58,17 @@ Cortana Intelligence 갤러리를 통해 대회 홈 페이지에 액세스합니
 
 대회 참가는 무료입니다. 그러나 대회에 참가하려면 Azure 기계 학습 작업 영역에 액세스할 수 있어야 합니다. 유효한 Microsoft 계정 또는 Office 365 계정으로 로그인하여 신용 카드 없이 무료 작업 영역을 만들 수 있습니다. 이미 Azure 또는 Cortana Intelligence 제품군 고객인 경우에는 동일한 Azure 구독에서 표준 작업 영역을 만들어서 사용할 수 있습니다. Azure 구독을 구입하려는 분은 [여기](https://azure.microsoft.com/pricing)로 이동하시면 됩니다. 표준 작업 영역을 사용하여 실험을 만들 때 표준 요금이 적용됩니다. [여기](https://azure.microsoft.com/pricing/details/machine-learning/)서 Azure 기계 학습 가격 책정 정보를 참조하세요.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 **공용 및 개인 점수는 무엇인가요?**
 
 대부분의 대회에서 참가자는 제출하는 모든 응모작에 대해 일반적으로 10-20분 이내에 공용 점수를 받습니다. 하지만 대회가 끝나면 최종 순위 결정에 사용되는 개인 점수를 받게 됩니다. 과정은 이렇습니다.
 
 * 대회에 사용된 전체 데이터 집합이 임의로 학습 데이터와 테스트 데이터(학습 데이터를 제외한 나머지)로 층화되어 분할됩니다. 학습 및 테스트 데이터의 레이블 분포가 일정하도록 임의 분할이 층화됩니다.
- 
 * 데이터 가져오기 모듈 구성의 시작 실험의 일부로 학습 데이터가 업로드되어 제공됩니다.
-
 * 동일한 층화를 사용하여 테스트 데이터가 공용 및 개인 테스트 데이터로 추가 분할됩니다.
-
 * 공용 테스트 데이터가 채점의 초기 라운드에 사용됩니다. 채점 결과는 공용 점수라고도 하며 응모작을 제출하면 제출 내역에 표시됩니다. 이 점수는 제출되는 모든 응모작에 대해 계산됩니다. 이 공용 점수는 공용 순위표에서 순위를 지정할 때 사용됩니다.
-
 * 개인 테스트 데이터는 대회가 끝난 후 최종 채점 라운드에 사용됩니다. 개인 점수라고도 합니다.
-
 * 각 참가자의 경우 제출할 수 있는 응모작의 수가 고정되어 있고 대회마다 다를 수 있으며, 응모작 중 가장 높은 공용 점수가 자동으로 선택되어 개인 점수 채점 라운드에 입력됩니다. 개인 점수가 가장 높은 응모작이 선택되어 최종 우승자를 결정하는 최종 순위에 입력됩니다.
 
 **고객이 Microsoft 플랫폼에서 대회를 주최할 수 있나요?**

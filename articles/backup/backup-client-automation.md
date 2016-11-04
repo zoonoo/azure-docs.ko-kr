@@ -1,33 +1,32 @@
-<properties
-	pageTitle="PowerShell을 사용하여 Windows Server/Client용 백업 배포 및 관리 | Microsoft Azure"
-	description="PowerShell을 사용하여 Azure 백업을 배포 및 관리하는 방법을 알아봅니다."
-	services="backup"
-	documentationCenter=""
-	authors="saurabhsensharma"
-	manager="shivamg"
-	editor=""/>
+---
+title: PowerShell을 사용하여 Windows Server/Client용 백업 배포 및 관리 | Microsoft Docs
+description: PowerShell을 사용하여 Azure 백업을 배포 및 관리하는 방법을 알아봅니다.
+services: backup
+documentationcenter: ''
+author: saurabhsensharma
+manager: shivamg
+editor: ''
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/01/2016
+ms.author: saurabhsensharma;markgal;jimpark;nkolli;trinadhk
 
-
+---
 # PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
-
-> [AZURE.SELECTOR]
-- [ARM](backup-client-automation.md)
-- [클래식](backup-client-automation-classic.md)
+> [!div class="op_single_selector"]
+> * [ARM](backup-client-automation.md)
+> * [클래식](backup-client-automation-classic.md)
+> 
+> 
 
 이 문서에서는 Windows Server 또는 Windows Client에서 Azure 백업을 설정하고 백업과 복원을 관리하기 위해 PowerShell을 사용하는 방법을 보여 줍니다.
 
 ## Azure PowerShell 설치
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 이 문서에서는 리소스 그룹에서 복구 서비스 자격 증명 모음을 사용할 수 있도록 하는 ARM(Azure Resource Manager) PowerShell cmdlet을 중점적으로 설명합니다.
 
@@ -37,35 +36,33 @@ Azure PowerShell 1.0이 2015년 10월에 출시되었습니다. 이 릴리스는
 
 [최신 PowerShell 릴리스를 다운로드](https://github.com/Azure/azure-powershell/releases)합니다(필요한 최소 버전: 1.0.0).
 
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## 복구 서비스 자격 증명 모음 만들기
-
 다음 단계는 복구 서비스 자격 증명 모음을 만드는 과정을 안내합니다. 복구 서비스 자격 증명 모음은 백업 자격 증명 모음과 다릅니다.
 
 1. 처음으로 Azure Backup을 사용하는 경우 **Register-AzureRMResourceProvider** cmdlet을 사용하여 구독에 Azure Recovery Service 공급자를 등록해야 합니다.
-
+   
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-
 2. 복구 서비스 자격 증명 모음은 ARM 리소스이므로 리소스 그룹 내에 배치해야 합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다. 새 리소스 그룹을 만들 때 리소스 그룹의 이름과 위치를 지정합니다.
-
+   
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
-
 3. **New-AzureRmRecoveryServicesVault** cmdlet을 사용하여 새 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정해야 합니다.
-
+   
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-
 4. [LRS(로컬 중복 저장소)](../storage/storage-redundancy.md#locally-redundant-storage) 또는 [GRS(지역 중복 저장소)](../storage/storage-redundancy.md#geo-redundant-storage) 중에 사용할 저장소 중복 유형을 지정합니다. 다음 예제는 testVault에 대한 BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
-
-    > [AZURE.TIP] 많은 Azure 백업 cmdlet에는 복구 서비스 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 복구 서비스 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
-
+   
+   > [!TIP]
+   > 많은 Azure 백업 cmdlet에는 복구 서비스 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 복구 서비스 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
+   > 
+   > 
+   
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
@@ -104,7 +101,6 @@ PS C:\> MARSAgentInstaller.exe /q
 ![에이전트 설치됨](./media/backup-client-automation/installed-agent-listing.png)
 
 ### 설치 옵션
-
 명령줄을 통해 사용 가능한 모든 옵션을 보려면 다음 명령을 사용합니다.
 
 ```
@@ -114,21 +110,19 @@ PS C:\> MARSAgentInstaller.exe /?
 사용 가능한 옵션은 다음과 같습니다.
 
 | 옵션 | 세부 정보 | 기본값 |
-| ---- | ----- | ----- |
-| /q | 무인 설치 | - |
-| /p:"location" | Azure 백업 에이전트에 대한 설치 폴더 경로. | C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Azure 백업 에이전트에 대한 캐시 폴더 경로. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /m | Opt-in to Microsoft Update | - |
-| /nu | 설치 완료 후 업데이트 확인 안 함 | - |
-| /d | Microsoft Azure 복구 서비스 에이전트 제거 | - |
-| /ph | 프록시 호스트 주소 | - |
-| /po | 프록시 호스트 포트 번호 | - |
-| /pu | 프록시 호스트 사용자 이름 | - |
-| /pw | 프록시 암호 | - |
-
+| --- | --- | --- |
+| /q |무인 설치 |- |
+| /p:"location" |Azure 백업 에이전트에 대한 설치 폴더 경로. |C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"location" |Azure 백업 에이전트에 대한 캐시 폴더 경로. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m |Opt-in to Microsoft Update |- |
+| /nu |설치 완료 후 업데이트 확인 안 함 |- |
+| /d |Microsoft Azure 복구 서비스 에이전트 제거 |- |
+| /ph |프록시 호스트 주소 |- |
+| /po |프록시 호스트 포트 번호 |- |
+| /pu |프록시 호스트 사용자 이름 |- |
+| /pw |프록시 암호 |- |
 
 ## 복구 서비스 자격 증명 모음에 Windows Server 또는 Windows 클라이언트 컴퓨터 등록
-
 복구 서비스 자격 증명 모음을 만든 후에, 최신 에이전트 및 보관 자격 증명을 다운로드하여 편리한 위치(예: C:\\Downloads)에 저장합니다.
 
 ```
@@ -149,7 +143,10 @@ Region              :West US
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT] 저장소 자격 증명 파일을 지정할 때 상대 경로를 사용하지 마세요. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
+> [!IMPORTANT]
+> 저장소 자격 증명 파일을 지정할 때 상대 경로를 사용하지 마세요. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
+> 
+> 
 
 ## 네트워킹 서비스
 Windows 컴퓨터의 인터넷 연결이 프록시 서버를 통하는 경우, 프록시 설정도 에이전트에 제공될 수 있습니다. 이 예제에서는 프록시 서버가 없으므로 프록시와 관련된 모든 정보를 명시적으로 지웁니다.
@@ -174,7 +171,10 @@ PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT] 암호 정보를 설정한 후에는 안전하게 보관합니다. 이 암호 없이는 Azure에서 데이터를 복원할 수 없습니다.
+> [!IMPORTANT]
+> 암호 정보를 설정한 후에는 안전하게 보관합니다. 이 암호 없이는 Azure에서 데이터를 복원할 수 없습니다.
+> 
+> 
 
 ## 파일 및 폴더 백업
 Windows 서버 및 클라이언트에서 Azure 백업으로의 모든 백업은 정책에 따라 제어됩니다. 정책은 세 부분으로 구성됩니다.
@@ -194,8 +194,8 @@ PS C:\> $newpolicy = New-OBPolicy
 ### 백업 일정 구성
 정책의 3부분 중 첫 번째는 백업 일정으로, [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet을 사용하여 만듭니다. 백업 일정은 백업을 수행해야 할 시기를 정의합니다. 일정을 만들 때는 2개의 입력 매개 변수를 지정해야 합니다.
 
-- 백업을 실행할 **요일**. 백업을 하루만 실행하거나 해당 주의 모든 요일 또는 그 사이의 날짜를 조합하여 실행할 수 있습니다.
-- 백업을 실행할 **시간**. 백업이 트리거되는 시간을 최대 3개까지 서로 다르게 정의할 수 있습니다.
+* 백업을 실행할 **요일**. 백업을 하루만 실행하거나 해당 주의 모든 요일 또는 그 사이의 날짜를 조합하여 실행할 수 있습니다.
+* 백업을 실행할 **시간**. 백업이 트리거되는 시간을 최대 3개까지 서로 다르게 정의할 수 있습니다.
 
 예를 들어, 토요일과 일요일마다 오후 4시에 실행되는 백업 정책을 구성할 수 있습니다.
 
@@ -243,9 +243,9 @@ PolicyState     : Valid
 ### 백업할 파일 포함 및 제외
 ```OBFileSpec``` 개체는 백업에 포함 및 제외시킬 파일을 정의합니다. 이 개체는 컴퓨터에서 보호된 파일 및 폴더를 자세히 살펴보는 규칙의 집합입니다. 필요에 따라 원하는 만큼 파일을 포함 또는 제외시키고 정책과 연결할 수 있습니다. 새 OBFileSpec 개체를 만드는 경우 다음 작업을 수행할 수 있습니다.
 
-- 포함시킬 파일 및 폴더 지정
-- 제외시킬 파일 및 폴더 지정
-- 폴더의 데이터에 대한 재귀 백업을 지정하거나 지정된 폴더의 최상위 수준 파일만 백업해야 하는지 여부를 지정합니다.
+* 포함시킬 파일 및 폴더 지정
+* 제외시킬 파일 및 폴더 지정
+* 폴더의 데이터에 대한 재귀 백업을 지정하거나 지정된 폴더의 최상위 수준 파일만 백업해야 하는지 여부를 지정합니다.
 
 후자는 New-OBFileSpec 명령의 -NonRecursive 플래그를 사용하여 수행됩니다.
 
@@ -379,7 +379,7 @@ DsList : {DataSource
          FileSpec:D:\
          IsExclude:False
          IsRecursive:True
-	}
+    }
 PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac
 RetentionPolicy : Retention Days : 7
               WeeklyLTRSchedule :
@@ -579,9 +579,9 @@ PS C:\> .\MARSAgentInstaller.exe /d /q
 
 컴퓨터에서 에이전트 이진 파일을 제거하면 고려해야 할 몇 가지 결과가 발생합니다.
 
-- 컴퓨터에서 파일 필터를 제거하고 변경 내용 추적이 중단됩니다.
-- 모든 정책 정보가 컴퓨터에서 제거되지만 정책 정보는 서비스에 계속 저장됩니다.
-- 모든 백업 일정이 제거되고 더 이상 백업이 수행되지 않습니다.
+* 컴퓨터에서 파일 필터를 제거하고 변경 내용 추적이 중단됩니다.
+* 모든 정책 정보가 컴퓨터에서 제거되지만 정책 정보는 서비스에 계속 저장됩니다.
+* 모든 백업 일정이 제거되고 더 이상 백업이 수행되지 않습니다.
 
 하지만 Azure에 저장된 데이터는 그대로 유지되며 사용자가 설정한 보존 정책에 따라 보존됩니다. 이전 지점은 시간이 경과하면 자동으로 삭제됩니다.
 
@@ -624,7 +624,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## 다음 단계
 Windows Server/Client용 Azure 백업에 대한 자세한 정보는 다음을 참조하세요.
 
-- [Azure 백업 소개](backup-introduction-to-azure-backup.md)
-- [Windows 서버 백업](backup-configure-vault.md)
+* [Azure 백업 소개](backup-introduction-to-azure-backup.md)
+* [Windows 서버 백업](backup-configure-vault.md)
 
 <!---HONumber=AcomDC_0907_2016-->

@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Azure AD Connect 동기화: 두 번째로 설치 마법사 실행 | Microsoft Azure"
-	description="두 번째로 실행하는 설치 마법사 작동 방법을 설명합니다."
-	keywords="Azure AD Connect 설치 마법사를 사용하면 두 번째로 실행하는 유지 관리 설정을 구성합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD Connect 동기화: 두 번째로 설치 마법사 실행 | Microsoft Docs'
+description: 두 번째로 실행하는 설치 마법사 작동 방법을 설명합니다.
+keywords: Azure AD Connect 설치 마법사를 사용하면 두 번째로 실행하는 유지 관리 설정을 구성합니다.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
-	ms.author="andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/31/2016
+ms.author: andkjell
 
-
+---
 # Azure AD Connect 동기화: 두 번째로 설치 마법사 실행
 처음으로 Azure AD Connect 설치 마법사를 실행하는 경우 설치를 구성하는 방법을 안내합니다. 설치 마법사를 다시 실행하는 경우 유지 관리에 대한 옵션을 제공합니다.
 
@@ -33,7 +32,10 @@ Azure AD Connect와 함께 ADFS를 설치한 경우 더 많은 옵션이 있습�
 
 작업 중 하나를 선택하고 **다음**을 클릭하여 계속합니다.
 
-> [AZURE.IMPORTANT] 설치 마법사가 열린 동안 동기화 엔진의 모든 작업이 일시 중단됩니다. 구성 변경을 완료하는 즉시 설치 마법사를 닫았는지 확인합니다.
+> [!IMPORTANT]
+> 설치 마법사가 열린 동안 동기화 엔진의 모든 작업이 일시 중단됩니다. 구성 변경을 완료하는 즉시 설치 마법사를 닫았는지 확인합니다.
+> 
+> 
 
 ## 현재 구성 보기
 이 옵션은 현재 구성된 옵션의 빠른 보기를 제공합니다.
@@ -45,16 +47,16 @@ Azure AD Connect와 함께 ADFS를 설치한 경우 더 많은 옵션이 있습�
 ## 동기화 옵션 사용자 지정
 이 옵션을 사용하여 동기화 구성을 변경합니다. 사용자 지정 구성 설치 경로에서 옵션의 하위 집합을 확인할 수 있습니다. Express 설치를 처음 사용하더라도 이 옵션이 표시됩니다.
 
-- [더 많은 디렉터리 추가](active-directory-aadconnect-get-started-custom.md#connect-your-directories) 디렉터리를 제거하려면 [커넥터 삭제](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete)를 참조하세요.
-- [도메인 및 OU 필터링 변경](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)
-- 그룹 필터링을 제거합니다.
-- [선택적 기능 변경](active-directory-aadconnect-get-started-custom.md#optional-features)
+* [더 많은 디렉터리 추가](active-directory-aadconnect-get-started-custom.md#connect-your-directories) 디렉터리를 제거하려면 [커넥터 삭제](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete)를 참조하세요.
+* [도메인 및 OU 필터링 변경](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)
+* 그룹 필터링을 제거합니다.
+* [선택적 기능 변경](active-directory-aadconnect-get-started-custom.md#optional-features)
 
 초기 설치에서 다른 옵션을 변경할 수 없고 사용할 수 없습니다. 이러한 옵션은 다음과 같습니다.
 
-- userPrincipalName 및 sourceAnchor에 사용할 특성을 변경합니다.
-- 다른 포리스트의 개체에 대한 조인 방법을 변경합니다.
-- 그룹 기반 필터링을 사용합니다.
+* userPrincipalName 및 sourceAnchor에 사용할 특성을 변경합니다.
+* 다른 포리스트의 개체에 대한 조인 방법을 변경합니다.
+* 그룹 기반 필터링을 사용합니다.
 
 ## 디렉터리 스키마 새로 고침
 온-프레미스 AD DS 포리스트 중 하나에서 스키마를 변경하는 경우 이 옵션을 사용합니다. 예를 들어 Exchange를 설치했거나 장치 개체를 사용하여 Windows Server 2012 스키마로 업그레이드했습니다. 이 경우에 Azure AD Connect가 AD DS에서 스키마를 다시 읽고 캐시를 업데이트하도록 지시해야 합니다. 이 작업은 또한 동기화 규칙을 다시 생성합니다. 예를 들어 Exchange 스키마를 추가하는 경우 Exchange에 대한 동기화 규칙을 구성에 추가합니다.
@@ -76,12 +78,11 @@ Azure AD Connect와 함께 ADFS를 설치한 경우 더 많은 옵션이 있습�
 이 옵션에 대한 자세한 내용은 [사용자 로그인](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method)을 참조하세요.
 
 ## 다음 단계
-
-- [선언적 프로비전 이해](active-directory-aadconnectsync-understanding-declarative-provisioning.md)에서 Azure AD Connect 동기화에서 사용되는 구성 모델에 대해 자세히 알아봅니다.
+* [선언적 프로비전 이해](active-directory-aadconnectsync-understanding-declarative-provisioning.md)에서 Azure AD Connect 동기화에서 사용되는 구성 모델에 대해 자세히 알아봅니다.
 
 **개요 항목**
 
-- [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
-- [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
+* [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
+* [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
 <!---HONumber=AcomDC_0907_2016-->

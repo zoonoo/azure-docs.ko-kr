@@ -1,27 +1,26 @@
-<properties
-   pageTitle="서비스 패브릭 서비스 분할 | Microsoft Azure"
-   description="서비스 패브릭 서비스를 분할하는 방법을 설명합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="bmscholl"
-   manager="timlt"
-   editor=""/>
+---
+title: 서비스 패브릭 서비스 분할 | Microsoft Docs
+description: 서비스 패브릭 서비스를 분할하는 방법을 설명합니다.
+services: service-fabric
+documentationcenter: .net
+author: bmscholl
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="06/20/2016"
-   ms.author="bscholl"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 06/20/2016
+ms.author: bscholl
 
+---
 # 서비스 패브릭 Reliable Services 분할
 이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 문서에 사용되는 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)에서도 확인할 수 있습니다.
 
 ## 분할
 분할은 서비스 패브릭에만 있는 것이 아닙니다. 사실, 분할은 확장 가능한 서비스 구축의 코어 패턴입니다. 광범위한 의미로 분할을 상태(데이터) 분할의 개념으로 생각하고 확장성 및 성능 향상을 위해 더 작은 액세스 가능한 단위로 계산할 수 있습니다. 분할의 잘 알려진 양식은 [데이터 분할][wikipartition]로서 분할이라고도 합니다.
-
 
 ### 서비스 패브릭 상태 비저장 분할 서비스
 상태 비저장 서비스의 경우 하나 이상의 서비스의 인스턴스를 포함하는 논리 단위가 되는 파티션으로 생각할 수 있습니다. 그림 1에서는 하나의 파티션을 사용하는 클러스터에 분산된 5개의 인스턴스로 상태 비저장 서비스를 보여 줍니다.
@@ -64,8 +63,8 @@
 
 이를 방지하기 위해 분할 관점에서 두 가지를 수행해야 합니다.
 
-- 상태를 분할하도록 시도하여 모든 파티션에 균등하게 분산되도록 합니다.
-- 서비스에 대한 각 복제본에서 부하를 보고합니다. (방법에 대한 자세한 정보는 이 문서의 [메트릭 및 부하](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요). 서비스 패브릭은 메모리의 양 또는 레코드 수와 같은 서비스에서 사용한 부하를 보고하는 기능을 제공합니다. 보고된 메트릭에 따라 서비스 패브릭은 일부 파티션이 다른 파티션보다 더 높은 부하를 처리하는 것을 감지하고 복제본을 더 적합한 노드로 이동하여 클러스터를 다시 분산하므로 전체적으로 어떤 노드도 오버로드되지 않습니다.
+* 상태를 분할하도록 시도하여 모든 파티션에 균등하게 분산되도록 합니다.
+* 서비스에 대한 각 복제본에서 부하를 보고합니다. (방법에 대한 자세한 정보는 이 문서의 [메트릭 및 부하](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요). 서비스 패브릭은 메모리의 양 또는 레코드 수와 같은 서비스에서 사용한 부하를 보고하는 기능을 제공합니다. 보고된 메트릭에 따라 서비스 패브릭은 일부 파티션이 다른 파티션보다 더 높은 부하를 처리하는 것을 감지하고 복제본을 더 적합한 노드로 이동하여 클러스터를 다시 분산하므로 전체적으로 어떤 노드도 오버로드되지 않습니다.
 
 때때로 지정된 파티션에 얼마나 많은 데이터가 있는지 알 수 없는 경우가 있으므로 첫째로 파티션에 균등하게 데이터를 분산하는 분할 전략을 도입하고 둘째로 부하를 보고하여 모두를 실행하는 것이 좋습니다. 첫 번째 방법은 투표 예제에 설명된 상황을 예방하고 두 번째 방법은 시간이 지남에 따라 액세스 또는 부하의 임시적인 차이를 해결하도록 합니다.
 
@@ -75,9 +74,9 @@
 
 분할 계획에 대해 고려해야 할 다른 사항은 사용 가능한 컴퓨터 리소스입니다. 상태는 액세스되고 저장되어야 하므로 다음이 적용됩니다.
 
-- 네트워크 대역폭 제한
-- 시스템 메모리 제한
-- 디스크 저장소 제한
+* 네트워크 대역폭 제한
+* 시스템 메모리 제한
+* 디스크 저장소 제한
 
 그렇다면 실행 중인 클러스터에 리소스 제약이 발생하는 경우 어떻게 됩니까? 단순히 새 요구 사항에 맞게 클러스터를 확장할 수 있습니다.
 
@@ -88,9 +87,9 @@
 
 서비스 패브릭은 세 가지 파티션 체계를 제공합니다.
 
-- 범위 지정된 분할(UniformInt64Partition이라고도 함)
-- 이름 지정된 분할. 일반적으로 이 모델을 사용한 응용 프로그램에는 제한된 집합 내에 버킷 가능한 데이터가 있습니다. 이름 지정된 파티션 키로 사용되는 데이터 필드의 몇 가지 일반적인 예는 지역, 우편 번호, 고객 그룹 또는 기타 비즈니스 경계입니다.
-- 단일 분할 단일 파티션은 서비스가 추가 라우팅이 필요하지 않은 경우에 일반적으로 사용됩니다. 예를 들어 상태 비저장 서비스는 기본적으로 이 파티션 체계를 사용합니다.
+* 범위 지정된 분할(UniformInt64Partition이라고도 함)
+* 이름 지정된 분할. 일반적으로 이 모델을 사용한 응용 프로그램에는 제한된 집합 내에 버킷 가능한 데이터가 있습니다. 이름 지정된 파티션 키로 사용되는 데이터 필드의 몇 가지 일반적인 예는 지역, 우편 번호, 고객 그룹 또는 기타 비즈니스 경계입니다.
+* 단일 분할 단일 파티션은 서비스가 추가 라우팅이 필요하지 않은 경우에 일반적으로 사용됩니다. 예를 들어 상태 비저장 서비스는 기본적으로 이 파티션 체계를 사용합니다.
 
 이름 지정된 분할 체계 및 단일 분할 체계는 범위 지정된 파티션의 특별한 형태입니다. 기본적으로 서비스 패브릭에 대한 Visual Studio 템플릿은 가장 일반적이고 유용한 것이므로 범위 지정된 분할을 사용합니다. 이 문서의 나머지 부분에서는 범위 지정된 파티션 체계에 중점을 둡니다.
 
@@ -101,12 +100,10 @@
 
 일반적인 방법은 데이터 집합 내에서 고유 키를 기반으로 해시를 만드는 것입니다. 키의 일부 일반적인 예로는 차량 식별 번호(VIN), 직원 ID 또는 고유 문자열을 들 수 있습니다. 고유 키를 사용하여 해시 코드를 생성하고 키 범위를 계수하여 키로 사용할 수 있습니다. 허용되는 키 범위의 상한 및 하한 범위를 지정할 수 있습니다.
 
-
 ### 해시 알고리즘 선택
 해시의 중요한 부분은 해시 알고리즘을 선택하는 것입니다. 서로 가까운 유사한 키를 그룹화하는 것이 목적인지(집약성을 중요시하는 해시), 또는 더욱 일반적인 경우인 활동이 모든 파티션에 널리 배포되는지(배포 해시) 여부를 고려해야 합니다.
 
 적절한 배포 해시 알고리즘의 특징은 계산하기 쉽고 충돌이 적고 키를 균등하게 배분하는 것입니다. 효율적인 해시 알고리즘의 좋은 예로 [FNV-1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) 해시 알고리즘이 있습니다.
-
 
 일반적인 해시 코드 알고리즘 선택에 대한 좋은 리소스는 [해시 기능에 대한 Wikipedia 페이지](http://en.wikipedia.org/wiki/Hash_function)입니다.
 
@@ -115,25 +112,25 @@
 
 모든 코드를 작성하기 전에 파티션 및 파티션 키에 대해 생각해야 합니다. 알파벳의 각 문자로 26개의 파티션이 필요하지만 하위 키 및 상위 키는 어떻게 해야 할까요? 문자 그대로 문자당 하나의 파티션을 가지려 하기 때문에 각 문자는 해당 키이므로 하위 키로 0을, 상위 키로 25를 사용할 수 있습니다.
 
-
->[AZURE.NOTE] 실제로는 균등하게 분산되지 않으므로 여기서는 간소화된 시나리오를 사용합니다. 문자 "S" 또는 "M"으로 시작하는 성이 "X" 또는 "Y"로 시작하는 성보다 더 많습니다.
-
+> [!NOTE]
+> 실제로는 균등하게 분산되지 않으므로 여기서는 간소화된 시나리오를 사용합니다. 문자 "S" 또는 "M"으로 시작하는 성이 "X" 또는 "Y"로 시작하는 성보다 더 많습니다.
+> 
+> 
 
 1. **Visual Studio** > **파일** > **새로 만들기** > **프로젝트**를 엽니다.
 2. **새 프로젝트** 대화 상자에서 서비스 패브릭 응용 프로그램을 선택합니다.
 3. "AlphabetPartitions" 프로젝트를 호출합니다.
 4. **서비스 만들기** 대화 상자에서 **상태 저장** 서비스를 선택하고 아래 이미지에 표시된 것처럼 "Alphabet.Processing"으로 지정합니다.
-
+   
     ![상태 저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/createstateful.png)
-
 5. 파티션 수를 설정합니다. AlphabetPartitions 프로젝트에서 ApplicationPackageRoot 폴더에 있는 ApplicationManifest.xml 파일을 열고 아래와 같이 매개 변수 Processing\_PartitionCount를 26으로 업데이트합니다.
-
+   
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-    
+   
     또한 아래와 같이 ApplicationManifest.xml에 있는 StatefulService 요소의 LowKey 및 HighKey 속성을 업데이트해야 합니다.
-
+   
     ```xml
     <Service Name="Processing">
       <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
@@ -141,25 +138,25 @@
       </StatefulService>
     </Service>
     ```
-
 6. 서비스에 액세스할 수 있게 만들려면 아래와 같이 Alphabet.Processing 서비스에 대한 ServiceManifest.xml(PackageRoot 폴더에 있음)의 끝점 요소를 추가하여 포트의 끝점을 엽니다.
-
+   
     ```xml
     <Endpoint Name="ProcessingServiceEndpoint" Port="8089" Protocol="http" Type="Internal" />
     ```
-
+   
     이제 26 파티션으로 내부 끝점을 수신하도록 서비스가 구성됩니다.
-
 7. 다음으로 처리 클래스의 `CreateServiceReplicaListeners()` 메서드를 재정의해야 합니다.
-
-    >[AZURE.NOTE] 이 샘플의 경우 간단한 HttpCommunicationListener를 사용하고 있다고 가정합니다. Reliable Services 통신에 대한 자세한 내용은 [Reliable Services 통신 모델](service-fabric-reliable-services-communication.md)을 참조하세요.
-
+   
+   > [!NOTE]
+   > 이 샘플의 경우 간단한 HttpCommunicationListener를 사용하고 있다고 가정합니다. Reliable Services 통신에 대한 자세한 내용은 [Reliable Services 통신 모델](service-fabric-reliable-services-communication.md)을 참조하세요.
+   > 
+   > 
 8. 복제본이 수신하는 URL에 대한 권장 패턴은 `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}` 형식입니다. 따라서 통신 수신기가 올바른 끝점에서 이 패턴을 사용하여 수신하도록 구성해야 합니다.
-
+   
     이 서비스의 여러 복제본은 동일한 컴퓨터에서 호스팅될 수 있으므로 이 주소가 복제본에 고유해야 합니다. 이 때문에 URL에 파티션 ID와 복제본 ID가 있습니다. HttpListener는 URL 접두사가 고유하기만 하면 동일한 포트에서 여러 주소를 수신할 수 있습니다.
-
+   
     추가 GUID는 보조 복제본이 읽기 전용 요청을 수신하는 고급 사례에 대해 사용되고 있습니다. 이 경우 클라이언트가 주소를 다시 확인하도록 기본에서 보조로 전환하는 경우 고유한 새 주소가 사용되도록 확인하려고 합니다. '+'는 여기에서 주소로 사용되어 복제본은 모든 사용 가능한 호스트(IP, FQDM, localhost 등)를 수신합니다. 아래 코드는 예제를 보여 줍니다.
-
+   
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
@@ -167,7 +164,7 @@
     }
     private ICommunicationListener CreateInternalListener(ServiceContext context)
     {
-            
+   
          EndpointResourceDescription internalEndpoint = context.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
          string uriPrefix = String.Format(
                 "{0}://+:{1}/{2}/{3}-{4}/",
@@ -176,24 +173,23 @@
                 context.PartitionId,
                 context.ReplicaOrInstanceId,
                 Guid.NewGuid());
-
+   
          string nodeIP = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
-
+   
          string uriPublished = uriPrefix.Replace("+", nodeIP);
          return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInternalRequest);
     }
     ```
-
+   
     게시된 URL은 수신 대기 URL 접두사와 약간 다릅니다. 수신 대기 URL이 HttpListener에 제공됩니다. 게시된 URL은 서비스 검색에 사용되는 서비스 패브릭 이름 명명 서비스에 게시된 URL입니다. 클라이언트는 해당 검색 서비스를 통해 이 주소에 대해 요청합니다. 클라이언트가 가져오는 주소에 연결하려면 노드의 실제 IP 또는 FQDN이 필요합니다. 따라서 아래와 같이 '+'를 노드의 IP 또는 FQDN으로 바꿔야 합니다.
-
 9. 마지막 단계는 아래와 같이 서비스에 처리 논리를 추가하는 것입니다.
-
+   
     ```CSharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         string output = null;
         string user = context.Request.QueryString["lastname"].ToString();
-
+   
         try
         {
             output = await this.AddUserAsync(user);
@@ -202,7 +198,7 @@
         {
             output = ex.Message;
         }
-
+   
         using (HttpListenerResponse response = context.Response)
         {
             if (output != null)
@@ -215,13 +211,13 @@
     private async Task<string> AddUserAsync(string user)
     {
         IReliableDictionary<String, String> dictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<String, String>>("dictionary");
-
+   
         using (ITransaction tx = this.StateManager.CreateTransaction())
         {
             bool addResult = await dictionary.TryAddAsync(tx, user.ToUpperInvariant(), user);
-
+   
             await tx.CommitAsync();
-
+   
             return String.Format(
                 "User {0} {1}",
                 user,
@@ -229,25 +225,21 @@
         }
     }
     ```
-
+   
     `ProcessInternalRequest`는 파티션을 호출하는 데 사용되는 쿼리 문자열 매개 변수의 값을 읽고 신뢰할 수 있는 사전 `dictionary`에 성을 추가하도록 `AddUserAsync`를 호출합니다.
-
 10. 특정 파티션을 호출할 수 있는 방법을 보도록 프로젝트에 상태 비저장 서비스를 추가하겠습니다.
-
-    이 서비스는 쿼리 문자열 매개 변수로 성을 수락하고 파티션 키를 결정하고 처리를 위해 Alphabet.Processing에 이를 보내는 간단한 웹 인터페이스로 제공됩니다.
     
+    이 서비스는 쿼리 문자열 매개 변수로 성을 수락하고 파티션 키를 결정하고 처리를 위해 Alphabet.Processing에 이를 보내는 간단한 웹 인터페이스로 제공됩니다.
 11. **서비스 만들기** 대화 상자에서 **상태 비저장** 서비스를 선택하고 아래와 같이 “Alphabet.Web”으로 지정합니다.
     
     ![상태 비저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/createnewstateless.png).
-
 12. Alphabet.WebApi 서비스의 ServiceManifest.xml에서 끝점 정보를 업데이트하여 아래와 같이 포트를 엽니다.
-
+    
     ```xml
     <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8081"/>
     ```
-
 13. Web 클래스의 ServiceInstanceListeners 컬렉션을 반환해야 합니다. 다시 간단한 HttpCommunicationListener를 구현하도록 선택할 수 있습니다.
-
+    
     ```CSharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
@@ -262,9 +254,8 @@
         return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInputRequest);
     }
     ```
-
 14. 이제 처리 논리를 구현해야 합니다. HttpCommunicationListener는 요청이 들어올 때 `ProcessInputRequest`를 호출합니다. 따라서 계속해서 아래 코드를 추가합니다.
-
+    
     ```CSharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
@@ -274,18 +265,18 @@
             string lastname = context.Request.QueryString["lastname"];
             char firstLetterOfLastName = lastname.First();
             ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
-
+    
             ResolvedServicePartition partition = await this.servicePartitionResolver.ResolveAsync(alphabetServiceUri, partitionKey, cancelRequest);
             ResolvedServiceEndpoint ep = partition.GetEndpoint();
-                
+    
             JObject addresses = JObject.Parse(ep.Address);
             string primaryReplicaAddress = (string)addresses["Endpoints"].First();
-
+    
             UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
             primaryReplicaUriBuilder.Query = "lastname=" + lastname;
-
+    
             string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
-
+    
             output = String.Format(
                     "Result: {0}. <p>Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. <br>Processing service partition ID: {4}. <br>Processing service replica address: {5}",
                     result,
@@ -296,7 +287,7 @@
                     primaryReplicaAddress);
         }
         catch (Exception ex) { output = ex.Message; }
-
+    
         using (var response = context.Response)
         {
             if (output != null)
@@ -308,54 +299,51 @@
         }
     }
     ```
-
+    
     단계 별로 안내하겠습니다. 코드는 쿼리 문자열 매개 변수 `lastname`의 첫 글자를 char로 읽습니다. 그런 다음 성의 첫 글자에 있는 16진수 값에서 `A`의 16진수 값을 빼서 이 글자에 대한 파티션 키를 결정합니다.
-
+    
     ```CSharp
     string lastname = context.Request.QueryString["lastname"];
     char firstLetterOfLastName = lastname.First();
     ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
     ```
-
+    
     이 예제에서 파티션당 하나의 파티션 키를 가진 26개의 파티션을 사용합니다. 그런 다음 `servicePartitionResolver` 개체의 `ResolveAsync` 메서드를 사용하여 이 키에 대한 서비스 파티션 `partition`을 가져옵니다. `servicePartitionResolver`는 다음으로 정의됩니다.
-
+    
     ```CSharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
-
+    
     `ResolveAsync` 메서드는 매개 변수로 서비스 URI, 파티션 키 및 취소 토큰을 사용합니다. 처리 서비스의 서비스 URI는 `fabric:/AlphabetPartitions/Processing`입니다. 그런 다음 파티션의 끝점을 가져옵니다.
-
+    
     ```CSharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
     ```
-
+    
     마지막으로 끝점 URL 및 쿼리 문자열을 작성하고 처리 서비스를 호출합니다.
-
+    
     ```CSharp
     JObject addresses = JObject.Parse(ep.Address);
     string primaryReplicaAddress = (string)addresses["Endpoints"].First();
-
+    
     UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
     primaryReplicaUriBuilder.Query = "lastname=" + lastname;
-
+    
     string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
     ```
-
+    
     처리가 완료되면 출력을 다시 작성합니다.
-
 15. 마지막 단계는 서비스를 테스트하는 것입니다. Visual Studio에서는 로컬 및 클라우드 배포에 대해 응용 프로그램 매개 변수를 사용합니다. 26개의 파티션이 있는 서비스를 로컬에서 테스트하려면 아래와 같이 AlphabetPartitions 프로젝트의 ApplicationParameters 폴더에 있는 `Local.xml` 파일을 업데이트해야 합니다.
-
+    
     ```xml
     <Parameters>
       <Parameter Name="Processing_PartitionCount" Value="26" />
       <Parameter Name="WebApi_InstanceCount" Value="1" />
     </Parameters>
     ```
-
 16. 배포가 완료되면 서비스 패브릭 탐색기에서 서비스 및 모든 해당 파티션을 확인할 수 있습니다.
     
     ![서비스 패브릭 탐색기 스크린 샷](./media/service-fabric-concepts-partitioning/sfxpartitions.png)
-    
 17. 브라우저에서 `http://localhost:8081/?lastname=somename`을 입력하여 분할 논리를 테스트할 수 있습니다. 동일한 문자로 시작하는 각 성이 동일한 파티션에 저장되는 것을 확인할 수 있습니다.
     
     ![브라우저 스크린 샷](./media/service-fabric-concepts-partitioning/samplerunning.png)
@@ -363,14 +351,11 @@
 샘플의 전체 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)에서 확인할 수 있습니다.
 
 ## 다음 단계
-
 서비스 패브릭 개념에 대한 자세한 내용은 다음을 참조하십시오.
 
-- [서비스 패브릭 서비스의 가용성](service-fabric-availability-services.md)
-
-- [서비스 패브릭 서비스의 확장성](service-fabric-concepts-scalability.md)
-
-- [서비스 패브릭 응용 프로그램의 용량 계획](service-fabric-capacity-planning.md)
+* [서비스 패브릭 서비스의 가용성](service-fabric-availability-services.md)
+* [서비스 패브릭 서비스의 확장성](service-fabric-concepts-scalability.md)
+* [서비스 패브릭 응용 프로그램의 용량 계획](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 

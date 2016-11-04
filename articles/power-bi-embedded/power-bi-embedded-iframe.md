@@ -1,25 +1,23 @@
-<properties
-   pageTitle="REST에서 Power BI Embedded를 사용하는 방법 | Microsoft Azure"
-   description="REST에서 Power BI Embedded를 사용하는 방법 알아보기  "
-   services="power-bi-embedded"
-   documentationCenter=""
-   authors="guyinacube"
-   manager="erikre"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="power-bi-embedded"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="powerbi"
-   ms.date="10/04/2016"
-   ms.author="asaxton"/>
+---
+title: REST에서 Power BI Embedded를 사용하는 방법 | Microsoft Docs
+description: 'REST에서 Power BI Embedded를 사용하는 방법 알아보기  '
+services: power-bi-embedded
+documentationcenter: ''
+author: guyinacube
+manager: erikre
+editor: ''
+tags: ''
 
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 10/04/2016
+ms.author: asaxton
 
+---
 # <a name="how-to-use-power-bi-embedded-with-rest"></a>REST에서 Power BI Embedded를 사용하는 방법
-
-
 ## <a name="power-bi-embedded:-what-it-is-and-what-it's-for"></a>Power BI Embedded: 정의 및 용도
 Power BI Embedded의 개요는 공식적인 [Power BI Embedded 사이트](https://azure.microsoft.com/services/power-bi-embedded/)에 설명되어 있으나 REST에서 사용하는 방법을 자세히 살펴보기 전에 간단히 확인해보겠습니다.
 
@@ -42,23 +40,25 @@ Power BI Embedded는 Azure 서비스 중 하나입니다. Azure Portal을 사용
 
 Power BI Embedded의 각 작업 영역은 각 고객의 작업 영역(테넌트)이며, 각 작업 영역 컬렉션에 여러 작업 영역을 추가할 수 있습니다. 동일한 선택키가 각 작업 영역 컬렉션에서 사용됩니다. 실제로 작업 영역 컬렉션은 Power BI Embedded에 대한 보안 경계입니다.
 
-![](media\power-bi-embedded-iframe\create-workspace.png)
+![](media\\power-bi-embedded-iframe\\create-workspace.png)
 
 작업 영역 컬렉션을 다 만들면 Azure 포털에서 선택키를 복사합니다.
 
-![](media\power-bi-embedded-iframe\copy-access-key.png)
+![](media\\power-bi-embedded-iframe\\copy-access-key.png)
 
-> [AZURE.NOTE] 또한 작업 영역 컬렉션을 프로비전하고 REST API를 통해 선택키를 가져올 수 있습니다. 자세한 내용은 [Power BI 리소스 공급자 API](https://msdn.microsoft.com/library/azure/mt712306.aspx)를 참조하세요.
+> [!NOTE]
+> 또한 작업 영역 컬렉션을 프로비전하고 REST API를 통해 선택키를 가져올 수 있습니다. 자세한 내용은 [Power BI 리소스 공급자 API](https://msdn.microsoft.com/library/azure/mt712306.aspx)를 참조하세요.
+> 
+> 
 
 ## <a name="create-.pbix-file-with-power-bi-desktop"></a>Power BI Desktop으로 .pbix 파일 만들기
 다음으로 포함할 데이터 연결 및 보고서를 만들어야 합니다.
 이 작업의 경우 프로그래밍 또는 코드는 없습니다. Power BI Desktop만 사용합니다.
 이 문서에서 Power BI Desktop을 사용하는 자세한 방법을 다루지는 않습니다. 이에 대한 추가 도움말이 필요한 경우 [Power BI Desktop 시작](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)을 참조하세요. 예제에서는 [소매점 분석 샘플](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/)을 사용하게 됩니다.
 
-![](media\power-bi-embedded-iframe\power-bi-desktop-1.png)
+![](media\\power-bi-embedded-iframe\\power-bi-desktop-1.png)
 
 ## <a name="create-a-power-bi-workspace"></a>Power BI 작업 영역 만들기
-
 이제 프로비전 작업이 모두 완료되었으므로 REST API를 통해 작업 영역 컬렉션에서 고객의 작업 영역을 만들어 보겠습니다. 다음 HTTP POST 요청(REST)은 기존 작업 영역 컬렉션에 새 작업 영역을 만듭니다. 이 예제에서 작업 영역 컬렉션 이름은 **mypbiapp**입니다.
 앞서 복사한 선택키를 **AppKey**로 설정합니다. 이 과정은 매우 간단한 인증입니다.
 
@@ -244,21 +244,26 @@ Content-Type: application/json; charset=utf-8
 
 또는 Power BI Embedded에서 행 수준 보안을 사용하고 한 보고서에서 각 사용자의 데이터를 구분할 수 있습니다. 결과적으로 .pbix\(UI 등)는 동일하지만 데이터 원본은 다른 각 고객 보고서를 프로비전할 수 있습니다.
 
-> [AZURE.NOTE] **DirectQuery 모드** 대신 **가져오기 모드**를 사용하는 경우 API를 통해 모델을 새로 고칠 수 없습니다. 또한 Power BI 게이트웨이 통한 온-프레미스 데이터 원본은 아직 Power BI Embedded에서 지원되지 않습니다. 그러나 [Power BI 블로그](https://powerbi.microsoft.com/blog/) 에서 새로운 기능 및 앞으로 제공될 기능을 확인하는 것도 유용할 것입니다.
+> [!NOTE]
+> **DirectQuery 모드** 대신 **가져오기 모드**를 사용하는 경우 API를 통해 모델을 새로 고칠 수 없습니다. 또한 Power BI 게이트웨이 통한 온-프레미스 데이터 원본은 아직 Power BI Embedded에서 지원되지 않습니다. 그러나 [Power BI 블로그](https://powerbi.microsoft.com/blog/) 에서 새로운 기능 및 앞으로 제공될 기능을 확인하는 것도 유용할 것입니다.
+> 
+> 
 
 ## <a name="authentication-and-hosting-(embedding)-reports-in-our-web-page"></a>웹 페이지의 인증 및 보고서 호스트(포함)
-
 이전 REST API에서는 선택키 **AppKey** 자체를 권한 부여 헤더로 사용할 수 있습니다. 이러한 호출은 백 엔드 서버 쪽에서 처리될 수 있으므로 안전합니다.
 
 그러나 웹 페이지에 보고서를 포함할 경우 이러한 종류의 보안 정보는 JavaScript를 사용하여 처리됩니다\(프런트 엔드). 그런 다음 권한 부여 헤더 값을 보호해야 합니다. 악의적인 사용자나 악의적인 코드가 선택키를 찾으면 이 키를 사용하여 모든 작업을 호출할 수 있습니다.
 
 따라서 웹 페이지에 보고서를 포함할 경우 선택키 **AppKey**대신 계산된 토큰을 사용해야 합니다. 응용 프로그램은 클레임 및 계산된 디지털 서명으로 구성된 OAuth JWT\(JSON Web Token)를 만들어야 합니다. 아래와 같이 이 OAuth JWT는 점으로 구분된 인코딩된 문자열 토큰입니다.
 
-![](media\power-bi-embedded-iframe\oauth-jwt.png)
+![](media\\power-bi-embedded-iframe\\oauth-jwt.png)
 
 먼저 나중에 서명되는 입력 값을 준비해야 합니다. 이 값은 다음 json의 base64 url 인코딩(rfc4648) 문자열이며, 점\(.) 문자로 구분됩니다. 나중에 보고서 ID를 가져오는 방법이 설명될 것입니다.
 
-> [AZURE.NOTE] Power BI Embedded에서 RLS(행 수준 보안)를 사용하려는 경우 클레임에 **사용자 이름** 및 **역할**도 지정해야 합니다.
+> [!NOTE]
+> Power BI Embedded에서 RLS(행 수준 보안)를 사용하려는 경우 클레임에 **사용자 이름** 및 **역할**도 지정해야 합니다.
+> 
+> 
 
 ```
 {
@@ -334,7 +339,6 @@ function rfc4648_base64_encode($arg) {
 ```
 
 ## <a name="finally,-embed-the-report-into-the-web-page"></a>마지막으로 웹 페이지에 보고서를 포함합니다.
-
 보고서를 포함하기 위해 다음 REST API를 사용하여 포함 URL과 보고서 **ID** 를 가져와야 합니다.
 
 **HTTP 요청**
@@ -368,7 +372,10 @@ RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
 이전 앱 토큰을 사용하여 웹앱에 보고서를 포함할 수 있습니다.
 다음 샘플 코드를 보면 첫 번째 부분은 이전 예제와 동일합니다. 이 샘플의 두 번째 부분에서는 iframe의 **embedUrl**\(이전 결과 참조)를 표시하고 앱 토큰을 iframe에 게시합니다.
 
-> [AZURE.NOTE] 보고서 ID 값을 원하는 값으로 변경해야 합니다. 또한 콘텐츠 관리 시스템의 버그로 인해 코드 샘플의 iframe 태그는 문자 그대로 읽힙니다. 이 샘플 코드를 복사하여 붙여넣는 경우 태그에서 대문자 텍스트를 제거합니다.
+> [!NOTE]
+> 보고서 ID 값을 원하는 값으로 변경해야 합니다. 또한 콘텐츠 관리 시스템의 버그로 인해 코드 샘플의 iframe 태그는 문자 그대로 읽힙니다. 이 샘플 코드를 복사하여 붙여넣는 경우 태그에서 대문자 텍스트를 제거합니다.
+> 
+> 
 
 ```
     <?php
@@ -450,15 +457,12 @@ RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
 
 결과는 다음과 같습니다.
 
-![](media\power-bi-embedded-iframe\view-report.png)
+![](media\\power-bi-embedded-iframe\\view-report.png)
 
 이번에는 Power BI Embedded에 iframe의 보고서만 표시됩니다. 그렇지만 [Power BI 블로그]()를 잘 확인해 보세요. 향후 개선된 기능에서는 정보를 가져올 수 있을 뿐만 아니라 iframe으로 정보를 보낼 수 있도록 하는 새 클라이언트 쪽 API가 사용될 수 있을 것입니다. 기대해 보세요.
 
-
 ## <a name="see-also"></a>참고 항목
-- [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)
-
-
+* [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,26 +1,23 @@
 
-<properties
-	pageTitle="그룹에 대한 동적 멤버 자격 문제 해결| Microsoft Azure"
-	description="Azure AD의 그룹에 대한 동적 멤버 자격 문제 해결 팁입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""
-	/>
+---
+title: 그룹에 대한 동적 멤버 자격 문제 해결| Microsoft Docs
+description: Azure AD의 그룹에 대한 동적 멤버 자격 문제 해결 팁입니다.
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="curtand"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/10/2016
+ms.author: curtand
 
-
+---
 # 그룹의 동적 멤버 자격 문제 해결
-
 **그룹에 대한 규칙을 구성했지만, 이 그룹에서 구성원이 업데이트되지 않습니다.**<br/>**구성** 탭에서 **위임된 그룹 관리 활성화**가 **예**로 설정되어 있는지 확인합니다. 이 설정은 Azure Active Directory Premium 라이선스를 할당한 사용자로 로그인하는 경우에 표시됩니다. 규칙의 사용자 특성 값을 확인합니다. 규칙을 충족하는 사용자가 있나요?
 
 **규칙을 구성했으나 규칙의 기존 멤버가 제거됨**<br/>이는 정상적인 동작입니다. 규칙을 사용하도록 설정하거나 변경하면 그룹의 기존 멤버가 제거됩니다. 규칙 평가에서 반환된 사용자는 그룹에 멤버로 추가됩니다.

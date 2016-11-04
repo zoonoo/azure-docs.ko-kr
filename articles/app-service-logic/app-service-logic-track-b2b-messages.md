@@ -1,25 +1,23 @@
-<properties 
-   pageTitle="Azure 앱 서비스의 논리 앱에서 B2B 메시지 추적 | Microsoft Azure" 
-   description="이 항목에서는 B2B 처리 추적에 대해 설명합니다." 
-   services="logic-apps" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajram" 
-   manager="erikre" 
-   editor=""/>
+---
+title: Azure 앱 서비스의 논리 앱에서 B2B 메시지 추적 | Microsoft Docs
+description: 이 항목에서는 B2B 처리 추적에 대해 설명합니다.
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: rajram
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="04/20/2016"
-   ms.author="rajram"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 04/20/2016
+ms.author: rajram
 
-
+---
 # B2B 메시지 추적
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 ## B2B 추적 정보
 B2B 통신에는 거래 업체 간의 메시지 처리가 필요합니다. 관계는 두 거래 업체 간의 계약으로 정의됩니다. 통신이 설정되면 통신이 예상대로 수행되는지 모니터링할 수 있는 방법이 있어야 합니다.

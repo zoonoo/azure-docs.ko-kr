@@ -1,36 +1,31 @@
-<properties
-   pageTitle="CLI를 사용하여 Azure에서 Linux VM 만들기 | Microsoft Azure"
-   description="CLI를 사용하여 Azure에서 Linux VM을 만듭니다."
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="vlivech"
-   manager="timlt"
-   editor=""/>
+---
+title: CLI를 사용하여 Azure에서 Linux VM 만들기 | Microsoft Docs
+description: CLI를 사용하여 Azure에서 Linux VM을 만듭니다.
+services: virtual-machines-linux
+documentationcenter: ''
+author: vlivech
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="09/08/2016"
-   ms.author="v-livech"/>
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: hero-article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 09/08/2016
+ms.author: v-livech
 
-
+---
 # CLI를 사용하여 Azure에서 Linux VM 만들기
-
 이 문서에서는 Azure 명령줄 인터페이스(CLI)의 `azure vm quick-create` 명령을 사용하여 Azure에서 Linux 가상 컴퓨터(VM)를 신속하게 배포하는 방법을 보여 줍니다. `quick-create` 명령은 개념을 신속하게 프로토타입하거나 테스트하는 데 사용할 수 있는 기본 인프라 내에 VM을 배포합니다. 이 문서의 내용을 실행하기 위해 필요한 사항:
 
-- Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))
-
-- `azure login`로 로그인한 [Azure CLI](../xplat-cli-install.md)
-
-- Azure CLI는 Azure Resource Manager 모드 `azure config mode arm`에 _있어야 합니다_.
+* Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))
+* `azure login`로 로그인한 [Azure CLI](../xplat-cli-install.md)
+* Azure CLI는 Azure Resource Manager 모드 `azure config mode arm`에 *있어야 합니다*.
 
 [Azure Portal](virtual-machines-linux-quick-create-portal.md)을 사용하여 Linux VM을 신속히 배포할 수도 있습니다.
 
 ## 빠른 명령
-
 다음 예제에서는 CoreOS VM을 배포하고 SSH(Secure Shell)를 연결하는 방법을 보여줍니다(사용자의 인수는 다를 수 있음).
 
 ```bash
@@ -40,29 +35,27 @@ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 다음 섹션에서는 명령 및 Ubuntu Server 14.04 LTS를 Linux 배포로 사용하여 명령 및 해당 요구사항 설명합니다.
 
 ## VM quick-create 별칭
-
 배포를 선택하는 빠른 방법은 가장 일반적인 OS 배포에 매핑된 Azure CLI 별칭을 사용하는 것입니다. 다음 테이블에 별칭이 나열되어 있습니다(Azure CLI 버전 0.10 현재). `quick-create`을 사용하는 모든 배포는 기본적으로 더 빠른 프로비전 및 고성능 디스크 액세스를 제공하는 SSD(반도체 드라이브) 저장소에서 지원되는 VM에 대해 이루어집니다. (이러한 별칭은 Azure에 사용할 수 있는 배포의 작은 부분을 나타냅니다. [이미지를 검색](virtual-machines-linux-cli-ps-findimage.md)하여 Azure Marketplace에서 더 많은 이미지를 찾거나 [고유의 사용자 지정 이미지를 업로드](virtual-machines-linux-create-upload-generic.md)할 수 있습니다.)
 
 | Alias | 게시자 | 제안 | SKU | 버전 |
-|:----------|:----------|:-------------|:------------|:--------|
-| CentOS | OpenLogic | CentOS | 7\.2 | 최신 |
-| CoreOS | CoreOS | CoreOS | Stable | 최신 |
-| Debian | credativ | Debian | 8 | 최신 |
-| openSUSE | SUSE | openSUSE | 13\.2 | 최신 |
-| RHEL | Red Hat | RHEL | 7\.2 | 최신 |
-| UbuntuLTS | Canonical | Ubuntu Server | 14\.04.4-LTS | 최신 |
+|:--- |:--- |:--- |:--- |:--- |
+| CentOS |OpenLogic |CentOS |7\.2 |최신 |
+| CoreOS |CoreOS |CoreOS |Stable |최신 |
+| Debian |credativ |Debian |8 |최신 |
+| openSUSE |SUSE |openSUSE |13\.2 |최신 |
+| RHEL |Red Hat |RHEL |7\.2 |최신 |
+| UbuntuLTS |Canonical |Ubuntu Server |14\.04.4-LTS |최신 |
 
 다음 섹션에서는 **ImageURN** 옵션(`-Q`)에 대한 `UbuntuLTS` 별칭을 사용하여 Ubuntu 14.04.4 LTS Server를 배포합니다.
 
 ## 자세한 연습
-
 이전 `quick-create` 예제에서는 SSH 암호를 비활성화하는 동안 업로드할 SSH 공개 키를 식별하기 위해 `-M` 플래그만 호출했으므로, 다음 인수를 묻는 메시지가 표시되었습니다.
 
-- 리소스 그룹 이름(일반적으로 첫 번째 Azure 리소스 그룹에 대해서는 어떤 문자열이든 적합함).
-- VM 이름
-- 위치(좋은 기본값은 `westus` 또는 `westeurope`입니다.)
-- linux(원하는 OS가 무엇인지 Azure에 알림)
-- username
+* 리소스 그룹 이름(일반적으로 첫 번째 Azure 리소스 그룹에 대해서는 어떤 문자열이든 적합함).
+* VM 이름
+* 위치(좋은 기본값은 `westus` 또는 `westeurope`입니다.)
+* linux(원하는 OS가 무엇인지 Azure에 알림)
+* username
 
 다음 예제는 추가 메시지 표시가 필요하지 않도록 모든 값을 지정합니다. `~/.ssh/id_rsa.pub`을 ssh-rsa 형식의 공개 키 파일로 포함하고 있으면 해당 파일은 있는 그대로 작동합니다.
 
@@ -196,12 +189,11 @@ exampleAdminUser@exampleVMName:~$
 ```
 
 ## 다음 단계
-
 `azure vm quick-create` 명령은 Bash 셸에 로그인하고 작업할 수 있도록 VM을 신속하게 배포하는 방법입니다. 그러나 `vm quick-create`를 사용하면 광범위한 제어가 불가능하며 더 복잡한 환경을 만들 수도 없습니다. 이러한 문서 중 하나를 수행하여 인프라에 대해 사용자 지정된 Linux VM을 배포할 수 있습니다.
 
-- [Azure Resource Manager 템플릿을 사용하여 특정 배포 만들기](virtual-machines-linux-cli-deploy-templates.md)
-- [Azure CLI 명령을 직접 사용하여 Linux VM에 대한 고유한 사용자 지정 환경 만들기](virtual-machines-linux-create-cli-complete.md)
-- [템플릿을 사용하여 Azure에서 SSH 보안 Linux VM 만들기](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+* [Azure Resource Manager 템플릿을 사용하여 특정 배포 만들기](virtual-machines-linux-cli-deploy-templates.md)
+* [Azure CLI 명령을 직접 사용하여 Linux VM에 대한 고유한 사용자 지정 환경 만들기](virtual-machines-linux-create-cli-complete.md)
+* [템플릿을 사용하여 Azure에서 SSH 보안 Linux VM 만들기](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
 [여러 명령과 함께 `docker-machine` Azure 드라이버를 사용하여 Linux VM을 신속하게 Docker host로 만들](virtual-machines-linux-docker-machine.md) 수 있습니다.
 

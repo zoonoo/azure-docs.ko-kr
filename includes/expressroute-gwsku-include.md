@@ -2,11 +2,14 @@
 
 Express 경로 가상 네트워크 게이트웨이는 다음 SKU를 사용할 수 있습니다. 
 
-- Standard
-- HighPerformance
-- UltraPerformance
+* Standard
+* HighPerformance
+* UltraPerformance
 
->[AZURE.IMPORTANT] Express 경로 UltraPerformance 게이트웨이는 현재 미국 중서부 및 미국 중부 지역에서 사용할 수 있으며 시카고 및 달라스에 있는 Express 경로 회로에 연결될 수 있습니다. 몇 주 후에는 추가 Azure 지역 및 Express 경로 위치를 사용할 수 있게 될 예정입니다. 
+> [!IMPORTANT]
+> Express 경로 UltraPerformance 게이트웨이는 현재 미국 중서부 및 미국 중부 지역에서 사용할 수 있으며 시카고 및 달라스에 있는 Express 경로 회로에 연결될 수 있습니다. 몇 주 후에는 추가 Azure 지역 및 Express 경로 위치를 사용할 수 있게 될 예정입니다. 
+> 
+> 
 
 <!--HONumber=Oct16_HO2-->
 

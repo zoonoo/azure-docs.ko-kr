@@ -1,34 +1,33 @@
-<properties
-	pageTitle="데이터 팩터리 복사 마법사 | Microsoft Azure"
-	description="Data Factory 복사 마법사를 사용하여 지원되는 데이터 소스의 데이터를 싱크로 복사하는 방법에 대해 알아보세요."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
-	editor="monicar"/>
+---
+title: 데이터 팩터리 복사 마법사 | Microsoft Docs
+description: Data Factory 복사 마법사를 사용하여 지원되는 데이터 소스의 데이터를 싱크로 복사하는 방법에 대해 알아보세요.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2016"
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/27/2016
+ms.author: spelluru
 
+---
 # 데이터 팩터리 복사 마법사
 Azure Data Factory 복사 마법사를 사용하면 연결된 서비스, 데이터 집합 및 파이프라인에 대한 JSON 정의를 작성하지 않고도 지원되는 원본에서 대상으로 데이터를 복사하는 파이프라인을 만들 수 있습니다. 복사 마법사를 시작하려면 Data Factory 홈 페이지에서 **데이터 복사** 타일을 클릭합니다.
 
 ![복사 마법사](./media/data-factory-copy-wizard/copy-data-wizard.png)
 
 ## 기능
-
 ### 데이터를 복사할 수 있는 직관적이고 원활한 마법사
 이 마법사를 사용하면 다음과 같은 간단한 단계에 따라 몇 분이면 원본에서 대상으로 데이터를 간단하게 이동할 수 있습니다.
 
-1.	원본을 선택합니다.
-2.	대상을 선택합니다.
-3.	설정을 구성합니다.
+1. 원본을 선택합니다.
+2. 대상을 선택합니다.
+3. 설정을 구성합니다.
 
 ![데이터 원본 선택](./media/data-factory-copy-wizard/select-data-source-page.png)
 
@@ -63,10 +62,10 @@ Azure Data Factory 복사 마법사를 사용하면 연결된 서비스, 데이�
 
 다음과 같은 형식의 입력 폴더가 있다고 가정하겠습니다.
 
-	2016/03/01/01
-	2016/03/01/02
-	2016/03/01/03
-	...
+    2016/03/01/01
+    2016/03/01/02
+    2016/03/01/03
+    ...
 
 **파일 또는 폴더**의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택**을 클릭합니다. 텍스트 상자에 **2016/03/01/02**가 표시됩니다. 이제 **2016**을 **{year}**로, **03**을 **{month}**로, **01**을 **{day}**로, **02**를 **{hour}**로 바꾸고 탭을 누릅니다. 이러한 네 가지 변수의 형식을 선택하는 드롭다운 목록이 표시됩니다.
 

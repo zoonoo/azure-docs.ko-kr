@@ -1,33 +1,28 @@
-<properties
-	pageTitle="로컬 파일에서 기계 학습 스튜디오로 데이터 가져오기 | Microsoft Azure"
-	description="로컬 파일에서 Azure 기계 학습 스튜디오로 학습 데이터를 가져오는 방법."
-	keywords="데이터 가져오기, 데이터 형식, 데이터 유형, 데이터 원본, 학습 데이터"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: 로컬 파일에서 기계 학습 스튜디오로 데이터 가져오기 | Microsoft Docs
+description: 로컬 파일에서 Azure 기계 학습 스튜디오로 학습 데이터를 가져오는 방법.
+keywords: 데이터 가져오기, 데이터 형식, 데이터 유형, 데이터 원본, 학습 데이터
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="garye;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: garye;bradsev
 
-
+---
 # 로컬 파일에서 Azure 기계 학습 스튜디오로 학습 데이터 가져오기
-
-[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
-
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 기계 학습 스튜디오에서 고유 데이터를 사용하려면 로컬 하드 드라이브에서 미리 데이터 파일을 업로드하여 작업 영역에 데이터 집합 모듈을 생성할 수 있습니다.
 
-
 ## 로컬 파일에서 데이터 가져오기
-
 다음을 수행하여 로컬 하드 드라이브에서 데이터를 가져올 수 있습니다.
 
 1. 기계 학습 스튜디오 창 하단에 있는 **+새로 만들기**를 클릭합니다.

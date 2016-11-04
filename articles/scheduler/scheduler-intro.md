@@ -1,22 +1,22 @@
-<properties
- pageTitle="Azure 스케줄러 정의 | Microsoft Azure"
- description="Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다. 그런 다음 해당 작업을 예약하고 자동으로 실행합니다."
- services="scheduler"
- documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="hero-article"
- ms.date="08/18/2016"
- ms.author="deli"/>
+---
+title: Azure 스케줄러 정의 | Microsoft Docs
+description: Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다. 그런 다음 해당 작업을 예약하고 자동으로 실행합니다.
+services: scheduler
+documentationcenter: .NET
+author: derek1ee
+manager: kevinlam1
+editor: ''
 
+ms.service: scheduler
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 08/18/2016
+ms.author: deli
+
+---
 # Azure 스케줄러 정의
-
 Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다. 그런 다음 해당 작업을 예약하고 자동으로 실행합니다. 스케줄러에서는 [Azure 포털](scheduler-get-started-portal.md), 코드, [REST API](https://msdn.microsoft.com/library/mt629143.aspx) 또는 Azure PowerShell을 사용하여 이를 수행합니다.
 
 스케줄러는 예약된 작업을 만들고 유지 관리하며 호출합니다. 스케줄러는 작업을 호스트하거나 코드를 실행하지 않습니다. Azure, 온-프레미스 또는 다른 공급자를 통해 다른 곳에서 호스트되는 코드를 _호출_하기만 합니다. HTTP, HTTPS, 저장소 큐, 서비스 버스 큐 또는 서비스 버스 항목을 통해 호출합니다.
@@ -25,13 +25,12 @@ Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언
 
 스케줄러를 사용하는 여러 가지 시나리오가 있습니다. 예:
 
-+ _응용 프로그램 작업 되풀이_: 주기적으로 Twitter에서 피드로 데이터를 수집합니다.
-+ _일별 유지 관리:_ 일별 로그 잘라내기, 백업 수행 및 기타 유지 관리 작업입니다. 예를 들어 관리자가 향후 9개월 간 매일 오전 1시에 데이터베이스를 백업하도록 선택할 수 있습니다.
+* *응용 프로그램 작업 되풀이*: 주기적으로 Twitter에서 피드로 데이터를 수집합니다.
+* *일별 유지 관리:* 일별 로그 잘라내기, 백업 수행 및 기타 유지 관리 작업입니다. 예를 들어 관리자가 향후 9개월 간 매일 오전 1시에 데이터베이스를 백업하도록 선택할 수 있습니다.
 
 스케줄러를 사용하면 포털에서 스크립트를 통해 작업 및 [작업 컬렉션](scheduler-concepts-terms.md)을 프로그래밍 방식으로 만들고, 업데이트하고, 삭제하고, 보고, 관리할 수 있습니다.
 
 ## 참고 항목
-
  [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
 
  [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)

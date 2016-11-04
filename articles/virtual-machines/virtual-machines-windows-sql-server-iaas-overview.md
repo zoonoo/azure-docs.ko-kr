@@ -1,66 +1,72 @@
-<properties
-    pageTitle="Azure 가상 컴퓨터에서 SQL Server 개요 | Microsoft Azure"
-    description="Azure 가상 컴퓨터에서 전체 SQL Server 버전을 실행하는 방법을 알아봅니다. 모든 SQL Server VM 이미지 및 관련된 내용에 대한 직접 링크를 가져옵니다."
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="rothja"
-    manager="jhubbard"
-    editor=""
-    tags="azure-service-management"/>
+---
+title: Azure 가상 컴퓨터에서 SQL Server 개요 | Microsoft Docs
+description: Azure 가상 컴퓨터에서 전체 SQL Server 버전을 실행하는 방법을 알아봅니다. 모든 SQL Server VM 이미지 및 관련된 내용에 대한 직접 링크를 가져옵니다.
+services: virtual-machines-windows
+documentationcenter: ''
+author: rothja
+manager: jhubbard
+editor: ''
+tags: azure-service-management
 
-<tags
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="vm-windows-sql-server"
-    ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    ms.author="jroth"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: vm-windows-sql-server
+ms.workload: infrastructure-services
+ms.date: 10/11/2016
+ms.author: jroth
 
-
+---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Azure 가상 컴퓨터에서 SQL Server 개요
-
 이 항목에서는 [포털 이미지에 대한 링크](#option-1-create-a-sql-vm-with-per-minute-licensing) 및 [일반적인 태스크](#manage-your-sql-vm)의 개요와 함께 Azure VM(가상 컴퓨터)에 SQL Server를 실행하는 옵션을 설명합니다.
 
->[AZURE.NOTE] SQL Server에 이미 익숙하고 SQL Server VM을 배포하는 방법을 확인하려는 경우 [Azure Portal에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
+> [!NOTE]
+> SQL Server에 이미 익숙하고 SQL Server VM을 배포하는 방법을 확인하려는 경우 [Azure Portal에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
+> 
+> 
 
 ## <a name="overview"></a>개요
 데이터베이스 관리자 또는 개발자인 경우 Azure VM은 온-프레미스 SQL Server 워크로드 및 응용 프로그램을 클라우드로 이동하는 방법을 제공합니다. 다음 비디오는 SQL Server Azure VM에 대한 기술적 개요를 제공합니다.
 
-> [AZURE.VIDEO data-driven-sql-server-2016-azure-vm-is-the-best-platform-for-sql-server-2016]
+> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
+> 
+> 
 
 이 비디오에서는 다음과 같은 영역을 다룹니다.
 
-|Time|영역|
-|---|---|
-| 00:21 | Azure VM이란? |
-| 01:45 | 보안 |
-| 02:50 | 연결 |
-| 03:30 | 저장소 안정성 및 성능 |
-| 05:20 | VM 크기 |
-| 05:54 | 고가용성 및 SLA |
-| 07:30 | 구성 지원 |
-| 08:00 | 모니터링 |
-| 08:32 | 데모: SQL Server 2016 VM 만들기 |
+| Time | 영역 |
+| --- | --- |
+| 00:21 |Azure VM이란? |
+| 01:45 |보안 |
+| 02:50 |연결 |
+| 03:30 |저장소 안정성 및 성능 |
+| 05:20 |VM 크기 |
+| 05:54 |고가용성 및 SLA |
+| 07:30 |구성 지원 |
+| 08:00 |모니터링 |
+| 08:32 |데모: SQL Server 2016 VM 만들기 |
 
->[AZURE.NOTE] 비디오에서는 SQL Server 2016을 중점적으로 다루지만 2008, 2012, 2014 및 2016을 비롯한 여러 버전의 Azure SQL Server에 대한 VM 이미지를 제공합니다. 
+> [!NOTE]
+> 비디오에서는 SQL Server 2016을 중점적으로 다루지만 2008, 2012, 2014 및 2016을 비롯한 여러 버전의 Azure SQL Server에 대한 VM 이미지를 제공합니다. 
+> 
+> 
 
 ## <a name="understand-your-options"></a>옵션 이해
 Azure에서 데이터를 호스트하도록 선택할 수 있는 여러 가지 이유가 있습니다. 응용 프로그램이 Azure로 이동하는 경우 데이터를 이동하는 것이 성능을 향상시킵니다. 하지만 다른 이점도 있습니다. 글로벌 서비스 및 재해 복구를 위해 여러 데이터 센터에 대한 액세스를 자동으로 가집니다. 데이터를 잘 보호하고 지속합니다.
 
 Azure VM에서 실행하는 SQL Server는 관계형 데이터를 Azure에 저장하기 위한 한 가지 옵션입니다. 다음 테이블에서는 Azure에 대한 SQL 제품 요약을 제공합니다.
 
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| SQL 제품 | 설명 |
-|---:|---|---|
-|![Azure 가상 컴퓨터의 SQL Server](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png)|[Azure 가상 컴퓨터의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)|Azure Virtual Machines에서 SQL Server를 실행합니다(이 항목의 중점). 가상 컴퓨터를 직접 관리하고 SQL Server 정품 버전에서 데이터베이스를 실행합니다. |
-|![SQL 데이터베이스](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-database.png)|[SQL Database](https://azure.microsoft.com/services/sql-database/)|SQL 데이터베이스 서비스를 사용하여 기본 인프라를 관리할 필요 없이, 데이터베이스를 액세스하고 크기를 조정합니다.|
-|![SQL 데이터 웨어하우스](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)|[SQL Data Warehouse](https://azure.microsoft.com/en-us/services/sql-data-warehouse/)|Azure SQL 데이터 웨어하우스를 사용하여 대량의 관계형 및 비관계형 데이터를 처리합니다. 확장성 있는 데이터 웨어하우징 기능을 서비스로 제공합니다.|
-|![SQL Server 스트레치 데이터베이스](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)|[SQL Server Stretch Database](https://azure.microsoft.com/en-us/services/sql-server-stretch-database/)|Microsoft SQL Server 2016의 온-프레미스 트랜잭션 데이터를 Azure에 동적으로 스트레치합니다.|
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | SQL 제품 | 설명 |
+| ---:| --- | --- |
+| ![Azure 가상 컴퓨터의 SQL Server](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png) |[Azure 가상 컴퓨터의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) |Azure Virtual Machines에서 SQL Server를 실행합니다(이 항목의 중점). 가상 컴퓨터를 직접 관리하고 SQL Server 정품 버전에서 데이터베이스를 실행합니다. |
+| ![SQL 데이터베이스](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-database.png) |[SQL Database](https://azure.microsoft.com/services/sql-database/) |SQL 데이터베이스 서비스를 사용하여 기본 인프라를 관리할 필요 없이, 데이터베이스를 액세스하고 크기를 조정합니다. |
+| ![SQL 데이터 웨어하우스](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png) |[SQL Data Warehouse](https://azure.microsoft.com/en-us/services/sql-data-warehouse/) |Azure SQL 데이터 웨어하우스를 사용하여 대량의 관계형 및 비관계형 데이터를 처리합니다. 확장성 있는 데이터 웨어하우징 기능을 서비스로 제공합니다. |
+| ![SQL Server 스트레치 데이터베이스](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png) |[SQL Server Stretch Database](https://azure.microsoft.com/en-us/services/sql-server-stretch-database/) |Microsoft SQL Server 2016의 온-프레미스 트랜잭션 데이터를 Azure에 동적으로 스트레치합니다. |
 
 이러한 다양한 옵션으로 Azure VM에서 SQL Server를 실행하는 것이 몇 가지 시나리오에 적합합니다. 예를 들어, Azure VM을 온-프레미스 SQL Server 컴퓨터와 최대한 비슷하게 구성하려고 합니다. 또는 동일한 데이터베이스 서버에서 추가 응용 프로그램 및 서비스를 실행하려고 합니다. 자세한 의사 결정 요소를 고려하는 데 도움이 되는 두 가지 리소스가 있습니다.
 
- - [Azure 가상 컴퓨터의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)는 Azure VM에서 SQL Server를 사용하기 위한 최상의 시나리오의 개요를 제공합니다. 
- - [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) Database 또는 Azure VM의 SQL Server(IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md)에서는 SQL VM과 SQL Database 간의 자세한 비교를 제공합니다.
+* [Azure 가상 컴퓨터의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)는 Azure VM에서 SQL Server를 사용하기 위한 최상의 시나리오의 개요를 제공합니다. 
+* [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) Database 또는 Azure VM의 SQL Server(IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md)에서는 SQL VM과 SQL Database 간의 자세한 비교를 제공합니다.
 
 ## <a name="create-a-new-sql-vm"></a>새 SQL VM 만들기
 다음 섹션에서는 SQL Server 가상 컴퓨터 갤러리 이미지에 Azure Portal에 대한 직접 링크를 제공합니다. 선택한 이미지에 따라 SQL Server 라이선스 비용을 분당 기준으로 지불하거나 사용자 라이선스가 필요할 수 있습니다(BYOL).
@@ -70,27 +76,30 @@ Azure VM에서 실행하는 SQL Server는 관계형 데이터를 Azure에 저장
 ## <a name="option-1:-create-a-sql-vm-with-per-minute-licensing"></a>옵션 1: 분당 라이선스를 사용한 SQL VM 만들기
 다음 표에서는 가상 컴퓨터 갤러리의 사용 가능한 SQL Server 이미지의 매트릭스를 제공합니다. 모든 링크를 클릭하여 지정된 버전, 버전 및 운영 체제로 새 SQL VM 만들기를 시작합니다.
 
-|버전|운영 체제|버전|
-|---|---|---|
-|**SQL 2016**|Windows Server 2012 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016RTMEnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016RTMStandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016RTMWebWindowsServer2012R2), [Dev](https://portal.azure.com/#create/Microsoft.SQLServer2016RTMDeveloperWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2016RTMExpressWindowsServer2012R2)|
-|**SQL 2014 SP1**|Windows Server 2012 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014SP1EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014SP1StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014SP1WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2014SP1ExpressWindowsServer2012R2)|
-|**SQL 2014**|Windows Server 2012 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014WebWindowsServer2012R2)|
-|**SQL 2012 SP3**|Windows Server 2012 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3ExpressWindowsServer2012R2)|
-|**SQL 2012 SP2**|Windows Server 2012 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2WebWindowsServer2012R2)|
-|**SQL 2012 SP2**|Windows Server 2012|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2EnterpriseWindowsServer2012), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2StandardWindowsServer2012), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2WebWindowsServer2012), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2ExpressWindowsServer2012)|
-|**SQL 2008 R2 SP3**|Windows Server 2008 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2)|
-|**SQL 2008 R2 SP3**|Windows Server 2012|[Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2012)|
+| 버전 | 운영 체제 | 버전 |
+| --- | --- | --- |
+| **SQL 2016** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016RTMEnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016RTMStandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016RTMWebWindowsServer2012R2), [Dev](https://portal.azure.com/#create/Microsoft.SQLServer2016RTMDeveloperWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2016RTMExpressWindowsServer2012R2) |
+| **SQL 2014 SP1** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014SP1EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014SP1StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014SP1WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2014SP1ExpressWindowsServer2012R2) |
+| **SQL 2014** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014WebWindowsServer2012R2) |
+| **SQL 2012 SP3** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3ExpressWindowsServer2012R2) |
+| **SQL 2012 SP2** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2WebWindowsServer2012R2) |
+| **SQL 2012 SP2** |Windows Server 2012 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2EnterpriseWindowsServer2012), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2StandardWindowsServer2012), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2WebWindowsServer2012), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2ExpressWindowsServer2012) |
+| **SQL 2008 R2 SP3** |Windows Server 2008 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2) |
+| **SQL 2008 R2 SP3** |Windows Server 2012 |[Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2012) |
 
 ## <a name="option-2:-create-a-sql-vm-with-an-existing-license"></a>옵션 2: 기존 라이선스를 사용한 SQL VM 만들기
 사용자 라이선스가 필요할 수도 있습니다(BYOL). 이 시나리오에서는 SQL Server 라이선스에 대한 추가 비용 없이 VM에 대해서만 지불합니다. 사용자 고유 라이선스를 사용하려면 아래의 SQL Server 버전, 버전 및 운영 체제의 매트릭스를 사용합니다. 포털에서 이러한 이미지 이름에는 접두사 **{BYOL}**이 붙습니다.
 
-|버전|운영 체제|버전|
-|---|---|---|
-|**SQL Server 2016**|Windows Server 2012 R2|[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016RTMStandardWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016RTMStandardWindowsServer2012R2)|
-|**SQL Server 2014 SP1**|Windows Server 2012 R2|[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1StandardWindowsServer2012R2)|
-|**SQL Server 2012 SP2**|Windows Server 2012 R2|[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard  BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3StandardWindowsServer2012R2)|
+| 버전 | 운영 체제 | 버전 |
+| --- | --- | --- |
+| **SQL Server 2016** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016RTMStandardWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016RTMStandardWindowsServer2012R2) |
+| **SQL Server 2014 SP1** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1StandardWindowsServer2012R2) |
+| **SQL Server 2012 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard  BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3StandardWindowsServer2012R2) |
 
-> [AZURE.IMPORTANT] BYOL VM 이미지를 사용하려면 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)으로 기업 계약을 체결해야 합니다. 또한 사용하려는 SQL Server의 버전/버전에 대한 유효한 라이선스가 필요합니다. VM 프로비전의 [10](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) 일 내에 **필요한 BYOL 정보를 Microsoft에 제공** 해야 합니다.
+> [!IMPORTANT]
+> BYOL VM 이미지를 사용하려면 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)으로 기업 계약을 체결해야 합니다. 또한 사용하려는 SQL Server의 버전/버전에 대한 유효한 라이선스가 필요합니다. VM 프로비전의 [10](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) 일 내에 **필요한 BYOL 정보를 Microsoft에 제공** 해야 합니다.
+> 
+> 
 
 ## <a name="manage-your-sql-vm"></a>SQL VM 관리
 SQL Server VM을 프로비전한 후 여러 가지 선택적 관리 작업이 있습니다. 여러 측면에서 정확하게 온-프레미스 SQL Server 인스턴스를 관리한 대로 SQL Server를 구성 및 관리합니다. 하지만 일부 태스크는 Azure에 특정됩니다. 다음 섹션에서는 자세한 정보에 대한 링크로 이러한 영역 중 일부를 강조 표시합니다.
@@ -121,8 +130,6 @@ CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되�
 [학습 경로를 탐색](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) 합니다.
 
 추가 질문이 있나요? 먼저 [Azure 가상 컴퓨터의 SQL Server FAQ](virtual-machines-windows-sql-server-iaas-faq.md)를 참조하세요. 또한 SQL VM 항목의 맨 아래에 질문 또는 의견을 추가하여 Microsoft 및 커뮤니티와 상호 의견을 교환하세요.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

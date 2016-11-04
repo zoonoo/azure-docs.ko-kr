@@ -1,35 +1,34 @@
-<properties
- pageTitle="개발자 가이드 - 장치 쌍 이해 | Microsoft Azure"
- description="Azure IoT Hub 개발자 가이드 - 장치 쌍을 사용하여 IoT Hub와 장치 간의 상태 및 구성 데이터 동기화"
- services="iot-hub"
- documentationCenter=".net"
- authors="fsautomata"
- manager="timlt"
- editor=""/>
+---
+title: 개발자 가이드 - 장치 쌍 이해 | Microsoft Docs
+description: Azure IoT Hub 개발자 가이드 - 장치 쌍을 사용하여 IoT Hub와 장치 간의 상태 및 구성 데이터 동기화
+services: iot-hub
+documentationcenter: .net
+author: fsautomata
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="multiple"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="09/30/2016" 
- ms.author="elioda"/>
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/30/2016
+ms.author: elioda
 
-
+---
 # <a name="understand-device-twins-preview"></a>장치 쌍 이해 - 미리 보기
-
 ## <a name="overview"></a>개요
-
 *장치 쌍*은 장치의 상태 정보(메타데이터, 상태 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 IoT Hub에 연결하는 각 장치에 대해 하나의 장치 쌍을 유지합니다. 이 문서는 다음을 설명합니다.
 
 * 장치 쌍의 구조 즉, *태그*, *desired* 및 *reported 속성*
 * 장치 앱과 백 엔드가 장치 쌍에 수행할 수 있는 작업.
 
-> [AZURE.NOTE] 현재 장치 쌍은 MQTT 프로토콜을 사용하여 IoT Hub에 연결하는 장치에서만 액세스할 수 있습니다. 기존 장치 앱이 MQTT를 사용하도록 변환하는 방법에 관한 설명은 [MQTT 지원][lnk-devguide-mqtt] 문서를 참조하세요.
+> [!NOTE]
+> 현재 장치 쌍은 MQTT 프로토콜을 사용하여 IoT Hub에 연결하는 장치에서만 액세스할 수 있습니다. 기존 장치 앱이 MQTT를 사용하도록 변환하는 방법에 관한 설명은 [MQTT 지원][lnk-devguide-mqtt] 문서를 참조하세요.
+> 
+> 
 
 ### <a name="when-to-use"></a>사용하는 경우
-
 장치 쌍의 용도:
 
 * 장치별 메타데이터를 클라우드에 저장합니다(예: 자동 판매기 배포 위치).
@@ -40,11 +39,10 @@
 타임스탬프가 적용된 이벤트의 시퀀스(예: 알람 또는 센서 데이터의 시계열)에 대해 [장치-클라우드 메시지][lnk-d2c]를 사용합니다. 대화형 장치 제어(예: 선풍기 켜기)에 대해 [클라우드-장치 메서드][lnk-methods]를 사용합니다.
 
 ## <a name="device-twins"></a>장치 쌍
-
 장치 쌍이 저장하는 장치 관련 정보는:
 
-- 장치 및 백 엔드가 장치 상태 및 구성 동기화에 사용할 수 있습니다.
-- 응용 프로그램 백 엔드가 오래 실행되는 작업을 쿼리하고 대상으로 하는 데 사용할 수 있습니다.
+* 장치 및 백 엔드가 장치 상태 및 구성 동기화에 사용할 수 있습니다.
+* 응용 프로그램 백 엔드가 오래 실행되는 작업을 쿼리하고 대상으로 하는 데 사용할 수 있습니다.
 
 장치 쌍의 수명 주기는 해당 [장치 ID][lnk-identity]에 연결되어 있습니다. 쌍은 IoT Hub에 새 장치 ID가 생성되거나 삭제될 때 암시적으로 생성되거나 삭제됩니다.
 
@@ -99,17 +97,15 @@
 루트 개체에 시스템 속성이 있고 `tags`와 `reported` 및 `desired properties`에 대한 컨테이너 개체가 있습니다. `properties` 컨테이너에는 몇 가지 읽기 전용 요소(`$metadata`, `$etag` 및 `$version`)가 포함되어 있으며, [쌍 메타데이터][lnk-twin-metadata] 및 [낙관적 동시성][lnk-concurrency] 섹션에 각기 설명되어 있습니다.
 
 ### <a name="reported-property-example"></a>reported 속성 예
-
 위의 예에서 장치 쌍에 `batteryLevel` 속성이 포함되어 있으며 이것은 장치 앱에 의해 보고됩니다. 이 속성은 마지막으로 보고된 배터리 수준에 기반하여 장치에서 쿼리 및 작업을 가능하게 합니다. 또 다른 예에는 장치 앱 보고 장치 기능 또는 연결 옵션이 포함됩니다.
 
 reported 속성이 백 엔드가 마지막으로 알려진 속성 값에 관여하는 시나리오를 어떻게 간소화하는지 주목합니다. 백 엔드가 타임스탬프가 적용된 이벤트 시퀀스(예: 시계열)의 형태로 장치 원격 분석을 처리해야 하는 경우 [장치-클라우드 메시지][lnk-d2c]를 사용합니다.
 
 ### <a name="desired-configuration-example"></a>desired 구성 예
-
 위의 예제에서 `telemetryConfig` desired 및 reported 속성은 백 엔드 및 장치 앱에 의해 이 장치에 대한 원격 분석 구성을 동기화하는 데 사용됩니다. 예:
 
 1. 앱 백 엔드는 desired 구성 값으로 desired 속성을 설정합니다. 다음은 desired 속성이 포함된 문서의 일부분입니다.
-
+   
         ...
         "desired": {
             "telemetryConfig": {
@@ -118,9 +114,8 @@ reported 속성이 백 엔드가 마지막으로 알려진 속성 값에 관여�
             ...
         },
         ...
-        
 2. 장치 앱이 연결되거나 처음으로 다시 연결되면 변경 내용이 즉시 통보됩니다. 그런 다음 장치 앱은 업데이트된 구성(또는 `status` 속성을 사용한 오류 상태)을 보고합니다. 다음은 reported 속성의 일부분입니다.
-
+   
         ...
         "reported": {
             "telemetryConfig": {
@@ -130,20 +125,21 @@ reported 속성이 백 엔드가 마지막으로 알려진 속성 값에 관여�
             ...
         }
         ...
-
 3. 앱 백 엔드는 쌍에 [쿼리][lnk-query]를 수행하여 많은 장치의 구성 작업 결과를 추적할 수 있습니다.
 
-> [AZURE.NOTE] 위의 코드 조각은 장치 구성 및 상태를 인코딩하는 한 가지 가능한 방식을 가독성을 위해 최적화해 놓은 예입니다. IoT Hub는 장치 쌍의 desired 및 reported 속성에 대해 특정 스키마를 적용하지 않습니다.
+> [!NOTE]
+> 위의 코드 조각은 장치 구성 및 상태를 인코딩하는 한 가지 가능한 방식을 가독성을 위해 최적화해 놓은 예입니다. IoT Hub는 장치 쌍의 desired 및 reported 속성에 대해 특정 스키마를 적용하지 않습니다.
+> 
+> 
 
 대부분의 경우 쌍은 펌웨어 업데이트와 같이 오래 실행되는 작업을 동기화하는 데 사용됩니다. 여러 장치에서 오래 실행되는 작업을 동기화하고 추적하기 위해 속성을 사용하는 방법에 대한 자세한 내용은 [desired 속성을 사용하여 장치 구성][lnk-twin-properties]을 참조하세요.
 
 ## <a name="back-end-operations"></a>백 엔드 작업
-
 백 엔드는 HTTP를 통해 노출되는 다음과 같은 원자성 작업을 사용하여 쌍에서 작동합니다.
 
 1. **ID로 쌍 검색**. 이 작업은 태그 및 desired, reported 및 시스템 속성을 포함하는 쌍 문서 콘텐츠를 반환합니다.
 2. **쌍 부분 업데이트**. 이 작업은 백 엔드에서 쌍의 태그 또는 desired 속성을 부분적으로 업데이트할 수 있도록 해줍니다. 부분 업데이트는 언급된 속성을 추가하거나 업데이트하는 JSON 문서로 표현됩니다. `null`로 설정된 속성은 제거됩니다. 예를 들어, 다음은 값이 `{"newProperty": "newValue"}`인 desired 속성을 새로 생성하고, `existingProperty`의 기존 값을 `"otherNewValue"`로 덮어쓰고, `otherOldProperty`를 완전히 제거합니다. 기존의 다른 desired 속성이나 태그에는 변화가 발생하지 않습니다.
-
+   
         {
             "properties": {
                 "desired": {
@@ -155,7 +151,6 @@ reported 속성이 백 엔드가 마지막으로 알려진 속성 값에 관여�
                 }
             }
         }
-
 3. **desired 속성 바꾸기**. 백 엔드에서 기존의 모든 desired 속성을 완전히 덮어쓰고 `properties/desired`에 대해 새 JSON 문서를 대체할 수 있는 작업입니다.
 4. **태그 바꾸기**. desired 속성 바꾸기와 유사합니다. 백 엔드가 기존의 모든 태그를 완전히 덮어쓰고 `tags`에 대해 새 JSON 문서를 대체할 수 있는 작업입니다.
 
@@ -164,7 +159,6 @@ reported 속성이 백 엔드가 마지막으로 알려진 속성 값에 관여�
 이러한 작업 외에도 백 엔드는 SQL과 비슷한 [쿼리 언어][lnk-query]를 사용하여 쌍을 쿼리할 수 있고 [작업][lnk-jobs]을 사용하여 대량의 쌍 집합에 작업을 수행할 수 있습니다.
 
 ## <a name="device-operations"></a>장치 작업
-
 장치 앱은 다음과 같은 원자성 작업을 사용하여 쌍에서 작동합니다.
 
 1. **쌍 검색**. 이 작업은 현재 연결된 장치의 태그 및 desired, reported 및 시스템 속성을 포함하는 쌍 문서 콘텐츠를 반환합니다.
@@ -175,25 +169,24 @@ reported 속성이 백 엔드가 마지막으로 알려진 속성 값에 관여�
 
 [Azure IoT 장치 SDK][lnk-sdks]를 사용하면 위 작업을 다양한 언어와 플랫폼에서 손쉽게 사용할 수 있습니다. desired 속성 동기화를 위한 IoT Hub 기본 형식의 세부 사항에 대한 자세한 내용은 [장치 다시 연결 흐름][lnk-reconnection]에서 찾을 수 있습니다.
 
-> [AZURE.NOTE] 현재 장치 쌍은 MQTT 프로토콜을 사용하여 IoT Hub에 연결하는 장치에서만 액세스할 수 있습니다.
+> [!NOTE]
+> 현재 장치 쌍은 MQTT 프로토콜을 사용하여 IoT Hub에 연결하는 장치에서만 액세스할 수 있습니다.
+> 
+> 
 
 ## <a name="reference"></a>참조
-
 ### <a name="tags-and-properties-format"></a>태그 및 속성 형식
-
 태그, desired 및 reported 속성은 JSON 개체이며 다음과 같은 제한 사항이 있습니다.
 
 * JSON 개체의 모든 키는 대/소문자를 구분하는 128자 유니코드 문자열입니다. 허용되는 문자에서 유니코드 제어 문자(세그먼트 C0 및 C1) 및 `'.'`, `' '` 및 `'$'`는 제외됩니다.
 * JSON 개체에 포함된 모든 값에는 JSON 부울, 숫자, 문자열, 개체 형식을 사용할 수 있습니다. 배열은 허용되지 않습니다.
 
 ### <a name="twin-size"></a>쌍 크기
-
 IoT Hub는 `tags`, `properties/desired` 및 `properties/reported` 값에 8KB의 크기 제한을 적용합니다. 읽기 전용 요소는 제외됩니다.
 크기는 외부에 표시될 때 유니코드 제어 문자(세그먼트 C0 및 C1) 및 공백 `' '`을 제외한 모든 문자의 개수를 세어서 계산됩니다.
 IoT Hub는 한도 이상으로 해당 문서의 크기를 증가시키는 모든 작업을 오류와 함께 거부합니다.
 
 ### <a name="twin-metadata"></a>쌍 메타데이터
-
 IoT Hub는 각 JSON 개체에 대한 마지막 업데이트의 타임스탬프를 desired 또는 reported 속성에 유지합니다. 타임스탬프는 UTC 형식이며 [ISO8601] 형식 `YYYY-MM-DDTHH:MM:SS.mmmZ`로 인코딩됩니다.
 예:
 
@@ -243,7 +236,6 @@ IoT Hub는 각 JSON 개체에 대한 마지막 업데이트의 타임스탬프�
 이 정보는 개체 키를 제거하는 업데이트를 유지하기 위해서 모든 수준(JSON 구조의 수준뿐만 아니라)에서 유지됩니다.
 
 ### <a name="optimistic-concurrency"></a>낙관적 동시성
-
 태그, desired 및 reported 속성은 모두 낙관적 동시성을 지원합니다.
 [RFC7232]에 따르면 태그에는 ETag가 있고 이것은 태그의 JSON 표현을 나타냅니다. 일관성을 보장하기 위해 백 엔드에서 조건부 업데이트 작업에 사용할 수 있습니다.
 
@@ -252,7 +244,6 @@ desired 및 reported 속성에는 ETag가 없지만 반드시 증가되는 `$ver
 버전은 관찰 에이전트(예: desired 속성을 관찰하는 장치 앱)가 업데이트 알림과 검색 작업의 결과 간에 속도를 중재해야 하는 경우에도 유용합니다. [장치 다시 연결 흐름][lnk-reconnection] 섹션에 자세한 정보가 있습니다.
 
 ### <a name="device-reconnection-flow"></a>장치 다시 연결 흐름
-
 IoT Hub는 연결되지 않은 장치에 대한 desired 속성 업데이트 알림을 유지하지 않습니다. 연결 중인 장치는 완전한 desired 속성 문서를 가져와야 하고 또한 업데이트 알림을 구독해야 합니다. 업데이트 알림과 전체 검색이 서로 경쟁할 가능성이 있으므로 다음과 같은 흐름을 따라야 합니다.
 
 1. 장치 앱을 IoT hub에 연결합니다.
@@ -261,29 +252,30 @@ IoT Hub는 연결되지 않은 장치에 대한 desired 속성 업데이트 알�
 
 장치 앱은 검색이 완료된 문서의 버전보다 작거나 같은 `$version`이 포함된 모든 알림을 무시할 수 있습니다. 이것은 IoT Hub가 버전이 항상 증가한다는 것을 보장하기 때문에 가능합니다.
 
-> [AZURE.NOTE] 이 논리는 [Azure IoT 장치 SDK][lnk-sdks]에 이미 구현되어 있습니다. 이 설명은 장치 앱이 Azure IoT 장치 SDK를 아무것도 사용할 수 없고 MQTT 인터페이스를 직접 프로그래밍해야 하는 경우에만 유용합니다.
+> [!NOTE]
+> 이 논리는 [Azure IoT 장치 SDK][lnk-sdks]에 이미 구현되어 있습니다. 이 설명은 장치 앱이 Azure IoT 장치 SDK를 아무것도 사용할 수 없고 MQTT 인터페이스를 직접 프로그래밍해야 하는 경우에만 유용합니다.
+> 
+> 
 
 ### <a name="additional-reference-material"></a>추가 참조 자료
-
 개발자 가이드의 다른 참조 자료:
 
-- [IoT Hub 끝점][lnk-endpoints]에서는 각 IoT Hub가 런타임 및 관리 작업에 노출하는 다양한 끝점을 설명합니다.
-- [제한 및 할당량][lnk-quotas]에서는 IoT Hub 서비스에 적용되는 할당량과 서비스를 언제 사용할지 예상하는 제한 동작을 설명합니다.
-- [IoT Hub 장치 및 서비스 SDK][lnk-sdks]에는 IoT Hub와 상호 작용하는 장치 및 서비스 응용 프로그램을 개발할 때 사용할 수 있는 다양한 언어 SDK가 나열되어 있습니다.
-- [쌍, 메서드 및 작업용 쿼리 언어][lnk-query]에는 장치 쌍, 메서드 및 작업을 IoT Hub에서 검색하는 데 사용할 수 있는 쿼리 언어가 설명되어 있습니다.
-- [IoT Hub MQTT 지원][lnk-devguide-mqtt]에는 MQTT 프로토콜에 대한 IoT Hub 지원에 대하여 자세한 정보가 제공됩니다.
+* [IoT Hub 끝점][lnk-endpoints]에서는 각 IoT Hub가 런타임 및 관리 작업에 노출하는 다양한 끝점을 설명합니다.
+* [제한 및 할당량][lnk-quotas]에서는 IoT Hub 서비스에 적용되는 할당량과 서비스를 언제 사용할지 예상하는 제한 동작을 설명합니다.
+* [IoT Hub 장치 및 서비스 SDK][lnk-sdks]에는 IoT Hub와 상호 작용하는 장치 및 서비스 응용 프로그램을 개발할 때 사용할 수 있는 다양한 언어 SDK가 나열되어 있습니다.
+* [쌍, 메서드 및 작업용 쿼리 언어][lnk-query]에는 장치 쌍, 메서드 및 작업을 IoT Hub에서 검색하는 데 사용할 수 있는 쿼리 언어가 설명되어 있습니다.
+* [IoT Hub MQTT 지원][lnk-devguide-mqtt]에는 MQTT 프로토콜에 대한 IoT Hub 지원에 대하여 자세한 정보가 제공됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-
 장치 쌍에 대해 알아봤으니 다음과 같은 개발자 가이드 항목에 대해서 살펴보세요.
 
-- [장치에 직접 메서드 호출][lnk-methods]
-- [여러 장치에서 작업 예약][lnk-jobs]
+* [장치에 직접 메서드 호출][lnk-methods]
+* [여러 장치에서 작업 예약][lnk-jobs]
 
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 살펴보세요.
 
-- [장치 쌍을 사용하는 방법][lnk-twin-tutorial]
-- [쌍 속성을 사용 방법][lnk-twin-properties]
+* [장치 쌍을 사용하는 방법][lnk-twin-tutorial]
+* [쌍 속성을 사용 방법][lnk-twin-properties]
 
 <!-- links and images -->
 

@@ -1,51 +1,49 @@
-<properties
-    pageTitle="PowerShell을 사용하여 BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기 | Microsoft Azure"
-    description="PowerShell을 사용하여 BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기"
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+---
+title: PowerShell을 사용하여 BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기 | Microsoft Docs
+description: PowerShell을 사용하여 BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
 
-<tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="powershell"
-    ms.workload="data-management"
-    ms.date="08/31/2016"
-    ms.author="sstein"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: powershell
+ms.workload: data-management
+ms.date: 08/31/2016
+ms.author: sstein
 
+---
 # PowerShell을 사용하여 BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기
-
 **단일 데이터베이스**
 
-> [AZURE.SELECTOR]
-- [Azure 포털](sql-database-import.md)
-- [PowerShell](sql-database-import-powershell.md)
-- [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+> [!div class="op_single_selector"]
+> * [Azure 포털](sql-database-import.md)
+> * [PowerShell](sql-database-import-powershell.md)
+> * [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+> * [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+> 
+> 
 
 이 문서에서는 PowerShell을 통해 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일을 가져와 Azure SQL 데이터베이스를 만드는 방법에 대한 지침을 제공합니다.
 
 데이터베이스는 Azure Storage Blob 컨테이너에서 가져온 BACPAC 파일(.bacpac)로 만들어집니다. Azure Storage에 BACPAC 파일이 없는 경우 [PowerShell을 사용하여 Azure SQL 데이터베이스를 BACPAC 파일에 보관](sql-database-export-powershell.md)을 참조하세요. Azure Storage에 없는 BACPAC 파일이 이미 있는 경우 [AzCopy를 사용하여 Azure Storage 계정에 쉽게 업로드합니다](../storage/storage-use-azcopy.md#blob-upload).
 
-> [AZURE.NOTE] Azure SQL 데이터베이스는 모든 사용자 데이터베이스에 대해 복원할 수 있는 백업을 자동으로 만들고 유지 관리합니다. 자세한 내용은 [SQL 데이터베이스 자동화된 백업](sql-database-automated-backups.md)을 참조하세요.
-
+> [!NOTE]
+> Azure SQL 데이터베이스는 모든 사용자 데이터베이스에 대해 복원할 수 있는 백업을 자동으로 만들고 유지 관리합니다. 자세한 내용은 [SQL 데이터베이스 자동화된 백업](sql-database-automated-backups.md)을 참조하세요.
+> 
+> 
 
 SQL 데이터베이스를 가져오려면 다음이 필요합니다.
 
-- Azure 구독. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
-- 가져올 데이터베이스의 BACPAC 파일. BACPAC은 [Azure Storage 계정](../storage/storage-create-storage-account.md) Blob 컨테이너에 있어야 합니다.
+* Azure 구독. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
+* 가져올 데이터베이스의 BACPAC 파일. BACPAC은 [Azure Storage 계정](../storage/storage-create-storage-account.md) Blob 컨테이너에 있어야 합니다.
 
-
-
-[AZURE.INCLUDE [PowerShell 세션 시작](../../includes/sql-database-powershell.md)]
-
-
+[!INCLUDE [PowerShell 세션 시작](../../includes/sql-database-powershell.md)]
 
 ## 사용자 환경에 맞게 변수 설정
-
 예제 값을 데이터베이스 및 저장소 계정에 대한 특정 값으로 바꿔야 하는 몇 개의 변수가 있습니다.
 
 서버 이름은 이전 단계에서 선택한 구독에 현재 존재하는 서버여야 합니다. 데이터베이스를 만들 서버여야 합니다. 탄력적 풀로 데이터베이스를 직접 가져오는 것은 지원되지 않습니다. 그렇지만 먼저 단일 데이터베이스로 가져온 다음 해당 데이터베이스를 풀로 이동할 수 있습니다.
@@ -73,14 +71,12 @@ Blob 이름은 데이터베이스를 만들려는 기존 BACPAC 파일의 이름
 
 
 ## 데이터베이스 가져오기
-
 이 명령은 데이터베이스 가져오기 요청을 서비스에 제출합니다. 데이터베이스 크기에 따라 가져오기 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
     $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey -StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorLoginPassword $credential.Password –Edition Standard –ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
 
 
 ## 작업의 진행률 모니터링
-
 [New-AzureRmSqlDatabaseImport](https://msdn.microsoft.com/library/mt707793.aspx)를 실행한 후 [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/mt707794.aspx)를 실행하여 요청 상태를 확인할 수 있습니다.
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -88,8 +84,6 @@ Blob 이름은 데이터베이스를 만들려는 기존 BACPAC 파일의 이름
 
 
 ## SQL 데이터베이스 PowerShell 내보내기 스크립트
-
-
     $ResourceGroupName = "resourceGroupName"
     $ServerName = "servername"
     $DatabaseName = "databasename"
@@ -108,7 +102,6 @@ Blob 이름은 데이터베이스를 만들려는 기존 BACPAC 파일의 이름
 
 
 ## 다음 단계
-
-- 가져온 SQL 데이터베이스에 연결하고 쿼리하는 방법을 알아보려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리 수행](sql-database-connect-query-ssms.md)을 참조하세요.
+* 가져온 SQL 데이터베이스에 연결하고 쿼리하는 방법을 알아보려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리 수행](sql-database-connect-query-ssms.md)을 참조하세요.
 
 <!---HONumber=AcomDC_0907_2016-->

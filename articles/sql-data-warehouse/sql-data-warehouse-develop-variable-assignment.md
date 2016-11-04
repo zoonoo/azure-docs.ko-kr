@@ -1,28 +1,27 @@
-<properties
-   pageTitle="SQL 데이터 웨어하우스의 변수 할당 | Microsoft Azure"
-   description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 Transact-SQL 변수 할당을 위한 팁"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: SQL 데이터 웨어하우스의 변수 할당 | Microsoft Docs
+description: 솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 Transact-SQL 변수 할당을 위한 팁
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # SQL 데이터 웨어하우스의 변수 할당
 SQL 데이터 웨어하우스의 변수는 `DECLARE` 문 또는 `SET` 문을 사용하여 설정됩니다.
 
 다음 모두는 다양한 변수를 설정하는 완벽하게 유효한 방법입니다.
 
 ## DECLARE를 사용하여 변수 설정
-
 DECLARE를 사용한 변수 초기화는 SQL 데이터 웨어하우스의 변수 값을 설정하는 가장 유연한 방법 중 하나입니다.
 
 ```sql
@@ -63,9 +62,8 @@ SET을 사용하여 한 번에 하나의 변수만 설정할 수 있습니다. �
 ## 제한 사항
 변수 할당에 SELECT 또는 UPDATE를 사용할 수 없습니다.
 
-
 ## 다음 단계
-더 많은 개발 팁은 [개발 개요][]를 참조하세요.
+더 많은 개발 팁은 [개발 개요][개발 개요]를 참조하세요.
 
 <!--Image references-->
 

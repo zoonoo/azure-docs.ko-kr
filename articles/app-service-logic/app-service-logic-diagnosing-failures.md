@@ -1,31 +1,28 @@
-<properties
-   pageTitle="Logic Apps 오류 진단 | Microsoft Azure"
-   description="Logic Apps이 실패하는 경우를 파악하는 일반적인 방법을 알아보기"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="jeffhollan"
-   manager="erikre"
-   editor=""/>
+---
+title: Logic Apps 오류 진단 | Microsoft Docs
+description: Logic Apps이 실패하는 경우를 파악하는 일반적인 방법을 알아보기
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: jeffhollan
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="05/18/2016"
-   ms.author="jehollan"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 05/18/2016
+ms.author: jehollan
 
+---
 # 논리 앱 오류 진단
-
 Azure 앱 서비스에서 Logic Apps 기능에 문제가 있거나 문제가 발생할 경우, 오류의 원인을 파악하는 데 도움이 되는 방법이 몇 가지 있습니다.
 
 ## Azure 포털 도구
-
 Azure 포털에서는 각 단계에서 각 논리 앱을 진단하는 여러 가지 도구를 제공합니다.
 
 ### 트리거 기록
-
 각 논리 앱에는 하나 이상의 트리거가 있습니다. 앱이 실행되지 않을 경우, 가장 먼저 트리거 기록에서 자세한 정보를 찾습니다. 트리거 기록은 논리 앱 주 블레이드에서 액세스할 수 있습니다.
 
 ![트리거 기록 찾기][1]
@@ -39,11 +36,9 @@ Azure 포털에서는 각 단계에서 각 논리 앱을 진단하는 여러 가
 * **실패**. 오류가 발생했습니다.
 
 #### 트리거 수동 시작
-
 논리 앱에서 사용 가능한 트리거를 즉시(다음 되풀이까지 기다리지 않고) 확인하려면 주 블레이드에서 **트리거 선택**을 클릭하여 확인합니다. 예를 들어 Dropbox 트리거로 이 단추를 클릭하면 새 파일에 대해 Dropbox를 즉시 폴링하는 워크플로가 발생합니다.
 
 ### 실행 기록
-
 발생한 후 실행된 모든 트리거가 있습니다. 주 블레이드에서 실행 정보에 액세스할 수 있습니다. 여기에는 워크플로에서 일어난 일을 이해하는 데 유용한 정보가 많이 있습니다.
 
 ![실행 기록 찾기][2]
@@ -58,25 +53,22 @@ Azure 포털에서는 각 단계에서 각 논리 앱을 진단하는 여러 가
 실행 기록에서 자세한 내용을 확인할 수 있습니다.
 
 #### 트리거 출력
-
 트리거 출력은 트리거에서 받은 데이터를 보여 줍니다. 모든 속성이 예상대로 반환되었는지 판단하는 데 도움이 됩니다.
 
->[AZURE.NOTE] 이해할 수 없는 내용을 보았을 때, Logic Apps 기능이 어떤 식으로 [다양한 콘텐츠 유형을 처리하는지](app-service-logic-content-type.md)이해하는 데 유용할 수도 있습니다.
+> [!NOTE]
+> 이해할 수 없는 내용을 보았을 때, Logic Apps 기능이 어떤 식으로 [다양한 콘텐츠 유형을 처리하는지](app-service-logic-content-type.md)이해하는 데 유용할 수도 있습니다.
+> 
+> 
 
 ![트리거 출력 예제][3]
 
 #### 작업 입력 및 출력
-
 작업에서 수신한 입력 및 출력을 드릴인할 수 있습니다. 출력 크기와 모양을 이해하고 생성될 수 있는 오류 메시지를 보는 데 유용합니다.
 
 ![작업 입력 및 출력][4]
 
 ## 워크플로 런타임 디버깅
-
 입력, 출력 및 실행 트리거를 모니터링하는 것 외에도 워크플로 내에 디버깅에 도움이 되는 몇 가지 단계를 추가하는 데 유용할 수 있습니다. 워크플로에 단계로 추가할 수 있는 강력한 도구로는 [RequestBin](http://requestb.in)이 있습니다. RequestBin을 사용하면 HTTP 요청의 크기, 모양 및 형식을 정확하게 파악하도록 HTTP 검사기를 설정할 수 있습니다. 새 RequestBin을 만들고 URL을 테스트하려는 본문 콘텐츠(예: 식, 다른 단계 출력)와 함께 논리 앱 HTTP POST 작업에 붙여넣을 수 있습니다. Logic Apps를 실행한 후에는 RequestBin을 새로 고쳐 요청이 논리 앱 엔진에서 생성됨에 따라 어떻게 형성되는지 확인할 수 있습니다.
-
-
-
 
 <!-- image references -->
 [1]: ./media/app-service-logic-diagnosing-failures/triggerHistory.PNG

@@ -1,26 +1,25 @@
-<properties
-	pageTitle="Azure AD Connect 동기화: Synchronization Service Manager UI | Microsoft Azure"
-	description="Azure AD Connect의 Synchronization Service Manager를 이해합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD Connect 동기화: Synchronization Service Manager UI | Microsoft Docs'
+description: Azure AD Connect의 Synchronization Service Manager를 이해합니다.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/07/2016
+ms.author: andkjell
 
-
+---
 # Azure AD Connect 동기화: Synchronization Service Manager
-
-[Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [커넥터](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [메타버스 디자이너](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [메타버스 검색](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
---- | --- | --- | ---
+| [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [커넥터](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [메타버스 디자이너](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [메타버스 검색](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
+| --- | --- | --- | --- |
+|  | | | |
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/ssmui.png)
 

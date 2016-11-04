@@ -1,30 +1,28 @@
-<properties
-    pageTitle="분석 플랫폼: Apache Storm과 스트림 분석 비교 | Microsoft Azure"
-    description="Apache Storm과 Azure 스트림 분석 비교를 사용하여 클라우드 분석 플랫폼 선택에 대한 지침을 확인하세요. 기능 및 차이점을 이해하세요."
-    keywords="분석 플랫폼, 클라우드 분석 플랫폼, storm 비교"
-    services="stream-analytics"
-    documentationCenter=""
-    authors="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: '분석 플랫폼: Apache Storm과 스트림 분석 비교 | Microsoft Docs'
+description: Apache Storm과 Azure 스트림 분석 비교를 사용하여 클라우드 분석 플랫폼 선택에 대한 지침을 확인하세요. 기능 및 차이점을 이해하세요.
+keywords: 분석 플랫폼, 클라우드 분석 플랫폼, storm 비교
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="09/26/2016"
-    ms.author="jeffstok"/>
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 09/26/2016
+ms.author: jeffstok
 
-
+---
 # <a name="help-choosing-a-streaming-analytics-platform:-apache-storm-comparison-to-azure-stream-analytics"></a>스트리밍 분석 플랫폼 선택 도움말: Apache Storm과 Azure 스트림 분석 비교
-
 Apache Storm과 Azure 스트림 분석 비교를 사용하여 클라우드 분석 플랫폼 선택에 대한 참고 자료를 확인하세요. Azure HDInsight 기반의 관리 서비스로써 스트림 분석과 Apache Storm이 제공하는 가치 제안을 이해하면 비즈니스에 적합한 솔루션을 선택할 수 있습니다.
 
 두 분석 플랫폼 모두 PaaS 솔루션의 이점을 제공하지만, 서로 구분되는 몇 가지 고유한 기능이 있습니다. 목표를 달성하는 데 필요한 솔루션을 올바르게 선택할 수 있도록 아래에 이러한 서비스의 기능과 제한 사항이 설명되어 있습니다.
 
-## <a name="storm-comparison-to-stream-analytics:-general-features"></a>Storm과 스트림 분석 비교: 일반 기능 ##
+## <a name="storm-comparison-to-stream-analytics:-general-features"></a>Storm과 스트림 분석 비교: 일반 기능
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>

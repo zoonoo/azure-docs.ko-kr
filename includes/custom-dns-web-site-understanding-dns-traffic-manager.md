@@ -4,18 +4,23 @@ DNS 시스템은 *레코드*를 기반으로 합니다. 레코드는 *contoso.co
 
 Azure 웹 사이트를 만들 때 DNS 이름이 사이트에 자동으로 할당됩니다. 이 이름은 **&lt;yoursitename&gt;.azurewebsites.net** 형식으로 사용됩니다. 웹 사이트를 Azure 트래픽 관리자 끝점으로 추가하면 **&lt;yourtrafficmanagerprofile&gt;.trafficmanager.net** 도메인을 통해 웹 사이트에 액세스할 수 있습니다.
 
-> [AZURE.NOTE]웹 사이트를 트래픽 관리자 끝점으로 구성한 경우 DNS 레코드를 만들 때 **.trafficmanager.net** 주소를 사용합니다.
-
+> [!NOTE]
+> 웹 사이트를 트래픽 관리자 끝점으로 구성한 경우 DNS 레코드를 만들 때 **.trafficmanager.net** 주소를 사용합니다.
+> 
 > 트래픽 관리자에는 CNAME 레코드만 사용할 수 있습니다.
+> 
+> 
 
 또한 여러 레코드 유형이 있고 각 유형에 고유한 기능 및 제한이 있지만 트래픽 관리자 끝점으로 구성된 웹 사이트의 경우 *CNAME* 레코드 하나만 주의하면 됩니다.
 
-###CNAME 또는 별칭 레코드
-
+### CNAME 또는 별칭 레코드
 CNAME 레코드는 *mail.contoso.com* 또는 **www.contoso.com**과 같은 **특정** DNS 이름을 다른(정식) 도메인 이름으로 매핑합니다. 트래픽 관리자를 사용하는 Azure 웹 사이트의 경우 정식 도메인 이름은 트래픽 관리자 프로필의 **&lt;myapp>.trafficmanager.net** 도메인 이름입니다. CNAME을 만들면 **&lt;myapp>.trafficmanager.net** 도메인 이름에 대한 별칭이 생성됩니다. CNAME 항목은 **&lt;myapp>.trafficmanager.net** 도메인 이름의 IP 주소로 자동으로 확인되므로 웹 사이트의 IP 주소가 변경될 경우에도 어떤 조치도 취할 필요가 없습니다.
 
 트래픽 관리자에 트래픽이 도착하면 트래픽 관리자는 구성된 부하 분산 방법을 사용하여 트래픽을 웹 사이트로 라우팅합니다. 이러한 과정이 웹 사이트의 방문자에게는 전혀 노출되지 않습니다. 방문자의 브라우저에는 사용자 지정 도메인 이름만 표시됩니다.
 
-> [AZURE.NOTE]**www.contoso.com**과 같은 CNAME 레코드를 사용하고 **contoso.com**과 같은 비루트 이름을 사용하면 일부 도메인 등록 기관에서 하위 도메인만 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME 레코드에 대한 Wikipedia 항목</a> 또는 <a href="http://tools.ietf.org/html/rfc1035">IETF 도메인 이름 - 구현 및 사양</a> 문서를 참조하세요.
+> [!NOTE]
+> **www.contoso.com**과 같은 CNAME 레코드를 사용하고 **contoso.com**과 같은 비루트 이름을 사용하면 일부 도메인 등록 기관에서 하위 도메인만 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME 레코드에 대한 Wikipedia 항목</a> 또는 <a href="http://tools.ietf.org/html/rfc1035">IETF 도메인 이름 - 구현 및 사양</a> 문서를 참조하세요.
+> 
+> 
 
 <!---HONumber=Oct15_HO3-->

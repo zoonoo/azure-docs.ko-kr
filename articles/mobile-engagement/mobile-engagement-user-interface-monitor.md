@@ -1,38 +1,37 @@
-<properties
-   pageTitle="Azure Mobile Engagement 사용자 인터페이스 - 모니터"
-   description="Azure Mobile Engagement를 사용하여 응용 프로그램에 대한 실시간 데이터를 모니터링하는 방법 알아보기"
-   services="mobile-engagement"
-   documentationCenter=""
-   authors="piyushjo"
-   manager="dwrede"
-   editor=""/>
+---
+title: Azure Mobile Engagement 사용자 인터페이스 - 모니터
+description: Azure Mobile Engagement를 사용하여 응용 프로그램에 대한 실시간 데이터를 모니터링하는 방법 알아보기
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile"
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # 응용 프로그램에 대한 실시간 데이터를 모니터링하는 방법
-
 이 문서에서는 **Mobile Engagement** 포털의 **모니터** 탭을 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다. 포털 사용을 시작하려면 먼저 **Azure Mobile Engagement** 계정을 만들어야 합니다.
-
 
 UI의 모니터 섹션에서는 실시간 분석 정보를 제공하며, 이전부터 UI의 [분석](mobile-engagement-user-interface-analytics.md) 섹션에 있었던 거의 대부분의 정보에 대해 임계값에 도달하면 전송할 경고를 설정할 수 있습니다. 분석 및 모니터링에서 사용되는 용어와 약어의 정의는 [개념](http://go.microsoft.com/fwlink/?LinkId=525555) 항목의 **용어집** 섹션을 참조하세요. 이러한 용어로는 활성 사용자, 새 사용자, 재방문 사용자, 세션, 사용자 경로 그래프, 사용자 맵, 추적 URL, 추세, 활동, 이벤트, 작업, 오류, 추가 정보, 작동 중단, 앱 정보 등이 있습니다.
 
->[AZURE.NOTE] **Mobile Engagement** 포털 UI의 여러 섹션에는 **도움말 표시** 단추가 포함되어 있습니다. 섹션에 대해 더 자세한 문맥 정보를 보려면 이 단추를 누릅니다.
+> [!NOTE]
+> **Mobile Engagement** 포털 UI의 여러 섹션에는 **도움말 표시** 단추가 포함되어 있습니다. 섹션에 대해 더 자세한 문맥 정보를 보려면 이 단추를 누릅니다.
+> 
+> 
 
 ## 모니터 - 세션, 작업, 이벤트, 오류 및 작동 중단
-
 현재 세션 및 특정 화면을 사용 중인 사용자나 특정 작업을 수행 중인 사용자의 수를 확인할 수 있습니다. 세션, 작업, 이벤트, 오류 및 작동 중단을 기준으로 구분된 사용자 활동을 확인할 수 있습니다. 현재 정보를 보고 지난 1시간, 1일 또는 1주 동안의 정보를 표시할 수 있습니다. 각 범주의 모든 정보를 볼 수도 있고 특정 세션/작업/이벤트/오류/작동 중단을 기준으로 정렬할 수 있습니다. 푸시 캠페인 등의 이벤트 중에 라이브 모니터링을 수행하면 푸시 알림을 보낸 직후에 작업이 다소 증가하는지 확인할 수 있습니다.
 
 ![Monitor1][14]
 
 ## 모니터를 통해 문제 해결 - 이벤트 - 세부 정보
-
 테스트 장치의 응용 프로그램에서 이벤트를 생성한 다음 모니터 - 이벤트 - 세부 정보에서 해당 이벤트를 찾으면 매우 쉽게 테스트 장치의 장치 ID를 찾고 Azure Mobile Engagement와 통합된 분석, 모니터링 및 세그먼트가 응용 프로그램에서 작동하는지 확인할 수 있습니다. 테스트 장치의 장치 ID를 찾은 후에는 "내 계정 - 장치"에서 테스트 장치에 해당 ID를 추가할 수 있습니다. 이벤트를 생성할 수 없는 경우 SDK가 설치된 Android/iOS/Web/Windows/Windows Phone 앱에 Azure Mobile Engagement가 올바르게 통합되어 있는지 확인합니다.
 
 자세한 내용은 [SDK 설명서][Link 5]를 참조하세요.
@@ -40,7 +39,6 @@ UI의 모니터 섹션에서는 실시간 분석 정보를 제공하며, 이전�
 ![Monitor2][15]
 
 ## 모니터를 통해 문제 해결 - 작동 중단 - 세부 정보
-
 모니터 - 작동 중단 - 세부 정보에서 앱에 대한 작동 중단 정보를 검토하여 앱의 작동이 중단되는 이유를 확인할 수 있습니다. 또한 Android/iOS/Web/Windows/Windows Phone용 각 SDK 버전의 릴리스 정보에서 각 SDK 버전의 알려진 문제를 찾아보아야 합니다.
 
 자세한 내용은 [SDK 설명서 - 릴리스 정보][Link 5]를 참조하세요.
@@ -54,11 +52,9 @@ UI의 모니터 섹션에서는 실시간 분석 정보를 제공하며, 이전�
 
 ![Monitor4][17]
 
-
 ## 참고 항목
-
-- [개념][Link 6]
-- [문제 해결 가이드 서비스][Link 24]
+* [개념][Link 6]
+* [문제 해결 가이드 서비스][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png

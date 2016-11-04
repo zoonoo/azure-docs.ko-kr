@@ -1,25 +1,26 @@
-<properties
-   pageTitle="Azure RemoteApp 컬렉션 업데이트 | Microsoft Azure"
-   description="Azure RemoteApp 컬렉션 업데이트 방법"
-   services="remoteapp"
-   documentationCenter=""
-   authors="lizap"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Azure RemoteApp 컬렉션 업데이트 | Microsoft Docs
+description: Azure RemoteApp 컬렉션 업데이트 방법
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="remoteapp"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="compute"
-   ms.date="08/15/2016"
-   ms.author="elizapo"/>
+ms.service: remoteapp
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: compute
+ms.date: 08/15/2016
+ms.author: elizapo
 
+---
 # Azure RemoteApp에서 컬렉션 업데이트
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> [!IMPORTANT]
+> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> 
+> 
 
 때로 Azure RemoteApp 컬렉션의 앱이나 이미지를 업데이트해야 하는 경우가 있습니다. Azure RemoteApp 구독에 포함된 이미지(클라우드 또는 하이브리드 컬렉션) 중 하나를 사용한다면 모든 업데이트는 Azure RemoteApp 자체에서 처리되므로 신경 쓸 필요가 없습니다.
 
@@ -31,10 +32,10 @@ Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://g
 2. 이 이미지를 RemoteApp으로 [업로드](remoteapp-uploadimage.md) 또는 [가져오기](remoteapp-image-on-azurevm.md)합니다.
 3. 이제 컬렉션 페이지에서 **업데이트**를 클릭합니다.
 4. **템플릿 이미지** 목록에서 새 이미지를 선택합니다.
-4. 여기서 신경 쓸 부분이 하나 있습니다. 컬렉션의 앱을 현재 사용하고 있는 사용자를 어떻게 처리할까 하는 부분을 결정해야 합니다. 다음 옵션이 있습니다.
-	- **업데이트 후 사용자에게 60분의 시간 제공**. 업데이트가 완료되면 Azure RemoteApp에서 현재 앱을 사용 중인 사용자에게 작업을 저장하고 로그오프 했다가 다시 로그인하라는 메시지를 표시합니다. 60분이 지난 후에도 로그오프하지 않은 모든 사용자는 자동으로 로그오프됩니다. 사용자는 즉시 다시 로그인할 수 있습니다.
-	- **사용자를 즉시 로그아웃**. 업데이트가 완료되면 경고 없이 모든 사용자를 자동으로 로그오프합니다. 이 옵션을 선택하면 사용자가 데이터를 잃을 수 있습니다. 그러나 즉시 앱에 다시 연결하는 것은 가능합니다.
-
-1. 확인 표시를 클릭하여 업데이트를 시작합니다.
+5. 여기서 신경 쓸 부분이 하나 있습니다. 컬렉션의 앱을 현재 사용하고 있는 사용자를 어떻게 처리할까 하는 부분을 결정해야 합니다. 다음 옵션이 있습니다.
+   
+   * **업데이트 후 사용자에게 60분의 시간 제공**. 업데이트가 완료되면 Azure RemoteApp에서 현재 앱을 사용 중인 사용자에게 작업을 저장하고 로그오프 했다가 다시 로그인하라는 메시지를 표시합니다. 60분이 지난 후에도 로그오프하지 않은 모든 사용자는 자동으로 로그오프됩니다. 사용자는 즉시 다시 로그인할 수 있습니다.
+   * **사용자를 즉시 로그아웃**. 업데이트가 완료되면 경고 없이 모든 사용자를 자동으로 로그오프합니다. 이 옵션을 선택하면 사용자가 데이터를 잃을 수 있습니다. 그러나 즉시 앱에 다시 연결하는 것은 가능합니다.
+6. 확인 표시를 클릭하여 업데이트를 시작합니다.
 
 <!---HONumber=AcomDC_0817_2016-->

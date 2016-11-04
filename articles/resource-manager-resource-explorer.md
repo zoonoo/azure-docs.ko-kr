@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Azure 리소스 탐색기 | Microsoft Azure"
-   description="Azure 리소스 탐색기에 대해 설명하고 이를 사용하여 Azure Resource Manager를 통해 배포를 보고 업데이트할 수 있는 방법을 알아봅니다."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="stuartleeks"
-   manager="ankodu"
-   editor=""/>
+---
+title: Azure 리소스 탐색기 | Microsoft Docs
+description: Azure 리소스 탐색기에 대해 설명하고 이를 사용하여 Azure Resource Manager를 통해 배포를 보고 업데이트할 수 있는 방법을 알아봅니다.
+services: azure-resource-manager
+documentationcenter: na
+author: stuartleeks
+manager: ankodu
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/01/2016"
-   ms.author="stuartle;tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/01/2016
+ms.author: stuartle;tomfitz
 
+---
 # Azure 리소스 탐색기를 사용하여 리소스 보기 및 수정
 [Azure 리소스 탐색기](https://resources.azure.com)는 구독에서 이미 만든 리소스를 확인하는 데 유용한 도구입니다. 이 도구를 사용하면 리소스 구조를 이해하고 각 리소스에 할당된 속성을 확인할 수 있습니다. 리소스 유형에 사용할 수 있는 REST API 작업 및 PowerShell cmdlet에 대해 알아보고 인터페이스를 통해 명령을 실행할 수 있습니다. 리소스 탐색기는 기존 리소스에 대한 속성을 볼 수 있으므로 Resource Manager 템플릿을 만들 때 특히 유용할 수 있습니다.
 
@@ -45,7 +45,6 @@ Resource Manager 템플릿에 익숙해지면 본문 내용에도 익숙해지�
 ![SQL 데이터베이스](./media/resource-manager-resource-explorer/are-04-database-get.png)
 
 ## 리소스 변경
-
 리소스를 이동한 경우 편집 단추를 선택하여 JSON 콘텐츠를 편집할 수 있도록 설정할 수 있습니다. 그런 다음 리소스 탐색기를 사용하여 JSON을 편집하고 PUT 요청을 보내 리소스를 변경할 수 있습니다. 예를 들어 아래 그림에는 `S0`으로 변경된 데이터베이스 계층이 표시되어 있습니다.
 
 ![데이터베이스 - PUT 요청](./media/resource-manager-resource-explorer/are-05-database-put.png)
@@ -57,7 +56,6 @@ Resource Manager 템플릿에 익숙해지면 본문 내용에도 익숙해지�
 ![데이터베이스 - GET 요청 2](./media/resource-manager-resource-explorer/are-06-database-get2.png)
 
 ## 리소스에 대한 작업 수행
-
 **작업** 탭을 사용하여 추가 REST 작업을 보고 수행할 수 있습니다. 예를 들어 웹 사이트 리소스를 선택한 경우 작업 탭에 사용 가능한 작업의 긴 목록이 제공됩니다. 그 일부가 아래에 표시되어 있습니다.
 
 ![웹 - POST 요청](./media/resource-manager-resource-explorer/are-web-post.png)

@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Azure AD Connect 동기화: 실수로 인한 삭제 방지 | Microsoft Azure"
-   description="이 항목에서는 Azure AD Connect의 실수로 인한 삭제 방지 기능을 설명합니다."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Azure AD Connect 동기화: 실수로 인한 삭제 방지 | Microsoft Docs'
+description: 이 항목에서는 Azure AD Connect의 실수로 인한 삭제 방지 기능을 설명합니다.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/01/2016"
-   ms.author="andkjell"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/01/2016
+ms.author: andkjell
 
+---
 # Azure AD Connect 동기화: 실수로 인한 삭제 방지
 이 항목에서는 Azure AD Connect의 실수로 인한 삭제 방지 기능을 설명합니다.
 
@@ -23,9 +23,9 @@ Azure AD Connect를 설치하면 실수로 인한 삭제 방지가 기본적으�
 
 다수의 삭제가 다음을 포함하는 경우의 일반적인 시나리오입니다.
 
-- 전체 [OU](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) 또는 [도메인](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering)을 선택하지 않은 [필터링](active-directory-aadconnectsync-configure-filtering.md)으로 변경합니다.
-- OU의 모든 개체가 삭제됩니다.
-- OU 이름이 변경되면 OU의 모든 개체가 동기화 범위를 벗어난 것으로 간주됩니다.
+* 전체 [OU](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) 또는 [도메인](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering)을 선택하지 않은 [필터링](active-directory-aadconnectsync-configure-filtering.md)으로 변경합니다.
+* OU의 모든 개체가 삭제됩니다.
+* OU 이름이 변경되면 OU의 모든 개체가 동기화 범위를 벗어난 것으로 간주됩니다.
 
 기본값인 500개 개체는 PowerShell에서 `Enable-ADSyncExportDeletionThreshold`를 사용하여 변경할 수 있습니다. 조직의 규모에 맞게 이 값을 구성해야 합니다. 동기화 스케줄러가 30분마다 실행되므로 이 값은 30분 내에 표시되는 삭제 수입니다.
 
@@ -34,6 +34,8 @@ Azure AD로 내보내도록 스테이징된 삭제 수가 너무 많을 경우 �
 ![실수로 인한 삭제 방지 메일](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 > *안녕하세요. (기술 담당자). (시간)에 ID 동기화 서비스에서 삭제 수가 (조직 이름)에 대해 구성된 삭제 임계값을 초과했음을 검색했습니다. 총 (개수)개 개체가 이 ID 동기화 실행에서 삭제를 위해 전송되었습니다. 이는 구성된 삭제 임계값인 (개수)개 개체에 도달했거나 초과했습니다. 진행하기 전에 사용자가 이러한 삭제가 처리되어야 한다는 확인을 제공해야 합니다. 이 메일 메시지에 나열된 오류에 대한 자세한 내용은 실수로 인한 삭제 방지를 참조하세요.*
+> 
+> 
 
 프로파일 내보내기에 대한 **동기화 서비스 관리자** UI를 찾아보면 `stopped-deletion-threshold-exceeded` 상태를 볼 수도 있습니다. ![실수로 인한 삭제 방지 동기화 서비스 관리자 UI](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/syncservicemanager.png)
 
@@ -54,10 +56,9 @@ Azure AD로 내보내도록 스테이징된 삭제 수가 너무 많을 경우 �
 3. 보호를 다시 사용하도록 설정하려면 PowerShell cmdlet `Enable-ADSyncExportDeletionThreshold`를 실행합니다.
 
 ## 다음 단계
-
 **개요 항목**
 
-- [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
-- [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
+* [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
+* [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
 <!---HONumber=AcomDC_0907_2016-->

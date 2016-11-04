@@ -1,35 +1,34 @@
-<properties
-pageTitle="PowerShell을 사용하여 Azure 클라우드 서비스의 역할에 대해 원격 데스크톱 연결 사용"
-description="원격 데스크톱 연결을 허용하기 위해 PowerShell을 사용하여 Azure 클라우드 서비스 응용 프로그램을 구성하는 방법"
-services="cloud-services"
-documentationCenter=""
-authors="thraka"
-manager="timlt"
-editor=""/>
-<tags
-ms.service="cloud-services"
-ms.workload="tbd"
-ms.tgt_pltfrm="na"
-ms.devlang="na"
-ms.topic="article"
-ms.date="08/05/2016"
-ms.author="adegeo"/>
+---
+title: PowerShell을 사용하여 Azure 클라우드 서비스의 역할에 대해 원격 데스크톱 연결 사용
+description: 원격 데스크톱 연결을 허용하기 위해 PowerShell을 사용하여 Azure 클라우드 서비스 응용 프로그램을 구성하는 방법
+services: cloud-services
+documentationcenter: ''
+author: thraka
+manager: timlt
+editor: ''
 
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/05/2016
+ms.author: adegeo
+
+---
 # PowerShell을 사용하여 Azure 클라우드 서비스의 역할에 대해 원격 데스크톱 연결 사용
-
->[AZURE.SELECTOR]
-- [Azure 클래식 포털](cloud-services-role-enable-remote-desktop.md)
-- [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
-
+> [!div class="op_single_selector"]
+> * [Azure 클래식 포털](cloud-services-role-enable-remote-desktop.md)
+> * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+> * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
+> 
+> 
 
 원격 데스크톱을 사용하면 Azure에서 실행 중인 역할의 데스크톱에 액세스할 수 있습니다. 원격 데스크톱 연결을 사용하여 응용 프로그램 실행 중에 응용 프로그램 문제를 진단하고 해결할 수 있습니다.
 
 이 문서에서는 PowerShell을 사용하여 클라우드 서비스 역할에 대해 원격 데스크톱을 사용하는 방법을 설명합니다. 이 문서에 필요한 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요. PowerShell에서는 응용 프로그램이 배포된 후 원격 데스크톱을 사용 가능하게 설정할 수 있도록 원격 데스크톱 확장을 사용합니다.
 
-
 ## PowerShell에서 원격 데스크톱 구성
-
 [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) cmdlet을 사용하면 지정된 역할 또는 클라우드 서비스 배포의 모든 역할에 대해 원격 데스크톱을 사용할 수 있습니다. cmdlet을 사용하면 PSCredential 개체를 수용하는 *Credential* 매개 변수를 통해 원격 데스크톱 사용자의 사용자 이름 및 암호를 지정할 수 있습니다.
 
 대화형으로 PowerShell을 사용하는 경우, [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) cmdlet을 호출하여 PSCredential 개체를 쉽게 설정할 수 있습니다.
@@ -48,7 +47,10 @@ PowerShell은 자동화 시나리오에 유용하므로 사용자 조작이 필�
 ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ```
 
->[AZURE.IMPORTANT] 암호를 설정할 때 [복잡성 요구 사항](https://technet.microsoft.com/library/cc786468.aspx)을 충족하는지 확인합니다.
+> [!IMPORTANT]
+> 암호를 설정할 때 [복잡성 요구 사항](https://technet.microsoft.com/library/cc786468.aspx)을 충족하는지 확인합니다.
+> 
+> 
 
 보안 암호 파일에서 자격 증명 개체를 만들려면 파일 내용을 읽고 [Convertto-securestring](https://technet.microsoft.com/library/hh849818.aspx)을 사용하여 이를 다시 보안 문자열로 변환해야 합니다.
 
@@ -67,7 +69,6 @@ Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $cr
 또한 원격 데스크톱을 사용하려는 배포 슬롯와 역할을 선택적으로 지정할 수도 있습니다. 이러한 매개 변수가 지정되지 않은 경우 cmdlet은 **프로덕션** 배포 슬롯의 모든 역할에 대해 원격 데스크톱을 사용하도록 설정합니다.
 
 원격 데스크톱 확장은 배포와 연결됩니다. 서비스에 대한 새 배포를 만드는 경우 해당 배포에 대해 원격 데스크톱을 사용하도록 설정해야 합니다. 원격 데스크톱을 항상 사용하려는 경우 PowerShell 스크립트를 배포 워크플로에 통합하는 것이 좋습니다.
-
 
 ## 원격 데스크톱을 역할 인스턴스로 가져오기
 [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet은 원격 데스크톱을 클라우드 서비스의 특정 역할 인스턴스에 가져오는 데 사용됩니다. *LocalPath* 매개 변수를 사용하여 RDP 파일을 로컬로 다운로드할 수 있습니다. 또는 *Launch* 매개 변수를 사용하여 클라우드 서비스 역할 인스턴스에 액세스하기 위해 원격 데스크톱 연결 대화 상자를 바로 시작할 수 있습니다.
@@ -93,14 +94,14 @@ Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
 ```
 
->[AZURE.NOTE] 확장 구성을 완전히 제거하려면 **UninstallConfiguration** 매개 변수와 *remove* cmdlet을 호출해야 합니다.
->
->**UninstallConfiguration** 매개 변수는 서비스에 적용된 모든 확장 구성을 제거합니다. 모든 확장 구성은 서비스 구성과 연결됩니다. **UninstallConfiguration** 없이 *remove* cmdlet을 호출하면 확장 구성에서 <mark>배포</mark>가 분리되어 확장이 효과적으로 제거됩니다. 그러나 확장 구성은 서비스와 연결된 상태로 유지됩니다.
-
-
+> [!NOTE]
+> 확장 구성을 완전히 제거하려면 **UninstallConfiguration** 매개 변수와 *remove* cmdlet을 호출해야 합니다.
+> 
+> **UninstallConfiguration** 매개 변수는 서비스에 적용된 모든 확장 구성을 제거합니다. 모든 확장 구성은 서비스 구성과 연결됩니다. **UninstallConfiguration** 없이 *remove* cmdlet을 호출하면 확장 구성에서 <mark>배포</mark>가 분리되어 확장이 효과적으로 제거됩니다. 그러나 확장 구성은 서비스와 연결된 상태로 유지됩니다.
+> 
+> 
 
 ## 추가 리소스
-
 [클라우드 서비스를 구성하는 방법](cloud-services-how-to-configure.md)
 
 <!---HONumber=AcomDC_0810_2016-->

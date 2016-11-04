@@ -1,37 +1,37 @@
-<properties 
-   pageTitle="Azure Mobile Engagement 사용자 인터페이스 - 대시보드" 
-   description="Azure Mobile Engagement를 사용하여 응용 프로그램에 대한 데이터의 차트를 보고 관리하는 방법 알아보기" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: Azure Mobile Engagement 사용자 인터페이스 - 대시보드
+description: Azure Mobile Engagement를 사용하여 응용 프로그램에 대한 데이터의 차트를 보고 관리하는 방법 알아보기
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # 응용 프로그램에 대한 데이터의 차트를 보고 관리하는 방법
 분석 섹션에서 정보를 검색하는 대신 원하는 정확한 정보를 제공하는 방식으로 고객은 UI의 대시보드 섹션을 통해 사용자 지정된 차트를 만들어 작업 시간을 최대한 활용할 수 있습니다. 대시보드에는 지정된 시간(시간/일/주/월/사용자 지정) 동안의 각 응용 프로그램 버전별 활성 사용자 수와 응용 프로그램의 추세가 표시됩니다. 지난 7일 동안의 추세가 표시됩니다.
 
 ### 참고 항목
--  [문제 해결 가이드 - 분석][Link 21]
+* [문제 해결 가이드 - 분석][Link 21]
 
 ## 대시보드
-- UI의 분석 섹션에서 대시보드에 표시하려는 차트의 기어 메뉴에 있는 "대시보드로 보내기" 작업을 선택하면 빈 대시보드에 차트를 추가할 수 있습니다.
- 
+* UI의 분석 섹션에서 대시보드에 표시하려는 차트의 기어 메뉴에 있는 "대시보드로 보내기" 작업을 선택하면 빈 대시보드에 차트를 추가할 수 있습니다.
+
 ## + (대시보드 추가)
-- "+" 리본 메뉴 항목을 사용하여 리본 메뉴에 표시할 새 대시보드를 만들 수 있습니다.
- 
+* "+" 리본 메뉴 항목을 사용하여 리본 메뉴에 표시할 새 대시보드를 만들 수 있습니다.
+
 ## 기어 메뉴
-- 대시보드의 기어 메뉴를 사용하면 대시보드를 삭제/공유하거나 이름을 바꾸거나 전자 메일 수신을 예약할 수 있습니다. 예약 옵션을 사용하면 사용자 지정 대시보드를 전자 메일로 받을 일정을 정의할 수 있습니다. 매일/매주/매월 수신을 예약할 수 있습니다. 전자 메일을 받을 시간, 요일, 날짜를 선택할 수 있습니다. 전자 메일 주소와 표준 시간대는 UI의 내 계정 섹션에서 구성한 설정을 기준으로 합니다.
- 
- ![dashboard1][34]
+* 대시보드의 기어 메뉴를 사용하면 대시보드를 삭제/공유하거나 이름을 바꾸거나 전자 메일 수신을 예약할 수 있습니다. 예약 옵션을 사용하면 사용자 지정 대시보드를 전자 메일로 받을 일정을 정의할 수 있습니다. 매일/매주/매월 수신을 예약할 수 있습니다. 전자 메일을 받을 시간, 요일, 날짜를 선택할 수 있습니다. 전자 메일 주소와 표준 시간대는 UI의 내 계정 섹션에서 구성한 설정을 기준으로 합니다.
+  
+  ![dashboard1][34]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -127,6 +127,6 @@
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Log Analytics 데이터를 Power BI로 내보내기 | Microsoft Azure"
-   description="Power BI는 서로 다른 데이터 집합의 분석을 위해 다양한 시각화 및 보고서를 제공하는 Microsoft의 클라우드 기반 비즈니스 분석 서비스입니다.  Log Analytics는 시각화 및 분석 도구를 활용할 수 있도록 OMS 리포지토리에서 Power BI로 데이터를 지속적으로 내보낼 수 있습니다.  이 문서에서는 Power BI에 일정한 간격으로 자동으로 내보내는 Log Analytics에서 쿼리를 구성하는 방법을 설명합니다."
-   services="log-analytics"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags
-   ms.service="log-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/18/2016"
-   ms.author="bwren" />
+---
+title: Log Analytics 데이터를 Power BI로 내보내기 | Microsoft Docs
+description: Power BI는 서로 다른 데이터 집합의 분석을 위해 다양한 시각화 및 보고서를 제공하는 Microsoft의 클라우드 기반 비즈니스 분석 서비스입니다.  Log Analytics는 시각화 및 분석 도구를 활용할 수 있도록 OMS 리포지토리에서 Power BI로 데이터를 지속적으로 내보낼 수 있습니다.  이 문서에서는 Power BI에 일정한 간격으로 자동으로 내보내는 Log Analytics에서 쿼리를 구성하는 방법을 설명합니다.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: log-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/18/2016
+ms.author: bwren
 
+---
 # <a name="export-log-analytics-data-to-power-bi"></a>Log Analytics 데이터를 Power BI로 내보내기
-
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)는 서로 다른 데이터 집합의 분석을 위해 다양한 시각화 및 보고서를 제공하는 Microsoft의 클라우드 기반 비즈니스 분석 서비스입니다.  Log Analytics는 시각화 및 분석 도구를 활용할 수 있도록 OMS 리포지토리에서 Power BI로 데이터를 자동으로 내보낼 수 있습니다.
 
 Log Analytics로 Power BI를 구성할 때 해당 결과를 Power BI의 해당 데이터 집합으로 내보내는 로그 쿼리를 만듭니다.  쿼리 및 내보내기는 Log Analytics에 의해 수집된 최신 데이터로 데이터 집합을 최신 상태로 유지하도록 정의한 일정에 따라 계속해서 자동으로 실행합니다.
@@ -25,15 +24,16 @@ Log Analytics로 Power BI를 구성할 때 해당 결과를 Power BI의 해당 �
 ![Log Analytics에서 Power BI로](media/log-analytics-powerbi/overview.png)
 
 ## <a name="power-bi-schedules"></a>Power BI 일정
-
 *Power BI 일정* 에는 OMS 리포지토리에서 Power BI의 해당 데이터 집합으로 데이터 집합을 내보내는 로그 검색 및 데이터 집합을 최신으로 유지하는 이 검색 실행 빈도를 정의하는 일정이 포함됩니다.
 
 데이터 집합의 필드는 로그 검색에서 반환되는 레코드의 속성과 일치합니다.  검색이 다양한 종류의 레코드를 반환하는 경우 데이터 집합은 포함된 각 레코드 형식의 모든 속성을 포함합니다.  
 
-> [AZURE.NOTE] [Measure](log-analytics-search-reference.md#measure)와 같은 명령을 사용하여 모든 통합을 수행하는 것과 달리 원시 데이터를 반환하는 로그 검색 쿼리를 사용하는 것이 가장 좋은 방법입니다.  원시 데이터에서 Power BI의 모든 집계와 계산을 수행할 수 있습니다.
+> [!NOTE]
+> [Measure](log-analytics-search-reference.md#measure)와 같은 명령을 사용하여 모든 통합을 수행하는 것과 달리 원시 데이터를 반환하는 로그 검색 쿼리를 사용하는 것이 가장 좋은 방법입니다.  원시 데이터에서 Power BI의 모든 집계와 계산을 수행할 수 있습니다.
+> 
+> 
 
 ## <a name="connecting-oms-workspace-to-power-bi"></a>OMS 작업 영역을 Power BI에 연결
-
 Log Analytics에서 Power BI로 내보내려면 다음 절차를 사용하여 Power BI 계정에 OMS 작업 영역을 연결해야 합니다.  
 
 1. OMS 콘솔에서 **설정** 타일을 클릭합니다.
@@ -42,7 +42,6 @@ Log Analytics에서 Power BI로 내보내려면 다음 절차를 사용하여 Po
 4. Power BI 계정에 대한 자격 증명을 입력합니다.
 
 ## <a name="create-a-power-bi-schedule"></a>Power BI 일정 만들기
-
 다음 절차를 사용하여 각 데이터 집합에 대한 Power BI 일정을 만듭니다.
 
 1. OMS 콘솔에서 **로그 검색** 타일을 클릭합니다.
@@ -51,14 +50,13 @@ Log Analytics에서 Power BI로 내보내려면 다음 절차를 사용하여 Po
 4. 다음 테이블에 정보를 제공하고 **저장**을 클릭합니다.
 
 | 속성 | 설명 |
-|:--|:--|
-| 이름 | Power BI 일정의 목록을 볼 때 일정을 식별하는 이름입니다. |
-| 저장된 검색 | 실행할 로그 검색입니다.  현재 쿼리를 선택하거나 드롭다운 상자에서 기존 저장된 검색을 선택합니다. |
-| 일정 | 저장된 검색을 실행하고 Power BI 데이터 집합으로 내보내는 빈도입니다.  값은 15분에서 24시간 사이여야 합니다. |
-| 데이터 집합 이름 | Power BI의 데이터 집합 이름입니다.  존재하지 않는 경우 생성되고 존재하는 경우 업데이트됩니다. |
+|:--- |:--- |
+| 이름 |Power BI 일정의 목록을 볼 때 일정을 식별하는 이름입니다. |
+| 저장된 검색 |실행할 로그 검색입니다.  현재 쿼리를 선택하거나 드롭다운 상자에서 기존 저장된 검색을 선택합니다. |
+| 일정 |저장된 검색을 실행하고 Power BI 데이터 집합으로 내보내는 빈도입니다.  값은 15분에서 24시간 사이여야 합니다. |
+| 데이터 집합 이름 |Power BI의 데이터 집합 이름입니다.  존재하지 않는 경우 생성되고 존재하는 경우 업데이트됩니다. |
 
 ## <a name="viewing-and-removing-power-bi-schedules"></a>Power BI 일정 보기 및 제거
-
 다음 절차를 사용하여 기존 Power BI 일정의 목록을 봅니다.
 
 1. OMS 콘솔에서 **설정** 타일을 클릭합니다.
@@ -113,11 +111,8 @@ Log Analytics에서 Power BI로 내보내려면 다음 절차를 사용하여 Po
 ![Power BI 보고서](media/log-analytics-powerbi/walkthrough-report.png)
 
 ## <a name="next-steps"></a>다음 단계
-
-- Power BI로 내보낼 수 있는 쿼리를 작성하려면 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.
-- Log Analytics 내보내기를 기준으로 시각화를 작성하려면 [Power BI](http://powerbi.microsoft.com) 에 대해 자세히 알아보세요.
-
-
+* Power BI로 내보낼 수 있는 쿼리를 작성하려면 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.
+* Log Analytics 내보내기를 기준으로 시각화를 작성하려면 [Power BI](http://powerbi.microsoft.com) 에 대해 자세히 알아보세요.
 
 <!--HONumber=Oct16_HO2-->
 

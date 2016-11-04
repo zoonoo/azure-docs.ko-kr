@@ -1,21 +1,21 @@
-<properties
-	pageTitle="비정상적인 로그인 활동을 포함하는 사용자 보고서"
-	description="비정상적인 로그인 활동이 식별된 모든 사용자 계정을 나타내는 보고서입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+---
+title: 비정상적인 로그인 활동을 포함하는 사용자 보고서
+description: 비정상적인 로그인 활동이 식별된 모든 사용자 계정을 나타내는 보고서입니다.
+services: active-directory
+documentationcenter: ''
+author: SSalahAhmed
+manager: gchander
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/04/2016
+ms.author: saah;kenhoff
 
+---
 # 비정상적인 로그인 활동을 포함하는 사용자 보고서
 다음 보고서에서 의심스러운 로그인을 결합하는 집계 보고서입니다.
 

@@ -1,30 +1,27 @@
-<properties 
-    pageTitle="Azure 서비스 버스 및 이벤트 허브 프로토콜 가이드의 AMQP 1.0 | Microsoft Azure" 
-    description="Azure 서비스 버스 및 이벤트 허브의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드" 
-    services="service-bus,event-hubs" 
-    documentationCenter=".net" 
-    authors="clemensv" 
-    manager="timlt" 
-    editor=""/>
+---
+title: Azure 서비스 버스 및 이벤트 허브 프로토콜 가이드의 AMQP 1.0 | Microsoft Docs
+description: Azure 서비스 버스 및 이벤트 허브의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드
+services: service-bus,event-hubs
+documentationcenter: .net
+author: clemensv
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na" 
-    ms.date="07/01/2016"
-    ms.author="clemensv;jotaub;hillaryc;sethm"/>
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/01/2016
+ms.author: clemensv;jotaub;hillaryc;sethm
 
-
+---
 # <a name="amqp-1.0-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure 서비스 버스 및 이벤트 허브 프로토콜 가이드의 AMQP 1.0
-
 Advanced Message Queueing Protocol 1.0은 비동기적으로 안전하고 안정적으로 두 대상 간에 메시지를 전송하기 위한 표준화된 프레이밍 및 전송 프로토콜입니다. 또한 Azure 서비스 버스 메시징 및 Azure 이벤트 허브의 기본 프로토콜입니다. 두 서비스 모두 HTTPS를 지원합니다. 지원되는 소유 SBMP 프로토콜은 AMQP를 기준으로 단계적으로 중단되고 있습니다.
 
 AMQP 1.0은 금융 서비스 업계를 나타내는 많은 메시징 미들웨어 사용자(예: JP Morgan Chase)와 미들웨어 공급업체(예: Microsoft 및 Red Hat)를 연결한 광범위한 업계 공동 작업의 결과입니다. AMQP 프로토콜 및 확장 사양에 대한 기술 표준화 포럼은 OASIS이며 국제 표준 ISO/IEC 19494와 같은 공식 승인을 받았습니다.
 
 ## <a name="goals"></a>목표
-
 이 문서에서는 현재 OASIS AMQP 기술 위원회에서 최종 마무리 단계에 있는 일부 확장 사양 초안과 AMQP 1.0 메시징 사양의 핵심 개념을 요약해서 설명하며, 이러한 사양을 토대로 Azure 서비스 버스가 구현되고 구축되는 방식을 알아봅니다.
 
 이 문서는 모든 플랫폼에서 기존 AMQP 1.0 클라이언트 스택을 사용하는 개발자가 AMQP 1.0을 통해 Azure 서비스 버스와 상호 작용할 수 있도록 하기 위해 작성되었습니다.
@@ -36,7 +33,6 @@ Apache Proton 또는 AMQP.NET Lite와 같은 일반적인 범용 AMQP 1.0 스택
 메시지 찾아보기 또는 세션 관리와 같은 Azure 서비스 버스의 고급 기능을 설명할 때 이러한 형태는 AMQP 용어로 설명되지만 이와 같이 가정된 API 추상화를 기반으로 계층화된 의사 구현으로도 설명됩니다.
 
 ## <a name="what-is-amqp?"></a>AMQP란?
-
 AMQP는 프레이밍 및 전송 프로토콜입니다. 프레이밍은 네트워크 연결 방향으로 흐르는 이진 데이터 스트림의 구조를 제공한다는 것을 의미합니다. 이 구조는 고유한 데이터 블록, 즉 프레임이 연결된 대상 간에 교환될 수 있도록 윤곽을 제공합니다. 전송 기능은 두 통신 당사자가 프레임이 전송될 때와 전송이 완료된 것으로 간주될 때에 대한 공유되는 이해를 설정할 수 있도록 합니다.
 
 일부 메시지 브로커에서는 아직 사용되고 있는 AMQP 작업 그룹에서 생성한 만료된 이전 초안 이전 버전과 달리, 이 작업 그룹의 표준화된 최종 AMQP 1.0 프로토콜에서는 메시지 브로커의 존재 또는 메시지 브로커 내 엔터티에 대한 특정 토폴로지의 존재를 규정하지 않습니다.
@@ -46,13 +42,11 @@ AMQP는 프레이밍 및 전송 프로토콜입니다. 프레이밍은 네트워
 AMQP 1.0 프로토콜은 확장할 수 있도록 설계되었으며 기능을 향상시키는 추가 사양을 허용합니다. 이 문서에서 설명하는 세 가지 확장 사양이 이러한 경우를 보여 줍니다. 네이티브 AMQP TCP 포트를 구성하는 것이 어려울 수 있는 기존 HTTPS/WebSocket 인프라를 통해 통신할 수 있도록 하기 위해 바인딩 사양에 WebSocket을 통해 AMQP를 계층화하는 방법을 정의합니다. 관리를 위해 요청/응답 방식으로 메시징 인프라와 상호 작용하거나 고급 기능을 제공하도록 하기 위해 AMQP 관리 사양은 필요한 기본적인 상호 작용 기본 형식을 정의합니다. 페더레이션된 인증 모델 통합을 위해 AMQP 클레임 기반 보안 사양은 권한 부여 토큰을 연결하고 링크와 연결된 이러한 토큰을 갱신하는 방법을 정의합니다.
 
 ## <a name="basic-amqp-scenarios"></a>기본 AMQP 시나리오
-
 이 섹션에서는 연결, 세션 및 링크의 생성과 큐, 토픽 및 구독 같은 Service Bus 엔터티와의 메시지 송수신 등, Azure Service Bus에서 AMQP 1.0를 사용하는 기본적인 방법을 설명합니다.
 
 AMQP 작동 방식을 알기 위한 가장 신뢰할 수 있는 소스는 AMQP 1.0 사양이지만, 이 사양은 구현을 정확히 안내하기 위해 작성되었으며 프로토콜 학습용은 아닙니다. 이 섹션에서는 서비스 버스가 AMQP 1.0을 사용하는 방법을 설명하는 데 필요한 다양한 용어를 중점적으로 소개합니다. AMQP를 좀 더 포괄적으로 소개하고 AMQP 1.0을 광범위하게 논의하려는 경우 [이 비디오 과정][]을 검토할 수 있습니다.
 
 ### <a name="connections-and-sessions"></a>연결 및 세션
-
 ![][1]
 
 AMQP는 통신하는 프로그램을 *컨테이너*라고 합니다. 여기에는 해당 컨테이너 내의 통신하는 엔터티인 *노드*가 포함됩니다. 큐는 이러한 노드가 될 수 있습니다. AMQP는 멀티플렉싱을 허용합니다. 따라서 노드 간의 많은 통신 경로에 대해 단일 연결을 사용할 수 있습니다. 예를 들어 응용 프로그램 클라이언트는 동일한 네트워크 연결을 통해 한 큐에서 수신하고 다른 큐로 전송하는 작업을 동시에 진행할 수 있습니다.
@@ -63,9 +57,8 @@ Azure 서비스 버스에서는 항상 TLS를 사용해야 합니다. TLS는 TCP
 
 서비스 버스는 연결 및 TLS를 설정한 후 다음과 같은 두 가지 SASL 메커니즘 옵션을 제공합니다.
 
--   SASL PLAIN은 일반적으로 서버에 사용자 이름 및 암호 자격 증명을 전달하는 데 사용됩니다. Service Bus에는 계정이 없지만, 권한을 부여하고 키와 연결되어 있는 [공유 액세스 보안 규칙](service-bus-shared-access-signature-authentication.md)이 있습니다. 규칙의 이름은 사용자 이름으로 사용되고 키(base64로 인코딩된 텍스트)는 암호로 사용됩니다. 선택한 규칙에 연결된 권한에 따라 연결에서 허용되는 작업이 제어됩니다.
-
--   SASL ANONYMOUS는 클라이언트가 이후에 설명되는 CBS(클레임 기반 보안) 모델을 사용하려는 경우 SASL 권한 부여를 무시하는 데 사용됩니다. 이 옵션을 사용하면 클라이언트가 CBS 끝점과 상호 작용할 수 있는 정도의 짧은 시간 동안 클라이언트 연결이 익명으로 설정될 수 있으며 CBS 핸드셰이크를 완료해야 합니다.
+* SASL PLAIN은 일반적으로 서버에 사용자 이름 및 암호 자격 증명을 전달하는 데 사용됩니다. Service Bus에는 계정이 없지만, 권한을 부여하고 키와 연결되어 있는 [공유 액세스 보안 규칙](service-bus-shared-access-signature-authentication.md)이 있습니다. 규칙의 이름은 사용자 이름으로 사용되고 키(base64로 인코딩된 텍스트)는 암호로 사용됩니다. 선택한 규칙에 연결된 권한에 따라 연결에서 허용되는 작업이 제어됩니다.
+* SASL ANONYMOUS는 클라이언트가 이후에 설명되는 CBS(클레임 기반 보안) 모델을 사용하려는 경우 SASL 권한 부여를 무시하는 데 사용됩니다. 이 옵션을 사용하면 클라이언트가 CBS 끝점과 상호 작용할 수 있는 정도의 짧은 시간 동안 클라이언트 연결이 익명으로 설정될 수 있으며 CBS 핸드셰이크를 완료해야 합니다.
 
 전송 연결이 설정된 후에 각 컨테이너는 자발적으로 처리할 최대 프레임 크기를 선언하며, 유휴 시간이 초과한 후 연결에 대해 활동이 없는 경우 일반적으로 연결을 끊습니다.
 
@@ -80,7 +73,6 @@ Azure 서비스 버스는 현재 각 연결에 대해 정확히 하나의 세션
 연결, 채널 및 세션은 사용 후 삭제됩니다. 기본 연결이 축소되면 연결, TLS 터널, SASL 권한 부여 컨텍스트 및 세션을 다시 설정해야 합니다.
 
 ### <a name="links"></a>링크
-
 ![][2]
 
 AMQP는 링크를 통해 메시지를 전송합니다. 링크는 세션을 통해 만들어진 통신 경로로, 한 방향으로 메시지를 전송할 수 있도록 합니다. 전송 상태 협상은 링크를 통해 진행되며 연결 당사자 간에 양방향으로 진행됩니다.
@@ -96,7 +88,6 @@ Azure Service Bus에서 노드는 큐, 토픽, 구독 또는 큐나 구독의 �
 링크를 만들기 위해서는 연결하는 클라이언트가 로컬 노드 이름을 사용해야 합니다. 서비스 버스는 이러한 노드 이름을 강제적으로 규정하지 않으며 해석하지 않습니다. AMQP 1.0 클라이언트 스택은 일반적으로 클라이언트의 범위에서 이러한 임시 노드 이름이 고유하도록 하는 체계를 사용합니다.
 
 ### <a name="transfers"></a>전송
-
 ![][3]
 
 링크가 설정되면 해당 링크를 통해 메시지를 전송할 수 있습니다. AMQP에서는 링크를 통해 메시지를 발신자에서 수신자로 이동하는 명시적 프로토콜 제스처(*전송* 수행)를 통해 전송이 실행됩니다. 전송은 “합의에 도달하면” 완료됩니다. 즉, 양쪽 당사자가 해당 전송의 결과에 대해 공유된 이해를 설정해야 합니다.
@@ -116,7 +107,6 @@ Azure 서비스 버스는 링크 복구를 지원하지 않습니다. 클라이�
 가능한 중복 전송을 보상하기 위해 Azure Service Bus는 큐 및 토픽에 대한 선택적 기능으로 중복 검색을 지원합니다. 중복 검색 기능은 사용자 정의 기간 동안 들어오는 모든 메시지의 메시지 ID를 기록하고, 동일한 기간 동안 동일한 메시지 ID를 사용해서 전송된 모든 메시지를 자동으로 삭제합니다.
 
 ### <a name="flow-control"></a>흐름 제어
-
 ![][4]
 
 앞서 설명한 세션 수준 흐름 제어 모델 외에, 각 링크에는 자체 흐름 제어 모델도 있습니다. 세션 수준 흐름 제어는 컨테이너가 한번에 너무 많은 프레임을 처리하지 못하게 하고, 링크 수준 흐름 제어는 링크에서 처리하려는 메시지 수 및 처리 시기가 응용 프로그램에서 자동으로 결정되도록 합니다.
@@ -140,115 +130,105 @@ API 수준의 "수신" 호출은 클라이언트가 Service Bus로 보내는 *�
 화살표는 수행 흐름 방향을 표시합니다.
 
 #### <a name="create-message-receiver"></a>메시지 수신자 만들기
-
-| 클라이언트                                                                                                                                                | 서비스 버스                                                                                                                                   |
-|---------------------------------------------------------------------------------------------------------------------------------------------------    |--------------------------------------------------------------------------------------------------------------------------------------------   |
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link id}<br/>)         | 클라이언트는 수신자로서 엔터티에 연결합니다.                                                                                                         |
-| 서비스 버스는 응답하고 링크의 해당 끝을 연결합니다.                                                                                                     | <-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link id}<br/>)       |
+| 클라이언트 | 서비스 버스 |
+| --- | --- |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link id}<br/>) |클라이언트는 수신자로서 엔터티에 연결합니다. |
+| 서비스 버스는 응답하고 링크의 해당 끝을 연결합니다. |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link id}<br/>) |
 
 #### <a name="create-message-sender"></a>메시지 보낸 사람 만들기
-
-| 클라이언트                                                                                                            | 서비스 버스                                                                                                           |
-|------------------------------------------------------------------------------------------------------------------ |--------------------------------------------------------------------------------------------------------------------   |
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>)   | 작업 없음                                                                                                                     |
-| 작업 없음                                                                                                                 | <-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>)     |
+| 클라이언트 | 서비스 버스 |
+| --- | --- |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |작업 없음 |
+| 작업 없음 |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>) |
 
 #### <a name="create-message-sender-(error)"></a>메시지 보낸 사람 만들기(오류)
-
-| 클라이언트                                                                                                            | 서비스 버스                                                           |
-|------------------------------------------------------------------------------------------------------------------ |---------------------------------------------------------------------  |
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>)   | 작업 없음                                                                     |
-| 작업 없음                                                                                                                 | <-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>)  |
+| 클라이언트 | 서비스 버스 |
+| --- | --- |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |작업 없음 |
+| 작업 없음 |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
 #### <a name="close-message-receiver/sender"></a>메시지 받는 사람/보낸 사람 닫기
-
-| 클라이언트                                            | 서비스 버스                                       |
-|-------------------------------------------------  |-------------------------------------------------  |
-| --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>)    | 작업 없음                                                 |
-| 작업 없음                                                 | <-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>)    |
+| 클라이언트 | 서비스 버스 |
+| --- | --- |
+| --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |작업 없음 |
+| 작업 없음 |<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |
 
 #### <a name="send-(success)"></a>전송(성공)
-
-| 클라이언트                                                                                                                        | 서비스 버스                                                                                           |
-|------------------------------------------------------------------------------------------------------------------------------ |------------------------------------------------------------------------------------------------------ |
-| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)   | 작업 없음                                                                                                     |
-| 작업 없음                                                                                                                             | <-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>)   |
+| 클라이언트 | 서비스 버스 |
+| --- | --- |
+| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |작업 없음 |
+| 작업 없음 |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
 #### <a name="send-(error)"></a>전송(오류)
-
-| 클라이언트                                                                                                                        | 서비스 버스                                                                                                                   |
-|------------------------------------------------------------------------------------------------------------------------------ |-----------------------------------------------------------------------------------------------------------------------------  |
-| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)   | 작업 없음                                                                                                                             |
-| 작업 없음                                                                                                                             | <-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>)     |
+| 클라이언트 | 서비스 버스 |
+| --- | --- |
+| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |작업 없음 |
+| 작업 없음 |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
 
 #### <a name="receive"></a>수신
-
-| 클라이언트                                                                                                | 서비스 버스                                                                                                                   |
-|------------------------------------------------------------------------------------------------------ |------------------------------------------------------------------------------------------------------------------------------ |
-| --> flow(<br/>link-credit=1<br/>)                                                                                 | 작업 없음                                                                                                                             |
-| 작업 없음                                                                                                     | < transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)     |
-| --> disposition(<br/>role=**receiver**,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>)   | 작업 없음                                                                                                                             |
+| 클라이언트 | 서비스 버스 |
+| --- | --- |
+| --> flow(<br/>link-credit=1<br/>) |작업 없음 |
+| 작업 없음 |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| --> disposition(<br/>role=**receiver**,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |작업 없음 |
 
 #### <a name="multi-message-receive"></a>다중 메시지 수신
-
-| 클라이언트                                                                                                    | 서비스 버스                                                                                                                       |
-|--------------------------------------------------------------------------------------------------------   |--------------------------------------------------------------------------------------------------------------------------------   |
-| --> flow(<br/>link-credit=3<br/>)                                                                                 | 작업 없음                                                                                                                                 |
-| 작업 없음                                                                                                         | < transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)     |
-| 작업 없음                                                                                                         | < transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)   |
-| 작업 없음                                                                                                         | < transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)   |
-| --> disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id+2},<br/>settled=**true**,<br/>state=**accepted**<br/>)     | 작업 없음                                                                                                                                 |
+| 클라이언트 | 서비스 버스 |
+| --- | --- |
+| --> flow(<br/>link-credit=3<br/>) |작업 없음 |
+| 작업 없음 |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| 작업 없음 |< transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| 작업 없음 |< transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| --> disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |작업 없음 |
 
 ### <a name="messages"></a>메시지
-
 다음 섹션에서는 서비스 버스에서 사용되는 표준 AMQP 메시지 섹션의 속성과 이러한 속성이 어떤 공식적인 서비스 버스 API에 해당되는지 설명합니다.
 
 #### <a name="header"></a>머리글
-
-| 필드 이름        | 사용                             | API 이름          |
-|----------------   |-------------------------------    |---------------    |
-| 지속성           | -                                 | -                 |
-| 우선 순위          | -                                 | -                 |
-| ttl               | 이 메시지에 대한 TTL(Time to live)     | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)     |
-| first-acquirer    | -                                 | -                 |
-| delivery-count    | -                                 | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx)   |
+| 필드 이름 | 사용 | API 이름 |
+| --- | --- | --- |
+| 지속성 |- |- |
+| 우선 순위 |- |- |
+| ttl |이 메시지에 대한 TTL(Time to live) |[TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) |
+| first-acquirer |- |- |
+| delivery-count |- |[DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
 
 #### <a name="properties"></a>properties
-
-| 필드 이름            | 사용                                                                                                                             | API 이름                                      |
-|---------------------- |---------------------------------------------------------------------------------------------------------------------------------  |--------------------------------------------   |
-| message-id            | 이 메시지에 대한 응용 프로그램 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다.                                         | [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx)                                   |
-| user-id               | 서비스 버스에서 해석되지 않는 응용 프로그램 정의 사용자 식별자입니다.                                                              | 서비스 버스 API를 통해 액세스할 수 없습니다.   |
-| to                    | 서비스 버스에서 해석되지 않는 응용 프로그램 정의 대상 식별자입니다.                                                       | [To](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.to.aspx)                                             |
-| subject               | 서비스 버스에서 해석되지 않는 응용 프로그램 정의 메시지 용도 식별자입니다.                                                   | [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)                                       |
-| reply-to              | 서비스 버스에서 해석되지 않는 응용 프로그램 정의 회산 경로 식별자입니다.                                                         | [ReplyTo](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replyto.aspx)                                       |
-| correlation-id        | 서비스 버스에서 해석되지 않는 응용 프로그램 정의 상관 관계 식별자입니다.                                                       | [CorrelationId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.correlationid.aspx)                               |
-| content-type          | 서비스 버스에서 해석되지 않는 본문에 대한 응용 프로그램 정의 콘텐츠 형식 지표입니다.                                          | [ContentType](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx)                                   |
-| content-encoding      | 서비스 버스에서 해석되지 않는 본문에 대한 응용 프로그램 정의 콘텐츠 인코딩 지표입니다.                                      | 서비스 버스 API를 통해 액세스할 수 없습니다.   |
-| absolute-expiry-time  | 메시지가 만료되는 절대 인스턴트를 선언합니다. 입력 중에는 무시되고(헤더 ttl이 확인됨), 출력 중에는 신뢰할 수 있습니다.   | [ExpiresAtUtc](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.expiresatutc.aspx)                                 |
-| creation-time         | 메시지가 만들어진 시간을 선언합니다. 서비스 버스에서 사용되지 않습니다.                                                           | 서비스 버스 API를 통해 액세스할 수 없습니다.   |
-| group-id              | 관련된 메시지 집합에 대한 응용 프로그램 정의 식별자입니다. 서비스 버스 세션에 사용됩니다.                                      | [SessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx)                                   |
-| group-sequence        | 세션 내 메시지의 상대 시퀀스 번호를 식별하는 카운터입니다. 서비스 버스에서 무시됩니다.                         | 서비스 버스 API를 통해 액세스할 수 없습니다.   |
-| reply-to-group-id     | -                                                                                                                                 | [ReplyToSessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replytosessionid.aspx)                             |
+| 필드 이름 | 사용 | API 이름 |
+| --- | --- | --- |
+| message-id |이 메시지에 대한 응용 프로그램 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. |[MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) |
+| user-id |서비스 버스에서 해석되지 않는 응용 프로그램 정의 사용자 식별자입니다. |서비스 버스 API를 통해 액세스할 수 없습니다. |
+| to |서비스 버스에서 해석되지 않는 응용 프로그램 정의 대상 식별자입니다. |[To](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.to.aspx) |
+| subject |서비스 버스에서 해석되지 않는 응용 프로그램 정의 메시지 용도 식별자입니다. |[Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) |
+| reply-to |서비스 버스에서 해석되지 않는 응용 프로그램 정의 회산 경로 식별자입니다. |[ReplyTo](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replyto.aspx) |
+| correlation-id |서비스 버스에서 해석되지 않는 응용 프로그램 정의 상관 관계 식별자입니다. |[CorrelationId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.correlationid.aspx) |
+| content-type |서비스 버스에서 해석되지 않는 본문에 대한 응용 프로그램 정의 콘텐츠 형식 지표입니다. |[ContentType](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) |
+| content-encoding |서비스 버스에서 해석되지 않는 본문에 대한 응용 프로그램 정의 콘텐츠 인코딩 지표입니다. |서비스 버스 API를 통해 액세스할 수 없습니다. |
+| absolute-expiry-time |메시지가 만료되는 절대 인스턴트를 선언합니다. 입력 중에는 무시되고(헤더 ttl이 확인됨), 출력 중에는 신뢰할 수 있습니다. |[ExpiresAtUtc](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.expiresatutc.aspx) |
+| creation-time |메시지가 만들어진 시간을 선언합니다. 서비스 버스에서 사용되지 않습니다. |서비스 버스 API를 통해 액세스할 수 없습니다. |
+| group-id |관련된 메시지 집합에 대한 응용 프로그램 정의 식별자입니다. 서비스 버스 세션에 사용됩니다. |[SessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) |
+| group-sequence |세션 내 메시지의 상대 시퀀스 번호를 식별하는 카운터입니다. 서비스 버스에서 무시됩니다. |서비스 버스 API를 통해 액세스할 수 없습니다. |
+| reply-to-group-id |- |[ReplyToSessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replytosessionid.aspx) |
 
 ## <a name="advanced-service-bus-capabilities"></a>고급 서비스 버스 기능
-
 이 섹션에서는 현재 AMQP의 OASIS 기술 위원회에서 개발 중인 AMQP의 확장 초안에 기반하는 Azure 서비스 버스의 고급 기능을 설명합니다. Azure 서비스 버스는 이러한 초안의 최신 상태를 구현하고 해당 초안이 표준 상태에 도달될 때 도입된 변경 내용을 채택하게 됩니다.
 
-> [AZURE.NOTE] 서비스 버스 메시징 고급 작업은 요청/응답 패턴을 통해 지원됩니다. 이러한 작업의 세부 정보는 [Service Bus의 AMQP 1.0: 요청/응답 기반 작업](https://msdn.microsoft.com/library/azure/mt727956.aspx) 문서에 설명되어 있습니다.
+> [!NOTE]
+> 서비스 버스 메시징 고급 작업은 요청/응답 패턴을 통해 지원됩니다. 이러한 작업의 세부 정보는 [Service Bus의 AMQP 1.0: 요청/응답 기반 작업](https://msdn.microsoft.com/library/azure/mt727956.aspx) 문서에 설명되어 있습니다.
+> 
+> 
 
 ### <a name="amqp-management"></a>AMQP 관리
-
 AMQP 관리 사양은 여기에서 논의할 첫 번째 확장 초안입니다. 이 사양은 AMQP 프로토콜 위에 계층화된 프로토콜 제스처 집합을 정의합니다. 이 제스처 집합은 AMQP를 통해 메시징 인프라와 관리 상호 작용을 수행할 수 있도록 합니다. 이 사양은 메시징 인프라 및 쿼리 작업 집합 내 엔터티 관리를 위한 *만들기*, *읽기*, *업데이트* 및 *삭제*와 같은 일반 작업을 정의합니다.
 
 이러한 모든 제스처는 클라이언트와 메시징 인프라 간에 요청/응답 상호 작용을 필요로 하므로, 해당 사양에서는 AMQP를 토대로 이러한 상호 작용 패턴을 모델링하는 방법을 정의합니다. 클라이언트는 메시징 인프라에 연결하고, 세션을 시작하고, 링크 쌍을 만듭니다. 한 링크에서 클라이언트는 보낸 사람 역할을 하고, 다른 링크에서는 받는 사람 역할을 하므로 양방향 채널로 작동할 수 있는 링크 쌍이 만들어집니다.
 
-| 논리 연산            | 클라이언트                      | 서비스 버스                 |
-|------------------------------|-----------------------------|-----------------------------|
-| 요청 응답 경로 만들기 | --> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>)                            |작업 없음                             |
-|요청 응답 경로 만들기                              |작업 없음                             | \<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>)                            |
-|요청 응답 경로 만들기                              | --> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>)                            |                             |작업 없음
-|요청 응답 경로 만들기                              |작업 없음                             | \<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>)                            |
+| 논리 연산 | 클라이언트 | 서비스 버스 |
+| --- | --- | --- |
+| 요청 응답 경로 만들기 |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>) |작업 없음 |
+| 요청 응답 경로 만들기 |작업 없음 |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>) |
+| 요청 응답 경로 만들기 |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>) | |
+| 요청 응답 경로 만들기 |작업 없음 |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>) |
 
 링크 쌍이 배치되면, 요청/응답 구현은 간단해집니다. 요청은 이 패턴을 팦악하는 메시징 인프라 내부의 엔터티로 전송되는 메시지입니다. 해당 요청 메시지에서 *속성* 섹션의 *회신* 필드가 응답을 전달할 링크의 *대상* 식별자로 설정됩니다. 처리 엔터티에서는 요청을 처리한 다음 해당 *대상* 식별자가 지정된 *회신* 식별자와 일치하는 링크를 통해 회신을 전달합니다.
 
@@ -259,16 +239,14 @@ AMQP 관리 사양은 여기에서 논의할 첫 번째 확장 초안입니다. 
 Azure 서비스 버스는 현재 관리 사양의 어떤 핵심 기능도 구현하지 않지만 관리 사양이 정의하는 요청/응답 패턴은 클레임 기반 보안 기능 및 다음 섹션에서 다룰 고급 기능 대부분의 토대가 됩니다.
 
 ### <a name="claims-based-authorization"></a>클레임 기반 권한 부여
-
 AMQP CBS(클레임 기반 인증) 사양 초안은 관리 사양의 요청/응답 패턴을 기반으로 구축되며, AMQP와 페더레이션된 보안 토큰을 사용하는 방법에 대한 일반화된 모델을 설명합니다.
 
 소개 부분에서 나오는 AMQP의 기본 보안 모델은 SASL을 기준으로 하며, AMQP 연결 핸드셰이크와 통합됩니다. SASL을 사용하면 이전에 SASL에 의존하던 프로토콜이 정의될 수 있는 메커니즘 집합의 확장 가능한 모델을 제공한다는 장점이 있습니다. 이러한 메커니즘 중에는 사용자 이름 및 암호 전송을 위한 "PLAIN", TLS 수준 보안에 바인딩하기 위한 “EXTERNAL”, 명시적 인증/권한 부여가 없음을 나타내기 위한 “ANONYMOUS”이 있으며, 인증 및/또는 권한 부여 자격 증명이나 토큰을 전달할 수 있도록 하는 다양한 추가 메커니즘도 있습니다.
 
 AMQP의 SASL 통합에는 다음과 같은 두 가지 단점이 있습니다.
 
--   모든 자격 증명 및 토큰 범위가 해당 연결로 지정됩니다. 메시징 인프라는 엔터티 기준으로 차별화된 액세스 제어를 제공하려고 할 수 있습니다. 예를 들어, 토큰의 전달자가 큐 A로 전송하도록 허용하지만 큐 B로는 전송하지 못하게 할 수 있습니다. 연결에 권한 부여 컨텍스트가 고정되면, 단일 연결을 사용할 수 없지만 큐 A 및 큐 B에 대해 다른 액세스 토큰을 사용할 수 있습니다.
-
--   액세스 토큰은 일반적으로 제한된 시간 동안만 유효합니다. 따라서 사용자는 주기적으로 토큰을 다시 강제 획득해야 하며, 사용자 권한이 변경될 경우 토큰 발급자가 새 토큰 발행을 거부할 기회가 부여됩니다. AMQP 연결은 매우 긴 시간 동안 지속될 수 있습니다. SASL 모델은 연결 시에만 토큰을 설정할 기회를 제공합니다. 즉, 토큰이 만료되거나 액세스 권한이 임시로 취소되었을 수 있는 클라이언트와의 통신을 지속하는 것이 위험할 수 있는 경우 메시징 인프라는 클라이언트와의 연결을 끊어야 합니다.
+* 모든 자격 증명 및 토큰 범위가 해당 연결로 지정됩니다. 메시징 인프라는 엔터티 기준으로 차별화된 액세스 제어를 제공하려고 할 수 있습니다. 예를 들어, 토큰의 전달자가 큐 A로 전송하도록 허용하지만 큐 B로는 전송하지 못하게 할 수 있습니다. 연결에 권한 부여 컨텍스트가 고정되면, 단일 연결을 사용할 수 없지만 큐 A 및 큐 B에 대해 다른 액세스 토큰을 사용할 수 있습니다.
+* 액세스 토큰은 일반적으로 제한된 시간 동안만 유효합니다. 따라서 사용자는 주기적으로 토큰을 다시 강제 획득해야 하며, 사용자 권한이 변경될 경우 토큰 발급자가 새 토큰 발행을 거부할 기회가 부여됩니다. AMQP 연결은 매우 긴 시간 동안 지속될 수 있습니다. SASL 모델은 연결 시에만 토큰을 설정할 기회를 제공합니다. 즉, 토큰이 만료되거나 액세스 권한이 임시로 취소되었을 수 있는 클라이언트와의 통신을 지속하는 것이 위험할 수 있는 경우 메시징 인프라는 클라이언트와의 연결을 끊어야 합니다.
 
 Azure 서비스 버스에 의해 구현되는 AMQP CBS 사양은 이러한 문제에 대해 적합한 해결 방법을 제공합니다. 클라이언트가 액세스 토큰을 각 노드에 연결하고, 만료되기 전에 해당 토큰을 업데이트할 수 있도록 하여 메시지 흐름이 중단되지 않도록 합니다.
 
@@ -278,29 +256,29 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 요청 메시지에는 다음과 같은 응용 프로그램 속성이 적용됩니다.
 
-| 키        | 옵션 | 값 형식 | 값 내용                             |
-|------------|----------|------------|--------------------------------------------|
-| operation  | 아니요       | string     | **put-token**                                |
-| type       | 아니요       | string     | 배치되는 토큰의 형식입니다.            |
-| name       | 아니요       | string     | 토큰이 적용되는 "대상"입니다. |
-| expiration | 예      | timestamp  | 토큰의 만료 시간입니다.              |
+| 키 | 옵션 | 값 형식 | 값 내용 |
+| --- | --- | --- | --- |
+| operation |아니요 |string |**put-token** |
+| type |아니요 |string |배치되는 토큰의 형식입니다. |
+| name |아니요 |string |토큰이 적용되는 "대상"입니다. |
+| expiration |예 |timestamp |토큰의 만료 시간입니다. |
 
 *name* 속성은 토큰이 연결되어야 하는 엔터티를 식별합니다. Service Bus에서 큐 또는 토픽/구독에 대한 경로에 해당합니다. *type* 속성은 토큰 형식을 식별합니다.
 
-| 토큰 형식                      | 토큰 설명      | 본문 형식           | 참고 사항                                                    |
-|---------------------------------|------------------------|---------------------|----------------------------------------------------------|
-| amqp:jwt                        | JWT(JSON 웹 토큰)   | AMQP 값(문자열) | 아직 사용할 수 없습니다.  |
-| amqp:swt                        | SWT(단순 웹 토큰) | AMQP 값(문자열) | AAD/ACS에서 발급한 SWT 토큰에 대해서만 지원됩니다.          |
-| servicebus.windows.net:sastoken | Service Bus SAS 토큰  | AMQP 값(문자열) | -                                                        |
+| 토큰 형식 | 토큰 설명 | 본문 형식 | 참고 사항 |
+| --- | --- | --- | --- |
+| amqp:jwt |JWT(JSON 웹 토큰) |AMQP 값(문자열) |아직 사용할 수 없습니다. |
+| amqp:swt |SWT(단순 웹 토큰) |AMQP 값(문자열) |AAD/ACS에서 발급한 SWT 토큰에 대해서만 지원됩니다. |
+| servicebus.windows.net:sastoken |Service Bus SAS 토큰 |AMQP 값(문자열) |- |
 
 토큰은 권한을 부여합니다. 서비스 버스는 세 가지 기본 권한을 알고 있습니다. "전송"은 전송을 허용하고, "수신"은 수신을 허용하고, "메시지"는 엔터티 조작을 허용합니다. 명시적으로 AAD/ACS에서 발급한 SWT 토큰에는 이러한 권한이 클레임으로 포함되어 있습니다. 서비스 버스 SAS 토큰은 네임스페이스 또는 엔터티에 구성된 규칙을 참조하며, 이러한 규칙은 권한으로 구성됩니다. 해당 규칙과 연결된 키를 사용하여 토큰에 서명하면 토큰이 해당 권한을 나타냅니다. *put-token*을 사용하여 엔터티와 연결된 토큰은 연결된 클라이언트가 토큰 권한에 따라 엔터티와 상호 작용하도록 허용합니다. 클라이언트가 *보낸 사람* 역할에서 사용하는 링크에는 "전송" 역할이 필요하고 *받는 사람* 역할에서 사용하는 링크에는 "수신" 권한이 필요합니다.
 
 회신 메시지는 다음과 같은 *응용 프로그램 속성* 값을 갖습니다.
 
-| 키                | 옵션 | 값 형식 | 값 내용                    |
-|--------------------|----------|------------|-----------------------------------|
-| status-code        | 아니요       | int        | HTTP 응답 코드 **[RFC2616]** |
-| status-description | 예      | string     | 상태에 대한 설명입니다.        |
+| 키 | 옵션 | 값 형식 | 값 내용 |
+| --- | --- | --- | --- |
+| status-code |아니요 |int |HTTP 응답 코드 **[RFC2616]** |
+| status-description |예 |string |상태에 대한 설명입니다. |
 
 클라이언트는 메시징 인프라의 모든 엔터티에 대해 반복적으로 *put-token*을 호출할 수 있습니다. 토큰은 현재 클라이언트로 범위가 지정되며 현재 연결에 고정됩니다. 즉, 연결이 삭제되면 서버는 보유된 토큰을 모두 삭제합니다.
 
@@ -313,12 +291,11 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 클라이언트는 이후에 토큰 만료를 계속 추적해야 합니다. 토큰이 만료되면 서비스 버스는 해당 엔터티에 대한 연결에서 모든 링크를 즉시 삭제합니다. 이를 방지하기 위해 클라이언트는 다른 링크에서 흐르는 페이로드 트래픽을 방해하지 않으면서 가상 *$cbs* 관리 노드에서 *put-token* 제스처를 사용하여 언제든지 노드에 대한 토큰을 새 토큰으로 바꿀 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-
 AMQP에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-- [Service Bus AMQP 개요]
-- [Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]
-- [Windows Server용 Service Bus의 AMQP]
+* [Service Bus AMQP 개요]
+* [Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]
+* [Windows Server용 Service Bus의 AMQP]
 
 [이 비디오 교육 과정]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp/amqp1.png

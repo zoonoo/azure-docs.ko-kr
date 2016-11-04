@@ -1,33 +1,32 @@
-<properties
-	pageTitle="Azure AD v2.0 AngularJS 시작 | Microsoft Azure"
-	description="개인 Microsoft 계정과 회사 또는 학교 계정이 있는 사용자로 로그인하는 Angular JS 단일 페이지 앱을 빌드하는 방법입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Azure AD v2.0 AngularJS 시작 | Microsoft Docs
+description: 개인 Microsoft 계정과 회사 또는 학교 계정이 있는 사용자로 로그인하는 Angular JS 단일 페이지 앱을 빌드하는 방법입니다.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: javascript
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: dastrock
 
-
+---
 # AngularJS 단일 페이지 앱에 로그인 추가 - .NET
-
 이 문서에서는 Azure Active Directory v2.0 끝점을 사용하여 Microsoft 지원 계정을 사용한 로그인을 AngularJS 앱에 추가합니다. v2.0 끝점을 사용하면 앱 내에서 단일 통합을 수행할 수 있고 개인 및 회사/학교 계정을 사용하여 사용자를 인증할 수 있습니다.
 
 이 샘플은 Azure AD의 OAuth 전달자 토큰을 사용하여 보안이 유지되고 .NET 4.5 MVC 프레임워크를 사용하여 작성된, 백 엔드 REST API에 작업을 저장하는 간단한 할 일 모음 단일 페이지 앱입니다. AngularJS 앱은 오픈 소스 JavaScript 인증 라이브러리 [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js)를 사용하여 전반적인 로그인 프로세스를 처리하고 REST API 호출용 토큰을 가져옵니다. 동일한 패턴이 [Microsoft Graph](https://graph.microsoft.com)와 같은 다른 REST API에 대한 인증에 적용될 수 있습니다.
 
-> [AZURE.NOTE]
-	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+> [!NOTE]
+> 일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+> 
+> 
 
 ## 다운로드
-
 시작하려면 Visual Studio를 다운로드해서 설치해야 합니다. 그 후 골격 앱을 복제하거나 [다운로드](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/skeleton.zip)합니다.
 
 ```
@@ -41,17 +40,17 @@ git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet.git
 ```
 
 ## 앱 등록
-
 우선 [앱 등록 포털](https://apps.dev.microsoft.com)에서 앱을 만들거나 [자세한 단계](active-directory-v2-app-registration.md)에 따라서 진행합니다. 다음을 수행해야 합니다.
 
-- 앱에 대한 **웹** 플랫폼을 추가합니다.
-- 올바른 **리디렉션 URI**를 입력합니다. 이 샘플에 대한 기본값은 `https://localhost:44326/`입니다.
-- **암시적 흐름 허용** 확인란을 선택한 채로 둡니다.
+* 앱에 대한 **웹** 플랫폼을 추가합니다.
+* 올바른 **리디렉션 URI**를 입력합니다. 이 샘플에 대한 기본값은 `https://localhost:44326/`입니다.
+* **암시적 흐름 허용** 확인란을 선택한 채로 둡니다.
 
 앱에 할당된 **응용 프로그램 ID**를 적어둡니다. 곧 이 정보가 필요합니다.
 
 ## adal.js 설치
 시작하려면 다운로드한 프로젝트로 이동하여 adal.js를 설치합니다. [bower](http://bower.io/)가 설치되어 있는 경우 이 명령을 실행하기만 하면 됩니다. 종속성 버전 불일치가 있는 경우 높은 버전을 선택합니다.
+
 ```
 bower install adal-angular#experimental
 ```
@@ -72,7 +71,6 @@ bower install adal-angular#experimental
 ```
 
 ## REST API 설정
-
 설정을 진행하면서, 백 엔드 REST API가 작동하도록 하겠습니다. 프로젝트의 루트에서 `web.config`를 열고 `audience` 값을 변경합니다. REST API는 이 값을 사용하여 AJAX 요청에 대해 Angular 앱으로부터 수신하는 토큰의 유효성을 검사합니다.
 
 ```xml
@@ -83,7 +81,7 @@ bower install adal-angular#experimental
     <appSettings>
         <add key="ida:Audience" value="[Your-application-id]" />
     </appSettings>
-    
+
 ...
 ```
 
@@ -110,19 +108,19 @@ angular.module('todoApp', ['ngRoute','AdalAngular'])
 ...
 
 adalProvider.init({
-        
+
         // Use this value for the public instance of Azure AD
         instance: 'https://login.microsoftonline.com/', 
-        
+
         // The 'common' endpoint is used for multi-tenant applications like this one
         tenant: 'common',
-        
+
         // Your application id from the registration portal
         clientId: '<Your-application-id>',
-        
+
         // If you're using IE, uncommment this line - the default HTML5 sessionStorage does not work for localhost.
         //cacheLocation: 'localStorage',
-         
+
     }, $httpProvider);
 ```
 
@@ -151,16 +149,16 @@ angular.module('todoApp')
 // Load adal.js the same way for use in controllers and views   
 .controller('homeCtrl', ['$scope', 'adalAuthenticationService','$location', function ($scope, adalService, $location) {
     $scope.login = function () {
-        
+
         // Redirect the user to sign in
         adalService.login();
-        
+
     };
     $scope.logout = function () {
-        
+
         // Redirect the user to log out    
         adalService.logOut();
-    
+
     };
 ...
 ```
@@ -225,12 +223,11 @@ return $http.get('/api/tasks');
 
 v2.0 끝점에 대해 계속 알아보려면, [v2.0 개발자 가이드](active-directory-appmodel-v2-overview.md)로 돌아가세요. 추가 리소스는 다음을 확인해보세요.
 
-- [GitHub의 Azure 샘플(영문) >>](https://github.com/Azure-Samples)
-- [스택 오버플로의 Azure AD(영문) >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
-- [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)의 Azure AD 설명서
+* [GitHub의 Azure 샘플(영문) >>](https://github.com/Azure-Samples)
+* [스택 오버플로의 Azure AD(영문) >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)의 Azure AD 설명서
 
 ## 당사 제품에 대한 보안 업데이트 가져오기
-
 [이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
 
 <!---HONumber=AcomDC_0921_2016-->

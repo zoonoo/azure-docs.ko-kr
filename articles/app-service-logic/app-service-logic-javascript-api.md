@@ -1,24 +1,26 @@
-<properties
-   pageTitle="논리 앱에서 JavaScript API 앱 사용 | Microsoft Azure"
-   description="JavaScript API 앱 또는 커넥터"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="stepsic-microsoft-com"
-   manager="dwrede"
-   editor=""/>
+---
+title: 논리 앱에서 JavaScript API 앱 사용 | Microsoft Docs
+description: JavaScript API 앱 또는 커넥터
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: stepsic-microsoft-com
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="09/01/2016"
-   ms.author="stepsic"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 09/01/2016
+ms.author: stepsic
 
+---
 # JavaScript API 앱
-
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+> [!NOTE]
+> 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+> 
+> 
 
 JavaScript API 앱은 *논리 앱을 실행하는 동안* 간단한 JavaScript 식을 실행하는 간편한 방법을 제공합니다.
 
@@ -39,8 +41,9 @@ JavaScript API 앱을 사용하려면 먼저 JavaScript API 앱의 인스턴스�
 논리 앱 서비스가 폴링(사용자가 정의한 간격으로)하여 콘텐츠를 반환하는 경우 논리 앱이 실행되고 그렇지 않으면 다음 폴링 간격에서 다시 확인할 때까지 대기하는 트리거를 만들 수 있습니다.
 
 트리거에 대한 입력은 다음과 같습니다.
-- **JavaScript 식** - 평가할 식. 함수 내에서 호출되며 논리 앱이 실행되는 것을 원치 않을 때는 `false`를 반환해야 합니다. 논리 앱이 실행되도록 하려면 그 이외의 값을 반환할 수 있습니다. 그러면 논리 앱 작업에서 응답 내용을 사용할 수 있습니다.
-- **컨텍스트 개체** - 트리거에 전달할 수 있는 선택적인 개체입니다. 원하는 만큼 속성을 정의할 수 있지만 최상위 엔터티는 `{ "bar" : 0}` 등의 개체여야 합니다.
+
+* **JavaScript 식** - 평가할 식. 함수 내에서 호출되며 논리 앱이 실행되는 것을 원치 않을 때는 `false`를 반환해야 합니다. 논리 앱이 실행되도록 하려면 그 이외의 값을 반환할 수 있습니다. 그러면 논리 앱 작업에서 응답 내용을 사용할 수 있습니다.
+* **컨텍스트 개체** - 트리거에 전달할 수 있는 선택적인 개체입니다. 원하는 만큼 속성을 정의할 수 있지만 최상위 엔터티는 `{ "bar" : 0}` 등의 개체여야 합니다.
 
 예를 들어 해당 시간의 15분과 30분 사이에만 논리 앱을 실행하는 간단한 트리거가 있을 수 있습니다.
 
@@ -49,35 +52,36 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 ```
 
 ### 작업
-
 마찬가지로, 실행할 작업을 제공할 수도 있습니다.
 
 작업에 대한 입력은 다음과 같습니다.
-- **JavaScript 식** - 평가할 식. 모든 내용을 가져오려면 `return` 문을 포함해야 합니다.
-- **컨텍스트 개체** - 트리거에 전달할 수 있는 선택적인 개체입니다. 원하는 만큼 속성을 정의할 수 있지만 최상위 엔터티는 `{ "bar" : 0}` 등의 개체여야 합니다.
+
+* **JavaScript 식** - 평가할 식. 모든 내용을 가져오려면 `return` 문을 포함해야 합니다.
+* **컨텍스트 개체** - 트리거에 전달할 수 있는 선택적인 개체입니다. 원하는 만큼 속성을 정의할 수 있지만 최상위 엔터티는 `{ "bar" : 0}` 등의 개체여야 합니다.
 
 예를 들어, Office 365 트리거 **새 전자 메일**을 사용한다고 생각해 보세요. 다음 출력이 반환됩니다.
+
 ```
 {
-	...
-	"Attachments" : [
-		{
-			"name" : "Picture.png",
-			"content" : {
-				"ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
-				"ContentType" : "image/png",
-				"ContentTransferEncoding" : "Base64"
-			}
-		},	
-		{
-			"name" : "File.txt",
-			"content" : {
-				"ContentData" : "Don't worry, be happy!",
-				"ContentType" : "text/plain",
-				"ContentTransferEncoding" : "None"
-			}
-		}	
-	]
+    ...
+    "Attachments" : [
+        {
+            "name" : "Picture.png",
+            "content" : {
+                "ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
+                "ContentType" : "image/png",
+                "ContentTransferEncoding" : "Base64"
+            }
+        },    
+        {
+            "name" : "File.txt",
+            "content" : {
+                "ContentData" : "Don't worry, be happy!",
+                "ContentType" : "text/plain",
+                "ContentTransferEncoding" : "None"
+            }
+        }    
+    ]
 }
 ```
 
@@ -91,8 +95,6 @@ return Attachments.map(function(obj){var a = obj.Content; a.FileName = obj.Name;
 
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 흐름에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
-
- 
 
 <!--References -->
 

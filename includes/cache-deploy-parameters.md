@@ -1,6 +1,5 @@
 
 ### cacheSKUName
-
 새 Azure Redis Cache의 가격 책정 계층입니다.
 
     "cacheSKUName": {
@@ -18,7 +17,6 @@
 이 매개 변수에 허용되는 값(Basic 또는 Standard)을 정의하고, 값이 지정되지 않은 경우에는 기본값(Basic)을 할당하는 템플릿입니다. Basic은 최대 53GB를 사용할 수 있는 다양한 크기의 단일 노드를 제공합니다. Standard는 최대 53GB를 사용할 수 있으며 99.9%의 SLA를 제공하는 다양한 크기의 2-노드 주/복제본을 제공합니다.
 
 ### cacheSKUFamily
-
 SKU 제품군입니다.
 
     "cacheSKUFamily": {
@@ -34,7 +32,6 @@ SKU 제품군입니다.
 
 
 ### cacheSKUCapacity
-
 새 Azure Redis Cache 인스턴스의 크기입니다.
 
     "cacheSKUCapacity": {

@@ -1,28 +1,30 @@
-<properties
-	pageTitle="PowerApps 엔터프라이즈용 API 개발 | Microsoft Azure"
-	description="PowerApps에 대한 사용자 지정 API 빌드 또는 만들기"
-	services=""
-    suite="powerapps"
-	documentationCenter="" 
-	authors="rajram"
-	manager="erikre"
-	editor=""/>
+---
+title: PowerApps 엔터프라이즈용 API 개발 | Microsoft Docs
+description: PowerApps에 대한 사용자 지정 API 빌드 또는 만들기
+services: ''
+suite: powerapps
+documentationcenter: ''
+author: rajram
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="powerapps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/02/2016"
-   ms.author="rajram"/>
+ms.service: powerapps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/02/2016
+ms.author: rajram
 
+---
 # PowerApps용 API 개발
-
-> [AZURE.IMPORTANT] 이 항목은 보관되고 곧 제거될 예정입니다. 새 [PowerApps](https://powerapps.microsoft.com)의 새로운 내용을 살펴보세요.
+> [!IMPORTANT]
+> 이 항목은 보관되고 곧 제거될 예정입니다. 새 [PowerApps](https://powerapps.microsoft.com)의 새로운 내용을 살펴보세요.
 > 
-> - PowerApps에 대해 자세히 알아보고 시작하려면 [PowerApps](https://powerapps.microsoft.com)로 이동합니다.  
-> - PowerApps에서 사용자 지정 API에 대해 자세히 알아보려면 [사용자 지정 API란?](https://powerapps.microsoft.com/tutorials/register-custom-api/)으로 이동합니다. 
+> * PowerApps에 대해 자세히 알아보고 시작하려면 [PowerApps](https://powerapps.microsoft.com)로 이동합니다.  
+> * PowerApps에서 사용자 지정 API에 대해 자세히 알아보려면 [사용자 지정 API란?](https://powerapps.microsoft.com/tutorials/register-custom-api/)으로 이동합니다. 
+> 
+> 
 
 <!--Archived
 You can create or develop your own API that can be used within PowerApps. The steps include:
@@ -66,7 +68,7 @@ If an operation is marked as "important", the Logic Flow client is expected to h
 
 ##### x-ms-trigger
 Defines whether this operation can be used as a trigger in the Logic Flow. Options include:
-	
+
 - none (default): The operation cannot be used as a trigger.
 - single: This operation can also be used as a trigger.
 - batched: This operation can be used as a trigger.  In addition, this operation responds with a JSON  'array' of objects, and the Logic Flow fires a trigger for each item in the array.
@@ -76,7 +78,7 @@ Defines whether this operation can be used as a trigger in the Logic Flow. Optio
 This is a hint to the Logic Flow designer that the API provides a list of dynamically allowed values for this parameter. The Logic Flow designer can invoke an operation as defined by the value of this field, and extract the possible values from the result.  The Logic Flow designer can then display these values as options to the end user.  
 
 The value is an object that contains the following properties:
-	
+
 - operationId: A string that matches the operationId for the operation that is invoked
 - parameters: An object whose properties define the parameters required for the operation
 - value-collection: A path string that evaluates to an array of objects in the response payload

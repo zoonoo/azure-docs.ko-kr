@@ -1,25 +1,26 @@
-<properties
- pageTitle="Linux VM에서 HPC 팩으로 STAR-CCM+ 실행 | Microsoft Azure"
- description="Azure에서 Microsoft HPC Pack 클러스터를 배포하고 RDMA 네트워크 간의 여러 Linux 계산 노드에서 STAR-CCM+ 작업을 실행합니다."
- services="virtual-machines-linux"
- documentationCenter=""
- authors="xpillons"
- manager="timlt"
- editor=""
- tags="azure-service-management,azure-resource-manager,hpc-pack"/>
-<tags
- ms.service="virtual-machines-linux"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-linux"
- ms.workload="big-compute"
- ms.date="09/13/2016"
- ms.author="xpillons"/>
+---
+title: Linux VM에서 HPC 팩으로 STAR-CCM+ 실행 | Microsoft Docs
+description: Azure에서 Microsoft HPC Pack 클러스터를 배포하고 RDMA 네트워크 간의 여러 Linux 계산 노드에서 STAR-CCM+ 작업을 실행합니다.
+services: virtual-machines-linux
+documentationcenter: ''
+author: xpillons
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager,hpc-pack
 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: big-compute
+ms.date: 09/13/2016
+ms.author: xpillons
+
+---
 # Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩으로 STAR-CCM+ 실행
 이 문서에서는 Azure에 Microsoft HPC 팩 클러스터를 배포하고 InfiniBand와 상호 연결된 여러 Linux 계산 노드에서 [CD-adapco STAR-CCM+](http://www.cd-adapco.com/products/star-ccm%C2%AE) 작업을 실행하는 방법을 보여 줍니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 컴퓨터의 클러스터에서 실행하는 기능을 제공합니다. HPC 팩은 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. HPC 팩으로 Linux 계산 노드 사용에 대한 소개는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요.
 
@@ -84,11 +85,9 @@ Azure PowerShell은 필수 요소입니다. PowerShell이 로컬 컴퓨터에 �
 
 최종적으로 DNS 전달자를 수정해야 할 수 있습니다. 이 작업을 위해 DNS 관리자를 시작합니다.
 
-1.  DNS 관리자에서 서버 이름을 마우스 오른쪽 단추로 클릭하고 **속성**, **전달자** 탭을 차례대로 선택합니다.
-
-2.  **편집** 단추를 클릭하여 모든 전달자를 제거한 다음 **확인**을 클릭합니다.
-
-3.  **전달자를 사용할 수 없으면 루트 힌트 사용** 확인란이 선택되어 있는지 확인하고 **확인**을 클릭합니다.
+1. DNS 관리자에서 서버 이름을 마우스 오른쪽 단추로 클릭하고 **속성**, **전달자** 탭을 차례대로 선택합니다.
+2. **편집** 단추를 클릭하여 모든 전달자를 제거한 다음 **확인**을 클릭합니다.
+3. **전달자를 사용할 수 없으면 루트 힌트 사용** 확인란이 선택되어 있는지 확인하고 **확인**을 클릭합니다.
 
 ## Linux 계산 노드 설정
 헤드 노드를 만들 때 사용한 것과 동일한 배포 템플릿을 사용하여 Linux 계산 노드를 배포합니다.
@@ -99,15 +98,12 @@ Azure PowerShell은 필수 요소입니다. PowerShell이 로컬 컴퓨터에 �
 
 관리자 권한 명령 프롬프트에서 다음의 Azure PowerShell 명령을 실행합니다.
 
-1.  **Add-AzureAccount**를 실행하여 Azure 구독을 연결합니다.
-
-2.  여러 구독이 있는 경우 **Get-AzureSubscription**을 실행하여 나열합니다.
-
-3.  **Select-AzureSubscription -SubscriptionName xxxx -Default** 명령을 실행하여 기본 구독을 설정합니다.
-
-4.  **.\\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml**을 실행하여 Linux 계산 노드 배포를 시작합니다.
-
-    ![헤드 노드 배포 작업][hndeploy]
+1. **Add-AzureAccount**를 실행하여 Azure 구독을 연결합니다.
+2. 여러 구독이 있는 경우 **Get-AzureSubscription**을 실행하여 나열합니다.
+3. **Select-AzureSubscription -SubscriptionName xxxx -Default** 명령을 실행하여 기본 구독을 설정합니다.
+4. **.\\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml**을 실행하여 Linux 계산 노드 배포를 시작합니다.
+   
+   ![헤드 노드 배포 작업][hndeploy]
 
 HPC 팩 클러스터 관리자 도구를 엽니다. 몇 분 후에 클러스터 계산 노드 목록에 Linux 계산 노드가 정기적으로 나타납니다. 클래식 배포 모드에서는 IaaS VM이 순차적으로 생성됩니다. 따라서 노드 수가 중요할 경우 전체를 배포하려면 많은 시간이 소요될 수 있습니다.
 
@@ -118,7 +114,7 @@ HPC 팩 클러스터 관리자 도구를 엽니다. 몇 분 후에 클러스터 
 ## Windows 및 Linux 노드에 대한 Azure 파일 공유 설정
 Azure 파일 서비스를 사용하여 스크립트, 응용 프로그램 패키지, 데이터 파일을 저장할 수 있습니다. Azure 파일은 Azure Blob 저장소를 영구 저장소로 사용하면서 CIFS 기능을 제공합니다. 이것이 가장 확장성 있는 솔루션은 아니지만 가장 간단하며 전용 VM이 필요하지 않습니다.
 
-[Windows에서 Azure 파일 저장소 시작](..\storage\storage-dotnet-how-to-use-files.md) 문서의 지침에 따라 Azure 파일 공유를 만듭니다.
+[Windows에서 Azure 파일 저장소 시작](../storage/storage-dotnet-how-to-use-files.md) 문서의 지침에 따라 Azure 파일 공유를 만듭니다.
 
 저장소 계정 이름 **saname**, 파일 공유 이름 **sharename** 및 저장소 계정 키 **sakey**를 유지합니다.
 
@@ -199,11 +195,9 @@ HPC 팩은 STAR-CCM+ 작업을 실행하기 위한 작업 스케줄러 기능에
 
 다음 PowerShell 스크립트는 STAR-CCM+ 작업을 큐에 대기시키는 데 사용하며 3가지 인수를 사용합니다.
 
-*  모델 이름
-
-*  사용할 노드 수
-
-*  각 노드에 사용할 코어 수
+* 모델 이름
+* 사용할 노드 수
+* 각 노드에 사용할 코어 수
 
 STAR-CCM+는 메모리 대역폭을 초과할 수 있으므로 계산 노드당 적은 코어를 사용하고 새 노드를 추가하는 것이 좋습니다. 정확한 노드당 코어 수는 프로세서 제품군 및 상호 연결 속도에 따라 달라집니다.
 
@@ -212,7 +206,6 @@ STAR-CCM+는 메모리 대역폭을 초과할 수 있으므로 계산 노드당 
 입력 모델 및 **runstarccm.sh** 스크립트는 이전에 탑재된 **/hpcdata** 공유에 저장됩니다.
 
 로그 파일은 작업 ID로 이름이 지정되고 STAR-CCM+ 출력 파일과 함께 **/hpcdata 공유**에 저장됩니다.
-
 
 #### 샘플 SubmitStarccmJob.ps1 스크립트
 ```
@@ -229,7 +222,7 @@ STAR-CCM+는 메모리 대역폭을 초과할 수 있으므로 계산 노드당 
     $jobId = [String]$job.Id
 
     #---------------------------------------------------------------------------------------------------------
-    # Submit the job 	
+    # Submit the job     
     $workdir =  "/hpcdata"
     $execName = "$nbCoresPerNode runner.java $modelName.sim"
 
@@ -267,19 +260,19 @@ STAR-CCM+는 메모리 대역폭을 초과할 수 있으므로 계산 노드당 
     NBNODES=0
     while [ ${I} -lt ${COUNT} ]
     do
-    	echo "${NODESCORES[${I}]}" >> ${NODELIST_PATH}
-    	let "I=${I}+2"
-    	let "NBNODES=${NBNODES}+1"
+        echo "${NODESCORES[${I}]}" >> ${NODELIST_PATH}
+        let "I=${I}+2"
+        let "NBNODES=${NBNODES}+1"
     done
     let "NBCORES=${NBNODES}*${NBCORESPERNODE}"
 
     # Run STAR-CCM with the hostfile argument
     #  
     ${STARCCM} -np ${NBCORES} -machinefile ${NODELIST_PATH} \
-    	-power -podkey "<yourkey>" -rsh ssh \
-    	-mpi intel -fabric UDAPL -cpubind bandwidth,v \
-    	-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0" \
-    	-batch $2 $3
+        -power -podkey "<yourkey>" -rsh ssh \
+        -mpi intel -fabric UDAPL -cpubind bandwidth,v \
+        -mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0" \
+        -batch $2 $3
     RTNSTS=$?
     rm -f ${NODELIST_PATH}
 
@@ -299,25 +292,18 @@ STAR-CCM+는 메모리 대역폭을 초과할 수 있으므로 계산 노드당 
 여기서,
 
 * `<Number of nodes>`는 이 작업에 할당된 노드 수입니다.
-
 * `<Name of node_n_...>`은 이 작업에 할당된 각 노드의 이름입니다.
-
 * `<Cores of node_n_...>`은 이 작업에 할당된 노드의 코어 수입니다.
 
 코어 수(**$NBCORES**)도 노드 수(**$NBNODES**) 및 노드당 코어 수(매개 변수 **$NBCORESPERNODE**로 제공)를 기준으로 계산됩니다.
 
 Azure에서 Intel MPI와 함께 사용하는 MPI 옵션은 다음과 같습니다.
 
-*   Intel MPI를 지정하는 `-mpi intel`.
-
-*   Azure InfiniBand 동사를 사용하기 위한 `-fabric UDAPL`.
-
-*   STAR-CCM+를 사용하는 MPI의 대역폭을 최적화하기 위한 `-cpubind bandwidth,v`.
-
-*   Intel MPI가 Azure InfiniBand에서 작동하고 노드당 필요한 코어 수를 설정하기 위한 `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"`.
-
-*   UI를 사용하지 않고 배치 모드에서 STAR-CCM+를 시작하기 위한 `-batch`.
-
+* Intel MPI를 지정하는 `-mpi intel`.
+* Azure InfiniBand 동사를 사용하기 위한 `-fabric UDAPL`.
+* STAR-CCM+를 사용하는 MPI의 대역폭을 최적화하기 위한 `-cpubind bandwidth,v`.
+* Intel MPI가 Azure InfiniBand에서 작동하고 노드당 필요한 코어 수를 설정하기 위한 `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"`.
+* UI를 사용하지 않고 배치 모드에서 STAR-CCM+를 시작하기 위한 `-batch`.
 
 마지막으로 작업을 시작하려면 노드가 실행 중이고 클러스터 관리자에서 온라인 상태인지 확인합니다. 그런 다음 PowerShell 명령 창에서 다음을 실행합니다.
 
@@ -337,9 +323,7 @@ Azure에서 Intel MPI와 함께 사용하는 MPI 옵션은 다음과 같습니�
 다른 Linux 워크로드를 실행해 봅니다. 예를 들어 다음을 참조하세요.
 
 * [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
-
 * [Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩을 사용하여 OpenFOAM 실행](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
-
 
 <!--Image references-->
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png

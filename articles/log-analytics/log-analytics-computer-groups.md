@@ -1,38 +1,35 @@
-<properties
-    pageTitle="Log Analytics 로그 검색의 컴퓨터 그룹 | Microsoft Azure"
-    description="Log Analytics의 컴퓨터 그룹을 사용하여 로그 검색 범위를 특정 컴퓨터 집합으로 한정할 수 있습니다.  이 문서에서는 컴퓨터 그룹을 만드는 데 사용할 수 있는 몇 가지 방법과 로그 검색에서의 사용 방법을 설명합니다."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bwren"
-    manager="jwhit"
-    editor=""/>
+---
+title: Log Analytics 로그 검색의 컴퓨터 그룹 | Microsoft Docs
+description: Log Analytics의 컴퓨터 그룹을 사용하여 로그 검색 범위를 특정 컴퓨터 집합으로 한정할 수 있습니다.  이 문서에서는 컴퓨터 그룹을 만드는 데 사용할 수 있는 몇 가지 방법과 로그 검색에서의 사용 방법을 설명합니다.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="bwren"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: bwren
 
-
-# <a name="computer-groups-in-log-analytics-log-searches"></a>Log Analytics 로그 검색의 컴퓨터 그룹 
+---
+# <a name="computer-groups-in-log-analytics-log-searches"></a>Log Analytics 로그 검색의 컴퓨터 그룹
 Log Analytics의 컴퓨터 그룹을 사용하여 [로그 검색](log-analytics-log-searches.md) 범위를 특정 컴퓨터 집합으로 한정할 수 있습니다.  각 그룹에는 사용자가 정의를 사용하거나 여러 원본에서 그룹을 가져와 컴퓨터가 채워집니다.  그룹이 로그 검색에 포함된 경우 결과는 그룹의 컴퓨터에 일치하는 레코드로 한정됩니다.
 
 ## <a name="creating-a-computer-group"></a>컴퓨터 그룹 만들기
 Log Analytics에서 다음 표의 방법 중 하나를 통해 컴퓨터 그룹을 만들 수 있습니다.  각 방법에 대한 자세한 내용은 아래 섹션에서 설명합니다. 
 
 | 메서드 | 설명 |
-|:---|:---|
-| 로그 검색       | 컴퓨터 목록을 반환하는 로그 검색을 만들고 결과를 컴퓨터 그룹으로 저장합니다. |
-| 로그 검색 API   | 로그 검색 API를 사용하여 프로그래밍 방식으로 로그 검색 결과에 따라 컴퓨터 그룹을 만듭니다. |
-| Active Directory | Active Directory 도메인의 구성원인 에이전트 컴퓨터의 그룹 구성원을 자동으로 검색하고 각 보안 그룹에 대해 Log Analytics에 그룹을 만듭니다.
-| WSUS              | 대상 그룹에 대해 자동으로 WSUS 서버나 클라이언트를 검색하고 각각에 대해 Log Analytics에 그룹을 만듭니다. |
-
+|:--- |:--- |
+| 로그 검색 |컴퓨터 목록을 반환하는 로그 검색을 만들고 결과를 컴퓨터 그룹으로 저장합니다. |
+| 로그 검색 API |로그 검색 API를 사용하여 프로그래밍 방식으로 로그 검색 결과에 따라 컴퓨터 그룹을 만듭니다. |
+| Active Directory |Active Directory 도메인의 구성원인 에이전트 컴퓨터의 그룹 구성원을 자동으로 검색하고 각 보안 그룹에 대해 Log Analytics에 그룹을 만듭니다. |
+| WSUS |대상 그룹에 대해 자동으로 WSUS 서버나 클라이언트를 검색하고 각각에 대해 Log Analytics에 그룹을 만듭니다. |
 
 ### <a name="log-search"></a>로그 검색
-
 로그 검색으로부터 만든 컴퓨터 그룹은 사용자가 정의한 검색 쿼리가 반환한 모든 컴퓨터를 포함합니다.  이 쿼리는 컴퓨터 그룹이 사용될 때마다 실행되므로 그룹이 만들어진 이후의 모든 변경 사항이 반영됩니다.
 
 다음 절차를 통해 로그 검색에서 컴퓨터 그룹을 만듭니다.
@@ -48,13 +45,11 @@ Log Analytics에서 다음 표의 방법 중 하나를 통해 컴퓨터 그룹�
     Computer=*srv* | measure count() by Computer
 
 ### <a name="log-search-api"></a>로그 검색 API
-
 로그 검색 API를 사용하여 만들어진 컴퓨터 그룹은 로그 검색으로 만든 검색과 동일합니다.
 
 로그 검색 API를 사용하여 컴퓨터 그룹을 만드는 것에 대한 자세한 내용은 [Log Analytics 로그 검색 REST API의 컴퓨터 그룹](log-analytics-log-search-api.md#computer-groups)을 참조하세요.
 
 ### <a name="active-directory"></a>Active Directory
-
 Active Directory 그룹 멤버 자격을 구성할 때는 OMS 에이전트와 도메인 연결 컴퓨터의 그룹 멤버 자격을 분석합니다.  컴퓨터 그룹은 Log Analytics에서 Active Directory의 각 보안 그룹에 대해 만들어지며 각 컴퓨터는 자신이 속산 보안 그룹에 해당하는 컴퓨터 그룹에 추가됩니다.  이 멤버 자격은 4시간 간격으로 계속 업데이트됩니다.  
 
 Log Analytics **설정**의 **컴퓨터 그룹** 메뉴에서 Active Directory 보안 그룹을 가져오도록 Log Analytics를 구성할 수 있습니다.  **자동화**를 선택한 다음 **컴퓨터에서 Active Directory 그룹 멤버 자격을 가져옵니다**.  추가 구성은 필요 없습니다.
@@ -64,7 +59,6 @@ Log Analytics **설정**의 **컴퓨터 그룹** 메뉴에서 Active Directory �
 그룹을 가져올 때는 탐지된 그룹 멤버 자격 및 가져온 그룹 수와 함께 컴퓨터 수가 메뉴에 나열됩니다.  이 링크 중 하나를 클릭하여 **ComputerGroup** 레코드와 이 정보를 반환할 수 있습니다.
 
 ### <a name="windows-server-update-service"></a>Windows Server 업데이트 서비스
-
 WSUS 그룹 멤버 자격을 가져오도록 Log Analytics를 구성하면 OMS 에이전트가 있는 컴퓨터의 대상 그룹 멤버 자격을 분석합니다.  클라이언트 쪽 대상을 사용하는 경우 OMS에 연결되고 WSUS 대상 그룹에 속한 모든 컴퓨터의 그룹 멤버 자격을 Log Analytics로 가져옵니다. 서버 쪽을 대상으로 사용하는 경우 그룹 멤버 자격 정보를 OMS로 가져오도록 OMS 에이전트를 WSUS 서버에 설치해야 합니다.  이 멤버 자격은 4시간 간격으로 계속 업데이트됩니다. 
 
 Log Analytics **설정**의 **컴퓨터 그룹** 메뉴에서 Active Directory 보안 그룹을 가져오도록 Log Analytics를 구성할 수 있습니다.  **Active Directory**를 선택한 다음 **컴퓨터에서 Active Directory 그룹 멤버 자격을 가져옵니다**.  추가 구성은 필요 없습니다.
@@ -74,7 +68,6 @@ Log Analytics **설정**의 **컴퓨터 그룹** 메뉴에서 Active Directory �
 그룹을 가져올 때는 탐지된 그룹 멤버 자격 및 가져온 그룹 수와 함께 컴퓨터 수가 메뉴에 나열됩니다.  이 링크 중 하나를 클릭하여 **ComputerGroup** 레코드와 이 정보를 반환할 수 있습니다.
 
 ## <a name="managing-computer-groups"></a>컴퓨터 그룹 관리
-
 Log Analytics **설정**의 **컴퓨터 그룹** 메뉴에서 로그 검색 또는 로그 검색 API로부터 생성된 컴퓨터 그룹을 볼 수 있습니다.  **제거** 열에서 **x**를 클릭하여 컴퓨터 그룹을 삭제합니다.  그룹에 대한 **멤버 보기** 아이콘을 클릭하여 멤버를 반환하는 그룹의 로그 검색을 실행합니다. 
 
 ![저장된 컴퓨터 그룹](media/log-analytics-computer-groups/configure-saved.png)
@@ -93,27 +86,22 @@ Log Analytics **설정**의 **컴퓨터 그룹** 메뉴에서 로그 검색 또�
     Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]
 
 ## <a name="computer-group-records"></a>컴퓨터 그룹 레코드
-
 Active Directory 또는 WSUS로 만든 각각의 컴퓨터 그룹 멤버 자격에 대해 OMS 저장소에 레코드가 만들어집니다.  이 레코드의 형식은 **ComputerGroup**이며 다음 표의 속성을 갖습니다.  로그 검색 기반의 컴퓨터 그룹에 대해서는 레코드가 만들어지지 않습니다.
 
 | 속성 | 설명 |
-|:--|:--|
-| 형식                | *ComputerGroup* |
-| SourceSystem        | *SourceSystem*  |
-| 컴퓨터            | 멤버 컴퓨터의 이름입니다. |
-| 그룹               | 그룹의 이름입니다. |
-| GroupFullName       | 원본 및 원본 이름을 포함하는 그룹에 대한 전체 경로입니다.
-| GroupSource         | 그룹을 수집해 온 원본입니다. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName     | 그룹을 수집해 온 원본의 이름입니다.  Active Directory의 경우 도메인 이름이 됩니다. |
-| ManagementGroupName | SCOM 에이전트의 경우 관리 그룹의 이름.  다른 에이전트의 경우 AOI-\<작업 영역 ID\>입니다. |
-| TimeGenerated       | 컴퓨터 그룹이 만들어졌거나 업데이트된 날짜 및 시간입니다. |
-
-
+|:--- |:--- |
+| 형식 |*ComputerGroup* |
+| SourceSystem |*SourceSystem* |
+| 컴퓨터 |멤버 컴퓨터의 이름입니다. |
+| 그룹 |그룹의 이름입니다. |
+| GroupFullName |원본 및 원본 이름을 포함하는 그룹에 대한 전체 경로입니다. |
+| GroupSource |그룹을 수집해 온 원본입니다. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
+| GroupSourceName |그룹을 수집해 온 원본의 이름입니다.  Active Directory의 경우 도메인 이름이 됩니다. |
+| ManagementGroupName |SCOM 에이전트의 경우 관리 그룹의 이름.  다른 에이전트의 경우 AOI-\<작업 영역 ID\>입니다. |
+| TimeGenerated |컴퓨터 그룹이 만들어졌거나 업데이트된 날짜 및 시간입니다. |
 
 ## <a name="next-steps"></a>다음 단계
-
-- 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.  
-
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.  
 
 <!--HONumber=Oct16_HO2-->
 

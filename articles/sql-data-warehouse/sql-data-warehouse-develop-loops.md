@@ -1,23 +1,23 @@
-<properties
-   pageTitle="SQL 데이터 웨어하우스 | Microsoft Azure의 루프"
-   description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 Transact-SQL 루프 및 커서 대체를 위한 팁."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: SQL 데이터 웨어하우스 | Microsoft Docs
+description: 솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 Transact-SQL 루프 및 커서 대체를 위한 팁.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # SQL 데이터 웨어하우스의 루프
-SQL 데이터 웨어하우스는 문 블록을 반복 실행하기 위한 [WHILE][] 루프를 지원합니다. 이 루프는 지정한 조건이 true이거나 코드가 `BREAK` 키워드를 사용하여 루프를 명시적으로 종료할 때까지 계속됩니다. 루프는 SQL 코드에 정의된 커서를 대체하는 데 특히 유용합니다. 다행히 SQL 코드로 작성된 거의 모든 커서는 빠른 정방향 읽기 전용 변형만 존재합니다. 따라서 [WHILE] 루프는 무언가를 대체해야 하는 경우 좋은 대안입니다.
+SQL 데이터 웨어하우스는 문 블록을 반복 실행하기 위한 [WHILE][WHILE] 루프를 지원합니다. 이 루프는 지정한 조건이 true이거나 코드가 `BREAK` 키워드를 사용하여 루프를 명시적으로 종료할 때까지 계속됩니다. 루프는 SQL 코드에 정의된 커서를 대체하는 데 특히 유용합니다. 다행히 SQL 코드로 작성된 거의 모든 커서는 빠른 정방향 읽기 전용 변형만 존재합니다. 따라서 [WHILE] 루프는 무언가를 대체해야 하는 경우 좋은 대안입니다.
 
 ## SQL 데이터 웨어하우스에서 루프 활용 및 커서 대체
 그러나 계속 진행하기 전에 먼저 스스로 질문해 보아야 합니다. "이 커서를 집합 기반 작업을 사용하도록 다시 작성할 수 있는가?" 대부분의 경우에서 응답은 '그렇다'이며 보통 가장 좋은 방법입니다. 집합 기반 작업은 흔히 행별 반복 접근 방식보다 훨씬 더 빠르게 수행됩니다.
@@ -68,7 +68,7 @@ DROP TABLE #tbl;
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 ## 다음 단계
-더 많은 개발 팁은 [개발 개요][]를 참조하세요.
+더 많은 개발 팁은 [개발 개요][개발 개요]를 참조하세요.
 
 <!--Image references-->
 

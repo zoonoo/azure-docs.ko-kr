@@ -1,38 +1,35 @@
-<properties
-    pageTitle="설정 및 데이터 로밍 FAQ | Microsoft Azure"
-    description="설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다."
-    services="active-directory"
-    keywords="엔터프라이즈 상태 로밍 설정, windows 클라우드, 엔터프라이즈 상태 로밍에 대한 질문과 대답"
-    documentationCenter=""
-    authors="femila"
-    manager="swadhwa"
-    editor="curtand"/>
+---
+title: 설정 및 데이터 로밍 FAQ | Microsoft Docs
+description: 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다.
+services: active-directory
+keywords: 엔터프라이즈 상태 로밍 설정, windows 클라우드, 엔터프라이즈 상태 로밍에 대한 질문과 대답
+documentationcenter: ''
+author: femila
+manager: swadhwa
+editor: curtand
 
-<tags
-    ms.service="active-directory"  
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/27/2016"
-    ms.author="femila"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: femila
 
-
+---
 # <a name="settings-and-data-roaming-faq"></a>설정 및 데이터 로밍 FAQ
-
 이 토픽에서는 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다.
 
 ## <a name="what-data-roams?"></a>어떤 데이터가 로밍됩니까?
 **Windows 설정**: Windows 운영 체제에 내장된 PC 설정. 일반적으로 PC를 개인 설정하는 설정이며, 다음과 같은 광범위한 범주를 포함합니다.
 
-- *테마*- 바탕 화면 테마 및 작업 표시줄 설정과 같은 기능 포함
-- *Internet Explorer 설정*- 최근에 열어본 탭 및 즐겨찾기 포함
-- *Edge 브라우저 설정*- 즐겨찾기, 읽기 목록 등
-- *암호*- 인터넷 암호, Wi-Fi 프로필 등 포함
-- *언어 기본 설정*- 키보드 레이아웃, 시스템 언어, 날짜 및 시간 등에 대한 설정 포함
-- *접근성 기능*- 고대비 테마, 내레이터, 돋보기 등
-- *기타 Windows 설정*- 명령 프롬프트 설정, 응용 프로그램 목록 등
-
+* *테마*- 바탕 화면 테마 및 작업 표시줄 설정과 같은 기능 포함
+* *Internet Explorer 설정*- 최근에 열어본 탭 및 즐겨찾기 포함
+* *Edge 브라우저 설정*- 즐겨찾기, 읽기 목록 등
+* *암호*- 인터넷 암호, Wi-Fi 프로필 등 포함
+* *언어 기본 설정*- 키보드 레이아웃, 시스템 언어, 날짜 및 시간 등에 대한 설정 포함
+* *접근성 기능*- 고대비 테마, 내레이터, 돋보기 등
+* *기타 Windows 설정*- 명령 프롬프트 설정, 응용 프로그램 목록 등
 
 **응용 프로그램 데이터**- 범용 Windows 앱은 “로밍” 폴더에 설정 데이터를 쓸 수 있으며, 이 폴더에 쓰여진 모든 데이터는 자동으로 동기화됩니다. 이 기능을 활용하는 앱 디자인 여부는 개별 앱 개발자의 결정에 달렸습니다. 로밍을 사용하는 범용 Windows 앱을 개발하는 방법에 대한 자세한 내용은 [앱 데이터 저장소 API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) 및 [Windows 8 앱 데이터 로밍 개발자 블로그](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)를 참조하세요.
 
@@ -45,13 +42,15 @@ Windows 10에서 장치의 기본 계정만 설정 동기화에 사용할 수 �
 
 데이터는 장치의 서로 다른 사용자 계정 간에 절대로 혼합되지 않습니다. 설정 동기화에는 두 가지 규칙이 있습니다.
 
-- Windows 설정은 항상 기본 계정으로 로밍됩니다.
-- 앱 데이터는 앱을 획득하는 데 사용되는 계정으로 태그를 지정합니다. 기본 계정을 사용하여 태그가 지정된 앱만 동기화 됩니다. 앱 소유권 태그 지정은 Windows 스토어 또는 MDM(모바일 장치 관리)을 통해 앱이 사이드 로드될 때 결정됩니다.
+* Windows 설정은 항상 기본 계정으로 로밍됩니다.
+* 앱 데이터는 앱을 획득하는 데 사용되는 계정으로 태그를 지정합니다. 기본 계정을 사용하여 태그가 지정된 앱만 동기화 됩니다. 앱 소유권 태그 지정은 Windows 스토어 또는 MDM(모바일 장치 관리)을 통해 앱이 사이드 로드될 때 결정됩니다.
 
 앱 소유자를 식별할 수 없는 경우 기본 계정을 사용하여 로밍합니다. 장치를 Windows 8 또는 Windows 8.1에서 Windows 10으로 업그레이드하는 경우 모든 앱이 Microsoft 계정을 통해 획득한 것으로 태그가 지정됩니다. 일반적으로 대부분의 앱은 Windows 스토어를 통해 획득되고, Windows 10 이전에서는 Azure AD 계정에 Windows 스토어가 지원되지 않기 때문입니다. 오프라인 라이선스를 통해 앱을 설치하는 경우에는 해당 장치의 기본 계정을 사용하여 앱의 태그가 지정됩니다.
 
->[AZURE.NOTE]  
+> [!NOTE]
 > 엔터프라이즈가 소유하고 Azure AD에 연결되어 있는 Windows 10 장치는 Microsoft 계정을 도메인 계정에 연결할 수 없습니다. Microsoft 계정을 도메인 계정에 연결하고 모든 사용자 데이터를 Microsoft 계정과 동기화(예: 연결된 Microsoft 계정 및 Active Directory 기능을 통해 Microsoft 계정 로밍)하는 기능은 연결된 Active Directory 또는 Azure AD 환경에 조인되는 Windows 10 장치에서 제거되었습니다.
+> 
+> 
 
 ## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10?"></a>Windows 8의 Microsoft 계정 설정 동기화에서 Windows 10의 Azure AD 설정 동기화로 업그레이드하려면 어떻게 해야 하나요?
 Microsoft 계정이 연결된 Windows 8 또는 Windows 8.1을 실행하는 Active Directory 도메인에 조인된 경우 Microsoft 계정을 통해 설정을 동기화합니다. Windows 10으로 업그레이드가 완료되면 도메인에 가입된 사용자인 경우 Active Directory 도메인이 Azure AD와 연결되지 않는 한 계속해서 Microsoft 계정을 통해 사용자 설정을 동기화하게 됩니다.
@@ -60,9 +59,8 @@ Microsoft 계정이 연결된 Windows 8 또는 Windows 8.1을 실행하는 Activ
 
 회사 장치에 개인 데이터를 저장한 경우 Windows OS 및 응용 프로그램 데이터가 Azure AD와 동기화된다는 사실에 주의해야 합니다. 이 값은 다음과 같은 의미를 갖습니다.
 
-- 개인 Microsoft 계정 사용자는 설정이 회사 또는 학교 Azure AD 계정과 점점 "달라지게" 됩니다. 이는 이제 Microsoft 계정 및 Azure AD 설정 동기화에서 별도 계정을 사용하고 있기 때문입니다.
-- 연결된 Microsoft 계정을 통해 이미 동기화된 Wi-Fi 암호, 웹 자격 증명 및 Internet Explorer 즐겨찾기 등 개인 데이터는 Azure AD를 통해 동기화됩니다.
-
+* 개인 Microsoft 계정 사용자는 설정이 회사 또는 학교 Azure AD 계정과 점점 "달라지게" 됩니다. 이는 이제 Microsoft 계정 및 Azure AD 설정 동기화에서 별도 계정을 사용하고 있기 때문입니다.
+* 연결된 Microsoft 계정을 통해 이미 동기화된 Wi-Fi 암호, 웹 자격 증명 및 Internet Explorer 즐겨찾기 등 개인 데이터는 Azure AD를 통해 동기화됩니다.
 
 ## <a name="how-do-microsoft-account-and-azure-ad-enterprise-state-roaming-interoperability-work?"></a>Microsoft 계정과 Azure AD 엔터프라이즈 상태 로밍의 상호 운용성이 어떻게 됩니까?
 Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로밍은 한 번에 한 계정에만 지원됩니다. 회사 및 학교 Azure AD 계정을 사용하여 Windows에 로그인하면 모든 데이터가 Azure AD를 통해 동기화됩니다. 개인용 Microsoft 계정을 사용하여 Windows에 로그인하면 모든 데이터가 Microsoft 계정을 통해 동기화됩니다. 앱 라이선스의 소유자가 기본 계정인 경우에만 유니버설 앱 데이터는 장치의 기본 로그인 계정을 사용하여 로밍됩니다. 소유자가 보조 계정인 앱에 대한 유니버설 앱 데이터는 동기화됩니다.
@@ -72,24 +70,22 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
 
 1. 각 Azure AD 테넌트에 대한 GUID를 확인합니다. Azure 클래식 포털을 열고 Azure AD 테넌트를 선택합니다. 테넌트에 대한 GUID는 브라우저 주소 표시줄의 URL에 있습니다. 예:  `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. GUID를 확인한 후에는 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<테넌트 ID GUID>**를 추가해야 합니다.
-**테넌트 ID GUID** 키에서 **AllowedRMSServerUrls**라는 새 다중 문자열 값(REG-MULTI-SZ)을 만듭니다. 해당 데이터에 대해 장치에서 액세스하는 다른 Azure 테넌트의 라이선스 배포 지점 URL을 지정합니다.
+   **테넌트 ID GUID** 키에서 **AllowedRMSServerUrls**라는 새 다중 문자열 값(REG-MULTI-SZ)을 만듭니다. 해당 데이터에 대해 장치에서 액세스하는 다른 Azure 테넌트의 라이선스 배포 지점 URL을 지정합니다.
 3. **Get-AadrmConfiguration** cmdlet을 실행하여 라이선싱 배포 지점 URL을 찾을 수 있습니다. **LicensingIntranetDistributionPointUrl** 및 **LicensingExtranetDistributionPointUrl**의 값이 다르면 두 값을 모두 지정합니다. 값이 같으면 값을 한 번만 지정합니다.
-
 
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications?"></a>기존 Windows 데스크톱 응용 프로그램의 로밍 설정 옵션은 무엇인가요?
 로밍은 유니버설 Windows 앱에서만 작동합니다. 기존 Windows 데스크톱 응용 프로그램에서 로밍을 활성화할 수 있는 두 가지 옵션이 있습니다.
 
-- [데스크톱 브리지](http://aka.ms/desktopbridge) 를 사용하면 유니버설 Windows 플랫폼에 기존 Windows 데스크톱 앱을 쉽게 가져올 수 있습니다. 이때 Azure AD 앱 데이터 로밍을 활용하려면 최소한의 코드 변경 작업이 필요합니다. 데스크톱 브리지는 앱 ID를 사용하여 앱을 제공하며 이는 기존 데스크톱 앱에 앱 데이터 로밍을 사용하는 데 필요합니다.
-- [UE-V(사용자 경험 가상화)](https://technet.microsoft.com/library/dn458947.aspx) 를 사용하면 기존 Windows 데스크톱 앱에 대한 사용자 지정 설정 템플릿을 만들 수 있고 Win32 앱에 대해서만 로밍을 사용할 수 있습니다. 이 옵션은 앱의 코드를 변경하기 위해 앱 개발자가 필요하지 않습니다. UE-V는 Microsoft Desktop Optimization Pack을 구매한 고객에 대한 온-프레미스 Active Directory 로밍으로 제한됩니다.
+* [데스크톱 브리지](http://aka.ms/desktopbridge) 를 사용하면 유니버설 Windows 플랫폼에 기존 Windows 데스크톱 앱을 쉽게 가져올 수 있습니다. 이때 Azure AD 앱 데이터 로밍을 활용하려면 최소한의 코드 변경 작업이 필요합니다. 데스크톱 브리지는 앱 ID를 사용하여 앱을 제공하며 이는 기존 데스크톱 앱에 앱 데이터 로밍을 사용하는 데 필요합니다.
+* [UE-V(사용자 경험 가상화)](https://technet.microsoft.com/library/dn458947.aspx) 를 사용하면 기존 Windows 데스크톱 앱에 대한 사용자 지정 설정 템플릿을 만들 수 있고 Win32 앱에 대해서만 로밍을 사용할 수 있습니다. 이 옵션은 앱의 코드를 변경하기 위해 앱 개발자가 필요하지 않습니다. UE-V는 Microsoft Desktop Optimization Pack을 구매한 고객에 대한 온-프레미스 Active Directory 로밍으로 제한됩니다.
 
 관리자는 [UE-V 그룹 정책](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2)을 통해 Windows OS 설정 및 유니버설 앱 데이터의 로밍을 변경하여 Windows 데스크톱 앱 데이터를 로밍하도록 UEV를 구성할 수 있습니다.
 
-- Windows 설정 로밍 그룹 정책
-- Windows 앱 동기화 안 함 그룹 정책
-- 응용 프로그램 섹션의 Internet Explorer 로밍
+* Windows 설정 로밍 그룹 정책
+* Windows 앱 동기화 안 함 그룹 정책
+* 응용 프로그램 섹션의 Internet Explorer 로밍
 
 앞으로 Microsoft는 UE-V를 Windows와 긴밀하게 통합하고 Azure AD 클라우드를 통해 설정을 로밍할 수 있도록 UE-V를 확장하는 방법을 연구할 것입니다.
-
 
 ## <a name="can-i-store-synced-settings-and-data-on-premises?"></a>동기화된 설정 및 데이터를 온-프레미스에 저장할 수 있나요?
 엔터프라이즈 상태 로밍은 Azure 클라우드에 동기화된 모든 데이터를 저장합니다. UE-V는 온-프레미스 로밍 솔루션을 제공합니다.
@@ -110,35 +106,30 @@ Microsoft에서는 사용자 프로필 로밍, UE-V, 엔터프라이즈 상태 �
 
 엔터프라이즈 상태 로밍과 UE-V를 모두 사용할 경우 다음 규칙이 적용됩니다.
 
-- 엔터프라이즈 상태 로밍은 장치의 기본 로밍 에이전트입니다. UE-V는 “Win32 갭”을 보완하기 위해 사용됩니다.
-- Windows 설정 및 최신 UWP 앱 데이터는 이미 엔터프라이즈 상태 로밍을 통해 다루었으므로 UE-V 그룹 정책을 사용하여 비활성화해야 합니다.
+* 엔터프라이즈 상태 로밍은 장치의 기본 로밍 에이전트입니다. UE-V는 “Win32 갭”을 보완하기 위해 사용됩니다.
+* Windows 설정 및 최신 UWP 앱 데이터는 이미 엔터프라이즈 상태 로밍을 통해 다루었으므로 UE-V 그룹 정책을 사용하여 비활성화해야 합니다.
 
 ## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-(vdi)?"></a>엔터프라이즈 상태 로밍은 VDI(가상 데스크톱 인프라)를 어떻게 지원하나요?
 엔터프라이즈 상태 로밍은 서버 SKU가 아니라 Windows 10 클라이언트 SKU에서 지원됩니다. 클라이언트 VM이 하이퍼바이저 컴퓨터에서 호스트되는 경우 사용자가 가상 컴퓨터에 원격으로 로그인하면 사용자의 데이터가 로밍됩니다. 여러 사용자가 동일한 OS를 공유하고 전체 데스크톱 환경을 위해 서버에 원격으로 로그인하는 경우 로밍이 작동하지 않을 수 있습니다. 두 번째 세션 기반 시나리오는 공식적으로 지원되지 않습니다.
-
 
 ## <a name="what-happens-when-my-organization-purchases-azure-rms-after-using-roaming?"></a>조직에서 로밍을 사용하다가 Azure RMS를 구입하면 어떻게 되나요?
 조직에서 Azure RMS 사용 제한된 무료 구독을 통해 Windows 10에서 이미 로밍을 사용 중인 경우에는 유료 Azure RMS 구독을 구입해도 로밍 기능에 영향을 주지 않으며 IT 관리자가 구성을 변경할 필요가 없습니다.
 
 ## <a name="known-issues"></a>알려진 문제
-
-- 스마트 카드 또는 가상 스마트 카드를 사용하여 Windows 장치에 로그인하려고 하면 설정 동기화가 중지됩니다. 이 문제는 추후에 있을 Windows 10 업데이트에서 해결될 것입니다.
-- 작업에 동기화된 Internet Explorer 즐겨찾기용 Windows 10에 대한 7월 누적 업데이트가 필요합니다(10586.494 빌드 이상).
-- Windows Information Protection으로 보호된 데이터는 엔터프라이즈 상태 로밍을 통해 동기화되지 않습니다. 또한 Windows Information Protection이 활성화된 컴퓨터는 테마 동기화가 발생하지 않습니다. 
-- 특정 조건에서 엔터프라이즈 상태 로밍은 Azure Multi-Factor Authentication이 구성된 경우 데이터를 동기화하는 데 실패할 수 있습니다.
-    - Azure Active Directory 포털에서 [Multi-Factor Authentication](multi-factor-authentication.md) 을 필요로 하도록 장치가 구성된 경우 암호를 사용하여 Windows 10 장치에 로그인하는 동안 설정을 동기화하는 데 실패할 수 있습니다. 이러한 형식의 Multi-Factor Authentication 구성은 Azure 관리자 계정을 보호하도록 계획되었습니다. 관리자 사용자는 Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN을 사용하거나 Multi-Factor Authentication을 완료하여 해당 Windows 10 장치에 로그인함으로써 동기화할 수 있습니다.
-    - 관리자가 Active Directory Federation Services Multi-Factor Authentication 조건부 액세스 정책을 구성하고 장치에 대한 액세스 토큰이 만료된 경우 동기화는 실패할 수 있습니다.  Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN을 사용하거나 Multi-Factor Authentication을 완료하여 로그인 및 로그아웃해야 합니다.
-
-- 컴퓨터가 Azure Active Directory 장치에 자동 등록되어 도메인에 가입된 경우 오랜 시간 동안 오프사이트 상태이면 동기화 실패가 발생할 수 있고 도메인 인증을 완료할 수 없습니다. 이 문제를 해결하려면 동기화를 다시 시작할 수 있도록 컴퓨터를 회사 네트워크에 연결합니다.
-
+* 스마트 카드 또는 가상 스마트 카드를 사용하여 Windows 장치에 로그인하려고 하면 설정 동기화가 중지됩니다. 이 문제는 추후에 있을 Windows 10 업데이트에서 해결될 것입니다.
+* 작업에 동기화된 Internet Explorer 즐겨찾기용 Windows 10에 대한 7월 누적 업데이트가 필요합니다(10586.494 빌드 이상).
+* Windows Information Protection으로 보호된 데이터는 엔터프라이즈 상태 로밍을 통해 동기화되지 않습니다. 또한 Windows Information Protection이 활성화된 컴퓨터는 테마 동기화가 발생하지 않습니다. 
+* 특정 조건에서 엔터프라이즈 상태 로밍은 Azure Multi-Factor Authentication이 구성된 경우 데이터를 동기화하는 데 실패할 수 있습니다.
+  
+  * Azure Active Directory 포털에서 [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) 을 필요로 하도록 장치가 구성된 경우 암호를 사용하여 Windows 10 장치에 로그인하는 동안 설정을 동기화하는 데 실패할 수 있습니다. 이러한 형식의 Multi-Factor Authentication 구성은 Azure 관리자 계정을 보호하도록 계획되었습니다. 관리자 사용자는 Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN을 사용하거나 Multi-Factor Authentication을 완료하여 해당 Windows 10 장치에 로그인함으로써 동기화할 수 있습니다.
+  * 관리자가 Active Directory Federation Services Multi-Factor Authentication 조건부 액세스 정책을 구성하고 장치에 대한 액세스 토큰이 만료된 경우 동기화는 실패할 수 있습니다.  Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN을 사용하거나 Multi-Factor Authentication을 완료하여 로그인 및 로그아웃해야 합니다.
+* 컴퓨터가 Azure Active Directory 장치에 자동 등록되어 도메인에 가입된 경우 오랜 시간 동안 오프사이트 상태이면 동기화 실패가 발생할 수 있고 도메인 인증을 완료할 수 없습니다. 이 문제를 해결하려면 동기화를 다시 시작할 수 있도록 컴퓨터를 회사 네트워크에 연결합니다.
 
 ## <a name="related-topics"></a>관련된 항목
-- [엔터프라이즈 상태 로밍 개요](active-directory-windows-enterprise-state-roaming-overview.md)
-- [Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화](active-directory-windows-enterprise-state-roaming-enable.md)
-- [설정 동기화에 대한 그룹 정책 및 MDM 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-- [Windows 10 로밍 설정 참조](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-
-
+* [엔터프라이즈 상태 로밍 개요](active-directory-windows-enterprise-state-roaming-overview.md)
+* [Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화](active-directory-windows-enterprise-state-roaming-enable.md)
+* [설정 동기화에 대한 그룹 정책 및 MDM 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
+* [Windows 10 로밍 설정 참조](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
 <!--HONumber=Oct16_HO2-->
 

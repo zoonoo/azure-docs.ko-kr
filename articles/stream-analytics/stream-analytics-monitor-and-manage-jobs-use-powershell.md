@@ -1,31 +1,27 @@
-<properties 
-    pageTitle="PowerShell을 사용하여 스트림 분석 작업 모니터링 및 관리 | Microsoft Azure" 
-    description="Azure PowerShell 및 cmdlet을 사용하여 스트림 분석 작업을 모니터링하고 관리하는 방법에 대해 알아봅니다." 
-    keywords="azure powershell, azure powershell cmdlet, powershell 명령, powershell 스크립팅" 
-    services="stream-analytics" 
-    documentationCenter="" 
-    authors="jeffstokes72" 
-    manager="jhubbard" 
-    editor="cgronlun"/>
+---
+title: PowerShell을 사용하여 스트림 분석 작업 모니터링 및 관리 | Microsoft Docs
+description: Azure PowerShell 및 cmdlet을 사용하여 스트림 분석 작업을 모니터링하고 관리하는 방법에 대해 알아봅니다.
+keywords: azure powershell, azure powershell cmdlet, powershell 명령, powershell 스크립팅
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-    ms.service="stream-analytics" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="data-services" 
-    ms.date="09/26/2016" 
-    ms.author="jeffstok"/>
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 09/26/2016
+ms.author: jeffstok
 
-
-
+---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Azure PowerShell cmdlet을 사용하여 스트림 분석 작업 모니터링 및 관리
-
 기본 스트림 분석 작업을 실행하는 Azure PowerShell cmdlet 및 PowerShell 스크립팅을 사용하여 스트림 분석 리소스를 모니터링 및 관리하는 방법을 알아봅니다.
 
 ## <a name="prerequisites-for-running-azure-powershell-cmdlets-for-stream-analytics"></a>스트림 분석에 Azure PowerShell cmdlet을 실행하기 위한 필수 조건
-
- - 구독에서 Azure 리소스 그룹을 만듭니다. 다음은 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.  
+* 구독에서 Azure 리소스 그룹을 만듭니다. 다음은 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.  
 
 Azure PowerShell 0.9.8:  
 
@@ -34,7 +30,7 @@ Azure PowerShell 0.9.8:
 
         # Select the Azure subscription you want to use to create the resource group if you have more than one subscription on your account.
         Select-AzureSubscription -SubscriptionName <subscription name>
- 
+
         # If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
         #Register-AzureProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
@@ -51,13 +47,16 @@ Azure PowerShell 1.0.
 
         # If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
         #Register-AzureRmResourceProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
-        
+
         # Create an Azure resource group
         New-AzureRMResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
-        
 
 
-> [AZURE.NOTE] 프로그래밍 방식으로 만든 스트림 분석 작업은 기본적으로 모니터링이 설정되어 있지 않습니다.  작업의 모니터 페이지로 이동하고 사용 버튼을 클릭하여 Azure 포털에서 수동으로 모니터링을 설정하거나 [Azure 스트림 분석 - 프로그래밍 방식으로 스트림 분석 작업 모니터링](stream-analytics-monitor-jobs.md)의 단계를 수행하여 이를 프로그래밍 방식으로 수행할 수 있습니다.
+
+> [!NOTE]
+> 프로그래밍 방식으로 만든 스트림 분석 작업은 기본적으로 모니터링이 설정되어 있지 않습니다.  작업의 모니터 페이지로 이동하고 사용 버튼을 클릭하여 Azure 포털에서 수동으로 모니터링을 설정하거나 [Azure 스트림 분석 - 프로그래밍 방식으로 스트림 분석 작업 모니터링](stream-analytics-monitor-jobs.md)의 단계를 수행하여 이를 프로그래밍 방식으로 수행할 수 있습니다.
+> 
+> 
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>스트림 분석용 Azure PowerShell cmdlet
 다음 Azure PowerShell cmdlet은 Azure 스트림 분석 작업을 모니터링하고 관리하는 데 사용할 수 있습니다. Azure PowerShell에는 여러 버전이 있습니다. 
@@ -188,7 +187,7 @@ Azure PowerShell 1.0.
 
 ### <a name="new-azurestreamanalyticsinput-|-new-azurermstreamanalyticsinput"></a>New-AzureStreamAnalyticsInput | New-AzureRMStreamAnalyticsInput
 스트림 분석 작업 내에서 새 입력을 만들거나 지정한 기존 입력을 업데이트합니다.
-  
+
 .json 파일 또는 명령줄에서 입력의 이름을 지정할 수 있습니다. 둘 다 지정하는 경우 명령줄의 이름이 파일에 있는 이름과 동일해야 합니다.
 
 이미 존재하는 입력을 지정하고 -Force 매개 변수를 지정하지 않을 경우 cmdlet에서 기존 입력을 바꿀지 여부를 묻습니다.
@@ -305,7 +304,7 @@ Azure PowerShell 1.0.
 
 ### <a name="new-azurestreamanalyticstransformation-|-new-azurermstreamanalyticstransformation"></a>New-AzureStreamAnalyticsTransformation | New-AzureRMStreamAnalyticsTransformation
 스트림 분석 작업 내에서 새 변환을 만들거나 기존 변환을 업데이트합니다.
-  
+
 .json 파일 또는 명령줄에서 변환의 이름을 지정할 수 있습니다. 둘 다 지정하는 경우 명령줄의 이름이 파일에 있는 이름과 동일해야 합니다.
 
 이미 존재하는 변환을 지정하고 -Force 매개 변수를 지정하지 않을 경우 cmdlet에서 기존 변환을 바꿀지 여부를 묻습니다.
@@ -401,7 +400,6 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 사용자 지정 출력 시작 시간이 2012년 12월 12일 12:12:12 UTC로 설정되어 StreamingJob 작업을 시작합니다.
 
-
 ### <a name="stop-azurestreamanalyticsjob-|-stop-azurermstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
 Microsoft Azure에서 실행 중인 스트림 분석 작업을 비동기적으로 중지하고 사용하던 리소스를 할당 취소합니다. 작업 정의와 메타데이터는 작업을 편집하고 다시 시작할 수 있도록 Azure 포털과 관리 API를 통해 구독 내에서 계속 사용할 수 있습니다. 중지됨 상태의 작업에 대해서는 요금이 부과되지 않습니다.
 
@@ -432,7 +430,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 StreamingJob에서 EntryStream 입력의 연결 상태를 테스트합니다.  
 
-###<a name="test-azurestreamanalyticsoutput-|-test-azurermstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzureRMStreamAnalyticsOutput
+### <a name="test-azurestreamanalyticsoutput-|-test-azurermstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzureRMStreamAnalyticsOutput
 스트림 분석이 지정한 출력에 연결할 수 있는지 테스트합니다.
 
 **예 1**
@@ -450,17 +448,12 @@ Azure PowerShell 1.0.
 ## <a name="get-support"></a>지원 받기
 추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요. 
 
-
 ## <a name="next-steps"></a>다음 단계
-
-- [Azure 스트림 분석 소개](stream-analytics-introduction.md)
-- [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md)
-- [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
-- [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
- 
-
-
+* [Azure 스트림 분석 소개](stream-analytics-introduction.md)
+* [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md)
+* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [msdn-switch-azuremode]: http://msdn.microsoft.com/library/dn722470.aspx
 [powershell-install]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
@@ -475,7 +468,7 @@ Azure PowerShell 1.0.
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
- 
+
 
 
 

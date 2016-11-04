@@ -1,30 +1,27 @@
-<properties
-    pageTitle="여러 지역에 웹 서비스를 배포하는 방법 | Microsoft Azure"
-    description="새 웹 서비스를 다른 영역을 배포(복사)하는 단계입니다."
-    services="machine-learning"
-    documentationCenter=""
-    authors="vDonGlover"
-    manager="raymondl"
-    editor="cgronlun"/>
+---
+title: 여러 지역에 웹 서비스를 배포하는 방법 | Microsoft Docs
+description: 새 웹 서비스를 다른 영역을 배포(복사)하는 단계입니다.
+services: machine-learning
+documentationcenter: ''
+author: vDonGlover
+manager: raymondl
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/05/2016"
-    ms.author="v-donglo"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/05/2016
+ms.author: v-donglo
 
-
+---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>여러 지역에 웹 서비스를 배포하는 방법
-
 새 Azure 웹 서비스를 사용하면 여러 구독 또는 작업 영역 없이 여러 지역에 웹 서비스를 쉽게 배포할 수 있습니다. 
 
 가격 책정은 지역별로 이루어집니다. 따라서 웹 서비스를 배포할 각 지역에 대한 청구 계획을 정의해야 합니다.
 
 ## <a name="to-create-a-plan-in-another-region"></a>다른 지역에 계획을 만들려면
-
 1. [Microsoft Azure 기계 학습 웹 서비스](https://services.azureml.net/)에 로그인합니다.
 2. **계획** 메뉴 옵션을 클릭합니다.
 3. 보기 페이지의 계획에서 **새로 만들기**를 클릭합니다.
@@ -35,9 +32,7 @@
 8. **계획 옵션**에서 새 계획에 대한 청구 수준을 클릭합니다.
 9. **만들기**를 클릭합니다.
 
-
 ## <a name="deploying-the-web-service-to-another-region"></a>다른 지역에 웹 서비스 배포
-
 1. **웹 서비스** 메뉴 옵션을 클릭합니다.
 2. 새 지역에 배포하는 웹 서비스를 선택합니다.
 3. **복사**를 클릭합니다.
@@ -49,9 +44,6 @@
 9. **저장소 계정** 드롭다운에서 웹 서비스에 저장할 저장소 계정을 선택합니다.
 10. **가격 계획** 드롭다운에서 8단계에서 선택한 영역에서 계획을 선택합니다.
 11. **복사**를 클릭합니다.
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

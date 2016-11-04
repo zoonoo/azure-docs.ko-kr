@@ -1,28 +1,25 @@
-<properties
-    pageTitle="Log Analytics FAQ | Microsoft Azure"
-    description="Log Analytics 서비스에 대해 자주 묻는 질문에 대한 답변입니다."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: Log Analytics FAQ | Microsoft Docs
+description: Log Analytics 서비스에 대해 자주 묻는 질문에 대한 답변입니다.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
-
+---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
-
 Microsoft FAQ는 Microsoft Operations Management Suite(OMS)의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) 으로 이동하여 질문을 게시하세요. 커뮤니티의 구성원이 답변을 얻는 데 도움을 줄 것입니다. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
 
 ## <a name="general"></a>일반
-
 **Q. AD 및 SQL 평가 솔루션에서 수행하는 검사는 무엇입니까?**
 
 A. 다음 쿼리는 현재 수행하는 모든 검사에 대한 설명을 보여 줍니다.
@@ -58,7 +55,7 @@ A. Log Analytics 서비스는 Azure의 맨 위에 기본 제공되며 끝점은 
 
 **Q. Express 경로를 사용하여 Azure에 연결합니다. Log Analytics 트래픽이 내 ExpressRoute 연결을 사용할까요?**  
 
-A. 여러 유형의 Express 경로 트래픽이 [Express 경로 설명서](./expressroute/expressroute-faqs.md#supported-services)에 나와 있습니다.
+A. 여러 유형의 Express 경로 트래픽이 [Express 경로 설명서](../expressroute/expressroute-faqs.md#supported-services)에 나와 있습니다.
 
 Log Analytics에 대한 트래픽은 공용 피어링 Express 경로 회로를 사용합니다.
 
@@ -90,7 +87,6 @@ A: SCOM에서는 OMS 관리되는 목록에서 컴퓨터를 제거합니다. 그
 **Azure Log Analytics(OMS)**아래에서 나열된 모든 작업 영역을 제거합니다.
 
 ## <a name="agent-data"></a>에이전트 데이터
-
 **Q. 에이전트를 통해 Log Analytics로 얼마나 많은 데이터를 보낼 수 있나요? 고객 한 명당 최대 데이터 용량이 있나요?**  
 A. 무료 요금제에서는 작업 영역당 일일 용량을 500MB로 설정합니다. 표준 및 프리미엄 요금제에는 업로드되는 데이터 양에 제한이 없습니다. 클라우드 서비스로 OMS의 Log Analytics는 고객의 데이터 볼륨(일일 테라바이트 단위까지)을 처리하도록 자동 강화되도록 설계되었습니다.
 
@@ -106,9 +102,9 @@ A. 대역폭은 전송된 데이터 양에 대한 기능입니다. 네트워크�
 
 A. 다음에 따라 크게 달라집니다.
 
-- 사용하도록 설정한 솔루션
-- 수집되는 로그 및 성능 카운터 수
-- 로그에 있는 데이터 볼륨
+* 사용하도록 설정한 솔루션
+* 수집되는 로그 및 성능 카운터 수
+* 로그에 있는 데이터 볼륨
 
 무료 가격 책정 계층은 여러 서버에 등록하고 일반적인 데이터 볼륨을 측정하는 좋은 방법입니다. 전체 사용 현황은 **사용량** 페이지에 표시됩니다.
 WireData 에이전트를 실행할 수 있는 컴퓨터의 경우 다음 쿼리를 사용하여 전송 중인 데이터의 양을 확인할 수 있습니다.
@@ -120,10 +116,7 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 
 ## <a name="next-steps"></a>다음 단계
-
-- [Log Analytics 시작](log-analytics-get-started.md) 에서 Log Analytics에 대한 정보와 Log Analytics를 몇 분 만에 시작 및 실행하는 방법에 대해 알아보세요.
-
-
+* [Log Analytics 시작](log-analytics-get-started.md) 에서 Log Analytics에 대한 정보와 Log Analytics를 몇 분 만에 시작 및 실행하는 방법에 대해 알아보세요.
 
 <!--HONumber=Oct16_HO2-->
 

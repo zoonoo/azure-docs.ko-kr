@@ -1,26 +1,26 @@
 
-<properties
-    pageTitle="Azure RemoteApp에 대한 사용자 지정 이미지에 중요 데이터를 저장하지 않음 | Microsoft Azure"
-    description="Azure RemoteApp의 사용자 지정 이미지에 데이터를 저장하기 위한 지침 알아보기"
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Azure RemoteApp에 대한 사용자 지정 이미지에 중요 데이터를 저장하지 않음 | Microsoft Docs
+description: Azure RemoteApp의 사용자 지정 이미지에 데이터를 저장하기 위한 지침 알아보기
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # 사용자 지정 이미지에 중요 데이터를 저장하지 않음
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> [!IMPORTANT]
+> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> 
+> 
 
 Azure RemoteApp에서 사용자 고유의 응용 프로그램을 호스팅할 때는 먼저 사용자 지정 이미지를 만들어야 합니다. 사용자 지정 이미지를 사용하여 사용자에게 앱을 서비스하는 VM 인스턴스를 만듭니다. 사용자 지정 이미지는 응용 프로그램만 포함해야 하며, SQL 데이터베이스, 개인 파일, 특수 데이터 파일(예: QuickBooks) 등의 손실될 수 있는 중요 데이터는 포함할 수 없습니다. 모든 중요 데이터는 파일 서버에서 Azure RemoteApp 외부, 다른 Azure VM 또는 SQL Azure에 있어야 합니다. 이미지는 데이터 원본에 연결되고 데이터를 표시하는 응용 프로그램만 호스팅해야 합니다. 자세한 내용은 [Azure RemoteApp 이미지에 대한 요구 사항](remoteapp-imagereqs.md)을 검토하세요.
 
@@ -30,19 +30,19 @@ Azure RemoteApp에서 사용자 고유의 응용 프로그램을 호스팅할 �
 
 이미지에 상주할 수 없는 데이터 예:
 
-- 사용자가 액세스할 수 있는 공유 데이터
-- SQL DB 또는 QuickBooks DB
-- D:\\의 모든 데이터
+* 사용자가 액세스할 수 있는 공유 데이터
+* SQL DB 또는 QuickBooks DB
+* D:\\의 모든 데이터
 
 모든 사용자의 UPD에 복사되는 기본 프로필에 상주할 수 있는 데이터 예:
 
-- 사용자별 구성 파일
-- 사용자가 자신의 UPD에 보존해야 하는 스크립트
+* 사용자별 구성 파일
+* 사용자가 자신의 UPD에 보존해야 하는 스크립트
 
 핵심 내용:
 
-- 사용자 지정 이미지를 만들 때 이미지에 손실될 수 있는 중요 이미지를 저장하지 않습니다.
-- 중요한 데이터는 항상 별도의 파일 서버, 클라우드의 별도 Azure VM에 상주해야 하며 항상 Azure RemoteApp에서 응용 프로그램을 호스팅하는 VM 인스턴스 외부에 있어야 합니다.
-- 사용자 데이터는 사용자 프로필 디스크(UPD)에 저장되어 유지됩니다.
+* 사용자 지정 이미지를 만들 때 이미지에 손실될 수 있는 중요 이미지를 저장하지 않습니다.
+* 중요한 데이터는 항상 별도의 파일 서버, 클라우드의 별도 Azure VM에 상주해야 하며 항상 Azure RemoteApp에서 응용 프로그램을 호스팅하는 VM 인스턴스 외부에 있어야 합니다.
+* 사용자 데이터는 사용자 프로필 디스크(UPD)에 저장되어 유지됩니다.
 
 <!---HONumber=AcomDC_0817_2016-->

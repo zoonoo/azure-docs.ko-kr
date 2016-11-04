@@ -1,30 +1,28 @@
-<properties
-    pageTitle="Azure 계산 옵션 - 클라우드 서비스 | Microsoft Azure"
-    description="Azure 계산 호스팅 옵션 및 작동 방식에 대해 알아봅니다. 앱 서비스, 클라우드 서비스 및 가상 컴퓨터"
-    services="cloud-services"
-    documentationCenter=""
-    authors="Thraka"
-    manager="timlt"/>
+---
+title: Azure 계산 옵션 - 클라우드 서비스 | Microsoft Docs
+description: Azure 계산 호스팅 옵션 및 작동 방식에 대해 알아봅니다. 앱 서비스, 클라우드 서비스 및 가상 컴퓨터
+services: cloud-services
+documentationcenter: ''
+author: Thraka
+manager: timlt
 
-<tags
-    ms.service="multiple"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/11/2016"
-    ms.author="adegeo"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/11/2016
+ms.author: adegeo
 
-
+---
 # <a name="should-i-choose-cloud-services-or-something-else?"></a>클라우드 서비스 또는 다른 항목을 선택해야 합니까?
-
 Azure 클라우드 서비스가 적절한 선택입니까? Azure는 응용 프로그램을 실행하기 위한 여러 호스팅 모델을 제공합니다. 각각은 다양한 서비스 세트를 제공하므로 정확히 무엇을 수행하고자 하는지에 따라 선택 항목이 달라집니다.
 
-[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+[!INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
 <a name="tellmecs"></a>
-## <a name="tell-me-about-cloud-services"></a>클라우드 서비스에 대한 설명
 
+## <a name="tell-me-about-cloud-services"></a>클라우드 서비스에 대한 설명
 클라우드 서비스는 [PaaS(Platform-as-a-Service)](https://azure.microsoft.com/overview/what-is-paas/) 의 예입니다. [앱 서비스](../app-service-web/app-service-web-overview.md)와 마찬가지로 이 기술은 확장성 있고 안정적이며 운영 비용이 저렴한 응용 프로그램을 지원하도록 설계되었습니다. 앱 서비스와 마찬가지로 클라우드 서비스도 VM에서 호스트되지만 VM에 대한 제어력이 높습니다. 클라우드 서비스 VM에 원하는 소프트웨어를 설치하여 원격으로 실행할 수 있습니다.
 
 ![cs_diagram](./media/cloud-services-choose-me/diagram.png)
@@ -37,7 +35,6 @@ Azure 클라우드 서비스가 적절한 선택입니까? Azure는 응용 프�
 
 * **웹 역할**  
    IIS에 자동으로 배포된 웹앱과 함께 Windows Server를 실행합니다.
-
 * **작업자 역할**  
    IIS 없이 Windows Server를 실행합니다.
 
@@ -62,8 +59,6 @@ Azure 클라우드 서비스가 적절한 선택입니까? Azure는 응용 프�
 [Node.js로 클라우드 서비스 앱 만들기](cloud-services-nodejs-develop-deploy-app.md)  
 [PHP로 클라우드 서비스 앱 만들기](../cloud-services-php-create-web-role.md)  
 [Python에서 클라우드 서비스 앱 만들기](cloud-services-python-ptvs.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

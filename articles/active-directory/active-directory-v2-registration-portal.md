@@ -1,21 +1,21 @@
-<properties
-	pageTitle="앱 등록 포털 도움말 항목 | Microsoft Azure"
-	description="Microsoft 앱 등록 포털의 다양한 기능을 설명합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: 앱 등록 포털 도움말 항목 | Microsoft Docs
+description: Microsoft 앱 등록 포털의 다양한 기능을 설명합니다.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: dastrock
 
+---
 # 앱 등록 참조
 이 문서에서는 Microsoft 앱 등록 포털 [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com)에 있는 다양한 기능에 대한 컨텍스트 및 설명을 제공합니다.
 

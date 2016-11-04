@@ -1,6 +1,6 @@
 <a name="tellmecs"></a>
-## 클라우드 서비스에 대한 설명
 
+## 클라우드 서비스에 대한 설명
 클라우드 서비스는 PaaS(Platform-as-a-Service)의 예입니다. [앱 서비스](../articles/app-service-web/app-service-web-overview.md)와 마찬가지로 이 기술은 확장 가능하고 안정적이며 운영 비용이 저렴한 응용 프로그램을 지원하도록 설계되었습니다. 앱 서비스와 마찬가지로 클라우드 서비스도 VM에서 호스트되지만 VM에 대한 제어력이 높습니다. 클라우드 서비스 VM에 원하는 소프트웨어를 설치하여 원격으로 실행할 수 있습니다.
 
 ![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)
@@ -14,7 +14,7 @@
 * **웹 역할** IIS에 자동으로 배포된 웹앱과 함께 Windows Server를 실행합니다.
 * **작업자 역할** IIS 없이 Windows Server를 실행합니다.
 
-예를 들어 간단한 응용 프로그램은 웹 역할만 사용할 수 있지만 좀더 복잡한 응용 프로그램은 웹 역할을 사용하여 사용자로부터의 수신 요청을 처리한 후 요청을 만든 작업을 작업자 역할에 전달하여 처리할 수 있습니다. 이 통신은 [서비스 버스](../articles/service-bus/service-bus-fundamentals-hybrid-solutions.md)나 [Azure 큐](../articles/storage/storage-introduction.md)를 사용할 수 있음)
+예를 들어 간단한 응용 프로그램은 웹 역할만 사용할 수 있지만 좀더 복잡한 응용 프로그램은 웹 역할을 사용하여 사용자로부터의 수신 요청을 처리한 후 요청을 만든 작업을 작업자 역할에 전달하여 처리할 수 있습니다. 이 통신은 [서비스 버스](../articles/service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)나 [Azure 큐](../articles/storage/storage-introduction.md)를 사용할 수 있음)
 
 위에 나와 있는 것처럼 단일 응용 프로그램의 모든 VM은 동일한 클라우드 서비스에서 실행됩니다. 그렇기 때문에 사용자는 응용 프로그램 VM의 자동 부하 분산 요청으로 하나의 공용 IP 주소를 통해 응용 프로그램에 액세스합니다. 플랫폼은 하드웨어 오류를 방지하는 방식으로 클라우드 서비스 응용 프로그램에 VM을 [확장 및 배포](../articles/cloud-services/cloud-services-how-to-scale.md)합니다.
 

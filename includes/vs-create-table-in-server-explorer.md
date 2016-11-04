@@ -7,9 +7,6 @@ Visual Studio **서버 탐색기**를 사용하여 Azure 저장소 테이블을 
 3. **테이블** 노드를 선택하고 상황에 맞는 메뉴에서 **테이블 만들기**를 선택합니다.
 4. 테이블 이름을 입력하고 **확인**을 선택합니다.   
 
-
-
-
 [Image1]: ./media/vs-storage-getting-started-tables-include/vs-storage-create-tables-in-Server-Explorer.png
 
 <!---HONumber=Oct15_HO3-->

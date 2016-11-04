@@ -1,36 +1,35 @@
-<properties 
-	pageTitle="기계 학습 권장 사항 API의 공통 작업 | Microsoft Azure" 
-	description="Azure ML 권장 사항 샘플 응용 프로그램" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: 기계 학습 권장 사항 API의 공통 작업 | Microsoft Docs
+description: Azure ML 권장 사항 샘플 응용 프로그램
+services: machine-learning
+documentationcenter: ''
+author: LuisCabrer
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2016" 
-	ms.author="luisca"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2016
+ms.author: luisca
 
-
+---
 # 권장 사항 API 응용 프로그램 예제 연습
+> [!NOTE]
+> 이 버전 대신 Recommendations API Cognitive 서비스를 사용하기 시작해야 합니다. Recommendations Cognitive 서비스가 이 서비스를 대체하게 되며, 모든 새로운 기능이 여기에서 개발됩니다. 일괄 처리 지원, 개선된 API 탐색기, 보다 깔끔한 API 노출 영역, 보다 일관적인 등록/청구 경험 등의 새로운 기능이 있습니다. [새로운 Cognitive 서비스로 마이그레이션](http://aka.ms/recomigrate)에 대해 자세히 알아보세요.
+> 
+> 
 
->[AZURE.NOTE] 이 버전 대신 Recommendations API Cognitive 서비스를 사용하기 시작해야 합니다. Recommendations Cognitive 서비스가 이 서비스를 대체하게 되며, 모든 새로운 기능이 여기에서 개발됩니다. 일괄 처리 지원, 개선된 API 탐색기, 보다 깔끔한 API 노출 영역, 보다 일관적인 등록/청구 경험 등의 새로운 기능이 있습니다. [새로운 Cognitive 서비스로 마이그레이션](http://aka.ms/recomigrate)에 대해 자세히 알아보세요.
-
-##목적
-
+## 목적
 이 문서에서는 [샘플 응용 프로그램](https://code.msdn.microsoft.com/Recommendations-144df403)을 통해 Azure 기계 학습 권장 사항 API의 사용법을 보여 줍니다.
 
 이 응용 프로그램은 일부 기능만 포함하고 있으며 일부 API만 사용합니다. 기계 학습 권장 서비스를 처음 시작할 때 수행할 일반적인 작업 일부를 보여 줍니다.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##기계 학습 권장 서비스 소개
-
+## 기계 학습 권장 서비스 소개
 다음 데이터를 기반으로 권장 사항 모델을 빌드할 때 기계 학습 권장 사항 서비스를 통해 권장 사항이 사용하도록 설정됩니다.
 
 * 권장하려는 항목의 리포지토리(카탈로그라고도 함)
@@ -56,18 +55,15 @@
 
 일반적으로 특정 기간에 대해 Get Recommendation을 호출합니다. 해당 기간 동안 사용 현황 데이터를 기계 학습 권장 시스템으로 리디렉션할 수 있으며, 이 경우 지정된 모델 컨테이너에 이 데이터가 추가됩니다. 사용 현황 데이터가 충분히 모였으면 추가 사용 현황 데이터를 통합하는 새 권장 사항 모델을 빌드할 수 있습니다.
 
-##필수 조건
-
+## 필수 조건
 * Visual Studio 2013
 * 인터넷 액세스
 * 추천 API 구독(https://datamarket.azure.com/dataset/amla/recommendations)
 
-##Azure 기계 학습 샘플 앱 솔루션
-
+## Azure 기계 학습 샘플 앱 솔루션
 이 솔루션에는 소스 코드, 샘플 사용법, 카탈로그 파일 및 컴파일에 필요한 Nuget 패키지를 다운로드하는 지시문이 포함됩니다.
 
-##사용되는 API
-
+## 사용되는 API
 응용 프로그램에서는 사용 가능한 API의 하위 집합을 통해 기계 학습 권장 기능을 사용합니다. 다음 API는 응용 프로그램으로 보여 줍니다.
 
 * 모델 만들기: 데이터 및 권장 사항 모델을 포함하는 논리 컨테이너를 만듭니다. 모델은 이름으로 식별되고, 이름이 같은 모델을 여러 개 만들 수 없습니다.
@@ -83,13 +79,11 @@ API에 대한 자세한 내용은 Microsoft Azure 마켓플레이스 설명서�
 **참고**: 시간이 지나면(동시는 아님) 모델 빌드가 여러 개 있을 수 있습니다. 각 빌드는 기존과 동일한 또는 업데이트된 카탈로그 및 추가 사용 현황 데이터를 통해 생성됩니다.
 
 ## 공통 문제
-
 * 샘플 앱을 실행하려면 사용자 이름 및 Microsoft Azure 마켓플레이스 기본 계정 키를 입력해야 합니다.
 * 샘플 앱을 연속해서 실행하면 실패합니다. 응용 프로그램은 모니터 생성, 모니터 업로드, 모니터 빌드, 미리 정의된 모델에서 권장 사항 가져오기로 진행되므로 호출 간에 모델 이름을 변경하지 않으면 연속으로 실행할 수 없습니다.
 * 데이터 없이 권장 사항이 반환될 수 있습니다. 샘플 앱에서는 아주 작은 카탈로그 및 사용 현황 파일을 사용합니다. 따라서, 카탈로그의 일부 항목에는 권장 항목이 없을 것입니다.
 
 ## 고지 사항
 샘플 앱은 프로덕션 환경에서 실행할 수 없습니다. 카탈로그에 제공되는 데이터가 매우 작기 때문에 의미 있는 권장 사항 모델을 제공하지 않습니다. 제공되는 데이터는 시연용입니다.
- 
 
 <!---HONumber=AcomDC_0914_2016-->

@@ -1,25 +1,28 @@
-<properties
-   pageTitle="Windows VM에서 여러 NIC 구성 | Microsoft Azure"
-   description="Azure PowerShell 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 연결된 VM을 만드는 방법에 알아봅니다."
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Windows VM에서 여러 NIC 구성 | Microsoft Docs
+description: Azure PowerShell 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 연결된 VM을 만드는 방법에 알아봅니다.
+services: virtual-machines-windows
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure"
-   ms.date="08/04/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 08/04/2016
+ms.author: iainfou
 
+---
 # 여러 NIC를 사용하여 VM 만들기
 Azure에서 여러 가상 NIC(네트워크 인터페이스)가 연결된 VM(가상 컴퓨터)을 만들 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 다른 서브넷을 사용하거나 모니터링 또는 백업 솔루션 전용 네트워크를 두는 것입니다. 이 문서에서는 여러 NIC가 연결된 VM을 만드는 빠른 명령을 제공합니다. 자체 PowerShell 스크립트 내에서 여러 NIC를 만드는 방법을 비롯한 자세한 내용은 [다중 NIC VM 배포](../virtual-network/virtual-network-deploy-multinic-arm-ps.md)에 대해 자세히 읽어보세요. [VM 크기](virtual-machines-windows-sizes.md)가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.
 
->[AZURE.WARNING] VM을 만들 때 여러 NIC를 연결해야 합니다. 기존 VM에 NIC를 추가할 수 없습니다. [가상 디스크에 따라 새 VM을 만들고](virtual-machines-windows-specialized-image.md) VM을 배포할 때 여러 NIC를 만들 수 있습니다.
+> [!WARNING]
+> VM을 만들 때 여러 NIC를 연결해야 합니다. 기존 VM에 NIC를 추가할 수 없습니다. [가상 디스크에 따라 새 VM을 만들고](virtual-machines-windows-specialized-image.md) VM을 배포할 때 여러 NIC를 만들 수 있습니다.
+> 
+> 
 
 ## 코어 리소스 만들기
 먼저 [최신 Azure PowerShell을 설치 및 구성](../powershell-install-configure.md)했는지 확인합니다.
@@ -67,7 +70,6 @@ $NIC2 = New-AzureRmNetworkInterface -Name NIC2 -ResourceGroupName TestRG `
 ```
 
 일반적으로 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md) 또는 [부하 분산 장치](../load-balancer/load-balancer-overview.md)를 만들어 VM에서 트래픽을 관리하고 분산할 수 있습니다. [좀 더 자세한 다중 NIC VM](../virtual-network/virtual-network-deploy-multinic-arm-ps.md) 문서에서 네트워크 보안 그룹 생성 및 NIC 할당에 대해 안내합니다.
-
 
 ## 가상 컴퓨터 만들기
 이제 VM 구성 빌드를 시작합니다. VM 크기마다 VM에 추가할 수 있는 NIC의 총수가 제한되어 있습니다. [Windows VM 크기](virtual-machines-windows-sizes.md)에 대해 자세히 읽어보세요. 다음 예제에서는 최대 2개의 NIC를 지원하는 VM 크기를 사용합니다(`Standard_DS2_v2`).

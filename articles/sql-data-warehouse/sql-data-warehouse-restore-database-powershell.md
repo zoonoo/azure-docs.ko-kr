@@ -1,43 +1,40 @@
-<properties
-   pageTitle="Azure SQL Data Warehouse 복원(PowerShell) | Microsoft Azure"
-   description="Azure SQL 데이터 웨어하우스 복원을 위한 PowerShell 작업."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="Lakshmi1812"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Azure SQL Data Warehouse 복원(PowerShell) | Microsoft Docs
+description: Azure SQL 데이터 웨어하우스 복원을 위한 PowerShell 작업.
+services: sql-data-warehouse
+documentationcenter: NA
+author: Lakshmi1812
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="lakshmir;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: lakshmir;barbkess
 
-
+---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Azure SQL 데이터 웨어하우스 복원(PowerShell)
-
-> [AZURE.SELECTOR]
-- [개요][]
-- [포털][]
-- [PowerShell][]
-- [REST (영문)][]
+> [!div class="op_single_selector"]
+> * [개요][개요]
+> * [포털][포털]
+> * [PowerShell][PowerShell]
+> * [REST (영문)][REST (영문)]
+> 
+> 
 
 이 문서에서는 PowerShell을 사용하여 Azure SQL 데이터 웨어하우스를 복원하는 방법을 배웁니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
+**DTU 용량을 확인합니다.**  각 SQL 데이터 웨어하우스는 기본 DTU 할당량이 있는 SQL server (예: myserver.database.windows.net)에 의해 호스팅됩니다.  SQL 데이터 웨어하우스를 복원하기 전에 SQL 서버에 복원 중인 데이터베이스에 대해 충분한 DTU 할당량이 남아 있는지 확인합니다. 필요한 DTU를 계산하거나 더 많은 DTU를 요청하는 방법을 알아보려면 [DTU 할당량 변경 요청][DTU 할당량 변경 요청]을 참조합니다.
 
-**DTU 용량을 확인합니다.**  각 SQL 데이터 웨어하우스는 기본 DTU 할당량이 있는 SQL server (예: myserver.database.windows.net)에 의해 호스팅됩니다.  SQL 데이터 웨어하우스를 복원하기 전에 SQL 서버에 복원 중인 데이터베이스에 대해 충분한 DTU 할당량이 남아 있는지 확인합니다. 필요한 DTU를 계산하거나 더 많은 DTU를 요청하는 방법을 알아보려면 [DTU 할당량 변경 요청][]을 참조합니다.
-
-### <a name="install-powershell"></a>PowerShell 설치 
-
-SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0 이상을 설치해야 합니다.  **Get-Module -ListAvailable -Name AzureRM**을 실행하여 버전을 확인할 수 있습니다.  최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][]를 통해 설치할 수 있습니다.  최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][]을 참조하세요.
+### <a name="install-powershell"></a>PowerShell 설치
+SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0 이상을 설치해야 합니다.  **Get-Module -ListAvailable -Name AzureRM**을 실행하여 버전을 확인할 수 있습니다.  최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][Microsoft 웹 플랫폼 설치 관리자]를 통해 설치할 수 있습니다.  최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][Azure PowerShell 설치 및 구성 방법]을 참조하세요.
 
 ## <a name="restore-an-active-or-paused-database"></a>활성 또는 일시 중지된 데이터베이스 복원
-
-스냅숏에서 데이터베이스를 복원하려면 [Restore-AzureRmSqlDatabase][] PowerShell cmdlet을 사용합니다.
+스냅숏에서 데이터베이스를 복원하려면 [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] PowerShell cmdlet을 사용합니다.
 
 1. Windows PowerShell을 엽니다.
 2. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
@@ -79,12 +76,13 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] 복원이 완료된 후 [복구 후 데이터베이스 구성][]에 따라 복구된 데이터베이스를 구성할 수 있습니다.
-
+> [!NOTE]
+> 복원이 완료된 후 [복구 후 데이터베이스 구성][복구 후 데이터베이스 구성]에 따라 복구된 데이터베이스를 구성할 수 있습니다.
+> 
+> 
 
 ## <a name="restore-a-deleted-database"></a>삭제된 데이터베이스 복원
-
-삭제된 데이터베이스를 복원하려면 [Restore-AzureRmSqlDatabase][] cmdlet을 사용합니다.
+삭제된 데이터베이스를 복원하려면 [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet을 사용합니다.
 
 1. Windows PowerShell을 엽니다.
 2. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
@@ -114,12 +112,13 @@ $RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –D
 $RestoredDatabase.status
 ```
 
->[AZURE.NOTE] 복원이 완료된 후 [복구 후 데이터베이스 구성][]에 따라 복구된 데이터베이스를 구성할 수 있습니다.
-
+> [!NOTE]
+> 복원이 완료된 후 [복구 후 데이터베이스 구성][복구 후 데이터베이스 구성]에 따라 복구된 데이터베이스를 구성할 수 있습니다.
+> 
+> 
 
 ## <a name="restore-from-an-azure-geographical-region"></a>Azure 지역에서 복원
-
-데이터베이스를 복구하려면 [Restore-AzureRmSqlDatabase][] cmdlet을 사용합니다.
+데이터베이스를 복구하려면 [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet을 사용합니다.
 
 1. Windows PowerShell을 엽니다.
 2. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
@@ -143,14 +142,15 @@ $GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGrou
 $GeoRestoredDatabase.status
 ```
 
->[AZURE.NOTE] 복원이 완료된 후에 데이터베이스를 구성하려면 [복구 후 데이터베이스 구성][]을 참조하세요. 
-
+> [!NOTE]
+> 복원이 완료된 후에 데이터베이스를 구성하려면 [복구 후 데이터베이스 구성][복구 후 데이터베이스 구성]을 참조하세요. 
+> 
+> 
 
 원본 데이터베이스가 TDE를 사용할 수 있는 경우 복구된 데이터베이스도 TDE를 사용할 수 있습니다.
 
-
 ## <a name="next-steps"></a>다음 단계
-Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 알아보려면 [Azure SQL 데이터베이스 무중단 업무 방식 개요][]를 읽으세요.
+Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 알아보려면 [Azure SQL 데이터베이스 무중단 업무 방식 개요][Azure SQL 데이터베이스 무중단 업무 방식 개요]를 읽으세요.
 
 <!--Image references-->
 

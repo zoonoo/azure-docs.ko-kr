@@ -1,24 +1,23 @@
-<properties
-   pageTitle="Azure 앱 서비스의 논리 앱에서 BizTalk XML 유효성 검사기 사용 | Microsoft Azure"
-   description="논리 앱에서 BizTalk XML 유효성 검사기를 사용하여 스키마 유효성 검사"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="rajram"
-   manager="erikre"
-   editor=""/>
+---
+title: Azure 앱 서비스의 논리 앱에서 BizTalk XML 유효성 검사기 사용 | Microsoft Docs
+description: 논리 앱에서 BizTalk XML 유효성 검사기를 사용하여 스키마 유효성 검사
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: rajram
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="04/20/2016"
-   ms.author="rajram"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 04/20/2016
+ms.author: rajram
 
+---
 # BizTalk XML 유효성 검사기
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 앱에서 BizTalk XML 유효성 검사기 커넥터를 사용하여 미리 정의된 XML 스키마에 대해 XML 데이터의 유효성을 검사합니다. 사용자는 기존 스키마를 사용하거나 플랫 파일 인스턴스, JSON 인스턴스 또는 기존 커넥터에 따라 스키마를 생성할 수 있습니다.
 
@@ -38,24 +37,21 @@ BizTalk XML 유효성 검사기는 스키마를 해당 구성의 일부로 사�
 
 ![BizTalk XML 유효성 검사기 스키마][3]
 
-
 ### 디자인 화면에서 BizTalk 플랫 파일 인코더 사용
 구성이 완료되면 사용자는 *->*를 선택하고 작업 목록에서 작업을 선택할 수 있습니다.
 
 ![BizTalk XML 유효성 검사기 동작 목록][4]
 
 #### Xml 유효성 검사
-
 Xml 유효성 검사 작업은 미리 구성된 스키마에 대해 지정된 XML 입력의 유효성을 검사합니다.
 
 ![BizTalk XML 유효성 검사기 Xml 유효성 검사][5]
 
-매개 변수|형식|매개 변수에 대한 설명
----|---|---
-Input Xml|string|유효성을 검사할 입력 Xml
+| 매개 변수 | 형식 | 매개 변수에 대한 설명 |
+| --- | --- | --- |
+| Input Xml |string |유효성을 검사할 입력 Xml |
 
 작업에서 출력을 개체로 반환합니다. 출력은 XML 유효성 검사기에서 응답을 나타내는 모델을 포함합니다. 이는 결과, 스키마 이름, 루트 노드 및 오류 설명으로 이루어져 있습니다.
-
 
 <!-- References -->
 [1]: ./media/app-service-logic-xml-validator/XmlValidator.ClickToConfigure.PNG

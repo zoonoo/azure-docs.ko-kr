@@ -1,12 +1,14 @@
 
 <br>
 
-> [AZURE.NOTE] 관리자가 사용자 이름과 암호를 제공한 경우, 회사 또는 학교 ID(*조직 ID*라고도 부름)가 이미 있을 가능성이 큽니다. 이런 경우, 계정이 필요한 Azure 리소스에 Azure 계정을 사용하여 즉시 액세스를 시작할 수 있습니다. 해당 리소스를 사용할 수 없는 경우는 이 문서의 도움말을 다시 참조해야 할 수 있습니다. 자세한 내용은 [로그인에 사용할 수 있는 계정](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) 및 [Azure 구독과 Azure AD의 연관 관계](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir)를 참조하세요.
+> [!NOTE]
+> 관리자가 사용자 이름과 암호를 제공한 경우, 회사 또는 학교 ID(*조직 ID*라고도 부름)가 이미 있을 가능성이 큽니다. 이런 경우, 계정이 필요한 Azure 리소스에 Azure 계정을 사용하여 즉시 액세스를 시작할 수 있습니다. 해당 리소스를 사용할 수 없는 경우는 이 문서의 도움말을 다시 참조해야 할 수 있습니다. 자세한 내용은 [로그인에 사용할 수 있는 계정](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) 및 [Azure 구독과 Azure AD의 연관 관계](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir)를 참조하세요.
+> 
+> 
 
 절차는 간단합니다. Azure 클래식 포털에서 로그인한 ID를 찾은 후 기본 Azure Active Directory 도메인을 검색하고 Azure 공동 관리자로 새 사용자를 추가합니다.
 
 ## Azure 클래식 포털에서 기본 디렉터리 찾기
-
 먼저 개인 Microsoft 계정 ID를 사용하여 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다. 로그인하고 나서 왼쪽의 파란색 패널을 아래로 스크롤하여 **ACTIVE DIRECTORY**를 클릭합니다.
 
 ![Azure Active Directory](./media/virtual-machines-common-create-aad-work-id/azureactivedirectorywidget.png)
@@ -26,7 +28,6 @@ Azure에서 사용자 ID에 대한 정보를 검색하여 시작하겠습니다.
 여기서, Azure 계정을 이미 만든 경우 Azure Active Directory가 onmicrosoft.com의 하위 도메인으로 사용되는 개인 ID의 해시 값(텍스트 문자열에서 생성된 숫자)이 도메인을 만들었음을 알 수 있습니다. 이 도메인이 지금 새 사용자를 추가할 도메인입니다.
 
 ## 기본 도메인에서 새 사용자 만들기
-
 **사용자**를 클릭하여 단일 개인 계정을 찾습니다. **원본 위치** 열에 **Microsoft 계정**으로 표시되어야 합니다. 기본 .onmicrosoft.com Azure Active Directory 도메인에 사용자를 만들려고 합니다.
 
 ![](./media/virtual-machines-common-create-aad-work-id/defaultdirectoryuserslisting.png)
@@ -58,7 +59,6 @@ Ahmet에 대한 세부 정보를 추가하되 적절한 **역할** 값을 선택
 ![](./media/virtual-machines-common-create-aad-work-id/emailreceivedfromnewusercreation.png)
 
 ## 구독에 대한 Azure 공동 관리자 권한 추가
-
 이제 새 사용자가 관리 포털에 로그인할 수 있도록 새 사용자를 구독의 공동 관리자로 추가해야 합니다. 이 작업을 수행하려면 왼쪽 패널에서 **설정**을 클릭합니다.
 
 ![](./media/virtual-machines-common-create-aad-work-id/thesettingswidget.png)
@@ -72,7 +72,6 @@ Ahmet에 대한 세부 정보를 추가하되 적절한 **역할** 값을 선택
 ![](./media/virtual-machines-common-create-aad-work-id/newuseraddedascoadministrator.png)
 
 ## 로그인 및 새 사용자의 암호 변경
-
 만든 새 사용자로 로그인합니다.
 
 ![](./media/virtual-machines-common-create-aad-work-id/signinginwithnewuser.png)
@@ -85,9 +84,7 @@ Ahmet에 대한 세부 정보를 추가하되 적절한 **역할** 값을 선택
 
 ![](./media/virtual-machines-common-create-aad-work-id/successtourdialog.png)
 
-
 ## 다음 단계
-
 이제 새 Azure Active Directory ID를 통해 [Azure 리소스 그룹 템플릿](../articles/xplat-cli-azure-resource-manager.md)을 사용할 수 있습니다.
 
     azure login
