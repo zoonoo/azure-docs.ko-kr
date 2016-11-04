@@ -19,20 +19,8 @@
 
 
 
-<!-- # H1 Title
-
- H1 title should answer the question "What is in this topic?" Write the title in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
--->
-
 # <a name="learn-about-sql-database-backups"></a>SQL Database 백업에 대한 자세한 정보
 
-<!-- Introduction
-
-1. Sentence #1 begins with "Learn about ..." and gives the scope of what the article will cover.
-2. Sentence #2 explains the key capability or selling point of the feature.
-3. Sentence #3 begins with "Use this feature to ..." and gives a common use case.
-
--->
 
 SQL Database는 5분마다 로컬 데이터베이스 백업을 만들고 Azure 읽기 액세스 RA-GRS(지역 중복 저장소)를 사용하여 데이터베이스 백업의 일부를 다른 지역에 복사합니다. 이러한 백업은 **추가 비용 없이 자동으로 수행**됩니다. 로컬 데이터베이스 백업을 사용하여 같은 서버의 [지정 시간으로 데이터베이스를 복원](sql-database-point-in-time-restore-portal.md)합니다. 지역 중복 백업을 사용하여 [다른 지역에 데이터베이스를 복원](sql-database-geo-restore-portal.md)합니다.  
 
@@ -101,6 +89,6 @@ SQL Database는 추가 비용 없이 최대 프로비전된 데이터베이스 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 
