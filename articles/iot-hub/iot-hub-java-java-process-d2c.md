@@ -17,7 +17,7 @@
      ms.author="dobett"/>
 
 
-# <a name="tutorial:-how-to-process-iot-hub-device-to-cloud-messages-using-java"></a>자습서: Java를 사용하여 IoT Hub 장치-클라우드 메시지를 처리하는 방법
+# <a name="tutorial-how-to-process-iot-hub-devicetocloud-messages-using-java"></a>자습서: Java를 사용하여 IoT Hub 장치-클라우드 메시지를 처리하는 방법
 
 [AZURE.INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -124,7 +124,7 @@ IoT Hub가 [Event Hubs][lnk-event-hubs] 호환 끝점을 노출하여 장치-클
     mvn clean package -DskipTests
     ```
 
-## <a name="process-device-to-cloud-messages"></a>장치-클라우드 메시지 처리
+## <a name="process-devicetocloud-messages"></a>장치-클라우드 메시지 처리
 
 이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 처리하는 Java 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브]와 호환되는 끝점을 노출하여 응용 프로그램이 장치-클라우드 메시지를 읽을 수 있습니다. 이 자습서에서는 [EventProcessorHost] 클래스를 사용하여 콘솔 응용 프로그램에서 이러한 메시지를 처리합니다. 이벤트 허브에서 메시지를 처리하는 방법에 대한 자세한 내용은 [이벤트 허브 시작] 자습서를 참조하세요.
 
@@ -148,7 +148,7 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
 
 > [AZURE.NOTE] 저장소 계정 연결 문자열을 복사하여 붙여 넣는 경우 공백이 없는지 확인합니다.
 
-대화형 메시지의 신뢰할 수 있는 처리를 활성화하려면 서비스 버스 큐가 필요합니다. [Service Bus 큐를 사용하는 방법][Service Bus 큐]에서 설명한 것처럼 한 시간 동안 중복 제거 창을 사용하여 프로그래밍 방식으로 큐를 만들거나, 또는 다음 단계에 따라 [Azure 클래식 포털][lnk-classic-portal]을 사용할 수 있습니다.
+대화형 메시지의 신뢰할 수 있는 처리를 활성화하려면 서비스 버스 큐가 필요합니다. [Service Bus 큐를 사용하는 방법][Azure 서비스 버스 큐]에서 설명한 것처럼 한 시간 동안 중복 제거 창을 사용하여 프로그래밍 방식으로 큐를 만들거나, 또는 다음 단계에 따라 [Azure 클래식 포털][lnk-classic-portal]을 사용할 수 있습니다.
 
 1. 왼쪽 아래 구석에 있는 **새로 만들기** 를 클릭합니다. 그런 다음 **App Services** > **Service Bus** > **큐** > **사용자 지정 만들기**를 클릭합니다. 이름 **d2ctutorial**을 입력하고 영역을 선택한 후 기존 네임스페이스를 사용하거나 새로 만듭니다. 이 자습서의 뒷부분에서 필요하므로 네임스페이스 이름을 적어둡니다. 다음 페이지에서 **중복 검색 사용**을 선택하고 **중복 검색 기록 기간**을 1시간으로 설정합니다. 그런 후 오른쪽 아래 모서리에 있는 확인 표시를 클릭하여 큐 구성을 저장합니다.
 
@@ -760,6 +760,6 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [lnk-create-an-iot-hub]: iot-hub-java-java-getstarted.md#create-an-iot-hub
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

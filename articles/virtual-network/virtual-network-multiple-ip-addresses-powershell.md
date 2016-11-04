@@ -46,7 +46,7 @@ NIC에 여러 IP 주소를 할당하면 VM에서 다음을 수행할 수 있습�
 
 [이 문서](./virtual-machines/virtual-machines-windows-ps-create.md )에서는 위에 언급된 리소스를 아직 만들지 않은 경우 만드는 방법을 안내합니다.
 
-## <a name="<a-name-=-"create"></a>create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>여러 IP 주소를 사용하여 VM 만들기
+## <a name="a-name-createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>여러 IP 주소를 사용하여 VM 만들기
 
 1. PowerShell 명령 프롬프트를 열고 단일 PowerShell 세션 내에서 이 섹션의 나머지 단계를 완료합니다. Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 문서의 단계를 완료합니다.
 
@@ -229,7 +229,7 @@ NIC에 여러 IP 주소를 할당하면 VM에서 다음을 수행할 수 있습�
 
     반환된 목록에서 추가한 IP 주소 *eth0:0*이 표시되어야 합니다.
 
-## <a name="<a-name="add"></a>add-ip-addresses-to-an-existing-vm"></a><a name="add"></a>기존 VM에 IP 주소 추가
+## <a name="a-nameaddaadd-ip-addresses-to-an-existing-vm"></a><a name="add"></a>기존 VM에 IP 주소 추가
 
 다음 단계를 완료하여 기존 NIC에 추가 IP 주소를 추가합니다.
 

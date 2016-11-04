@@ -733,7 +733,7 @@ T
     ['where'] = client_City // rename, using a keyword as a column name
 ```
 
-### <a name="project-away-operator"></a>project-away 연산자
+### <a name="projectaway-operator"></a>project-away 연산자
 
     T | project-away column1, column2, ...
 
@@ -951,7 +951,7 @@ Traces
 
 `top 5 by name`은(는) 외관상으로는 `sort by name | take 5`와(과) 동일하지만 그러나 이는 더 빠르게 실행되며 언제나 정렬된 결과를 반환하는 반면에, `take` 은 그러한 실행과 결과가 보장되지 않습니다.
 
-### <a name="top-nested-operator"></a>top-nested 연산자
+### <a name="topnested-operator"></a>top-nested 연산자
 
     requests 
   	| top-nested 5 of name by count()  
@@ -1076,7 +1076,7 @@ traces
 참고로 마지막 두 열은 인덱스를 이용할 수 없고 스캔을 강제로 실행하므로 해당 두 열 사이에 비교를 넣습니다.
 
 
-### <a name="where-in-operator"></a>where-in 연산자
+### <a name="wherein-operator"></a>where-in 연산자
 
     requests | where resultCode !in (200, 201)
 
@@ -1123,7 +1123,7 @@ traces
 
 <a name="argmin"></a>
 <a name="argmax"></a>
-### <a name="argmin,-argmax"></a>argmin, argmax
+### <a name="argmin-argmax"></a>argmin, argmax
 
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
     argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
@@ -1335,7 +1335,7 @@ traces
 반대 함수는 [`mvexpand` 연산자](#mvexpand-operator) 를 참조하세요.
 
 
-### <a name="max,-min"></a>max, min
+### <a name="max-min"></a>max, min
 
     max(Expr)
 
@@ -1352,7 +1352,7 @@ traces
 <a name="percentiles"></a>
 <a name="percentilew"></a>
 <a name="percentilesw"></a>
-### <a name="percentile,-percentiles,-percentilew,-percentilesw"></a>percentile, percentiles, percentilew, percentilesw
+### <a name="percentile-percentiles-percentilew-percentilesw"></a>percentile, percentiles, percentilew, percentilesw
 
     percentile(Expression, Percentile)
 
@@ -1595,7 +1595,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 <a name="isnull"/></a>
 <a name="isnotnull"/></a>
 <a name="notnull"/></a>
-### <a name="isnull,-isnotnull,-notnull"></a>isnull, isnotnull, notnull
+### <a name="isnull-isnotnull-notnull"></a>isnull, isnotnull, notnull
 
     isnull(parsejson("")) == true
 
@@ -1720,7 +1720,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
     iff(x>0, x, -x)
 
 <a name="bin"></a><a name="floor"></a>
-### <a name="bin,-floor"></a>bin, floor
+### <a name="bin-floor"></a>bin, floor
 
 값을 지정된 bin 크기의 아래쪽 정수 배로 반올림합니다. [`summarize by`](#summarize-operator) 쿼리에 많이 사용됩니다. 분산된 값 집합이 있는 경우 특정 값의 더 작은 집합으로 그룹화됩니다.
 
@@ -2016,7 +2016,7 @@ dayofweek(1970-05-11)           // time(1.00:00:00), indicating Monday
 * `a_date`: `datetime`입니다.
 
 <a name="endofday"></a><a name="endofweek"></a><a name="endofmonth"></a><a name="endofyear"></a>
-### <a name="endofday,-endofweek,-endofmonth,-endofyear"></a>endofday, endofweek, endofmonth, endofyear
+### <a name="endofday-endofweek-endofmonth-endofyear"></a>endofday, endofweek, endofmonth, endofyear
 
     dt = datetime("2016-05-23 12:34")
 
@@ -2076,7 +2076,7 @@ T | where ... | extend Elapsed=now() - timestamp
 ```
 
 <a name="startofday"></a><a name="startofweek"></a><a name="startofmonth"></a><a name="startofyear"></a>
-### <a name="startofday,-startofweek,-startofmonth,-startofyear"></a>startofday, startofweek, startofmonth, startofyear
+### <a name="startofday-startofweek-startofmonth-startofyear"></a>startofday, startofweek, startofmonth, startofyear
 
     date=datetime("2016-05-23 12:34:56")
 
@@ -2263,7 +2263,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 <a name="notempty"></a>
 <a name="isnotempty"></a>
 <a name="isempty"></a>
-### <a name="isempty,-isnotempty,-notempty"></a>isempty, isnotempty, notempty
+### <a name="isempty-isnotempty-notempty"></a>isempty, isnotempty, notempty
 
     isempty("") == true
 
@@ -2435,7 +2435,7 @@ substring("ABCD", 0, 2)       // AB
     guid(00000000-1111-2222-3333-055567f333de)
 
 
-## <a name="arrays,-objects-and-dynamic"></a>배열, 개체 및 동적
+## <a name="arrays-objects-and-dynamic"></a>배열, 개체 및 동적
 
 [리터럴](#dynamic-literals) | [캐스팅](#casting-dynamic-objects) | [연산자](#operators) | [절 사용](#dynamic-objects-in-let-clauses)
 <br/>

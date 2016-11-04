@@ -17,7 +17,7 @@
  ms.author="elioda"/>
 
 
-# <a name="reference---query-language-for-twins-and-jobs"></a>참조 - 쌍 및 작업에 대한 쿼리 언어
+# <a name="reference-query-language-for-twins-and-jobs"></a>참조 - 쌍 및 작업에 대한 쿼리 언어
 
 ## <a name="overview"></a>개요
 
@@ -120,7 +120,7 @@ IoT Hub는 임의의 조건으로 쌍 필터링을 검색하도록 허용합니�
 
 위의 예제는 장치 3대가 구성 성공을 보고했고 2대는 아직 구성을 적용 중이고 1대는 오류를 보고한 상황을 보여줍니다.
 
-### <a name="c#-example"></a>C# 예제
+### <a name="c-example"></a>C# 예제
 
 쿼리 기능은 **RegistryManager** 클래스에서 [C# 서비스 SDK][lnk-hub-sdks]에 의해 노출됩니다.
 다음은 간단한 예제 쿼리입니다.

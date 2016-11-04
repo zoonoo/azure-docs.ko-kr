@@ -27,7 +27,7 @@ Azure HDInsight에서 [Apache Mahout](http://mahout.apache.org) 기계 학습 �
 > [AZURE.NOTE] 이 문서의 단계는 Windows 클라이언트와 Windows 기반 HDInsight 클러스터에 필요합니다. Linux, OS X 또는 Unix 클라이언트, Linux 기반 HDInsight 클러스터에서 Mahout 사용에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop으로 Apache Mahout을 사용하여 영화 권장 구성 생성](hdinsight-hadoop-mahout-linux-mac.md)
 
 
-##<a name="<a-name="learn"></a>what-you-will-learn"></a><a name="learn"></a>학습 내용
+##<a name="a-namelearnawhat-you-will-learn"></a><a name="learn"></a>학습 내용
 
 Mahout은 Apache Hadoop용 [Machine Learning][ml] 라이브러리입니다. Mahout에는 필터링, 분류 및 클러스터링과 같은 데이터 처리를 위한 알고리즘이 포함됩니다. 이 문서에서는 추천 엔진을 사용하여 친구가 본 영화를 기준으로 영화 추천을 생성합니다. 또한 의사 결정 포리스트로 분류를 수행하는 방법에 대해서도 알아봅니다. 여기서는 다음 내용을 다룹니다.
 
@@ -47,7 +47,7 @@ Mahout은 Apache Hadoop용 [Machine Learning][ml] 라이브러리입니다. Maho
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
-##<a name="<a-name="recommendations"></a>generate-recommendations-by-using-windows-powershell"></a><a name="recommendations"></a>WindowsPowerShell을 사용하여 추천 생성
+##<a name="a-namerecommendationsagenerate-recommendations-by-using-windows-powershell"></a><a name="recommendations"></a>WindowsPowerShell을 사용하여 추천 생성
 
 > [AZURE.NOTE] 이 섹션에 사용된 작업은 Windows PowerShell에서 작동하지만 Mahout과 함께 제공되는 클래스 중 다수가 Windows PowerShell에서 현재 작동하지 않으며 Hadoop 명령줄을 사용하여 실행해야 합니다. Windows PowerShell에서 작동하지 않는 클래스의 목록은 [문제 해결](#troubleshooting) 섹션을 참조하세요.
 >
@@ -318,7 +318,7 @@ Mahout 작업은 STDOUT로 출력을 반환하지 않습니다. 대신 지정된
     Donnie Brasco (1997)                     4.6792455
     Lone Star (1996)                         4.7099237  
 
-##<a name="<a-name="classify"></a>classify-data-by-using-the-hadoop-command-line"></a><a name="classify"></a>Hadoop 명령줄을 사용하여 데이터 분류
+##<a name="a-nameclassifyaclassify-data-by-using-the-hadoop-command-line"></a><a name="classify"></a>Hadoop 명령줄을 사용하여 데이터 분류
 
 Mahout에서 사용 가능한 분류 방법 중 하나는 [임의 포리스트][forest]를 빌드하는 것입니다. 이 방법은 학습 데이터를 사용하여 의사 결정 트리를 생성한 후 이를 사용하여 데이터를 분류하는 여러 단계의 프로세스입니다. 이 프로세스는 Mahout에서 제공하는 __org.apache.mahout.classifier.df.tools.Describe__ 클래스를 사용합니다. 지금은 Hadoop 명령줄을 사용하여 이 프로세스를 실행해야 합니다.
 
@@ -411,9 +411,9 @@ Mahout에서 사용 가능한 분류 방법 중 하나는 [임의 포리스트][
 
 > [AZURE.NOTE] Mahout 작업은 파일을 덮어쓰지 않습니다. 이러한 작업을 다시 실행하려는 경우 이전 작업에서 생성된 파일을 삭제해야 합니다.
 
-##<a name="<a-name="troubleshooting"></a>troubleshooting"></a><a name="troubleshooting"></a>문제 해결
+##<a name="a-nametroubleshootingatroubleshooting"></a><a name="troubleshooting"></a>문제 해결
 
-###<a name="<a-name="install"></a>install-mahout"></a><a name="install"></a>Mahout 설치
+###<a name="a-nameinstallainstall-mahout"></a><a name="install"></a>Mahout 설치
 
 Mahout은 HDInsight 3.1 클러스터에 설치되며, 다음 단계를 사용하여 HDInsight 3.0 또는 HDInsight 2.1 클러스터에 수동으로 설치할 수 있습니다.
 
@@ -479,7 +479,7 @@ HDInsight 3.1 클러스터에는 Mahout이 포함되어 있습니다. 경로 및
             -DefaultStorageAccountKey $storageAccountKey `
             -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
 
-###<a name="<a-name="nopowershell"></a>classes-that-do-not-work-with-windows-powershell"></a><a name="nopowershell"></a>Windows PowerShell에서 작동하지 않는 클래스
+###<a name="a-namenopowershellaclasses-that-do-not-work-with-windows-powershell"></a><a name="nopowershell"></a>Windows PowerShell에서 작동하지 않는 클래스
 
 Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Mahout 작업은 다양한 오류 메시지를 반환합니다.
 

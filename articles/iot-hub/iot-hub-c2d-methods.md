@@ -17,7 +17,7 @@
  ms.author="nberdy"/>
 
 
-# <a name="tutorial:-use-direct-methods"></a>자습서: 직접 메서드 사용
+# <a name="tutorial-use-direct-methods"></a>자습서: 직접 메서드 사용
 
 ## <a name="introduction"></a>소개
 

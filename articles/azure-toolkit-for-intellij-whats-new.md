@@ -4,7 +4,7 @@
     services=""
     documentationCenter="java"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/26/2016" 
+    ms.date="11/01/2016" 
     ms.author="robmcm;asirveda;martinsawicki"/>
 
 
-# <a name="what's-new-in-the-azure-toolkit-for-intellij"></a>IntelliJ용 Azure 도구 키트의 새로운 기능
+# <a name="whats-new-in-the-azure-toolkit-for-intellij"></a>IntelliJ용 Azure 도구 키트의 새로운 기능
 
 ## <a name="azure-toolkit-for-intellij-releases"></a>IntelliJ용 Azure 도구 키트 릴리스
 
@@ -25,7 +25,7 @@
 
 > [AZURE.NOTE] Azure Toolkit for Eclipse IDE이기도합니다. 자세한 내용은 [Eclipse용 Azure 도구 키트 설치]를 참조하세요.
 
-### <a name="august-26,-2016"></a>2016년 8월 26일
+### <a name="august-26-2016"></a>2016년 8월 26일
 
 IntelliJ용 Azure 도구 키트 - 2016년 8월 릴리스에는 다음과 같은 향상된 기능이 포함되어 있습니다.
 
@@ -37,7 +37,7 @@ IntelliJ용 Azure 도구 키트 - 2016년 8월 릴리스에는 다음과 같은 
   - Azure의 Resource Manager를 사용한 저장소 계정 BLOB 관리 지원은 “기본” 저장소 계정을 관리하는 기존 기능을 보완합니다.
 * **SQL Server용 Microsoft JDBC Driver 6.0**. 이 업데이트는 Microsoft SQL Server(v6.0)용 최신 JDBC 드라이버를 포함하며, 이제 Java 프로젝트에 손쉽게 추가할 수 있는 라이브러리로 포함되기 때문에 이전 버전을 대체합니다.
 
-### <a name="june-29,-2016"></a>2016년 6월 29일
+### <a name="june-29-2016"></a>2016년 6월 29일
 
 IntelliJ용 Azure 도구 키트 - 2016년 6월 릴리스에는 다음과 같은 향상 기능이 포함되어 있습니다.
 
@@ -48,7 +48,7 @@ IntelliJ용 Azure 도구 키트 - 2016년 6월 릴리스에는 다음과 같은 
 * **HDInsight 도구 통합**. 이제 Azure의 HDInsight 도구는 IntelliJ용 Azure 도구 키트와 함께 제공됩니다. 자세한 내용은 [IntelliJ용 HDInsight 도구 플러그 인]을 참조하세요.
 * **Java 웹앱의 원격 디버깅**. 이제 IntelliJ용 Azure 도구 키트는 Azure 앱 서비스에서 Java 웹앱의 원격 디버깅을 지원합니다.
 
-### <a name="april-12,-2016"></a>2016년 4월 12일
+### <a name="april-12-2016"></a>2016년 4월 12일
 
 IntelliJ용 Azure 도구 키트 - 2016년 4월 릴리스에는 다음과 같은 향상 기능이 포함되어 있습니다.
 

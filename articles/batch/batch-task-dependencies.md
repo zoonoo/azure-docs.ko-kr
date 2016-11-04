@@ -29,7 +29,7 @@ Azure 배치의 태스크 종속성은 다음을 처리하려는 경우에 솔�
 
 일대일 또는 일대다 관계에서 다른 태스크에 따라 달라지는 태스크를 만들 수 있으며, 태스크 ID의 특정 범위 내에서 태스크 그룹이 완료되는 데 따라 태스크가 달라지는 범위 종속성을 만들 수도 있습니다. 다대다 관계를 만들기 위해 다음 세 가지 기본 시나리오를 결합할 수 있습니다.
 
-## <a name="task-dependencies-with-batch-.net"></a>배치 .NET을 사용한 태스크 종속성
+## <a name="task-dependencies-with-batch-net"></a>배치 .NET을 사용한 태스크 종속성
 
 이 문서에서는 [배치 .NET][net_msdn] 라이브러리를 사용하여 태스크 종속성을 구성하는 방법을 설명합니다. 먼저는 작업에서 [태스크 종속성을 사용](#enable-task-dependencies)하는 방법을 보여 주고 [종속성을 사용하여 태스크를 구성](#create-dependent-tasks)하는 방법을 설명합니다. 마지막으로 배치에서 지원되는 [종속성 시나리오](#dependency-scenarios)를 설명합니다.
 
@@ -76,7 +76,7 @@ Azure 배치에서 사용할 수 있는 세 가지 기본 태스크 종속성 �
 
 >[AZURE.TIP] 태스크 C, D, E 및 F는 각각 태스크 A 및 B에 종속되는 경우 **다대다** 관계를 만들 수 있습니다. 예를 들어, 다운스트림 태스크가 여러 업스트림 태스크의 출력에 따라 달라지는 병렬화된 전처리 시나리오에서 유용합니다.
 
-### <a name="one-to-one"></a>일대일
+### <a name="onetoone"></a>일대일
 
 다른 하나의 태스크를 성공적으로 완료하는 데 종속성을 가진 태스크를 만들려면 [CloudTask][net_cloudtask]의 [DependsOn][net_dependson] 속성을 채우는 경우 단일 태스크 ID를 [TaskDependencies][net_taskdependencies].[OnId][net_onid] 정적 메서드에 제공합니다.
 
@@ -91,7 +91,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 },
 ```
 
-### <a name="one-to-many"></a>일대다
+### <a name="onetomany"></a>일대다
 
 여러 태스크를 성공적으로 완료하는 데 종속성을 가진 태스크를 만들려면 [CloudTask][net_cloudtask]의 [DependsOn][net_dependson] 속성을 채우는 경우 태스크 ID의 컬렉션을 [TaskDependencies][net_taskdependencies].[OnId][net_onid] 정적 메서드에 제공합니다.
 

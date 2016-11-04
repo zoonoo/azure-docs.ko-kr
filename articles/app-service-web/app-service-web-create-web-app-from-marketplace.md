@@ -16,7 +16,6 @@
 	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
-<!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
 
 # Azure 마켓플레이스에서 웹앱 만들기
 
@@ -180,4 +179,4 @@ Azure에서 WordPress 웹앱을 개발하는 방법은 [Azure 앱 서비스에�
 [WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0921_2016--->
