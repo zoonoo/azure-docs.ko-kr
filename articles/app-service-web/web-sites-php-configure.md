@@ -4,7 +4,7 @@
     services="app-service"
     documentationCenter="php"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="PHP"
     ms.topic="article"
-    ms.date="08/11/2016"
+    ms.date="11/01/2016"
     ms.author="robmcm"/>
 
 
@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="how-to:-change-the-built-in-php-version"></a>방법: 기본 제공 PHP 버전 변경
+## <a name="how-to-change-the-builtin-php-version"></a>방법: 기본 제공 PHP 버전 변경
 기본적으로 PHP 5.4는 앱 서비스 웹 앱을 만들 때 설치하여 바로 사용할 수 있습니다. 사용 가능한 릴리스 버전, 관련 기본 구성 및 사용하도록 설정된 확장을 보는 최상의 방법은 [phpinfo()] 함수를 호출하는 스크립트를 배포하는 것입니다.
 
 PHP 5.5 및 PHP 5.6 버전 사용할 수 있지만 기본적으로 이는 사용하도록 설정되어 있지 않습니다. PHP 버전을 업데이트하려면 다음 방법 중 하나를 따르세요.
@@ -44,7 +44,7 @@ PHP 5.5 및 PHP 5.6 버전 사용할 수 있지만 기본적으로 이는 사용
 
     ![구성 설정 저장][save-button]
 
-### <a name="azure-powershell-(windows)"></a>Azure PowerShell(Windows)
+### <a name="azure-powershell-windows"></a>Azure PowerShell(Windows)
 
 1. Azure PowerShell을 열고 계정에 로그인합니다.
 
@@ -58,7 +58,7 @@ PHP 5.5 및 PHP 5.6 버전 사용할 수 있지만 기본적으로 이는 사용
 
         PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
-### <a name="azure-command-line-interface-(linux,-mac,-windows)"></a>Azure 명령줄 인터페이스(Linux, Mac, Windows)
+### <a name="azure-commandline-interface-linux-mac-windows"></a>Azure 명령줄 인터페이스(Linux, Mac, Windows)
 
 Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 설치해야 합니다.
 
@@ -75,11 +75,11 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
         azure site show {site-name}
 
 
-## <a name="how-to:-change-the-built-in-php-configurations"></a>방법: 기본 제공 PHP 구성 변경
+## <a name="how-to-change-the-builtin-php-configurations"></a>방법: 기본 제공 PHP 구성 변경
 
 기본 제공 PHP 런타임에 대해 아래 단계에 따라 구성 옵션을 변경할 수 있습니다. php.ini 지시문에 대한 자세한 내용은 [php.ini 지시문 목록]을 참조하세요.
 
-### <a name="changing-php\_ini\_user,-php\_ini\_perdir,-php\_ini\_all-configuration-settings"></a>PHP\_INI\_USER, PHP\_INI\_PERDIR, PHP\_INI\_ALL 구성 설정 변경
+### <a name="changing-phpiniuser-phpiniperdir-phpiniall-configuration-settings"></a>PHP\_INI\_USER, PHP\_INI\_PERDIR, PHP\_INI\_ALL 구성 설정 변경
 
 1. [.user.ini] 파일을 루트 디렉터리에 추가합니다.
 2. `php.ini` 파일에 사용한 것과 동일한 구문을 사용하여 구성 설정을 `.user.ini` 파일에 추가합니다. 예를 들어 `display_errors` 설정을 켜고 `upload_max_filesize` 설정을 10M로 설정하려면 `.user.ini` 파일에 다음 텍스트를 포함합니다.
@@ -96,7 +96,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 
 `.user.ini` 파일을 사용하는 대신 스크립트에서 [ini_set()] 함수를 사용하여 시스템 수준 지시문이 아닌 구성 옵션을 설정할 수도 있습니다.
 
-### <a name="changing-php\_ini\_system-configuration-settings"></a>PHP\_INI\_SYSTEM 구성 설정 변경
+### <a name="changing-phpinisystem-configuration-settings"></a>PHP\_INI\_SYSTEM 구성 설정 변경
 
 1. `PHP_INI_SCAN_DIR` 키 및 `d:\home\site\ini` 값으로 웹앱에 앱 설정을 추가합니다.
 2. Kudu Console(http://&lt;site-name&gt;.scm.azurewebsite.net)을 사용하여 `d:\home\site\ini` 디렉터리에 `settings.ini` 파일을 만듭니다.
@@ -107,7 +107,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
         wincache.maxfilesize=512
 4. 웹앱을 다시 시작하여 변경 내용을 로드합니다.
 
-## <a name="how-to:-enable-extensions-in-the-default-php-runtime"></a>방법: 기본 PHP 런타임에서 확장 사용
+## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>방법: 기본 PHP 런타임에서 확장 사용
 이전 섹션에 언급된 것처럼 기본 PHP 버전, 관련 기본 구성 및 사용하도록 설정된 확장을 보는 최상의 방법은 [phpinfo()]라는 스크립트를 배포하는 것입니다. 추가 확장을 사용하도록 설정하려면 아래 단계를 따르세요.
 
 ### <a name="configure-via-ini-settings"></a>Ini 설정을 통해 구성
@@ -144,7 +144,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 **PHP_ZENDEXTENSIONS** 키를 통해 Zend 확장도 지원됩니다. 여러 확장을 사용하려면 앱 설정 값에 `.dll` 파일의 쉼표로 구분된 목록을 포함합니다.
 
 
-## <a name="how-to:-use-a-custom-php-runtime"></a>방법: 사용자 지정 PHP 런타임 사용
+## <a name="how-to-use-a-custom-php-runtime"></a>방법: 사용자 지정 PHP 런타임 사용
 앱 서비스 웹 앱은 기본 PHP 런타임 대신, 사용자가 PHP 스크립트를 실행하도록 제공한 PHP 런타임을 사용할 수 있습니다. 이러한 런타임은 사용자가 제공한 `php.ini` 파일로 구성될 수 있습니다. 웹 앱에 사용자 지정 PHP 런타임을 사용하려면 아래 단계를 따르세요.
 
 1. 스레드로부터 안전하지 않은 VC9 또는 VC11과 호환되는 버전의 Windows용 PHP를 받아야 합니다. 최신 Windows용 PHP 릴리스는 [http://windows.php.net/download/]에서 확인할 수 있습니다. 이전 릴리스는 보관 파일 [http://windows.php.net/downloads/releases/archives/]에서 확인할 수 있습니다.
@@ -165,7 +165,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
     ![구성 설정 저장][save-button]
 
 <a name="composer" />
-## <a name="how-to:-enable-composer-automation-in-azure"></a>방법: Azure에서 작성기 자동화를 사용하도록 설정
+## <a name="how-to-enable-composer-automation-in-azure"></a>방법: Azure에서 작성기 자동화를 사용하도록 설정
 
 앱 서비스가 PHP 프로젝트에 있는 경우 기본적으로 composer.json로 작업하지 않습니다. [Git 배포](app-service-web-php-get-started.md)를 사용하는 경우 작성기 확장을 사용하여 `git push` 중에 composer.json 처리를 사용할 수 있습니다.
 

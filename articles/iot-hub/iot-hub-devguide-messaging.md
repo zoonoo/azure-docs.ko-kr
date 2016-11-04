@@ -38,7 +38,7 @@ IoT Hub는 백 엔드 응용 프로그램이 허브에 의해 수신된 장치-�
 
 IoT Hub와 Event Hubs 서비스 비교는 [IoT Hub 및 Event Hubs의 비교][lnk-compare]를 참조하세요.
 
-## <a name="device-to-cloud-messages"></a>장치-클라우드 메시지
+## <a name="devicetocloud-messages"></a>장치-클라우드 메시지
 
 장치 지향 끝점(**/devices/{deviceId}/messages/events**)을 통해 장치-클라우드 메시지를 보냅니다. 백 엔드 서비스는 [Event Hubs][lnk-event-hubs]와 호환되는 서비스 지향 끝점(**/messages/events**)을 통해 장치-클라우드 메시지를 수신합니다. 따라서 Standard [Event Hubs 통합 및 SDK][lnk-compatible-endpoint]를 사용하여 장치-클라우드 메시지를 받을 수 있습니다.
 
@@ -64,13 +64,13 @@ IoT Hub는 [Event Hubs][lnk-event-hubs]와 비슷한 방식으로 장치-클라�
 
 > [AZURE.NOTE] HTTP를 사용하여 장치-클라우드 메시지를 보낼 때 속성 이름과 값에는 ASCII 영숫자 문자와 ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``만 포함할 수 있습니다.
 
-### <a name="non-telemetry-traffic"></a>비-원격 분석 트래픽
+### <a name="nontelemetry-traffic"></a>비-원격 분석 트래픽
 
 원격 분석 데이터 요소 외에도 장치는 종종 응용 프로그램 비즈니스 논리 계층에서 실행 및 처리를 필요로 하는 메시지 및 요청도 보냅니다. 예를 들어 백 엔드에서 특정 동작을 트리거해야 하는 중요한 알림 또는 백 엔드에서 전송된 명령에 대한 장치 응답입니다.
 
 이런 종류의 메시지를 처리하는 최선의 방법에 대한 정보는 [자습서: IoT Hub 장치-클라우드 메시지를 처리하는 방법][lnk-d2c-tutorial] 자습서를 참조하세요.
 
-### <a name="device-to-cloud-configuration-options"></a>장치-클라우드 구성 옵션
+### <a name="devicetocloud-configuration-options"></a>장치-클라우드 구성 옵션
 
 IoT Hub는 다음 속성을 노출하여 장치-클라우드 메시징을 제어합니다.
 
@@ -81,7 +81,7 @@ IoT Hub는 다음 속성을 노출하여 장치-클라우드 메시징을 제어
 
 [Azure IoT Hub - 리소스 공급자 API][lnk-resource-provider-apis]를 통해 프로그래밍 방식으로 또는 [Azure portal][lnk-management-portal]을 사용하여 이러한 속성을 모두 수정할 수 있습니다.
 
-### <a name="anti-spoofing-properties"></a>스푸핑 방지 속성
+### <a name="antispoofing-properties"></a>스푸핑 방지 속성
 
 장치-클라우드 메시지에서 스푸핑된 장치를 피하려면 IoT Hub는 다음 속성을 사용하여 모든 메시지를 보여줍니다.
 
@@ -101,7 +101,7 @@ IoT Hub는 다음 속성을 노출하여 장치-클라우드 메시징을 제어
 }
 ```
 
-## <a name="cloud-to-device-messages"></a>클라우드-장치 메시지
+## <a name="cloudtodevice-messages"></a>클라우드-장치 메시지
 
 서비스 지향 끝점(**/messages/devicebound**)을 통해 클라우드-장치 메시지를 보냅니다. 장치는 장치별 끝점(**/devices/{deviceId}/messages/devicebound**)을 통해 메시지를 수신합니다.
 
@@ -134,7 +134,7 @@ IoT Hub는 다음 속성을 노출하여 장치-클라우드 메시징을 제어
 
 > [AZURE.NOTE] 일반적으로 클라우드-장치 메시지는 메시지의 손실이 응용 프로그램 논리에 영향을 줄 때마다 완료합니다. 예를 들어, 메시지 콘텐츠가 로컬 저장소에 성공적으로 유지되거나 작업이 성공적으로 실행되었을 수 있습니다. 또한 메시지가 임시 정보를 전달하고 있으므로 손실되더라도 응용 프로그램의 기능에 영향을 주지 않을 수도 있습니다. 경우에 따라 장기간 실행되는 작업의 경우 로컬 저장소에 작업 설명을 보관한 후 클라우드-장치 메시지를 완료할 수 있습니다. 그런 다음 작업이 진행되는 다양한 단계에서 하나 이상의 장치-클라우드 메시지를 사용하여 응용 프로그램 백 엔드에 알림을 제공할 수 있습니다.
 
-### <a name="message-expiration-(time-to-live)"></a>메시지 만료(TTL(Time To Live))
+### <a name="message-expiration-time-to-live"></a>메시지 만료(TTL(Time To Live))
 
 모든 클라우드-장치 메시지에는 만료 시간이 있습니다. 이 시간은 서비스에 의해 설정되거나(**ExpiryTimeUtc** 속성) IoT Hub 속성처럼 기본 *TTL(Time To Live)* 을 사용하여 IoT Hub에 의해 설정됩니다. [클라우드-장치 구성 옵션][lnk-c2d-configuration]을 참조하세요.
 
@@ -191,7 +191,7 @@ IoT Hub는 다음 속성을 노출하여 장치-클라우드 메시징을 제어
 ]
 ```
 
-### <a name="cloud-to-device-configuration-options"></a>클라우드-장치 구성 옵션
+### <a name="cloudtodevice-configuration-options"></a>클라우드-장치 구성 옵션
 
 각 IoT Hub는 클라우드-장치 메시징에 다음 구성 옵션을 노출합니다.
 
@@ -204,7 +204,7 @@ IoT Hub는 다음 속성을 노출하여 장치-클라우드 메시징을 제어
 
 자세한 내용은 [IoT Hub 만들기][lnk-portal]를 참조하세요.
 
-## <a name="read-device-to-cloud-messages"></a>장치-클라우드 메시지 읽기
+## <a name="read-devicetocloud-messages"></a>장치-클라우드 메시지 읽기
 
 IoT Hub는 백 엔드 서비스에 대한 끝점을 노출하여 허브에 의해 수신된 장치-클라우드 메시지를 읽습니다. 끝점은 Event Hubs와 호환되기 때문에 Event Hubs 서비스가 메시지 읽기에 대해 지원하는 모든 메커니즘을 사용할 수 있습니다.
 

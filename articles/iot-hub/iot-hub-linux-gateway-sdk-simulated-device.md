@@ -18,7 +18,7 @@
 
 
 
-# <a name="iot-gateway-sdk-(beta)-–-send-device-to-cloud-messages-with-a-simulated-device-using-linux"></a>IoT Gateway SDK(베타) – Linux를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기
+# <a name="iot-gateway-sdk-beta-send-devicetocloud-messages-with-a-simulated-device-using-linux"></a>IoT Gateway SDK(베타) – Linux를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기
 
 [AZURE.INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 

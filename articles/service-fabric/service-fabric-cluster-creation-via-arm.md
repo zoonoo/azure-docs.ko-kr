@@ -123,7 +123,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 인증서는 서비스 패브릭에서 클러스터 및 해당 응용 프로그램의 다양한 측면을 보호하기 위해 인증 및 암호화를 제공하는 데 사용됩니다. Service Fabric에서 인증서가 사용되는 방식에 대한 자세한 내용은 [Service Fabric 클러스터 보안 시나리오][service-fabric-cluster-security]를 참조하세요.
 
-### <a name="cluster-and-server-certificate-(required)"></a>클러스터 및 서버 인증서(필수) 
+### <a name="cluster-and-server-certificate-required"></a>클러스터 및 서버 인증서(필수) 
 
 이 인증서는 클러스터를 보호하고 무단 액세스를 방지하기 위해 필요합니다. 다음 몇 가지 방법으로 클러스터 보안을 제공합니다.
  
@@ -136,7 +136,7 @@ Set-AzureRmContext -SubscriptionId <guid>
  - 개인 정보 교환(.pfx) 파일로 내보낼 수 있는 키 교환용 인증서를 만들어야 합니다.
  - 인증서의 주체 이름은 서비스 패브릭 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이렇게 일치해야 합니다. `.cloudapp.azure.com` 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
-### <a name="application-certificates-(optional)"></a>응용 프로그램 인증서(선택 사항)
+### <a name="application-certificates-optional"></a>응용 프로그램 인증서(선택 사항)
 
 응용 프로그램 보안을 위해 클러스터에 제한 없는 수의 인증서를 추가로 설치할 수 있습니다. 클러스터를 만들기 전에, 다음과 같이 노드에 인증서를 설치하도록 요구하는 응용 프로그램 보안 시나리오를 고려해 보세요.
 
@@ -288,7 +288,7 @@ Service Fabric 클러스터는 웹 기반 [Service Fabric Explorer][service-fabr
 
 또한 클러스터 인증 인증서는 서비스 패브릭 클러스터 리소스(Microsoft.ServiceFabric/clusters) 및 VMSS 리소스에서 VMSS에 대한 서비스 패브릭 클러스트 확장에서 구성되어야 합니다. 이 경우 서비스 패브릭 리소스 공급자는 클러스터 인증에 대한 사용 및 관리 끝점에 대한 서버 인증을 위해 그것을 구성할 수 있습니다.
 
-##### <a name="vmss-resource:"></a>VMSS 리소스:
+##### <a name="vmss-resource"></a>VMSS 리소스:
 
 ```json
 {
@@ -321,7 +321,7 @@ Service Fabric 클러스터는 웹 기반 [Service Fabric Explorer][service-fabr
 }
 ```
 
-##### <a name="service-fabric-resource:"></a>서비스 패브릭 리소스:
+##### <a name="service-fabric-resource"></a>서비스 패브릭 리소스:
 
 ```json
 {
@@ -368,7 +368,7 @@ Service Fabric 클러스터는 웹 기반 [Service Fabric Explorer][service-fabr
 }
 ```
 
-### <a name="<a-"configure-arm"-></a>configure-resource-manager-template-parameters"></a><a "configure-arm" ></a>Resource Manager 템플릿 매개 변수 구성
+### <a name="a-configurearm-aconfigure-resource-manager-template-parameters"></a><a "configure-arm" ></a>Resource Manager 템플릿 매개 변수 구성
 
 마지막으로, 키 자격 증명 모음 및 AAD PowerShell 명령의 출력 값을 매개 변수 파일을 채우는 데 사용합니다.
 
@@ -538,7 +538,7 @@ AAD 클러스터 응용 프로그램에서 사용자에게 역할이 할당되�
 
 AAD 설정 지침을 따르고 사용자 역할을 할당합니다. 또한 `SetupApplications.ps1`에서와 같이 "앱에 액세스하려면 사용자 할당 필요"를 설정하는 것이 좋습니다.
 
-### <a name="connect-with-powershell-fails-with-error:-the-specified-credentials-are-invalid"></a>지정된 자격 증명이 올바르지 않다는 오류를 나타내며 PowerShell을 통한 연결이 실패합니다.
+### <a name="connect-with-powershell-fails-with-error-the-specified-credentials-are-invalid"></a>지정된 자격 증명이 올바르지 않다는 오류를 나타내며 PowerShell을 통한 연결이 실패합니다.
 
 #### <a name="problem"></a>문제
 
@@ -548,7 +548,7 @@ PowerShell을 사용하여 "AzureActiveDirectory" 보안 모드를 통해 클러
 
 위와 동일합니다.
 
-### <a name="service-fabric-explorer-signing-in-return-failure:-aadsts50011"></a>Service Fabric Explorer 로그인 시 AADSTS50011 오류가 반환됩니다.
+### <a name="service-fabric-explorer-signing-in-return-failure-aadsts50011"></a>Service Fabric Explorer 로그인 시 AADSTS50011 오류가 반환됩니다.
 
 #### <a name="problem"></a>문제
 
@@ -566,13 +566,13 @@ Service Fabric Explorer를 나타내는 클러스터(웹) 응용 프로그램이
 
 ![웹 응용 프로그램 회신 URL][web-application-reply-url]
 
-### <a name="can-i-reuse-the-same-aad-tenant-for-multiple-clusters?"></a>여러 클러스터에 대해 동일한 AAD 테넌트를 다시 사용할 수 있나요?
+### <a name="can-i-reuse-the-same-aad-tenant-for-multiple-clusters"></a>여러 클러스터에 대해 동일한 AAD 테넌트를 다시 사용할 수 있나요?
 
 #### <a name="answer"></a>응답
 
 예. 그렇지만 Service Fabric Explorer의 URL을 클러스터(웹) 응용 프로그램에 추가해야 합니다. 그러지 않으면 Service Fabric Explorer가 작동하지 않습니다.
 
-### <a name="why-do-i-still-need-server-certificate-while-aad-enabled?"></a>AAD가 사용되도록 설정된 경우에도 서버 인증서가 계속 필요한 이유는 무엇인가요?
+### <a name="why-do-i-still-need-server-certificate-while-aad-enabled"></a>AAD가 사용되도록 설정된 경우에도 서버 인증서가 계속 필요한 이유는 무엇인가요?
 
 #### <a name="answer"></a>응답
 

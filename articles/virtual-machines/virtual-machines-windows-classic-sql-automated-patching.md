@@ -17,7 +17,7 @@
     ms.author="jroth" />
 
 
-# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-(classic)"></a>Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치(클래식)
+# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치(클래식)
 
 > [AZURE.SELECTOR]
 - [리소스 관리자](virtual-machines-windows-sql-automated-patching.md)
@@ -25,7 +25,8 @@
 
 자동화된 패치는 SQL Server를 실행하는 Azure 가상 컴퓨터에 대한 유지 관리 기간을 설정합니다. 이 유지 관리 기간 동안만 자동화된 업데이트를 설치할 수 있습니다. SQL Server의 경우 이를 통해 시스템 업데이트 및 관련 재시작 작업이 데이터베이스에 대해 가장 적절한 시간에 수행되도록 할 수 있습니다. 자동화된 패치는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-classic-sql-server-agent-extension.md)에 따라 다릅니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 이 문서의 리소스 관리자 버전을 보려면 [Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치( 리소스 관리자)](virtual-machines-windows-sql-automated-patching.md)를 참조하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+이 문서의 리소스 관리자 버전을 보려면 [Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치( 리소스 관리자)](virtual-machines-windows-sql-automated-patching.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -91,6 +92,6 @@ Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

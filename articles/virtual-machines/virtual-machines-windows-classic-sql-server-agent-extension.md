@@ -18,7 +18,7 @@
     ms.author="jroth"/>
 
 
-# <a name="sql-server-agent-extension-for-sql-server-vms-(classic)"></a>SQL Server VM에 대한 SQL Server 에이전트 확장(클래식)
+# <a name="sql-server-agent-extension-for-sql-server-vms-classic"></a>SQL Server VM에 대한 SQL Server 에이전트 확장(클래식)
 
 > [AZURE.SELECTOR]
 - [리소스 관리자](virtual-machines-windows-sql-server-agent-extension.md)
@@ -42,18 +42,18 @@ SQL Server IaaS 에이전트 확장은 다음 관리 작업을 지원합니다.
 
 VM에서 SQL Server IaaS 에이전트 확장을 사용하기 위한 요구 사항:
 
-### <a name="operating-system:"></a>운영 체제:
+### <a name="operating-system"></a>운영 체제:
 
 - Windows Server 2012
 - Windows Server 2012 R2
 
-### <a name="sql-server-versions:"></a>SQL Server 버전:
+### <a name="sql-server-versions"></a>SQL Server 버전:
 
 - SQL Server 2012
 - SQL Server 2014
 - SQL Server 2016
 
-### <a name="azure-powershell:"></a>Azure PowerShell:
+### <a name="azure-powershell"></a>Azure PowerShell:
 
 [최신 Azure PowerShell 명령 다운로드 및 구성](../powershell-install-configure.md)
 

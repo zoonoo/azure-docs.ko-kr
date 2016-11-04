@@ -51,7 +51,7 @@
 * [Azure 계정을 무료로 개설할 수 있습니다](/pricing/free-trial/?WT.mc_id=redis_cache_hero). 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능을 사용할 수 있습니다.
 * [Visual Studio 구독자 혜택 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero) MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
-### <a name="visual-studio-2015-with-the-azure-sdk-for-.net"></a>.NET용 Azure SDK 포함 Visual Studio 2015
+### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>.NET용 Azure SDK 포함 Visual Studio 2015
 
 자습서는 [Azure SDK for.NET](../dotnet-sdk.md) 2.8.2 이상이 포함된 Visual Studio 2015를 기준으로 작성되었습니다. [여기서 Visual Studio 2015용 최신 Azure SDK를 다운로드](http://go.microsoft.com/fwlink/?linkid=518003)합니다. SDK가 없는 경우 Visual Studio는 SDK와 함께 자동으로 설치됩니다.
 
@@ -73,7 +73,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 4. **확인** 을 클릭하여 프로젝트를 만듭니다.
 
-## <a name="create-the-asp.net-mvc-application"></a>ASP.NET MVC 응용 프로그램 만들기
+## <a name="create-the-aspnet-mvc-application"></a>ASP.NET MVC 응용 프로그램 만들기
 
 자습서의 이 섹션에서는 데이터베이스에서 팀 통계를 읽고 표시하는 기본 응용 프로그램을 만듭니다.
 
@@ -267,7 +267,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 -   [캐시로 작업하도록 팀 인덱스 보기 업데이트](#update-the-teams-index-view-to-work-with-the-cache)
 
 
-### <a name="configure-the-application-to-use-stackexchange.redis"></a>StackExchange.Redis를 사용하도록 응용 프로그램 구성
+### <a name="configure-the-application-to-use-stackexchangeredis"></a>StackExchange.Redis를 사용하도록 응용 프로그램 구성
 
 1. StackExchange.Redis NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 응용 프로그램을 구성하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 
 
@@ -551,7 +551,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
         }
 
 
-### <a name="update-the-create,-edit,-and-delete-methods-to-work-with-the-cache"></a>캐시로 작업하도록 Create, Edit 및 Delete 메서드 업데이트
+### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>캐시로 작업하도록 Create, Edit 및 Delete 메서드 업데이트
 
 이 샘플의 일부로 생성된 스캐폴딩 코드는 팀을 추가, 편집 및 삭제하는 메서드를 포함하고 있습니다. 팀이 추가, 편집 또는 제거될 때마다 캐시의 데이터가 만료됩니다. 이 섹션에서는 캐시와 데이터베이스의 동기화가 해제되지 않도록 캐시된 팀을 지우도록 이러한 세 가지 메서드를 수정합니다.
 
@@ -853,6 +853,6 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO1-->
 
 

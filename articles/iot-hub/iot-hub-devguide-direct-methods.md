@@ -17,7 +17,7 @@
  ms.author="nberdy"/>
 
 
-# <a name="invoke-a-direct-method-on-a-device-(preview)"></a>장치에 직접 메서드 호출(미리 보기)
+# <a name="invoke-a-direct-method-on-a-device-preview"></a>장치에 직접 메서드 호출(미리 보기)
 
 ## <a name="overview"></a>개요
 
@@ -54,7 +54,7 @@ IoT Hub에 **서비스 연결** 권한만 있다면 누구든 장치에서 메�
 
 ## <a name="reference"></a>참조
 
-### <a name="service-facing"></a>서비스 지향
+### <a name="servicefacing"></a>서비스 지향
 
 #### <a name="method-invocation"></a>메서드 호출
 
@@ -95,7 +95,7 @@ IoT Hub에 **서비스 연결** 권한만 있다면 누구든 장치에서 메�
   
    `status`와 `body`는 모두 장치에 의해 제공되며 장치 자체의 상태 코드 및/또는 설명으로 응답하는 데 사용됩니다.
 
-### <a name="device-facing"></a>장치 지향
+### <a name="devicefacing"></a>장치 지향
 
 #### <a name="method-invocation"></a>메서드 호출
 

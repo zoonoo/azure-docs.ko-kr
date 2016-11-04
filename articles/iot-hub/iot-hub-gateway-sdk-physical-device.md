@@ -18,7 +18,7 @@
 
 
 
-# <a name="iot-gateway-sdk-(beta)-–-send-device-to-cloud-messages-with-a-real-device-using-linux"></a>IoT Gateway SDK(베타) – Linux를 사용하는 실시간 장치에서 장치-클라우드 메시지 보내기
+# <a name="iot-gateway-sdk-beta-send-devicetocloud-messages-with-a-real-device-using-linux"></a>IoT Gateway SDK(베타) – Linux를 사용하는 실시간 장치에서 장치-클라우드 메시지 보내기
 
 이 [Bluetooth 저에너지 샘플][lnk-ble-samplecode] 연습에서는 [Microsoft Azure IoT 게이트웨이 SDK][lnk-sdk]를 사용하여 물리적 장치에 IoT Hub로 장치-클라우드 원격 분석을 전달하는 방법과 IoT Hub에서 물리적 장치로 명령을 라우팅하는 방법을 보여 줍니다.
 
@@ -360,7 +360,7 @@ SensorTag 장치의 MAC 주소와 IoT Hub에 추가된 **SensorTag_01** 장치�
 
 샘플을 실행할 경우 [장치 탐색기 또는 iothub-explorer][lnk-explorer-tools] 도구를 사용하여 SensorTag 장치에서 게이트웨이가 전달하는 메시지를 모니터링할 수 있습니다.
 
-## <a name="send-cloud-to-device-messages"></a>클라우드-장치 메시지 보내기
+## <a name="send-cloudtodevice-messages"></a>클라우드-장치 메시지 보내기
 
 또한 BLE 모듈은 Azure IoT Hub에서 장치로 명령을 보내도록 지원합니다. [Azure IoT Hub 장치 탐색기](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) 또는 [IoT Hub Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer)를 사용하여 BLE 게이트웨이 모듈이 BLE 장치에 전달하는 JSON 메시지를 보낼 수 있습니다. 예를 들어 Texas Instruments SensorTag 장치를 사용하는 경우 다음 JSON 메시지를 IoT Hub에서 장치에 보낼 수 있습니다.
 

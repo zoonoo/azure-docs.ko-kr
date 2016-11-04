@@ -18,7 +18,7 @@
 
 
 
-# <a name="walkthrough-step-5:-deploy-the-azure-machine-learning-web-service"></a>연습 5단계: Azure Machine Learning 웹 서비스 배포
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>연습 5단계: Azure Machine Learning 웹 서비스 배포
 
  [Azure 기계 학습에서 예측 분석 솔루션 개발](machine-learning-walkthrough-develop-predictive-solution.md)
 

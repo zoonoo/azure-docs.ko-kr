@@ -42,7 +42,7 @@ For more information on how to manage Azure Machine Learning Web service endpoin
 
 Azure Machine Learning 웹 서비스를 만들고 배포하는 방법은 [Azure Machine Learning 웹 서비스 배포] [publish]를 참조하세요. Machine Learning 실험을 만들고 배포하는 단계별 연습은 [Azure Machine Learning을 사용하여 예측 솔루션 개발] [walkthrough]를 참조하세요.
 
-## <a name="request-response-service-(rrs)"></a>RRS(요청-응답 서비스)
+## <a name="requestresponse-service-rrs"></a>RRS(요청-응답 서비스)
 
 대기 시간이 짧고 확장성 있는 웹 서비스인 RRS(요청-응답 서비스)는 Azure Machine Learning Studio 실험에서 만들어지고 배포된 상태 비저장 모델에 대한 인터페이스를 제공하는 데 사용됩니다. 사용 중인 응용 프로그램에서 실시간 응답을 예상하는 시나리오를 가능하게 합니다.
 
@@ -51,7 +51,7 @@ RRS는 단일 행 또는 여러 행의 입력 매개 변수를 허용하며 단�
 RRS 예제에서는 응용 프로그램의 신뢰성을 검증합니다. 이 경우 수억 회의 응용 프로그램 설치를 예상할 수 있습니다. 응용 프로그램을 시작하면 관련 입력으로 RRS 서비스를 호출합니다. 그런 다음 서비스로부터 응용 프로그램 실행을 허용하거나 차단하는 유효성 검사 응답을 받습니다.
 
 
-## <a name="batch-execution-service-(bes)"></a>BES(일괄 처리 실행 서비스)
+## <a name="batch-execution-service-bes"></a>BES(일괄 처리 실행 서비스)
 
 BES(일괄 처리 실행 서비스)는 많은 데이터 레코드의 점수 매기기를 일괄적으로 처리하는 비동기 서비스입니다. BES 입력에는 Blob, Azure 테이블, SQL Azure, HDInsight(예: Hive 쿼리 결과) 및 HTTP 원본 등 다양한 원본의 레코드 배치가 포함되어 있습니다. BES의 출력에는 점수 매기기 결과가 포함되어 있습니다. 결과는 Azure Blob 저장소의 파일 출력이며 저장소 끝점의 데이터는 응답으로 반환됩니다.
 
@@ -85,7 +85,7 @@ BES는 개인 또는 IOT(사물 인터넷) 장치에 대한 정기적으로 예�
 * **사용** 페이지에서 **요청 URI**를 사용할 수 있습니다. 
 * **Swagger API** 페이지에서 예상 API **요청 헤더**, **응답 헤더** 및 **본문**을 사용할 수 있습니다.
 
-### <a name="information-locations-in-machine-learning-studio-(classic-web-service-only)"></a>Machine Learning Studio에서의 정보 위치(기존 웹 서비스에만 해당)
+### <a name="information-locations-in-machine-learning-studio-classic-web-service-only"></a>Machine Learning Studio에서의 정보 위치(기존 웹 서비스에만 해당)
 
 두 위치, 즉 Machine Learning Studio 또는 Azure Machine Learning 웹 서비스 포털에서 필요한 정보를 찾을 수 있습니다.
 
@@ -408,7 +408,7 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
 
 다음 코드 샘플에서는 BES SDK를 사용하여 Azure Machine Learning 서비스에 대해 배치 작업을 제출하고 모니터링하는 방법을 보여 줍니다. 주석에는 설정 및 호출에 대한 세부 정보가 포함됩니다.
 
-#### <a name="**sample-code**"></a>**샘플 코드**
+#### <a name="sample-code"></a>**샘플 코드**
 
     // This code requires the Nuget package Microsoft.Azure.MachineLearning to be installed.
     // Instructions for doing this in Visual Studio:

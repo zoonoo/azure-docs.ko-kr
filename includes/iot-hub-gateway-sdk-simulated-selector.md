@@ -45,7 +45,7 @@
 
 > [AZURE.NOTE] 위 다이어그램의 **Protocol X ingestion**이라는 모듈은 소스 코드에서 **시뮬레이션된 장치**라고 합니다.
 
-### <a name="mac-&lt;-&gt;-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub ID 모듈
+### <a name="mac-ltgt-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub ID 모듈
 
 이 모듈 시뮬레이션된 장치의 프로토콜 수집 모듈에 의해 추가된 MAC 주소를 포함하는 속성을 포함하는 메시지를 찾아 스캔합니다. 모듈이 그러한 속성을 찾으면, 메시지에 IoT Hub 장치 키와 함께 또 다른 속성을 추가하고, 다음 번 순서의 모듈에서 메시지를 사용할 수 있도록 만듭니다. 이것이 샘플이 시뮬레이션된 장치와 IoT Hub 장치 ID를 연결하는 방식입니다. 개발자는 모듈 구성의 일부로 MAC 주소와 IoT Hub ID 사이의 매핑을 수동으로 설정합니다. 
 

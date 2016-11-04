@@ -21,7 +21,8 @@
 
 이 문서는 [Panda](http://pandas.pydata.org/) Python 패키지를 사용하여 Azure Blob 컨테이너에 저장된 데이터에 대한 기능을 만드는 방법을 보여 줍니다. Panda 데이터 프레임에 데이터를 로드하는 방법을 설명한 후, 표시기 값과 범주화 기능과 함께 Python 스크립트를 사용하여 범주 기능을 생성하는 방법을 보여줍니다.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] 이 **메뉴** 는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 토픽으로 연결되는 링크입니다. 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] 
+이 **메뉴** 는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 토픽으로 연결되는 링크입니다. 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -58,11 +59,11 @@
 
 이제 데이터를 탐색하고 이 데이터 집합에 기능을 생성할 준비가 완료되었습니다.
 
-##<a name="<a-name="blob-featuregen"></a>feature-generation"></a><a name="blob-featuregen"></a>기능 생성
+##<a name="a-nameblobfeaturegenafeature-generation"></a><a name="blob-featuregen"></a>기능 생성
 
 다음 두 섹션에는 Python 스크립트를 사용하여 표시기 값과 범주화 기능으로 범주 기능을 생성하는 방법을 보여줍니다.
 
-###<a name="<a-name="blob-countfeature"></a>indicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>표시기 값 기반 기능 생성
+###<a name="a-nameblobcountfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>표시기 값 기반 기능 생성
 
 범주 기능은 다음과 같은 방법으로 만들 수 있습니다.
 
@@ -85,7 +86,7 @@
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-###<a name="<a-name="blob-binningfeature"></a>binning-feature-generation"></a><a name="blob-binningfeature"></a>범주화 기능 생성
+###<a name="a-nameblobbinningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>범주화 기능 생성
 
 범주화된 기능을 생성하려면 다음 단계를 진행합니다.
 
@@ -102,7 +103,7 @@
 
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-##<a name="<a-name="sql-featuregen"></a>writing-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>다시 Azure blob에 데이터를 쓰고 Azure 기계 학습에서 데이터 사용
+##<a name="a-namesqlfeaturegenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>다시 Azure blob에 데이터를 쓰고 Azure 기계 학습에서 데이터 사용
 
 데이터를 탐색하고 필요한 기능을 만든 후에는 다음 단계에 따라 샘플링한 또는 기능화한 데이터를 Azure blob에 업로드하여 Azure 기계 학습에서 사용할 수 있습니다. Azure 기계 학습 스튜디오에서 추가 기능을 만들 수도 있습니다.
 1. 로컬 파일에 데이터 프레임을 씁니다.
@@ -137,6 +138,6 @@
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

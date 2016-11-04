@@ -84,7 +84,7 @@ $connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer]
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## <a name="how-to:-create-a-queue"></a>방법: 큐 만들기
+## <a name="how-to-create-a-queue"></a>방법: 큐 만들기
 
 **ServiceBusRestProxy** 클래스를 통해 Service Bus 큐에 대한 관리 작업을 수행할 수 있습니다. **ServiceBusRestProxy** 개체는 관리에 필요한 토큰 사용 권한을 캡슐화하는 적절한 연결 문자열을 사용한 **ServicesBuilder::createServiceBusService** 팩터리 메서드를 통해 구성됩니다.
 
@@ -118,7 +118,7 @@ catch(ServiceException $e){
 
 > [AZURE.NOTE] `ServiceBusRestProxy` 개체의 `listQueues` 메서드를 사용하여 네임스페이스 내에 지정된 이름의 큐가 이미 있는지 확인할 수 있습니다.
 
-## <a name="how-to:-send-messages-to-a-queue"></a>방법: 큐에 메시지 보내기
+## <a name="how-to-send-messages-to-a-queue"></a>방법: 큐에 메시지 보내기
 
 Service Bus 큐에 메시지를 보내기 위해 응용 프로그램은 **ServiceBusRestProxy->sendQueueMessage** 메서드를 호출합니다. 다음 코드는 위에서 `MySBNamespace` 서비스 네임스페이스 내에서 이전에 만든 `myqueue` 큐에 메시지를 보내는 방법을 보여 줍니다.
 
@@ -202,7 +202,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="how-to:-handle-application-crashes-and-unreadable-messages"></a>응용 프로그램 작동이 중단되어 메시지를 읽을 수 없는 문제를 처리하는 방법
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>응용 프로그램 작동이 중단되어 메시지를 읽을 수 없는 문제를 처리하는 방법
 
 서비스 버스는 응용 프로그램 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 응용 프로그램이 메시지를 처리할 수 없는 경우 받은 메시지에 대해 **deleteMessage** 메서드 대신 **unlockMessage** 메서드를 호출할 수 있습니다. 그러면 서비스 버스에서 큐 메시지의 잠금을 해제하므로 동일한 소비 응용 프로그램이나 다른 소비 응용 프로그램에서 메시지를 다시 받을 수 있습니다.
 

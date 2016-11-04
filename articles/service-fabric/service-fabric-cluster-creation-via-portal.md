@@ -125,7 +125,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 인증서는 서비스 패브릭에서 클러스터 및 해당 응용 프로그램의 다양한 측면을 보호하기 위해 인증 및 암호화를 제공하는 데 사용됩니다. Service Fabric에서 인증서가 사용되는 방식에 대한 자세한 내용은 [Service Fabric 클러스터 보안 시나리오][service-fabric-cluster-security]를 참조하세요.
 
-### <a name="cluster-and-server-certificate-(required)"></a>클러스터 및 서버 인증서(필수) 
+### <a name="cluster-and-server-certificate-required"></a>클러스터 및 서버 인증서(필수) 
 
 이 인증서는 클러스터를 보호하고 무단 액세스를 방지하기 위해 필요합니다. 다음 몇 가지 방법으로 클러스터 보안을 제공합니다.
  
@@ -146,7 +146,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 
 >[AZURE.NOTE] Azure Active Directory는 클러스터의 관리 작업을 위해 클라이언트를 인증하기 위한 권장 방법입니다. Azure Active Directory를 사용하려면 [Azure Resource Manager를 사용하여 클러스터를 만들어야][create-cluster-arm] 합니다.
 
-### <a name="application-certificates-(optional)"></a>응용 프로그램 인증서(선택 사항)
+### <a name="application-certificates-optional"></a>응용 프로그램 인증서(선택 사항)
 
 응용 프로그램 보안을 위해 클러스터에 제한 없는 수의 인증서를 추가로 설치할 수 있습니다. 클러스터를 만들기 전에, 다음과 같이 노드에 인증서를 설치하도록 요구하는 응용 프로그램 보안 시나리오를 고려해 보세요.
 
@@ -215,7 +215,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 
  5. **Service Fabric 클러스터 만들기** 블레이드는 다음 4단계를 포함합니다.
 
-#### <a name="1.-basics"></a>1. 기본 사항
+#### <a name="1-basics"></a>1. 기본 사항
 
 ![새 리소스 그룹 만들기 스크린샷][CreateRG]
 
@@ -233,7 +233,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 
  5. 클러스터를 만들려는 **지역** 을 선택합니다. 주요 자격 증명 모음이 있는 동일한 지역을 사용해야 합니다.
 
-#### <a name="2.-cluster-configuration"></a>2. 클러스터 구성
+#### <a name="2-cluster-configuration"></a>2. 클러스터 구성
 
 ![노드 형식 만들기][CreateNodeType]
 
@@ -260,7 +260,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 >[AZURE.NOTE] 지원되는 버전의 Service Fabric이 실행되는 클러스터만 지원합니다. **수동** 모드를 선택하면 사용자가 직접 클러스터를 지원되는 버전으로 업그레이드해야 합니다. 패브릭 업그레이드 모드에 대한 자세한 내용은 [service-fabric-cluster-upgrade 문서][service-fabric-cluster-upgrade]를 참조하세요.
 
 
-#### <a name="3.-security"></a>3. 보안
+#### <a name="3-security"></a>3. 보안
 
 ![Azure 포털의 보안 구성 스크린샷][SecurityConfigs]
 
@@ -283,7 +283,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 - **고급 설정 구성** 확인란을 선택하여 **관리 클라이언트** 및 **읽기 전용 클라이언트**에 대한 클라이언트 인증서를 입력합니다. 이러한 필드에는 관리 클라이언트 인증서의 지문과 읽기 전용 사용자 클라이언트 인증서의 지문을 입력하면 됩니다(해당하는 경우). 관리자가 클러스터에 연결하려고 할 경우, 여기에 입력한 지문 값과 일치하는 지문을 포함하는 인증서가 있어야만 액세스 권한이 부여됩니다.  
 
 
-#### <a name="4.-summary"></a>4. 요약
+#### <a name="4-summary"></a>4. 요약
 
 ![“배포 서비스 패브릭 클러스터”를 표시하는 시작 보드 스크린샷 ][Notifications]
 
