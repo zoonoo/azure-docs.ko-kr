@@ -1,178 +1,178 @@
-# [Overview](media-services-overview.md)
-## [Concepts ](media-services-concepts.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
-## [Release notes](media-services-release-notes.md)
-# Get started
-## [Create and manage account](media-services-portal-create-account.md)
-## [Set up your dev environment](media-services-set-up-computer.md)
-## Video on demand
-### [Portal](media-services-portal-vod-get-started.md)
+# [개요](media-services-overview.md)
+## [개념](media-services-concepts.md)
+## [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)
+## [릴리스 정보](media-services-release-notes.md)
+# 시작
+## [계정 만들기 및 관리](media-services-portal-create-account.md)
+## [개발 환경 설정](media-services-set-up-computer.md)
+## 주문형 비디오
+### [포털](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
-## Live streaming
-### [Portal](media-services-portal-live-passthrough-get-started.md)
+## 라이브 스트리밍
+### [포털](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
-# How To
-## Manage
-### [Manage streaming endpoints in the portal](media-services-portal-manage-streaming-endpoints.md)
-### Manage entities
+# 방법
+## 관리
+### [포털에서 스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)
+### 엔터티 관리
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### [Manage accounts with PowerShell](media-services-manage-with-powershell.md)
-### [Crop videos with Media Encoder Standard](media-services-crop-video.md)
-### [How To: Update Media Services after Rolling Storage Access Keys](media-services-roll-storage-access-keys.md)
-### [Quotas and limitations](media-services-quotas-and-limitations.md)
-### Filters
-#### [Creating Filters with Azure Media Services .NET SDK](media-services-dotnet-dynamic-manifest.md)
-#### [How to encode an asset using Media Encoder Standard](media-services-rest-encode-asset.md)
-### Connect programmatically
+### [PowerShell로 계정 관리](media-services-manage-with-powershell.md)
+### [미디어 인코더 표준으로 비디오 자르기](media-services-crop-video.md)
+### [방법: 저장소 액세스 키 롤링 후 Media Services 업데이트](media-services-roll-storage-access-keys.md)
+### [할당량 및 제한 사항](media-services-quotas-and-limitations.md)
+### 필터
+#### [Azure Media Services .NET SDK로 필터 생성](media-services-dotnet-dynamic-manifest.md)
+#### [Media Encoder Standard를 사용하여 자산을 인코딩하는 방법](media-services-rest-encode-asset.md)
+### 프로그래밍 방식으로 연결
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
 
-## Upload content
-### Upload files into an account
-#### [Portal ](media-services-portal-upload-files.md)
+## 콘텐츠 업로드
+### 계정에 파일 업로드
+#### [포털](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
-### [Copy existing blobs](media-services-copying-existing-blob.md)
+### [기존 Blob 복사](media-services-copying-existing-blob.md)
 
-## Encode
-### [Content](media-services-encode-asset.md)
-#### Encode an asset using Media Encoder Standard
-##### [Portal](media-services-portal-encode.md)
+## 인코딩
+### [콘텐츠](media-services-encode-asset.md)
+#### 미디어 인코더 표준을 사용하여 자산을 인코딩
+##### [포털](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-#### [How to generate thumbnails using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-#### [Advanced encoding](media-services-advanced-encoding-with-mes.md)
-##### [Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md)
-##### [Media Encoder Premium Workflow tutorials](media-services-media-encoder-premium-workflow-tutorials.md)
-##### [Create Advanced Encoding Workflows with Workflow Designer](media-services-workflow-designer.md)
-##### [Premium workflow with multiple input](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+#### [.NET과 함께 Media Encoder Standard를 사용하여 미리 보기를 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md)
+#### [고급 인코딩](media-services-advanced-encoding-with-mes.md)
+##### [Media Encoder Premium 워크플로](media-services-encode-with-premium-workflow.md)
+##### [Media Encoder Premium 워크플로 자습서](media-services-media-encoder-premium-workflow-tutorials.md)
+##### [워크플로 디자이너로 고급 인코딩 워크플로 만들기](media-services-workflow-designer.md)
+##### [다중 입력 프리미엄 워크플로](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
 
-#### Schemas 
+#### 스키마 
 #####[Media Encoder Standard](media-services-mes-schema.md)
-#####[Input metadata](media-services-input-metadata-schema.md)
-#####[Output metadata](media-services-output-metadata-schema.md)
+#####[입력 메타데이터](media-services-input-metadata-schema.md)
+#####[출력 메타데이터](media-services-output-metadata-schema.md)
 
-#### Legacy encoders
-##### [Using the Azure Media Packager](media-services-static-packaging.md)
+#### 레거시 인코더
+##### [Azure Media Packager 사용](media-services-static-packaging.md)
 
-### [Live streams](media-services-manage-channels-overview.md)
-#### [On-premise encoders](media-services-live-streaming-with-onprem-encoders.md)
-#### On-premise encoder tutorials
-##### [Portal](media-services-portal-live-passthrough-get-started.md)
+### [라이브 스트림](media-services-manage-channels-overview.md)
+#### [온-프레미스 인코더](media-services-live-streaming-with-onprem-encoders.md)
+#### 온-프레미스 인코더 자습서
+##### [포털](media-services-portal-live-passthrough-get-started.md)
 ##### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-#### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)
-#### Cloud encoder tutorials
-##### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [클라우드 인코더를 사용한 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)
+#### 클라우드 인코더 자습서
+##### [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
 ##### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-#### [Configure on-premise encoders for use with cloud encoder](media-services-live-encoders-overview.md)
-#### [Handle long-running operations](media-services-dotnet-long-operations.md)
-#### [Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
-#### [Dynamic packaging](media-services-dynamic-packaging-overview.md)
+#### [클라우드 인코더와 함께 사용할 온-프레미스 인코더 구성](media-services-live-encoders-overview.md)
+#### [장기 실행 작업 처리](media-services-dotnet-long-operations.md)
+#### [분할된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
+#### [동적 패키징](media-services-dynamic-packaging-overview.md)
 
-### Media Processing
+### 미디어 처리
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
 
-### Configure encoders for a single bitrate live stream
-#### [Elemental Live encoder](media-services-configure-elemental-live-encoder.md)
-#### [FMLE encoder ](media-services-configure-fmle-live-encoder.md)
-#### [NewTek TriCaster encoder](media-services-configure-tricaster-live-encoder.md)
-#### [Wirecast encoder](media-services-configure-wirecast-live-encoder.md)
+### 단일 비트 전송률 라이브 스트림에 대한 인코더 구성
+#### [Elemental Live 인코더](media-services-configure-elemental-live-encoder.md)
+#### [FMLE 인코더](media-services-configure-fmle-live-encoder.md)
+#### [NewTek TriCaster 인코더](media-services-configure-tricaster-live-encoder.md)
+#### [Wirecast 인코더](media-services-configure-wirecast-live-encoder.md)
 
-## [Protect](media-services-content-protection-overview.md)
-### [Configure content protection in the portal](media-services-portal-protect-content.md)
-### [Configure AES-128 clear key for your stream](media-services-protect-with-aes128.md)
-### [Encrypting your Content with Storage Encryption using AMS REST API](media-services-rest-storage-encryption.md)
-### [Media Services PlayReady License Template Overview](media-services-playready-license-template-overview.md)
-### [DRM license delivery](media-services-deliver-keys-and-licenses.md)
-### [Using partners to deliver Widevine licenses to Azure Media Services](media-services-licenses-partner-integration.md)
-### [Using PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-drm.md)
-### [Use Azure Media Services to Stream your HLS content Protected with Apple FairPlay ](media-services-protect-hls-with-fairplay.md)
-### [CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
+## [보호](media-services-content-protection-overview.md)
+### [포털에서 콘텐츠 보호 구성](media-services-portal-protect-content.md)
+### [스트림에 대해 AES-128 암호화되지 않은 키 구성](media-services-protect-with-aes128.md)
+### [AMS REST API를 사용하여 저장소 암호화로 콘텐츠 암호화](media-services-rest-storage-encryption.md)
+### [미디어 서비스 PlayReady 라이선스 템플릿 개요](media-services-playready-license-template-overview.md)
+### [DRM 라이선스 배달](media-services-deliver-keys-and-licenses.md)
+### [파트너를 사용하여 Azure 미디어 서비스에 Widevine 라이선스 제공](media-services-licenses-partner-integration.md)
+### [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-drm.md)
+### [Azure Media Services를 사용하여 Apple FairPlay로 보호되는 HLS 콘텐츠 스트리밍](media-services-protect-hls-with-fairplay.md)
+### [다중 DRM 및 Access Control이 포함된 CENC: Azure 및 Azure Media Services에서 참조 디자인 및 구현](media-services-cenc-with-multidrm-access-control.md)
 
-### Asset delivery
-#### Configure asset delivery policies
+### 자산 배달
+#### 자산 배달 정책 구성
 ##### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
 ##### [REST](media-services-rest-configure-asset-delivery-policy.md)
-### Create ContentKeys
+### Contentkey 만들기
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
-### Configure content key authorization policy
-#### [Portal](media-services-portal-configure-content-key-auth-policy.md)
+### 콘텐츠 키 인증 정책 구성
+#### [포털](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 
-## [Analyze](media-services-analytics-overview.md)
-### [Process with Indexer 2](media-services-process-content-with-indexer2.md)
-### [Process with Indexer](media-services-index-content.md)
-### [Process with Hyperlapse](media-services-hyperlapse-content.md)
-### [Process with Face Detector](media-services-face-and-emotion-detection.md)
-### [Process with Motion Detector](media-services-motion-detection.md)
-### [Process with Face redaction](media-services-face-redaction.md)
-### [Process with video thumbnails](media-services-video-summarization.md)
-### [Process with OCR](media-services-video-optical-character-recognition.md)
+## [분석](media-services-analytics-overview.md)
+### [Indexer 2를 사용하여 처리](media-services-process-content-with-indexer2.md)
+### [Indexer를 사용하여 처리](media-services-index-content.md)
+### [Hyperlapse를 사용하여 처리](media-services-hyperlapse-content.md)
+### [Face Detector를 사용하여 처리](media-services-face-and-emotion-detection.md)
+### [Motion Detector를 사용하여 처리](media-services-motion-detection.md)
+### [Face Redactor를 사용하여 처리](media-services-face-redaction.md)
+### [비디오 미리 보기로 처리](media-services-video-summarization.md)
+### [OCR을 사용하여 처리](media-services-video-optical-character-recognition.md)
 
-## Scale
-### [Media Processing](media-services-scale-media-processing-overview.md)
-#### [Portal](media-services-portal-scale-media-processing.md)
+## 확장
+### [미디어 처리](media-services-scale-media-processing-overview.md)
+#### [포털](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
 #### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
-### Streaming Endpoints
-#### [Portal](media-services-portal-scale-streaming-endpoints.md)
+### 스트리밍 끝점
+#### [포털](media-services-portal-scale-streaming-endpoints.md)
 
-## [Deliver content](media-services-deliver-content-overview.md)
-### [Filters and dynamic manifests overview](media-services-dynamic-manifest-overview.md)
-### Create filters
+## [콘텐츠 배달](media-services-deliver-content-overview.md)
+### [필터 및 동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)
+### 필터 생성
 #### [.NET](media-services-dotnet-dynamic-manifest.md)
 #### [REST](media-services-rest-dynamic-manifest.md)
-### Publish content
-#### [Portal](media-services-portal-publish.md)
+### 콘텐츠 게시
+#### [포털](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
-### [Deliver by Download](media-services-deliver-asset-download.md)
-### [Failover streaming scenario](media-services-implement-failover.md)
+### [다운로드로 배달](media-services-deliver-asset-download.md)
+### [장애 조치(Failover) 스트리밍 시나리오](media-services-implement-failover.md)
 
-## Consume
-### [Playback media with existing players](media-services-playback-content-with-existing-players.md)
-### [Playback media with Media Player](media-services-develop-video-players.md)
-### Other playback options
-#### [Smooth streaming Windows Store application](media-services-build-smooth-streaming-apps.md)
-#### [HTML5 Application with DASH.js](media-services-embed-mpeg-dash-in-html5.md)
-#### [Adobe Open Source Media Framework players](media-services-use-osmf-smooth-streaming-client-plugin.md)
-### [Insert ads on the client side](media-services-inserting-ads-on-client-side.md)
+## 사용
+### [기존 플레이어로 미디어 재생](media-services-playback-content-with-existing-players.md)
+### [Media Player로 미디어 재생](media-services-develop-video-players.md)
+### 기타 재생 옵션
+#### [부드러운 스트리밍 Windows 스토어 응용 프로그램](media-services-build-smooth-streaming-apps.md)
+#### [DASH.js 사용 HTML5 응용 프로그램](media-services-embed-mpeg-dash-in-html5.md)
+#### [Adobe 오픈 소스 미디어 프레임 워크 플레이어](media-services-use-osmf-smooth-streaming-client-plugin.md)
+### [클라이언트 쪽에 광고 삽입](media-services-inserting-ads-on-client-side.md)
 
-## Integrate
-### [CDN Caching Policy in Media Services Extension](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
-### [Licensing Microsoft†" Smooth Streaming Client Porting Kit](media-services-sspk.md)
-### [Manage assets across multiple Storage accounts](meda-services-managing-multiple-storage-accounts.md)
-### [Using Axinom to deliver Widevine licenses to Azure Media Services  ](media-services-axinom-integration.md)
-### [Using castLabs to deliver Widevine licenses to Azure Media Services](media-services-castlabs-integration.md)
-### [Widevine License Template Overview](media-services-widevine-license-template-overview.md)
+## 통합
+### [Media Services 확장의 CDN 캐싱 정책](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
+### [Microsoft†" 부드러운 스트리밍 클라이언트 이식 키트 라이선스](media-services-sspk.md)
+### [여러 저장소 계정 간 자산 관리](meda-services-managing-multiple-storage-accounts.md)
+### [Axinom을 사용하여 Azure Media Services에 Widevine 라이선스 제공](media-services-axinom-integration.md)
+### [castLabs를 사용하여 Azure Media Services에 Widevine 라이선스 제공](media-services-castlabs-integration.md)
+### [Widevine 라이선스 템플릿 개요](media-services-widevine-license-template-overview.md)
 
-## Monitor
-### Check job progress
+## 모니터
+### 작업 진행 상태 확인
 #### [REST](media-services-rest-check-job-progress.md)
-#### [Portal](media-services-portal-check-job-progress.md)
+#### [포털](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Queue storage to monitor job notifications](media-services-dotnet-check-job-progress-with-queues.md)
+### [작업 알림을 모니터링하는 Queue Storage](media-services-dotnet-check-job-progress-with-queues.md)
 
-## Troubleshoot
-### [Frequently asked questions](media-services-frequently-asked-questions.md)
-### [Troubleshooting guide for live streaming](media-services-troubleshooting-live-streaming.md)
-###[Error codes](media-services-error-codes.md)
-###[Retry logic](media-services-retry-logic-in-dotnet-sdk.md)
+## 문제 해결
+### [질문과 대답](media-services-frequently-asked-questions.md)
+### [라이브 스트리밍 문제 해결 가이드](media-services-troubleshooting-live-streaming.md)
+###[오류 코드](media-services-error-codes.md)
+###[재시도 논리](media-services-retry-logic-in-dotnet-sdk.md)
 
-# Reference
+# 참조
 ## [Media Services .NET SDK](media-services-dotnet-how-to-use.md)
 ## [Media Services REST API](media-services-rest-how-to-use.md)
-## [Media Encoder Premium Workflow Formats and Codecs](media-services-premium-workflow-encoder-formats.md)
-## [Media Encoder Standard Formats and Codecs](media-services-media-encoder-standard-formats.md)
+## [미디어 인코더 Premium 워크플로 형식 및 코덱](media-services-premium-workflow-encoder-formats.md)
+## [Media Encoder Standard 형식 및 코덱](media-services-media-encoder-standard-formats.md)
 
-# Related
-## [Azure Media Services Community](media-services-community.md)
+# 관련 항목
+## [Azure Media Services 커뮤니티](media-services-community.md)
 
 
 
