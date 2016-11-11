@@ -1,68 +1,68 @@
-# Overview
-## [What is RemoteApp?](remoteapp-whatis.md)
-## [How does licensing work?](remoteapp-licensing.md)
+# 개요
+## [RemoteApp이란?](remoteapp-whatis.md)
+## [라이선스 작동 방식](remoteapp-licensing.md)
 ## [FAQ](remoteapp-faq.md)
-## [What's new?](remoteapp-whatsnew.md)
-## [What's coming?](remoteapp-roadmap.md)
-## [Azure service limits](../azure-subscription-service-limits.md)
-## Will my app work?
-### [App requirements](remoteapp-appreqs.md)
+## [새로운 기능](remoteapp-whatsnew.md)
+## [향후 제공될 기능](remoteapp-roadmap.md)
+## [Azure 서비스 한도](../azure-subscription-service-limits.md)
+## 앱이 작동할까요?
+### [앱 요구 사항](remoteapp-appreqs.md)
 ### [OneDrive for Business](remoteapp-onedrive.md)
 ### [SQL Azure](remoteapp-sql.md)
 ### [Office 365](remoteapp-o365.md)
 ### [Outlook 2013](remoteapp-outlook.md)
-### [Using App-V apps](remoteapp-appv.md)
-### [QuickBooks on Azure RemoteApp](remoteapp-quickbooks.md)
+### [App-V 앱 사용](remoteapp-appv.md)
+### [Azure RemoteApp의 QuickBooks](remoteapp-quickbooks.md)
 ### [Microsoft Dynamics AX](https://mbs.microsoft.com/customersource/global/ax/learning/documentation/msdax2012r3azremappprg)
-### [Secure Apps and resources](remoteapp-secure.md)
+### [보안 앱 및 리소스](remoteapp-secure.md)
 
 
-# Get Started
-## Real world scenarios
-### [Run any app on any device](remoteapp-anyapp.md)
-### [Run Office 365 on any device](remoteapp-tutorial-o365anywhere.md)
+# 시작
+## 실제 시나리오
+### [모든 장치에서 모든 앱 실행](remoteapp-anyapp.md)
+### [모든 장치에서 Office 365 실행](remoteapp-tutorial-o365anywhere.md)
 
-# How To
+# 방법
 
-## Create a RemoteApp collection
-### [Which collection do you need?](remoteapp-collections.md)
-### [Create a cloud collection](remoteapp-create-cloud-deployment.md)
-### [Create a hybrid collection](remoteapp-create-hybrid-deployment.md)
-### [Update your collection](remoteapp-update.md)
-### [Create a RemoteApp image](remoteapp-imageoptions.md)
-### [What is in the template image?](remoteapp-images.md)
-### [Image requirements](remoteapp-imagereqs.md)
-### [Upload an image](remoteapp-uploadimage.md)
-### [Create an image from an Azure VM](remoteapp-image-on-azurevm.md)
-## Configure a Virtual Network
-### [Plan your VNET](remoteapp-planvnet.md)
-### [Port and URL info](remoteapp-ports.md)
-### [Validate your VNET](remoteapp-vnet.md)
-### [Migrate to an Azure VNET](remoteapp-migratevnet.md)
-## Publish applications
-### [How to publish an app](remoteapp-publish.md)
-## Manage users
-### [How to add users](remoteapp-user.md)
-### [Configure Active Directory](remoteapp-ad.md)
-### [Change the Azure AD tenant](remoteapp-changetenant.md)
-### [Office 365 user accounts](remoteapp-o365user.md)
-### [Secure Data](remoteapp-secureaccess.md)
-### [User data](remoteapp-upd.md)
-## Client experience
-### [Supported clients](remoteapp-clients.md)
-### [Configure redirection](remoteapp-redirection.md)
-### [Client best practices](remoteapp-clientbestpractices.md)
-## Automate RemoteApp
-### [RemoteApp PowerShell cmdlets](remoteapp-tutorial-arawithpowershell.md)
-### [Manage RemoteApp with Azure Automation](automation-manage-remote-app.md)
-## Stay current with RemoteApp
-### [Forums](http://feedback.azure.com/forums/247748-azure-remoteapp)
-### [Feedback](http://feedback.azure.com/forums/247748-azure-remoteapp)
-### [Support](https://azure.microsoft.com/support/plans/)
-### [Service status](https://azure.microsoft.com/status/)
-## Troubleshoot
-### [Troubleshoot a hybrid collection](remoteapp-hybridtrouble.md)
-### [Troubleshoot a cloud collection](remoteapp-cloudtrouble.md)
+## RemoteApp 컬렉션 만들기
+### [어떤 컬렉션이 필요한가요?](remoteapp-collections.md)
+### [클라우드 컬렉션 만들기](remoteapp-create-cloud-deployment.md)
+### [하이브리드 컬렉션 만들기](remoteapp-create-hybrid-deployment.md)
+### [컬렉션 업데이트](remoteapp-update.md)
+### [RemoteApp 이미지 만들기](remoteapp-imageoptions.md)
+### [템플릿 이미지에는 무엇이 포함되어 있나요?](remoteapp-images.md)
+### [이미지 요구 사항](remoteapp-imagereqs.md)
+### [이미지 업로드](remoteapp-uploadimage.md)
+### [Azure VM에서 이미지 만들기](remoteapp-image-on-azurevm.md)
+## Virtual Network 구성
+### [VNET 계획](remoteapp-planvnet.md)
+### [포트 및 URL 정보](remoteapp-ports.md)
+### [VNET 유효성 검사](remoteapp-vnet.md)
+### [Azure VNET으로 마이그레이션](remoteapp-migratevnet.md)
+## 응용 프로그램 게시
+### [앱 게시 방법](remoteapp-publish.md)
+## 사용자 관리
+### [사용자 추가 방법](remoteapp-user.md)
+### [Active Directory 구성](remoteapp-ad.md)
+### [Azure AD 테넌트 변경](remoteapp-changetenant.md)
+### [Office 365 사용자 계정](remoteapp-o365user.md)
+### [보안 데이터](remoteapp-secureaccess.md)
+### [사용자 데이터](remoteapp-upd.md)
+## 클라이언트 환경
+### [지원되는 클라이언트](remoteapp-clients.md)
+### [리디렉션 구성](remoteapp-redirection.md)
+### [클라이언트 모범 사례](remoteapp-clientbestpractices.md)
+## RemoteApp 자동화
+### [RemoteApp PowerShell cmdlet](remoteapp-tutorial-arawithpowershell.md)
+### [Azure Automation으로 RemoteApp 관리](automation-manage-remote-app.md)
+## RemoteApp으로 최신 상태 유지
+### [포럼](http://feedback.azure.com/forums/247748-azure-remoteapp)
+### [사용자 의견](http://feedback.azure.com/forums/247748-azure-remoteapp)
+### [지원](https://azure.microsoft.com/support/plans/)
+### [서비스 상태](https://azure.microsoft.com/status/)
+## 문제 해결
+### [하이브리드 컬렉션 문제 해결](remoteapp-hybridtrouble.md)
+### [클라우드 컬렉션 문제 해결](remoteapp-cloudtrouble.md)
 
 
 <!--HONumber=Nov16_HO2-->

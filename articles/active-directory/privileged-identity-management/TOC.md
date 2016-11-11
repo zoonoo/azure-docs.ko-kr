@@ -1,29 +1,29 @@
-# Overview
-## [Secure privileged access](active-directory-securing-privileged-access.md)
-## [What is Azure AD PIM?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Roles](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+# 개요
+## [권한 있는 액세스 보안](active-directory-securing-privileged-access.md)
+## [Azure AD PIM이란?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [역할](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
-# Get started
-## [Get started in the portal](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [The security wizard](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Give access to PIM](../active-directory-privileged-identity-management-how-to-give-access-to-pim.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+# 시작
+## [포털에서 시작](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [보안 마법사](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [PIM에 대한 액세스 부여](../active-directory-privileged-identity-management-how-to-give-access-to-pim.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
-# How to
-## Use PIM
-### [Activate your roles](../active-directory-privileged-identity-management-how-to-activate-role.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Perform an access review](../active-directory-privileged-identity-management-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## Manage PIM
-### [Assign roles](../active-directory-privileged-identity-management-how-to-add-role-to-user.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Change role settings](../active-directory-privileged-identity-management-how-to-change-default-settings.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Start an access review](../active-directory-privileged-identity-management-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Finish an access review](../active-directory-privileged-identity-management-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Configure alerts](../active-directory-privileged-identity-management-how-to-configure-security-alerts.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Require MFA](../active-directory-privileged-identity-management-how-to-require-mfa.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Use the audit log](../active-directory-privileged-identity-management-how-to-use-audit-log.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+# 방법
+## PIM 사용
+### [역할 활성화](../active-directory-privileged-identity-management-how-to-activate-role.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+### [액세스 검토 수행](../active-directory-privileged-identity-management-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## PIM 관리
+### [역할 할당](../active-directory-privileged-identity-management-how-to-add-role-to-user.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+### [역할 설정 변경](../active-directory-privileged-identity-management-how-to-change-default-settings.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+### [액세스 검토 시작](../active-directory-privileged-identity-management-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+### [액세스 검토 완료](../active-directory-privileged-identity-management-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+### [경고 구성](../active-directory-privileged-identity-management-how-to-configure-security-alerts.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+### [MFA 요구](../active-directory-privileged-identity-management-how-to-require-mfa.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+### [감사 로그 사용](../active-directory-privileged-identity-management-how-to-use-audit-log.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
-# Related
+# 관련 항목
 ## [Azure Active Directory](/azure/active-directory/)
-## [Role-Based Access Control](../role-based-access-control-what-is.md)
+## [역할 기반 액세스 제어](../role-based-access-control-what-is.md)
 
 
 <!--HONumber=Nov16_HO2-->

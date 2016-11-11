@@ -1,60 +1,60 @@
-# Overview
-## [Getting started with Azure security](azure-security-getting-started.md)
-## [Azure security overview](security-get-started-overview.md)
-## [Security services and technologies](azure-security-services-technologies.md)
+# 개요
+## [Azure 보안 시작하기](azure-security-getting-started.md)
+## [Azure 보안 개요](security-get-started-overview.md)
+## [보안 서비스 및 기술](azure-security-services-technologies.md)
 
-# Get started
-## Network security
-### [Overview](security-network-overview.md)
-### [Network security best practices](azure-security-network-security-best-practices.md)
-### [Boundary security](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
-### [Secure hybrid network architecture](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## Storage security
-### [Overview](security-storage-overview.md)
-### [Data security and encryption best practices](azure-security-data-encryption-best-practices.md)
-### [Storage security guide](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## Compute security
-### [Overview](security-virtual-machines-overview.md)
-### [Microsoft Antimalware](azure-security-antimalware.md)
-### [Disk encryption](azure-security-disk-encryption.md)
-### [Encrypt Azure VM](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## Security management and monitoring
-### [Overview](security-management-and-monitoring-overview.md)
-### [Security management](azure-security-management.md)
-### [Best practices for software updates on IaaS](azure-security-best-practices-software-updates-iaas.md)
+# 시작
+## 네트워크 보안
+### [개요](security-network-overview.md)
+### [네트워크 보안 모범 사례](azure-security-network-security-best-practices.md)
+### [경계 보안](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [하이브리드 네트워크 아키텍처 보안](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
+## 저장소 보안
+### [개요](security-storage-overview.md)
+### [데이터 보안 및 암호화 모범 사례](azure-security-data-encryption-best-practices.md)
+### [저장소 보안 지침](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+## 보안 계산
+### [개요](security-virtual-machines-overview.md)
+### [Microsoft 맬웨어 방지](azure-security-antimalware.md)
+### [디스크 암호화](azure-security-disk-encryption.md)
+### [Azure VM 암호화](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
+## 보안 관리 및 모니터링
+### [개요](security-management-and-monitoring-overview.md)
+### [보안 관리](azure-security-management.md)
+### [IaaS의 소프트웨어 업데이트 모범 사례](azure-security-best-practices-software-updates-iaas.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
-### Azure log integration
-#### [Overview](security-azure-log-integration-overview.md)
-#### [Get started](security-azure-log-integration-get-started.md)
+### Azure 로그 통합
+#### [개요](security-azure-log-integration-overview.md)
+#### [시작](security-azure-log-integration-get-started.md)
 #### [FAQ](security-azure-log-integration-faq.md)
-## Identity management
-### [Overview](security-identity-management-overview.md)
-### [Identity management security best practices](azure-security-identity-management-best-practices.md)
-## PaaS services
-### [IoT security best practices](azure-security-iot-best-practices.md)
-### [IoT security overview](security-internet-of-things-overview.md)
-## Vertical industries
-### [Designing secure health solutions](security-health-care-solution.md)
-## Security architecture
-### [Overview](azure-security-architecture-overview.md)
-### [Data classification for cloud readiness](azure-security-data-classification.md)
-### [Application architecture on Azure](security-application-architecture-on-azure.md)
-### [Security best practices and patterns](security-best-practices-and-patterns.md)
-### [Architecting resilient applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
+## ID 관리
+### [개요](security-identity-management-overview.md)
+### [ID 관리 보안 모범 사례](azure-security-identity-management-best-practices.md)
+## PaaS 서비스
+### [IoT 보안 모범 사례](azure-security-iot-best-practices.md)
+### [IoT 보안 개요](security-internet-of-things-overview.md)
+## 전문 업계
+### [보안 상태 솔루션 설계](security-health-care-solution.md)
+## 보안 아키텍처
+### [개요](azure-security-architecture-overview.md)
+### [클라우드 준비를 위한 데이터 분류](azure-security-data-classification.md)
+### [Azure 상의 응용 프로그램 아키텍처](security-application-architecture-on-azure.md)
+### [보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)
+### [복원력있는 응용 프로그램 구성](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
-# Resources
-## [Trust Center](security-microsoft-trust-center.md)
-## [Microsoft Security Response Center](azure-security-response-center.md)
-## [Pen testing](azure-security-pen-testing.md)
-## [Security and Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
-## [Azure security MVP program](azure-security-mvp.md)
-## [Cybersecurity consulting](azure-security-cyber-services.md)
-## [Security courses from Virtual Academy](security-microsoft-virtual-academy.md)
-## [Security videos on Channel 9](security-channel-nine.md)
+# 리소스
+## [보안 센터](security-microsoft-trust-center.md)
+## [Microsoft 보안 대응 센터](azure-security-response-center.md)
+## [펜 테스트](azure-security-pen-testing.md)
+## [보안 및 규정 준수 블로그](http://blogs.msdn.com/b/azuresecurity/)
+## [Azure 보안 MVP 프로그램](azure-security-mvp.md)
+## [사이버 보안 컨설팅](azure-security-cyber-services.md)
+## [Virtual Academy의 보안 과정](security-microsoft-virtual-academy.md)
+## [Channel 9의 보안 동영상](security-channel-nine.md)
 
-# Related
-## [Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
-## [Key Vault](../key-vault/key-vault-whatis.md)
+# 관련 항목
+## [보안 센터](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
+## [키 자격 증명 모음](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

@@ -1,49 +1,49 @@
-# Overview
-## [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md)
-## [How it Works](multi-factor-authentication-how-it-works.md)
+# 개요
+## [Azure Multi-Factor Authentication 정의](multi-factor-authentication.md)
+## [작동 방법](multi-factor-authentication-how-it-works.md)
 
-# Get started
-## [Choose where to deploy](multi-factor-authentication-get-started.md)
-## [MFA in the cloud](multi-factor-authentication-get-started-cloud.md)
-## [MFA on-premises](multi-factor-authentication-get-started-server.md)
-## [MFA for O365 users](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
-## [Security best practices](multi-factor-authentication-security-best-practices.md)
+# 시작
+## [배포할 위치 선택](multi-factor-authentication-get-started.md)
+## [클라우드의 MFA](multi-factor-authentication-get-started-cloud.md)
+## [온-프레미스에서 MFA](multi-factor-authentication-get-started-server.md)
+## [O365 사용자에 대한 MFA](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+## [보안 모범 사례](multi-factor-authentication-security-best-practices.md)
 
-# How to
-## Deploy and use
-### [Create an Auth Provider](multi-factor-authentication-get-started-auth-provider.md)
-### [Configure settings](multi-factor-authentication-whats-next.md)
-### [Reports in MFA](multi-factor-authentication-manage-reports.md)
-### Azure MFA on-premises
-#### [Install the users portal](multi-factor-authentication-get-started-portal.md)
-#### [Advanced VPN Configurations](multi-factor-authentication-advanced-vpn-configurations.md)
-#### [Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md)
-#### [Windows Authentication](multi-factor-authentication-get-started-server-windows.md)
-#### [Upgrade from PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
+# 방법
+## 배포 및 사용
+### [인증 공급자 만들기](multi-factor-authentication-get-started-auth-provider.md)
+### [설정 구성](multi-factor-authentication-whats-next.md)
+### [MFA 보고서](multi-factor-authentication-manage-reports.md)
+### 온-프레미스에서 Azure MFA
+#### [사용자 포털 설치](multi-factor-authentication-get-started-portal.md)
+#### [고급 VPN 구성](multi-factor-authentication-advanced-vpn-configurations.md)
+#### [모바일 앱 웹 서비스](multi-factor-authentication-get-started-server-webservice.md)
+#### [Windows 인증](multi-factor-authentication-get-started-server-windows.md)
+#### [PhoneFactor에서 업그레이드](multi-factor-authentication-get-started-server-upgrade.md)
 
-## Manage users
-### [Assign licenses](multi-factor-authentication-get-started-assign-licenses.md)
-### [Enable or disable MFA](multi-factor-authentication-get-started-user-states.md)
-### [User and device settings](multi-factor-authentication-manage-users-and-devices.md)
+## 사용자 관리
+### [라이선스 할당](multi-factor-authentication-get-started-assign-licenses.md)
+### [MFA 사용 또는 사용하지 않도록 설정](multi-factor-authentication-get-started-user-states.md)
+### [사용자 및 장치 설정](multi-factor-authentication-manage-users-and-devices.md)
 
-## Integrate
-### [Federation Services](multi-factor-authentication-get-started-adfs.md)
-#### [Use AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
-#### [Use AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
-#### [Use Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
-### Directories
-#### [LDAP Authentication](multi-factor-authentication-get-started-server-ldap.md)
-#### [RADIUS Authentication](multi-factor-authentication-get-started-server-radius.md)
+## 통합
+### [페더레이션 서비스](multi-factor-authentication-get-started-adfs.md)
+#### [AD FS 사용](multi-factor-authentication-get-started-adfs-cloud.md)
+#### [AD FS 2.0 사용](multi-factor-authentication-get-started-adfs-adfs2.md)
+#### [Windows Server 2012 R2 AD FS 사용](multi-factor-authentication-get-started-adfs-w2k12.md)
+### 디렉터리
+#### [LDAP 인증](multi-factor-authentication-get-started-server-ldap.md)
+#### [RADIUS 인증](multi-factor-authentication-get-started-server-radius.md)
 #### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
-### [IIS web apps](multi-factor-authentication-get-started-server-iis.md)
-### [Remote Desktop Gateway](multi-factor-authentication-get-started-server-rdg.md)
+### [IIS 웹앱](multi-factor-authentication-get-started-server-iis.md)
+### [원격 데스크톱 게이트웨이](multi-factor-authentication-get-started-server-rdg.md)
 
-## Develop applications
-### [Building into Custom Apps (SDK)](multi-factor-authentication-sdk.md)
+## 응용 프로그램 개발
+### [사용자 지정 앱에 작성(SDK)](multi-factor-authentication-sdk.md)
 
-## Troubleshoot
+## 문제 해결
 ### [FAQ](multi-factor-authentication-faq.md)
-### [Ask a question](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
+### [질문하기](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 
 
 <!--HONumber=Nov16_HO2-->

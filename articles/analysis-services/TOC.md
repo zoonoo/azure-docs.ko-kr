@@ -1,18 +1,18 @@
-# Overview
-##[What is Azure Analysis Services?](analysis-services-overview.md)
-# Get started
-##[Create a server](analysis-services-create-server.md)
+# 개요
+##[Azure Analysis Services란?](analysis-services-overview.md)
+# 시작
+##[서버 만들기](analysis-services-create-server.md)
 
-# How to 
-## [Deploy](analysis-services-deploy.md)
-## Manage
-###[Connect to a server](analysis-services-connect.md)
-###[Manage a server](analysis-services-manage.md)
-## Integrate
-###[On-premise data gateway](analysis-services-gateway.md)
+# 방법 
+## [배포](analysis-services-deploy.md)
+## 관리
+###[서버에 연결](analysis-services-connect.md)
+###[서버 관리](analysis-services-manage.md)
+## 통합
+###[온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)
 
-# References
-##[Datasource connections](analysis-services-datasource.md)
+# 참조
+##[데이터 원본 연결](analysis-services-datasource.md)
 
 <!--HONumber=Nov16_HO2-->
 

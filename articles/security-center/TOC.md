@@ -1,68 +1,68 @@
-# Overview
-## [What is Azure Security Center?](security-center-intro.md)
-## [Service overview](https://azure.microsoft.com/services/security-center/)
-## [Pricing](security-center-pricing.md)
+# 개요
+## [Azure Security Center란?](security-center-intro.md)
+## [서비스 개요](https://azure.microsoft.com/services/security-center/)
+## [가격 책정](security-center-pricing.md)
 ## [FAQ](security-center-faq.md)
-## [Get insights with Power BI](security-center-powerbi.md)
-## [Data security](security-center-data-security.md)
-## Common scenarios
-### [Incident response](security-center-incident-response.md)
+## [Power BI를 통해 통찰력 얻기](security-center-powerbi.md)
+## [데이터 보안](security-center-data-security.md)
+## 일반적인 시나리오
+### [사고 대응](security-center-incident-response.md)
 
-# Get started
-## [Quick start](security-center-get-started.md)
-## [Planning and operations](security-center-planning-and-operations-guide.md)
-## [Security Center and SQL Database](security-center-sql-database.md)
+# 시작
+## [빠른 시작](security-center-get-started.md)
+## [계획 및 작업](security-center-planning-and-operations-guide.md)
+## [Security Center 및 SQL Database](security-center-sql-database.md)
 
-# How to
+# 방법
 
-## Prevent
-### [Set security policies](security-center-policies.md)
-### [Implement security recommendations](security-center-recommendations.md)
-### [Application recommendations](security-center-application-recommendations.md)
-### [Network recommendations](security-center-network-recommendations.md)
-### [SQL service recommendations](security-center-sql-service-recommendations.md)
-### [Virtual machine recommendations](security-center-virtual-machine-recommendations.md)
-### [Monitor security health](security-center-monitoring.md)
-### [Monitor partner solutions](security-center-partner-solutions.md)
+## 예방
+### [보안 정책 설정](security-center-policies.md)
+### [보안 권장 사항 구현](security-center-recommendations.md)
+### [응용 프로그램 권장 사항](security-center-application-recommendations.md)
+### [네트워크 권장 사항](security-center-network-recommendations.md)
+### [SQL 서비스 권장 사항](security-center-sql-service-recommendations.md)
+### [가상 컴퓨터 권장 사항](security-center-virtual-machine-recommendations.md)
+### [보안 상태 모니터링](security-center-monitoring.md)
+### [파트너 솔루션 모니터링](security-center-partner-solutions.md)
 
-## Detect and Respond
-### [Detection capabilities](security-center-detection-capabilities.md)
-### [Manage security alerts](security-center-managing-and-responding-alerts.md)
-### [Manage security incidents](security-center-incident.md)
-### [Azure log integration](security-center-integrating-alerts-with-log-integration.md)
-### [Vulnerability assessment](security-center-vulnerability-assessment-recommendations.md)
-### [Types of security alerts](security-center-alerts-type.md)
-### [Threat intelligence report](security-center-threat-report.md)
+## 검색 및 응답
+### [감지 기능](security-center-detection-capabilities.md)
+### [보안 경고 관리](security-center-managing-and-responding-alerts.md)
+### [보안 인시던트 관리](security-center-incident.md)
+### [Azure 로그 통합](security-center-integrating-alerts-with-log-integration.md)
+### [취약점 평가](security-center-vulnerability-assessment-recommendations.md)
+### [보안 경고 형식](security-center-alerts-type.md)
+### [위협 인텔리전스 보고서](security-center-threat-report.md)
 
-### Manage security alerts
-#### [Add a next generation firewall](security-center-add-next-generation-firewall.md)
-#### [Add a web application firewall](security-center-add-web-application-firewall.md)
-#### [Apply disk encryption](security-center-apply-disk-encryption.md)
-#### [Apply system updates](security-center-apply-system-updates.md)
-#### [Enable auditing on SQL databases](security-center-enable-auditing-on-sql-databases.md)
-#### [Enable auditing on SQL servers](security-center-enable-auditing-on-sql-servers.md)
-#### [Enable data collection](security-center-enable-data-collection.md)
-#### [Enable Network Security Groups](security-center-enable-network-security-groups.md)
-#### [Enable Transparent Data Encryption](security-center-enable-transparent-data-encryption.md)
-#### [Enable VM Agent](security-center-enable-vm-agent.md)
-#### [Install Endpoint Protection](security-center-install-endpoint-protection.md)
-#### [Provide security contact details](security-center-provide-security-contact-details.md)
-#### [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md)
-#### [Resolve endpoint protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md)
-#### [Restrict access through Internet-facing endpoints](security-center-restrict-access-through-internet-facing-endpoints.md)
-#### [Update OS version](security-center-update-os-version.md)
+### 보안 경고 관리
+#### [차세대 방화벽 추가](security-center-add-next-generation-firewall.md)
+#### [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md)
+#### [디스크 암호화 적용](security-center-apply-disk-encryption.md)
+#### [시스템 업데이트 적용](security-center-apply-system-updates.md)
+#### [SQL 데이터베이스 감사 활성화](security-center-enable-auditing-on-sql-databases.md)
+#### [SQL Server 감사 활성화](security-center-enable-auditing-on-sql-servers.md)
+#### [데이터 수집 활성화](security-center-enable-data-collection.md)
+#### [네트워크 보안 그룹 활성화](security-center-enable-network-security-groups.md)
+#### [투명한 데이터 암호화 사용](security-center-enable-transparent-data-encryption.md)
+#### [VM 에이전트 사용](security-center-enable-vm-agent.md)
+#### [Endpoint Protection 설치](security-center-install-endpoint-protection.md)
+#### [보안 연락처 세부 정보 제공](security-center-provide-security-contact-details.md)
+#### [OS 취약성 해결](security-center-remediate-os-vulnerabilities.md)
+#### [Endpoint Protection 상태 경고 해결](security-center-resolve-endpoint-protection-health-alerts.md)
+#### [인터넷 끝점을 통한 액세스 제한](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [OS 버전 업데이트](security-center-update-os-version.md)
 
-## Troubleshoot
-### [Troubleshooting guide](security-center-troubleshooting-guide.md)
+## 문제 해결
+### [문제 해결 가이드](security-center-troubleshooting-guide.md)
 
-# Reference
+# 참조
 ## [REST API](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
-# Related
-## [Azure Security Information](../security/azure-security-getting-started.md)
+# 관련 항목
+## [Azure 보안 정보](../security/azure-security-getting-started.md)
 
-# Resources
-## [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
+# 리소스
+## [Azure 보안, 개인 정보 보호 및 규정 준수 블로그](http://blogs.msdn.com/b/azuresecurity/)
 
 
 <!--HONumber=Nov16_HO2-->

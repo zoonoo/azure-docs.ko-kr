@@ -1,177 +1,177 @@
-# StorSimple Overview
+# StorSimple 개요
 
-# StorSimple Virtual Array
+# StorSimple 가상 배열
 
-## Overview
-### [What is the solution?](storsimple-ova-overview.md)
+## 개요
+### [솔루션이란?](storsimple-ova-overview.md)
 
-## Get started
-### Plan
-#### [Review requirements](storsimple-ova-system-requirements.md)
-#### [Understand limits](storsimple-ova-limits.md)
-#### [Review best practices](storsimple-ova-best-practices.md)
-### Deploy
-#### [Prepare to deploy](storsimple-ova-deploy1-portal-prep.md)
-#### [Deploy StorSimple Manager service](storsimple-ova-manage-service.md)
-#### [Provision in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
-#### [Provision in VMware](storsimple-ova-deploy2-provision-vmware.md)
-#### [Set up as file server](storsimple-ova-deploy3-fs-setup.md)
-#### [Set up as iSCSI server](storsimple-ova-deploy3-iscsi-setup.md)
+## 시작
+### 계획
+#### [요구 사항 검토](storsimple-ova-system-requirements.md)
+#### [제한 이해](storsimple-ova-limits.md)
+#### [모범 사례 검토](storsimple-ova-best-practices.md)
+### 배포
+#### [배포 준비](storsimple-ova-deploy1-portal-prep.md)
+#### [StorSimple Manager 서비스 배포](storsimple-ova-manage-service.md)
+#### [Hyper-V에서 프로비전](storsimple-ova-deploy2-provision-hyperv.md)
+#### [VMware에서 프로비전](storsimple-ova-deploy2-provision-vmware.md)
+#### [파일 서버로 설정](storsimple-ova-deploy3-fs-setup.md)
+#### [iSCSI 서버로 설정](storsimple-ova-deploy3-iscsi-setup.md)
 
-## How to
-### [Manage via Azure portal](storsimple-ova-manager-service-administration.md)
-#### [Install latest Update](storsimple-ova-install-update-01.md)
-#### [Create & manage backups](storsimple-ova-backup.md)
-#### [Restore from backups](storsimple-ova-restore.md)
-#### [Failover and DR](storsimple-ova-failover-dr.md)
-#### [Deactivate and delete](storsimple-ova-deactivate-and-delete-device.md)
-#### [Monitor service dashboard](storsimple-ova-service-dashboard.md)
-#### [Change device password](storsimple-ova-change-device-admin-password.md)
-#### [Manage ACRs](storsimple-ova-manage-acrs.md)
-#### [Manage storage accounts](storsimple-ova-manage-storage-accounts.md)
-#### [Manage jobs](storsimple-ova-manage-jobs.md)
-#### [Configure MPIO on Windows Server host](storsimple-ova-configure-mpio-windows-server.md)
-### [Configure via local web UI](storsimple-ova-web-ui-admin.md)
+## 방법
+### [Azure 포털을 통해 관리](storsimple-ova-manager-service-administration.md)
+#### [최신 업데이트 설치](storsimple-ova-install-update-01.md)
+#### [백업 만들기 및 관리](storsimple-ova-backup.md)
+#### [백업에서 복원](storsimple-ova-restore.md)
+#### [장애 조치(failover) 및 DR](storsimple-ova-failover-dr.md)
+#### [비활성화 및 삭제](storsimple-ova-deactivate-and-delete-device.md)
+#### [서비스 대시보드 모니터](storsimple-ova-service-dashboard.md)
+#### [장치 암호 변경](storsimple-ova-change-device-admin-password.md)
+#### [ACR 관리](storsimple-ova-manage-acrs.md)
+#### [저장소 계정 관리](storsimple-ova-manage-storage-accounts.md)
+#### [작업 관리](storsimple-ova-manage-jobs.md)
+#### [Windows Server 호스트에 MPIO 구성](storsimple-ova-configure-mpio-windows-server.md)
+### [로컬 웹 UI를 통해 구성](storsimple-ova-web-ui-admin.md)
 
-## Release notes
-### [Update 0.3 - current](storsimple-ova-update-03-release-notes.md)
-### [Update 0.2 and 0.1](storsimple-ova-update-01-release-notes.md)
+## 릴리스 정보
+### [업데이트 0.3 - 현재](storsimple-ova-update-03-release-notes.md)
+### [업데이트 0.2 및 0.1](storsimple-ova-update-01-release-notes.md)
 
-# StorSimple 8000 Series
+# StorSimple 8000 시리즈
 
-## Overview
-### [What is the solution?](storsimple-overview.md)
-### [StorSimple learning map](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
-### [Security considerations](storsimple-security.md)
+## 개요
+### [솔루션이란?](storsimple-overview.md)
+### [StorSimple 학습 맵](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
+### [보안 고려 사항](storsimple-security.md)
 
-## Get started
-### Plan
-#### [Review requirements](storsimple-system-requirements.md)
-#### [Review technical specifications](storsimple-technical-specifications-and-compliance.md)
-#### [Understand limits](storsimple-limits.md)
-#### [Best practices](https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68)
+## 시작
+### 계획
+#### [요구 사항 검토](storsimple-system-requirements.md)
+#### [기술 사양 검토](storsimple-technical-specifications-and-compliance.md)
+#### [제한 이해](storsimple-limits.md)
+#### [모범 사례](https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68)
 
 ### Install
-#### [Review safety](storsimple-safety.md)
-#### [Unpack, rack, cable an 8100](storsimple-8100-hardware-installation.md)
-#### [Unpack, rack, cable an 8600](storsimple-8600-hardware-installation.md)
-#### [Supported hardware for 10 GbE network interfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+#### [안전 검토](storsimple-safety.md)
+#### [8100 압축 풀기, 랙, 케이블](storsimple-8100-hardware-installation.md)
+#### [8600 압축 풀기, 랙, 케이블](storsimple-8600-hardware-installation.md)
+#### [10GbE 네트워크 인터페이스에 지원되는 하드웨어](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### Deploy 
-#### [StorSimple Manager service](storsimple-manage-service.md)
-#### [Physical device in Azure - current](storsimple-deployment-walkthrough-u2.md)
-##### [Physical device in Azure - Update 1](storsimple-deployment-walkthrough-u1.md)
-##### [Physical device in Azure - GA](storsimple-deployment-walkthrough.md)
-#### [Physical device in Government Portal - current](storsimple-deployment-walkthrough-gov-u2.md)
-#### [Virtual device in Azure](storsimple-virtual-device-u2.md)
+### 배포 
+#### [StorSimple Manager 서비스](storsimple-manage-service.md)
+#### [Azure의 물리적 장치 - 현재](storsimple-deployment-walkthrough-u2.md)
+##### [Azure의 물리적 장치 - 업데이트 1](storsimple-deployment-walkthrough-u1.md)
+##### [Azure의 물리적 장치 - GA](storsimple-deployment-walkthrough.md)
+#### [정부 포털의 물리적 장치 - 현재](storsimple-deployment-walkthrough-gov-u2.md)
+#### [Azure의 가상 장치](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
-#### [StorSimple Adapter for SharePoint](storsimple-adapter-for-sharepoint.md)
+#### [SharePoint용 StorSimple 어댑터](storsimple-adapter-for-sharepoint.md)
 
-## How to
-### Manage 
-#### [Using StorSimple Manager service](storsimple-manager-service-administration.md)
-##### [Restore from a backup](storsimple-restore-from-backup-set-u2.md)
-###### [Restore from a backup](storsimple-restore-from-backup-set.md)
-##### [Clone a volume](storsimple-clone-volume-u2.md)
-###### [Clone a volume](storsimple-clone-volume.md)
-##### [Remotely connect to your device](storsimple-remote-connect.md)
-##### [Deactivate and delete your device](storsimple-deactivate-and-delete-device.md)
-##### [Fail over your device](storsimple-device-failover-disaster-recovery.md)
-##### [Manage backup catalog](storsimple-manage-backup-catalog.md)
-##### [Manage backup policies - current](storsimple-manage-backup-policies-u2.md)
-###### [Manage backup policies - Update 1](storsimple-manage-backup-policies.md)
-##### [Manage storage accounts](storsimple-manage-storage-accounts.md)
-##### [Manage volume containers](storsimple-manage-volume-containers.md)
-##### [Manage volumes - current](storsimple-manage-volumes-u2.md)
-###### [FAQ: Locally pinned volumes](storsimple-local-volume-faq.md)
-###### [Manage volumes - Update 1](storsimple-manage-volumes.md)
-##### [Manage ACRs](storsimple-manage-acrs.md)
-##### [Manage bandwidth templates](storsimple-manage-bandwidth-templates.md)
-##### [View and manage jobs - current](storsimple-manage-jobs-u2.md)
-###### [View and manage jobs - Update 1](storsimple-manage-jobs.md)
-##### [Change device mode](storsimple-device-modes.md)
-##### [Change device password](storsimple-change-passwords.md)
-##### [Modify device configuration](storsimple-modify-device-config.md)
-##### [Turn on and turn off](storsimple-turn-device-on-or-off.md)
-##### [Configure MPIO on Windows Server host](storsimple-configure-mpio-windows-server.md)
-##### [Configure MPIO on linux host](storsimple-configure-mpio-on-linux.md)
-##### [Configure CHAP](storsimple-configure-chap.md)
+## 방법
+### 관리 
+#### [StorSimple Manager 서비스 사용](storsimple-manager-service-administration.md)
+##### [백업에서 복구](storsimple-restore-from-backup-set-u2.md)
+###### [백업에서 복구](storsimple-restore-from-backup-set.md)
+##### [볼륨 복제](storsimple-clone-volume-u2.md)
+###### [볼륨 복제](storsimple-clone-volume.md)
+##### [장치 원격 연결](storsimple-remote-connect.md)
+##### [장치 비활성화 및 삭제](storsimple-deactivate-and-delete-device.md)
+##### [장치 장애 조치(failover)](storsimple-device-failover-disaster-recovery.md)
+##### [백업 카탈로그 관리](storsimple-manage-backup-catalog.md)
+##### [백업 정책 관리 - 현재](storsimple-manage-backup-policies-u2.md)
+###### [백업 정책 관리 - 업데이트 1](storsimple-manage-backup-policies.md)
+##### [저장소 계정 관리](storsimple-manage-storage-accounts.md)
+##### [볼륨 컨테이너 관리](storsimple-manage-volume-containers.md)
+##### [볼륨 관리 - 현재](storsimple-manage-volumes-u2.md)
+###### [FAQ: 로컬로 고정된 볼륨](storsimple-local-volume-faq.md)
+###### [볼륨 관리 - 업데이트 1](storsimple-manage-volumes.md)
+##### [ACR 관리](storsimple-manage-acrs.md)
+##### [대역폭 템플릿 관리](storsimple-manage-bandwidth-templates.md)
+##### [작업 보기 및 관리 - 현재](storsimple-manage-jobs-u2.md)
+###### [작업 보기 및 관리 - 업데이트 1](storsimple-manage-jobs.md)
+##### [장치 모드 변경](storsimple-device-modes.md)
+##### [장치 암호 변경](storsimple-change-passwords.md)
+##### [장치 구성 수정](storsimple-modify-device-config.md)
+##### [켜기 및 끄기](storsimple-turn-device-on-or-off.md)
+##### [Windows Server 호스트에 MPIO 구성](storsimple-configure-mpio-windows-server.md)
+##### [Linux 호스트에 MPIO 구성](storsimple-configure-mpio-on-linux.md)
+##### [CHAP 구성](storsimple-configure-chap.md)
 
-#### [Using Window PowerShell for StorSimple](storsimple-windows-powershell-administration.md)
-##### [Manage device controller](storsimple-manage-device-controller.md)
-##### [Configure web proxy](storsimple-configure-web-proxy.md)
-##### [Modify DATA 0 settings](storsimple-modify-data-0.md)
+#### [StorSimple용 Window PowerShell 사용](storsimple-windows-powershell-administration.md)
+##### [장치 컨트롤러 관리](storsimple-manage-device-controller.md)
+##### [웹 프록시 구성](storsimple-configure-web-proxy.md)
+##### [데이터 0 설정 수정](storsimple-modify-data-0.md)
 
-#### [Using StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
-##### [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
-##### [About StorSimple Snapshot Manager interface](storsimple-use-snapshot-manager.md)
-##### [Manage devices via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-devices.md)
-##### [Manage backup policies via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-policies.md)
-##### [Manage volume groups via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volume-groups.md)
-##### [Manage backup catalog via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-catalog.md)
-##### [Manage backup jobs via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-jobs.md)
-##### [Manage volumes via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volumes.md)
-##### [Use MMC actions in StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
+#### [StorSimple Snapshot Manager 사용](storsimple-snapshot-manager-admin.md)
+##### [StorSimple Snapshot Manager란?](storsimple-what-is-snapshot-manager.md)
+##### [StorSimple Snapshot Manager 인터페이스 정보](storsimple-use-snapshot-manager.md)
+##### [StorSimple Snapshot Manager를 통해 장치 관리](storsimple-snapshot-manager-manage-devices.md)
+##### [StorSimple Snapshot Manager를 통해 장치 관리](storsimple-snapshot-manager-manage-backup-policies.md)
+##### [StorSimple Snapshot Manager를 통해 볼륨 그룹 관리](storsimple-snapshot-manager-manage-volume-groups.md)
+##### [StorSimple Snapshot Manager를 통해 백업 카탈로그 관리](storsimple-snapshot-manager-manage-backup-catalog.md)
+##### [StorSimple Snapshot Manager를 통해 백업 작업 관리](storsimple-snapshot-manager-manage-backup-jobs.md)
+##### [StorSimple Snapshot Manager를 통해 볼륨 관리](storsimple-snapshot-manager-manage-volumes.md)
+##### [StorSimple Snapshot Manager에서 MMC 작업 사용](storsimple-snapshot-manager-mmc-menu.md)
 
-### Build solutions
-#### [Distributed global namespace](https://www.microsoft.com/download/details.aspx?id=45507)
-#### [Automate file server DR to Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
-#### [StorSimple with Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
+### 솔루션 빌드
+#### [분산 전역 네임스페이스](https://www.microsoft.com/download/details.aspx?id=45507)
+#### [Azure에 자동화 파일 서버 DR](storsimple-disaster-recovery-using-azure-site-recovery.md)
+#### [Express 경로를 사용하는 StorSimple](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 
-### Monitor
-#### [Using service dashboard](storsimple-service-dashboard.md)
-#### [Using device dashbaord](storsimple-device-dashboard.md)
-#### [Using service alerts](storsimple-manage-alerts.md)
-#### [Using hardware status](storsimple-monitor-hardware-status.md)
-#### [Using monitoring LEDs](storsimple-monitoring-indicators.md)
+### 모니터
+#### [서비스 대시보드 사용](storsimple-service-dashboard.md)
+#### [장치 대시보드 사용](storsimple-device-dashboard.md)
+#### [서비스 경고 사용](storsimple-manage-alerts.md)
+#### [하드웨어 상태 사용](storsimple-monitor-hardware-status.md)
+#### [LED 모니터링 사용](storsimple-monitoring-indicators.md)
 
-### Troubleshoot
-#### [Deployment issues](storsimple-troubleshoot-deployment.md)
-#### [Operational issues](storsimple-troubleshoot-operational-device.md)
-#### [Hardware replacement](storsimple-hardware-component-replacement.md)
-##### [Replace device controller](storsimple-controller-replacement.md)
-##### [Replace EBOD controller](storsimple-ebod-controller-replacement.md)
-##### [Replace PCM](storsimple-power-cooling-module-replacement.md)
-##### [Replace disk drive](storsimple-disk-drive-replacement.md)
-##### [Replace backup battery](storsimple-battery-replacement.md)
-##### [Replace chassis](storsimple-chassis-replacement.md)
-#### [Contact Support](storsimple-contact-microsoft-support.md)
-##### [Create Support package](storsimple-create-manage-support-package.md)
+### 문제 해결
+#### [배포 문제](storsimple-troubleshoot-deployment.md)
+#### [운영 문제](storsimple-troubleshoot-operational-device.md)
+#### [하드웨어 교체](storsimple-hardware-component-replacement.md)
+##### [장치 컨트롤러 교체](storsimple-controller-replacement.md)
+##### [EBOD 컨트롤러 교체](storsimple-ebod-controller-replacement.md)
+##### [PCM 교체](storsimple-power-cooling-module-replacement.md)
+##### [디스크 드라이브 교체](storsimple-disk-drive-replacement.md)
+##### [백업 배터리 교체](storsimple-battery-replacement.md)
+##### [섀시 교체](storsimple-chassis-replacement.md)
+#### [지원에 문의](storsimple-contact-microsoft-support.md)
+##### [지원 패키지 만들기](storsimple-create-manage-support-package.md)
 
-### Migrate
-#### [From 5000-7000 series](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
-#### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+### 마이그레이션
+#### [5000-7000 시리즈에서](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
+#### [다른 저장 장치에서](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
-### Update
-#### [Install Update 3](storsimple-install-update-3.md)
-#### [Install Update 2.2](storsimple-install-update-21.md)
-#### [Install Update 2](storsimple-install-update-2.md)
-#### [Install Update 1.2](storsimple-install-update-1.md)
-#### [Update your device](storsimple-update-device.md)
+### 업데이트
+#### [업데이트 3 설치](storsimple-install-update-3.md)
+#### [업데이트 2.2 설치](storsimple-install-update-21.md)
+#### [업데이트 2 설치](storsimple-install-update-2.md)
+#### [업데이트 1.2 설치](storsimple-install-update-1.md)
+#### [장치 업데이트](storsimple-update-device.md)
 
-## Release notes
-### [Update 3 - current](storsimple-update3-release-notes.md)
-### [Update 2.2](storsimple-update21-release-notes.md)
-### [Update 2 ](storsimple-update2-release-notes.md)
-### [Update 1 ](storsimple-update1-release-notes.md)
-### [Update 0.3](storsimple-february-2015-release-notes.md)
-### [Update 0.2](storsimple-january-2015-release-notes.md)
-### [Update 0.1](storsimple-october-2014-release-notes.md)
-### [Release - GA](storsimple-july-2014-release-notes.md)
+## 릴리스 정보
+### [업데이트 3 - 현재](storsimple-update3-release-notes.md)
+### [업데이트 2.2](storsimple-update21-release-notes.md)
+### [업데이트 2](storsimple-update2-release-notes.md)
+### [업데이트 1](storsimple-update1-release-notes.md)
+### [업데이트 0.3](storsimple-february-2015-release-notes.md)
+### [업데이트 0.2](storsimple-january-2015-release-notes.md)
+### [업데이트 0.1](storsimple-october-2014-release-notes.md)
+### [릴리스 - GA](storsimple-july-2014-release-notes.md)
 
-## Reference
-### [Azure PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/dn920427)
-### [Windows PowerShell for StorSimple cmdlet reference](https://technet.microsoft.com/library/dn688168.aspx)
+## 참조
+### [Azure PowerShell cmdlet 참조](https://msdn.microsoft.com/en-us/library/azure/dn920427)
+### [StorSimple용 Windows PowerShell cmdlet 참조](https://technet.microsoft.com/library/dn688168.aspx)
 
-# [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
+# [StorSimple 5000-7000 시리즈](http://onlinehelp.storsimple.com)
 
-# Resources
-## [Azure blog](https://azure.microsoft.com/blog/)
-## [Forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
-## [Marketing blog](http://blogs.technet.com/b/cis/)
+# 리소스
+## [Azure 블로그](https://azure.microsoft.com/blog/)
+## [포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [마케팅 블로그](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/en-us/server-cloud/products/storsimple/explore.aspx)
-## [Support blog](http://blogs.msdn.com/b/storsimple/)
-## [Third party notices](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [지원 블로그](http://blogs.msdn.com/b/storsimple/)
+## [타사 알림](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,143 +1,143 @@
-# [Overview](mobile-engagement-overview.md)
-## [Comparison with related services](mobile-engagement-comparison.md)
-## [Features overview](mobile-engagement-key-features.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+# [개요](mobile-engagement-overview.md)
+## [관련 서비스와 비교](mobile-engagement-comparison.md)
+## [기능 개요](mobile-engagement-key-features.md)
+## [가격 책정](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 
-# Get Started
+# 시작
 ## [Android](mobile-engagement-android-get-started.md)
 ## [Cordova](mobile-engagement-cordova-get-started.md)
 ## [iOS Objective-C](mobile-engagement-ios-get-started.md)
 ## [iOS Swift](mobile-engagement-ios-swift-get-started.md)
 ## [Unity Android](mobile-engagement-unity-android-get-started.md)
 ## [Unity iOS](mobile-engagement-unity-ios-get-started.md)
-## [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
-## [Web (PREVIEW)](mobile-engagement-web-app-get-started.md)
+## [유니버설 Windows](mobile-engagement-windows-store-dotnet-get-started.md)
+## [웹(미리 보기)](mobile-engagement-web-app-get-started.md)
 ## [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
 ## [Xamarin.Android](mobile-engagement-xamarin-android-get-started.md)
 ## [Xamarin.iOS](mobile-engagement-xamarin-ios-get-started.md)
 
-# How to
-## Plan and design
-### [Best practices](mobile-engagement-getting-started-best-practices.md)
-### [Concepts](mobile-engagement-concepts.md)
-### [Define your Engagement strategy](mobile-engagement-define-your-mobile-engagement-strategy.md)
-### Scenarios
-#### [Media app](mobile-engagement-media-scenario.md)
-#### [Gaming app](mobile-engagement-gaming-scenario.md)
+# 방법
+## 계획 및 디자인
+### [모범 사례](mobile-engagement-getting-started-best-practices.md)
+### [개념](mobile-engagement-concepts.md)
+### [참여 전략 정의](mobile-engagement-define-your-mobile-engagement-strategy.md)
+### 시나리오
+#### [미디어 앱](mobile-engagement-media-scenario.md)
+#### [게임 앱](mobile-engagement-gaming-scenario.md)
 
-## Develop
-### [Create a Mobile Engagement App](mobile-engagement-create.md)
+## 개발
+### [Mobile Engagement 앱 만들기](mobile-engagement-create.md)
 
 ### [Android](mobile-engagement-android-sdk-overview.md)
-#### [Integrate with an Android app](mobile-engagement-android-integrate-engagement.md)
-#### Reporting
-##### [Advanced reporting](mobile-engagement-android-advanced-reporting.md)
-##### [Location reporting](mobile-engagement-android-location-reporting.md)
-##### [Advanced configuration](mobile-engagement-android-advanced-configuration.md)
-#### Notifications
-##### [Integrate Reach](mobile-engagement-android-integrate-engagement-reach.md)
+#### [Android 앱과 통합](mobile-engagement-android-integrate-engagement.md)
+#### 보고
+##### [고급 보고](mobile-engagement-android-advanced-reporting.md)
+##### [위치 보고](mobile-engagement-android-location-reporting.md)
+##### [고급 구성](mobile-engagement-android-advanced-configuration.md)
+#### 알림
+##### [통합 도달률](mobile-engagement-android-integrate-engagement-reach.md)
 ##### [Google Cloud Messaging](mobile-engagement-android-gcm-integrate.md)
 ##### [Amazon Device Messaging](mobile-engagement-android-adm-integrate.md)
-#### [Tag plan implementation](mobile-engagement-android-use-engagement-api.md)
-#### [Upgrade your SDK](mobile-engagement-android-upgrade-procedure.md)
+#### [태그 계획 구현](mobile-engagement-android-use-engagement-api.md)
+#### [SDK 업그레이드](mobile-engagement-android-upgrade-procedure.md)
 
 ### [iOS](mobile-engagement-ios-sdk-overview.md)
-#### [Integrate with an iOS app](mobile-engagement-ios-integrate-engagement.md)
-#### [Integrate Reach](mobile-engagement-ios-integrate-engagement-reach.md)
-#### [Tag plan implementation](mobile-engagement-ios-use-engagement-api.md)
-#### [Upgrade your SDK](mobile-engagement-ios-upgrade-procedure.md)
+#### [iOS 앱과 통합](mobile-engagement-ios-integrate-engagement.md)
+#### [통합 도달률](mobile-engagement-ios-integrate-engagement-reach.md)
+#### [태그 계획 구현](mobile-engagement-ios-use-engagement-api.md)
+#### [SDK 업그레이드](mobile-engagement-ios-upgrade-procedure.md)
 
 ### Unity
-#### [Create Unity Roll a Ball game](mobile-engagement-unity-roll-a-ball.md)
+#### [Unity Roll a Ball 게임 만들기](mobile-engagement-unity-roll-a-ball.md)
 
-### [Web](mobile-engagement-web-sdk-overview.md)
-#### [Integrate with a web app](mobile-engagement-web-integrate-engagement.md)
-#### [Tag plan implementation](mobile-engagement-web-use-engagement-api.md)
-#### [Upgrade your SDK](mobile-engagement-web-upgrade-procedure.md)
+### [웹](mobile-engagement-web-sdk-overview.md)
+#### [웹앱과 통합](mobile-engagement-web-integrate-engagement.md)
+#### [태그 계획 구현](mobile-engagement-web-use-engagement-api.md)
+#### [SDK 업그레이드](mobile-engagement-web-upgrade-procedure.md)
 
-### WebView bridge apps
-#### [Android WebView with native Android SDK](mobile-engagement-bridge-webview-native-android.md)
-#### [iOS WebView with native iOS SDK](mobile-engagement-bridge-webview-native-ios.md)
+### WebView 브리지 앱
+#### [네이티브 Android SDK와 Android WebView](mobile-engagement-bridge-webview-native-android.md)
+#### [네이티브 iOS SDK와 iOS WebView](mobile-engagement-bridge-webview-native-ios.md)
 
-### [Windows Phone (Silverlight)](mobile-engagement-windows-phone-sdk-overview.md)
+### [Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-overview.md)
 
-#### [Integrate with a Windows Phone Silverlight app](mobile-engagement-windows-phone-integrate-engagement.md)
-#### [Integrate Reach](mobile-engagement-windows-phone-integrate-engagement-reach.md)
-#### [Tag plan implementation](mobile-engagement-windows-phone-use-engagement-api.md)
-#### [Upgrade your SDK](mobile-engagement-windows-phone-upgrade-procedure.md)
+#### [Windows Phone Silverlight 앱 통합](mobile-engagement-windows-phone-integrate-engagement.md)
+#### [통합 도달률](mobile-engagement-windows-phone-integrate-engagement-reach.md)
+#### [태그 계획 구현](mobile-engagement-windows-phone-use-engagement-api.md)
+#### [SDK 업그레이드](mobile-engagement-windows-phone-upgrade-procedure.md)
 
-### [Windows Universal](mobile-engagement-windows-store-sdk-overview.md)
-#### [Integrate with a Windows Universal app](mobile-engagement-windows-store-integrate-engagement.md)
-#### [Advanced Configuration](mobile-engagement-windows-store-advanced-configuration.md)
-#### [Integrate Reach](mobile-engagement-windows-store-integrate-engagement-reach.md)
-#### [Advanced reporting](mobile-engagement-windows-store-advanced-reporting.md)
-#### [Tag plan implementation](mobile-engagement-windows-store-use-engagement-api.md)
-#### [Upgrade your SDK](mobile-engagement-windows-store-upgrade-procedure.md)
+### [Windows 범용](mobile-engagement-windows-store-sdk-overview.md)
+#### [Windows Universal 앱 통합](mobile-engagement-windows-store-integrate-engagement.md)
+#### [고급 구성](mobile-engagement-windows-store-advanced-configuration.md)
+#### [통합 도달률](mobile-engagement-windows-store-integrate-engagement-reach.md)
+#### [고급 보고](mobile-engagement-windows-store-advanced-reporting.md)
+#### [태그 계획 구현](mobile-engagement-windows-store-use-engagement-api.md)
+#### [SDK 업그레이드](mobile-engagement-windows-store-upgrade-procedure.md)
 
-### Reach
-#### [Get started using and managing pushes](mobile-engagement-how-tos.md)
-#### [Send Emojis in notifications](mobile-engagement-use-emoji-with-push.md)
-#### [Send personalized notifications](mobile-engagement-send-personalized-notifications.md)
+### 도달률
+#### [사용 및 관리 푸시 시작](mobile-engagement-how-tos.md)
+#### [알림에 이모지 보내기](mobile-engagement-use-emoji-with-push.md)
+#### [개인 설정된 알림 보내기](mobile-engagement-send-personalized-notifications.md)
 
-### Access service APIs
+### 서비스 API에 액세스
 #### [REST](mobile-engagement-dotnet-rest-service-api.md)
 #### [.NET SDK](mobile-engagement-dotnet-sdk-service-api.md)
 
-## [Manage](mobile-engagement-user-interface-home.md)
-### [Account](mobile-engagement-user-interface-my-account.md)
-### [Settings](mobile-engagement-user-interface-settings.md)
-### [Reach](mobile-engagement-user-interface-reach.md)
-#### [Campaigns](mobile-engagement-user-interface-reach-campaign.md)
-#### [Content](mobile-engagement-user-interface-reach-content.md)
-#### [Criteria](mobile-engagement-user-interface-reach-criterion.md)
-### [Segments](mobile-engagement-user-interface-segments.md)
+## [관리](mobile-engagement-user-interface-home.md)
+### [계정](mobile-engagement-user-interface-my-account.md)
+### [설정](mobile-engagement-user-interface-settings.md)
+### [도달률](mobile-engagement-user-interface-reach.md)
+#### [캠페인](mobile-engagement-user-interface-reach-campaign.md)
+#### [콘텐츠](mobile-engagement-user-interface-reach-content.md)
+#### [조건](mobile-engagement-user-interface-reach-criterion.md)
+### [세그먼트](mobile-engagement-user-interface-segments.md)
 
-## Secure
-### [API Authentication](mobile-engagement-api-authentication.md)
-### [Manully configure API authentication](mobile-engagement-api-authentication-manual.md)
+## 보안
+### [API 인증](mobile-engagement-api-authentication.md)
+### [수동으로 API 인증 구성](mobile-engagement-api-authentication-manual.md)
 
-## Monitor
-### [Monitor real-time data](mobile-engagement-user-interface-monitor.md)
+## 모니터
+### [실시간 데이터 모니터링](mobile-engagement-user-interface-monitor.md)
 
-## Analyze
-### [View and manage data charts](mobile-engagement-user-interface-dashboard.md)
-### [Analyze historical data](mobile-engagement-user-interface-analytics.md)
-### [Export raw data for analysis](mobile-engagement-api-export-overview.md)
+## 분석
+### [데이터 차트 보기 및 관리](mobile-engagement-user-interface-dashboard.md)
+### [과거 데이터 분석](mobile-engagement-user-interface-analytics.md)
+### [분석용 원시 데이터 내보내기](mobile-engagement-api-export-overview.md)
 
-## Integrate
-### [API integration](mobile-engagement-sample-backend-integration-sharepoint.md)
+## 통합
+### [API 통합](mobile-engagement-sample-backend-integration-sharepoint.md)
 
-## [Troubleshoot](mobile-engagement-troubleshooting-guide.md)
-### [Analytics, monitoring, segmentation, and dashboard issues](mobile-engagement-troubleshooting-guide-analytics.md)
-### [API issues](mobile-engagement-troubleshooting-guide-apis.md)
-### [Push and reach issues](mobile-engagement-troubleshooting-guide-push-reach.md)
-### [SDK integration issues](mobile-engagement-troubleshooting-guide-sdk.md)
-### [Service issues](mobile-engagement-troubleshooting-guide-service.md)
-### [Service request information](mobile-engagement-troubleshooting-guide-sr-info.md)
-### [Service limits/throttles](../azure-subscription-service-limits.md#mobile-engagement-limits)
+## [문제 해결](mobile-engagement-troubleshooting-guide.md)
+### [분석, 모니터링, 구분 및 대시보드 문제](mobile-engagement-troubleshooting-guide-analytics.md)
+### [API 문제](mobile-engagement-troubleshooting-guide-apis.md)
+### [푸시 및 도달률 문제](mobile-engagement-troubleshooting-guide-push-reach.md)
+### [SDK 통합 문제](mobile-engagement-troubleshooting-guide-sdk.md)
+### [서비스 문제](mobile-engagement-troubleshooting-guide-service.md)
+### [서비스 요청 정보](mobile-engagement-troubleshooting-guide-sr-info.md)
+### [서비스 한도](../azure-subscription-service-limits.md#mobile-engagement-limits)
 
-# Reference
+# 참조
 ## [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
-## [REST API Reference](https://msdn.microsoft.com/en-us/library/azure/mt683754)
-## [REST API Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)
-## SDK content
+## [REST API 참조](https://msdn.microsoft.com/en-us/library/azure/mt683754)
+## [REST API Swagger 사양](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)
+## SDK 콘텐츠
 ### [Android SDK](mobile-engagement-android-sdk-content.md)
 ### [iOS SDK](mobile-engagement-ios-sdk-content.md)
-### [Windows Universal Apps SDK](mobile-engagement-windows-store-sdk-content.md)
+### [Windows 유니버설 앱 SDK](mobile-engagement-windows-store-sdk-content.md)
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-sdk-content.md)
 
-# Related
+# 관련 항목
 
-# Resources
-## [Sample Demo apps](mobile-engagement-demo-apps.md)
-## [.NET API Sample](mobile-engagement-dotnet-sdk-service-api.md)
-## [Videos & Updates](https://azure.microsoft.com/documentation/services/mobile-engagement/)
-## [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
-## Release notes
+# 리소스
+## [데모 앱 샘플](mobile-engagement-demo-apps.md)
+## [.NET API 샘플](mobile-engagement-dotnet-sdk-service-api.md)
+## [동영상 및 업데이트](https://azure.microsoft.com/documentation/services/mobile-engagement/)
+## [Service Level Agreement(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+## 릴리스 정보
 ### [Android SDK](mobile-engagement-android-release-notes.md)
 ### [iOS SDK](mobile-engagement-ios-release-notes.md)
-### [Web SDK](mobile-engagement-web-release-notes.md)
-### [Windows Universal Apps SDK](mobile-engagement-windows-store-release-notes.md)
+### [웹 SDK](mobile-engagement-web-release-notes.md)
+### [Windows 유니버설 앱 SDK](mobile-engagement-windows-store-release-notes.md)
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-release-notes.md)
 
 

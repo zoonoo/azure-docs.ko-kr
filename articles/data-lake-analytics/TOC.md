@@ -1,55 +1,53 @@
-# Overview
-## [What is Data Lake Analytics?](data-lake-analytics-overview.md)
+# 개요
+## [Data Lake Analytics란?](data-lake-analytics-overview.md)
 
-# Get started
-## [Using Portal](data-lake-analytics-get-started-portal.md)
-## [Using PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Using .NET SDK](data-lake-analytics-get-started-net-sdk.md)
-## [Using Java SDK](data-lake-analytics-get-started-java-sdk.md)
-## [Using Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [Using CLI](data-lake-analytics-get-started-cli.md)
-## [Using REST API](data-lake-analytics-get-started-rest-api.md)
-## [Interactive tutorial: Analyze website logs](data-lake-analytics-use-interactive-tutorials.md)
+# 시작
+## [포털 사용](data-lake-analytics-get-started-portal.md)
+## [PowerShell 사용](data-lake-analytics-get-started-powershell.md)
+## [.NET SDK 사용](data-lake-analytics-get-started-net-sdk.md)
+## [Java SDK 사용](data-lake-analytics-get-started-java-sdk.md)
+## [Visual Studio 사용](data-lake-analytics-data-lake-tools-get-started.md)
+## [CLI 사용](data-lake-analytics-get-started-cli.md)
+## [REST API 사용](data-lake-analytics-get-started-rest-api.md)
+## [대화식 자습서: 웹 사이트 로그 분석](data-lake-analytics-use-interactive-tutorials.md)
 
-# How to
-## Develop
-### [Using U-SQL](data-lake-analytics-u-sql-get-started.md)
-### [Using Visual Studio Tools](data-lake-analytics-data-lake-tools-get-started.md)
-### [Using U-SQL window functions](data-lake-analytics-use-window-functions.md)
-### [Using U-SQL user-defined operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+# 방법
+## 개발
+### [U-SQL 사용](data-lake-analytics-u-sql-get-started.md)
+### [Visual Studio 도구 사용](data-lake-analytics-data-lake-tools-get-started.md)
+### [U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)
+### [U-SQL 사용자 정의 연산자 사용](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-## Create solutions
-### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
+## 솔루션 만들기
+### [웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
 
-## Manage
-### [Using Portal](data-lake-analytics-manage-use-portal.md)
-### [Using CLI](data-lake-analytics-manage-use-cli.md)
-### [Using PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [Using .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Using Node.js](data-lake-analytics-manage-use-nodejs.md)
-### [Use U-SQL Catalog to structure code and data](data-lake-analytics-use-u-sql-catalog.md)
+## 관리
+### [포털 사용](data-lake-analytics-manage-use-portal.md)
+### [CLI 사용](data-lake-analytics-manage-use-cli.md)
+### [PowerShell 사용](data-lake-analytics-manage-use-powershell.md)
+### [.NET SDK 사용](data-lake-analytics-manage-use-dotnet-sdk.md)
+### [Node.js 사용](data-lake-analytics-manage-use-nodejs.md)
+### [U-SQL 카탈로그를 사용하여 코드 및 데이터 구조화](data-lake-analytics-use-u-sql-catalog.md)
 
-## Troubleshoot
-### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
-### [Debug C# code in U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
-### [Use Job Browser and Job View](data-lake-analytics-data-lake-tools-view-jobs.md)
-### [Use Vertex Execution View](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+## 문제 해결
+### [작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [진단 로그 액세스](data-lake-analytics-diagnostic-logs.md)
+### [U-SQL에서 C# 코드 디버그](data-lake-analytics-debug-u-sql-jobs.md)
+### [작업 브라우저 및 작업 보기 사용](data-lake-analytics-data-lake-tools-view-jobs.md)
+### [Vertex 실행 보기 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
-# Reference
+# 참조
 ## [.NET SDK](https://msdn.microsoft.com/library/azure/mt572197(Azure.100).aspx)
-## [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt607124.aspx)
-## [U-SQL Language Reference](https://msdn.microsoft.com/library/azure/mt591959(Azure.100).aspx)
-## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt607124.aspx)
+## [U-SQL 언어 참조](https://msdn.microsoft.com/library/azure/mt591959(Azure.100).aspx)
+## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
-# Related
-## [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/what-is-cortana-intelligence-suite)
 
-# Resources
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataLake)
-## [Stack Overflow Forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
-## [Azure Data Lake Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
+# 리소스
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataLake)
+## [스택 오버플로 포럼](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
+## [Azure Data Lake 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)
 
 
 <!--HONumber=Nov16_HO2-->

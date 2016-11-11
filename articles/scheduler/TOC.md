@@ -1,31 +1,31 @@
 
 
-# Overview
-## [What is Scheduler?](scheduler-intro.md)
+# 개요
+## [스케줄러란?](scheduler-intro.md)
 
-# Get started
-## [Create and manage jobs](scheduler-get-started-portal.md)
+# 시작
+## [작업 만들기 및 관리](scheduler-get-started-portal.md)
 
-# How to
-## Plan and design
-### [Plans and billing](scheduler-plans-billing.md)
-### [Quotas and limits](scheduler-limits-defaults-errors.md)
-### [High-availability and reliability](scheduler-high-availability-reliability.md)
+# 방법
+## 계획 및 디자인
+### [요금제 및 청구](scheduler-plans-billing.md)
+### [할당량 및 한도](scheduler-limits-defaults-errors.md)
+### [고가용성 및 안정성](scheduler-high-availability-reliability.md)
 
-## Develop
-### [Complex schedules using REST API](scheduler-advanced-complexity.md)
+## 개발
+### [REST API를 사용하는 복잡한 일정](scheduler-advanced-complexity.md)
 
-## Secure
-### [Outbound authentication](scheduler-outbound-authentication.md)
+## 보안
+### [아웃바운드 인증](scheduler-outbound-authentication.md)
 
-# Reference
-## [Concepts and terminology](scheduler-concepts-terms.md)
+# 참조
+## [개념 및 용어](scheduler-concepts-terms.md)
 ## [REST API](https://msdn.microsoft.com/library/azure/mt629143)
-## [PowerShell cmdlets](scheduler-powershell-reference.md)
+## [PowerShell cmdlet](scheduler-powershell-reference.md)
 
-# Resources
-## [Scheduler Videos](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
+# 리소스
+## [Scheduler 비디오](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-scheduler)
 
 
 <!--HONumber=Nov16_HO2-->

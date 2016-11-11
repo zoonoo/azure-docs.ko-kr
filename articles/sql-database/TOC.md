@@ -1,442 +1,442 @@
-# Overview
-## [What is SQL Database?](sql-database-technical-overview.md)
-## Features
-### [Service tiers](sql-database-service-tiers.md)
-### [What is a DTU?](sql-database-what-is-a-dtu.md)
-### [DTU benchmark overview](sql-database-benchmark-overview.md)
-### [SQL Database firewall and firewall rules](sql-database-firewall-configure.md)
-### [Management tools](sql-database-manage-overview.md)
-## Consideration and limitations
-### [SQL Database versus SQL on a VM](sql-database-paas-vs-sql-server-iaas.md)
-### [T-SQL differences](sql-database-transact-sql-information.md)
-### [Resource limits](sql-database-resource-limits.md)
-### [General limitations](sql-database-general-limitations.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/sql-database/)
-## [What's new?](https://azure.microsoft.com/updates/?service=sql-database)
-## [SQL Database FAQ](sql-database-faq.md)
+# 개요
+## [SQL 데이터베이스 정의](sql-database-technical-overview.md)
+## 기능
+### [서비스 계층](sql-database-service-tiers.md)
+### [DTU란?](sql-database-what-is-a-dtu.md)
+### [DTU 벤치마크 개요](sql-database-benchmark-overview.md)
+### [SQL Database 방화벽 및 방화벽 규칙](sql-database-firewall-configure.md)
+### [관리 도구](sql-database-manage-overview.md)
+## 고려 사항 및 제한 사항
+### [VM의 SQL Database 및 SQL](sql-database-paas-vs-sql-server-iaas.md)
+### [T-SQL 차이점](sql-database-transact-sql-information.md)
+### [리소스 한도](sql-database-resource-limits.md)
+### [일반적인 제한 사항](sql-database-general-limitations.md)
+## [가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)
+## [새로운 기능](https://azure.microsoft.com/updates/?service=sql-database)
+## [SQL 데이터베이스 FAQ](sql-database-faq.md)
 
-## Benefits
-### [Learns and adapts](sql-database-learn-and-adapt.md)
-### [Scales on the fly](sql-database-scale-on-the-fly.md)
-### [Builds multitenant apps](sql-database-build-multi-tenant-apps.md)
-### [Secures and protects](sql-database-helps-secures-and-protects.md)
-### [Works in your environment](sql-database-works-in-your-environment.md)
+## 이점
+### [학습 및 적응](sql-database-learn-and-adapt.md)
+### [즉석에서 확장](sql-database-scale-on-the-fly.md)
+### [다중 테넌트 앱 빌드](sql-database-build-multi-tenant-apps.md)
+### [보안 및 보호](sql-database-helps-secures-and-protects.md)
+### [사용자 환경에서 작동](sql-database-works-in-your-environment.md)
 
-## Scenarios
-### Create and manage servers, pools, databases and firewalls
-#### Create and manage elastic database pools
-#### [When to use an elastic database pool](sql-database-elastic-pool-guidance.md)
-#### [Security guidelines](sql-database-security-guidelines.md)
-#### [Elastic database pools](sql-database-elastic-pool.md)
-#### [Automation](sql-database-manage-automation.md)
-#### Modify service tiers and performance levels
-##### [Azure [portal](sql-database-scale-up.md)
+## 시나리오
+### 서버, 풀, 데이터베이스 및 방화벽 만들기 및 관리
+#### 탄력적 데이터베이스 풀 만들기 및 관리
+#### [Elastic Database 풀을 사용하는 경우](sql-database-elastic-pool-guidance.md)
+#### [보안 지침](sql-database-security-guidelines.md)
+#### [Elastic Database 풀](sql-database-elastic-pool.md)
+#### [자동화](sql-database-manage-automation.md)
+#### 서비스 계층 및 성능 수준 수정
+##### [Azure [포털](sql-database-scale-up.md)
 ##### [PowerShell](sql-database-scale-up-powershell.md)
-### Create and manage scaled-out databases
-#### [Overview](sql-database-elastic-scale-introduction.md)
-#### [Building scalable cloud databases](sql-database-elastic-database-client-library.md)
-#### [Scale out with shard map manager](sql-database-elastic-scale-shard-map-management.md)
-#### [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md)
-#### [Move data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md)
-#### [Use entity framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-#### [Working with Dapper](sql-database-elastic-scale-working-with-dapper.md)
-#### [Performance counters for shard map manager](sql-database-elastic-database-perf-counters.md)
-#### Cross database jobs and queries
-##### [Cross database querying](sql-database-elastic-query-overview.md)
-##### [Cross database querying with different schemas](sql-database-elastic-query-vertical-partitioning.md)
-##### [Cross database reporting](sql-database-elastic-query-horizontal-partitioning.md)
-##### [Cross database jobs](sql-database-elastic-jobs-overview.md)
-##### [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
-##### [Muiltishard querying](sql-database-elastic-scale-multishard-querying.md)
-##### [Multitenant row level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-##### [Distributed transactions across cloud databases](sql-database-elastic-transactions-overview.md)
-####[Elastic database tools glossary](sql-database-elastic-scale-glossary.md)
+### 규모가 확장된 데이터베이스 만들기 및 관리
+#### [개요](sql-database-elastic-scale-introduction.md)
+#### [확장성 있는 클라우드 데이터베이스 빌드](sql-database-elastic-database-client-library.md)
+#### [분할된 데이터베이스 맵 관리자를 사용하여 규모 확장](sql-database-elastic-scale-shard-map-management.md)
+#### [확장하기 위해 기존 데이터베이스 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)
+#### [규모 확장된 클라우드 데이터베이스 간 데이터 이동](sql-database-elastic-scale-overview-split-and-merge.md)
+#### [엔터티 프레임워크 사용](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
+#### [Dapper 작업](sql-database-elastic-scale-working-with-dapper.md)
+#### [분할된 맵 관리자에 대한 성능 카운터](sql-database-elastic-database-perf-counters.md)
+#### 크로스 데이터베이스 작업 및 쿼리
+##### [크로스 데이터베이스 쿼리](sql-database-elastic-query-overview.md)
+##### [서로 다른 스키마를 사용하여 크로스 데이터베이스 쿼리](sql-database-elastic-query-vertical-partitioning.md)
+##### [크로스 데이터베이스 보고](sql-database-elastic-query-horizontal-partitioning.md)
+##### [크로스 데이터베이스 작업](sql-database-elastic-jobs-overview.md)
+##### [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)
+##### [다중 분할된 데이터베이스 쿼리](sql-database-elastic-scale-multishard-querying.md)
+##### [다중 테넌트 행 수준 보안](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+##### [클라우드 데이터베이스의 분산 트랜잭션](sql-database-elastic-transactions-overview.md)
+####[탄력적 데이터베이스 도구 용어집](sql-database-elastic-scale-glossary.md)
 #### [FAQ](sql-database-elastic-scale-faq.md)
-### Create and manage access and permissions
-#### [Overview](sql-database-security.md)
-#### [Security guidelines](sql-database-security-guidelines.md)
-#### [Manage logins](sql-database-manage-logins.md)
-#### [Azure Security Center for Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
-#### [SQL Security Center](https://msdn.microsoft.com/library/azure/bb510589)
-### [Database and application development](sql-database-develop-overview.md)
-### Database migration
-#### [Migrate a SQL Server database](sql-database-cloud-migrate.md)
-### Providing for business continuity
-#### [Overview](sql-database-business-continuity.md)
-#### [Database backups](sql-database-automated-backups.md) 
-#### [Database recovery using backups](sql-database-recovery-using-backups.md)
-#### [Recover from a data center outage](sql-database-disaster-recovery.md)
-#### [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md)
-#### [Business continuity design scenarios](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-#### [Disaster recovery strategies with elastic pools](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
-#### [Rolling upgrades](sql-database-manage-application-rolling-upgrade.md)
-### Monitor and tune databases
-#### [Single databases](sql-database-single-database-monitor.md)
-#### [Single database guidance](sql-database-performance-guidance.md)
-#### [Workload insights in the Azure portal](sql-database-performance.md)
+### 액세스 및 사용 권한 만들기 및 관리
+#### [개요](sql-database-security.md)
+#### [보안 지침](sql-database-security-guidelines.md)
+#### [로그인 관리](sql-database-manage-logins.md)
+#### [Azure SQL Database에 대한 Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
+#### [SQL 보안 센터](https://msdn.microsoft.com/library/azure/bb510589)
+### [데이터베이스 및 응용 프로그램 개발](sql-database-develop-overview.md)
+### 데이터베이스 마이그레이션
+#### [SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)
+### 비즈니스 연속성을 위한 제공
+#### [개요](sql-database-business-continuity.md)
+#### [데이터베이스 백업](sql-database-automated-backups.md) 
+#### [백업을 사용한 데이터베이스 복구](sql-database-recovery-using-backups.md)
+#### [데이터 센터 가동 중단에서 복구](sql-database-disaster-recovery.md)
+#### [재해 복구에 대한 인증 요구 사항](sql-database-geo-replication-security-config.md)
+#### [비즈니스 연속성 디자인 시나리오](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+#### [탄력적 풀을 사용한 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+#### [롤링 업그레이드](sql-database-manage-application-rolling-upgrade.md)
+### 데이터베이스 모니터링 및 튜닝
+#### [단일 데이터베이스](sql-database-single-database-monitor.md)
+#### [단일 데이터베이스 지침](sql-database-performance-guidance.md)
+#### [Azure Portal의 워크로드 정보](sql-database-performance.md)
 
-## Customer Implementations
-### [Daxko/CSI Software](sql-database-implementation-daxko.md)
+## 고객 구현
+### [Daxko/CSI 소프트웨어](sql-database-implementation-daxko.md)
 ### [GEP](sql-database-implementation-gep.md)
 ### [SnelStart](sql-database-implementation-snelstart.md)
 ### [Umbraco](sql-database-implementation-umbraco.md)
 
-# Get Started
-## Create servers, pools, databases, and firewalls
-### [Azure portal](sql-database-get-started.md)
+# 시작
+## 서버, 풀, 데이터베이스 및 방화벽 만들기
+### [Azure Portal](sql-database-get-started.md)
 ### [PowerShell](sql-database-get-started-powershell.md)
 ### [C#](sql-database-get-started-csharp.md)
-## Query data
+## 쿼리 데이터
 ### [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-## Manage servers, pools, databases and firewalls
-### [Azure portal](sql-database-manage-portal.md)
+## 서버, 풀, 데이터베이스 및 방화벽 관리
+### [Azure Portal](sql-database-manage-portal.md)
 ### [SQL Server Management Studio](sql-database-manage-azure-ssms.md)
 ### [PowerShell](sql-database-manage-powershell.md)
-## [Create and manage access and permissions](sql-database-get-started-security.md)
-## Secure and protect data
-### [Auditing](sql-database-auditing-get-started.md)
-### [Threat detection](sql-database-threat-detection-get-started.md)
-### Dynamic data masking
-#### [Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
-## Create and manage scaled-out databases
-### [Elastic scale](sql-database-elastic-scale-get-started.md)
-### [Elastic jobs](sql-database-elastic-jobs-getting-started.md)
-### Elastic queries
-### [Cross database reports](sql-database-elastic-query-getting-started.md)
-### [Cross database queries](sql-database-elastic-query-getting-started-vertical.md)
-## [In-memory optimization](sql-database-in-memory.md)
-## [Moving databases](sql-database-troubleshoot-moving-data.md)
-## [Data sync](sql-database-get-started-sql-data-sync.md)
-##Monitor and tune databases
-### [SQL Database Advisor overview](sql-database-advisor.md)
-### [Workload insights in the Azure portal](sql-database-performance.md)
-## [Solution quick-starts](sql-database-solution-quick-starts.md)
-# How To
-## [Audit](sql-database-auditing-get-started.md)
-## Create
-### Resource group
+## [액세스 및 사용 권한 만들기 및 관리](sql-database-get-started-security.md)
+## 데이터 보안 및 보호
+### [감사](sql-database-auditing-get-started.md)
+### [위협 감지](sql-database-threat-detection-get-started.md)
+### 동적 데이터 마스킹
+#### [Azure Portal](sql-database-dynamic-data-masking-get-started-portal.md)
+## 규모가 확장된 데이터베이스 만들기 및 관리
+### [탄력적 확장](sql-database-elastic-scale-get-started.md)
+### [탄력적 작업](sql-database-elastic-jobs-getting-started.md)
+### 탄력적 쿼리
+### [크로스 데이터베이스 보고서](sql-database-elastic-query-getting-started.md)
+### [크로스 데이터베이스 쿼리](sql-database-elastic-query-getting-started-vertical.md)
+## [메모리 내 최적화](sql-database-in-memory.md)
+## [데이터베이스 이동](sql-database-troubleshoot-moving-data.md)
+## [데이터 동기화](sql-database-get-started-sql-data-sync.md)
+##데이터베이스 모니터링 및 튜닝
+### [SQL Database 관리자 개요](sql-database-advisor.md)
+### [Azure Portal의 워크로드 정보](sql-database-performance.md)
+## [솔루션 빠른 시작](sql-database-solution-quick-starts.md)
+# 방법
+## [감사](sql-database-auditing-get-started.md)
+## 생성
+### 리소스 그룹
 #### [PowerShell](sql-database-manage-powershell.md#create-a-resource-group)
-### Servers
-#### [Azure portal](sql-database-get-started.md)
+### 서버
+#### [Azure Portal](sql-database-get-started.md)
 #### [C#](sql-database-get-started-csharp.md)
 #### [PowerShell](sql-database-manage-powershell.md#create-a-sql-database-server)
-### Elastic database pools
-#### [Azure portal](sql-database-elastic-pool-create-portal.md)
+### 탄력적 데이터베이스 풀
+#### [Azure Portal](sql-database-elastic-pool-create-portal.md)
 #### [C#](sql-database-elastic-pool-create-csharp.md)
 #### [PowerShell](sql-database-elastic-pool-create-powershell.md)
-### Databases
-#### Single databases
-##### [Azure portal](sql-database-get-started.md)
+### 데이터베이스
+#### 단일 데이터베이스
+##### [Azure Portal](sql-database-get-started.md)
 ##### [C#](sql-database-get-started-csharp.md)
 ##### [T-SQL](sql-database-manage-azure-ssms.md#create-and-manage-azure-sql-databases)
 ##### [PowerShell](sql-database-get-started-powershell.md)
 #### [SQL Server Management Studio](sql-database-manage-azure-ssms.md#create-and-manage-azure-sql-databases)
-#### Sharded databases
-##### [Use shard map manager](sql-database-elastic-scale-shard-map-management.md)
-##### [Split merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
-##### [Working with Dapper](sql-database-elastic-scale-working-with-dapper.md)
-##### [Use entity framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-##### [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
-##### [Multitenant row level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-### Firewall rules
-#### Server
-##### [Azure Portal](sql-database-configure-firewall-settings.md)
+#### 분할된 데이터베이스
+##### [분할된 데이터베이스 맵 관리자 사용](sql-database-elastic-scale-shard-map-management.md)
+##### [분할 병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)
+##### [Dapper 작업](sql-database-elastic-scale-working-with-dapper.md)
+##### [엔터티 프레임워크 사용](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
+##### [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)
+##### [다중 테넌트 행 수준 보안](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+### 방화벽 규칙
+#### 서버
+##### [Azure 포털](sql-database-configure-firewall-settings.md)
 ##### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 ##### [REST API](sql-database-configure-firewall-settings-rest.md)
 ##### [T-SQL](sql-database-configure-firewall-settings-tsql.md#server-level-firewall-rules)
-#### Database
+#### 데이터베이스
 ##### [T-SQL](sql-database-configure-firewall-settings-tsql.md#database-level-firewall-rules)
-### Jobs
-#### [Service installation](sql-database-elastic-jobs-service-installation.md)
-#### [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+### 작업
+#### [서비스 설치](sql-database-elastic-jobs-service-installation.md)
+#### [Azure Portal](sql-database-elastic-jobs-create-and-manage.md)
 #### [PowerShell](sql-database-elastic-jobs-powershell.md)
-### Logins
+### 로그인
 #### [T-SQL](sql-database-manage-azure-ssms.md#create-and-manage-logins.md)
-## Develop
-### [Overview](https://msdn.microsoft.com/library/mt763826.aspx)
-### Scenarios
-#### [Multitenant SaaS applications](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-#### Temporal tables
-##### [Temporal tables](sql-database-temporal-tables.md)
-##### [Retention policies](sql-database-temporal-tables-retention-policy.md)
-#### [JSON data](sql-database-json-features.md)
-#### [In-memory](sql-database-in-memory.md)
-###Get started
-#### [Connectivity libraries](sql-database-libraries.md)
-#### Connect an application
+## 개발
+### [개요](https://msdn.microsoft.com/library/mt763826.aspx)
+### 시나리오
+#### [다중 테넌트 SaaS 응용 프로그램](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+#### 임시 테이블
+##### [임시 테이블](sql-database-temporal-tables.md)
+##### [보존 정책](sql-database-temporal-tables-retention-policy.md)
+#### [JSON 데이터](sql-database-json-features.md)
+#### [메모리 내](sql-database-in-memory.md)
+###시작
+#### [연결 라이브러리](sql-database-libraries.md)
+#### 응용 프로그램 연결
 ##### [.NET](sql-database-develop-dotnet-simple.md)
 ##### [Java](sql-database-develop-java-simple.md)
-##### [Node.js](sql-database-develop-nodejs-simple.md)
+##### [Node.JS](sql-database-develop-nodejs-simple.md)
 ##### [PHP](sql-database-develop-php-simple.md)
 ##### [Python](sql-database-develop-python-simple.md)
 ##### [Ruby](sql-database-develop-ruby-simple.md)
 ##### [Excel](sql-database-connect-excel.md)
-#### [Connect with Visual Studio](sql-database-connect-query.md)
-### How to
-#### Create servers
+#### [Visual Studio를 사용하여 연결](sql-database-connect-query.md)
+### 방법
+#### 서버 만들기
 ##### [PowerShell](sql-database-get-started-powershell.md)
 ##### [C#](sql-database-get-started-csharp.md)
-##### Create elastic pools
+##### 탄력적 풀 만들기
 ###### [PowerShell](sql-database-elastic-pool-create-powershell.md)
 ###### [C#](sql-database-elastic-pool-create-csharp.md)
-#### Create databases
+#### 데이터베이스 만들기
 ##### [PowerShell](sql-database-get-started-powershell.md)
 ##### [C#](sql-database-get-started-csharp.md)
-##### Create firewall rules
+##### 방화벽 규칙 만들기
 ###### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 ###### [REST API](sql-database-configure-firewall-settings-rest.md)
-#### Manage servers, pools, databases and firewalls
+#### 서버, 풀, 데이터베이스 및 방화벽 관리
 ##### [PowerShell](sql-database-manage-powershell.md)
-##### Manage elastic pools
+##### 탄력적 풀 관리
 ###### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ###### [C#](sql-database-elastic-pool-manage-csharp.md)
-##### [Change service tiers and performance levels](sql-database-scale-up-powershell.md)
-#### Move data
-##### [Export database to a BACPAC file](sql-database-export-powershell.md)
-##### [Import database from a BACPAC file](sql-database-import-powershell.md)
-##### [Copy a database to another Azure location](sql-database-copy-powershell.md)
-#### [Get required values for authenticating an application](sql-database-client-id-keys.md)
-#### [Elastic jobs](sql-database-elastic-jobs-powershell.md)
-#### Restore and recover and database
-##### Restore deleted database
+##### [서비스 계층 및 성능 수준 변경](sql-database-scale-up-powershell.md)
+#### 데이터 이동
+##### [데이터베이스를 BACPAC 파일로 내보내기](sql-database-export-powershell.md)
+##### [데이터베이스를 BACPAC 파일에서 가져오기](sql-database-import-powershell.md)
+##### [Azure의 다른 위치로 데이터베이스 복사](sql-database-copy-powershell.md)
+#### [응용 프로그램 인증을 위한 필수 값 가져오기](sql-database-client-id-keys.md)
+#### [탄력적 작업](sql-database-elastic-jobs-powershell.md)
+#### 데이터베이스 복원 및 복구
+##### 삭제된 데이터베이스 복원
 ###### [PowerShell](sql-database-restore-deleted-database-powershell.md)
-##### Point in time database restore
+##### 지정 시간 데이터베이스 복원
 ###### [PowerShell](sql-database-point-in-time-restore-powershell.md)
-##### Geo-Restore
+##### 지역 복원
 ###### [PowerShell](sql-database-geo-restore-powershell.md)
-#### Replicate data with Active Geo-Replication
-##### Configure
+#### 활성 지역 복제를 사용하여 데이터 복제
+##### 구성
 ###### [PowerShell](sql-database-geo-replication-powershell.md)
-##### Failover
+##### 장애 조치(Failover)
 ###### [PowerShell](sql-database-geo-replication-failover-powershell.md)
-#### [Use ports beyond 1433 for ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md)
-#### [Work with error messages](sql-database-develop-error-messages.md)
-#### [Use batching](sql-database-use-batching-to-improve-performance.md)
-### Reference
+#### [ADO.NET 4.5에 대해 1433 이외의 포트 사용](sql-database-develop-direct-route-ports-adonet-v12.md)
+#### [오류 메시지 작업](sql-database-develop-error-messages.md)
+#### [일괄 처리 사용](sql-database-use-batching-to-improve-performance.md)
+### 참조
 #### [Transact-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-#### [.NET Framework Data Provider for SQL Server (concepts)](https://msdn.microsoft.com/library/kb9s9ks0.aspx)
-#### [.NET Framework Data Provider for SQL Server (API Reference)](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)
+#### [SQL Server용 .NET Framework 데이터 공급자(개념)](https://msdn.microsoft.com/library/kb9s9ks0.aspx)
+#### [SQL Server용 .NET Framework 데이터 공급자(API 참조)](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)
 #### SQL PowerShell
-##### [Azure SQL Database Cmdlets (Resource Management)](https://msdn.microsoft.com/library/azure/mt574084(v=azure.300\).aspx)
-##### [Azure SQL Database Cmdlets (Service Management)](https://msdn.microsoft.com/library/azure/dn546723(v=azure.300\).aspx)
-##### [SQL Server Cmdlets](https://msdn.microsoft.com/library/mt740629.aspx)
+##### [Azure SQL Database Cmdlet(리소스 관리)](https://msdn.microsoft.com/library/azure/mt574084(v=azure.300\).aspx)
+##### [Azure SQL Database Cmdlet(서비스 관리)](https://msdn.microsoft.com/library/azure/dn546723(v=azure.300\).aspx)
+##### [SQL Server Cmdlet](https://msdn.microsoft.com/library/mt740629.aspx)
 #### SQL Database REST API
-##### [REST API (Resource Management)](https://msdn.microsoft.com/library/azure/mt420159)
-##### [REST API (Service Management)](https://msdn.microsoft.com/library/azure/dn505719.aspx)
-#### SQL Database Management Library
-##### [SQL Database Management Library Reference](https://msdn.microsoft.com/library/azure/mt349017.aspx)
-##### [Get the SQL Database Management Library package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
+##### [REST API(리소스 관리)](https://msdn.microsoft.com/library/azure/mt420159)
+##### [REST API(서비스 관리)](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+#### SQL Database 관리 라이브러리
+##### [SQL Database 관리 라이브러리 참조](https://msdn.microsoft.com/library/azure/mt349017.aspx)
+##### [SQL Database 관리 라이브러리 패키지 가져오기](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 #### Entity Framework
-##### [Get the Entity Framework package](https://www.nuget.org/packages/EntityFramework/)
-#### [SQL Server Drivers](https://msdn.microsoft.com/library/mt654049.aspx)
+##### [Entity Framework 패키지 가져오기](https://www.nuget.org/packages/EntityFramework/)
+#### [SQL Server 드라이버](https://msdn.microsoft.com/library/mt654049.aspx)
 ##### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
 ##### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
-##### [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+##### [Node.JS](https://msdn.microsoft.com/library/mt652093.aspx)
 ##### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
 ##### [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
 ##### [Python](https://msdn.microsoft.com/library/mt652092.aspx)
 ##### [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
-#### [Azure SDK (download)](https://www.visualstudio.com/vs/azure-tools/)
-#### [Azure SDK (documentation)](https://azure.microsoft.com/documentation/articles/dotnet-sdk/)
-### Resources
-#### [SQL Server Tools](https://msdn.microsoft.com/library/mt238365.aspx)
-#### [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-#### [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+#### [Azure SDK(다운로드)](https://www.visualstudio.com/vs/azure-tools/)
+#### [Azure SDK(설명서)](https://azure.microsoft.com/documentation/articles/dotnet-sdk/)
+### 리소스
+#### [SQL Server 도구](https://msdn.microsoft.com/library/mt238365.aspx)
+#### [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)
+#### [SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx)
 #### [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 #### [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 #### [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-## Delete
-### Database
+## 삭제
+### 데이터베이스
 #### [PowerShell](sql-database-manage-powershell.md#delete-a-sql-database)
-### Server
+### 서버
 #### [PowerShell](sql-database-manage-powershell.md#delete-a-sql-database-server)
-## Detect threats
-### [Threat detection](sql-database-threat-detection-get-started.md)
-### [Firewall](sql-database-firewall-configure.md)
-## Encrypt data
-### Always encrypted
-#### [Always encrypted overview](sql-database-always-encrypted.md)
-#### [Always encrypted Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
-### [Transparent data encryption](https://msdn.microsoft.com/library/azure/dn948096)
-### [Column encryption](https://msdn.microsoft.com/library/azure/ms179331)
-## Manage
-###  Authentication
-#### SQL authentication
-#### [Azure Active Directory authentication](sql-database-aad-authentication.md)
-#### [Multi-factor authentication](sql-database-ssms-mfa-authentication.md)
-### Servers
-### Elastic pools
-#### [Azure portal](sql-database-elastic-pool-manage-portal.md)
+## 위협 감지
+### [위협 감지](sql-database-threat-detection-get-started.md)
+### [방화벽](sql-database-firewall-configure.md)
+## 데이터 암호화
+### 상시 암호화
+#### [상시 암호화 개요](sql-database-always-encrypted.md)
+#### [상시 암호화 Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
+### [투명한 데이터 암호화](https://msdn.microsoft.com/library/azure/dn948096)
+### [열 암호화](https://msdn.microsoft.com/library/azure/ms179331)
+## 관리
+###  인증
+#### SQL 인증
+#### [Azure Active Directory 인증](sql-database-aad-authentication.md)
+#### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
+### 서버
+### 탄력적 풀
+#### [Azure Portal](sql-database-elastic-pool-manage-portal.md)
 #### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 #### [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 #### [C#](sql-database-elastic-pool-manage-csharp.md)
-### Databases
-#### Single databases
-##### [Azure portal](sql-database-manage-portal.md)
+### 데이터베이스
+#### 단일 데이터베이스
+##### [Azure Portal](sql-database-manage-portal.md)
 ##### [T-SQL](sql-database-manage-azure-ssms.md#create-and-manage-azure-sql-databases)
 ##### [PowerShell](sql-database-manage-powershell.md#create-a-sql-database-blank)
-#### Change service tiers and performance levels
-#### [Azure [portal](sql-database-scale-up.md)
+#### 서비스 계층 및 성능 수준 변경
+#### [Azure [포털](sql-database-scale-up.md)
 #### [PowerShell](sql-database-manage-powershell.md#change-the-performance-level-of-a-sql-database)
-#### Sharded databases
-##### [Migrate existing scaled-out databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md)
-##### [Manage credentials](sql-database-elastic-scale-manage-credentials.md)
-##### [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md)
-##### [Deploy a split-merge service](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-##### [Add a shard](sql-database-elastic-scale-add-a-shard.md)
-##### [Using the RecoveryManager class to fix shard map problems](sql-database-elastic-database-recovery-manager.md)
-### Firewall rules
-#### Server
-##### [Azure Portal](sql-database-configure-firewall-settings.md)
+#### 분할된 데이터베이스
+##### [기존 확장된 데이터베이스를 확장하도록 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)
+##### [자격 증명 관리](sql-database-elastic-scale-manage-credentials.md)
+##### [확장된 클라우드 데이터베이스 간 데이터 이동](sql-database-elastic-scale-overview-split-and-merge.md)
+##### [분할/병합 서비스 배포](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+##### [분할된 데이터베이스 추가](sql-database-elastic-scale-add-a-shard.md)
+##### [RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵 문제 해결](sql-database-elastic-database-recovery-manager.md)
+### 방화벽 규칙
+#### 서버
+##### [Azure 포털](sql-database-configure-firewall-settings.md)
 ##### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 ##### [REST API](sql-database-configure-firewall-settings-rest.md)
 ##### [T-SQL](sql-database-configure-firewall-settings-tsql.md#server-level-firewall-rules)
-#### Database
+#### 데이터베이스
 ##### [T-SQL](sql-database-configure-firewall-settings-tsql.md#database-level-firewall-rules)
-### Jobs
-#### [Service installation](sql-database-elastic-jobs-service-installation.md)
-#### [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+### 작업
+#### [서비스 설치](sql-database-elastic-jobs-service-installation.md)
+#### [Azure Portal](sql-database-elastic-jobs-create-and-manage.md)
 #### [PowerShell](sql-database-elastic-jobs-powershell.md)
-#### [Upgrade client library](sql-database-elastic-scale-upgrade-client-library.md)
-### Logins
-#### [Manage logins](sql-database-manage-logins.md)
-## Mask data
-### Dynamic data masking
-#### [Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
-#### [Downlevel clients](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
-## Migrate
-### Determine compatibility
-#### [SQL Package utility](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
+#### [클라이언트 라이브러리 업그레이드](sql-database-elastic-scale-upgrade-client-library.md)
+### 로그인
+#### [로그인 관리](sql-database-manage-logins.md)
+## 데이터 마스킹
+### 동적 데이터 마스킹
+#### [Azure Portal](sql-database-dynamic-data-masking-get-started-portal.md)
+#### [하위 수준 클라이언트](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
+## 마이그레이션
+### 호환성 확인
+#### [SQL 패키지 유틸리티](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 #### [SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-### Fix compatibility issues
+### 호환성 문제 해결
 #### [SQL Server Data Tools](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 #### [SQL Server Management Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-#### [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
-### [Use SQL Server Management Studio Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-### [Use transactional replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
-### Export database to a BACPAC file
+#### [SQL Azure 마이그레이션 마법사](sql-database-cloud-migrate-fix-compatibility-issues.md)
+### [SQL Server Management Studio 마이그레이션 마법사 사용](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+### [트랜잭션 복제 사용](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+### 데이터베이스를 BACPAC 파일로 내보내기
 #### [SQL Server Management Studio](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-#### [SQL Package utility](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
+#### [SQL 패키지 유틸리티](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
 #### [PowerShell](sql-database-export-powershell.md)
-### Import database from a BACPAC file
+### 데이터베이스를 BACPAC 파일에서 가져오기
 #### [SQL Server Management Studio](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-#### [SQL Package utility](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-#### [Azure portal](sql-database-import.md)
+#### [SQL 패키지 유틸리티](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+#### [Azure Portal](sql-database-import.md)
 #### [PowerShell](sql-database-import-powershell.md)
 
-## Monitor and tune
-### [Single databases](sql-database-performance-guidance.md)
-### Elastic pools
-#### [Azure portal](sql-database-elastic-pool-manage-portal.md)
+## 모니터링 및 튜닝
+### [단일 데이터베이스](sql-database-performance-guidance.md)
+### 탄력적 풀
+#### [Azure Portal](sql-database-elastic-pool-manage-portal.md)
 #### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 #### [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 #### [C#](sql-database-elastic-pool-manage-csharp.md)
-### [Query Performance Insight](sql-database-query-performance.md)
-### SQL Database Advisor
-#### [Azure portal](sql-database-advisor-portal.md)
-### Change service tiers and performance levels
-#### [Azure portal](sql-database-scale-up.md)
+### [쿼리 성능 Insight](sql-database-query-performance.md)
+### SQL 데이터베이스 관리자
+#### [Azure Portal](sql-database-advisor-portal.md)
+### 서비스 계층 및 성능 수준 변경
+#### [Azure Portal](sql-database-scale-up.md)
 #### [PowerShell](sql-database-scale-up-powershell.md)
-### [Performance tuning tips](sql-database-troubleshoot-performance.md)
-### In-Memory OLTP
-#### [Adopt in-memory OLTP](sql-database-in-memory-oltp-migration.md)
-#### [Monitor In-Memory OLTP Storage](sql-database-in-memory-oltp-monitoring.md)
-### Query Store
-#### [Monitoring performance by using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
-#### [Query Store usage scenarios](https://msdn.microsoft.com/library/mt614796.aspx)
-#### [Operating the Query Store](sql-database-operate-query-store.md)
-### [Compatibility levels](sql-database-compatibility-level-query-performance-130.md)
-### [Event auditing](sql-database-auditing-get-started.md)
-### [Performance counters for shard map manager](sql-database-elastic-database-perf-counters.md)
-### Extended events
-#### [Extended events](sql-database-xevent-db-diff-from-svr.md)
-#### [Event file target code](sql-database-xevent-code-event-file.md)
-#### [Ring buffer target code](sql-database-xevent-code-ring-buffer.md)
-### DMVs
-#### [DMVs](sql-database-monitoring-with-dmvs.md)
-#### [DMVs](sql-database-manage-azure-ssms#monitor-sql-database-using-dynamic-management-views
+### [성능 튜닝 팁](sql-database-troubleshoot-performance.md)
+### 메모리 내 OLTP
+#### [메모리 내 OLTP 채택](sql-database-in-memory-oltp-migration.md)
+#### [메모리 내 OLTP 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md)
+### 쿼리 저장소
+#### [쿼리 저장소를 사용한 성능 모니터링](https://msdn.microsoft.com/library/dn817826.aspx)
+#### [쿼리 저장소 사용 시나리오](https://msdn.microsoft.com/library/mt614796.aspx)
+#### [쿼리 저장소 작동](sql-database-operate-query-store.md)
+### [호환성 수준](sql-database-compatibility-level-query-performance-130.md)
+### [이벤트 감사](sql-database-auditing-get-started.md)
+### [분할된 맵 관리자에 대한 성능 카운터](sql-database-elastic-database-perf-counters.md)
+### 확장 이벤트
+#### [확장 이벤트](sql-database-xevent-db-diff-from-svr.md)
+#### [이벤트 파일 대상 코드](sql-database-xevent-code-event-file.md)
+#### [링 버퍼 대상 코드](sql-database-xevent-code-ring-buffer.md)
+### Dmv
+#### [DMV](sql-database-monitoring-with-dmvs.md)
+#### [Dmv](sql-database-manage-azure-ssms#monitor-sql-database-using-dynamic-management-views
 
 
-## Move data
-### Copy a SQL database
-#### [Overview](sql-database-copy.md)
-#### [Azure portal](sql-database-copy-portal.md)
+## 데이터 이동
+### SQL 데이터베이스 복사
+#### [개요](sql-database-copy.md)
+#### [Azure 포털](sql-database-copy-portal.md)
 #### [PowerShell](sql-database-copy-powershell.md)
 #### [T-SQL](sql-database-copy-transact-sql.md)
-### Export database to a BACPAC file
-#### [Azure portal](sql-database-export.md)
+### 데이터베이스를 BACPAC 파일로 내보내기
+#### [Azure Portal](sql-database-export.md)
 #### [SQL Server Management Studio](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
 #### [PowerShell](sql-database-export-powershell.md)
-### Import database from a BACPAC file
-#### [Azure portal](sql-database-import.md)
+### 데이터베이스를 BACPAC 파일에서 가져오기
+#### [Azure Portal](sql-database-import.md)
 #### [PowerShell](sql-database-import-powershell.md)
-### [Data sync](sql-database-get-started-sql-data-sync.md)
-### [Load from CSV file using BCP](sql-database-load-from-csv-with-bcp.md)
+### [데이터 동기화](sql-database-get-started-sql-data-sync.md)
+### [BCP를 사용하여 CSV 파일에서 로드](sql-database-load-from-csv-with-bcp.md)
 
-## Query
+## 쿼리
 ### [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-### [Muiltishard querying](sql-database-elastic-scale-multishard-querying.md)
-### Cross database queries
-#### [Cross database querying with different schemas](sql-database-elastic-query-vertical-partitioning.md)
-#### [Cross database reporting](sql-database-elastic-query-horizontal-partitioning.md)
-#### [Distributed transactions across cloud databases](sql-database-elastic-transactions-overview.md)
-#### [Upgrade client library](sql-database-elastic-scale-upgrade-client-library.md)
-#### [Muiltishard querying](sql-database-elastic-scale-multishard-querying.md)
+### [다중 분할된 데이터베이스 쿼리](sql-database-elastic-scale-multishard-querying.md)
+### 크로스 데이터베이스 쿼리
+#### [서로 다른 스키마를 사용하여 크로스 데이터베이스 쿼리](sql-database-elastic-query-vertical-partitioning.md)
+#### [크로스 데이터베이스 보고](sql-database-elastic-query-horizontal-partitioning.md)
+#### [클라우드 데이터베이스의 분산 트랜잭션](sql-database-elastic-transactions-overview.md)
+#### [클라이언트 라이브러리 업그레이드](sql-database-elastic-scale-upgrade-client-library.md)
+#### [다중 분할된 데이터베이스 쿼리](sql-database-elastic-scale-multishard-querying.md)
 
-## Restore
-### Restore deleted database
-### [Azure portal](sql-database-restore-deleted-database-portal.md)
+## 복원
+### 삭제된 데이터베이스 복원
+### [Azure Portal](sql-database-restore-deleted-database-portal.md)
 ### [PowerShell](sql-database-restore-deleted-database-powershell.md)
-### Point in time restore
-#### [Azure portal](sql-database-point-in-time-restore-portal.md)
+### 특정 시점 복원
+#### [Azure Portal](sql-database-point-in-time-restore-portal.md)
 #### [PowerShell](sql-database-point-in-time-restore-powershell.md)
-### Geo-Restore
-#### [Azure portal](sql-database-geo-restore-portal.md)
+### 지역 복원
+#### [Azure Portal](sql-database-geo-restore-portal.md)
 #### [PowerShell](sql-database-geo-restore-powershell.md)
-#### [Single table](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
-### [Recover from a data center outage](sql-database-disaster-recovery.md)
-### [Perform disaster recovery drills](sql-database-disaster-recovery-drills.md)
+#### [단일 테이블](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+### [데이터 센터 가동 중단에서 복구](sql-database-disaster-recovery.md)
+### [재해 복구 훈련 수행](sql-database-disaster-recovery-drills.md)
 
-## Replicate
-### [Active Geo-Replication overview](sql-database-geo-replication-overview.md)
-### Configure
+## 복제
+### [활성 지역 복제 개요](sql-database-geo-replication-overview.md)
+### 구성
 #### [PowerShell](sql-database-geo-replication-powershell.md)
 #### [T-SQL](sql-database-geo-replication-transact-sql.md)
-### Failover
-#### [Azure portal](sql-database-geo-replication-failover-portal.md)
+### 장애 조치(Failover)
+#### [Azure Portal](sql-database-geo-replication-failover-portal.md)
 #### [PowerShell](sql-database-geo-replication-failover-powershell.md)
 #### [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
-## Troubleshoot
-### Connectivity
-#### [Connection issues](sql-database-troubleshoot-common-connection-issues.md)
-#### [Transient connection error](sql-database-troubleshoot-connection.md)
-#### [Diagnose and prevent](sql-database-connectivity-issues.md)
-### [Permissions](sql-database-troubleshoot-permissions.md)
+## 문제 해결
+### 연결
+#### [연결 문제](sql-database-troubleshoot-common-connection-issues.md)
+#### [일시적인 연결 오류](sql-database-troubleshoot-connection.md)
+#### [진단 및 방지](sql-database-connectivity-issues.md)
+### [권한](sql-database-troubleshoot-permissions.md)
 
-# Reference
+# 참조
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## SQL PowerShell
-### [Azure SQL Database Cmdlets (Resource Management)](https://msdn.microsoft.com/library/azure/mt574084(v=azure.300\).aspx)
-### [SQL Server Cmdlets](https://msdn.microsoft.com/library/mt740629.aspx)
+### [Azure SQL Database Cmdlet(리소스 관리)](https://msdn.microsoft.com/library/azure/mt574084(v=azure.300\).aspx)
+### [SQL Server Cmdlet](https://msdn.microsoft.com/library/mt740629.aspx)
 ## SQL Database REST API
-### [REST API (Resource Management)](https://msdn.microsoft.com/library/azure/mt420159)
-## SQL Database Management Library
-### [SQL Database Management Library Reference](https://msdn.microsoft.com/library/azure/mt349017.aspx)
-### [Get the SQL Database Management Library package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
-## [SQL Server Drivers](https://msdn.microsoft.com/library/mt654049.aspx)
+### [REST API(리소스 관리)](https://msdn.microsoft.com/library/azure/mt420159)
+## SQL Database 관리 라이브러리
+### [SQL Database 관리 라이브러리 참조](https://msdn.microsoft.com/library/azure/mt349017.aspx)
+### [SQL Database 관리 라이브러리 패키지 가져오기](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
+## [SQL Server 드라이버](https://msdn.microsoft.com/library/mt654049.aspx)
 ### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
 ### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
-### [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+### [Node.JS](https://msdn.microsoft.com/library/mt652093.aspx)
 ### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
 ### [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
 ### [Python](https://msdn.microsoft.com/library/mt652092.aspx)
 ### [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
 
-# Resources
-## [SQL Server Tools](https://msdn.microsoft.com/library/mt238365.aspx)
-## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+# 리소스
+## [SQL Server 도구](https://msdn.microsoft.com/library/mt238365.aspx)
+## [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)
+## [SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx)
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)

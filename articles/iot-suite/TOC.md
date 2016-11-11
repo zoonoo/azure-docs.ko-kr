@@ -1,39 +1,39 @@
-# Overview
-## [Azure and IoT](iot-suite-what-is-azure-iot.md)
-## [What is IoT Suite?](iot-suite-overview.md)
-## [What are the preconfigured solutions?](iot-suite-what-are-preconfigured-solutions.md)
-## [IoT Suite learning path](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+# 개요
+## [Azure 및 IoT](iot-suite-what-is-azure-iot.md)
+## [IoT Suite란?](iot-suite-overview.md)
+## [미리 구성된 솔루션이란?](iot-suite-what-are-preconfigured-solutions.md)
+## [IoT Suite 학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 
-# Get Started
-## [Get started with the preconfigured solutions](iot-suite-getstarted-preconfigured-solutions.md)
-## [Permissions on azureiotsuite.com](iot-suite-permissions.md)
-## [Predictive maintenance solution overview](iot-suite-predictive-overview.md)
-## [Remote monitoring solution walkthrough](iot-suite-remote-monitoring-sample-walkthrough.md)
-## [Predictive maintenance solution walkthrough](iot-suite-predictive-walkthrough.md)
+# 시작
+## [미리 구성된 솔루션 시작](iot-suite-getstarted-preconfigured-solutions.md)
+## [azureiotsuite.com의 사용 권한](iot-suite-permissions.md)
+## [예측 유지 관리 솔루션 개요](iot-suite-predictive-overview.md)
+## [원격 모니터링 솔루션 연습](iot-suite-remote-monitoring-sample-walkthrough.md)
+## [예측 유지 관리 솔루션 연습](iot-suite-predictive-walkthrough.md)
 
-# How To
-## [Connect your device to the remote monitoring solution (Windows)](iot-suite-connecting-devices.md)
-## [Connect your device to the remote monitoring solution (Linux)](iot-suite-connecting-devices-linux.md)
-## [Connect your device to the remote monitoring solution (mbed)](iot-suite-connecting-devices-mbed.md)
-## [Connect your device to the remote monitoring solution (Node)](iot-suite-connecting-devices-node.md)
-## [Connect a Logic App to the remote monitoring solution](iot-suite-logic-apps-tutorial.md)
-## [Customize a preconfigured solution](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
-## [Use dynamic telemetry with the remote monitoring solution](iot-suite-dynamic-telemetry.md)
-## [Device information in the remote monitoring solution](iot-suite-remote-monitoring-device-info.md)
+# 방법
+## [장치를 원격 모니터링 솔루션에 연결(Windows)](iot-suite-connecting-devices.md)
+## [장치를 원격 모니터링 솔루션에 연결(Linux)](iot-suite-connecting-devices-linux.md)
+## [장치를 원격 모니터링 솔루션에 연결(mbed)](iot-suite-connecting-devices-mbed.md)
+## [장치를 원격 모니터링 솔루션에 연결(Node)](iot-suite-connecting-devices-node.md)
+## [논리 앱을 원격 모니터링 솔루션에 연결](iot-suite-logic-apps-tutorial.md)
+## [미리 구성된 솔루션 사용자 지정](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
+## [원격 모니터링 솔루션과 함께 동적 원격 분석 사용](iot-suite-dynamic-telemetry.md)
+## [원격 모니터링 솔루션의 장치 정보](iot-suite-remote-monitoring-device-info.md)
 
-# Reference
-## [Security architecture](iot-security-architecture.md)
-## [Security best practices](iot-security-best-practices.md)
-## [Secure your IoT deployment](iot-suite-security-deployment.md)
-## [Security from the ground up](securing-iot-ground-up.md)
+# 참조
+## [보안 아키텍처](iot-security-architecture.md)
+## [보안 모범 사례](iot-security-best-practices.md)
+## [IoT 배포 보안 유지](iot-suite-security-deployment.md)
+## [처음부터 보안을 고려](securing-iot-ground-up.md)
 
-# Related
-## [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
-## [Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-## [IoT Hub](https://azure.microsoft.com/services/iot-hub/)
-## [Machine Learning](https://azure.microsoft.com/services/machine-learning/)
+# 관련 항목
+## [스트림 분석](https://azure.microsoft.com/services/stream-analytics/)
+## [이벤트 허브](https://azure.microsoft.com/services/event-hubs/)
+## [IoT 허브](https://azure.microsoft.com/services/iot-hub/)
+## [기계 학습](https://azure.microsoft.com/services/machine-learning/)
 
-# Resources
+# 리소스
 ## [FAQ](iot-suite-faq.md)
 
 

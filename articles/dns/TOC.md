@@ -1,48 +1,48 @@
-# Overview
-## [What is Azure DNS?](dns-overview.md)
-## [DNS zones and records](dns-zones-records.md)
+# 개요
+## [Azure DNS란?](dns-overview.md)
+## [DNS 영역 및 레코드](dns-zones-records.md)
 
-# Get Started
+# 시작
 
-## [Create a DNS zone](dns-getstarted-create-dnszone-portal.md)
-### [Create a DNS zone (PowerShell)](dns-getstarted-create-dnszone.md)
-### [Create a DNS zone (CLI)](dns-getstarted-create-dnszone-cli.md)
+## [DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md)
+### [DNS 영역 만들기(PowerShell)](dns-getstarted-create-dnszone.md)
+### [DNS 영역 만들기(CLI)](dns-getstarted-create-dnszone-cli.md)
 
-## [Create DNS records](dns-getstarted-create-recordset-portal.md)
-### [Create DNS records (PowerShell)](dns-getstarted-create-recordset.md)
-### [Create DNS records (CLI)](dns-getstarted-create-recordset-cli.md)
+## [DNS 레코드 만들기](dns-getstarted-create-recordset-portal.md)
+### [DNS 레코드 만들기(PowerShell)](dns-getstarted-create-recordset.md)
+### [DNS 레코드 만들기(CLI)](dns-getstarted-create-recordset-cli.md)
 
-## [Delegate your domain to Azure DNS](dns-domain-delegation.md)
+## [Azure DNS에 도메인 위임](dns-domain-delegation.md)
 
-# How to
+# 방법
 
-## [Manage DNS zones](dns-operations-dnszones.md)
-### [Manage DNS zones (CLI)](dns-operations-dnszones.md)
+## [DNS 영역 관리](dns-operations-dnszones.md)
+### [DNS 영역 관리(CLI)](dns-operations-dnszones.md)
 
-## [Manage DNS records](dns-operations-recordsets-portal.md)
-### [Manage DNS records (PowerShell)](dns-operations-recordsets.md)
-### [Manage DNS records (CLI)](dns-operations-recordsets-cli.md)
+## [DNS 레코드 관리](dns-operations-recordsets-portal.md)
+### [DNS 레코드 관리(PowerShell)](dns-operations-recordsets.md)
+### [DNS 레코드 관리(CLI)](dns-operations-recordsets-cli.md)
 
-## [Manage reverse DNS records](dns-reverse-dns-record-operations-ps.md)
-### [Manage reverse DNS records (CLI)](dns-reverse-dns-record-operations-cli.md)
-### [Manage reverse DNS records (Classic PS)](dns-reverse-dns-record-operations-classic-ps.md)
+## [역방향 DNS 레코드 관리](dns-reverse-dns-record-operations-ps.md)
+### [역방향 DNS 레코드 관리(CLI)](dns-reverse-dns-record-operations-cli.md)
+### [역방향 DNS 레코드 관리(클래식 PS)](dns-reverse-dns-record-operations-classic-ps.md)
 
-## [Import and export a DNS zone file](dns-import-export.md)
-## [Using Azure DNS with other Azure services](dns-for-azure-services.md)
-## [Protect DNS zones and records](dns-protect-zones-recordsets.md)
-## [Automate DNS operations with the DNS.NET SDK](dns-sdk.md)
+## [DNS 영역 파일 가져오기 및 내보내기](dns-import-export.md)
+## [다른 Azure 서비스와 함께 Azure DNS 사용](dns-for-azure-services.md)
+## [DNS 영역 및 레코드 보호](dns-protect-zones-recordsets.md)
+## [DNS.NET SDK를 사용하여 DNS 작업 자동화](dns-sdk.md)
 
-# References
-## [PowerShell cmdlets](https://msdn.microsoft.com/en-us/library/azure/mt126288(v=azure.300))
-## [REST APIs](https://msdn.microsoft.com/library/azure/mt163862)
+# 참조
+## [PowerShell cmdlet](https://msdn.microsoft.com/en-us/library/azure/mt126288(v=azure.300))
+## [REST API](https://msdn.microsoft.com/library/azure/mt163862)
 
-# Related
-## [Application Gateway](/azure/application-gateway/)
+# 관련 항목
+## [응용 프로그램 게이트웨이](/azure/application-gateway/)
 ## [Virtual Network](/azure/virtual-network/)
-## [Virtual Machine](/azure/virtual-machines/)
-## [Load Balancer](/azure/load-balancer/)
-## [Traffic Manager](/azure/traffic-manager/)
-## [Web apps](/azure/app-service/web/)
+## [가상 컴퓨터](/azure/virtual-machines/)
+## [부하 분산 장치](/azure/load-balancer/)
+## [트래픽 관리자](/azure/traffic-manager/)
+## [웹앱](/azure/app-service/web/)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,45 +1,45 @@
-# Overview
-## [Batch basics](batch-technical-overview.md)
-## [Batch feature overview](batch-api-basics.md)
-## [Batch quotas and limits](batch-quota-limit.md)
-# Get Started
-## [Create a Batch account](batch-account-create-portal.md)
-## [Batch .NET tutorial](batch-dotnet-get-started.md)
-## [Batch Python tutorial](batch-python-tutorial.md)
-# How To
-## Develop
-### [Application packages](batch-application-packages.md)
-### [Autoscale compute nodes](batch-automatic-scaling.md)
-### [Concurrent node tasks](batch-parallel-node-tasks.md)
-### [Efficient list queries](batch-efficient-list-queries.md)
-### [Job preparation and completion tasks](batch-job-prep-release.md)
-### [Linux compute nodes](batch-linux-nodes.md)
-### [Manage Batch accounts with Batch Management .NET](batch-management-dotnet.md)
-### [Persist job and task output](batch-task-output.md)
-### [Run MPI jobs in Batch](batch-mpi.md)
-### [Task dependencies](batch-task-dependencies.md)
-### [Visual Studio project templates for Batch](batch-visual-studio-templates.md)
-## Manage
-### [Batch CLI](batch-cli-get-started.md)
-### [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
-### [Batch diagnostic logs](batch-diagnostics.md)
-# Reference
-## [Batch REST API reference](https://go.microsoft.com/fwlink/p/?linkid=833492)
-## [Batch .NET reference](https://go.microsoft.com/fwlink/p/?linkid=833494)
-## [Batch Python reference](https://go.microsoft.com/fwlink/p/?linkid=833496)
-## [Batch Node.js reference](https://go.microsoft.com/fwlink/p/?linkid=833544)
-## [Batch Java reference](https://go.microsoft.com/fwlink/p/?linkid=833497)
-## [Batch Management .NET reference](https://go.microsoft.com/fwlink/p/?linkid=833498)
-## [Batch PowerShell reference](https://go.microsoft.com/fwlink/p/?linkid=833500)
-# Related
-## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
-## [Big Compute in Azure: Technical resources](big-compute-resources.md)
-# Resources
-## [Service Updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=))
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
-## [Batch C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Batch Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
+# 개요
+## [배치 기본 사항](batch-technical-overview.md)
+## [배치 기능 개요](batch-api-basics.md)
+## [배치 할당량 및 한도](batch-quota-limit.md)
+# 시작
+## [배치 계정 만들기](batch-account-create-portal.md)
+## [배치 .NET 자습서](batch-dotnet-get-started.md)
+## [배치 Python 자습서](batch-python-tutorial.md)
+# 방법
+## 개발
+### [응용 프로그램 패키지](batch-application-packages.md)
+### [자동 크기 조정 컴퓨터 노드](batch-automatic-scaling.md)
+### [동시 노드 작업](batch-parallel-node-tasks.md)
+### [효율적인 목록 쿼리](batch-efficient-list-queries.md)
+### [작업 준비 및 완료 작업](batch-job-prep-release.md)
+### [Linux 계산 노드](batch-linux-nodes.md)
+### [배치 관리 .NET을 사용하여 배치 계정 관리](batch-management-dotnet.md)
+### [작업 유지 및 태스크 출력](batch-task-output.md)
+### [MPI 작업 일괄 실행](batch-mpi.md)
+### [작업 종속성](batch-task-dependencies.md)
+### [배치용 Visual Studio 프로젝트 템플릿](batch-visual-studio-templates.md)
+## 관리
+### [배치 CLI](batch-cli-get-started.md)
+### [배치 PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
+### [배치 진단 로그](batch-diagnostics.md)
+# 참조
+## [배치 REST API 참조](https://go.microsoft.com/fwlink/p/?linkid=833492)
+## [배치 .NET 참조](https://go.microsoft.com/fwlink/p/?linkid=833494)
+## [배치 Python 참조](https://go.microsoft.com/fwlink/p/?linkid=833496)
+## [배치 Node.js 참조](https://go.microsoft.com/fwlink/p/?linkid=833544)
+## [배치 Java 참조](https://go.microsoft.com/fwlink/p/?linkid=833497)
+## [배치 관리 .NET 참조](https://go.microsoft.com/fwlink/p/?linkid=833498)
+## [배치 PowerShell 참조](https://go.microsoft.com/fwlink/p/?linkid=833500)
+# 관련 항목
+## [Azure 클라우드의 배치 및 HPC 솔루션](batch-hpc-solutions.md)
+## [Azure의 Big Compute: 기술 리소스](big-compute-resources.md)
+# 리소스
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+## [배치 C# 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [배치 Python 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [배치 Shipyard](https://github.com/Azure/batch-shipyard)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,56 +1,56 @@
-# Overview
-## [What is Stream Analytics?](stream-analytics-introduction.md)
-## [Stream Analytics Learning Path](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
+# 개요
+## [Stream Analytics란?](stream-analytics-introduction.md)
+## [Stream Analytics 학습 경로](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
 
-# Get started
-## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
-## [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)
+# 시작
+## [IoT 스트리밍 데이터 처리](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
+## [실시간 사기 감지](stream-analytics-real-time-fraud-detection.md)
 
-# How to
+# 방법
 
-## Streaming solutions
-### [Build an IoT solution](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
-### [Social media analysis](stream-analytics-twitter-sentiment-analysis-trends.md)
-### [Analyze sensor data with Power BI]https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
-### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
-### [Reference architecture: Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
+## 스트리밍 솔루션
+### [IoT 솔루션 빌드](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
+### [소셜 미디어 분석](stream-analytics-twitter-sentiment-analysis-trends.md)
+### [Power BI를 사용하여 센서 데이터 분석]https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
+### [Machine Learning으로 실시간 점수 매기기](stream-analytics-machine-learning-integration-tutorial.md)
+### [참조 아키텍처: 실시간 이벤트 처리](stream-analytics-real-time-event-processing-reference-architecture.md)
 
-## Develop
-### [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
-### [Create inputs](stream-analytics-define-inputs.md)
-### [Create outputs](stream-analytics-define-outputs.md)
-### [Use reference data](stream-analytics-use-reference-data.md)
-### [Output to Azure Redis Cache](stream-analytics-functions-redis.md)
-### [Output to Data Lake Store](stream-analytics-data-lake-output.md)
-### [Output to DocumentDB](stream-analytics-documentdb-output.md)
-### [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md)
-### [REST API & Machine Learning integration](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-### [Use the Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
-### [Window functions](stream-analytics-window-functions.md)
+## 개발
+### [일반적인 쿼리 패턴](stream-analytics-stream-analytics-query-patterns.md)
+### [입력 만들기](stream-analytics-define-inputs.md)
+### [출력 만들기](stream-analytics-define-outputs.md)
+### [참조 데이터 사용](stream-analytics-use-reference-data.md)
+### [Azure Redis Cache로 출력](stream-analytics-functions-redis.md)
+### [Data Lake Store로 출력](stream-analytics-data-lake-output.md)
+### [DocumentDB로 출력](stream-analytics-documentdb-output.md)
+### [Power BI를 사용하여 데이터 분석](stream-analytics-power-bi-dashboard.md)
+### [REST API 및 Machine Learning 통합](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
+### [관리 .NET SDK 사용](stream-analytics-dotnet-management-sdk.md)
+### [창 함수](stream-analytics-window-functions.md)
 
-## Manage
-### [Monitor jobs](stream-analytics-monitoring.md)
-### [Monitor jobs programmatically](stream-analytics-monitor-jobs.md)
-### [Monitor jobs with PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Scale to increase throughput](stream-analytics-scale-jobs.md)
-### [Scale for Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md)
-### [Rotate input & output credentials](stream-analytics-login-credentials-inputs-outputs.md)
+## 관리
+### [작업 모니터링](stream-analytics-monitoring.md)
+### [프로그래밍 방식으로 작업 모니터링](stream-analytics-monitor-jobs.md)
+### [PowerShell을 사용하여 작업 모니터링](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
+### [크기를 조정하여 처리량 늘리기](stream-analytics-scale-jobs.md)
+### [Machine Learning 함수에 대한 크기 조정](stream-analytics-scale-with-machine-learning-functions.md)
+### [입/출력 자격 증명 회전](stream-analytics-login-credentials-inputs-outputs.md)
 
-## Automate
-### [One-click PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
+## 자동화
+### [원 클릭 PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
-# Reference
-## [Query language](https://msdn.microsoft.com/library/azure/dn834998)
+# 참조
+## [쿼리 언어](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST API](https://msdn.microsoft.com/library/azure/dn835031)
 ## [PowerShell](https://msdn.microsoft.com/library/azure/mt270341)
 ## [.NET SDK](https://msdn.microsoft.com/library/azure/mt416896)
-## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
-## [Release notes](stream-analytics-release-notes.md)
-# Resources
-## [MSDN blog](http://blogs.msdn.com/b/streamanalytics/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
-## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics)
+## [Storm 및 Stream Analytics 비교](stream-analytics-comparison-storm.md)
+## [릴리스 정보](stream-analytics-release-notes.md)
+# 리소스
+## [MSDN 블로그](http://blogs.msdn.com/b/streamanalytics/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
+## [피드백 포럼](http://feedback.azure.com/forums/270577-azure-stream-analytics)
 
 
 <!--HONumber=Nov16_HO2-->

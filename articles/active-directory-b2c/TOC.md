@@ -1,59 +1,59 @@
-# Overview
-## [What is Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)
-## [How it works](active-directory-b2c-overview.md)
-## [Types of applications](active-directory-b2c-apps.md)
-## [Production-scale vs preview B2C tenants](active-directory-b2c-reference-tenant-type.md)
+# 개요
+## [Azure AD B2C란?](https://azure.microsoft.com/services/active-directory-b2c/)
+## [작동 방법](active-directory-b2c-overview.md)
+## [응용 프로그램 유형](active-directory-b2c-apps.md)
+## [프로덕션 규모와 B2C 테넌트 미리 보기 비교](active-directory-b2c-reference-tenant-type.md)
 
-# Get Started
-## [Create an Azure AD B2C Directory](active-directory-b2c-get-started.md)
-## [Register your application](active-directory-b2c-app-registration.md)
-## Quickstart Guides
-### [Build an iOS app](active-directory-b2c-devquickstarts-ios.md)
-### [Build an Android app](active-directory-b2c-devquickstarts-android.md)
-### [Build a Node.Js Web API](active-directory-b2c-devquickstarts-api-node.md)
-### [Build a .NET Web App](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [Sign up and sign in on an ASP.NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [Build a .NET Web API](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Build a Windows desktop app](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [Call a web API from a .NET web app](active-directory-b2c-devquickstarts-web-api-dotnet.md)
-### [Use the Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Add sign-in to a Node.js web app](active-directory-b2c-devquickstarts-web-node.md)
-## [Frequently asked questions](active-directory-b2c-faqs.md)
+# 시작
+## [Azure AD B2C 디렉터리 만들기](active-directory-b2c-get-started.md)
+## [응용 프로그램 등록](active-directory-b2c-app-registration.md)
+## 빠른 시작 가이드
+### [iOS 앱 빌드](active-directory-b2c-devquickstarts-ios.md)
+### [Android 앱 빌드](active-directory-b2c-devquickstarts-android.md)
+### [Node.js Web API 빌드](active-directory-b2c-devquickstarts-api-node.md)
+### [.NET 웹앱 빌드](active-directory-b2c-devquickstarts-web-dotnet.md)
+#### [ASP.NET 웹앱에 가입 및 로그인](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+### [.NET Web API 빌드](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [Windows 데스크톱 앱 빌드](active-directory-b2c-devquickstarts-native-dotnet.md)
+### [.NET 웹앱에서 Web API 호출](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Azure AD Graph API 사용](active-directory-b2c-devquickstarts-graph-dotnet.md)
+### [Node.js 웹앱에 로그인 추가](active-directory-b2c-devquickstarts-web-node.md)
+## [질문과 대답](active-directory-b2c-faqs.md)
 
-# How To
-## Manage
-### [Enable multi-factor authentication](active-directory-b2c-reference-mfa.md)
-### [Set up self-service password reset](active-directory-b2c-reference-sspr.md)
-### [Token, session, and SSO configuration](active-directory-b2c-token-session-sso.md)
-## Develop
-### Sign up and sign in
-#### [Microsoft Account](active-directory-b2c-setup-msa-app.md)
+# 방법
+## 관리
+### [Multi-Factor Authentication 사용](active-directory-b2c-reference-mfa.md)
+### [셀프 서비스 암호 재설정 설정하기](active-directory-b2c-reference-sspr.md)
+### [토큰, 세션 및 SSO 구성](active-directory-b2c-token-session-sso.md)
+## 개발
+### 등록 및 로그인
+#### [Microsoft 계정](active-directory-b2c-setup-msa-app.md)
 #### [Facebook](active-directory-b2c-setup-fb-app.md)
 #### [Google+](active-directory-b2c-setup-goog-app.md)
 #### [Amazon](active-directory-b2c-setup-amzn-app.md)
 #### [LinkedIn](active-directory-b2c-setup-li-app.md)
-### [Use custom attributes](active-directory-b2c-reference-custom-attr.md)
-### [OAuth 2.0 authorization code flow](active-directory-b2c-reference-oauth-code.md)
-### [Web sign-in with OpenID Connect](active-directory-b2c-reference-oidc.md)
-### [Customize the user interface](active-directory-b2c-reference-ui-customization.md)
-#### [Helper tool for customization](active-directory-b2c-reference-ui-customization-helper-tool.md)
-## Troubleshoot
-### [Issues when creating a directory](active-directory-b2c-support-create-directory.md)
+### [사용자 지정 특성 사용](active-directory-b2c-reference-custom-attr.md)
+### [OAuth 2.0 인증 코드 흐름](active-directory-b2c-reference-oauth-code.md)
+### [OpenID Connect를 사용하는 웹앱 로그인](active-directory-b2c-reference-oidc.md)
+### [사용자 인터페이스 사용자 지정](active-directory-b2c-reference-ui-customization.md)
+#### [사용자 지정을 위한 도우미 도구](active-directory-b2c-reference-ui-customization-helper-tool.md)
+## 문제 해결
+### [디렉터리를 만들 때의 문제](active-directory-b2c-support-create-directory.md)
 
-# Reference
-## [Limitations & Restrictions](active-directory-b2c-limitations.md)
-## [Extensible policy framework](active-directory-b2c-reference-policies.md)
-## [Authentication Protocols](active-directory-b2c-reference-protocols.md)
-## [Tokens](active-directory-b2c-reference-tokens.md)
+# 참조
+## [한계 및 제한 사항](active-directory-b2c-limitations.md)
+## [확장 가능한 정책 프레임워크](active-directory-b2c-reference-policies.md)
+## [인증 프로토콜](active-directory-b2c-reference-protocols.md)
+## [토큰](active-directory-b2c-reference-tokens.md)
 
-# Related
+# 관련 항목
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
-## [Multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-# Resources
-## [Support](active-directory-b2c-support.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Azure feedback forum](http://feedback.azure.com/forums/169401-azure-active-directory)
+# 리소스
+## [지원](active-directory-b2c-support.md)
+## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [Azure 피드백 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)
 
 <!--HONumber=Nov16_HO2-->
 

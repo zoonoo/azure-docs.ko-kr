@@ -1,200 +1,198 @@
-# Overview
-## [Service Fabric overview](service-fabric-overview.md)
-## [Understand microservices](service-fabric-overview-microservices.md)
-## [Service Fabric terminology](service-fabric-technical-overview.md)
-## [Service Fabric applications](service-fabric-application-scenarios.md)
-## [Service Fabric architecture](service-fabric-architecture.md)
+# 개요
+## [Service Fabric이란?](service-fabric-overview.md)
+## [마이크로 서비스 이해](service-fabric-overview-microservices.md)
+## [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
+## [아키텍처](service-fabric-architecture.md)
 
-# Get Started
-## [Learning path for Service Fabric](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## Set up your development environment
+# 시작
+## 개발 환경 설정
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-## Create your first application
-### [Using C# on Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-### [Using Java on Linux](service-fabric-create-your-first-linux-application-with-java.md)
-### [Using C# on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
-## [Deploy and upgrade your application on a local cluster](service-fabric-get-started-with-a-local-cluster.md)
+## 첫 번째 응용 프로그램 만들기
+### [Windows에서 C#](service-fabric-create-your-first-application-in-visual-studio.md)
+### [Linux에서 Java](service-fabric-create-your-first-linux-application-with-java.md)
+### [Linux에서 C#](service-fabric-create-your-first-linux-application-with-csharp.md)
+## [로컬 클러스터에 앱 배포](service-fabric-get-started-with-a-local-cluster.md)
 
-# How To
-## Build an application
-### Basics
-#### [Programming model overview](service-fabric-choose-framework.md)
-#### [Application model overview](service-fabric-application-model.md)
-#### [Service communication overview](service-fabric-connect-and-communicate-with-services.md)
-#### [Tools to develop your application](service-fabric-manage-application-in-visual-studio.md)
-#### [Build a web front-end for your application](service-fabric-reliable-services-communication-webapi.md)
-#### [Debug your application](service-fabric-debugging-your-application.md)
-#### Monitor and diagnose services locally
+# 방법
+## 응용 프로그램 빌드
+### 기본 사항
+#### [프로그래밍 모델](service-fabric-choose-framework.md)
+#### [응용 프로그램 모델](service-fabric-application-model.md)
+#### [서비스 통신](service-fabric-connect-and-communicate-with-services.md)
+#### [도구](service-fabric-manage-application-in-visual-studio.md)
+#### [디버그](service-fabric-debugging-your-application.md)
+#### 모니터링 및 진단
 ##### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ##### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-#### [Configure security policies for your application](service-fabric-application-runas-security.md)
-#### [Configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
+#### [응용 프로그램에 대한 보안 정책 구성](service-fabric-application-runas-security.md)
+#### [여러 환경에 대한 응용 프로그램 구성](service-fabric-manage-multiple-environment-app-configuration.md)
 
-### Reliable Service application
-#### [Reliable Services overview](service-fabric-reliable-services-introduction.md)
-#### Get started with Reliable Services
-##### [Using C# on Windows](service-fabric-reliable-services-quick-start.md)
-##### [Using Java on Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Reliable Services architecture](service-fabric-reliable-services-platform-architecture.md)
-#### [Reliable Collections overview](service-fabric-reliable-services-reliable-collections.md)
-#### [Use Reliable Collections](service-fabric-work-with-reliable-collections.md)
-#### [Configure Reliable Collections](service-fabric-reliable-services-configuration.md)
-#### [Notifications in Reliable Collections](service-fabric-reliable-services-notifications.md)
-#### [Backup and restore Reliable Collections](service-fabric-reliable-services-backup-restore.md)
-#### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
-#### [Communicate using ASP.NET](service-fabric-reliable-services-communication-webapi.md)
-#### [Communicate using Service Remoting](service-fabric-reliable-services-communication-remoting.md)
-#### [Communicate using WCF](service-fabric-reliable-services-communication-wcf.md)
-#### [Communicate using Service Fabric Reverse Proxy](service-fabric-reverseproxy.md)
-#### [Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
+### 신뢰할 수 있는 서비스 응용 프로그램
+#### [개요](service-fabric-reliable-services-introduction.md)
+#### 시작
+##### [Windows에서 C#](service-fabric-reliable-services-quick-start.md)
+##### [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
+#### [아키텍처](service-fabric-reliable-services-platform-architecture.md)
+#### [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)
+#### [신뢰할 수 있는 컬렉션 사용](service-fabric-work-with-reliable-collections.md)
+#### [구성](service-fabric-reliable-services-configuration.md)
+#### [Notifications](service-fabric-reliable-services-notifications.md)
+#### [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
+#### [Reliable Services와 통신](service-fabric-reliable-services-communication.md)
+##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
+##### [원격 서비스](service-fabric-reliable-services-communication-remoting.md)
+##### [WCF](service-fabric-reliable-services-communication-wcf.md)
+##### [역방향 프록시](service-fabric-reverseproxy.md)
+#### [고급 사용](service-fabric-reliable-services-advanced-usage.md)
 
-### Reliable Actor application
-#### [Reliable Actors overview](service-fabric-reliable-actors-introduction.md)
-#### Get Started with Reliable Actors
-##### [Using C# on Windows](service-fabric-reliable-actors-get-started.md)
-##### [Using Java on Linux](service-fabric-reliable-actors-get-started-java.md)
-#### [Reliable Actors architecture](service-fabric-reliable-actors-platform.md)
-#### [Lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-#### [Polymorphism in Reliable Actors](service-fabric-reliable-actors-polymorphism.md)
-#### [Reentrancy in Reliable Actors](service-fabric-reliable-actors-reentrancy.md)
-#### [Timers and reminders in Reliable Actors](service-fabric-reliable-actors-timers-reminders.md)
-#### [Events in Reliable Actors](service-fabric-reliable-actors-events.md)
-#### [State management in Reliable Actors](service-fabric-reliable-actors-state-management.md)
-#### [Configure Reliable Actors state provider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
-#### [Type serialization in Reliable Actors](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+### 신뢰할 수 있는 행위자 응용 프로그램
+#### [개요](service-fabric-reliable-actors-introduction.md)
+#### 시작
+##### [Windows에서 C#](service-fabric-reliable-actors-get-started.md)
+##### [Linux에서 Java](service-fabric-reliable-actors-get-started-java.md)
+#### [아키텍처](service-fabric-reliable-actors-platform.md)
+#### [수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
+#### [다형성](service-fabric-reliable-actors-polymorphism.md)
+#### [다시 표시](service-fabric-reliable-actors-reentrancy.md)
+#### [타이머 및 미리 알림](service-fabric-reliable-actors-timers-reminders.md)
+#### [이벤트](service-fabric-reliable-actors-events.md)
+#### [상태 관리](service-fabric-reliable-actors-state-management.md)
+#### [상태 제공자 구성](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
+#### [형식 직렬화](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
-### Guest executable application
-#### [Deploy a guest executable](service-fabric-deploy-existing-app.md)
-#### [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
+### 게스트 실행 가능 응용 프로그램
+#### [게스트 실행 파일 배포](service-fabric-deploy-existing-app.md)
+#### [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
 
-### Container application
-#### [Containers overview](service-fabric-containers-overview.md)
-#### Get started with containers
-##### [Deploy Windows container](service-fabric-deploy-container.md)
-##### [Deploy Docker container](service-fabric-deploy-container-linux.md)
+### 컨테이너 응용 프로그램
+#### [개요](service-fabric-containers-overview.md)
+#### [Windows 컨테이너 배포](service-fabric-deploy-container.md)
+#### [Docker 컨테이너 배포](service-fabric-deploy-container-linux.md)
 
-## Migrate from Cloud Services
-### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
-### [Migrate from Cloud Services to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+## Cloud Services에서 마이그레이션
+### [Cloud Services와 Service Fabric 비교](service-fabric-cloud-services-migration-differences.md)
+### [Service Fabric으로 마이그레이션](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 
-## Create and manage clusters
+## 클러스터 만들기 및 관리
 
-### Basics
-#### [Cluster overview](service-fabric-deploy-anywhere.md)
-#### [Describe a cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [Cluster capacity planning](service-fabric-cluster-capacity.md)
-#### [Visualize a cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
-#### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
-#### [Cluster security](service-fabric-cluster-security.md)
-#### [Cluster disaster recovery](service-fabric-disaster-recovery.md)
+### 기본 사항
+#### [개요](service-fabric-deploy-anywhere.md)
+#### [클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)
+#### [용량 계획](service-fabric-cluster-capacity.md)
+#### [클러스터 시각화](service-fabric-visualizing-your-cluster.md)
+#### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
+#### [보안](service-fabric-cluster-security.md)
+#### [재해 복구](service-fabric-disaster-recovery.md)
 
-### Clusters on Azure
-#### Create a cluster on Azure
-##### [Using Azure portal](service-fabric-cluster-creation-via-portal.md)
-##### [Using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-#### [Node types and VM Scale Sets in the cluster](service-fabric-cluster-nodetypes.md)
-#### [Scale the cluster up or down](service-fabric-cluster-scale-up-down.md)
-#### [Upgrade the cluster](service-fabric-cluster-upgrade.md)
-#### [Delete the cluster](service-fabric-cluster-delete.md)
-#### [Access control for the cluster](service-fabric-cluster-security-roles.md)
-#### [Configure the cluster](service-fabric-cluster-fabric-settings.md)
-#### [Try a Party Cluster on Azure for free](http://aka.ms/tryservicefabric)
+### Azure의 클러스터
+#### Azure에서 클러스터 만들기
+##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+##### [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
+#### [노드 유형 및 VM Scale Sets](service-fabric-cluster-nodetypes.md)
+#### [클러스터의 크기 조정](service-fabric-cluster-scale-up-down.md)
+#### [클러스터 업그레이드](service-fabric-cluster-upgrade.md)
+#### [클러스터 삭제](service-fabric-cluster-delete.md)
+#### [액세스 제어](service-fabric-cluster-security-roles.md)
+#### [클러스터 구성](service-fabric-cluster-fabric-settings.md)
+#### [Party 클러스터 무료 체험](http://aka.ms/tryservicefabric)
 
-### Standalone clusters
-#### [Create a standalone cluster](service-fabric-cluster-creation-for-windows-server.md)
-#### [Scale the cluster in and out](service-fabric-cluster-windows-server-add-remove-nodes.md)
-#### [Upgrade the cluster](service-fabric-cluster-upgrade-windows-server.md)
-#### [Secure the cluster](service-fabric-windows-cluster-x509-security.md)
-#### [Access control for the cluster](service-fabric-cluster-security-roles.md)
-#### [Configure the cluster](service-fabric-cluster-manifest.md)
+### 독립 실행형 클러스터
+#### [독립 실행형 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
+#### [클러스터의 크기 조정](service-fabric-cluster-windows-server-add-remove-nodes.md)
+#### [클러스터 업그레이드](service-fabric-cluster-upgrade-windows-server.md)
+#### [클러스터에 보안 적용](service-fabric-windows-cluster-x509-security.md)
+#### [액세스 제어](service-fabric-cluster-security-roles.md)
+#### [클러스터 구성](service-fabric-cluster-manifest.md)
 
-## Manage and orchestrate cluster resources
-### [Cluster Resource Manager overview](service-fabric-cluster-resource-manager-introduction.md)
-### [Cluster Resource Manager architecture](service-fabric-cluster-resource-manager-architecture.md)
-### [Describe a cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-### [Application groups overview](service-fabric-cluster-resource-manager-application-groups.md)
-### [Configure Cluster Resource Manager settings](service-fabric-cluster-resource-manager-configure-services.md)
-### [Resource consumption metrics](service-fabric-cluster-resource-manager-metrics.md)
-### [Use service affinity](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-### [Service placement policies](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-### [Manage cluster using Cluster Resource Manager](service-fabric-cluster-resource-manager-management-integration.md)
-### [Cluster defragmentation](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-### [Balance your cluster](service-fabric-cluster-resource-manager-balancing.md)
-### [Throttling in Cluster Resource Manager](service-fabric-cluster-resource-manager-advanced-throttling.md)
-### [Service movement using Cluster Resource Manager](service-fabric-cluster-resource-manager-movement-cost.md)
+## 클러스터 리소스 관리 및 오케스트레이션
+### [클러스터 Resource Manager 개요](service-fabric-cluster-resource-manager-introduction.md)
+### [클러스터 Resource Manager 아키텍처](service-fabric-cluster-resource-manager-architecture.md)
+### [클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)
+### [응용 프로그램 그룹 개요](service-fabric-cluster-resource-manager-application-groups.md)
+### [클러스터 Resource Manager 설정 구성](service-fabric-cluster-resource-manager-configure-services.md)
+### [리소스 사용 메트릭](service-fabric-cluster-resource-manager-metrics.md)
+### [서비스 선호도 사용](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+### [서비스 배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+### [클러스터 관리](service-fabric-cluster-resource-manager-management-integration.md)
+### [클러스터 조각 모음](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+### [클러스터 균형 조정](service-fabric-cluster-resource-manager-balancing.md)
+### [제한](service-fabric-cluster-resource-manager-advanced-throttling.md)
+### [서비스 이동](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## Manage application lifecycle
-### [Application lifecycle overview](service-fabric-application-lifecycle.md)
-### [Setup continuous integration](service-fabric-set-up-continuous-integration.md)
-### Deploy or remove applications
-#### [Using PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Using Visual Studio](service-fabric-publish-app-remote-cluster.md)
-### [Application upgrade overview](service-fabric-application-upgrade.md)
-### [Configure application upgrade](service-fabric-visualstudio-configure-upgrade.md)
-### [Application upgrade parameters](service-fabric-application-upgrade-parameters.md)
-### Upgrade an application
-#### [Using PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
-#### [Using Visual Studio](service-fabric-application-upgrade-tutorial.md)
-### [Troubleshoot application upgrades](service-fabric-application-upgrade-troubleshooting.md)
-### [Data serialization in application upgrades](service-fabric-application-upgrade-data-serialization.md)
-### [Application upgrades advanced topics](service-fabric-application-upgrade-advanced.md)
-### [REST-based application lifecycle sample](service-fabric-rest-based-application-lifecycle-sample.md)
+## 응용 프로그램 수명 주기 관리
+### [개요](service-fabric-application-lifecycle.md)
+### [연속 통합 설정](service-fabric-set-up-continuous-integration.md)
+### 응용 프로그램 배포 또는 제거
+#### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+### [응용 프로그램 업그레이드 개요](service-fabric-application-upgrade.md)
+### [응용 프로그램 업그레이드 구성](service-fabric-visualstudio-configure-upgrade.md)
+### [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)
+### 응용 프로그램 업그레이드
+#### [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+#### [Visual Studio](service-fabric-application-upgrade-tutorial.md)
+### [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
+### [응용 프로그램 업그레이드에서 데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
+### [응용 프로그램 업그레이드 고급 토픽](service-fabric-application-upgrade-advanced.md)
+### [REST 기반 응용 프로그램 수명 주기 샘플](service-fabric-rest-based-application-lifecycle-sample.md)
 
-## Inspect application and cluster health
-### [Monitor Service Fabric health](service-fabric-health-introduction.md)
-### [Report and check service health](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-### [Add custom health reports](service-fabric-report-health.md)
-### [Troubleshoot with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-### [View health reports](service-fabric-view-entities-aggregated-health.md)
+## 응용 프로그램 및 클러스터 상태 검사
+### [Service Fabric 상태 모니터링](service-fabric-health-introduction.md)
+### [서비스 상태 보고 및 확인](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+### [사용자 지정 상태 보고서 추가](service-fabric-report-health.md)
+### [시스템 상태 보고서를 사용하여 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+### [상태 보고서 보기](service-fabric-view-entities-aggregated-health.md)
 
-## Monitor and diagnose
-### Monitor and diagnose services locally
+## 모니터링 및 진단
+### 로컬로 서비스 모니터링 및 진단
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-### Azure Diagnostics logs
+### Azure 진단 로그
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [Service Fabric application trace](service-fabric-diagnostic-how-to-use-elasticsearch.md)
-### [Diagnostics in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-### [Diagnostics in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
-### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
-### [Troubleshoot common issues](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
+### [Service Fabric 응용 프로그램 추적](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+### [Reliable Actors의 진단](service-fabric-reliable-actors-diagnostics.md)
+### [상태 저장 Reliable Services의 진단](service-fabric-reliable-services-diagnostics.md)
+### [로컬 클러스터 문제 해결](service-fabric-troubleshoot-local-cluster-setup.md)
+### [일반적인 문제 해결](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
-## Scale applications
-### [Partition Reliable Services](service-fabric-concepts-partitioning.md)
-### [Availability of services](service-fabric-availability-services.md)
-### [Scale applications](service-fabric-concepts-scalability.md)
-### [Plan capacity of applications](service-fabric-capacity-planning.md)
+## 응용 프로그램 확장
+### [Reliable Services 분할](service-fabric-concepts-partitioning.md)
+### [서비스 가용성](service-fabric-availability-services.md)
+### [응용 프로그램 확장](service-fabric-concepts-scalability.md)
+### [응용 프로그램 용량 계획](service-fabric-capacity-planning.md)
 
-## Test applications and services
-### [Fault Analysis overview](service-fabric-testability-overview.md)
-### [Test service to service communication](service-fabric-testability-scenarios-service-communication.md)
-### Simulate failures
-#### [Using controlled Chaos](service-fabric-controlled-chaos.md)
-#### [Using Test actions](service-fabric-testability-actions.md)
-#### [During workloads](service-fabric-testability-workload-tests.md)
-#### [By invoking data loss](service-fabric-use-data-loss-api.md)
-#### [Using Test scenarios](service-fabric-testability-scenarios.md)
-### [Load test your application](service-fabric-vso-load-test.md)
+## 응용 프로그램 및 서비스 테스트
+### [오류 분석 개요](service-fabric-testability-overview.md)
+### [서비스 대 서비스 통신 테스트](service-fabric-testability-scenarios-service-communication.md)
+### 오류 시뮬레이션
+#### [제어된 비정상 상황 사용](service-fabric-controlled-chaos.md)
+#### [테스트 작업 사용](service-fabric-testability-actions.md)
+#### [워크로드 중](service-fabric-testability-workload-tests.md)
+#### [데이터 손실을 호출하여](service-fabric-use-data-loss-api.md)
+#### [테스트 시나리오 사용](service-fabric-testability-scenarios.md)
+### [응용 프로그램 부하 테스트](service-fabric-vso-load-test.md)
 
-# Reference
-## [Reliable Actors managed reference](https://go.microsoft.com/fwlink/p/?linkid=833398)
-## [Reliable Actors WCF managed reference](https://go.microsoft.com/fwlink/p/?linkid=833401)
-## [Reliable Services managed reference](https://go.microsoft.com/fwlink/p/?linkid=833402)
-## [Reliable Services WCF managed reference](https://go.microsoft.com/fwlink/p/?linkid=833403)
-## [Data managed reference](https://go.microsoft.com/fwlink/p/?linkid=833404)
-## [Data Interfaces managed reference](https://go.microsoft.com/fwlink/p/?linkid=833406)
-## [System managed reference](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [PowerShell reference](https://go.microsoft.com/fwlink/p/?linkid=833408)
-## [REST API reference](https://go.microsoft.com/fwlink/p/?LinkID=532910)
-## [Java API Reference](https://go.microsoft.com/fwlink/p/?linkid=833410)
-## [Sample code](http://aka.ms/servicefabricsamples)
+# 참조
+## [용어](service-fabric-technical-overview.md)
+## [Reliable Actors](https://go.microsoft.com/fwlink/p/?linkid=833398)
+## [Reliable Actors WCF](https://go.microsoft.com/fwlink/p/?linkid=833401)
+## [Reliable Services](https://go.microsoft.com/fwlink/p/?linkid=833402)
+## [Reliable Services WCF](https://go.microsoft.com/fwlink/p/?linkid=833403)
+## [데이터](https://go.microsoft.com/fwlink/p/?linkid=833404)
+## [데이터 인터페이스](https://go.microsoft.com/fwlink/p/?linkid=833406)
+## [시스템](https://go.microsoft.com/fwlink/p/?linkid=833407)
+## [PowerShell](https://go.microsoft.com/fwlink/p/?linkid=833408)
+## [REST API](https://go.microsoft.com/fwlink/p/?LinkID=532910)
+## [Java API](https://go.microsoft.com/fwlink/p/?linkid=833410)
+## [샘플 코드](http://aka.ms/servicefabricsamples)
 
-# Resources
-## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=service-fabric&updatetype=&platform=)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric)
+# 리소스
+## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-fabric&updatetype=&platform=)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,59 +1,61 @@
-# Overview
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
-## [Watch an introduction](https://www.youtube.com/watch?v=eOOwMQPBKfM)
-## [Site Recovery blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
-## [Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/)
-# Get Started
-## [What is Site Recovery?](site-recovery-overview.md)
-## [How does Site Recovery work?](site-recovery-components.md)
-## [What workloads can you protect?](site-recovery-workload.md)
-## [What operating systems are supported?](site-recovery-support-matrix.md)
+# 개요
+## [Site Recovery란?](site-recovery-overview.md)
+## [Site Recovery가 작동하는 방식](site-recovery-components.md)
+## [어떤 워크로드를 보호할 수 있나요?](site-recovery-workload.md)
+## [지원되는 운영 체제는 무엇인가요?](site-recovery-support-matrix.md)
 ## [FAQ](site-recovery-faq.md)
+## [소개 영상 보기](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
-# How To
+# 시작
+## [배포 준비](site-recovery-best-practices.md)
 
-## Plan
-### [Prepare for deployment](site-recovery-best-practices.md)
-### [Start capacity planning](site-recovery-capacity-planner.md)
-### [Performance and scale test results](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
-### [Network infrastructure considerations](site-recovery-network-design.md)
-### [Prepare for network mapping (VMM)](site-recovery-network-mapping.md)
-### [Prepare for storage mapping between on-premises sites](site-recovery-storage-mapping.md)
-## Replicate
-### [VMware VMs to Azure](site-recovery-vmware-to-azure.md)
-### [Physical servers to Azure](site-recovery-vmware-to-azure.md)
-### [Hyper-V VMs (with VMM) to Azure](site-recovery-vmm-to-azure.md)
-### [Hyper-V VMs to Azure (no VMM)](site-recovery-hyper-v-site-to-azure.md)
-### [Hyper-V VMs (with VMM) to a secondary site](site-recovery-vmm-to-vmm.md)
-### [Hyper-V VMs (with single VMM server)](site-recovery-single-vmm.md)
-### [Hyper-V VMs (with VMM) to secondary site with SAN](site-recovery-vmm-san.md)
-### [VMware VMs to a secondary site](site-recovery-vmware-to-vmware.md)
-### [Physical servers to a secondary site](site-recovery-vmware-to-vmware.md)
-## Migrate
-### [BMigrate between Azure regions](site-recovery-migrate-azure-to-azure.md)
-### [AWS Windows instances to Azure](site-recovery-migrate-aws-to-azure.md)
-## Workloads
-### [Active Directory and DNS](site-recovery-active-directory.md)
+# 방법
+## 계획
+### [용량 계획](site-recovery-capacity-planner.md)
+### [성능 및 규모 테스트 결과](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
+### [네트워크 인프라 고려 사항](site-recovery-network-design.md)
+### [네트워크 매핑(VMM)](site-recovery-network-mapping.md)
+### [온-프레미스 사이트 간 저장소 매핑](site-recovery-storage-mapping.md)
+## 복제
+### [VMWare VM 및 서버에서 Azure로](site-recovery-vmware-to-azure.md)
+### [VMware VM 및 서버에서 보조 사이트로](site-recovery-vmware-to-vmware.md)
+### [Hyper-V VM에서 Azure로(VMM 사용)](site-recovery-vmm-to-azure.md)
+### [Hyper-V VM에서 Azure로(VMM 없음)](site-recovery-hyper-v-site-to-azure.md)
+### [Hyper-V VM에서 보조 사이트로](site-recovery-vmm-to-vmm.md)
+### [SAN을 사용하여 Hyper-V VM에서 보조 사이트로](site-recovery-vmm-san.md)
+### [Hyper-V VM(단일 VMM 서버 있음)](site-recovery-single-vmm.md)
+## 마이그레이션
+### [Azure 지역 간 마이그레이션](site-recovery-migrate-azure-to-azure.md)
+### [AWS Windows 인스턴스에서 Azure로](site-recovery-migrate-aws-to-azure.md)
+## 워크로드
+### [Active Directory 및 DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
 ### [SharePoint](site-recovery-workload.md#protect-sharepoint)
-### [Dynamics AX](site-recovery-workload.md#protect-dynamics-ax)
+### [Azure IoT Hub](site-recovery-workload.md#protect-dynamics-ax)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
-### [Other workloads](site-recovery-workload.md#workload-summary)
-## Automate Replication
-### [Hyper-VMs in VMM clouds to Azure with PowerShell](site-recovery-deploy-with-powershell.md)
-### [Hyper-V VMs (without VMM) to Azure with PowerShell and Azure Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
-### [Add automation to recovery plans](site-recovery-runbook-automation.md)
-### [Automate Mobility service deployment](site-recovery-automate-mobility-service-install.md)
-## Manage
-### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
-### [Set up recovery plans](site-recovery-create-recovery-plans.md)
-### [Fail over in Site Recovery](site-recovery-failover.md)
-### [Fail back VMware VMs and physical servers](site-recovery-failback-azure-to-vmware.md)
-## Troubleshooting
-### [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
-### [Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
+### [기타 워크로드](site-recovery-workload.md#workload-summary)
+## 복제 자동화
+### [Hyper-V VM(VMM 포함)](site-recovery-deploy-with-powershell.md)
+### [Hyper-V VM(VMM 없음)](site-recovery-deploy-with-powershell-resource-manager.md)
+### [복구 계획에 자동화 추가](site-recovery-runbook-automation.md)
+### [모바일 서비스 배포 자동화](site-recovery-automate-mobility-service-install.md)
+## 관리
+### [서버 제거 및 보호 사용 안 함](site-recovery-manage-registration-and-protection.md)
+### [복구 계획 설정](site-recovery-create-recovery-plans.md)
+### [Site Recovery의 장애 조치(failover)](site-recovery-failover.md)
+### [VMware VM 및 물리적 서버 장애 복구(failback)](site-recovery-failback-azure-to-vmware.md)
+## [모니터링 및 문제 해결](site-recovery-monitoring-and-troubleshooting.md)
+
+# 관련 항목
+## [Azure Automation](/azure/automation/)
+
+# 리소스
+## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
+## [포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
+## [블로그](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/site-recovery/)
 
 
 <!--HONumber=Nov16_HO2-->

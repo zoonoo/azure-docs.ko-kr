@@ -1,17 +1,17 @@
-# Overview
+# 개요
 
-## [Introduction](storage-introduction.md)
-## [Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [소개](storage-introduction.md)
+## [Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)
 
-# Get Started
+# 시작
 
-## [Quick start guide](storage-getting-started-guide.md)
-## [Create a storage account](storage-create-storage-account.md)
+## [빠른 시작 가이드](storage-getting-started-guide.md)
+## [저장소 계정을 만드는](storage-create-storage-account.md)
 
-## Blob Storage
+## Blob 저장소
 ### [.NET](storage-dotnet-how-to-use-blobs.md)
 ### [Java](storage-java-how-to-use-blob-storage.md)
-### [Node.js](storage-nodejs-how-to-use-blob-storage.md)
+### [Node.JS](storage-nodejs-how-to-use-blob-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-blobs.md)
 ### [Python](storage-python-how-to-use-blob-storage.md)
 ### [PHP](storage-php-how-to-use-blobs.md)
@@ -19,49 +19,49 @@
 ### [iOS](storage-ios-how-to-use-blob-storage.md)
 ### [Xamarin](storage-xamarin-blob-storage.md)
 
-## File Storage
+## 파일 저장소
 ### [Windows, .NET, PowerShell](storage-dotnet-how-to-use-files.md)
 ### [Linux](storage-how-to-use-files-linux.md)
 ### [Java](storage-java-how-to-use-file-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
-## Queue Storage
+## 큐 저장소
 ### [.NET](storage-dotnet-how-to-use-queues.md)
 ### [Java](storage-java-how-to-use-queue-storage.md)
-### [Node.js](storage-nodejs-how-to-use-queues.md)
+### [Node.JS](storage-nodejs-how-to-use-queues.md)
 ### [C++](storage-c-plus-plus-how-to-use-queues.md)
 ### [Python](storage-python-how-to-use-queue-storage.md)
 ### [PHP](storage-php-how-to-use-queues.md)
 ### [Ruby](storage-ruby-how-to-use-queue-storage.md)
 
-## Table Storage
+## 테이블 저장소
 ### [.NET](storage-dotnet-how-to-use-tables.md)
 ### [Java](storage-java-how-to-use-table-storage.md)
-### [Node.js](storage-nodejs-how-to-use-table-storage.md)
+### [Node.JS](storage-nodejs-how-to-use-table-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-tables.md)
 ### [Python](storage-python-how-to-use-table-storage.md)
 ### [PHP](storage-php-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
-## [Storage samples](storage-samples.md)
+## [Storage 샘플](storage-samples.md)
 
-# How To
-
-
-## Storage Accounts
-### [General storage accounts](storage-create-storage-account.md)
-### [Blob storage accounts](storage-blob-storage-tiers.md)
-### [Premium Storage accounts](storage-premium-storage.md)
+# 방법
 
 
-## Blob Storage
+## 저장소 계정
+### [일반 저장소 계정](storage-create-storage-account.md)
+### [Blob Storage 계정](storage-blob-storage-tiers.md)
+### [Premium Storage 계정](storage-premium-storage.md)
 
 
-### Tutorials
+## Blob 저장소
+
+
+### 자습서
 #### [.NET](storage-dotnet-how-to-use-blobs.md)
 #### [Java](storage-java-how-to-use-blob-storage.md)
-#### [Node.js](storage-nodejs-how-to-use-blob-storage.md)
+#### [Node.JS](storage-nodejs-how-to-use-blob-storage.md)
 #### [C++](storage-c-plus-plus-how-to-use-blobs.md)
 #### [Python](storage-python-how-to-use-blob-storage.md)
 #### [PHP](storage-php-how-to-use-blobs.md)
@@ -69,201 +69,201 @@
 #### [iOS](storage-ios-how-to-use-blob-storage.md)
 #### [Xamarin](storage-xamarin-blob-storage.md)
 
-### Concepts
-#### [Service overview](https://msdn.microsoft.com/library/dd179376.aspx)
-#### [Hot and cool tiers](storage-blob-storage-tiers.md)
-#### [Custom domains](storage-custom-domain-name.md)
-#### [Import/Export service for Blob storage](storage-import-export-service.md)
-#### [Anonymous access to blobs](storage-manage-access-to-resources.md)
+### 개념
+#### [서비스 개요](https://msdn.microsoft.com/library/dd179376.aspx)
+#### [핫 및 쿨 계층](storage-blob-storage-tiers.md)
+#### [사용자 지정 도메인](storage-custom-domain-name.md)
+#### [Blob Storage에 대한 가져오기/내보내기 서비스](storage-import-export-service.md)
+#### [Blob에 대한 익명 액세스](storage-manage-access-to-resources.md)
 
-### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)
-
-
-## Queue Storage
+### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)
 
 
-### Tutorials
+## 큐 저장소
+
+
+### 자습서
 #### [.NET](storage-dotnet-how-to-use-queues.md)
 #### [Java](storage-java-how-to-use-queue-storage.md)
-#### [Node.js](storage-nodejs-how-to-use-queues.md)
+#### [Node.JS](storage-nodejs-how-to-use-queues.md)
 #### [C++](storage-c-plus-plus-how-to-use-queues.md)
 #### [Python](storage-python-how-to-use-queue-storage.md)
 #### [PHP](storage-php-how-to-use-queues.md)
 #### [Ruby](storage-ruby-how-to-use-queue-storage.md)
 
-### [Concepts](https://msdn.microsoft.com/library/dd179353.aspx)
+### [개념](https://msdn.microsoft.com/library/dd179353.aspx)
 
-### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=queue)
-
-
-## Table Storage
+### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=queue)
 
 
-### Tutorials
+## 테이블 저장소
+
+
+### 자습서
 #### [.NET](storage-dotnet-how-to-use-tables.md)
 #### [Java](storage-java-how-to-use-table-storage.md)
-#### [Node.js](storage-nodejs-how-to-use-table-storage.md)
+#### [Node.JS](storage-nodejs-how-to-use-table-storage.md)
 #### [C++](storage-c-plus-plus-how-to-use-tables.md)
 #### [Python](storage-python-how-to-use-table-storage.md)
 #### [PHP](storage-php-how-to-use-table-storage.md)
 #### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
-### Concepts
-#### [Service overview](https://msdn.microsoft.com/library/dd179463.aspx)
-#### [Table design guide](storage-table-design-guide.md)
+### 개념
+#### [서비스 개요](https://msdn.microsoft.com/library/dd179463.aspx)
+#### [테이블 디자인 가이드](storage-table-design-guide.md)
 
-### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
-
-
-## File Storage
+### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 
 
-### Tutorials
+## 파일 저장소
+
+
+### 자습서
 #### [Windows, .NET, PowerShell](storage-dotnet-how-to-use-files.md)
 #### [Linux](storage-how-to-use-files-linux.md)
 #### [Java](storage-java-how-to-use-file-storage.md)
 #### [C++](storage-c-plus-plus-how-to-use-files.md)
 #### [Python](storage-python-how-to-use-file-storage.md)
 
-### Concepts
-#### [Service overview](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
-#### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
+### 개념
+#### [서비스 개요](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
+#### [Azure 파일 문제 해결](storage-troubleshoot-file-connection-problems.md)
 
-### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
+### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 
 
-## Virtual Machine Disks
+## 가상 컴퓨터 디스크
 
 ### Premium Storage
-#### [High-performance storage for VM workloads](storage-premium-storage.md)
-#### [Migrating to Premium Storage](storage-migration-to-premium-storage.md)
-#### [Design for high performance](storage-premium-storage-performance.md)
+#### [VM 작업을 위한 고성능 저장소](storage-premium-storage.md)
+#### [Premium Storage로 마이그레이션](storage-migration-to-premium-storage.md)
+#### [고성능을 위한 디자인](storage-premium-storage-performance.md)
 
-### Standard Storage
-#### Troubleshoot disk deletion errors
-##### [In a Resource Manager deployment](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-##### [In a classic deployment](storage-cannot-delete-storage-account-container-vhd.md)
-#### [Back up VM disks with incremental snapshots](storage-incremental-snapshots.md)
-
-
-## Develop with Storage
-
-### [Samples](storage-samples.md)
-### General development
-#### [Configure connection strings](storage-configure-connection-string.md)
-#### [Use the Storage Emulator](storage-use-emulator.md)
-#### [Set and retrieve properties and metadata](storage-properties-metadata.md)
+### 표준 저장소
+#### 디스크 삭제 오류 문제 해결
+##### [Resource Manager 배포](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
+##### [클래식 배포](storage-cannot-delete-storage-account-container-vhd.md)
+#### [증분 스냅숏을 사용하여 VM 디스크 백업](storage-incremental-snapshots.md)
 
 
-## Manage Storage
+## 저장소를 사용하여 개발
+
+### [샘플](storage-samples.md)
+### 일반 개발
+#### [연결 문자열 구성](storage-configure-connection-string.md)
+#### [저장소 에뮬레이터 사용](storage-use-emulator.md)
+#### [속성 및 메타데이터 설정 및 검색](storage-properties-metadata.md)
+
+
+## 저장소 관리
 
 ### [Azure PowerShell](storage-powershell-guide-full.md)
 ### [Azure CLI](storage-azure-cli.md)
 ### [Azure Automation](automation-manage-storage.md)
 
 
-## Performance & Availability
+## 성능 및 가용성
 
-### [Replication](storage-redundancy.md)
-### [Scalability and performance targets](storage-scalability-targets.md)
-### [Performance and scalability checklist](storage-performance-checklist.md)
-### [Concurrency](storage-concurrency.md)
+### [복제](storage-redundancy.md)
+### [확장성 및 성능 대상](storage-scalability-targets.md)
+### [성능 및 확장성 검사 목록](storage-performance-checklist.md)
+### [동시성](storage-concurrency.md)
 
 
-## Security
+## 보안
 
-### [Storage security guide](storage-security-guide.md)
-### [Encryption for data at rest](storage-service-encryption.md)
-### Client-side encryption
+### [저장소 보안 지침](storage-security-guide.md)
+### [미사용 데이터 암호화](storage-service-encryption.md)
+### 클라이언트 쪽 암호화
 #### [Azure Key Vault](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
-#### [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
+#### [자습서: Azure Key Vault를 사용하여 Blob 암호화 및 해독](storage-encrypt-decrypt-blobs-key-vault.md)
 
-### [Shared key authentication](https://msdn.microsoft.com/library/dd179428.aspx)
-### [Shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
-### [Anonymous access to blobs](storage-manage-access-to-resources.md)
-
-
-## Monitor & Troubleshoot
-
-### Metrics & Logging
-#### [Storage Analytics](storage-analytics.md)
-#### [Enable and view metrics](storage-enable-and-view-metrics.md)
-#### [Monitor, diagnose, and troubleshoot](storage-monitoring-diagnosing-troubleshooting.md)
-#### [Troubleshooting tutorial](storage-e2e-troubleshooting.md)
-
-### Troubleshoot disk deletion errors
-#### [In a Resource Manager deployment](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-#### [In a classic deployment](storage-cannot-delete-storage-account-container-vhd.md)
-
-### [Troubleshoot File storage](storage-troubleshoot-file-connection-problems.md)
-### [Disaster recovery guidance](storage-disaster-recovery-guidance.md)
+### [공유 키 인증](https://msdn.microsoft.com/library/dd179428.aspx)
+### [공유 액세스 서명(SAS)](storage-dotnet-shared-access-signature-part-1.md)
+### [Blob에 대한 익명 액세스](storage-manage-access-to-resources.md)
 
 
-## Transfer Data
+## 모니터링 및 문제 해결
 
-### [Move data to and from Storage](storage-moving-data.md)
-### [AzCopy command-line utility](storage-use-azcopy.md)
-### [Import/Export service for Blob storage](storage-import-export-service.md)
+### 메트릭 및 로깅
+#### [저장소 분석](storage-analytics.md)
+#### [메트릭 사용 및 보기](storage-enable-and-view-metrics.md)
+#### [모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)
+#### [문제 해결 자습서](storage-e2e-troubleshooting.md)
+
+### 디스크 삭제 오류 문제 해결
+#### [Resource Manager 배포](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
+#### [클래식 배포](storage-cannot-delete-storage-account-container-vhd.md)
+
+### [파일 저장소 문제 해결](storage-troubleshoot-file-connection-problems.md)
+### [재해 복구 지침](storage-disaster-recovery-guidance.md)
+
+
+## 데이터 전송
+
+### [저장소로 또는 반대로 데이터 이동](storage-moving-data.md)
+### [AzCopy 명령줄 유틸리티](storage-use-azcopy.md)
+### [Blob Storage에 대한 가져오기/내보내기 서비스](storage-import-export-service.md)
 
 
 
-# Reference
+# 참조
 
-## REST APIs
-### [Blob, Queue, Table, and File](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-### [Resource Provider](https://docs.microsoft.com/rest/api/storage/)
-### [Import/Export](https://msdn.microsoft.com/library/azure/dn529096.aspx)
+## REST API
+### [Blob, 큐, 테이블 및 파일](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+### [리소스 공급자](https://docs.microsoft.com/rest/api/storage/)
+### [가져오기/내보내기](https://msdn.microsoft.com/library/azure/dn529096.aspx)
 
-## .NET APIs
-### [Blob, Queue, Table, and File](https://docs.microsoft.com/dotnet/api/)
-### [Resource Provider](https://docs.microsoft.com/dotnet/api/)
-### [Data Movement](https://docs.microsoft.com/dotnet/api/)
+## .NET API
+### [Blob, 큐, 테이블 및 파일](https://docs.microsoft.com/dotnet/api/)
+### [리소스 공급자](https://docs.microsoft.com/dotnet/api/)
+### [데이터 이동](https://docs.microsoft.com/dotnet/api/)
 
 ## [Node.js API](http://azure.github.io/azure-storage-node/)
 ## [Java API](https://docs.microsoft.com/java/api/index)
 ## [C++ API](http://azure.github.io/azure-storage-cpp/)
-## [PowerShell Reference](https://docs.microsoft.com/powershell/)
-## [Azure CLI Reference](https://docs.microsoft.com/cli/azure/storage)
+## [PowerShell 참조](https://docs.microsoft.com/powershell/)
+## [Azure CLI 참조](https://docs.microsoft.com/cli/azure/storage)
 
 
 
-# Related
+# 관련 항목
 
-## Classic Portal
-### [Create storage account](storage-create-storage-account-classic-portal.md)
-### [Enable and view metrics](storage-enable-and-view-metrics-classic-portal.md)
-### [Monitor, diagnose, and troubleshoot](storage-monitoring-diagnosing-troubleshooting-classic-portal.md)
-### [Troubleshooting tutorial](storage-e2e-troubleshooting-classic-portal.md)
+## 클래식 포털
+### [저장소 계정 만들기](storage-create-storage-account-classic-portal.md)
+### [메트릭 사용 및 보기](storage-enable-and-view-metrics-classic-portal.md)
+### [모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting-classic-portal.md)
+### [문제 해결 자습서](storage-e2e-troubleshooting-classic-portal.md)
 
 
 
-# Resources
+# 리소스
 
-## Azure Storage Explorer
-### [Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
-### [Manage blobs with Storage Explorer (Preview)](../vs-azure-tools-storage-explorer-blobs.md)
+## Azure 저장소 탐색기
+### [저장소 탐색기(미리 보기)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
+### [저장소 탐색기(미리 보기)를 사용하여 Blob 관리](../vs-azure-tools-storage-explorer-blobs.md)
 
-## [Azure Storage client tools](storage-explorers.md)
+## [Azure Storage 클라이언트 도구](storage-explorers.md)
 
-## Community support
-### [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
-### [MSDN Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+## 커뮤니티 지원
+### [스택 오버플로](http://stackoverflow.com/questions/tagged/windows-azure-storage)
+### [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 
-## Nuget packages
-### [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-### [Azure Storage Data Movement Library](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
-### [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+## Nuget 패키지
+### [.NET용 Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
+### [Azure Storage 데이터 이동 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
+### [Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 
-## Source code
+## 소스 코드
 
 ### .NET
-#### [Blob, Queue, Table, and File](https://docs.microsoft.com/dotnet/api/)
-#### [Data Movement](https://docs.microsoft.com/dotnet/api/)
-#### [Resource Provider](https://docs.microsoft.com/dotnet/api/)
+#### [Blob, 큐, 테이블 및 파일](https://docs.microsoft.com/dotnet/api/)
+#### [데이터 이동](https://docs.microsoft.com/dotnet/api/)
+#### [리소스 공급자](https://docs.microsoft.com/dotnet/api/)
 
-### [Node.js](http://azure.github.io/azure-storage-node/)
+### [Node.JS](http://azure.github.io/azure-storage-node/)
 ### [Java](https://github.com/Azure/azure-storage-java)
 ### [C++](https://github.com/Azure/azure-storage-cpp)
 ### [PHP](https://github.com/Azure/azure-storage-php)

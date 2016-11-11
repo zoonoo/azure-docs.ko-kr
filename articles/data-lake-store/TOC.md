@@ -1,70 +1,70 @@
-# Overview
-## [Overview of Azure Data Lake Store](data-lake-store-overview.md)
-## [Compare Azure Data Lake Store with Azure Storage](data-lake-store-comparison-with-blob-storage.md)
-## [Use Azure Data Lake Store for big data processing](data-lake-store-data-scenarios.md)
-## [Open source applications that work with Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
+# 개요
+## [Azure Data Lake Store 개요](data-lake-store-overview.md)
+## [Azure Storage와 Azure Data Lake Store 비교](data-lake-store-comparison-with-blob-storage.md)
+## [빅 데이터 처리에 Azure Data Lake Store 사용](data-lake-store-data-scenarios.md)
+## [Azure Data Lake Store에서 작동하는 오픈 소스 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
 
-# Get started
-## [Using Portal](data-lake-store-get-started-portal.md)
-## [Using PowerShell](data-lake-store-get-started-powershell.md)
-## [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-## [Using Java SDK](data-lake-store-get-started-java-sdk.md)
-## [Using REST API](data-lake-store-get-started-rest-api.md)
-## [Using Azure CLI](data-lake-store-get-started-cli.md)
-## [Using Node.js](data-lake-store-manage-use-nodejs.md)
+# 시작
+## [포털 사용](data-lake-store-get-started-portal.md)
+## [PowerShell 사용](data-lake-store-get-started-powershell.md)
+## [.NET SDK 사용](data-lake-store-get-started-net-sdk.md)
+## [Java SDK 사용](data-lake-store-get-started-java-sdk.md)
+## [REST API 사용](data-lake-store-get-started-rest-api.md)
+## [Azure CLI 사용](data-lake-store-get-started-cli.md)
+## [Node.js 사용](data-lake-store-manage-use-nodejs.md)
 
-# How to
-## Copy Data
-### [Using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
-### [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
-### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
-### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
-### [Upload data from offline sources](data-lake-store-offline-bulk-data-upload.md)
+# 방법
+## 데이터 복사
+### [Azure Data Factory 사용](../data-factory/data-factory-azure-datalake-connector.md)
+### [AdlCopy 사용](data-lake-store-copy-data-azure-storage-blob.md)
+### [DistCp 사용](data-lake-store-copy-data-wasb-distcp.md)
+### [Sqoop 사용](data-lake-store-data-transfer-sql-sqoop.md)
+### [오프라인 소스에서 데이터 업로드](data-lake-store-offline-bulk-data-upload.md)
 
-## Develop
-### [Using PowerShell](data-lake-store-get-started-powershell.md)
-### [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-### [Using Java SDK](data-lake-store-get-started-java-sdk.md)
-### [Using REST API](data-lake-store-get-started-rest-api.md)
-### [Using Azure CLI](data-lake-store-get-started-cli.md)
-### [Using Node.js](data-lake-store-manage-use-nodejs.md)
+## 개발
+### [PowerShell 사용](data-lake-store-get-started-powershell.md)
+### [.NET SDK 사용](data-lake-store-get-started-net-sdk.md)
+### [Java SDK 사용](data-lake-store-get-started-java-sdk.md)
+### [REST API 사용](data-lake-store-get-started-rest-api.md)
+### [Azure CLI 사용](data-lake-store-get-started-cli.md)
+### [Node.js 사용](data-lake-store-manage-use-nodejs.md)
 
-## Secure Data
-### [Security overview](data-lake-store-security-overview.md)
-### [Access control in Data Lake Store](data-lake-store-access-control.md)
-### [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-### [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
-### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
+## 보안 데이터
+### [보안 개요](data-lake-store-security-overview.md)
+### [Data Lake Store에서 액세스 제어](data-lake-store-access-control.md)
+### [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
+### [서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)
+### [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)
  
-## Integrate with Azure Services
-### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Create HDInsight cluster with Data Lake Store using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [Create HDInsight cluster with Data Lake Store using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Create HDInsight cluster with Data Lake Store using Resource Manager template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
-### [Use with Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
-### [Use with Stream Analytics](data-lake-store-stream-analytics.md)
-### [Use with Power BI](data-lake-store-power-bi.md)
-### [Use with Data Catalog](data-lake-store-with-data-catalog.md)
-### [More Azure integration options](data-lake-store-integrate-with-other-services.md)
+## Azure 서비스와의 통합
+### [Data Lake Analytics와 함께 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+### [포털을 사용하여 Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)
+### [PowerShell을 사용하여 Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-powershell.md)
+### [Resource Manager 템플릿을 사용하여 Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [데이터 팩터리와 함께 사용](../data-factory/data-factory-azure-datalake-connector.md)
+### [Stream Analytics와 함께 사용](data-lake-store-stream-analytics.md)
+### [Power BI와 함께 사용](data-lake-store-power-bi.md)
+### [데이터 카탈로그와 함께 사용](data-lake-store-with-data-catalog.md)
+### [More Azure 통합 옵션](data-lake-store-integrate-with-other-services.md)
 
-## Manage
-### [Access diagnostic logs](data-lake-store-diagnostic-logs.md)
+## 관리
+### [진단 로그 액세스](data-lake-store-diagnostic-logs.md)
 
-# Reference
+# 참조
 ## [.NET SDK](https://msdn.microsoft.com/library/azure/mt581387.aspx)
 ## [Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-## [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt607120.aspx)
+## [PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt607120.aspx)
 ## [REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx)
-## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
+## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-store)
 
-# Related
+# 관련 항목
 ## [Cortana Intelligence Suite](https://www.microsoft.com/en-us/cloud-platform/what-is-cortana-intelligence-suite)
 
-# Resources
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [Stack Overflow Forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
-## [Data Lake Store Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
+# 리소스
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [스택 오버플로 포럼](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
+## [Data Lake Store 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)
 
 
 <!--HONumber=Nov16_HO2-->
