@@ -1,12 +1,12 @@
 ---
-title: 서비스 버스 조정된 메시징 REST 자습서 | Microsoft Docs
-description: 조정된 메시징 REST 자습서
+title: "Service Bus 조정된 메시징 REST 자습서 | Microsoft Docs"
+description: "조정된 메시징 REST 자습서"
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
+
 
 ---
 # <a name="service-bus-brokered-messaging-rest-tutorial"></a>서비스 버스 조정된 메시징 REST 자습서
@@ -139,7 +143,7 @@ ms.author: sethm
 ## <a name="create-management-credentials"></a>관리 자격 증명 만들기
 다음 단계는 이전 단계에서 입력한 네임스페이스와 SAS 키를 처리하고 SAS 토큰을 반환하는 메서드를 작성하는 것입니다. 이 예제는 1시간 동안 유효한 SAS 토큰을 만듭니다.
 
-### <a name="create-a-getsastoken()-method"></a>GetSASToken() 메서드 만들기
+### <a name="create-a-getsastoken-method"></a>GetSASToken() 메서드 만들기
 `Main()` 메서드 뒤의 `Program` 클래스에 다음 코드를 붙여넣습니다.
 
 ```
@@ -326,7 +330,7 @@ private static string DeleteResource(string resourceName)
 }
 ```
 
-### <a name="format-the-atom-feed"></a>Atom 피드 포맷
+### <a name="format-the-atom-feed"></a>Atom 피드 포맷 
 `GetResources()` 메서드에는 검색한 Atom 피드를 다시 포맷하여 가독성을 높이는 `FormatXml()` 메서드에 대한 호출이 포함되어 있습니다. 다음은 `FormatXml()` 정의로, 이 코드를 이전 섹션에서 추가한 `DeleteResource()` 코드 바로 뒤에 추가합니다.
 
 ```
@@ -597,6 +601,9 @@ namespace Microsoft.ServiceBus.Samples
 * [Azure Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus Relay REST 자습서](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

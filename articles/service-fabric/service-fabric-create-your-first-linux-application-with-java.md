@@ -1,12 +1,12 @@
 ---
-title: Java로 Linux에 대한 첫 번째 Service Fabric 응용 프로그램 만들기 | Microsoft Docs
-description: Java를 사용하여 Service Fabric 응용 프로그램 만들기 및 배포
+title: "Java로 Linux에 대한 첫 번째 Service Fabric 응용 프로그램 만들기 | Microsoft Docs"
+description: "Java를 사용하여 Service Fabric 응용 프로그램 만들기 및 배포"
 services: service-fabric
 documentationcenter: java
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: hero-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
+
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>첫 번째 Azure Service Fabric 응용 프로그램 만들기
@@ -79,7 +83,7 @@ Service Fabric Yeoman 템플릿은 [Gradle](https://gradle.org/)에 대한 빌�
 2. Service Fabric Explorer에서 행위자 서비스에 대한 기본 복제본을 호스팅하는 노드를 찾습니다. 아래 스크린샷에 있는 노드 3입니다.
    
     ![Service Fabric Explorer에서 기본 복제본 찾기][sfx-primary]
-3. 이전 단계에서 찾은 노드를 클릭한 다음 작업 메뉴에서 **비활성화(다시 시작)** 를 선택합니다. 로컬 클러스터에서 다섯 개의 노드 중 하나를 다시 시작하고 다른 노드에서 실행 중인 보조 복제본 중 하나에 장애 조치를 강제합니다. 이렇게 하면 테스트 클라이언트에서 출력에 주의하고 장애 조치에도 불구하고 카운터가 계속증가하게 됩니다.
+3. 이전 단계에서 찾은 노드를 클릭한 다음 작업 메뉴에서 **비활성화(다시 시작)** 를 선택합니다. 로컬 클러스터에서 다섯 개의 노드 중 하나를 다시 시작하고 다른 노드에서 실행 중인 보조 복제본 중 하나에 장애 조치를 강제합니다. 이렇게 하면 테스트 클라이언트에서 출력에 주의하고 장애 조치에도 불구하고 카운터가 계속 증가하게 됩니다.
 
 ## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Eclipse Neon 플러그 인으로 응용 프로그램 빌드 및 배포
 Eclipse Neon에 대한 서비스 플러그 인을 설치한 경우 Java로 Service Fabric 응용 프로그램을 만들고 빌드하고 배포하는 데 사용할 수 있습니다.  Eclipse를 설치할 때 **Java 개발자를 위한 Eclipse IDE**를 선택합니다.
@@ -113,6 +117,6 @@ Service Fabric 템플릿은 Eclipse를 통해 트리거할 수 있는 응용 프
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

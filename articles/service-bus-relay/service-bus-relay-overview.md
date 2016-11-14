@@ -1,12 +1,12 @@
 ---
-title: Service Bus Relay 개요 | Microsoft Docs
-description: 서비스 버스 릴레이 개요
+title: "Service Bus 릴레이 개요 | Microsoft Docs"
+description: "서비스 버스 릴레이 개요"
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1038a2d8-5def-4f48-8703-cb0070fc5f10
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0482096cbec6a5e4b7b13ea662a180cd9b96e85f
+
 
 ---
 # <a name="overview-of-service-bus-relay"></a>Service Bus Relay 개요
 Service Bus의 주요 구성 요소는 Azure 데이터 센터와 고유한 온-프레미스 엔터프라이즈 환경 모두에서 실행되는 하이브리드 응용 프로그램을 빌드할 수 있도록 하는 중앙 집중식(이지만 부하 분산된) *릴레이* 서비스입니다.  Service Bus Relay는 다양한 전송 프로토콜 및 웹 서비스 표준을 지원합니다. 여기에는 SOAP, WS-* 및 REST가 포함됩니다. 릴레이 서비스는 방화벽 연결을 열거나 회사 네트워크 인프라를 주입식으로 변경하지 않고도 회사 엔터프라이즈 네트워크 내에 있는 WCF(Windows Communication Foundation) 서비스를 공용 클라우드에 안전하게 노출할 수 있게 함으로써 이 작업을 도와줍니다. 
 
-![릴레이 개념](./media/service-bus-relay-overview/sb-relay-01.png)
+![WCF 릴레이 개념](./media/service-bus-relay-overview/sb-relay-01.png)
 
 릴레이 서비스는 기존의 단방향 메시징, 요청/응답 메시징 및 피어투피어 메시징을 지원합니다. 또한 인터넷에서 이벤트 배포를 지원하여 향상된 지점간 효율성을 위한 양방향 소켓 통신과 게시/구독 시나리오를 가능하게 합니다. 
 
@@ -31,8 +35,11 @@ WCF “릴레이” 바인딩 모음을 사용하여 온-프레미스 서비스�
 Service Bus Relay에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 * [Azure Service Bus 아키텍처 개요](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
-* [Service Bus Relay 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
+* [Service Bus WCF Relay 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

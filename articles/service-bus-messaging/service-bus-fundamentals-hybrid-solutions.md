@@ -1,12 +1,12 @@
 ---
 title: Azure Service Bus | Microsoft Docs
-description: An introduction to using Service Bus to connect Azure applications to other software.
+description: "서비스 버스를 사용하여 Azure 응용 프로그램을 다른 소프트웨어에 연결에 대해 소개합니다."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,99 +14,103 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8d8549db680b0189fa94064b930d4f91ff2472b
+
 
 ---
-# <a name="azure-service-bus"></a>Azure Service Bus
-Whether an application or service runs in the cloud or on premises, it often needs to interact with other applications or services. To provide a broadly useful way to do this, Microsoft Azure offers Service Bus. This article takes a look at this technology, describing what it is and why you might want to use it.
+# <a name="azure-service-bus"></a>Azure 서비스 버스
+응용 프로그램이나 서비스가 클라우드에서 실행되든 아니면 온-프레미스에서 실행되든 관계없이 다른 응용 프로그램 또는 서비스와 상호 작용해야 하는 경우가 많습니다. 광범위하게 사용할 수 있도록 Microsoft Azure에서는 서비스 버스를 제공합니다. 이 문서에서는 이 기술을 살펴보고 기술의 정의와 사용해야 하는 이유를 설명합니다.
 
-## <a name="service-bus-fundamentals"></a>Service Bus fundamentals
-Different situations call for different styles of communication. Sometimes, letting applications send and receive messages through a simple queue is the best solution. In other situations, an ordinary queue isn't enough; a queue with a publish-and-subscribe mechanism is better. In some cases, all that's really needed is a connection between applications; queues aren't required. Service Bus provides all three options, enabling your applications to interact in several different ways.
+## <a name="service-bus-fundamentals"></a>서비스 버스 기본 사항
+각 상황에 따라 다른 스타일의 통신이 요청됩니다. 때로는 응용 프로그램이 단순한 큐를 통해 메시지를 보내고 받도록 하는 것이 최상의 솔루션입니다. 다른 상황에서는 일반적인 큐로 충분하지 않고 게시 및 구독 메커니즘을 사용한 큐가 더 효율적입니다. 실제로 응용 프로그램 간의 연결만 필요하고 큐가 필요하지 않은 경우도 있습니다. 서비스 버스는 세 가지 옵션을 모두 제공하여 응용 프로그램이 여러 다른 방법으로 상호 작용할 수 있게 해 줍니다.
 
-Service Bus is a multi-tenant cloud service, which means that the service is shared by multiple users. Each user, such as an application developer, creates a *namespace*, then defines the communication mechanisms she needs within that namespace. Figure 1 shows how this looks.
+서비스 버스는 다중 테넌트 클라우드 서비스로, 여러 사용자가 서비스를 공유합니다. 응용 프로그램 개발자 등의 각 사용자는 *네임스페이스*를 만든 후 해당 네임스페이스에서 필요한 통신 메커니즘을 정의합니다. 그림 1에서는 표시되는 모양을 보여 줍니다.
 
 ![][1]
 
-**Figure 1: Service Bus provides a multi-tenant service for connecting applications through the cloud.**
+**그림 1: 서비스 버스는 클라우드를 통해 응용 프로그램을 연결하기 위한 다중 테넌트 서비스를 제공합니다.**
 
-Within a namespace, you can use one or more instances of four different communication mechanisms, each of which connects applications in a different way. The choices are:
+네임스페이스 내에서 각각 다른 방식으로 응용 프로그램을 연결하는 네 가지 통신 메커니즘 인스턴스를 하나 이상 사용할 수 있습니다. 선택 항목은 다음과 같습니다.
 
-* *Queues*, which allow one-directional communication. Each queue acts as an intermediary (sometimes called a *broker*) that stores sent messages until they are received. Each message is received by a single recipient.
-* *Topics*, which provide one-directional communication using *subscriptions*-a single topic can have multiple subscriptions. Like a queue, a topic acts as a broker, but each subscription can optionally use a filter to receive only messages that match specific criteria.
-* *Relays*, which provide bi-directional communication. Unlike queues and topics, a relay doesn't store in-flight messages; it's not a broker. Instead, it just passes them on to the destination application.
+* *큐*- 단방향 통신을 허용합니다. 각 큐는 수신될 때까지 전송된 메시지를 저장하는 중간자( *브로커*라고도 함) 역할을 합니다. 단일 수신자가 각 메시지를 수신합니다.
+* *토픽* - *구독*을 사용하여 단방향 통신 기능을 제공합니다. 토픽 하나에 구독이 여러 개 포함될 수 있습니다. 큐와 마찬가지로 토픽은 브로커 역할을 하지만 각 구독은 필요에 따라 필터를 사용하여 특정 기준과 일치하는 메시지만 수신할 수 있습니다.
+* *릴레이*- 양방향 통신을 제공합니다. 큐 및 토픽과 달리 릴레이는 처리 중인 메시지를 저장하지 않으며, 브로커 역할을 하지 않고 단순히 메시지를 대상 응용 프로그램으로 전달합니다.
 
-When you create a queue, topic, or relay, you give it a name. Combined with whatever you called your namespace, this name creates a unique identifier for the object. Applications can provide this name to Service Bus, then use that queue, topic, or relay to communicate with one another. 
+큐, 토픽 또는 릴레이를 만들 때 이름을 지정합니다. 이 이름은 네임스페이스 이름과 결합되어 개체의 고유 식별자를 만듭니다. 응용 프로그램은 서비스 버스에 이 이름을 제공한 다음 해당 큐, 토픽 또는 릴레이를 사용하여 서로 통신할 수 있습니다. 
 
-To use any of these objects in the relay scenario, Windows applications can use Windows Communication Foundation (WCF). For queues and topics, Windows applications can use Service Bus-defined messaging APIs. To make these objects easier to use from non-Windows applications, Microsoft provides SDKs for Java, Node.js, and other languages. You can also access queues and topics using REST APIs over HTTP(s). 
+릴레이 시나리오에서 이러한 개체를 사용하기 위해 Windows 응용 프로그램은 WCF(Windows Communication Foundation)를 사용할 수 있습니다. 큐와 토픽의 경우 Windows 응용 프로그램이 서비스 버스로 정의된 메시지 API를 사용할 수 있습니다. 이러한 개체를 Windows 이외의 응용 프로그램에서 더욱 쉽게 사용할 수 있도록 Microsoft는 Java, Node.js 및 기타 언어용 SDK를 제공합니다. HTTP를 통해 REST API를 사용하여 큐 및 토픽에 액세스할 수도 있습니다. 
 
-It's important to understand that even though Service Bus itself runs in the cloud (that is, in Microsoft's Azure datacenters), applications that use it can run anywhere. You can use Service Bus to connect applications running on Azure, for example, or applications running inside your own datacenter. You can also use it to connect an application running on Azure or another cloud platform with an on-premises application or with tablets and phones. It's even possible to connect household appliances, sensors, and other devices to a central application or to one other. Service Bus is a communication mechanism in the cloud that's accessible from pretty much anywhere. How you use it depends on what your applications need to do.
+서비스 버스 자체가 클라우드(즉, Microsoft Azure 데이터 센터)에서 실행되는 경우에도 서비스 버스를 사용하는 응용 프로그램은 다른 곳에서 실행될 수 있음을 이해하는 것이 중요합니다. 예를 들어 서비스 버스를 사용하여 Azure에서 실행되는 응용 프로그램이나 고유한 데이터 센터 내부에서 실행되는 응용 프로그램을 연결할 수 있습니다. 서비스 버스를 사용하여 Azure 또는 다른 클라우드 플랫폼에서 실행되는 응용 프로그램을 온-프레미스 응용 프로그램이나 태블릿 및 휴대폰과 연결할 수도 있습니다. 가전 제품, 센서 및 기타 장치를 중앙 응용 프로그램에 연결하거나 서로 연결할 수도 있습니다. 서비스 버스는 거의 모든 곳에서 액세스할 수 있는 클라우드의 통신 메커니즘입니다. 사용 방법은 응용 프로그램에서 수행해야 하는 작업에 따라 달라집니다.
 
-## <a name="queues"></a>Queues
-Suppose you decide to connect two applications using a Service Bus queue. Figure 2 illustrates this situation.
+## <a name="queues"></a>큐
+서비스 버스 큐를 사용하여 두 개의 응용 프로그램을 연결한다고 가정해 보세요. 그림 2에서는 이 상황을 보여 줍니다.
 
 ![][2]
 
-**Figure 2: Service Bus queues provide one-way asynchronous queuing.**
+**그림 2: 서비스 버스 큐는 단방향 비동기 큐를 제공합니다.**
 
-The process is simple: A sender sends a message to a Service Bus queue, and a receiver picks up that message at some later time. A queue can have just a single receiver, as Figure 2 shows. Or, multiple applications can read from the same queue. In the latter situation, each message is read by just one receiver. For a multi-cast service, you should use a topic instead.
+프로세스는 간단합니다. 센서가 메시지를 서비스 버스 큐로 보내면 수신기가 나중에 해당 메시지를 확인합니다. 그림 2에서 보여준 대로 각 큐에는 하나의 수신기만 있거나 여러 응용 프로그램은 동일한 큐에서 읽을 수 있습니다. 후자에서는 하나의 수신기에서 각 메시지를 읽습니다. 멀티캐스트 서비스의 경우 대신 주제를 사용해야 합니다.
 
-Each message has two parts: a set of properties, each a key/value pair, and a binary message body. How they're used depends on what an application is trying to do. For example, an application sending a message about a recent sale might include the properties *Seller="Ava"* and *Amount=10000*. The message body might contain a scanned image of the sale's signed contract or, if there isn't one, just remain empty.
+각 메시지는 각각 키/값 쌍인 속성 집합과 이진 메시지 본문의 두 부분으로 이루어져 있습니다. 메시지가 사용되는 방법은 응용 프로그램에서 수행하려는 작업에 따라 달라집니다. 예를 들어 최근 판매에 대한 메시지를 보내는 응용 프로그램은 *Seller="Ava"* 및 *Amount=10000* 속성을 포함할 수 있습니다. 메시지 본문은 서명된 판매 계약의 스캔 이미지를 포함하거나, 이러한 이미지가 없는 경우 비어 있을 수 있습니다.
 
-A receiver can read a message from a Service Bus queue in two different ways. The first option, called *ReceiveAndDelete*, removes a message from the queue and immediately deletes it. This is simple, but if the receiver crashes before it finishes processing the message, the message will be lost. Because it's been removed from the queue, no other receiver can access it. 
+수신기는 두 가지 방법으로 서비스 버스 큐에서 메시지를 읽을 수 있습니다. 첫 번째 옵션은 *ReceiveAndDelete*라고 하며, 큐에서 메시지를 제거하고 즉시 삭제합니다. 이 옵션은 간단하지만 수신기에서 메시지 처리를 마치기 전에 크래시가 발생할 경우 메시지가 손실됩니다. 큐에서 제거되었기 때문에 다른 수신기가 메시지에 액세스할 수 없습니다. 
 
-The second option, *PeekLock*, is meant to help with this problem. Like **ReceiveAndDelete**, a **PeekLock** read removes a message from the queue. It doesn't delete the message, however. Instead, it locks the message, making it invisible to other receivers, then waits for one of three events:
+두 번째 옵션은 *PeekLock*이라고 하며, 이 문제를 해결하는 데 도움이 됩니다. **ReceiveAndDelete**와 마찬가지로 **PeekLock**을 통한 읽기 시에도 큐에서 메시지가 제거됩니다. 그러나 메시지를 삭제하지 않습니다. 대신, 메시지를 잠가서 다른 수신기에 표시되지 않도록 하고 다음 세 가지 이벤트 중 하나를 기다립니다.
 
-* If the receiver processes the message successfully, it calls **Complete**, and the queue deletes the message. 
-* If the receiver decides that it can't process the message successfully, it calls **Abandon**. The queue then removes the lock from the message and makes it available to other receivers.
-* If the receiver calls neither of these within a configurable period of time (by default, 60 seconds), the queue assumes the receiver has failed. In this case, it behaves as if the receiver had called **Abandon**, making the message available to other receivers.
+* 수신기가 메시지 처리에 성공하고 **Complete**를 호출하면 큐가 메시지를 삭제합니다. 
+* 수신기가 메시지를 처리할 수 없다고 결정하고 **Abandon**을 호출하면 큐가 메시지에서 잠금을 제거하고 다른 수신기가 사용할 수 있게 합니다.
+* 수신기가 구성 가능한 기간(기본적으로 60초) 내에 둘 다 호출하지 않으면 큐가 수신기에서 실패했다고 가정합니다. 이 경우 수신기가 **Abandon**을 호출한 것처럼 동작하고 다른 수신기가 메시지를 사용할 수 있게 합니다.
 
-Notice what can happen here: the same message might be delivered twice, perhaps to two different receivers. Applications using Service Bus queues must be prepared for this. To make duplicate detection easier, each message has a unique **MessageID** property that by default stays the same no matter how many times the message is read from a queue. 
+여기서 발생할 수 있는 문제는 동일한 메시지가 두 개의 수신기에 두 번 배달될 수 있다는 것입니다. 서비스 버스 큐를 사용하는 응용 프로그램은 이 문제에 대비해야 합니다. 중복 검색이 용이하도록 각 메시지에는 고유한 **MessageID** 속성이 있습니다. 기본적으로 이 속성은 큐에서 메시지를 읽는 횟수에 관계없이 동일하게 유지됩니다. 
 
-Queues are useful in quite a few situations. They enable applications to communicate even when both aren't running at the same time, something that's especially handy with batch and mobile applications. A queue with multiple receivers also provides automatic load balancing, since sent messages are spread across these receivers.
+큐는 다양한 상황에서 유용합니다. 큐를 사용하면 응용 프로그램이 동시에 실행되지 않는 경우에도 서로 통신할 수 있으므로 일괄 처리 및 모바일 응용 프로그램에서 특히 유용합니다. 여러 수신기가 있는 큐는 전송된 메시지가 이러한 수신기에 분산되므로 자동 부하 분산 기능도 제공합니다.
 
-## <a name="topics"></a>Topics
-Useful as they are, queues aren't always the right solution. Sometimes, Service Bus topics are better. Figure 3 illustrates this idea.
+## <a name="topics"></a>토픽
+유용하긴 하지만 큐가 항상 올바른 솔루션인 것은 아닙니다. 때로는 서비스 버스 토픽이 더 효율적입니다. 그림 3에서는 이 아이디어를 보여 줍니다.
 
 ![][3]
 
-**Figure 3: Based on the filter a subscribing application specifies, it can receive some or all of the messages sent to a Service Bus topic.**
+**그림 3: 구독 응용 프로그램에서 지정한 필터를 기준으로 서비스 버스 토픽에 전송된 메시지를 일부 또는 모두 받을 수 있습니다.**
 
-A *topic* is similar in many ways to a queue. Senders submit messages to a topic in the same way that they submit messages to a queue, and those messages look the same as with queues. The big difference is that topics enable each receiving application to create its own *subscription* by defining a *filter*. A subscriber will then see only the messages that match that filter. For example, Figure 3 shows a sender and a topic with three subscribers, each with its own filter:
+*토픽* 은 여러 측면에서 큐와 유사합니다. 보낸 사람은 메시지를 큐에 제출하는 것과 동일한 방식으로 메시지를 토픽에 제출하며, 이러한 메시지는 큐와 동일하게 표시됩니다. 큰 차이점은 토픽을 사용할 경우 각 수신 응용 프로그램이 *필터*를 정의하여 고유한 *구독*을 만들 수 있다는 것입니다. 그러면 구독자가 해당 필터와 일치하는 메시지만 볼 수 있습니다. 예를 들어 그림 3에서는 각각 고유한 필터가 있는 세 명의 구독자가 포함된 토픽과 보낸 사람을 보여 줍니다.
 
-* Subscriber 1 receives only messages that contain the property *Seller="Ava"*.
-* Subscriber 2 receives messages that contain the property *Seller="Ruby"* and/or contain an *Amount* property whose value is greater than 100,000. Perhaps Ruby is the sales manager, so she wants to see both her own sales and all big sales regardless of who makes them.
-* Subscriber 3 has set its filter to *True*, which means that it receives all messages. For example, this application might be responsible for maintaining an audit trail and therefore it needs to see all the messages.
+* 구독자 1은 *Seller="Ava"*속성이 포함된 메시지만 받습니다.
+* 구독자 2는 *Seller="Ruby"* 속성과 값이 100,000보다 큰 *Amount* 속성이 포함된 메시지를 받습니다. Ruby는 판매 관리자이므로 자신의 매출과 판매자에 관계없이 모든 대규모 매출을 보려고 합니다.
+* 구독자 3은 해당 필터를 *True*로 설정합니다. 이렇게 하면 모든 메시지를 받습니다. 이 응용 프로그램이 감사 내역을 유지 관리하므로 모든 메시지를 확인해야 하는 경우를 예로 들 수 있습니다.
 
-As with queues, subscribers to a topic can read messages using either **ReceiveAndDelete** or **PeekLock**. Unlike queues, however, a single message sent to a topic can be received by multiple subscriptions. This approach, commonly called *publish and subscribe* (or *pub/sub*), is useful whenever multiple applications are interested in the same messages. By defining the right filter, each subscriber can tap into just the part of the message stream that it needs to see.
+큐와 마찬가지로 토픽 구독자는 **ReceiveAndDelete** 또는 **PeekLock**을 사용하여 메시지를 읽을 수 있습니다. 그러나 큐와 달리 토픽으로 전송된 단일 메시지를 여러 구독에서 받을 수 있습니다. 흔히 *게시 및 구독*(*게시/구독*)이라고 불리는 이 접근 방법은 여러 응용 프로그램이 동일한 메시지에 관련된 경우에 유용합니다. 올바른 필터를 정의하면 각 구독자가 확인해야 하는 메시지 스트림 부분만 볼 수 있습니다.
 
-## <a name="relays"></a>Relays
-Both queues and topics provide one-way asynchronous communication through a broker. Traffic flows in just one direction, and there's no direct connection between senders and receivers. But what if you don't want this? Suppose your applications need to both send and receive messages, or perhaps you want a direct link between them and you don't need a broker to store messages. To address scenarios such as this, Service Bus provides *relays*, as Figure 4 shows.
+## <a name="relays"></a>릴레이
+큐와 토픽은 둘 다 브로커를 통해 단방향 비동기 통신을 제공합니다. 트래픽이 한 방향으로만 진행되며, 보낸 사람과 받는 사람 간에 직접 연결이 없습니다. 그러나 이런 방식을 원하지 않는 경우 어떻게 해야 할까요? 응용 프로그램이 메시지 보내기와 받기를 모두 수행해야 하거나 메시지 저장을 위한 브로커가 필요하지 않도록 응용 프로그램 간에 직접 링크를 설정하려는 등의 이러한 시나리오를 처리하기 위해 서비스 버스는 그림 4와 같은 *릴레이*를 제공합니다.
 
 ![][4]
 
-**Figure 4: Service Bus relay provides synchronous, two-way communication between applications.**
+**그림 4: 서비스 버스 릴레이는 응용 프로그램 간에 양방향 동기 통신을 제공합니다.**
 
-The obvious question to ask about relays is this: why would I use one? Even if I don't need queues, why make applications communicate via a cloud service rather than just interact directly? The answer is that talking directly can be harder than you might think.
+릴레이와 관련해서 제기되는 질문은 릴레이를 사용해야 하는 이유입니다. 큐가 필요하지 않다고 해도 왜 응용 프로그램이 직접 상호 작용하는 대신 클라우드 서비스를 통해 통신해야 할까요? 그 대답은 직접 통신하는 것이 생각보다 어려울 수 있기 때문입니다.
 
-Suppose you want to connect two on-premises applications, both running inside corporate datacenters. Each of these applications sits behind a firewall, and each datacenter probably uses network address translation (NAT). The firewall blocks incoming data on all but a few ports, and NAT implies that the machine each application is running on doesn't have a fixed IP address that you can reach directly from outside the datacenter. Without some extra help, connecting these applications over the public internet is problematic.
+회사 데이터 센터 내부에서 실행되는 두 개의 온-프레미스 응용 프로그램을 연결하려 한다고 가정해 보세요. 각 응용 프로그램은 방화벽 뒤에 있고, 각 데이터 센터에서 NAT(Network Address Translation)를 사용합니다. 방화벽은 몇 개의 포트를 제외한 모든 포트에서 들어오는 데이터를 차단합니다. 또한 NAT가 사용되므로 각 응용 프로그램이 실행되는 컴퓨터에는 데이터 센터 외부에서 직접 연결할 수 있는 고정 IP 주소가 없습니다. 추가 도움이 없으면 공용 인터넷을 통해 이러한 응용 프로그램을 연결하는 데 문제가 있습니다.
 
-A Service Bus relay can help. To communicate bi-directionally through a relay, each application establishes an outbound TCP connection with Service Bus, then keeps it open. All communication between the two applications travels over these connections. Because each connection was established from inside the datacenter, the firewall allows incoming traffic to each application without opening new ports. This approach also gets around the NAT problem, because each application has a consistent endpoint in the cloud throughout the communication. By exchanging data through the relay, the applications can avoid the problems that would otherwise make communication difficult. 
+Azure 서비스 버스 릴레이는 도움이 됩니다. 릴레이를 통해 양방향으로 통신하기 위해 각 응용 프로그램은 서비스 버스와 아웃바운드 TCP 연결을 설정한 다음 열어 둡니다. 두 응용 프로그램 간의 모든 통신은 이러한 연결을 통해 전송됩니다. 각 연결이 데이터 센터 내부에서 설정되었으므로 새 포트를 열지 않아도 방화벽은 각 응용 프로그램으로 들어오는 트래픽을 허용합니다. 이 방식을 사용할 경우 전체 통신 과정에서 각 응용 프로그램이 클라우드의 일관된 끝점을 사용하므로 NAT 문제도 해결됩니다. 릴레이를 통해 데이터를 교환하면 응용 프로그램에서 통신을 어렵게 만드는 문제를 피할 수 있습니다. 
 
-To use Service Bus relays, applications rely on the Windows Communication Foundation (WCF). Service Bus provides WCF bindings that make it straightforward for Windows applications to interact via relays. Applications that already use WCF can typically just specify one of these bindings, then talk to each other through a relay. Unlike queues and topics, however, using relays from non-Windows applications, while possible, requires some programming effort; no standard libraries are provided.
+서비스 버스 릴레이를 사용하기 위해 응용 프로그램은 WCF(Windows Communication Foundation)를 사용합니다. 서비스 버스는 Windows 응용 프로그램이 릴레이를 통해 간단하게 상호 작용할 수 있게 해 주는 WCF 바인딩을 제공합니다. 이미 WCF를 사용하는 응용 프로그램은 일반적으로 이러한 바인딩 중 하나만 지정한 다음 릴레이를 통해 서로 통신할 수 있습니다. 그러나 큐 및 토픽과 달리 Windows가 아닌 응용 프로그램에서 릴레이를 사용할 수는 있지만 이 경우 약간의 프로그래밍이 필요하며 표준 라이브러리가 제공되지 않습니다.
 
-Unlike queues and topics, applications don't explicitly create relays. Instead, when an application that wishes to receive messages establishes a TCP connection with Service Bus, a relay is created automatically. When the connection is dropped, the relay is deleted. To enable an application to find the relay created by a specific listener, Service Bus provides a registry that enables applications to locate a specific relay by name.
+큐 및 토픽과 달리 응용 프로그램에서 명시적으로 릴레이를 만들지는 않습니다. 대신, 메시지를 받으려는 응용 프로그램이 서비스 버스와 TCP 연결을 설정하면 릴레이가 자동으로 만들어집니다. 연결을 삭제하면 릴레이가 삭제됩니다. 응용 프로그램이 특정 수신기에서 만든 릴레이를 찾을 수 있도록 하기 위해 서비스 버스는 응용 프로그램이 이름으로 특정 릴레이를 찾게 해주는 레지스트리를 제공합니다.
 
-Relays are the right solution when you need direct communication between applications. For example, consider an airline reservation system running in an on-premises datacenter that must be accessed from check-in kiosks, mobile devices, and other computers. Applications running on all of these systems could rely on Service Bus relays in the cloud to communicate, wherever they might be running.
+응용 프로그램이 서로 직접 통신해야 하는 경우에는 릴레이를 사용하는 것이 적합합니다. 온-프레미스 데이터 센터에서 실행되는 항공편 예약 시스템을 체크 인 키오스크, 모바일 장치 및 기타 컴퓨터에서 액세스할 수 있어야 하는 경우를 예로 들어 보겠습니다. 어디서 실행되든 관계없이 이러한 모든 시스템에서 실행되는 응용 프로그램은 클라우드의 서비스 버스 릴레이를 사용하여 통신할 수 있습니다.
 
-## <a name="summary"></a>Summary
-Connecting applications has always been part of building complete solutions, and the range of scenarios that require applications and services to communicate with each other is set to increase as more applications and devices are connected to the Internet. By providing cloud-based technologies for achieving this through queues, topics, and relays, Service Bus aims to make this essential function easier to implement and more broadly available.
+## <a name="summary"></a>요약
+완전한 솔루션을 빌드하는 과정에는 항상 응용 프로그램을 연결하는 작업이 포함되어 왔습니다. 또한 점점 더 많은 응용 프로그램과 서비스가 인터넷에 연결하게 되면서, 응용 프로그램과 서비스가 서로 통신할 수 있어야 하는 시나리오의 범위도 갈수록 확대되었습니다. 서비스 버스는 큐, 토픽 및 릴레이를 통해 이러한 통신을 수행할 수 있도록 하는 클라우드 기반 기술을 제공하여, 이러한 필수 기능을 더욱 쉽게 구현하고 폭넓게 제공합니다.
 
-## <a name="next-steps"></a>Next steps
-Now that you've learned the fundamentals of Azure Service Bus, follow these links to learn more.
+## <a name="next-steps"></a>다음 단계
+이제 Azure 서비스 버스의 기초를 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.
 
-* How to use [Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* How to use [Service Bus topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-* How to use [Service Bus relay](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
-* [Service Bus samples](service-bus-samples.md)
+* [Service Bus 큐](service-bus-dotnet-get-started-with-queues.md)를 사용하는 방법
+* [Service Bus 토픽](service-bus-dotnet-how-to-use-topics-subscriptions.md)을 사용하는 방법
+*  [서비스 버스 릴레이](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
+* [서비스 버스 샘플](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
@@ -115,6 +119,6 @@ Now that you've learned the fundamentals of Azure Service Bus, follow these link
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 
