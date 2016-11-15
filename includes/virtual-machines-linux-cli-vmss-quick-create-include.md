@@ -1,7 +1,7 @@
-아직 없는 경우 [Azure 구독 무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 및 [Azure 계정에 연결된](../articles/xplat-cli-connect.md) [Azure CLI](../articles/xplat-cli-install.md)를 가져올 수 있습니다. 그러면 다음 명령을 실행하여 크기 집합을 신속하게 만들 수 있습니다.
+아직 없는 경우 [Azure 구독 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 받고 [Azure 계정에 연결된](../articles/xplat-cli-connect.md) [Azure CLI](../articles/xplat-cli-install.md)를 받을 수 있습니다. 그러면 다음 명령을 실행하여 크기 집합을 신속하게 만들 수 있습니다.
 
 ```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/)
+# make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
 azure config mode arm
 
 # quick-create a scale set
@@ -56,4 +56,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!---HONumber=AcomDC_0413_2016-->
+<!--HONumber=Nov16_HO2-->
+
+

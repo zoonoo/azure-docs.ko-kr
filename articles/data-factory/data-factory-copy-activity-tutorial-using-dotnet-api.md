@@ -1,22 +1,26 @@
 ---
-title: '자습서: .NET API를 사용하여 복사 작업이 있는 파이프라인 만들기 | Microsoft Docs'
-description: 이 자습서에서는 .NET API를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다.
+title: "자습서: .NET API를 사용하여 복사 작업이 있는 파이프라인 만들기 | Microsoft Docs"
+description: "이 자습서에서는 .NET API를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 10/27/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 629ff68b11df0d17629ca101e5a80a396cfd0fb9
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-.net-api"></a>자습서: .NET API를 사용하여 복사 작업이 있는 파이프라인 만들기
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>자습서: .NET API를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
@@ -41,7 +45,7 @@ ms.author: spelluru
 ## <a name="prerequisites"></a>필수 조건
 * [자습서 개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 살펴보고 자습서 개요를 가져와서 **필수 구성 요소** 를 완료합니다. 
 * Visual Studio 2012, 2013 또는 2015
-* [Azure .NET SDK](http://azure.microsoft.com/downloads/)
+*  [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 * Azure PowerShell. [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell을 설치합니다. Azure PowerShell을 사용하여 Azure Active Directory 응용 프로그램을 만듭니다.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 응용 프로그램 만들기
@@ -105,25 +109,29 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
    6. **C:\ADFGetStarted**를 [위치]로 선택합니다.
    7. **확인** 을 클릭하여 프로젝트를 만듭니다.
 2. **도구**를 클릭하고 **NuGet 패키지 관리자**를 가리킨 다음 **패키지 관리자 콘솔**을 클릭합니다.
-3. **패키지 관리자 콘솔**에서 다음 명령을 하나씩 실행합니다. 
-   
-       Install-Package Microsoft.Azure.Management.DataFactories
-       Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+3. **패키지 관리자 콘솔**에서 다음 단계를 수행합니다. 
+   1. 다음 명령을 실행하여 Data Factory 패키지를 설치합니다. `Install-Package Microsoft.Azure.Management.DataFactories`        
+   2. Azure Active Directory 패키지를 설치하려면 다음 명령을 실행합니다(코드에서 Active Directory API를 사용함). `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. 다음 **appSetttings** 섹션을 **App.config** 파일에 추가합니다. 이 설정은 도우미 메서드 **GetAuthorizationHeader**에서 사용됩니다. 
    
     **&lt;응용 프로그램 ID&gt;**, **&lt;암호&gt;**, **&lt;구독 ID&gt;** 및 **&lt;테넌트 ID&gt;**의 값을 고유한 값으로 바꿉니다. 
    
-        <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
-            <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
-            <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+        <?xml version="1.0" encoding="utf-8" ?>
+        <configuration>
+            <startup> 
+                <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+            </startup>
+            <appSettings>
+                <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+                <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+                <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
    
-            <!-- Replace the following values with your own -->
-            <add key="ApplicationId" value="<Application ID>" />
-            <add key="Password" value="<Password>" />    
-            <add key="SubscriptionId" value= "Subscription ID" />
-            <add key="ActiveDirectoryTenantId" value="tenant ID" />
-        </appSettings>
+                <add key="ApplicationId" value="your application ID" />
+                <add key="Password" value="Password you used while creating the AAD application" />
+                <add key="SubscriptionId" value= "Subscription ID" />
+                <add key="ActiveDirectoryTenantId" value="Tenant ID" />
+            </appSettings>
+        </configuration>
 5. 다음 **using** 문을 프로젝트의 원본 파일(Program.cs)에 추가합니다.
    
         using System.Threading;
@@ -345,7 +353,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
                            },
                        }
                    }
-               }); 
+               });    
 2. **Main** 메서드에 다음 코드를 추가하여 출력 데이터 집합의 데이터 조각 상태를 가져옵니다. 이 샘플에서는 조각만 필요합니다.   
    
            // Pulling status within a timeout threshold
@@ -453,12 +461,15 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
    * 연결된 서비스: **LinkedService_AzureStorage** 
    * 데이터 집합: **DatasetBlobSource** 및 **DatasetBlobDestination**
    * 파이프라인: **PipelineBlobSample** 
-10. 출력 파일이 **adftutorial** 컨테이너의 "**apifactoryoutput**" 폴더에 만들어졌는지 확인합니다.
+10. 지정된 Azure SQL Database의 "**emp**" 테이블에서 두 개의 직원 레코드가 만들어졌는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참고하며 여기서 이 자습서에서 사용한 복사 작업에 대한 자세한 정보를 제공합니다.
 * 데이터 팩터리 .NET SDK에 대한 자세한 내용은 [데이터 팩터리 .NET API 참조](https://msdn.microsoft.com/library/mt415893.aspx) 를 참조하세요. 이 문서는 모든 데이터 팩터리 .NET API를 다루지 않습니다. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure AD 테넌트를 얻는 방법 | Microsoft Docs
-description: 응용 프로그램 등록 및 구축을 위해 Azure Active Directory 테넌트를 얻는 방법입니다.
+title: "Azure AD 테넌트를 얻는 방법 | Microsoft Docs"
+description: "응용 프로그램 등록 및 구축을 위해 Azure Active Directory 테넌트를 얻는 방법입니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: terrylan
-editor: ''
-
+editor: 
+ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/28/2015
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b72271ca68df3b4b11c41f208fd1e3dd75b5e727
+
 
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Azure Active Directory 테넌트를 얻는 방법
@@ -60,6 +64,9 @@ Azure AD 사용자가 응용 프로그램에 로그인하도록 허용하려면 
 
 Azure 등록 과정의 일부로 신용 카드 정보를 제공해야 합니다.  믿고 진행할 수 있습니다. Azure AD에서의 응용 프로그램 게시 및 새 테넌트 만들기에 대한 비용은 청구되지 않습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

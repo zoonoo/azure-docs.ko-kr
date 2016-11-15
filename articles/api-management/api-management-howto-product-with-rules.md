@@ -1,22 +1,26 @@
 ---
-title: Azure API 관리로 API 보호 | Microsoft Docs
-description: 할당량 및 제한(속도 제한) 정책을 사용하여 API를 보호하는 방법을 알아봅니다.
+title: "Azure API Management로 API 보호 | Microsoft Docs"
+description: "할당량 및 제한(속도 제한) 정책을 사용하여 API를 보호하는 방법을 알아봅니다."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+
 
 ---
-# Azure API 관리를 사용하여 속도 제한으로 API 보호
+# <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Azure API 관리를 사용하여 속도 제한으로 API 보호
 이 가이드에서는 Azure API 관리로 속도 제한 및 할당량 정책을 구성하여 백엔드 API에 대한 보호를 추가하기가 얼마나 쉬운지 보여줍니다.
 
 이 자습서에서는 개발자가 [구독별 호출 속도 제한](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) 및 [구독별 사용 할당량 설정](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota) 정책을 사용하여 API를 분당 최대 10번 및 주당 최대 200번까지 호출할 수 있는 "무료 평가판" API 제품을 만들어 봅니다. 그런 다음 API를 게시하고 속도 제한 정책을 테스트합니다.
@@ -27,15 +31,15 @@ ms.author: sdanie
 이 단계에서는 구독 승인을 요구하지 않는 무료 평가판 제품을 만듭니다.
 
 > [!NOTE]
-> 이미 구성된 제품이 있어 이 자습서에 사용하려는 경우 무료 평가판 제품 대신 해당 제품을 사용하여 [호출 속도 제한 및 할당량 정책 구성][호출 속도 제한 및 할당량 정책 구성]으로 바로 이동한 다음 해당 단계에서부터 자습서를 진행할 수 있습니다.
+> 이미 구성된 제품이 있어 이 자습서에 사용하려는 경우 무료 평가판 제품 대신 해당 제품을 사용하여 [호출 속도 제한 및 할당량 정책 구성][Configure call rate limit and quota policies]으로 바로 이동한 다음 해당 단계에서부터 자습서를 진행할 수 있습니다.
 > 
 > 
 
-시작하려면 API 관리 서비스에 대해 Azure 클래식에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
+시작하려면 Azure Portal에서 API Management 서비스에 대한 **게시자 포털**을 클릭합니다.
 
 ![게시자 포털][api-management-management-console]
 
-> 아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리의 첫 번째 API 관리][Azure API 관리의 첫 번째 API 관리] 자습서에서 [API 관리 서비스 인스턴스 만들기][API 관리 서비스 인스턴스 만들기]를 참조하세요.
+> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management에서 첫 번째 API 관리][Manage your first API in Azure API Management] 자습서에서 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 > 
 > 
 
@@ -49,21 +53,21 @@ ms.author: sdanie
 
 **제목** 상자에 **무료 평가판**을 입력합니다.
 
-**설명** 상자에 **구독자는 분당 10회, 1주일에 최대 200회의 호출을 실행할 수 있습니다. 그 이후에는 액세스가 거부됩니다.** 를 입력합니다.
+**설명** 상자에  **Subscribers will be able to run 10 calls/minute up to a maximum of 200 calls/week after which access is denied.**를 입력합니다.
 
-API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기 전에 먼저 보호된 제품을 구독할 수 있어야 합니다. 개방된 제품은 구독하지 않고 사용할 수 있습니다. 구독이 필요한 보호된 제품을 만들기 위해 **구독 필요**가 선택되었는지 확인하세요. 기본 설정입니다.
+API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기 전에 먼저 보호된 제품을 구독할 수 있어야 합니다. 개방된 제품은 구독하지 않고 사용할 수 있습니다. 구독이 필요한 보호된 제품을 만들기 위해 **구독 필요** 가 선택되었는지 확인하세요. 기본 설정입니다.
 
 관리자가 이 제품에 대한 구독 시도를 검토하고 허용하거나 거부하도록 하려면 **구독 승인 필요**를 선택합니다. 확인란을 선택하지 않으면 구독 시도가 자동으로 승인됩니다. 이 예제에서는 승인이 자동으로 승인되므로 이 확인란을 선택하지 않습니다.
 
 개발자 계정으로 새 제품을 여러 번 구독할 수 있도록 하려면 **여러 동시 구독 허용** 확인란을 선택합니다. 이 자습서는 여러 동시 구독을 활용하지 않으므로 해당 항목을 선택하지 않습니다.
 
-모든 값을 입력한 후에는 **저장**을 클릭하여 제품을 만듭니다.
+모든 값을 입력한 후에는 **저장** 을 클릭하여 제품을 만듭니다.
 
 ![제품 추가됨][api-management-product-added]
 
 기본적으로 새 제품은 **관리자** 그룹의 사용자에게 표시됩니다. 여기서는 **개발자** 그룹에 추가하겠습니다. **무료 평가판**을 클릭한 다음 **표시 여부** 탭을 클릭합니다.
 
-> API 관리에서 그룹은 개발자에 대한 제품 표시 여부를 관리하는 데 사용됩니다. 제품은 그룹에 대한 표시 여부를 부여하고, 개발자는 자신이 속한 그룹에게 표시되는 제품을 보고 구독할 수 있습니다. 자세한 내용은 [Azure API 관리에서 그룹을 만들고 사용하는 방법][Azure API 관리에서 그룹을 만들고 사용하는 방법]\(영문)을 참조하세요.
+> API 관리에서 그룹은 개발자에 대한 제품 표시 여부를 관리하는 데 사용됩니다. 제품은 그룹에 대한 표시 여부를 부여하고, 개발자는 자신이 속한 그룹에게 표시되는 제품을 보고 구독할 수 있습니다. 자세한 내용은 [Azure API Management에서 그룹을 만들고 사용하는 방법][How to create and use groups in Azure API Management]을 참조하세요.
 > 
 > 
 
@@ -74,7 +78,7 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 ## <a name="add-api"> </a>제품에 API를 추가하려면
 이 자습서 단계에서는 새 무료 평가판 제품에 Echo API를 추가합니다.
 
-> 각 API 관리 서비스 인스턴스는 실험해 보고 API 관리에 대해 알아보는 데 사용할 수 있는 Echo API가 미리 구성되어 제공됩니다. 자세한 내용은 [Azure API 관리에서 첫 번째 API 관리][Azure API 관리에서 첫 번째 API 관리]를 참조하세요.
+> 각 API 관리 서비스 인스턴스는 실험해 보고 API 관리에 대해 알아보는 데 사용할 수 있는 Echo API가 미리 구성되어 제공됩니다. 자세한 내용은 [Azure API Management에서 첫 번째 API 관리][Manage your first API in Azure API Management]를 참조하세요.
 > 
 > 
 
@@ -95,7 +99,7 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 
 ![제품 정책][api-management-product-policy]
 
-**정책 추가**를 클릭하여 정책 템플릿을 가져오고 속도 제한 및 할당량 정책을 만들기 시작합니다.
+**정책 추가** 를 클릭하여 정책 템플릿을 가져오고 속도 제한 및 할당량 정책을 만들기 시작합니다.
 
 ![정책 추가][api-management-add-policy]
 
@@ -115,12 +119,12 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
     </api>
     </rate-limit>
 
-**구독당 호출 속도 제한**은 제품 수준에서 사용할 수 있고 API 및 개별 작업 이름 수준에서도 사용할 수 있습니다. 이 자습서에서는 제품 수준 정책만 사용되므로, 다음 예제처럼 **rate-limit** 요소에서 **api** 및 **operation** 요소를 삭제하여 외부 **rate-limit** 요소만 남게 합니다.
+**구독당 호출 속도 제한** 은 제품 수준에서 사용할 수 있고 API 및 개별 작업 이름 수준에서도 사용할 수 있습니다. 이 자습서에서는 제품 수준 정책만 사용되므로, 다음 예제처럼 **rate-limit** 요소에서 **api** 및 **operation** 요소를 삭제하여 외부 **rate-limit** 요소만 남게 합니다.
 
     <rate-limit calls="number" renewal-period="seconds">
     </rate-limit>
 
-**무료 평가판** 제품에서 최대 허용 호출 속도는 분당 호출 10개이므로 호출 특성 값으로 **10**을 입력하고 **renewal-period** 특성으로 **60**을 입력합니다.
+무료 평가판 제품에서 최대 허용 호출 속도는 분당 호출 10개이므로 **호출** 특성 값으로 **10**을 입력하고 **renewal-period** 특성으로 **60**을 입력합니다.
 
     <rate-limit calls="10" renewal-period="60">
     </rate-limit>
@@ -143,7 +147,7 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
     <quota calls="number" renewal-period="seconds">
     </quota>
 
-무료 평가판 제품에서 할당량은 주당 호출 200개입니다. **calls** 특성 값으로 **200**을 지정한 다음, **renewal-period** 값으로 **604800**을 지정합니다.
+무료 평가판 제품에서 할당량은 주당 호출 200개입니다. **호출** 특성 값으로 **200**을 지정한 다음, **renewal-period** 값으로 **604800**을 지정합니다.
 
     <quota calls="200" renewal-period="604800">
     </quota>
@@ -174,12 +178,12 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 
 ![정책 저장][api-management-policy-save]
 
-## <a name="publish-product"> </a>제품을 게시하려면
+## <a name="publish-product"> </a> 제품을 게시하려면
 이제 API를 추가하고 정책을 구성했으며, 개발자가 제품을 사용할 수 있도록 해당 제품을 게시해야 합니다. 왼쪽의 **API 관리** 메뉴에서 **제품**을 클릭한 다음 **무료 평가판**을 클릭하여 제품을 구성합니다.
 
 ![제품 구성][api-management-configure-product]
 
-**게시**를 클릭한 후 **지금 게시**를 클릭하여 확인합니다.
+**게시**를 클릭한 후 **예, 게시**를 클릭하여 확인합니다.
 
 ![제품 게시][api-management-publish-product]
 
@@ -214,7 +218,8 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 ![구독 추가됨][api-management-subscription-added]
 
 ## <a name="test-rate-limit"> </a>작업을 호출하고 속도 제한을 테스트하려면
-무료 평가판 제품을 구성하고 게시했으며 이제 일부 작업을 호출하고 속도 제한 정책을 테스트할 수 있습니다. 오른쪽 위에 있는 메뉴에서 **개발자 포털**을 클릭하여 개발자 포털로 전환합니다.
+무료 평가판 제품을 구성하고 게시했으며 이제 일부 작업을 호출하고 속도 제한 정책을 테스트할 수 있습니다.
+오른쪽 위에 있는 메뉴에서 **개발자 포털** 을 클릭하여 개발자 포털로 전환합니다.
 
 ![개발자 포털][api-management-developer-portal-menu]
 
@@ -239,11 +244,11 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 
 ![작업 결과][api-management-http-get-results]
 
-속도 제한 정책인 분당 호출 10개를 초과하는 속도의 **보내기**를 클릭합니다. 속도 제한 정책을 초과하면 응답 상태 **429 요청이 너무 많음**이 반환됩니다.
+속도 제한 정책인 분당 호출 10개를 초과하는 속도의 **보내기** 를 클릭합니다. 속도 제한 정책을 초과하면 응답 상태 **429 요청이 너무 많음** 이 반환됩니다.
 
 ![작업 결과][api-management-http-get-429]
 
-**응답 콘텐츠**는 재시도에 성공하기 전의 남은 간격을 나타냅니다.
+**응답 콘텐츠** 는 재시도에 성공하기 전의 남은 간격을 나타냅니다.
 
 속도 제한 정책인 분당 호출 10개가 적용되는 경우 속도 제한이 초과하기 전에 처음 10개의 제품 호출에 성공한 후 60초가 경과할 때까지 후속 호출에 실패합니다. 이 예제에서는 남은 간격이 54초입니다.
 
@@ -281,27 +286,30 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: ../api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
-[Publish a product]: api-management-howto-add-products.md#publish-product
-[Azure API 관리에서 첫 번째 API 관리]: api-management-get-started.md
-[Azure API 관리의 첫 번째 API 관리]: api-management-get-started.md
+[API에 작업을 추가하는 방법]: api-management-howto-add-operations.md
+[제품을 추가하고 게시하는 방법]: api-management-howto-add-products.md
+[모니터링 및 분석]: ../api-management-monitoring.md
+[제품에 API 추가]: api-management-howto-add-products.md#add-apis
+[제품 게시]: api-management-howto-add-products.md#publish-product
+[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
 [Azure API 관리에서 그룹을 만들고 사용하는 방법]: api-management-howto-create-groups.md
-[View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
-[Get started with Azure API Management]: api-management-get-started.md
+[제품 구독자 보기]: api-management-howto-add-products.md#view-subscribers
+[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
-[Next steps]: #next-steps
+[다음 단계]: #next-steps
 
-[Create a product]: #create-product
+[제품 만들기]: #create-product
 [호출 속도 제한 및 할당량 정책 구성]: #policies
-[Add an API to the product]: #add-api
-[Publish the product]: #publish-product
-[Subscribe a developer account to the product]: #subscribe-account
-[Call an operation and test the rate limit]: #test-rate-limit
+[제품에 API 추가]: #add-api
+[제품 게시]: #publish-product
+[제품에 개발자 계정 구독]: #subscribe-account
+[작업 호출 및 속도 제한 테스트]: #test-rate-limit
 
-[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[호출 속도 제한]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[사용 할당량]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

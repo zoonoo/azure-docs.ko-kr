@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD 도메인 서비스: 암호 동기화 활성화 | Microsoft Docs'
-description: Azure Active Directory 도메인 서비스 시작
+title: "Azure AD Domain Services: 암호 동기화 사용 | Microsoft Docs"
+description: "Azure Active Directory 도메인 서비스 시작"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c625fdf679c282bb62fdcbc864cd5b65d1014231
+
 
 ---
-# Azure AD 도메인 서비스에 대한 암호 동기화 활성화
+# <a name="enable-password-synchronization-to-azure-ad-domain-services"></a>Azure AD 도메인 서비스에 대한 암호 동기화 활성화
 앞의 태스크에서 Azure AD 테넌트에 대한 Azure AD 도메인 서비스를 활성화했습니다. 다음 태스크는 NTLM 및 Kerberos 인증에 필요한 자격 증명 해시를 사용하도록 설정하여 Azure AD 도메인 서비스를 동기화하는 것입니다. 자격 증명 동기화를 설정하면 사용자는 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있습니다.
 
 관련된 단계는 조직에 클라우드 전용 Azure AD 테넌트가 있는지, 아니면 Azure AD Connect를 사용하여 온-프레미스 디렉터리와 동기화되도록 설정되었는지에 따라 다릅니다.
@@ -31,7 +35,7 @@ ms.author: maheshu
 
 <br>
 
-## 작업 5: 클라우드 전용 Azure AD 테넌트에 대해 AAD 도메인 서비스에 대한 암호 동기화 활성화
+## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-cloudonly-azure-ad-tenant"></a>작업 5: 클라우드 전용 Azure AD 테넌트에 대해 AAD 도메인 서비스에 대한 암호 동기화 활성화
 관리되는 도메인에 대한 사용자를 인증하려면 Azure AD 도메인 서비스에는 NTLM 및 Kerberos 인증에 적합한 형식으로 해시 자격 증명이 필요합니다. 테넌트에 AAD 도메인 서비스를 사용하지 않으면 Azure AD는 NTLM 또는 Kerberos 인증에 필요한 형식으로 자격 증명 해시를 생성하거나 저장하지 않습니다. 확실한 보안을 위해 Azure AD는 일반 텍스트 형식으로 자격 증명을 저장하지 않습니다. 따라서 Azure AD를 통해 사용자의 기존 자격 증명에 따라 이러한 NTLM 또는 Kerberos 자격 증명 해시를 생성할 수 없습니다.
 
 > [!NOTE]
@@ -41,7 +45,7 @@ ms.author: maheshu
 
 암호 변경 프로세스를 수행하면 Kerberos 및 NTLM 인증을 위해 Azure AD 도메인 서비스에 필요한 자격 증명 해시가 Azure AD에서 생성됩니다. Azure AD 도메인 서비스를 사용해야 하는 테넌트의 모든 사용자에 대한 암호를 만료시키거나, 암호를 변경하도록 이러한 사용자에게 지시할 수 있습니다.
 
-### 클라우드 전용 Azure AD 테넌트에 대해 NTLM 및 Kerberos 자격 증명 해시 생성 활성화
+### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloudonly-azure-ad-tenant"></a>클라우드 전용 Azure AD 테넌트에 대해 NTLM 및 Kerberos 자격 증명 해시 생성 활성화
 다음과 같은 최종 사용자에게 제공해야 하는 지침을 따라 암호를 변경할 수 있습니다.
 
 1. [http://myapps.microsoft.com](http://myapps.microsoft.com)에서 조직의 Azure AD 액세스 패널 페이지로 이동합니다.
@@ -62,7 +66,7 @@ ms.author: maheshu
 
 <br>
 
-## 관련 콘텐츠
+## <a name="related-content"></a>관련 콘텐츠
 * [고유한 암호를 업데이트하는 방법](../active-directory/active-directory-passwords-update-your-own-password.md)
 * [Azure AD에서 암호 관리 시작](../active-directory/active-directory-passwords-getting-started.md)
 * [동기화된 Azure AD 테넌트에 대해 AAD 도메인 서비스에 대한 암호 동기화 활성화](active-directory-ds-getting-started-password-sync-synced-tenant.md)
@@ -70,4 +74,9 @@ ms.author: maheshu
 * [Windows 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Red Hat Enterprise Linux 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!-----HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

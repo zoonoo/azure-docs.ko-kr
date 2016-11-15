@@ -1,13 +1,13 @@
 ---
-title: 'Azure AD Connect: Azure Active Directory와 온-프레미스 ID 통합 | Microsoft Docs'
-description: Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 SaaS 응용 프로그램에 대한 공통 ID를 제공할 수 있습니다.
-keywords: Azure AD Connect 소개, Azure AD Connect 개요, Azure AD Connect 정의, active directory 설치
+title: "Azure AD Connect: Azure Active Directory와 온-프레미스 ID 통합 | Microsoft Docs"
+description: "Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 SaaS 응용 프로그램에 대한 공통 ID를 제공할 수 있습니다."
+keywords: "Azure AD Connect 소개, Azure AD Connect 개요, Azure AD Connect 정의, active directory 설치"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,15 +15,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/04/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eedb788b2a174d01a2ef661cf4093ff938649bce
+
 
 ---
-# <a name="integrating-your-on-premises-identities-with-azure-active-directory"></a>Azure Active Directory와 온-프레미스 ID 통합
+# <a name="integrating-your-onpremises-identities-with-azure-active-directory"></a>Azure Active Directory와 온-프레미스 ID 통합
 Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 SaaS 응용 프로그램 사용자를 위한 공통 ID를 제공할 수 있습니다. 이 항목은 계획, 배포 및 운영 단계를 안내합니다. 이 영역과 관련된 항목으로 연결되는 링크 컬렉션입니다.
 
-<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
-
 > [!IMPORTANT]
-> Azure AD Connect는 온-프레미스 디렉터리를 Azure AD와 Office 365에 연결하는 가장 좋은 방법입니다. 이제 이러한 도구가 사용되지 않으며 2017년 4월 13일에 지원이 종료될 예정이므로 Microsoft Azure Active Directory 동기화(DirSync) 또는 Azure AD Sync에서 Azure AD Connect로 지금 업그레이드하는 것이 좋습니다(active-directory-aadconnect-dirsync-deprecated.md).
+> [Azure AD Connect는 온-프레미스 디렉터리를 Azure AD와 Office 365에 연결하는 가장 좋은 방법입니다. 이제 이러한 도구가 사용되지 않으며 2017년 4월 13일에 지원이 종료될 예정이므로 Microsoft Azure Active Directory 동기화(DirSync) 또는 Azure AD Sync에서 Azure AD Connect로 지금 업그레이드하는 것이 좋습니다.](active-directory-aadconnect-dirsync-deprecated.md)
 > 
 > 
 
@@ -52,9 +54,9 @@ Azure Active Directory Connect는 동기화 서비스, 선택적인 Active Direc
 | 해결 방법 | 시나리오 |
 | --- | --- |
 | 시작하기 전에 - [하드웨어 및 필수 구성 요소](active-directory-aadconnect-prerequisites.md) |<li>Azure AD Connect 설치를 시작하기 전에 완료할 단계입니다.</li> |
-| [Express 설정](active-directory-aadconnect-get-started-express.md) |<li>단일 포리스트 AD가 있는 경우 사용하도록 권장되는 옵션입니다.</li> <li>사용자가 암호 동기화를 사용하여 동일한 암호로 로그인합니다.</li> |
-| [사용자 지정된 설정](active-directory-aadconnect-get-started-custom.md) |<li>여러 포리스트가 있는 경우 사용됩니다. 다양한 온-프레미스 [토폴로지](active-directory-aadconnect-topologies.md)를 지원합니다.</li> <li>페더레이션의 ADFS와 같은 로그인 옵션을 사용자 지정하거나 타사 ID 공급자를 사용합니다.</li> <li>필터링 및 쓰기 저장과 같은 동기화 기능을 사용자 지정합니다.</li> |
-| [DirSync에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>기존 DirSync 서버를 이미 실행 중인 경우 사용됩니다.</li> |
+| [Express 설정](connect/active-directory-aadconnect-get-started-express.md) |<li>단일 포리스트 AD가 있는 경우 사용하도록 권장되는 옵션입니다.</li> <li>사용자가 암호 동기화를 사용하여 동일한 암호로 로그인합니다.</li> |
+| [사용자 지정된 설정](connect/active-directory-aadconnect-get-started-custom.md) |<li>여러 포리스트가 있는 경우 사용됩니다. 다양한 온-프레미스 [토폴로지](active-directory-aadconnect-topologies.md)를 지원합니다.</li> <li>페더레이션의 ADFS와 같은 로그인 옵션을 사용자 지정하거나 타사 ID 공급자를 사용합니다.</li> <li>필터링 및 쓰기 저장과 같은 동기화 기능을 사용자 지정합니다.</li> |
+| [DirSync에서 업그레이드](connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>기존 DirSync 서버를 이미 실행 중인 경우 사용됩니다.</li> |
 | [Azure AD Sync 또는 Azure AD Connect에서 업그레이드](active-directory-aadconnect-upgrade-previous-version.md) |<li>기본 설정에 따라 여러 가지 방법이 있습니다.</li> |
 
 [설치 후](active-directory-aadconnect-whats-next.md) 예상 대로 작동되는지 확인하고 사용자에게 라이선스를 할당해야 합니다.
@@ -154,6 +156,9 @@ ADFS 서버가 Azure AD 인증서를 자동으로 업데이트하도록 구성�
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

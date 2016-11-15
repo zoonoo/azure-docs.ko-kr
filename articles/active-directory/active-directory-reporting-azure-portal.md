@@ -1,172 +1,208 @@
 ---
-title: Azure Active Directory reporting - preview | Microsoft Docs
-description: Lists the various available reports for Azure Active Directory preview
+title: "Azure Active Directory Reporting - 미리 보기 | Microsoft Docs"
+description: "Azure Active Directory Reporting 미리 보기에 사용할 수 있는 다양한 보고서를 나열합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+
 
 ---
-# <a name="azure-active-directory-reporting-preview"></a>Azure Active Directory reporting - preview
+# <a name="azure-active-directory-reporting-preview"></a>Azure Active Directory Reporting - 미리 보기
 > [!div class="op_single_selector"]
-> * [Azure portal](active-directory-reporting-azure-portal.md)
-> * [Azure classic portal](active-directory-reporting-guide.md)
+> * [Azure Portal](active-directory-reporting-azure-portal.md)
+> * [Azure 클래식 포털](active-directory-reporting-guide.md)
 > 
 > 
 
-*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
+*이 설명서는 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)의 일부입니다.*
 
-With reporting in the Azure Active Directory preview, you get all the information you need to determine how your environment is doing. [What's in the preview?](active-directory-preview-explainer.md)
+Azure Active Directory 미리 보기에서 리포팅으로 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md)
 
-There are two main areas of reporting:
+보고의 두 가지 주요 영역이 있습니다.
 
-* **Sign-in activities** – Information about the usage of managed applications and user sign-in activities
-* **Audit logs** - System activity information about users and group management, your managed applications and directory activities
+* **로그인 활동** – 관리되는 응용 프로그램 및 사용자 로그인 활동의 사용량에 대한 정보
+* **감사 로그** - 사용자 및 그룹 관리, 관리되는 응용 프로그램 및 디렉터리 활동에 대한 시스템 활동 정보
 
-Depending on the scope of the data you are looking for, you can access these reports either by clicking **Users and groups** or **Enterprise applications** in the services list in the [Azure portal](https://portal.azure.com).
+원하는 데이터의 범위에 따라 [Azure Portal](https://portal.azure.com)의 서비스 목록에서 **사용자 및 그룹** 또는 **엔터프라이즈 응용 프로그램**을 클릭하여 이러한 보고서에 액세스할 수 있습니다.
 
-## <a name="signin-activities"></a>Sign-in activities
-### <a name="user-signin-activities"></a>User sign-in activities
-With the information provided by the user sign-in report, you find answers to questions such as:
+## <a name="signin-activities"></a>로그인 활동
+### <a name="user-signin-activities"></a>사용자 로그인 활동
+보고서에서 사용자 로그인에 의해 제공되는 정보를 사용하여 다음과 같은 질문에 대한 대답을 찾습니다.
 
-* What is the sign-in pattern of a user?
-* How many users have users signed in over a week?
-* What’s the status of these sign-ins?
+* 사용자의 로그인 패턴이란?
+* 한 주 동안 얼마나 많은 사용자가 로그인했나요?
+* 이러한 로그인의 상태란?
 
-Your entry point to this data is the user sign-in graph in the **Overview** section under **Users and groups**.
+이 데이터에 대한 진입점은 **사용자 및 그룹**의 **개요** 섹션에서 사용자 로그인 그래프입니다.
 
- ![Reporting](./media/active-directory-reporting-azure-portal/05.png "Reporting")
+ ![보고](./media/active-directory-reporting-azure-portal/05.png "Reporting")
 
-The user sign-in graph shows weekly aggregations of sign ins for all users in a given time period. The default for the time period is 30 days.
+사용자 로그인 그래프에서는 지정된 기간 내에 모든 사용자에 대한 로그인의 주간 집계를 보여 줍니다. 시간에 대한 기본값은 30일입니다.
 
-![Reporting](./media/active-directory-reporting-azure-portal/02.png "Reporting")
+![보고](./media/active-directory-reporting-azure-portal/02.png "Reporting")
 
-When you click on a day in the sign-in graph, you get a detailed list of the sign-in activities.
+로그인 그래프에서 날짜를 클릭하면 로그인 활동의 자세한 목록이 표시됩니다.
 
-![Reporting](./media/active-directory-reporting-azure-portal/03.png "Reporting")
+![보고](./media/active-directory-reporting-azure-portal/03.png "Reporting")
 
-Each row in the sign-in activities list gives you the detailed information about the selected sign-in such as:
+로그인 활동 목록에서 각 행은 다음과 같이 선택된 로그인에 대한 자세한 내용을 보여 줍니다.
 
-* Who has signed in?
-* What was the related UPN?
-* What application was the target of the sign-in?
-* What is the IP address of the sign-in?
-* What was the status of the sign-in?
+* 누가 로그인했나요?
+* 관련된 UPN는 무엇이었나요?
+* 어떤 응용 프로그램이 로그인할 대상이었나요?
+* 로그인의 IP 주소는 무엇인가요?
+* 로그인의 상태는 어떠했나요?
 
-### <a name="usage-of-managed-applications"></a>Usage of managed applications
-With an application-centric view of your sign-in data, you can answer questions such as:
+### <a name="usage-of-managed-applications"></a>관리되는 응용 프로그램의 사용량
+로그인 데이터의 응용 프로그램 중심 보기를 사용하여 다음과 같은 질문에 대답할 수 있습니다.
 
-* Who is using my applications?
-* What are the top 3 applications in your organization?
-* I have recently rolled out an application. How is it doing?
+* 누가 내 응용 프로그램을 사용하나요?
+* 조직에서 상위 3개의 응용 프로그램은 무엇인가요?
+* 최근에 응용 프로그램을 롤아웃했습니다. 어떻게 작동하고 있나요?
 
-Your entry point to this data is the top 3 applications in your organization within the last 30 days report in the **Overview** section under **Enterprise applications**.
+이 데이터에 대한 진입점은 **엔터프라이즈 응용 프로그램**의 **개요** 섹션에 있는 지난 30일 간의 보고서에서 조직에 포함된 상위 3개의 응용 프로그램입니다.
 
- ![Reporting](./media/active-directory-reporting-azure-portal/06.png "Reporting")
+ ![보고](./media/active-directory-reporting-azure-portal/06.png "Reporting")
 
-The app usage graph weekly aggregations of sign ins for your top 3 applications in a given time period. The default for the time period is 30 days.
+지정된 기간 동안 상위 3가지 응용 프로그램에 대한 로그인의 주간 사용량 그래프 집계입니다. 시간에 대한 기본값은 30일입니다.
 
-![Reporting](./media/active-directory-reporting-azure-portal/78.png "Reporting")
+![보고](./media/active-directory-reporting-azure-portal/78.png "Reporting")
 
-If you want to, you can set the focus on a specific application.
+원하면 특정 응용 프로그램에 포커스를 설정할 수 있습니다.
 
-![Reporting](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Reporting")
+![보고](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Reporting")
 
-When you click on a day in the app usage graph, you get a detailed list of the sign-in activities.
+앱 사용량 그래프에서 날짜를 클릭하면 로그인 활동의 자세한 목록이 표시됩니다.
 
-![Reporting](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Reporting")
+![보고](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Reporting")
 
-The **Sign-ins** option gives you a complete overview of all sign-in events to your applications.
+**로그인** 옵션을 선택하면 응용 프로그램에 대한 모든 로그인 이벤트의 전체적인 개요를 보여 줍니다.
 
-![Reporting](./media/active-directory-reporting-azure-portal/85.png "Reporting")
+![보고](./media/active-directory-reporting-azure-portal/85.png "Reporting")
 
-By using the column chooser, you can select the data fields you want to display.
+열 선택기를 사용하여 표시하려는 데이터 필드를 선택할 수 있습니다.
 
-![Reporting](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
+![보고](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### <a name="filtering-signins"></a>Filtering sign-ins
-You can filter sign-ins by a time interval to limit the amount of displayed data.
+### <a name="filtering-signins"></a>로그인 필터링
+다음 필드를 사용하여 표시된 데이터의 양을 제한하도록 로그인을 필터링할 수 있습니다.
 
-![Reporting](./media/active-directory-reporting-azure-portal/927.png "Reporting")
+* 날짜 및 시간 
+* 사용자의 사용자 계정 이름
+* 응용 프로그램 이름
+* 클라이언트 이름
+* 로그인 상태
 
-Another method to filter the entries of the sign-in activities is to search for specific entries.
-The search method enables you to scope your sign-ins around specific **users**, **groups** or **applications**.
+![보고](./media/active-directory-reporting-azure-portal/293.png "Reporting")
 
-![Reporting](./media/active-directory-reporting-azure-portal/84.png "Reporting")
+활동에서 로그인의 항목을 필터링하는 다른 방법은 특정 항목을 검색하는 것입니다.
+검색 메서드를 사용하면 특정 **사용자**, **그룹** 또는 **응용 프로그램**에 대한 로그인의 범위를 지정할 수 있습니다.
 
-## <a name="audit-logs"></a>Audit logs
-The auditing logs in Azure Active Directory provide records of system activities for compliance.
+![보고](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
-There are three main categories for auditing related activities in the Azure portal:
+## <a name="audit-logs"></a>감사 로그
+Azure Active Directory의 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 제공합니다.
 
-* Users and groups   
-* Applications
-* Directory   
+Azure Portal에서 관련된 활동을 감사하기 위한 세 가지 범주가 있습니다.
 
-For a complete list of audit report activities, see the [list of audit report events](active-directory-reporting-audit-events.md#list-of-audit-report-events).
+* 개요   
+* 응용 프로그램
+* 디렉터리   
 
-Your entry point to all auditing data is **Audit logs** in the **Activity** section of **Azure Active Directory**.
+감사 보고서 활동의 전체 목록은 [감사 보고서 이벤트 목록](active-directory-reporting-audit-events.md#list-of-audit-report-events)을 참조하세요.
 
-![Auditing](./media/active-directory-reporting-azure-portal/61.png "Auditing")
+모든 감사된 데이터에 대한 진입점은 **Azure Active Directory**의 **활동** 섹션에서 **감사 로그**입니다.
 
-An audit log has a list view that shows the actors (who), the activities (what) and the targets.
+![감사](./media/active-directory-reporting-azure-portal/61.png "Auditing")
 
-![Auditing](./media/active-directory-reporting-azure-portal/345.png "Auditing")
+감사 로그에는 행위자(누가), 활동(무엇) 및 대상을 표시하는 목록 보기가 있습니다.
 
-By clicking an item in the list view, you can get more details about it.
+![감사](./media/active-directory-reporting-azure-portal/345.png "Auditing")
 
-![Auditing](./media/active-directory-reporting-azure-portal/873.png "Auditing")
+목록 보기에서 항목을 클릭하여 자세한 정보를 얻을 수 있습니다.
 
-### <a name="users-and-groups-audit-logs"></a>Users and groups audit logs
-With user and group-based audit reports, you can get answers to questions such as:
+![감사](./media/active-directory-reporting-azure-portal/873.png "Auditing")
 
-* What types of updates have been applied the users?
-* How many users were changed?
-* How many passwords were changed?
-* What has an administrator done in a directory?
-* What are the groups that have been added?
-* Are there groups with membership changes?
-* Have the owners of group been changed?
-* What licenses have been assigned to a group or a user?
+### <a name="users-and-groups-audit-logs"></a>사용자 및 그룹 감사 로그
+사용자 및 그룹 기반 감사 보고서를 사용하여 다음과 같은 질문에 대한 답을 얻을 수 있습니다.
 
-If you just want to review auditing data that is related to users and groups, you can find a filtered view under **Audit logs** in the **Activity** section of **Users and Groups**.
+* 어떤 종류의 업데이트가 사용자에게 적용되나요?
+* 얼마나 많은 사용자가 변경되었나요?
+* 얼마나 많은 암호가 변경되었나요?
+* 관리자가 디렉터리에서 무엇을 수행했나요?
+* 추가된 그룹은 무엇인가요?
+* 멤버 자격이 변경된 그룹이 있나요?
+* 그룹의 소유자가 변경되었나요?
+* 어떤 라이선스가 그룹 또는 사용자에 할당되었나요?
 
-![Auditing](./media/active-directory-reporting-azure-portal/93.png "Auditing")
+사용자 및 그룹에 관련된 감사 데이터를 검토하려면 **사용자 및 그룹**의 **활동** 섹션에 있는 **감사 로그**에서 필터링된 보기를 찾을 수 있습니다.
 
-### <a name="application-audit-logs"></a>Application audit logs
-With application-based audit reports, you can get answers to questions such as:
+![감사](./media/active-directory-reporting-azure-portal/93.png "Auditing")
 
-* What are the applications that have been added or updated?
-* What are the applications that have been removed?
-* Has a service principle for an application changed?
-* Have the names of applications been changed?
-* Who gave consent to an application?
+### <a name="application-audit-logs"></a>응용 프로그램 감사 로그
+응용 프로그램 기반 감사 보고서를 사용하여 다음과 같은 질문에 대한 답을 얻을 수 있습니다.
 
-If you just want to review auditing data that is related to applications, you can find a filtered view under **Audit logs** in the **Activity** section of **Enterprise applications**.
+* 추가되거나 업데이트된 응용 프로그램은 무엇인가요?
+* 삭제된 응용 프로그램은 무엇인가요?
+* 응용 프로그램에 대한 서비스 원칙이 변경되었나요?
+* 응용 프로그램의 이름이 변경되었나요?
+* 누가 응용 프로그램에 동의했나요?
 
-![Auditing](./media/active-directory-reporting-azure-portal/134.png "Auditing")
+응용 프로그램에 관련된 감사 데이터를 검토하려면 **엔터프라이즈 응용 프로그램**의 **활동** 섹션에 있는 **감사 로그**에서 필터링된 보기를 찾을 수 있습니다.
 
-### <a name="filtering-audit-logs"></a>Filtering audit logs
-You can filter an audit report by a time interval to limit the amount of displayed data.
+![감사](./media/active-directory-reporting-azure-portal/134.png "Auditing")
 
-![Auditing](./media/active-directory-reporting-azure-portal/324.png "Auditing")
+### <a name="filtering-audit-logs"></a>감사 로그 필터링
+다음 필드를 사용하여 표시된 데이터의 양을 제한하도록 로그인을 필터링할 수 있습니다.
 
-Another method to filter the entries of a audit log is to search for specific entries.
+* 날짜 및 시간
+* 행위자의 사용자 계정 이름
+* 활동 유형
+* 작업
 
-![Auditing](./media/active-directory-reporting-azure-portal/237.png "Auditing")
+![감사](./media/active-directory-reporting-azure-portal/356.png "Auditing")
 
-## <a name="next-steps"></a>Next steps
-See the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
+**활동 유형** 목록의 콘텐츠는 이 블레이드에 대한 진입점에 연결됩니다.  
+진입점이 Azure Active Directory인 경우 이 목록에는 사용 가능한 모든 활동 유형이 포함됩니다.
 
-<!--HONumber=Oct16_HO2-->
+* 응용 프로그램 
+* 그룹 
+* 사용자
+* 장치
+* 디렉터리
+* 정책
+* 기타
+
+![감사](./media/active-directory-reporting-azure-portal/825.png "Auditing")
+
+나열된 활동은 활동 유형으로 범위가 지정됩니다.
+예를 들어 **그룹**을 **활동 유형**으로 선택한 경우 **활동** 목록은 그룹 관련 활동을 포함합니다.   
+
+![감사](./media/active-directory-reporting-azure-portal/654.png "Auditing")
+
+감사 로그의 항목을 필터링하는 다른 방법은 특정 항목을 검색하는 것입니다.
+
+![감사](./media/active-directory-reporting-azure-portal/237.png "Auditing")
+
+## <a name="next-steps"></a>다음 단계
+[Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)를 참조하세요.
+
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

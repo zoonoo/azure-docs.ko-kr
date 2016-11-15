@@ -1,13 +1,13 @@
 ---
-title: '시작: Azure AD 암호 관리 | Microsoft Docs'
-description: 사용자가 자신의 암호를 재설정하고, 암호 재설정을 위한 사전 필수 구성 요소를 검색하고 Active Directory에서 온-프레미스 암호를 관리하는 비밀번호 쓰기 저장을 사용할 수 있도록 합니다.
+title: "시작: Azure AD 암호 관리 | Microsoft Docs"
+description: "사용자가 자신의 암호를 재설정하고, 암호 재설정을 위한 사전 필수 구성 요소를 검색하고 Active Directory에서 온-프레미스 암호를 관리하는 비밀번호 쓰기 저장을 사용할 수 있도록 합니다."
 services: active-directory
-keywords: Active directory 암호 관리, 암호 관리, Azure AD 암호 재설정
-documentationcenter: ''
+keywords: "Active directory 암호 관리, 암호 관리, Azure AD 암호 재설정"
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
+
 
 ---
 # <a name="getting-started-with-password-management"></a>암호 관리 시작
@@ -61,7 +65,7 @@ ms.author: asteen
 * AAD 디렉터리에 하나 이상의 관리자 계정 및 사용자 계정 하나를 만듭니다.
 * 만든 관리자 및 사용자 계정에 AAD Premium, Basic 또는 O365 유료 라이선스를 할당합니다.
 
-### <a name="step-1:-configure-password-reset-policy"></a>1단계: 암호 재설정 정책 구성
+### <a name="step-1-configure-password-reset-policy"></a>1단계: 암호 재설정 정책 구성
 사용자 암호 재설정 정책을 구성하려면 다음 단계를 완료합니다.
 
 1. 선택한 브라우저를 열고 [Azure 클래식 포털](https://manage.windowsazure.com)로 이동합니다.
@@ -94,13 +98,13 @@ ms.author: asteen
    
    ![][006]
 
-### <a name="step-2:-add-contact-data-for-your-test-user"></a>2단계: 테스트 사용자에 대한 연락처 데이터 추가
+### <a name="step-2-add-contact-data-for-your-test-user"></a>2단계: 테스트 사용자에 대한 연락처 데이터 추가
 암호 재설정에 사용할 사용자의 조직에서 사용자에 대한 데이터를 지정하는 방법에 대한 몇 가지 옵션이 있습니다.
 
 * [Azure 클래식 포털](https://manage.windowsazure.com) 또는 [Office 365 관리자 포털](https://portal.microsoftonline.com)에서 사용자를 편집합니다.
 * AAD Connect를 사용하여 온-프레미스 Active Directory 도메인에서 Azure AD로 사용자 속성을 동기화합니다.
 * Windows PowerShell을 사용하여 사용자 속성을 편집합니다.
-* [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+*  [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
 * **사용자가 액세스 패널에 로그인할 때 등록해야 함** SSPR 구성 옵션을 **예**로 설정하여 [http://myapps.microsoft.com](http://myapps.microsoft.com)의 액세스 패널에 로그인할 때 암호 재설정을 위해 사용자를 등록해야 합니다.
 
 암호 재설정으로 사용되는 데이터 및 이 데이터에 대한 형식 요구사항에 대해 자세히 알아보려면 [암호 재설정에서 사용되는 데이터](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset)를 참조하세요.
@@ -119,10 +123,10 @@ ms.author: asteen
    
    ![][010]
 
-### <a name="step-3:-reset-your-azure-ad-password-as-a-user"></a>3단계: 사용자로 Azure AD 암호 재설정
+### <a name="step-3-reset-your-azure-ad-password-as-a-user"></a>3단계: 사용자로 Azure AD 암호 재설정
 사용자 재설정 정책을 구성하고 사용자에 대한 연락처 정보를 지정하였으므로 이 사용자는 셀프 서비스 암호 재설정을 수행할 수 있습니다.
 
-#### <a name="to-perform-a-self-service-password-reset"></a>셀프 서비스 암호 재설정을 수행하려면
+#### <a name="to-perform-a-selfservice-password-reset"></a>셀프 서비스 암호 재설정을 수행하려면
 1. [**portal.microsoftonline.com**](http://portal.microsoftonline.com)과 같은 사이트로 이동하는 경우, 아래와 같은 로그인 화면이 표시됩니다.  **계정에 액세스할 수 없습니까?** 링크를 클릭하여 암호 재설정 UI를 테스트합니다.
    
    ![][011]
@@ -194,7 +198,7 @@ ms.author: asteen
   > 
   > 
 
-### <a name="step-1:-download-the-latest-version-of-azure-ad-connect"></a>1단계: 최신 버전의 Azure AD Connect 다운로드
+### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>1단계: 최신 버전의 Azure AD Connect 다운로드
 암호 쓰기 저장은 Azure AD Connect 또는 **1.0.0419.0911** 이상의 버전이 있는 Azure AD Sync 도구의 릴리스에서 사용 가능합니다.  자동 계정 잠금 해제가 있는 암호 쓰기 저장은 Azure AD Connect 또는 **1.0.0485.0222** 이상의 버전이 있는 Azure AD Sync 도구의 릴리스에서 사용 가능합니다. 이전 버전을 실행하는 경우 진행하기 전에 적어도 이 버전으로 업그레이드합니다. [여기를 클릭하여 최신 버전의 Azure AD Connect를 다운로드합니다](active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### <a name="to-check-the-version-of-azure-ad-sync"></a>Azure AD Sync의 버전을 확인하려면
@@ -213,7 +217,7 @@ ms.author: asteen
 > 
 > 
 
-### <a name="step-2:-enable-password-writeback-in-azure-ad-connect"></a>2단계: Azure AD Connect에서 비밀번호 쓰기 저장 사용
+### <a name="step-2-enable-password-writeback-in-azure-ad-connect"></a>2단계: Azure AD Connect에서 비밀번호 쓰기 저장 사용
 이제 Azure AD Connect 도구를 다운로드 했으므로 암호 쓰기 저장 사용 준비가 된 것입니다.  이 두 방법 중 하나를 수행할 수 있습니다.  Azure AD Connect 설치 마법사의 선택적 기능 화면에서 암호 쓰기 저장을 사용하거나 Windows PowerShell을 통해 설정할 수 있습니다.
 
 #### <a name="to-enable-password-writeback-in-the-configuration-wizard"></a>구성 마법사에서 암호 쓰기 저장을 사용 하도록 설정하려면
@@ -237,7 +241,7 @@ ms.author: asteen
 5. 이 cmdlet을 실행하여 암호 쓰기 저장을 활성화합니다. `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
 > [!NOTE]
-> 자격 증명을 입력하라는 메시지가 표시되면, AzureADCredential에 대해 지정되는 관리자 계정이 페더레이션된 계정(온-프레미스 AD에서 만들고 Azure AD로 동기화됨)이 아닌 **클라우드 관리자 계정(Azure AD에서 만듬)**입니다.
+> 자격 증명을 입력하라는 메시지가 표시되면, AzureADCredential에 대해 지정되는 관리자 계정이 페더레이션된 계정(온-프레미스 AD에서 만들고 Azure AD로 동기화된)이 아닌 **클라우드 관리자 계정(Azure AD에서 만든)**입니다.
 > 
 > [!NOTE]
 > 위의 동일한 지침을 반복하지만 단계에서 `$false`을 전달하거나, 또는 [Azure 클래식 포털](https://manage.windowsazure.com)에서 사용자 디렉터리의 **구성** 탭의 **사용자 암호 재설정 정책 섹션**에서 **온-프레미스 디렉터리로 비밀번호 쓰기 저장** 설정을 **아니오**로 설정하여 언제든지 비밀번호 쓰기 저장을 사용하지 않도록 설정하여 PowerShell을 통해 비밀번호 쓰기 저장을 사용하지 않도록 설정할 수 있습니다.
@@ -251,7 +255,7 @@ ms.author: asteen
 
   ![][023]
 
-### <a name="step-3:-configure-your-firewall"></a>3단계: 방화벽 구성
+### <a name="step-3-configure-your-firewall"></a>3단계: 방화벽 구성
 Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 후, 서비스가 클라우드에 연결할 수 있는지 확인해야 합니다.
 
 1. 설치가 완료되면, 사용자 환경에서 알 수 없는 아웃바운드 연결을 차단한 경우 방화벽에 다음 규칙도 추가해야 합니다. 변경한 후 AAD Connect 컴퓨터를 다시 부팅해야 합니다.
@@ -259,7 +263,7 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
    * https://ssprsbprodncu-sb.accesscontrol.windows.net/에 대한 아웃바운드 연결 허용
    * 프록시를 사용하거나 일반적인 연결 문제가 있는 경우, 포트 9350-9354 및 포트 5671 TCP를 통한 아웃바운드 연결 허용
 
-### <a name="step-4:-set-up-the-appropriate-active-directory-permissions"></a>4단계: 적절한 Active Directory 사용 권한 설정
+### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>4단계: 적절한 Active Directory 사용 권한 설정
 암호를 재설정한 사용자를 포함한 모든 포리스트의 경우, X가 구성 마법사에서 해당 포리스트에 대해 지정된 계정이면(초기 구성 중), X는 **암호 재설정**, **암호 변경**, `lockoutTime`에서 **쓰기 권한**, `pwdLastSet`에서 **쓰기 권한**를 제공하며 해당 포리스트에서 각 도메인의 루트 개체에 대한 권한을 확장합니다. 오른쪽은 모든 사용자 개체에서 상속된 것으로 표시되어야 합니다.  
 
 위에서 참조되는 계정을 모르는 경우, Azure Active Directory Connect 구성 UI를 열고 **솔루션 검토** 옵션을 클릭합니다.  권한을 추가해야 하는 계정은 아래 스크린샷에서 빨간색 밑줄이 그어집니다.
@@ -295,7 +299,7 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
    ![][028]
 10. 열린 모든 대화 상자를 통해 **적용/확인** 을 클릭합니다.
 
-### <a name="step-5:-reset-your-ad-password-as-a-user"></a>5단계: 사용자로 AD 암호 재설정
+### <a name="step-5-reset-your-ad-password-as-a-user"></a>5단계: 사용자로 AD 암호 재설정
 이제 암호 쓰기 저장을 사용하도록 설정했으므로, 클라우드 테넌트로 동기화된 계정자의 사용자 암호를 재설정하여 작동하는지 테스트할 수 있습니다.
 
 #### <a name="to-verify-password-writeback-is-working-properly"></a>암호 쓰기 저장이 제대로 작동하는 지 확인하려면
@@ -321,7 +325,7 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
-* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다
+* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다.
 * [**FAQ**](active-directory-passwords-faq.md) -자주 묻는 질문에 답변합니다.
 * [**문제 해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스의 문제를 해결하는 방법에 대해 알아봅니다.
 * [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
@@ -361,6 +365,6 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

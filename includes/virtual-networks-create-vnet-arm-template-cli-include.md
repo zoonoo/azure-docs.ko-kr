@@ -1,7 +1,7 @@
-## Azure CLI를 사용하여 ARM 템플릿 배포
+## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Azure CLI를 사용하여 ARM 템플릿 배포
 Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다음 단계를 수행합니다.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../articles/xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../articles/xplat-cli-install.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **`azure config mode`** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
    
         azure config mode arm
@@ -9,7 +9,7 @@ Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
     다음은 위의 명령에 대해 예상된 출력입니다.
    
         info:    New mode is arm
-3. 필요에 따라 아래와 같이 **`azure group create`**를 실행하여 새 리소스 그룹을 만듭니다. 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../articles/resource-group-overview.md)를 참조하세요.
+3. 필요에 따라 아래와 같이 **`azure group create`** 를 실행하여 새 리소스 그룹을 만듭니다. 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../articles/azure-resource-manager/resource-group-overview.md)를 참조하세요.
    
         azure group create -n TestRG -l centralus
    
@@ -85,4 +85,8 @@ Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
         data:
         info:    network vnet show command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

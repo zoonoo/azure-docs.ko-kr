@@ -1,5 +1,5 @@
 
-### 기본 탄력적 풀 제한
+### <a name="basic-elastic-pool-limits"></a>기본 탄력적 풀 제한
 |  |  |
 | --- |:---:|
 | 풀당 최대 eDTU 수 |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -16,11 +16,11 @@
 | 재해 복구 |활성 지역 복제 |
 |  | |
 
-* 선택한 풀 DTU 크기가 최소한 DB당 최대 eDTU만큼 커지면 데이터베이스당 최대 및 최소 eDTU를 나열된 값 중 하나로 설정할 수 있습니다.
+* 선택한 풀 DTU 크기가 최소한 DB당 최대 eDTU만큼 커지면 데이터베이스당 최대 및 최소 eDTU를 나열된 값 중 하나로 설정할 수 있습니다. 
 
 ** Elastic Database는 풀 저장소를 공유하므로 데이터베이스 저장소는 남은 풀 저장소 또는 데이터베이스당 최대 저장소 중 작은 값으로 제한됩니다.
 
-### 표준 탄력적 풀 제한
+### <a name="standard-elastic-pool-limits"></a>표준 탄력적 풀 제한
 |  |  |
 | --- |:---:|
 | 풀당 최대 eDTU 수 |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -37,11 +37,11 @@
 | 재해 복구 |활성 지역 복제 |
 |  | |
 
-* 선택한 풀 DTU 크기가 최소한 DB당 최대 eDTU만큼 커지면 데이터베이스당 최대 및 최소 eDTU를 나열된 값 중 하나로 설정할 수 있습니다.
+* 선택한 풀 DTU 크기가 최소한 DB당 최대 eDTU만큼 커지면 데이터베이스당 최대 및 최소 eDTU를 나열된 값 중 하나로 설정할 수 있습니다. 
 
 ** Elastic Database는 풀 저장소를 공유하므로 데이터베이스 저장소는 남은 풀 저장소 또는 데이터베이스당 최대 저장소 중 작은 값으로 제한됩니다.
 
-### 프리미엄 탄력적 풀 제한
+### <a name="premium-elastic-pool-limits"></a>프리미엄 탄력적 풀 제한
 |  |  |
 | --- |:---:|
 | 풀당 최대 eDTU 수 |125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
@@ -58,8 +58,12 @@
 | 재해 복구 |활성 지역 복제 |
 |  | |
 
-* 선택한 풀 DTU 크기가 최소한 DB당 최대 eDTU만큼 커지면 데이터베이스당 최대 및 최소 eDTU를 나열된 값 중 하나로 설정할 수 있습니다.
+* 선택한 풀 DTU 크기가 최소한 DB당 최대 eDTU만큼 커지면 데이터베이스당 최대 및 최소 eDTU를 나열된 값 중 하나로 설정할 수 있습니다. 
 
 ** Elastic Database는 풀 저장소를 공유하므로 데이터베이스 저장소는 남은 풀 저장소 또는 데이터베이스당 최대 저장소 중 작은 값으로 제한됩니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

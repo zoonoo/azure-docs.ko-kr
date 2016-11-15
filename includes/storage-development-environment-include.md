@@ -1,7 +1,7 @@
-## 개발 환경 설정
+## <a name="set-up-your-development-environment"></a>개발 환경 설정
 다음으로 이 가이드에 제공되는 코드 예제를 사용할 준비가 되도록 Visual Studio에서 개발 환경을 설정합니다.
 
-### Windows 콘솔 응용 프로그램 프로젝트 만들기
+### <a name="create-a-windows-console-application-project"></a>Windows 콘솔 응용 프로그램 프로젝트 만들기
 Visual Studio에서 다음과 같이 새로운 Windows 콘솔 응용 프로그램을 만듭니다.
 
 ![Windows 콘솔 응용 프로그램 만들기](./media/storage-development-environment-include/storage-development-environment-include-1.png)
@@ -10,7 +10,7 @@ Visual Studio에서 다음과 같이 새로운 Windows 콘솔 응용 프로그�
 
 Azure 클라우드 서비스, Azure 웹앱, 데스크톱 응용 프로그램 또는 모바일 응용 프로그램을 포함하여 .NET 응용 프로그램의 모든 형식에서 Azure 저장소 클라이언트 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 응용 프로그램을 사용합니다.
 
-### NuGet을 사용하여 필요한 패키지 설치
+### <a name="use-nuget-to-install-the-required-packages"></a>NuGet을 사용하여 필요한 패키지 설치
 이 자습서를 완료하기 위해 프로젝트에 설치해야 하는 두 개의 패키지가 있습니다.
 
 * [.NET용 Microsoft Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/): 이 패키지는 저장소 계정에서 데이터 리소스에 프로그래밍 방식의 액세스를 제공합니다.
@@ -19,8 +19,8 @@ Azure 클라우드 서비스, Azure 웹앱, 데스크톱 응용 프로그램 또
 NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단계를 수행하세요.
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-2. 온라인에서 "WindowsAzure.Storage"를 검색하고 **설치**를 클릭하여 저장소 클라이언트 라이브러리와 종속성을 설치합니다.
-3. 온라인에서 "ConfigurationManager"를 검색하고 **설치**를 클릭하여 Azure 구성 관리자를 설치합니다.
+2. 온라인에서 "WindowsAzure.Storage"를 검색하고 **설치** 를 클릭하여 저장소 클라이언트 라이브러리와 종속성을 설치합니다.
+3. 온라인에서 "ConfigurationManager"를 검색하고 **설치** 를 클릭하여 Azure 구성 관리자를 설치합니다.
 
 > [!NOTE]
 > 저장소 클라이언트 라이브러리도 [.NET용 Azure SDK](https://azure.microsoft.com/downloads/)에 포함될 수 있습니다. 또한 NuGet에서 저장소 클라이언트 라이브러리를 설치하여 항상 클라이언트 라이브러리의 최신 버전이 있는지 확인하는 것이 좋습니다.
@@ -29,11 +29,11 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 > 
 > 
 
-### 대상 환경 확인
+### <a name="determine-your-target-environment"></a>대상 환경 확인
 이 가이드의 예제를 실행하기 위해 다음과 같은 두 가지 환경 옵션이 있습니다.
 
 * 클라우드에서 Azure 저장소 계정에 대한 코드를 실행할 수 있습니다. 
-* Azure 저장소 에뮬레이터에 대해 코드를 실행할 수 있습니다. 저장소 에뮬레이터는 클라우드에서 Azure 저장소 계정을 에뮬레이트하는 로컬 환경입니다. 에뮬레이터는 응용 프로그램을 개발하는 동안 코드의 테스트 및 디버깅하기 위한 무료 옵션입니다. 에뮬레이터는 잘 알려진 계정 및 키를 사용합니다. 자세한 내용은 [개발 및 테스트에 Azure 저장소 에뮬레이터 사용](../articles/storage/storage-use-emulator.md)을 참조하세요.
+* Azure 저장소 에뮬레이터에 대해 코드를 실행할 수 있습니다. 저장소 에뮬레이터는 클라우드에서 Azure 저장소 계정을 에뮬레이트하는 로컬 환경입니다. 에뮬레이터는 응용 프로그램을 개발하는 동안 코드의 테스트 및 디버깅하기 위한 무료 옵션입니다. 에뮬레이터는 잘 알려진 계정 및 키를 사용합니다. 자세한 내용은 [개발 및 테스트에 Azure 저장소 에뮬레이터 사용](../articles/storage/storage-use-emulator.md)
 
 클라우드에서 저장소 계정을 대상으로 하는 경우 Azure 포털에서 저장소 계정에 대한 기본 선택키를 복사합니다. 자세한 내용은 [저장소 액세스 키 보기 및 복사](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)를 참조하세요.
 
@@ -42,8 +42,8 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 > 
 > 
 
-### 저장소 연결 문자열 구성
-Azure Storage Client Library for .NET은 저장소 연결 문자열을 사용하여 저장소 서비스에 액세스하기 위한 끝점 및 자격 증명을 구성하는 작업을 지원합니다. 저장소 연결 문자열을 유지하는 가장 좋은 방법은 구성 파일 안에 있습니다.
+### <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
+Azure Storage Client Library for .NET은 저장소 연결 문자열을 사용하여 저장소 서비스에 액세스하기 위한 끝점 및 자격 증명을 구성하는 작업을 지원합니다. 저장소 연결 문자열을 유지하는 가장 좋은 방법은 구성 파일 안에 있습니다. 
 
 연결 문자열에 대한 자세한 내용은 [Azure 저장소에 연결 문자열 구성](../articles/storage/storage-configure-connection-string.md)을 참조하세요.
 
@@ -71,4 +71,8 @@ Azure Storage Client Library for .NET은 저장소 연결 문자열을 사용하
 
     <add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

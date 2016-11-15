@@ -10,7 +10,11 @@
   * [연습: 앱 서비스 환경 만들기](../articles/app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
 * [Azure 앱 서비스 개발 스택 지원](/blog/windows-azure-websites-development-stacks-support/)
 
-## 비디오
+## <a name="videos"></a>비디오
 * [Azure 앱 서비스 아키텍처](/documentation/videos/why-azure-web-sites-plus-architecture/)
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

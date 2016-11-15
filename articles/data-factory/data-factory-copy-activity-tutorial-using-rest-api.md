@@ -1,12 +1,12 @@
 ---
-title: '자습서: REST API를 사용하여 복사 작업이 있는 파이프라인 만들기 | Microsoft Docs'
-description: 이 자습서에서는 REST API를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다.
+title: "자습서: REST API를 사용하여 복사 작업이 있는 파이프라인 만들기 | Microsoft Docs"
+description: "이 자습서에서는 REST API를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-rest-api"></a>자습서: REST API를 사용하여 복사 작업이 있는 파이프라인 만들기
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-rest-api"></a>자습서: REST API를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
@@ -67,7 +71,7 @@ ms.author: spelluru
 ## <a name="create-json-definitions"></a>JSON 정의 만들기
 curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다. 
 
-### <a name="datafactory.json"></a>datafactory.json
+### <a name="datafactoryjson"></a>datafactory.json
 > [!IMPORTANT]
 > 이름은 전역적으로 고유해야 하므로 고유한 이름을 지정하기 위해 ADFCopyTutorialDF를 접두사/접미사로 지정할 수 있습니다. 
 > 
@@ -78,7 +82,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
         "location": "WestUS"
     }  
 
-### <a name="azurestoragelinkedservice.json"></a>azurestoragelinkedservice.json
+### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
 > **accountname** 및 **accountkey**를 Azure Storage 계정의 이름 및 키로 바꿉니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
 > 
@@ -94,7 +98,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
         }
     }
 
-### <a name="azuersqllinkedservice.json"></a>azuersqllinkedservice.json
+### <a name="azuersqllinkedservicejson"></a>azuersqllinkedservice.json
 > [!IMPORTANT]
 > **servername**, **databasename**, **username** 및 **password**를 Azure SQL Server의 이름, SQL Database의 이름, 사용자 계정 및 계정의 암호로 바꿉니다.  
 > 
@@ -112,7 +116,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
     }
 
 
-### <a name="inputdataset.json"></a>inputdataset.json
+### <a name="inputdatasetjson"></a>inputdataset.json
     {
       "name": "AzureBlobInput",
       "properties": {
@@ -152,7 +156,7 @@ JSON 정의는 **AzureBlobInput**이라는 데이터 집합을 정의하며 이�
 * **linkedServiceName**을 **AzureStorageLinkedService**로 설정합니다. 
 * **folderPath**는 **adftutorial** 컨테이너로 설정되고 **fileName**은 **emp.txt**로 설정됩니다.  
 * 서식 **형식**을 **TextFormat**으로 설정합니다.
-* 텍스트 파일에는 **FirstName**과 **LastName**의 두 필드가 쉼표(**columnDelimiter**)로 구분되어 있습니다. 
+* 텍스트 파일에는 **FirstName**과 **LastName**의 두 필드가 쉼표(**columnDelimiter**)로 구분되어 있습니다.    
 * **가용성**은 **매시간**으로 설정됩니다([빈도]는 [매시간]으로, [간격]은 [1]로 설정). 따라서 데이터 팩터리는 지정한 Blob 컨테이너(**adftutorial**)의 루트 폴더에서 한 시간마다 입력 데이터를 찾습니다. 
 
 입력 데이터 집합의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob은 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다.
@@ -161,7 +165,7 @@ JSON 정의는 **AzureBlobInput**이라는 데이터 집합을 정의하며 이�
 
 **SliceStart** 시간을 기반으로 **folderPath** 및 **fileName**을 동적으로 설정하려면 **partitionedBy** 속성을 사용합니다. 다음 예제에서 folderPath는 SliceStart(처리 중인 조각의 시작 시간)의 연도, 월 및 일을 사용하고 fileName은 SliceStart의 시간을 사용합니다. 예를 들어 조각이 2014-10-20T08:00:00에 생성되는 경우 folderName은 wikidatagateway/wikisampledataout/2014/10/20으로 설정되고 fileName은 08.csv로 설정됩니다. 
 
-    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+      "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
     "partitionedBy": 
     [
@@ -172,7 +176,7 @@ JSON 정의는 **AzureBlobInput**이라는 데이터 집합을 정의하며 이�
     ],
 
 
-### <a name="outputdataset.json"></a>outputdataset.json
+### <a name="outputdatasetjson"></a>outputdataset.json
     {
       "name": "AzureSqlOutput",
       "properties": {
@@ -209,7 +213,7 @@ JSON 정의는 **AzureSqlOutput**이라는 데이터 집합을 정의하며 이�
 * 데이터베이스의 emp 테이블에 **ID**, **FirstName** 및 **LastName**이라는 세 개의 열이 있습니다. ID는 ID 열이므로 여기서 **FirstName** 및 **LastName**만 지정해야 합니다.
 * **가용성**은 **매시간**으로 설정됩니다(**빈도**는 **매시간**으로, **간격**은 **1**로 설정).  데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
 
-### <a name="pipeline.json"></a>pipeline.json
+### <a name="pipelinejson"></a>pipeline.json
     {
       "name": "ADFTutorialPipeline",
       "properties": {
@@ -468,7 +472,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 
 1. Azure **Data Factory**를 만들었습니다.
 2. **연결된 서비스**를 만들었습니다.
-   1. 입력 데이터를 보유하는 Azure Storage 계정을 연결하는 Azure Storage 연결된 서비스입니다.    
+   1. 입력 데이터를 보유하는 Azure Storage 계정을 연결하는 Azure Storage 연결된 서비스입니다.     
    2. 출력 데이터를 보유하는 Azure SQL 데이터베이스를 연결하는 Azure SQL 연결된 서비스입니다. 
 3. 파이프라인의 입력 데이터와 출력 데이터를 설명하는 **데이터 집합**을 만들었습니다.
 4. 원본인 BlobSource와 싱크인 SqlSink를 사용하여 복사 작업으로 **파이프라인** 을 만들었습니다. 
@@ -500,6 +504,6 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 
