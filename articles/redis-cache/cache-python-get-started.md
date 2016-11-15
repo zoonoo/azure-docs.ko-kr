@@ -1,12 +1,12 @@
 ---
-title: Azure Redis Cache를 Python과 함께 사용하는 방법 | Microsoft Docs
-description: Python을 사용하여 Azure Redis Cache를 시작합니다.
+title: "Azure Redis Cache를 Python과 함께 사용하는 방법 | Microsoft 문서"
+description: "Python을 사용하여 Azure Redis Cache를 시작합니다."
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
 editor: v-lincan
-
+ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
 ms.service: cache
 ms.devlang: python
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/16/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6d1a948cd9b0b2b8b50ba04579de5455e7a44730
+
 
 ---
-# Azure Redis Cache를 Python과 함께 사용하는 방법
+# <a name="how-to-use-azure-redis-cache-with-python"></a>Azure Redis Cache를 Python과 함께 사용하는 방법
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -28,21 +32,21 @@ ms.author: sdanie
 
 이 항목에서는 Python을 사용하여 Azure Redis Cache를 시작하는 방법을 설명합니다.
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 [redis-py](https://github.com/andymccurdy/redis-py)를 설치합니다.
 
-## Azure에 Redis 캐시 만들기
+## <a name="create-a-redis-cache-on-azure"></a>Azure에 Redis 캐시 만들기
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## 호스트 이름 및 액세스 키 검색
+## <a name="retrieve-the-host-name-and-access-keys"></a>호스트 이름 및 액세스 키 검색
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## 비 SSL 끝점 사용
-일부 Redis 클라이언트는 SSL을 지원하지 않으며 기본적으로 [새 Azure Redis Cache 인스턴스에 대해 비 SSL 포트는 사용되지 않습니다](cache-configure.md#access-ports). 이 문서 작성 당시 [redis-py](https://github.com/andymccurdy/redis-py) 클라이언트는 SSL을 지원하지 않습니다.
+## <a name="enable-the-nonssl-endpoint"></a>비 SSL 끝점 사용
+일부 Redis 클라이언트는 SSL을 지원하지 않으며 기본적으로 [새 Azure Redis Cache 인스턴스에 대해 비 SSL 포트는 사용되지 않습니다](cache-configure.md#access-ports). 이 문서 작성 당시 [redis-py](https://github.com/andymccurdy/redis-py) 클라이언트는 SSL을 지원하지 않습니다. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
-## 캐시에 항목 추가 및 검색
+## <a name="add-something-to-the-cache-and-retrieve-it"></a>캐시에 항목 추가 및 검색
     >>> import redis
     >>> r = redis.StrictRedis(host='<name>.redis.cache.windows.net',
           port=6380, db=0, password='<key>', ssl=True)
@@ -58,4 +62,8 @@ ms.author: sdanie
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
 [2]: ./media/cache-python-get-started/redis-cache-cache-create.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

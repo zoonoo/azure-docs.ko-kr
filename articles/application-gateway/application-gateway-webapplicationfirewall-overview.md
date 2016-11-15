@@ -1,24 +1,27 @@
 ---
-title: Application Gateway 웹 응용 프로그램 방화벽| Microsoft Docs
-description: 이 페이지에서는 Application Gateway 웹 응용 프로그램 방화벽 기능에 대한 개요를 제공합니다.
+title: "Application Gateway용 WAF(웹 응용 프로그램 방화벽) 소개 | Microsoft Docs"
+description: "이 페이지에서는 Application Gateway용 웹 응용 프로그램 방화벽(WAF)의 개요를 제공합니다. "
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.date: 11/10/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 69dd0b2d33c93edfa3073ce297d9a3ff948a037e
+
 
 ---
-# <a name="application-gateway-web-application-firewall-(preview)"></a>Application Gateway 웹 응용 프로그램 방화벽(미리 보기)
-웹 응용 프로그램의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다.
-응용 프로그램 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 응용 프로그램 토폴로지의 여러 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 공격 보호는 훨씬 간단하며 침입 위협으로부터 응용 프로그램을 훨씬 효과적으로 보호합니다. 또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다.
+# <a name="application-gateway-web-application-firewall-preview"></a>Application Gateway 웹 응용 프로그램 방화벽(미리 보기)
+웹 응용 프로그램 방화벽(WAF)은 표준 응용 프로그램 배달 제어(ADC) 함수에 응용 프로그램 게이트웨이를 활용하는 웹 응용 프로그램 보호를 제공하는 Azure 응용 프로그램 게이트웨이의 기능입니다. 웹 응용 프로그램 방화벽은 대부분의 OWASP Top 10 일반 웹 취약점으로부터 보호함으로써 이 기능을 수행합니다. 웹 응용 프로그램의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 응용 프로그램 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 응용 프로그램 토폴로지의 여러 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 웹 공격으로부터 보호하는 중앙 집중식 웹 응용 프로그램 방화벽은 보안 관리가 훨씬 간단하고 침입 위협으로부터 응용 프로그램을 더욱 효과적으로 보호합니다. 또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 응용 프로그램 게이트웨이는 웹 응용 프로그램 방화벽을 통해 응용 프로그램 게이트웨이로 쉽게 변환될 수 있습니다.
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/WAF1.png)
 
@@ -54,23 +57,25 @@ Application Gateway WAF는 감지된 각 위협에 대한 상세 보고를 제�
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/waf2.png)
 
-    {
-        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
-        "operationName": "ApplicationGatewayFirewall",
-        "time": "2016-09-20T00:40:04.9138513Z",
-        "category": "ApplicationGatewayFirewallLog",
-        "properties":     {
-            "instanceId":"ApplicationGatewayRole_IN_0",
-            "clientIp":"108.41.16.164",
-            "clientPort":1815,
-            "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
-            "ruleId":"OWASP_973336",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "action":"Logged",
-            "site":"Global",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
-    }
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
+    "operationName": "ApplicationGatewayFirewall",
+    "time": "2016-09-20T00:40:04.9138513Z",
+    "category": "ApplicationGatewayFirewallLog",
+    "properties":     {
+        "instanceId":"ApplicationGatewayRole_IN_0",
+        "clientIp":"108.41.16.164",
+        "clientPort":1815,
+        "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
+        "ruleId":"OWASP_973336",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "action":"Logged",
+        "site":"Global",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
+}
+```
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Application Gateway WAF SKU 가격 책정
 미리 보기 기간에는 Application Gateway WAF 사용에 대한 추가 비용이 없습니다. 기존의 기본 SKU 요금은 계속 청구됩니다. GA 시 WAF SKU 요금이 청구될 것입니다. WAF SKU에 Application Gateway를 배포하기로 선택한 고객은 GA 발표 이후부터 WAF SKU 요금이 누적되기 시작합니다.
@@ -78,6 +83,9 @@ Application Gateway WAF는 감지된 각 위협에 대한 상세 보고를 제�
 ## <a name="next-steps"></a>다음 단계
 WAF의 기능을 살펴본 후에는 [Application Gateway에서 웹 응용 프로그램 방화벽을 구성 하는 방법](application-gateway-web-application-firewall-portal.md)을 살펴보세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Express 경로 회로에 대한 NAT 요구 사항 | Microsoft Docs
-description: 이 페이지는 Express 경로 회로에 NAT를 구성하고 관리하는 자세한 요구 사항을 제공합니다.
+title: "ExpressRoute 회로에 대한 NAT 요구 사항 | Microsoft Docs"
+description: "이 페이지는 Express 경로 회로에 NAT를 구성하고 관리하는 자세한 요구 사항을 제공합니다."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 867bf936-c851-485f-84c8-d8d6e33fee9f
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
+
 
 ---
 # <a name="expressroute-nat-requirements"></a>Express 경로 NAT 요구 사항
@@ -63,6 +67,9 @@ Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통�
   * [라우팅 구성](expressroute-howto-routing-classic.md)
   * [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

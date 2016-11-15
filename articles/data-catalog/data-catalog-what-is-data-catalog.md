@@ -1,13 +1,13 @@
 ---
-title: Azure Data Catalog란? | Microsoft Docs
-description: 이 문서는 해당 기능 및 다룰 문제를 포함하여 Microsoft Azure Data Catalog의 개요를 제공합니다. Azure 데이터 카탈로그는 분석가부터 데이터 과학자, 개발자에 이르는 모든 사용자가 데이터 원본을 등록, 검색, 이해, 사용할 수 있는 기능을 제공합니다.
+title: "Azure 데이터 카탈로그란? | Microsoft 문서"
+description: "이 문서는 해당 기능 및 다룰 문제를 포함하여 Microsoft Azure Data Catalog의 개요를 제공합니다. Azure 데이터 카탈로그는 분석가부터 데이터 과학자, 개발자에 이르는 모든 사용자가 데이터 원본을 등록, 검색, 이해, 사용할 수 있는 기능을 제공합니다."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: cc733907-17ec-4153-9f0c-5b3754b2db19
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/21/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 97482bc365395e3d9218688bf38ded4a54bb556a
+
 
 ---
-# Azure 데이터 카탈로그란?
+# <a name="what-is-azure-data-catalog"></a>Azure 데이터 카탈로그란?
 Azure Data Catalog는 조직이 기존 투자에서 더 많은 가치를 얻을 수 있게 해주면서 사용자가 필요한 데이터 원본을 검색하고 찾는 데이터 원본을 이해할 수 있도록 하는 완전히 관리되는 클라우드 서비스입니다. Azure 데이터 카탈로그는 분석가부터 데이터 과학자, 개발자에 이르는 모든 사용자가 데이터 원본을 검색, 이해, 사용할 수 있는 기능을 제공합니다. 데이터 카탈로그는 메타데이터 및 주석의 크라우드소싱 모델을 포함하며 모든 사용자가 데이터의 커뮤니티 및 culture를 만드는 지식에 영향을 줄 수 있도록 합니다.
 
-## 데이터 소비자에 대한 검색 과제
+## <a name="discovery-challenges-for-data-consumers"></a>데이터 소비자에 대한 검색 과제
 일반적으로 엔터프라이즈 데이터 원본을 검색하는 일은 기초 지식에 기반한 유기적인 프로세스였습니다. 이것은 자사의 정보 자산에서 최고의 가치를 얻고자 하는 회사에게 수 많은 과제를 안겨 줍니다.
 
 * 사용자는 데이터 원본이 다른 프로세스의 일부로 접촉되지 않는 한 데이터 원본이 있다는 사실을 알지 못합니다. 데이터 원본이 등록되는 중앙 위치가 없습니다.
@@ -29,7 +33,7 @@ Azure Data Catalog는 조직이 기존 투자에서 더 많은 가치를 얻을 
 * 사용자는 정보 자산에 대한 질문이 있으면 해당 데이터를 담당하는 전문가나 팀을 찾아 오프라인으로 참가하도록 해야 합니다. 이 때 용도에 대한 전문가의 관점을 가진 데이터와 데이터 간의 명시적 연결은 없습니다.
 * 사용자가 데이터 원본에 대한 액세스 권한을 요청하는 프로세스를 이해하지 않는 한, 데이터 원본 및 해당 설명서를 검색해도 필요한 데이터에 액세스할 수 없습니다.
 
-## 데이터 생산자에 대한 검색 과제
+## <a name="discovery-challenges-for-data-producers"></a>데이터 생산자에 대한 검색 과제
 데이터 소비자가 이러한 과제에 직면하고 있는 반면에 정보 자산의 생성 및 유지 관리를 책임지는 사용자는 자신만의 과제에 직면하고 있습니다.
 
 * 데이터 원본에 설명이 포함된 메타데이터로 주석을 추가하는 것은 종종 시간 낭비입니다. 클라이언트 응용 프로그램은 일반적으로 데이터 원본에 저장된 설명을 무시합니다.
@@ -40,7 +44,7 @@ Azure Data Catalog는 조직이 기존 투자에서 더 많은 가치를 얻을 
 
 이 모든 과제가 합쳐지면 엔터프라이즈 데이터의 사용과 이해를 독려 및 홍보하고자 하는 회사에게 큰 장애물이 됩니다.
 
-## Azure Data Catalog는 다음 과제에 도움이 될 수 있습니다.
+## <a name="azure-data-catalog-can-help"></a>Azure Data Catalog는 다음 과제에 도움이 될 수 있습니다.
 데이터 카탈로그는 이러한 문제를 해결하고 기업이 기존 정보 자산으로부터 최고의 가치를 얻어낼 수 있도록 설계되었습니다. 데이터 카탈로그는 관리하는 데이터가 필요한 사용자가 데이터 원본을 쉽게 검색하고 이해할 수 있게 하여 도움이 됩니다.
 
 데이터 카탈로그는 데이터 원본을 등록할 수 있는 클라우드 기반 서비스를 제공합니다. 데이터는 기존 위치에 그대로 있지만 메타데이터의 복사본과 데이터 원본 위치에 대한 참조가 데이터 카탈로그에 추가됩니다. 이 메타데이터는 또한 인덱싱되므로 각 데이터의 원본을 검색을 통해 쉽게 찾을 수 있으며 검색한 사용자가 이해할 수 있습니다.
@@ -51,12 +55,12 @@ Azure Data Catalog는 조직이 기존 투자에서 더 많은 가치를 얻을 
 
 ![데이터 카탈로그 기능](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
-## 데이터 카탈로그 시작
+## <a name="get-started-with-data-catalog"></a>데이터 카탈로그 시작
 데이터 카탈로그를 오늘 시작하려면 [www.azuredatacatalog.com](https://www.azuredatacatalog.com)을 방문하세요.
 
 시작 가이드는 [여기](data-catalog-get-started.md)에서 제공됩니다.
 
-## 데이터 카탈로그에 대한 자세한 정보
+## <a name="learn-more-about-data-catalog"></a>데이터 카탈로그에 대한 자세한 정보
 데이터 카탈로그의 기능에 대한 자세한 내용은 다음을 참조하세요.
 
 * [데이터 원본을 등록하는 방법](data-catalog-how-to-register.md)
@@ -69,4 +73,9 @@ Azure Data Catalog는 조직이 기존 투자에서 더 많은 가치를 얻을 
 * [비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)
 * [질문과 대답](data-catalog-frequently-asked-questions.md)
 
-<!-----HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

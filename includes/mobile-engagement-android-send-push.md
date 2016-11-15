@@ -3,11 +3,11 @@
 아래의 앱 내 메시징 리소스를 Manifest.xml의 `<application>` 태그와 `</application>` 태그 사이에 복사합니다.
 
         <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
-            <intent-filter>
+              <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
-            </intent-filter>
+              </intent-filter>
         </activity>
         <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
             <intent-filter>
@@ -92,6 +92,8 @@
         <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
         <permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

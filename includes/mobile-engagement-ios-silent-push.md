@@ -7,7 +7,7 @@
 2. 목록(`Information Property List`)에서 맨 위 항목을 마우스 오른쪽 단추로 클릭하고 새 행을 추가합니다.
    
     ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push1.png)
-3. 새 행에 `Required background modes`를 입력합니다.
+3. 새 행에 `Required background modes`
    
     ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push2.png)
 4. 왼쪽 화살표를 클릭하여 행을 확장합니다.
@@ -20,8 +20,12 @@
         <array>
         <string>remote-notification</string>
         </array>
-7. **Xcode 7+** 및 **iOS 9+**를 사용 중인 경우,
+7. **Xcode 7+** 및**iOS 9+**를 사용 중인 경우,
    
    * 대상 > 대상 이름 > 기능에서 **푸시 알림**을 사용하도록 설정합니다.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

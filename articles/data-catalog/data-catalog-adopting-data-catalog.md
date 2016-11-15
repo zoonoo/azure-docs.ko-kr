@@ -1,13 +1,13 @@
 ---
-title: Azure 데이터 카탈로그 도입 | Microsoft Docs
-description: 이 문서에서는 비전 정의, 주요 비즈니스 사용 사례 식별, 파일럿 프로젝트 선택을 비롯한 Azure Data Catalog 도입을 고려하는 조직에 대한 접근 방식 및 프로세스를 제공합니다.
+title: "Azure Data Catalog 도입 | Microsoft 문서"
+description: "이 문서에서는 비전 정의, 주요 비즈니스 사용 사례 식별, 파일럿 프로젝트 선택을 비롯한 Azure Data Catalog 도입을 고려하는 조직에 대한 접근 방식 및 프로세스를 제공합니다."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/11/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6299c6eaab1e62281e23d2dd43c14fbb9769a316
+
 
 ---
 # <a name="adopting-azure-data-catalog"></a>Azure 데이터 카탈로그 도입
@@ -163,6 +167,9 @@ Nancy와 그녀의 팀이 높은 가치의 데이터 원본을 쉽게 찾을 수
 * [데이터 원본에 주석 추가](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
 * [메타데이터 크라우드소싱](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

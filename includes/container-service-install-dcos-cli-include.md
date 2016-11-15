@@ -1,14 +1,13 @@
 ---
-title: DC/OS CLI 설치 | Microsoft Docs
-description: DC/OS CLI를 설치합니다.
+title: "DC/OS CLI 설치 | Microsoft 문서"
+description: "DC/OS CLI를 설치합니다."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: 컨테이너, 마이크로 서비스, DC/OS, Azure
-
+keywords: "컨테이너, 마이크로 서비스, DC/OS, Azure"
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/10/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
+ms.openlocfilehash: a8ea47f158c0d666340815d2e039995c7483257f
+
 
 ---
 > [!NOTE]
@@ -48,3 +51,8 @@ source ~/.bashrc
 ```bash
 dcos --help
 ```
+
+
+<!--HONumber=Nov16_HO2-->
+
+

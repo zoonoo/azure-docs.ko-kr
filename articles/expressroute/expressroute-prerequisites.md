@@ -1,12 +1,12 @@
 ---
-title: Express 경로 도입을 위한 필수 구성 요소 | Microsoft Docs
-description: 이 페이지에서는 Azure Express 경로 회로를 주문하기 전에 충족해야 하는 요구 사항 목록을 제공합니다.
+title: "ExpressRoute 도입을 위한 필수 구성 요소 | Microsoft Docs"
+description: "이 페이지에서는 Azure Express 경로 회로를 주문하기 전에 충족해야 하는 요구 사항 목록을 제공합니다."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a582941b06fa7f81d7db188f2a9feba837b9bfd8
+
 
 ---
-# <a name="expressroute-prerequisites-&-checklist"></a>Express 경로 필수 구성 요소 및 검사 목록
+# <a name="expressroute-prerequisites-checklist"></a>Express 경로 필수 구성 요소 및 검사 목록
 Express 경로를 사용하여 Microsoft 클라우드 서비스에 연결하려면 아래 섹션에 나열된 다음 요구 사항을 충족하는지 확인해야 합니다.
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
@@ -60,6 +64,9 @@ Express 경로에서 CRM Online을 사용하도록 설정하려는 경우 CRM On
   * [라우팅 구성](expressroute-howto-routing-classic.md)
   * [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Express 경로 소개 | Microsoft Docs
-description: 이 페이지는 Express 경로 연결의 작동 방식을 포함하여 Express 경로 서비스에 대한 개요를 제공합니다.
+title: "ExpressRoute 소개 | Microsoft Docs"
+description: "이 페이지는 Express 경로 연결의 작동 방식을 포함하여 Express 경로 서비스에 대한 개요를 제공합니다."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3b3e0fd5342c4729d6ffee4858089099b31404a8
+
 
 ---
 # <a name="expressroute-technical-overview"></a>Express 경로 기술 개요
@@ -33,16 +37,16 @@ Microsoft Azure Express 경로를 사용하면 연결 공급자에서 쉽게 처
 
 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md) 를 참조하세요.
 
-## <a name="<a-name="howtoconnect"></a>how-can-i-connect-my-network-to-microsoft-using-expressroute?"></a><a name="howtoconnect"></a>Express 경로를 사용하여 Microsoft에 네트워크를 어떻게 연결하나요?
+## <a name="a-namehowtoconnectahow-can-i-connect-my-network-to-microsoft-using-expressroute"></a><a name="howtoconnect"></a>Express 경로를 사용하여 Microsoft에 네트워크를 어떻게 연결하나요?
 세 가지 방법으로 온-프레미스 네트워크와 Microsoft 클라우드 간에 연결을 만들 수 있습니다.
 
-### <a name="co-located-at-a-cloud-exchange"></a>클라우드 Exchange에 배치합니다.
+### <a name="colocated-at-a-cloud-exchange"></a>클라우드 Exchange에 배치합니다.
 클라우드 Exchange를 사용하여 설비에 공존하는 경우 공동 배치 공급자의 이더넷 Exchange를 통해 Microsoft 클라우드로 가상 간 연결을 나열할 수 있습니다. 공동 배치 공급자는 공동 시설의 인프라와 Microsoft 클라우드 간에 2계층 간 연결 또는 관리된 3계층 간 연결을 제공할 수 있습니다.
 
-### <a name="point-to-point-ethernet-connections"></a>지점 간 이더넷 연결
+### <a name="pointtopoint-ethernet-connections"></a>지점 간 이더넷 연결
 지점 간 이더넷 연결을 통해 온-프레미스 데이터 센터/사무소를 Microsoft 클라우드에 연결할 수 있습니다. 지점 간 이더넷 공급자는 사이트와 Microsoft 클라우드 간에 2계층 연결 또는 관리된 3계층 연결을 제공합니다.
 
-### <a name="any-to-any-(ipvpn)-networks"></a>임의(IPVPN)의 네트워크
+### <a name="anytoany-ipvpn-networks"></a>임의(IPVPN)의 네트워크
 Microsoft 클라우드로 WAN을 통합할 수 있습니다. IPVPN 공급자(일반적으로 MPLS VPN)는 지사 및 데이터 센터 간에 임의의 연결을 제공합니다. Microsoft 클라우드는 다른 지사와 마찬가지로 보이도록 WAN에 상호 연결될 수 있습니다. WAN 공급자는 일반적으로 관리된 3계층 연결을 제공합니다. Express 경로 기능 및 특징은 위의 모든 연결 모델에 걸쳐 동일합니다. 
 
 연결 공급자는 하나 이상의 연결 모델을 제공할 수 있습니다. 연결 공급자로 작업하여 사용자에게 적합한 다양한 모델을 선택할 수 있습니다.
@@ -74,7 +78,7 @@ Express 경로를 통해 지원되는 서비스에 대한 자세한 목록은 [E
 
 예를 들어 Express 경로를 통해 암스테르담의 Microsoft에 연결하는 경우 북유럽 및 서유럽에서 호스팅되는 모든 Microsoft 클라우드 서비스에 액세스합니다. 지정학적 지역, 연관된 Microsoft 클라우드 지역 및 해당 Express 경로 피어링 위치의 개요는 [Express 경로 파트너와 피어링 위치](expressroute-locations.md) 문서를 참조합니다.
 
-### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Express 경로 프리미엄 추가 기능으로 전역 연결
+### <a name="global-connectivity-with-expressroute-premium-addon"></a>Express 경로 프리미엄 추가 기능으로 전역 연결
 Express 경로 프리미엄 부가 기능을 사용하여 지정학적 경계를 넘어 연결을 확장할 수 있습니다. 예를 들어 Express 경로를 통해 암스테르담의 Microsoft로 연결하는 경우 전세계 모든 지역에서 호스팅되는 모든 Microsoft 클라우드 서비스에 액세스합니다.(국가별 클라우드는 제외됨) 북유럽 및 서유럽 지역에 액세스하는 것과 동일한 방법으로 남아메리카 또는 오스트레일리아에서 배포된 서비스에 액세스할 수 있습니다.
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>다양한 연결 파트너 에코시스템
@@ -118,6 +122,9 @@ Microsoft는 특별한 지리학적 지역 및 고객 세그먼트에 격리된 
   * [라우팅 구성](expressroute-howto-routing-classic.md)
   * [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

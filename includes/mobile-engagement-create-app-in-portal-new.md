@@ -10,7 +10,7 @@
    * **이름**: 이름 of your *응용 프로그램 컬렉션* 
    * **플랫폼**: 열릴 플랫폼 블레이드에서 앱에 대한 대상 플랫폼을 선택합니다. 예: iOS 및 Android에 모두에 대한 앱이 필요하면 두 플랫폼 모두를 선택하고 이 앱 컬렉션에 만든 두 개의 앱을 가져옵니다. 
      
-     ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
+      ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
    * **구독**: Azure 구독을 선택합니다. 
    * **리소스 그룹**: Azure 리소스(Mobile Engagement 앱 컬렉션)을 배치하려는 Azure 리소스 그룹을 선택합니다. 새 리소스 그룹을 만들 수 있습니다.  
    * **위치**: 앱 컬렉션 및 앱에 대한 데이터를 저장할 지역입니다.
@@ -30,6 +30,8 @@
    
     ![](./media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 커넥터 및 BizTalk API 앱 정의
-description: API 앱, 커넥터 및 BizTalk API 앱에 대해 알아봅니다.
+title: "커넥터 및 BizTalk API 앱 정의"
+description: "API 앱, 커넥터 및 BizTalk API 앱에 대해 알아봅니다."
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 1295ea9c-30e0-4b5c-931e-51aefae2d4fe
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c89b0714a5c6e606cf8517a40be62cc856d5959c
+
 
 ---
 # <a name="what-are-connectors-and-biztalk-api-apps"></a>커넥터 및 BizTalk API 앱 정의
@@ -45,6 +49,9 @@ ms.author: mandia
 ## <a name="connector-and-api-app-list"></a>커넥터 및 API 앱 목록
 표준 커넥터, BizTalk EAI, 프리미엄 커넥터 등을 포함하여 각 범주에 포함된 커넥터 및 API 앱의 전체 목록은 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md) 을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure 이벤트 허브에 대한 프로그래밍 가이드 | Microsoft Docs
-description: Azure.NET SDK를 사용하는 Azure 이벤트 허브로 프로그래밍 설명
+title: "Azure Event Hubs에 대한 프로그래밍 가이드 | Microsoft Docs"
+description: "Azure.NET SDK를 사용하는 Azure 이벤트 허브로 프로그래밍 설명"
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 64cbfd3d-4a0e-4455-a90a-7f3d4f080323
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1b7a19868e75811198f54150ced78e51f42d8017
+
 
 ---
 # <a name="event-hubs-programming-guide"></a>이벤트 허브 프로그래밍 가이드
@@ -168,6 +172,9 @@ while(receive)
 * [Event Hubs 코드 샘플](http://code.msdn.microsoft.com/site/search?query=event hub&f\[0\].Value=event hub&f\[0\].Type=SearchText&ac=5)
 * [이벤트 프로세서 호스트 API 참조](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Data Lake Store .NET SDK를 사용하여 응용 프로그램 개발 | Microsoft Docs
-description: Azure 데이터 레이크 저장소 .NET SDK를 사용하여 응용 프로그램 개발
+title: "Data Lake Store .NET SDK를 사용하여 응용 프로그램 개발 | Microsoft Docs"
+description: "Azure 데이터 레이크 저장소 .NET SDK를 사용하여 응용 프로그램 개발"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
+
 
 ---
-# .NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작
+# <a name="get-started-with-azure-data-lake-store-using-net-sdk"></a>.NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작
 > [!div class="op_single_selector"]
 > * [포털](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -28,15 +32,15 @@ ms.author: nitinme
 > 
 > 
 
-[Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx)를 사용하여 폴더 만들기, 데이터 파일 업로드 및 다운로드 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. 데이터 레이크에 대한 자세한 내용은 [Azure 데이터 레이크 저장소](data-lake-store-overview.md)를 참조하세요.
+[Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx)를 사용하여 폴더 만들기, 데이터 파일 업로드 및 다운로드 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. Data Lake에 대한 자세한 내용은 [Azure Data Lake Store](data-lake-store-overview.md)를 참조하세요.
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 * **Visual Studio 2013 또는 2015**. 아래 지침에서는 Visual Studio 2015를 사용합니다.
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure Data Lake 저장소 계정** 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)을 참조하세요.
+* **Azure Data Lake Store 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 * **Azure Active Directory 응용 프로그램을 만듭니다**. Azure AD 응용 프로그램을 사용하여 Azure AD로 Data Lake Store 응용 프로그램을 인증합니다. Azure AD로 인증하는 여러 접근 방법에는 **최종 사용자 인증** 또는 **서비스 간 인증**이 있습니다. 인증 하는 방법에 대한 지침 및 자세한 내용은 [Azure Active Directory를 사용하여 Data Lake Store로 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
-## .NET 응용 프로그램 만들기
+## <a name="create-a-net-application"></a>.NET 응용 프로그램 만들기
 1. Visual Studio를 열고 콘솔 응용 프로그램을 만듭니다.
 2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
@@ -46,7 +50,7 @@ ms.author: nitinme
    | Category |Templates/Visual C#/Windows |
    | Template |콘솔 응용 프로그램 |
    | 이름 |CreateADLApplication |
-4. **확인**을 클릭하여 프로젝트를 만듭니다.
+4. **확인** 을 클릭하여 프로젝트를 만듭니다.
 5. Nuget 패키지를 프로젝트에 추가합니다.
    
    1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
@@ -57,7 +61,7 @@ ms.author: nitinme
       * `Microsoft.Azure.Management.DataLake.StoreUploader` - 이 자습서에서는 v0.10.6-미리 보기를 사용합니다.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 이 자습서에서는 v2.2.8-미리 보기를 사용합니다.
         
-        ![Nuget 원본 추가](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "새 Azure 데이터 레이크 계정 만들기")
+        ![Nuget 원본 추가](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Create a new Azure Data Lake account")
    4. **NuGet 패키지 관리자**를 닫습니다.
 6. **Program.cs**를 열고 기존 코드를 삭제한 후 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
    
@@ -88,7 +92,7 @@ ms.author: nitinme
                     _location = "East US 2";
                     _subId = "<SUBSCRIPTION-ID>";
 
-                    string localFolderPath = @"C:\local_path"; // TODO: Make sure this exists and can be overwritten.
+                    string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
                     string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
                     string remoteFolderPath = "/data_lake_path/";
                     string remoteFilePath = remoteFolderPath + "file.txt";
@@ -98,8 +102,8 @@ ms.author: nitinme
 
 문서의 나머지 섹션에서는 제공되는 .NET 메서드를 사용하여 인증, 파일 업로드 등의 작업을 수행하는 방법을 볼 수 있습니다.
 
-## 인증
-### 최종 사용자 인증을 사용하는 경우(이 자습서에 권장됨)
+## <a name="authentication"></a>인증
+### <a name="if-you-are-using-enduser-authentication-recommended-for-this-tutorial"></a>최종 사용자 인증을 사용하는 경우(이 자습서에 권장됨)
 아래에 제공되는 기존 Azure AD "네이티브 클라이언트" 응용 프로그램과 함께 사용합니다. 이 자습서를 신속하게 완료하려면 이 방법을 사용하는 것이 좋습니다.
 
     // User login via interactive popup
@@ -113,14 +117,14 @@ ms.author: nitinme
 위의 코드 조각에 대해 알아야 할 내용.
 
 * 자습서를 신속하게 완료할 수 있도록, 이 코드 조각은 기본적으로 모든 Azure 구독에서 사용할 수 있는 Azure AD 도메인 및 클라이언트 ID를 사용합니다. 따라서 **이 코드 조각을 응용 프로그램에서 있는 그대로 사용**할 수 있습니다.
-* 하지만, 자체적인 Azure AD 도메인과 응용 프로그램 클라이언트 ID를 사용하려면 Azure AD 네이티브 응용 프로그램을 만든 다음 그 응용 프로그램에 대한 Azure AD 도메인, 클라이언트 ID 및 리디렉션 URI를 사용해야 합니다. 지침은 [Active Directory 응용 프로그램 만들기](../resource-group-create-service-principal-portal.md#create-an-active-directory-application)를 참조하세요.
+* 하지만, 자체적인 Azure AD 도메인과 응용 프로그램 클라이언트 ID를 사용하려면 Azure AD 네이티브 응용 프로그램을 만든 다음 그 응용 프로그램에 대한 Azure AD 도메인, 클라이언트 ID 및 리디렉션 URI를 사용해야 합니다. 지침은 [Active Directory 응용 프로그램 만들기](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) 를 참조하세요.
 
 > [!NOTE]
-> 위의 링크에서 지침은 Azure AD 웹 응용 프로그램용입니다. 그러나 대신 네이티브 클라이언트 응용 프로그램을 만들더라도 단계는 정확하게 동일합니다.
+> 위의 링크에서 지침은 Azure AD 웹 응용 프로그램용입니다. 그러나 대신 네이티브 클라이언트 응용 프로그램을 만들더라도 단계는 정확하게 동일합니다. 
 > 
 > 
 
-### 클라이언트 암호로 서비스 간 인증을 사용하는 경우
+### <a name="if-you-are-using-servicetoservice-authentication-with-client-secret"></a>클라이언트 암호로 서비스 간 인증을 사용하는 경우
 다음 코드 조각은 응용 프로그램/서비스 주체에 대한 클라이언트 암호/키를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용될 수 있습니다. 기존 [Azure AD "Web App" 응용 프로그램](../resource-group-create-service-principal-portal.md)과 함께 사용합니다.
 
     // Service principal / appplication authentication with client secret / key
@@ -132,7 +136,7 @@ ms.author: nitinme
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-### 인증서로 서비스 간 인증을 사용하는 경우
+### <a name="if-you-are-using-servicetoservice-authentication-with-certificate"></a>인증서로 서비스 간 인증을 사용하는 경우
 세 번째 옵션으로 다음 코드 조각은 응용 프로그램/서비스 보안 주체에 대한 인증서를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용될 수 있습니다. 기존 [Azure AD "Web App" 응용 프로그램](../resource-group-create-service-principal-portal.md)과 함께 사용합니다.
 
     // Service principal / application authentication with certificate
@@ -144,7 +148,7 @@ ms.author: nitinme
     var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
     var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate).Result;
 
-## 클라이언트 개체 만들기
+## <a name="create-client-objects"></a>클라이언트 개체 만들기
 다음 코드 조각은 이는 서비스에 요청을 발급하는 데 사용되는 Data Lake Store 계정 및 파일 시스템 클라이언트 개체를 만듭니다.
 
     // Create client objects and set the subscription ID
@@ -153,7 +157,7 @@ ms.author: nitinme
 
     _adlsClient.SubscriptionId = _subId;
 
-## 구독 내 모든 Data Lake Store 계정 나열
+## <a name="list-all-data-lake-store-accounts-within-a-subscription"></a>구독 내 모든 Data Lake Store 계정 나열
 다음 코드는 지정된 Azure 구독 내에서 모든 Data Lake Store 계정을 나열합니다.
 
     // List all ADLS accounts within the subscription
@@ -171,7 +175,7 @@ ms.author: nitinme
         return accounts;
     }
 
-## 디렉터리 만들기
+## <a name="create-a-directory"></a>디렉터리 만들기
 다음 코드 조각은 Data Lake Store 계정 내 디렉터리 생성에 사용할 수 있는 `CreateDirectory` 메서드를 보여 줍니다.
 
     // Create a directory
@@ -180,7 +184,7 @@ ms.author: nitinme
         _adlsFileSystemClient.FileSystem.Mkdirs(_adlsAccountName, path);
     }
 
-## 파일 업로드
+## <a name="upload-a-file"></a>파일 업로드
 다음 코드 조각은 Data Lake Store 계정에 파일을 업로드하는 데 사용할 수 있는 `UploadFile` 메서드를 보여 줍니다.
 
     // Upload a file
@@ -192,10 +196,10 @@ ms.author: nitinme
         uploader.Execute();
     }
 
-`DataLakeStoreUploader`는 로컬 파일 경로와 Data Lake Store 파일 경로 간의 재귀 업로드 및 다운로드를 지원합니다.
+`DataLakeStoreUploader` 는 로컬 파일 경로와 Data Lake Store 파일 경로 간의 재귀 업로드 및 다운로드를 지원합니다.    
 
-## 파일 또는 디렉터리 정보 가져오기
-다음 코드 조각은 Data Lake Store에서 사용할 수 있는 파일이나 디렉터리에 대한 정보를 검색하는 데 사용할 수 있는 `GetItemInfo` 메서드를 보여 줍니다.
+## <a name="get-file-or-directory-info"></a>파일 또는 디렉터리 정보 가져오기
+다음 코드 조각은 Data Lake Store에서 사용할 수 있는 파일이나 디렉터리에 대한 정보를 검색하는 데 사용할 수 있는 `GetItemInfo` 메서드를 보여 줍니다. 
 
     // Get file or directory info
     public static FileStatusProperties GetItemInfo(string path)
@@ -203,7 +207,7 @@ ms.author: nitinme
         return _adlsFileSystemClient.FileSystem.GetFileStatus(_adlsAccountName, path).FileStatus;
     }
 
-## 파일 또는 디렉터리 나열
+## <a name="list-file-or-directories"></a>파일 또는 디렉터리 나열
 다음 코드 조각은 Data Lake Store 계정의 파일과 디렉터리를 나열하는 데 사용할 수 있는 `ListItem` 메서드를 보여 줍니다.
 
     // List files and directories
@@ -212,8 +216,8 @@ ms.author: nitinme
         return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
     }
 
-## 파일 연결
-다음 코드 조각은 파일 연결에 사용하는 `ConcatenateFiles` 메서드를 보여 줍니다.
+## <a name="concatenate-files"></a>파일 연결
+다음 코드 조각은 파일 연결에 사용하는 `ConcatenateFiles` 메서드를 보여 줍니다. 
 
     // Concatenate files
     public static void ConcatenateFiles(string[] srcFilePaths, string destFilePath)
@@ -221,7 +225,7 @@ ms.author: nitinme
         _adlsFileSystemClient.FileSystem.Concat(_adlsAccountName, destFilePath, srcFilePaths);
     }
 
-## 파일에 추가
+## <a name="append-to-a-file"></a>파일에 추가
 다음 코드 조각은 Data Lake Store 계정에 이미 저장된 파일에 데이터를 추가하는 데 사용하는 `AppendToFile` 메서드를 보여 줍니다.
 
     // Append to file
@@ -232,7 +236,7 @@ ms.author: nitinme
         _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
     }
 
-## 파일 다운로드
+## <a name="download-a-file"></a>파일 다운로드
 다음 코드 조각은 Data Lake Store 계정에서 파일을 다운로드하는 데 사용하는 `DownloadFile` 메서드를 보여 줍니다.
 
     // Download file
@@ -246,11 +250,16 @@ ms.author: nitinme
         stream.Close();
     }
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 * [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Data Lake Store .NET SDK 참조](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Data Lake Store REST 참조](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

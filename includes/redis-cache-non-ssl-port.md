@@ -2,4 +2,8 @@
 
 ![Redis Cache 설정](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

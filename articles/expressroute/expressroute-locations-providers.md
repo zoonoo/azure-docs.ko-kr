@@ -1,25 +1,29 @@
 ---
-title: Express 경로 위치 | Microsoft Docs
-description: 이 문서에서는 서비스가 제공되는 위치 및 Azure 지역에 연결하는 방법의 자세한 개요를 제공합니다.
+title: "ExpressRoute 위치 | Microsoft Docs"
+description: "이 문서에서는 서비스가 제공되는 위치 및 Azure 지역에 연결하는 방법의 자세한 개요를 제공합니다."
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2016
+ms.date: 11/02/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 86b7d396307761acb8baee5761f08a3e1120cddc
+
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Express 경로 파트너 및 피어링 위치
 이 문서의 표에서는 Express 경로 연결 공급자, Express 경로 지역 범위, Express 경로를 통해 지원되는 Microsoft 클라우드 서비스 및 Express 경로 SI(시스템 통합업체)에 대한 정보를 제공합니다.
 
-## <a name="<a-name="partners"></a>expressroute-connectivity-providers"></a><a name="partners"></a>Express 경로 연결 공급자
+## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>Express 경로 연결 공급자
 Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵에 Azure 지역 및 Express 경로 위치 목록을 제공합니다. Express 경로 위치는 Microsoft가 여러 서비스 공급자와 피어링하는 위치를 말합니다.
 
 ![위치 맵][0]
@@ -58,28 +62,29 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | --- | --- |
 | **암스테르담** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **애틀랜타** |Equinix |
-| **첸나이** |Tata Communications |
+| **첸나이** |SIFY, Tata Communications |
 | **시카코** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
-| **댈러스** |AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
+| **댈러스** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
 | **더블린** |Colt, Telecity Group |
 | **홍콩** |British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
-| **런던** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
+| **런던** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
 | **라스베이거스** |Level 3 Communications+, Megaport |
 | **로스앤젤레스** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **멜버른** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **뉴욕** |Equinix, Megaport, Zayo Group |
+| **뉴포트(웨일스)+** |Next Generation Data+ |
 | **Montreal** |Cologix + |
 | **뭄바이** |Tata Communications |
 | **오사카** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
-| **파리** |Interxion |
+| **파리** |Interxion, Equinix+ |
 | **상파울루** |Equinix, Telefonica |
 | **시애틀** |Equinix, Level 3 Communications, Megaport |
 | **실리콘밸리** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
-| **싱가포르** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
+| **싱가포르** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **시드니** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **도쿄** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **토론토** |Cologix, Equinix, Zayo Group |
-| **워싱턴 DC** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
+| **워싱턴 DC** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** 는 서비스 예정을 나타냄
 
@@ -88,7 +93,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **위치** | **서비스 공급자** |
 | --- | --- |
 | **시카코** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **댈러스** |Equinix, Verizon+ |
+| **댈러스** |Equinix, Verizon |
 | **뉴욕** |Equinix, Level 3 Communications+, Verizon |
 | **워싱턴 DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
@@ -103,10 +108,10 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 #### <a name="germany"></a>독일
 | **위치** | **서비스 공급자** |
 | --- | --- |
-| **베를린** |Colt, e-shelter |
+| **베를린** |Colt+, e-shelter |
 | **프랑크푸르트** |Colt, Equinix, Interxion |
 
-## <a name="<a-name="nonpartners"></a>connectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>나열되지 않은 서비스 공급자를 통한 연결
+## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>나열되지 않은 서비스 공급자를 통한 연결
 연결 공급자가 이전 섹션에 없는 경우에도 연결을 설정할 수 있습니다.
 
 * 연결 공급자에게 문의하여 위의 표에 있는 Exchange 중 하나에 연결되어 있는지 확인합니다. Exchange 공급자가 제공하는 서비스에 대한 자세한 정보를 수집하려면 다음 링크를 확인할 수 있습니다. 여러 연결 공급자는 이미 이더넷 Exchange에 연결되어 있습니다.
@@ -148,6 +153,6 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

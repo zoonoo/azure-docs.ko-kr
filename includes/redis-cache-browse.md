@@ -1,4 +1,4 @@
-캐시는 [Azure 포털](https://portal.azure.com)의 **찾아보기** 블레이드를 사용하여 액세스할 수 있습니다.
+캐시는 [Azure 포털](https://portal.azure.com) 의 **찾아보기** 블레이드를 사용하여 액세스할 수 있습니다.
 
 ![Azure Redis 캐시 찾아보기 블레이드](media/redis-cache-browse/redis-cache-browse.png)
 
@@ -12,4 +12,8 @@
 
 ![Redis 캐시 모든 설정](media/redis-cache-browse/redis-cache-blade.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

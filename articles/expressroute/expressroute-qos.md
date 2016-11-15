@@ -1,12 +1,12 @@
 ---
-title: Express 경로에 대한 QoS 요구 사항 | Microsoft Docs
-description: 이 페이지는 Express 경로 회로에 QoS를 구성하고 관리하는 자세한 요구 사항을 제공합니다.
+title: "ExpressRoute에 대한 QoS 요구 사항 | Microsoft Docs"
+description: "이 페이지는 Express 경로 회로에 QoS를 구성하고 관리하는 자세한 요구 사항을 제공합니다."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: db1c1447-0283-4a09-907b-ae481adc40c7
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
+
 
 ---
 # <a name="expressroute-qos-requirements"></a>Express 경로 QoS 요구 사항
@@ -48,6 +52,9 @@ ms.author: cherylmc
   * [라우팅 구성](expressroute-howto-routing-classic.md)
   * [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
