@@ -1,12 +1,12 @@
 ---
-title: Azure 앱 서비스에서 Node.js 웹앱 시작
-description: Azure 앱 서비스에서 웹앱에 Node.js 응용 프로그램을 배포하는 방법을 알아봅니다.
+title: "Azure 앱 서비스에서 Node.js 웹앱 시작"
+description: "Azure 앱 서비스에서 웹앱에 Node.js 응용 프로그램을 배포하는 방법을 알아봅니다."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fb2b90c8-02b6-4700-929b-5de9a35d67cc
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+
 
 ---
 # <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Azure 앱 서비스에서 Node.js 웹앱 시작
@@ -243,6 +247,6 @@ Node-Inspector를 사용하려면 다음 단계를 수행하세요.
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Azure Data Factory를 사용하여 데이터 로드 | Microsoft Docs
-description: Azure Data Factory를 사용하여 데이터를 로드하는 방법을 알아보세요.
+title: "Azure Data Factory를 사용하여 데이터 로드 | Microsoft Docs"
+description: "Azure Data Factory를 사용하여 데이터를 로드하는 방법을 알아보세요."
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-sql-data-warehouse
-
+ms.assetid: ac7ddaa7-a3a5-4e15-b3cf-c696d2d105df
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 960225117a1c9b0802004455353fb9015a80b07b
+
 
 ---
 # <a name="load-data-with-azure-data-factory"></a>Azure Data Factory를 사용하여 데이터 로드
@@ -42,15 +46,15 @@ Azure Data Factory를 익히려면 [Azure Data Factory 소개][Azure Data Factor
 ### <a name="create-or-identify-resources"></a>리소스 만들기 또는 식별
 이 자습서를 시작하기 전에 다음 리소스가 있어야 합니다.
 
-* **Azure 저장소 BLOB**: 이 자습서에서는 Azure Data Factory 파이프라인에 대한 데이터 원본으로 Azure BLOB 저장소를 사용하므로 샘플 데이터를 저장할 Azure BLOB 저장소가 필요합니다. 아직 없는 경우 [저장소 계정을 만드는][저장소 계정을 만드는]방법을 알아봅니다.
+* **Azure 저장소 BLOB**: 이 자습서에서는 Azure Data Factory 파이프라인에 대한 데이터 원본으로 Azure BLOB 저장소를 사용하므로 샘플 데이터를 저장할 Azure BLOB 저장소가 필요합니다. 아직 없는 경우 [저장소 계정을 만드는][저장소 계정을 만드는] 방법을 알아봅니다.
 * **SQL Data Warehouse**: 이 자습서는 Azure Storage Blob에서 SQL Data Warehouse로 데이터를 이동하므로 AdventureWorksDW 샘플 데이터와 함께 로드되는 데이터 웨어하우스 온라인이 필요합니다. 데이터 웨어하우스가 아직 없는 경우 [프로비전하는] 방법을 알아봅니다.[SQL Data Warehouse 만들기] 데이터 웨어하우스가 있지만 샘플 데이터를 사용하여 프로비전하지 않은 경우 [수동으로 로드]할 수 있습니다.[SQL Data Warehouse에 샘플 데이터를 로드]
-* **Azure Data Factory**: Azure Data Factory는 실제 부하를 완료하므로 보유하여 데이터 이동 파이프라인을 빌드하는 데 사용할 수 있어야 합니다. Azure Data Factory가 없는 경우 [Azure Data Factory 시작(데이터 팩터리 편집기)][Azure Data Factory 시작(데이터 팩터리 편집기)]의 1 단계에서 만드는 방법을 알아봅니다.
+* **Azure Data Factory**: Azure Data Factory는 실제 부하를 완료하므로 보유하여 데이터 이동 파이프라인을 빌드하는 데 사용할 수 있어야 합니다. Azure Data Factory가 없는 경우 [Azure Data Factory 시작(Data Factory Editor)][Azure Data Factory 시작(Data Factory Editor)]의 1단계에서 만드는 방법을 알아봅니다.
 * **AZCopy**: 로컬 클라이언트에서 Azure 저장소 BLOB으로 샘플 데이터를 복사할 AZCopy가 필요합니다. 설치 지침은 [AZCopy 설명서][AZCopy 설명서]를 참조하세요.
 
 ## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>1단계: 샘플 데이터를 Azure 저장소 Blob에 복사
 모든 부분이 준비되면 샘플 데이터를 Azure Storage Blob에 복사할 준비가 됩니다.
 
-1. [샘플 데이터를 다운로드합니다][샘플 데이터를 다운로드합니다]. 이 데이터는 AdventureWorksDW 샘플 데이터에 3년의 판매 데이터를 추가합니다.
+1. [샘플 데이터를 다운로드][샘플 데이터를 다운로드]합니다. 이 데이터는 AdventureWorksDW 샘플 데이터에 3년의 판매 데이터를 추가합니다.
 2. 이 AZCopy 명령을 사용하여 Azure 저장소 Blob에 3년 분량의 데이터를 복사합니다.
    
     ````
@@ -60,7 +64,7 @@ Azure Data Factory를 익히려면 [Azure Data Factory 소개][Azure Data Factor
 ## <a name="step-2-connect-resources-to-azure-data-factory"></a>2단계: Azure Data Factory로 리소스를 연결합니다.
 이제 데이터가 생성되었으므로 Azure 데이터 팩터리 파이프라인을 만들어 Azure Blob 저장소에서 SQL 데이터 웨어하우스로 데이터를 이동할 수 있습니다.
 
-시작하려면 [Azure 포털][Azure 포털] 을 열고 왼쪽 메뉴에서 사용자의 data factory를 선택합니다.
+시작하려면 [Azure 포털][Azure 포털]을 열고 왼쪽 메뉴에서 사용자의 데이터 팩터리를 선택합니다.
 
 ### <a name="step-21-create-linked-service"></a>2.1단계: 연결된 서비스 만들기
 Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리로 연결합니다.  
@@ -193,12 +197,12 @@ Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리�
 자세한 내용은 다음을 확인하여 시작합니다.
 
 * [Azure Data Factory 학습 경로][Azure Data Factory 학습 경로].
-* [Azure SQL 데이터 웨어하우스 커넥터][Azure SQL 데이터 웨어하우스 커넥터]. Azure SQL 데이터 웨어하우스와 함께 Azure Data Factory를 사용하기 위한 핵심 참조 항목입니다.
+* [Azure SQL Data Warehouse 커넥터][Azure SQL Data Warehouse 커넥터]. Azure SQL 데이터 웨어하우스와 함께 Azure Data Factory를 사용하기 위한 핵심 참조 항목입니다.
 
 이러한 항목은 Azure Data Factory에 대한 자세한 정보를 제공합니다. Azure SQL Database 또는 HDInsight를 설명하지만 해당 정보는 Azure SQL Data Warehouse에도 적용됩니다.
 
 * [자습서: Azure Data Factory 시작][자습서: Azure Data Factory 시작] Azure Data Factory를 사용하여 데이터를 처리하기 위한 핵심 자습서입니다. 이 자습서에서 HDInsight를 사용하여 매월 기준으로 웹 로그를 변환 및 분석하는 첫 번째 파이프라인을 빌드합니다. 이 자습서에는 복사 작업이 없습니다.
-* [자습서: Azure Storage Blob에서 Azure SQL Database로 데이터 복사][자습서: Azure Storage Blob에서 Azure SQL Database로 데이터 복사] 이 자습서에서는 Azure Storage Blob에서 Azure SQL Database로 데이터를 복사하는 파이프라인을 Azure Data Factory에 만듭니다.
+* [자습서: Azure Storage Blob에서 Azure SQL Database로 데이터 복사][자습서: Azure Storage Blob에서 Azure SQL Database로 데이터 복사]. 이 자습서에서는 Azure Storage Blob에서 Azure SQL Database로 데이터를 복사하는 파이프라인을 Azure Data Factory에 만듭니다.
 
 <!--Image references-->
 
@@ -226,6 +230,6 @@ Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,27 +1,32 @@
 ---
-title: Azure 기계 학습을 사용한 데이터 분석 | Microsoft Docs
-description: Azure 기계 학습을 사용하여 Azure SQL 데이터 웨어하우스에 저장된 데이터를 기반으로 예측 기계 학습 모델을 구축합니다.
+title: "Azure Machine Learning을 사용한 데이터 분석 | Microsoft Docs"
+description: "Azure 기계 학습을 사용하여 Azure SQL 데이터 웨어하우스에 저장된 데이터를 기반으로 예측 기계 학습 모델을 구축합니다."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/14/2016
-ms.author: kevin;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: kevin;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: edc3a915a59d83718d05ce39a1ce2bcd14333da4
+
 
 ---
-# Azure 기계 학습을 사용하여 데이터 분석
+# <a name="analyze-data-with-azure-machine-learning"></a>Azure 기계 학습을 사용하여 데이터 분석
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure 기계 학습](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -31,20 +36,20 @@ ms.author: kevin;barbkess;sonyama
 > 
 > 
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
 
-* AdventureWorksDW 샘플 데이터로 미리 로드된 SQL 데이터 웨어하우스. 프로비전하려면 [SQL 데이터 웨어하우스 만들기][SQL 데이터 웨어하우스 만들기]를 참조하고 샘플 데이터 로드를 선택합니다. 데이터 웨어하우스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][샘플 데이터를 수동으로 로드]할 수 있습니다.
+* AdventureWorksDW 샘플 데이터로 미리 로드된 SQL 데이터 웨어하우스. 프로비전하려면 [SQL Data Warehouse 만들기][SQL Data Warehouse 만들기]를 참조하고 샘플 데이터 로드를 선택합니다. 데이터 웨어하우스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][샘플 데이터를 수동으로 로드]할 수 있습니다.
 
-## 1\. 데이터 가져오기
+## <a name="1-get-data"></a>1. 데이터 가져오기
 데이터는 AdventureWorksDW 데이터베이스의 dbo.vTargetMail 보기에 있습니다. 이 데이터를 읽으려면:
 
-1. [Azure 기계 학습 스튜디오][Azure 기계 학습 스튜디오]에 로그인하고 내 실험을 클릭합니다.
+1. [Azure Machine Learning Studio][Azure Machine Learning Studio]에 로그인하고 내 실험을 클릭합니다.
 2. **+새로 만들기**를 클릭하고 **빈 실험**을 선택합니다.
 3. 실험: 대상 마케팅에 대한 이름을 입력합니다.
 4. 모듈 창에서 **판독기** 모듈을 캔버스로 끌어서 놓습니다.
 5. 속성 창에서 SQL 데이터 웨어하우스 데이터베이스에 대한 세부 정보를 지정합니다.
-6. 관련 데이터를 읽을 데이터베이스 **쿼리**를 지정합니다.
+6. 관련 데이터를 읽을 데이터베이스 **쿼리** 를 지정합니다.
 
 ```sql
 SELECT [CustomerKey]
@@ -66,39 +71,50 @@ SELECT [CustomerKey]
 FROM [dbo].[vTargetMail]
 ```
 
-실험 캔버스 아래에서 **실행**을 클릭하여 실험을 실행합니다. ![실험 실행][1]
+실험 캔버스 아래에서 **실행** 을 클릭하여 실험을 실행합니다.
+![실험 실행][1]
 
-실험이 성공적으로 실행되고 나면 판독기 모듈 아래쪽에서 출력 포트를 클릭하고 **시각화**를 선택하여 가져온 데이터를 확인합니다. ![가져온 데이터 확인][3]
+실험이 성공적으로 실행되고 나면 판독기 모듈 아래쪽에서 출력 포트를 클릭하고 **시각화** 를 선택하여 가져온 데이터를 확인합니다.
+![가져온 데이터 확인][3]
 
-## 2\. 데이터 정리
+## <a name="2-clean-the-data"></a>2. 데이터 정리
 데이터를 정리하려면 모델에 관련되지 않은 일부 열을 삭제합니다. 다음을 수행합니다.
 
 1. **프로젝트 열** 모듈을 캔버스로 끌어서 놓습니다.
-2. 속성 창에서 **열 선택기 시작**을 클릭하여 삭제하려는 열을 지정합니다. ![Project Columns][4]
-3. 다음 두 열을 제외합니다. CustomerAlternateKey 및 GeographyKey ![불필요한 열 제거][5]
+2. 속성 창에서 **열 선택기 시작** 을 클릭하여 삭제하려는 열을 지정합니다.
+   ![프로젝트 열][4]
+3. 다음 두 열을 제외합니다.
+   ![불필요한 열 제거][5]
 
-## 3\. 모델 작성
+## <a name="3-build-the-model"></a>3. 모델 작성
 데이터를 80-20으로 분할합니다. 80%는 기계 학습 모델을 학습하고 20%는 모델을 테스트합니다. 이진 분류 문제에 대해 "2클래스" 알고리즘을 활용합니다.
 
 1. **분할** 모듈을 캔버스로 끌어서 놓습니다.
-2. 속성 창에서 첫 번째 출력 데이터 집합의 행 분수에 대해 0.8을 입력합니다. ![훈련 및 테스트 집합으로 데이터 분할][6]
+2. 속성 창에서 첫 번째 출력 데이터 집합의 행 분수에 대해 0.8을 입력합니다.
+   ![훈련 및 테스트 집합으로 데이터 분할][6]
 3. **2클래스 향상된 의사 결정 트리** 모듈을 캔버스로 끌어서 놓습니다.
-4. **모델 학습** 모듈을 캔버스로 끌어서 놓고 입력을 지정합니다. 그런 다음 속성 창에서 **열 선택기 시작**을 클릭합니다.
+4. **모델 학습** 모듈을 캔버스로 끌어서 놓고 입력을 지정합니다. 그런 다음 속성 창에서 **열 선택기 시작** 을 클릭합니다.
    * 첫 번째 입력: ML 알고리즘입니다.
-   * 두 번째 입력: 알고리즘을 학습할 데이터입니다. ![모델 학습 모듈 연결][7]
-5. **BikeBuyer** 열을 예측할 열로 선택합니다. ![예측할 열 선택][8]
+   * 두 번째 입력: 알고리즘을 학습할 데이터입니다.
+     ![모델 학습 모듈 연결][7]
+5. **BikeBuyer** 열을 예측할 열로 선택합니다.
+   ![예측할 열 선택][8]
 
-## 4\. 모델 점수 매기기
+## <a name="4-score-the-model"></a>4. 모델 점수 매기기
 이제 모델이 테스트 데이터를 수행하는 방법을 테스트합니다. 더 잘 수행하는 알고리즘을 확인하도록 다른 알고리즘을 선택하여 비교합니다.
 
-1. **모델 점수 매기기** 모듈을 캔버스로 끌어서 놓습니다. 첫 번째 입력: 학습된 모델 두 번째 입력: 테스트 데이터 ![모델 점수 매기기][9]
-2. **2클래스 Bayes 지점 컴퓨터**를 실험 캔버스로 끌어서 놓습니다. 2클래스 향상된 의사 결정 트리와 비교하여 이 알고리즘이 수행하는 방법을 비교합니다.
+1. **모델 점수 매기기** 모듈을 캔버스로 끌어서 놓습니다.
+    첫 번째 입력: 학습된 모델 두 번째 입력: 테스트 데이터 ![모델 점수 매기기][9]
+2. **2클래스 Bayes 지점 컴퓨터** 를 실험 캔버스로 끌어서 놓습니다. 2클래스 향상된 의사 결정 트리와 비교하여 이 알고리즘이 수행하는 방법을 비교합니다.
 3. 캔버스에서 모델 학습 및 모델 점수 매기기 모듈을 복사하고 붙여 넣습니다.
 4. **모델 평가** 모듈을 캔버스로 끌어서 놓아 두 알고리즘을 비교합니다.
-5. 실험을 **실행**합니다. ![실험 실행][10]
-6. 모델 평가 모듈의 아래쪽에서 출력 포트를 클릭하고 시각화를 클릭합니다. ![평가 결과 시각화][11]
+5. **실행** 합니다.
+   ![실험 실행][10]
+6. 모델 평가 모듈의 아래쪽에서 출력 포트를 클릭하고 시각화를 클릭합니다.
+   ![평가 결과 시각화][11]
 
-제공된 메트릭은 ROC 곡선, 정밀도-리콜 다이어그램 및 리프트 곡선입니다. 이러한 메트릭을 살펴보면 첫 번째 모델이 두 번째보다 더 잘 실행하는 것을 볼 수 있습니다. 첫 번째 모델이 예측하는 것을 보려면 모델 점수 매기기의 출력 포트를 클릭하고 시각화를 클릭합니다. ![점수 결과 시각화][12]
+제공된 메트릭은 ROC 곡선, 정밀도-리콜 다이어그램 및 리프트 곡선입니다. 이러한 메트릭을 살펴보면 첫 번째 모델이 두 번째보다 더 잘 실행하는 것을 볼 수 있습니다. 첫 번째 모델이 예측하는 것을 보려면 모델 점수 매기기의 출력 포트를 클릭하고 시각화를 클릭합니다.
+![점수 결과 시각화][12]
 
 테스트 데이터 집합에 두 개의 열이 추가됩니다.
 
@@ -107,8 +123,8 @@ FROM [dbo].[vTargetMail]
 
 점수가 매겨진 레이블(예측)로 열 BikeBuyer(실제) 비교를 통해 모델이 얼마나 잘 실행했는지 확인할 수 있습니다. 다음 단계로 이 모델을 사용하여 새 고객에 대한 예측을 수행하고 이 모델을 웹 서비스로 게시하거나 SQL 데이터 웨어하우스에 결과를 다시 작성할 수 있습니다.
 
-## 다음 단계
-예측 기계 학습 모델을 구축하는 방법에 대한 자세한 내용은 [Azure의 기계 학습 소개][Azure의 기계 학습 소개]를 참고하세요.
+## <a name="next-steps"></a>다음 단계
+예측 기계 학습 모델을 구축하는 방법에 대한 자세한 내용은 [Azure의 Machine Learning 소개][Azure의 Machine Learning 소개]를 참고하세요.
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -126,9 +142,13 @@ FROM [dbo].[vTargetMail]
 
 
 <!--Article references-->
-[Azure 기계 학습 스튜디오]: https://studio.azureml.net/
-[Azure의 기계 학습 소개]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[Azure Machine Learning Studio]:https://studio.azureml.net/
+[Azure의 Machine Learning 소개]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [샘플 데이터를 수동으로 로드]: sql-data-warehouse-load-sample-databases.md
 [SQL 데이터 웨어하우스 만들기]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

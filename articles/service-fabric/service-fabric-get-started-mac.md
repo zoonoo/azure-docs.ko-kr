@@ -1,12 +1,12 @@
 ---
-title: Mac OS X에서 개발 환경 설정 | Microsoft Docs
-description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Mac OS X에서 응용 프로그램을 빌드할 수 있습니다.
+title: "Mac OS X에서 개발 환경 설정 | Microsoft Docs"
+description: "런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Mac OS X에서 응용 프로그램을 빌드할 수 있습니다."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b25afa13010716188eab0623b1d8ea0d525a2b36
+
 
 ---
-# Mac OS X에서 개발 환경 설정
+# <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,13 +31,13 @@ ms.author: seanmck
 
 Mac OS X를 사용하여 Service Fabric 응용 프로그램을 Linux 클러스터에서 실행하도록 빌드할 수 있습니다. 이 문서에서는 개발을 위해 Mac을 설정하는 방법을 설명합니다.
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 Service Fabric은 OS X에서 고유하게 실행되지 않습니다. 로컬 Service Fabric 클러스터를 실행하기 위해 Vagrant 및 VirtualBox를 사용하여 미리 구성된 Ubuntu 가상 컴퓨터를 제공합니다. 시작하기 전에 다음 항목이 필요합니다.
 
 * [Vagrant(v1.8.4 이상)](http://wwww.vagrantup.com/downloads)
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
-## 로컬 VM 만들기
+## <a name="create-the-local-vm"></a>로컬 VM 만들기
 5개 노드의 Service Fabric 클러스터를 포함하는 로컬 VM을 만들려면 다음을 수행합니다.
 
 1. Vagrantfile 리포지토리 복제
@@ -53,7 +57,7 @@ Service Fabric은 OS X에서 고유하게 실행되지 않습니다. 로컬 Serv
    * 3GB의 메모리 할당
    * Mac 호스트에서 트래픽을 통과시키는 데 IP 192.168.50.50에서 구성된 개인 호스트 네트워크 사용
      
-     이러한 설정 중 하나를 변경하거나 Vagrantfile의 VM에 다른 구성을 추가할 수 있습니다. 구성 옵션의 전체 목록은 [Vagrant 설명서](http://www.vagrantup.com/docs)를 참조하세요.
+     이러한 설정 중 하나를 변경하거나 Vagrantfile의 VM에 다른 구성을 추가할 수 있습니다. 구성 옵션의 전체 목록은 [Vagrant 설명서](http://www.vagrantup.com/docs) 를 참조하세요.
 4. VM 만들기
    
     ```bash
@@ -67,7 +71,7 @@ Service Fabric은 OS X에서 고유하게 실행되지 않습니다. 로컬 Serv
    
     ![호스트 Mac에서 본 Service Fabric Explorer][sfx-mac]
 
-## Eclipse Neon용 Service Fabric 플러그 인 설치(선택 사항)
+## <a name="install-the-service-fabric-plugin-for-eclipse-neon-optional"></a>Eclipse Neon용 Service Fabric 플러그 인 설치(선택 사항)
 Service Fabric은 Java 서비스를 빌드하고 배포하는 프로세스를 간소화할 수 있는 Eclipse Neon IDE에 대한 플러그 인을 제공합니다.
 
 1. Eclipse에서 Buildship 버전 1.0.17 이상을 설치하도록 합니다. **도움말 > 설치 세부 정보**를 선택하여 설치된 구성 요소의 버전을 확인할 수 있습니다. [여기][buildship-update]에 있는 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
@@ -79,7 +83,7 @@ Service Fabric은 Java 서비스를 빌드하고 배포하는 프로세스를 �
 5. Service Fabric 플러그 인을 선택하고 [다음]을 클릭합니다.
 6. 설치를 계속하고 최종 사용자 라이선스 규약에 동의합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [첫 번째 Linux용 Service Fabric 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-java.md)
 
 <!-- Links -->
@@ -94,4 +98,8 @@ Service Fabric은 Java 서비스를 빌드하고 배포하는 프로세스를 �
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

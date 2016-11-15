@@ -1,9 +1,9 @@
-## EventProcessorHost를 사용하여 메시지 수신
-[EventProcessorHost][EventProcessorHost]는 영구적 검사점을 관리하여 이벤트 허브의 이벤트 수신을 간소화하고 이러한 이벤트에서 병렬 수신하는 .NET 클래스입니다. [EventProcessorHost][EventProcessorHost]를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 [EventProcessorHost][EventProcessorHost]를 사용하는 방법을 보여 줍니다. [확장된 이벤트 처리][확장된 이벤트 처리] 샘플에서는 여러 수신기에서 [EventProcessorHost][EventProcessorHost]를 사용하는 방법을 보여 줍니다.
+## <a name="receive-messages-with-eventprocessorhost"></a>EventProcessorHost를 사용하여 메시지 수신
+[EventProcessorHost][EventProcessorHost]는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 이벤트에서 병렬 수신하는 .NET 클래스입니다. [EventProcessorHost][EventProcessorHost]를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 [EventProcessorHost][EventProcessorHost]를 사용하는 방법을 보여 줍니다. [확장된 이벤트 처리][확장된 이벤트 처리] 샘플에서는 여러 수신기에서 [EventProcessorHost][EventProcessorHost]를 사용하는 방법을 보여 줍니다.
 
 [EventProcessorHost][EventProcessorHost]를 사용하려면 [Azure Storage 계정][Azure Storage 계정]이 있어야 합니다.
 
-1. [Azure Portal][Azure Portal]에 로그온하고 화면 왼쪽 위에서 **새로 만들기**를 클릭합니다.
+1. [Azure 포털][Azure 포털]에 로그온하고 화면 왼쪽 위에서 **새로 만들기**를 클릭합니다.
 2. **데이터 + 저장소**를 클릭한 다음 **저장소 계정**을 클릭합니다.
    
     ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
@@ -77,14 +77,14 @@
      }
      ```
     
-     이 클래스는 이벤트 허브에서 받는 이벤트를 처리하기 위해 **EventProcessorHost**에서 호출합니다. `SimpleEventProcessor` 클래스는 초시계를 사용하여 **EventProcessorHost** 컨텍스트에서 검사점 메서드를 주기적으로 호출합니다. 따라서 수신기가 다시 시작되는 경우 5분 이하의 처리 작업은 손실됩니다.
+     이 클래스는 이벤트 허브에서 받는 이벤트를 처리하기 위해 **EventProcessorHost** 에서 호출합니다. `SimpleEventProcessor` 클래스는 초시계를 사용하여 **EventProcessorHost** 컨텍스트에서 검사점 메서드를 주기적으로 호출합니다. 따라서 수신기가 다시 시작되는 경우 5분 이하의 처리 작업은 손실됩니다.
 11. **Program** 클래스에서 파일 맨 위에 다음 `using` 문을 추가합니다.
     
      ```
      using Microsoft.ServiceBus.Messaging;
      ```
     
-     그런 다음 `Program` 클래스의 `Main` 메서드를 다음 코드로 바꾸고 이전에 저장한 이벤트 허브 이름 및 네임스페이스 수준 연결 문자열과 이전 섹션에서 복사한 저장소 계정 및 키를 대체합니다.
+     그런 다음 `Program` 클래스의 `Main` 메서드를 다음 코드로 바꾸고 이전에 저장한 이벤트 허브 이름 및 네임스페이스 수준 연결 문자열과 이전 섹션에서 복사한 저장소 계정 및 키를 대체합니다. 
     
      ```
      static void Main(string[] args)
@@ -109,17 +109,18 @@
      ```
 
 > [!NOTE]
-> 이 자습서에서는 [EventProcessorHost][EventProcessorHost]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost][EventProcessorHost]의 여러 인스턴스를 사용하는 것이 좋습니다. [확장된 이벤트 처리 샘플][확장된 이벤트 처리 샘플](영문)을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정되어 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *모두* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost][EventProcessorHost] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [이벤트 허브 개요][이벤트 허브 개요] 및 [이벤트 허브 프로그래밍 가이드][이벤트 허브 프로그래밍 가이드]를 참조하세요.
+> 이 자습서에서는 [EventProcessorHost][EventProcessorHost]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost][EventProcessorHost]의 여러 인스턴스를 실행하는 것이 좋습니다. [확장된 이벤트 처리][확장된 이벤트 처리] 샘플을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정되어 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *모두* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost][EventProcessorHost] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [Event Hubs 개요][Event Hubs 개요] 및 [Event Hubs 프로그래밍 가이드][Event Hubs 프로그래밍 가이드] 항목을 참조하세요.
 > 
 > 
 
 <!-- Links -->
-[이벤트 허브 개요]: event-hubs-overview.md
-[이벤트 허브 프로그래밍 가이드]: event-hubs-programming-guide.md
+[Event Hubs 개요]: ../articles/event-hubs/event-hubs-overview.md
+[이벤트 허브 프로그래밍 가이드]: ../articles/event-hubs/event-hubs-programming-guide.md
 [확장된 이벤트 처리]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[확장된 이벤트 처리 샘플]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage 계정]: ../storage/storage-create-storage-account.md
+[Azure Storage 계정]: ../articles/storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Azure portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0921_2016-->
+<!--HONumber=Nov16_HO2-->
+
+

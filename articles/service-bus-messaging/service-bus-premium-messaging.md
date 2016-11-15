@@ -1,12 +1,12 @@
 ---
-title: 서비스 버스 프리미엄 및 표준 메시징 가격 책정 계층 개요 | Microsoft Docs
-description: 서비스 버스 프리미엄 및 표준 메시징
+title: "Service Bus 프리미엄 및 표준 메시징 가격 책정 계층 개요 | Microsoft Docs"
+description: "서비스 버스 프리미엄 및 표준 메시징"
 services: service-bus
 documentationcenter: .net
 author: djrosanova
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/02/2016
 ms.author: darosa;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5f4fccdafd9b47794bf625ac51dc650b6e8752f1
+
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>서비스 버스 프리미엄 및 표준 메시징 계층
@@ -52,6 +56,9 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 응용 프로
 * [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
 * [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

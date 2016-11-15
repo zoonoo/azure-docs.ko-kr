@@ -1,12 +1,12 @@
 ---
-title: Visual Studio의 Python 웹 및 작업자 역할 | Microsoft Docs
-description: Python Tools for Visual Studio를 사용하여 웹 역할과 작업자 역할을 포함한 Azure 클라우드 서비스를 만드는 방법을 간략하게 설명합니다.
+title: "Visual Studio의 Python 웹 및 작업자 역할 | Microsoft 문서"
+description: "Python Tools for Visual Studio를 사용하여 웹 역할과 작업자 역할을 포함한 Azure 클라우드 서비스를 만드는 방법을 간략하게 설명합니다."
 services: cloud-services
 documentationcenter: python
 author: thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 08/03/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d951e05a9a0ae59adb64d53726e9898d95424d80
+
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python Tools for Visual Studio의 Python 웹 및 작업자 역할
-이 문서에서는 [Visual Studio용 Python Tools][]를 통해 Python 웹 및 작업자 역할을 사용하는 방법을 간략하게 설명합니다. Visual Studio를 사용하여 Python을 사용하는 기본 클라우드 서비스를 만들고 배포하는 방법을 알아봅니다.
+이 문서에서는 [Visual Studio용 Python Tools][Visual Studio용 Python Tools]를 통해 Python 웹 및 작업자 역할을 사용하는 방법을 간략하게 설명합니다. Visual Studio를 사용하여 Python을 사용하는 기본 클라우드 서비스를 만들고 배포하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * Visual Studio 2013 또는 2015
-* [Visual Studio용 Python Tools][](PTVS.md)
-* [VS 2013용 Azure SDK Tools][VS 2013용 Azure SDK Tools] 또는 [VS 2015용 Azure SDK Tools][]
+* [Visual Studio용 Python Tools][Visual Studio용 Python Tools](PTVS)
+* [VS 2013용 Azure SDK Tools][VS 2013용 Azure SDK Tools] 또는 [VS 2015용 Azure SDK Tools][VS 2015용 Azure SDK Tools]
 * [Python 2.7 32비트][Python 2.7 32비트] 또는 [Python 3.5 32비트][Python 3.5 32비트]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -319,17 +323,17 @@ PTVS를 에뮬레이터에서 시작할 수는 있지만 중단점 등의 디버
 몇 분 후에 배포가 완료되고 웹 및/또는 작업자 역할이 Azure에서 실행됩니다.
 
 ### <a name="investigate-logs"></a>로그 조사
-클라우드 서비스 가상 컴퓨터가 시작되고 Python을 설치한 후에 로그를 보고 오류 메시지를 찾을 수 있습니다. 이러한 로그는 **C:\Resources\Directory\{role}\LogFiles** 폴더에 있습니다. 스크립트에서 Python이 설치되어 있는지 검색하려고 할 때 **PrepPython.err.txt**에는 하나 이상의 오류가 발견됩니다. **PipInstaller.err.txt**는 pip의 이전 버전과 호환되지 않을 수 있습니다.
+클라우드 서비스 가상 컴퓨터가 시작되고 Python을 설치한 후에 로그를 보고 오류 메시지를 찾을 수 있습니다. 이러한 로그는 **C:\Resources\Directory\\{role}\LogFiles** 폴더에 있습니다. 스크립트에서 Python이 설치되어 있는지 검색하려고 할 때 **PrepPython.err.txt**에는 하나 이상의 오류가 발견됩니다. **PipInstaller.err.txt**는 pip의 이전 버전과 호환되지 않을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Python Tools for Visual Studio에서 웹 및 작업자 역할을 사용하는 방법에 대한 자세한 내용은 PTVS 설명서를 참조하세요.
 
-* [Cloud Service 프로젝트][]
+* [Cloud Service 프로젝트][Cloud Service 프로젝트]
 
 Azure 저장소 또는 서비스 버스를 사용하는 등 웹 및 작업자 역할에서 Azure 서비스를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Blob service][Blob service]
-* [Table service][Table service]
+* [Blob Service][Blob Service]
+* [Table Service][Table Service]
 * [큐 서비스][큐 서비스]
 * [Service Bus 큐][Service Bus 큐]
 * [Service Bus 토픽][Service Bus 토픽]
@@ -361,6 +365,6 @@ Azure 저장소 또는 서비스 버스를 사용하는 등 웹 및 작업자 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

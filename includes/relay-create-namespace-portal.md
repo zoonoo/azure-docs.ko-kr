@@ -1,13 +1,12 @@
 1. [Azure 포털][Azure 포털]에 로그인합니다.
-2. 포털의 왼쪽 탐색 창에서 **새로 만들기**, **엔터프라이즈 통합** 및 **Service Bus**를 차례로 클릭합니다.
+2. 포털의 왼쪽 탐색 창에서 **새로 만들기**, **엔터프라이즈 통합** 및 **릴레이**를 차례로 클릭합니다.
 3. **네임스페이스 만들기** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
-4. 네임스페이스 이름을 사용할 수 있게 설정한 후 가격 책정 계층(기본, 표준 또는 프리미엄)을 선택합니다.
-5. **구독** 필드에서 네임스페이스를 만들 Azure 구독을 선택합니다.
-6. **리소스 그룹** 필드에서 네임스페이스가 있는 기존 리소스 그룹을 선택하거나 새로 만듭니다.      
-7. **위치**에서 네임스페이스가 호스트되어야 하는 국가 또는 지역을 선택합니다.
+4. **구독** 필드에서 네임스페이스를 만들 Azure 구독을 선택합니다.
+5. **[리소스 그룹](../articles/azure-portal/resource-group-portal.md)** 필드에서 네임스페이스가 있는 기존 리소스 그룹을 선택하거나 새로 만듭니다.      
+6. **위치**에서 네임스페이스가 호스트되어야 하는 국가 또는 지역을 선택합니다.
    
     ![네임스페이스 만들기][create-namespace]
-8. **만들기**를 클릭합니다. 이제 시스템이 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
+7. **만들기**를 클릭합니다. 이제 시스템이 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
 
 ### <a name="obtain-the-management-credentials"></a>관리 자격 증명 얻기
 1. 네임스페이스 목록에서 새로 만든 네임스페이스 이름을 클릭합니다.
@@ -21,12 +20,13 @@
 
 <!--Image references-->
 
-[create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
-[connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
-[connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
+[create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
+[connection-info]: ./media/relay-create-namespace-portal/connection-info.png
+[connection-string]: ./media/relay-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [쉬운 테이블]: https://portal.azure.com
+
 
 <!--HONumber=Nov16_HO2-->
 
