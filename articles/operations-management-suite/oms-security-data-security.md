@@ -1,12 +1,12 @@
 ---
-title: Operations Management Suite 보안 및 감사 솔루션 데이터 보안 | Microsoft Docs
-description: 이 문서에서는 데이터를 Operations Management Suite 보안 및 감사 솔루션에서 데이터를 관리하고 보호하는 방법을 설명합니다.
+title: "Operations Management Suite 보안 및 감사 솔루션 데이터 보안 | Microsoft Docs"
+description: "이 문서에서는 데이터를 Operations Management Suite 보안 및 감사 솔루션에서 데이터를 관리하고 보호하는 방법을 설명합니다."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 9cdf7deb-2a30-4672-b89f-71179ee8326a
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d81d3ff9c91d0056c69f5f190d3dfaa507c1e340
+
 
 ---
 # <a name="operations-management-suite-security-and-audit-solution-data-security"></a>Operations Management Suite 보안 및 감사 솔루션 데이터 보안
@@ -54,6 +58,9 @@ OMS 보안 및 감사 솔루션에서는 OMS 에이전트가 설치되어 있는
 * [Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답](oms-security-responding-alerts.md)
 * [Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
