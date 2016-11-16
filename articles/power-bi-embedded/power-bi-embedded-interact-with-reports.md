@@ -1,13 +1,13 @@
 ---
-title: JavaScript API를 사용하여 보고서와 상호 작용 | Microsoft Docs
-description: Power BI Embedded, JavaScript API를 사용하여 보고서와 상호 작용
+title: "JavaScript API를 사용하여 보고서와 상호 작용 | Microsoft Docs"
+description: "Power BI Embedded, JavaScript API를 사용하여 보고서와 상호 작용"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 83d997577d3a5854eafd9906bd38d3e703c09f5e
+
 
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>JavaScript API를 사용하여 Power BI 보고서와 상호 작용
@@ -30,7 +34,7 @@ iframe을 통해 포함 프로세스가 훨씬 쉬워지지만 JavaScript API �
 
 Power BI JavaScript API를 사용하면 안전하게 iframe 경계를 통과할 수 있는 코드를 작성할 수 있습니다. 이를 통해 응용 프로그램은 프로그래밍 방식으로 보고서에서 작업을 수행하고 보고서 내에서 사용자가 만든 작업으로부터의 이벤트를 수신 대기할 수 있습니다.
 
-## <a name="what-can-you-do-with-the-power-bi-javascript-api?"></a>Power BI JavaScript API를 사용하여 할 수 있는 작업은 무엇인가요?
+## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>Power BI JavaScript API를 사용하여 할 수 있는 작업은 무엇인가요?
 JavaScript API를 통해 보고서를 관리하고 보고서의 페이지를 탐색하고 보고서를 필터링하고 포함 이벤트를 처리할 수 있습니다. 다음 다이어그램은 API의 구조를 보여 줍니다.
 
 ![Power BI JavaScript API 다이어그램](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-3.png)
@@ -132,6 +136,9 @@ Power BI JavaScript API에 대한 자세한 내용은 다음 링크를 확인하
   * [Ember](https://github.com/Microsoft/powerbi-ember)
 * [라이브 데모](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

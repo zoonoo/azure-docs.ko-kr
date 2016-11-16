@@ -1,20 +1,24 @@
 ---
-title: Azure 가상 컴퓨터에서 SQL Server 개요 | Microsoft Docs
-description: Azure 가상 컴퓨터에서 전체 SQL Server 버전을 실행하는 방법을 알아봅니다. 모든 SQL Server VM 이미지 및 관련된 내용에 대한 직접 링크를 가져옵니다.
+title: "Azure 가상 컴퓨터에서 SQL Server 개요 | Microsoft Docs"
+description: "Azure 가상 컴퓨터에서 전체 SQL Server 버전을 실행하는 방법을 알아봅니다. 모든 SQL Server VM 이미지 및 관련된 내용에 대한 직접 링크를 가져옵니다."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: rothja
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 10/19/2016
 ms.author: jroth
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fcc2883ae52bb3d4be098ce741bbf5f5047777d2
+
 
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Azure 가상 컴퓨터에서 SQL Server 개요
@@ -28,7 +32,7 @@ ms.author: jroth
 ## <a name="overview"></a>개요
 데이터베이스 관리자 또는 개발자인 경우 Azure VM은 온-프레미스 SQL Server 워크로드 및 응용 프로그램을 클라우드로 이동하는 방법을 제공합니다. 다음 비디오는 SQL Server Azure VM에 대한 기술적 개요를 제공합니다.
 
-> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
+> [!비디오 https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
 > 
 > 
 
@@ -51,19 +55,10 @@ ms.author: jroth
 > 
 > 
 
-## <a name="understand-your-options"></a>옵션 이해
+## <a name="scenarios"></a>시나리오
 Azure에서 데이터를 호스트하도록 선택할 수 있는 여러 가지 이유가 있습니다. 응용 프로그램이 Azure로 이동하는 경우 데이터를 이동하는 것이 성능을 향상시킵니다. 하지만 다른 이점도 있습니다. 글로벌 서비스 및 재해 복구를 위해 여러 데이터 센터에 대한 액세스를 자동으로 가집니다. 데이터를 잘 보호하고 지속합니다.
 
-Azure VM에서 실행하는 SQL Server는 관계형 데이터를 Azure에 저장하기 위한 한 가지 옵션입니다. 다음 테이블에서는 Azure에 대한 SQL 제품 요약을 제공합니다.
-
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | SQL 제품 | 설명 |
-| ---:| --- | --- |
-| ![Azure 가상 컴퓨터의 SQL Server](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png) |[Azure 가상 컴퓨터의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) |Azure Virtual Machines에서 SQL Server를 실행합니다(이 항목의 중점). 가상 컴퓨터를 직접 관리하고 SQL Server 정품 버전에서 데이터베이스를 실행합니다. |
-| ![SQL 데이터베이스](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-database.png) |[SQL Database](https://azure.microsoft.com/services/sql-database/) |SQL 데이터베이스 서비스를 사용하여 기본 인프라를 관리할 필요 없이, 데이터베이스를 액세스하고 크기를 조정합니다. |
-| ![SQL 데이터 웨어하우스](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png) |[SQL Data Warehouse](https://azure.microsoft.com/en-us/services/sql-data-warehouse/) |Azure SQL 데이터 웨어하우스를 사용하여 대량의 관계형 및 비관계형 데이터를 처리합니다. 확장성 있는 데이터 웨어하우징 기능을 서비스로 제공합니다. |
-| ![SQL Server 스트레치 데이터베이스](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png) |[SQL Server Stretch Database](https://azure.microsoft.com/en-us/services/sql-server-stretch-database/) |Microsoft SQL Server 2016의 온-프레미스 트랜잭션 데이터를 Azure에 동적으로 스트레치합니다. |
-
-이러한 다양한 옵션으로 Azure VM에서 SQL Server를 실행하는 것이 몇 가지 시나리오에 적합합니다. 예를 들어, Azure VM을 온-프레미스 SQL Server 컴퓨터와 최대한 비슷하게 구성하려고 합니다. 또는 동일한 데이터베이스 서버에서 추가 응용 프로그램 및 서비스를 실행하려고 합니다. 자세한 의사 결정 요소를 고려하는 데 도움이 되는 두 가지 리소스가 있습니다.
+Azure VM에서 실행하는 SQL Server는 관계형 데이터를 Azure에 저장하기 위한 한 가지 옵션입니다. 여기서는 몇 가지 시나리오를 사용하는 것이 좋습니다. 예를 들어, Azure VM을 온-프레미스 SQL Server 컴퓨터와 최대한 비슷하게 구성하려고 합니다. 또는 동일한 데이터베이스 서버에서 추가 응용 프로그램 및 서비스를 실행하려고 합니다. 더 많은 시나리오와 고려 사항을 검토 하는 데 도움이 되는 다음과 같은 두 가지 주요 리소스가 있습니다.
 
 * [Azure 가상 컴퓨터의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)는 Azure VM에서 SQL Server를 사용하기 위한 최상의 시나리오의 개요를 제공합니다. 
 * [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) Database 또는 Azure VM의 SQL Server(IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md)에서는 SQL VM과 SQL Database 간의 자세한 비교를 제공합니다.
@@ -73,7 +68,7 @@ Azure VM에서 실행하는 SQL Server는 관계형 데이터를 Azure에 저장
 
 이 프로세스에 대한 단계별 지침은 자습서의 [Azure Portal에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)에 있습니다. 또한 프로비전 중 사용 가능한 적절한 컴퓨터 크기 및 다른 기능을 선택하는 방법을 설명하는 [SQL Server VM에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 검토합니다.
 
-## <a name="option-1:-create-a-sql-vm-with-per-minute-licensing"></a>옵션 1: 분당 라이선스를 사용한 SQL VM 만들기
+## <a name="option-1-create-a-sql-vm-with-perminute-licensing"></a>옵션 1: 분당 라이선스를 사용한 SQL VM 만들기
 다음 표에서는 가상 컴퓨터 갤러리의 사용 가능한 SQL Server 이미지의 매트릭스를 제공합니다. 모든 링크를 클릭하여 지정된 버전, 버전 및 운영 체제로 새 SQL VM 만들기를 시작합니다.
 
 | 버전 | 운영 체제 | 버전 |
@@ -87,7 +82,7 @@ Azure VM에서 실행하는 SQL Server는 관계형 데이터를 Azure에 저장
 | **SQL 2008 R2 SP3** |Windows Server 2008 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2) |
 | **SQL 2008 R2 SP3** |Windows Server 2012 |[Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2012) |
 
-## <a name="option-2:-create-a-sql-vm-with-an-existing-license"></a>옵션 2: 기존 라이선스를 사용한 SQL VM 만들기
+## <a name="option-2-create-a-sql-vm-with-an-existing-license"></a>옵션 2: 기존 라이선스를 사용한 SQL VM 만들기
 사용자 라이선스가 필요할 수도 있습니다(BYOL). 이 시나리오에서는 SQL Server 라이선스에 대한 추가 비용 없이 VM에 대해서만 지불합니다. 사용자 고유 라이선스를 사용하려면 아래의 SQL Server 버전, 버전 및 운영 체제의 매트릭스를 사용합니다. 포털에서 이러한 이미지 이름에는 접두사 **{BYOL}**이 붙습니다.
 
 | 버전 | 운영 체제 | 버전 |
@@ -121,7 +116,7 @@ Azure VM은 [자동화된 백업](virtual-machines-windows-sql-automated-backup.
 ### <a name="automate-updates"></a>업데이트 자동화
 Azure VM은 [자동화된 패치](virtual-machines-windows-sql-automated-patching.md) 를 사용하여 중요한 Windows 및 SQL Server 업데이트를 자동으로 설치하는 유지 관리 창을 예약할 수 있습니다.
 
-### <a name="customer-experience-improvement-program-(ceip)"></a>CEIP(사용자 환경 개선 프로그램)
+### <a name="customer-experience-improvement-program-ceip"></a>CEIP(사용자 환경 개선 프로그램)
 CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되어 있습니다. 보고서를 주기적으로 Microsoft에 전송하여 SQL Server를 개선하는 데 도움이 됩니다. 프로비전한 후에도 계속 사용하려면 CEIP에 필요한 관리 태스크는 없습니다. 원격 데스크톱을 사용하여 VM에 연결하여 CEIP를 사용자 지정하거나 사용하지 않도록 설정할 수 있습니다. 그런 다음 **SQL Server 오류 및 사용 보고** 유틸리티를 실행합니다. 보고를 해제하려면 지침을 따릅니다. 
 
 자세한 내용은 [사용 조건 동의](https://msdn.microsoft.com/library/ms143343.aspx) 항목의 CEIP 섹션을 참조하세요. 
@@ -131,6 +126,9 @@ CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되�
 
 추가 질문이 있나요? 먼저 [Azure 가상 컴퓨터의 SQL Server FAQ](virtual-machines-windows-sql-server-iaas-faq.md)를 참조하세요. 또한 SQL VM 항목의 맨 아래에 질문 또는 의견을 추가하여 Microsoft 및 커뮤니티와 상호 의견을 교환하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,23 +1,27 @@
 ---
-title: Azure 기계 학습 FAQ | Microsoft Docs
-description: 'Azure 기계 학습 소개: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ.'
-keywords: 기계 학습 소개, 예측 모델링, 기계 학습이란 무엇인가요
+title: Azure Machine Learning FAQ | Microsoft Docs
+description: "Azure 기계 학습 소개: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ."
+keywords: "기계 학습 소개, 예측 모델링, 기계 학습이란 무엇인가요"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: paulettm
 editor: cgronlun
-
+ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/14/2016
+ms.date: 10/26/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 36fd6b01dae6aa9a48985a252766d3f2d0b19342
+
 
 ---
-# <a name="azure-machine-learning-frequently-asked-questions-(faq):-billing,-capabilities,-limitations,-and-support"></a>Azure 기계 학습 질문과 대답(FAQ): 대금 청구, 기능, 제한 사항 및 지원
+# <a name="azure-machine-learning-frequently-asked-questions-faq-billing-capabilities-limitations-and-support"></a>Azure 기계 학습 질문과 대답(FAQ): 대금 청구, 기능, 제한 사항 및 지원
 이 FAQ에서는 Azure 기계 학습, 예측 모델 개발을 위한 클라우드 서비스 및 웹 서비스를 통한 운용성 솔루션에 대한 질문에 답변합니다. 이 FAQ는 요금 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용에 대한 질문을 다룹니다.
 
 ## <a name="general-questions"></a>일반적인 질문
@@ -41,12 +45,14 @@ Azure 기계 학습은 완벽하게 관리되는 서비스로, 이 서비스를 
 
 **내 클래식 웹 서비스는 어디에 나열되나요? 내 새 Azure Resource Manager 기반 웹 서비스는 어디에 나열되나요?**
 
-클래식 웹 서비스는 웹 서비스 탭의 [Machine Learning Studio](http://studio.azureml.net) 에 나열됩니다. 새로운 Azure Resource Manager 기반 웹 서비스는 [Microsoft Azure Machine Learning 웹 서비스](https://services.azureml.net/) 포털에 나열됩니다. 사용 가능한 교차 나열은 없습니다.
+클래식 웹 서비스 및 새로운 Azure Resource Manager 기반 웹 서비스는 [Microsoft Azure Machine Learning 웹 서비스](https://services.azureml.net/) 포털에 나열됩니다. 
+
+또한 클래식 웹 서비스는 웹 서비스 탭의 [Machine Learning Studio](http://studio.azureml.net)에 나열됩니다.
 
 ## <a name="microsoft-azure-machine-learning-web-service-questions"></a>Microsoft Azure Machine Learning 웹 서비스 질문
-**Azure 기계 학습 웹 서비스란?**
+**Azure Machine Learning 웹 서비스란?**
 
-Azure 기계 학습 웹 서비스를 통해 외부 응용 프로그램에서 기계 학습 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. 기계 학습 웹 서비스 호출은 외부 응용 프로그램에 예측 결과를 반환합니다. Machine Learning 웹 서비스를 호출하려면 웹 서비스를 배포할 때 만들어진 API 키를 전달합니다. 기계 학습 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
+Machine Learning 웹 서비스는 응용 프로그램과 Machine Learning 워크플로 점수 매기기 모델 간의 인터페이스를 제공합니다. Azure Machine Learning 웹 서비스를 사용하여 외부 응용 프로그램에서 Machine Learning 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. 기계 학습 웹 서비스 호출은 외부 응용 프로그램에 예측 결과를 반환합니다. Machine Learning 웹 서비스를 호출하려면 웹 서비스를 배포할 때 만들어진 API 키를 전달합니다. 기계 학습 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
 
 Azure 기계 학습에는 다음 두 가지 유형의 서비스가 있습니다.
 
@@ -55,7 +61,8 @@ Azure 기계 학습에는 다음 두 가지 유형의 서비스가 있습니다.
 
 REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법이 있습니다. 예를 들어, 웹 서비스를 배포할 때 생성된 샘플 코드를 사용하여 C#, R 또는 Python에서 응용 프로그램을 작성할 수 있습니다.
 
-샘플 코드는 Azure Machine Learning 웹 서비스 포털에서 웹 서비스의 사용 페이지, Machine Learning Studio의 웹 서비스 대시보드에서 API 도움말 페이지에 사용 가능합니다.
+샘플 코드는 Azure Machine Learning 웹 서비스 포털에서 웹 서비스의 사용 페이지, 
+Machine Learning Studio의 웹 서비스 대시보드에서 API 도움말 페이지에 사용 가능합니다.
 
 또는 만든 샘플 Microsoft Excel 통합 문서를 사용할 수 있습니다(Studio의 웹 서비스 대시보드에서도 사용 가능).
 
@@ -64,23 +71,12 @@ REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법�
 새 Azure Machine Learning 웹 서비스에 대한 자세한 내용은 [관련 설명서](machine-learning-whats-new.md)를 참조하세요.
 
 ## <a name="machine-learning-studio-questions"></a>기계 학습 스튜디오 질문
-### <a name="creating-an-experiment"></a>실험 만들기
-**실험 그래프에 대한 버전 제어 또는 Git 통합이 있나요?**
-
-아니오, 하지만 기계 학습 스튜디오에 실험에 대한 각 반복이 유지되며, 이것은 다른 사용자가 수정할 수 없습니다.
-자세한 내용은 [Machine Learning Studio에서 반복 실험 관리](machine-learning-manage-experiment-iterations.md)를 참조하세요.
-
-### <a name="deploying-an-experiment"></a>실험 배포
-**예측 실험을 클래식 웹 서비스로 이미 배포한 경우 새 (Azure Resource Manager 기반) 웹 서비스로 배포할 수 있나요?**
-
-아니요, 이전에 클래식 웹 서비스로 배포한 실험은 배포할 수 없습니다. 새 예측 실험을 만들고 대신 배포해야 합니다.
-
 ### <a name="importing-and-exporting-data-for-machine-learning"></a>기계 학습 데이터 가져오기 및 내보내기
 **기계 학습에서 지원하는 데이터 원본은 무엇인가요?**
 
 데이터는 로컬 파일을 데이터 집합으로 업로드하거나, 클라우드 데이터 서비스에서 데이터를 가져오는 모듈을 사용하거나, 다른 실험에서 저장된 데이터 집합을 가져오는 세 가지 방법 중 하나를 사용하여 기계 학습 스튜디오 실험에 로드될 수 있습니다. 지원된 파일 형식에 대한 자세한 내용은 [Machine Learning Studio로 학습 데이터 가져오기](machine-learning-data-science-import-data.md)를 참조하세요.
 
-#### <a name="<a-id="modulelimit"></a>how-large-can-the-data-set-be-for-my-modules?"></a><a id="ModuleLimit"></a>모듈에 대해 설정할 수 있는 데이터 집합의 크기는 어느 정도인가요?
+#### <a name="a-idmodulelimitahow-large-can-the-data-set-be-for-my-modules"></a><a id="ModuleLimit"></a>모듈에 대해 설정할 수 있는 데이터 집합의 크기는 어느 정도인가요?
 기계 학습 스튜디오의 모듈은 일반적인 사용 사례의 경우 최대 10GB 숫자 데이터의 데이터 집합을 지원합니다. 모듈에서 둘 이상의 입력을 사용하는 경우에는 모든 입력 크기의 합계가 10GB입니다. Hive 또는 Azure SQL 데이터베이스 쿼리를 사용하거나 Learning by Counts 전처리를 통해 수집하기 전에 더 큰 데이터 집합을 샘플링할 수 있습니다.  
 
 다음 데이터 형식은 기능 정규화 중에 확장할 수 있으며 10GB 미만으로 제한됩니다.
@@ -100,7 +96,7 @@ REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법�
 
 몇 GB보다 큰 데이터 집합의 경우 로컬 파일에서 직접 업로드하지 않고 Azure 저장소 또는 Azure SQL 데이터베이스에 데이터를 업로드하거나 HDInsight를 사용해야 합니다.
 
-#### <a name="<a-id="uploadlimit"></a>what-are-the-limits-for-data-upload?"></a><a id="UploadLimit"></a>데이터 업로드에 대한 제한 사항은 무엇인가요?
+#### <a name="a-iduploadlimitawhat-are-the-limits-for-data-upload"></a><a id="UploadLimit"></a>데이터 업로드에 대한 제한 사항은 무엇인가요?
 몇 GB보다 큰 데이터 집합의 경우 로컬 파일에서 직접 업로드하지 않고 Azure 저장소 또는 Azure SQL 데이터베이스에 데이터를 업로드하거나 HDInsight를 사용합니다.
 
 **Amazon S3에서 데이터를 읽을 수 있나요?**
@@ -193,7 +189,7 @@ Machine Learning Studio는 현재 400개 이상의 CRAN R 패키지를 지원하
 
 **Python에 대한 REPL 환경이 있나요?**
 
-기계 학습 스튜디오에서 Jupyter 노트북을 사용할 수 있습니다. 자세한 내용은 [Azure Machine Learning Studio에서 Jupyter Notebooks 도입]을 참조하세요(http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).
+기계 학습 스튜디오에서 Jupyter 노트북을 사용할 수 있습니다. 자세한 내용은 [Azure Machine Learning Studio에 Jupyter 노트북 도입](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)을 참조하세요.
 
 ## <a name="web-service"></a>웹 서비스
 ### <a name="retraining-models-programmatically"></a>프로그래밍 방식으로 모델 다시 학습
@@ -224,7 +220,7 @@ RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹
 
 **프로덕션에 배포된 웹 서비스를 모니터링하려면 어떻게 해야 하나요?**
 
-예측 모델을 배포한 후에는 Azure 클래식 포털에서 모니터링할 수 있습니다. 배포된 각 서비스에는 고유한 대시보드가 있어, 이 대시보드에서 해당 서비스에 대한 모니터링 정보를 볼 수 있습니다. 배포된 웹 서비스를 관리하는 방법에 대한 자세한 내용은 [Azure Machine Learning 작업 영역 관리](machine-learning-manage-workspace.md)를 참조하세요.
+예측 모델을 배포하면 Azure 클래식 포털(기본 웹 서비스에만 해당) 또는 Azure Machine Learning 웹 서비스 포털에서 모니터링할 수 있습니다. 배포된 각 서비스에는 고유한 대시보드가 있어, 이 대시보드에서 해당 서비스에 대한 모니터링 정보를 볼 수 있습니다. 배포된 웹 서비스를 관리하는 방법에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 포털을 사용하여 웹 서비스 관리](machine-learning-manage-new-webservice.md) 및 [Azure Machine Learning 작업 영역 관리](machine-learning-manage-workspace.md)를 참조하세요.
 
 **RRS/BES의 출력을 볼 수 있는 곳이 있나요?**
 
@@ -436,7 +432,7 @@ S1, S2 및 S3 계층에는 필요한 만큼의 인스턴스를 추가할 수 있
 
 예. 지역에 따라 계획 가격 책정이 달라집니다. 다른 지역에 웹 서비스를 배포하는 경우 해당 지역에 특정된 계획을 할당해야 합니다.
 
-### <a name="new-web-services---overages"></a>새 웹 서비스 - 초과분
+### <a name="new-web-services-overages"></a>새 웹 서비스 - 초과분
 **내 웹 서비스 사용량이 초과분인지 어떻게 확인하나요?**
 
 Azure Machine Learning 웹 서비스 포털의 계획 페이지에서 모든 계획의 사용량을 볼 수 있습니다. 포털에 로그인하고 계획 메뉴 옵션을 클릭합니다.
@@ -549,6 +545,6 @@ Machine Learning 서비스는 다중 테넌트 서비스이고, 백 엔드에서
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

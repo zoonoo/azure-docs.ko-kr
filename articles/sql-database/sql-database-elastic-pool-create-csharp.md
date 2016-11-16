@@ -1,12 +1,12 @@
 ---
-title: C#으로 탄력적 데이터베이스 풀 만들기 | Microsoft Docs
-description: C# 데이터베이스 개발 기술을 사용하여 Azure SQL 데이터베이스에 확장성 있는 탄력적 데이터베이스 풀을 만들면 여러 데이터베이스에서 리소스를 공유할 수 있습니다.
+title: "C#으로 탄력적 데이터베이스 풀 만들기 | Microsoft Docs"
+description: "C# 데이터베이스 개발 기술을 사용하여 Azure SQL 데이터베이스에 확장성 있는 탄력적 데이터베이스 풀을 만들면 여러 데이터베이스에서 리소스를 공유할 수 있습니다."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 28f792cd5afd194445666aeb1d17d5fbf27a835d
+
 
 ---
-# <a name="create-an-elastic-database-pool-with-c&#x23;"></a>C&#x23;을 사용한 탄력적 데이터베이스 풀 만들기
+# <a name="create-an-elastic-database-pool-with-cx23"></a>C&#x23;을 사용한 탄력적 데이터베이스 풀 만들기
 > [!div class="op_single_selector"]
 > * [Azure 포털](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -26,10 +30,10 @@ ms.author: sstein
 
 이 문서에서는 C#을 사용하여 [.NET용 Azure SQL Database 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)로 Azure SQL Elastic Database 풀을 만드는 방법을 설명합니다. 독립 실행형 SQL Database를 만들려면 [C#을 사용하여 .NET용 SQL Database 라이브러리로 SQL Database 만들기](sql-database-get-started-csharp.md)를 참조하세요.
 
-.NET용 Azure SQL Database 라이브러리는 [Resource Manager 기반 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure Resource Manager](../resource-group-overview.md) 기반 API를 제공합니다.
+.NET용 Azure SQL Database 라이브러리는 [Resource Manager 기반 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 기반 API를 제공합니다.
 
 > [!NOTE]
-> SQL Database의 여러 새로운 기능은 [Azure Resource Manager 배포 모델](../resource-group-overview.md)을 사용할 때 지원되므로 최신 **.NET용 SQL Database 관리 라이브러리([문서](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**를 사용해야 합니다. 이전 [클래식 배포 모델 기반 라이브러리](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql)가 이전 버전과만 호환되므로 최신 Resource Manager 기반 라이브러리를 사용하는 것이 좋습니다.
+> SQL Database의 여러 새로운 기능은 [Azure Resource Manager 배포 모델](../azure-resource-manager/resource-group-overview.md)을 사용할 때 지원되므로 최신 **.NET용 SQL Database 관리 라이브러리([문서](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**를 사용해야 합니다. 이전 [클래식 배포 모델 기반 라이브러리](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql)가 이전 버전과만 호환되므로 최신 Resource Manager 기반 라이브러리를 사용하는 것이 좋습니다.
 > 
 > 
 
@@ -55,7 +59,7 @@ C#으로 SQL Database를 만들려면 [패키지 관리자 콘솔](http://docs.n
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool---c#-example"></a>SQL Elastic Database 풀 만들기 - C# 예제
+## <a name="create-a-sql-elastic-database-pool-c-example"></a>SQL Elastic Database 풀 만들기 - C# 예제
 다음 샘플은 리소스 그룹, 서버, 방화벽 규칙, 탄력적 풀 및 풀의 SQL Database를 만듭니다. `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` 변수를 가져오려면 [리소스에 액세스하는 서비스 주체 만들기](#create-a-service-principal-to-access-resources)를 참조하세요.
 
 **Program.cs** 콘텐츠를 다음으로 바꾸고 `{variables}`를 앱 값(`{}`을 포함하지 않음)으로 업데이트합니다.
@@ -307,6 +311,9 @@ namespace SqlElasticPoolConsoleApp
 * [SQL 데이터베이스](https://azure.microsoft.com/documentation/services/sql-database/)
 * [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

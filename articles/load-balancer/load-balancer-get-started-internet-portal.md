@@ -1,36 +1,40 @@
 ---
-title: Azure 포털을 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치 만들기 | Microsoft Docs
-description: Azure 포털을 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다.
+title: "Azure 포털을 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치 만들기 | Microsoft Docs"
+description: "Azure 포털을 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
 author: anavinahar
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d9e27ce132a837ec26a92de0c38b3e1c23b706c1
+
 
 ---
-# <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Azure Portal을 사용하여 인터넷 연결 부하 분산 장치 만들기
+# <a name="creating-an-internetfacing-load-balancer-using-the-azure-portal"></a>Azure Portal을 사용하여 인터넷 연결 부하 분산 장치 만들기
 [!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-이 문서에서는 Resource Manager 배포 모델에 대해 설명합니다. 또한 [클래식 배포를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-classic-portal.md)
+이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. 또한 [클래식 배포를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 부하 분산 장치를 만들기 위해 수행되는 개별 작업의 순서를 알아보고 부하 분산 장치를 만들기 위해 수행해야 하는 작업을 자세히 설명합니다.
 
-## <a name="what-is-required-to-create-an-internet-facing-load-balancer?"></a>인터넷 연결 부하 분산 장치를 만드는 데 필요한 항목은 무엇입니까?
+## <a name="what-is-required-to-create-an-internetfacing-load-balancer"></a>인터넷 연결 부하 분산 장치를 만드는 데 필요한 항목은 무엇입니까?
 부하 분산 장치를 배포하려면 다음 개체를 만들고 구성해야 합니다.
 
 * 프런트 엔드 IP 구성 - 들어오는 네트워크 트래픽에 대한 공용 IP 주소를 포함합니다.
@@ -56,14 +60,14 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 
 ![부하 분산 장치에 대한 리소스 그룹 업데이트](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
-## <a name="create-a-back-end-address-pool"></a>백 엔드 주소 풀 만들기
+## <a name="create-a-backend-address-pool"></a>백 엔드 주소 풀 만들기
 1. 부하 분산 장치가 성공적으로 배포되면 리소스 내에서 선택합니다. 설정에서 백 엔드 풀을 선택합니다. 백 엔드 풀의 이름을 입력합니다. 표시되는 블레이드 위쪽의 **추가** 단추를 클릭합니다.
 2. **백 엔드 풀 추가** 블레이드에서 **가상 컴퓨터 추가**를 클릭합니다.  **가용성 집합** 아래에서 **가용성 집합**을 선택하고 **myAvailSet**을 선택합니다. 다음으로, 블레이드의 가상 컴퓨터 섹션에서 **가상 컴퓨터 선택**을 선택하고 부하 분산을 위해 만들어진 두 개의 VM인 **web1** 및 **web2**를 클릭합니다. 아래 이미지에 표시된 대로 있는 왼쪽의 파란색 확인 표시를 선택해야 합니다. **가상 컴퓨터 선택** 블레이드에서 확인을 클릭한 후 **선택**을 클릭한 다음 **백 엔드 풀 추가** 블레이드에서 **확인**을 클릭합니다.
    
     ![백 엔드 주소 풀에 추가 ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 3. 알림 드롭다운 목록에 **web1** 및 **web2** 둘 다에 대한 네트워크 인터페이스 업데이트 외에 부하 분산 장치 백 엔드 풀 저장과 관련된 업데이트가 있는지 확인합니다.
 
-## <a name="create-a-probe,-lb-rule,-and-nat-rules"></a>프로브, LB 규칙 및 NAT 규칙 만들기
+## <a name="create-a-probe-lb-rule-and-nat-rules"></a>프로브, LB 규칙 및 NAT 규칙 만들기
 1. 상태 프로브를 만듭니다.
    
     부하 분산 장치의 설정에서 프로브를 선택합니다. 그런 후 블레이드 위쪽에서 **추가** 를 클릭합니다.
@@ -97,6 +101,9 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Operations Management Suite 보안 및 감사 솔루션 시작 | Microsoft Docs
-description: 이 문서는 Operations Management Suite 보안 및 감사 솔루션 기능을 시작하여 하이브리드 클라우드를 모니터링하는 방법을 안내합니다.
+title: "Operations Management Suite 보안 및 감사 솔루션 시작 | Microsoft Docs"
+description: "이 문서는 Operations Management Suite 보안 및 감사 솔루션 기능을 시작하여 하이브리드 클라우드를 모니터링하는 방법을 안내합니다."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.topic: get-started-article
 ms.devlang: na
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+
 
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Operations Management Suite 보안 및 감사 솔루션 시작
-이 문서는 각 옵션를 안내하여 OMS(Operations Management Suite) 보안 및 감사 솔루션 기능을 빠르게 시작할 수 있도록 도와줍니다.
+이 문서는 각 옵션을 안내하여 OMS(Operations Management Suite) 보안 및 감사 솔루션 기능을 빠르게 시작할 수 있도록 도와줍니다.
 
-## <a name="what-is-oms?"></a>OMS란?
+## <a name="what-is-oms"></a>OMS란?
 OMS(Microsoft Operations Management Suite)는 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. OMS에 대한 자세한 내용은 [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx)문서를 참조하세요.
 
 ## <a name="oms-security-and-audit-dashboard"></a>OMS 보안 및 감사 대시보드
@@ -139,7 +143,7 @@ ID 활동을 모니터링함으로써 문제가 발생하기 전에 사전 대�
 
 **보안 도메인** 그룹의 다양한 영역에서 환경의 가장 중요한 문제를 한 곳에서 볼 수 있도록 시각화하며 위의 문제는 해당 영역에 이미 표시되어 있습니다.
 
-## <a name="detections-(preview)"></a>감지(미리 보기)
+## <a name="detections-preview"></a>감지(미리 보기)
 이 옵션의 주 목적은 IT에서 해당 환경 및 이 위협의 심각도에 대한 잠재적 위협을 신속하게 식별하는 것입니다.
 
 ![위협 인텔리전스](./media/oms-security-getting-started/oms-getting-started-fig12.png)
@@ -179,6 +183,9 @@ ID 활동을 모니터링함으로써 문제가 발생하기 전에 사전 대�
 * [Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답](oms-security-responding-alerts.md)
 * [Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

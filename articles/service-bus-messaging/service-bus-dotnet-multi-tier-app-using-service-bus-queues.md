@@ -1,12 +1,12 @@
 ---
-title: .NET 다중 계층 응용 프로그램 | Microsoft Docs
-description: Azure에서 서비스 버스 큐를 사용하여 계층 간에 통신하는 다중 계층 응용 프로그램을 개발하는 데 도움이 되는 .NET 자습서입니다.
+title: ".NET 다중 계층 응용 프로그램 | Microsoft Docs"
+description: "Azure에서 서비스 버스 큐를 사용하여 계층 간에 통신하는 다중 계층 응용 프로그램을 개발하는 데 도움이 되는 .NET 자습서입니다."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
 ms.service: service-bus
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 60ed71eac1a233a08414edb8c89b196401895cd8
+
 
 ---
-# <a name=".net-multi-tier-application-using-azure-service-bus-queues"></a>Azure 서비스 버스 큐를 사용하는 .NET 다중 계층 응용 프로그램
+# <a name="net-multitier-application-using-azure-service-bus-queues"></a>Azure 서비스 버스 큐를 사용하는 .NET 다중 계층 응용 프로그램
 ## <a name="introduction"></a>소개
 Visual Studio 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Microsoft Azure용 개발이 간단합니다. 이 자습서에서는 로컬 환경에서 실행되는 여러 Azure 리소스를 사용하는 응용 프로그램을 만드는 단계를 안내합니다. 이전에 Azure를 사용한 경험이 없다고 가정합니다.
 
@@ -35,7 +39,7 @@ Visual Studio 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Micr
 
 ![][0]
 
-## <a name="scenario-overview:-inter-role-communication"></a>시나리오 개요: 역할 간 통신
+## <a name="scenario-overview-interrole-communication"></a>시나리오 개요: 역할 간 통신
 처리할 주문을 제출하려면 웹 역할에서 실행되는 프런트 엔드 UI 구성 요소가 작업자 역할에서 실행되는 중간 계층 논리와 상호 작용해야 합니다. 이 예제에서는 계층 간 통신에 서비스 버스 조정된 메시징을 사용합니다.
 
 웹과 중간 계층 간에 조정된 메시징을 사용하면 두 구성 요소가 분리됩니다. 직접 메시징(즉, TCP 또는 HTTP)과 달리 웹 계층은 중간 계층에 직접 연결되지 않고 작업 단위를 메시지로 서비스 버스에 푸시하여 중간 계층에서 사용하고 처리할 준비가 될 때까지 안정적으로 유지합니다.
@@ -57,7 +61,7 @@ Visual Studio 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Micr
 ## <a name="set-up-the-development-environment"></a>개발 환경 설정
 Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개발 환경을 설정해야 합니다.
 
-1. [도구 및 SDK 가져오기][도구 및 SDK 가져오기]에서 .NET용 Azure SDK를 설치합니다.
+1. [도구 및 SDK 가져오기][도구 및 SDK 가져오기]에 .NET용 Azure SDK를 설치합니다.
 2. 사용하고 있는 Visual Studio 버전에 대한 **SDK 설치**를 클릭합니다. 이 자습서의 단계에서는 Visual Studio 2015를 사용합니다.
 3. 설치 관리자를 실행할지 또는 저장할지를 묻는 메시지가 표시되면 **실행**을 클릭합니다.
 4. **웹 플랫폼 설치 관리자**에서 **설치**를 클릭하여 설치를 계속합니다.
@@ -406,6 +410,6 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

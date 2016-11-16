@@ -1,12 +1,12 @@
 ---
-title: Unity Android 배포용 Azure Mobile Engagement 시작
-description: iOS 장치에 Unity 앱을 배포하는 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다.
+title: "Unity Android 배포용 Azure Mobile Engagement 시작"
+description: "iOS 장치에 Unity 앱을 배포하는 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: d5f0ef79-be00-4cec-97a5-a0b2fdaa380e
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-unity-android
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
+
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Unity Android 배포용 Azure Mobile Engagement 시작
@@ -33,10 +37,10 @@ ms.author: piyushjo
 > 
 > 
 
-## <a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Android 앱용 Mobile Engagement 설정
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Android 앱용 Mobile Engagement 설정
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
 ### <a name="import-the-unity-package"></a>Unity 패키지 가져오기
 1. [Mobile Engagement Unity 패키지](https://aka.ms/azmeunitysdk) 를 다운로드하고 이를 로컬 컴퓨터에 저장합니다. 
 2. **자산 -> 패키지 가져오기 -> 사용자 지정 패키지**로 이동하고 위의 단계에서 다운로드한 패키지를 선택합니다. 
@@ -94,10 +98,10 @@ ms.author: piyushjo
 6. Android 패키지를 저장할 폴더 이름을 입력하라는 메시지가 나타날 수 있습니다. 
 7. 모든 항목이 제대로 진행되면 패키지가 연결된 장치에 배포되고 Unity 게임이 휴대폰에 표시됩니다. 
 
-## <a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>실시간 모니터링과 앱 연결
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>실시간 모니터링과 앱 연결
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="<a-id="integrate-push"></a>enable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
 ### <a name="update-the-engagementconfiguration"></a>EngagementConfiguration 업데이트
@@ -133,6 +137,6 @@ ms.author: piyushjo
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Log Analytics에서 프록시 및 방화벽 설정 구성 | Microsoft Docs
-description: 에이전트 또는 OMS 서비스에서 특정 포트를 사용해야 하는 경우 프록시 및 방화벽 설정을 구성합니다.
+title: "Log Analytics에서 프록시 및 방화벽 설정 구성 | Microsoft Docs"
+description: "에이전트 또는 OMS 서비스에서 특정 포트를 사용해야 하는 경우 프록시 및 방화벽 설정을 구성합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: b55ebd80-efd4-4220-971b-c18aea1b1ab2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/23/2016
+ms.date: 11/11/2016
 ms.author: banders;magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 36c8f482a55135623865814bd384ac98ae214fa3
+
 
 ---
 # <a name="configure-proxy-and-firewall-settings-in-log-analytics"></a>Log Analytics에서 프록시 및 방화벽 설정 구성
@@ -78,8 +82,8 @@ Operations Manager 에이전트가 OMS 서비스와 통신하려면, Operations 
 
 > [!NOTE]
 > 다음 리소스 중 일부에는 둘 다 이전 버전의 OMS인 관리자와 Operational Insights가 언급되어 있습니다. 그러나 나열된 리소스는 나중에 변경될 예정입니다.
-> 
-> 
+>
+>
 
 에이전트 리소스 및 포트 목록은 다음과 같습니다.<br>
 
@@ -137,7 +141,7 @@ Operations Manager 관리 그룹을 OMS 서비스에 등록하려면 다음 절�
  프록시 서버 자격 증명 및 설정은 OMS에 보고하는 관리 대상 컴퓨터에 전파해야 합니다. 이 서버는 *Microsoft System Center Advisor 모니터링 서버 그룹*에 있어야 합니다. 자격 증명은 그룹에 있는 각 서버의 레지스트리에 암호화됩니다.
 
 1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
-2. **실행 구성**에서 **프로필**을 선택합니다.
+2. **RunAs 구성**에서 **프로필**을 선택합니다.
 3. **프로필 프록시로 시스템 센터 관리자 실행** 프로필을 엽니다.  
     ![시스템 센터 관리자 실행 프록시 프로필의 이미지](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
 4. 실행 프로필 마법사에서 **추가** 를 클릭하여 실행 계정을 사용합니다. 새 실행 계정을 만들거나 기존 계정을 사용할 수 있습니다. 이 계정에는 프록시 서버를 통과할 수 있는 권한이 있어야 합니다.  
@@ -171,6 +175,8 @@ OMS에 솔루션을 추가한 경우 Operations Manager 콘솔의 **관리**아�
 * [솔루션 갤러리에서 Log Analytics 솔루션을 추가](log-analytics-add-solutions.md) 하여 기능을 추가하고 데이터를 수집합니다.
 * [로그 검색](log-analytics-log-searches.md) 을 통해 솔루션에서 수집한 자세한 정보를 확인하는 방법을 알아봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

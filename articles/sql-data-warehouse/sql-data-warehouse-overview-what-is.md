@@ -1,22 +1,26 @@
 ---
-title: Azure SQL 데이터 웨어하우스란? | Microsoft Docs
-description: 페타바이트 볼륨의 관계형 및 비관계형 데이터를 처리할 수 있는 엔터프라이즈급 분산 데이터베이스입니다. 몇 초 만에 확장, 축소 및 일시 중지가 가능한 업계 최초의 클라우드 데이터 웨어하우스입니다.
+title: "Azure SQL 데이터 웨어하우스란? | Microsoft Docs"
+description: "페타바이트 볼륨의 관계형 및 비관계형 데이터를 처리할 수 있는 엔터프라이즈급 분산 데이터베이스입니다. 몇 초 만에 확장, 축소 및 일시 중지가 가능한 업계 최초의 클라우드 데이터 웨어하우스입니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: lodipalm
-manager: barbkess
-editor: ''
-
+author: jrowlandjones
+manager: bjhubbard
+editor: 
+ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
 ms.service: sql-data-warehouse
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/27/2016
-ms.author: lodipalm;barbkess;mausher;jrj;sonyama;kevin
+ms.date: 10/31/2016
+ms.author: jrj;mausher;kevin;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ff2d30fcf53028754fc5e1a4b6b52323855a48b4
+
 
 ---
-# Azure SQL 데이터 웨어하우스란?
+# <a name="what-is-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스란?
 Azure SQL 데이터 웨어하우스는 거대한 양의 관계형 및 비관계형 데이터를 처리할 수 있는 클라우드 기반 규모 확장 데이터베이스입니다. 대규모 병렬 처리(MPP) 아키텍처를 기반으로 하는 SQL 데이터 웨어하우스는 엔터프라이즈 워크로드를 처리할 수 있습니다.
 
 SQL 데이터 웨어하우스:
@@ -27,8 +31,8 @@ SQL 데이터 웨어하우스:
 
 이 문서는 SQL 데이터 웨어하우스의 주요 기능을 설명합니다.
 
-## 대규모 병렬 처리 아키텍처
-SQL 데이터 웨어하우스는 방대한 병렬 처리(MPP) 분산 데이터베이스 시스템입니다. SQL 데이터 웨어하우스는 데이터와 처리 용량을 여러 노드에 걸쳐 분산함으로써, 어떤 단일 시스템보다도 더 큰 확장성을 제공할 수 있습니다. 숨은 기능으로 SQL 데이터 웨어하우스는 데이터를 여러 비공유 저장소 및 처리 단위에 확산합니다. 데이터는 프리미엄 로컬 중복 저장소에 저장되고 쿼리 실행을 위해 계산 노드로 연결됩니다. 이 아키텍처를 통해 SQL 데이터 웨어하우스는 부하 및 복잡한 쿼리를 실행하는 데 분할 정복법을 사용합니다. 요청은 제어 노드에서 수신하고 최적화되며 계산 노드에 전달되어 병렬에서 해당 작업을 수행합니다.
+## <a name="massively-parallel-processing-architecture"></a>대규모 병렬 처리 아키텍처
+SQL 데이터 웨어하우스는 방대한 병렬 처리(MPP) 분산 데이터베이스 시스템입니다. SQL 데이터 웨어하우스는 데이터와 처리 용량을 여러 노드에 걸쳐 분산함으로써, 어떤 단일 시스템보다도 더 큰 확장성을 제공할 수 있습니다.  숨은 기능으로 SQL 데이터 웨어하우스는 데이터를 여러 비공유 저장소 및 처리 단위에 확산합니다. 데이터는 프리미엄 로컬 중복 저장소에 저장되고 쿼리 실행을 위해 계산 노드로 연결됩니다. 이 아키텍처를 통해 SQL 데이터 웨어하우스는 부하 및 복잡한 쿼리를 실행하는 데 분할 정복법을 사용합니다. 요청은 제어 노드에서 수신하고 최적화되며 계산 노드에 전달되어 병렬에서 해당 작업을 수행합니다.
 
 MPP 아키텍처와 Azure 저장소 기능을 결합하여 SQL 데이터 웨어하우스는 다음을 수행할 수 있습니다.
 
@@ -49,19 +53,19 @@ MPP 아키텍처와 Azure 저장소 기능을 결합하여 SQL 데이터 웨어�
 
 **데이터 이동 서비스:** 데이터 이동 서비스(DMS)는 노드 간에 데이터를 이동합니다. DMS는 조인 및 집계에 필요한 데이터에 대한 계산 노드 액세스를 부여합니다. DMS는 Azure 서비스가 아닙니다. 모든 노드에서 SQL 데이터베이스와 함께 실행되는 Windows 서비스입니다. DMS는 배후에서 실행되므로 직접 상호 작용하지 않습니다. 그러나 쿼리 계획을 보면 각 쿼리를 병렬로 실행하기 위해 데이터 이동이 필요하므로 DMS 작업이 포함된 것을 알게 됩니다.
 
-## 데이터 웨어하우스 워크로드에 최적화
+## <a name="optimized-for-data-warehouse-workloads"></a>데이터 웨어하우스 워크로드에 최적화
 MPP 방식은 다음을 포함하여 다양한 데이터 웨어하우징 특유의 성능 최적화를 통해 지원됩니다.
 
 * 모든 데이터 전반에 대한 분산 쿼리 최적화 프로그램 및 복잡한 통계 집합. 데이터 크기 및 분포에 대한 정보를 사용하면, 서비스는 특정 분산 쿼리 작업에 대한 비용 산정을 기반으로 쿼리를 최적화할 수 있습니다.
 * 컴퓨팅 리소스 사이에서 쿼리 수행에 필요한 대로 데이터를 효율적으로 이동해주는 데이터 이동 프로세스에 통합된 고급 알고리즘 및 기술도 제공합니다. 이러한 데이터 이동 작업은 기본 제공되며 데이터 이동 서비스에 대한 모든 최적화가 자동으로 수행됩니다.
 * 기본적으로 클러스터형 **columnstore** 인덱스. SQL 데이터 웨어하우스는 열 기반 저장소를 사용하여 기존의 행 기반 저장소와 비교하여 평균 5배 높은 압축 향상, 최대 10배 이상의 쿼리 성능 향상을 달성합니다. 많은 수의 행을 스캔해야 하는 분석 쿼리가 columnstore 인덱스에서 잘 작동합니다.
 
-## 예측 가능하고 확장 가능한 성능
+## <a name="predictable-and-scalable-performance"></a>예측 가능하고 확장 가능한 성능
 SQL 데이터 웨어하우스는 저장소와 계산을 분리하여 각각의 성능을 독립적으로 조정할 수 있습니다. SQL 데이터 웨어하우스는 쉽고 빠르게 크기를 조정하여 순식간에 계산 리소스를 추가할 수 있습니다. Azure Blob 저장소를 사용하면 이러한 기능이 완벽하게 보완됩니다. Blob은 안정적인 복제된 저장소를 제공할 뿐만 아니라 저비용으로 손쉽게 확장할 수 있는 인프라를 제공합니다. SQL 데이터 웨어하우스 클라우드 규모 저장소와 Azure 계산을 함께 사용하기 때문에, 쿼리 성능 저장소가 필요할 때 비용을 지불하는 것이 가능합니다. 계샨량 변경은 Azure 포털에서 슬라이더를 왼쪽이나 오른쪽으로 움직이기만 하면 될 정도로 간단하며, T-SQL 및 PowerShell을 사용하여 일정을 예약할 수도 있습니다.
 
 저장소와 독립적으로 계산량을 완벽하게 제어하는 기능과 더불어, SQL 데이터 웨어하우스에서는 사용자가 자신의 데이터 웨어하우스를 완전하게 일시 중지할 수 있습니다. 즉, 필요하지 않은 경우 계산을 지불하지 않습니다. 저장소를 유지한 상태로 모든 계산이 Azure의 기본 풀에서 처리되도록 하여, 비용을 절약할 수 있습니다. 필요할 때 계산을 다시 시작하고 데이터와 계산을 워크로드에 사용할 수 있게 하면 됩니다.
 
-## 데이터 웨어하우스 단위
+## <a name="data-warehouse-units"></a>데이터 웨어하우스 단위
 SQL 데이터 웨어하우스에 대한 리소스 할당은 DWU(데이터 웨어하우스 단위)로 측정됩니다. DWU는 CPU, 메모리, IOPS와 같은 기본 리소스를 측정하며 SQL 데이터 웨어하우스에 할당됩니다. DWU 수가 증가하면 리소스 및 성능이 증가합니다. 특히, DWU는 다음을 보장합니다.
 
 * 기본적인 하드웨어나 소프트웨어에 대한 우려를 하지 않고 데이터 웨어하우스의 규모를 쉽게 조정할 수 있습니다.
@@ -78,16 +82,16 @@ SQL 데이터 웨어하우스에 대한 리소스 할당은 DWU(데이터 웨어
 
 **Create Table As Select(CTAS):** CTAS는 테이블을 복사하는 기능을 측정합니다. 여기에는 데이터를 저장소에서 읽어오기, 데이터를 어플라이언스의 노드 전체에 배포하기, 데이터를 저장소에 다시 쓰기가 포함됩니다. 이것은 CPU, IO 및 네트워크를 많이 사용하는 연산입니다.
 
-## 요청 시 일시 중지 및 확장
+## <a name="pause-and-scale-on-demand"></a>요청 시 일시 중지 및 확장
 결과가 빨리 필요하면, DWU를 높이고 더 높은 성능에 대한 비용을 지불합니다. 계산 파워가 덜 필요하면, DWU를 낮추고 필요한 것에만 비용을 지불합니다. 이러한 시나리오에서 DWU 변경에 대해 생각할 수 있습니다.
 
 * 저녁이나 주말에 쿼리를 실행할 필요가 없는 경우 쿼리를 정지합니다. 그런 다음 필요하지 않을 때 DWU에 대한 지불을 방지하도록 계산 리소스를 일시 중지합니다.
 * 시스템 사용량이 낮은 경우 DWU를 작은 크기로 축소하는 것이 좋습니다. 데이터에 계속 액세스할 수 있으면서 상당한 비용 절감이 가능합니다.
 * 대량의 데이터 로딩 또는 변환 작업을 수행할 때는 데이터를 보다 신속하게 사용할 수 있도록 규모를 키울 수 있습니다.
 
-사용자에게 이상적인 DWU가 무엇인지 파악하기 위해서는 규모를 키우거나 줄이고 데이터를 로드한 후에 몇 가지 쿼리를 실행해 봅니다. 규모 조정이 신속하게 이뤄지기 때문에 한 시간 내에 다양한 수준의 성능을 시도해 볼 수 있습니다. SQL 데이터 웨어하우스 는 많은 양의 데이터를 처리하고 크기 조정을 위한 실제 용량을 확인하도록 설계되었습니다. 특히 더 큰 규모를 제공하면 1TB에 근접하거나 초과하는 큰 데이터 집합을 사용합니다.
+사용자에게 이상적인 DWU가 무엇인지 파악하기 위해서는 규모를 키우거나 줄이고 데이터를 로드한 후에 몇 가지 쿼리를 실행해 봅니다. 규모 조정이 신속하게 이뤄지기 때문에 한 시간 내에 다양한 수준의 성능을 시도해 볼 수 있습니다.  SQL 데이터 웨어하우스 는 많은 양의 데이터를 처리하고 크기 조정을 위한 실제 용량을 확인하도록 설계되었습니다. 특히 더 큰 규모를 제공하면 1TB에 근접하거나 초과하는 큰 데이터 집합을 사용합니다.
 
-## SQL Server 기반
+## <a name="built-on-sql-server"></a>SQL Server 기반
 SQL 데이터 웨어하우스는 SQL Server 관계형 데이터베이스 엔진을 기반으로 하며, 엔터프라이즈 데이터 웨어하우스에 기대하는 다양한 기능들을 포함하고 있습니다. 이미 T-SQL에 대해 알고 있다면 해당 지식을 쉽게 SQL 데이터 웨어하우스에 전송할 수 있습니다. 고급 사용자이든 초보 사용자이든 상관 없이 설명서의 예제들이 시작하는 데 도움이 될 것입니다. 전반적으로, SQL 데이터 웨어하우스의 언어 요소를 구축하는 방식에 대한 기본적인 생각은 다음과 같습니다.
 
 * SQL 데이터 웨어하우스는 많은 연산에 T-SQL 구문을 사용합니다. 또한 저장 프로시저, 사용자 정의 함수, 테이블 파티션, 인덱스, 데이터 정렬을 비롯한 기존의 SQL 구문을 폭넓게 지원합니다.
@@ -96,19 +100,19 @@ SQL 데이터 웨어하우스는 SQL Server 관계형 데이터베이스 엔진�
 
 SQL Server, SQL 데이터 웨어하우스, SQL 데이터베이스 및 분석 플랫폼 시스템 간의 TRANSACT-SQL 및 기능 공통성을 통해 데이터 요구 사항에 맞는 솔루션을 개발할 수 있습니다. 성능, 보안, 규모 요구 사항을 고려하여 데이터를 보관할 곳을 결정한 후에 필요에 따라 다른 시스템 간에 데이터를 전송할 수 있습니다.
 
-## 데이터 보호
+## <a name="data-protection"></a>데이터 보호
 SQL 데이터 웨어하우스는 Azure 프리미엄 로컬 중복 저장소에 모든 데이터를 저장합니다. 데이터의 여러 동기 복사본은 지역화된 오류 발생 시 투명 한 데이터 보호를 보장하기 위해 로컬 데이터 센터에 유지됩니다. 또한 SQL 데이터 웨어하우스는 Azure 저장소 스냅숏을 사용하여 일정한 간격으로 자동으로 (일시 중지 해제된) 활성 데이터베이스를 백업합니다. 작업을 백업 및 복원하는 방법에 대해 자세히 알아보려면 [백업 및 복원 개요][백업 및 복원 개요]를 참조하세요.
 
-## Microsoft 도구와 통합
+## <a name="integrated-with-microsoft-tools"></a>Microsoft 도구와 통합
 SQL 데이터 웨어하우스는 SQL Server 사용자가 잘 알고 있는 다양한 도구를 통합합니다. 내용은 다음과 같습니다.
 
 **기존 SQL Server 도구:** SQL 데이터 웨어하우스는 SQL Server Analysis Services, Integration Services 및 Reporting Services와 완전히 통합됩니다.
 
 **클라우드 기반 도구:** SQL 데이터 웨어하우스는 데이터 팩터리, 스트림 분석, 기계 학습 및 Power BI를 포함하여 Azure의 수많은 신규 도구와 함께 사용될 수 있습니다. 자세한 전체 목록은 [통합된 도구 개요][통합된 도구 개요]를 참조하세요.
 
-**타사 도구:** 다수의 타사 도구 공급자들이 자사의 도구와 SQL 데이터 웨어하우스의 통합을 보증하였습니다. 전체 목록은 [SQL Data Warehouse 솔루션 파트너][SQL Data Warehouse 솔루션 파트너]를 참조하세요.
+**타사 도구:** 다수의 타사 도구 공급자들이 자사의 도구와 SQL 데이터 웨어하우스의 통합을 보증하였습니다. 파트너의 전체 목록은 [SQL Data Warehouse 솔루션 파트너][SQL Data Warehouse 솔루션 파트너]를 참조하세요.
 
-## 하이브리드 데이터 원본 시나리오
+## <a name="hybrid-data-sources-scenarios"></a>하이브리드 데이터 원본 시나리오
 SQL Data Warehouse를 PolyBase와 함께 사용하면 비관계형 및 온-프레미스 데이터 원본으로 고급 하이브리드 시나리오를 설정할 수 있게 되고, 에코시스템에 데이터를 이동할 수 있는 전례 없는 역량을 가질 수 있습니다.
 
 Polybase는 친숙한 T-SQL 명령을 사용하여 다양한 원본에서 데이터를 활용할 수 있게 해줍니다. Polybase를 통해 일반 테이블처럼 Azure blob 저장소에 보관 중인 비관계형 데이터를 쿼리할 수 있습니다. Polybase를 사용하여 비관계형 데이터를 쿼리하거나 비관계형 데이터를 SQL 데이터 웨어하우스로 가져옵니다.
@@ -117,8 +121,11 @@ Polybase는 친숙한 T-SQL 명령을 사용하여 다양한 원본에서 데이
 * Polybase는 통합 시 중립적입니다. 지원되는 모든 원본에 동일한 기능을 노출합니다. Polybase에서 읽는 데이터는 구분된 파일 또는 ORC 파일 등 다양한 형식일 수 있습니다.
 * PolyBase는 HDInsight 클러스터에 대한 저장소로도 사용되고 있는 Blob Storage에 액세스하는 데 사용할 수 있습니다. 그러면 관계형 및 비관계형 도구와 동일한 데이터에 액세스할 수 있습니다.
 
-## 다음 단계
-SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 신속하게 [SQL 데이터 웨어하우스 만들기][SQL 데이터 웨어하우스 만들기] 및 [샘플 데이터 로드][샘플 데이터 로드]에 대해 알아봅니다. Azure을 처음 접하는 경우 새 용어를 발견하면 [Azure 용어집][Azure 용어집]을 유용하게 사용할 수 있습니다. 또는 그 밖의 SQL 데이터 웨어하우스 리소스를 살펴봅니다.
+## <a name="sla"></a>SLA
+SQL Data Warehouse는 Microsoft 온라인 서비스 SLA의 일부로 제품 수준 SLA(서비스 수준 계약)를 제공합니다. 자세한 내용은 [SQL Data Warehouse용 SLA][SQL Data Warehouse용 SLA]를 방문하세요. 다른 모든 제품에 대한 SLA 정보에 대해서는 [서비스 수준 계약] Azure 페이지를 방문하거나 [볼륨 라이선스][볼륨 라이선스] 페이지에서 다운로드할 수 있습니다. 
+
+## <a name="next-steps"></a>다음 단계
+SQL Data Warehouse에 대한 내용을 파악했으므로 [SQL Data Warehouse 만들기][SQL Data Warehouse 만들기] 및 [샘플 데이터 로드][샘플 데이터 로드]에 대해 신속히 알아봅니다. Azure을 처음 접하는 경우 새 용어를 발견하면 [Azure 용어집][Azure 용어집]을 유용하게 사용할 수 있습니다. 또는 그 밖의 SQL 데이터 웨어하우스 리소스를 살펴봅니다.  
 
 * [고객 성공 사례]
 * [블로그]
@@ -136,7 +143,7 @@ SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 신속하�
 <!--Article references-->
 [지원 티켓 만들기]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [샘플 데이터 로드]: ./sql-data-warehouse-load-sample-databases.md
-[SQL 데이터 웨어하우스 만들기]: ./sql-data-warehouse-get-started-provision.md
+[SQL Data Warehouse 만들기]: ./sql-data-warehouse-get-started-provision.md
 [마이그레이션 설명서]: ./sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse 솔루션 파트너]: ./sql-data-warehouse-partner-business-intelligence.md
 [통합된 도구 개요]: ./sql-data-warehouse-overview-integrate.md
@@ -150,9 +157,16 @@ SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 신속하�
 [블로그]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [고객 자문 팀 블로그]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN 포럼]: https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=AzureSQLDataWarehouse
+[MSDN 포럼]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
 [Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[SQL Data Warehouse용 SLA]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
+[볼륨 라이선스]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[서비스 수준 계약]: https://azure.microsoft.com/en-us/support/legal/sla/
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

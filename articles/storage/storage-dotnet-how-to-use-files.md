@@ -1,12 +1,12 @@
 ---
-title: Windows에서 Azure 파일 저장소 시작 | Microsoft Docs
-description: Azure 파일 저장소를 사용하여 클라우드에 파일 데이터를 저장하고 Azure 가상 컴퓨터(VM) 또는 Windows를 실행하는 온-프레미스 응용 프로그램에서 클라우드 파일 공유를 탑재합니다.
+title: "Windows에서 Azure 파일 저장소 시작 | Microsoft Docs"
+description: "Azure 파일 저장소를 사용하여 클라우드에 파일 데이터를 저장하고 Azure 가상 컴퓨터(VM) 또는 Windows를 실행하는 온-프레미스 응용 프로그램에서 클라우드 파일 공유를 탑재합니다."
 services: storage
 documentationcenter: .net
 author: mine-msft
 manager: aungoo
 editor: tysonn
-
+ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: minet
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
+
 
 ---
 # <a name="get-started-with-azure-file-storage-on-windows"></a>Windows에서 Azure 파일 저장소 시작
@@ -31,10 +35,10 @@ Linux에서 파일 저장소 사용에 대한 자세한 내용은 [Linux에서 A
 
 [!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
-## <a name="video:-using-azure-file-storage-with-windows"></a>비디오: Windows에서 Azure 파일 저장소 사용
+## <a name="video-using-azure-file-storage-with-windows"></a>비디오: Windows에서 Azure 파일 저장소 사용
 Windows에서 Azure 파일 공유를 만들고 사용하는 방법을 보여주는 비디오는 다음과 같습니다.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!비디오 https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
@@ -128,14 +132,18 @@ PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하�
 
 다음 예제에서 `storage-account-name` 및 `storage-account-key`을(를) 본인의 저장소 계정 이름 및 키로 바꿉니다.
 
+```powershell
     # create a context for account and key
     $ctx=New-AzureStorageContext storage-account-name storage-account-key
+```
 
 ### <a name="create-a-new-file-share"></a>새 파일 공유 만들기
 다음에는 `logs`(이)라는 새 공유를 만듭니다.
 
+```powershell
     # create a new share
     $s = New-AzureStorageShare logs -Context $ctx
+```
 
 이제 파일 저장소에 파일 공유가 있습니다. 다음에는 디렉터리와 파일을 추가할 것입니다.
 
@@ -147,31 +155,39 @@ PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하�
 ### <a name="create-a-directory-in-the-file-share"></a>파일 공유에 디렉터리 만들기
 다음에는 공유에 디렉터리를 만듭니다. 다음 예제에서 디렉터리 이름은 `CustomLogs`입니다.
 
+```powershell
     # create a directory in the share
     New-AzureStorageDirectory -Share $s -Path CustomLogs
+```
 
 ### <a name="upload-a-local-file-to-the-directory"></a>디렉터리에 로컬 파일 업로드
 이제 디렉터리에 로컬 파일을 업로드합니다. 다음 예제에서는 `C:\temp\Log1.txt`에서 파일을 업로드합니다. 로컬 컴퓨터의 유효한 파일을 가리키도록 파일 경로를 편집합니다.
 
+```powershell
     # upload a local file to the new directory
     Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
+```
 
 ### <a name="list-the-files-in-the-directory"></a>디렉터리의 파일 나열
 디렉터리의 파일을 보려면 디렉터리의 파일을 모두 나열할 수 있습니다. 이 명령은 CustomLogs 디렉터리에서 파일 및 하위 디렉터리(있는 경우)를 반환합니다.
 
+```powershell
     # list files in the new directory
     Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
+```
 
 Get-AzureStorageFile은 디렉터리 개체가 전달되는 파일 및 디렉터리의 목록을 반환합니다. "Get-AzureStorageFile -Share $s"는 루트 디렉터리에 파일 및 디렉터리의 목록을 반환합니다. 하위 디렉터리에 있는 파일의 목록을 가져오려면 Get-AzureStorageFile에 하위 디렉터리를 전달해야 합니다. 즉, 파이프에 대한 명령의 첫 번째 부분은 CustomLogs 하위 디렉터리의 디렉터리 인스턴스를 반환하는 기능을 갖습니다. 그런 다음 Get-AzureStorageFile에 전달되고 이는 CustomLogs에 파일 및 디렉터리를 반환합니다.
 
 ### <a name="copy-files"></a>파일 복사
 Azure PowerShell 버전 0.9.7부터 파일을 다른 파일로, 파일을 Blob으로 또는 Blob을 파일로 복사할 수 있습니다. 아래에는 PowerShell Cmdlet을 사용하여 이러한 복사 작업을 수행하는 방법이 나와 있습니다.
 
+```powershell
     # copy a file to the new directory
     Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
 
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
+```
 
 ## <a name="mount-the-file-share"></a>파일 공유 마운트
 SMB 3.0에 대한 지원을 통해 파일 저장소는 이제 SMB 3.0 클라이언트에서 암호화 및 영구 핸들을 지원합니다. 암호화 지원은 SMB 3.0 클라이언트가 다음을 포함한 어디에서나 파일 공유를 마운트할 수 있음을 의미합니다.
@@ -226,7 +242,7 @@ Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Windows를
 
 역할에 원격으로 연결하여 Azure 클라우드 서비스에서 실행되는 역할에서 파일 공유를 마운트할 수도 있습니다.
 
-### <a name="mount-the-file-share-from-an-on-premises-client-running-windows"></a>Windows를 실행하는 온-프레미스 클라이언트에서 파일 공유 마운트
+### <a name="mount-the-file-share-from-an-onpremises-client-running-windows"></a>Windows를 실행하는 온-프레미스 클라이언트에서 파일 공유 마운트
 온-프레미스 클라이언트에서 파일 공유를 마운트하려면 먼저 다음 단계를 수행해야 합니다.
 
 * SMB 3.0을 지 원하는 Windows 버전을 설치합니다. Windows는 SMB 3.0 암호화를 활용하여 온-프레미스 클라이언트와 클라우드의 Azure 파일 공유 사이에 데이터를 안전하게 전송합니다.
@@ -253,7 +269,7 @@ Azure 구성 관리자 패키지를 설치하려면 솔루션 탐색기에서 �
 
 Azure 구성 관리자 사용은 선택 사항입니다. 또한 .NET Framework의 [ConfigurationManager 클래스](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx)와 같은 API를 사용할 수 있습니다.
 
-### <a name="save-your-storage-account-credentials-to-the-app.config-file"></a>저장소 계정 자격 증명을 app.config 파일에 저장
+### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>저장소 계정 자격 증명을 app.config 파일에 저장
 다음에는 프로젝트의 app.config 파일에 자격 증명을 저장합니다. 다음과 비슷하게 app.config 파일을 편집합니다. 여기서는 `myaccount`을(를) 저장소 계정 이름으로 바꾸고 `mykey`을(를) 저장소 계정 키로 바꿉니다.
 
     <?xml version="1.0" encoding="utf-8" ?>
@@ -275,16 +291,19 @@ Azure 구성 관리자 사용은 선택 사항입니다. 또한 .NET Framework�
 ### <a name="add-namespace-declarations"></a>네임스페이스 선언 추가
 솔루션 탐색기에서 `program.cs` 파일을 열고 파일 맨 위에 다음 네임스페이스 선언을 추가합니다.
 
+```csharp
     using Microsoft.Azure; // Namespace for Azure Configuration Manager
     using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage
     using Microsoft.WindowsAzure.Storage.File; // Namespace for File storage
+```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="access-the-file-share-programmatically"></a>프로그래밍 방식으로 파일 공유 액세스
 다음에는 위에 표시된 코드 뒤에 나오는 `Main()` 메서드에 다음 코드를 추가하여 연결 문자열을 검색합니다. 이 코드는 이전에 만든 파일에 대한 참조를 가져오고 해당 내용을 콘솔 창에 출력합니다.
 
+```csharp
     // Create a CloudFileClient object for credentialed access to File storage.
     CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
@@ -314,6 +333,7 @@ Azure 구성 관리자 사용은 선택 사항입니다. 또한 .NET Framework�
             }
         }
     }
+```
 
 콘솔 응용 프로그램을 실행하여 출력을 확인합니다.
 
@@ -324,6 +344,7 @@ Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일 공유�
 
 아래 예제에서는 공유에 대한 현재 사용량을 확인하고 공유에 대해 할당량을 설정하는 방법을 보여 줍니다.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -351,12 +372,14 @@ Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일 공유�
         share.FetchAttributes();
         Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
     }
+```
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>파일 또는 파일 공유에 대한 공유 액세스 서명 생성
 Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일 공유 또는 개별 파일에 대해 SAS(공유 액세스 서명)를 생성할 수 있습니다. 또한 파일 공유에 대해 공유 액세스 정책을 만들어 공유 액세스 서명을 관리할 수도 있습니다. 공유 액세스 정책을 만들면 노출된 SAS를 해지할 수 있으므로 권장됩니다.
 
 다음 예제에서는 공유에 대해 공유 액세스 정책을 만들고 해당 정책을 사용하여 공유의 파일에 대해 SAS에 대한 제약 조건을 제공합니다.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -398,6 +421,7 @@ Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일 공유 �
         fileSas.UploadText("This write operation is authenticated via SAS.");
         Console.WriteLine(fileSas.DownloadText());
     }
+```
 
 공유 액세스 서명을 생성하고 사용하는 방법에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md) 및 [Blob Storage로 SAS 생성 및 사용](storage-dotnet-shared-access-signature-part-2.md)을 참조하세요.
 
@@ -415,6 +439,7 @@ AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일
 
 다음 예제에서는 파일을 동일한 공유의 다른 파일에 복사합니다. 이 복사 작업은 동일한 저장소 계정의 파일 간에 복사를 수행하므로 공유 키 인증을 사용하여 복사를 수행할 수 있습니다.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -454,12 +479,13 @@ AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일
             }
         }
     }
-
+```
 
 **파일을 Blob에 복사**
 
 다음 예제에서는 파일을 만들고 동일한 저장소 계정 내의 blob에 복사합니다. 이 예제에서 서비스는 복사 작업 동안 원본 파일에 대한 액세스를 인증하는 데 사용하는 소스 파일용 SAS를 만듭니다.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -501,6 +527,7 @@ AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일
     // Write the contents of the file to the console window.
     Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
     Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
+```
 
 동일한 방식으로 blob을 파일에 복사할 수 있습니다. 원본 개체가 blob인 경우 복사 작업 동안 해당 blob에 대한 액세스를 인증하는 SAS를 만듭니다.
 
@@ -513,11 +540,14 @@ AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일
 
 먼저 위에서 추가한 항목 이외에 다음 `using` 문을 program.cs 파일에 추가합니다.
 
+```csharp
     using Microsoft.WindowsAzure.Storage.File.Protocol;
     using Microsoft.WindowsAzure.Storage.Shared.Protocol;
+```
 
 Blob, 테이블 및 큐 저장소가 `Microsoft.WindowsAzure.Storage.Shared.Protocol` 네임스페이스에서 공유 `ServiceProperties` 형식을 사용하는 반면 파일 저장소는 `Microsoft.WindowsAzure.Storage.File.Protocol` 네임스페이스에서 고유한 `FileServiceProperties` 형식을 사용합니다. 그러나 두 네임스페이스는 컴파일할 다음 코드의 경우 코드에서 참조되어야 합니다.
 
+```csharp
     // Parse your storage connection string from your application's configuration file.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -556,7 +586,9 @@ Blob, 테이블 및 큐 저장소가 `Microsoft.WindowsAzure.Storage.Shared.Prot
     Console.WriteLine(serviceProperties.MinuteMetrics.MetricsLevel);
     Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
     Console.WriteLine(serviceProperties.MinuteMetrics.Version);
+```
 
+또한 종단 간 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-file-connection-problems.md)를 참조할 수 있습니다. 
 
 ## <a name="file-storage-faq"></a>파일 저장소 FAQ
 1. **파일 저장소에서 Active Directory 기반 인증을 지원합니까?**
@@ -603,6 +635,9 @@ Blob, 테이블 및 큐 저장소가 `Microsoft.WindowsAzure.Storage.Shared.Prot
 14. **IBM MQ로 Azure 파일 저장소 사용**
     
     IBM은 해당 서비스로 Azure 파일 저장소를 구성할 때 IBM MQ 고객을 안내하는 문서를 출시했습니다. 자세한 내용은 [Microsoft Azure 파일 서비스와 IBM MQ 다중 인스턴스 큐 관리자를 설치하는 방법](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)을 참조하세요.
+15. **Azure File Storage 오류를 어떻게 해결합니까?**
+    
+    종단 간 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-file-connection-problems.md)를 참조할 수 있습니다.               
 
 ## <a name="next-steps"></a>다음 단계
 Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.
@@ -626,6 +661,9 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 * [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
