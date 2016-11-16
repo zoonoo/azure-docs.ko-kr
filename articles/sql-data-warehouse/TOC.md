@@ -135,7 +135,10 @@
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## 파트너
 ### [비즈니스 인텔리전스](sql-data-warehouse-partner-business-intelligence.md)

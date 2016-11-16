@@ -30,9 +30,11 @@
 ## [Azure Data Catalog의 키보드 바로 가기](data-catalog-keyboard-shortcuts.md)
 ## [용어](data-catalog-terminology.md)
 ## [릴리스 정보](data-catalog-release-notes.md)
+## [REST (영문)](https://docs.microsoft.com/rest/api/datacatalog/)
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/data-catalog/)
+
 
 <!--HONumber=Nov16_HO2-->
 

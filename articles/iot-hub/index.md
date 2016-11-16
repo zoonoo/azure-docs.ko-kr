@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#IoT Hub Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 1b5ea8b5b5fb99fa65a1efd0eeff48af2e39346c
+ms.openlocfilehash: 7e3e54511ef1205d04eef1820a3e20f480386ed1
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end.  It also provides extensive monitoring for device connectivity and includes device libraries for most popular languages and platforms. 
+---
+#<a name="iot-hub-documentation"></a>IoT Hub 설명서
+
+Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다.  또한 장치 연결에 대한 광범위한 모니터링을 제공하고 가장 인기 있는 언어 및 플랫폼에 대한 장치 라이브러리를 포함합니다. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -17,7 +21,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure IoT Hub</h3>
+                        <h3>Azure IoT Hub에 대해 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure IoT Hub Video Library</h3>
+                        <h3>Azure IoT Hub 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using .NET</h3>
+                        <h3>.NET을 사용하여 IoT Hub 시작</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using Java</h3>
+                        <h3>Java를 사용하여 IoT Hub 시작</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using Node.js</h3>
+                        <h3>Node.js를 사용하여 IoT Hub 시작</h3>
                     </div>
                 </div>
             </div>
@@ -100,26 +104,31 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
 
 ---
 
-##Reference
+##<a name="reference"></a>참조
 
-###Azure CLI 
-[IoT HUB with Azure CLI](/cli/azure/iot)  
+###<a name="azure-cli"></a>Azure CLI 
+[Azure CLI를 사용한 IoT Hub](/cli/azure/iot)  
 
-###.NET 
-[.NET Managed Reference API](/dotnet/api/) 
+###<a name="net"></a>.NET 
+[.NET 관리되는 참조 API](/dotnet/api/) 
 
-###Java 
-[Java SDK Reference](/java/api/) 
+###<a name="java"></a>Java 
+[Java SDK 참조](/java/api/) 
 
-###REST 
-[IoT HUB REST API Reference](/rest/api/iothub) 
+###<a name="rest"></a>REST 
+[IoT Hub REST API 참조](/rest/api/iothub) 
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
         <div class="img"></div>
         <div class="text">
-            Download IoT Hub Documentation
-        </div>
+IoT Hub 설명서 다운로드 </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

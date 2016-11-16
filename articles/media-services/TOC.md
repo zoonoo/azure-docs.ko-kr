@@ -1,16 +1,16 @@
 # [개요](media-services-overview.md)
 ## [개념](media-services-concepts.md)
-## [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)
-## [릴리스 정보](media-services-release-notes.md)
+
+
 # 시작
 ## [계정 만들기 및 관리](media-services-portal-create-account.md)
 ## [개발 환경 설정](media-services-set-up-computer.md)
-## 주문형 비디오
+## 주문형 비디오 제공
 ### [포털](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
-### [REST](media-services-rest-get-started.md)
-## 라이브 스트리밍
+### [REST (영문)](media-services-rest-get-started.md)
+## 라이브 스트리밍 수행
 ### [포털](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
@@ -166,12 +166,14 @@
 ###[재시도 논리](media-services-retry-logic-in-dotnet-sdk.md)
 
 # 참조
-## [Media Services .NET SDK](media-services-dotnet-how-to-use.md)
-## [Media Services REST API](media-services-rest-how-to-use.md)
+## [릴리스 정보](media-services-release-notes.md)
+## [.NET](media-services-dotnet-how-to-use.md)
+## [REST (영문)](media-services-rest-how-to-use.md)
 ## [미디어 인코더 Premium 워크플로 형식 및 코덱](media-services-premium-workflow-encoder-formats.md)
 ## [Media Encoder Standard 형식 및 코덱](media-services-media-encoder-standard-formats.md)
 
-# 관련 항목
+# 리소스
+## [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services 커뮤니티](media-services-community.md)
 
 

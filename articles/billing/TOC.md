@@ -6,7 +6,7 @@
 ## [한도 및 할당량](../azure-subscription-service-limits.md)
 ## [질문과 대답](../billing-subscription-faq.md)
 # 방법
-## 사용량 및 비용 추적
+## 사용량 및 비용 모니터링
 ### [청구서 및 사용량 다운로드](../billing-download-azure-invoice-daily-usage-date.md)
 ### [요금 청구 방식](billing-understand-your-bill.md)
 ### [외부 서비스 요금 이해](../billing-understand-your-azure-marketplace-charges.md)
@@ -23,16 +23,18 @@
 ### [프로필 편집](../billing-how-to-change-azure-account-profile.md)
 ### [결제 정보 업데이트](../billing-how-to-change-credit-card.md)
 ### [Office 365 테넌트 연결](../billing-add-office-365-tenant-to-azure-subscription.md)
+## 문제 해결
+### [등록 문제](../billing-troubleshoot-azure-sign-up-issues.md)
+### [거부된 카드](../billing-credit-card-fails-during-azure-sign-up.md)
+### [로그인 문제](../billing-cannot-login-subscription.md)
+
 # 참조
 ## [API 개요](../billing-usage-rate-card-overview.md)
 ## [REST API 참조](https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [파트너 솔루션: Cloud Cruiser](../billing-usage-rate-card-partner-solution-cloudcruiser.md)
 ## [파트너 솔루션: Cloudyn](../billing-usage-rate-card-partner-solution-cloudyn.md)
-# 문제 해결
-## [등록 문제](../billing-troubleshoot-azure-sign-up-issues.md)
-## [거부된 카드](../billing-credit-card-fails-during-azure-sign-up.md)
-## [로그인 문제](../billing-cannot-login-subscription.md)
-# 지원
+
+# 리소스
 ## [지원에 문의](../billing-how-to-create-billing-support-ticket.md)
 
 <!--HONumber=Nov16_HO2-->

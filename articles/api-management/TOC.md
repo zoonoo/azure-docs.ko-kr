@@ -40,11 +40,11 @@
 ### [자동화를 사용하여 관리](automation-manage-api-management.md)
 ### [Git를 사용하여 구성](api-management-configuration-repository-git.md)
 #참조
-## [템플릿](https://msdn.microsoft.com/en-us/library/azure/mt697540)
-## [서비스 배포 PowerShell cmdlet 참조](https://msdn.microsoft.com/en-us/library/azure/mt619282)
+## [리소스 관리 PowerShell cmdlet]/powershell/resourcemanager()
+## [클래식 배포 PowerShell cmdlet 참조](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+## [REST API](/rest/api/apimanagement/)
 ## [정책](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [REST API](https://msdn.microsoft.com/en-us/library/azure/dn776326)
-## [서비스 관리 PowerShell cmdlet](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+## [템플릿](https://msdn.microsoft.com/en-us/library/azure/mt697540)
 #리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/api-management/)
 ## [백서: 클라우드 기반 API Management](http://j.mp/ms-apim-whitepaper)

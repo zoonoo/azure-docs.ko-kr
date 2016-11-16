@@ -37,23 +37,27 @@
 ### [포털](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell(클래식)](application-gateway-create-probe-classic-ps.md)
-### 관리
+## 관리
 ### [진단](application-gateway-diagnostics.md)
 ### [문제 해결](application-gateway-troubleshooting-502.md)
 # 참조
-## [Resource Manager API](https://msdn.microsoft.com/library/azure/mt684941)
-## [Service Management API](https://msdn.microsoft.com/library/azure/mt299393)
-## [PowerShell cmdlet](https://go.microsoft.com/fwlink/p/?LinkId=536407)
+## [PowerShell cmdlet](https://docs.microsoft.com/powershell/resourcemanager)
+## [REST (영문)](https://msdn.microsoft.com/library/mt684941)
+## [클래식 REST](https://msdn.microsoft.com/library/azure/mt299393)
+
 # 관련 항목
-## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)
-## [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)
-## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway/)
-## [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)
-## [부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
-## [트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
+## [ExpressRoute](/azure/expressroute/)
+## [가상 네트워크](/azure/virtual-network/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [가상 컴퓨터](/azure/virtual-machines/)
+## [부하 분산 장치](/azure/load-balancer/)
+## [트래픽 관리자](/azure/traffic-manager/)
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
+
 
 <!--HONumber=Nov16_HO2-->
 

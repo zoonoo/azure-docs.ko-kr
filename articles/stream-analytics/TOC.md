@@ -1,6 +1,6 @@
 # 개요
 ## [Stream Analytics란?](stream-analytics-introduction.md)
-## [Stream Analytics 학습 경로](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
+## [Storm 및 Stream Analytics 비교](stream-analytics-comparison-storm.md)
 
 # 시작
 ## [IoT 스트리밍 데이터 처리](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
@@ -8,12 +8,12 @@
 
 # 방법
 
-## 스트리밍 솔루션
-### [IoT 솔루션 빌드](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
-### [소셜 미디어 분석](stream-analytics-twitter-sentiment-analysis-trends.md)
-### [Power BI를 사용하여 센서 데이터 분석]https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
+## 스트리밍 솔루션 구축
+### [사물 인터넷](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
+### [소셜 미디어](stream-analytics-twitter-sentiment-analysis-trends.md)
+### [Power BI를 사용하여 센서 데이터](https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
 ### [Machine Learning으로 실시간 점수 매기기](stream-analytics-machine-learning-integration-tutorial.md)
-### [참조 아키텍처: 실시간 이벤트 처리](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [실시간 이벤트 처리](stream-analytics-real-time-event-processing-reference-architecture.md)
 
 ## 개발
 ### [일반적인 쿼리 패턴](stream-analytics-stream-analytics-query-patterns.md)
@@ -40,17 +40,21 @@
 ### [원 클릭 PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # 참조
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [.NET](/dotnet/api/)
 ## [쿼리 언어](https://msdn.microsoft.com/library/azure/dn834998)
-## [REST API](https://msdn.microsoft.com/library/azure/dn835031)
-## [PowerShell](https://msdn.microsoft.com/library/azure/mt270341)
-## [.NET SDK](https://msdn.microsoft.com/library/azure/mt416896)
-## [Storm 및 Stream Analytics 비교](stream-analytics-comparison-storm.md)
+## [REST (영문)](/rest/api/streamanalytics/)
 ## [릴리스 정보](stream-analytics-release-notes.md)
+
 # 리소스
-## [MSDN 블로그](http://blogs.msdn.com/b/streamanalytics/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/stream-analytics/)
+## [블로그](http://blogs.msdn.com/b/streamanalytics/)
+## [포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [피드백 포럼](http://feedback.azure.com/forums/270577-azure-stream-analytics)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=stream-analytics)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Azure HDInsight Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 1b5f6156de634d3e32dd848518d4433a5d2e4b5c
+ms.openlocfilehash: 050d31a70a7dddff1f840235002f9b233dee9059
 
-Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HDInsight makes the Hadoop components from the Hortonworks Data Platform (HDP) distribution available in the cloud, and deploys and provisions managed clusters with reliability and availability.  Azure HDInsight provides cluster configurations for Apache Hadoop, Spark, HBase, and Storm.  You can also use custom clusters with script actions.  
+---
+#<a name="azure-hdinsight-documentation"></a>Azure HDInsight 설명서
+
+Azure HDInsight는 클라우드에서 제공되는 Apache Hadoop 배포입니다.  Azure HDInsight를 사용하면 HDP(Hortonworks Data Platform) 배포의 Hadoop 구성 요소를 클라우드에서 사용할 수 있고 안정성 및 가용성을 가진 관리되는 클러스터를 배포하고 프로비전할 수 있습니다.  Azure HDInsight는 Apache Hadoop, Spark, HBase 및 Storm에 대한 클러스터 구성을 제공합니다.  스크립트 동작으로 사용자 지정 클러스터를 사용할 수 있습니다.  
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure HDInsight</h3>
+                        <h3>Azure HDInsight에 대해 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure HDInsight Video Library</h3>
+                        <h3>Azure HDInsight 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with HDInsight using a Linux-based Hadoop cluster</h3>
+                        <h3>Linux 기반 Hadoop 클러스터를 사용하여 HDInsight 시작</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with HDInsight using a Spark cluster with R Server</h3>
+                        <h3>R Server로 Spark 클러스터를 사용하여 HDInsight 시작</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with HDInsight using an HBase cluster</h3>
+                        <h3>HBase 클러스터를 사용하여 HDInsight 시작</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +111,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with HDInsight using an Apache Storm cluster</h3>
+                        <h3>Apache Storm 클러스터를 사용하여 HDInsight 시작</h3>
                     </div>
                 </div>
             </div>
@@ -119,23 +123,28 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
 
 ---
 
-##Reference
+##<a name="reference"></a>참조
 
-###PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
+###<a name="powershell"></a>PowerShell
+[Azure PowerShell 참조](/powershell/azureps-cmdlets-docs)
 
-###REST
-[HDInsight REST API Reference](/rest/api/hdinsight)
-[Spark for HDInsight REST API Reference](/rest/api/hdinsightspark)
+###<a name="rest"></a>REST
+[HDInsight REST API 참조](/rest/api/hdinsight)
+[HDInsight용 Spark REST API 참조](/rest/api/hdinsightspark)
 
-###.NET
-[HDInsight Managed Reference](https://msdn.microsoft.com/library/azure/mt271028)
+###<a name="net"></a>.NET
+[HDInsight 관리되는 참조](https://msdn.microsoft.com/library/azure/mt271028)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/hdinsight.pdf">
         <div class="img"></div>
         <div class="text">
-            Download HDInsight Documentation
-        </div>
+HDInsight 설명서 다운로드 </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

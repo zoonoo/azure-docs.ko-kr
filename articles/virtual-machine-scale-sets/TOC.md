@@ -26,11 +26,12 @@
 ### [자동 크기 조정 문제 해결](virtual-machine-scale-sets-troubleshoot.md)
 
 # 참조
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [크기 집합 REST API](/rest/api/compute/virtualmachinescalesets)
-## [크기 집합 VM REST API](/rest/api/compute/virtualmachinescalesetvms)
-## [Azure PowerShell](/powershell/resourcemanager/)
-## [Azure 템플릿](https://azure.microsoft.com/documentation/templates/?term=vmss)
+## [REST (영문)](/rest/api/compute/)
+
+# 리소스
+## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 
 
 <!--HONumber=Nov16_HO2-->

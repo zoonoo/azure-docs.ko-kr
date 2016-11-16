@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Load Balancer Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
+ms.openlocfilehash: 926beb8579ccdb1b0ed502ecb1892063ba976025
 
-Azure Load Balancer delivers high availability and network performance to your applications.  Load Balancer can be configured to load balance incoming Internet traffic to virtual machines, traffic between cloud resources, traffic in a cross-premises virtual network, or external traffic to a specific virtual machine.
+---
+#<a name="load-balancer-documentation"></a>부하 분산 장치 설명서
+
+Azure Load Balancer는 응용 프로그램에 고가용성 및 네트워크 성능을 제공합니다.  부하 분산 장치는 가상 컴퓨터에 들어오는 인터넷 트래픽, 클라우드 리소스 간 트래픽, 프레미스 간 가상 네트워크의 트래픽 또는 외부 트래픽을 특정 가상 컴퓨터로 부하 분산하도록 구성할 수 있습니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Load Balancer</h3>
+                        <h3>부하 분산 장치에 대해 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Load Balancer Video Library</h3>
+                        <h3>부하 분산 장치 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with an Internet-facing load balancer</h3>
+                        <h3>인터넷 연결 부하 분산 장치 시작</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with an internal-facing load balancer</h3>
+                        <h3>인터넷 연결 부하 분산 장치 시작</h3>
                     </div>
                 </div>
             </div>
@@ -82,29 +86,34 @@ Azure Load Balancer delivers high availability and network performance to your a
 
 ---
 
-##Reference
+##<a name="reference"></a>참조
 
-###PowerShell
-[Load Balancer PowerShell Reference](/powershell/azureps-cmdlets-doc)
+###<a name="powershell"></a>PowerShell
+[부하 분산 장치 PowerShell 참조](/powershell/azureps-cmdlets-doc)
 
-###Azure CLI
-[Load Balancer Azure CLI] (/cli/azure/network/lb)
+###<a name="azure-cli"></a>Azure CLI
+[부하 분산 장치 Azure CLI](/cli/azure/network/lb)
 
-###.NET
-[.NET API Reference](/dotnet/api)
+###<a name="net"></a>.NET
+[.NET API 참조](/dotnet/api)
 
-###Java
-[Java API Reference](/java/api)
+###<a name="java"></a>Java
+[Java API 참조](/java/api)
 
-###REST
-[Load Balancer REST API Reference](https://msdn.microsoft.com/library/azure/mt163651.aspx)
+###<a name="rest"></a>REST
+[부하 분산 장치 REST API 참조](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Load Balancer Documentation
-        </div>
+부하 분산 장치 설명서 다운로드 </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

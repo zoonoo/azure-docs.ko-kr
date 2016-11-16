@@ -1,7 +1,6 @@
 # [개요](mobile-engagement-overview.md)
 ## [관련 서비스와 비교](mobile-engagement-comparison.md)
 ## [기능 개요](mobile-engagement-key-features.md)
-## [가격 책정](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 
 # 시작
 ## [Android](mobile-engagement-android-get-started.md)
@@ -117,28 +116,27 @@
 ### [서비스 한도](../azure-subscription-service-limits.md#mobile-engagement-limits)
 
 # 참조
-## [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
-## [REST API 참조](https://msdn.microsoft.com/en-us/library/azure/mt683754)
-## [REST API Swagger 사양](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)
+## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
 ## SDK 콘텐츠
 ### [Android SDK](mobile-engagement-android-sdk-content.md)
 ### [iOS SDK](mobile-engagement-ios-sdk-content.md)
 ### [Windows 유니버설 앱 SDK](mobile-engagement-windows-store-sdk-content.md)
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-sdk-content.md)
-
-# 관련 항목
-
-# 리소스
-## [데모 앱 샘플](mobile-engagement-demo-apps.md)
-## [.NET API 샘플](mobile-engagement-dotnet-sdk-service-api.md)
-## [동영상 및 업데이트](https://azure.microsoft.com/documentation/services/mobile-engagement/)
-## [Service Level Agreement(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
 ## 릴리스 정보
 ### [Android SDK](mobile-engagement-android-release-notes.md)
 ### [iOS SDK](mobile-engagement-ios-release-notes.md)
 ### [웹 SDK](mobile-engagement-web-release-notes.md)
 ### [Windows 유니버설 앱 SDK](mobile-engagement-windows-store-release-notes.md)
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-release-notes.md)
+
+
+# 리소스
+## [가격 책정](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [데모 앱 샘플](mobile-engagement-demo-apps.md)
+## [.NET API 샘플](mobile-engagement-dotnet-sdk-service-api.md)
+## [동영상 및 업데이트](https://azure.microsoft.com/documentation/services/mobile-engagement/)
+## [Service Level Agreement(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+
 
 
 

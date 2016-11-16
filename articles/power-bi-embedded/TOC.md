@@ -5,8 +5,9 @@
 # 시작
 ## [Power BI Embedded 시작](power-bi-embedded-get-started.md)
 ## [샘플 시작](power-bi-embedded-get-started-sample.md)
+## [FAQ](power-bi-embedded-faq.md)
 
-# 방법 
+# 방법
 ## 계획 및 디자인
 ### [일반적인 시나리오](power-bi-embedded-scenarios.md)
 
@@ -20,19 +21,17 @@
 ### [Power BI Embedded를 사용하는 행 수준 보안](power-bi-embedded-rls.md)
 
 # 참조
-## [.NET API 참조](https://msdn.microsoft.com/en-us/library/azure/mt669800)
-## [JavaScript SDK](https://github.com/Microsoft/PowerBI-JavaScript)
-## [REST API 참조](https://msdn.microsoft.com/en-us/library/azure/mt712303)
+## [PowerShell](/powershell/resourcemanager/)
+## [.NET](/dotnet/api/)
 ## [.NET SDK 다운로드](https://www.nuget.org/profiles/powerbi)
+## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [REST (영문)](/rest/api/powerbiembedded/)
 
-# 관련 항목 
 
 # 리소스
-## [FAQ](power-bi-embedded-faq.md)
 ## [샘플](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Power BI 커뮤니티](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/powerbi)
-
 
 
 <!--HONumber=Nov16_HO2-->

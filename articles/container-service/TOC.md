@@ -1,5 +1,5 @@
 # 개요
-## [ACS 소개](container-service-intro.md)
+## [Azure Container Service란?](container-service-intro.md)
 # 시작
 
 ## [ACS 클러스터 배포](container-service-deployment.md)
@@ -21,12 +21,11 @@
 ### [Docker Swarm 개요](container-service-docker-swarm.md)
 
 # 참조
-
-## [REST API](https://go.microsoft.com/fwlink/p/?linkid=833499)
+## [REST API](https://docs.microsoft.com/rest/api/compute/containerservices/)
 
 # 리소스
-
 ## [지역 가용성](https://azure.microsoft.com/regions/services/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/container-service/)
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 

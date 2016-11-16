@@ -37,11 +37,13 @@
 ### [Vertex 실행 보기 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # 참조
-## [.NET SDK](https://msdn.microsoft.com/library/azure/mt572197(Azure.100).aspx)
-## [PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt607124.aspx)
-## [U-SQL 언어 참조](https://msdn.microsoft.com/library/azure/mt591959(Azure.100).aspx)
-## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
+## [PowerShell](/powershell/resourcemanager/)
+## [Java](/java/api/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
+## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959(Azure.100))
+## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [REST (영문)](/rest/api/datalakeanalytics/)
 
 # 리소스
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataLake)

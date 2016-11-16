@@ -55,6 +55,9 @@
 ## 개발
 ### [첫 번째 웹앱에 기능 추가](app-service-web-get-started-2.md)
 ### [Linux에서 웹앱 만들기](app-service-linux-how-to-create-a-web-app.md)
+### [App Service 참조](app-service-changes-existing-services.md)
+### [Azure Portal](app-service-web-app-azure-portal.md)
+### [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### ASP.NET 앱
 #### [5분 내에 Azure에 첫 번째 .NET 웹앱 배포](app-service-web-get-started-dotnet.md)
@@ -243,9 +246,10 @@
 ### [웹앱 성능 문제 해결](app-service-web-troubleshoot-performance-degradation.md)
 
 # 참조
-## [App Service 참조](app-service-changes-existing-services.md)
-## [Azure Portal](app-service-web-app-azure-portal.md)
-## [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
+## [Azure CLI](/cli/azure/)
+## [Java](/java/api/)
+## [.NET](/dotnet/api)
+## [REST (영문)](/rest/api/appservice)
 
 # 관련 항목
 ## [Azure SDK for .NET 릴리스 정보](azure-sdk-dotnet-release-notes.md)

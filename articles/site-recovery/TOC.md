@@ -48,6 +48,10 @@
 ### [VMware VM 및 물리적 서버 장애 복구(failback)](site-recovery-failback-azure-to-vmware.md)
 ## [모니터링 및 문제 해결](site-recovery-monitoring-and-troubleshooting.md)
 
+# 참조
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell 클래식](/powershell/servicemanagement/)
+
 # 관련 항목
 ## [Azure Automation](/azure/automation/)
 
@@ -56,6 +60,7 @@
 ## [포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 ## [블로그](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/site-recovery/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
 <!--HONumber=Nov16_HO2-->

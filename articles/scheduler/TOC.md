@@ -14,18 +14,22 @@
 
 ## 개발
 ### [REST API를 사용하는 복잡한 일정](scheduler-advanced-complexity.md)
+### [개념 및 용어](scheduler-concepts-terms.md)
 
 ## 보안
 ### [아웃바운드 인증](scheduler-outbound-authentication.md)
 
 # 참조
-## [개념 및 용어](scheduler-concepts-terms.md)
-## [REST API](https://msdn.microsoft.com/library/azure/mt629143)
-## [PowerShell cmdlet](scheduler-powershell-reference.md)
+## [Azure 스케줄러 PowerShell cmdlet](https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx)
+## [.NET](/dotnet/api)
+## [REST (영문)](/rest/api/scheduler/)
 
 # 리소스
-## [Scheduler 비디오](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+## [포럼](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=scheduler)
+## [가격 책정](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-scheduler)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
 
 
 <!--HONumber=Nov16_HO2-->

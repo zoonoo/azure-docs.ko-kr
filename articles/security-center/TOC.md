@@ -1,17 +1,14 @@
 # 개요
 ## [Azure Security Center란?](security-center-intro.md)
-## [서비스 개요](https://azure.microsoft.com/services/security-center/)
-## [가격 책정](security-center-pricing.md)
-## [FAQ](security-center-faq.md)
 ## [Power BI를 통해 통찰력 얻기](security-center-powerbi.md)
 ## [데이터 보안](security-center-data-security.md)
-## 일반적인 시나리오
+## 시나리오
 ### [사고 대응](security-center-incident-response.md)
 
 # 시작
 ## [빠른 시작](security-center-get-started.md)
 ## [계획 및 작업](security-center-planning-and-operations-guide.md)
-## [Security Center 및 SQL Database](security-center-sql-database.md)
+## [FAQ](security-center-faq.md)
 
 # 방법
 
@@ -59,10 +56,14 @@
 ## [REST API](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # 관련 항목
-## [Azure 보안 정보](../security/azure-security-getting-started.md)
+## [Azure 보안](/azure/security/)
 
 # 리소스
 ## [Azure 보안, 개인 정보 보호 및 규정 준수 블로그](http://blogs.msdn.com/b/azuresecurity/)
+## [가격 책정](security-center-pricing.md)
+## [서비스 개요](https://azure.microsoft.com/services/security-center/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=security-center)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
 <!--HONumber=Nov16_HO2-->

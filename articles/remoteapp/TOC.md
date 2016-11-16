@@ -64,6 +64,12 @@
 ### [하이브리드 컬렉션 문제 해결](remoteapp-hybridtrouble.md)
 ### [클라우드 컬렉션 문제 해결](remoteapp-cloudtrouble.md)
 
+# 리소스
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=remoteapp)
+## [가격 책정](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
+
 
 <!--HONumber=Nov16_HO2-->
 

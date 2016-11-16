@@ -43,28 +43,28 @@
 
 
 # 참조
-## [API-Resource Manager](https://msdn.microsoft.com/library/azure/mt586720)
-## [API-서비스 관리](https://msdn.microsoft.com/library/azure/dn606310)
-## [PowerShell Cmdlet-Resource Manager](https://msdn.microsoft.com/library/azure/mt163510(v=azure.300))
-## [PowerShell Cmdlets-서비스 관리](https://msdn.microsoft.com/library/azure/dn683813)
+
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
 ## [라우터 구성 설정 샘플](expressroute-config-samples-routing.md)
 ## [NAT에 대한 라우터 구성 샘플](expressroute-config-samples-nat.md)
+## [REST (영문)](https://msdn.microsoft.com/library/azure/mt586720)
+## [클래식 REST](https://msdn.microsoft.com/library/azure/dn606310)
 
-# 관련 항목 
-## [가상 네트워크](../virtual-network/index.md)
-## [VPN Gateway](../vpn-gateway/index.md)
-## [가상 컴퓨터](../virtual-machines/index.md)
-## [부하 분산 장치](../load-balancer/index.md)
-## [트래픽 관리자](../traffic-manager/index.md)
+# 관련 항목
+## [가상 네트워크](/azure/virtual-network/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [가상 컴퓨터](/azure/virtual-machines/)
+## [부하 분산 장치](/azure/load-balancer/)
+## [트래픽 관리자](/azure/traffic-manager/)
 
 # 리소스
+## [가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [네트워킹 블로그](https://azure.microsoft.com/blog/topics/networking/)
 ## [사례 연구](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
-## [가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [구독 및 서비스 한도](../azure-subscription-service-limits.md)
-## 비디오
-### [Express 경로 회로 만들기](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=expressroute) 
+### [ExpressRoute 회로 만들기](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [회로에 대해 개인 피어링을 설정하는 방법](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
 ### [회로에 대해 공용 피어링 설정](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)
 ### [회로에 대해 Microsoft 피어링 설정](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/)
@@ -73,6 +73,7 @@
 ### [가상 네트워크 게이트웨이를 서킷에 연결](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [연결성을 위한 네트워크 인프라 발전](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [하이브리드 파트너: 온-프레미스 시나리오 사용](https://go.microsoft.com/fwlink/p/?LinkId=615125)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=expressroute) 
 
 <!--HONumber=Nov16_HO2-->
 

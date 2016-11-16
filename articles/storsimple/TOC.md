@@ -57,7 +57,7 @@
 #### [8600 압축 풀기, 랙, 케이블](storsimple-8600-hardware-installation.md)
 #### [10GbE 네트워크 인터페이스에 지원되는 하드웨어](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### 배포 
+### 배포
 #### [StorSimple Manager 서비스](storsimple-manage-service.md)
 #### [Azure의 물리적 장치 - 현재](storsimple-deployment-walkthrough-u2.md)
 ##### [Azure의 물리적 장치 - 업데이트 1](storsimple-deployment-walkthrough-u1.md)
@@ -68,7 +68,7 @@
 #### [SharePoint용 StorSimple 어댑터](storsimple-adapter-for-sharepoint.md)
 
 ## 방법
-### 관리 
+### 관리
 #### [StorSimple Manager 서비스 사용](storsimple-manager-service-administration.md)
 ##### [백업에서 복구](storsimple-restore-from-backup-set-u2.md)
 ###### [백업에서 복구](storsimple-restore-from-backup-set.md)
@@ -160,18 +160,20 @@
 ### [릴리스 - GA](storsimple-july-2014-release-notes.md)
 
 ## 참조
-### [Azure PowerShell cmdlet 참조](https://msdn.microsoft.com/en-us/library/azure/dn920427)
-### [StorSimple용 Windows PowerShell cmdlet 참조](https://technet.microsoft.com/library/dn688168.aspx)
+### [PowerShell](/powershell/servicemanagement/)
 
-# [StorSimple 5000-7000 시리즈](http://onlinehelp.storsimple.com)
+# 관련 항목
+## [StorSimple 5000-7000 시리즈](http://onlinehelp.storsimple.com)
 
 # 리소스
-## [Azure 블로그](https://azure.microsoft.com/blog/)
 ## [포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [마케팅 블로그](http://blogs.technet.com/b/cis/)
-## [Marketing](https://www.microsoft.com/en-us/server-cloud/products/storsimple/explore.aspx)
+## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [지원 블로그](http://blogs.msdn.com/b/storsimple/)
 ## [타사 알림](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=storsimple)
+## [가격 책정](https://azure.microsoft.com/pricing/details/storsimple/)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
 <!--HONumber=Nov16_HO2-->
