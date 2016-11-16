@@ -1,11 +1,12 @@
 # 개요
-## [Hadoop이란?](hdinsight-hadoop-introduction.md)
-## [R Server란?](hdinsight-hadoop-r-server-overview.md)
-## [Spark란?](hdinsight-apache-spark-overview.md)
-## [HBase 정의](hdinsight-hbase-overview.md)
-## [Storm 정의](hdinsight-storm-overview.md)
-## [도메인에 가입된 HDInsight 미리 보기란?](hdinsight-domain-joined-introduction.md)
+## [Hadoop](hdinsight-hadoop-introduction.md)
 ## [HDInsight의 Hadoop 구성 요소](hdinsight-component-versioning.md)
+## [R Server](hdinsight-hadoop-r-server-overview.md)
+## [Apache Spark](hdinsight-apache-spark-overview.md)
+## [HBase](hdinsight-hbase-overview.md)
+## [Apache Storm](hdinsight-storm-overview.md)
+## [도메인에 가입된 HDInsight 미리 보기](hdinsight-domain-joined-introduction.md)
+
 # 시작
 ## [Hadoop으로 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [대화형 Hive 미리 보기 시작](hdinsight-hadoop-use-interactive-hive.md)
@@ -13,14 +14,13 @@
 ## [Spark로 시작](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [HBase 및 NoSQL로 시작](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Storm으로 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)
-## [클러스터 삭제](hdinsight-delete-cluster.md)
 ## [Hadoop 샌드박스](hdinsight-hadoop-emulator-get-started.md)
 ## [Hortonworks 샌드박스를 사용한 Data Lake 도구](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Visual Studio용 도구](hdinsight-hadoop-visual-studio-tools-get-started.md)
 ## [Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)
-## [학습 패스](https://azure.microsoft.com/en-us/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+
 # 방법
-## Hadoop: 배치 쿼리
+## 쿼리 일괄 처리에 Hadoop 사용
 ### [Hadoop과 Hive](hdinsight-use-hive.md)
 #### [Hive View 사용](hdinsight-hadoop-use-hive-ambari-view.md)
 #### [SSH 사용](hdinsight-hadoop-use-hive-ssh.md)
@@ -32,13 +32,13 @@
 #### [원격 데스크톱 사용](hdinsight-hadoop-use-hive-remote-desktop.md)
 #### [쿼리 콘솔 사용](hdinsight-hadoop-use-hive-query-console.md)
 ### [Hive와 함께 Java UDF 사용](hdinsight-hadoop-hive-java-udf.md)
-### [Hadoop과 MapReduce](hdinsight-use-mapreduce.md)
+### [Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 #### [원격 데스크톱 사용](hdinsight-hadoop-use-mapreduce-remote-desktop.md)
 #### [SSH 사용](hdinsight-hadoop-use-mapreduce-ssh.md)
 #### [cURL 사용](hdinsight-hadoop-use-mapreduce-curl.md)
 #### [PowerShell 사용](hdinsight-hadoop-use-mapreduce-powershell.md)
-### [MapReduce 샘플](hdinsight-hadoop-run-samples-linux.md)
-### [Hadoop과 Pig](hdinsight-use-pig.md)
+### [MapReduce 샘플 실행](hdinsight-hadoop-run-samples-linux.md)
+### [Hadoop에서 Pig 사용](hdinsight-use-pig.md)
 #### [원격 데스크톱 사용](hdinsight-hadoop-use-pig-remote-desktop.md)
 #### [SSH 및 Pig 사용](hdinsight-hadoop-use-pig-ssh.md)
 #### [PowerShell 사용](hdinsight-hadoop-use-pig-powershell.md)
@@ -47,11 +47,11 @@
 ### [Pig와 함께 DataFu 사용](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [주문형 클러스터](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)
-## R Server 미리 보기
+## R Server 미리 보기 사용
 ### [저장소 옵션](hdinsight-hadoop-r-server-storage.md)
 ### [RStudio 설치](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [컨텍스트 계산](hdinsight-hadoop-r-server-compute-contexts.md)
-## Spark: 메모리 내 처리
+## 메모리 내 처리에 Spark 사용
 ### [BI 도구와 함께](hdinsight-apache-spark-use-bi-tools.md)
 ### [독립 실행형 앱](hdinsight-apache-spark-create-standalone-application.md)
 ### [스트리밍 이벤트 프로세스](hdinsight-apache-spark-eventhub-streaming.md)
@@ -67,7 +67,7 @@
 ### [리소스 관리](hdinsight-apache-spark-resource-manager.md)
 ### [작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 ### [알려진 문제](hdinsight-apache-spark-known-issues.md)
-## HBase: NoSQL
+## HBase 사용
 ### [Phoenix 및 SQLLine 사용](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [실시간 트윗 분석](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [가상 네트워크의 클러스터 만들기](hdinsight-hbase-provision-vnet.md)
@@ -75,7 +75,7 @@
 ### [DNS 서버 구성](hdinsight-hbase-geo-replication-configure-dns.md)
 ### [HBase 지역에서 복제 구성](hdinsight-hbase-geo-replication.md)
 ### [Java 사용하여 앱 개발](hdinsight-hbase-build-java-maven-linux.md)
-## Storm: 스트림 쿼리
+## Storm 사용
 ### [토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)
 ### [SCP에서 데이터 처리 앱 개발](hdinsight-storm-scp-programming-guide.md)
 ### [Storm 예](hdinsight-storm-example-topology.md)
@@ -90,7 +90,7 @@
 #### [프로세스 차량 센서 데이터](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [시간 경과에 따른 이벤트 간의 상관 관계](hdinsight-storm-correlation-topology.md)
 #### [Python을 사용하여 토폴로지 개발](hdinsight-storm-develop-python-topology.md)
-## 도메인에 가입된 HDInsight 미리 보기
+## 도메인에 가입된 HDInsight 미리 보기 사용
 ### [구성](hdinsight-domain-joined-configure.md)
 ### [관리](hdinsight-domain-joined-manage.md)
 ### [Hive 정책 구성](hdinsight-domain-joined-run-hive.md)
@@ -104,7 +104,7 @@
 ### [Avro 라이브러리를 사용하여 데이터 직렬화](hdinsight-dotnet-avro-serialization.md)
 ### [C# 사용자 정의 함수 사용](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 ### [Hive 및 Pig에서 Python 사용](hdinsight-python.md)
-## 빅 데이터 솔루션
+## 빅 데이터 분석
 ### [파워 쿼리를 사용하여 분석](hdinsight-connect-excel-power-query.md)
 ### [Hadoop에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)
 ### [Hive JDBC 드라이버를 사용하여 연결](hdinsight-connect-hive-jdbc-driver.md)
@@ -125,7 +125,7 @@
 ### [Solr 사용](hdinsight-hadoop-solr-install-linux.md)
 ### [Virtual Network 사용](hdinsight-extend-hadoop-virtual-network.md)
 ### [Zeppelin 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
-### HDInsight 응용 프로그램
+### HDInsight 응용 프로그램 빌드
 #### [HDInsight 앱 설치](hdinsight-apps-install-applications.md)
 #### [사용자 지정 앱 설치](hdinsight-apps-install-custom-applications.md)
 #### [REST를 사용하여 앱 설치](https://msdn.microsoft.com/library/mt706515.aspx)
@@ -172,6 +172,7 @@
 #### [Hive 설정 수정 메모리 부족 오류](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md)
 #### [Hive 쿼리 성능](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
+
 # 참조
 ## [REST API 참조](https://msdn.microsoft.com/library/mt622197.aspx)
 ## [원격 작업에 대한 Spark REST API](https://msdn.microsoft.com/library/mt613023.aspx)
@@ -179,8 +180,8 @@
 ## [Hadoop용 .NET SDK](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [HBase용 .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET library for Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-# 리소스
-## [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
+
+# 관련 항목
 ## Windows 클러스터
 ### [Linux 클러스터로 Windows 클러스터 마이그레이션](hdinsight-migrate-from-windows-to-linux.md)
 ### [Hadoop으로 시작](hdinsight-hadoop-tutorial-get-started-windows.md)
@@ -189,7 +190,7 @@
 ### [HDInsight 샘플 갤러리](hdinsight-learn-hadoop-use-sample-gallery.md)
 ### [Hadoop MapReduce 샘플 실행](hdinsight-run-samples.md)
 ### [Hadoop 클러스터 만들기](hdinsight-provision-clusters.md)
-#### [Azure Portal 사용](hdinsight-hadoop-create-windows-clusters-portal.md)
+#### [Azure 포털 사용](hdinsight-hadoop-create-windows-clusters-portal.md)
 #### [.NET SDK 사용](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
 #### [Azure CLI 사용](hdinsight-hadoop-create-windows-clusters-cli.md)
 #### [Azure PowerShell 사용](hdinsight-hadoop-create-windows-clusters-powershell.md)
@@ -210,6 +211,11 @@
 ### [Hadoop을 사용하여](hdinsight-analyze-twitter-data.md)
 ### [Azure 포털을 사용하여 클러스터 관리](hdinsight-administer-use-management-portal.md)
 ### [Ambari API를 사용하여 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md)
+
+# 리소스
+## [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
+## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+
 
 <!--HONumber=Nov16_HO2-->
 

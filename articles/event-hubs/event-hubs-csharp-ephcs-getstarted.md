@@ -1,12 +1,12 @@
 ---
-title: C#에서 이벤트 허브 시작 | Microsoft Docs
-description: 이 자습서에 따라 EventProcessorHost를 통해 C#과 함께 Azure 이벤트 허브를 사용할 수 있습니다.
+title: "C#로 작성된 Event Hubs 시작 | Microsoft Docs"
+description: "이 자습서에 따라 EventProcessorHost를 통해 C#과 함께 Azure 이벤트 허브를 사용할 수 있습니다."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 2ec2378a-34f7-44c3-b976-cc444c98c338
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/02/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 35a7e4693ef979dfb947714f2fe5ce5599991189
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>이벤트 허브 시작
@@ -22,7 +26,7 @@ ms.author: jotaub;sethm
 ## <a name="introduction"></a>소개
 이벤트 허브는 연결된 장치 및 응용 프로그램에서 많은 양의 이벤트 데이터(원격 분석)를 처리하는 서비스입니다. 이벤트 허브에 데이터를 수집한 후 저장소 클러스터를 사용하여 데이터를 저장하거나 실시간 분석 공급자를 사용하여 변환할 수 있습니다. 이 대규모 이벤트 수집 및 처리 기능은 IoT(사물 인터넷)를 포함하여 최신 응용 프로그램 아키텍처의 핵심 구성 요소입니다.
 
-이 자습서에서는 Azure 클래식 포털을 사용하여 이벤트 허브를 만드는 방법을 보여 줍니다. 또한 C#으로 작성한 콘솔 응용 프로그램을 사용하여 이벤트 허브에 메시지를 수집하는 방법 및 C# [이벤트 프로세서 호스트][이벤트 프로세서 호스트] 라이브러리를 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다.
+이 자습서에서는 Azure 클래식 포털을 사용하여 이벤트 허브를 만드는 방법을 보여 줍니다. 또한 C#으로 작성한 콘솔 응용 프로그램을 사용하여 이벤트 허브에 메시지를 수집하는 방법 및 C# [이벤트 프로세서 호스트][Event Processor Host] 라이브러리를 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -61,9 +65,9 @@ ms.author: jotaub;sethm
 ## <a name="next-steps"></a>다음 단계
 이제 이벤트 허브를 만들고 데이터를 보내고 받는 작업 중인 응용 프로그램을 구축했으므로 다음 시나리오로 진행할 수 있습니다.
 
-* [이벤트 허브를 사용하는 샘플 응용 프로그램][이벤트 허브를 사용하는 샘플 응용 프로그램]전체.
-* [이벤트 허브를 사용하는 이벤트 처리 확장][이벤트 허브를 사용하는 이벤트 처리 확장] 샘플
-* [이벤트 허브 개요][이벤트 허브 개요]
+* 전체 [Event Hubs를 사용하는 샘플 응용 프로그램][sample application that uses Event Hubs].
+* [Event Hubs를 사용하는 이벤트 처리 확장][Scale out Event Processing with Event Hubs] 샘플.
+* [Event Hubs 개요][Event Hubs overview]
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
@@ -82,6 +86,6 @@ ms.author: jotaub;sethm
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

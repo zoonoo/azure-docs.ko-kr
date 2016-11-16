@@ -1,19 +1,23 @@
 ---
-title: Visual Studio에서 서비스 패브릭 응용 프로그램 처음 만들기 | Microsoft Docs
-description: Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 만들기, 배포 및 디버깅
+title: "Visual Studio에서 서비스 패브릭 응용 프로그램 처음 만들기 | Microsoft Docs"
+description: "Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 만들기, 배포 및 디버깅"
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2016
+ms.date: 10/26/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>첫 번째 Azure Service Fabric 응용 프로그램 만들기
@@ -32,7 +36,7 @@ ms.author: ryanwi
 ## <a name="video-walkthrough"></a>연습 동영상
 다음 동영상은 이 자습서의 단계를 설명합니다.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!비디오 https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
@@ -71,11 +75,11 @@ ms.author: ryanwi
 1. Visual Studio에서 F5 키를 눌러 응용 프로그램을 디버깅하기 위해 배포합니다.
    
    > [!NOTE]
-   > Visual Studio가 개발에 로컬 클러스터를 만들기 때문에 처음으로 배포하는 데 시간이 걸립니다. 로컬 클러스터는 단일 컴퓨터의 다중 컴퓨터 클러스터에 빌드된 동일한 플랫폼 코드를 실행합니다. Visual Studio 출력 창에 클러스터 만들기 상태가 표시됩니다.
+   > Visual Studio가 개발에 로컬 클러스터를 만들기 때문에 처음으로 배포하는 데 시간이 걸립니다. 로컬 클러스터는 다중 컴퓨터 클러스터에서 빌드한 동일한 플랫폼 코드를 단일 컴퓨터에서만 실행합니다. Visual Studio 출력 창에 클러스터 만들기 상태가 표시됩니다.
    > 
    > 
    
-    클러스터가 준비되면 SDK가 포함된 로컬 클러스터 시스템 트레이 관리자 응용 프로그램에서 알림을 받게 됩니다.
+    클러스터가 준비되면 SDK를 포함한 로컬 클러스터 시스템 트레이 관리자 응용 프로그램에서 알림을 받습니다.
    
     ![로컬 클러스터 시스템 트레이 알림][4]
 2. 응용 프로그램이 시작되면 Visual Studio는 진단 이벤트 뷰어를 자동으로 표시하며 서비스에서 추적 출력을 확인할 수 있습니다.
@@ -96,7 +100,7 @@ ms.author: ryanwi
 4. StatefulService(예: MyStatefulService)에서 파생되는 서비스 프로젝트에서 클래스를 찾고 `RunAsync` 메서드의 첫 줄에 중단점을 설정합니다.
    
     ![상태 저장 서비스 RunAsync 메서드의 중단점][7]
-5. Service Fabric Explorer를 시작하기 위해 로컬 클러스터 관리자 시스템 트레이 앱을 마우스 오른쪽 단추로 클릭하고 **로컬 클러스터 관리** 를 선택합니다.
+5. 로컬 클러스터 관리자 시스템 트레이 앱을 마우스 오른쪽 단추로 클릭하고 **로컬 클러스터 관리**를 선택하여 Service Fabric Explorer를 시작합니다.
    
     ![로컬 클러스터 관리자에서 서비스 패브릭 탐색기 시작][systray-launch-sfx]
    
@@ -107,16 +111,16 @@ ms.author: ryanwi
     ![서비스 패브릭 탐색기에서 노드 중지][sfx-stop-node]
    
     한 노드에서 원활하게 수행한 계산이 다른 노드에 장애 조치되면 일시적으로 Visual Studio에서 중단점을 확인해야 합니다.
-8. 진단 이벤트 뷰어로 돌아가서 메시지를 관찰합니다. 이벤트가 실제로 다른 노드에서 들어오더라도 카운터는 계속 증분합니다.
+8. 진단 이벤트 뷰어로 돌아가서 메시지를 관찰합니다. 실제로 다른 노드에서 이벤트가 들어오더라도 카운터는 계속 증분합니다.
    
     ![장애 조치 후 진단 이벤트 뷰어][diagnostic-events-viewer-detail-post-failover]
 
 ## <a name="switch-cluster-mode"></a>클러스터 모드 전환
-기본적으로 로컬 개발 클러스터는 여러 노드에 배포된 서비스를 디버깅하는 데 유용한 5개의 노드 클러스터로 실행되도록 구성됩니다. 그러나 응용 프로그램을 개발 5개의 노드 개발 클러스터에 배포하는 데는 시간이 걸릴 수 있습니다. 5개의 노드에서 앱을 실행하지 않고도 코드 변경 내용을 신속하게 반복하려는 경우 개발 클러스터를 1개의 노드 모드로 전환할 수 있습니다. 하나의 노드가 있는 클러스터에서 코드를 실행하려면 시스템 트레이에서 로컬 클러스터 관리자를 마우스 오른쪽 단추로 클릭하고 **클러스터 모드 전환 -> 1개의 노드**를 선택합니다.  
+기본적으로 로컬 개발 클러스터는 5개 노드 클러스터로 실행되도록 구성되며, 이렇게 하면 여러 노드에 배포된 서비스를 디버깅하는 데 유용합니다. 그러나 응용 프로그램을 개발 5개의 노드 개발 클러스터에 배포하는 데는 시간이 걸릴 수 있습니다. 5개의 노드에서 앱을 실행하지 않고도 코드 변경 내용을 신속하게 반복하려는 경우 개발 클러스터를 1개의 노드 모드로 전환할 수 있습니다. 하나의 노드가 있는 클러스터에서 코드를 실행하려면 시스템 트레이에서 로컬 클러스터 관리자를 마우스 오른쪽 단추로 클릭하고 **클러스터 모드 전환 -> 1개의 노드**를 선택합니다.  
 
 ![클러스터 모드 전환][switch-cluster-mode]
 
-클러스터 모드를 변경하면 개발 클러스터가 다시 설정되고 프로비전되거나 클러스터에서 실행 중인 모든 응용 프로그램이 제거됩니다.
+클러스터 모드를 변경하면 개발 클러스터가 다시 설정되고 클러스터에서 프로비전되거나 실행 중인 모든 응용 프로그램이 제거됩니다.
 
 ## <a name="cleaning-up"></a>정리
   마무리하기 전에, 로컬 클러스터가 실제로 존재한다는 것을 기억하는 것이 중요합니다. 디버거를 중지하면 응용 프로그램 인스턴스를 제거하고 응용 프로그램 형식의 등록을 취소합니다. 하지만 클러스터는 백그라운드에서 계속 실행됩니다. 클러스터를 관리하는 몇 가지 옵션이 있습니다.
@@ -147,6 +151,6 @@ ms.author: ryanwi
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

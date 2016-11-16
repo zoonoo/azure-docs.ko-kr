@@ -53,18 +53,20 @@
 # 참조
 ## [가격 정보](service-bus-pricing-billing.md)
 ## [샘플](service-bus-samples.md)
-## [.NET API 참조](https://msdn.microsoft.com/library/azure/jj933424)
-## [REST API 참조](https://msdn.microsoft.com/library/azure/hh780717)
 ## [예외](service-bus-messaging-exceptions.md)
 ## [할당량](service-bus-quotas.md)
+## [.NET](/dotnet/api/)
+## [REST (영문)](/rest/api/servicebus/)
 
 # 리소스
 ## [블로그](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)
-## [학습 패스](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
+## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-bus)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
 <!--HONumber=Nov16_HO2-->

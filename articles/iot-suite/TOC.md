@@ -2,7 +2,7 @@
 ## [Azure 및 IoT](iot-suite-what-is-azure-iot.md)
 ## [IoT Suite란?](iot-suite-overview.md)
 ## [미리 구성된 솔루션이란?](iot-suite-what-are-preconfigured-solutions.md)
-## [IoT Suite 학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+
 
 # 시작
 ## [미리 구성된 솔루션 시작](iot-suite-getstarted-preconfigured-solutions.md)
@@ -28,13 +28,14 @@
 ## [처음부터 보안을 고려](securing-iot-ground-up.md)
 
 # 관련 항목
-## [스트림 분석](https://azure.microsoft.com/services/stream-analytics/)
-## [이벤트 허브](https://azure.microsoft.com/services/event-hubs/)
-## [IoT 허브](https://azure.microsoft.com/services/iot-hub/)
-## [기계 학습](https://azure.microsoft.com/services/machine-learning/)
+## [스트림 분석](/azure/stream-analytics/)
+## [이벤트 허브](/azure/event-hubs/)
+## [IoT 허브](/azure/iot-hub/)
+## [기계 학습](/azure/machine-learning/)
 
 # 리소스
 ## [FAQ](iot-suite-faq.md)
+## [IoT Suite 학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 
 
 

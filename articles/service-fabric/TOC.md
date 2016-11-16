@@ -184,15 +184,18 @@
 ## [데이터](https://go.microsoft.com/fwlink/p/?linkid=833404)
 ## [데이터 인터페이스](https://go.microsoft.com/fwlink/p/?linkid=833406)
 ## [시스템](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [PowerShell](https://go.microsoft.com/fwlink/p/?linkid=833408)
-## [REST API](https://go.microsoft.com/fwlink/p/?LinkID=532910)
-## [Java API](https://go.microsoft.com/fwlink/p/?linkid=833410)
 ## [샘플 코드](http://aka.ms/servicefabricsamples)
+## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
+## [Java API](https://go.microsoft.com/fwlink/p/?linkid=833410)
+## [.NET](/dotnet/api)
+## [REST (영문)](/rest/api/servicefabric/)
 
 # 리소스
-## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-fabric&updatetype=&platform=)
+## [학습 패스](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
 <!--HONumber=Nov16_HO2-->

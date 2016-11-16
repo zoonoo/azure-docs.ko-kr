@@ -1,12 +1,12 @@
 ---
-title: Xamarin.iOS용 Azure Mobile Engagement 시작
-description: Xamarin.iOS 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다.
+title: "Xamarin.iOS용 Azure Mobile Engagement 시작"
+description: "Xamarin.iOS 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0448209e-fff6-47bd-985c-2cf074bac12f
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 300403fb483818e5eb1851968ef7f36ff0507fb8
+
 
 ---
-# <a name="get-started-with-azure-mobile-engagement-for-xamarin.ios-apps"></a>Xamarin.iOS 앱용 Azure Mobile Engagement 시작
+# <a name="get-started-with-azure-mobile-engagement-for-xamarinios-apps"></a>Xamarin.iOS 앱용 Azure Mobile Engagement 시작
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 이 토픽에서는 Azure Mobile Engagement를 사용하여 앱 사용법을 이해하고 Xamarin.iOS 응용 프로그램의 분할된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다.
@@ -32,15 +36,15 @@ ms.author: piyushjo
 > 
 > 
 
-## <a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>iOS 앱용 Mobile Engagement 설정
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>iOS 앱용 Mobile Engagement 설정
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
 이 자습서에서는 데이터를 수집하고 푸시 알림을 보내는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다.
 
 여기서는 통합을 시연하기 위해 Xamarin을 사용하여 기본적인 앱을 만듭니다.
 
-### <a name="create-a-new-xamarin.ios-project"></a>새 Xamarin.iOS 프로젝트 만들기
+### <a name="create-a-new-xamarinios-project"></a>새 Xamarin.iOS 프로젝트 만들기
 1. Xamarin Studio를 시작합니다. **파일** -> **새로 만들기** -> **솔루션**으로 이동합니다. 
    
     ![][1]
@@ -79,7 +83,7 @@ Xamarin Studio가 Mobile Engagement를 통합할 데모 앱을 만듭니다.
                     };
         EngagementAgent.Init (config);
 
-## <a name="<a-id="monitor"></a>enabling-real-time-monitoring"></a><a id="monitor"></a>실시간 모니터링 사용
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>실시간 모니터링 사용
 데이터 보내기를 시작하고 사용자가 활성 상태인지 확인하려면 Mobile Engagement 백 엔드에 화면을 하나 이상 보내야 합니다.
 
 1. **ViewController.cs** 를 열고 다음 using 문을 추가합니다.
@@ -87,10 +91,10 @@ Xamarin Studio가 Mobile Engagement를 통합할 데모 앱을 만듭니다.
         using Microsoft.Azure.Engagement.Xamarin;
 2. `ViewController`이 `UIViewController`에서 `EngagementViewController`로 상속하는 클래스를 대체합니다. 
 
-## <a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>실시간 모니터링과 앱 연결
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>실시간 모니터링과 앱 연결
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="<a-id="integrate-push"></a>enable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
 Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 내 메시징을 사용하여 사용자 및 도달률과 상호 작용할 수 있습니다. Mobile Engagement 포털에서는 이 모듈을 도달률이라고 합니다.
 다음 섹션에서는 이러한 알림과 메시지를 받도록 앱을 설정합니다.
 
@@ -140,7 +144,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
     ![][7]
 5. 동일한 **Info.plist** 파일에서 **백그라운드 모드 사용** 및 **원격 알림**을 선택했는지 확인합니다. 
    
-    ![][8]
+     ![][8]
 6. 이 게시 프로필과 연결한 장치에서 앱을 실행합니다. 
 
 [!INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
@@ -157,6 +161,6 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -12,4 +12,8 @@
 * [MFA를 요구하는 방법](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
 * [감사 로그를 사용하는 방법](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

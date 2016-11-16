@@ -1,22 +1,26 @@
 ---
-title: Azure Media Services를 사용하여 라이브 스트리밍을 수행하여 .NET으로 다중 비트 전송률 스트림을 만드는 방법 | Microsoft Docs
-description: 이 자습서에서는 .NET SDK를 사용하여 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 채널을 만드는 단계를 안내합니다.
+title: "Azure Media Services를 사용하여 라이브 스트리밍을 수행하여 .NET으로 다중 비트 전송률 스트림을 만드는 방법 | Microsoft Docs"
+description: "이 자습서에서는 .NET SDK를 사용하여 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 채널을 만드는 단계를 안내합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/15/2016
+ms.date: 10/12/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98498da5a8aaf10e37c355f05d6f6d83fd4df584
+
 
 ---
-# Azure 미디어 서비스를 사용하여 라이브 스트리밍을 수행하여 .NET으로 다중 비트 스트림을 만드는 방법
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-net"></a>Azure 미디어 서비스를 사용하여 라이브 스트리밍을 수행하여 .NET으로 다중 비트 스트림을 만드는 방법
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -27,12 +31,12 @@ ms.author: juliako;anilmur
 > 
 > 
 
-## 개요
-이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 **채널**을 만드는 단계를 안내합니다.
+## <a name="overview"></a>개요
+이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 **채널** 을 만드는 단계를 안내합니다.
 
 라이브 인코딩에 대해 사용할 수 있는 채널과 관련하여 더욱 개념적인 정보는 [Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 
-## 일반적인 라이브 스트리밍 시나리오
+## <a name="common-live-streaming-scenario"></a>일반적인 라이브 스트리밍 시나리오
 다음 단계에서는 일반적인 라이브 스트리밍 응용 프로그램을 만드는 데 포함되는 작업을 설명합니다.
 
 > [!NOTE]
@@ -41,30 +45,34 @@ ms.author: juliako;anilmur
 > 
 
 1. 비디오 카메라를 컴퓨터에 연결합니다. RTMP, 부드러운 스트리밍 또는 RTP(MPEG-TS) 프로토콜 중 하나에서 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
-   
-    이 단계는 채널을 만든 후에도 수행할 수 있습니다.
-2. 채널을 만들고 시작합니다.
-3. 채널 수집 URL을 검색합니다.
-   
-    수집 URL은 스트림을 채널로 보내기 위해 라이브 인코더를 통해 사용됩니다.
-4. 채널 미리 보기 URL을 검색합니다.
-   
-    이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
-5. 자산을 만듭니다.
-6. 재생하는 동안 자산을 동적으로 암호화하려면 다음을 수행합니다.
-7. 콘텐츠 키를 만듭니다.
-8. 콘텐츠 키의 인증 정책을 구성합니다.
-9. 자산 배달 정책(동적 패키징 및 동적 암호화에서 사용)을 구성합니다.
-10. 프로그램을 만들고 만들어진 자산을 사용하도록 지정합니다.
-11. 주문형 로케이터를 만들어 프로그램과 관련된 자산을 게시합니다.
-    
-     콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
-12. 스트리밍 및 보관을 시작할 준비가 되었으면 프로그램을 시작합니다.
-13. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
-14. 이벤트 스트리밍 및 보관을 중지할 때마다 프로그램을 중지 합니다.
-15. 프로그램을 삭제하고 필요에 따라 자산을 삭제합니다.
 
-## 학습할 내용
+이 단계는 채널을 만든 후에도 수행할 수 있습니다.
+
+1. 채널을 만들고 시작합니다.
+2. 채널 수집 URL을 검색합니다.
+
+수집 URL은 스트림을 채널로 보내기 위해 라이브 인코더를 통해 사용됩니다.
+
+1. 채널 미리 보기 URL을 검색합니다.
+
+이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
+
+1. 자산을 만듭니다.
+2. 재생하는 동안 자산을 동적으로 암호화하려면 다음을 수행합니다.
+3. 콘텐츠 키를 만듭니다.
+4. 콘텐츠 키의 인증 정책을 구성합니다.
+5. 자산 배달 정책(동적 패키징 및 동적 암호화에서 사용)을 구성합니다.
+6. 프로그램을 만들고 만들어진 자산을 사용하도록 지정합니다.
+7. 주문형 로케이터를 만들어 프로그램과 관련된 자산을 게시합니다.
+
+콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
+
+1. 스트리밍 및 보관을 시작할 준비가 되었으면 프로그램을 시작합니다.
+2. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
+3. 이벤트 스트리밍 및 보관을 중지할 때마다 프로그램을 중지 합니다.
+4. 프로그램을 삭제하고 필요에 따라 자산을 삭제합니다.
+
+## <a name="what-youll-learn"></a>학습할 내용
 이 항목에서는 Media Services .NET SDK를 사용하여 채널과 프로그램에 대한 다양한 작업을 실행하는 방법을 보여 줍니다. 많은 작업이 오래 실행되기 때문에 오래 실행되는 작업을 관리하는 .NET API가 사용됩니다.
 
 이 항목에서는 다음을 수행하는 방법을 보여 줍니다.
@@ -78,33 +86,34 @@ ms.author: juliako;anilmur
 7. 슬레이트를 표시하고 숨깁니다. 광고를 시작하고 중지합니다. 오래 실행되는 API가 사용됩니다.
 8. 채널과 모든 연결된 리소스를 정리합니다.
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * 이 자습서를 완료하려면 Azure 계정이 필요합니다.
-  
-    계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요. 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능(예: Azure 앱 서비스의 웹앱 기능)을 사용할 수 있습니다.
-* 미디어 서비스 계정. 미디어 서비스 계정을 만들려면 [계정 만들기](media-services-create-account.md)를 참조하세요.
+
+계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요. 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능(예: Azure 앱 서비스의 웹앱 기능)을 사용할 수 있습니다.
+
+* 미디어 서비스 계정. Media Services 계정을 만들려면 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 * Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 이상 버전.
 * 미디어 서비스 .NET SDK 버전 3.2.0.0 이상을 사용해야 합니다.
 * 단일 비트 전송률 라이브 스트림을 보낼 수 있는 웹캠 및 인코더.
 
-## 고려 사항
+## <a name="considerations"></a>고려 사항
 * 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 오랜 시간 채널을 실행해야 하는 경우 amslived@microsoft.com으로 문의하세요.
 * 콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
 
-## 샘플 다운로드
+## <a name="download-sample"></a>샘플 다운로드
 [여기](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/)에서 샘플을 가져와서 실행합니다.
 
-## .NET용 미디어 서비스 SDK를 사용한 개발을 위한 설정
+## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>.NET용 미디어 서비스 SDK를 사용한 개발을 위한 설정
 1. Visual Studio를 사용하여 콘솔 응용 프로그램을 만듭니다.
 2. 미디어 서비스 NuGet 패키지를 사용하여 .NET용 미디어 서비스 SDK를 콘솔 응용 프로그램에 추가합니다.
 
-## 미디어 서비스에 연결
+## <a name="connect-to-media-services"></a>미디어 서비스에 연결
 app.config 파일을 사용하여 미디어 서비스 이름 및 계정 키를 저장하는 것이 좋습니다.
 
 > [!NOTE]
-> 이름 및 키 값을 찾으려면 Azure 클래식 포털로 이동하여 미디어 서비스 계정을 선택하고 포털 창의 하단에 있는 "키 관리" 아이콘을 클릭합니다. 각 텍스트 상자 옆에 있는 아이콘을 클릭하면 값을 시스템 클립보드에 복사합니다.
+> 이름 및 키 값을 찾으려면 Azure Portal로 이동하여 계정을 선택합니다. 설정 창이 오른쪽에 나타납니다. 설정 창에서 키를 선택합니다. 각 텍스트 상자 옆에 있는 아이콘을 클릭하면 값을 시스템 클립보드에 복사합니다.
 > 
 > 
 
@@ -119,7 +128,7 @@ app.config 파일에 appSettings 섹션을 추가하고 미디어 서비스 계�
     </configuration>
 
 
-## 코드 예제
+## <a name="code-example"></a>코드 예제
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -507,15 +516,20 @@ app.config 파일에 appSettings 섹션을 추가하고 미디어 서비스 계�
     }    
 
 
-## 다음 단계
+## <a name="next-step"></a>다음 단계
 미디어 서비스 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## 피드백 제공
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### 다른 정보를 찾으시나요?
+### <a name="looking-for-something-else"></a>다른 정보를 찾으시나요?
 이 항목이 예상했던 사항을 포함하지 않거나 누락한 경우 또는 일부가 사용자 요구를 충족하지 않은 경우 아래 Disqus 스레드를 사용하여 피드백을 주시기 바랍니다.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -36,7 +36,7 @@
 ### [자동으로 데이터 만료](documentdb-time-to-live.md)
 ### [인덱스 사용자 지정](documentdb-indexing-policies.md)
 ### [데이터에 안전하게 액세스](documentdb-secure-access-to-data.md)
-### [Backup 및 복원](documentdb-online-backup-and-restore.md)
+### [백업 및 복원](documentdb-online-backup-and-restore.md)
 ### [성능 수준](documentdb-performance-levels.md)
 ### [리소스 할당량](documentdb-limits.md)
 ### [할당량 증가](documentdb-increase-limits.md)
@@ -96,8 +96,10 @@
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/documentdb/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-documentdb)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=documentdb) 
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=documentdb) 
 ## [DocumentDB에 물어보기](documentdb-community.md#contact-the-team)
 ## [커뮤니티 포털](documentdb-community.md)
 ## [이벤트 및 기록](documentdb-community.md#events-and-recordings)
@@ -105,7 +107,7 @@
 ## [스키마와 관계 없는 인덱싱 문서](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
 ## [야구를 통해 설명하는 데이터 일관성](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [서적: Node.js 응용 프로그램에서 Microsoft Azure DocumentDB 사용](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
-## [학습 패스](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
+## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
 

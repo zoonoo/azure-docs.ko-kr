@@ -91,8 +91,12 @@
 ### [데이터 팩터리 문제 해결](data-factory-troubleshoot.md)
 ### [데이터 관리 게이트웨이를 사용하여 문제 해결](data-factory-troubleshoot-gateway-issues.md)
 ### [Azure Resource Manager 템플릿을 사용하여 배포](data-factory-how-to-use-resource-manager-templates.md)
-# 참조 
+
+# 참조
 ## [Azure 데이터 팩터리 개발자 참조](data-factory-sdks.md)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
+## [REST (영문)](https://docs.microsoft.com/rest/api/datafactory/)
 
 # 리소스:
 ## [사례 연구](data-factory-customer-case-studies.md)
@@ -103,13 +107,6 @@
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
 ## [기능 요청](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [데이터 관리 게이트웨이에 대한 릴리스 정보](data-factory-gateway-release-notes.md)
-
-
-
-
-
-
-
 
 
 <!--HONumber=Nov16_HO2-->

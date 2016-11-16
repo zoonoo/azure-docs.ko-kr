@@ -9,10 +9,14 @@
     ![](./media/mobile-engagement-create-new-ios-app/xcode-project-props.png)
 
 > [!IMPORTANT]
-> 번들 식별자가 Apple 개발자 콘솔에서 AppId에 대해 정의한 것과 일치하고 해당 인증서가 있는지 확인합니다.
+> 번들 식별자가 Apple 개발자 콘솔에서 AppId에 대해 정의한 것과 일치하고 해당 인증서가 있는지 확인합니다. 
 > 
 > 
 
 그러면 Xcode가 Mobile Engagement를 통합할 데모 앱을 만듭니다.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

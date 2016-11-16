@@ -1,5 +1,5 @@
-# [개요](functions-overview.md)
-
+# 개요
+## [Azure Functions란?](functions-overview.md)
 # 시작
 ## [첫 번째 함수 만들기](functions-create-first-azure-function.md)
 ## [webhook 함수 만들기](functions-create-a-web-hook-or-api-function.md)
@@ -38,10 +38,14 @@
 ## 배포
 ### [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)
 
+# 참조
+## [.NET API](https://msdn.microsoft.com/library/azure/dn961176.aspx)
 
 # 리소스
-## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
+## [가격 책정](https://azure.microsoft.com/pricing/details/functions/)  
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-functions)
+## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
 <!--HONumber=Nov16_HO2-->

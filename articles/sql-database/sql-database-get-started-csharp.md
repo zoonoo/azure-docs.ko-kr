@@ -1,13 +1,13 @@
 ---
-title: 'SQL 데이터베이스 시도: C#을 사용하여 SQL 데이터베이스 만들기 | Microsoft Docs'
-description: SQL 및 C# 앱 개발을 위해 SQL 데이터베이스를 시도하고 .NET용 SQL 데이터베이스 라이브러리를 사용하여 C#으로 Azure SQL 데이터베이스를 만듭니다.
-keywords: sql 시도, sql c#
+title: "SQL Database 시도: C#을 사용하여 SQL Database 만들기 | Microsoft Docs"
+description: "SQL 및 C# 앱 개발을 위해 SQL 데이터베이스를 시도하고 .NET용 SQL 데이터베이스 라이브러리를 사용하여 C#으로 Azure SQL 데이터베이스를 만듭니다."
+keywords: "sql 시도, sql c#"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
+
 
 ---
-# <a name="try-sql-database:-use-c#-to-create-a-sql-database-with-the-sql-database-library-for-.net"></a>SQL 데이터베이스 시도: C#을 사용하여 .NET용 SQL 데이터베이스 라이브러리로 SQL 데이터베이스 만들기
+# <a name="try-sql-database-use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>SQL 데이터베이스 시도: C#을 사용하여 .NET용 SQL 데이터베이스 라이브러리로 SQL 데이터베이스 만들기
 > [!div class="op_single_selector"]
 > * [Azure 포털](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
@@ -27,10 +31,10 @@ ms.author: sstein
 
 C#을 사용하여 [.NET용 Microsoft Azure SQL 관리 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)로 Azure SQL Database를 만드는 방법에 대해 알아봅니다. 이 문서에서는 SQL 및 C#으로 단일 데이터베이스를 만드는 방법을 설명합니다. 탄력적 데이터베이스 풀을 만들려면 [탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-csharp.md)를 참조하세요.
 
-.NET용 Azure SQL Database 관리 라이브러리는 [Resource Manager 기반 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure Resource Manager](../resource-group-overview.md) 기반 API를 제공합니다.
+.NET용 Azure SQL Database 관리 라이브러리는 [Resource Manager 기반 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 기반 API를 제공합니다.
 
 > [!NOTE]
-> SQL Database의 여러 새로운 기능은 [Azure Resource Manager 배포 모델](../resource-group-overview.md)을 사용할 때 지원되므로 최신 **.NET용 SQL Database 관리 라이브러리([문서](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**를 사용해야 합니다. 이전 [클래식 배포 모델 기반 라이브러리](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql)가 이전 버전과만 호환되므로 최신 Resource Manager 기반 라이브러리를 사용하는 것이 좋습니다.
+> SQL Database의 여러 새로운 기능은 [Azure Resource Manager 배포 모델](../azure-resource-manager/resource-group-overview.md)을 사용할 때 지원되므로 최신 **.NET용 SQL Database 관리 라이브러리([문서](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**를 사용해야 합니다. 이전 [클래식 배포 모델 기반 라이브러리](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql)가 이전 버전과만 호환되므로 최신 Resource Manager 기반 라이브러리를 사용하는 것이 좋습니다.
 > 
 > 
 
@@ -61,7 +65,7 @@ C#으로 SQL Database를 만들려면 [패키지 관리자 콘솔](http://docs.n
 > 
 > 
 
-## <a name="create-a-sql-database-server,-firewall-rule,-and-sql-database---c#-example"></a>SQL Database 서버, 방화벽 규칙 및 SQL Database 만들기 - C# 예제
+## <a name="create-a-sql-database-server-firewall-rule-and-sql-database-c-example"></a>SQL Database 서버, 방화벽 규칙 및 SQL Database 만들기 - C# 예제
 다음 샘플은 리소스 그룹, 서버, 방화벽 규칙 및 SQL 데이터베이스를 만듭니다. `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` 변수를 가져오려면 [리소스에 액세스하는 서비스 주체 만들기](#create-a-service-principal-to-access-resources)를 참조하세요.
 
 **Program.cs** 콘텐츠를 다음으로 바꾸고 `{variables}`를 앱 값(`{}`을 포함하지 않음)으로 업데이트합니다.
@@ -288,6 +292,6 @@ C#으로 SQL Database를 만들려면 [패키지 관리자 콘솔](http://docs.n
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

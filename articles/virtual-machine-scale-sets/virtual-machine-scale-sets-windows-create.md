@@ -1,20 +1,24 @@
 ---
-title: PowerShell을 사용하여 가상 컴퓨터 크기 집합 만들기 | Microsoft Docs
-description: PowerShell을 사용하여 가상 컴퓨터 크기 집합 만들기
+title: "PowerShell을 사용하여 가상 컴퓨터 크기 집합 만들기 | Microsoft Docs"
+description: "PowerShell을 사용하여 가상 컴퓨터 크기 집합 만들기"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7bb03323-8bcc-4ee4-9a3e-144ca6d644e2
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2016
+ms.date: 10/18/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+
 
 ---
 # <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Azure PowerShell을 사용하여 Windows 가상 컴퓨터 크기 집합 만들기
@@ -22,41 +26,18 @@ ms.author: davidmu
 
 이 문서의 단계를 수행하려면 약 30분이 걸립니다.
 
-## <a name="step-1:-install-azure-powershell"></a>1단계: Azure PowerShell 설치
+## <a name="step-1-install-azure-powershell"></a>1단계: Azure PowerShell 설치
 최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
-## <a name="step-2:-create-resources"></a>2단계: 리소스 만들기
+## <a name="step-2-create-resources"></a>2단계: 리소스 만들기
 새 크기 집합에 필요한 리소스를 만듭니다.
 
 ### <a name="resource-group"></a>리소스 그룹
 가상 컴퓨터 크기 집합은 리소스 그룹에 포함되어야 합니다.
 
-1. 사용 가능한 위치와 지원되는 서비스 목록을 가져옵니다.
+1. 리소스를 배치할 수 있는 사용 가능한 위치 목록을 가져옵니다.
    
-        Get-AzureLocation | Sort Name | Select Name, AvailableServices
-   
-    다음 예제와 유사한 결과가 표시됩니다.
-   
-        Name                AvailableServices
-        ----                -----------------
-        Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
-        Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
-        Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
-        Central India       {Compute, Storage, PersistentVMRole, HighMemory}
-        Central US          {Compute, Storage, PersistentVMRole, HighMemory}
-        East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
-        East US             {Compute, Storage, PersistentVMRole, HighMemory}
-        East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
-        North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
-        South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        South India         {Compute, Storage, PersistentVMRole, HighMemory}
-        Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
-        West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
-        West India          {Compute, Storage, PersistentVMRole, HighMemory}
-        West US             {Compute, Storage, PersistentVMRole, HighMemory}
+        Get-AzureLocation | Sort Name | Select Name
 2. 가장 적합한 위치를 선택하고 **$locName** 값을 해당 위치 이름으로 바꾼 다음 변수를 만듭니다.
    
         $locName = "location name from the list, such as Central US"
@@ -132,36 +113,6 @@ ms.author: davidmu
 4. 가상 네트워크를 만듭니다.
    
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
-### <a name="public-ip-address"></a>공용 IP 주소
-네트워크 인터페이스를 만들기 전에 공용 IP 주소를 만들어야 합니다.
-
-1. **$domName** 값을 공용 IP 주소에 사용하려는 도메인 이름 레이블로 바꾼 다음 변수를 만듭니다.  
-   
-        $domName = "domain name label"
-   
-    레이블에는 문자, 숫자, 하이픈만 사용할 수 있으며 마지막 문자는 문자 또는 숫자여야 합니다.
-2. 이름이 고유한지 여부를 테스트합니다.
-   
-        Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
-   
-    답이 **True**인 경우에는 제안한 이름이 고유한 것입니다.
-3. **$pipName** 값을 공용 IP 주소에 사용하려는 이름으로 바꾼 다음 변수를 만듭니다. 
-   
-        $pipName = "public ip address name"
-4. 공용 IP 주소를 만듭니다.
-   
-        $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
-
-### <a name="network-interface"></a>네트워크 인터페이스
-이제 공용 IP 주소가 있으므로 네트워크 인터페이스를 만들 수 있습니다.
-
-1. **$nicName** 값을 네트워크 인터페이스에 사용하려는 이름으로 바꾼 다음 변수를 만듭니다. 
-   
-        $nicName = "network interface name"
-2. 네트워크 인터페이스를 만듭니다.
-   
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 ### <a name="configuration-of-the-scale-set"></a>크기 집합 구성
 크기 집합 구성에 필요한 모든 리소스가 있으므로 크기 집합을 만들겠습니다.  
@@ -253,7 +204,7 @@ ms.author: davidmu
         Location              : centralus
         Tags                  :
 
-## <a name="step-3:-explore-resources"></a>3단계: 리소스 탐색
+## <a name="step-3-explore-resources"></a>3단계: 리소스 탐색
 다음과 같은 리소스를 사용하여 만든 가상 컴퓨터 크기 집합을 탐색합니다.
 
 * Azure 포털 - 포털을 사용하여 제한된 양의 정보를 얻을 수 있습니다.
@@ -268,9 +219,12 @@ ms.author: davidmu
 
 ## <a name="next-steps"></a>다음 단계
 * 방금 [가상 컴퓨터 크기 집합의 가상 컴퓨터 관리](virtual-machine-scale-sets-windows-manage.md)
-* [자동 크기 조정 및 가상 컴퓨터 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)
-* [가상 컴퓨터 크기 집합을 사용하여 수직 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+*  [자동 크기 조정 및 가상 컴퓨터 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)
+*  [가상 컴퓨터 크기 집합을 사용하여 수직 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

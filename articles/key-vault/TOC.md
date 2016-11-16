@@ -1,6 +1,5 @@
 # 개요
 ## [Key Vault란?](key-vault-whatis.md)
-## [가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [서비스 개요](https://azure.microsoft.com/services/key-vault/)
 
 # 시작
@@ -30,11 +29,14 @@
 # 참조
 ## [키 및 비밀 정보](https://msdn.microsoft.com/en-us/library/azure/dn903623)
 ## [코드 샘플](https://www.microsoft.com/download/details.aspx?id=45343)
-## [Key Vault용 .NET](https://msdn.microsoft.com/en-us/library/azure/mt430941)
-## [Key Vault용 REST](https://msdn.microsoft.com/en-us/library/azure/dn903609)
+
+## [Key Vault 리소스 관리자 PowerShell Cmdlet](/powershell/resourcemanager/)
+## [Key Vault 클래식 PowerShell Cmdlet](/powershell/servicemanagement/)
+## [Azure CLI를 사용하는 Key Vault](/cli/azure/)
+## [Java로 된 Key Vault 참조](/java/api/)
+## [Key Vault 관리되는 참조 API](/dotnet/api/) 
+## [Key Vault REST API 참조](/rest/api/keyvault) 
 ## [Key Vault용 Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
-## [Key Vault cmdlet](https://msdn.microsoft.com/en-us/library/azure/dn868052)
-## [Microsoft Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/jj156055.aspx)
 
 # 관련 항목
 ## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -43,6 +45,7 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # 리소스
+## [가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [블로그](http://blogs.technet.com/b/kv/)
 ## [포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 

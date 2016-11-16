@@ -1,12 +1,12 @@
 ---
-title: Create SQL Data Warehouse by using PowerShell | Microsoft Docs
-description: Create SQL Data Warehouse by using PowerShell
+title: "PowerShell을 사용하여 SQL Data Warehouse 만들기 | Microsoft Docs"
+description: "PowerShell을 사용하여 SQL 데이터 웨어하우스 만들기"
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 97434863-7938-4129-8949-5a119f5949e3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,99 +14,103 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3d13d4a0dd1d6e0b7361a57e167b06f0b717bfb4
+
 
 ---
-# <a name="create-sql-data-warehouse-using-powershell"></a>Create SQL Data Warehouse using PowerShell
+# <a name="create-sql-data-warehouse-using-powershell"></a>PowerShell을 사용하여 SQL 데이터 웨어하우스 만들기
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-data-warehouse-get-started-provision.md)
+> * [Azure 포털](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 > 
 > 
 
-This article shows you how to create a SQL Data Warehouse using PowerShell.
+이 문서에서는 PowerShell을 사용하여 SQL 데이터 웨어하우스를 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>Prerequisites
-To get started, you need:
+## <a name="prerequisites"></a>필수 조건
+시작하려면 다음이 필요합니다.
 
-* **Azure account**: Visit [Azure Free Trial][Azure Free Trial] or [MSDN Azure Credits][MSDN Azure Credits] to create an account.
-* **Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][Create an Azure SQL Database logical server with the Azure Portal] or [Create an Azure SQL Database logical server with PowerShell][Create an Azure SQL Database logical server with PowerShell] for more details.
-* **Resource group**: Either use the same resource group as your Azure SQL server or see [how to create a resource group][how to create a resource group].
-* **PowerShell version 1.0.3 or greater**:  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][How to install and configure Azure PowerShell].
+* **Azure 계정**: [Azure 무료 평가판][Azure 무료 평가판] 또는 [MSDN Azure 크레딧][MSDN Azure 크레딧]을 방문하여 계정을 만듭니다.
+* **Azure SQL Server**: 자세한 내용은 [Azure Portal을 사용하여 Azure SQL Database 논리 서버 만들기][Azure Portal을 사용하여 Azure SQL Database 논리 서버 만들기] 또는 [PowerShell을 사용하여 Azure SQL Database 논리 서버 만들기][PowerShell을 사용하여 Azure SQL Database 논리 서버 만들기]를 참조하세요.
+* **리소스 그룹**: Azure SQL 서버와 동일한 리소스 그룹을 사용하거나 [리소스 그룹을 만드는 방법][리소스 그룹을 만드는 방법]을 참조하세요.
+* **PowerShell 버전 1.0.3 이상**: **Get-Module -ListAvailable -Name Azure**를 실행하여 버전을 확인할 수 있습니다.  최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][Microsoft 웹 플랫폼 설치 관리자]를 통해 설치할 수 있습니다.  최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][Azure PowerShell 설치 및 구성 방법]을 참조하세요.
 
 > [!NOTE]
-> Creating a SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][SQL Data Warehouse pricing] for more details on pricing.
+> SQL 데이터 웨어하우스를 만들면 새로운 유료 서비스가 발생할 수 있습니다.  가격 책정에 대한 자세한 내용은 [SQL Data Warehouse 가격 책정][SQL Data Warehouse 가격 책정]을 참조하세요.
 > 
 > 
 
-## <a name="create-a-sql-data-warehouse"></a>Create a SQL Data Warehouse
-1. Open Windows PowerShell.
-2. Run this cmdlet to login to Azure Resource Manager.
+## <a name="create-a-sql-data-warehouse"></a>SQL 데이터 웨어하우스 만들기
+1. Windows PowerShell을 엽니다.
+2. 이 cmdlet을 실행하여 Azure 리소스 관리자에 로그인합니다.
    
     ```Powershell
     Login-AzureRmAccount
     ```
-3. Select the subscription you want to use for your current session.
+3. 현재 세션에 사용하려는 구독을 선택합니다.
    
     ```Powershell
-    Get-AzureRmSubscription -SubscriptionName "MySubscription" | Select-AzureRmSubscription
+    Get-AzureRmSubscription    -SubscriptionName "MySubscription" | Select-AzureRmSubscription
     ```
-4. Create database. This example creates a database named "mynewsqldw", with service objective level "DW400", to the server named "sqldwserver1", which is in the resource group named "mywesteuroperesgp1".
+4. 데이터베이스를 만듭니다. 이 예제에서는 서비스 목표 수준이 "DW400"이고 이름이 "mynewsqldw"인 데이터베이스를 만들고, 리소스 그룹 "mywesteuroperesgp1"에 있는 이름이 "sqldwserver1"인 서버에 배치합니다.
    
    ```Powershell
    New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
    ```
 
-Required Parameters are:
+필수 매개 변수는 다음과 같습니다.
 
-* **RequestedServiceObjectiveName**: The amount of [DWU][DWU] you are requesting.  Supported values are: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000, and DW6000.
-* **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
-* **ServerName**: The name of the server that you are using for creation (must be V12).
-* **ResourceGroupName**: Resource group you are using.  To find available resource groups in your subscription use Get-AzureResource.
-* **Edition**: Must be "DataWarehouse" to create a SQL Data Warehouse.
+* **RequestedServiceObjectiveName**: 요청 중인 [DWU][DWU]의 양입니다.  지원되는 값은 DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 및 DW6000입니다.
+* **DatabaseName**: 만들려는 SQL 데이터 웨어하우스의 이름입니다.
+* **ServerName**: 만들기에 사용하는 서버의 이름입니다(V12이어야 함).
+* **ResourceGroupName**: 사용 중인 리소스 그룹입니다.  구독에서 사용 가능한 리소스 그룹을 찾으려면 Get-AzureResource를 사용합니다.
+* **Edition**: SQL 데이터 웨어하우스를 만들려면 "DataWarehouse"여야 합니다.
 
-Optional Parameters are:
+선택적 매개 변수는 다음과 같습니다.
 
-* **CollationName**: The default collation if not specified is SQL_Latin1_General_CP1_CI_AS.  Collation cannot be changed on a database.
-* **MaxSizeBytes**: The default max size of a database is 10 GB.
+* **CollationName**: 지정되지 않은 경우 기본 데이터 정렬은 SQL_Latin1_General_CP1_CI_AS입니다.  데이터베이스에서 데이터 정렬을 변경할 수 없습니다.
+* **MaxSizeBytes**: 데이터베이스의 기본 최대 크기는 10GB입니다.
 
-For more details on the parameter options, see [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase] and [Create Database (Azure SQL Data Warehouse)][Create Database (Azure SQL Data Warehouse)].
+매개 변수 옵션에 대한 자세한 내용은 [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase] 및 [데이터베이스 만들기(Azure SQL Data Warehouse)][데이터베이스 만들기(Azure SQL Data Warehouse)]를 참조하세요.
 
-## <a name="next-steps"></a>Next steps
-After your SQL Data Warehouse has finished provisioning you may want to try [loading sample data][loading sample data] or check out how to [develop][develop], [load][load], or [migrate][migrate].
+## <a name="next-steps"></a>다음 단계
+SQL Data Warehouse에서 프로비전을 완료했으면 [샘플 데이터를 로드][샘플 데이터를 로드]하거나 [개발][개발], [로드][로드] 또는 [마이그레이션][마이그레이션] 방법을 확인할 수 있습니다.
 
-If you're interested in more on how to manage SQL Data Warehouse programmatically, check out our article on how to use [PowerShell cmdlets and REST APIs][PowerShell cmdlets and REST APIs].
+SQL Data Warehouse를 프로그래밍 방식으로 관리하는 방법에 대한 자세한 내용은 [PowerShell cmdlet 및 REST API][PowerShell cmdlet 및 REST API]사용 방법에 관한 문서를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[migrate]: ./sql-data-warehouse-overview-migrate.md
-[develop]: ./sql-data-warehouse-overview-develop.md
-[load]: ./sql-data-warehouse-load-with-bcp.md
-[loading sample data]: ./sql-data-warehouse-load-sample-databases.md
-[PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
-[firewall rules]: ../sql-database-configure-firewall-settings.md
+[마이그레이션]: ./sql-data-warehouse-overview-migrate.md
+[개발]: ./sql-data-warehouse-overview-develop.md
+[로드]: ./sql-data-warehouse-load-with-bcp.md
+[샘플 데이터 로드]: ./sql-data-warehouse-load-sample-databases.md
+[PowerShell cmdlet 및 REST API]: ./sql-data-warehouse-reference-powershell-cmdlets.md
+[방화벽 규칙]: ../sql-database-configure-firewall-settings.md
 
-[How to install and configure Azure PowerShell]: ../powershell/powershell-install-configure.md
-[how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
-[Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
-[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[how to create a resource group]: ../resource-group-template-deploy-portal.md#create-resource-group
+[Azure PowerShell을 설치 및 구성하는 방법]: ../powershell-install-configure.md
+[Azure Portal에서 SQL Data Warehouse를 만드는 방법]: ./sql-data-warehouse-get-started-provision.md
+[Azure Portal을 사용하여 Azure SQL Database 논리 서버 만들기]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[PowerShell을 사용하여 Azure SQL 데이터베이스 논리 서버 만들기]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[리소스 그룹을 만드는 방법]: ../resource-group-template-deploy-portal.md#create-resource-group
 
-<!--MSDN references--> 
+<!--MSDN references-->
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
-[Create Database (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
+[데이터베이스 만들기(Azure SQL 데이터 웨어하우스)]: https://msdn.microsoft.com/library/mt204021.aspx
 
 <!--Other Web references-->
-[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
-[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
+[SQL 데이터 웨어하우스 가격 책정]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Azure 무료 평가판]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure 크레딧]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

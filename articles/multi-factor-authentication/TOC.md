@@ -38,7 +38,7 @@
 ### [IIS 웹앱](multi-factor-authentication-get-started-server-iis.md)
 ### [원격 데스크톱 게이트웨이](multi-factor-authentication-get-started-server-rdg.md)
 
-## 응용 프로그램 개발
+## 개발 
 ### [사용자 지정 앱에 작성(SDK)](multi-factor-authentication-sdk.md)
 
 ## 문제 해결

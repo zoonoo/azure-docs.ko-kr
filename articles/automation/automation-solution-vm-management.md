@@ -1,12 +1,12 @@
 ---
-title: 업무 시간 외 VM 시작/중지 [미리 보기] 솔루션 | Microsoft Docs
-description: VM 관리 솔루션은 Azure Resource Manager Virtual Machines을 일정에 따라 시작 및 중지하고 Log Analytics에서 사전에 모니터링합니다.
+title: "업무 시간 외 VM 시작/중지 [미리 보기] 솔루션 | Microsoft Docs"
+description: "VM 관리 솔루션은 Azure Resource Manager Virtual Machines을 일정에 따라 시작 및 중지하고 Log Analytics에서 사전에 모니터링합니다."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/07/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0fec06e4a167e615381fca17def46923d9f0f1b
+
 
 ---
-# <a name="start/stop-vms-during-off-hours-[preview]-solution-in-automation"></a>Automation의 업무 시간 외 VM 시작/중지 [미리 보기] 솔루션
+# <a name="startstop-vms-during-offhours-preview-solution-in-automation"></a>Automation의 업무 시간 외 VM 시작/중지 [미리 보기] 솔루션
 업무 시간 외 VM 시작/중지[미리 보기] 솔루션은 사용자가 정의한 일정에 따라 Azure Resource Manager 가상 컴퓨터를 시작하고 중지하며 OMS Log Analytics를 통해 가상 컴퓨터를 시작하고 중지하는 성공적인 Automation 작업에 대한 정보를 제공합니다.  
 
 ## <a name="prerequisites"></a>필수 조건
@@ -121,7 +125,7 @@ Automation 계정에서 **솔루션** 타일을 선택하고 **솔루션** 블�
 
 여기에서 OMS 작업 영역을 열고 작업 레코드의 추가 분석을 수행할 수도 있습니다.  **모든 설정**을 클릭하고 **설정** 블레이드에서 **빠른 시작**을 선택한 다음 **빠른 시작** 블레이드에서 **OMS 포털**을 선택합니다.   새 탭 또는 새 브라우저 세션이 열리고 Automation 계정 및 구독과 관련된 OMS 작업 영역을 제공합니다.  
 
-### <a name="configuring-e-mail-notifications"></a>전자 메일 알림 구성
+### <a name="configuring-email-notifications"></a>전자 메일 알림 구성
 VM 시작 및 중지 Runbook 완료 시 전자 메일 알림을 사용하도록 설정하려면 **O365Credential** 자격 증명을 수정하고 최소한 다음 변수를 수정해야 합니다.
 
 * SendMailO365-IsSendEmail-MS-Mgmt
@@ -202,6 +206,9 @@ Automation은 OMS 리포지토리에 두 가지 유형의 레코드를 만듭니
 * Runbook 실행, Runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [Runbook 작업 추적](automation-runbook-execution.md)
 * OMS Log Analytics 및 데이터 수집 소스에 대한 자세한 내용은 [Log Analytics에서 Azure Storage 데이터 수집 개요](../log-analytics/log-analytics-azure-storage.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

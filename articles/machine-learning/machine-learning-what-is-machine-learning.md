@@ -1,13 +1,13 @@
 ---
-title: Azure의 기계 학습이란 무엇인가요? | Microsoft Docs
-description: 클라우드에서 기계 학습의 기본 개념을 설명하고, 용도에 대해 기술하고 기계 학습 용어를 정의합니다.
-keywords: 기계 학습이란 무엇인가요, 기계 학습 용어, 예측, 예측 분석이란, 운용
+title: "Azure의 기계 학습이란 무엇인가요? | Microsoft Docs"
+description: "클라우드에서 기계 학습의 기본 개념을 설명하고, 용도에 대해 기술하고 기계 학습 용어를 정의합니다."
+keywords: "기계 학습이란 무엇인가요, 기계 학습 용어, 예측, 예측 분석이란, 운용"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: cjgronlund
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: eaee083e-eaa1-4408-838b-93e51423d159
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,17 +15,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: cgronlun;tedway;olgali
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a0415a3a07a1334f1947ff89e79bc710332de113
+
 
 ---
 # <a name="introduction-to-machine-learning-in-the-cloud"></a>클라우드의 기계 학습 소개
-## <a name="what-is-machine-learning?"></a>기계 학습이란 무엇인가요?
+## <a name="what-is-machine-learning"></a>기계 학습이란 무엇인가요?
 기계 학습은 미래 동작, 결과 및 추세를 예측하기 위해 기존 데이터를 컴퓨터가 학습하도록 돕는 데이터 과학 기법입니다.  
 
 이러한 기계 학습을 통한 예측은 좀 더 똑똑한 앱 및 장치를 만드는 데 도움이 됩니다. 온라인 쇼핑 시 기계 학습은 사용자가 구매한 제품에 따라 좋아할만한 다른 제품을 추천하는 데 도움이 됩니다. 신용 카드를 읽을 때 기계 학습은 해당 거래를 거래 데이터베이스와 비교하여 부정 행위를 검색하는 데 도움을 줍니다. 로봇 진공 청소기가 방을 청소할 때, 기계 학습은 작업이 완료되었는지 여부를 판단하도록 해줍니다.
 
 간략한 개요는 비디오 시리즈 [초급자를 위한 데이터 과학](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)을 참조하세요. 초보자를 위한 데이터 과학은 전문 용어 또는 수치를 사용하지 않고 기계 학습을 소개하며 간단한 예측 모델 과정도 안내합니다.
 
-## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud?"></a>Microsoft Azure 클라우드의 기계 학습이란 무엇인가요?
+## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Microsoft Azure 클라우드의 기계 학습이란 무엇인가요?
 Azure 기계 학습은 예측 모델을 신속하게 만들고 분석 솔루션으로 배포할 수 있게 해주는 강력한 클라우드 기반 예측 분석 서비스입니다. Azure 클라우드를 사용하여 기계 학습 실험을 실행하거나 솔루션을 구축하는 경우 고가의 하드웨어나 인프라를 구입할 필요가 없습니다.
 
 ![기계 학습이란 무엇인가요? Azure 기계 학습에서 예측 분석을 운용하는 기본 워크플로입니다.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
@@ -34,7 +38,7 @@ Azure 기계 학습은 예측 분석을 모델링 하는 도구를 제공할 뿐
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="what-is-predictive-analytics?"></a>예측 분석이란?
+## <a name="what-is-predictive-analytics"></a>예측 분석이란?
 예측 분석은 알고리즘이라는 다양한 수학 공식을 사용하여 미래의 이벤트를 예측하기 위해 패턴 또는 추세에 대한 기록 또는 현재 데이터를 분석합니다.
 
 Azure 기계 학습은 특히 예측 분석을 수행하는 강력한 방법입니다. 사용할 준비가 되어 있는 알고리즘 라이브러리에서 작업하고, 인터넷에 연결된 PC에서 모델을 만들며, 예측 솔루션을 신속하게 배포할 수 있습니다. 결과를 신속하게 얻으려면 [Cortana 인텔리전스 갤러리](http://gallery.cortanaintelligence.com/)에서 즉시 사용 예제와 솔루션을 시작합니다.
@@ -42,17 +46,17 @@ Azure 기계 학습은 특히 예측 분석을 수행하는 강력한 방법입�
 ## <a name="build-complete-machine-learning-solutions-in-the-cloud"></a>클라우드에서 완전한 기계 학습 솔루션 작성
 Azure 기계 학습에는 대규모 알고리즘 라이브러리부터 모델 작성을 위한 스튜디오, 모델을 웹 서비스로 배포하는 쉬운 방법에 이르기까지 클라우드에서 예측 분석 솔루션을 만드는 데 필요한 모든 것이 있습니다.
 
-### <a name="machine-learning-studio:-create-predictive-models"></a>기계 학습 스튜디오: 예측 모델 만들기
+### <a name="machine-learning-studio-create-predictive-models"></a>기계 학습 스튜디오: 예측 모델 만들기
 [기계 학습 스튜디오](machine-learning-what-is-ml-studio.md)에서 모듈을 끌어다 놓아 연결함으로써 예측 모델을 신속하게 만들 수 있습니다. 여러 조합으로 쉽게 실험할 수 있으며 [무료로 사용할 수 있습니다](https://studio.azureml.net/?selectAccess=true&o=2).
 
-![예측 분석이란?: Azure 기계 학습 스튜디오의 예측 분석 실험 예제](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
-
 * [Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md)에서 다른 사용자가 작성한 분석 솔루션을 사용해보거나 직접 해볼 수 있습니다. 커뮤니티에 실험에 대한 질문 또는 의견을 게시하거나 LinkedIn 및 Twitter와 같은 소셜 네트워크를 통해 실험 링크를 공유합니다.
+  
+  ![Azure Cortana Intelligence 갤러리에서 예측 실험을 시도하거나 고유 솔루션 적용](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * 기계 학습 스튜디오의 대규모 [기계 학습 알고리즘 및 모듈](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) 라이브러리를 사용하여 예측 모델을 빠르게 시작할 수 있습니다. 샘플 실험, R 및 Python 패키지 그리고 Xbox 및 Bing와 같은 Microsoft 비즈니스의 최상급 알고리즘 중에서 선택합니다. 사용자 고유의 사용자 지정 [R](machine-learning-r-quickstart.md) 및 [Python](machine-learning-execute-python-scripts.md) 스크립트를 사용하여 Studio 모듈을 확장합니다.
+  
+  ![예측 분석이란?: Azure 기계 학습 스튜디오의 예측 분석 실험 예제](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
-    ![Azure Cortana Intelligence 갤러리에서 예측 실험을 시도하거나 고유 솔루션 적용](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
-
-### <a name="operationalize-predictive-analytics-solutions:-purchase-web-services-or-publish-your-own"></a>예측 분석 솔루션 운영: 웹 서비스를 구입하거나 본인의 웹 서비스 게시
+### <a name="operationalize-predictive-analytics-solutions-purchase-web-services-or-publish-your-own"></a>예측 분석 솔루션 운영: 웹 서비스를 구입하거나 본인의 웹 서비스 게시
 * [Microsoft Azure 마켓플레이스](https://datamarket.azure.com/browse?query=machine+learning)에서 권장 사항, 텍스트 분석 등 이상 탐지 등의 사용할 준비가 된 웹 서비스를 구입합니다.
 * 예측 분석 모델 운영:
   
@@ -65,7 +69,7 @@ Azure 기계 학습에는 대규모 알고리즘 라이브러리부터 모델 �
 ## <a name="key-machine-learning-terms-and-concepts"></a>주요 기계 학습 용어 및 개념
 기계 학습 용어는 혼동될 수 있습니다. 주요 용어의 정의는 다음과 같습니다. 정의하려는 다른 용어에 대해 언급하려면 다음 설명을 사용합니다.
 
-### <a name="data-exploration,-descriptive-analytics,-and-predictive-analytics"></a>데이터 탐색, 설명이 포함된 분석 및 예측 분석
+### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>데이터 탐색, 설명이 포함된 분석 및 예측 분석
 **데이터 탐색** 은 집중 분석을 위한 특성을 찾기 위해 규모가 크고 구조화되지 않은 데이터 집합에 대한 정보를 수집하는 프로세스입니다. **데이터 마이닝** 은 자동화된 데이터 탐색을 나타냅니다.
 
 **설명이 포함된 분석** 은 발생한 현상을 요약하기 위해 데이터 집합을 분석하는 프로세스입니다. 대부분의 비즈니스 분석(예: 판매 보고서, 웹 메트릭 및 소셜 네트워크 분석)은 설명을 포함합니다.
@@ -111,6 +115,6 @@ Azure 기계 학습에는 대규모 알고리즘 라이브러리부터 모델 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

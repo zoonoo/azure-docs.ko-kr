@@ -1,12 +1,12 @@
 ---
-title: 서비스 버스 조정된 메시징 .NET 자습서 | Microsoft Docs
-description: 조정된 메시징 .NET 자습서
+title: "Service Bus 조정된 메시징 .NET 자습서 | Microsoft Docs"
+description: "조정된 메시징 .NET 자습서"
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+
 
 ---
-# <a name="service-bus-brokered-messaging-.net-tutorial"></a>서비스 버스 조정된 메시징 .NET 자습서
+# <a name="service-bus-brokered-messaging-net-tutorial"></a>서비스 버스 조정된 메시징 .NET 자습서
 Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공합니다. 그 중 하나는 다양한 전송 프로토콜과, SOAP, WS-* 및 REST 등을 망라하는 웹 서비스 표준을 지원하는 클라우드에서 실행되는 중앙집중식 "릴레이" 서비스를 통해서입니다. 클라이언트는 온-프레미스 서비스에 대한 직접 연결이 필요 없고 서비스가 상주하는 위치를 알 필요도 없으며, 온-프레미스 서비스는 방화벽에 인바운드 포트가 열려 있지 않아도 됩니다.
 
 두 번째 메시징 솔루션은 "조정된" 메시징 기능을 구현합니다. 이 기능은 서비스 버스 메시징 인프라를 사용하여 게시-구독, 일시 분리, 부하 분산 시나리오를 지원하는 일종의 비동기 또는 분리형 메시징 기능이라고 할 수 있습니다. 분리된 통신에는 많은 장점이 있습니다. 예를 들어 필요하면 클라이언트와 서버가 연결되고 비동기 방식으로 작업을 수행할 수 있습니다.
 
-이 자습서는 서비스 버스 조정된 메시징의 핵심 구성 요소 중 하나인 큐에 대한 실전 경험을 제공하기 위한 것입니다. 이 자습서의 항목을 순서대로 수행하고 나면 메시지 목록으로 채워진 응용 프로그램이 생기며, 큐를 만들고 큐에 메시지를 보내게 됩니다. 마지막으로, 응용 프로그램이 큐로부터 메시지를 받아 표시한 다음 그 리소스를 정리하고 종료합니다. Service Bus Relay를 사용하는 응용 프로그램 빌드 방법에 대해 설명하는 해당 자습서는 [Service Bus 릴레이된 메시징 자습서](../service-bus-relay/service-bus-relay-tutorial.md)를 참조하세요.
+이 자습서는 서비스 버스 조정된 메시징의 핵심 구성 요소 중 하나인 큐에 대한 실전 경험을 제공하기 위한 것입니다. 이 자습서의 항목을 순서대로 수행하고 나면 메시지 목록으로 채워진 응용 프로그램이 생기며, 큐를 만들고 큐에 메시지를 보내게 됩니다. 마지막으로, 응용 프로그램이 큐로부터 메시지를 받아 표시한 다음 그 리소스를 정리하고 종료합니다. Service Bus WCF Relay를 사용하는 응용 프로그램 빌드 방법에 대해 설명하는 해당 자습서는 [Service Bus 릴레이된 메시징 자습서](../service-bus-relay/service-bus-relay-tutorial.md)를 참조하세요.
 
 ## <a name="introduction-and-prerequisites"></a>소개 및 필수 구성 요소
 큐는 하나 이상의 경쟁 소비자에게 FIFO(선입선출) 메시지 배달을 제공합니다. FIFO에서는 일반적으로 메시지가 큐에 추가된 임시 순서대로 받는 사람이 메시지를 받고 처리하며, 각 메시지가 하나의 메시지 소비자에 의해서만 수신 및 처리됩니다. 큐 사용의 주요 장점은 응용 프로그램의 *일시 분리*입니다. 즉 메시지가 큐에 지속적으로 저장되어 있으므로 생산자와 소비자가 동시에 메시지를 보내고 받을 필요가 없습니다. 관련된 이점은 *부하 평준화*로 생산자와 소비자가 서로 다른 속도로 메시지를 주고받을 수 있습니다.
@@ -604,14 +608,14 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="build-and-run-the-queuesample-application"></a>QueueSample 빌드 및 실행
+## <a name="build-and-run-the-queuesample-application"></a>QueueSample 빌드 및 실행 
 이제 이전 단계를 모두 완료했으므로 **QueueSample** 응용 프로그램을 빌드하여 실행할 수 있습니다.
 
 ### <a name="build-the-queuesample-application"></a>QueueSample 응용 프로그램 빌드
 Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나 **Ctrl+Shift+B** 키를 누릅니다. 오류를 발생할 경우 앞 단계의 마지막에 있는 전체 예제를 기준으로 코드가 정확한지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 서비스 버스 "조정된" 메시징 기능을 사용하여 서비스 버스 클라이언트 응용 프로그램 및 서비스를 빌드하는 방법을 보여줍니다. Service Bus [Relay](service-bus-messaging-overview.md#Relayed-messaging)를 사용하는 유사한 자습서는 [Service Bus 릴레이된 메시징 자습서](../service-bus-relay/service-bus-relay-tutorial.md)를 참조하세요.
+이 자습서에서는 서비스 버스 "조정된" 메시징 기능을 사용하여 서비스 버스 클라이언트 응용 프로그램 및 서비스를 빌드하는 방법을 보여줍니다. Service Bus [WCF Relay](service-bus-messaging-overview.md#Relayed-messaging)를 사용하는 유사한 자습서는 [Service Bus 릴레이된 메시징 자습서](../service-bus-relay/service-bus-relay-tutorial.md)를 참조하세요.
 
 [서비스 버스](https://azure.microsoft.com/services/service-bus/)에 대한 자세한 내용은 다음 항목을 참조하세요.
 
@@ -619,6 +623,9 @@ Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나
 * [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [서비스 버스 아키텍처](service-bus-architecture.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

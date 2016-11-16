@@ -1,12 +1,12 @@
 ---
-title: '자습서: Azure 포털을 사용한 DevOps | Microsoft Docs'
-description: Azure 포털에서 다양한 DevOps 워크플로에 대해 알아봅니다.
+title: "자습서: Azure Portal을 사용한 DevOps | Microsoft Docs"
+description: "Azure 포털에서 다양한 DevOps 워크플로에 대해 알아봅니다."
 services: azure-portal
-documentationcenter: ''
+documentationcenter: 
 author: mlearned
 manager: douge
 editor: mlearned
-
+ms.assetid: 4f1c5bc1-c732-4d35-b5df-0fd68e547d38
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b3ef77cc1b3b13a1603f1ca7c6d4a000b69453e0
+
 
 ---
-# 자습서: Azure 포털을 사용한 DevOps
+# <a name="tutorial-devops-with-the-azure-portal"></a>자습서: Azure 포털을 사용한 DevOps
 Azure 플랫폼은 유연한 DevOps 워크플로를 담고 있습니다. 이 자습서에서는 Azure 포털의 기능을 활용하여 실행 중인 응용 프로그램을 개발, 테스트, 배포, 문제 해결, 모니터링 및 관리하는 방법을 알아봅니다. 이 자습서는 다음에 중점을 둡니다.
 
 1. 웹앱 만들기 및 지속적인 배포 사용
@@ -24,21 +28,21 @@ Azure 플랫폼은 유연한 DevOps 워크플로를 담고 있습니다. 이 자
 3. 앱 모니터링 및 문제 해결
 4. 일반 응용 프로그램 관리 작업
 
-## 웹앱 만들기 및 지속적인 배포 사용
+## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>웹앱 만들기 및 지속적인 배포 사용
 [Azure 앱 서비스](https://azure.microsoft.com/services/app-service/)를 사용하여 웹앱을 만들고 이 자습서의 뒷부분에서 사용할 수 있습니다. 실행 중인 Azure 환경에 소스 코드 리포지토리의 지속적인 배포를 처음부터 사용할 수 있습니다.
 
 1. Azure 포털에 로그인합니다.
-2. **앱 서비스** > **추가 아이콘**을 선택하고 이름을 입력하며 구독을 선택한 다음 새 리소스 그룹을 만들어서 서비스에 대한 컨테이너로 사용합니다.
+2. **App Services** &gt; **추가 아이콘**을 차례로 선택하고, 이름을 입력하며, 구독을 선택한 다음 새 리소스 그룹을 만들어 서비스를 위한 컨테이너로 사용합니다.
    
-   리소스 그룹을 사용하면 [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/)를 통한 단일 그룹으로 청구, 배포 및 모니터링 등 솔루션의 다양한 측면을 관리할 수 있습니다.
+   리소스 그룹을 사용하면 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)를 통해 단일 그룹으로 청구, 배포 및 모니터링과 같은 솔루션의 다양한 양상을 모두 관리할 수 있습니다.
    
    ![image1][image1]
 3. 앱 서비스는 몇 분 후에 생성됩니다. 포털에서 서비스에 대한 다양한 메뉴 옵션을 탐색하는 데 몇 분이 걸립니다.
    
-   ![image2][image2]
+   ![image2][image2]    
 4. URL을 클릭합니다. 도구 및 리포지토리에 대해 사용할 수 있는 선택은 다양합니다. 또한 .NET, Java, Ruby 등 선택한 언어와 프레임워크를 사용할 수 있습니다.
    
-   ![image3][image3]
+   ![image3][image3]    
 5. Azure 포털에서 연속 배포는 몇 가지 간단한 단계를 수행해야 하는 쉬운 프로세스입니다. Azure 포털의 방금 만든 앱 서비스에 대한 아이콘에서 설정을 선택합니다.
    
    ![image4][image4]
@@ -67,7 +71,7 @@ Azure 플랫폼은 유연한 DevOps 워크플로를 담고 있습니다. 이 자
 12. 리포지토리에 변경 내용을 커밋한 후에 포털 알림 영역에서 새 배포 시작을 확인합니다. 리포지토리에 커밋한 후에 변경 내용을 신속하게 표시하지 않으면 동기화를 클릭합니다.
     
     ![image12][image12]
-13. 이 시점에서 앱 서비스에 대한 페이지를 사용해보고 로드하는 경우 403 오류가 나타날 수 있습니다. 이 예제에서는 index.htm 또는 default.html과 같은 파일 등 페이지에 일반적인 기본 문서가 설정되지 않았기 때문입니다. Azure 포털의 도구를 사용하여 이 문제를 신속하게 해결할 수 있습니다. Azure 포털에서 설정 > 응용 프로그램 설정을 선택합니다.
+13. 이 시점에서 앱 서비스에 대한 페이지를 사용해보고 로드하는 경우 403 오류가 나타날 수 있습니다. 이 예제에서는 index.htm 또는 default.html과 같은 파일 등 페이지에 일반적인 기본 문서가 설정되지 않았기 때문입니다. Azure 포털의 도구를 사용하여 이 문제를 신속하게 해결할 수 있습니다.  Azure Portal에서 설정 &gt; 응용 프로그램 설정을 차례로 선택합니다.
     
      ![image13][image13]
 14. 응용 프로그램 설정을 위한 블레이드가 열립니다. "SamplePage.html" 페이지의 이름을 입력하고 저장을 클릭합니다. 다른 설정을 탐색하는 데 몇 분이 걸립니다.
@@ -79,7 +83,7 @@ Azure 플랫폼은 유연한 DevOps 워크플로를 담고 있습니다. 이 자
     
     Azure 포털을 사용하여 연속 배포를 사용하면 쉽습니다. 더 복잡한 릴리스 파이프라인을 구축하고 기존 원본 제어와 연속 통합 시스템을 사용하여 다른 여러 가지 기술을 사용하여 Azure에 배포할 수도 있습니다(예: 자동화된 구축 및 릴리스 관리 시스템 활용).
 
-## 앱 개발 및 테스트
+## <a name="develop-and-test-an-app"></a>앱 개발 및 테스트
 다음으로, 코드 기본을 변경하고 이러한 변경 내용을 신속하게 배포합니다. 또한 웹앱에 대한 일부 성능 테스트를 설정합니다.
 
 1. Azure 포털의 탐색 창에서 앱 서비스를 선택하고 해당 앱 서비스를 찾습니다.
@@ -120,7 +124,7 @@ Azure 플랫폼은 유연한 DevOps 워크플로를 담고 있습니다. 이 자
 12. 도구 블레이드로 다시 이동하고 개발 범주에서 성능 테스트를 클릭합니다.
     
     ![image28][image28]
-13. 팀 서비스 계정을 설정해야 합니다. 자세한 내용을 보려면 [팀 서비스 계정 만들기](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)를 참조하세요.
+13. 팀 서비스 계정을 설정해야 합니다. 자세한 내용을 보려면 [팀 서비스 계정 만들기](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
 14. 새로 만들기를 클릭하여 성능 테스트를 만듭니다.
     
     ![image29][image29]
@@ -145,7 +149,7 @@ Azure 플랫폼은 유연한 DevOps 워크플로를 담고 있습니다. 이 자
     
     ![image36][image36]
 
-## 앱 모니터링 및 문제 해결
+## <a name="monitoring-and-troubleshooting-an-app"></a>앱 모니터링 및 문제 해결
 Azure는 실행 중인 응용 프로그램을 모니터링하고 문제를 해결하는 다양한 기능을 제공합니다.
 
 1. Azure 포털에서 웹앱에 대한 도구를 선택합니다.
@@ -208,7 +212,7 @@ Azure는 실행 중인 응용 프로그램을 모니터링하고 문제를 해�
     
     Azure 포털 도움말은 강력하고 친숙한 도구 환경을 제공하여 실행 중인 응용 프로그램을 모니터링하고 문제를 해결하는 데 도움을 줍니다. 프로세스 재활용, 다양한 데이터 컬렉션 사용 및 사용 안 함, Microsoft 전문 지원과 통합 등의 작업을 수행하여 신속하게 조치를 취할 수도 있습니다.
 
-## 일반 응용 프로그램 관리
+## <a name="general-application-management"></a>일반 응용 프로그램 관리
 응용 프로그램을 관리하는 경우, 백업 전략 구성, ID 공급자 구현과 관리 및 역할 기반 액세스 제어 구성과 같은 작업을 수행해야 하는 경우가 많습니다. 기타 DevOps 환경과 마찬가지로 Azure 플랫폼에서는 이러한 작업을 포털에 직접 통합합니다.
 
 1. 웹앱을 데이터 손실로부터 안전하게 지키려면 백업을 구성해야 합니다. 웹앱의 설정 영역으로 이동합니다.
@@ -254,12 +258,12 @@ Azure는 실행 중인 응용 프로그램을 모니터링하고 문제를 해�
     
      ![image69][image69]
 
-## 요약
+## <a name="summary"></a>요약
 이 자습서에서는 웹앱에 신속하게 연속 배포를 사용하고 다양한 개발을 수행하며 작업을 테스트하고 라이브 앱을 모니터링하며 문제를 해결하고 마지막으로 중요한 전략(예: 재해 복구, ID 및 역할 기반 액세스 제어)을 관리함으로써 Azure 플랫폼을 사용하는 장점 중 일부를 설명했습니다. Azure 플랫폼을 사용하면 이러한 DevOps 워크플로에 대한 통합된 환경을 사용할 수 있고 현재 작업에 컨텍스트를 유지하여 효율적으로 작업할 수 있습니다.
 
-## 다음 단계
-* Azure Resource Manager는 Azure 플랫폼에서 DevOps를 사용하는 데 중요합니다. 더 알아보려면 [Azure Resource Manager 개요](../resource-group-overview.md)를 방문하세요.
-* Azure 앱 서비스 배포에 대한 자세한 내용을 알아보려면 [Azure 앱 서비스에 앱 배포](../app-service-web/web-sites-deploy.md)를 방문하세요.
+## <a name="next-steps"></a>다음 단계
+* Azure Resource Manager는 Azure 플랫폼에서 DevOps를 사용하는 데 중요합니다.  자세한 내용을 알아보려면 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 방문하세요.
+* Azure 앱 서비스 배포에 대한 자세한 내용을 알아보려면 [Azure 앱 서비스에 앱 배포](../app-service-web/web-sites-deploy.md)
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
 [image2]: ./media/tutorial-azureportal-devops/image2.png
@@ -331,4 +335,8 @@ Azure는 실행 중인 응용 프로그램을 모니터링하고 문제를 해�
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
 
-<!-----HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

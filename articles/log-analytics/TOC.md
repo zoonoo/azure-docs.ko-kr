@@ -1,12 +1,13 @@
 # 개요
 ## [Log Analytics란?](log-analytics-overview.md)
 ## [데이터 보안](log-analytics-security.md)
-## [Log Analytics FAQ](log-analytics-faq.md)
+
 # 시작
 ## [Log Analytics에 등록](log-analytics-get-started.md)
 ## [액세스 관리](log-analytics-manage-access.md)
 ## [프록시 및 방화벽](log-analytics-proxy-firewall.md)
 ## [사용 데이터](log-analytics-usage.md)
+## [Log Analytics FAQ](log-analytics-faq.md)
 
 # 방법
 ## 통합
@@ -48,7 +49,6 @@
 #### [SQL 평가](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [시스템 업데이트 평가](log-analytics-system-update.md)
-#### [Analytics 업그레이드](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 #### [VMware](log-analytics-vmware.md)
 #### [실시간 데이터](log-analytics-wire-data.md)
 ## 분석
@@ -60,9 +60,9 @@
 ### [PowerShell cmdlet](log-analytics-powershell-workspace-configuration.md)
 ### [Log Search API](log-analytics-log-search-api.md)
 ### [알림 API](log-analytics-api-alerts.md)
-# 참조
-# 관련 항목
+
 # 리소스
+## [Analytics 업그레이드](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 
 
 

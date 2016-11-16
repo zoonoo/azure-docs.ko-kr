@@ -1,12 +1,12 @@
 ---
-title: bcp를 사용하여 SQL 데이터 웨어하우스로 데이터 로드 | Microsoft Docs
-description: bcp 정의 및 데이터 웨어하우징 시나리오에 대해 사용하는 방법에 대해 알아봅니다.
+title: "bcp를 사용하여 SQL Data Warehouse로 데이터 로드 | Microsoft Docs"
+description: "bcp 정의 및 데이터 웨어하우징 시나리오에 대해 사용하는 방법에 대해 알아봅니다."
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5a0519a0fdbfc428530e5b30a3f8e4e8bcdaa50b
+
 
 ---
 # <a name="load-data-with-bcp"></a>bcp를 사용하여 데이터 로드
@@ -25,7 +29,7 @@ ms.author: mausher;barbkess
 > 
 > 
 
-**[bcp][bcp]** 는 명령줄 대량 로드 유틸리티로, SQL Server, 데이터 파일 및 SQL 데이터 웨어하우스 간에 데이터를 복사할 수 있습니다. bcp 유틸리티를 사용하여 SQL 데이터 웨어하우스 테이블로 많은 수의 행을 가져오거나, 또는 SQL Server 테이블에서 데이터 파일로 데이터를 내보냅니다. Queryout 옵션을 사용하는 경우를 제외하고, bcp를 사용하려면 TRANSACT-SQL 지식이 없어도 됩니다.
+**[bcp][bcp]**는 명령줄 대량 로드 유틸리티로, SQL Server, 데이터 파일 및 SQL Data Warehouse 간에 데이터를 복사할 수 있습니다. bcp 유틸리티를 사용하여 SQL 데이터 웨어하우스 테이블로 많은 수의 행을 가져오거나, 또는 SQL Server 테이블에서 데이터 파일로 데이터를 내보냅니다. Queryout 옵션을 사용하는 경우를 제외하고, bcp를 사용하려면 TRANSACT-SQL 지식이 없어도 됩니다.
 
 bcp는 SQL 데이터 웨어하우스 데이터베이스 내부 및 외부로 더 작은 데이터 집합을 이동하는 빠르고 쉬운 방법입니다. bcp를 통한 로드/추출을 권장하는 정확한 크기의 데이터는 Azure 데이터 센터에 연결된 네트워크에 따라 다릅니다.  일반적으로 차원 테이블은 bcp를 통해 쉽게 로드 및 추출할 수 있으나, 대용량 데이터를 로드 또는 추출할 때는 bcp가 권장되지 않습니다.   대용량 데이터의 로드 및 추출에는 SQL 데이터 웨어하우스의 병렬 처리 아키텍처를 더 잘 활용하는 Polybase가 권장됩니다.
 
@@ -180,8 +184,8 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 > 
 
 ## <a name="next-steps"></a>다음 단계
-로드 개요는 [SQL 데이터 웨어하우스로 데이터 로드][SQL 데이터 웨어하우스로 데이터 로드]를 참조하세요.
-더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][SQL 데이터 웨어하우스 개발 개요]를 참조하세요.
+로드 개요는 [SQL Data Warehouse로 데이터 로드][SQL Data Warehouse로 데이터 로드]를 참조하세요.
+더 많은 개발 팁은 [SQL Data Warehouse 개발 개요][SQL Data Warehouse 개발 개요]를 참조하세요.
 
 <!--Image references-->
 
@@ -201,6 +205,6 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

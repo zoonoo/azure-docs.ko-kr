@@ -1,4 +1,4 @@
-Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. 컨테이너는 Blob 이름의 일부를 형성합니다. 예를 들어 `mycontainer`은(는) 이러한 샘플 Blob URI에서 컨테이너의 이름입니다.
+Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. 컨테이너는 Blob 이름의 일부를 형성합니다. 예를 들어 `mycontainer` 은(는) 이러한 샘플 Blob URI에서 컨테이너의 이름입니다.
 
     https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
     https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
@@ -11,8 +11,12 @@ Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. 컨테이
 4. 컨테이너 이름의 길이는 3자 이상, 63자 이하여야 합니다.
 
 > [!IMPORTANT]
-> 컨테이너의 이름은 항상 소문자여야 합니다. 컨테이너 이름에 대문자를 포함하거나 컨테이너 명명 규칙을 위반하는 경우에 400 오류(잘못된 요청) 메시지를 받을 수 있습니다.
+> 컨테이너의 이름은 항상 소문자여야 합니다. 컨테이너 이름에 대문자를 포함하거나 컨테이너 명명 규칙을 위반하는 경우에 400 오류(잘못된 요청) 메시지를 받을 수 있습니다. 
 > 
 > 
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

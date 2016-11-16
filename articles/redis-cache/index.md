@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Redis Cache Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: cd96f7ea32696ea920cd1622ae6d08692b4f8f4c
+ms.openlocfilehash: a244eaf8dff788354caab1c327a22cb5c5b423cf
 
-Azure Redis Cache is based on the popular open-source Redis Cache. It gives you access to a secure dedicated Redis cache managed by Microsoft and accessible from any application within Azure. Azure Redis Cache provides high throughput and consistent low-latency data access to power fast, scalable Azure applications.
+---
+#<a name="redis-cache-documentation"></a>Redis Cache 설명서
+
+Azure Redis Cache는 인기 있는 오픈 소스 Redis Cache를 기반으로 하며, Microsoft에서 관리하여 Azure에 있는 모든 응용 프로그램에서 액세스할 수 있는 안전한 전용 Redis Cache에 대한 액세스를 제공합니다. Azure Redis Cache를 통해 높은 처리량과 일관되고 대기 시간이 짧은 데이터 액세스로 빠르고 확장 가능한 Azure 응용 프로그램을 실행할 수 있습니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Redis Cache Premium tier</h3>
+                        <h3>Azure Redis Cache 프리미엄 계층에 대해 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -34,7 +38,7 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Redis Cache Video Library</h3>
+                        <h3>Azure Redis Cache 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -52,7 +56,7 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Redis Cache using .NET</h3>
+                        <h3>.NET을 사용하여 Redis Cache 시작</h3>
                     </div>
                 </div>
             </div>
@@ -70,7 +74,7 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Redis Cache using ASP.NET MVC</h3>
+                        <h3>ASP.NET MVC를 사용하여 Redis Cache 시작</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +92,7 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Redis Cache using Node.js</h3>
+                        <h3>Node.js를 사용하여 Redis Cache 시작</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +110,7 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Redis Cache using Java</h3>
+                        <h3>Java를 사용하여 Redis Cache 시작</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +128,7 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Redis Cache using Python</h3>
+                        <h3>Python을 사용하여 Redis Cache 시작</h3>
                     </div>
                 </div>
             </div>
@@ -135,29 +139,34 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
 
 ---
 
-##Reference
+##<a name="reference"></a>참조
 
-###PowerShell
-[Azure PowerShell reference](/powershell/azureps-cmdlets-docs)
+###<a name="powershell"></a>PowerShell
+[Azure PowerShell 참조](/powershell/azureps-cmdlets-docs)
 
-###Azure CLI
-[Redis Cache with Azure CLI](/cli/azure/redis) 
+###<a name="azure-cli"></a>Azure CLI
+[Azure CLI를 사용한 Redis Cache](/cli/azure/redis) 
 
-###.NET 
-[Redis Cache Managed Reference API](/dotnet/api/) 
+###<a name="net"></a>.NET 
+[Redis Cache 관리되는 참조 API](/dotnet/api/) 
 
-###Java 
+###<a name="java"></a>Java 
 [Azure Java SDK](/java/api/)
 
-###REST 
-[Redis Cache REST API Reference](/rest/api/)  
+###<a name="rest"></a>REST 
+[Redis Cache REST API 참조](/rest/api/)  
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Redis Cache Documentation
-        </div>
+Redis Cache 설명서 다운로드 </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

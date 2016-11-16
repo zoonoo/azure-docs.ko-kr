@@ -1,19 +1,23 @@
 ---
-title: Azure 주요 자격 증명 모음 시작 | Microsoft Docs
-description: 이 자습서를 사용하면 Azure 키 자격 증명 모음으로 시작하여 확정된 컨테이너를 Azure에 만들고 Azure에서 암호화 키와 비밀을 저장하고 관리하는 데 도움이 됩니다.
+title: "Azure Key Vault 시작 | Microsoft Docs"
+description: "이 자습서를 사용하면 Azure 키 자격 증명 모음으로 시작하여 확정된 컨테이너를 Azure에 만들고 Azure에서 암호화 키와 비밀을 저장하고 관리하는 데 도움이 됩니다."
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: cabailey
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: 36721e1d-38b8-4a15-ba6f-14ed5be4de79
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/10/2016
+ms.date: 10/24/2016
 ms.author: cabailey
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
+
 
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure 주요 자격 증명 모음 시작
@@ -55,7 +59,7 @@ Azure PowerShell에서 Azure 리소스 관리자와 친숙해지도록 다음 �
 * [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)
 * [리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
 
-## <a name="<a-id="connect"></a>connect-to-your-subscriptions"></a><a id="connect"></a>구독에 연결
+## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>구독에 연결
 Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정에 로그인합니다.  
 
     Login-AzureRmAccount 
@@ -74,13 +78,13 @@ Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정�
 
 Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
-## <a name="<a-id="resource"></a>create-a-new-resource-group"></a><a id="resource"></a>새 리소스 그룹 만들기
+## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>새 리소스 그룹 만들기
 Azure 리소스 관리자를 사용하면 관련된 모든 리소스는 리소스 그룹의 내부에 만들어집니다. 이 자습서에서는 **ContosoResourceGroup** 이라는 새 리소스 그룹을 만듭니다.
 
     New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
 
 
-## <a name="<a-id="vault"></a>create-a-key-vault"></a><a id="vault"></a>키 자격 증명 모음 만들기
+## <a name="a-idvaultacreate-a-key-vault"></a><a id="vault"></a>키 자격 증명 모음 만들기
 [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.300\).aspx) cmdlet을 사용하여 키 자격 증명 모음을 만듭니다. 이 cmdlet에는 3개의 필수 매개 변수인 **리소스 그룹 이름**, **키 자격 증명 모음 이름** 및 **지리적 위치**가 있습니다.
 
 예를 들어, 이름이 **ContosoKeyVault**이고 리소스 그룹 이름이 **ContosoResourceGroup**이며 위치가 **동아시아**인 형식의 자격 증명 모음인 경우, 다음을 입력합니다.
@@ -99,7 +103,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
 > 
 > 
 
-## <a name="<a-id="add"></a>add-a-key-or-secret-to-the-key-vault"></a><a id="add"></a>키 또는 비밀을 암호 키 자격 증명 모음에 추가
+## <a name="a-idaddaadd-a-key-or-secret-to-the-key-vault"></a><a id="add"></a>키 또는 비밀을 암호 키 자격 증명 모음에 추가
 Azure Key Vault에서 소프트웨어 보호 키를 만들려면 [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx) cmdlet을 사용하여 다음을 입력합니다.
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
@@ -140,7 +144,7 @@ Azure Key Vault에서 소프트웨어 보호 키를 만들려면 [Add-AzureKeyVa
 
 이제, 사용자 키 자격 증명 모음 또는 비밀은 응용 프로그램에서 사용할 준비가 되었습니다. 응용 프로그램을 사용하여 권한을 부여해야 합니다.  
 
-## <a name="<a-id="register"></a>register-an-application-with-azure-active-directory"></a><a id="register"></a>Azure Active Directory에 응용 프로그램 등록
+## <a name="a-idregisteraregister-an-application-with-azure-active-directory"></a><a id="register"></a>Azure Active Directory에 응용 프로그램 등록
 이 단계는 일반적으로 별도의 컴퓨터에서 개발자가 수행할 수 있습니다. Azure 주요 자격 증명 모음에 한정된 것은 아니지만 완전성을 위해 여기에 포함되어 있습니다.
 
 > [!IMPORTANT]
@@ -165,7 +169,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 9. **키** 섹션으로 스크롤하고 기간을 선택한 다음 **저장**을 클릭합니다. 페이지가 새로 고쳐지고 이제 키 값을 표시합니다. 이 키 값 및 **클라이언트 ID** 가 있는 응용 프로그램을 구성해야 합니다. (이 구성에 대한 지침은 응용 프로그램에 특정된 것입니다.)
 10. 사용자 자격 증명 모음에 사용 권한을 설정하려면 다음 단계에서 사용하는 이 페이지에서 클라이언트 ID 값을 복사 합니다.
 
-## <a name="<a-id="authorize"></a>authorize-the-application-to-use-the-key-or-secret"></a><a id="authorize"></a>키 또는 비밀을 사용하여 응용 프로그램 권한 부여
+## <a name="a-idauthorizeaauthorize-the-application-to-use-the-key-or-secret"></a><a id="authorize"></a>키 또는 비밀을 사용하여 응용 프로그램 권한 부여
 응용 프로그램이 자격 증명 모음의 키 또는 암호에 대한 액세스를 인증하려면  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.300\).aspx) cmdlet을 사용합니다.
 
 예를 들어 자격 증명 모음 이름이 **ContosoKeyVault** 이고 권한을 부여하려는 응용 프로그램의 클라이언트 ID가 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed이며 자격 증명 모음에 있는 키로 서명하고 암호 해독하도록 응용 프로그램에 권한을 부여하려면 다음을 실행합니다.
@@ -176,18 +180,18 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
-## <a name="<a-id="hsm"></a>if-you-want-to-use-a-hardware-security-module-(hsm)"></a><a id="HSM"></a>하드웨어 보안 모듈(HSM)을 사용하려는 경우
+## <a name="a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm"></a><a id="HSM"></a>하드웨어 보안 모듈(HSM)을 사용하려는 경우
 추가된 보증을 위해, HSM 경계를 절대로 떠나지 않는 하드웨어 보안 모듈(HSMs)에서 키를 가져오거나 생성할 수 있습니다. HSM은 FIPS 140-2 Level 2 유효성 검사가 적용됩니다. 이 요구 사항이 사용자에게 적용되지 않는 경우, 이 섹션을 건너뛰고 [키 자격 증명 모음 및 연결된 키와 암호 삭제](#delete)로 이동합니다.
 
-이러한 HSM 보호되는 키를 만들려면, [HSM 보호되는 키를 지원하는 자격 증명 모음 구독](https://azure.microsoft.com/pricing/free-trial/)이 있어야 합니다.  또한 이 기능은 Azure 중국에 사용할 수 없습니다.
+이러한 HSM 보호 키를 만들려면 [HSM 보호 키를 지원하는 Azure Key Vault 프리미엄 서비스 계층](https://azure.microsoft.com/pricing/free-trial/)을 사용해야 합니다. 또한 이 기능은 Azure 중국에 사용할 수 없습니다.
 
-자격 증명 모음을 만들 때 다음과 같이 **-SKU** 매개 변수를 추가합니다.
+주요 자격 증명 모음을 만들 때 **-SKU** 매개 변수를 추가합니다.
 
     New-AzureRmKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
 
 
 
-이 자격 증명이 모음에 소프트웨어 보호 키(이전에 표시된 대로)와 HSM 보호되는 키를 추가할 수 있습니다. HSM으로 보호되는 키를 만들려면 **-Destination** 매개 변수를 'HSM'으로 설정합니다.
+이 주요 자격 증명 모음에 소프트웨어 보호 키(이전에 표시된 대로)와 HSM 보호되는 키를 추가할 수 있습니다. HSM으로 보호되는 키를 만들려면 **-Destination** 매개 변수를 'HSM'으로 설정합니다.
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -202,7 +206,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
 이 BYOK 패키지를 생성하는 방법에 대한 자세한 내용은 [Azure 주요 자격 증명 모음용으로 HSM 보호 키를 생성하여 전송하는 방법](key-vault-hsm-protected-keys.md)을 참조하세요.
 
-## <a name="<a-id="delete"></a>delete-the-key-vault-and-associated-keys-and-secrets"></a><a id="delete"></a>키 자격 증명 모음 및 연결된 키와 비밀 삭제
+## <a name="a-iddeleteadelete-the-key-vault-and-associated-keys-and-secrets"></a><a id="delete"></a>키 자격 증명 모음 및 연결된 키와 비밀 삭제
 주요 자격 증명 모음 및 이를 포함하는 키나 암호가 더 이상 필요하지 않은 경우 [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.300\).aspx) cmdlet을 사용하여 주요 자격 증명 모음을 삭제할 수 있습니다.
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
@@ -212,7 +216,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
     Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 
 
-## <a name="<a-id="other"></a>other-azure-powershell-cmdlets"></a><a id="other"></a>기타 Azure PowerShell Cmdlet
+## <a name="a-idotheraother-azure-powershell-cmdlets"></a><a id="other"></a>기타 Azure PowerShell Cmdlet
 Azure 주요 자격 증명 모음을 관리하는 데 유용한 기타 명령은 다음과 같습니다.
 
 * `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: 이 명령은 모든 키와 선택한 속성을 테이블 형식으로 가져옵니다.
@@ -221,7 +225,7 @@ Azure 주요 자격 증명 모음을 관리하는 데 유용한 기타 명령은
 * `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: 특정 키를 제거하는 방법 예
 * `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: 특정 비밀을 제거하는 방법 예
 
-## <a name="<a-id="next"></a>next-steps"></a><a id="next"></a>다음 단계
+## <a name="a-idnextanext-steps"></a><a id="next"></a>다음 단계
 웹 응용 프로그램에서 Azure 주요 자격 증명 모음을 사용하는 후속 자습서는 [웹 응용 프로그램에서 Azure 주요 자격 증명 모음 사용](key-vault-use-from-web-application.md)을 참조하세요.
 
 주요 자격 증명 모음이 사용되는 방식을 보려면 [Azure 주요 자격 증명 모음 로깅](key-vault-logging.md)을 참조하세요.
@@ -230,6 +234,9 @@ Azure Key Vault에 대한 최신 Azure PowerShell cmdlet의 목록은 [Azure Key
 
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

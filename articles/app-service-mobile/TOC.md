@@ -1,10 +1,11 @@
-# [개요](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+# 개요
 ## [Mobile Apps란?](app-service-mobile-value-prop.md)
-## [App Service 정의](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [App Service란?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [작동 방법](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # 시작
-## 모바일 앱
+## 모바일 앱 만들기
 ### [Android](app-service-mobile-android-get-started.md)
 ### [Cordova](app-service-mobile-cordova-get-started.md)
 ### [iOS](app-service-mobile-ios-get-started.md)
@@ -13,13 +14,13 @@
 ### [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
 ### [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md)
 
-## API 앱
+## API 앱 만들기
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
 ### [Java](../app-service-api/app-service-api-java-api-app.md)
 ### [Node.JS](../app-service-api/app-service-api-nodejs-api-app.md)
 ### [CORS](../app-service-api/app-service-api-cors-consume-javascript.md)
 
-## 웹앱
+## 웹앱 만들기
 ### [.NET](../app-service-web/web-sites-dotnet-get-started.md)
 ### [Node.JS](../app-service-web/app-service-web-nodejs-get-started.md)
 ### [Python](../app-service-web/web-sites-python-ptvs-django-mysql.md)
@@ -206,14 +207,17 @@
 ### [Visual Studio를 사용하여 문제 해결](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # 참조
-## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [.NET API](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [Azure 포털](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [App Service 참조](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-# 관련 항목
-
 # 리소스
-## [Azure 모바일 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
+## [가격 책정](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
+## [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [App Service 모범 사례](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [WebJob 리소스 목록](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 

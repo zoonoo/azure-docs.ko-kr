@@ -1,4 +1,4 @@
-## ARM 템플릿 다운로드 및 이해
+## <a name="download-and-understand-the-arm-template"></a>ARM 템플릿 다운로드 및 이해
 github에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 ARM 템플릿을 다운로드하고 원하는 대로 변경한 후 다시 사용할 수 있습니다. 이 작업을 수행하려면 다음 단계를 따르세요.
 
 1. [샘플 템플릿 페이지](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)로 이동합니다.
@@ -24,7 +24,7 @@ github에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 ARM 템플
 6. **resources** 아래의 내용을 확인하고 다음을 검토합니다.
    
    * **type**. 템플릿에 의해 생성되는 리소스의 유형입니다. 이 경우 VNet를 나타내는 **Microsoft.Network/virtualNetworks**입니다.
-   * **name**. 리소스의 이름입니다. **[parameters('vnetName')]**이 사용됩니다. 이것은 해당 이름이 배포 중에 사용자 또는 매개 변수 파일에 의한 입력으로 제공됨을 의미합니다.
+   * **이름**. 리소스의 이름입니다. **[parameters('vnetName')]**이 사용됩니다. 이것은 해당 이름이 배포 중에 사용자 또는 매개 변수 파일에 의한 입력으로 제공됨을 의미합니다.
    * **properties**. 리소스의 속성 목록입니다. 이 템플릿은 VNet 생성 동안 주소 공간 및 서브넷 속성을 사용합니다.
 7. [샘플 템플릿 페이지](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)로 다시 이동합니다.
 8. **azuredeploy-paremeters.json**을 클릭하고 **RAW**를 클릭합니다.
@@ -56,4 +56,8 @@ github에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 ARM 템플
         }
 11. 파일을 저장합니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

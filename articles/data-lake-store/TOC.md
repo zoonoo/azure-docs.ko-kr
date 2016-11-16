@@ -35,7 +35,7 @@
 ### [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 ### [서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)
 ### [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)
- 
+
 ## Azure 서비스와의 통합
 ### [Data Lake Analytics와 함께 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [포털을 사용하여 Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)
@@ -51,14 +51,11 @@
 ### [진단 로그 액세스](data-lake-store-diagnostic-logs.md)
 
 # 참조
-## [.NET SDK](https://msdn.microsoft.com/library/azure/mt581387.aspx)
-## [Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-## [PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt607120.aspx)
-## [REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-store)
-
-# 관련 항목
-## [Cortana Intelligence Suite](https://www.microsoft.com/en-us/cloud-platform/what-is-cortana-intelligence-suite)
+## [REST (영문)](https://docs.microsoft.com/en-us/rest/api/datalakestore/)
 
 # 리소스
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)

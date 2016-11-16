@@ -1,12 +1,12 @@
 ---
-title: Cordova/Phonegap용 Azure Mobile Engagement 시작
-description: Cordova/Phonegap 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다.
+title: "Cordova/Phonegap용 Azure Mobile Engagement 시작"
+description: "Cordova/Phonegap 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 54fe9113-e239-4ed7-9fd1-a502d7ac7f47
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-phonegap
@@ -14,9 +14,13 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 86e6597340867ffd620eac38a55de9113f571880
+
 
 ---
-# <a name="get-started-with-azure-mobile-engagement-for-cordova/phonegap"></a>Cordova/Phonegap용 Azure Mobile Engagement 시작
+# <a name="get-started-with-azure-mobile-engagement-for-cordovaphonegap"></a>Cordova/Phonegap용 Azure Mobile Engagement 시작
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 이 항목에서는 Azure Mobile Engagement를 사용하여 Cordova에서 개발된 모바일 응용 프로그램의 구분된 사용자에게 푸시 알림을 보내고 앱 사용량을 파악하는 방법을 설명합니다.
@@ -37,14 +41,14 @@ ms.author: piyushjo
 * [Mobile Engagement Cordova 플러그 인](https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-engagement)
 
 > [!NOTE]
-> [Github](https://github.com/Azure/azure-mobile-engagement-cordova)
+>  [Github](https://github.com/Azure/azure-mobile-engagement-cordova)
 > 
 > 
 
-## <a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-cordova-app"></a><a id="setup-azme"></a>Cordova 앱용 Mobile Engagement 설정
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-cordova-app"></a><a id="setup-azme"></a>Cordova 앱용 Mobile Engagement 설정
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="<a-id="connecting-app"></a>connecting-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
+## <a name="a-idconnectingappaconnecting-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
 이 자습서에서는 데이터를 수집하고 푸시 알림을 보내는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다. 
 
 여기서는 통합을 시연하기 위해 Cordova를 사용하여 기본 앱을 만듭니다.
@@ -64,13 +68,13 @@ ms.author: piyushjo
         $ cordova run android
 4. Cordova 콘솔 플러그 인을 추가합니다. 
    
-       $ cordova plugin add cordova-plugin-console 
+    $ cordova 플러그 인 추가 cordova 플러그 인 콘솔 
 
 ### <a name="connect-your-app-to-mobile-engagement-backend"></a>Mobile Engagement 백 엔드에 앱 연결
 1. 변수 값을 제공하여 플러그 인을 구성하는 동안 Azure Mobile Engagement Cordova 플러그 인을 설치합니다.
    
         cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
-            --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
+             --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
             --variable AZME_IOS_REACH_ICON=... (icon name WITH extension) 
             --variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
             --variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)       
@@ -83,7 +87,7 @@ ms.author: piyushjo
 
 *iOS 도달률 아이콘*: 확장자가 있는 리소스 이름(예: mynotificationicon.png)이어야 하며 XCode를 사용하여 아이콘 파일을 사용자의 iOS 프로젝트에 추가해야 합니다(파일 추가 메뉴 사용).
 
-## <a name="<a-id="monitor"></a>enabling-real-time-monitoring"></a><a id="monitor"></a>실시간 모니터링 사용
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>실시간 모니터링 사용
 1. Cordova 프로젝트에서 **www/js/index.js** 를 편집하여 Mobile Engagement에 대한 호출을 추가하고 *deviceReady* 이벤트가 수신된 후 새 활동을 선언합니다.
    
          onDeviceReady: function() {
@@ -110,10 +114,10 @@ ms.author: piyushjo
         [Engagement] Connection: Sent: startSession
         [Engagement] Connection: Sent: activity name='myPage'
 
-## <a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>실시간 모니터링과 앱 연결
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>실시간 모니터링과 앱 연결
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="<a-id="integrate-push"></a>enabling-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
+## <a name="a-idintegratepushaenabling-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
 Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 내 메시징을 사용하여 사용자와 상호 작용할 수 있습니다. Mobile Engagement 포털에서는 이 모듈을 도달률이라고 합니다.
 다음 섹션에서는 해당 알림과 메시지를 받도록 앱을 설정합니다.
 
@@ -145,10 +149,10 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
      onDeviceReady: function() {
            Engagement.initializeReach(  
-                // on OpenUrl  
-                function(_url) {   
-                alert(_url);   
-                });  
+                 // on OpenUrl  
+                 function(_url) {   
+                 alert(_url);   
+                 });  
             Engagement.startActivity("myPage",{});  
         }
 
@@ -165,7 +169,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 
     cordova run android
 
-## <a name="<a-id="send"></a>send-a-notification-to-your-app"></a><a id="send"></a>앱에 알림 보내기
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>앱에 알림 보내기
 이제 장치에서 실행 중인 앱에 푸시를 보낼 간단한 푸시 알림 캠페인을 만듭니다.
 
 1. Mobile Engagement 포털에서 **도달률** 탭으로 이동합니다.
@@ -176,7 +180,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
    
    * 캠페인에 **이름** 을 제공합니다. 
    * **전달 형식**을 *시스템 알림* *단순*으로 선택합니다.
-   * **전달 시간** 을 *"언제든지"*
+   *  **전달 시간** 을 *"언제든지"*
    * 푸시에서 첫째 줄에 있는 알림에 **제목** 을 제공합니다.
    * 메시지 본문으로 사용하는 알림에 **메시지** 를 제공합니다. 
      
@@ -184,7 +188,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 4. 입력을 제공하여 캠페인을 만듭니다. **[iOS]**
    
    * 캠페인에 **이름** 을 제공합니다. 
-   * **전달 시간** 을*"앱 외부에서만"*
+   *  **전달 시간** 을*"앱 외부에서만"*
    * 푸시에서 첫째 줄에 있는 알림에 **제목** 을 제공합니다.
    * 메시지 본문으로 사용하는 알림에 **메시지** 를 제공합니다. 
      
@@ -199,7 +203,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
     ![][10]
 9. 이제 이 캠페인 부분으로 장치나 에뮬레이터에 푸시 알림이 표시되어야 합니다. 
 
-## <a name="<a-id="next-steps"></a>next-steps"></a><a id="next-steps"></a>다음 단계
+## <a name="a-idnextstepsanext-steps"></a><a id="next-steps"></a>다음 단계
 [Cordova Mobile Engagement SDK에서 사용 가능한 모든 방법의 개요](https://github.com/Azure/azure-mobile-engagement-cordova)
 
 <!-- Images. -->
@@ -217,6 +221,6 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

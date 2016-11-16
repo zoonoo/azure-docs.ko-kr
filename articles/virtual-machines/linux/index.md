@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Linux Virtual Machine Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 8125aca5030c869476499a07b17c8e21fcb76ef6
+ms.openlocfilehash: e5640566e8781441713ca5491abee1d9334b3970
 
-Use Azure Virtual Machines to create and run Linux virtual machines on Azure's compute, networking, and storage infrastructure.  Scale to thousands of machines for internet-wide deployments, or run one for a few minutes to crunch some serious numbers:  you'll get both speed and consistency.
+---
+#<a name="linux-virtual-machine-documentation"></a>Linux Virtual Machine 설명서
+
+Azure Virtual Machines를 사용하여 Azure의 계산, 네트워킹 및 저장소 인프라에서 Linux 가상 컴퓨터를 만들고 실행하세요.  인터넷 전체 배포를 위해 수천 개 컴퓨터로 확장하든 한 컴퓨터를 몇 분 동안 실행하여 상당히 많은 수를 계산하든 빠르고 일관성 있게 수행할 수 있습니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -13,11 +17,11 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
+                            <img src="media/index/virtual-machine.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Linux Virtual Machines</h3>
+                        <h3>Linux Virtual Machines에 대해 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -31,11 +35,11 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Virtual Machines Video Library</h3>
+                        <h3>Virtual Machines 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -49,11 +53,11 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
+                            <img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a VM using the Portal</h3>
+                        <h3>포털을 사용하여 VM 만들기</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +71,11 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create SSH keys on Linux and Mac for Linux VMs in Azure</h3>
+                        <h3>Azure의 Linux VM용 Linux 및 Mac에서 SSH 키 만들기</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +89,11 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
+                            <img src="media/index/cli.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Install the Azure CLI</h3>
+                        <h3>Azure CLI 설치</h3>
                     </div>
                 </div>
             </div>
@@ -103,11 +107,11 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
+                            <img src="media/index/cli.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Linux VM on Azure by using the CLI</h3>
+                        <h3>CLI를 사용하여 Azure에서 Linux VM 만들기</h3>
                     </div>
                 </div>
             </div>
@@ -118,31 +122,36 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
 
 ---
 
-##Reference
+##<a name="reference"></a>참조
 
-###Azure CLI
+###<a name="azure-cli"></a>Azure CLI
 [Azure CLI](/cli/azure/vm)
 
-###.NET
-[Managed Reference API Reference](/dotnet/api/)
+###<a name="net"></a>.NET
+[관리되는 참조 API 참조](/dotnet/api/)
 
-###Java SDK
+###<a name="java-sdk"></a>Java SDK
 [Java](/java/api/)
 
-###REST (Compute)
-[Compute REST API Reference](/rest/api/compute)
+###<a name="rest-compute"></a>REST(Compute)
+[Compute REST API 참조](/rest/api/compute)
 
-###REST (Network)
-[Network REST API Reference](https://msdn.microsoft.com/library/mt163658.aspx)
+###<a name="rest-network"></a>REST(Network)
+[Network REST API 참조](https://msdn.microsoft.com/library/mt163658.aspx)
 
-###REST (Storage)
-[Storage REST API Reference](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+###<a name="rest-storage"></a>REST(Storage)
+[Storage REST API 참조](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Linux Virtual Machine Documentation
-        </div>
+Linux Virtual Machine 설명서 다운로드 </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

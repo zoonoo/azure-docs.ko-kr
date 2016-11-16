@@ -15,26 +15,27 @@
 ### [데이터 보안](oms-security-data-security.md)
 
 # 방법
-## 통찰 및 분석
+## 분석
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [제품 비교 모니터링](operations-management-suite-monitoring-product-comparison.md)
 ### [경고 관리](operations-management-suite-monitoring-alerts.md)
-## Automation 및 제어
+## 관리
+### [계획 및 배포](operations-management-suite-solutions-creating.md)
+### [Automation 리소스](operations-management-suite-solutions-resources-automation.md)
+### [뷰](operations-management-suite-solutions-resources-views.md)
+## 자동화
 ### [Azure Automation 개요](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## 보호 및 복구
+## 백업
 ### [Backup 개요](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Site Recovery 개요](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## 보안 및 규정 준수
+## 보안
 ### [리소스 모니터링](oms-security-monitoring-resources.md)
 ### [보안 경고에 대응](oms-security-responding-alerts.md)
 ### [기준 평가](oms-security-baseline.md)
 ### [맬웨어 평가](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [시스템 업데이트 평가](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## [OMS와 통합](operations-management-suite-integration.md)
-## 관리 솔루션
-### [계획 및 배포](operations-management-suite-solutions-creating.md)
-### [Automation 리소스](operations-management-suite-solutions-resources-automation.md)
-### [뷰](operations-management-suite-solutions-resources-views.md)
+
 
 # 참조
 ## [SDK](operations-management-suite-sdk.md)
@@ -60,6 +61,7 @@
 #### [업데이트 관리](oms-solution-update-management.md)
 ### 보안 및 규정 준수
 #### [맬웨어 방지 평가](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+
 
 
 <!--HONumber=Nov16_HO2-->

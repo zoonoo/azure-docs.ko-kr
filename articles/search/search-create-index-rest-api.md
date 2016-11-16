@@ -1,13 +1,13 @@
 ---
-title: Create an Azure Search index using the REST API | Microsoft Docs
-description: Create an index in code using the Azure Search HTTP REST API.
+title: "REST API를 사용하여 Azure 검색 인덱스 만들기 | Microsoft Docs"
+description: "Azure 검색 HTTP REST API를 사용하여 코드에 인덱스를 만듭니다."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: ashmaka
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: ac6c5fba-ad59-492d-b715-d25a7a7ae051
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
@@ -15,46 +15,50 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
+ms.openlocfilehash: 6d3bbea1a891e1d2f41eedccd9b9a591dfe13855
+
 
 ---
-# <a name="create-an-azure-search-index-using-the-rest-api"></a>Create an Azure Search index using the REST API
+# <a name="create-an-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure 검색 인덱스 만들기
 > [!div class="op_single_selector"]
-> * [Overview](search-what-is-an-index.md)
-> * [Portal](search-create-index-portal.md)
+> * [개요](search-what-is-an-index.md)
+> * [포털](search-create-index-portal.md)
 > * [.NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
+> * [REST (영문)](search-create-index-rest-api.md)
 > 
 > 
 
-This article will walk you through the process of creating an Azure Search [index](https://msdn.microsoft.com/library/azure/dn798941.aspx) using the Azure Search REST API.
+이 문서는 Azure 검색 REST API를 사용하여 Azure 검색 [인덱스](https://msdn.microsoft.com/library/azure/dn798941.aspx) 를 만드는 프로세스를 안내합니다.
 
-Before following this guide and creating an index, you should have already [created an Azure Search service](search-create-service-portal.md).
+이 가이드를 수행하고 인덱스를 만들기 전에 이미 [Azure 검색 서비스를 만들어야](search-create-service-portal.md)합니다.
 
-To create an Azure Search index using the REST API, you will issue a single HTTP POST request to your Azure Search service's URL endpoint. Your index definition will be contained in the request body as well-formed JSON content.
+REST API를 사용하여 Azure 검색 인덱스를 만들려면 Azure 검색 서비스의 URL 끝점에 단일 HTTP 게시 요청을 발행합니다. 인덱스 정의는 올바른 형식의 JSON 콘텐츠로 요청 본문에 포함됩니다.
 
-## <a name="i.-identify-your-azure-search-service's-admin-api-key"></a>I. Identify your Azure Search service's admin api-key
-Now that you have provisioned an Azure Search service, you can issue HTTP requests against your service's URL endpoint using the REST API. However, *all* API requests must include the api-key that was generated for the Search service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Azure 검색 서비스의 관리 API 키 식별
+Azure 검색 서비스를 프로비전했다면 REST API를 사용하여 서비스의 URL 끝점에 대한 HTTP 요청을 실행할 수 있습니다. 그러나 *모든* API 요청은 프로비전된 검색 서비스에 대해 생성된 API 키를 포함해야 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
-1. To find your service's api-keys you must log into the [Azure Portal](https://portal.azure.com/)
-2. Go to your Azure Search service's blade
-3. Click on the "Keys" icon
+1. 서비스의 API 키를 찾으려면 [Azure 포털](https://portal.azure.com/)
+2. Azure 검색 서비스의 블레이드로 이동합니다.
+3. "키" 아이콘을 클릭합니다.
 
-Your service will have *admin keys* and *query keys*.
+서비스에는 *관리 키* 및 *쿼리 키*가 있습니다.
 
-* Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
-* Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
+* 기본 및 보조 *관리 키* 는 서비스를 관리하며 인덱스, 인덱서 및 데이터 원본을 만들고 삭제하는 기능을 비롯한 모든 작업에 전체 권한을 부여합니다. 두 개의 키가 있으므로 기본 키를 다시 생성하려는 경우 보조 키를 사용하여 계속할 수 있고 반대도 가능합니다.
+* *쿼리 키* 는 인덱스 및 문서에 대한 읽기 전용 액세스를 부여하며 일반적으로 검색 요청을 실행하는 클라이언트 응용 프로그램에 배포됩니다.
 
-For the purposes of creating an index, you can use either your primary or secondary admin key.
+인덱스를 만들기 위해 기본 또는 보조 관리 키를 사용할 수 있습니다.
 
-## <a name="ii.-define-your-azure-search-index-using-well-formed-json"></a>II. Define your Azure Search index using well-formed JSON
-A single HTTP POST request to your service will create your index. The body of your HTTP POST request will contain a single JSON object that defines your Azure Search index.
+## <a name="ii-define-your-azure-search-index-using-wellformed-json"></a>II. 올바른 형식의 JSON 형식을 사용하여 Azure 검색 인덱스 정의
+서비스에 대한 단일 HTTP 게시 요청은 인덱스를 만듭니다. HTTP 게시 요청의 본문은 Azure 검색 인덱스를 정의하는 단일 JSON 개체를 포함합니다.
 
-1. The first property of this JSON object is the name of your index.
-2. The second property of this JSON object is a JSON array named `fields` that contains a separate JSON object for each field in your index. Each of these JSON objects contain multiple name/value pairs for each of the field attributes including "name," "type," etc.
+1. 이 JSON 개체의 첫 번째 속성은 인덱스의 이름입니다.
+2. 이 JSON 개체의 두 번째 속성은 인덱스의 각 필드에 대한 별도 JSON 개체를 포함하는 `fields` 라는 JSON 배열입니다. 이러한 JSON 개체 각각은 "이름", "형식" 등을 비롯한 각 필드 특성에 여러 이름/값 쌍을 포함합니다.
 
-It is important that you keep your search user experience and business needs in mind when designing your index as each field must be assigned the [proper attributes](https://msdn.microsoft.com/library/azure/dn798941.aspx). These attributes control which search features (filtering, faceting, sorting full-text search, etc.) apply to which fields. For any attribute you do not specify, the default will be to enable the corresponding search feature unless you specifically disable it.
+인덱스를 각 필드로 디자인하는 경우 검색 사용자 환경 및 비즈니스 요구를 [적절한 특성](https://msdn.microsoft.com/library/azure/dn798941.aspx)으로 할당해야 한다는 점을 염두에 두는 것이 중요합니다. 이러한 특성은 어떤 검색 기능(전체 텍스트 검색의 필터링, 패싯, 정렬 등)이 어떤 필드에 적용될지를 제어합니다. 지정하지 않은 특성의 경우 구체적으로 비활성화하지 않는 한 기본값은 해당 검색 기능을 사용합니다.
 
-For our example, we've named our index "hotels" and defined our fields as follows:
+예를 들어 인덱스 "호텔"의 이름을 지정하고 필드를 다음과 같이 정의했습니다.
 
 ```JSON
 {
@@ -76,34 +80,37 @@ For our example, we've named our index "hotels" and defined our fields as follow
 }
 ```
 
-We have carefully chosen the index attributes for each field based on how we think they will be used in an application. For example, `hotelId` is a unique key that people searching for hotels likely won't know, so we disable full-text search for that field by setting `searchable` to `false`, which saves space in the index.
+응용 프로그램에서 사용되는 방법에 따라 각 필드에 대한 인덱스 특성을 신중하게 선택했습니다. 예를 들어 `hotelId`는 호텔을 검색하는 사람들이 알 수 없는 고유한 키이므로 `searchable`을 `false`로 설정하여 해당 필드에 대한 전체 텍스트 검색 비활성화하여 인덱스의 공간을 절약합니다.
 
-Please note that exactly one field in your index of type `Edm.String` must be the designated as the 'key' field.
+형식 `Edm.String`의 인덱스에 정확히 하나의 필드가 '키' 필드로 지정되어야 합니다.
 
-The index definition above uses a custom language analyzer for the `description_fr` field because it is intended to store French text. See [the Language support topic on MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) as well as the corresponding [blog post](https://azure.microsoft.com/blog/language-support-in-azure-search/) for more information about language analyzers.
+위의 인덱스 정의는 프랑스어 텍스트를 저장하기 위해서 `description_fr` 필드에 사용자 지정 언어 분석기를 사용합니다. 언어 분석기에 대한 자세한 내용은 [MSDN의 언어 지원 항목](https://msdn.microsoft.com/library/azure/dn879793.aspx)뿐만 아니라 해당하는 [블로그 게시물](https://azure.microsoft.com/blog/language-support-in-azure-search/)을 참조하세요.
 
-## <a name="iii.-issue-the-http-request"></a>III. Issue the HTTP request
-1. Using your index definition as the request body, issue an HTTP POST request to your Azure Search service endpoint URL. In the URL, be sure to use your service name as the host name, and put the proper `api-version` as a query string parameter (the current API version is `2015-02-28` at the time of publishing this document).
-2. In the request headers, specify the `Content-Type` as `application/json`. You will also need to provide your service's admin key that you identified in Step I in the `api-key` header.
+## <a name="iii-issue-the-http-request"></a>III. HTTP 요청 발급
+1. 인덱스 정의를 요청 본문으로 사용하여 Azure 검색 서비스 끝점 URL에 HTTP 게시 요청을 발급합니다. URL에 서비스 이름을 호스트 이름으로 사용하고 적절한 `api-version`을 쿼리 문자열 매개 변수로 배치합니다(현재 API 버전은 이 문서를 게시할 때 `2015-02-28`임).
+2. 요청 헤더에서 `Content-Type`을 `application/json`으로 지정합니다. `api-key` 헤더의 I 단계에서 식별하는 서비스의 관리 키를 제공해야 합니다.
 
-You will have to provide your own service name and api key to issue the request below:
+아래와 같이 요청을 실행할 고유한 서비스 이름 및 api 키를 제공해야 합니다.
 
     POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
     Content-Type: application/json
     api-key: [api-key]
 
 
-For a successful request, you should see status code 201 (Created). For more information on creating an index via the REST API, please visit the API reference on [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+성공적인 요청의 경우 상태 코드 201(생성됨)이 표시되어야 합니다. REST API를 통해 인덱스를 만드는 방법에 대한 자세한 내용은 [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx)의 API 참조를 방문합니다. 오류가 발생한 경우 반환될 수 있는 기타 HTTP 상태 코드에 대한 자세한 내용은 [HTTP 상태 코드(Azure 검색)](https://msdn.microsoft.com/library/azure/dn798925.aspx)를 참조하세요.
 
-When you're done with an index and want to delete it, just issue an HTTP DELETE request. For example, this is how we would delete the "hotels" index:
+인덱스 관련 작업을 완료하고 삭제하려는 경우 HTTP 삭제 요청을 발급합니다. 예를 들어 "호텔" 인덱스를 삭제하는 방법입니다.
 
     DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2015-02-28
     api-key: [api-key]
 
 
-## <a name="next"></a>Next
-After creating an Azure Search index, you will be ready to [upload your content into the index](search-what-is-data-import.md) so you can start searching your data.
+## <a name="next"></a>다음
+Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 [콘텐츠를 인덱스에 업로드](search-what-is-data-import.md) 할 준비가 되었습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

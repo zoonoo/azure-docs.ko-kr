@@ -1,12 +1,12 @@
 ---
-title: 사용 가능한 커넥터 및 API 앱 목록 | Microsoft Docs
-description: Azure 앱 서비스의 커넥터 및 API 앱 알아보기
+title: "사용 가능한 커넥터 및 API Apps 목록 | Microsoft Docs"
+description: "Azure 앱 서비스의 커넥터 및 API 앱 알아보기"
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
 editor: cgronlun
-
+ms.assetid: 984a425d-ba64-48cc-90dc-bb624411e0f0
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6028fc53661978f63bbac89be6214ffebdc22405
+
 
 ---
 # <a name="list-of-connectors-and-api-apps-to-use-in-your-logic-apps"></a>논리 앱에서 사용할 커넥터 및 API 앱 목록
@@ -72,6 +76,9 @@ ms.author: mandia
 [Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)  
 [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

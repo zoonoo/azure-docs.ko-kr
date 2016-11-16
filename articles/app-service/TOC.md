@@ -1,5 +1,6 @@
-# [개요](app-service-how-works-readme.md)
+# 개요
 ## [App Service 정의](app-service-value-prop-what-is.md)
+## [작동 방법](app-service-how-works-readme.md)
 ## [App Service 계획](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 # 시작
@@ -149,15 +150,14 @@
 ## [App Service 참조](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [모범 사례](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [WebJob 리소스](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
-
-# 관련 항목
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [REST (영문)](https://docs.microsoft.com/rest/api/appservice/)
 
-
-
-
-
-
+# 리소스
+## [가격 책정](https://azure.microsoft.com/pricing/details/app-service/)  
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=app-service) 
 
 <!--HONumber=Nov16_HO2-->
 

@@ -1,12 +1,12 @@
 ---
-title: Azure RemoteApp으로 모든 장치에서 동일한 Office 365 환경 즐기기 | Microsoft Docs
-description: Azure RemoteApp을 사용하여 사용자와 Office 365 앱을 공유하는 방법을 알아봅니다.
+title: "Azure RemoteApp으로 모든 장치에서 동일한 Office 365 환경 즐기기 | Microsoft Docs"
+description: "Azure RemoteApp을 사용하여 사용자와 Office 365 앱을 공유하는 방법을 알아봅니다."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: guscatalano
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 0c971ce9-7d45-4cfb-9737-15b6706047e8
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article
@@ -14,11 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 08/15/2016
 ms.author: guscatal;elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0146ee4516ee54c3507567c25183e212db1ba7d2
+
 
 ---
-# Azure RemoteApp으로 모든 장치에서 동일한 Office 365 환경 즐기기
+# <a name="get-the-same-office-365-experience-on-any-device-with-azure-remoteapp"></a>Azure RemoteApp으로 모든 장치에서 동일한 Office 365 환경 즐기기
 > [!IMPORTANT]
-> Azure RemoteApp은 중단될 예정입니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> Azure RemoteApp은 중단될 예정입니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -26,24 +30,28 @@ ms.author: guscatal;elizapo
 
 이를 위해 사용자가 연결할 수 있는 Azure의 확장 가능한 가상 컴퓨터에서 Office 365를 호스트하여 Azure RemoteApp을 사용하겠습니다. 이 가상 컴퓨터 집합을 "클라우드 컬렉션"이라고 합니다.
 
-## 클라우드 컬렉션 만들기
-먼저 Azure 계정을 만든 후 왼쪽에 있는 링크를 클릭하여 **RemoteApp**으로 이동합니다. ![Azure 포털에서 Azure RemoteApp 표시](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
+## <a name="create-a-cloud-collection"></a>클라우드 컬렉션 만들기
+먼저 Azure 계정을 만든 후 왼쪽에 있는 링크를 클릭하여 **RemoteApp** 으로 이동합니다.
+![Azure 포털에서 Azure RemoteApp 표시](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
-그런 다음 아래쪽에서 **새로 만들기**를 클릭하고 컬렉션을 "빠르게 생성"합니다. 이름, 지역, 구독, 계획 및 Microsoft에서 제공하는 "Office Proffesional 2013" 이미지를 제공합니다. ![만들기 대화 상자](./media/remoteapp-tutorial-o365anywhere/2-quickcreate.png)
+그런 다음 아래쪽에서 **새로 만들기** 를 클릭하고 컬렉션을 "빠르게 생성"합니다. 이름, 지역, 구독, 계획 및 Microsoft에서 제공하는 "Office Proffesional 2013" 이미지를 제공합니다.
+![만들기 대화 상자](./media/remoteapp-tutorial-o365anywhere/2-quickcreate.png)
 
 양식을 완료하면 컬렉션 만들기 프로세스가 시작됩니다. 이 작업을 수행하는 데 1시간 정도 걸릴 수 있습니다.
 
 ![대기](./media/remoteapp-tutorial-o365anywhere/3-waiting.png)
 
-프로세스가 완료되면 다음과 같이 표시됩니다. **게시**를 클릭하면 대부분의 Office 응용 프로그램이 이미 게시되어 있음을 볼 수 있습니다. ![만들어진 컬렉션](./media/remoteapp-tutorial-o365anywhere/4-done.png)
+프로세스가 완료되면 다음과 같이 표시됩니다. **게시** 를 클릭하면 대부분의 Office 응용 프로그램이 이미 게시되어 있음을 볼 수 있습니다.
+![만들어진 컬렉션](./media/remoteapp-tutorial-o365anywhere/4-done.png)
 
 ![게시된 앱](./media/remoteapp-tutorial-o365anywhere/5-publish.png)
 
-여기서 **사용자 액세스**를 클릭하여 이 컬렉션에 액세스할 수 있는 사용자를 더 추가할 수도 있습니다. ![사용자 액세스 구성](./media/remoteapp-tutorial-o365anywhere/6-user.png)
+여기서 **사용자 액세스**를 클릭하여 이 컬렉션에 액세스할 수 있는 사용자를 더 추가할 수도 있습니다.
+![사용자 액세스 구성](./media/remoteapp-tutorial-o365anywhere/6-user.png)
 
 이제 Office 365에 연결해 보겠습니다.
 
-## Office 365에 연결
+## <a name="connect-to-office-365"></a>Office 365에 연결
 [https://www.remoteapp.windowsazure.com/](https://www.remoteapp.windowsazure.com/)을 방문하여 아래로 스크롤을 내린 다음 **클라이언트 다운로드**를 클릭하여 사용하는 장치에 Azure RemoteApp 클라이언트를 설치합니다. 아래 스크린샷은 Windows에 해당합니다.
 
 응용 프로그램이 시작되면 Microsoft 계정(이전의 “Live ID”)을 사용하여 로그인하라는 메시지가 표시됩니다. 여기서는 Azure 계정과 동일한 ID를 사용합니다. 로그인하면 새 초대에 대한 알림이 표시됩니다. 알림을 클릭하면 아래와 같은 목록이 표시됩니다. 내 Azure 계정 소유자 전자 메일과 일치하는 초대를 수락합니다.
@@ -64,4 +72,9 @@ ms.author: guscatal;elizapo
 
 ![powerpoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

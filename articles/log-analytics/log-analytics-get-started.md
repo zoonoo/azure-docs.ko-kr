@@ -1,12 +1,12 @@
 ---
-title: Log Analytics 시작 | Microsoft Docs
-description: Microsoft OMS(Operations Management Suite)에서 몇 분 이내에 Log Analytics를 가동하고 실행할 수 있습니다.
+title: "Log Analytics 시작 | Microsoft Docs"
+description: "Microsoft OMS(Operations Management Suite)에서 몇 분 이내에 Log Analytics를 가동하고 실행할 수 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 508716de-72d3-4c06-9218-1ede631f23a6
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2f8defce183e61825d9df3397ea1082dbdb4b11a
+
 
 ---
 # <a name="get-started-with-log-analytics"></a>Log Analytics 시작
@@ -95,7 +99,7 @@ Operations Management Suite 포털 사용을 시작할 준비가 되었습니다
    
     ![데이터 수집](./media/log-analytics-get-started/oms-onboard-logs.png)    
 
-## <a name="optionally,-connect-servers-directly-to-the-operations-management-suite-by-installing-an-agent"></a>또는 에이전트를 설치하여 서버를 작업 관리에 직접 연결합니다.
+## <a name="optionally-connect-servers-directly-to-the-operations-management-suite-by-installing-an-agent"></a>또는 에이전트를 설치하여 서버를 작업 관리에 직접 연결합니다.
 다음 예제에서는 Windows 에이전트를 설치하는 방법을 보여 줍니다.
 
 1. **설정** 타일을 클릭하고 **연결된 원본** 탭을 클릭한 다음 추가하려는 원본 유형의 탭을 클릭하여 에이전트를 다운로드하거나 에이전트를 사용하는 방법에 대해 알아봅니다. 예를 들어 **Windows 에이전트 다운로드(64비트)**를 클릭합니다. Windows 에이전트의 경우 Windows Server 2008 SP 1 이후 또는 Windows 7 SP1 이후에만 에이전트를 설치할 수 있습니다.
@@ -119,7 +123,7 @@ Operations Management Suite 포털 사용을 시작할 준비가 되었습니다
 
 Operations Management Suite에 에이전트를 연결하는 방법에 대한 자세한 내용은 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md)에서 확인할 수 있습니다.
 
-## <a name="optionally,-connect-servers-using-system-center-operations-manager"></a>필요에 따라 System Center Operations Manager를 사용하여 서버에 연결합니다.
+## <a name="optionally-connect-servers-using-system-center-operations-manager"></a>필요에 따라 System Center Operations Manager를 사용하여 서버에 연결합니다.
 1. Operations Manager 콘솔에서 **관리**를 선택합니다.
 2. **Operational Insights** 노드를 확장하고 **Operational Insights 연결**을 선택합니다.
    
@@ -133,7 +137,7 @@ Operations Management Suite에 에이전트를 연결하는 방법에 대한 자
 
 Operations Management Suite에 Operations Manager를 연결하는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md)에서 확인할 수 있습니다.
 
-## <a name="optionally,-analyze-data-from-cloud-services-in-microsoft-azure"></a>필요에 따라 Microsoft Azure의 클라우드 서비스에서 데이터를 분석합니다.
+## <a name="optionally-analyze-data-from-cloud-services-in-microsoft-azure"></a>필요에 따라 Microsoft Azure의 클라우드 서비스에서 데이터를 분석합니다.
 작업 관리 도구 모음을 사용하면 Azure 클라우드 서비스에 대해 진단을 사용하도록 설정하여 클라우드 서비스 및 가상 컴퓨터에 대해 이벤트 및 IIS 로그를 빠르게 검색할 수 있습니다. 또한 Microsoft 모니터링 에이전트를 설치하여 Azure 가상 컴퓨터에 대해 더 세부적인 내용을 받을 수 있습니다. [Log Analytics에 Azure 저장소 연결](log-analytics-azure-storage.md)에서 Operations Management Suite를 사용하도록 Azure 환경을 구성하는 방법에 대해 더 자세히 읽을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -141,6 +145,9 @@ Operations Management Suite에 Operations Manager를 연결하는 방법에 대�
 * [로그 검색](log-analytics-log-searches.md) 을 숙지하여 솔루션에서 수집한 자세한 정보를 확인합니다.
 * [대시보드](log-analytics-dashboards.md) 를 사용하여 자신만의 사용자 지정 검색을 저장하고 표시합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

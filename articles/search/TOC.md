@@ -55,14 +55,18 @@
 ### [다국어 검색](search-language-support.md)
 
 # 참조
-## [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165)
-## [서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935)
-## [서비스 REST API(미리 보기 버전)](search-api-2015-02-28-preview.md)
-## [관리 REST API](https://msdn.microsoft.com/library/azure/dn832684)
 ## [API 버전](search-api-versions.md)
+## [Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [Lucene 쿼리 구문](https://msdn.microsoft.com/library/azure/mt589323)
 ## [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920)
+## [서비스 REST](/rest/api/searchservice/)
+## [서비스 REST(미리 보기)](search-api-2015-02-28-preview.md)
+## [관리 REST](/rest/api/searchmanagement/)
+
 # 리소스
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=search)
+## [가격 책정](https://azure.microsoft.com/pricing/details/search/)
 ## 데모 사이트
 ### [작업 목록 앱](http://aka.ms/azjobsdemo)
 ### [라이브 데모 앱](https://searchsamples.azurewebsites.net/)
@@ -73,7 +77,7 @@
 ## 파트너 및 커뮤니티
 ### [관계형 데이터 모델링](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [다중 레벨 패싯](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 

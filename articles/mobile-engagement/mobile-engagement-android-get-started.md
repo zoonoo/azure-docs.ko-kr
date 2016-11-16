@@ -1,12 +1,12 @@
 ---
-title: Android 앱 Azure Mobile Engagement 시작
-description: Android 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다.
+title: "Android 앱 Azure Mobile Engagement 시작"
+description: "Android 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
 services: mobile-engagement
 documentationcenter: android
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 3c286c6d-cfef-4e3e-9b2c-715429fe82db
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a4b9ab47969c95aa9940e044b426cf2811e23f61
+
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Android 앱용 Azure Mobile Engagement 시작
@@ -106,10 +110,10 @@ ms.author: piyushjo;ricksal
 2. 에이전트 서비스를 선언하려면 `<application>` 태그와 `</application>` 태그 사이에 이 코드를 추가합니다.
    
         <service
-            android:name="com.microsoft.azure.engagement.service.EngagementService"
-            android:exported="false"
-            android:label="<Your application name>"
-            android:process=":Engagement"/>
+             android:name="com.microsoft.azure.engagement.service.EngagementService"
+             android:exported="false"
+             android:label="<Your application name>"
+             android:process=":Engagement"/>
 3. 붙여 넣은 코드에서 레이블의 `"<Your application name>"`을(를) 대체합니다. 레이블은 장치에서 실행 중인 서비스를 볼 수 있는 **설정** 메뉴에 표시됩니다. 예를 들어 해당 레이블에 "서비스"라는 단어를 추가할 수 있습니다.
 
 ### <a name="send-a-screen-to-mobile-engagement"></a>Mobile Engagement에 화면 보내기
@@ -130,10 +134,10 @@ ms.author: piyushjo;ricksal
 
 앱에서 `ActionBar` 을(를) 유지하려는 경우 [고급 Android 보고](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes)를 참조하세요.
 
-## <a name="connect-app-with-real-time-monitoring"></a>실시간 모니터링과 앱 연결
+## <a name="connect-app-with-realtime-monitoring"></a>실시간 모니터링과 앱 연결
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="enable-push-notifications-and-in-app-messaging"></a>푸시 알림 및 앱 내 메시징 사용
+## <a name="enable-push-notifications-and-inapp-messaging"></a>푸시 알림 및 앱 내 메시징 사용
 캠페인 도중 Mobile Engagement에서는 사용자와 상호 작용하고 푸시 알림 및 앱 내 메시징을 통해 사용자에게 알릴 수 있습니다. Mobile Engagement 포털에서는 이 모듈을 도달률이라고 합니다.
 다음 섹션에서는 이를 수신하도록 앱을 설정합니다.
 
@@ -169,6 +173,6 @@ ms.author: piyushjo;ricksal
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

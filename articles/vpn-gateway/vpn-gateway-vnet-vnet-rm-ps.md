@@ -1,13 +1,13 @@
 ---
-title: VPN 게이트웨이 및 PowerShell을 사용하여 Azure VNet 연결 | Microsoft Docs
-description: 이 문서에서는 Azure 리소스 관리자 및 PowerShell을 사용하여 가상 네트워크를 함께 연결하는 과정을 안내합니다.
+title: "VPN 게이트웨이 및 PowerShell을 사용하여 Azure VNet 연결 | Microsoft Docs"
+description: "이 문서에서는 Azure 리소스 관리자 및 PowerShell을 사용하여 가상 네트워크를 함께 연결하는 과정을 안내합니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,10 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 636606f5f5f651c10d174854de8471b5dd060dce
+
 
 ---
 # <a name="configure-a-vnettovnet-connection-for-resource-manager-using-powershell"></a>PowerShell을 사용하여 Resource Manager의 VNet 간 연결 구성
 > [!div class="op_single_selector"]
+> * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [클래식 - 클래식 포털](virtual-networks-configure-vnet-to-vnet-connection.md)
 > 
@@ -28,10 +33,10 @@ ms.author: cherylmc
 
 ![v2v 다이어그램](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-### <a name="deployment-models-and-methods-for-vnettovnet"></a>VNet 간 배포 모델 및 메서드
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+### <a name="deployment-models-and-methods-for-vnettovnet-connections"></a>VNet 간 연결 배포 모델 및 메서드
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
-두 배포 모델에서 여러 다양한 도구를 사용하여 VNet 간 연결을 구성할 수 있습니다. 새 문서 및 추가 도구를 이 구성에 사용할 수 있게 되었으므로 다음 테이블을 업데이트합니다. 문서를 사용할 수 있는 경우 표에서 직접 링크를 제공합니다.<br><br>
+아래 표에서는 현재 사용할 수 있는 배포 모델 및 VNet 간 구성을 위한 메서드를 보여 줍니다. 구성 단계를 포함한 문서를 사용할 수 있는 경우 아래 표에서 관련 링크를 직접 제공합니다.
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -424,6 +429,9 @@ TestVNet1 구성이 끝나면 TestVNet4를 만듭니다. 아래 단계에 따라
 * 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md) 를 참조하세요.
 * BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

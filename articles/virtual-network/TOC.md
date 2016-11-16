@@ -1,16 +1,15 @@
 # 개요
 ## [가상 네트워크](virtual-networks-overview.md)
-## [네트워크 보안 그룹](virtual-networks-nsg.md)
 ## [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)
+## [가상 네트워크 피어링](virtual-network-peering-overview.md)
+## [비즈니스 연속성](virtual-network-disaster-recovery-guidance.md)
+## [FAQ](virtual-networks-faq.md)
 ## IP 주소
 ### [리소스 관리자](virtual-network-ip-addresses-overview-arm.md)
 ### [클래식](virtual-network-ip-addresses-overview-classic.md)
-## [가상 네트워크 피어링](virtual-network-peering-overview.md)
 ## 가상 컴퓨터
 ### [네트워크 인터페이스](virtual-network-network-interface-overview.md)
 ### [이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md)
-## [비즈니스 연속성](virtual-network-disaster-recovery-guidance.md)
-## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)
 
 # 시작
 ## [가상 네트워크 만들기](virtual-networks-create-vnet-arm-pportal.md)
@@ -32,7 +31,7 @@
 #### [CLI(클래식)](virtual-networks-create-vnet-classic-cli.md)
 
 ### 네트워크 보안 그룹
-#### [포털](virtual-networks-create-nsg-arm-portal.md)
+#### [포털](virtual-networks-create-nsg-arm-pportal.md)
 #### [PowerShell](virtual-networks-create-nsg-arm-ps.md)
 #### [CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [템플릿](virtual-networks-create-nsg-arm-template.md)
@@ -75,7 +74,9 @@
 ##### [PowerShell(클래식)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [CLI(클래식)](virtual-network-deploy-multinic-classic-cli.md)
 
-#### [여러 IP 주소](virtual-network-multiple-ip-addresses-powershell.md)
+#### 여러 IP 주소
+##### [Azure 포털](virtual-network-multiple-ip-addresses-portal.md)
+##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 
 ### 연결 시나리오
 #### [가상 네트워크(VNet)에서 VNet으로](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -92,6 +93,14 @@
 ##### [방화벽 및 NSG와 DMZ](virtual-networks-dmz-nsg-fw-asm.md)
 ##### [방화벽, UDR 및 NSG와 DMZ](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [샘플 응용 프로그램](virtual-networks-sample-app.md)
+
+## 구성
+### 가속된 네트워킹
+#### [Azure 포털](virtual-network-accelerated-networking-portal.md)
+#### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### 액세스 제어 목록
+#### [클래식 포털](virtual-networks-acl.md)
+#### [PowerShell](virtual-networks-acl-powershell.md)
 
 ## 관리
 ### 네트워크 보안 그룹
@@ -110,22 +119,28 @@
 #### [다른 서브넷으로 VM 이동](virtual-networks-move-vm-role-to-subnet.md)
 
 # 참조
-## [PowerShell cmdlet(Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell cmdlet(클래식)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [API(Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
-## [API(클래식)](https://msdn.microsoft.com/library/jj157182.aspx)
-## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
-## [질문과 대답](virtual-networks-faq.md)
+## [PowerShell(리소스 관리자)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
+## [PowerShell(클래식)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+## [Azure CLI](/cli/azure/)
+## [Java](/java/api/)
+## [REST(리소스 관리자)](https://msdn.microsoft.com/library/mt163658.aspx)
+## [REST(클래식)](https://msdn.microsoft.com/library/jj157182.aspx)
+
 
 # 관련 항목
-## [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines)
-## [응용 프로그램 게이트웨이](https://azure.microsoft.com/documentation/services/application-gateway)
-## [Azure DNS](https://azure.microsoft.com/documentation/services/dns)
-## [트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager)
-## [부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer)
-## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway)
-## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute)
+## [가상 컴퓨터](/azure/virtual-machines/)
+## [응용 프로그램 게이트웨이](/azure/application-gateway/)
+## [Azure DNS](/azure/dns/)
+## [트래픽 관리자](/azure/traffic-manager/)
+## [부하 분산 장치](/azure/load-balancer/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [ExpressRoute](/azure/expressroute/)
 
+# 리소스
+## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
+## [네트워킹 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
 <!--HONumber=Nov16_HO2-->

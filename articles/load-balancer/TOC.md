@@ -32,18 +32,25 @@
 ## [클라우드 서비스의 여러 VIP 구성](load-balancer-multivip.md)
 ## [Azure Load Balancer에 대한 Log analytics](load-balancer-monitor-log.md)
 ## [Linux VM에 대한 DHCPv6 구성](load-balancer-ipv6-for-linux.md)
+
 # 참조
+## [PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=536407)
+## [.NET](https://docs.microsoft.com/dotnet/api/)
 ## [Resource Manager API](https://go.microsoft.com/fwlink/p/?LinkId=536405)
-## [Resource Manager PowerShell CmdLet](https://go.microsoft.com/fwlink/p/?LinkId=536407)
 ## [네트워크 리소스 사용](https://go.microsoft.com/fwlink/p/?LinkId=536403)
+
 # 관련 항목
-## [응용 프로그램 게이트웨이](https://azure.microsoft.com/documentation/services/application-gateway/)
-## [Express 경로](https://azure.microsoft.com/documentation/services/expressroute/)
-## [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)
-## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway/)
-## [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)
-## [트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
-## [DNS](https://azure.microsoft.com/documentation/services/dns/)
+## [응용 프로그램 게이트웨이](/azure/application-gateway/)
+## [Express 경로](/azure/expressroute/)
+## [가상 네트워크](/azure/virtual-network/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [가상 컴퓨터](/azure/virtual-machines/)
+## [트래픽 관리자](/azure/traffic-manager/)
+## [DNS](/azure/dns/)
+
+# 리소스
+## [가격 책정](https://azure.microsoft.com/pricing/details/load-balancer/) 
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=load-balancer) 
 
 
 <!--HONumber=Nov16_HO2-->

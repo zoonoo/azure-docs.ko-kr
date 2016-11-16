@@ -1,12 +1,12 @@
 ---
-title: Windows 인증 및 Azure Multi-Factor Authentication 서버
-description: Windows 인증 및 Azure Multi-Factor Authentication을 배포하는 데 도움이 되는 Azure Multi-Factor Authentication 페이지입니다.
+title: "Windows 인증 및 Azure Multi-Factor Authentication 서버"
+description: "Windows 인증 및 Azure Multi-Factor Authentication을 배포하는 데 도움이 되는 Azure Multi-Factor Authentication 페이지입니다."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: 19a4043f-c4ce-43c0-80e7-2548ee92cb74
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,22 +14,27 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1952e103c574f83c2c6285e32c59144816749348
+
 
 ---
-# Windows 인증 및 Azure Multi-Factor Authentication 서버
-Windows 인증 섹션에서 관리자는 하나 이상의 응용 프로그램에 대해 Windows 인증을 설정하고 구성할 수 있습니다. 다음은 Windows 인증을 설정하기 전에 고려해야할 사항의 목록입니다.
+# <a name="windows-authentication-and-azure-multifactor-authentication-server"></a>Windows 인증 및 Azure Multi-Factor Authentication 서버
+Windows 인증 섹션에서 관리자는 하나 이상의 응용 프로그램에 대해 Windows 인증을 설정하고 구성할 수 있습니다.  다음은 Windows 인증을 설정하기 전에 고려해야할 사항의 목록입니다.
 
 * 터미널 서비스에 대한 Azure Multi-Factor Authentication이 적용되기 전에 다시 부팅해야 합니다.
-* 'Azure Multi-Factor Authentication 사용자 일치'을 선택하고 사용자 목록에 없는 경우, 다시 부팅하면 컴퓨터에 로그인할 수 없습니다.
-* 신뢰할 수 있는 IP는 응용 프로그램이 클라이언트 IP에 인증을 제공할 수 있는지 여부에 따라 달라집니다. 현재는 터미널 서비스만 지원됩니다.
+* 'Azure Multi-Factor Authentication 사용자 일치'를 선택하고 사용자 목록에 없는 경우, 다시 부팅하면 컴퓨터에 로그인할 수 없습니다.
+* 신뢰할 수 있는 IP는 응용 프로그램이 클라이언트 IP에 인증을 제공할 수 있는지 여부에 따라 달라집니다. 현재는 터미널 서비스만 지원됩니다.  
 
 > [!NOTE]
 > 이 기능은 Windows Server 2012 R2에서 보안 터미널 서비스를 보안하는 데 지원되지 않습니다.
 > 
 > 
 
-## Windows 인증을 사용하는 응용 프로그램을 보호하려면 다음 절차를 사용합니다.
-1. Azure Multi-Factor Authentication 서버에서 Windows 인증 아이콘을 클릭합니다. ![Windows 인증](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Windows 인증을 사용하는 응용 프로그램을 보호하려면 다음 절차를 사용합니다.
+1. Azure Multi-Factor Authentication 서버에서 Windows 인증 아이콘을 클릭합니다.
+   ![Windows 인증](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
 2. Windows 인증 사용 확인란을 선택합니다. 이 상자는 기본적으로 선택되지 않습니다.
 3. 응용 프로그램 탭에서 관리자는 Windows 인증을 위해 하나 이상의 응용 프로그램을 구성할 수 있습니다.
 4. 서버 또는 응용 프로그램을 선택합니다. 서버/응용 프로그램이 사용되는지 여부를 지정합니다. 확인을 클릭합니다.
@@ -41,4 +46,9 @@ Windows 인증 섹션에서 관리자는 하나 이상의 응용 프로그램에
 10. 서브넷 표기법을 사용하여 IP 범위를 지정하려면 서브넷을 선택합니다. 시작 IP 서브넷을 입력하고 드롭다운 목록에서 적절한 네트워크 마스크를 선택합니다.
 11. 확인 단추를 클릭합니다.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

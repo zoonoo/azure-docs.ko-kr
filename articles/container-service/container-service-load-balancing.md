@@ -1,14 +1,14 @@
 ---
-title: Azure Container Service 클러스터에서 컨테이너 부하 분산 | Microsoft Docs
-description: Azure Container Service 클러스터에 있는 여러 컨테이너에 대한 부하 분산입니다.
+title: "Azure Container Service 클러스터에서 컨테이너 부하 분산 | Microsoft 문서"
+description: "Azure Container Service 클러스터에 있는 여러 컨테이너에 대한 부하 분산입니다."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: 컨테이너, 마이크로 서비스, DC/OS, Azure
-
+keywords: "컨테이너, 마이크로 서비스, DC/OS, Azure"
+ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,6 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cf255856302ad5bdb1f6022d231833610acbcac5
+
 
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Azure Container Service 클러스터에서 컨테이너 부하 분산
@@ -35,14 +39,14 @@ Marathon Load Balancer는 배포한 컨테이너를 기준으로 동적으로 �
 
 Marathon Load Balancer를 설치하려면 DC/OS 웹 UI 또는 명령줄 중 하나를 사용할 수 있습니다.
 
-### <a name="install-marathon-lb-using-dc/os-web-ui"></a>DC/OS 웹 UI를 사용하여 Marathon-LB 설치
+### <a name="install-marathonlb-using-dcos-web-ui"></a>DC/OS 웹 UI를 사용하여 Marathon-LB 설치
 1. 'Universe'을 클릭합니다.
 2. 'Marathon-LB'를 검색합니다.
 3. '설치'를 클릭합니다.
 
 ![DC/OS 웹 인터페이스를 통해 marathon-lb 설치](./media/dcos/marathon-lb-install.png)
 
-### <a name="install-marathon-lb-using-the-dc/os-cli"></a>DC/OS CLI를 사용하여 Marathon-LB 설치
+### <a name="install-marathonlb-using-the-dcos-cli"></a>DC/OS CLI를 사용하여 Marathon-LB 설치
 DC/OS CLI를 설치하고 클러스터에 연결할 수 있는지 확인한 후에 클라이언트 컴퓨터에서 다음 명령을 실행합니다.
 
 ```bash
@@ -97,13 +101,13 @@ dcos package install marathon-lb
 
 Marathon은 기본적으로 개인 클러스터를 배포합니다. 즉, 위의 배포는 부하 분산 장치를 통해서만 액세스할 수 있고 이 동작을 일반적으로 수행하려고 합니다.
 
-### <a name="deploy-using-the-dc/os-web-ui"></a>DC/OS 웹 UI를 사용하여 배포
+### <a name="deploy-using-the-dcos-web-ui"></a>DC/OS 웹 UI를 사용하여 배포
 1. [SSH 터널](container-service-connect.md)을 설정한 다음 http://localhost/marathon에서 Marathon 페이지에 방문하고 `Create Appliction`을 클릭합니다.
 2. `New Application` 대화 상자의 오른쪽 위 모퉁이에서 `JSON Mode`를 클릭합니다.
 3. 위의 JSON을 편집기에 붙여 넣습니다.
 4. `Create Appliction`을 클릭합니다.
 
-### <a name="deploy-using-the-dc/os-cli"></a>DC/OS CLI를 사용하여 배포
+### <a name="deploy-using-the-dcos-cli"></a>DC/OS CLI를 사용하여 배포
 DC/OS CLI를 사용하여 이 응용 프로그램을 배포하려면 위의 JSON을 `hello-web.json`이라는 파일에 복사하고 실행합니다.
 
 ```bash
@@ -129,6 +133,9 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 ## <a name="next-steps"></a>다음 단계
 [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/)에 대한 자세한 내용은 DC/OS 설명서를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,4 +1,4 @@
-## 구독간 피어링
+## <a name="peering-across-subscriptions"></a>구독간 피어링
 이 시나리오에서는 다른 구독에 속한 두 개의 Vnet 간에 피어링을 만듭니다.
 
 ![하위 시나리오간](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
@@ -10,4 +10,8 @@ VNet 피어링은 권한 부여를 위해 RBAC(역할 기반 액세스 제어)�
 > 
 > 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

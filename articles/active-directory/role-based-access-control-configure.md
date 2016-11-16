@@ -1,12 +1,12 @@
 ---
-title: Azure 포털에서 역할 기반 액세스 제어 사용 | Microsoft Docs
-description: Azure 포털에서 역할 기반 액세스 제어를 통해 액세스 관리를 시작합니다. 리소스에 대한 사용 권한을 할당하기 위해 역할 할당을 사용합니다.
+title: "Azure 포털에서 역할 기반 액세스 제어 사용 | Microsoft Docs"
+description: "Azure 포털에서 역할 기반 액세스 제어를 통해 액세스 관리를 시작합니다. 리소스에 대한 사용 권한을 할당하기 위해 역할 할당을 사용합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+
 
 ---
 # <a name="use-role-assignments-to-manage-access-to-your-azure-subscription-resources"></a>역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리
@@ -75,9 +79,12 @@ Azure 포털 이외의 도구에서 Azure RBAC 명령을 사용하여 역할을 
 
 ## <a name="next-steps"></a>다음 단계
 * [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md)
-* [RBAC 기본 제공 역할](role-based-access-built-in-roles.md)
-* [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md)
+*  [RBAC 기본 제공 역할](role-based-access-built-in-roles.md)
+*  [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

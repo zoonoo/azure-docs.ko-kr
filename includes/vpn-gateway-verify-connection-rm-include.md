@@ -41,6 +41,8 @@ Azure 포털에서 연결로 이동하여 연결 상태를 볼 수 있습니다.
    
     ![연결 확인](./media/vpn-gateway-verify-connection-rm-include/connectionsucceeded.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

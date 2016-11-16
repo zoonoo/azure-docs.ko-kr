@@ -1,27 +1,32 @@
 ---
-title: Power BI Microsoft Azure로 SQL 데이터 웨어하우스 데이터 시각화
-description: Power BI로 SQL 데이터 웨어하우스 데이터 시각화
+title: "Power BI Microsoft Azure로 SQL 데이터 웨어하우스 데이터 시각화"
+description: "Power BI로 SQL 데이터 웨어하우스 데이터 시각화"
 services: sql-data-warehouse
 documentationcenter: NA
-author: lodipalm
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: d7fb89d1-da1d-4788-a111-68d0e3fda799
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/16/2016
-ms.author: lodipalm;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
+
 
 ---
-# Power BI를 사용하여 데이터 시각화
+# <a name="visualize-data-with-power-bi"></a>Power BI를 사용하여 데이터 시각화
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure 기계 학습](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -31,16 +36,16 @@ ms.author: lodipalm;barbkess;sonyama
 > 
 > 
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
 
-* AdventureWorksDW 데이터베이스로 미리 로드된 SQL 데이터 웨어하우스. 프로비전하려면 [SQL 데이터 웨어하우스 만들기][SQL 데이터 웨어하우스 만들기]를 참조하고 샘플 데이터 로드를 선택합니다. 데이터 웨어하우스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][샘플 데이터를 수동으로 로드]할 수 있습니다.
+* AdventureWorksDW 데이터베이스로 미리 로드된 SQL 데이터 웨어하우스. 프로비전하려면 [SQL Data Warehouse 만들기][SQL Data Warehouse 만들기]를 참조하고 샘플 데이터 로드를 선택합니다. 데이터 웨어하우스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][샘플 데이터를 수동으로 로드]할 수 있습니다.
 
-## 1\. 데이터베이스 연결
+## <a name="1-connect-to-your-database"></a>1. 데이터베이스 연결
 Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 
 1. [Azure 포털][Azure 포털]에 로그인합니다.
-2. **SQL 데이터베이스**를 클릭하고 AdventureWorks SQL 데이터 웨어하우스 데이터베이스를 선택합니다.
+2. **SQL 데이터베이스** 를 클릭하고 AdventureWorks SQL 데이터 웨어하우스 데이터베이스를 선택합니다.
    
     ![데이터베이스 찾기][1]
 3. 'Power BI에서 열기' 단추를 클릭합니다.
@@ -56,7 +61,7 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
    
     ![Power BI AdventureWorksDW 열기][5]
 
-## 2\. 보고서 만들기
+## <a name="2-create-a-report"></a>2. 보고서 만들기
 이제 Power BI를 사용하여 AdventureWorksDW 샘플 데이터를 분석할 준비가 되었습니다. 분석을 수행하기 위해 AdventureWorksDW에는 AggregateSales라는 뷰가 포함되어 있습니다. 이 뷰는 회사의 판매를 분석하기 위한 주요 메트릭 중 일부를 포함합니다.
 
 1. 우편 번호에 따라 판매액 지도를 만들려면 오른쪽 필드 창에서 AggregateSales 뷰를 클릭하여 확장합니다. PostalCode 및 SalesAmount 열을 클릭하여 선택합니다.
@@ -83,7 +88,7 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 
 언제든지 **파일**을 클릭하고 **저장**을 선택하여 진행 상황을 저장할 수 있습니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 이제 샘플 데이터로 [개발][개발], [로드][로드] 또는 [마이그레이션][마이그레이션]할 준비 시간을 드리겠습니다. 또는 [Power BI 웹 사이트][Power BI 웹 사이트]를 살펴보세요.
 
 <!--Image references-->
@@ -105,11 +110,15 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 [개발]: sql-data-warehouse-overview-develop.md
 [로드]: sql-data-warehouse-overview-load.md
 [샘플 데이터를 수동으로 로드]: sql-data-warehouse-load-sample-databases.md
-[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[SQL Data Warehouse에 연결]: sql-data-warehouse-integrate-power-bi.md
 [SQL 데이터 웨어하우스 만들기]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
 [Azure 포털]: https://portal.azure.com/
 [Power BI 웹 사이트]: http://www.powerbi.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

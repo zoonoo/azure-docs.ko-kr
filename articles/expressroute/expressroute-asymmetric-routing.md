@@ -1,12 +1,12 @@
 ---
-title: 비대칭 라우팅 | Microsoft Docs
-description: 이 문서에서는 대상에 여러 개의 링크가 있는 네트워크에서 비대칭 라우팅을 사용하는 고객이 경험할 수 있는 문제를 살펴봅니다.
+title: "비대칭 라우팅 | Microsoft Docs"
+description: "이 문서에서는 대상에 여러 개의 링크가 있는 네트워크에서 비대칭 라우팅을 사용하는 고객이 경험할 수 있는 문제를 살펴봅니다."
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamazia
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+
 
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>여러 네트워크 경로를 포함한 비대칭 라우팅
@@ -60,7 +64,7 @@ Express 경로 및 인터넷에 동일한 NAT(네트워크 주소 변환) 풀을
 
 인증을 위해 Express 경로를 사용하려는 경우 NAT 없이 Express 경로에 AD FS 공용 IP 주소를 보급해야 합니다. 이 방법으로 Microsoft에서 시작되고 온-프레미스 AD FS 서버로 이동하는 트래픽은 Express 경로를 통해 이동합니다. 고객으로부터 Microsoft에 대한 반환 트래픽은 인터넷을 통한 기본 경로이기 때문에 Express 경로를 사용합니다.
 
-### <a name="source-based-nat"></a>원본 기반 NAT
+### <a name="sourcebased-nat"></a>원본 기반 NAT
 비대칭 라우팅 문제를 해결하는 다른 방법은 SNAT를 사용하는 것입니다. 예를 들어 이러한 유형의 통신에 인터넷을 사용하려고 하기 때문에 Express 경로에 온-프레미스 SMTP(단순 메일 전송 프로토콜) 서버의 공용 IP 주소를 보급하지 않습니다. Microsoft로 시작하고 온-프레미스 SMTP 서버로 이동하는 요청은 인터넷을 탐색합니다. SNAT는 내부 IP 주소에 대한 들어오는 요청입니다. SMTP 서버의 역방향 트래픽은 Express 경로 대신 에지 방화벽(NAT에 사용함)으로 이동합니다. 반환 트래픽은 인터넷을 통해 돌아갑니다.
 
 ![원본 기반 NAT 네트워크 구성](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -68,6 +72,9 @@ Express 경로 및 인터넷에 동일한 NAT(네트워크 주소 변환) 풀을
 ## <a name="asymmetric-routing-detection"></a>비대칭 라우팅 감지
 경로 추적은 네트워크 트래픽이 예상된 경로를 탐색하도록 하는 가장 좋은 방법입니다. 온-프레미스 SMTP 서버에서 Microsoft로 전달되는 트래픽이 인터넷 경로를 사용해야 하는 경우 예상된 경로 추적은 SMTP 서버에서 Office 365로 이동합니다. 결과를 통해 트래픽이 네트워크를 Express 경로가 아닌 인터넷에 남겨두는지 유효성을 검사합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

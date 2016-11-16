@@ -1,13 +1,13 @@
 ---
-title: Azure 포털을 사용하여 Express 경로 회로에 라우팅을 구성하는 방법 | Microsoft Docs
-description: 이 문서에서는 Express 경로 회로의 개인, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다.
+title: "Azure Portal을 사용하여 ExpressRoute 회로에 라우팅을 구성하는 방법 | Microsoft Docs"
+description: "이 문서에서는 Express 경로 회로의 개인, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: hero-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1d78bdb6cbb9870298b050207fd1fa9c5e71d674
+
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Express 경로 회로의 라우팅 만들기 및 수정
@@ -148,11 +152,11 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
    ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
 5. 모든 매개 변수를 지정한 후에 구성을 저장합니다. 
    
-    회로가 유효성 검사가 필요한 상태가 되면(아래 참조), 지원 팀에 접두사에 대한 소유권의 증거를 보여주는 지원 티켓을 열어야 합니다.  
+    회로가 유효성 검사가 필요한 상태가 되면(아래 참조), 지원 팀에 접두사에 대한 소유권의 증거를 보여주는 지원 티켓을 열어야 합니다.    
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
 
-    아래와 같이 포털에서 바로 지원 티켓을 열 수 있습니다.   
+    아래와 같이 포털에서 바로 지원 티켓을 열 수 있습니다.     
 
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
@@ -183,6 +187,9 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 * 회로 피어링에 대한 자세한 내용은 [Express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
 * 가상 네트워크 작업에 대한 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

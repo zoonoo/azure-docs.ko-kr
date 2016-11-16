@@ -1,4 +1,4 @@
-## 일반적인 출력
+## <a name="typical-output"></a>일반적인 출력
 다음은 Hello World 샘플을 통해 파일을 기록하기 위해 작성한 출력의 예입니다. 읽기 쉽도록 새 줄과 탭 문자가 추가되었습니다.
 
 ```
@@ -29,13 +29,13 @@
 }]
 ```
 
-## 코드 조각
+## <a name="code-snippets"></a>코드 조각
 이 섹션은 Hello World 샘플에서 코드의 주요 부분을 설명합니다.
 
-### 게이트웨이 생성
-개발자는 *게이트웨이 프로세스*를 작성해야 합니다. 이 프로그램은 내부 인프라(broker)를 생성하고, 모듈을 로드하고, 모든 것이 제대로 작동하도록 설정합니다. SDK는 JSON 파일에서 게이트웨이를 부트스트랩할 수 있도록 **Gateway\_Create\_From\_JSON** 함수를 제공합니다. **Gateway\_Create\_From\_JSON** 함수를 사용하려면 로드할 모듈을 지정하는 JSON 파일에 대한 경로를 전달해야 합니다.
+### <a name="gateway-creation"></a>게이트웨이 생성
+개발자는 *게이트웨이 프로세스*를 작성해야 합니다. 이 프로그램은 내부 인프라(broker)를 생성하고, 모듈을 로드하고, 모든 것이 제대로 작동하도록 설정합니다. SDK는 JSON 파일에서 게이트웨이를 부트스트랩할 수 있도록 **Gateway_Create_From_JSON** 함수를 제공합니다. **Gateway_Create_From_JSON** 함수를 사용하려면 로드할 모듈을 지정하는 JSON 파일에 대한 경로를 전달해야 합니다. 
 
-Hello World 샘플의 게이트웨이 프로세스에 대한 코드는 [main.c][lnk-main-c] 파일에서 찾을 수 있습니다. 읽기 쉽도록, 아래 코드 조각에 게이트웨이 프로세스 코드의 간략한 버전을 보여줍니다. 이 프로그램은 게이트웨이를 만든 다음 게이트웨이를 허물기 전에 사용자가 **ENTER** 키를 누를 때까지 대기합니다.
+Hello World 샘플의 게이트웨이 프로세스에 대한 코드는 [main.c][lnk-main-c] 파일에서 찾을 수 있습니다. 읽기 쉽도록, 아래 코드 조각에 게이트웨이 프로세스 코드의 간략한 버전을 보여줍니다. 이 프로그램은 게이트웨이를 만든 다음 게이트웨이를 허물기 전에 사용자가 **ENTER** 키를 누를 때까지 대기합니다. 
 
 ```
 int main(int argc, char** argv)
@@ -58,16 +58,16 @@ int main(int argc, char** argv)
 
 JSON 설정 파일은 로드할 모듈 목록을 포함합니다. 각 모듈은 다음을 지정합니다.
 
-* **module\_name**: 모듈의 고유한 이름.
-* **module\_path**: 모듈을 포함하는 라이브러리에 대한 경로. Linux는 .so 파일이고, Windows는 .dll 파일입니다.
+* **module_name**: 모듈의 고유한 이름.
+* **module_path**: 모듈을 포함하는 라이브러리에 대한 경로. Linux는 .so 파일이고, Windows는 .dll 파일입니다.
 * **args**: 모듈에 필요한 구성 정보입니다.
 
 JSON 파일에는 broker에 전달되는 모듈 간의 링크가 포함되어 있습니다. 링크에는 두 가지 속성이 있습니다.
 
-* **source**: `modules` 섹션 또는 "*"의 모듈 이름입니다.
+* **source**: `modules` 섹션 또는 "\*"의 모듈 이름입니다.
 * **sink**: `modules` 섹션의 모듈 이름입니다.
 
-각 링크는 메시지 경로 및 방향을 정의합니다. 모듈의 메시지 `source`은 모듈 `sink`에 배달됩니다. `source`은 "*"로 설정되며 이는 모듈의 메세지가 `sink`에서 수신된다는 사실을 나타냅니다.
+각 링크는 메시지 경로 및 방향을 정의합니다. 모듈의 메시지 `source`은 모듈 `sink`에 배달됩니다. `source`은 "\*"로 설정되며 이는 모듈의 메세지가 `sink`에서 수신된다는 사실을 나타냅니다.
 
 다음 샘플은 Linux에서 Hello World 샘플을 구성하는 데 사용되는 JSON 설정 파일을 보여줍니다. 모듈 `hello_world`에 의해 생성된 모든 메시지는 모듈 `logger`에서 사용합니다. 모듈에 인수가 필요한지 여부는 모듈의 디자인에 달려 있습니다. 이 예에서, 로거 모듈은 출력 파일에 대한 경로를 인수로 취하고, Hello World 모듈은 인수를 전혀 취하지 않습니다.
 
@@ -77,12 +77,16 @@ JSON 파일에는 broker에 전달되는 모듈 간의 링크가 포함되어 �
     [ 
         {
             "module name" : "logger",
-            "module path" : "./modules/logger/liblogger_hl.so",
+            "loading args": {
+              "module path" : "./modules/logger/liblogger_hl.so"
+            },
             "args" : {"filename":"log.txt"}
         },
         {
             "module name" : "hello_world",
-            "module path" : "./modules/hello_world/libhello_world_hl.so",
+            "loading args": {
+              "module path" : "./modules/hello_world/libhello_world_hl.so"
+            },
             "args" : null
         }
     ],
@@ -96,8 +100,8 @@ JSON 파일에는 broker에 전달되는 모듈 간의 링크가 포함되어 �
 }
 ```
 
-### Hello World 모듈 메시지 게시
-메시지를 게시하기 위해 "hello world" 모듈에 사용되는 코드는 ['hello\_world.c'][lnk-helloworld-c] 파일에서 찾을 수 있습니다. 아래 코드 조각은 읽기 쉽도록 코멘트가 추가되고 일부 오류 처리 코드가 제거된 수정 버전을 보여줍니다.
+### <a name="hello-world-module-message-publishing"></a>Hello World 모듈 메시지 게시
+메시지를 게시하기 위해 "hello world" 모듈에 사용되는 코드는 ['hello_world.c'][lnk-helloworld-c] 파일에서 찾을 수 있습니다. 아래 코드 조각은 읽기 쉽도록 코멘트가 추가되고 일부 오류 처리 코드가 제거된 수정 버전을 보여줍니다.
 
 ```
 int helloWorldThread(void *param)
@@ -145,7 +149,7 @@ int helloWorldThread(void *param)
 }
 ```
 
-### Hello World 모듈 메시지 처리
+### <a name="hello-world-module-message-processing"></a>Hello World 모듈 메시지 처리
 Hello World 모듈은 다른 모듈이 broker에 게시하는 어떠한 메시지도 처리할 필요가 없습니다. 따라서 Hello World 모듈 내 메시지 콜백 구현은 수행되지 않는 함수가 됩니다.
 
 ```
@@ -155,10 +159,10 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 }
 ```
 
-### 로거 모듈 메시지 게시 및 처리
-로거 모듈은 broker에서 메시지를 수신하고 이것을 파일에 기록합니다. 메시지를 게시하지 않습니다. 따라서 로거 모듈의 코드는 **Broker\_Publish** 함수를 절대 호출하지 않습니다.
+### <a name="logger-module-message-publishing-and-processing"></a>로거 모듈 메시지 게시 및 처리
+로거 모듈은 broker에서 메시지를 수신하고 이것을 파일에 기록합니다. 메시지를 게시하지 않습니다. 따라서 로거 모듈의 코드는 **Broker_Publish** 함수를 절대 호출하지 않습니다.
 
-[logger.c][lnk-logger-c] 파일의 **Logger\_Recieve** 함수는 broker가 로거 모듈에 메시지를 전달하기 위해 호출하는 콜백입니다. 아래 코드 조각은 읽기 쉽도록 코멘트가 추가되고 일부 오류 처리 코드가 제거된 수정 버전을 보여줍니다.
+[logger.c][lnk-logger-c] 파일의 **Logger_Recieve** 함수는 broker가 로거 모듈에 메시지를 전달하기 위해 호출하는 콜백입니다. 아래 코드 조각은 읽기 쉽도록 코멘트가 추가되고 일부 오류 처리 코드가 제거된 수정 버전을 보여줍니다.
 
 ```
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -181,17 +185,17 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
     // Start the construction of the final string to be logged by adding
     // the timestamp
-    STRING_HANDLE jsonToBeAppended = STRING_construct(",{"time":"");
+    STRING_HANDLE jsonToBeAppended = STRING_construct(",{\"time\":\"");
     STRING_concat(jsonToBeAppended, timetemp);
 
     // Add the message properties
-    STRING_concat(jsonToBeAppended, "","properties":"); 
+    STRING_concat(jsonToBeAppended, "\",\"properties\":"); 
     STRING_concat_with_STRING(jsonToBeAppended, jsonProperties);
 
     // Add the content
-    STRING_concat(jsonToBeAppended, ","content":"");
+    STRING_concat(jsonToBeAppended, ",\"content\":\"");
     STRING_concat_with_STRING(jsonToBeAppended, contentAsJSON);
-    STRING_concat(jsonToBeAppended, ""}]");
+    STRING_concat(jsonToBeAppended, "\"}]");
 
     // Write the formatted string
     LOGGER_HANDLE_DATA *handleData = (LOGGER_HANDLE_DATA *)moduleHandle;
@@ -199,11 +203,11 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 }
 ```
 
-## 다음 단계
-Gateway SDK 사용법에 대해 알아보려면 다음을 참조하세요.
+## <a name="next-steps"></a>다음 단계
+IoT Gateway SDK 사용 방법에 대해 알아보려면 다음을 참조하세요.
 
-* [IoT Gateway SDK – Linux를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기][lnk-gateway-simulated]
-* GitHub의 [Azure IoT Gateway SDK][lnk-gateway-sdk].
+* [IoT Gateway SDK – Linux를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기][lnk-gateway-simulated].
+* GitHub에서 [Azure IoT Gateway SDK][lnk-gateway-sdk].
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
@@ -212,4 +216,6 @@ Gateway SDK 사용법에 대해 알아보려면 다음을 참조하세요.
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0928_2016-->
+<!--HONumber=Nov16_HO2-->
+
+

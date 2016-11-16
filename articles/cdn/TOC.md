@@ -1,16 +1,13 @@
 # [개요](cdn-overview.md)
-## [Azure CDN 모범 사례](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+## [Azure CDN이란?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 # 시작
 ## [Azure CDN 사용](cdn-create-new-endpoint.md)
-## Azure CDN 개발 시작
-### [.NET](cdn-app-dev-net.md)
-### [Node.JS](cdn-app-dev-node.md)
 
 # 방법
 ## 통합
-### [Web Apps과 통합](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-### [Cloud Services와 통합](cdn-cloud-service-with-cdn.md)
-### [Storage와 통합](cdn-create-a-storage-account-with-cdn.md)
+### [Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [클라우드 서비스](cdn-cloud-service-with-cdn.md)
+### [저장소](cdn-create-a-storage-account-with-cdn.md)
 ### [크로스-원본 자원 공유](cdn-cors.md)
 
 ## 관리
@@ -29,9 +26,6 @@
 ### [규칙을 사용하여 동작 재정의](cdn-rules-engine.md)
 ### [실시간 경고 받기](cdn-real-time-alerts.md)
 
-## 자동화
-### [PowerShell로 관리](cdn-manage-powershell.md)
-
 ## 분석
 ### [사용 패턴 분석](cdn-analyze-usage-patterns.md)
 ### [고급 HTTP 보고서 생성](cdn-advanced-http-reports.md)
@@ -39,21 +33,25 @@
 ### [에지 노드 성능 분석](cdn-edge-performance.md)
 
 ## 개발
-### Azure CDN 개발 시작
-#### [.NET](cdn-app-dev-net.md)
-#### [Node.JS](cdn-app-dev-node.md)
+### [.NET](cdn-app-dev-net.md)
+### [Node.JS](cdn-app-dev-node.md)
 
 ## 문제 해결
-### [404 상태 문제 해결](cdn-troubleshoot-endpoint.md)
-### [파일 압축 문제 해결](cdn-troubleshoot-compression.md)
+### [404 상태](cdn-troubleshoot-endpoint.md)
+### [파일 압축](cdn-troubleshoot-compression.md)
 
 # 참조
-## [REST API 참조](https://msdn.microsoft.com/library/mt634456.aspx)
-
-# 관련 항목
+## [PowerShell cmdlet](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [.NET API](https://docs.microsoft.com/dotnet/api)
+## [Azure CDN POP 위치](cdn-pop-locations.md)
+## [REST (영문)](https://msdn.microsoft.com/library/mt634456.aspx)
 
 # 리소스
-## [Azure CDN POP 위치](cdn-pop-locations.md)
+## [가격 책정](https://azure.microsoft.com/pricing/details/cdn/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/forums/home?forum=azurecdn)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cdn)
+
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,12 +1,12 @@
 ---
-title: '자습서: 복사 마법사를 사용하여 파이프라인 만들기 | Microsoft Docs'
-description: 이 자습서에서는 데이터 팩터리가 지원하는 복사 마법사를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다.
+title: "자습서: 복사 마법사를 사용하여 파이프라인 만들기 | Microsoft Docs"
+description: "이 자습서에서는 데이터 팩터리가 지원하는 복사 마법사를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>자습서: 데이터 팩터리 복사 마법사를 사용하여 복사 작업이 있는 파이프라인 만들기
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>자습서: 데이터 팩터리 복사 마법사를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
@@ -53,21 +57,23 @@ Azure Data Factory **복사 마법사**를 사용하면 데이터 수집/이동 
       > 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
       > 
       > 
-3. Azure **구독**을 선택합니다.
-4. 리소스 그룹에 대해 다음 단계 중 하나를 수행합니다. 1. **기존 항목 사용**을 선택하고 기존 리소스 그룹을 선택합니다.
-5. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
-   
-            Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
-   1. Data Factory의 **위치**를 선택합니다.
-   2. 블레이드 하단에서 **대시보드에 고정** 확인란을 선택합니다.  
-   3. **만들기**를 클릭합니다.
+   2. Azure **구독**을 선택합니다.
+   3. 리소스 그룹에 대해 다음 단계 중 하나를 수행합니다. 
       
-       ![새 데이터 팩터리 블레이드](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)          
-6. 만들기가 완료되면 다음 이미지와 같이 **Data Factory** 블레이드가 표시됩니다.
+      1. **기존 항목 사용**을 선택하고 기존 리소스 그룹을 선택합니다.
+      2. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
+         
+          이 자습서의 일부 단계에서는 리소스 그룹에 **ADFTutorialResourceGroup** 이라는 이름을 사용한다고 가정합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+   4. Data Factory의 **위치**를 선택합니다.
+   5. 블레이드 하단에서 **대시보드에 고정** 확인란을 선택합니다.  
+   6. **만들기**를 클릭합니다.
+      
+       ![새 데이터 팩터리 블레이드](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
+3. 만들기가 완료되면 다음 이미지와 같이 **Data Factory** 블레이드가 표시됩니다.
    
    ![데이터 팩터리 홈페이지](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## <a name="launch-and-use-copy-wizard"></a>복사 마법사 시작 및 사용
+## <a name="launch-copy-wizard"></a>복사 마법사 시작
 1. 데이터 팩터리 홈 페이지에서 **데이터 복사** 타일을 클릭하여 **복사 마법사**를 시작합니다. 
    
    > [!NOTE]
@@ -154,6 +160,9 @@ Azure Data Factory **복사 마법사**를 사용하면 데이터 수집/이동 
 | [데이터 집합](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다. |
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) |이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Log Analytics에서 데이터 사용 현황 분석 | Microsoft Docs
-description: Log Analytics에서 사용량 페이지를 사용하여 OMS 서비스로 전송되는 데이터의 양을 볼 수 있습니다.
+title: "Log Analytics에서 데이터 사용 현황 분석 | Microsoft Docs"
+description: "Log Analytics에서 사용량 페이지를 사용하여 OMS 서비스로 전송되는 데이터의 양을 볼 수 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/11/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4c1d0319e768eec69718d8b49db30069ec1331d9
+
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics에서 데이터 사용 현황 분석
@@ -65,6 +69,9 @@ OMS의 **개요** 대시보드에서 **사용량** 타일을 사용하여 사용
 ## <a name="next-steps"></a>다음 단계
 * 솔루션에서 수집한 자세한 정보를 보려면 [Log Analytics에서 로그 검색](log-analytics-log-searches.md) 을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

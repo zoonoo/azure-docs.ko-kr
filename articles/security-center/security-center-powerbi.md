@@ -1,12 +1,12 @@
 ---
-title: Power BI로 Azure 보안 센터 데이터에서 통찰력 얻기| Microsoft Docs
-description: Azure 보안 센터 Power BI 콘텐츠 팩을 사용하면 보고를 위해 생성된 데이터 집합에 기반하여 보안 경고, 권장 사항, 공격 받은 리소스 및 추세를 쉽게 찾을 수 있습니다.
+title: "Power BI로 Azure 보안 센터 데이터에서 통찰력 얻기| Microsoft Docs"
+description: "Azure 보안 센터 Power BI 콘텐츠 팩을 사용하면 보고를 위해 생성된 데이터 집합에 기반하여 보안 경고, 권장 사항, 공격 받은 리소스 및 추세를 쉽게 찾을 수 있습니다."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,26 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f085631264439062f6fccff4cdae535d7f80bbe3
+
 
 ---
-# Power BI로 Azure 보안 센터 데이터에서 통찰력 얻기
-Azure 보안 센터에 대한 [Power BI 대시보드](http://aka.ms/azure-security-center-power-bi)를 사용하면 어디서든 모바일 장치를 포함하여 권장 사항 및 보안 경고를 시각화, 분석 및 필터링할 수 있습니다. Power BI 대시보드를 사용하여 추세를 표시하고 패턴을 공격합니다. 리소스 또는 원본 IP 주소에서 보안 경고 및 리소스 또는 시대에서 알려지지 않은 보안 위험을 봅니다.
+# <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Power BI로 Azure 보안 센터 데이터에서 통찰력 얻기
+Azure 보안 센터에 대한 [Power BI 대시보드](http://aka.ms/azure-security-center-power-bi)를 사용하면 어디서든 모바일 장치를 포함하여 권장 사항 및 보안 경고를 시각화, 분석 및 필터링할 수 있습니다. Power BI 대시보드를 사용하여 추세를 표시하고 패턴을 공격합니다. 리소스 또는 원본 IP 주소에서 보안 경고 및 리소스 또는 시대에서 알려지지 않은 보안 위험을 봅니다. 
 
 또한 [Azure 감사 로그](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) 및 [Azure SQL 데이터베이스 감사](https://powerbi.microsoft.com/blog/monitor-your-azure-sql-database-auditing-activity-with-power-bi/)의 데이터를 사용하는 등의 원하는 방식으로 다른 데이터와 보안 센터 권장 사항과 보안 경고를 함께 사용할 수 있습니다. 두 가지 모두 Power BI 대시보드를 제공하기 때문에 클라우드 리소스의 보안 상태에 대한 간단한 보고를 위해 이 데이터를 Excel로 내보낼 수도 있습니다.
 
-## Azure 보안 센터 대시보드를 사용하여 Power BI에 액세스
-또한 Azure 보안 센터 대시보드를 사용하여 Power BI 보고서에 액세스할 수 있습니다. 이 작업을 수행하려면 다음 단계를 따릅니다.
+## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Azure 보안 센터 대시보드를 사용하여 Power BI에 액세스
+또한 Azure 보안 센터 대시보드를 사용하여 Power BI 보고서에 액세스할 수 있습니다. 이 작업을 수행하려면 다음 단계를 따릅니다. 
 
 1. **Azure 보안 센터** 대시보드에서 **Power BI에서 탐색** 단추를 클릭합니다.
    
-    ![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
-2. 다음 화면에 표시된 것처럼**Power BI에서 탐색** 블레이드가 오른쪽에 열립니다.
+    ![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png) 
+2. 다음 화면에 표시된 것처럼 **Power BI에서 탐색** 블레이드가 오른쪽에 열립니다.
    
     ![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
-3. 처음으로 Power BI 대시보드를 만드는 경우 **Power BI에서 탐색** 블레이드에서 다음 옵션 중 하나를 선택할 수 있습니다.
+3. 처음으로 Power BI 대시보드를 만드는 경우 **Power BI에서 탐색** 블레이드에서 다음 옵션 중 하나를 선택할 수 있습니다. 
    
    * **보안 Insights 대시보드**: 보안 상태, 스레드 및 탐지를 포함하는 대시보드를 만들려는 경우 이 옵션을 선택합니다. 이 옵션은 구독의 보호 상태 및 감지된 경고를 분석하는 일을 담당하는 DevOps 역할에 보다 일반적입니다.
-   * **정책 관리 대시보드**: 관리 및 적용 정책을 탐색하려는 경우 이 옵션을 선택합니다. 이 옵션은 관리에 중점을 둔 Central IT에 보다 일반적입니다. 이 대시보드를 사용하여 조직 내에서 보안 정책 준수에 대한 가시성 및 통찰력을 얻을 수 있습니다.
+   * **정책 관리 대시보드**: 관리 및 적용 정책을 탐색하려는 경우 이 옵션을 선택합니다.  이 옵션은 관리에 중점을 둔 Central IT에 보다 일반적입니다. 이 대시보드를 사용하여 조직 내에서 보안 정책 준수에 대한 가시성 및 통찰력을 얻을 수 있습니다.
    * Power BI 대시보드가 이미 있는 경우 **현재 Power BI 대시보드로 이동**을 클릭합니다.
 4. 이 예에서는 **보안 insights 대시보드** 옵션을 클릭합니다. 보안 센터에 대한 Power BI 대시보드를 처음 만드는 경우 콘텐츠 팩을 설치하라는 메시지가 나타납니다. 다음 화면에 표시된 것처럼 **Power BI용 콘텐츠 팩** 창에서 **가져오기** 단추를 클릭합니다.
    
@@ -65,14 +69,14 @@ Azure 보안 센터에 대한 링크는 Azure 포털로 이동합니다. 차트�
 
 ![추천](./media/security-center-powerbi/security-center-powerbi-fig1-new6.png)
 
-이 그래프의 줄을 클릭하면 다른 줄은 회색으로 표시되기 때문에 선택한 줄에만 집중할 수 있습니다. 대시보드 돌아가려면 이 페이지의 왼쪽 창에서 **대시보드** 옵션의 **Azure 보안 센터**를 클릭합니다.
+이 그래프의 줄을 클릭하면 다른 줄은 회색으로 표시되기 때문에 선택한 줄에만 집중할 수 있습니다. 대시보드로 돌아가려면 이 페이지의 왼쪽 창에서 **대시보드** 옵션의 **Azure 보안 센터**를 클릭합니다.
 
 > [!NOTE]
-> 추가 필드를 추가하거나 기존 시각화를 변경하여 보고서를 사용자 지정하려는 경우 보고서를 편집할 수 있습니다. 자세한 내용은 [Power BI의 편집용 보기에서 보고서와 상호 작용](https://powerbi.microsoft.com/documentation/powerbi-service-interact-with-a-report-in-editing-view/)을 참고합니다.
+> 추가 필드를 추가하거나 기존 시각화를 변경하여 보고서를 사용자 지정하려는 경우 보고서를 편집할 수 있습니다. 자세한 내용은 [Power BI의 편집용 보기에서 보고서와 상호 작용](https://powerbi.microsoft.com/documentation/powerbi-service-interact-with-a-report-in-editing-view/) 을 참고합니다.
 > 
 > 
 
-**시간에 따른 경고, 공격 받은 리소스** 및 **공격자 IP** 타일은 각각을 클릭할 때 비슷한 출력을 갖습니다. 보고서가 이러한 세 개의 변수 모두에 대한 정보를 집계하고 다음 화면에 표시된 것처럼 **공격받는 리소스**를 호출하기 때문에 발생합니다.
+**시간에 따른 경고, 공격 받은 리소스** 및 **공격자 IP** 타일은 각각을 클릭할 때 비슷한 출력을 갖습니다. 보고서가 이러한 세 개의 변수 모두에 대한 정보를 집계하고 다음 화면에 표시된 것처럼 **공격받는 리소스** 를 호출하기 때문에 발생합니다.
 
 ![공격받는 리소스](./media/security-center-powerbi/security-center-powerbi-fig1-new7.png)
 
@@ -80,8 +84,8 @@ Azure 보안 센터에 대한 링크는 Azure 포털로 이동합니다. 차트�
 
 ![파일 메뉴](./media/security-center-powerbi/security-center-powerbi-fig8.png)
 
-## Power BI로 Azure 보안 센터 데이터 탐색
-Power BI의 [Power BI 콘텐츠 팩 서비스](https://msit.powerbi.com/groups/me/getdata/services)에 연결하고 다음 단계를 실행합니다.
+## <a name="exploring-your-azure-security-center-data-with-power-bi-services"></a>Power BI로 Azure 보안 센터 데이터 탐색
+Power BI의 [Power BI 콘텐츠 팩 서비스](https://msit.powerbi.com/groups/me/getdata/services) 에 연결하고 다음 단계를 실행합니다.
 
 1. **Power BI용 콘텐츠 팩** 창에는 아래와 같이 두 가지 옵션이 표시됩니다.
    
@@ -100,14 +104,14 @@ Power BI의 [Power BI 콘텐츠 팩 서비스](https://msit.powerbi.com/groups/m
     ![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig4.png)
    
    > [!NOTE]
-   > 대시보드가 처음으로 생성되는 경우 여러 구독이 있는 시나리오에 주로 평소보다 시간이 오래 걸릴 수 있습니다.
+   > 대시보드가 처음으로 생성되는 경우 여러 구독이 있는 시나리오에 주로 평소보다 시간이 오래 걸릴 수 있습니다. 
    > 
    > 
 5. 프로세스가 완료되면 Azure 보안 센터 Power BI 대시보드가 아래에 표시된 것과 유사한 **정책 관리** 보고서와 함께 로드됩니다.
    
     ![정책 관리 대시보드](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 이 문서에서는 Azure 보안 센터의 Power BI를 사용하는 방법을 살펴보았습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure 보안 센터의 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) — Azure 보안 센터 채택을 계획하는 방법을 알아봅니다.
@@ -116,4 +120,9 @@ Power BI의 [Power BI 콘텐츠 팩 서비스](https://msit.powerbi.com/groups/m
 * [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,24 +1,29 @@
 ---
-title: 클래식 포털을 사용하여 Azure Virtual Network에 지점 및 사이트 간 VPN Gateway 연결 구성 | Microsoft Docs
-description: 지점 및 사이트 간 VPN Gateway 연결을 만들어 Azure Virtual Network에 안전하게 연결합니다.
+title: "클래식 포털을 사용하여 Azure Virtual Network에 지점 및 사이트 간 VPN Gateway 연결 구성 | Microsoft Docs"
+description: "지점 및 사이트 간 VPN Gateway 연결을 만들어 Azure Virtual Network에 안전하게 연결합니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 4f5668a5-9b3d-4d60-88bb-5d16524068e0
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2016
+ms.date: 10/17/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 487a006050bdb77f03db19b87a98dd3f4c64a738
+
 
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-classic-portal"></a>클래식 포털을 사용하여 VNet에 지점 및 사이트 간 연결 구성
+# <a name="configure-a-pointtosite-connection-to-a-vnet-using-the-classic-portal"></a>클래식 포털을 사용하여 VNet에 지점 및 사이트 간 연결 구성
 > [!div class="op_single_selector"]
+> * [Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [클래식 - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 > * [클래식 - 클래식 포털](vpn-gateway-point-to-site-create.md)
@@ -32,15 +37,15 @@ ms.author: cherylmc
 지점 및 사이트 간 연결을 작동하는 데는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다. 클라이언트 컴퓨터에서 연결을 시작하여 VPN 연결을 설정합니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) 및 [계획 및 설계](vpn-gateway-plan-design.md)를 참조하세요.
 
 ### <a name="deployment-models-and-methods-for-p2s-connections"></a>P2S 연결에 대한 배포 모델 및 메서드
-[!INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
-**Azure 배포 모델 정보**
+아래 표에서는 P2S 구성에 대한 두 가지 배포 모델과 사용할 수 있는 배포 메서드를 보여 줍니다. 구성 단계를 포함한 문서를 사용할 수 있는 경우 아래 표에서 관련 링크를 직접 제공합니다.
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
+## <a name="basic-workflow"></a>기본 워크플로
 ![지점 및 사이트 간 다이어그램](./media/vpn-gateway-point-to-site-create/p2sclassic.png "point-to-site")
 
-## <a name="about-creating-a-point-to-site-connection"></a>지점 및 사이트 간 연결 만들기 정보
 다음 단계는 가상 네트워크에 보안 지점 및 사이트 간 연결을 만드는 단계를 안내합니다. 
 
 지점 및 사이트 간 연결에 대한 구성은 4가지 섹션으로 세분화됩니다. 이들 각각의 섹션을 구성하는 순서가 중요합니다. 단계를 생략하거나 바로 이동하지 마십시오.
@@ -50,8 +55,8 @@ ms.author: cherylmc
 * **섹션 3** 클라이언트 인증서를 내보내고 설치합니다.
 * **섹션 4** VPN 클라이언트를 구성합니다.
 
-## <a name="<a-name="vnetvpn"></a>section-1---create-a-virtual-network-and-a-vpn-gateway"></a><a name="vnetvpn"></a>섹션 1 - 가상 네트워크 및 VPN 게이트웨이 만들기
-### <a name="part-1:-create-a-virtual-network"></a>1부: 가상 네트워크 만들기
+## <a name="a-namevnetvpnasection-1-create-a-virtual-network-and-a-vpn-gateway"></a><a name="vnetvpn"></a>섹션 1 - 가상 네트워크 및 VPN 게이트웨이 만들기
+### <a name="part-1-create-a-virtual-network"></a>1부: 가상 네트워크 만들기
 1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다. 이 단계에서는 Azure 포털이 아닌 클래식 포털을 사용합니다. 지금은 Azure 포털을 사용하여 P2S 연결을 만들 수 없습니다.
 2. 화면의 왼쪽 아래 모서리에서 **새로 만들기**를 클릭합니다. 탐색 창에서 **Network Services**를 클릭한 다음 **Virtual Network**를 클릭합니다. **사용자 지정 만들기** 를 클릭하여 구성 마법사를 시작합니다.
 3. **가상 네트워크 세부 정보** 페이지에서 다음 정보를 입력한 후 오른쪽 아래에서 다음 화살표를 클릭합니다.
@@ -70,18 +75,18 @@ ms.author: cherylmc
 7. **가상 네트워크 주소 공간** 페이지에서 가상 네트워크에 사용할 주소 범위를 지정합니다. 이 범위의 DIPS(동적 IP 주소)가 해당 가상 네트워크에 배포하는 VM 및 기타 역할 인스턴스에 할당됩니다.<br><br>특히 온-프레미스 네트워크에 사용되는 범위와 겹치지 않는 범위를 선택하는 것이 중요합니다. 이러한 범위는 네트워크 관리자와 협의해야 하며, 네트워크 관리자는 가상 네트워크에 사용할 수 있도록 온-프레미스 네트워크 주소 공간에서 IP 주소 범위를 지정해야 할 수 있습니다.
 8. 다음 정보를 입력하고 가상 네트워크 만들기를 시작하려면 확인 표시를 클릭합니다.
    
-   * **주소 공간**: 시작 IP 및 개수를 포함하 여 이 가상 네트워크를 사용할 내부 IP 주소 범위를 추가합니다. 특히 온-프레미스 네트워크에 사용되는 범위와 겹치지 않는 범위를 선택하는 것이 중요합니다. 
+   * **주소 공간**: 시작 IP 및 개수를 포함하여 이 가상 네트워크를 사용할 내부 IP 주소 범위를 추가합니다. 특히 온-프레미스 네트워크에 사용되는 범위와 겹치지 않는 범위를 선택하는 것이 중요합니다. 
    * **서브넷 추가**: 추가 서브넷이 필요하지 않지만 고정 DIPS가 있는 VM에 대한 별도 서브넷을 만들려고 할 수 있습니다. 또는 다른 역할 인스턴스와 별도의 서브넷에 VM을 둘 수 있습니다.
    * **게이트웨이 서브넷 추가**: 게이트웨이 서브넷은 지점 및 사이트 간 VPN에 필요합니다. 게이트웨이 서브넷을 추가하려면 클릭합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이에 대해서만 사용됩니다.
 9. 가상 네트워크가 만들어지면 Azure 클래식 포털의 네트워크 페이지에 있는 **상태**에 **생성됨**이 나타납니다. 가상 네트워크를 만든 후에 동적 라우팅 게이트웨이를 만들 수 있습니다.
 
-### <a name="part-2:-create-a-dynamic-routing-gateway"></a>2부: 동적 라우팅 게이트웨이 만들기
+### <a name="part-2-create-a-dynamic-routing-gateway"></a>2부: 동적 라우팅 게이트웨이 만들기
 게이트웨이 형식은 동적으로 구성되어야 합니다. 정적 라우팅 게이트웨이는 이 기능과 작동하지 않습니다.
 
 1. Azure 클래식 포털의 **네트워크** 페이지에서 만든 가상 네트워크를 클릭하고 **대시보드** 페이지로 이동합니다.
 2. **대시보드** 페이지의 아래쪽에 있는 **게이트웨이 만들기**를 클릭합니다. **가상 네트워크 "VNet1"에 대한 게이트웨이를 만드시겠습니까?**라고 묻는 메시지가 표시됩니다. **예** 를 클릭하여 게이트웨이 만들기를 시작합니다. 게이트웨이가 생성되려면 15분정도 걸릴 수 있습니다.
 
-## <a name="<a-name="generate"></a>section-2---generate-and-upload-certificates"></a><a name="generate"></a>섹션 2 - 인증서 생성 및 업로드
+## <a name="a-namegenerateasection-2-generate-and-upload-certificates"></a><a name="generate"></a>섹션 2 - 인증서 생성 및 업로드
 인증서는 지점 및 사이트 간 VPN에 대한 VPN 클라이언트를 인증하는 데 사용됩니다. 엔터프라이즈 인증서 솔루션에서 생성된 루트 인증서 또는 자체 서명된 인증서를 사용할 수 있습니다. Azure에 최대 20개의 루트 인증서를 업로드할 수 있습니다. .cer 파일을 업로드하면, Azure는 클라이언트 인증서가 설치된 클라이언트를 인증하기 위해 이 파일에 포함된 정보를 사용할 수 있습니다. 클라이언트 인증서는 .cer 파일을 나타내는 동일한 인증서에서 생성되어야 합니다.
 
 이 섹션에서는 다음 작업을 수행합니다.
@@ -90,34 +95,34 @@ ms.author: cherylmc
 * .cer 파일을 Azure에 업로드 합니다.
 * 클라이언트 인증서를 생성합니다.
 
-### <a name="<a-name="root"></a>part-1:-obtain-the-.cer-file-for-the-root-certificate"></a><a name="root"></a>1부: 루트 인증서용 .cer 파일 가져오기
+### <a name="a-namerootapart-1-obtain-the-cer-file-for-the-root-certificate"></a><a name="root"></a>1부: 루트 인증서용 .cer 파일 가져오기
 엔터프라이즈 인증서 시스템을 사용하는 경우, 사용하려는 루트 인증서용 .cer 파일을 가져옵니다. [3부](#createclientcert)에서는 루트 인증서에서 클라이언트 인증서를 생성합니다.
 
 엔터프라이즈 인증서 솔루션을 사용하지 않는 경우 자체 서명된 루트 인증서를 생성해야 합니다. Windows 10 단계는 [지점 및 사이트 간 구성에 대한 자체 서명된 루트 인증서로 작업](vpn-gateway-certificates-point-to-site.md)을 참조할 수 있습니다. 이 문서는 자체 서명된 인증서를 생성한 다음 .cer 파일을 내보내기 위해 makecert를 사용하는 방법을 안내합니다.
 
-### <a name="<a-name="upload"></a>part-2:-upload-the-root-certificate-.cer-file-to-the-azure-classic-portal"></a><a name="upload"></a>2부: Azure 클래식 포털에 루트 인증서 .cer 파일 업로드
+### <a name="a-nameuploadapart-2-upload-the-root-certificate-cer-file-to-the-azure-classic-portal"></a><a name="upload"></a>2부: Azure 클래식 포털에 루트 인증서 .cer 파일 업로드
 Azure에 신뢰할 수 있는 인증서를 추가합니다. Azure에 Base64 인코딩 X.509(.cer) 파일을 추가할 때 파일이 나타내는 루트 인증서를 신뢰하도록 Azure에 지시합니다.
 
 1. Azure 클래식 포털의 가상 네트워크에 대한 **인증서** 페이지에서 **루트 인증서 업로드**를 클릭합니다.
 2. **인증서 업로드** 페이지에서,.cer 루트 인증서를 검색한 다음 확인 표시를 클릭합니다.
 
-### <a name="<a-name="createclientcert"></a>part-3:-generate-a-client-certificate"></a><a name="createclientcert"></a>3부: 클라이언트 인증서 생성
+### <a name="a-namecreateclientcertapart-3-generate-a-client-certificate"></a><a name="createclientcert"></a>3부: 클라이언트 인증서 생성
 그 다음 클라이언트 인증서를 생성합니다. 연결할 각 클라이언트의 고유한 인증서를 생성할 수도 있고 여러 클라이언트에서 동일한 인증서를 사용할 수도 있습니다. 고유한 클라이언트 인증서를 생성하면 필요할 경우 단일 인증서를 해지할 수 있는 장점이 있습니다. 그렇지 않은 경우 즉, 모든 구성원이 동일한 클라이언트 인증서를 사용하고 한 클라이언트에 대한 인증서를 해지해야 하는 경우, 인증서를 사용하는 모든 클라이언트에 대해 새 인증서를 생성하고 설치해야 합니다.
 
 * 엔터프라이즈 인증서 솔루션을 사용하는 경우, NetBIOS '도메인\사용자 이름' 형식이 아닌 일반 이름 값 형식 'name@yourdomain.com',으로 클라이언트 인증서를 생성합니다. 
 * 자체 서명된 인증서를 사용하는 경우 [지점 및 사이트 간 구성에 대한 자체 서명된 루트 인증서로 작업](vpn-gateway-certificates-point-to-site.md) 을 참조하여 클라이언트 인증서를 생성합니다.
 
-## <a name="<a-name="installclientcert"></a>section-3---export-and-install-the-client-certificate"></a><a name="installclientcert"></a>섹션 3 - 클라이언트 인증서 내보내기 및 설치
+## <a name="a-nameinstallclientcertasection-3-export-and-install-the-client-certificate"></a><a name="installclientcert"></a>섹션 3 - 클라이언트 인증서 내보내기 및 설치
 가상 네트워크에 연결하려는 각 컴퓨터에 클라이언트 인증서를 설치합니다. 인증하려면 클라이언트 인증서가 필요합니다. 클라이언트 인증서를 자동으로 설치하거나 수동으로 설치할 수 있습니다. 다음 단계에서는 클라이언트 인증서를 내보내어 수동으로 설치하는 방법을 안내합니다.
 
 1. 클라이언트 인증서를 내보내려면 *certmgr.msc*를 사용할 수 있습니다. 내보낼 클라이언트 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**을 클릭한 다음 **내보내기**를 클릭합니다.
 2. 개인 키로 클라이언트 인증서를 내보냅니다. 이는 *.pfx* 파일입니다. 이 인증서에 대해 설정한 암호(키)를 기억 하거나 기록해야 합니다.
 3. *.pfx* 파일을 클라이언트 컴퓨터에 복사합니다. 클라이언트 컴퓨터에서 *.pfx* 파일을 두 번 클릭하여 설치합니다. 요청하는 경우 암호를 입력합니다. 설치 위치를 수정하지 마세요.
 
-## <a name="<a-name="vpnclientconfig"></a>section-4---configure-your-vpn-client"></a><a name="vpnclientconfig"></a>섹션 4 - VPN 클라이언트 구성
+## <a name="a-namevpnclientconfigasection-4-configure-your-vpn-client"></a><a name="vpnclientconfig"></a>섹션 4 - VPN 클라이언트 구성
 가상 네트워크에 연결하려면 VPN 클라이언트도 구성해야 합니다. 클라이언트에 연결하기 위해 클라이언트 인증서와 적절한 VPN 클라이언트 구성이 모두 필요합니다. VPN 클라이언트를 구성하려면 다음 단계를 순서대로 수행합니다.
 
-### <a name="part-1:-create-the-vpn-client-configuration-package"></a>1부 - VPN 클라이언트 구성 패키지 만들기
+### <a name="part-1-create-the-vpn-client-configuration-package"></a>1부 - VPN 클라이언트 구성 패키지 만들기
 1. Azure 클래식 포털에서, 가상 네트워크의 **대시보드** 페이지에서 오른쪽 위 모서리에 있는 간략 상태 메뉴로 이동합니다. 지원되는 클라이언트 운영 체제의 목록은 VPN 게이트웨이 FAQ의 [지점 및 사이트 간 연결](vpn-gateway-vpn-faq.md#point-to-site-connections) 섹션을 참조하세요. VPN 클라이언트 패키지는 Windows에 기본 제공되는 VPN 클라이언트 소프트웨어를 구성할 구성 정보를 포함합니다. 패키지는 추가 소프트웨어를 설치하지 않습니다. 설정은 연결하려는 가상 네트워크에 따라 다릅니다.<br><br>설치할 클라이언트 운영 체제에 해당하는 다운로드 패키지를 선택합니다.
    
    * 32비트 클라이언트의 경우 **32비트 클라이언트 VPN 패키지 다운로드**를 선택합니다.
@@ -125,14 +130,14 @@ Azure에 신뢰할 수 있는 인증서를 추가합니다. Azure에 Base64 인�
 2. 클라이언트 패키지를 만드는 데 몇 분 정도 걸립니다. 패키지가 완료되면 파일을 다운로드할 수 있습니다. 다운로드한 *.exe* 파일을 로컬 컴퓨터에 안전하게 저장할 수 있습니다.
 3. Azure 클래식 포털에서 VPN 클라이언트 패키지를 생성하고 다운로드한 후 가상 네트워크에 연결하려는 클라이언트 컴퓨터에 클라이언트 패키지를 설치할 수 있습니다. 여러 클라이언트 컴퓨터에 VPN 클라이언트 패키지를 설치하려는 경우 각 클라이언트 컴퓨터에 클라이언트 인증서를 설치해야 합니다.
 
-### <a name="part-2:-install-the-vpn-configuration-package-on-the-client"></a>2부 - 클라이언트에 VPN 구성 패키지 설치
+### <a name="part-2-install-the-vpn-configuration-package-on-the-client"></a>2부 - 클라이언트에 VPN 구성 패키지 설치
 1. 가상 네트워크에 연결할 컴퓨터에 구성 파일을 로컬로 복사하고 .exe 파일을 두 번 클릭합니다. 
 2. 패키지가 설치되어 있다면 VPN 연결을 시작할 수 있습니다. 구성 패키지는 Microsoft에서 서명하지 않습니다. 조직의 서명 서비스를 사용하여 패키지에 서명하거나 [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327)을 사용하여 직접 서명합니다. 서명 없이 패키지를 사용해도 괜찮습니다. 그러나 패키지가 서명되지 않은 경우, 패키지를 설치할 때 경고가 표시됩니다.
 3. 클라이언트 컴퓨터에서 **네트워크 설정**으로 이동하고 **VPN**을 클릭합니다. 나열된 연결이 표시됩니다. 연결된 가상 네트워크의 이름이 다음과 비슷하게 표시됩니다. 
    
     ![VPN 클라이언트](./media/vpn-gateway-point-to-site-create/vpn.png "VPN client")
 
-### <a name="part-3:-connect-to-azure"></a>3부: Azure에 연결
+### <a name="part-3-connect-to-azure"></a>3부: Azure에 연결
 1. VNet에 연결하려면 클라이언트 컴퓨터에서 VPN 연결로 이동하고 만든 VPN 연결을 찾습니다. 가상 네트워크와 같은 이름이 지정됩니다. **Connect**를 클릭합니다. 인증서 사용을 안내하는 팝업 메시지가 나타날 수 있습니다. 이 경우 **계속** 을 클릭하여 상승된 권한을 사용합니다. 
 2. **연결** 상태 페이지에서 **연결**을 클릭하여 연결을 시작합니다. **인증서 선택** 화면에서 표시되는 클라이언트 인증서가 연결하는 데 사용할 인증서인지 확인합니다. 그렇지 않은 경우 드롭다운 화살표를 사용하여 올바른 인증서를 선택한 다음 **확인**을 클릭합니다.
    
@@ -141,7 +146,7 @@ Azure에 신뢰할 수 있는 인증서를 추가합니다. Azure에 Base64 인�
    
     ![VPN 클라이언트 3](./media/vpn-gateway-point-to-site-create/connected.png "VPN client connection 2")
 
-### <a name="part-4:-verify-the-vpn-connection"></a>4부: VPN 연결 확인
+### <a name="part-4-verify-the-vpn-connection"></a>4부: VPN 연결 확인
 1. VPN 연결이 활성인지를 확인하려면, 관리자 권한 명령 프롬프트를 열고 *ipconfig/all*을 실행합니다.
 2. 결과를 확인합니다. 받은 IP 주소가 VNet을 만들 때 지정한 지점 및 사이트 간 연결 주소 범위 내의 주소 중 하나인지 확인합니다. 결과는 다음과 같아야 합니다.
 
@@ -163,6 +168,9 @@ Azure에 신뢰할 수 있는 인증서를 추가합니다. Azure에 Base64 인�
 
 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 설명서](https://azure.microsoft.com/documentation/services/virtual-network/) 페이지를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

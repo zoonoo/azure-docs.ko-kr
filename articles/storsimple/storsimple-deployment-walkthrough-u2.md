@@ -1,24 +1,28 @@
 ---
-title: StorSimple 장치(업데이트 2) 배포 | Microsoft Docs
-description: StorSimple 업데이트 2 장치 및 서비스를 배포하기 위한 단계 및 모범 사례를 설명합니다.
+title: "StorSimple 장치(업데이트 2) 배포 | Microsoft Docs"
+description: "StorSimple 업데이트 2 장치 및 서비스를 배포하기 위한 단계 및 모범 사례를 설명합니다."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 7dff0612-617b-4fc8-a3fe-994c24bc7c51
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/11/2016
+ms.date: 10/24/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
+
 
 ---
-# <a name="deploy-your-on-premises-storsimple-device-(update-2)"></a>온-프레미스 StorSimple 장치(업데이트 2) 배포
+# <a name="deploy-your-onpremises-storsimple-device-update-2"></a>온-프레미스 StorSimple 장치(업데이트 2) 배포
 > [!div class="op_single_selector"]
-> * [업데이트 2](storsimple-deployment-walkthrough-u2.md)
+> * [업데이트 2 이상](storsimple-deployment-walkthrough-u2.md)
 > * [업데이트 1](storsimple-deployment-walkthrough-u1.md)
 > * [GA 릴리스](storsimple-deployment-walkthrough.md)
 > 
@@ -91,10 +95,10 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 
 * [StorSimple 장치에 대한 네트워킹 요구 사항](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device)에서 설명한 대로 데이터 센터 방화벽에서 포트가 열려 있어 iSCSI 및 클라우드 트래픽을 허용합니다.
 
-## <a name="step-by-step-deployment"></a>단계별 배포
+## <a name="stepbystep-deployment"></a>단계별 배포
 다음 단계별 지침을 사용하여 데이터 센터에서 StorSimple 장치를 배포합니다.
 
-## <a name="step-1:-create-a-new-service"></a>1단계: 새 서비스 만들기
+## <a name="step-1-create-a-new-service"></a>1단계: 새 서비스 만들기
 StorSimple 관리자 서비스는 여러 StorSimple 장치를 관리할 수 있습니다. StorSimple 관리자 서비스의 새 인스턴스를 만들려면 다음 단계를 수행합니다.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
@@ -107,19 +111,19 @@ StorSimple 관리자 서비스는 여러 StorSimple 장치를 관리할 수 있�
 > 
 > 
 
-## <a name="step-2:-get-the-service-registration-key"></a>2단계: 서비스 등록 키 받기
+## <a name="step-2-get-the-service-registration-key"></a>2단계: 서비스 등록 키 받기
 StorSimple 관리자 서비스를 실행한 후에는 서비스 등록 키를 받아야 합니다. 이 키는 StorSimple 장치를 서비스에 등록 및 연결하는 데 사용됩니다.
 
 관리 포털에서 다음 단계를 수행합니다.
 
 [!INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
-## <a name="step-3:-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>3단계: StorSimple용 Windows PowerShell을 통해 장치 구성 및 등록
+## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>3단계: StorSimple용 Windows PowerShell을 통해 장치 구성 및 등록
 다음 절차에서 설명한 대로 StorSimple 장치의 초기 설정을 완료하려면 StorSimple용 Windows PowerShell을 사용합니다. 이 단계를 완료하려면 터미널 에뮬레이션 소프트웨어를 사용해야 합니다. 자세한 내용은 [장치 직렬 콘솔 연결에 PuTTY 사용](#use-putty-to-connect-to-the-device-serial-console)을 참조하세요.
 
 [!INCLUDE [storsimple-configure-and-register-device-u1](../../includes/storsimple-configure-and-register-device-u1.md)]
 
-## <a name="step-4:-complete-minimum-device-setup"></a>4단계: 최소 장치 설정 완료
+## <a name="step-4-complete-minimum-device-setup"></a>4단계: 최소 장치 설정 완료
 StorSimple 장치의 최소 장치 구성에는 다음 사항이 필요합니다. 
 
 * 보조 DNS 서버를 설정합니다.
@@ -130,14 +134,14 @@ StorSimple 장치의 최소 장치 구성에는 다음 사항이 필요합니다
 
 [!INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
-## <a name="step-5:-create-a-volume-container"></a>5단계: 볼륨 컨테이너 만들기
+## <a name="step-5-create-a-volume-container"></a>5단계: 볼륨 컨테이너 만들기
 볼륨 컨테이너에는 저장소 계정, 대역폭 및 그 안에 포함된 모든 볼륨에 대한 암호화 설정이 있습니다. StorSimple 장치에서 볼륨 프로비저닝을 시작하려면 볼륨 컨테이너를 만들어야 합니다. 
 
 볼륨 컨테이너를 만들려면 관리 포털에서 다음 단계를 수행합니다.
 
 [!INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
-## <a name="step-6:-create-a-volume"></a>6단계: 볼륨 만들기
+## <a name="step-6-create-a-volume"></a>6단계: 볼륨 만들기
 볼륨 컨테이너를 만든 후에 서버에 대한 StorSimple 장치에 저장소 볼륨을 프로비전할 수 있습니다. 볼륨을 만들려면 관리 포털에서 다음 단계를 수행합니다.
 
 > [!IMPORTANT]
@@ -147,7 +151,7 @@ StorSimple 장치의 최소 장치 구성에는 다음 사항이 필요합니다
 
 [!INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume-u2.md)]
 
-## <a name="step-7:-mount,-initialize,-and-format-a-volume"></a>7단계: 볼륨 탑재, 초기화 및 포맷
+## <a name="step-7-mount-initialize-and-format-a-volume"></a>7단계: 볼륨 탑재, 초기화 및 포맷
 다음 단계는 Windows Server 호스트에서 수행됩니다. 
 
 > [!IMPORTANT]
@@ -161,7 +165,7 @@ MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 Windows S
 
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
-## <a name="step-8:-take-a-backup"></a>8단계: 백업 수행
+## <a name="step-8-take-a-backup"></a>8단계: 백업 수행
 백업은 볼륨의 지정 시간 보호 기능을 제공하며 복원 시간을 최소화하면서 복구 기능을 개선합니다. StorSimple 장치에서 두 유형(로컬 스냅숏 및 클라우드 스냅숏)의 백업을 수행할 수 있습니다. 이러한 각 유형의 백업은 **예약됨** 또는 **수동**이 될 수 있습니다. 
 
 예약된 볼륨을 만들려면 관리 포털에서 다음 단계를 수행합니다.
@@ -204,7 +208,7 @@ StorSimple용 Windows PowerShell에 연결하려면 PuTTY와 같은 터미널 �
 <!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
 
 ## <a name="get-the-iqn-of-a-windows-server-host"></a>Windows Server 호스트의 IQN 가져오기
-Windows Server® 2012를 실행하는 Windows 호스트의 iSCSIㅋIQN(정규화된 iSCSI 이름)을 가져오려면 다음 단계를 수행합니다.
+Windows Server® 2012를 실행하는 Windows 호스트의 iSCSI 정규화된 이름(IQN)을 가져오려면 다음 단계를 수행합니다.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-get-iqn.md)]
 
@@ -217,6 +221,9 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 * [가상 장치](storsimple-virtual-device-u2.md)를 구성합니다.
 * [StorSimple 관리자 서비스](storsimple-manager-service-administration.md) 를 사용하여 StorSimple 장치를 관리할 수 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

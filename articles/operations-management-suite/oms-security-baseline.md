@@ -1,12 +1,12 @@
 ---
-title: Operations Management Suite 보안 및 감사 솔루션 기준 | Microsoft Docs
-description: 이 문서에서는 OMS 보안 및 감사 솔루션을 사용하여 규정 준수 및 보안 목적을 위해 모니터링되는 모든 컴퓨터의 기준 평가를 수행하는 방법을 설명합니다.
+title: "Operations Management Suite 보안 및 감사 솔루션 기준 | Microsoft Docs"
+description: "이 문서에서는 OMS 보안 및 감사 솔루션을 사용하여 규정 준수 및 보안 목적을 위해 모니터링되는 모든 컴퓨터의 기준 평가를 수행하는 방법을 설명합니다."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 17837c8b-3e79-47c0-9b83-a51c6ca44ca6
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1c3e2cf86a33f9bbe6b34f4f52b82a078b91661f
+
 
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Operations Management Suite 보안 및 감사 솔루션의 기준 평가
 이 문서를 통해 [OMS(Operations Management Suite) 보안 및 감사 솔루션](operations-management-suite-overview.md) 기준 평가 기능을 사용하여 모니터링된 리소스의 보안 상태에 액세스할 수 있습니다.
 
-## <a name="what-is-baseline-assessment?"></a>기준 평가란?
+## <a name="what-is-baseline-assessment"></a>기준 평가란?
 전 세계 산업 및 정부 조직과 함께 Microsoft에서는 보안 수준이 높은 서버 배포를 나타내는 Windows 구성을 정의합니다. 이 구성은 일련의 레지스트리 키, 감사 정책 설정 및 이러한 설정에 대한 Microsoft의 권장된 값과 함께 보안 정책 설정을 설명합니다. 이러한 규칙 집합을 보안 기준이라고 합니다. OMS 보안 및 감사 초기 평가 기능은 규정 준수를 위해 모든 컴퓨터를 원활하게 검색할 수 있습니다. 
 
 세 가지 유형의 규칙이 있습니다.
@@ -80,6 +84,9 @@ OMS는 Windows Server 2008 R2에서 Windows Server 2012 R2까지 도메인 구�
 * [Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답](oms-security-responding-alerts.md)
 * [Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

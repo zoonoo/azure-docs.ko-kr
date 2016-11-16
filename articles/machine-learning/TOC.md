@@ -1,6 +1,5 @@
 # 개요
 ## [Machine Learning은 무엇인가요?](machine-learning-what-is-machine-learning.md)
-## [질문과 대답](machine-learning-faq.md)
 ## [새로운 기능](machine-learning-whats-new.md)
 ## [실시간 채팅에서 도움 받기](machine-learning-live-chat.md)
 ## 기계 학습 스튜디오
@@ -12,10 +11,54 @@
 ### [수명 주기](data-science-process-overview.md)
 ### [도구 및 유틸리티](machine-learning-data-science-environment-setup.md)
 ### [연습](data-science-process-walkthroughs.md)
+## [시나리오 식별](machine-learning-data-science-plan-your-environment.md)
+## [샘플 시나리오 보기](machine-learning-data-science-plan-sample-scenarios.md)
+## 예
+### [샘플 실험](machine-learning-sample-experiments.md)
+### [샘플 데이터 집합](machine-learning-use-sample-datasets.md)
+### [고객 이탈 예](machine-learning-azure-ml-customer-churn-scenario.md)
+## API
+### [이상 감지](machine-learning-apps-anomaly-detection.md)
+### [텍스트 분석](machine-learning-apps-text-analytics.md)
+### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
+### 추천
+#### [개요](machine-learning-recommendation-api-sample-application.md)
+#### [빠른 시작](machine-learning-recommendation-api-quick-start-guide.md)
+#### [참조](machine-learning-recommendation-api-documentation.md)
+#### [JavaScript 사용](machine-learning-recommendation-api-javascript-integration.md)
+#### [FAQ](machine-learning-recommendation-api-faq.md)
+## Cortana Analytics
+### 예측 유지 관리
+#### [개요](cortana-analytics-playbook-predictive-maintenance.md)
+#### [아키텍처](cortana-analytics-architecture-predictive-maintenance.md)
+#### [기술 가이드](cortana-analytics-technical-guide-predictive-maintenance.md)
+### 차량 원격 분석
+#### [개요](cortana-analytics-playbook-vehicle-telemetry.md)
+#### [플레이 북](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
+#### [설정](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
+## 데이터 과학 프로세스
+### [Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
+### [1TB로 Hadoop 사용](machine-learning-data-science-process-hive-criteo-walkthrough.md)
+### [SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
+### [SQL Data Warehouse 사용](machine-learning-data-science-process-sqldw-walkthrough.md)
+## 웹 서비스
+### [R을 사용하는 예제](machine-learning-r-csharp-web-service-examples.md)
+### [이진 분류자](machine-learning-r-csharp-binary-classifier.md)
+### [클러스터 모델](machine-learning-r-csharp-cluster-model.md)
+### [다변량 선형 회귀](machine-learning-r-csharp-multivariate-linear-regression.md)
+### [예측 - 지수 평활법](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
+### [예측 - ETS + STL](machine-learning-r-csharp-retail-demand-forecasting.md)
+### [예측 - ARIMA](machine-learning-r-csharp-arima.md)
+### [생존 분석](machine-learning-r-csharp-survival-analysis.md)
+### [어휘집 기반 감정 분석](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
+### [비율 차이 테스트](machine-learning-r-csharp-difference-in-two-proportions.md)
+### [정규 분포 제품군](machine-learning-r-csharp-normal-distribution.md)
+### [이항 분포 패키지](machine-learning-r-csharp-binomial-distribution.md)
+### [마켓플레이스 FAQ](machine-learning-marketplace-faq.md)
+
 # 시작
 ## [첫 번째 실험 만들기](machine-learning-create-experiment.md)
-## 연습
-### [예측 솔루션 만들기](machine-learning-walkthrough-develop-predictive-solution.md)
+## [예측 솔루션 만들기](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1: 작업 영역 만들기](machine-learning-walkthrough-1-create-ml-workspace.md)
 ### [2: 데이터 업로드](machine-learning-walkthrough-2-upload-data.md)
 ### [3: 실험 만들기](machine-learning-walkthrough-3-create-new-experiment.md)
@@ -28,72 +71,70 @@
 ### [3: 적절한 질문을 합니다](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
 ### [4: 답변을 예측합니다](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: 다른 사람의 작업을 복사합니다](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
+## [질문과 대답](machine-learning-faq.md)
+
 # 방법
-## 비즈니스 이해
-### [시나리오 식별](machine-learning-data-science-plan-your-environment.md)
-### [샘플 시나리오 보기](machine-learning-data-science-plan-sample-scenarios.md)
-## 도구 및 유틸리티
+## 도구 설치 
 ### [환경 설정](machine-learning-data-science-environment-setup.md)
 ### [가상 컴퓨터 설정](machine-learning-data-science-virtual-machines.md)
 ### [Hadoop 사용자 지정](machine-learning-data-science-customize-hadoop-cluster.md)
-### 가상 컴퓨터 설정
-#### [DS VM 개요](machine-learning-data-science-virtual-machine-overview.md)
-#### [DS VM 사용 방법](machine-learning-data-science-vm-do-ten-things.md)
-#### [DS VM 프로비전](machine-learning-data-science-provision-vm.md)
-#### [Azure VM 설정](machine-learning-data-science-setup-virtual-machine.md)
-#### [SQL VM 설정](machine-learning-data-science-setup-sql-server-virtual-machine.md)
-#### [Linux VM 프로비전](machine-learning-data-science-linux-dsvm-intro.md)
-#### [Linux VM 사용](machine-learning-data-science-linux-dsvm-walkthrough.md)
-### 작업 영역 관리
-#### [작업 영역 만들기](machine-learning-create-workspace.md)
-#### [작업 영역 관리](machine-learning-manage-workspace.md)
-#### [문제 해결](machine-learning-troubleshooting-creating-ml-workspace.md)
-#### [ARM을 사용하여 배포](machine-learning-deploy-with-resource-manager-template.md)
-#### [다른 지역에서 만들기](machine-learning-multi-geo.md)
-## 데이터 취득 및 이해
-### 저장소로 데이터 로드
-#### [개요](machine-learning-data-science-ingest-data.md)
-#### [Blob 저장소](machine-learning-data-science-move-azure-blob.md)
-#### [Storage Explorer 사용](machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
-#### [AzCopy 사용](machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
-#### [Python 사용](machine-learning-data-science-move-data-to-azure-blob-using-python.md)
-#### [SSIS 사용](machine-learning-data-science-move-data-to-azure-blob-using-ssis.md)
-#### [VM으로 이동](machine-learning-data-science-move-sql-server-virtual-machine.md)
-#### [SQL 데이터베이스로 이동](machine-learning-data-science-move-sql-azure.md)
-#### [Hive 테이블로 로드](machine-learning-data-science-move-hive-tables.md)
-#### [온-프레미스 SQL에서 로드](machine-learning-data-science-move-sql-azure-adf.md)
-### 학습 데이터 가져오기
-#### [개요](machine-learning-data-science-import-data.md)
-#### [로컬 파일에서](machine-learning-import-data-from-local-file.md)
-#### [온라인 소스에서](machine-learning-import-data-from-online-sources.md)
-#### [실험에서](machine-learning-import-data-from-an-experiment.md)
-#### [SQL 파티션 테이블 사용](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)
-#### [온-프레미스 SQL 사용](machine-learning-use-data-from-an-on-premises-sql-server.md)
-### 데이터를 살펴보고 시각화
-#### [데이터 준비](machine-learning-data-science-prepare-data.md)
-#### 데이터 탐색
-##### [개요](machine-learning-data-science-explore-data.md)
-##### [Pandas 사용](machine-learning-data-science-explore-data-blob.md)
-##### [SQL VM 사용](machine-learning-data-science-explore-data-sql-server.md)
-##### [Hive 테이블 사용](machine-learning-data-science-explore-data-hive-tables.md)
-#### 샘플 데이터
-##### [개요](machine-learning-data-science-sample-data.md)
-##### [Blob 저장소 사용](machine-learning-data-science-sample-data-blob.md)
-##### [SQL Server 사용](machine-learning-data-science-sample-data-sql-server.md)
-##### [Hive 테이블 사용](machine-learning-data-science-sample-data-hive.md)
-#### 데이터 처리
-##### [Python을 사용하여 액세스](machine-learning-python-data-access.md)
-##### [Blob 데이터 처리](machine-learning-data-science-process-data-blob.md)
-##### [Azure Data Lake 사용](machine-learning-data-science-process-data-lake-walkthrough.md)
-##### [SQL VM 사용](machine-learning-data-science-process-sql-server-virtual-machine.md)
-##### [Data 파이프라인 사용](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### Spark 사용
-##### [개요](machine-learning-data-science-spark-overview.md)
-##### [데이터 탐색](machine-learning-data-science-spark-data-exploration-modeling.md)
-##### [점수 매기기 모델](machine-learning-data-science-spark-model-consumption.md)
-##### [데이터 탐색](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-##### [Scala 및 Spark 사용](machine-learning-data-science-process-scala-walkthrough.md)
-## 모델링
+## 가상 컴퓨터 설정
+### [DS VM 개요](machine-learning-data-science-virtual-machine-overview.md)
+### [DS VM 사용 방법](machine-learning-data-science-vm-do-ten-things.md)
+### [DS VM 프로비전](machine-learning-data-science-provision-vm.md)
+### [Azure VM 설정](machine-learning-data-science-setup-virtual-machine.md)
+### [SQL VM 설정](machine-learning-data-science-setup-sql-server-virtual-machine.md)
+### [Linux VM 프로비전](machine-learning-data-science-linux-dsvm-intro.md)
+### [Linux VM 사용](machine-learning-data-science-linux-dsvm-walkthrough.md)
+## 작업 영역 관리
+### [작업 영역 만들기](machine-learning-create-workspace.md)
+### [작업 영역 관리](machine-learning-manage-workspace.md)
+### [문제 해결](machine-learning-troubleshooting-creating-ml-workspace.md)
+### [ARM을 사용하여 배포](machine-learning-deploy-with-resource-manager-template.md)
+### [다른 지역에서 만들기](machine-learning-multi-geo.md)
+## 저장소로 데이터 로드
+### [개요](machine-learning-data-science-ingest-data.md)
+### [Blob 저장소](machine-learning-data-science-move-azure-blob.md)
+### [Storage Explorer 사용](machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
+### [AzCopy 사용](machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
+### [Python 사용](machine-learning-data-science-move-data-to-azure-blob-using-python.md)
+### [SSIS 사용](machine-learning-data-science-move-data-to-azure-blob-using-ssis.md)
+### [VM으로 이동](machine-learning-data-science-move-sql-server-virtual-machine.md)
+### [SQL 데이터베이스로 이동](machine-learning-data-science-move-sql-azure.md)
+### [Hive 테이블로 로드](machine-learning-data-science-move-hive-tables.md)
+### [온-프레미스 SQL에서 로드](machine-learning-data-science-move-sql-azure-adf.md)
+## 학습 데이터 가져오기
+### [개요](machine-learning-data-science-import-data.md)
+### [로컬 파일에서](machine-learning-import-data-from-local-file.md)
+### [온라인 소스에서](machine-learning-import-data-from-online-sources.md)
+### [실험에서](machine-learning-import-data-from-an-experiment.md)
+### [SQL 파티션 테이블 사용](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)
+### [온-프레미스 SQL 사용](machine-learning-use-data-from-an-on-premises-sql-server.md)
+## 데이터를 살펴보고 시각화
+### [데이터 준비](machine-learning-data-science-prepare-data.md)
+### 데이터 탐색
+#### [개요](machine-learning-data-science-explore-data.md)
+#### [Pandas 사용](machine-learning-data-science-explore-data-blob.md)
+#### [SQL VM 사용](machine-learning-data-science-explore-data-sql-server.md)
+#### [Hive 테이블 사용](machine-learning-data-science-explore-data-hive-tables.md)
+### 샘플 데이터
+#### [개요](machine-learning-data-science-sample-data.md)
+#### [Blob 저장소 사용](machine-learning-data-science-sample-data-blob.md)
+#### [SQL Server 사용](machine-learning-data-science-sample-data-sql-server.md)
+#### [Hive 테이블 사용](machine-learning-data-science-sample-data-hive.md)
+### 데이터 처리
+#### [Python을 사용하여 액세스](machine-learning-python-data-access.md)
+#### [Blob 데이터 처리](machine-learning-data-science-process-data-blob.md)
+#### [Azure Data Lake 사용](machine-learning-data-science-process-data-lake-walkthrough.md)
+#### [SQL VM 사용](machine-learning-data-science-process-sql-server-virtual-machine.md)
+#### [Data 파이프라인 사용](machine-learning-automated-data-pipeline-cheat-sheet.md)
+### Spark 사용
+#### [개요](machine-learning-data-science-spark-overview.md)
+#### [데이터 탐색](machine-learning-data-science-spark-data-exploration-modeling.md)
+#### [점수 매기기 모델](machine-learning-data-science-spark-model-consumption.md)
+#### [데이터 탐색](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+#### [Scala 및 Spark 사용](machine-learning-data-science-process-scala-walkthrough.md)
+## 모델 데이터
 ### 기능 엔지니어링
 #### [개요](machine-learning-data-science-create-features.md)
 #### [Pandas 사용](machine-learning-data-science-create-features-blob.md)
@@ -147,58 +188,15 @@
 #### [Excel 사용](machine-learning-consuming-from-excel.md)
 #### [Excel 추가 기능 사용](machine-learning-excel-add-in-for-web-services.md)
 #### [웹앱 템플릿 사용](machine-learning-consume-web-service-with-web-app-template.md)
-# 예
-## [샘플 실험](machine-learning-sample-experiments.md)
-## [샘플 데이터 집합](machine-learning-use-sample-datasets.md)
-## [고객 이탈 예](machine-learning-azure-ml-customer-churn-scenario.md)
-## API
-### [이상 감지](machine-learning-apps-anomaly-detection.md)
-### [텍스트 분석](machine-learning-apps-text-analytics.md)
-### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-### 추천
-#### [개요](machine-learning-recommendation-api-sample-application.md)
-#### [빠른 시작](machine-learning-recommendation-api-quick-start-guide.md)
-#### [참조](machine-learning-recommendation-api-documentation.md)
-#### [JavaScript 사용](machine-learning-recommendation-api-javascript-integration.md)
-#### [FAQ](machine-learning-recommendation-api-faq.md)
-## Cortana Analytics
-### 예측 유지 관리
-#### [개요](cortana-analytics-playbook-predictive-maintenance.md)
-#### [아키텍처](cortana-analytics-architecture-predictive-maintenance.md)
-#### [기술 가이드](cortana-analytics-technical-guide-predictive-maintenance.md)
-### 차량 원격 분석
-#### [개요](cortana-analytics-playbook-vehicle-telemetry.md)
-#### [플레이 북](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
-#### [설정](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
-## 데이터 과학 프로세스
-### [Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
-### [1TB로 Hadoop 사용](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-### [SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
-### [SQL Data Warehouse 사용](machine-learning-data-science-process-sqldw-walkthrough.md)
-## 웹 서비스
-### [R을 사용하는 예제](machine-learning-r-csharp-web-service-examples.md)
-### [이진 분류자](machine-learning-r-csharp-binary-classifier.md)
-### [클러스터 모델](machine-learning-r-csharp-cluster-model.md)
-### [다변량 선형 회귀](machine-learning-r-csharp-multivariate-linear-regression.md)
-### [예측 - 지수 평활법](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
-### [예측 - ETS + STL](machine-learning-r-csharp-retail-demand-forecasting.md)
-### [예측 - ARIMA](machine-learning-r-csharp-arima.md)
-### [생존 분석](machine-learning-r-csharp-survival-analysis.md)
-### [어휘집 기반 감정 분석](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
-### [비율 차이 테스트](machine-learning-r-csharp-difference-in-two-proportions.md)
-### [정규 분포 제품군](machine-learning-r-csharp-normal-distribution.md)
-### [이항 분포 패키지](machine-learning-r-csharp-binomial-distribution.md)
-### [마켓플레이스 FAQ](machine-learning-marketplace-faq.md)
-# 참조
+
+#참조
 ## [R 빠른 시작](machine-learning-r-quickstart.md)
 ## [PowerShell 개요](machine-learning-powershell-module.md)
 ## [PowerShell을 사용하여 모델 만들기](machine-learning-create-models-and-endpoints-with-powershell.md)
 ## [웹 서비스 REST API](https://msdn.microsoft.com/library/azure/dn950030.aspx)
 ## [Net# 신경망 언어](machine-learning-azure-ml-netsharp-reference-guide.md)
+
 # 관련 항목
-# 리소스
-## [블로그](http://blogs.technet.com/b/machinelearning/)
-## [포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
 ## Cortana 인텔리전스 갤러리
 ### [개요](machine-learning-gallery-how-to-use-contribute-publish.md)
 ### [산업](machine-learning-gallery-industries.md)
@@ -210,6 +208,11 @@
 ### [자습서](machine-learning-gallery-tutorials.md)
 ### [컬렉션](machine-learning-gallery-collections.md)
 ### [사용자 지정 모듈](machine-learning-gallery-custom-modules.md)
+
+# 리소스
+## [블로그](http://blogs.technet.com/b/machinelearning/)
+## [포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
+
 
 <!--HONumber=Nov16_HO2-->
 

@@ -1,22 +1,26 @@
 ---
-title: OMS의 업데이트 관리 솔루션 | Microsoft Docs
-description: 이 문서는 이 솔루션을 사용하여 Windows 및 Linux 컴퓨터에 대한 업데이트를 관리하는 방법을 이해할 수 있도록 제공됩니다.
+title: "OMS의 업데이트 관리 솔루션 | Microsoft Docs"
+description: "이 문서는 이 솔루션을 사용하여 Windows 및 Linux 컴퓨터에 대한 업데이트를 관리하는 방법을 이해할 수 있도록 제공됩니다."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2016
+ms.date: 10/14/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+
 
 ---
-# <a name="![update-management-solution-in-oms](./media/oms-solution-update-management/update-management-solution-icon.png)-update-management-solution-in-oms"></a>![OMS의 업데이트 관리 솔루션](./media/oms-solution-update-management/update-management-solution-icon.png) OMS의 업데이트 관리 솔루션
+# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![OMS의 업데이트 관리 솔루션](./media/oms-solution-update-management/update-management-solution-icon.png) OMS의 업데이트 관리 솔루션
 OMS의 업데이트 관리 솔루션을 사용하면 Windows 및 Linux 컴퓨터에 대한 업데이트를 관리할 수 있습니다.  모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 대한 필수 업데이트를 설치하는 프로세스를 시작할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -35,15 +39,13 @@ OMS의 업데이트 관리 솔루션을 사용하면 Windows 및 Linux 컴퓨터
 2. OMS 포털에서 **설정** 및 **연결된 원본**을 차례로 선택합니다.  **작업 영역 ID** 및 **기본 키** 또는 **보조 키** 중 하나를 적어둡니다.
 3. 각 Linux 컴퓨터에 대해 다음 단계를 수행합니다.
    
-   a.  다음 명령을 실행하여 최신 버전의 Linux용 OMS 에이전트를 설치합니다.  <Workspace ID>을 작업 영역 ID로 바꾸고 <Key>를 기본 또는 보조 키로 바꿉니다.
+   a.    다음 명령을 실행하여 최신 버전의 Linux용 OMS 에이전트를 설치합니다.  <Workspace ID>을 작업 영역 ID로 바꾸고 <Key>를 기본 또는 보조 키로 바꿉니다.
    
-       cd ~
-       wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+     cd ~   wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh   sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
    
-    b. 에이전트를 제거하려면 다음 명령을 실행합니다.
+   b. 에이전트를 제거하려면 다음 명령을 실행합니다.
    
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
 ## <a name="management-packs"></a>관리 팩
 System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된 경우 이 솔루션을 추가할 때 다음 관리 팩이 System Center Operations Manager에 설치됩니다. 이 관리 팩에 대한 구성 또는 유지 관리는 필요 없습니다. 
@@ -95,7 +97,7 @@ System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된
 ![업데이트 관리 대시보드 패키지 보기](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
 
 ## <a name="installing-updates"></a>업데이트 설치
-환경에서 모든 컴퓨터에 대한 업데이트를 평가하면 필수 업데이트가 *업데이트 배포*를 만들어 설치됩니다.  업데이트 배포는 하나 이상의 Windows 컴퓨터에 필수 업데이트를 예약하여 설치합니다.  포함되어야 하는 컴퓨터 또는 컴퓨터 그룹 외에도 배포에 대한 시간과 날짜를 명시합니다.  
+환경에서 모든 Windows 컴퓨터에 대한 업데이트를 평가하면 필수 업데이트가 *업데이트 배포*를 만들어 설치됩니다.  업데이트 배포는 하나 이상의 Windows 컴퓨터에 필수 업데이트를 예약하여 설치합니다.  포함되어야 하는 컴퓨터 또는 컴퓨터 그룹 외에도 배포에 대한 시간과 날짜를 명시합니다.  
 
 Azure Automation의 runbook에서 업데이트가 설치됩니다.  현재 이러한 runbook을 볼 수 없고 구성이 필요하지 않습니다.  업데이트 배포를 만든 경우 일정을 만들고 여기서 포함된 컴퓨터에 지정된 시간에 마스터 업데이트 runbook이 시작됩니다.  이 마스터 runbook은 필수 업데이트를 설치하는 각 Windows 에이전트에서 하위 runbook을 시작합니다.  
 
@@ -134,7 +136,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다.  현재 이�
 | 표준 시간대 |시작 시간에 사용할 표준 시간대입니다. |
 | 시작 시간 |업데이트 배포를 시작할 날짜 및 시간입니다. |
 | 기간 |업데이트 배포를 실행할 수 있는 분 수입니다.  이 기간 내에서 모든 업데이트가 설치되지 않은 경우 나머지 업데이트는 다음 업데이트 배포까지 기다려야 합니다. |
-| 컴퓨터 |업데이트 배포에 포함할 컴퓨터 또는 컴퓨터 그룹의 이름입니다.  드롭다운 목록에서에서 하나 이상의 항목을 선택합니다. |
+| 컴퓨터 |업데이트 배포에 포함할 컴퓨터 또는 컴퓨터 그룹의 이름입니다.  드롭다운 목록에서 하나 이상의 항목을 선택합니다. |
 
 <br><br> ![새 업데이트 배포 페이지](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
@@ -237,6 +239,9 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다.  현재 이�
 * 관리되는 컴퓨터에 대한 업데이트 준수를 표시하는 [고유한 대시보드 만들기](../log-analytics/log-analytics-dashboards.md)
 * 중요 업데이트가 컴퓨터에서 누락된 것으로 검색되거나 컴퓨터가 자동 업데이트를 사용하지 않도록 설정한 경우 [경고 만들기](../log-analytics/log-analytics-alerts.md)  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

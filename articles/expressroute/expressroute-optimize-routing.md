@@ -1,12 +1,12 @@
 ---
-title: Express 경로 라우팅 최적화 | Microsoft Docs
-description: 이 페이지에서는 고객에게 Microsoft 및 고객의 회사 네트워크에 연결되는 하나 이상의 Express 경로 회로가 있는 경우 라우팅을 최적화하는 방법에 대한 자세한 정보를 제공합니다.
+title: "ExpressRoute 라우팅 최적화 | Microsoft Docs"
+description: "이 페이지에서는 고객에게 Microsoft 및 고객의 회사 네트워크에 연결되는 하나 이상의 Express 경로 회로가 있는 경우 라우팅을 최적화하는 방법에 대한 자세한 정보를 제공합니다."
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: charwen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26f0992e734f0aae96ac6e8b7040d661d5fb063c
+
 
 ---
 # <a name="optimize-expressroute-routing"></a>Express 경로 라우팅 최적화
@@ -24,7 +28,7 @@ ms.author: charwen
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
-### <a name="solution:-use-bgp-communities"></a>해결 방법: BGP 커뮤니티 사용
+### <a name="solution-use-bgp-communities"></a>해결 방법: BGP 커뮤니티 사용
 두 사무실 사용자에 대한 라우팅을 최적화하려면 접두사가 Azure 미국 서부의 것인지 Azure 미국 동부의 것인지 알아야 합니다. 이 정보는 [BGP 커뮤니티 값](expressroute-routing.md)을 사용하여 인코딩합니다. 각 Azure 지역에 고유한 BGP 커뮤니티 값을 할당했습니다. 예를 들어 미국 동부는 "12076:51004"를, 미국 서부는 "12076:51006"을 할당했습니다. 이제 어떤 접두사가 어떤 Azure 지역의 것인지 알았으므로 어떤 Express 경로를 기본 설정할지 구성할 수 있습니다. BGP를 사용하여 라우팅 정보를 교환하므로 라우팅에 영향을 주는 BGP의 로컬 기본 설정을 사용할 수 있습니다. 이 예제에서는 미국 동부보다 미국 서부의 13.100.0.0/16에 더 높은 로컬 기본 설정 값을 할당할 수 있으며 마찬가지로 미국 서부보다 미국 동부의 23.100.0.0/16에 더 높은 로컬 기본 설정 값을 할당할 수 있습니다. 이 구성은 Microsoft에 대한 두 경로를 사용할 수 있는 경우 로스앤젤레스의 사용자가 미국 서부에서 Express 경로 회로를 사용하여 Azure 미국 서부에 연결하는 반면 뉴욕의 사용자는 미국 동부의 Express 경로를 사용하여 Azure 미국 동부에 연결할 수 있도록 합니다. 라우팅이 양쪽 모두에서 최적화됩니다. 
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
@@ -34,7 +38,7 @@ ms.author: charwen
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 
-### <a name="solution:-use-as-path-prepending"></a>해결 방법: AS PATH 앞에 추가 사용
+### <a name="solution-use-as-path-prepending"></a>해결 방법: AS PATH 앞에 추가 사용
 문제에 대한 두 가지 해결 방법이 있습니다. 첫 번째 방법은 단순히 로스앤젤레스 사무실에 대한 온-프레미스 접두사 177.2.0.0/31를 미국 서부 Express 경로 경로에서 알리고 뉴욕 사무실에 대한 온-프레미스 접두사 177.2.0.2/31을 미국 동부 Express 경로 회로에서 알리는 것입니다. 결과적으로, Microsoft에서 각 사무실에 연결하는 경로는 한 가지뿐입니다. 최적화된 모호성과 라우팅이 없습니다. 이 디자인에서는 장애 조치 전략에 대한 생각이 필요합니다. Express 경로를 통한 Microsoft의 경로가 중단된 경우 Exchange Online에서 온-프레미스 서버에 계속 연결할 수 있는지 확인해야 합니다. 
 
 두 번째 방법은 어떤 접두사가 어떤 사무실에 근접한지 힌트를 제공하는 것 외에도 두 Express 경로 회로에서 두 접두사를 계속해서 알리는 것입니다. BGP AS Path 앞에 추가를 지원하므로 라우팅에 영향을 주는 접두사에 대한 AS Path를 구성할 수 있습니다. 이 예제에서는 미국 동부 172.2.0.0/31에 대한 AS PATH를 연장할 수 있으므로 이 접두사에 대해 전송되는 트래픽에는 미국 서부의 Express 경로 회로를 선호하게 됩니다(네트워크에서 이 접두사에 대한 경로가 서부에서 더 짧다고 생각하므로). 마찬가지로 미국 동부에서 Express 경로 회로를 선호하도록 미국 서부에서 172.2.0.2/31에 대한 AS PATH를 연장할 수 있습니다. 두 사무소 모두에 대해 라우팅이 최적화됩니다. 이 디자인에서 한 Express 경로 회로가 중단되면 Exchange Online에서 다른 Express 경로 회로 및 WAN을 통해 계속 연결할 수 있습니다. 
@@ -51,6 +55,9 @@ ms.author: charwen
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

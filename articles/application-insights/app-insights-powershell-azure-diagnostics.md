@@ -1,11 +1,11 @@
 ---
-title: PowerShell을 사용하여 Azure 진단을 Application Insights에 보내기 | Microsoft Docs
-description: Application Insights에 대한 파이프에 Azure 진단 자동화 구성
+title: "Azure에서 PowerShell을 사용하여 Application Insights 설정 | Microsoft Docs"
+description: "Application Insights에 대한 파이프에 Azure 진단 자동화 구성"
 services: application-insights
 documentationcenter: .net
 author: sbtron
 manager: douge
-
+ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,12 +13,39 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/17/2015
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b324d38f1f06f9cfcb15665da3d0e3964555ee54
+
 
 ---
-# PowerShell을 사용하여 Azure 진단을 Application Insights에 보내기
+# <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>PowerShell을 사용하여 Azure 웹앱에서 Application Insights 설정
 [Microsoft Azure](https://azure.com)는 [Visual Studio Application Insights](app-insights-overview.md)에 [Azure 진단을 보내도록 구성](app-insights-azure-diagnostics.md)될 수 있습니다. 진단은 Azure 클라우드 서비스 및 Azure VM과 연관됩니다. 이들 항목은 Application Insights SDK를 사용하여 앱 내부에서 보내는 원격 분석을 보완합니다. Azure에서 새 리소스 생성 과정에 대한 자동화의 일환으로 PowerShell을 사용하여 진단을 구성할 수 있습니다.
 
-## 클라우드 서비스 배포의 일부로 진단 확장을 사용하도록 설정
+## <a name="azure-template"></a>Azure 템플릿
+웹앱이 Azure에 있고 Azure Resource Manager 템플릿을 사용하여 리소스를 만드는 경우 리소스 노드에 이를 추가하여 Application Insights를 구성할 수 있습니다.
+
+    {
+      resources: [
+        /* Create Application Insights resource */
+        {
+          "apiVersion": "2015-05-01",
+          "type": "microsoft.insights/components",
+          "name": "nameOfAIAppResource",
+          "location": "centralus",
+          "kind": "web",
+          "properties": { "ApplicationId": "nameOfAIAppResource" },
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', myWebAppName)]"
+          ]
+        }
+       ]
+     } 
+
+* `nameOfAIAppResource` - Application Insights 리소스의 이름
+* `myWebAppName` - 웹앱의 ID
+
+## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>클라우드 서비스 배포의 일부로 진단 확장을 사용하도록 설정
 `New-AzureDeployment` cmdlet에는 `ExtensionConfiguration` 매개 변수가 있으며, 진단 구성의 배열을 사용합니다. 이것은 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet을 사용하여 만들 수 있습니다. 예:
 
 ```ps
@@ -54,7 +81,7 @@ ms.author: awills
 
 ``` 
 
-## 기존 클라우드 서비스에 진단 확장을 사용하도록 설정
+## <a name="enable-diagnostics-extension-on-an-existing-cloud-service"></a>기존 클라우드 서비스에 진단 확장을 사용하도록 설정
 기존 서비스에서 `Set-AzureServiceDiagnosticsExtension`을 사용합니다.
 
 ```ps
@@ -83,14 +110,14 @@ ms.author: awills
         -Role "WorkerRole"
 ```
 
-## 현재 진단 확장 구성 가져오기
+## <a name="get-current-diagnostics-extension-configuration"></a>현재 진단 확장 구성 가져오기
 ```ps
 
     Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 
-## 진단 확장 제거
+## <a name="remove-diagnostics-extension"></a>진단 확장 제거
 ```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -106,9 +133,14 @@ Role 매개 변수 없이 `Set-AzureServiceDiagnosticsExtension` 또는 `New-Azu
 ```
 
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 * [Application Insights로 Azure 클라우드 서비스 앱 모니터링](app-insights-cloudservices.md)
 * [Application Insights에 Azure 진단 보내기](app-insights-azure-diagnostics.md)
 * [구성 경고 자동화](app-insights-powershell-alerts.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

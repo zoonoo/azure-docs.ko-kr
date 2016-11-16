@@ -1,4 +1,5 @@
-# [개요](notification-hubs-push-notification-overview.md)
+# 개요
+## [Azure Notification Hubs 정의](notification-hubs-push-notification-overview.md)
 # 시작
 ## [Android(FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md)
 ## [Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)
@@ -9,9 +10,9 @@
 ## [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md)
 ## [Xamarin.Android](xamarin-notification-hubs-push-notifications-android-gcm.md)
 ## [Xamarin.iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md)
+## [질문과 대답](notification-hubs-push-notification-faq.md)
 
 # 방법
-
 ## 계획 및 디자인
 ### [엔터프라이즈 푸시 아키텍처 지침](notification-hubs-enterprise-push-notification-architecture.md)
 
@@ -48,24 +49,26 @@
 ### 보안 푸시
 #### [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 #### [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
-#### [Windowsh](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
-
-
+#### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
 ## 자동화
 ### [PowerShell을 사용하여 Notification Hubs 배포 및 관리](notification-hubs-deploy-and-manage-powershell.md)
 ### [예약된 알림 보내기](notification-hubs-send-push-notifications-scheduled.md)
 
-
 ## 문제 해결
 ### [진단 지침](notification-hubs-push-notification-fixer.md)
 
 # 참조
-
-# 관련 항목
+## [PowerShell cmdlet](/powershell/resourcemanager/)
+## [.NET](/dotnet/api/)
+## [REST (영문)](/rest/api/notificationhubs/)
 
 # 리소스
-## [질문과 대답](notification-hubs-push-notification-faq.md)
+## [가격 책정](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-notificationhub)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=notification-hubs)
 
 
 <!--HONumber=Nov16_HO2-->

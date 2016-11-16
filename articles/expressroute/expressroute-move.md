@@ -1,12 +1,12 @@
 ---
-title: 클래식에서 리소스 관리자로 Express 경로 회로 이동 | Microsoft Docs
-description: 이 페이지는 클래식 및 리소스 관리자 배포 모델 연결에 대해 알아야 할 내용을 간략히 설명합니다.
+title: "클래식에서 Resource Manager로 ExpressRoute 회로 이동 | Microsoft Docs"
+description: "이 페이지는 클래식 및 리소스 관리자 배포 모델 연결에 대해 알아야 할 내용을 간략히 설명합니다."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
+
 
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>클래식에서 리소스 관리자 배포 모델로 Express 경로 회로 이동
@@ -74,7 +78,7 @@ Express 경로 회로는 클래식 및 리소스 관리자 배포 모델 간의 
 ## <a name="access-to-azure-public-and-microsoft-peering-resources"></a>Azure 공용 및 Microsoft 피어링 리소스 액세스
 작업 중단 없이 Azure 공용 피어링 및 Microsoft 피어링을 통해 일반적으로 액세스할 수 있는 리소스에 계속해서 액세스할 수 있습니다.  
 
-## <a name="what's-supported"></a>지원되는 내용
+## <a name="whats-supported"></a>지원되는 내용
 이 섹션에서는 Express 경로 회로에 지원되는 내용을 설명합니다.
 
 * 단일 Express 경로 회로를 사용하여 클래식 및 리소스 관리자 배포 모델에 배포된 가상 네트워크에 액세스할 수 있습니다.
@@ -84,7 +88,7 @@ Express 경로 회로는 클래식 및 리소스 관리자 배포 모델 간의 
 * Express 경로 회로는 클래식 및 리소스 관리자 배포 모델 간의 브리지 역할을 합니다. 클래식 배포 모델의 가상 네트워크에 있는 가상 컴퓨터와 리소스 배포 모델의 가상 네트워크에 있는 가상 컴퓨터 간의 트래픽은 두 가상 네트워크가 동일한 Express 경로 회로에 연결된 경우 Express 경로를 통해 이동합니다.
 * 구독 간 연결은 클래식 및 리소스 관리자 배포 모델에서 지원됩니다.
 
-## <a name="what's-not-supported"></a>지원 되지않는 사항
+## <a name="whats-not-supported"></a>지원 되지않는 사항
 이 섹션에서는 Express 경로 회로에 지원되지 않는 내용을 설명합니다.
 
 * 회로 연결, 게이트웨이 및 가상 네트워크를 클래식에서 리소스 관리자 배포 모델로 이동합니다.
@@ -102,6 +106,9 @@ Express 경로 회로는 클래식 및 리소스 관리자 배포 모델 간의 
   * [라우팅 구성](expressroute-howto-routing-arm.md)
   * [가상 네트워크를 Express 경로 회로에 연결합니다.](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

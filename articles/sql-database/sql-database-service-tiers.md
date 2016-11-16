@@ -1,13 +1,13 @@
 ---
-title: 'SQL 데이터베이스 성능 및 옵션: 서비스 계층 | Microsoft Docs'
-description: 규모를 조정하는 동안 비용 및 기능의 균형을 유지하도록 서비스 계층의 SQL 데이터베이스 성능 및 비즈니스 연속성 기능을 비교합니다.
-keywords: 데이터베이스 옵션, 데이터베이스 성능
+title: "SQL Database 성능 및 옵션: 서비스 계층 | Microsoft Docs"
+description: "규모를 조정하는 동안 비용 및 기능의 균형을 유지하도록 서비스 계층의 SQL 데이터베이스 성능 및 비즈니스 연속성 기능을 비교합니다."
+keywords: "데이터베이스 옵션, 데이터베이스 성능"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
 editor: CarlRabeler
-
+ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 08/10/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9ecbee74bc0559aa632304b0a0428abb36606597
+
 
 ---
-# <a name="sql-database-options-and-performance:-understand-what's-available-in-each-service-tier"></a>SQL 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 것 이해
+# <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>SQL 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 것 이해
 [Azure SQL Database](sql-database-technical-overview.md) 는 여러 성능 수준의 3가지 서비스 계층을 제공하여 여러 워크로드를 다룹니다. 각 성능 수준은 더욱 높은 처리량을 제공하도록 설계된 증가된 리소스 집합을 제공합니다. 고유한 성능 수준을 포함한 고유한 [서비스 계층](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) 에서 각 데이터베이스를 관리할 수 있습니다. 공유 리소스 집합을 포함한 [탄력적 풀](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) 에서 여러 데이터베이스를 관리할 수도 있습니다. 독립 실행형 데이터베이스에 사용할 수 있는 리소스는 DTU(데이터베이스 트랜잭션 단위)의 측면에서 표현되고 탄력적 풀에 사용할 수 있는 리소스는 탄력적인 DTU 또는 eDTU의 측면에서 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU란?](sql-database-what-is-a-dtu.md)을 참조하세요. 
 
 두 경우 모두 서비스 계층은 **Basic**, **Standard** 및 **Premium**을 포함합니다. 이러한 계층의 데이터베이스 옵션은 독립 실행형 데이터베이스 및 탄력적 풀에서 유사하지만 탄력적 풀에 대해 추가 고려 사항이 있습니다. 이 문서에서는 독립 실행형 데이터베이스 및 탄력적 풀에 대한 서비스 계층에 대해 자세히 설명합니다.
@@ -70,7 +74,7 @@ ms.author: carlrab
 
 SQL 데이터베이스 버전을 결정하면 데이터베이스에 대한 성능 수준을 결정할 준비가 되었습니다(DTU의 수). 실제 경험을 토대로 추측한 다음 [동적으로 확장 또는 축소](sql-database-scale-up.md) 할 수 있습니다. [DTU 계산기](http://dtucalculator.azurewebsites.net/) 를 사용하여 필요한 DTU의 수를 대략적으로 예상할 수 있습니다. 
 
-### <a name="choosing-a-service-tier-for-an-elastic-database-pool."></a>탄력적 데이터베이스 풀에 대한 서비스 계층 선택
+### <a name="choosing-a-service-tier-for-an-elastic-database-pool"></a>탄력적 데이터베이스 풀에 대한 서비스 계층 선택
 탄력적 데이터베이스 풀에 대한 서비스 계층을 결정하려면 풀에 대한 서비스 계층을 선택해야 하는 데이터베이스 기능을 확인함으로써 시작합니다.
 
 * 데이터베이스 크기(기본 2GB, 표준 250GB 및 프리미엄 500GB)
@@ -90,6 +94,9 @@ SQL 데이터베이스 버전을 결정하면 데이터베이스에 대한 성�
 * [Azure SQL Database를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Azure SQL Database의 Elastic Database 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

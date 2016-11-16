@@ -1,12 +1,12 @@
 ---
-title: 클라우드 솔루션 공급자용 Azure Express 경로 | Microsoft Docs
-description: 이 문서에서는 Azure 서비스 및 Express 경로를 자신의 제품에 통합하려는 클라우드 서비스 공급자에 대한 정보를 제공합니다.
+title: "클라우드 솔루션 공급자용 Azure ExpressRoute | Microsoft Docs"
+description: "이 문서에서는 Azure 서비스 및 Express 경로를 자신의 제품에 통합하려는 클라우드 서비스 공급자에 대한 정보를 제공합니다."
 documentationcenter: na
 services: expressroute
 author: richcar
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8f2c2253132d2c0ca8eefd975af2ac23f196afd0
+
 
 ---
-# <a name="expressroute-for-cloud-solution-providers-(csp)"></a>클라우드 솔루션 공급자(CSP)용 Express 경로
+# <a name="expressroute-for-cloud-solution-providers-csp"></a>클라우드 솔루션 공급자(CSP)용 Express 경로
 Microsoft는 새 서비스 개발에 투자할 필요 없이 고객을 위한 새 서비스 및 솔루션을 신속하게 프로비전할 수 있도록 기존 대리점 및 배포자(CSP)를 위한 대규모 서비스를 제공합니다. 클라우드 솔루션 공급자(CSP)에 이러한 새 서비스를 직접 관리하는 능력을 부여하기 위해 Microsoft는 CSP가 고객을 대신해 Microsoft Azure 리소스를 관리할 수 있도록 하는 프로그램 및 API를 제공합니다. 이러한 리소스 중 하나가 Express 경로입니다. Express 경로를 통해 CSP는 기존 고객 리소스를 Azure 서비스에 연결할 수 있습니다. Express 경로는 Azure에서 고속의 개인 통신 링크입니다. 
 
 Express 경로는 단일 고객 구독에 연결되고 여러 고객과 공유할 수 없는 한 쌍의 고가용성 회로로 구성됩니다. 각 회로는 고가용성을 유지하기 위해 다른 라우터에서 종료해야 합니다.
@@ -34,7 +38,7 @@ Microsoft는 CSP에게 사용자 고유의 서비스 관리 시스템과 프로�
 ## <a name="microsoft-azure-resource-management"></a>Microsoft Azure 리소스 관리
 고객과 맺은 계약에 따라 구독이 관리되는 방법이 결정됩니다. CSP는 리소스의 생성 및 유지 관리를 직접 관리할 수 있으며 고객은 Microsoft Azure 구독에 대한 제어를 유지 관리하고 필요한 Azure 리소스를 만들 수 있습니다. 고객이 Microsoft Azure 구독에서 리소스 생성을 관리하는 경우 "Connect-Through" 또는 "Direct-To"라는 두 가지 모델 중 하나를 사용합니다. 이러한 모델은 다음 섹션에 자세히 설명되어 있습니다.  
 
-### <a name="connect-through-model"></a>Connect-through 모델
+### <a name="connectthrough-model"></a>Connect-through 모델
 ![대체 텍스트](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 Connect-through 모델에서 CSP는 데이터 센터 및 고객의 Azure 구독 간 직접 연결을 만듭니다. 직접 연결은 Express 경로를 사용하여 이루어지며 Azure와 함께 네트워크에 연결됩니다. 그런 다음 고객이 네트워크에 연결됩니다. 이 시나리오에서는 고객이 Azure 서비스에 액세스하려면 CSP 네트워크를 통과해야 합니다. 
@@ -45,7 +49,7 @@ Azure 서비스를 관리하는 CSP의 경우, CSP에는 CSP 구독 관리를 �
 
 ![대체 텍스트](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
-### <a name="connect-to-model"></a>Connect-to 모델
+### <a name="connectto-model"></a>Connect-to 모델
 ![대체 텍스트](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 Connect-To 모델에서 서비스 공급자는 고객의 네트워크를 통해 Express 경로를 사용하여 고객의 데이터 센터와 CSP 프로비전된 Azure 구독 간의 직접 연결을 만듭니다.
@@ -78,10 +82,10 @@ Express 경로는 고속 연결을 효율적으로 활용하기 위해 여러 vN
 ## <a name="configuring-expressroute"></a>Express 경로 구성
 단일 Express 경로 회로를 통해 세 가지 유형의 트래픽([라우팅 도메인](#ExpressRoute-routing-domains))을 지원하도록 Express 경로를 구성할 수 있습니다. 이 트래픽은 Microsoft 피어링, Azure 공용 피어링 및 개인 피어링으로 분리됩니다. Express 경로 회로 크기 및 고객이 필요로 하는 격리에 따라 단일 Express 경로 회로를 통하거나 여러 Express 경로 회로를 사용하여 전송하도록 하나 또는 모든 유형의 트래픽을 선택할 수 있습니다. 고객의 보안 상태에서 동일한 회로를 통해 공용 트래픽 및 사설 트래픽을 트래버스하는 것을 허용하지 않을 수 있습니다.
 
-### <a name="connect-through-model"></a>Connect-through 모델
+### <a name="connectthrough-model"></a>Connect-through 모델
 connect-through 구성에서는 고객 데이터 센터 리소스를 Azure에서 호스트된 구독으로 연결하기 위한 모든 네트워킹 기초를 사용자가 담당합니다. Azure 기능을 사용하려는 각 고객은 고유한 Express 경로 연결이 필요하며 이는 사용자가 관리합니다. 사용자는 Express 경로 회로를 확보하는 데 고객이 사용하는 것과 동일한 방법을 사용합니다. 회로 프로비전 및 회로 상태에 대한 [Express 경로 워크플로](expressroute-workflows.md) 문서에 설명된 동일한 단계를 따릅니다. 그런 다음 온-프레미스 네트워크와 Azure vNet 간의 트래픽 흐름을 제어하기 위해 BGP(Border Gateway Protocol) 경로를 구성합니다.
 
-### <a name="connect-to-model"></a>Connect-to 모델
+### <a name="connectto-model"></a>Connect-to 모델
 connect-to 구성에서 고객은 Azure에 대한 기존 연결을 보유하거나 Express 경로를 고객이 소유한 데이터 센터에서 사용자 데이터 센터가 아닌 Azure로 직접 연결하는 인터넷 서비스 공급자로의 연결을 시작합니다. 프로비전 프로세스를 시작하려면 고객은 위의 Connect-Through 모델에 설명된 단계를 따릅니다. 회로가 설정된 후 고객은 네트워크 및 Azure vNet 모두에 액세스할 수 있도록 온-프레미스 라우터를 구성해야 합니다.
 
 데이터 센터의 리소스가 데이터 센터의 클라이언트 리소스 또는 Azure에서 호스트된 리소스와 통신하도록 연결 설정 및 경로 구성을 지원할 수 있습니다.
@@ -112,7 +116,7 @@ Azure 가상 네트워크를 만들면 vNet에서 vNet 서브넷 간의 직접 �
 
 ![대체 텍스트](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
-### <a name="user-defined-routing-(udr)"></a>UDR(사용자 정의 라우팅)
+### <a name="userdefined-routing-udr"></a>UDR(사용자 정의 라우팅)
 사용자 정의 경로를 사용하여 가상 네트워크의 할당된 서브넷에서 다른 서브넷으로 또는 기타 미리 정의된 게이트웨이 중 하나를 통한 트래픽 아웃바운드를 제어할 수 있습니다(Express 경로, 인터넷 또는 VPN). 기본 시스템 라우팅 테이블을 기본 라우팅 테이블을 사용자 지정 경로로 대체하는 사용자 정의 라우팅 테이블로 대체할 수 있습니다. 사용자 정의 라우팅을 사용하면 고객은 방화벽, 침입 탐지 어플라이언스와 같은 어플라이언스로 특정 경로를 만들거나 사용자 정의 경로를 호스팅하는 서브넷에서 특정 서브넷으로 액세스를 차단할 수 있습니다. 사용자 정의 경로에 대한 개요는 [여기](../virtual-network/virtual-networks-udr-overview.md)에서 확인하세요. 
 
 ## <a name="security"></a>보안
@@ -134,6 +138,9 @@ Azure 가상 네트워크를 만들면 vNet에서 vNet 서브넷 간의 직접 �
 [클라우드 솔루션 공급자로 거래 준비](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Microsoft 클라우드 솔루션 공급자 리소스](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

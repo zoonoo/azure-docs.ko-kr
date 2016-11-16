@@ -1,5 +1,5 @@
 # 개요
-## [Resource Manager 개요](resource-group-overview.md)
+## [리소스 관리자란?](resource-group-overview.md)
 ## [지원되는 서비스, 지역 및 API 버전](../resource-manager-supported-services.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Resource Manager 및 클래식 배포 이해](../resource-manager-deployment-model.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [규범적 구독 거버넌스](../resource-manager-subscription-governance.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -11,7 +11,7 @@
 ## [Resource Manager와 VS 코드](../resource-manager-vs-code.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 # 방법
-## 템플릿
+## 템플릿 만들기
 ### [템플릿 모범 사례](../resource-manager-template-best-practices.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [템플릿 작성](../resource-group-authoring-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [템플릿 함수](../resource-group-template-functions.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -52,12 +52,21 @@
 ### [Azure CLI를 통해 배포 작업 보기](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [REST API에서 배포 작업 보기](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 # 참조
+## [PowerShell cmdlet](/powershell/azureps-cmdlets-docs/)
+## [Azure CLI](/cli/azure)
+## [Java](/java/api)
+## [.NET API](/dotnet/api)
 ## [템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas)
-## [Resource Manager용 PowerShell cmdlet](https://msdn.microsoft.com/library/dn757692(v=azure.200).aspx)
-## [Resource Manager용 REST API](https://msdn.microsoft.com/en-us/library/azure/dn790568)
-## [Resource Manager용 .NET 클라이언트 라이브러리](https://msdn.microsoft.com/en-us/library/azure/mt418626)
+## [Resource Manager용 PowerShell cmdlet](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
+## [Resource Manager용 REST API](/rest/api/resources/)
+## [Resource Manager용 .NET 클라이언트 라이브러리](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [제한 요청](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [REST (영문)](/rest/api/resources/)
 
+# 리소스
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=azure-resource-manager) 
 
 <!--HONumber=Nov16_HO2-->
 

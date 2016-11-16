@@ -15,16 +15,19 @@
 
 # 참조
 ## [샘플](service-bus-relay-samples.md)
-## [.NET API 참조](https://msdn.microsoft.com/library/azure/jj933424)
 ## [예외](../service-bus-messaging/service-bus-messaging-exceptions.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
 ## [할당량](../service-bus-messaging/service-bus-quotas.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [.NET](/dotnet/api/)
+## [REST (영문)](/rest/api/servicebus/)
 
 # 리소스
 ## [블로그](https://blogs.msdn.microsoft.com/servicebus/)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/servicebus)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)
-## [학습 패스](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
+## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-bus)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -128,27 +128,31 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # 참조
-
+## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [.NET API](https://docs.microsoft.com/dotnet/api)
+## [JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [분석](app-insights-analytics-reference.md)
 ## [샘플링](app-insights-sampling.md)
 ## [IP 주소](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 ## [데이터 모델 내보내기](app-insights-export-data-model.md)
-## [REST API](https://dev.applicationinsights.io/)
-## [JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Java SDK API](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [Azure 끝점 모니터링에서 가용성 테스트로 마이그레이션](app-insights-migrate-azure-endpoint-tests.md)
 ## [개발자 분석: 언어, 플랫폼 및 통합](app-insights-platforms.md)
 ### [샘플 및 연습](app-insights-code-samples.md)
-
 #### [연습: Microsoft Dynamics CRM Online에 대한 원격 분석 설정](app-insights-sample-mscrm.md)
 #### [연습: Stream Analytics를 사용하여 SQL로 내보내기](app-insights-code-sample-export-sql-stream-analytics.md)
 #### [코드 샘플: 내보내는 데이터 구문 분석](app-insights-code-sample-export-telemetry-sql-database.md)
 ## [Windows Phone 및 Store용 Application Insights SDK에 대한 릴리스 정보](app-insights-release-notes-windows.md)
 ## [개발자 분석 도구에 대한 릴리스 정보](app-insights-release-notes-vsix.md)
 ## [SDK 릴리스 정보 - Application Insights](app-insights-release-notes.md)
+## [REST API](https://dev.applicationinsights.io/)
 
 # 리소스
+## [가격 책정](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/az-application-insights)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=application-insights) 
+## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
 ## [지원](app-insights-get-dev-support.md)
 
 

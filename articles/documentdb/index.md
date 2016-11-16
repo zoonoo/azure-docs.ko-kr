@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#DocumentDB Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 80001fda921c4504237b1c5e3812a84924814dfd
+ms.openlocfilehash: c0c908d2597c6570511d6a15ea3f1f48b2dab6c8
 
-Azure DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. As a schema-free NoSQL database, DocumentDB provides rich and familiar SQL query capabilities with consistent low latencies on JSON data.
+---
+#<a name="documentdb-documentation"></a>DocumentDB 설명서
+
+Azure DocumentDB는 신속하고 예측 가능한 성능, 고가용성, 탄력적인 크기 조정, 글로벌 배포 및 개발의 용이성을 위해 구축된 완전히 관리되는 NoSQL 데이터베이스 서비스입니다. 스키마 없는 NoSQL 데이터베이스로서 DocumentDB는 JSON 데이터에 일관된 낮은 대기 시간으로 풍부하고 친숙한 SQL 쿼리 기능을 제공합니다.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -17,7 +21,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure DocumentDB</h3>
+                        <h3>Azure DocumentDB에 대해 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure DocumentDB Video Library</h3>
+                        <h3>Azure DocumentDB 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure DocumentDB</h3>
+                        <h3>Azure DocumentDB 시작</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDb using .NET</h3>
+                        <h3>.NET을 사용하여 DocumentDB 시작</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using ASP.NET MVC</h3>
+                        <h3>ASP.NET MVC를 사용하여 DocumentDB 시작</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +111,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDb using Node.js</h3>
+                        <h3>Node.js를 사용하여 DocumentDB 시작</h3>
                     </div>
                 </div>
             </div>
@@ -125,7 +129,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using Node.js Express</h3>
+                        <h3>Node.js Express를 사용하여 DocumentDB 시작</h3>
                     </div>
                 </div>
             </div>
@@ -143,7 +147,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using a Java JSP app</h3>
+                        <h3>Java JSP 앱을 사용하여 DocumentDB 시작</h3>
                     </div>
                 </div>
             </div>
@@ -161,7 +165,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with DocumentDB using a Python Flask Web app</h3>
+                        <h3>Python Flask 웹앱을 사용하여 DocumentDB 시작</h3>
                     </div>
                 </div>
             </div>
@@ -172,16 +176,16 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
 
 ---
 
-##Reference
+##<a name="reference"></a>참조
 
-###.NET
-[.NET Managed Reference](/dotnet/api)
+###<a name="net"></a>.NET
+[.NET 관리되는 참조](/dotnet/api)
 
-### Java
-[Java SDK Reference](/java/api)
+### <a name="java"></a>Java
+[Java SDK 참조](/java/api)
 
-###REST
-[DocumentDB REST API Reference](https://msdn.microsoft.com/library/azure/dn781481)
+###<a name="rest"></a>REST
+[DocumentDB REST API 참조](https://msdn.microsoft.com/library/azure/dn781481)
 
 
 
@@ -189,7 +193,12 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
         <div class="img"></div>
         <div class="text">
-            Download DocumentDB Documentation
-        </div>
+DocumentDB 설명서 다운로드 </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

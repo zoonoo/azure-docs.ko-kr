@@ -1,12 +1,12 @@
 ---
-title: .NET으로 Service Bus 토픽 사용 | Microsoft Docs
-description: Azure에서 .NET으로 Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET 응용 프로그램용으로 작성되었습니다.
+title: ".NET으로 Service Bus 토픽 사용 | Microsoft Docs"
+description: "Azure에서 .NET으로 Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET 응용 프로그램용으로 작성되었습니다."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b90d2b49807b39bb7a71315877a8e84550efc9cc
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>서비스 버스 토픽 및 구독을 사용하는 방법
@@ -47,7 +51,7 @@ ms.author: sethm
 두 경우 모두, 이 문서의 뒷부분에 표시된 대로 `CloudConfigurationManager.GetSetting` 메서드를 사용하여 연결 문자열을 검색할 수 있습니다.
 
 ### <a name="configure-your-connection-string"></a>연결 문자열 구성
-서비스 구성 메커니즘은 응용 프로그램을 다시 배포하지 않고도 [Azure Portal][]에서 구성 설정을 동적으로 변경할 수 있게 해줍니다. 예를 들어 다음 예에 표시된 대로 서비스 정의(**.csdef**) 파일에 `Setting` 레이블을 추가합니다.
+서비스 구성 메커니즘은 응용 프로그램을 다시 배포하지 않고도 [Azure Portal][Azure 포털]에서 구성 설정을 동적으로 변경할 수 있게 해줍니다. 예를 들어 다음 예에 표시된 대로 서비스 정의(**.csdef**) 파일에 `Setting` 레이블을 추가합니다.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -90,7 +94,7 @@ ms.author: sethm
 </configuration>
 ```
 
-이전에 설명한 대로 [Azure Portal][]에서 검색한 SAS 이름 및 키 값을 사용합니다.
+이전에 설명한 대로 [Azure Portal][Azure 포털]에서 검색한 SAS 이름 및 키 값을 사용합니다.
 
 ## <a name="create-a-topic"></a>토픽 만들기
 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스를 사용해서 Service Bus 토픽과 구독에 대한 관리 작업을 수행할 수 있습니다. 이 클래스는 항목을 만들고 열거하고 삭제하는 메서드를 제공합니다.
@@ -151,7 +155,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 > 
 > 
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
 새 구독을 만들 때 필터를 지정하지 않은 경우 **MatchAll** 필터가 사용되는 기본 필터입니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 "AllMessages"라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
 
 ```
@@ -303,17 +307,17 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 ## <a name="next-steps"></a>다음 단계
 이제 서비스 버스 토픽 및 구독의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보십시오.
 
-* [큐, 토픽 및 구독][]
-* [토픽 필터 샘플][토픽 필터 샘플]
-* [SqlFilter][SqlFilter]에 대한 API 참조
-* Service Bus 큐로 메시지를 보내고 받는 작동하는 응용 프로그램 빌드: [Service Bus 조정된 메시징 .NET 자습서][]
+* [큐, 토픽 및 구독][큐, 토픽 및 구독].
+* [항목 필터 샘플][항목 필터 샘플]
+* [SqlFilter][SqlFilter]에 대한 API 참조.
+* Service Bus 큐로 메시지를 보내고 받는 작동하는 응용 프로그램 빌드: [Service Bus 조정된 메시징 .NET 자습서][Service Bus 조정된 메시징 .NET 자습서].
 * Service Bus 샘플: [Azure 샘플][Azure 샘플]에서 다운로드하거나 [개요](service-bus-samples.md)를 참조하세요.
 
 [Azure 포털]: https://portal.azure.com
 
 [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
-[큐, 토믹 및 구독]: service-bus-queues-topics-subscriptions.md
+[큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
 [토픽 필터 샘플]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
 [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
@@ -322,6 +326,6 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

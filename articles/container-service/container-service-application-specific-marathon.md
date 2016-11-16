@@ -1,14 +1,14 @@
 ---
-title: 응용 프로그램 또는 사용자 특정 Marathon 서비스 | Microsoft Docs
-description: 응용 프로그램 또는 사용자 특정 Marathon 서비스 만들기
+title: "응용 프로그램 또는 사용자 특정 Marathon 서비스 | Microsoft 문서"
+description: "응용 프로그램 또는 사용자 특정 Marathon 서비스 만들기"
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: 컨테이너, Marathon, 마이크로 서비스, DC/OS, Azure
-
+keywords: "컨테이너, Marathon, 마이크로 서비스, DC/OS, Azure"
+ms.assetid: 16ecc16e-e504-480e-8dc3-cac14e9e1561
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,22 +16,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: befd26888b653c660cc614221684732771496aed
+
 
 ---
-# 응용 프로그램 또는 사용자 특정 Marathon 서비스 만들기
+# <a name="create-an-application-or-userspecific-marathon-service"></a>응용 프로그램 또는 사용자 특정 Marathon 서비스 만들기
 Azure 컨테이너 서비스는 Apache Mesos 및 Marathon을 미리 구성하는 마스터 서버 집합을 제공합니다. 클러스터에서 응용 프로그램을 오케스트레이션하는 데 사용할 수 있지만 이러한 목적으로는 마스터 서버를 사용하지 않는 것이 좋습니다. 예를 들어 Marathon 구성을 조정하려면 마스터 서버 자체에 로그인하고 변경해야 합니다. 이 방법에서는 표준과 약간 다르고 독립적으로 처리 및 관리해야 하는 고유 마스터 서버를 권장합니다. 또한 한 팀에 필요한 구성은 다른 팀에게는 최적의 구성이 아닐 수도 있습니다.
 
 이 문서에서는 응용 프로그램 또는 사용자 특정 Marathon 서비스를 추가하는 방법을 설명합니다.
 
 이 서비스는 단일 사용자 또는 팀에 속하므로 원하는 방식으로 자유롭게 구성할 수 있습니다. 또한 Azure 컨테이너 서비스를 사용하여 서비스를 계속해서 실행되도록 합니다. 서비스가 실패하면 Azure 컨테이너 서비스는 서비스를 다시 시작합니다. 중단 시간은 대부분 느끼지 못합니다.
 
-## 필수 조건
-DC/OS Orchestrator 유형을 사용하여 [Azure 컨테이너 서비스의 인스턴스를 배포](container-service-deployment.md)하고 [클라이언트에서 클러스터에 연결할 수 있는지 확인합니다](container-service-connect.md). 또한 다음 단계를 수행합니다.
+## <a name="prerequisites"></a>필수 조건
+DC/OS Orchestrator 유형을 사용하여 [Azure Container Service의 인스턴스를 배포](container-service-deployment.md)하고 [클라이언트가 클러스터에 연결될 수 있는지 확인합니다](container-service-connect.md). 또한 다음 단계를 수행합니다.
 
-[!INCLUDE [DC/OS CLI를 설치합니다](../../includes/container-service-install-dcos-cli-include.md)]
+[!INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)]
 
-## 응용 프로그램 또는 사용자 특정 Marathon 서비스 만들기
-만들려는 응용 프로그램 서비스의 이름을 정의하는 JSON 구성 파일을 만드는 것으로 시작합니다. 여기서는 프레임워크 이름으로 `marathon-alice`를 사용합니다. `marathon-alice.json`과 같이 파일을 저장합니다.
+## <a name="create-an-application-or-userspecific-marathon-service"></a>응용 프로그램 또는 사용자 특정 Marathon 서비스 만들기
+만들려는 응용 프로그램 서비스의 이름을 정의하는 JSON 구성 파일을 만드는 것으로 시작합니다. 여기서는 프레임워크 이름으로 `marathon-alice` 를 사용합니다. `marathon-alice.json`과 같이 파일을 저장합니다.
 
 ```json
 {"marathon": {"framework-name": "marathon-alice" }}
@@ -43,15 +47,20 @@ DC/OS Orchestrator 유형을 사용하여 [Azure 컨테이너 서비스의 인�
 dcos package install --options=marathon-alice.json marathon
 ```
 
-이제 `marathon-alice` 서비스가 DC/OS UI의 서비스 탭에서 실행되는 것을 확인하게 됩니다. 이 UI는 직접 액세스하려는 경우 `http://<hostname>/service/marathon-alice/`가 됩니다.
+이제 `marathon-alice` 서비스가 DC/OS UI의 서비스 탭에서 실행되는 것을 확인하게 됩니다. 이 UI는 직접 액세스하려는 경우 `http://<hostname>/service/marathon-alice/` 가 됩니다.
 
-## 서비스에 액세스하는 DC/OS CLI 설정
+## <a name="set-the-dcos-cli-to-access-the-service"></a>서비스에 액세스하는 DC/OS CLI 설정
 다음과 같이 `marathon-alice` 인스턴스를 가리키도록 `marathon.url` 속성을 설정하여 이 새 서비스에 액세스하도록 DC/OS CLI를 선택적으로 구성할 수 있습니다.
 
 ```bash
 dcos config set marathon.url http://<hostname>/service/marathon-alice/
 ```
 
-`dcos config show` 명령을 사용하여 CLI가 작동 중인 Marathon의 인스턴스를 확인할 수 있습니다. `dcos config unset marathon.url` 명령으로 마스터 Marathon 서비스를 사용하도록 되돌릴 수 있습니다.
+`dcos config show` 명령을 사용하여 CLI가 작동 중인 Marathon의 인스턴스를 확인할 수 있습니다. `dcos config unset marathon.url`명령으로 마스터 Marathon 서비스를 사용하도록 되돌릴 수 있습니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

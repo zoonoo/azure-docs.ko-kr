@@ -1,12 +1,12 @@
 ---
-title: 응용 프로그램 게이트웨이에서 여러 사이트 호스팅 | Microsoft Docs
-description: 이 페이지에서는 응용 프로그램 게이트웨이 다중 사이트 지원에 대한 개요를 제공합니다.
+title: "Application Gateway에서 여러 사이트 호스팅 | Microsoft Docs"
+description: "이 페이지에서는 응용 프로그램 게이트웨이 다중 사이트 지원에 대한 개요를 제공합니다."
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 85fc1315f32811873c577fe75d88eb08a2bbac26
+
 
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>응용 프로그램 게이트웨이 다중 사이트 호스팅
@@ -25,7 +29,7 @@ http://contoso.com에 대한 요청은 ContosoServerPool로 라우팅되고, htt
 
 마찬가지로 같은 부모 도메인의 하위 도메인 두 개를 동일한 응용 프로그램 게이트웨이 배포에서 호스트할 수 있습니다. 하위 도메인을 사용하는 예제에는 단일 Application Gateway 배포에 호스팅되는 http://blog.contoso.com 및 http://app.contoso.com이 포함됩니다.
 
-## <a name="host-headers-and-server-name-indication-(sni)"></a>호스트 헤더 및 SNI(서버 이름 표시)
+## <a name="host-headers-and-server-name-indication-sni"></a>호스트 헤더 및 SNI(서버 이름 표시)
 동일한 인프라에서 여러 사이트를 호스트하도록 설정할 수 있는 세 가지 일반적인 메커니즘이 있습니다.
 
 1. 여러 웹 응용 프로그램 각각을 고유한 IP 주소에서 호스트합니다.
@@ -117,6 +121,9 @@ http://contoso.com에 대한 요청은 ContosoServerPool로 라우팅되고, htt
 ## <a name="next-steps"></a>다음 단계
 다중 사이트 호스팅에 대해 알아본 후에는 [다중 사이트 호스팅을 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-multisite-azureresourcemanager-powershell.md) 로 이동해 둘 이상의 웹 응용 프로그램 지원 기능으로 응용 프로그램 게이트웨이를 만듭니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트하는 방법 | Microsoft Docs
-description: 코드를 작성할 필요가 없는 Fiddler를 사용하여 Azure 검색 가용성을 확인하고 REST API를 사용해 봅니다.
+title: "Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트하는 방법 | Microsoft Docs"
+description: "코드를 작성할 필요가 없는 Fiddler를 사용하여 Azure 검색 가용성을 확인하고 REST API를 사용해 봅니다."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: mblythe
-editor: ''
-
+editor: 
+ms.assetid: 790e5779-c6a3-4a07-9d1e-d6739e6b87d2
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/08/2016
+ms.date: 10/17/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
+ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
+
 
 ---
-# Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트
+# <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트
 > [!div class="op_single_selector"]
 > * [개요](search-query-overview.md)
 > * [검색 탐색기](search-explorer.md)
@@ -30,10 +34,10 @@ ms.author: heidist
 
 아래 단계에서는 인덱스를 만들고 문서를 업로드한 다음 인덱스를 쿼리하고 시스템에 서비스 정보를 쿼리합니다.
 
-이러한 단계를 완료하려면 Azure 검색 서비스 및 `api-key`가 필요합니다. 시작하는 방법에 대한 지침은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+이러한 단계를 완료하려면 Azure 검색 서비스 및 `api-key`가 필요합니다. 시작하는 방법에 대한 지침은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md) 를 참조하세요.
 
-## 인덱스 만들기
-1. Fiddler를 시작합니다. **파일** 메뉴에서 **트래픽 캡쳐**를 해제하여 현재 작업과 관련 없는 HTTP 활동을 숨깁니다.
+## <a name="create-an-index"></a>인덱스 만들기
+1. Fiddler를 시작합니다. **File** 메뉴에서 **Capture Traffic**을 해제하여 현재 작업과 관련 없는 HTTP 활동을 숨깁니다.
 2. **작성기** 탭에서 다음 스크린샷과 같은 요청을 작성합니다.
    
       ![][1]
@@ -77,7 +81,7 @@ ms.author: heidist
 
 HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HTTP 400 또는 404가 표시되는 경우 요청 본문에서 복사/붙여 넣기 오류가 없는지 확인합니다. HTTP 403은 대개 api-key에 문제가 있음을 나타냅니다(잘못된 키 또는 api-key 지정 방법과 관련된 구문 문제).
 
-## 문서 로드
+## <a name="load-documents"></a>문서 로드
 **작성기** 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요청 본문에 4개 호텔에 대한 검색 데이터가 포함됩니다.
 
    ![][2]
@@ -158,8 +162,8 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 
 몇 초 후에 HTTP 200 응답이 검색 목록에 표시됩니다. 이는 문서가 성공적으로 만들어졌음을 나타냅니다. 207이 표시될 경우 하나 이상의 문서를 업로드하지 못했습니다. 404가 표시될 경우 요청의 헤더 또는 본문에 구문 오류가 있습니다.
 
-## 인덱스 쿼리
-이제 인덱스와 문서가 로드되었으므로 쿼리를 실행할 수 있습니다. **작성기** 탭에서 서비스를 쿼리하는 **가져오기** 명령은 다음과 유사합니다.
+## <a name="query-the-index"></a>인덱스 쿼리
+이제 인덱스와 문서가 로드되었으므로 쿼리를 실행할 수 있습니다.  **작성기** 탭에서 서비스를 쿼리하는 **GET** 명령은 다음과 유사합니다.
 
    ![][3]
 
@@ -180,7 +184,7 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 
    ![][4]
 
-다음 예제 쿼리는 MSDN의 [검색 인덱스 작업(Azure 검색 API)](http://msdn.microsoft.com/library/dn798927.aspx)에서 가져온 것입니다. 이 항목의 많은 예제 쿼리에는 공백이 포함되어 있으며, 공백은 Fiddler에서 허용되지 않습니다. Fiddler에서 쿼리를 시도하기에 앞서, 쿼리 문자열을 붙여 넣기 전에 각 공백을 + 문자로 바꾸세요.
+다음 예제 쿼리는 MSDN의 [검색 인덱스 작업(Azure 검색 API)](http://msdn.microsoft.com/library/dn798927.aspx) 에서 가져온 것입니다. 이 항목의 많은 예제 쿼리에는 공백이 포함되어 있으며, 공백은 Fiddler에서 허용되지 않습니다. Fiddler에서 쿼리를 시도하기에 앞서, 쿼리 문자열을 붙여 넣기 전에 각 공백을 + 문자로 바꾸세요.
 
 **공백을 바꾸기 전:**
 
@@ -190,7 +194,7 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2015-02-28
 
-## 시스템 쿼리
+## <a name="query-the-system"></a>시스템 쿼리
 시스템을 쿼리하여 문서 수와 저장소 사용을 가져올 수도 있습니다. **작성기** 탭에서 요청은 다음과 유사하고, 응답에서 문서 수와 사용된 공간을 반환합니다.
 
  ![][5]
@@ -209,8 +213,8 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 5. **실행**을 클릭합니다. 세션 목록에 HTTP 200 상태 코드가 표시됩니다. 명령에 대해 게시할 항목을 선택합니다.
 6. **검사기** 탭과 **헤더** 탭을 차례로 클릭하고 JSON 형식을 선택합니다. 문서 수와 저장소 크기(KB)가 표시됩니다.
 
-## 다음 단계
-Azure 검색을 관리 및 사용하는 코드 없는 접근 방식은 [Azure에서 검색 서비스 관리](search-manage.md)를 참조하세요.
+## <a name="next-steps"></a>다음 단계
+Azure 검색을 관리 및 사용하는 코드 없는 접근 방식은 [Azure에서 검색 서비스 관리](search-manage.md) 를 참조하세요.
 
 <!--Image References-->
 [1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png
@@ -219,4 +223,8 @@ Azure 검색을 관리 및 사용하는 코드 없는 접근 방식은 [Azure에
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

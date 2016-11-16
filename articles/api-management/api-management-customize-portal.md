@@ -1,28 +1,32 @@
 ---
-title: Azure API 관리에서 개발자 포털 사용자 지정 | Microsoft Docs
-description: Azure API 관리에서 개발자 포털을 사용자 지정하는 방법에 대해 알아봅니다.
+title: "Azure API Management에서 개발자 포털 사용자 지정 | Microsoft Docs"
+description: "Azure API 관리에서 개발자 포털을 사용자 지정하는 방법에 대해 알아봅니다."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+
 
 ---
-# Azure API 관리에서 개발자 포털 사용자 지정
+# <a name="customize-the-developer-portal-in-azure-api-management"></a>Azure API 관리에서 개발자 포털 사용자 지정
 이 가이드에서는 브랜드와 일관성을 유지하기 위해 Azure API 관리에서 개발자 포털의 모양과 느낌을 수정하는 방법을 보여 줍니다.
 
 ## <a name="change-page-headers"> </a>페이지 머리글의 텍스트 또는 로고 변경
 포털 사용자 지정에서 중요한 측면 중 하나는 모든 페이지의 맨 위에 있는 텍스트를 회사 이름이나 로고로 바꾸는 것입니다.
 
-개발자 포털 내의 콘텐츠는 게시자 포털을 통해 수정되며, 이 포털에는 Azure 클래식 포털을 통해 액세스합니다. API 게시자 포털에 연결하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다.
+개발자 포털 내의 콘텐츠는 Azure Portal을 통해 액세스할 수 있는 게시자 포털을 통해 수정됩니다. 여기에 도달하려면 API Management 인스턴스의 서비스 도구 모음에서 **게시자 포털**을 클릭하세요.
 
 ![게시자 포털][api-management-management-console]
 
@@ -30,11 +34,11 @@ ms.author: sdanie
 
 ![위젯 머리글][api-management-widgets-header]
 
-머리글의 콘텐츠는 **본문** 필드 내에서 편집할 수 있습니다. 텍스트를 "Fabrikam 개발자 포털"로 변경하고 페이지 아래에 있는 **저장**을 클릭합니다.
+머리글의 콘텐츠는 **본문** 필드 내에서 편집할 수 있습니다. 텍스트를 "Fabrikam 개발자 포털"로 변경하고 페이지 아래에 있는 **저장** 을 클릭합니다.
 
 이제 개발자 포털 내의 모든 페이지에서 새 머리글을 볼 수 있습니다.
 
-> 게시자 포털에 있는 동안 개발자 포털을 열려면 위쪽 막대에서 **개발자 포털**을 클릭합니다.
+> 게시자 포털에 있는 동안 개발자 포털을 열려면 위쪽 막대에서 **개발자 포털** 을 클릭합니다.
 > 
 > 
 
@@ -45,13 +49,13 @@ ms.author: sdanie
 
 ![사용자 지정 도구 모음][api-management-customization-toolbar]
 
-스타일 규칙 편집의 두 가지 주요 모드가 있습니다. **모든 규칙 편집**은 임의의 위치에서 사용되는 모든 스타일 규칙의 목록을 표시하고, **요소 선택**은 현재 페이지에서 요소를 선택할 수 있게 하며 해당 요소에 대한 스타일만 표시합니다.
+스타일 규칙 편집의 두 가지 주요 모드가 있습니다. **모든 규칙 편**집은 임의의 위치에서 사용되는 모든 스타일 규칙의 목록을 표시하고, **요소 선택**은 현재 페이지에서 요소를 선택할 수 있게 하며 해당 요소에 대한 스타일만 표시합니다.
 
 이 섹션에서는 머리글에 대해서만 스타일을 변경합니다. 스타일 편집기 도구 모음에서 **요소 선택** 옵션을 클릭한 후 **사용자 지정할 요소 선택**을 클릭합니다. 이제 마우스를 요소 위로 가져가면 요소가 강조 표시되어 클릭하면 어느 요소의 스타일부터 편집을 시작하게 되는지가 나타납니다. 머리글에서 회사 이름을 나타내는 텍스트(이전 섹션의 지침을 따른 경우 "Fabrikam 개발자 포털") 위로 마우스를 가져간 후 텍스트를 클릭합니다. 명명되고 분류된 스타일 규칙 집합이 스타일 편집기 내에 나타납니다.
 
-각 규칙은 선택한 요소의 스타일 속성을 나타냅니다. 예를 들어 위에서 선택한 머리글 텍스트의 경우 텍스트의 크기는 @font-size-h1이고, 대체 항목이 있는 글꼴의 이름은 @headings-font-family입니다.
+각 규칙은 선택한 요소의 스타일 속성을 나타냅니다. 예를 들어 위에서 선택한 머리글 텍스트의 경우 텍스트의 크기는 @font-size-h1이고, 대체 항목이 있는 글꼴의 이름은 @headings-font-family.
 
-> [부트스트랩][부트스트랩]\(영문)에 익숙한 경우, 이 규칙은 실제로 개발자 포털에서 사용되는 부트스트랩 테마 내의 [LESS 변수][LESS 변수]\(영문)입니다.
+> [부트스트랩][bootstrap]에 익숙한 경우, 이 규칙은 실제로 개발자 포털에서 사용되는 부트스트랩 테마 내의 [LESS 변수][LESS variables]입니다.
 > 
 > 
 
@@ -59,11 +63,11 @@ ms.author: sdanie
 
 ![색 선택][api-management-customization-toolbar-color-picker]
 
-선택한 요소의 스타일 변경을 마치면 **변경 내용 미리 보기**를 클릭하여 화면에 결과를 표시합니다. 이때 결과는 관리자에게만 보입니다. 변경 내용을 모든 사람이 볼 수 있게 하려면 스타일 편집기에서 **게시** 단추를 클릭하고 변경 내용을 확인하세요.
+선택한 요소의 스타일 변경을 마치면 **변경 내용 미리 보기** 를 클릭하여 화면에 결과를 표시합니다. 이때 결과는 관리자에게만 보입니다. 변경 내용을 모든 사람이 볼 수 있게 하려면 스타일 편집기에서 **게시** 단추를 클릭하고 변경 내용을 확인하세요.
 
 ![게시 메뉴][api-management-customization-toolbar-publish-form]
 
-> 페이지상의 다른 요소에 적용되는 스타일 규칙을 변경하려면 머리글의 경우와 동일한 절차를 따릅니다. 스타일 편집기에서 **요소 선택**을 클릭하고 원하는 요소를 선택한 후 화면에 표시되는 스타일 규칙의 값을 수정하기 시작합니다.
+> 페이지상의 다른 요소에 적용되는 스타일 규칙을 변경하려면 머리글의 경우와 동일한 절차를 따릅니다. 스타일 편집기에서 **요소 선택** 을 클릭하고 원하는 요소를 선택한 후 화면에 표시되는 스타일 규칙의 값을 수정하기 시작합니다.
 > 
 > 
 
@@ -74,7 +78,7 @@ ms.author: sdanie
 
 ![콘텐츠 관리][api-management-customization-manage-content]
 
-개발자 포털의 홈페이지에 표시되는 내용을 편집하려면 **시작** 페이지를 클릭합니다. 원하는 대로 변경하고 필요하면 미리 본 다음, **지금 게시**를 클릭하여 모든 사람이 볼 수 있도록 합니다.
+개발자 포털의 홈페이지에 표시되는 내용을 편집하려면 **시작** 페이지를 클릭합니다. 원하는 대로 변경하고 필요하면 미리 본 다음, **지금 게시** 를 클릭하여 모든 사람이 볼 수 있도록 합니다.
 
 > 홈페이지에서는 맨 위에 배너를 표시할 수 있는 특별한 레이아웃이 사용됩니다. 이 배너는 **콘텐츠** 섹션에서 편집할 수 없습니다. 이 배너를 편집하려면 **개발자 포털** 메뉴에서 **위젯**을 클릭하고 **현재 레이어** 드롭다운 목록에서 **홈페이지**를 선택한 다음 **추천 섹션**에서 **배너** 항목을 엽니다. 이 위젯의 콘텐츠는 다른 페이지와 마찬가지로 편집할 수 있습니다.
 > 
@@ -83,12 +87,12 @@ ms.author: sdanie
 ## <a name="next-steps"> </a>다음 단계
 * [개발자 포털 템플릿](api-management-developer-portal-templates.md)을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 방법 알아보기.
 
-[Change the text/logo in the page headers]: #change-page-headers
-[Change the styling of the headers]: #change-headers-styling
-[Edit the contents of a page]: #edit-page-contents
-[Next steps]: #next-steps
+[페이지 머리글의 텍스트/로고 변경]: #change-page-headers
+[머리글의 스타일 변경]: #change-headers-styling
+[페이지의 콘텐츠 편집]: #edit-page-contents
+[다음 단계]: #next-steps
 
-[Azure Classic Portal]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -98,7 +102,11 @@ ms.author: sdanie
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[부트스트랩]: http://getbootstrap.com/
+[bootstrap]: http://getbootstrap.com/
 [LESS 변수]: http://getbootstrap.com/css/
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

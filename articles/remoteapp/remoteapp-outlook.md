@@ -1,11 +1,11 @@
 ---
-title: Azure RemoteApp에서 Outlook 사용 | Microsoft Docs
-description: Azure RemoteApp에서 Outlook을 구성 및 사용하는 방법 알아보기 | Microsoft Azure
+title: "Azure RemoteApp에서 Outlook 사용 | Microsoft Docs"
+description: "Azure RemoteApp에서 Outlook을 구성 및 사용하는 방법 알아보기 | Microsoft Azure"
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: pavithir
 manager: mbaldwin
-
+ms.assetid: cb2a498f-9539-4522-a874-542114926a61
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,6 +13,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1ec1d88b72d2f34dc7515d4387d09a46b4da7184
+
 
 ---
 # <a name="using-microsoft-outlook-in-azure-remoteapp"></a>Azure RemoteApp에서 Microsoft Outlook 사용
@@ -33,6 +37,9 @@ Azure RemoteApp은 Microsoft Outlook O365를 지원합니다. [Azure RemoteApp�
 ## <a name="search"></a>검색
 Azure RemoteApp에서 Outlook 내의 검색을 사용하는 데는 제한 사항이 있습니다. Azure RemoteApp은 사용자 세션을 수용하기 위해 풀링된 VM을 사용합니다. 검색 인덱싱은 VM마다 다른 컴퓨터 ID에 따라 달라집니다. 사용자가 Azure RemoteApp에 로그인할 때마다 새 VM에 전달될 수 있습니다. 따라서 로컬 검색을 사용하는 경우 컴퓨터 ID가 변경될 때마다 인덱서가 실행됩니다(사용자가 다른 VM에 있는 경우). .OST 파일의 크기에 따라 인덱서를 완료하는 데 시간이 오래 걸릴 수 있으며 다른 앱에 필요한 리소스까지도 소진할 수 있습니다. 검색 속도도 느리고 결과가 생성되지 않을 수도 있습니다. 온라인 모드 계정 프로필을 사용하면 이 문제를 해결할 수 있지만 전반적인 성능이 로컬 캐시의 부족으로 인해 저하될 수 있습니다(캐시된 모드와 온라인 모드 간의 차이점에 대한 자세한 내용은 위의 링크 참조). 아쉽게도 Outlook 2013에서는 기본적으로 인덱싱된/로컬 검색을 비활성화할 수 없으며 온라인 검색을 활성화할 수 없습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
