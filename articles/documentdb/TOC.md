@@ -1,12 +1,7 @@
 # 개요
 ## [DocumentDB가 무엇인가요?](documentdb-introduction.md)
 ## [핵심 개념](documentdb-resources.md)
-## [Storage 및 성능](documentdb-manage.md)
-## [분할 및 크기 조정](documentdb-partition-data.md)
 ## [글로벌 분포](documentdb-distribute-data-globally.md)
-## [일관성](documentdb-consistency-levels.md)
-## [SQL query](documentdb-sql-query.md)
-## [NoSQL과 SQL](documentdb-nosql-vs-sql.md)
 ## 시나리오
 ### [일반 사용 예](documentdb-use-cases.md)
 ### [DocumentDB를 사용하여 소셜 네트워크 디자인](documentdb-social-media-apps.md)
@@ -17,6 +12,7 @@
 ## 첫 번째 앱 작성
 ### [.NET 콘솔 앱](documentdb-get-started.md)
 ### [Node.js 콘솔 앱](documentdb-nodejs-get-started.md)
+### [C++ 콘솔 앱](documentdb-cpp-get-started.md)
 ## 웹앱 만들기
 ### [.NET 웹앱](documentdb-dotnet-application.md)
 ### [Node.js 웹앱](documentdb-nodejs-application.md)
@@ -24,11 +20,15 @@
 ### [Python Flask 웹앱](documentdb-python-application.md)
 ## [FAQ](documentdb-faq.md)
 
-
-
 # 방법
 
-## 관리 
+## 계획
+### [Storage 및 성능](documentdb-manage.md)
+### [분할 및 크기 조정](documentdb-partition-data.md)
+### [일관성](documentdb-consistency-levels.md)
+### [NoSQL과 SQL](documentdb-nosql-vs-sql.md)
+
+## 관리
 ### [데이터 가져오기](documentdb-import-data.md)
 ### [데이터 모델링](documentdb-modeling-data.md)
 ### [지리 공간적 데이터 사용](documentdb-geospatial.md)
@@ -46,17 +46,18 @@
 ### [계정 수퍼차지](documentdb-supercharge-your-account.md)
 
 ## 개발
+### [SQL query](documentdb-sql-query.md)
 ### [저장 프로시저, 트리거 및 UDF](documentdb-programming.md)
 ### [성능 테스트](documentdb-performance-testing.md)
 ### [성능 팁](documentdb-performance-tips.md)
 ### MongoDB 개발자용 DocumentDB
-#### [MongoDB를 위한 프로토콜 지원이 무엇인가요?](documentdb-protocol-mongodb.md)
+#### [MongoDB에 대한 프로토콜 지원](documentdb-protocol-mongodb.md)
 #### [계정 만들기](documentdb-create-mongodb-account.md)
 #### [계정에 연결](documentdb-connect-mongodb-account.md)
 #### [MongoChef 사용](documentdb-mongodb-mongochef.md)
 #### [프로토콜 지원 샘플](documentdb-mongodb-samples.md)
 
-## 포털 사용 
+## 포털 사용
 ### [데이터베이스 계정 만들기](documentdb-create-account.md)
 ### [컬렉션 만들기](documentdb-create-collection.md)
 ### [글로벌 복제 추가](documentdb-portal-global-replication.md)
@@ -75,34 +76,32 @@
 ### [Hadoop으로 데이터 분석](documentdb-run-hadoop-with-hdinsight.md)
 ### [Azure Search와의 통합](documentdb-search-indexer.md)
 ### [Azure Data Factory를 사용하여 데이터 이동](../data-factory/data-factory-azure-documentdb-connector.md)
-### [Azure Stream Analytics로 실시간 데이터 분석](../stream-analytics/stream-analytics-define-outputs.md#documentdb.md)
+### [Azure Stream Analytics로 실시간 데이터 분석](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Logic Apps로 알림 받기](documentdb-change-notification.md)
 ### [실시간 프로세스 센서 데이터](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Power BI를 사용하여 데이터 시각화](documentdb-powerbi-visualize.md)
 
 
 # 참조
+## [Java SDK](documentdb-sdk-java.md)
 ## [.NET SDK](documentdb-sdk-dotnet.md)
 ## [.NET 샘플](documentdb-dotnet-samples.md)
-## [Java SDK](documentdb-sdk-java.md)
 ## [Node.js SDK](documentdb-sdk-node.md)
 ## [Node.js 샘플](documentdb-nodejs-samples.md)
-## [Python](documentdb-sdk-python.md)
+## [Python SDK](documentdb-sdk-python.md)
 ## [Python 샘플](documentdb-python-samples.md)
-## [REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
 ## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 ## [SQL 문법 치트 시트](documentdb-sql-query-cheat-sheet.md)
-
+## [REST (영문)](/rest/api/documentdb/)
+## [REST 리소스 공급자](/rest/api/documentdbresourceprovider/)
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/documentdb/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-documentdb)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=documentdb) 
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=documentdb) 
-## [DocumentDB에 물어보기](documentdb-community.md#contact-the-team)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=documentdb)
 ## [커뮤니티 포털](documentdb-community.md)
-## [이벤트 및 기록](documentdb-community.md#events-and-recordings)
 ## [쿼리 실습](https://www.documentdb.com/sql/demo)
 ## [스키마와 관계 없는 인덱싱 문서](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
 ## [야구를 통해 설명하는 데이터 일관성](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
@@ -110,23 +109,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

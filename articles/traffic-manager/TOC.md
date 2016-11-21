@@ -17,10 +17,11 @@
 ## [라우팅 방법 구성](traffic-manager-configure-routing-method.md)
 ## [설정 테스트](traffic-manager-testing-settings.md)
 ## [성능 저하된 끝점 문제 해결](traffic-manager-troubleshooting-degraded.md)
-## [네트워크 리소스 사용](../virtual-network/resource-groups-networking.md)
+## [부하 분산 서비스 조합](traffic-manager-load-balancing-azure.md)
+## [네트워크 리소스 사용](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell(클래식)](/powershell/servicemanagement/)
 ## [REST (영문)](https://msdn.microsoft.com/library/mt163667.aspx)
 
@@ -30,14 +31,15 @@
 ## [Azure DNS](/azure/dns/)
 
 # 리소스
-##[가격 책정](https://azure.microsoft.com/pricing/details/traffic-manager/)
-##[SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-##[서비스 제한](../azure-subscription-service-limits.md#traffic-manager-limits)
+## [가격 책정](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
+## [서비스 제한](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [블로그](https://azure.microsoft.com/blog/topics/networking/)
-## [포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [비디오](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

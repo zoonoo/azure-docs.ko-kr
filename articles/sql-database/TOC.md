@@ -1,6 +1,6 @@
 # 개요
-## [SQL Database 정의](sql-database-technical-overview.md)
-## [SQL Database FAQ](sql-database-faq.md)
+## [SQL 데이터베이스 정의](sql-database-technical-overview.md)
+
 ## 기능
 ### [서비스 계층](sql-database-service-tiers.md)
 ### [데이터베이스 트랜잭션 단위](sql-database-what-is-a-dtu.md)
@@ -75,6 +75,7 @@
 ## [액세스 및 사용 권한 만들기 및 관리](sql-database-get-started-security.md)
 ## [메모리 내 최적화](sql-database-in-memory.md)
 ## [데이터 동기화](sql-database-get-started-sql-data-sync.md)
+## [SQL Database FAQ](sql-database-faq.md)
 
 # 방법
 
@@ -264,12 +265,12 @@
 ### [데이터베이스 이동](sql-database-troubleshoot-moving-data.md)
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell 클래식](/powershell/servicemanagement/)
 ## [Java](/java/api/)
 ## [.NET](/dotnet/api/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [Azure SQL Database Cmdlet](https://msdn.microsoft.com/library/azure/mt574084(v=azure.300\).aspx)
+## [Azure SQL Database cmdlet](/powershell/resourcemanager/AzureRM.Sql/v1.0.12/AzureRM.Sql)
 ## [SQL Server Cmdlet](https://msdn.microsoft.com/library/mt740629.aspx)
 ## [REST (영문)](/rest/api/sql/)
 
@@ -287,6 +288,9 @@
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/sql-azure)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?service=sql-database)
 ## [SQL Server 도구](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)
@@ -294,10 +298,10 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-## [포럼](https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

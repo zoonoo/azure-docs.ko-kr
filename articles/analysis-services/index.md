@@ -1,27 +1,27 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: f9c998b6d6431fe08a1b6e6332f992be1446f0c7
+ms.sourcegitcommit: 1cea7999fcb9ba3d4f0febdac5acb298ec5a489a
+ms.openlocfilehash: 76a07ecf333fec4d7e406a6c6b4dc796058e664b
 
 ---
-#<a name="data-catalog-documentation"></a>Data Catalog 설명서
+# <a name="analysis-services-documentation"></a>Analysis Services 설명서
 
-Data Catalog는 확장성과 안정성이 뛰어난 마이크로 서비스를 간편하게 패키지, 배포 및 관리하게 해주며, 클라우드 응용 프로그램 개발 및 관리에서 중요한 문제를 해결하는 분산 시스템 플랫폼입니다.  Data Catalog는 엔터프라이즈급 계층 1 클라우드 규모의 응용 프로그램을 빌드 및 관리하기 위한 차세대 미들웨어 플랫폼을 나타냅니다.
+검증된 Microsoft SQL Server Analysis Services 분석 엔진을 기반으로 구축된 Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 모델링을 제공합니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="/azure/analysis-services/analysis-services-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/data-catalog.svg" alt="" />
+                            <img src="media/index/analysis-services.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Data Catalog 시작 샘플</h3>
+                        <h3>Analysis Services에 대해 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -29,17 +29,17 @@ Data Catalog는 확장성과 안정성이 뛰어난 마이크로 서비스를 �
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
+        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Data Catalog 파티 클러스터</h3>
+                        <h3>Azure 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -47,53 +47,51 @@ Data Catalog는 확장성과 안정성이 뛰어난 마이크로 서비스를 �
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
+        <a href="/azure/analysis-services/analysis-services-create-server">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>.NET Core를 사용하여 Data Catalog 시작</h3>
+                        <h3>Analysis Services 서버 만들기</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>
+    </li>    
 </ul>
 
 ---
-
 ## <a name="reference"></a>참조
 
 <ul class="panelContent cardsW">
     <li>
-        <a href="/rest/api/">
+        <a href="/powershell/resourcemanager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST (영문)</h3>
-                        <p>Data Catalog REST API 참조</p>
+                        <h3>PowerShell</h3>
+                        <p>Azure Resource Manager cmdlet을 사용하는 Powershell</p>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
+        <a href="/rest/api/analysisservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Data Catalog 관리되는 참조</p>
+                        <h3>REST</h3>
+                        <p>Azure Analysis Services REST API 참조를 사용하는 REST</p>
                     </div>
                 </div>
             </div>
@@ -102,14 +100,16 @@ Data Catalog는 확장성과 안정성이 뛰어난 마이크로 서비스를 �
     </li>
 </ul>
 
+---
 
 <div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
         <div class="img"></div>
         <div class="text">
-Data Catalog 설명서 다운로드 </div>
+Analysis Services 설명서 다운로드 </div>
     </a>
 </div>
+
 
 
 <!--HONumber=Nov16_HO3-->

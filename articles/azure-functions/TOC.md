@@ -38,9 +38,6 @@
 ## 배포
 ### [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)
 
-# 참조
-## [.NET API](https://msdn.microsoft.com/library/azure/dn961176.aspx)
-
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/functions/)  
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
@@ -48,6 +45,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

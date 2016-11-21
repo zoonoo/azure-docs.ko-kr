@@ -34,19 +34,23 @@
 ### [그룹 관리](api-management-howto-create-groups.md)
 ### [여러 Azure 지역에 배포](api-management-howto-deploy-multi-region.md)
 ### [Azure Event Hubs에 이벤트 기록](api-management-howto-log-event-hubs.md)
-### [백업복원을 사용하여 DR 설정](api-management-howto-disaster-recovery-backup-restore.md)
+### [백업/복원을 사용하여 DR 설정](api-management-howto-disaster-recovery-backup-restore.md)
 ### [API 검사기로 호출 추적](api-management-howto-api-inspector.md)
 ### [사용자 계정 관리](api-management-howto-create-or-invite-developers.md)
 ### [자동화를 사용하여 관리](automation-manage-api-management.md)
 ### [Git를 사용하여 구성](api-management-configuration-repository-git.md)
 #참조
-## [리소스 관리 PowerShell cmdlet]/powershell/resourcemanager()
-## [클래식 배포 PowerShell cmdlet 참조](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-## [REST API](/rest/api/apimanagement/)
-## [정책](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [템플릿](https://msdn.microsoft.com/en-us/library/azure/mt697540)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [클래식 PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
+## [REST (영문)](/rest/api/apimanagement/)
+## [정책](https://msdn.microsoft.com/library/azure/dn894081)
+## [템플릿](https://msdn.microsoft.com/library/azure/mt697540)
 #리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/api-management/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-api-management)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=api-management)
 ## [백서: 클라우드 기반 API Management](http://j.mp/ms-apim-whitepaper)
 ## [API 디자인 지침](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [API 구현 지침](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
@@ -54,11 +58,11 @@
 ## [API Management에 Event Hubs 연결](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
 ## [API Management - 다른 Azure 서비스에서 잘 작동](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
 ## [REST API를 사용하여 RBAC 유사 액세스 제공](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
-## [API Management API 호출 PostMan 설정](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
+## [API Management API를 호출하는 PostMan 설정](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [SmartBear Ready용 API Management 플러그 인! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

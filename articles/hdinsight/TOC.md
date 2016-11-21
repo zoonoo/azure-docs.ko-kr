@@ -6,6 +6,7 @@
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
 ## [도메인에 가입된 HDInsight 미리 보기](hdinsight-domain-joined-introduction.md)
+## [Kafka 미리 보기](hdinsight-apache-kafka-introduction.md)
 
 # 시작
 ## [Hadoop으로 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
@@ -14,6 +15,7 @@
 ## [Spark로 시작](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [HBase 및 NoSQL로 시작](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Storm으로 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Kafka 미리 보기로 시작](hdinsight-apache-kafka-get-started.md )
 ## [Hadoop 샌드박스](hdinsight-hadoop-emulator-get-started.md)
 ## [Hortonworks 샌드박스를 사용한 Data Lake 도구](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Visual Studio용 도구](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -94,6 +96,10 @@
 ### [구성](hdinsight-domain-joined-configure.md)
 ### [관리](hdinsight-domain-joined-manage.md)
 ### [Hive 정책 구성](hdinsight-domain-joined-run-hive.md)
+## Kafka 미리 보기 사용
+### [Kafka 데이터 복제](hdinsight-apache-kafka-mirroring.md)
+### [Spark와 함께 사용](hdinsight-apache-spark-with-kafka.md)
+### [Storm과 함께 사용](hdinsight-apache-storm-with-kafka.md)
 ## 개발
 ### [Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Scalding MapReduce 작업 개발](hdinsight-hadoop-mapreduce-scalding.md)
@@ -217,6 +223,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

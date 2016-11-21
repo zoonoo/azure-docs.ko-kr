@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Cognitive Services Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: b266164f44b36fbfbe3b8a662653a978877643fc
 
-Cognitive Services (Preview) is a series of APIs which can be used to enable natural and contextual interaction within your applications.  Cognitive Services offers Language, Speech, Vision, Search, and Knowledge APIs.
+---
+#<a name="cognitive-services-documentation"></a>Cognitive Services 설명서
+
+Cognitive Services(미리 보기)는 응용 프로그램 내에서 자연적인 상호 작용 및 상황에 맞는 상호 작용을 가능하도록 하는 데 사용될 수 있는 일련의 API입니다.  Cognitive Services는 언어, 음성, 비전, 검색 및 기술 자료 API를 제공합니다.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -17,7 +21,7 @@ Cognitive Services (Preview) is a series of APIs which can be used to enable nat
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Cognitive Services Video Library</h3>
+                        <h3>Cognitive Services 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Cognitive Services (Preview) is a series of APIs which can be used to enable nat
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with the Text Analytics APIs</h3>
+                        <h3>텍스트 분석 API 시작</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Cognitive Services (Preview) is a series of APIs which can be used to enable nat
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with the Recommendations APIs</h3>
+                        <h3>추천 API 시작</h3>
                     </div>
                 </div>
             </div>
@@ -64,22 +68,65 @@ Cognitive Services (Preview) is a series of APIs which can be used to enable nat
 
 ---
 
-##Reference
+## <a name="reference"></a>참조
 
-###PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell 참조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###.NET
-[Cognitive Services Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt416943">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Cognitive Services 관리되는 참조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###REST
-[Cognitive Services REST API Reference](/rest/api/cognitiveservices)
+    <li>
+        <a href="/rest/api/cognitiveservices">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Cognitive Services REST API 참조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cognitive-services.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Cognitive Services Documentation
-        </div>
+Cognitive Services 설명서 다운로드 </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -27,17 +27,21 @@
 ### [문제 해결](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 ## [Gateway SDK 시작(Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Gateway SDK 시작(Windows)](iot-hub-windows-gateway-sdk-get-started.md)
-## 자습서
-### [장치-클라우드 메시지 처리 자습서(.NET)](iot-hub-csharp-csharp-process-d2c.md)
-### [장치-클라우드 메시지 처리 자습서(Java)](iot-hub-java-java-process-d2c.md)
-### [장치에서 파일 업로드 자습서](iot-hub-csharp-csharp-file-upload.md)
-### [클라우드-장치 메시지 보내기(.NET)](iot-hub-csharp-csharp-c2d.md)
-### [클라우드-장치 메시지 보내기(Java)](iot-hub-java-java-c2d.md)
-### [클라우드-장치 메시지 보내기(Node)](iot-hub-node-node-c2d.md)
-### [쌍 장치 시작](iot-hub-node-node-twin-getstarted.md)
-### [쌍 속성 사용 방법](iot-hub-node-node-twin-how-to-configure.md)
 
 # 방법
+## [장치-클라우드 메시지 처리 자습서(.NET)](iot-hub-csharp-csharp-process-d2c.md)
+## [장치-클라우드 메시지 처리 자습서(Java)](iot-hub-java-java-process-d2c.md)
+## [장치에서 파일 업로드 자습서](iot-hub-csharp-csharp-file-upload.md)
+## [클라우드-장치 메시지 보내기(.NET)](iot-hub-csharp-csharp-c2d.md)
+## [클라우드-장치 메시지 보내기(Java)](iot-hub-java-java-c2d.md)
+## [클라우드-장치 메시지 보내기(Node)](iot-hub-node-node-c2d.md)
+## [쌍 장치 시작](iot-hub-node-node-twin-getstarted.md)
+## [쌍 속성 사용 방법](iot-hub-node-node-twin-how-to-configure.md)
+## [직접 메서드 사용](iot-hub-c2d-methods.md)
+## [장치 관리 시작](iot-hub-device-management-get-started.md)
+## [장치 작업을 사용하여 장치 펌웨어 업데이트](iot-hub-firmware-update.md)
+## [작업 예약 및 브로드캐스트](iot-hub-schedule-jobs.md)
+
 ## 배포 계획
 ### [IoT Hub를 Event Hubs에 비교](iot-hub-compare-event-hubs.md)
 ### [솔루션 확장](iot-hub-scaling.md)
@@ -68,6 +72,10 @@
 ### [IoT 장치 대량 관리](iot-hub-bulk-identity-mgmt.md)
 ### [사용 현황 메트릭](iot-hub-metrics.md)
 ### [작업 모니터링](iot-hub-operations-monitoring.md)
+## Gateway SDK
+### [Gateway SDK를 사용하는 장치 시뮬레이션 자습서(Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
+### [Gateway SDK를 사용하는 장치 시뮬레이션 자습서(Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
+### [Gateway SDK 자습서를 사용하여 실제 장치에서 메시지 보내기](iot-hub-gateway-sdk-physical-device.md)
 
 ## 보안
 ### [처음부터 보안을 고려](iot-hub-security-ground-up.md)
@@ -80,16 +88,14 @@
 ## [Azure CLI](https://docs.microsoft.com/cli/azure)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [.NET API](https://docs.microsoft.com/dotnet/api)
-## Gateway SDK
-### [Gateway SDK를 사용하는 장치 시뮬레이션 자습서(Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
-### [Gateway SDK를 사용하는 장치 시뮬레이션 자습서(Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Gateway SDK 자습서를 사용하여 실제 장치에서 메시지 보내기](iot-hub-gateway-sdk-physical-device.md)
-## [장치 SDK API](http://azure.github.io/azure-iot-sdks/)
+## [Azure IoT SDK](http://azure.github.io/azure-iot-sdks/)
 ## [Gateway SDK API](http://azure.github.io/azure-iot-gateway-sdk)
+## [리소스 공급자 REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
+## [장치 ID REST API](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
+## [장치 메시징 REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 ## [C용 Azure IoT 장치 SDK 소개](iot-hub-device-sdk-c-intro.md)
 ## [C용 IoT 장치 SDK: IoTHubClient에 대한 자세한 정보](iot-hub-device-sdk-c-iothubclient.md)
 ## [C용 IoT 장치 SDK: 직렬 변환기에 대한 자세한 정보](iot-hub-device-sdk-c-serializer.md)
-## [REST (영문)](https://docs.microsoft.com/en-us/rest/api/iothub/)
 
 # 관련 항목
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -109,6 +115,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

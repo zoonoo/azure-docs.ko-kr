@@ -24,22 +24,22 @@
 ### [Python을 사용하여 Event Hubs 아카이브 지원](event-hubs-archive-python.md)
 
 # 참조
+## [할당량 및 한도](event-hubs-quotas.md)
+## [메시징 예외](event-hubs-messaging-exceptions.md)
+## [Java](/java/api)
+## [.NET](/dotnet/api)
 ## [AMQP1.0 프로토콜 가이드](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Event Hubs REST API 참조](https://msdn.microsoft.com/library/azure/dn790674)
-## [Event Hubs .NET API 참조](https://msdn.microsoft.com/library/azure/jj933424)
-## [이벤트 프로세서 호스트 API 참조](https://msdn.microsoft.com/library/microsoft.servicebus.messaging(v=azure.95).aspx)
-## [할당량 및 제한](event-hubs-quotas.md)
-## [Event Hubs 메시징 예외](event-hubs-messaging-exceptions.md)
+## [REST (영문)](/rest/api/eventhub)
 
 # 리소스
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
-## [MSDN 포럼](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [Service Bus Explorer로 Service Bus 및 Event Hubs 리소스 관리](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
-## [Event Hubs 학습 경로](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [가격 책정](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
+## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=event-hubs)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-eventhub)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

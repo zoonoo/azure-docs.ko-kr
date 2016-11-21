@@ -98,9 +98,9 @@
 ### [Cloud Services FAQ](cloud-services-faq.md)
 
 # 참조
-## [.NET](https://msdn.microsoft.com/library)
 ## [.csdef XML 스키마](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XML 스키마](https://msdn.microsoft.com/library/azure/ee758710)
+## [REST (영문)](https://msdn.microsoft.com/library/azure/ee460812)
 ## [게스트 OS 패치](cloud-services-guestos-msrc-releases.md)
 ## 게스트 OS 사용 중지
 ### [사용 중지 정책](cloud-services-guestos-retirement-policy.md)
@@ -116,6 +116,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

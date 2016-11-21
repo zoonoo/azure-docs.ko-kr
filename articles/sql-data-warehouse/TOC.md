@@ -28,10 +28,9 @@
 
 ### [개요](sql-data-warehouse-connect-overview.md)
 ### [연결 문자열](sql-data-warehouse-connection-strings.md)
-### 쿼리
-#### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-#### [SSMS](sql-data-warehouse-query-ssms.md)
-#### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [SSMS](sql-data-warehouse-query-ssms.md)
+### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Visual Studio 설치](sql-data-warehouse-install-visual-studio.md)
 
 ## 개발
@@ -111,6 +110,7 @@
 ## 성능
 
 ### [개요](sql-data-warehouse-overview-manage-user-queries.md)
+### [Columnstore 압축](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [쿼리](sql-data-warehouse-manage-monitor.md)
 ### [워크로드](sql-data-warehouse-develop-concurrency.md)
 ### [문제 해결](sql-data-warehouse-troubleshoot.md)
@@ -146,6 +146,6 @@
 ### [데이터 관리](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,11 +1,11 @@
 # 개요
-## [Azure Government란?](../azure-government-overview.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Azure Government란?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [사법 및 공공 안전](documentation-government-overview-jps.md)
 ## [국방부](documentation-government-overview-dod.md)
 
 # 시작
-## [개발자 가이드](../azure-government-developer-guide.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [개발자 가이드](../azure-government-developer-guide.md?toc=%2fazure%2fazure-government%2ftoc.json)
 
 # 방법
 ## 계획
@@ -28,10 +28,12 @@
 ### [모니터링 + 관리](documentation-government-services-monitoringandmanagement.md)
 
 # 리소스
-## [평가판](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [가격 책정](https://azure.microsoft.com/pricing/)
+## [평가판](https://azuregov.microsoft.com/trial/azuregovtrial)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -11,7 +11,7 @@
 
 # 방법
 ## 통합
-### 연결된 원본
+### 연결된 소스
 #### [Windows 에이전트](log-analytics-windows-agents.md)
 #### [Linux 에이전트](log-analytics-linux-agents.md)
 #### [Azure 가상 컴퓨터](log-analytics-azure-vm-extension.md)
@@ -38,7 +38,6 @@
 #### [경고 관리](log-analytics-solution-alert-management.md)
 #### [용량 관리](log-analytics-capacity.md)
 #### [변경 내용 추적](log-analytics-change-tracking.md)
-#### [구성 평가](log-analytics-configuration-assessment.md)
 #### [컨테이너](log-analytics-containers.md)
 #### [키 자격 증명 모음](log-analytics-azure-key-vault.md)
 #### [맬웨어 평가](log-analytics-malware.md)
@@ -48,7 +47,6 @@
 #### [Service Fabric](log-analytics-service-fabric.md)
 #### [SQL 평가](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
-#### [시스템 업데이트 평가](log-analytics-system-update.md)
 #### [VMware](log-analytics-vmware.md)
 #### [실시간 데이터](log-analytics-wire-data.md)
 ## 분석
@@ -63,11 +61,10 @@
 
 # 리소스
 ## [Analytics 업그레이드](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [가격 책정](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

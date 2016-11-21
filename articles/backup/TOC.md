@@ -1,10 +1,10 @@
 # 개요
 ## [Azure Backup이란?](backup-introduction-to-azure-backup.md)
 # 시작
-## [FAQ](backup-azure-backup-faq.md)
 ## [파일 및 폴더 백업](backup-try-azure-backup-in-10-mins.md)
 ## [Azure 가상 컴퓨터 백업](backup-azure-vms-first-look.md)
 ## [Azure VM 보호](backup-azure-vms-first-look-arm.md)
+## [FAQ](backup-azure-backup-faq.md)
 # 방법
 ## PowerShell을 사용하여 백업 자동화
 ### [Azure 포털의 Azure VM](backup-azure-vms-automation.md)
@@ -52,7 +52,13 @@
 ### [Azure VM Backup 실패: 스냅숏 상태에 대해 VM 에이전트와 통신할 수 없음 - 스냅숏 VM 하위 작업 시간 초과](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Azure Backup에서 파일 및 폴더의 느린 백업](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# 리소스
+## [가격 책정](https://azure.microsoft.com/pricing/details/backup/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=backup)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,26 +1,11 @@
 # 개요
 ## [Machine Learning은 무엇인가요?](machine-learning-what-is-machine-learning.md)
-## [새로운 기능](machine-learning-whats-new.md)
-## [실시간 채팅에서 도움 받기](machine-learning-live-chat.md)
-## 기계 학습 스튜디오
-### [스튜디오는 무엇인가요?](machine-learning-what-is-ml-studio.md)
-### [스튜디오 기능](machine-learning-studio-overview-diagram.md)
-### [인포 그래픽: ML 기본 사항](machine-learning-basics-infographic-with-algorithm-examples.md)
-## Team Data Science Process
-### [개요](http://aka.ms/datascienceprocess)
-### [수명 주기](data-science-process-overview.md)
-### [도구 및 유틸리티](machine-learning-data-science-environment-setup.md)
-### [연습](data-science-process-walkthroughs.md)
+## [Machine Learning 스튜디오](machine-learning-what-is-ml-studio.md)
 ## [시나리오 식별](machine-learning-data-science-plan-your-environment.md)
-## [샘플 시나리오 보기](machine-learning-data-science-plan-sample-scenarios.md)
 ## 예
 ### [샘플 실험](machine-learning-sample-experiments.md)
 ### [샘플 데이터 집합](machine-learning-use-sample-datasets.md)
 ### [고객 이탈 예](machine-learning-azure-ml-customer-churn-scenario.md)
-## API
-### [이상 감지](machine-learning-apps-anomaly-detection.md)
-### [텍스트 분석](machine-learning-apps-text-analytics.md)
-### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 ### 추천
 #### [개요](machine-learning-recommendation-api-sample-application.md)
 #### [빠른 시작](machine-learning-recommendation-api-quick-start-guide.md)
@@ -28,19 +13,12 @@
 #### [JavaScript 사용](machine-learning-recommendation-api-javascript-integration.md)
 #### [FAQ](machine-learning-recommendation-api-faq.md)
 ## Cortana Analytics
-### 예측 유지 관리
-#### [개요](cortana-analytics-playbook-predictive-maintenance.md)
+### [예측 유지 관리](cortana-analytics-playbook-predictive-maintenance.md)
 #### [아키텍처](cortana-analytics-architecture-predictive-maintenance.md)
 #### [기술 가이드](cortana-analytics-technical-guide-predictive-maintenance.md)
-### 차량 원격 분석
-#### [개요](cortana-analytics-playbook-vehicle-telemetry.md)
+### [차량 원격 분석](cortana-analytics-playbook-vehicle-telemetry.md)
 #### [플레이 북](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 #### [설정](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
-## 데이터 과학 프로세스
-### [Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
-### [1TB로 Hadoop 사용](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-### [SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
-### [SQL Data Warehouse 사용](machine-learning-data-science-process-sqldw-walkthrough.md)
 ## 웹 서비스
 ### [R을 사용하는 예제](machine-learning-r-csharp-web-service-examples.md)
 ### [이진 분류자](machine-learning-r-csharp-binary-classifier.md)
@@ -57,6 +35,7 @@
 ### [마켓플레이스 FAQ](machine-learning-marketplace-faq.md)
 
 # 시작
+## [샘플 시나리오 보기](machine-learning-data-science-plan-sample-scenarios.md)
 ## [첫 번째 실험 만들기](machine-learning-create-experiment.md)
 ## [예측 솔루션 만들기](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1: 작업 영역 만들기](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -72,9 +51,17 @@
 ### [4: 답변을 예측합니다](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: 다른 사람의 작업을 복사합니다](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 ## [질문과 대답](machine-learning-faq.md)
+## Team Data Science Process
+### [수명 주기](data-science-process-overview.md)
+### [도구 및 유틸리티](machine-learning-data-science-environment-setup.md)
+### [연습](data-science-process-walkthroughs.md)
+#### [Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
+#### [1TB로 Hadoop 사용](machine-learning-data-science-process-hive-criteo-walkthrough.md)
+#### [SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
+#### [SQL Data Warehouse 사용](machine-learning-data-science-process-sqldw-walkthrough.md)
 
 # 방법
-## 도구 설치 
+## 도구 설치
 ### [환경 설정](machine-learning-data-science-environment-setup.md)
 ### [가상 컴퓨터 설정](machine-learning-data-science-virtual-machines.md)
 ### [Hadoop 사용자 지정](machine-learning-data-science-customize-hadoop-cluster.md)
@@ -190,11 +177,13 @@
 #### [웹앱 템플릿 사용](machine-learning-consume-web-service-with-web-app-template.md)
 
 #참조
-## [R 빠른 시작](machine-learning-r-quickstart.md)
+## [릴리스 정보](machine-learning-whats-new.md)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell 개요](machine-learning-powershell-module.md)
 ## [PowerShell을 사용하여 모델 만들기](machine-learning-create-models-and-endpoints-with-powershell.md)
-## [웹 서비스 REST API](https://msdn.microsoft.com/library/azure/dn950030.aspx)
+## [R 빠른 시작](machine-learning-r-quickstart.md)
 ## [Net# 신경망 언어](machine-learning-azure-ml-netsharp-reference-guide.md)
+## [REST (영문)](/rest/api/machinelearning/)
 
 # 관련 항목
 ## Cortana 인텔리전스 갤러리
@@ -210,10 +199,23 @@
 ### [사용자 지정 모듈](machine-learning-gallery-custom-modules.md)
 
 # 리소스
+## [학습 패스](http://aka.ms/datascienceprocess)
+## [가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [블로그](http://blogs.technet.com/b/machinelearning/)
-## [포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-machine-learning)
+## [비디오](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
+## [실시간 채팅에서 도움 받기](machine-learning-live-chat.md)
+## 다운로드 가능한 다이어그램
+### [스튜디오 기능](machine-learning-studio-overview-diagram.md)
+### [인포 그래픽: ML 기본 사항](machine-learning-basics-infographic-with-algorithm-examples.md)
+## API
+### [이상 감지](machine-learning-apps-anomaly-detection.md)
+### [텍스트 분석](machine-learning-apps-text-analytics.md)
+### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

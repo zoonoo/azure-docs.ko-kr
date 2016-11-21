@@ -12,7 +12,7 @@
 ## [AD 라이선스 관리](active-directory-licensing-what-is.md)
 ## [조직의 Azure 가져오기](sign-up-organization.md)
 ## [FAQ](active-directory-faq.md)
-
+## [SaaS 앱 자습서](active-directory-saas-tutorial-list.md)
 
 # 방법
 ## 사용자 관리
@@ -291,12 +291,12 @@
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-active-directory) 
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

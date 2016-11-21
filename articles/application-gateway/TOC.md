@@ -13,8 +13,8 @@
 #### [포털](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
-#### [CLI](application-gateway-create-gateway-arm-template.md)
-#### [PowerShell(클래식)](application-gateway-create-gateway-arm-template.md)
+#### [CLI](application-gateway-create-gateway-cli.md)
+#### [PowerShell(클래식)](application-gateway-create-gateway.md)
 ### 내부 연결
 #### [PowerShell](application-gateway-ilb-arm.md)
 #### [PowerShell(클래식)](application-gateway-ilb.md)
@@ -37,6 +37,7 @@
 ### [포털](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell(클래식)](application-gateway-create-probe-classic-ps.md)
+## [부하 분산 서비스 조합](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## 관리
 ### [진단](application-gateway-diagnostics.md)
 ### [문제 해결](application-gateway-troubleshooting-502.md)
@@ -54,11 +55,12 @@
 ## [트래픽 관리자](/azure/traffic-manager/)
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/application-gateway/)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-application-gateway)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

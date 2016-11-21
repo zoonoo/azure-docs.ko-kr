@@ -25,7 +25,7 @@
 ### [배치 진단 로그](batch-diagnostics.md)
 
 # 참조
-## [PowerShell cmdlet](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
+## [PowerShell cmdlet](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [.NET API](https://docs.microsoft.com/dotnet/api)
 ## [Python SDK](https://go.microsoft.com/fwlink/p/?linkid=833496)
@@ -43,11 +43,11 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [배치 C# 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [배치 Python 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [C# 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [Python 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

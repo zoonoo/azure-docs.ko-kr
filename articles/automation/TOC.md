@@ -67,23 +67,24 @@
 ### [Runbook 작업이 일시 중단됨](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
 
 # 참조
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [클래식 PowerShell](/powershell/servicemanagement)
+## [.NET](/dotnet/api)
+## [REST (영문)](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [클래식 REST](https://msdn.microsoft.com/library/azure/mt163781)
 ## [릴리스 정보](https://azure.microsoft.com/updates/?product=automation)
-## [PowerShell cmdlet](https://msdn.microsoft.com/library/azure/dn690262)
-## [Resource Manager REST API](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [클래식 배포 Rest](https://msdn.microsoft.com/library/azure/mt163781)
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/automation/)  
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-automation)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=automation) 
-## [Azure Automation 교육](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=automation)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=automation)
+## [Azure Automation 교육](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Automation 소개 비디오](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
