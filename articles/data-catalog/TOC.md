@@ -39,6 +39,6 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -6,7 +6,7 @@ ms.openlocfilehash: 078421d67ae2b2f0854b6f31bb97d146224ef685
 
 
 ---
-# <a name="app-service-api-apps-documentation"></a>App Service - API Apps 설명서
+# <a name="app-service---api-apps-documentation"></a>App Service - API Apps 설명서
 
 API Apps는 Azure App Service에서 제공하는 4개의 앱 형식 중 하나입니다. Azure App Service의 API 앱은 클라우드 및 온-프레미스에서 API를 개발, 호스팅 및 사용하도록 풍부한 기능 설정을 제공합니다. Azure App Service는 웹, 모바일 및 통합 시나리오에 대해 완전히 관리되는 플랫폼입니다.
 
@@ -133,6 +133,6 @@ Mobile Apps 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

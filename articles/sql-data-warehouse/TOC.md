@@ -146,6 +146,6 @@
 ### [데이터 관리](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

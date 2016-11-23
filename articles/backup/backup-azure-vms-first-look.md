@@ -47,7 +47,7 @@ VM을 백업하려면, 5개의 주요 단계가 있습니다.
 >
 >
 
-## <a name="step-1-create-a-backup-vault-for-a-vm"></a>1단계 - VM에 대한 백업 자격 증명 모음 만들기
+## <a name="step-1---create-a-backup-vault-for-a-vm"></a>1단계 - VM에 대한 백업 자격 증명 모음 만들기
 백업 자격 증명 모음은 모든 백업과 시간에 따라 생성된 복구 지점을 저장하는 엔터티입니다. 백업 자격 증명 모음에는 백업 중인 가상 컴퓨터에 적용할 백업 정책도 포함됩니다.
 
 1. [Azure 클래식 포털](http://manage.windowsazure.com/)에 로그인합니다.
@@ -86,7 +86,7 @@ VM을 백업하려면, 5개의 주요 단계가 있습니다.
 
 자격 증명 모음에 대한 저장소 옵션을 선택하면 자격 증명 모음이 있는 VM에 연결할 준비가 됩니다. 연결을 시작하려면 Azure 가상 컴퓨터를 검색하고 등록합니다.
 
-## <a name="step-2-discover-and-register-azure-virtual-machines"></a>2단계 - Azure 가상 컴퓨터 검색 및 등록
+## <a name="step-2---discover-and-register-azure-virtual-machines"></a>2단계 - Azure 가상 컴퓨터 검색 및 등록
 VM에 자격 증명 모음을 등록하기 전에, 검색 프로세스를 실행하여 새 VM이 있는지 식별합니다. 이 작업은 구독에 클라우드 서비스 이름 및 지역과 같은 추가 정보와 함께 가상 컴퓨터 목록을 반환합니다.
 
 1.  [Azure 클래식 포털](http://manage.windowsazure.com/)
@@ -133,12 +133,12 @@ VM에 자격 증명 모음을 등록하기 전에, 검색 프로세스를 실행
 
     ![등록 상태 2](./media/backup-azure-vms/register-status02.png)
 
-## <a name="step-3-install-the-vm-agent-on-the-virtual-machine"></a>3단계 - 가상 컴퓨터에 VM 에이전트 설치
+## <a name="step-3---install-the-vm-agent-on-the-virtual-machine"></a>3단계 - 가상 컴퓨터에 VM 에이전트 설치
 Azure VM 에이전트는 작업할 백업 확장을 위한 Azure 가상 컴퓨터에 설치되어야 합니다. Azure 갤러리에서 VM을 만든 경우 VM 에이전트는 이미 VM에 있습니다. [VM 보호](backup-azure-vms-first-look.md#step-4---create-the-backup-policy)로 건너뛸 수 있습니다.
 
 VM이 온-프레미스 데이터 센터에서 마이그레이션된 경우에는, VM에 VM 에이전트가 설치어 있지 않습니다. VM을 보호하도록 진행하기 전에 가상 컴퓨터에 VM 에이전트를 설치해야 합니다. VM 에이전트 설치에 대한 자세한 단계는 [VM 백업 문서의 VM 에이전트 섹션](backup-azure-vms-prepare.md#vm-agent)을 참조하세요.
 
-## <a name="step-4-create-the-backup-policy"></a>4단계 - 백업 정책 만들기
+## <a name="step-4---create-the-backup-policy"></a>4단계 - 백업 정책 만들기
 초기 백업 작업을 트리거하기 전에, 백업 스냅숏을 생성하는 일정을 설정합니다. 백업 스냅숏을 생성하는 일정 및 스냅숏을 보존하는 기간이 백업 정책입니다. 보존 정보는 GFS(Grandfather-Father-Son) 백업 회전 체계를 기반으로 합니다.
 
 1. Azure 클래식 포털의 **Recovery Services**에 있는 백업 저장소로 이동하여 **등록된 항목**을 클릭합니다.
@@ -175,7 +175,7 @@ VM이 온-프레미스 데이터 센터에서 마이그레이션된 경우에는
 
     정책을 설정했으므로 다음 단계로 이동하여 초기 백업을 실행합니다.
 
-## <a name="step-5-initial-backup"></a>5단계 - 초기 백업
+## <a name="step-5---initial-backup"></a>5단계 - 초기 백업
 가상 컴퓨터가 정책으로 보호되면 **보호된 항목** 탭에서 해당 관계를 볼 수 있습니다. 초기 백업이 발생할 때까지 **보호 상태**는 **보호됨 - (초기 백업 보류 중)**으로 표시됩니다. 기본적으로 첫 번째 예약된 백업은 *초기 백업*입니다.
 
 ![보류 중인 백업](./media/backup-azure-vms-first-look/protection-pending-border.png)

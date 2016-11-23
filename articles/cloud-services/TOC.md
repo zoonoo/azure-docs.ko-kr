@@ -116,6 +116,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

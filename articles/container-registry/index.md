@@ -102,6 +102,6 @@ Azure Container Registry(미리 보기)는 컨테이너 이미지 호스팅을 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

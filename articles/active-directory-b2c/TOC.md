@@ -56,6 +56,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [지원](active-directory-b2c-support.md)
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 
