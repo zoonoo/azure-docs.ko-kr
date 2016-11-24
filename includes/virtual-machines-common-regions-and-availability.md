@@ -1,7 +1,7 @@
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure에서 가상 컴퓨터의 지역 및 가용성
 성능, 가용성 및 중복성을 최대화하는 옵션을 함께 Azure에서 VMs(가상 컴퓨터)가 작동하는 위치와 방법을 이해하는 것이 중요합니다. Azure는 전 세계 여러 데이터 센터에서 작동합니다. 이러한 데이터 센터는 지리적 영역으로 그룹화되므로 응용 프로그램을 빌드할 위치를 유연하게 선택할 수 있습니다. 이 문서에서는 Azure의 가용성 및 중복성 기능에 대 한 개요를 제공합니다.
 
-## <a name="what-are-azure-regions?"></a>Azure 지역이란?
+## <a name="what-are-azure-regions"></a>Azure 지역이란?
 Azure를 사용하면 '미국 서부', '북유럽' 또는 '동남 아시아'와 같은 정의된 지역에서 VM과 같은 리소스를 만들 수 있습니다. 현재 전 세계적으로 30개의 Azure 지역이 있습니다. [지역 및 위치 목록](https://azure.microsoft.com/regions/)을 검토할 수 있습니다. 각 지역 내에는 중복성 및 가용성을 제공하기 위한 여러 데이터 센터가 존재합니다. 이 방법을 통해 사용자에게 가장 가까운 VM(가상 컴퓨터)을 만들고 법률, 규정 준수 또는 과세 목적을 충족할 수 있는 응용 프로그램을 유연하게 빌드할 수 있습니다.
 
 ## <a name="special-azure-regions"></a>특수 Azure 지역
@@ -70,16 +70,16 @@ Azure를 사용하면 '미국 서부', '북유럽' 또는 '동남 아시아'와 
 ## <a name="azure-images"></a>Azure 이미지
 Azure에서 VM은 이미지에서 만들어집니다. 이미지는 일반적으로 파트너가 미리 구성된 전체 OS 또는 응용 프로그램 이미지를 제공할 수 있는 [Azure Marketplace](https://azure.microsoft.com/marketplace/)에서 만들어집니다.
 
-Azure 마켓플레이스의 이미지에서 VM을 만들 때 실제로는 템플릿을 사용하게 됩니다. Azure Resource Manager 템플릿은 VM, 저장소, 가상 네트워킹 등으로 구성된 복잡한 응용 프로그램 환경을 만드는 데 사용할 수 있는 선언적 JSON(JavaScript Object Notation) 파일입니다. [고유 템플릿 빌드](../articles/resource-group-authoring-templates.md) 방법을 비롯하여 [Azure Resource Manager 템플릿](../articles/resource-group-overview.md) 사용에 대해 자세히 알아볼 수 있습니다.
+Azure 마켓플레이스의 이미지에서 VM을 만들 때 실제로는 템플릿을 사용하게 됩니다. Azure Resource Manager 템플릿은 VM, 저장소, 가상 네트워킹 등으로 구성된 복잡한 응용 프로그램 환경을 만드는 데 사용할 수 있는 선언적 JSON(JavaScript Object Notation) 파일입니다. [고유 템플릿 빌드](../articles/resource-group-authoring-templates.md) 방법을 비롯하여 [Azure Resource Manager 템플릿](../articles/azure-resource-manager/resource-group-overview.md) 사용에 대해 자세히 알아볼 수 있습니다.
 
-[Azure CLI](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md) 또는 [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md)을 사용하여 사용자 지정 이미지를 직접 만들고 업로드하여 특정 빌드 요구 사항에 맞는 사용자 지정 VM을 빠르게 만들 수 있습니다.
+[Azure CLI](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 사용자 지정 이미지를 직접 만들고 업로드하여 특정 빌드 요구 사항에 맞는 사용자 지정 VM을 빠르게 만들 수 있습니다.
 
 ## <a name="availability-sets"></a>가용성 집합
 가용성 집합은 중복성과 가용성을 제공하기 위해 Azure에서 응용 프로그램이 빌드되는 방식을 이해할 수 있도록 하는 VM의 논리적 그룹입니다. 고가용성 응용 프로그램을 제공하고 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 충족하기 위해 가용성 집합 내에서 둘 이상의 VM을 만드는 것이 좋습니다. 가용성 집합은 하드웨어 장애로부터 보호하고 업데이트를 안전하게 적용할 수 있도록 하는 두 개의 추가 그룹인 FD(장애 도메인)와 UD(업데이트 도메인)로 구성됩니다.
 
 ![업데이트 도메인 및 장애 도메인 구성의 개념적 그림](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-[Linux VM](../articles/virtual-machines/virtual-machines-linux-manage-availability.md) 또는 [Windows VM](../articles/virtual-machines/virtual-machines-linux-manage-availability.md)의 가용성을 관리하는 방법에 대한 자세한 내용을 확인하세요.
+[Linux VM](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Windows VM](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 가용성을 관리하는 방법에 대한 자세한 내용을 확인하세요.
 
 ### <a name="fault-domains"></a>장애 도메인
 장애 도메인은 온-프레미스 데이터 센터 내의 랙과 비슷하게 공통 전원 및 네트워크 스위치를 공유하는 기본 하드웨어의 논리적 그룹입니다. 가용성 집합 내에서 VM을 만들 때 Azure 플랫폼에서는 이러한 오류 도메인에 걸쳐 VM을 자동으로 분산합니다. 이 방법은 잠재적인 물리적 하드웨어 오류, 네트워크 중단 또는 전원 중단의 영향을 제한합니다.
@@ -90,6 +90,8 @@ Azure 마켓플레이스의 이미지에서 VM을 만들 때 실제로는 템플
 ## <a name="next-steps"></a>다음 단계
 이제 이러한 가용성 및 중복 기능을 사용하여 Azure 환경을 빌드하기 시작할 수 있습니다. 모범 사례 정보는 [Azure 가용성 모범 사례](../articles/best-practices-availability-checklist.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

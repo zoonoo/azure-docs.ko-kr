@@ -9,6 +9,10 @@
 | **SLA** |[SLA](https://azure.microsoft.com/support/legal/sla/) |[SLA](https://azure.microsoft.com/support/legal/sla/) |[SLA](https://azure.microsoft.com/support/legal/sla/) |
 | **가격** |[가격](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[가격](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[가격](https://azure.microsoft.com/pricing/details/expressroute/) |
 | **기술 문서** |[VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Express 경로 설명서](https://azure.microsoft.com/documentation/services/expressroute/) |
-| **FAQ** |[VPN 게이트웨이 FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[VPN 게이트웨이 FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[Express 경로 FAQ](../articles/expressroute/expressroute-faqs.md) |
+| **FAQ** |[VPN 게이트웨이 FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[VPN 게이트웨이 FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[ExpressRoute FAQ](../articles/expressroute/expressroute-faqs.md) |
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

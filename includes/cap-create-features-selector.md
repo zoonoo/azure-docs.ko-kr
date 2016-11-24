@@ -1,9 +1,13 @@
 > [!div class="op_single_selector"]
-> * [Create features for data](../articles/machine-learning/machine-learning-data-science-create-features.md)
-> * [Create features for data in Azure blob storage](../articles/machine-learning/machine-learning-data-science-create-features-blob.md)
-> * [Create features for data in SQL Server](../articles/machine-learning/machine-learning-data-science-create-features-sql-server.md)
-> * [Create features for data in an Hadoop cluster using Hive queries](../articles/machine-learning/machine-learning-data-science-create-features-hive.md)
+> * [데이터에 대한 기능 만들기](../articles/machine-learning/machine-learning-data-science-create-features.md)
+> * [Azure Blob Storage의 데이터에 대한 기능 만들기](../articles/machine-learning/machine-learning-data-science-create-features-blob.md)
+> * [SQL Server의 데이터에 대한 기능 만들기](../articles/machine-learning/machine-learning-data-science-create-features-sql-server.md)
+> * [Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기](../articles/machine-learning/machine-learning-data-science-create-features-hive.md)
 > 
 > 
 
-<!---HONumber=Oct15_HO4-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

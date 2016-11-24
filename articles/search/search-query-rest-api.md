@@ -11,28 +11,29 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 10/27/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: ab769e5cd6abe27d6793d1aad816c4f4d10ff078
-
+ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
+ms.openlocfilehash: c8e745f7e1385c5ca569a9b8fbc3f5db070f102e
 
 ---
+
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure 검색 인덱스 쿼리
 > [!div class="op_single_selector"]
+>
 > * [개요](search-query-overview.md)
 > * [포털](search-explorer.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST (영문)](search-query-rest-api.md)
-> 
-> 
+>
+>
 
 이 문서는 [Azure 검색 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)를 사용하여 인덱스를 쿼리하는 방법을 보여줍니다.
 
 이 연습을 시작하기 전에 [Azure 검색 인덱스를 만들고](search-what-is-an-index.md) [데이터로 채워야](search-what-is-data-import.md) 합니다.
 
-## <a name="i-identify-your-azure-search-services-query-apikey"></a>I. Azure 검색 서비스의 쿼리 API 키 식별
+## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Azure 검색 서비스의 쿼리 API 키 식별
 Azure 검색 REST API에 대한 모든 검색 작업의 주요 구성 요소는 프로비전한 서비스에 대해 생성한 *API 키* 입니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 1. 서비스의 API 키를 찾으려면 [Azure 포털](https://portal.azure.com/)
@@ -49,9 +50,9 @@ Azure 검색 REST API에 대한 모든 검색 작업의 주요 구성 요소는 
 ## <a name="ii-formulate-your-query"></a>II. 쿼리 작성
 [REST API를 사용하여 인덱스를 검색](https://msdn.microsoft.com/library/azure/dn798927.aspx)하는 두 가지 방법이 있습니다. 한 가지 방법은 쿼리 매개 변수를 요청 본문의 JSON 개체에 정의한 위치에 HTTP 게시 요청을 발급하는 것입니다. 다른 방법은 쿼리 매개 변수를 요청 URL 내에 정의한 위치에 HTTP 가져오기 요청을 발급하는 것입니다. 게시는 가져오기보다 쿼리 매개 변수의 크기에서 [제한을 완화](https://msdn.microsoft.com/library/azure/dn798927.aspx) 합니다. 따라서 GET을 사용하는 것이 보다 편리한 특별한 경우가 아니라면 게시를 사용하는 것이 좋습니다.
 
-게시 및 가져오기 모두의 경우 요청 URL에서 *서비스 이름*, *인덱스 이름* 및 적절한 *API 버전*을 제공해야 합니다(이 문서를 게시할 때 현재 API 버전은 `2015-02-28`임). 가져오기의 경우 URL의 끝의 *쿼리 문자열* 은 쿼리 매개 변수를 제공하는 위치입니다. URL 형식은 아래를 참조하세요.
+게시 및 가져오기 모두의 경우 요청 URL에서 *서비스 이름*, *인덱스 이름* 및 적절한 *API 버전*을 제공해야 합니다(이 문서를 게시할 때 현재 API 버전은 `2016-09-01`임). 가져오기의 경우 URL의 끝의 *쿼리 문자열* 은 쿼리 매개 변수를 제공하는 위치입니다. URL 형식은 아래를 참조하세요.
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2016-09-01
 
 게시에 대한 형식이 동일하지만 쿼리 문자열 매개 변수에서 API 버전입니다.
 
@@ -61,9 +62,9 @@ Azure 검색 REST API에 대한 모든 검색 작업의 주요 구성 요소는 
 전체 인덱스에서 용어 '예산'을 검색하고 `hotelName` 필드를 반환합니다.
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "budget",
     "select": "hotelName"
@@ -73,9 +74,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 인덱스에 필터를 적용하여 하루에 150 달러가 저렴한 호텔을 찾고 `hotelId` 및 `description`를 반환합니다.
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -86,9 +87,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 전체 인덱스를 검색하고, 특정 필드(`lastRenovationDate`)를 내림차순으로 정렬하며, 상위 두 개의 결과를 가지고, `hotelName` 및 `lastRenovationDate`를 표시합니다.
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "*",
     "orderby": "lastRenovationDate desc",
@@ -110,7 +111,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 "모텔"이라는 용어를 검색하는 간단한 쿼리를 사용하여 Azure 검색 REST API를 사용하는 "호텔" 인덱스를 검색하는 HTTP 가져오기 요청은 아래를 참조하세요.
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2016-09-01
 Accept: application/json
 api-key: [query key]
 ```
@@ -118,7 +119,7 @@ api-key: [query key]
 이번에는 HTTP 게시를 사용하는 동일한 예제 쿼리입니다.
 
 ```
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 Content-Type: application/json
 Accept: application/json
 api-key: [query key]
@@ -165,7 +166,6 @@ api-key: [query key]
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

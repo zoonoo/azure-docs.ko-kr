@@ -1,10 +1,10 @@
 
 
 
-## 템플릿을 통해 가상 컴퓨터에 태그 지정
-먼저 템플릿을 통한 태그 지정을 살펴보겠습니다. [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)은 계산(가상 컴퓨터), 저장소(저장소 계정) 및 네트워크(공용 IP 주소, 가상 네트워크 및 네트워크 인터페이스) 리소스에 태그를 배치합니다. 이 템플릿은 Windows VM에 대한 것이지만 Linux VM에도 적용할 수 있습니다.
+## <a name="tagging-a-virtual-machine-through-templates"></a>템플릿을 통해 가상 컴퓨터에 태그 지정
+먼저 템플릿을 통한 태그 지정을 살펴보겠습니다. [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) 은 계산(가상 컴퓨터), 저장소(저장소 계정) 및 네트워크(공용 IP 주소, 가상 네트워크 및 네트워크 인터페이스) 리소스에 태그를 배치합니다. 이 템플릿은 Windows VM에 대한 것이지만 Linux VM에도 적용할 수 있습니다.
 
-[템플릿 링크](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)에서 **Azure에 배포** 단추를 클릭합니다. 이렇게 하면 이 템플릿을 배포할 수 있는 [Azure 포털](https://portal.azure.com/)로 이동합니다.
+**템플릿 링크** 에서 [Azure에 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)단추를 클릭합니다. 이렇게 하면 이 템플릿을 배포할 수 있는 [Azure 포털](https://portal.azure.com/) 로 이동합니다.
 
 ![태그가 포함된 간단한 배포](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
@@ -25,9 +25,9 @@
 
 ![Azure 포털에서 태그 편집](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
 
-**만들기**를 클릭하여 태그 값과 함께 이 템플릿을 배포합니다.
+**만들기** 를 클릭하여 태그 값과 함께 이 템플릿을 배포합니다.
 
-## 포털을 통해 태그 지정
+## <a name="tagging-through-the-portal"></a>포털을 통해 태그 지정
 태그와 함께 리소스를 만든 후 포털에서 태그를 표시, 추가 및 삭제할 수 있습니다.
 
 태그 아이콘을 선택하여 태그를 표시합니다.
@@ -42,4 +42,8 @@
 
 ![Azure 포털에서 저장된 새 태그](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

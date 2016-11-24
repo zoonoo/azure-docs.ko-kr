@@ -10,14 +10,14 @@ Azure에서 여러 표준 크기를 선택할 수 있습니다. 이러한 크기
     또한 F 시리즈는 Azure의 VM 크기 이름 지정에서 새로운 표준이 되고 있습니다. 이 시리즈와 향후 출시될 VM 크기의 경우 제품군 이름 문자 다음에 나오는 숫자가 CPU 코어 수와 일치합니다. 프리미엄 저장소에 맞춘 최적화를 비롯한 추가 기능의 경우 숫자 CPU 코어 수 다음에 문자가 나옵니다. 이 명명 형식은 향후에 출시될 VM 크기에 사용될 예정이지만, 이미 출시된 기존 VM의 이름을 소급해서 변경하지는 않습니다.
 * G 시리즈 VM은 많은 메모리를 제공하고 Intel Xeon E5 V3 제품군 프로세서가 설치된 호스트에서 실행합니다.
 * DS 시리즈, DSv2 시리즈, Fs 시리즈 및 GS 시리즈 VM은 I/O가 많은 작업에 대한 고성능, 지연율이 낮은 저장소를 제공하는 프리미엄 저장소를 사용할 수 있습니다. 이러한 VM은 SSD(반도체 드라이브)를 사용하여 가상 컴퓨터의 디스크를 호스트하고 로컬 SSD 디스크 캐시를 제공합니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/storage-premium-storage.md)를 참조하세요.
-* 다양한 하드웨어 유형 및 프로세서에 A 시리즈 VM을 배포할 수 있습니다. 배포된 하드웨어에 관계없이 인스턴스 실행 시 일관된 프로세서 성능을 제공하기 위해 하드웨어에 따라 크기가 제한됩니다. 이 크기가 배포되는 실제 하드웨어를 확인하려면 가상 컴퓨터 내에서 가상 하드웨어를 쿼리합니다.
+*   다양한 하드웨어 유형 및 프로세서에 A 시리즈 및 Av2 시리즈 VM을 배포할 수 있습니다. 배포된 하드웨어에 관계없이 인스턴스 실행 시 일관된 프로세서 성능을 제공하기 위해 하드웨어에 따라 크기가 제한됩니다. 이 크기가 배포되는 실제 하드웨어를 확인하려면 가상 컴퓨터 내에서 가상 하드웨어를 쿼리합니다.
 * A0 크기는 실제 하드웨어에서 과도하게 구독됩니다. 이 특정 크기만 다른 고객 배포가 실행 중인 워크로드의 성능에 영향을 줄 수 있습니다. 상대적인 성능은 예상 기준으로 아래에 대략적으로 나와 있으며 약 15%의 변동성이 적용됩니다.
 
 가상 컴퓨터의 크기는 가격 산정에 영향을 줍니다. 크기는 가상 컴퓨터의 처리, 메모리 및 저장소 용량에 영향을 줍니다. 저장소 비용은 저장소 계정에 사용된 페이지에 따라 개별적으로 계산됩니다. 자세한 내용은 [가상 컴퓨터 가격 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/) 및 [Azure 저장소 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요. 
 
 다음 고려 사항이 크기를 결정하는 데 도움이 될 수 있습니다.
 
-* A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. 이러한 크기를 실행하는 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 응용 프로그램, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 응용 프로그램을 위해 디자인되고 최적화되었습니다. A8-A11 시리즈는 Intel Xeon E5-2670 @ 2.6 GHZ를 사용하고 H 시리즈는 Intel Xeon E5-2667 v3 @ 3.2 GHz를 사용합니다. 이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [H 시리즈 및 계산 집약적 A 시리즈 VM 정보](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)를 참조하세요. 
+* A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. 이러한 크기를 실행하는 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 응용 프로그램, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 응용 프로그램을 위해 디자인되고 최적화되었습니다. A8-A11 시리즈는 Intel Xeon E5-2670 @ 2.6 GHZ를 사용하고 H 시리즈는 Intel Xeon E5-2667 v3 @ 3.2 GHz를 사용합니다. 이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [H 시리즈 및 계산 집약적 A 시리즈 VM 정보](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 
 * Dv2 시리즈, D 시리즈, G 시리즈 및 DS/GS는 더 빠른 CPU와 더 좋은 로컬 디스크 성능을 요구하거나 더 높은 메모리 요구량을 가진 응용 프로그램에 이상적입니다.  이들은 많은 엔터프라이즈급 응용 프로그램을 위한 강력한 조합을 제공합니다.
 * F 시리즈 VM은 더 빠른 CPU를 요구하지만 많은 메모리 또는 CPU 코어당 로컬 SSD가 필요하지 않은 워크로드에 적합합니다.  분석, 게임 서버, 웹 서버 및 배치 처리 등의 워크로드는 F 시리즈 값을 사용하면 도움이 됩니다.
 * Azure 데이터 센터의 일부 물리적 호스트는 A5 – A11과 같은 큰 크기의 가상 컴퓨터를 지원하지 않을 수 있습니다. 결과적으로, 기존 가상 컴퓨터의 크기를 새 크기로 조정, 2013년 4월 16일 이전에 만든 가상 네트워크에서 새 가상 컴퓨터 만들기 또는 새 가상 컴퓨터를 기존 클라우드 서비스에 추가할 때 **가상 컴퓨터를 구성하지 못했습니다<machine name>** 또는 **가상 컴퓨터를 만들지 못했습니다<machine name>**라는 오류 메시지가 표시될 수 있습니다. 각 배포 시나리오의 해결 방법에 대한 지원 포럼에서 [오류: "가상 컴퓨터를 구성하지 못했습니다."](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows)를 참조하세요.  
@@ -38,6 +38,8 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 | [Standard_A0](#a-series) |50 |
 | [Standard_A1-4](#a-series) |100 |
 | [Standard_A5-7](#a-series) |100 |
+| [Standard_A1-8v2](#av2-series) |100 |
+| [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
 | [D1-14](#d-series) |160 |
 | [D1-15v2](#dv2-series) |210 - 250* |
@@ -64,7 +66,7 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 |1 |0.768 |20 |1 |1x500 |1/낮음 |
 | Standard_A1 |1 |1.75 |70 |2 |2x500 |1/보통 |
-| Standard_A2 |2 |3.5 GB |135 |4 |4x500 |1/보통 |
+| Standard_A2 |2 |3.5 |135 |4 |4x500 |1/보통 |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2/높음 |
 | Standard_A4 |8 |14 |605 |16 |16x500 |4/높음 |
 | Standard_A5 |2 |14 |135 |4 |4x500 |1/보통 |
@@ -74,7 +76,7 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 <br>
 
 ## <a name="a-series---compute-intensive-instances"></a>A-시리즈 - 계산 집약적 인스턴스
-이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [H 시리즈 및 계산 집약적 A 시리즈 VM 정보](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)를 참조하세요.
+이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [H 시리즈 및 계산 집약적 A 시리즈 VM 정보](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 | 크기 | CPU 코어 | 메모리: GiB | 로컬 HDD: GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수/네트워크 대역폭 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -86,6 +88,19 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 *RDMA 지원
 
 <br>
+
+## <a name="av2-series"></a>Av2 시리즈
+
+| 크기        | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수/네트워크 대역폭 |
+|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
+| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2x500              | 1/보통              |
+| Standard_A2_v2 | 2         | 4            | 20                   | 4              | 4x500              | 2/보통              |
+| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8x500              | 4/높음                  |
+| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16x500             | 8/높음                  |
+| Standard_A2m_v2 | 2        | 16           | 20                   | 4              | 4x500              | 2/보통              |
+| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8x500              | 4/높음                  |
+| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16x500             | 8/높음                  |
+
 
 ## <a name="d-series"></a>D 시리즈
 | 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수/네트워크 대역폭 |
@@ -113,11 +128,13 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 | Standard_D12_v2 |4 |28 |200 |8 |8x500 |4/높음 |
 | Standard_D13_v2 |8 |56 |400 |16 |16x500 |8/높음 |
 | Standard_D14_v2 |16 |112 |800 |32 |32x500 |8/극히 높음 |
-| Standard_D15_v2 |20 |140 |1,000 |40 |40x500 |8/극히 높음 |
+| Standard_D15_v2 |20 |140 |1,000 |40 |40x500 |8/극히 높음* |
+
+*일부 지역에서는 Standard_D15_v2 크기에 대해 가속화된 네트워킹을 사용할 수 있습니다. 사용 현황 및 가용성에 대한 자세한 내용은 참조 [가속화된 네트워킹이 미리 보기에 있음](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) 및 [가상 컴퓨터에 대한 가속화된 네트워킹](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md)을 참조하세요.
 
 <br>
 
-## <a name="ds-series*"></a>DS 시리즈*
+## <a name="ds-series"></a>DS 시리즈*
 | 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | 최대 데이터 디스크 수 | 최대 캐시된 디스크 처리량: IOPS/MBps(GiB 단위 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수/네트워크 대역폭 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3.5 |7 |2 |4,000/32(43) |3,200/32 |1/보통 |
@@ -135,7 +152,7 @@ MBps = 초당 10^6바이트, GiB = 1024^3바이트
 
 <br>
 
-## <a name="dsv2-series*"></a>DSv2 시리즈*
+## <a name="dsv2-series"></a>DSv2 시리즈*
 | 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | 최대 데이터 디스크 수 | 최대 캐시된 디스크 처리량: IOPS/MBps(GiB 단위 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수/네트워크 대역폭 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3.5 |7 |2 |4,000/32(43) |3,200/48 |1 보통 |
@@ -147,11 +164,13 @@ MBps = 초당 10^6바이트, GiB = 1024^3바이트
 | Standard_DS12_v2 |4 |28 |56 |8 |16,000/128(144) |12,800/192 |4/높음 |
 | Standard_DS13_v2 |8 |56 |112 |16 |32,000/256(288) |25,600/384 |8/높음 |
 | Standard_DS14_v2 |16 |112 |224 |32 |64,000/512(576) |51,200/768 |8/극히 높음 |
-| Standard_DS15_v2 |20 |140GB |280 |40 |80,000/640(720) |64,000/960 |8/극히 높음 |
+| Standard_DS15_v2 |20 |140 |280 |40 |80,000/640(720) |64,000/960 |8/극히 높음** |
 
 MBps = 초당 10^6바이트, GiB = 1024^3바이트
 
 *DSv2 시리즈 VM에서 제공 가능한 디스크 처리량(IOPS 또는 MBps)는 연결된 디스크의 수, 크기 및 스트라이핑에 의해 제한될 수 있습니다.  자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/storage-premium-storage.md)를 참조하세요.
+
+**일부 지역에서는 Standard_DS15_v2 크기에 대해 가속화된 네트워킹을 사용할 수 있습니다. 사용 현황 및 가용성에 대한 자세한 내용은 참조 [가속화된 네트워킹이 미리 보기에 있음](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) 및 [가상 컴퓨터에 대한 가속화된 네트워킹](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md)을 참조하세요.
 
 <br>
 
@@ -166,7 +185,7 @@ MBps = 초당 10^6바이트, GiB = 1024^3바이트
 
 <br>
 
-## <a name="fs-series*"></a>Fs 시리즈*
+## <a name="fs-series"></a>Fs 시리즈*
 | 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | 최대 데이터 디스크 수 | 최대 캐시된 디스크 처리량: IOPS/MBps(GiB 단위 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수/네트워크 대역폭 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |2 |4,000/32(12) |3,200/48 |1/보통 |
@@ -192,14 +211,14 @@ MBps = 초당 10^6바이트, GiB = 1024^3바이트
 
 <br>
 
-## <a name="gs-series*"></a>GS 시리즈*
+## <a name="gs-series"></a>GS 시리즈*
 | 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | 최대 데이터 디스크 수 | 최대 캐시된 디스크 처리량: IOPS/MBps(GiB 단위 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수/네트워크 대역폭 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 |2 |28 |56 |4 |10,000/100(264) |5,000/125 |1/높음 |
-| Standard_GS2 |4 |56 |528 |8 |20,000/200(528) |10,000/250 |2/높음 |
-| Standard_GS3 |8 |112 |1,056 |16 |40,000/400(1,056) |20,000/500 |4/매우 높음 |
-| Standard_GS4 |16 |224 |2,112 |32 |80,000/800(2,112) |40,000/1,000 |8/극히 높음 |
-| Standard_GS5 |32 |448 |4,224 |64 |160,000/1,600(4,224) |80,000/2,000 |8/극히 높음 |
+| Standard_GS2 |4 |56 |112 |8 |20,000/200(528) |10,000/250 |2/높음 |
+| Standard_GS3 |8 |112 |224 |16 |40,000/400(1,056) |20,000/500 |4/매우 높음 |
+| Standard_GS4 |16 |224 |448 |32 |80,000/800(2,112) |40,000/1,000 |8/극히 높음 |
+| Standard_GS5 |32 |448 |896 |64 |160,000/1,600(4,224) |80,000/2,000 |8/극히 높음 |
 
 MBps = 초당 10^6바이트, GiB = 1024^3바이트
 
@@ -214,18 +233,18 @@ H 시리즈 제품은 뛰어난 CPU 처리 능력 외에도 FDR InfiniBand 및 �
 
 | 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | 최대 데이터 디스크 수 | 최대 디스크 처리량: IOPS | 최대 NIC 수/네트워크 대역폭 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1000 |16 |16 x 500 |8/높음 |
-| Standard_H16 |16 |112 |2000 |32 |32 x 500 |8/매우 높음 |
-| Standard_H8m |8 |112 |1000 |16 |16 x 500 |8/높음 |
-| Standard_H16m |16 |224 |2000 |32 |32 x 500 |8/매우 높음 |
-| Standard_H16r* |16 |112 |2000 |32 |32 x 500 |8/매우 높음 |
-| Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |8/매우 높음 |
+| Standard_H8 |8 |56 |1000 |16 |16 x 500 |2/높음 |
+| Standard_H16 |16 |112 |2000 |32 |32 x 500 |4/매우 높음 |
+| Standard_H8m |8 |112 |1000 |16 |16 x 500 |2/높음 |
+| Standard_H16m |16 |224 |2000 |32 |32 x 500 |4/매우 높음 |
+| Standard_H16r* |16 |112 |2000 |32 |32 x 500 |4/매우 높음 |
+| Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |4/매우 높음 |
 
 *RDMA 지원
 
 <br>
 
-## <a name="n-series-(preview)"></a>N-시리즈(미리 보기)
+## <a name="n-series-preview"></a>N-시리즈(미리 보기)
 NC 및 NV 크기를 GPU 사용 인스턴스라고도 합니다. 다양한 시나리오 및 사용 사례에 대해 최적화된 NVIDIA GPU 카드를 포함하는 특수한 가상 컴퓨터입니다. NV 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 활용하는 원격 시각화, 스트리밍, 게임, 인코딩 및 VDI 시나리오에 맞게 최적화되고 설계되었습니다. NC 크기는 계산 집약적 및 네트워크 집약적 응용 프로그램, CUDA를 비롯한 알고리즘, OpenCL 기반 응용 프로그램 및 시뮬레이션에 좀 더 최적화되어 있습니다. 
 
 ### <a name="nv-instances"></a>NV 인스턴스
@@ -248,7 +267,7 @@ NC 인스턴스는 NVIDIA Tesla K80을 통해 구동됩니다. 이제 에너지 
 
 <br>
 
-## <a name="notes:-standard-a0---a4-using-cli-and-powershell"></a>참고: CLI 및 Powershell을 사용하는 Standard A0 - A4
+## <a name="notes-standard-a0---a4-using-cli-and-powershell"></a>참고: CLI 및 Powershell을 사용하는 Standard A0 - A4
 클래식 배포 모델에서는 CLI와 PowerShell 간에 일부 VM 크기 이름이 약간 다릅니다.
 
 * Standard_A0은 ExtraSmall 
@@ -259,8 +278,10 @@ NC 인스턴스는 NVIDIA Tesla K80을 통해 구동됩니다. 이제 에너지 
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md)에 대해 자세히 알아보세요.
-* HPC(고성능 컴퓨팅)와 같은 워크로드에 대해서는 [H 시리즈 및 계산 집약적 A 시리즈 VM 정보](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) 에 대해 자세히 알아보세요.
+* HPC(고성능 컴퓨팅)와 같은 워크로드에 대해서는 [H 시리즈 및 계산 집약적 A 시리즈 VM 정보](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 에 대해 자세히 알아보세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

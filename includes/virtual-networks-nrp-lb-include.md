@@ -1,5 +1,5 @@
-## 부하 분산 장치
-부하 분산 장치는 응용 프로그램의 크기를 조정하려는 경우에 사용됩니다. 일반적인 배포 시나리오에는 여러 VM 인스턴스에서 실행 중인 응용 프로그램이 포함됩니다. 네트워크 트래픽을 다양한 인스턴스에 분산하는데 도움이 되는 부하 분산 장치가 VM 인스턴스의 앞에 옵니다.
+## <a name="load-balancer"></a>부하 분산 장치
+부하 분산 장치는 응용 프로그램의 크기를 조정하려는 경우에 사용됩니다. 일반적인 배포 시나리오에는 여러 VM 인스턴스에서 실행 중인 응용 프로그램이 포함됩니다. 네트워크 트래픽을 다양한 인스턴스에 분산하는데 도움이 되는 부하 분산 장치가 VM 인스턴스의 앞에 옵니다. 
 
 ![단일 VM의 NIC](./media/resource-groups-networking/figure8.png)
 
@@ -186,7 +186,11 @@ Json 형식의 부하 분산 장치 템플릿 예:
       ]
     }
 
-### 추가 리소스
-자세한 내용은 [부하 분산 장치 REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx)를 참조하세요.
+### <a name="additional-resources"></a>추가 리소스
+자세한 내용은 [부하 분산 장치 REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx) 를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -4,7 +4,7 @@
 > 
 > 
 
-[시뮬레이션된 장치 클라우드 업로드 샘플] 연습은 [Microsoft Azure IoT Gateway SDK][lnk-sdk]를 사용하여 시뮬레이션된 장치에서 장치-클라우드 원격 분석을 IoT Hub에 보내는 방법을 보여줍니다.
+[시뮬레이션된 장치 클라우드 업로드 샘플] 연습은 [Azure IoT Gateway SDK][lnk-sdk]를 사용하여 시뮬레이션된 장치에서 장치-클라우드 원격 분석을 IoT Hub에 보내는 방법을 보여줍니다.
 
 이 연습에서는 다음 내용을 다룹니다.
 
@@ -27,7 +27,7 @@
 ![][1]
 
 > [!NOTE]
-> 모듈은 서로에게 직접 메시지를 전달하지 않습니다. 모듈은 아래 다이어그램에 표시된 것과 같은 구독 메커니즘을 사용하여 다른 모듈에게 메시지를 배달하는 내부 broker에 메시지를 게시합니다. 자세한 내용은 [Gateway SDK 시작][lnk-gw-getstarted]를 참조하세요.
+> 모듈은 서로에게 직접 메시지를 전달하지 않습니다. 모듈은 아래 다이어그램에 표시된 것과 같은 구독 메커니즘을 사용하여 다른 모듈에게 메시지를 배달하는 내부 broker에 메시지를 게시합니다. 자세한 내용은 [IoT Gateway SDK 시작][lnk-gw-getstarted]을 참조하세요.
 > 
 > 
 
@@ -46,7 +46,7 @@
 > 
 > 
 
-### <a name="mac-ltgt-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub ID 모듈
+### <a name="mac-lt-gt-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub ID 모듈
 이 모듈 시뮬레이션된 장치의 프로토콜 수집 모듈에 의해 추가된 MAC 주소를 포함하는 속성을 포함하는 메시지를 찾아 스캔합니다. 모듈이 그러한 속성을 찾으면, 메시지에 IoT Hub 장치 키와 함께 또 다른 속성을 추가하고, 다음 번 순서의 모듈에서 메시지를 사용할 수 있도록 만듭니다. 이것이 샘플이 시뮬레이션된 장치와 IoT Hub 장치 ID를 연결하는 방식입니다. 개발자는 모듈 구성의 일부로 MAC 주소와 IoT Hub ID 사이의 매핑을 수동으로 설정합니다. 
 
 > [!NOTE]
@@ -55,7 +55,7 @@
 > 
 
 ### <a name="iot-hub-communication-module"></a>IoT Hub 통신 모듈
-이 모듈은 이전 모듈에 의해 할당된 IoT Hub 장치 ID와 함께 메시지를 가져와서, HTTPS를 사용하여 IoT Hub에 메시지 콘텐츠를 보냅니다. HTTPS는 IoT Hub가 이해하는 세 가지 프로토콜 중 하나입니다.
+이 모듈은 이전 모듈에 의해 할당된 IoT Hub 장치 ID와 함께 메시지를 가져와서, HTTP를 사용하여 IoT Hub에 메시지 콘텐츠를 보냅니다. HTTP는 IoT Hub가 이해하는 세 가지 프로토콜 중 하나입니다.
 
 각각의 시뮬레이션된 장치에 IoT Hub에 대한 연결을 여는 대신, 이 모듈은 게이트웨이에서 IoT hub로 단일 HTTP 연결을 열고, 이 연결을 통해 시뮬레이션된 모든 장치로부터 연결을 다중 송신합니다. 이렇게 하면 단일 게이트웨이가 모든 장치에 대해 고유 연결을 연 경우보다 훨씬 더 많은 장치에(시뮬레이션된 또는 그 밖의) 연결할 수 있습니다.
 
@@ -70,6 +70,6 @@
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

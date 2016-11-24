@@ -2,7 +2,7 @@
 Microsoft Azure 클라우드 서비스로 문제 진단은 문제가 발생할 때 가상 컴퓨터에서 서비스의 로그 파일을 수집해야 합니다. 필요에 따라 AzureLogCollector 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 보낼 수 있습니다.
 
 > [!NOTE]
-> 대부분의 기록된 정보에 대한 설명은 http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp에서 찾을 수 있습니다.
+> 대부분의 로깅 기록에 대한 설명은 http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp에서 찾을 수 있습니다.
 > 
 > 
 
@@ -24,11 +24,11 @@ Microsoft Azure 클라우드 서비스로 문제 진단은 문제가 발생할 �
 * **SearchPattern**: 수집할 파일의 이름 패턴입니다. 기본값은 “*”입니다.
 * **재귀**: 파일을 폴더 아래에 재귀적으로 수집할지 여부입니다.
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 * 생성된 zip 파일을 저장하려면 확장에 대한 저장소 계정이 있어야 합니다.
 * Azure PowerShell Cmdlets V0.8.0 이상을 사용하고 있는지 확인해야 합니다. 자세한 내용은 [Azure 다운로드](https://azure.microsoft.com/downloads/)를 참조하세요.
 
-## 확장 추가
+## <a name="add-the-extension"></a>확장 추가
 [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlet 또는 [서비스 관리 REST API](https://msdn.microsoft.com/library/ee460799.aspx)를 사용하여 AzureLogCollector 확장을 추가할 수 있습니다.
 
 클라우드 서비스의 경우 기존 Azure Powershell cmdlet인 **Set-azureserviceextension**을 사용하여 클라우드 서비스 역할 인스턴스에서 확장을 사용하도록 설정할 수 있습니다. 이 확장이 cmdlet을 통해 사용하도록 설정될 때마다 선택한 역할의 선택한 역할 인스턴스에서 로그 수집이 트리거됩니다.
@@ -37,7 +37,7 @@ Microsoft Azure 클라우드 서비스로 문제 진단은 문제가 발생할 �
 
 내부적으로 이 확장은 JSON 기반 PublicConfiguration 및 PrivateConfiguration을 사용합니다. 다음은 공용 및 개인 구성에 대한 샘플 JSON의 레이아웃입니다.
 
-### PublicConfiguration
+### <a name="publicconfiguration"></a>PublicConfiguration
     {
         "Instances":  "*",
         "Mode":  "Full",
@@ -59,7 +59,7 @@ Microsoft Azure 클라우드 서비스로 문제 진단은 문제가 발생할 �
         ]
     }
 
-### PrivateConfiguration
+### <a name="privateconfiguration"></a>PrivateConfiguration
     {
 
     }
@@ -71,7 +71,7 @@ Microsoft Azure 클라우드 서비스로 문제 진단은 문제가 발생할 �
 
 다음 두 개의 단계 중 하나를 따라 각 VM에 컬렉션을 트리거하여 지정된 Azure 계정에 수집된 파일을 실행 및 전송하는 선택한 역할의 클라우드 서비스 또는 가상 컴퓨터의 하나 이상의 인스턴스에 AzureLogCollector를 추가할 수 있습니다.
 
-## 서비스 확장으로 추가
+## <a name="adding-as-a-service-extension"></a>서비스 확장으로 추가
 1. 다음 지침을 따라 구독에 Azure PowerShell을 연결합니다.
 2. AzureLogCollector 확장을 추가하고 사용하려는 서비스 이름, 슬롯, 역할 및 역할 인스턴스를 지정합니다.
    
@@ -110,7 +110,7 @@ Microsoft Azure 클라우드 서비스로 문제 진단은 문제가 발생할 �
    
         $StorageAccountName = 'YourStorageAccountName'
         $StorageAccountKey  = ‘YouStorageAccountKey'
-5. 클라우드 서비스에 대해 AzureLogCollector 확장을 사용하려면 다음과 같이 SetAzureServiceLogCollector.ps1(이 문서 끝에 포함됨)을 호출합니다. 실행이 완료되면 `https://YouareStorageAccountName.blob.core.windows.net/vmlogs`에서 업로드된 파일을 찾을 수 있습니다.
+5. 클라우드 서비스에 대해 AzureLogCollector 확장을 사용하려면 다음과 같이 SetAzureServiceLogCollector.ps1(이 문서 끝에 포함됨)을 호출합니다. 실행이 완료되면 `https://YouareStorageAccountName.blob.core.windows.net/vmlogs`
    
         .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
 
@@ -153,9 +153,14 @@ Microsoft Azure 클라우드 서비스로 문제 진단은 문제가 발생할 �
 * *StorageAccountKey*: Azure 저장소 계정 키의 이름입니다.
 * *AdditionalDataLocationList*: 다음 구조의 목록입니다.
   
-      { 문자열 이름, 문자열 위치, 문자열 SearchPattern, Bool 재귀 }
+      {
+      String Name,
+      String Location,
+      String SearchPattern,
+      Bool   Recursive
+      }
 
-## VM 확장으로 추가
+## <a name="adding-as-a-vm-extension"></a>VM 확장으로 추가
 다음 지침을 따라 구독에 Azure PowerShell을 연결합니다.
 
 1. 서비스 이름, VM 및 컬렉션 모드를 지정합니다.
@@ -185,7 +190,7 @@ Microsoft Azure 클라우드 서비스로 문제 진단은 문제가 발생할 �
    
         $StorageAccountName = 'YourStorageAccountName'
         $StorageAccountKey  = ‘YouStorageAccountKey'
-3. 클라우드 서비스에 대해 AzureLogCollector 확장을 사용하려면 다음과 같이 SetAzureVMLogCollector.ps1(이 문서 끝에 포함됨)을 호출합니다. 실행이 완료되면 https://YouareStorageAccountName.blob.core.windows.net/vmlogs에서 업로드된 파일을 찾을 수 있습니다.
+3. 클라우드 서비스에 대해 AzureLogCollector 확장을 사용하려면 다음과 같이 SetAzureVMLogCollector.ps1(이 문서 끝에 포함됨)을 호출합니다. 실행이 완료되면 업로드된 파일을 https://YouareStorageAccountName.blob.core.windows.net/vmlogs에서 찾을 수 있습니다.
 
 다음은 스크립트에 전달된 매개 변수의 정의입니다. (아래에 복사됩니다.)
 
@@ -227,7 +232,7 @@ Microsoft Azure 클라우드 서비스로 문제 진단은 문제가 발생할 �
       }
 ```
 
-## 확장 PowerShell 스크립트 파일
+## <a name="extention-powershell-script-files"></a>확장 PowerShell 스크립트 파일
 SetAzureServiceLogCollector.ps1
 
     [CmdletBinding(SupportsShouldProcess = $true)]
@@ -475,7 +480,11 @@ SetAzureVMLogCollector.ps1
       Write-Output "VM name is not specified, the extension cannot be enabled"
     }
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 이제 매우 간단한 위치에서 로그를 검사하거나 복사할 수 있습니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -13,5 +13,9 @@
 > 
 > 
 
-## 가상 컴퓨터를 만들려면
-<!---HONumber=AcomDC_0330_2016-->
+## <a name="to-create-the-virtual-machine"></a>가상 컴퓨터를 만들려면
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,5 +1,6 @@
-## 응용 프로그램 게이트웨이
-응용 프로그램 게이트웨이는 레이어 7 부하 분산에 기반을 둔 Azure-관리 HTTP 부하 분산 솔루션을 제공합니다. 응용 프로그램 부하 분산 기능을 사용하면 HTTP 기반 네트워크 트래픽에 대해 라우팅 규칙을 사용할 수 있습니다. <BR>
+## <a name="application-gateway"></a>응용 프로그램 게이트웨이
+응용 프로그램 게이트웨이는 레이어 7 부하 분산에 기반을 둔 Azure-관리 HTTP 부하 분산 솔루션을 제공합니다. 응용 프로그램 부하 분산 기능을 사용하면 HTTP 기반 네트워크 트래픽에 대해 라우팅 규칙을 사용할 수 있습니다. 
+<BR>
 
 | 속성 | 설명 |
 | --- | --- |
@@ -215,7 +216,11 @@
     }
 
 
-### 추가 리소스
-자세한 내용은 [응용 프로그램 게이트웨이 REST API](https://msdn.microsoft.com/library/azure/mt299388.aspx)를 참조하세요.
+### <a name="additional-resources"></a>추가 리소스
+자세한 내용은 [ 응용 프로그램 게이트웨이 REST API](https://msdn.microsoft.com/library/azure/mt299388.aspx) 를 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

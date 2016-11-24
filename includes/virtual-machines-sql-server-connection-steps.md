@@ -1,4 +1,4 @@
-### Windows 방화벽에서 데이터베이스 엔진의 기본 인스턴스용 TCP 포트 열기
+### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Windows 방화벽에서 데이터베이스 엔진의 기본 인스턴스용 TCP 포트 열기
 1. 원격 데스크톱을 사용하여 가상 컴퓨터에 연결합니다. VM에 연결하는 방법에 대한 자세한 내용은 [원격 데스크톱으로 SQL VM 열기](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop)를 참조하세요.
 2. 시작 화면에서 로그인한 후 **WF.msc**를 입력하고 ENTER를 누릅니다.
    
@@ -27,8 +27,8 @@
 
 필요한 경우 다른 구성 요소의 추가 포트를 엽니다. 자세한 내용은 [SQL Server 액세스를 허용하도록 Windows 방화벽 구성](http://msdn.microsoft.com/library/cc646023.aspx)을 참조하십시오.
 
-### TCP 프로토콜을 수신 대기하도록 SQL Server 구성
-1. 가상 컴퓨터에 연결되어 있는 동안 시작 페이지에서 **SQL Server 구성 관리자**를 입력하고 ENTER 키를 누릅니다.
+### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>TCP 프로토콜을 수신 대기하도록 SQL Server 구성
+1. 가상 컴퓨터에 연결되어 있는 동안 시작 페이지에서 **SQL Server 구성 관리자** 를 입력하고 ENTER 키를 누릅니다.
    
     ![SSCM 열기](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
 2. SQL Server 구성 관리자의 콘솔 창에서 **SQL Server 네트워크 구성**을 확장합니다.
@@ -42,7 +42,7 @@
 
 SQL Server 데이터베이스 엔진용 프로토콜 사용 설정에 대한 자세한 내용은 [서버 네트워크 프로토콜 설정 또는 해제](http://msdn.microsoft.com/library/ms191294.aspx)를 참조하십시오.
 
-### 혼합 모드 인증을 위해 SQL Server 구성
+### <a name="configure-sql-server-for-mixed-mode-authentication"></a>혼합 모드 인증을 위해 SQL Server 구성
 SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증을 사용할 수 있습니다. 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 혼합 모드 인증을 위해 SQL Server를 구성하십시오. 혼합 모드 인증은 SQL Server 인증과 Windows 인증을 모두 허용합니다.
 
 > [!NOTE]
@@ -50,10 +50,10 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 > 
 > 
 
-1. 가상 컴퓨터에 연결되어 있는 동안 시작 페이지에서 **SQL Server Management Studio**를 입력하고 선택한 아이콘을 클릭합니다.
+1. 가상 컴퓨터에 연결되어 있는 동안 시작 페이지에서 **SQL Server Management Studio** 를 입력하고 선택한 아이콘을 클릭합니다.
    
     처음으로 Management Studio를 열 때 사용자 Management Studio 환경이 만들어져야 합니다. 어느 정도 시간이 걸릴 수 있습니다.
-2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다(가상 컴퓨터 이름 대신 **(로컬)** 또는 점(.)을 **서버 이름**으로 사용할 수 있음). **Windows 인증**을 선택하고, **사용자 이름** 상자의 _**VM\_이름**\\로컬\_관리자_를 그대로 둡니다. **Connect**를 클릭합니다.
+2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다(가상 컴퓨터 이름 대신 **(로컬)** 또는 점(.)을 **서버 이름**으로 사용할 수 있음). **Windows 인증**을 선택하고, **사용자 이름** 상자의 ***VM_이름*\로컬_관리자**를 그대로 둡니다. **Connect**를 클릭합니다.
    
     ![서버에 연결](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. SQL Server Management Studio 개체 탐색기에서 SQL Server 인스턴스의 이름(가상 컴퓨터 이름)을 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭합니다.
@@ -62,13 +62,13 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 4. **보안** 페이지의 **서버 인증**에서 **SQL Server 및 Windows 인증 모드**를 선택한 후 **확인**을 클릭합니다.
    
     ![인증 모드 선택](./media/virtual-machines-sql-server-connection-steps/21Mixed-Mode.png)
-5. SQL Server Management Studio 대화 상자에서 **확인**을 클릭하여 SQL Server를 다시 시작해야 하는 요구 사항을 확인합니다.
+5. SQL Server Management Studio 대화 상자에서 **확인** 을 클릭하여 SQL Server를 다시 시작해야 하는 요구 사항을 확인합니다.
 6. 개체 탐색기에서 서버를 마우스 오른쪽 단추로 클릭한 후 **다시 시작**을 클릭합니다. SQL Server 에이전트가 실행 중인 경우 에이전트도 다시 시작해야 합니다.
    
     ![다시 시작](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
-7. SQL Server Management Studio 대화 상자에서 **예**를 클릭하여 SQL Server를 다시 시작한다는 데 동의합니다.
+7. SQL Server Management Studio 대화 상자에서 **예** 를 클릭하여 SQL Server를 다시 시작한다는 데 동의합니다.
 
-### SQL Server 인증 로그인 만들기
+### <a name="create-sql-server-authentication-logins"></a>SQL Server 인증 로그인 만들기
 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 SQL Server 인증 로그인을 하나 이상 만들어야 합니다.
 
 1. SQL Server Management Studio 개체 탐색기에서 새 로그인을 만들 서버 인스턴스의 폴더를 확장합니다.
@@ -79,7 +79,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 4. **SQL Server 인증**을 선택합니다.
 5. **암호** 상자에 새 사용자의 암호를 입력합니다. **암호 확인** 상자에 암호를 다시 입력합니다.
 6. 필요한 암호 적용 옵션(**암호 정책 강제 적용**, **암호 만료 강제 적용** 및 **다음 로그인할 때 반드시 암호 변경**)을 선택합니다. 이 로그인을 직접 사용하는 경우 다음 로그인 시 암호를 변경하도록 요구할 필요가 없습니다.
-7. **기본 데이터베이스** 목록에서 로그인의 기본 데이터베이스를 선택합니다. **master**가 이 옵션의 기본값입니다. 사용자 데이터베이스를 아직 만들지 않은 경우 **master**로 설정된 상태로 둡니다.
+7. **기본 데이터베이스** 목록에서 로그인의 기본 데이터베이스를 선택합니다. **master** 가 이 옵션의 기본값입니다. 사용자 데이터베이스를 아직 만들지 않은 경우 **master**로 설정된 상태로 둡니다.
    
     ![로그인 속성](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
 8. 처음 로그인을 만드는 경우 이 로그인을 SQL Server 관리자로 지정할 수 있습니다. 그렇게 하는 경우 **서버 역할** 페이지에서 **sysadmin**을 선택합니다.
@@ -94,4 +94,8 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
 SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://msdn.microsoft.com/library/aa337562.aspx)를 참조하십시오.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

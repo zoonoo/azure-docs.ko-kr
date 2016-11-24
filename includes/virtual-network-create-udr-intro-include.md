@@ -7,4 +7,8 @@
 
 UDR 및 IP 전달에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../articles/virtual-network/virtual-networks-udr-overview.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

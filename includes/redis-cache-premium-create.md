@@ -9,6 +9,10 @@
 
 프리미엄 기능을 구성하려면 먼저 **가격 책정 계층 선택** 블레이드에서 프리미엄 가격 책정 계층 중 하나를 선택합니다.
 
-![가격 계층 선택](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
+![가격 책정 계층 선택](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

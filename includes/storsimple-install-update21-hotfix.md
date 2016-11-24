@@ -1,11 +1,12 @@
 <!--author=alkohli last changed: 05/19/16-->
 
-#### 핫픽스를 다운로드하려면
+#### <a name="to-download-hotfixes"></a>핫픽스를 다운로드하려면
 Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운로드하려면 다음 단계를 수행합니다.
 
 1. Internet Explorer를 시작하고 [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com)으로 이동합니다.
-2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치**를 클릭합니다. ![카탈로그 설치](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
-3. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호(예: **3179904**)를 입력하고 **검색**을 클릭합니다.
+2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치** 를 클릭합니다.
+    ![카탈로그 설치](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
+3. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호(예: **3179904**)를 입력하고 **Search**을 클릭합니다.
    
     핫픽스 목록이 나타납니다(예: **StorSimple 8000 시리즈용 누적 소프트웨어 번들 업데이트 2.2**).
    
@@ -13,18 +14,18 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 4. **추가**를 클릭합니다. 업데이트는 장바구니에 추가됩니다.
 5. 위의 표에 나열된 추가적인 핫픽스(**3103616**, **3146621**)를 검색하고 각각 바구니에 추가합니다.
 6. **바구니 보기**를 클릭합니다.
-7. **다운로드**를 클릭합니다. 다운로드를 표시할 로컬 위치를 지정하거나 **검색**합니다. 업데이트를 지정된 위치에 다운로드하고 업데이트와 같은 이름의 하위 폴더에 배치합니다. 장치에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
+7. **다운로드**를 클릭합니다. 다운로드를 표시할 로컬 위치를 지정하거나 **검색합니다** . 업데이트를 지정된 위치에 다운로드하고 업데이트와 같은 이름의 하위 폴더에 배치합니다. 장치에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
 
 > [!NOTE]
 > 피어 컨트롤러의 잠재적 오류 메시지를 검색하려면 컨트롤러 둘 다에서 핫픽스에 액세스할 수 있어야 합니다.
 > 
 > 
 
-#### 일반 모드 핫픽스를 설치 및 확인하려면
+#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>일반 모드 핫픽스를 설치 및 확인하려면
 일반 모드 핫픽스를 설치 및 확인하려면 다음 단계를 수행합니다. 이미 Azure 포털을 사용하여 설치한 경우 [유지 관리 모드 핫픽스 설치 및 확인](#to-install-and-verify-maintenance-mode-hotfixes)으로 건너뜁니다.
 
-1. 핫픽스를 설치하려면 StorSimple 장치 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. [PuTTy를 사용하여 직렬 콘솔에 연결](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console)에서 자세한 지침을 따르세요. 명령 프롬프트에서 **Enter** 키를 누릅니다.
-2. **옵션 1**을 선택하여 모든 권한으로 장치에 로그온합니다. 먼저 수동 컨트롤러에 핫픽스를 설치하는 것이 좋습니다.
+1. 핫픽스를 설치하려면 StorSimple 장치 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. [PuTTy를 사용하여 직렬 콘솔에 연결](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console)에서 자세한 지침을 따르세요. 명령 프롬프트에서 **Enter**키를 누릅니다.
+2. **옵션 1** 을 선택하여 모든 권한으로 장치에 로그온합니다. 먼저 수동 컨트롤러에 핫픽스를 설치하는 것이 좋습니다.
 3. 핫픽스를 설치하려면 명령 프롬프트에 다음을 입력합니다.
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -37,51 +38,49 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
    
     샘플 출력은 다음과 같습니다.
    
-        ````
-        Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
-        \hcsmdssoftwareupdate.exe -Credential contoso\John
-   
-        Confirm
-   
-        This operation starts the hotfix installation and could reboot one or
-        both of the controllers. If the device is serving I/Os, these will not
-        be disrupted. Are you sure you want to continue?
-        [Y] Yes [N] No [?] Help (default is "Y"): Y
-   
-        ````
-4. 핫픽스 설치를 확인하라는 메시지가 표시되면 **Y**를 입력합니다.
+    ```
+    Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
+    \hcsmdssoftwareupdate.exe -Credential contoso\John
+
+    Confirm
+
+    This operation starts the hotfix installation and could reboot one or
+    both of the controllers. If the device is serving I/Os, these will not
+    be disrupted. Are you sure you want to continue?
+    [Y] Yes [N] No [?] Help (default is "Y"): Y
+    ```
+
+4. 핫픽스 설치를 확인하라는 메시지가 표시되면 **Y** 를 입력합니다.
    
    > [!IMPORTANT]
-   > 업데이트 2.2를 설치하는 경우 'all-hcsmdssoftwareudpate'가 붙은 이진 파일만 설치합니다. all-cismdsagentupdatebundle이 앞에 붙은 Ci 및 MDS 에이전트 업데이트를 설치하지 마십시오. 이렇게 하지 않으면 오류가 발생합니다.
-   > 
-   > 
+   > 업데이트 2.2를 설치하는 경우 'all-hcsmdssoftwareudpate'가 붙은 이진 파일만 설치합니다. all-cismdsagentupdatebundle이 앞에 붙은 Ci 및 MDS 에이전트 업데이트를 설치하지 마십시오. 이렇게 하지 않으면 오류가 발생합니다. 
+
 5. `Get-HcsUpdateStatus` cmdlet을 사용하여 업데이트를 모니터링합니다. 업데이트가 수동 컨트롤러에서 먼저 완료됩니다. 수동 컨트롤러가 업데이트되면 장애 조치(failover)된 다음 업데이트가 다른 컨트롤러에 적용됩니다. 두 컨트롤러가 모두 업데이트되면 업데이트가 완료됩니다.
    
     다음 샘플 출력에서는 진행 중인 업데이트를 보여줍니다. 업데이트가 진행 중이면 `RunInprogress`가 `True`입니다.
    
-        ````
-        Controller0>Get-HcsUpdateStatus
-        RunInprogress       : True
-        LastHotfixTimestamp :
-        LastUpdateTimestamp : 5/5/2016 2:04:02 AM
-        Controller0Events   :
-        Controller1Events   :
-   
-        ````
+    ```
+    Controller0>Get-HcsUpdateStatus
+    RunInprogress       : True
+    LastHotfixTimestamp :
+    LastUpdateTimestamp : 5/5/2016 2:04:02 AM
+    Controller0Events   :
+    Controller1Events   :
+    ```
    
      다음 샘플 출력은 업데이트가 완료되었음을 나타냅니다. 업데이트가 완료되면 `RunInProgress`가 `False`입니다.
    
-        ````
-        Controller0>Get-HcsUpdateStatus
-        RunInprogress       : False
-        LastHotfixTimestamp : 5/17/2016 9:15:55 AM
-        LastUpdateTimestamp : 5/17/2016 9:06:07 AM
-        Controller0Events   :
-        Controller1Events   :
+    ```
+    Controller0>Get-HcsUpdateStatus
+    RunInprogress       : False
+    LastHotfixTimestamp : 5/17/2016 9:15:55 AM
+    LastUpdateTimestamp : 5/17/2016 9:06:07 AM
+    Controller0Events   :
+    Controller1Events   :
+    ```
 
-        ````
-
-    > [AZURE.NOTE] 업데이트가 진행 중일 때 cmdlet에서 `False`를 보고하는 경우도 있습니다. 핫픽스가 완료되었는지 확인하려면 몇 분 동안 기다린 후 이 명령을 다시 실행하고 `RunInProgress`가 `False`인지 확인합니다. 맞으면 핫픽스가 완료된 것입니다.
+    > [!NOTE]
+    > 업데이트가 진행 중일 때 cmdlet에서 `False`를 보고하는 경우도 있습니다. 핫픽스가 완료되었는지 확인하려면 몇 분 동안 기다린 후 이 명령을 다시 실행하고 `RunInProgress`가 `False`인지 확인합니다. 맞으면 핫픽스가 완료된 것입니다.
 
 1. 소프트웨어 업데이트가 완료된 후 시스템 소프트웨어 버전을 확인합니다. 형식:
    
@@ -91,12 +90,12 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
    
    * `HcsSoftwareVersion: 6.3.9600.17708`
    * `CisAgentVersion: 1.0.9299.0`
-   * `MdsAgentVersion: 30.0.4698.16`
+   * `MdsAgentVersion: 30.0.4698.16` 
      
-     업데이트를 적용한 후 버전 번호가 변경되지 않으면 핫픽스를 적용하지 못한 것입니다. 이 경우 추가 지원을 받으려면 [Microsoft 지원](../articles/storsimple/storsimple-contact-microsoft-support.md)에 문의하세요.
+     업데이트를 적용한 후 버전 번호가 변경되지 않으면 핫픽스를 적용하지 못한 것입니다. 이 경우 추가 지원을 받으려면 [Microsoft 지원](../articles/storsimple/storsimple-contact-microsoft-support.md) 에 문의하세요.
      
      > [!IMPORTANT]
-     > 나머지 업데이트를 적용하기 전에 `Restart-HcsController` cmdlet을 통해 활성 컨트롤러를 다시 시작해야 합니다.
+     > 나머지 업데이트를 적용하기 전에 `Restart-HcsController` cmdlet을 통해 활성 컨트롤러를 다시 시작해야 합니다. 
      > 
      > 
 2. 나머지 일반 모드 핫픽스를 설치하려면 3-5단계를 반복합니다.
@@ -111,10 +110,10 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
     - Storport 업데이트 KB3080728
 
-#### 유지 관리 모드 핫픽스를 설치 및 확인하려면
+#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>유지 관리 모드 핫픽스를 설치 및 확인하려면
 KB3121899를 사용하여 디스크 펌웨어 업데이트를 설치합니다. 작업 중단 업데이트이며 완료하는 데 약 30분이 소요됩니다. 장치 직렬 콘솔에 연결하여 계획된 유지 관리 기간에 설치하도록 선택할 수 있습니다.
 
-디스크 펌웨어가 이미 최신 상태인 경우 이러한 업데이트를 설치할 필요가 없습니다. 장치 일련 번호 콘솔에서 `Get-HcsUpdateAvailability` cmdlet을 실행하여 업데이트가 사용 가능한지와 업데이트가 중단(유지 관리 모드) 또는 비중단(일반 모드)인지에 대해 확인합니다.
+디스크 펌웨어가 이미 최신 상태인 경우 이러한 업데이트를 설치할 필요가 없습니다. 장치 일련 번호 콘솔에서 `Get-HcsUpdateAvailability` cmdlet을 실행하여 업데이트가 사용 가능한지 여부와 업데이트가 중단(유지 관리 모드) 또는 비중단(일반 모드)인지에 대해 확인합니다.
 
 디스크 펌웨어 업데이트를 설치하려면 아래 지침을 따릅니다.
 
@@ -226,4 +225,8 @@ KB3121899를 사용하여 디스크 펌웨어 업데이트를 설치합니다. �
    `Exit-HcsMaintenanceMode`
 5. 유지 관리 모드를 종료하면 컨트롤러가 다시 시작됩니다. 디스크 펌웨어 업데이트가 성공적으로 적용되고 장치가 유지 관리 모드를 종료한 후 Azure 클래식 포털로 돌아갑니다. 유지 관리 모드 업데이트가 설치되었는지 24시간 동안 포털에 표시되지 않을 수도 있습니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

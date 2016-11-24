@@ -8,7 +8,7 @@
 
 가상 네트워크는 Azure에서 가상 컴퓨터를 연결하는 데 권장되는 방법입니다. 응용 프로그램의 각 계층을 별도의 클라우드 서비스에 구성하는 것이 가장 좋습니다. 그러나 구독당 클라우드 서비스 수를 최대 200개의 범위 내에서 유지하기 위해 여러 응용 프로그램 계층의 일부 가상 컴퓨터를 동일한 클라우드 서비스에 통합해야 할 수도 있습니다. 이 제한 및 다른 제한을 검토하려면 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md)을 참조하세요.
 
-## 가상 네트워크에서 VM 연결
+## <a name="connect-vms-in-a-virtual-network"></a>가상 네트워크에서 VM 연결
 가상 네트워크에서 가상 컴퓨터를 연결하려면
 
 1. [Azure 포털](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 가상 네트워크를 만듭니다.
@@ -17,7 +17,7 @@
 
 ![가상 컴퓨터에 대한 클라우드 서비스 선택](./media/virtual-machines-common-classic-connect-vms/VMConfig1.png)
 
-## 독립 실행형 클라우드 서비스에서 VM 연결
+## <a name="connect-vms-in-a-standalone-cloud-service"></a>독립 실행형 클라우드 서비스에서 VM 연결
 독립 실행형 클라우드 서비스에서 가상 컴퓨터를 연결하려면
 
 1. [Azure 클래식 포털](http://manage.windowsazure.com)에서 클라우드 서비스를 만듭니다. **새로 만들기 > 계산 > 클라우드 서비스 > 사용자 지정 만들기**를 클릭합니다. 또는 첫 번째 가상 컴퓨터를 만들 때 배포에 대한 클라우드 서비스를 만들 수 있습니다.
@@ -25,4 +25,8 @@
    
    ![기존 클라우드 서비스에 가상 컴퓨터 추가](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
 
-<!---HONumber=AcomDC_0330_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

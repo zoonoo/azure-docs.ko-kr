@@ -1,25 +1,25 @@
 > [!div class="op_single_selector"]
-> * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md)
+> * [Node.JS](../articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
 > 
 > 
 
-## <a name="introduction"></a>Introduction
-In [Get started with IoT Hub twins][lnk-twin-tutorial], you learned how to set device meta-data from your solution back end using *tags*, report device conditions from a device app using *reported properties*, and query this information using a SQL-like language.
+## <a name="introduction"></a>소개
+[IoT Hub 쌍 시작][lnk-twin-tutorial]에서, *태그*를 사용하여 솔루션 백 엔드에서 장치 메타데이터를 설정하고, *reported 속성*을 사용하여 장치 앱에서 장치 조건을 보고하며, SQL 유사 언어를 사용하여 이 정보를 쿼리하는 방법을 배웠습니다.
 
-In this tutorial, you will learn how to use the the twin's *desired properties* in conjunction with *reported properties*, to remotely configure device apps. More specifically, this tutorial shows how twin's reported and desired properties enable a multi-step configuration of a device application setting, and provide the visibility to the solution back end of the status of this operation across all devices.
+이 자습서에서는 장치 앱을 원격으로 구성하기 위해 장치 쌍의 *desired 속성*을 *reported 속성*과 연계해 사용하는 방법을 배우게 됩니다. 더 구체적으로 말하자면, 이 자습서에서는 장치 쌍의 reported 및 desired 속성이 장치 응용 프로그램 설정의 다중 구성을 사용하도록 설정하는 방법을 보여주고 모든 장치에서 이 작업 상태의 솔루션 백 엔드에 대한 가시성을 제공합니다.
 
-At a high level, this tutorial follows the *desired state pattern* for device management. The fundamental idea of this pattern is to have the solution back end specify the desired state for the managed devices, instead of sending specific commands. This puts the device in charge of establishing the best way to reach the desired state (very important in IoT scenarios where specific device conditions affect the ability to immediately carry out specific commands), while continually reporting to the back end the current state and potential error conditions. The desired state pattern is instrumental to the management of large sets of devices, as it enables the back end to have full visibility of the state of the configuration process across all devices.
-You can find more information regarding the role of the desired state pattern in device management in [Overview of Azure IoT Hub device management][lnk-dm-overview].
+높은 수준에서 이 자습서는 장치 관리에 대해 *필요한 상태 패턴*을 따릅니다. 이 패턴의 기본 아이디어는 특정 명령을 보내는 대신에 솔루션 백 엔드가 관리되는 장치에 대해 필요한 상태를 지정하도록 하는 것입니다. 이렇게 하면 현재 상태와 잠재적인 오류 조건을 지속적으로 백 엔드에 보고하는 한편 가장 좋은 방법을 확립하는 역할을 담당하는 장치가 필요한 상태(특정 장치 조건이 특정 명령을 즉시 수행하는 능력에 영향을 미치는 IoT 시나리오에서 매우 중요함)에 도달할 수 있습니다. 필요한 상태 패턴은 백 엔드가 모든 장치에 대한 구성 프로세스 상태의 전체 가시성을 갖도록 설정되어 있어 대량의 장치 집합을 관리하는데 중요합니다.
+장치 관리에 있어 필요한 상태 패턴의 역할과 관련된 자세한 내용은 [IoT Hub를 사용한 장치 관리 개요][lnk-dm-overview]에서 찾아볼 수 있습니다.
 
 > [!NOTE]
-> In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [cloud-to-device methods][lnk-methods].
+> 장치가 좀 더 대화형 방식으로 제어되는 시나리오(예: 사용자 제어 앱에서 팬 켜기)에서는 [직접 메서드][lnk-methods] 사용을 고려하는 것이 좋습니다.
 > 
 > 
 
-In this tutorial, the application back end changes the telemetry configuration of a target device and, as a result of that, the device app follows a multi-step process to apply a configuration update (e.g. requiring a software module restart), which this tutorial simulates with a simple delay).
+이 자습서에서 응용 프로그램 백 엔드는 대상 장치의 원격 분석 구성을 변경하며, 그 결과, 장치 앱은 구성 업데이트를 적용하기 위해 다중 단계 프로세스를 따릅니다.(예: 소프트웨어 모듈 다시 시작 필요) 이 자습서에서는 간단한 지연으로 시뮬레이션합니다.
 
-The back-end stores the configuration in the device twin's desired properties in the following way:
+백 엔드는 장치 쌍의 필요한 속성에 들어 있는 구성을 다음과 같은 방식으로 저장합니다.
 
         {
             ...
@@ -37,11 +37,11 @@ The back-end stores the configuration in the device twin's desired properties in
         }
 
 > [!NOTE]
-> Since configurations can be complex objects, they are usually assigned unique ids (hashes or [GUIDs][lnk-guid]) to simplify their comparisons.
+> 구성은 복잡한 개체일 수 있으므로 일반적으로 비교를 단순화 하기 위해 고유한 ID(해시 또는 [GUIDs][lnk-guid])가 지정됩니다.
 > 
 > 
 
-The device app reports its current configuration mirroring the desired property **telemetryConfig** in the reported properties:
+장치 앱은 reported 속성에 desired 속성 **telemetryConfig**을 미러링하는 현재 구성을 보고합니다.
 
         {
             "properties": {
@@ -57,9 +57,9 @@ The device app reports its current configuration mirroring the desired property 
             }
         }
 
-Note how the reported **telemetryConfig** has an additional property **status**, used to report the state of the configuration update process.
+reported **telemetryConfig**에 구성 업데이트 프로세스의 상태를 보고하는 데 사용되는 추가 속성 **상태**가 어떻게 들어 있는지 확인합니다.
 
-When a new desired configuration is received, the device app reports a pending configuration by changing the information:
+새 원하는 구성을 받을 때, 장치 앱은 정보 변경에 따라 보류된 구성을 보고합니다.
 
         {
             "properties": {
@@ -79,13 +79,13 @@ When a new desired configuration is received, the device app reports a pending c
             }
         }
 
-Then, at some later time, the device app will report the success of failure of this operation by updating the above property.
-Note how the back end is able, at any time, to query the status of the configuration process across all the devices.
+일정 시간 후에 장치 앱은 위의 속성을 업데이트하여 이 작업의 성공 또는 실패 여부를 보고합니다.
+백 엔드가 언제라도 모든 장치에 대한 구성 프로세스의 상태를 어떻게 쿼리할 수 있는지 확인합니다.
 
-This tutorial shows you how to:
+이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-* Create a simulated device that receives configuration updates from the back end and reports multiple updates as *reported properties* on the configuration update process.
-* Create a back-end app that updates the desired configuration of a device, and then queries the configuration update process.
+* 백 엔드에서 구성 업데이트를 받아 구성 업데이트 프로세스에 여러 업데이트를 *reported 속성*으로 보고하는 시뮬레이션된 장치를 만듭니다.
+* 장치의 원하는 구성을 업데이트한 다음 구성 업데이트 프로세스를 쿼리하는 백 엔드 앱을 만듭니다.
 
 <!-- links -->
 
@@ -94,6 +94,6 @@ This tutorial shows you how to:
 [lnk-twin-tutorial]: ../articles/iot-hub/iot-hub-node-node-twin-getstarted.md
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

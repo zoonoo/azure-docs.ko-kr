@@ -7,8 +7,12 @@
     이제 두 장치가 모두 푸시 알림을 받도록 등록되었습니다.
 3. Windows 스토어 앱을 다시 실행하고 **TodoItem 삽입**에 텍스트를 입력한 후에 **저장**을 클릭합니다.
    
-       삽입이 완료되면 Windows 스토어 및 Windows Phone 앱이 모두 WNS에서 푸시 알림을 수신합니다. 앱이 실행되고 있지 않을 때도 알림이 Windows Phone에 표시됩니다.
+       Note that after the insert completes, both the Windows Store and the Windows Phone apps receive a push notification from WNS. The notification is displayed on Windows Phone even when the app isn't running.
    
        ![](./media/app-service-mobile-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
-<!---HONumber=Nov15_HO1-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

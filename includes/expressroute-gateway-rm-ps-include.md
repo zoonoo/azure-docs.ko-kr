@@ -44,7 +44,7 @@
         $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 7. 공용 IP 주소를 요청합니다. 게이트웨이를 만들기 전에 IP 주소를 요청합니다. 사용할 IP 주소를 지정할 수는 없으며 IP 주소는 동적으로 할당됩니다. 다음 구성 섹션에서 이 IP 주소를 사용합니다. AllocationMethod는 동적이어야 합니다.
    
-        $pip = New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
+        $pip = New-AzureRmPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 8. 게이트웨이에 대한 구성을 만듭니다. 게이트웨이 구성은 사용할 공용 IP 주소 및 서브넷을 정의합니다. 이 단계에서 게이트웨이를 만들 때 사용되는 구성을 지정합니다. 이 단계에서는 실제 게이트웨이 개체를 만들지 않습니다. 아래 샘플을 사용하여 게이트웨이 구성을 만듭니다. 
    
         $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
@@ -74,6 +74,6 @@
     Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

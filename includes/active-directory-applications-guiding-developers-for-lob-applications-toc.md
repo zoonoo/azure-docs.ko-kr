@@ -5,4 +5,8 @@
 * [Azure Active Directory와 응용 프로그램 통합](../articles/active-directory/active-directory-integrating-applications.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](../articles/active-directory/active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

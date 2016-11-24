@@ -10,22 +10,22 @@
 
     {  
         "name": "AzureBlobDataSet",  
-        "properties": {  
+          "properties": {  
             "availability": {  
                 "frequency": "Day",  
-                "interval": 1  
+                  "interval": 1  
             },  
             "type": "AzureBlob",  
             "linkedServiceName": "StorageLinkedService",  
             "typeProperties": {  
                 "fileName": "pagecounts.csv.gz",  
-                "folderPath": "compression/file/",  
-                "compression": {  
+                  "folderPath": "compression/file/",  
+                  "compression": {  
                     "type": "GZip",  
                     "level": "Optimal"  
-                }  
+                  }  
             }  
-        }  
+          }  
     }  
 
 **압축** 섹션에는 두 가지 속성이 있습니다.  
@@ -46,6 +46,8 @@
 * 온-프레미스 파일 시스템에서 일반 텍스트 파일에서 데이터를 읽고 GZip 형식을 사용하여 압축하고 Azure Blob에 압축된 데이터를 작성합니다. 이 경우 압축 JSON 속성으로 출력 Azure Blob 데이터 집합을 정의합니다.  
 * Azure Blob에서 GZIP 압축 데이터를 읽고 압축을 풀고 BZIP2를 사용하여 압축하고 Azure Blob에 결과 데이터를 작성합니다. 이 경우 GZIP으로 설정된 압축 유형으로 입력 Azure Blob 데이터 집합을 정의하고 BZIP2로 설정된 압축 유형으로 출력 데이터 집합을 정의합니다.   
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

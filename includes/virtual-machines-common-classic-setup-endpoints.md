@@ -13,12 +13,12 @@ Azure 클래식 포털을 사용하여 끝점을 만드는 경우 잘 알려진 
 > 
 > 
 
-## 끝점 만들기
+## <a name="create-an-endpoint"></a>끝점 만들기
 1. 아직 로그인하지 않은 경우 [Azure 클래식 포털](http://manage.windowsazure.com)에 로그인합니다.
 2. **가상 컴퓨터**를 클릭하고 구성하려는 가상 컴퓨터의 이름을 클릭합니다.
 3. **Endpoints**를 클릭합니다. **끝점** 페이지에는 가상 컴퓨터에 대한 모든 현재 끝점이 나열됩니다. (이 예제는 Windows VM입니다. Linux VM에는 기본적으로 SSH용 끝점이 표시됩니다.)
    
-   ![끝점](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
+   ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
 4. 작업 표시줄에서 **추가**를 클릭합니다.
 5. **가상 컴퓨터에 끝점 추가** 페이지에서 끝점 유형을 선택합니다.
    
@@ -34,7 +34,7 @@ Azure 클래식 포털을 사용하여 끝점을 만드는 경우 잘 알려진 
 
 ![끝점 만들기 성공](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
 
-## 끝점에 대한 ACL 관리
+## <a name="manage-the-acl-on-an-endpoint"></a>끝점에 대한 ACL 관리
 트래픽을 보낼 수 있는 컴퓨터 집합을 정의하기 위해 끝점의 ACL이 원본 IP 주소에 따라 트래픽을 제한할 수 있습니다. 끝점에 대한 ACL을 추가, 수정 또는 제거하려면 다음 단계를 따르십시오.
 
 > [!NOTE]
@@ -58,4 +58,8 @@ Azure 클래식 포털을 사용하여 끝점을 만드는 경우 잘 알려진 
 
 규칙은 첫 번째 규칙에서 시작하여 마지막 규칙까지 순서대로 평가됩니다. 따라서 가장 제한적인 규칙까지 오름차순으로 규칙의 순서를 지정해야 합니다. 예제 및 자세한 내용은 [네트워크 액세스 제어 목록이란?](../articles/virtual-network/virtual-networks-acl.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

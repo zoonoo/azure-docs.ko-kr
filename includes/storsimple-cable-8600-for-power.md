@@ -1,7 +1,7 @@
 <!--author=alkohli last changed: 9/16/15-->
 
 
-#### 장치에 전원 케이블을 연결하려면
+#### <a name="to-cable-your-device-for-power"></a>장치에 전원 케이블을 연결하려면
 > [!NOTE]
 > StorSimple 장치의 두 엔클로저 모두가 중복 PCM을 포함합니다. 각 엔클로저에 대해 PCM을 설치하고 서로 다른 전원에 연결하여 높은 가용성을 보장해야 합니다.
 > 
@@ -39,4 +39,8 @@
     | 8 |EBOD 인클로저 |
     | 9 |PDU |
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
