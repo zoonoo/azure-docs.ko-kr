@@ -140,7 +140,7 @@ while(receive)
 
 특정 파티션과 관련하여 메시지가 이벤트 허브로 전송된 순서로 메시지를 수신합니다. 오프셋은 파티션에서 메시지를 식별하는 데 사용되는 문자열 토큰입니다.
 
-소비자 그룹 내에서 단일 파티션은 언제든지 연결되는 5개의 동시 판독기를 가질 수 없다는 점에 유의해야 합니다. 판독기를 연결하거나 연결이 끊기면 서비스 연결이 끊어져 있는지 인식하기 전에 몇 분간 해당 세션이 활성 상태로 유지될 수 있습니다. 이 시간 동안 파티션에 다시 연결이 실패할 수 있습니다. 이벤트 허브용 직접 수신기 작성의 전체 예제는 [서비스 버스 이벤트 허브 직접 수신기](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) 샘플을 참조하십시오..
+소비자 그룹 내에서 단일 파티션은 언제든지 연결되는 5개의 동시 판독기를 가질 수 없다는 점에 유의해야 합니다. 판독기를 연결하거나 연결이 끊기면 서비스 연결이 끊어져 있는지 인식하기 전에 몇 분간 해당 세션이 활성 상태로 유지될 수 있습니다. 이 시간 동안 파티션에 다시 연결이 실패할 수 있습니다. 이벤트 허브용 직접 수신기 작성의 전체 예제는 [서비스 버스 이벤트 허브 직접 수신기](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) 샘플을 참조하십시오.
 
 ### <a name="event-processor-host"></a>이벤트 프로세서 호스트
 [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) 클래스는 이벤트 허브에서 데이터를 처리합니다. .NET 플랫폼에서 이벤트 판독기를 작성할 때 이 구현을 사용해야 합니다. [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) 는 검사점 및 파티션 임대 관리를 제공하는 이벤트 처리기 구현에 대한 스레드 안전, 다중 프로세스, 안전한 런타임 환경을 제공합니다.
