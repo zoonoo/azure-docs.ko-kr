@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: d299d9b2d08086fa7a5946d8270437f652edd746
-ms.openlocfilehash: d5a866740ed977f091d750767825ab30eda71c64
+ms.sourcegitcommit: 965b96507d66f3880bdf3b38362d1eb026afdb51
+ms.openlocfilehash: e72557a87088ba66a669d37ba0033da951e7fdb8
 
 ---
 #<a name="storage-documentation"></a>저장소 설명서
 
-Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다.  확장성이 뛰어나며 탄력적이고 전역 액세스가 가능하며 트래픽을 기반으로 데이터를 자동으로 부하 분산합니다.  Azure Storage는 응용 프로그램 요구 사항을 충족하도록 Blob 저장소, 테이블 저장소, 큐 저장소 및 파일 저장소 등의 4가지 서비스를 제공합니다.
+Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다.  확장성이 뛰어나며 탄력적이고 전역 액세스가 가능하며 트래픽을 기반으로 데이터를 자동으로 부하 분산합니다.  Azure Storage는 응용 프로그램 요구 사항을 충족하도록 Blob 저장소, 테이블 저장소, 큐 저장소, 디스크 저장소 및 파일 저장소 등의 4가지 서비스를 제공합니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -182,6 +182,6 @@ Storage 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

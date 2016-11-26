@@ -68,20 +68,17 @@
 ## [업데이트 관리](azure-stack-updates.md)
 ## [Azure Stack에 대한 개발](azure-stack-developer.md)
 ## SQL 또는 MySQL 리소스 공급자 배포
-### [MySQL 데이터베이스를 Azure Stack에 PaaS로 사용](azure-stack-mysql-rp-deploy-short.md)
-### [Azure Stack에 SQL Server 리소스 공급자 어댑터 배포](azure-stack-sql-rp-deploy-long.md)
-### [Azure Stack에 SQL 데이터베이스 사용](azure-stack-sql-rp-deploy-short.md)
+### [MySQL 데이터베이스를 Azure Stack에 PaaS로 사용](azure-stack-mysql-resource-provider-deploy.md)
+### [Azure Stack에 SQL Server 리소스 공급자 어댑터 배포](azure-stack-sql-resource-provider-deploy.md)
 
-## Web Apps 계획 및 배포
-### [Azure Stack Web Apps 개요](azure-stack-webapps-overview.md)
-### [Azure Stack Web Apps을 시작하기 전에](azure-stack-webapps-before-you-get-started.md)
-### [Azure Stack에 Web Apps과 함께 사용할 MySQL 리소스 공급자 배포](azure-stack-mysql-rp-deploy-long.md)
+## App Service 계획 및 배포
+### [Azure Stack Web Apps 개요](azure-stack-app-service-overview.md)
+### [Azure Stack Web Apps을 시작하기 전에](azure-stack-app-service-before-you-get-started.md)
 ### [Web Apps: 더 많은 웹 작업자 역할 추가](azure-stack-webapps-add-worker-roles.md)
-### [Azure Stack에 Web Apps 리소스 공급자 추가](azure-stack-webapps-deploy.md)
+### [Azure Stack에 Web Apps 리소스 공급자 추가](azure-stack-app-service-deploy.md)
 
 # 문제 해결
 ## [Azure Stack 문제 해결](azure-stack-troubleshooting.md)
-## [실패한 단계에서 배포를 다시 실행](azure-stack-rerun-deploy.md)
 ## [Web Apps 리소스 공급자](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # 리소스
@@ -90,6 +87,6 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

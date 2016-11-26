@@ -1,13 +1,12 @@
 # 개요
-## [Microsoft Azure의 모니터링](../monitoring-and-diagnostics/monitoring-overview.md)
+## [Azure Monitor 개요](../monitoring-and-diagnostics/monitoring-overview.md)
 ## [metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 ## [경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
 ## [Autoscale](../monitoring-and-diagnostics/monitoring-overview-autoscale.md)
-## [자동 크기 조정에 대한 모범 사례](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
 ## [진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
 ## [파트너 통합](../monitoring-and-diagnostics/monitoring-partners.md)
-## [REST API를 사용하여 연습](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+
 
 # 시작
 ## [Azure Monitor 시작](../monitoring-and-diagnostics/monitoring-get-started.md)
@@ -21,6 +20,7 @@
 ### [메트릭 경고에 대한 웹후크 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 ### [Resource Manager 템플릿을 사용하여 메트릭 경고 만들기](../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md)
 ## 자동 크기 조정 사용
+### [자동 크기 조정에 대한 모범 사례](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ### [자동 크기 조정에 대한 공통 메트릭](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ### [Resource Manager 템플릿을 사용하여 VM Scale Sets 자동 크기 조정](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [가상 컴퓨터 크기 집합에서 자동으로 컴퓨터 크기 조정](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
@@ -35,7 +35,8 @@
 ### [보관](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Event Hubs로 스트림](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
 ### [Resource Manager 템플릿을 사용하여 진단 설정 사용](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)
-
+## REST API 사용
+### [REST API를 사용하여 연습](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
 
 
 # 참조
@@ -43,10 +44,8 @@
 ## [Azure CLI](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [지원 메트릭 목록](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-## [REST (영문)](https://docs.microsoft.com/rest/api/monitor/)
+## [REST API](https://msdn.microsoft.com/library/azure/dn931943)
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

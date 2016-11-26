@@ -27,6 +27,7 @@
 ### [다중 테넌트 지원을 위한 디자인 패턴](search-modeling-multitenant-saas-applications.md)
 ## 개발
 ### [SDK 업그레이드](search-dotnet-sdk-migration.md)
+### [REST API 업그레이드](search-api-migration.md)
 ### [복합 데이터 형식 모델링](search-howto-complex-data-types.md)
 ## 관리
 ### Azure Search 관리
@@ -37,12 +38,14 @@
 ### [트래픽 분석 검색](search-traffic-analytics.md)
 ### [성능 및 최적화](search-performance-optimization.md)
 ## 데이터 로드
-### [인덱스 데이터 원본](search-indexer-overview.md)
-#### [Blob Storage](search-howto-indexing-azure-blob-storage.md)
-#### [Azure 테이블](search-howto-indexing-azure-tables.md)
-#### [SQL 데이터베이스](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-#### [CSV blob](search-howto-index-csv-blobs.md)
-### [SQL Server Azure VM 연결 구성](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+### [인덱서 개요](search-indexer-overview.md)
+### [Azure Blob Storage 인덱서](search-howto-indexing-azure-blob-storage.md)
+### [Azure Table Storage 인덱서](search-howto-indexing-azure-tables.md)
+### [Azure SQL 인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+### [Azure DocumentDB 인덱서](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
+### [인덱스 CSV blob](search-howto-index-csv-blobs.md)
+### [인덱스 JSON blob](search-howto-index-json-blobs.md)
+### [Azure VM에서 SQL Server에 대한 인덱서 연결 구성](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [인덱서의 필드 매핑](search-indexer-field-mappings.md)
 ##  검색 환경 디자인
 ### [Lucene 구문 쿼리 예제](search-query-lucene-examples.md)
@@ -56,13 +59,13 @@
 
 # 참조
 ## [API 버전](search-api-versions.md)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
-## [Lucene 쿼리 구문](https://msdn.microsoft.com/library/azure/mt589323)
-## [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920)
+## [서비스 .NET](/dotnet/api/microsoft.azure.search)
+## [관리 .NET](/dotnet/api/microsoft.azure.management.search)
 ## [서비스 REST](/rest/api/searchservice/)
 ## [서비스 REST(미리 보기)](search-api-2015-02-28-preview.md)
 ## [관리 REST](/rest/api/searchmanagement/)
+## [Lucene 쿼리 구문](https://msdn.microsoft.com/library/azure/mt589323)
+## [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920)
 
 # 리소스
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=search)
@@ -82,6 +85,6 @@
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

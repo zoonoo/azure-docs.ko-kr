@@ -15,10 +15,10 @@
 ### [이미지](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ### [마켓플레이스](documentation-government-manage-marketplace.md)
 ### [파트너용 마켓플레이스](documentation-government-manage-marketplace-partners.md)
+### [리소스 관리자](documentation-government-manage-azure-resource-manager.md)
 ### [구독](documentation-government-manage-subscriptions.md)
 
 # 참조
-## [리소스 관리자](documentation-government-manage-azure-resource-manager.md)
 ## [서비스](documentation-government-services.md)
 ### [계산](documentation-government-compute.md)
 ### [저장소](documentation-government-services-storage.md)
@@ -32,8 +32,6 @@
 ## [평가판](https://azuregov.microsoft.com/trial/azuregovtrial)
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

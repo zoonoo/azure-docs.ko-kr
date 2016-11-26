@@ -279,7 +279,7 @@
 # 참조
 ## [PowerShell cmdlet](/powershell/ )
 ## [Java API 참조](/java/api)
-## [.NET API](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [서비스 제한 및 제한 사항](active-directory-service-limits-restrictions.md)
 
 # 관련 항목
@@ -297,6 +297,6 @@
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

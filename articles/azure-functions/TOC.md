@@ -8,7 +8,7 @@
 # 방법
 ## 계획 및 디자인
 ### [Flow, Logic Apps, Functions 및 WebJobs 중에서 선택](functions-compare-logic-apps-ms-flow-webjobs.md)
-### [소비와 App Service 계획 중에서 선택](functions-scale.md)
+### [호스팅 계획 중에서 선택](functions-scale.md)
 
 ## 개발
 ### [함수 앱 개발](functions-reference.md)
@@ -21,7 +21,7 @@
 #### [Mobile Apps 바인딩](functions-bindings-mobile-apps.md)
 #### [알림 허브 출력 바인딩](functions-bindings-notification-hubs.md)
 #### [큐 및 항목에 대한 Service Bus 트리거 및 바인딩](functions-bindings-service-bus.md)
-#### 저장소
+#### 저장소 바인딩
 ##### [Blob 바인딩](functions-bindings-storage-blob.md)
 ##### [큐 바인딩](functions-bindings-storage-queue.md)
 ##### [테이블 바인딩](functions-bindings-storage-table.md)
@@ -30,6 +30,7 @@
 ### [Azure Portal에서 함수 만들기](functions-create-first-azure-function-azure-portal.md)
 ### [Azure Functions 테스트](functions-test-a-function.md)
 ### [로컬에서 개발 및 디버깅](functions-run-local.md)
+### [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 ### [Azure Functions을 사용하여 예약된 정리 작업 수행하기](functions-scenario-database-table-cleanup.md)
 
 ## 관리
@@ -38,6 +39,9 @@
 ## 배포
 ### [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)
 
+## 모니터
+### [Azure Functions 구성](functions-monitoring.md)
+
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/functions/)  
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
@@ -45,6 +49,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

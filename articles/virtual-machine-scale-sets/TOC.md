@@ -20,7 +20,7 @@
 ### [자동 크기 조정 및 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)
 ### [크기 집합에서 수직적 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [크기 집합을 위한 업그레이드](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [고급 자동 크기 조정](virtual-machine-scale-sets-advanced-autoscale.md)
+### [고급 자동 크기 조정](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [DSC 및 크기 집합 사용](virtual-machine-scale-sets-dsc.md)
 
 ## 문제 해결
@@ -38,6 +38,6 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

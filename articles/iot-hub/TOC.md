@@ -10,20 +10,24 @@
 ### [IoT Hub 시작(Node)](iot-hub-node-node-getstarted.md)
 ## Raspberry Pi로 시작하기
 ### [Raspberry Pi 3 시작하기](iot-hub-raspberry-pi-kit-node-get-started.md)
-### [장치 구성](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
-### [도구 얻기(Windows 7 이상)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
-### [도구 얻기(Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
-### [도구 얻기(macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
-### [깜박임 응용 프로그램 만들기 및 배포](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
-### [Azure 도구 얻기(Windows 7 이상)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
-### [Azure 도구 얻기(Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
-### [Azure 도구 얻기(macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
-### [IoT Hub 만들기 및 Raspberry Pi 등록](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
-### [Azure 함수 앱 및 저장소 계정 만들기](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
-### [예제 응용 프로그램을 실행하여 메시지 전송](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
-### [저장소에 유지되는 메시지 읽기](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
-### [예제 응용 프로그램을 실행하여 메시지 수신](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
-### [선택 사항: LED 동작 변경](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
+### 단원 1: 장치 구성
+#### [장치 구성](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
+#### [도구 얻기(Windows 7 이상)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
+#### [도구 얻기(Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
+#### [도구 얻기(macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
+#### [깜박임 응용 프로그램 만들기 및 배포](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
+### 단원 2: IoT hub 만들기
+#### [Azure 도구 얻기(Windows 7 이상)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
+#### [Azure 도구 얻기(Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
+#### [Azure 도구 얻기(macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
+#### [IoT Hub 만들기 및 Raspberry Pi 등록](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
+### 단원 3: 장치-클라우드 메시지 보내기
+#### [Azure 함수 앱 및 저장소 계정 만들기](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
+#### [예제 응용 프로그램을 실행하여 메시지 전송](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
+#### [저장소에 유지되는 메시지 읽기](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
+### 단원 4: 클라우드-장치 메시지 보내기
+#### [예제 응용 프로그램을 실행하여 메시지 수신](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
+#### [선택 사항: LED 동작 변경](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 ### [문제 해결](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 ## [Gateway SDK 시작(Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Gateway SDK 시작(Windows)](iot-hub-windows-gateway-sdk-get-started.md)
@@ -35,13 +39,18 @@
 ## [클라우드-장치 메시지 보내기(.NET)](iot-hub-csharp-csharp-c2d.md)
 ## [클라우드-장치 메시지 보내기(Java)](iot-hub-java-java-c2d.md)
 ## [클라우드-장치 메시지 보내기(Node)](iot-hub-node-node-c2d.md)
-## [쌍 장치 시작](iot-hub-node-node-twin-getstarted.md)
-## [쌍 속성 사용 방법](iot-hub-node-node-twin-how-to-configure.md)
-## [직접 메서드 사용](iot-hub-c2d-methods.md)
-## [장치 관리 시작](iot-hub-device-management-get-started.md)
-## [장치 작업을 사용하여 장치 펌웨어 업데이트](iot-hub-firmware-update.md)
-## [작업 예약 및 브로드캐스트](iot-hub-schedule-jobs.md)
-
+## [쌍 장치(노드) 시작](iot-hub-node-node-twin-getstarted.md)
+## [쌍 장치(.NET 노드) 시작](iot-hub-csharp-node-twin-getstarted.md)
+## [Node.js용 직접 메서드 사용](iot-hub-node-node-direct-methods.md)
+## [.NET/노드용 직접 메서드 사용](iot-hub-csharp-node-direct-methods.md)
+## [Node.js용 장치 관리 시작](iot-hub-node-node-device-management-get-started.md)
+## [.NET/노드용 장치 관리 시작](iot-hub-csharp-node-device-management-get-started.md)
+## [쌍 속성(노드) 사용 방법](iot-hub-node-node-twin-how-to-configure.md)
+## [쌍 속성(.NET/노드) 사용 방법](iot-hub-csharp-node-twin-how-to-configure.md)
+## [장치 작업을 사용하여 Node.js용 장치 펌웨어 업데이트](iot-hub-node-node-firmware-update.md)
+## [장치 작업을 사용하여 .NET/노드용 장치 펌웨어 업데이트](iot-hub-csharp-node-firmware-update.md)
+## [Node.js용 작업 예약 및 브로드캐스트](iot-hub-node-node-schedule-jobs.md)
+## [.NET/노드용 작업 예약 및 브로드캐스트](iot-hub-csharp-node-schedule-jobs.md)
 ## 배포 계획
 ### [IoT Hub를 Event Hubs에 비교](iot-hub-compare-event-hubs.md)
 ### [솔루션 확장](iot-hub-scaling.md)
@@ -50,6 +59,8 @@
 ## 개발
 ### [소개](iot-hub-devguide.md)
 ### [메시지 보내기 및 받기](iot-hub-devguide-messaging.md)
+### [장치-클라우드 기능 가이드](iot-hub-devguide-d2c-guidance.md)
+### [클라우드-장치 기능 가이드](iot-hub-devguide-c2d-guidance.md)
 ### [장치에서 파일 업로드](iot-hub-devguide-file-upload.md)
 ### [장치 ID 관리](iot-hub-devguide-identity-registry.md)
 ### [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md)
@@ -59,6 +70,7 @@
 ### [IoT Hub 끝점](iot-hub-devguide-endpoints.md)
 ### [쿼리 언어](iot-hub-devguide-query-language.md)
 ### [할당량 및 제한](iot-hub-devguide-quotas-throttling.md)
+### [가격 책정 예](iot-hub-devguide-pricing.md)
 ### [장치 및 서비스 SDK](iot-hub-devguide-sdks.md)
 ### [MQTT 지원](iot-hub-mqtt-support.md)
 ### [용어](iot-hub-devguide-glossary.md)
@@ -72,17 +84,16 @@
 ### [IoT 장치 대량 관리](iot-hub-bulk-identity-mgmt.md)
 ### [사용 현황 메트릭](iot-hub-metrics.md)
 ### [작업 모니터링](iot-hub-operations-monitoring.md)
+### [IP 필터링 구성](iot-hub-ip-filtering.md)
 ## Gateway SDK
 ### [Gateway SDK를 사용하는 장치 시뮬레이션 자습서(Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
 ### [Gateway SDK를 사용하는 장치 시뮬레이션 자습서(Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
 ### [Gateway SDK 자습서를 사용하여 실제 장치에서 메시지 보내기](iot-hub-gateway-sdk-physical-device.md)
-
 ## 보안
 ### [처음부터 보안을 고려](iot-hub-security-ground-up.md)
 ### [보안 모범 사례](iot-hub-security-best-practices.md)
 ### [보안 아키텍처](iot-hub-security-architecture.md)
 ### [IoT 배포 보안 유지](iot-hub-security-deployment.md)
-
 
 # 참조
 ## [Azure CLI](https://docs.microsoft.com/cli/azure)
@@ -105,16 +116,15 @@
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub) 
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-iot-hub)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub) 
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=iot-hub) 
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot/)
 ## [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/)
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

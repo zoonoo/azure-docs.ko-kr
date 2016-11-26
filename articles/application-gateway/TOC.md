@@ -6,7 +6,7 @@
 ## [다중 사이트](application-gateway-multi-site-overview.md)
 ## [종단 간 SSL](application-gateway-backend-ssl.md)
 ## [Websocket](application-gateway-websocket.md)
-## [구독 및 서비스 한도](../azure-subscription-service-limits.md#application-gateway-limits.md)
+## [서비스 한도](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 # 시작
 ## 응용 프로그램 게이트웨이 만들기
 ### 공용 주소
@@ -19,21 +19,21 @@
 #### [PowerShell](application-gateway-ilb-arm.md)
 #### [PowerShell(클래식)](application-gateway-ilb.md)
 # 방법
-## 웹 응용 프로그램 방화벽 만들기
+## 웹 응용 프로그램 방화벽 구성
 ### [포털](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
-## SSL에 대해 구성
+## SSL 오프로드 구성
 ### [포털](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell(클래식)](application-gateway-ssl.md)
 ### [정책 및 종단 간](application-gateway-end-to-end-ssl-powershell.md)
-## URL 경로 기반 라우팅 만들기
+## URL 경로 기반 라우팅 구성
 ### [포털](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
-## 다중 사이트 호스팅 구성
+## 멀티 사이트 호스팅 구성
 ### [포털](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## 상태 프로브 만들기
+## 상태 프로브 구성
 ### [포털](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell(클래식)](application-gateway-create-probe-classic-ps.md)
@@ -61,6 +61,6 @@
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

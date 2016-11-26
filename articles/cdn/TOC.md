@@ -24,6 +24,8 @@
 #### [프리미엄 계층](cdn-query-string-premium.md)
 ### [캐시된 자산 제거](cdn-purge-endpoint.md)
 ### [캐시된 자산 미리 로드](cdn-preload-endpoint.md)
+### [토큰 인증](cdn-token-auth.md)
+### [리소스 모니터링](cdn-resource-health.md)
 ### [규칙을 사용하여 동작 재정의](cdn-rules-engine.md)
 ### [실시간 경고 받기](cdn-real-time-alerts.md)
 
@@ -55,6 +57,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

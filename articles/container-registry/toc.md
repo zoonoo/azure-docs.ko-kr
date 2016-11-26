@@ -9,7 +9,7 @@
 
 # 방법
 
-## [서비스 주체 만들기](../resource-group-create-service-principal-portal.md)
+## [서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json)
 ## [레지스트리로 인증](container-registry-authentication.md)
 
 # 참조
@@ -27,6 +27,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

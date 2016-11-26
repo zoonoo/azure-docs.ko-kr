@@ -1,6 +1,6 @@
 # 개요
 ## [Application Insights란?](app-insights-overview.md)
-## [작동 방법](app-insights-detect-triage-diagnose.md)
+## [DevOps 사이클의 성능 모니터링](app-insights-detect-triage-diagnose.md)
 
 # 시작
 ## Azure 모니터링
@@ -63,8 +63,8 @@
 #### [메트릭 경고](app-insights-alerts.md)
 
 ### [스마트 감지](app-insights-proactive-diagnostics.md)
-#### [실패 감지](app-insights-proactive-failure-diagnostics.md)
-#### [이상 감지](app-insights-proactive-performance-diagnostics.md)
+#### [오류 잘못된 부분](app-insights-proactive-failure-diagnostics.md)
+#### [성능 이상](app-insights-proactive-performance-diagnostics.md)
 
 ## 분석
 
@@ -128,10 +128,10 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # 참조
-## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [Java API](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [.NET API](https://docs.microsoft.com/dotnet/api)
 ## [JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [분석](app-insights-analytics-reference.md)
+## [분석 참조](app-insights-analytics-reference.md)
 ## [샘플링](app-insights-sampling.md)
 ## [IP 주소](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
@@ -145,7 +145,7 @@
 ## [Windows Phone 및 Store용 Application Insights SDK에 대한 릴리스 정보](app-insights-release-notes-windows.md)
 ## [개발자 분석 도구에 대한 릴리스 정보](app-insights-release-notes-vsix.md)
 ## [SDK 릴리스 정보 - Application Insights](app-insights-release-notes.md)
-## [REST API](https://dev.applicationinsights.io/)
+## [데이터 액세스 REST API](https://dev.applicationinsights.io/)
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/application-insights/)  
@@ -157,6 +157,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

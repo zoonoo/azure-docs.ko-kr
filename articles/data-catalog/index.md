@@ -1,17 +1,17 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: f9c998b6d6431fe08a1b6e6332f992be1446f0c7
+ms.sourcegitcommit: 1420ed40368d21bbf391142782834e781155a72a
+ms.openlocfilehash: 6a413c765bf034dda1917c6a3853bcd2d060b49c
 
 ---
 #<a name="data-catalog-documentation"></a>Data Catalog 설명서
 
-Data Catalog는 확장성과 안정성이 뛰어난 마이크로 서비스를 간편하게 패키지, 배포 및 관리하게 해주며, 클라우드 응용 프로그램 개발 및 관리에서 중요한 문제를 해결하는 분산 시스템 플랫폼입니다.  Data Catalog는 엔터프라이즈급 계층 1 클라우드 규모의 응용 프로그램을 빌드 및 관리하기 위한 차세대 미들웨어 플랫폼을 나타냅니다.
+Azure Data Catalog는 조직이 기존 투자에서 더 많은 가치를 얻을 수 있게 해주면서 사용자가 필요한 데이터 원본을 검색하고 찾는 데이터 원본을 이해할 수 있도록 하는 완전히 관리되는 클라우드 서비스입니다. Azure 데이터 카탈로그는 분석가부터 데이터 과학자, 개발자에 이르는 모든 사용자가 데이터 원본을 검색, 이해, 사용할 수 있는 기능을 제공합니다. 데이터 카탈로그는 메타데이터 및 주석의 크라우드소싱 모델을 포함하며 모든 사용자가 데이터의 커뮤니티 및 culture를 만드는 지식에 영향을 줄 수 있도록 합니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="/azure/data-catalog/data-catalog-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -21,7 +21,7 @@ Data Catalog는 확장성과 안정성이 뛰어난 마이크로 서비스를 �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Data Catalog 시작 샘플</h3>
+                        <h3>Azure Data Catalog 시작</h3>
                     </div>
                 </div>
             </div>
@@ -29,25 +29,7 @@ Data Catalog는 확장성과 안정성이 뛰어난 마이크로 서비스를 �
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Data Catalog 파티 클러스터</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
+        <a href="/azure/data-catalog/data-catalog-what-is-data-catalog">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,7 +39,7 @@ Data Catalog는 확장성과 안정성이 뛰어난 마이크로 서비스를 �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>.NET Core를 사용하여 Data Catalog 시작</h3>
+                        <h3>Azure Data Catalog 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -72,28 +54,13 @@ Data Catalog는 확장성과 안정성이 뛰어난 마이크로 서비스를 �
 
 <ul class="panelContent cardsW">
     <li>
-        <a href="/rest/api/">
+        <a href="/rest/api/datacatalog">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
                         <p>Data Catalog REST API 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Data Catalog 관리되는 참조</p>
                     </div>
                 </div>
             </div>
@@ -112,6 +79,6 @@ Data Catalog 설명서 다운로드 </div>
 </div>
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -18,6 +18,7 @@
 #### [Azure 저장소](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [구성 관리자](log-analytics-sccm.md)
+#### [OMS Gateway](log-analytics-oms-gateway.md)
 ### 데이터 원본
 #### [데이터 원본 개요](log-analytics-data-sources.md)
 #### [Windows 이벤트](log-analytics-data-sources-windows-events.md)
@@ -49,6 +50,7 @@
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [VMware](log-analytics-vmware.md)
 #### [실시간 데이터](log-analytics-wire-data.md)
+#### [SCOM 평가](log-analytics-scom-assessment.md)
 ## 분석
 ### [대시보드](log-analytics-dashboards.md)
 ### [뷰 디자이너](log-analytics-view-designer.md)

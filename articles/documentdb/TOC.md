@@ -5,12 +5,11 @@
 ## 시나리오
 ### [일반 사용 예](documentdb-use-cases.md)
 ### [DocumentDB를 사용하여 소셜 네트워크 디자인](documentdb-social-media-apps.md)
-### [다중 테넌트 지원](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)
-
 
 # 시작
 ## 첫 번째 앱 작성
 ### [.NET 콘솔 앱](documentdb-get-started.md)
+### [.NET 코어 콘솔 앱](documentdb-dotnetcore-get-started.md)
 ### [Node.js 콘솔 앱](documentdb-nodejs-get-started.md)
 ### [C++ 콘솔 앱](documentdb-cpp-get-started.md)
 ## 웹앱 만들기
@@ -18,6 +17,7 @@
 ### [Node.js 웹앱](documentdb-nodejs-application.md)
 ### [Java 웹앱](documentdb-java-application.md)
 ### [Python Flask 웹앱](documentdb-python-application.md)
+## [로컬에서 개발](documentdb-nosql-local-emulator.md)
 ## [FAQ](documentdb-faq.md)
 
 # 방법
@@ -85,6 +85,7 @@
 # 참조
 ## [Java SDK](documentdb-sdk-java.md)
 ## [.NET SDK](documentdb-sdk-dotnet.md)
+## [.NET Core SDK](documentdb-sdk-dotnet-core.md)
 ## [.NET 샘플](documentdb-dotnet-samples.md)
 ## [Node.js SDK](documentdb-sdk-node.md)
 ## [Node.js 샘플](documentdb-nodejs-samples.md)
@@ -109,6 +110,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

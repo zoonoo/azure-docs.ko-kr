@@ -11,11 +11,11 @@
 # 시작
 ## [Hadoop으로 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [대화형 Hive 미리 보기 시작](hdinsight-hadoop-use-interactive-hive.md)
-## [R Server 미리 보기 시작](hdinsight-hadoop-r-server-get-started.md)
+## [R 서버 시작](hdinsight-hadoop-r-server-get-started.md)
 ## [Spark로 시작](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [HBase 및 NoSQL로 시작](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Storm으로 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)
-## [Kafka 미리 보기로 시작](hdinsight-apache-kafka-get-started.md )
+## [Kafka 미리 보기로 시작](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop 샌드박스](hdinsight-hadoop-emulator-get-started.md)
 ## [Hortonworks 샌드박스를 사용한 Data Lake 도구](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Visual Studio용 도구](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -49,11 +49,12 @@
 ### [Pig와 함께 DataFu 사용](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [주문형 클러스터](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)
-## R Server 미리 보기 사용
+## R 서버 사용
 ### [저장소 옵션](hdinsight-hadoop-r-server-storage.md)
 ### [RStudio 설치](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [컨텍스트 계산](hdinsight-hadoop-r-server-compute-contexts.md)
 ## 메모리 내 처리에 Spark 사용
+### [Data Lake Store와 함께](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [BI 도구와 함께](hdinsight-apache-spark-use-bi-tools.md)
 ### [독립 실행형 앱](hdinsight-apache-spark-create-standalone-application.md)
 ### [스트리밍 이벤트 프로세스](hdinsight-apache-spark-eventhub-streaming.md)
@@ -180,12 +181,12 @@
 #### [Hive 쿼리 성능](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # 참조
-## [REST API 참조](https://msdn.microsoft.com/library/mt622197.aspx)
-## [원격 작업에 대한 Spark REST API](https://msdn.microsoft.com/library/mt613023.aspx)
-## [PowerShell cmdlet](https://msdn.microsoft.com/library/mt438705.aspx)
+## [PowerShell cmdlet](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
 ## [Hadoop용 .NET SDK](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [HBase용 .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET library for Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST API 참조](/rest/api/hdinsight/)
+## [원격 작업에 대한 Spark REST API](/rest/api/hdinsightspark/)
 
 # 관련 항목
 ## Windows 클러스터
@@ -223,6 +224,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

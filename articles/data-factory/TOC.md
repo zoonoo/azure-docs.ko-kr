@@ -16,7 +16,7 @@
 ### [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 ### [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 ## [자습서: 데이터를 변환하기 위해 파이프라인 생성](data-factory-build-your-first-pipeline.md)
-### [Azure 포털](data-factory-build-your-first-pipeline-using-editor.md)
+### [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Azure Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
@@ -98,9 +98,8 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [기능 요청](https://feedback.azure.com/forums/270578-azure-data-factory)
-## [모든 문서의 인덱스](data-factory-alltopcat.md)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

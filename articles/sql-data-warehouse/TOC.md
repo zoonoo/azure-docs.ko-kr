@@ -81,8 +81,7 @@
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [SQL Server에서 BCP](sql-data-warehouse-load-from-sql-server-with-bcp.md)
-### [데이터 팩터리](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-### [Blob 저장소에서 Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+### [데이터 팩터리](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [PolyBase 지침](sql-data-warehouse-load-polybase-guide.md)
 ### [Blob 저장소에서 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
@@ -102,7 +101,7 @@
 ## 일시 중지 및 확장
 
 ### [개요](sql-data-warehouse-manage-compute-overview.md)
-### [Azure Portal](sql-data-warehouse-manage-compute-portal.md)
+### [쉬운 테이블](sql-data-warehouse-manage-compute-portal.md)
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)

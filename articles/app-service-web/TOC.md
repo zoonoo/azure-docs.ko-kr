@@ -153,6 +153,7 @@
 ### [온-프레미스 연결](web-sites-hybrid-connection-get-started.md)
 ### [Azure Virtual Network](web-sites-integrate-with-vnet.md)
 ### [고급 구성](web-sites-transform-extend.md)
+### [Linux에서 App Serv ce에대한 컨테이너 구성](app-service-linux-using-custom-docker-image.md)
 ### [리소스 그룹](app-service-move-resources.md)
 ### [WordPress를 멀티 사이트로 변환](web-sites-php-convert-wordpress-multisite.md) 
 
@@ -265,6 +266,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -16,6 +16,7 @@
 ### [DC/OS 공용 액세스 사용](container-service-enable-public-access.md)
 ### [DC/OS의 부하 분산 컨테이너](container-service-load-balancing.md)
 ### [DC/OS의 앱/사용자별 Orchestrator](container-service-application-specific-marathon.md)
+### [OMS(DC/OS) 모니터](container-service-monitoring-oms.md)
 ### [Datadog로 모니터링(DC/OS)](container-service-monitoring.md)
 ### [Sysdig로 모니터링(DC/OS)](container-service-monitoring-sysdig.md)
 ## [Kubernetes를 사용하여 관리](container-service-kubernetes-walkthrough.md)
@@ -30,6 +31,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

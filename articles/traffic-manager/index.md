@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 2bb861bf0e2d3505b3e2eeeb3ce779ab718e7013
-ms.openlocfilehash: 53f98b140cd1daa82b71a2924312cb0c2b3ac553
+ms.sourcegitcommit: 9e86ae23b3fe3b8134f4725035c03837425cc0c4
+ms.openlocfilehash: 9a05d78edbf2c186d4a4d84f38eb6deff0cdafc5
 
 ---
 #<a name="traffic-manager-documentation"></a>Traffic Manager 설명서
 
-Azure Traffic Manager를 사용하면 다양한 데이터 센터에서 서비스 끝점에 대한 사용자 트래픽의 배포를 제어할 수 있습니다.  Traffic Manager는 DNS(Domain Name System)를 사용하여 트래픽 라우팅 메서드 및 끝점의 상태를 기반으로 클라이언트 요청을 가장 적절한 끝점으로 리디렉션하여, 여러분의 응용 프로그램에 대규모 응용 프로그램에 필요한 가용성 및 응답성을 제공합니다.
+Azure Traffic Manager를 사용하면 다양한 지역에서 서비스 끝점에 대한 사용자 트래픽의 배포를 제어할 수 있습니다. Traffic Manager는 DNS(Domain Name System)를 사용하여 선택된 트래픽 라우팅 메서드 및 끝점의 상태를 기반으로 클라이언트 요청을 가장 적절한 끝점으로 리디렉션하여, 여러분의 응용 프로그램에 더 높은 가용성 및 응답성을 제공합니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -123,12 +123,12 @@ Azure Traffic Manager를 사용하면 다양한 데이터 센터에서 서비스
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
         <div class="img"></div>
         <div class="text">
-Service Fabric 설명서 다운로드 </div>
+Traffic Manager 설명서 다운로드 </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

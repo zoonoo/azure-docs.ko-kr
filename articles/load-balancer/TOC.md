@@ -44,10 +44,11 @@
 ## [Linux VM에 대한 DHCPv6 구성](load-balancer-ipv6-for-linux.md)
 
 # 참조
-## [PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=536407)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
-## [Resource Manager API](https://go.microsoft.com/fwlink/p/?LinkId=536405)
-## [네트워크 리소스 사용](https://go.microsoft.com/fwlink/p/?LinkId=536403)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Azure CLI](/cli/azure/network/lb)
+## [Java](/java/api)
+## [.NET](/dotnet/api)
+## [REST (영문)](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # 관련 항목
 ## [응용 프로그램 게이트웨이](/azure/application-gateway/)
@@ -63,6 +64,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=load-balancer)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

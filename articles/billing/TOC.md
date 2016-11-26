@@ -37,6 +37,6 @@
 # 리소스
 ## [지원에 문의](../billing-how-to-create-billing-support-ticket.md)
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 
