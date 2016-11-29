@@ -52,7 +52,7 @@ Azure Redis Cache는 인기 있는 오픈 소스 Redis Cache를 기반으로 하
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/nodejs.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -64,7 +64,7 @@ Azure Redis Cache는 인기 있는 오픈 소스 Redis Cache를 기반으로 하
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
+        <a href="/azure/redis-cache/cache-web-app-howto">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
