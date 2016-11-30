@@ -1,12 +1,12 @@
 ---
-title: Site Recovery 배포 준비 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 복제를 배포하기 위한 준비 과정을 설명합니다.
+title: "Site Recovery 배포 준비 | Microsoft Docs"
+description: "이 문서에서는 Azure Site Recovery를 사용하여 복제를 배포하기 위한 준비 과정을 설명합니다."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
 editor: tysonn
-
+ms.assetid: e24eea6c-50a7-4cd5-aab4-2c5c4d72ee2d
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: 8a4d265694e5eef438b0560a42ea5a95c04f9b02
+
 
 ---
 # <a name="prepare-for-azure-site-recovery-deployment"></a>Azure Site Recovery 배포 준비
@@ -22,7 +26,7 @@ Azure Site Recovery 서비스에서 지 원하는 각 복제 시나리오에 대
 이 문서의 내용을 확인한 후 문서 아래쪽의 의견 입력란이나 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 의견이나 질문을 게시해 주시기 바랍니다.
 
 ## <a name="overview"></a>개요
-조직에서는 계획된 중단 또는 불의의 중지 시간에 앱, 워크로드 및 데이터를 실행 중이고 가용 상태로 유지하고 가능한 신속히 정상적인 작업 상태로 복귀하기 위한 BCDR 전략이 필요합니다. BCDR 전략은 재해가 발생했을 때 비즈니스 데이터를 안전하고 복구 가능하게 유지하고 워크로드를 지속적으로 가용 상태로 유지해야 합니다. 
+조직에서는 계획된 중단 또는 불의의 중지 시간에 앱, 워크로드 및 데이터를 실행 중이고 가용 상태로 유지하고 가능한 신속히 정상적인 작업 상태로 복귀하기 위한 BCDR 전략이 필요합니다. BCDR 전략은 재해가 발생했을 때 비즈니스 데이터를 안전하고 복구 가능하게 유지하고 워크로드를 지속적으로 가용 상태로 유지해야 합니다.
 
 사이트 복구는 온-프레미스 물리적 서버와 가상 컴퓨터를 클라우드(Azure) 또는 보조 데이터센터에 복제하는 것을 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여하는 Azure 서비스입니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다.  [Site Recovery란?](site-recovery-overview.md)
 
@@ -57,7 +61,7 @@ Site Recovery는 클래식 포털과 Azure 포털 모두에서 지원됩니다. 
 | **Azure 저장소** |복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 생성됩니다. Azure로 복제하려면 [Azure Storage 계정](../storage/storage-introduction.md)이 필요합니다.<br/><br/>클래식 포털에서 Site Recovery를 배포하는 경우 하나 이상의 [표준 GRS 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 있어야 합니다.<br/><br/> Azure Portal에서 배포하는 경우 GRS 또는 LRS 저장소를 사용할 수 있습니다.<br/><br/>  Azure 포털에서 VMware VM 또는 물리적 서버를 복제하는 경우 프리미엄 저장소가 지원됩니다. 참고로 프리미엄 저장소 계정을 사용하는 경우 온-프레미스 데이터에 대한 지속적인 변화를 캡처하는 복제 로그를 저장하는 표준 저장소 계정도 있어야 합니다. [프리미엄 저장소](../storage/storage-premium-storage.md)는 IO를 많이 사용하는 워크로드를 호스트하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 가상 컴퓨터에 일반적으로 사용됩니다.<br/><br/>  프리미엄 계정을 사용하여 복제된 데이터를 저장하려는 경우 온-프레미스 데이터에 대한 지속적인 변화를 캡처하는 복제 로그를 저장하는 표준 저장소 계정이 필요할 수도 있습니다. |
 | **Azure 네트워크** |Azure에 복제하려면 Azure VM에서 장애 조치 후 만들어질 때 연결하는 Azure 네트워크가 있어야 합니다.<br/><br/>  클래식 포털에서 배포하는 경우에 클래식 네트워크를 사용합니다. Azure 포털에서 배포하는 경우 클래식 또는 Resource Manager 네트워크를 사용할 수 있습니다.<br/><br/>  네트워크는 자격 증명 모음과 동일한 지역에 있어야 합니다. |
 | **네트워크 매핑(VMM에서 Azure로)** |VMM에서 Azure로 복제하는 경우 [네트워크 매핑](site-recovery-network-mapping.md)은 장애 조치 후 Azure VM이 올바른 네트워크에 연결되어 있어야 합니다.<br/><br/>  네트워크 매핑을 설정하려면 VMM 포털에서 VM 네트워크를 구성해야 합니다. |
-| **온-프레미스** |**VMware VM**: Site Recovery 구성 요소, VMware vSphere 호스트/vCenter 서버 및 복제할 VM을 실행하는 온-프레미스 컴퓨터가 있어야 합니다. [자세히 알아보기](site-recovery-vmware-to-azure.md#configuration-server-prerequisites).<br/><br/> **물리적 서버**: 물리적 서버를 복제하는 경우 Site Recovery를 실행하는 온-프레미스 컴퓨터 및 복제할 물리적 서버가 있어야 합니다. [자세히 알아보기](site-recovery-vmware-to-azure.md#configuration-server-prerequisites). Azure로 장애 조치 후 [장애 복구](site-recovery-failback-azure-to-vmware.md)하려는 경우 이를 수행할 VMware 인프라가 있어야 합니다.<br/><br/> **Hyper-V VM**: If you want to replicate Hyper-V VM in VMM clouds you'll need a VMM server, and Hyper-V hosts on which VMs you want to protect are located. [자세히 알아보기](site-recovery-vmm-to-azure.md#on-premises-prerequisites).<br/><br/>  VMM 없이 Hyper-V VM을 복제하려는 경우 VM이 위치한 Hyper-V 호스트가 있어야 합니다. [자세히 알아보기](site-recovery-hyper-v-site-to-azure.md#on-premises-prerequisites). |
+| **온-프레미스** |**VMware VM**: Site Recovery 구성 요소, VMware vSphere 호스트/vCenter 서버 및 복제할 VM을 실행하는 온-프레미스 컴퓨터가 있어야 합니다. [자세히 알아보기](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites).<br/><br/> **물리적 서버**: 물리적 서버를 복제하는 경우 Site Recovery를 실행하는 온-프레미스 컴퓨터 및 복제할 물리적 서버가 있어야 합니다. [자세히 알아보기](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites). Azure로 장애 조치 후 [장애 복구](site-recovery-failback-azure-to-vmware.md)하려는 경우 이를 수행할 VMware 인프라가 있어야 합니다.<br/><br/> **Hyper-V VM**: If you want to replicate Hyper-V VM in VMM clouds you'll need a VMM server, and Hyper-V hosts on which VMs you want to protect are located. [자세히 알아보기](site-recovery-vmm-to-azure.md#on-premises-prerequisites).<br/><br/>  VMM 없이 Hyper-V VM을 복제하려는 경우 VM이 위치한 Hyper-V 호스트가 있어야 합니다. [자세히 알아보기](site-recovery-hyper-v-site-to-azure.md#on-premises-prerequisites). |
 | **보호된 컴퓨터** |Azure에 복제할 보호된 컴퓨터는 아래에서 설명하는 [Azure 필수 조건](#azure-virtual-machine-requirements) 을 준수해야 합니다. |
 
 ### <a name="replicate-to-a-secondary-site"></a>보조 사이트에 복제
@@ -143,6 +147,8 @@ Azure에서 지원하는 운영 체제를 실행하는 가상 컴퓨터와 물�
 * [SAN을 사용하여 Hyper-V VM을 보조 사이트로 복제](site-recovery-vmm-san.md)
 * [단일 VMM 서버를 사용하여 Hyper-V VM 복제](site-recovery-single-vmm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 
