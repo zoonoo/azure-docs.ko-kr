@@ -47,7 +47,7 @@ Azure SQL Data Warehouse는 SQL Server 관계형 데이터베이스와 Azure 클
         </a>
     </li>
      <li>
-        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision/">
+        <a href="/azure/sql-data-WArehouse/sql-data-warehouse-get-started-provision">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
