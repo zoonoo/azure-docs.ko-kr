@@ -135,7 +135,7 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
 
 계속하기 전에 다음을 확인하세요.
 
-1. Windows 7을 실행하는 경우 [WMF(Windows 관리 프레임워크) 4.0](https://www.microsoft.com/download/details.aspx?id=40855) 을 다운로드하고 설치했습니다..   
+1. Windows 7을 실행하는 경우 [WMF(Windows 관리 프레임워크) 4.0](https://www.microsoft.com/download/details.aspx?id=40855) 을 다운로드하고 설치했습니다.   
     Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 및 Windows 7 SP1을 실행하는 경우 [Windows 관리 프레임워크 5.0](https://www.microsoft.com/download/details.aspx?id=50395) 을 설치에 사용할 수 있습니다.
 2. Azure PowerShell 1.0 이 릴리스에 대한 정보 및 설치 방법은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 3. 자동화 계정을 만들었습니다.  이 계정은 아래 두 스크립트에서 –AutomationAccountName 및 -ApplicationDisplayName 매개 변수에 대한 값으로 참조됩니다.
