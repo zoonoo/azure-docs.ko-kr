@@ -13,7 +13,7 @@
 ### [API 정의 가져오기](api-management-howto-import-api.md)
 ## 백 엔드 보호
 ### [AAD로 웹 API 백 엔드 보호](api-management-howto-protect-backend-with-aad.md)
-### [VPN 또는 ExpressRoute를 통해 연결](api-management-howto-setup-vpn.md)
+### [가상 네트워크에 연결](api-management-using-with-vnet.md)
 ### [상호 인증서 인증](api-management-howto-mutual-certificates.md)
 ## 정책 구성
 ### [사용자 지정 캐싱](api-management-sample-cache-by-key.md)
@@ -63,6 +63,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

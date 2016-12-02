@@ -16,6 +16,7 @@
 ### [마켓플레이스](documentation-government-manage-marketplace.md)
 ### [파트너용 마켓플레이스](documentation-government-manage-marketplace-partners.md)
 ### [리소스 관리자](documentation-government-manage-azure-resource-manager.md)
+### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [구독](documentation-government-manage-subscriptions.md)
 
 # 참조

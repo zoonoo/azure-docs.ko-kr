@@ -47,7 +47,7 @@
 ### [쌍을 이루는 네임스페이스](service-bus-paired-namespaces.md)
 ### [엔터티를 자동 전달에 연결](service-bus-auto-forwarding.md)
 ## 관리
-### [ARM 템플릿 사용](service-bus-resource-manager-overview.md)
+### [Azure Resource Manager 템플릿 사용](service-bus-resource-manager-overview.md)
 ### [PowerShell을 사용하여 엔터티 프로비전](service-bus-powershell-how-to-provision.md)
 
 # 참조
@@ -57,6 +57,10 @@
 ## [할당량](service-bus-quotas.md)
 ## [.NET](/dotnet/api/)
 ## [REST (영문)](/rest/api/servicebus/)
+## [SQLFilter 구문](service-bus-messaging-sql-filter.md)
+## [SQLRuleAction 구문](service-bus-messaging-sql-rule-action.md)
+## [AMQP1.0 프로토콜 가이드](service-bus-amqp-protocol-guide.md)
+### [AMQP 1.0 요청-응답 기반 작업](service-bus-amqp-request-response.md)
 
 # 리소스
 ## [블로그](https://blogs.msdn.microsoft.com/servicebus/)
@@ -69,6 +73,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

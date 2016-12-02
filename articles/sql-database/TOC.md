@@ -12,7 +12,7 @@
 ### [다중 테넌트 앱 빌드](sql-database-build-multi-tenant-apps.md)
 ### [보안 및 보호](sql-database-helps-secures-and-protects.md)
 ### [사용자 환경에서 작동](sql-database-works-in-your-environment.md)
-## 활용
+## 비교
 ### [VM의 SQL Database 및 SQL](sql-database-paas-vs-sql-server-iaas.md)
 ### [T-SQL 차이점](sql-database-transact-sql-information.md)
 ### [SQL 및 NoSQL](../documentdb/documentdb-nosql-vs-sql.md)
@@ -111,7 +111,7 @@
 ### 유용한 정보
 #### [개요](sql-database-business-continuity.md)
 #### [데이터베이스 백업](sql-database-automated-backups.md)
-#### [장기 보존](sql-database-long-term-retention.md) 
+#### [장기 보존](sql-database-long-term-retention.md)
 #### [백업을 사용한 데이터베이스 복구](sql-database-recovery-using-backups.md)
 #### [재해 복구에 대한 인증 요구 사항](sql-database-geo-replication-security-config.md)
 #### [비즈니스 연속성 디자인 시나리오](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
@@ -173,7 +173,7 @@
 #### [JSON 데이터](sql-database-json-features.md)
 #### [메모리 내](sql-database-in-memory.md)
 ### 실행 사항
-#### [SQL Sserver 개발](https://msdn.microsoft.com/library/ms179422.aspx)
+#### [SQL Server 개발](https://msdn.microsoft.com/library/ms179422.aspx)
 ## 모니터링 및 튜닝
 ### 유용한 정보
 #### [단일 데이터베이스](sql-database-single-database-monitor.md)
@@ -358,8 +358,6 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
 
 
 <!--HONumber=Nov16_HO4-->

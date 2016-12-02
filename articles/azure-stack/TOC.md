@@ -79,7 +79,6 @@
 
 # 문제 해결
 ## [Azure Stack 문제 해결](azure-stack-troubleshooting.md)
-## [Web Apps 리소스 공급자](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # 리소스
 ## [도구](azure-stack-tools-paas-services.md)

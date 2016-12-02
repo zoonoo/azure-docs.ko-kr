@@ -21,7 +21,7 @@
 ## [샘플](service-bus-relay-samples.md)
 ## [하이브리드 연결 .NET API](/dotnet/api/microsoft.servicebus)
 ## [WCF 릴레이 .NET API](/dotnet/api/microsoft.servicebus)
-
+## [포트 설정](service-bus-relay-port-settings.md)
 
 # 리소스
 ## [블로그](https://blogs.msdn.microsoft.com/servicebus/)
@@ -33,6 +33,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

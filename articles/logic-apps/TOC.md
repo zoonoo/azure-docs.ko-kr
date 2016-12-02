@@ -30,7 +30,6 @@
 
 
 ## EIP(엔터프라이즈 통합 팩) 사용
-### [엔터프라이즈 통합 팩](../app-service-logic/app-service-logic-enterprise-integration-overview.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [통합 계정 개요](../app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [규약](../app-service-logic/app-service-logic-enterprise-integration-agreements.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [B2B 처리](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -87,10 +86,9 @@
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)  
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps) 
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-logic-apps)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=logic-apps) 
-
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
 <!--HONumber=Nov16_HO4-->
