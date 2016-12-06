@@ -21,7 +21,8 @@
 ## [Linux 및 Mac에서 SSH 키 만들기](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [VM을 만드는 다양한 방법](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Azure CLI 설치](../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [CLI를 사용하여 VM 만들기](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Azure CLI 2.0(미리 보기)을 사용하여 VM 만들기](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Azure CLI에서 VM 만들기](../virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [템플릿 연습](../../resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [복잡한 VM 템플릿 만들기 및 배포](../virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [응용 프로그램 아키텍처](../virtual-machines-linux-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -107,7 +108,6 @@
 
 ## [자동화](../virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [사용자 지정 스크립트 확장](../virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [VM 액세스 확장](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [VM 모니터링](../virtual-machines-linux-vm-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [템플릿의 확장](../virtual-machines-linux-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [구성 샘플](../virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -160,15 +160,20 @@
 ### [할당 오류 문제 해결](../virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [배포 문제 해결](../virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [새 Azure 노드에 VM 다시 배포](../virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### VM의 문제 해결에 가상 하드 디스크를 연결합니다.
+#### [Azure CLI](../virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+#### [Azure 포털](../virtual-machines-linux-troubleshoot-recovery-disks-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # 참조
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
+## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [커뮤니티 템플릿](https://azure.microsoft.com/documentation/templates/)
-## [계산 REST](/rest/api/compute/)
-## [네트워크 REST](/rest/api/)
-## [저장소 REST](/rest/api/storageservices/)
+## [커뮤니티 템플릿](https://azure.microsoft.com/documentation/templates)
+## [계산 REST](/rest/api/compute)
+## [네트워크 REST](/rest/api)
+## [저장소 REST](/rest/api/storageservices)
 
 
 
@@ -179,6 +184,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,11 +1,11 @@
-## Apache Storm을 사용하여 메시지 수신
+## <a name="receive-messages-with-apache-storm"></a>Apache Storm을 사용하여 메시지 수신
 [**Apache Storm**](https://storm.incubator.apache.org)은 분산된 실시간 계산 시스템으로, 바인딩되지 않은 데이터 스트림의 안정적인 처리를 간소화합니다. 이 섹션에서는 이벤트 허브 스톰 스파우트를 사용하여 이벤트 허브에서 이벤트를 수신하는 방법을 보여 줍니다. Apache Storm을 사용하면 다른 노드에 호스트된 여러 프로세스 간에 이벤트를 분할할 수 있습니다. 이벤트 허브와 Storm을 통합하면 Storm의 Zookeeper 설치를 통해 진행률을 투명하게 확인하고 지속적인 검사점을 관리하여 이벤트 사용이 간소화되고 이벤트 허브에서 병렬 수신됩니다.
 
 이벤트 허브 수신기 패턴에 대한 자세한 내용은 [이벤트 허브 개요][이벤트 허브 개요]를 참조하세요.
 
 이 자습서에서는 이미 사용할 수 있는 이벤트 허브 spout와 함께 제공되는 [HDInsight Storm][HDInsight Storm] 설치를 사용합니다.
 
-1. [HDInsight Storm - 시작 절차](../articles/hdinsight/hdinsight-storm-overview.md)에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
+1. [HDInsight Storm - 시작 절차](../articles/hdinsight/hdinsight-storm-overview.md) 에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
 2. `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 파일을 로컬 개발 환경에 복사합니다. 이 파일에는 events-storm-spout가 포함되어 있습니다.
 3. 다음 명령을 사용하여 패키지를 로컬 Maven 저장소에 설치합니다. 그러면 이후 단계에서 Storm 프로젝트에 참조로 추가할 수 있습니다.
    
@@ -64,7 +64,7 @@
    
         eventhub.receiver.credits = 10
    
-    **eventhub.receiver.credits**의 값에 따라 이벤트를 Storm 파이프라인으로 릴리스하기 전에 얼마나 많은 수의 이벤트가 일괄 처리되는지 결정됩니다. 간단히 하기 위해 이 예에서는 이 값을 10으로 설정합니다. 프로덕션 환경에서 일반적으로 더 높게(예: 1024) 설정해야 합니다.
+    **eventhub.receiver.credits** 의 값에 따라 이벤트를 Storm 파이프라인으로 릴리스하기 전에 얼마나 많은 수의 이벤트가 일괄 처리되는지 결정됩니다. 간단히 하기 위해 이 예에서는 이 값을 10으로 설정합니다. 프로덕션 환경에서 일반적으로 더 높게(예: 1024) 설정해야 합니다.
 10. 다음 코드를 포함하는 **LoggerBolt** 클래스를 새로 만듭니다.
     
         import java.util.Map;
@@ -102,8 +102,8 @@
     
         }
     
-    이 Storm 볼트는 수신된 이벤트의 콘텐츠를 기록합니다. 튜플을 저장소 서비스에 저장하도록 간단히 확장할 수 있습니다. [HDInsight 센서 분석 자습서]에서는 동일한 방법을 사용하여 데이터를 HBase에 저장합니다.
-11. 다음 코드를 포함하는 **LogTopology**라는 클래스를 만듭니다.
+    이 Storm 볼트는 수신된 이벤트의 콘텐츠를 기록합니다. 튜플을 저장소 서비스에 저장하도록 간단히 확장할 수 있습니다. [HDInsight 센서 분석 자습서] 에서는 동일한 방법을 사용하여 데이터를 HBase에 저장합니다.
+11. 다음 코드를 포함하는 **LogTopology** 라는 클래스를 만듭니다.
     
         import java.io.FileReader;
         import java.util.Properties;
@@ -216,4 +216,6 @@
 
 [12]: ./media/service-bus-event-hubs-get-started-receive-storm/create-storm1.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!--HONumber=Nov16_HO3-->
+
+

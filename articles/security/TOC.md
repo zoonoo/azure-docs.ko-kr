@@ -9,6 +9,7 @@
 ### [데이터 보안 및 암호화 모범 사례](azure-security-data-encryption-best-practices.md)
 ### [저장소 보안 지침](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [보안 계산](security-virtual-machines-overview.md)
+### [IaaS 워크로드에 대한 모범 사례 ](azure-security-iaas.md)
 ### [Microsoft 맬웨어 방지](azure-security-antimalware.md)
 ### [디스크 암호화](azure-security-disk-encryption.md)
 ### [Azure VM 암호화](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -51,6 +52,6 @@
 ## [Virtual Academy의 보안 과정](security-microsoft-virtual-academy.md)
 ## [Channel 9의 보안 동영상](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

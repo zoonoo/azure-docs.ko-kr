@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 29794682e0258a6d30c9b2ac96b6e58272bc3f48
-ms.openlocfilehash: 97a0f22bf72b30e6adc92e9b8d7e58a25e67c14b
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 38ae37f4892fb32422ca8d7880a7b38674f29610
 
 ---
 # <a name="azure-web-apps-documentation"></a>Azure Web Apps 설명서
@@ -75,43 +75,25 @@ App Service Web Apps는 웹 사이트와 웹 응용 프로그램 호스팅을 �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Visual Studio를 사용하여 ASP.NET 웹앱 만들기</h3>
+                        <h3>ASP.NET 및 Visual Studio를 사용하여 Web Apps 시작</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>
-    <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
+    </li> 
+     <li>
+        <a href="/azure/app-service-web/web-sites-java-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
+                            <img src="media/index/java.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Visual Studio를 사용하여 ASP.NET 웹앱 만들기</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Visual Studio를 사용하여 ASP.NET 웹앱 만들기</h3>
+                        <h3>Java를 사용하여 Web Apps 시작</h3>
                     </div>
                 </div>
             </div>
@@ -129,7 +111,7 @@ App Service Web Apps는 웹 사이트와 웹 응용 프로그램 호스팅을 �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure App Service에서 Node.js 웹앱 시작</h3>
+                        <h3>Node.js를 사용하여 Web Apps 시작 </h3>
                     </div>
                 </div>
             </div>
@@ -147,25 +129,26 @@ App Service Web Apps는 웹 사이트와 웹 응용 프로그램 호스팅을 �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Python Tools 2.2를 사용하여 웹앱 만들기</h3>
+                        <h3>Python Tools 2.2를 사용하여 Web Apps 시작</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/app-service-web/web-sites-java-get-started">
+   
+     <li>
+        <a href="/azure/app-service-web/app-service-web-php-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/java.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure App Service에서 Java 웹앱 만들기</h3>
+                        <h3>PHP를 사용하여 Web Apps 시작</h3>
                     </div>
                 </div>
             </div>
@@ -183,7 +166,29 @@ App Service Web Apps는 웹 사이트와 웹 응용 프로그램 호스팅을 �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure App Service에서 WordPress 웹앱 만들기</h3>
+                        <h3>Azure App Service에서 WordPress 시작</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+   
+</ul>
+
+---
+
+## <a name="reference"></a>참조
+
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/cli/azure/appservice/web">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Azure CLI</h3>
+                        <p>Web Apps Azure CLI 참조</p>
                     </div>
                 </div>
             </div>
@@ -191,40 +196,49 @@ App Service Web Apps는 웹 사이트와 웹 응용 프로그램 호스팅을 �
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/app-service-web-php-get-started">
+        <a href="/java/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Azure에 PHP 웹앱 만들기, 구성 및 배포</h3>
+                        <h3>Java</h3>
+                        <p>Java API 참조</p>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-</ul>
-
----
-
-## <a name="reference"></a>참조
-
-### <a name="azure-cli"></a>Azure CLI
-[Web Apps AzureCLI 참조](/cli/azure/)
-
-### <a name="java"></a>Java
-[Web Apps Java API 참조](/java/api/)
-
-### <a name="net"></a>.NET
-[Web Apps 관리되는 참조](/dotnet/api)
-
-### <a name="rest"></a>REST
-[Web Apps REST API 참조](/rest/api/appservice)
+     <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>.NET 관리되는 참조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/rest/api/appservice">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Web Apps REST API 참조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    </ul>
+    
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-web.pdf">
@@ -235,6 +249,7 @@ Web Apps 설명서 다운로드 </div>
 </div>
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

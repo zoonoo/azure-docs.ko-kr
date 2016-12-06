@@ -1,7 +1,7 @@
-## Azure CLI를 사용하여 클래식 VNet을 만드는 방법
+## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Azure CLI를 사용하여 클래식 VNet을 만드는 방법
 Windows, Linux 또는 OSX를 실행하는 컴퓨터의 명령 프롬프트에서 Azure CLI를 사용하여 Azure 리소스를 관리할 수 있습니다. Azure CLI를 사용하여 VNet을 만들려면 다음 단계를 수행합니다.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../articles/xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../articles/xplat-cli-install.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **azure network vnet create** 명령을 실행하여 VNet과 서브넷을 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
    
             azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
@@ -14,8 +14,8 @@ Windows, Linux 또는 OSX를 실행하는 컴퓨터의 명령 프롬프트에서
             + Setting network configuration
             info:    network vnet create command OK
    
-   * **--vnet**. 만들 VNet의 이름입니다. 이 시나리오에서는 *TestVNet*입니다.
-   * **-e(또는 --address-space)**. VNet 주소 공간입니다. 이 시나리오에서는 *192.168.0.0*입니다.
+   * **--vnet**. 만들 VNet의 이름입니다. 이 시나리오에서는 *TestVNet*
+   * **-e(또는 --address-space)**. VNet 주소 공간입니다. 이 시나리오에서는 *192.168.0.0*
    * **-i(또는 -cidr)**. CIDR 형식의 네트워크 마스크입니다. 이 시나리오에서는 *16*입니다.
    * **-n(또는 --subnet-name**). 첫 번째 서브넷의 이름입니다. 이 시나리오에서는 *FrontEnd*입니다.
    * **-p(또는 --subnet-start-ip)**. 서브넷 또는 서브넷 주소 공간의 시작 IP 주소입니다. 이 시나리오에서는 *192.168.1.0*입니다.
@@ -62,4 +62,8 @@ Windows, Linux 또는 OSX를 실행하는 컴퓨터의 명령 프롬프트에서
             data:
             info:    network vnet show command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -3,7 +3,7 @@
 2. **장치** 페이지로 이동합니다. **장치** 페이지 맨 아래의 **가상 장치 만들기**를 클릭합니다.
 3. **가상 장치 만들기**대화 상자에서 다음 정보를 지정합니다.
    
-     ![StorSimple 가상 장치 만들기](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+    ![StorSimple 가상 장치 만들기](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
    
    1. **이름** – 가상 장치에 대한 고유 이름입니다.
    2. **모델** - 가상 장치의 모델을 선택합니다. 이 필드는 업데이트 2 이상을 실행하는 경우에만 표시됩니다. 8010 장치 모델은 30TB의 표준 저장소를 제공하는 반면, 8020에는 64TB의 프리미엄 저장소가 있습니다. 백업에서
@@ -28,6 +28,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

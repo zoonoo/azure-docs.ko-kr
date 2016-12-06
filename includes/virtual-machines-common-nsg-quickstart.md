@@ -11,4 +11,8 @@
 
 네트워크 보안 그룹 및 규칙을 사용하여 환경을 보호하는 복잡한 네트워크 구성을 만들 수 있습니다. 이 예제에서는 HTTP 트래픽 또는 원격 관리를 허용하는 하나 이상의 규칙을 사용합니다. 자세한 내용은 다음 ['자세한 내용'](#more-information-on-network-security-groups) 섹션 또는 [네트워크 보안 그룹이란?](../articles/virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

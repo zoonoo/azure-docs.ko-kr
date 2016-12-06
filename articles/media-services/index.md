@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 472f14b049093920b43ef249b0286d78b2fbbece
-ms.openlocfilehash: 48030ab29d18b0963f1770732761a464abaed446
+ms.sourcegitcommit: 54d90fa8d337b95a8bb03938ae6f3ce7c4e2de85
+ms.openlocfilehash: a7eda833f1bbaaa64ebfb1a26925dc42cbf6cb9c
 
 ---
 # <a name="media-services-documentation"></a>Media Services 설명서
@@ -161,14 +161,50 @@ Azure Media Services는 개발자가 확장 가능한 미디어 관리 및 배�
 
 ## <a name="reference"></a>참조
 
-### <a name="powershell"></a>PowerShell
-[Azure PowerShell 참조](/powershell/azureps-cmdlets-docs/)
-
-### <a name="net"></a>.NET
-[.NET 관리되는 참조 API](/dotnet/api/)
-
-### <a name="rest"></a>REST
-[Media Services REST API 참조](/rest/api/media/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell 참조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>.NET 관리되는 참조 API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/media/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Media Services REST API 참조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/media-services.pdf">
@@ -180,6 +216,6 @@ Media Services 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

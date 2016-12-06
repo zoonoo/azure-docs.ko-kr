@@ -1,14 +1,18 @@
 ---
 layout: LandingPage
----
-#ExpressRoute Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 448cccdf35510db9bac9cdb5648739b18302c90b
+ms.openlocfilehash: 146078c8caf1bcd757d3e19aae5860aba9049ab9
 
-Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
+---
+#<a name="expressroute-documentation"></a>Express 경로 설명서
+
+Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다.
 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/expressroute/express-route-introduction">
+        <a href="/azure/expressroute/expressroute-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -18,7 +22,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn About Express Route</h3>
+                        <h3>Express Route 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -36,7 +40,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Express Route Video Library</h3>
+                        <h3>Azure Express Route 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -54,7 +58,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with ExpressRoute</h3>
+                        <h3>ExpressRoute 시작</h3>
                     </div>
                 </div>
             </div>
@@ -65,21 +69,50 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
 
 ---
 
-##Reference
+## <a name="reference"></a>참조
 
-###PowerShell
-[Azure PowerShell reference](/powershell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell 참조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###REST
-[ExpressRoute REST API Reference](https://msdn.microsoft.com/library/mt586720)
-
-
+<li>
+        <a href="https://msdn.microsoft.com/library/mt586720">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>ExpressRoute REST API 참조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
         <div class="img"></div>
         <div class="text">
-            Download ExpressRoute Documentation
-        </div>
+ExpressRoute 설명서 다운로드 </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

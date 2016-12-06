@@ -1,10 +1,14 @@
 ---
-Layout: LandingPage
+layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 086574639b31ee82ab72efbc93d58af735524a1b
+ms.openlocfilehash: b03565feb98f18d2a90d72e154901baf0dd89df0
+
 ---
 
-#Monitoring and Diagnostics Documentation
+# <a name="monitoring-and-diagnostics-documentation"></a>모니터링 및 진단 설명서
 
-Monitoring and Diagnostics is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Monitoring and Diagnostics represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+모니터링 및 진단은 확장성과 안정성이 뛰어난 마이크로 서비스를 간편하게 패키지, 배포 및 관리하게 해주며, 클라우드 응용 프로그램 개발 및 관리에서 중요한 문제를 해결하는 분산 시스템 플랫폼입니다.  모니터링 및 진단은 엔터프라이즈급 계층 1 클라우드 규모의 응용 프로그램을 빌드 및 관리하기 위한 차세대 미들웨어 플랫폼을 나타냅니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -18,7 +22,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Monitoring and diagnostics</h3>
+                        <h3>Azure 모니터링 및 진단 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -36,7 +40,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create alerts for Azure Services using Azure Portal</h3>
+                        <h3>Azure Portal을 사용하여 Azure 서비스에 대한 경고 만들기</h3>
                     </div>
                 </div>
             </div>
@@ -54,7 +58,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create alerts for Azure Services using cross-platform CLI</h3>
+                        <h3>플랫폼 간 CLI를 사용하여 Azure 서비스에 대한 경고 만들기</h3>
                     </div>
                 </div>
             </div>
@@ -72,7 +76,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create alerts for Azure Services using PowerShell</h3>
+                        <h3>PowerShell을 사용하여 Azure 서비스에 대한 경고 만들기</h3>
                     </div>
                 </div>
             </div>
@@ -90,7 +94,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a metric alert with a Resource Manager template</h3>
+                        <h3>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기</h3>
                     </div>
                 </div>
             </div>
@@ -101,25 +105,76 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
 
 ---
 
-##Reference
+## <a name="reference"></a>참조
 
-###PowerShell
-[Monitoring and Diagnostics PowerShell Cmdlet](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41)
-
-###Azure CLI
-[Monitoring and Diagnostics Azure CLI](/cli/azure)
-
-###.NET
-[Monitoring and Diagnostics Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
-
-###REST
-[Monitoring and Diagnostics REST API Reference](/rest/api/monitor)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>모니터링 및 진단 PowerShell Cmdlet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Azure CLI</h3>
+                        <p>모니터링 및 진단 Azure CLI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt416943">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>모니터링 및 진단 관리되는 참조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/dn931943">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>모니터링 및 진단 REST API 참조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Monitoring and Diagnostics Documentation
-        </div>
+모니터링 및 진단 설명서 다운로드 </div>
     </a>
 </div>
+
+
+<!--HONumber=Nov16_HO4-->
+
+

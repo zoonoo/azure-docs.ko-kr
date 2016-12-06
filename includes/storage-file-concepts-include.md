@@ -15,7 +15,7 @@ Azure 가상 컴퓨터나 클라우드 서비스에서 실행되는 응용 프�
 ## <a name="file-storage-concepts"></a>파일 저장소 개념
 파일 저장소에는 다음 구성 요소가 포함됩니다.
 
-![files-concepts][files-concepts]
+![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
 * **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](../articles/storage/storage-scalability-targets.md) (영문)를 참조하십시오.
 * **공유** : Azure에서 파일 저장소 공유는 SMB 파일 공유입니다. 
@@ -31,8 +31,7 @@ Azure 가상 컴퓨터나 클라우드 서비스에서 실행되는 응용 프�
 
 공유, 디렉터리 및 파일 이름 지정 방법에 대한 자세한 내용은 [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조](http://msdn.microsoft.com/library/azure/dn167011.aspx)(영문)를 참조하세요.
 
-[files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

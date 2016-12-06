@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#SQL Server Stretch Database Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: d237f5116f81d0977a96a325ee66f2e7c3ee5c41
+ms.openlocfilehash: bf45461eafbb010d99b61f2f67a763e25f374b30
 
-SQL Server Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud. SQL Server Stretch Database provides cost-effective availability for data you do not use regularly, doesn't require changes to your queries or applications, and keeps your data secure even during migration. Stretch Database targets transactional databases with large amounts of infrequently used data, which are typically stored in a small number of tables.
+---
+#<a name="sql-server-stretch-database-documentation"></a>SQL Server Stretch Database 설명서
+
+SQL Server Stretch Database는 콜드 데이터를 투명하고 안전하게 Microsoft Azure 클라우드로 마이그레이션합니다. SQL Server Stretch Database는 정기적으로 사용하지 않는 데이터에 대해 비용 효율적인 가용성을 제공하고, 쿼리 또는 응용 프로그램을 변경할 필요가 없으며, 마이그레이션 중에도 데이터의 보안을 유지합니다. Stretch Database는 일반적으로 적은 수의 테이블에 저장되는 대량의 사용 빈도가 적은 데이터를 포함하는 트랜잭션 데이터베이스를 대상으로 합니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ SQL Server Stretch Database migrates your cold data transparently and securely t
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure SQL Server Stretch Database</h3>
+                        <h3>Azure SQL Server Stretch Database 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ SQL Server Stretch Database migrates your cold data transparently and securely t
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure SQL Server Stretch Database Video Library</h3>
+                        <h3>Azure SQL Server Stretch Database 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -43,7 +47,7 @@ SQL Server Stretch Database migrates your cold data transparently and securely t
         </a>
     </li>
     <li>
-        <a href="/azure/sql-server-stretch-database/sql-server-stretch-database-identify-databases/">
+        <a href="/azure/sql-server-stretch-database/sql-server-stretch-database-identify-databases">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -53,7 +57,7 @@ SQL Server Stretch Database migrates your cold data transparently and securely t
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with SQL Server Stretch Database</h3>
+                        <h3>SQL Server Stretch Database 시작</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +71,11 @@ SQL Server Stretch Database migrates your cold data transparently and securely t
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create and enable a SQL Server Stretch Database</h3>
+                        <h3>SQL Server Stretch Database 마법사 사용 시작</h3>
                     </div>
                 </div>
             </div>
@@ -82,12 +86,16 @@ SQL Server Stretch Database migrates your cold data transparently and securely t
 
 ---
 
-
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-server-stretch-database.pdf">
         <div class="img"></div>
         <div class="text">
-            Download SQL Server Stretch Database Documentation
-        </div>
+SQL Server Stretch Database 설명서 다운로드 </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

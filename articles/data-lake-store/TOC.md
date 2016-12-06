@@ -51,19 +51,22 @@
 ### [진단 로그 액세스](data-lake-store-diagnostic-logs.md)
 
 # 참조
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-## [.NET](https://docs.microsoft.com/dotnet/api)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-store)
-## [REST (영문)](https://docs.microsoft.com/en-us/rest/api/datalakestore/)
+## [REST (영문)](/rest/api/datalakestore/)
 
 # 리소스
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-store)
+## [가격 책정](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [스택 오버플로 포럼](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
 ## [Data Lake Store 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

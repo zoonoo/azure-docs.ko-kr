@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect: 계정 및 사용 권한 | Microsoft Docs'
-description: 이 항목에서는 사용되고 만든 계정 및 필요한 권한을 설명합니다.
+title: "Azure AD Connect: 계정 및 사용 권한 | Microsoft Docs"
+description: "이 항목에서는 사용되고 만든 계정 및 필요한 권한을 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b2baa9ea093a36cadb2251bbd1f4390552d8ec0e
+
 
 ---
-# <a name="azure-ad-connect:-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 Azure AD Connect 설치 마법사는 두 가지 다른 경로를 제공합니다.
 
 * Express 설정에서 마법사는 사용자를 만들거나 사용 권한을 별도로 구성하지 않고도 구성을 쉽게 설정할 수 있도록 더 많은 권한이 필요합니다.
@@ -52,8 +56,8 @@ AD DS에 대해 읽고 쓰도록 만들어진 [계정](#active-directory-account
 | 사용 권한 | 용도 |
 | --- | --- |
 | <li>디렉터리 변경 내용 복제</li><li>모든 디렉터리 변경 내용 복제 |암호 동기화 |
-| 모든 속성 사용자 읽기/쓰기 |가져오기 및 Exchange 하이브리드 |
-| 모든 속성 iNetOrgPerson 읽기/쓰기 |가져오기 및 Exchange 하이브리드 |
+| 모든 속성 사용자 읽기/쓰기  |가져오기 및 Exchange 하이브리드 |
+| 모든 속성 iNetOrgPerson 읽기/쓰기  |가져오기 및 Exchange 하이브리드 |
 | 모든 속성 그룹 읽기/쓰기 |가져오기 및 Exchange 하이브리드 |
 | 모든 속성 연락처 읽기/쓰기 |가져오기 및 Exchange 하이브리드 |
 | 암호 재설정 |비밀번호 쓰기 저장을 사용하기 위한 준비 |
@@ -127,6 +131,9 @@ Azure AD의 계정은 동기화 서비스의 사용에 생성됩니다. 이 계�
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](../active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

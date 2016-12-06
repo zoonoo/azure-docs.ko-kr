@@ -176,13 +176,15 @@
 ### [VM 재배포](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # 참조
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
+## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [커뮤니티 템플릿](https://azure.microsoft.com/documentation/templates/)
-## [계산 REST](/rest/api/compute/)
-## [네트워크 REST](/rest/api/)
-## [저장소 REST](/rest/api/storageservices/)
+## [커뮤니티 템플릿](https://azure.microsoft.com/documentation/templates)
+## [계산 REST](/rest/api/compute)
+## [네트워크 REST](/rest/api)
+## [저장소 REST](/rest/api/storageservices)
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/#Windows)
@@ -191,6 +193,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -16,6 +16,7 @@
 # 방법
 ## 빌드
 ### [커넥터 만들기](../app-service-logic/app-service-logic-create-api-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [파일 시스템 커넥터 사용](../app-service-logic/app-service-logic-use-file-connector.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Visual Studio 도구](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Azure 함수 사용](../app-service-logic/app-service-logic-azure-functions.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [호출 가능 끝점인 논리 앱](../app-service-logic/app-service-logic-http-endpoint.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -27,8 +28,8 @@
 ### [문제 해결 팁](../app-service-logic/app-service-logic-diagnosing-failures.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [한도 및 구성](../app-service-logic/app-service-logic-limits-and-config.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
+
 ## EIP(엔터프라이즈 통합 팩) 사용
-### [엔터프라이즈 통합 팩](../app-service-logic/app-service-logic-enterprise-integration-overview.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [통합 계정 개요](../app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [규약](../app-service-logic/app-service-logic-enterprise-integration-agreements.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [B2B 처리](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -49,10 +50,7 @@
 ### [X12 통합](../app-service-logic/app-service-logic-enterprise-integration-x12.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [X12 인코딩](../app-service-logic/app-service-logic-enterprise-integration-x12-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [X12 디코딩](../app-service-logic/app-service-logic-enterprise-integration-x12-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [B2B 추적](../app-service-logic/app-service-logic-track-b2b-message.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [AS2 추적 스키마](../app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [X12 추적 스키마](../app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [사용자 지정 추적 스키마](../app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+
 
 ## 게이트웨이 사용
 ### [온-프레미스 연결](../app-service-logic/app-service-logic-gateway-connection.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -64,6 +62,12 @@
 
 ## 관리
 ### [논리 앱 모니터링](../app-service-logic/app-service-logic-monitor-your-logic-apps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [B2B 메시지 모니터링](../app-service-logic/app-service-logic-monitor-b2b-message.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [AS2 추적 스키마](../app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [X12 추적 스키마](../app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [사용자 지정 추적 스키마](../app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [B2B 메시지 추적](../app-service-logic/app-service-logic-track-b2b-messages-omsportal.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+
 ### [통합 계정](../app-service-logic/app-service-logic-enterprise-integration-accounts.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [가격 책정](../app-service-logic/app-service-logic-pricing.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
@@ -82,12 +86,11 @@
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)  
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps) 
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-logic-apps)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=logic-apps) 
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

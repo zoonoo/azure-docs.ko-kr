@@ -1,4 +1,4 @@
-### 형식 변환 샘플
+### <a name="type-conversion-sample"></a>형식 변환 샘플
 다음 샘플은 형식 변환을 통해 Blob에서 Azure 테이블로 데이터를 복사하기 위한 것입니다.
 
 Blob 데이터 집합이 CSV 형식이며 3개의 열을 포함하고 있다고 가정합니다. 그 중 하나는 요일에 축약된 프랑스 이름을 사용하여 사용자 지정 datetime 형식을 사용하는 datetime 열입니다.
@@ -69,4 +69,8 @@ Blob 데이터 집합이 CSV 형식이며 3개의 열을 포함하고 있다고 
 
 이 경우 Blob에서 Azure SQL로 데이터를 이동하면 데이터 팩터리는 fr-fr 문화권을 사용하여 사용자 지정 datetime 서식으로 Datetime 필드를 포함하는 형식 변환을 자동으로 수행합니다
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

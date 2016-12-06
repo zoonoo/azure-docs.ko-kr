@@ -6,9 +6,16 @@
 > * [모바일 앱](../articles/azure-functions/functions-bindings-mobile-apps.md)
 > * [알림 허브](../articles/azure-functions/functions-bindings-notification-hubs.md)
 > * [서비스 버스](../articles/azure-functions/functions-bindings-service-bus.md)
-> * [저장소](../articles/azure-functions/functions-bindings-storage.md)
+> * [Storage 큐](../articles/azure-functions/functions-bindings-storage-queue.md)
+> * [Storage Blob](../articles/azure-functions/functions-bindings-storage-blob.md)
+> * [Storage 테이블](../articles/azure-functions/functions-bindings-storage-table.md)
 > * [타이머](../articles/azure-functions/functions-bindings-timer.md)
+> * [Twilio](../articles/azure-functions/functions-bindings-twilio.md)
 > 
 > 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

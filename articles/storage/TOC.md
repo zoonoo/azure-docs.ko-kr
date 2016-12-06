@@ -102,7 +102,7 @@
 ### [공유 액세스 서명(SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [자습서: Azure Key Vault를 사용하여 Blob 암호화 및 해독](storage-encrypt-decrypt-blobs-key-vault.md)
 ### 클라이언트 쪽 암호화
-#### [Azure Key Vault](storage-client-side-encryption.md)
+#### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 
@@ -181,6 +181,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

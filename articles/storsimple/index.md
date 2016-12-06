@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#StorSimple Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 42f5ac0bae68b967378b5e1a090f3b17e4efad20
 
-StorSimple and Microsoft Azure offer a unique and integrated primary storage archival and disaster recovery solution with Azure as the extension of on-premises storage. Use this learning path to deploy and manage your StorSimple solution.
+---
+#<a name="storsimple-documentation"></a>StorSimple 설명서
+
+StorSimple 및 Microsoft Azure는 Azure를 사용한 고유한 통합형 기본 저장소 보관 및 재해 복구 솔루션을 온-프레미스 저장소의 확장으로 제공합니다. StorSimple 솔루션을 배포하고 관리하는 방법을 알아봅니다.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -17,7 +21,7 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about StorSimple Virtual Array</h3>
+                        <h3>StorSimple 가상 배열 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -31,11 +35,11 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/storsimple.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about StorSimple 8000 series</h3>
+                        <h3>StorSimple 8000 시리즈 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>StorSimple Video Library</h3>
+                        <h3>StorSimple 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with StorSimple Virtual Array</h3>
+                        <h3>StorSimple 가상 배열 시작</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with StorSimple 8000 series</h3>
+                        <h3>StorSimple 8000 시리즈 시작</h3>
                     </div>
                 </div>
             </div>
@@ -100,17 +104,49 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
 
 ---
 
-##Other StorSimple Solutions
+##<a name="other-storsimple-solutions"></a>기타 StorSimple 솔루션
 
-[StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com/)
-
-###[Release Notes](/azure/storsimple/storsimple-update3-release-notes)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="http://onlinehelp.storsimple.com/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>기타 StorSimple 솔루션</h3>
+                        <p>StorSimple 5000-7000 시리즈</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/storsimple/storsimple-update3-release-notes">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>릴리스 정보</h3>
+                        <p>릴리스 정보</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storsimple.pdf">
         <div class="img"></div>
         <div class="text">
-            Download StorSimple Documentation
-        </div>
+StorSimple 설명서 다운로드 </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

@@ -34,7 +34,7 @@ Azure용 웹 응용 프로그램 프로젝트를 만들면 Azure에서 가상 �
     
     ![][5]
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 앞서 만든 게시된 스크립트를 사용자 지정하려면 [Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시](http://msdn.microsoft.com/library/dn642480.aspx)에서 자세한 내용을 확인하세요.
 
 [0]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_NewProject.PNG
@@ -44,4 +44,7 @@ Azure용 웹 응용 프로그램 프로젝트를 만들면 Azure에서 가상 �
 [4]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-common-classic-web-app-visual-studio/VS_Create_VM_Connect.png
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

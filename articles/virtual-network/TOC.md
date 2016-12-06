@@ -13,7 +13,7 @@
 
 # 시작
 ## [가상 네트워크 만들기](virtual-networks-create-vnet-arm-pportal.md)
-## [가상 네트워크에 VM 배포](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+## [가상 네트워크에 VM 배포](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 # 방법
 ## 계획 및 디자인
@@ -143,6 +143,6 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

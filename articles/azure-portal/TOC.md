@@ -22,7 +22,7 @@
 ### [이벤트 및 감사 로그 보기](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [경고 알림 받기](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-# 참조
+# 관련 항목
 ## [Azure Resource Manager 템플릿 함수](../resource-group-template-functions.md)
 ## [자동 크기 조정에 대한 모범 사례](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [자동 크기 조정에 대한 공통 메트릭](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
@@ -32,10 +32,16 @@
 ## [Azure Insights PowerShell 빠른 시작 샘플](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Azure Insights CLI 빠른 시작 샘플](../monitoring-and-diagnostics/insights-cli-samples.md)
 
+# 리소스
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

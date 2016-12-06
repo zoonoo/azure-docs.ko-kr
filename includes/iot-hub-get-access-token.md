@@ -1,5 +1,5 @@
-## 리소스 관리자 토큰 가져오기
-Azure Active Directory는 Azure 리소스 관리자를 사용하여 리소스에서 수행하는 모든 작업을 인증해야 합니다. 아래의 예는 암호 인증을 사용하며, 다른 방법은 [Azure 리소스 관리자 요청 인증][lnk-authenticate-arm]을 참조하세요.
+## <a name="obtain-an-azure-resource-manager-token"></a>Azure Resource Manager 토큰 가져오기
+Azure Active Directory는 Azure 리소스 관리자를 사용하여 리소스에서 수행하는 모든 작업을 인증해야 합니다. 아래의 예는 암호 인증을 사용하며, 다른 방법은 [Azure Resource Manager 요청 인증][lnk-authenticate-arm]을 참조하세요.
 
 1. Program.cs의 **Main** 메서드에 다음 코드를 추가하여 응용 프로그램 ID 및 암호를 사용해 Azure AD에서 토큰을 검색합니다.
    
@@ -16,7 +16,7 @@ Azure Active Directory는 Azure 리소스 관리자를 사용하여 리소스에
       return;
     }
     ```
-2. **Main** 메서드의 끝에 다음 코드를 추가하여 토큰을 사용해 **ResourceManagementClient** 개체를 만듭니다.
+2. **Main** 메서드의 끝에 다음 코드를 추가하여 토큰을 사용하는 **ResourceManagementClient** 개체를 만듭니다.
    
     ```
     var creds = new TokenCredentials(token.AccessToken);
@@ -37,4 +37,6 @@ Azure Active Directory는 Azure 리소스 관리자를 사용하여 리소스에
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!--HONumber=Nov16_HO3-->
+
+

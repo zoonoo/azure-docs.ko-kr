@@ -10,7 +10,7 @@
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
-3. **QSAppDelegate.m**에서 다음 처리기 메서드를 추가합니다. 이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
+3. **QSAppDelegate.m**에서 다음 처리기 메서드를 추가합니다. 이제 푸시 알림을 지원하도록 앱이 업데이트됩니다. 
    
         // Registration with APNs is successful
         - (void)application:(UIApplication *)application
@@ -79,7 +79,7 @@
 
 **Swift**:
 
-1. 다음과 같은 내용으로 **ClientManager.swift** 파일을 추가합니다. _%AppUrl%_을 Azure 모바일 앱 백 엔드의 URL로 바꿉니다.
+1. 다음과 같은 내용으로 **ClientManager.swift** 파일을 추가합니다. *%AppUrl%*을 Azure 모바일 앱 백 엔드의 URL로 바꿉니다.
    
         class ClientManager {
             static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
@@ -87,7 +87,7 @@
 2. **ToDoTableViewController.swift**에서 `MSClient`를 초기화하는 `let client` 줄을 다음 줄로 바꿉니다.
    
         let client = ClientManager.sharedClient
-3. **AppDelegate.swift**에서 `func application`의 본문을 다음과 같이 바꿉니다.
+3. In **AppDelegate.swift**에서 `func application`의 본문을 다음과 같이 바꿉니다.
    
         func application(application: UIApplication,
           didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -139,4 +139,8 @@
    
         }
 
-<!---HONumber=AcomDC_0204_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

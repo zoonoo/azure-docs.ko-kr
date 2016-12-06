@@ -1,4 +1,4 @@
-### 최신 PowerShell 버전의 태그 cmdlet 변경
+### <a name="tag-cmdlet-changes-in-latest-powershell-version"></a>최신 PowerShell 버전의 태그 cmdlet 변경
 [Azure PowerShell 2.0][powershell]의 2016년 8월 릴리스에서는 태그를 사용하는 방식이 크게 변경되었습니다. 계속하기 전에 AzureRm.Resources 모듈 버전을 확인합니다.
 
     Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
@@ -15,10 +15,10 @@
     -------
     3.0.1
 
-모듈 버전 3.0.1 이상에는 태그를 사용하기 위한 가장 최근의 cmdlet가 있습니다. 이 버전의 Azure 리소스 모듈은 PowerShell 갤러리, PowerShellGet 또는 웹 플랫폼 설치 관리자를 사용하여 Azure PowerShell을 업그레이드할 때 자동으로 설치됩니다. 버전이 3.0.1보다 이전 버전이면 해당 버전을 사용할 수 있으나 최신 버전으로 업데이트하는 것이 좋습니다. 최신 버전은 태그를 보다 쉽게 사용할 수 있도록 변경되었습니다. 두 가지 방법은 모두 이 항목에 나와 있습니다.
+모듈 버전 3.0.1 이상에는 태그를 사용하기 위한 가장 최근의 cmdlet가 있습니다. 이 버전의 Azure 리소스 모듈은 PowerShell 갤러리, PowerShellGet 또는 웹 플랫폼 설치 관리자를 사용하여 Azure PowerShell을 업그레이드할 때 자동으로 설치됩니다.  버전이 3.0.1보다 이전 버전이면 해당 버전을 사용할 수 있으나 최신 버전으로 업데이트하는 것이 좋습니다. 최신 버전은 태그를 보다 쉽게 사용할 수 있도록 변경되었습니다. 두 가지 방법은 모두 이 항목에 나와 있습니다.
 
-### 최신 버전의 변경 내용에 맞게 스크립트 업데이트
-최신 릴리스에서 **Tags** 매개 변수가 **Tag**로, 형식이 **Hashtable**에서 **Hashtable**로 변경되었습니다. 각 항목에 대해 더 이상 **이름** 및 **값**을 제공할 필요가 없습니다. 대신 키-값 쌍을 **키 = "값"** 형식으로 제공합니다.
+### <a name="updating-your-script-for-changes-in-latest-version"></a>최신 버전의 변경 내용에 맞게 스크립트 업데이트
+최신 릴리스에서 **Tags** 매개 변수가 **Tag**로, 형식이 **Hashtable**에서 **Hashtable**로 변경되었습니다. 각 항목에 대해 더 이상 **이름** 및 **값**을 제공할 필요가 없습니다. 대신 키-값 쌍을 **키 = "값"**형식으로 제공합니다.
 
 기존 스크립트를 업데이트하려면 **Tags** 매개 변수를 **Tag**로 변경하고 다음 예제와 같이 태그 형식을 변경합니다.
 
@@ -30,8 +30,8 @@
 
 그러나 리소스 그룹 및 리소스는 해당 메타데이터에서 여전히 **Tags** 속성을 반환합니다. 이 속성은 변경되지 않습니다.
 
-### 버전 3.0.1 이상
-태그는 리소스 및 리소스 그룹에 직접 존재합니다. 기존 태그를 확인하려면 **Get-AzureRmResource**를 사용하여 리소스를, **Get-AzureRmResourceGroup**을 사용하여 리소스 그룹을 봅니다.
+### <a name="version-301-or-later"></a>버전 3.0.1 이상
+태그는 리소스 및 리소스 그룹에 직접 존재합니다. 기존 태그를 확인하려면 **Get-AzureRmResource**를 사용하여 리소스를, **Get-AzureRmResourceGroup**을 사용하여 리소스 그룹을 봅니다. 
 
 리소스 그룹부터 살펴보겠습니다.
 
@@ -100,7 +100,7 @@
                     Dept          IT
                     Environment   Test
 
-**Set-AzureRmResource** 명령을 사용하여 기존 태그가 없는 리소스에 태그를 추가할 수 있습니다.
+**Set-AzureRmResource** 명령을 사용하여 기존 태그가 없는 리소스에 태그를 추가할 수 있습니다. 
 
     Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
 
@@ -112,7 +112,7 @@
 
 태그를 하나 이상 제거하려는 경우에는 제거하려는 태그가 없는 배열을 저장하면 됩니다.
 
-이 프로세스는 **Get-AzureRmResource** 및 **Set-AzureRmResource** cmdlet을 사용한다는 점을 제외하고 리소스에 대한 프로세스와 동일합니다.
+이 프로세스는 **Get-AzureRmResource** 및 **Set-AzureRmResource**를 사용한다는 점을 제외하고 리소스에 대한 프로세스와 동일합니다. 
 
 PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면 **Get-AzureRmTag** cmdlet을 사용합니다.
 
@@ -129,8 +129,8 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 
 **New-AzureRmTag** cmdlet을 사용하여 분류에 새 태그를 추가합니다. 이러한 태그는 아직 리소스 또는 리소스 그룹에 적용되지 않았더라도 자동 완성에 포함됩니다. 태그 이름/값을 제거하려면 먼저 함께 사용될 수 있는 모든 리소스에서 태그를 제거하고 **Remove-AzureRmTag** cmdlet을 사용하여 분류에서 제거합니다.
 
-### 3\.0.1 이전 버전
-태그는 리소스 및 리소스 그룹에 직접 존재합니다. 기존 태그를 확인하려면 **Get-AzureRmResource**를 사용하여 리소스를, **Get-AzureRmResourceGroup**을 사용하여 리소스 그룹을 봅니다.
+### <a name="versions-earlier-than-301"></a>3.0.1 이전 버전
+태그는 리소스 및 리소스 그룹에 직접 존재합니다. 기존 태그를 확인하려면 **Get-AzureRmResource**를 사용하여 리소스를, **Get-AzureRmResourceGroup**을 사용하여 리소스 그룹을 봅니다. 
 
 리소스 그룹부터 살펴보겠습니다.
 
@@ -147,7 +147,7 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
                     Dept         Finance
                     Environment  Production
 
-리소스 메타데이터를 검색하려면 다음 예제를 사용합니다. 리소스 메타데이터는 태그를 직접 표시하지 않습니다.
+리소스 메타데이터를 검색하려면 다음 예제를 사용합니다. 리소스 메타데이터는 태그를 직접 표시하지 않습니다. 
 
     Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName testrg1
 
@@ -209,7 +209,7 @@ Set-AzureRmResource 명령을 사용하여 기존 태그가 없는 리소스에 
 
 태그를 하나 이상 제거하려는 경우에는 제거하려는 태그가 없는 배열을 저장하면 됩니다.
 
-이 프로세스는 Get-AzureRmResource 및 Set-AzureRmResource cmdlet를 사용한다는 점을 제외하고 리소스에 대한 프로세스와 동일합니다.
+이 프로세스는 Get-AzureRmResource 및 Set-AzureRmResource cmdlet를 사용한다는 점을 제외하고 리소스에 대한 프로세스와 동일합니다. 
 
 PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면 **Get-AzureRmTag** cmdlet을 사용합니다.
 
@@ -228,4 +228,7 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 
 [powershell]: https://msdn.microsoft.com/library/mt619274(v=azure.200).aspx
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

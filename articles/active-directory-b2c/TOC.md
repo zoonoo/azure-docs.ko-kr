@@ -1,6 +1,5 @@
 # 개요
-## [Azure AD B2C란?](https://azure.microsoft.com/services/active-directory-b2c/)
-## [작동 방법](active-directory-b2c-overview.md)
+## [개요](active-directory-b2c-overview.md)
 ## [응용 프로그램 유형](active-directory-b2c-apps.md)
 ## [프로덕션 규모와 B2C 테넌트 미리 보기 비교](active-directory-b2c-reference-tenant-type.md)
 
@@ -51,10 +50,12 @@
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 # 리소스
-## [지원](active-directory-b2c-support.md)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [Azure 피드백 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-b2c)
+## [지원](active-directory-b2c-support.md)
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

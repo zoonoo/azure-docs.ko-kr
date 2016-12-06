@@ -5,11 +5,11 @@
 
 # 시작
 ## 통찰 및 분석
-###[Log Analytics에 등록](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Log Analytics에 등록](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Automation 및 제어
-###[내 첫 번째 runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [내 첫 번째 runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## 보호 및 복구
-###[Azure Backup 소개](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Azure Backup 소개](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## 보안 및 규정 준수
 ### [보안 및 감사](oms-security-getting-started.md)
 ### [데이터 보안](oms-security-data-security.md)
@@ -44,8 +44,8 @@
 #### [AD 평가](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD 복제 상태](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [경고 관리](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-#### [Application Dependency Monitor](operations-management-suite-application-dependency-monitor.md)
-##### [구성](operations-management-suite-application-dependency-monitor-configure.md)
+#### [서비스 맵](operations-management-suite-service-map.md)
+##### [구성](operations-management-suite-service-map-configure.md)
 #### [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [컨테이너](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Key Vault 분석](../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -64,6 +64,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

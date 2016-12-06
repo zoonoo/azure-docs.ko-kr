@@ -1,7 +1,4 @@
-# StorSimple 개요
-
 # StorSimple 가상 배열
-
 ## 개요
 ### [솔루션이란?](storsimple-ova-overview.md)
 
@@ -10,16 +7,41 @@
 #### [요구 사항 검토](storsimple-ova-system-requirements.md)
 #### [제한 이해](storsimple-ova-limits.md)
 #### [모범 사례 검토](storsimple-ova-best-practices.md)
-### 배포
+
+### 배포(Azure Portal)
+#### [배포 준비](storsimple-virtual-array-deploy1-portal-prep.md)
+##### [StorSimple Manager 서비스 배포](storsimple-virtual-array-manage-service.md)
+#### [Hyper-V에서 프로비전](storsimple-virtual-array-deploy2-provision-hyperv.md)
+#### [VMware에서 프로비전](storsimple-virtual-array-deploy2-provision-vmware.md)
+#### [파일 서버로 설정](storsimple-virtual-array-deploy3-fs-setup.md)
+#### [iSCSI 서버로 설정](storsimple-virtual-array-deploy3-iscsi-setup.md)
+
+### 배포(클래식 포털)
 #### [배포 준비](storsimple-ova-deploy1-portal-prep.md)
-#### [StorSimple Manager 서비스 배포](storsimple-ova-manage-service.md)
+##### [StorSimple Manager 서비스 배포](storsimple-ova-manage-service.md)
 #### [Hyper-V에서 프로비전](storsimple-ova-deploy2-provision-hyperv.md)
 #### [VMware에서 프로비전](storsimple-ova-deploy2-provision-vmware.md)
 #### [파일 서버로 설정](storsimple-ova-deploy3-fs-setup.md)
 #### [iSCSI 서버로 설정](storsimple-ova-deploy3-iscsi-setup.md)
 
 ## 방법
-### [Azure 포털을 통해 관리](storsimple-ova-manager-service-administration.md)
+### [Azure 포털을 통해 관리](storsimple-virtual-array-manager-service-administration.md)
+#### [최신 업데이트 설치](storsimple-virtual-array-install-update.md)
+#### [백업 만들기 및 관리](storsimple-virtual-array-backup.md)
+#### [백업에서 복제](storsimple-virtual-array-clone.md)
+#### [장애 조치(failover) 및 DR](storsimple-virtual-array-failover-dr.md)
+#### [비활성화 및 삭제](storsimple-virtual-array-deactivate-and-delete-device.md)
+#### [공유 관리](storsimple-virtual-array-manage-shares.md)
+#### [볼륨 관리](storsimple-virtual-array-manage-volumes.md)
+#### [서비스 요약 보기](storsimple-virtual-array-service-summary.md)
+#### [장치 요약 보기](storsimple-virtual-array-device-summary.md)
+#### [저장소 계정 관리](storsimple-virtual-array-manage-storage-accounts.md)
+#### [ACR 관리](storsimple-virtual-array-manage-acrs.md)
+#### [작업 관리](storsimple-virtual-array-manage-jobs.md)
+#### [장치 암호 변경](storsimple-virtual-array-change-device-admin-password.md)
+#### [Windows Server 호스트에 MPIO 구성](storsimple-virtual-array-configure-mpio-windows-server.md)
+
+### [Azure 클래식 포털을 통해 관리](storsimple-ova-manager-service-administration.md)
 #### [최신 업데이트 설치](storsimple-ova-install-update-01.md)
 #### [백업 만들기 및 관리](storsimple-ova-backup.md)
 #### [백업에서 복원](storsimple-ova-restore.md)
@@ -54,6 +76,7 @@
 ### Install
 #### [안전 검토](storsimple-safety.md)
 #### [8100 압축 풀기, 랙, 케이블](storsimple-8100-hardware-installation.md)
+
 #### [8600 압축 풀기, 랙, 케이블](storsimple-8600-hardware-installation.md)
 #### [10GbE 네트워크 인터페이스에 지원되는 하드웨어](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -63,6 +86,7 @@
 ##### [Azure의 물리적 장치 - 업데이트 1](storsimple-deployment-walkthrough-u1.md)
 ##### [Azure의 물리적 장치 - GA](storsimple-deployment-walkthrough.md)
 #### [정부 포털의 물리적 장치 - 현재](storsimple-deployment-walkthrough-gov-u2.md)
+##### [정부 포털의 물리적 장치 - 업데이트 1](storsimple-deployment-walkthrough-gov.md)
 #### [Azure의 가상 장치](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [SharePoint용 StorSimple 어댑터](storsimple-adapter-for-sharepoint.md)
@@ -114,9 +138,11 @@
 ##### [StorSimple Snapshot Manager에서 MMC 작업 사용](storsimple-snapshot-manager-mmc-menu.md)
 
 ### 솔루션 빌드
-#### [분산 전역 네임스페이스](https://www.microsoft.com/download/details.aspx?id=45507)
 #### [Azure에 자동화 파일 서버 DR](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Express 경로를 사용하는 StorSimple](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
+#### [VMware를 사용하는 StorSimple](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
+#### [Hyper-V를 사용하는 StorSimple](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
+#### [분산 전역 네임스페이스](https://www.microsoft.com/download/details.aspx?id=45507)
 
 ### 모니터
 #### [서비스 대시보드 사용](storsimple-service-dashboard.md)
@@ -139,7 +165,7 @@
 ##### [지원 패키지 만들기](storsimple-create-manage-support-package.md)
 
 ### 마이그레이션
-#### [5000-7000 시리즈에서](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
+#### [5000-7000 시리즈에서](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [다른 저장 장치에서](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### 업데이트
@@ -160,22 +186,37 @@
 ### [릴리스 - GA](storsimple-july-2014-release-notes.md)
 
 ## 참조
-### [PowerShell](/powershell/servicemanagement/)
+### [Azure PowerShell](/powershell/servicemanagement)
+### [StorSimple용 Windows PowerShell cmdlet](https://technet.microsoft.com/library/dn688168.aspx)
+
+# StorSimple 데이터 관리자(비공개 미리 보기)
+
+## 개요
+### [솔루션이란?](storsimple-data-manager-overview.md)
+
+## 시작
+### [StorSimple 데이터 관리자 사용](storsimple-data-manager-ui.md)
+
+## 방법
+### [.NET을 사용하여 데이터 변환](storsimple-data-manager-dotnet-jobs.md)
 
 # 관련 항목
 ## [StorSimple 5000-7000 시리즈](http://onlinehelp.storsimple.com)
 
 # 리소스
-## [포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [가격 책정](https://azure.microsoft.com/pricing/details/storsimple/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=storsimple)
 ## [마케팅 블로그](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [지원 블로그](http://blogs.msdn.com/b/storsimple/)
 ## [타사 알림](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=storsimple)
-## [가격 책정](https://azure.microsoft.com/pricing/details/storsimple/)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

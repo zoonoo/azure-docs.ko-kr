@@ -1,6 +1,6 @@
-응용 프로그램별(즉, 계측 키별) 메트릭 및 이벤트의 수에 몇 가지 제한이 있습니다.
+응용 프로그램별(즉, 계측 키별) 메트릭 및 이벤트의 수에 몇 가지 제한이 있습니다. 
 
-선택하는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/application-insights/)에 따라 제한됩니다.
+선택하는 [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)에 따라 제한됩니다.
 
 | **리소스** | **기본 제한** | **최대 제한** |
 | --- | --- | --- |
@@ -10,7 +10,7 @@
 | [예외](../articles/application-insights/app-insights-asp-net-exceptions.md) 데이터 속도 |50dp/s |50dp/s |
 | 요청, 이벤트, 종속성 및 페이지 보기 원격 분석에 대한 총 데이터 속도 |200dp/s |500dp/s |
 | [검색](../articles/application-insights/app-insights-diagnostic-search.md) 및 [분석](../articles/application-insights/app-insights-analytics.md)에 대한 원시 데이터 보존 |7 일 | |
-| [메트릭 탐색기](../articles/application-insights/app-insights-metrics-explorer.md)에 대한 집계 데이터 보존 |90일 | |
+|  [메트릭 탐색기](../articles/application-insights/app-insights-metrics-explorer.md) |90일 | |
 | [속성](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) 이름 수 |100 | |
 | 속성 이름 길이 |150 | |
 | 속성 값 길이 |8192 | |
@@ -27,4 +27,8 @@
 
 [Application Insights의 가격 책정 및 할당량 정보](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -7,8 +7,8 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### Azure 포털에서 연결 문자열 가져오기
-[Azure 포털](https://portal.azure.com/)에서 클라이언트 프로그램이 Azure SQL 데이터베이스와 상호 작용하는 데 필요한 연결 문자열을 가져올 수 있습니다.
+### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Azure 포털에서 연결 문자열 가져오기
+[Azure 포털](https://portal.azure.com/) 에서 클라이언트 프로그램이 Azure SQL 데이터베이스와 상호 작용하는 데 필요한 연결 문자열을 가져올 수 있습니다.
 
 1. **찾아보기** > **SQL 데이터베이스**를 클릭합니다.
    
@@ -22,9 +22,9 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 6. JDBC 연결 라이브러리를 사용하려는 경우 **JDBC**라는 레이블이 지정된 문자열을 복사합니다.
    
     ![데이터베이스에 대한 JDBC 연결 문자열 복사][3-get-connection-string]
-7. 연결 문자열 정보를 클라이언트 프로그램 코드에 붙여 넣습니다. {Your\_password\_here}를 실제 암호로 바꾸어야 합니다.
+7. 연결 문자열 정보를 클라이언트 프로그램 코드에 붙여 넣습니다.  {Your_password_here}를 실제 암호로 바꾸어야 합니다.
 
-자세한 내용은 <br/>[연결 문자열 및 구성 파일](https://msdn.microsoft.com/library/ms378428.aspx)을 참조하세요.
+자세한 내용은 다음을 참조하세요.<br/>[연결 문자열 및 구성 파일](https://msdn.microsoft.com/library/ms378428.aspx)를 클릭합니다.
 
 <!-- Image references. -->
 
@@ -44,4 +44,7 @@ includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
 
-<!---HONumber=AcomDC_0406_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

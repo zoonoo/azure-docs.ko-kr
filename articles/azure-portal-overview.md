@@ -31,7 +31,7 @@ Microsoft Azure 포털은 Azure 리소스를 프로비전 및 관리할 수 있�
   ![Azure 포털 UI 개요][UIOrientation]
 
 ## <a name="before-you-get-started"></a>시작하기 전에
-이 자습서를 진행하려면 유효한 Azure 구독이 필요합니다.  없는 경우 지금 [무료 평가판에 등록](https://azure.microsoft.com/pricing/free-trial/) 하세요.  구독한 후에는 [https://portal.azure.com]에서 포털에 액세스할 수 있습니다.
+이 자습서를 진행하려면 유효한 Azure 구독이 필요합니다.  없는 경우 지금 [무료 평가판에 등록](https://azure.microsoft.com/pricing/free-trial/) 하세요.  구독한 후에는 [https://portal.azure.com] 에서 포털에 액세스할 수 있습니다.
 
 ## <a name="how-to-create-a-resource"></a>리소스를 만드는 방법
 Azure에는 수천 개의 항목을 한 곳에서 만들 수 있는 마켓플레이스가 있습니다.  새 Windows Server 2012 VM을 만들려는 경우를 가정해 보겠습니다.  +새로 만들기 허브는 마켓플레이스의 큐레이트된 주요 범주 집합에 대한 진입점입니다.  각 범주에는 모든 범주 및 검색을 표시하는 전체 마켓플레이스의 링크와 함께 소규모의 주요 항목 집합이 있습니다. 새 Windows Server 2012 VM을 만들려면 다음 작업을 수행합니다.  

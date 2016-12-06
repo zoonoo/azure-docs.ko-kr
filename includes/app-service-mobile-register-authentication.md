@@ -11,6 +11,9 @@
 2. 앱에서 지원하려는 각 공급자에 대해 이전 단계를 반복합니다.
 
 <!-- URLs. -->
-[Azure portal]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+
+<!--HONumber=Nov16_HO3-->
+
+

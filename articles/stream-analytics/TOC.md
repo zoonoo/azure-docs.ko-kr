@@ -40,7 +40,7 @@
 ### [원 클릭 PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [.NET](/dotnet/api/)
 ## [쿼리 언어](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST (영문)](/rest/api/streamanalytics/)
@@ -57,6 +57,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

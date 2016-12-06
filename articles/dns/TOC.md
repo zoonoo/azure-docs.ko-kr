@@ -13,12 +13,13 @@
 ### [CLI](dns-getstarted-create-recordset-cli.md)
 
 ## [Azure DNS에 도메인 위임](dns-domain-delegation.md)
+## [웹앱에 대한 사용자 지정 DNS 레코드 만들기](dns-web-sites-custom-domain.md)
 
 # 방법
 
 ## DNS 영역 관리
 ### [PowerShell](dns-operations-dnszones.md)
-### [CLI](dns-operations-dnszones.md)
+### [CLI](dns-operations-dnszones-cli.md)
 
 ## [DNS 레코드 관리](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
@@ -29,12 +30,12 @@
 ### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
 ## [DNS 영역 파일 가져오기 및 내보내기](dns-import-export.md)
-## [다른 Azure 서비스와 함께 Azure DNS 사용](dns-for-azure-services.md)
+## [다른 Azure 서비스와 통합](dns-for-azure-services.md)
 ## [DNS 영역 및 레코드 보호](dns-protect-zones-recordsets.md)
 ## [.NET SDK를 사용하여 DNS 작업 자동화](dns-sdk.md)
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST API](/rest/api/dns/)
 
 # 관련 항목
@@ -46,11 +47,12 @@
 ## [웹앱](/azure/app-service-web/)
 
 # 리소스
-## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
-## [네트워킹 포럼](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=dns)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/dns/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

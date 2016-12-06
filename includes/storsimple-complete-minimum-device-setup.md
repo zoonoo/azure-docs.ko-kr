@@ -25,7 +25,7 @@
 
     ![StorSimple 최소 장치 설치 네트워크 인터페이스](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
-1. 확인 아이콘 ![StorSimple 확인 아이콘](의 주소를 제공합니다./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include의 주소를 제공합니다.png)의 주소를 제공합니다.
+1. 확인 아이콘 ![StorSimple 확인 아이콘](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png)의 주소를 제공합니다.
    장치 **퀵 스타트** 페이지로 돌아갑니다.
    
    > [!NOTE]

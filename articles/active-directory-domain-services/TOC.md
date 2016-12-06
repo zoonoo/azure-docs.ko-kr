@@ -1,6 +1,5 @@
 # 개요
-## [Azure AD Domain Services란?](https://azure.microsoft.com/services/active-directory-ds/)
-## [작동 방법](active-directory-ds-overview.md)
+## [Azure AD Domain Services란?](active-directory-ds-overview.md)
 ## [이 서비스의 대상](active-directory-ds-comparison.md)
 ## [기능](active-directory-ds-features.md)
 ## [시나리오](active-directory-ds-scenarios.md)
@@ -36,9 +35,11 @@
 
 # 리소스 
 ## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-ds/)
-## [문의처](active-directory-ds-contact-us.md)
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-ds)
+## [문의처](active-directory-ds-contact-us.md)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

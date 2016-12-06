@@ -1,13 +1,17 @@
 ---
 layout: LandingPage
----
-#Data Catalog Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 1420ed40368d21bbf391142782834e781155a72a
+ms.openlocfilehash: 6a413c765bf034dda1917c6a3853bcd2d060b49c
 
-Data Catalog is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Data Catalog represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+---
+#<a name="data-catalog-documentation"></a>Data Catalog 설명서
+
+Azure Data Catalog는 조직이 기존 투자에서 더 많은 가치를 얻을 수 있게 해주면서 사용자가 필요한 데이터 원본을 검색하고 찾는 데이터 원본을 이해할 수 있도록 하는 완전히 관리되는 클라우드 서비스입니다. Azure 데이터 카탈로그는 분석가부터 데이터 과학자, 개발자에 이르는 모든 사용자가 데이터 원본을 검색, 이해, 사용할 수 있는 기능을 제공합니다. 데이터 카탈로그는 메타데이터 및 주석의 크라우드소싱 모델을 포함하며 모든 사용자가 데이터의 커뮤니티 및 culture를 만드는 지식에 영향을 줄 수 있도록 합니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="/azure/data-catalog/data-catalog-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -17,7 +21,7 @@ Data Catalog is a distributed systems platform that makes it easy to package, de
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Data Catalog Getting Started Samples</h3>
+                        <h3>Azure Data Catalog 시작</h3>
                     </div>
                 </div>
             </div>
@@ -25,25 +29,7 @@ Data Catalog is a distributed systems platform that makes it easy to package, de
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Data Catalog Party Cluster</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
+        <a href="/azure/data-catalog/data-catalog-what-is-data-catalog">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -53,7 +39,7 @@ Data Catalog is a distributed systems platform that makes it easy to package, de
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Data Catalog with .NET Core</h3>
+                        <h3>Azure Data Catalog 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -64,19 +50,35 @@ Data Catalog is a distributed systems platform that makes it easy to package, de
 
 ---
 
-##Reference
+## <a name="reference"></a>참조
 
-###REST
-[Data Catalog REST API Reference](/rest/api/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/rest/api/datacatalog">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (영문)</h3>
+                        <p>Data Catalog REST API 참조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
-###.NET
-[Data Catalog Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Data Catalog Documentation
-        </div>
+Data Catalog 설명서 다운로드 </div>
     </a>
 </div>
+
+
+<!--HONumber=Nov16_HO4-->
+
+

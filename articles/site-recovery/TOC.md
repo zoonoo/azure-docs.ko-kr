@@ -2,7 +2,7 @@
 ## [Site Recovery란?](site-recovery-overview.md)
 ## [Site Recovery가 작동하는 방식](site-recovery-components.md)
 ## [어떤 워크로드를 보호할 수 있나요?](site-recovery-workload.md)
-## [지원되는 운영 체제는 무엇인가요?](site-recovery-support-matrix.md)
+## [Site Recovery 지원 매트릭스](site-recovery-support-matrix.md)
 ## [FAQ](site-recovery-faq.md)
 ## [소개 영상 보기](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
@@ -49,7 +49,7 @@
 ## [모니터링 및 문제 해결](site-recovery-monitoring-and-troubleshooting.md)
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell 클래식](/powershell/servicemanagement/)
 
 # 관련 항목
@@ -63,6 +63,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

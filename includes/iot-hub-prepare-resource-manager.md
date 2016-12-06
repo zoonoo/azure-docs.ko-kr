@@ -1,5 +1,5 @@
-## 리소스 관리자 요청 인증 준비
-Azure AD(Active Directory)에서 [Azure 리소스 관리자][lnk-authenticate-arm]를 사용하여 리소스에서 수행하는 모든 작업을 인증해야 합니다. 가장 쉽게 구성할 수 있는 방법은 PowerShell 또는 Azure CLI를 사용하는 것입니다.
+## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Azure Resource Manager 요청 인증 준비
+Azure AD(Azure Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]를 사용하여 리소스에서 수행하는 모든 작업을 인증해야 합니다. 가장 쉽게 구성할 수 있는 방법은 PowerShell 또는 Azure CLI를 사용하는 것입니다.
 
 계속하기 전에 [Azure PowerShell 1.0][lnk-powershell-install] 이상을 설치해야 합니다.
 
@@ -10,7 +10,7 @@ Azure AD(Active Directory)에서 [Azure 리소스 관리자][lnk-authenticate-ar
     ```
     Login-AzureRmAccount
     ```
-2. **TenantId** 및 **SubscriptionId**를 적어 둡니다. 나중에 필요합니다.
+2. **TenantId** 및 **SubscriptionId**를 적어둡니다. 나중에 필요합니다.
 3. 다음 명령을 사용하여 새 Azure Active Directory 응용 프로그램을 만듭니다. 자리 표시자는 바꿉니다.
    
    * **{표시 이름}:** **MySampleApp**과 같은 응용 프로그램의 표시 이름입니다.
@@ -21,7 +21,7 @@ Azure AD(Active Directory)에서 [Azure 리소스 관리자][lnk-authenticate-ar
      ```
      New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
      ```
-4. 만든 응용 프로그램의 **ApplicationId**를 적어 둡니다. 이 ID는 나중에 필요합니다.
+4. 만든 응용 프로그램의 **ApplicationId** 를 적어 둡니다. 이 ID는 나중에 필요합니다.
 5. 다음 명령을 사용하여 새 서비스 주체를 만듭니다. 이전 단계에서 **{MyApplicationId}**를 **ApplicationId**로 바꿉니다.
    
     ```
@@ -43,4 +43,7 @@ Azure AD(Active Directory)에서 [Azure 리소스 관리자][lnk-authenticate-ar
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 [lnk-powershell-install]: ../articles/powershell-install-configure.md
 
-<!---HONumber=AcomDC_0413_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

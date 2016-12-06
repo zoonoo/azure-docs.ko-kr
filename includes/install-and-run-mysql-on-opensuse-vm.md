@@ -46,19 +46,19 @@
         CREATE DATABASE testdatabase;
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    데이터베이스 사용자 이름과 암호는 스크립트를 데이터베이스에 연결하는 용도로만 사용되며, 데이터베이스 사용자 계정 이름에 시스템에 있는 실제 사용자 계정을 반영할 필요는 없습니다.
+    데이터베이스 사용자 이름과 암호는 스크립트를 데이터베이스에 연결하는 용도로만 사용되며,  데이터베이스 사용자 계정 이름에 시스템에 있는 실제 사용자 계정을 반영할 필요는 없습니다.
 9. 다른 컴퓨터에서 로그인하려면 다음을 입력합니다.
    
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
    
-    여기서 `ip-address`는 MySQL에 연결할 컴퓨터의 IP 주소입니다.
+    여기서 `ip-address` 는 MySQL에 연결할 컴퓨터의 IP 주소입니다.
 10. MySQL 데이터베이스 관리 유틸리티에서 나오려면 다음을 입력합니다.
     
         quit
 
-## 끝점 추가
-1. MySQL이 설치되면 MySQL에 원격으로 액세스하도록 끝점을 구성해야 합니다. [Azure 클래식 포털][AzurePortal]에 로그인합니다. **가상 컴퓨터**를 클릭하고 새 가상 컴퓨터의 이름을 클릭한 다음 **끝점**을 클릭합니다.
-2. 페이지 맨 아래에 있는 **추가**를 클릭합니다.
+## <a name="add-an-endpoint"></a>끝점 추가
+1. MySQL이 설치되면 MySQL에 원격으로 액세스하도록 끝점을 구성해야 합니다. [Azure 클래식 포털][AzurePortal]에 로그인합니다. **Virtual Machines**를 클릭하고 새 가상 컴퓨터의 이름을 클릭한 다음 **끝점**을 클릭합니다.
+2. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
 3. 프로토콜이 **TCP**이고 **공용** 및 **개인** 포트가 "3306"으로 설정된 "MySQL"이라는 끝점을 추가합니다.
 4. 컴퓨터에서 가상 컴퓨터에 원격으로 연결하려면 다음을 입력합니다.
    
@@ -73,4 +73,7 @@
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!---HONumber=AcomDC_0128_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

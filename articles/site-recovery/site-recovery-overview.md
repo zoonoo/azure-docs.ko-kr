@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 10/30/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 64d085bff08d9a824204851d32504fac3e79024c
+ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
+ms.openlocfilehash: 98bf94960c39565243995a1c4dd45787478b8f40
 
 
 ---
@@ -30,7 +30,7 @@ Site Recovery는 온-프레미스 가상 컴퓨터와 물리적 서버의 복제
 기본 사이트에서 중단이 발생하면 보조 사이트로 장애 조치하여 워크로드를 액세스 가능하고 사용 가능한 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다.
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Azure 포털에서 Site Recovery
-Azure에는 리소스를 만들고 작업하기 위한 두 가지 [배포 모델](../resource-manager-deployment-model.md), 즉 Azure Resource Manager 모델과 클래식 서비스 관리 모델이 있습니다. 또한 두 가지 포털, 즉 [Azure 클래식 포털](https://manage.windowsazure.com/)과 [Azure 포털](https://portal.azure.com)도 있습니다.
+Azure에는 리소스를 만들고 작업하기 위한 두 가지 [배포 모델](../azure-resource-manager/resource-manager-deployment-model.md), 즉 Azure Resource Manager 모델과 클래식 서비스 관리 모델이 있습니다. 또한 두 가지 포털, 즉 [Azure 클래식 포털](https://manage.windowsazure.com/)과 [Azure 포털](https://portal.azure.com)도 있습니다.
 
 * Site Recovery는 클래식 포털과 Azure 포털 모두에서 배포할 수 있습니다.
 * Azure 클래식 포털에서 기존 서비스 관리 모델을 사용하여 Site Recovery를 지원할 수 있습니다.
@@ -79,6 +79,6 @@ Site Recovery는 응용 프로그램 인식 복제를 제공하여 중단이 발
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

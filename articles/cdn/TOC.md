@@ -1,5 +1,6 @@
 # [개요](cdn-overview.md)
 ## [Azure CDN이란?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+
 # 시작
 ## [Azure CDN 사용](cdn-create-new-endpoint.md)
 
@@ -23,6 +24,8 @@
 #### [프리미엄 계층](cdn-query-string-premium.md)
 ### [캐시된 자산 제거](cdn-purge-endpoint.md)
 ### [캐시된 자산 미리 로드](cdn-preload-endpoint.md)
+### [토큰 인증](cdn-token-auth.md)
+### [리소스 모니터링](cdn-resource-health.md)
 ### [규칙을 사용하여 동작 재정의](cdn-rules-engine.md)
 ### [실시간 경고 받기](cdn-real-time-alerts.md)
 
@@ -41,19 +44,19 @@
 ### [파일 압축](cdn-troubleshoot-compression.md)
 
 # 참조
-## [PowerShell cmdlet](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [.NET API](https://docs.microsoft.com/dotnet/api)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [.NET](/dotnet/api/)
 ## [Azure CDN POP 위치](cdn-pop-locations.md)
-## [REST (영문)](https://msdn.microsoft.com/library/mt634456.aspx)
+## [REST (영문)](/rest/api/cdn/)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/cdn/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/forums/home?forum=azurecdn)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cdn)
+## [가격 책정](https://azure.microsoft.com/pricing/details/cdn/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-cdn)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

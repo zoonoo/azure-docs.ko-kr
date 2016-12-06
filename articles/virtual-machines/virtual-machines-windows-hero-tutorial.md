@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/06/2016
+ms.date: 11/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aaef478107d9c9771a1dc799a101ff9a41f821c6
+ms.sourcegitcommit: 22156a9f3c5a57e10cad96661f50531b309c3a04
+ms.openlocfilehash: a25d394e83d7945f0ea50de1fc65a68a96190a34
 
 
 ---
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, 해당 이미지는 Azure가 제공하는 여러 이미지 중 하나일 뿐입니다. 선택할 수 있는 이미지는 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 [MSDN 구독자](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)에 사용할 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 허브 메뉴에서 **새로 만들기** > **Virtual Machines** > **Windows Server 2012 R2 Datacenter**를 차례로 클릭합니다.
+2. 허브 메뉴에서 **새로 만들기** > **계산** > **Windows Server 2012 R2 Datacenter**를 클릭합니다.
    
     ![포털에서 사용할 수 있는 Azure VM 이미지를 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 3. **Windows Server 2012 R2 Datacenter** 블레이드의 **배포 모델 선택**에서 **Resource Manager**가 선택되어 있는지 확인합니다. **만들기**를 클릭합니다.
@@ -49,7 +49,7 @@ Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, �
 4. 완료되면 **확인** 을 클릭하여 다음 섹션을 진행합니다. 
    
     ![Azure VM을 구성하기 위한 **기본 사항** 블레이드에서 설정을 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-5. VM [크기](virtual-machines-windows-sizes.md)를 선택하고 **선택** 을 클릭하여 진행합니다. 
+5. VM [크기](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 선택하고 **선택** 을 클릭하여 진행합니다. 
    
     ![선택할 수 있는 Azure VM 크기를 보여 주는 크기 블레이드의 스크린샷](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 6. **설정** 블레이드에서 저장소 및 네트워크 옵션을 변경할 수 있습니다. 이 자습서에서는 기본 설정을 적용합니다. 지원하는 가상 컴퓨터 크기를 선택한 경우 **디스크 유형**에서 **프리미엄(SSD)**을 선택하여 Azure Premium Storage를 사용해 볼 수 있습니다. 변경 작업이 완료되면 **확인**을 클릭합니다.
@@ -76,7 +76,7 @@ Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, �
    
    ![VM의 ID를 확인하라는 메시지를 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
-연결하려고 할 때 문제가 발생할 경우 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)을 참조하세요.
+연결하려고 할 때 문제가 발생할 경우 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 이제 다른 서버처럼 가상 컴퓨터에서 작업할 수 있습니다.
 
@@ -88,13 +88,13 @@ Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, �
 **시작** 단추를 클릭하여 다시 사용할 준비가 되면 VM을 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [IIS를 설치](virtual-machines-windows-hero-role.md)하여 새 VM에서 실험할 수 있습니다. 이 자습서에서는 NSG(네트워크 보안 그룹)를 사용하여 들어오는 웹 트래픽에 포트 80을 여는 방법을 보여 줍니다. 
-* [PowerShell을 사용하여 Windows VM을 만들거나](virtual-machines-windows-ps-create.md) Azure CLI를 사용하여 [Linux 가상 컴퓨터를 만들 수도 있습니다](virtual-machines-linux-quick-create-cli.md).
-* 배포를 자동화하려는 경우 [Resource Manager 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md)를 참조하세요.
+* [IIS를 설치](virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하여 새 VM에서 실험할 수 있습니다. 이 자습서에서는 NSG(네트워크 보안 그룹)를 사용하여 들어오는 웹 트래픽에 포트 80을 여는 방법을 보여 줍니다. 
+* [PowerShell을 사용하여 Windows VM을 만들거나](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Azure CLI를 사용하여 [Linux 가상 컴퓨터를 만들 수도 있습니다](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* 배포를 자동화하려는 경우 [Resource Manager 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

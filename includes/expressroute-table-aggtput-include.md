@@ -5,6 +5,8 @@
 | **고성능 SKU** |2000Mbps |예 |
 | **초고성능 SKU** |10000Mbps |예 |
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

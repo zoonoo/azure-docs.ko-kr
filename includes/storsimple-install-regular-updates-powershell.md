@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### StorSimple용 Windows PowerShell을 통해 정기적인 업데이트를 설치하려면
+#### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell을 통해 정기적인 업데이트를 설치하려면
 1. 장치 직렬 콘솔을 열고 옵션 1, **모든 권한으로 로그인**을 선택합니다. 암호를 입력합니다. 기본 암호는 *Password1*입니다. 
 2. 명령 프롬프트에 다음을 입력합니다.
    
@@ -19,4 +19,8 @@
 > 
 > 
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

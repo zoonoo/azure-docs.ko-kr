@@ -96,6 +96,6 @@ Azure Monitor는 Azure 리소스 모니터링을 위한 단일 소스가 되는 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Monitor 개요](monitoring-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

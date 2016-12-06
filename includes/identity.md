@@ -6,13 +6,13 @@
 
 이 문서에서는 이러한 세 가지 옵션을 모두 설명합니다.
 
-## 목차
+## <a name="table-of-contents"></a>목차
 * [가상 컴퓨터에서 Windows Server Active Directory 실행](#adinvm)
 * [Azure Active Directory 사용](#ad)
 * [Azure Active Directory 액세스 제어 사용](#ac)
 
-## <a name="adinvm"></a>가상 컴퓨터에서 Windows Server Active Directory 실행
-Azure 가상 컴퓨터에서 Windows Server AD를 실행하는 것은 온-프레미스에서 실행하는 것과 비슷합니다. [그림 1](#fig1)은 일반적인 실행 예시를 보여 줍니다.
+## <a name="a-nameadinvmarunning-windows-server-active-directory-in-virtual-machines"></a><a name="adinvm"></a>가상 컴퓨터에서 Windows Server Active Directory 실행
+Azure 가상 컴퓨터에서 Windows Server AD를 실행하는 것은 온-프레미스에서 실행하는 것과 비슷합니다. [그림 1](#fig1) 은 일반적인 실행 예시를 보여 줍니다.
 
 ![가상 컴퓨터 내의 Azure Active Directory](./media/identity/identity_01_ADinVM.png)
 
@@ -28,7 +28,7 @@ Azure 가상 컴퓨터에서 Windows Server AD를 실행하는 것은 온-프레
 
 어떤 것을 선택하더라도 클라우드 링크가 온-프레미스 네트워크보다 속도가 떨어지므로 관리자는 온-프레미스 사용자 인증 요청이 필요한 경우에만 클라우드 도메인 컨트롤러를 사용하도록 설정해야 합니다. 클라우드와 온-프레미스 도메인 컨트롤러에 연결할 때 고려할 다른 요소는 복제할 때 발생하는 트래픽입니다. 클라우드에 있는 도메인 컨트롤러는 일반적으로 관리자가 얼마나 자주 복제를 할지 일정을 예약할 수 있는 해당 AD 사이트에 있습니다. Azure는 Azure 데이터 센터에서 내보내는 트래픽에 요금을 부과(들어오는 트래픽에는 부과 안 함)하기 때문에 관리자가 복제할 때 이 부분을 고려할 수 있습니다. Azure에서도 자체 DNS(도메인 이름 서비스)를 지원합니다. 다만 이 서비스에는 Active Directory에서 필요한 기능(동적 DNS 및 SRV 레코드 지원)이 빠져있습니다. 이 때문에 Windows Server AD를 Azure에서 실행할 때는 클라우드에서 자체 DNS 서버를 설정해야 합니다.
 
-다양한 상황에서 Azure VM에서 Windows Server AD를 실행하는 것이 적합할 수 있습니다. 다음은 몇 가지 예입니다.
+다양한 상황에서 Azure VM에서 Windows Server AD를 실행하는 것이 적합할 수 있습니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
 
 * 자체 소유의 데이터 센터의 확장으로 Azure 가상 컴퓨터를 사용 중인 경우 Windows 통합 인증 요청, LDAP 쿼리 등을 처리하기 위해 로컬 도메인 컨트롤러가 필요한 응용 프로그램을 실행할 수 있습니다. 예를 들어 SharePoint가 Active Directory와 자주 상호 작용하고 Azure에서 온-프레미스 디렉터리를 사용하여 SharePoint 팜을 실행할 수 있기 때문에 클라우드에 도메인 컨트롤러를 설정하면 성능을 현저하게 향상할 수 있습니다. 필수적인 설정 항목은 아니지만 많은 응용 프로그램이 클라우드에서 온-프레미스 컨트롤러를 사용하여 성공적으로 실행된다는 점은 중요하게 볼 필요가 있습니다.
 * 멀리 떨어진 지사에서 자체 도메인 컨트롤러를 실행할 리소스가 부족하다고 가정해 보겠습니다. 현재 이 지사의 사용자들은 지구 반대편에 있는 도메인 컨트롤러에서 인증을 받아야 해서 로그인 속도가 느립니다. 가까운 Microsoft 데이터 센터의 Azure에서 Active Directory를 실행하면 지사에 서버를 늘리지 않고도 속도를 향상할 수 있습니다.
@@ -36,7 +36,7 @@ Azure 가상 컴퓨터에서 Windows Server AD를 실행하는 것은 온-프레
 
 다른 경우도 있습니다. 예를 들어 클라우드에 있는 Windows Server AD를 온-프레미스 데이터 센터에 연결할 필요가 없습니다. 예를 들어 모든 사용자가 클라우드 기반 ID를 가지고 로그인하는 특정 사용자 그룹을 지원하는 SharePoint 팜을 실행하는 경우 Azure에서 독립형 포리스트를 만들 수 있습니다. 원하는 바에 따라 다양하게 기술을 활용할 수 있습니다. Azure에서 Windows Server AD를 사용하는 방법에 대한 자세한 지침을 보려면 [여기를 참조하세요](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
-## <a name="ad"></a>Azure Active Directory 사용
+## <a name="a-nameadausing-azure-active-directory"></a><a name="ad"></a>Azure Active Directory 사용
 SaaS 응용 프로그램이 점차 일반화되면서 당연한 질문이 제기되고 있습니다. 이러한 클라우드 기반 응용 프로그램에는 어떤 종류의 디렉터리 서비스를 사용해야 하나요? 이 질문에 대한 Microsoft의 대답은 Azure Active Directory입니다.
 
 클라우드에서 이 디렉터리 서비스를 사용하는 데는 두 가지 기본 옵션이 있습니다.
@@ -60,11 +60,12 @@ SaaS 응용 프로그램이 점차 일반화되면서 당연한 질문이 제기
 
 토큰에 포함된 정보보다 더 많은 사용자 관련 정보가 필요한 경우 응용 프로그램에서 Azure AD Graph API를 사용하여 Azure AD에서 직접 관련 정보를 요청할 수 있습니다(6단계). Azure AD의 초기 버전에서는 디렉터리 스키마에 단순하게 사용자와 그룹, 그리고 둘 사이의 관계만 포함되었습니다. 응용 프로그램은 이 정보를 사용하여 사용자 간의 연결 관계를 알 수 있습니다. 예를 들어 응용 프로그램이 사용자가 어느 부분의 데이터에 액세스할 수 있을지 결정하기 위해 사용자의 관리자가 누구인지 알아야 한다고 가정합시다. 이 정보는 Graph API를 통해 Azure AD에 쿼리하여 알 수 있습니다.
 
-Graph API는 일상적인 RESTful 프로토콜을 사용하며, 이 프로토콜은 휴대용 장치를 포함한 대부분 클라이언트에서 간단하게 사용할 수 있습니다. 또한 클라이언트가 OData에서 정의한 확장을 지원하여 클라이언트에서 더욱 유용한 방법으로 데이터에 액세스하도록 돕는 쿼리 언어 등을 추가합니다. OData에 대한 자세한 정보는 [Introducing OData](http://download.microsoft.com/download/E/5/A/E5A59052-EE48-4D64-897B-5F7C608165B8/IntroducingOData.pdf)를 참조하세요. Graph API를 사용하면 사용자 간의 관계를 알 수 있기 때문에 응용 프로그램에서 특정 조직용 Azure AD 스키마에 포함된 소셜 그래프를 이해할 수 있습니다. 이러한 이유로 Graph API라고 합니다. Graph API 요청에 대해 Azure AD에 인증받기 위해 응용 프로그램은 OAuth 2.0을 사용합니다.
+Graph API는 일상적인 RESTful 프로토콜을 사용하며, 이 프로토콜은 휴대용 장치를 포함한 대부분 클라이언트에서 간단하게 사용할 수 있습니다. 또한 클라이언트가 OData에서 정의한 확장을 지원하여 클라이언트에서 더욱 유용한 방법으로 데이터에 액세스하도록 돕는 쿼리 언어 등을 추가합니다. (OData에 대한 자세한 정보는 [Introducing OData](http://download.microsoft.com/download/E/5/A/E5A59052-EE48-4D64-897B-5F7C608165B8/IntroducingOData.pdf)를 참조하세요.) Graph API를 사용하면 사용자 간의 관계를 알 수 있기 때문에 응용 프로그램에서 특정 조직용 Azure AD 스키마에 포함된 소셜 그래프를 이해할 수 있습니다. 이러한 이유로 Graph API라고 합니다. Graph API 요청에 대해 Azure AD에 인증받기 위해 응용 프로그램은 OAuth 2.0을 사용합니다.
 
-조직에서 Windows Server Active Directory를 사용하지 않고(온-프레미스 서버나 도메인이 없는 경우) Azure AD를 사용하는 클라우드 응용 프로그램에 전적으로 의지하는 경우, 이 클라우드 디렉터리를 사용하면 조직의 사용자가 모든 응용 프로그램에 Single Sign-On을 할 수 있게 됩니다. 이러한 시나리오가 많이 일반화되기는 했지만, 아직은 대부분 조직이 여전히 Windows Server Active Directory로 만들어진 온-프레미스 도메인을 사용합니다. [그림 3](#fig3)과 같이 Azure AD는 여기에서도 유용한 역할을 합니다.
+조직에서 Windows Server Active Directory를 사용하지 않고(온-프레미스 서버나 도메인이 없는 경우) Azure AD를 사용하는 클라우드 응용 프로그램에 전적으로 의지하는 경우, 이 클라우드 디렉터리를 사용하면 조직의 사용자가 모든 응용 프로그램에 Single Sign-On을 할 수 있게 됩니다. 이러한 시나리오가 많이 일반화되기는 했지만, 아직은 대부분 조직이 여전히 Windows Server Active Directory로 만들어진 온-프레미스 도메인을 사용합니다. [그림 3](#fig3) 과 같이 Azure AD는 여기에서도 유용한 역할을 합니다.
 
-![가상 컴퓨터 내의 Azure Active Directory](./media/identity/identity_03_AD.png) <a id="fig3"></a>그림 3: 조직에서는 Windows Server Active Directory와 Azure Active Directory를 페더레이션하여 조직의 사용자가 SaaS 응용 프로그램에 Single Sign-On하도록 할 수 있습니다.
+![가상 컴퓨터 내의 Azure Active Directory](./media/identity/identity_03_AD.png)
+<a id="fig3"></a>그림 3: 조직에서는 Windows Server Active Directory와 Azure Active Directory를 페더레이션하여 조직의 사용자가 SaaS 응용 프로그램에 Single Sign-On하도록 할 수 있습니다.
 
 이 시나리오에서는 조직 B에 있는 사용자가 SaaS 응용 프로그램에 액세스하려고 합니다. 그림에서와 같이 사용자가 액세스하기 전에 조직의 디렉터리 관리자는 AD FS를 사용하여 Azure AD와의 페더레이션 관계를 확립해야 합니다. 이러한 관리자는 또한 조직의 온-프레미스 Windows Server AD와 Azure AD 간의 데이터 동기화를 구성해야 합니다. 이는 자동으로 사용자와 그룹 정보를 온-프레미스 디렉터리에서 Azure AD로 복사합니다. 이를 통해 무엇이 가능해질까요? 사실상 조직이 온-프레미스 디렉터리를 클라우드로 확장하고 있습니다. 이 방법으로 Windows Server AD와 Azure AD를 결합하면 조직에서 디렉터리 서비스가 단일 엔터티로 관리되면서 계속 온-프레미스와 클라우드에도 저장됩니다.
 
@@ -72,7 +73,7 @@ Azure AD를 사용하려면 본인의 온-프레미스 Active Directory 도메�
 
 오늘날 Azure AD가 온-프레미스 Windows Server AD의 완전한 대안은 아닙니다. 이미 언급한 것과 같이 클라우드 디렉터리는 무척 단순한 스키마를 가지고 있고 그룹 정책, 컴퓨터에 관한 정보 저장 기능, LDAP 지원 등을 제공하지 않습니다. (사실상 Windows 컴퓨터는 사용자가 Azure AD만으로 로그인하도록 구성할 수 없으므로 이는 지원되지 않는 시나리오입니다.) Azure AD의 초기 목표는 엔터프라이즈 사용자가 클라우드에 있는 응용 프로그램에 별도 로그인을 관리하지 않고도 액세스할 수 있도록 하여 온-프레미스 디렉터리 관리자가 직접 온-프레미스 디렉터리를 조직 사용자가 사용하는 모든 SaaS 응용 프로그램에 동기화하는 작업에 매여있지 않도록 하는 데 있었습니다. 시간이 흐르면서 이 클라우드 디렉터리 서비스에 기대되는 시나리오 영역이 더욱 넓어진 것입니다.
 
-## <a name="ac"></a>Azure Active Directory 액세스 제어 사용
+## <a name="a-nameacausing-azure-active-directory-access-control"></a><a name="ac"></a>Azure Active Directory 액세스 제어 사용
 클라우드를 기반으로 하는 ID 기술은 다양한 문제를 해결하는 데에 사용될 수 있습니다. 예를 들어 Azure Active Directory를 사용하면 조직의 사용자가 여러 SaaS 응용 프로그램에 Single Sign-On할 수 있습니다. 그러나 클라우드에 있는 ID 기술은 다른 방법으로도 사용될 수 있습니다.
 
 예를 들어 응용 프로그램에서 사용자가 여러 *IdP(ID 공급자)*가 발행한 토큰을 사용하여 로그인하는 경우를 가정합니다. 현재 Facebook, Google, Microsoft 등 다양한 ID 공급자가 있으며, 대개 응용 프로그램에서는 사용자가 이러한 ID 중 하나를 사용하여 로그인할 수 있도록 해 줍니다. 왜 응용 프로그램에서 기존 ID를 사용하지 않고 자체적으로 사용자와 암호 목록을 관리해야 할까요? 기존의 ID를 사용하면 사용자는 사용자 이름과 암호를 하나 더 적게 기억해도 되고 응용 프로그램 제공자는 자체 사용자 이름과 암호 목록을 더 이상 유지 관리하지 않아도 되므로 편리한 면이 있습니다.
@@ -81,7 +82,8 @@ Azure AD를 사용하려면 본인의 온-프레미스 Active Directory 도메�
 
 그렇지만 꼭 고유 코드를 일일이 작성해야 할까요? ID 정보를 공통으로 표시하는 공동 단일 토큰 형식을 작성하는 매개자를 생성하면 응용 프로그램을 만드는 개발자도 한 종류의 토큰만 처리하면 되므로 더욱 편안하게 개발할 수 있을 것입니다. 이것이 바로 Azure Active Directory 액세스 제어가 클라우드에서 다양한 형식의 토큰을 처리해 주는 방식입니다. [그림 4](#fig4)에서 작동 과정을 확인하세요.
 
-![가상 컴퓨터 내의 Azure Active Directory](./media/identity/identity_04_IdentityProviders.png) <a id="fig4"></a>그림 4: Azure Active Directory 액세스 제어를 사용하면 응용 프로그램이 다른 ID 공급자의 ID 토큰 사용이 쉬워집니다.
+![가상 컴퓨터 내의 Azure Active Directory](./media/identity/identity_04_IdentityProviders.png)
+<a id="fig4"></a>그림 4: Azure Active Directory 액세스 제어를 사용하면 응용 프로그램이 다른 ID 공급자의 ID 토큰 사용을 쉽게 할 수 있습니다.
 
 프로세스는 사용자가 브라우저에서 응용 프로그램에 액세스를 시도하면서 시작됩니다. 응용 프로그램에서는 사용자가 선택하고 응용 프로그램이 신뢰하는 IdP로 사용자를 리디렉션합니다. 사용자가 해당 IdP에서 사용자 이름과 암호를 입력하여 사용자 본인을 인증(1단계)하고, IdP는 사용자 정보를 포함하는 토큰을 반환(2단계)합니다.
 
@@ -97,7 +99,11 @@ Azure AD를 사용하려면 본인의 온-프레미스 Active Directory 도메�
 
 ID 관련 작업은 대부분의 응용 프로그램에서 중요한 부분을 차지합니다. 액세스 제어의 목표는 다양한 ID 공급자가 발행하는 ID를 사용하는 응용 프로그램을 작성하는 개발자들을 쉽게 만들어주는 것입니다. 이 서비스를 클라우드에서 제공함으로써 Microsoft는 어떤 플랫폼에서나 어떤 응용 프로그램을 사용할 수 있는 서비스를 구현해냈습니다.
 
-## 저자 정보
-David Chappell은 미국 캘리포니아주 샌프란시스코에 있는 Chappell & Associates([www.davidchappell.com](http://www.davidchappell.com))의 대표이며
+## <a name="about-the-author"></a>저자 정보
+David Chappell은 미국 캘리포니아주 샌프란시스코에 있는 Chappell & Associates([www.davidchappell.com](http://www.davidchappell.com))의 대표이다.
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

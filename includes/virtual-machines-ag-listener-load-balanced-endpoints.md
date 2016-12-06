@@ -11,6 +11,9 @@ Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 끝점�
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
    
     게시 설정 파일을 가져오면 PowerShell 세션에서 Azure 구독을 관리할 수 있습니다.
-   
-   <!----HONumber=AcomDC_0128_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
 

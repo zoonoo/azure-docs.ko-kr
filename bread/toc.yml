@@ -27,30 +27,37 @@
   - name: "API 관리"
     tocHref: /azure/api-management/
     topicHref: /azure/api-management/api-management-key-concepts
-  - name: "앱 서비스"
+  - name: "App Service"
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/app-service-how-works-readme
-  - name: "API 앱"
-    tocHref: /azure/app-service-api/
-    topicHref: /azure/app-service-api/app-service-api-apps-why-best-platform
-  - name: "논리 앱"
+    items:
+    - name: "Web Apps"
+      tocHref: /azure/app-service-web/
+      topicHref: /azure/app-service-web/app-service-web-overview
+    - name: "모바일 앱"
+      tocHref: /azure/app-service-mobile/
+      topicHref: /azure/app-service-mobile/app-service-mobile-value-prop
+    - name: "API Apps"
+      tocHref: /azure/app-service-api/
+      topicHref: /azure/app-service-api/app-service-api-apps-why-best-platform
+  - name: "Advisor"
+    tocHref: /azure/advisor/
+    topicHref: /azure/advisor/advisor-overview
+  - name: "Logic Apps"
     tocHref: /azure/app-service-logic/
     topicHref: /azure/app-service-logic/app-service-logic-what-are-logic-apps
-  - name: "App Service 모바일"
-    tocHref: /azure/app-service-mobile/
-    topicHref: /azure/app-service-mobile/app-service-mobile-value-prop
-  - name: "App Service 웹"
-    tocHref: /azure/app-service-web/
-    topicHref: /azure/app-service-web/app-service-web-overview
   - name: "응용 프로그램 게이트웨이"
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/application-gateway-introduction
   - name: "Application Insights"
     tocHref: /azure/application-insights/
     topicHref: /azure/application-insights/app-insights-overview
-  - name: "자동화"
+  - name: "Automation"
     tocHref: /azure/automation/
     topicHref: /azure/automation/automation-intro
+  - name: "Container Registry"
+    tocHref: /azure/container-registry/
+    topicHref: /azure/container-registry/container-registry-intro
   - name: "함수"
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/functions-overview

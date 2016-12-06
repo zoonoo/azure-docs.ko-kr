@@ -1,10 +1,14 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 14e447744ba2aa89a50783916a42af2e0314c5cd
+ms.openlocfilehash: 531a1066195512504e2417c1661b13c36649b3e9
+
 
 ---
-# Mobile Apps Documentation
+# <a name="mobile-apps-documentation"></a>Mobile Apps 설명서
 
-API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
+Azure App Service의 Mobile Apps는 엔터프라이즈 개발자 및 시스템 통합자를 위해 확장성 있는 모바일 응용 프로그램 개발 플랫폼을 제공합니다. 이 플랫폼은 모바일 개발자에게 풍부한 기능 집합을 제공합니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -18,7 +22,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Mobile Apps</h3>
+                        <h3>Mobile Apps 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -36,7 +40,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>App Service Video Library</h3>
+                        <h3>App Service 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -54,7 +58,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Andriod app</h3>
+                        <h3>Android 앱 만들기 시작</h3>
                     </div>
                 </div>
             </div>
@@ -72,7 +76,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Apache Cordova app</h3>
+                        <h3>Apache Cordova 앱 만들기 시작</h3>
                     </div>
                 </div>
             </div>
@@ -90,7 +94,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an iOS app</h3>
+                        <h3>iOS 앱 만들기 시작</h3>
                     </div>
                 </div>
             </div>
@@ -108,7 +112,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Windows app</h3>
+                        <h3>Windows 앱 만들기 시작</h3>
                     </div>
                 </div>
             </div>
@@ -126,7 +130,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a xamarin.Andriod app</h3>
+                        <h3>xamarin.Android 앱 만들기 시작</h3>
                     </div>
                 </div>
             </div>
@@ -144,7 +148,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a xamarin.Forms app</h3>
+                        <h3>xamarin.Forms 앱 만들기 시작</h3>
                     </div>
                 </div>
             </div>
@@ -162,7 +166,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a xamarin.iOS app</h3>
+                        <h3>Xamarin.iOS 앱 만들기 시작</h3>
                     </div>
                 </div>
             </div>
@@ -173,16 +177,21 @@ API Management helps organizations publish APIs to external, partner and interna
 
 ---
 
-## Reference
+## <a name="reference"></a>참조
 
-### .NET
-[Mobile Apps .NET Reference](https://msdn.microsoft.com/library/azure/dn961176)
+### <a name="net"></a>.NET
+[Mobile Apps .NET 참조](https://msdn.microsoft.com/library/azure/dn961176)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-mobile.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Mobile Apps Documentation
-        </div>
+Mobile Apps 설명서 다운로드 </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

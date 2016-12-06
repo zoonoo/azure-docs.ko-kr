@@ -1,10 +1,10 @@
-## Azure 포털에서 네트워크 구성 파일을 사용하여 VNet을 만드는 방법
-Azure에서는 xml 파일을 사용하여 구독에 사용할 수 있는 모든 VNet을 정의합니다. 이 파일을 다운로드하고, 편집하여 기존 VNet을 수정 또는 삭제하고 새 VNet을 만들 수 있습니다. 이 문서에서는 네트워크 구성(또는 netcgf) 파일이라고 하는 이 파일을 다운로드하고 편집하여 새 VNet을 만드는 방법을 알아봅니다. 네트워크 구성 파일에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
+## <a name="how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal"></a>Azure 포털에서 네트워크 구성 파일을 사용하여 VNet을 만드는 방법
+Azure에서는 xml 파일을 사용하여 구독에 사용할 수 있는 모든 VNet을 정의합니다. 이 파일을 다운로드하고, 편집하여 기존 VNet을 수정 또는 삭제하고 새 VNet을 만들 수 있습니다. 이 문서에서는 네트워크 구성(또는 netcgf) 파일이라고 하는 이 파일을 다운로드하고 편집하여 새 VNet을 만드는 방법을 알아봅니다. 네트워크 구성 파일에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx) 를 참조하세요.
 
 Azure 포털을 통해 netcfg 파일을 사용하여 VNet을 만들려면 다음 단계를 수행합니다.
 
-1. 브라우저에서 http://manage.windowsazure.com으로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
-2. 아래와 같이 서비스 목록 아래로 스크롤하여 **네트워크**를 클릭합니다.
+1. 브라우저에서 http://manage.windowsazure.com으로 이동하고, 필요한 경우 Azure 계정으로 로그인합니다.
+2. 아래와 같이 서비스 목록 아래로 스크롤하여 **네트워크** 를 클릭합니다.
    
     ![Azure 가상 네트워크](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure1.gif)
 3. 아래와 같이 페이지 아래쪽에서 **내보내기** 단추를 클릭합니다.
@@ -42,4 +42,8 @@ Azure 포털을 통해 netcfg 파일을 사용하여 VNet을 만들려면 다음
     
     ![새 가상 네트워크](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure6.png)
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

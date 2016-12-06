@@ -1,16 +1,15 @@
-아직 없는 경우 [Azure 구독 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 받고 [Azure 계정에 연결된](../articles/xplat-cli-connect.md) [Azure CLI](../articles/xplat-cli-install.md)를 받을 수 있습니다. 그러면 다음 명령을 실행하여 크기 집합을 신속하게 만들 수 있습니다.
+아직 없는 경우 [Azure 구독 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 받고 [Azure 계정에 연결된](../articles/xplat-cli-connect.md) [Azure CLI](../articles/xplat-cli-install.md)를 받을 수 있습니다. 다음과 같이 Azure CLI가 리소스 관리자 모드인지 확인합니다.
 
-```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
+```azurecli
 azure config mode arm
+```
 
-# quick-create a scale set
-#
-# generic syntax:
-# azure vmss quick-create -n SCALE-SET-NAME -g RESOURCE-GROUP-NAME -l LOCATION -u USERNAME -p PASSWORD -C INSTANCE-COUNT -Q IMAGE-URN
-#
-# example:
-azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
+이제 `azure vmss quick-create` 명령을 사용하여 크기 집합을 만듭니다. 다음 예제에서는 `myResourceGroup`라는 리소스 그룹에서 5 VM 인스턴스를 사용하여 `myVMSS`이라는 크기 집합을 만듭니다.
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
 ```
 
 위치 또는 이미지 urn을 사용자 지정하려는 경우 `azure location list` 및 `azure vm image {list-publishers|list-offers|list-skus|list|show}` 명령을 확인하세요.
@@ -30,7 +29,8 @@ line=$(azure network lb list -g negatvmssrg | grep negatvmssrg)
 split_line=( $line )
 lb_name=${split_line[1]}
 
-# now that we have the name of the load balancer, we can show the details to find which Public IP (PIP) is associated to it
+# now that we have the name of the load balancer, we can show the details to find which Public IP (PIP) is 
+# associated to it
 #
 # generic syntax:
 # azure network lb show -g RESOURCE-GROUP-NAME -n LOAD-BALANCER-NAME

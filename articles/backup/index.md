@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 50a8865afe60b47b094e3fa64ab622c229a8a4a4
-ms.openlocfilehash: fc7e57b12158c34b2ee0de334f1b08469765f39d
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: fc9ecdbafdd81a4e1c4dfce546ea9c9cebc647d6
 
 ---
 #<a name="backup-documentation"></a>Backup 설명서
@@ -104,13 +104,39 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 
 ---
 
-##<a name="reference"></a>참조
+## <a name="reference"></a>참조
 
-###<a name="net"></a>.NET
-[.NET 관리되는 참조](/dotnet/api)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>.NET 관리되는 참조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/recoveryservices">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Backup REST API 참조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
-###<a name="rest"></a>REST
-[Backup REST API 참조](/rest/api/recoveryservices)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
@@ -122,6 +148,6 @@ Azure Backup 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

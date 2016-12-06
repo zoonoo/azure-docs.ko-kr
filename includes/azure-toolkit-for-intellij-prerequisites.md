@@ -1,8 +1,8 @@
-### 필수 조건
+### <a name="prerequisites"></a>필수 조건
 IntelliJ용 Azure 도구 키트에는 다음 소프트웨어 구성 요소가 필요합니다.
 
 * IntelliJ IDEA Ultimate Edition. <https://www.jetbrains.com/idea/download/>에서 다운로드할 수 있습니다.
-* JDK(Java Developer Kit) v1.8 이상.
+* JDK(Java Developer Kit) v1.8 이상. 
 * 운영 체제 - IntelliJ용 Azure 도구 키트는 다음 운영 체제에서 테스트되었습니다.
   
   * Windows 10, Windows 8과 8.1, Windows 7
@@ -22,4 +22,8 @@ IntelliJ용 Azure 도구 키트에는 다음 소프트웨어 구성 요소가 �
 > 
 > 
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,6 +1,6 @@
 # 개요
 ## [메시징](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
-## [릴레이](../service-bus-relay/service-bus-relay-overview.md)
+## [릴레이](../service-bus-relay/relay-what-is-it.md)
 # 참조
 ## [PowerShell 리소스 관리자 Cmdlet](/powershell/resourcemanager)
 ## [Service Bus 관리되는 참조 API](/dotnet/api/) 
@@ -15,6 +15,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

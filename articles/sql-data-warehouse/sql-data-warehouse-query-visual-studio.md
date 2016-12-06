@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL Data Warehouse 쿼리(Visual Studio) | Microsoft Docs"
+title: "Azure SQL Data Warehouse - VSTS에 연결 | Microsoft Azure"
 description: "Visual Studio를 사용하여 SQL 데이터 웨어하우스를 쿼리합니다."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,12 +15,12 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5e97fefdf3cc13f2fd3e060da901e90ef5ef9a29
+ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
+ms.openlocfilehash: 71a56d0e99308d3f7f514283792a2155a05a7172
 
 
 ---
-# <a name="query-azure-sql-data-warehouse-visual-studio"></a>Azure SQL 데이터 웨어하우스 쿼리(Visual Studio)
+# <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure 기계 학습](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -84,10 +84,10 @@ Visual Studio를 사용하여 단 몇 분 만에 Azure SQL 데이터 웨어하�
 Azure Active Directory 인증을 위한 환경을 구성하려면 [SQL Data Warehouse에 대한 인증][SQL Data Warehouse에 대한 인증]을 참조하세요.
 
 <!--Arcticles-->
-[SQL 데이터 웨어하우스에 연결]: sql-data-warehouse-connect-overview.md
-[SQL 데이터 웨어하우스 만들기]: sql-data-warehouse-get-started-provision.md
+[SQL Data Warehouse에 연결]: sql-data-warehouse-connect-overview.md
+[SQL Data Warehouse 만들기]: sql-data-warehouse-get-started-provision.md
 [Visual Studio 및 SSDT 설치]: sql-data-warehouse-install-visual-studio.md
-[SQL 데이터 웨어하우스에 대한 인증]: sql-data-warehouse-authentication.md
+[SQL Data Warehouse에 대한 인증]: sql-data-warehouse-authentication.md
 [PowerBI로 데이터 시각화]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 <!--Other-->
@@ -105,6 +105,6 @@ Azure Active Directory 인증을 위한 환경을 구성하려면 [SQL Data Ware
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

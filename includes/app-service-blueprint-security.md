@@ -12,8 +12,12 @@
 * [지점 및 사이트 간 VPN을 사용하여 개인 네트워크의 리소스로 안전하게 앱 연결](../articles/app-service-web/web-sites-integrate-with-vnet.md)
 * [하이브리드 연결을 사용하여 개인 네트워크의 리소스로 안전하게 앱 연결](../articles/app-service-web/web-sites-hybrid-connection-get-started.md)
 * [ASE(앱 서비스 환경)를 사용하여 앱에 대한 보안 격리 달성](../articles/app-service-web/app-service-app-service-environment-intro.md)
-  * [ASE 앞에 WAF(웹 응용 프로그램 방화벽) 구성](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
+  * [ASE 앞에 WAF(웹 응용 프로그램 방화벽) 구성 ](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
   * [ASE의 인바운드 네트워크 트래픽에 대한 액세스 제어 구성](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
   * [ASE에서 백 엔드 리소스에 안전하게 연결](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

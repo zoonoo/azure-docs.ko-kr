@@ -1,13 +1,13 @@
 
-* **.NET backend (C#)**:    
+* **.NET 백 엔드(C#)**:      
   
-  1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for `Microsoft.Azure.NotificationHubs`, then click **Install**. This installs the Notification Hubs library for sending notifications from your backend.
-  2. In the backend's Visual Studio project, open **Controllers** > **TodoItemController.cs**. At the top of the file, add the following `using` statement:
+  1. Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭한 후 `Microsoft.Azure.NotificationHubs`를 검색한 다음 **설치**를 클릭합니다. 백 엔드에서 알림을 보내기 위한 알림 허브 라이브러리를 설치합니다.
+  2. 백 엔드의 Visual Studio 프로젝트에서 **컨트롤러** > **TodoItemController.cs**를 엽니다. 파일 맨 위에 다음 `using` 문을 추가합니다.
      
           using Microsoft.Azure.Mobile.Server.Config;
           using Microsoft.Azure.NotificationHubs;
 
-    3. Replace the `PostTodoItem` method with the following code:  
+    3. `PostTodoItem` 메서드를 다음 코드로 바꿉니다.  
 
             public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
             {
@@ -47,12 +47,12 @@
                 return CreatedAtRoute("Tables", new { id = current.Id }, current);
             }
 
-    4. Republish the server project.
+    4. 서버 프로젝트를 다시 게시합니다.
 
-* **Node.js backend** : 
+* **Node.js 백 엔드** : 
   
-  1. If you haven't already done so, [download the quickstart project](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor). 
-  2. Replace the todoitem.js table script with the following code:
+  1. 아직 수행하지 않은 경우 [빠른 시작 프로젝트를 다운로드](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)하거나 [Azure 포털에서 온라인 편집기](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)를 사용합니다.    
+  2. todoitem.js 테이블 스크립트를 다음 코드로 바꿉니다.
 
             var azureMobileApps = require('azure-mobile-apps'),
                 promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -91,9 +91,9 @@
 
             module.exports = table;
 
-    2. When editing the file on your local computer, republish the server project.
+    2. 로컬 컴퓨터에서 파일을 편집할 때 서버 프로젝트를 다시 게시합니다.
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

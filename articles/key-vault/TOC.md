@@ -50,6 +50,6 @@
 ## [포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -17,7 +17,7 @@
 | 배포당 개인 VIP(ILB) |1 |1 |
 | 끝점 ACL(액세스 제어 목록) |50 |50 |
 
-#### <a name="<a-name="azure-resource-manager-virtual-networking-limits"></a>networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한 - Azure Resource Manager
+#### <a name="a-nameazure-resource-manager-virtual-networking-limitsanetworking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한 - Azure Resource Manager
 다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다.
 
 | 리소스 | 기본 제한 | 최대 제한 |
@@ -37,11 +37,12 @@
 | 부하 분산 장치당 부하 분산 장치 규칙 |150 |150 |
 | 부하 분산 장치당 공용 프런트 엔드 IP |5 |지원에 문의 |
 | 부하 분산 장치당 개인 프런트 엔드 IP |30 |지원에 문의 |
-| 응용 프로그램 게이트웨이 |50 |50 |
 | 가상 네트워크당 VNet 피어링 수 |10 |50 |
 
 제한을 기본값에서 늘려야 하는 경우 지원에 문의하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 
