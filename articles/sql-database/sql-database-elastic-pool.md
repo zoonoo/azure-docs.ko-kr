@@ -1,38 +1,42 @@
 ---
-title: Azure 탄력적 풀이란? | Microsoft Docs
-description: 풀을 사용하여 수백 또는 수천 개의 데이터베이스를 관리합니다. 성능 단위 집합에 대한 하나의 가격을 풀에 분배할 수 있습니다. 데이터베이스를 내/외부로 자유롭게 이동합니다.
-keywords: 탄력적 데이터베이스,SQL 데이터베이스
+title: "Azure 탄력적 풀이란? | Microsoft Docs"
+description: "풀을 사용하여 수백 또는 수천 개의 데이터베이스를 관리합니다. 성능 단위 집합에 대한 하나의 가격을 풀에 분배할 수 있습니다. 데이터베이스를 내/외부로 자유롭게 이동합니다."
+keywords: "탄력적 데이터베이스,SQL 데이터베이스"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.devlang: NA
-ms.date: 07/12/2016
+ms.date: 11/15/2016
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 5b800e157264764d69b4fed94d960120a2395367
+ms.openlocfilehash: 316d40aebdfff379aa007f56472a6596f9eb808d
+
 
 ---
-# <a name="what-is-an-azure-elastic-pool?"></a>Azure 탄력적 풀이란?
+# <a name="what-is-an-azure-elastic-pool"></a>Azure 탄력적 풀이란?
 SQL DB 탄력적 풀은 매우 다양하고 예측할 수 없는 사용 패턴을 지닌 여러 데이터베이스에 대한 성능 목표를 관리하기 위한 간단하고 비용 효율적인 솔루션을 제공합니다.
 
 > [!NOTE]
 > 탄력적 풀은 현재 미리 보기 상태인 인도 서부를 제외한 모든 Azure 지역에서 일반 공급(GA) 상태입니다.  이 영역에서 탄력적 풀의 GA는 가능한 한 빨리 수행될 예정입니다.
-> 
-> 
+>
+>
 
 ## <a name="how-it-works"></a>작동 방법
-일반적인 SaaS 응용 프로그램 패턴은 단일 테넌트 데이터베이스 모델이므로 각 고객에게 자체 데이터베이스가 제공됩니다. 각 고객(데이터베이스)에는 메모리, IO 및 CPU에 대한 예측할 수 없는 리소스 요구 사항이 있습니다. 이러한 요구의 최대치와 최저치를 사용하여 리소스를 효율적이면서 효과적으로 할당하는 방법은 무엇입니까? 일반적으로 두 가지 옵션, 즉 (1) 최대 사용량에 따른 리소스 오버프로비전과 과다 지불 또는 (2) 최대 사용 기간 동안 성능 및 고객 만족은 저하되지만 비용을 절감하는 언더프로비전이 있었습니다. 탄력적 풀은 데이터베이스가 필요한 성능 리소스를 필요할 때 얻도록 하여 이 문제를 해결합니다. 예측 가능한 예산 내에서 간단한 리소스 할당 메커니즘을 제공합니다. 탄력적 풀을 사용한 SaaS 응용 프로그램의 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
+일반적인 SaaS 응용 프로그램 패턴은 단일 테넌트 데이터베이스 모델이므로 각 고객에게 자체 데이터베이스가 제공됩니다. 각 고객(데이터베이스)에는 메모리, IO 및 CPU에 대한 예측할 수 없는 리소스 요구 사항이 있습니다. 이러한 요구의 최대치와 최저치를 사용하여 리소스를 효율적이면서 효과적으로 할당하는 방법은 무엇입니까? 일반적으로 두 가지 옵션, 즉 (1) 최대 사용량에 따른 리소스 오버프로비전과 과다 지불 또는 (2) 최대 사용 기간 동안 성능 및 고객 만족은 저하되지만 비용을 절감하는 언더프로비전이 있었습니다. 탄력적 풀은 데이터베이스가 필요한 성능 리소스를 필요할 때 얻도록 하여 이 문제를 해결합니다. 예측 가능한 예산 내에서 간단한 리소스 할당 메커니즘을 제공합니다. 탄력적 풀을 사용하여 SaaS 응용 프로그램에 대한 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL 데이터베이스와 다중 테넌트 SaaS 응용 프로그램에 대한 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
-> 
-> 
+>
+>
 
-SQL 데이터베이스에서 리소스 수요를 처리하는 데이터베이스의 기능에 대한 상대 측정값은 단일 데이터베이스에 대한 DTU(데이터베이스 트랜잭션 단위) 및 탄력적 풀듸 탄력적 데이터베이스에 대한 eDTU(탄력적 DTU)로 표시됩니다. DTU 및 eDTU에 대한 자세한 내용은 [SQL 데이터베이스 소개](sql-database-technical-overview.md#understand-dtus) 를 참조하세요.
+SQL 데이터베이스에서 리소스 수요를 처리하는 데이터베이스의 기능에 대한 상대 측정값은 단일 데이터베이스에 대한 DTU(데이터베이스 트랜잭션 단위) 및 탄력적 풀듸 탄력적 데이터베이스에 대한 eDTU(탄력적 DTU)로 표시됩니다. DTU 및 eDTU에 대한 자세한 내용은 [SQL 데이터베이스 소개](sql-database-technical-overview.md)를 참조하세요.
 
 풀은 집합 가격에 대한 eDTU 수 집합이 제공됩니다. 풀 내에서 개별 데이터베이스는 집합 매개 변수 내에서 자동 크기 조정에 유연성이 제공됩니다. 부하가 높은 상태에서 데이터베이스는 더 많은 eDTU를 사용하여 수요를 충족할 수 있습니다. 낮은 부하량에서 데이터베이스는 적게 사용하고 부하가 없는 데이터베이스는 eDTU를 사용하지 않습니다. 단일 데이터베이스가 아닌 전체 풀에 대한 리소스 프로비저닝은 관리 작업을 간소화합니다. 또한 풀에 대한 예측 가능한 예산이 있습니다.
 
@@ -40,19 +44,25 @@ SQL 데이터베이스에서 리소스 수요를 처리하는 데이터베이스
 
 풀에 데이터베이스를 추가하거나 뺄 수 있습니다. 데이터베이스가 예측 가능한 방식으로 리소스를 사용하는 경우 리소스를 이동합니다.
 
-## <a name="which-databases-go-in-a-pool?"></a>어떤 데이터베이스를 풀로 이동해야 합니까?
+## <a name="which-databases-go-in-a-pool"></a>어떤 데이터베이스를 풀로 이동해야 합니까?
 ![탄력적 데이터베이스 풀에서 eDTU를 공유하는 SQL 데이터베이스][1]
 
 탄력적 풀을 사용하기에 좋은 데이터베이스에는 일반적으로 활동하는 시기와 활동이 없는 시기가 있습니다. 위의 예에서 단일 데이터베이스, 4개의 데이터베이스, 마지막으로 20개의 데이터베이스가 포함된 탄력적 풀의 활동을 볼 수 있습니다. 시간에 따라 활동 수준이 달라지는 데이터베이스는 동시에 모두 활성화되지 않아 eDTU를 공유할 수 있으므로 탄력적 풀에 잘 어울립니다. 일부 데이터베이스는 이러한 패턴에 맞지 않습니다. 더 지속적으로 리소스를 요구하는 데이터베이스는 리소스가 개별적으로 할당되는 기본, 표준, 프리미엄 서비스 계층에 더 적합합니다.
 
 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)
 
-## <a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases."></a>탄력적 풀 및 탄력적 데이터베이스에 대한 eDTU 및 저장소 제한
+## <a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases"></a>탄력적 풀 및 탄력적 데이터베이스에 대한 eDTU 및 저장소 제한
+
+다음 표에서는 Basic, Standard 및 Premium 탄력적 데이터베이스 풀의 특징을 설명합니다.
+
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다.  SQL 데이터베이스 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이 0이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.
 
 ## <a name="elastic-pool-and-elastic-database-properties"></a>탄력적 풀 및 탄력적 데이터베이스 속성
+
+다음 표에서 탄력적 풀 및 탄력적 데이터베이스에 대한 제한을 설명합니다.
+
 ### <a name="limits-for-elastic-pools"></a>탄력적 풀에 대한 제한
 | 속성 | 설명 |
 |:--- |:--- |
@@ -74,7 +84,7 @@ SQL 데이터베이스에서 리소스 수요를 처리하는 데이터베이스
 ## <a name="elastic-database-jobs"></a>탄력적 데이터베이스 작업
 풀을 통해 **[탄력적 작업](sql-database-elastic-jobs-overview.md)**의 스크립트를 실행하여 관리 작업이 간소화됩니다. 탄력적 데이터베이스 작업은 많은 수의 데이터베이스와 관련된 대부분의 번거로움을 없애 줍니다. 시작하려면 [탄력적 데이터베이스 작업 시작](sql-database-elastic-jobs-getting-started.md)을 참조하세요.
 
-다른 도구에 대한 자세한 내용은 [탄력적 데이터베이스 도구 학습 맵](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)을 참조하세요.
+다른 탄력적 데이터베이스 도구에 대한 자세한 내용은 [Azure SQL 데이터베이스를 사용하여 확장](sql-database-elastic-scale-introduction.md)을 참조합니다.
 
 ## <a name="business-continuity-features-for-databases-in-a-pool"></a>풀의 데이터베이스를 위한 비즈니스 연속성 기능
 일반적으로 탄력적 데이터베이스는 V12 서버의 단일 데이터베이스에서 사용 가능한 [비즈니스 연속성 기능](sql-database-business-continuity.md) 을 동일하게 지원합니다.
@@ -83,19 +93,19 @@ SQL 데이터베이스에서 리소스 수요를 처리하는 데이터베이스
 특정 시점 복원은 자동 데이터베이스 백업을 사용하여 풀에 있는 데이터베이스를 특정 시점으로 복원합니다.  [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ### <a name="geo-restore"></a>지역 복원
-지역 복원은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다.  [Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치](sql-database-disaster-recovery.md) 
+지역 복원은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다.  [Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치](sql-database-disaster-recovery.md)
 
 ### <a name="active-geo-replication"></a>활성 지역 복제
 지역 복원에서 제공할 수 있는 것보다 까다로운 복구 요구 사항이 있는 응용 프로그램에 대해서는 [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) 또는 [Transact-SQL](sql-database-geo-replication-transact-sql.md)을 사용하여 활성 지역 복제를 구성합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
-* [Elastic Database 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554) 
+* [Elastic Database 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
