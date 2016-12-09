@@ -1,43 +1,47 @@
 ---
-title: 시작에 실패한 역할의 문제 해결 | Microsoft Docs
-description: 클라우드 서비스 역할이 시작에 실패한 이유에 대한 몇 가지 일반적인 원인은 다음과 같습니다. 또한 이러한 문제에 대한 솔루션이 제공됩니다.
+title: "시작에 실패한 역할의 문제 해결 | Microsoft Docs"
+description: "클라우드 서비스 역할이 시작에 실패한 이유에 대한 몇 가지 일반적인 원인은 다음과 같습니다. 또한 이러한 문제에 대한 솔루션이 제공됩니다."
 services: cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: simonxjx
 manager: felixwu
-editor: ''
+editor: 
 tags: top-support-issue
-
+ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 09/02/2016
+ms.date: 11/14/2016
 ms.author: v-six
+translationtype: Human Translation
+ms.sourcegitcommit: b49393ecfb6fe639825107c5f038906a36cde687
+ms.openlocfilehash: 3cddd9f9c4b978dfad7ec727be9f43f6ed7c7c8f
+
 
 ---
-# 시작에 실패한 클라우드 서비스 역할의 문제 해결
+# <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>시작에 실패한 클라우드 서비스 역할의 문제 해결
 시작에 실패한 Azure 클라우드 서비스 역할에 관련된 일반적인 문제 및 솔루션은 다음과 같습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## DLL 또는 종속성 누락
+## <a name="missing-dlls-or-dependencies"></a>DLL 또는 종속성 누락
 응답하지 않는 역할 및 **초기화 중**, **사용 중** 및 **중지** 상태를 반복하는 역할은 누락된 DLL 또는 어셈블리 때문에 발생할 수 있습니다.
 
 누락된 DLL 또는 어셈블리의 증상은 다음과 같을 수 있습니다.
 
 * 역할 인스턴스가 **초기화 중**, **사용 중** 및 **중지** 상태를 반복하고 있습니다.
-* 역할 인스턴스가 **준비**로 이동했지만 웹 응용 프로그램을 탐색하면 페이지가 나타나지 않습니다.
+* 역할 인스턴스가 **준비** 로 이동했지만 웹 응용 프로그램을 탐색하면 페이지가 나타나지 않습니다.
 
 이러한 문제를 조사하기 위해 권장되는 여러 가지 방법이 있습니다.
 
-## 웹 역할에서 누락된 DLL 문제 진단
+## <a name="diagnose-missing-dll-issues-in-a-web-role"></a>웹 역할에서 누락된 DLL 문제 진단
 웹 역할에 배포된 웹 사이트로 이동하고 브라우저가 다음과 유사한 서버 오류를 표시하는 경우 DLL이 없음을 나타낼 수 있습니다.
 
 !['/' 응용 프로그램의 서버 오류.](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
-## 사용자 지정 오류를 해제하여 문제 진단
+## <a name="diagnose-issues-by-turning-off-custom-errors"></a>사용자 지정 오류를 해제하여 문제 진단
 웹 역할에 대해 web.config가 사용자 지정 오류 모드를 꺼짐으로 설정하고 서비스를 다시 배포하도록 구성하여 오류 정보를 더 자세하게 볼 수 있습니다.
 
 원격 데스크톱을 사용하지 않고 오류를 더 자세하게 보려면
@@ -45,7 +49,7 @@ ms.author: v-six
 1. Microsoft Visual Studio에서 솔루션을 엽니다.
 2. **솔루션 탐색기**에서 web.config 파일을 찾아 엽니다.
 3. Web.config 파일에서 system.web 섹션을 찾아서 다음 줄을 추가합니다.
-   
+
     ```xml
     <customErrors mode="Off" />
     ```
@@ -54,7 +58,7 @@ ms.author: v-six
 
 서비스가 다시 배포되면 누락된 어셈블리나 DLL의 이름으로 오류 메시지가 표시됩니다.
 
-## 원격으로 오류를 확인하여 문제 진단
+## <a name="diagnose-issues-by-viewing-the-error-remotely"></a>원격으로 오류를 확인하여 문제 진단
 원격 데스크톱을 사용하여 역할에 액세스하고 원격으로 오류 정보를 더 자세하게 볼 수 있습니다. 원격 데스크톱을 사용하여 오류를 보려면 다음 단계를 수행합니다.
 
 1. Azure SDK 1.3 이상이 설치되어야 합니다.
@@ -78,21 +82,21 @@ ms.author: v-six
 
 !['/' 응용 프로그램의 명시적 서버 오류](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
-## 계산 에뮬레이터를 사용하여 문제 진단
+## <a name="diagnose-issues-by-using-the-compute-emulator"></a>계산 에뮬레이터를 사용하여 문제 진단
 Microsoft Azure 계산 에뮬레이터를 사용하여 누락된 종속성 및 web.config 오류 문제를 진단하고 해결할 수 있습니다.
 
 이 진단 방법을 사용하여 최상의 결과가 발생한 경우 Windows 새로 설치한 컴퓨터 또는 가상 컴퓨터를 사용해야 합니다. Azure 환경을 가장 잘 시뮬레이션하려면 Windows Server 2008 R2 x64를 사용해야 합니다.
 
 1. [Azure SDK](https://azure.microsoft.com/downloads/)의 독립 실행형 버전을 설치합니다.
 2. 개발 컴퓨터에서 클라우드 서비스 프로젝트를 빌드합니다.
-3. Windows Explorer에서 클라우드 서비스 프로젝트의 bin\\debug 폴더로 이동합니다.
+3. Windows Explorer에서 클라우드 서비스 프로젝트의 bin\debug 폴더로 이동합니다.
 4. 문제를 디버깅하는 데 사용하는 컴퓨터에 .csx 폴더와.cscfg 파일을 복사합니다.
 5. 클린 컴퓨터에서 Azure SDK 명령 프롬프트 창을 열고 `csrun.exe /devstore:start`을 입력합니다.
 6. 명령 프롬프트에 `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`을 입력합니다.
 7. 역할이 시작될 때 Internet Explorer에서 자세한 오류 정보가 표시됩니다. 또한 표준 Windows 문제해결 도구를 사용하여 추가로 문제를 진단할 수 있습니다.
 
-## IntelliTrace를 사용하여 문제 진단
-.NET Framework 4를 사용하는 작업자 및 웹 역할의 경우 [Microsoft Visual Studio Ultimate](https://www.visualstudio.com/products/visual-studio-ultimate-with-MSDN-vs)에서 사용 가능한 [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx)를 사용할 수 있습니다.
+## <a name="diagnose-issues-by-using-intellitrace"></a>IntelliTrace를 사용하여 문제 진단
+.NET Framework 4를 사용하는 작업자 및 웹 역할의 경우 Microsoft Visual Studio Enterprise에서 사용 가능한 [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx)를 사용할 수 있습니다.
 
 IntelliTrace를 사용하는 서비스를 배포하려면 다음 단계를 수행합니다.
 
@@ -101,13 +105,13 @@ IntelliTrace를 사용하는 서비스를 배포하려면 다음 단계를 수�
 3. 인스턴스가 시작되면 **서버 탐색기**를 엽니다.
 4. **Azure\\클라우드 서비스** 노드를 확장하고 배포를 찾습니다.
 5. 역할 인스턴스를 확인할 때까지 배포를 확장합니다. 마우스 오른쪽 단추로 인스턴스 중 하나를 클릭합니다.
-6. **IntelliTrace 로그 보기**를 선택합니다. **IntelliTrace 요약**이 열립니다.
+6. **IntelliTrace 로그 보기**를 선택합니다. **IntelliTrace 요약** 이 열립니다.
 7. 요약의 예외 섹션을 찾습니다. 예외가 있는 경우 해당 섹션이 **예외 데이터**로 표시됩니다.
 8. **예외 데이터**를 확장하고 다음과 비슷한 **System.IO.FileNotFoundException** 오류를 찾습니다.
 
 ![예외 데이터, 파일 또는 어셈블리 누락](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
 
-## 누락된 DLL 및 어셈블리 주소 지정
+## <a name="address-missing-dlls-and-assemblies"></a>누락된 DLL 및 어셈블리 주소 지정
 누락된 DLL 및 어셈블리 오류에 주소를 지정하려면 다음 단계를 수행합니다.
 
 1. Visual Studio에서 솔루션을 엽니다.
@@ -118,9 +122,13 @@ IntelliTrace를 사용하는 서비스를 배포하려면 다음 단계를 수�
 
 모든 오류가 수정되었다고 확인되면 **.NET 4 역할에 IntelliTrace 사용** 확인란을 선택하지 않고 서비스를 배포할 수 있습니다.
 
-## 다음 단계
-클라우드 서비스에 대한 [문제해결 문서](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services)를 더 봅니다.
+## <a name="next-steps"></a>다음 단계
+클라우드 서비스에 대한 [문제해결 문서](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) 를 더 봅니다.
 
 Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

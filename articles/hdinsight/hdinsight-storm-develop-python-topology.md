@@ -1,12 +1,12 @@
 ---
-title: HDinsight에서 Storm 토폴로지에 Python 구성 요소 사용 | Microsoft Docs
-description: Azure HDInsight에서 Apache Storm과 함께 Python 구성 요소를 사용하는 방법에 대해 알아봅니다. Java 기반 및 Clojure 기반 Storm 토폴로지에서 Python 구성 요소를 사용하는 방법에 대해 알아보겠습니다.
+title: "HDinsight에서 Storm 토폴로지에 Python 구성 요소 사용 | Microsoft Docs"
+description: "Azure HDInsight에서 Apache Storm과 함께 Python 구성 요소를 사용하는 방법에 대해 알아봅니다. Java 기반 및 Clojure 기반 Storm 토폴로지에서 Python 구성 요소를 사용하는 방법에 대해 알아보겠습니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.devlang: python
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4b667dda33c61c44090cf89ebeebece0b19c84ea
+
 
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
@@ -39,7 +43,7 @@ Storm 모듈(https://github.com/apache/storm/blob/master/storm-multilang/python/
 
 또한 Storm 클러스터는 분산된 형태로 실행되므로 Python 구성 요소에 필요한 모든 모듈이 클러스터의 모든 작업자 노드에서 사용 가능한지 확인해야 합니다. Storm은 다중 언어 리소스에 대해 이 작업을 수행하는 간단한 방법을 제공하지 않으므로 토폴로지에 대한 jar 파일의 일부로 모든 종속성을 포함하거나 클러스터의 각 작업자 노드에 종속성을 직접 설치해야 합니다.
 
-### <a name="java-vs.-clojure-topology-definition"></a>Java 및 Clojure 토폴로지 정의
+### <a name="java-vs-clojure-topology-definition"></a>Java 및 Clojure 토폴로지 정의
 토폴로지를 정의하는 두 방법 중에서 Clojure는 토폴로지 정의에서 python 구성 요소를 직접 참조할 수 있으므로 가장 쉽고/명확한 방법입니다. Java 기반 토폴로지 정의인 경우, Python 구성 요소에서 반환되는 튜플에 필드 선언 등을 처리하는 Java 구성 요소도 정의해야 합니다.
 
 두 방법 모두 이 문서에서 예제 프로젝트와 함께 설명됩니다.
@@ -58,7 +62,7 @@ Python(또는 기타 JVM 언어 구성 요소)을 사용하는 Java 기반 토�
 
 여기서 Java는 Python을 호출하고 실제 Bolt 논리가 포함된 스크립트를 실행합니다. 이 예에서 Java Spout/Bolt는 기본 Python 구성 요소가 내보내는 튜플에 필드를 선언하기만 합니다.
 
-실제 Python 파일은 이 예에서 `/multilang/resources` 디렉터리에 저장됩니다. `/multilang` 디렉터리는 __pom.xml__에서 참조됩니다.
+실제 Python 파일은 이 예에서 `/multilang/resources` 디렉터리에 저장됩니다. `/multilang` 디렉터리는 **pom.xml**에서 참조됩니다.
 
 <resources>
     <resource>
@@ -89,7 +93,7 @@ Apache Storm을 실행하는 HDInsight 클러스터에\로 프로젝트를 배�
    
         mvn package
    
-    그러면 __WordCount--1.0-SNAPSHOT.jar__이라는 파일이 이 프로젝트에 대한 `/target` 디렉터리에 만들어집니다.
+    그러면 **WordCount--1.0-SNAPSHOT.jar**이라는 파일이 이 프로젝트에 대한 `/target` 디렉터리에 만들어집니다.
 2. 다음 방법 중 하나를 사용하여 Hadoop 클러스터에 jar 파일을 업로드합니다.
    
    * **Linux 기반** HDInsight 클러스터: `scp WordCount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:WordCount-1.0-SNAPSHOT.jar`을 사용하여 jar 파일을 클러스터로 복사합니다. 이때 USERNAME은 SSH 사용자 이름으로, CLUSTERNAME은 HDInsight 클러스터 이름으로 바꿉니다.
@@ -99,7 +103,7 @@ Apache Storm을 실행하는 HDInsight 클러스터에\로 프로젝트를 배�
      
        양식을 사용하여 다음 작업을 수행합니다.
      
-     * **Jar 파일**: **찾아보기__를 선택한 후 __WordCount-1.0-SNAPSHOT.jar** 파일을 선택합니다.
+     * **Jar 파일**: **찾아보기**를 선택한 후 **WordCount-1.0-SNAPSHOT.jar** 파일을 선택합니다.
      * **클래스 이름**: `com.microsoft.example.WordCount`를 입력합니다.
      * **추가 매개 변수**: `wordcount`와 같은 토폴로지를 식별하는 친숙한 이름을 입력합니다.
        
@@ -123,13 +127,13 @@ Apache Storm을 실행하는 HDInsight 클러스터에\로 프로젝트를 배�
 * **src/wordcount/core.clj**: 이 파일은 토폴로지 정의를 포함하며 **project.clj** 파일에서 참조됩니다. Clojure를 사용하여 Storm 토폴로지를 정의하는 방법에 대한 자세한 내용은 [Clojure DSL](https://storm.apache.org/documentation/Clojure-DSL.html)을 참조하세요.
 
 ### <a name="build-and-run-the-project"></a>프로젝트 빌드 및 실행
-__프로젝트를 로컬로 빌드 및 실행하려면__다음 명령을 사용합니다.
+**프로젝트를 로컬로 빌드 및 실행하려면**다음 명령을 사용합니다.
 
     lein clean, run
 
-토폴로지를 중지하려면 __Ctrl+C__를 사용합니다.
+토폴로지를 중지하려면 **Ctrl+C**를 사용합니다.
 
-__uberjar을 빌드하고 HDInsight에 배포하려면__다음 단계를 수행합니다.
+**uberjar을 빌드하고 HDInsight에 배포하려면**다음 단계를 수행합니다.
 
 1. 토폴로지 및 필요한 종속성을 포함하는 uberjar을 만듭니다.
    
@@ -157,7 +161,7 @@ __uberjar을 빌드하고 HDInsight에 배포하려면__다음 단계를 수행�
      1. 브라우저에서 HTTPS://CLUSTERNAME.azurehdinsight.net/으로 이동하여 Storm 대시보드에 연결합니다. CLUSTERNAME을 HDInsight 클러스터 이름으로 바꾸고 메시지가 표시되면 관리자 이름 및 암호를 제공합니다.
      2. 양식을 사용하여 다음 작업을 수행합니다.
         
-        * **Jar 파일**: **찾아보기__를 선택한 후 __WordCount-1.0-SNAPSHOT.jar** 파일을 선택합니다.
+        * **Jar 파일**: **찾아보기**를 선택한 후 **WordCount-1.0-SNAPSHOT.jar** 파일을 선택합니다.
         * **클래스 이름**: `wordcount.core`를 입력합니다.
         * **추가 매개 변수**: `wordcount`와 같은 토폴로지를 식별하는 친숙한 이름을 입력합니다.
           
@@ -174,6 +178,9 @@ __uberjar을 빌드하고 HDInsight에 배포하려면__다음 단계를 수행�
 * [MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법](hdinsight-hadoop-streaming-python.md)
 * [Pig 및 Hive에서 UDF(사용자 정의 함수)를 사용하는 방법](hdinsight-python.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

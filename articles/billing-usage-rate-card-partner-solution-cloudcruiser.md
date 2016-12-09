@@ -1,13 +1,13 @@
 ---
-title: Cloud Cruiser 및 Microsoft Azure 청구 API 통합 | Microsoft Docs
-description: 경험으로 해당 제품에 Azure 청구 API를 통합하여 Microsoft Azure 청구 파트너 Cloud Cruiser에서 고유한 관점을 제공합니다.  Microsoft Azure 팩용 Cloud Cruiser를 사용/시도하는 데 관심을 두는 Azure 및 Cloud Cruiser 고객에게 특히 유용합니다.
-services: ''
-documentationcenter: ''
+title: "Cloud Cruiser 및 Microsoft Azure 청구 API 통합 | Microsoft Docs"
+description: "경험으로 해당 제품에 Azure 청구 API를 통합하여 Microsoft Azure 청구 파트너 Cloud Cruiser에서 고유한 관점을 제공합니다.  Microsoft Azure 팩용 Cloud Cruiser를 사용/시도하는 데 관심을 두는 Azure 및 Cloud Cruiser 고객에게 특히 유용합니다."
+services: 
+documentationcenter: 
 author: BryanLa
 manager: mbaldwin
-editor: ''
+editor: 
 tags: billing
-
+ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
 ms.service: billing
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 09/08/2016
 ms.author: mobandyo;sirishap;bryanla
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b1783823218a883fc9fdec05e835fb7249eed97d
+
 
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>클라우드 크루저 및 Microsoft Azure 청구 API 통합
@@ -40,7 +44,7 @@ RateCard API는 Azure에서 환율 정보를 제공합니다. 적절한 자격 �
         "MeterStatus": "Active"
     },
 
-### <a name="cloud-cruiser’s-interface-to-azure-ratecard-api"></a>Azure RateCard API에 대한 클라우드 크루저의 인터페이스
+### <a name="cloud-cruisers-interface-to-azure-ratecard-api"></a>Azure RateCard API에 대한 클라우드 크루저의 인터페이스
 다른 방법으로 클라우드 크루저가 RateCard API 정보를 활용할 수 있습니다. 이 문서에서 어떻게 IaaS를 워크로드 비용 시뮬레이션 및 분석을 만드는데 사용할 수 있는지 알아보겠습니다
 
 이 사용 사례를 설명하기 위해 Microsoft Azure 팩(WAP)을 실행하는 여러 인스턴스의 워크로드를 가정합니다. Azure에서 이 같은 워크로드를 시뮬레이션하고 이러한 마이그레이션을 수행하는 비용을 추정하는 것이 목표입니다. 이 시뮬레이션을 만들기 위해 두 주요 작업을 수행합니다.
@@ -166,7 +170,7 @@ Azure 사용량 API를 통해 제공되는 데이터는 소비량 정보뿐만 �
 ### <a name="import-data-from-the-usage-api-into-cloud-cruiser"></a>사용량 API에서 클라우드 크루저로 데이터 가져오기
 클라우드 크루저 워크북은 사용량 API에서 정보를 수집하고 처리하는 자동화된 방법을 제공합니다. ETL(추출-변환-로드) 워크북을 사용하면 클라우드 크루저 데이터베이스에서 데이터를 수집, 변환 및 게시하도록 구성할 수 있습니다.
 
-각 워크북은 하나 또는 여러 컬렉션을 가질 수 있습니다. 이를 사용하여 사용 데이터를 보완하거나 보강할 다른 소스에서 정보를 상호 연결할 수 있습니다. 이 예에서는 Azure 탬플릿 워크북에서 새 시트(_UsageAPI)_를 만들고 사용량 API의 정보를 가져오는 새 _컬렉션_을 설정할 것입니다.
+각 워크북은 하나 또는 여러 컬렉션을 가질 수 있습니다. 이를 사용하여 사용 데이터를 보완하거나 보강할 다른 소스에서 정보를 상호 연결할 수 있습니다. 이 예에서는 Azure 탬플릿 워크북에서 새 시트(*UsageAPI)*를 만들고 사용량 API의 정보를 가져오는 새 *컬렉션*을 설정할 것입니다.
 
 ![그림 3 - UsageAPI 시트로 가져온 사용량 API 데이터][12]
 
@@ -181,10 +185,10 @@ Azure 사용량 API를 통해 제공되는 데이터는 소비량 정보뿐만 �
 
 "네트워킹" 서비스에는 태그 정보가 없습니다(노란색 상자). 하지만 *ResourceGroupName* 필드를 살펴보면 이 서비스가 동일한 리소스 그룹에 속한 것을 확인할 수 있습니다. 이 리소스 그룹의 다른 리소스에 대한 태그를 갖고 있으므로 나중에 이 정보를 사용하여 누락된 태그를 이 리소스에 적용할 수 있습니다.
 
-다음 단계는 태그의 정보를 _ResourceGroupName_에 연결하는 조회 테이블을 만드는 것입니다. 이 조회 테이블은 다음 단계에서 태그 정보를 사용하여 소비량 데이터를 보강하는 데 사용됩니다.
+다음 단계는 태그의 정보를 *ResourceGroupName*에 연결하는 조회 테이블을 만드는 것입니다. 이 조회 테이블은 다음 단계에서 태그 정보를 사용하여 소비량 데이터를 보강하는 데 사용됩니다.
 
 ### <a name="adding-the-tag-information-to-the-consumption-data"></a>소비량 데이터에 태그 정보 추가
-이제 청구 API의 소비량 정보를 처리하는 *PublishData* 시트로 넘어가서, 태그에서 추출한 필드를 추가할 수 있습니다. 이 프로세스는 이전 단계에서 만든 조회 테이블을 확인 하여 수행됩니다. 조회에 대한 키로 _ResourceGroupName_을 사용합니다.
+이제 청구 API의 소비량 정보를 처리하는 *PublishData* 시트로 넘어가서, 태그에서 추출한 필드를 추가할 수 있습니다. 이 프로세스는 이전 단계에서 만든 조회 테이블을 확인 하여 수행됩니다. 조회에 대한 키로 *ResourceGroupName*을 사용합니다.
 
 ![그림 5 - 조회 정보로 계정 구조 채우기][14]
 
@@ -201,7 +205,7 @@ Azure 사용량 API를 통해 제공되는 데이터는 소비량 정보뿐만 �
 * 샘플 코드를 곧바로 시작하려면 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?term=billing)의 Microsoft Azure 청구 API 코드 샘플을 확인하세요.
 
 ### <a name="learn-more"></a>자세한 정보
-* Azure 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하십시오.
+* Azure 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자 개요](azure-resource-manager/resource-group-overview.md)를 참조하십시오.
 
 <!--Image references-->
 
@@ -222,6 +226,6 @@ Azure 사용량 API를 통해 제공되는 데이터는 소비량 정보뿐만 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

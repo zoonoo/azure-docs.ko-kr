@@ -1,13 +1,13 @@
 ---
-title: Azure 구독과 Office 365 테넌트 사용 | Microsoft Docs
-description: 연결할 Azure 구독에 Office 365 디렉터리(테넌트)를 추가하는 방법을 알아봅니다.
-services: ''
-documentationcenter: ''
+title: "Azure 구독과 Office 365 테넌트 사용 | Microsoft Docs"
+description: "연결할 Azure 구독에 Office 365 디렉터리(테넌트)를 추가하는 방법을 알아봅니다."
+services: 
+documentationcenter: 
 author: JiangChen79
 manager: mbaldwin
-editor: ''
+editor: 
 tags: billing,top-support-issue
-
+ms.assetid: cc9c57c6-7bfd-4dea-9027-c75ef3737589
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: cjiang
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 36cd9eac7be2d99971d8d2e227cd4b761df82d08
+
 
 ---
 # <a name="associate-an-office-365-tenant-with-an-azure-subscription"></a>Azure 구독과 Office 365 테넌트 연결
@@ -161,6 +165,9 @@ Azure 구독과 Office 365 테넌트를 연결하려면 다음 단계를 따릅�
 
 이러한 작업을 수행하는 방법을 알아보려면 [기존 Office 365 계정을 Azure 구독에 사용하거나 그 반대로 사용하는 경우](billing-use-existing-office-365-account-azure-subscription.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

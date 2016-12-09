@@ -1,13 +1,13 @@
 ---
-title: 캐싱 지침 | Microsoft Docs
-description: 성능 및 확장성을 향상하기 위한 캐시에 대한 지침입니다.
-services: ''
+title: "캐싱 지침 | Microsoft Docs"
+description: "성능 및 확장성을 향상하기 위한 캐시에 대한 지침입니다."
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: c86e2d49-066b-43b0-b0b6-f70ff4f87cdd
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 27612fcd27a4d314a07982446375ac32ed1a2e4a
+
 
 ---
 # <a name="caching-guidance"></a>캐싱 지침
@@ -134,7 +138,7 @@ HTTP 연결을 통해 데이터를 제공하는 웹 응용 프로그램을 작�
 * **낙관적입니다.** 응용 프로그램을 업데이트하기 바로 전에 캐시에서 데이터가 검색된 이후 변경되지 않았는지를 확인합니다. 데이터가 여전히 동일한 경우 변경이 가능합니다. 그렇지 않으면 응용 프로그램에서 업데이트 여부를 결정해야 합니다. (이를 결정하는 비즈니스 논리는 응용 프로그램에 특정됨) 이 방법은 업데이트가 드물거나 충돌이 발생할 가능성이 없는 상황에 적합합니다.
 * **비관적입니다.**  응용 프로그램이 데이터를 검색할 때 다른 인스턴스가 데이터를 변경하지 못하도록 캐시에서 잠급니다. 이렇게 하면 충돌이 발생할 수 없지만 동일한 데이터를 처리해야 하는 다른 인스턴스를 차단할 수도 있습니다. 비관적 동시성은 솔루션의 확장성에 영향을 줄 수 있으며 단기 실행 작업에 대해서만 사용하는 것이 좋습니다. 특히 응용 프로그램이 캐시에 여러 항목을 업데이트하고 이러한 변경 내용이 일관되게 적용되었는지 확인해야 하는 경우 이 방법이 충돌 가능성이 더 높은 상황에 적절할 수 있습니다.
 
-### <a name="implement-high-availability-and-scalability,-and-improve-performance"></a>고가용성 및 확장성 구현과 성능 향상
+### <a name="implement-high-availability-and-scalability-and-improve-performance"></a>고가용성 및 확장성 구현과 성능 향상
 데이터의 기본 리포지토리로 캐시를 사용하지 않도록 합니다. 이는 캐시가 채워지면 원래 데이터 저장소의 역할입니다. 원래 데이터 저장소는 데이터의 지 속성 보장을 담당합니다.
 
 공유 캐시 서비스의 가용성에 대한 높은 종속성을 솔루션에 도입하지 않도록 주의하십시오. 공유 캐시를 제공하는 서비스를 사용할 수 없는 경우 응용 프로그램이 계속 작동될 수 있어야 합니다. 캐시 서비스가 다시 시작되기를 기다리는 동안 응용 프로그램이 중단되거나 실패하지 않아야 합니다.
@@ -207,7 +211,7 @@ Azure Redis Cache는 가용성, 확장성 및 보안을 제공하는 고성능 �
 > 캐시는 웹 또는 작업자 역할의 인스턴스에서 호스트되고 같은 클라우드 서비스 배포 단위의 일부로 작동하는 역할만 액세스할 수 있습니다. (배포 단위는 특정 지역에 클라우드 서비스로 배포되는 역할 인스턴스 집합임) 캐시는 클러스터되고 캐시를 호스트하는 동일한 배포 단위 내에서 역할의 모든 인스턴스가 동일한 캐시 클러스터의 일부가 됩니다. 그러나 이 옵션은 더이상 추천하지 않으며 이것을 사용하여 구축된 기존의 응용 프로그램을 지원하기 위해 제공됩니다. 모든 신규 개발에서 Azure Redis Cache를 대신 사용합니다.
 > 
 > Azure 관리된 캐시 서비스와 Azure In-Role Cache 둘 다 2016년 11월 16일에 사용 중지될 것으로 현재 예정되어 있습니다.
-> 이러한 사용 중지에 대비하기 위해 Azure Redis Cache로 마이그레이션하는 것이 좋습니다. 자세한 내용은 Microsoft 웹 사이트의   [어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) 페이지를 방문하세요.
+> 이러한 사용 중지에 대비하기 위해 Azure Redis Cache로 마이그레이션하는 것이 좋습니다. 자세한 내용은 Microsoft 웹 사이트의 [어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) 페이지를 방문하세요.
 > 
 > 
 
@@ -927,6 +931,9 @@ ISubscriber subscriber = redisHostConnection.GetSubscriber();
 * StackExchange.Redis 리포지토리의 [Redis에서 트랜잭션](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) 페이지.
 * Microsoft 웹 사이트의 [데이터 분할 가이드](http://msdn.microsoft.com/library/dn589795.aspx) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

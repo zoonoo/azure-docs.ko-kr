@@ -1,13 +1,13 @@
 ---
-title: .NET SDK를 사용하여 HDInsight의 Hadoop 클러스터 관리 | Microsoft Docs
-description: HDInsight .NET SDK를 사용하여 HDInsight에서 Hadoop 클러스터에 대해 관리 작업을 수행하는 방법에 대해 알아봅니다.
+title: ".NET SDK를 사용하여 HDInsight의 Hadoop 클러스터 관리 | Microsoft Docs"
+description: "HDInsight .NET SDK를 사용하여 HDInsight에서 Hadoop 클러스터에 대해 관리 작업을 수행하는 방법에 대해 알아봅니다."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 tags: azure-portal
 author: mumian
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: fd134765-c2a0-488a-bca6-184d814d78e9
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aa0f2dd07ffa8437ff224c278135744202adcd73
+
 
 ---
-# .NET SDK를 사용하여 HDInsight의 Hadoop 클러스터 관리
-[!INCLUDE [선택기](../../includes/hdinsight-portal-management-selector.md)]
+# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Hadoop 클러스터 관리
+[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 [HDInsight .NET SDK](https://msdn.microsoft.com/library/mt271028.aspx)를 사용하여 HDInsight 클러스터를 관리하는 방법을 알아봅니다.
 
@@ -28,7 +32,7 @@ ms.author: jgao
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-## Azure HDInsight에 연결
+## <a name="connect-to-azure-hdinsight"></a>Azure HDInsight에 연결
 다음 NuGet 패키지를 설치해야 합니다.
 
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -106,12 +110,12 @@ ms.author: jgao
         }
     }
 
-이 프로그램을 실행하면 프롬프트가 나타납니다. 프롬프트를 표시하지 않으려면 [비대화형 인증 .NET HDInsight 응용 프로그램 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md)를 참조하세요.
+이 프로그램을 실행하면 프롬프트가 나타납니다.  프롬프트를 표시하지 않으려면 [비대화형 인증 .NET HDInsight 응용 프로그램 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md)를 참조하세요.
 
-## 클러스터 만들기
-[.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)를 참조하세요.
+## <a name="create-clusters"></a>클러스터 만들기
+ [.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
-## 클러스터 나열
+## <a name="list-clusters"></a>클러스터 나열
 다음 코드 조각은 클러스터 및 일부 속성을 나열합니다.
 
     var results = _hdiManagementClient.Clusters.List();
@@ -122,17 +126,17 @@ ms.author: jgao
         Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
     }
 
-## 클러스터 삭제
-다음 코드 조각을 사용하여 동기적 또는 비동기적으로 클러스터를 삭제합니다.
+## <a name="delete-clusters"></a>클러스터 삭제
+다음 코드 조각을 사용하여 동기적 또는 비동기적으로 클러스터를 삭제합니다. 
 
     _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
     _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
 
-## 클러스터 크기 조정
+## <a name="scale-clusters"></a>클러스터 크기 조정
 클러스터 크기 조정 기능을 사용하여 클러스터를 다시 생성하지 않고 Azure HDInsight에서 실행되는 클러스터에서 사용되는 작업자 노드 수를 변경합니다.
 
 > [!NOTE]
-> HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다. [클러스터 나열 및 표시](hdinsight-administer-use-portal-linux.md#list-and-show-clusters)를 참조하세요.
+> HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다.  [클러스터 나열 및 표시](hdinsight-administer-use-portal-linux.md#list-and-show-clusters)를 참조하세요.
 > 
 > 
 
@@ -159,7 +163,7 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
   * Storm 웹 UI
   * 명령줄 인터페이스(CLI) 도구
     
-    자세한 내용은 [Apache Storm 설명서](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)(영문)을 참조하세요.
+    자세한 내용은 [Apache Storm 설명서](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (영문)을 참조하세요.
     
     Storm 웹 UI는 HDInsight 클러스터에서 제공됩니다.
     
@@ -167,9 +171,9 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
     
     다음은 CLI 명령을 사용하여 Storm 토폴로지 균형을 다시 조정하는 방법의 예입니다.
     
-    ## Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## the spout "blue-spout" to use 3 executors, and
-    ## the bolt "yellow-bolt" to use 10 executors
+    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>the spout "blue-spout" to use 3 executors, and
+    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>the bolt "yellow-bolt" to use 10 executors
       $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 다음 코드 조각은 동기적 또는 비동기적으로 클러스터의 크기를 조정하는 방법을 보여 줍니다.
@@ -178,7 +182,7 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
     _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
 
 
-## 액세스 권한 부여/해지
+## <a name="grantrevoke-access"></a>액세스 권한 부여/해지
 HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다(이러한 모든 서비스에 RESTful 끝점이 있음).
 
 * ODBC
@@ -213,12 +217,12 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 > 
 > 
 
-이 작업은 포털을 통해서도 수행할 수 있습니다. [Azure 포털을 사용하여 HDInsight 관리][hdinsight-admin-portal]를 참조하세요.
+이 작업은 포털을 통해서도 수행할 수 있습니다. [Azure Portal을 사용하여 HDInsight 관리][hdinsight-admin-portal]를 참조하세요.
 
-## HTTP 사용자 자격 증명 업데이트
-이는 [HTTP 액세스 권한 부여/해지](#grant/revoke-access)와 절차가 동일합니다. 클러스터에 HTTP 액세스가 부여된 경우 이를 먼저 취소해야 합니다. 그런 다음 새 HTTP 사용자 자격 증명을 사용하여 액세스 권한을 부여합니다.
+## <a name="update-http-user-credentials"></a>HTTP 사용자 자격 증명 업데이트
+이는 [HTTP 권한 부여/해지 액세스](#grant/revoke-access)와 절차가 동일합니다. 클러스터에 HTTP 액세스 권한이 부여되어 있는 경우 이를 먼저 해지해야 합니다.  그런 다음 새 HTTP 사용자 자격 증명을 사용하여 액세스 권한을 부여합니다.
 
-## 기본 저장소 계정 찾기
+## <a name="find-the-default-storage-account"></a>기본 저장소 계정 찾기
 다음 코드 조각에서는 클러스터에 대한 기본 저장소 계정 이름 및 기본 저장소 계정 키를 가져오는 방법을 보여 줍니다.
 
     var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
@@ -228,12 +232,12 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
     }
 
 
-## 작업 제출
+## <a name="submit-jobs"></a>작업 제출
 **MapReduce 작업을 제출하려면**
 
 [HDInsight에서 Hadoop MapReduce 샘플 실행](hdinsight-hadoop-run-samples-linux.md)을 참조하세요.
 
-**Hive 작업을 제출하려면**
+**Hive 작업을 제출하려면** 
 
 [.NET SDK를 사용하여 Hive 쿼리 실행](hdinsight-hadoop-use-hive-dotnet-sdk.md)을 참조하세요.
 
@@ -249,13 +253,13 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 
 [Hadoop과 함께 Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](hdinsight-use-oozie-linux-mac.md)을 참조하세요.
 
-## Azure Blob 저장소에 데이터 업로드
-[HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하십시오.
+## <a name="upload-data-to-azure-blob-storage"></a>Azure Blob 저장소에 데이터 업로드
+[HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 * [HDInsight .NET SDK 참조 설명서](https://msdn.microsoft.com/library/mt271028.aspx)
-* [Azure 포털을 사용하여 HDInsight 관리][hdinsight-admin-portal]
-* [명령줄 인터페이스를 사용하여 HDInsight 관리][hdinsight-admin-cli]
+* [Azure Portal을 사용하여 HDInsight 관리][hdinsight-admin-portal]
+* [명령줄 인터페이스를 사용하여 HDInsight 클러스터 관리][hdinsight-admin-cli]
 * [HDInsight 클러스터 만들기][hdinsight-provision]
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
 * [Azure HDInsight 시작][hdinsight-get-started]
@@ -277,4 +281,10 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: 논리 앱 예외 처리 | Microsoft Docs
-description: Azure Logic Apps로 오류 및 예외 처리 패턴 알아보기
+title: "논리 앱 예외 처리 | Microsoft Docs"
+description: "Azure Logic Apps로 오류 및 예외 처리 패턴 알아보기"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec09eb465628ac3c78b9883cbc84bbbf6c0e875e
+
 
 ---
 # <a name="logic-apps-error-and-exception-handling"></a>논리 앱 오류 및 예외 처리
@@ -22,7 +26,7 @@ ms.author: jehollan
 ## <a name="retry-policies"></a>재시도 정책
 가장 기본적인 예외 및 오류 처리 형식은 재시도 정책입니다.  이 정책은 초기 요청이 시간 초과되거나 실패한 경우 작업을 재시도해야 하는지를 정의합니다(429 또는 5xx 응답이 발생하는 모든 요청).  기본적으로 모든 작업은 20초 간격에 걸쳐 추가로 4회 재시도합니다.  따라서 첫 번째 요청이 `500 Internal Server Error` 응답을 수신하는 경우 워크플로 엔진은 20초 동안 일시 중지되고 요청을 다시 시도합니다.  모든 재시도 후에도 응답으로 예외 또는 오류가 발생하는 경우 워크플로가 계속 진행되고 작업 상태가 `Failed`로 표시됩니다.
 
-특정 작업의 **입력** 에서 재시도 정책을 구성할 수 있습니다.  1시간 간격에 걸쳐 4번 시도하도록 재시도 정책을 구성할 수 있습니다.  입력 속성에 대한 자세한 내용은 [MSDN][retryPolicyMSDN에서 확인]할 수 있습니다.
+특정 작업의 **입력** 에서 재시도 정책을 구성할 수 있습니다.  1시간 간격에 걸쳐 4번 시도하도록 재시도 정책을 구성할 수 있습니다.  입력 속성에 대한 자세한 내용은 [MSDN][retryPolicyMSDN]할 수 있습니다.
 
 ```json
 "retryPolicy" : {
@@ -51,7 +55,7 @@ HTTP 작업을 4회 재시도하고 각 시도 사이에 10분 대기하려는 �
 }
 ```
 
-지원되는 구문에 대한 자세한 내용은 [MSDN][retryPolicyMSDN의 재시도 정책 섹션]을 참조하세요.
+지원되는 구문에 대한 자세한 내용은 [MSDN][retryPolicyMSDN]을 참조하세요.
 
 ## <a name="runafter-property-to-catch-failures"></a>오류를 catch하는 RunAfter 속성
 각 논리 앱 작업은 작업을 시작하기 전에 완료해야 하는 작업을 선언합니다.  워크플로의 단계 순서대로 생각할 수 있습니다.  이 순서를 작업 정의에서 `runAfter` 속성이라고 합니다.  해당 작업을 실행할 작업 및 작업 상태를 설명하는 개체입니다.  기본적으로 디자이너를 통해 추가된 모든 작업은 이전 단계가 `Succeeded`인 경우 이전 단계의 `runAfter`로 설정됩니다.  그러나 이전 작업이 `Failed`, `Skipped` 또는 이전 값의 가능한 설정인 경우 작업을 실행하기 위해 이 값을 사용자 지정할 수 있습니다.  특정 작업 `Insert_Row`가 실패한 후 지정된 서비스 버스 토픽에 항목을 추가하려면 다음 `runAfter` 구성을 사용합니다.
@@ -204,6 +208,7 @@ HTTP 작업을 4회 재시도하고 각 시도 사이에 10분 대기하려는 �
 [retryPolicyMSDN]: https://msdn.microsoft.com/library/azure/mt643939.aspx#Anchor_9
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

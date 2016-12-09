@@ -1,13 +1,13 @@
 ---
-title: HDInsight에서 Apache Storm을 사용하는 Twitter 추세 항목| Microsoft Docs
-description: Trident를 사용하여 해시 태그에 기반하는 Twitter에서 추세 항목을 확인하는 Apache Storm 토폴로지를 만드는 방법에 대해 알아봅니다.
+title: "HDInsight에서 Apache Storm을 사용하는 Twitter 추세 항목| Microsoft Docs"
+description: "Trident를 사용하여 해시 태그에 기반하는 Twitter에서 추세 항목을 확인하는 Apache Storm 토폴로지를 만드는 방법에 대해 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 63b280ea-5c07-4dc8-a35f-dccf5a96ba93
 ms.service: hdinsight
 ms.devlang: java
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 53c18f6bb294c42456a0a4cd3c2a83812e9b13d0
+
 
 ---
-# HDInsight에서 Apache Storm을 사용하여 Twitter 추세 항목 확인
+# <a name="determine-twitter-trending-topics-with-apache-storm-on-hdinsight"></a>HDInsight에서 Apache Storm을 사용하여 Twitter 추세 항목 확인
 Trident를 사용하여 Twitter에서 추세 항목(해시 태그)을 확인하는 Storm 토폴로지를 만드는 방법에 대해 알아봅니다.
 
 Trident는 조인, 집계, 그룹화, 함수 및 필터와 같은 도구를 제공하는 높은 수준의 추상화입니다. 또한 Trident는 상태 저장, 증분 처리를 수행하기 위한 기본 요소를 추가합니다. 이 예제에서는 사용자 지정 spout, 함수 및 trident에서 제공하는 여러 기본 제공 함수를 사용하여 토폴로지를 구축하는 방법을 보여 줍니다.
@@ -27,18 +31,18 @@ Trident는 조인, 집계, 그룹화, 함수 및 필터와 같은 도구를 제�
 > 
 > 
 
-## 요구 사항
+## <a name="requirements"></a>요구 사항
 * <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java 및 JDK 1.7</a>
 * <a href="http://maven.apache.org/what-is-maven.html" target="_blank">Maven</a>
 * <a href="http://git-scm.com/" target="_blank">Git</a>
 * Twitter 개발자 계정
 
-## 프로젝트를 다운로드합니다.
+## <a name="download-the-project"></a>프로젝트를 다운로드합니다.
 다음 코드를 사용하여 프로젝트를 로컬로 복제합니다.
 
     git clone https://github.com/Blackmist/TwitterTrending
 
-## 토폴로지
+## <a name="topology"></a>토폴로지
 이 예제의 토폴로지는 다음과 같습니다.
 
 ![토폴로지](./media/hdinsight-storm-twitter-trending/trident.png)
@@ -77,28 +81,28 @@ Trident는 조인, 집계, 그룹화, 함수 및 필터와 같은 도구를 제�
 > 
 > 
 
-### spout
+### <a name="the-spout"></a>spout
 **TwitterSpout** Spout는 <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a>를 사용하여 Twitter에서 트윗을 검색합니다. 필터(이 예제의 경우 love, music 및 coffee)가 만들어지며 해당 필터와 일치하는 들어오는 트윗(상태)이 Linked Blocking Queue에 저장됩니다. 자세한 내용은 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">LinkedBlockingQueue 클래스</a>를 참조하세요. 마지막으로 항목을 큐에서 가져와 토폴로지로 내보냅니다.
 
-### HashtagExtractor
+### <a name="the-hashtagextractor"></a>HashtagExtractor
 해시태그를 추출하기 위해 <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities</a>를 사용하여 트윗에 포함된 모든 해시 태그를 검색합니다. 그런 다음 스트림으로 보내집니다.
 
-## Twitter 사용
+## <a name="enable-twitter"></a>Twitter 사용
 새 Twitter 응용 프로그램을 등록하고를 Twitter에서 읽는 데 필요한 소비자 및 액세스 토큰 정보를 받으려면 다음 단계를 참조하세요.
 
 1. <a href="https://apps.twitter.com" target="_blank">Twitter Apps</a>로 이동하여 **Create new app** 단추를 클릭합니다. 양식을 작성할 때 **Callback URL** 필드는 비워 둡니다.
 2. 앱이 만들어지면 **Keys and Access Tokens** 탭을 클릭합니다.
 3. **Consumer Key** 및 **Consumer Secret** 정보를 복사합니다.
-4. 토큰이 없는 경우 페이지 아래쪽에서 **Create my access token**을 선택합니다. 토큰을 만들었으면 **Access Token** 및 **Access Token Secret** 정보를 복사합니다.
+4. 토큰이 없는 경우 페이지 아래쪽에서 **Create my access token** 을 선택합니다. 토큰을 만들었으면 **Access Token** 및 **Access Token Secret** 정보를 복사합니다.
 5. 앞에서 복사한 **TwitterSpoutTopology** 프로젝트에서 **resources/twitter4j.properties** 파일을 열고 이전 단계에서 수집한 정보를 추가한 다음 파일을 저장합니다.
 
-## 토폴로지 작성
+## <a name="build-the-topology"></a>토폴로지 작성
 다음 코드를 사용하여 프로젝트를 빌드합니다.
 
         cd [directoryname]
         mvn compile
 
-## 포톨로지 테스트
+## <a name="test-the-topology"></a>포톨로지 테스트
 다음 명령을 사용하여 토폴로지를 로컬로 테스트합니다.
 
     mvn compile exec:java -Dstorm.topology=com.microsoft.example.TwitterTrendingTopology
@@ -115,7 +119,7 @@ Trident는 조인, 집계, 그룹화, 함수 및 필터와 같은 도구를 제�
     DEBUG: [punk, 1]
     DEBUG: [indonesiapunkrock, 1]
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 토폴로지를 로컬로 테스트했으므로 이제 [HDInsight의 Apache Strom 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)에서 토폴로지를 배포하는 방법에 대해 알아봅니다.
 
 다음과 같은 Storm 항목을 참조할 수도 있습니다.
@@ -127,4 +131,9 @@ HDinsight에 대한 추가 Storm 예제:
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

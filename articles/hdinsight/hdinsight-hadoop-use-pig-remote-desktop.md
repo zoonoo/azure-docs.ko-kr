@@ -1,13 +1,13 @@
 ---
-title: HDInsight에서 원격 데스크톱과 Hadoop Hive 사용 | Microsoft Docs
-description: Windows 기반 HDInsight Hadoop 클러스터에 대한 원격 데스크톱 연결을 통해 Pig 명령을 사용하여 Pig Latin 문을 실행하는 방법에 대해 알아봅니다.
+title: "HDInsight에서 원격 데스크톱과 Hadoop Hive 사용 | Microsoft Docs"
+description: "Windows 기반 HDInsight Hadoop 클러스터에 대한 원격 데스크톱 연결을 통해 Pig 명령을 사용하여 Pig Latin 문을 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: e034a286-de0f-465f-8bf1-3d085ca6abed
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 28499d1778db75fa164afe20ae1adc6736f7bb93
+
 
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>원격 데스크탑 연결에서 Pig 작업 실행
@@ -24,16 +28,16 @@ ms.author: larryfr
 
 이 문서에서는 다음 작업 방법에 대해 알아봅니다.
 
-## <a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>필수 조건
+## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * Windows 기반 HDInsight(HDInsight의 Hadoop) 클러스터
 * Windows 10, Window 8 또는 Windows 7을 실행하는 클라이언트 컴퓨터
 
-## <a name="<a-id="connect"></a>connect-with-remote-desktop"></a><a id="connect"></a>원격 데스크톱을 사용하여 연결
+## <a name="a-idconnectaconnect-with-remote-desktop"></a><a id="connect"></a>원격 데스크톱을 사용하여 연결
 HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)의 지침에 따라 연결합니다.
 
-## <a name="<a-id="pig"></a>use-the-pig-command"></a><a id="pig"></a>Pig 명령 사용
+## <a name="a-idpigause-the-pig-command"></a><a id="pig"></a>Pig 명령 사용
 1. 원격 데스크톱 연결이 설정되면 바탕 화면의 아이콘을 사용하여 **Hadoop 명령줄** 을 시작합니다.
 2. 다음을 사용하여 Pig 명령을 시작합니다.
    
@@ -109,10 +113,10 @@ Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있
         (ERROR,6)
         (FATAL,2)
 
-## <a name="<a-id="summary"></a>summary"></a><a id="summary"></a>요약
+## <a name="a-idsummaryasummary"></a><a id="summary"></a>요약
 이처럼 Pig 명령을 사용하면 MapReduce 작업 또는 배치 파일에 저장된 Pig Latin 작업을 대화형으로 실행할 수 있습니다.
 
-## <a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>다음 단계
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
 HDInsight의 Pig에 대한 일반적인 정보:
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
@@ -122,6 +126,9 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

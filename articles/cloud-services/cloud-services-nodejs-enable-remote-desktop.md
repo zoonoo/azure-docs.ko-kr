@@ -1,22 +1,26 @@
 ---
-title: 클라우드 서비스에 대해 원격 데스크톱 사용(Node.js)
-description: Azure Node.js 응용 프로그램을 호스트하는 가상 컴퓨터에 대해 원격 데스크톱 액세스를 사용하도록 설정하는 방법에 대해 알아봅니다.
+title: "클라우드 서비스에 대해 원격 데스크톱 사용(Node.js)"
+description: "Azure Node.js 응용 프로그램을 호스트하는 가상 컴퓨터에 대해 원격 데스크톱 액세스를 사용하도록 설정하는 방법에 대해 알아봅니다."
 services: cloud-services
 documentationcenter: nodejs
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: a0141904-c9bc-478d-82af-5bceaca5cf6a
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6dedf3a7a7b4092784291334b0586b8f37e86354
+
 
 ---
-# Azure에서 원격 데스크톱 사용
+# <a name="enabling-remote-desktop-in-azure"></a>Azure에서 원격 데스크톱 사용
 원격 데스크톱을 사용하면 Azure에서 실행 중인 역할 인스턴스의 데스크톱에 액세스할 수 있습니다. 원격 데스크톱 연결을 사용하여 가상 컴퓨터를 구성하거나 응용 프로그램의 문제를 해결할 수 있습니다.
 
 > [!NOTE]
@@ -24,16 +28,16 @@ ms.author: robmcm
 > 
 > 
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 * [Azure Powershell](../powershell-install-configure.md)을 설치하고 구성합니다.
 * Node.js 앱을 Azure 클라우드 서비스에 배포합니다. 자세한 내용은 [Node.js 응용 프로그램을 만들어서 Azure 클라우드 서비스에 배포](cloud-services-nodejs-develop-deploy-app.md)를 참조하세요.
 
-## 1단계: Azure PowerShell을 사용하여 원격 데스크톱 액세스에 대한 서비스 구성
-원격 데스크톱을 사용하려면 Azure 서비스 정 및 구성을 사용자 이름, 암호 및 인증서와 함께 업데이트해야 합니다.
+## <a name="step-1-use-azure-powershell-to-configure-the-service-for-remote-desktop-access"></a>1단계: Azure PowerShell을 사용하여 원격 데스크톱 액세스에 대한 서비스 구성
+원격 데스크톱을 사용하려면 Azure 서비스 정 및 구성을 사용자 이름, 암호 및 인증서와 함께 업데이트해야 합니다. 
 
 앱에 대한 소스 파일이 포함된 컴퓨터에서 다음 단계를 수행합니다.
 
-1. **Windows PowerShell**을 관리자 권한으로 실행합니다. (**시작 메뉴** 또는 **시작 화면**에서 **Windows PowerShell**을 검색합니다.)
+1. **Windows PowerShell** 을 관리자 권한으로 실행합니다. **시작 메뉴** 또는 **시작 화면**에서 **Windows PowerShell**을 검색합니다.
 2. 서비스 정의(.csdef) 및 서비스 구성(.cscfg) 파일이 포함된 디렉터리로 이동합니다.
 3. 다음 PowerShell cmdlet를 입력합니다.
    
@@ -47,13 +51,13 @@ ms.author: robmcm
    
    ![publish-azureserviceproject][publish-project]
 
-## 2단계: 역할 인스턴스에 연결
+## <a name="step-2-connect-to-the-role-instance"></a>2단계: 역할 인스턴스에 연결
 업데이트 서비스 정의를 게시한 후에 역할 인스턴스에 연결할 수 있습니다.
 
-1. [Azure 클래식 포털]에서 **클라우드 서비스**를 선택한 다음 해당 서비스를 선택합니다.
+1. [Azure 클래식 포털]에서 **클라우드 서비스** 를 선택한 다음 해당 서비스를 선택합니다.
    
    ![Azure 클래식 포털][cloud-services]
-2. **인스턴스**를 클릭한 다음 **프로덕션**이나 **스테이징**을 클릭하여 해당 서비스의 인스턴스를 확인합니다. 인스턴스를 선택하고 페이지 아래쪽에서 **연결**을 클릭합니다.
+2. **인스턴스**를 클릭한 다음 **프로덕션**이나 **스테이징**을 클릭하여 해당 서비스의 인스턴스를 확인합니다. 인스턴스를 선택하고 페이지 아래쪽에서 **연결** 을 클릭합니다.
    
    ![인스턴스 페이지][3]
 3. **연결**을 클릭하면 웹 브라우저에서 .rdp 파일을 저장할지 묻습니다. 이 파일을 엽니다. (예를 들어, Internet Explorer를 사용 중이면 **열기**를 클릭합니다.
@@ -62,15 +66,15 @@ ms.author: robmcm
 4. 파일이 열리면 다음 보안 프롬프트가 나타납니다.
    
    ![Windows 보안 프롬프트][5]
-5. **연결**을 클릭하면 인스턴스에 액세스할 자격 증명을 입력하기 위한 보안 프롬프트가 나타납니다. [1단계]\[1단계: Azure PowerShell을 사용하여 원격 데스크톱 액세스에 대한 서비스를 구성]에서 생성한 암호를 입력한 후 **확인**을 클릭합니다.
+5. **연결**을 클릭하면 인스턴스에 액세스할 자격 증명을 입력하기 위한 보안 프롬프트가 나타납니다. [1단계][1단계: Azure PowerShell을 사용하여 원격 데스크톱 액세스에 대한 서비스를 구성]에서 생성한 암호를 입력한 후 **확인**을 클릭합니다.
    
    ![사용자 이름/암호 프롬프트][6]
 
-연결되면 원격 데스크톱 연결은 Azure에서 인스턴스의 바탕 화면을 표시합니다.
+연결되면 원격 데스크톱 연결은 Azure에서 인스턴스의 바탕 화면을 표시합니다. 
 
 ![원격 데스크톱 세션][7]
 
-## 3단계: 원격 데스크톱 액세스를 사용하지 않도록 서비스 구성
+## <a name="step-3-configure-the-service-to-disable-remote-desktop-access"></a>3단계: 원격 데스크톱 액세스를 사용하지 않도록 서비스 구성
 클라우드의 역할 인스턴스에 대한 원격 데스크톱 연결이 더 이상 필요하지 않으면 [Azure PowerShell]을 사용하여 원격 데스크톱 액세스를 사용하지 않도록 설정합니다.
 
 1. 다음 PowerShell cmdlet를 입력합니다.
@@ -80,8 +84,8 @@ ms.author: robmcm
    
        Publish-AzureServiceProject
 
-## 추가 리소스
-* [Azure에서 역할 인스턴스 원격 액세스]
+## <a name="additional-resources"></a>추가 리소스
+* [Azure에서 역할 인스턴스 원격 액세스] 
 * [Azure 역할과 함께 원격 데스크톱 사용]
 * [Node.js 개발자 센터](/develop/nodejs/)
 
@@ -101,4 +105,7 @@ ms.author: robmcm
 [Azure 역할과 함께 원격 데스크톱 사용]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
 
 
-<!---HONumber=AcomDC_0817_2016---->
+
+<!--HONumber=Nov16_HO3-->
+
+

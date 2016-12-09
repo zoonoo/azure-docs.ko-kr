@@ -1,12 +1,12 @@
 ---
-title: 공유 액세스 서명을 사용하여 데이터에 대한 HDInsight 액세스 제한
-description: 공유 액세스 서명을 사용하여 Azure 저장소 Blob에 저장된 데이터에 대한 HDInsight 액세스를 제한하는 방법에 대해 알아봅니다.
+title: "공유 액세스 서명을 사용하여 데이터에 대한 HDInsight 액세스 제한"
+description: "공유 액세스 서명을 사용하여 Azure 저장소 Blob에 저장된 데이터에 대한 HDInsight 액세스를 제한하는 방법에 대해 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7f2e5bbd2516c0f697084a802d6963c3d1023914
+
 
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-with-hdinsight"></a>Azure 저장소 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
@@ -27,7 +31,7 @@ HDInsight는 데이터 저장소로 Azure 저장소 Blob를 사용합니다. HDI
   
   * Visual Studio는 버전 2013 또는 2015여야 합니다.
   * Python은 버전 2.7 이상이어야 합니다.
-* Linux 기반 HDInsight 클러스터 또는 [Azure PowerShell][powershell] - 기존 Linux 기반 클러스터가 있는 경우 Ambari를 사용하여 클러스터에 공유 액세스 서명을 추가할 수 있습니다. 그렇지 않으면 Azure PowerShell을 사용하여 새 클러스터를 만들고 클러스터를 만들 때 공유 액세스 서명을 추가합니다.
+* Linux 기반 HDInsight 클러스터 또는 [Azure PowerShell][PowerShell] - 기존 Linux 기반 클러스터가 있는 경우 Ambari를 사용하여 클러스터에 공유 액세스 서명을 추가할 수 있습니다. 그렇지 않으면 Azure PowerShell을 사용하여 새 클러스터를 만들고 클러스터를 만들 때 공유 액세스 서명을 추가합니다.
 * [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)의 예제 파일입니다. 이 리포지토리는 다음을 포함합니다.
   
   * HDInsight에 사용할 저장소 컨테이너, 저장된 정책 및 SAS를 만들 수 있는 Visual Studio 프로젝트
@@ -59,9 +63,9 @@ HDInsight는 데이터 저장소로 Azure 저장소 Blob를 사용합니다. HDI
 ## <a name="create-a-stored-policy-and-generate-a-sas"></a>저장된 정책을 만들고 SAS를 생성합니다.
 현재는 저장된 정책을 프로그래밍 방식으로 만들어야 합니다. 저장된 정책 및 SAS를 만드는 C# 및 Python 예제는 [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)에서 확인할 수 있습니다.
 
-### <a name="create-a-stored-policy-and-sas-using-c\#"></a>C\#을 사용하여 저장된 정책 및 SAS 만들기
+### <a name="create-a-stored-policy-and-sas-using-c"></a>C\를 사용하여 저장된 정책 및 SAS 만들기
 1. Visual Studio에서 솔루션을 엽니다.
-2. 솔루션 탐색기에서 **SASToken** 프로젝트를 마우스 오른쪽 단추로 클릭하고 __속성__을 선택합니다.
+2. 솔루션 탐색기에서 **SASToken** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
 3. **설정** 을 선택하고 다음 항목에 대한 값을 추가합니다.
    
    * StorageConnectionString: 저장된 정책 및 SAS를 만들 저장소 계정에 대한 연결 문자열입니다. 형식은 `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`여야 하며 여기서 `myaccount`는 사용자의 저장소 계정 이름이고 `mykey`는 저장소 계정에 대한 키입니다.
@@ -123,7 +127,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
     예를 들어 `'mycluster'` 를 만들려는 클러스터의 이름으로 변경합니다. SAS 값은 저장소 계정 및 SAS 토큰을 만들 때 이전 단계에서 사용한 값과 일치해야 합니다.
    
     값을 변경한 후 파일을 저장합니다.
-2. 새 Azure PowerShell 프롬프트를 엽니다. Azure PowerShell에 익숙하지 않거나 설치되지 않은 경우 [Azure PowerShell 설치 및 구성][powershell]을 참조하세요.
+2. 새 Azure PowerShell 프롬프트를 엽니다. Azure PowerShell에 익숙하지 않거나 설치되지 않은 경우 [Azure PowerShell 설치 및 구성][PowerShell]을 참조하세요.
 3. 프롬프트에서 다음 명령을 사용하여 Azure 구독에 대해 인증합니다.
    
         Login-AzureRmAccount
@@ -163,7 +167,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
    * **값**: 이전에 실행한 C# 또는 Python 응용 프로그램에서 반환된 SAS
      
      **CONTAINERNAME** 을 C# 또는 SAS 응용 프로그램에서 사용한 컨테이너 이름으로 바꿉니다. **STORAGEACCOUNTNAME** 을 사용한 저장소 계정 이름으로 바꿉니다.
-5. **Add** 단추를 클릭하여 이 키 및 값을 저장한 후 **Save** 단추를 클릭하여 구성 변경을 저장합니다. 메시지가 나타나면 변경에 대한 설명(예: "SAS 저장소 액세스 추가")을 추가하고 __저장__을 클릭합니다.
+5. **Add** 단추를 클릭하여 이 키 및 값을 저장한 후 **Save** 단추를 클릭하여 구성 변경을 저장합니다. 메시지가 나타나면 변경에 대한 설명(예: "SAS 저장소 액세스 추가")을 추가하고 **저장**을 클릭합니다.
    
     변경이 완료되었으면 **확인** 을 클릭합니다.
    
@@ -171,7 +175,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
    > 이렇게 하면 구성 변경 내용이 저장되지만 변경 내용을 적용하기 위해서는 여러 서비스를 다시 시작해야 합니다.
    > 
    > 
-6. Ambari 웹 UI의 왼쪽 목록에서 **HDFS__를 선택한 다음 오른쪽의 __Service Actions** 드롭다운 목록에서 __Restart All__을 선택합니다. 메시지가 나타나면 __Turn on maintenance mode__을 선택한 다음 __Conform Restart All"을 선택합니다.
+6. Ambari 웹 UI의 왼쪽 목록에서 **HDFS**를 선택한 다음 오른쪽의 **Service Actions** 드롭다운 목록에서 **Restart All**을 선택합니다. 메시지가 나타나면 **Turn on maintenance mode**을 선택한 다음 __Conform Restart All"을 선택합니다.
    
     페이지의 왼쪽에 있는 목록에서 MapReduce2 및 YARN 항목에 대해 이 과정을 반복합니다.
 7. 다시 시작한 후 각각 선택하고 **서비스 작업** 드롭다운에서 유지 관리 모드를 비활성화합니다.
@@ -194,7 +198,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
         hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
    
     그러면 컨테이너의 내용이 나열되며 여기에는 컨테이너 및 SAS를 만들 때 업로드한 파일도 포함됩니다.
-2. 다음을 사용하여 파일의 내용을 읽을 수 있는지 확인합니다. 이전 단계처럼 **SASCONTAINER** 및 **SASACCOUNTNAME__을 바꿉니다. __FILENAME** 을 이전 명령에 표시된 파일 이름으로 바꿉니다.
+2. 다음을 사용하여 파일의 내용을 읽을 수 있는지 확인합니다. 이전 단계처럼 **SASCONTAINER** 및 **SASACCOUNTNAME**을 바꿉니다. **FILENAME** 을 이전 명령에 표시된 파일 이름으로 바꿉니다.
    
         hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
    
@@ -203,7 +207,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
    
         hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
    
-    그러면 파일이 __testfile.txt__라는 로컬 파일에 다운로드됩니다.
+    그러면 파일이 **testfile.txt**라는 로컬 파일에 다운로드됩니다.
 4. 다음을 사용하여 로컬 파일을 SAS 저장소의 새 **testupload.txt** 파일에 업로드합니다.
    
         hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
@@ -249,6 +253,6 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

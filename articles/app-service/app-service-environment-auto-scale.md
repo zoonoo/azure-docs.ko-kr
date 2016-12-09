@@ -1,34 +1,38 @@
 ---
-title: 자동 크기 조정 및 앱 서비스 환경 | Microsoft Docs
-description: 자동 크기 조정 및 앱 서비스 환경
+title: "자동 크기 조정 및 App Service Environment | Microsoft Docs"
+description: "자동 크기 조정 및 앱 서비스 환경"
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: btardif
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2016
+ms.date: 10/24/2016
 ms.author: byvinyal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c02e030b442cc150f87945a48660a5ba2987a309
+
 
 ---
-# 자동 크기 조정 및 앱 서비스 환경
+# <a name="autoscaling-and-app-service-environment"></a>자동 크기 조정 및 앱 서비스 환경
 Azure 앱 서비스 환경은 *자동 크기 조정*을 지원합니다. 메트릭 또는 일정에 따라 개별 작업자 풀을 자동 크기 조정할 수 있습니다.
 
 ![작업자 풀에 대한 자동 크기 조정 옵션입니다.][intro]
 
 자동 크기 조정은 앱 서비스 환경을 예산 및 부하 프로필에 맞게 자동으로 증대 및 축소하여 리소스 사용을 최적화합니다.
 
-## 작업자 풀 자동 크기 조정 구성
+## <a name="configure-worker-pool-autoscale"></a>작업자 풀 자동 크기 조정 구성
 작업자 풀의 **설정** 탭에서 자동 크기 조정 기능에 액세스할 수 있습니다.
 
 ![작업자 풀의 설정 탭입니다.][settings-scale]
 
-이 곳의 인터페이스는 앱 서비스 계획을 확장할 때와 동일한 환경이므로 상당히 친숙할 것입니다. 크기 조정 값을 직접 입력할 수 있습니다.
+여기서 인터페이스는 App Service 계획을 확장할 때와 동일한 환경이므로 상당히 친숙할 것입니다. 
 
 ![수동 크기 조정 설정입니다.][scale-manual]
 
@@ -44,14 +48,14 @@ Azure 앱 서비스 환경은 *자동 크기 조정*을 지원합니다. 메트�
 
 ![크기 조정 규칙입니다.][scale-rule]
 
- 작업자 풀 또는 프런트 엔드 메트릭을 사용하여 자동 크기 조정 규칙을 정의할 수 있습니다. 이는 리소스 블레이드 그래프에서 모니터링하거나 그에 대한 알림을 설정할 수 있는 동일한 메트릭입니다.
+ 작업자 풀 또는 프런트 엔드 메트릭을 사용하여 자동 크기 조정 규칙을 정의할 수 있습니다. 이러한 메트릭은 리소스 블레이드 그래프에서 모니터링하거나 그에 대한 알림을 설정할 수 있는 동일한 메트릭입니다.
 
-## 자동 크기 조정 예제
+## <a name="autoscale-example"></a>자동 크기 조정 예제
 앱 서비스 환경의 자동 크기 조정은 시나리오를 살펴보면서 가장 잘 설명할 수 있습니다.
 
-이 문서에서는 자동 크기 조정을 설정할 때 필요한 모든 고려 사항과, 앱 서비스 환경에서 호스팅되는 앱 서비스 환경의 자동 크기 조정에 반영하게 되는 모든 상호 작용을 설명합니다.
+이 문서에서는 자동 크기 조정을 설정할 때 필요한 모든 고려 사항에 대해 설명합니다. 이 문서에서는 App Service 환경에서 호스팅되는 App Service 환경의 자동 크기 조정에 반영하게 되는 모든 상호 작용에 대해 설명합니다.
 
-### 시나리오 소개
+### <a name="scenario-introduction"></a>시나리오 소개
 Frank는 한 기업의 시스템 관리자로, 자신이 관리하는 워크로드의 일부를 앱 서비스 환경으로 마이그레이션했습니다.
 
 앱 서비스 환경은 다음과 같이 수동 크기 조정으로 구성되었습니다.
@@ -63,7 +67,7 @@ Frank는 한 기업의 시스템 관리자로, 자신이 관리하는 워크로�
 
 작업자 풀 1은 프로덕션 워크로드에, 작업자 풀 2 및 작업자 풀 3은 QA(품질 보증) 및 개발 워크로드에 사용됩니다.
 
-QA 및 개발에 대한 앱 서비스 계획은 수동 크기 조정으로 구성되었지만 프로덕션 앱 서비스 계획은 자동 크기 조정으로 설정되어 부하 및 트래픽의 변화를 처리합니다.
+QA 및 개발에 대한 App Service 계획은 수동 확장 하도록 구성됩니다. App Service 계획 프로덕션은 부하 및 트래픽을 다양하게 처리하도록 자동 크기 조정으로 설정됩니다.
 
 Frank는 응용 프로그램에 대해 잘 알고 있습니다. 직원이 사무실에 있는 동안 사용하는 LOB(기간 업무) 응용 프로그램이므로 사용이 많은 피크 시간은 오전 9시와 오후 6시 사이라는 것을 알고 있습니다. 사용자가 퇴근한 후에는 사용량이 줍니다. 피크 시간 이외에도 사용자가 모바일 장치 또는 가정용 PC를 사용하여 원격으로 앱에 액세스할 수 있으므로 여전히 일부 부하가 있습니다. 프로덕션 앱 서비스 계획은 이미 다음 규칙을 기준으로 CPU 사용량에 따라 자동 크기 조정을 수행하도록 구성되어 있습니다.
 
@@ -98,16 +102,16 @@ Frank는 응용 프로그램에 대해 잘 알고 있습니다. 직원이 사무
 | **작업:** 개수 1씩 감소 |**작업:** 개수 1씩 감소 |
 | **정지(분):** 20 |**정지(분):** 10 |
 
-### 앱 서비스 계획 인플레이션 속도
-자동 크기 조정으로 구성된 앱 서비스 계획은 시간당 최대 속도에서 작업을 수행합니다. 이 속도는 자동 크기 조정 규칙에서 제공한 값을 기준으로 산출됩니다.
+### <a name="app-service-plan-inflation-rate"></a>앱 서비스 계획 인플레이션 속도
+자동 크기 조정으로 구성된 App Service 계획은 시간당 최대 속도에서 작업을 수행합니다. 이 속도는 자동 크기 조정 규칙에서 제공한 값을 기준으로 산출됩니다.
 
-작업자 풀의 크기 조정 변경은 즉각적으로 적용되는 것이 아니므로 앱 서비스 환경에서 *앱 서비스 계획 인플레이션 속도*를 이해하고 산출하는 것이 중요합니다.
+작업자 풀의 크기 조정 변경은 즉각적으로 적용되는 것이 아니므로 앱 서비스 환경에서 *앱 서비스 계획 인플레이션 속도* 를 이해하고 산출하는 것이 중요합니다.
 
 앱 서비스 계획 인플레이션 속도는 다음과 같이 산출됩니다.
 
 ![앱 서비스 계획 인플레이션 속도 계산입니다.][ASP-Inflation]
 
-프로덕션 앱 서비스 계획의 주중 프로필에 대한 자동 크기 조정 - 확장 규칙을 기준으로, 이 작업은 다음과 같습니다.
+프로덕션 App Service 계획의 주중 프로필에 대한 자동 크기 조정 - 확장 규칙을 기준으로 합니다.
 
 ![자동 크기 조정 - 확장 규칙에 따른 주중의 앱 서비스 계획 인플레이션 속도입니다.][Equation1]
 
@@ -121,18 +125,18 @@ Frank는 응용 프로그램에 대해 잘 알고 있습니다. 직원이 사무
 
 ![자동 크기 조정 - 축소 규칙에 따른 주중의 앱 서비스 계획 인플레이션 속도입니다.][Equation3]
 
-프로덕션 앱 서비스 계획의 주말 프로필에 대한 자동 크기 조정 - 축소 규칙을 기준으로, 수식은 다음과 같이 산출됩니다.
+프로덕션 앱 서비스 계획의 주말 프로필에 대한 자동 크기 조정 - 축소 규칙을 기준으로, 수식은 다음과 같이 산출됩니다.  
 
 ![자동 크기 조정 - 축소 규칙에 따른 주말의 앱 서비스 계획 인플레이션 속도입니다.][Equation4]
 
-즉, 프로덕션 앱 서비스 계획이 주중에는 최대 8개 인스턴스/시간 속도로, 주말에는 4개 인스턴스/시간의 속도로 확장될 수 있습니다. 또한 주중에는 최대 4개 인스턴스/시간의 속도로, 주말에는 최대 6개 인스턴스/시간의 속도로 인스턴스를 해제할 수 있습니다.
+프로덕션 App Service 계획이 주중에는 최대 8개 인스턴스/시간 속도로, 주말에는 4개 인스턴스/시간의 속도로 확장될 수 있습니다. 주중에는 최대 4개 인스턴스/시간의 속도로, 주말에는 최대 6개 인스턴스/시간의 속도로 인스턴스를 해제할 수 있습니다.
 
-여러 앱 서비스 계획을 작업자 풀에서 호스트하는 경우 작업자 풀에서 호스트되는 모든 앱 서비스 계획에 대한 인플레이션 속도의 합계로 *총 인플레이션 속도*를 산출해야 합니다.
+여러 앱 서비스 계획을 작업자 풀에서 호스트하는 경우 작업자 풀에서 호스트되는 모든 앱 서비스 계획에 대한 인플레이션 속도의 합계로 *총 인플레이션 속도* 를 산출해야 합니다.
 
 ![작업자 풀에서 호스팅되는 여러 앱 서비스 계획에 대한 총 인플레이션 속도 계산입니다.][ASP-Total-Inflation]
 
-### 앱 서비스 계획 인플레이션 속도를 사용하여 작업자 풀 자동 크기 조정 규칙 정의
-자동 크기 조정으로 구성된 앱 서비스 계획을 호스팅하는 작업자 풀은 용량의 버퍼를 할당해야 합니다. 버퍼는 자동 크기 조정 작업이 필요에 따라 앱 서비스 계획을 늘리고 축소하도록 허용합니다. 최소 버퍼 크기는 산출된 총 앱 서비스 계획 인플레이션 속도입니다.
+### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>앱 서비스 계획 인플레이션 속도를 사용하여 작업자 풀 자동 크기 조정 규칙 정의
+자동 크기 조정으로 구성된 App Service 계획을 호스팅하는 작업자 풀은 용량의 버퍼를 할당해야 합니다. 버퍼는 자동 크기 조정 작업이 필요에 따라 앱 서비스 계획을 늘리고 축소하도록 허용합니다. 최소 버퍼 크기는 산출된 총 앱 서비스 계획 인플레이션 속도입니다.
 
 앱 서비스 환경 크기 조정 작업을 적용하려면 다소 시간이 걸리므로, 이러한 변경은 크기 조정 작업이 진행 중인 동안 발생할 수 있는 추가적인 수요 변화에 대처할 수 있어야 합니다. 이 대기 시간을 수용하려면 산출된 총 앱 서비스 계획 인플레이션 속도를 각 자동 크기 조정 작업에 대해 추가된 최소 인스턴스 수로 사용하는 것이 좋습니다.
 
@@ -177,10 +181,11 @@ Frank는 응용 프로그램에 대해 잘 알고 있습니다. 직원이 사무
 
 수 축소는 축소에 대한 앱 서비스 계획 인플레이션 속도의 1/2배 ~ 1배 사이에서 조정할 수 있습니다.
 
-### 프런트 엔드 풀에 대한 자동 크기 조정
-프런트 엔드 자동 크기 조정에 대한 규칙은 작업자 풀에 대한 것보다 간단합니다. 주로 측정 시간을 확인하고 휴지 시간 타이머는 앱 서비스 계획에 대한 크기 조정 작업이 즉각적이지 않다는 것을 고려해야 합니다.
+### <a name="autoscale-for-front-end-pool"></a>프런트 엔드 풀에 대한 자동 크기 조정
+프런트 엔드 자동 크기 조정에 대한 규칙은 작업자 풀에 대한 것보다 간단합니다. 기본적으로  
+측정 시간을 확인하고 휴지 시간 타이머는 App Service 계획에 대한 크기 조정 작업이 즉각적이지 않다는 것을 고려해야 합니다.
 
-이 시나리오의 경우 Frank는 프런트 엔드가 CPU 사용률의 80%에 도달한 후 오류 비율이 증가함을 알고 있습니다. 이를 방지하려면 다음과 같이 인스턴스가 증가하도록 자동 크기 조정 규칙을 설정합니다.
+이 시나리오에서 Frank는 프런트엔드의 CPU 사용률이 80%에 도달하면 오류 비율이 증가한다는 사실을 알고 있으며 다음과 같이 인스턴스를 증대하는 자동 확장 규칙을 설정합니다.
 
 ![프런트 엔드 풀에 대한 자동 크기 조정 설정입니다.][Front-End-Scale]
 
@@ -222,12 +227,16 @@ Frank는 응용 프로그램에 대해 잘 알고 있습니다. 직원이 사무
 [scale-rule]: ./media/app-service-environment-auto-scale/scale-rule.png
 [asp-scale]: ./media/app-service-environment-auto-scale/asp-scale.png
 [ASP-Inflation]: ./media/app-service-environment-auto-scale/asp-inflation-rate.png
-[Equation1]: ./media/app-service-environment-auto-scale/equation1.png
-[Equation2]: ./media/app-service-environment-auto-scale/equation2.png
-[Equation3]: ./media/app-service-environment-auto-scale/equation3.png
-[Equation4]: ./media/app-service-environment-auto-scale/equation4.png
+[수식1]: ./media/app-service-environment-auto-scale/equation1.png
+[수식2]: ./media/app-service-environment-auto-scale/equation2.png
+[수식3]: ./media/app-service-environment-auto-scale/equation3.png
+[수식4]: ./media/app-service-environment-auto-scale/equation4.png
 [ASP-Total-Inflation]: ./media/app-service-environment-auto-scale/asp-total-inflation-rate.png
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

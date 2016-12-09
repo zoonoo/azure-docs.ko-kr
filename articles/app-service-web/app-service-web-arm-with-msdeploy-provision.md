@@ -1,11 +1,11 @@
 ---
-title: Deploy a web app using MSDeploy with hostname and ssl certificate
-description: Use an Azure Resource Manager template to deploy a web app using MSDeploy and setting up custom hostname and a SSL certificate
+title: "호스트 이름 및 ssl 인증서와 함께 MSDeploy를 사용하여 웹앱 배포"
+description: "MSDeploy를 사용하고 사용자 지정 호스트 이름 및 SSL 인증서를 설정하는 웹앱을 배포하는 Azure 리소스 관리자 템플릿 사용"
 services: app-service\web
 manager: erikre
-documentationcenter: ''
+documentationcenter: 
 author: jodehavi
-
+ms.assetid: 66366a72-cef7-4d75-8779-f4d32ed33cf7
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,29 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: john.dehavilland
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9c748f4f65ec4a2ba32bca97648fb7ccdbb8d749
+
 
 ---
-# <a name="deploy-a-web-app-with-msdeploy,-custom-hostname-and-ssl-certificate"></a>Deploy a web app with MSDeploy, custom hostname and SSL certificate
-This guide walks through creating an end-to-end deployment for an Azure Web App, leveraging MSDeploy as well as adding a custom hostname and an SSL certificate to the ARM template.
+# <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>MSDeploy, 사용자 지정 호스트 이름 및 SSL 인증서를 사용하여 웹앱 배포
+이 가이드에서는 Azure 웹앱에 대한 종단 간 배포 만들기, MSDeploy 활용과 사용자 지정 호스트 이름 및 SSL 인증서를 ARM 템플릿에 추가하는 작업에 대해 설명합니다.
 
-For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
+템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하십시오.
 
-### <a name="create-sample-application"></a>Create Sample Application
-You will be deploying an ASP.NET web application. The first step is to create a simple web application (or you could choose to use an existing one - in which case you can skip this step).
+### <a name="create-sample-application"></a>응용 프로그램 예제 만들기
+ASP.NET 웹 응용 프로그램을 배포하겠습니다. 첫 번째 단계는 간단한 웹 응용 프로그램을 만드는 것입니다. 또는 기존 웹 응용 프로그램을 선택할 수 있습니다. 이 경우 이 단계를 건너뛸 수 있습니다.
 
-Open Visual Studio 2015 and choose File > New Project. On the dialog that appears choose Web > ASP.NET Web Application. Under Templates choose Web and choose the MVC template. Select *Change authentication type* to *No Authentication*. This is just to make the sample application as simple as possible.
+Visual Studio 2015를 열고 파일 > 새 프로젝트를 선택합니다. 표시되는 대화 상자에서 웹 > ASP.NET 웹 응용 프로그램을 선택합니다. 템플릿 아래에서 웹을 선택하고 MVC 템플릿을 선택합니다. *인증 형식 변경*을 *인증 안 함*으로 선택합니다. 가능한 간단한 응용 프로그램 예제를 만들기 위한 것입니다.
 
-At this point you will have a basic ASP.Net web app ready to use as part of your deployment process.
+이때 배포 프로세스의 일부로 사용하기 위해 기본 ASP.Net 웹앱을 준비해야 합니다.
 
-### <a name="create-msdeploy-package"></a>Create MSDeploy package
-Next step is to create the package to deploy the web app to Azure. To do this, save your project and then run the following from the command line:
+### <a name="create-msdeploy-package"></a>MSDeploy 패키지 만들기
+다음 단계는 Azure에 웹앱을 배포하는 패키지를 만드는 것입니다. 이렇게 하려면 프로젝트를 저장한 후 명령줄에서 다음을 실행하세요.
 
     msbuild yourwebapp.csproj /t:Package /p:PackageLocation="path\to\package.zip"
 
-This will create a zipped package under the PackageLocation folder. The application is now ready to be deployed, which you can now build out an Azure Resource Manager template to do that.
+그러면 PackageLocation 폴더에 압축된 패키지가 만들어집니다. 이제 응용 프로그램이 배포할 준비가 되었고 이 작업을 수행하기 위해 Azure 리소스 관리자 템플릿을 작성할 수 있습니다.
 
-### <a name="create-arm-template"></a>Create ARM Template
-First, let's start with a basic ARM template that will create a web application and a hosting plan (note that parameters and variables are not shown for brevity).
+### <a name="create-arm-template"></a>ARM 템플릿 만들기
+먼저 웹 응용 프로그램 및 호스팅 계획을 만드는 기본 ARM 템플릿을 사용하여 시작해 보겠습니다(매개 변수 및 변수는 간단하게 표시되지 않음).
 
     {
         "name": "[parameters('appServicePlanName')]",
@@ -71,7 +75,7 @@ First, let's start with a basic ARM template that will create a web application 
         }
     }
 
-Next, you will need to modify the web app resource to take a nested MSDeploy resource. This will allow you to reference the package created earlier and tell Azure Resource Manager to use MSDeploy to deploy the package to the Azure WebApp. The following shows the Microsoft.Web/sites resource with the nested MSDeploy resource:
+다음으로 중첩 MSDeploy 리소스를 가져오도록 웹앱 리소스를 수정해야 합니다. 이렇게 하면 이전에 만든 패키지를 참조하고 Azure 리소스 관리자가 MSDeploy를 사용하여 Azure WebApp에 패키지를 배포하도록 할 수 있습니다. 다음은 중첩 MSDeploy 리소스를 사용하는 Microsoft.Web/sites 리소스입니다.
 
     {
         "name": "[variables('webAppName')]",
@@ -113,13 +117,13 @@ Next, you will need to modify the web app resource to take a nested MSDeploy res
         ]
     }
 
-Now you will notice that the MSDeploy resource takes a **packageUri** property which is defined as follows:
+이제 MSDeploy 리소스는 다음과 같이 정의된 **packageUri** 속성을 사용합니다.
 
     "packageUri": "[concat(parameters('_artifactsLocation'), '/', parameters('webDeployPackageFolder'), '/', parameters('webDeployPackageFileName'), parameters('_artifactsLocationSasToken'))]"
 
-This **packageUri** takes the storage account uri which points to the storage account where you will upload your package zip to. The Azure Resource Manager will leverage [Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md) to pull the package down locally from the storage account when you deploy the template. This process will be automated via a PowerShell script that will upload the package and call the Azure Management API to create the keys required and pass those into the template as parameters (*_artifactsLocation* and *_artifactsLocationSasToken*). You will need to define parameters for the folder and filename the package is uploaded to under the storage container.
+이 **packageUri** 는 패키지 zip을 업로드할 저장소 계정을 가리키는 저장소 계정 uri를 사용합니다. Azure 리소스 관리자는 템플릿 배포 시 저장소 계정에서 로컬로 패키지를 가져오는 데 [공유 액세스 서명](../storage/storage-dotnet-shared-access-signature-part-1.md) 을 활용합니다. 패키지를 업로드하고, 필요한 키를 만들고 템플릿에 매개 변수(*_artifactsLocation* 및 *_artifactsLocationSasToken*)로 전달하기 위해 Azure 관리 API를 호출하는 PowerShell 스크립트를 통해 이 프로세스를 자동화할 수 있습니다. 저장소 컨테이너에 업로드되는 패키지의 파일 이름 및 폴더에 대한 매개 변수를 정의해야 합니다.
 
-Next you need to add in another nested resource to setup the hostname bindings to leverage a custom domain. You will first need to ensure that you own the hostname and set it up to be verified by Azure that you own it - see [Configure a custom domain name in Azure App Service](web-sites-custom-domain-name.md). Once that is done you can add the following to your template under the Microsoft.Web/sites resource section:
+다음으로 사용자 지정 도메인을 활용하도록 호스트 이름 바인딩을 설정하려면 다른 중첩된 리소스에 추가해야 합니다. 먼저 호스트 이름을 소유하고 소유한 Azure에서 확인하도록 설정해야 합니다. [Azure App Service에서 사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md)을 참조하세요. 이 작업을 완료했으면 Microsoft.Web/sites 리소스 섹션의 템플릿에 다음을 추가할 수 있습니다.
 
     {
         "apiVersion": "2015-08-01",
@@ -135,7 +139,7 @@ Next you need to add in another nested resource to setup the hostname bindings t
         }
     }
 
-Finally you need to add another top level resource, Microsoft.Web/certificates. This resource will contain your SSL certificate and will exist at the same level as your web app and hosting plan.
+마지막으로 다른 최상위 수준 리소스, Microsoft.Web/certificates를 추가해야 합니다. 이 리소스는 SSL 인증서를 포함하며 웹앱 및 호스팅 계획과 동일한 수준에 존재합니다.
 
     {
         "name": "[parameters('certificateName')]",
@@ -148,20 +152,20 @@ Finally you need to add another top level resource, Microsoft.Web/certificates. 
         }
     }
 
-You will need to have a valid SSL certificate in order to set up this resource. Once you have that valid certificate then you need to extract the pfx bytes as a base64 string. One option to extract this is to use the following PowerShell command:
+이 리소스를 설정하려면 유효한 SSL 인증서를 사용해야 합니다. 유효한 인증서가 있는 경우 base64 문자열로 pfx 바이트를 추출해야 합니다. 이를 추출하는 한 가지 옵션으로 다음 PowerShell 명령을 사용합니다.
 
     $fileContentBytes = get-content 'C:\path\to\cert.pfx' -Encoding Byte
 
     [System.Convert]::ToBase64String($fileContentBytes) | Out-File 'pfx-bytes.txt'
 
-You could then pass this as a parameter to your ARM deployment template.
+ARM 배포 템플릿에 매개 변수로 이를 전달할 수 있습니다.
 
-At this point the ARM template is ready.
+이제 ARM 템플릿이 준비되었습니다.
 
-### <a name="deploy-template"></a>Deploy Template
-The final steps are to piece this all together into a full end-to-end deployment. To make deployment easier you can leverage the **Deploy-AzureResourceGroup.ps1** PowerShell script that is added when you create an Azure Resource Group project in Visual Studio to help with uploading of any artifacts required in the template. It requires you to have created a storage account you want to use ahead of time. For this example, I created a shared storage account for the package.zip to be uploaded. The script will leverage AzCopy to upload the package to the storage account. You pass in your artifact folder location and the script will automatically upload all files within that directory to the named storage container. After calling Deploy-AzureResourceGroup.ps1 you have to then update the SSL bindings to map the custom hostname with your SSL certificate.
+### <a name="deploy-template"></a>템플릿 배포
+마지막 단계는 이 모두를 전체 종단 간 배포로 종합하는 것입니다. 보다 쉬운 배포를 위해 템플릿에 필요한 모든 아티팩트를 업로드하는 데 도움이 되도록 Visual Studio에서 Azure 리소스 그룹 프로젝트를 만들 때 추가된 **Deploy-AzureResourceGroup.ps1** PowerShell 스크립트를 활용할 수 있습니다. 사용하려는 저장소 계정을 미리 만들어야 합니다. 이 예제의 경우 업로드할 package.zip에 대한 공유 저장소 계정을 만들었습니다. 스크립트는 저장소 계정에 패키지를 업로드하는 AzCopy를 활용합니다. 아티팩트 폴더 위치에 전달하면 스크립트는 저장소 컨테이너라는 해당 디렉터리 내의 모든 파일을 자동으로 업로드합니다. Deploy-AzureResourceGroup.ps1을 호출한 후 SSL 인증서로 사용자 지정 호스트 이름에 매핑할 SSL 바인딩을 업데이트해야 합니다.
 
-The following PowerShell shows the complete deployment calling the Deploy-AzureResourceGroup.ps1:
+다음 PowerShell은 Deploy-AzureResourceGroup.ps1을 호출하는 전체 배포를 보여 줍니다.
 
     #Set resource group name
     $rgName = "Name-of-resource-group"
@@ -191,8 +195,11 @@ The following PowerShell shows the complete deployment calling the Deploy-AzureR
 
     Set-AzureRmResource -ApiVersion 2014-11-01 -Name nameofwebsite -ResourceGroupName $rgName -ResourceType Microsoft.Web/sites -PropertyObject $props
 
-At this point your application should have been deployed and you should be able to browse to it via https://www.yourcustomdomain.com
+이제 응용 프로그램이 배포되었고 https://www.yourcustomdomain.com을 통해 탐색할 수 있어야 합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

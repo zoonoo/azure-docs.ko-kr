@@ -1,24 +1,28 @@
 ---
-title: HDInsight(Hadoop)에서 Hive 셸 사용 | Microsoft Docs
-description: Linux 기반 HDInsight 클러스터에서 Hive 셸을 사용하는 방법을 알아봅니다. SSh를 사용하여 HDInsight에 연결한 다음 Hive 셸을 사용하여 대화형으로 쿼리를 실행하는 방법을 알아봅니다.
+title: "HDInsight(Hadoop)에서 Hive 셸 사용 | Microsoft Docs"
+description: "Linux 기반 HDInsight 클러스터에서 Hive 셸을 사용하는 방법을 알아봅니다. SSh를 사용하여 HDInsight에 연결한 다음 Hive 셸을 사용하여 대화형으로 쿼리를 실행하는 방법을 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 0e919171-03e6-4f5a-ab4e-3eec3e34c347
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/19/2016
+ms.date: 10/04/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 366642a753223aec116ebd87751dfce0c393f7a7
+
 
 ---
-# SSH 사용하는 HDInsight에서 Hadoop과 Hive 사용
-[!INCLUDE [hive-선택기](../../includes/hdinsight-selector-use-hive.md)]
+# <a name="use-hive-with-hadoop-in-hdinsight-with-ssh"></a>SSH 사용하는 HDInsight에서 Hadoop과 Hive 사용
+[!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
 이 문서에서는 SSH(Secure Shell)를 사용하여 Azure HDInsight 클러스터의 Hadoop에 연결한 다음 Hive CLI(명령줄 인터페이스)를 사용하여 Hive 쿼리를 대화형으로 제출하는 방법을 배웁니다.
 
@@ -27,35 +31,35 @@ ms.author: larryfr
 > 
 > 
 
-## <a id="prereq"></a>필수 조건
+## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * HDInsight 클러스터의 Linux 기반 Hadoop
 * SSH 클라이언트. Linux, Unix 및 Mac OS에는 SSH 클라이언트가 함께 제공됩니다. Windows 사용자는 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)와 같은 클라이언트를 다운로드해야 합니다.
 
-## <a id="ssh"></a>SSH를 사용하여 연결
+## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>SSH를 사용하여 연결
 SSH 명령을 사용하여 HDInsight 클러스터의 FQDN(정규화된 도메인 이름)에 연결합니다. FQDN은 지정한 클러스터 이름과 그 뒤에 오는 **.azurehdinsight.net**으로 구성됩니다. 예를 들어 다음 명령은 **myhdinsight**라는 클러스터에 연결합니다.
 
     ssh admin@myhdinsight-ssh.azurehdinsight.net
 
 **SSH 인증을 위해 인증서 키를 제공한 경우** HDInsight 클러스터를 만들 때 클라이언트 시스템에서 개인 키의 위치를 지정해야 할 수도 있습니다.
 
-    ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
+    ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
 
 **SSH 인증을 위해 암호를 제공한 경우** HDInsight 클러스터를 만들 때 메시지가 표시되면 암호를 제공해야 합니다.
 
 HDInsight에서 SSH 사용에 대한 자세한 내용은 [Linux, OS X 및 Unix에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-### PuTTY(Windows 기반 클라이언트)
-Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다([http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
+### <a name="putty-windows-based-clients"></a>PuTTY(Windows 기반 클라이언트)
+Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다( [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
 
-PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과 SSH 사용 ](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
 
-## <a id="hive"></a>Hive 명령 사용
+## <a name="a-idhiveause-the-hive-command"></a><a id="hive"></a>Hive 명령 사용
 1. 연결되면 다음 명령을 사용하여 Hive CLI를 시작합니다.
    
         hive
-2. CLI에서 다음 문을 입력하여 샘플 데이터를 사용하는 **log4jLogs**라는 새 테이블을 만듭니다.
+2. CLI에서 다음 문을 입력하여 샘플 데이터를 사용하는 **log4jLogs** 라는 새 테이블을 만듭니다.
    
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -70,7 +74,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
    * **ROW FORMAT** - 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
    * **STORED AS TEXTFILE LOCATION** - 데이터가 저장된 위치(example/data 디렉터리) 및 텍스트로 저장되었음을 Hive에 알립니다.
    * **SELECT** - **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이 3개 있으므로 **3** 값이 반환되어야 합니다.
-   * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 데이터를 포함하는 sample.log 파일로 검색을 제한하며, 정의한 스키마와 일치하지 않는 다른 예제 데이터 파일의 데이터가 반환되지 않도록 합니다.
+   * **INPUT__FILE__NAME LIKE '%.log'** - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 데이터를 포함하는 sample.log 파일로 검색을 제한하며, 정의한 스키마와 일치하지 않는 다른 예제 데이터 파일의 데이터가 반환되지 않도록 합니다.
      
      > [!NOTE]
      > 자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
@@ -93,17 +97,17 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
      
        SELECT * from errorLogs;
      
-     데이터 중 t4 열에 모두 **[ERROR]**가 포함된 3개 행이 반환되어야 합니다.
+     데이터 중 t4 열에 모두 **[ERROR]** 가 포함된 3개 행이 반환되어야 합니다.
      
      > [!NOTE]
      > 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
      > 
      > 
 
-## <a id="summary"></a>요약
+## <a name="a-idsummaryasummary"></a><a id="summary"></a>요약
 여기에서 볼 수 있듯이 Hive 명령을 사용하면 쉽게 HDInsight 클러스터에서 Hive 쿼리 실행 작업 상태를 모니터링하고 출력을 검색할 수 있습니다.
 
-## <a id="nextsteps"></a>다음 단계
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
 HDInsight의 Hive에 대한 일반적인 정보:
 
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
@@ -147,4 +151,9 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Java를 사용하여 HDInsight의 Storm으로 이벤트 허브에서 이벤트 처리 | Microsoft Docs
-description: Maven으로 만든 Java Storm 토폴로지를 사용하여 이벤트 허브 데이터를 처리하는 방법을 알아봅니다.
+title: "Java를 사용하여 HDInsight의 Storm으로 Event Hub에서 이벤트 처리 | Microsoft Docs"
+description: "Maven으로 만든 Java Storm 토폴로지를 사용하여 이벤트 허브 데이터를 처리하는 방법을 알아봅니다."
 services: hdinsight,notification hubs
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 453fa7b0-c8a6-413e-8747-3ac3b71bed86
 ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eaa86b706a538543816b59d8cd09ee54df43b26d
+
 
 ---
-# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-(java)"></a>HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)
+# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-java"></a>HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)
 Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대량의 데이터를 처리할 수 있습니다. 이벤트 허브 Spout를 사용하면 HDInsight에서 Apache Storm을 사용하여 이 데이터를 실시간으로 분석하기가 쉽습니다. 또한 이벤트 허브 Bolt를 사용하여 Storm에서 이벤트 허브에 데이터를 기록할 수도 있습니다.
 
 이 자습서에서는 이벤트 허브 Spout 및 Bolt를 사용하여 Java 기반 Storm 토폴로지에 데이터를 읽고 쓰는 방법을 알아봅니다.
@@ -276,10 +280,10 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
    
         mvn package
    
-    필요한 종속성을 다운로드하고 프로젝트를 빌드 및 패키징합니다. 출력은 **/target** 디렉터리에 __EventHubExample-1.0-SNAPSHOT.jar__로 저장됩니다.
+    필요한 종속성을 다운로드하고 프로젝트를 빌드 및 패키징합니다. 출력은 **/target** 디렉터리에 **EventHubExample-1.0-SNAPSHOT.jar**로 저장됩니다.
 
 ## <a name="deploy-the-topologies"></a>토폴로지 배포
-이 프로젝트에서 만든 jar는 **com.microsoft.example.EventHubWriter** 및 __com.microsoft.example.EventHubReader__라는 같은 두 개의 토폴로지를 포함합니다. EventHubReader에서 읽은 이벤트 허브에 이벤트를 쓰기 때문에 EventHubWriter 토폴로지를 먼저 시작해야 합니다.
+이 프로젝트에서 만든 jar는 **com.microsoft.example.EventHubWriter** 및 **com.microsoft.example.EventHubReader**라는 같은 두 개의 토폴로지를 포함합니다. EventHubReader에서 읽은 이벤트 허브에 이벤트를 쓰기 때문에 EventHubWriter 토폴로지를 먼저 시작해야 합니다.
 
 ### <a name="if-using-a-linux-based-cluster"></a>Linux 기반 클러스터를 사용하는 경우
 1. SCP를 사용하여 HDInsight 클러스터에 jar 패키지를 복사합니다. 클러스터에 SSH 사용자로 사용자 이름을 바꿉니다. CLUSTERNAME을 HDInsight 클러스터의 이름으로 바꿉니다.
@@ -305,7 +309,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
    > 
    > 
    
-    PuTTY를 사용하는 경우 **호스트 이름(또는 IP 주소)** 필드에 `CLUSTERNAME-ssh.azurehdinsight.net`를 입력한 다음 __열기__를 클릭하여 연결합니다. SSH 계정 이름을 입력하라는 메시지가 표시됩니다.
+    PuTTY를 사용하는 경우 **호스트 이름(또는 IP 주소)** 필드에 `CLUSTERNAME-ssh.azurehdinsight.net`를 입력한 다음 **열기**를 클릭하여 연결합니다. SSH 계정 이름을 입력하라는 메시지가 표시됩니다.
    
    > [!NOTE]
    > SSH 계정에 암호를 사용한 경우 암호를 입력하라는 메시지가 나타납니다. 계정으로 SSH 키를 사용하는 경우 다음 단계를 사용하여 키를 선택해야 합니다.
@@ -361,8 +365,8 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 ### <a name="if-using-a-windows-based-cluster"></a>Windows 기반 클러스터를 사용하는 경우
 1. 브라우저에서 https://CLUSTERNAME.azurehdinsight.net을 엽니다. 메시지가 표시되면 HDInsight 클러스터에 관리자 자격 증명을 입력합니다. Storm 대시보드에 도달하게 됩니다.
 2. **Jar 파일** 드롭다운을 사용하여 빌드 환경에서 EventHubExample-1.0-SNAPSHOT.jar 파일을 찾고 선택합니다.
-3. __클래스 이름__에 `com.mirosoft.example.EventHubWriter`를 입력합니다.
-4. **추가 매개 변수__에 `writer`를 입력합니다. 마지막으로 __제출** 을 클릭하여 jar을 업로드하고 EventHubWriter 토폴로지를 시작합니다.
+3. **클래스 이름**에 `com.mirosoft.example.EventHubWriter`를 입력합니다.
+4. **추가 매개 변수**에 `writer`를 입력합니다. 마지막으로 **제출** 을 클릭하여 jar을 업로드하고 EventHubWriter 토폴로지를 시작합니다.
 5. 토폴로지가 시작되면 형식을 사용하여 EventHubReader를 시작합니다.
    
    * **Jar 파일**: 이전에 업로드된 EventHubExample-1.0-SNAPSHOT.jar를 선택합니다.
@@ -371,7 +375,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
      
      EventHubReader 토폴로지를 시작하려면 제출을 클릭합니다.
 6. 토폴로지가 이벤트를 생성한 다음 Azure Storage에 저장하도록 하려면 몇 분 정도 기다렸다가 **Storm 대시보드** 페이지 위쪽에 있는 **Hadoop 쿼리 콘솔** 탭을 선택합니다.
-7. __쿼리 콘솔__에서 __Hive 편집기__를 선택하고 기본 `select * from hivesampletable`을 다음으로 바꿉니다.
+7. **쿼리 콘솔**에서 **Hive 편집기**를 선택하고 기본 `select * from hivesampletable`을 다음으로 바꿉니다.
    
         create external table devicedata (deviceid string, devicevalue int) row format delimited fields terminated by ',' stored as textfile location 'wasbs:///devicedata/';
         select * from devicedata limit 10;
@@ -385,7 +389,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
         d7c7f96c-581a-45b1-b66c-e32de6d47fce,543829859
         9a692795-e6aa-4946-98c1-2de381b37593,1857409996
         3c8d199b-0003-4a79-8d03-24e13bde7086,-1271260574
-8. 페이지의 위쪽에서 **Storm 대시보드__를 선택한 다음 __Storm UI__를 선택합니다. __Storm UI__에서__판독기** 토폴로지에 대한 링크를 선택한 다음 **중단** 단추를 사용하여 토폴로지를 중지합니다. **작성자** 토폴로지에 프로세스를 반복합니다.
+8. 페이지의 위쪽에서 **Storm 대시보드**를 선택한 다음 **Storm UI**를 선택합니다. **Storm UI**에서**판독기** 토폴로지에 대한 링크를 선택한 다음 **중단** 단추를 사용하여 토폴로지를 중지합니다. **작성자** 토폴로지에 프로세스를 반복합니다.
 
 ### <a name="checkpointing"></a>검사점 설정
 EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현재 오프셋을 저장하는 Zookeeper 노드로 주기적으로 설정합니다. 이를 통해 구성 요소는 다음 시나리오에서 저장된 오프셋으로 메시지 수신을 시작할 수 있습니다.
@@ -429,6 +433,9 @@ Storm UI 사용에 대한 자세한 내용은 다음 항목을 참조하세요.
 ## <a name="next-steps"></a>다음 단계
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

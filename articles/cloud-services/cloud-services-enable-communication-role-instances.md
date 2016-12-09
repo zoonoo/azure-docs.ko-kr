@@ -1,12 +1,12 @@
 ---
-title: 클라우드 서비스에서 역할에 대한 통신 | Microsoft Docs
-description: 클라우드 서비스의 역할 인스턴스에는 다른 역할 인스턴스의 외부 또는 그 사이에서 통신하도록 정의된 끝점(http, https, tcp, udp)이 있을 수 있습니다.
+title: "클라우드 서비스 역할에 대한 통신 | Microsoft Docs"
+description: "클라우드 서비스의 역할 인스턴스에는 다른 역할 인스턴스의 외부 또는 그 사이에서 통신하도록 정의된 끝점(http, https, tcp, udp)이 있을 수 있습니다."
 services: cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fe034613c537ce0940f7220e4695727bdc2277c2
+
 
 ---
-# Azure에서 역할 인스턴스에 통신 사용
-클라우드 서비스 역할은 내부 및 외부 연결을 통해 통신합니다. 외부 연결은 **입력 끝점**이라고 하는 반면 내부 연결을 **내부 끝점**이라고 합니다. 이 항목은 [서비스 정의](cloud-services-model-and-package.md#csdef)를 수정하는 방법을 설명하여 끝점을 만듭니다.
+# <a name="enable-communication-for-role-instances-in-azure"></a>Azure에서 역할 인스턴스에 통신 사용
+클라우드 서비스 역할은 내부 및 외부 연결을 통해 통신합니다. 외부 연결을 **입력 끝점**이라고 하고, 내부 연결을 **내부 끝점**이라고 합니다. 이 항목은 [서비스 정의](cloud-services-model-and-package.md#csdef) 를 수정하는 방법을 설명하여 끝점을 만듭니다.
 
-## 입력 끝점
+## <a name="input-endpoint"></a>입력 끝점
 입력 끝점이 외부에 포트를 표시하려는 경우에 사용됩니다. 끝점에 대한 외부 및 내부 포트에 적용되는 끝점의 프로토콜 종류 및 형식을 지정합니다. 원할 경우 [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) 특성을 사용하여 끝점에 다른 내부 포트를 지정할 수 있습니다.
 
 입력 끝점은 **http, https, tcp, udp**와 같은 프로토콜을 사용할 수 있습니다.
@@ -32,7 +36,7 @@ ms.author: adegeo
 </Endpoints> 
 ```
 
-## 인스턴스 입력 끝점
+## <a name="instance-input-endpoint"></a>인스턴스 입력 끝점
 인스턴스 입력 끝점은 입력 끝점과 유사하지만 사용하면 부하 분산 장치에서 포트 전달을 사용하여 각 개별 역할 인스턴스에 대한 특정 공용 포트를 매핑할 수 있습니다. 단일 공용 포트 또는 포트의 범위를 지정할 수 있습니다.
 
 인스턴스 입력 끝점은 프로토콜로 **tcp** 또는 **udp**만을 사용할 수 있습니다.
@@ -49,7 +53,7 @@ ms.author: adegeo
 </Endpoints>
 ```
 
-## 내부 끝점
+## <a name="internal-endpoint"></a>내부 끝점
 내부 끝점은 인스턴스 간 통신에 사용할 수 있습니다. 포트는 선택적이며 생략하면 끝점에 동적 포트가 할당됩니다. 포트 범위를 사용할 수 있습니다. 역할 당 다섯 개의 내부 끝점으로 제한합니다.
 
 내부 끝점은 **http, tcp, udp, any**와 같은 프로토콜을 사용할 수 있습니다.
@@ -73,7 +77,7 @@ ms.author: adegeo
 ```
 
 
-## 작업자 역할 대 웹 역할
+## <a name="worker-roles-vs-web-roles"></a>작업자 역할 대 웹 역할
 작업자 및 웹 역할 모두를 사용하여 작업하는 경우 끝점과 한 가지 작은 차이가 있습니다. 웹 역할에는 최소한 **HTTP** 프로토콜을 사용하는 단일 입력 끝점이 있어야 합니다.
 
 ```xml
@@ -83,7 +87,7 @@ ms.author: adegeo
 </Endpoints>
 ```
 
-## .NET SDK를 사용하여 끝점에 액세스하려면
+## <a name="using-the-net-sdk-to-access-an-endpoint"></a>.NET SDK를 사용하여 끝점에 액세스하려면
 Azure Managed Library는 역할 인스턴스에 대한 메서드를 제공하여 런타임 시 통신합니다. 역할 인스턴스 내에서 실행되는 코드에서 다른 역할 인스턴스 및 해당 끝점의 존재에 대한 정보 뿐만 아니라 현재 역할 인스턴스에 대한 정보를 검색할 수 있습니다.
 
 > [!NOTE]
@@ -102,7 +106,7 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 **인스턴스** 속성은 **RoleInstance** 개체의 컬렉션을 반환합니다. 이 컬렉션은 항상 현재 인스턴스를 포함합니다. 역할이 내부 끝점을 정의하지 않으면 컬렉션에 현재 인스턴스를 포함하지만 다른 인스턴스는 포함하지 않습니다. 내부 끝점이 역할에 대해 정의되지 않는 경우 컬렉션에 있는 역할 인스턴스 수는 항상 1입니다. 역할이 내부 끝점을 정의하는 경우 해당 인스턴스는 런타임 시 검색 가능하고 컬렉션의 인스턴스 수는 서비스 구성 파일의 역할에 지정된 인스턴스 수에 해당합니다.
 
 > [!NOTE]
-> Azure Managed Library는 다른 역할 인스턴스의 상태를 결정하는 수단을 제공하지는 않지만 서비스가 이 기능을 필요로 하는 경우 그러한 상태 평가를 직접 구현할 수 있습니다. [Azure 진단](cloud-services-dotnet-diagnostics.md)을 사용하여 역할 인스턴스를 실행하는 방법에 대한 정보를 얻을 수 있습니다.
+> Azure Managed Library는 다른 역할 인스턴스의 상태를 결정하는 수단을 제공하지는 않지만 서비스가 이 기능을 필요로 하는 경우 그러한 상태 평가를 직접 구현할 수 있습니다. [Azure 진단](cloud-services-dotnet-diagnostics.md) 을 사용하여 역할 인스턴스를 실행하는 방법에 대한 정보를 얻을 수 있습니다.
 > 
 > 
 
@@ -212,10 +216,10 @@ namespace WorkerRole1
 }
 ```
 
-## 역할 통신을 제어하는 네트워크 트래픽 규칙
+## <a name="network-traffic-rules-to-control-role-communication"></a>역할 통신을 제어하는 네트워크 트래픽 규칙
 내부 끝점을 정의한 후에 역할 인스턴스가 서로 통신할 수 있는 방법을 제어하는 네트워크 트래픽 규칙(만든 끝점에 기반)을 추가할 수 있습니다. 다음 다이어그램은 역할 통신을 제어하기 위한 몇 가지 일반적인 시나리오를 보여줍니다.
 
-![네트워크 트래픽 규칙 시나리오](./media/cloud-services-enable-communication-role-instances/scenarios.png "네트워크 트래픽 규칙 시나리오")
+![네트워크 트래픽 규칙 시나리오](./media/cloud-services-enable-communication-role-instances/scenarios.png "Network Traffic Rules Scenarios")
 
 다음 코드 예제는 이전 다이어그램에 표시된 역할에 대한 역할 정의를 보여줍니다. 각 역할 정의는 정의된 내부 끝점을 적어도 하나 이상 포함합니다.
 
@@ -255,7 +259,7 @@ namespace WorkerRole1
 
 기본적으로 내부 끝점이 정의된 후에 어떤 역할에서도 제한 없이 역할의 내부 끝점으로 통신할 수 있습니다. 통신을 제한하려면 **NetworkTrafficRules** 요소를 서비스 정의 파일의 **ServiceDefinition** 요소에 추가해야 합니다.
 
-### 시나리오 1
+### <a name="scenario-1"></a>시나리오 1
 네트워크 트래픽은 **WebRole1**에서 **WorkerRole1**으로만 허용됩니다.
 
 ```xml
@@ -274,7 +278,7 @@ namespace WorkerRole1
 </ServiceDefinition>
 ```
 
-### 시나리오 2
+### <a name="scenario-2"></a>시나리오 2
 네트워크 트래픽은 **WebRole1**에서 **WorkerRole1** 및 **WorkerRole2**으로만 허용됩니다.
 
 ```xml
@@ -293,8 +297,8 @@ namespace WorkerRole1
 </ServiceDefinition>
 ```
 
-### 시나리오 3
-네트워크 트래픽은 **WebRole1**에서 **WorkerRole1** 그리고 **WorkerRole1**에서 **WorkerRole2**으로만 허용됩니다.
+### <a name="scenario-3"></a>시나리오 3
+네트워크 트래픽은 **WebRole1**에서 **WorkerRole1**, 그리고 **WorkerRole1**에서 **WorkerRole2**로만 허용됩니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -322,8 +326,8 @@ namespace WorkerRole1
 </ServiceDefinition>
 ```
 
-### 시나리오 4
-네트워크 트래픽은 **WebRole1**에서 **WorkerRole1**, **WebRole1**에서 **WorkerRole2** 그리고 **WorkerRole1**에서 **WorkerRole2**으로만 허용됩니다.
+### <a name="scenario-4"></a>시나리오 4
+네트워크 트래픽은 **WebRole1**에서 **WorkerRole1**, **WebRole1**에서 **WorkerRole2**, 그리고 **WorkerRole1**에서 **WorkerRole2**로만 허용됩니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -365,7 +369,12 @@ namespace WorkerRole1
 
 위의 사용 되는 요소에 대한 XML 스키마 참조를 [여기](https://msdn.microsoft.com/library/azure/gg557551.aspx)서 찾을 수 있습니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 클라우드 서비스 [모델](cloud-services-model-and-package.md)에 대해 더 읽습니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
