@@ -247,29 +247,41 @@ Azure 가져오기/내보내기 서비스를 사용하여 데이터를 가져올
 
 첫 번째 복사 세션에서 디렉터리를 복사하기 위한 Azure 가져오기/내보내기 클라이언트 도구 PrepImport 명령:
 
-    WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 **예제:**
 
 아래 예제에서는 모든 파일 및 하위 디렉터리를 H:\Video에서 X에 탑재된 하드 디스크 드라이브로 복사합니다. 데이터를 저장소 계정 키에 의해 지정된 대상 저장소 계정과 video라는 저장소 컨테이너로 가져옵니다. 저장소 컨테이너가 없는 경우 만들어집니다. 이 명령은 또한 대상 하드 디스크 드라이브를 포맷하고 암호화합니다.
 
-    WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:storageaccountkey /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
+WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:storageaccountkey /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
 
 후속 복사 세션에서 디렉터리를 복사하기 위한 Azure 가져오기/내보내기 클라이언트 도구 PrepImport 명령:
 
-    WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 같은 하드 디스크 드라이브에 대한 후속 복사 세션의 경우 동일한 저널 파일 이름을 지정하고, 새 세션 ID를 제공합니다. 저장소 계정 키 및 대상 드라이브를 제공하거나 드라이브를 포맷 또는 암호화하지 않아도 됩니다. 이 예제에서는 H:\Photo 폴더와 해당 하위 디렉터리를 동일한 대상 드라이브, photo라는 저장소 컨테이너에 복사합니다.
 
-    WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
+WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
 
 첫 번째 복사 세션에서 파일을 복사하기 위한 Azure 가져오기/내보내기 클라이언트 도구 PrepImport 명령:
 
-    WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 후속 복사 세션에서 파일을 복사하기 위한 Azure 가져오기/내보내기 클라이언트 도구 PrepImport 명령:
 
-    WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 **주의**: 기본적으로 데이터는 블록 Blob으로 가져옵니다. /BlobType 매개 변수를 사용하여 데이터를 페이지 Blob으로 가져올 수 있습니다. 예를 들어 Azure VM에 디스크로 탑재되는 VHD 파일을 가져오는 경우 페이지 Blob으로 가져와야 합니다. 어떤 Blob 유형을 사용할지 확실하지 않은 경우 /blobType:auto를 지정하면 올바른 유형을 결정하도록 도와드립니다. 이 경우 모든 vhd 및 vhdx 파일을 페이지 Blob으로 가져오고 나머지는 블록 Blob으로 가져옵니다.
 

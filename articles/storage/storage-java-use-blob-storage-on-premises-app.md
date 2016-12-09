@@ -3,7 +3,7 @@ title: "Blob 저장소를 사용하는 온-프레미스 응용 프로그램(Java
 description: "Azure에 이미지를 업로드한 다음 브라우저에 해당 이미지를 표시하는 콘솔 응용 프로그램을 만드는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다."
 services: storage
 documentationcenter: java
-author: tamram
+author: mmacy
 manager: carmonm
 editor: tysonn
 ms.assetid: ccc9a7d7-6fe4-467b-b7fd-a73f17539e3f
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 11/17/2016
-ms.author: tamram
+ms.author: marsma
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 27d088291d93ce936a9b2465a13a47e62270fb84
