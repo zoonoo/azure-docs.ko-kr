@@ -1,14 +1,14 @@
 ---
-title: VM 가용성 집합 변경 | Microsoft Docs
-description: Azure PowerShell 및 Resource Manager 배포 모델을 사용하여 가상 컴퓨터에 대한 가용성 집합을 변경하는 방법에 대해 알아봅니다.
-keywords: ''
+title: "VM 가용성 집합 변경 | Microsoft Docs"
+description: "Azure PowerShell 및 Resource Manager 배포 모델을 사용하여 가상 컴퓨터에 대한 가용성 집합을 변경하는 방법에 대해 알아봅니다."
+keywords: 
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: Drewm3
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 44c90f90-bc9a-4260-a36f-5465e2a1ef94
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,12 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 947369fe8d93cb5a7ecf2624a0192d8aa1ea8524
+
 
 ---
-# Windows VM에 대한 가용성 집합 변경
-다음 단계에서는 Azure PowerShell을 사용하여 VM의 가용성 집합을 변경하는 방법을 설명합니다. VM은 생성될 때만 가용성 집합에 추가될 수 있습니다. 가용성 집합을 변경하려면 가상 컴퓨터를 삭제했다가 다시 만들어야 합니다.
+# <a name="change-the-availability-set-for-a-windows-vm"></a>Windows VM에 대한 가용성 집합 변경
+다음 단계에서는 Azure PowerShell을 사용하여 VM의 가용성 집합을 변경하는 방법을 설명합니다. VM은 생성될 때만 가용성 집합에 추가될 수 있습니다. 가용성 집합을 변경하려면 가상 컴퓨터를 삭제했다가 다시 만들어야 합니다. 
 
-## PowerShell을 사용하여 가용성 집합 변경
+## <a name="change-the-availability-set-using-powershell"></a>PowerShell을 사용하여 가용성 집합 변경
 1. 수정할 VM에서 다음 주요 세부 정보를 캡처합니다.
    
     VM의 이름
@@ -51,14 +55,14 @@ ms.author: drewm
     $vm.StorageProfile.OsDisk.Vhd.Uri
     ```
    
-    각 데이터 디스크에 대한 디스크 프로필
+    각 데이터 디스크에 대한 디스크 프로필 
    
     ```powershell
     $vm.StorageProfile.DataDisks[<index>].Lun
     $vm.StorageProfile.DataDisks[<index>].Vhd.Uri
     ```
    
-    설치된 VM 확장
+    설치된 VM 확장 
    
     ```powershell
     $vm.Extensions
@@ -84,9 +88,9 @@ ms.author: drewm
    
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ``` 
-5. 데이터 디스크 및 확장을 추가합니다. 자세한 내용은 [VM에 데이터 디스크 연결](virtual-machines-windows-attach-disk-portal.md) 및 [확장 구성 샘플](virtual-machines-windows-extensions-configuration-samples.md)을 참조하세요. PowerShell 또는 Azure CLI를 사용하여 VM에 데이터 디스크 및 확장을 추가할 수 있습니다.
+5. 데이터 디스크 및 확장을 추가합니다. 자세한 내용은 [VM에 데이터 디스크 연결](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [확장 구성 샘플](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. PowerShell 또는 Azure CLI를 사용하여 VM에 데이터 디스크 및 확장을 추가할 수 있습니다.
 
-## 예제 스크립트
+## <a name="example-script"></a>예제 스크립트
 다음 스크립트는 필요한 정보를 수집하고, 원본 VM을 삭제한 다음 새 가용성 집합에서 다시 만드는 예제를 제공합니다.
 
 ```powershell
@@ -150,7 +154,12 @@ ms.author: drewm
     New-AzureRmVM -ResourceGroupName $rg -Location $OriginalVM.Location -VM $NewVM -DisableBginfoExtension
 ```
 
-## 다음 단계
-[데이터 디스크](virtual-machines-windows-attach-disk-portal.md)를 더 추가하여 VM에 저장소를 좀 더 추가합니다.
+## <a name="next-steps"></a>다음 단계
+[데이터 디스크](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 더 추가하여 VM에 저장소를 좀 더 추가합니다.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

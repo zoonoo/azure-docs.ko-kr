@@ -1,11 +1,11 @@
 ---
-title: Azure 저장소 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결 | Microsoft Docs
-description: Azure 저장소 분석, AzCopy 및 Microsoft Message Analyzer를 사용한 종단 간 문제 해결을 보여 주는 자습서
+title: "Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결 | Microsoft Docs"
+description: "Azure 저장소 분석, AzCopy 및 Microsoft Message Analyzer를 사용한 종단 간 문제 해결을 보여 주는 자습서"
 services: storage
 documentationcenter: dotnet
 author: robinsh
 manager: carmonm
-
+ms.assetid: 6b23cba5-0d53-439e-870b-de8e406107d8
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: f2032f3a4fa559b9772ee63d39d66408b3f92175
+ms.openlocfilehash: 5a07c355259c61cfde9f2c1e5f056a0b7f794861
+
 
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging,-azcopy,-and-message-analyzer"></a>Azure 저장소 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure 저장소 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 ## <a name="overview"></a>개요
@@ -103,29 +107,32 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
 
 1. 다음과 같이 [Add-azureaccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) cmdlet을 사용하여 PowerShell 창에 Azure 사용자 계정을 추가합니다.
    
+    ```powershell
+     Add-AzureAccount
     ```
-    Add-AzureAccount
-    ```
+
 2. **Microsoft Azure에 로그인** 창에서 계정과 연결된 메일 주소와 암호를 입력합니다. Azure가 자격 증명 정보를 인증 및 저장한 후 창을 닫습니다.
 3. 다음과 같이 PowerShell 창에서 다음 명령을 실행하여 기본 저장소 계정을 자습서에서 사용하는 저장소 계정으로 설정합니다.
    
-    ```
+    ```powershell
     $SubscriptionName = 'Your subscription name'
     $StorageAccountName = 'yourstorageaccount' 
     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName 
     ```
+
 4. 다음과 같이 Blob 서비스에 대한 저장소 로깅을 사용하도록 설정합니다. 
    
-    ```
+    ```powershell
     Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0 
     ```
+
 5. 다음과 같이 Blob service의 저장소 메트릭을 사용하도록 설정하고 **-MetricsType**을 `Minute`으로 설정했는지 확인합니다.
    
-    ```
+    ```powershell
     Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0 
     ```
 
-### <a name="configure-.net-client-side-logging"></a>.NET 클라이언트 쪽 로깅 구성
+### <a name="configure-net-client-side-logging"></a>.NET 클라이언트 쪽 로깅 구성
 .NET 응용 프로그램에 대해 클라이언트 쪽 로깅을 구성하려면 응용 프로그램의 구성 파일(web.config 또는 app.config)에서 .NET 진단을 사용하도록 설정합니다. 자세한 내용은 [.NET 저장소 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](http://msdn.microsoft.com/library/azure/dn782839.aspx) 및 [Microsoft Azure Storage SDK for Java를 사용한 클라이언트 쪽 로깅](http://msdn.microsoft.com/library/azure/dn782844.aspx)을 참조하세요.
 
 클라이언트 쪽 로그에는 클라이언트가 요청을 준비하고 응답을 받아 처리하는 방법에 대한 자세한 정보가 포함됩니다.
@@ -150,10 +157,11 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
 4. **Microsoft-Pef-WebProxy** ETW 공급자의 오른쪽에 있는 **구성** 링크를 선택합니다.
 5. **고급 설정** 대화 상자에서 **공급자** 탭을 클릭합니다.
 6. **호스트 이름 필터** 필드에서 공백으로 구분하여 저장소 끝점을 지정합니다. 예를 들어 다음과 같이 끝점을 지정할 수 있습니다. `storagesample`를 사용 중인 저장소 계정 이름으로 변경합니다.
-   
-    ``` 
+
+    ```   
     storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net 
     ```
+   
 7. 대화 상자를 종료하고 **다시 시작**을 클릭하여 적절한 호스트 이름 필터가 있는 추적의 수집을 시작합니다. 그러면 Azure Storage 네트워크 트래픽만 추적에 포함됩니다.
 
 > [!NOTE]
@@ -188,7 +196,9 @@ Azure 저장소는 메트릭이 테이블에 기록되는 동안 서버 로그 �
 
 AzCopy 명령줄 도구를 사용하여 이러한 서버 쪽 로그 파일을 로컬 컴퓨터의 원하는 위치에 다운로드할 수 있습니다. 예를 들어 다음 명령을 사용하여 2015년 1월 2일에 발생한 Blob 작업의 로그 파일을 `C:\Temp\Logs\Server` 폴더로 다운로드할 수 있습니다. `<storageaccountname>`은 저장소 계정의 이름으로, `<storageaccountkey>`는 계정 액세스 키로 바꿉니다.
 
-    AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
+```azcopy
+AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
+```
 
 AzCopy는 [Azure 다운로드](https://azure.microsoft.com/downloads/) 페이지에서 다운로드할 수 있습니다. AzCopy 사용에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.
 
@@ -280,8 +290,10 @@ Azure 저장소 색 규칙을 사용할 뿐만 아니라 고유의 색 규칙을
 2. 그러면 **ClientRequestId** 열이 그룹화됩니다. 이제 분석 그리드의 데이터가 상태 코드 및 클라이언트 요청 ID별로 구성되어 표시됩니다.
 3. 표시되지 않은 경우 보기 필터 도구 창을 표시합니다. 도구 모음 리본에서 **도구 창**, **필터 보기**를 차례로 선택합니다.
 4. 400번대 오류만 표시되도록 로그 데이터를 필터링하려면 다음과 같은 필터 조건을 **필터 보기** 창에 추가하고 **적용**을 클릭합니다.
-   
-        (AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
+
+    ```   
+    (AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
+    ```
 
 아래 그림은 이 그룹화 및 필터의 결과를 보여 줍니다. 예를 들어 상태 코드 409의 그룹화 아래에 있는 **ClientRequestID** 필드를 확장하면 해당 상태 코드를 야기한 작업이 표시됩니다.
 
@@ -306,9 +318,11 @@ Azure 저장소 색 규칙을 사용할 뿐만 아니라 고유의 색 규칙을
 3. **라이브러리** 메뉴를 다시 표시하고 **전역 시간 필터**를 찾아 선택합니다.
 4. 필터에 있는 타임스탬프를 표시하려는 범위로 편집합니다. 이 작업은 분석할 데이터의 범위를 좁히는 데 도움이 됩니다.
 5. 필터는 아래 예제와 같이 표시됩니다. **Apply(적용)** 를 클릭하여 분석 그리드에 필터를 적용합니다.
-   
-        ((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And 
-        (#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
+
+    ```   
+    ((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And 
+    (#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
+    ```
 
 ![Azure 저장소 보기 레이아웃](./media/storage-e2e-troubleshooting-classic-portal/404-filtered-errors1.png)
 
@@ -325,8 +339,10 @@ Azure 저장소 색 규칙을 사용할 뿐만 아니라 고유의 색 규칙을
 2. 도구 모음 리본에서 **새 뷰어**를 선택한 후 **분석 그리드**를 선택하여 새 탭을 엽니다. 새 탭에 그룹화, 필터링 또는 색 규칙 없이 로그 파일의 모든 데이터가 표시됩니다. 
 3. 도구 모음 리본에서 **보기 레이아웃**을 선택한 후 **Azure Storage** 섹션의 **모든 .NET 클라이언트 열**를 선택합니다. 이 보기 레이아웃은 서버 및 네트워크 추적 로그는 물론 클라이언트 로그의 데이터를 보여 줍니다. 기본적으로 **MessageNumber** 열을 기준으로 정렬됩니다.
 4. 그런 다음 클라이언트 요청 ID의 클라이언트 로그를 검색합니다. 도구 모음 리본에서 **메시지 찾기**를 선택한 후 **찾기** 필드에서 클라이언트 요청 ID에 대한 사용자 지정 필터를 지정합니다. 이 필터에 다음 구문을 사용하여 고유의 클라이언트 요청 ID를 지정합니다.
-   
-        *ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
+
+    ```  
+    *ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
+    ```
 
 Message Analyzer에서 검색 조건이 클라이언트 요청 ID와 일치하는 첫 번째 로그 항목을 찾아 선택합니다. 클라이언트 로그에 각 클라이언트 요청 ID에 대한 여러 항목이 있으므로 모두 함께 쉽게 볼 수 있도록 **ClientRequestId** 필드에서 그룹화하려 할 수 있습니다. 아래 그림은 지정된 클라이언트 요청 ID에 대한 클라이언트 로그의 모든 메시지를 보여 줍니다. 
 
@@ -366,6 +382,7 @@ Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내
 * [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 * [Microsoft Message Analyzer 운영 가이드](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

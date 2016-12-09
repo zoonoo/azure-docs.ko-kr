@@ -1,12 +1,12 @@
 ---
-title: StorSimple 가상 배열 개요 | Microsoft Docs
-description: 온-프레미스 가상 장치와 Microsoft Azure 클라우드 저장소 간의 저장소 작업을 관리하는 통합된 저장소 솔루션인 StorSimple 가상 배열을 설명합니다.
+title: "StorSimple 가상 배열 개요 | Microsoft Docs"
+description: "온-프레미스 가상 장치와 Microsoft Azure 클라우드 저장소 간의 저장소 작업을 관리하는 통합된 저장소 솔루션인 StorSimple 가상 배열을 설명합니다."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: dacf0aa8-6cd3-425b-993d-d93bb632157d
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/06/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 80cac87cbcabe32f8aa1e4e05e8ba0b6643f1dc5
+
 
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple 가상 배열 소개
@@ -34,7 +38,7 @@ ms.author: alkohli
 | 설치 요구 사항 |가상화 인프라(Hyper-V 또는 VMware)  사용 |
 | Availability |단일 노드 |
 | 총 용량(클라우드 포함) |가상 장치당 사용 가능 용량 최대 64TB |
-| 로컬 용량 |가상 장치당 사용 가능 용량 390GB~6.4TB(500GB~8TB의 디스크 공간을 프로비전 해야 함) |
+| 로컬 용량 |가상 장치당 사용 가능 용량 390GB~6.4TB(500GB~8TB의 디스크 공간을 프로비전 해야 함)  |
 | 네이티브 프로토콜 |iSCSI 또는 SMB |
 | 복구 시간 목표(RTO) |iSCSI: 크기에 관계없이 2분 미만 |
 | 복구 지점 목표(RPO) |매일 백업 및 주문형 백업 |
@@ -48,7 +52,7 @@ ms.author: alkohli
 | 스냅숏 |충돌 일관성 |
 | 항목 수준 복구 |예; 사용자가 공유에서 복원 가능 |
 
-## <a name="why-use-storsimple?"></a>StorSimple을 사용하는 이유
+## <a name="why-use-storsimple"></a>StorSimple을 사용하는 이유
 StorSimple은 응용 프로그램을 수정하지 않고 사용자와 서버를 몇 분 안에 Azure 저장소에 연결합니다.
 
 다음 테이블은 가상 배열 솔루션에서 제공하는 주요 이점 중 일부를 설명합니다.
@@ -184,6 +188,9 @@ StorSimple 데이터 보호 기능을 통해 주문형 백업을 만들 수 있�
 ## <a name="next-steps"></a>다음 단계
 [가상 배열 포털을 준비](storsimple-ova-deploy1-portal-prep.md)하는 방법을 알아봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

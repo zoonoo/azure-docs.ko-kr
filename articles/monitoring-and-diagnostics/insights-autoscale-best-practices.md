@@ -1,130 +1,158 @@
 ---
-title: 'Azure Insights: Best practices for Azure Insights autoscaling. | Microsoft Docs'
-description: Learn principles to effectively use autoscaling in Azure Insights.
+title: "Azure Monitor 자동 크기 조정에 대한 모범 사례. | Microsoft Docs"
+description: "Azure Monitor에서 자동 크기 조정을 효과적으로 사용하기 위한 원칙을 알아봅니다."
 author: kamathashwin
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 9fa2b94b-dfa5-4106-96ff-74fd1fba4657
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2016
+ms.date: 10/20/2016
 ms.author: ashwink
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f49d9121f34cc58d1486220a93bcb102f8eba90b
+
 
 ---
-# <a name="best-practices-for-azure-insights-autoscaling"></a>Best practices for Azure Insights autoscaling
-The following sections in this document will help you understand the best practices for Autoscale in Azure Insights. After reviewing this information, you'll be better able to effectively use Autoscale in your Azure infrastructure.
+# <a name="best-practices-for-azure-monitor-autoscaling"></a>Azure Monitor 자동 크기 조정에 대한 모범 사례
+이 문서의 다음 섹션에서는 Azure에서 자동 크기 조정에 대한 모범 사례를 이해하도록 도와줍니다. 이 정보를 검토한 후에는 Azure 인프라에서 자동 크기 조정을 효과적으로 사용할 수 있게 됩니다.
 
-## <a name="autoscale-concepts"></a>Autoscale concepts
-* A resource can have only *one* autoscale setting
-* An autoscale setting can have one or more profiles and each profile can have one or more autoscale rules.
-* An autoscale setting scales instances horizontally, which is *out* by increasing the instances and *in* by decreasing the number of instances.
-  An autoscale setting has a maximum, minimum, and default value of instances.
-* An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale out or scale in. You can view a list of metrics that autoscale can scale by at [Azure Insights autoscaling common metrics](insights-autoscale-common-metrics.md).
-* All thresholds are calculated at an instance level. For example, "scale out by 1 instance when average CPU > 80% when instance count is 2", means scale out when the average CPU across all instances is greater than 80%.
-* You will always receive failure notifications via email. Specifically, the owner, contributor, and readers of the target resource will receive email. You will also always receive a *recovery* email when autoscale recovers from a failure and starts functioning normally.
-* You can opt-in to receive a successful scale action notification via email and webhooks.
+## <a name="autoscale-concepts"></a>자동 크기 조정 개념
+* 하나의 리소스에는 *하나의* 자동 크기 조정 설정만 있을 수 있습니다.
+* 자동 크기 조정 설정에는 하나 이상의 프로필이 있을 수 있으며, 각 프로필에는 하나 이상의 자동 크기 조정 규칙이 있을 수 있습니다.
+* 자동 크기 조정 설정은 인스턴스 크기를 수평적으로 조정합니다. 즉, 인스턴스를 늘려 *규모를 확장*하고 인스턴스 수를 줄여 *규모를 감축*합니다.
+  자동 크기 조정 설정에는 최대, 최소 및 기본 인스턴스 값이 있습니다.
+* 자동 크기 조정 작업에서는 항상 규모 확장 또는 규모 감축에 대해 구성된 임계값에 도달했는지 확인하여 크기를 조정할 연관된 메트릭을 읽습니다. [Azure Monitor 자동 크기 조정 공통 메트릭](insights-autoscale-common-metrics.md)에서 자동 크기 조정을 통해 크기를 조정할 수 있는 메트릭 목록을 볼 수 있습니다.
+* 모든 임계값은 인스턴스 수준에서 계산됩니다. 예를 들어 "인스턴스 수가 2일 때 평균 CPU가 80%를 초과하면 1인스턴스만큼 규모 확장"은 모든 인스턴스에서 평균 CPU가 80%보다 높은 경우에 규모를 확장함을 의미합니다.
+* 항상 메일을 통해 오류 알림이 제공됩니다. 특히, 대상 리소스의 소유자, 참가자 및 읽기 권한자에게 메일이 제공됩니다. 또한 자동 크기 조정이 오류에서 복구하여 정상적으로 작동하기 시작하면 항상 *복구* 메일이 제공됩니다.
+* 성공적인 크기 조정 작업 알림을 메일과 webhook를 통해 받도록 옵트인할 수 있습니다.
 
-## <a name="autoscale-best-practices"></a>Autoscale best practices
-Use the following best practices as you use Autoscale.
+## <a name="autoscale-best-practices"></a>자동 크기 조정 모범 사례
+자동 크기 조정을 사용할 때 다음 모범 사례를 따르세요.
 
-### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Ensure the maximum and minimum values are different and have an adequate margin between them
-If you have a setting that has maximum=2, minimum=2 and the current instance count is 2, no scale action can occur. A recommended setting is to keep an adequate margin between the maximum and minimum instance counts. Autoscale will always scale between these limits, which is inclusive. However, assume that you decide to manually scale (update) the instance count to a value above the maximum. The next time an autoscale job runs, it checks if the current instance count is greater than maximum - if so, it scales in to the maximum, regardless of the threshold set on the rules. Similarly, if you manually arrive at a current instance count less than the minimum, the next time an autoscale job runs, it scales out to the minimum number of instances.
+### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>최대값과 최소값이 다르고 둘 사이의 간격이 적당한지 확인
+최소값=2, 최대값=2 및 현재 인스턴스 수가 2인 설정이 있는 경우에는 발생할 수 있는 크기 조정 동작이 없습니다. 최대 인스턴스 수와 최소 인스턴스 수 간에 적당한 간격을 유지하세요(두 숫자 모두 포함). 자동 크기 조정은 항상 이러한 한도 사이에서 크기를 조정합니다.
 
-### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Always use a scale out and scale in rule combination that performs an increase and decrease
-If you use only one part of the combination, autoscale will scale in that single out, or in, until the maximum, or minimum, is reached.
+### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>수동 크기 조정이 자동 크기 조정 최소값 및 최대값으로 다시 설정됨
+인스턴스 수를 최대값 위 또는 아래 값으로 수동으로 업데이트하면 자동 크기 조정 엔진이 최소값(아래인 경우) 또는 최대값(위인 경우)으로 다시 자동으로 크기를 조정합니다. 예를 들어 3 및 6 사이의 범위를 설정할 수 있습니다. 실행 중인 인스턴스가 하나 있는 경우 자동 크기 조정 엔진은 다음 실행 시 3개 인스턴스로 확장합니다. 마찬가지로, 다음 실행에서는 8개의 인스턴스에서 6개로 규모 감축합니다.  수동 크기 조정은 자동 크기 조정 규칙을 재설정하지 않은 경우 극히 임시적입니다.
 
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Do not switch between the Azure portal and the Azure classic portal when managing Autoscale
-For Cloud Services and App Services (Web Apps), use the Azure portal (portal.azure.com) to create and manage Autoscale settings. For Virtual Machine Scale Sets use PoSH, CLI or REST API to create and manage autoscale setting. Do not switch between the Azure classic portal (manage.windowsazure.com) and the Azure portal (portal.azure.com) when managing autoscale configurations. The Azure classic portal and its underlying backend has limitations. Move to the Azure portal to manage autoscale using a graphical user interface. The options are to use the Autoscale PowerShell, CLI or REST API (via Azure Resource Explorer).
+### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>항상 증가 및 감소를 수행하는 규모 확장 및 감축 규칙 조합 사용
+이 조합의 한 부분만 사용하는 경우에는 자동 크기 조정에서 최대값 또는 최소값에 도달할 때까지 해당 부분만 규모를 확장하거나 감축합니다.
 
-### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Choose the appropriate statistic for your diagnostics metric
-For diagnostics metrics, you can choose among *Average*, *Minimum*, *Maximum* and *Total* as a metric to scale by. The most common statistic is *Average*.
+### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>자동 크기 조정을 관리할 때 Azure 포털 및 Azure 클래식 포털 간에 전환 금지
+Cloud Services 및 App Services(Web Apps)의 경우 Azure 포털(portal.azure.com)을 사용하여 자동 크기 조정 설정을 만들고 관리합니다. 가상 컴퓨터 크기 조정 집합의 경우 PoSH, CLI 또는 REST API를 사용하여 자동 크기 조정 설정을 만들고 관리합니다. 자동 크기 조정 구성을 관리할 때 Azure 클래식 포털(manage.windowsazure.com)과 Azure 포털(portal.azure.com) 간에 전환 금지 Azure 클래식 포털과 해당 기본 백 엔드에는 제한이 있습니다. 그래픽 사용자 인터페이스를 사용하여 자동 크기 조정을 관리하려면 Azure 포털로 이동합니다. Azure 리소스 탐색기를 통해 자동 크기 조정 PowerShell, CLI 또는 REST API를 사용할 수 있습니다.
 
-### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>Choose the thresholds carefully for all metric types
-We recommend carefully choosing different thresholds for scale out and scale in based on practical situations.
+### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>진단 메트릭에 적절한 통계 선택
+진단 메트릭의 경우 크기를 조정할 메트릭으로 *평균*, *최소*, *최대* 및 *합계* 중에서 선택할 수 있습니다. 가장 일반적인 통계는 *평균*입니다.
 
-We *do not recommend* autoscale settings like the examples below with the same or very similar threshold values for out and in conditions:
+### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>모든 메트릭 유형에 대해 신중하게 임계값 선택
+현실적인 상황을 기반으로 서로 다른 규모 확장 및 규모 감축 임계값을 신중하게 선택하는 것이 좋습니다.
 
-* Increase instances by 1 count when Thread Count <= 600
-* Decrease instances by 1 count when Thread Count >= 600
+아래 예와 같이 확장 및 감축 조건에 동일하거나 매우 유사한 임계값을 사용하는 자동 크기 조정 설정은 *권장되지 않습니다* .
 
-Let's look at an example of what can lead to a behavior that may seem confusing. Assume there are 2 instances to begin with and then the average number of threads per instance grows to 625. Autoscale scales out adding a 3rd instance. Next, assume that the average thread count across instance falls to 575. Before scaling down, autoscale tries to estimate what the final state will be if it scaled in. For example, 575 x  3 (current instance count) = 1,725 / 2 (final number of instances when scaled down) = 862.5 threads. This means Autoscale will have to immediately scale out again even after it scaled in, if the average thread count remains the same or even falls only a small amount. However, if it scaled up again, the whole process would repeat, leading to an infinite loop. To avoid this *flappy* situation, Autoscale does not scale down at all. Instead, it skips and reevaluates the condition again the next time the service's job executes. This could confuse many people because autoscale wouldn't appear to work when the average thread count was 575.
+* 스레드 수가 600 이하인 경우 인스턴스 수 1개 증가
+* 스레드 수가 600 이상인 경우 인스턴스 수 1개 감소
 
-This estimation behavior during a scale in is intended to avoid a flappy situation. You should keep this behavior in mind when you choose the same thresholds for scale out and in.
+혼동스러운 동작을 초래할 수 있는 예를 살펴보겠습니다. 다음과 같은 시퀀스를 고려해 보세요.
 
-We recommend choosing an adequate margin between the scale out and in thresholds. As an example, consider the following better rule combination.
+1. 인스턴스 2개로 시작한 다음 인스턴스당 평균 스레드 수가 625로 증가했다고 가정해 보겠습니다.
+2. 자동 크기 조정에서 세 번째 인스턴스를 추가하여 규모를 확장합니다.
+3. 다음으로, 인스턴스 전체의 평균 스레드 수가 575로 떨어졌다고 가정해 보겠습니다.
+4. 축소하기 전에 자동 크기 조정에서 감축된 경우의 최종 상태를 예측하려고 시도합니다. 예를 들어 575x3(현재 인스턴스 수) = 1,725/2(축소된 경우의 최종 인스턴스 수) = 862.5스레드입니다. 이는 평균 스레드 수가 동일하게 유지되거나 약간만 감소한 경우 자동 크기 조정에서 규모가 감축된 후 즉시 다시 확장해야 함을 의미합니다. 그러나 규모가 다시 확장된 경우 전체 프로세스가 반복되므로 무한 루프가 발생합니다.
+5. 이 "느슨한" 상황을 방지하기 위해 자동 크기 조정에서는 규모를 축소하지 않습니다. 대신 건너뛰고 다음에 서비스의 작업이 실행될 때 조건을 다시 평가합니다. 이는 평균 스레드 수가 575일 때 자동 크기 조정이 작동하지 않는 것처럼 보이기 때문에 많은 사용자에게 혼동을 줄 수 있었습니다.
 
-* Increase instances by 1 count when CPU%  >= 80
-* Decrease instances by 1 count when CPU% <= 60
+규모 감축 중의 평가는 "느슨한" 상황을 방지하기 위한 것입니다. 규모 확장 및 감축에 대해 동일한 임계값을 선택할 때 이 동작을 염두에 두어야 합니다.
 
-Let's review how this example works. Assume there are 2 instances to start with. If the average CPU% across instances goes to 80, autoscale scales out adding a 3rd instance. Now assume that over time the CPU% falls to 60. Autoscale's scale in rule estimates the final state if it were to scale in. For example, 60 x 3 (current instance count) = 180 / 2 (final number of instances when scaled down) = 90. So Autoscale does not scale in because it would have to scale out again immediately. Instead, it skips scaling down. Next, assume that the next time it checks, the CPU continues to fall to 50, then it estimates again -  50 x 3 instance = 150 / 2 instances = 75, which is below the scale out threshold of 80, so it scales in successfully to 2 instances.
+규모 확장 및 감축 임계값 사이에 적당한 간격을 선택하는 것이 좋습니다. 예를 들어, 다음과 같은 더 나은 규칙 조합을 고려합니다.
 
-### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Considerations for scaling threshold values for special metrics
- For special metrics such as Storage or Service Bus Queue length metric, the threshold is the average number of messages available per current number of instances. Carefully choose the choose the threshold value for this metric.
+* CPU%가 80 이상인 경우 인스턴스 수 1개 증가
+* CPU%가 60 이하인 경우 인스턴스 수 1개 감소
 
-Let's illustrate it with an example to ensure you understand the behavior better.
+이 경우  
 
-* Increase instances by 1 count when Storage Queue message count >= 50
-* Decrease instances by 1 count when Storage Queue message count <= 10
+1. 두 개의 인스턴스로 시작한다고 가정합니다.
+2. 인스턴스의 평균 CPU%가 80이 되면 자동 크기 조정에서 세 번째 인스턴스를 추가하여 규모를 확장합니다.
+3. 이제 시간이 지남에 따라 CPU%가 60으로 감소했다고 가정합니다.
+4. 자동 크기 조정의 규모 감축 규칙에서 규모가 감축된 경우의 최종 상태를 평가합니다. 예를 들어 60x3(현재 인스턴스 수) = 180/2(축소된 경우의 최종 인스턴스 수) = 90입니다. 따라서 자동 크기 조정에서는 즉시 다시 확장해야 하므로 규모를 감축하지 않습니다. 대신, 규모 축소를 건너뜁니다.
+5. 다음 자동 크기 조정 확인 시 CPU는 계속해서 50으로 감소합니다. 다시 평가에서 50 x 3 인스턴스 = 150/2 인스턴스 = 75이며, 이는 규모 확장 임계값 80보다 낮으므로 인스턴스 2개로 성공적으로 감축합니다.
 
-Assume there are 2 instances to start with. Next, assume that messages keep coming and when you review the storage queue, the total count reads 50. You might assume that autoscale should start a scale out action. However, note that it is still 50/2 = 25 messages per instance. So, scale out does not occur. For the first scale out to happen, the total message count in the storage queue should be 100. Next, assume that the total message count reaches 100. A 3rd instance is added due to a scale out action. The next scale out action will not happen until the total message count in the queue reaches 150. Let's look at the scale in action. Assume that the number of instances is 3. The first scale in action happens when the total messages in the queue reaches 30, making it 30/3 = 10 messages per instance, which is the scale in threshold.
+### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>특정 메트릭의 임계값 조정에 대한 고려 사항
+ 저장소 또는 서비스 버스 큐 길이 메트릭과 같은 특정 메트릭의 경우 임계값은 현재 인스턴스 수당 사용 가능한 평균 메시지 수입니다. 이 메트릭에 대한 임계값을 신중하게 선택해야 합니다.
 
-### <a name="considerations-for-scaling-when-multiple-profiles-are-configured-in-an-autoscale-setting"></a>Considerations for scaling when multiple profiles are configured in an autoscale setting
-In an autoscale setting, you can choose a default profile, which is always applied without any dependency on schedule or time, or you can choose a recurring profile or a profile for a fixed period with a date and time range.
+동작을 보다 잘 이해할 수 있도록 예를 들어 살펴보겠습니다.
 
-When Autoscale service processes them, it always checks in the following order:
+* 저장소 큐 메시지 수가 50개 이상인 경우 인스턴스 수 1개 증가
+* 저장소 큐 메시지 수가 10개 이하인 경우 인스턴스 수 1개 감소
 
-1. Fixed Date profile
-2. Recurring profile
-3. Default ("Always") profile
+다음과 같은 시퀀스를 고려해 보세요.
 
-If a profile condition is met, autoscale does not check the next profile condition below it. Autoscale only processes one profile at a time. This means if you want to also include a processing condition from a lower-tier profile, you must include those rules as well in the current profile.
+1. 2개의 저장소 큐 인스턴스가 있습니다.
+2. 메시지가 계속 들어오고 있으며 저장소 큐를 검토했을 때 총 개수가 50개입니다. 자동 크기 조정에서 규모 확장 동작을 시작해야 한다고 생각할 수 있습니다. 그러나 인스턴스당 메시지 수는 여전히 50/2 = 25개입니다. 따라서 규모 확장이 발생하지 않습니다. 첫 번째 규모 확장이 발생하려면 저장소 큐의 총 메시지 수가 100개여야 합니다.
+3. 이번에는 총 메시지 수가 100개에 도달했다고 가정합니다.
+4. 규모 확장 동작으로 인해 세 번째 저장소 큐가 추가됩니다.  150/3 = 50이므로 큐의 총 메시지 수가 150개에 도달할 때까지 다음 규모 확장 동작이 발생하지 않습니다.
+5. 이제 큐의 메시지 수가 작아집니다. 세 개의 인스턴스가 있는 경우, 인스턴스당 메시지 수는 규모 감축 임계값인 30/3 = 10개이므로 첫 번째 규모 감축 동작은 모든 큐의 총 메시지 수가 30개에 도달한 경우에 발생합니다.
 
-Let's review this using an example:
+### <a name="considerations-for-scaling-when-multiple-profiles-are-configured-in-an-autoscale-setting"></a>자동 크기 조정 설정에 여러 프로필이 구성된 경우 크기 조정에 대한 고려 사항
+자동 크기 조정 설정에서 일정이나 시간에 종속되지 않고 항상 적용되는 기본 프로필을 선택하거나, 날짜 및 시간 범위가 있는 고정된 기간의 프로필 또는 되풀이 프로필을 선택할 수 있습니다.
 
-The image below shows an autoscale setting with a default profile of minimum instances = 2 and maximum instances = 10. In this example, rules are configured to scale out when the message count in the queue is greater than 10 and scale in when the message count in the queue is less than 3. So now the resource can scale between 2 and 10 instances.
+자동 크기 조정 서비스는 이를 처리할 때 항상 다음 순서대로 확인합니다.
 
-In addition, there is a recurring profile set for Monday. It is set for minimum instances = 2 and maximum instances = 12. This means on Monday, the first time Autoscale checks for this condition, if the instance count was 2, it will scale it to the new minimum of 3. As long as autoscale continues to find this profile condition matched (Monday), it will only process the CPU based scale out/in rules configured for this profile. At this time, it will not check for the queue length. However, if you also want the queue length condition to be checked, you should include those rules from the default profile as well in your Monday profile. 
+1. 고정된 날짜 프로필
+2. 되풀이 프로필
+3. 기본("항상") 프로필
 
-Similarly, when Autoscale switches back to the default profile, it first checks if the minimum and maximum conditions are met. If the number of instances at the time is 12, it scales in to 10, the maximum allowed for the default profile.
+프로필 조건이 충족된 경우 자동 크기 조정은 그 아래의 다음 프로필 조건을 확인하지 않습니다. 자동 크기 조정에서는 한 번에 하나의 프로필만 처리합니다. 따라서 하위 계층 프로필의 처리 조건을 포함하려는 경우 이러한 규칙을 현재 프로필에도 포함해야 합니다.
 
-![autoscale settings](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
+예제를 사용하여 이를 검토해 보겠습니다.
 
-### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Considerations for scaling when multiple rules are configured in a profile
-There are cases where you may have to set multiple rules in a profile. The following set of autoscale rules are used by services use when multiple rules are set.
+아래 그림에는 최소 인스턴스 = 2이고 최대 인스턴스 = 10인 기본 프로필의 자동 크기 조정 설정을 보여 줍니다. 이 예제에서는 큐의 메시지 수가 10보다 큰 경우 규모를 확장하고, 큐의 메시지 수가 3보다 작은 경우 규모를 감축하도록 규칙이 구성되어 있습니다. 따라서 지금은 리소스의 크기를 2에서 10 사이로 조정할 수 있습니다.
 
-On *scale out*, Autoscale will run if any rule is met.
-On *scale in*, Autoscale require all rules to be met.
+또한 월요일에 설정된 되풀이 프로필이 있습니다. 이는 최소 인스턴스 = 2, 최대 인스턴스 = 12에 대해 설정되어 있습니다. 따라서 월요일에는 자동 크기 조정에서 처음이 이 조건을 확인하여 인스턴스 수가 2인 경우 새 최소값 3으로 크기를 조정합니다. 자동 크기 조정에서 일치하는 이 프로필 조건을 계속 찾는 한 이 프로필에 대해 구성된 CPU 기반 규모 확장/감축 규칙만 처리합니다. 이 경우 큐 길이를 확인하지 않습니다. 그러나 큐 길이 조건도 확인하려는 경우 기본 프로필의 이러한 규칙을 월요일 프로필에도 포함해야 합니다.
 
-To illustrate, assume that you have the following 4 autoscale rules:
+마찬가지로, 자동 크기 조정이 다시 기본 프로필로 전환하는 경우에는 먼저 최소값 및 최대값 조건이 충족되는지 확인합니다. 이때 인스턴스 수가 12인 경우 기본 프로필에 허용되는 최대값인 10으로 규모를 감축합니다.
 
-* If CPU < 30 %, scale in by 1
-* If Memory < 50%, scale in by 1
-* If CPU > 75%, scale out by 1
-* If Memory > 75%, scale out by 1
+![자동 크기 조정 설정](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
 
-Then the follow will occur: 
+### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>하나의 프로필에 여러 규칙이 구성된 경우 크기 조정에 대한 고려 사항
+하나의 프로필에 여러 규칙을 설정해야 할 수 있는 경우가 있습니다. 여러 규칙이 설정된 경우 다음과 같은 자동 크기 조정 규칙 집합이 서비스에서 사용됩니다.
 
-* If CPU is 76% and Memory is 50%, we will scale out.
-* If CPU is 50% and Memory is 76% we will scale out.
+*규모 확장*의 경우 임의의 규칙이 충족되면 자동 크기 조정이 실행됩니다.
+*규모 감축*의 경우 모든 규칙이 충족되어야 자동 크기 조정이 실행됩니다.
 
-On the other hand, if CPU is 25% and memory is 51% autoscale will **not** scale in. In order to scale in, CPU must be 29% and Memory 49%.
+이를 설명하기 위해 다음 4가지 자동 크기 조정 규칙이 있다고 가정합니다.
 
-### <a name="always-select-a-safe-default-instance-count"></a>Always select a safe default instance count
-The default instance count is important because it the instance count that Autoscale scales your service to when metrics are not available. Therefore, select a default instance count that's safe for your workloads.
+* CPU가 30% 미만인 경우 1만큼 규모 감축
+* 메모리가 50% 미만인 경우 1만큼 규모 감축
+* CPU가 75% 초과인 경우 1만큼 규모 확장
+* 메모리가 75%를 초과하는 경우 1만큼 규모 확장
 
-### <a name="configure-autoscale-notifications"></a>Configure autoscale notifications
-Autoscale notifies the administrators and contributors of the resource by email if any of the following conditions occur:
+이 경우 다음 상황이 발생합니다.
 
-* Autoscale service fails to take an action.
-* Metrics are not available for autoscale service to make a scale decision.
-* Metrics are available (recovery) again to make a scale decision.
-  In addition to the conditions above, you can configure email or webhook notifications to get notified for successful scale actions.
+* CPU가 76%이고 메모리가 50%인 경우 규모가 확장됩니다.
+* CPU가 50%이고 메모리가 76%인 경우 규모가 확장됩니다.
 
-<!--HONumber=Oct16_HO2-->
+반면, CPU가 25%이고 메모리가 51%인 경우 자동 크기 조정에서 규모를 감축하지 **않습니다**. 규모를 감축하려면 CPU가 29%이고 메모리가 49%여야 합니다.
+
+### <a name="always-select-a-safe-default-instance-count"></a>항상 안전한 기본 인스턴스 수 선택
+기본 인스턴스 수는 메트릭을 사용할 수 없을 때 자동 크기 조정에서 서비스 크기를 조정하는 인스턴스 수이므로 중요합니다. 따라서 워크로드에 안전한 기본 인스턴스 수를 선택해야 합니다.
+
+### <a name="configure-autoscale-notifications"></a>자동 크기 조정 알림 구성
+자동 크기 조정에서는 다음 조건 중 하나가 발생한 경우 리소스 관리자 및 참가자에게 메일로 알려 줍니다.
+
+* 자동 크기 조정 서비스에서 작업에 실패한 경우
+* 자동 크기 조정 서비스에서 크기 조정 결정을 내리는 데 메트릭을 사용할 수 없는 경우
+* 크기 조정 결정을 내리는 데 메트릭을 다시 사용할 수 있게 된(복구) 경우
+  위 조건 외에 성공적인 크기 조정 동작에 대한 알림을 받도록 메일 또는 webhook 알림을 구성할 수 있습니다.
+
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

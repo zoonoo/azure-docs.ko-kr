@@ -1,12 +1,12 @@
 ---
-title: 미디어 인코더 Premium 워크플로 형식 및 코덱 | Microsoft Docs
-description: 이 토픽에서는 미디어 인코더 Premium 워크플로 형식 및 코덱에 대한 개요를 제공합니다.
+title: "Media Encoder Premium Workflow 형식 및 코덱 | Microsoft 문서"
+description: "이 토픽에서는 미디어 인코더 Premium 워크플로 형식 및 코덱에 대한 개요를 제공합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erik43
-editor: ''
-
+editor: 
+ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d7e3bc0ac0c1f0c6bbce0cc25fe7a8df2cc53836
+
 
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>미디어 인코더 Premium 워크플로 형식 및 코덱
@@ -32,10 +36,10 @@ ms.author: juliako;anilmur
 
 **미디어 인코더 Premium 워크플로** 는 [이](#closed_captioning) 섹션에 설명된 선택 캡션을 지원합니다. 
 
-## <a name="<a-id="input_formats"></a>media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>미디어 인코더 Premium 워크플로 입력 형식 및 코덱
+## <a name="a-idinputformatsamedia-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>미디어 인코더 Premium 워크플로 입력 형식 및 코덱
 다음 섹션에는 이 미디어 프로세서에서 입력으로 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
 
-### <a name="input-container/file-formats"></a>입력 컨테이너/파일 형식
+### <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
@@ -64,10 +68,10 @@ ms.author: juliako;anilmur
 * Windows Media 오디오
 * WAV/PCM
 
-## <a name="<a-id="output_format"></a>media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>미디어 인코더 Premium 워크플로 출력 형식 및 코덱
+## <a name="a-idoutputformatamedia-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>미디어 인코더 Premium 워크플로 출력 형식 및 코덱
 다음 섹션에는 이 미디어 프로세서에서 출력으로 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
 
-### <a name="output-container/file-formats"></a>출력 컨테이너/파일 형식
+### <a name="output-containerfile-formats"></a>출력 컨테이너/파일 형식
 * Adobe® Flash® F4V
 * MXF(OP1a, XDCAM 및 AS02)
 * DPP(AS11 포함)
@@ -96,7 +100,7 @@ ms.author: juliako;anilmur
 * MP3(MPEG-1 Audio Layer 3)
 * Windows Media 오디오
 
-## <a name="<a-id="closed_captioning"></a>support-for-closed-captioning"></a><a id="closed_captioning"></a>선택 캡션 지원
+## <a name="a-idclosedcaptioningasupport-for-closed-captioning"></a><a id="closed_captioning"></a>선택 캡션 지원
 수집 시 **미디어 인코더 Premium 워크플로** 는 다음을 지원합니다.
 
 1. SCC 파일
@@ -124,6 +128,9 @@ ms.author: juliako;anilmur
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,26 +1,30 @@
 ---
-title: PowerShell을 사용하여 Azure 서비스에 경고 만들기| Microsoft Docs
-description: PowerShell을 사용하여 사용자가 지정한 조건에 부합하면 알림이나 자동 작업을 트리거할 수 있는 Azure 경고를 만듭니다.
+title: "PowerShell을 사용하여 Azure 서비스에 경고 만들기| Microsoft 문서"
+description: "PowerShell을 사용하여 사용자가 지정한 조건에 부합하면 알림이나 자동 작업을 트리거할 수 있는 Azure 경고를 만듭니다."
 author: rboucher
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: d26ab15b-7b7e-42a9-81c8-3ce9ead5d252
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 10/20/2016
 ms.author: robb
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db8ed8980335e2af9654bfe56b4e4c5807674040
+
 
 ---
 # <a name="use-powershell-to-create-alerts-for-azure-services"></a>PowerShell을 사용하여 Azure 서비스에 대한 경고 만들기
 > [!div class="op_single_selector"]
 > * [포털](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
-> * [CLI](../azure-portal/insights-alerts-command-line-interface.md) 
+> * [CLI](insights-alerts-command-line-interface.md)
 > 
 > 
 
@@ -37,16 +41,16 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 * 서비스 관리자 및 공동 관리자에게 이메일 알림을 보냅니다.
 * 사용자가 지정한 추가 이메일 주소로 이메일을 보냅니다.
 * webhook 호출
-* Azure runbook 실행 시작(현재는 Azure 포털에서만 가능) 
+* Azure runbook 실행 시작(현재는 Azure 포털에서만 가능)
 
-다음을 통해 경고에 대한 정보를 구성하고 가져올 수 있습니다. 
+다음을 통해 경고에 대한 정보를 구성하고 가져올 수 있습니다.
 
 * [Azure 포털](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md) 
-* [명령줄 인터페이스(CLI)](../azure-portal/insights-alerts-command-line-interface.md) 
-* [Azure Insights REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [PowerShell](insights-alerts-powershell.md)
+* [명령줄 인터페이스(CLI)](insights-alerts-command-line-interface.md)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-```get-help``` 입력 후 도움말이 필요한 PowerShell 명령을 입력하면 항상 추가 정보를 얻을 수 있습니다. 
+```get-help``` 입력 후 도움말이 필요한 PowerShell 명령을 입력하면 항상 추가 정보를 얻을 수 있습니다.
 
 ## <a name="create-alert-rules-in-powershell"></a>PowerShell에서 경고 규칙 만들기
 1. Azure에 로그인합니다.   
@@ -55,7 +59,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
     Login-AzureRmAccount
    
     ```
-2. 사용 가능한 구독 목록을 가져옵니다. 올바른 구독에서 작업 중인지 확인합니다. 그렇지 않은 경우 `Get-AzureRmSubscription`의 출력을 사용하여 올바른 항목을 선택합니다. 
+2. 사용 가능한 구독 목록을 가져옵니다. 올바른 구독에서 작업 중인지 확인합니다. 그렇지 않은 경우 `Get-AzureRmSubscription`의 출력을 사용하여 올바른 항목을 선택합니다.
    
     ```PowerShell
     Get-AzureRmSubscription
@@ -69,12 +73,12 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
    ```
 4. 규칙을 만들려면 먼저 몇 가지 중요한 정보가 필요합니다. 
    
-   * 설정 및 경고할 리소스의 **리소스 ID**
+   * 경고를 설정할 리소스의 **리소스 ID**
    * 리소스에 대해 사용 가능한 **메트릭 정의**
      
      리소스 ID를 가져오는 한 가지 방법은 Azure 포털을 사용하는 것입니다. 리소스를 이미 만들었다고 가정하고 포털에서 선택합니다. 이 후 다음 블레이드에서 *설정* 섹션의 *속성*을 선택합니다. 리소스 ID는 다음 블레이드의 필드입니다. 또 다른 방법은 [Azure Resource Explorer](https://resources.azure.com/)를 사용하는 것입니다.
      
-     웹앱에 대한 예제 리소스 ID 
+     웹앱에 대한 예제 리소스 ID
      
      ```
      /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
@@ -86,7 +90,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
      Get-AzureRmMetricDefinition -ResourceId <resource_id>
      ```
      
-     다음은 해당 메트릭에 대한 메트릭 이름 및 단위를 사용하여 테이블을 생성하는 예제입니다. 
+     다음은 해당 메트릭에 대한 메트릭 이름 및 단위를 사용하여 테이블을 생성하는 예제입니다.
      
      ```PowerShell
      Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -99,7 +103,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
     Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Description "alert on any website activity"
    
     ```
-6. 경고가 트리거되었을 때 Webhook를 만들거나 이메일을 보내려면 먼저 이메일 및/또는 Webhook를 만듭니다. 그런 다음 즉시 다음 예제에서처럼 -Actions 태그를 사용하여 이후의 규칙을 만듭니다. Webhook나 이메일을 PowerShell을 통해 이미 생성된 규칙과 연결할 수 없습니다. 
+6. 경고가 트리거되었을 때 Webhook를 만들거나 이메일을 보내려면 먼저 이메일 및/또는 Webhook를 만듭니다. 그런 다음 즉시 다음 예제에서처럼 -Actions 태그를 사용하여 이후의 규칙을 만듭니다. Webhook나 이메일을 PowerShell을 통해 이미 생성된 규칙과 연결할 수 없습니다.
 
     ```PowerShell
     $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
@@ -141,8 +145,11 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 * [경고에서의 webhook 구성](insights-webhooks-alerts.md)에 대해 자세히 알아봅니다.
 * [Azure Automation Runbook](../automation/automation-starting-a-runbook.md)에 대해 자세히 알아봅니다.
 * 서비스의 상세 고빈도 메트릭을 수집하기 위한 [진단 로그 수집](monitoring-overview-of-diagnostic-logs.md) 의 개요를 살펴봅니다.
-* 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../azure-portal/insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.
+* 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

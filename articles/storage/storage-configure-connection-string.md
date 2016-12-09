@@ -1,12 +1,12 @@
 ---
-title: Azure 저장소 | Microsoft Docs
-description: Azure 저장소 계정에 연결 문자열을 구성합니다. 연결 문자열에는 런타임 시 응용 프로그램에서 저장소 계정에 액세스하는 것을 인증하는 데 필요한 정보가 포함되어 있습니다.
+title: "Azure Storage에 대한 연결 문자열 구성 | Microsoft Docs"
+description: "Azure 저장소 계정에 연결 문자열을 구성합니다. 연결 문자열에는 런타임 시 응용 프로그램에서 저장소 계정에 액세스하는 것을 인증하는 데 필요한 정보가 포함되어 있습니다."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 27c995e16f1137f6e18ebfc8210d492872d0e76c
+
 
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Azure 저장소 연결 문자열 구성
@@ -117,6 +121,9 @@ Azure 저장소 계정에 연결 문자열을 만들려면 아래 연결 문자�
 * [Azure 저장소 탐색기](storage-explorers.md)
 * [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

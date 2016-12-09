@@ -1,12 +1,12 @@
 ---
-title: 장애 조치 스트리밍 시나리오 구현 | Microsoft Docs
-description: 이 토픽에서는 장애 조치 스트리밍 시나리오를 구현하는 방법을 보여 줍니다.
+title: "장애 조치 스트리밍 시나리오 구현 | Microsoft 문서"
+description: "이 토픽에서는 장애 조치 스트리밍 시나리오를 구현하는 방법을 보여 줍니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
+
 
 ---
 # <a name="implementing-failover-streaming-scenario"></a>장애 조치 스트리밍 시나리오 구현
@@ -96,7 +100,7 @@ ms.author: juliako
           <add key="MediaServicesStorageAccountKeyTarget" value=" Media-Services-Storage-Account-Key-Target" />
         </appSettings>
 
-## <a name="add-code-that-handles-redundancy-for-on-demand-streaming."></a>주문형 스트리밍에 대한 중복성을 처리하는 코드를 추가합니다.
+## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>주문형 스트리밍에 대한 중복성을 처리하는 코드를 추가합니다.
 1. Program 클래스에 다음 클래스 수준 필드를 추가합니다.
    
         // Read values from the App.config file.
@@ -957,6 +961,9 @@ ms.author: juliako
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

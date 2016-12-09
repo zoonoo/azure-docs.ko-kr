@@ -1,12 +1,12 @@
 ---
-title: Azure SDK for .NET 2.6 릴리스 정보
-description: Azure SDK for .NET 2.6 릴리스 정보
+title: "Azure SDK for .NET 2.6 릴리스 정보"
+description: "Azure SDK for .NET 2.6 릴리스 정보"
 services: app-service/web
 documentationcenter: .net
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: b45853d5-a2b8-4962-a22d-579cb36ae14c
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/17/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 01db792077bbb464400de1c00117d97443b4c2dc
+
 
 ---
-# <a name="azure-sdk-for-.net-2.6-release-notes"></a>Azure SDK for .NET 2.6 릴리스 정보
+# <a name="azure-sdk-for-net-26-release-notes"></a>Azure SDK for .NET 2.6 릴리스 정보
 이 문서에는 Azure SDK for .NET 2.6 릴리스의 릴리스 정보가 포함되어 있습니다. 
 
 Azure SDK 2.6에서는 클라우드 서비스 역할에 대상 .NET Framework를 수동으로 설치한 경우 .NET 4.5.2 또는 .NET 4.6을 대상으로 하는 클라우드 서비스 응용 프로그램(PaaS)을 개발할 수 있습니다. [클라우드 서비스 역할에 .NET 설치](http://go.microsoft.com/fwlink/?LinkID=309796)를 참조하세요.
@@ -95,6 +99,9 @@ Azure SDK 2.6에서는 Azure 계산 에뮬레이터의 진단 로그를 수집�
 ## <a name="see-also"></a>참고 항목
 [.NET 및 API용 Azure SDK에 대한 지원 및 사용 중지 정보](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

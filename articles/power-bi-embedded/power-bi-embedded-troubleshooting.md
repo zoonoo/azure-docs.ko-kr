@@ -1,13 +1,13 @@
 ---
-title: Microsoft Power BI Embedded 미리 보기 문제 해결
-description: Microsoft Power BI Embedded 미리 보기 문제 해결
+title: "Microsoft Power BI Embedded 미리 보기 문제 해결"
+description: "Microsoft Power BI Embedded 미리 보기 문제 해결"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: c8aee652-ed8b-4c66-9c63-f798b7a655b4
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f4cf4a04e7a921f8e11c94f74d53ac80c231933
+
 
 ---
 # <a name="microsoft-power-bi-embedded-preview-troubleshooting"></a>Microsoft Power BI Embedded 미리 보기 문제 해결
@@ -43,6 +47,9 @@ SQL Server 연결 문자열에 대해 자세히 알아보려면 다음 문서를
 * [샘플 시작](power-bi-embedded-get-started-sample.md)
 * [Power BI Embedded란](power-bi-embedded-what-is-power-bi-embedded.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

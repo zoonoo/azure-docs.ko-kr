@@ -1,28 +1,32 @@
 ---
-title: 수동으로 Azure VM의 Always On 가용성 그룹 구성 - Microsoft Azure
-description: Azure 가상 컴퓨터로 Always On 가용성 그룹을 만듭니다. 이 자습서에서는 스크립트보다는 사용자 인터페이스 및 도구를 주로 사용합니다.
+title: "수동으로 Azure VM의 Always On 가용성 그룹 구성 - Microsoft Azure"
+description: "Azure 가상 컴퓨터로 Always On 가용성 그룹을 만듭니다. 이 자습서에서는 스크립트보다는 사용자 인터페이스 및 도구를 주로 사용합니다."
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
 manager: timlt
 editor: monicar
 tags: azure-service-management
-
+ms.assetid: 986cbc2e-553d-4eba-8acb-c34ad7fd1d8b
 ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 10/21/2016
 ms.author: MikeRayMSFT
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 6b102884c7d5aafc85acdeb52a92b630e6e99b6a
+
 
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually---resource-manager"></a>수동으로 Azure VM의 Always On 가용성 그룹 구성 - 리소스 관리자
 > [!div class="op_single_selector"]
-> * [Resource Manager: 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [리소스 관리자: 수동](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-> * [클래식: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-> * [클래식: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+> * [Resource Manager: 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [리소스 관리자: 수동](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [클래식: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [클래식: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > 
 > 
 
@@ -36,7 +40,7 @@ ms.author: MikeRayMSFT
 * AD(Active Directory) 도메인을 포함한 가용성 집합에 있는 두 개의 도메인 컨트롤러 
 * 백 엔드 서브넷에 배포되고 AD 도메인에 가입된 가용성 집합의 SQL Server VM 2개
 * 노드 과반수 쿼럼 모델을 포함하는 3-노드 WSFC 클러스터
-* 가용성 그룹에 IP 주소를 제공하는 내부 부하 분산 장치
+* 하나 이상의 가용성 그룹 수신기를 지원하는 IP 주소가 하나 이상 있는 내부 부하 분산 장치
 * 가용성 데이터베이스의 두 개의 동기 커밋 복제본이 포함된 가용성 그룹
 
 아래 그림은 솔루션을 그래픽으로 표현한 것입니다.
@@ -45,14 +49,16 @@ ms.author: MikeRayMSFT
 
 이것은 가능한 구성 중 하나입니다. 요구 사항에 맞게 구성을 수정할 수 있습니다. 예를 들어 도메인 컨트롤러를 쿼럼 파일 공유 감시로 사용하여 가상 컴퓨터 수를 줄일 수 있습니다. 이렇게 하면 2복제본 가용성 그룹에 대한 VM 수를 줄일 수 있습니다. 이 방법을 사용하면 이 솔루션에서 VM 수가 하나씩 줄어듭니다.
 
-이 자습서에서는 여러 Azure 가상 컴퓨터를 구축하고 구성해야 하므로 완료하는 데 몇 시간이 걸립니다. 또한 이 전체 솔루션을 자동으로 빌드할 수 있습니다. Azure 포털에는 수신기와 함께 AlwaysOn 가용성 그룹을 위한 갤러리 설치가 있습니다. 이 갤러리 설정은 가용성 그룹에 필요한 모든 항목을 자동으로 구성합니다. 자세한 내용은 [포털 - 리소스 관리자](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)를 참조하세요. 
+이 자습서에서는 수신기용 IP 주소가 하나 있는 단일 가용성 그룹을 만듭니다. IP 주소와 수신기가 각각 따로 있는 가용성 그룹을 여러 개 만들 수도 있습니다. 각 IP 주소는 동일한 부하 분산 장치를 사용합니다. 부하 분산 장치에 여러 IP 주소를 구성하려면 PowerShell을 사용합니다. 자세한 내용은 [하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+
+이 자습서에서는 여러 Azure 가상 컴퓨터를 구축하고 구성해야 하므로 완료하는 데 몇 시간이 걸립니다. 또한 이 전체 솔루션을 자동으로 빌드할 수 있습니다. Azure 포털에는 수신기와 함께 AlwaysOn 가용성 그룹을 위한 갤러리 설치가 있습니다. 이 갤러리 설정은 가용성 그룹에 필요한 모든 항목을 자동으로 구성합니다. 자세한 내용은 [포털 - 리소스 관리자](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 
 
 [!INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-ag-template.md)]
 
 이 자습서에서는 다음을 가정합니다.
 
 * Azure 계정이 있습니다.
-* GUI를 사용하여 가상 컴퓨터 갤러리에서 SQL Server VM을 프로비전하는 방법을 이미 알고 있습니다. 자세한 내용은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)
+* GUI를 사용하여 가상 컴퓨터 갤러리에서 SQL Server VM을 프로비전하는 방법을 이미 알고 있습니다. 자세한 내용은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
 > [!NOTE]
@@ -64,10 +70,10 @@ ms.author: MikeRayMSFT
 1. [Azure 포털](http://portal.azure.com)에 로그인합니다. 
 2. **+ 새로 만들기**를 클릭하고 **마켓플레이스** 검색 창에 **리소스 그룹**을 입력합니다.
    
-   ![리소스 그룹](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
-3. **리소스 그룹** 
+    ![리소스 그룹](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
+3.  **리소스 그룹** 
    
-   ![새 리소스 그룹](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
+    ![새 리소스 그룹](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
 4. **만들기**를 클릭합니다. 
 5. **리소스 그룹** 블레이드의 **리소스 그룹 이름**에 **SQL-HA-RG**를 입력합니다.
 6. 여러 Azure 구독이 있는 경우 해당 구독이 가용성 그룹을 만들려는 Azure 구독인지 확인합니다. 
@@ -89,14 +95,14 @@ ms.author: MikeRayMSFT
    ![새 항목](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/02-newiteminrg.png)
 2. **가상 네트워크**를 검색합니다.
    
-   ![가상 네트워크 검색](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
+     ![가상 네트워크 검색](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
 3. **가상 네트워크**를 클릭합니다.
 4. **가상 네트워크** 블레이드에서 **Resource Manager** 배포 모델을 클릭하고 **만들기**를 클릭합니다.
    
-   ![가상 네트워크 만들기](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
+     ![가상 네트워크 만들기](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
 5. **가상 네트워크 만들기** 블레이드에서 가상 네트워크를 구성합니다. 
    
-   다음 표에서는 가상 네트워크에 대한 설정을 보여 줍니다. 
+   다음 표에서는 가상 네트워크에 대한 설정을 보여 줍니다.
    
    | **필드** | 값 |
    | --- | --- |
@@ -107,8 +113,8 @@ ms.author: MikeRayMSFT
    | **구독** |사용하려는 구독을 지정합니다. 하나의 구독만 있는 경우 이 옵션이 비어 있을 수 있습니다. |
    | **위치** |Azure 위치를 지정합니다. |
    
-   주소 공간 및 서브넷 주소 범위는 표와 다를 수 있습니다. 구독에 따라 사용 가능한 주소 공간 및 해당 서브넷 주소 범위가 지정됩니다. 사용할 수 있는 주소 공간이 충분하지 않으면 다른 구독을 사용하세요. 
-6. **만들기**
+    주소 공간 및 서브넷 주소 범위는 표와 다를 수 있습니다. 구독에 따라 사용 가능한 주소 공간 및 해당 서브넷 주소 범위가 지정됩니다. 사용할 수 있는 주소 공간이 충분하지 않으면 다른 구독을 사용하세요. 
+6.  **만들기**
    
    ![가상 네트워크 구성](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
 
@@ -119,20 +125,19 @@ ms.author: MikeRayMSFT
 
 1. 대시보드에서 사용자가 만든 리소스 그룹인 **SQL-HA-RG**를 클릭합니다. 리소스 그룹의 **리소스**에서 네트워크를 찾습니다.
    
-   **SQL-HA-RG**가 표시되지 않으면 **리소스 그룹**을 클릭하고 리소스 그룹 이름으로 필터링하여 찾습니다.
+    **SQL-HA-RG**가 표시되지 않으면 **리소스 그룹**을 클릭하고 리소스 그룹 이름으로 필터링하여 찾습니다.
 2. 리소스 목록에서 **autoHAVNET** 을 클릭합니다. 네트워크 구성 블레이드가 열립니다.
-3. **autoHAVNET** 가상 네트워크에서 **모든 설정*을 클릭합니다.
-4. **설정** 블레이드에서 **서브넷**을 클릭합니다.
+3. **autoHAVNET** 가상 네트워크에서 **모든 설정**을 클릭합니다.
+4. **설정** 블레이드에서 **서브넷**을 클릭합니다**.
    
-   이미 만들어진 서브넷을 확인합니다. 
+    이미 만들어진 서브넷을 확인합니다. 
    
-   ![가상 네트워크 구성](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/07-addsubnet.png)
+    ![가상 네트워크 구성](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/07-addsubnet.png)
 5. 두 번째 서브넷을 만듭니다. **+ 서브넷**을 클릭합니다. 
+6. **서브넷 추가** 블레이드에서 **이름** 아래에 **subnet-2**를 입력하여 서브넷을 구성합니다. 유효한 **주소 범위**가 자동으로 지정됩니다. 이 주소 범위에 최소 10개의 주소가 있는지 확인합니다. 프로덕션 환경에서는 더 많은 주소가 필요할 수 있습니다. 
+7. **확인**을 클릭합니다.
    
-   **서브넷 추가** 블레이드에서 **이름** 아래에 **subnet-2**를 입력하여 서브넷을 구성합니다. 유효한 **주소 범위**가 자동으로 지정됩니다. 이 주소 범위에 최소 10개의 주소가 있는지 확인합니다. 프로덕션 환경에서는 더 많은 주소가 필요할 수 있습니다. 
-6. **확인**을 클릭합니다.
-
-![가상 네트워크 구성](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
+    ![가상 네트워크 구성](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
 
 다음은 가상 네트워크 및 두 서브넷에 대한 구성 설정의 요약입니다.
 
@@ -149,7 +154,7 @@ ms.author: MikeRayMSFT
 | **위치** |리소스 그룹에 대해 선택한 위치와 같은 위치를 지정합니다. |
 
 ## <a name="create-availability-sets"></a>가용성 집합 만들기
-가상 컴퓨터를 만들기 전에 가용성 집합을 만들어야 합니다. 가용성 집합은 계획되거나 계획되지 않은 유지 관리 이벤트에 대한 가동 중지 시간을 줄입니다. Azure 가용성 집합은 Azure에서 물리적 장애 도메인 및 업데이트 도메인에 배치하는 리소스의 논리적 그룹입니다. 장애 도메인을 사용하면 가용성 집합의 구성원이 개별 전원 및 네트워크 리소스를 사용할 수 있습니다. 업데이트 도메인을 사용하면 가용성 집합의 구성원이 유지 관리를 위해 동시에 중단되지 않습니다. [가상 컴퓨터의 가용성을 관리합니다](virtual-machines-windows-manage-availability.md).
+가상 컴퓨터를 만들기 전에 가용성 집합을 만들어야 합니다. 가용성 집합은 계획되거나 계획되지 않은 유지 관리 이벤트에 대한 가동 중지 시간을 줄입니다. Azure 가용성 집합은 Azure에서 물리적 장애 도메인 및 업데이트 도메인에 배치하는 리소스의 논리적 그룹입니다. 장애 도메인을 사용하면 가용성 집합의 구성원이 개별 전원 및 네트워크 리소스를 사용할 수 있습니다. 업데이트 도메인을 사용하면 가용성 집합의 구성원이 유지 관리를 위해 동시에 중단되지 않습니다. [가상 컴퓨터의 가용성을 관리합니다](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 두 개의 가용성 집합이 필요합니다. 하나는 도메인 컨트롤러용이고 두 번째 SQL Server용입니다.
 
@@ -241,17 +246,16 @@ ms.author: MikeRayMSFT
 10. 왼쪽 창에서 새 **AD DS** 옵션을 선택합니다.
 11. 노란색 경고 표시줄에서 **자세히** 링크를 클릭합니다.
     
-     ![DNS 서버 VM에서 AD DS 대화 상자](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784625.png)
+    ![DNS 서버 VM에서 AD DS 대화 상자](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784625.png)
 12. **모든 서버 작업 세부 정보** 대화 상자의 **작업** 열에서 **이 서버를 도메인 컨트롤러로 승격**을 클릭합니다.
 13. **Active Directory 도메인 서비스 구성 마법사**에서 다음 값을 사용합니다.
-
-| **Page** | 설정 |
-| --- | --- |
-| **배포 구성** |**새 포리스트 추가** = 선택됨<br/>**루트 도메인 이름** = corp.contoso.com |
-| **도메인 컨트롤러 옵션** |**암호** = Contoso!0000<br/>**암호 확인** = Contoso!0000 |
-
-1. **다음**을 클릭하여 마법사의 다른 페이지를 진행합니다. **필수 구성 요소 확인** 페이지에서 다음 메시지가 표시되는지 확인합니다. **모든 필수 구성 요소 검사를 마쳤습니다**. 해당하는 모든 경고 메시지를 검토해야 하지만 설치는 계속할 수 있습니다.
-2. **Install**을 클릭합니다. **ad-primary-dc** 가상 컴퓨터가 자동으로 다시 부팅됩니다.
+    
+    | **Page** | 설정 |
+    | --- | --- |
+    | **배포 구성** |**새 포리스트 추가** = 선택됨<br/>**루트 도메인 이름** = corp.contoso.com |
+    | **도메인 컨트롤러 옵션** |**암호** = Contoso!0000<br/>**암호 확인** = Contoso!0000 |
+14. **다음**을 클릭하여 마법사의 다른 페이지를 진행합니다. **필수 구성 요소 확인** 페이지에서 다음 메시지가 표시되는지 확인합니다. **모든 필수 구성 요소 검사를 마쳤습니다**. 해당하는 모든 경고 메시지를 검토해야 하지만 설치는 계속할 수 있습니다.
+15. **Install**을 클릭합니다. **ad-primary-dc** 가상 컴퓨터가 자동으로 다시 부팅됩니다.
 
 ### <a name="configure-the-second-domain-controller"></a>두 번째 도메인 컨트롤러 구성
 주 도메인 컨트롤러를 다시 부팅한 후에 두 번째 도메인 컨트롤러를 구성할 수 있습니다. 이 선택적 단계는 가용성을 높이기 위한 것입니다. 이 단계를 완료하려면 도메인 컨트롤러에 대한 개인 IP 주소를 알아야 합니다. Azure 포털에서 이 주소를 가져올 수 있습니다. 두 번째 도메인 컨트롤러를 구성하려면 다음 단계를 수행합니다.
@@ -271,7 +275,7 @@ ms.author: MikeRayMSFT
 11. 다음 DNS 서버 주소 사용을 선택하고 **기본 설정 DNS 서버**에서 주 도메인 컨트롤러 주소를 지정합니다.
 12. 주소는 Azure 가상 네트워크에서 subnet-1 서브넷의 VM에 할당된 주소이며 해당 VM은 **ad-primary-dc**입니다. **ad-primary-dc**의 IP 주소를 확인하려면 아래와 같이 명령 프롬프트에서 **nslookup ad-primary-dc**를 사용합니다.
     
-     ![NSLOOKUP을 사용하여 DC에 대한 IP 주소 찾기](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
+    ![NSLOOKUP을 사용하여 DC에 대한 IP 주소 찾기](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
     
     > [!NOTE]
     > DNS를 설정한 후에는 구성원 서버에 대한 RDP 세션이 닫힐 수 있습니다. 이렇게 하면 Azure 포털에서 VM이 다시 부팅됩니다.
@@ -292,30 +296,29 @@ ms.author: MikeRayMSFT
 2. **서버 관리자**에서 **도구**를 선택한 후 **Active Directory 관리 센터**를 클릭합니다.
    
     ![Active Directory 관리 센터](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784626.png)
-3. **Active Directory 관리 센터** select **corp(로컬)** 을 선택합니다.
+3.  **Active Directory 관리 센터** select **corp(로컬)** 을 선택합니다.
 4. 오른쪽 **작업** 창에서 **새로 만들기**를 선택한 후 **사용자**를 클릭합니다. 다음 설정을 사용합니다.
-
-| 설정 | 값 |
-| --- | --- |
-| **이름** |Install |
-| **사용자 SamAccountName** |Install |
-| **암호** |Contoso!0000 |
-| **암호 확인** |Contoso!0000 |
-| **기타 암호 옵션** |선택 |
-| **암호 사용 기간 제한 없음** |선택 |
-
-1. **확인**을 클릭하여 **Install** 사용자를 만듭니다. 이 계정을 사용하여 장애 조치(Failover) 클러스터 및 가용성 그룹을 구성합니다.
-2. 동일한 단계로 **CORP\SQLSvc1** 및 **CORP\SQLSvc2**의 추가 사용자 2개를 만듭니다. SQL Server 서비스는 이러한 계정을 사용합니다. 다음으로 WSFC(Windows 서비스 장애 조치(failover) 클러스터링)를 구성하는 데 필요한 권한을 **CORP\Install**에 부여합니다.
-3. **Active Directory 관리 센터**의 왼쪽 창에서 **corp(로컬)**을 선택합니다. 다음으로 오른쪽 **작업** 창에서 **속성**을 클릭합니다.
+   
+   | 설정 | 값 |
+   | --- | --- |
+   |  **이름** |Install |
+   |  **사용자 SamAccountName** |Install |
+   |  **암호** |Contoso!0000 |
+   |  **암호 확인** |Contoso!0000 |
+   |  **기타 암호 옵션** |선택 |
+   |  **암호 사용 기간 제한 없음** |선택 |
+5. **확인**을 클릭하여 **Install** 사용자를 만듭니다. 이 계정을 사용하여 장애 조치(Failover) 클러스터 및 가용성 그룹을 구성합니다.
+6. 동일한 단계로 **CORP\SQLSvc1** 및 **CORP\SQLSvc2**의 추가 사용자 2개를 만듭니다. SQL Server 서비스는 이러한 계정을 사용합니다. 다음으로 WSFC(Windows 서비스 장애 조치(failover) 클러스터링)를 구성하는 데 필요한 권한을 **CORP\Install**에 부여합니다.
+7. **Active Directory 관리 센터**의 왼쪽 창에서 **corp(로컬)**을 선택합니다. 다음으로 오른쪽 **작업** 창에서 **속성**을 클릭합니다.
    
     ![CORP 사용자 속성](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784627.png)
-4. **확장**을 선택한 후 **보안** 탭에서 **고급** 단추를 클릭합니다.
-5. **corp 고급 보안 설정** 대화 상자에서 **추가**를 클릭합니다.
-6. **보안 주체 선택**을 클릭합니다. 그런 다음 **CORP\Install**을 검색합니다. **확인**을 클릭합니다.
-7. **모든 속성 읽기** 및 **컴퓨터 개체 만들기** 권한을 선택합니다.
-   
-    ![Corp 사용자 권한](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784628.png)
-8. **확인**을 클릭한 후 **확인**을 한 번 더 클릭합니다. corp 속성 창을 닫습니다.
+8. **확장**을 선택한 후 **보안** 탭에서 **고급** 단추를 클릭합니다.
+9. **corp 고급 보안 설정** 대화 상자에서 **추가**를 클릭합니다.
+10. **보안 주체 선택**을 클릭합니다. 그런 다음 **CORP\Install**을 검색합니다. **확인**을 클릭합니다.
+11. **모든 속성 읽기** 및 **컴퓨터 개체 만들기** 권한을 선택합니다.
+    
+     ![Corp 사용자 권한](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784628.png)
+12. **확인**을 클릭한 후 **확인**을 한 번 더 클릭합니다. corp 속성 창을 닫습니다.
 
 Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL Server VM과 1개의 감시 서버 VM을 만듭니다. 그런 다음 세 개의 VM을 도메인에 연결합니다.
 
@@ -334,7 +337,7 @@ Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL S
 <br/>
 
 > [!NOTE]
-> 기본 계층 컴퓨터는 나중에 가용성 그룹 수신기에 필요한 부하가 분산된 끝점을 지원하지 않기 때문에 이전 구성은 표준 계층 가상 컴퓨터를 제안합니다. 여기에서 제안하는 컴퓨터 크기는 Azure VM에서 가용성 그룹 테스트를 위해 계획된 것입니다. 프로덕션 작업에서 최상의 성능을 얻으려면 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)에서 SQL Server 컴퓨터 크기 및 구성에 대한 권장 사항을 참조하세요.
+> 기본 계층 컴퓨터는 나중에 가용성 그룹 수신기에 필요한 부하가 분산된 끝점을 지원하지 않기 때문에 이전 구성은 표준 계층 가상 컴퓨터를 제안합니다. 여기에서 제안하는 컴퓨터 크기는 Azure VM에서 가용성 그룹 테스트를 위해 계획된 것입니다. 프로덕션 작업에서 최상의 성능을 얻으려면 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 SQL Server 컴퓨터 크기 및 구성에 대한 권장 사항을 참조하세요.
 > 
 > 
 
@@ -367,7 +370,7 @@ Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL S
 9. 다음 DNS 서버 주소 사용을 선택하고 **기본 설정 DNS 서버**에서 주 도메인 컨트롤러 주소를 지정합니다.
 10. 주소는 Azure 가상 네트워크에서 subnet-1 서브넷의 VM에 할당된 주소이며 해당 VM은 **ad-primary-dc**입니다. **ad-primary-dc**의 IP 주소를 확인하려면 아래와 같이 명령 프롬프트에서 **nslookup ad-primary-dc**를 사용합니다.
     
-     ![NSLOOKUP을 사용하여 DC에 대한 IP 주소 찾기](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
+    ![NSLOOKUP을 사용하여 DC에 대한 IP 주소 찾기](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
     
     > [!NOTE]
     > DNS를 설정한 후에는 구성원 서버에 대한 RDP 세션이 닫힐 수 있습니다. 이렇게 하면 Azure 포털에서 VM이 다시 부팅됩니다.
@@ -382,7 +385,7 @@ Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL S
 17. **닫기**를 클릭한 후 팝업 대화 상자에서 **지금 다시 시작**을 클릭합니다.
 18. 파일 공유 미러링 모니터 서버와 각 SQL Server에 대해 이 단계를 반복합니다. 
 
-### <a name="add-the-corp\install-user-as-an-administrator-on-each-cluster-vm:"></a>각 클러스터 VM에서 Corp\Install 사용자를 관리자로 추가합니다.
+### <a name="add-the-corpinstall-user-as-an-administrator-on-each-cluster-vm"></a>각 클러스터 VM에서 Corp\Install 사용자를 관리자로 추가합니다.
 1. VM이 다시 시작될 때까지 기다린 후 주 도메인 컨트롤러에서 RDP 파일을 다시 시작하여 **BUILTIN\DomainAdmin** 계정을 사용하여 **sqlserver-0**에 로그인합니다.
 2. **서버 관리자**에서 **도구**를 선택하고 **컴퓨터 관리**를 클릭합니다.
    
@@ -395,7 +398,7 @@ Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL S
 8. **sqlserver-1** 및 **cluster-fsw**에서 위의 단계를 반복합니다.
 
 ## <a name="create-the-cluster"></a>클러스터 만들기
-### <a name="add-the-**failover-clustering**-feature-to-each-cluster-vm."></a>**장애 조치(failover) 클러스터링** 기능을 각 클러스터 VM에 추가합니다.
+### <a name="add-the-failover-clustering-feature-to-each-cluster-vm"></a>**장애 조치(failover) 클러스터링** 기능을 각 클러스터 VM에 추가합니다.
 1. **sqlserver-0**으로 RDP합니다.
 2. **서버 관리자** 대시보드에서 **역할 및 기능 추가**를 클릭합니다.
 3. **할 및 기능 추가 마법사**에서 **기능** 페이지가 표시될 때까지 **다음**을 클릭합니다.
@@ -434,21 +437,18 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
    
     ![클러스터 만들기](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784632.png)
 4. 클러스터 만들기 마법사에서 아래 설정으로 페이지를 단계별로 진행하여 1노드 클러스터를 만듭니다.
+   
+   | Page | 설정 |
+   | --- | --- |
+   | 시작하기 전에 |기본값 사용 |
+   | 서버 선택 |**서버 이름 입력**에 **sqlserver-0**을 입력하고 **추가** 클릭 |
+   | 유효성 검사 경고 |**아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. [다음]을 클릭하면 클러스터 만들기를 계속합니다.**를 선택합니다. |
+   | 클러스터 관리를 위한 액세스 지점 |**클러스터 이름**에 **Cluster1**을 입력합니다. |
+   | 다음 |저장소 공간을 사용하지 않는 경우 기본값을 사용합니다. 이 표 다음의 참고 사항을 참조하세요. |
 
-| Page | 설정 |
-| --- | --- |
-| 시작하기 전에 |기본값 사용 |
-| 서버 선택 |**서버 이름 입력**에 **sqlserver-0**을 입력하고 **추가** 클릭 |
-| 유효성 검사 경고 |**아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. [다음]을 클릭하면 클러스터 만들기를 계속합니다.**를 선택합니다. |
-| 클러스터 관리를 위한 액세스 지점 |**클러스터 이름**에 **Cluster1**을 입력합니다. |
-| 다음 |저장소 공간을 사용하지 않는 경우 기본값을 사용합니다. 이 표 다음의 참고 사항을 참조하세요. |
+    >[AZURE.NOTE] 여러 디스크를 Storage 풀로 그룹화하는 [Storage 공간](https://technet.microsoft.com/library/hh831739)을 사용 중인 경우 **확인** 페이지에서 **클러스터에 사용할 수 있는 모든 Storage를 추가하세요.** 확인란을 선택 취소해야 합니다. 이 옵션을 선택 취소하지 않으면 클러스터링 프로세스 중에 가상 디스크가 분리됩니다. 그 결과, 저장소 공간이 클러스터에서 제거되고 PowerShell을 사용하여 다시 연결할 때까지 디스크 관리자 또는 탐색기에 표시되지 않습니다.
 
-> [!NOTE]
-> 여러 디스크를 Storage 풀로 그룹화하는 [Storage 공간](https://technet.microsoft.com/library/hh831739)을 사용 중인 경우 **확인** 페이지에서 **클러스터에 사용할 수 있는 모든 Storage를 추가하세요.** 확인란을 선택 취소해야 합니다. 이 옵션을 선택 취소하지 않으면 클러스터링 프로세스 중에 가상 디스크가 분리됩니다. 그 결과, 저장소 공간이 클러스터에서 제거되고 PowerShell을 사용하여 다시 연결할 때까지 디스크 관리자 또는 탐색기에 표시되지 않습니다.
-> 
-> 
-
-이제 클러스터가 만들어졌으므로 구성을 확인하고 나머지 노드를 추가합니다. 
+    이제 클러스터가 만들어졌으므로 구성을 확인하고 나머지 노드를 추가합니다. 
 
 1. 가운데 창에서 **클러스터 코어 리소스** 섹션으로 아래로 스크롤하고 **이름: Clutser1** 세부 정보를 확장합니다. **이름** 및 **IP 주소** 리소스가 **실패** 상태에 모두 표시됩니다. 클러스터에 컴퓨터 자체와 같은 IP 주소가 할당되어 주소가 중복되므로 IP 주소 리소스는 온라인 상태로 전환할 수 없습니다.
 2. 오류가 발생한 **IP 주소** 리소스를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
@@ -525,7 +525,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 * **NORECOVERY** 옵션으로 전체 및 로그 백업을 **sqlserver-1**로 복원
 * 동기 커밋, 자동 장애 조치(failover) 및 읽을 수 있는 보조 복제본으로 가용성 그룹 만들기(**AG1**)
 
-### <a name="create-the-mydb1-database-on-sqlserver-0:"></a>sqlserver-0에 MyDB1 데이터베이스 만들기:
+### <a name="create-the-mydb1-database-on-sqlserver-0"></a>sqlserver-0에 MyDB1 데이터베이스 만들기:
 1. **sqlserver-0** 및 **sqlserver-1**에 대한 원격 데스크톱 세션에서 아직 로그아웃하지 않은 경우 지금 로그아웃합니다.
 2. **sqlserver-0**에 대한 RDP 파일을 시작하고 **CORP\Install**로 로그인합니다.
 3. **파일 탐색기**에서 ***C:\** 아래에 **backup**이라는 디렉터리를 만듭니다. 이 디렉터리는 데이터베이스를 백업 및 복원하는 데 사용합니다.
@@ -539,7 +539,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 7. **개체 탐색기**에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **새 데이터베이스**를 클릭합니다.
 8. **데이터베이스 이름**에 **MyDB1**을 입력하고 **확인**을 클릭합니다.
 
-### <a name="take-a-full-backup-of-mydb1-and-restore-it-on-sqlserver-1:"></a>MyDB1의 전체 백업 수행 및 sqlserver-1에 복원:
+### <a name="take-a-full-backup-of-mydb1-and-restore-it-on-sqlserver-1"></a>MyDB1의 전체 백업 수행 및 sqlserver-1에 복원:
 1. 다음으로 데이터베이스의 전체 백업을 수행합니다. **개체 탐색기**에서 **데이터베이스**를 확장한 후 **MyDB1**을 마우스 오른쪽 단추로 클릭한 다음 **작업**을 가리키고 **백업**을 클릭합니다.
 2. **원본** 섹션에서 **백업 유형**을 **전체**로 설정된 상태로 유지합니다. **대상** 섹션에서 **제거**를 클릭하여 백업 파일의 기본 파일 경로를 제거합니다.
 3. **대상** 섹션에서 **추가**를 클릭합니다.
@@ -554,7 +554,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 12. 백업 파일 위치에서 **\\\\sqlserver-0\backup**을 입력한 후 새로 고침을 클릭한 다음 MyDB1.bak를 선택하고 확인을 클릭한 후 확인을 한 번 더 클릭합니다. 그러면 복원할 백업 세트 창에 전체 백업 및 로그 백업이 표시됩니다.
 13. 옵션 페이지로 이동한 후 복구 상태에서 RESTORE WITH NORECOVERY를 선택하고 확인을 클릭하여 데이터베이스를 복원합니다. 복원 작업이 완료되면 확인을 클릭합니다.
 
-### <a name="create-the-availability-group:"></a>가용성 그룹 만들기:
+### <a name="create-the-availability-group"></a>가용성 그룹 만들기:
 1. **sqlserver-0**에 대한 원격 데스크톱 세션으로 돌아갑니다. SSMS의 **개체 탐색기** i에서 **AlwaysOn 고가용성**을 마우스 오른쪽 단추로 클릭하고 아래와 같이 **새 가용성 그룹 마법사**를 클릭합니다.
    
     ![새 가용성 그룹 마법사 시작](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665523.gif)
@@ -594,18 +594,18 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 13. **서버 관리자**로 돌아가서 **도구**를 선택한 후 **장애 조치(Failover) 클러스터 관리자**를 시작합니다.
 14. **Cluster1.corp.contoso.com**과 **서비스 및 응용 프로그램**을 차례로 확장합니다. **역할**을 선택하고 **AG1** 가용성 그룹 역할이 만들어진 것을 확인합니다. AG1에는 수신기를 구성하지 않았으므로 데이터베이스 클라이언트가 가용성 그룹에 연결할 수 있는 IP 주소가 없습니다. 읽기/쓰기 작업을 위해 주 노드에 직접 연결하고 읽기 전용 쿼리를 위해 보조 노드에 직접 연결할 수 있습니다.
     
-     ![장애 조치(Failover) 클러스터 관리자에서 AG](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665534.png)
-
-> [!WARNING]
-> 장애 조치(Failover) 클러스터 관리자에서 가용성 그룹으로 장애 조치를 시도하지 마세요. 모든 장애 조치(Failover) 작업은 SSMS의 **AlwaysOn 대시보드** 에서 수행해야 합니다. 자세한 내용은 [가용성 그룹에서 WSFC 장애 조치(Failover) 클러스터 관리자 사용에 대한 제한 사항](https://msdn.microsoft.com/library/ff929171.aspx)을 참조하세요.
-> 
-> 
+    ![장애 조치(Failover) 클러스터 관리자에서 AG](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665534.png)
+    
+    > [!WARNING]
+    > 장애 조치(Failover) 클러스터 관리자에서 가용성 그룹으로 장애 조치를 시도하지 마세요. 모든 장애 조치(Failover) 작업은 SSMS의 **AlwaysOn 대시보드** 에서 수행해야 합니다. 자세한 내용은 [가용성 그룹에서 WSFC 장애 조치(Failover) 클러스터 관리자 사용에 대한 제한 사항](https://msdn.microsoft.com/library/ff929171.aspx)을 참조하세요.
+    > 
+    > 
 
 ## <a name="configure-internal-load-balancer"></a>내부 부하 분산 장치 구성
 가용성 그룹에 직접 연결하려면 부하 분산 장치를 구성해야 합니다. 부하 분산 장치는 수신기 IP 주소 및 프로브 포트에 바인딩된 VM으로 클라이언트 트래픽을 보냅니다. 이 자습서는 내부 부하 분산 장치 또는 ILB를 사용합니다. ILB는 동일한 가상 네트워크 내의 트래픽이 SQL Server에 연결할 수 있도록 합니다. 인터넷을 통해 SQL Server에 연결해야 하는 응용 프로그램에는 인터넷 연결 또는 외부 부하 분산 장치가 필요합니다. 자세한 내용은 [Azure 부하 분산 장치 개요](../load-balancer/load-balancer-overview.md)를 참조하세요.
 
 > [!NOTE]
-> 현재 Azure Portal은 부하 분산 장치에서 특정 프런트 엔드 포트를 한 번만 사용할 수 있도록 허용합니다. 모든 수신기에 대해 동일한 포트를 사용하려면 PowerShell을 사용하여 수신기 IP 주소를 부하 분산 장치에 연결합니다. 지침에 대해서는 [가용성 그룹 수신기 및 부하 분산 장치 만들기 | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)를 참조하세요. 
+> 이 자습서에서는 ILB IP 주소 하나로 단일 수신기를 만드는 방법을 보여줍니다. 하나 이상의 eIP 주소를 사용하여 하나 이상의 수신기를 만드는 방법은 [가용성 그룹 수신기 및 부하 분산 장치 만들기 | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 
 > 
 > 
 
@@ -650,7 +650,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 | **부하 분산 규칙 유휴 제한 시간** |4 |
 | **부하 분산 규칙 부동 IP(Direct Server Return)** |사용 |
 
-> * 1433은 기본 SQL Server 포트입니다. 기본 인스턴스의 프런트 엔드 포트에 사용합니다. 여러 가용성 그룹이 필요한 경우 각 가용성 그룹에 대해 추가 IP 주소를 만들어야 합니다. 각 가용성 그룹에는 자체 프런트 엔드 포트가 필요합니다. [가용성 그룹 수신기 및 부하 분산 장치 만들기 | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)를 참조하세요.
+> * 1433은 기본 SQL Server 포트입니다. 기본 인스턴스의 프런트 엔드 포트에 사용합니다. 여러 가용성 그룹이 필요한 경우 각 가용성 그룹에 대해 추가 IP 주소를 만들어야 합니다. 각 가용성 그룹에는 자체 프런트 엔드 포트가 필요합니다. [가용성 그룹 수신기 및 부하 분산 장치 만들기 | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 > 
 > [!NOTE]
 > 부하 분산 규칙을 만들 때 DSR(Direct Server Return)을 사용하도록 설정해야 합니다.
@@ -676,7 +676,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
     $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
     $IPResourceName = "<IPResourceName>" # the IP Address resource name
     $ILBIP = "<X.X.X.X>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-    [int]$ProbePort = <nnnnn> # In this sample we've using 59999 for the probe port. 
+   [int]$ProbePort = <nnnnn> # In this sample we've using 59999 for the probe port. 
    
     Import-Module FailoverClusters
    
@@ -693,15 +693,22 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 1. 복제본을 소유하지 않은 SQL Server로 RDP합니다.
 2. sqlcmd 유틸리티를 사용하여 연결을 테스트합니다. 예를 들어 다음 스크립트는 Windows 인증을 사용하는 수신기를 통해 주 복제본에 대한 sqlcmd 연결을 설정합니다.
    
+    ```
     sqlcmd -S "<listenerName>" -E
+    ```
    
    수신기가 1433 이외의 포트를 사용하는 경우 테스트에 포트 번호를 지정해야 합니다. 예를 들어 다음 쿼리는 포트 1435를 사용하여 수신기 이름에 대한 연결을 테스트합니다.
    
-        sqlcmd -S "<listenerName>",1435 -E
+    ```
+    sqlcmd -S "<listenerName>",1435 -E
+    ```
 
 ## <a name="next-steps"></a>다음 단계
-Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

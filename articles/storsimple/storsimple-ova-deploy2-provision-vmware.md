@@ -1,12 +1,12 @@
 ---
-title: StorSimple 가상 배열 배포 - VMware에서 프로비전
-description: StorSimple 가상 배열 배포 시리즈의 두 번째 자습서에는 VMware에서 가상 장치를 프로비전하는 내용이 포함됩니다.
+title: "StorSimple 가상 배열 배포 - VMware에서 프로비전"
+description: "StorSimple 가상 배열 배포 시리즈의 두 번째 자습서에는 VMware에서 가상 장치를 프로비전하는 내용이 포함됩니다."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: cdd897af-9c27-4a1b-9e3c-dd1f80de4a0b
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,26 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/12/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 712a91948253721fb0b6eacd238feee670414ee2
+
 
 ---
-# StorSimple 가상 배열 배포 - VMware에서 가상 배열 프로비전
+# <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-vmware"></a>StorSimple 가상 배열 배포 - VMware에서 가상 배열 프로비전
 ![](./media/storsimple-ova-deploy2-provision-vmware/vmware4.png)
 
-## 개요
+## <a name="overview"></a>개요
 이 프로비전 자습서는 2016년 3월 GA(일반 공급) 버전을 실행하는 StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다. 이 자습서는 VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 StorSimple 가상 배열을 프로비전하고 연결하는 방법을 설명합니다. 이 문서는 Microsoft Azure Government 클라우드뿐만 아니라 Azure 클래식 포털에서 StorSimple 가상 배열의 배포에 적용됩니다.
 
 가상 장치를 프로비전하고 연결하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
 
-## 프로비전 필수 조건
+## <a name="provisioning-prerequisites"></a>프로비전 필수 조건
 여기에는 VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 프로비전하기 위한 필수 조건이 제공됩니다.
 
-### StorSimple 관리자 서비스의 경우
+### <a name="for-the-storsimple-manager-service"></a>StorSimple 관리자 서비스의 경우
 시작하기 전에 다음 사항을 확인합니다.
 
 * [StorSimple 가상 배열용 포털 준비](storsimple-ova-deploy1-portal-prep.md)의 모든 단계를 완료했습니다.
 * Azure 포털에서 VMware용 가상 장치 이미지를 다운로드했습니다. 자세한 내용은 [3단계: 가상 장치 이미지 다운로드](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image)를 참조하세요.
 
-### StorSimple 가상 장치의 경우
+### <a name="for-the-storsimple-virtual-device"></a>StorSimple 가상 장치의 경우
 가상 장치를 배포하기 전에 다음 사항을 확인해야 합니다.
 
 * 장치 프로비전에 사용될 수 있는 Hyper-V(2008 R2 이상)를 실행하는 호스트 시스템에 액세스할 수 있습니다.
@@ -44,19 +48,19 @@ ms.author: alkohli
   * 네트워크 인터페이스 하나
   * 시스템 데이터용 가상 디스크 500GB
 
-### 데이터 센터 네트워크의 경우
+### <a name="for-the-network-in-datacenter"></a>데이터 센터 네트워크의 경우
 시작하기 전에 다음 사항을 확인합니다.
 
 * StorSimple 가상 장치를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성했습니다. 자세한 내용은 [StorSimple 가상 배열 시스템 요구 사항](storsimple-ova-system-requirements.md)을 참조하세요.
 
-## 단계별 프로비전
+## <a name="step-by-step-provisioning"></a>단계별 프로비전
 가상 장치를 프로비전하고 연결하려면 다음 단계를 수행해야 합니다.
 
 1. 호스트 시스템에 최소 가상 장치 요구 사항을 충족하기에 충분한 리소스가 있는지 확인합니다.
 2. 하이퍼바이저에서 가상 장치를 프로비전합니다.
 3. 가상 장치를 시작하고 IP 주소를 가져옵니다.
 
-## 1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하도록 합니다.
+## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하도록 합니다.
 가상 장치를 만들려면 다음이 필요합니다.
 
 * VMware ESXi Server 5.5 이상을 실행하는 호스트 시스템에 대한 액세스
@@ -67,7 +71,7 @@ ms.author: alkohli
   * 인터넷으로 트래픽을 라우팅할 수 있는 네트워크에 연결된 네트워크 인터페이스 하나. 장치가 최적으로 작동할 수 있도록 허용하는 최소 인터넷 대역폭은 5Mbps입니다.
   * 데이터용 가상 디스크 500GB
 
-## 2단계: 하이퍼바이저에서 가상 장치를 프로비전합니다.
+## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>2단계: 하이퍼바이저에서 가상 장치를 프로비전합니다.
 하이퍼바이저에서 가상 장치를 프로비전하려면 다음 단계를 수행합니다.
 
 1. 시스템에서 가상 장치 이미지를 복사합니다. 이것은 Azure 클래식 포털을 통해 다운로드해 놓은 이미지입니다. 
@@ -83,7 +87,7 @@ ms.author: alkohli
 4. 우선 ESXi 서버에 VMDK를 업로드합니다. 오른쪽 창의 **구성** 탭으로 이동합니다. **하드웨어** 아래에서 **저장소**를 선택합니다.
    
    ![](./media/storsimple-ova-deploy2-provision-vmware/image3.png)
-5. 오른쪽 창의 **데이터 저장소** 아래에서 VMDK를 업로드할 데이터 저장소를 선택합니다. 데이터 저장소에는 OS 및 데이터 디스크에 충분한 여유 공간이 있어야 합니다.
+5. 오른쪽 창의 **데이터 저장소**아래에서 VMDK를 업로드할 데이터 저장소를 선택합니다. 데이터 저장소에는 OS 및 데이터 디스크에 충분한 여유 공간이 있어야 합니다.
    
    ![](./media/storsimple-ova-deploy2-provision-vmware/image4.png)
 6. 마우스 오른쪽 단추를 클릭하고 **데이터 저장소 찾아보기**를 선택합니다.
@@ -98,14 +102,14 @@ ms.author: alkohli
 9. 새 폴더가 **데이터 저장소 브라우저**의 오른쪽 창에 표시됩니다.
    
    ![](./media/storsimple-ova-deploy2-provision-vmware/image9.png)
-10. 업로드 아이콘 ![](./media/storsimple-ova-deploy2-provision-vmware/image10.png)을 클릭하고 **파일 업로드**를 선택합니다.
+10. 업로드 아이콘 ![](./media/storsimple-ova-deploy2-provision-vmware/image10.png) 을 클릭하고 **파일 업로드**를 선택합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image11.png)
 11. 이제 다운로드한 VMDK 파일을 찾아서 가리킵니다. 두 개의 파일이 있습니다. 업로드할 파일을 선택합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image12m.png)
 12. **열기**를 클릭합니다. 이렇게 하면 VMDK 파일을 지정된 데이터 저장소에 업로드하는 작업이 시작됩니다. 파일 업로드에 몇 분 정도 걸릴 수 있습니다.
-13. 업로드가 완료되면 사용자가 만든 폴더의 데이터 저장소에 파일이 표시됩니다.
+13. 업로드가 완료되면 사용자가 만든 폴더의 데이터 저장소에 파일이 표시됩니다. 
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image14.png)
     
@@ -121,13 +125,13 @@ ms.author: alkohli
 17. **저장소** 페이지에서 VM을 프로비전하는 데 사용할 데이터 저장소를 선택합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image18.png)
-18. **Virtual Machine Version**(가상 컴퓨터 버전) 페이지에서 **Virtual Machine Version: 8**(가상 컴퓨터 버전: 8)을 선택합니다. 버전 8~11은 모두 지원됩니다.
+18. **가상 컴퓨터 버전** 페이지에서 **가상 컴퓨터 버전: 8**을 선택합니다. 버전 8~11은 모두 지원됩니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image19.png)
 19. **게스트 운영 체제** 페이지에서 **게스트 운영 체제**를 **Windows**로 선택합니다. **버전**은 드롭다운 목록에서 **Microsoft Windows Server 2012(64비트)**를 선택합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image20.png)
-20. **CPU** 페이지에서 **Total number of cores**(총 코어 수)가 4(또는 그 이상)가 되도록 **Number of virtual sockets**(가상 소켓의 수) 및 **Number of cores per virtual socket**(가상 소켓 당 코어의 수)를 조정합니다. **다음**을 클릭합니다.
+20. **CPU** 페이지에서 **총 코어 수**가 4(또는 그 이상)가 되도록 **가상 소켓의 수** 및 **가상 소켓 당 코어의 수**를 조정합니다. **Next**를 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image21.png)
 21. **메모리** 페이지에서 RAM을 8GB(또는 그 이상)로 지정합니다. **다음**을 클릭합니다.
@@ -136,37 +140,37 @@ ms.author: alkohli
 22. **네트워크** 페이지에서 네트워크 인터페이스의 수를 지정합니다. 최소 요구 사항은 네트워크 인터페이스 하나입니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image23.png)
-23. **SCSI 컨트롤러** 페이지에서 기본 **LSI Logic SAS controller**(LSI Logic SAS 컨트롤러)를 그대로 둡니다.
+23. **SCSI 컨트롤러** 페이지에서 기본 **LSI Logic SAS 컨트롤러**를 그대로 둡니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image24.png)
-24. **디스크 선택** 페이지에서 **Use an existing virtual disk**(기존 가상 디스크 사용)을 선택합니다. **다음**을 클릭합니다.
+24. **디스크 선택** 페이지에서 **기존 가상 디스크 사용**을 선택합니다. **Next**를 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image25.png)
-25. **Select Existing Disk**(기존 디스크 선택) 페이지의 **Disk File Path**(디스크 파일 경로) 아래에서 **찾아보기**를 클릭합니다. **Browse Datastores**(데이터 저장소 찾아보기) 대화 상자가 열립니다. VMDK를 업로드한 위치로 이동합니다. 이제 처음에 업로드한 두 개의 파일이 병합되었으므로 데이터 저장소에 하나의 파일만 표시됩니다. 파일을 선택하고 **확인**을 클릭합니다. **다음**을 클릭합니다.
+25. **기존 디스크 선택** 페이지의 **디스크 파일 경로** 아래에서 **찾아보기**를 클릭합니다. **Browse Datastores** (데이터 저장소 찾아보기) 대화 상자가 열립니다. VMDK를 업로드한 위치로 이동합니다. 이제 처음에 업로드한 두 개의 파일이 병합되었으므로 데이터 저장소에 하나의 파일만 표시됩니다. 파일을 선택하고 **확인**을 클릭합니다. **다음**을 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image26.png)
 26. **고급 옵션** 페이지에서 기본값을 적용하고 **다음**을 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image27.png)
-27. **Ready to Complete**(완료 준비) 페이지에서 새 가상 컴퓨터와 관련된 모든 설정을 검토합니다. **Edit the virtual machine settings before completion**(완료하기 전에 가상 컴퓨터 설정 편집)을 클릭합니다. **계속**을 클릭합니다.
+27. **Ready to Complete** (완료 준비) 페이지에서 새 가상 컴퓨터와 관련된 모든 설정을 검토합니다. **Edit the virtual machine settings before completion**(완료하기 전에 가상 컴퓨터 설정 편집)을 클릭합니다. **계속**을 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image28.png)
-28. **Virtual Machines Properties**(가상 컴퓨터 속성) 페이지의 **하드웨어** 탭에서 장치 하드웨어를 찾습니다. **새 하드 디스크**를 선택합니다. **추가**를 클릭합니다.
+28. **가상 컴퓨터 속성** 페이지의 **하드웨어** 탭에서 장치 하드웨어를 찾습니다. **새 하드 디스크**를 선택합니다. **추가**를 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image29.png)
-29. **하드웨어 추가** 창이 표시됩니다. **장치 유형** 페이지의 **Choose the type of device you wish to add**(추가할 장치 유형 선택)에서 **하드 디스크**를 선택하고 **다음**을 클릭합니다.
+29. **하드웨어 추가** 창이 표시됩니다. **장치 유형** 페이지의 **추가할 장치 유형 선택**에서 **하드 디스크**를 선택하고 **다음**을 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image30.png)
-30. **디스크 선택** 페이지에서 **Create a new virtual disk**(새 가상 디스크 만들기)를 선택합니다. **다음**을 클릭합니다.
+30. **디스크 선택** 페이지에서 **새 가상 디스크 만들기**를 선택합니다. **다음**을 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image31.png)
-31. **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. **Disk Provisioning**(디스크 프로비전)에서 **Thin Provision**(씬 프로비전)을 선택합니다. **다음**을 클릭합니다.
+31. **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. **디스크 프로비전**에서 **씬 프로비전**을 선택합니다. **다음**을 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image32.png)
 32. **고급 옵션** 페이지에서 기본값을 적용합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image33.png)
-33. **Ready to Complete**(완료 준비) 페이지에서 디스크 옵션을 검토합니다. **마침**을 클릭합니다.
+33. **Ready to Complete** (완료 준비) 페이지에서 디스크 옵션을 검토합니다. **마침**을 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-vmware/image34.png)
 34. Virtual Machines Properties(가상 컴퓨터 속성) 페이지로 돌아갑니다. 새 하드 디스크가 가상 컴퓨터에 추가되어 있습니다. **마침**을 클릭합니다.
@@ -178,10 +182,10 @@ ms.author: alkohli
 
 가상 컴퓨터가 프로비전되어 있습니다. 다음 단계는 이 컴퓨터의 전원을 켜고 IP 주소를 가져오는 것입니다.
 
-## 3단계: 가상 장치를 시작하고 IP를 가져옵니다.
+## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>3단계: 가상 장치를 시작하고 IP를 가져옵니다.
 가상 장치를 시작하여 연결하려면 다음 단계를 수행합니다.
 
-#### 가상 장치를 시작하려면
+#### <a name="to-start-the-virtual-device"></a>가상 장치를 시작하려면
 1. 가상 장치를 시작합니다. vSphere 구성 관리자의 왼쪽 창에서 장치를 선택하고 마우스 오른쪽 단추를 클릭하여 상황에 맞는 메뉴를 표시합니다. **전원**을 선택한 후 **전원 켜기**를 선택합니다. 이렇게 하면 가상 컴퓨터의 전원이 켜집니다. vSphere 클라이언트의 아래쪽 **최근 태스크** 창에서 상태를 볼 수 있습니다.
    
    ![](./media/storsimple-ova-deploy2-provision-vmware/image37.png)
@@ -197,7 +201,7 @@ ms.author: alkohli
 5. 암호 변경이 완료되면 가상 장치가 다시 부팅될 수 있습니다. 재부팅이 완료될 때가지 기다립니다. 장치의 Windows PowerShell 콘솔이 진행률 표시줄과 함께 표시될 수 있습니다.
    
    ![](./media/storsimple-ova-deploy2-provision-vmware/image41.png)
-6. 6-8단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우에는 이 단계를 건너뛰고 9단계로 이동하세요. DHCP 환경이 아닌 곳에서 장치를 부팅하는 경우에는 다음 화면이 표시됩니다.
+6. 6-8단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우에는 이 단계를 건너뛰고 9단계로 이동하세요. DHCP 환경이 아닌 곳에서 장치를 부팅하는 경우에는 다음 화면이 표시됩니다. 
    
    ![](./media/storsimple-ova-deploy2-provision-vmware/image42m.png)
    
@@ -235,8 +239,13 @@ ms.author: alkohli
 * 진단 테스트를 실행하여 [웹 UI 설정 문제를 해결](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors)합니다.
 * [로그 패키지를 생성하고 로그 파일을 살펴봅니다](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [StorSimple 가상 배열을 파일 서버로 설정](storsimple-ova-deploy3-fs-setup.md)
 * [StorSimple 가상 배열을 iSCSI 서버로 설정](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: 가상 컴퓨터 크기 집합에 앱 배포 | Microsoft Docs
-description: 가상 컴퓨터 크기 집합에 앱 배포
+title: "가상 컴퓨터 크기 집합에 앱 배포 | Microsoft Docs"
+description: "가상 컴퓨터 크기 집합에 앱 배포"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: gbowerman
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 ms.author: guybo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a5158c51149e75952eaf91af14f3fcf2dd1ed2af
+
 
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>가상 컴퓨터 크기 집합 업그레이드
@@ -39,7 +43,7 @@ ms.author: guybo
 
 이 배경 정보를 염두에 두고, PowerShell에서 및 REST API를 사용하여 크기 집합의 버전을 업데이트하는 방법을 알아 보겠습니다. 이러한 예제는 플랫폼 이미지의 경우를 포함하지만, 이 문서에서는 이 프로세스를 사용자 지정 이미지에 맞게 조정하기 위한 충분한 정보를 제공합니다.
 
-## <a name="powershell##"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 이 예제에서는 Windows 가상 컴퓨터 크기 집합을 새 버전인 4.0.20160229로 업데이트합니다. 모델을 업데이트한 후 한 번에 하나의 가상 컴퓨터 인스턴스를 업데이트합니다.
 
 ```powershell
@@ -90,6 +94,9 @@ $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 
 ![진행 중인 업데이트를 보여 주는 Vmsseditor](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

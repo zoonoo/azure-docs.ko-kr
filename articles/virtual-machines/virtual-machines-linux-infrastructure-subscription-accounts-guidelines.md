@@ -1,13 +1,13 @@
 ---
-title: 구독 및 계정 지침 | Microsoft Docs
-description: Azure의 구독 및 계정에 대한 핵심 디자인 및 구현 지침에 대해 알아봅니다.
-documentationcenter: ''
+title: "구독 및 계정 지침 | Microsoft Docs"
+description: "Azure의 구독 및 계정에 대한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
+documentationcenter: 
 services: virtual-machines-linux
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 19343826-7eef-42a1-98be-4ec65b0f377a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,14 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2b22f5fe87e1bf741e59ed71a3f57e756e2fad88
+
 
 ---
-# 구독 및 계정 지침
+# <a name="subscription-and-accounts-guidelines"></a>구독 및 계정 지침
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 환경 및 사용자 기반이 커질 때 구독 및 계정 관리에 접근하는 방식을 이해하는 데 주안점을 둡니다.
 
-## 구독 및 계정에 대한 구현 지침
+## <a name="implementation-guidelines-for-subscriptions-and-accounts"></a>구독 및 계정에 대한 구현 지침
 의사 결정:
 
 * IT 작업 또는 인프라를 호스트하는 데 필요한 구독 및 계정 집합은 무엇인가?
@@ -34,7 +38,7 @@ ms.author: iainfou
 * 이러한 논리 계층 구조에 맞게 필요한 계정을 정의하고 각 계정 아래에 구독을 정의합니다.
 * 명명 규칙을 사용하여 구독 및 계정 집합을 만듭니다.
 
-## 구독 및 계정
+## <a name="subscriptions-and-accounts"></a>구독 및 계정
 Azure를 사용하려면 하나 이상의 Azure 구독이 필요합니다. VM(가상 컴퓨터) 또는 가상 네트워크와 같은 리소스는 해당 구독에 존재합니다.
 
 * 기업 고객은 일반적으로 기업 등록 계약을 합니다. 이는 계층에서 가장 중요한 리소스이며 하나 이상의 계정과 관련됩니다.
@@ -59,7 +63,12 @@ Azure를 사용하려면 하나 이상의 Azure 구독이 필요합니다. VM(�
 
 기업 계약의 단일 계정 또는 모든 계정에 대해 다운로드한 파일을 통해 자세한 청구를 제공합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

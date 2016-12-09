@@ -1,13 +1,13 @@
 ---
-title: 클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션 | Microsoft Docs
-description: 이 문서에서는 플랫폼 지원 방식으로 클래식에서 Azure Resource Manager로 리소스를 마이그레이션하는 과정을 안내합니다.
+title: "클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션 | Microsoft Docs"
+description: "이 문서에서는 플랫폼 지원 방식으로 클래식에서 Azure Resource Manager로 리소스를 마이그레이션하는 과정을 안내합니다."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: singhkays
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 ms.author: kasing
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 525e40a424afdf6ec7486bff249b11439a8cf740
+
 
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션
-이 문서에서는 Microsoft가 어떻게 클래식에서 Resource Manager 배포 모델로 IaaS(Infrastructure as a Service) 리소스를 마이그레이션할 수 있도록 지원하는지 설명합니다. [Azure Resource Manager 기능 및 이점](../resource-group-overview.md)에 대해 자세히 알아볼 수 있습니다. 가상 네트워크 사이트-사이트 게이트웨이를 사용하여 구독에서 공존하는 두 가지 배포 모델의 리소스를 연결하는 방법에 대해서도 설명합니다. 
+이 문서에서는 Microsoft가 어떻게 클래식에서 Resource Manager 배포 모델로 IaaS(Infrastructure as a Service) 리소스를 마이그레이션할 수 있도록 지원하는지 설명합니다. [Azure Resource Manager 기능 및 이점](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아볼 수 있습니다. 가상 네트워크 사이트-사이트 게이트웨이를 사용하여 구독에서 공존하는 두 가지 배포 모델의 리소스를 연결하는 방법에 대해서도 설명합니다.
 
 ## <a name="goal-for-migration"></a>마이그레이션 목표
 Resource Manager는 템플릿을 사용하여 복잡한 응용 프로그램을 배포할 수 있도록 지원하며 VM 확장을 사용하여 가상 컴퓨터를 구성하고 액세스 관리와 태깅을 통합합니다. Azure Resource Manager는 가용성 집합에 가상 컴퓨터에 대해 확장성 있는 병렬 배포를 포함합니다. 그뿐 아니라 새로운 배포 모델에서는 계산, 네트워크, 저장소의 수명 주기를 독립적으로 관리할 수 있습니다. 마지막으로 가상 네트워크에 가상 컴퓨터를 적용하여 보안 구현을 기본적으로 중요시합니다.
@@ -36,13 +40,13 @@ Resource Manager는 템플릿을 사용하여 복잡한 응용 프로그램을 �
 
 > [!NOTE]
 > 일부 마이그레이션 시나리오에서 Azure 플랫폼은 가상 컴퓨터를 중지하고, 할당 취소하고, 다시 시작합니다. 이 경우 데이터 평면 가동이 잠시 중지됩니다.
-> 
-> 
+>
+>
 
 ## <a name="supported-scopes-of-migration"></a>지원되는 마이그레이션 범위
-주로 계산, 네트워크 및 저장소를 대상으로 하는 세 가지 마이그레이션 범위가 있습니다. 
+주로 계산, 네트워크 및 저장소를 대상으로 하는 세 가지 마이그레이션 범위가 있습니다.
 
-### <a name="migration-of-virtual-machines-(not-in-a-virtual-network)"></a>가상 컴퓨터 마이그레이션(가상 네트워크가 아님)
+### <a name="migration-of-virtual-machines-not-in-a-virtual-network"></a>가상 컴퓨터 마이그레이션(가상 네트워크가 아님)
 Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보안이 적용되어 있습니다. 모든 VM은 Resource Manager 모델의 가상 네트워크에 있어야 합니다. Azure 플랫폼은 마이그레이션의 일부로 VM을 다시 시작합니다(`Stop`, `Deallocate` 및 `Start`). 가상 네트워크에는 다음과 같은 두 가지 옵션이 있습니다.
 
 * 플랫폼에서 새 가상 네트워크를 만들도록 요청하고 가상 컴퓨터를 새 가상 네트워크로 마이그레이션할 수 있습니다.
@@ -50,10 +54,10 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 
 > [!NOTE]
 > 이 마이그레이션 범위에서는 마이그레이션 중 특정 시간 동안 관리 평면 작업 및 데이터 평면 작업이 허용되지 않을 수 있습니다.
-> 
-> 
+>
+>
 
-### <a name="migration-of-virtual-machines-(in-a-virtual-network)"></a>가상 컴퓨터 마이그레이션(가상 네트워크에서)
+### <a name="migration-of-virtual-machines-in-a-virtual-network"></a>가상 컴퓨터 마이그레이션(가상 네트워크에서)
 대부분의 VM 구성에서는 클래식과 Resource Manager 배포 모델 간에 메타데이터만 마이그레이션됩니다. 기본 VM은 동일한 네트워크의 동일한 하드웨어에서 동일한 저장소로 실행됩니다. 마이그레이션 중 특정 시간 동안 관리 평면 작업이 허용되지 않을 수 있습니다. 그러나 데이터 평면은 계속 작동합니다. 즉, 마이그레이션 중 VM(클래식) 상에서 실행되는 응용 프로그램에 가동 중지 시간이 발생하지 않습니다.
 
 현재 지원되지 않는 구성은 다음과 같습니다. 향후 이에 대한 지원을 추가할 경우 이 구성의 일부 VM에서 가동 중지 시간(VM 작업 중지, 할당 취소, 다시 시작 진행)이 발생할 수 있습니다.
@@ -63,16 +67,16 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 
 > [!NOTE]
 > 이 마이그레이션 범위에서는 마이그레이션 중 특정 시간 동안 관리 평면이 허용되지 않을 수 있습니다. 앞서 설명한 특정 구성의 경우 데이터 평면 가동 중지 시간이 발생합니다.
-> 
-> 
+>
+>
 
 ### <a name="storage-accounts-migration"></a>저장소 계정 마이그레이션
-원활한 마이그레이션을 위해 클래식 저장소 계정에 Resource Manager VM을 배포할 수 있습니다. 이 기능을 사용하면 계산 및 네트워크 리소스를 저장소 계정과 상관없이 마이그레이션할 수 있으며 이러한 방식이 바람직합니다. 가상 컴퓨터 및 가상 네트워크에 대해 마이그레이션한 후에는 저장소 계정에 대해 마이그레이션을 수행하여 마이그레이션 프로세스를 완료해야 합니다. 
+원활한 마이그레이션을 위해 클래식 저장소 계정에 Resource Manager VM을 배포할 수 있습니다. 이 기능을 사용하면 계산 및 네트워크 리소스를 저장소 계정과 상관없이 마이그레이션할 수 있으며 이러한 방식이 바람직합니다. 가상 컴퓨터 및 가상 네트워크에 대해 마이그레이션한 후에는 저장소 계정에 대해 마이그레이션을 수행하여 마이그레이션 프로세스를 완료해야 합니다.
 
 > [!NOTE]
-> Resource Manager 배포 모델에는 기본 이미지 및 디스크 개념이 적용되지 않습니다. 저장소 계정이 마이그레이션되면 클래식 이미지와 디스크가 Resource Manager 스택에 표시되지 않지만 백업 VHD는 저장소 계정에 남아 있습니다. 
-> 
-> 
+> Resource Manager 배포 모델에는 기본 이미지 및 디스크 개념이 적용되지 않습니다. 저장소 계정이 마이그레이션되면 클래식 이미지와 디스크가 Resource Manager 스택에 표시되지 않지만 백업 VHD는 저장소 계정에 남아 있습니다.
+>
+>
 
 ## <a name="unsupported-features-and-configurations"></a>지원되지 않는 기능 및 구성
 현재는 일부 기능 및 구성 집합을 지원하지 않습니다. 다음 섹션에서는 이와 관련된 권장 지침에 대해 설명합니다.
@@ -85,8 +89,8 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 | 계산 |연결되지 않은 가상 컴퓨터 디스크 |
 | 계산 |가상 컴퓨터 이미지 |
 | 네트워크 |끝점 ACL. |
-| 네트워크 |가상 네트워크 게이트웨이(사이트 간, Azure Express 경로, 응용 프로그램 게이트웨이, 지점 및 사이트 간) |
-| 네트워크 |VNet 피어링을 사용하는 가상 네트워크 (VNet을 ARM으로 마이그레이션한 후 피어링) [VNet 피어링]에 대해 자세히 알아보세요(../virtual-network/virtual-network-peering-overview.md). |
+| 네트워크 |가상 네트워크 게이트웨이(Azure ExpressRoute 게이트웨이, Application Gateway) |
+| 네트워크 |VNet 피어링을 사용하는 가상 네트워크 (VNet을 ARM으로, 다시 피어로 마이그레이션) [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)에 대해 자세히 알아봅니다. |
 | 네트워크 |트래픽 관리자 프로필 |
 
 ### <a name="unsupported-configurations"></a>지원되지 않는 구성
@@ -105,7 +109,8 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 | Azure 앱 서비스 |앱 서비스 환경이 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Azure HDInsight |HDInsight Services가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Microsoft Dynamics Lifecycle Services |Dynamics Lifecycle Services에서 관리하는 가상 컴퓨터가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
-| 계산 |온-프레미스 DNS 서버에 VPN 게이트웨이 또는 ER 게이트웨이가 있는 VNET을 포함하는 Azure Security Center 확장 |Azure Security Center는 보안을 모니터링하고 경고를 발생시키기 위한 확장을 가상 컴퓨터에 자동으로 설치합니다. 이러한 확장은 일반적으로 구독에서 Azure Security Center가 사용되도록 설정되면 자동으로 설치됩니다. 게이트웨이 마이그레이션은 현재 지원되지 않으며, 마이그레이션을 커밋하기 전에 게이트웨이를 삭제해야 합니다. 게이트웨이가 삭제되면 VM 저장소 계정에 대한 인터넷 액세스가 해제됩니다. 게스트 에이전트 상태 blob을 채울 수 없어서 이 문제가 발생하는 경우에는 마이그레이션이 진행되지 않습니다. 마이그레이션을 계속하기 3시간 전에, 구독에서 Azure Security Center 정책을 사용하지 않도록 설정하는 것이 좋습니다. |
+| Azure AD Domain Services |Azure AD Domain Services가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
+| Compute |온-프레미스 DNS 서버에서 전송 연결 중인 VPN Gateway 또는 ExpressRoute 게이트웨이가 있는 VNET을 포함하는 Azure Security Center 확장 |Azure Security Center는 보안을 모니터링하고 경고를 발생시키기 위한 확장을 가상 컴퓨터에 자동으로 설치합니다. 이러한 확장은 일반적으로 구독에서 Azure Security Center가 사용되도록 설정되면 자동으로 설치됩니다. ExpressRoute 게이트웨이 마이그레이션은 현재 지원되지 않고 전송 연결된 VPN Gateway는 온-프레미스 액세스를 상실합니다. ExpressRoute 게이트웨이를 삭제하거나 전송 연결된 VPN Gateway를 마이그레이션하면 마이그레이션을 커밋하도록 진행하는 경우 VM 저장소 계정에 대한 인터넷 액세스를 상실합니다. 게스트 에이전트 상태 blob을 채울 수 없어서 이 문제가 발생하는 경우에는 마이그레이션이 진행되지 않습니다. 마이그레이션을 계속하기 3시간 전에, 구독에서 Azure Security Center 정책을 사용하지 않도록 설정하는 것이 좋습니다. |
 
 ## <a name="the-migration-experience"></a>마이그레이션 환경
 마이그레이션 환경을 시작하기 전에 다음을 수행하는 것이 좋습니다.
@@ -123,8 +128,8 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 
 > [!NOTE]
 > 다음 섹션에서 설명하는 모든 작업은 idempotent 상태입니다. 지원되지 않는 기능 또는 구성 오류 이외의 문제가 발생하는 경우 준비, 중단 또는 커밋 작업을 다시 시도하는 것이 좋습니다. Azure 플랫폼은 이 작업을 다시 시도합니다.
-> 
-> 
+>
+>
 
 ### <a name="validate"></a>유효성 검사
 유효성 검사 작업은 마이그레이션 프로세스의 첫 번째 단계입니다. 이 단계의 목표는 마이그레이션 대상 리소스에 대해 백그라운드에서 데이터 분석을 수행하고 리소스 마이그레이션이 가능할 경우 성공/실패를 반환합니다.
@@ -147,10 +152,10 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 
 > [!NOTE]
 > 기존 가상 네트워크에 없는 가상 컴퓨터는 이 마이그레이션 단계에서 할당 취소된 상태로 중지됩니다.
-> 
-> 
+>
+>
 
-### <a name="check-(manual-or-scripted)"></a>검사(수동 또는 스크립트)
+### <a name="check-manual-or-scripted"></a>검사(수동 또는 스크립트)
 이 검사 단계에서는 앞에서 다운로드한 구성을 사용하여 마이그레이션이 정상적으로 진행되는지 확인할 수 있습니다(선택 사항). 또는 포털에 로그인하고 속성과 리소스에 대해 주요 점검을 수행하여 메타데이터 마이그레이션이 정상적으로 진행되는지 확인합니다.
 
 가상 네트워크를 마이그레이션하는 경우 가상 컴퓨터의 구성이 대부분 다시 시작됩니다. 이러한 VM의 응용 프로그램에 대해 응용 프로그램이 아직 실행 중인지 확인할 수 있습니다.
@@ -165,17 +170,17 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 중단 단계에서는 변경 사항을 클래식 배포 모델로 되돌리고 마이그레이션을 중지할 수 있습니다(선택 사항).
 
 > [!NOTE]
-> 커밋 작업을 트리거하면 이 작업을 실행할 수 없습니다.  
-> 
-> 
+> 커밋 작업을 트리거하면 이 작업을 실행할 수 없습니다.     
+>
+>
 
 ### <a name="commit"></a>커밋
 유효성 검사를 마친 후 마이그레이션을 커밋할 수 있습니다. 리소스는 클래식에 더 이상 표시되지 않으며 Resource Manager 배포 모델에서만 사용할 수 있습니다. 새 포털에서는 마이그레이션된 리소스만 관리할 수 있습니다.
 
 > [!NOTE]
 > 이 작업은 멱등원 작업입니다. 이 작업이 실패하면 작업을 다시 시도하는 것이 좋습니다. 계속 실패할 경우 지원 티켓을 만들거나 [VM 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows)에서 ClassicIaaSMigration 태그를 사용하여 포럼 게시물을 작성할 수 있습니다.
-> 
-> 
+>
+>
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 **이 마이그레이션 계획이 Azure 가상 컴퓨터에서 실행되는 기존 서비스 또는 응용 프로그램에 영향을 미치나요?**
@@ -184,7 +189,7 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 
 **가까운 미래에 마이그레이션할 계획이 없는 경우 내 VM은 어떻게 됩니까?**
 
-Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없으며 보다 편리한 마이그레이션을 위해 Resource Manager 배포 모델에서 사용할 수 있는 고급 기능을 고려하고 있습니다. Resource Manager의 IaaS로 구현된 [몇 가지 개선 사항](virtual-machines-windows-compare-deployment-models.md)을 살펴볼 것을 권장합니다.
+Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없으며 보다 편리한 마이그레이션을 위해 Resource Manager 배포 모델에서 사용할 수 있는 고급 기능을 고려하고 있습니다. Resource Manager의 IaaS로 구현된 [몇 가지 개선 사항](../resource-manager-deployment-model.md)을 살펴볼 것을 권장합니다.
 
 **이 마이그레이션 계획으로 기존 도구는 어떻게 되나요?**
 
@@ -212,7 +217,7 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 **현재 Azure Site Recovery 또는 Azure 백업을 사용하고 있으면 어떻게 되나요?**
 
-백업이 설정된 가상 컴퓨터를 마이그레이션하려면 [백업 자격 증명 모음에 내 클래식 VM을 백업했습니다. 이제 클래식 모드에서 Resource Manager 모드로 내 VM을 마이그레이션하려고 합니다. 복구 서비스 자격 증명 모음에서 백업하려면 어떻게 해야 하나요?](../backup/backup-azure-backup-ibiza-faq.md#i-have-backed-up-my-classic-vms-in-backup-vault-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode-how-can-i-backup-them-in-recovery-services-vault)
+백업이 설정된 가상 컴퓨터를 마이그레이션하려면 [백업 자격 증명 모음에 내 클래식 VM을 백업했습니다. 이제 클래식 모드에서 Resource Manager 모드로 내 VM을 마이그레이션하려고 합니다. 복구 서비스 자격 증명 모음에서 어떻게 백업하나요?](../backup/backup-azure-backup-ibiza-faq.md)백업 자격 증명 모음에서 클래식 VM을 백업했습니다. 이제 클래식 모드에서 Resource Manager 모드로 내 VM을 마이그레이션하려고 합니다.  복구 서비스 자격 증명 모음에서 백업하려면 어떻게 해야 하나요?
 
 **내 구독 또는 리소스에서 마이그레이션이 가능한지 확인할 수 있나요?**
 
@@ -240,8 +245,11 @@ VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지�
 * [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 * [PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](virtual-machines-windows-ps-migration-classic-resource-manager.md)
 * [CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](virtual-machines-linux-cli-migration-classic-resource-manager.md)
-* [커뮤니티 PowerShell 스크립트를 사용하여 클래식 가상 컴퓨터를 Azure Resource Manager로 복제](virtual-machines-windows-migration-scripts.md)
+* [커뮤니티 PowerShell 스크립트를 사용하여 클래식 가상 컴퓨터를 Azure Resource Manager로 복제](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [가장 일반적인 마이그레이션 오류 검토](virtual-machines-migration-errors.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,28 +1,32 @@
 ---
-title: 테이블 저장소를 사용하는 웹 앱(Node.js) | Microsoft Docs
-description: Azure 저장소 서비스 및 Azure 모듈을 추가해 Express를 사용하여 웹 앱 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다.
+title: "테이블 저장소를 사용하는 웹앱(Node.js) | Microsoft Docs"
+description: "Azure 저장소 서비스 및 Azure 모듈을 추가해 Express를 사용하여 웹 앱 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다."
 services: cloud-services, storage
 documentationcenter: nodejs
-author: rmcmurray
-manager: wpickett
-editor: ''
-
+author: tamram
+manager: carmonm
+editor: tysonn
+ms.assetid: e90959a2-4cb2-4b19-9bfb-aede15b18b1c
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 10/18/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ff0f72aca6b19d4e8e8dd04a2e05de025110b278
+
 
 ---
-# 저장소를 사용하는 Node.js 웹 응용 프로그램
-## 개요
-이 자습서에서는 Node.js용 Microsoft Azure 클라이언트 라이브러리를 통해 데이터 관리 서비스로 작업하여 [Express를 사용하는 Node.js 웹 응용 프로그램] 자습서에서 만든 응용 프로그램을 확장합니다. Azure에 배포할 수 있는 웹 기반 작업 목록 응용 프로그램을 만들도록 응용 프로그램을 확장합니다. 작업 목록을 통해 사용자는 작업을 가져오고 새 작업을 추가하고 작업을 완료로 표시할 수 있습니다.
+# <a name="nodejs-web-application-using-storage"></a>저장소를 사용하는 Node.js 웹 응용 프로그램
+## <a name="overview"></a>개요
+이 자습서에서는 데이터 관리 서비스를 작업하도록 Node.js용 Microsoft Azure Client Libraries를 사용하여 [Express를 사용하는 Node.js 웹 응용 프로그램] 자습서에서 만든 응용 프로그램을 확장합니다. Azure에 배포할 수 있는 웹 기반 작업 목록 응용 프로그램을 만들도록 응용 프로그램을 확장합니다. 작업 목록을 통해 사용자는 작업을 가져오고 새 작업을 추가하고 작업을 완료로 표시할 수 있습니다.
 
 작업 항목은 Azure 저장소에 저장됩니다. Azure 저장소는 내결함성과 고가용성이 있는 구조화되지 않은 데이터 저장소를 제공합니다. Azure 저장소에는 데이터를 저장하고 액세스할 수 있는 일부 데이터 구조가 포함되며, Node.js용 Azure SDK에 포함된 API 또는 REST API를 통해 저장소 서비스를 활용할 수 있습니다. 자세한 내용은 [Azure에 데이터 저장 및 액세스]를 참조하십시오.
 
-이 자습서는 [Node.js 웹 응용 프로그램] 및 [Express로 Node.js 빌드][Node.js Web Application using Express] 자습서를 완료했다고 가정합니다.
+이 자습서는 [Node.js 웹 응용 프로그램] 및 [Express를 사용하는 Node.js][Express를 사용하는 Node.js 웹 응용 프로그램] 자습서를 완료했다고 가정합니다.
 
 다음 내용을 배웁니다.
 
@@ -33,8 +37,9 @@ ms.author: robmcm
 
 ![Internet Explorer의 완료된 웹 페이지](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
-## Web.Config에서 저장소 자격 증명 설정
-Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 합니다. 이렇게 하려면 web.config 응용 프로그램 설정을 활용합니다. 이러한 설정은 환경 변수로서 노드에 전달된 다음 Azure SDK에서 읽습니다.
+## <a name="setting-storage-credentials-in-webconfig"></a>Web.Config에서 저장소 자격 증명 설정
+Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 합니다. 이렇게 하려면 web.config 응용 프로그램 설정을 활용합니다.
+이러한 설정은 환경 변수로서 노드에 전달된 다음 Azure SDK에서 읽습니다.
 
 > [!NOTE]
 > 저장소 자격 증명은 응용 프로그램이 Azure에 배포될 경우에만 사용됩니다. 에뮬레이터에서 실행 중이면 응용 프로그램은 저장소 에뮬레이터를 사용합니다.
@@ -44,7 +49,7 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 다음 단계에 따라 저장소 계정 자격 증명을 가져와 web.config 설정에 추가합니다.
 
 1. 설정이 열려 있지 않은 경우 **모든 프로그램, Azure**를 확장하고 **Azure PowerShell**을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 선택하여 **시작** 메뉴에서 Azure PowerShell을 시작합니다.
-2. 응용 프로그램이 포함된 폴더로 디렉터리를 변경합니다. 예: C:\\node\\tasklist\\WebRole1
+2. 응용 프로그램이 포함된 폴더로 디렉터리를 변경합니다. 예를 들어 C:\\node\\tasklist\\WebRole1로 변경합니다.
 3. Azure Powershell 창에서 다음 cmdlet을 입력하여 저장소 계정 정보를 가져옵니다.
    
        PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
@@ -66,8 +71,8 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
    ![web.cloud.config 파일 콘텐츠](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
 6. 파일을 저장하고 메모장을 닫습니다.
 
-### 추가 모듈 설치
-1. 다음 명령을 입력하여 [azure], [node-uuid], [nconf] 및 [async] 모듈을 로컬에 설치하고 해당 모듈의 항목을 **package.json** 파일에 저장합니다.
+### <a name="install-additional-modules"></a>추가 모듈 설치
+1. 다음 명령을 사용하여 [azure], [node-uuid], [nconf] 및 [async] 모듈을 로컬에 설치하고 해당 모듈의 항목을 **package.json** 파일에 저장합니다.
    
         PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
    
@@ -90,10 +95,10 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-## node 응용 프로그램에서 테이블 서비스 사용
-이 섹션에서는 작업에 대한 모듈을 포함하는 **task.js** 파일을 추가하여 **express** 명령으로 만들어진 기본 응용 프로그램을 확장합니다. 또한 기존 **app.js**를 수정하고 모델을 사용하는 새 **tasklist.js** 파일을 만듭니다.
+## <a name="using-the-table-service-in-a-node-application"></a>node 응용 프로그램에서 테이블 서비스 사용
+이 섹션에서는 작업에 대한 모델을 포함하는 **task.js** 파일을 추가하여 **express** 명령으로 만들어진 기본 응용 프로그램을 확장합니다. 또한 기존 **app.js**를 수정하고 모델을 사용하는 새 **tasklist.js** 파일을 만듭니다.
 
-### 모델 만들기
+### <a name="create-the-model"></a>모델 만들기
 1. **WebRole1** 디렉터리에서 **models**라는 새로운 디렉터리를 만듭니다.
 2. **models** 디렉터리에서 **task.js**라는 새 파일을 만듭니다. 이 파일에는 응용 프로그램에서 만든 작업 모델이 포함됩니다.
 3. **task.js** 파일의 시작 부분에 필수 라이브러리를 참조하는 다음 코드를 추가합니다.
@@ -168,7 +173,7 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
         }
 6. **task.js** 파일을 저장하고 닫습니다.
 
-### 컨트롤러 만들기
+### <a name="create-the-controller"></a>컨트롤러 만들기
 1. **WebRole1/routes** 디렉터리에서 **tasklist.js**라는 새 파일을 만들고 텍스트 편집기에서 엽니다.
 2. 아래 코드를 **tasklist.js**에 추가합니다. 이 코드는 **tasklist.js**에 사용되는 azure 및 async 모듈을 로드합니다. 또한 **TaskList** 함수를 정의합니다. 이 함수에 앞서 정의한 **Task** 개체의 인스턴스가 전달됩니다.
    
@@ -225,8 +230,8 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
         }
 4. **tasklist.js** 파일을 저장합니다.
 
-### app.js 수정
-1. **WebRole1** 디렉터리에 있는 **app.js** 파일을 텍스트 편집기에서 엽니다.
+### <a name="modify-appjs"></a>app.js 수정
+1. **WebRole1** 디렉터리에 있는 **app.js** 파일을 텍스트 편집기에서 엽니다. 
 2. 파일 시작 부분에 다음을 추가하여 azure 모듈을 로드하고 테이블 이름과 파티션 키를 설정합니다.
    
         var azure = require('azure-storage');
@@ -249,7 +254,7 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
         app.post('/completetask', taskList.completeTask.bind(taskList));
 4. **app.js** 파일을 저장합니다.
 
-### 인덱스 보기 수정
+### <a name="modify-the-index-view"></a>인덱스 보기 수정
 1. 디렉터리를 **views** 디렉터리로 변경하고 **index.jade** 파일을 텍스트 편집기에서 엽니다.
 2. **index.jade** 파일 내용을 아래 코드로 바꿉니다. 이렇게 하면 기존 작업을 표시하는 데 사용되는 보기와 새 작업을 추가하고 기존 작업을 완료로 표시하는 데 사용되는 양식이 정의됩니다.
    
@@ -291,7 +296,7 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
             button.btn(type="submit") Add item
 3. **index.jade** 파일을 저장하고 닫습니다.
 
-### 전역 레이아웃 수정
+### <a name="modify-the-global-layout"></a>전역 레이아웃 수정
 **views** 디렉터리의 **layout.jade** 파일은 다른 **.jade** 파일에 대한 전역 템플릿으로 사용됩니다. 이 단계에서는 멋진 모습의 웹 사이트를 쉽게 디자인할 수 있게 해주는 도구 키트인 [Twitter Bootstrap](https://github.com/twbs/bootstrap)을 사용하도록 이 파일을 수정합니다.
 
 1. [Twitter Bootstrap](http://getbootstrap.com/)용 파일을 다운로드하여 추출합니다. **bootstrap\\dist\\css** 폴더의 **bootstrap.min.css** 파일을 tasklist 응용 프로그램의 **public\\stylesheets** 디렉터리에 복사합니다.
@@ -310,7 +315,7 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
             block content
 3. **layout.jade** 파일을 저장합니다.
 
-### 에뮬레이터에서 응용 프로그램 실행
+### <a name="running-the-application-in-the-emulator"></a>에뮬레이터에서 응용 프로그램 실행
 에뮬레이터에서 응용 프로그램을 시작하려면 다음 명령을 사용합니다.
 
     PS C:\node\tasklist\WebRole1> start-azureemulator -launch
@@ -321,7 +326,7 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 
 양식을 사용하여 항목을 추가하거나 기존 항목을 완료됨으로 표시하여 제거합니다.
 
-## Azure에 응용 프로그램 게시
+## <a name="publishing-the-application-to-azure"></a>Azure에 응용 프로그램 게시
 Windows PowerShell 창에서 다음 cmdlet을 호출하여 호스티드 서비스를 Azure에 다시 배포합니다.
 
     PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
@@ -347,10 +352,11 @@ Windows PowerShell 창에서 다음 cmdlet을 호출하여 호스티드 서비�
 
 ![내 작업 목록 페이지를 표시하는 브라우저 창. URL은 페이지가 Azure에서 호스트되고 있음을 나타냅니다.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
-## 응용 프로그램 중지 및 삭제
+## <a name="stopping-and-deleting-your-application"></a>응용 프로그램 중지 및 삭제
 추가 비용을 방지하거나 다른 응용 프로그램을 빌드 및 배포할 수 있도록 이전에 배포한 응용 프로그램을 무료 평가판 기간 동안 사용하지 않도록 설정할 수 있습니다.
 
-Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 청구합니다. 서버 시간은 응용 프로그램이 배포된 다음에 사용되며 인스턴스가 실행되지 않고 중지된 상태인 경우에도 사용됩니다.
+Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 청구합니다.
+서버 시간은 응용 프로그램이 배포된 다음에 사용되며 인스턴스가 실행되지 않고 중지된 상태인 경우에도 사용됩니다.
 
 다음 단계에 따라 응용 프로그램을 중지 및 제거할 수 있습니다.
 
@@ -363,15 +369,18 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
    
        PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
    
-   메시지가 표시되면 **Y**를 입력하여 서비스를 삭제합니다.
+   메시지가 표시되면 **Y** 를 입력하여 서비스를 삭제합니다.
    
    서비스를 삭제하려면 몇 분 정도 걸릴 수 있습니다. 서비스가 삭제되면 서비스가 삭제되었다는 메시지가 표시됩니다.
 
-[Node.js Web Application using Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
 [Express를 사용하는 Node.js 웹 응용 프로그램]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
 [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Node.js 웹 응용 프로그램]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
 
 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

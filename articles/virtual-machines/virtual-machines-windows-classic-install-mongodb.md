@@ -1,13 +1,13 @@
 ---
-title: Windows VM에 MongoDB 설치 | Microsoft Docs
-description: 클래식 배포 모델을 사용하여 만든, Windows Server를 실행하는 Azure VM에 MongoDB를 설치하는 방법을 알아봅니다.
+title: "Windows VM에 MongoDB 설치 | Microsoft Docs"
+description: "클래식 배포 모델을 사용하여 만든, Windows Server를 실행하는 Azure VM에 MongoDB를 설치하는 방법을 알아봅니다."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 4095df41-bb69-4bbe-9c1c-70923b0d84ba
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 06ce475a436aa00b6088f5714140eb96c3e75223
+ms.openlocfilehash: 1dc05de2c82ba052b2328ec9a6d5d9dd5791137e
+
 
 ---
 # <a name="install-mongodb-on-a-windows-vm"></a>Windows VM에 MongoDB 설치
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Resource Manager 배포 모델을 사용하여 MongoDB를 설치하고 구성하려면 [이 문서](virtual-machines-windows-classic-install-mongodb.md)를 참조하세요.
+> [!IMPORTANT]
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../articles/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 배포 모델을 사용하여 MongoDB를 설치하고 구성하려면 [이 문서](virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 [MongoDB][MongoDB] 는 인기 있는 오픈 소스 고성능 NoSQL 데이터베이스입니다. 이 문서에서는[Azure 클래식 포털][AzurePortal]을 사용하여 Windows Server VM(가상 컴퓨터)을 만드는 과정을 안내합니다. 그런 다음 MongoDB를 설치하고 구성하기 전에 데이터 디스크를 만든 후 VM에 연결합니다. Azure에 사용하려는 기존 VM이 있는 경우 [MongoDB 설치 및 구성](#install-and-run-mongodb-on-the-virtual-machine)단계로 바로 건너뛸 수 있습니다.
 
@@ -39,7 +42,7 @@ Resource Manager 배포 모델을 사용하여 MongoDB를 설치하고 구성하
 
 [!INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-디스크 초기화 지침은 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)에서 "방법: Windows Server에서 새 데이터 디스크 초기화"를 참조하세요.
+디스크 초기화 지침은 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)에서 "방법: Windows Server에서 새 데이터 디스크 초기화"를 참조하세요.
 
 ## <a name="install-and-run-mongodb-on-the-virtual-machine"></a>가상 컴퓨터에서 MongoDB 설치 및 실행
 [!INCLUDE [install-and-run-mongo-on-win2k8-vm](../../includes/install-and-run-mongo-on-win2k8-vm.md)]
@@ -53,6 +56,6 @@ Resource Manager 배포 모델을 사용하여 MongoDB를 설치하고 구성하
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

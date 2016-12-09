@@ -1,12 +1,12 @@
 ---
-title: StorSimple 볼륨 컨테이너 관리 | Microsoft Docs
-description: StorSimple Manager 서비스 볼륨 컨테이너 페이지를 사용하여 볼륨 컨테이너를 추가, 수정 또는 삭제하는 방법을 설명합니다.
+title: "StorSimple 볼륨 컨테이너 관리 | Microsoft Docs"
+description: "StorSimple Manager 서비스 볼륨 컨테이너 페이지를 사용하여 볼륨 컨테이너를 추가, 수정 또는 삭제하는 방법을 설명합니다."
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 1c64ce75-1fd3-4d3b-9304-d4dc0fc2b069
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/24/2016
 ms.author: v-sharos
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4fb0f4e61ec98546e7044bf760d24a1ba932fe5b
+
 
 ---
-# StorSimple 관리자 서비스를 사용하여 StorSimple 볼륨 컨테이너 관리
-## 개요
+# <a name="use-the-storsimple-manager-service-to-manage-storsimple-volume-containers"></a>StorSimple 관리자 서비스를 사용하여 StorSimple 볼륨 컨테이너 관리
+## <a name="overview"></a>개요
 이 자습서는 StorSimple 관리자 서비스를 사용하여 StorSimple 볼륨 컨테이너를 만들고 관리하는 방법에 대해 설명합니다.
 
-Microsoft Azure StorSimple 장치의 볼륨 컨테이너는 저장소 계정, 암호화 및 대역폭 소비 설정을 공유하는 하나 이상의 볼륨을 포함합니다. 장치는 모든 볼륨에 대해 여러 볼륨 컨테이너가 있을 수 있습니다.
+Microsoft Azure StorSimple 장치의 볼륨 컨테이너는 저장소 계정, 암호화 및 대역폭 소비 설정을 공유하는 하나 이상의 볼륨을 포함합니다. 장치는 모든 볼륨에 대해 여러 볼륨 컨테이너가 있을 수 있습니다. 
 
 볼륨 컨테이너에는 다음 특성이 있습니다.
 
@@ -37,23 +41,28 @@ Microsoft Azure StorSimple 장치의 볼륨 컨테이너는 저장소 계정, �
 * 볼륨 컨테이너 수정 
 * 볼륨 컨테이너 삭제 
 
-## 볼륨 컨테이너 추가
+## <a name="add-a-volume-container"></a>볼륨 컨테이너 추가
 볼륨 컨테이너를 추가하려면 다음 단계를 수행합니다.
 
 [!INCLUDE [storsimple-add-volume-container](../../includes/storsimple-add-volume-container.md)]
 
-## 볼륨 컨테이너 수정
+## <a name="modify-a-volume-container"></a>볼륨 컨테이너 수정
 볼륨 컨테이너를 수정하려면 다음 단계를 수행합니다.
 
 [!INCLUDE [storsimple-modify-volume-container](../../includes/storsimple-modify-volume-container.md)]
 
-## 볼륨 컨테이너 삭제
+## <a name="delete-a-volume-container"></a>볼륨 컨테이너 삭제
 볼륨 컨테이너 내에 볼륨이 있습니다. 안에 포함된 모든 볼륨이 먼저 삭제되는 경우에만 삭제될 수 있습니다. 볼륨 컨테이너를 삭제하려면 다음 단계를 수행합니다.
 
 [!INCLUDE [storsimple-delete-volume-container](../../includes/storsimple-delete-volume-container.md)]
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [StorSimple 볼륨 관리](storsimple-manage-volumes.md)에 대해 자세히 알아봅니다. 
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

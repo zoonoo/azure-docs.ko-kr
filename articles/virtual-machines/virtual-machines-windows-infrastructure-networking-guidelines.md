@@ -1,13 +1,13 @@
 ---
-title: 네트워킹 인프라 지침 | Microsoft Docs
-description: Azure 인프라 서비스에서 가상 네트워킹을 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다.
-documentationcenter: ''
+title: "네트워킹 인프라 지침 | Microsoft Docs"
+description: "Azure 인프라 서비스에서 가상 네트워킹을 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
+documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: e2d45973-5eba-4904-8ba0-1821f64feed7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,14 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4e1f3e1a79321683337d155c5f575cb3f8905913
+
 
 ---
-# 네트워킹 인프라 지침
+# <a name="networking-infrastructure-guidelines"></a>네트워킹 인프라 지침
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 Azure 내의 가상 네트워킹 및 기존 온-프레미스 환경 간 연결에 필요한 계획 단계를 집중적으로 살펴봅니다.
 
-## 가상 네트워크에 대한 구현 지침
+## <a name="implementation-guidelines-for-virtual-networks"></a>가상 네트워크에 대한 구현 지침
 의사 결정:
 
 * IT 작업 또는 인프라를 호스트하는 데 필요한 가상 네트워크는 어떤 유형인가(클라우드 전용 또는 크로스-프레미스)?
@@ -37,13 +41,13 @@ ms.author: iainfou
 * 크로스-프레미스 가상 네트워크를 만들 때 온-프레미스 네트워킹 팀과 협력하여 적절한 라우팅이 구성되도록 합니다.
 * 명명 규칙을 사용하여 가상 네트워크를 만듭니다.
 
-## 가상 네트워크
-가상 네트워크는 VM(가상 컴퓨터) 간 통신을 지원하는 데 필요합니다. 물리적 네트워크의 경우와 마찬가지로 서브넷, 사용자 지정 IP 주소, DNS 설정, 보안 필터링 및 부하 분산을 정의할 수 있습니다. [사이트 간 VPN](../vpn-gateway/vpn-gateway-topology.md) 또는 [Express 경로 회로](../expressroute/expressroute-introduction.md)를 사용하여 Azure 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있습니다. [가상 네트워크 및 해당 구성 요소](../virtual-network/virtual-networks-overview.md)에 대해 자세히 읽어보세요.
+## <a name="virtual-networks"></a>가상 네트워크
+가상 네트워크는 VM(가상 컴퓨터) 간 통신을 지원하는 데 필요합니다. 물리적 네트워크의 경우와 마찬가지로 서브넷, 사용자 지정 IP 주소, DNS 설정, 보안 필터링 및 부하 분산을 정의할 수 있습니다. [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [Express 경로 회로](../expressroute/expressroute-introduction.md)를 사용하여 Azure 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있습니다. [가상 네트워크 및 해당 구성 요소](../virtual-network/virtual-networks-overview.md)에 대해 자세히 읽어보세요.
 
 리소스 그룹을 사용하여 보다 유연하게 가상 네트워킹 구성 요소를 디자인할 수 있습니다. VM은 자체 리소스 그룹 외부의 가상 네트워크에 연결할 수 있습니다. 일반적인 디자인 방법은 일반 팀에서 관리할 수 있는 핵심 네트워킹 인프라를 포함하는 중앙 집중식 리소스 그룹을 만든 다음, VM 및 해당 응용 프로그램을 별도의 리소스 그룹에 배포하는 것입니다. 이 방법을 사용하면 응용 프로그램 소유자가 좀 더 광범위한 가상 네트워킹 리소스 구성에 대한 액세스 권한을 얻지 않고도 VM을 포함하는 리소스 그룹에 액세스할 수 있습니다.
 
-## 사이트 연결
-### 클라우드 전용 가상 네트워크
+## <a name="site-connectivity"></a>사이트 연결
+### <a name="cloud-only-virtual-networks"></a>클라우드 전용 가상 네트워크
 온-프레미스 사용자 및 컴퓨터가 Azure 가상 네트워크에서 VM에 지속적인 연결을 필요로 하지 않는 경우, 상당히 직관적으로 가상 네트워크를 디자인할 수 있습니다.
 
 ![기본 클라우드 전용 가상 네트워크 다이어그램](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
@@ -52,8 +56,8 @@ ms.author: iainfou
 
 온-프레미스 네트워크에 연결하지 않기 때문에, 온-프레미스에서 동일한 개인 공간이 사용되고 있더라도 Azure 전용 가상 네트워크는 개인 IP 주소 공간의 일부를 사용할 수 있습니다.
 
-### 크로스-프레미스 가상 네트워크
-온-프레미스 사용자 및 컴퓨터가 Azure 가상 네트워크에서 가상 컴퓨터에 지속적인 연결을 필요로 하지 않는 경우, 크로스-프레미스 가상 네트워크를 만듭니다. Express 경로 또는 사이트 간 VPN 연결을 사용하여 온-프레미스 네트워크에 연결합니다.
+### <a name="cross-premises-virtual-networks"></a>크로스-프레미스 가상 네트워크
+온-프레미스 사용자 및 컴퓨터가 Azure 가상 네트워크에서 가상 컴퓨터에 지속적인 연결을 필요로 하지 않는 경우, 크로스-프레미스 가상 네트워크를 만듭니다.  Express 경로 또는 사이트 간 VPN 연결을 사용하여 온-프레미스 네트워크에 연결합니다.
 
 ![프레미스 간 가상 네트워크 다이어그램](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
 
@@ -65,7 +69,7 @@ ms.author: iainfou
 
 클라우드 전용 가상 네트워크를 크로스-프레미스 가상 네트워크로 변환할 수 있지만 가상 네트워크 주소 공간 및 Azure 리소스를 다시 IP해야 할 수 있습니다. 따라서 IP 서브넷을 할당할 때 가상 네트워크를 온-프레미스 네트워크에 연결해야 할지를 신중히 고려해야 합니다.
 
-## 서브넷
+## <a name="subnets"></a>서브넷
 서브넷을 사용하면 관련된 리소스를 로컬로(예: 동일한 응용 프로그램에 관련된 VM에 대한 하나의 서브넷) 또는 물리적으로(예: 리소스 그룹당 하나의 서브넷) 조직할 수 있습니다. 또한 보안 강화를 위해 서브넷 격리 기술을 이용할 수도 있습니다.
 
 크로스-프레미스 가상 네트워크의 경우 온-프레미스 리소스에 사용하는 동일한 규칙으로 서브넷을 설계해야 합니다. **Azure는 항상 각 서브넷에 해당 주소 공간의 처음 3개의 IP 주소를 사용합니다**. 서브넷에 필요한 주소 수를 확인하려면 지금 필요한 VM 수를 계산하여 시작합니다. 향후 성장을 예측한 후 다음 표를 사용하여 서브넷의 크기를 결정합니다.
@@ -85,10 +89,10 @@ ms.author: iainfou
 
 서브넷 크기를 너무 작게 선택하면 해당 서브넷에서 VM을 다시 IP하고 다시 배포해야 합니다.
 
-## 네트워크 보안 그룹
-네트워크 보안 그룹을 사용하여 가상 네트워크를 따라 흐르는 트래픽에 필터링 규칙을 적용할 수 있습니다. 가상 네트워킹 환경 보안 유지를 위해 세밀한 필터링 규칙을 작성하여 인바운드 및 아웃바운드 트래픽, 소스 및 대상 IP 범위, 허용 포트 등을 제어할 수 있습니다. 가상 네트워크 내의 서브넷이나 지정된 가상 네트워크 인터페이스에 직접 네트워크 보안 그룹을 적용할 수 있습니다. 가상 네트워크의 트래픽을 필터링하는 일정 수준의 네트워크 보안 그룹을 유지하는 것이 좋습니다. [네트워크 보안 그룹 정보](../virtual-network/virtual-networks-nsg.md)에 관해 더 읽을 수 있습니다.
+## <a name="network-security-groups"></a>네트워크 보안 그룹
+네트워크 보안 그룹을 사용하여 가상 네트워크를 따라 흐르는 트래픽에 필터링 규칙을 적용할 수 있습니다. 가상 네트워킹 환경 보안 유지를 위해 세밀한 필터링 규칙을 작성하여 인바운드 및 아웃바운드 트래픽, 소스 및 대상 IP 범위, 허용 포트 등을 제어할 수 있습니다. 가상 네트워크 내의 서브넷이나 지정된 가상 네트워크 인터페이스에 직접 네트워크 보안 그룹을 적용할 수 있습니다. 가상 네트워크의 트래픽을 필터링하는 일정 수준의 네트워크 보안 그룹을 유지하는 것이 좋습니다. [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 대해 자세히 읽어보세요.
 
-## 네트워크 구성 요소 추가
+## <a name="additional-network-components"></a>네트워크 구성 요소 추가
 온-프레미스 물리적 네트워킹 인프라의 경우와 마찬가지로, Azure 가상 네트워킹에는 서브넷 및 IP 주소 지정 이상의 기능이 포함될 수 있습니다. 응용 프로그램 인프라를 디자인할 경우 다음과 같은 일부 추가 구성 요소를 포함하려고 할 수 있습니다.
 
 * [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md) - 사이트 간 VPN 연결을 통해 Azure 가상 네트워크를 다른 Azure 가상 네트워크에 연결하거나 온-프레미스 네트워크에 연결합니다. 전용, 보안 연결을 위해 Express 경로 연결을 구현합니다. 지점 및 사이트 간 VPN 연결로 사용자 직접 액세스를 제공할 수도 있습니다.
@@ -96,7 +100,12 @@ ms.author: iainfou
 * [Application Gateway](../application-gateway/application-gateway-introduction.md) - 응용 프로그램 계층의 HTTP 부하 분산을 통해 단순히 Azure 부하 분산 장치를 배포하는 것보다는, 웹 응용 프로그램을 위한 몇 가지 추가적인 혜택을 제공합니다.
 * [트래픽 관리자](../traffic-manager/traffic-manager-overview.md) - DNS 기반 트래픽 분산을 통해 최종 사용자를 사용 가능한 가장 가까운 응용 프로그램 끝점으로 보낼 수 있도록 지원하므로 Azure 데이터 센터의 응용 프로그램을 여러 다른 지역에 호스트할 수 있습니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

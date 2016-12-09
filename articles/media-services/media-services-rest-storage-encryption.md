@@ -1,12 +1,12 @@
 ---
-title: AMS REST API를 사용하여 저장소 암호화로 콘텐츠 암호화
-description: AMS REST API를 사용하여 저장소 암호화로 콘텐츠를 암호화하는 방법을 알아봅니다.
+title: "AMS REST API를 사용하여 저장소 암호화로 콘텐츠 암호화"
+description: "AMS REST API를 사용하여 저장소 암호화로 콘텐츠를 암호화하는 방법을 알아봅니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a0a79f3d-76a1-4994-9202-59b91a2230e0
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8b0758e1fa5f12dc49d8548b733aefdf1f43d6f0
+
 
 ---
 # <a name="encrypting-your-content-with-storage-encryption-using-ams-rest-api"></a>AMS REST API를 사용하여 저장소 암호화로 콘텐츠 암호화
@@ -92,7 +96,7 @@ AES 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로�
 
     저장소 암호화를 위해 다음 속성을 요청 본문에 포함해야 합니다.
 
-    요청 본문 속성   | 설명
+    요청 본문 속성    | 설명
     ---|---
     Id | “nb:kid:UUID:<NEW GUID>” 형식을 사용하여 직접 생성하는 ContentKey Id입니다.
     ContentKeyType | 이 콘텐츠 키에 대한 정수인 콘텐츠 키 형식입니다. 저장소 암호화에 1값을 전달합니다.
@@ -364,6 +368,6 @@ Blob 컨테이너에 디지털 미디어 파일을 업로드하면 **MERGE** HTT
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

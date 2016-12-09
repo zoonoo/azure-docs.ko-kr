@@ -1,12 +1,12 @@
 ---
-title: PowerShell을 사용하여 앱 서비스 앱 백업 및 복원
-description: Azure 앱 서비스에서 PowerShell을 사용하여 앱을 백업하고 복원하는 방법 알아보기
+title: "PowerShell을 사용하여 앱 서비스 앱 백업 및 복원"
+description: "Azure 앱 서비스에서 PowerShell을 사용하여 앱을 백업하고 복원하는 방법 알아보기"
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: NKing92
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 7ea8661e-aefb-4823-9626-6bff980cdebf
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d2095543e6cb964c9f1aa036c62e9ff6f80dc7c3
+
 
 ---
-# PowerShell을 사용하여 앱 서비스 앱 백업 및 복원
+# <a name="use-powershell-to-back-up-and-restore-app-service-apps"></a>PowerShell을 사용하여 앱 서비스 앱 백업 및 복원
 > [!div class="op_single_selector"]
 > * [PowerShell](app-service-powershell-backup.md)
 > * [REST API](../app-service-web/websites-csm-backup.md)
@@ -25,13 +29,13 @@ ms.author: nicking
 
 Azure PowerShell을 사용하여 [앱 서비스 앱](https://azure.microsoft.com/services/app-service/web/)을 백업 및 복원하는 방법에 대해 알아봅니다. 요구 사항 및 제한 사항을 포함한 웹앱 백업에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱 백업](../app-service-web/web-sites-backup.md)을 참조하세요.
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 PowerShell을 사용하여 앱 백업을 관리하려면 다음이 필요합니다.
 
-* **SAS URL**을 통해 Azure 저장소 컨테이너에 대한 액세스를 읽고 쓸 수 있습니다. SAS URL에 대한 설명은 [SAS 모델 이해](../storage/storage-dotnet-shared-access-signature-part-1.md)를 참조하세요. PowerShell을 사용하여 Azure Storage를 관리하는 예제는 [Azure Storage에서 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md)을 참조하세요.
-* 웹앱과 함께 데이터베이스를 백업하려는 경우 **데이터베이스 연결 문자열**.
+* **SAS URL** 을 통해 Azure 저장소 컨테이너에 대한 액세스를 읽고 쓸 수 있습니다. SAS URL에 대한 설명은 [SAS 모델 이해](../storage/storage-dotnet-shared-access-signature-part-1.md) 를 참조하세요. PowerShell을 사용하여 Azure Storage를 관리하는 예제는 [Azure Storage에서 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md) 을 참조하세요.
+* **데이터베이스 연결 문자열** .
 
-### 웹앱 백업 cmdlet에서 사용할 SAS URL을 생성하는 방법
+### <a name="how-to-generate-a-sas-url-to-use-with-the-web-app-backup-cmdlets"></a>웹앱 백업 cmdlet에서 사용할 SAS URL을 생성하는 방법
 PowerShell을 사용하여 SAS URL을 생성할 수 있습니다. 이 문서에서 설명하는 cmdlet에서 사용할 수 있는 SAS URL을 생성하는 방법에 대한 예제는 다음과 같습니다.
 
         $storageAccountName = "<your storage account's name>"
@@ -44,10 +48,10 @@ PowerShell을 사용하여 SAS URL을 생성할 수 있습니다. 이 문서에�
         $blobContainerName = "<name of blob container for app backups>"
         $sasUrl = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1) -FullUri
 
-## Azure PowerShell 1.3.2 이상 설치
-Azure PowerShell 설치 및 사용에 대한 지침은 [Azure Resource Manager로 Azure PowerShell 사용](../powershell-install-configure.md)을 참조하세요.
+## <a name="install-azure-powershell-132-or-greater"></a>Azure PowerShell 1.3.2 이상 설치
+Azure PowerShell 설치 및 사용에 대한 지침은 [Azure Resource Manager로 Azure PowerShell 사용](../powershell-install-configure.md) 을 참조하세요.
 
-## 백업 만들기
+## <a name="create-a-backup"></a>백업 만들기
 New-AzureRmWebAppBackup cmdlet을 사용하여 웹앱의 백업을 만듭니다.
 
         $sasUrl = "<your SAS URL>"
@@ -66,7 +70,7 @@ New-AzureRmWebAppBackup cmdlet을 사용하여 웹앱의 백업을 만듭니다.
         $dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
         $dbBackup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -BackupName MyBackup -StorageAccountUrl $sasUrl -Databases $dbSetting1,$dbSetting2
 
-## 백업 가져오기
+## <a name="get-backups"></a>백업 가져오기
 Get-AzureRmWebAppBackupList cmdlet은 웹앱에 대한 모든 백업의 배열을 반환합니다. 웹앱 및 해당 리소스 그룹의 이름을 제공해야 합니다.
 
         $resourceGroupName = "Default-Web-WestUS"
@@ -83,7 +87,7 @@ Get-AzureRmWebAppBackupList cmdlet은 웹앱에 대한 모든 백업의 배열�
         $backupList = $app | Get-AzureRmWebAppBackupList
         $backup = $app | Get-AzureRmWebAppBackup -BackupId 10102
 
-## 자동 백업 예약
+## <a name="schedule-automatic-backups"></a>자동 백업 예약
 지정된 간격으로 자동으로 실행되도록 백업을 예약할 수 있습니다. 백업 일정을 구성하려면 Edit-AzureRmWebAppBackupConfiguration cmdlet을 사용합니다. 이 cmdlet은 여러 매개 변수를 사용합니다.
 
 * **Name** - 웹앱의 이름
@@ -119,7 +123,7 @@ Get-AzureRmWebAppBackupList cmdlet은 웹앱에 대한 모든 백업의 배열�
         # Apply the new configuration by piping it into the Edit-AzureRmWebAppBackupConfiguration cmdlet
         $configuration | Edit-AzureRmWebAppBackupConfiguration
 
-## 백업으로 웹앱 복원
+## <a name="restore-a-web-app-from-a-backup"></a>백업으로 웹앱 복원
 웹앱을 백업에서 복원하려면 Restore-AzureRmWebAppBackup cmdlet을 사용합니다. 이 cmdlet을 사용하는 가장 쉬운 방법은 Get-AzureRmWebAppBackup cmdlet 또는 Get-AzureRmWebAppBackupList cmdlet에서 검색된 백업 개체에 파이프하는 것입니다.
 
 백업 개체가 있으면 Restore-AzureRmWebAppBackup cmdlet으로 파이프할 수 있습니다. Overwrite 스위치 매개 변수를 지정하여 백업의 콘텐츠로 웹앱의 콘텐츠를 덮어쓰려는 것을 표시합니다. 백업이 데이터베이스를 포함하는 경우 해당 데이터베이스도 복원됩니다.
@@ -136,7 +140,7 @@ Get-AzureRmWebAppBackupList cmdlet은 웹앱에 대한 모든 백업의 배열�
         $dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
         Restore-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -Slot $slotName -StorageAccountUrl "<your SAS URL>" -BlobName $blobName -Databases $dbSetting1,$dbSetting2 -Overwrite
 
-## 백업 삭제
+## <a name="delete-a-backup"></a>백업 삭제
 백업을 삭제하려면 Remove-AzureRmWebAppBackup cmdlet을 사용합니다. 저장소 계정에서 백업이 제거됩니다. 앱 이름, 해당 리소스 그룹 및 삭제하려는 백업의 ID를 지정합니다.
 
         $resourceGroupName = "Default-Web-WestUS"
@@ -148,4 +152,8 @@ Remove-AzureRmWebAppBackup cmdlet으로 백업 개체를 파이프하여 삭제�
         $backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
         $backup | Remove-AzureRmWebAppBackup -Overwrite
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

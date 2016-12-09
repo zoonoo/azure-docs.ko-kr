@@ -1,12 +1,12 @@
 ---
-title: Azure Media Video Thumbnails를 사용하여 비디오 요약 만들기 | Microsoft Docs
-description: 비디오 요약을 사용하면 원본 비디오에서 흥미로운 조각을 자동으로 선택하여 긴 비디오의 요약을 만들 수 있습니다. 이는 긴 비디오에서 예상되는 사항에 대한 빠른 개요를 제공하려는 경우에 유용합니다.
+title: "Azure Media Video Thumbnails를 사용하여 비디오 요약 만들기 | Microsoft Docs"
+description: "비디오 요약을 사용하면 원본 비디오에서 흥미로운 조각을 자동으로 선택하여 긴 비디오의 요약을 만들 수 있습니다. 이는 긴 비디오에서 예상되는 사항에 대한 빠른 개요를 제공하려는 경우에 유용합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
+
 
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기
@@ -33,7 +37,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 ### <a name="video-thumbnail-result"></a>비디오 미리 보기 결과
 [비디오 미리 보기 결과](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-## <a name="task-configuration-(preset)"></a>작업 구성(기본 설정)
+## <a name="task-configuration-preset"></a>작업 구성(기본 설정)
 **Azure 미디어 비디오 미리 보기**로 비디오 미리 보기 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다. 위의 미리 보기 샘플은 다음 기본 JSON 구성을 사용하여 만들어졌습니다.
 
     {"version":"1.0"}
@@ -70,7 +74,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 1. 자산을 만들고 미디어 파일을 자산에 업로드합니다.
 2. 다음 json 기본 설정을 포함하는 구성 파일을 기반으로 비디오 미리 보기 작업을 만듭니다. 
    
-        {               
+        {                
             "version": "1.0",
             "options": {
                 "outputAudio": "true",
@@ -80,7 +84,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
         }
 3. 출력 파일을 다운로드합니다. 
 
-### <a name=".net-code"></a>.NET 코드
+### <a name="net-code"></a>.NET 코드
     using System;
     using System.Configuration;
     using System.IO;
@@ -259,6 +263,9 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

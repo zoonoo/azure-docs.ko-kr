@@ -1,12 +1,12 @@
 ---
-title: Azure and Linux VM Storage | Microsoft Docs
-description: Describes Azure Standard and Premium Storage with Linux virtual machines.
+title: "Azure 및 Linux VM 저장소 | Microsoft Docs"
+description: "Linux 가상 컴퓨터와 Azure Standard 및 Premium Storage를 설명합니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: d364c69e-0bd1-4f80-9838-bbc0a95af48c
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,20 +14,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/04/2016
 ms.author: v-livech
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bc18d25044fb790ef85ce950a785259cc1204fe4
+
 
 ---
-# <a name="azure-and-linux-vm-storage"></a>Azure and Linux VM storage
-Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines.
+# <a name="azure-and-linux-vm-storage"></a>Azure 및 Linux VM 저장소
+Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다.  Azure Storage는 개발자가 새로운 시나리오를 지원할 대규모 응용 프로그램을 빌드할 수 있게 할 뿐만 아니라 Azure 가상 컴퓨터의 저장소 기반을 제공합니다.
 
-## <a name="azure-storage:-standard-and-premium"></a>Azure Storage: Standard and Premium
-Azure VM's can be built upon standard storage disks or premium storage disks.  When using the Portal to choose your VM you must toggle a dropdown on the Basics screen to view both standard and premium disks.  The screenshot below highlights that toggle menu.  When toggled to SSD, only premium storage enabled VMs will be shown, all backed by SSD drives.  When toggled to HDD, standard storage enabled VMs backed spinning disk drives will be shown, along with premium storage VMs backed by SSD.
+## <a name="azure-storage-standard-and-premium"></a>Azure Storage: Standard 및 Premium
+Azure VM은 Standard Storage 디스크 또는 Premium Storage 디스크에 빌드될 수 있습니다.  VM을 선택하도록 포털을 사용하는 경우 기본 사항 화면의 드롭다운을 토글하여 표준 및 프리미엄 디스크를 확인해야 합니다.  다음 스크린샷은 해당 토글 메뉴를 강조 표시합니다.  SSD에 토글될 때 SSD 드라이브에서 지원하는 Premium Storage만 사용하도록 설정한 VM이 표시됩니다.  HDD로 토글되면 SSD에서 지원하는 Premium Storage VM과 함께 Standard Storage를 사용하도록 설정한 VM 지원 회전 디스크 드라이브가 표시됩니다.
 
   ![screen1](../virtual-machines/media/virtual-machines-linux-azure-vm-storage-overview/screen1.png)
 
-When creating a VM from the `azure-cli` you can choose between standard and premium when choosing the VM size via the `-z` or `--vm-size` cli flag.
+`azure-cli`에서 VM을 만들 경우 `-z` 또는 `--vm-size` CLI 플래그를 통해 선택하는 경우 표준 및 프리미엄 간에 VM 크기를 선택할 수 있습니다.
 
-### <a name="create-a-vm-with-standard-storage-vm-on-the-cli"></a>Create a VM with standard storage VM on the cli
-The cli flag `-z` chooses Standard_A1 with A1 being a standard storage based Linux VM.
+### <a name="create-a-vm-with-standard-storage-vm-on-the-cli"></a>CLI에서 Standard Storage VM으로 VM 만들기
+CLI 플래그 `-z`은 Standard Storage 기반 Linux VM인 A1으로 Standard_A1을 선택합니다.
 
 ```bash
 azure vm quick-create -g rbg \
@@ -40,8 +44,8 @@ exampleVMname \
 -z Standard_A1
 ```
 
-### <a name="create-a-vm-with-premium-storage-on-the-cli"></a>Create a VM with premium storage on the cli
-The cli flag `-z` chooses Standard_DS1 with DS1 being a premium storage based Linux VM.
+### <a name="create-a-vm-with-premium-storage-on-the-cli"></a>CLI에서 Premium Storage로 VM 만들기
+CLI 플래그 `-z`은 Premium Storage 기반 Linux VM인 DS1으로 Standard_DS1을 선택합니다.
 
 ```bash
 azure vm quick-create -g rbg \
@@ -54,25 +58,25 @@ exampleVMname \
 -z Standard_DS1
 ```
 
-## <a name="standard-storage"></a>Standard storage
-Azure Standard Storage is the default type of storage.  Standard storage is cost effective while still being performant.  
+## <a name="standard-storage"></a>Standard Storage
+Azure Standard Storage는 저장소의 기본 형식입니다.  Standard Storage는 영구적이면서 동시에 비용 효율적입니다.  
 
-## <a name="premium-storage"></a>Premium storage
-Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines running I/O-intensive workloads. Virtual machine (VM) disks that use Premium Storage store data on solid state drives (SSDs). You can migrate your application's VM disks to Azure Premium Storage to take advantage of the speed and performance of these disks.
+## <a name="premium-storage"></a>Premium Storage
+Azure 프리미엄 저장소는 I/O 사용량이 많은 작업을 실행하는 가상 컴퓨터에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 프리미엄 저장소를 사용하는 가상 컴퓨터(VM) 디스크는 솔리드 스테이트 드라이브(SSD)에 데이터를 저장합니다. 이 디스크의 속도와 성능 혜택을 활용하여 응용 프로그램의 VM 디스크를 Azure 프리미엄 저장소로 마이그레이션할 수 있습니다.
 
-Premium storage features:
+Premium Storage 기능은 다음과 같습니다.
 
-* Premium Storage Disks: Azure Premium Storage supports VM disks that can be attached to DS, DSv2, or GS series Azure VMs.
-* Premium Page Blob: Premium Storage supports Azure Page Blobs, which are used to hold persistent disks for Azure Virtual Machines (VMs).
-* Premium Locally Redundant Storage: A Premium Storage account only supports Locally Redundant Storage (LRS) as the replication option and keeps three copies of the data within a single region.
+* Premium Storage 디스크: Azure Premium Storage는DS, DSv2 또는 GS 시리즈 Azure VM에 연결할 수 있는 VM 디스크를 지원합니다.
+* 프리미엄 페이지 Blob: Premium Storage는 Virtual VM(가상 컴퓨터)에 대한 영구 디스크를 보존하는 데 사용되는 Azure 페이지 Blob를 지원합니다.
+* 프리미엄 로컬 중복 저장소: Premium Storage 계정은 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며, 단일 지역 내에 데이터 복사본 3개를 유지합니다.
 * [Premium Storage](../storage/storage-premium-storage.md)
 
-## <a name="premium-storage-supported-vms"></a>Premium Storage supported VMs
-Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series Azure Virtual Machines (VMs). You can use both Standard and Premium storage disks with Premium Storage supported of VMs. But you cannot use Premium Storage disks with VM series, which are not Premium Storage compatible.
+## <a name="premium-storage-supported-vms"></a>프리미엄 저장소 지원 VM
+프리미엄 저장소는 DS 시리즈, DSv2 시리즈, GS 시리즈 및 Fs 시리즈 Azure VM(가상 컴퓨터)을 지원합니다. 프리미엄 저장소 지원 VM에서 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 하지만 Premium Storage와 호환되지 않는 VM 시리즈에서는 Premium Storage 디스크를 사용할 수 없습니다.
 
-Following are the Linux Distributions that we validated with Premium Storage.
+다음은 프리미엄 저장소로 유효성을 검사한 Linux 배포판입니다.
 
-| Distribution | Version | Supported Kernel |
+| 배포 | 버전 | 지원되는 커널 |
 | --- | --- | --- |
 | Ubuntu |12.04 |3.2.0-75.110+ |
 | Ubuntu |14.04 |3.13.0-44.73+ |
@@ -83,102 +87,105 @@ Following are the Linux Distributions that we validated with Premium Storage.
 | Centos |6.5, 6.6, 6.7, 7.0, 7.1 |3.10.0-229.1.2.el7+ |
 | RHEL |6.8+, 7.2+ | |
 
-## <a name="file-storage"></a>File storage
-Azure File storage offers file shares in the cloud using the standard SMB protocol. With Azure Files, you can migrate enterprise applications that rely on file servers to Azure. Applications running in Azure can easily mount file shares from Azure virtual machines running Linux. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0.  Because file shares are SMB shares, you can access them via standard file system APIs.
+## <a name="file-storage"></a>File Storage
+Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 클라우드에서 파일 공유를 제공합니다. Azure Files을 사용하여 파일 서버를 사용하는 엔터프라이즈 응용 프로그램을 Azure로 마이그레이션할 수 있습니다. Azure에서 실행 중인 응용 프로그램은 Linux를 실행 중인 Azure 가상 컴퓨터에서 파일 공유를 쉽게 탑재할 수 있습니다. 최신 릴리스 파일 저장소를 사용하면 SMB 3.0을 지원하는 온-프레미스 응용 프로그램에서 파일 공유를 탑재할 수도 있습니다.  파일 공유는 SMB 공유이므로 표준 파일 시스템 API를 통해 파일 공유에 액세스할 수 있습니다.
 
-File storage is built on the same technology as Blob, Table, and Queue storage, so File storage offers the availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform. For details about File storage performance targets and limits, see Azure Storage Scalability and Performance Targets.
+파일 저장소는 Blob, 테이블 및 큐 저장소와 동일한 기술을 토대로 만들어졌으므로 파일 저장소는 Azure 저장소 플랫폼에 기본 제공되는 기존 가용성, 내구성, 확장성 및 지리적 중복을 활용할 수 있습니다. File Storage 성능 목표 및 제한에 대한 자세한 내용은 Azure Storage 확장성 및 성능 목표를 참조하세요.
 
-* [How to use Azure File Storage with Linux](../storage/storage-how-to-use-files-linux.md)
+* [Linux에서 Azure 파일 저장소 사용 방법](../storage/storage-how-to-use-files-linux.md)
 
-## <a name="hot-storage"></a>Hot Storage
-The Azure hot storage tier is optimized for storing data that is accessed frequently.  Hot storage is the default storage type for blob stores.
+## <a name="hot-storage"></a>핫 저장소
+Azure 핫 저장소 계층은 자주 액세스하는 데이터 저장에 최적화되어 있습니다.  핫 저장소는 Blob 저장소에 대한 기본 저장소 유형입니다.
 
-## <a name="cool-storage"></a>Cool Storage
-The Azure cool storage tier is optimized for storing data that is infrequently accessed and long-lived. Example use cases for cool storage include backups, media content, scientific data, compliance, and archival data. In general, any data that is seldom accessed is a perfect candidate for cool storage.
+## <a name="cool-storage"></a>쿨 저장소
+Azure 쿨 저장소 계층은 드물게 액세스하는 오래 지속되는 데이터 저장에 최적화되어 있습니다. 쿨 저장소에 대한 사용 사례 예제는 백업, 미디어 콘텐츠, 과학적 데이터, 규정 준수 및 보관 데이터를 포함합니다. 일반적으로 자주 액세스하지 않는 모든 데이터는 쿨 저장소에 적합합니다.
 
-|  | Hot storage tier | Cool storage tier |
+|  | 핫 저장소 계층 | 쿨 저장소 계층 |
 |:--- |:---:|:---:|
 | Availability |99.9% |99% |
-| Availability (RA-GRS reads) |99.99% |99.9% |
-| Usage charges |Higher storage costs |Lower storage costs |
-| Lower access |Higher access | |
-| and transaction costs |and transaction costs | |
+| 가용성(RA-GRS 읽기) |99.99% |99.9% |
+| 사용 요금 |저장소 비용 더 높음 |저장소 비용 더 낮음 |
+| 낮은 액세스 |많은 액세스 | |
+| 및 트랜잭션 비용 |및 트랜잭션 비용 | |
 
-## <a name="redundancy"></a>Redundancy
-The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the Azure Storage SLA even in the face of transient hardware failures.
+## <a name="redundancy"></a>중복
+Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용성을 보증하도록 복제되며 일시적인 하드웨어 오류가 발생 하는 경우에도 Azure 저장소 SLA을 충족합니다.
 
-When you create a storage account, you must select one of the following replication options:
+저장소 계정을 만들면 다음 복제 옵션 중 하나를 선택해야 합니다.
 
-* Locally redundant storage (LRS)
-* Zone-redundant storage (ZRS)
-* Geo-redundant storage (GRS)
-* Read-access geo-redundant storage (RA-GRS)
+* LRS(로컬 중복 저장소)
+* ZRS(영역 중복 저장소)
+* GRS(지역 중복 저장소)
+* RA-GRS(읽기 액세스 지역 중복 저장소)
 
-### <a name="locally-redundant-storage"></a>Locally redundant storage
-Locally redundant storage (LRS) replicates your data within the region in which you created your storage account. To maximize durability, every request made against data in your storage account is replicated three times. These three replicas each reside in separate fault domains and upgrade domains.  A request returns successfully only once it has been written to all three replicas.
+### <a name="locally-redundant-storage"></a>로컬 중복 저장소
+로컬 중복 저장소(LRS)는 저장소 계정을 만든 지역 내의 데이터를 복제합니다. 지속성을 최대화하려면 저장소 계정의 데이터에 대해 작성된 모든 요청에는 세 번 복제됩니다. 이러한 3개의 복제본은 각기 별도 오류 도메인 및 업그레이드 도메인에 상주합니다.  3개의 복제본 모두에 쓰여진 경우에만 요청은 성공적으로 반환합니다.
 
-### <a name="zone-redundant-storage"></a>Zone-redundant storage
-Zone-redundant storage (ZRS) replicates your data across two to three facilities, either within a single region or across two regions, providing higher durability than LRS. If your storage account has ZRS enabled, then your data is durable even in the case of failure at one of the facilities.
+### <a name="zone-redundant-storage"></a>영역 중복 저장소
+영역 중복 저장소(ZRS)가 LRS보다 더 나은 경우, 단일 지역 내 또는 두 개 지역에 걸쳐 2~3개 시설에서 데이터를 복제하며 높은 영속성을 제공합니다. 저장소 계정에서 ZRS를 사용하도록 설정된 경우, 데이터가 시설 중 하나에서 장애가 발생 하더라도 지속됩니다.
 
-### <a name="geo-redundant-storage"></a>Geo-redundant storage
-Geo-redundant storage (GRS) replicates your data to a secondary region that is hundreds of miles away from the primary region. If your storage account has GRS enabled, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region is not recoverable.
+### <a name="geo-redundant-storage"></a>지역 중복 저장소
+지역 중복 저장소(GRS)는 주 지역에서 수백 마일 떨어져 있는 보조 지역에 데이터를 복제합니다. 저장소 계정에서 GRS를 활성화하면, 전체 지역 가동 중단 또는 기본 지역을 복구할 수 없는 재해이더라도 데이터는 지속됩니다.
 
-### <a name="read-access-geo-redundant-storage"></a>Read-access geo-redundant storage
-Read-access geo-redundant storage (RA-GRS) maximizes availability for your storage account, by providing read-only access to the data in the secondary location, in addition to the replication across two regions provided by GRS. In the event that data becomes unavailable in the primary region, your application can read data from the secondary region.
+### <a name="read-access-geo-redundant-storage"></a>읽기 액세스 지역 중복 저장소
+읽기 액세스 지역 중복 저장소(RA-GRS)는 GRS에서 제공한 두 지역에 걸쳐 복제하는 것 외에도 보조 위치에서 데이터에 대한 읽기 전용 액세스를 제공하여 저장소 계정의 가용성을 최대화합니다. 데이터를 사용할 수 없는 기본 지역에서 응용 프로그램은 보조 지역에서 데이터를 읽을 수 있습니다.
 
-For a deep dive into Azure storage redundancy see:
+Azure Storage 중복에 대해 자세히 알아보려면 다음을 참조하세요.
 
-* [Azure Storage replication](../storage/storage-redundancy.md)
+* [Azure 저장소 복제](../storage/storage-redundancy.md)
 
-## <a name="scalability"></a>Scalability
-Azure Storage is massively scalable, so you can store and process hundreds of terabytes of data to support the big data scenarios required by scientific, financial analysis, and media applications. Or you can store the small amounts of data required for a small business website. Wherever your needs fall, you pay only for the data you’re storing. Azure Storage currently stores tens of trillions of unique customer objects, and handles millions of requests per second on average.
+## <a name="scalability"></a>확장성
+Azure 저장소는 대규모로 확장할 수 있으므로, 수백 테라바이트의 데이터를 저장 및 처리함으로써 과학, 재무 분석 및 미디어 응용 프로그램에 필요한 빅 데이터 시나리오를 지원할 수 있습니다. 또는 소규모 비즈니스 웹 사이트에 필요한 소량의 데이터를 저장할 수도 있습니다. 저장소 요구량이 줄면 저장하는 데이터에 대해서만 비용을 지불하면 됩니다. Azure 저장소는 현재 수십조에 달하는 고유한 고객 개체를 저장하고 초당 평균 수백만 건의 요청을 처리합니다.
 
-For standard storage accounts: A standard storage account has a maximum total request rate of 20,000 IOPS. The total IOPS across all of your virtual machine disks in a standard storage account should not exceed this limit.
+Standard Storage 계정: Standard Storage 계정의 최대 총 요청 속도는 20,000IOPS입니다. 표준 저장소 계정에서 모든 가상 컴퓨터 디스크의 총 IOPS는 이 제한을 초과할 수 없습니다.
 
-For premium storage accounts: A premium storage account has a maximum total throughput rate of 50 Gbps. The total throughput across all of your VM disks should not exceed this limit.
+Premium Storage 계정: Premium Storage 계정의 최대 총 처리량 속도는 50Gbps입니다. 모든 VM 디스크의 총 처리량은 이 제한을 초과할 수 없습니다.
 
 ## <a name="availability"></a>Availability
-We guarantee that at least 99.99% (99.9% for Cool Access Tier) of the time, we will successfully process requests to read data from Read Access-Geo Redundant Storage (RA-GRS) Accounts, provided that failed attempts to read data from the primary region are retried on the secondary region.
+적어도 99.99%(쿨 액세스 계층의 경우 99.9%)의 시간 동안, 주 지역에서 실패한 데이터 읽기 시도를 보조 지역에서 재시도할 경우 RA-GRS(읽기 권한 지역 중복 저장소) 계정에서 데이터 읽기 요청을 성공적으로 처리할 수 있도록 보장합니다.
 
-We guarantee that at least 99.9% (99% for Cool Access Tier) of the time, we will successfully process requests to read data from Locally Redundant Storage (LRS), Zone Redundant Storage (ZRS), and Geo Redundant Storage (GRS) Accounts.
+최소 99.9%(쿨 액세스 계층의 경우 99%)의 시간 동안 LRS(로컬 중복 저장소), ZRS(영역 중복 저장소) 및 GRS(지역 중복 저장소) 계정에 대해 데이터 읽기 요청을 성공적으로 처리할 수 있도록 보장합니다.
 
-We guarantee that at least 99.9% (99% for Cool Access Tier) of the time, we will successfully process requests to write data to Locally Redundant Storage (LRS), Zone Redundant Storage (ZRS), and Geo Redundant Storage (GRS) Accounts and Read Access-Geo Redundant Storage (RA-GRS) Accounts.
+최소 99.9%(쿨 액세스 계층의 경우 99%)의 시간 동안 LRS(로컬 중복 저장소), ZRS(영역 중복 저장소) 및 GRS(지역 중복 저장소) 계정 및 RA-GRS(읽기 권한 지역 중복 저장소) 계정에 대해 데이터 읽기 요청을 성공적으로 처리할 수 있도록 보장합니다.
 
-* [Azure SLA for Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_1/)
+* [저장소에 대한 Azure SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_1/)
 
-## <a name="regions"></a>Regions
-Azure is generally available in 30 regions around the world, and has announced plans for 4 additional regions. Geographic expansion is a priority for Azure because it enables our customers to achieve higher performance and it support their requirements and preferences regarding data location.  Azures latest region to launch is in Germany.
+## <a name="regions"></a>영역
+Azure는 전 세계 30개 지역에서 일반 공급되며 추가로 4개 지역에 대한 계획을 발표했습니다. Azure를 통해 고객은 더 높은 성능을 얻을 수 있으며 Azure는 데이터 위치와 관련하여 고객 요구 사항 및 기본 설정을 지원하기 때문에 지역 확장은 Azure의 우선 사항입니다.  Azure 서비스를 시작할 최신 지역은 독일입니다.
 
-The Microsoft Cloud Germany provides a differentiated option to the Microsoft Cloud services already available across Europe, creating increased opportunities for innovation and economic growth for highly regulated partners and customers in Germany, the European Union (EU) and the European Free Trade Association (EFTA).
+Microsoft Cloud 독일은 유럽에 이미 사용할 수 있는 Microsoft Cloud 서비스 옵션을 제공하는 동시에 독일, EU(유럽 연합) 및 EFTA(유럽 자유 무역 연합)에서 규제하는 파트너 및 고객에게 혁신 및 경제 성장을 위한 더 많은 기회를 제공합니다.
 
-Customer data in these new datacenters, in Magdeburg and Frankfurt, is managed under the control of a data trustee, T-Systems International, an independent German company and subsidiary of Deutsche Telekom. Microsoft’s commercial cloud services in these datacenters adhere to German data handling regulations and give customers additional choices of how and where data is processed.
+마그데부르크 및 프랑크푸르트에 있는 이러한 새 데이터 센터의 고객 데이터는 데이터 트러스티인 T-Systems International, 독립적인 독일 회사 및 Deutsche Telekom의 자회사의 제어 하에 관리됩니다. 이러한 데이터 센터에서 Microsoft의 상용 클라우드 서비스는 독일 데이터 처리 규정을 준수하고 고객에게 데이터를 처리하는 방법과 위치에 대한 추가 선택 항목을 제공합니다.
 
-* [Azure regions map](https://azure.microsoft.com/regions/)
+* [Azure 지역 맵](https://azure.microsoft.com/regions/)
 
-## <a name="security"></a>Security
-Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. The storage account itself can be secured using Role-Based Access Control and Azure Active Directory. Data can be secured in transit between an application and Azure by using Client-Side Encryption, HTTPS, or SMB 3.0. Data can be set to be automatically encrypted when written to Azure Storage using Storage Service Encryption (SSE). OS and Data disks used by virtual machines can be set to be encrypted using Azure Disk Encryption. Delegated access to the data objects in Azure Storage can be granted using Shared Access Signatures.
+## <a name="security"></a>보안
+Azure 저장소는 여러 개발자가 보안 응용 프로그램을 빌드하도록 지원하는 포괄적인 보안 기능을 제공합니다. 역할 기반 액세스 제어 및 Azure Active Directory를 사용하여 저장소 계정 자체의 보안을 유지할 수 있습니다. 클라이언트 쪽 암호화, HTTP 또는 SMB 3.0을 사용하여 응용 프로그램과 Azure 간에 전송 중인 데이터의 보안을 유지할 수 있습니다. SSE(저장소 서비스 암호화)를 사용하여 데이터가 Azure Storage에 기록될 때 자동으로 암호화되도록 설정할 수 있습니다. 가상 컴퓨터에서 사용되는 OS 및 데이터 디스크는 Azure 디스크 암호화를 사용하여 암호화되도록 설정할 수 있습니다. 공유 액세스 서명을 사용하여 Azure 저장소의 데이터 개체에 대한 위임된 액세스 권한을 부여할 수 있습니다.
 
-### <a name="management-plane-security"></a>Management Plane Security
-The management plane consists of the resources used to manage your storage account. In this section, we’ll talk about the Azure Resource Manager deployment model and how to use Role-Based Access Control (RBAC) to control access to your storage accounts. We will also talk about managing your storage account keys and how to regenerate them.
+### <a name="management-plane-security"></a>관리 평면 보안
+관리 평면은 저장소 계정 관리에 사용되는 리소스로 구성됩니다. 이 섹션에서는 Azure Resource Manager 배포 모델 및 RBAC(역할 기반 액세스 제어)를 사용하여 저장소 계정에 대한 액세스를 제어하는 방법에 대해 설명합니다. 또한 저장소 계정 키의 관리와 이러한 키를 다시 생성하는 방법에 대해서도 설명합니다.
 
-### <a name="data-plane-security"></a>Data Plane Security
-In this section, we’ll look at allowing access to the actual data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. We will cover both service-level SAS and account-level SAS. We’ll also see how to limit access to a specific IP address (or range of IP addresses), how to limit the protocol used to HTTPS, and how to revoke a Shared Access Signature without waiting for it to expire.
+### <a name="data-plane-security"></a>데이터 평면 보안
+이 섹션에서는 공유 액세스 서명 및 저장된 액세스 정책을 사용하여 저장소 계정에 있는 Blob, 파일, 큐, 테이블 등의 실제 데이터 개체에 대한 액세스를 허용하는 방법을 살펴볼 것입니다. 서비스 수준 SAS 및 계정 수준 SAS에 대한 설명이 제공됩니다. 또한 특정 IP 주소(또는 IP 주소 범위)에 대한 액세스를 제한하는 방법, 사용되는 프로토콜을 HTTPS로 제한하는 방법 및 만료를 기다리지 않고 공유 액세스 서명을 해지하는 방법도 알아봅니다.
 
-## <a name="encryption-in-transit"></a>Encryption in Transit
-This section discusses how to secure data when you transfer it into or out of Azure Storage. We’ll talk about the recommended use of HTTPS and the encryption used by SMB 3.0 for Azure File Shares. We will also take a look at Client-side Encryption, which enables you to encrypt the data before it is transferred into Storage in a client application, and to decrypt the data after it is transferred out of Storage.
+## <a name="encryption-in-transit"></a>전송 중 암호화
+이 섹션에서는 Azure 저장소 간에 전송하는 데이터를 보호하는 방법을 설명합니다. 그뿐 아니라 권장되는 HTTPS 사용과 Azure 파일 공유를 위해 SMB 3.0에서 사용되는 암호화에 대해 설명합니다. 또한 클라이언트 응용 프로그램의 저장소로 데이터가 전송되기 전에 암호화하고 저장소 외부로 전송된 후에 암호를 해독할 수 있도록 하는 클라이언트 쪽 암호화도 살펴봅니다.
 
-## <a name="encryption-at-rest"></a>Encryption at Rest
-We will talk about Storage Service Encryption (SSE), and how you can enable it for a storage account, resulting in your block blobs, page blobs, and append blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus SSE versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
+## <a name="encryption-at-rest"></a>휴지 상태의 암호화
+SSE(저장소 서비스 암호화)와 이 암호화 방법을 저장소 계정에 사용하도록 설정하는 방법을 알아보고, 이로 인해 블록 Blob, 페이지 Blob 및 추가 Blob을 Azure 저장소에 쓸 때 자동으로 암호화되는 과정을 설명합니다. Azure 디스크 암호화를 사용하는 방법을 살펴보고, 디스크 암호화, SSE 및 클라이언트 쪽 암호화의 사례와 기본적인 차이점을 알아봅니다. 미국 정부 컴퓨터의 FIPS 준수에 대해서도 간단히 살펴봅니다.
 
-* [Azure Storage security guide](../storage/storage-security-guide.md)
+* [Azure Storage 보안 가이드](../storage/storage-security-guide.md)
 
-## <a name="cost-savings"></a>Cost savings
-* [Storage cost](https://azure.microsoft.com/pricing/details/storage/)
-* [Storage cost calculator](https://azure.microsoft.com/pricing/calculator/?service=storage)
+## <a name="cost-savings"></a>비용 절감
+* [저장소 비용](https://azure.microsoft.com/pricing/details/storage/)
+* [저장소 비용 계산기](https://azure.microsoft.com/pricing/calculator/?service=storage)
 
-## <a name="storage-limits"></a>Storage limits
-* [Storage Service limits](../azure-subscription-service-limits.md#storage-limits)
+## <a name="storage-limits"></a>저장소 제한
+* [저장소 서비스 제한](../azure-subscription-service-limits.md#storage-limits)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

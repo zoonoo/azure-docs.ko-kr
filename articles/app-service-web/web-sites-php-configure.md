@@ -1,12 +1,12 @@
 ---
-title: Azure 앱 서비스 웹앱에서 PHP 구성 | Microsoft Docs
-description: Azure 앱 서비스의 웹앱에서 기본 PHP 설치를 구성하거나 사용자 지정 PHP 설치를 추가하는 방법에 대해 알아봅니다.
+title: "Azure App Service Web Apps에서 PHP 구성 | Microsoft Docs"
+description: "Azure 앱 서비스의 웹앱에서 기본 PHP 설치를 구성하거나 사용자 지정 PHP 설치를 추가하는 방법에 대해 알아봅니다."
 services: app-service
 documentationcenter: php
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ece7ee4f0235f5677e03526cef8935809770cd93
+
 
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Azure 앱 서비스 웹 앱에서 PHP 구성
@@ -22,7 +26,7 @@ ms.author: robmcm
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="how-to-change-the-builtin-php-version"></a>방법: 기본 제공 PHP 버전 변경
+## <a name="how-to-change-the-built-in-php-version"></a>방법: 기본 제공 PHP 버전 변경
 기본적으로 PHP 5.4는 앱 서비스 웹 앱을 만들 때 설치하여 바로 사용할 수 있습니다. 사용 가능한 릴리스 버전, 관련 기본 구성 및 사용하도록 설정된 확장을 보는 최상의 방법은 [phpinfo()] 함수를 호출하는 스크립트를 배포하는 것입니다.
 
 PHP 5.5 및 PHP 5.6 버전 사용할 수 있지만 기본적으로 이는 사용하도록 설정되어 있지 않습니다. PHP 버전을 업데이트하려면 다음 방법 중 하나를 따르세요.
@@ -49,7 +53,7 @@ PHP 5.5 및 PHP 5.6 버전 사용할 수 있지만 기본적으로 이는 사용
    
         PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
-### <a name="azure-commandline-interface-linux-mac-windows"></a>Azure 명령줄 인터페이스(Linux, Mac, Windows)
+### <a name="azure-command-line-interface-linux-mac-windows"></a>Azure 명령줄 인터페이스(Linux, Mac, Windows)
 Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 설치해야 합니다.
 
 1. 터미널을 열고 계정에 로그인합니다.
@@ -62,7 +66,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
    
         azure site show {site-name}
 
-## <a name="how-to-change-the-builtin-php-configurations"></a>방법: 기본 제공 PHP 구성 변경
+## <a name="how-to-change-the-built-in-php-configurations"></a>방법: 기본 제공 PHP 구성 변경
 기본 제공 PHP 런타임에 대해 아래 단계에 따라 구성 옵션을 변경할 수 있습니다. php.ini 지시문에 대한 자세한 내용은 [php.ini 지시문 목록]을 참조하세요.
 
 ### <a name="changing-phpiniuser-phpiniperdir-phpiniall-configuration-settings"></a>PHP\_INI\_USER, PHP\_INI\_PERDIR, PHP\_INI\_ALL 구성 설정 변경
@@ -126,7 +130,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 앱 서비스 웹 앱은 기본 PHP 런타임 대신, 사용자가 PHP 스크립트를 실행하도록 제공한 PHP 런타임을 사용할 수 있습니다. 이러한 런타임은 사용자가 제공한 `php.ini` 파일로 구성될 수 있습니다. 웹 앱에 사용자 지정 PHP 런타임을 사용하려면 아래 단계를 따르세요.
 
 1. 스레드로부터 안전하지 않은 VC9 또는 VC11과 호환되는 버전의 Windows용 PHP를 받아야 합니다. 최신 Windows용 PHP 릴리스는 [http://windows.php.net/download/]에서 확인할 수 있습니다. 이전 릴리스는 보관 파일 [http://windows.php.net/downloads/releases/archives/]에서 확인할 수 있습니다.
-2. 런타임에 맞게 `php.ini` 파일을 수정합니다. 참고로, 시스템 수준 전용 지시문인 구성 설정은 웹 앱에서 무시됩니다. 시스템 수준 전용 지시문에 대한 자세한 내용은 [php.ini 지시문 목록](영문.md)을 참조하세요.
+2. 런타임에 맞게 `php.ini` 파일을 수정합니다. 참고로, 시스템 수준 전용 지시문인 구성 설정은 웹 앱에서 무시됩니다. 시스템 수준 전용 지시문에 대한 자세한 내용은 [php.ini 지시문 목록](영문)을 참조하세요.
 3. 경우에 따라 확장을 PHP 런타임에 추가하고 `php.ini` 파일에서 확장을 사용하도록 설정합니다.
 4. 루트 디렉터리에 `bin` 디렉터리를 추가하고 PHP 런타임이 포함된 디렉터리(예: `bin\php`)를 배치합니다.
 5. 웹 앱에 배포합니다.
@@ -193,6 +197,6 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용 | Microsoft Docs
-description: 이 항목에서는 setRuntimeProperties를 사용하여 여러 입력 파일을 사용하고 사용자 지정 데이터를 미디어 인코더 Premium 워크플로 미디어 프로세서에 전달하는 방법을 설명합니다.
+title: "프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용 | Microsoft 문서"
+description: "이 항목에서는 setRuntimeProperties를 사용하여 여러 입력 파일을 사용하고 사용자 지정 데이터를 미디어 인코더 Premium 워크플로 미디어 프로세서에 전달하는 방법을 설명합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: xpouyat
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7fb35bdd-9891-4401-a65b-ef3cc8190e8a
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: xpouyat;anilmur;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: f8b0917b6eb0295641360c4e0a80e81100809f6e
+ms.openlocfilehash: 1d7f5aeb5fcdb6b80289bbd77c12957148d03732
+
 
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용
@@ -105,8 +109,8 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 
 > [!NOTE]
 > `<![CDATA[` 바로 뒤에 캐리지 리턴을 두지 마세요.
-> 
-> 
+>
+>
 
 ### <a name="propertypath-value"></a>propertyPath 값
 이전 예제에서 propertyPath는 "/Media File Input/filename", "/inactiveTimeout", "clipListXml"였습니다.
@@ -262,8 +266,8 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 
 > [!NOTE]
 > 비디오 파일 이름은 primarySourceFile 속성에 전송됩니다. 그 이유는 예를 들어 Expressions를 사용하여 올바른 출력 파일 이름을 작성하기 위해 워크플로에서 이 속성을 사용해야 하기 때문입니다.
-> 
-> 
+>
+>
 
 ### <a name="step-by-step-workflow-creation-that-overlays-a-logo-on-top-of-the-video"></a>비디오 맨 위의 로고를 오버레이하는 단계별 워크플로 만들기
 입력으로 두 개의 파일(비디오 및 이미지)을 사용하는 워크플로를 만드는 단계는 다음과 같습니다. 비디오 맨 위에서 이미지를 오버레이합니다.
@@ -354,8 +358,8 @@ AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)
 
 > [!NOTE]
 > 자산에서 기본 파일을 설정해야 합니다(기본 비디오 파일).
-> 
-> 
+>
+>
 
 ![AMSE에서 자산 파일](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture18_assetinamse.png)
 
@@ -399,7 +403,7 @@ AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)
 ## <a name="see-also"></a>참고 항목
 * [Azure 미디어 서비스의 프리미엄 인코딩 소개](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Azure 미디어 서비스의 프리미엄 인코딩 사용 방법](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-* [Azure 미디어 서비스로 주문형 콘텐츠 인코딩](media-services-encode-asset.md#media_encoder_premium_workflow)
+* [Azure 미디어 서비스로 주문형 콘텐츠 인코딩](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [미디어 인코더 Premium 워크플로 형식 및 코덱](media-services-premium-workflow-encoder-formats.md)
 * [샘플 워크플로 파일](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
 * [Azure 미디어 서비스 탐색기 도구](http://aka.ms/amse)
@@ -410,6 +414,8 @@ AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

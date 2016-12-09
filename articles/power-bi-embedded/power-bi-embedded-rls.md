@@ -1,13 +1,13 @@
 ---
-title: Power BI Embedded를 사용하는 행 수준 보안
-description: Power BI Embedded를 사용하는 행 수준 보안에 대한 자세한 내용
+title: "Power BI Embedded를 사용하는 행 수준 보안"
+description: "Power BI Embedded를 사용하는 행 수준 보안에 대한 자세한 내용"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 7936ade5-2c75-435b-8314-ea7ca815867a
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a98185bf44af2271f5ded04c05d3134321db536a
+
 
 ---
 # <a name="row-level-security-with-power-bi-embedded"></a>Power BI Embedded를 사용하는 행 수준 보안
@@ -102,6 +106,9 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가
 ## <a name="see-also"></a>참고 항목
 [Power를 사용하는 RLS(행 수준 보안)](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

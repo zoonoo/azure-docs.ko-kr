@@ -1,12 +1,12 @@
 ---
-title: HDInsight에서 Hive와 함께 Java UDF(사용자 정의 함수) 사용 | Microsoft Docs
-description: HDInsight의 Hive에서 Java UDF(사용자 정의 함수)를 만들고 사용하는 방법을 알아봅니다.
+title: "HDInsight에서 Hive와 함께 Java UDF(사용자 정의 함수) 사용 | Microsoft 문서"
+description: "HDInsight의 Hive에서 Java UDF(사용자 정의 함수)를 만들고 사용하는 방법을 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
 ms.devlang: java
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 240ba2289ededf7a65c71e2f5007cf3a52ca4f84
+
 
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>HDInsight에서 Hive와 함께 Java UDF 사용
@@ -46,9 +50,9 @@ Hive는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언
    > 
    > 
    
-    __exampleudf__라는 새 디렉터리를 만들고 여기에는 Maven 프로젝트가 포함됩니다.
+    **exampleudf**라는 새 디렉터리를 만들고 여기에는 Maven 프로젝트가 포함됩니다.
 2. 프로젝트를 만들면 프로젝트의 일부로 작성된 **exampleudf/src/test** 디렉터리를 삭제합니다. 그러나 이 예에서는 사용되지 않습니다.
-3. __exampleudf/pom.xml__을 열고 기존 `<dependencies>` 항목을 다음으로 바꿉니다.
+3. **exampleudf/pom.xml**을 열고 기존 `<dependencies>` 항목을 다음으로 바꿉니다.
    
         <dependencies>
             <dependency>
@@ -122,7 +126,7 @@ Hive는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언
     이러한 항목은 프로젝트를 빌드하는 방법을 정의합니다. 특히, 프로젝트에서 사용하는 Java 버전과 클러스터로의 배포를 위한 uberjar를 빌드하는 방법이 유용합니다.
    
     변경이 완료되면 파일을 저장합니다.
-4. __exampleudf/src/main/java/com/microsoft/examples/App.java__라는 이름을 __ExampleUDF.java__로 바꾸고 편집기에서 파일을 엽니다.
+4. **exampleudf/src/main/java/com/microsoft/examples/App.java**라는 이름을 **ExampleUDF.java**로 바꾸고 편집기에서 파일을 엽니다.
 5. **ExampleUDF.java** 파일의 내용을 다음 코드로 바꾼 다음 파일을 저장합니다.
    
         package com.microsoft.examples;
@@ -155,7 +159,7 @@ Hive는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언
    
         mvn compile package
    
-    그러면 UDF를 __exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar__에 빌드하고 패키징합니다.
+    그러면 UDF를 **exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar**에 빌드하고 패키징합니다.
 2. `scp` 명령을 사용하여 파일을 HDInsight 클러스터에 복사합니다.
    
         scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
@@ -209,6 +213,9 @@ Hive로 작업하는 다른 방법은 [HDInsight와 함께 Hive 사용](hdinsigh
 
 Hive 사용자 정의 함수에 대한 자세한 내용은 apache.org의 Hive wiki에서 [Hive 연산자 및 사용자 정의 함수](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) 섹션을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

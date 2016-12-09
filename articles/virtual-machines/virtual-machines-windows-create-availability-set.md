@@ -1,14 +1,14 @@
 ---
-title: VM 가용성 집합 만들기 | Microsoft Docs
-description: Resource Manager 배포 모델에서 Azure 포털 또는 PowerShell을 사용하여 가상 컴퓨터에 대한 가용성 집합을 만드는 방법에 대해 알아봅니다.
-keywords: 가용성 집합
+title: "VM 가용성 집합 만들기 | Microsoft Docs"
+description: "Resource Manager 배포 모델에서 Azure 포털 또는 PowerShell을 사용하여 가상 컴퓨터에 대한 가용성 집합을 만드는 방법에 대해 알아봅니다."
+keywords: "가용성 집합"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a3db8659-ace8-4e78-8b8c-1e75c04c042c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,12 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 19f22b9e38e472b56fc9abecc6c14b63b521a58b
+
 
 ---
 # <a name="create-an-availability-set"></a>가용성 집합 만들기
 VM이 가용성 설정의 일부가 되도록 하려는 경우 포털을 사용할 때 먼저 가용성 집합을 만들어야 합니다.
 
-가용성 집합을 만들고 사용하는 방법에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리](virtual-machines-windows-manage-availability.md)를 참조하세요.
+가용성 집합을 만들고 사용하는 방법에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ## <a name="use-the-portal-to-create-an-availability-set-before-creating-your-vms"></a>VM을 만들기 전에 포털을 사용하여 가용성 집합 만들기
 1. 허브 메뉴에서 **찾아보기**를 클릭하고 **가용성 집합**을 선택합니다.
@@ -61,8 +65,11 @@ VM이 가용성 설정의 일부가 되도록 하려는 경우 포털을 사용�
 * VM을 만들 때 원하는 가용성 집합이 포털의 드롭다운 목록에 없는 경우 다른 리소스 그룹에 만들었을 수 있습니다. 가용성 집합에 대한 리소스 그룹을 모르는 경우 허브 메뉴로 이동한 후 찾아보기 > 가용성 집합을 클릭하여 가용성 집합 및 해당 집합이 속하는 리소스 그룹 목록을 표시합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[데이터 디스크](virtual-machines-windows-attach-disk-portal.md)를 더 추가하여 VM에 저장소를 좀 더 추가합니다.
+[데이터 디스크](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 더 추가하여 VM에 저장소를 좀 더 추가합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 콘텐츠 보호 개요 | Microsoft Docs
-description: 이 기사는 미디어 서비스 콘텐츠 보호에 대한 개요를 제공합니다.
+title: "콘텐츠 보호 개요 | Microsoft 문서"
+description: "이 기사는 미디어 서비스 콘텐츠 보호에 대한 개요를 제공합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 576d3a1c242c74715e7a6dc33ec0a4adebcc9959
+
 
 ---
 # <a name="protecting-content-overview"></a>콘텐츠 보호 개요
@@ -51,7 +55,7 @@ AES 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로�
 
 저장소에서 암호화된 자산을 배달하려면 미디어 서비스에서 콘텐츠 배달 방법을 알 수 있도록 자산의 배달 정책을 구성해야 합니다. 자산을 스트리밍하기 전에 스트리밍 서버에서 저장소 암호화를 제거하고 지정된 배달 정책(예: AES, 일반 암호화 또는 암호화 없음)을 사용하여 콘텐츠를 스트리밍합니다.
 
-## <a name="common-encryption-(cenc)"></a>CENC(일반 암호화)
+## <a name="common-encryption-cenc"></a>CENC(일반 암호화)
 일반 암호화는 PlayReady 또는/및 Widewine으로 콘텐츠를 암호화하는 경우에 사용합니다.
 
 ## <a name="using-cbcs-aapl-encryption"></a>cbcs-aapl 암호화 사용
@@ -115,6 +119,6 @@ Media Services는 DRM(PlayReady, Widevine, FairPlay) 라이선스 및 AES 암호
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

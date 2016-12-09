@@ -1,12 +1,12 @@
 ---
-title: Azure 미디어 서비스를 사용하여 DRM 라이선스 또는 AES 키 제공
-description: 이 문서에서는 AMS(Azure 미디어 서비스)를 사용하여 PlayReady 및/또는 Widevine 라이선스 및 AES 키를 제공하지만 나머지 작업(인코딩, 암호화, 스트리밍)에는 온-프레미스 서버를 사용하여 수행할 수 있는 방법을 설명합니다.
+title: "Azure 미디어 서비스를 사용하여 DRM 라이선스 또는 AES 키 제공"
+description: "이 문서에서는 AMS(Azure 미디어 서비스)를 사용하여 PlayReady 및/또는 Widevine 라이선스 및 AES 키를 제공하지만 나머지 작업(인코딩, 암호화, 스트리밍)에는 온-프레미스 서버를 사용하여 수행할 수 있는 방법을 설명합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
+
 
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Azure 미디어 서비스를 사용하여 DRM 라이선스 또는 AES 키 제공
@@ -31,7 +35,7 @@ AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보�
 ## <a name="download-sample"></a>샘플 다운로드
 [여기](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses)에서 이 문서에 설명된 샘플을 다운로드할 수 있습니다.
 
-## <a name=".net-code-example"></a>.NET 코드 예제
+## <a name="net-code-example"></a>.NET 코드 예제
 이 토픽의 코드 예제에서는 일반적인 콘텐츠 키를 만들고 PlayReady 또는 Widevine 라이선스 취득 URL을 가져오는 방법을 보여 줍니다. AMS에서 **콘텐츠 키**, **키 id**, **라이선스 취득 URL**과 같은 정보를 가져와서 온-프레미스 서버를 구성해야 합니다. 온-프레미스 서버를 구성하면 자체 스트리밍 서버에서 스트림할 수 있습니다. 암호화된 스트림은 AMS 라이선스 서버를 가리키므로 플레이어는 AMS에서 라이선스를 요청합니다. 토큰 인증을 선택하면 AMS 라이선스 서버는 HTTPS를 통해 전송한 토큰의 유효성을 검사하고 유효한 경우 플레이어로 라이선스를 다시 제공합니다. (코드 예제에서는 일반적인 콘텐츠 키를 만들고 PlayReady 또는 Widevine 라이선스 취득 URL을 가져오는 방법만 보여 줍니다. AES-128 키를 제공하려는 경우에는 봉투 콘텐츠 키를 만들고 키 취득 URL을 가져와야 하며 [이](media-services-protect-with-aes128.md) 문서에서 이 작업을 수행하는 방법을 설명합니다).
 
     using System;
@@ -339,6 +343,9 @@ AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보�
 
 [파트너를 사용하여 Azure 미디어 서비스에 Widevine 라이선스 제공](media-services-licenses-partner-integration.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

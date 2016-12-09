@@ -1,13 +1,13 @@
 ---
-title: Azure Windows VM의 이미지 캡처 | Microsoft Docs
-description: 클래식 배포 모델을 사용하여 만든 Azure Windows 가상 컴퓨터의 이미지를 캡처합니다.
+title: "Azure Windows VM의 이미지 캡처 | Microsoft Docs"
+description: "클래식 배포 모델을 사용하여 만든 Azure Windows 가상 컴퓨터의 이미지를 캡처합니다."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: a5986eac-4cf3-40bd-9b79-7c811806b880
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,22 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 760c713d9729ba81fbac52f1eff80f956e82d83f
+
 
 ---
-# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model."></a>클래식 배포 모델을 사용하여 만든 Azure Windows 가상 컴퓨터의 이미지를 캡처합니다.
+# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 Azure Windows 가상 컴퓨터의 이미지를 캡처합니다.
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Resource Manager 모델 정보에 대해서는 [Azure에서 실행되는 복사본 Windows VM 만들기](virtual-machines-windows-vhd-copy.md)를 참조하세요.
+Resource Manager 모델 정보에 대해서는 [Azure에서 실행되는 복사본 Windows VM 만들기](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 이 문서에서는 Windows가 실행되는 Azure 가상 컴퓨터를 캡처하여 다른 가상 컴퓨터를 만들 때 이미지로 사용하는 방법을 소개합니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결되는 모든 데이터 디스크가 포함됩니다. 네트워킹 구성은 포함되지 않으므로, 이미지를 사용하는 다른 가상 컴퓨터를 만들 때 구성해야 합니다.
 
-Azure에서는 이미지를 **내 이미지**아래에 저장합니다. 사용자가 업로드한 모든 이미지도 이 위치에 저장됩니다. 이미지에 대한 자세한 내용은 [가상 컴퓨터 이미지 정보](virtual-machines-linux-classic-about-images.md)를 참조하세요.
+Azure에서는 이미지를 **내 이미지**아래에 저장합니다. 사용자가 업로드한 모든 이미지도 이 위치에 저장됩니다. 이미지에 대한 자세한 내용은 [가상 컴퓨터 이미지 정보](virtual-machines-linux-classic-about-images.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)를 참조하세요.
 
-## <a name="before-you-begin##"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전에
 이러한 단계는 이미 Azure 가상 컴퓨터를 만들었으며 데이터 디스크 연결을 비롯해 운영 체제 구성을 완료했다는 것을 전제로 합니다. 아직 완료하지 못한 경우 다음 지침을 참조하세요.
 
-* [이미지에서 가상 컴퓨터 만들기](virtual-machines-windows-classic-createportal.md)
-* [가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)
+* [이미지에서 가상 컴퓨터 만들기](virtual-machines-windows-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
 
 > [!WARNING]
@@ -41,7 +45,7 @@ Azure에서는 이미지를 **내 이미지**아래에 저장합니다. 사용�
 Azure 가상 컴퓨터의 이미지를 캡처하기 전에 대상 가상 컴퓨터를 백업하는 것이 좋습니다. Azure 백업을 사용하여 Azure 가상 컴퓨터를 백업할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터 백업](../backup/backup-azure-vms.md)을 참조하세요. 다른 솔루션은 인증된 파트너에서 사용할 수 있습니다. 무엇이 현재 사용 가능한지 알아보려면, Azure 마켓플레이스를 검색합니다.
 
 ## <a name="capture-the-virtual-machine"></a>가상 컴퓨터 캡처
-1. [Azure 클래식 포털](http://manage.windowsazure.com)에서, 가상 컴퓨터를 **연결** 합니다. 지침은 [Windows Server를 실행하여 가상 컴퓨터에 로그인하는 방법] []을 참조하세요.
+1. [Azure 클래식 포털](http://manage.windowsazure.com)에서, 가상 컴퓨터를 **연결** 합니다. 자세한 내용은 [Windows Server를 실행하는 가상 컴퓨터에 로그인하는 방법][Windows Server를 실행하는 가상 컴퓨터에 로그인하는 방법]을 참조하세요.
 2. 관리자로 명령 프롬프트 창을 엽니다.
 3. 디렉터리를 `%windir%\system32\sysprep`로 변경한 후 sysprep.exe를 실행합니다.
 4. **시스템 준비 도구** 대화 상자가 나타납니다. 다음을 수행합니다.
@@ -65,7 +69,7 @@ Azure 가상 컴퓨터의 이미지를 캡처하기 전에 대상 가상 컴퓨�
     ![이미지 캡처 성공](./media/virtual-machines-windows-classic-capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>다음 단계
-이제 이미지를 사용하여 가상 컴퓨터를 만들 수 있습니다. 이렇게 하려면 **갤러리에서** 메뉴 항목을 사용하여 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택합니다. 지침에 대해서는 [이미지에서 가상 컴퓨터 만들기](virtual-machines-windows-classic-createportal.md)를 참조하세요.
+이제 이미지를 사용하여 가상 컴퓨터를 만들 수 있습니다. 이렇게 하려면 **갤러리에서** 메뉴 항목을 사용하여 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택합니다. 지침에 대해서는 [이미지에서 가상 컴퓨터 만들기](virtual-machines-windows-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 
 [Windows Server를 실행하는 가상 컴퓨터에 로그인하는 방법]: virtual-machines-windows-classic-connect-logon.md
 [Sysprep 사용 방법: 소개]: http://technet.microsoft.com/library/bb457073.aspx
@@ -79,6 +83,6 @@ Azure 가상 컴퓨터의 이미지를 캡처하기 전에 대상 가상 컴퓨�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

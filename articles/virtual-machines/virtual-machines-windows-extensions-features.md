@@ -1,13 +1,13 @@
 ---
-title: 가상 컴퓨터 확장 및 기능 | Microsoft Docs
-description: 확장이 제공하거나 개선하는 기능별로 그룹화하여 Azure 가상 컴퓨터에 사용할 수 있는 확장을 알아봅니다.
+title: "가상 컴퓨터 확장 및 기능 | Microsoft Docs"
+description: "확장이 제공하거나 개선하는 기능별로 그룹화하여 Azure 가상 컴퓨터에 사용할 수 있는 확장을 알아봅니다."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/30/2016
 ms.author: nepeters
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 7bd48e2ef9177369190494c38bfdcf1bb99e61ea
+
 
 ---
 # <a name="about-virtual-machine-extensions-and-features"></a>가상 컴퓨터 확장 및 기능 정보
@@ -26,7 +30,7 @@ Azure 가상 컴퓨터 확장은 Azure 가상 컴퓨터에서 배포 후 구성 
 ## <a name="azure-vm-agent"></a>Azure VM 에이전트
 Azure VM 에이전트는 Azure 가상 컴퓨터와 Azure 패브릭 컨트롤러 간 상호 작용을 관리합니다. VM 에이전트는 VM 확장 실행을 포함하여 Azure 가상 컴퓨터 배포 및 관리의 다양한 기능적 측면을 담당합니다. Azure VM 에이전트는 Azure 갤러리 이미지에 미리 설치되며 지원되는 운영 체제에 설치될 수 있습니다. 
 
-지원되는 운영 체제 및 설치 지침에 대한 자세한 내용은 [Azure Virtual Machines 에이전트](virtual-machines-windows-classic-agents-and-extensions.md)를 참조하세요.
+지원되는 운영 체제 및 설치 지침에 대한 자세한 내용은 [Azure Virtual Machines 에이전트](virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 
 ## <a name="discover-vm-extensions"></a>VM 확장 검색
 Azure 가상 컴퓨터와 함께 여러 다양한 VM 확장을 사용할 수 있습니다. 전체 목록을 보려면 Azure CLI와 함께 다음 명령을 실행하고 해당 위치를 선택한 위치로 바꿉니다.
@@ -40,10 +44,13 @@ Get-AzureVMAvailableExtension | Select ExtensionName, Version
 ## <a name="common-vm-extensions"></a>일반 VM 확장
 | 확장 이름 | 설명 | 추가 정보 |
 | --- | --- | --- |
-| Windows용 사용자 지정 스크립트 확장 |Azure 가상 컴퓨터에 대해 스크립트 실행 |[Windows용 사용자 지정 스크립트 확장](virtual-machines-windows-extensions-customscript.md) |
-| Windows용 DSC 확장 |PowerShell DSC(Desired State Configuration) 확장 |[Docker VM 확장](virtual-machines-windows-extensions-dsc-overview.md) |
+| Windows용 사용자 지정 스크립트 확장 |Azure 가상 컴퓨터에 대해 스크립트 실행 |[Windows용 사용자 지정 스크립트 확장](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Windows용 DSC 확장 |PowerShell DSC(Desired State Configuration) 확장 |[Docker VM 확장](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure 진단 확장 |Azure 진단 관리 |[Azure 진단 확장](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,33 +1,37 @@
 ---
-title: StorSimple 가상 배열 배포 - Hyper-V에서 프로비전
-description: StorSimple 가상 배열 배포에 대한 두 번째 자습서에는 Hyper-V에서 가상 장치를 프로비전하는 내용이 포함됩니다.
+title: "StorSimple 가상 배열 배포 - Hyper-V에서 프로비전"
+description: "StorSimple 가상 배열 배포에 대한 두 번째 자습서에는 Hyper-V에서 가상 장치를 프로비전하는 내용이 포함됩니다."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 38c440e7-81e9-4689-9ec3-c231a499c43e
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/14/2016
+ms.date: 10/11/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4d8de51377c8aad73ebf71f83b44edb094635f32
+
 
 ---
-# StorSimple 가상 배열 배포 - Hyper-V에서 가상 배열 프로비전
+# <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>StorSimple 가상 배열 배포 - Hyper-V에서 가상 배열 프로비전
 ![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv4.png)
 
-## 개요
+## <a name="overview"></a>개요
 이 프로비전 자습서는 2016년 3월 GA(일반 공급) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다. 이 자습서에서는 Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2에서 Hyper-V를 실행하는 호스트 시스템의 StorSimple 가상 배열을 프로비전하는 방법을 설명합니다. 이 문서는 Microsoft Azure Government 클라우드뿐만 아니라 Azure 클래식 포털에서 StorSimple 가상 배열의 배포에 적용됩니다.
 
 가상 장치를 프로비전하고 구성하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
 
-## 프로비전 필수 조건
+## <a name="provisioning-prerequisites"></a>프로비전 필수 조건
 여기서는 Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2에서 Hyper-V를 실행하는 호스트 시스템에서 가상 디바이스를 프로비전하기 위한 필수 구성 요소를 확인할 수 있습니다.
 
-### StorSimple 관리자 서비스의 경우
+### <a name="for-the-storsimple-manager-service"></a>StorSimple 관리자 서비스의 경우
 시작하기 전에 다음 사항을 확인합니다.
 
 * [StorSimple 가상 배열용 포털 준비](storsimple-ova-deploy1-portal-prep.md)의 모든 단계를 완료했습니다.
@@ -38,7 +42,7 @@ ms.author: alkohli
   > 
   > 
 
-### StorSimple 가상 장치의 경우
+### <a name="for-the-storsimple-virtual-device"></a>StorSimple 가상 장치의 경우
 가상 장치를 배포하기 전에 다음 사항을 확인해야 합니다.
 
 * 장치 프로비전에 사용될 수 있는 Windows Server 2008 R2 이상에서 Hyper-V를 실행하는 호스트 시스템에 액세스할 수 있습니다.
@@ -49,10 +53,10 @@ ms.author: alkohli
   * 네트워크 인터페이스 하나
   * 시스템 데이터용 가상 디스크 500GB
 
-### 데이터 센터에서 네트워크의 경우
+### <a name="for-the-network-in-the-datacenter"></a>데이터 센터에서 네트워크의 경우
 시작하기 전에 StorSimple 가상 디바이스를 배포하고 데이터 센터 네트워크를 적절히 구성하기 위한 네트워킹 요구 사항을 검토하세요. 자세한 내용은 [StorSimple 가상 배열 네트워킹 요구 사항](storsimple-ova-system-requirements.md#networking-requirements)을 참조하세요.
 
-## 단계별 프로비전
+## <a name="step-by-step-provisioning"></a>단계별 프로비전
 가상 장치를 프로비전하고 연결하려면 다음 단계를 수행해야 합니다.
 
 1. 호스트 시스템에 최소 가상 장치 요구 사항을 충족하기에 충분한 리소스가 있는지 확인합니다.
@@ -61,7 +65,7 @@ ms.author: alkohli
 
 각 단계는 다음 섹션에서 설명합니다.
 
-## 1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하도록 합니다.
+## <a name="step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements"></a>1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하도록 합니다.
 가상 장치를 만들려면 다음이 필요합니다.
 
 * Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2 SP1에 설치되어 있는 Hyper-V 역할
@@ -74,10 +78,10 @@ ms.author: alkohli
 * 네트워크 인터페이스 하나
 * 시스템 데이터용 가상 디스크 500GB
 
-## 2단계: 하이퍼바이저에서 가상 장치를 프로비전합니다.
+## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>2단계: 하이퍼바이저에서 가상 장치를 프로비전합니다.
 하이퍼바이저에서 장치를 프로비전하려면 다음 단계를 수행합니다.
 
-#### 가상 장치를 프로비전하려면
+#### <a name="to-provision-a-virtual-device"></a>가상 장치를 프로비전하려면
 1. Windows Server 호스트에서 로컬 드라이브에 가상 장치 이미지를 복사합니다. 이는 Azure 포털을 통해 다운로드해 놓은 이미지(VHD 또는 VHDX)입니다. 이미지를 복사한 위치를 나중에 나오는 단계에서 사용할 수 있도록 기록해 둡니다.
 2. **서버 관리자**를 엽니다. 오른쪽 위 모서리에서 **도구**를 클릭하고 **Hyper-V 관리자**를 선택합니다.
    
@@ -93,8 +97,8 @@ ms.author: alkohli
    ![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 6. **세대 지정** 페이지에서 장치 이미지 유형을 선택하고 **다음**을 클릭합니다. Windows Server 2008 R2를 사용하는 경우에는 이 페이지가 표시되지 않습니다.
    
-   * Windows Server 2012 이상에 대한 .vhdx 이미지를 다운로드한 경우 **2세대**를 선택합니다.
-   * Windows Server 2008 R2 이상에 대한 .vhd 이미지를 다운로드한 경우 **1세대**를 선택합니다.
+   * Windows Server 2012 이상에 대한 .vhdx 이미지를 다운로드한 경우 **2세대** 를 선택합니다.
+   * Windows Server 2008 R2 이상에 대한 .vhd 이미지를 다운로드한 경우 **1세대** 를 선택합니다.
    
    ![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 7. **메모리 할당** 페이지에서 **시작 메모리**를 **8192MB** 이상으로 지정하고, 동적 메모리는 사용하도록 설정하지 않은 후 **다음**을 클릭합니다.
@@ -106,13 +110,13 @@ ms.author: alkohli
 9. **가상 하드 디스크 연결** 페이지에서 **기존 가상 하드 디스크 사용**을 선택하고 가상 장치 이미지(.vhdx 또는 .vhd)의 위치를 지정한 후 **다음**을 클릭합니다.
    
    ![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
-10. **요약**을 검토하고 **마침**을 클릭하여 가상 컴퓨터를 만듭니다. 하지만 아직은 진행하지 마십시오-여전히 일부 CPU 코어와 두 번째 드라이브를 추가해야 합니다.
+10. **요약**을 검토하고 **마침**을 클릭하여 가상 컴퓨터를 만듭니다. 하지만 아직은 진행하지 마십시오-여전히 일부 CPU 코어와 두 번째 드라이브를 추가해야 합니다. 
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image9.png)
-11. 최소 요구 사항을 충족하려면 코어 4개가 필요합니다. 가상 프로세서를 추가하려면 **Hyper-V 관리자** 창에 선택된 호스트 시스템에서, **가상 컴퓨터** 목록 아래 있는 오른쪽 창에서 방금 만든 가상 컴퓨터를 찾습니다. 컴퓨터 이름을 선택하고 마우스 오른쪽 단추로 클릭한 후 **설정**을 선택합니다.
+11. 최소 요구 사항을 충족하려면 코어 4개가 필요합니다. 가상 프로세서를 추가하려면 **Hyper-V 관리자** 창에 선택된 호스트 시스템에서, **Virtual Machines** 목록 아래 있는 오른쪽 창에서 방금 만든 가상 컴퓨터를 찾습니다. 컴퓨터 이름을 선택하고 마우스 오른쪽 단추로 클릭한 후 **설정**을 선택합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image10.png)
-12. **설정** 페이지의 왼쪽 창에서 **프로세서**를 클릭합니다. 오른쪽 창에서 **가상 프로세서 수**를 4(또는 그 이상)로 설정합니다. **Apply**를 클릭합니다.
+12. **설정** 페이지의 왼쪽 창에서 **프로세서**를 클릭합니다. 오른쪽 창에서 **가상 프로세서 수** 를 4(또는 그 이상)로 설정합니다. **Apply**를 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image11.png)
 13. 최소 요구 사항을 충족하려면 가상 데이터 디스크를 500GB 추가해야 합니다. **설정** 페이지에서:
@@ -128,13 +132,13 @@ ms.author: alkohli
 16. **디스크 형식 선택** 페이지에서 **VHDX** 형식의 기본 옵션을 적용합니다. **다음**을 클릭합니다. Windows Server 2012 R2 또는 Windows Server 2008 R2를 실행하는 경우 이 화면이 표시되지 않습니다.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
-17. **디스크 유형 선택** 페이지에서 가상 하드 디스크 유형을 **동적 확장**(권장)으로 설정합니다. **고정 크기** 디스크를 선택하면 작동은 되지만 오래 기다려야 할 수 있습니다. **차이점 보관용** 옵션은 사용하지 않는 것이 좋습니다. **다음**을 클릭합니다. Windows Server 2012 R2 및 Windows Server 2012에서는 **동적 확장**이 기본값입니다. Windows Server 2008 R2에서는 **고정 크기**가 기본값입니다.
+17. **디스크 유형 선택** 페이지에서 가상 하드 디스크 유형을 **동적 확장**(권장)으로 설정합니다. **고정 크기** 디스크를 선택하면 작동은 되지만 오래 기다려야 할 수 있습니다. **차이점 보관용** 옵션은 사용하지 않는 것이 좋습니다. **다음**을 클릭합니다. Windows Server 2012 R2 및 Windows Server 2012에서는 **동적 확장** 이 기본값입니다. Windows Server 2008 R2에서는 **고정 크기**가 기본값입니다.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image16.png)
-18. **이름 및 위치 지정** 페이지에서 데이터 디스크의 **이름** 및 **위치**(해당 위치로 이동 가능)를 입력합니다. **다음**을 클릭합니다.
+18. **이름 및 위치 지정** 페이지에서 데이터 디스크의 **이름** 및 **위치**(해당 위치로 이동 가능)를 입력합니다. **Next**를 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image17.png)
-19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **500GB**(또는 그 이상)로 지정합니다. **다음**을 클릭합니다.
+19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **500GB**(또는 그 이상)로 지정합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로비전할 디스크의 크기에 대한 자세한 내용은 [모범 사례](storsimple-ova-best-practices.md#configuration-best-practices) 문서의 크기 조정 섹션을 검토하세요. **Next**를 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image18.png)
 20. **요약** 페이지에서 가상 데이터 디스크의 세부 정보를 검토한 후 만족스러우면 **마침**을 클릭하여 디스크를 만듭니다. 마법사가 닫히고 가상 하드 디스크가 컴퓨터에 추가됩니다.
@@ -144,10 +148,10 @@ ms.author: alkohli
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image20.png)
 
-## 3단계: 가상 장치를 시작하고 IP를 가져옵니다.
+## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>3단계: 가상 장치를 시작하고 IP를 가져옵니다.
 가상 장치를 시작하여 연결하려면 다음 단계를 수행합니다.
 
-#### 가상 장치를 시작하려면
+#### <a name="to-start-the-virtual-device"></a>가상 장치를 시작하려면
 1. 가상 장치를 시작합니다.
    
    ![](./media/storsimple-ova-deploy2-provision-hyperv/image21.png)
@@ -216,8 +220,13 @@ Hyper-V에서 StorSimple 가상 배열을 프로비전하는 방법을 보려면
 > 
 > 
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [StorSimple 가상 배열을 파일 서버로 설정](storsimple-ova-deploy3-fs-setup.md)
 * [StorSimple 가상 배열을 iSCSI 서버로 설정](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

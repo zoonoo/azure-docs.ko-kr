@@ -1,12 +1,12 @@
 ---
-title: Create a PHP-MySQL web app in Azure App Service and deploy using FTP
-description: A tutorial that demonstrates how to create a PHP web app that stores data in MySQL and use FTP deployment to Azure.
+title: "Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 FTP를 사용하여 배포"
+description: "MySQL에 데이터를 저장하는 PHP 웹 앱을 만들고 FTP를 사용하여 Azure에 배포하는 방법을 보여 주는 자습서입니다."
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6d9d1de5-5868-48fd-8bad-decb4979cd65
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,62 +14,66 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 93cfd92687fdcad3f1f593a5c5c098850af4762f
+
 
 ---
-# <a name="create-a-phpmysql-web-app-in-azure-app-service-and-deploy-using-ftp"></a>Create a PHP-MySQL web app in Azure App Service and deploy using FTP
-This tutorial shows you how to create a PHP-MySQL web app and how to deploy it using FTP. This tutorial assumes you have [PHP][install-php], [MySQL][install-mysql], a web server, and an FTP client installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web app running in Azure.
+# <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-ftp"></a>Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 FTP를 사용하여 배포
+이 자습서에서는 PHP-MySQL 웹 앱을 만들고 FTP를 사용하여 배포하는 방법을 설명합니다. 이 자습서의 내용은 컴퓨터에 [PHP][install-php], [MySQL][install-mysql], 웹 서버 및 FTP 클라이언트가 설치되어 있다는 것을 전제로 합니다. 이 자습서의 지침은 Windows, Mac 및 Linux를 포함하여 모든 운영 체제에 적용될 수 있습니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP/MySQL 웹 앱이 완성됩니다.
 
-You will learn:
+다음 내용을 배웁니다.
 
-* How to create a web app and a MySQL database using the Azure Portal. Because PHP is enabled in Web Apps by default, nothing special is required to run your PHP code.
-* How to publish your application to Azure using FTP.
+* Azure 포털을 사용하여 웹 앱 및 MySQL 데이터베이스를 만드는 방법. PHP는 웹 앱에서 기본적으로 사용하도록 설정되어 있으므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
+* FTP를 사용하여 응용 프로그램을 Azure에 게시하는 방법
 
-By following this tutorial, you will build a simple registration web app in PHP. The application will be hosted in a Web App. A screenshot of the completed application is below:
+이 자습서의 지침에 따라 PHP에서 간단한 등록 웹 앱을 빌드할 수 있습니다. 응용 프로그램은 웹 앱에 호스트됩니다. 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
-![Azure PHP Web Site][running-app]
+![Azure PHP 웹 사이트][running-app]
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required, no commitments. 
+> 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다. 
 > 
 > 
 
-## <a name="create-a-web-app-and-set-up-ftp-publishing"></a>Create a web app and set up FTP publishing
-Follow these steps to create a web app and a MySQL database:
+## <a name="create-a-web-app-and-set-up-ftp-publishing"></a>Azure 웹 앱 만들기 및 FTP 게시 설정
+웹 앱 및 MySQL 데이터베이스를 만들려면 다음 단계를 따르세요.
 
-1. Login to the [Azure Portal][management-portal].
-2. Click the **+ New** icon on the top left of the Azure Portal.
+1. [Azure Portal][management-portal]에 로그인합니다.
+2. Azure 포털의 왼쪽 맨 위에서 **+ 새로 만들기** 아이콘을 클릭합니다.
    
-    ![Create New Azure Web Site][new-website]
-3. In the search type **Web app + MySQL** and click on **Web app + MySQL**.
+    ![새 Azure 웹 사이트 만들기][new-website]
+3. 검색에 **웹앱 + MySQL**을 입력하고 **웹앱 + MySQL**을 클릭합니다.
    
-    ![Custom Create a new Web Site][custom-create]
-4. Click **Create**. Enter a unique app service name, a valid name for the resource group and a new service plan.
+    ![새 웹 사이트 사용자 지정 만들기][custom-create]
+4. **만들기**를 클릭합니다. 고유한 앱 서비스 이름, 올바른 리소스 그룹 이름 및 새 서비스 계획을 입력합니다.
    
-    ![Set resource group name][resource-group]
-5. Enter values for your new database, including agreeing to the legal terms.
+    ![리소스 그룹 이름 설정][resource-group]
+5. 약관에 대한 동의를 포함하여 새 데이터베이스의 값을 입력합니다.
    
-    ![Create new MySQL database][new-mysql-db]
-6. When the web app has been created, you will see the new app service blade.
-7. Click on **Settings** > **Deployment credentials**. 
+    ![새 MySQL 데이터베이스 만들기][new-mysql-db]
+6. 웹 앱이 만들어지면 새 앱 서비스 블레이드가 보입니다.
+7. **설정** > **배포 자격 증명**을 클릭합니다. 
    
-    ![Set deployment credentials][set-deployment-credentials]
-8. To enable FTP publishing, you must provide a user name and password. Save the credentials and make a note of the user name and password you create.
+    ![배포 자격 증명 설정][set-deployment-credentials]
+8. FTP 게시를 사용하도록 설정하려면 사용자 이름 및 암호를 지정해야 합니다. 자격 증명을 저장하고 만든 사용자 이름 및 암호를 기록해 둡니다.
    
-    ![Create publishing credentials][portal-ftp-username-password]
+    ![게시 자격 증명 만들기][portal-ftp-username-password]
 
-## <a name="build-and-test-your-app-locally"></a>Build and test your app locally
-The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The app consists of two files:
+## <a name="build-and-test-your-app-locally"></a>로컬에서 앱 빌드 및 테스트
+등록 응용 프로그램은 이름과 전자 메일 주소를 지정하여 이벤트에 등록하는 데 사용할 수 있는 간단한 PHP 응용 프로그램입니다. 이전 등록자에 대한 정보가 테이블에 표시되어 있습니다. 등록 정보는 MySQL 데이터베이스에 저장되어 있습니다. 앱은 다음 두 파일로 구성되어 있습니다.
 
-* **index.php**: Displays a form for registration and a table containing registrant information.
-* **createtable.php**: Creates the MySQL table for the application. This file will only be used once.
+* **index.php**: 등록 양식 및 등록자 정보가 포함된 테이블을 표시합니다.
+* **createtable.php**: 응용 프로그램에 대한 MySQL 테이블을 만듭니다. 이 파일은 한 번만 사용됩니다.
 
-To build and run the app locally, follow the steps below. Note that these steps assume you have PHP, MySQL, and a web server set up on your local machine, and that you have enabled the [PDO extension for MySQL][pdo-mysql].
+앱을 빌드하여 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, MySQL 및 웹 서버가 설정되어 있으며 [PDO extension for MySQL][pdo-mysql]이 사용하도록 설정되어 있다는 것을 전제로 합니다.
 
-1. Create a MySQL database called `registration`. You can do this from the MySQL command prompt with this command:
+1. `registration`이라는 MySQL 데이터베이스를 만듭니다. 이는 MySQL 명령 프롬프트에서 다음 명령으로 수행할 수 있습니다.
    
         mysql> create database registration;
-2. In your web server's root directory, create a folder called `registration` and create two files in it - one called `createtable.php` and one called `index.php`.
-3. Open the `createtable.php` file in a text editor or IDE and add the code below. This code will be used to create the `registration_tbl` table in the `registration` database.
+2. 웹 서버의 루트 디렉터리에서 `registration`이라는 폴더를 만들고 이 폴더 내에 `createtable.php` 및 `index.php`라는 두 파일을 만듭니다.
+3. 텍스트 편집기 또는 IDE에서 `createtable.php` 파일을 열고 아래 코드를 추가합니다. 이 코드는 `registration` 데이터베이스에 `registration_tbl` 테이블을 만드는 데 사용됩니다.
    
         <?php
         // DB connection info
@@ -95,11 +99,11 @@ To build and run the app locally, follow the steps below. Note that these steps 
         ?>
    
    > [!NOTE]
-   > You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
+   > <code>$user</code> 및 <code>$pwd</code>의 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
    > 
    > 
-4. Open a web browser and browse to [http://localhost/registration/createtable.php][localhost-createtable]. This will create the `registration_tbl` table in the database.
-5. Open the **index.php** file in a text editor or IDE and add the basic HTML and CSS code for the page (the PHP code will be added in later steps).
+4. 웹 브라우저를 열고 [http://localhost/registration/createtable.php][localhost-createtable]로 이동합니다. 그러면 데이터베이스에 `registration_tbl` 테이블이 만들어집니다.
+5. 텍스트 편집기 또는 IDE에서 **index.php** 파일을 열고 페이지의 기본 HTML 및 CSS 코드를 추가합니다(PHP 코드는 이후 단계에서 추가 예정).
    
         <html>
         <head>
@@ -131,7 +135,7 @@ To build and run the app locally, follow the steps below. Note that these steps 
         ?>
         </body>
         </html>
-6. Within the PHP tags, add PHP code for connecting to the database.
+6. PHP 태그 내에서 데이터베이스 연결에 필요한 PHP 코드를 추가합니다.
    
         // DB connection info
         $host = "localhost";
@@ -148,10 +152,10 @@ To build and run the app locally, follow the steps below. Note that these steps 
         }
    
    > [!NOTE]
-   > Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
+   > 다시 <code>$user</code> 및 <code>$pwd</code>의 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
    > 
    > 
-7. Following the database connection code, add code for inserting registration information into the database.
+7. 데이터베이스 연결 코드 다음에 등록 정보를 데이터베이스에 삽입하는 데 필요한 코드를 추가합니다.
    
         if(!empty($_POST)) {
         try {
@@ -172,7 +176,7 @@ To build and run the app locally, follow the steps below. Note that these steps 
         }
         echo "<h3>Your're registered!</h3>";
         }
-8. Finally, following the code above, add code for retrieving data from the database.
+8. 마지막으로 위 코드 다음에 데이터베이스에서 데이터 검색에 필요한 코드를 추가합니다.
    
         $sql_select = "SELECT * FROM registration_tbl";
         $stmt = $conn->query($sql_select);
@@ -188,42 +192,42 @@ To build and run the app locally, follow the steps below. Note that these steps 
                 echo "<td>".$registrant['email']."</td>";
                 echo "<td>".$registrant['date']."</td></tr>";
             }
-            echo "</table>";
+             echo "</table>";
         } else {
             echo "<h3>No one is currently registered.</h3>";
         }
 
-You can now browse to [http://localhost/registration/index.php][localhost-index] to test the app.
+이제 [http://localhost/registration/index.php][localhost-index]로 이동하여 앱을 테스트할 수 있습니다.
 
-## <a name="get-mysql-and-ftp-connection-information"></a>Get MySQL and FTP connection information
-To connect to the MySQL database that is running in Web Apps, your will need the connection information. To get MySQL connection information, follow these steps:
+## <a name="get-mysql-and-ftp-connection-information"></a>MySQL 및 FTP 연결 정보 가져오기
+웹 앱에서 실행되는 MySQL 데이터베이스에 연결하려면 연결 정보가 필요합니다. MySQL 연결 정보를 가져오려면 다음 단계를 따르십시오.
 
-1. From the app service web app blade click on the resource group link:
+1. 앱 서비스 웹앱 블레이드에서 리소스 그룹 링크를 클릭합니다.
    
-    ![Select Resource Group][select-resourcegroup]
-2. From your resource group, click the database:
+    ![리소스 그룹 선택][select-resourcegroup]
+2. 리소스 그룹에서 다음 데이터베이스를 클릭합니다.
    
-    ![Select database][select-database]
-3. From the database summary, select **Settings** > **Properties**.
+    ![데이터베이스 선택][select-database]
+3. 데이터베이스 요약에서 **설정** > **속성**을 선택합니다.
    
-    ![Select properties][select-properties]
-4. Make note of the values for `Database`, `Host`, `User Id`, and `Password`.
+    ![속성 선택][select-properties]
+4. `Database`, `Host`, `User Id` 및 `Password` 값을 기록해 둡니다.
    
-    ![Note properties][note-properties]
-5. From your web app, click the **Download publish profile** link at the bottom right corner of the page:
+    ![참고 속성][note-properties]
+5. 웹앱에서 페이지의 오른쪽 아래에 있는 **게시 프로필 다운로드** 링크를 클릭합니다.
    
-    ![Download publish profile][download-publish-profile]
-6. Open the `.publishsettings` file in an XML editor. 
-7. Find the `<publishProfile >` element with `publishMethod="FTP"` that looks similar to this:
+    ![게시 프로필 다운로드][download-publish-profile]
+6. XML 편집기에서 `.publishsettings` 파일을 엽니다. 
+7. 다음과 유사한 `publishMethod="FTP"`가 있는 `<publishProfile >` 요소를 찾습니다.
    
         <publishProfile publishMethod="FTP" publishUrl="ftp://[mysite].azurewebsites.net/site/wwwroot" ftpPassiveMode="True" userName="[username]" userPWD="[password]" destinationAppUrl="http://[name].antdf0.antares-test.windows-int.net" 
             ...
         </publishProfile>
 
-Make note of the `publishUrl`, `userName`, and `userPWD` attributes.
+`publishUrl`, `userName` 및 `userPWD` 특성을 기록해 둡니다.
 
-## <a name="publish-your-app"></a>Publish your app
-After you have tested your app locally, you can publish it to your web app using FTP. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get MySQL and FTP connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
+## <a name="publish-your-app"></a>앱 게시
+앱을 로컬에서 테스트한 후 FTP를 사용하여 웹 앱에 게시할 수 있습니다. 하지만 먼저 응용 프로그램의 데이터베이스 연결 정보를 업데이트해야 합니다. 이전에 **MySQL 및 FTP 연결 정보 가져오기** 섹션에서 가져온 데이터베이스 연결 정보를 사용하여 `createdatabase.php` 및 `index.php` 파일 **모두**에서 다음 정보를 적합한 값으로 업데이트합니다.
 
     // DB connection info
     $host = "value of Data Source";
@@ -231,19 +235,19 @@ After you have tested your app locally, you can publish it to your web app using
     $pwd = "value of Password";
     $db = "value of Database";
 
-Now you are ready to publish your app using FTP.
+이제 FTP를 사용하여 앱을 게시할 준비가 완료되었습니다.
 
-1. Open your FTP client of choice.
-2. Enter the *host name portion* from the `publishUrl` attribute you noted above into your FTP client.
-3. Enter the `userName` and `userPWD` attributes you noted above unchanged into your FTP client.
-4. Establish a connection.
+1. 원하는 FTP 클라이언트를 엽니다.
+2. 앞서 기록한 `publishUrl` 특성의 *호스트 이름 부분*을 FTP 클라이언트에 입력합니다.
+3. FTP 클라이언트를 변경하지 않고 앞서 기록한 `userName` 및 `userPWD` 특성을 입력합니다.
+4. 연결을 설정합니다.
 
-After you have connected you will be able to upload and download files as needed. Be sure that you are uploading files to the root directory, which is `/site/wwwroot`.
+연결된 후 필요에 따라 파일을 업로드 및 다운로드할 수 있습니다. 루트 디렉터리 `/site/wwwroot`에 파일을 업로드하고 있는지 확인하세요.
 
-After uploading both `index.php` and `createtable.php`, browse to **http://[site name].azurewebsites.net/createtable.php** to create the MySQL table for the application, then browse to **http://[site name].azurewebsites.net/index.php** to begin using the application.
+`index.php` 및 `createtable.php`를 모두 업로드한 후 **http://[사이트 이름].azurewebsites.net/createtable.php**로 이동하여 응용 프로그램용 MySQL 테이블을 만든 다음 **http://[사이트 이름].azurewebsites.net/index.php**로 이동하여 응용 프로그램을 사용하기 시작합니다.
 
-## <a name="next-steps"></a>Next steps
-For more information, see the [PHP Developer Center](/develop/php/).
+## <a name="next-steps"></a>다음 단계
+자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
@@ -272,6 +276,6 @@ For more information, see the [PHP Developer Center](/develop/php/).
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: 부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정 | Microsoft Docs
-description: 부트스트랩을 사용하여 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다.
+title: "부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정 | Microsoft 문서"
+description: "부트스트랩을 사용하여 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: ab2ebf0c-e961-4e95-8151-9724ee22d769
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
+
 
 ---
-# 부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
+# <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 경우에 따라 다음과 같이 구성 파일을 구성해야 할 수 있습니다.
 
 * clusterIdentity.xml
@@ -36,7 +40,7 @@ ms.author: jgao
 * webhcat-site.xml
 * yarn-site.xml
 
-클러스터는 재이미징하므로 변경 내용을 유지할 수 없습니다. 재이미징에 대한 자세한 내용은 [OS 업그레이드로 인해 역할 인스턴스 다시 시작](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)을 참조하세요. 클러스터의 수명 동안 변경 내용을 유지하려면 생성 프로세스 중에 HDInsight 클러스터 사용자 지정을 사용할 수 있습니다. 클러스터의 구성을 변경하고 이러한 Azure 이미지로 다시 설치 다시 부팅 다시 시작 이벤트에서 구성을 유지하려면 이 방법을 사용하는 것이 좋습니다. 구성 변경 내용은 서비스가 시작되기 전에 적용되므로 서비스를 다시 시작할 필요가 없습니다.
+클러스터는 재이미징하므로 변경 내용을 유지할 수 없습니다. 재이미징에 대한 자세한 내용은 [OS 업그레이드로 인해 역할 인스턴스 다시 시작](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)을 참조하세요. 클러스터의 수명 동안 변경 내용을 유지하려면 생성 프로세스 중에 HDInsight 클러스터 사용자 지정을 사용할 수 있습니다. 클러스터의 구성을 변경하고 이러한 Azure 이미지로 다시 설치 다시 부팅 다시 시작 이벤트에서 구성을 유지하려면 이 방법을 사용하는 것이 좋습니다. 구성 변경 내용은 서비스가 시작되기 전에 적용되므로 서비스를 다시 시작할 필요가 없습니다. 
 
 Bootstrap을 사용하는 방법은 3가지가 있습니다.
 
@@ -51,7 +55,7 @@ Bootstrap을 사용하는 방법은 3가지가 있습니다.
 * [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정(Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 * [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정(Windows)](hdinsight-hadoop-customize-cluster.md)
 
-## Azure PowerShell 사용
+## <a name="use-azure-powershell"></a>Azure PowerShell 사용
 다음 PowerShell 코드는 Hive 구성을 사용자 지정합니다.
 
     # hive-site.xml configuration
@@ -82,14 +86,14 @@ Bootstrap을 사용하는 방법은 3가지가 있습니다.
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 창에서 **찾아보기**를 클릭한 다음 **HDInsight 클러스터**를 클릭합니다.
 3. PowerShell 스크립트를 사용하여 방금 만든 클러스터를 클릭합니다.
-4. 블레이드 맨 위에서 **대시보드**를 클릭하여 Ambari UI를 엽니다.
-5. 왼쪽 메뉴에서 **Hive**를 클릭합니다.
+4. 블레이드 맨 위에서 **대시보드** 를 클릭하여 Ambari UI를 엽니다.
+5. 왼쪽 메뉴에서 **Hive** 를 클릭합니다.
 6. **요약**에서 **HiveServer2**를 클릭합니다.
 7. **Configs** 탭을 클릭합니다.
-8. 왼쪽 메뉴에서 **Hive**를 클릭합니다.
+8. 왼쪽 메뉴에서 **Hive** 를 클릭합니다.
 9. **고급** 탭을 클릭합니다.
 10. 아래로 스크롤한 다음 **고급 hive 사이트**를 확장합니다.
-11. 섹션에서 **hive.metastore.client.socket.timeout**을 찾습니다.
+11. 섹션에서 **hive.metastore.client.socket.timeout** 을 찾습니다.
 
 다른 구성 파일을 사용자 지정하는 추가 샘플:
 
@@ -105,12 +109,12 @@ Bootstrap을 사용하는 방법은 3가지가 있습니다.
     # oozie-site.xml configuration
     $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 
-자세한 내용은 Azim Uddin의 [HDInsight 클러스터 만들기 사용자 지정](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx) 블로그를 참조하세요.
+자세한 내용은 Azim Uddin의 [HDInsight 클러스터 만들기 사용자 지정](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx)블로그를 참조하세요.
 
-## .NET SDK 사용
+## <a name="use-net-sdk"></a>.NET SDK 사용
 [.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap)를 참조하세요.
 
-## Resource Manager 템플릿 사용
+## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
 Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 
     "configurations": {
@@ -125,9 +129,9 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 
 ![hdinsight hadoop 사용자 지정 클러스터 부트스트랩 azure resource manager 템플릿](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## 참고 항목
-* [HDInsight의 Hadoop 클러스터 만들기][hdinsight-provision-cluster]에서는 다른 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침을 제공합니다.
-* [HDInsight용 스크립트 작업 스크립트 개발][hdinsight-write-script]
+## <a name="see-also"></a>참고 항목
+* [HDInsight에서 Hadoop 클러스터 만들기][hdinsight-provision-cluster]에서는 다른 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침을 제공합니다.
+* [HDInsight용 스크립트 동작 스크립트 개발][hdinsight-write-script]
 * [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]
 * [HDInsight 클러스터에서 R 설치 및 사용][hdinsight-install-r]
 * [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)
@@ -142,7 +146,7 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
 
-## 부록 A: PowerShell 샘플
+## <a name="appx-a-powershell-sample"></a>부록 A: PowerShell 샘플
 이 PowerShell 스크립트는 HDInsight 클러스터를 만들고 Hive 설정을 사용자 지정합니다.
 
     ####################################
@@ -252,4 +256,8 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 
     #endregion
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

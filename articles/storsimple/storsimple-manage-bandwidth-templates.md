@@ -1,12 +1,12 @@
 ---
-title: StorSimple 대역폭 템플릿 관리 | Microsoft Docs
-description: 대역폭 소비를 제어할 수 있도록 StorSimple 대역폭 템플릿을 관리하는 방법을 설명합니다.
+title: "StorSimple 대역폭 템플릿 관리 | Microsoft Docs"
+description: "대역폭 소비를 제어할 수 있도록 StorSimple 대역폭 템플릿을 관리하는 방법을 설명합니다."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 0027b90e-91a5-437d-9bd0-06b05674aa5f
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2a717adb94ab92f206aab45e4836bb26252f89a0
+
 
 ---
-# StorSimple 관리자 서비스를 사용하여 StorSimple 대역폭 템플릿 관리
-## 개요
+# <a name="use-the-storsimple-manager-service-to-manage-storsimple-bandwidth-templates"></a>StorSimple 관리자 서비스를 사용하여 StorSimple 대역폭 템플릿 관리
+## <a name="overview"></a>개요
 대역폭 템플릿을 사용하면 데이터를 StorSimple 장치에서 클라우드로 티어하도록 여러 시간의 일정에서 네트워크 대역폭 사용을 구성할 수 있습니다.
 
 일정을 제한하는 대역폭을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
@@ -43,11 +47,11 @@ Azure 클래식 포털의 StorSimple Manager 서비스 **구성** 페이지를 �
 * 대역폭 템플릿에 대한 질문과 대답
 * 대역폭 템플릿에 대한 모범 사례
 
-## 대역폭 템플릿 추가
+## <a name="add-a-bandwidth-template"></a>대역폭 템플릿 추가
 새 대역폭 템플릿을 만들려면 다음 단계를 수행합니다.
 
-#### 대역폭 템플릿을 추가하려면
-1. StorSimple 관리자 서비스 **구성** 페이지에서 **대역폭 템플릿 추가/편집**을 클릭합니다.
+#### <a name="to-add-a-bandwidth-template"></a>대역폭 템플릿을 추가하려면
+1. StorSimple Manager 서비스 **구성** 페이지에서 **대역폭 템플릿 추가/편집**을 클릭합니다.
 2. **대역폭 템플릿 추가/편집** 대화 상자에서:
    
    1. **템플릿** 드롭다운 목록에서 **새로 만들기**를 선택하여 새 대역폭 템플릿을 추가합니다.
@@ -64,40 +68,40 @@ Azure 클래식 포털의 StorSimple Manager 서비스 **구성** 페이지를 �
       > 
       > 
    5. **대역폭 속도**를 지정합니다. 클라우드와 관련된 작업(업로드 및 다운로드 모두)에서 StorSimple가 사용하는 초당 메가 비트(Mbps)의 대역폭입니다. 이 필드에 대해 1에서 1,000 사이의 숫자를 제공합니다.
-   6. 확인 아이콘![확인 아이콘](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png)을 클릭합니다. 사용자가 만든 템플릿이 서비스 **구성** 페이지의 대역폭 템플릿 목록에 추가됩니다.
+   6. 확인 아이콘 ![확인 아이콘](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png)을 클릭합니다. 사용자가 만든 템플릿이 서비스 **구성** 페이지의 대역폭 템플릿 목록에 추가됩니다.
       
       ![새 대역폭 템플릿 만들기](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
 4. 페이지의 아래쪽에서 **저장**을 클릭한 다음 확인 메시지가 나타나면 **예**를 클릭합니다. 변경한 구성 변경 내용이 저장됩니다.
 
-## 대역폭 템플릿 편집
+## <a name="edit-a-bandwidth-template"></a>대역폭 템플릿 편집
 대역폭 템플릿을 편집하려면 다음 단계를 수행합니다.
 
-### 대역폭 템플릿을 편집하려면
+### <a name="to-edit-a-bandwidth-template"></a>대역폭 템플릿을 편집하려면
 1. **대역폭 템플릿 추가/편집**을 클릭합니다.
 2. **대역폭 템플릿 추가/편집** 대화 상자에서:
    
    1. **템플릿** 드롭다운 목록에서 수정할 기존 대역폭 템플릿을 선택합니다.
    2. 변경을 완료합니다. (기존 설정을 수정할 수 있습니다.)
-   3. 확인 아이콘![확인 아이콘](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png)을 클릭합니다. 서비스 구성 페이지의 대역폭 템플릿 목록에 수정된 템플릿이 표시됩니다.
-3. 변경 내용을 저장하려면 페이지 아래쪽에서 **저장**을 클릭합니다. 확인하라는 메시지가 표시되면 **예**를 클릭합니다.
+   3. 확인 아이콘 ![확인 아이콘](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png)을 클릭합니다. 서비스 구성 페이지의 대역폭 템플릿 목록에 수정된 템플릿이 표시됩니다.
+3. 변경 내용을 저장하려면 페이지 아래쪽에서 **저장** 을 클릭합니다. 페이지의 아래쪽에서 **예** 를 클릭합니다.
 
 > [!NOTE]
 > 편집한 일정이 수정하려는 대역폭 템플릿의 기존 일정와 겹치는 경우, 변경 내용을 저장할 수 없습니다.
 > 
 > 
 
-## 대역폭 템플릿 삭제
+## <a name="delete-a-bandwidth-template"></a>대역폭 템플릿 삭제
 대역폭 템플릿을 삭제하려면 다음 단계를 수행합니다.
 
-#### 대역폭 템플릿을 삭제하려면
+#### <a name="to-delete-a-bandwidth-template"></a>대역폭 템플릿을 삭제하려면
 1. 서비스에 대한 대역폭 템플릿의 테이블 형식 목록에서 삭제할 템플릿을 선택합니다. 삭제 아이콘(**x**)이 선택한 템플릿의 맨 오른쪽에 표시됩니다. **x** 아이콘을 클릭하여 자격 증명을 삭제합니다.
-2. 확인하라는 메시지가 표시됩니다. **확인**을 클릭하여 계속합니다.
+2. 확인하라는 메시지가 표시됩니다. **확인** 을 클릭하여 계속합니다.
 
 템플릿이 모든 볼륨에서 사용 중인 경우 삭제할 수 없습니다. 템플릿이 사용 중임을 나타내는 오류 메시지가 표시됩니다. 템플릿에 대한 모든 참조를 제거하도록 조언하는 오류 메시지 대화 상자가 표시됩니다.
 
 다른 템플릿을 사용하거나 사용자 지정 또는 무제한 대역폭 설정을 사용하도록 **볼륨 컨테이너** 페이지에 엑세스하고 이 템플릿을 사용하는 볼륨 컨테이너를 수정하여 템플릿에 대한 모든 참조를 삭제할 수 있습니다. 모든 참조를 제거한 경우 템플릿을 삭제할 수 있습니다.
 
-## 기본 대역폭 템플릿 사용
+## <a name="use-a-default-bandwidth-template"></a>기본 대역폭 템플릿 사용
 기본 대역폭 템플릿이 제공되며 기본값으로 볼륨 컨테이너에서 사용되어 클라우드에 액세스할 때 대역폭 제어를 적용합니다. 기본 템플릿은 자신의 템플릿을 만드는 사용자를 위한 준비 참조로도 제공됩니다. 이 기본 템플릿의 내용은 다음과 같습니다.
 
 * **이름** – 무제한 저녁 시간 및 주말
@@ -105,17 +109,17 @@ Azure 클래식 포털의 StorSimple Manager 서비스 **구성** 페이지를 �
 
 기본 템플릿은 편집할 수 있습니다. 이 템플릿의 사용(편집된 버전 포함)을 추적합니다.
 
-## 지정된 시간에 시작되는 하루 종일 대역폭 템플릿 만들기
+## <a name="create-an-all-day-bandwidth-template-that-starts-at-a-specified-time"></a>지정된 시간에 시작되는 하루 종일 대역폭 템플릿 만들기
 지정된 시간에 시작하고 하루 종일 실행되는 일정을 만들려면 이 절차를 따릅니다. 이 예제에서 일정은 아침에 오전 9시에 시작하고 다음 날 오전 9시까지 실행됩니다. 지정된 일정에 대한 시작 시간과 종료 시간 모두 동일한 24시간 일정에 포함 되어야 하며 여러 날에 걸쳐 있을 수 없습니다. 여러 날에 걸쳐 있는 대역폭 템플릿을 설정 해야하는 경우, 여러 일정을 사용해야 합니다(예에서와 같이) .
 
-#### 하루 종일 대역폭 템플릿을 만들려면
+#### <a name="to-create-an-all-day-bandwidth-template"></a>하루 종일 대역폭 템플릿을 만들려면
 1. 아침 오전 9시에 시작되고 자정 때까지 실행되는 일정을 만듭니다.
 2. 다른 일정을 추가합니다. 자정에서부터 오전 9시까지 두 번째 일정을 실행하도록 구성합니다.
 3. 대역폭 템플릿을 저장합니다.
 
 복합 일정은 선택한 시간에 시작되며 하루 종일 실행됩니다.
 
-## 대역폭 템플릿에 대한 질문과 대답
+## <a name="questions-and-answers-about-bandwidth-templates"></a>대역폭 템플릿에 대한 질문과 대답
 **Q**. 일정 사이에 있는 경우 대역폭 제어에 미치는 영향 (하나의 일정이 종료되고 다른 일정이 아직 시작되지 않았습니다.)
 
 **A**. 이러한 경우 적용되는 대역폭 제어는 없습니다. 즉, 데이터를 클라우드로 티어링할 때 장치는 무제한 대역폭을 사용할 수 있습니다.
@@ -144,13 +148,18 @@ Azure 클래식 포털의 StorSimple Manager 서비스 **구성** 페이지를 �
 
 **A**. 3개의 볼륨 컨테이너가 있는 장치가 있다고 가정해 보겠습니다. 이 컨테이너와 연관된 일정이 완전하게 겹칩니다. 각각의 이 컨테이너에 대해, 사용된 대역폭 제한은 5, 10 및 15 Mbps 각각입니다. I/O가 동시에 이 모든 컨테이너에서 발생하면, 최소 3개 대역폭 제한이 적용됩니다. 이 경우, 나가는 I/O 요청으로 5Mbps는 동일한 큐를 공유합니다.
 
-## 대역폭 템플릿에 대한 모범 사례
+## <a name="best-practices-for-bandwidth-templates"></a>대역폭 템플릿에 대한 모범 사례
 StorSimple 장치에 대해 이 모범 사례를 따릅니다.
 
 * 다른 시간에 장치에서 네트워크 처리량을 제한하는 변수를 사용하도록 사용자 장치에 대역폭 템플릿을 구성합니다. 백업 일정을 함께 사용하면 이 대역폭 템플릿은 사용량이 가장 적을 때 클라우드 작업에 대해 효과적으로 추가 네트워크 대역폭을 활용할 수 있습니다.
 * 배포 및 필요한 복구 시간 목표(RTO)의 크기에 따라 특정 배포에 필요한 실제 대역폭을 계산합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

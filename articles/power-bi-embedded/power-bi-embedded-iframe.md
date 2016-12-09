@@ -1,13 +1,13 @@
 ---
-title: REST에서 Power BI Embedded를 사용하는 방법 | Microsoft Docs
-description: 'REST에서 Power BI Embedded를 사용하는 방법 알아보기  '
+title: "REST에서 Power BI Embedded를 사용하는 방법 | Microsoft Docs"
+description: "REST에서 Power BI Embedded를 사용하는 방법 알아보기  "
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 8bcef780-cca0-4f30-9a9b-9daa1a7ae865
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7aadb6ceba1a8c672ed9eeea8651c965e5b665fd
+
 
 ---
 # <a name="how-to-use-power-bi-embedded-with-rest"></a>REST에서 Power BI Embedded를 사용하는 방법
-## <a name="power-bi-embedded:-what-it-is-and-what-it's-for"></a>Power BI Embedded: 정의 및 용도
+## <a name="power-bi-embedded-what-it-is-and-what-its-for"></a>Power BI Embedded: 정의 및 용도
 Power BI Embedded의 개요는 공식적인 [Power BI Embedded 사이트](https://azure.microsoft.com/services/power-bi-embedded/)에 설명되어 있으나 REST에서 사용하는 방법을 자세히 살펴보기 전에 간단히 확인해보겠습니다.
 
 실제로를 상당히 간단합니다. 종종 ISV에서는 자체 응용 프로그램에서 [Power BI](https://powerbi.microsoft.com) 의 동적 데이터 시각화를 UI 구성 요소로 사용하려고 합니다.
@@ -34,7 +38,7 @@ ISV 응용 프로그램은 자체 인증 방법(예: 폼 인증, 기본 인증 �
 
 .NET\(C#) 또는 Node.js SDK를 사용하여 Power BI Embedded로 응용 프로그램을 손쉽게 빌드할 수 있습니다. 그러나 이 문서에서는 SDK 없이 Power BI의 HTTP 흐름\(AuthN 포함)에 대해 설명하려고 합니다. 이 흐름을 이해하면 **프로그래밍 언어를 사용하지 않고** 응용 프로그램을 빌드할 수 있으며 Power BI Embedded의 기본 사항을 깊이 있게 이해할 수 있게 됩니다.
 
-## <a name="create-power-bi-workspace-collection,-and-get-access-key-\(provisioning)"></a>Power BI 작업 영역 컬렉션 만들기 및 선택키 가져오기\(프로비전)
+## <a name="create-power-bi-workspace-collection-and-get-access-key-provisioning"></a>Power BI 작업 영역 컬렉션 만들기 및 선택키 가져오기\(프로비전)
 Power BI Embedded는 Azure 서비스 중 하나입니다. Azure Portal을 사용하는 ISV에게만 사용 요금이 부과되고\(시간당 사용자 세션), 보고서를 보는 사용자에게는 요금이 부과되지 않고 Azure 구독조차 필요하지 않습니다.
 응용 프로그램 개발을 시작하기 전에 Azure 포털을 사용하여 **Power BI 작업 영역 컬렉션** 을 만들어야 합니다.
 
@@ -51,7 +55,7 @@ Power BI Embedded의 각 작업 영역은 각 고객의 작업 영역(테넌트)
 > 
 > 
 
-## <a name="create-.pbix-file-with-power-bi-desktop"></a>Power BI Desktop으로 .pbix 파일 만들기
+## <a name="create-pbix-file-with-power-bi-desktop"></a>Power BI Desktop으로 .pbix 파일 만들기
 다음으로 포함할 데이터 연결 및 보고서를 만들어야 합니다.
 이 작업의 경우 프로그래밍 또는 코드는 없습니다. Power BI Desktop만 사용합니다.
 이 문서에서 Power BI Desktop을 사용하는 자세한 방법을 다루지는 않습니다. 이에 대한 추가 도움말이 필요한 경우 [Power BI Desktop 시작](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)을 참조하세요. 예제에서는 [소매점 분석 샘플](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/)을 사용하게 됩니다.
@@ -86,7 +90,7 @@ RequestId: 4220d385-2fb3-406b-8901-4ebe11a5f6da
 
 반환된 **workspaceId** 는 후속 API 호출에 사용됩니다. 응용 프로그램은 이 값을 유지해야 합니다.
 
-## <a name="import-.pbix-file-into-the-workspace"></a>작업 영역으로 .pbix 파일 가져오기
+## <a name="import-pbix-file-into-the-workspace"></a>작업 영역으로 .pbix 파일 가져오기
 각 작업 영역은 데이터 집합\(데이터 원본 설정 포함) 및 보고서가 있는 단일 Power BI Desktop 파일을 호스트할 수 있습니다. 아래 코드에 표시된 대로 .pbix 파일을 작업 영역으로 가져올 수 있습니다. 여기에서 볼 수 있듯이 http에서 MIME 다중 파트를 사용하여 .pbix 파일의 이진 내용을 업로드할 수 있습니다.
 
 URI 조각 **32960a09-6366-4208-a8bb-9e0678cdbb9d**는 workspaceId이고 쿼리 매개 변수 **datasetDisplayName**은 만들 데이터 집합 이름입니다. 만든 데이터 집합에서 가져온 데이터, 데이터 원본에 대한 포인터 등의 모든 데이터 관련 아티팩트는 .pbix 파일에 포함됩니다.
@@ -170,7 +174,7 @@ RequestId: eb2c5a85-4d7d-4cc2-b0aa-0bafee4b1606
 }
 ```
 
-## <a name="data-source-connectivity-\(and-multi-tenancy-of-data)"></a>데이터 원본 연결\(및 데이터의 다중 테넌트)
+## <a name="data-source-connectivity-and-multi-tenancy-of-data"></a>데이터 원본 연결\(및 데이터의 다중 테넌트)
 .pbix 파일의 거의 모든 아티팩트를 작업 영역으로 가져오지만 데이터 원본에 대한 자격 증명은 가져오지 않습니다. 결과적으로 **DirectQuery 모드**를 사용할 경우 포함된 보고서가 올바르게 표시될 수 없습니다. 하지만 **가져오기 모드**를 사용할 때는 기존에 가져온 데이터를 사용하여 보고서를 볼 수 있습니다. 이 경우 REST 호출을 통해 다음 단계를 사용하여 자격 증명을 설정해야 합니다.
 
 먼저 게이트웨이 데이터 원본을 가져와야 합니다. 데이터 집합 **ID** 는 이전에 반환된 ID입니다.
@@ -249,7 +253,7 @@ Content-Type: application/json; charset=utf-8
 > 
 > 
 
-## <a name="authentication-and-hosting-(embedding)-reports-in-our-web-page"></a>웹 페이지의 인증 및 보고서 호스트(포함)
+## <a name="authentication-and-hosting-embedding-reports-in-our-web-page"></a>웹 페이지의 인증 및 보고서 호스트(포함)
 이전 REST API에서는 선택키 **AppKey** 자체를 권한 부여 헤더로 사용할 수 있습니다. 이러한 호출은 백 엔드 서버 쪽에서 처리될 수 있으므로 안전합니다.
 
 그러나 웹 페이지에 보고서를 포함할 경우 이러한 종류의 보안 정보는 JavaScript를 사용하여 처리됩니다\(프런트 엔드). 그런 다음 권한 부여 헤더 값을 보호해야 합니다. 악의적인 사용자나 악의적인 코드가 선택키를 찾으면 이 키를 사용하여 모든 작업을 호출할 수 있습니다.
@@ -338,7 +342,7 @@ function rfc4648_base64_encode($arg) {
 ?>
 ```
 
-## <a name="finally,-embed-the-report-into-the-web-page"></a>마지막으로 웹 페이지에 보고서를 포함합니다.
+## <a name="finally-embed-the-report-into-the-web-page"></a>마지막으로 웹 페이지에 보고서를 포함합니다.
 보고서를 포함하기 위해 다음 REST API를 사용하여 포함 URL과 보고서 **ID** 를 가져와야 합니다.
 
 **HTTP 요청**
@@ -464,6 +468,9 @@ RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
 ## <a name="see-also"></a>참고 항목
 * [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

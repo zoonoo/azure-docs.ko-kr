@@ -1,29 +1,33 @@
 ---
-title: Azure RemoteApp에서 App-V 앱 사용| Microsoft Docs
-description: Azure RemoteApp에서 App-V 앱 사용 방법 배우기
+title: "Azure RemoteApp에서 App-V 앱 사용|Microsoft 문서"
+description: "Azure RemoteApp에서 App-V 앱 사용 방법 배우기"
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: ericorman
 manager: mbaldwin
-
+ms.assetid: e2292cb2-5c89-4b2b-ab11-74dbacd07c31
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8057e9ce27f9df3e9455d48d9c8196033612c8f3
+
 
 ---
-# Azure RemoteApp에서 App-V 앱 사용
+# <a name="using-app-v-apps-in-azure-remoteapp"></a>Azure RemoteApp에서 App-V 앱 사용
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
 Azure RemoteApp 하이브리드 컬렉션에서 App-V 응용 프로그램을 사용할 수 있으며, 이때 도메인에 가입해야 합니다.
 
-시작하기 전에 최신 업데이트를 통해 App-V 5.1 클라이언트를 설치해야 합니다. App-V 클라이언트가 포함된 [사용자 지정 이미지](remoteapp-create-custom-image.md)를 만들어야 합니다.
+시작하기 전에 최신 업데이트를 통해 App-V 5.1 클라이언트를 설치해야 합니다. App-V 클라이언트가 포함된 [사용자 지정 이미지](remoteapp-create-custom-image.md) 를 만들어야 합니다.  
 
 Azure RemoteApp를 통해 기존 App-V 인프라를 쉽게 사용할 수 있습니다. 하이브리드 컬렉션은 도메인 컨트롤러에 대한 액세스 권한이 있는 Azure VNET에 배포되고 VM이 도메인에 가입되므로, 기존 App-V 인프라 및 배포 방법을 이용하여 Azure RemoteApp에서 App-V 응용 프로그램을 쉽게 호스팅할 수 있습니다. 다음은 현재 가지고 있는 App-V 배포 유형에 따라 알고 있어야 하는 몇 가지 고려사항입니다.
 
@@ -38,4 +42,9 @@ Azure RemoteApp를 통해 기존 App-V 인프라를 쉽게 사용할 수 있습�
 
  사용자 지정 이미지 및 하이브리드 컬렉션을 만든 후 응용 프로그램을 게시하고, 사용자를 할당하고, 어디서나 임의 장치에 배달된 Azure RemoteApp에서 호스팅되는 기존 App-V 응용 프로그램을 즐길 수 있습니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

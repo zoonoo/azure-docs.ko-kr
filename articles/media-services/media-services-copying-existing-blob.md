@@ -1,12 +1,12 @@
 ---
-title: 기존 Blob을 Media Services 자산에 복사 | Microsoft Docs
-description: 이 토픽에서는 기존 Blob을 Media Services 자산에 복사하는 방법을 보여 줍니다.
+title: "기존 Blob을 Media Services 자산에 복사 | Microsoft 문서"
+description: "이 토픽에서는 기존 Blob을 Media Services 자산에 복사하는 방법을 보여 줍니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6a63823f-f3c9-424c-91b8-566f70bec346
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 10/13/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 62e675d3e87e40a09d67eb5d00b58ea8857e9610
+
 
 ---
 # <a name="copying-an-existing-blob-into-a-media-services-asset"></a>기존 Blob을 미디어 서비스 자산에 복사
@@ -317,6 +321,9 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

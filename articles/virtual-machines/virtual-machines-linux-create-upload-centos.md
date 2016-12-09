@@ -1,13 +1,13 @@
 ---
-title: Azure에서 CentOS 기반 Linux VHD 만들기 및 업로드
-description: CentOS 기반 Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다.
+title: "Azure에서 CentOS 기반 Linux VHD 만들기 및 업로드"
+description: "CentOS 기반 Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: szarkos
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 0e518e92-e981-43f4-b12c-9cba1064c4bb
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2016
 ms.author: szarkos
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 6919a8c2147db4f8c86230e336540c8c88c714e1
+
 
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Azure용 CentOS 기반 가상 컴퓨터 준비
@@ -30,12 +34,12 @@ ms.author: szarkos
 
 * Azure용 Linux를 준비하는 방법에 대한 추가 팁은 [일반 Linux 설치 참고 사항](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) 을 참조하세요.
 * VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD**만 지원됩니다.  Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
-* Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다.  원하는 경우에는 데이터 디스크에서 [LVM](virtual-machines-linux-configure-lvm.md) 또는 [RAID](virtual-machines-linux-configure-raid.md)를 사용할 수 있습니다.
+* Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다.  원하는 경우에는 데이터 디스크에서 [LVM](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다.
 * 2.6.37보다 낮은 Linux 커널 버전의 버그 때문에 더 큰 VM 크기에서는 NUMA가 지원되지 않습니다. 이 문제는 주로 업스트림 Red Hat 2.6.32 커널을 사용하는 분산에 영향을 줍니다. Azure Linux 에이전트(waagent)를 수동으로 설치하면 Linux 커널의 GRUB 구성에서 NUMA가 자동으로 사용하지 않도록 설정됩니다. 여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 * OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다.  여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 * 모든 VHD 크기는 1MB의 배수여야 합니다.
 
-## <a name="centos-6.x"></a>CentOS 6.x
+## <a name="centos-6x"></a>CentOS 6.x
 1. Hyper-V 관리자에서 가상 컴퓨터를 선택합니다.
 2. **연결** 을 클릭하여 가상 컴퓨터의 콘솔 창을 엽니다.
 3. 다음 명령을 실행하여 NetworkManager를 제거합니다.
@@ -45,27 +49,20 @@ ms.author: szarkos
     **참고:** 패키지가 아직 설치되어 있지 않은 경우 이 명령이 실패하고 오류 메시지가 표시됩니다. 예상된 동작입니다.
 4. 다음 텍스트가 포함된 **network** in the `/etc/sysconfig/` 디렉터리에 만듭니다.
    
-       NETWORKING=yes
-       HOSTNAME=localhost.localdomain
+     NETWORKING=yes   HOSTNAME=localhost.localdomain
 5. 다음 텍스트가 포함된 **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` 디렉터리에 만듭니다.
    
-       DEVICE=eth0
-       ONBOOT=yes
-       BOOTPROTO=dhcp
-       TYPE=Ethernet
-       USERCTL=no
-       PEERDNS=yes
-       IPV6INIT=no
+     DEVICE=eth0   ONBOOT=yes   BOOTPROTO=dhcp   TYPE=Ethernet   USERCTL=no   PEERDNS=yes   IPV6INIT=no
 6. 이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 컴퓨터를 복제하는 경우 문제를 발생시킬 수 있습니다.
    
-       # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-       # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+   # <a name="sudo-ln--s-devnull-etcudevrulesd75-persistent-net-generatorrules"></a>sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+   # <a name="sudo-rm--f-etcudevrulesd70-persistent-netrules"></a>sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 7. 다음 명령을 실행하여 부팅 시 네트워크 서비스가 시작되도록 합니다.
    
         # sudo chkconfig network on
 8. **CentOS 6.3에만 해당**: LIS(Linux 통합 서비스) 드라이버 설치
    
-    **중요: 이 단계는 CentOS 6.3 이하 버전에만 적용됩니다.**  CentOS 6을 참조하십시오.4 이상 버전에서는 Linux 통합 서비스가 *커널에서 이미 제공됩니다*을 참조하십시오.
+    **중요: 이 단계는 CentOS 6.3 이하 버전에만 적용됩니다.**  CentOS 6을 참조하십시오.4 이상 버전에서는 Linux 통합 서비스가 커널에서 이미 제공됩니다을 참조하십시오.
    
    * [LIS 다운로드 페이지](https://www.microsoft.com/en-us/download/details.aspx?id=46842) 의 설치 지침에 따르고 이미지에 RPM을 설치합니다.  
 9. 다음 명령을 실행하여 python-pyasn1 패키지를 설치합니다.
@@ -118,29 +115,29 @@ ms.author: szarkos
     **참고:** 이 가이드의 나머지 부분에서는 최소한 [openlogic] 리포지토리를 사용한다고 가정합니다. 아래 단계에서는 이 리포지토리를 사용하여 Azure Linux 에이전트를 설치합니다.
 11. /etc/yum.conf에 다음 줄을 추가합니다.
     
-        http_caching=packages
+     http_caching=packages
     
     **CentOS 6.3에 한해** 다음 줄을 추가합니다.
     
-        exclude=kernel*
+     exclude=kernel*
 12. "/etc/yum/pluginconf.d/fastestmirror.conf" 파일을 편집하여 yum 모듈 "fastestmirror"를 사용하지 않도록 설정하고 `[main]`아래에 다음을 입력합니다.
     
         set enabled=0
 13. 다음 명령을 실행하여 현재 yum 메타데이터를 지웁니다.
     
-        # yum clean all
+    # <a name="yum-clean-all"></a>yum clean all
 14. **CentOS 6.3에 한해**다음 명령을 사용하여 커널을 업데이트합니다.
     
         # sudo yum --disableexcludes=all install kernel
 15. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 "/boot/grub/menu.lst"를 텍스트 편집기에서 열고 다음 매개 변수가 기본 커널에 포함되어 있는지 확인합니다.
     
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
+     console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
     
     이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 또한 CentOS 6에서 사용하는 커널 버전의 버그로 인해 NUMA가 사용하지 않도록 설정됩니다.
     
     위의 작업을 수행하는 동시에 다음 매개 변수도 *제거* 하는 것이 좋습니다.
     
-        rhgb quiet crashkernel=auto
+     rhgb quiet crashkernel=auto
     
     모든 로그를 직렬 포트로 보내려는 클라우드 환경에서는 그래픽 및 자동 부팅 기능이 효율적이지 않습니다.
     
@@ -155,20 +152,16 @@ ms.author: szarkos
     
     Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
     
-        ResourceDisk.Format=y
-        ResourceDisk.Filesystem=ext4
-        ResourceDisk.MountPoint=/mnt/resource
-        ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+     ResourceDisk.Format=y  ResourceDisk.Filesystem=ext4  ResourceDisk.MountPoint=/mnt/resource  ResourceDisk.EnableSwap=y  ResourceDisk.SwapSizeMB=2048    ## 참고: 이것을 필요한 대로 설정합니다.
 19. 다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
     
-        # sudo waagent -force -deprovision
-        # export HISTSIZE=0
-        # logout
+    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent -force -deprovision
+    # <a name="export-histsize0"></a>export HISTSIZE=0
+    # <a name="logout"></a>logout
 20. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 - - -
-## <a name="centos-7.0+"></a>CentOS 7.0 이상
+## <a name="centos-70"></a>CentOS 7.0 이상
 **CentOS 7 및 유사한 파생 버전의 변경 내용**
 
 Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 매우 비슷하지만 다음과 같은 몇 가지 중요한 차이점이 있습니다.
@@ -183,20 +176,13 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 2. **연결** 을 클릭하여 가상 컴퓨터의 콘솔 창을 엽니다.
 3. 다음 텍스트가 포함된 **network** in the `/etc/sysconfig/` 디렉터리에 만듭니다.
    
-       NETWORKING=yes
-       HOSTNAME=localhost.localdomain
+     NETWORKING=yes   HOSTNAME=localhost.localdomain
 4. 다음 텍스트가 포함된 **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` 디렉터리에 만듭니다.
    
-       DEVICE=eth0
-       ONBOOT=yes
-       BOOTPROTO=dhcp
-       TYPE=Ethernet
-       USERCTL=no
-       PEERDNS=yes
-       IPV6INIT=no
+     DEVICE=eth0   ONBOOT=yes   BOOTPROTO=dhcp   TYPE=Ethernet   USERCTL=no   PEERDNS=yes   IPV6INIT=no
 5. 이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 컴퓨터를 복제하는 경우 문제를 발생시킬 수 있습니다.
    
-       # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+   # <a name="sudo-ln--s-devnull-etcudevrulesd75-persistent-net-generatorrules"></a>sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 6. 다음 명령을 실행하여 부팅 시 네트워크 서비스가 시작되도록 합니다.
    
         # sudo chkconfig network on
@@ -251,15 +237,15 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 
 1. 다음 명령을 실행하여 현재 yum 메타데이터를 지우고 모든 업데이트를 설치합니다.
    
-       # sudo yum clean all
-       # sudo yum -y update
+   # <a name="sudo-yum-clean-all"></a>sudo yum clean all
+   # <a name="sudo-yum--y-update"></a>sudo yum -y update
 2. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 하려면 텍스트 편집기에서 "/etc/default/grub"를 열고 `GRUB_CMDLINE_LINUX` 매개 변수를 편집합니다. 예를 들면 다음과 같습니다.
    
-       GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+    GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
    이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. NIC에 대한 새 CentOS 7 명명 규칙도 해제합니다. 위의 작업을 수행하는 동시에 다음 매개 변수도 *제거* 하는 것이 좋습니다.
    
-       rhgb quiet crashkernel=auto
+    rhgb quiet crashkernel=auto
    
    모든 로그를 직렬 포트로 보내려는 클라우드 환경에서는 그래픽 및 자동 부팅 기능이 효율적이지 않습니다.
    
@@ -272,11 +258,11 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
    
    `/etc/dracut.conf`를 편집하고 콘텐츠를 추가합니다.
    
-       add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+    add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
    
    initramfs를 다시 빌드합니다.
    
-       # dracut –f -v
+   # <a name="dracut-f--v"></a>dracut –f -v
 6. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
    
        # sudo yum install WALinuxAgent
@@ -285,21 +271,20 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
    
    Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
    
-       ResourceDisk.Format=y
-       ResourceDisk.Filesystem=ext4
-       ResourceDisk.MountPoint=/mnt/resource
-       ResourceDisk.EnableSwap=y
-       ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+    ResourceDisk.Format=y  ResourceDisk.Filesystem=ext4  ResourceDisk.MountPoint=/mnt/resource  ResourceDisk.EnableSwap=y  ResourceDisk.SwapSizeMB=2048    ## 참고: 이것을 필요한 대로 설정합니다.
 8. 다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
    
-       # sudo waagent -force -deprovision
-       # export HISTSIZE=0
-       # logout
+   # <a name="sudo-waagent--force--deprovision"></a>sudo waagent -force -deprovision
+   # <a name="export-histsize0"></a>export HISTSIZE=0
+   # <a name="logout"></a>logout
 9. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 CentOS Linux 가상 하드 디스크를 사용하여 Azure에서 새 가상 컴퓨터를 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음으로 업로드하는 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-classic-create-upload-vhd.md)에서 2단계 및 3단계를 참조하세요.
+이제 CentOS Linux 가상 하드 디스크를 사용하여 Azure에서 새 가상 컴퓨터를 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음으로 업로드하는 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)에서 2단계 및 3단계를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

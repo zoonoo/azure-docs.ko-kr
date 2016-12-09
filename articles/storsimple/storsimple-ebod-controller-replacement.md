@@ -1,12 +1,12 @@
 ---
-title: StorSimple EBOD 컨트롤러 교체 | Microsoft Docs
-description: StorSimple 8600 장치에서 하나 또는 두 개의 EBOD 컨트롤러를 모두 꺼내고 교체하는 방법을 설명합니다.
+title: "StorSimple EBOD 컨트롤러 교체 | Microsoft Docs"
+description: "StorSimple 8600 장치에서 하나 또는 두 개의 EBOD 컨트롤러를 모두 꺼내고 교체하는 방법을 설명합니다."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 8cbfa507-1a56-4e24-99dd-7db9abd3b850
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 23d819ddc3bbcbaf2847cdcc9191407ead0ff43d
+
 
 ---
-# StorSimple 장치의 EBOD 컨트롤러 교체
-## 개요
+# <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>StorSimple 장치의 EBOD 컨트롤러 교체
+## <a name="overview"></a>개요
 이 자습서에서는 Microsoft Azure StorSimple 장치에서 결함이 있는 EBOD 컨트롤러 모듈을 교체하는 방법을 설명합니다. EBOD 컨트롤러 모듈을 교체하려면 다음을 수행해야 합니다.
 
 * 결함이 있는 EBOD 컨트롤러 꺼내기
@@ -29,22 +33,22 @@ ms.author: alkohli
 * EBOD 컨트롤러는 핫 스왑이 가능하며 꺼내거나 교체할 수 있습니다. 교체가 있을 때까지 오류가 발생한 모듈을 꺼내지 마세요. 교체 프로세스를 시작하는 경우 10분 내에 완료해야 합니다.
 
 > [!IMPORTANT]
-> StorSimple 구성 요소를 꺼내거나 교체하기 전에 [안전성 아이콘 표시 규칙](storsimple-safety.md#safety-icon-conventions) 및 기타 [안전 주의 사항](storsimple-safety.md)을 검토해야 합니다.
+> StorSimple 구성 요소를 제거하거나 교체하기 전에 [안전성 아이콘 표시 규칙](storsimple-safety.md#safety-icon-conventions) 및 기타 [안전 주의 사항](storsimple-safety.md)을 검토해야 합니다.
 > 
 > 
 
-## EBOD 컨트롤러 꺼내기
+## <a name="remove-an-ebod-controller"></a>EBOD 컨트롤러 꺼내기
 StorSimple 장치에서 오류가 발생한 EBOD 컨트롤러 모듈을 교체하기 전에 다른 EBOD 컨트롤러 모듈이 활성화되어 실행되고 있는지 확인합니다. 다음 절차와 표에서는 EBOD 컨트롤러 모듈을 꺼내는 방법을 설명합니다.
 
-#### EBOD 모듈을 꺼내려면
+#### <a name="to-remove-an-ebod-module"></a>EBOD 모듈을 꺼내려면
 1. Azure 클래식 포털을 엽니다.
 2. **장치** > **유지 관리** > **하드웨어 상태**로 이동한 다음 활성 EBOD 컨트롤러 모듈의 LED 상태가 녹색이고 오류가 발생한 EBOD 컨트롤러 모듈의 LED가 빨간색인지 확인합니다.
 3. 장치 뒷면에서 오류가 발생한 EBOD 컨트롤러 모듈을 찾습니다.
 4. 시스템에서 EBOD 모듈을 꺼내기 전에 EBOD 컨트롤러 모듈을 컨트롤러에 연결하는 케이블을 뺍니다.
-5. 컨트롤러에 연결된 EBOD 컨트롤러 모듈의 SAS 포트를 정확하게 적어둡니다. EBOD 모듈을 교체한 후 시스템을 이 구성으로 복원해야 합니다.
+5. 컨트롤러에 연결된 EBOD 컨트롤러 모듈의 SAS 포트를 정확하게 적어둡니다. EBOD 모듈을 교체한 후 시스템을 이 구성으로 복원해야 합니다. 
    
    > [!NOTE]
-   > 일반적으로 포트 A이며, 다음 다이어그램에서는 **호스트 인**으로 레이블이 붙어 있습니다.
+   > 일반적으로 포트 A이며, 다음 다이어그램에서는 **호스트 인** 으로 레이블이 붙어 있습니다.
    > 
    > 
    
@@ -63,10 +67,10 @@ StorSimple 장치에서 오류가 발생한 EBOD 컨트롤러 모듈을 교체�
    | 7 |포트 B(호스트 아웃) |
    | 8 |포트 C(팩터리 전용) |
 
-## 새 EBOD 컨트롤러 설치
+## <a name="install-a-new-ebod-controller"></a>새 EBOD 컨트롤러 설치
 다음 절차와 표에서는 StorSimple 장치에 EBOD 컨트롤러 모듈을 설치하는 방법을 설명합니다.
 
-#### EBOD 컨트롤러를 설치하려면
+#### <a name="to-install-an-ebod-controller"></a>EBOD 컨트롤러를 설치하려면
 1. EBOD 장치에서 특히 인터페이스 커넥터에 손상된 부분이 있는지 확인합니다. 핀이 구부러진 경우 새 EBOD 컨트롤러를 설치하지 마세요.
 2. 래치를 열린 위치에 놓고 래치가 걸릴 때까지 모듈을 엔클로저에 밀어넣습니다.
    
@@ -96,7 +100,12 @@ StorSimple 장치에서 오류가 발생한 EBOD 컨트롤러 모듈을 교체�
    | 8 |EBOD 인클로저 |
    | 9 |전력 분배 장치 |
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

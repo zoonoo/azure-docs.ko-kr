@@ -1,12 +1,12 @@
 ---
-title: StorSimple 관리자 장치 대시보드 사용 | Microsoft Docs
-description: StorSimple 관리자 서비스 장치 대시보드 및 이를 사용하여 저장소 메트릭 및 연결된 초기자를 보고 일련 번호 및 IQN을 찾는 방법을 설명합니다.
+title: "StorSimple Manager 장치 대시보드 사용 | Microsoft Docs"
+description: "StorSimple 관리자 서비스 장치 대시보드 및 이를 사용하여 저장소 메트릭 및 연결된 초기자를 보고 일련 번호 및 IQN을 찾는 방법을 설명합니다."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 6c213969-a385-461f-b698-78ef5b8a79cc
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 29a9477c740acca2bd0e220c554fda9a6f515998
+
 
 ---
-# StorSimple 관리자 장치 대시보드 사용
-## 개요
-StorSimple 관리자 장치 대시보드는 Microsoft Azure StorSimple 솔루션에 포함된 모든 장치에 대한 정보를 제공하는 서비스 대시보드에 대한 특정 StorSimple 장치에 대한 정보 개요를 제공합니다.
+# <a name="use-the-storsimple-manager-device-dashboard"></a>StorSimple 관리자 장치 대시보드 사용
+## <a name="overview"></a>개요
+StorSimple Manager 장치 대시보드는 Microsoft Azure StorSimple 솔루션에 포함된 모든 장치에 대한 정보를 제공하는 서비스 대시보드에 대한 특정 StorSimple 장치에 대한 정보 개요를 제공합니다.
 
 ![장치 대시보드 페이지](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
 
@@ -47,7 +51,7 @@ StorSimple 관리자 장치 대시보드는 Microsoft Azure StorSimple 솔루션
 * 장치 일련 번호 찾기
 * 장치 대상 IQN 찾기
 
-## 연결된 초기자 보기
+## <a name="view-connected-initiators"></a>연결된 시작자 보기
 장치 대시보드의 **간략 보기** 영역에 있는 **연결된 초기자 보기** 링크를 클릭하여 장치에 연결된 iSCSI 초기자를 볼 수 있습니다. 이 페이지에서는 장치에 성공적으로 연결된 초기자 목록을 표 형식으로 제공합니다. 각 초기자에 대해 다음을 확인할 수 있습니다.
 
 * 연결된 초기자의 IQN(정규화된 iSCSI 이름)입니다.
@@ -58,24 +62,29 @@ StorSimple 관리자 장치 대시보드는 Microsoft Azure StorSimple 솔루션
 
 이 목록에서 예상치 못한 초기자가 보이는 경우 또는 예상한 초기자가 보이지 않는 경우, ACR 구성을 확인합니다. 최대 512개의 초기자를 장치에 연결할 수 있습니다.
 
-## 장치 일련 번호 찾기
+## <a name="find-the-device-serial-number"></a>장치 일련 번호 찾기
 장치에서 Microsoft MPIO(다중 경로 I/O)를 구성할 때 장치 일련 번호가 필요할 수 있습니다. 장치 일련 번호를 찾으려면 다음 단계를 수행합니다.
 
-#### 장치 일련 번호 찾는 방법
+#### <a name="to-find-the-device-serial-number"></a>장치 일련 번호 찾는 방법
 1. **장치** > **대시보드**로 이동합니다.
 2. 대시보드의 오른쪽 창에서 **간략 상태** 영역을 찾습니다.
 3. 아래로 스크롤하여 일련 번호를 찾습니다.
 
-## 장치 대상 IQN 찾기
+## <a name="find-the-device-target-iqn"></a>장치 대상 IQN 찾기
 StorSimple 장치에는 CHAP(Challenge Handshake 인증 프로토콜)를 구성할 때 장치 대상 IQN이 필요할 수 있습니다. 장치 대상 IQN을 찾으려면 다음 단계를 수행합니다.
 
-### 장치 대상 IQN 찾는 방법
+### <a name="to-find-the-device-target-iqn"></a>장치 대상 IQN 찾는 방법
 1. **장치** > **대시보드**로 이동합니다.
 2. 대시보드의 오른쪽 창에서 **간략 상태** 영역을 찾습니다.
 3. 아래로 스크롤하여 대상 IQN을 찾습니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [StorSimple Manager 서비스 대시보드](storsimple-service-dashboard.md)에 대해 자세히 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

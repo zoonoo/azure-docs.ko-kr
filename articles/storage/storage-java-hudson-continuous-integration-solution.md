@@ -1,12 +1,12 @@
 ---
-title: Blob 저장소와 함께 Hudson을 사용하는 방법 | Microsoft Docs
-description: 아티팩트 빌드용 리포지토리로 Azure Blob 저장소와 함께 Hudson을 사용하는 방법에 대해 설명합니다.
+title: "Blob 저장소와 함께 Hudson을 사용하는 방법 | Microsoft Docs"
+description: "아티팩트 빌드용 리포지토리로 Azure Blob 저장소와 함께 Hudson을 사용하는 방법에 대해 설명합니다."
 services: storage
 documentationcenter: java
 author: dineshmurthy
 manager: jahogg
 editor: tysonn
-
+ms.assetid: 119becdd-72c4-4ade-a439-070233c1e1ac
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: dinesh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 37ad86ce34d7f9ed6642e6f0fa98cf5fbf26e8bc
+
 
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Hudson Continuous Integration 솔루션과 함께 Azure 저장소 사용
@@ -46,6 +50,7 @@ Hudson CI 솔루션으로 Blob 서비스를 사용하려면 다음이 있어야 
   2. Hudson WAR이 포함된 폴더로 열리는 명령 프롬프트에서 Hudson WAR을 실행합니다. 예를 들어 버전 3.1.2를 다운로드한 경우는 다음과 같습니다.
      
       `java -jar hudson-3.1.2.war`
+
   3. 브라우저에서 `http://localhost:8080/`을(를) 엽니다. 그러면 Hudson 대시보드가 열립니다.
   4. Hudson을 처음 사용할 때 `http://localhost:8080/`에서 초기 설정을 완료합니다.
   5. 초기 설정을 완료한 후 실행 중인 Hudson WAR의 인스턴스를 취소하고 Hudson WAR을 다시 시작한 다음 Azure Storage 플러그인을 설치 및 구성하는 데 사용할 Hudson 대시보드(`http://localhost:8080/`)를 다시 엽니다.
@@ -91,12 +96,15 @@ Hudson으로 Blob 서비스를 사용하려면 Azure 저장소 플러그 인을 
 2. 작업에 **MyJob**이라고 이름을 지정하고 **자유롭게 소프트웨어 작업 빌드**를 클릭한 후 **확인**을 클릭합니다.
 3. 작업 구성의 **빌드** 섹션에서 **빌드 추가 단계**를 추가하고 **Windows batch 명령 실행**을 선택합니다.
 4. **Command**에서 다음 명령을 사용합니다.
-   
+
+    ```   
         md text
         cd text
         echo Hello Azure Storage from Hudson > hello.txt
         date /t > date.txt
         time /t >> date.txt
+    ```
+
 5. 작업 구성의 **빌드 후 작업** 섹션에서 **Microsoft Azure Blob Storage에 아티팩트 업로드**를 클릭합니다.
 6. **Storage Account Name**에서는 사용할 저장소 계정을 선택합니다.
 7. **컨테이너 이름**에서 컨테이너 이름을 지정합니다. (컨테이너는 빌드 아티팩트가 업로드될 때 없으면 만들어집니다.) 환경 변수를 사용할 수 있으며, 이 예제에서는 컨테이너 이름으로 **${JOB_NAME}**를 입력합니다.
@@ -162,6 +170,7 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 
 자세한 내용은 [Java개발자 센터](https://azure.microsoft.com/develop/java/)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

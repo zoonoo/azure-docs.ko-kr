@@ -1,20 +1,24 @@
 ---
-title: Linux의 보증 배포판 | Microsoft Docs
-description: Ubuntu, OpenLogic, Oracle 및 SUSE 관련 지침을 포함하여 Azure에서 Linux의 인증 배포를 수행하는 방법에 대해 알아봅니다.
+title: "Linux의 보증 배포판 | Microsoft Docs"
+description: "Ubuntu, OpenLogic, Oracle 및 SUSE 관련 지침을 포함하여 Azure에서 Linux의 인증 배포를 수행하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: szarkos
 manager: timlt
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 10/17/2016
 ms.author: szark
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: eaca6a05cdbc1dc5b9a62d8f60da689d06f315cc
+
 
 ---
 # <a name="linux-on-azure-endorsed-distributions"></a>Azure 인증 배포의 Linux
@@ -23,11 +27,11 @@ ms.author: szark
 > 
 > 
 
-Azure 갤러리 또는 마켓플레이스의 Linux 이미지는 다양한 파트너에서 제공되며, 여러 Linux 커뮤니티와의 작업을 통해 좀 더 다양한 인증 배포 목록을 추가합니다. 그러는 동안 이 갤러리에서 사용할 수 없는 배포의 경우, [이 페이지](virtual-machines-linux-classic-create-upload-vhd.md)의 지침에 따라 자신만의 Linux를 언제든지 가져올 수 있습니다.
+Azure 갤러리 또는 마켓플레이스의 Linux 이미지는 다양한 파트너에서 제공되며, 여러 Linux 커뮤니티와의 작업을 통해 좀 더 다양한 인증 배포 목록을 추가합니다. 그러는 동안 이 갤러리에서 사용할 수 없는 배포의 경우, [이 페이지](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)의 지침에 따라 자신만의 Linux를 언제든지 가져올 수 있습니다.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="supported-distributions-&-versions"></a>지원 되는 배포판 및 버전
+## <a name="supported-distributions-versions"></a>지원 되는 배포판 및 버전
 다음 표에서 Linux 배포판 및 Azure에서 지원 되는 버전을 나열합니다. 자세한 내용을 확인하려면 [Microsoft Azure의 Linux 이미지 지원](https://support.microsoft.com/en-us/kb/2941892)도 참조하세요.
 
 Hyper-V 및 Azure용 LIS(Linux 통합 서비스) 드라이버는 Microsoft가 업스트림 Linux 커널로 직접 제공되는 커널 모듈입니다.  LIS 드라이버는 기본적으로 분포의 커널로 빌드되거나 이전 RHEL/CentOS 기반 분포는 [여기](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)에서 별도의 다운로드로 사용 가능합니다.  LIS 드라이버에 대한 자세한 내용은 [이 문서](virtual-machines-linux-create-upload-generic.md#linux-kernel-requirements) 를 참조하세요.
@@ -41,9 +45,9 @@ Azure Linux 에이전트는 Azure 갤러리 이미지에 사전에 이미 설치
 | Debian |Debian 7.9 이상, 8.2 이상 |커널에 있음 |패키지: "waagent"에서 리포지토리의  <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4 이상, 7.0 이상 |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음  <br/>소스 코드: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6.7+, 7.1+ |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음  <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| SUSE Linux Enterprise |SLES 11 SP4, SLES 12 이상 및 SAP 11.3 이상용  <p>  SLES |커널에 있음 |패키지: "python-azure-agent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음 <br/>소스 코드: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| SUSE Linux Enterprise |SLES 11 SP4, SLES 12 SP1+ 및 <p> SLES for SAP 11 SP3+ |커널에 있음 |패키지: "python-azure-agent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음 <br/>소스 코드: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |openSUSE 13.2+ |커널에 있음 |패키지: "python-azure-agent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu |Ubuntu 12.04, 14.04 및 16.04 |커널에 있음 |패키지: "python-azure-agent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04, 14.04, 16.04, 16.10 |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음  <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## <a name="partners"></a>파트너
 ### <a name="openlogic"></a>OpenLogic
@@ -85,6 +89,9 @@ Canonical 엔지니어링과 개방형 커뮤니티 관리로 인해 고객에 �
 
 Canonical은 전 세계의 개발자 및 엔지니어링 센터와 함께 PC에서 서버 및 핸드헬드 장치에 이르는 업계에 Ubuntu 솔루션을 제공하기 위해 하드웨어 제조업체, 콘텐츠 공급자 및 소프트웨어 개발자와 유일하게 파트너 입장에 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

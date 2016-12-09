@@ -1,12 +1,12 @@
 ---
-title: 다중 테넌트 웹 응용 프로그램 패턴 | Microsoft Docs
-description: Azure에서 다중 테넌트 웹 응용 프로그램을 구현하는 방법에 대해 설명하는 아키텍처 개요 및 디자인 패턴을 찾습니다.
-services: ''
+title: "다중 테넌트 웹 응용 프로그램 패턴 | Microsoft 문서"
+description: "Azure에서 다중 테넌트 웹 응용 프로그램을 구현하는 방법에 대해 설명하는 아키텍처 개요 및 디자인 패턴을 찾습니다."
+services: 
 documentationcenter: .net
 author: wadepickett
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 4f0281d2-1555-42b0-a99d-1222fade0b0f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c1614eeac922a4fc496be77b4d1d1588f28b4284
+
 
 ---
-# Azure의 다중 테넌트 응용 프로그램
+# <a name="multitenant-applications-in-azure"></a>Azure의 다중 테넌트 응용 프로그램
 다중 테넌트 응용 프로그램은 개별 사용자, 즉 "테넌트"가 자신의 고유 항목처럼 응용 프로그램을 볼 수 있게 하는 공유 리소스입니다. 다중 테넌트 응용 프로그램이 적합한 일반적인 시나리오는 모든 응용 프로그램 사용자가 사용자 환경을 사용자 지정하려고 하지만 기본적인 비즈니스 요구 사항을 동일하게 준수해야 하는 상황입니다. 대규모 다중 테넌트 응용 프로그램의 예로는 Office 365, Outlook.com 및 visualstudio.com이 있습니다.
 
 응용 프로그램 공급자의 관점에서 다중 테넌트 지원의 이점은 주로 운영 및 비용 효율성과 관련이 있습니다. 모니터링, 성능 조정, 소프트웨어 유지 관리, 데이터 백업과 같은 시스템 관리 작업을 통합할 수 있어, 한 버전의 응용 프로그램으로 다수의 테넌트/고객의 요구 사항을 충족할 수 있습니다.
 
 다음은 공급자의 관점에서 볼 때 가장 중요한 목표와 요구 사항의 목록입니다.
 
-* **프로비전**: 응용 프로그램의 새 테넌트를 프로비전할 수 있어야 합니다. 테넌트가 많은 다중 테넌트 응용 프로그램의 경우 셀프 서비스 프로비전을 사용하여 이 프로세스를 자동화해야 하는 경우가 많습니다.
+* **프로비전**: 응용 프로그램의 새 테넌트를 프로비전할 수 있어야 합니다.  테넌트가 많은 다중 테넌트 응용 프로그램의 경우 셀프 서비스 프로비전을 사용하여 이 프로세스를 자동화해야 하는 경우가 많습니다.
 * **유지 관리**: 응용 프로그램을 업그레이드하고 다중 테넌트에서 응용 프로그램을 사용하는 동안 다른 유지 관리 작업을 수행할 수 있어야 합니다.
 * **모니터링**: 문제를 식별하고 해결할 수 있도록 항상 응용 프로그램을 모니터링할 수 있어야 합니다. 각 테넌트가 응용 프로그램을 사용하는 방식도 모니터링합니다.
 
@@ -37,7 +41,7 @@ ms.author: wpickett
 
 다시 말해서, 확장성이 뛰어난 서비스를 제공하기 위해 고려해야 할 점이 많이 있지만 다수의 다중 테넌트 응용 프로그램에 공통적인 목표와 요구 사항도 많습니다. 일부는 특정 시나리오에서 적절하지 않을 수 있으며, 개별 목표와 요구 사항의 중요성은 시나리오별로 다릅니다. 다중 테넌트 응용 프로그램 공급자에게는 테넌트의 목표와 요구 사항 충족, 수익성, 청구, 여러 서비스 수준, 프로비전, 유지 관리 모니터링, 자동화와 같은 목표와 요구 사항도 있습니다.
 
-다중 테넌트 응용 프로그램 설계와 관련된 추가 고려 사항에 대한 자세한 내용은 [Azure에서 다중 테넌트 응용 프로그램 호스트][Azure에서 다중 테넌트 응용 프로그램 호스트] \(영문)를 참조하십시오. 다중 테넌트 SaaS(software-as-a-service) 데이터베이스 응용 프로그램의 일반적인 데이터 아키텍처 패턴에 대한 정보는 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
+다중 테넌트 응용 프로그램 설계와 관련된 추가 고려 사항에 대한 자세한 내용은 [Azure에서 다중 테넌트 응용 프로그램 호스팅][Azure에서 다중 테넌트 응용 프로그램 호스팅](영문)를 참조하세요. 다중 테넌트 SaaS(software-as-a-service) 데이터베이스 응용 프로그램의 일반적인 데이터 아키텍처 패턴에 대한 정보는 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램의 설계 패턴](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요. 
 
 Azure에는 다중 테넌트 시스템을 설계할 때 발생하는 주요 문제를 해결할 수 있는 많은 기능이 있습니다.
 
@@ -86,7 +90,11 @@ Azure에는 응용 프로그램의 새 테넌트를 프로비전하는 방법이
 
 <!--links-->
 
-[Azure에서 다중 테넌트 응용 프로그램 호스트]: http://msdn.microsoft.com/library/hh534480.aspx
-[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
+[Azure에서 다중 테넌트 응용 프로그램 호스팅]: http://msdn.microsoft.com/library/hh534480.aspx
+[Azure에서 다중 테넌트 응용 프로그램 설계]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

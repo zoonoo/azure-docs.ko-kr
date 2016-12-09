@@ -1,12 +1,12 @@
 ---
-title: Azure 미디어 분석으로 동작 검색 | Microsoft Docs
-description: Azure 미디어 동작 탐지기 MP(미디어 프로세서)를 사용하여 길고 특별하지 않은 동영상 중에서 원하는 섹션을 효율적으로 식별합니다.
+title: "Azure 미디어 분석으로 동작 검색 | Microsoft 문서"
+description: "Azure 미디어 동작 탐지기 MP(미디어 프로세서)를 사용하여 길고 특별하지 않은 동영상 중에서 원하는 섹션을 효율적으로 식별합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: d144f813-1a55-442f-a895-5c4cb6d0aeae
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b92e9290396009e59bfadb2eb3f75cf4952a45d
+
 
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Azure 미디어 검색으로 동작 검색
@@ -29,7 +33,7 @@ ms.author: milanga;juliako;
 ## <a name="motion-detector-input-files"></a>동작 검색기 입력 파일
 동영상 파일입니다. 현재 MP4, MOV 및 WMV 형식이 지원됩니다.
 
-## <a name="task-configuration-(preset)"></a>작업 구성(기본 설정)
+## <a name="task-configuration-preset"></a>작업 구성(기본 설정)
 **Azure 미디어 동작 탐지기**로 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다. 
 
 ### <a name="parameters"></a>매개 변수
@@ -78,7 +82,7 @@ ms.author: milanga;juliako;
 
 동작 탐지기 API는 고정된 배경의 동영상에 움직이는 개체가 있는 경우 표시기를 제공합니다. 동작 탐지기는 조명 및 그림자 변화와 같은 가양성을 줄이기 위해 학습됩니다. 현재 알고리즘의 한계로 야간 투시 동영상, 반투명 개체 및 작은 개체가 있습니다.
 
-### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>출력 JSON 파일의 요소
+### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>출력 JSON 파일의 요소
 > [!NOTE]
 > 최신 릴리스에서는 출력 JSON 형식이 변경되었으며 일부 고객에게는 큰 변화로 나타날 수 있습니다.
 > 
@@ -365,6 +369,9 @@ ms.author: milanga;juliako;
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

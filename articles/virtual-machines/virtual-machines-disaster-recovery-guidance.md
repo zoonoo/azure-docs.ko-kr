@@ -1,12 +1,12 @@
 ---
-title: Azure 가상 컴퓨터에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업 | Microsoft Docs
-description: Azure 가상 컴퓨터에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업을 알아본다.
+title: "Azure 가상 컴퓨터에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업 | Microsoft Docs"
+description: "Azure 가상 컴퓨터에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업을 알아본다."
 services: virtual-machines
-documentationcenter: ''
+documentationcenter: 
 author: kmouss
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 65272148-ff06-4bce-91f1-851d706d4d40
 ms.service: virtual-machines
 ms.workload: virtual-machines
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: kmouss;aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e1c0a6c0b375d9f1fbc331736f6bed73c2232048
+
 
 ---
-# Azure 가상 컴퓨터에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업
+# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-virtual-machines"></a>Azure 가상 컴퓨터에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업
 Microsoft에서는 서비스가 필요할 때 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 다만 경우에 따라 계획되지 않은 서비스 중단이 발생하여 강제적으로 제어 영향을 벗어날 때가 있습니다.
 
 Microsoft는 작동 시간 및 연결에 대한 약정으로 해당 서비스에 대한 서비스 수준 약정(SLA)을 제공합니다. 개별 Azure 서비스에 대한 SLA는 [Azure 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)에서 찾을 수 있습니다.
@@ -32,7 +36,7 @@ Azure에는 항상 사용 가능한 응용 프로그램을 지원하는 많은 �
 
 이러한 드문 경우를 처리할 수 있도록 Azure 가상 컴퓨터 응용 프로그램이 배포되는 전체 영역의 서비스가 중단될 경우에 대비해서 Azure 가상 컴퓨터에 대한 다음 지침을 제공합니다.
 
-## 옵션 1: 복구 대기
+## <a name="option-1-wait-for-recovery"></a>옵션 1: 복구 대기
 이 경우에 사용자의 조치가 필요하지 않습니다. 서비스 가용성을 복원하기 위해 열심히 노력 중입니다. 서비스의 현재 상태를 [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)에서 확인할 수 있습니다.
 
 > [!NOTE]
@@ -40,21 +44,21 @@ Azure에는 항상 사용 가능한 응용 프로그램을 지원하는 많은 �
 > 
 > 
 
-가상 컴퓨터에 대한 즉각적인 액세스를 원하는 고객의 경우 다음 두 가지 옵션을 사용할 수 있습니다.
+가상 컴퓨터에 대한 즉각적인 액세스를 원하는 고객의 경우 다음 두 가지 옵션을 사용할 수 있습니다.  
 
 > [!NOTE]
-> 다음 옵션은 모두 일부 데이터가 손실될 가능성이 있습니다.
+> 다음 옵션은 모두 일부 데이터가 손실될 가능성이 있습니다.     
 > 
 > 
 
-## 옵션 2: 백업에서 VM 복원
+## <a name="option-2-restore-a-vm-from-a-backup"></a>옵션 2: 백업에서 VM 복원
 VM 백업을 구성한 고객의 경우 백업 및 복구 지점에서 VM을 복원할 수 있습니다.
 
 Azure 백업에서 새 VM을 복원하려면, [Azure에서 가상 컴퓨터 복원](../backup/backup-azure-restore-vms.md)을 참조하세요.
 
 Azure 가상 컴퓨터 백업 인프라를 계획하려면 [Azure에서 VM 백업 인프라 계획](../backup/backup-azure-vms-introduction.md)을 참조하세요.
 
-## 옵션 3: Azure Site Recovery를 사용하여 장애 조치(failover) 시작
+## <a name="option-3-initiate-a-failover-by-using-azure-site-recovery"></a>옵션 3: Azure Site Recovery를 사용하여 장애 조치(failover) 시작
 영향을 받는 Azure 가상 컴퓨터와 작동하도록 Azure Site Recovery를 구성한 경우 해당 복제본에서 VM을 복원할 수 있습니다. 이러한 복제본은 Azure 또는 온-프레미스에도 있을 수 있습니다. 이 경우에 기존 복제본에서 새 VM을 만들 수 있습니다. Azure Site Recovery 복제본에서 VM을 복원하려면, [Azure Site Recovery를 사용하여 Azure 지역 간에 Azure IaaS 가상 컴퓨터 마이그레이션](../site-recovery/site-recovery-migrate-azure-to-azure.md)을 참조하세요.
 
 > [!NOTE]
@@ -62,7 +66,7 @@ Azure 가상 컴퓨터 백업 인프라를 계획하려면 [Azure에서 VM 백�
 > 
 > 
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 재해 복구 및 고가용성 전략을 구현하는 방법에 관해 자세히 알아보려면 [Azure 응용 프로그램에 대한 재해 복구 및 고가용성](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)을 참조하세요.
 
 클라우드 플랫폼의 기능에 대한 자세한 기술적 이해를 높이려면 [Azure 복원력 기술 지침](../resiliency/resiliency-technical-guidance.md)을 참조하세요.
@@ -73,4 +77,9 @@ Azure 사이트 복구를 사용하여 VMware 및 Hyper-V Vm에서 실행되는 
 
 지침이 명확하지 않거나 사용자를 대신해 Microsoft가 작업을 수행하도록 하고 싶은 경우 [고객 지원팀](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

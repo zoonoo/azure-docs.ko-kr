@@ -1,12 +1,12 @@
 ---
-title: SendGrid 메일 서비스를 사용하는 방법(Java) | Microsoft Docs
-description: Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 Java로 작성되었습니다.
-services: ''
+title: "SendGrid 메일 서비스를 사용하는 방법(Java) | Microsoft Docs"
+description: "Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 Java로 작성되었습니다."
+services: 
 documentationcenter: java
 author: thinkingserious
 manager: sendgrid
 editor: mollybos
-
+ms.assetid: cc75c43e-ede9-492b-98c2-9147fcb92c21
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
+ms.openlocfilehash: 721cd52b37826c1880a94d8f95a0c70302c8f0b5
+
 
 ---
-# Java의 SendGrid를 사용하여 메일을 보내는 방법
+# <a name="how-to-send-email-using-sendgrid-from-java"></a>Java의 SendGrid를 사용하여 메일을 보내는 방법
 이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었습니다. **전자 메일 생성**, **전자 메일 보내기**, **첨부 파일 추가**, **필터 사용**, **속성 업데이트** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
 
-## SendGrid 메일 서비스 정의
+## <a name="what-is-the-sendgrid-email-service"></a>SendGrid 전자 메일 서비스 정의
 SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 신뢰할 만한 [트랜잭션 전자 메일 배달], 확장성 및 실시간 분석을 제공하는 [클라우드 기반 전자 메일 서비스]입니다. 일반적인 SendGrid 사용 시나리오는 다음과 같습니다.
 
 * 고객에게 확인 메일 자동으로 보내기
@@ -29,13 +33,13 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 * 고객 문의 전달
 * 응용 프로그램의 전자 메일 알림
 
-자세한 내용은 <http://sendgrid.com>을 참조하세요.
+자세한 내용은 <http://sendgrid.com>(영문)을 참조하세요.
 
-## SendGrid 계정 만들기
+## <a name="create-a-sendgrid-account"></a>SendGrid 계정 만들기
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## 방법: javax.mail 라이브러리 사용
-예를 들어 <http://www.oracle.com/technetwork/java/javamail>에서 javax.mail 라이브러리를 얻어 코드로 가져옵니다. javax.mail 라이브러리를 사용하여 SMTP를 통해 전자 메일을 보내는 전반적인 프로세스는 다음과 같습니다.
+## <a name="how-to-use-the-javaxmail-libraries"></a>방법: javax.mail 라이브러리 사용
+javax.mail 라이브러리를 예를 들어 <http://www.oracle.com/technetwork/java/javamail>(영문)에서 얻어 코드로 가져옵니다. javax.mail 라이브러리를 사용하여 SMTP를 통해 전자 메일을 보내는 전반적인 프로세스는 다음과 같습니다.
 
 1. SMTP 서버를 포함한 SMTP 값을 지정합니다. SendGrid는 smtp.sendgrid.net입니다.
 
@@ -65,21 +69,21 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 ```
 
 1. *javax.mail.Authenticator* 클래스를 확장하고 *getPasswordAuthentication* 메서드 구현에서 SendGrid 사용자 이름 및 암호를 반환합니다.  
-   
+
        private class SMTPAuthenticator extends javax.mail.Authenticator {
        public PasswordAuthentication getPasswordAuthentication() {
           String username = SMTP_AUTH_USER;
           String password = SMTP_AUTH_PWD;
           return new PasswordAuthentication(username, password);
        }
-2. *javax.mail.Session* 개체를 통해 인증된 전자 메일 세션을 만듭니다.
-   
+2. *javax.mail.Session* 개체를 통해 인증된 전자 메일 세션을 만듭니다.  
+
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
-3. 메시지를 만들고 **받는 사람**, **보낸 사람**, **제목** 및 내용 값을 할당합니다. [방법: 전자 메일 만들기](#bkmk_HowToCreateEmail) 섹션에 나와 있습니다.
-4. *javax.mail.Transport* 개체를 통해 메시지를 보냅니다. [방법: 전자 메일 보내기](방법: 전자 메일 보내기) 섹션에 나와 있습니다.
+3. 메시지를 만들고 **받는 사람**, **보낸 사람**, **제목** 및 내용 값을 할당합니다. [방법: 전자 메일 만들기](#how-to-create-an-email) 섹션에 나와 있습니다.
+4. *javax.mail.Transport* 개체를 통해 메시지를 보냅니다. [방법: 전자 메일 보내기][방법: 전자 메일 보내기] 섹션에 나와 있습니다.
 
-## 방법: 전자 메일 만들기
+## <a name="how-to-create-an-email"></a>방법: 전자 메일 만들기
 다음은 메일 값을 지정하는 방법을 보여 줍니다.
 
     MimeMessage message = new MimeMessage(mailSession);
@@ -100,7 +104,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
     message.setSubject("Your recent order");
     message.setContent(multipart);
 
-## 방법: 전자 메일 보내기
+## <a name="how-to-send-an-email"></a>방법: 전자 메일 보내기
 다음은 메일을 보내는 방법을 보여 줍니다.
 
     Transport transport = mailSession.getTransport();
@@ -111,12 +115,12 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
     // Close the connection.
     transport.close();
 
-## 방법: 첨부 파일 추가
+## <a name="how-to-add-an-attachment"></a>방법: 첨부 파일 추가
 다음 코드는 첨부 파일을 추가하는 방법을 보여 줍니다.
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles\"; 
+    String attachmentPath = "c:\\myfiles\\";
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -126,39 +130,39 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
     attachmentPart.setFileName(attachmentName);
     multipart.addBodyPart(attachmentPart);
 
-## 방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정
-SendGrid는 *필터* 사용을 통해 추가 전자 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다. 전체 필터 목록은 [필터 설정][필터 설정](영문)을 참조하십시오.
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정
+SendGrid는 *필터*사용을 통해 추가 전자 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다. 전체 필터 목록은 [필터 설정][필터 설정](영문)을 참조하세요.
 
 * 다음은 보내는 전자 메일 아래쪽에 HTML 텍스트가 표시되도록 하는 바닥글 필터 삽입 방법을 보여 줍니다.
-  
-      message.addHeader("X-SMTPAPI", 
-          "{"filters": 
-          {"footer": 
-          {"settings": 
-          {"enable":1,"text/html": 
-          "<html><b>Thank you</b> for your business.</html>"}}}}");
+
+      message.addHeader("X-SMTPAPI",
+          "{\"filters\":
+          {\"footer\":
+          {\"settings\":
+          {\"enable\":1,\"text/html\":
+          \"<html><b>Thank you</b> for your business.</html>\"}}}}");
 * 필터에 대한 또 다른 예제는 클릭 추적입니다. 메일 텍스트에 다음과 같은 하이퍼링크가 포함되어 있고 클릭률을 추적하려 한다고 가정하겠습니다.
-  
+
       messagePart.setContent(
           "Hello,
-          <p>This is the body of the message. Visit 
+          <p>This is the body of the message. Visit
           <a href='http://www.contoso.com'>http://www.contoso.com</a>.</p>
-          Thank you.", 
+          Thank you.",
           "text/html");
 * 클릭 추적을 사용하도록 설정하려면 다음 코드를 사용합니다.
-  
-      message.addHeader("X-SMTPAPI", 
-          "{"filters": 
-          {"clicktrack": 
-          {"settings": 
-          {"enable":1}}}}");
 
-## 방법: 전자 메일 속성 업데이트
-일부 전자 메일 속성은 **set*Property***를 사용하여 덮어쓰거나 **add*Property***를 사용하여 추가할 수 있습니다.
+      message.addHeader("X-SMTPAPI",
+          "{\"filters\":
+          {\"clicktrack\":
+          {\"settings\":
+          {\"enable\":1}}}}");
+
+## <a name="how-to-update-email-properties"></a>방법: 전자 메일 속성 업데이트
+일부 전자 메일 속성을 **set*Property***를 사용하여 덮어쓰거나 **add*Property***를 사용하여 추가할 수 있습니다.
 
 예를 들어 **ReplyTo** 주소를 지정하려면 다음을 사용하십시오.
 
-    InternetAddress addresses[] = 
+    InternetAddress addresses[] =
         { new InternetAddress("john@contoso.com"),
           new InternetAddress("wendy@contoso.com") };
 
@@ -166,13 +170,13 @@ SendGrid는 *필터* 사용을 통해 추가 전자 메일 기능을 제공합�
 
 **참조** 받는 사람을 추가하려면 다음을 사용합니다.
 
-    message.addRecipient(Message.RecipientType.CC, new 
+    message.addRecipient(Message.RecipientType.CC, new
     InternetAddress("john@contoso.com"));
 
-## 방법: 추가 SendGrid 서비스 사용
-SendGrid는 Azure 응용 프로그램에서 추가 SendGrid 기능을 활용하는 데 사용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [SendGrid API 설명서][SendGrid API 설명서](영문)를 참조하십시오.
+## <a name="how-to-use-additional-sendgrid-services"></a>방법: 추가 SendGrid 서비스 사용
+SendGrid는 Azure 응용 프로그램에서 추가 SendGrid 기능을 활용하는 데 사용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [SendGrid API 설명서][SendGrid API 설명서](영문)를 참조하세요.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가세요.
 
 * Azure 배포에서 SendGrid를 사용하는 방법을 보여 주는 샘플: [Azure 배포에서 Java의 SendGrid를 사용하여 전자 메일을 보내는 방법](store-sendgrid-java-how-to-send-email-example.md)
@@ -188,7 +192,11 @@ SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자�
 [필터 설정]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
 [SendGrid API 설명서]: https://sendgrid.com/docs/API_Reference/index.html
 [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
-[트랜잭션 전자 메일 배달]: https://sendgrid.com/email-solutions
-[클라우드 기반 전자 메일 서비스]: https://sendgrid.com/transactional-email
+[클라우드 기반 전자 메일 서비스]: https://sendgrid.com/email-solutions
+[트랜잭션 전자 메일 배달]: https://sendgrid.com/transactional-email
 
-<!----HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
