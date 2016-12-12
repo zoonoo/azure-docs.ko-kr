@@ -21,7 +21,7 @@ Azure Active Directory(Azure AD)는 Microsoft의 다중 테넌트 클라우드 �
 
 Azure AD는 IT 관리자를 위해 직원 및 비즈니스 파트너에게 Office365, Salesforce.com, DropBox, Concur와 같은 [수천 개의 SaaS 응용 프로그램 클라우드](http://blogs.technet.com/b/ad/archive/2014/09/03/50-saas-apps-now-support-federation-with-azure-ad.aspx)에 대한 SSO(Single Sign-On) 액세스 권한을 부여하는 사용하기 편리한 솔루션을 제공합니다.
 
-응용 프로그램 개발자는 Azure AD를 사용하여 전 세계 수백 만 조직에서 사용하는 클래스 ID 관리 솔루션과 빠르고 쉽게 통합할 수 있도록 함으로써 응용 프로그램을 구축하는 데 집중할 수 있습니다.
+응용 프로그램 개발자는 Azure AD를 사용하여 전 세계 수백 만 조직에서 사용하는 ID 관리 솔루션과 빠르고 쉽게 통합할 수 있도록 함으로써 응용 프로그램을 구축하는 데 집중할 수 있습니다.
 
 Azure AD에는 다단계 인증, 장치 등록, 셀프 서비스 암호 관리, 셀프서비스 그룹 관리, 권한 있는 계정 관리, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 광범위한 감사 및 보안 모니터링 및 경고를 포함하는 완전한 ID 관리 기능이 포함되어 있습니다. 이러한 기능을 통해 클라우드 기반 응용 프로그램을 보호하고, IT 프로세스를 간소화하고, 비용을 절감하고, 회사의 규정 준수 목표를 충족할 수 있도록 합니다.
 
