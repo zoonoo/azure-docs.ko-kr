@@ -1,4 +1,5 @@
 ---
+redirect_url: /azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory
 title: "Azure Data Factory를 사용하여 데이터 로드 | Microsoft Docs"
 description: "Azure Data Factory를 사용하여 데이터를 로드하는 방법을 알아보세요."
 services: sql-data-warehouse
@@ -16,8 +17,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 960225117a1c9b0802004455353fb9015a80b07b
+ms.sourcegitcommit: 3d41671920d40335e3e0931599a434f9d5f58bba
+ms.openlocfilehash: 0fcbd492f1f26efb67dec90a5ba25ba27172065c
 
 
 ---
@@ -48,13 +49,13 @@ Azure Data Factory를 익히려면 [Azure Data Factory 소개][Azure Data Factor
 
 * **Azure 저장소 BLOB**: 이 자습서에서는 Azure Data Factory 파이프라인에 대한 데이터 원본으로 Azure BLOB 저장소를 사용하므로 샘플 데이터를 저장할 Azure BLOB 저장소가 필요합니다. 아직 없는 경우 [저장소 계정을 만드는][저장소 계정을 만드는] 방법을 알아봅니다.
 * **SQL Data Warehouse**: 이 자습서는 Azure Storage Blob에서 SQL Data Warehouse로 데이터를 이동하므로 AdventureWorksDW 샘플 데이터와 함께 로드되는 데이터 웨어하우스 온라인이 필요합니다. 데이터 웨어하우스가 아직 없는 경우 [프로비전하는] 방법을 알아봅니다.[SQL Data Warehouse 만들기] 데이터 웨어하우스가 있지만 샘플 데이터를 사용하여 프로비전하지 않은 경우 [수동으로 로드]할 수 있습니다.[SQL Data Warehouse에 샘플 데이터를 로드]
-* **Azure Data Factory**: Azure Data Factory는 실제 부하를 완료하므로 보유하여 데이터 이동 파이프라인을 빌드하는 데 사용할 수 있어야 합니다. Azure Data Factory가 없는 경우 [Azure Data Factory 시작(Data Factory Editor)][Azure Data Factory 시작(Data Factory Editor)]의 1단계에서 만드는 방법을 알아봅니다.
+* **Azure Data Factory**: Azure Data Factory는 실제 부하를 완료하므로 보유하여 데이터 이동 파이프라인을 빌드하는 데 사용할 수 있어야 합니다. Azure Data Factory가 없는 경우 [Azure Data Factory 시작(데이터 팩터리 편집기)][Azure Data Factory 시작(데이터 팩터리 편집기)]의 1단계에서 만드는 방법을 알아봅니다.
 * **AZCopy**: 로컬 클라이언트에서 Azure 저장소 BLOB으로 샘플 데이터를 복사할 AZCopy가 필요합니다. 설치 지침은 [AZCopy 설명서][AZCopy 설명서]를 참조하세요.
 
 ## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>1단계: 샘플 데이터를 Azure 저장소 Blob에 복사
 모든 부분이 준비되면 샘플 데이터를 Azure Storage Blob에 복사할 준비가 됩니다.
 
-1. [샘플 데이터를 다운로드][샘플 데이터를 다운로드]합니다. 이 데이터는 AdventureWorksDW 샘플 데이터에 3년의 판매 데이터를 추가합니다.
+1. [샘플 데이터를 다운로드합니다][샘플 데이터를 다운로드합니다]합니다. 이 데이터는 AdventureWorksDW 샘플 데이터에 3년의 판매 데이터를 추가합니다.
 2. 이 AZCopy 명령을 사용하여 Azure 저장소 Blob에 3년 분량의 데이터를 복사합니다.
    
     ````
@@ -197,7 +198,7 @@ Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리�
 자세한 내용은 다음을 확인하여 시작합니다.
 
 * [Azure Data Factory 학습 경로][Azure Data Factory 학습 경로].
-* [Azure SQL Data Warehouse 커넥터][Azure SQL Data Warehouse 커넥터]. Azure SQL 데이터 웨어하우스와 함께 Azure Data Factory를 사용하기 위한 핵심 참조 항목입니다.
+* [Azure SQL 데이터 웨어하우스 커넥터][Azure SQL 데이터 웨어하우스 커넥터]. Azure SQL 데이터 웨어하우스와 함께 Azure Data Factory를 사용하기 위한 핵심 참조 항목입니다.
 
 이러한 항목은 Azure Data Factory에 대한 자세한 정보를 제공합니다. Azure SQL Database 또는 HDInsight를 설명하지만 해당 정보는 Azure SQL Data Warehouse에도 적용됩니다.
 
@@ -230,6 +231,6 @@ Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 
