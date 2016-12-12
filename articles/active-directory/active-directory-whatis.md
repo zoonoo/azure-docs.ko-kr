@@ -25,7 +25,7 @@ Azure AD는 IT 관리자를 위해 직원 및 비즈니스 파트너에게 Offic
 
 Azure AD에는 다단계 인증, 장치 등록, 셀프 서비스 암호 관리, 셀프서비스 그룹 관리, 권한 있는 계정 관리, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 광범위한 감사 및 보안 모니터링 및 경고를 포함하는 완전한 ID 관리 기능이 포함되어 있습니다. 이러한 기능을 통해 클라우드 기반 응용 프로그램을 보호하고, IT 프로세스를 간소화하고, 비용을 절감하고, 회사의 규정 준수 목표를 충족할 수 있도록 합니다.
 
-또한 [네 번의 클릭](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx)만으로 Azure AD를 기존 Windows Server Active Directory와 통합하여 기존 온-프레미스 ID 투자를 활용하여 클라우드를 기반으로 하는 SaaS 응용 프로그램에 대한 액세스를 관리하는 기능을 조직에 제공할 수 있습니다.
+또한 [네 번의 클릭](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx)만으로 Azure AD를 기존 Windows Server Active Directory와 통합하여 기존에 투자된 온-프레미스 ID를 활용할 수 있고, 클라우드를 기반으로 하는 SaaS 응용 프로그램에 대한 액세스를 관리하는 기능을 조직에 제공할 수 있습니다.
 
 Office365, Azure 또는 Dynamics CRM Online 고객인 경우 이미 Azure AD를 사용하고 있다는 것을 알지 못할 수도 있습니다. 모든 Office365, Azure 및 Dynamics CRM 테넌트는 실제로 이미 Azure AD 테넌트입니다. 따라서 언제든 해당 Azure AD 테넌트를 사용하여 Azure AD와 수천개의 클라우드 응용 프로그램을 통합할 수 있으며 이에 대한 액세스를 관리할 수 있습니다.
 ![Azure AD Connect 스택](./media/active-directory-whatis/Azure_Active_Directory.png)
