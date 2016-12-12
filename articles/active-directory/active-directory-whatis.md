@@ -25,14 +25,13 @@ Azure AD는 IT 관리자를 위해 직원 및 비즈니스 파트너에게 Offic
 
 Azure AD에는 다단계 인증, 장치 등록, 셀프 서비스 암호 관리, 셀프서비스 그룹 관리, 권한 있는 계정 관리, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 광범위한 감사 및 보안 모니터링 및 경고를 포함하는 완전한 ID 관리 기능이 포함되어 있습니다. 이러한 기능을 통해 클라우드 기반 응용 프로그램을 보호하고, IT 프로세스를 간소화하고, 비용을 절감하고, 회사의 규정 준수 목표를 충족할 수 있도록 합니다.
 
-또한 [네 번 클릭](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx)으로 Azure AD를 기존 Windows Server Active Directory와 통합하여 기존 온-프레미스 ID 투자를 활용하여 클라우드를 기반으로 하는 SaaS 응용 프로그램에 대한 액세스를 관리하는 기능을 조직에 제공할 수 있습니다.
+또한 [네 번의 클릭](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx)만으로 Azure AD를 기존 Windows Server Active Directory와 통합하여 기존 온-프레미스 ID 투자를 활용하여 클라우드를 기반으로 하는 SaaS 응용 프로그램에 대한 액세스를 관리하는 기능을 조직에 제공할 수 있습니다.
 
-Office365, Azure 또는 Dynamics CRM Online 고객인 경우 이미 Azure AD를 사용하고 있다는 것을 알지 못할 수도 있습니다. 모든 Office365, Azure 및 Dynamics CRM 테넌트는 실제로 이미 Azure AD 테넌트입니다. 원할 때마다 해당 테넌트를 시작하여 Azure AD와 통합할 수천 개의 다른 클라우드 응용 프로그램에 대한 액세스를 관리할 수 있습니다.
-
+Office365, Azure 또는 Dynamics CRM Online 고객인 경우 이미 Azure AD를 사용하고 있다는 것을 알지 못할 수도 있습니다. 모든 Office365, Azure 및 Dynamics CRM 테넌트는 실제로 이미 Azure AD 테넌트입니다. Azure AD와 통합할 수천개의 클라우드 응용 프로그램에 대한 액세스를 관리하기 위해, 언제든 해당 Azure AD 테넌트를 사용할 수 있습니다.
 ![Azure AD Connect 스택](./media/active-directory-whatis/Azure_Active_Directory.png)
 
 ## Azure AD가 안정적입니까?
-Azure AD의 다중 테넌트, 지리적으로 분산된 고가용성 디자인은 가장 중요한 비즈니스 요구에 의존할 수 있음을 의미합니다. 자동 장애 조치로 전세계 28개 데이터 센터를 실행 중이므로 Azure AD가 안전성이 뛰어나고, 데이터 센터의 작동이 중단되더라도 디렉터리 데이터 복사본이 두 개 이상의 지역에 있는 데이터 센터에 분산되어 있으며 즉시 액세스할 수 있다는 점을 미루어 볼 때 안전성을 신뢰할 수 있습니다.
+Azure AD의 다중 테넌트, 지리적으로 분산된 고가용성 디자인은, 가장 중요한 비즈니스 요구사항이 있을 때 Azure AD를 신뢰할 수 있음을 의미합니다. 자동 장애 조치로 전세계 28개 데이터 센터를 실행 중이므로 Azure AD가 안전성이 뛰어나고, 데이터 센터의 작동이 중단되더라도 디렉터리 데이터 복사본이 두 개 이상의 지역에 있는 데이터 센터에 분산되어 있으며 즉시 액세스할 수 있다는 점을 미루어 볼 때 안전성을 신뢰할 수 있습니다.
 
 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
