@@ -138,7 +138,7 @@ Azure HDInsight는 클라우드에서 제공되는 Apache Hadoop 배포입니다
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -152,7 +152,7 @@ Azure HDInsight는 클라우드에서 제공되는 Apache Hadoop 배포입니다
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

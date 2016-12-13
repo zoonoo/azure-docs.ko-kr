@@ -5,7 +5,7 @@ ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
 ms.openlocfilehash: 4985185ad8cb4a21e05d4668458e82411cd88ee0
 
 ---
-#<a name="cloud-services-documentation"></a>Cloud Services 설명서
+# <a name="cloud-services-documentation"></a>Cloud Services 설명서
 
 Cloud Services는 PaaS(Platform-as-a-Service) 구현의 예입니다. 확장 가능하고 신뢰할 수 있으며 운영 비용이 효율적인 응용 프로그램을 지원하도록 설계되었습니다. Cloud Services를 사용하면 가상화의 이점을 얻을 수 있지만 소프트웨어를 구성, 패치 및 설치할 가상 컴퓨터를 제어할 수도 있습니다.  
 
@@ -89,8 +89,7 @@ Cloud Services는 PaaS(Platform-as-a-Service) 구현의 예입니다. 확장 가
 <h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-    <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -103,7 +102,7 @@ Cloud Services는 PaaS(Platform-as-a-Service) 구현의 예입니다. 확장 가
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

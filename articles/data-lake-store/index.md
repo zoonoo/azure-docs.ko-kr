@@ -173,7 +173,7 @@ Azure Data Lake Store는 빅 데이터 분석 작업을 위한 하이퍼 스케�
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -189,7 +189,7 @@ Azure Data Lake Store는 빅 데이터 분석 작업을 위한 하이퍼 스케�
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

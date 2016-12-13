@@ -30,7 +30,7 @@ Microsoft Azure Government는 보안, 개인 정보 보호 및 제어, 규정 �
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=azure-government">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=azure-government">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

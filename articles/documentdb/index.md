@@ -195,7 +195,7 @@ Azure DocumentDB는 신속하고 예측 가능한 성능, 고가용성, 탄력�
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

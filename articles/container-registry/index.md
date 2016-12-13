@@ -84,7 +84,7 @@ Azure Container Registry(미리 보기)는 컨테이너 이미지 호스팅을 �
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

@@ -88,7 +88,8 @@ Azure DNS(Domain Name System)는 DNS 도메인에 대한 서비스로, Microsoft
 
 <h2>참조</h2>
 <ul class="panelContent cardsW">
-<li><div class="cardSize">
+<li>
+    <div class="cardSize"><p />
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
@@ -101,7 +102,7 @@ Azure DNS(Domain Name System)는 DNS 도메인에 대한 서비스로, Microsoft
     </div>
 </li>
 <li>
-    <div class="cardSize"><p />
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
@@ -117,7 +118,7 @@ Azure DNS(Domain Name System)는 DNS 도메인에 대한 서비스로, Microsoft
     </div>
 </li>
 <li>
-    <div class="cardSize"><p />
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
