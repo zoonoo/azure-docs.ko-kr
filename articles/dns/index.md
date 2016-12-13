@@ -5,7 +5,7 @@ ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
 ms.openlocfilehash: e32393348fc26fa4cb0a5221695a9bf8bb4d36e1
 
 ---
-#<a name="dns-documentation"></a>DNS 설명서
+# <a name="dns-documentation"></a>DNS 설명서
 
 Azure DNS(Domain Name System)는 DNS 도메인에 대한 서비스로, Microsoft Azure 인프라를 사용하여 이름 확인을 제공합니다.  Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다.
 
@@ -89,7 +89,7 @@ Azure DNS(Domain Name System)는 DNS 도메인에 대한 서비스로, Microsoft
 <h2>참조</h2>
 <ul class="panelContent cardsW">
 <li>
-    <div class="cardSize"><p />
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">

@@ -120,7 +120,7 @@ Azure Virtual Machines(VM)는 Azure에서 제공하는 여러 유형의 확장�
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -135,7 +135,7 @@ Azure Virtual Machines(VM)는 Azure에서 제공하는 여러 유형의 확장�
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

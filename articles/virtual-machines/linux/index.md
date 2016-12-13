@@ -102,7 +102,7 @@ Azure Virtual Machines를 사용하여 Azure의 계산, 네트워킹 및 저장�
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -117,7 +117,7 @@ Azure Virtual Machines를 사용하여 Azure의 계산, 네트워킹 및 저장�
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
