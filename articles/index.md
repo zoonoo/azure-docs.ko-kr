@@ -4,8 +4,8 @@ hide_bc: true
 title: "Microsoft Azure설명서 | Microsoft Docs"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 392db4d8261f6e927aa5ea4b2f6b30e244bfec50
-ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
+ms.sourcegitcommit: b6c08febd8c95c1aa6a2af4563ed4fdee8ee022f
+ms.openlocfilehash: 0261823171ab55b2242e34c27c40385f56503a0d
 
 ---
 <div id="main" class="v2">
@@ -184,7 +184,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/security-center">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>보안 센터</p>
+                                                <p>Security Center</p>
                                             </a>
                                         </li>
                                         <li>
@@ -243,13 +243,13 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/application-gateway/">
                                                 <img src="media/index/ApplicationGateway.svg" alt="" />
-                                                <p>응용 프로그램 게이트웨이</p>
+                                                <p>Application Gateway</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/vpn-gateway/">
                                                 <img src="media/index/VPNGateway.svg" alt="" />
-                                                <p>VPN 게이트웨이</p>
+                                                <p>VPN Gateway</p>
                                             </a>
                                         </li>
                                         <li>
@@ -264,12 +264,12 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                 <p>CDN</p>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                         <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Traffic Manager</p>
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
@@ -312,7 +312,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>데이터 레이크 분석</p>
+                                                <p>Data Lake Analytics</p>
                                             </a>
                                         </li>
                                         <li>
@@ -496,15 +496,15 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/scheduler/">
                                                 <img src="media/index/Scheduler.svg" alt="" />
-                                                <p>스케줄러</p>
+                                                <p>Scheduler</p>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Traffic Manager</p>
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="/azure/monitoring-and-diagnostics/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
@@ -549,13 +549,13 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                         <li>
                                             <a href="/azure/app-service-mobile">
                                                 <img src="media/index/app-service-mobile.svg" alt="" />
-                                                <p>모바일 앱</p>
+                                                <p>Mobile Apps</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/app-service-api">
                                                 <img src="media/index/app-service-api.svg" alt="" />
-                                                <p>API 앱</p>
+                                                <p>API Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -891,7 +891,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>응용 프로그램 게이트웨이</h3>
+                                                    <h3>Application Gateway</h3>
                                                     <p>기본 제공 HTTP 부하 분산 및 배달 제어를 사용하는 계층 7 부하 분산 장치</p>
                                                 </div>
                                             </div>
@@ -910,7 +910,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>VPN 게이트웨이</h3>
+                                                    <h3>VPN Gateway</h3>
                                                     <p>안전한 프레미스 간 연결 설정</p>
                                                 </div>
                                             </div>
@@ -956,7 +956,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                     </div>
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="/azure/traffic-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -967,14 +967,14 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>트래픽 관리자</h3>
-                                                    <p>고성능 및 고가용성을 위해 들어오는 트래픽 라우팅</p>
+                                                    <h3>Traffic Manager</h3>
+                                                    <p>Route incoming traffic for high performance and availability</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="/azure/expressroute/">
                                     <div class="cardSize">
@@ -1029,7 +1029,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>데이터 레이크 저장소</h3>
+                                                    <h3>Data Lake Store</h3>
                                                     <p>빅 데이터 분석 작업을 위한 대규모 저장소</p>
                                                 </div>
                                             </div>
@@ -1519,7 +1519,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>데이터 레이크 분석</h3>
+                                                    <h3>Data Lake Analytics</h3>
                                                     <p>빅 데이터 사용을 용이하게 하는 분산 분석 서비스</p>
                                                 </div>
                                             </div>
@@ -1914,7 +1914,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>보안 센터</h3>
+                                                    <h3>Security Center</h3>
                                                     <p>향상된 가시성을 통해 위협 예방, 감지 및 대응</p>
                                                 </div>
                                             </div>
@@ -2247,7 +2247,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>스케줄러</h3>
+                                                    <h3>Scheduler</h3>
                                                     <p>단순 또는 복합 되풀이 일정에 따라 작업 실행</p>
                                                 </div>
                                             </div>
@@ -2255,7 +2255,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                     </div>
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="/azure/traffic-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2266,14 +2266,14 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>트래픽 관리자</h3>
-                                                    <p>고성능 및 고가용성을 위해 들어오는 트래픽 라우팅</p>
+                                                    <h3>Traffic Manager</h3>
+                                                    <p>Route incoming traffic for high performance and availability</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="/azure/monitoring-and-diagnostics/">
                                     <div class="cardSize">
@@ -2355,11 +2355,11 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                 </ul>
             </li>
             <li>
-                <a href="#sdktools">SDK/도구</a>
-                <ul id="sdktools">
+                <a href="#sdkstools">SDK/도구</a>
+                <ul id="sdkstools">
                     <li>
-                        <a href="#sdktools-all">모두</a>
-                        <ul id="sdktools-all" class="cardsF">
+                        <a href="#sdkstools-all">모두</a>
+                        <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
                                     <h1>언어 &amp; 프레임워크</h1>
@@ -2376,16 +2376,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/1.0.0-beta3">.NET SDK 가져오기</a>
+                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">.NET SDK 가져오기</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">시작</a>
+                                                    <a href="https://docs.microsoft.com/dotnet/api/">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/api">API 참조</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">예제 가져오기</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">샘플 받기</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/net/">자세히 알아보기</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2403,16 +2406,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/develop/python">Python SDK 가져오기</a>
+                                                    <a href="https://pypi.python.org/pypi/azure">Python SDK 가져오기</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/python">시작</a>
+                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API 참조</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">예제 가져오기</a>
+                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">샘플 받기</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/python">자세히 알아보기</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2430,16 +2436,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs/">Node.js SDK 가져오기</a>
+                                                    <a href="https://www.npmjs.com/package/azure">Node.js SDK 가져오기</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs">시작</a>
+                                                    <a href="http://azure.github.io/azure-sdk-for-node/">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">API 참조</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">예제 가져오기</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">샘플 받기</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/nodejs">자세히 알아보기</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2457,16 +2466,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://search.maven.org/remotecontent?filepath=com/microsoft/azure/azure-parent/1.0.0-beta3/azure-parent-1.0.0-beta3.pom">Java SDK 가져오기</a>
+                                                    <a href="https://github.com/Azure/azure-sdk-for-java#download">Java SDK 가져오기</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/">시작</a>
+                                                    <a href="https://docs.microsoft.com/java/api/">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/">API 참조</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=java">예제 가져오기</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=java">샘플 받기</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/java/">자세히 알아보기</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2484,16 +2496,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/downloads/">Ruby SDK 가져오기</a>
+                                                    <a href="https://rubygems.org/gems/azure">Ruby SDK 가져오기</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/ruby/">시작</a>
+                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API 참조</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">예제 가져오기</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">샘플 받기</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/ruby/">자세히 알아보기</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2511,13 +2526,13 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="">REST 시작</a>
+                                                    <a href="https://docs.microsoft.com/rest/api/">REST 시작</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/rest/api">참조</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">예제 가져오기</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">샘플 받기</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2861,6 +2876,6 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

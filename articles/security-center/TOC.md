@@ -53,7 +53,7 @@
 ### [문제 해결 가이드](security-center-troubleshooting-guide.md)
 
 # 참조
-## [REST API](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
+## [REST (영문)](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # 관련 항목
 ## [Azure 보안](/azure/security/)
@@ -66,6 +66,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

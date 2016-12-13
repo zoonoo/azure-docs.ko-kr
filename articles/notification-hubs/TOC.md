@@ -59,9 +59,9 @@
 ### [진단 지침](notification-hubs-push-notification-fixer.md)
 
 # 참조
-## [PowerShell cmdlet](/powershell/resourcemanager/)
-## [.NET](/dotnet/api/)
-## [REST (영문)](/rest/api/notificationhubs/)
+## [PowerShell](/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs)
+## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
+## [REST (영문)](/rest/api/notificationhubs)
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/notification-hubs/)
@@ -71,6 +71,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=notification-hubs)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -83,18 +83,20 @@
 
 
 # 참조
-## [Java SDK](documentdb-sdk-java.md)
-## [.NET SDK](documentdb-sdk-dotnet.md)
-## [.NET Core SDK](documentdb-sdk-dotnet-core.md)
-## [.NET 샘플](documentdb-dotnet-samples.md)
-## [Node.js SDK](documentdb-sdk-node.md)
-## [Node.js 샘플](documentdb-nodejs-samples.md)
-## [Python SDK](documentdb-sdk-python.md)
-## [Python 샘플](documentdb-python-samples.md)
-## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [SQL 문법 치트 시트](documentdb-sql-query-cheat-sheet.md)
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.JS](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
 ## [REST (영문)](/rest/api/documentdb/)
 ## [REST 리소스 공급자](/rest/api/documentdbresourceprovider/)
+
+# 관련 항목
+## [.NET 샘플](documentdb-dotnet-samples.md)
+## [Node.js 샘플](documentdb-nodejs-samples.md)
+## [Python 샘플](documentdb-python-samples.md)
+## [SQL 구문](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [SQL 문법 치트 시트](documentdb-sql-query-cheat-sheet.md)
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/documentdb/)
@@ -110,6 +112,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

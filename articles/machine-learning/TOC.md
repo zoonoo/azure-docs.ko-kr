@@ -1,6 +1,6 @@
 # 개요
 ## [Machine Learning은 무엇인가요?](machine-learning-what-is-machine-learning.md)
-## 기계 학습 스튜디오
+## Machine Learning 스튜디오
 ### [스튜디오는 무엇인가요?](machine-learning-what-is-ml-studio.md)
 ### [스튜디오 기능](machine-learning-studio-overview-diagram.md)
 ### [인포 그래픽: ML 기본 사항](machine-learning-basics-infographic-with-algorithm-examples.md)
@@ -26,6 +26,10 @@
 ### [3: 적절한 질문을 합니다](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
 ### [4: 답변을 예측합니다](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: 다른 사람의 작업을 복사합니다](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
+
+## [R 빠른 시작](machine-learning-r-quickstart.md)
+
+
 # 방법
 ## 도구 및 유틸리티 설정
 ### [환경 설정](machine-learning-data-science-environment-setup.md)
@@ -167,14 +171,15 @@
 #### [정규 분포 제품군](machine-learning-r-csharp-normal-distribution.md)
 #### [이항 분포 패키지](machine-learning-r-csharp-binomial-distribution.md)
 #### [마켓플레이스 FAQ](machine-learning-marketplace-faq.md)
+
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [기계 학습용 PowerShell 모듈](machine-learning-powershell-module.md)
-## [알고리즘 참조](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [R 빠른 시작](machine-learning-r-quickstart.md)
-## [Net# 신경망 언어](machine-learning-azure-ml-netsharp-reference-guide.md)
-## [관리 REST API](/rest/api/machinelearning/index)
+## [PowerShell](/azure/machine-learning/machine-learning-powershell-module)
+## [Machine Learning용 PowerShell 모듈](machine-learning-powershell-module.md)
+## [알고리즘 및 모듈 참조](https://msdn.microsoft.com/library/azure/dn905974.aspx)
+## [REST (영문)](/rest/api/machinelearning)
+
 # 관련 항목
+
 ## Cortana 인텔리전스 갤러리
 ### [개요](machine-learning-gallery-how-to-use-contribute-publish.md)
 ### [산업](machine-learning-gallery-industries.md)
@@ -186,7 +191,7 @@
 ### [자습서](machine-learning-gallery-tutorials.md)
 ### [컬렉션](machine-learning-gallery-collections.md)
 ### [사용자 지정 모듈](machine-learning-gallery-custom-modules.md)
-## Cortana Analytics
+## Cortana 분석
 ### API
 #### [이상 감지](machine-learning-apps-anomaly-detection.md)
 #### [텍스트 분석](machine-learning-apps-text-analytics.md)
@@ -205,7 +210,10 @@
 ##### [개요](cortana-analytics-playbook-vehicle-telemetry.md)
 ##### [플레이 북](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 ##### [설정](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
+
 # 리소스
+## [Machine Learning REST 오류 코드](/machine-learning/machine-learning-web-service-error-codes)
+## [Net# 신경망 언어](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [블로그](http://blogs.technet.com/b/machinelearning/)
@@ -214,6 +222,7 @@
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [실시간 채팅에서 도움 받기](machine-learning-live-chat.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

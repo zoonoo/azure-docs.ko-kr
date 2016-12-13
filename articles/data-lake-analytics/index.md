@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: aff52fe8a31d7ef9fe30f271a2885dca1cd9a861
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 4a9b9a0aef993055e0c5400a15918a05491509eb
 
 ---
 # <a name="data-lake-analytics-documentation"></a>Data Lake Analytics 설명서
 
-Azure 데이터 레이크 분석은 빅 데이터 분석을 쉽게 수행하기 위해 구축된 새 서비스입니다. 이 서비스를 사용하면 분산된 인프라 작업보다는 작업 작성, 실행 및 관리에 초점을 맞출 수 있습니다. 하드웨어를 배포, 구성 및 조정하는 대신, 데이터를 변형하고 귀중한 통찰력을 얻기 위한 쿼리를 작성합니다. 이 분석 서비스는 필요한 전력 크기만큼 간단히 다이얼을 설정하여 어떤 크기의 작업도 즉시 처리할 수 있습니다. 실행할 때 작업 기준으로 비용이 부과되므로 비용 효과적일 수 있습니다. 이 분석 서비스는 온-프레미스 ID 시스템과 통합되어 액세스 및 역할을 간단히 관리할 수 있도록 하는 Azure Active Directory를 지원합니다. 또한 이 서비스에는 SQL의 장점을 사용자 코드의 표현 능력과 결합한 U-SQL 언어가 포함되어 있습니다. U-SQL의 확장 가능한 분산 런타임을 통해 저장소와 Azure, Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스의 SQL Server 간에 데이터를 효과적으로 분석할 수 있습니다.
+Azure Data Lake Analytics는 빅 데이터 분석을 쉽게 수행하기 위해 구축된 새 서비스입니다. 이 서비스를 사용하면 분산된 인프라 작업보다는 작업 작성, 실행 및 관리에 초점을 맞출 수 있습니다. 하드웨어를 배포, 구성 및 조정하는 대신, 데이터를 변형하고 귀중한 통찰력을 얻기 위한 쿼리를 작성합니다. 이 분석 서비스는 필요한 전력 크기만큼 간단히 다이얼을 설정하여 어떤 크기의 작업도 즉시 처리할 수 있습니다. 실행할 때 작업 기준으로 비용이 부과되므로 비용 효과적일 수 있습니다. 이 분석 서비스는 온-프레미스 ID 시스템과 통합되어 액세스 및 역할을 간단히 관리할 수 있도록 하는 Azure Active Directory를 지원합니다. 또한 이 서비스에는 SQL의 장점을 사용자 코드의 표현 능력과 결합한 U-SQL 언어가 포함되어 있습니다. U-SQL의 확장 가능한 분산 런타임을 통해 저장소와 Azure, Azure SQL Database 및 Azure SQL Data Warehouse의 SQL Server 간에 데이터를 효과적으로 분석할 수 있습니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -75,7 +75,7 @@ Azure 데이터 레이크 분석은 빅 데이터 분석을 쉽게 수행하기 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작</h3>
+                        <h3>Azure PowerShell을 사용하여 Azure Data Lake Analytics 시작</h3>
                     </div>
                 </div>
             </div>
@@ -175,68 +175,47 @@ Azure 데이터 레이크 분석은 빅 데이터 분석을 쉽게 수행하기 
 </ul>
 
 ---
-
-## <a name="reference"></a>참조
-
+ 
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Data Lake Analytics Resource Manager PowerShell Cmdlet</p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/java/api/">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Data Lake Analytics Java API 참조</p>
+                        <h3>언어</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datalake.analytics">.NET</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-analytics">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html">Python</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt591959">U-SQL</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Data Lake Analytics 관리되는 참조</p>
+                        <h3>REST (영문)</h3>
+                        <p><a href="/rest/api/datalakeanalytics/">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="/rest/api/datalakeanalytics/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Data Lake Analytics REST API 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
@@ -252,6 +231,6 @@ Data Lake Analytics 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

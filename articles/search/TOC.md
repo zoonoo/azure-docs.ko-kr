@@ -25,6 +25,8 @@
 ### [서비스 한도](search-limits-quotas-capacity.md)
 ### [서비스 확장성](search-capacity-planning.md)
 ### [다중 테넌트 지원을 위한 디자인 패턴](search-modeling-multitenant-saas-applications.md)
+
+
 ## 개발
 ### [SDK 업그레이드](search-dotnet-sdk-migration.md)
 ### [REST API 업그레이드](search-api-migration.md)
@@ -58,17 +60,17 @@
 ### [다국어 검색](search-language-support.md)
 
 # 참조
-## [API 버전](search-api-versions.md)
-## [서비스 .NET](/dotnet/api/microsoft.azure.search)
-## [관리 .NET](/dotnet/api/microsoft.azure.management.search)
-## [서비스 REST](/rest/api/searchservice/)
-## [서비스 REST(미리 보기)](search-api-2015-02-28-preview.md)
-## [관리 REST](/rest/api/searchmanagement/)
-## [Lucene 쿼리 구문](https://msdn.microsoft.com/library/azure/mt589323)
-## [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920)
+## [.NET](/dotnet/api/microsoft.azure.search)
+## [.NET 관리](/dotnet/api/microsoft.azure.management.search)
+## [Java](/java/api/com.microsoft.azure.management.search)
+## [REST (영문)](/rest/api/searchservice)
+## [REST(관리)](/rest/api/searchmanagement)
 
 # 리소스
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=search)
+## Search API 사용
+##X [API 버전](search-api-versions.md)
+## [서비스 REST(미리 보기)](search-api-2015-02-28-preview.md)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/search/)
 ## 데모 사이트
 ### [작업 목록 앱](http://aka.ms/azjobsdemo)
@@ -85,6 +87,6 @@
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -18,15 +18,15 @@
 
 # 방법
 ## 회로 만들기 및 수정
-### [Azure 포털](expressroute-howto-circuit-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
 ### [PowerShell(클래식)](expressroute-howto-circuit-classic.md)
 ## 라우팅 구성 만들기 및 수정
-### [Azure 포털](expressroute-howto-routing-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
 ### [PowerShell(클래식)](expressroute-howto-routing-classic.md)
-## 가상 네트워크를 Express 경로 회로에 연결합니다.
-### [Azure 포털](expressroute-howto-linkvnet-portal-resource-manager.md)
+## 가상 네트워크를 ExpressRoute 회로에 연결합니다.
+### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [PowerShell(클래식)](expressroute-howto-linkvnet-classic.md)
 ## ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
@@ -51,15 +51,15 @@
 
 # 참조
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [REST(리소스 관리자)](https://msdn.microsoft.com/library/azure/mt586720)
+## [REST (영문)](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST(클래식)](https://msdn.microsoft.com/library/azure/dn606310)
 
 # 관련 항목
-## [가상 네트워크](/azure/virtual-network/)
+## [Virtual Network](/azure/virtual-network/)
 ## [VPN Gateway](/azure/vpn-gateway/)
-## [가상 컴퓨터](/azure/virtual-machines/)
+## [Virtual Machines](/azure/virtual-machines/)
 ## [부하 분산 장치](/azure/load-balancer/)
-## [트래픽 관리자](/azure/traffic-manager/)
+## [Traffic Manager](/azure/traffic-manager/)
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)
@@ -80,6 +80,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

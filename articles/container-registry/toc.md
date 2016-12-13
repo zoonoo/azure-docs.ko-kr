@@ -14,8 +14,8 @@
 
 # 참조
 
-## [Azure CLI](/cli/azure/acr)
-## [REST API](/rest/api/containerregistry)
+## [Azure CLI 2.0 미리 보기](/cli/azure/acr)
+## [REST (영문)](/rest/api/containerregistry)
 
 # 관련 항목
 
@@ -27,6 +27,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

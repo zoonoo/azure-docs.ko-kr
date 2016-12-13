@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 71d5dc02cea9375d9c07ddd6d4a56d446390d5f1
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 693dcfd3c20ce373f093108b4d5f8b63aa30f8df
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Virtual Machine Scale Sets 설명서
@@ -47,7 +47,7 @@ Virtual Machine Scale Sets는 동일한 VM 집합을 배포하고 관리하는�
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-create">
+        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,25 +57,7 @@ Virtual Machine Scale Sets는 동일한 VM 집합을 배포하고 관리하는�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Windows VM Scale Sets 시작</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-create-cli">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Linux VM Scale Sets 시작</h3>
+                        <h3>가상 컴퓨터 크기 집합 시작</h3>
                     </div>
                 </div>
             </div>
@@ -124,8 +106,8 @@ Virtual Machine Scale Sets는 동일한 VM 집합을 배포하고 관리하는�
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Virtual Machine Scale Sets REST API 참조</p>
+                        <h3>REST (영문)</h3>
+                        <p>가상 컴퓨터 크기 집합 REST API</p>
                     </div>
                 </div>
             </div>
@@ -145,6 +127,6 @@ Virtual Machine Scale Sets 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -64,6 +64,13 @@
 #### [클래식 포털](cloud-services-how-to-scale.md)
 ### [Python으로 Azure 리소스 관리](cloud-services-python-how-to-use-service-management.md)
 
+### [게스트 OS 패치](cloud-services-guestos-msrc-releases.md)
+### 게스트 OS 사용 중지
+#### [사용 중지 정책](cloud-services-guestos-retirement-policy.md)
+#### [제품군 1 사용 중지 확인](cloud-services-guestos-family1-retirement.md)
+### [게스트 OS 릴리스 뉴스](cloud-services-guestos-update-matrix.md)
+### [Cloud Services 역할 구성 XPath 참고 자료](cloud-services-role-config-xpath.md)
+
 ## 인증서 관리
 ### [Cloud Services 및 관리 인증서](cloud-services-certs-create.md)
 ### SSL 구성 
@@ -101,12 +108,6 @@
 ## [.csdef XML 스키마](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XML 스키마](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST (영문)](https://msdn.microsoft.com/library/azure/ee460812)
-## [게스트 OS 패치](cloud-services-guestos-msrc-releases.md)
-## 게스트 OS 사용 중지
-### [사용 중지 정책](cloud-services-guestos-retirement-policy.md)
-### [제품군 1 사용 중지 확인](cloud-services-guestos-family1-retirement.md)
-## [게스트 OS 릴리스 뉴스](cloud-services-guestos-update-matrix.md)
-## [Cloud Services 역할 구성 XPath 참고 자료](cloud-services-role-config-xpath.md)
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/cloud-services/)
@@ -116,6 +117,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

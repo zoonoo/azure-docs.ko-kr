@@ -51,18 +51,20 @@
 ### [PowerShell을 사용하여 엔터티 프로비전](service-bus-powershell-how-to-provision.md)
 
 # 참조
-## [가격 정보](service-bus-pricing-billing.md)
-## [샘플](service-bus-samples.md)
-## [예외](service-bus-messaging-exceptions.md)
-## [할당량](service-bus-quotas.md)
-## [.NET](/dotnet/api/)
-## [REST (영문)](/rest/api/servicebus/)
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
+## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
+## [REST (영문)](/rest/api/servicebus)
+
+# 리소스
 ## [SQLFilter 구문](service-bus-messaging-sql-filter.md)
 ## [SQLRuleAction 구문](service-bus-messaging-sql-rule-action.md)
 ## [AMQP1.0 프로토콜 가이드](service-bus-amqp-protocol-guide.md)
 ### [AMQP 1.0 요청-응답 기반 작업](service-bus-amqp-request-response.md)
-
-# 리소스
+## [가격 정보](service-bus-pricing-billing.md)
+## [샘플](service-bus-samples.md)
+## [예외](service-bus-messaging-exceptions.md)
+## [할당량](service-bus-quotas.md)
 ## [블로그](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/home?forum=servbus)
@@ -73,6 +75,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

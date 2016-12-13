@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 4d856b71ced1f1b9c6c1469bee4f23b84865c7d1
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 7ab6ecc4f1193245e9778d8a92bb2a5591edfff5
 
 ---
 # <a name="scheduler-documentation"></a>Scheduler 설명서
 
-Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다.  그런 다음 해당 작업을 예약하고 자동으로 실행합니다.  그러면 Scheduler에서 작업 실행 결과 기록을 볼 수 있도록 유지 관리합니다.
+Azure Scheduler를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다.  그런 다음 해당 작업을 예약하고 자동으로 실행합니다.  그러면 Scheduler에서 작업 실행 결과 기록을 볼 수 있도록 유지 관리합니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -105,8 +105,8 @@ Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>스케줄러 REST API 참조</p>
+                        <h3>REST (영문)</h3>
+                        <p>Scheduler REST API</p>
                     </div>
                 </div>
             </div>
@@ -124,6 +124,6 @@ Scheduler 설명서 다운로드 </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

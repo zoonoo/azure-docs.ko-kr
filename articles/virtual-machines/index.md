@@ -2,8 +2,8 @@
 layout: LandingPage
 toc_rel: breadcrumb.json
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 334336cb8d5da4761d5c1fa53c8c63cfbdb850a6
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 3bd265e2376180e5285c81b011b469b6a46353b0
 
 ---
 #<a name="virtual-machines-documentation"></a>Virtual Machines 설명서
@@ -22,7 +22,7 @@ Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Windows 가상 컴퓨터 시작</h3>
+                        <h3>Windows Virtual Machines 시작</h3>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@ Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Linux 가상 컴퓨터 시작</h3>
+                        <h3>Linux Virtual Machines 시작</h3>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@ Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어�
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p>Virtual Machine REST API 참조</p>
+                        <p>Virtual Machine REST API</p>
                     </div>
                 </div>
             </div>
@@ -122,6 +122,6 @@ Virtual Machine 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

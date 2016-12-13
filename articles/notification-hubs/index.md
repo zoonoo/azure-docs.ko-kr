@@ -1,15 +1,15 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 316f20972fc4d231ef0a6a9e132110dfc6c1a59a
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 54bebbed74b344ff854a83b2b6c4abdb5ba68321
 
 ---
 #<a name="notification-hubs-documentation"></a>Notification Hubs 설명서
 
 Azure Notification Hubs는 백 엔드(클라우드 또는 온-프레미스)에서 모바일 플랫폼으로 모바일 푸시 알림을 보낼 수 있는 사용하기 쉽고 확장된 다중 플랫폼 푸시 인프라를 제공합니다.
 
-알림 허브를 사용하면 쉽게 다양한 PNS(플랫폼 알림 시스템) 세부 정보를 요약하여 플랫폼 간 개인 설정된 푸시 알림을 보낼 수 있습니다. 한 번의 API 호출로 어떤 장치에서나 개별 사용자 또는 수백만 명의 사용자가 포함된 전체 고객 세그먼트를 대상으로 지정할 수 있습니다.
+Notification Hubs를 사용하면 쉽게 다양한 PNS(플랫폼 알림 시스템) 세부 정보를 요약하여 플랫폼 간 개인 설정된 푸시 알림을 보낼 수 있습니다. 한 번의 API 호출로 어떤 장치에서나 개별 사용자 또는 수백만 명의 사용자가 포함된 전체 고객 세그먼트를 대상으로 지정할 수 있습니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -77,7 +77,7 @@ Azure Notification Hubs는 백 엔드(클라우드 또는 온-프레미스)에�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Baidu를 사용하여 알림 허브 시작</h3>
+                        <h3>Baidu를 사용하여 Notification Hubs 시작</h3>
                     </div>
                 </div>
             </div>
@@ -197,8 +197,8 @@ Azure Notification Hubs는 백 엔드(클라우드 또는 온-프레미스)에�
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Notification Hubs REST API 참조</p>
+                        <h3>REST (영문)</h3>
+                        <p>Notification Hubs REST API</p>
                     </div>
                 </div>
             </div>
@@ -219,6 +219,6 @@ Notification Hubs 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

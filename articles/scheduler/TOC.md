@@ -1,7 +1,7 @@
 
 
 # 개요
-## [스케줄러란?](scheduler-intro.md)
+## [Scheduler란?](scheduler-intro.md)
 
 # 시작
 ## [작업 만들기 및 관리](scheduler-get-started-portal.md)
@@ -21,9 +21,8 @@
 ### [아웃바운드 인증](scheduler-outbound-authentication.md)
 
 # 참조
-## [Azure 스케줄러 PowerShell cmdlet](https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx)
-## [.NET](/dotnet/api)
-## [REST (영문)](/rest/api/scheduler/)
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [REST (영문)](/rest/api/scheduler)
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/scheduler/)
@@ -36,6 +35,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 4885c54a2bc592d0e6da8c1f39ec7360fa97d6fd
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: ba5941d636a605059d981ddda8ea66288a682451
 
 ---
 # <a name="logic-apps-documentation"></a>Logic Apps 설명서
@@ -143,8 +143,8 @@ Logic Apps는 워크플로로 프로세스를 모델링 및 자동화하기 위�
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Logic Apps REST API 참조</p>
+                        <h3>REST (영문)</h3>
+                        <p>Logic Apps REST API</p>
                     </div>
                 </div>
             </div>
@@ -162,6 +162,6 @@ Logic Apps 설명서 다운로드 </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

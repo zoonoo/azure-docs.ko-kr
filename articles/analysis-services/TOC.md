@@ -12,8 +12,12 @@
 ###[온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)
 
 # 참조
+##[PowerShell](/powershell/resourcemanager)
+##[REST (영문)](/rest/api/analysisservices/)
+
+# 관련 항목
 ##[데이터 원본 연결](analysis-services-datasource.md)
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

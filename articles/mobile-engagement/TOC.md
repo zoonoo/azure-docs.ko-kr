@@ -117,20 +117,23 @@
 
 # 참조
 ## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
+
+
+
+# 관련 항목
 ## SDK 콘텐츠
 ### [Android SDK](mobile-engagement-android-sdk-content.md)
 ### [iOS SDK](mobile-engagement-ios-sdk-content.md)
 ### [Windows 유니버설 앱 SDK](mobile-engagement-windows-store-sdk-content.md)
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-sdk-content.md)
+
+# 리소스
 ## 릴리스 정보
 ### [Android SDK](mobile-engagement-android-release-notes.md)
 ### [iOS SDK](mobile-engagement-ios-release-notes.md)
 ### [웹 SDK](mobile-engagement-web-release-notes.md)
 ### [Windows 유니버설 앱 SDK](mobile-engagement-windows-store-release-notes.md)
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-release-notes.md)
-
-
-# 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 ## [데모 앱 샘플](mobile-engagement-demo-apps.md)
 ## [.NET API 샘플](mobile-engagement-dotnet-sdk-service-api.md)
@@ -146,6 +149,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

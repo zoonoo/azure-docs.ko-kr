@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: b266164f44b36fbfbe3b8a662653a978877643fc
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: f59bb52f11334d93bbc6cf655b7f790a58a3ebfd
 
 ---
 #<a name="cognitive-services-documentation"></a>Cognitive Services 설명서
@@ -107,8 +107,8 @@ Cognitive Services(미리 보기)는 응용 프로그램 내에서 자연적인 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Cognitive Services REST API 참조</p>
+                        <h3>REST (영문)</h3>
+                        <p>Cognitive Services REST API</p>
                     </div>
                 </div>
             </div>
@@ -127,6 +127,6 @@ Cognitive Services 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

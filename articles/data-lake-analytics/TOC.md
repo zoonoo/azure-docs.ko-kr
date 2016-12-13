@@ -3,7 +3,7 @@
 
 # 시작
 ## [대화식 자습서: 웹 사이트 로그 분석](data-lake-analytics-use-interactive-tutorials.md)
-## [Azure 포털](data-lake-analytics-get-started-portal.md)
+## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
 ## [Java SDK](data-lake-analytics-get-started-java-sdk.md)
@@ -21,7 +21,7 @@
 ### [웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
 
 ## 관리
-### [Azure 포털](data-lake-analytics-manage-use-portal.md)
+### [Azure Portal](data-lake-analytics-manage-use-portal.md)
 ### [Azure CLI](data-lake-analytics-manage-use-cli.md)
 ### [PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
@@ -36,11 +36,11 @@
 ### [Vertex 실행 보기 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # 참조
-
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
-## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
+## [PowerShell](/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics)
+## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
+## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST (영문)](/rest/api/datalakeanalytics/)
 
 # 리소스
@@ -52,6 +52,6 @@
 ## [Azure Data Lake 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

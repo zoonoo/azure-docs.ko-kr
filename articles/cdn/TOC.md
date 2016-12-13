@@ -7,7 +7,7 @@
 # 방법
 ## 통합
 ### [Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-### [클라우드 서비스](cdn-cloud-service-with-cdn.md)
+### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [저장소](cdn-create-a-storage-account-with-cdn.md)
 ### [크로스-원본 자원 공유](cdn-cors.md)
 
@@ -44,12 +44,13 @@
 ### [파일 압축](cdn-troubleshoot-compression.md)
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
-## [Azure CDN POP 위치](cdn-pop-locations.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [.NET](/dotnet/api/microsoft.azure.management.cdn)
+## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST (영문)](/rest/api/cdn/)
 
 # 리소스
+## [Azure CDN POP 위치](cdn-pop-locations.md)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cdn)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/cdn/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
@@ -57,6 +58,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

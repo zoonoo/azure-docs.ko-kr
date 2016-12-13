@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: 618c677ea675e6dc8f9dfb41f8e00b66f3f31886
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: d92df7e0291eb109c339c4de3bf5307b6e186194
 
 ---
 #<a name="service-bus-documentation"></a>Service Bus 설명서
@@ -57,7 +57,7 @@ Service Bus에서는 온-프레미스 솔루션을 클라우드에 연결할 수
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure 포털을 사용하여 Service Bus 시작</h3>
+                        <h3>Azure Portal을 사용하여 Service Bus 시작</h3>
                     </div>
                 </div>
             </div>
@@ -231,8 +231,8 @@ Service Bus에서는 온-프레미스 솔루션을 클라우드에 연결할 수
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>서비스 버스 REST API 참조</p>
+                        <h3>REST (영문)</h3>
+                        <p>Service Bus REST API</p>
                     </div>
                 </div>
             </div>
@@ -251,6 +251,6 @@ Service Bus 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

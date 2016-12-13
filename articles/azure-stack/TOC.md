@@ -4,7 +4,7 @@
 ## [주요 기능 및 개념](azure-stack-key-features.md)
 ## [POC 아키텍처](azure-stack-architecture.md)
 
-# Azure 스택 POC 배포
+# Azure Stack POC 배포
 ## [배포 필수 조건](azure-stack-deploy.md)
 ## [배포](azure-stack-run-powershell-script.md)
 ## [Azure Stack POC에 연결](azure-stack-connect-azure-stack.md)
@@ -63,7 +63,7 @@
 
 # 기타 시나리오
 ## [사용자 권한 관리](azure-stack-manage-permissions.md)
-## [Azure 스택 테넌트 추가](azure-stack-add-new-user-aad.md)
+## [Azure Stack 테넌트 추가](azure-stack-add-new-user-aad.md)
 ## [Linux 가상 컴퓨터 배포](azure-stack-linux.md)
 ## [업데이트 관리](azure-stack-updates.md)
 ## [Azure Stack에 대한 개발](azure-stack-developer.md)
@@ -72,10 +72,10 @@
 ### [Azure Stack에 SQL Server 리소스 공급자 어댑터 배포](azure-stack-sql-resource-provider-deploy.md)
 
 ## App Service 계획 및 배포
-### [Azure Stack Web Apps 개요](azure-stack-app-service-overview.md)
-### [Azure Stack Web Apps을 시작하기 전에](azure-stack-app-service-before-you-get-started.md)
-### [Web Apps: 더 많은 웹 작업자 역할 추가](azure-stack-webapps-add-worker-roles.md)
-### [Azure Stack에 Web Apps 리소스 공급자 추가](azure-stack-app-service-deploy.md)
+### [Azure Stack 개요에 대한 App Service](azure-stack-app-service-overview.md)
+### [시작하기 전에](azure-stack-app-service-before-you-get-started.md)
+### [웹 작업자 역할 추가](azure-stack-app-service-add-worker-roles.md)
+### [Azure Stack에 App Service 리소스 공급자 추가](azure-stack-app-service-deploy.md)
 
 # 문제 해결
 ## [Azure Stack 문제 해결](azure-stack-troubleshooting.md)
@@ -86,6 +86,6 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

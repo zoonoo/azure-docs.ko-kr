@@ -16,10 +16,11 @@
 #### [Node.JS](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
 ### [트리거 및 바인딩 작업](functions-triggers-bindings.md)
+#### [DocumentDB 바인딩](functions-bindings-documentdb.md)
 #### [이벤트 허브 바인딩](functions-bindings-event-hubs.md)
 #### [HTTP 및 웹후크 바인딩](functions-bindings-http-webhook.md)
 #### [Mobile Apps 바인딩](functions-bindings-mobile-apps.md)
-#### [알림 허브 출력 바인딩](functions-bindings-notification-hubs.md)
+#### [Notification Hub 출력 바인딩](functions-bindings-notification-hubs.md)
 #### [큐 및 항목에 대한 Service Bus 트리거 및 바인딩](functions-bindings-service-bus.md)
 #### 저장소 바인딩
 ##### [Blob 바인딩](functions-bindings-storage-blob.md)
@@ -49,6 +50,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

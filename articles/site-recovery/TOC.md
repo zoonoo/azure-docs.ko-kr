@@ -49,8 +49,9 @@
 ## [모니터링 및 문제 해결](site-recovery-monitoring-and-troubleshooting.md)
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell 클래식](/powershell/servicemanagement/)
+## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
+## [PowerShell 클래식](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [REST (영문)](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # 관련 항목
 ## [Azure Automation](/azure/automation/)
@@ -63,6 +64,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

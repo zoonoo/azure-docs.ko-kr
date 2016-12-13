@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: f0ec0a2dff2e9bcea133dd1de0a92979d937580a
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: b5e9c3193e41320fa97a6a0246faaac622f2822a
 
 ---
 #<a name="event-hubs-documentation"></a>Event Hubs 설명서
@@ -75,7 +75,7 @@ Event Hubs는 초당 수백만 개의 이벤트를 수집할 수 있는 확장�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure 포털을 사용하여 Event Hubs 시작</h3>
+                        <h3>Azure Portal을 사용하여 Event Hubs 시작</h3>
                     </div>
                 </div>
             </div>
@@ -125,8 +125,8 @@ Event Hubs는 초당 수백만 개의 이벤트를 수집할 수 있는 확장�
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>이벤트 허브 REST API 참조</p>
+                        <h3>REST (영문)</h3>
+                        <p>이벤트 허브 REST API</p>
                     </div>
                 </div>
             </div>
@@ -145,6 +145,6 @@ Event Hubs 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

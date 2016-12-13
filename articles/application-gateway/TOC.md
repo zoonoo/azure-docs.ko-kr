@@ -8,7 +8,7 @@
 ## [Websocket](application-gateway-websocket.md)
 ## [서비스 한도](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 # 시작
-## 응용 프로그램 게이트웨이 만들기
+## Application Gateway 만들기
 ### 공용 주소
 #### [포털](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
@@ -41,18 +41,24 @@
 ## 관리
 ### [진단](application-gateway-diagnostics.md)
 ### [문제 해결](application-gateway-troubleshooting-502.md)
-# 참조
-## [PowerShell cmdlet](https://docs.microsoft.com/powershell/resourcemanager)
-## [REST (영문)](https://msdn.microsoft.com/library/mt684941)
-## [클래식 REST](https://msdn.microsoft.com/library/azure/mt299393)
 
+# 참조
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [Azure CLI 2.0 미리 보기](/cli/azure/network/application-gateway)
+## [.NET](/dotnet/api)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
+## [REST (영문)](https://msdn.microsoft.com/library/mt684941)
+## [REST(클래식)](https://msdn.microsoft.com/library/azure/mt299393)
 # 관련 항목
 ## [ExpressRoute](/azure/expressroute/)
 ## [가상 네트워크](/azure/virtual-network/)
 ## [VPN Gateway](/azure/vpn-gateway/)
 ## [가상 컴퓨터](/azure/virtual-machines/)
 ## [부하 분산 장치](/azure/load-balancer/)
-## [트래픽 관리자](/azure/traffic-manager/)
+## [Traffic Manager](/azure/traffic-manager/)
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
@@ -61,6 +67,6 @@
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

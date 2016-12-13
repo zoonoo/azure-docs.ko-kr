@@ -12,6 +12,7 @@
 ## [REST API 사용](data-lake-store-get-started-rest-api.md)
 ## [Azure CLI 사용](data-lake-store-get-started-cli.md)
 ## [Node.js 사용](data-lake-store-manage-use-nodejs.md)
+## [Python 사용](data-lake-store-get-started-python.md)
 
 # 방법
 ## 데이터 복사
@@ -21,22 +22,15 @@
 ### [Sqoop 사용](data-lake-store-data-transfer-sql-sqoop.md)
 ### [오프라인 소스에서 데이터 업로드](data-lake-store-offline-bulk-data-upload.md)
 
-## 개발
-### [PowerShell 사용](data-lake-store-get-started-powershell.md)
-### [.NET SDK 사용](data-lake-store-get-started-net-sdk.md)
-### [Java SDK 사용](data-lake-store-get-started-java-sdk.md)
-### [REST API 사용](data-lake-store-get-started-rest-api.md)
-### [Azure CLI 사용](data-lake-store-get-started-cli.md)
-### [Node.js 사용](data-lake-store-manage-use-nodejs.md)
-
 ## 보안 데이터
 ### [보안 개요](data-lake-store-security-overview.md)
 ### [Data Lake Store에서 액세스 제어](data-lake-store-access-control.md)
-### [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
+### [Data Lake Store의 데이터 보호](data-lake-store-secure-data.md)
 ### [서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)
 ### [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)
 
 ## Azure 서비스와의 통합
+### [Azure VNET의 Vm에서 액세스](data-lake-store-connectivity-from-vnets.md)
 ### [Data Lake Analytics와 함께 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [포털을 사용하여 Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)
 ### [PowerShell을 사용하여 Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-powershell.md)
@@ -49,13 +43,16 @@
 
 ## 관리
 ### [진단 로그 액세스](data-lake-store-diagnostic-logs.md)
+### [고가용성을 위한 설계](data-lake-store-troubleshooting-guidance.md)
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
+## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
+## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-store)
-## [REST (영문)](/rest/api/datalakestore/)
+## [Python(계정 관리)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+## [Python(파일 시스템 관리)](http://azure-datalake-store.readthedocs.io/en/latest)
+## [REST (영문)](/rest/api/datalakestore)
 
 # 리소스
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-store)
@@ -67,6 +64,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -24,14 +24,14 @@
 ### [Python을 사용하여 Event Hubs 아카이브 지원](event-hubs-archive-python.md)
 
 # 참조
-## [할당량 및 한도](event-hubs-quotas.md)
-## [메시징 예외](event-hubs-messaging-exceptions.md)
-## [Java](/java/api)
-## [.NET](/dotnet/api)
-## [AMQP1.0 프로토콜 가이드](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [.NET](/dotnet/api/microsoft.azure.eventhubs)
+## [Java](/java/api/com.microsoft.azure.eventhubs)
 ## [REST (영문)](/rest/api/eventhub)
 
 # 리소스
+## [할당량 및 한도](event-hubs-quotas.md)
+## [메시징 예외](event-hubs-messaging-exceptions.md)
+## [AMQP1.0 프로토콜 가이드](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## [가격 책정](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
@@ -40,6 +40,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

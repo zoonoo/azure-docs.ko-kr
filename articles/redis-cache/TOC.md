@@ -45,21 +45,21 @@
 ###[다른 크기 및 계층으로 업데이트](cache-how-to-scale.md)
 ###[Redis 클러스터를 이용한 규모 감축/확장](cache-how-to-premium-clustering.md)
 
-#참조
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/)
-## [Java](https://docs.microsoft.com/java/api/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
+# 참조
+## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [Azure CLI 2.0 미리 보기](/cli/azure/redis)
+## [.NET](/dotnet/api/microsoft.azure.management.redis)
+## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis 클라이언트](http://redis.io/clients)
 ## [Redis 명령](http://redis.io/commands#)
 ## [REST (영문)](https://docs.microsoft.com/rest/api/redis/)
+
+# 리소스
 ## [Redis Cache 샘플](cache-redis-samples.md)
-
-#리소스
-##[가격 책정](https://azure.microsoft.com/pricing/details/cache/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/cache/)
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

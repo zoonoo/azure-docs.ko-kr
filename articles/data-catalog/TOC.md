@@ -26,19 +26,20 @@
 ### [개발자 샘플](data-catalog-samples.md)
 
 # 참조
-## [Azure Data Catalog의 키보드 바로 가기](data-catalog-keyboard-shortcuts.md)
-## [용어](data-catalog-terminology.md)
-## [릴리스 정보](data-catalog-release-notes.md)
 ## [REST (영문)](/rest/api/datacatalog/)
 
 # 리소스
-## [릴리스 정보](data-catalog-whats-new.md)
+## [Azure Data Catalog의 키보드 바로 가기](data-catalog-keyboard-shortcuts.md)
+## [용어](data-catalog-terminology.md)
+## 릴리스 정보
+### [릴리스 정보 - 새로 만들기](data-catalog-whats-new.md)
+### [릴리스 정보](data-catalog-release-notes.md)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 
