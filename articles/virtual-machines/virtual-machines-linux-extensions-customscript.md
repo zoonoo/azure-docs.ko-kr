@@ -201,7 +201,7 @@ Azure 사용자 지정 스크립트 확장은 Resource Manager 템플릿을 사�
 사용자 지정 스크립트 확장이 실행되면 스크립트 생성되거나 다음 예제와 비슷한 디렉터리에 다운로드됩니다. 또한 명령 출력은 이 디렉터리의 `stdout` 및 `stderr` 파일에 저장됩니다.
 
 ```bash
-/var/lib/azure/custom-script/download/0/
+/var/lib/waagent/custom-script/download/0/
 ```
 
 Azure 스크립트 확장은 여기에서 찾을 수 있는 로그를 생성합니다.
