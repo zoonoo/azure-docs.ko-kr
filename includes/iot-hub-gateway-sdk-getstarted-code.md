@@ -53,14 +53,46 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-}
+} 
 ```
 
-JSON 설정 파일은 로드할 모듈 목록을 포함합니다. 각 모듈은 다음을 지정합니다.
+JSON 설정 파일은 모듈 간에 로드하고 연결할 모듈 목록을 포함합니다.
+각 모듈은 다음을 지정합니다.
 
-* **module_name**: 모듈의 고유한 이름.
-* **module_path**: 모듈을 포함하는 라이브러리에 대한 경로. Linux는 .so 파일이고, Windows는 .dll 파일입니다.
+* **name**: 모듈의 고유한 이름.
+* **loader**: 원하는 모듈을 로드하는 방법을 알고 있는 로더.  로더는 다양한 유형의 모듈을 로드하기 위한 확장 지점입니다. Native C, Node.js, Java 및 .NET으로 작성된 모듈을 사용하기 위해 로더를 제공합니다. 이 샘플에 있는 모든 모듈은 C 언어로 작성된 동적 라이브러리이기 때문에 Hello World 샘플은 "기본" 로더만을 사용합니다. 다른 언어로 작성된 모듈을 사용하는 방법에 대한 자세한 내용은 [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) 또는 [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) 샘플을 참조하세요.
+    * **name**: 모듈을 로드하는 데 사용되는 로더의 이름.  
+    * **entrypoint**: 모듈을 포함하는 라이브러리에 대한 경로. Linux는 .so 파일이고, Windows는 .dll 파일입니다. 이 진입점은 사용된 로더의 유형에 따라 지정됩니다. 예를 들어 Node.js 로더의 진입점은 .js 파일이고 Java 로더의 진입점은 클래스 경로 + 클래스 이름이며 .NET 로더의 진입점은 어셈블리 이름 + 클래스 이름입니다.
+
 * **args**: 모듈에 필요한 구성 정보입니다.
+
+다음 코드에서는 Linux의 Hello World 샘플에 대한 모든 모듈을 선언하는 데 사용된 JSON을 보여 줍니다. 모듈에 인수가 필요한지 여부는 모듈의 디자인에 달려 있습니다. 이 예에서, 로거 모듈은 출력 파일에 대한 경로를 인수로 취하고, Hello World 모듈은 인수를 전혀 취하지 않습니다.
+
+```
+"modules" :
+[
+    {
+        "name" : "logger",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/logger/liblogger.so"
+        }
+        },
+        "args" : {"filename":"log.txt"}
+    },
+    {
+        "name" : "hello_world",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/hello_world/libhello_world.so"
+        }
+        },
+        "args" : null
+    }
+]
+```
 
 JSON 파일에는 broker에 전달되는 모듈 간의 링크가 포함되어 있습니다. 링크에는 두 가지 속성이 있습니다.
 
@@ -69,35 +101,16 @@ JSON 파일에는 broker에 전달되는 모듈 간의 링크가 포함되어 �
 
 각 링크는 메시지 경로 및 방향을 정의합니다. 모듈의 메시지 `source`은 모듈 `sink`에 배달됩니다. `source`은 "\*"로 설정되며 이는 모듈의 메세지가 `sink`에서 수신된다는 사실을 나타냅니다.
 
-다음 샘플은 Linux에서 Hello World 샘플을 구성하는 데 사용되는 JSON 설정 파일을 보여줍니다. 모듈 `hello_world`에 의해 생성된 모든 메시지는 모듈 `logger`에서 사용합니다. 모듈에 인수가 필요한지 여부는 모듈의 디자인에 달려 있습니다. 이 예에서, 로거 모듈은 출력 파일에 대한 경로를 인수로 취하고, Hello World 모듈은 인수를 전혀 취하지 않습니다.
+다음 코드에서는 Linux의 Hello World 샘플에서 사용된 모듈 간의 링크를 구성하는 데 사용된 JSON을 보여 줍니다. 모듈 `hello_world`에 의해 생성된 모든 메시지는 모듈 `logger`에서 사용합니다.
 
 ```
-{
-    "modules" :
-    [ 
-        {
-            "module name" : "logger",
-            "loading args": {
-              "module path" : "./modules/logger/liblogger_hl.so"
-            },
-            "args" : {"filename":"log.txt"}
-        },
-        {
-            "module name" : "hello_world",
-            "loading args": {
-              "module path" : "./modules/hello_world/libhello_world_hl.so"
-            },
-            "args" : null
-        }
-    ],
-    "links" :
-    [
-        {
-            "source" : "hello_world",
-            "sink" : "logger"
-        }
-    ]
-}
+"links": 
+[
+    {
+        "source": "hello_world",
+        "sink": "logger"
+    }
+]
 ```
 
 ### <a name="hello-world-module-message-publishing"></a>Hello World 모듈 메시지 게시
@@ -207,7 +220,7 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 IoT Gateway SDK 사용 방법에 대해 알아보려면 다음을 참조하세요.
 
 * [IoT Gateway SDK – Linux를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기][lnk-gateway-simulated].
-* GitHub에서 [Azure IoT Gateway SDK][lnk-gateway-sdk].
+* GitHub의 [Azure IoT Gateway SDK][lnk-gateway-sdk].
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
@@ -216,6 +229,6 @@ IoT Gateway SDK 사용 방법에 대해 알아보려면 다음을 참조하세�
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

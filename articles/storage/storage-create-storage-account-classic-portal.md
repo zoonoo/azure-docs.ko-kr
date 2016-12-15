@@ -4,7 +4,7 @@ description: "Azure 포털에서 새 저장소 계정을 만들고 계정 액세
 services: storage
 documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 5e4f4360-3f81-4d63-a0b1-e7771b67af11
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 90e9fcf933173b5609eff70fa1ce4bfa027fee3d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 879e199f0c712a46b89a686d6a3dd8dd877821e4
 
 
 ---
@@ -99,7 +99,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 사용자 지정 도메인 이름을 구성하여 저장소 계정에서 사용할 수도 있습니다. 자세한 내용은 [Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md) 을 참조하세요.
 
-### <a name="service-colocation-with-an-affinity-group"></a>선호도 그룹과 서비스 공동 배치
+### <a name="service-co-location-with-an-affinity-group"></a>선호도 그룹과 서비스 공동 배치
 *선호도 그룹* 은 Azure 저장소 계정을 사용하여 Azure 서비스와 VM을 지리적으로 그룹화한 것을 말합니다. 선호도 그룹은 동일한 데이터 센터 또는 대상 사용자 그룹 인근의 컴퓨터 작업을 찾아 서비스 성능을 향상시킬 수 있습니다. 또한 같은 선호도 그룹에 속한 다른 서비스에서 저장소 계정의 데이터에 액세스할 경우 송신 요금이 청구되지 않습니다.
 
 > [!NOTE]
@@ -175,6 +175,6 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

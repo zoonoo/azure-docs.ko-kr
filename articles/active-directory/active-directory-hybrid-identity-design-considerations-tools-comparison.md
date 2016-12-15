@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1df15de1c24e80b0692149dfc7cb660f74941886
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2fb248f3e71b248ce0b5ae02ebeff291bbd28dce
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 1df15de1c24e80b0692149dfc7cb660f74941886
 FR = 향후 릴리스  
 PP = 공개 미리 보기 상태  
 
-## <a name="onpremises-to-cloud-synchronization"></a>온-프레미스와 클라우드 간 동기화
+## <a name="on-premises-to-cloud-synchronization"></a>온-프레미스와 클라우드 간 동기화
 | 기능 | Azure Active Directory 연결 | Azure Active Directory 동기화 서비스(AAD Sync) | Azure Active Directory 동기화 도구(디렉터리 동기화) | Forefront Identity Manager(FIM) 2010 R2 | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | 단일 온-프레미스 AD 포리스트에 연결 |● |● |● |● |● |
@@ -52,7 +52,7 @@ PP = 공개 미리 보기 상태
 | 온-프레미스 HR(즉, SAP, Oracle eBusiness, PeopleSoft)에 연결 |FR | | |● |● |
 | 온-프레미스 시스템에 프로비전하기 위해 FIM 동기화 규칙과 커넥터를 지원합니다. | | | |● |● |
 
-## <a name="cloud-to-onpremises-synchronization"></a>클라우드와 온-프레미스 간 동기화
+## <a name="cloud-to-on-premises-synchronization"></a>클라우드와 온-프레미스 간 동기화
 | 기능 | Azure Active Directory 연결 | Azure Active Directory 동기화 서비스 | Azure Active Directory 동기화 도구(디렉터리 동기화) | Forefront Identity Manager(FIM) 2010 R2 | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | 장치의 쓰기 저장 |● | |● | | |
@@ -68,7 +68,7 @@ PP = 공개 미리 보기 상태
 | 페더레이션이 있는 Single Sign-On |● |● |● |● |● |
 | 암호의 쓰기 저장(SSPR 및 암호 변경에서) |● |● | | | |
 
-## <a name="setup-and-installation"></a>설정 및 설치
+## <a name="set-up-and-installation"></a>설정 및 설치
 | 기능 | Azure Active Directory 연결 | Azure Active Directory 동기화 서비스 | Azure Active Directory 동기화 도구(디렉터리 동기화) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | 도메인 컨트롤러에서 설치 지원 |● |● |● | |
@@ -95,6 +95,6 @@ PP = 공개 미리 보기 상태
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

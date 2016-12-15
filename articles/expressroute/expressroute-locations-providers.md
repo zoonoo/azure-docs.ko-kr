@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2016
+ms.date: 11/28/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 86b7d396307761acb8baee5761f08a3e1120cddc
+ms.sourcegitcommit: bd4d6f59ac4fbaa9bd0cb6a33a697cac0d13eb8c
+ms.openlocfilehash: 7a86469a9513869362eb37b21b155889dcee7942
 
 
 ---
@@ -28,7 +28,10 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 ![위치 맵][0]
 
-지역 내 하나 이상의 Express 경로 위치와 연결된 경우, 지역 내의 모든 지역에 걸쳐 Azure 서비스에 대한 액세스 권한을 갖습니다. 다음 표에서 지역 내 Express 경로 위치에 대한 Azure 지역의 맵을 제공합니다.
+지역 내 하나 이상의 Express 경로 위치와 연결된 경우, 지역 내의 모든 지역에 걸쳐 Azure 서비스에 대한 액세스 권한을 갖습니다. 
+
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>지역 내 ExpressRoute 경로 위치에 대한 Azure 지역
+다음 표에서 지역 내 Express 경로 위치에 대한 Azure 지역의 맵을 제공합니다.
 
 | **지역** | **Azure 지역** | **Express 경로 위치** |
 | --- | --- | --- |
@@ -40,6 +43,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **오스트레일리아** |오스트레일리아 남동부, 오스트레일리아 동부 |멜버른, 시드니 |
 | **인도** |인도 서부, 인도 중부, 인도 남부 |첸나이, 뭄바이 |
 
+### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>국내 클라우드에 대한 지역 및 지리적 경계
 아래 표에서는 국가별 클라우드의 지역 및 지정학적 경계에 대한 정보를 제공합니다.
 
 | **지역** | **Azure 지역** | **Express 경로 위치** |
@@ -50,10 +54,10 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 지정학적 지역에 걸친 연결은 표준 Express 경로 SKU에서 지원되지 않습니다. 전역 연결을 지원하려면 Express 경로 프리미엄 추가 기능을 사용하도록 설정해야 합니다. 국가별 클라우드 환경에 대한 연결은 지원되지 않습니다. 이러한 요구가 발생할 경우 연결 공급자와 함께 작업할 수 있습니다.
 
-## <a name="connectivity-provider-locations"></a>연결 공급자 위치
+## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>연결 공급자 위치
 > [!div class="op_single_selector"]
-> [공급자에 따른 위치](expressroute-locations.md#connectivity-provider-locations)
-> [위치에 따른 공급자](expressroute-locations-providers.md#connectivity-provider-locations)
+> * [공급자별 위치](expressroute-locations.md#locations)
+> * [위치별 공급자](expressroute-locations-providers.md#locations)
 > 
 > 
 
@@ -72,7 +76,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **로스앤젤레스** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **멜버른** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **뉴욕** |Equinix, Megaport, Zayo Group |
-| **뉴포트(웨일스)+** |Next Generation Data+ |
+| **뉴포트(웨일스)** |Next Generation Data |
 | **Montreal** |Cologix + |
 | **뭄바이** |Tata Communications |
 | **오사카** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
@@ -83,13 +87,14 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **싱가포르** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **시드니** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **도쿄** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
-| **토론토** |Cologix, Equinix, Zayo Group |
+| **토론토** |Cologix, Equinix, Megaport, Zayo Group |
 | **워싱턴 DC** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** 는 서비스 예정을 나타냄
 
 ### <a name="national-cloud-environments"></a>국가별 클라우드 환경
-#### <a name="us-government-cloud"></a>미국 정부 클라우드
+
+### <a name="us-government-cloud"></a>미국 정부 클라우드
 | **위치** | **서비스 공급자** |
 | --- | --- |
 | **시카코** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -97,7 +102,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **뉴욕** |Equinix, Level 3 Communications+, Verizon |
 | **워싱턴 DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-#### <a name="china"></a>중국
+### <a name="china"></a>중국
 | **위치** | **서비스 공급자** |
 | --- | --- |
 | **베이징** |China Telecom |
@@ -105,7 +110,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 자세한 내용은 [중국의 ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)
 
-#### <a name="germany"></a>독일
+### <a name="germany"></a>독일
 | **위치** | **서비스 공급자** |
 | --- | --- |
 | **베를린** |Colt+, e-shelter |
@@ -115,13 +120,13 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 연결 공급자가 이전 섹션에 없는 경우에도 연결을 설정할 수 있습니다.
 
 * 연결 공급자에게 문의하여 위의 표에 있는 Exchange 중 하나에 연결되어 있는지 확인합니다. Exchange 공급자가 제공하는 서비스에 대한 자세한 정보를 수집하려면 다음 링크를 확인할 수 있습니다. 여러 연결 공급자는 이미 이더넷 Exchange에 연결되어 있습니다.
-  
+  * [Cologix](http://www.cologix.com/)
+  * [CoreSite](http://www.coresite.com/)
   * [Equinix 클라우드 Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
   * [InterXion](http://www.interxion.com/)
   * [NextDC](http://www.nextdc.com/)
-  * [CoreSite](http://www.coresite.com/)
-  * [Cologix](http://www.cologix.com/)
+  * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
+  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 * 연결 공급자가 선택한 피어링 위치로 네트워크를 확장합니다.
   * 연결 공급자는 단일 실패 지점이 없도록 항상 사용 가능한 방식으로 연결을 확장하는지 확인합니다.
 * Microsoft에 연결할 연결 공급자로 Exchange를 지정하여 Express 경로 회로를 정렬합니다.
@@ -153,6 +158,6 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

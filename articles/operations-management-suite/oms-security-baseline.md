@@ -8,15 +8,16 @@ manager: swadhwa
 editor: 
 ms.assetid: 17837c8b-3e79-47c0-9b83-a51c6ca44ca6
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2016
+ms.date: 12/05/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1c3e2cf86a33f9bbe6b34f4f52b82a078b91661f
+ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
+ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
 
 
 ---
@@ -75,7 +76,7 @@ ms.openlocfilehash: 1c3e2cf86a33f9bbe6b34f4f52b82a078b91661f
 > 
 
 ### <a name="accessing-computers-missing-baseline-assessment"></a>기준 평가가 누락된 컴퓨터에 액세스
-OMS는 Windows Server 2008 R2에서 Windows Server 2012 R2까지 도메인 구성원 기준 프로필을 지원합니다. Windows Server 2016 기준은 계획은 아직 최종본이 아니며 게시되는 즉시 추가됩니다. OMS 보안 및 감사 기준 평가를 통해 검색된 다른 모든 운영 체제는 **기준 평가가 누락된 컴퓨터** 섹션에 표시됩니다.
+OMS는 Windows Server 2008 R2에서 Windows Server 2012 R2까지 도메인 구성원 및 도메인 컨토롤러 기준 프로필을 지원합니다. Windows Server 2016 기준은 계획은 아직 최종본이 아니며 게시되는 즉시 추가됩니다. OMS 보안 및 감사 기준 평가를 통해 검색된 다른 모든 운영 체제는 **기준 평가가 누락된 컴퓨터** 섹션에 표시됩니다.
 
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 OMS 보안 및 감사 기준 평가에 대해 알아보았습니다. OMS 보안에 대해 자세히 알아보려면 다음 문서를 참조하세요.
@@ -87,6 +88,6 @@ OMS는 Windows Server 2008 R2에서 Windows Server 2012 R2까지 도메인 구�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

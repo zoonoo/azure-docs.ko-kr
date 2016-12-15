@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/31/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51833ae656f4c5275b0bd922d21288901cd1f4b3
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
 
 
 ---
@@ -48,7 +48,7 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 사용하고 있는 기존 키 자격 증명 모음  
-* Azure PowerShell, **최소 버전 1.0.1**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다.  
+* Azure PowerShell, **최소 버전 1.0.1**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다.  
 * 키 자격 증명 모음 로그에 대한 Azure의 충분한 저장소.
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>구독에 연결
@@ -66,7 +66,7 @@ Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정�
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 ## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>로그에 대한 새 저장소 계정 만들기
 로그에 대해 기존 저장소 계정을 사용할 수 있지만 키 자격 증명 모음 로그 전용 새 저장소 계정을 만듭니다. 나중에 이를 지정해야 하는 경우 편의를 위해 **sa**라는 변수로 정보를 저장합니다.
@@ -266,6 +266,6 @@ Azure Key Vault을 사용하는 키 회전 및 로그 감사에 대한 자습서
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

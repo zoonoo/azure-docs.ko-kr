@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/22/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 09293d71b99e325a417edf59172550ef6e5f5b71
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
 
 
 ---
@@ -39,7 +39,7 @@ ms.openlocfilehash: 09293d71b99e325a417edf59172550ef6e5f5b71
 > 조직에서 둘 이상의 도메인을 사용하는 경우 사용자 계정을 추가할 때 다음과 같은 문제를 알고 있어야 합니다.
 > 
 > * 도메인 간에 동일한 UPN(사용자 계정 이름)을 갖는 여러 개의 사용자 계정을 추가하려면 예를 들어 **먼저** geoffgrisso@contoso.onmicrosoft.com,을 추가한 **다음** geoffgrisso@contoso.com.을 추가합니다.
-> * geoffgrisso@contoso.onmicrosoft.com.을 추가하기 전에 geoffgrisso@contoso.com을 추가하지 **마세요**.이 작업은 중요하며 실행을 취소하기가 복잡할 수 있습니다.
+> * geoffgrisso@contoso.onmicrosoft.com.을 추가하기 전에 geoffgrisso@contoso.com을 추가하지 **마세요**. 이 작업은 중요하며 실행을 취소하기가 복잡할 수 있습니다.
 > 
 > 
 
@@ -87,6 +87,6 @@ Azure 클래식 포털에서 **구성** 탭을 열려면 **Active Directory**를
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

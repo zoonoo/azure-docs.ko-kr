@@ -1,6 +1,6 @@
 ---
 title: "Azure PowerShell을 사용하여 Azure Data Lake Analytics 시작 | Microsoft Docs"
-description: "Azure PowerShell을 사용하여 데이터 레이크 저장소 계정을 만들고, U-SQL을 사용하여 데이터 레이크 분석 작업을 만들고, 작업을 제출하는 방법에 대해 알아봅니다. "
+description: "Azure PowerShell을 사용하여 Data Lake Analytics 계정을 만들고, U-SQL을 사용하여 Data Lake Analytics 작업을 만들고, 작업을 제출하는 방법에 대해 알아봅니다. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/21/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 59efa050944059c737654a3f039a058c50865ea6
+ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
+ms.openlocfilehash: a1244ee080d333338b1f0d9e49d1776822f535ed
 
 
 ---
@@ -31,7 +31,7 @@ Azure PowerShell을 사용하여 Azure Data Lake 분석 계정을 만들고, [U-
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+* **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 ## <a name="create-data-lake-analytics-account"></a>데이터 레이크 분석 계정 만들기
 모든 작업을 실행하기 전에 Data Lake Analytics 계정이 있어야 합니다. 데이터 레이크 분석 계정을 만들려면 다음을 지정해야 합니다.
@@ -209,6 +209,6 @@ Azure PowerShell을 사용하여 Azure Data Lake 분석 계정을 만들고, [U-
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

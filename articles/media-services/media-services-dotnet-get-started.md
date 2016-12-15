@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/17/2016
+ms.date: 11/07/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80606d9fd08a4d5b5845af8ed43fdcef050e47e9
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 645fa2574efb9501da173f8ac8aea146d1e79ff8
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 80606d9fd08a4d5b5845af8ed43fdcef050e47e9
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요. 
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요. 
 > 
 > 
 
@@ -50,7 +50,7 @@ ms.openlocfilehash: 80606d9fd08a4d5b5845af8ed43fdcef050e47e9
 
 * 이 자습서를 완료하려면 Azure 계정이 필요합니다. 
   
-    계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요. 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능(예: Azure 앱 서비스의 웹앱 기능)을 사용할 수 있습니다.
+    계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요. 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능(예: Azure 앱 서비스의 웹앱 기능)을 사용할 수 있습니다.
 * 운영 체제: Windows 8 이상, Windows 2008 R2, Windows 7
 * .NET Framework 4.0 이상
 * Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 이상 버전.
@@ -114,10 +114,17 @@ Media Services는 적응 비트 전송률 MP4 인코딩 콘텐츠를 Media Servi
    > 
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
+
 1. Visual Studio 2013, Visual Studio 2012 또는 Visual Studio 2010 SP1에서 새 C# 콘솔 응용 프로그램을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 **확인**을 클릭합니다.
 2. [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet 패키지를 사용하여 **Azure Media Services .NET SDK 확장**을 설치합니다.  미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 미디어 서비스를 사용하여 더욱 쉽게 개발할 수 있도록 지원하는 일련의 확장 메서드 및 도우미 함수입니다. 이 패키지를 설치하면 **미디어 서비스 .NET SDK** 도 설치되고 다른 모든 필수 종속성이 추가됩니다.
+
+    NuGet을 사용하여 참조를 추가하려면 Solution Explorer에서 마우스 오른쪽 단추로 프로젝트 이름을 클릭한 다음 **NuGet 패키지 관리**를 선택합니다. 그런 다음 **windowsazure.mediaservices.extensions**를 검색하고 **설치**를 클릭합니다.
+
 3. System.Configuration 어셈블리에 참조를 추가합니다. 이 어셈블리는 구성 파일(예: App.config)에 액세스하는 데 사용되는 **System.Configuration.ConfigurationManager** 클래스를 포함합니다.
-4. App.config 파일을 열고(기본적으로 추가되지 않은 경우 프로젝트에 파일 추가) *appSettings* 섹션을 파일에 추가합니다. Azure 미디어 서비스 계정 이름 및 계정 키의 값을 다음 예제와 같이 설정합니다. 계정 이름 및 키 정보를 가져오려면 [Azure Portal](https://portal.azure.com/)로 이동하여 AMS 계정을 선택합니다. 그런 다음 **설정** > **키**를 선택합니다. 키 관리 창에 계정 이름과 기본 및 보조 키가 표시됩니다.
+
+    참조를 추가하려면 Solution Explorer에서 마우스 오른쪽 단추로 프로젝트 이름을 클릭한 다음 **추가** > **참조...**를 선택하고 검색 상자에 구성을 입력합니다. 
+
+4. App.config 파일을 열고(기본적으로 추가되지 않은 경우 프로젝트에 파일 추가) *appSettings* 섹션을 파일에 추가합니다. Azure 미디어 서비스 계정 이름 및 계정 키의 값을 다음 예제와 같이 설정합니다. 계정 이름 및 키 정보를 가져오려면 [Azure Portal](https://portal.azure.com/)로 이동하여 AMS 계정을 선택합니다. 그런 다음 **설정** > **키**를 선택합니다. 키 관리 창에 계정 이름과 기본 및 보조 키가 표시됩니다. 계정 이름 및 기본 키 값을 복사해 둡니다.
    
         <configuration>
         ...
@@ -141,11 +148,16 @@ Media Services는 적응 비트 전송률 MP4 인코딩 콘텐츠를 Media Servi
 6. 프로젝트 디렉터리 아래에 새 폴더를 만들고 인코딩하고 스트리밍 또는 점진적으로 다운로드하려는 .mp4 또는 .wmv 파일을 복사합니다. 이 예제에서는 "C:\VideoFiles" 경로가 사용됩니다.
 
 ## <a name="connect-to-the-media-services-account"></a>미디어 서비스 계정에 연결
+
 미디어 서비스를 .NET과 함께 사용하는 경우 미디어 서비스 계정에 연결하는 작업이나 자산, 자산 파일, 작업, 액세스 정책, 로케이터 등의 개체를 만들고 업데이트하고 액세스하고 삭제하는 작업을 포함한 대부분의 미디어 서비스 프로그래밍 작업에 **CloudMediaContext** 클래스를 사용해야 합니다.
 
 기본 Program 클래스를 다음 코드로 덮어씁니다. 이 코드는 App.config 파일에서 연결 값을 읽는 방법 및 미디어 서비스에 연결하기 위해 **CloudMediaContext** 개체를 만드는 방법을 보여 줍니다. 미디어 서비스에 연결하는 방법에 대한 자세한 내용은 [Media Services SDK for .NET을 사용하여 미디어 서비스에 연결](http://msdn.microsoft.com/library/azure/jj129571.aspx)을 참조하세요.
 
+
 **Main** 함수는 이 섹션에서 자세히 정의되는 메서드를 호출합니다.
+
+> [!NOTE]
+> 모든 함수에 대한 정의를 추가하기 전까지는 컴파일 오류가 발생합니다.
 
     class Program
     {
@@ -193,8 +205,10 @@ Media Services는 적응 비트 전송률 MP4 인코딩 콘텐츠를 Media Servi
                 Console.ReadLine();
             }
         }
+    }
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>새 자산 만들기 및 비디오 파일 업로드
+
 미디어 서비스에서 자산에 디지털 파일을 업로드(수집)합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다.  파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다. 자산에 포함된 파일을 **자산 파일**이라고 합니다.
 
 아래에서 정의된 **UploadFile** 메서드는 **CreateFromFile**(.NET SDK 확장에 정의됨)을 호출합니다. **CreateFromFile** 은 지정된 원본 파일이 업로드되는 새 자산을 만듭니다.
@@ -281,7 +295,8 @@ Program 클래스에 다음 메서드를 추가합니다.
     }
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>자산 게시, 스트리밍 및 점진적 다운로드를 위한 URL 가져오기
-자산을 스트리밍하거나 다운로드하려면 먼저 로케이터를 만들어 자산을 "게시"해야 합니다. 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다. 미디어 서비스는 두 가지 유형의 로케이터를 지원합니다.하나는 OnDemandOrigin 로케이터로서 미디어를 스트리밍하는 데 사용되고(예: MPEG DASH, HLS 또는 부드러운 스트리밍) 다른 하나는 SAS(공유 액세스 서명) 로케이터로서 미디어 파일을 다운로드하는 데 사용됩니다.
+
+자산을 스트리밍하거나 다운로드하려면 먼저 로케이터를 만들어 자산을 "게시"해야 합니다. 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다. Media Services는 두 가지 유형의 로케이터를 지원합니다. 하나는 OnDemandOrigin 로케이터로서 미디어를 스트리밍하는 데 사용되고(예: MPEG DASH, HLS 또는 부드러운 스트리밍) 다른 하나는 SAS(공유 액세스 서명) 로케이터로서 미디어 파일을 다운로드하는 데 사용됩니다(SAS 로케이터와 관련한 자세한 내용은 [이](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) 블로그 참조).
 
 로케이터를 만든 후에 파일을 스트리밍하거나 다운로드하는 데 사용되는 URL을 작성할 수 있습니다.
 
@@ -425,11 +440,11 @@ MPEG DASH
 
 
 <!-- URLs. -->
-[웹 플랫폼 설치 관리자]: http://go.microsoft.com/fwlink/?linkid=255386
-[포털]: http://manage.windowsazure.com/
+[Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
+[Portal]: http://manage.windowsazure.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

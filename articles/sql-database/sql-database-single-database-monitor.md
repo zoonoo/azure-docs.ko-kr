@@ -9,6 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 09/27/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f5fa586bd8902af2129a7157f0549c337ae00d00
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5cda0c5b491f71999da0b7bd70156256ab2d5908
 
 
 ---
@@ -43,18 +44,17 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 성능 메트릭이 더 낮은 성능 수준으로 다운그레이드할 수 있는지 여부를 판단하는 데 도움이 될 수도 있습니다. 표준 S2 데이터베이스를 사용하고 있는데 모든 성능 메트릭에서 지정한 시기에 데이터베이스가 평균적으로 10% 이하를 사용하는 것으로 나타난다고 가정합니다. 데이터베이스가 표준 S1에서 잘 작동할 가능성이 있습니다. 그러나 더 낮은 성능 수준으로 이동하도록 결정하기 전에 갑자기 증가하거나 변동하는 워크로드에 주의해야 합니다.
 
 ## <a name="monitor-databases-using-dmvs"></a>DMV를 사용하여 데이터베이스 모니터링
-포털에 노출된 것과 같은 메트릭을 서버의 논리 **마스터** 데이터베이스에 있는 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx), 사용자 데이터베이스의 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) 등의 시스템 뷰를 통해 사용할 수도 있습니다. 더 오랜 개간 동안 덜 자세한 데이터를 모니터링해야 하는 경우 **sys.resource_stats**를 사용합니다. 더 작은 시간 범위의 자세한 데이터를 모니터링해야 하는 경우 **sys.dm_db_resource_stats**를 사용합니다. 자세한 내용은 [Azure SQL 데이터베이스 성능 지침](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats)을 참조하세요.
+포털에 노출된 것과 같은 메트릭을 서버의 논리 **마스터** 데이터베이스에 있는 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx), 사용자 데이터베이스의 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) 등의 시스템 뷰를 통해 사용할 수도 있습니다. 더 오랜 개간 동안 덜 자세한 데이터를 모니터링해야 하는 경우 **sys.resource_stats**를 사용합니다. 더 작은 시간 범위의 자세한 데이터를 모니터링해야 하는 경우 **sys.dm_db_resource_stats**를 사용합니다. 자세한 내용은 [Azure SQL 데이터베이스 성능 지침](sql-database-performance-guidance.md#monitor-resource-use)을 참조하세요.
 
 > [!NOTE]
 > **sys.dm_db_resource_stats**는 Web 및 Business Edition 데이터베이스에서 사용할 때 빈 결과 집합을 반환합니다.
-> 
-> 
+>
+>
 
 탄력적 데이터베이스 풀의 경우 이 섹션에서 설명하는 기법을 사용하여 풀의 개별 데이터베이스를 모니터링할 수 있습니다. 하지만 전체적으로 풀을 모니터링할 수도 있습니다. 자세한 내용은 [탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)를 참조하세요.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

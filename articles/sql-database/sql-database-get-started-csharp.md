@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: csharp
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 82b042fa17af4bc93989a4f12982530f44755280
 
 
 ---
@@ -65,7 +66,7 @@ C#으로 SQL Database를 만들려면 [패키지 관리자 콘솔](http://docs.n
 > 
 > 
 
-## <a name="create-a-sql-database-server-firewall-rule-and-sql-database-c-example"></a>SQL Database 서버, 방화벽 규칙 및 SQL Database 만들기 - C# 예제
+## <a name="create-a-sql-database-server-firewall-rule-and-sql-database---c-example"></a>SQL Database 서버, 방화벽 규칙 및 SQL Database 만들기 - C# 예제
 다음 샘플은 리소스 그룹, 서버, 방화벽 규칙 및 SQL 데이터베이스를 만듭니다. `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` 변수를 가져오려면 [리소스에 액세스하는 서비스 주체 만들기](#create-a-service-principal-to-access-resources)를 참조하세요.
 
 **Program.cs** 콘텐츠를 다음으로 바꾸고 `{variables}`를 앱 값(`{}`을 포함하지 않음)으로 업데이트합니다.
@@ -292,6 +293,6 @@ C#으로 SQL Database를 만들려면 [패키지 관리자 콘솔](http://docs.n
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

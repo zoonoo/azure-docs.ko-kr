@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0617dbff2ba281091ba5775e7969edfead4d80c8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9e933774e3b618b1584b4f24a0491eda49e42077
 
 
 ---
@@ -64,12 +64,12 @@ Azure AD 도메인 서비스를 사용하도록 설정할 Azure 가상 네트워
 
 <br>
 
-## <a name="task-3-enable-azure-ad-domain-services"></a>작업 3 - Azure AD 도메인 서비스 활성화
+## <a name="task-3---enable-azure-ad-domain-services"></a>작업 3 - Azure AD 도메인 서비스 활성화
 다음 구성 태스크는 [Azure AD 도메인 서비스를 활성화](active-directory-ds-getting-started-enableaadds.md)하는 것입니다.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,7 +1,7 @@
 [여기][namespace-how-to]와 같이 Service Bus 네임스페이스를 만들었는지 확인합니다.
 
-1. [Azure Portal][azure-portal]에 로그온합니다.
-2. 포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
+1. [Azure Portal][azure-portal]에 로그인합니다.
+2. 포털의 왼쪽 탐색 창에서 **Service Bus**(**Service Bus**가 표시되지 않으면 **더 많은 서비스** 클릭)를 클릭합니다.
 3. 큐를 만들려는 네임스페이스를 선택합니다. 이 경우 **nstest1**입니다.
    
     ![큐 만들기][createqueue1]
@@ -21,6 +21,6 @@
 [azure-portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

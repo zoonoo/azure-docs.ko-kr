@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cdbf4b164af4a8077b8f9a166d6c4ad752b25ff4
 
 
 ---
-# <a name="deploying-the-user-portal-for-the-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털 배포
+# <a name="deploying-the-user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털 배포
 사용자 포털을 사용하여 관리자는 Azure Multi-Factor Authentication 사용자 포털을 설치하고 구성할 수 있습니다. 사용자 포털은 사용자가 Azure Multi-Factor Authentication을 등록하고 계정을 관리할 수 있는 IIS 웹 사이트입니다. 사용자는 다음 로그온 시에 전화 번호를 변경하거나, PIN을 변경하거나, Azure Multi-Factor Authentication을 바이패스할 수 있습니다.
 
 사용자는 일반 사용자 이름과 암호를 사용하여 사용자 포털에 로그인하고 Azure Multi-Factor Authentication 통화를 완료하거나 보안 질문에 답변하여 인증을 완료합니다. 사용자 등록이 허용되면 사용자 포털에 처음 로그인할 때 전화 번호와 PIN을 구성합니다.
@@ -29,13 +29,13 @@ ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
 
 <center>![설정](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
-## <a name="deploying-the-user-portal-on-the-same-server-as-the-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication 서버와 동일한 서버의 사용자 포털 배포
+## <a name="deploying-the-user-portal-on-the-same-server-as-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버와 동일한 서버의 사용자 포털 배포
 Azure Multi-Factor Authentication 서버와 동일한 서버에 사용자 포털을 설치하려면 다음 필수 요건이 충족되어야 합니다.
 
 * asp.net 및 IIS 6 메타베이스 호환성(IIS 7 이상)을 포함하는 IIS를 설치해야 합니다.
 * 해당되는 경우 로그인한 사용자는 컴퓨터 및 도메인에 대해 관리자 권한이 있어야 합니다.  계정에 Active Directory 보안 그룹을 만들 수 있는 권한이 필요하기 때문입니다.
 
-### <a name="to-deploy-the-user-portal-for-the-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털을 배포하려면
+### <a name="to-deploy-the-user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털을 배포하려면
 1. Azure Multi-Factor Authentication 서버 내에서 왼쪽 메뉴에 있는 사용자 포털 아이콘을 클릭하고 Install User Portal(사용자 포털 설치) 단추를 클릭합니다.
 2. 다음을 클릭합니다.
 3. 다음을 클릭합니다.
@@ -47,7 +47,7 @@ Azure Multi-Factor Authentication 서버와 동일한 서버에 사용자 포털
 
 <center>![설정](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
-## <a name="deploying-the-azure-multifactor-authentication-server-user-portal-on-a-separate-server"></a>별도 서버에 Azure Multi-Factor Authentication 서버 사용자 포털 배포
+## <a name="deploying-the-azure-multi-factor-authentication-server-user-portal-on-a-separate-server"></a>별도 서버에 Azure Multi-Factor Authentication 서버 사용자 포털 배포
 Azure Multi-Factor Authentication 앱을 사용하려면 앱이 사용자 포털과 성공적으로 통신할 수 있도록 하기 위해 다음 사항이 필요합니다.
 
 하드웨어 및 소프트웨어 요구 사항에 대해서는 하드웨어 및 소프트웨어 요구 사항을 참조하세요.
@@ -89,7 +89,7 @@ Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure Multi-Factor Authen
 7. 사용자 포털이 설치된 웹 사이트(예: 기본 웹 사이트)가 공개적으로 서명된 인증서에 아직 바인딩되지 않았으면 서버에 인증서를 설치하고(아직 설치되지 않은 경우) IIS 관리자를 연 다음 웹 사이트에 인증서를 바인딩합니다.
 8. 모든 컴퓨터에서 웹 브라우저를 열고 사용자 포털이 설치된 URL(예: https://www.publicwebsite.com/MultiFactorAuth)로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
 
-## <a name="configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 사용자 포털 설정 구성
+## <a name="configure-the-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 사용자 포털 설정 구성
 포털이 설치되었으므로 포털을 사용하도록 Azure Multi-Factor Authentication 서버를 구성해야 합니다.
 
 Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇 가지 옵션을 제공합니다.  다음 표에서는 이러한 옵션 및 각 옵션의 용도를 설명하는 목록을 제공합니다.
@@ -113,7 +113,7 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 
 ![사용자 포털 설정](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
-### <a name="to-configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 사용자 포털 설정을 구성하려면
+### <a name="to-configure-the-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 사용자 포털 설정을 구성하려면
 1. Azure Multi-Factor Authentication 서버에서 사용자 포털 아이콘을 클릭합니다. 설정 탭에서 사용자 포털 URL 텍스트 상자에 사용자 포털의 URL을 입력합니다. 이 URL은 메일 기능이 사용되도록 설정된 경우 Azure Multi-Factor Authentication 서버로 가져올 때 사용자에게 전송되는 메일에 삽입됩니다.
 2. 사용자 포털에서 사용하려는 설정을 선택합니다. 예를 들어 사용자가 자신의 인증 방법을 제어하도록 허용되면, 사용자가 선택할 수 있는 방법과 함께 사용자가 방법을 선택할 수 있도록 허용 옵션이 선택되어 있는지 확인합니다.
 3. 표시되는 설정을 이해하기 위한 정보를 보려면 오른쪽 위 구석에 있는 도움말 링크를 클릭합니다.
@@ -142,7 +142,7 @@ SAML을 사용하는 ID 공급자의 클레임을 받을 수 있는 사용자 �
 
 ![사용자 포털 신뢰할 수 있는 IP](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
-## <a name="selfservice-user-enrollment"></a>Self-Service User Enrollment(셀프 서비스 사용자 등록)
+## <a name="self-service-user-enrollment"></a>Self-Service User Enrollment(셀프 서비스 사용자 등록)
 사용자가 로그인하고 등록할 수 있게 하려면 로그인 허용과 등록 허용 옵션을 선택해야 합니다. 선택한 설정은 사용자 로그인 환경에 영향을 줍니다.
 
 예를 들어 사용자 포털에 로그인하고 Log In(로그인) 단추를 클릭하면 Azure Multi-Factor Authentication User Setup(Azure Multi-Factor Authentication 사용자 설정) 페이지로 이동합니다.  Azure Multi-Factor Authentication 구성 방식에 따라 사용자는 인증 방법을 선택할 수 있습니다.  
@@ -177,6 +177,6 @@ SAML을 사용하는 ID 공급자의 클레임을 받을 수 있는 사용자 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

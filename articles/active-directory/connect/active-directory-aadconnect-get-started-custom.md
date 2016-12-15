@@ -4,20 +4,19 @@ description: "이 문서는 Azure AD Connect에 대한 사용자 지정 설치 �
 services: active-directory
 keywords: "Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소"
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: femila
-editor: curtand
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 12/06/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
-ms.openlocfilehash: f001bc76161565bd07606d366c07b15edf819e81
+ms.sourcegitcommit: d0e596aed6ae784e4c48b3ddacbf946c4849614f
+ms.openlocfilehash: 397ed8977c35dc18e92239ae4b62bddba2ade8a7
 
 
 ---
@@ -46,13 +45,17 @@ DirSync를 업그레이드하는 등 사용자 지정된 설정이 토폴로지�
 ### <a name="user-sign-in"></a>사용자 로그인
 필수 구성 요소를 설치한 후 사용자가 Single Sign-On 방법을 선택하라는 메시지가 표시됩니다. 다음 테이블에서 사용 가능한 옵션에 대한 간략한 설명을 제공합니다. 로그인 메서드에 대한 전체 설명은 [사용자 로그인](../active-directory-aadconnect-user-signin.md)을 참조하세요.
 
-![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
+![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
 
 | SSO(Single Sign-On) 옵션 | 설명 |
 | --- | --- |
 | 암호 동기화 |사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다. 사용자 암호는 암호 해시로 Azure AD에 동기화되며 클라우드에서 인증이 이루어집니다. 자세한 내용은 [암호 동기화](../active-directory-aadconnectsync-implement-password-synchronization.md)를 참조하세요. |
+|통과 인증(미리 보기)|사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다.  사용자 암호가 온-프레미스 Active Directory 컨트롤러를 통해 전달되어 검증됩니다. 
 | AD FS로 페더레이션 |사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다.  사용자는 로그인하기 위해 자신의 온-프레미스 AD FS 인스턴스로 리디렉션되며 온-프레미스로 인증이 이루어집니다. |
 | 구성하지 않음 |기능이 설치 및 구성되지 않았습니다. 이미 타사 페더레이션 서버 또는 다른 기존 솔루션이 있는 경우 이 옵션을 선택합니다. |
+|Single Sign-On을 사용하도록 설정|이 옵션은 암호 동기화 및 통과 인증 모두로 사용 가능하며 기업 네트워크에서 데스크톱 사용자를 위한 single sign on 환경을 제공합니다.  자세한 내용은 [Single sign-on](../active-directory-aadconnect-sso.md)을 참조하세요. </br>AD FS 고객의 경우 AD FS에서 동일한 수준의 single sign on을 이미 제공하므로 이 옵션을 사용할 수 없습니다.</br>(PTA가 동시에 릴리스되지 않은 경우)
+|로그인 옵션|이 옵션은 암호 동기화 고객에게 제공되며 기업 네트워크에서 데스크톱 사용자를 위한 single sign on 환경을 제공합니다.  </br>자세한 내용은 [Single sign-on](../active-directory-aadconnect-sso.md)을 참조하세요. </br>AD FS 고객의 경우 AD FS에서 동일한 수준의 single sign on을 이미 제공하므로 이 옵션을 사용할 수 없습니다.
+
 
 ### <a name="connect-to-azure-ad"></a>Azure에 연결
 Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합니다. 이전 페이지에서 **AD FS로 페더레이션** 을 선택한 경우 페더레이션을 사용하도록 설정하려는 도메인의 계정으로 로그인하지 마십시오. Azure AD 디렉터리와 함께 제공되는 기본 **onmicrosoft.com** 도메인에서 계정을 사용하는 것이 좋습니다.
@@ -68,6 +71,7 @@ Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합
 오류가 발생하고 연결에 문제가 있는 경우 [연결 문제 해결](../active-directory-aadconnect-troubleshoot-connectivity.md)을 참조하세요.
 
 ## <a name="pages-under-the-section-sync"></a>섹션 동기화의 페이지
+
 ### <a name="connect-your-directories"></a>디렉터리에 연결
 Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충분한 권한이 있는 계정의 자격 증명이 필요합니다. NetBios 또는 FQDN 형식으로 도메인 부분을 입력할 수 있습니다(예: FABRIKAM\syncuser 또는 fabrikam.com\syncuser). 기본 읽기 권한만 필요하기 때문에 이 계정은 일반 사용자 계정일 수 있습니다. 그러나 시나리오에 따라 더 많은 사용 권한이 할 수 있습니다. 자세한 내용은 [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)을 참조하세요.
 
@@ -80,6 +84,9 @@ Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충
 **추가되지 않음** 및 **확인되지 않음**으로 표시된 모든 도메인을 검토합니다. 사용한 해당 도메인을 Azure AD에서 확인하도록 합니다. 도메인을 확인한 경우 새로 고침 기호를 클릭합니다. 자세한 내용은 [도메인 추가 및 확인](../active-directory-add-domain.md)을 참조하세요.
 
 **UserPrincipalName** - 특성 userPrincipalName은 사용자가 Azure AD 및 Office 365에 로그인할 때 사용하는 특성입니다. UPN-접미사로 알려진 사용된 도메인은 사용자가 동기화되기 전에 Azure AD에서 확인해야 합니다. Microsoft에서는 기본 특성 userPrincipalName을 유지하는 것을 권장합니다. 이 특성이 라우팅할 수 없고 확인할 수 없는 경우 다른 특성을 선택할 수 있습니다. 예를 들어 로그인 ID를 보관하는 특성으로 전자 메일을 선택할 수 있습니다. userPrincipalName 이외의 다른 특성을 사용하는 것을 **대체 ID**라고 합니다. 대체 ID 특성 값은 RFC822 표준을 따라야 합니다. 대체 ID는 암호 동기화 및 페더레이션과 함께 사용할 수 있습니다.
+
+>[!NOTE]
+> 통과 인증을 사용하도록 설정한 경우 마법사를 진행하려면 하나 이상의 검증된 도메인이 있어야 합니다.
 
 > [!WARNING]
 > 대체 ID를 사용하면 모든 Office 365 워크로드 부하와 호환되지 않습니다. 자세한 내용은 [대체 로그인 ID 구성](https://technet.microsoft.com/library/dn659436.aspx)을 참조하세요.
@@ -135,11 +142,44 @@ Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충
 | --- | --- |
 | Exchange 하이브리드 배포 |Exchange 하이브리드 배포 기능을 통해 온-프레미스 및 Office 365에서 모두 Exchange 사서함을 동시에 존재하게 할 수 있습니다. Azure AD Connect에서는 [특성](../active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) 의 특정 집합을 Azure AD에서 온-프레미스 디렉터리로 다시 동기화합니다. |
 | Azure AD 앱 및 특성 필터링 |Azure AD 앱 및 특성 필터링을 사용하여 동기화된 특성 집합을 사용자 지정할 수 있습니다. 이 옵션은 마법사에 구성 페이지를 두 개 더 추가합니다. 자세한 내용은 [Azure AD 앱 및 특성 필터링](#azure-ad-app-and-attribute-filtering)을 참조하세요. |
-| 암호 동기화 |페더레이션을 로그인 솔루션으로 선택한 경우 이 옵션을 사용하도록 설정할 수 있습니다. 암호 동기화는 백업 옵션으로 사용할 수 있습니다. 자세한 내용은 [암호 동기화](../active-directory-aadconnectsync-implement-password-synchronization.md)를 참조하세요. |
+| 암호 동기화 |페더레이션을 로그인 솔루션으로 선택한 경우 이 옵션을 사용하도록 설정할 수 있습니다. 암호 동기화는 백업 옵션으로 사용할 수 있습니다. 자세한 내용은 [암호 동기화](../active-directory-aadconnectsync-implement-password-synchronization.md)를 참조하세요. </br></br>통과 인증을 선택한 경우 레거시 클라이언트 지원을 보장하고 백업 옵션으로 이 옵션이 기본적으로 사용됩니다. 자세한 내용은 [암호 동기화](../active-directory-aadconnectsync-implement-password-synchronization.md)를 참조하세요.|
 | 비밀번호 쓰기 저장 |비밀번호 쓰기 저장을 사용하도록 설정하면 Azure AD에서 이루어지는 암호 변경 사항이 온-프레미스 디렉터리에 다시 기록됩니다. 자세한 내용은 [암호 관리 시작](../active-directory-passwords-getting-started.md)을 참조하세요. |
 | 그룹 쓰기 저장 |**Office 365 그룹** 기능을 사용하는 경우 이 그룹을 온-프레미스 Active Directory에 표시할 수 있습니다. 이 옵션은 Exchange가 온-프레미스 Active Directory에 있는 경우 사용할 수 있습니다. 자세한 내용은 [그룹 쓰기 저장](../active-directory-aadconnect-feature-preview.md#group-writeback)을 참조하세요. |
 | 장치 쓰기 저장 |Azure AD의 장치 개체를 조건부 액세스 시나리오에 대한 온-프레미스 Active Directory에 쓰기 저장할 수 있습니다. 자세한 내용은 [Azure AD Connect에서 장치 쓰기 저장 사용](../active-directory-aadconnect-feature-device-writeback.md)을 참조하세요. |
 | 디렉터리 확장 특성 동기화 |디렉터리 확장 특성 동기화를 사용하도록 설정하면 지정된 특성이 Azure AD에 동기화됩니다. 자세한 내용은 [디렉터리 확장](../active-directory-aadconnectsync-feature-directory-extensions.md)을 참조하세요. |
+
+### <a name="enabling-single-sign-on-sso"></a>SSO(Single Sign-On) 사용하도록 설정
+암호 동기화 또는 통과 인증에 사용하기 위해 single sign-on을 구성하면 Azure AD에 동기화되는 각 포리스트에 대해 한 번만 완료하면 되므로 과정이 간단합니다.  구성은 다음과 같이 두 단계로 이루어집니다.
+
+1.  온-프레미스 Active Directory에 필요한 컴퓨터 계정을 만듭니다.
+2.  클라이언트 컴퓨터의 인트라넷 영역을 구성하여 single sign on을 지원합니다.
+
+#### <a name="creating-the-computer-account-in-active-directory"></a>Active Directory에서 컴퓨터 계정을 만듭니다.
+AAD Connect 도구를 통해 추가한 각 포리스트에 대해 도메인 관리자 자격 증명을 제공하여 각 포리스트에 컴퓨터 계정을 만들 수 있도록 해야 합니다.  자격 증명은 계정을 만드는 데만 사용되며 다른 작업에 저장되거나 사용되지 않습니다.  아래와 같이 AAD Connect 마법사의 Single Sign-On을 사용하도록 설정 페이지에서 자격 증명을 추가합니다.
+
+![Single Sign-On을 사용하도록 설정](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
+
+>[!NOTE]
+>포리스트에서 Single sign on을 사용하지 않으려는 경우 특정 포리스트를 건너뛰도록 선택할 수 있습니다.
+
+#### <a name="configure-the-intranet-zone-for-client-machines"></a>클라이언트 컴퓨터에 대한 인트라넷 영역 구성
+클라이언트가 인트라넷 영역에 자동으로 로그인하도록 하려면 URL이 인트라넷 영역에 포함되도록 해야 합니다.  이렇게 하면 도메인에 가입된 데스크톱 컴퓨터가 기업 네트워크에 연결될 때 Kerberos 티켓을 자동으로 보냅니다.
+그룹 정책 관리 도구가 있는 컴퓨터에서 다음을 수행합니다.
+
+1.  그룹 정책 관리 도구를 엽니다.
+2.  모든 사용자에게 표시될 그룹 정책을 편집합니다.  예를 들어 기본 도메인 정책은 다음과 같습니다.
+3.  Current User\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page로 이동하고 아래 이미지에 따라 영역에 대한 사이트 할당 목록을 선택합니다.
+4.  정책을 사용하도록 설정하고 대화 상자에서 다음 두 항목을 입력합니다.
+   
+        Value: https://autologon.microsoftazuread-sso.com
+        Data: 1
+        Value: https://aadg.windows.net.nsatc.net 
+        Data: 1
+
+5.  다음과 유사하게 나타납니다. ![인트라넷 영역](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
+
+6.  확인을 두 번 클릭합니다.
+
 
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Azure AD 앱 및 특성 필터링
 Azure AD에 동기화되는 특성을 제한 하려면 먼저 사용 중인 서비스를 선택합니다. 이 페이지에서 구성을 변경하는 경우 설치 마법사를 다시 실행하여 새 서비스를 명시적으로 선택해야 합니다.
@@ -170,7 +210,7 @@ Azure AD Connect를 사용하여 AD FS를 구성하는 것은 단 몇 번의 클
 * 사용할 페더레이션 서비스 이름에 대한 SSL 인증서(예: sts.contoso.com)
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>AD FS 구성 필수 조건
-Azure AD Connect를 사용하여 AD FS 팜을 구성하려면, 원격 서버에서 WinRM이 활성화되도록 합니다. [테이블 3 - Azure AD Connect 및 페더레이션 서버/WAP](../active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap)에 나열된 포트 요구 사항을 살펴봅니다.
+Azure AD Connect를 사용하여 AD FS 팜을 구성하려면, 원격 서버에서 WinRM이 활성화되도록 합니다. [테이블 3 - Azure AD Connect 및 페더레이션 서버/WAP](../active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap)에 나열된 포트 요구 사항을 살펴봅니다.
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>새 AD FS 팜을 만들거나 기존 AD FS 팜 사용
 기존 AD FS 팜을 사용하거나 새 AD FS 팜을 만들도록 선택할 수 있습니다. 새로 만들기를 선택하는 경우 SSL 인증서를 제공해야 합니다. SSL 인증서가 암호로 보호된 경우 암호를 묻는 메시지가 나타납니다.
@@ -282,6 +322,6 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

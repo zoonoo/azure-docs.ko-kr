@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c90fe9e9f088e8af80b5d9dcf7ab5b970034122f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
 
 
 ---
@@ -42,10 +42,10 @@ Azure 데이터 레이크 저장소는 HDFS(Hadoop Distributed File System)와 �
 ### <a name="unlimited-storage-petabyte-files"></a>무제한 저장소, 페타바이트 파일
 Azure 데이터 레이크 저장소는 무제한 저장소를 제공하며 분석에 대한 다양한 데이터를 저장하는데 적합합니다. 데이터 레이크에 저장될 수 있는 계정 크기, 파일 크기 또는 데이터 양에 어떠한 제한도 적용하지 않습니다. 개별 파일의 범위는 모든 종류의 데이터를 저장하는데 적합하도록 킬로바이트에서 페타바이트까지입니다. 데이터는 여러 복사본을 만들어 영구적으로 저장되며 데이터가 데이터 레이크에 저장될 수 있는 기간에 제한이 없습니다.
 
-### <a name="performancetuned-for-big-data-analytics"></a>빅 데이터 분석에 대한 성능 조정
+### <a name="performance-tuned-for-big-data-analytics"></a>빅 데이터 분석에 대한 성능 조정
 Azure 데이터 레이크 저장소는 많은 양의 데이터에 대한 쿼리 및 분석을 위해 대규모 처리 능력이 필요한 대규모 분석 시스템을 실행할 수 있도록 제작되었습니다. 데이터 레이크는 개별 저장소 서버의 수 이상으로 파일의 일부분을 배포합니다. 데이터 분석을 수행하기 위해 병렬로 파일을 읽을 때 읽기 처리량이 향상됩니다.
 
-### <a name="enterpriseready-highlyavailable-and-secure"></a>엔터프라이즈 지원: 고가용성 및 보안
+### <a name="enterprise-ready-highly-available-and-secure"></a>엔터프라이즈 지원: 고가용성 및 보안
 Azure 데이터 레이크 저장소는 업계 표준 가용성과 안정성을 제공합니다. 데이터 자산은 모든 예기치 않은 오류로부터 보호하도록 중복 복사본을 만들어 영구적으로 저장됩니다. 기업에서는 기존 데이터 플랫폼의 중요한 부분으로 솔루션에서 Azure 데이터 레이크를 사용할 수 있습니다.
 
 또한 데이터 레이크 저장소는 저장된 데이터에 대한 엔터프라이즈급 보안을 제공합니다. 자세한 내용은 [Azure 데이터 레이크 저장소의 데이터 보안](#DataLakeStoreSecurity)을 참조하세요.
@@ -105,6 +105,6 @@ Azure 포털을 사용하여 데이터 레이크 저장소를 프로비전하는
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

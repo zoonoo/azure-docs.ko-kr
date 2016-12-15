@@ -9,6 +9,7 @@ manager: jhubbard
 editor: CarlRabeler
 ms.assetid: 89e3e9ce-2eeb-4949-b40f-6fc3bf520538
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 91942517a481a252d631af15e532389256b64108
+ms.sourcegitcommit: 4edae4ef772dc68b1f0efa9e758f26277dd35c44
+ms.openlocfilehash: bbc9bef4039b5c898c44a0e39b78b7b28c225c32
 
 
 ---
@@ -25,14 +26,14 @@ ms.openlocfilehash: 91942517a481a252d631af15e532389256b64108
 이 문서에서는 DTU(데이터베이스 트랜잭션 단위) 및 eDTU(탄력적 데이터베이스 트랜잭션 단위)와 최대 DTU 또는 eDTU를 적중하는 경우 발생하는 상황에 대해 설명합니다.  
 
 ## <a name="what-are-database-transaction-units-dtus"></a>DTU(데이터베이스 트랜잭션 단위)란?
-DTU는 [독립 실행형 데이터베이스 서비스 계층](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels)내에서 특정 성능 수준으로 독립 실행형 Azure SQL Database에 사용 가능하도록 보장된 리소스의 측정 단위입니다. DTU는 실제 OLTP 워크로드에 일반적으로 설계된 OLTP 벤치마크 워크로드에 의해 결정되는 비율로 CPU, 메모리 및 데이터 I/O와 트랜잭션 로그 I/O의 혼합된 측정치입니다. 데이터베이스의 성능 수준을 증가시켜 DTU를 두 배로 높일 경우 해당 데이터베이스에 사용할 수 있는 리소스 집합이 동일하게 2배로 높아집니다. 예를 들어 1750 DTU를 사용하는 프리미엄 P11 데이터베이스는 5개의 DTU를 사용하는기본 데이터베이스보다 350배 더 많은 DTU 계산 기능을 제공합니다. DTU 혼합을 결정하는 데 사용되는 OLTP 벤치마크 워크로드의 방법론을 이해하려면 [SQL Database 벤치마크 개요](sql-database-benchmark-overview.md)를 참조하세요.
+DTU는 [독립 실행형 데이터베이스 서비스 계층](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels)내에서 특정 성능 수준으로 독립 실행형 Azure SQL Database에 사용 가능하도록 보장된 리소스의 측정 단위입니다. DTU는 실제 OLTP 워크로드에 일반적으로 설계된 OLTP 벤치마크 워크로드에 의해 결정되는 비율로 CPU, 메모리 및 데이터 I/O와 트랜잭션 로그 I/O의 혼합된 측정치입니다. 데이터베이스의 성능 수준을 증가시켜 DTU를 두 배로 높일 경우 해당 데이터베이스에 사용할 수 있는 리소스 집합이 동일하게 2배로 높아집니다. 예를 들어 1750 DTU를 사용하는 프리미엄 P11 데이터베이스는 5개의 DTU를 사용하는기본 데이터베이스보다 350배 더 많은 DTU 계산 기능을 제공합니다. DTU 혼합을 결정하는 데 사용되는 OLTP 벤치마크 워크로드의 방법론을 이해하려면 [SQL Database 벤치마크 개요](sql-database-benchmark-overview.md)를 참조하세요.
 
 ![SQL Database 소개: 계층 및 수준별 단일 데이터베이스 DTU](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 응용 프로그램의 작동 중지를 최소로 하여 언제든지 [서비스 계층을 변경](sql-database-scale-up.md) 할 수 있습니다(일반적으로 4초 이하 평균임). 많은 업무와 앱에서, 특히 사용 패턴이 비교적 예측 가능한 경우 데이터베이스를 만들고 단일 데이터베이스 성능을 확장하거나 축소할 수 있으면 충분합니다. 하지만 사용 패턴을 예측할 수 없는 경우 비용과 비즈니스 모델을 관리하기 어려워질 수 있습니다. 이 시나리오에서는 많은 특정 eDTU와 함께 탄력적 풀을 사용합니다.
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>eDTU(탄력적 데이터베이스 트랜잭션 단위)란?
-eDTU는 [탄력적 풀](sql-database-elastic-pool.png)이라는 Azure SQL Server의 데이터베이스 집합 간에 공유될 수 있는 리소스 집합의 측정 단위(DTU)입니다. 탄력적 풀은 매우 다양하고 예측할 수 없는 사용 패턴을 지닌 여러 데이터베이스에 대한 성능 목표를 관리하기 위한 간단하고 비용 효율적인 솔루션을 제공합니다. 자세한 내용은 [탄력적 풀 및 서비스 계층](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) 을 참조하세요.
+eDTU는 [탄력적 풀](sql-database-elastic-pool.md)이라는 Azure SQL Server의 데이터베이스 집합 간에 공유될 수 있는 리소스 집합의 측정 단위(DTU)입니다. 탄력적 풀은 매우 다양하고 예측할 수 없는 사용 패턴을 지닌 여러 데이터베이스에 대한 성능 목표를 관리하기 위한 간단하고 비용 효율적인 솔루션을 제공합니다. 자세한 내용은 [탄력적 풀 및 서비스 계층](sql-database-service-tiers.md#elastic-database-pool-service-tiers-and-performance-in-edtus) 을 참조하세요.
 
 ![SQL Database 소개: 계층 및 수준별 eDTU](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -57,7 +58,6 @@ eDTU는 [탄력적 풀](sql-database-elastic-pool.png)이라는 Azure SQL Server
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

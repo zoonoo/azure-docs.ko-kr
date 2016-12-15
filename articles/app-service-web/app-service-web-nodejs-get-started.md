@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+ms.sourcegitcommit: 2050bda9c1a4390232d32370863e8d6a62ed5c2b
+ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 
 
 ---
@@ -32,7 +32,7 @@ ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
 <a name="prereq"></a>
 
 ## <a name="prerequisites"></a>필수 조건
-* [Node.JS]
+* [Node.js]
 * [Bower]
 * [Yeoman]
 * [Git]
@@ -91,6 +91,7 @@ ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
 8. 변경 내용을 저장한 후 git를 사용하여 앱을 Azure에 배포합니다.
    
         git add .
+        git add -f config
         git commit -m "{your commit message}"
         git push azure master
    
@@ -174,7 +175,7 @@ iisnode 로그를 읽으려면 다음 단계를 수행하세요.
    
         https://{appname}.scm.azurewebsites.net/DebugConsole 
    
-    "*.scm.*"이  DNS 이름에 추가되어 이 URL은 웹앱 URL과 다릅니다. URL에 해당 추가를 생락하면 404 오류가 발생하게 됩니다.
+    이 URL은 DNS 이름에 "*.scm.*"이 추가되어 웹앱 URL과 다릅니다. URL에 해당 추가를 생락하면 404 오류가 발생하게 됩니다.
 5. D:\home\site\wwwroot\iisnode로 이동합니다.
    
     ![iisnode 로그 파일의 위치 탐색][iislog-kudu-console-find]
@@ -186,7 +187,7 @@ iisnode 로그를 읽으려면 다음 단계를 수행하세요.
    
     ![iisnode 로그 파일 검사][iislog-kudu-console-read]
 
-## <a name="debug-your-app-with-nodeinspector"></a>Node-Inspector로 앱 디버그
+## <a name="debug-your-app-with-node-inspector"></a>Node-Inspector로 앱 디버그
 Node-Inspector를 사용하여 Node.js 앱을 디버깅하는 경우 라이브 앱 서비스 앱에 이를 사용할 수 있습니다. Node-Inspector는 앱 서비스에 대한 iisnode 설치에 미리 설치되어 있습니다. Git을 통해 배포하는 경우 Kudu에서 자동 생성된 Web.config에는 Node-Inspector를 사용하는 데 필요한 모든 구성이 이미 들어 있습니다.
 
 Node-Inspector를 사용하려면 다음 단계를 수행하세요.
@@ -232,10 +233,10 @@ Node-Inspector를 사용하려면 다음 단계를 수행하세요.
 [Azure 앱 서비스 웹앱에서 io.js를 사용하는 방법]: ./web-sites-nodejs-iojs.md
 [iisnode]: https://github.com/tjanczuk/iisnode/wiki
 [MEANJS]: http://meanjs.org/
-[Node.JS]: http://nodejs.org
+[Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [무료 평가판을 등록]: http://go.microsoft.com/fwlink/?LinkId=623901
-[웹앱]: ./app-service-web-overview.md
+[web app]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
@@ -247,6 +248,6 @@ Node-Inspector를 사용하려면 다음 단계를 수행하세요.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,27 +1,27 @@
 ---
 title: "서비스 버스 아키텍처 | Microsoft Docs"
 description: "Azure 서비스 버스의 메시지 및 릴레이 처리 아키텍처를 설명합니다."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: baf94c2d-0e58-4d5d-a588-767f996ccf7f
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c69783341eaed67ac29ab63d2127a4038bc0f6d
+ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
+ms.openlocfilehash: 6a2e59f9366e411d322b8560f03b115638619966
 
 
 ---
 # <a name="service-bus-architecture"></a>서비스 버스 아키텍처
-이 문서에서는 Azure 서비스 버스의 메시지 및 릴레이 처리 아키텍처를 설명합니다.
+이 문서에서는 Azure 서비스 버스의 메시지 처리 아키텍처를 설명합니다.
 
 ## <a name="service-bus-scale-units"></a>서비스 버스 배율 단위
 서비스 버스는 *배율 단위*로 구성됩니다. 배율 단위는 배포의 단위로, 서비스를 실행하는 데 필요한 구성 요소가 포함되어 있습니다. 각 영역은 하나 이상의 서비스 버스 배율 단위를 배포합니다.
@@ -49,7 +49,7 @@ ms.openlocfilehash: 3c69783341eaed67ac29ab63d2127a4038bc0f6d
 ![들어오는 WCF 릴레이 요청 처리](./media/service-bus-architecture/IC690645.png)
 
 ## <a name="next-steps"></a>다음 단계
-서비스 버스 아키텍처의 개요에 대해 살펴보았으므로 다음 링크를 방문하여 시작하세요.
+Service Bus 아키텍처의 개요를 읽었으므로 자세한 내용은 다음 링크를 참조하세요.
 
 * [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
 * [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
@@ -58,6 +58,6 @@ ms.openlocfilehash: 3c69783341eaed67ac29ab63d2127a4038bc0f6d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

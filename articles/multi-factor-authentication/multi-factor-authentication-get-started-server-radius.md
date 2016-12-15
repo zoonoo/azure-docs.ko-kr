@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e031f196e2f86b887c24ba300eac7ab8a8902036
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b8ec2b5df0ae4656630364c5930029e46ee62dbd
 
 
 ---
-# <a name="radius-authentication-and-azure-multifactor-authentication-server"></a>RADIUS 인증 및 Azure Multi-Factor Authentication 서버
+# <a name="radius-authentication-and-azure-multi-factor-authentication-server"></a>RADIUS 인증 및 Azure Multi-Factor Authentication 서버
 RADIUS 인증 섹션에서 Azure Multi-Factor Authentication 서버에 대한 RADIUS 인증을 사용하도록 설정하고 구성할 수 있습니다. RADIUS는 인증 요청을 수락하고 이 요청을 처리하는 표준 프로토콜입니다. Azure Multi-Factor Authentication 서버는 RADIUS 서버 역할을 하고 RADIUS 클라이언트(예: VPN 어플라이언스)와 AD(Active Directory), LDAP 디렉터리 또는 다른 RADIUS 서버일 수 있는 인증 대상 사이에 삽입되어, Azure Multi-Factor Authentication을 추가합니다. Azure Multi-Factor Authentication이 동작하려면, 클라이언트 서버와 인증 대상 모두와 통신할 수 있도록 Azure Multi-Factor Authentication 서버를 구성해야 합니다. Azure Multi-Factor Authentication 서버는 RADIUS 클라이언트의 요청을 수락하고, 인증 대상에 대해 자격 증명의 유효성을 검사하고, Azure Multi-Factor Authentication을 추가하고 다시 RADIUS 클라이언트로 응답을 보냅니다. 기본 인증 및 Azure Multi-Factor Authentication 모두가 성공한 경우에만 전체 인증이 성공합니다.
 
 > [!NOTE]
@@ -48,7 +48,7 @@ RADIUS 인증을 구성하려면 Windows 서버에 Azure Multi-Factor Authentica
 11. Azure Multi-Factor Authentication 서버가 Active Directory 환경의 도메인 연결된 서버에서 실행 중인 경우 Windows 도메인을 선택합니다.
 12. LDAP 디렉터리에 대해 사용자를 인증해야하는 경우, LDAP 바인딩을 선택합니다. LDAP 바인딩을 사용 하는 경우, 디렉터리 통합 아이콘을 클릭하고 서버가 디렉터리에 바인딩할 수 있도록 설정 탭에서 LDAP 구성을 편집해야 합니다. LDAP 구성을 위한 지침은 LDAP 프록시 구성 가이드에서 찾을 수 있습니다.
 13. 다른 RADIUS 서버에 대해 사용자를 인증 해야하는 경우 RADIUS 서버를 선택합니다.
-14. 추가... 단추를 클릭합니다.
+14. 추가 단추를 클릭하여 서버가 RADIUS 요청을 프록시 처리하는 서버를 구성합니다.
 15. RADIUS 서버 추가 대화 상자에서 RADIUS 서버의 IP 주소와 공유 암호를 입력합니다. 공유 암호는 Azure Multi-Factor Authentication 서버 및 RADIUS 서버 모두에서 동일해야 합니다. RADIUS 서버에서 다른 포트를 사용하는 경우 인증 포트 및 계정 포트를 변경합니다.
 16. 확인 단추를 클릭합니다.
 17. Azure Multi-Factor Authentication 서버에서 전송되는 액세스 요청을 처리할 수 있도록 다른 RADIUS 서버에서 RADIUS 클라이언트로 Azure Multi-Factor Authentication 서버를 추가해야 합니다. Azure Multi-Factor Authentication 서버에 구성된 동일한 공유 암호를 사용해야 합니다.
@@ -64,6 +64,6 @@ RADIUS 클라이언트를 구성하려면 지침을 따르십시오.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

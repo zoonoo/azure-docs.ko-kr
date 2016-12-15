@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 07/22/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 370978187cffa2e5a9544bf99e6a15e13f97ac53
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1062af9abfd167dd251621a43943dea399aed027
 
 
 ---
@@ -34,11 +34,11 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 * 응용 프로그램에서 **웹앱** 또는 **Web API**를 포함합니다.
 * 웹앱의 경우 **URI(Uniform Resource Identifier) 리디렉션** `https://localhost:44316/`을 사용합니다. 이 코드 샘플에 대한 웹앱 클라이언트의 기본 위치입니다.
 * 앱에 할당된 **응용 프로그램 ID** 를 복사합니다. 나중에 필요합니다.
-  
+
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>정책 만들기
-Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 코드 샘플의 클라이언트는 등록, 로그인 및 편집 프로필 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 대한 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
+Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 코드 샘플의 클라이언트는 등록, 로그인 및 편집 프로필 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#create-a-sign-up-policy)에서 설명한 대로 각 형식에 대한 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
 
 * ID 공급자 블레이드에서 **사용자 ID 등록** 또는 **메일 등록** 중 하나를 선택합니다.
 * 등록 정책에서 **표시 이름** 및 다른 등록 특성을 선택합니다.
@@ -50,13 +50,13 @@ Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-refe
 세 가지 정책을 성공적으로 만들면 앱을 빌드할 준비가 되었습니다.
 
 ## <a name="download-the-code"></a>코드 다운로드
-이 자습서에 대한 코드는 [GitHub에서 유지 관리](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet)됩니다. 진행하면서 샘플을 빌드하기 위해 [골격 프로젝트를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip)할 수 있습니다. 구조를 복제할 수도 있습니다.
+이 자습서에 대한 코드는 [GitHub에서 유지 관리됩니다](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). 진행하면서 샘플을 빌드하기 위해 [골격 프로젝트를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip)할 수 있습니다. 구조를 복제할 수도 있습니다.
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
 ```
 
-완성된 앱도 [.zip 파일로 가능](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip)하거나 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
+완성된 앱도 [.zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip)하거나 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
 
 샘플 코드를 다운로드한 후 Visual Studio .sln 파일을 열어 시작합니다. 이제 솔루션에는 `TaskWebApp`과 `TaskService`, 2개의 프로젝트가 있습니다. `TaskWebApp` 은 사용자와 상호 작용하는 MVC 웹 응용 프로그램입니다. `TaskService` 는 각 사용자의 할 일 모음을 저장하는 앱의 백 엔드 Web API입니다.
 
@@ -217,6 +217,6 @@ You can now move onto more advanced B2C topics. You may try:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

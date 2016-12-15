@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 10/24/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 46661a5cbe1a31aa8541cfc38c8f5fe519c0f6e4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3e587c9422e008a7b3c46e34fed4d0f1b2a8189c
 
 
 ---
@@ -33,17 +33,17 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure AD(Active Directory)
 ## <a name="getting-started"></a>시작
 이러한 자습서는 여러 플랫폼에 맞게 작성되었으며 Azure Active Directory를 사용하여 빠르게 개발을 시작할 수 있도록 도와줄 수 있습니다. 필수 조건으로, 먼저 [Azure Active Directory 테넌트를 가져와야](active-directory-howto-tenant.md)합니다.
 
-### <a name="mobile-and-pc-application-quickstart-guides"></a>모바일 및 PC 응용 프로그램 빠른 시작 가이드
+### <a name="mobile-and-pc-application-quick-start-guides"></a>모바일 및 PC 응용 프로그램 빠른 시작 가이드
 | [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md) | [![Windows 범용](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md) | [![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [iOS](active-directory-devquickstarts-ios.md) |[Android](active-directory-devquickstarts-android.md) |[.NET](active-directory-devquickstarts-dotnet.md) |[Windows 범용](active-directory-devquickstarts-windowsstore.md) |[Xamarin](active-directory-devquickstarts-xamarin.md) |[Cordova](active-directory-devquickstarts-cordova.md) |[OAuth 2.0을 사용하여 직접 통합](active-directory-protocols-oauth-code.md) |
 
-### <a name="web-application-quickstart-guides"></a>웹 응용 프로그램 빠른 시작 가이드
+### <a name="web-application-quick-start-guides"></a>웹 응용 프로그램 빠른 시작 가이드
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md) | [![Javascript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.JS](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapp-dotnet.md) |[Java](active-directory-devquickstarts-webapp-java.md) |[AngularJS](active-directory-devquickstarts-angular.md) |[Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.JS](active-directory-devquickstarts-openidconnect-nodejs.md) |[OpenID Connect를 사용하여 직접 통합](active-directory-protocols-openid-connect-code.md) |
 
-### <a name="web-api-quickstart-guides"></a>웹 API 빠른 시작 가이드
+### <a name="web-api-quick-start-guides"></a>웹 API 빠른 시작 가이드
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md) | [![Node.JS](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md) |
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.JS](active-directory-devquickstarts-webapi-nodejs.md) |
@@ -53,7 +53,7 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure AD(Active Directory)
 |:---:|
 | [그래프 API](active-directory-graph-api-quickstart.md) |
 
-## <a name="howtos"></a>방법
+## <a name="how-tos"></a>방법
 이러한 문서는 Azure Active Directory를 사용하여 특정 작업을 수행하는 방법을 설명합니다.
 
 * [Azure AD 테넌트 가져오기](active-directory-howto-tenant.md)
@@ -116,7 +116,7 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure AD(Active Directory)
 * [클라우드 ID](http://www.cloudidentity.net)(영문): Identity Management as a Service에 대한 선임 Azure Active Directory PM의 견해입니다.  
 * [Azure Active Directory Twitter](https://twitter.com/azuread): 140자 이하의 Azure Active Directory 알림입니다.
 
-## <a name="windows-server-onpremises-development"></a>Windows Server 온-프레미스 배포
+## <a name="windows-server-on-premises-development"></a>Windows Server 온-프레미스 배포
 Windows Server 및 ADFS(Active Directory Federation Services) 개발 사용에 대한 지침은 다음을 참조하세요.
 
 * [개발자를 위한 AD FS 시나리오](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): AD FS 구성 요소 및 원리의 개요, 지원되는 인증/권한 부여 시나리오에 대한 자세한 내용을 제공합니다.
@@ -125,6 +125,6 @@ Windows Server 및 ADFS(Active Directory Federation Services) 개발 사용에 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

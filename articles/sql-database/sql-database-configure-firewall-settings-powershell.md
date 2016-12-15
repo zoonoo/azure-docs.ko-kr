@@ -1,22 +1,27 @@
 ---
-title: PowerShell을 사용하여 Azure SQL 데이터베이스 서버 수준 방화벽 규칙 구성 | Microsoft Docs
-description: Azure SQL 데이터베이스에 액세스하는 IP 주소에 대한 방화벽을 구성하는 방법을 알아봅니다.
+title: "PowerShell을 사용하여 Azure SQL Database 서버 수준 방화벽 규칙 구성 | Microsoft Docs"
+description: "Azure SQL 데이터베이스에 액세스하는 IP 주소에 대한 방화벽을 구성하는 방법을 알아봅니다."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 30dcea72-61c1-48b6-8e1d-b1db2eb61567
 ms.service: sql-database
+ms.custom: auth and access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: hero-article
 ms.date: 08/09/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 890ca8d9b7a3a76c6584f9d06cc8bdf3b36f87c0
+
 
 ---
-# PowerShell을 사용하여 Azure SQL 데이터베이스 서버 수준 방화벽 규칙 구성
+# <a name="configure-azure-sql-database-server-level-firewall-rules-by-using-powershell"></a>PowerShell을 사용하여 Azure SQL 데이터베이스 서버 수준 방화벽 규칙 구성
 > [!div class="op_single_selector"]
 > * [개요](sql-database-firewall-configure.md)
 > * [Azure 포털](sql-database-configure-firewall-settings.md)
@@ -33,33 +38,33 @@ Azure SQL 데이터베이스는 서버와 데이터베이스에 대한 연결을
 > 
 > 
 
-[!INCLUDE [PowerShell 세션 시작](../../includes/sql-database-powershell.md)]
+[!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
-## 서버 방화벽 규칙 만들기
+## <a name="create-server-firewall-rules"></a>서버 방화벽 규칙 만들기
 Azure PowerShell을 사용하여 서버 수준 방화벽 규칙을 생성, 업데이트, 삭제할 수 있습니다.
 
-새 서버 수준 방화벽 규칙을 만들려면 New-AzureRmSqlServerFirewallRule cmdlet을 실행합니다. 다음의 예는 Contoso 서버에 일정 범위의 IP 주소를 사용하도록 하게 합니다.
+새 서버 수준 방화벽 규칙을 만들려면 [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx) cmdlet을 실행합니다. 다음 예제는 Contoso 서버에서 일정 범위의 IP 주소를 사용하도록 설정합니다.
 
     New-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' -ServerName 'Contoso' -FirewallRuleName "ContosoFirewallRule" -StartIpAddress '192.168.1.1' -EndIpAddress '192.168.1.10'        
 
-기존 서버 수준 방화벽 규칙을 수정 하려면 set- AzureSqlDatabaseServerFirewallRule cmdlet을 실행 합니다. 다음 예제에서는 ContosoFirewallRule라고 명명된 규칙에 대한 허용 가능한 IP 주소의 범위를 변경 합니다.
+기존의 서버 수준 방화벽 규칙을 수정하려면 [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603789\(v=azure.300\).aspx) cmdlet을 실행합니다. 다음 예제에서는 ContosoFirewallRule라고 명명된 규칙에 대한 허용 가능한 IP 주소의 범위를 변경 합니다.
 
-    Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' –StartIPAddress 192.168.1.4 –EndIPAddress 192.168.1.10 –RuleName 'ContosoFirewallRule' –ServerName 'Contoso'
+    Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' –StartIPAddress 192.168.1.4 –EndIPAddress 192.168.1.10 –FirewallRuleName 'ContosoFirewallRule' –ServerName 'Contoso'
 
-기존 서버 수준 방화벽 규칙을 삭제 하려면 remove- AzureSqlDatabaseServerFirewallRule cmdlet을 실행 합니다. 다음 예제에서는 ContosoFirewallRule 이라는 규칙을 삭제 합니다.
+기존의 서버 수준 방화벽 규칙을 삭제하려면 [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603588\(v=azure.300\).aspx) cmdlet을 실행합니다. 다음 예제에서는 ContosoFirewallRule 이라는 규칙을 삭제 합니다.
 
-    Remove-AzureRmSqlServerFirewallRule –RuleName 'ContosoFirewallRule' –ServerName 'Contoso'
+    Remove-AzureRmSqlServerFirewallRule –FirewallRuleName 'ContosoFirewallRule' –ServerName 'Contoso'
 
 
-## PowerShell을 사용하여 방화벽 규칙 관리
+## <a name="manage-firewall-rules-by-using-powershell"></a>PowerShell을 사용하여 방화벽 규칙 관리
 PowerShell을 사용하여 방화벽 규칙을 관리할 수도 있습니다. 자세한 내용은 다음 항목을 참조하십시오.
 
-* [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603860.aspx)
-* [Remove-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603588.aspx)
-* [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603789.aspx)
-* [Get-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603586.aspx)
+* [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx)
+* [Remove-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603588\(v=azure.300\).aspx)
+* [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603789\(v=azure.300\).aspx)
+* [Get-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603586\(v=azure.300\).aspx)
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 Transact-SQL을 사용하여 서버 수준 및 데이터베이스 수준 방화벽 규칙을 만드는 방법에 대한 자세한 내용은 [T-SQL을 사용하여 Azure SQL 데이터베이스 서버 수준 및 데이터베이스 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings-tsql.md)을 참조하세요.
 
 다른 방법을 사용하여 서버 수준 방화벽 규칙을 만드는 방법에 대한 자세한 내용은 다음을 참조하세요.
@@ -67,9 +72,11 @@ Transact-SQL을 사용하여 서버 수준 및 데이터베이스 수준 방화�
 * [Azure 포털을 사용하여 Azure SQL 데이터베이스 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings.md)
 * [REST API를 사용하여 Azure SQL 데이터베이스 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings-rest.md)
 
-데이터베이스를 만드는 방법에 대한 자습서는 [Azure 포털을 사용하여 빠르게 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요. 오픈 소스 또는 타사 응용 프로그램에서 Azure SQL 데이터베이스에 연결하는 방법에 대한 도움말은 [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하세요. 데이터베이스를 탐색하는 방법을 이해하려면 [데이터베이스 및 로그인 보안 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx)를 참조하세요.
+데이터베이스를 만드는 방법에 대한 자습서는 [Azure 포털을 사용하여 빠르게 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
+오픈 소스 또는 타사 응용 프로그램에서 Azure SQL 데이터베이스에 연결하는 방법에 대한 도움말은 [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하세요.
+데이터베이스를 탐색하는 방법을 이해하려면 [데이터베이스 및 로그인 보안 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx)를 참조하세요.
 
-## 추가 리소스
+## <a name="additional-resources"></a>추가 리소스
 * [데이터베이스 보안 설정](sql-database-security.md)
 * [SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스 보안 센터](https://msdn.microsoft.com/library/bb510589)
 
@@ -78,4 +85,8 @@ Transact-SQL을 사용하여 서버 수준 및 데이터베이스 수준 방화�
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

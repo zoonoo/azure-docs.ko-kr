@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ee868c5ba1a8429a733633edbc7efaa74e512135
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3b14925f41138904aa10a172f83dffa3c6662700
 
 
 ---
-# <a name="remote-desktop-gateway-and-azure-multifactor-authentication-server-using-radius"></a>RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버
+# <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버
 대부분의 경우, 원격 데스크톱 게이트웨이는 로컬 NPS를 사용하여 사용자를 인증합니다. 이 문서에서는 원격 데스크톱 게이트웨이(로컬 NPS를 통해)에서 Multi-Factor Authentication 서버까지 RADIUS 요청을 라우팅하는 방법을 설명합니다.
 
 Multi-Factor Authentication 서버는 원격 데스크톱 게이트웨이 서버의 NPS로 RADIUS 요청을 다시 프록시 처리하는 별도 서버에 설치되어야 합니다. NPS는 사용자 이름 및 암호의 유효성을 검사한 후, 결과를 게이트웨이에 반환하기 전에 인증의 두번째 단계를 수행하는 Multi-Factor Authentication 서버에 대한 응답을 반환합니다.
@@ -36,7 +36,7 @@ RD 게이트웨이는 NPS를 사용하여 Azure Multi-Factor Authentication에 R
 3. 왼쪽 탐색 창의 정책 섹션을 확장하고 연결 요청 정책을 클릭합니다. RD 게이트웨이를 구성할 때 만든 TS 게이트웨이 권한 부여 정책이라는 연결 요청 정책이 있어야 합니다. 이 정책은 Multi-Factor Authentication 서버에 RADIUS 요청을 전달합니다.
 4. 새로 만들도록 이 정책을 복사합니다. 새 정책에서 Azure Multi-Factor Authentication 서버 RADIUS 클라이언트에 대한 위의 2단계에서 친숙한 이름과 클라이언트 이름이 일치하는 조건을 추가합니다. 로컬 컴퓨터에 인증 공급자를 변경합니다. 이 정책은 Azure Multi-Factor Authentication 서버에서 RADIUS 요청을 수신할 때 루프 조건이 될 수 있는 Azure Multi-Factor Authentication 서버에 RADIUS 요청을 전송하는 대신 로컬로 인증이 발생하도록 합니다. 루프 상황을 방지하기 위해, 이 새 정책은 Multi-Factor Authentication 서버에 전달하는 원래 정책 위에 정렬되어야 합니다.
 
-## <a name="configure-azure-multifactor-authentication"></a>Azure Multi-Factor Authentication 구성
+## <a name="configure-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 구성
 - - -
 Azure Multi-Factor Authentication 서버는 RD 게이트웨이 및 NPS 사이의 RADIUS 프록시로 구성됩니다.  RD 게이트웨이 서버와 별개의 도메인에 가입된 서버에 설치해야 합니다. 다음 절차에 따라 Azure Multi-Factor Authentication 서버를 구성합니다.
 
@@ -50,6 +50,6 @@ Azure Multi-Factor Authentication 서버는 RD 게이트웨이 및 NPS 사이의
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

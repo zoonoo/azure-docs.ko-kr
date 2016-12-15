@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
 
 
 ---
-# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>로그인 및 액세스 패널 페이지에 회사 브랜딩 추가
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>로그인 및 액세스 패널 페이지에 회사 브랜딩 추가
 혼동을 피하기 위해 대부분의 회사는 관리하는 모든 웹 사이트 및 서비스에 일관된 모양과 느낌을 적용하고자 합니다. Azure Active Directory는 회사 로고 및 사용자 지정 색 구성표를 포함하도록 다음의 웹 페이지의 외관을 사용자 지정하는 방식으로 이 기능을 제공합니다.
 
 * **로그인 페이지** - 이 페이지는 Office 365 또는 Azure AD를 ID 공급자로 사용하는 기타 웹 기반 응용 프로그램에 로그인할 경우에 표시됩니다. 홈 영역 검색하는 동안 또는 자격 증명을 입력하는 경우 이 페이지와 상호 작용할 수 있습니다. 홈 영역 검색을 사용하면 시스템에서 해당 온-프레미스 STS(예: AD FS)에 페더레이션된 사용자를 리디렉션할 수 있습니다.
@@ -34,7 +34,7 @@ ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
 > 
 > 
 
-## <a name="customizing-the-signin-page"></a>로그인 페이지 사용자 지정
+## <a name="customizing-the-sign-in-page"></a>로그인 페이지 사용자 지정
 일반적으로 조직이 구독하는 클라우드 앱 및 서비스에 대해 브라우저 기반 액세스가 필요한 경우 로그인 페이지를 사용합니다.
 
 로그인 페이지에 변경 내용을 적용할 경우 변경 내용을 표시하려면 최대 1시간이 걸릴 수 있습니다.
@@ -224,6 +224,6 @@ Azure AD의 일부 사용자 지정 가능한 요소에는 여러 가지 사용 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

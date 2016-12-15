@@ -1,6 +1,6 @@
 
 ## <a name="start-your-powershell-session"></a>PowerShell 세션 시작
-우선 최신 [Azure PowerShell](https://msdn.microsoft.com/library/mt619274\(v=azure.300\).aspx)을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../articles/powershell-install-configure.md)을 참조하세요.
+우선 최신 [Azure PowerShell](https://msdn.microsoft.com/library/mt619274\(v=azure.300\).aspx)을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 > [!NOTE]
 > SQL Database의 여러 새로운 기능은 [Azure Resource Manager 배포 모델](../articles/azure-resource-manager/resource-group-overview.md)을 사용할 때 지원되므로 예제는 Resource Manager에 [Azure SQL Database PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx)을 사용합니다. 이전 버전과 호환성을 위해 서비스 관리(클래식) 배포 모델 [Azure SQL Database 서비스 관리 cmdlet](https://msdn.microsoft.com/library/azure/dn546723\(v=azure.300\).aspx)이 지원되지만 Resource Manager cmdlet을 사용하는 것이 좋습니다.
@@ -16,6 +16,6 @@
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

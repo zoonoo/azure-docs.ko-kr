@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
+ms.sourcegitcommit: e17f0e050530a64fdf569176abc5cf3ae88da516
+ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
 
 
 ---
@@ -70,24 +70,26 @@ ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
 <p>개발용이므로 <b>샌드박스</b> 모드를 선택합니다. 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려는 경우에만 <b>프로덕션</b>을 사용합니다.</p>
 </li>
 </ol>
-&emsp;&emsp;![Azure 포털에서 APNS 구성](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
+&emsp;&emsp;&emsp;&emsp;![Azure Portal에서 APNS 구성](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
-&emsp;&emsp;![Azure 포털에서 APNS 인증 구성](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+&emsp;&emsp;&emsp;&emsp;![Azure 포털에서 APNS 인증 구성](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
 이제 알림 허브가 APNS와 작동하도록 구성되었으며 앱을 등록하고 푸시 알림을 보내기 위한 연결 문자열이 있습니다.
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>알림 허브에 iOS 앱 연결
 1. Xcode에서 새 iOS 프로젝트를 만들고 **응용 프로그램 단일 보기** 템플릿을 선택합니다.
    
-       ![Xcode - Single View Application][8]
+    ![Xcode - 단일 보기 응용 프로그램][8]
+    
 2. 새 프로젝트에 대한 옵션을 설정할 때 Apple 개발자 포털에서 이전에 번들 ID를 설정한 경우에 사용한 동일한 **제품 이름** 및 **조직 식별자**를 사용해야 합니다.
    
     ![Xcode - 프로젝트 옵션][11]
+    
 3. **대상** 아래에서 프로젝트 이름을 클릭하고 **빌드 설정** 탭을 클릭한 다음 **코드 서명 ID**를 확장하고 **디버그**에서 코드 서명 ID를 설정합니다. **수준**을 **기본**에서 **전체**로 설정/해제하고 이전에 만든 프로비전 프로필에 **프로필을 프로비전**합니다.
    
     Xcode에서 만든 새 프로비전 프로필이 보이지 않으면 서명 ID에 대한 프로필을 새로 고칩니다. 메뉴 모음에서 **Xcode**, **기본 설정**, **계정** 탭, **세부 정보 보기** 단추, 서명 ID를 차례로 클릭한 다음 오른쪽 아래 모서리에 있는 새로 고침 단추를 클릭합니다.
    
-       ![Xcode - provisioning profile][9]
+    ![Xcode - 프로비전 프로필][9]
 4. [모바일 서비스 iOS SDK 버전 1.2.4] 를 다운로드하고 파일의 압축을 풉니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **파일 추가** 옵션을 클릭하여 **WindowsAzureMessaging.framework** 폴더를 Xcode 프로젝트에 추가합니다. **필요한 경우 항목 복사**를 선택한 다음 **추가**를 클릭합니다.
    
    > [!NOTE]
@@ -95,7 +97,7 @@ ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
    > 
    > 
    
-       ![Unzip Azure SDK][10]
+    ![Azure SDK 압축 해제][10]
 5. `HubInfo.h`라는 프로젝트에 새 헤더 파일을 추가합니다. 이 파일에는 알림 허브에 대한 상수가 들어 있습니다.  다음 정의를 추가하고 문자열 리터럴 자리 표시자를 *허브 이름* 및 앞에서 메모해둔 *DefaultListenSharedAccessSignature*로 바꿉니다.
    
         #ifndef HubInfo_h
@@ -154,7 +156,7 @@ ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
 1. 실패하지 않았음을 확인하기 위해 장치에서 앱을 빌드 및 실행합니다.
 
 ## <a name="send-test-push-notifications"></a>테스트 푸시 알림 보내기
-허브 블레이드의 [문제 해결] 섹션을 통해( **보내기 테스트** 옵션 사용) *Azure 포털* 에서 푸시 알림을 보내서 앱의 푸시 알림 수신을 테스트할 수 있습니다.
+허브 블레이드의 [Azure 포털] 섹션을 통해( **보내기 테스트** 옵션 사용) *Azure 포털* 에서 푸시 알림을 보내서 앱의 푸시 알림 수신을 테스트할 수 있습니다.
 
 ![Azure 포털 - 보내기 테스트][30]
 
@@ -463,26 +465,26 @@ iOS에서 푸시 알림을 테스트하려면 실제 iOS 장치에 앱을 배포
 
 <!-- URLs. -->
 [모바일 서비스 iOS SDK 버전 1.2.4]: http://aka.ms/kymw2g
-[모바일 서비스 iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
-[앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[Mobile Services 시작]: /develop/mobile/tutorials/get-started-ios
-[Azure 클래식 포털]: https://manage.windowsazure.com/
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[모바일 서비스에서 푸시 알림 시작하기]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[.NET 백 엔드를 통한 Azure 알림 허브의 iOS 사용자 알림]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[.NET 백 엔드를 통한 Azure Notification Hubs의 iOS 사용자 알림]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[문제 해결]: https://portal.azure.com
+[Azure 포털]: https://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

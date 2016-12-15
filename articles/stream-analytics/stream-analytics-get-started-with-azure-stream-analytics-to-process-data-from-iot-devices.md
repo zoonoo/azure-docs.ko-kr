@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/19/2016
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b6910b4f1b408c4574b1632375764d51c4fab8a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b4a725d55594885a5d9d4a62b4bf5fe6fd402849
 
 
 ---
@@ -64,7 +64,7 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
 4. 대시보드에서 작업을 배치할 확인란을 선택한 다음 **만들기**를 클릭합니다.
    
     ![진행 중인 작업 만들기](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
-5. 브라우저 창의 오른쪽 위에  '배포를 시작했습니다.'라고 표시됩니다. 그리고는 곧 아래와 같이 완료된 창으로 바뀝니다.
+5. '배포 시작...'이 나타나야 합니다. 브라우저 창의 오른쪽 상단에 표시합니다. 그리고는 곧 아래와 같이 완료된 창으로 바뀝니다.
    
     ![진행 중인 작업 만들기](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
@@ -122,6 +122,6 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

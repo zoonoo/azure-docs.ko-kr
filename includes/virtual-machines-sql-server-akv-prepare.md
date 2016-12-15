@@ -8,7 +8,7 @@ Azure 키 자격 증명 모음 통합을 사용하여 SQL Server VM을 구성하
 다음 섹션에서는 이러한 필수 조건과 나중에 PowerShell cmdlet을 실행하기 위해 수집해야 하는 정보에 대해 설명합니다.
 
 ### <a name="install-azure-powershell"></a>Azure Powershell 설치
-최신 Azure PowerShell SDK를 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](../articles/powershell-install-configure.md)을 참조하세요.
+최신 Azure PowerShell SDK를 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 ### <a name="create-an-azure-active-directory"></a>Azure Active Directory 만들기
 우선, 구독에 AAD( [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) )가 있어야 합니다. 이렇게 하면 여러 이점이 있지만, 그 중에서도 특정 사용자 및 응용 프로그램에 키 자격 증명 모음에 대한 권한을 부여할 수 있다는 이점이 있습니다.
@@ -34,6 +34,6 @@ Azure 키 자격 증명 모음을 사용하여 암호화에 사용할 키를 VM�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

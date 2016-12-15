@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/11/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 11b65d8f82a6440ec02582827696dba34f1e626c
 
 
 ---
@@ -50,8 +50,8 @@ ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
 ### <a name="azure-account"></a>Azure 계정
 이 자습서를 완료하려면 Azure 계정이 있어야 합니다. 다음을 수행할 수 있습니다.
 
-* [Azure 계정을 무료로 개설할 수 있습니다](/pricing/free-trial/?WT.mc_id=redis_cache_hero). 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능을 사용할 수 있습니다.
-* [Visual Studio 구독자 혜택 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero) MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+* [Azure 계정을 무료로 개설할 수 있습니다](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능을 사용할 수 있습니다.
+* [Visual Studio 구독자 혜택 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero) MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
 ### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>.NET용 Azure SDK 포함 Visual Studio 2015
 자습서는 [Azure SDK for.NET](../dotnet-sdk.md) 2.8.2 이상이 포함된 Visual Studio 2015를 기준으로 작성되었습니다. [여기서 Visual Studio 2015용 최신 Azure SDK를 다운로드](http://go.microsoft.com/fwlink/?linkid=518003)합니다. SDK가 없는 경우 Visual Studio는 SDK와 함께 자동으로 설치됩니다.
@@ -808,6 +808,6 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

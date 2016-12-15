@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 
 
 ---
@@ -48,7 +48,7 @@ ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
   2. **클라이언트 ID** 및 **암호 키**를 가져옵니다. 
   3. **테넌트 ID**를 가져옵니다. 
   4. **ADFCopyTutorialApp** 응용 프로그램을 **데이터 팩터리 참가자** 역할에 할당합니다.  
-* [Azure PowerShell](../powershell-install-configure.md)을 설치합니다.  
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)을 설치합니다.  
 * **PowerShell** 을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
   
   1. 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
@@ -84,7 +84,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> **accountname** 및 **accountkey**를 Azure Storage 계정의 이름 및 키로 바꿉니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+> **accountname** 및 **accountkey**를 Azure Storage 계정의 이름 및 키로 바꿉니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#manage-your-storage-access-keys)을 참조하세요.
 > 
 > 
 
@@ -272,7 +272,7 @@ start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki
 예에서는 각 데이터 조각이 1시간마다 생성되므로 24개 데이터 조각이 있게 됩니다.
 
 > [!NOTE]
-> 위의 예에서 사용된 JSON 속성에 대한 내용은 [파이프라인의 분석](data-factory-create-pipelines.md#anatomy-of-a-pipeline) 을 참조하세요.
+> 위의 예에서 사용된 JSON 속성에 대한 내용은 [파이프라인의 분석](data-factory-create-pipelines.md) 을 참조하세요.
 > 
 > 
 
@@ -402,7 +402,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 
         CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
 
-    SQL Server 2014가 컴퓨터에 설치된 경우: [2단계: SQL Server Management Studio를 사용하여 Azure SQL Database 관리의 SQL Database에 연결][sql-management-studio] 문서의 지침에 따라 Azure SQL Server에 연결하고 SQL 스크립트를 실행합니다.
+    SQL Server 2014가 컴퓨터에 설치된 경우: [2단계: SQL Server Management Studio를 사용하여 Azure SQL Database 관리의 SQL 데이터베이스에 연결][sql-management-studio] 문서의 지침에 따라 Azure SQL Server에 연결하고 SQL 스크립트를 실행합니다.
 
     클라이언트가 Azure SQL Server에 액세스할 수 없는 경우 컴퓨터(IP 주소)의 액세스를 허용하도록 Azure SQL Server의 방화벽을 구성해야 합니다. Azure SQL Server의 방화벽을 구성하는 단계는 [이 문서](../sql-database/sql-database-configure-firewall-settings.md) 를 참조하세요.
 
@@ -495,7 +495,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [azure-portal]: http://portal.azure.com
-[download-azure-powershell]: ../powershell-install-configure.md
+[download-azure-powershell]: /powershell/azureps-cmdlets-docs
 [data-factory-introduction]: data-factory-introduction.md
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
@@ -504,6 +504,6 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

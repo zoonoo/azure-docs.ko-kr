@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 41bba6660c52d4aa7d10d846ad65e1f6aa5e582c
 
 
 ---
-# <a name="configure-a-pointtosite-connection-to-a-vnet-using-powershell"></a>PowerShell을 사용하여 VNet에 지점 및 사이트 간 연결 구성
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-powershell"></a>PowerShell을 사용하여 VNet에 지점 및 사이트 간 연결 구성
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -68,10 +68,10 @@ ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
 * **VpnType: RouteBased**
 
 ## <a name="before-beginning"></a>시작하기 전에
-* Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
-* 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 을 참조하세요. 이 구성에 PowerShell을 사용할 때 관리자 권한으로 실행되고 있는지 확인합니다. 
+* Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
+* 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요. 이 구성에 PowerShell을 사용할 때 관리자 권한으로 실행되고 있는지 확인합니다. 
 
-## <a name="a-namedeclareapart-1-log-in-and-set-variables"></a><a name="declare"></a>1부 - 로그인 및 변수 설정
+## <a name="a-namedeclareapart-1---log-in-and-set-variables"></a><a name="declare"></a>1부 - 로그인 및 변수 설정
 이 섹션에서는 로그인하고 이 구성에 사용되는 값을 선언합니다. 선언된 값은 예제 스크립트에 사용됩니다. 값을 변경하여 고유한 환경을 반영합니다. 또는 선언된 값을 사용하고 단계를 연습 삼아 살펴볼 수 있습니다.
 
 1. PowerShell 콘솔에서 Azure 계정에 로그인합니다. 이 cmdlet은 Azure 계정에 대한 로그인 자격 증명을 입력하라는 메시지를 표시합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다.
@@ -102,7 +102,7 @@ ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
         $GWIPName = "VNet1GWPIP"
         $GWIPconfName = "gwipconf"
 
-## <a name="a-nameconfigurevnetapart-2-configure-a-vnet"></a><a name="ConfigureVNet"></a>2부 - VNet 구성
+## <a name="a-nameconfigurevnetapart-2---configure-a-vnet"></a><a name="ConfigureVNet"></a>2부 - VNet 구성
 1. 리소스 그룹을 만듭니다.
    
         New-AzureRmResourceGroup -Name $RG -Location $Location
@@ -123,7 +123,7 @@ ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
         $pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
         $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 
-## <a name="a-namecertificatesapart-3-certificates"></a><a name="Certificates"></a>3부 - 인증서
+## <a name="a-namecertificatesapart-3---certificates"></a><a name="Certificates"></a>3부 - 인증서
 인증서는 지점 및 사이트 간 VPN에 대한 VPN 클라이언트를 인증하기 위해 Azure에 의해 사용됩니다. 엔터프라이즈 인증서 솔루션에 의해 생성된 루트 인증서 또는 자체 서명된 루트 인증서에서 Base-64로 인코딩된 X.509 .cer 파일로 공용 인증서 데이터(개인 키 아님)를 내보냅니다. 그런 다음 루트 인증서에서 Azure로 공용 인증서 데이터를 가져옵니다. 또한 클라이언트에 대한 루트 인증서에서 클라이언트 인증서를 생성해야 합니다. P2S 연결을 사용하여 가상 네트워크에 연결하려는 각 클라이언트에 루트 인증서에서 생성된 클라이언트 인증서가 설치되어 있어야 합니다.
 
 ### <a name="a-namecera1-obtain-the-cer-file-for-the-root-certificate"></a><a name="cer"></a>1. 루트 인증서용 .cer 파일 가져오기
@@ -164,7 +164,7 @@ ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
         $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
         $p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
 
-## <a name="a-namecreategatewayapart-4-create-the-vpn-gateway"></a><a name="creategateway"></a>4부 - VPN Gateway 만들기
+## <a name="a-namecreategatewayapart-4---create-the-vpn-gateway"></a><a name="creategateway"></a>4부 - VPN Gateway 만들기
 VNet용 가상 네트워크 게이트웨이를 구성하고 만듭니다. *-GatewayType*은 **Vpn**이어야 하고 *-VpnType*은 **RouteBased**이어야 합니다. 완료하려면 최대 45분이 걸릴 수 있습니다.
 
         New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -172,7 +172,7 @@ VNet용 가상 네트워크 게이트웨이를 구성하고 만듭니다. *-Gate
         -VpnType RouteBased -EnableBgp $false -GatewaySku Standard `
         -VpnClientAddressPool $VPNClientAddressPool -VpnClientRootCertificates $p2srootcert
 
-## <a name="a-nameclientconfigapart-5-download-the-vpn-client-configuration-package"></a><a name="clientconfig"></a>5부 - VPN 클라이언트 구성 패키지 다운로드
+## <a name="a-nameclientconfigapart-5---download-the-vpn-client-configuration-package"></a><a name="clientconfig"></a>5부 - VPN 클라이언트 구성 패키지 다운로드
 P2S를 사용하여 Azure에 연결된 클라이언트에는 클라이언트 인증서와 VPN 클라이언트 구성 패키지가 설치되어야 합니다. VPN 클라이언트 구성 패키지는 Windows 클라이언트에 사용할 수 있습니다. VPN 클라이언트 패키지는 Windows에 기본 제공되고 연결하려는 VPN에 관련된 VPN 클라이언트 소프트웨어를 구성하는 정보를 포함합니다. 패키지는 추가 소프트웨어를 설치하지 않습니다. 자세한 내용은 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) 를 참조하세요.
 
 1. 게이트웨이를 만든 후에 클라이언트 구성 패키지를 다운로드할 수 있습니다. 이 예제에서는 64비트 클라이언트용 패키지를 다운로드합니다. 32비트 클라이언트를 다운로드하려는 경우 'Amd64'를h 'x86'으로 바꿉니다. Azure 포털을 사용하여 VPN 클라이언트를 다운로드할 수도 있습니다.
@@ -187,13 +187,13 @@ P2S를 사용하여 Azure에 연결된 클라이언트에는 클라이언트 인
    
     ![VPN 클라이언트](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
-## <a name="a-nameclientcertificateapart-6-install-the-client-certificate"></a><a name="clientcertificate"></a>6부 - 클라이언트 인증서 설치
+## <a name="a-nameclientcertificateapart-6---install-the-client-certificate"></a><a name="clientcertificate"></a>6부 - 클라이언트 인증서 설치
 인증을 위해 각 클라이언트 컴퓨터에 클라이언트 인증서가 있어야 합니다. 클라이언트 인증서를 설치할 때는 클라이언트 인증서를 내보낼 때 만든 암호가 필요합니다.
 
 1. .pfx 파일을 클라이언트 컴퓨터에 복사합니다.
 2. .pfx 파일을 두 번 클릭하여 설치합니다. 설치 위치를 수정하지 마세요.
 
-## <a name="a-nameconnectapart-7-connect-to-azure"></a><a name="connect"></a>7부 - Azure에 연결
+## <a name="a-nameconnectapart-7---connect-to-azure"></a><a name="connect"></a>7부 - Azure에 연결
 1. VNet에 연결하려면 클라이언트 컴퓨터에서 VPN 연결로 이동하고 만든 VPN 연결을 찾습니다. 가상 네트워크와 같은 이름이 지정됩니다. **Connect**를 클릭합니다. 인증서 사용을 안내하는 팝업 메시지가 나타날 수 있습니다. 이 경우 **계속** 을 클릭하여 상승된 권한을 사용합니다. 
 2. **연결** 상태 페이지에서 **연결**을 클릭하여 연결을 시작합니다. **인증서 선택** 화면에서 표시되는 클라이언트 인증서가 연결하는 데 사용할 인증서인지 확인합니다. 그렇지 않은 경우 드롭다운 화살표를 사용하여 올바른 인증서를 선택한 다음 **확인**을 클릭합니다.
    
@@ -202,7 +202,7 @@ P2S를 사용하여 Azure에 연결된 클라이언트에는 클라이언트 인
    
     ![설정된 연결](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "Connection established")
 
-## <a name="a-nameverifyapart-8-verify-your-connection"></a><a name="verify"></a>8부 - 연결 확인
+## <a name="a-nameverifyapart-8---verify-your-connection"></a><a name="verify"></a>8부 - 연결 확인
 1. VPN 연결이 활성인지를 확인하려면, 관리자 권한 명령 프롬프트를 열고 *ipconfig/all*을 실행합니다.
 2. 결과를 확인합니다. 받은 IP 주소가 구성에 지정한 지점 및 사이트 VPN 클라이언트 주소 풀 내의 주소 중 하나인지 확인합니다. 결과는 다음과 같아야 합니다.
    
@@ -268,7 +268,7 @@ Azure에서 신뢰할 수 있는 루트 인증서를 제거할 수 있습니다.
 1. 해지할 클라이언트 인증서의 지문을 가져옵니다.
    
         $RevokedClientCert1 = "ClientCert1"
-        $RevokedThumbprint1 = "‎ef2af033d0686820f5a3c74804d167b88b69982f"
+        $RevokedThumbprint1 = "?ef2af033d0686820f5a3c74804d167b88b69982f"
 2. 해지된 지문 목록에 지문을 추가합니다.
    
         Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
@@ -289,11 +289,11 @@ Azure에서 신뢰할 수 있는 루트 인증서를 제거할 수 있습니다.
         Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
 
 ## <a name="next-steps"></a>다음 단계
-가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md) 를 참조하세요.
+연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

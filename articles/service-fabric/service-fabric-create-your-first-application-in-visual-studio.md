@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/26/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
+ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
 
 
 ---
@@ -64,7 +64,7 @@ ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
     응용 프로그램 프로젝트는 코드를 직접 포함하지 않습니다. 대신 서비스 프로젝트의 집합을 참조합니다. 추가로 3가지 다른 형식을 포함합니다.
    
    * **게시 프로필**: 다양한 환경에 대한 도구 기본 설정을 관리하는 데 사용됩니다.
-   * **스크립트**: 응용 프로그램을 배포/업그레이드하기 위한 PowerShell 스크립트를 포함합니다. Visual Studio는 Visual Studio에서 스크립트 숨은 기능을 사용합니다. 명령줄에서 직접 스크립트를 호출할 수도 있습니다.
+   * **스크립트**: 응용 프로그램을 배포/업그레이드하기 위한 PowerShell 스크립트를 포함합니다. Visual Studio는 스크립트 숨은 기능을 사용합니다. 명령줄에서 직접 스크립트를 호출할 수도 있습니다.
    * **응용 프로그램 정의**: *ApplicationPackageRoot*에서 응용 프로그램 매니페스트를 포함합니다. 관련된 응용 프로그램 매개 변수 파일은 *ApplicationParameters*에 있으며 응용 프로그램을 정의하고 지정된 환경에 대해 해당 응용 프로그램을 구체적으로 구성할 수 있습니다.
      
      서비스 프로젝트의 내용에 대한 개요는 [Reliable Services 시작](service-fabric-reliable-services-quick-start.md)을 참조하세요.
@@ -151,6 +151,6 @@ ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

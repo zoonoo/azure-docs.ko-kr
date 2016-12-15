@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 639f11856fcb0828db2375e428d9f7efe640b5d7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7ad06e9086d6532b3de2ba060b37424051f022c2
 
 
 ---
-# <a name="secure-cloud-and-onpremises-resources-using-azure-multifactor-authentication-server-with-ad-fs-20"></a>AD FS 2.0과 함께 Azure Multi-factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지
+# <a name="secure-cloud-and-on-premises-resources-using-azure-multi-factor-authentication-server-with-ad-fs-20"></a>AD FS 2.0과 함께 Azure Multi-factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지
 이 문서는 Azure Active Directory와 페더레이션되는 조직에 대해 온-프레미스 또는 클라우드에서 리소스의 보안을 유지하려고 작성되었습니다. 중요한 끝점에 대해 2단계 확인을 트리거할 수 있도록 Azure Multi-factor Authentication 서버를 사용하고 AD FS를 사용하도록 구성하여 리소스를 보호합니다.
 
 이 문서에서는 AD FS 2.0과 함께 Azure Multi-Factor Authentication 서버를 사용하는 방법을 소개합니다.  [Windows Server 2012 R2 AD FS와 Azure Multi-factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지](multi-factor-authentication-get-started-adfs-w2k12.md)에서 자세한 정보를 알아봅니다.
@@ -102,6 +102,6 @@ Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

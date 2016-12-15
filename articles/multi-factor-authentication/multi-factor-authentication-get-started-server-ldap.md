@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1c57047f9a7eefcc0c4dbf08e705c3193e89f9a7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0cafcd1d21e12a3e8dfd020d1e59ee99d8c4d370
 
 
 ---
-# <a name="ldap-authentication-and-azure-multifactor-authentication-server"></a>LDAP 인증 및 Azure Multi-Factor Authentication 서버
+# <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP 인증 및 Azure Multi-Factor Authentication 서버
 기본적으로 Azure Multi-Factor Authentication 서버는 Active Directory에서 사용자를 가져오거나 동기화하도록 구성됩니다. 그러나 ADAM 디렉터리 또는 특정 Active Directory 도메인 컨트롤러 같은 다른 LDAP 디렉터리에 바인딩하도록 구성할 수 있습니다. LDAP를 통해 디렉터리에 연결하도록 구성된 경우 Azure Multi-Factor Authentication 서버를 LDAP 프록시 역할을 하도록 구성하여 인증을 수행할 수 있습니다. 또한 RADIUS 대상으로서 LDAP 바인딩 사용, IIS 인증 사용 시 사용자의 사전 인증 또는 Azure Multi-Factor Authentication 사용자 포털에서 기본 인증이 가능합니다.
 
 Azure Multi-Factor Authentication을 LDAP 프록시로 사용하는 경우 다단계 인증을 추가하기 위해 Azure Multi-Factor Authentication 서버가 LDAP 클라이언트(예: VPN 어플라이언스, 응용 프로그램)와 LDAP 디렉터리 서버 사이에 삽입됩니다. Azure Multi-Factor Authentication이 작동하려면 Azure Multi-Factor Authentication 서버가 클라이언트 서버 및 LDAP 디렉터리와 모두 통신할 수 있도록 구성되어야 합니다. 이 구성에서 Azure Multi-Factor Authentication 서버는 클라이언트 서버 및 응용 프로그램의 LDAP 요청을 수락하고 대상 LDAP 디렉터리 서버에 전달하여 기본 자격 증명의 유효성을 검사합니다. 기본 자격 증명이 유효하다는 LDAP 디렉터리의 응답이 나타나면 Azure Multi-Factor Authentication이 2단계 인증을 수행하고 다시 LDAP 클라이언트로 응답을 보냅니다. LDAP 서버 인증과 다단계 인증이 모두 성공하는 경우에만 전체 인증이 성공합니다.
@@ -61,6 +61,6 @@ LDAP 클라이언트를 구성하려면 다음 지침을 사용합니다.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

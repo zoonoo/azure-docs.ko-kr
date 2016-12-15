@@ -10,7 +10,7 @@
 > 
 
 ## <a name="resize-the-os-drive"></a>OS 드라이브 크기 조정
-이 문서에서는 [Azure Powershell](../articles/powershell-install-configure.md)의 리소스 관리자 모듈을 사용하여 OS 드라이브의 크기를 조정하겠습니다. 관리 모드에서 Powershell ISE 또는 Powershell 창을 열고 다음 단계를 수행합니다.
+이 문서에서는 [Azure Powershell](/powershell/azureps-cmdlets-docs)의 리소스 관리자 모듈을 사용하여 OS 드라이브의 크기를 조정하겠습니다. 관리 모드에서 Powershell ISE 또는 Powershell 창을 열고 다음 단계를 수행합니다.
 
 1. 리소스 관리 모드에서 Microsoft Azure 계정에 로그인하고 다음과 같이 구독을 선택합니다.
    
@@ -84,6 +84,6 @@ Azure Resource Manager VM에 디스크를 연결하는 방법은 이 [문서](..
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

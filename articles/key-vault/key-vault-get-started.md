@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 
 
 ---
@@ -41,7 +41,7 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Microsoft Azure에 대한 구독. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
-* Azure PowerShell, **최소 버전 1.1.0**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다. Azure PowerShell 버전 0.9.1 ~ 0.9.8이 설치된 경우, 일부 약간의 변경이 있지만 이 자습서를 계속 사용할 수 있습니다. 예를 들어, `Switch-AzureMode AzureResourceManager` 명령을 사용해야 하고 Azure 키 자격 증명 모음 명령의 일부가 변경되었습니다. 버전 0.9.1 ~ 0.9.8에 대한 키 자격 증명 모음 목록은 [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx)을 참조하세요. 
+* Azure PowerShell, **최소 버전 1.1.0**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다. Azure PowerShell 버전 0.9.1 ~ 0.9.8이 설치된 경우, 일부 약간의 변경이 있지만 이 자습서를 계속 사용할 수 있습니다. 예를 들어, `Switch-AzureMode AzureResourceManager` 명령을 사용해야 하고 Azure 키 자격 증명 모음 명령의 일부가 변경되었습니다. 버전 0.9.1 ~ 0.9.8에 대한 키 자격 증명 모음 목록은 [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx)을 참조하세요. 
 * 이 자습서에서 만드는 키 또는 암호를 사용하여 구성되는 응용 프로그램입니다. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](http://www.microsoft.com/en-us/download/details.aspx?id=45343)에서 사용할 수 있습니다. 자세한 내용은 해당 추가 정보 파일을 참조하세요.
 
 이 자습서는 Azure PowerShell 초보자용으로 설계되었지만, 모듈, cmdlet, 세션 등과 같은 기본 개념을 잘 알고 있다고 가정합니다. 자세한 내용은 [Windows PowerShell 시작](https://technet.microsoft.com/library/hh857337.aspx)을 참조하세요.
@@ -56,7 +56,7 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 
 Azure PowerShell에서 Azure 리소스 관리자와 친숙해지도록 다음 자습서도 확인하세요.
 
-* [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)
+* [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)
 * [리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>구독에 연결
@@ -76,7 +76,7 @@ Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정�
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 ## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>새 리소스 그룹 만들기
 Azure 리소스 관리자를 사용하면 관련된 모든 리소스는 리소스 그룹의 내부에 만들어집니다. 이 자습서에서는 **ContosoResourceGroup** 이라는 새 리소스 그룹을 만듭니다.
@@ -237,6 +237,6 @@ Azure Key Vault에 대한 최신 Azure PowerShell cmdlet의 목록은 [Azure Key
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

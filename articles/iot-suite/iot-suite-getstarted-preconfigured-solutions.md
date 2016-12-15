@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f86a70a5207f19063e9992325c8f8d696ca7823e
 
 
 ---
 # <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>자습서: 미리 구성된 솔루션 시작
 ## <a name="introduction"></a>소개
-[미리 구성된 Azure IoT Suite 솔루션][lnk-preconfigured-solutions]은 여러 Azure IoT 서비스를 결합하여 일반적인 IoT 비즈니스 시나리오를 구현하는 종합적인 솔루션을 제공합니다. 미리 구성된 *원격 모니터링* 솔루션은 장치에 연결되고 장치를 모니터링합니다. 데이터의 해당 스트림에 자동으로 응답하는 프로세스를 만들어 장치에서 데이터 스트림을 분석하고 비즈니스 성과를 향상시키는 솔루션을 사용할 수 있습니다.
+Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 여러 Azure IoT 서비스를 결합하여 일반적인 IoT 비즈니스 시나리오를 구현하는 종합적인 솔루션을 제공합니다. 미리 구성된 *원격 모니터링* 솔루션은 장치에 연결되고 장치를 모니터링합니다. 데이터의 해당 스트림에 자동으로 응답하는 프로세스를 만들어 장치에서 데이터 스트림을 분석하고 비즈니스 성과를 향상시키는 솔루션을 사용할 수 있습니다.
 
 이 자습서는 미리 구성된 원격 모니터링 솔루션을 프로비전하는 방법을 보여 줍니다. 또한 원격 모니터링 솔루션의 기본 기능을 안내합니다. 미리 구성된 솔루션과 함께 배포한 솔루션 대시보드를 통해 이러한 기능 다수에 액세스할 수 있습니다.
 
@@ -32,7 +32,7 @@ ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
 이 자습서를 완료하려면 활성 Azure 구독이 필요합니다.
 
 > [!NOTE]
-> 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][lnk_free_trial]을 참조하세요
+> 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][lnk_free_trial]을 참조하세요.
 > 
 > 
 
@@ -151,7 +151,7 @@ ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
     ![장치 작업 나열][img-actions]
 
 > [!NOTE]
-> 규칙에 대한 전자 메일 메시지 또는 SMS를 보낼 수 있는 작업을 정의하거나 [논리 앱][lnk-logic-apps]을 통해 LOB(기간 업무) 시스템과 통합할 수 있습니다. 자세한 내용은 [미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 논리 앱 연결][lnk-logicapptutorial]을 참조하세요.
+> 규칙에 대한 전자 메일 메시지 또는 SMS를 보낼 수 있는 작업을 정의하거나 [Logic App][lnk-logic-apps]을 통해 LOB(기간 업무) 시스템과 통합할 수 있습니다. 자세한 내용은 [미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 Logic App 연결][lnk-logicapptutorial]을 참조하세요.
 > 
 > 
 
@@ -165,13 +165,13 @@ ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
 ![장치 비활성화 및 제거][img-disable]
 
 ## <a name="behind-the-scenes"></a>배후 상황
-미리 구성된 솔루션을 배포할 때, 배포 프로세스는 사용자가 선택한 Azure 구독에 여러 리소스를 만듭니다. [Azure Portal][lnk-portal]에서 이러한 리소스를 볼 수 있습니다. 배포 프로세스는 미리 구성된 솔루션에 대해 선택한 이름을 기반으로 하는 이름으로 **리소스 그룹** 을 만듭니다.
+미리 구성된 솔루션을 배포할 때, 배포 프로세스는 사용자가 선택한 Azure 구독에 여러 리소스를 만듭니다. Azure [Portal][lnk-portal]에서 이러한 리소스를 볼 수 있습니다. 배포 프로세스는 미리 구성된 솔루션에 대해 선택한 이름을 기반으로 하는 이름으로 **리소스 그룹** 을 만듭니다.
 
 ![Azure 포털에서 미리 구성된 솔루션][img-portal]
 
 리소스 그룹의 리소스 목록에서 각 리소스를 선택하여 설정을 볼 수 있습니다.
 
-미리 구성된 솔루션의 소스 코드를 볼 수도 있습니다. 미리 구성된 원격 모니터링 솔루션 소스 코드는 [azure-iot-remote-monitoring][lnk-rmgithub] GitHub 리포지토리에 있습니다.
+미리 구성된 솔루션의 소스 코드를 볼 수도 있습니다. 원격 모니터링 사전 구성 솔루션 소스 코드는 [azure-iot-remote-monitoring][lnk-rmgithub] GitHub 리포지토리에 있습니다.
 
 * **DeviceAdministration** 폴더는 대시보드에 대한 소스 코드를 포함합니다.
 * **Simulator** 폴더는 시뮬레이션된 장치에 대한 소스 코드를 포함합니다.
@@ -188,7 +188,7 @@ ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
 미리 구성한 작업 솔루션을 배포했으므로 다음 문서를 참고하여 IoT Suite 시작을 계속할 수 있습니다.
 
 * [미리 구성된 원격 모니터링 솔루션 연습][lnk-rm-walkthrough]
-* [미리 구성된 원격 모니터링 솔루션에 장치 연결][lnk-connect-rm]
+* [미리 구성된 원격 모니터링 솔루션 연습][lnk-connect-rm]
 * [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions]
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
@@ -229,6 +229,6 @@ ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

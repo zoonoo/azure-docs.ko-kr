@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/31/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 
 ---
-# <a name="azure-active-directory-reporting-preview"></a>Azure Active Directory Reporting - 미리 보기
+# <a name="azure-active-directory-reporting---preview"></a>Azure Active Directory Reporting - 미리 보기
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-reporting-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-reporting-guide.md)
@@ -38,8 +38,8 @@ Azure Active Directory 미리 보기에서 리포팅으로 사용자 환경의 �
 
 원하는 데이터의 범위에 따라 [Azure Portal](https://portal.azure.com)의 서비스 목록에서 **사용자 및 그룹** 또는 **엔터프라이즈 응용 프로그램**을 클릭하여 이러한 보고서에 액세스할 수 있습니다.
 
-## <a name="signin-activities"></a>로그인 활동
-### <a name="user-signin-activities"></a>사용자 로그인 활동
+## <a name="sign-in-activities"></a>로그인 활동
+### <a name="user-sign-in-activities"></a>사용자 로그인 활동
 보고서에서 사용자 로그인에 의해 제공되는 정보를 사용하여 다음과 같은 질문에 대한 대답을 찾습니다.
 
 * 사용자의 로그인 패턴이란?
@@ -97,7 +97,7 @@ Azure Active Directory 미리 보기에서 리포팅으로 사용자 환경의 �
 
 ![보고](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### <a name="filtering-signins"></a>로그인 필터링
+### <a name="filtering-sign-ins"></a>로그인 필터링
 다음 필드를 사용하여 표시된 데이터의 양을 제한하도록 로그인을 필터링할 수 있습니다.
 
 * 날짜 및 시간 
@@ -203,6 +203,6 @@ Azure Portal에서 관련된 활동을 감사하기 위한 세 가지 범주가 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

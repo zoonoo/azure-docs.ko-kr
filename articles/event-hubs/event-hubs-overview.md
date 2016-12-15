@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: df9897894a2a2a09735b0947fd335959e81a46cd
+ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
+ms.openlocfilehash: 4dd8331ed2fd30d61b4a653f04cae9049385ce3c
 
 
 ---
@@ -25,14 +25,14 @@ ms.openlocfilehash: df9897894a2a2a09735b0947fd335959e81a46cd
 
 ![이벤트 허브(영문)](./media/event-hubs-overview/IC759856.png)
 
-Azure 이벤트 허브는 짧은 대기 시간 및 높은 안정성으로 이벤트 및 원격 분석을 엄청난 규모의 클라우드에 제공하는 이벤트 ingestor 서비스입니다. 다른 다운스트림 서비스와 함께 사용되는 이 서비스는 응용 프로그램 계측, 사용자 경험 또는 워크플로 처리 및 사물 인터넷(IoT) 시나리오에서 특히 유용합니다. 이벤트 허브는 메시지 스트림 처리 기능을 제공하지만 이벤트 허브는 큐 및 항목과 유사한 엔터티이며 기존 엔터프라이즈 메시징과 매우 다른 특징을 가집니다. 엔터프라이즈 메시징 시나리오는 시퀀싱, 배달 못한 편지 처리, 트랜잭션 지원 및 강력한 배달 보증과 같은 복잡한 기능이 일반적으로 필요하지만, 이벤트 유입에 대한 주요 관심사는 이벤트 스트림에 대한 높은 처리량 및 유연성 처리입니다. 따라서 이벤트 허브 기능은 높은 처리량 및 이벤트 처리 시나리오에 대해 편향된 서비스 버스 항목과 다릅니다. 이와 같이, 이벤트 허브는 항목에 사용할 수 있는 메시징 기능 중 일부를 구현하지 않습니다. 해당 기능이 필요한 경우에 가장 적합한 선택입니다.
+Azure 이벤트 허브는 짧은 대기 시간 및 높은 안정성으로 이벤트 및 원격 분석을 엄청난 규모의 클라우드에 제공하는 이벤트 ingestor 서비스입니다. 다른 다운스트림 서비스와 함께 사용되는 이 서비스는 응용 프로그램 계측, 사용자 경험 또는 워크플로 처리 및 사물 인터넷(IoT) 시나리오에서 특히 유용합니다. 이벤트 허브는 메시지 스트림 처리 기능을 제공하지만 이벤트 허브는 큐 및 항목과 유사한 엔터티이며 기존 엔터프라이즈 메시징과 매우 다른 특징을 가집니다. 엔터프라이즈 메시징 시나리오는 시퀀싱, 배달 못한 편지 처리, 트랜잭션 지원 및 강력한 배달 보증과 같은 복잡한 기능이 일반적으로 필요하지만, 이벤트 유입에 대한 주요 관심사는 이벤트 스트림에 대한 높은 처리량 및 유연성 처리입니다. 따라서 이벤트 허브 기능은 높은 처리량 및 이벤트 처리 시나리오에 대해 편향된 서비스 버스 항목과 다릅니다. 이와 같이, Event Hubs는 항목에 사용할 수 있는 메시징 기능 중 일부를 구현하지 않습니다. 해당 기능이 필요한 경우에 가장 적합한 선택입니다.
 
 이벤트 허브는 서비스 버스 큐 및 항목과 유사한 이벤트 허브 네임스페이스 수준에서 만들어집니다. 이벤트 허브는 기본 API 인터페이스로 AMQP 및 HTTP를 사용합니다. 다음 다이어그램에서는 이벤트 허브 및 서비스 버스 간의 관계를 보여줍니다.
 
 ![이벤트 허브(영문)](./media/event-hubs-overview/ehoverview2.png)
 
 ## <a name="conceptual-overview"></a>개념적 개요
-이벤트 허브는 분할된 소비자 패턴을 통해 스트리밍 메시지를 제공합니다. 큐 및 항목은 각 소비자가 동일한 큐 또는 리소스에서 읽으려고 하는 [경쟁 소비자](https://msdn.microsoft.com/library/dn568101.aspx) 모델을 사용합니다. 궁극적으로 리소스에 대한 이 경합으로 스트림 처리 응용 프로그램에 대한 복잡성 및 규모 제한이 발생합니다. 이벤트 허브는 각 소비자만이 특정 하위 집합, 파티션 또는 메시지 스트림을 읽는 파티션된 소비자 패턴을 사용합니다. 이 패턴은 이벤트 처리를 위한 가로 눈금을 사용하며 큐 및 항목에 사용할 수 없는 기타 스트림 중심 기능을 제공합니다.
+이벤트 허브는 분할된 소비자 패턴을 통해 스트리밍 메시지를 제공합니다. 큐 및 항목은 각 소비자가 동일한 큐 또는 리소스에서 읽으려고 하는 [*경쟁 소비자*](https://msdn.microsoft.com/library/dn568101.aspx) 모델을 사용합니다. 궁극적으로 리소스에 대한 이 경합으로 스트림 처리 응용 프로그램에 대한 복잡성 및 규모 제한이 발생합니다. 이벤트 허브는 각 소비자만이 특정 하위 집합, 파티션 또는 메시지 스트림을 읽는 파티션된 소비자 패턴을 사용합니다. 이 패턴은 이벤트 처리를 위한 가로 눈금을 사용하며 큐 및 항목에 사용할 수 없는 기타 스트림 중심 기능을 제공합니다.
 
 ### <a name="partitions"></a>파티션
 파티션은 이벤트 허브에서 보유하는 순서가 지정된 이벤트 시퀀스입니다. 최신 이벤트가 도착하면 이 시퀀스의 끝에 추가됩니다. 파티션을 "커밋 로그"로 생각할 수 있습니다.
@@ -61,7 +61,7 @@ SAS 작업에 대한 자세한 내용은 [Service Bus를 사용한 공유 액세
 공유 액세스 서명(SAS)는 이벤트 허브에 대한 인증 메커니즘입니다. 서비스 버스는 네임스페이스 및 이벤트 허브 수준에서 SAS 정책을 제공합니다. SAS 토큰은 SAS 키에서 생성되고 특정 형식으로 인코딩된 URL의 SHA 해시입니다. 키(정책)와 토큰의 이름을 사용하여, 서비스 버스는 해시를 다시 생성하여 발신자를 인증할 수 있습니다. 일반적으로 이벤트 게시자에 대한 SAS 토큰은 특정 이벤트 허브에 대한 **전송** 권한만으로 작성됩니다. 이 SAS 토큰 URL 메커니즘은 게시자 정책에 도입된 게시자 ID에 대한 기반이 됩니다. SAS 작업에 대한 자세한 내용은 [Service Bus를 사용한 공유 액세스 서명 인증](../service-bus-messaging/service-bus-shared-access-signature-authentication.md)을 참조하세요.
 
 #### <a name="publishing-an-event"></a>이벤트 게시
-AMQP 1.0 또는 HTTPS를 통해 이벤트를 게시할 수 있습니다. 서비스 버스는 .NET 클라이언트에서 이벤트 허브로 이벤트를 게시하기 위한 [EventHubClient](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubclient.aspx) 클래스를 제공합니다. 다른 런타임 및 플랫폼의 경우, [Apache Qpid](http://qpid.apache.org/)와 같은 모든 AMQP 1.0 클라이언트를 사용할 수 있습니다. 이벤트를 개별적으로 게시하거나 일괄처리할 수 있습니다. 단일 게시(이벤트 데이터 인스턴스)는 단일 이벤트 또는 일괄 처리인지에 관계 없이 256KB로 제한됩니다. 이보다 큰 이벤트를 게시하면 오류가 발생합니다. 게시자가 이벤트 허브 내 파티션을 모르고 *파티션 키* (다음 섹션에서 도입된) 또는 해당 SAS 토큰을 통해 자신의 ID를 지정하는 것이 가장 좋습니다.
+AMQP 1.0 또는 HTTPS를 통해 이벤트를 게시할 수 있습니다. 서비스 버스는 .NET 클라이언트에서 이벤트 허브로 이벤트를 게시하기 위한 [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient?redirectedfrom=MSDN#microsoft_servicebus_messaging_eventhubclient) 클래스를 제공합니다. 다른 런타임 및 플랫폼의 경우, [Apache Qpid](http://qpid.apache.org/)와 같은 모든 AMQP 1.0 클라이언트를 사용할 수 있습니다. 이벤트를 개별적으로 게시하거나 일괄처리할 수 있습니다. 단일 게시(이벤트 데이터 인스턴스)는 단일 이벤트 또는 일괄 처리인지에 관계 없이 256KB로 제한됩니다. 이보다 큰 이벤트를 게시하면 오류가 발생합니다. 게시자가 이벤트 허브 내 파티션을 모르고 *파티션 키* (다음 섹션에서 도입된) 또는 해당 SAS 토큰을 통해 자신의 ID를 지정하는 것이 가장 좋습니다.
 
 AMQP 또는 HTTPS 사용 선택은 사용량 시나리오에 해당됩니다. 전송 수준 보안(TLS) 또는 SSL/TLS 외에 AMQP는 영구 양방향 소켓을 설정해야 합니다. 이 네트워크 트래픽 측면에서 비용이 많이 드는 작업일 수는 있지만 AMQP 세션의 시작 부분에만 발생합니다. HTTPS는 초기 오버 헤드가 낮지만 모든 요청에 대한 추가 SSL 오버 헤드가 필요 합니다. 이벤트를 자주 게시하는 게시자의 경우, AMQP는 중요한 성능, 대기 시간 및 처리량 절감을 제공합니다.
 
@@ -80,8 +80,10 @@ AMQP 또는 HTTPS 사용 선택은 사용량 시나리오에 해당됩니다. �
 
 다음은 소비자 그룹 URI 규칙의 예입니다.
 
-    //<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
-    //<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
+```
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
+```
 
 다음 이미지는 소비자 그룹 내에서 이벤트 소비자를 보여줍니다.
 
@@ -127,30 +129,32 @@ AMQP 1.0 세션 및 링크는 특정 파티션에 대해 열린 후, 이벤트�
 
 이벤트 허브로 최적의 크기를 달성하려면 신중하게 처리량 단위 및 파티션의 균형을 맞추는 것이 좋습니다. 단일 파티션에는 처리량 단위 하나의 최대 크기가 있습니다. 처리량 단위 수는 이벤트 허브의 파티션 수보다 작거나 동일해야 합니다.
 
-자세한 가격 정보는 [이벤트 허브 가격](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
+자세한 가격 정보는 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/) 페이지를 참조하세요.
 
 ### <a name="publisher-policy"></a>게시자 정책
 이벤트 허브는 *게시자 정책*을 통한 이벤트 게시자에 대한 세부적 제어를 사용합니다. 게시자 정책은 많은 수의 독립 이벤트 게시자를 촉진하도록 설계된 런타임 기능 집합입니다. 게시자 정책을 사용하여 다음 메커니즘을 사용하여 이벤트 허브로 이벤트를 게시하는 경우 각 게시자는 자체 고유 식별자를 사용합니다.
 
-    //<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
+```
+//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
+```
 
 시간에 앞서 게시자 이름을 미리 만들 필요가 없지만, 독립 게시자 ID를 보장하기 위해 이벤트를 게시하는 경우 사용하는 SAS 토큰과 일치해야 합니다. SAS에 대한 자세한 내용은 [Service Bus를 사용한 공유 액세스 서명 인증](../service-bus-messaging/service-bus-shared-access-signature-authentication.md)을 참조하세요. 게시자 정책을 사용하는 경우 **PartitionKey** 값이 게시자 이름으로 설정됩니다. 제대로 작동하려면 이 값이 일치해야 합니다.
 
 ## <a name="summary"></a>요약
-Azure 이벤트 허브는 규모에 관계 없이 모니터링하는 일반 응용 프로그램 및 사용자 워크플로에 대해 사용할 수 있는 서비스를 처리 하는 원격 분석 및 하이퍼 눈금 이벤트를 제공합니다. 짧은 대기 시간과 엄청난 규모로 게시-구독 기능을 제공하는 기능을 사용하여 이벤트 허브는 빅 데이터에 대해 "램프"로 제공합니다. 게시자 기반 ID 및 해지 목록을 사용하여 이 기능은 일반 사물 인터넷 시나리오로 확장됩니다. 이벤트 허브 응용 프로그램 개발에 대한 자세한 내용은 [이벤트 허브 프로그래밍 가이드](event-hubs-programming-guide.md)를 참조하세요.
+Azure 이벤트 허브는 규모에 관계 없이 모니터링하는 일반 응용 프로그램 및 사용자 워크플로에 대해 사용할 수 있는 서비스를 처리 하는 원격 분석 및 하이퍼 눈금 이벤트를 제공합니다. 짧은 대기 시간과 엄청난 규모로 게시-구독 기능을 제공하는 기능을 사용하여 이벤트 허브는 빅 데이터에 대해 "램프"로 제공합니다. 게시자 기반 ID 및 해지 목록을 사용하여 이 기능은 일반 [사물 인터넷 ](https://docs.microsoft.com/azure/#pivot=services&panel=iot) 시나리오로 확장됩니다. 이벤트 허브 응용 프로그램 개발에 대한 자세한 내용은 [이벤트 허브 프로그래밍 가이드](event-hubs-programming-guide.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-지금 이벤트 허브 개념에 대해 알아보았으므로 다음 시나리오로 이동할 수 있습니다.
+지금 Event Hubs 개념에 대해 알아보았으므로 다음 시나리오로 이동할 수 있습니다.
 
 * [이벤트 허브 자습서]로 시작합니다.
 * [이벤트 허브를 사용하는 샘플 응용 프로그램]전체.
 
-[Azure 클래식 포털]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 [이벤트 허브 자습서]: event-hubs-csharp-ephcs-getstarted.md
 [이벤트 허브를 사용하는 샘플 응용 프로그램]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

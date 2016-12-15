@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45e8331e0953dd646f132478741394a5b4907a9e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d72cf46c4a93d805ac9586696a6b41d81af733fd
 
 
 ---
@@ -56,7 +56,7 @@ Visual Studio 솔루션에는 다음과 같은 세 가지 프로젝트가 포함
 
 ## <a name="prerequisites"></a>필수 조건
 * ASP.NET Web API - 이 자습서 지침에서는 Visual Studio에서 ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) 와 함께 작업하는 방법에 대한 기본적인 지식이 있다고 가정합니다.
-* Azure 계정 - [무료로 Azure 계정을 열거나](/pricing/free-trial/?WT.mc_id=A261C142F) [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
+* Azure 계정 - [무료로 Azure 계정을 열거나](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
   
     Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 **신용 카드와 약정 없이**App Service에서 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
 * [Azure SDK for.NET](https://azure.microsoft.com/downloads/archive-net-downloads/) 를 포함한 Visual Studio 2015 - SDK는 Visual Studio 2015가 아직 없는 경우 자동으로 설치합니다.
@@ -442,6 +442,6 @@ API 앱에 기존 웹 API 프로젝트를 배포하고 API 앱에 클라이언�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

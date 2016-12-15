@@ -15,14 +15,15 @@ ms.topic: hero-article
 ms.date: 11/02/2016
 ms.author: aasthan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8770e89cd54dae23ba05fb53382f7d89d19b029a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 31368661906bc8ca0f8ac1d3329bb053d41a94d7
 
 
 ---
 # <a name="nosql-c-tutorial-documentdb-c-console-application"></a>NoSQL C++ 자습서: DocumentDB C++ 콘솔 응용 프로그램
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
 > * [Node.JS](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 > 
@@ -276,7 +277,7 @@ deletedocument 함수 뒤에 다음 코드 조각(함수 정리)을 복사하고
 ## <a name="a-idgetsolutionaget-the-complete-c-tutorial-solution"></a><a id="GetSolution"></a> 전체 C++ 자습서 솔루션 가져오기
 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을 빌드하려면 다음이 필요합니다.
 
-* [DocumentDB 계정][documentdb-create-account]
+* [DocumentDB 계정][documentdb-create-account].
 * GitHub에서 제공하는 [GetStarted](https://github.com/stalker314314/DocumentDBCpp) 솔루션
 
 ## <a name="next-steps"></a>다음 단계
@@ -292,6 +293,6 @@ deletedocument 함수 뒤에 다음 코드 조각(함수 정리)을 복사하고
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ed71ccd07385eb74f7afecf04590c2c00372c34
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02d271e43c369e2aa6d716fc24a78cc9f4045c7c
 
 
 ---
@@ -291,7 +291,7 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 > 
 > 
 
-### <a name="10-test-the-ad-fs-signin"></a>10.    AD FS 로그인 테스트
+### <a name="10-test-the-ad-fs-sign-in"></a>10.    AD FS 로그인 테스트
 가장 쉬운 방법은 IdpInitiatedSignon.aspx 페이지를 사용하여 AD FS를 테스트하는 것입니다. 이렇게 하려면 AD FS 속성에 IdpInitiatedSignOn을 사용해야 합니다. AD FS 설치를 확인하려면 다음 단계를 수행합니다.
 
 1. 아래 AD FS 서버의 cmdlet을 실행하고 PowerShell을 사용하여 사용하도록 설정합니다.
@@ -357,6 +357,6 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

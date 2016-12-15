@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 35f58e8664c47c4e7a86c27e90813ad7be3cea04
 
 
 ---
@@ -25,7 +25,7 @@ Azure Multi-Factor Authentication 서버의 IIS 인증 섹션을 통해 Microsof
 
 ![IIS 인증](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
-## <a name="using-formbased-iis-authentication-with-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 양식 기반 IIS 인증 사용
+## <a name="using-form-based-iis-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 양식 기반 IIS 인증 사용
 양식 기반 인증을 사용하는 IIS 웹 응용 프로그램을 보호하려면 IIS 웹 서버에 Azure Multi-Factor Authentication 서버를 설치하고 다음 절차에 따라 서버를 구성합니다.
 
 1. Azure Multi-Factor Authentication 서버의 왼쪽 메뉴에서 IIS 인증 아이콘을 클릭합니다.
@@ -33,7 +33,7 @@ Azure Multi-Factor Authentication 서버의 IIS 인증 섹션을 통해 Microsof
 3. 추가...  단추를 선택합니다.
 4. 사용자 이름, 암호 및 도메인 변수를 자동으로 검색하려면 Auto-Configure Form-Based Website(양식 기반 웹 사이트 자동 구성) 대화 상자 내에서 로그인 URL(예: https://localhost/contoso/auth/login.aspx)을 입력하고 확인을 클릭합니다.
 5. 모든 사용자를 내부 서버로 가져왔거나 가져올 예정이고 Multi-Factor Authentication을 사용하려는 경우 Require Azure Multi-Factor Authentication user match(Azure Multi-Factor Authentication 사용자 일치 필요) 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 다단계 인증에서 제외할 예정이면 이 확인란을 선택 취소합니다.
-6. 페이지 변수를 자동으로 검색할 수 없는 경우 양식 기반 웹 사이트 자동 구성 대화 상자에서 수동으로 지정...  단추를 클릭합니다.
+6. 페이지 변수를 자동으로 검색할 수 없는 경우 수동으로 지정...을 클릭합니다. 양식 기반 웹 사이트 자동 구성 대화 상자의 단추.
 7. Add Form-Based Website(양식 기반 웹 사이트 추가) 대화 상자에서 Submit URL(URL 제출) 필드에 로그인 페이지의 URL을 입력하고 응용 프로그램 이름을 입력합니다(선택 사항). 응용 프로그램 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다. URL 제출에 대한 자세한 내용은 도움말 파일을 참조하세요.
 8. 올바른 요청 양식을 선택합니다. 대부분의 웹 응용 프로그램에 대해 "POST 또는 GET"으로 설정됩니다.
 9. 사용자 이름 변수, 암호 변수 및 도메인 변수를 입력합니다(로그인 페이지에 나타나는 경우). 웹 브라우저에서 로그인 페이지로 이동해야 할 경우 해당 페이지를 마우스 오른쪽 단추로 클릭하고 "소스 보기"를 선택하여 페이지 내에서 입력 상자의 이름을 찾습니다.
@@ -43,7 +43,7 @@ Azure Multi-Factor Authentication 서버의 IIS 인증 섹션을 통해 Microsof
 13. URL 및 페이지 변수가 검색되거나 입력되면 양식 기반 패널에 웹 사이트 데이터가 표시됩니다.
 14. IIS 인증 구성을 완료하기 위해 바로 아래 나와 있는 Azure Multi-Factor Authentication 서버에 대해 IIS 플러그인 사용 섹션을 참조하세요.
 
-## <a name="using-integrated-windows-authentication-with-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 Windows 통합 인증 사용
+## <a name="using-integrated-windows-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 Windows 통합 인증 사용
 통합 Windows HTTP 인증을 사용하는 IIS 웹 응용 프로그램을 보호하려면 IIS 웹 서버에 Azure Multi-Factor Authentication 서버를 설치하고 다음 절차에 따라 서버를 구성합니다.
 
 1. Azure Multi-Factor Authentication 서버의 왼쪽 메뉴에서 IIS 인증 아이콘을 클릭합니다.
@@ -56,7 +56,7 @@ Azure Multi-Factor Authentication 서버의 IIS 인증 섹션을 통해 Microsof
 8. 확인 단추를 클릭합니다.
 9. IIS 인증 구성을 완료하기 위해 바로 아래 나와 있는 [Azure Multi-Factor Authentication 서버에 대해 IIS 플러그인 사용](#enable-iis-plug-ins-for-azure-multi-factor-authentication-server) 섹션을 참조하세요.
 
-## <a name="enable-iis-plugins-for-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication 서버에 대해 IIS 플러그인 사용
+## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에 대해 IIS 플러그인 사용
 양식 기반 또는 HTTP 인증 URL 및 설정을 구성했으면 Azure Multi-Factor Authentication IIS 플러그인을 로드하고 IIS에서 사용하도록 설정할 위치를 선택해야 합니다. 이렇게 하려면 다음 절차를 수행합니다.
 
 1. IIS 6에서 실행하는 경우 ISAPI 탭을 클릭하고 웹 응용 프로그램이 실행되고 있는 웹 사이트(예: 기본 웹 사이트)를 선택하여 해당 사이트에 대해 Azure Multi-Factor Authentication ISAPI 필터 플러그인을 사용하도록 설정합니다.
@@ -74,6 +74,6 @@ Azure Multi-Factor Authentication 서버의 IIS 인증 섹션을 통해 Microsof
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
