@@ -1,12 +1,12 @@
 ---
-title: '자습서: CloudPassage와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory 및 CloudPassage 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: CloudPassage와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory 및 CloudPassage 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bfe1f14e-74e4-4680-ac9e-f7355e1c94cc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 01676cbaf2b677b43a223cf33699710c77da41fa
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-cloudpassage"></a>자습서: CloudPassage와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>자습서: CloudPassage와 Azure Active Directory 통합
 이 자습서에서는 CloudPassage과 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.  
 CloudPassage를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다. 
 
@@ -52,7 +56,7 @@ CloudPassage와의 Azure AD 통합을 구성하려면 다음 항목이 필요합
 ## <a name="adding-cloudpassage-from-the-gallery"></a>갤러리에서 CloudPassage 추가
 CloudPassage의 Azure AD 통합을 구성하려면 갤러리의 CloudPassage를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-### <a name="to-add-cloudpassage-from-the-gallery,-perform-the-following-steps:"></a>갤러리에서 CloudPassage를 추가하려면 다음 단계를 수행합니다.
+### <a name="to-add-cloudpassage-from-the-gallery-perform-the-following-steps"></a>갤러리에서 CloudPassage를 추가하려면 다음 단계를 수행합니다.
 1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
    
     ![Active Directory][1]
@@ -225,7 +229,7 @@ CloudPassage 응용 프로그램은 특정 서식에서 SAML 어설션을 예상
 ### <a name="creating-a-cloudpassage-test-user"></a>CloudPassage 테스트 사용자 만들기
 이 섹션은 CloudPassage에서 Britta Simon이라는 사용자를 만들기 위한 것입니다.
 
-#### <a name="to-create-a-user-called-britta-simon-in-cloudpassage,-perform-the-following-steps:"></a>CloudPassage에서 Britta Simon이라는 사용자를 만들려면 다음 단계를 수행합니다.
+#### <a name="to-create-a-user-called-britta-simon-in-cloudpassage-perform-the-following-steps"></a>CloudPassage에서 Britta Simon이라는 사용자를 만들려면 다음 단계를 수행합니다.
 1. **CloudPassage** 회사 사이트에 관리자 권한으로 로그인합니다. 
 2. 위쪽 도구 모음에서 **설정**을 클릭한 다음 **사이트 관리**를 클릭합니다. 
    
@@ -331,6 +335,6 @@ CloudPassage 응용 프로그램은 특정 서식에서 SAML 어설션을 예상
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

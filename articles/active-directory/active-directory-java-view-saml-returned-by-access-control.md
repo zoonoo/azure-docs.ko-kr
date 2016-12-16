@@ -1,23 +1,27 @@
 ---
-title: 액세스 제어 서비스(Java)에서 반환되는 SAML 보기
-description: Azure에서 호스팅되는 Java 응용 프로그램에서 액세스 제어 서비스에서 반환되는 SAML을 확인하는 방법에 대해 알아봅니다.
+title: "액세스 제어 서비스(Java)에서 반환되는 SAML 보기"
+description: "Azure에서 호스팅되는 Java 응용 프로그램에서 액세스 제어 서비스에서 반환되는 SAML을 확인하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 782b73f4a3d3bac5423412349a08edc5f60829da
+
 
 ---
-# Azure 액세스 제어 서비스에서 반환한 SAML을 보는 방법
-이 가이드에서는 Azure ACS(액세스 제어 서비스)에서 응용 프로그램에 반환하는 기본 SAML(Security Assertion Markup Language)을 보는 방법을 안내합니다. 이 가이드는 [Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법][Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법] 항목의 내용을 바탕으로 하여 SAML 정보를 표시하는 코드를 제공합니다. 완료된 응용 프로그램은 다음과 유사합니다.
+# <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Azure 액세스 제어 서비스에서 반환한 SAML을 보는 방법
+이 가이드에서는 Azure ACS(액세스 제어 서비스)에서 응용 프로그램에 반환하는 기본 SAML(Security Assertion Markup Language)을 보는 방법을 안내합니다. 이 가이드는 [Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법](active-directory-java-authenticate-users-access-control-eclipse.md) 항목의 내용을 바탕으로 하여 SAML 정보를 표시하는 코드를 제공합니다. 완료된 응용 프로그램은 다음과 유사합니다.
 
 ![예제 SAML 출력][saml_output]
 
@@ -28,10 +32,10 @@ ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조�
 > 
 > 
 
-## 필수 조건
-이 가이드에서 작업을 완료하려면 [Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법][Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법]에서 샘플을 완료하고 이 자습서를 시작할 때부터 이 샘플을 사용하세요.
+## <a name="prerequisites"></a>필수 조건
+이 가이드에서 작업을 완료하려면 [Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법](active-directory-java-authenticate-users-access-control-eclipse.md) 에서 샘플을 완료하고 이 자습서를 시작할 때부터 이 샘플을 사용하세요.
 
-## 빌드 경로 및 배포 어셈블리에 JspWriter 라이브러리 추가
+## <a name="add-the-jspwriter-library-to-your-build-path-and-deployment-assembly"></a>빌드 경로 및 배포 어셈블리에 JspWriter 라이브러리 추가
 빌드 경로 및 배포 어셈블리에 **javax.servlet.jsp.JspWriter** 클래스를 포함하는 라이브러리를 추가합니다. Tomcat을 사용하는 경우 라이브러리는 Apache **lib** 폴더에 있는 **jsp-api.jar**입니다.
 
 1. Eclipse의 Project Explorer에서 **MyACSHelloWorld**를 마우스 오른쪽 단추로 클릭하고, **Build Path**, **Configure Build Path**, **Libraries** 탭을 차례로 클릭한 후 **Add External JARs**를 클릭합니다.
@@ -42,8 +46,8 @@ ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조�
 6. 적절한 라이브러리를 선택하고 **Finish**를 클릭합니다.
 7. **OK**를 클릭하여 **Properties for MyACSHelloWorld** 대화 상자를 닫습니다.
 
-## SAML을 표시하도록 JSP 파일 수정
-다음 코드를 사용하도록 **index.jsp**를 수정합니다.
+## <a name="modify-the-jsp-file-to-display-saml"></a>SAML을 표시하도록 JSP 파일 수정
+다음 코드를 사용하도록 **index.jsp** 를 수정합니다.
 
     <%@ page language="java" contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"%>
@@ -127,7 +131,7 @@ ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조�
                                      for (i=0; i < nChild; i++)
                                      {
                                         Node temp = list.item(i);
-                                        displaySAMLInfo(temp, parent + nodeName + "\", out);
+                                        displaySAMLInfo(temp, parent + nodeName + "\\", out);
                                      }
                                }
                           }
@@ -142,7 +146,7 @@ ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조�
         %>
 
         <%
-        try 
+        try
         {
             String data  = (String) request.getAttribute("ACSSAML");
 
@@ -153,7 +157,7 @@ ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조�
             docBuilder = docBuilderFactory.newDocumentBuilder();
             byte[] xmlDATA = data.getBytes();
 
-            ByteArrayInputStream in = new ByteArrayInputStream(xmlDATA); 
+            ByteArrayInputStream in = new ByteArrayInputStream(xmlDATA);
             doc = docBuilder.parse(in);
             doc.getDocumentElement().normalize();
 
@@ -165,7 +169,7 @@ ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조�
                 displaySAMLInfo(list.item(i), "", out);
             }
         }
-        catch (Exception e) 
+        catch (Exception e)
         {
             out.println("Exception encountered.");
             e.printStackTrace();
@@ -175,21 +179,24 @@ ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조�
     </body>
     </html>
 
-## 응용 프로그램 실행
-1. [Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법][Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법]에 설명된 단계에 따라 응용 프로그램을 컴퓨터 에뮬레이터에서 실행하거나 Azure에 배포합니다.
+## <a name="run-the-application"></a>응용 프로그램 실행
+1. [Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법](active-directory-java-authenticate-users-access-control-eclipse.md)에 설명된 단계에 따라 응용 프로그램을 컴퓨터 에뮬레이터에서 실행하거나 Azure에 배포합니다.
 2. 브라우저를 실행하여 웹 응용 프로그램을 엽니다. 응용 프로그램에 로그온하면 ID 공급자에서 제공하는 보안 어설션을 비롯하여 SAML 정보가 표시됩니다.
 
-## 다음 단계
-ACS 기능을 자세히 살펴보고 보다 정교한 시나리오를 실험하려면 [액세스 제어 서비스 2.0][액세스 제어 서비스 2.0]\(영문)을 참조하세요.
+## <a name="next-steps"></a>다음 단계
+ACS 기능을 자세히 살펴보고 보다 정교한 시나리오를 실험하려면 [액세스 제어 서비스 2.0][액세스 제어 서비스 2.0]을 참조하세요.
 
-[Prerequisites]: #pre
-[Modify the JSP file to display SAML]: #modify_jsp
-[Add the JspWriter library to your build path and deployment assembly]: #add_library
-[Run the application]: #run_application
-[Next steps]: #next_steps
+[필수 구성 요소]: #pre
+[SAML을 표시하도록 JSP 파일 수정]: #modify_jsp
+[빌드 경로 및 배포 어셈블리에 JspWriter 라이브러리 추가]: #add_library
+[응용 프로그램 실행]: #run_application
+[다음 단계]: #next_steps
 [액세스 제어 서비스 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-[Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법]: ../active-directory-java-authenticate-users-access-control-eclipse
+[Eclipse를 사용하여 Azure 액세스 제어 서비스로 웹 사용자를 인증하는 방법]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

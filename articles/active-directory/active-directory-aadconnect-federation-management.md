@@ -1,13 +1,13 @@
 ---
-title: Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정 | Microsoft Docs
-description: Azure AD Connect를 사용한 AD FS 관리 및 Azure AD Connect와 PowerShell을 사용한 사용자 AD FS 로그인 환경의 사용자 지정입니다.
-keywords: AD FS, ADFS, AD FS 관리, AAD Connect, 연결, 로그인, AD FS 사용자 지정, 트러스트 복구, O365, 페더레이션, 신뢰 당사자.
+title: "Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정 | Microsoft Docs"
+description: "Azure AD Connect를 사용한 AD FS 관리 및 Azure AD Connect와 PowerShell을 사용한 사용자 AD FS 로그인 환경의 사용자 지정입니다."
+keywords: "AD FS, ADFS, AD FS 관리, AAD Connect, 연결, 로그인, AD FS 사용자 지정, 트러스트 복구, O365, 페더레이션, 신뢰 당사자."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: anandyadavmsft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
+translationtype: Human Translation
+ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
+ms.openlocfilehash: 6f305ca57e6133be6af684186a8c49d9915734fb
+
 
 ---
 # <a name="active-directory-federation-services-management-and-customization-with-azure-ad-connect"></a>Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정
@@ -44,26 +48,26 @@ Azure AD Connect는 AD FS와 Azure Active Directory 트러스트의 현재 상�
    ![Azure에 연결](media\\active-directory-aadconnect-federation-management\\RepairADTrust2.PNG)
 3. **원격 액세스 자격 증명** 페이지에서 도메인 관리자에 대한 자격 증명을 입력합니다.
    ![원격 액세스 자격 증명](media\\active-directory-aadconnect-federation-management\\RepairADTrust3.PNG)
-   
+
     **다음**을 클릭한 후 Azure AD Connect가 인증서 상태를 확인하고 문제를 표시합니다.
-   
+
     ![인증서의 상태](media\\active-directory-aadconnect-federation-management\\RepairADTrust4.PNG)
-   
+
     **구성 준비** 페이지에서는 트러스트를 복구하기 위해 수행할 작업 목록이 표시됩니다.
-   
+
     ![구성 준비](media\\active-directory-aadconnect-federation-management\\RepairADTrust5.PNG)
 4. **설치** 를 클릭하여 트러스트를 복구합니다.
 
 > [!NOTE]
 > Azure AD Connect는 자체 서명된 인증서에 대해서만 복구 또는 조치를 취할 수 있습니다. Azure AD Connect에서 타사 인증서를 복구할 수 없습니다.
-> 
-> 
+>
+>
 
 ### <a name="add-an-ad-fs-server-a-nameaddadfsservera"></a>AD FS 서버 추가 <a name=addadfsserver></a>
 > [!NOTE]
 > Azure AD Connect는 AD FS 서버를 추가하는 데 PFX 인증서 파일이 필요합니다. 따라서 Azure AD Connect를 사용하여 AD FS 팜을 구성한 경우에만 이 작업을 수행할 수 있습니다.
-> 
-> 
+>
+>
 
 1. **추가 페더레이션 서버 배포**를 선택하고 **다음**을 클릭합니다.
    ![추가 페더레이션 서버](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer1.PNG)
@@ -73,20 +77,20 @@ Azure AD Connect는 AD FS와 Azure Active Directory 트러스트의 현재 상�
    ![도메인 관리자 자격 증명](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer3.PNG)
 4. Azure AD Connect는 Azure AD Connect를 사용하여 새 AD FS 팜을 구성하는 동안 제공한 PFX 파일의 암호를 요청합니다. **암호 입력** 을 클릭하여 PFX 파일에 대한 암호를 제공합니다.
    ![인증서 암호](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer4.PNG)
-   
+
     ![SSL 인증서 지정](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer5.PNG)
 5. **AD FS 서버** 페이지에서 AD FS 팜에 추가할 서버 이름 또는 IP 주소를 입력합니다.
    ![AD FS servers](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer6.PNG)
 6. **다음**을 클릭하고 마지막 **구성** 페이지로 이동합니다. Azure AD Connect가 AD FS 팜에 서버 추가를 완료한 후 연결을 확인하는 옵션이 제공됩니다.
    ![구성 준비](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer7.PNG)
-   
+
     ![설치 완료](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer8.PNG)
 
 ### <a name="add-an-ad-fs-web-application-proxy-server-a-nameaddwapservera"></a>AD FS 웹 응용 프로그램 프록시 서버 추가 <a name=addwapserver></a>
 > [!NOTE]
 > Azure AD Connect는 웹 응용 프로그램 프록시 서버를 추가하는 데 PFX 인증서 파일이 필요합니다. 따라서 Azure AD Connect를 사용하여 AD FS 팜을 구성한 경우에만 이 작업을 수행할 수 있습니다.
-> 
-> 
+>
+>
 
 1. 사용 가능한 작업 목록에서 **웹 응용 프로그램 프록시 배포** 를 선택합니다.
    ![Deploy web application proxy](media\\active-directory-aadconnect-federation-management\\WapServer1.PNG)
@@ -94,7 +98,7 @@ Azure AD Connect는 AD FS와 Azure Active Directory 트러스트의 현재 상�
    ![Azure AD에 연결](media\\active-directory-aadconnect-federation-management\\wapserver2.PNG)
 3. **SSL 인증서 지정** 페이지에서 Azure AD Connect를 사용하여 AD FS 팜을 구성할 때 제공한 PFX 파일에 대한 암호를 제공합니다.
    ![인증서 암호](media\\active-directory-aadconnect-federation-management\\WapServer3.PNG)
-   
+
     ![SSL 인증서 지정](media\\active-directory-aadconnect-federation-management\\WapServer4.PNG)
 4. 웹 응용 프로그램 프록시로 추가할 서버를 추가합니다. 웹 응용 프로그램 프록시 서버가 도메인에 가입되지 않을 수 있으므로 마법사가 추가 중인 서버에 대한 관리자 자격 증명을 요청합니다.
    ![관리 서버 자격 증명](media\\active-directory-aadconnect-federation-management\\WapServer5.PNG)
@@ -116,7 +120,7 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽
    ![원격 액세스 자격 증명](media\\active-directory-aadconnect-federation-management\\additionaldomain3.PNG)
 4. 다음 페이지에서 마법사는 온-프레미스 디렉터리를 페더레이션하려는 Azure AD 도메인 목록을 제공합니다. 목록에서 도메인을 선택합니다.
    ![Azure AD 도메인](media\\active-directory-aadconnect-federation-management\\AdditionalDomain4.PNG)
-   
+
     도메인을 선택하면 마법사는 마법사가 수행할 추가 작업 및 구성의 영향에 대한 적절한 정보를 제공합니다. 경우에 따라 Azure AD에서 아직 확인되지 않은 도메인을 선택하는 경우 마법사는 도메인을 확인하는 데 유용한 정보를 제공합니다. 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-add-domain.md) 를 참조하세요.
 5. **다음**을 클릭하면 **구성 준비** 페이지에 Azure AD Connect가 수행할 작업 목록이 표시됩니다. **설치** 를 클릭하여 구성을 완료합니다.
    ![구성 준비](media\\active-directory-aadconnect-federation-management\\AdditionalDomain5.PNG)
@@ -129,17 +133,17 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽
 
 > [!NOTE]
 > 로고의 권장 크기는 파일 크기가 10KB 이하인 @96dpi에서 260x35입니다.
-> 
-> 
+>
+>
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 
 > [!NOTE]
 > *TargetName* 매개 변수는 필수입니다. AD FS와 함께 제공되는 기본 테마의 이름은 Default입니다.
-> 
-> 
+>
+>
 
-### <a name="add-a-signin-description-a-nameaddsignindescriptiona"></a>로그인 설명 추가 <a name=addsignindescription></a>
+### <a name="add-a-sign-in-description-a-nameaddsignindescriptiona"></a>로그인 설명 추가 <a name=addsignindescription></a>
 **로그인 페이지**에 로그인 페이지 설명을 추가하려면 다음 Windows PowerShell cmdlet 및 구문을 사용합니다.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
@@ -185,11 +189,11 @@ Azure AD Connect에서는 개체가 Azure AD에 동기화되는 경우 원본 �
 
 > [!NOTE]
 > 이러한 규칙 시퀀스는 중요합니다.
-> 
-> 
+>
+>
 
 #### <a name="sso-with-a-subdomain-upn"></a>하위 도메인 UPN을 사용한 SSO
-[새 페더레이션된 도메인 추가](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain)에 설명된 대로 Azure AD Connect를 사용하여 페더레이션될 도메인을 둘 이상 추가할 수 있습니다. 페더레이션된 루트 도메인이 자식도 포함하기 때문에 발급자 ID는 하위 도메인이 아닌 루트 도메인과 일치해야 하므로 UPN 클레임을 수정해야 합니다.
+[새 페더레이션된 도메인 추가](active-directory-aadconnect-federation-management.md#addfeddomain)에 설명된 대로 Azure AD Connect를 사용하여 페더레이션될 도메인을 둘 이상 추가할 수 있습니다. 페더레이션된 루트 도메인이 자식도 포함하기 때문에 발급자 ID는 하위 도메인이 아닌 루트 도메인과 일치해야 하므로 UPN 클레임을 수정해야 합니다.
 
 기본적으로 발급자 ID에 대한 클레임 규칙은 다음과 같이 설정됩니다.
 
@@ -218,6 +222,8 @@ Azure AD Connect에서는 개체가 Azure AD에 동기화되는 경우 원본 �
 ## <a name="next-steps"></a>다음 단계
 [사용자 로그인 옵션](active-directory-aadconnect-user-signin.md)에 대해 알아봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

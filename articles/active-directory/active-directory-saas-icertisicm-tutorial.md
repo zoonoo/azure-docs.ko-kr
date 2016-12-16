@@ -1,12 +1,12 @@
 ---
-title: '자습서: Icertis Contract Management Platform과 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory 및 Icertis Contract Management Platform 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Icertis Contract Management Platform과 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory 및 Icertis Contract Management Platform 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6627e6dd-f559-4cd4-a509-f6d9a4961b49
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a2d2fba76850d6dfcff7545d6646f45c12e05c3f
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-icertis-contract-management-platform"></a>자습서: Icertis Contract Management Platform과 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>자습서: Icertis Contract Management Platform과 Azure Active Directory 통합
 이 자습서에서는 Icertis Contract Management Platform과 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 Icertis Contract Management Platform과 Azure AD를 통합하면 다음과 같은 이점이 제공됩니다.
@@ -121,13 +125,13 @@ Icertis Contract Management Platform에서 Azure AD Single Sign-On을 구성하�
     b. **다음**을 클릭합니다.
 2. 응용 프로그램에 대해 구성된 SSO를 얻으려면 Icertis Contract Management Platform 지원 팀에 문의하고 다음을 제공하세요. 
    
-   * **다운로드한 메타데이터** 파일 
-     
-     - **엔터티 ID** 
-     
-     - **SAML SSO URL** 
-     
-     - **Single Sign-Out 서비스 URL**
+    - **다운로드한 메타데이터** 파일 
+   
+    - **엔터티 ID** 
+   
+    - **SAML SSO URL** 
+   
+    - **Single Sign-Out 서비스 URL**
 3. 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
    
     ![Azure AD Single Sign-On][10]
@@ -238,6 +242,6 @@ Icertis Contract Management Platform에서 Azure AD Single Sign-On을 구성하�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

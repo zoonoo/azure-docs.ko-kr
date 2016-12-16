@@ -1,12 +1,12 @@
 ---
-title: Azure Load Balancer에 대한 다중 VIP | Microsoft Docs
-description: Azure Load Balancer의 다중 VIP에 대한 개요
+title: "Azure Load Balancer에 대한 다중 VIP | Microsoft Docs"
+description: "Azure Load Balancer의 다중 VIP에 대한 개요"
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: ''
-
+editor: 
+ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2016
 ms.author: chkuhtz
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 0cedf46bd0b8c352c8a8d87407ed7fbbc58e3b46
 
 ---
+
 # <a name="multiple-vips-for-azure-load-balancer"></a>Azure Load Balancer에 대한 다중 VIP
+
 Azure Load Balancer를 사용해 여러 포트, 여러 IP 주소 또는 둘 다에서 부하 분산 서비스를 할 수 있습니다. 공용 및 내부 부하 분산 장치 정의를 VM 집합 전반에 대한 부하 분산 흐름에 사용할 수 있습니다.
 
 이 문서에서는 이 기능, 중요한 개념 및 제약 조건에 대한 기본 사항을 설명합니다. 서비스를 하나의 IP 주소에 노출만 하려는 경우 [공용](load-balancer-get-started-internet-portal.md) 또는 [내부](load-balancer-get-started-ilb-arm-portal.md) 부하 분산 장치 구성에 대한 단순화된 지침을 찾을 수 있습니다. 여러 VIP 추가하면 단일 VIP 구성이 증대합니다. 이 문서의 개념을 사용하여 단순화된 구성을 언제라도 확장할 수 있습니다.
@@ -43,7 +48,8 @@ Azure Load Balancer를 사용하면 동일한 부하 분산 장치 구성에서 
 
 기본 동작을 시작으로 이러한 시나리오를 더 자세히 알아봅니다.
 
-## <a name="rule-type-#1:-no-backend-port-reuse"></a>규칙 유형 #1: 백 엔드 포트 재사용하지 않음.
+## <a name="rule-type-1-no-backend-port-reuse"></a>규칙 유형 #1: 백 엔드 포트 재사용하지 않음.
+
 ![MultiVIP 그림](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
 이 시나리오에서 프런트 엔드 VIP는 다음과 같이 구성됩니다.
@@ -71,9 +77,10 @@ Azure Load Balancer에서 전체 매핑은 이제 다음과 같습니다.
 
 각 규칙은 대상 IP 주소 및 대상 포트의 고유한 조합으로 흐름을 생성해야 합니다. 흐름의 대상 포트를 변경함으로써 여러 규칙이 다른 포트의 동일한 DIP로 흐름을 전달할 수 있습니다.
 
-상태 프로브는 언제나 VM의 DIP에 전달됩니다. 프로브가 VM의 상태를 반영하도록 확인해야 합니다.
+상태 프로브는 언제나 VM의 DIP에 전달됩니다. 프로브가 VM의 상태를 반영하는지 확인해야 합니다.
 
-## <a name="rule-type-#2:-backend-port-reuse-by-using-floating-ip"></a>규칙 유형 #2: 부동 IP를 사용하여 백엔드 포트 재사용
+## <a name="rule-type-2-backend-port-reuse-by-using-floating-ip"></a>규칙 유형 #2: 부동 IP를 사용하여 백엔드 포트 재사용
+
 Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 VIP 전반에 걸쳐 프런트 엔드 포트를 재사용할 수 있는 유연성을 제공합니다. 또한 일부 응용 프로그램 시나리오는 백 엔드 풀의 단일 VM에서 여러 응용 프로그램 인스턴스가 동일한 포트를 사용하는 것을 선호하거나 필요로 합니다. 포트 재사용의 일반적인 예에는 고가용성을 위한 클러스터링, 네트워크 가상 어플라이언스 및 재암호화 없이 다중 TLS 끝점 노출이 포함됩니다.
 
 여러 규칙 전반에 백 엔드 포트를 재사용하려면 규칙 정의에 부동 IP를 사용하도록 설정해야 합니다.
@@ -94,8 +101,6 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 VIP 전반
 
 > [!IMPORTANT]
 > 논리 인터페이스의 구성은 게스트 OS 내에서 수행됩니다. 이 구성은 Azure에서 수행하거나 관리하지 않습니다. 이 구성 없이는 규칙이 작동하지 않습니다. 상태 프로브 정의는 논리 VIP보다는 VM의 DIP를 사용합니다. 따라서 서비스는 논리적 VIP에서 제공하는 서비스의 상태를 반영하는 DIP 포트에서의 프로브 응답을 제공해야 합니다.
-> 
-> 
 
 이전 시나리오에서와 동일한 프런트 엔드 구성을 가정해 보겠습니다.
 
@@ -122,14 +127,17 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 VIP 전반
 
 이 예는 대상 포트를 변경하지 않는지 확인합니다. 비록 부동 IP 시나리오이지만 Azure Load Balancer는 또한 백 엔드 대상 포트를 다시 작성하여 프런트 엔드 대상 포트와 다르도록 규칙을 정의하는 것을 지원합니다.
 
-부동 IP 규칙 유형은 여러 부하 분산 장치 구성 패턴의 기초입니다. 현재 사용할 수 있는 한 가지 예로 [Multiple Listeners를 사용한 SQL AlwaysOn](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) 구성을 들 수 있습니다. 앞으로 이러한 시나리오 더욱 자세히 설명할 것입니다.
+부동 IP 규칙 유형은 여러 부하 분산 장치 구성 패턴의 기초입니다. 현재 사용할 수 있는 한 가지 예로 [Multiple Listeners를 사용한 SQL AlwaysOn](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 구성을 들 수 있습니다. 앞으로 이러한 시나리오 더욱 자세히 설명할 것입니다.
 
 ## <a name="limitations"></a>제한 사항
+
 * 다중 VIP 구성은 IaaS VM을 사용할 때만 지원됩니다.
 * 부동 IP 규칙을 사용할 경우 응용 프로그램은 아웃바운드 흐름에 대해 DIP를 사용해야 합니다. 응용 프로그램이 게스트 OS에서 루프백 인터페이스에 구성된 VIP 주소에 바인딩하는 경우 아웃바운드 흐름을 재작성하기 위해 SNAT을 사용할 수 없어 흐름이 실패합니다.
 * 공용 IP 주소는 대금 청구에 영향을 미칩니다. 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * 구독 제한이 적용됩니다. 자세한 내용은 [서비스 제한](../azure-subscription-service-limits.md#networking-limits) 을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

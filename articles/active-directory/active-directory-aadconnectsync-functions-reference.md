@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD 동기화 연결: 함수 참조 | Microsoft Docs'
+title: "Azure AD 동기화 연결: 함수 참조 | Microsoft Docs"
 description: " Azure AD Connect 동기화의 선언적 프로비전 식을 참조하세요."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: andkjell;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8fbffc0de5964a89fe2e0f9059c2f48b29fba2b9
+
 
 ---
-# <a name="azure-ad-connect-sync:-functions-reference"></a>Azure AD 동기화 연결: 함수 참조
+# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD 동기화 연결: 함수 참조
 Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 사용합니다.  
 함수의 구문은 다음 형식을 사용하여 표현됩니다.  
 `<output type> FunctionName(<input type> <position name>, ..)`
@@ -1070,6 +1074,9 @@ CGuid()가 성공적으로 수행될 수 있는지 여부를 결정하는데 사
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

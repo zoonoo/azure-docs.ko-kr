@@ -1,23 +1,27 @@
 ---
-title: Channel 9의 Azure 보안 동영상 | Microsoft Docs
-description: 이 문서는 Channel 9의 엄선된 Azure 보안 프레젠테이션 목록입니다. Channel 9은 제품 뒤 사용자와 제품을 사용하는 사용자를 연결하는 커뮤니티입니다.
+title: "Channel 9의 Azure 보안 동영상 | Microsoft Docs"
+description: "이 문서는 Channel 9의 엄선된 Azure 보안 프레젠테이션 목록입니다. Channel 9은 제품 뒤 사용자와 제품을 사용하는 사용자를 연결하는 커뮤니티입니다."
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-
+ms.assetid: 9e5e14aa-11d7-4242-8b7e-49fd0e79817a
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/18/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9713d8b952f79f3ea4010a2d504b5174e70ce9ca
+
 
 ---
-# Channel 9의 Azure 보안 동영상
-[Channel 9](https://channel9.msdn.com/)은 제품 뒤 사용자를 앞으로 내보내 고객과 연결하는 커뮤니티입니다.
+# <a name="azure-security-videos-on-channel-9"></a>Channel 9의 Azure 보안 동영상
+[Channel 9](https://channel9.msdn.com/) 은 제품 뒤 사용자를 앞으로 내보내 고객과 연결하는 커뮤니티입니다.
 
 이들은 소프트웨어에 멋진 미래가 있고 이 점에 대해 기대하고 있습니다. Channel 9은 지속적인 대화에 참가할 수 있는 커뮤니티입니다.
 
@@ -41,7 +45,7 @@ Azure 보안 센터를 통해 모든 Azure 리소스의 보안 상태를 중앙�
 
 [Azure의 SQL Server 가상 컴퓨터 암호화로 보안 개선](https://channel9.msdn.com/Shows/Azure-Friday/Encryption-in-SQL-Azure-for-better-security)
 
-Jack Richins는 [Scott](https://channel9.msdn.com/Niners/Glucose)에게 가상 컴퓨터 Azure 인스턴스에서 SQL Server 데이터베이스를 쉽게 암호화하는 방법을 가르치고 있습니다. 생각 보다 훨씬 쉽습니다!
+Jack Richins는 [Scott](https://channel9.msdn.com/Niners/Glucose) 에게 가상 컴퓨터 Azure 인스턴스에서 SQL Server 데이터베이스를 쉽게 암호화하는 방법을 가르치고 있습니다. 생각 보다 훨씬 쉽습니다!
 
 이 비디오에서 다루는 영역
 
@@ -75,4 +79,8 @@ Azure AD(Active Directory) Privileged Identity Management는 권한 있는 ID �
 
 Amit Bapat가 Scott에게 Azure 주요 자격 증명 모음을 소개합니다. Azure 주요 자격 증명을 사용하면 HSM(하드웨어 보안 모듈)에 저장된 키를 사용하여 암호와 같은 작은 비밀과 키를 암호화할 수 있습니다. Microsoft Azure에 대한 클라우드 기반, 하드웨어 기반 암호 관리입니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
