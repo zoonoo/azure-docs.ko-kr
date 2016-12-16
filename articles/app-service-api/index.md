@@ -121,8 +121,6 @@ API Apps는 Azure App Service에서 제공하는 4개의 앱 형식 중 하나�
     </li>     
 </ul>
 
----
-
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
         <div class="img"></div>

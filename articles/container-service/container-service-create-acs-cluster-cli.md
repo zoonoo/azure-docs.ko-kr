@@ -117,7 +117,7 @@ az acs scale -g acsrg1 -n acs-cluster --new-agent-count 4
 ![이미지 ACS scale](media/container-service-create-acs-cluster-cli/acs-scale.png)
 
 ## <a name="delete-a-container-service-cluster"></a>컨테이너 서비스 클러스터 삭제
-```
+```azurecli
 az acs delete -g acsrg1 -n acs-cluster 
 ```
 *이 delete 명령을 실행해도 컨테이너 서비스를 만드는 동안 생성된 모든 리소스(네트워크 및 저장소)가 삭제되는 것은 아닙니다. 모든 리소스를 삭제하려면 리소스 그룹당 단일 ACS 클러스터를 만든 후 acs 클러스터가 더 이상 필요하지 않을 때 리소스 그룹이 저절로 삭제되도록 하여 모든 관련 리소스가 삭제되고 요금이 부과되지 않도록 하는 것이 좋습니다.*
