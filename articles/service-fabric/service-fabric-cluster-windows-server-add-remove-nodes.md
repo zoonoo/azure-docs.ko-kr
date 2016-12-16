@@ -1,12 +1,12 @@
 ---
-title: 독립 실행형 서비스 패브릭 클러스터에 노드 추가 또는 제거 | Microsoft Docs
-description: Windows Server를 실행하는 실제 또는 가상 컴퓨터에서 Azure 서비스 패브릭 클러스터에 노드를 추가하거나 제거하는 방법(온-프레미스 또는 클라우드에 위치 가능)을 알아봅니다.
+title: "독립 실행형 Service Fabric 클러스터에 노드 추가 또는 제거 | Microsoft Docs"
+description: "Windows Server를 실행하는 실제 또는 가상 컴퓨터에서 Azure 서비스 패브릭 클러스터에 노드를 추가하거나 제거하는 방법(온-프레미스 또는 클라우드에 위치 가능)을 알아봅니다."
 services: service-fabric
 documentationcenter: .net
 author: dsk-2015
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/20/2016
 ms.author: dkshir;chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 335ab9d3746b089e9e7a8d640a89a2d381295b46
+
 
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server가 실행되는 독립 실행형 서비스 패브릭 클러스터에 노드 추가 또는 제거 | Microsoft Azure
@@ -38,13 +42,18 @@ ms.author: dkshir;chackdan
 3. 클러스터에서 제거하려는 VM/컴퓨터로 RDP(원격 데스크톱).
 4. [Windows Server용 서비스 패브릭에 대한 독립 실행형 패키지를 복사 또는 다운로드](http://go.microsoft.com/fwlink/?LinkId=730690) 하고 이 VM/컴퓨터에 패키지 압축을 풉니다.
 5. Powershell을 관리자로 실행하고 압축을 푼 패키지의 위치로 이동합니다.
-6. *RemoveNode.ps1* Powershell을 실행합니다. 아래 예제에서는 클러스터에서 현재 노드를 제거합니다. *ExistingClusterConnectionEndPoint* 는 기존 클러스터에 이미 있는 노드에 대한 연결 끝점입니다. 이 끝점의 경우 클러스터에서 *모든* **다른 노드** 의 IP 주소를 선택해야 합니다.
+6. Powershell에서 *RemoveNode.ps1*을 실행합니다. 아래 예제에서는 클러스터에서 현재 노드를 제거합니다. *ExistingClientConnectionEndpoint*는 클러스터에 유지되는 모든 노드에 대한 클라이언트 연결 끝점입니다. 클러스터에서 *원하는* **다른 노드**의 IP 주소 및 끝점 포트를 선택합니다. 이 **다른 노드**는 제거된 노드에 대한 클러스터 구성을 업데이트합니다. 
 
 ```
-.\RemoveNode.ps1 -ExistingClusterConnectionEndPoint 182.17.34.50:19000
+.\RemoveNode.ps1 -ExistingClientConnectionEndpoint 182.17.34.50:19000
 ```
 
-다음 릴리스에서 수정된 알려진 결함 - 노드를 제거한 후에도 쿼리 및 SFX에 노드가 종료된 것으로 표시됩니다. 
+> [!NOTE]
+> 시스템 서비스 종속성으로 인해 일부 노드가 제거될 수 있습니다. 이러한 노드는 주 노드이며 `Get-ServiceFabricClusterManifest`를 사용하는 클러스터 매니페스트를 쿼리하고 `IsSeedNode=”true”`가 표시된 노드 항목을 찾아 식별할 수 있습니다. 
+> 
+> 
+
+노드를 제거한 후에도 쿼리와 SFX에 종료 중인 것으로 표시되는 경우 이는 알려진 결함입니다. 이는 향후 릴리스에서 수정될 예정입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * [독립 실행형 Windows 클러스터에 대한 구성 설정](service-fabric-cluster-manifest.md)
@@ -52,6 +61,9 @@ ms.author: dkshir;chackdan
 * [X509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호](service-fabric-windows-cluster-x509-security.md)
 * [Windows를 실행하는 Azure VM에서 독립 실행형 서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-with-windows-azure-vms.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: PowerShell을 사용하여 Express 경로에 대한 VNet 게이트웨이 구성 | Microsoft Docs
-description: Express 경로 구성을 위해 PowerShell을 사용하여 클래식 배포 모델 VNet에 대한 VNet 게이트웨이 구성
+title: "PowerShell을 사용하여 ExpressRoute용 VNet 게이트웨이 구성 | Microsoft 문서"
+description: "Express 경로 구성을 위해 PowerShell을 사용하여 클래식 배포 모델 VNet에 대한 VNet 게이트웨이 구성"
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 85ee0bc1-55be-4760-bfb4-34d9f2c96f30
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/03/2016
 ms.author: charwen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6d079003674a3025a8ce8f39ab61d9ca544e132a
+
 
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-classic-deployment-model-and-powershell"></a>클래식 배포 모델 및 PowerShell을 사용하여 Express 경로에 대한 가상 네트워크 게이트웨이 구성
@@ -38,6 +42,9 @@ ms.author: charwen
 ## <a name="next-steps"></a>다음 단계
 VNet 게이트웨이를 만든 후 VNet을 Express 경로 회로에 연결할 수 있습니다. [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침 | Microsoft Docs
-description: 온-프레미스에 AD 도메인 서비스 및 AD 페더레이션 서비스를 배포하는 방법을 아는 경우 Azure 가상 컴퓨터에서 작동하는 방법을 학습합니다.
+title: "Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침 | Microsoft Docs"
+description: "온-프레미스에 AD 도메인 서비스 및 AD 페더레이션 서비스를 배포하는 방법을 아는 경우 Azure 가상 컴퓨터에서 작동하는 방법을 학습합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: stevenpo
-editor: ''
-
+editor: 
+ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 497d8b17fe29328008fd2d13cf61432a913aa898
+
 
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침
@@ -57,7 +61,7 @@ AD 배포에 익숙하지 않은 사용자는 [AD DS 배포 가이드](https://t
 ## <a name="introduction"></a>소개
 Azure 가상 컴퓨터에서 Windows Server Active Directory를 배포하기 위한 기본 요구 사항은 온-프레미스 가상 컴퓨터(및 어느 정도까지는 물리적 컴퓨터)에서 배포하는 경우와 아주 조금 다릅니다. 예를 들어 Windows Server AD DS의 경우 Azure 가상 컴퓨터에 배포하는 DC(도메인 컨트롤러)는 기존 온-프레미스 회사 도메인/포리스트에서 복제본이며 Azure 배포는 다른 모든 추가 Windows Server Active Directory 사이트를 처리하는 것과 대부분 동일한 방식으로 처리될 수 있습니다. 즉, 서브넷은 만들어진 사이트, 해당 사이트에 연결된 서브넷, Windows Server AD DS에서 정의되어야 하며 적절한 사이트 링크를 사용하여 다른 사이트에 연결되어야 합니다. 그러나 모든 Azure 배포에 공통적인 몇 가지 차이점과 특정 배포 시나리오에 따라 다른 일부가 있습니다. 두 가지 근본적인 차이점은 다음과 같습니다.
 
-### <a name="azure-virtual-machines-may-need-connectivity-to-the-on-premises-corporate-network."></a>Azure 가상 컴퓨터를 온-프레미스 회사 네트워크에 연결해야 합니다.
+### <a name="azure-virtual-machines-may-need-connectivity-to-the-on-premises-corporate-network"></a>Azure 가상 컴퓨터를 온-프레미스 회사 네트워크에 연결해야 합니다.
 Azure 가상 컴퓨터를 온-프레미스 회사 네트워크에 다시 연결하려면 Azure 가상 컴퓨터 및 온-프레미스 컴퓨터를 원활하게 연결할 수 있는 사이트 간 또는 사이트와 지점 간 VPN(가상 사설망) 구성 요소를 포함하는 Azure 가상 네트워크가 필요합니다. 이 VPN 구성 요소를 통해 온-프레미스 도메인 구성원 컴퓨터는 해당 도메인 컨트롤러가 Azure 가상 컴퓨터에 독점적으로 호스팅되는 Windows Server Active Directory 도메인에 액세스할 수도 있습니다. 한편 VPN에 실패하면 Windows Server Active Directory에 의존하는 인증 및 다른 작업도 또한 실패하는 것을 고려해야 합니다. 사용자는 기존 캐시된 자격 증명을 사용하여 로그인할 수 있는 반면 티켓이 발생되어야 하거나 유효하지 않게 된 모든 피어-투-피어 또는 클라이언트-서버 간 인증 시도는 실패합니다.
 
 [Azure Portal에서 사이트 간 VPN 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)을 포함하는 단계별 자습서의 데모 비디오 및 목록은 [가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network/)를 참조하세요.
@@ -67,10 +71,10 @@ Azure 가상 컴퓨터를 온-프레미스 회사 네트워크에 다시 연결�
 > 
 > 
 
-### <a name="static-ip-addresses-must-be-configured-with-azure-powershell."></a>고정 IP 주소는 Azure PowerShell을 통해 구성되어야 합니다.
+### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>고정 IP 주소는 Azure PowerShell을 통해 구성되어야 합니다.
 동적 주소는 기본적으로 할당되지만 Set-AzureStaticVNetIP cmdlet을 사용하여 고정 IP 주소를 대신 할당합니다. 서비스 복구 및 VM 종료/다시 시작을 통해 유지되는 고정 IP 주소를 설정합니다. 자세한 내용은 [가상 컴퓨터에 대한 고정 내부 IP 주소](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)를 참조하세요.
 
-## <a name="<a-name="bkmk_glossary"></a>terms-and-definitions"></a><a name="BKMK_Glossary"></a>용어 및 정의
+## <a name="a-namebkmkglossaryaterms-and-definitions"></a><a name="BKMK_Glossary"></a>용어 및 정의
 다음은 이 문서에서 참조되는 다양한 Azure 기술에 대한 용어의 전체 목록이 아닙니다.
 
 * **Azure 가상 컴퓨터**: 고객이 거의 모든 기존 온-프레미스 서버 작업을 실행하는 VM을 배포할 수 있도록 허용하는 Azure에서 제공되는 IaaS.
@@ -86,7 +90,7 @@ Azure 가상 컴퓨터를 온-프레미스 회사 네트워크에 다시 연결�
   
   MAC 주소 또는 프로세서/CPU ID에 종속성이 없으므로 이러한 동작은 Windows Server Active Directory에 영향을 주지 않으며 Azure에서 모든 Windows Server Active Directory 배포는 위에서 설명한 대로 Azure 가상 네트워크에서 실행되는 것이 좋습니다.
 
-## <a name="is-it-safe-to-virtualize-windows-server-active-directory-domain-controllers?"></a>Windows Server Active Directory 도메인 컨트롤러 가상화에 안전합니까?
+## <a name="is-it-safe-to-virtualize-windows-server-active-directory-domain-controllers"></a>Windows Server Active Directory 도메인 컨트롤러 가상화에 안전합니까?
 Azure 가상 컴퓨터에 Windows Server Active Directory DC 배포는 가상 컴퓨터에서 온-프레미스로 DC를 실행하는 경우와 동일한 지침이 적용됩니다. DC 백업 및 복원을 위한 지침을 따르는 한 가상화된 DC 실행은 안전한 사례입니다. 가상화된 DC를 실행하기 위한 제약 조건 및 지침에 대한 자세한 내용은 [Hyper-V에서 도메인 컨트롤러 실행](https://technet.microsoft.com/library/dd363553)을 참조하세요.
 
 하이퍼바이저는 Windows Server Active Directory를 비롯한 대부분의 분산된 시스템에 문제가 발생할 수 있는 기술을 제공 또는 하찮아 보이게 합니다. 예를 들어 물리적 서버에서 디스크를 복제하거나 지원되는 메서드를 사용하여 SAN 등의 사용을 비롯한 서버의 상태를 롤백할 수 있지만 물리적 서버에서 이렇게 하는 것은 하이퍼바이저에서 가상 컴퓨터 스냅숏을 복사하는 것보다 훨씬 어렵습니다. Azure는 동일한 바람직하지 않은 조건을 가져올 수 있는 기능을 제공합니다. 예를 들어 복원하면 스냅숏 복원 기능을 사용하는 경우 비슷한 상황이 발생할 수 있으므로 정기적인 백업을 수행하는 대신 DC의 VHD 파일을 복사하지 않아야 합니다.
@@ -107,7 +111,7 @@ Windows Server 2012부터는 [추가 세이프가드가 AD DS에 기본 제공�
 > 
 > 
 
-## <a name="why-deploy-windows-server-ad-ds-on-azure-virtual-machines?"></a>Azure 가상 컴퓨터에 Windows Server AD DS를 배포하는 이유는 무엇입니까?
+## <a name="why-deploy-windows-server-ad-ds-on-azure-virtual-machines"></a>Azure 가상 컴퓨터에 Windows Server AD DS를 배포하는 이유는 무엇입니까?
 많은 Windows Server AD DS 배포 시나리오는 Azure에서 VM으로 배포하기에 적합합니다. 예를 들어 아시아의 원격 위치에서 사용자를 인증해야 하는 회사가 유럽에 있다고 가정합니다. 회사는 배포하는 비용 및 배포 후에 서버를 관리하는 데 제한된 전문 지식으로 인해 아시아에 Windows Server Active Directory DC를 이전에 배포하지 않았습니다. 결과적으로, 아시아의 인증 요청은 최적이 아닌 결과로 유럽의 DC에서 지원됩니다. 이 경우 아시아의 Azure 데이터 센터 내에서 실행되어야 한다고 지정한 VM에 DC를 배포할 수 있습니다. 해당 DC를 원격 위치에 직접 연결된 Azure 가상 네트워크에 연결하면 인증 성능이 향상됩니다.
 
 Azure는 비용이 드는 재해 복구(DR) 사이트에 대한 대체로 적합합니다. Azure에서 적은 수의 도메인 컨트롤러 및 단일 가상 네트워크 호스팅의 상대적으로 낮은 비용은 매력적인 대안을 나타냅니다.
@@ -132,7 +136,7 @@ Azure는 비용이 드는 재해 복구(DR) 사이트에 대한 대체로 적합
 * 가상 네트워크를 만드는지 여부에 관계 없이 Azure는 송신 트래픽에 대한 요금을 청구하지만 하지만 수신 트래픽에 대한 요금을 청구하지 않습니다. 다양한 Windows Server Active Directory 디자인 선택은 배포에서 생성되는 송신 트래픽의 양에 영향을 줄 수 있습니다. 예를 들어 읽기 전용 도메인 컨트롤러(RODC) 배포는 아웃바운드를 복제하지 않으므로 송신 트래픽을 제한합니다. 그러나 RODC를 배포하는 결정은 DC 및 사이트의 응용 프로그램 및 서비스가 RODC와 함께 가진 [호환성](https://technet.microsoft.com/library/cc755190) 에 대해 쓰기 작업을 수행할 필요성에 대한 고려가 필요합니다. 트래픽 요금에 대한 자세한 내용은 [Azure 가격 개요](http://azure.microsoft.com/pricing/)를 참조하세요.
 * Azure에서 RAM, 디스크 크기 등과 같은 VM 온-프레미스에 사용할 서버 리소스를 완전히 제어할 수 있지만 미리 구성된 서버 크기의 목록에서 선택해야 합니다. DC의 경우 Windows Server Active Directory 데이터베이스를 저장하기 위해 운영 체제 디스크 외에도 데이터 디스크가 필요합니다.
 
-## <a name="can-you-deploy-windows-server-ad-fs-on-azure-virtual-machines?"></a>Azure 가상 컴퓨터에 Windows Server AD FS를 배포할 수 있습니까?
+## <a name="can-you-deploy-windows-server-ad-fs-on-azure-virtual-machines"></a>Azure 가상 컴퓨터에 Windows Server AD FS를 배포할 수 있습니까?
 예, Azure 가상 컴퓨터에 Windows Server AD FS를 배포할 수 있으며 온-프레미스에서 [AD FS 배포에 대한 모범 사례](https://technet.microsoft.com/library/dn151324.aspx) 는 Azure에서 AD FS 배포에 동일하게 적용합니다. 하지만 부하 분산 및 고가용성 기능과 같은 몇 가지 모범 사례는 AD FS가 제공하는 이상의 기술이 필요합니다. 기본 인프라에서 제공되어야 합니다. 몇 가지 모범 사례를 검토하고 Azure VM 및 Azure 가상 네트워크를 사용하여 실현할 수 있는 방법을 살펴 보겠습니다.
 
 1. **STS(보안 토큰 서비스) 서버를 인터넷에 직접 노출하지 마세요.**
@@ -250,7 +254,7 @@ AD FS 서버에 대한 트래픽은 다음 원본을 통해서만 허용됩니�
    
     예를 들어 Windows 통합 인증을 지원하고 구성 및 사용자 프로필 데이터에 대한 리포지토리로 Windows Server AD DS를 사용하는 LDAP 인식 응용 프로그램은 Azure 가상 컴퓨터에 배포됩니다. 응용 프로그램은 기존의 회사 Windows Server AD DS를 활용하고 Single Sign-On을 제공하는 것이 좋습니다. 응용 프로그램은 클레임 인식되지 않습니다.
 
-### <a name="<a-name="bkmk_cloudonly"></a>1.-ad-ds:-deploy-an-ad-ds-aware-application-with-no-requirement-for-corporate-network-connectivity"></a><a name="BKMK_CloudOnly"></a>1. AD DS: 회사 네트워크 연결에 대한 요구 사항 없이 AD DS 인식 응용 프로그램 배포
+### <a name="a-namebkmkcloudonlya1-ad-ds-deploy-an-ad-ds-aware-application-with-no-requirement-for-corporate-network-connectivity"></a><a name="BKMK_CloudOnly"></a>1. AD DS: 회사 네트워크 연결에 대한 요구 사항 없이 AD DS 인식 응용 프로그램 배포
 ![클라우드 전용 AD DS 배포](media/active-directory-deploying-ws-ad-guidelines/ADDS_cloud.png)
 **그림 1**
 
@@ -270,7 +274,7 @@ SharePoint가 Azure 가상 컴퓨터에 배포되고 응용 프로그램은 회�
 * [Windows Server AD DS 데이터베이스 및 SYSVOL의 배치](#BKMK_PlaceDB): Windows Server Active Directory 데이터베이스, 로그 및 SYSVOL을 저장하기 위해 Azure VM으로 실행되는 DC에 데이터 디스크를 추가합니다.
 * [백업 및 복원](#BKMK_BUR): 시스템 상태 백업을 저장할 위치를 결정합니다. 필요한 경우 백업을 저장하도록 DC VM에 다른 데이터 디스크를 추가합니다.
 
-### <a name="<a-name="bkmk_cloudonlyfed"></a>2-ad-fs:-extend-a-claims-aware-on-premises-front-end-application-to-the-internet"></a><a name="BKMK_CloudOnlyFed"></a>2 AD FS: 인터넷으로 클레임 인식 온-프레미스 프런트 엔드 응용 프로그램 확장
+### <a name="a-namebkmkcloudonlyfeda2-ad-fs-extend-a-claims-aware-on-premises-front-end-application-to-the-internet"></a><a name="BKMK_CloudOnlyFed"></a>2 AD FS: 인터넷으로 클레임 인식 온-프레미스 프런트 엔드 응용 프로그램 확장
 ![크로스-프레미스 연결로 페더레이션](media/active-directory-deploying-ws-ad-guidelines/Federation_xprem.png)
 **그림 2**
 
@@ -294,7 +298,7 @@ SharePoint가 Azure 가상 컴퓨터에 배포되고 응용 프로그램은 회�
 
 자세한 내용은 [AD DS 배포 가이드](https://technet.microsoft.com/library/cc753963)를 참조하세요.
 
-### <a name="<a-name="bkmk_hybridext"></a>3.-ad-ds:-deploy-a-windows-server-ad-ds-aware-application-that-requires-connectivity-to-the-corporate-network"></a><a name="BKMK_HybridExt"></a>3. AD DS: 회사 네트워크에 연결해야 하는 Windows Server AD DS 인식 응용 프로그램 배포
+### <a name="a-namebkmkhybridexta3-ad-ds-deploy-a-windows-server-ad-ds-aware-application-that-requires-connectivity-to-the-corporate-network"></a><a name="BKMK_HybridExt"></a>3. AD DS: 회사 네트워크에 연결해야 하는 Windows Server AD DS 인식 응용 프로그램 배포
 ![크로스-프레미스 AD DS 배포](media/active-directory-deploying-ws-ad-guidelines/ADDS_xprem.png)
 **그림 3**
 
@@ -340,12 +344,12 @@ LDAP 인식 응용 프로그램이 Azure 가상 컴퓨터에 배포됩니다. Wi
 | [공용 및 개인 IP 주소 지정(동적 IP 및 가상 IP)에 대한 페더레이션 서버 요구 사항](#BKMK_FedReqVIPDIP) |<li>Windows Server AD FS 인스턴스가 인터넷에서 직접 연결되어야 합니까?</li> <li>고유한 인터넷 연결 IP 주소 및 포트가 클라우드에서 배포되는 응용 프로그램에 필요합니까?</li> |배포에 필요한 각 가상 IP 주소에 대한 단일 클라우드 서비스 만들기 |
 | [Windows Server AD FS 고가용성 구성](#BKMK_ADFSHighAvail) |<li>Windows Server AD FS 서버 팜에 있는 노드는 몇 개입니까?</li> <li>Windows Server AD FS 프록시 팜에 배포할 노드는 몇 개입니까?</li> |복원력 및 내결함성 |
 
-### <a name="<a-name="bkmk_networktopology"></a>network-topology"></a><a name="BKMK_NetworkTopology"></a>네트워크 토폴로지
+### <a name="a-namebkmknetworktopologyanetwork-topology"></a><a name="BKMK_NetworkTopology"></a>네트워크 토폴로지
 IP 주소 일관성과 Windows Server AD DS의 DNS 요구 사항을 충족하기 위해 먼저 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)를 만들고 가상 컴퓨터를 연결해야 합니다. 만드는 동안 필요에 따라 투명하게 Azure 가상 컴퓨터를 온-프레미스 컴퓨터에 연결하는 온-프레미스 회사 네트워크에 연결을 확장할지 여부를 결정해야 합니다. 이는 기존 VPN 기술을 사용하여 이루어지고 회사 네트워크의 가장자리에 VPN 끝점을 노출해야 합니다. 즉, VPN은 Azure에서 회사 네트워크로 시작되며 반대의 경우는 아닙니다.
 
 각 VM에 적용되는 표준 요금 외 온-프레미스 네트워크에 가상 네트워크를 확장하는 경우 추가 요금이 적용됩니다. 특히 Azure 가상 네트워크 게이트웨이의 CPU 시간 및 VPN을 통해 온-프레미스 컴퓨터와 통신하는 각 VM에서 생성되는 송신 트래픽에 대한 요금이 있습니다. 네트워크 트래픽 요금에 대한 자세한 내용은 [한눈에 보는 Azure 가격 책정](http://azure.microsoft.com/pricing/)을 참조하세요.
 
-### <a name="<a-name="bkmk_deploymentconfig"></a>dc-deployment-configuration"></a><a name="BKMK_DeploymentConfig"></a>DC 배포 구성
+### <a name="a-namebkmkdeploymentconfigadc-deployment-configuration"></a><a name="BKMK_DeploymentConfig"></a>DC 배포 구성
 DC를 구성하는 방법은 Azure에서 실행하려는 서비스에 대한 요구 사항에 따라 달라집니다. 예를 들어 개념 증명 테스트용으로 고유한 회사 포리스트로부터 격리된 새 포리스트, 새 응용 프로그램 또는 내부 회사 리소스에 대한 특정 액세스가 아닌 디렉터리 서비스가 필요한 일부 다른 단기 프로젝트를 배포할 수 있습니다.
 
 이점으로 분리된 포리스트 DC는 직접 비용을 절감하는 시스템 자체에서 생성된 적은 아웃바운드 네트워크 트래픽을 발생하여 온-프레미스 DC와 복제하지 않습니다. 네트워크 트래픽 요금에 대한 자세한 내용은 [한눈에 보는 Azure 가격 책정](http://azure.microsoft.com/pricing/)을 참조하세요.
@@ -356,7 +360,7 @@ DC를 구성하는 방법은 Azure에서 실행하려는 서비스에 대한 요
 
 가용성 및 내결함성에 대한 요구 사항은 선택에도 영향을 줍니다. 예를 들어 링크가 중단되는 경우 Kerberos 트러스트 또는 페더레이션 트러스트를 활용하는 응용 프로그램은 Azure에서 충분한 인프라를 배포하지 않은 한 모두 완전히 작동하지 않을 가능성이 있습니다. 복제본 DC와 같은 대체 배포 구성(쓰기 가능 또는 RODC)은 링크 중단을 허용할 수 있는 가능성을 높입니다.
 
-### <a name="<a-name="bkmk_adsitetopology"></a>windows-server-active-directory-site-topology"></a><a name="BKMK_ADSiteTopology"></a>Windows Server Active Directory 사이트 토폴로지
+### <a name="a-namebkmkadsitetopologyawindows-server-active-directory-site-topology"></a><a name="BKMK_ADSiteTopology"></a>Windows Server Active Directory 사이트 토폴로지
 트래픽을 최적화하고 비용을 최소화하기 위해 사이트 및 사이트 링크를 올바르게 정의해야 합니다. 사이트, 사이트 링크 및 서브넷은 DC와 인증 트래픽 흐름 간의 복제 토폴로지에 영향을 줍니다. 다음 트래픽 요금을 고려한 다음 배포 시나리오의 요구 사항에 따라 DC를 배포 및 구성합니다.
 
 * 게이트웨이 자체에 대해 시간당 아주 적은 수수료가 있습니다.
@@ -372,7 +376,7 @@ DC를 구성하는 방법은 Azure에서 실행하려는 서비스에 대한 요
 * 비용 최소화가 매우 중요한 경우 복제가 예약되었고 변경 알림이 활성화되지 않았는지 확인합니다. 사이트 간에 복제하는 경우 이것이 기본 구성입니다. RODC는 아웃바운드 변경 내용을 복제하지 않기 때문에 가상 네트워크에서 RODC를 배포하는 경우 중요하지 않습니다. 하지만 쓰기 가능한 DC를 배포하는 경우 사이트 링크가 불필요한 빈도로 업데이트를 복제하도록 구성되지 않았는지 확인해야 합니다. GC(글로벌 카탈로그) 서버를 배포하는 경우 GC를 포함하는 다른 모든 사이트가 Azure 사이트에 있는 GC보다 비용이 낮은 사이트 링크와 연결된 사이트의 원본 DC에서 도메인 파티션을 복제하는지 확인합니다.
 * 여전히 복제 압축 알고리즘을 변경하여 사이트 간 복제에 의해 생성된 네트워크 트래픽을 줄일 수 있습니다. 압축 알고리즘은 REG_DWORD 레지스트리 항목 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Replicator compression algorithm으로 제어됩니다. 기본값은 3이며 Xpress 압축 알고리즘과 관련이 있습니다. 값을 2로 변경할 수 있으며 알고리즘을 MSZip으로 변경합니다. 대부분의 경우에서 이는 압축을 높이지만 CPU 사용률의 비용으로 그렇게 수행합니다. 자세한 내용은 [Active Directory 복제 토폴로지 작동 방법](https://technet.microsoft.com/library/cc755994)을 참조하세요.
 
-### <a name="<a-name="bkmk_ipaddressdns"></a>ip-addressing-and-dns"></a><a name="BKMK_IPAddressDNS"></a>IP 주소 지정 및 DNS
+### <a name="a-namebkmkipaddressdnsaip-addressing-and-dns"></a><a name="BKMK_IPAddressDNS"></a>IP 주소 지정 및 DNS
 Azure 가상 컴퓨터는 기본적으로 "DHCP 임대 주소"로 할당됩니다. Azure 가상 네트워크 동적 주소는 가상 컴퓨터의 수명 동안 가상 컴퓨터와 지속되기 때문에 Windows Server AD DS의 요구 사항은 충족됩니다.
 
 결과적으로 Azure에서 동적 주소를 사용하는 경우 임대 기간 동안 라우팅할 수 있으므로 사실상 고정 IP 주소를 사용하고 있으며 임대 기간은 클라우드 서비스의 수명과 같습니다.
@@ -391,7 +395,7 @@ VM은 시작 시 또는 이름 변경 내용이 있을 때 자동으로 해당 D
 
 첫 번째 VM을 프로비전하고 AD DS를 설치하는 방법을 보여 주는 이 예제 및 다른 예제에 대한 자세한 내용은 [Microsoft Azure에서 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine.md)를 참조하세요. Windows PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 설치](../powershell-install-configure.md) 및 [Azure 관리 Cmdlet](https://msdn.microsoft.com/library/azure/jj152841)을 참조하세요.
 
-### <a name="<a-name="bkmk_distributeddcs"></a>geo-distributed-dcs"></a><a name="BKMK_DistributedDCs"></a>지리적으로 분산된 DC
+### <a name="a-namebkmkdistributeddcsageo-distributed-dcs"></a><a name="BKMK_DistributedDCs"></a>지리적으로 분산된 DC
 Azure는 서로 다른 가상 네트워크에 여러 DC를 호스팅하는 경우 이점을 제공합니다.
 
 * 다중 사이트 내결함성
@@ -399,7 +403,7 @@ Azure는 서로 다른 가상 네트워크에 여러 DC를 호스팅하는 경�
 
 가상 네트워크 간의 직접 통신을 구성하는 방법에 대한 정보는 [가상 네트워크 연결에 가상 네트워크 구성](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
 
-### <a name="<a-name="bkmk_rodc"></a>read-only-dcs"></a><a name="BKMK_RODC"></a>읽기 전용 DC
+### <a name="a-namebkmkrodcaread-only-dcs"></a><a name="BKMK_RODC"></a>읽기 전용 DC
 읽기 전용 또는 쓰기 가능 DC를 배포할지 여부를 선택해야 합니다. 물리적으로 제어할 수 없지만 RODC는 지사와 같은 해당 물리적 보안이 위험한 위치에 배포되도록 설계되었기 때문에 RODC를 배포할 수도 있습니다.
 
 Azure는 지사의 물리적 보안 위험을 제공하지 않지만 RODC가 제공하는 기능은 매우 다양한 이유로 이러한 환경에 적합하므로 RODC는 여전히 더욱 비용 효율적인 것으로 입증될 수 있습니다. 예를 들어 RODC는 아웃바운드 복제가 없으며 선택적으로 비밀(암호)을 채울 수 있습니다. 단점으로 이러한 암호의 부족은 사용자 또는 컴퓨터 인증으로 유효성을 검사하는 주문형 아웃바운드 트래픽이 필요할 수 있습니다. 그러나 암호는 선택적으로 미리 채워지고 캐시할 수 있습니다.
@@ -408,14 +412,14 @@ RODC는 RODC FAS(필터링된 특성 집합)에 대한 중요한 데이터를 �
 
 응용 프로그램이 사용하려는 RODC와 호환되는지 확인합니다. 많은 Windows Server Active Directory 사용 응용 프로그램은 RODC와 잘 작동하지만 쓰기 가능한 DC에 대한 액세스가 없는 경우 일부 응용 프로그램은 비효율적으로 수행하거나 실패할 수 있습니다. 자세한 내용은 [읽기 전용 DC 응용 프로그램 호환성 가이드](https://technet.microsoft.com/library/cc755190)를 참조하세요.
 
-### <a name="<a-name="bkmk_gc"></a>global-catalog"></a><a name="BKMK_GC"></a>글로벌 카탈로그
+### <a name="a-namebkmkgcaglobal-catalog"></a><a name="BKMK_GC"></a>글로벌 카탈로그
 글로벌 카탈로그(GC) 설치 여부를 선택해야 합니다. 단일 도메인 포리스트에서 모든 DC를 글로벌 카탈로그 서버로 구성해야 합니다. 추가 복제 트래픽이 없기 때문에 비용이 증가하지 않습니다.
 
 다중 도메인 포리스트에서 GC는 인증 프로세스 중에 유니버설 그룹 구성원 자격을 확장해야 합니다. GC를 배포하지 않는 경우 Azure에서 DC에 대해 인증하는 가상 네트워크의 작업은 각 인증 시도 중 온-프레미스에서 GC를 쿼리하도록 아웃바운드 인증 트래픽을 간접적으로 생성합니다.
 
 GC는 모든 도메인(부분에서)을 호스팅하기 때문에 GC와 관련된 비용은 예측하기가 어렵습니다. 작업이 인터넷 서비스를 호스팅하고 Windows Server AD DS에 대한 사용자를 인증하는 경우 비용은 완전히 예측할 수 없습니다. 인증하는 동안 클라우드 사이트 외부의 GC 쿼리를 줄이려면 [유니버설 그룹 구성원 자격 캐싱을 활성화](https://technet.microsoft.com/library/cc816928)할 수 있습니다.
 
-### <a name="<a-name="bkmk_installmethod"></a>installation-method"></a><a name="BKMK_InstallMethod"></a>설치 방법
+### <a name="a-namebkmkinstallmethodainstallation-method"></a><a name="BKMK_InstallMethod"></a>설치 방법
 가상 네트워크에 DC를 설치하는 방법을 선택해야 합니다.
 
 * 새 DC를 승격합니다. 자세한 내용은 [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine.md)를 참조하세요.
@@ -425,7 +429,7 @@ DC에 대한 Azure 가상 컴퓨터만 사용합니다(Azure "웹" 또는 "작�
 
 SYSPREP를 사용하여 DC를 배포하거나 복제하지 마십시오. DC를 복제하는 기능은 Windows Server 2012부터 사용할 수 있습니다. 복제 기능을 사용하려면 기본 하이퍼바이저에서 VMGenerationID에 대한 지원이 필요합니다. Windows Server 2012 및 Azure 가상 네트워크의 Hyper-V는 모두 타사 가상화 소프트웨어 공급 업체와 마찬가지로 VMGenerationID를 지원합니다.
 
-### <a name="<a-name="bkmk_placedb"></a>placement-of-the-windows-server-ad-ds-database-and-sysvol"></a><a name="BKMK_PlaceDB"></a>Windows Server AD DS 데이터베이스 및 SYSVOL의 배치
+### <a name="a-namebkmkplacedbaplacement-of-the-windows-server-ad-ds-database-and-sysvol"></a><a name="BKMK_PlaceDB"></a>Windows Server AD DS 데이터베이스 및 SYSVOL의 배치
 Windows Server AD DS 데이터베이스, 로그 및 SYSVOL을 배치할 위치를 선택합니다. Azure 데이터 디스크에 배포해야 합니다.
 
 > [!NOTE]
@@ -442,14 +446,14 @@ write-behind 캐싱은 DC에서 만든 가정을 무효화하므로 Windows Serv
 * Azure 데이터 디스크의 호스트 캐시 기본 설정을 없음으로 설정합니다. 이는 AD DS 작업에 대한 쓰기 캐싱을 사용하여 문제를 방지합니다.
 * 동일한 데이터 디스크나 별도 데이터 디스크에 데이터베이스, 로그 및 SYSVOL을 저장합니다. 일반적으로 운영 체제 자체에 사용되는 디스크와 별도 디스크입니다. 핵심 내용은 Windows Server AD DS 데이터베이스 및 SYSVOL이 Azure 운영 체제 디스크 유형에 저장되지 않아야 한다는 점입니다. 기본적으로 AD DS 설치 프로세스는 Azure에 권장되지 않는 %systemroot% 폴더에 이러한 구성 요소를 설치합니다.
 
-### <a name="<a-name="bkmk_bur"></a>backup-and-restore"></a><a name="BKMK_BUR"></a>백업 및 복원
+### <a name="a-namebkmkburabackup-and-restore"></a><a name="BKMK_BUR"></a>백업 및 복원
 일반적으로 DC 및 보다 구체적으로 VM에서 실행되는 것의 백업 및 복원에 지원되는 것과 지원되지 않는 것을 확인합니다. [가상화된 DC에 대한 백업 및 복원 고려 사항](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv#backup_and_restore_considerations_for_virtualized_domain_controllers)을 참조하세요.
 
 Windows Server 백업과 같은 Windows Server AD DS에 대한 백업 요구 사항을 특별히 인식하는 백업 소프트웨어만을 사용하여 시스템 상태 백업을 만듭니다.
 
 정기 백업을 수행하는 대신 DC의 VHD 파일을 복사하거나 복제하지 마십시오. 복원이 필요한 경우 Windows Server 2012 및 지원되는 하이퍼바이저 없이 복제되거나 복사된 VHD를 사용하여 수행하면 USN 거품이 발생합니다.
 
-### <a name="<a-name="bkmk_fedsrvconfig"></a>federation-server-configuration"></a><a name="BKMK_FedSrvConfig"></a>페더레이션 서버 구성
+### <a name="a-namebkmkfedsrvconfigafederation-server-configuration"></a><a name="BKMK_FedSrvConfig"></a>페더레이션 서버 구성
 Windows Server AD FS 페더레이션 서버(STS)의 구성은 Azure에 배포하려는 응용 프로그램을 온-프레미스 네트워크의 리소스에 액세스해야 하는지 여부에 따라 부분적으로 달라집니다.
 
 응용 프로그램이 다음 조건을 충족하는 경우 온-프레미스 네트워크에서 격리된 상태에서 응용 프로그램을 배포할 수 있습니다.
@@ -475,15 +479,15 @@ Windows Server AD FS 페더레이션 서버(STS)의 구성은 Azure에 배포하
 
 어느 시나리오에서든 B2B 공동 작업이 필요한 경우 더 많은 ID 공급자로 트러스트 관계를 설정할 수 있습니다.
 
-### <a name="<a-name="bkmk_cloudsvcconfig"></a>cloud-services-configuration"></a><a name="BKMK_CloudSvcConfig"></a>클라우드 서비스 구성
+### <a name="a-namebkmkcloudsvcconfigacloud-services-configuration"></a><a name="BKMK_CloudSvcConfig"></a>클라우드 서비스 구성
 VM을 인터넷에 직접 노출하거나 인터넷 연결 부하 분산된 응용 프로그램을 노출하려는 경우 클라우드 서비스가 필요합니다. 각 클라우드 서비스는 단일 구성 가능한 가상 IP 주소를 제공하기 때문에 이것이 가능합니다.
 
-### <a name="<a-name="bkmk_fedreqvipdip"></a>federation-server-requirements-for-public-and-private-ip-addressing-(dynamic-ip-vs.-virtual-ip)"></a><a name="BKMK_FedReqVIPDIP"></a>공용 및 개인 IP 주소 지정(동적 IP 및 가상 IP)에 대한 페더레이션 서버 요구 사항
+### <a name="a-namebkmkfedreqvipdipafederation-server-requirements-for-public-and-private-ip-addressing-dynamic-ip-vs-virtual-ip"></a><a name="BKMK_FedReqVIPDIP"></a>공용 및 개인 IP 주소 지정(동적 IP 및 가상 IP)에 대한 페더레이션 서버 요구 사항
 각 Azure 가상 컴퓨터는 동적 IP 주소를 받습니다. 동적 IP 주소는 Azure 내에서만 액세스할 수 있는 개인 주소입니다. 그러나 대부분의 경우에서 Windows Server AD FS 배포에 대한 가상 IP 주소를 구성해야 합니다. 가상 IP는 Windows Server AD FS 끝점을 인터넷에 노출하는 데 필요하며 인증 및 지속적인 관리를 위해 페더레이션된 파트너와 클라이언트에서 사용됩니다. 가상 IP 주소는 하나 이상의 Azure 가상 컴퓨터를 포함하는 클라우드 서비스의 속성입니다. Azure 및 Windows Server AD FS에 배포된 클레임 인식 응용 프로그램은 모두 인터넷에 연결되어 있고 공통 포트를 공유하며 각각은 자체의 가상 IP 주소가 필요하므로 응용 프로그램에 대한 하나의 클라우드 서비스 및 Windows Server AD FS에 대한 두 번째를 만드는 데 필요합니다.
 
 가상 IP 주소 및 동적 IP 주소의 용어 정의는 [용어 및 정의](#BKMK_Glossary)를 참조하세요.
 
-### <a name="<a-name="bkmk_adfshighavail"></a>windows-server-ad-fs-high-availability-configuration"></a><a name="BKMK_ADFSHighAvail"></a>Windows Server AD FS 고가용성 구성
+### <a name="a-namebkmkadfshighavailawindows-server-ad-fs-high-availability-configuration"></a><a name="BKMK_ADFSHighAvail"></a>Windows Server AD FS 고가용성 구성
 독립 실행형 Windows Server AD FS 페더레이션 서비스를 배포할 수 있지만 AD FS STS와 프로덕션 환경에 대한 프록시에 대한 두 개 이상의 노드가 포함된 팜을 배포하는 것이 좋습니다.
 
 [AD FS 2.0 디자인 가이드](https://technet.microsoft.com/library/dd807036)의 [AD FS 2.0 배포 토폴로지 고려 사항](https://technet.microsoft.com/library/gg982489)을 참조하여 특정 필요에 가장 잘 맞는 배포 구성 옵션을 결정합니다.
@@ -494,6 +498,9 @@ VM을 인터넷에 직접 노출하거나 인터넷 연결 부하 분산된 응�
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

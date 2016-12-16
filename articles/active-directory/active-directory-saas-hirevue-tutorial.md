@@ -1,12 +1,12 @@
 ---
-title: '자습서: HireVue와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 HireVue 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: HireVue와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 HireVue 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: aadfc342-14db-4d74-a83d-f0c76f0cf63c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9dfa1df1497d7505f283b7ed3bffa3c37ac0b351
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-hirevue"></a>자습서:Azure Active Directory와 HireVue 통합
+# <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>자습서:Azure Active Directory와 HireVue 통합
 이 자습서에서는 Azure AD(Azure Active Directory)와 HireVue를 통합하는 방법에 대해 알아봅니다.
 
 HireVue를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -108,19 +112,19 @@ HireVue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
    
     a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 사용자가 ICIMS 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다. 
 
-      | Environment | URL |
-      |---|---|
-      | 프로덕션 | `https://<company name>.hirevue.com` |
-      | 스테이징| `https://<company name>.stghv.com` |
+    | Environment | URL |
+    |---|---|
+    | 프로덕션 | `https://<company name>.hirevue.com` |
+    | 스테이징| `https://<company name>.stghv.com` |
 
 
     b. **식별자** 텍스트 상자에 다음 패턴으로 URN을 입력합니다.
 
 
-      | Environment | URN |
-      |---|---|
-      |프로덕션 | `urn:federation:hirevue.com:saml:sp:prod` |
-      |스테이징 | `urn:federation:hirevue.com:saml:sp:staging` |
+    | Environment | URN |
+    |---|---|
+    |프로덕션 | `urn:federation:hirevue.com:saml:sp:prod` |
+    |스테이징 | `urn:federation:hirevue.com:saml:sp:staging` |
 
 
 
@@ -248,6 +252,6 @@ HireVue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

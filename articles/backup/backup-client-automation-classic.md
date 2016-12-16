@@ -1,22 +1,26 @@
 ---
-title: PowerShell을 사용하여 Windows Server/Client용 백업 배포 및 관리 | Microsoft Docs
-description: PowerShell을 사용하여 Azure 백업을 배포 및 관리하는 방법을 알아봅니다.
+title: "PowerShell을 사용하여 Windows Server/Client용 백업 배포 및 관리 | Microsoft Docs"
+description: "PowerShell을 사용하여 Azure 백업을 배포 및 관리하는 방법을 알아봅니다."
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-
+editor: 
+ms.assetid: e7e269e2-1f11-41a9-957b-a2155de6a1e0
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
-ms.author: saurabhsensharma;markgal;jimpark;nkolli;trinadhk
+ms.date: 11/28/2016
+ms.author: saurse;markgal;jimpark;nkolli;trinadhk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c21c1687221a9e5c218d03ead969f7c52b7fa2ac
+
 
 ---
-# PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
+# <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 > [!div class="op_single_selector"]
 > * [ARM](backup-client-automation.md)
 > * [클래식](backup-client-automation-classic.md)
@@ -25,18 +29,18 @@ ms.author: saurabhsensharma;markgal;jimpark;nkolli;trinadhk
 
 이 문서에서는 Windows Server 또는 Windows Client에서 Azure 백업을 설정하고 백업과 복원을 관리하기 위해 PowerShell을 사용하는 방법을 보여 줍니다.
 
-## Azure PowerShell 설치
+## <a name="install-azure-powershell"></a>Azure PowerShell 설치
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-Azure PowerShell 1.0이 2015년 10월에 출시되었습니다. 이 릴리스는 0.9.8 릴리스를 성공했으며 특히 cmdlet의 이름 지정 패턴에서 중요한 변경 내용이 이루어졌습니다. 1.0 cmdlet는 명명 패턴{verb}-AzureRm{noun}을 따릅니다. 반면 0.9.8 이름은 **Rm**을 포함하지 않습니다(예를 들어 New-AzureResourceGroup 대신 New-AzureRmResourceGroup) Azure PowerShell 0.9.8을 사용하는 경우 먼저 **Switch-AzureMode AzureResourceManager** 명령을 실행하여 리소스 관리자 모드를 사용하도록 설정해야 합니다. 이 명령은 1.0 이상에서는 필요하지 않습니다.
+Azure PowerShell 1.0이 2015년 10월에 출시되었습니다. 이 릴리스는 0.9.8 릴리스를 성공했으며 특히 cmdlet의 이름 지정 패턴에서 중요한 변경 내용이 이루어졌습니다. 1.0 cmdlet는 명명 패턴{verb}-AzureRm{noun}을 따릅니다. 반면 0.9.8 이름은 **Rm**을 포함하지 않습니다.(예를 들어 New-AzureResourceGroup 대신 New-AzureRmResourceGroup) 반면 0.9.8 이름은 **Switch-AzureMode AzureResourceManager** 명령을 실행하여 리소스 관리자 모드를 사용하도록 설정해야 합니다. 이 명령은 1.0 이상에서는 필요하지 않습니다.
 
-1\.0 이상 환경에서 0.9.8 환경을 위해 작성된 스크립트를 사용하려면 예기치 않은 영향을 방지하는 프로덕션에서 사용하기 전에 사전 프로덕션 환경에서 스크립트를 신중하게 테스트해야 합니다.
+1.0 이상 환경에서 0.9.8 환경을 위해 작성된 스크립트를 사용하려면 예기치 않은 영향을 방지하는 프로덕션에서 사용하기 전에 사전 프로덕션 환경에서 스크립트를 신중하게 테스트해야 합니다.
 
-[최신 PowerShell 릴리스를 다운로드](https://github.com/Azure/azure-powershell/releases)합니다(필요한 최소 버전: 1.0.0).
+[최신 PowerShell 릴리스를 다운로드](https://github.com/Azure/azure-powershell/releases) 합니다(필요한 최소 버전: 1.0.0).
 
 [!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## 백업 자격 증명 모음 만들기
+## <a name="create-a-backup-vault"></a>백업 자격 증명 모음 만들기
 > [!WARNING]
 > 처음으로 Azure 백업을 사용하는 고객의 경우, 구독과 함께 사용할 Azure 백업 공급자를 등록해야 합니다. 이는 다음 명령을 실행하여 수행할 수 있습니다. Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 > 
@@ -51,8 +55,8 @@ PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg”
 
 **Get-AzureRMBackupVault** cmdlet을 사용하여 구독에서 백업 자격 증명 모음을 나열합니다.
 
-## Azure 백업 에이전트 설치
-Azure 백업 에이전트를 설치하기 전에 Windows Server에 설치 관리자를 다운로드해 두어야 합니다. 최신 버전의 설치 관리자는 [Microsoft 다운로드 센터](http://aka.ms/azurebackup_agent) 또는 백업 자격 증명 모음 대시보드 페이지에서 다운로드할 수 있습니다. 쉽게 액세스할 수 있는 위치(예: *C:\\Downloads*)에 설치 관리자를 저장합니다.
+## <a name="installing-the-azure-backup-agent"></a>Azure 백업 에이전트 설치
+Azure 백업 에이전트를 설치하기 전에 Windows Server에 설치 관리자를 다운로드해 두어야 합니다. 최신 버전의 설치 관리자는 [Microsoft 다운로드 센터](http://aka.ms/azurebackup_agent) 또는 백업 자격 증명 모음 대시보드 페이지에서 다운로드할 수 있습니다. 쉽게 액세스할 수 있는 위치(예: *C:\Downloads\*)에 설치 관리자를 저장합니다.
 
 에이전트를 설치하려면 승격된 PowerShell 콘솔에서 다음 명령을 실행합니다.
 
@@ -66,7 +70,7 @@ PS C:\> MARSAgentInstaller.exe /q
 
 ![에이전트 설치됨](./media/backup-client-automation/installed-agent-listing.png)
 
-### 설치 옵션
+### <a name="installation-options"></a>설치 옵션
 명령줄을 통해 사용 가능한 모든 옵션을 보려면 다음 명령을 사용합니다.
 
 ```
@@ -77,27 +81,27 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | 옵션 | 세부 정보 | 기본값 |
 | --- | --- | --- |
-| /q |무인 설치 |- |
-| /p:"location" |Azure 백업 에이전트에 대한 설치 폴더 경로. |C:\\Program Files\\Microsoft Azure Recovery Services Agent |
-| /s:"location" |Azure 백업 에이전트에 대한 캐시 폴더 경로. |C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
-| /m |Opt-in to Microsoft Update |- |
-| /nu |설치 완료 후 업데이트 확인 안 함 |- |
-| /d |Microsoft Azure 복구 서비스 에이전트 제거 |- |
+| /q |자동 설치 |- |
+| /p:"위치" |Azure 백업 에이전트의 설치 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"위치" |Azure 백업 에이전트의 캐시 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m |Microsoft 업데이트에 옵트인 |- |
+| /nu |설치가 완료된 후 업데이트에 대한 검사 안 함 |- |
+| /d |Microsoft Azure Recovery Services 에이전트를 제거합니다. |- |
 | /ph |프록시 호스트 주소 |- |
 | /po |프록시 호스트 포트 번호 |- |
 | /pu |프록시 호스트 사용자 이름 |- |
 | /pw |프록시 암호 |- |
 
-## Azure 백업 서비스 등록
+## <a name="registering-with-the-azure-backup-service"></a>Azure 백업 서비스 등록
 Azure 백업 서비스에 등록하려면 먼저 [필수 조건](backup-configure-vault.md)이 충족되어야 합니다. 다음이 필요합니다.
 
 * 유효한 Azure 구독이 있어야 함
 * 백업 자격 증명 모음
 
-자격 증명 모음을 다운로드하려면 Azure PowerShell 콘솔에서 **Get-AzureRMBackupVaultCredentials** cmdlet을 실행하고 *C:\\Downloads*와 같은 편리한 위치에 저장합니다.
+자격 증명 모음을 다운로드하려면 Azure PowerShell 콘솔에서 **Get-AzureRMBackupVaultCredentials** cmdlet을 실행하고 *C:\Downloads\*와 같은 편리한 위치에 저장합니다.
 
 ```
-PS C:\> $credspath = "C:"
+PS C:\> $credspath = "C:\"
 PS C:\> $credsfilename = Get-AzureRMBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
 PS C:\> $credsfilename
 f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
@@ -122,7 +126,7 @@ Machine registration succeeded.
 > 
 > 
 
-## 네트워킹 서비스
+## <a name="networking-settings"></a>네트워킹 서비스
 Windows 컴퓨터의 인터넷 연결이 프록시 서버를 통하는 경우, 프록시 설정도 에이전트에 제공될 수 있습니다. 이 예제에서는 프록시 서버가 없으므로 프록시와 관련된 모든 정보를 명시적으로 지웁니다.
 
 대역폭 사용 역시 주의 정해진 요일에 대해 ```work hour bandwidth``` 및 ```non-work hour bandwidth``` 옵션으로 제어할 수 있습니다.
@@ -137,7 +141,7 @@ PS C:\> Set-OBMachineSetting -NoThrottle
 Server properties updated successfully.
 ```
 
-## 암호화 설정
+## <a name="encryption-settings"></a>암호화 설정
 Azure 백업에 전송되는 백업 데이터는 데이터의 기밀성을 보호하기 위해 암호화됩니다. 암호화 암호는 복원 시 데이터를 해독하기 위한 “암호"입니다.
 
 ```
@@ -150,12 +154,12 @@ Server properties updated successfully
 > 
 > 
 
-## 파일 및 폴더 백업
+## <a name="back-up-files-and-folders"></a>파일 및 폴더 백업
 Windows 서버 및 클라이언트에서 Azure 백업으로의 모든 백업은 정책에 따라 제어됩니다. 정책은 세 부분으로 구성됩니다.
 
-1. 백업을 수행하고 서비스와 동기화해야 할 시기를 지정하는 **백업 일정**.
-2. Azure에 복구 지점을 보존할 기간을 지정하는 **보존 일정**입니다.
-3. 백업해야 할 항목을 지정하는 **파일 포함/제외 사양**.
+1. 백업을 수행하고 서비스와 동기화해야 할 시기를 지정하는 **백업 일정** .
+2. Azure에 복구 지점을 보존할 기간을 지정하는 **보존 일정** 입니다.
+3. 백업해야 할 항목을 지정하는 **파일 포함/제외 사양** .
 
 이 문서에서는 백업을 자동화하기 때문에 아무것도 구성되지 않은 것으로 가정합니다. [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) cmdlet을 사용하여 새로운 백업 정책을 만들고 해당 정책을 사용하여 시작합니다.
 
@@ -165,11 +169,11 @@ PS C:\> $newpolicy = New-OBPolicy
 
 지금은 정책이 비어 있으며 포함하거나 제외시킬 항목, 백업 실행 시기 및 백업이 저장될 위치를 정의하려면 다른 cmdlet이 필요합니다.
 
-### 백업 일정 구성
+### <a name="configuring-the-backup-schedule"></a>백업 일정 구성
 정책의 3부분 중 첫 번째는 백업 일정으로, [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet을 사용하여 만듭니다. 백업 일정은 백업을 수행해야 할 시기를 정의합니다. 일정을 만들 때는 2개의 입력 매개 변수를 지정해야 합니다.
 
-* 백업을 실행할 **요일**. 백업을 하루만 실행하거나 해당 주의 모든 요일 또는 그 사이의 날짜를 조합하여 실행할 수 있습니다.
-* 백업을 실행할 **시간**. 백업이 트리거되는 시간을 최대 3개까지 서로 다르게 정의할 수 있습니다.
+* **요일** . 백업을 하루만 실행하거나 해당 주의 모든 요일 또는 그 사이의 날짜를 조합하여 실행할 수 있습니다.
+* **시간** . 백업이 트리거되는 시간을 최대 3개까지 서로 다르게 정의할 수 있습니다.
 
 예를 들어, 토요일과 일요일마다 오후 4시에 실행되는 백업 정책을 구성할 수 있습니다.
 
@@ -180,10 +184,10 @@ PS C:\> $sched = New-OBSchedule -DaysofWeek Saturday, Sunday -TimesofDay 16:00
 백업 일정은 정책과 연결되어야 하며 이 작업은 [Set-OBSchedule](https://technet.microsoft.com/library/hh770407) cmdlet을 사용하여 수행할 수 있습니다.
 
 ```
-PS C:\> Set-OBSchedule -Policy $newpolicy -Schedule $sched
+PS C:> Set-OBSchedule -Policy $newpolicy -Schedule $sched
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
-### 보존 정책 구성
+### <a name="configuring-a-retention-policy"></a>보존 정책 구성
 보존 정책은 백업 작업에서 생성된 복구 지점이 유지되는 기간을 정의합니다. [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) cmdlet을 사용하여 새 보존 정책을 만들 때 Azure 백업을 사용하여 백업 복구 지점을 유지해야 할 일수를 지정할 수 있습니다. 다음 예제에서는 7일의 보존 정책을 설정합니다.
 
 ```
@@ -214,7 +218,7 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
-### 백업할 파일 포함 및 제외
+### <a name="including-and-excluding-files-to-be-backed-up"></a>백업할 파일 포함 및 제외
 ```OBFileSpec``` 개체는 백업에 포함 및 제외시킬 파일을 정의합니다. 이 개체는 컴퓨터에서 보호된 파일 및 폴더를 자세히 살펴보는 규칙의 집합입니다. 필요에 따라 원하는 만큼 파일을 포함 또는 제외시키고 정책과 연결할 수 있습니다. 새 OBFileSpec 개체를 만드는 경우 다음 작업을 수행할 수 있습니다.
 
 * 포함시킬 파일 및 폴더 지정
@@ -226,7 +230,7 @@ PolicyState     : Valid
 아래 예제에서는 C: 및 D: 볼륨을 백업하고 Windows 폴더 및 임시 폴더에 있는 운영 체제 바이너리를 제외시킵니다. 이를 수행하기 위해 [New-OBFileSpec](https://technet.microsoft.com/library/hh770408) cmdlet을 사용하여 두 개의 파일 사양을 만드는데, 하나는 포함용이고 또 하나는 제외용입니다. 파일 사양을 만들고 나면 [Add-OBFileSpec](https://technet.microsoft.com/library/hh770424) cmdlet을 사용하여 정책과 연결됩니다.
 
 ```
-PS C:\> $inclusions = New-OBFileSpec -FileSpec @("C:", "D:")
+PS C:\> $inclusions = New-OBFileSpec -FileSpec @("C:\", "D:\")
 
 PS C:\> $exclusions = New-OBFileSpec -FileSpec @("C:\windows", "C:\temp") -Exclude
 
@@ -314,18 +318,18 @@ State           : New
 PolicyState     : Valid
 ```
 
-### 정책 적용
+### <a name="applying-the-policy"></a>정책 적용
 이제 정책 개체가 완료되었으므로 연결된 백업 일정, 보존 정책 및 파일의 포함/제외 목록이 있습니다. 이제는 이 정책을 Azure 백업에 커밋하여 사용할 수 있습니다. 새로 만든 정책을 적용하기 전에 [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet을 사용하여 서버에 연결된 기존 백업 정책이 없도록 만듭니다. 정책을 제거하면 확인 메시지가 나타납니다. 확인 메시지를 건너뛰려면 ```-Confirm:$false``` 플래그를 cmdlet과 함께 사용합니다.
 
 ```
-PS C:\> Get-OBPolicy | Remove-OBPolicy
+PS C:> Get-OBPolicy | Remove-OBPolicy
 Microsoft Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
 정책 개체 커밋은 [Set-OBPolicy](https://technet.microsoft.com/library/hh770421) cmdlet을 사용하여 수행됩니다. 이 작업에서도 확인 메시지가 표시됩니다. 확인 메시지를 건너뛰려면 ```-Confirm:$false``` 플래그를 cmdlet과 함께 사용합니다.
 
 ```
-PS C:\> Set-OBPolicy -Policy $newpolicy
+PS C:> Set-OBPolicy -Policy $newpolicy
 Microsoft Azure Backup Do you want to save this backup policy ? [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s)
 DsList : {DataSource
@@ -370,18 +374,18 @@ State : Existing PolicyState : Valid
 [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) cmdlet을 사용하여 기존 백업 정책에 대한 세부 정보를 볼 수 있습니다. 백업 입정에는 [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) cmdlet, 보존 정책에는 [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) cmdlet을 사용하면 더욱 상세하게 정보를 볼 수 있습니다.
 
 ```
-PS C:\> Get-OBPolicy | Get-OBSchedule
+PS C:> Get-OBPolicy | Get-OBSchedule
 SchedulePolicyName : 71944081-9950-4f7e-841d-32f0a0a1359a
 ScheduleRunDays : {Saturday, Sunday}
 ScheduleRunTimes : {16:00:00}
 State : Existing
 
-PS C:\> Get-OBPolicy | Get-OBRetentionPolicy
+PS C:> Get-OBPolicy | Get-OBRetentionPolicy
 RetentionDays : 7
 RetentionPolicyName : ca3574ec-8331-46fd-a605-c01743a5265e
 State : Existing
 
-PS C:\> Get-OBPolicy | Get-OBFileSpec
+PS C:> Get-OBPolicy | Get-OBFileSpec
 FileName : *
 FilePath : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
 FileSpec : D:\
@@ -407,11 +411,11 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### 임시 백업 수행
+### <a name="performing-an-ad-hoc-backup"></a>임시 백업 수행
 백업 정책이 설정되면 일정에 따라 백업이 발생합니다. 또한 [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet을 사용하여 임시 백업 트리거도 가능합니다.
 
 ```
-PS C:\> Get-OBPolicy | Start-OBBackup
+PS C:> Get-OBPolicy | Start-OBBackup
 Taking snapshot of volumes...
 Preparing storage...
 Estimating size of backup items...
@@ -422,7 +426,7 @@ Job completed.
 The backup operation completed successfully.
 ```
 
-## Azure 백업에서 데이터 복원
+## <a name="restore-data-from-azure-backup"></a>Azure 백업에서 데이터 복원
 이 섹션에서는 Azure 백업에서 데이터 복구를 자동화하는 방법을 단계별로 안내합니다. 다음 단계를 수행하여 작업을 진행합니다.
 
 1. 원본 볼륨 선택
@@ -430,12 +434,12 @@ The backup operation completed successfully.
 3. 복원할 항목 선택
 4. 복원 프로세스 트리거
 
-### 원본 볼륨 선택
+### <a name="picking-the-source-volume"></a>원본 볼륨 선택
 Azure 백업에서 항목을 복원하려면 먼저 항목의 원본을 식별해야 합니다. Windows 서버 또는 Windows 클라이언트의 컨텍스트에서 명령을 실행 중이므로 컴퓨터는 이미 식별된 상태입니다. 원본을 식별하는 다음 단계는 해당 원본이 포함된 볼륨을 식별하는 것입니다. 이 컴퓨터에서 백업 중인 볼륨 또는 원본 목록은 [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) cmdlet을 실행하여 검색할 수 있습니다. 이 명령은 이 서버/클라이언트에서 백업한 모든 원본의 배열을 반환합니다.
 
 ```
-PS C:\> $source = Get-OBRecoverableSource
-PS C:\> $source
+PS C:> $source = Get-OBRecoverableSource
+PS C:> $source
 FriendlyName : C:\
 RecoverySourceName : C:\
 ServerName : myserver.microsoft.com
@@ -445,11 +449,11 @@ RecoverySourceName : D:\
 ServerName : myserver.microsoft.com
 ```
 
-### 복원할 백업 시점 선택
-백업 시점 목록은 [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet을 적절한 매개 변수와 함께 실행하여 검색할 수 있습니다. 이 예제에서는 원본 볼륨 *D:*의 최신 백업 시점을 선택하고 이 시점을 사용하여 특정 파일을 복구합니다.
+### <a name="choosing-a-backup-point-to-restore"></a>복원할 백업 시점 선택
+백업 시점 목록은 [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet을 적절한 매개 변수와 함께 실행하여 검색할 수 있습니다. 이 예제에서는 원본 볼륨 *D:* 의 최신 백업 시점을 선택하고 이 시점을 사용하여 특정 파일을 복구합니다.
 
 ```
-PS C:\> $rps = Get-OBRecoverableItem -Source $source[1]
+PS C:> $rps = Get-OBRecoverableItem -Source $source[1]
 IsDir : False
 ItemNameFriendly : D:\
 ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
@@ -472,16 +476,16 @@ ServerName : myserver.microsoft.com
 ItemSize :
 ItemLastModifiedTime :
 ```
-개체 ```$rps```는 백업 시점의 배열입니다. 첫 번째 요소는 가장 최근 시점이고 n 번째 요소는 가장 오래된 시점입니다. 최근 시점을 선택하려면 ```$rps[0]```을 사용합니다.
+개체 ```$rps``` 는 백업 시점의 배열입니다. 첫 번째 요소는 가장 최근 시점이고 n 번째 요소는 가장 오래된 시점입니다. 최근 시점을 선택하려면 ```$rps[0]```을 사용합니다.
 
-### 복원할 항목 선택
+### <a name="choosing-an-item-to-restore"></a>복원할 항목 선택
 복원할 정확한 파일 또는 폴더를 식별하려면 [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet을 재귀적으로 사용합니다. 이런 방식으로 ```Get-OBRecoverableItem```만 사용하여 폴더 계층 구조를 탐색할 수 있습니다.
 
 이 예제에서는 *finances.xls* 파일을 복원하려는 경우 개체 ```$filesFolders[1]```을 사용하여 해당 파일을 참조할 수 있습니다.
 
 ```
-PS C:\> $filesFolders = Get-OBRecoverableItem $rps[0]
-PS C:\> $filesFolders
+PS C:> $filesFolders = Get-OBRecoverableItem $rps[0]
+PS C:> $filesFolders
 IsDir : True
 ItemNameFriendly : D:\MyData\
 ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\
@@ -493,8 +497,8 @@ ServerName : myserver.microsoft.com
 ItemSize :
 ItemLastModifiedTime : 15-Jun-15 8:49:29 AM
 
-PS C:\> $filesFolders = Get-OBRecoverableItem $filesFolders[0]
-PS C:\> $filesFolders
+PS C:> $filesFolders = Get-OBRecoverableItem $filesFolders[0]
+PS C:> $filesFolders
 IsDir : False
 ItemNameFriendly : D:\MyData\screenshot.oxps
 ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\screenshot.oxps
@@ -518,14 +522,14 @@ ItemSize : 96256
 ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 ```
 
-```Get-OBRecoverableItem``` cmdlet을 사용하여 복원할 항목을 검색할 수도 있습니다. 이 예제에서 *finances.xls*를 검색하려면 다음 명령을 실행하여 파일에 대한 핸들을 가져올 수 있습니다.
+```Get-OBRecoverableItem``` cmdlet을 사용하여 복원할 항목을 검색할 수도 있습니다. 이 예제에서 *finances.xls* 를 검색하려면 다음 명령을 실행하여 파일에 대한 핸들을 가져올 수 있습니다.
 
 ```
 PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyData" -SearchString "finance*"
 ```
 
-### 복원 프로세스 트리거
-복원 프로세스를 트리거하려면 먼저 복구 옵션을 지정해야 합니다. 이 작업은 [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) cmdlet을 사용하여 수행할 수 있습니다. 이 예에서는 파일을 *C:\\temp*로 복원한다고 가정해 보겠습니다. 또한 대상 폴더 *C:\\temp*에 이미 존재하는 파일은 건너뛴다고 가정해 보겠습니다. 해당 복구 옵션을 만들려면 다음 명령을 사용합니다.
+### <a name="triggering-the-restore-process"></a>복원 프로세스 트리거
+복원 프로세스를 트리거하려면 먼저 복구 옵션을 지정해야 합니다. 이 작업은 [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) cmdlet을 사용하여 수행할 수 있습니다. 이 예에서는 파일을 *C:\temp*로 복원한다고 가정해 보겠습니다. 또한 대상 폴더 *C:\temp*에 이미 존재하는 파일은 건너뛴다고 가정해 보겠습니다. 해당 복구 옵션을 만들려면 다음 명령을 사용합니다.
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
@@ -544,7 +548,7 @@ The recovery operation completed successfully.
 ```
 
 
-## Azure 백업 에이전트 제거
+## <a name="uninstalling-the-azure-backup-agent"></a>Azure 백업 에이전트 제거
 Azure 백업 에이전트 제거는 다음 명령을 사용하여 수행할 수 있습니다.
 
 ```
@@ -559,10 +563,10 @@ PS C:\> .\MARSAgentInstaller.exe /d /q
 
 하지만 Azure에 저장된 데이터는 그대로 유지되며 사용자가 설정한 보존 정책에 따라 보존됩니다. 이전 지점은 시간이 경과하면 자동으로 삭제됩니다.
 
-## 원격 관리
+## <a name="remote-management"></a>원격 관리
 Azure 백업 에이전트, 정책, 데이터 원본와 관련된 모든 관리는 PowerShell을 통해 원격으로 수행될 수 있습니다. 원격으로 관리될 컴퓨터는 올바르게 준비되어야 합니다.
 
-기본적으로 WinRM 서비스는 수동 시작으로 구성됩니다. 시작 유형은 반드시 *자동*으로 설정되어야 하며 서비스가 시작되어야 합니다. WinRM 서비스가 실행되는지 확인하도록 Status 속성의 값은 *Running*이어야 합니다.
+기본적으로 WinRM 서비스는 수동 시작으로 구성됩니다. 시작 유형은 반드시 *자동* 으로 설정되어야 하며 서비스가 시작되어야 합니다. WinRM 서비스가 실행되는지 확인하도록 Status 속성의 값은 *Running*이어야 합니다.
 
 ```
 PS C:\> Get-Service WinRM
@@ -595,10 +599,15 @@ PS C:\> $s = New-PSSession -ComputerName REMOTESERVER01
 PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePath $d $a -Wait } -ArgumentList $agent $args
 ```
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 Windows Server/Client용 Azure 백업에 대한 자세한 정보는 다음을 참조하세요.
 
 * [Azure 백업 소개](backup-introduction-to-azure-backup.md)
 * [Windows 서버 백업](backup-configure-vault.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
