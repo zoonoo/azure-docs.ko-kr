@@ -1,33 +1,37 @@
 ---
-title: Manage Azure SQL Database with PowerShell | Microsoft Docs
-description: Azure SQL Database management with PowerShell.
+title: "PowerShell을 사용하여 Azure SQL Database 관리 | Microsoft Docs"
+description: "PowerShell을 사용한 Azure SQL 데이터베이스 관리."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 3f21ad5e-ba99-4010-b244-5e5815074d31
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 11/15/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: a91b60f20394c236d64bfae242f820e56dd3ed79
+ms.openlocfilehash: 83ff32bb99ba0cf08f61ba4f2a97dee74bd6e1c5
+
 
 ---
-# <a name="manage-azure-sql-database-with-powershell"></a>Manage Azure SQL Database with PowerShell
+# <a name="managing-azure-sql-database-using-powershell"></a>PowerShell을 사용하여 Azure SQL Database 관리
 > [!div class="op_single_selector"]
-> * [Azure portal](sql-database-manage-portal.md)
-> * [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
+> * [쉬운 테이블](sql-database-manage-portal.md)
+> * [Transact-SQL(SSMS)](sql-database-manage-azure-ssms.md)
 > * [PowerShell](sql-database-manage-powershell.md)
 > 
 > 
 
-This topic shows the PowerShell cmdlets that are used to perform many Azure SQL Database tasks. For a complete list, see [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/mt574084.aspx).
+이 항목에서는 많은 Azure SQL 데이터베이스 작업을 수행하는 데 사용되는 PowerShell cmdlet을 보여줍니다. 전체 목록은 [Azure SQL Database cmdlet](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx)을 참조하세요.
 
-## <a name="create-a-resource-group"></a>Create a resource group
-Create a resource group for our SQL Database and related Azure resources with the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt759837.aspx) cmdlet.
+## <a name="how-do-i-create-a-resource-group"></a>리소스 그룹을 어떻게 만드나요?
+SQL 데이터베이스 및 관련 Azure 리소스에 대한 리소스 그룹을 만들려면 [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt759837\(v=azure.300\).aspx) cmdlet을 사용합니다.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -35,11 +39,11 @@ $resourceGroupLocation = "northcentralus"
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
 ```
 
-For more information, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
-For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+샘플 스크립트는 [SQL 데이터베이스 PowerShell 스크립트 만들기](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script)를 참조하세요.
 
-## <a name="create-a-sql-database-server"></a>Create a SQL Database server
-Create a SQL Database server with the [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) cmdlet. Replace *server1* with the name for your server. Server names must be unique across all Azure SQL Database servers. If the server name is already taken, you get an error. This command may take several minutes to complete. The resource group must already exist in your subscription.
+## <a name="how-do-i-create-a-sql-database-server"></a>SQL 데이터베이스 서버를 어떻게 만드나요?
+SQL 데이터베이스 서버를 만들려면 [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715\(v=azure.300\).aspx) cmdlet을 사용합니다. *server1* 을 서버의 이름으로 바꿉니다. 서버 이름은 모든 Azure SQL 데이터베이스 서버 간에 고유해야 합니다. 이미 사용한 서버 이름인 경우 오류가 발생합니다. 이 명령을 완료하는 데는 몇 분 정도 걸릴 수 있습니다. 리소스 그룹이 구독에 이미 있어야 합니다.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -58,10 +62,10 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
  -ResourceGroupName $resourceGroupName -ServerVersion $sqlServerVersion
 ```
 
-For more information, see [What is SQL Database](sql-database-technical-overview.md). For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+자세한 내용은 [SQL Database 정의](sql-database-technical-overview.md)를 참조하세요. 샘플 스크립트는 [SQL 데이터베이스 PowerShell 스크립트 만들기](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script)를 참조하세요.
 
-## <a name="create-a-sql-database-server-firewall-rule"></a>Create a SQL Database server firewall rule
-Create a firewall rule to access the server with the [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx) cmdlet. Run the following command, replacing the start and end IP addresses with valid values for your client. The resource group, and server must already exist in your subscription.
+## <a name="how-do-i-create-a-sql-database-server-firewall-rule"></a>SQL 데이터베이스 서버 방화벽 규칙을 어떻게 만드나요?
+서버에 액세스하기 위한 방화벽 규칙을 만들려면 [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx) cmdlet을 사용합니다. 다음 명령을 실행하여 시작 및 끝 IP 주소를 사용자 컴퓨터에 유효한 값으로 바꿉니다. 리소스 그룹 및 서버가 구독에 이미 있어야 합니다.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -76,12 +80,12 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
  -StartIpAddress $firewallStartIp -EndIpAddress $firewallEndIp
 ```
 
-To allow other Azure services access to your server, create a firewall rule and set both the `-StartIpAddress` and `-EndIpAddress` to **0.0.0.0**. This special firewall rule allows all Azure traffic to access the server.
+다른 Azure 서비스의 서버 액세스를 허용하려면 방화벽 규칙을 만들고 `-StartIpAddress` 및 `-EndIpAddress`를 모두 **0.0.0.0**으로 설정합니다. 이렇게 하면 특별한 방화벽 규칙을 통해 서버에 대한 모든 Azure 트래픽 액세스가 허용됩니다.
 
-For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx). For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+자세한 내용은 [Azure SQL 데이터베이스 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx)을 참조하세요. 샘플 스크립트는 [SQL 데이터베이스 PowerShell 스크립트 만들기](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script)를 참조하세요.
 
-## <a name="create-a-sql-database-(blank)"></a>Create a SQL database (blank)
-Create a database with the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet. The resource group, and server must already exist in your subscription. 
+## <a name="how-do-i-create-a-sql-database"></a>SQL 데이터베이스를 어떻게 만드나요?
+SQL 데이터베이스를 만들려면 [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) cmdlet을 사용합니다. 리소스 그룹 및 서버가 구독에 이미 있어야 합니다. 
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -96,10 +100,10 @@ $currentDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName 
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-For more information, see [What is SQL Database](sql-database-technical-overview.md). For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+자세한 내용은 [SQL Database 정의](sql-database-technical-overview.md)를 참조하세요. 샘플 스크립트는 [SQL 데이터베이스 PowerShell 스크립트 만들기](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script)를 참조하세요.
 
-## <a name="change-the-performance-level-of-a-sql-database"></a>Change the performance level of a SQL database
-Scale your database up or down with the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet. The resource group, server, and database must already exist in your subscription. Set the `-RequestedServiceObjectiveName` to a single space (like the following snippet) for Basic tier. Set it to *S0*, *S1*, *P1*, *P6*, etc., like the preceding example for other tiers.
+## <a name="how-do-i-change-the-performance-level-of-a-sql-database"></a>SQL 데이터베이스의 성능 수준을 어떻게 변경하나요?
+성능 수준을 변경하려면 [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx) cmdlet을 사용하여 데이터베이스 규모를 확장하거나 축소합니다. 리소스 그룹, 서버 및 데이터베이스가 구독에 이미 있어야 합니다. 기본 계층의 경우 `-RequestedServiceObjectiveName` 을 단일 공백(예: 다음 코드 조각)으로 설정합니다. 이전의 다른 계층에 대한 예처럼 *S0*, *S1*, *P1*, *P6* 등으로 설정합니다.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -114,10 +118,10 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-For more information, see [SQL Database options and performance: Understand what's available in each service tier](sql-database-service-tiers.md). For a sample script, see [Sample PowerShell script to change the service tier and performance level of your SQL database](sql-database-scale-up-powershell.md#sample-powershell-script-to-change-the-service-tier-and-performance-level-of-your-sql-database).
+자세한 내용은 [SQL Database 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 것 이해](sql-database-service-tiers.md)를 참조하세요. 샘플 스크립트는 [SQL 데이터베이스의 서비스 계층 및 성능 수준을 변경하는 샘플 PowerShell 스크립트](sql-database-scale-up-powershell.md#sample-powershell-script-to-change-the-service-tier-and-performance-level-of-your-sql-database)를 참조하세요.
 
-## <a name="copy-a-sql-database-to-the-same-server"></a>Copy a SQL database to the same server
-Copy a SQL database to the same server with the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644.aspx) cmdlet. Set the `-CopyServerName` and `-CopyResourceGroupName` to the same values as your source database server and resource group.
+## <a name="how-do-i-copy-a-sql-database-to-the-same-server"></a>동일한 서버에 SQL 데이터베이스를 어떻게 복사하나요?
+SQL 데이터베이스를 동일한 서버에 복사하려면 [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx) cmdlet을 사용합니다. `-CopyServerName` 및 `-CopyResourceGroupName`을 원본 데이터베이스 서버 및 리소스 그룹과 동일한 값으로 설정합니다.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -134,10 +138,10 @@ New-AzureRmSqlDatabaseCopy -DatabaseName $databaseName `
  -CopyResourceGroupName $copyResourceGroupName
 ```
 
-For more information, see [Copy an Azure SQL Database](sql-database-copy.md). For a sample script, see [Copy a SQL database PowerShell script](sql-database-copy-powershell.md#example-powershell-script).
+자세한 내용은 [Azure SQL 데이터베이스 복사](sql-database-copy.md)를 참조하세요. 샘플 스크립트는 [SQL 데이터베이스 PowerShell 스크립트 복사](sql-database-copy-powershell.md#example-powershell-script)를 참조하세요.
 
-## <a name="delete-a-sql-database"></a>Delete a SQL database
-Delete a SQL database with the [Remove-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619368.aspx) cmdlet. The resource group, server, and database must already exist in your subscription.
+## <a name="how-do-i-delete-a-sql-database"></a>SQL Database 삭제 방법
+SQL 데이터베이스를 삭제하려면 [Remove-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619368\(v=azure.300\).aspx) cmdlet을 사용합니다. 리소스 그룹, 서버 및 데이터베이스가 구독에 이미 있어야 합니다.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -148,8 +152,8 @@ Remove-AzureRmSqlDatabase -DatabaseName $databaseName `
  -ServerName $sqlServerName -ResourceGroupName $resourceGroupName
 ```
 
-## <a name="delete-a-sql-database-server"></a>Delete a SQL Database server
-Delete a server with the [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx) cmdlet.
+## <a name="how-do-i-delete-a-sql-database-server"></a>SQL 데이터베이스 서버를 어떻게 삭제하나요?
+SQL 데이터베이스 서버를 삭제하려면 [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488\(v=azure.300\).aspx) cmdlet을 사용합니다.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -158,15 +162,18 @@ $sqlServerName = "server1"
 Remove-AzureRmSqlServer -ServerName $sqlServerName -ResourceGroupName $resourceGroupName
 ```
 
-## <a name="create-and-manage-elastic-database-pools-using-powershell"></a>Create and manage elastic database pools using PowerShell
-For details about creating elastic database pools using PowerShell, see [Create a new elastic database pool with PowerShell](sql-database-elastic-pool-create-powershell.md).
+## <a name="how-do-i-create-and-manage-elastic-database-pools-using-powershell"></a>PowerShell을 사용하여 탄력적 데이터베이스 풀을 어떻게 만들고 관리하나요?
+PowerShell을 사용하여 탄력적 데이터베이스 만들기에 대한 자세한 내용은 [PowerShell을 사용하여 새 탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-powershell.md)를 참조하세요.
 
-For details about managing elastic database pools using PowerShell, see [Monitor and manage an elastic database pool with PowerShell](sql-database-elastic-pool-manage-powershell.md).
+PowerShell을 사용하여 탄력적 데이터베이스 풀 관리에 대한 자세한 내용은 [PowerShell을 사용하여 탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-manage-powershell.md)를 참조하세요.
 
-## <a name="related-information"></a>Related information
-* [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx)
-* [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn708514.aspx)
+## <a name="related-information"></a>관련 정보
+* [Azure SQL 데이터베이스 cmdlet](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx)
+* [Azure Cmdlet 참조](https://msdn.microsoft.com/library/azure/dn708514\(v=azure.300\).aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
