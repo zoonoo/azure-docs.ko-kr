@@ -1,19 +1,24 @@
 ---
-title: Azure SQL 데이터베이스 Azure 사례 연구 - Umbraco | Microsoft Docs
-description: 어떻게 Umbraco가 SQL 데이터베이스를 사용하여 클라우드의 수천 개의 테넌트를 위해 서비스를 신속하게 프로비전하고 확장하는지 알아봅니다.
+title: "Azure SQL Database Azure 사례 연구 - Umbraco | Microsoft Docs"
+description: "어떻게 Umbraco가 SQL 데이터베이스를 사용하여 클라우드의 수천 개의 테넌트를 위해 서비스를 신속하게 프로비전하고 확장하는지 알아봅니다."
 services: sql-database
-documentationcenter: ''
-author: carlrabeler
+documentationcenter: 
+author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 5243d31e-3241-4cb0-9470-ad488ff28572
 ms.service: sql-database
+ms.custom: app development case study; app development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/22/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0800f04034410c3734ef0a97afd9d41cf850381b
+
 
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco는 Azure SQL 데이터베이스를 사용하여 클라우드의 수천 개의 테넌트를 위해 서비스를 신속하게 프로비전하고 확장합니다.
@@ -23,9 +28,9 @@ Umbraco는 소규모 캠페인 또는 브로슈어 사이트에서 포춘지 선
 
 > "우리는 이 시스템을 사용하는 대규모 개발자 커뮤니티를 보유하고 있습니다. 우리 포럼에는 100,000명이 넘는 개발자가 있으며 350,000개 이상의 사이트에서 Umbraco를 실행하고 있습니다."
 > 
-> * Umbraco기술 책임자, Morten Christensen
+> - Umbraco기술 책임자, Morten Christensen
 > 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-Case-Study-Umbraco/player]
+> [!비디오 https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-Case-Study-Umbraco/player]
 > 
 > 
 
@@ -88,7 +93,7 @@ Umbraco 개발자들은 초기에 SaaS 모델로 전환하기로 결정했을 �
 
 > "탄력적 데이터베이스 풀은 필요에 따라 용량을 늘리고 줄일 수 있으므로 당사의 SaaS 제품에 완벽하게 딱 들어맞습니다. 프로비전도 쉬우며, 당사 설정을 통해 최대 사용률을 유지할 수 있습니다."
 > 
-> * Umbraco기술 책임자, Morten Christensen
+> - Umbraco기술 책임자, Morten Christensen
 > 
 > 
 
@@ -113,18 +118,21 @@ Morten은 Azure에서 제공하는 크기 조정 기능에도 매우 만족했�
 
 "우리는 일반적인 SaaS 시나리오(새 고객을 실시간으로 대규모로 온보딩)를 기본 기술(Azure SQL Database와 함께 Azure Service Bus 큐 사용) 위의 응용 프로그램 패턴(개발 및 라이브에서 데이터베이스 사전 프로비전)에 연결하는 강력한 Azure 알고리즘을 수용했습니다.”라고 Mikkel Madsen은 결론지었습니다.
 
-## <a name="with-azure,-uaas-is-exceeding-customer-expectations"></a>Azure를 사용하여 UaaS에서 고객의 기대치 부응
+## <a name="with-azure-uaas-is-exceeding-customer-expectations"></a>Azure를 사용하여 UaaS에서 고객의 기대치 부응
 Azure를 클라우드 파트너로 선택한 이후부터 Umbraco는 셀프 호스트드 솔루션에 필요한 IT 리소스 투자 없이도, 최적화된 콘텐츠 관리 성능을 UaaS 고객에게 제공할 수 있게 되었습니다. "우리는 Azure가 우리에게 주는 개발자 편리함 및 확장성에 크게 만족하며, 우리 고객들은 이러한 기능과 안정성에 감탄했습니다. 전반적으로는 우리는 큰 혜택을 얻게 되었습니다.”라고 Norten은 말했습니다.
 
 ## <a name="more-information"></a>자세한 정보
 * Azure의 탄력적 데이터베이스 풀에 대한 자세한 내용은 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 참조하세요.
 * Azure 서비스 버스에 대한 자세한 내용은 [Azure 서비스 버스](https://azure.microsoft.com/services/service-bus/)를 참조하세요.
-* 웹 역할 및 작업자 역할에 대한 자세한 내용은 [작업자 역할](../fundamentals-introduction-to-azure.md#compute)을 참조하세요. 
+* 웹 역할 및 작업자 역할에 대한 자세한 내용은 [작업자 역할](../fundamentals-introduction-to-azure.md#compute)을 참조하세요.    
 * 가상 네트워킹에 대해 자세히 알아보려면 [가상 네트워킹](https://azure.microsoft.com/documentation/services/virtual-network/)을 참조하세요.    
-* 백업 및 복구에 대한 자세한 내용은 [비즈니스 연속성](sql-database-business-continuity.md)을 참조하세요.  
-* 모니터링 풀에 대한 자세한 내용은 [모니터링 풀](sql-database-elastic-pool-manage-portal.md)을 참조하세요. 
+* 백업 및 복구에 대한 자세한 내용은 [비즈니스 연속성](sql-database-business-continuity.md)을 참조하세요.    
+* 모니터링 풀에 대한 자세한 내용은 [모니터링 풀](sql-database-elastic-pool-manage-portal.md)을 참조하세요.    
 * 서비스로서의 Umbraco에 대한 자세한 내용은 [Umbraco](https://umbraco.com/cloud)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

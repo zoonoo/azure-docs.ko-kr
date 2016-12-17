@@ -1,13 +1,13 @@
 ---
-title: SQL 데이터베이스에 대한 XEvent 이벤트 파일 코드 | Microsoft Docs
-description: Azure SQL 데이터베이스에서 확장 이벤트의 이벤트 파일 대상을 보여주는 2단계 코드 샘플에 대해 PowerShell 및 Transact-SQL을 제공합니다. Azure 저장소는 이 시나리오의 필수 부분입니다.
+title: "SQL Database에 대한 XEvent 이벤트 파일 코드 | Microsoft Docs"
+description: "Azure SQL Database에서 확장 이벤트의 이벤트 파일 대상을 보여주는 2단계 코드 샘플에 대해 PowerShell 및 Transact-SQL을 제공합니다. Azure 저장소는 이 시나리오의 필수 부분입니다."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: MightyPen
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,14 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: genemi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1569bdf8ad8a073808b83b08fa3fdae8f843805f
+
 
 ---
-# SQL 데이터베이스의 확장 이벤트에 대한 이벤트 파일 대상 코드
+# <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 확장 이벤트에 대한 정보를 캡처하고 보고하는 확실한 방법을 위한 전체 코드 샘플이 필요할 수 있습니다.
 
-Microsoft SQL Server의 [이벤트 파일 대상](http://msdn.microsoft.com/library/ff878115.aspx)을 사용하여 이벤트 출력을 로컬 하드 드라이브 파일에 저장합니다. 하지만 이러한 파일은 Azure SQL 데이터베이스에서 사용할 수 없습니다. 대신 Azure 저장소 서비스를 사용하여 이벤트 파일 대상을 지원합니다.
+Microsoft SQL Server의 [이벤트 파일 대상](http://msdn.microsoft.com/library/ff878115.aspx) 을 사용하여 이벤트 출력을 로컬 하드 드라이브 파일에 저장합니다. 하지만 이러한 파일은 Azure SQL Database에서 사용할 수 없습니다. 대신 Azure 저장소 서비스를 사용하여 이벤트 파일 대상을 지원합니다.
 
 이 항목에서는 2단계 코드 샘플을 제공합니다.
 
@@ -32,20 +36,21 @@ Microsoft SQL Server의 [이벤트 파일 대상](http://msdn.microsoft.com/libr
   * Azure 저장소 컨테이너를 이벤트 파일 대상에 할당합니다.
   * 이벤트 세션 등을 만들고 시작합니다.
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 * Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * 테이블을 만들 수 있는 데이터베이스.
   
   * 또는 몇 분 이내에 [**AdventureWorksLT** 데모 데이터베이스를 만들](sql-database-get-started.md) 수 있습니다.
-* SQL Server Management Studio(ssms.exe)(이상적으로 최신 월별 업데이트 버전). 다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
+* SQL Server Management Studio(ssms.exe)(이상적으로 최신 월별 업데이트 버전). 
+  다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
   
-  * [SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx) 항목
+  * [SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx)항목
   * [직접 다운로드 링크](http://go.microsoft.com/fwlink/?linkid=616025)
-* [Azure PowerShell 모듈](http://go.microsoft.com/?linkid=9811175)이 설치되어 있어야 합니다.
+* [Azure PowerShell 모듈](http://go.microsoft.com/?linkid=9811175) 이 설치되어 있어야 합니다.
   
-  * 이 모듈은 **New-AzureStorageAccount** 등의 명령을 제공합니다.
+  * 이 모듈은 **New-AzureStorageAccount**등의 명령을 제공합니다.
 
-## 1단계: Azure 저장소 컨테이너용 PowerShell 코드
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>1단계: Azure 저장소 컨테이너용 PowerShell 코드
 이 PowerShell은 2단계 코드 샘플의 1단계입니다.
 
 이 스크립트는 이전 실행(있는 경우) 다음에 정리하는 명령으로 시작하며, 재실행이 가능합니다.
@@ -237,19 +242,19 @@ Now shift to the Transact-SQL portion of the two-part code sample!'
 
 스크립트가 종료될 때 PowerShell 스크립트가 인쇄하는 몇 가지 명명된 값을 기록해 둡니다. 다음 2단계에서 Transact-SQL 스크립트로 해당 값을 편집해야 합니다.
 
-## 2단계: Azure 저장소 컨테이너를 사용하는 Transact-SQL 코드
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>2단계: Azure 저장소 컨테이너를 사용하는 Transact-SQL 코드
 * 이 코드 샘플의 1단계에서 Azure Storage 컨테이너를 만드는 PowerShell 스크립트를 실행했습니다.
 * 다음으로, 2단계에서 다음 Transact-SQL 스크립트는 컨테이너를 사용해야 합니다.
 
 이 스크립트는 이전 실행(있는 경우) 다음에 정리하는 명령으로 시작하며, 재실행이 가능합니다.
 
-PowerShell 스크립트가 종료될 때 몇 가지 명명된 값을 인쇄했습니다. 이러한 값을 사용하려면 Transact-SQL 스크립트를 편집해야 합니다. Transact-SQL 스크립트에서 **TODO**를 찾아 편집점을 찾습니다.
+PowerShell 스크립트가 종료될 때 몇 가지 명명된 값을 인쇄했습니다. 이러한 값을 사용하려면 Transact-SQL 스크립트를 편집해야 합니다. Transact-SQL 스크립트에서 **TODO** 를 찾아 편집점을 찾습니다.
 
 1. SQL Server Management Studio(ssms.exe)를 엽니다.
-2. Azure SQL 데이터베이스에 연결합니다.
+2. Azure SQL Database에 연결합니다.
 3. 클릭하여 새 쿼리 창을 엽니다.
 4. 쿼리 창에 다음 Transact-SQL 스크립트를 붙여 넣습니다.
-5. 스크립트의 모든 **TODO**를 찾고 적절히 편집합니다.
+5. 스크립트의 모든 **TODO** 를 찾고 적절히 편집합니다.
 6. 저장한 다음 스크립트를 실행합니다.
 
 &nbsp;
@@ -469,8 +474,8 @@ GO
 
 &nbsp;
 
-## 출력
-Transact-SQL 스크립트가 완료되면 **event\_data\_XML** 열 헤더 아래 셀을 클릭합니다. 하나의 **<event>** 요소가 표시되고 하나의 UPDATE 문이 표시됩니다.
+## <a name="output"></a>출력
+Transact-SQL 스크립트가 완료되면 **event_data_XML** 열 헤더 아래 셀을 클릭합니다. 하나의 **<event>** 요소가 표시되고 하나의 UPDATE 문이 표시됩니다.
 
 다음은 테스트 중 생성된 하나의 **<event>** 요소입니다.
 
@@ -517,9 +522,9 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 &nbsp;
 
-앞에 나오는 Transact-SQL 스크립트는 다음 시스템 함수를 사용해서 event\_file을 읽었습니다.
+앞에 나오는 Transact-SQL 스크립트는 다음 시스템 함수를 사용해서 event_file을 읽었습니다.
 
-* [sys.fn\_xe\_file\_target\_read\_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+* [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
 
 확장된 이벤트에서 데이터를 보기 위한 고급 옵션에 대한 설명은 다음에서 사용할 수 있습니다.
 
@@ -527,16 +532,16 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 &nbsp;
 
-## SQL Server 실행을 위해 코드 샘플 변환
+## <a name="converting-the-code-sample-to-run-on-sql-server"></a>SQL Server 실행을 위해 코드 샘플 변환
 Microsoft SQL Server에서 위의 Transact-SQL 샘플을 실행하는 경우를 가정하겠습니다.
 
-* 간단히 Azure Storage 컨테이너를 **C:\\myeventdata.xel**과 같은 간단한 파일로 바꾼다고 가정합니다. 이 파일은 SQL Server를 호스팅하는 컴퓨터의 로컬 하드 드라이브에 기록됩니다.
+* 간단히 Azure Storage 컨테이너를 **C:\myeventdata.xel**과 같은 간단한 파일로 바꾼다고 가정합니다. 이 파일은 SQL Server를 호스팅하는 컴퓨터의 로컬 하드 드라이브에 기록됩니다.
 * **CREATE MASTER KEY** 및 **CREATE CREDENTIAL**에는 Transact-SQL 종류의 문이 필요하지 않습니다.
-* **CREATE EVENT SESSION** 문의 **ADD TARGET** 절에서 **filename=**에 지정된 Http 값을 **C:\\myfile.xel**와 같은 전체 경로 문자열로 바꾸겠습니다.
+* **CREATE EVENT SESSION** 문의 **ADD TARGET** 절에서 **filename=**에 지정된 Http 값을 **C:\myfile.xel**와 같은 전체 경로 문자열로 바꾸겠습니다.
   
   * Azure 저장소 계정은 사용하지 않습니다.
 
-## 자세한 정보
+## <a name="more-information"></a>자세한 정보
 Azure 저장소 서비스에서 계정 및 컨테이너에 대한 자세한 내용은 다음을 참조하세요.
 
 * [.NET에서 Blob 저장소를 사용하는 방법](../storage/storage-dotnet-how-to-use-blobs.md)
@@ -551,4 +556,9 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,19 +1,24 @@
 ---
-title: Azure SQL 데이터베이스 Azure 사례 연구 - GEP | Microsoft Docs
-description: GEP이 SQL 데이터베이스를 사용하여 더 많은 글로벌 고객에게 도달하고 보다 높은 효율성을 달성하는 방법을 알아봅니다.
+title: "Azure SQL Database Azure 사례 연구 - GEP | Microsoft Docs"
+description: "GEP이 SQL 데이터베이스를 사용하여 더 많은 글로벌 고객에게 도달하고 보다 높은 효율성을 달성하는 방법을 알아봅니다."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
 ms.service: sql-database
+ms.custom: app development case study; app development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: da2e3e4f9a33860141d94352fd2e657b14b0d03d
+
 
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>Azure를 통한 GEP의 글로벌 고객 접근 및 효율성 개선
@@ -99,6 +104,9 @@ GEP는 다양한 Azure 서비스를 사용하여 고객에 요구에 응답할 �
 * GEP의 엔지니어링 관리자 Sathyan Narasingh
 * GEP의 데이터베이스 설계자 Deepa Velukutty
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
