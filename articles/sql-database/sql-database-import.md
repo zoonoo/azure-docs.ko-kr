@@ -1,12 +1,12 @@
 ---
-title: BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기 | Microsoft Docs
-description: 기존 BACPAC 파일을 가져와 Azure SQL 데이터베이스를 만듭니다.
+title: "BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기 | Microsoft Docs"
+description: "기존 BACPAC 파일을 가져와 Azure SQL 데이터베이스를 만듭니다."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
 ms.service: sql-database
 ms.devlang: NA
 ms.date: 08/31/2016
@@ -14,9 +14,13 @@ ms.author: sstein
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26364edba47c4ac77b2125e067b99f87eefb434c
+
 
 ---
-# BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기
+# <a name="import-a-bacpac-file-to-create-an-azure-sql-database"></a>BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기
 **단일 데이터베이스**
 
 > [!div class="op_single_selector"]
@@ -38,8 +42,8 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 
 .bacpac에서 SQL 데이터베이스를 가져오려면 다음이 필요합니다.
 
-* Azure 구독.
-* Azure SQL 데이터베이스 V12 서버. V12 서버가 없는 경우 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md) 문서의 단계에 따라 만듭니다.
+* Azure 구독. 
+* Azure SQL 데이터베이스 V12 서버. V12 서버가 없는 경우 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)문서의 단계에 따라 만듭니다.
 * [Azure 저장소 계정(표준)](../storage/storage-create-storage-account.md) Blob 컨테이너에서 가져오려는 데이터베이스의 .bacpac 파일
 
 > [!IMPORTANT]
@@ -47,7 +51,7 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 > 
 > 
 
-## 데이터베이스를 호스트할 서버 선택
+## <a name="select-the-server-to-host-the-database"></a>데이터베이스를 호스트할 서버 선택
 SQL Server 블레이드를 엽니다.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
@@ -62,26 +66,27 @@ SQL Server 블레이드를 엽니다.
 6. 새 데이터베이스에 대한 가격 책정 계층을 선택하고 **선택**을 클릭합니다. 탄력적 풀에 직접 데이터베이스 가져오기는 지원되지 않지만 먼저 단일 데이터베이스로 가져온 다음 데이터베이스를 풀로 이동할 수 있습니다.
    
    ![가격 책정 계층 선택][3]
-7. BACPAC 파일에서 만들 데이터베이스에 대한 **데이터베이스 이름**을 입력합니다.
-8. 인증 유형을 선택한 후 서버에 대한 인증 정보를 제공합니다.
-9. **만들기**를 클릭하여 BACPAC에서 데이터베이스를 만듭니다.
+7. BACPAC 파일에서 만들 데이터베이스에 대한 **데이터베이스 이름** 을 입력합니다.
+8. 인증 유형을 선택한 후 서버에 대한 인증 정보를 제공합니다. 
+9. **만들기** 를 클릭하여 BACPAC에서 데이터베이스를 만듭니다.
    
    ![데이터베이스 만들기][4]
 
-**만들기**를 클릭하면 데이터베이스 가져오기 요청이 서비스에 제출됩니다. 데이터베이스 크기에 따라 가져오기 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
+**만들기** 를 클릭하면 데이터베이스 가져오기 요청이 서비스에 제출됩니다. 데이터베이스 크기에 따라 가져오기 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
-## 가져오기 작업의 진행률 모니터링
+## <a name="monitor-the-progress-of-the-import-operation"></a>가져오기 작업의 진행률 모니터링
 1. **SQL Server**를 클릭합니다.
 2. 복원할 서버를 클릭합니다.
 3. SQL Server 블레이드의 작업 영역에서 **가져오기/내보내기 기록**을 클릭합니다.
    
-   ![가져오기 내보내기 기록][5] ![가져오기 내보내기 기록][6]
+   ![가져오기 내보내기 기록][5]
+   ![가져오기 내보내기 기록][6]
 
-## 데이터베이스가 서버에서 라이브 상태인지 확인
+## <a name="verify-the-database-is-live-on-the-server"></a>데이터베이스가 서버에서 라이브 상태인지 확인
 1. **SQL 데이터베이스**를 클릭하고 새 데이터베이스가 **온라인** 상태인지 확인합니다.
 
-## 다음 단계
-* 가져온 SQL 데이터베이스에 연결하고 쿼리하는 방법을 알아보려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리 수행](sql-database-connect-query-ssms.md)을 참조하세요.
+## <a name="next-steps"></a>다음 단계
+* 가져온 SQL 데이터베이스에 연결하고 쿼리하는 방법을 알아보려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리 수행](sql-database-connect-query-ssms.md)
 
 <!--Image references-->
 [1]: ./media/sql-database-import/import-database.png
@@ -91,4 +96,8 @@ SQL Server 블레이드를 엽니다.
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
