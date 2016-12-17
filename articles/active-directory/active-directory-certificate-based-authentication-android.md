@@ -1,11 +1,11 @@
 ---
-title: Android에서 인증서 기반 인증 시작 | Microsoft Docs
-description: Android 장치에서 솔루션의 인증서 기반 인증을 구성하는 방법 알아보기
+title: "Android에서 인증서 기반 인증 시작 | Microsoft Docs"
+description: "Android 장치에서 솔루션의 인증서 기반 인증을 구성하는 방법 알아보기"
 services: active-directory
 author: MarkusVi
 documentationcenter: na
 manager: femila
-
+ms.assetid: c6ad7640-8172-4541-9255-770f39ecce0e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9ab8558808dc509855d075c6bba305b8524407ff
+
 
 ---
-# <a name="get-started-with-certificate-based-authentication-on-android-public-preview"></a>Android에서 인증서 기반 인증 시작 - 공개 미리 보기
+# <a name="get-started-with-certificate-based-authentication-on-android---public-preview"></a>Android에서 인증서 기반 인증 시작 - 공개 미리 보기
 > [!div class="op_single_selector"]
 > * [iOS](active-directory-certificate-based-authentication-ios.md)
 > * [Android](active-directory-certificate-based-authentication-android.md)
@@ -137,7 +141,7 @@ Android 5.0(Lollipop) 이상의 특정 Exchange ActiveSync 응용 프로그램�
 ### <a name="removing-a-certificate-authority"></a>인증 기관 제거
 1. 인증 기관을 검색합니다. 
    
-       $c=Get-AzureADTrustedCertificateAuthority 
+     $c=Get-AzureADTrustedCertificateAuthority 
 2. 인증 기관의 인증서를 제거합니다. 
    
         Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
@@ -145,7 +149,7 @@ Android 5.0(Lollipop) 이상의 특정 Exchange ActiveSync 응용 프로그램�
 ### <a name="modfiying-a-certificate-authority"></a>인증 기관 수정
 1. 인증 기관을 검색합니다. 
    
-       $c=Get-AzureADTrustedCertificateAuthority 
+     $c=Get-AzureADTrustedCertificateAuthority 
 2. 인증 기관의 속성을 수정합니다. 
    
         $c[0].AuthorityType=1 
@@ -192,11 +196,10 @@ Android 5.0(Lollipop) 이상의 응용 프로그램으로 인증서 인증을 �
         connect-msolservice -credential $msolcred 
 2. 사용자에 대한 현재 StsRefreshTokensValidFrom 값을 검색합니다. 
    
-       $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
-       $user.StsRefreshTokensValidFrom 
+     $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`   $user.StsRefreshTokensValidFrom 
 3. 사용자에 대한 새 StsRefreshTokensValidFrom 값을 현재 타임스탬프와 같게 구성합니다. 
    
-       Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+     Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 
 설정하는 날짜는 이후 날짜여야 합니다. 날짜가 이후 날짜가 아닌 경우 **StsRefreshTokensValidFrom** 속성이 설정되지 않은 것입니다. 날짜가 이후 날짜인 경우 **StsRefreshTokensValidFrom** 이 현재 시간(Set-MsolUser 명령으로 지정된 날짜 아님)으로 설정됩니다. 
 
@@ -204,6 +207,7 @@ Android 5.0(Lollipop) 이상의 응용 프로그램으로 인증서 인증을 �
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 도메인 가입 Windows 장치의 Azure Active Directory 자동 장치 등록| Microsoft Docs
-description: IT 관리자는 도메인 가입 Windows 장치를 Azure AD(Azure Active Directory)에 자동으로 등록하도록 선택할 수 있습니다.
+title: "도메인 가입 Windows 장치의 Azure Active Directory 자동 장치 등록| Microsoft Docs"
+description: "IT 관리자는 도메인 가입 Windows 장치를 Azure AD(Azure Active Directory)에 자동으로 등록하도록 선택할 수 있습니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2d717f906bd4aad35cb46852baf84c4e088b953e
+
 
 ---
-# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domainjoined-devices"></a>Windows 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록
+# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domain-joined-devices"></a>Windows 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록
 IT 관리자는 도메인 가입 Windows 장치를 Azure AD(Azure Active Directory)에 자동으로 등록하도록 선택할 수 있습니다. 이 기능은 AD FS에서 온-프레미스로 관리하는 Office365 응용 프로그램에 대한 장치 기반 조건부 액세스 정책을 구성한 경우에 유용할 수 있습니다. [Azure Active Directory 장치 등록 개요](active-directory-conditional-access-device-registration-overview.md)를 읽으면 장치 등록 시나리오에 대해 자세히 알아볼 수 있습니다.
 
 > AZURE.NOTE 장치 자동 등록을 설정하는 방법에 대한 최신 지침은 [Azure Active Directory를 사용하여 Windows 도메인 가입 장치의 자동 등록을 설정하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
@@ -93,6 +97,9 @@ Azure AD 장치 등록은 가장 광범위한 장치 기능을 제공합니다. 
 * [Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 * [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-azureadjoin-devices-group-policy.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

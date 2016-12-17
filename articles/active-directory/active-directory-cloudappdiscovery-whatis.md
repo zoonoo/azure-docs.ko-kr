@@ -1,13 +1,13 @@
 ---
-title: 클라우드 앱 검색을 사용하여 관리되지 않은 클라우드 응용 프로그램 찾기 | Microsoft Docs
-description: Cloud App Discovery를 사용한 응용 프로그램 찾기 및 관리, 이점 및 작동 방식에 대한 정보를 제공합니다.
+title: "클라우드 앱 검색을 사용하여 관리되지 않은 클라우드 응용 프로그램 찾기 | Microsoft Docs"
+description: "Cloud App Discovery를 사용한 응용 프로그램 찾기 및 관리, 이점 및 작동 방식에 대한 정보를 제공합니다."
 services: active-directory
-keywords: Cloud App Discovery, 응용 프로그램 관리
-documentationcenter: ''
+keywords: "Cloud App Discovery, 응용 프로그램 관리"
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 011cdf5f1e1b78832a8e4f18f4eef0f376860c45
+
 
 ---
 # <a name="finding-unmanaged-cloud-applications-with-cloud-app-discovery"></a>클라우드 앱 검색을 사용하여 관리되지 않은 클라우드 응용 프로그램 찾기
@@ -48,6 +52,9 @@ ms.author: markvi
 * [클라우드 앱 검색 질문과 대답](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

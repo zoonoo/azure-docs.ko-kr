@@ -1,12 +1,12 @@
 ---
-title: 키 자격 증명 모음 개발자 가이드 | Microsoft Docs
-description: '개발자는 Microsoft Azure 환경 내에서 Azure 키 자격 증명 모음을 사용하여 암호화 키를 관리할 수 있습니다. '
+title: "Key Vault 개발자 가이드 | Microsoft Docs"
+description: "개발자는 Microsoft Azure 환경 내에서 Azure 키 자격 증명 모음을 사용하여 암호화 키를 관리할 수 있습니다. "
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: BrucePerlerMS
 manager: mbaldwin
 editor: bruceper
-
+ms.assetid: b2b1bd28-e149-4d69-b08b-97f6c50ebe30
 ms.service: key-vault
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2016
 ms.author: bruceper
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3b4664cdfebad63307c0e964527fc5ecf6500348
+
 
 ---
-# <a name="azure-key-vault-developer's-guide"></a>Azure 키 자격 증명 모음 개발자 가이드
+# <a name="azure-key-vault-developers-guide"></a>Azure 키 자격 증명 모음 개발자 가이드
 주요 자격 증명 모음을 사용하면 다음과 같은 응용 프로그램 내에서 중요한 정보를 안전하게 액세스할 수 있습니다.
 
 * 키와 암호는 코드 작성 없이 보호되며 응용 프로그램에서 쉽게 사용할 수 있습니다.
@@ -102,6 +106,9 @@ Azure에서 Key Vault를 통합 및 사용하는 방법에 대한 작업별 지�
 * [키 자격 증명 모음 블로그](http://aka.ms/kvblog)
 * [키 자격 증명 모음 포럼](http://aka.ms/kvforum)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

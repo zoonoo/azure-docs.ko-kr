@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory 로그인 활동 보고서 API 샘플 | Microsoft Docs
-description: Azure Active Directory Reporting API를 시작하는 방법
+title: "Azure Active Directory 로그인 활동 보고서 API 샘플 | Microsoft Docs"
+description: "Azure Active Directory Reporting API를 시작하는 방법"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c41c1489-726b-4d3f-81d6-83beb932df9c
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6b1137c8ca33774ef9852b9441b541cf7723ebd
+
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Azure Active Directory 로그인 활동 보고서 API 샘플
@@ -84,6 +88,9 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 로그인 �
 * Azure Active Directory Reporting API를 사용하는 전체적인 개요를 확인하려는 경우 [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
 * Azure Active Directory Reporting에 대한 자세한 내용을 알아보려면 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)를 참조하세요.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

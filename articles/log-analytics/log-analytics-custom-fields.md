@@ -1,12 +1,12 @@
 ---
-title: Log Analytics의 사용자 지정 필드 | Microsoft Docs
-description: Log Analytics의 사용자 지정 필드를 사용하면 수집된 레코드의 속성에 추가되는 OMS 데이터를 통해 자체 검색 가능한 필드를 만들 수 있습니다.  이 문서는 사용자 지정 필드를 만드는 프로세스를 설명하고 샘플 이벤트에 대한 자세한 연습을 제공합니다.
+title: "Log Analytics의 사용자 지정 필드 | Microsoft Docs"
+description: "Log Analytics의 사용자 지정 필드를 사용하면 수집된 레코드의 속성에 추가되는 OMS 데이터를 통해 자체 검색 가능한 필드를 만들 수 있습니다.  이 문서는 사용자 지정 필드를 만드는 프로세스를 설명하고 샘플 이벤트에 대한 자세한 연습을 제공합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b98dcbcf219276bb9a7fd24e7f8c8c8eba806cf0
+
 
 ---
 # <a name="custom-fields-in-log-analytics"></a>Log Analytics의 사용자 지정 필드
@@ -49,7 +53,7 @@ Log Analytics의 **사용자 지정 필드** 기능을 사용하면 자체적으
 4. **Field Extraction Wizard(필드 추출 마법사)가 열리고**, 선택한 레코드가 **Main Example**(기본 예제) 열에 표시됩니다.  사용자 지정 필드가, 선택한 속성에 동일한 값을 포함하는 레코드에 대해 정의됩니다.  
 5. 선택 내용이 정확히 원하는 내용이 아니면, 추가적인 필드를 선택하여 조건을 좁혀 나갑니다.  조건에 대한 필드 값을 변경하기 위해서, 취소하고 원하는 조건에 맞는 다른 레코드를 선택해야 합니다.
 
-### <a name="step-2-perform-initial-extract"></a>2단계 - 초기 추출을 수행합니다.
+### <a name="step-2---perform-initial-extract"></a>2단계 - 초기 추출을 수행합니다.
 사용자 지정 필드를 갖게 될 레코드를 식별하고 나면, 추출할 데이터를 식별합니다.  Log Analytics는 이 정보를 사용하여 비슷한 레코드에서 유사한 패턴을 식별합니다.  이 단계가 지나면 결과의 유효성을 검사하고 분석에 사용할 Log Analytics에 대한 자세한 정보를 제공할 수 있게 됩니다.
 
 1. 사용자 지정 필드를 채울 샘플 레코드에서 텍스트를 강조 표시합니다.  그러면 필드의 이름을 제공하고 초기 추출을 수행할 대화 상자가 표시됩니다.  **\_CF** 문자가 자동으로 추가됩니다.
@@ -106,7 +110,7 @@ OMS 대시보드 **설정** 타일의 관리 그룹에서 모든 사용자 지�
 
 ![강조 표시 수정](media/log-analytics-custom-fields/modify-highlight.png)
 
-**WMI** 라는 단어를 포함하도록 강조 표시를 키운 다음 추출을 다시 실행합니다.  
+**WMI**라는 단어를 포함하도록 강조 표시를 키운 다음 추출을 다시 실행합니다.  
 
 ![추가 예제](media/log-analytics-custom-fields/additional-example-01.png)
 
@@ -138,6 +142,9 @@ DPMRA 서비스를 포함하는 레코드로 스크롤하고 동일한 프로세
 * 조건에 대한 사용자 지정 필드를 사용하여 쿼리를 빌드하기 위해 [검색 로그](log-analytics-log-searches.md) 에 대해 알아봅니다.
 * 사용자 지정 필드를 사용하여 구문 분석하는 [사용자 지정 로그 파일](log-analytics-data-sources-custom-logs.md)을 모니터링합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

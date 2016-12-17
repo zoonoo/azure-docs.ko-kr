@@ -1,12 +1,12 @@
 ---
-title: '자습서: Trello와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 Trello 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Trello와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 Trello 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: cd5ae365-9ed6-43a6-920b-f7814b993949
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5af430daa609f1838c640949f535f1d84cbe5f13
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-trello"></a>자습서: Trello와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-trello"></a>자습서: Trello와 Azure Active Directory 통합
 이 자습서에서는 Azure AD(Azure Active Directory)와 Trello를 통합하는 방법에 대해 알아봅니다.
 
 Trello를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -100,11 +104,11 @@ Trello 응용 프로그램은 특정 특성을 포함하는 SAML 어설션이 �
     ![Single Sign-On 구성][5]
 2. **SAML 토큰 특성** 대화 상자에서 아래 테이블의 각 행에 대해 다음 단계를 수행합니다.
 
-      | 특성 이름 | 특성 값 |
-      | --- | --- |    
-      | User.Email | user.mail |
-      | User.FirstName | user.givenname |
-      | User.LastName | user.surname |
+    | 특성 이름 | 특성 값 |
+    | --- | --- |    
+    | User.Email | user.mail |
+    | User.FirstName | user.givenname |
+    | User.LastName | user.surname |
 
     a. **사용자 특성 추가**를 클릭하여 **사용자 특성 추가** 대화 상자를 엽니다.
 
@@ -262,6 +266,6 @@ Trello 응용 프로그램은 특정 특성을 포함하는 SAML 어설션이 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

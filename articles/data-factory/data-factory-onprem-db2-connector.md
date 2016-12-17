@@ -1,59 +1,67 @@
 ---
-title: DB2에서 데이터 이동 | Microsoft Docs
-description: Azure 데이터 팩터리를 사용하여 DB2 데이터베이스에서 데이터를 이동하는 방법에 대해 알아봅니다.
+title: "DB2에서 데이터 이동 | Microsoft Docs"
+description: "Azure 데이터 팩터리를 사용하여 DB2 데이터베이스에서 데이터를 이동하는 방법에 대해 알아봅니다."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 11/01/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
+ms.openlocfilehash: e4c1ef1d52a3e0618bed572695b7a9f2b4b46e88
+
 
 ---
-# Azure 데이터 팩터리를 사용하여 DB2에서 데이터 이동
+# <a name="move-data-from-db2-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 DB2에서 데이터 이동
 이 문서는 Azure 데이터 팩토리에서 복사 활동을 사용하여 DB2에서 다른 데이터 저장소로 데이터를 이동하는 방법에 대해 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
 데이터 팩터리는 데이터 관리 게이트웨이를 사용하여 온-프레미스 DB2 원본에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
 > [!NOTE]
 > Azure IaaS VM에서 호스팅되는 경우 DB2에 연결하려면 게이트웨이를 사용합니다. 또한 클라우드에서 호스트되는 DB2의 인스턴스에 연결하려고 하는 경우 IaaS VM에 게이트웨이 인스턴스를 설치할 수 있습니다.
-> 
-> 
+>
+>
 
 현재 데이터 팩터리는 다른 데이터 저장소에서 DB2로가 아닌 DB2에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
-## 설치
-데이터 관리 게이트웨이는 다음을 지원하는 기본 제공 DB2 드라이버를 제공합니다.
+## <a name="supported-versions"></a>지원되는 버전
+이 DB2 커넥터는 DRDA(Distributed Relational Database Architecture) SQLAM(SQL Access Manager) 버전 9, 10 및 11과 함께 다음 IBM DB2 플랫폼 버전을 지원합니다.
 
-* SQLAM 9 / 10 / 11
-* LUW용 DB2(Linux, Unix, Windows)
-* z/OS용 DB2 및 i용 DB2(즉, AS/400)
+* z/OS용 IBM DB2 11.1
+* z/OS용 IBM DB2 10.1
+* i용 IBM DB2 7.2
+* i용 IBM DB2 7.1
+* LUW용 IBM DB2 11
+* LUW용 IBM DB2 10.5
+* LUW용 IBM DB2 10.1
 
-따라서 DB2에서 데이터를 복사할 때 더 이상 드라이버를 수동으로 설치할 필요가 없습니다.
+데이터 관리 게이트웨이는 기본 제공 DB2 드라이버를 제공하므로 DB2에서 데이터를 복사할 때 수동으로 드라이버를 설치할 필요가 없습니다.
 
 > [!NOTE]
-> 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshoot-gateway-issues)을 참조하세요.
-> 
-> 
+> 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.
+>
+>
 
-## 데이터 복사 마법사
-DB2 데이터베이스에서 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+## <a name="copy-data-wizard"></a>데이터 복사 마법사
+DB2 데이터베이스에서 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요.
 
-다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 DB2 데이터베이스 및 Azure Blob 저장소에서 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
+다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 DB2 데이터베이스 및 Azure Blob 저장소에서 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
 
-## 샘플: DB2에서 Azure Blob로 데이터 복사
-이 샘플은 온-프레미스 DB2 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+## <a name="sample-copy-data-from-db2-to-azure-blob"></a>샘플: DB2에서 Azure Blob로 데이터 복사
+이 샘플은 온-프레미스 DB2 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 **여기** 에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.  
 
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
-1. [OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties) 형식의 연결된 서비스
-2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
+1. [OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties)형식의 연결된 서비스
+2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service)형식의 연결된 서비스
 3. [RelationalTable](data-factory-onprem-db2-connector.md#db2-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
 4. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 5. [RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
@@ -193,7 +201,7 @@ DB2 데이터베이스에서 데이터를 복사하는 파이프라인을 만드
                     "typeProperties": {
                         "source": {
                             "type": "RelationalSource",
-                            "query": "select * from "Orders""
+                            "query": "select * from \"Orders\""
                         },
                         "sink": {
                             "type": "BlobSink"
@@ -226,12 +234,12 @@ DB2 데이터베이스에서 데이터를 복사하는 파이프라인을 만드
     }
 
 
-## DB2 연결된 서비스 속성
+## <a name="db2-linked-service-properties"></a>DB2 연결된 서비스 속성
 다음 테이블은 DB2 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| type |형식 속성은 **OnPremisesDB2**로 설정되어야 합니다. |예 |
+| type |형식 속성은 **OnPremisesDB2** |예 |
 | server |DB2 서버의 이름입니다. |예 |
 | database |DB2 데이터베이스의 이름입니다. |예 |
 | schema |데이터베이스에서 스키마의 이름입니다. schema 이름은 대/소문자를 구분합니다. |아니요 |
@@ -240,9 +248,9 @@ DB2 데이터베이스에서 데이터를 복사하는 파이프라인을 만드
 | password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 DB2 데이터 베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름 |예 |
 
-온-프레미스 DB2 데이터 원본의 자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security)을 참조하세요.
+온-프레미스 DB2 데이터 원본의 자격 증명을 설정하는 방법에 대한 자세한 내용은 [데이터 관리 게이트웨이를 사용하여 온-프레미스 원본과 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요. 
 
-## DB2 데이터 집합 형식 속성
+## <a name="db2-dataset-type-properties"></a>DB2 데이터 집합 형식 속성
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
 
 typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. RelationalTable 형식(DB2 데이터 집합을 포함)의 데이터 집합에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
@@ -251,7 +259,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 DB2 데이터베이스 인스턴스에서 테이블의 이름입니다. tableName은 대/소문자를 구분합니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
-## DB2 복사 활동 형식 속성
+## <a name="db2-copy-activity-type-properties"></a>DB2 복사 활동 형식 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
 
 반면 활동의 typeProperties 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
@@ -263,9 +271,9 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 | 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from "MySchema"."MyTable""` |아니요(**데이터 집합**의 **tableName**이 지정된 경우) |
 
 > [!NOTE]
-> 스키마 및 테이블 이름은 대/소문자를 구분합니다. 쿼리에서 이름을 ""(큰따옴표)로 묶습니다.
-> 
-> 
+> 스키마 및 테이블 이름은 대/소문자를 구분합니다. 쿼리에서 이름을 ""(큰따옴표)로 묶습니다.  
+>
+>
 
 **예제:**
 
@@ -274,7 +282,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-## DB2에 대한 형식 매핑
+## <a name="type-mapping-for-db2"></a> DB2에 대한 형식 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼, 복사 활동은 다음과 같은 2단계 방식을 사용해 소스 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
@@ -295,21 +303,21 @@ DB2에 데이터를 이동하는 경우 다음 매핑은 DB2 형식에서 .NET �
 | 숫자 |10진수 |
 | Date |Datetime |
 | Time |TimeSpan |
-| Timestamp |DateTime |
-| Xml |바이트 |
+| Timestamp |Datetime |
+| xml |Byte[] |
 | Char |문자열 |
 | VarChar |문자열 |
-| LongVarChar |String |
+| LongVarChar |문자열 |
 | DB2DynArray |문자열 |
-| 이진 |바이트 |
-| VarBinary |바이트 |
-| LongVarBinary |바이트 |
-| Graphic |String |
+| 이진 |Byte[] |
+| VarBinary |Byte[] |
+| LongVarBinary |Byte[] |
+| Graphic |문자열 |
 | VarGraphic |문자열 |
-| LongVarGraphic |String |
-| Clob |String |
-| Blob |바이트 |
-| DbClob |String |
+| LongVarGraphic |문자열 |
+| Clob |문자열 |
+| Blob |Byte[] |
+| DbClob |문자열 |
 | SmallInt |Int16 |
 | Integer |Int32 |
 | BigInt |Int64 |
@@ -321,15 +329,19 @@ DB2에 데이터를 이동하는 경우 다음 매핑은 DB2 형식에서 .NET �
 | 숫자 |10진수 |
 | Date |Datetime |
 | Time |TimeSpan |
-| Timestamp |DateTime |
-| Xml |바이트 |
-| Char |String |
+| Timestamp |Datetime |
+| xml |Byte[] |
+| Char |문자열 |
 
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 [!INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-## 성능 및 튜닝
+## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

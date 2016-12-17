@@ -1,12 +1,12 @@
 ---
-title: 일반 SQL 커넥터 | Microsoft Docs
-description: 이 문서에서는 Microsoft의 일반 SQL 커넥터를 구성하는 방법을 설명합니다.
+title: "일반 SQL 커넥터 | Microsoft Docs"
+description: "이 문서에서는 Microsoft의 일반 SQL 커넥터를 구성하는 방법을 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 14d2eaaa6463437d5b66840f05810588fce4b7da
+
 
 ---
 # <a name="generic-sql-connector-technical-reference"></a>일반 SQL 커넥터 기술 참조
@@ -83,7 +87,7 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 
 **내보내기 형식: 개체 대체**: 내보내는 동안 일부 특성이 변경된 경우 모든 특성을 가진 전체 개체는 내보내지고 기존 개체를 대체합니다.
 
-### <a name="schema-1-(detect-object-types)"></a>스키마1(개체 형식 검색)
+### <a name="schema-1-detect-object-types"></a>스키마1(개체 형식 검색)
 이 페이지에서는 커넥터가 데이터베이스의 다른 개체 형식을 검색하는 방법을 구성하려고 합니다.
 
 모든 개체 형식은 파티션으로 표시되며 **파티션 및 계층 구성**에서 자세히 구성됩니다.
@@ -98,7 +102,7 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
   ![schema1c](./media/active-directory-aadconnectsync-connector-genericsql/schema1c.png)
 * **SQL 쿼리**: 이 옵션을 사용하면 개체 형식을 가진 단일 열을 반환하는 SQL 쿼리를 제공할 수 있습니다.예: `SELECT [Column Name] FROM TABLENAME`. 반환된 열은 형식 문자열(varchar)이어야 합니다.
 
-### <a name="schema-2-(detect-attribute-types)"></a>스키마2(특성 형식 검색)
+### <a name="schema-2-detect-attribute-types"></a>스키마2(특성 형식 검색)
 이 페이지에서 특성 이름 및 형식이 검색될 방법을 구성하려고 합니다. 구성 옵션은 이전 페이지에서 검색된 모든 개체 형식에 대해 나열됩니다.
 
 ![schema2a](./media/active-directory-aadconnectsync-connector-genericsql/schema2a.png)
@@ -108,7 +112,7 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 * **테이블/뷰/저장 프로시저**: 특성 이름을 사용해야 하는 테이블/뷰/저장 프로시저의 이름을 제공합니다. 저장 프로시저를 사용하면 또한 **[Name]:[Direction]:[Value]** 형식에서 매개 변수를 제공합니다. 별도 줄에 각 매개 변수를 제공합니다.(Ctrl + Enter를 사용하여 새 줄 가져옴) 다중값 특성의 특성 이름을 검색하려면 테이블 또는 뷰의 쉼표로 구분된 목록을 제공합니다. 부모 및 자식 테이블에 동일한 열 이름이 있는 경우 다중값 시나리오가 지원되지 않습니다.
 * **SQL 쿼리**: 이 옵션을 사용하면 특성 이름을 가진 단일 열을 반환하는 SQL 쿼리를 제공할 수 있습니다.예: `SELECT [Column Name] FROM TABLENAME`. 반환된 열은 형식 문자열(varchar)이어야 합니다.
 
-### <a name="schema-3-(define-anchor-and-dn)"></a>스키마3(앵커 및 DN 정의)
+### <a name="schema-3-define-anchor-and-dn"></a>스키마3(앵커 및 DN 정의)
 이 페이지에서는 각 검색된 개체 형식에 대해 앵커 및 DN 특성을 구성할 수 있습니다. 앵커를 고유하게 만드는 여러 특성을 선택할 수 있습니다.
 
 ![schema3a](./media/active-directory-aadconnectsync-connector-genericsql/schema3a.png)
@@ -118,7 +122,7 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 * **DN이 앵커** 가 연결 페이지에서 선택되면 이 페이지는 DN 특성에만 필요합니다. 이 특성은 앵커 특성으로도 사용됩니다.
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
-### <a name="schema-4-(define-attribute-type,-reference,-and-direction)"></a>스키마4(특성 형식, 참조 및 방향 정의)
+### <a name="schema-4-define-attribute-type-reference-and-direction"></a>스키마4(특성 형식, 참조 및 방향 정의)
 이 페이지를 사용하면 정수, 이진 또는 부울 값과 같은 특성 형식 및 각 특성에 대한 방향을 구성할 수 있습니다. **스키마2** 페이지에서 모든 특성은 다중값 특성을 포함하여 나열됩니다.
 
 ![schema4a](./media/active-directory-aadconnectsync-connector-genericsql/schema4a.png)
@@ -133,7 +137,7 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 * **중첩 테이블** 은 열이 하나인 데이터베이스 테이블을 고려할 수 있습니다. Oracle은 특정 순서 없이 중첩 테이블의 행을 저장합니다. 그러나 PL/SQL 변수로 중첩 테이블을 검색하는 경우 행은 1부터 시작하는 지정된 연속 첨자입니다. 개별 행에 배열형 액세스를 제공합니다.
 * **VARRYS** 는 커넥터에서 지원되지 않습니다.
 
-### <a name="schema-5-(define-partition-for-reference-attributes)"></a>스키마5(참조 특성에 대한 파티션 정의)
+### <a name="schema-5-define-partition-for-reference-attributes"></a>스키마5(참조 특성에 대한 파티션 정의)
 이 페이지에서는 모든 참조 특성에 대해 특성이 참조하는 파티션(개체 형식)을 구성합니다.
 
 ![schema5](./media/active-directory-aadconnectsync-connector-genericsql/schema5.png)
@@ -153,7 +157,7 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
   * 워터 마크 전략은 삭제된 개체를 지원하지 않습니다.
 * **스냅숏**: (Microsoft SQL Server로만 작동) [스냅숏을 사용하여 델타 뷰 생성](https://technet.microsoft.com/library/cc720640.aspx)
 * **변경 내용 추적**: (Microsoft SQL Server로만 작동) [About 변경 내용 추적](https://msdn.microsoft.com/library/bb933875.aspx)  
-  제한 사항:
+   제한 사항:
   * 앵커 및 DN 특성은 테이블에서 선택한 개체에 대한 기본 키의 일부여야 합니다.
   * 변경 내용 추적을 사용하여 가져오기 및 내보내기를 수행하는 동안 SQL 쿼리가 지원되지 않습니다.
 
@@ -281,6 +285,9 @@ SQL 쿼리 옵션을 선택한 경우 내보내기에는 삽입/업데이트/삭
 ## <a name="troubleshooting"></a>문제 해결
 * 커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731)참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

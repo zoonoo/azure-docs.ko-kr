@@ -1,34 +1,38 @@
 ---
-title: REST API를 사용하여 Azure Mobile Engagement 서비스 API에 액세스
-description: Mobile Engagement REST API를 사용하여 Azure Mobile Engagement 서비스 API에 액세스하는 방법 설명
+title: "REST API를 사용하여 Azure Mobile Engagement 서비스 API에 액세스"
+description: "Mobile Engagement REST API를 사용하여 Azure Mobile Engagement 서비스 API에 액세스하는 방법 설명"
 services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: e8df4897-55ee-45df-b41e-ff187e3d9d12
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/07/2016
+ms.date: 10/05/2016
 ms.author: wesmc;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: 512276d151833ab5c65b663d8f2af43153e1d55b
+
 
 ---
-# REST를 사용하여 Azure Mobile Engagement 서비스 API에 액세스
-Azure Mobile Engagement는 장치, 도달률/푸시 캠페인 등을 관리할 수 있는 [Azure Mobile Engagement REST API](https://msdn.microsoft.com/library/azure/mt683754.aspx)를 제공합니다. 이 샘플에서는 REST API를 직접 사용하여 공지 캠페인을 만든 다음 활성화하고 여러 장치에 푸시합니다.
+# <a name="using-rest-to-access-azure-mobile-engagement-service-apis"></a>REST를 사용하여 Azure Mobile Engagement 서비스 API에 액세스
+Azure Mobile Engagement는 장치, 도달률/푸시 캠페인 등을 관리할 수 있는 [Azure Mobile Engagement REST API](https://msdn.microsoft.com/library/azure/mt683754.aspx)를 제공합니다. 이 샘플에서는 REST API를 직접 사용하여 공지 캠페인을 만든 다음 활성화하고 여러 장치에 푸시합니다. 
 
-REST API를 직접 사용하지 않으려는 분들을 위해, 기본 설정 언어에 대한 SDK를 생성하는 도구와 함께 사용할 수 있는 [Swagger 파일](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)을 제공해 드립니다. Swagger 파일에서 SDK를 생성하는 [AutoRest](https://github.com/Azure/AutoRest) 도구를 사용하는 것이 좋습니다. C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한 방식으로 .NET SDK를 만들었으며 인증 토큰 협상을 수행하거나 새로 고칠 필요가 없습니다. 이 래퍼를 사용하는 비슷한 샘플을 연습하려면 [서비스 API.NET SDK 샘플](mobile-engagement-dotnet-sdk-service-api.md)을 참조하세요.
+REST API를 직접 사용하지 않으려는 분들을 위해, 기본 설정 언어에 대한 SDK를 생성하는 도구와 함께 사용할 수 있는 [Swagger 파일](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) 을 제공해 드립니다. Swagger 파일에서 SDK를 생성하는 [AutoRest](https://github.com/Azure/AutoRest) 도구를 사용하는 것이 좋습니다. C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한 방식으로 .NET SDK를 만들었으며 인증 토큰 협상을 수행하거나 새로 고칠 필요가 없습니다. 이 래퍼를 사용하는 비슷한 샘플을 연습하려면 [서비스 API.NET SDK 샘플](mobile-engagement-dotnet-sdk-service-api.md)
 
-이 샘플에서는 REST API를 직접 사용하여 공지 캠페인을 만들고 활성화합니다.
+이 샘플에서는 REST API를 직접 사용하여 공지 캠페인을 만들고 활성화합니다. 
 
-## Mobile Engagement 앱에 user\_name 앱 정보 추가
-이 샘플에서는 Mobile Engagement 앱에 추가된 앱 정보 태그가 필요합니다. 해당 앱의 참여 포털에서 **설정** > **태그(앱 정보)** > **새 태그(앱 정보)**를 클릭하여 태그를 추가할 수 있습니다. **user\_name**이라는 새 태그를 **문자열** 유형으로 추가합니다.
+## <a name="adding-a-username-appinfo-to-the-mobile-engagement-app"></a>Mobile Engagement 앱에 user_name 앱 정보 추가
+이 샘플에서는 Mobile Engagement 앱에 추가된 앱 정보 태그가 필요합니다. 해당 앱의 Engagement 포털에서 **설정** > **태그(앱 정보)** > **새 태그(앱 정보)**를 클릭하여 태그를 추가할 수 있습니다. **user_name**이라는 새 태그를 **문자열** 유형으로 추가합니다.
 
 ![](./media/mobile-engagement-dotnet-rest-service-api/user-name-app-info.png)
 
-[Windows 유니버설 앱을 위한 Azure Mobile Engagement 시작](mobile-engagement-windows-store-dotnet-get-started.md)의 절차를 진행하셨으면 다음 코드와 비슷한 앱 정보 태그를 보내도록 `MainPage` 클래스에서 `OnNavigatedTo()`를 재정의하여 **user\_name** 태그 전송을 테스트할 수 있습니다.
+[Windows 유니버설 앱을 위한 Azure Mobile Engagement 시작](mobile-engagement-windows-store-dotnet-get-started.md)의 절차를 진행하셨으면 다음 코드와 비슷한 앱 정보 태그를 보내도록 `MainPage` 클래스에서 `OnNavigatedTo()`를 재정의하여 **user_name** 태그 전송을 테스트할 수 있습니다.
 
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
@@ -43,9 +47,9 @@ REST API를 직접 사용하지 않으려는 분들을 위해, 기본 설정 언
 
 
 
-## 서비스 API 앱 만들기
-1. 먼저, 이 샘플에 사용할 인증 매개 변수 네 개가 필요합니다. 이러한 매개 변수는 **SubscriptionId**, **TenantId**, **ApplicationId** 및 **Secret**입니다. 이러한 인증 매개 변수를 가져오려면 [인증](mobile-engagement-api-authentication.md#authentication) 자습서의 *일 회 설정(스크립트 사용)* 섹션에서 언급한 PowerShell 스크립트 접근 방식을 사용하는 것이 좋습니다.
-2. 여기서는 간단한 Windows 콘솔 앱을 사용하여 새로운 알림 캠페인을 만들고 활성화하는 REST 서비스 API를 작업하는 방법을 시연하겠습니다. Visual Studio를 열고 새 **콘솔 응용 프로그램**을 만듭니다.
+## <a name="creating-the-service-api-app"></a>서비스 API 앱 만들기
+1. 먼저, 이 샘플에 사용할 인증 매개 변수 네 개가 필요합니다. 이러한 매개 변수는 **SubscriptionId**, **TenantId**, **ApplicationId** 및 **Secret**입니다. 이러한 인증 매개 변수를 가져오려면 *인증* 자습서의 [일 회 설정(스크립트 사용)](mobile-engagement-api-authentication.md#authentication) 섹션에서 언급한 PowerShell 스크립트 접근 방식을 사용하는 것이 좋습니다. 
+2. 여기서는 간단한 Windows 콘솔 앱을 사용하여 새로운 알림 캠페인을 만들고 활성화하는 REST 서비스 API를 작업하는 방법을 시연하겠습니다. Visual Studio를 열고 새 **콘솔 응용 프로그램**을 만듭니다.   
 3. 다음으로, **Newtonsoft.Json** NuGet 패키지를 프로젝트에 추가합니다.
 4. `Program.cs` 파일에서, 다음 네임 스페이스에 대해 다음 `using` 문을 추가합니다.
    
@@ -67,7 +71,7 @@ REST API를 직접 사용하지 않으려는 분들을 위해, 기본 설정 언
         static String Token = null;
 
         // This is the Azure Resource group concept for grouping together resources 
-        // See: https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-portal/
+        // See: https://azure.microsoft.com/en-us/documentation/articles/resource-group-portal/
         static String ResourceGroup = "MobileEngagement";
 
         // For Mobile Engagement operations
@@ -182,11 +186,11 @@ REST API를 직접 사용하지 않으려는 분들을 위해, 기본 설정 언
             Console.WriteLine("*** Failed to get authorization token. Check your parameters for API calls.\n");
             return;
         }
-2. 유효한 인증 토큰이 생겼으니, 이제 [캠페인 만들기](https://msdn.microsoft.com/library/azure/mt683742.aspx) REST API를 사용하여 새로운 도달률 캠페인을 만들 수 있습니다. 새 캠페인은 제목과 메시지가 포함된 간단한 **언제든지** 및 **알림 전용** 공지 캠페인이 될 것입니다. 이 캠페인은 다음 스크린샷에 표시된 것처럼 수동 푸시 캠페인입니다. 즉, API를 사용하여 푸시되기만 합니다.
+2. 유효한 인증 토큰이 생겼으니, 이제 [캠페인 만들기](https://msdn.microsoft.com/library/azure/mt683742.aspx) REST API를 사용하여 새로운 도달률 캠페인을 만들 수 있습니다. 새 캠페인은 제목과 메시지가 포함된 간단한 **언제든지** & **알림 전용** 공지 캠페인이 될 것입니다. 이 캠페인은 다음 스크린샷에 표시된 것처럼 수동 푸시 캠페인입니다. 즉, API를 사용하여 푸시되기만 합니다.
 
     ![](./media/mobile-engagement-dotnet-rest-service-api/manual-push.png)
 
-    `Main` 메서드에 다음 코드를 추가하여 공지 캠페인을 만듭니다.
+    `Main` 메서드에 다음 코드를 추가하여 공지 캠페인을 만듭니다. 
 
         //*****************************************************************************
         //*** Create a campaign to send a notification using the user-name app-info ***
@@ -196,13 +200,13 @@ REST API를 직접 사용하지 않으려는 분들을 위해, 기본 설정 언
                "resourcegroups/" + ResourceGroup + "/providers/Microsoft.MobileEngagement/appcollections/" +
                Collection + "/apps/" + AppName + "/campaigns/announcements?api-version=2014-12-01";
 
-        String campaignRequestBody = "{ "name": "BirthdayCoupon", " +
-                                        ""type": "only_notif", " +
-                                        ""deliveryTime": "any", " +
-                                        ""notificationType": "popup", " +
-                                        ""pushMode":"manual", " +
-                                        ""notificationTitle": "Happy Birthday ${user_name}", " +
-                                        ""notificationMessage": "Take extra 10% off on your orders today!"}";
+        String campaignRequestBody = "{ \"name\": \"BirthdayCoupon\", " +
+                                        "\"type\": \"only_notif\", " +
+                                        "\"deliveryTime\": \"any\", " +
+                                        "\"notificationType\": \"popup\", " +
+                                        "\"pushMode\":\"manual\", " +
+                                        "\"notificationTitle\": \"Happy Birthday ${user_name}\", " +
+                                        "\"notificationMessage\": \"Take extra 10% off on your orders today!\"}";
 
         Console.WriteLine("Creating new campaign...\n");
         HttpWebResponse newCampaignResponse = ExecuteREST("POST", newCampaignMethodUrl, Token, null, campaignRequestBody).Result;
@@ -226,9 +230,9 @@ REST API를 직접 사용하지 않으려는 분들을 위해, 기본 설정 언
         }
 
 
-1. 장치에 캠페인을 푸시하려면 먼저 캠페인을 활성화해야 합니다. 새 캠페인의 ID는 `NewCampaignID` 변수에 저장되었습니다. 이 변수를 URI 경로 매개 변수로 사용하여 [캠페인 활성화](https://msdn.microsoft.com/library/azure/mt683745.aspx) REST API를 통해 캠페인을 활성화할 수 있습니다. 이렇게 하면 API를 사용하여 캠페인을 수동으로 푸시하더라도 캠페인 상태가 **예약됨**으로 변경됩니다.
+1. 장치에 캠페인을 푸시하려면 먼저 캠페인을 활성화해야 합니다. 새 캠페인의 ID는 `NewCampaignID` 변수에 저장되었습니다. 이 변수를 URI 경로 매개 변수로 사용하여 [캠페인 활성화](https://msdn.microsoft.com/library/azure/mt683745.aspx) REST API를 통해 캠페인을 활성화할 수 있습니다. 이렇게 하면 API를 사용하여 캠페인을 수동으로 푸시하더라도 캠페인 상태가 **예약됨** 으로 변경됩니다.
    
-    `Main` 메서드에 다음 코드를 추가하여 공지 캠페인을 활성화합니다.
+    `Main` 메서드에 다음 코드를 추가하여 공지 캠페인을 활성화합니다. 
    
         //******************************************
         //*** Activate the new birthday campaign ***
@@ -258,7 +262,7 @@ REST API를 직접 사용하지 않으려는 분들을 위해, 기본 설정 언
             Console.WriteLine("*** Failed to activate birthday campaign.\n");
             return;
         }
-2. 캠페인을 푸시하려면 알림을 받을 사용자의 장치 ID를 제공해야 합니다. [장치 쿼리](https://msdn.microsoft.com/library/azure/mt683826.aspx) REST API를 사용하여 모든 장치 ID를 가져오겠습니다. 장치 ID에 연결된 **user\_name** 앱 정보가 있으면 목록에 각 장치 ID를 추가하겠습니다.
+2. 캠페인을 푸시하려면 알림을 받을 사용자의 장치 ID를 제공해야 합니다. [장치 쿼리](https://msdn.microsoft.com/library/azure/mt683826.aspx) REST API를 사용하여 모든 장치 ID를 가져오겠습니다. 장치 ID에 연결된 **user_name** 앱 정보가 있으면 목록에 각 장치 ID를 추가하겠습니다.
    
    `Main` 메서드에 다음 코드를 추가하여 모든 장치 ID를 가져오고 deviceList를 채웁니다.
    
@@ -315,7 +319,7 @@ REST API를 직접 사용하지 않으려는 분들을 위해, 기본 설정 언
                   "/push?api-version=2014-12-01";
    
        Console.WriteLine("Triggering push for new campaign (ID : " + NewCampaignID + ")...\n");
-       String deviceIds = "{"deviceIds":" + JsonConvert.SerializeObject(deviceList) + "}";
+       String deviceIds = "{\"deviceIds\":" + JsonConvert.SerializeObject(deviceList) + "}";
        Console.WriteLine("\n" + deviceIds + "\n");
        HttpWebResponse pushDevicesResponse = ExecuteREST("POST", pushCampaignUrl, Token, null, deviceIds).Result;
        Stream pushDevicesStream = pushDevicesResponse.GetResponseStream();
@@ -425,8 +429,7 @@ REST API를 직접 사용하지 않으려는 분들을 위해, 기본 설정 언
         user_name    : Wesley
 
         Triggering push for new campaign (ID : 24)...
-
-
+        
         {"deviceIds":["1d6208b8f281203ecb49431e2e5ce6b3","302486644890e26045884ee5aa0619ec"]}
 
         HTTP Status 200 : OK
@@ -442,4 +445,8 @@ REST API를 직접 사용하지 않으려는 분들을 위해, 기본 설정 언
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

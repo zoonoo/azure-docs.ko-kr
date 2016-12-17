@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect 동기화: Azure Active Directory에 특성 동기화 | Microsoft Docs'
-description: Azure Active Directory에 동기화된 특성을 나열합니다.
+title: "Azure AD Connect 동기화: Azure Active Directory에 특성 동기화 | Microsoft Docs"
+description: "Azure Active Directory에 동기화된 특성을 나열합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,22 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 ms.author: markvi;andkjell
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5c8ef2d5843463cd919cf81de99c62fdcf99d146
+
 
 ---
-# Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
-이 항목에서는 Azure AD Connect 동기화에 의해 동기화되는 특성을 보여 줍니다. 특성은 관련된 Azure AD 앱으로 그룹화되었습니다.
+# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
+이 항목에서는 Azure AD Connect 동기화에 의해 동기화되는 특성을 보여 줍니다.  
+특성은 관련된 Azure AD 앱으로 그룹화되었습니다.
 
-## 동기화할 특성
-일반적으로 *동기화할 최소 특성 목록*에 대해 궁금해 합니다. 기본 및 권장되는 접근 방법은 클라우드에서 전체 GAL(전체 주소 목록)을 생성하고 Office 365 워크로드의 모든 기능을 사용할 수 있도록 기본 특성을 유지하는 것입니다. 일부 경우에 이 예제(![잘못된 특성](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png))와 같이 이러한 특성은 중요한 데이터 또는 PII(개인 식별 정보) 데이터를 포함하므로 조직에서 클라우드와 동기화하지 않으려는 일부 특성이 있습니다.
+## <a name="attributes-to-synchronize"></a>동기화할 특성
+일반적으로 *동기화할 최소 특성 목록*에 대해 궁금해 합니다. 기본 및 권장되는 접근 방법은 클라우드에서 전체 GAL(전체 주소 목록)을 생성하고 Office 365 워크로드의 모든 기능을 사용할 수 있도록 기본 특성을 유지하는 것입니다. 일부 경우에 이 예제(  
+![잘못된 특성](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
 
-이 경우 이 항목에서 특성의 목록으로 시작하고 중요한 데이터 또는 PII 데이터를 포함하고 동기화할 수 없는 이러한 특성을 식별합니다. 그런 다음 [Azure AD 앱 및 특성 필터링](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering)을 사용하여 설치 중에 이러한 특성을 선택 취소합니다.
+이 경우 이 항목에서 특성의 목록으로 시작하고 중요한 데이터 또는 PII 데이터를 포함하고 동기화할 수 없는 이러한 특성을 식별합니다. 그런 다음 [Azure AD 앱 및 특성 필터링](connect/active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering)을 사용하여 설치 중에 이러한 특성을 선택 취소합니다.
 
 > [!WARNING]
 > 특성을 선택 취소하는 경우 주의해야 하고 동기화가 불가능한 특성만 선택 취소해야 합니다. 다른 특성을 선택 취소하면 기능에 부정적인 영향을 미칠 수도 있습니다.
 > 
 > 
 
-## Office 365 ProPlus
+## <a name="office-365-proplus"></a>Office 365 ProPlus
 | 특성 이름 | 사용자 | 주석 |
 | --- |:---:| --- |
 | accountEnabled |X |활성화된 계정을 정의합니다. |
@@ -41,7 +47,7 @@ ms.author: markvi;andkjell
 | usageLocation |X |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
-## Exchange Online
+## <a name="exchange-online"></a>Exchange Online
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
@@ -163,7 +169,7 @@ ms.author: markvi;andkjell
 | userSMIMECertificates |X |X | | |
 | wWWHomePage |X |X | | |
 
-## SharePoint Online
+## <a name="sharepoint-online"></a>SharePoint Online
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
@@ -196,13 +202,13 @@ ms.author: markvi;andkjell
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
 | hideDLMembership | | |X | |
-| homephone |X |X | | |
+| homePhone |X |X | | |
 | info |X |X |X | |
-| initials |X |X | | |
+| Initials |X |X | | |
 | ipPhone |X |X | | |
 | l |X |X | | |
 | mail |X |X |X | |
-| mailnickname |X |X |X | |
+| mailNickname |X |X |X | |
 | managedBy | | |X | |
 | manager |X |X | | |
 | member | | |X | |
@@ -245,7 +251,7 @@ ms.author: markvi;andkjell
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 | wWWHomePage |X |X | | |
 
-## Lync Online
+## <a name="lync-online"></a>Lync Online
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
@@ -258,7 +264,7 @@ ms.author: markvi;andkjell
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
-| homephone |X |X | | |
+| homePhone |X |X | | |
 | ipPhone |X |X | | |
 | l |X |X | | |
 | mail |X |X |X | |
@@ -294,7 +300,7 @@ ms.author: markvi;andkjell
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 | wWWHomePage |X |X | | |
 
-## Azure RMS
+## <a name="azure-rms"></a>Azure RMS
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
@@ -310,7 +316,7 @@ ms.author: markvi;andkjell
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |이 UPN은 사용자용 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
-## Intune
+## <a name="intune"></a>Intune
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
@@ -319,7 +325,7 @@ ms.author: markvi;andkjell
 | description |X |X |X | |
 | displayName |X |X |X | |
 | mail |X |X |X | |
-| mailnickname |X |X |X | |
+| mailNickname |X |X |X | |
 | member | | |X | |
 | objectSID |X | |X |기계적 속성입니다. Azure AD와 AD 사이의 동기화를 유지하기 위해 사용되는 AD 사용자 식별자입니다. |
 | proxyAddresses |X |X |X | |
@@ -329,7 +335,7 @@ ms.author: markvi;andkjell
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
-## Dynamics CRM
+## <a name="dynamics-crm"></a>Dynamics CRM
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
@@ -362,7 +368,7 @@ ms.author: markvi;andkjell
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
-## 타사 응용 프로그램
+## <a name="3rd-party-applications"></a>타사 응용 프로그램
 이 그룹은 일반 워크로드 또는 응용 프로그램에 필요한 최소한의 특성으로 사용되는 특성 모음입니다. 다른 섹션에 나열되지 않은 워크로드 또는 타사 앱에 사용할 수 있습니다. 다음에 명시적으로 사용됩니다.
 
 * Yammer(User만 사용됨)
@@ -378,7 +384,7 @@ ms.author: markvi;andkjell
 | givenName |X |X | | |
 | mail |X | |X | |
 | managedBy | | |X | |
-| mailNickName |X |X |X | |
+| mailNickname |X |X |X | |
 | member | | |X | |
 | objectSID |X | | |기계적 속성입니다. Azure AD와 AD 사이의 동기화를 유지하기 위해 사용되는 AD 사용자 식별자입니다. |
 | proxyAddresses |X |X |X | |
@@ -388,7 +394,7 @@ ms.author: markvi;andkjell
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
-## Windows 10
+## <a name="windows-10"></a>Windows 10
 Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD에 동기화합니다. 이 시나리오에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)을 참조하세요. 이 특성은 항상 동기화되며 Windows 10은 선택 취소할 수 있는 앱으로 표시되지 않습니다. Windows 10 도메인에 가입된 컴퓨터는 특성 userCertificate를 채우는 것으로 식별됩니다.
 
 | 특성 이름 | 장치 | 주석 |
@@ -403,14 +409,14 @@ Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD
 | operatingSystemVersion |X |deviceOSVersion이라고도 합니다. |
 | userCertificate |X | |
 
-이 특성은 선택한 다른 앱 외에 **사용자**에 대해서도 있습니다.
+이 특성은 선택한 다른 앱 외에 **사용자** 에 대해서도 있습니다.  
 
 | 특성 이름 | 사용자 | 주석 |
 | --- |:---:| --- |
 | domainFQDN |X |dnsDomainName이라고도 합니다. 예를 들어 contoso.com입니다. |
 | domainNetBios |X |netBiosName이라고도 합니다. 예를 들어 CONTOSO입니다. |
 
-## Exchange 하이브리드 쓰기 저장
+## <a name="exchange-hybrid-writeback"></a>Exchange 하이브리드 쓰기 저장
 이 특성들은 **Exchange 하이브리드**를 사용하도록 설정할 때 Azure AD에서 온-프레미스 Active Directory로 다시 기록됩니다. Exchange 버전에 따라 더 적은 특성을 동기화 할 수 있습니다.
 
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
@@ -424,7 +430,7 @@ Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD
 | msExchUserHoldPolicies |X | | |소송 보류: 어떤 사용자가 소송을 보류 중인지 확인하기 위해 클라우드 서비스를 사용합니다. |
 | proxyAddresses |X |X |X |Exchange Online의 x500 주소만 삽입됩니다. |
 
-## 장치 쓰기 저장
+## <a name="device-writeback"></a>장치 쓰기 저장
 Active Directory에 장치 개체를 만듭니다. 이러한 개체는 Azure AD에 가입된 장치이거나 도메인에 가입된 Windows 10 컴퓨터일 수 있습니다.
 
 | 특성 이름 | 장치 | 주석 |
@@ -444,13 +450,18 @@ Active Directory에 장치 개체를 만듭니다. 이러한 개체는 Azure AD�
 | msDS-IsManaged |X | |
 | msDS-RegisteredOwner |X | |
 
-## 참고 사항
+## <a name="notes"></a>참고 사항
 * 대체 ID를 사용하면, 온-프레미스 특성 userPrincipalName은 Azure AD 특성 onPremisesUserPrinciparlName과 동기화됩니다. 대체 ID 특성(예: 메일)은 Azure AD 특성 userPrincipalName과 동기화됩니다.
 * 위의 목록에서 개체 형식 **User**는 개체 형식 **iNetOrgPerson**에도 적용됩니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
