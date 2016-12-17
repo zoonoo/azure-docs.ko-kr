@@ -1,12 +1,12 @@
 ---
-title: 복구 계획 만들기 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 장애 조치(failover)할 복구 계획과 가상 컴퓨터 및 실제 서버의 복구 그룹을 만듭니다.
+title: "복구 계획 만들기 | Microsoft Docs"
+description: "Azure Site Recovery를 사용하여 장애 조치(failover)할 복구 계획과 가상 컴퓨터 및 실제 서버의 복구 그룹을 만듭니다."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3cc2aa0ade25417a1e2a8fb96fc3a059349afa99
+
 
 ---
 # <a name="create-recovery-plans"></a>복구 계획 만들기
@@ -109,6 +113,9 @@ Azure 자동화 Runbook을 계획의 일환으로 실행하여 복구 계획을 
 ## <a name="next-steps"></a>다음 단계
 환경을 확인하는 테스트 장애 조치(failover), 계획되거나 계획되지 않은 장애 조치(failover)를 포함하는 복구 계획의 여러 유형의 장애 조치(failover)를 실행할 수 있습니다. [자세히 알아봅니다](site-recovery-failover.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

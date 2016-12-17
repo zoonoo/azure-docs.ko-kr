@@ -1,28 +1,32 @@
 ---
-title: '기계 학습 API: 텍스트 분석 | Microsoft Docs'
-description: Microsoft의 기계 학습 텍스트 분석 API를 사용하여 정서 분석, 핵심 문구 추출, 언어 검색 및 토픽 검색에 대해 구조화되지 않은 텍스트를 분석할 수 있습니다.
+title: "Machine Learning API: 텍스트 분석 | Microsoft Docs"
+description: "Microsoft의 기계 학습 텍스트 분석 API를 사용하여 정서 분석, 핵심 문구 추출, 언어 검색 및 토픽 검색에 대해 구조화되지 않은 텍스트를 분석할 수 있습니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: onewth
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 5b60694e-5521-4e4d-bf6a-1a92fdf94b65
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2016
+ms.date: 10/04/2016
 ms.author: onewth
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f4389705a81b531bd706cbabc0b4c3b171febd5f
+
 
 ---
-# 기계 학습 API: 정서, 핵심 구문 추출, 언어 검색 및 토픽 검색을 위한 텍스트 분석
+# <a name="machine-learning-apis-text-analytics-for-sentiment-key-phrase-extraction-language-detection-and-topic-detection"></a>기계 학습 API: 정서, 핵심 구문 추출, 언어 검색 및 토픽 검색을 위한 텍스트 분석
 > [!NOTE]
-> 이 가이드는 API의 버전 1용입니다. 버전 2의 경우 [**이 문서를 참조**](../cognitive-services/cognitive-services-text-analytics-quick-start.md)하세요. 현재 버전 2가 기본 설정된 API 버전입니다.
+> 이 가이드는 API의 버전 1용입니다. 버전 2의 경우 [**이 문서를 참조하세요**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). 현재 버전 2가 기본 설정된 API 버전입니다.
 > 
 > 
 
-## 개요
+## <a name="overview"></a>개요
 텍스트 분석 API는 Azure 기계 학습을 사용하여 빌드한 텍스트 분석 [웹 서비스](https://datamarket.azure.com/dataset/amla/text-analytics) 제품군입니다. 이 API를 사용하여 정서 분석, 핵심 문구 추출, 언어 검색 및 토픽 검색과 같은 작업에 대한 구조화되지 않은 텍스트를 분석할 수 있습니다. 학습 데이터 없이 이 API를 사용할 수 있으며, 텍스트 데이터를 가져오기만 하면 됩니다. 이 API는 고급 자연어 처리 기술을 사용하여 클래스 예측을 가장 잘 전달합니다.
 
 [데모 사이트](https://text-analytics-demo.azurewebsites.net/)에서 작업에 대한 텍스트 분석을 볼 수 있으며 이 사이트에는 C# 및 Python에서 텍스트 분석을 구현하는 방법에 대한 [샘플](https://text-analytics-demo.azurewebsites.net/Home/SampleCode)도 있습니다.
@@ -30,21 +34,21 @@ ms.author: onewth
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 - - -
-## 정서 분석
+## <a name="sentiment-analysis"></a>정서 분석
 이 API는 0에서 1 사이의 숫자 점수를 반환합니다. 1에 가까운 점수는 긍정적인 정서를 나타내고, 0에 가까운 점수는 부정적인 정서를 나타냅니다. 정서 점수는 분류 기술을 사용하여 생성됩니다. 분류자의 입력 기능에는 N-그램, 음성 부분 태그에서 생성된 기능 및 단어 포함이 포함됩니다. 현재 지원되는 언어는 영어뿐입니다.
 
-## 핵심 문구 추출
+## <a name="key-phrase-extraction"></a>핵심 문구 추출
 이 API는 입력 텍스트의 핵심 요지를 나타내는 문자열 목록을 반환합니다. Microsoft Office의 정교한 자연어 처리 도구 키트에서 제공되는 기술을 사용합니다. 현재 지원되는 언어는 영어뿐입니다.
 
-## 언어 검색
+## <a name="language-detection"></a>언어 검색
 API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다. 점수가 1에 가까울수록 식별된 언어가 true라는 100% 확실성을 나타냅니다. 총 120개의 언어가 지원됩니다.
 
-## 토픽 검색
+## <a name="topic-detection"></a>토픽 검색
 새로 발표된 API이며 제출된 텍스트 레코드 목록에 대해 검색된 상위 토픽을 반환합니다. 토픽은 핵심 문구로 식별되며 하나 이상의 관련 단어를 가질 수 있습니다. 이 API는 제출되는 텍스트 레코드 수가 100개 이상 필요하지만 수백 개에서 수천 개의 레코드에서 토픽을 검색할 수 있습니다. 이 API는 제출된 텍스트 레코드당 하나의 트랜잭션을 사용합니다. 이 API는 리뷰와 사용자 피드백 등 짧고 직접 작성한 텍스트 사용 시 더 효과적입니다.
 
 - - -
-## API 정의
-### 헤더
+## <a name="api-definition"></a>API 정의
+### <a name="headers"></a>헤더
 다음과 같이 요청에 올바른 헤더가 포함되었는지 확인합니다.
 
     Authorization: Basic <creds>
@@ -55,9 +59,9 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
 [Azure 데이터 마켓](https://datamarket.azure.com/account/keys)에서 계정의 계정 키를 찾을 수 있습니다. 현재는 JSON의 경우에만 입력 및 출력 형식이 허용됩니다. XML은 지원되지 않습니다.
 
 - - -
-## 단일 응답 API
-### GetSentiment
-**URL**
+## <a name="single-response-apis"></a>단일 응답 API
+### <a name="getsentiment"></a>GetSentiment
+**URL**    
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment
 
@@ -75,7 +79,7 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
     }
 
 - - -
-### GetKeyPhrases
+### <a name="getkeyphrases"></a>GetKeyPhrases
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases
@@ -99,14 +103,14 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
     }
 
 - - -
-### GetLanguage
+### <a name="getlanguage"></a>GetLanguage
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguage
 
 **예제 요청**
 
-아래 호출에서는 *Hello World* 텍스트의 핵심 문구에 대한 정서를 요청합니다.
+아래 호출에서는 *Hello World*
 
     GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguages?
     Text=Hello+World
@@ -124,16 +128,16 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
 
 **선택적 매개 변수**
 
-`NumberOfLanguagesToDetect`는 선택적 매개 변수입니다. 기본값은 1입니다.
+`NumberOfLanguagesToDetect` 는 선택적 매개 변수입니다. 기본값은 1입니다.
 
 - - -
-## 배치 API
+## <a name="batch-apis"></a>배치 API
 텍스트 분석 서비스를 통해 배치 모드에서 정서 및 키 구문 추출 작업을 수행할 수 있습니다. 점수가 매겨진 각 레코드는 하나의 트랜잭션으로 계산됩니다. 예를 들어 단일 호출에서 1000개의 레코드에 대한 정서를 요청하면 1000개의 트랜잭션이 공제됩니다.
 
-시스템에 입력한 ID가 시스템에서 반환한 ID입니다. 웹 서비스는 이러한 ID가 고유한지 검사하지 않습니다. 호출자가 고유성을 확인해야 합니다.
+시스템에 입력한 ID가 시스템에서 반환한 ID입니다. 웹 서비스는 이러한 ID가 고유한지 검사하지 않습니다. 호출자가 고유성을 확인해야 합니다. 
 
-### GetSentimentBatch
-**URL**
+### <a name="getsentimentbatch"></a>GetSentimentBatch
+**URL**    
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch
 
@@ -167,14 +171,14 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
 
 
 - - -
-### GetKeyPhrasesBatch
+### <a name="getkeyphrasesbatch"></a>GetKeyPhrasesBatch
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
 
 **예제 요청**
 
-이 예제에서는 다음 텍스트의 핵심 문구에 대한 정서 목록을 요청합니다.
+이 예제에서는 다음 텍스트의 핵심 문구에 대한 정서 목록을 요청합니다. 
 
 * "It was a wonderful hotel to stay at, with unique decor and friendly staff"
 * "It was an amazing build conference, with very interesting talks"
@@ -205,8 +209,10 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
         "Errors":[]
     }
 
-- - -
-### GetLanguageBatch
+---
+
+### <a name="getlanguagebatch"></a>GetLanguageBatch
+
 아래의 POST 호출에서는 두 텍스트 입력에 대한 언어 검색을 요청하고 있습니다.
 
     POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguageBatch
@@ -243,14 +249,14 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
        }],
        "Errors": []
     }
+---
 
-- - -
-## 토픽 검색 API
+## <a name="topic-detection-apis"></a>토픽 검색 API
 새로 발표된 API이며 제출된 텍스트 레코드 목록에 대해 검색된 상위 토픽을 반환합니다. 토픽은 핵심 문구로 식별되며 하나 이상의 관련 단어를 가질 수 있습니다. 이 API는 제출된 텍스트 레코드당 하나의 트랜잭션을 사용합니다.
 
 이 API는 제출되는 텍스트 레코드 수가 100개 이상 필요하지만 수백 개에서 수천 개의 레코드에서 토픽을 검색할 수 있습니다.
 
-### 토픽 - 작업 제출
+### <a name="topics-submit-job"></a>토픽 - 작업 제출
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection
@@ -279,9 +285,9 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
         "JobId":"<JobId>"
     }
 
-토픽으로 반환할 수 없는 한 단어 또는 여러 단어 문구의 목록입니다. 매우 일반적인 토픽을 필터링하는 데 사용할 수 있습니다. 예를 들어 호텔 리뷰에 대한 데이터 집합에서 "호텔" 및 "호스텔"은 합리적인 중지 문구가 될 수 있습니다.
+토픽으로 반환할 수 없는 한 단어 또는 여러 단어 문구의 목록입니다. 매우 일반적인 토픽을 필터링하는 데 사용할 수 있습니다. 예를 들어 호텔 리뷰에 대한 데이터 집합에서 "호텔" 및 "호스텔"은 합리적인 중지 문구가 될 수 있습니다.  
 
-### 토픽 - 작업 결과에 대한 설문 조사
+### <a name="topics-poll-for-job-results"></a>토픽 - 작업 결과에 대한 설문 조사
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult
@@ -356,4 +362,9 @@ API는 다음과 같은 형식의 JSON 형식으로 출력을 반환합니다.
 | TopicId |레코드가 할당된 토픽 ID입니다. |
 | Distance |레코드가 토픽에 속할 신뢰도입니다. Distance가 0에 가까울수록 신뢰도가 높아집니다. |
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

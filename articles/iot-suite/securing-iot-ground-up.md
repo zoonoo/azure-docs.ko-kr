@@ -1,13 +1,13 @@
 ---
-title: 처음부터 사물 인터넷 보안 설정 | Microsoft Docs
-description: 이 문서에서는 Microsoft Azure IoT Suite의 기본 제공 보안 기능에 대해 설명합니다.
-services: ''
+title: "처음부터 사물 인터넷 보안 설정 | Microsoft Docs"
+description: "이 문서에서는 Microsoft Azure IoT Suite의 기본 제공 보안 기능에 대해 설명합니다."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: YuriDio
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 10252dfa-8313-4a97-9bd6-a3f1345dd3be
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cf081967fa7a9f37e124fdbfd9a97a71566238a0
+
 
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 IoT 솔루션 보안 유지에 대한 자세한 내용은 다음을 참조하세요.
 
 * [IoT 보안 모범 사례][lnk-security-best-practices]
@@ -38,4 +42,8 @@ IoT 솔루션 보안 유지에 대한 자세한 내용은 다음을 참조하세
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

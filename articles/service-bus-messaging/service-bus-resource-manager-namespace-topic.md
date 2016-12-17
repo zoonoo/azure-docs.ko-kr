@@ -1,41 +1,45 @@
 ---
-title: Azure Resource Manager 템플릿을 사용하여 토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기 | Microsoft Docs
-description: Azure Resource Manager 템플릿을 사용하여 토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기
-services: service-bus
+title: "Azure Resource Manager 템플릿을 사용하여 토픽 및 구독이 있는 Service Bus 네임스페이스 만들기 | Microsoft Docs"
+description: "Azure Resource Manager 템플릿을 사용하여 토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: d3d55200-5c60-4b5f-822d-59974cafff0e
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 10/14/2016
 ms.author: sethm;shvija
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d4c3da81e4f809bba252738c783f66a62f116eaa
+
 
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기
 이 문서에서는 토픽 및 구독이 있는 서비스 버스 네임스페이스를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
 
-템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][Azure Resource Manager 템플릿 작성]을 참조하세요.
+템플릿을 만드는 더 자세한 내용은 [Azure Resource Manager 템플릿 작성][Azure Resource Manager 템플릿 작성]를 참조하세요.
 
 전체 템플릿은 [토픽 및 구독이 있는 서비스 버스 네임스페이스][토픽 및 구독이 있는 서비스 버스 네임스페이스] 템플릿을 참조하세요.
 
 > [!NOTE]
 > 다음 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다.
 > 
-> * [큐 및 권한 부여 규칙이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
-> * [큐가 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
 > * [서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
-> * [이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스 만들기](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
+> * [큐가 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
+> * [큐 및 권한 부여 규칙이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
+> * [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> 최신 템플릿을 확인하려면 서비스 버스에 대한 [Azure 빠른 시작 템플릿][Azure 빠른 시작 템플릿] 갤러리 및 검색을 방문하세요.
+> 최신 템플릿을 확인하려면 "Service Bus"에 대한 [Azure 빠른 시작 템플릿][Azure 빠른 시작 템플릿] 갤러리 및 검색을 방문하세요.
 > 
 > 
 
-## <a name="what-will-you-deploy?"></a>배포할 항목
+## <a name="what-will-you-deploy"></a>배포할 항목
 이 템플릿을 사용하여 토픽 및 구독이 있는 서비스 버스 네임스페이스를 배포합니다.
 
 [Service Bus 토픽 및 구독](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)은 *게시/구독* 패턴으로 일 대 다 형태의 통신을 제공합니다.
@@ -151,6 +155,6 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

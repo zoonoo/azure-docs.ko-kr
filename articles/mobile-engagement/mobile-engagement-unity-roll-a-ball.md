@@ -1,12 +1,12 @@
 ---
-title: Unity Roll a Ball tutorial
-description: Steps to create the classic Unity Roll a Ball game which is a pre-requisite for all Mobile Engagement Unity tutorials
+title: "Unity Roll a Ball 자습서"
+description: "모든 Mobile Engagement Unity의 필수 조건인 고전 Unity Roll a Ball 게임을 만드는 단계를 설명합니다."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0afd0eca-f74a-43aa-bba8-436a0265c312
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,68 +14,72 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
+
 
 ---
-# <a name="<a-id="unity-roll-a-ball"></a>create-unity-roll-a-ball-game"></a><a id="unity-roll-a-ball"></a>Create Unity Roll a Ball game
-This tutorial walks through the main steps for a slightly modified [Unity Roll a Ball tutorial](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial). This sample game consists of a spherical 'player' object which is controlled by the app user and the objective of the game is to 'collect' collectible objects by colliding the player object with these collectible objects. This assumes basic familiarity with Unity editor environment. If you run into any issues then you should refer to the full tutorial. 
+# <a name="a-idunity-roll-a-ballacreate-unity-roll-a-ball-game"></a><a id="unity-roll-a-ball"></a>Unity Roll a Ball 게임 만들기
+이 자습서에서는 약간 수정된 [Unity Roll a Ball 자습서](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial)의 주요 단계를 다룹니다. 이 샘플 게임은 앱 사용자에 의해 제어되는 구 모양의 '플레이어' 개체로 구성되며, 플레이어 개체를 수집 가능한 개체와 충돌하여 수집 가능한 개체를 '수집'하는 것이 이 게임의 목표입니다. 이 자습서는 여러분이 Unity 편집기 환경에 대한 기본 지식을 갖춘 것으로 가정하고 진행됩니다. 문제가 발생하면 전체 자습서를 참조하셔야 합니다. 
 
-### <a name="setting-up-the-game"></a>Setting up the game
-The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up?playlist=17141)
+### <a name="setting-up-the-game"></a>게임 설정
+아래 단계는 [Unity 자습서](https://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up?playlist=17141)
 
-1. Open **Unity Editor** and click **New**. 
+1. **Unity 편집기**를 열고 **새로 만들기**를 클릭합니다. 
    
     ![][51] 
-2. Provide a **Project name** & **Location**, select **3D** and click **Create project**.
+2. **프로젝트 이름** & **위치**를 입력하고, **3D**를 선택한 다음 **프로젝트 만들기**를 클릭합니다.
    
     ![][52]
-3. Save the default scene just created as part of the new project as with the name **MiniGame** within a new **\_Scenes** folder under **Assets** folder:
+3. 방금 위에서 새 프로젝트의 일부로 만든 기본 장면을 **Assets** 폴더의 새로운 **\_Scenes** 폴더 안에 **MiniGame**이라는 이름으로 저장합니다.
    
     ![][53]
-4. Create a **3D Object -> Plane** as the playing field and rename this plane object as **Ground**
+4. 플레이 필드로 **3D 개체 -> 평면**을 만들고 이 평면 개체의 이름을 **Ground**로 변경합니다.
    
     ![][1]
-5. Reset the transform component for this **Ground** object so that it is at the Origin. 
+5. 이 **Ground** 개체가 원점에 위치하도록 변환 구성 요소를 다시 설정합니다. 
    
     ![][3]
-6. Uncheck **Show Grid** from **Gizmos menu** for the **Ground** object.
+6. **Ground** 개체의 **Gizmos 메뉴**에서 **눈금 표시**의 선택을 취소합니다.
    
     ![][4]
-7. Update the **Scale** component for the **Ground** object to be [X = 2,Y = 1, Z = 2]. 
+7. **Ground** 개체의 **규모** 구성 요소를 [X = 2,Y = 1, Z = 2]로 업데이트합니다. 
    
     ![][5]
-8. Add a new **3D Object -> Sphere** to the project and rename this sphere object as **Player**. 
+8. 프로젝트에 새로운 **3D 개체 -> 구**를 추가하고 이 구 개체의 이름을 **Player**로 변경합니다. 
    
     ![][6]
-9. Select the **Player** object and click **Reset Transform** similar to the Plane object. 
-10. Update **Transform -> Position -> Y Coordinate** component for the Player Y as 0.5.  
+9. **Player** 개체를 선택하고 평면 개체와 마찬가지로 **변형 다시 설정**을 클릭합니다. 
+10. Player Y의 **변형 -> 위치 -> Y 좌표** 구성 요소를 0.5로 업데이트합니다.  
     
     ![][7]
-11. Create a new folder called **Materials** in the project where we will create the material to color the player. 
-12. Create a new **Material** called **Background** in this folder. 
+11. 프로젝트에서 **Materials** 라는 새 폴더를 만들고 여기서 플레이어에게 색을 입힐 재질을 만들겠습니다. 
+12. 이 폴더에 **백그라운드**라고 하는 새 **재질**을 만듭니다. 
     
     ![][8]
-13. Update the color of the material by updating the **Albedo** property of it. You can select the RGB values of [0,32,64]. 
+13. 재질의 **Albedo** 속성을 업데이트하여 재질 색상을 업데이트합니다. RGB 값으로 [0,32,64]를 선택할 수 있습니다. 
     
     ![][9]
-14. Drag this material into the scene view to apply color to the **Ground** object. 
+14. 이 재질을 장면 보기로 끌어서 **Ground** 개체에 색상을 적용합니다. 
     
     ![][10]
-15. Finally update the **Transform -> Rotation -> Y** to 60 on the Directional Light object for clarity. 
+15. 마지막으로 선명도를 높이기 위해 [Directional Light] 개체에서 **변형 -> 회전 -> Y**를 60으로 업데이트합니다. 
     
     ![][12]
 
-### <a name="moving-the-player"></a>Moving the player
-The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-player?playlist=17141)
+### <a name="moving-the-player"></a>플레이어 업데이트
+아래 단계는 [Unity 자습서](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-player?playlist=17141)
 
-1. Add a **RigidBody** component to the **Player** object. 
+1. **Player** 개체에 **RigidBody** 구성 요소를 추가합니다. 
    
     ![][13]
-2. Create a new folder called **Scripts** in the Project. 
-3. Click **Add Component-> New Script -> C# Script**. Name it **PlayerController**, and click **Create and Add**. This will create and attach a script to the Player object.  
+2. 프로젝트에서 **Scripts** 라고 하는 새 폴더를 만듭니다. 
+3. **구성 요소 추가 -> 새 스크립트 -> C# 스크립트**를 클릭합니다. 이름을 **PlayerController**로 지정하고 **만들기 및 추가**를 클릭합니다. 그러면 스크립트가 생성되어 플레이어 개체에 연결될 것입니다.  
    
     ![][14]
-4. Move this script under the **Scripts** folder in the project. 
-5. Open the script for editing in your favorite script editor, update the script code with the following code and save it. 
+4. 이 스크립트를 프로젝트의 **Scripts** 폴더로 이동합니다. 
+5. 스크립트를 편집하기 위해 선호하는 스크립트 편집기에서 스크립트를 열고, 다음 코드를 사용하여 스크립트 코드를 업데이트하고 저장합니다. 
    
         using UnityEngine;
         using System.Collections;
@@ -96,22 +100,22 @@ The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorial
                 rb.AddForce (movement * speed);
             }
         }
-6. Note that the script above uses a **Speed** property. In the Unity editor, update the speed property to 10.  
+6. 위의 스크립트는 **Scripts** 속성을 사용합니다. Unity 편집기에서 Scripts 속성을 10으로 업데이트합니다.  
    
     ![][15]
-7. Hit **Play** in the Unity Editor. Now you should be able to control the ball using the keyboard and it should rotate and move around. 
+7. Unity 편집기에서 **Play** 를 누릅니다. 이제 키보드를 사용하여 공을 회전하고 주변을 이동하면서 제어할 수 있을 것입니다. 
 
-### <a name="moving-the-camera"></a>Moving the camera
-The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-camera?playlist=17141) and will tie the **Main Camera** to the **Player** object. 
+### <a name="moving-the-camera"></a>카메라 이동
+아래 단계는 [Unity 자습서](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-camera?playlist=17141)에서 가져온 것이며 **주 카메라**를 **Player** 개체에 연결할 것입니다. 
 
-1. Update the **Transform.Position** to be X = 0,  Y = 10.5, Z=-10.  
-2. Update the **Transform.Rotation** to be X = 45, Y = 0, Z = 0.  
+1. **Transform.Position**을 X = 0, Y = 10.5, Z=-10으로 업데이트합니다.  
+2. **Transform.Rotation** 을 X = 45, Y = 0, Z = 0으로 업데이트합니다.  
    
     ![][16]
-3. Add a new script called **CameraController** to the **MainCamera** and move it under the Scripts folder. 
+3. **MainCamera**에 **CameraController**라고 하는 새 스크립트를 추가하고 해당 스크립트를 [Scripts] 폴더로 이동합니다. 
    
     ![][17]
-4. Open up the script for editing and add the following code in it:
+4. 편집을 위해 해당 스크립트를 열고 다음 코드를 추가합니다.
    
         using UnityEngine;
         using System.Collections;
@@ -132,44 +136,44 @@ The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorial
                 transform.position = player.transform.position + offset;
             }
         }
-5. In Unity environment - drag the Player variable into the Player slot for the Main Camera object so that the two are associated with one another. 
+5. Unity 환경에서 플레이어 변수를 주 카메라 개체의 플레이어 슬롯으로 끌어다 놓아 서로 연결합니다. 
    
     ![][18]
-6. Now if you hit Play in the Unity editor and rotate the Player Ball object then you will see the Camera following it in the movement.  
+6. 이제 Unity 편집기에서 Play를 누르고 플레이어 볼 개체를 회전하면 환경에서 카메라가 플레이어 볼 개체를 따라다니는 것을 볼 수 있습니다.  
 
-### <a name="setting-up-the-play-area"></a>Setting up the Play area
-The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorials/projects/roll-a-ball/setting-up-the-play-area?playlist=17141). We will create the Walls surrounding the Ground so that the Player Ball object doesn't drop off the play area in its movement. 
+### <a name="setting-up-the-play-area"></a>플레이 영역 설정
+아래 단계는 [Unity 자습서](https://unity3d.com/learn/tutorials/projects/roll-a-ball/setting-up-the-play-area?playlist=17141)에서 가져온 것입니다. 플레이어 볼 개체가 이동하다가 플레이 영역에서 떨어지지 않도록 그라운드를 둘러싸는 벽을 만들겠습니다. 
 
-1. Click **Create -> Create Empty -> Game Object** and name it **Walls**
+1. **만들기 -> 빈 항목 만들기 -> Game 개체**를 클릭하고 이름을 **벽**으로 지정합니다.
    
     ![][19]
-2. Under this Walls object - create a new **3D Object -> Cube** and name it "West wall". 
+2. 이 벽 개체에서 새 **3D 개체 -> 큐브**를 만들고 이름을 "서쪽 벽"으로 지정합니다. 
    
     ![][20]
-3. Update the **Transform -> Position** and **Transform -> Scale** for this West Wall object. 
+3. 이 서쪽 벽 개체의 **변형 -> 위치** 및 **변형 -> 규모**를 업데이트합니다. 
    
     ![][21]
-4. Duplicate the West wall to create an **East wall** with the updated transform position and scale. 
+4. 서쪽 벽을 복제하고 변환 위치 및 배율을 업데이트하여 **동쪽 벽** 을 만듭니다. 
    
     ![][22]
-5. Duplicate the East wall to create a **North wall** with the updated transform position & scale. 
+5. 동쪽 벽을 복제하고 변환 위치 및 배율을 업데이트하여 **북쪽 벽**을 만듭니다. 
    
     ![][23]
-6. Duplicate the North wall and create a **South wall** with the updated transform position & scale. 
+6. 북쪽 벽을 복제하고 변환 위치 및 배율을 업데이트하여 **남쪽 벽**을 만듭니다. 
    
     ![][24]
 
-### <a name="creating-collectible-objects"></a>Creating Collectible objects
-The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorials/projects/roll-a-ball/creating-collectables?playlist=17141). We will create some attractive looking objects which will form the set of collectible objects which the Player Ball object needs to 'collect' by colliding with them. 
+### <a name="creating-collectible-objects"></a>수집 가능한 개체 만들기
+아래 단계는 [Unity 자습서](https://unity3d.com/learn/tutorials/projects/roll-a-ball/creating-collectables?playlist=17141)에서 가져온 것입니다. 수집 가능한 개체 집합을 형성하는 멋진 개체를 만들어 보겠습니다. 플레이어 볼 개체는 수집 가능한 개체와 충돌하여 '수집'할 수 있습니다. 
 
-1. Create a new **3D Cube object** and name it Pickup. 
-2. Adjust the **Transform -> Rotation** & **Transform -> Scale** of the Pickup object. 
+1. 새 **3D 큐브 개체** 를 만들고 이름을 Pickup으로 지정합니다. 
+2. Pickup 개체의 **변형 -> 회전** & **변형 -> 규모**를 조정합니다. 
    
     ![][25]
-3. Create and attach a **new C# Script** called **Rotator** to the Pickup object. Make sure to put the script under the Scripts folder. 
+3. **Rotator**라고 하는 **새 C# 스크립트**를 만들어서 Pickup 개체에 연결합니다. 이 스크립트를 Scripts 폴더에 배치합니다. 
    
     ![][26]
-4. Open this script for editing and update it to be the following: 
+4. 편집을 위해 이 스크립트를 열고 다음과 같이 업데이트합니다. 
    
         using UnityEngine;
         using System.Collections;
@@ -181,30 +185,30 @@ The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorial
                 transform.Rotate (new Vector3 (15, 30, 45) * Time.deltaTime);
             }
         }
-5. Now hit the Play mode in the Unity Editor and your Pickup object show be rotating on its axis.
-6. Create a new folder called **Prefabs** 
+5. 이제 Unity 편집기에서 Play를 누르면 Pickup 개체가 축에서 회전할 것입니다.
+6. 프로젝트에서 **Prefabs** 
    
     ![][27]
-7. Drag the **Pickup** object and put it in the Prefabs folder.
+7. **Pickup** 개체를 Prefabs 폴더에 끌어다 놓습니다.
    
     ![][28]
-8. Create a new **Empty Game object** called **Pickups**. Reset its position to origin and then drag the Pickup object under this game object.  
+8. **Pickups**라고 하는 **빈 게임 개체**를 새로 만듭니다. 이 게임 개체의 위치를 원점으로 다시 설정한 다음 Pickup 개체를 이 게임 개체 아래로 끌어다 놓습니다.  
    
     ![][29]
-9. Duplicate the **Pickup** object and spread it on the **Ground** object around the **Player** object by updating the **Transform.Position's X & Z** values appropriately. 
+9. **Pickup** 개체를 복제하고 **Transform.Position의 X 및 Z** 값을 적절하게 업데이트하여 **Player** 개체 주변의 **Ground** 개체에 분산합니다. 
    
     ![][30]
-10. Create a **new material** called **Pickup** and update it to be Red in color by updating the **Albedo property** similar to what we did for updating the Ground object. 
+10. **Pickup**이라고 하는 **새 재질**을 만들고 Ground 개체를 업데이트했던 것과 비슷한 방법으로 **Albedo 속성**을 빨간색으로 업데이트합니다. 
     
     ![][31]
-11. Apply the material to all the 4 pickup objects.
+11. Pickup 개체 4개 모두에 재질을 적용합니다.
     
     ![][32]
 
-### <a name="collecting-the-pickup-objects"></a>Collecting the Pickup objects
-The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorials/projects/roll-a-ball/collecting-pick-up-objects?playlist=17141). We will update the Player so that it is able to 'collect' the pickup objects by colliding with them. 
+### <a name="collecting-the-pickup-objects"></a>Pickup 개체 수집
+아래 단계는 [Unity 자습서](https://unity3d.com/learn/tutorials/projects/roll-a-ball/collecting-pick-up-objects?playlist=17141)에서 가져온 것입니다. 플레이어가 Pickup 개체와 충돌하는 방법으로 Pickup 개체를 '수집'할 수 있도록 플레이어를 업데이트하겠습니다. 
 
-1. Open up the **PlayerController** script attached to the Player object for editing and update it to the following:  
+1. 편집을 위해 Player 개체에 연결된 **PlayerController** 스크립트를 열고 다음과 같이 업데이트합니다.  
    
         using UnityEngine;
         using System.Collections;
@@ -238,29 +242,29 @@ The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorial
                 }
             }
         }
-2. Create a new **Tag** called **Pick Up** (it must match what is in the script)  
+2. **Pick Up**이라고 하는 새 **태그**를 만듭니다(스크립트에 있는 것과 일치해야 함).  
    
     ![][33]
    
     ![][34]
-3. Apply this **Tag** to the Prefab Pickup object. 
+3. 이 **태그** 를 Prefab Pickup 개체에 적용합니다. 
    
     ![][35]
-4. Enable **IsTrigger** checkbox for the Prefab object.
+4. Prefab 개체의 **IsTrigger** 확인란을 활성화합니다.
    
     ![][36]
-5. Add a Rigid body to Pickup Prefab object. For performance optimization we will update the static collider that we used to a Dynamic collider. 
+5. Pickup Prefab 개체에 Rigid 바디를 추가합니다. 성능 최적화를 위해 동적 충돌체에 사용된 정적 충돌체를 업데이트하겠습니다. 
    
     ![][37]
-6. Finally check the **IsKinematic** property for the prefab object. 
+6. 마지막으로 Prefab 개체의 **IsKinematic** 속성을 확인합니다. 
    
     ![][38]
-7. Hit **Play** in the Unity editor and you will be able to play this **Roll a Ball** game by moving the Player object using your keyboard keys for direction input. 
+7. Unity 편집기에서 **플레이**를 누르면 키보드의 방향 키로 Player 개체를 이동하여 이 **Roll a Ball** 게임을 플레이할 수 있습니다. 
 
-### <a name="updating-the-game-for-mobile-play"></a>Updating the game for mobile play
-The sections above concluded the basic tutorial from Unity. Now we will modify the game to make it mobile device friendly. Note that we used keyboard input for the game so far for testing. Now we will modify it so that we can control the player by using the motion of the phone i.e. using Accelerometer as the input. 
+### <a name="updating-the-game-for-mobile-play"></a>모바일 플레이가 가능하도록 게임 업데이트
+Unity의 기본 자습서는 위의 섹션에서 끝입니다. 이제 모바일 장치에서 쉽게 플레이할 수 있도록 게임을 수정하겠습니다. 지금까지는 게임 테스트에서 키보드 입력을 사용했습니다. 이제는 스마트폰 동작을 사용하여(예: 가속도계를 입력으로 사용)  플레이어를 제어할 수 있도록 게임을 수정하겠습니다. 
 
-Open up the **PlayerController** script for editing and update the **FixedUpdate** method to use the motion from the accelerometer to move the Player object. 
+편집을 위해 **PlayerController** 스크립트를 열고, 가속도계의 동작을 사용하여 Player 개체를 이동하도록 **FixedUpdate** 메서드를 업데이트합니다. 
 
         void FixedUpdate()
         {
@@ -270,10 +274,10 @@ Open up the **PlayerController** script for editing and update the **FixedUpdate
             rb.AddForce(Input.acceleration.x * Speed, 0, -Input.acceleration.z * Speed);
         }
 
-This tutorial concludes a basic game creation with Unity and you can deploy this on a device of your choice to play the game. 
+이 자습서는 Unity를 사용하여 기본적인 게임을 만드는 방법을 설명하며, 만든 게임을 원하는 장치에 배포하여 플레이할 수 있습니다. 
 
 <!-- Images -->
-[1]: ./media/mobile-engagement-unity-roll-a-ball/1.png  
+[1]: ./media/mobile-engagement-unity-roll-a-ball/1.png    
 [2]: ./media/mobile-engagement-unity-roll-a-ball/2.png
 [3]: ./media/mobile-engagement-unity-roll-a-ball/3.png
 [4]: ./media/mobile-engagement-unity-roll-a-ball/4.png
@@ -281,7 +285,7 @@ This tutorial concludes a basic game creation with Unity and you can deploy this
 [6]: ./media/mobile-engagement-unity-roll-a-ball/6.png
 [7]: ./media/mobile-engagement-unity-roll-a-ball/7.png
 [8]: ./media/mobile-engagement-unity-roll-a-ball/8.png
-[9]: ./media/mobile-engagement-unity-roll-a-ball/9.png  
+[9]: ./media/mobile-engagement-unity-roll-a-ball/9.png    
 [10]: ./media/mobile-engagement-unity-roll-a-ball/10.png    
 [11]: ./media/mobile-engagement-unity-roll-a-ball/11.png    
 [12]: ./media/mobile-engagement-unity-roll-a-ball/12.png
@@ -330,6 +334,6 @@ This tutorial concludes a basic game creation with Unity and you can deploy this
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

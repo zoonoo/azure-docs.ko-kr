@@ -1,12 +1,12 @@
 ---
-title: Log Analytics를 사용하여 Azure 진단 로그 분석 | Microsoft Docs
-description: Log Analytics는 JSON 형식의 Blob Storage에 Azure 진단 로그를 기록하는 Azure 서비스에서 로그를 읽어올 수 있습니다.
+title: "Log Analytics를 사용하여 Azure 진단 로그 분석 | Microsoft Docs"
+description: "Log Analytics는 JSON 형식의 Blob Storage에 Azure 진단 로그를 기록하는 Azure 서비스에서 로그를 읽어올 수 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: adf2f366-ea98-4250-ae66-6d2cfce5b4f9
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 08274c03dd1ebb7533efde4c01744ed5293fb4dd
+
 
 ---
-# <a name="analyze-azure-diagnostic-logs-using-log-analytics"></a>Log Analytics를 사용하여 Azure 진단 로그 분석
+# <a name="analyze-azure-diagnostic-logs-using-log-analytics"></a>Log Analytics를 사용하여 Azure 진단 로그 분석 
 Log Analytics는 JSON 형식의 Blob Storage에 [Azure 진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)를 기록하는 다음 Azure 서비스에 대해 로그를 읽을 수 있습니다.
 
 * 자동화(Preview)
@@ -80,7 +84,7 @@ Log Analytics 구성을 지원하기 위해 다음 두 개의 cmdlet을 내보�
 4. AzureDiagnosticsAndLogAnalytics PowerShell 모듈
    * PowerShell 갤러리에서 [AzureDiagnosticsAndLogAnalytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/) 모듈을 다운로드합니다.
 
-### <a name="option-1:-run-the-interactive-configuration-scripts"></a>옵션 1: 대화형 구성 스크립트 실행
+### <a name="option-1-run-the-interactive-configuration-scripts"></a>옵션 1: 대화형 구성 스크립트 실행
 PowerShell을 열고 실행합니다.
 
 ```
@@ -106,7 +110,7 @@ Add-AzureDiagnosticsToLogAnalyticsUI
 
 이 스크립트를 실행하면 새 진단 데이터가 저장소에 기록되고 약 30분 후에 Log Analytics에서 레코드가 표시됩니다. 이 시간 후에 레코드를 사용할 수 없으면 아래의 문제 해결 섹션을 참조하세요.
 
-### <a name="option-2:-build-a-list-of-resources-and-pass-them-to-the-configuration-cmdlet"></a>옵션 2: 리소스 목록 작성 및 구성 cmdlet에 전달
+### <a name="option-2-build-a-list-of-resources-and-pass-them-to-the-configuration-cmdlet"></a>옵션 2: 리소스 목록 작성 및 구성 cmdlet에 전달
 Azure 진단이 설정된 리소스 목록을 작성하고 해당 리소스를 구성 cmdlet에 전달할 수 있습니다.
 
 `Get-Help Add-AzureDiagnosticsToLogAnalytics`를 실행하여 cmdlet에 대한 추가 정보를 확인할 수 있습니다.
@@ -233,6 +237,9 @@ Get-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $logAnalyticsWor
 * [솔루션을 사용하도록 설정](log-analytics-add-solutions.md) 하여 데이터에 대한 정보를 제공합니다.
 * [검색 쿼리를 사용](log-analytics-log-searches.md) 하여 데이터를 분석합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

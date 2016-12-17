@@ -1,12 +1,12 @@
 ---
-title: Azure 배치의 태스크 종속성| Microsoft Docs
-description: Azure 배치에서 MapReduce 스타일과 비슷한 빅 데이터 워크로드를 처리하기 위해 다른 태스크를 성공적으로 완료하는 데 종속된 태스크를 만듭니다.
+title: "Azure 배치의 태스크 종속성| Microsoft Azure"
+description: "Azure 배치에서 MapReduce 스타일과 비슷한 빅 데이터 워크로드를 처리하기 위해 다른 태스크를 성공적으로 완료하는 데 종속된 태스크를 만듭니다."
 services: batch
 documentationcenter: .net
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c16850788a4c22c964037f28bf955e570551142d
+
 
 ---
 # <a name="task-dependencies-in-azure-batch"></a>Azure 배치의 태스크 종속성
@@ -76,7 +80,7 @@ Azure 배치에서 사용할 수 있는 세 가지 기본 태스크 종속성 �
 > 
 > 
 
-### <a name="onetoone"></a>일대일
+### <a name="one-to-one"></a>일대일
 다른 하나의 태스크를 성공적으로 완료하는 데 종속성을 가진 태스크를 만들려면 [CloudTask][net_cloudtask]의 [DependsOn][net_dependson] 속성을 채우는 경우 단일 태스크 ID를 [TaskDependencies][net_taskdependencies].[OnId][net_onid] 정적 메서드에 제공합니다.
 
 ```csharp
@@ -90,7 +94,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 },
 ```
 
-### <a name="onetomany"></a>일대다
+### <a name="one-to-many"></a>일대다
 여러 태스크를 성공적으로 완료하는 데 종속성을 가진 태스크를 만들려면 [CloudTask][net_cloudtask]의 [DependsOn][net_dependson] 속성을 채우는 경우 태스크 ID의 컬렉션을 [TaskDependencies][net_taskdependencies].[OnId][net_onid] 정적 메서드에 제공합니다.
 
 ```csharp
@@ -165,6 +169,6 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: v2.0 끝점 개요 | Microsoft Docs
-description: Microsoft 계정 및 Azure Active Directory 로그인을 사용하는 앱 구축을 소개합니다.
+title: "v2.0 끝점 개요 | Microsoft Docs"
+description: "Microsoft 계정 및 Azure Active Directory 로그인을 사용하는 앱 구축을 소개합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 2dee579f-fdf6-474b-bc2c-016c931eaa27
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e98ec55dbe5ff0411af124b45bd7ef6177aa957e
+
 
 ---
-# <a name="sign-in-microsoft-account-&-azure-ad-users-in-a-single-app"></a>단일 앱에서 Microsoft 계정 및 Azure AD 사용자 로그인
+# <a name="sign-in-microsoft-account-azure-ad-users-in-a-single-app"></a>단일 앱에서 Microsoft 계정 및 Azure AD 사용자 로그인
 과거에 Microsoft 계정과 Azure Active Directory를 지원하려는 앱 개발자는 별도의 두 시스템을 통합해야 했습니다.  지금까지 Azure AD 시스템을 사용하여 두 가지 유형의 계정을 모두 사용하여 사용자가 로그인할 수 있게 해주는 새 인증 API 버전을 살펴보았습니다.  이 수렴된 인증 시스템을 **v2.0 끝점**이라고 합니다.  v2.0 끝점을 사용하면 간단한 통합을 사용하여 개인 및 작업/학교 계정으로 범위가 수 백만 명의 사용자인 대상에 도달할 수 있습니다.
 
 또한 v2.0 끝점을 사용하는 앱은 두 가지 계정 유형 중 하나 이상을 사용하여 [Microsoft Graph](https://graph.microsoft.io) 및 [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)에서 REST API를 사용할 수 있습니다.
@@ -32,7 +36,7 @@ ms.author: dastrock
 <!-- TODO: Finalize this table  -->
 [!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-## <a name="what's-new"></a>새로운 기능
+## <a name="whats-new"></a>새로운 기능
 여기서 설명하는 개념 정보는 v2.0 끝점을 사용하여 할 수 있는 일과 할 수 없는 일을 이해하는 데 유용합니다.
 
 * [v2.0 끝점을 사용하여 만들 수 있는 앱의 종류](active-directory-v2-flows.md)에 대해 알아봅니다.
@@ -48,10 +52,13 @@ ms.author: dastrock
 * [v2.0 토큰 참조](active-directory-v2-tokens.md)
 * [v2.0 라이브러리 참조](active-directory-v2-libraries.md)
 * [v2.0 끝점의 범위 및 동의](active-directory-v2-scopes.md)
-* [Microsoft 앱 등록 포털](https://apps.dev.microsoft.com)
+* [Microsoft 앱 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)
 * [Office 365 REST API 참조](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 * [Microsoft Graph](https://graph.microsoft.io)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

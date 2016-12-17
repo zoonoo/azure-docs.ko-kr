@@ -1,12 +1,12 @@
 ---
-title: 데이터 레이크 저장소와 호환되는 빅 데이터 응용 프로그램 | Microsoft Docs
-description: Azure 데이터 레이크 저장소에서 작동하는 공개 소스 응용 프로그램의 목록
+title: "Data Lake Store와 호환되는 빅 데이터 응용 프로그램 | Microsoft 문서"
+description: "Azure 데이터 레이크 저장소에서 작동하는 공개 소스 응용 프로그램의 목록"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 699e1805-cb76-4807-9ac1-8bd9d9bbb72b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/25/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2966e0e59eef09f5a29945cc1e00bede6a8ade81
+
 
 ---
-# Azure 데이터 레이크 저장소에서 작동하는 공개 소스 빅 데이터 응용 프로그램
+# <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>Azure 데이터 레이크 저장소에서 작동하는 공개 소스 빅 데이터 응용 프로그램
 이 문서는 Azure 데이터 레이크 저장소에서 작동하는 공개 소스 빅 데이터 응용 프로그램 목록을 보여줍니다. 아래 표의 응용 프로그램은 지원되는 나열된 배포의 버전에서만 사용할 수 있습니다. HDInsight와 함께 사용할 수 있는 응용 프로그램의 버전에 대한 자세한 정보는 [HDInsight 구성 요소 버전 관리](../hdinsight/hdinsight-component-versioning.md)를 참조하세요.
 
 | 공개 소스 소프트웨어 | 배포 |
@@ -34,7 +38,12 @@ ms.author: nitinme
 | [Apache Tez](http://tez.apache.org/) |HDInsight 3.2 및 3.4 |
 | [Apache Spark](http://spark.apache.org/) |HDInsight 3.4 |
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 * [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

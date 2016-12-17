@@ -1,12 +1,12 @@
 ---
-title: Visual Studio로 원격 클러스터에 앱 게시 | Microsoft Docs
-description: Visual Studio를 사용하여 원격 서비스 패브릭 클러스터에 응용 프로그램을 게시하는 방법을 알아봅니다.
+title: "Visual Studio로 원격 클러스터에 앱 게시 | Microsoft Docs"
+description: "Visual Studio를 사용하여 원격 서비스 패브릭 클러스터에 응용 프로그램을 게시하는 방법을 알아봅니다."
 services: service-fabric
 documentationcenter: na
 author: cawams
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: faecd892-eb54-4d9c-8023-c67442afb8e8
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
 ms.author: cawa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2dbf8ea0ddde2e308dc0e65dba701578cd2bce43
+
 
 ---
 # <a name="publish-an-application-to-a-remote-cluster-by-using-visual-studio"></a>Visual Studio를 사용하여 원격 클러스터에 응용 프로그램 게시
@@ -28,7 +32,7 @@ ms.author: cawa
 Visual Studio용 Azure 서비스 패브릭 확장은 서비스 패브릭 클러스터에 응용 프로그램을 게시하는 반복 및 스크립트 가능한 간편한 방법을 제공합니다.
 
 ## <a name="the-artifacts-required-for-publishing"></a>게시에 필요한 아티팩트
-### <a name="deploy-fabricapplication.ps1"></a>Deploy-FabricApplication.ps1
+### <a name="deploy-fabricapplicationps1"></a>Deploy-FabricApplication.ps1
 서비스 패브릭 응용 프로그램 게시를 위한 매개 변수로 게시 프로필 경로를 사용하는 PowerShell 스크립트입니다. 이 스크립트는 응용 프로그램의 일부이므로 응용 프로그램 맞게 필요에 따라 편하게 수정할 수 있습니다.
 
 ### <a name="publish-profiles"></a>게시 프로필
@@ -84,7 +88,7 @@ Visual Studio용 Azure 서비스 패브릭 확장은 서비스 패브릭 클러�
    > 
 6. 모든 필요한 설정을 지정한 후에는 **게시** 단추를 선택하여 응용 프로그램을 선택한 서비스 패브릭 클러스터에 게시합니다. 지정한 설정이 게시 프로세스에 적용됩니다.
 
-## <a name="publish-to-an-arbitrary-cluster-endpoint-(including-party-clusters)"></a>임의 클러스터 끝점(당사 클러스터 포함)에 게시
+## <a name="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters"></a>임의 클러스터 끝점(당사 클러스터 포함)에 게시
 Visual Studio 게시 환경은 Azure 구독 중 하나와 연결된 원격 클러스터에 게시하도록 최적화되어 있습니다. 그러나 게시 프로필 XML을 직접 편집하여 임의 끝점(예: 서비스 패브릭 당사 클러스터)에 게시할 수 있습니다. 위에서 설명한 대로, 기본적으로 **Local.xml** 및 **Cloud.xml**이라는 두 게시 프로필이 제공되지만 다양한 환경에 맞는 추가 프로필을 만들 수 있습니다. 예를 들어 **Party.xml**라는 당사 클러스터에 게시하기 위한 프로필을 만들 수 있습니다.
 
 비보안 클러스터에 연결하는 경우 `partycluster1.eastus.cloudapp.azure.com:19000`과 같은 클러스터 연결 끝점만 있으면 됩니다. 이 경우 게시 프로필의 연결 끝점은 다음과 같습니다.
@@ -112,6 +116,6 @@ Visual Studio 게시 환경은 Azure 구독 중 하나와 연결된 원격 클�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

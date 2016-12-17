@@ -1,12 +1,12 @@
 ---
-title: Log Analytics에 Linux 컴퓨터 연결 | Microsoft Docs
-description: Log Analytics를 사용하여 Linux 컴퓨터에서 생성되는 데이터를 수집하고 그에 따른 조치를 취할 수 있습니다.
+title: "Log Analytics에 Linux 컴퓨터 연결 | Microsoft Docs"
+description: "Log Analytics를 사용하여 Linux 컴퓨터에서 생성되는 데이터를 수집하고 그에 따른 조치를 취할 수 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: ab5b76d8-9ab5-406e-8768-76fb0632d830
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 218ffec4601c5b0b4ee9872b5bbd03489cb3ddcf
+
 
 ---
 # <a name="connect-linux-computers-to-log-analytics"></a>Log Analytics에 Linux 컴퓨터 연결
@@ -674,7 +678,7 @@ OMS 출력 플러그인을 사용하는 대신 데이터 항목을 `stdout`으�
 ```
 
 
-### <a name="linux-data-doesn't-appear-in-the-oms-portal"></a>OMS 포털에 Linux 데이터가 나타나지 않음
+### <a name="linux-data-doesnt-appear-in-the-oms-portal"></a>OMS 포털에 Linux 데이터가 나타나지 않음
 #### <a name="probable-causes"></a>가능한 원인
 * OMS 서비스 등록이 실패했습니다.
 * OMS 서비스에 대한 연결이 차단되었습니다.
@@ -779,6 +783,9 @@ Syslog 메시지를 수집하려면 rsyslog 또는 syslog-ng가 필요합니다.
 * [로그 검색](log-analytics-log-searches.md) 을 숙지하여 솔루션에서 수집한 자세한 정보를 확인합니다.
 * [대시보드](log-analytics-dashboards.md) 를 사용하여 자신만의 사용자 지정 검색을 저장하고 표시합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
