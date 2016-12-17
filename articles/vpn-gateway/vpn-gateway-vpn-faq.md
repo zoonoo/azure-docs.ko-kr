@@ -23,7 +23,7 @@ ms.openlocfilehash: e7d0fa43001268fc4747bbf40d3dc209aa037a67
 # <a name="vpn-gateway-faq"></a>VPN 게이트웨이 FAQ
 ## <a name="connecting-to-virtual-networks"></a>가상 네트워크에 연결
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>다양한 Azure 지역에서 가상 네트워크를 연결할 수 있습니까?
-예. 실제로 지역 제약 조건이 없습니다. 가상 네트워크를 동일한 지역 또는 다른 Azure 지역의 다른 가상 네트워크에 연결할 수 있습니다.
+예. 실제로 지역 제약 조건이 없습니다. 가상 네트워크를 동일한 지역 또는 다른 Azure 지역의 다른 가상 네트워크에 연결할 수 있습니다. 
 
 ### <a name="can-i-connect-virtual-networks-in-different-subscriptions"></a>다른 구독의 가상 네트워크를 연결할 수 있습니까?
 예.
