@@ -1,12 +1,12 @@
 ---
-title: Reliable Actors 이벤트 | Microsoft Docs
-description: 서비스 패브릭 Reliable Actors의 이벤트에 대해 소개합니다.
+title: "Reliable Actors 이벤트 | Microsoft Docs"
+description: "서비스 패브릭 Reliable Actors의 이벤트에 대해 소개합니다."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: aa01b0f7-8f88-403a-bfe1-5aba00312c24
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2016
 ms.author: amanbha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e57ea14e8d0664df624037759685f11baa312d26
+
 
 ---
-# 행위자 이벤트
+# <a name="actor-events"></a>행위자 이벤트
 행위자 이벤트는 행위자에서 클라이언트로 최상의 알림을 보낼 수 있는 방법을 제공합니다. 행위자 이벤트는 행위자-클라이언트 간 통신을 위해 디자인되었으며 행위자-행위자 간 통신에는 사용하지 않아야 합니다.
 
 다음 코드 조각에서는 응용 프로그램에서 행위자 이벤트를 사용하는 방법을 보여 줍니다.
@@ -71,10 +75,15 @@ var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
 * [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [샘플 코드](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

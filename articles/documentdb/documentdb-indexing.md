@@ -1,23 +1,27 @@
 ---
-title: DocumentDB의 자동 인덱싱 | Microsoft Docs
-description: Azure DocumentDB의 자동 인덱싱 작동 방식에 대해 알아봅니다.
+title: "DocumentDB의 자동 인덱싱 | Microsoft Docs"
+description: "Azure DocumentDB의 자동 인덱싱 작동 방식에 대해 알아봅니다."
 services: documentdb
 author: arramac
 manager: jhubbard
 editor: mimig
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 126bfd36-9332-4127-8747-1a1c806760f7
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 10/27/2016
 ms.author: arramac
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9b88c62a7ea76d61ff593217392c3225624bb886
+
 
 ---
-# Azure DocumentDB에서 자동 인덱싱
-이 문서는 2015년 8월 31일 - 9월 4일 사이에 [41st Internal Conference on Very Large Databases](http://www.vldb.org/2015/)에서 발표되는 ["Azure DocumentDB를 사용한 스키마 제약 없는 인덱싱"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) 논문에서 발췌한 것이며 Azure DocumentDB에서 인덱싱이 작동하는 방식을 소개합니다.
+# <a name="automatic-indexing-in-azure-documentdb"></a>Azure DocumentDB에서 자동 인덱싱
+이 문서는 2015년 8월 31일 - 9월 4일 사이에 [41st Internal Conference on Very Large Databases](http://www.vldb.org/2015/)에서 발표되는 ["Azure DocumentDB를 사용한 스키마 제약 없는 인덱싱"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) 논문에서 발췌한 것이며 Azure DocumentDB에서 인덱싱이 작동하는 방식을 소개합니다. 
 
 이 문서를 읽은 후 다음 질문에 답할 수 있습니다.
 
@@ -25,8 +29,8 @@ ms.author: arramac
 * DocumentDB가 서로 다른 문서 간에 인덱스를 빌드하는 방법
 * DocumentDB가 대규모로 자동 인덱싱을 수행하는 방법
 
-## <a id="HowDocumentDBIndexingWorks"></a> DocumentDB 인덱싱 작동 방식
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)는 JSON 용으로 작성된 진정한 스키마 없는 데이터베이스입니다. 대규모 데이터 인덱스는 모든 스키마 또는 보조 인덱스 정의를 예상하거나 필요로 하지 않습니다. DocumentDB를 사용하는 응용 프로그램 데이터 모델을 신속하게 정의하고 반복할 수 있습니다. 컬렉션에 문서를 추가하면 DocumentDB에서 자동으로 모든 문서 속성을 인덱싱하므로 쿼리에 이러한 속성을 사용할 수 있습니다. 자동 인덱싱을 사용하면 스키마 또는 보조 인덱스에 대한 걱정 없이 완전히 임의의 스키마에 속하는 문서를 저장할 수 있습니다.
+## <a name="a-idhowdocumentdbindexingworksa-how-documentdb-indexing-works"></a><a id="HowDocumentDBIndexingWorks"></a> DocumentDB 인덱싱 작동 방식
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 는 JSON 용으로 작성된 진정한 스키마 없는 데이터베이스입니다. 대규모 데이터 인덱스는 모든 스키마 또는 보조 인덱스 정의를 예상하거나 필요로 하지 않습니다. DocumentDB를 사용하는 응용 프로그램 데이터 모델을 신속하게 정의하고 반복할 수 있습니다. 컬렉션에 문서를 추가하면 DocumentDB에서 자동으로 모든 문서 속성을 인덱싱하므로 쿼리에 이러한 속성을 사용할 수 있습니다. 자동 인덱싱을 사용하면 스키마 또는 보조 인덱스에 대한 걱정 없이 완전히 임의의 스키마에 속하는 문서를 저장할 수 있습니다.
 
 데이터베이스 및 응용 프로그램 프로그래밍 모델 간의 임피던스 불일치를 제거하는 목표로, DocumentDB는 JSON의 단순성 및 스키마 사양 부족을 이용합니다. 문서에 대해 가정하지 않고 인스턴스 특정 값 외에 스키마가 다양한 DocumentDB 컬렉션 내 문서를 허용합니다. 다른 문서 데이터베이스와 달리 DocumentDB의 데이터베이스 엔진은 문서 스키마의 개념을 알 수 없도록 하고 문서 구조 및 인스턴스 값 사이의 경계를 모호하게 하는 JSON 문법의 수준에서 직접 작동합니다. 차례로 스키마 또는 보조 인덱스 없이 문서를 자동으로 인덱스할 수 있습니다.
 
@@ -56,13 +60,18 @@ DocumentDB의 인덱싱은 JSON 문법에서 문서를 **트리로 표시**할 �
 
 스키마가 없음에도 불구하고, DocumentDB의 SQL 및 JavaScript 쿼리 언어는 관계형 프로젝션 및 필터, 문서에서의 계층적 탐색, 공간 작업 및 전적으로 JavaScript로 작성된 UDF의 호출을 제공합니다. DocumentDB의 쿼리 런타임은 데이터의이 인덱스 트리 표현에 대해 직접 작동할 수 있으므로 이 쿼리를 지원할 수입니다.
 
-기본 인덱싱 정책은 자동으로 모든 문서의 모든 속성을 인덱스하고 일관성있는 쿼리(문서 쓰기와 인덱스가 동기적으로 업데이트됨을 의미)를 제공합니다. 어떻게 DocumentDB가 대규모의 인덱스 트리에 대한 일관된 업데이트를 지원합니까? DocumentDB는 쓰기 최적화, 잠금 없는 로그 구조 인덱스 유지 관리 기술을 사용합니다. DocumentDB가 일관성 있는 쿼리를 제공하는 동시에 빠른 쓰기의 지속적인 볼륨을 지원함을 의미합니다.
+기본 인덱싱 정책은 자동으로 모든 문서의 모든 속성을 인덱스하고 일관성있는 쿼리(문서 쓰기와 인덱스가 동기적으로 업데이트됨을 의미)를 제공합니다. 어떻게 DocumentDB가 대규모의 인덱스 트리에 대한 일관된 업데이트를 지원합니까? DocumentDB는 쓰기 최적화, 잠금 없는 로그 구조 인덱스 유지 관리 기술을 사용합니다. DocumentDB가 일관성 있는 쿼리를 제공하는 동시에 빠른 쓰기의 지속적인 볼륨을 지원함을 의미합니다. 
 
 DocumentDB의 인덱싱은 다중 테넌트를 처리하고 저장소 효율성을 위해 설계되었습니다. 비용 효율성을 위해 인덱스의 디스크에 있는 저장소 오버헤드가 낮고 예측 가능합니다. 인덱스 업데이트는 DocumentDB 컬렉션당 할당된 시스템 리소스의 예산 내에서 수행됩니다.
 
-## <a name="NextSteps"></a> 다음 단계
+## <a name="a-namenextstepsa-next-steps"></a><a name="NextSteps"></a> 다음 단계
 * 2015년 8월 31일 - 9월 4일 사이에 41st Internal Conference on Very Large Databases에서 발표되는 ["Azure DocumentDB를 사용한 스키마 제약 없는 인덱싱"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)을 다운로드합니다.
 * [DocumentDB SQL을 사용한 쿼리](documentdb-sql-query.md)
-* [여기](documentdb-indexing-policies.md)서 DocumentDB 인덱스를 사용자 지정하는 방법을 알아보세요.
+*  [여기](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

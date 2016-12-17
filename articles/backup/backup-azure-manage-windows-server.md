@@ -1,19 +1,23 @@
 ---
-title: Azure 복구 서비스 자격 증명 모음 및 서버 관리 | Microsoft Docs
-description: 이 자습서를 사용하여 Azure 복구 서비스 자격 증명 모음 및 서버를 관리하는 방법을 알아봅니다.
+title: "Azure 복구 서비스 자격 증명 모음 및 서버 관리 | Microsoft Docs"
+description: "이 자습서를 사용하여 Azure 복구 서비스 자격 증명 모음 및 서버를 관리하는 방법을 알아봅니다."
 services: backup
-documentationcenter: ''
-author: Jim-Parker
-manager: jwhit
+documentationcenter: 
+author: markgalioto
+manager: cfreeman
 editor: tysonn
-
+ms.assetid: 4eea984b-7ed6-4600-ac60-99d2e9cb6d8a
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
+ms.date: 10/19/2016
 ms.author: jimpark; markgal
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 74697b634392f7fe6b747ac21a9b1efac5703788
+
 
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Windows 컴퓨터용 Azure 복구 서비스 자격 증명 모음 및 서버 모니터링 및 관리
@@ -23,11 +27,9 @@ ms.author: jimpark; markgal
 > 
 > 
 
-이 문서에서는 Azure 관리 포털 및 Microsoft Azure 백업 에이전트를 통해 사용할 수 있는 백업 관리 작업의 개요를 찾을 수 있습니다.
+이 문서에서는 Azure Portal 및 Microsoft Azure Backup 에이전트를 통해 사용할 수 있는 백업 관리 작업의 개요를 찾을 수 있습니다.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-
-클래식 배포 모델.
 
 ## <a name="management-portal-tasks"></a>관리 포털 작업
 ### <a name="access-your-recovery-services-vaults"></a>복구 서비스 자격 증명 모음 액세스
@@ -59,11 +61,11 @@ ms.author: jimpark; markgal
 
 ![백업 대시보드 작업](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
-## <a name="alerts-for-backups-using-azure-backup-agent:"></a>Azure 백업 에이전트에 의한 백업 경고
+## <a name="alerts-for-backups-using-azure-backup-agent"></a>Azure 백업 에이전트에 의한 백업 경고
 | 경고 수준 | 전송되는 경고 |
 | --- | --- |
 | 중요 |Backup failure, recovery failure |
-| Warning |Backup completed with warnings (when less than hundred files are not backed up due to corruption issues and more than a million of files are successfully backed up) |
+| Warning |백업이 완료되었지만 경고가 발생했습니다(손상 문제로 인해 100개 미만의 파일이 백업되지 않았고 1백만 개 이상의 파일이 성공적으로 백업된 경우). |
 | 정보 제공 |없음 |
 
 ## <a name="manage-backup-alerts"></a>백업 경고 관리
@@ -120,7 +122,7 @@ ms.author: jimpark; markgal
 
 ![백업 항목](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
-목록에서 특정 백업 항목을 클릭하면 해당 항목에 대한 필수 세부 정보를 볼 수 있습니다.
+목록에서 특정 백업 항목을 선택하면 해당 항목에 대한 필수 세부 정보를 볼 수 있습니다.
 
 > [!NOTE]
 > **설정** 블레이드에서 **보호된 항목 > 백업 항목**을 선택하고 드롭다운 메뉴에서 **파일-폴더**를 선택하여 파일 및 폴더를 관리합니다.
@@ -194,7 +196,7 @@ ms.author: jimpark; markgal
     ![Windows Server 백업 예약](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
 3. 항목을 추가하거나 변경하려면 **백업할 항목 선택** 화면에서 **항목 추가**를 클릭합니다.
    
-    마법사의 이 페이지에서 **제외 설정**을 지정할 수도 있습니다. 파일 또는 파일 형식을 제외하려면 [제외 설정](#exclusion-settings) 추가 절차를 읽어보세요.
+    마법사의 이 페이지에서 **제외 설정**을 지정할 수도 있습니다. 파일 또는 파일 형식을 제외하려면 [제외 설정](#exclusion-settings)추가 절차를 읽어보세요.
 4. 백업할 파일 및 폴더를 선택하고 **확인**을 클릭합니다.
    
     ![Windows Server 백업 예약](./media/backup-azure-manage-windows-server/add-items-modify.png)
@@ -222,13 +224,14 @@ Azure 백업 에이전트는 데이터 전송 중에 네트워크 대역폭이 �
 제한을 사용하려면
 
 1. **백업 에이전트**에서 **속성 변경**을 클릭합니다.
-2. **백업 작업에 인터넷 대역폭 사용 제한 사용** 확인란을 선택합니다.
+2. **[제한] 탭에서 **[백업 작업에 인터넷 대역폭 사용 제한 사용]을 선택합니다**.
    
     ![네트워크 제한](./media/backup-azure-manage-windows-server/throttling-dialog.png)
-3. 제한을 사용하도록 설정했으면 **근무 시간** 및 **휴무 시간** 중에 백업 데이터 전송에 허용되는 대역폭을 지정합니다.
+   
+    제한을 사용하도록 설정했으면 **근무 시간** 및 **휴무 시간** 중에 백업 데이터 전송에 허용되는 대역폭을 지정합니다.
    
     대역폭 값은 초당 512Kb(Kbps)에서 시작하여 최대 초당 1023Mb(Mbps)까지 증가할 수 있습니다. 또한 **근무 시간**의 시작 및 완료 시간과 근무일로 간주되는 요일을 지정할 수도 있습니다. 지정된 근무 시간 이외의 시간은 휴무 시간으로 간주됩니다.
-4. **확인**을 클릭합니다.
+3. **확인**을 클릭합니다.
 
 ## <a name="manage-exclusion-settings"></a>제외 설정 관리
 1. **Microsoft Azure 백업 에이전트**를 엽니다(*Microsoft Azure 백업*에 대한 컴퓨터를 검색하여 찾을 수 있음).
@@ -276,25 +279,33 @@ A.2 경고는 Azure 백업 실패 후 20분 이내에 발생합니다.
 
 **Q3. 알림이 구성된 경우 전자 메일이 전송되지 않는 경우가 있나요?**
 
-A3. 아래는 경고 노이즈를 줄이기 위해 알림이 전송되지 않는 경우의 사례입니다. 
+A3. 아래는 경고 노이즈를 줄이기 위해 알림이 전송되지 않는 경우의 사례입니다.
 
 * 알림이 매시간 구성되고 알림이 발생하고 한 시간 이내에 확인되는 경우
 * 작업이 취소됩니다.
-* 원래 백업 작업이 진행 중이므로 두 번째 백업 작업이 실패합니다. 
+* 원래 백업 작업이 진행 중이므로 두 번째 백업 작업이 실패했습니다.
 
-## <a name="troubleshooting-monitoring-issues<br>"></a>모니터링 문제 해결<br>
-#### <a name="issue:-jobs-and-alerts-from-azure-backup-agent-does-not-appear-on-the-portal."></a>문제: 포털에서 Azure 백업 에이전트의 작업과 경고가 보이지 않습니다.
-##### <a name="troubleshooting-steps:"></a>문제 해결 단계
-"OBRecoveryServicesManagementAgent"는 작업과 경고에 대한 데이터를 Azure 백업 서비스에 보내는 데 사용합니다. 작업 관리자를 열어 "OBRecoveryServicesManagementAgent" 프로세스를 실행 중인지 확인합니다.
-이 프로세스는 가끔씩 장애를 일으키거나 종료됩니다. 프로세스를 실행하고 있지 않으면 제어판에서 서비스 목록을 검색하여 "Microsoft Azure Recovery Services Management Agent"를 시작하거나 다시 시작합니다.
-자세한 내용은 "Azure 백업 에이전트 설치 폴더"인 \Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*에 있는 로그를 찾아봅니다.
-<b>예:</b> C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog
+## <a name="troubleshooting-monitoring-issues"></a>모니터링 문제 해결
+**문제:** 포털에서 Azure Backup 에이전트의 작업과 경고가 표시되지 않습니다.
+
+**문제 해결 단계:** ```OBRecoveryServicesManagementAgent``` 프로세스에서 Azure Backup 서비스 작업 및 경고 데이터를 보냅니다. 때때로 이 프로세스가 멈추거나 종료될 수 있습니다.
+
+1. 프로세스가 실행되고 있지 않은지 확인하려면 **작업 관리자**를 열고 ```OBRecoveryServicesManagementAgent``` 프로세스가 실행 중인지 확인합니다.
+2. 프로세스가 실행되고 있지 않으면 **제어판**을 열고 서비스 목록을 검색합니다. **Microsoft Azure Recovery Services 관리 에이전트**를 시작하거나 다시 시작합니다.
+   
+    자세한 내용은 다음 위치에 있는 로그를 검색합니다.<br/>
+   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`
+    예:<br/>
+   `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
 * Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](backup-introduction-to-azure-backup.md)
-* [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+*  [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

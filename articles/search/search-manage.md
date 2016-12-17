@@ -1,13 +1,13 @@
 ---
-title: Azure 포털에서 Azure Search에 대한 서비스 관리
-description: Azure Search 관리, Microsoft Azure에서 호스트된 클라우드 검색 서비스, Azure 포털 사용.
+title: "Azure 포털에서 Azure Search에 대한 서비스 관리"
+description: "Azure Search 관리, Microsoft Azure에서 호스트된 클라우드 검색 서비스, Azure 포털 사용."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
@@ -15,6 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/17/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 71cfd2ea327cad22cdb1085558658934804c15f1
+
 
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 포털에서 Azure Search에 대한 서비스 관리
@@ -35,9 +39,11 @@ Azure Search는 사용자 지정 앱에 풍부한 검색 환경을 구축하기 
 
 *콘텐츠 관리* (또는 인덱스 관리)는 쿼리 볼륨을 파악하기 위해 검색 트래픽 분석, 사용자가 검색하는 용어 파악, 성공적인 검색 결과가 인덱스의 특정 문서로 어떻게 고객을 안내하는지 살펴보는 등의 작업을 말합니다. 콘텐츠 관리는 이 문서에서 다루지 않습니다. 인덱스 수준에서 내부 작업에 대해 더 알아보려면 [Azure Search에 대한 검색 트래픽 분석](search-traffic-analytics.md)을 참조하세요.
 
-*쿼리 성능* 역시 이 문서에서 다루지 않습니다. 자세한 내용은 [Azure Search에서 성능 및 최적화](search-performance-optimization.md)를 참조하세요.
+*쿼리 성능* 역시 이 문서에서 다루지 않습니다. 자세한 내용은 [사용 및 쿼리 메트릭 모니터링](search-monitor-usage.md) 및 [성능 및 최적화](search-performance-optimization.md)를 참조합니다.
 
-Azure Search는 재해 복구 또는 백업 및 복원을 위한 기본 솔루션을 제공하지 않습니다. 개체와 데이터를 해당 서비스에 푸시하는 고객이 실수로 인덱스를 삭제한 경우 인덱스를 만들고 채우는 소스 코드는 사실상 복원 옵션입니다. 재해 복구를 위해 고객은 다른 지역 데이터 센터에서 추가 서비스를 통해 중복성을 선택합니다. 자세한 내용은 [Azure Search에서 성능 및 최적화](search-performance-optimization.md)를 참조하세요.
+Azure Search는 정전이 발생한 경우 다른 클러스터와 데이터 센터에 대한 장애 조치를 수행하지만, 인덱스 또는 서비스가 악의적으로 또는 실수로 삭제된 경우 수동 백업 및 복원 작업용 기본 제공 솔루션을 제공하지 않습니다. 개체와 데이터를 해당 서비스에 푸시하는 고객이 실수로 인덱스를 삭제한 경우 인덱스를 만들고 채우는 소스 코드는 사실상 복원 옵션입니다. 
+
+Azure Search는 서비스의 인덱스의 지역에서 복제를 제공하지 않습니다. 솔루션이 전역에 도달하는 경우 모든 응용 프로그램 구성 요소가 한 곳에서 호스팅되도록 다른 지역 데이터 센터의 추가 서비스를 통해 중복성을 추가합니다. 자세한 내용은 [Azure Search에서 성능 및 최적화](search-performance-optimization.md)를 참조하세요.
 
 <a id="admin-rights"></a>
 
@@ -156,10 +162,10 @@ QPS(초당 쿼리 수)를 높이거나 고가용성을 구현하려면 복제본
 
 <a id="advanced-deployment"></a>
 
-## <a name="best-practices-on-scale-and-deployment-(video)"></a>규모 및 배포에 대한 모범 사례(비디오)
+## <a name="best-practices-on-scale-and-deployment-video"></a>규모 및 배포에 대한 모범 사례(비디오)
 이 30분 분량의 비디오는 지역으로 분산된 워크로드를 포함한 고급 배포 시나리오에 대한 모범 사례를 검토합니다. 동일한 내용을 다루는 도움말 페이지는 [Azure Search에서 성능 및 최적화](search-performance-optimization.md) 를 참조할 수도 있습니다.
 
-> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
+> [!비디오 https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
 > 
 > 
 
@@ -184,6 +190,6 @@ QPS(초당 쿼리 수)를 높이거나 고가용성을 구현하려면 복제본
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

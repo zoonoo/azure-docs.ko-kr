@@ -1,20 +1,24 @@
 ---
-title: ExpressRoute 가상 네트워크 게이트웨이 정보 | Microsoft Docs
-description: ExpressRoute의 가상 네트워크 게이트웨이에 대해 알아봅니다.
+title: "ExpressRoute 가상 네트워크 게이트웨이 정보 | Microsoft 문서"
+description: "ExpressRoute의 가상 네트워크 게이트웨이에 대해 알아봅니다."
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager, azure-service-management
-
+ms.assetid: 7e0d9658-bc00-45b0-848f-f7a6da648635
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2016
+ms.date: 12/01/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a575929f2c42a00b6e6cacd86318253d20b6b51e
+
 
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>ExpressRoute에 대한 가상 네트워크 게이트웨이 정보
@@ -26,17 +30,17 @@ ms.author: cherylmc
 
 각각의 가상 네트워크에는 게이트웨이 유형당 하나의 가상 네트워크 게이트웨이가 있을 수 있습니다. 예를 들어 -GatewayType Vpn을 사용하는 하나의 가상 네트워크 게이트웨이와 -GatewayType Express 경로를 사용하는 하나의 가상 네트워크 게이트웨이가 있을 수 있습니다. 이 문서에서는 ExpressRoute 가상 네트워크 게이트웨이를 중점적으로 다룹니다.
 
-## <a name="<a-name="gwsku"></a>gateway-skus"></a><a name="gwsku"></a>게이트웨이 SKU
+## <a name="a-namegwskuagateway-skus"></a><a name="gwsku"></a>게이트웨이 SKU
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
 게이트웨이를 보다 강력한 게이트웨이 SKU로 업그레이드하려면 대부분의 경우 'Resize-AzureRmVirtualNetworkGateway' PowerShell cmdlet을 사용할 수 있습니다. 표준 및 고성능 SKU로 업그레이드하는 경우에 가능합니다. 하지만 초고성능 SKU로 업그레이드하려면 게이트웨이를 다시 만들어야 합니다.
 
-### <a name="<a-name="aggthroughput"></a>estimated-aggregate-throughput-by-gateway-sku"></a><a name="aggthroughput"></a>게이트웨이 SKU에 의해 예상된 총 처리량
+### <a name="a-nameaggthroughputaestimated-aggregate-throughput-by-gateway-sku"></a><a name="aggthroughput"></a>게이트웨이 SKU에 의해 예상된 총 처리량
 다음 테이블에서는 게이트웨이 형식과 예상 총 처리량을 보여 줍니다. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델 모두에 적용됩니다.
 
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
-## <a name="<a-name="resources"></a>rest-apis-and-powershell-cmdlets"></a><a name="resources"></a>REST API 및 PowerShell cmdlet
+## <a name="a-nameresourcesarest-apis-and-powershell-cmdlets"></a><a name="resources"></a>REST API 및 PowerShell cmdlet
 가상 네트워크 게이트웨이 구성을 위해 REST API와 PowerShell cmdlet을 사용할 경우 추가 기술 리소스 및 특정 구문 요구 사항에 대해서는 다음 페이지를 참조하세요.
 
 | **클래식** | **리소스 관리자** |
@@ -47,6 +51,9 @@ ms.author: cherylmc
 ## <a name="next-steps"></a>다음 단계
 사용 가능한 연결 구성에 대한 자세한 내용은 [ExpressRoute 개요](expressroute-introduction.md) 를 참조하세요. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

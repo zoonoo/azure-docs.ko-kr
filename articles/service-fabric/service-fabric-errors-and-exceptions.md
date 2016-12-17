@@ -1,35 +1,39 @@
 ---
-title: 일반적으로 발생되는 FabricClient 예외 | Microsoft Docs
-description: 응용 프로그램 및 클러스터 관리 작업을 수행하는 동안 FabricClient API에 의해 발생될 수 있는 일반적인 예외 및 오류를 설명합니다.
+title: "일반적으로 발생되는 FabricClient 예외 | Microsoft Docs"
+description: "응용 프로그램 및 클러스터 관리 작업을 수행하는 동안 FabricClient API에 의해 발생될 수 있는 일반적인 예외 및 오류를 설명합니다."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bb821313-b221-479f-b08e-36cf07e60a07
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/25/2016
+ms.date: 11/14/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 491f61afe899c746c193f0d3703d3212f9258e63
+ms.openlocfilehash: 578046d6939b90cb58d457087bb465006630b4c1
+
 
 ---
-# FabricClient API로 작업하는 경우 일반적인 예외 및 오류
-[FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) API를 사용하여 클러스터 및 응용 프로그램 관리자가 서비스 패브릭 응용 프로그램, 서비스 또는 클러스터에서 관리 작업을 수행할 수 있습니다. 예를 들어 응용 프로그램 배포, 업그레이드 및 제거, 클러스터 상태 확인 또는 서비스를 테스트합니다. 응용 프로그램 개발자 및 클러스터 관리자는 FabricClient API를 사용하여 서비스 패브릭 클러스터 및 응용 프로그램을 관리하기 위한 도구를 개발할 수 있습니다.
+# <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>FabricClient API로 작업하는 경우 일반적인 예외 및 오류
+[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API를 사용하여 클러스터 및 응용 프로그램 관리자가 Service Fabric 응용 프로그램, 서비스 또는 클러스터에서 관리 작업을 수행할 수 있습니다. 예를 들어 응용 프로그램 배포, 업그레이드 및 제거, 클러스터 상태 확인 또는 서비스를 테스트합니다. 응용 프로그램 개발자 및 클러스터 관리자는 FabricClient API를 사용하여 서비스 패브릭 클러스터 및 응용 프로그램을 관리하기 위한 도구를 개발할 수 있습니다.
 
-FabricClient를 사용하여 수행할 수 있는 다양한 유형의 작업이 있습니다. 각 메서드는 잘못된 입력으로 인한 오류, 런타임 오류 또는 일시적인 인프라 문제에 대한 예외를 발생시킬 수 있습니다. 특정 메서드에 의해 발생되는 예외를 확인하려면 API 참조 설명서를 참조하세요. 그러나 여러 많은 [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) API에 의해 발생되는 몇몇 예외가 있습니다. 다음 테이블에는 FabricClient API에서 공통적으로 적용되는 예외가 나열되어 있습니다.
+FabricClient를 사용하여 수행할 수 있는 다양한 유형의 작업이 있습니다.  각 메서드는 잘못된 입력으로 인한 오류, 런타임 오류 또는 일시적인 인프라 문제에 대한 예외를 발생시킬 수 있습니다.  특정 메서드에 의해 발생되는 예외를 확인하려면 API 참조 설명서를 참조하세요. 그러나 여러 많은 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API에 의해 발생되는 몇몇 예외가 있습니다. 다음 테이블에는 FabricClient API에서 공통적으로 적용되는 예외가 나열되어 있습니다.
 
 | 예외 | 발생 시점 |
 | --- |:--- |
-| [System.Fabric.FabricObjectClosedException](https://msdn.microsoft.com/library/system.fabric.fabricobjectclosedexception.aspx) |[FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) 개체가 닫힌 상태입니다. 사용 중인 [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) 개체를 삭제하고 새 [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) 개체를 인스턴스화합니다. |
-| [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |작업 시간이 초과되었습니다. 작업이 완료되는 데 MaxOperationTimeout보다 많이 걸리는 경우 [OperationTimedOut](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx)이 반환됩니다. |
-| [System.UnauthorizedAccessException](https://msdn.microsoft.com/ko-KR/library/system.unauthorizedaccessexception.aspx) |작업에 대한 액세스 검사에 실패했습니다. E\_ACCESSDENIED가 반환됩니다. |
-| [System.Fabric.FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx) |작업을 수행하는 동안 런타임 오류가 발생했습니다. FabricClient 메서드 중 하나가 잠재적으로 [FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx)을 발생시킬 수 있으며 [ErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricexception.errorcode.aspx) 속성이 예외의 정확한 원인을 나타냅니다. [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx) 열거형에 정의된 오류 코드입니다. |
-| [System.Fabric.FabricTransientException](https://msdn.microsoft.com/library/system.fabric.fabrictransientexception.aspx) |일종의 일시적인 오류 조건으로 인해 작업이 실패했습니다. 예를 들어 복제본의 쿼럼에 일시적으로 연결할 수 없기 때문에 작업이 실패할 수 있습니다. 일시적인 예외는 다시 시도할 수 있는 실패한 작업에 해당합니다. |
+| [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception#System_Fabric_FabricObjectClosedException) |[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) 개체가 닫힌 상태입니다. 사용 중인 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) 개체를 삭제하고 새 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) 개체를 인스턴스화합니다. |
+| [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception#System_TimeoutException) |작업 시간이 초과되었습니다. 작업이 완료되는 데 MaxOperationTimeout보다 많이 걸리는 경우 [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode)이 반환됩니다. |
+| [System.UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception#System_UnauthorizedAccessException) |작업에 대한 액세스 검사에 실패했습니다. E_ACCESSDENIED가 반환됩니다. |
+| [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException) |작업을 수행하는 동안 런타임 오류가 발생했습니다. FabricClient 메서드 중 하나가 잠재적으로 [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException)을 발생시킬 수 있으며 [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException_ErrorCode) 속성이 예외의 정확한 원인을 나타냅니다. [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) 열거형에 정의된 오류 코드입니다. |
+| [System.Fabric.FabricTransientException](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception#System_Fabric_FabricTransientException) |일종의 일시적인 오류 조건으로 인해 작업이 실패했습니다. 예를 들어 복제본의 쿼럼에 일시적으로 연결할 수 없기 때문에 작업이 실패할 수 있습니다. 일시적인 예외는 다시 시도할 수 있는 실패한 작업에 해당합니다. |
 
-일부 일반 [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx) 오류는 [FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx)으로 반환될 수 있습니다.
+일부 일반 [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) 오류는 [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException)으로 반환될 수 있습니다.
 
 | 오류 | 조건 |
 | --- |:--- |
@@ -44,4 +48,9 @@ FabricClient를 사용하여 수행할 수 있는 다양한 유형의 작업이 
 | InvalidSubjectName |주체 이름이 올바르지 않습니다. |
 | InvalidAllowedCommonNameList |일반 이름 목록 문자열의 형식이 올바르지 않습니다. 쉼표로 구분된 목록이어야 합니다. |
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

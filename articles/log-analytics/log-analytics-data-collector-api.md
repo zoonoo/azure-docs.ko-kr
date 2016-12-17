@@ -1,22 +1,26 @@
 ---
-title: Log Analytics HTTP 데이터 수집기 API | Microsoft Docs
-description: REST API를 호출할 수 있는 모든 클라이언트에서 Log Analytics HTTP 데이터 수집기 API를 사용하여 POST JSON 데이터를 Log Analytics 저장소에 추가할 수 있습니다. 이 문서는 API를 사용하는 방법을 설명하며, 다양한 프로그래밍 언어를 사용하여 데이터를 게시하는 방법을 예제로 제시합니다.
+title: "Log Analytics HTTP 데이터 수집기 API | Microsoft Docs"
+description: "REST API를 호출할 수 있는 모든 클라이언트에서 Log Analytics HTTP 데이터 수집기 API를 사용하여 POST JSON 데이터를 Log Analytics 저장소에 추가할 수 있습니다. 이 문서는 API를 사용하는 방법을 설명하며, 다양한 프로그래밍 언어를 사용하여 데이터를 게시하는 방법을 예제로 제시합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 10/26/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f574a3cd837e4fc9cf292d672432a7960cae177b
+
 
 ---
-# <a name="log-analytics-http-data-collector-api"></a>Log Analytics HTTP 데이터 수집기 API
+# <a name="log-analytics-http-data-collector-api"></a>Log Analytics HTTP 데이터 수집기 API  
 Log Analytics HTTP 데이터 수집기 API를 사용하면 REST API를 호출할 수 있는 모든 클라이언트에서 POST JSON(JavaScript Object Notation) 데이터를 Log Analytics 저장소에 추가할 수 있습니다. 이 방법으로 Azure Automation의 Runbook 같은 타사 응용 프로그램이나 스크립트에서 데이터를 보낼 수 있습니다.  
 
 ## <a name="create-a-request"></a>요청 만들기
@@ -26,7 +30,7 @@ Log Analytics HTTP 데이터 수집기 API를 사용하면 REST API를 호출할
 | 특성 | 속성 |
 |:--- |:--- |
 | 메서드 |POST |
-| URI |https://<WorkspaceID>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | 콘텐츠 형식 |application/json |
 
 ### <a name="request-uri-parameters"></a>URI 매개 변수 요청
@@ -59,10 +63,10 @@ Authorization: SharedKey <WorkspaceID>:<Signature>
 
 ```
 StringToSign = VERB + "\n" +
-               Content-Length + "\n" +
+                  Content-Length + "\n" +
                Content-Type + "\n" +
-               x-ms-date + "\n" +
-               "/api/logs";
+                  x-ms-date + "\n" +
+                  "/api/logs";
 ```
 
 서명 문자열의 예는 다음과 같습니다.
@@ -143,6 +147,13 @@ Log Analytics가 각 속성에 사용하는 데이터 형식은 새 레코드에
 이후 다음 항목을 제출하면 레코드 형식을 만들기 전에 Log Analytics가 **number_s**, **boolean_s** 및 **string_s** 등의 세 가지 속성으로 레코드를 만듭니다. 이 항목에서 각각의 초기 값은 문자열 형식이 됩니다.
 
 ![샘플 레코드 4](media/log-analytics-data-collector-api/record-04.png)
+
+## <a name="data-limits"></a>데이터 제한
+Log Analytics 데이터 수집 API에 게시된 데이터에 대한 몇 가지 제약 조건이 있습니다.
+
+* Log Analytics 데이터 수집기 API의 게시물당 최대 30MB. 이는 단일 게시물에 대한 크기 제한입니다. 단일 게시물의 데이터가 30MB를 초과하는 경우 보다 작은 크기의 청크로 분할하여 동시에 보내야 합니다. 
+* 최대 32KB의 필드 값 제한. 필드 값이 32KB보다 크면 데이터가 잘립니다. 
+* 지정된 형식의 권장되는 최대 필드 수는 50개입니다. 이는 사용 편의성 및 검색 환경 관점에서의 실용적인 제한입니다.  
 
 ## <a name="return-codes"></a>반환 코드
 HTTP 상태 코드 202는 요청이 처리를 위해 수락되었으나 처리가 아직 완료되지 않았음을 의미합니다. 이 항목은 작업이 성공적으로 완료되었음을 나타냅니다.
@@ -263,7 +274,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
-### <a name="c#-sample"></a>C# 샘플
+### <a name="c-sample"></a>C# 샘플
 ```
 using System;
 using System.Net;
@@ -383,7 +394,7 @@ def build_signature(customer_id, shared_key, date, content_length, method, conte
     string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
     bytes_to_hash = bytes(string_to_hash).encode('utf-8')  
     decoded_key = base64.b64decode(shared_key)
-    encoded_hash = base64.b64encode(hmac.new(decoded_key, string_to_hash, digestmod=hashlib.sha256).digest())
+    encoded_hash = base64.b64encode(hmac.new(decoded_key, bytes_to_hash, digestmod=hashlib.sha256).digest())
     authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
     return authorization
 
@@ -416,6 +427,9 @@ post_data(customer_id, shared_key, body, log_type)
 ## <a name="next-steps"></a>다음 단계
 * [뷰 디자이너](log-analytics-view-designer.md)를 사용하여 제출한 데이터에 대한 사용자 지정 보기를 구성할 수 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
