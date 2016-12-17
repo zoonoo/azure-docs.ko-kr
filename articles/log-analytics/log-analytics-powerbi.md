@@ -1,12 +1,12 @@
 ---
-title: Log Analytics 데이터를 Power BI로 내보내기 | Microsoft Docs
-description: Power BI는 서로 다른 데이터 집합의 분석을 위해 다양한 시각화 및 보고서를 제공하는 Microsoft의 클라우드 기반 비즈니스 분석 서비스입니다.  Log Analytics는 시각화 및 분석 도구를 활용할 수 있도록 OMS 리포지토리에서 Power BI로 데이터를 지속적으로 내보낼 수 있습니다.  이 문서에서는 Power BI에 일정한 간격으로 자동으로 내보내는 Log Analytics에서 쿼리를 구성하는 방법을 설명합니다.
+title: "Log Analytics 데이터를 Power BI로 내보내기 | Microsoft Docs"
+description: "Power BI는 서로 다른 데이터 집합의 분석을 위해 다양한 시각화 및 보고서를 제공하는 Microsoft의 클라우드 기반 비즈니스 분석 서비스입니다.  Log Analytics는 시각화 및 분석 도구를 활용할 수 있도록 OMS 리포지토리에서 Power BI로 데이터를 지속적으로 내보낼 수 있습니다.  이 문서에서는 Power BI에 일정한 간격으로 자동으로 내보내는 Log Analytics에서 쿼리를 구성하는 방법을 설명합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 83edc411-6886-4de1-aadd-33982147b9c3
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7870e2aebf6c142b0f3103a500ca73d691e6d3e6
+
 
 ---
 # <a name="export-log-analytics-data-to-power-bi"></a>Log Analytics 데이터를 Power BI로 내보내기
@@ -114,6 +118,9 @@ Log Analytics에서 Power BI로 내보내려면 다음 절차를 사용하여 Po
 * Power BI로 내보낼 수 있는 쿼리를 작성하려면 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.
 * Log Analytics 내보내기를 기준으로 시각화를 작성하려면 [Power BI](http://powerbi.microsoft.com) 에 대해 자세히 알아보세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

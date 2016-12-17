@@ -1,12 +1,12 @@
 ---
-title: C 및 C#에서 이벤트 허브 시작 | Microsoft Docs
-description: 이 자습서에 따라 Azure 이벤트 허브를 사용하여 C로 이벤트를 보내고 EventProcessorHost를 통해 C#으로 이벤트를 받을 수 있습니다.
+title: "C 및 C#에서 Event Hubs 시작 | Microsoft Docs"
+description: "이 자습서에 따라 Azure 이벤트 허브를 사용하여 C로 이벤트를 보내고 EventProcessorHost를 통해 C#으로 이벤트를 받을 수 있습니다."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 5170c138-39ec-4eea-9925-e6902e5c425a
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
@@ -14,6 +14,10 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/16/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 30ef95eebb2d260198d56af1832f897a0e8e8001
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>이벤트 허브 시작
@@ -22,13 +26,13 @@ ms.author: jotaub;sethm
 ## <a name="introduction"></a>소개
 이벤트 허브는 연결된 장치와 응용 프로그램에서 생성되는 엄청난 양의 데이터를 처리 및 분석할 수 있도록 초당 수백만 개의 이벤트를 수용할 수 있는 확장성이 뛰어난 수집 시스템입니다. 이벤트 허브로 수집된 데이터는 실시간 분석 공급자나 저장소 클러스터를 사용하여 변환하고 저장할 수 있습니다.
 
-자세한 내용은 [이벤트 허브 개요][이벤트 허브 개요]를 참조하세요.
+자세한 내용은 [Event Hubs 개요][Event Hubs overview]를 참조하세요.
 
-이 자습서에서는 C의 콘솔 응용 프로그램을 사용하여 메시지를 이벤트 허브로 수집하고 C# [이벤트 프로세서 호스트][이벤트 프로세서 호스트] 라이브러리를 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다.
+이 자습서에서는 C의 콘솔 응용 프로그램을 사용하여 메시지를 Event Hub로 수집하고 C# [이벤트 프로세서 호스트][이벤트 프로세서 호스트] 라이브러리를 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* C 개발 환경. 이 자습서에서는 Ubuntu 14.04를 사용하는 [Azure Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md) 에 gcc 스택이 있다고 가정합니다. 다른 환경에 대한 지침은 외부 링크에서 제공됩니다.
+* C 개발 환경. 이 자습서에서는 Ubuntu 14.04를 사용하는 [Azure Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 에 gcc 스택이 있다고 가정합니다. 다른 환경에 대한 지침은 외부 링크에서 제공됩니다.
 * Microsoft Visual Studio Express for Windows
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -51,9 +55,9 @@ ms.author: jotaub;sethm
 ## <a name="next-steps"></a>다음 단계
 이제 이벤트 허브를 만들고 데이터를 보내고 받는 작업 중인 응용 프로그램을 구축했으므로 다음 시나리오로 진행할 수 있습니다.
 
-* [이벤트 허브를 사용하는 샘플 응용 프로그램][이벤트 허브를 사용하는 샘플 응용 프로그램]전체.
-* [이벤트 허브를 사용하는 이벤트 처리 확장][이벤트 허브를 사용하는 이벤트 처리 확장] 샘플
-* [이벤트 허브 개요][이벤트 허브 개요]
+* 전체 [Event Hubs를 사용하는 샘플 응용 프로그램][이벤트 허브를 사용하는 샘플 응용 프로그램].
+* [Event Hubs를 사용하는 이벤트 처리 확장][이벤트 허브를 사용하는 이벤트 처리 확장] 샘플.
+* [Event Hubs 개요][이벤트 허브 개요]
 
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png
@@ -68,6 +72,6 @@ ms.author: jotaub;sethm
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

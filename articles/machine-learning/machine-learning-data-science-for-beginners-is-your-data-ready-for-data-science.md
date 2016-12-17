@@ -1,32 +1,38 @@
 ---
-title: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요? 데이터 평가 | Microsoft Docs
-description: 데이터 과학에 사용할 수 있게 데이터를 준비하기 위한 4가지 기준을 알아보세요. 초급자를 위한 데이터 과학 비디오 2에는 기본 데이터 평가에 도움이 되는 몇 가지 구체적인 예제가 있습니다.
-keywords: 데이터 평가,관련 데이터,데이터 평가,데이터 준비,데이터 기준,데이터 준비 완료
+title: "데이터 과학에 사용할 수 있게 데이터가 준비되었나요? 데이터 평가 | Microsoft Docs"
+description: "데이터 과학에 사용할 수 있게 데이터를 준비하기 위한 4가지 기준을 알아보세요. 초급자를 위한 데이터 과학 비디오 2에는 기본 데이터 평가에 도움이 되는 몇 가지 구체적인 예제가 있습니다."
+keywords: "관련 데이터,데이터 평가,데이터 준비,데이터 기준,데이터 준비"
 services: machine-learning
 documentationcenter: na
-author: brohrer-ms
+author: cjgronlund
 manager: jhubbard
 editor: cjgronlund
-
+ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2016
-ms.author: cgronlun;brohrer;garye
+ms.date: 11/11/2016
+ms.author: cgronlun;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 35579eda8b92a481525ad987e99e7d9c9ed6b942
+ms.openlocfilehash: 902d83db4630bad443208e0aad039d3ad199d2a1
+
 
 ---
-# 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
-## 비디오 2: 초급자를 위한 데이터 과학 시리즈
+# <a name="is-your-data-ready-for-data-science"></a>데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
+## <a name="video-2-data-science-for-beginners-series"></a>비디오 2: 초급자를 위한 데이터 과학 시리즈
 데이터를 평가하여 데이터가 데이터 과학의 기본 조건을 충족하는지 확인하는 방법을 알아봅니다.
 
-시리즈를 최대한 활용하려면 순서대로 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
+시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
-<div class="wa-video-container" data-control="video-container" data-slug="data-science-for-beginners-series-is-your-data-ready-for-data-science"> <a href="/en-us/documentation/videos/data-science-for-beginners-series-is-your-data-ready-for-data-science/" data-control="video" data-expanding="false" class="wa-video-thumbnail" title="Data science for beginners: Is your data ready for data science?" data-ch9="//channel9.msdn.com/Shows/SupervisionNotRequired/9/player/" data-caption="" data-event="videopage-clicked-videothumbnail" data-event-property="data-science-for-beginners-series-is-your-data-ready-for-data-science"> <img src="https://sec.ch9.ms/ch9/8c9a/aab9492b-4167-41f0-9b9f-4eab661e8c9a/DataScienceForBeginnersIsYourDataReadyForDataScie_960.jpg" alt="Data science for beginners: Is your data ready for data science?" class="thumbnail"> <img class="play-icon" src="/cdn/cvt-a29a0e789afe7f47464f393c011b53f210c511ee5fed2c4c9c0633442f30d6ec/images/icon/VideoPlay.svg"> <span class="metadata"> <span class="date"> <span>06-27-2016</span> <span>04 min, 56 sec</span> </span> </span> </a> </div>
+> [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]
+>
+>
 
-## 이 시리즈의 다른 비디오
-*초급자를 위한 데이터 과학*은 다섯 개의 짧은 비디오를 통해 데이터 과학을 간략히 소개합니다.
+## <a name="other-videos-in-this-series"></a>이 시리즈의 다른 비디오
+*초급자를 위한 데이터 과학* 은 다섯 개의 짧은 비디오를 통해 데이터 과학을 간략히 소개합니다.
 
 * 비디오 1: [데이터 과학으로 답변할 수 있는 5가지 질문](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5분 14초)*
 * 비디오 2: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
@@ -34,12 +40,12 @@ ms.author: cgronlun;brohrer;garye
 * 비디오 4: [단순 모델을 사용하여 답변 예측](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7분 42초)*
 * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
-## 비디오 내용: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
-*초급자를 위한 데이터 과학* 시리즈의 두 번째 비디오인 "데이터 과학에 사용할 수 있게 데이터가 준비되었나요?"를 시작하겠습니다.
+## <a name="transcript-is-your-data-ready-for-data-science"></a>비디오 내용: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
+“데이터 과학에 사용할 수 있게 데이터가 준비되었나요?” 비디오를 시작합니다. 이 비디오는 *초급자를 위한 데이터 과학* 시리즈 중 2번째 비디오입니다.  
 
 데이터 과학을 통해 원하는 대답을 얻으려면 먼저 작업할 고품질 원재료를 제공해야 합니다. 피자를 만들 때처럼 더 나은 재료로 시작할수록 더 나은 최종 제품을 얻을 수 있습니다.
 
-## 데이터 기준
+## <a name="criteria-for-data"></a>데이터 기준
 데이터 과학의 경우 모아야 하는 몇 가지 재료가 있습니다.
 
 다음과 같은 데이터가 필요합니다.
@@ -49,7 +55,7 @@ ms.author: cgronlun;brohrer;garye
 * 정확함
 * 작업하는 데 충분함
 
-## 여러분의 데이터는 관련성이 있나요?
+## <a name="is-your-data-relevant"></a>여러분의 데이터는 관련성이 있나요?
 첫 번째 재료가 바로 이것입니다. 우리에게는 관련성이 있는 데이터가 필요합니다.
 
 ![관련 데이터 및 관련이 없는 데이터 - 데이터 평가](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-relevant-and-irrelevant-data.png)
@@ -58,9 +64,9 @@ ms.author: cgronlun;brohrer;garye
 
 이 모든 것은 완벽하게 합법적인 데이터입니다. 유일한 결함은 서로 관련성이 없다는 것입니다. 이러한 수치 간에는 명확한 관계가 없습니다. 현재 우유 가격과 Red Sox 타율 평균을 안다고 해서 혈중 알코올 농도도 알 수 있는 방법은 없습니다.
 
-이제 오른쪽의 표를 보세요. 이번에는 각 사람의 체질량을 측정하고 몇 잔의 술을 마셨는지 계산했습니다. 이제 각 행의 숫자는 서로 관련성이 있습니다. 체질량과 마르가리타 잔 수를 알면 혈중 알코올 농도를 추측할 수 있을 것입니다.
+이제 오른쪽의 표를 보세요. 이번에는 각 사람의 체질량을 측정하고 몇 잔의 술을 마셨는지 계산했습니다.  이제 각 행의 숫자는 서로 관련성이 있습니다. 체질량과 마르가리타 잔 수를 알면 혈중 알코올 농도를 추측할 수 있을 것입니다.
 
-## 연결된 데이터가 있습니까?
+## <a name="do-you-have-connected-data"></a>연결된 데이터가 있습니까?
 다음 재료는 연결된 데이터입니다.
 
 ![연결된 데이터 및 연결되지 않은 데이터 - 데이터 기준, 데이터 준비](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
@@ -73,7 +79,7 @@ ms.author: cgronlun;brohrer;garye
 
 그렇지만 오른쪽의 표는 꽉 차서 완전합니다. 연결된 데이터의 예로 볼 수 있습니다.
 
-## 데이터가 정확한가요?
+## <a name="is-your-data-accurate"></a>데이터가 정확한가요?
 필요한 다음 재료는 정확성입니다. 화살로 맞추려는 4개의 과녁이 있습니다.
 
 ![정확한 데이터 및 부정확한 데이터 - 데이터 기준](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-inaccurate-vs-accurate-data.png)
@@ -84,7 +90,7 @@ ms.author: cgronlun;brohrer;garye
 
 이제 왼쪽 위 과녁을 살펴보겠습니다. 화살끼리 매우 가깝게 모여 있습니다. 정확한 편이지만 중심이 과녁의 중앙을 벗어나 있으므로 정확하지 않습니다. 물론 왼쪽 아래 과녁의 화살표는 부정확하고 정밀하지도 않습니다. 이 궁수는 좀 더 연습이 필요합니다.
 
-## 사용할 충분한 데이터가 있나요?
+## <a name="do-you-have-enough-data-to-work-with"></a>사용할 충분한 데이터가 있나요?
 마지막으로 재료 4는 충분한 데이터가 필요하다는 것입니다.
 
 ![분석을 위한 충분한 데이터가 있나요? 데이터 평가](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-barely-enough-data.png)
@@ -99,10 +105,14 @@ ms.author: cgronlun;brohrer;garye
 
 관련성이 있고, 연결되고, 정확하고, 충분한 데이터가 있으면 고품질의 데이터 과학을 수행하는 데 필요한 모든 재료를 갖추게 되는 것입니다.
 
-Microsoft Azure 기계 학습의 *초급자를 위한 데이터 과학*에 포함된 다른 4가지 비디오도 확인해보세요.
+Microsoft Azure Machine Learning의 “초급자를 위한 데이터 과학”에 있는 다른 4개의 비디오도 확인해 보세요.
 
-## 다음 단계
-* [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
+## <a name="next-steps"></a>다음 단계
+* [Machine Learning Studio로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
 * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

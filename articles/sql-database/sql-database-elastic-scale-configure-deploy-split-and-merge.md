@@ -1,44 +1,48 @@
 ---
-title: 분할/병합 서비스 배포 | Microsoft Docs
-description: 탄력적 데이터베이스 도구를 사용하는 분할 및 병합
+title: "분할/병합 서비스 배포 | Microsoft Docs"
+description: "탄력적 데이터베이스 도구를 사용하는 분할 및 병합"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: ddove
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 9a993c0f-7052-46cd-aa59-073bea8d535a
 ms.service: sql-database
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 10/24/2016
 ms.author: ddove
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a3e8b7c9de0ce1f27c5d765df7890adcd8120836
+
 
 ---
-# 분할/병합 서비스 배포
-분할-병합 도구를 사용하면 분할된 데이터베이스 간에 데이터를 이동할 수 있습니다. [확장된 클라우드 데이터베이스 간 데이터 이동](sql-database-elastic-scale-overview-split-and-merge.md)을 참조하세요.
+# <a name="deploy-a-split-merge-service"></a>분할/병합 서비스 배포
+분할-병합 도구를 사용하면 분할된 데이터베이스 간에 데이터를 이동할 수 있습니다.  [확장된 클라우드 데이터베이스 간 데이터 이동](sql-database-elastic-scale-overview-split-and-merge.md)
 
-## 분할-병합 패키지 다운로드
+## <a name="download-the-split-merge-packages"></a>분할-병합 패키지 다운로드
 1. [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)에서 최신 NuGet 버전을 다운로드합니다.
 2. 명령 프롬프트를 열고 nuget.exe를 다운로드한 디렉터리로 이동합니다. 다운로드에는 PowerShell 명령이 포함됩니다.
 3. 아래 명령을 사용하여 최신 분할/병합 패키지를 현재 디렉터리에 다운로드합니다. `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x*는 버전 번호를 나타냅니다. **content\\splitmerge\\service** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고 **content\\splitmerge\\powershell** 하위 디렉터리에서 분할/병합 PowerShell 스크립트 및 필요한 클라이언트 .dll을 찾습니다.
+파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x*는 버전 번호를 나타냅니다. **content\splitmerge\service** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고 **content\splitmerge\powershell** 하위 디렉터리에서 분할/병합 PowerShell 스크립트 및 필요한 클라이언트 .dll을 찾습니다.
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 1. 분할/병합 상태 데이터베이스로 사용할 Azure SQL DB 데이터베이스를 만듭니다. [Azure 포털](https://portal.azure.com)로 이동합니다. 새 **SQL 데이터베이스**를 만듭니다. 데이터베이스에 이름을 지정하고 새 관리자 및 암호를 만듭니다. 나중에 사용할 수 있도록 이름과 암호를 기록합니다.
 2. Azure SQL DB 서버에서 Azure 서비스의 연결을 허용하는지 확인합니다. 포털의 **방화벽 설정**에서 **Azure 서비스에 대한 액세스 허용** 설정이 **On**으로 설정되었는지 확인합니다. "저장" 아이콘을 클릭합니다.
    
     ![허용된 서비스][1]
 3. 진단 출력에 사용할 Azure 저장소 계정을 만듭니다. Azure 포털로 이동합니다. 왼쪽 막대에서 **새로 만들기**, **데이터 + 저장소**, **저장소**를 차례로 클릭합니다.
-4. 분할/병합 서비스를 포함할 Azure 클라우드 서비스를 만듭니다. Azure 포털로 이동합니다. 왼쪽 막대에서 **새로 만들기**, **계산**, **클라우드 서비스**, **만들기**를 차례로 클릭합니다.
+4. 분할/병합 서비스를 포함할 Azure 클라우드 서비스를 만듭니다.  Azure 포털로 이동합니다. 왼쪽 막대에서 **새로 만들기**, **계산**, **클라우드 서비스**, **만들기**를 차례로 클릭합니다. 
 
-## 분할/병합 서비스 구성
-### 분할/병합 서비스 구성
+## <a name="configure-your-split-merge-service"></a>분할/병합 서비스 구성
+### <a name="split-merge-service-configuration"></a>분할/병합 서비스 구성
 1. 분할/병합 어셈블리를 다운로드한 폴더에서 **SplitMergeService.cspkg**와 함께 제공된 **ServiceConfiguration.Template.cscfg** 파일의 복사본을 만들고 이름을 **ServiceConfiguration.cscfg**로 바꿉니다.
-2. Visual Studio와 같은 텍스트 편집기에서 인증서 지문 형식과 같은 입력의 유효성을 검사하는 **ServiceConfiguration.cscfg**를 엽니다.
-3. 새 데이터베이스를 만들거나 분할/병합 작업에 대한 상태 데이터베이스로 사용할 기존 데이터베이스를 선택하고 해당 데이터베이스의 연결 문자열을 검색합니다.
+2. Visual Studio와 같은 텍스트 편집기에서 인증서 지문 형식과 같은 입력의 유효성을 검사하는 **ServiceConfiguration.cscfg** 를 엽니다.
+3. 새 데이터베이스를 만들거나 분할/병합 작업에 대한 상태 데이터베이스로 사용할 기존 데이터베이스를 선택하고 해당 데이터베이스의 연결 문자열을 검색합니다. 
    
     **중요** 지금은 상태 데이터베이스에서 라틴어 데이터 정렬 (SQL\_Latin1\_General\_CP1\_CI\_AS)을 사용해야 합니다. 자세한 내용은 [Windows 데이터 정렬 이름(TRANSACT-SQL)](https://msdn.microsoft.com/library/ms188046.aspx)을 참조하세요.
    
@@ -48,12 +52,12 @@ ms.author: ddove
 4. ElasticScaleMetadata 설정의 **SplitMergeWeb** 및 **SplitMergeWorker** 역할 섹션에서 cscfg 파일에 이 연결 문자열을 입력합니다.
 5. **SplitMergeWorker** 역할의 경우, **WorkerRoleSynchronizationStorageAccountConnectionString** 설정에 대해 Azure 저장소에 유효한 연결 문자열을 입력합니다.
 
-### 보안 구성
+### <a name="configure-security"></a>보안 구성
 서비스의 보안을 구성하는 자세한 지침은 [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)을 참조하세요.
 
 이 자습서에 대한 간단한 테스트를 배포하기 위해 서비스를 작동하고 실행하는 데 필요한 최소 구성 단계가 수행됩니다. 이러한 단계에서는 단계를 실행하는 데 사용하는 컴퓨터/계정 하나만 서비스와 통신할 수 있습니다.
 
-### 자체 서명된 인증서 만들기
+### <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 새 디렉터리를 만들고 이 디렉터리에서 [Visual Studio용 개발자 명령 프롬프트](http://msdn.microsoft.com/library/ms229859.aspx) 창을 사용하여 다음 명령을 실행합니다.
 
     makecert ^
@@ -63,14 +67,14 @@ ms.author: ddove
     -sr currentuser -ss root ^
     -sv MyCert.pvk MyCert.cer
 
-개인 키를 보호 하기 위해 암호를 입력하라는 메시지가 표시됩니다. 강력한 암호를 입력하고 이를 확인합니다. 이후에 사용할 암호를 한 번 더 입력하라는 메시지가 표시됩니다. 마지막에 **예**를 클릭하여 신뢰할 수 있는 인증 기관 루트 저장소로 인증서를 가져옵니다.
+개인 키를 보호 하기 위해 암호를 입력하라는 메시지가 표시됩니다. 강력한 암호를 입력하고 이를 확인합니다. 이후에 사용할 암호를 한 번 더 입력하라는 메시지가 표시됩니다. 마지막에 **예** 를 클릭하여 신뢰할 수 있는 인증 기관 루트 저장소로 인증서를 가져옵니다.
 
-### PFX 파일 만들기
+### <a name="create-a-pfx-file"></a>PFX 파일 만들기
 makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증서를 만드는 데 사용한 동일한 암호를 사용합니다.
 
     pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
 
-### 개인 저장소로 클라이언트 인증서 가져오기
+### <a name="import-the-client-certificate-into-the-personal-store"></a>개인 저장소로 클라이언트 인증서 가져오기
 1. Windows 탐색기에서 **MyCert.pfx**를 두 번 클릭합니다.
 2. **인증서 가져오기 마법사**에서 **현재 사용자**를 선택하고 **다음**을 클릭합니다.
 3. 파일 경로를 확인하고 **다음**을 클릭합니다.
@@ -78,18 +82,19 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 5. **인증서 저장소를 자동으로 선택[…]**을 선택된 상태로 두고 **다음**을 클릭합니다.
 6. **마침**, **확인**을 차례로 클릭합니다.
 
-### 클라우드 서비스에 PFX 파일 업로드
+### <a name="upload-the-pfx-file-to-the-cloud-service"></a>클라우드 서비스에 PFX 파일 업로드
 [Azure 포털](https://portal.azure.com)로 이동합니다.
 
 1. **클라우드 서비스**를 선택합니다.
 2. 분할/병합 서비스에 대해 위에서 만든 클라우드 서비스를 선택합니다.
-3. 최상위 메뉴에서 **인증서**를 클릭합니다.
-4. 아래쪽 메뉴 모음에서 **업로드**를 클릭합니다.
+3. 최상위 메뉴에서 **인증서** 를 클릭합니다.
+4. 아래쪽 메뉴 모음에서 **업로드** 를 클릭합니다.
 5. PFX 파일을 선택하고 위와 동일한 암호를 입력합니다.
 6. 완료되면 목록의 새 항목에서 인증서 지문을 복사합니다.
 
-### 서비스 구성 파일 업데이트
-이러한 설정의 지문/값 특성에 위의 복사한 인증서 지문을 붙여넣습니다. 작업자 역할의 경우:
+### <a name="update-the-service-configuration-file"></a>서비스 구성 파일 업데이트
+이러한 설정의 지문/값 특성에 위의 복사한 인증서 지문을 붙여넣습니다.
+작업자 역할의 경우:
 
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
@@ -106,7 +111,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 프로덕션 배포의 경우 CA, 암호화, 서버 인증서 및 클라이언트 인증서에 개별 인증서를 사용해야 합니다. 이와 관련된 자세한 지침은 [보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)을 참조하세요.
 
-## 서비스 배포
+## <a name="deploy-your-service"></a>서비스 배포
 1. [Azure 포털](https://manage.windowsazure.com)로 이동합니다.
 2. 왼쪽에서 **클라우드 서비스** 탭을 클릭하고 앞에서 만든 클라우드 서비스를 선택합니다.
 3. **대시보드**를 클릭합니다.
@@ -119,7 +124,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 ![업로드][4]
 
-## 배포 문제 해결
+## <a name="troubleshoot-the-deployment"></a>배포 문제 해결
 웹 역할을 온라인 상태로 전환하지 못하면 보안 구성에 문제가 있는 것입니다. 위에서 설명한 대로 SSL이 구성되었는지 확인합니다.
 
 작업자 역할을 온라인 상태로 전환하지 못했지만 웹 역할은 성공하면 대개 이전에 만든 상태 데이터베이스에 대한 연결 문제가 있는 것입니다.
@@ -130,13 +135,13 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
   
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 * 서버 이름이 **https://**로 시작하지 않는지 확인합니다.
-* Azure SQL DB 서버에서 Azure 서비스의 연결을 허용하는지 확인합니다. 그렇게 하려면 https://manage.windowsazure.com을(를) 열고, 왼쪽에서 “SQL 데이터베이스”를 클릭하고, 위쪽에서 “서버”를 클릭하여 사용 중인 서버를 선택합니다. 위쪽에서 **구성**을 클릭하고 **Azure 서비스** 설정이 “예”로 지정되어 있는지 확인합니다. 관련 정보는 이 문서 앞부분의 필수 조건 섹션을 참조하세요.
+* Azure SQL DB 서버에서 Azure 서비스의 연결을 허용하는지 확인합니다. 이렇게 하려면 https://manage.windowsazure.com을 열고 왼쪽에서 “SQL 데이터베이스”를 클릭하고 위쪽에서 “서버”를 클릭하고 서버를 선택합니다. 위쪽에서 **구성**을 클릭하고 **Azure 서비스** 설정이 “예”로 지정되어 있는지 확인합니다. 관련 정보는 이 문서 앞부분의 필수 조건 섹션을 참조하세요.
 
-## 서비스 배포 테스트
-### 웹 브라우저와 연결
-분할/병합 서비스의 웹 끝점을 확인합니다. Azure 클래식 포털에서 클라우드 서비스의 **대시보드**로 이동한 다음 오른쪽의 **사이트 URL**에서 이 끝점을 찾아 확인할 수 있습니다. 기본 보안 설정에서는 HTTP 끝점을 사용할 수 없으므로 **http://**를 **https://**로 바꿉니다. 이 URL에 해당하는 페이지를 브라우저에 로드합니다.
+## <a name="test-the-service-deployment"></a>서비스 배포 테스트
+### <a name="connect-with-a-web-browser"></a>웹 브라우저와 연결
+분할/병합 서비스의 웹 끝점을 확인합니다. Azure 클래식 포털에서 클라우드 서비스의 **대시보드**로 이동한 다음 오른쪽의 **사이트 URL**에서 이 끝점을 찾아 확인할 수 있습니다. 기본 보안 설정을 통해 HTTP 끝점을 사용하지 않도록 설정되므로 **http://**를 **https://**로 바꿉니다. 이 URL에 해당하는 페이지를 브라우저에 로드합니다.
 
-### PowerShell 스크립트로 테스트
+### <a name="test-with-powershell-scripts"></a>PowerShell 스크립트로 테스트
 포함된 샘플 PowerShell 스크립트를 실행하여 사용자 환경 및 배포를 테스트할 수 있습니다.
 
 포함된 스크립트 파일은 다음과 같습니다.
@@ -154,19 +159,19 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
   </tr>
   <tr>
     <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
-    <td>1. 분할된 데이터베이스 맵 관리자 데이터베이스를 만듭니다.</td>
+    <td>1.    분할된 데이터베이스 맵 관리자 데이터베이스를 만듭니다.</td>
   </tr>
   <tr>
-    <td>2. 분할된 데이터베이스를 2개 만듭니다.
+    <td>2.    분할된 데이터베이스를 2개 만듭니다.
   </tr>
   <tr>
-    <td>3. 해당 데이터베이스에 대한 분할된 데이터베이스 맵을 만듭니다. 이때 해당 데이터베이스의 기존 분할된 데이터베이스 맵은 삭제됩니다. </td>
+    <td>3.    해당 데이터베이스에 대한 분할된 데이터베이스 맵을 만듭니다. 이때 해당 데이터베이스의 기존 분할된 데이터베이스 맵은 삭제됩니다. </td>
   </tr>
   <tr>
-    <td>4. 두 분할된 데이터베이스에서 작은 샘플 테이블을 만들고 둘 중 하나의 테이블을 채웁니다.</td>
+    <td>4.    두 분할된 데이터베이스에서 작은 샘플 테이블을 만들고 둘 중 하나의 테이블을 채웁니다.</td>
   </tr>
   <tr>
-    <td>5. 분할된 테이블에 대한 SchemaInfo를 선언합니다.</td>
+    <td>5.    분할된 테이블에 대한 SchemaInfo를 선언합니다.</td>
   </tr>
 
 </table>
@@ -178,20 +183,20 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
   </tr>
 <tr>
     <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
-    <td>1. 첫 번째 분할된 데이터베이스에서 두 번째 분할된 데이터베이스로 데이터의 절반을 분할하는 분할 요청을 분할/병합 서비스 웹 프런트 엔드로 보냅니다.</td>
+    <td>1.    첫 번째 분할된 데이터베이스에서 두 번째 분할된 데이터베이스로 데이터의 절반을 분할하는 분할 요청을 분할/병합 서비스 웹 프런트 엔드로 보냅니다.</td>
   </tr>
   <tr>
-    <td>2. 분할 요청 상태를 확인하기 위해 웹 프런트 엔드를 폴링한 다음 요청이 완료될 때까지 기다립니다.</td>
+    <td>2.    분할 요청 상태를 확인하기 위해 웹 프런트 엔드를 폴링한 다음 요청이 완료될 때까지 기다립니다.</td>
   </tr>
   <tr>
-    <td>3. 두 번째 분할된 데이터베이스에서 첫 번째 분할된 데이터베이스로 데이터를 다시 이동하는 병합 요청을 분할/병합 서비스 웹 프런트 엔드로 보냅니다.</td>
+    <td>3.    두 번째 분할된 데이터베이스에서 첫 번째 분할된 데이터베이스로 데이터를 다시 이동하는 병합 요청을 분할/병합 서비스 웹 프런트 엔드로 보냅니다.</td>
   </tr>
   <tr>
-    <td>4. 병합 요청 상태를 확인하기 위해 웹 프런트 엔드를 폴링한 다음 요청이 완료될 때까지 기다립니다.</td>
+    <td>4.    병합 요청 상태를 확인하기 위해 웹 프런트 엔드를 폴링한 다음 요청이 완료될 때까지 기다립니다.</td>
   </tr>
 </table>
 
-## PowerShell을 사용하여 배포 확인
+## <a name="use-powershell-to-verify-your-deployment"></a>PowerShell을 사용하여 배포 확인
 1. 새 PowerShell 창을 열고 분할/병합 패키지를 다운로드한 디렉터리로 이동한 다음 "powershell" 디렉터리로 이동합니다.
 2. Azure SQL 데이터베이스 서버를 만들거나 기존 서버를 선택합니다. 이 서버에 분할된 데이터베이스 맵 관리자 및 분할된 데이터베이스가 생성됩니다.
    
@@ -232,46 +237,29 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
    
    아래 오류가 표시되면 대개 웹 끝점의 인증서에 문제가 있는 것입니다. 원하는 웹 브라우저로 웹 끝점에 연결하여 인증서 오류가 발생하는지 확인합니다.
    
-     Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.
+     Invoke-WebRequest : 기본 연결이 닫혔습니다. SSL/TLSsecure 채널에 대한 트러스트 관계를 설정할 수 없습니다.
    
    정상적으로 연결되는 경우의 출력은 다음과 같습니다.
    
-   > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' –CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
-   > Sending split request
-   > Began split operation with id dc68dfa0-e22b-4823-886a-9bdc903c80f3
-   > Polling split-merge request status. Press Ctrl-C to end
-   > Progress: 0% | Status: Queued | Details: [Informational] Queued request
-   > Progress: 5% | Status: Starting | Details: [Informational] Starting split-merge state machine for request.
-   > Progress: 5% | Status: Starting | Details: [Informational] Performing data consistency checks on target     shards.
-   > Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
-   > Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Waiting for reference tables copy     completion.
-   > Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
-   > Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Moving key range [100:110) of     Sharded tables
-   > Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Successfully copied key range     [100:110) for table [dbo].[MyShardedTable]
-   > ...
-   > ...
-   > Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
-   > Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
-   > Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
-   > Sending merge request
-   > Began merge operation with id 6ffc308f-d006-466b-b24e-857242ec5f66
-   > Polling request status. Press Ctrl-C to end
-   > Progress: 0% | Status: Queued | Details: [Informational] Queued request
-   > Progress: 5% | Status: Starting | Details: [Informational] Starting split-merge state machine for request.
-   > Progress: 5% | Status: Starting | Details: [Informational] Performing data consistency checks on target     shards.
-   > Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
-   > Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Moving key range [100:110) of     Sharded tables
-   > Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Successfully copied key range     [100:110) for table [dbo].[MyShardedTable]
-   > ...
-   > ...
-   > Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
-   > Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
-   > Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
+   > .\ExecuteSampleSplitMerge.ps1 -사용자 이름 'mysqluser' -암호 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' –CertificateThumbprint 0123456789abcdef0123456789abcdef01234567 분할 요청 전송 ID로 dc68dfa0-e22b-4823-886a-9bdc903c80f3으로 분할 작업 시작 분할-병합 요청 상태 폴링. 종료하려면 Ctrl-C 키 누르기 프로세스: 0% | 상태: 큐에 대기 | 상세 내용: [정보] 큐에 대기된 요청 프로세스: 5% | 상태: 시작 | 상세 내용: [정보] 요청에 대한 분할-병합 상태 시작.
+   > 프로세스: 5% | 상태: 시작 | 상세 내용: [정보] 대상 분할된 데이터베이스에 대한 데이터 일관성 검사 수행.
+   > 프로세스: 20% | 상태: CopyingReferenceTables | 상세 내용: [정보] 원본에서 대상 분할된 데이터베이스로 참조 테이블 이동.
+   > 프로세스: 20% | 상태: CopyingReferenceTables | 상세 내용: [정보] 참조 테이블 복사 완료 대기 중.
+   > 프로세스: 20% | 상태: CopyingReferenceTables | 상세 내용: [정보] 원본에서 대상 분할된 데이터베이스로 참조 테이블 이동.
+   > 프로세스: 44% | 상태: CopyingShardedTables | 상세 내용: [정보] 분할된 데이터베이스 테이블의 키 범위[100:110) 이동 프로세스: 44% | 상태: CopyingShardedTables | 상세 내용: [정보] 테이블 [dbo].[MyShardedTable]에 대한 키 범위[100:110) 성공적으로 복사. 프로세스: 90% | 상태: 완료 | 상세 내용: [정보] 테이블 [dbo].[MyShardedTable]의 shardlet 성공적으로 삭제.
+   > 프로세스: 90% | 상태: 완료 | 상세 내용: [정보] 요청을 처리하는 동안 생성된 임시 테이블 삭제.
+   > 프로세스: 100% | 상태: 성공 | 상세 내용: [정보] 성공적으로 요청 처리.
+   > 병합 요청 전송 ID 6ffc308f-d006-466b-b24e-857242ec5f66으로 병합 작업 시작 요청 상태 폴링. 종료하려면 Ctrl-C 키 누르기 프로세스: 0% | 상태: 큐에 대기 | 상세 내용: [정보] 큐에 대기된 요청 프로세스: 5% | 상태: 시작 | 상세 내용: [정보] 요청에 대한 분할-병합 상태 시작.
+   > 프로세스: 5% | 상태: 시작 | 상세 내용: [정보] 대상 분할된 데이터베이스에 대한 데이터 일관성 검사 수행.
+   > 프로세스: 20% | 상태: CopyingReferenceTables | 상세 내용: [정보] 원본에서 대상 분할된 데이터베이스로 참조 테이블 이동.
+   > 프로세스: 44% | 상태: CopyingShardedTables | 상세 내용: [정보] 분할된 데이터베이스 테이블의 키 범위[100:110) 이동 프로세스: 44% | 상태: CopyingShardedTables | 상세 내용: [정보] 테이블 [dbo].[MyShardedTable]에 대한 키 범위[100:110) 성공적으로 복사. 프로세스: 90% | 상태: 완료 | 상세 내용: [정보] 테이블 [dbo].[MyShardedTable]의 shardlet 성공적으로 삭제.
+   > 프로세스: 90% | 상태: 완료 | 상세 내용: [정보] 요청을 처리하는 동안 생성된 임시 테이블 삭제.
+   > 프로세스: 100% | 상태: 성공 | 상세 내용: [정보] 성공적으로 요청 처리.
    > 
    > 
 6. 다른 데이터 형식으로도 연결해 봅니다. 이러한 모든 스크립트는 키 유형을 지정할 수 있도록 하는 선택적인 -ShardKeyType 매개 변수를 사용합니다. 기본값은 Int32지만 Int64, GUID 또는 이진 파일을 지정할 수도 있습니다.
 
-## 요청 만들기
+## <a name="create-requests"></a>요청 만들기
 웹 UI를 사용하거나 웹 역할을 통해 요청을 제출하는 SplitMerge.psm1 PowerShell 모듈을 가져와서 사용하여 서비스를 사용할 수 있습니다.
 
 이 서비스는 분할된 테이블과 참조 테이블 모두에서 데이터를 이동할 수 있습니다. 분할된 테이블에는 분할 키 열과 각 분할 키에 대한 여러 행의 데이터가 있습니다. 참조 테이블은 분할되지 않으므로 모든 분할된 데이터베이스에 동일한 행 데이터를 포함합니다. 참조 테이블은 자주 변경되지 않으며 쿼리에서 분할된 테이블과 조인하는 데 사용되는 데이터에 유용합니다.
@@ -288,7 +276,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 분할/병합 서비스에서 대상 데이터베이스(또는 데이터베이스의 모든 테이블에 대한 스키마)를 자동으로 생성하지는 않습니다. 대상 데이터베이스가 미리 생성되어 있어야 서비스에 요청을 보낼 수 있습니다.
 
-## 문제 해결
+## <a name="troubleshooting"></a>문제 해결
 샘플 PowerShell 스크립트를 실행할 때 아래 메시지가 표시될 수 있습니다.
 
     Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
@@ -297,9 +285,9 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 요청을 제출할 수 없는 경우에 다음이 나타날 수 있습니다.
 
- [예외] System.Data.SqlClient.SqlException (0x80131904): 저장 프로시저 'dbo.InsertRequest'를 찾을 수 없습니다.
+ [예외] System.Data.SqlClient.SqlException (0x80131904): 저장 프로시저 'dbo.InsertRequest'를 찾을 수 없습니다. 
 
-이 경우 구성 파일, 특히 **WorkerRoleSynchronizationStorageAccountConnectionString**에 대한 설정을 확인합니다. 이 오류는 일반적으로 작업자 역할이 처음 사용할 때 메타데이터 데이터베이스를 성공적으로 초기화하지 못했을 때 나타납니다.
+이 경우 구성 파일, 특히 **WorkerRoleSynchronizationStorageAccountConnectionString**에 대한 설정을 확인합니다. 이 오류는 일반적으로 작업자 역할이 처음 사용할 때 메타데이터 데이터베이스를 성공적으로 초기화하지 못했을 때 나타납니다. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -311,4 +299,8 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
 
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
