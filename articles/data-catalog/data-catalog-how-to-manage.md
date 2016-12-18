@@ -1,13 +1,13 @@
 ---
-title: 데이터 자산을 관리하는 방법 | Microsoft Docs
-description: Azure Data Catalog에 등록된 데이터 자산의 표시 여부 및 소유권을 제어하는 방법을 강조하는 방법 문서입니다.
+title: "데이터 자산을 관리하는 방법 | Microsoft Docs"
+description: "Azure Data Catalog에 등록된 데이터 자산의 표시 여부 및 소유권을 제어하는 방법을 강조하는 방법 문서입니다."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/04/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 49d939205c85bad8bf7422ef4d9fa02501bb8df7
+
 
 ---
 # <a name="how-to-manage-data-assets"></a>데이터 자산을 관리하는 방법
@@ -70,6 +74,9 @@ ms.author: maroche
 ## <a name="summary"></a>요약
 메타데이터 및 데이터 자산 검색에 대한 데이터 카탈로그의 크라우드소싱 모델을 사용하면 모든 카탈로그 사용자가 기여하고 검색할 수 있습니다. 데이터 카탈로그의 표준 버전은 특정 데이터 자산의 표시 및 사용을 제한하는 소유권 및 관리를 위한 기능을 제공합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: Service Bus 큐, 토픽 및 구독 | Microsoft Docs
-description: 서비스 버스 메시징 엔터티의 개요
-services: service-bus
+title: "Service Bus 큐, 토픽 및 구독 | Microsoft Docs"
+description: "서비스 버스 메시징 엔터티의 개요"
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a306ced4-74e9-47c6-990a-d9c47efa31d5
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/14/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: edee84938bddf28ac4dbf4152ccf9d7ab6afe6c3
+
 
 ---
-# <a name="service-bus-queues,-topics,-and-subscriptions"></a>Service Bus 큐, 토픽 및 구독
+# <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus 큐, 토픽 및 구독
 Microsoft Azure 서비스 버스는 신뢰할 수 있는 메시지 큐 및 지속형 게시/구독 메시징을 포함하여 클라우드 기반, 메시지 지향 미들웨어 기술 집합을 지원합니다. 이러한 조정된 메시징 기능은 서비스 버스 메시징 패브릭을 사용하여 분리된 메시징 기능 게시-구독, 임시 분리 및 부하 분산 시나리오로 여겨질 수 있습니다. 분리된 통신에는 많은 장점이 있습니다. 예를 들어 필요하면 클라이언트와 서버가 연결되고 비동기 방식으로 작업을 수행할 수 있습니다.
 
 Service Bus의 조정된 메시징 기능의 핵심이 되는 메시징 엔터티는 큐, 토픽/구독, 규칙/동작입니다.
@@ -162,6 +166,9 @@ Service Bus 조정된 메시징 엔터티 사용에 대한 자세한 내용 및 
 * [토픽 필터 샘플](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 * [조정된 메시징: 고급 필터 샘플](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

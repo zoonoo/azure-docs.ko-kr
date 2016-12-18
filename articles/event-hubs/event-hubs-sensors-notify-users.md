@@ -1,12 +1,12 @@
 ---
-title: 센서 또는 다른 시스템으로부터 받은 데이터 사용자 알림 | Microsoft Docs
-description: 이벤트 허브를 사용하여 사용자에게 센서 데이터를 알리는 방법을 설명합니다.
+title: "사용자에게 센서 또는 다른 시스템에서 받은 데이터 알림 | Microsoft 문서"
+description: "이벤트 허브를 사용하여 사용자에게 센서 데이터를 알리는 방법을 설명합니다."
 services: event-hubs
 documentationcenter: na
 author: spyrossak
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: a4c0d679-2cac-4ac6-ad48-26cf9a6d8627
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2016
 ms.author: spyros;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8de8710d3de16c9b239af6c07c4f73e60e5a182b
+
 
 ---
 # <a name="notify-users-of-data-received-from-sensors-or-other-systems"></a>센서 또는 다른 시스템으로부터 받은 데이터 사용자 알림
@@ -25,14 +29,14 @@ ms.author: spyros;sethm
 
 ![][2]
 
-문제는 정적 보고서 확인을 해결할 때가 아니라 특정 조건이 충족되었을 때 중요한 정보를 가져오는 방법입니다. [Dynamics AX][]와 같은 장치 또는 엔터프라이즈 응용 프로그램에서 데이터를 수신하도록 [Azure Event Hub][Azure Event Hub] 또는 [Azure IoT Hub][Azure IoT Hub]를 사용하는 경우 처리하는 방법에 대한 몇 가지 옵션이 있습니다. 웹 사이트에서 보고 분석하고 저장하고 이를 사용하여 다른 작업을 하도록 명령을 트리거할 수 있습니다. 이를 위해 [Azure Websites][Azure Websites], [SQL Azure][SQL Azure], [HDInsight][HDInsight], [Cortana Intelligence Suite][Cortana Intelligence Suite], [IoT Suite][IoT Suite], [Logic Apps][Logic Apps] 또는 [Azure Notification Hubs][]와 같은 강력한 도구를 사용할 수 있습니다. 그러나 경우에 따라 최소 오버헤드로 누군가에게 해당 데이터를 보내고자 합니다. 약간의 코드로 작업을 수행하는 방법을 보여 주기 위해 새로운 샘플, [AppToNotifyUsers][AppToNotifyUsers]를 제공합니다. 포함된 옵션은 전자 메일(SMTP), SMS 및 전화입니다.
+문제는 정적 보고서 확인을 해결할 때가 아니라 특정 조건이 충족되었을 때 중요한 정보를 가져오는 방법입니다. [Azure IoT Hub][Azure IoT Hub]와 같은 장치 또는 엔터프라이즈 응용 프로그램에서 데이터를 수신하도록 [Azure Event Hub][Azure Event Hub] 또는 [Azure IoT Hub][Azure IoT Hub]를 사용하는 경우 처리하는 방법에는 몇 가지 옵션이 있습니다. 웹 사이트에서 보고 분석하고 저장하고 이를 사용하여 다른 작업을 하도록 명령을 트리거할 수 있습니다. 이렇게 하려면 [Azure Websites][Azure Websites], [SQL Azure][SQL Azure], [HDInsight][HDInsight], [Cortana Intelligence Suite][Cortana Intelligence Suite], [IoT Suite][IoT Suite], [Logic Apps][Logic Apps] 또는 [Azure 알림 허브][Azure 알림 허브]와 같은 강력한 도구를 사용합니다. 그러나 경우에 따라 최소 오버헤드로 누군가에게 해당 데이터를 보내고자 합니다. 약간의 코드로 이러한 작업을 수행하는 방법을 보여 주기 위해 새로운 [AppToNotifyUsers][AppToNotifyUsers] 샘플을 제공했습니다. 포함된 옵션은 전자 메일(SMTP), SMS 및 전화입니다.
 
 ## <a name="application-structure"></a>응용 프로그램 구조
 응용 프로그램은 C#으로 작성되고 샘플의 추가 정보 파일은 응용 프로그램을 수정, 빌드 및 게시해야 하는 모든 정보를 포함합니다. 다음 섹션에서는 응용 프로그램 동작에 대한 대략적인 개요를 제공합니다.
 
 Azure 이벤트 허브 또는 IoT Hub로 푸시되는 중요한 이벤트가 있다는 가정으로 시작합니다. 액세스하고 연결 문자열을 알면 모든 허브가 동작합니다.
 
-이벤트 허브 또는 IoT Hub가 아직 없는 경우 [Connect The Dots](https://github.com/Azure/connectthedots) 프로젝트의 지침에 따라 Arduino shield 및 Raspberry Pi를 사용하여 테스트 베드를 쉽게 설정할 수 있습니다. Arduino shield의 램프 센서는 Pi를 통해 램프 레벨을 [Azure Event Hub][Azure Event Hub] (**ehdevices**)에 보내고 수신된 램프 레벨이 특정 레벨 이하로 떨어지는 경우 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 작업은 두 번째 이벤트 허브(**ehalerts**)에 알림을 푸시합니다.
+이벤트 허브 또는 IoT Hub가 아직 없는 경우 [Connect The Dots](https://github.com/Azure/connectthedots) 프로젝트의 지침에 따라 Arduino shield 및 Raspberry Pi를 사용하여 테스트 베드를 쉽게 설정할 수 있습니다. Arduino shield의 램프 센서는 Pi를 통해 램프 레벨을 [Azure Event Hub][Azure Event Hub](**ehdevices**)에 보내며, 수신된 램프 레벨이 특정 레벨 이하로 떨어지는 경우 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 작업에서 두 번째 이벤트 허브(**ehalerts**)에 경고를 푸시합니다.
 
 **AppToNotify**가 시작할 때 구성 파일(App.config)을 읽어 알림을 받는 이벤트 허브에 대한 URL 및 자격 증명을 가져옵니다. 그런 다음 이를 통해 들어오는 모든 메시지에 대해 해당 이벤트 허브를 지속적으로 모니터링하는 프로세스를 생성합니다. - 이벤트 허브 또는 IoT Hub에 대한 URL 및 유효한 자격 증명에 액세스할 수 있는 한 이 이벤트 허브 판독기 코드는 들어오는 것을 지속적으로 읽습니다. 시작하는 동안 응용 프로그램은 사용하려는 메시징 서비스(전자 메일, SMS, 전화), 발신자 이름/주소 및 수신자 목록에 대한 URL 및 자격 증명을 읽습니다.
 
@@ -62,7 +66,7 @@ Azure 이벤트 허브 또는 IoT Hub로 푸시되는 중요한 이벤트가 있
 [Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub/
 [Azure 이벤트 허브]: https://azure.microsoft.com/services/event-hubs/
 [Azure Event Hub]: https://azure.microsoft.com/services/event-hubs/
-[이벤트 허브를 사용하는 전체 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[이벤트 허브를 사용하는 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [AppToNotifyUsers]: https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications
 [Azure IoT Hub]: http://www.microsoft.com/dynamics/erp-ax-overview.aspx
 [Azure Websites]: https://azure.microsoft.com/services/app-service/web/
@@ -78,6 +82,7 @@ Azure 이벤트 허브 또는 IoT Hub로 푸시되는 중요한 이벤트가 있
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

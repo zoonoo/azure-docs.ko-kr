@@ -1,19 +1,23 @@
 ---
-title: Microsoft 모니터링 제품의 경고 관리 | Microsoft Docs
-description: 경고는 관리자가 주목해야 하는 문제를 나타냅니다.  이 문서는 SCOM(System Center Operations Manager)과 Log Analytics에서 경고를 생성 및 관리하는 방식의 차이에 대해 설명하며 하이브리드 경고 관리 전략에 두 가지 제품을 활용하는 모범 사례를 제공합니다.
+title: "Microsoft 모니터링 제품의 경고 관리 | Microsoft Docs"
+description: "경고는 관리자가 주목해야 하는 문제를 나타냅니다.  이 문서는 SCOM(System Center Operations Manager)과 Log Analytics에서 경고를 생성 및 관리하는 방식의 차이에 대해 설명하며 하이브리드 경고 관리 전략에 두 가지 제품을 활용하는 모범 사례를 제공합니다."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 6572c3f8-78ca-4fa9-8fe1-d0b488590788
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f2b0655bdddc162c7c8ef7d478b2ce1fd1993f15
+
 
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>Microsoft 모니터링으로 경고 관리
@@ -70,6 +74,9 @@ Log Analytics의 데이터 원본으로 SCOM을 사용하는 경우 OMS 리포�
 ## <a name="next-steps"></a>다음 단계
 * [SCOM(System Center Operations Manager)의 경고](https://technet.microsoft.com/library/hh212913.aspx)에 대해 자세히 알아봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

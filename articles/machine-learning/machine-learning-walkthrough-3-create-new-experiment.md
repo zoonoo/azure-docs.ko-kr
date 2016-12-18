@@ -1,12 +1,12 @@
 ---
-title: '3단계: 새 기계 학습 실험 만들기 | Microsoft Docs'
-description: '예측 솔루션 개발 연습 3단계: Azure 기계 학습 스튜디오에서 새 학습 실험을 만듭니다.'
+title: "3단계: 새 Machine Learning 실험 만들기 | Microsoft Docs"
+description: "예측 솔루션 개발 연습 3단계: Azure 기계 학습 스튜디오에서 새 학습 실험을 만듭니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec6ca6b1f06223b1ce3d38e22117e63f438859ce
+
 
 ---
-# <a name="walkthrough-step-3:-create-a-new-azure-machine-learning-experiment"></a>연습 3단계: 새 Azure 기계 학습 실험 만들기
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>연습 3단계: 새 Azure 기계 학습 실험 만들기
  [Azure 기계 학습에서 예측 분석 솔루션 개발](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [기계 학습 작업 영역 만들기](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -69,7 +73,7 @@ ms.author: garye
 6. **확인** 확인 표시를 클릭합니다.
 7. **속성** 창으로 돌아가서 **새 열 이름** 매개 변수를 찾습니다. 이 필드에 데이터 집합의 21개 열에 대한 이름 목록을 쉼표로 구분하여 열 순서로 입력합니다. UCI 웹 사이트의 데이터 집합 설명서에서 열 이름을 얻거나 편의를 위해 다음 목록을 복사하여 붙여넣을 수 있습니다.  
    
-         Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+       Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
    
    속성 창은 다음과 같이 표시됩니다.
    
@@ -104,11 +108,11 @@ R 코드를 사용하여 이 복제를 수행할 수 있습니다.
 2. [R 스크립트 실행][execute-r-script] 모듈을 두 번 클릭하고 주석 "비용 조정 설정"을 입력합니다.
 3. **속성** 창에서 **R 스크립트** 매개 변수의 기본 텍스트를 삭제하고 다음 스크립트를 입력합니다.
    
-         dataset1 <- maml.mapInputPort(1)
-         data.set<-dataset1[dataset1[,21]==1,]
-         pos<-dataset1[dataset1[,21]==2,]
-         for (i in 1:5) data.set<-rbind(data.set,pos)
-         maml.mapOutputPort("data.set")
+       dataset1 <- maml.mapInputPort(1)
+       data.set<-dataset1[dataset1[,21]==1,]
+       pos<-dataset1[dataset1[,21]==2,]
+       for (i in 1:5) data.set<-rbind(data.set,pos)
+       maml.mapOutputPort("data.set")
 
 학습 및 테스트 데이터에 동일한 비용 조정이 포함되도록 [데이터 분할][split] 모듈의 각 출력에 대해 이와 같은 복제 작업을 수행해야 합니다.
 
@@ -143,6 +147,6 @@ R 코드를 사용하여 이 복제를 수행할 수 있습니다.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

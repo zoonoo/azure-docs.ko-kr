@@ -1,13 +1,13 @@
 ---
-title: Data Catalog 개발자 개념 | Microsoft Docs
-description: 카탈로그 REST API를 통해 노출된 것으로 Azure 데이터 카탈로그 개념적 모델의 주요 개념을 소개합니다.
+title: "Data Catalog 개발자 개념 | Microsoft Docs"
+description: "카탈로그 REST API를 통해 노출된 것으로 Azure 데이터 카탈로그 개념적 모델의 주요 개념을 소개합니다."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/11/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e05dc5695b08cdd82107bb3ed473c5d7b299f1e2
+
 
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure 데이터 카탈로그 개발자 개념
@@ -55,7 +59,7 @@ Azure 데이터 카탈로그는 관리를 식별하고 액세스하기 위해 Az
 
 주석의 예는 설명, 태그, 스키마 및 설명서 등입니다. 자산 형식 및 주석 형식의 전체 목록은 자산 개체 모델 섹션에 있습니다.
 
-## <a name="crowdsourcing-annotations-and-user-perspective-(multiplicity-of-opinion)"></a>크라우드소싱 주석 및 사용자 관점(의견의 복합성)
+## <a name="crowdsourcing-annotations-and-user-perspective-multiplicity-of-opinion"></a>크라우드소싱 주석 및 사용자 관점(의견의 복합성)
 Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터의 크라우드소싱을 지원하는 방법입니다. 하나의 의견만 있고 마지막 기록자가 우선하는 wiki 접근 방식과 대비하여, Azure 데이터 카탈로그 모델은 시스템에 여러 의견이 나란히 있도록 허용합니다.
 
 이 방법은 여러 사용자가 지정된 자산에 대해 다른 관점을 가질 수 있는 기업 데이터의 실제 세계를 반영합니다.
@@ -358,6 +362,6 @@ ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>참여자</td>
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
