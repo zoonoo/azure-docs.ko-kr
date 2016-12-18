@@ -1,51 +1,12 @@
 ---
-title: "Azure Event Hubs로 SQL 데이터 끌어오기 | Microsoft 문서"
-description: "SQL 샘플에서 이벤트 허브 가져오기 개요"
-services: event-hubs
-documentationcenter: na
-author: spyrossak
-manager: timlt
-editor: 
-ms.assetid: 3dbc21f2-5e97-463f-85c8-78450369ca48
-ms.service: event-hubs
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/25/2016
-ms.author: spyros;sethm
+redirect_url: https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 174630ba181a32dc6af30a1a89daac68c4050b74
-
+ms.sourcegitcommit: 13852c67b6b98447c513bea48e0e7d617718dc7d
+ms.openlocfilehash: 8a76a1fd43072de8a1b285e25ce844d95310ec44
 
 ---
-# <a name="pulling-data-from-sql-into-an-azure-event-hub"></a>SQL에서 Azure 이벤트 허브로 데이터 끌어오기
-실시간 데이터 처리를 위한 응용 프로그램의 일반적인 아키텍처에는 먼저 데이터를 Azure 이벤트 허브로 푸시하는 과정이 포함됩니다. 이는 IoT 시나리오(예: 여러 갈래의 고속도로에 대한 교통 현황 모니터링), 게임 시나리오(예: 한 무리의 적의 행동 모니터링) 또는 엔터프라이즈 시나리오(예: 건물 거주자 모니터링)일 수 있습니다. 이러한 경우 데이터 생산자는 일반적으로 사용자가 수집, 분석, 저장 및 작업해야 하는 시계열 데이터를 생산하는 외부 개체이며, 사용자는 이러한 프로세스를 위한 인프라를 구축하는 데 많은 노력을 기울였을 수 있습니다. 스트리밍 데이터의 소스 대신 데이터베이스와 같은 것에서 데이터를 가져와 다른 스트리밍 데이터와 함께 사용하려면 어떻게 해야 할까요? Azure 스트림 분석, RDX(Remote Data Explorer) 또는 다른 도구를 사용하여 Microsoft Dynamics AX 또는 사용자 지정 시설 관리 시스템에서 느리게 변화하는 데이터를 분석하고 조치를 취하려는 경우를 고려해 보겠습니다. 이 문제를 해결하기 위해 SQL 테이블에서 데이터를 끌어와 Azure 이벤트 허브에 푸시한 후 다운스트림 분석 응용 프로그램의 입력으로 사용할 수 있으며 수정 및 배포 가능한 소규모 클라우드 샘플을 작성하여 오픈 소스화했습니다. 이는 드문 시나리오이며, 이벤트 허브에서 일반적으로 수행하는 작업과 다릅니다. 그러나 이러한 작업을 수행해야 하는 경우 [여기](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-import-from-sql/)의 Azure 샘플 갤러리에서 코드를 찾을 수 있습니다.  
-
-이 샘플의 코드는 샘플일 뿐입니다. 프로덕션 응용 프로그램용이 **아니며** 그런 환경에서 사용하기에 적합하도록 만들어지지도 않았습니다. 이는 엄격하게 개발자에게만 초점을 맞춘 DIY 유형의 예제입니다. 모든 종류의 보안, 성능, 기능 및 비용 요소를 검토한 다음 종단 간 아키텍처를 해결해야 합니다.
-
-## <a name="application-structure"></a>응용 프로그램 구조
-응용 프로그램은 C#으로 작성되고 샘플의 readme.md 파일은 응용 프로그램을 수정, 빌드 및 게시해야 하는 모든 정보를 포함합니다. 다음 섹션에서는 응용 프로그램 동작에 대한 대략적인 개요를 제공합니다.
-
-SQL Azure 테이블에 대한 액세스 권한이 있다고 가정하고 시작하겠습니다. 또한 Azure 이벤트 허브를 설정하거나 여기에 액세스하기 위해 필요한 연결 문자열을 알아야 할 수 있습니다.
-
-SqlToEventHub 솔루션을 시작하면 readme.md 파일에 설명된 대로 많은 항목을 얻기 위해 구성 파일(App.config)을 읽습니다. 데이터 테이블의 이름 등이 자체 설명되어 있으므로 여기에서 설명을 다시 해시할 필요가 없습니다. 
-
-응용 프로그램에서 구성 파일을 읽은 후에는 루프로 이동하여 SQL 테이블을 읽고 이벤트 허브에 레코드를 푸시한 다음 사용자 정의 대기 간격 동안 대기한 후 모든 작업을 다시 수행합니다. 주목할 만한 몇 가지 사항은 다음과 같습니다.
-
-1. 응용 프로그램은 SQL 테이블이 일부 외부 프로세스에 의해 업데이트된다는 가정을 기반으로 하며, 사용자는 업데이트만 모두 이벤트 허브로 보낼 수 있습니다.
-2. SQL 테이블에는 고유하고 증가하는 번호(예: 레코드 번호)가 있는 필드가 있어야 합니다. 이는 "Id" 필드처럼 단순하거나 데이터베이스에서 "Creation_time" 또는 "Sequence_number"와 같은 레코드를 추가하는 업데이트처럼 증분될 수 있습니다. 응용 프로그램은 각 반복에서 이 필드의 값을 기록하고 저장합니다. 각 후속 통과 루프에서 응용 프로그램은 기본적으로 이 필드의 값이 마지막으로 루프에서 확인한 값을 초과하는 모든 레코드에 대해 테이블을 쿼리합니다. 이 마지막 값을 "오프셋"이라고 합니다.
-3. 응용 프로그램은 시작 시 오프셋을 저장할 "TableOffsets" 테이블을 만듭니다. 이 테이블은 구성 파일에 정의된 "CreateOffsetTableQuery" 쿼리로 만들어집니다. 
-4. 구성 파일에는 오프셋 테이블과 함께 작동하는 몇 가지 쿼리가 "OffsetQuery", "UpdateOffsetQuery" 및 "InsertOffsetQuery"로 정의되어 있습니다. 이러한 쿼리를 변경해서는 안 됩니다.
-5. 마지막으로, 구성 파일에 정의된 "DataQuery" 쿼리는 SQL 테이블에서 레코드를 끌어오기 위해 실행되는 쿼리입니다. 현재 최적화를 위해 각 통과 루프에는 상위 1,000개의 레코드로 제한되어 있습니다. 예를 들어 마지막 쿼리 후 25,000개의 레코드가 데이터베이스에 추가된 경우 쿼리를 실행하는 데 시간이 오래 걸릴 수 있습니다. 쿼리를 한 번에 1,000개의 레코드로 제한하면 쿼리가 훨씬 빨라집니다. 상위 1,000개를 선택하면 레코드 1,000개의 연속 배치가 이벤트 허브로 푸시됩니다.    
-
-## <a name="next-steps"></a>다음 단계
-솔루션을 배포하려면 SqlToEventHub 응용 프로그램을 복제하거나 다운로드하고 App.config 파일을 편집하고 빌드한 다음 마지막으로 게시합니다. 응용 프로그램을 게시한 후에는 Azure 클래식 포털의 클라우드 서비스에서 실행하고 이벤트 허브로 들어오는 이벤트를 모니터링할 수 있습니다. 빈도는 두 가지 항목, 즉 SQL 테이블의 업데이트 빈도와 응용 프로그램의 구성 파일에 지정한 대기 간격에 따라 결정됩니다.
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
