@@ -1,12 +1,12 @@
 ---
-title: 기존 웹 서비스 재학습 | Microsoft Docs
-description: Azure Machine Learning에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
+title: "클래식 웹 서비스 재학습 | Microsoft Docs"
+description: "Azure 기계 학습에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondlaghaeian
-editor: ''
-
+editor: 
+ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 139980b62aee440ac5f4160e83c7a5eafb32eec2
+
 
 ---
 # <a name="retrain-a-classic-web-service"></a>기존 웹 서비스 재학습
 배포한 예측 웹 서비스는 기본 점수 매기기 끝점입니다. 기본 끝점은 원래 학습 및 점수 매기기 실험과 동기화 상태를 유지하므로 기본 끝점에 대한 학습된 모델을 바꿀 수 없습니다. 웹 서비스를 다시 학습하려면 웹 서비스에 새 끝점을 추가해야 합니다. 
 
-> [!NOTE]
-> 이 연습의 단계는 사용자가 [프로그래밍 방식으로 Machine Learning 모델 다시 학습](machine-learning-retrain-models-programmatically.md)에 나와 있는 단계를 통해 웹 서비스를 만든 것으로 간주합니다.
+## <a name="prerequisites"></a>필수 조건
+학습 실험 및 예측 실험을 [프로그래밍 방식으로 Machine Learning 모델 재학습](machine-learning-retrain-models-programmatically.md)에서 보듯이 설정해야 합니다. 
+
+> [!IMPORTANT]
+> 예측 실험을 기존 Machine Learning 웹 서비스로 배포해야 합니다. 
 > 
 > 
+
+웹 서비스 배포에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
 
 ## <a name="add-a-new-endpoint"></a>새 끝점 추가
 배포한 예측 웹 서비스는 원래의 학습 및 점수 매기기 실험 학습된 모델과 동기화를 유지하는 기본 점수 매기기 끝점을 포함합니다. 새로 학습된 모델을 사용하여 웹 서비스를 업데이트하려면 새 점수 매기기 끝점을 만들어야 합니다. 
@@ -56,7 +65,7 @@ ms.author: v-donglo
 4. 이름 아래에서 **Census Model[예측 exp.]**을 클릭합니다.
 5. 페이지 맨 아래에 있는 **끝점 추가**를 클릭합니다. 끝점 추가에 대한 자세한 내용은 [끝점 만들기](machine-learning-create-endpoint.md)를 참조하세요. 
 
-## <a name="update-the-added-endpoint’s-trained-model"></a>추가된 끝점의 학습된 모델 업데이트
+## <a name="update-the-added-endpoints-trained-model"></a>추가된 끝점의 학습된 모델 업데이트
 재학습 프로세스를 완료하려면 추가한 새 끝점의 학습된 모델을 업데이트해야 합니다.
 
 * 기존 Azure Portal을 사용하여 새 끝점을 추가한 경우 포털에서 새 끝점의 이름을 클릭한 다음 **UpdateResource** 링크를 클릭하여 끝점의 모델을 업데이트하는 데 필요한 URL을 가져올 수 있습니다.
@@ -68,7 +77,7 @@ ms.author: v-donglo
 2. 업데이트 리소스 링크를 클릭합니다.
 3. PATCH 요청의 POST URL을 복사합니다. 예:
    
-       PATCH URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
+     패치 URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
 이제 학습된 모델을 사용하여 이전에 만든 점수 매기기 끝점을 업데이트할 수 있습니다.
 
@@ -134,10 +143,12 @@ ms.author: v-donglo
 * 새 데이터를 사용하는 주기적 모델 재학습.
 * 자신의 데이터를 사용하여 모델을 다시 학습할 수 있도록 하는 것을 목표로 고객에게 모델 배포.
 
-다음 단계
-
+## <a name="next-steps"></a>다음 단계
 [Azure 기계 학습 기존 웹 서비스의 재학습 문제 해결](machine-learning-troubleshooting-retraining-models.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

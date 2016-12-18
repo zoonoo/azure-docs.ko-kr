@@ -1,43 +1,48 @@
 ---
-title: SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용 | Microsoft Docs
-description: 솔루션 개발을 위한 Azure SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용을 위한 팁
+title: "SQL Data Warehouse와 함께 Azure Machine Learning 사용 | Microsoft Docs"
+description: "솔루션 개발을 위한 Azure SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용을 위한 팁"
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: ac6bc731-6add-47a9-b3fe-68996e656f4d
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/16/2016
-ms.author: kevin;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: kevin;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f30cfab50407e31ccad61888d7de40e4f0fcba24
+
 
 ---
-# SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용
-Azure 기계 학습은 SQL 데이터 웨어하우스의 데이터에 대해 예측 모델을 만드는 데 사용할 수 있는 완전한 관리 예측 분석 서비스로, 사용할 준비가 된 웹 서비스로 게시할 수 있습니다. [Azure에서 기계 학습 소개][Azure에서 기계 학습 소개]를 읽어 예측 분석의 기본 사항 및 기계 학습에 대해 알 수 있습니다. 그런 다음 [실험 만들기 자습서][실험 만들기 자습서]를 사용하여 기계 학습 모델을.만들고, 훈련하고, 점수를 매기고 테스트하는 방법에 대해 알 수 있습니다.
+# <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용
+Azure 기계 학습은 SQL 데이터 웨어하우스의 데이터에 대해 예측 모델을 만드는 데 사용할 수 있는 완전한 관리 예측 분석 서비스로, 사용할 준비가 된 웹 서비스로 게시할 수 있습니다. [Azure에서 Machine Learning 소개][Azure에서 Machine Learning 소개]를 읽어 예측 분석의 기본 사항 및 기계 학습에 대해 알 수 있습니다.  그런 다음 [실험 만들기 자습서][실험 만들기 자습서]를 사용하여 기계 학습 모델을.만들고, 훈련하고, 점수를 매기고 테스트하는 방법에 대해 알 수 있습니다.
 
 이 문서에서는 [Azure 기계 학습 스튜디오][Azure 기계 학습 스튜디오]를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
 
 * 데이터베이스에서 데이터를 읽어, 예측 모델을 만들고 훈련하고 점수 매기기
 * 데이터베이스에 데이터 쓰기
 
-## SQL 데이터 웨어하우스에서 데이터 읽기
+## <a name="read-data-from-sql-data-warehouse"></a>SQL 데이터 웨어하우스에서 데이터 읽기
 AdventureWorksDW 데이터베이스의 Product 테이블에서 데이터를 읽습니다.
 
-### 1단계
+### <a name="step-1"></a>1단계
 기계 학습 스튜디오 창의 아래쪽에서 +NEW를 클릭하여 새 실험을 시작한 다음 EXPERIMENT, Blank Experiment를 선택합니다. 캔버스 위에서 기본 실험 이름을 선택하고 의미 있는 이름(예: 자전거 가격 예측)으로 바꿉니다.
 
-### 2단계
-데이터 집합의 팔레트에서 판독기 모듈 및 실험 캔버스의 왼쪽에 있는 모듈을 찾습니다. 실험 캔버스에 모듈을 끌어 놓습니다. ![][drag_reader]
+### <a name="step-2"></a>2단계
+데이터 집합의 팔레트에서 판독기 모듈 및 실험 캔버스의 왼쪽에 있는 모듈을 찾습니다. 실험 캔버스에 모듈을 끌어 놓습니다.
+![][drag_reader]
 
-### 3단계
+### <a name="step-3"></a>3단계
 판독기 모듈을 선택하고 속성 창을 완성합니다.
 
 1. Azure SQL 데이터베이스를 데이터 원본으로 선택합니다.
-2. 데이터베이스 서버 이름: 서버 이름을 입력합니다. [Azure 포털][Azure 포털]을 사용하여 찾을 수 있습니다.
+2. 데이터베이스 서버 이름: 서버 이름을 입력합니다. [Azure Portal][Azure Portal]을 사용하여 찾을 수 있습니다.
 
 ![][server_name]
 
@@ -56,7 +61,7 @@ FROM dbo.DimProduct;
 
 ![][reader_properties]
 
-### 4단계
+### <a name="step-4"></a>4단계
 1. 실험 캔버스에서 RUN을 클릭하여 실험을 실행합니다.
 2. 실험이 완료되면 판독기 모듈에 녹색 확인 표시가 생겨 성공적으로 완료되었음을 나타냅니다. 오른쪽 위 모서리에서 실행 완료 상태도 확인됩니다.
 
@@ -64,7 +69,7 @@ FROM dbo.DimProduct;
 
 1. 가져온 데이터를 확인하려면 자동차 데이터 집합 아래에서 출력 포트를 클릭하고 Visualize를 선택합니다.
 
-## 모델 만들기, 훈련 및 점수 매기기
+## <a name="create-train-and-score-a-model"></a>모델 만들기, 훈련 및 점수 매기기
 이제 이 데이터 집합을 사용하여 다음을 수행할 수 있습니다.
 
 * 모델 만들기: 데이터 처리 및 기능 정의
@@ -73,21 +78,21 @@ FROM dbo.DimProduct;
 
 ![][model]
 
-기계 학습 모델을.만들고, 훈련하고, 점수를 매기고 테스트하는 방법에 대해 알려면 [실험 만들기 자습서][실험 만들기 자습서]를 사용합니다.
+기계 학습 모델을.만들고, 훈련하고, 점수를 매기고 테스트하는 방법에 대해 알아보려면 [실험 만들기 자습서][실험 만들기 자습서]를 사용합니다.
 
-## Azure SQL 데이터 웨어하우스에 데이터 쓰기
+## <a name="write-data-to-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스에 데이터 쓰기
 결과 집합을 AdventureWorksDW 데이터베이스의 ProductPriceForecast 테이블에 기록합니다.
 
-### 1단계
+### <a name="step-1"></a>1단계
 데이터 집합의 팔레트에서 기록기 모듈 및 실험 캔버스의 왼쪽에 있는 모듈을 찾습니다. 실험 캔버스에 모듈을 끌어 놓습니다.
 
 ![][drag_writer]
 
-### 2단계
+### <a name="step-2"></a>2단계
 기록기 모듈을 선택하고 속성 창을 완성합니다.
 
 1. Azure SQL 데이터베이스를 데이터 대상으로 선택합니다.
-2. 데이터베이스 서버 이름: 서버 이름을 입력합니다. [Azure 포털][Azure 포털]을 사용하여 찾을 수 있습니다.
+2. 데이터베이스 서버 이름: 서버 이름을 입력합니다. [Azure Portal][Azure Portal]을 사용하여 찾을 수 있습니다.
 3. 데이터베이스 이름: 방금 지정한 서버에서 데이터베이스의 이름을 입력합니다.
 4. 서버 사용자 계정 이름: 데이터베이스에 대한 쓰기 권한이 있는 계정의 사용자 이름을 입력합니다.
 5. 서버 사용자 계정 암호: 지정된 사용자 계정에 대한 암호를 제공합니다.
@@ -99,11 +104,11 @@ FROM dbo.DimProduct;
 
 ![][writer_properties]
 
-### 3단계
+### <a name="step-3"></a>3단계
 1. 실험 캔버스에서 RUN을 클릭하여 실험을 실행합니다.
 2. 실험이 완료되면 모든 모듈에 성공적으로 완료되었음을 나타내는 녹색 확인 표시가 표시됩니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][SQL 데이터 웨어하우스 개발 개요]를 참조하세요.
 
 <!--Image references-->
@@ -120,14 +125,18 @@ FROM dbo.DimProduct;
 
 [SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
 [실험 만들기 자습서]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
-[Azure에서 기계 학습 소개]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[Introduction to machine learning on Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure 기계 학습 스튜디오]: https://studio.azureml.net/Home
-[Azure 포털]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-[Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
+[Azure Machine Learning 설명서]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: PowerShell을 사용하여 가상 네트워크를 Express 경로 회로에 연결 | Microsoft Docs
-description: 이 문서는 리소스 관리자 배포 모델 및 PowerShell을 사용하여 VNet(가상 네트워크)을 Express 경로 회로에 연결하는 방법에 대한 개요를 제공합니다.
+title: "PowerShell을 사용하여 ExpressRoute 회로에 가상 네트워크 연결 | Microsoft 문서"
+description: "이 문서는 리소스 관리자 배포 모델 및 PowerShell을 사용하여 VNet(가상 네트워크)을 Express 경로 회로에 연결하는 방법에 대한 개요를 제공합니다."
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: daacb6e5-705a-456f-9a03-c4fc3f8c1f7e
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 99d5facce236b82ea84c708edf5e934a0d69919c
+ms.openlocfilehash: e362ef6d35316df0410ae84933df27639ab8c562
+
 
 ---
 # <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>가상 네트워크를 Express 경로 회로에 연결합니다.
@@ -69,7 +73,9 @@ Express 경로 프리미엄 추가 기능을 사용하도록 설정하면 Expres
 *회로 소유자* 는 언제든지 부여된 권한을 수정하고 해지할 수 있습니다. 권한 부여를 해지하면 액세스가 해지된 구독에서 모든 링크 연결이 삭제됩니다.
 
 ### <a name="circuit-owner-operations"></a>회로 소유자 작업
-#### <a name="creating-an-authorization"></a>권한 부여 만들기
+
+**권한 부여 만들기**
+
 회로 소유자가 권한 부여를 만듭니다. 그러면 회로 사용자가 Express 경로 회로에 가상 네트워크 게이트웨이를 연결하는 데 사용할 수 있는 권한 부여 키가 만들어집니다. 권한 부여는 하나의 연결에만 유효합니다.
 
 다음 cmdlet 조각은 권한 부여를 만드는 방법을 보여 줍니다.
@@ -93,14 +99,16 @@ Express 경로 프리미엄 추가 기능을 사용하도록 설정하면 Expres
 
 
 
-#### <a name="reviewing-authorizations"></a>권한 부여 검토
+**권한 부여 검토**
+
 회로 소유자는 다음 cmdlet을 실행하여 특정 회로에 발급한 모든 권한 부여를 검토할 수 있습니다.
 
     $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
     $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 
-#### <a name="adding-authorizations"></a>권한 부여 추가
+**권한 부여 추가**
+
 회로 소유자는 다음 cmdlet를 사용하여 권한 부여를 추가할 수 있습니다.
 
     $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
@@ -111,32 +119,39 @@ Express 경로 프리미엄 추가 기능을 사용하도록 설정하면 Expres
     $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 
-#### <a name="deleting-authorizations"></a>권한 부여 삭제하기
+**권한 부여 삭제**
+
 회로 소유자는 다음 cmdlet을 실행하여 권한 부여를 취소/삭제할 수 있습니다.
 
     Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit    
 
-### <a name="circuit-user-operations"></a>회로 사용자 작업
+**회로 사용자 작업**
+
 회로 사용자는 회로 소유자로부터 권한 부여 키를 받아야 하며 피어 ID가 필요합니다. 권한 부여 키는 GUID입니다.
 
 피어 ID는 다음 명령에서 확인할 수 있습니다.
 
     Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 
-#### <a name="redeeming-connection-authorizations"></a>연결 권한 부여 사용
+**연결 권한 부여 사용**
+
 회로 사용자는 다음 cmdlet을 실행하여 링크 권한 부여를 사용할 수 있습니다.
 
-    $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"  
+    $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"    
     $gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
     $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
-#### <a name="releasing-connection-authorizations"></a>연결 권한 부여 해제
+**연결 권한 부여 해제**
+
 Express 경로 회로와 가상 네트워크의 연결을 삭제하여 권한 부여를 해제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

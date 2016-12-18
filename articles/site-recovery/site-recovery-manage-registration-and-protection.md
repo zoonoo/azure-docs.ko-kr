@@ -1,12 +1,12 @@
 ---
-title: 서버 제거 및 보호 사용 안 함 | Microsoft Docs
-description: 이 문서에서는 사이트 복구 자격 증명 모음에서 서버 등록을 취소하고 가상 컴퓨터 및 물리적 서버의 보호를 사용하지 않도록 설정하는 방법을 설명합니다.
+title: "서버 제거 및 보호 사용 안 함 | Microsoft Docs"
+description: "이 문서에서는 사이트 복구 자격 증명 모음에서 서버 등록을 취소하고 가상 컴퓨터 및 물리적 서버의 보호를 사용하지 않도록 설정하는 방법을 설명합니다."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: ef1f31d5-285b-4a0f-89b5-0123cd422d80
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 08dcf342c122dd1ca119bcfec405bbef2171a0e1
+
 
 ---
 # <a name="remove-servers-and-disable-protection"></a>서버 제거 및 보호 사용 안 함
 Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)
 
 ## <a name="overview"></a>개요
-이 문서에는 사이트 복구 자격 증명 모음에서 서버의 등록을 취소 하는 방법 및 사이트 복구를 통해 보호되는 가상 컴퓨터에 대 한 보호를 사용하지 않도록 설정하는 방법을 설명합니다. 
+이 문서에는 사이트 복구 자격 증명 모음에서 서버의 등록을 취소 하는 방법 및 사이트 복구를 통해 보호되는 가상 컴퓨터에 대한 보호를 사용하지 않도록 설정하는 방법을 설명합니다. 
 
 이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
 
@@ -96,7 +100,7 @@ Hyper-V 사이트의 Hyper-V 서버에 있는 가상 컴퓨터를 보호하기 �
             {
                 if (Test-Path $registrationPath)
                 {
-                    "Removing registration related registry keys."  
+                    "Removing registration related registry keys."    
                     Remove-Item -Recurse -Path $registrationPath
                 }
    
@@ -127,7 +131,7 @@ Hyper-V 사이트의 Hyper-V 서버에 있는 가상 컴퓨터를 보호하기 �
                 $store.Remove($cert)
             }
         }catch
-        {   
+        {    
             [system.exception]
             Write-Host "Error occured" -ForegroundColor "Red"
             $error[0] 
@@ -147,7 +151,7 @@ Hyper-V 가상 컴퓨터 보호를 중지하려면 보호를 제거해야 합니
 
 가상 컴퓨터와 해당 하드 디스크를 삭제하도록 선택하면 대상 위치에서 제거됩니다.
 
-### <a name="clean-up-protection-settings-manually-(between-vmm-sites)"></a>보호 설정을 수동으로 정리(VMM 사이트간)
+### <a name="clean-up-protection-settings-manually-between-vmm-sites"></a>보호 설정을 수동으로 정리(VMM 사이트간)
 **가상 컴퓨터 관리 중지**를 선택한 경우 설정을 수동으로 정리합니다.
 
 1. 기본 서버의 VMM 콘솔에서 이 스크립트를 실행하여 기본 가상 컴퓨터의 설정을 정리합니다. VMM 콘솔에서 VMM PowerShell 콘솔을 열려면 PowerShell 단추를 클릭합니다. SQLVM1을 가상 컴퓨터의 이름으로 바꿉니다.
@@ -163,7 +167,7 @@ Hyper-V 가상 컴퓨터 보호를 중지하려면 보호를 제거해야 합니
    
         Remove-VMReplication –VMName “SQLVM1”
 
-### <a name="clean-up-protection-settings-manually-(between-on-premises-vmm-sites-and-azure)"></a>보호 설정을 수동으로 정리(온-프레미스 VMM 사이트와 Azure 간)
+### <a name="clean-up-protection-settings-manually-between-on-premises-vmm-sites-and-azure"></a>보호 설정을 수동으로 정리(온-프레미스 VMM 사이트와 Azure 간)
 1. 원본 VMM 서버에서 이 스크립트를 실행하여 기본 가상 컴퓨터의 설정을 정리합니다.
    
         $vm = get-scvirtualmachine -Name "SQLVM1"
@@ -176,7 +180,7 @@ Hyper-V 가상 컴퓨터 보호를 중지하려면 보호를 제거해야 합니
         $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
         $replicationService.RemoveReplicationRelationship($vm.__PATH)
 
-### <a name="clean-up-protection-settings-manually-(between-hyper-v-sites-and-azure)"></a>보호 설정을 수동으로 정리(Hyper-V 사이트와 Azure 간)
+### <a name="clean-up-protection-settings-manually-between-hyper-v-sites-and-azure"></a>보호 설정을 수동으로 정리(Hyper-V 사이트와 Azure 간)
 1. 원본 Hyper-V 호스트 서버에서 가상 컴퓨터에 대한 복제를 제거 하려면 이 스크립트를 사용합니다. SQLVM1을 가상 컴퓨터의 이름으로 바꿉니다.
    
         $vmName = "SQLVM1"
@@ -202,6 +206,9 @@ VMware 가상 컴퓨터 또는 물리적 서버의 보호를 중지하려면 보
      
        ![제거 옵션](./media/site-recovery-manage-registration-and-protection/remove-vm.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

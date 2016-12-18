@@ -1,12 +1,12 @@
 ---
-title: C 및 Apache Storm과 함께 이벤트 허브 시작 | Microsoft Docs
-description: 이 자습서에 따라 Azure 이벤트 허브를 사용하여 C로 이벤트를 보내고 Apache Storm 클러스터에서 이벤트를 받을 수 있습니다.
+title: "C 및 Apache Storm과 함께 Event Hubs 시작 | Microsoft Docs"
+description: "이 자습서에 따라 Azure 이벤트 허브를 사용하여 C로 이벤트를 보내고 Apache Storm 클러스터에서 이벤트를 받을 수 있습니다."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 3b15825e-c53c-471b-870c-686bff46885a
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
@@ -14,6 +14,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/16/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 1b4573db5c4e03aba8b98408765e7c2debfb9a30
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>이벤트 허브 시작
@@ -28,9 +32,9 @@ ms.author: jotaub;sethm
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* C 개발 환경. 이 자습서에서는 Ubuntu 14.04를 사용하는 [Azure Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md) 에 gcc 스택이 있다고 가정합니다. 다른 환경에 대한 지침은 외부 링크에서 제공됩니다.
+* C 개발 환경. 이 자습서에서는 Ubuntu 14.04를 사용하는 [Azure Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 에 gcc 스택이 있다고 가정합니다. 다른 환경에 대한 지침은 외부 링크에서 제공됩니다.
 * [Maven](http://maven.apache.org/)을 실행하도록 구성된 Java 개발 환경. 이 자습서에서는 [Eclipse](https://www.eclipse.org/)를 사용한다고 가정합니다.
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 [!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
@@ -54,8 +58,8 @@ ms.author: jotaub;sethm
 ## <a name="next-steps"></a>다음 단계
 다음 리소스는 이벤트 허브와 Storm을 통합하는 응용 프로그램을 개발할 때 사용할 수 있습니다.
 
-* [Storm 및 HDInsight를 사용하여 센서 데이터 분석][Storm 및 HDInsight를 사용하여 센서 데이터 분석] 은 이벤트 허브, Storm 및 HBase를 사용하여 센서 데이터를 Hadoop 클러스터에 수집하는 방법을 보여 주는 전체 시나리오 자습서입니다.
-* [Storm 및 HDInsight에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발][Storm 및 HDInsight에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발] 은 C#을 사용하여 Storm 파이프라인을 작성하는 방법을 보여 주는 자습서입니다.
+* [Storm 및 HDInsight를 사용하여 센서 데이터 분석][Storm 및 HDInsight를 사용하여 센서 데이터 분석]은 Event Hubs, Storm 및 HBase를 사용하여 센서 데이터를 Hadoop 클러스터에 수집하는 방법을 보여 주는 전체 시나리오 자습서입니다.
+* [Storm 및 HDInsight에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발][Storm 및 HDInsight에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]은 C#을 사용하여 Storm 파이프라인을 작성하는 방법을 보여 주는 자습서입니다.
 
 <!-- Images. -->
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
@@ -66,12 +70,12 @@ ms.author: jotaub;sethm
 [이벤트 허브 개요]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[HDInsight Storm 개요]: ../hdinsight/hdinsight-storm-overview.md/
+[HDInsight Storm 개요]: ../hdinsight/hdinsight-storm-overview.md
 [Storm 및 HDInsight를 사용하여 센서 데이터 분석]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Storm 및 HDInsight에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

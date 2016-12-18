@@ -1,19 +1,23 @@
 ---
-title: 서비스 버스 트랜잭션 | Microsoft Docs
-description: Azure 서비스 버스 원자성 트랜잭션 및 send via에 대한 개요
-services: service-bus
+title: "Service Bus 트랜잭션 | Microsoft Docs"
+description: "Azure 서비스 버스 원자성 트랜잭션 및 send via에 대한 개요"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: clemensv;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 926eeec8186b8136f41355030e5382911bfc0322
+
 
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>서비스 버스 트랜잭션 처리의 개요
@@ -36,7 +40,7 @@ Service Bus는 트랜잭션 범위 내에서 단일 메시징 엔터티(큐, 토
 
 메시지 처리(완료, 중단, 배달 못 한 편지, 지연)가 범위 내에서 그리고 전반적인 트랜잭션 결과에 다라 발생합니다.
 
-## <a name="transfers-and-"send-via""></a>전송 및 "send via"
+## <a name="transfers-and-send-via"></a>전송 및 "send via"
 큐에서 프로세서, 그런 다음 다른 큐로 데이터의 트랜잭션을 인도하기 위해 Service Bus는 *전송*을 지원합니다. 전송 작업에서 발신자는 “전송 큐”로 메시지를 전송하며 전송 큐는 자동 전달 기능이 적용된 것과 같은 강력한 전송 구현을 사용하여 의도된 대상 큐로 메시지를 즉시 이동합니다. 이 메시지는 전송 큐의 소비자에게 표시되는 방식으로 전송 큐의 로그에 커밋되지 안습니다.
 
 이 트랜잭션 기능 자체는 전송 큐가 발신자의 입력 메시지 원본인 경우에 분명해집니다. 즉, 서비스 버스는 하나의 통합된 원자성 작업으로 입력 메시지에 대한 완료(또는 지연, 또는 배달 못 한 편지) 작업을 수행하면서 메시지를 전송 큐를 “통해" 대상 큐로 메시지를 전송할 수 있습니다. 
@@ -76,6 +80,9 @@ using (scope = new TransactionScope())
 * [Azure 큐와 Service Bus 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 * [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

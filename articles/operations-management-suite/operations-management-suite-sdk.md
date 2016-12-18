@@ -1,12 +1,12 @@
 ---
 title: OMS(Operations Management Suite) SDK | Microsoft Docs
-description: 이 문서에는 OMS 및 Azure Portal 외부에서 OMS 서비스에 액세스하기 위해 사용할 수 있는 설명서 및 기타 리소스가 나열되어 있습니다.  여기에는 다양한 프로그래밍 인터페이스 및 PowerShell 같은 스크립팅 엔진에서 액세스를 위해 사용하는 REST API가 포함됩니다.
+description: "이 문서에는 OMS 및 Azure Portal 외부에서 OMS 서비스에 액세스하기 위해 사용할 수 있는 설명서 및 기타 리소스가 나열되어 있습니다.  여기에는 다양한 프로그래밍 인터페이스 및 PowerShell 같은 스크립팅 엔진에서 액세스를 위해 사용하는 REST API가 포함됩니다."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: aac9c627-4060-4aa9-a2ea-85248e25d5ce
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b040697591dc94952239bf7897869d8a0ea4818c
+
 
 ---
-# <a name="operations-management-suite-(oms)-sdk"></a>OMS(Operations Management Suite) SDK
+# <a name="operations-management-suite-oms-sdk"></a>OMS(Operations Management Suite) SDK
 [Operations Management Suite(OMS)](operations-management-suite-overview.md)란 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.  이 문서에는 OMS 및 Azure Portal 외부에서 OMS 서비스에 액세스하기 위해 사용할 수 있는 설명서 및 기타 리소스가 나열되어 있습니다.  여기에는 다양한 프로그래밍 인터페이스 및 PowerShell 같은 스크립팅 엔진에서 액세스를 위해 사용하는 REST API가 포함됩니다. 
 
 ## <a name="automation"></a>자동화
@@ -49,6 +53,9 @@ ms.author: bwren
 * [OMS 서비스와 통합](operations-management-suite-integration.md)하는 다양한 옵션에 대해 알아봅니다.
 * OMS(출시 예정)에서 사용자 지정 솔루션을 만듭니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

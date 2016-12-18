@@ -1,13 +1,13 @@
 ---
-title: Powershell 스크립트를 사용하여 Azure 검색 관리 | Microsoft Docs
-description: PowerShell 스크립트를 사용하여 Azure 검색 서비스를 관리합니다. Azure 검색 서비스 만들기 또는 업데이트 및 Azure 검색 관리자 키 관리
+title: "Powershell 스크립트를 사용하여 Azure Search 관리 | Microsoft Docs"
+description: "PowerShell 스크립트를 사용하여 Azure 검색 서비스를 관리합니다. Azure 검색 서비스 만들기 또는 업데이트 및 Azure 검색 관리자 키 관리"
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: seansaleh
 manager: mblythe
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 9b3dc1f2-3619-4235-ba1f-d2d6f5c45dd5
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b611bf4d5fadd6755b97dcaee441e13ae7e62481
+
 
 ---
-# PowerShell을 사용한 Azure 검색 서비스 관리
+# <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell을 사용한 Azure 검색 서비스 관리
 > [!div class="op_single_selector"]
 > * [포털](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
@@ -25,9 +29,10 @@ ms.author: seasa
 > 
 > 
 
-이 항목에서는 Azure 검색 서비스에 대한 다양한 관리 작업을 수행하는 PowerShell 명령을 설명합니다. 검색 서비스 만들기, 확장 및 해당 API 키 관리 과정을 설명합니다. 이러한 명령은 [Azure 검색 관리 REST API](http://msdn.microsoft.com/library/dn832684.aspx)에서 사용할 수 있는 관리 옵션과 유사합니다.
+이 항목에서는 Azure 검색 서비스에 대한 다양한 관리 작업을 수행하는 PowerShell 명령을 설명합니다. 검색 서비스 만들기, 확장 및 해당 API 키 관리 과정을 설명합니다.
+이러한 명령은 [Azure 검색 관리 REST API](http://msdn.microsoft.com/library/dn832684.aspx)에서 사용할 수 있는 관리 옵션과 유사합니다.
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 * Azure PowerShell 1.0 이상이 필요합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
 * 아래 설명된 대로 PowerShell에서 Azure 구독에 로그인해야 합니다.
 
@@ -47,7 +52,7 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 
 
     Select-AzureRmSubscription -SubscriptionName ContosoSubscription
 
-## 시작하는 데 도움이 되는 명령
+## <a name="commands-to-help-you-get-started"></a>시작하는 데 도움이 되는 명령
     $serviceName = "your-service-name-lowercase-with-dashes"
     $sku = "free" # or "basic" or "standard" for paid services
     $location = "West US"
@@ -125,8 +130,8 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 
     # Deleting your service will delete all indexes and data in the service
     $resource | Remove-AzureRmResource
 
-## 다음 단계
-이제 서비스를 만들었으므로 다음 단계를 수행할 수 있습니다. [인덱스](search-what-is-an-index.md)를 빌드하고 [인덱스를 쿼리](search-query-overview.md)하며 마지막으로 Azure 검색을 사용하는 고유의 검색 응용 프로그램을 만들고 관리합니다.
+## <a name="next-steps"></a>다음 단계
+이제 서비스를 만들었으므로 다음 단계를 수행할 수 있습니다. [인덱스](search-what-is-an-index.md)를 빌드하고 [인덱스를 쿼리](search-query-overview.md)하며 마지막으로 Azure Search를 사용하는 고유의 검색 응용 프로그램을 만들고 관리합니다.
 
 * [Azure 포털에서 Azure 검색 인덱스 만들기](search-create-index-portal.md)
 * [Azure 포털에서 검색 탐색기를 사용하여 Azure 검색 인덱스 쿼리](search-explorer.md)
@@ -134,4 +139,9 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 
 * [.NET에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md)
 * [Azure 검색 트래픽 분석](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

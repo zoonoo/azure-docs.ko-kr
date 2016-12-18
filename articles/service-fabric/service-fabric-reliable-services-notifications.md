@@ -1,22 +1,26 @@
 ---
-title: Reliable Services 알림 | Microsoft Docs
-description: 서비스 패브릭 Reliable Services 알림에 대한 개념 설명서
+title: "Reliable Services 알림 | Microsoft Docs"
+description: "서비스 패브릭 Reliable Services 알림에 대한 개념 설명서"
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
 editor: masnider,vturecek
-
+ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/24/2016
+ms.date: 10/18/2016
 ms.author: mcoskun
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 18c71608f7429f7c52720282ca66f44c88de2d84
+
 
 ---
-# Reliable Services 알림
+# <a name="reliable-services-notifications"></a>Reliable Services 알림
 알림을 사용하면 클라이언트에서 관심 있는 개체에 대한 변경 내용을 추적할 수 있습니다. *신뢰할 수 있는 상태 관리자* 및 *신뢰할 수 있는 사전*의 두 가지 개체 유형에서 알림을 지원합니다.
 
 알림을 사용하는 일반적인 이유:
@@ -26,7 +30,7 @@ ms.author: mcoskun
 
 알림은 작업 적용의 일부로 실행됩니다. 이 때문에 알림은 가능한 한 빨리 처리되어야 하며 동기 이벤트는 광범위한 작업을 포함하지 않아야 합니다.
 
-## 신뢰할 수 있는 상태 관리자 알림
+## <a name="reliable-state-manager-notifications"></a>신뢰할 수 있는 상태 관리자 알림
 신뢰할 수 있는 상태 관리자는 다음 이벤트에 대한 알림을 제공합니다.
 
 * 트랜잭션
@@ -38,11 +42,12 @@ ms.author: mcoskun
 
 신뢰할 수 있는 상태 관리자는 현재 처리 중인 트랜잭션을 추적합니다. 알림이 실행되도록 하는 유일한 트랜잭션 상태 변경은 커밋 중인 트랜잭션입니다.
 
-신뢰할 수 있는 상태 관리자는 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐와 같은 신뢰할 수 있는 상태 컬렉션을 유지 관리합니다. 신뢰할 수 있는 상태 관리자는 이 컬렉션이 변경될 때, 즉 신뢰할 수 있는 상태가 추가 또는 제거되거나 전체 컬렉션이 다시 작성될 때 알림을 실행합니다. 신뢰할 수 있는 상태 관리자 컬렉션은 다음 세 가지 경우에 다시 작성됩니다.
+신뢰할 수 있는 상태 관리자는 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐와 같은 신뢰할 수 있는 상태 컬렉션을 유지 관리합니다. 신뢰할 수 있는 상태 관리자는 이 컬렉션이 변경될 때, 즉 신뢰할 수 있는 상태가 추가 또는 제거되거나 전체 컬렉션이 다시 작성될 때 알림을 실행합니다.
+신뢰할 수 있는 상태 관리자 컬렉션은 다음 세 가지 경우에 다시 작성됩니다.
 
-* 복구: 복제본이 시작되면 디스크에서 이전 상태를 복구합니다. 복구가 끝나면 **NotifyStateManagerChangedEventArgs**를 사용하여 복구된 신뢰할 수 있는 상태 집합이 포함된 이벤트를 실행합니다.
-* 전체 복사: 복제본을 구성 집합에 포함하려면 빌드해야 합니다. 경우에 따라 주 복제본의 신뢰할 수 있는 상태 관리자 상태의 전체 복사본을 유휴 보조 복제본에 적용해야 합니다. 보조 복제본의 신뢰할 수 있는 상태 관리자는 **NotifyStateManagerChangedEventArgs**를 사용하여 주 복제본에서 획득한 신뢰할 수 있는 상태 집합이 포함된 이벤트를 실행합니다.
-* 복원: 재해 복구 시나리오에서 **RestoreAsync**를 사용하여 백업에서 복제본의 상태를 복원할 수 있습니다. 이러한 경우 주 복제본의 신뢰할 수 있는 상태 관리자는 **NotifyStateManagerChangedEventArgs**를 사용하여 백업에서 복원한 신뢰할 수 있는 상태 집합이 포함된 이벤트를 실행합니다.
+* 복구: 복제본이 시작되면 디스크에서 이전 상태를 복구합니다. 복구가 끝나면 **NotifyStateManagerChangedEventArgs** 를 사용하여 복구된 신뢰할 수 있는 상태 집합이 포함된 이벤트를 실행합니다.
+* 전체 복사: 복제본을 구성 집합에 포함하려면 빌드해야 합니다. 경우에 따라 주 복제본의 신뢰할 수 있는 상태 관리자 상태의 전체 복사본을 유휴 보조 복제본에 적용해야 합니다. 보조 복제본의 신뢰할 수 있는 상태 관리자는 **NotifyStateManagerChangedEventArgs** 를 사용하여 주 복제본에서 획득한 신뢰할 수 있는 상태 집합이 포함된 이벤트를 실행합니다.
+* 복원: 재해 복구 시나리오에서 **RestoreAsync**를 사용하여 백업에서 복제본의 상태를 복원할 수 있습니다. 이러한 경우 주 복제본의 신뢰할 수 있는 상태 관리자는 **NotifyStateManagerChangedEventArgs** 를 사용하여 백업에서 복원한 신뢰할 수 있는 상태 집합이 포함된 이벤트를 실행합니다.
 
 트랜잭션 알림 및/또는 상태 관리자 알림을 등록하려면 신뢰할 수 있는 상태 관리자의 **TransactionChanged** 또는 **StateManagerChanged** 이벤트에 등록해야 합니다. 이러한 이벤트 처리기에 등록하는 일반적인 위치는 상태 저장 서비스의 생성자입니다. 생성자에 등록하면 **IReliableStateManager**의 수명 동안 변경 내용으로 발생되는 모든 알림을 놓치지 않게 됩니다.
 
@@ -77,7 +82,9 @@ private void OnTransactionChangedHandler(object sender, NotifyTransactionChanged
 }
 ```
 
-**StateManagerChanged** 이벤트 처리기는 **NotifyStateManagerChangedEventArgs**를 사용하여 이벤트에 대한 세부 정보를 제공합니다. **NotifyStateManagerChangedEventArgs**에는 두 가지 하위 클래스인 **NotifyStateManagerRebuildEventArgs**와 **NotifyStateManagerSingleEntityChangedEventArgs**가 있습니다. **NotifyStateManagerChangedEventArgs**의 작업 속성을 사용하여 **NotifyStateManagerChangedEventArgs**를 올바른 하위 클래스로 캐스트합니다.
+**StateManagerChanged** 이벤트 처리기는 **NotifyStateManagerChangedEventArgs**를 사용하여 이벤트에 대한 세부 정보를 제공합니다.
+**NotifyStateManagerChangedEventArgs**에는 두 가지 하위 클래스인 **NotifyStateManagerRebuildEventArgs**와 **NotifyStateManagerSingleEntityChangedEventArgs**가 있습니다.
+**NotifyStateManagerChangedEventArgs**의 작업 속성을 사용하여 **NotifyStateManagerChangedEventArgs**를 올바른 하위 클래스로 캐스트합니다.
 
 * **NotifyStateManagerChangedAction.Rebuild**: **NotifyStateManagerRebuildEventArgs**
 * **NotifyStateManagerChangedAction.Add** 및 **NotifyStateManagerChangedAction.Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**
@@ -98,16 +105,17 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 }
 ```
 
-## 신뢰할 수 있는 사전 알림
+## <a name="reliable-dictionary-notifications"></a>신뢰할 수 있는 사전 알림
 신뢰할 수 있는 사전은 다음 이벤트에 대한 알림을 제공합니다.
 
-* Rebuild: **ReliableDictionary**가 복구 또는 복사된 로컬 상태 또는 백업에서 해당 상태를 복구하면 호출됩니다.
+* Rebuild: **ReliableDictionary** 가 복구 또는 복사된 로컬 상태 또는 백업에서 해당 상태를 복구하면 호출됩니다.
 * Clear: **ClearAsync** 메서드를 통해 **ReliableDictionary**의 상태를 지울 때 호출됩니다.
 * Add: 항목이 **ReliableDictionary**에 추가될 때 호출됩니다.
-* Update: **IReliableDictionary**의 항목이 업데이트되었을 때 호출됩니다.
-* Remove: **IReliableDictionary**의 항목이 삭제되었을 때 호출됩니다.
+* Update: **IReliableDictionary** 의 항목이 업데이트되었을 때 호출됩니다.
+* Remove: **IReliableDictionary** 의 항목이 삭제되었을 때 호출됩니다.
 
-신뢰할 수 있는 사전 알림을 가져오려면 **IReliableDictionary**에서 **DictionaryChanaged** 이벤트 처리기에 등록해야 합니다. 이러한 이벤트 처리기를 등록하는 일반적인 위치는 **ReliableStateManager.StateManagerChanged** 추가 알림입니다. **IReliableDictionary**가 **IReliableStateManager**에 추가되었을 때 등록하면 알림을 놓치지 않게 됩니다.
+신뢰할 수 있는 사전 알림을 가져오려면 **IReliableDictionary**에서 **DictionaryChanaged** 이벤트 처리기에 등록해야 합니다. 이러한 이벤트 처리기를 등록하는 일반적인 위치는 **ReliableStateManager.StateManagerChanged** 추가 알림입니다.
+**IReliableDictionary**가 **IReliableStateManager**에 추가되었을 때 등록하면 알림을 놓치지 않게 됩니다.
 
 ```C#
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
@@ -154,7 +162,8 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 > 
 > 
 
-**DictionaryChanged** 이벤트 처리기는 **NotifyDictionaryChangedEventArgs**를 사용하여 이벤트에 대한 세부 정보를 제공합니다. **NotifyDictionaryChangedEventArgs**에는 5개의 하위 클래스가 있습니다. **NotifyDictionaryChangedEventArgs**의 작업 속성을 사용하여 **NotifyDictionaryChangedEventArgs**를 올바른 하위 클래스로 캐스트합니다.
+**DictionaryChanged** 이벤트 처리기는 **NotifyDictionaryChangedEventArgs**를 사용하여 이벤트에 대한 세부 정보를 제공합니다.
+**NotifyDictionaryChangedEventArgs** 에는 5개의 하위 클래스가 있습니다. **NotifyDictionaryChangedEventArgs**의 작업 속성을 사용하여 **NotifyDictionaryChangedEventArgs**를 올바른 하위 클래스로 캐스트합니다.
 
 * **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
 * **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
@@ -193,10 +202,10 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 }
 ```
 
-## 추천
-* 알림 이벤트는 가능한 빠르게 완료*하세요*.
-* 비용이 많이 드는 작업(예: IO 작업)은 동기 이벤트의 일부로 실행하지 *마세요*.
-* 이벤트를 처리하기 전에 작업 형식을 확인*하세요*. 새 작업 형식이 나중에 추가될 수 있습니다.
+## <a name="recommendations"></a>추천
+* *하세요* .
+* *마세요* .
+* *하세요* . 새 작업 형식이 나중에 추가될 수 있습니다.
 
 이때
 
@@ -206,9 +215,15 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 * 여러 작업을 포함하는 트랜잭션의 경우 작업이 사용자로부터 주 복제본에 수신된 순서대로 적용됩니다.
 * 거짓 진행률 처리의 일부로, 일부 작업이 실행 취소될 수 있습니다. 이러한 실행 취소 작업에 대해 알림이 발생하고 복제본의 상태가 안정적인 지점으로 롤백됩니다. 실행 취소 알림의 중요한 차이점은 중복 키가 있는 이벤트가 집계된다는 것입니다. 예를 들어 트랜잭션 T1이 실행 취소되는 경우 Delete(X)에 대한 단일 알림이 표시됩니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
+* [신뢰할 수 있는 컬렉션](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services 백업 및 복원(재해 복구)](service-fabric-reliable-services-backup-restore.md)
 * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

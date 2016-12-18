@@ -1,12 +1,12 @@
 ---
-title: Express 경로 고객 라우터 구성 샘플 | Microsoft Docs
-description: 이 페이지는 Cisco 및 Juniper 라우터에 대한 라우터 구성 샘플을 제공합니다.
+title: "ExpressRoute 고객 라우터 구성 샘플 | Microsoft 문서"
+description: "이 페이지는 Cisco 및 Juniper 라우터에 대한 라우터 구성 샘플을 제공합니다."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 564826bc-017a-4683-a385-37c9fa814948
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: b77a20274e22827aaa8aa4d354b62d086a19b206
+ms.openlocfilehash: 6fefb9cfa96b0a6b7acfe4d7fcb17cb13ec240a0
+
 
 ---
-# <a name="router-configuration-samples-to-setup-and-manage-routing"></a>라우팅 설정 및 관리를 위한 라우터 구성 샘플
+# <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>라우팅 설정 및 관리를 위한 라우터 구성 샘플
 이 페이지는 Cisco IOS-XE 및 Juniper MX 시리즈 라우터에 대한 인터페이스 및 라우팅 구성 샘플을 제공합니다. 이러한 샘플은 참조용이므로 그대로 사용해서는 안 됩니다. 사용 중인 네트워크에 적절하게 구성하려면 공급업체와 작업하면 됩니다. 
 
 > [!IMPORTANT]
@@ -29,24 +33,26 @@ ms.author: cherylmc
 ## <a name="cisco-ios-xe-based-routers"></a>Cisco IOS-XE 기반 라우터
 이 섹션의 샘플은 IOS-XE OS 제품군을 실행하는 모든 라우터에 적용됩니다.
 
-### <a name="1.-configuring-interfaces-and-sub-interfaces"></a>1. 인터페이스 및 하위 인터페이스 구성
+### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. 인터페이스 및 하위 인터페이스 구성
 Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터페이스가 필요합니다. 하위 인터페이스는 VLAN ID 또는 누적된 한 쌍의 VLAN ID 및 IP 주소로 식별될 수 있습니다.
 
-#### <a name="dot1q-interface-definition"></a>Dot1Q 인터페이스 정의
+**Dot1Q 인터페이스 정의**
+
 이 샘플에서는 VLAN ID가 하나인 하위 인터페이스에 대한 하위 인터페이스 정의를 제공합니다. VLAN ID는 피어링별로 고유합니다. IPv4 주소의 마지막 옥텟은 항상 홀수입니다.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <VLAN_ID>
      ip address <IPv4_Address><Subnet_Mask>
 
-#### <a name="qinq-interface-definition"></a>QinQ 인터페이스 정의
+**QinQ 인터페이스 정의**
+
 이 샘플에서는 VLAN ID가 두 개인 하위 인터페이스에 대한 하위 인터페이스 정의를 제공합니다. 바깥쪽의 VLAN ID(s-tag)는 사용되는 경우 모든 피어링에서 동일하게 유지됩니다. 안쪽의 VLAN ID(c-tag)는 피어링별로 고유합니다. IPv4 주소의 마지막 옥텟은 항상 홀수입니다.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
 
-### <a name="2.-setting-up-ebgp-sessions"></a>2. eBGP 세션 설정
+### <a name="2-setting-up-ebgp-sessions"></a>2. eBGP 세션 설정
 모든 피어링에 대해 Microsoft와 BGP 세션을 설정해야 합니다. 아래의 샘플에서 Microsoft와 BGP 세션을 설정할 수 있습니다. 하위 인터페이스에 사용한 IPv4 주소가 a.b.c.d인 경우 BGP 인접 라우터(Microsoft)의 IP 주소는 a.b.c.d+1입니다. BGP 인접 라우터에 대한 IPv4 주소의 마지막 옥텟은 항상 짝수입니다.
 
     router bgp <Customer_ASN>
@@ -58,7 +64,7 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
      exit-address-family
     !
 
-### <a name="3.-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP 세션을 통해 알릴 접두사 설정
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP 세션을 통해 알릴 접두사 설정
 선택된 접두사를 Microsoft에 알리도록 라우터를 구성할 수 있습니다. 아래의 샘플을 사용하여 이 작업을 수행할 수 있습니다.
 
     router bgp <Customer_ASN>
@@ -71,7 +77,7 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
      exit-address-family
     !
 
-### <a name="4.-route-maps"></a>4. 경로 맵
+### <a name="4-route-maps"></a>4. 경로 맵
 경로 맵과 접두사 목록을 사용하여 네트워크에 전파되는 접두사를 필터링할 수 있습니다. 아래의 샘플을 사용하여 이 작업을 수행할 수 있습니다. 적절한 접두사 목록이 설정되어 있어야 합니다.
 
     router bgp <Customer_ASN>
@@ -92,8 +98,10 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
 ## <a name="juniper-mx-series-routers"></a>Juniper MX 시리즈 라우터
 이 섹션의 샘플은 모든 Juniper MX 시리즈 라우터에 적용됩니다.
 
-### <a name="1.-configuring-interfaces-and-sub-interfaces"></a>1. 인터페이스 및 하위 인터페이스 구성
-#### <a name="dot1q-interface-definition"></a>Dot1Q 인터페이스 정의
+### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. 인터페이스 및 하위 인터페이스 구성
+
+**Dot1Q 인터페이스 정의**
+
 이 샘플에서는 VLAN ID가 하나인 하위 인터페이스에 대한 하위 인터페이스 정의를 제공합니다. VLAN ID는 피어링별로 고유합니다. IPv4 주소의 마지막 옥텟은 항상 홀수입니다.
 
     interfaces {
@@ -109,7 +117,8 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
     }
 
 
-#### <a name="qinq-interface-definition"></a>QinQ 인터페이스 정의
+**QinQ 인터페이스 정의**
+
 이 샘플에서는 VLAN ID가 두 개인 하위 인터페이스에 대한 하위 인터페이스 정의를 제공합니다. 바깥쪽의 VLAN ID(s-tag)는 사용되는 경우 모든 피어링에서 동일하게 유지됩니다. 안쪽의 VLAN ID(c-tag)는 피어링별로 고유합니다. IPv4 주소의 마지막 옥텟은 항상 홀수입니다.
 
     interfaces {
@@ -124,7 +133,7 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
         }                                   
     }                           
 
-### <a name="2.-setting-up-ebgp-sessions"></a>2. eBGP 세션 설정
+### <a name="2-setting-up-ebgp-sessions"></a>2. eBGP 세션 설정
 모든 피어링에 대해 Microsoft와 BGP 세션을 설정해야 합니다. 아래의 샘플에서 Microsoft와 BGP 세션을 설정할 수 있습니다. 하위 인터페이스에 사용한 IPv4 주소가 a.b.c.d인 경우 BGP 인접 라우터(Microsoft)의 IP 주소는 a.b.c.d+1입니다. BGP 인접 라우터에 대한 IPv4 주소의 마지막 옥텟은 항상 짝수입니다.
 
     routing-options {
@@ -140,7 +149,7 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
         }                                   
     }
 
-### <a name="3.-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP 세션을 통해 알릴 접두사 설정
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP 세션을 통해 알릴 접두사 설정
 선택된 접두사를 Microsoft에 알리도록 라우터를 구성할 수 있습니다. 아래의 샘플을 사용하여 이 작업을 수행할 수 있습니다.
 
     policy-options {
@@ -165,7 +174,7 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
     }
 
 
-### <a name="4.-route-maps"></a>4. 경로 맵
+### <a name="4-route-maps"></a>4. 경로 맵
 경로 맵과 접두사 목록을 사용하여 네트워크에 전파되는 접두사를 필터링할 수 있습니다. 아래의 샘플을 사용하여 이 작업을 수행할 수 있습니다. 적절한 접두사 목록이 설정되어 있어야 합니다.
 
     policy-options {
@@ -198,6 +207,9 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md) 를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
