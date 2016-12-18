@@ -1,33 +1,37 @@
 ---
-title: Linux에서 C를 사용하여 장치 연결 | Microsoft Docs
-description: Linux에서 실행되는 C로 작성된 응용 프로그램을 사용하여 미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 장치를 연결하는 방법을 설명합니다.
-services: ''
+title: "Linux에서 C를 사용하여 장치 연결 | Microsoft Docs"
+description: "Linux에서 실행되는 C로 작성된 응용 프로그램을 사용하여 미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 장치를 연결하는 방법을 설명합니다."
+services: 
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 0c7c8039-0bbf-4bb5-9e79-ed8cff433629
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2016
+ms.date: 10/05/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 6fdcdc323cff07d7debd46ab10b17ba7e9d8781a
+ms.openlocfilehash: d1a6ffe59c5cb4fd0575ba02aa9768548461b869
+
 
 ---
-# 미리 구성된 원격 모니터링 솔루션에 장치 연결(Linux)
+# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>미리 구성된 원격 모니터링 솔루션에 장치 연결(Linux)
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## 샘플 C 클라이언트 Linux 빌드 및 실행
-다음 절차에서는 미리 구성된 원격 모니터링 솔루션과 통신하는 간단한 클라이언트 응용 프로그램을 만드는 방법을 보여 줍니다. 이 응용 프로그램은 C로 작성되고 Ubuntu Linux에서 실행됩니다. 이러한 단계를 완료하려면 Ubuntu 버전 15.04 또는 15.10을 실행하는 장치가 필요합니다. 계속하기 전에 다음 명령을 사용하여 Ubuntu 장치에서 필수 구성 요소 패키지를 설치합니다.
+## <a name="build-and-run-a-sample-c-client-linux"></a>샘플 C 클라이언트 Linux 빌드 및 실행
+다음 절차에서는 미리 구성된 원격 모니터링 솔루션과 통신하는 클라이언트 응용 프로그램을 만드는 방법을 보여 줍니다. 이 응용 프로그램은 C로 작성되고 Ubuntu Linux에서 실행됩니다. 이러한 단계를 완료하려면 Ubuntu 버전 15.04 또는 15.10을 실행하는 장치가 필요합니다. 계속하기 전에 다음 명령을 사용하여 Ubuntu 장치에서 필수 구성 요소 패키지를 설치합니다.
 
 ```
 sudo apt-get install cmake gcc g++
 ```
 
-## 장치에 클라이언트 라이브러리 설치
+## <a name="install-the-client-libraries-on-your-device"></a>장치에 클라이언트 라이브러리 설치
 Azure IoT Hub 클라이언트 라이브러리를 **apt-get** 명령을 사용하여 Ubuntu 장치에 설치할 수 있는 패키지로 사용할 수 있습니다. Ubuntu 컴퓨터에서 IoT Hub 클라이언트 라이브러리와 헤더 파일을 포함하는 패키지를 설치하려면 다음 단계를 완료하세요.
 
 1. 컴퓨터에 AzureIoT 리포지토리를 추가합니다.
@@ -42,10 +46,10 @@ Azure IoT Hub 클라이언트 라이브러리를 **apt-get** 명령을 사용하
     sudo apt-get install -y azure-iot-sdk-c-dev
     ```
 
-## 장치의 동작을 지정하는 코드 추가
+## <a name="add-code-to-specify-the-behavior-of-the-device"></a>장치의 동작을 지정하는 코드 추가
 Ubuntu 컴퓨터에서 **remote\_monitoring**이라는 폴더를 만듭니다. **remote\_monitoring** 폴더에 **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h**, **CMakeLists.txt**의 4개 파일을 만듭니다.
 
-IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메시지의 형식 및 장치에서 응답하는 IoT Hub의 명령을 지정하는 모델을 사용합니다.
+IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메시지의 형식 및 장치가 IoT Hub에서 수신하는 명령을 지정하는 모델을 사용합니다.
 
 1. 텍스트 편집기에서 **remote\_monitoring.c** 파일을 엽니다. 다음 `#include` 문을 추가합니다.
    
@@ -105,7 +109,7 @@ IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub
     END_NAMESPACE(Contoso);
     ```
 
-### 장치의 동작을 구현하는 코드 추가
+### <a name="add-code-to-implement-the-behavior-of-the-device"></a>장치의 동작을 구현하는 코드 추가
 장치가 허브에서 명령을 받을 때 실행되는 함수 및 시뮬레이션된 원격 분석을 허브로 보내는 코드를 추가합니다.
 
 1. 장치가 모델에 정의된 **SetTemperature** 및 **SetHumidity** 명령을 받을 때 실행되는 다음 함수를 추가합니다.
@@ -188,7 +192,7 @@ IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub
       return result;
     }
     ```
-4. IoT Hub에 연결하고, 메시지를 보내고 받으며, 허브에서 연결을 해제하는 다음 함수를 추가합니다. 장치가 연결되는 즉시 IoT Hub에 자체에 대한 메타데이터(장치에서 지원하는 명령 포함)를 보내는 방식을 확인할 수 있습니다. 이를 통해 솔루션은 대시보드에서 장치의 상태를 **실행 중**으로 업데이트할 수 있습니다.
+4. IoT Hub에 연결하고, 메시지를 보내고 받으며, 허브에서 연결을 해제하는 다음 함수를 추가합니다. 장치가 연결할 때 지원하는 명령을 포함하여 자체에 대한 메타데이터를 IoT Hub에 전송하는 방법을 확인합니다. 이 메타데이터를 사용하면 솔루션을 대시보드의 **실행**에 장치의 상태를 업데이트할 수 있습니다.
    
     ```
     void remote_monitoring_run(void)
@@ -339,7 +343,7 @@ IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
    
-    참고로, IoT Hub에서 수신되는 샘플 **명령**은 다음과 같습니다.
+    참고로, IoT Hub에서 수신되는 샘플 **명령** 은 다음과 같습니다.
    
     ```
     {
@@ -350,8 +354,8 @@ IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub
     }
     ```
 
-### remote\_monitoring\_run 함수를 호출할 코드 추가
-텍스트 편집기에서 **remote\_monitoring.h** 파일을 엽니다. 다음 코드를 추가합니다.
+### <a name="add-code-to-invoke-the-remotemonitoringrun-function"></a>remote_monitoring_run 함수를 호출할 코드 추가
+텍스트 편집기에서 **remote_monitoring.h** 파일을 엽니다. 다음 코드를 추가합니다.
 
 ```
 void remote_monitoring_run(void);
@@ -370,10 +374,10 @@ int main(void)
 }
 ```
 
-## CMake를 사용하여 클라이언트 응용 프로그램 작성
-다음 단계에서는 *CMake*를 사용하여 클라이언트 응용 프로그램을 빌드하는 방법을 설명합니다.
+## <a name="use-cmake-to-build-the-client-application"></a>CMake를 사용하여 클라이언트 응용 프로그램 작성
+다음 단계에서는 *CMake* 를 사용하여 클라이언트 응용 프로그램을 빌드하는 방법을 설명합니다.
 
-1. 텍스트 편집기에서 **remote\_monitoring** 폴더의 **CMakeLists.txt** 파일을 엽니다.
+1. 텍스트 편집기에서 **remote_monitoring** 폴더의 **CMakeLists.txt** 파일을 엽니다.
 2. 클라이언트 응용 프로그램을 작성하는 방법을 정의하려면 다음 지침을 추가합니다.
    
     ```
@@ -404,9 +408,10 @@ int main(void)
         curl
         ssl
         crypto
+        m
     )
     ```
-3. **remote\_monitoring** 폴더에서 CMake가 생성하는 *make* 파일을 저장할 폴더를 만든 후 다음과 같이 **cmake** 및 **make** 명령을 실행합니다.
+3. **remote_monitoring** 폴더에서 CMake가 생성하는 *make* 파일을 저장할 폴더를 만든 후 다음과 같이 **cmake** 및 **make** 명령을 실행합니다.
    
     ```
     mkdir cmake
@@ -422,4 +427,9 @@ int main(void)
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

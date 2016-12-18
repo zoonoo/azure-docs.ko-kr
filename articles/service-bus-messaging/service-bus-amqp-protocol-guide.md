@@ -1,22 +1,26 @@
 ---
-title: Azure 서비스 버스 및 이벤트 허브 프로토콜 가이드의 AMQP 1.0 | Microsoft Docs
-description: Azure 서비스 버스 및 이벤트 허브의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드
-services: service-bus,event-hubs
+title: "Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0 | Microsoft Docs"
+description: "Azure 서비스 버스 및 이벤트 허브의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드"
+services: service-bus-messaging,event-hubs
 documentationcenter: .net
 author: clemensv
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2016
 ms.author: clemensv;jotaub;hillaryc;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 946384b5986ee56f16f5b3fe3be07d09f9837076
+
 
 ---
-# <a name="amqp-1.0-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure 서비스 버스 및 이벤트 허브 프로토콜 가이드의 AMQP 1.0
+# <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure 서비스 버스 및 이벤트 허브 프로토콜 가이드의 AMQP 1.0
 Advanced Message Queueing Protocol 1.0은 비동기적으로 안전하고 안정적으로 두 대상 간에 메시지를 전송하기 위한 표준화된 프레이밍 및 전송 프로토콜입니다. 또한 Azure 서비스 버스 메시징 및 Azure 이벤트 허브의 기본 프로토콜입니다. 두 서비스 모두 HTTPS를 지원합니다. 지원되는 소유 SBMP 프로토콜은 AMQP를 기준으로 단계적으로 중단되고 있습니다.
 
 AMQP 1.0은 금융 서비스 업계를 나타내는 많은 메시징 미들웨어 사용자(예: JP Morgan Chase)와 미들웨어 공급업체(예: Microsoft 및 Red Hat)를 연결한 광범위한 업계 공동 작업의 결과입니다. AMQP 프로토콜 및 확장 사양에 대한 기술 표준화 포럼은 OASIS이며 국제 표준 ISO/IEC 19494와 같은 공식 승인을 받았습니다.
@@ -32,7 +36,7 @@ Apache Proton 또는 AMQP.NET Lite와 같은 일반적인 범용 AMQP 1.0 스택
 
 메시지 찾아보기 또는 세션 관리와 같은 Azure 서비스 버스의 고급 기능을 설명할 때 이러한 형태는 AMQP 용어로 설명되지만 이와 같이 가정된 API 추상화를 기반으로 계층화된 의사 구현으로도 설명됩니다.
 
-## <a name="what-is-amqp?"></a>AMQP란?
+## <a name="what-is-amqp"></a>AMQP란?
 AMQP는 프레이밍 및 전송 프로토콜입니다. 프레이밍은 네트워크 연결 방향으로 흐르는 이진 데이터 스트림의 구조를 제공한다는 것을 의미합니다. 이 구조는 고유한 데이터 블록, 즉 프레임이 연결된 대상 간에 교환될 수 있도록 윤곽을 제공합니다. 전송 기능은 두 통신 당사자가 프레임이 전송될 때와 전송이 완료된 것으로 간주될 때에 대한 공유되는 이해를 설정할 수 있도록 합니다.
 
 일부 메시지 브로커에서는 아직 사용되고 있는 AMQP 작업 그룹에서 생성한 만료된 이전 초안 이전 버전과 달리, 이 작업 그룹의 표준화된 최종 AMQP 1.0 프로토콜에서는 메시지 브로커의 존재 또는 메시지 브로커 내 엔터티에 대한 특정 토폴로지의 존재를 규정하지 않습니다.
@@ -44,7 +48,7 @@ AMQP 1.0 프로토콜은 확장할 수 있도록 설계되었으며 기능을 �
 ## <a name="basic-amqp-scenarios"></a>기본 AMQP 시나리오
 이 섹션에서는 연결, 세션 및 링크의 생성과 큐, 토픽 및 구독 같은 Service Bus 엔터티와의 메시지 송수신 등, Azure Service Bus에서 AMQP 1.0를 사용하는 기본적인 방법을 설명합니다.
 
-AMQP 작동 방식을 알기 위한 가장 신뢰할 수 있는 소스는 AMQP 1.0 사양이지만, 이 사양은 구현을 정확히 안내하기 위해 작성되었으며 프로토콜 학습용은 아닙니다. 이 섹션에서는 서비스 버스가 AMQP 1.0을 사용하는 방법을 설명하는 데 필요한 다양한 용어를 중점적으로 소개합니다. AMQP를 좀 더 포괄적으로 소개하고 AMQP 1.0을 광범위하게 논의하려는 경우 [이 비디오 과정][]을 검토할 수 있습니다.
+AMQP 작동 방식을 알기 위한 가장 신뢰할 수 있는 소스는 AMQP 1.0 사양이지만, 이 사양은 구현을 정확히 안내하기 위해 작성되었으며 프로토콜 학습용은 아닙니다. 이 섹션에서는 서비스 버스가 AMQP 1.0을 사용하는 방법을 설명하는 데 필요한 다양한 용어를 중점적으로 소개합니다. AMQP를 좀 더 포괄적으로 소개하고 AMQP 1.0을 광범위하게 논의하려는 경우 [이 비디오 교육 과정][이 비디오 교육 과정]을 검토할 수 있습니다.
 
 ### <a name="connections-and-sessions"></a>연결 및 세션
 ![][1]
@@ -141,25 +145,25 @@ API 수준의 "수신" 호출은 클라이언트가 Service Bus로 보내는 *�
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |작업 없음 |
 | 작업 없음 |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>) |
 
-#### <a name="create-message-sender-(error)"></a>메시지 보낸 사람 만들기(오류)
+#### <a name="create-message-sender-error"></a>메시지 보낸 사람 만들기(오류)
 | 클라이언트 | 서비스 버스 |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |작업 없음 |
 | 작업 없음 |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
-#### <a name="close-message-receiver/sender"></a>메시지 받는 사람/보낸 사람 닫기
+#### <a name="close-message-receiversender"></a>메시지 받는 사람/보낸 사람 닫기
 | 클라이언트 | 서비스 버스 |
 | --- | --- |
 | --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |작업 없음 |
 | 작업 없음 |<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |
 
-#### <a name="send-(success)"></a>전송(성공)
+#### <a name="send-success"></a>전송(성공)
 | 클라이언트 | 서비스 버스 |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |작업 없음 |
 | 작업 없음 |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
-#### <a name="send-(error)"></a>전송(오류)
+#### <a name="send-error"></a>전송(오류)
 | 클라이언트 | 서비스 버스 |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |작업 없음 |
@@ -308,6 +312,7 @@ AMQP에 대한 자세한 내용은 다음 링크를 참조하세요.
 [Windows Server용 Service Bus의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

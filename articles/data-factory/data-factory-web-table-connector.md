@@ -1,19 +1,23 @@
 ---
-title: 웹 테이블에서 데이터 이동 | Microsoft Docs
-description: Azure Data Factory를 사용하여 온-프레미스 웹 페이지의 테이블로 데이터를 이동하는 방법에 대해 알아봅니다.
+title: "웹 테이블에서 데이터 이동 | Microsoft Docs"
+description: "Azure Data Factory를 사용하여 온-프레미스 웹 페이지의 테이블로 데이터를 이동하는 방법에 대해 알아봅니다."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 12/12/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 7b55f6730c6a2bf8637f312c452fe552f82dbaeb
+ms.openlocfilehash: 4adfd82a0dea0aa46607b3cc528c922cd46ab7d5
+
 
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 웹 테이블 원본에서 데이터 이동
@@ -23,23 +27,23 @@ ms.author: jingwang
 
 > [!NOTE]
 > 이 웹 커넥터는 현재 HTML 페이지에서 테이블 콘텐츠를 추출하도록 지원합니다.
-> 
-> 
+>
+>
 
-## <a name="sample:-copy-data-from-web-table-to-azure-blob"></a>샘플: 웹 테이블의 데이터를 Azure Blob으로 복사
+## <a name="sample-copy-data-from-web-table-to-azure-blob"></a>샘플: 웹 테이블의 데이터를 Azure Blob으로 복사
 아래 샘플은 다음을 보여줍니다.
 
 1. [웹](#web-linked-service-properties) 형식의 연결된 서비스입니다.
-2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
+2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 형식의 연결된 서비스
 3. [WebTable](#WebTable-dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
 4. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 5. [WebSource](#websource-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
-샘플은 1시간마다 웹 테이블의 데이터를 Azure Blob으로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다. 
+샘플은 1시간마다 웹 테이블의 데이터를 Azure Blob으로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
-다음 샘플에서는 웹 테이블의 데이터를 Azure Blob으로 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에 설명한 싱크로 직접 데이터를 복사할 수 있습니다. 
+다음 샘플에서는 웹 테이블의 데이터를 Azure Blob으로 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에 설명한 싱크로 직접 데이터를 복사할 수 있습니다.
 
-**웹 연결된 서비스** 이 예제에서는 익명 인증으로 웹 연결된 서비스를 사용합니다. 사용할 수 있는 다른 유형의 인증은 [웹 연결된 서비스](#web-linked-service-properties) 섹션을 참조하세요. 
+**웹 연결된 서비스** 이 예제에서는 익명 인증으로 웹 연결된 서비스를 사용합니다. 사용할 수 있는 다른 유형의 인증은 [웹 연결된 서비스](#web-linked-service-properties) 섹션을 참조하세요.
 
     {
         "name": "WebLinkedService",
@@ -71,8 +75,8 @@ ms.author: jingwang
 
 > [!NOTE]
 > HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 [HTML 페이지에서 테이블의 인덱스 가져오기](#get-index-of-a-table-in-an-html-page) 섹션을 참조하세요.  
-> 
-> 
+>
+>
 
     {
         "name": "WebTableInput",
@@ -95,7 +99,7 @@ ms.author: jingwang
 
 **Azure Blob 출력 데이터 집합**
 
-데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회) 
+데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회)
 
     {
         "name": "AzureBlobOutput",
@@ -120,9 +124,9 @@ ms.author: jingwang
 
 **복사 작업을 포함하는 파이프라인**
 
-파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **WebSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. 
+파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **WebSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다.
 
-WebSource에서 지원하는 속성 목록은 [WebSource 형식 속성](#websource-copy-activity-type-properties)을 참조하세요. 
+WebSource에서 지원하는 속성 목록은 [WebSource 형식 속성](#websource-copy-activity-type-properties)을 참조하세요.
 
     {  
         "name":"SamplePipeline",
@@ -243,36 +247,36 @@ WebSource에서 지원하는 속성 목록은 [WebSource 형식 속성](#websour
     }
 
 ## <a name="websource---copy-activity-type-properties"></a>WebSource - 복사 작업 형식 속성
-활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다. 
+활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
 
 반면 활동의 typeProperties 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
 
-현재 복사 작업의 원본이 **WebSource**형식인 경우 추가 속성이 지원되지 않습니다. 
+현재 복사 작업의 원본이 **WebSource**형식인 경우 추가 속성이 지원되지 않습니다.
 
 ## <a name="get-index-of-a-table-in-an-html-page"></a>HTML 페이지에서 테이블의 인덱스 가져오기
 1. **Excel 2016**을 시작하고 **데이터** 탭으로 전환합니다.  
 2. 도구 모음에서 **새 쿼리**를 클릭하고 **기타 원본에서**를 가리킨 다음 **웹에서**를 클릭합니다.
-   
-    ![파워 쿼리 메뉴](./media/data-factory-web-table-connector/PowerQuery-Menu.png) 
-3. **웹에서** 대화 상자에서 연결된 서비스 JSON에 사용할 **URL**(예: https://en.wikipedia.org/wiki/)과 데이터 집합에 대해 지정할 경로(예: AFI %27s_100_Years... 100_Movies)를 입력하고 **확인**을 클릭합니다. 
-   
-    ![웹 대화 상자](./media/data-factory-web-table-connector/FromWeb-DialogBox.png) 
-   
-    이 예제에 사용된 URL: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies 
-4. **웹 콘텐츠 액세스** 대화 상자가 표시된 경우 오른쪽 **URL**, **인증**을 선택하고 **연결**을 클릭합니다. 
-   
+
+    ![파워 쿼리 메뉴](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
+3. **웹에서** 대화 상자에서 연결된 서비스 JSON에 사용할 **URL**(예: https://en.wikipedia.org/wiki/)과 데이터 집합에 대해 지정할 경로(예: AFI %27s_100_Years... 100_Movies)를 입력하고 **확인**을 클릭합니다.
+
+    ![웹 대화 상자](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
+
+    이 예제에 사용된 URL: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
+4. **웹 콘텐츠 액세스** 대화 상자가 표시된 경우 오른쪽 **URL**, **인증**을 선택하고 **연결**을 클릭합니다.
+
    ![웹 콘텐츠 액세스 대화 상자](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
 5. 트리 뷰에서 **테이블** 항목을 클릭하여 테이블에서 콘텐츠를 표시한 다음 아래쪽의 **편집** 단추를 클릭합니다.  
-   
-   ![탐색기 대화 상자](./media/data-factory-web-table-connector/Navigator-DialogBox.png) 
+
+   ![탐색기 대화 상자](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
 6. **쿼리 편집기** 창에서 도구 모음의 **고급 편집기** 단추를 클릭합니다.
-   
+
     ![고급 편집기 단추](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
 7. 고급 편집기 대화 상자에서 "원본" 옆에 있는 숫자가 인덱스입니다.
-   
-    ![고급 편집기 - 인덱스](./media/data-factory-web-table-connector/AdvancedEditor-Index.png) 
 
-Excel 2013을 사용하는 경우 [Excel용 Microsoft 파워 쿼리](https://www.microsoft.com/download/details.aspx?id=39379) 를 사용하여 인덱스를 가져옵니다. 자세한 내용은 [웹 페이지에 연결](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) 문서를 참조하세요. [Microsoft Power BI for Desktop](https://powerbi.microsoft.com/desktop/)을 사용하는 경우에도 작업 단계는 비슷합니다. 
+    ![고급 편집기 - 인덱스](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
+
+Excel 2013을 사용하는 경우 [Excel용 Microsoft 파워 쿼리](https://www.microsoft.com/download/details.aspx?id=39379) 를 사용하여 인덱스를 가져옵니다. 자세한 내용은 [웹 페이지에 연결](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) 문서를 참조하세요. [Microsoft Power BI for Desktop](https://powerbi.microsoft.com/desktop/)을 사용하는 경우에도 작업 단계는 비슷합니다.
 
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
@@ -281,6 +285,8 @@ Excel 2013을 사용하는 경우 [Excel용 Microsoft 파워 쿼리](https://www
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

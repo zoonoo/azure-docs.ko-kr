@@ -1,12 +1,12 @@
 ---
-title: DPM을 사용한 SQL Server 워크로드에 대한 Azure 백업 | Microsoft Docs
-description: Azure 백업 서비스를 사용하여 SQL Server 데이터베이스를 백업하는 방법 소개
+title: "DPM을 사용한 SQL Server 워크로드에 대한 Azure 백업 | Microsoft Docs"
+description: "Azure 백업 서비스를 사용하여 SQL Server 데이터베이스를 백업하는 방법 소개"
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: adigan
 manager: Nkolli1
-editor: ''
-
+editor: 
+ms.assetid: 59df5bec-d959-457d-8731-7b20f7f1013e
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adigan;giridham; jimpark;markgal;trinadhk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 39dcc11dfae33fe85cfbd11dec402e23289103fc
+
 
 ---
 # <a name="azure-backup-for-sql-server-workloads-using-dpm"></a>DPM을 사용한 SQL Server 워크로드에 대한 Azure 백업
@@ -55,15 +59,15 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
    > 백업 시점은 전날의 오후 8시 백업 시점에서 수정된 데이터를 전송하여 오후 8시에(화면 입력에 따라) 매일 만들어집니다. 이 프로세스를 **빠른 전체 백업**이라고 합니다. 트랜잭션 로그를 15분마다 동기화하는 반면 오후 9시에 데이터베이스를 복구해야 할 경우 마지막 빠른 전체 백업 지점에서 로그를 재생하여 지점을 만듭니다.(이 경우에 오후 8시)
    > 
    > 
-8. **다음**
+8.  **다음**
    
-   DPM에서는 사용 가능한 전체 저장소 공간 및 잠재적인 디스크 공간 사용률을 보여줍니다.
+    DPM에서는 사용 가능한 전체 저장소 공간 및 잠재적인 디스크 공간 사용률을 보여줍니다.
    
-   ![디스크 할당](./media/backup-azure-backup-sql/pg-storage.png)
+    ![디스크 할당](./media/backup-azure-backup-sql/pg-storage.png)
    
-   기본적으로 DPM에서는 초기 백업 복사본에 사용되는 데이터 원본(SQL Server 데이터베이스)당 하나의 볼륨을 만듭니다. 이 방법을 사용하여 논리 디스크 관리자(LDM)는 DPM 보호를 300개 데이터 원본(SQL Server 데이터베이스)으로 제한합니다. 이 제한을 해결하려면 **DPM 저장소 풀에 데이터 배치**옵션을 선택합니다. 이 옵션을 사용하면 DPM에서 여러 데이터 원본에 단일 볼륨을 사용하므로 DPM이 최대 2000개의 SQL 데이터베이스를 보호할 수 있습니다.
+    기본적으로 DPM에서는 초기 백업 복사본에 사용되는 데이터 원본(SQL Server 데이터베이스)당 하나의 볼륨을 만듭니다. 이 방법을 사용하여 논리 디스크 관리자(LDM)는 DPM 보호를 300개 데이터 원본(SQL Server 데이터베이스)으로 제한합니다. 이 제한을 해결하려면 **DPM 저장소 풀에 데이터 배치**옵션을 선택합니다. 이 옵션을 사용하면 DPM에서 여러 데이터 원본에 단일 볼륨을 사용하므로 DPM이 최대 2000개의 SQL 데이터베이스를 보호할 수 있습니다.
    
-   **볼륨 자동 증가** 옵션을 선택할 경우 프로덕션 데이터가 증가함에 따라 DPM은 백업 볼륨 증가를 처리할 수 있습니다. **볼륨 자동 증가** 옵션을 선택하지 않으면 DPM은 백업 저장소 사용을 보호 그룹의 데이터 원본으로 제한합니다.
+    **볼륨 자동 증가** 옵션을 선택할 경우 프로덕션 데이터가 증가함에 따라 DPM은 백업 볼륨 증가를 처리할 수 있습니다. **볼륨 자동 증가** 옵션을 선택하지 않으면 DPM은 백업 저장소 사용을 보호 그룹의 데이터 원본으로 제한합니다.
 9. 관리자는 해당 초기 백업을 수동으로 전송하도록 선택하여(오프 네트워크) 네트워크를 통한 대역폭 정체를 방지합니다. 또한 초기 전송이 발생할 수 있는 시간을 구성할 수 있습니다. **다음**을 클릭합니다.
    
     ![초기 복제 방법](./media/backup-azure-backup-sql/pg-manual.png)
@@ -98,9 +102,9 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
     이 예제에서:
     
     * 백업은 매일 한 번 오후 12시 및 오후 8시에 수행되며(화면의 아래쪽 부분) 180일 동안 유지됩니다.
-    * 토요일 오후 12시에  수행되는 백업은 104주 동안 유지됩니다.
-    * 마지막 주 토요일 오후 12시에  수행되는 백업은 60개월 동안 유지됩니다.
-    * 3월 마지막 주 토요일 오후 12시에  수행되는 백업은 10년 동안 유지됩니다.
+    * 토요일 오후 12시에 수행되는 백업은 104주 동안 유지됩니다.
+    * 마지막 주 토요일 오후 12시에 수행되는 백업은 60개월 동안 유지됩니다.
+    * 3월 마지막 주 토요일 오후 12시에 수행되는 백업은 10년 동안 유지됩니다.
 14. **다음** 을 클릭하고 초기 백업 복사본을 Azure에 전송하기 위한 적절한 옵션을 선택합니다. **네트워크를 통해 자동으로** 또는 **오프라인 백업**을 선택할 수 있습니다.
     
     * **네트워크를 통해 자동으로** 는 백업에 선택한 일정에 따라 Azure에 백업 데이터를 전송합니다.
@@ -150,9 +154,12 @@ Azure에서 보호되는 엔터티(SQL Server 데이터베이스)를 복구하�
    
     복구가 완료되면 복원된 데이터베이스는 응용 프로그램과 일치합니다.
 
-### <a name="next-steps:"></a>다음 단계:
+### <a name="next-steps"></a>다음 단계:
 •   [Azure 백업 - FAQ](backup-azure-backup-faq.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

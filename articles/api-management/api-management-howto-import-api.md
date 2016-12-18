@@ -1,22 +1,26 @@
 ---
-title: API 관리 주요 개념
-description: API, 제품, 역할, 그룹 및 기타 API 관리의 주요 개념에 대해 알아봅니다.
+title: "API 관리 주요 개념"
+description: "API, 제품, 역할, 그룹 및 기타 API 관리의 주요 개념에 대해 알아봅니다."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 40398b0a-ac2c-43f0-89e1-07e4abbf502f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 126fd84259c604785cdd5db0543f78539c1db9c7
+
 
 ---
-# Azure API 관리에서 작업과 함께 API의 정의를 가져오는 방법
+# <a name="how-to-import-the-definition-of-an-api-with-operations-in-azure-api-management"></a>Azure API 관리에서 작업과 함께 API의 정의를 가져오는 방법
 API 관리에서 새 API를 만들고 작업을 수동으로 추가하거나 API를 작업과 함께 한 번에 가져올 수 있습니다.
 
 API 및 그 작업은 다음 형식으로 가져올 수 있습니다.
@@ -27,11 +31,11 @@ API 및 그 작업은 다음 형식으로 가져올 수 있습니다.
 이 가이드에서는 새로운 API를 만들고 그 작업과 함께 한번에 가져오는 방법을 보여 줍니다. API를 수동으로 만들고 작업을 추가하는 방법에 대해서는 [API를 만드는 방법][API를 만드는 방법] 및 [API에 작업을 추가하는 방법][API에 작업을 추가하는 방법]을 참조하세요.
 
 ## <a name="import-api"> </a>API 가져오기
-게시자 포털에서 API를 만들고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다. 아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][Azure API 관리 시작] 자습서의 [API 관리 서비스 인스턴스 만들기][API 관리 서비스 인스턴스 만들기]를 참조하세요.
+게시자 포털에서 API를 만들고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure Portal에서 **게시자 포털**을 클릭합니다. 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][API 관리 서비스 인스턴스 만들기] 자습서에서 [API Management 서비스 인스턴스 만들기][API Management 서비스 인스턴스 만들기]를 참조하세요.
 
 ![게시자 포털][api-management-management-console]
 
-왼쪽의 **API 관리** 메뉴에서 **API**를 클릭한 다음 **API 가져오기**를 클릭합니다.
+왼쪽의 **API Management** 메뉴에서 **API**를 클릭한 다음 **API 가져오기**를 클릭합니다.
 
 ![API 가져오기][api-management-import-apis]
 
@@ -50,14 +54,14 @@ API 사양을 제공한 후 오른쪽의 라디오 단추를 사용하여 사양
 
 이제 **Web API URL 접미사**를 입력합니다. 이 접미사는 API 관리 서비스의 기본 URL에 추가됩니다. 기본 URL은 API 관리 서비스의 각 인스턴스에서 호스트되는 모든 API에 공통으로 사용됩니다. API 관리는 접미사를 사용하여 API를 구분하므로, 접미사는 특정 API 관리 서비스 인스턴스의 모든 API에 대해 고유해야 합니다.
 
-모든 값을 입력한 후에는 **저장**을 클릭하여 API 및 연결된 작업을 만듭니다.
+모든 값을 입력한 후에는 **저장** 을 클릭하여 API 및 연결된 작업을 만듭니다. 
 
 > [!NOTE]
-> Swagger 형식의 기본 계산기 API의 자습서는 [Azure API 관리에서 첫번째 API 관리](api-management-get-started.md)를 참조하세요.
+> Swagger 형식의 기본 계산기 API의 자습서는 [Azure API 관리에서 첫 번째 API 관리](api-management-get-started.md)를 참조하세요.
 > 
 > 
 
-## <a name="export-api"> </a>API 내보내기
+## <a name="export-api"> </a> API 내보내기
 새 API를 가져올 뿐만 아니라 게시자 포털에서 API에 대한 정의를 내보낼 수 있습니다. 그렇게 하려면 **API**의 **요약 탭**에서 **API 내보내기**를 클릭합니다.
 
 ![API 내보내기][api-management-export-api]
@@ -78,17 +82,21 @@ API를 만들고 작업을 가져온 후 추가 설정을 검토 및 구성하�
 [api-management-export-api]: ./media/api-management-howto-import-api/api-management-export-api.png
 [api-management-export-api-format]: ./media/api-management-howto-import-api/api-management-export-api-format.png
 
-[Import an API]: #import-api
-[Export an API]: #export-api
-[Configure API settings]: #configure-api-settings
-[Next steps]: #next-steps
+[API 가져오기]: #import-api
+[API 내보내기]: #export-api
+[API 설정 구성]: #configure-api-settings
+[다음 단계]: #next-steps
 
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
-[Azure API 관리 시작]: api-management-get-started.md#create-service-instance
+[API Management 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
 
 [API에 작업을 추가하는 방법]: api-management-howto-add-operations.md
 [제품을 만들고 게시하는 방법]: api-management-howto-add-products.md
 [API를 만드는 방법]: api-management-howto-create-apis.md
 [API 설정을 구성하는 방법]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

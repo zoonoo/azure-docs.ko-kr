@@ -1,64 +1,64 @@
 ---
-title: 데이터 팩터리 복사 마법사 | Microsoft Docs
-description: Data Factory 복사 마법사를 사용하여 지원되는 데이터 소스의 데이터를 싱크로 복사하는 방법에 대해 알아보세요.
+title: "데이터 팩터리 복사 마법사 | Microsoft Docs"
+description: "Data Factory 복사 마법사를 사용하여 지원되는 데이터 소스의 데이터를 싱크로 복사하는 방법에 대해 알아보세요."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2016
+ms.date: 09/29/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bdd816303cb971403eaa074d0fe8a46f11017a42
+
 
 ---
-# 데이터 팩터리 복사 마법사
-Azure Data Factory 복사 마법사를 사용하면 연결된 서비스, 데이터 집합 및 파이프라인에 대한 JSON 정의를 작성하지 않고도 지원되는 원본에서 대상으로 데이터를 복사하는 파이프라인을 만들 수 있습니다. 복사 마법사를 시작하려면 Data Factory 홈 페이지에서 **데이터 복사** 타일을 클릭합니다.
+# <a name="data-factory-copy-wizard"></a>데이터 팩터리 복사 마법사
+Azure Data Factory Copy Wizard는 일반적으로 종단 간 데이터 통합 시나리오의 첫 번째 단계인 데이터 수집 프로세스를 용이하게 합니다. Azure Data Factory Copy Wizard를 진행할 때는 연결된 서비스, 데이터 집합 및 파이프라인에 대한 JSON 정의를 이해할 필요가 없습니다. 그러나 마법사의 모든 단계를 완료한 후 선택한 데이터 원본에서 선택한 대상으로 데이터를 복사하는 파이프라인이 자동으로 생성됩니다. 또한 Copy Wizard를 사용하면 작성 당시에 수집 중인 데이터의 유효성을 검사할 수 있으므로 특히 데이터 원본에서 데이터를 처음 수집하는 경우 많은 시간이 절약됩니다. 복사 마법사를 시작하려면 Data Factory 홈 페이지에서 **데이터 복사** 타일을 클릭합니다.
 
 ![복사 마법사](./media/data-factory-copy-wizard/copy-data-wizard.png)
 
-## 기능
-### 데이터를 복사할 수 있는 직관적이고 원활한 마법사
-이 마법사를 사용하면 다음과 같은 간단한 단계에 따라 몇 분이면 원본에서 대상으로 데이터를 간단하게 이동할 수 있습니다.
-
-1. 원본을 선택합니다.
-2. 대상을 선택합니다.
-3. 설정을 구성합니다.
+## <a name="an-intuitive-wizard-for-copying-data"></a>데이터를 복사할 수 있는 직관적인 마법사
+이 마법사를 사용하면 다양한 원본에서 대상으로 몇 분만에 데이터를 쉽게 이동할 수 있습니다. 마법사를 거친 후 종속 Data Factory 엔터티(연결된 서비스 및 데이터 집합)와 함께 복사 작업이 있는 파이프라인이 자동으로 생성됩니다. 파이프라인을 만드는 데 필요한 추가 단계가 없습니다.   
 
 ![데이터 원본 선택](./media/data-factory-copy-wizard/select-data-source-page.png)
 
-### 풍부한 데이터 탐색 및 스키마 매핑
-마법사 내에서 테이블 및 폴더를 탐색하고, 데이터를 미리 보고, 스키마를 매핑하고, 식의 유효성을 검사하고, 간단한 데이터 변환을 수행할 수 있습니다.
+> [!NOTE]
+> Azure Blob에서 Azure SQL Database 테이블로 데이터를 복사하기 위한 샘플 파이프라인을 만드는 단계별 지침은 [Copy Wizard 자습서](data-factory-copy-data-wizard-tutorial.md) 문서를 참조하세요. 
+> 
+> 
 
-**테이블/폴더 탐색** ![테이블 및 폴더 찾아보기](./media/data-factory-copy-wizard/browse-tables-folders.png)
+이 마법사는 처음부터 빅 데이터를 염두에 두고 설계되었습니다. Copy Data Wizard를 사용하여 수백 개의 폴더, 파일 또는 테이블을 이동하는 Data Factory 파이프라인을 간단하고 효율적으로 만들 수 있습니다. 이 마법사는 자동 데이터 미리 보기, 스키마 캡처 및 매핑, 데이터 필터링이라는 세 가지 기능을 지원합니다. 
 
-### 다양한 데이터 및 개체 유형에 따라 규모를 조정할 수 있는 환경
-이 환경은 처음부터 빅 데이터를 염두에 두고 설계되었습니다. 수백 개의 폴더, 파일 또는 테이블을 이동하는 Data Factory 파이프라인을 간단하고 효율적으로 만들 수 있습니다.
+## <a name="automatic-data-preview"></a>자동 데이터 미리 보기
+복사 마법사를 사용하면 선택한 데이터 원본에서 데이터의 일부를 검토하여 데이터가 복사하려는 올바른 데이터인지 여부를 확인할 수 있습니다. 또한 원본 데이터가 텍스트 파일에 있는 경우 복사 마법사는 텍스트 파일을 구문 분석하여 행 및 열 구분 기호와 스키마를 자동으로 파악합니다. 
 
-**데이터 미리 보기** ![파일 형식 설정](./media/data-factory-copy-wizard/file-format-settings.png)
+![파일 형식 설정](./media/data-factory-copy-wizard/file-format-settings.png)
 
-**스키마 매핑** ![스키마 매핑](./media/data-factory-copy-wizard/schema-mapping.png)
+## <a name="schema-capture-and-mapping"></a>스키마 캡처 및 매핑
+입력 데이터의 스키마는 경우에 따라 출력 데이터의 스키마와 일치하지 않을 수 있습니다. 이 시나리오에서는 원본 스키마의 열을 대상 스키마의 열에 매핑해야 합니다. 
 
-**간단한 변환 수행** ![식 유효성 검사](./media/data-factory-copy-wizard/validate-expressions.png)
+복사 마법사는 원본 스키마의 열을 대상 스키마의 열에 자동으로 매핑합니다. 드롭다운 목록을 사용하여 매핑을 재정의하거나 데이터를 복사하는 동안 열을 건너뛸지 여부를 지정할 수 있습니다.   
 
-### 다양한 데이터 및 개체 유형에 따라 규모를 조정할 수 있는 환경
-복사 마법사를 사용하여 간단하고 효율적으로 수백 개의 폴더, 파일 또는 테이블을 이동할 수 있습니다.
+![스키마 매핑](./media/data-factory-copy-wizard/schema-mapping.png)
 
-![데이터를 복사할 테이블 선택](./media/data-factory-copy-wizard/select-tables-to-copy-data.png)
+## <a name="filtering-data"></a>데이터 필터링
+마법사를 통해 대상/싱크 데이터 저장소에 복사해야 하는 데이터만 선택하도록 원본 데이터를 필터링할 수 있습니다. 필터링하면 싱크 데이터 저장소에 복사할 데이터의 양이 줄어들기 때문에 복사 작업의 처리량이 향상됩니다. 마법사에서는 SQL 쿼리 언어를 사용하여 관계형 데이터베이스의 데이터를 필터링하거나 [Data Factory 함수 및 변수](data-factory-functions-variables.md)를 사용하여 Azure blob 폴더의 파일을 필터링할 수 있는 유연한 방법을 제공합니다.   
 
-### 다양한 일정 옵션
-복사 작업을 한 번만 또는 일정에 따라(시간별, 일별, 등) 실행할 수 있습니다. 온-프레미스, 클라우드 및 로컬 데스크톱 복사에 걸쳐 광범위한 커넥터에 이 두 옵션을 모두 사용할 수 있습니다.
+### <a name="filtering-of-data-in-a-database"></a>데이터베이스의 데이터 필터링
+이 예제에서 SQL 쿼리는 `Text.Format` 함수 및 `WindowStart` 변수를 사용합니다. 
 
-일 회 복사 작업을 통해 원본에서 대상으로 한 번만 데이터를 이동할 수 있습니다. 이는 모든 크기 및 지원되는 형식의 데이터에 적용됩니다. 예약 복사를 통해 미리 정해진 반복 주기에 따라 데이터를 복사할 수 있습니다. 다양한 설정(예: 재시도, 시간 제한, 경고 등)을 사용하여 예약 복사를 구성할 수 있습니다.
+![식 유효성 검사](./media/data-factory-copy-wizard/validate-expressions.png)
 
-![일정 속성](./media/data-factory-copy-wizard/scheduling-properties.png)
-
-## Azure Blob 폴더 경로의 변수
-폴더 경로의 변수를 사용하여 [WindowStart 시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** 및 **{custom}**입니다. 예: inputfolder/{year}/{month}/{day}.
+### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Azure blob 폴더의 데이터 필터링
+폴더 경로의 변수를 사용하여 [시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** 및 **{custom}**입니다. 예: inputfolder/{year}/{month}/{day}.
 
 다음과 같은 형식의 입력 폴더가 있다고 가정하겠습니다.
 
@@ -67,15 +67,32 @@ Azure Data Factory 복사 마법사를 사용하면 연결된 서비스, 데이�
     2016/03/01/03
     ...
 
-**파일 또는 폴더**의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택**을 클릭합니다. 텍스트 상자에 **2016/03/01/02**가 표시됩니다. 이제 **2016**을 **{year}**로, **03**을 **{month}**로, **01**을 **{day}**로, **02**를 **{hour}**로 바꾸고 탭을 누릅니다. 이러한 네 가지 변수의 형식을 선택하는 드롭다운 목록이 표시됩니다.
+**파일 또는 폴더**의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택**을 클릭합니다. 텍스트 상자에 `2016/03/01/02`가 표시됩니다. 이제 **2016**을 **{year}**로, **03**을 **{month}**로, **01**을 **{day}**로, **02**를 **{hour}**로 바꾸고 탭을 누릅니다. 이러한 네 가지 변수의 형식을 선택하는 드롭다운 목록이 표시됩니다.
 
-![시스템 변수 사용](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)
+![시스템 변수 사용](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-다음 스크린샷에 표시된 것처럼 **사용자 지정** 변수 및 모든 [지원되는 형식 문자열](https://msdn.microsoft.com/library/8kb3ddd4.aspx)도 사용할 수 있습니다. 해당 구조의 폴더를 선택하려면 먼저 **찾아보기** 단추를 사용합니다. 그런 다음 값을 **{custom}**으로 바꾸고, 탭을 누르면 형식 문자열을 입력할 수 있는 텍스트 상자가 표시됩니다.
+다음 스크린샷에 표시된 것처럼 **사용자 지정** 변수 및 모든 [지원되는 형식 문자열](https://msdn.microsoft.com/library/8kb3ddd4.aspx)도 사용할 수 있습니다. 해당 구조의 폴더를 선택하려면 먼저 **찾아보기** 단추를 사용합니다. 그런 다음 값을 **{custom}**으로 바꾸고, 탭을 누르면 형식 문자열을 입력할 수 있는 텍스트 상자가 표시됩니다.     
 
 ![사용자 지정 변수 사용](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
-## 다음 단계
+## <a name="support-for-diverse-data-and-object-types"></a>다양한 데이터 및 개체 유형 지원
+복사 마법사를 사용하여 효율적으로 수백 개의 폴더, 파일 또는 테이블을 이동할 수 있습니다.
+
+![데이터를 복사할 테이블 선택](./media/data-factory-copy-wizard/select-tables-to-copy-data.png)
+
+## <a name="scheduling-options"></a>일정 옵션
+복사 작업을 한 번만 또는 일정에 따라(시간별, 일별, 등) 실행할 수 있습니다. 온-프레미스, 클라우드 및 로컬 데스크톱 복사에 걸쳐 광범위한 커넥터에 이 두 옵션을 모두 사용할 수 있습니다.
+
+일 회 복사 작업을 통해 원본에서 대상으로 한 번만 데이터를 이동할 수 있습니다. 이는 모든 크기 및 지원되는 형식의 데이터에 적용됩니다. 예약 복사를 통해 미리 정해진 반복 주기에 따라 데이터를 복사할 수 있습니다. 다양한 설정(예: 재시도, 시간 제한, 경고 등)을 사용하여 예약 복사를 구성할 수 있습니다.
+
+![일정 속성](./media/data-factory-copy-wizard/scheduling-properties.png)
+
+## <a name="next-steps"></a>다음 단계
 Data Factory 복사 마법사를 사용하여 복사 작업이 있는 파이프라인을 만드는 방법은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

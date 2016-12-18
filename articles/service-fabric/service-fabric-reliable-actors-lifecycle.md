@@ -1,12 +1,12 @@
 ---
-title: 신뢰할 수 있는 행위자 수명 주기 | Microsoft Docs
-description: 서비스 패브릭 Reliable Actor 수명 주기, 가비지 수집 및 행위자와 해당 상태 수동 삭제에 대해 설명합니다.
+title: "Reliable Actors 수명 주기 | Microsoft Docs"
+description: "서비스 패브릭 Reliable Actor 수명 주기, 가비지 수집 및 행위자와 해당 상태 수동 삭제에 대해 설명합니다."
 services: service-fabric
 documentationcenter: .net
 author: amanbha
 manager: timlt
 editor: vturecek
-
+ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2016
 ms.author: amanbha
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: 0ce3808e44d715aca5f335aa93a3c9425810b03f
+
 
 ---
-# 행위자 수명 주기, 자동 가비지 수집 및 수동 삭제
+# <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>행위자 수명 주기, 자동 가비지 수집 및 수동 삭제
 행위자는 해당 메서드 중 하나가 처음 호출되면 활성화됩니다. 구성 가능한 기간 동안 사용되지 않으면 비활성화됩니다(행위자 런타임에 의한 가비지 수집). 행위자와 그 상태를 언제든지 수동으로 삭제할 수도 있습니다.
 
-## 행위자 활성화
+## <a name="actor-activation"></a>행위자 활성화
 행위자가 활성화되면 다음 상황이 발생합니다.
 
 * 행위자를 호출하는 경우 아직 활성화되지 않았으면 새 행위자를 만듭니다.
@@ -27,29 +31,29 @@ ms.author: amanbha
 * `OnActivateAsync` 메서드(행위자 구현 시 재정의될 수 있음)를 호출합니다.
 * 이제 행위자가 활성 상태인 것으로 간주됩니다.
 
-## 행위자 비활성화
+## <a name="actor-deactivation"></a>행위자 비활성화
 행위자 비활성화되면 다음과 같은 상황이 발생합니다.
 
 * 행위자를 일정 기간 동안 사용하지 않으면 활성 행위자 테이블에서 제거됩니다.
 * `OnDeactivateAsync` 메서드(행위자 구현 시 재정의될 수 있음)를 호출합니다. 그러면 행위자에 대한 모든 타이머가 지워집니다. 상태 변경과 같은 행위자 작업은 이 메서드에서 호출되지 않습니다.
 
 > [!TIP]
-> 패브릭 행위자 런타임에서는 일부 [행위자 활성화 및 비활성화 관련 이벤트](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events)를 내보냅니다. 진단 및 성능 모니터링에 유용합니다.
-> 
-> 
+> 패브릭 행위자 런타임에서는 일부 [행위자 활성화 및 비활성화 관련 이벤트](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters)를 내보냅니다. 진단 및 성능 모니터링에 유용합니다.
+>
+>
 
-### 행위자 가비지 수집
-행위자 비활성화되면 행위자 개체에 대한 참조가 해제되고 가비지가 CLR(공용 언어 런타임) 가비지 수집기에 의해 정상적으로 수집될 수 있습니다. 가비지 수집에서는 행위자 개체를 정리하기만 하고, 행위자의 상태 관리자에 저장된 상태를 제거하지 **않습니다**. 다음에 행위자가 활성화되면 새 행위자 개체가 만들어지고 해당 상태가 복원됩니다.
+### <a name="actor-garbage-collection"></a>행위자 가비지 수집
+행위자 비활성화되면 행위자 개체에 대한 참조가 해제되고 가비지가 CLR(공용 언어 런타임) 가비지 수집기에 의해 정상적으로 수집될 수 있습니다. 가비지 수집에서는 행위자 개체를 정리하기만 하고, 행위자의 상태 관리자에 저장된 상태를 제거하지 **않습니다** . 다음에 행위자가 활성화되면 새 행위자 개체가 만들어지고 해당 상태가 복원됩니다.
 
 비활성화 및 가비지 수집 목적에서 "사용 중"으로 계산되는 항목
 
 * 호출 수신
-* 호출 중인 `IRemindable.ReceiveReminderAsync` 메서드(행위자가 미리 알림을 사용하는 경우에만 해당).
+* `IRemindable.ReceiveReminderAsync` 메서드(행위자가 미리 알림을 사용하는 경우에만 해당).
 
 > [!NOTE]
-> 행위자가 타이머를 사용하고 해당 타이머 콜백이 호출된 경우 "사용 중"으로 계산하지 **않습니다**.
-> 
-> 
+> 행위자가 타이머를 사용하고 해당 타이머 콜백이 호출된 경우 "사용 중"으로 계산하지 **않습니다** .
+>
+>
 
 비활성화에 대한 세부 정보를 살펴보기 전에 다음과 같은 용어를 정의하는 것이 중요합니다.
 
@@ -79,7 +83,7 @@ public class Program
 
 각 활성 행위자에 대해 행위자 런타임은 유휴 상태였던 시간(사용되지 않은 시간)을 기록합니다. 행위자 런타임은 `ScanIntervalInSeconds`마다 각 행위자를 검사하여 가비지 수집 가능한지 확인하고 `IdleTimeoutInSeconds` 동안 유휴 상태였는지 수집합니다.
 
-행위자를 사용할 때마다 유휴 시간이 0으로 다시 설정됩니다. 이후부터는 `IdleTimeoutInSeconds` 동안 다시 유휴 상태인 경우에만 행위자가 가비지 수집됩니다. 행위자는 행위자 미리 알림 콜백이 실행되는 행위자 인터페이스 메서드 중 하나인 경우, 사용된 것으로 간주됩니다. 타이머 콜백이 실행되는 경우 해당 행위자는 사용된 것으로 간주되지 **않습니다**.
+행위자를 사용할 때마다 유휴 시간이 0으로 다시 설정됩니다. 이후부터는 `IdleTimeoutInSeconds`동안 다시 유휴 상태인 경우에만 행위자가 가비지 수집됩니다. 행위자는 행위자 미리 알림 콜백이 실행되는 행위자 인터페이스 메서드 중 하나인 경우, 사용된 것으로 간주됩니다. 타이머 콜백이 실행되는 경우 해당 행위자는 사용된 것으로 간주되지 **않습니다** .
 
 다음 다이어그램에서는 이러한 개념을 설명하는 단일 행위자의 수명 주기를 보여 줍니다.
 
@@ -96,10 +100,10 @@ public class Program
 
 메서드 중 하나를 실행하는 동안에는 해당 메서드를 실행하는 데 소요되는 시간에 상관 없이 행위자는 절대 가비지 수집되지 않습니다. 앞서 설명한 대로 행위자 인터페이스 메서드 및 미리 알림 콜백을 실행하면 행위자의 유휴 시간을 0으로 다시 설정하여 가비지 수집을 방지합니다. 타이머 콜백 실행의 경우는 유휴 시간이 0으로 설정되지 않습니다. 하지만 행위자의 가비지 수집은 타이머 콜백의 실행이 완료될 때까지는 지연됩니다.
 
-## 행위자와 해당 상태 삭제
+## <a name="deleting-actors-and-their-state"></a>행위자와 해당 상태 삭제
 비활성화된 행위자의 가비지 수집에서는 행위자 개체를 정리하기만 하고 행위자의 상태 관리자에 저장된 데이터를 제거하지는 않습니다. 행위자가 다시 활성화되면 상태 관리자를 통해 해당 데이터를 다시 사용할 수 있게 됩니다. 행위자가 상태 관리자에 데이터를 저장하고 비활성화되었지만 다시 활성화되지 않는 경우에는 해당 데이터를 정리해야 할 수 있습니다.
 
-[행위자 서비스](service-fabric-reliable-actors-platform.md)에서는 원격 호출자에서 행위자를 삭제하는 기능을 제공합니다.
+[행위자 서비스](service-fabric-reliable-actors-platform.md) 에서는 원격 호출자에서 행위자를 삭제하는 기능을 제공합니다.
 
 ```csharp
 ActorId actorToDelete = new ActorId(id);
@@ -120,7 +124,7 @@ await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 
 행위자는 행위자 메서드 중 하나에서 자체를 삭제하도록 호출할 수 없습니다. 행위자 호출 컨텍스트 내에서 실행되는 동안에는 런타임에서 단일 스레드 액세스를 적용하기 위해 행위자 호출에 대한 잠금을 획득하기 때문에 행위자를 삭제할 수 없습니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [행위자 타이머 및 미리 알림](service-fabric-reliable-actors-timers-reminders.md)
 * [행위자 이벤트](service-fabric-reliable-actors-events.md)
 * [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
@@ -131,4 +135,8 @@ await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
