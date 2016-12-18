@@ -1,19 +1,23 @@
 ---
-title: DocumentDB의 요청 단위 | Microsoft Docs
-description: DocumentDB의 요청 단위 요구 사항을 이해, 지정 및 예측하는 방법에 알아봅니다.
+title: "DocumentDB의 요청 단위 | Microsoft Docs"
+description: "DocumentDB의 요청 단위 요구 사항을 이해, 지정 및 예측하는 방법에 알아봅니다."
 services: documentdb
 author: syamkmsft
 manager: jhubbard
 editor: mimig
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2016
+ms.date: 11/16/2016
 ms.author: syamk
+translationtype: Human Translation
+ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
+ms.openlocfilehash: 39b4ccba7ad3ba6734dd23548db3c506c8095759
+
 
 ---
 # <a name="request-units-in-documentdb"></a>DocumentDB의 요청 단위
@@ -35,6 +39,12 @@ ms.author: syamk
 DocumentDB는 응용 프로그램의 처리량 수요를 충족하도록 리소스를 *예약* 하여 신속하고 예측 가능한 성능을 제공합니다.  시간이 지나면 응용 프로그램 로드 및 액세스 패턴이 변하는데, DocumentDB를 사용하면 응용 프로그램에 제공되는 예약된 처리량을 간편하게 늘리거나 줄일 수 있습니다.
 
 DocumentDB에서는 예약된 처리량이 초당 처리하는 요청 단위로 지정됩니다.  요청 단위란 응용 프로그램에 보장되는 초당 요청 단위의 양을 *예약* 할 수 있는 처리량 통화라고 생각하시면 됩니다.  문서 작성, 쿼리 수행, 문서 업데이트 등 DocumentDB의 각 작업에서는 CPU, 메모리 및 IOPS를 사용합니다.  즉, 각 작업이 *요청 요금*을 발생시키고, 요청 요금은 *요청 단위*로 표시됩니다.  응용 프로그램의 처리량 요구 사항과 함께 요청 단위 요금에 영향을 주는 요소를 이해하면 응용 프로그램을 최대한 경제적으로 실행할 수 있습니다. 
+
+Aravind Ramachandran이 DocumentDB의 요청 단위 및 예측 가능한 성능을 설명하는 다음 동영상을 시청하는 것으로 시작하는 것이 좋습니다.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
+> 
+> 
 
 ## <a name="specifying-request-unit-capacity"></a>요청 단위 용량 지정
 DocumentDB 컬렉션을 만들 때 컬렉션에 대해 예약하려는 초당 요청 단위 수(RU)를 지정합니다.  컬렉션이 생성되면 지정된 RU 할당 전체가 해당 컬렉션에 사용되도록 예약됩니다.  컬렉션마다 격리된 전용 처리량 특징이 보장됩니다.  
@@ -114,50 +124,50 @@ DocumentDB 서비스의 모든 응답은 요청에 사용된 요청 단위가 �
 
     {
      "id": "08259",
-    "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
-    "tags": [
+      "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
+      "tags": [
         {
-        "name": "cereals ready-to-eat"
+          "name": "cereals ready-to-eat"
         },
         {
-        "name": "kellogg"
+          "name": "kellogg"
         },
         {
-        "name": "kellogg's crispix"
+          "name": "kellogg's crispix"
         }
     ],
-    "version": 1,
-    "commonName": "Includes USDA Commodity B855",
-    "manufacturerName": "Kellogg, Co.",
-    "isFromSurvey": false,
-    "foodGroup": "Breakfast Cereals",
-    "nutrients": [
+      "version": 1,
+      "commonName": "Includes USDA Commodity B855",
+      "manufacturerName": "Kellogg, Co.",
+      "isFromSurvey": false,
+      "foodGroup": "Breakfast Cereals",
+      "nutrients": [
         {
-        "id": "262",
-        "description": "Caffeine",
-        "nutritionValue": 0,
-        "units": "mg"
+          "id": "262",
+          "description": "Caffeine",
+          "nutritionValue": 0,
+          "units": "mg"
         },
         {
-        "id": "307",
-        "description": "Sodium, Na",
-        "nutritionValue": 611,
-        "units": "mg"
+          "id": "307",
+          "description": "Sodium, Na",
+          "nutritionValue": 611,
+          "units": "mg"
         },
         {
-        "id": "309",
-        "description": "Zinc, Zn",
-        "nutritionValue": 5.2,
-        "units": "mg"
+          "id": "309",
+          "description": "Zinc, Zn",
+          "nutritionValue": 5.2,
+          "units": "mg"
         }
-    ],
-    "servings": [
+      ],
+      "servings": [
         {
-        "amount": 1,
-        "description": "cup (1 NLEA serving)",
-        "weightInGrams": 29
+          "amount": 1,
+          "description": "cup (1 NLEA serving)",
+          "weightInGrams": 29
         }
-    ]
+      ]
     }
 
 > [!NOTE]
@@ -199,7 +209,7 @@ DocumentDB 서비스의 모든 응답은 요청에 사용된 요청 단위가 �
 
 이 예에서는 필요한 평균 처리량이 1,275 RU/s로 예상됩니다.  가장 가까운 100자리 숫자로 반올림하면 이 응용 프로그램의 컬렉션에 1,300 RU/s를 프로비전하면 됩니다.
 
-## <a name="<a-id="requestratetoolarge"></a>-exceeding-reserved-throughput-limits"></a><a id="RequestRateTooLarge"></a> 예약된 처리량 제한 초과
+## <a name="a-idrequestratetoolargea-exceeding-reserved-throughput-limits"></a><a id="RequestRateTooLarge"></a> 예약된 처리량 제한 초과
 요청 단위 소비는 초당 비율로 평가된다고 했습니다. 컬렉션에서 프로비전된 요청 단위 속도를 초과하는 응용 프로그램의 경우 비율이 예약된 수준 이하로 떨어질 때까지 해당 컬렉션에 대한 요청이 제한됩니다. 제한이 발생하면 서버에서 RequestRateTooLargeException(HTTP 상태 코드 429)를 사용하여 선제적으로 요청을 종료하고, 사용자가 요청을 다시 시도할 수 있을 때까지 기다려야 하는 시간을 밀리초 단위로 표시하는 x-ms-retry-after-ms 헤더를 반환합니다.
 
     HTTP Status 429
@@ -230,6 +240,6 @@ DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

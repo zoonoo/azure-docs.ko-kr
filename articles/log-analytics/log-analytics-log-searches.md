@@ -1,12 +1,12 @@
 ---
-title: Log Analytics의 로그 검색 | Microsoft Docs
-description: 로그 검색을 사용하면 사용자 환경 내에서 여러 소스의 컴퓨터 데이터를 서로 연결하고 결합할 수 있습니다.
+title: "Log Analytics의 로그 검색 | Microsoft Docs"
+description: "로그 검색을 사용하면 사용자 환경 내에서 여러 소스의 컴퓨터 데이터를 서로 연결하고 결합할 수 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3e1810850651cff4680ea558178ebf92aeac4faa
+
 
 ---
 # <a name="log-searches-in-log-analytics"></a>Log Analytics의 로그 검색
@@ -246,7 +250,7 @@ SELECT 명령은 PowerShell에서 Select-Object 처럼 동작합니다. 자신�
 ## <a name="use-the-measure-command"></a>측정값 명령 사용
 MEASURE는 Log Analytics 검색에서 가장 용도가 많은 명령 중 하나입니다. 데이터에 통계 *함수* 를 적용하고 지정된 필드가 그룹화된 결과를 집계할 수 있습니다. 측정값이 지원하는 여러 통계 함수가 있습니다.
 
-### <a name="measure-count()"></a>개수() 측정
+### <a name="measure-count"></a>개수() 측정
 작업할 첫번째 통계 함수에서 이해하기 가장 간단한 것은 *count()* 함수입니다.
 
 `Type=Event`과 같은 모든 검색 쿼리에서 나온 결과는 검색 결과의 왼쪽에 패싯이라고 하는 필터를 표시합니다. 필터는 실행된 검색에서 결과에 지정된 필드에 의해 값의 분포를 표시합니다.
@@ -571,6 +575,9 @@ Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval
 * [Log Analytics의 사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 로그 검색을 확장합니다.
 * Log Analytics에 제공되는 모든 검색 필드 및 패싯을 보려면 [Log Analytics log search reference](log-analytics-search-reference.md) (Log Analytics 로그 검색 참조)를 검토합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

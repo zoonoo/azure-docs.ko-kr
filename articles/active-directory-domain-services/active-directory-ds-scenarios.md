@@ -1,12 +1,12 @@
 ---
-title: 'Azure Active Directory Domain Services: 배포 시나리오 | Microsoft Docs'
-description: Azure AD 도메인 서비스용 배포 시나리오
+title: "Azure Active Directory Domain Services: 배포 시나리오 | Microsoft Docs"
+description: "Azure AD 도메인 서비스용 배포 시나리오"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b76a5c7dfd640e0a398845b6c8f6b0b35574b4ac
+
 
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>배포 시나리오 및 사용 사례
 이 섹션에서는 Azure AD(Active Directory) 도메인 서비스에서 이익이 되는 몇 가지 시나리오 및 사용 사례를 살펴보겠습니다.
 
-## <a name="secure,-easy-administration-of-azure-virtual-machines"></a>Azure 가상 컴퓨터의 안전하고 손쉬운 관리
+## <a name="secure-easy-administration-of-azure-virtual-machines"></a>Azure 가상 컴퓨터의 안전하고 손쉬운 관리
 Azure Active Directory Domain Services를 사용하여 효율적인 방식으로 Azure 가상 컴퓨터를 관리할 수 있습니다. Azure 가상 컴퓨터를 관리되는 도메인에 가입할 수 있으므로 회사 AD 자격 증명을 사용하여 로그인 할 수 있습니다. 이 방법은 각 Azure 가상 컴퓨터에서 로컬 관리자 계정 유지 관리와 같은 복잡한 자격 증명 관리 과정을 방지하도록 돕습니다.
 
 그룹 정책을 사용하여 관리되는 도메인에 가입된 서버 가상 컴퓨터를 관리하고 보호할 수 있습니다. Azure 가상 컴퓨터에 필요한 보안 기준을 적용할 수 있으며 회사 보안 지침에 따라 잠글 수 있습니다. 예를 들어 그룹 정책 관리 기능을 사용하여 이러한 가상 컴퓨터에서 시작될 수 있는 응용 프로그램 종류를 제한할 수 있습니다.
@@ -79,6 +83,9 @@ Azure RemoteApp을 통해 Contoso의 관리자는 도메인에 가입된 컬렉�
 
 이 배포 시나리오에 대한 자세한 내용은 원격 데스크톱 서비스 블로그 문서인 [Azure RemoteApp 및 Azure AD Domain Services로 워크로드 전환](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

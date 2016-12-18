@@ -1,13 +1,13 @@
 ---
-title: Logic Apps에서 DB2 커넥터 추가 | Microsoft Docs
-description: REST API 매개 변수를 사용하는 DB2 커넥터 개요
-services: ''
-documentationcenter: ''
+title: "Logic Apps에서 DB2 커넥터 추가 | Microsoft Docs"
+description: "REST API 매개 변수를 사용하는 DB2 커넥터 개요"
+services: 
+documentationcenter: 
 author: gplarsen
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 1c6b010c-beee-496d-943a-a99e168c99aa
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d9b00d1db69951ce183f05c8237db02cd046931b
+
 
 ---
 # <a name="get-started-with-the-db2-connector"></a>DB2 커넥터 시작
@@ -170,7 +174,7 @@ DB2 테이블에서 한 행을 추가하는 논리 앱 작업을 정의할 수 �
 3. **되풀이** 트리거에서 **편집**, **빈도** 드롭다운 목록을 차례로 선택하여 **일**을 선택한 다음 **간격**을 선택하여 **7**을 입력합니다. 
 4. **+ 새 단계** 상자를 선택한 다음 **작업 추가**를 선택합니다.
 5. **작업** 목록의 **추가 작업 검색** 편집 상자에 **db2**를 입력한 다음 **DB2 - 행 삽입(미리 보기)**을 선택합니다.
-6. **행 가져오기(미리 보기)** 작업에서 **연결 변경**을 선택합니다. 
+6. **DB2 - 행 삽입(미리 보기)** 작업에서 **연결 변경**을 선택합니다. 
 7. **연결** 구성 창에서 연결을 선택합니다. 예를 들어 **hisdemo2**를 선택합니다.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -203,7 +207,7 @@ DB2 테이블에서 한 행을 가져오는 논리 앱 작업을 정의할 수 �
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
 8. **테이블 이름** 목록에서 **아래쪽 화살표**, **AREA**를 차례로 선택합니다.
 9. 모든 필수 열(빨간색 별표 참조) 값을 입력합니다. 예를 들어 **AREAID**에는 `99999`을(를) 입력합니다. 
-10. 필요에 따라 **고급 옵션 표시**를 선택하여 쿼리 옵션을 지정합니다.
+10. 필요에 따라 **고급 옵션 표시** 를 선택하여 쿼리 옵션을 지정합니다.
 11. **저장**을 선택합니다. 
     
     ![](./media/connectors-create-api-db2/Db2connectorGetRowValues.png)
@@ -225,7 +229,7 @@ DB2 테이블에서 한 행을 변경하는 논리 앱 작업을 정의할 수 �
 3. **되풀이** 트리거에서 **편집**, **빈도** 드롭다운 목록을 차례로 선택하여 **일**을 선택한 다음 **간격**을 선택하여 **7**을 입력합니다. 
 4. **+ 새 단계** 상자를 선택한 다음 **작업 추가**를 선택합니다.
 5. **작업** 목록의 **추가 작업 검색** 편집 상자에 **db2**를 입력한 다음 **DB2 - 행 업데이트(미리 보기)**를 선택합니다.
-6. **행 가져오기(미리 보기)** 작업에서 **연결 변경**을 선택합니다. 
+6. **DB2 - 행 삽입(미리 보기)** 작업에서 **연결 변경**을 선택합니다. 
 7. **연결** 구성 창에서 기존 연결을 선택하려면 선택합니다. 예를 들어 **hisdemo2**를 선택합니다.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -252,7 +256,7 @@ DB2 테이블에서 한 행을 제거하는 논리 앱 작업을 정의할 수 �
 3. **되풀이** 트리거에서 **편집**, **빈도** 드롭다운 목록을 차례로 선택하여 **일**을 선택한 다음 **간격**을 선택하여 **7**을 입력합니다. 
 4. **+ 새 단계** 상자를 선택한 다음 **작업 추가**를 선택합니다.
 5. **작업** 목록의 **추가 작업 검색** 편집 상자에서 **db2**를 선택한 다음 **DB2 - 행 삭제(미리 보기)**를 선택합니다.
-6. **행 가져오기(미리 보기)** 작업에서 **연결 변경**을 선택합니다. 
+6. **DB2 - 행 삭제(미리 보기)** 작업에서 **연결 변경**을 선택합니다. 
 7. **연결** 구성 창에서 기존 연결을 선택합니다. 예를 들어 **hisdemo2**를 선택합니다.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -389,7 +393,7 @@ DB2 테이블의 기존 행을 업데이트합니다.
 | 400 |잘못된 요청 |
 | 401 |권한 없음 |
 | 403 |사용할 수 없음 |
-| 404 |찾을 수 없음 |
+| 404 | 찾을 수 없음 |
 | 500 |내부 서버 오류. 알 수 없는 오류 발생 |
 | 기본값 |작업이 실패했습니다. |
 
@@ -407,6 +411,9 @@ DRDA (Distributed Relational Database Architecture) SQLAM (SQL Access Manager) �
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

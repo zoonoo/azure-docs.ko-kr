@@ -1,12 +1,12 @@
 ---
-title: Microsoft 모니터링 제품 비교 | Microsoft Docs
-description: Microsoft Operations Management Suite(OMS)란 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.  이 문서는 OMS에 포함된 다양한 서비스를 식별하고 자세한 내용에 대한 링크를 제공합니다.
+title: "Microsoft 모니터링 제품 비교 | Microsoft Docs"
+description: "Microsoft Operations Management Suite(OMS)란 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.  이 문서는 OMS에 포함된 다양한 서비스를 식별하고 자세한 내용에 대한 링크를 제공합니다."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: a63ca0ad-61f8-425d-a48c-d87ba518c104
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d7325b0bb900dcaf789c01e1a9b534d7f72c8c43
+
 
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Microsoft 모니터링 제품 비교
@@ -168,6 +172,9 @@ Log Analytics의 쿼리로 임시 분석을 제공하는 기능 이외에, 나�
 * [SCOM(System Center Operations Manager)](https://technet.microsoft.com/library/hh205987.aspx)을 배포합니다.
 * [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics)에 등록합니다.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

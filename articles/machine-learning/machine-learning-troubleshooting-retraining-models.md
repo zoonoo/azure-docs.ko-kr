@@ -1,12 +1,12 @@
 ---
-title: Azure Machine Learning 기존 웹 서비스의 재학습 문제 해결 | Microsoft Docs
-description: Azure Machine Learning 웹 서비스에 대한 모델을 재학습하는 경우에 발생하는 일반적인 문제를 파악하고 바로 잡습니다.
+title: "Azure Machine Learning 클래식 웹 서비스의 재학습 문제 해결 | Microsoft Docs"
+description: "Azure Machine Learning 웹 서비스에 대한 모델을 재학습하는 경우에 발생하는 일반적인 문제를 파악하고 바로 잡습니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: VDonGlover
 manager: raymondl
-editor: ''
-
+editor: 
+ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 736582889573c0e36e06910a3690db5651d5ccfa
+
 
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Azure Machine Learning 기존 웹 서비스의 재학습 문제 해결
@@ -36,7 +40,7 @@ ms.author: v-donglo
 
 1. 학습 웹 서비스 호출: RRS(요청 응답 서비스)가 아닌 BES(일괄 처리 실행 서비스)를 호출합니다. API 도움말 페이지에 나오는 샘플 C# 코드를 사용하여 호출할 수 있습니다. 
 2. *BaseLocation*, *RelativeLocation* 및 *SasBlobToken*에 대한 값 찾기: 학습 웹 서비스에 대한 호출에서 이러한 값을 출력에 반환합니다. 
-     ![재학습 샘플의 출력 및 BaseLocation, RelativeLocation 및 SasBlobToken 값을 표시합니다.][image6]
+   ![재학습 샘플의 출력 및 BaseLocation, RelativeLocation 및 SasBlobToken 값을 표시합니다.][image6]
 3. 새 학습된 모델을 사용하여 점수 매기기 웹 서비스에서 추가된 끝점 업데이트하기: 프로그래밍 방식으로 기계 학습 모델 재학습에서 제공된 샘플 코드를 사용하여 학습 웹 서비스에서 새로 학습된 모델로 점수 매기기 모델에 추가한 새 끝점을 업데이트합니다.
 
 ## <a name="common-obstacles"></a>일반적인 장애물
@@ -58,7 +62,7 @@ ms.author: v-donglo
 
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. 기계 학습 탭을 엽니다. 
-    ![Machine Leaning 탭.][image4]
+   ![Machine Leaning 탭.][image4]
 3. 작업 영역 이름을 클릭한 후 **웹 서비스**를 클릭합니다.
 4. 현재 작업 중인 점수 매기기 웹 서비스를 클릭합니다. (웹 서비스의 기본 이름을 수정하지 않은 경우 결국 [Scoring Exp.]이 됩니다.)
 5. **끝점 추가**를 클릭합니다.
@@ -88,7 +92,7 @@ Azure 클래식 포털을 방문하여 끝점이 어떤 웹 서비스에 있는�
 
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. 기계 학습 탭을 엽니다. 
-    ![Machine Learning 작업 영역 UI.][image4]
+   ![Machine Learning 작업 영역 UI.][image4]
 3. 작업 영역을 선택합니다.
 4. **웹 서비스**를 클릭합니다.
 5. 예측 웹 서비스를 선택합니다.
@@ -97,7 +101,7 @@ Azure 클래식 포털을 방문하여 끝점이 어떤 웹 서비스에 있는�
 ### <a name="check-the-workspace-that-your-web-service-is-in-to-ensure-it-is-in-the-correct-region"></a>웹 서비스가 있는 작업 영역을 확인하여 올바른 영역에 있는지 확인합니다.
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. 메뉴에서 기계 학습을 선택합니다.
-     ![Machine Learning 하위 지역 UI.][image4]
+   ![Machine Learning 하위 지역 UI.][image4]
 3. 작업 영역의 위치를 확인합니다.
 
 <!-- Image Links -->
@@ -111,6 +115,7 @@ Azure 클래식 포털을 방문하여 끝점이 어떤 웹 서비스에 있는�
 [image7]: ./media/machine-learning-troubleshooting-retraining-a-model/web-services-tab.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

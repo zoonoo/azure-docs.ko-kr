@@ -1,22 +1,26 @@
 ---
-title: '자습서: Blackboard Learn과 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 Blackboard Learn 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Blackboard Learn과 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 Blackboard Learn 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 0b8ca505-61ea-487c-9a3e-fa50c936df0c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2016
+ms.date: 09/29/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2e988c717eabff71a47556eaf37aac10b081fc1e
+
 
 ---
-# 자습서: Blackboard Learn과 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>자습서: Blackboard Learn과 Azure Active Directory 통합
 이 자습서에서는 Azure AD(Azure Active Directory)와 Blackboard Learn을 통합하는 방법에 대해 알아봅니다.
 
 Blackboard Learn을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -27,7 +31,7 @@ Blackboard Learn을 Azure AD와 통합하면 다음과 같은 이점이 제공�
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 Blackboard Learn과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독
@@ -43,7 +47,7 @@ Blackboard Learn과 Azure AD 통합을 구성하려면 다음 항목이 필요�
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
 * Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
-## 시나리오 설명
+## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
 
 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
@@ -51,7 +55,7 @@ Blackboard Learn과 Azure AD 통합을 구성하려면 다음 항목이 필요�
 1. 갤러리에서 Blackboard Learn 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
-## 갤러리에서 Blackboard Learn 추가
+## <a name="adding-blackboard-learn-from-the-gallery"></a>갤러리에서 Blackboard Learn 추가
 Blackboard Learn의 Azure AD 통합을 구성하려면 갤러리의 Blackboard Learn을 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 Blackboard Learn을 추가하려면 다음 단계를 수행합니다.**
@@ -60,13 +64,13 @@ Blackboard Learn의 Azure AD 통합을 구성하려면 갤러리의 Blackboard L
    
     ![Active Directory][1]
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
-3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
     ![응용 프로그램][2]
-4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.
+4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
     ![응용 프로그램][3]
-5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
     ![응용 프로그램][4]
 6. 검색 상자에 **Blackboard Learn**을 입력합니다.
@@ -76,7 +80,7 @@ Blackboard Learn의 Azure AD 통합을 구성하려면 갤러리의 Blackboard L
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_06.png)
 
-## Azure AD Single Sign-on 구성 및 테스트
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Blackboard Learn에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Blackboard Learn 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Blackboard Learn의 관련 사용자 간에 연결이 형성되어야 합니다.
@@ -85,24 +89,24 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 Blackboard Learn에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+1. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 3. **[Blackboard Learn 테스트 사용자 만들기](#creating-a-blackboard-learn-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Blackboard Learn에 만듭니다.
 4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
-### Azure AD Single Sign-On 구성
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 이 섹션에서는 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Blackboard Learn 응용 프로그램에서 Single Sign-On을 구성합니다.
 
-Blackboard Learn 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대한 다음 클레임을 구성하세요. 응용 프로그램의 **"특성"** 탭에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+Blackboard Learn 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대한 다음 클레임을 구성하세요. 응용 프로그램의 **"특성"** 탭에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 
 
-![Single Sign-On 구성](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_51.png)
+![Single Sign-On 구성](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_51.png) 
 
 **Blackboard Learn에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
 1. Azure 클래식 포털의 **Blackboard Learn** 응용 프로그램 통합 페이지에 있는 상단 메뉴에서 **특성**을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_general_80.png)
+    ![Single Sign-on 구성](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_general_80.png) 
 2. **SAML 토큰 특성** 대화 상자에서 아래 표의 각 행에 대해 다음 단계를 수행합니다. 여기서는 Userprincipalname을 고유한 사용자 특성으로 매핑하지만 조직의 사용자를 고유하게 식별하고 Blackboard Learn 사용자 이름 필드에 매핑하는 적합한 값에 매핑할 수 있습니다.
    
    | 특성 이름 | 특성 값 |
@@ -111,28 +115,28 @@ Blackboard Learn 응용 프로그램은 특정 형식의 SAML 어설션이 필�
 
     a. **사용자 특성 추가**를 클릭하여 **사용자 특성 추가** 대화 상자를 엽니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_general_81.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_general_81.png) 
 
 
     b. **특성 이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
     c. **특성 값** 목록에서 해당 행에 표시된 특성 값을 선택합니다.
 
-    d. **완료**를 클릭합니다.
+    d. **완료**를 클릭합니다.    
 
 1. 클래식 포털의 **Blackboard Learn** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    ![Single Sign-On 구성][6]
-2. **Blackboard Learn에 대한 사용자 로그인 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+    ![Single Sign-On 구성][6] 
+2. **Blackboard Learn에 대한 사용자 로그인 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택한 후 **다음**을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_03.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_03.png) 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_04.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_04.png) 
    
-    a. **로그인 URL** 텍스트 상자에 **https://\<company name-pricing>.blackboard.com/** 패턴을 사용하여 사용자가 Blackboard Learn 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 **https://\<company name-pricing\>.blackboard.com/** 패턴을 사용하여 사용자가 Blackboard Learn 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
    
-    b. **다음**을 클릭합니다.
+    b. click **다음**
 4. **Blackboard Learn의 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
    
     ![Single Sign-On 구성](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_05.png)
@@ -146,11 +150,11 @@ Blackboard Learn 응용 프로그램은 특정 형식의 SAML 어설션이 필�
 6. 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
    
     ![Azure AD Single Sign-On][10]
-7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
+7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.  
    
     ![Azure AD Single Sign-On][11]
 
-### Azure AD 테스트 사용자 만들기
+### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션에서는 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
 ![Azure AD 사용자 만들기][20]
@@ -159,24 +163,24 @@ Blackboard Learn 응용 프로그램은 특정 형식의 SAML 어설션이 필�
 
 1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_09.png)
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_09.png) 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다.
    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_03.png)
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_03.png) 
 4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다.
    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_04.png)
-5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다. ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_05.png)
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_04.png) 
+5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서  ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_05.png) 단계를 수행합니다. 
    
     a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
    
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
    
     c. **다음**을 클릭합니다.
-6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다. ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_06.png)
+6. **사용자 프로필** 대화 상자 페이지에서 ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_06.png) 단계를 수행합니다. 
    
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.
+   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
    
    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
    
@@ -187,33 +191,33 @@ Blackboard Learn 응용 프로그램은 특정 형식의 SAML 어설션이 필�
    e. **다음**을 클릭합니다.
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_07.png)
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_07.png) 
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_08.png)
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_08.png) 
    
-    a. **새 암호** 값을 적어둡니다.
+    a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.
+    b. **완료**를 클릭합니다.   
 
-### Blackboard Learn 테스트 사용자 만들기
-이 섹션에서는 Blackboard Learn에서 Britta Simon이라는 사용자를 만듭니다.
+### <a name="creating-an-blackboard-learn-test-user"></a>Blackboard Learn 테스트 사용자 만들기
+이 섹션에서는 Blackboard Learn에서 Britta Simon이라는 사용자를 만듭니다. 
 
-Blackboard Learn 응용 프로그램은 적절한 사용자 프로비전을 지원합니다. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)**에 설명된 대로 클레임을 구성했는지 확인하세요.
+Blackboard Learn 응용 프로그램은 적절한 사용자 프로비전을 지원합니다.  **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)**
 
-### Azure AD 테스트 사용자 할당
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Blackboard Learn에 대한 액세스 권한을 부여합니다.
 
-![사용자 할당][200]
+![사용자 할당][200] 
 
 **Britta Simon을 Blackboard Learn에 할당하려면 다음 단계를 수행합니다.**
 
-1. 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+1. 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![사용자 할당][201]
+    ![사용자 할당][201] 
 2. 응용 프로그램 목록에서 **Blackboard Learn**을 선택합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_50.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_50.png) 
 3. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
    
     ![사용자 할당][203]
@@ -222,12 +226,12 @@ Blackboard Learn 응용 프로그램은 적절한 사용자 프로비전을 지�
    
     ![사용자 할당][205]
 
-### Single Sign-On 테스트
+### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 Blackboard Learn 응용 프로그램 지원 액세스 패널에서 Blackboard Learn 타일을 클릭하면 Blackboard Learn 응용 프로그램에 자동으로 로그온됩니다.
 
-## 추가 리소스
+## <a name="additional-resources"></a>추가 리소스
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
@@ -249,4 +253,8 @@ Blackboard Learn 응용 프로그램 지원 액세스 패널에서 Blackboard Le
 [204]: ./media/active-directory-saas-blackboard-learn-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-blackboard-learn-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,23 +1,27 @@
 ---
-title: Azure AD에서 SaaS 앱 사용자를 자동으로 프로비저닝 | Microsoft Docs
-description: Azure AD를 사용하여 여러 타사 SaaS 응용 프로그램에서 사용자 계정을 자동으로 프로비저닝, 프로비저닝 해제, 지속적으로 업데이트하는 방법을 소개합니다.
+title: "Azure AD에서 SaaS 앱 사용자를 자동으로 프로비저닝 | Microsoft Docs"
+description: "Azure AD를 사용하여 여러 타사 SaaS 응용 프로그램에서 사용자 계정을 자동으로 프로비저닝, 프로비저닝 해제, 지속적으로 업데이트하는 방법을 소개합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
-ms.author: asmalser-msft
+ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6a8b4a5b3293d379844d6456494f71b51265d2e8
+
 
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
-## <a name="what-is-automated-user-provisioning-for-saas-apps?"></a>SaaS 앱을 위한 자동 사용자 프로비저닝이란?
+## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS 앱을 위한 자동 사용자 프로비저닝이란?
 Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 응용 프로그램의 사용자 ID 생성, 관리 및 제거를 자동화할 수 있습니다.
 
 **다음은 이 기능을 어떻게 활용할 수 있는지에 대한 몇 가지 예입니다.**
@@ -34,7 +38,7 @@ Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow
 * 프로비전닝 오류를 전자 메일로 받을 수 있는 선택적 기능.
 * 모니터링 및 문제 해결에 도움이 되는 보고 및 활동 로그.
 
-## <a name="why-use-automated-provisioning?"></a>자동 프로비저닝을 사용하는 이유
+## <a name="why-use-automated-provisioning"></a>자동 프로비저닝을 사용하는 이유
 이 기능을 사용하게 되는 일반적인 동기는 다음과 같습니다.
 
 * 수동 프로비저닝 절차에서 빚어지는 비용, 비효율성, 사람의 실수를 방지합니다.
@@ -67,7 +71,7 @@ Azure AD는 5 ~ 10분 마다 변경 내용을 확인합니다. SaaS 앱에서 �
 
 [Azure Active Directory 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 연락해 주십시오.
 
-## <a name="how-does-automated-provisioning-work?"></a>자동 프로비저닝은 어떻게 수행됩니까?
+## <a name="how-does-automated-provisioning-work"></a>자동 프로비저닝은 어떻게 수행됩니까?
 Azure AD는 각 응용 프로그램 공급 업체에서 제공하는 프로비저닝 끝점에 연결하여 SaaS 앱에 사용자를 프로비저닝합니다. 이러한 끝점을 사용하여 Azure AD에서 프로그래밍 방식으로 사용자를 만들고, 업데이트하고, 제거할 수 있습니다. 다음은 Azure AD에서 자동 프로비저닝을 수행하는 서로 다른 단계에 대한 간략한 개요입니다.
 
 1. 응용 프로그램에 대한 프로비저닝을 처음 사용하는 경우 다음 작업이 수행됩니다.
@@ -109,6 +113,9 @@ Azure AD와 SaaS 앱 사이에서 특성이 매핑되는 방법에 대한 자세
 * [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

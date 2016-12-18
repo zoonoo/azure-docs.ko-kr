@@ -1,22 +1,26 @@
 ---
-title: Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법
-description: Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법에 대해 알아봅니다.
+title: "Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법"
+description: "Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법에 대해 알아봅니다."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
+
 
 ---
-# Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법
+# <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법
 > [!IMPORTANT]
 > API 관리에 대한 Git 구성은 현재 미리 보기로 제공됩니다. 기능적으로는 완전하지만 이 기능에 대한 의견을 적극적으로 기다리고 있으므로 미리 보기로 제공됩니다. 고객 피드백에 대한 응답으로 새로운 변경 사항을 만들었을 수 있으므로 프로덕션 환경에서 사용할 기능에 따르지 않는 것이 좋습니다. 의견이나 질문이 있으면 `apimgmt@microsoft.com`에서 알려 주시기 바랍니다.
 > 
@@ -44,7 +48,7 @@ ms.author: sdanie
 
 이 문서에서는 Git를 사용하도록 설정하고 이를 사용하여 서비스 구성을 관리하는 방법을 설명하며 Git 리포지토리의 파일 및 폴더에 대한 참조를 제공합니다.
 
-## Git 액세스를 사용하도록 설정하려면
+## <a name="to-enable-git-access"></a>Git 액세스를 사용하도록 설정하려면
 게시자 포털의 오른쪽 위 모서리의 Git 아이콘을 확인하여 Git 구성의 상태를 신속하게 볼 수 있습니다. 이 예제에서 Git 액세스는 아직 활성화되지 않았습니다.
 
 ![Git 상태][api-management-git-icon-enable]
@@ -66,12 +70,12 @@ Git 액세스를 사용하도록 설정하려면 **Git 액세스 사용** 확인
 
 REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 설정하는 방법은 [REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 설정](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit)을 참조하세요.
 
-## Git 리포지토리에 서비스 구성 저장
+## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Git 리포지토리에 서비스 구성 저장
 리포지토리를 복제하기 전에 수행할 첫 번째 단계는 서비스 구성의 현재 상태를 리포지토리에 저장하는 것입니다. **리포지토리에 구성 저장**을 클릭합니다.
 
 ![구성 저장][api-management-save-configuration]
 
-확인 화면에서 원하는 대로 변경하고 **확인**을 클릭하여 저장합니다.
+확인 화면에서 원하는 대로 변경하고 **확인** 을 클릭하여 저장합니다.
 
 ![구성 저장][api-management-save-configuration-confirm]
 
@@ -83,12 +87,12 @@ REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 �
 
 REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사용하여 구성 스냅숏 커밋](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot)을 참조하세요.
 
-## 로컬 컴퓨터에 리포지토리 복제
-리포지토리를 복제하려면 리포지토리에 대한 URL, 사용자 이름 및 암호가 필요합니다. 사용자 이름 및 URL이 **구성 리포지토리**의 맨 위 부근에 표시됩니다.
+## <a name="to-clone-the-repository-to-your-local-machine"></a>로컬 컴퓨터에 리포지토리 복제
+리포지토리를 복제하려면 리포지토리에 대한 URL, 사용자 이름 및 암호가 필요합니다. 사용자 이름 및 URL이 **구성 리포지토리** 의 맨 위 부근에 표시됩니다.
 
 ![Git 복제][api-management-configuration-git-clone]
 
-**구성 리포지토리**의 맨 아래에 암호가 생성됩니다.
+**구성 리포지토리** 의 맨 아래에 암호가 생성됩니다.
 
 ![암호 생성][api-management-generate-password]
 
@@ -101,7 +105,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 > 
 > 
 
-다음 예제에서는 [Windows용 Git](http://www.git-scm.com/downloads)에서 Git Bash 도구를 사용하지만 현재 친숙한 아무 Git나 사용할 수 있습니다.
+다음 예제에서는 [Windows용 Git](http://www.git-scm.com/downloads) 에서 Git Bash 도구를 사용하지만 현재 친숙한 아무 Git나 사용할 수 있습니다.
 
 원하는 폴더에서 Git 도구를 열고 게시자 포털에서 제공한 다음 명령을 실행하여 Git 리포지토리를 로컬 컴퓨터에 복제합니다.
 
@@ -123,16 +127,16 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 리포지토리가 복제된 후 로컬 파일 시스템에서 이를 보고 작업할 수 있습니다. 자세한 내용은 [로컬 Git 리포지토리의 파일 및 폴더 구조 참조](#file-and-folder-structure-reference-of-local-git-repository)를 참조하세요.
 
-## 최근 서비스 인스턴스 구성으로 로컬 리포지토리를 업데이트하려면
+## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>최근 서비스 인스턴스 구성으로 로컬 리포지토리를 업데이트하려면
 게시자 포털에서 또는 REST API를 사용하여 API 관리 서비스 인스턴스를 변경하는 경우 변경 내용을 리포지토리에 저장해야 로컬 리포지토리를 최신 변경 내용으로 업데이트할 수 있습니다. 이 작업을 수행하려면 게시자 포털의 **구성 리포지토리** 탭에서 **리포지토리에 구성 저장**을 클릭한 후 로컬 리포지토리에서 다음 명령을 실행합니다.
 
     git pull
 
-`git pull`을 실행하기 전에 현재 로컬 리포지토리에 대한 폴더에 있는지 확인하십시오. `git clone` 명령을 방금 완료한 경우 다음과 같은 명령을 실행하여 디렉터리를 리포지토리로 변경해야 합니다.
+`git pull` 을 실행하기 전에 현재 로컬 리포지토리에 대한 폴더에 있는지 확인하십시오. `git clone` 명령을 방금 완료한 경우 다음과 같은 명령을 실행하여 디렉터리를 리포지토리로 변경해야 합니다.
 
     cd bugbashdev4.scm.azure-api.net/
 
-## 로컬 리포지토리의 변경 내용을 서버 리포지토리에 푸시하려면
+## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>로컬 리포지토리의 변경 내용을 서버 리포지토리에 푸시하려면
 로컬 리포지토리의 변경 내용을 서버 리포지토리에 푸시하려면 변경 내용을 커밋한 다음 이를 서버 리포지토리에 게시해야 합니다. 변경 내용을 커밋하려면 Git 명령 도구를 열고 로컬 리포지토리의 디렉터리로 전환한 후 다음 명령을 실행합니다.
 
     git add --all
@@ -142,14 +146,14 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
     git push
 
-## 서비스 구성 변경 내용을 API 관리 서비스 인스턴스에 배포하려면
+## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>서비스 구성 변경 내용을 API 관리 서비스 인스턴스에 배포하려면
 로컬 변경 내용이 커밋되고 서버 리포지토리에 푸시된 후 이를 API 관리 서비스 인스턴스에 배포할 수 있습니다.
 
 ![배포][api-management-configuration-deploy]
 
 REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사용하여 구성 데이터베이스에 Git 변경 내용 배포](https://msdn.microsoft.com/library/dn781420.aspx#DeployChanges)를 참조하세요.
 
-## 로컬 Git 리포지토리의 파일 및 폴더 구조 참조
+## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>로컬 Git 리포지토리의 파일 및 폴더 구조 참조
 로컬 Git 리포지토리의 파일 및 폴더에는 서비스 인스턴스에 관한 구성 정보가 포함되어 있습니다.
 
 | 항목 | 설명 |
@@ -183,7 +187,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 > 
 > 
 
-### 루트 api 관리 폴더
+### <a name="root-api-management-folder"></a>루트 api 관리 폴더
 루트 `api-management` 폴더에는 다음과 같은 형식의 서비스 인스턴스에 관한 최상위 정보를 포함하고 있는 `configuration.json` 파일이 포함되어 있습니다.
 
     {
@@ -224,46 +228,46 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 마지막 설정 `$ref-policy`은 서비스 인스턴스에 대한 전역 정책 설명 파일에 매핑됩니다.
 
-### apis 폴더
+### <a name="apis-folder"></a>apis 폴더
 `apis` 폴더에는 다음 항목을 포함한 서비스 인스턴스의 각 API에 대한 폴더가 포함되어 있습니다.
 
-* `apis<api name>\configuration.json` - API에 대한 구성이며 백 엔드 서비스 URL 및 작업에 관한 정보를 포함하고 있습니다. 이는 `application/json` 형식의 `export=true`을 사용한 [특정 API 가져오기](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI)를 호출하려는 경우 반환되는 것과 같은 정보입니다.
-* `apis<api name>\api.description.html` - API에 대한 설명이며 [API 엔터티](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties)의 `description` 속성에 해당합니다.
-* `apis<api name>\operations` - 이 폴더는 작업을 API에 매핑하는 `<operation name>.description.html` 파일을 포함하고 있습니다. 각 파일은 REST API에서 [작업 엔터티](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties)의 `description` 속성에 매핑되는 API의 단일 작업에 대한 설명을 포함하고 있습니다.
+* `apis\<api name>\configuration.json` - API에 대한 구성이며 백 엔드 서비스 URL 및 작업에 관한 정보를 포함하고 있습니다. 이는 `application/json` 형식의 `export=true`을 사용한 [특정 API 가져오기](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI)를 호출하려는 경우 반환되는 것과 같은 정보입니다.
+* `apis\<api name>\api.description.html` - API에 대한 설명이며 [API 엔터티](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties)의 `description` 속성에 해당합니다.
+* `apis\<api name>\operations\` - 이 폴더는 작업을 API에 매핑하는 `<operation name>.description.html` 파일을 포함하고 있습니다. 각 파일은 REST API에서 [작업 엔터티](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties)의 `description` 속성에 매핑되는 API의 단일 작업에 대한 설명을 포함하고 있습니다.
 
-### groups 폴더
+### <a name="groups-folder"></a>groups 폴더
 `groups` 폴더는 서비스 인스턴스에 정의된 각 그룹에 대한 폴더를 포함하고 있습니다.
 
-* `groups<group name>\configuration.json` - 그룹에 대한 구성입니다. 이는 [특정 그룹 가져오기](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup)를 호출하려는 경우 반환되는 것과 같은 정보입니다.
-* `groups<group name>\description.html` - 그룹에 대한 설명이며 [그룹 엔터티](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties)의 `description` 속성에 해당합니다.
+* `groups\<group name>\configuration.json` - 그룹에 대한 구성입니다. 이는 [특정 그룹 가져오기](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
+* `groups\<group name>\description.html` - 그룹에 대한 설명이며 [그룹 엔터티](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties)의 `description` 속성에 해당합니다.
 
-### policies 폴더
+### <a name="policies-folder"></a>policies 폴더
 `policies` 폴더에는 서비스 인스턴스에 대한 정책 설명이 포함되어 있습니다.
 
 * `policies\global.xml` -서비스 인스턴스에 대 한 전역 범위에 정의된 정책을 포함하고 있습니다.
-* `policies\apis<api name>` -API 범위에 정책을 정의 한 경우 해당 정책이 이 폴더에 포함되어 있습니다.
-* `policies\apis<api name><operation name>` 폴더 - 작업 범위에 정책을 정의한 경우 해당 정책은 각 작업에 대한 정책 설명에 매핑되는 이 폴더의 `<operation name>.xml` 파일에 포함되어 있습니다.
-* `policies\products` - 제품 범위에 정책을 정의한 경우 해당 정책은 각 제품에 대한 정책 설명에 매핑되는 이 폴더의 `<product name>.xml` 파일에 포함되어 있습니다.
+* `policies\apis\<api name>\` -API 범위에 정책을 정의 한 경우 해당 정책이 이 폴더에 포함되어 있습니다.
+* `policies\apis\<api name>\<operation name>\` 폴더 - 작업 범위에 정책을 정의한 경우 해당 정책은 각 작업에 대한 정책 설명에 매핑되는 이 폴더의 `<operation name>.xml` 파일에 포함되어 있습니다.
+* `policies\products\` - 제품 범위에 정책을 정의한 경우 해당 정책은 각 제품에 대한 정책 설명에 매핑되는 이 폴더의 `<product name>.xml` 파일에 포함되어 있습니다.
 
-### portalStyles 폴더
+### <a name="portalstyles-folder"></a>portalStyles 폴더
 `portalStyles` 폴더에는 서비스 인스턴스에 대한 개발자 포털 사용자 지정에 대한 구성 및 스타일 시트가 포함되어 있습니다.
 
 * `portalStyles\configuration.json` - 개발자 포털에서 사용하는 스타일 시트의 이름이 포함되어 있습니다.
-* `portalStyles<style name>.css` - 각 `<style name>.css` 파일에는 개발자 포털에 대한 스타일(기본적으로 `Preview.css` 및 `Production.css`)이 포함되어 있습니다.
+* `portalStyles\<style name>.css` - 각 `<style name>.css` 파일에는 개발자 포털에 대한 스타일(기본적으로 `Preview.css` 및 `Production.css`)이 포함되어 있습니다.
 
-### products 폴더
+### <a name="products-folder"></a>products 폴더
 `products` 폴더는 서비스 인스턴스에 정의된 각 제품에 대한 폴더를 포함하고 있습니다.
 
-* `products<product name>\configuration.json` - 제품에 대한 구성입니다. 이는 [특정 제품 가져오기](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct)를 호출하려는 경우 반환되는 것과 같은 정보입니다.
-* `products<product name>\product.description.html` - 제품에 대한 설명이며 REST API에서 [제품 엔터티](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product)의 `description` 속성에 해당합니다.
+* `products\<product name>\configuration.json` - 제품에 대한 구성입니다. 이는 [특정 제품 가져오기](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
+* `products\<product name>\product.description.html` - 제품에 대한 설명이며 REST API에서 [제품 엔터티](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product)의 `description` 속성에 해당합니다.
 
-### 템플릿
-`templates` 폴더에는 서비스 인스턴스의 [전자 메일 템플릿](api-management-howto-configure-notifications.md)에 대한 구성이 포함되어 있습니다.
+### <a name="templates"></a>템플릿
+`templates` 폴더에는 서비스 인스턴스의 [전자 메일 템플릿](api-management-howto-configure-notifications.md) 에 대한 구성이 포함되어 있습니다.
 
 * `<template name>\configuration.json` - 전자 메일 템플릿에 대한 구성입니다.
 * `<template name>\body.html` - 전자 메일 템플릿의 본문입니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 서비스 인스턴스를 관리하는 다른 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * 다음 PowerShell cmdlet을 사용하여 서비스 인스턴스 관리
@@ -274,7 +278,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 * REST API를 사용하여 서비스 인스턴스 관리
   * [API 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
-## 비디오 개요 보기
+## <a name="watch-a-video-overview"></a>비디오 개요 보기
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Configuration-over-Git/player]
 > 
 > 
@@ -293,4 +297,12 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
