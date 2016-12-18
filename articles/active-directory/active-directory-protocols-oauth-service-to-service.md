@@ -1,12 +1,12 @@
 ---
-title: OAuth 2.0을 사용한 Azure AD 서비스 간 인증 | Microsoft Docs
-description: 이 문서는 OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하여 서비스 간 인증을 구현하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다.
+title: "OAuth 2.0을 사용한 Azure AD 서비스 간 인증 | Microsoft Docs"
+description: "이 문서는 OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하여 서비스 간 인증을 구현하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다."
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
+translationtype: Human Translation
+ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
+ms.openlocfilehash: 9d9ddbddb1039f56c420cb8f10dfa9bb82788b72
+
 
 ---
 # <a name="service-to-service-calls-using-client-credentials"></a>클라이언트 자격 증명을 사용하여 서비스를 호출하는 서비스
@@ -30,7 +34,7 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름은 사용자를 가장하�
 4. 보안 리소스의 데이터는 웹 응용 프로그램에 반환됩니다.
 
 ## <a name="register-the-services-in-azure-ad"></a>Azure AD에서 서비스 등록
-Azure AD(Azure Active Directory)에서 호출 서비스와 수신 서비스를 등록합니다. 자세한 지침은 [앱 추가, 업데이트 및 제거](active-directory-integrating-applications.md#BKMK_Native)
+Azure AD(Azure Active Directory)에서 호출 서비스와 수신 서비스를 등록합니다. 자세한 지침은 [Azure Active Directory와 응용 프로그램 통합](active-directory-integrating-applications.md)을 참조하세요.
 
 ## <a name="request-an-access-token"></a>액세스 토큰 요청
 액세스 토큰을 요청하려면 테넌트별 Azure AD 끝점에 HTTP POST를 사용합니다.
@@ -87,6 +91,8 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 ## <a name="see-also"></a>참고 항목
 * [Azure AD의 OAuth 2.0](active-directory-protocols-oauth-code.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

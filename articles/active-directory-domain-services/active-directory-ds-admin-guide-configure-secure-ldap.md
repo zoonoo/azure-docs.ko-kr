@@ -1,12 +1,12 @@
 ---
-title: Azure AD 도메인 서비스에서 보안 LDAP(LDAPS) 구성| Microsoft Docs
-description: Azure AD 도메인 서비스 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
+title: "Azure AD Domain Services에서 보안 LDAP(LDAPS) 구성 | Microsoft Docs"
+description: "Azure AD 도메인 서비스 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 53cf596d1c1df77872696f2a55363cf3a83d5efe
+
 
 ---
-# <a name="configure-secure-ldap-(ldaps)-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
+# <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
 이 문서에서는 Azure AD 도메인 서비스 관리되는 도메인에 대해 LDAPS(Secure Lightweight Directory Access Protocol)를 사용하도록 설정하는 방법을 보여 줍니다. 보안 LDAP는 'SSL(Secure Sockets Layer)/TLS(Transport Layer Security)를 통한 LDAP(Lightweight Directory Access Protocol)'라고도 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -49,7 +53,7 @@ ms.author: maheshu
 * 인증 기관에서 인증서를 받습니다. 기관은 조직의 엔터프라이즈 CA 또는 공용 인증 기관일 수 있습니다.
 * 자체 서명된 인증서를 만듭니다.
 
-### <a name="option-a-(recommended)---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>옵션 A(권장) - 인증 기관에서 보안 LDAP 인증서를 가져옵니다.
+### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>옵션 A(권장) - 인증 기관에서 보안 LDAP 인증서를 가져옵니다.
 조직에서 엔터프라이즈 PKI(공개 키 인프라)를 배포하는 경우 조직의 엔터프라이즈 CA(인증 기관)에서 인증서를 가져와야 합니다. 조직이 공용 인증 기관에서 해당 인증서를 가져오는 경우 공용 인증 기관에서 보안 LDAP 인증서를 가져와야 합니다.
 
 인증서를 요청할 때는 [보안 LDAP 인증서에 대한 요구 사항](#requirements-for-the-secure-ldap-certificate)에 나와 있는 요구 사항을 따라야 합니다.
@@ -79,7 +83,7 @@ Windows 컴퓨터에서 새로 자체 서명된 인증서를 만들려면 **관�
 
 새로 만든 자체 서명된 인증서는 로컬 컴퓨터의 인증서 저장소에 배치됩니다.
 
-## <a name="task-2---export-the-secure-ldap-certificate-to-a-.pfx-file"></a>작업 2 - 보안 LDAP 인증서를 .PFX 파일로 내보내기
+## <a name="task-2---export-the-secure-ldap-certificate-to-a-pfx-file"></a>작업 2 - 보안 LDAP 인증서를 .PFX 파일로 내보내기
 이 작업을 시작하기 전에 사용자는 엔터프라이즈 인증 기관 또는 공용 인증 기관에서 보안 LDAP 인증서를 가져오거나 자체 서명된 인증서를 만들어야 합니다.
 
 LDAPS 인증서를 .PFX 파일로 내보내려면 다음 단계를 수행합니다.
@@ -225,6 +229,9 @@ LDAPS 인증서를 .PFX 파일로 내보내려면 다음 단계를 수행합니�
 ## <a name="related-content"></a>관련 콘텐츠
 * [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

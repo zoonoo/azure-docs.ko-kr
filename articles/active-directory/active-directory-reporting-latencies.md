@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory Reporting 대기 시간 | Microsoft Docs
-description: Azure Active Directory에 보고 이벤트를 표시하는 데 걸리는 시간
+title: "Azure Active Directory Reporting 대기 시간 | Microsoft Docs"
+description: "Azure Active Directory에 보고 이벤트를 표시하는 데 걸리는 시간"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 346b14f8-d16d-4b07-8211-e6c5eec07062
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
 ms.author: dhanyahk
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
+
 
 ---
-# Azure Active Directory 보고서 대기 시간
+# <a name="azure-active-directory-report-latencies"></a>Azure Active Directory 보고서 대기 시간
 *이 설명서는 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)의 일부입니다.*
 
 | 보고서 | 최소 | 평균 | 최대 |
@@ -51,4 +55,9 @@ ms.author: dhanyahk
 | **비공개 미리 보기 보고서** | | | |
 | 모든 사용자 로그인 활동 |2시간 |4시간 |8시간 |
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

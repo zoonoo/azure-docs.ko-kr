@@ -1,12 +1,12 @@
 ---
-title: '자습서: PerformanceCentre와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory 및 PerformanceCentre 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: PerformanceCentre와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory 및 PerformanceCentre 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 65288c32-f7e6-4eb3-a6dc-523c3d748d1c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9b8c63d512f49a9b1478642f9f6733c849e3f48d
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-performancecentre"></a>자습서: PerformanceCentre와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>자습서: PerformanceCentre와 Azure Active Directory 통합
 이 자습서에서는 PerformanceCentre와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.  
 PerformanceCentre를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다. 
 
@@ -278,6 +282,6 @@ PerformanceCentre에서 Azure AD Single Sign-on을 구성하고 테스트하려�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
