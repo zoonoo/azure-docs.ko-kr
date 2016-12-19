@@ -1,19 +1,23 @@
 ---
-title: Linux 데이터 과학 가상 컴퓨터 프로비전 | Microsoft Docs
-description: 분석 및 기계 학습을 수행하기 위해 Azure에서 Linux 데이터 과학 가상 컴퓨터를 구성하고 만듭니다.
+title: "Linux 데이터 과학 가상 컴퓨터 프로비전 | Microsoft Docs"
+description: "분석 및 기계 학습을 수행하기 위해 Azure에서 Linux 데이터 과학 가상 컴퓨터를 구성하고 만듭니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3d5c5d6ae177b6f662df261f3254816b20bac764
+
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Linux 데이터 과학 가상 컴퓨터 프로비전
@@ -341,6 +345,9 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 * [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
 * [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com) 를 방문하여 Cortana 분석 Suite을 사용하는 기계 학습 및 데이터 분석 샘플을 확인합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

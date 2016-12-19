@@ -1,22 +1,27 @@
 ---
-title: T-SQL을 사용하는 Azure SQL 데이터베이스 서버 수준 및 데이터베이스 수준 방화벽 규칙 | Microsoft Docs
-description: Azure SQL 데이터베이스에 액세스하는 IP 주소에 대한 방화벽을 구성하는 방법을 알아봅니다.
+title: "T-SQL을 사용하는 Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙 | Microsoft Docs"
+description: "Azure SQL 데이터베이스에 액세스하는 IP 주소에 대한 방화벽을 구성하는 방법을 알아봅니다."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: BYHAM
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 71e692a1-5e2f-4a18-a6d6-527b849cf68e
 ms.service: sql-database
+ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8afac684b5c4588d84ec4070e99470664ec47ff3
+
 
 ---
-# T-SQL을 사용하여 Azure SQL 데이터베이스 서버 수준 및 데이터베이스 수준 방화벽 규칙 구성
+# <a name="configure-azure-sql-database-server-level-and-database-level-firewall-rules-using-t-sql"></a>T-SQL을 사용하여 Azure SQL 데이터베이스 서버 수준 및 데이터베이스 수준 방화벽 규칙 구성
 > [!div class="op_single_selector"]
 > * [개요](sql-database-firewall-configure.md)
 > * [Azure 포털](sql-database-configure-firewall-settings.md)
@@ -29,11 +34,11 @@ ms.author: rickbyh
 Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 연결을 허용 하도록 방화벽 규칙을 사용 합니다. 선택적으로 데이터베이스에 대한 액세스를 허용 하도록 Azure SQL 데이터베이스 서버에서 master 데이터베이스 또는 사용자 데이터베이스에 대한 서버 수준 및 데이터베이스 수준 방화벽 설정을 정의할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure에서 응용 프로그램 데이터베이스 서버에 연결할 수 있게 하려면 Azure 연결을 사용하도록 설정해야 합니다. 방화벽 규칙 및 Azure의 연결을 사용하도록 설정 하는 방법에 대한 자세한 내용은 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요. Azure 클라우드 경계 내에서 연결하는 경우 일부 TCP 포트를 추가로 열어야 할 수도 있습니다. 자세한 내용은 [ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)의 **SQL 데이터베이스의 V12: 내부 vs 외부** 섹션을 참조하세요.
+> Azure에서 응용 프로그램 데이터베이스 서버에 연결할 수 있게 하려면 Azure 연결을 사용하도록 설정해야 합니다. 방화벽 규칙 및 Azure의 연결을 사용하도록 설정 하는 방법에 대한 자세한 내용은 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요. Azure 클라우드 경계 내에서 연결하는 경우 일부 TCP 포트를 추가로 열어야 할 수도 있습니다. 자세한 내용은 **ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트** 의 [SQL 데이터베이스의 V12: 내부 vs 외부](sql-database-develop-direct-route-ports-adonet-v12.md)
 > 
 > 
 
-## 서버 수준 방화벽 규칙
+## <a name="server-level-firewall-rules"></a>서버 수준 방화벽 규칙
 서버 수준 보안 주체 로그인 또는 Azure Active Directory 관리자만이 Transact-SQL을 사용하여 서버 수준 방화벽 규칙을 만들 수 있습니다.
 
 1. SQL Server Management Studio를 사용하여 쿼리 창을 시작하고 가상 마스터 데이터베이스에 연결합니다.
@@ -47,13 +52,13 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
         EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
             @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
    
-    서버 수준 방화벽 규칙을 삭제 하려면 sp\_delete\_firewall\_rule 저장 프로시저를 실행 합니다. 다음 예제에서는 ContosoFirewallRule 이라는 규칙을 삭제 합니다.
+    서버 수준 방화벽 규칙을 삭제 하려면 sp_delete_firewall_rule 저장 프로시저를 실행 합니다. 다음 예제에서는 ContosoFirewallRule 이라는 규칙을 삭제 합니다.
    
         EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
    
-   이러한 저장 프로시저에 대한 자세한 내용은 [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx) 및 [sp\_delete\_firewall\_rule](https://msdn.microsoft.com/library/dn270024.aspx)을 참조하세요.
+   이러한 저장 프로시저에 대한 자세한 내용은 [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) 및 [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx)을 참조하세요.
 
-## 데이터베이스 수준 방화벽 규칙
+## <a name="database-level-firewall-rules"></a>데이터베이스 수준 방화벽 규칙
 데이터베이스에 대한 **제어** 권한이 있는 데이터베이스 사용자(예: 데이터베이스 소유자)만이 데이터베이스 수준 방화벽 규칙을 만들 수 있습니다.
 
 1. IP 주소에 대한 서버 수준 방화벽을 만든 후 클래식 포털 또는 SQL Server Management Studio를 통해 쿼리 창을 시작합니다.
@@ -64,21 +69,31 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
         EXEC sp_set_database_firewall_rule @name = N'ContosoFirewallRule', 
             @start_ip_address = '192.168.1.11', @end_ip_address = '192.168.1.11'
    
-    기존 데이터베이스 수준 방화벽 규칙을 삭제하려면 `sp_delete_database_firewall_rule` 저장 프로시저를 실행합니다. 다음 예제에서는 ContosoFirewallRule 규칙을 삭제합니다. ` EXEC sp\_delete\_database\_firewall\_rule @name = N'ContosoFirewallRule'
+    기존 데이터베이스 수준 방화벽 규칙을 삭제하려면 `sp_delete_database_firewall_rule` 저장 프로시저를 실행합니다. 다음 예제에서는 ContosoFirewallRule 이라는 규칙을 삭제 합니다.
+   `
+   
+        EXEC sp_delete_database_firewall_rule @name = N'ContosoFirewallRule'
 
-이러한 저장 프로시저에 대한 자세한 내용은 [sp\_set\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270010.aspx) 및 [sp\_delete\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270030.aspx)을 참조하세요.
+이러한 저장 프로시저에 대한 자세한 내용은 [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) 및 [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx)을 참조하세요.
 
-## 다음 단계
-다른 방법을 사용한 서버 수준 방화벽 규칙 만들기에 대한 방법 문서를 보려면 다음을 참조하세요.
+## <a name="next-steps"></a>다음 단계
+다른 방법을 사용한 서버 수준 방화벽 규칙 만들기에 대한 방법 문서를 보려면 다음을 참조하세요. 
 
 * [Azure 포털을 사용하여 Azure SQL 데이터베이스 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings.md)
 * [PowerShell을 사용하여 Azure SQL 데이터베이스 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings-powershell.md)
 * [REST API를 사용하여 Azure SQL 데이터베이스 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings-rest.md)
 
-데이터베이스를 만드는 방법에 대한 자습서는 [Azure 포털을 사용하여 빠르게 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요. 오픈 소스 또는 타사 응용 프로그램에서 Azure SQL 데이터베이스에 연결하는 방법에 대한 도움말은 [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하세요. 데이터베이스를 탐색하는 방법을 이해하려면 [데이터베이스 및 로그인 보안 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx)를 참조하세요.
+데이터베이스를 만드는 방법에 대한 자습서는 [Azure 포털을 사용하여 빠르게 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
+오픈 소스 또는 타사 응용 프로그램에서 Azure SQL 데이터베이스에 연결하는 방법에 대한 도움말은 [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하세요.
+데이터베이스를 탐색하는 방법을 이해하려면 [데이터베이스 및 로그인 보안 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx)를 참조하세요.
 
-## 추가 리소스
+## <a name="additional-resources"></a>추가 리소스
 * [데이터베이스 보안 설정](sql-database-security.md)
 * [SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스 보안 센터](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

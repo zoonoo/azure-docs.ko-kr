@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 데이터 보호 전략 정의 | Microsoft Docs
-description: 하이브리드 ID 솔루션에 대한 데이터 보호 전략을 정의하여 정의한 비즈니스 요구 사항을 충족합니다.
-documentationcenter: ''
+title: "Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 데이터 보호 전략 정의 | Microsoft Docs"
+description: "하이브리드 ID 솔루션에 대한 데이터 보호 전략을 정의하여 정의한 비즈니스 요구 사항을 충족합니다."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 93ddb2715870348cbaaccfb05f332351dd27ae2c
+
 
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 데이터 보호 전략 정의
@@ -165,6 +169,9 @@ Azure AD는 사용자의 활동을 모니터링하여 환경에서 잠재적인 
 ## <a name="see-also"></a>참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

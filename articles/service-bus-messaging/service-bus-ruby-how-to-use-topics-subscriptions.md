@@ -1,22 +1,26 @@
 ---
-title: Service Bus 토픽을 사용하는 방법(Ruby) | Microsoft Docs
-description: Azure에서 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Ruby 응용 프로그램용으로 작성되었습니다.
-services: service-bus
+title: "Service Bus 토픽을 사용하는 방법(Ruby) | Microsoft Docs"
+description: "Azure에서 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Ruby 응용 프로그램용으로 작성되었습니다."
+services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 3ef2295e-7c5f-4c54-a13b-a69c8045d4b6
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a033aee05db1a837e0891256db26d63fe80e05a2
+
 
 ---
-# <a name="how-to-use-service-bus-topics/subscriptions"></a>Service Bus 토픽/구독을 사용하는 방법
+# <a name="how-to-use-service-bus-topicssubscriptions"></a>Service Bus 토픽/구독을 사용하는 방법
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 이 문서에서는 Ruby 응용 프로그램에서 Service Bus 토픽과 구독을 사용하는 방법을 설명합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 **메시지 보내기, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
@@ -33,7 +37,7 @@ ms.author: sethm
 Service Bus 토픽 및 구독을 사용하면 다수의 사용자와 응용 프로그램에 대해 다수의 메시지를 처리하도록 확장할 수 있습니다.
 
 ## <a name="create-a-namespace"></a>네임스페이스 만들기
-Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. [Azure portal][]에서는 ACS 연결을 사용하여 네임스페이스를 만들지 않으므로 명령줄 인터페이스를 통해 네임스페이스를 만들어야 합니다.
+Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. [Azure 포털][Azure 포털]에서는 ACS 연결을 사용하여 네임스페이스를 만들지 않으므로 명령줄 인터페이스를 통해 네임스페이스를 만들어야 합니다.
 
 네임스페이스를 만들려면
 
@@ -54,12 +58,12 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 네임스페�
 ![키 복사](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
 > [!NOTE]
-> [Azure Portal][]에 로그인하여 네임스페이스에 대한 연결 정보로 이동하여 이 키를 찾을 수도 있습니다.
+> [Azure 포털][Azure 포털]에 로그인하여 네임스페이스에 대한 연결 정보로 이동하여 이 키를 찾을 수도 있습니다.
 > 
 > 
 
 ## <a name="create-a-ruby-application"></a>Ruby 응용 프로그램 만들기
-자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md)를 참조하세요.
+자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)를 참조하세요.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>서비스 버스를 사용하도록 응용 프로그램 구성
 서비스 버스를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용합니다.
@@ -112,7 +116,7 @@ topic = azure_service_bus_service.create_topic(topic)
 
 구독은 영구적이며, 구독 자체 또는 구독과 연결된 토픽이 삭제될 때까지 계속 유지됩니다. 응용 프로그램에 구독을 만들기 위한 논리가 포함된 경우, getSubscription 메서드를 사용하여 구독이 이미 존재하는지를 먼저 확인해야 합니다.
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
 **MatchAll** 필터는 새 구독을 만들 때 필터를 지정하지 않은 경우 사용되는 기본 필터입니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 "all-messages"라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
 
 ```
@@ -198,7 +202,7 @@ azure_service_bus_service.delete_subscription_message(message)
 응용 프로그램이 메시지를 처리한 후 **delete\_subscription\_message()** 메서드가 호출되기 전에 크래시되는 경우, 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 **최소 한 번 이상 처리**라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지되는 메시지의 **message\_id** 속성을 사용합니다.
 
 ## <a name="delete-topics-and-subscriptions"></a>토픽 및 구독 삭제
-토픽과 구독은 영구적이므로, [Azure Portal][] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 아래 예제에서는 "test-topic"이라는 토픽을 삭제하는 방법을 보여 줍니다.
+토픽과 구독은 영구적이므로, [Azure 포털][Azure 포털] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 아래 예제에서는 "test-topic"이라는 토픽을 삭제하는 방법을 보여 줍니다.
 
 ```
 azure_service_bus_service.delete_topic("test-topic")
@@ -221,6 +225,6 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

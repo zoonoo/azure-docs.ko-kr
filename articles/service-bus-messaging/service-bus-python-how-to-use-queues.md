@@ -1,19 +1,23 @@
 ---
-title: Python에서 서비스 버스 큐를 사용하는 방법 | Microsoft Docs
-description: Python에서 Azure 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다.
-services: service-bus
+title: "Python에서 Service Bus 큐를 사용하는 방법 | Microsoft Docs"
+description: "Python에서 Azure 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다."
+services: service-bus-messaging
 documentationcenter: python
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: sethm;lmazuel
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6a162dc04f8eb5002cae3bf708ae2fcd4c2aa694
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>서비스 버스 큐를 사용하는 방법
@@ -70,7 +74,7 @@ msg = Message(b'Test Message')
 bus_service.send_queue_message('taskqueue', msg)
 ```
 
-Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. 할당량에 대한 자세한 내용은 [Service Bus 할당량][Service Bus 할당량]을 참조하세요.
+Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. Service Bus의 할당량에 대한 자세한 내용은 [Service Bus 할당량][Service Bus 할당량]을 참조하세요.
 
 ## <a name="receive-messages-from-a-queue"></a>큐에서 메시지 받기
 **ServiceBusService** 개체의 **receive\_queue\_message** 메서드를 사용하여 큐에서 메시지를 받습니다.
@@ -103,7 +107,7 @@ msg.delete()
 ## <a name="next-steps"></a>다음 단계
 이제 서비스 버스 큐의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
 
-* [큐, 토픽 및 구독][]을 참조하세요.
+* [큐, 토믹 및 구독][큐, 토믹 및 구독]을 참조하세요.
 
 [Azure 클래식 포털]: https://manage.windowsazure.com
 [Python Azure Service Bus 패키지]: https://pypi.python.org/pypi/azure-servicebus  
@@ -113,6 +117,6 @@ msg.delete()
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

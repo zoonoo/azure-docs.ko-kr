@@ -1,12 +1,12 @@
 ---
-title: 프로그래밍 방식으로 기계 학습 모델 다시 학습 | Microsoft Docs
-description: Azure Machine Learning에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
+title: "프로그래밍 방식으로 Machine Learning 모델 다시 학습 | Microsoft Docs"
+description: "Azure 기계 학습에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: raymondlaghaeian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: raymondl;garye;v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 70004ff5c59427dfd5c58e5633cae95a08a18a3a
+
 
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>프로그래밍 방식으로 기계 학습 모델 다시 학습
@@ -160,11 +164,11 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusIpnput.csv") 
 출력 결과에서 *BaseLocation*, *RelativeLocation* 및 *SasBlobToken*을 복사합니다. 이는 재학습 프로세스 중에 사용하게 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[기존 웹 서비스 재학습](machine-learning-retrain-a-classic-web-service.md)
+**웹 서비스 배포[기존]**를 클릭하여 예측 웹 서비스를 배포한 경우 [기존 웹 서비스 재학습](machine-learning-retrain-a-classic-web-service.md)을 참조하세요.
 
-[Machine Learning Management cmdlet을 사용하여 New Web 서비스를 다시 학습](machine-learning-retrain-new-web-service-using-powershell.md)
+**웹 서비스 배포[신규]**를 클릭하여 예측 웹 서비스를 배포한 경우 [Machine Learning Management cmdlet을 사용하여 새 웹 서비스 재학습](machine-learning-retrain-new-web-service-using-powershell.md)을 참조하세요.
 
-<!-- Retrain a New Web service using the Machine Learning Management REST API -->
+<!-- Retrain a New web service using the Machine Learning Management REST API -->
 
 
 [1]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE01.png
@@ -180,6 +184,7 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusIpnput.csv") 
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

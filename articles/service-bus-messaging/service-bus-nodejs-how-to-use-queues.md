@@ -1,19 +1,23 @@
 ---
-title: Node.js에서 서비스 버스 큐를 사용하는 방법 | Microsoft Docs
-description: Node.js app에서 Azure의 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다.
-services: service-bus
+title: "Node.js에서 Service Bus 큐를 사용하는 방법 | Microsoft Docs"
+description: "Node.js app에서 Azure의 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다."
+services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
+ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: d36d806d14fbaa813ea9e8e6ec132fda998bb22c
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>서비스 버스 큐를 사용하는 방법
@@ -23,16 +27,16 @@ ms.author: sethm
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="create-a-node.js-application"></a>Node.js 응용 프로그램 만들기
+## <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
 빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포] 또는 Windows PowerShell 사용하는 [Node.js 클라우드 서비스][Node.js 클라우드 서비스]를 참조하세요.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>서비스 버스를 사용하도록 응용 프로그램 구성
 Azure 서비스 버스를 사용하려면 Node.js Azure 패키지를 다운로드하여 사용하세요. 이 패키지에는 서비스 버스 REST 서비스와 통신하는 라이브러리 집합이 포함되어 있습니다.
 
-### <a name="use-node-package-manager-(npm)-to-obtain-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 가져오기
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 가져오기
 1. **Windows PowerShell for Node.js** 명령 창을 사용하여 응용 프로그램 예제를 만든 **c:\\node\\sbqueues\\WebRole1** 폴더로 이동합니다.
 2. 명령 창에 **npm install azure**를 입력합니다. 그러면 다음과 같이 출력됩니다.
-   
+
     ```
     azure@0.7.5 node_modules\azure
         ├── dateformat@1.0.2-1.2.3
@@ -134,7 +138,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. 할당량에 대한 자세한 내용은 [Service Bus 할당량][Service Bus 할당량]을 참조하세요.
+Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. Service Bus의 할당량에 대한 자세한 내용은 [Service Bus 할당량][Service Bus 할당량]을 참조하세요.
 
 ## <a name="receive-messages-from-a-queue"></a>큐에서 메시지 받기
 **ServiceBusService** 개체의 **receiveQueueMessage** 메서드를 사용하여 큐에서 메시지를 받습니다. 기본적으로 읽은 메시지는 큐에서 삭제됩니다. 그러나 선택적 매개 변수 **isPeekLock**을 **true**로 설정하여 큐에서 삭제되지 않도록 메시지를 읽은(peek) 후 잠글 수 있습니다.
@@ -174,7 +178,7 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 큐에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [큐, 토믹 및 구독][큐, 토믹 및 구독]
-* GitHub의 [Node용 Azure SDK][Node용 Azure SDK] 리포지토리
+* GitHub에서 [Node용 Azure SDK][Node용 Azure SDK] 리포지토리
 * [Node.js 개발자 센터](/develop/nodejs/)
 
 [Node용 Azure SDK]: https://github.com/Azure/azure-sdk-for-node
@@ -183,13 +187,12 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 [Node.js 클라우드 서비스]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [큐, 토믹 및 구독]: service-bus-queues-topics-subscriptions.md
 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[저장소를 포함한 Node.js 클라우드 서비스]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[저장소를 포함한 Node.js 클라우드 서비스]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
 [저장소를 포함한 Node.js 웹 응용 프로그램]: ../storage/storage-nodejs-how-to-use-table-storage.md
 [Service Bus 할당량]: service-bus-quotas.md
 
 
 
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

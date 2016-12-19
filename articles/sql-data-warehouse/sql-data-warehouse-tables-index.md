@@ -1,39 +1,43 @@
 ---
-title: Indexing tables in SQL Data Warehouse | Microsoft Docs
-description: Getting started with table indexing in Azure SQL Data Warehouse.
+title: "SQL 데이터 웨어하우스의 테이블 인덱싱 | Microsoft Azure"
+description: "Azure SQL 데이터 웨어하우스에서 테이블 인덱싱 시작"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-
+author: jrowlandjones
+manager: barbkess
+editor: 
+ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess
+ms.date: 07/12/2016
+ms.author: jrj;barbkess;sonyama
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 01eb26ff4528faabdbc7b4d482190148b52f67d4
+
 
 ---
-# <a name="indexing-tables-in-sql-data-warehouse"></a>Indexing tables in SQL Data Warehouse
+# <a name="indexing-tables-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 테이블 인덱싱
 > [!div class="op_single_selector"]
-> * [Overview][Overview]
-> * [Data Types][Data Types]
-> * [Distribute][Distribute]
+> * [개요][개요]
+> * [데이터 형식][데이터 형식]
+> * [배포][배포]
 > * [Index][Index]
-> * [Partition][Partition]
-> * [Statistics][Statistics]
-> * [Temporary][Temporary]
+> * [파티션][파티션]
+> * [통계][통계]
+> * [임시][임시]
 > 
 > 
 
-SQL Data Warehouse offers several indexing options including [clustered columnstore indexes][clustered columnstore indexes], [clustered indexes and nonclustered indexes][clustered indexes and nonclustered indexes].  In addition, it also offers a no index option also known as [heap][heap].  This article covers the benefits of each index type as well as tips to getting the most performance out of your indexes. See [create table syntax][create table syntax] for more detail on how to create a table in SQL Data Warehouse.
+SQL Data Warehouse는 [clustered columnstore indexes][clustered columnstore indexes], [클러스터형 인덱스 및 비클러스터형 인덱스][클러스터형 인덱스 및 비클러스터형 인덱스]를 비롯한 몇 가지 인덱싱 옵션을 제공합니다.  또한 [힙][힙]이라고도 하는 비인덱스 옵션도 제공합니다.  이 문서에서는 인덱스를 최대한 활용하는 방법에 대한 팁과 각 인덱스 유형의 이점을 설명합니다. SQL Data Warehouse에서 테이블을 만드는 방법에 대한 자세한 내용을 보려면 [테이블 구문 만들기][테이블 구문 만들기]를 참조하세요.
 
-## <a name="clustered-columnstore-indexes"></a>Clustered columnstore indexes
-By default, SQL Data Warehouse creates a clustered columnstore index when no index options are specified on a table. Clustered columnstore tables offer both the highest level of data compression as well as the best overall query performance.  Clustered columnstore tables will generally outperform clustered index or heap tables and are usually the best choice for large tables.  For these reasons, clustered columnstore is the best place to start when you are unsure of how to index your table.  
+## <a name="clustered-columnstore-indexes"></a>클러스터형 columnstore 인덱스
+기본적으로 SQL 데이터 웨어하우스는 테이블에 대해 인덱스 옵션이 지정되지 않은 경우 클러스터형 columnstore 인덱스를 만듭니다. 클러스터형 columnstore 테이블은 가장 높은 수준의 데이터 압축 뿐만 아니라 전반적으로 최적의 쿼리 성능을 제공합니다.  클러스터형 columnstore 테이블은 일반적으로 클러스터형 인덱스 또는 힙 테이블보다 나은 성능을 제공하며 대형 테이블에 적합합니다.  이러한 이유로, 클러스터형 columnstore는 테이블 인덱싱 방법을 잘 모를 경우에 시작하기 가장 좋습니다.  
 
-To create a clustered columnstore table, simply specify CLUSTERED COLUMNSTORE INDEX in the WITH clause, or leave the WITH clause off:
+클러스터형 columnstore 테이블을 만들려면 WITH 절에 CLUSTERED COLUMNSTORE INDEX를 지정하거나 WITH 절을 제외합니다.
 
 ```SQL
 CREATE TABLE myTable   
@@ -45,19 +49,19 @@ CREATE TABLE myTable
 WITH ( CLUSTERED COLUMNSTORE INDEX );
 ```
 
-There are a few scenarios where clustered columnstore may not be a good option:
+다음과 같은 일부 시나리오에서는 클러스터형 columnstore를 사용하는 것이 적합하지 않을 수 있습니다.
 
-* Columnstore tables do not support secondary non-clustered indexes.  Consider heap or clustered index tables instead.
-* Columnstore tables do not support varchar(max), nvarchar(max) and varbinary(max).  Consider heap or clustered index instead.
-* Columnstore tables may be less efficient for transient data.  Consider heap and perhaps even temporary tables.
-* Small tables with less than 100 million rows.  Consider heap tables.
+* Columnstore 테이블이 비클러스터형 보조 인덱스를 지원하지 않습니다.  대신 힙 또는 클러스터형 인덱스 테이블을 고려합니다.
+* Columnstore 테이블이 varchar(max), nvarchar(max) 및 varbinary(max)를 지원하지 않습니다.  대신 힙 또는 클러스터형 인덱스를 고려합니다.
+* Columnstore 테이블이 임시 데이터에 대해 덜 효율적일 수 있습니다.  힙 및 임시 테이블을 고려합니다.
+* 1억개 미만의 행이 있는 작은 테이블.  힙 테이블을 고려합니다.
 
-## <a name="heap-tables"></a>Heap tables
-When you are temporarily landing data on SQL Data Warehouse, you may find that using a heap table will make the overall process faster.  This is because loads to heaps are faster than to index tables and in some cases the subsequent read can be done from cache.  If you are loading data only to stage it before running more transformations, loading the table to heap table will be much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table][Temporary] will also load much faster than loading a table to permanent storage.  
+## <a name="heap-tables"></a>힙 테이블
+SQL 데이터 웨어하우스에서 일시적으로 데이터를 방문하는 경우 힙 테이블을 사용하면 전체 프로세스가 더 빨라지는 것을 알 수 있습니다.  즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  변환을 추가로 실행하기 전에 준비하기 위해서만 데이터를 방문하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빨라집니다. 또한 데이터를 [임시 테이블][임시] 에 로드하면 테이블을 영구 저장소에 로드할 때보다 훨씬 빠르게 로드됩니다.  
 
-For small lookup tables, less than 100 million rows, often heap tables make sense.  Cluster columnstore tables begin to achieve optimal compression once there is more than 100 million rows.
+1억개 행 미만을 포함하는 작은 조회 테이블의 경우 힙 테이블을 사용하는 것이 더 나은 경우도 많습니다.  클러스터 columnstore 테이블은 행이 1억개가 넘을 경우 최적의 압축을 얻기 시작합니다.
 
-To create a heap table, simply specify HEAP in the WITH clause:
+힙 테이블을 만들려면 WITH 절에서 HEAP을 지정하면 됩니다.
 
 ```SQL
 CREATE TABLE myTable   
@@ -69,10 +73,10 @@ CREATE TABLE myTable
 WITH ( HEAP );
 ```
 
-## <a name="clustered-and-nonclustered-indexes"></a>Clustered and nonclustered indexes
-Clustered indexes may outperform clustered columnstore tables when a single row needs to be quickly retrieved.  For queries where a single or very few row lookup is required to performance with extreme speed, consider a cluster index or nonclustered secondary index.  The disadvantage to using a clustered index is that only queries which use a highly selective filter on the clustered index column will benefit.  To improve filter on other columns a nonclustered index can be added to other columns.  However, each index which is added to a table will add both space and processing time to loads.
+## <a name="clustered-and-nonclustered-indexes"></a>클러스터형 및 비클러스터형 인덱스
+클러스터형 인덱스는 단일 행을 빠르게 검색해야 하는 경우 클러스터형 columnstore 테이블보다 더 나은 성능을 제공할 수 있습니다.  하나 또는 매우 적은 수의 행을 아주 빠른 속도로 쿼리해야 하는 경우 클러스터 인덱스 또는 비클러스터형 보조 인덱스를 고려합니다.  클러스터형 인덱스를 사용할 때의 단점은 클러스터형 인덱스 열의 선택적 필터를 사용하는 쿼리에만 도움이 된다는 것입니다.  다른 열에 대한 필터를 향상시키기 위해 비클러스터형 인덱스를 다른 열에 추가할 수 있습니다.  그러나 테이블에 각 인덱스가 추가될 때마다 차지하는 공간이 늘어나고 로드 처리 시간도 늘어납니다.
 
-To create a clustered index table, simply specify CLUSTERED INDEX in the WITH clause:
+클러스터형 인덱스 테이블을 만들려는 경우 WITH 절에서 CLUSTERED INDEX를 지정하면 됩니다.
 
 ```SQL
 CREATE TABLE myTable   
@@ -84,21 +88,21 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-To add a non-clustered index on a table, simply use the following syntax:
+테이블에 비클러스터형 인덱스를 추가하려면 다음 구문을 사용하면 됩니다.
 
 ```SQL
 CREATE INDEX zipCodeIndex ON t1 (zipCode);
 ```
 
 > [!NOTE]
-> A non-clustered index is created by default when CREATE INDEX is used. Furthermore, a non-clustered index is only permitted on a row storage table (HEAP or CLUSTERED INDEX). Non clustered indexes on top of a CLUSTERED COLUMNSTORE INDEX is not permitted at this time.
+> 비클러스터형 인덱스는 기본적으로 CREATE INDEX가 사용될 때 만들어집니다. 또한 비클러스터형 인덱스는 행 저장소 테이블(HEAP 또는 CLUSTERED INDEX)에서만 허용됩니다. 현재 CLUSTERED COLUMNSTORE INDEX 위에 있는 클러스터형 인덱스는 허용되지 않습니다.
 > 
 > 
 
-## <a name="optimizing-clustered-columnstore-indexes"></a>Optimizing clustered columnstore indexes
-Clustered columnstore tables are organized in data into segments.  Having high segment quality is critical to achieving optimal query performance on a columnstore table.  Segment quality can be measured by the number of rows in a compressed row group.  Segment quality is most optimal where there are at least 100K rows per compressed row group and gain in performance as the number of rows per row group approach 1,048,576 rows, which is the most rows a row group can contain.
+## <a name="optimizing-clustered-columnstore-indexes"></a>클러스터형 columnstore 인덱스 최적화
+클러스터형 columnstore 테이블은 데이터가 세그먼트로 구성됩니다.  columnstore 테이블에 대해 최적의 쿼리 성능을 구현하려면 높은 세그먼트 품질을 유지하는 것이 중요합니다.  세그먼트 품질은 압축된 행 그룹에 있는 행의 수로 측정할 수 있습니다.  세그먼트 품질은 압축된 행 그룹마다 100,000개 이상의 행이 있을 때 가장 최적 상태가 되며, 행 그룹당 행 수가 행 그룹이 포함할 수 있는 최대 수인 1,048,576개일 때 성능이 향상됩니다.
 
-The below view can be created and used on your system to compute the average rows per row group and identify any sub-optimal cluster columnstore indexes.  The last column on this view will generate as SQL statement which can be used to rebuild your indexes.
+아래 뷰를 만들어 시스템에서 행 그룹당 평균 행 수를 계산하고 차선에 해당하는 클러스터 columnstore 인덱스를 식별하는 데 사용할 수 있습니다.  이 뷰의 마지막 열은 인덱스를 다시 구성하는 데 사용할 수 있는 SQL 문으로 생성됩니다.
 
 ```sql
 CREATE VIEW dbo.vColumnstoreDensity
@@ -108,10 +112,10 @@ SELECT
 ,       DB_Name()                                                               AS [database_name]
 ,       s.name                                                                  AS [schema_name]
 ,       t.name                                                                  AS [table_name]
-,   COUNT(DISTINCT rg.[partition_number])                   AS [table_partition_count]
+,    COUNT(DISTINCT rg.[partition_number])                    AS [table_partition_count]
 ,       SUM(rg.[total_rows])                                                    AS [row_count_total]
 ,       SUM(rg.[total_rows])/COUNT(DISTINCT rg.[distribution_id])               AS [row_count_per_distribution_MAX]
-,   CEILING ((SUM(rg.[total_rows])*1.0/COUNT(DISTINCT rg.[distribution_id]))/1048576) AS [rowgroup_per_distribution_MAX]
+,    CEILING    ((SUM(rg.[total_rows])*1.0/COUNT(DISTINCT rg.[distribution_id]))/1048576) AS [rowgroup_per_distribution_MAX]
 ,       SUM(CASE WHEN rg.[State] = 0 THEN 1                   ELSE 0    END)    AS [INVISIBLE_rowgroup_count]
 ,       SUM(CASE WHEN rg.[State] = 0 THEN rg.[total_rows]     ELSE 0    END)    AS [INVISIBLE_rowgroup_rows]
 ,       MIN(CASE WHEN rg.[State] = 0 THEN rg.[total_rows]     ELSE NULL END)    AS [INVISIBLE_rowgroup_rows_MIN]
@@ -147,86 +151,86 @@ GROUP BY
 ;
 ```
 
-Now that you have created the view, run this query to identify tables with row groups with less than 100K rows.  Of course, you may want to increase the threshold of 100K if you are looking for more optimal segment quality. 
+뷰를 만들었으므로 이제 다음 쿼리를 실행하여 행 수가 100,000개 미만인 행 그룹이 있는 테이블을 식별합니다.  물론 좀 더 최적 상태의 세그먼트 품질을 원할 경우 임계값인 100,000개를 늘릴 수도 있습니다. 
 
 ```sql
-SELECT  *
+SELECT    *
 FROM    [dbo].[vColumnstoreDensity]
-WHERE   COMPRESSED_rowgroup_rows_AVG < 100000
+WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
         OR INVISIBLE_rowgroup_rows_AVG < 100000
 ```
 
-Once you have run the query you can begin to look at the data and analyze your results. This table explains what to look for in your row group analysis.
+쿼리를 실행했으면 데이터를 확인하고 결과를 분석할 수 있습니다. 다음 표는 행 그룹 분석에서 확인할 내용에 대해 설명합니다.
 
-| Column | How to use this data |
+| 열 | 이 데이터를 사용하는 방법 |
 | --- | --- |
-| [table_partition_count] |If the table is partitioned, then you may expect to see higher Open row group counts. Each partition in the distribution could in theory have an open row group associated with it. Factor this into your analysis. A small table that has been partitioned could be optimized by removing the partitioning altogether as this would improve compression. |
-| [row_count_total] |Total row count for the table. For example, you can use this value to calculate percentage of rows in the compressed state. |
-| [row_count_per_distribution_MAX] |If all rows are evenly distributed this value would be the target number of rows per distribution. Compare this value with the compressed_rowgroup_count. |
-| [COMPRESSED_rowgroup_rows] |Total number of rows in columnstore format for the table. |
-| [COMPRESSED_rowgroup_rows_AVG] |If the average number of rows is significantly less than the maximum # of rows for a row group, then consider using CTAS or ALTER INDEX REBUILD to recompress the data |
-| [COMPRESSED_rowgroup_count] |Number of row groups in columnstore format. If this number is very high in relation to the table it is an indicator that the columnstore density is low. |
-| [COMPRESSED_rowgroup_rows_DELETED] |Rows are logically deleted in columnstore format. If the number is high relative to table size, consider recreating the partition or rebuilding the index as this removes them physically. |
-| [COMPRESSED_rowgroup_rows_MIN] |Use this in conjunction with the AVG and MAX columns to understand the range of values for the row groups in your columnstore. A low number over the load threshold (102,400 per partition aligned distribution) suggests that optimizations are available in the data load |
-| [COMPRESSED_rowgroup_rows_MAX] |As above |
-| [OPEN_rowgroup_count] |Open row groups are normal. One would reasonably expect one OPEN row group per table distribution (60). Excessive numbers suggest data loading across partitions. Double check the partitioning strategy to make sure it is sound |
-| [OPEN_rowgroup_rows] |Each row group can have 1,048,576 rows in it as a maximum. Use this value to see how full the open row groups are currently |
-| [OPEN_rowgroup_rows_MIN] |Open groups indicate that data is either being trickle loaded into the table or that the previous load spilled over remaining rows into this row group. Use the MIN, MAX, AVG columns to see how much data is sat in OPEN row groups. For small tables it could be 100% of all the data! In which case ALTER INDEX REBUILD to force the data to columnstore. |
-| [OPEN_rowgroup_rows_MAX] |As above |
-| [OPEN_rowgroup_rows_AVG] |As above |
-| [CLOSED_rowgroup_rows] |Look at the closed row group rows as a sanity check. |
-| [CLOSED_rowgroup_count] |The number of closed row groups should be low if any are seen at all. Closed row groups can be converted to compressed rowg roups using the ALTER INDEX ... REORGANISE command. However, this is not normally required. Closed groups are automatically converted to columnstore row groups by the background "tuple mover" process. |
-| [CLOSED_rowgroup_rows_MIN] |Closed row groups should have a very high fill rate. If the fill rate for a closed row group is low, then further analysis of the columnstore is required. |
-| [CLOSED_rowgroup_rows_MAX] |As above |
-| [CLOSED_rowgroup_rows_AVG] |As above |
-| [Rebuild_Index_SQL] |SQL to rebuild columnstore index for a table |
+| [table_partition_count] |테이블이 분할되어 있으면 열려 있는 행 그룹의 숫자가 더 많을 것입니다. 이론상으로는 분산의 각 파티션에 열려 있는 행 그룹이 연결될 수 있습니다. 분석할 때 이 점을 고려해야 합니다. 분할된 작은 테이블의 경우 압축 성능이 향상되도록 파티션을 모두 제거하여 최적화할 수 있습니다. |
+| [row_count_total] |테이블에 대한 전체 행 개수입니다. 예를 들어 압축된 상태에서 행의 비율을 계산하는 데 이 값을 사용할 수 있습니다. |
+| [row_count_per_distribution_MAX] |모든 행이 균등하게 분산되는 경우 이 값은 분산당 대상 행 수가 됩니다. 이 값을 compressed_rowgroup_count와 비교해 보세요. |
+| [COMPRESSED_rowgroup_rows] |테이블에서 columnstore 형식의 총 행 수 |
+| [COMPRESSED_rowgroup_rows_AVG] |평균 행 수가 행 그룹의 최대 행 수보다 훨씬 적은 경우에는 CTAS 또는 ALTER INDEX REBUILD를 사용하여 데이터를 다시 압축하는 옵션을 고려해야 합니다. |
+| [COMPRESSED_rowgroup_count] |columnstore 형식인 행 그룹의 수. 테이블에 비해 이 숫자가 매우 높으면 columnstore 밀도가 낮다는 뜻입니다. |
+| [COMPRESSED_rowgroup_rows_DELETED] |행이 columnstore 형식으로 논리적으로 삭제됩니다. 테이블 크기에 비해 이 숫자가 더 높으면 행이 실제로 제거되도록 파티션을 다시 만들거나 인덱스를 다시 작성하는 옵션을 고려해 보아야 합니다. |
+| [COMPRESSED_rowgroup_rows_MIN] |이 열을 AVG 및 MAX 열과 함께 사용하여 columnstore의 행 그룹에 대한 값 범위를 이해할 수 있습니다. 이 숫자가 로드 임계값(파티션 정렬 분산당 102,400)보다 낮으면 데이터 로드에서 최적화를 사용할 수 있습니다. |
+| [COMPRESSED_rowgroup_rows_MAX] |위와 동일합니다. |
+| [OPEN_rowgroup_count] |열려 있는 행 그룹은 정상입니다. 테이블 분산당(60) 행 그룹이 하나 열려 있다고 예상하는 것이 합리적일 것입니다. 이 숫자가 과도하게 높으면 여러 파티션에 데이터를 로드한다는 뜻입니다. 이 숫자가 적절하게 유지되도록 분할 전략을 확인하세요. |
+| [OPEN_rowgroup_rows] |각 행 그룹은 최대 1,048,576개 행을 포함할 수 있습니다. 이 값을 사용하여 현재 열려 있는 행 그룹이 얼마나 찼는지 확인할 수 있습니다. |
+| [OPEN_rowgroup_rows_MIN] |열려 있는 그룹은 데이터가 테이블로 서서히 로드되고 있거나 이전 부하가 나머지 행을 다 채우고 이 행 그룹까지 넘어 왔음을 뜻합니다. MIN, MAX, AVG 열을 사용하여 열려 있는 행 그룹에 데이터가 얼마나 있는지 확인할 수 있습니다. 작은 테이블의 경우 모든 데이터가 100%일 수 있습니다! 이 경우에는 ALTER INDEX REBUILD를 사용하여 데이터를 강제로 columnstore로 만들어야 합니다. |
+| [OPEN_rowgroup_rows_MAX] |위와 동일합니다. |
+| [OPEN_rowgroup_rows_AVG] |위와 동일합니다. |
+| [CLOSED_rowgroup_rows] |닫힌 행 그룹이 있는 경우 |
+| [CLOSED_rowgroup_count] |닫힌 행 그룹이 있더라도 그 수가 적어야 합니다. ALTER INDEX ... REORGANISE 명령을 사용하여 닫힌 행 그룹을 압축된 행 그룹으로 변환할 수 있습니다. 그러나 일반적으로는 이 작업이 필요하지 않습니다. 닫힌 그룹은 백그라운드 "튜플 이동기" 프로세스를 통해 자동으로 columnstore 행 그룹으로 변환됩니다. |
+| [CLOSED_rowgroup_rows_MIN] |닫힌 행 그룹의 채우기 속도가 매우 높아야 합니다. 닫힌 행 그룹의 채우기 속도가 낮으면 columnstore의 추가 분석이 필요합니다. |
+| [CLOSED_rowgroup_rows_MAX] |위와 동일합니다. |
+| [CLOSED_rowgroup_rows_AVG] |위와 동일합니다. |
+| [Rebuild_Index_SQL] |테이블에 대해 columnstore 인덱스를 다시 작성하기 위한 SQL |
 
-## <a name="causes-of-poor-columnstore-index-quality"></a>Causes of poor columnstore index quality
-If you have identified tables with poor segment quality, you will want to identify the root cause.  Below are some other common causes of poor segment quaility:
+## <a name="causes-of-poor-columnstore-index-quality"></a>columnstore 인덱스 품질 저하의 원인
+세그먼트 품질이 저하된 테이블을 식별한 경우 근본 원인을 확인할 수 있습니다.  다음은 세그먼트 품질 저하의 일반적인 몇 가지 원인입니다.
 
-1. Memory pressure when index was built
-2. High volume of DML operations
-3. Small or trickle load operations
-4. Too many partitions
+1. 인덱스를 작성했을 때 메모리 부족
+2. 많은 양의 DML 작업
+3. 작거나 지속적인 로드 작업
+4. 너무 많은 파티션
 
-These factors can cause a columnstore index to have significantly less than the optimal 1 million rows per row group.  They can also cause rows to go to the delta row group instead of a compressed row group. 
+다음 요소로 인해 columnstore 인덱스가 행 그룹당 1백만 개보다 훨씬 적은 행을 가질 수 있으며  행이 압축된 행 그룹 대신 델타 행 그룹으로 이동할 수도 있습니다. 
 
-### <a name="memory-pressure-when-index-was-built"></a>Memory pressure when index was built
-The number of rows per compressed row group are directly related to the width of the row and the amount of memory available to process the row group.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Therefore, the best practice is to give the session which is writing to your columnstore index tables access to as much memory as possible.  Since there is a trade-off between memory and concurrency, the guidance on the right memory allocation depends on the data in each row of your table, the amount of DWU you've allocated to your system, and the amount of concurrency slots you can give to the session which is writing data to your table.  As a best practice, we recommend starting with xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
+### <a name="memory-pressure-when-index-was-built"></a>인덱스를 작성했을 때 메모리 부족
+압축된 행 그룹당 행 수는 행의 너비와 행 그룹을 처리하는 데 사용할 수 있는 메모리 양에 직접적으로 관련되어 있습니다.  메모리 부족 상황에서 행이 columnstore 테이블에 기록되는 경우 columnstore 세그먼트 품질이 저하될 수 있습니다.  따라서 columnstore 인덱스가 테이블에 쓰는 세션에 가능한 한 많은 메모리에 대한 액세스 권한을 부여하는 것이 가장 좋습니다.  메모리 및 동시성은 서로 상쇄되므로 적합한 메모리 할당 지침은 테이블의 각 행에 포함된 데이터, 시스템에 할당한 DWU 크기 및 테이블에 데이터를 쓰는 세션에 제공할 수 있는 동시 슬롯 수에 따라 좌우됩니다.  DW300 이하를 사용하는 경우는 xlargerc, DW400 ~ DW600을 사용하는 경우는 largerc, DW1000 이상을 사용하는 경우는 mediumrc부터 시작하는 것이 좋습니다.
 
-### <a name="high-volume-of-dml-operations"></a>High volume of DML operations
-A high volume of DML operations that update and delete rows can introduce inefficiency into the columnstore. This is especially true when the majority of the rows in a row group are modified.
+### <a name="high-volume-of-dml-operations"></a>많은 양의 DML 작업
+행을 업데이트 또는 삭제하는 많은 고용량 DML 작업은 columnstore에 비효율적일 수 있습니다. 특히 행 그룹 내 대부분의 행이 수정될 때 더욱 그렇습니다.
 
-* Deleting a row from a compressed row group only logically marks the row as deleted. The row remains in the compressed row group until the partition or table is rebuilt.
-* Inserting a row adds the row to to an internal rowstore table called a delta row group. The inserted row is not converted to columnstore until the delta row group is full and is marked as closed. Row groups are closed once they reach the maximum capacity of 1,048,576 rows. 
-* Updating a row in columnstore format is processed as a logical delete and then an insert. The inserted row may be stored in the delta store.
+* 압축 행 그룹에서 하나의 행을 삭제하는 것은 논리적으로 행을 삭제된 것으로 표시하는 것입니다. 이 행은 파티션 또는 테이블이 다시 빌드될 때까지 압축 행 그룹에 남아 있습니다.
+* 행 삽입은 행을 델타 행 그룹이라 불리는 내부 rowstore 테이블에 추가합니다. 삽입된 행은 델타 행 그룹이 꽉 차서 닫힌 것으로 표시될 때까지 columnstore로 변환되지 않습니다. 행 그룹은 최대 용량인 1,048,576개 행에 도달하면 닫힙니다. 
+* Columnstore 형식에서 행을 업데이트하면 논리적 삭제 후 삽입으로 처리됩니다. 삽입된 행은 델타 저장소에 저장될 수 있습니다.
 
-Batched update and insert operations that exceed the bulk threshold of 102,400 rows per partition aligned distribution will be written directly to the columnstore format. However, assuming an even distribution, you would need to be modifying more than 6.144 million rows in a single operation for this to occur. If the number of rows for a given partition aligned distribution is less than 102,400 then the rows will go to the delta store and will stay there until sufficient rows have been inserted or modified to close the row group or the index has been rebuilt.
+파티션 정렬 배포당 102,400개 행의 대량 임계값을 초과하는 일괄 처리된 업데이트 및 삽입 작업은 columnstore 형식으로 직접 기록됩니다. 그러나 균일한 배포를 가정하여 한 작업에서 614만 4천 개 이상의 행을 수정해야 할 수 있습니다. 지정된 파티션 정렬 배포당 행 수가 102,400개보다 적은 경우 행이 델타 저장소로 이동하며 충분한 수의 행이 삽입될 때까지 또는 행 그룹을 닫도록 수정하거나 인덱스가 다시 빌드될 때까지 이곳에 유지됩니다.
 
-### <a name="small-or-trickle-load-operations"></a>Small or trickle load operations
-Small loads that flow into SQL Data Warehouse are also sometimes known as trickle loads. They typically represent a near constant stream of data being ingested by the system. However, as this stream is near continuous the volume of rows is not particularly large. More often than not the data is significantly under the threshold required for a direct load to columnstore format.
+### <a name="small-or-trickle-load-operations"></a>작거나 지속적인 로드 작업
+SQL 데이터 웨어하우스로 유입되는 작은 부하는 지속적인 부하라고도 합니다. 이들은 일반적으로 시스템에 의해 수집되는 거의 일정한 데이터 스트림을 나타냅니다. 그러나 이 스트림은 거의 지속적이므로 행의 볼륨은 특별히 크지 않습니다. 종종 데이터가 columnstore 형식으로 직접 로드하는 데 필요한 임계값보다 훨씬 큽니다.
 
-In these situations, it is often better to land the data first in Azure blob storage and let it accumulate prior to loading. This technique is often known as *micro-batching*.
+이러한 상황에서는 데이터를 로드하기 전에 Azure Blob 저장소에 먼저 데이터를 배치하고 누적되도록 합니다. 이 기술을 *마이크로 일괄 처리*라고 합니다.
 
-### <a name="too-many-partitions"></a>Too many partitions
-Another thing to consider is the impact of partitioning on your clustered columnstore tables.  Before partitioning, SQL Data Warehouse already divides your data into 60 databases.  Partitioning further divides your data.  If you partition your data, then you will want to consider that **each** partition will need to have at least 1 million rows to benefit from a clustered columnstore index.  If you partition your table into 100 partitions, then your table will need to have at least 6 billion rows to benefit from a clustered columnstore index (60 distributions * 100 partitions * 1 million rows). If your 100 partition table does not have 6 billion rows, either reduce the number of partitions or consider using a heap table instead.
+### <a name="too-many-partitions"></a>너무 많은 파티션
+클러스터형 columnstore 테이블에 분할이 미치는 영향도 고려해야 합니다.  분할 전에 미리 SQL 데이터 웨어하우스는 데이터를 60개의 데이터베이스로 나눕니다.  분할을 수행하면 데이터가 좀 더 세분화됩니다.  데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 **각** 파티션에는 1백만 개 이상의 행을 포함하는 것이 좋습니다.  테이블에 파티션 수가 100개라면 클러스터형 columnstore 인덱스에서 이점을 얻으려면 테이블에 60억 개 이상의 행을 포함해야 합니다(60개 배포 * 100개 파티션 * 1백만 개 행). 100개 파티션 테이블에 60억 개의 행이 없으면 파티션 수를 줄이거나 대신 힙 테이블을 사용하는 것이 좋습니다.
 
-Once your tables have been loaded with some data, follow the below steps to identify and rebuild tables with sub-optimal cluster columnstore indexes.
+테이블에 일부 데이터가 로드된 경우 아래 단계에 따라 테이블을 식별한 후 차선에 해당하는 클러스터 columnstore 인덱스로 테이블을 다시 작성합니다.
 
-## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Rebuilding indexes to improve segment quality
-### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Step 1: Identify or create user which uses the right resource class
-One quick way to immediately improve segment quality is to rebuild the index.  The SQL returned by the above view will return an ALTER INDEX REBUILD statement which can be used to rebuild your indexes.  When rebuilding your indexes, be sure that you allocate enough memory to the session which will rebuild your index.  To do this, increase the resource class of a user which has permissions to rebuild the index on this table to the recommended minimum.  The resource class of the database owner user cannot be changed, so if you have not created a user on the system, you will need to do so first.  The minimum we recommend is xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
+## <a name="rebuilding-indexes-to-improve-segment-quality"></a>인덱스를 다시 작성하여 세그먼트 품질 개선
+### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>1단계: 적합한 리소스 클래스를 사용하는 사용자 식별 또는 만들기
+세그먼트 품질을 즉시 개선하는 한 가지 빠른 방법은 인덱스를 다시 작성하는 것입니다.  위의 보기에서 반환된 SQL은 인덱스를 다시 작성하는 데 사용할 수 있는 ALTER INDEX REBUILD 문을 반환합니다.  인덱스를 다시 작성하는 경우 인덱스를 다시 작성할 세션에 충분한 메모리를 할당해야 합니다.  이렇게 하려면 이 테이블의 인덱스를 다시 작성하기 위한 권한이 있는 사용자의 리소스 클래스를 권장되는 최소 수로 늘립니다.  데이터베이스 소유자의 리소스 클래스를 변경할 수 없으므로, 시스템에서 사용자를 만들지 않은 경우 먼저 이 작업을 수행해야 합니다.  권장되는 최소값은 DW300 이하를 사용하는 경우는 xlargerc, DW400 ~ DW600을 사용하는 경우는 largerc, DW1000 이상을 사용하는 경우는 mediumrc입니다.
 
-Below is an example of how to allocate more memory to a user by increasing their resource class.  For more information about resource classes and how to create a new user can be found in the [concurrency and workload management][Concurrency] article.
+다음은 사용자의 리소스 클래스를 늘려 사용자에게 더 많은 메모리를 할당하는 방법의 예입니다.  리소스 클래스에 대한 자세한 내용과 새 사용자를 만드는 방법은 [동시성 및 워크로드 관리][동시성] 문서에 나와 있습니다.
 
 ```sql
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Step 2: Rebuild clustered columnstore indexes with higher resource class user
-Logon as the user from step 1 (e.g. LoadUser), which is now using a higher resource class, and execute the ALTER INDEX statements.  Be sure that this user has ALTER permission to the tables where the index is being rebuilt.  These examples show how to rebuild the entire columnstore index or how to rebuild a single partition. On large tables, it is more practical to rebuild indexes a single partition at a time.
+### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>2단계: 더 높은 리소스 클래스 사용자를 사용하여 클러스터형 columnstore 인덱스 다시 작성
+이제 더 높은 리소스 클래스를 사용 중인 1단계의 사용자(예: LoadUser)로 로그온하고 ALTER INDEX 문을 실행합니다.  이 사용자가 인덱스를 다시 작성하려는 테이블에 대한 ALTER 권한이 있는지 확인합니다.  이 예제에서는 전체 columnstore 인덱스 또는 단일 파티션을 다시 빌드하는 방법을 보여 줍니다. 대형 테이블에서는 한 번에 파티션 하나에 대해 인덱스를 다시 빌드하는 것이 실용적입니다.
 
-Alternatively, instead of rebuilding the index, you could copy the table to a new table using [CTAS][CTAS].  Which way is best? For large volumes of data, [CTAS][CTAS] is usually faster than [ALTER INDEX][ALTER INDEX]. For smaller volumes of data, [ALTER INDEX][ALTER INDEX] is easier to use and won't require you to swap out the table.  See **Rebuilding indexes with CTAS and partition switching** below for more details on how to rebuild indexes with CTAS.
+또는 인덱스를 다시 빌드하는 대신 [CTAS][CTAS]를 사용하여 테이블을 새 테이블에 복사할 수 있습니다.  어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 [CTAS][CTAS]가 [ALTER INDEX][ALTER INDEX]보다 빠릅니다. 더 작은 볼륨의 데이터에서는 [ALTER INDEX][ALTER INDEX]를 사용하기가 더 쉬우며 테이블도 스왑할 필요가 없습니다.  CTAS로 인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 아래의 **CTAS 및 파티션 전환을 사용하여 인덱스 다시 빌드** 을 참조하세요.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -248,13 +252,13 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Rebuilding an index in SQL Data Warehouse is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation][Columnstore Indexes Defragmentation] and the syntax topic [ALTER INDEX][ALTER INDEX].
+SQL 데이터 웨어하우스에서 인덱스를 다시 작성하는 작업은 오프라인 작업입니다.  인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 [Columnstore 인덱스 조각 모음][Columnstore 인덱스 조각 모음] 및 구문 항목 [ALTER INDEX][ALTER INDEX]의 ALTER INDEX REBUILD 섹션을 참조하세요.
 
-### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Step 3: Verify clustered columnstore segment quality has improved
-Rerun the query which identified table with poor segment quality and verify segment quality has improved.  If segment quality did not improve, it could be that the rows in your table are extra wide.  Consider using a higher resource class or DWU when rebuilding your indexes.
+### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>3단계: 클러스터형 columnstore 세그먼트 품질이 향상되었는지 확인
+세그먼트 품질이 저하된 테이블을 식별하는 쿼리를 다시 실행하고 세그먼트 품질이 향상되었는지 확인합니다.  세그먼트 품질이 개선되지 않은 경우 테이블의 행이 아주 넓은 것일 수 있습니다.  인덱스를 다시 작성할 때 더 높은 리소스 클래스 또는 DWU를 사용하는 것이 좋습니다.
 
-## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Rebuilding indexes with CTAS and partition switching
-This example uses [CTAS][CTAS] and partition switching to rebuild a table partition. 
+## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>CTAS 및 파티션 전환을 사용하여 인덱스 다시 빌드
+이 예제에서는 [CTAS][CTAS]와 파티션 전환을 사용하여 테이블 파티션을 다시 빌드합니다. 
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS
@@ -294,37 +298,37 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
 ```
 
-For more details about re-creating partitions using `CTAS`, see the [Partition][Partition] article.
+`CTAS`를 사용하여 파티션을 다시 만드는 방법에 대한 자세한 내용은 [파티션][파티션] 문서를 참조하세요.
 
-## <a name="next-steps"></a>Next steps
-To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  To learn more about best practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
+## <a name="next-steps"></a>다음 단계
+자세히 알아보려면 [테이블 개요][개요], [테이블 데이터 형식][데이터 형식], [테이블 배포][배포], [테이블 분할][파티션], [테이블 통계 유지 관리][통계] 및 [임시 테이블][임시]에 대한 문서를 참조하세요.  모범 사례에 대해 자세히 알아보려면 [SQL 데이터 웨어하우스 모범 사례][SQL 데이터 웨어하우스 모범 사례]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[개요]: ./sql-data-warehouse-tables-overview.md
+[데이터 형식]: ./sql-data-warehouse-tables-data-types.md
+[배포]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[파티션]: ./sql-data-warehouse-tables-partition.md
+[통계]: ./sql-data-warehouse-tables-statistics.md
+[임시]: ./sql-data-warehouse-tables-temporary.md
+[동시성]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 [ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
-[heap]: https://msdn.microsoft.com/library/hh213609.aspx
-[clustered indexes and nonclustered indexes]: https://msdn.microsoft.com/library/ms190457.aspx
-[create table syntax]: https://msdn.microsoft.com/library/mt203953.aspx
-[Columnstore Indexes Defragmentation]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
+[힙]: https://msdn.microsoft.com/library/hh213609.aspx
+[클러스터형 인덱스 및 비클러스터형 인덱스]: https://msdn.microsoft.com/library/ms190457.aspx
+[테이블 구문 만들기]: https://msdn.microsoft.com/library/mt203953.aspx
+[Columnstore 인덱스 조각 모음]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
 [clustered columnstore indexes]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
