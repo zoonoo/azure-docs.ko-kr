@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 09/01/2016
+ms.date: 12/13/2016
 ms.author: sdanie
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -43,25 +43,27 @@ Reids 세션 상태 제공자 NuGet 패키지는 StackExchange.Redis.StrongName 
 
 NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하고 ASP.NET 응용 프로그램이 Redis 캐시 세션 상태 제공자를 사용하는 데 필요한 구성이 포함된 web.config 파일에 다음 섹션을 추가합니다.
 
-    <sessionState mode="Custom" customProvider="MySessionStateStore">
-        <providers>
-        <!--
-        <add name="MySessionStateStore"
-               host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-        />
-        -->
-        <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-        </providers>
-    </sessionState>
+```xml
+<sessionState mode="Custom" customProvider="MySessionStateStore">
+    <providers>
+    <!--
+    <add name="MySessionStateStore"
+           host = "127.0.0.1" [String]
+        port = "" [number]
+        accessKey = "" [String]
+        ssl = "false" [true|false]
+        throwOnError = "true" [true|false]
+        retryTimeoutInMilliseconds = "0" [number]
+        databaseId = "0" [number]
+        applicationName = "" [String]
+        connectionTimeoutInMilliseconds = "5000" [number]
+        operationTimeoutInMilliseconds = "5000" [number]
+    />
+    -->
+    <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
+    </providers>
+</sessionState>
+```
 
 주석 처리된 섹션은 특성의 예와 각 특성의 샘플 설정을 제공합니다.
 
@@ -83,16 +85,18 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 
 Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석으로 처리하는 것을 기억하세요.
 
-    <!-- <sessionState mode="InProc"
-         customProvider="DefaultSessionProvider">
-         <providers>
-            <add name="DefaultSessionProvider"
-                  type="System.Web.Providers.DefaultSessionStateProvider,
-                        System.Web.Providers, Version=1.0.0.0, Culture=neutral,
-                        PublicKeyToken=31bf3856ad364e35"
-                  connectionStringName="DefaultConnection" />
-          </providers>
-    </sessionState> -->
+```xml
+<!-- <sessionState mode="InProc"
+     customProvider="DefaultSessionProvider">
+     <providers>
+        <add name="DefaultSessionProvider"
+              type="System.Web.Providers.DefaultSessionStateProvider,
+                    System.Web.Providers, Version=1.0.0.0, Culture=neutral,
+                    PublicKeyToken=31bf3856ad364e35"
+              connectionStringName="DefaultConnection" />
+      </providers>
+</sessionState> -->
+```
 
 이 단계를 수행하면, 응용 프로그램은 Redis Cache 섹션 상태 제공자를 사용하도록 구성됩니다. 응용 프로그램에서 세션 상태를 사용하는 경우 Azure Redis Cache 인스턴스에 저장됩니다.
 

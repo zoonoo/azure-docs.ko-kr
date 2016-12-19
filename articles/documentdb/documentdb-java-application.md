@@ -457,7 +457,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
             }
         }
 3. 사용자에게 표시할 웹 사용자 인터페이스가 필요합니다. 앞에서 만든 index.jsp를 다시 작성하겠습니다.
-   
+    ```html
         <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -544,6 +544,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
           <script src="assets/todo.js"></script>
         </body>
         </html>
+    ```
 4. 끝으로, 웹 사용자 인터페이스와 서블릿을 연결하는 클라이언트 쪽 Javascript를 작성합니다.
    
         var todoApp = {
