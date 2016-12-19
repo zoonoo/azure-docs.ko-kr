@@ -1,12 +1,12 @@
 ---
-title: 서비스 패브릭의 상태 모니터링 | Microsoft Docs
-description: 클러스터 및 응용 프로그램과 서비스 모니터링을 제공하는 Azure 서비스 패브릭 상태 모니터링 모델 소개.
+title: "Service Fabric의 상태 모니터링 | Microsoft Docs"
+description: "클러스터 및 응용 프로그램과 서비스 모니터링을 제공하는 Azure 서비스 패브릭 상태 모니터링 모델 소개."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2016
 ms.author: oanapl
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6ec1e341bc87475251161521e808dcbb821c2939
+
 
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>서비스 패브릭 상태 모니터링 소개
@@ -224,7 +228,7 @@ SourceId, 엔터티 식별자, 속성 및 HealthState의 4가지 정보는 모�
 * 지난 X분 내에 변경된 상태에 대해서만 알림. 지정된 시간 이전부터 보고서가 오류 상태인 경우, 이전에 이미 알린 상태이므로 무시할 수 있습니다.
 * 속성이 경고와 오류 사이에 전환되고 있는 경우, 얼마나 오래 비정상(즉, 정상이 아닌 상태)이었는지 결정합니다. 예를 들어, 5분 이상 정상이 아니었던 속성이 (HealthState != 정상 및 현재 - LastOkTransitionTime > 5분)으로 전환될 수 있는 경우 알림.
 
-## <a name="example:-report-and-evaluate-application-health"></a>예: 응용 프로그램 상태 보고 및 평가
+## <a name="example-report-and-evaluate-application-health"></a>예: 응용 프로그램 상태 보고 및 평가
 다음 예에서는 소스 **MyWatchdog**의 **패브릭:/WordCount** 응용 프로그램에서 PowerShell을 통해 상태 보고서를 보냅니다. 상태 보고서에는 무한 TimeToLive와 함께 오류 성능 상태에서 상태 속성 Availability에 대한 정보가 포함됩니다. 그런 다음, 집계된 성능 상태 오류 및 보고된 상태 이벤트를 상태 이벤트 목록으로 반환되는 응용 프로그램 상태를 쿼리합니다.
 
 ```powershell
@@ -311,6 +315,9 @@ HealthEvents                    :
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

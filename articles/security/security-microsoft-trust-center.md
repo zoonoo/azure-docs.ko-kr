@@ -1,22 +1,26 @@
 ---
-title: Microsoft 보안 센터 | Microsoft Docs
-description: Microsoft 보안 센터는 사용자의 서비스를 실행하는 Azure 플랫폼이 안전하다는 것을 확신하는 데 필요한 정보를 제공합니다.
+title: "Microsoft 보안 센터 | Microsoft Docs"
+description: "Microsoft 보안 센터는 사용자의 서비스를 실행하는 Azure 플랫폼이 안전하다는 것을 확신하는 데 필요한 정보를 제공합니다."
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-
+ms.assetid: 0b94f9a3-8648-4860-812c-be689b0b327b
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/18/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8da0e117c206bfcec2f343c6d250de74fd886b02
+
 
 ---
-# Microsoft 보안 센터
+# <a name="microsoft-trust-center"></a>Microsoft 보안 센터
 Azure.com의 Azure 보안 정보 사이트는 클라우드 솔루션을 안전하게 계획, 설계, 배포, 구성 및 관리하는 데 필요한 정보를 제공합니다. Microsoft 보안 센터를 통해 사용자의 서비스를 실행하는 Azure 플랫폼이 안전하다는 것을 확신하는 데 필요한 정보를 얻게 됩니다.
 
 Azure에 응용 프로그램 및 데이터를 위탁할 때 다음과 같은 의문 사항이 있다는 것을 압니다. 어디에 있나요? 액세스할 수 있는 사용자는 누구인가요? Microsoft는 보호하기 위해 무엇을 하고 있나요? Microsoft가 말하는 대로 하고 있는지 어떻게 확인할 수 있나요?
@@ -34,6 +38,10 @@ Microsoft 보안 센터에서 확인할 수 있는 내용은 다음과 같습니
 * [새로운 소식](https://aka.ms/tcwhatsnew) – Microsoft 클라우드 트러스트의 새로운 소식에 대해 알아봅니다.
 * [리소스](https://aka.ms/tcresources) – Microsoft Trusted Cloud에 대한 백서, 비디오 및 사례 연구를 조사합니다.
 
-[Microsoft 보안 센터](https://www.microsoft.com/trustcenter)에는 Microsoft 클라우드의 보안을 유지하기 위해 Microsoft에서 하고 있는 일을 이해하는 데 필요한 사항이 있습니다.
+[Microsoft 보안 센터](https://www.microsoft.com/trustcenter) 에는 Microsoft 클라우드의 보안을 유지하기 위해 Microsoft에서 하고 있는 일을 이해하는 데 필요한 사항이 있습니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

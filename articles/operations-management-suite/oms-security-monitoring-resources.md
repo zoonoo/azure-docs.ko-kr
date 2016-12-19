@@ -1,25 +1,30 @@
 ---
-title: Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링 | Microsoft Docs
-description: 이 문서는 OMS 보안 및 감사 기능을 사용하여 리소스를 모니터링하고 보안 문제를 식별하는 방법을 설명합니다.
+title: "Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링 | Microsoft Docs"
+description: "이 문서는 OMS 보안 및 감사 기능을 사용하여 리소스를 모니터링하고 보안 문제를 식별하는 방법을 설명합니다."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: d6752120-821f-4aa7-a049-25bf5a653b95
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 12/01/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 81d7d09f48d08943623b24e7e7a26847a0d129fe
+
 
 ---
 # <a name="monitoring-resources-in-operations-management-suite-security-and-audit-solution"></a>Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링
 이 문서는 OMS 보안 및 감사 기능을 사용하여 리소스를 모니터링하고 보안 문제를 식별하는 방법을 설명합니다.
 
-## <a name="what-is-oms?"></a>OMS란?
+## <a name="what-is-oms"></a>OMS란?
 Microsoft Operations Management Suite(OMS)란 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. OMS에 대한 자세한 내용은 [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx)문서를 참조하세요.
 
 ## <a name="monitoring-resources"></a>리소스 모니터링
@@ -107,6 +112,9 @@ IT는 이 대시보드를 사용하여 회사 리소스에 잠재적 위협이 �
 * [Operations Management Suite 보안 및 감사 솔루션 시작](oms-security-getting-started.md)
 * [Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답](oms-security-responding-alerts.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: AMQP 1.0을 사용한 서비스 버스 및 PHP | Microsoft Docs
-description: AMQP를 사용하여 PHP에서 서비스 버스 사용.
-services: service-bus
+title: "AMQP 1.0을 사용한 Service Bus 및 PHP | Microsoft Docs"
+description: "AMQP를 사용하여 PHP에서 서비스 버스 사용."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: dfb26c2b-41d3-4ed6-936b-b8d2f1dbd470
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 122865f056d6bd7fc8c75665d29753542a83405c
+
 
 ---
-# <a name="using-service-bus-from-php-with-amqp-1.0"></a>AMQP 1.0을 사용하여 PHP에서 서비스 버스 사용
+# <a name="using-service-bus-from-php-with-amqp-10"></a>AMQP 1.0을 사용하여 PHP에서 서비스 버스 사용
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 Proton-PHP는 Proton-C로 바인딩된 PHP 언어로 Proton-PHP는 C에서 구현된 엔진에 대한 래퍼로 구현됩니다.
@@ -29,7 +33,7 @@ Proton-PHP는 Proton-C로 바인딩된 PHP 언어로 Proton-PHP는 C에서 구�
 > 
 > 
 
-## <a name="working-with-service-bus-queues,-topics,-and-subscriptions-from-php"></a>PHP에서 Service Bus 큐, 토픽 및 구독 작업
+## <a name="working-with-service-bus-queues-topics-and-subscriptions-from-php"></a>PHP에서 Service Bus 큐, 토픽 및 구독 작업
 다음 코드는 서비스 버스 메시징 엔터티에서 메시지를 전송하고 수신하는 방법을 보여 줍니다.
 
 ### <a name="sending-messages-using-proton-php"></a>Proton-PHP를 사용하여 메시지 전송
@@ -65,9 +69,9 @@ if($messenger->incoming())
 $messenger->stop();
 ```
 
-## <a name="messaging-between-.net-and-proton-php"></a>.NET과 Proton-PHP 간의 메시징
+## <a name="messaging-between-net-and-proton-php"></a>.NET과 Proton-PHP 간의 메시징
 ### <a name="application-properties"></a>응용 프로그램 속성
-#### <a name="protonphp-to-service-bus-.net-apis"></a>ProtonPHP에서 서비스 버스 .NET API
+#### <a name="protonphp-to-service-bus-net-apis"></a>ProtonPHP에서 서비스 버스 .NET API
 Proton-PHP 메시지는 **integer**, **double**, **Boolean**, **string** 및 **object**와 같은 형식의 응용 프로그램 속성을 지원합니다. 다음 PHP 코드는 이러한 각 형식의 속성을 사용하여 메시지에서 속성을 설정하는 방법을 보여 줍니다.
 
 ```
@@ -110,8 +114,8 @@ Console.WriteLine();
 | string |string |
 | object |Object |
 
-#### <a name="service-bus-.net-apis-to-php"></a>서비스 버스 .NET API에서 PHP
-[BrokeredMessage][BrokeredMessage] 형식은 **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** 및 **TimeSpan**과 같은 형식의 응용 프로그램 속성을 지원합니다. 다음 .NET 코드는 이러한 각 속성 형식을 사용하여 [BrokeredMessage][BrokeredMessage]에서 속성을 설정하는 방법을 보여 줍니다.
+#### <a name="service-bus-net-apis-to-php"></a>서비스 버스 .NET API에서 PHP
+[BrokeredMessage][BrokeredMessage] 형식은 **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset**, **TimeSpan**과 같은 형식의 응용 프로그램 속성을 지원합니다. 다음 .NET 코드는 이러한 각 속성 형식을 사용하여 [BrokeredMessage][BrokeredMessage]에서 속성을 설정하는 방법을 보여 줍니다.
 
 ```
 message.Properties["TestByte"] = (byte)128;
@@ -184,8 +188,8 @@ if ($message->properties != null)
 | Id |Message.Id |- |
 | user\_id |- |- |
 | 주소 |Message.To |- |
-| 제목 | | |
-| Message.Label |- | |
+| 제목
+ |Message.Label |- |
 | reply\_to |Message.ReplyTo |- |
 | correlation\_id |Message.CorrelationId |- |
 | content\_type |Message.ContentType |- |
@@ -197,7 +201,7 @@ if ($message->properties != null)
 | reply\_to\_group\_id |Message.ReplyToSessionId |- |
 | 형식 |해당 없음 |- |
 
-#### <a name="service-bus-.net-apis-to-proton-php"></a>서비스 버스 .NET API에서 Proton-PHP
+#### <a name="service-bus-net-apis-to-proton-php"></a>서비스 버스 .NET API에서 Proton-PHP
 | 서비스 버스 .NET | Proton-PHP | 참고 사항 |
 | --- | --- | --- |
 | ContentType |Message-\>content\_type |- |
@@ -210,8 +214,7 @@ if ($message->properties != null)
 | ScheduledEnqueueTimeUtc |Message-\>annotations ["x-opt-scheduled-enqueue-time"] |- |
 | SessionId |Message-\>group\_id |- |
 | TimeToLive |Message-\>ttl |변환, Proton-PHP TTL이 밀리초 단위로 정의됩니다. |
-| 받는 사람 | | |
-| Message-\>address |- | |
+| 받는 사람 |Message-\>address |- |
 
 ## <a name="next-steps"></a>다음 단계
 자세히 알아볼 준비가 되셨습니까? 다음 링크를 방문하세요.
@@ -225,6 +228,6 @@ if ($message->properties != null)
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

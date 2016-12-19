@@ -1,19 +1,23 @@
 ---
-title: 서비스 버스 큐를 사용하는 응용 프로그램 작성 | Microsoft Docs
-description: 서비스 버스를 사용하는 간단한 큐 기반 응용 프로그램을 작성하는 방법
-services: service-bus
+title: "Service Bus 큐를 사용하는 응용 프로그램 작성 | Microsoft Docs"
+description: "서비스 버스를 사용하는 간단한 큐 기반 응용 프로그램을 작성하는 방법"
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 754d91b3-1426-405e-84b4-fd36d65b114a
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2350c3e222277b6d8e837472f55a7b79346d3d21
+
 
 ---
 # <a name="create-applications-that-use-service-bus-queues"></a>서비스 버스 큐를 사용하는 응용 프로그램 만들기
@@ -25,13 +29,13 @@ ms.author: sethm
 
 각 POS 터미널은 **DataCollectionQueue**에 메시지를 보내 판매 데이터를 보고합니다. 이러한 메시지는 재고 관리 시스템에서 검색될 때까지 이 큐에 남아 있습니다. POS 터미널이 처리를 계속하기 위해 인벤토리 관리 시스템의 응답을 기대할 필요가 없기 때문에 이 패턴을 종종 *비동기 메시징*이라고 합니다.
 
-## <a name="why-queuing?"></a>큐 작업 이유
+## <a name="why-queuing"></a>큐 작업 이유
 이 응용 프로그램의 설정에 필요한 코드를 확인하기 전에, 이 시나리오에서 POS 터미널이 직접(동기로) 재고 관리 시스템에 이야기하는 대신 큐를 사용하는 것의 장점을 살펴보겠습니다.
 
 ### <a name="temporal-decoupling"></a>임시 분리
 비동기 메시징 패턴을 사용하면 생산자와 소비자가 동시에 온라인 상태일 필요가 없습니다. 소비하는 쪽에서 메시지를 수신할 준비가 될 때까지 메시징 인프라가 메시지를 안정적으로 저장합니다. 따라서 전체 시스템에 영향을 주지 않고 자발적으로(예: 유지 관리의 경우) 또는 구성 요소 크래시로 인해 분산 응용 프로그램 구성 요소의 연결을 끊을 수 있습니다. 또한 소비 응용 프로그램은 하루 중 특정 기간 동안만 온라인 상태로 전환해면 됩니다. 예를 들어 이 유통업 시나리오에서는 재고 관리 시스템이 영업일 종료 이후에만 온라인이 될 수 있습니다.
 
-### <a name="load-leveling"></a>부하 평준화
+### <a name="load-leveling"></a>부하 평준화 
 많은 응용 프로그램에서 시스템 부하는 시간에 따라 다르지만 각 작업 단위에 필요한 처리 시간은 일반적으로 일정합니다. 큐를 사용한 메시지 생산자와 소비자 조정은 최대 부하가 아닌 평균 부하를 서비스하려면 소비 응용 프로그램(작업자)만 프로비전해야 함을 의미합니다. 수신 부하가 변경됨에 따라 큐의 깊이가 증가하고 축소됩니다. 따라서 응용 프로그램 부하를 제공하는 데 필요한 인프라의 크기와 관련하여 비용이 직접적으로 절약됩니다.
 
 ![Service Bus 큐 이미지 2](./media/service-bus-create-queues/IC657162.gif)
@@ -53,7 +57,7 @@ ms.author: sethm
 ### <a name="create-a-namespace"></a>네임스페이스 만들기
 구독이 있으면 [새 네임스페이스를 만들](service-bus-create-namespace-portal.md) 수 있습니다. 각각의 네임스페이스는 서비스 버스 엔터티 집합에 대한 범위 컨테이너입니다. 모든 서비스 버스 계정에서 새 네임스페이스에 고유한 이름을 지정합니다. 
 
-### <a name="install-the-nuget-package"></a>NuGet 패키지 설치
+### <a name="install-the-nuget-package"></a>NuGet 패키지 설치 
 서비스 버스 네임스페이스를 사용하려면 특히 Microsoft.ServiceBus.dll 등, 응용 프로그램이 서비스 버스 어셈블리를 참조해야 합니다. Microsoft Azure SDK의 일부로 이 어셈블리를 찾을 수 있으며 [Azure SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 다운로드가 제공됩니다. 그러나 [Service Bus NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)는 Service Bus API를 가져오고 모든 Service Bus 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다.
 
 ### <a name="create-the-queue"></a>큐 만들기
@@ -145,6 +149,9 @@ catch (Exception e)
 ## <a name="next-steps"></a>다음 단계
 이제 큐의 기본 사항을 학습했으므로 Service Bus 토픽 및 구독의 게시/구독 기능을 사용하여 이 논의를 계속하려면 [Service Bus 토픽 및 구독을 사용하는 응용 프로그램 만들기](service-bus-create-topics-subscriptions.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Security for Notification Hubs
-description: This topic explains security for Azure notification hubs.
+title: "알림 허브에 대한 보안"
+description: "이 항목에서는 Azure 알림 허브 보안에 대해 설명합니다."
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6506177c-e25c-4af7-8508-a3ddca9dc07c
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -14,34 +14,41 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9128fa76cc0b0f4d879faaaf98d55b5b9180f46e
+
 
 ---
-# <a name="security"></a>Security
-## <a name="overview"></a>Overview
-This topic describes the security model of Azure Notification Hubs. Because Notification Hubs are a Service Bus entity, they implement the same security model as Service Bus. For more information, see the [Service Bus Authentication](https://msdn.microsoft.com/library/azure/dn155925.aspx) topics.
+# <a name="security"></a>보안
+## <a name="overview"></a>개요
+이 항목에서는 Azure 알림 허브의 보안 모델에 대해 설명합니다. 알림 허브는 서비스 버스 엔터티이므로 서비스 버스와 동일한 보안 모델을 구현합니다. 자세한 내용은 [서비스 버스 인증](https://msdn.microsoft.com/library/azure/dn155925.aspx) 항목을 참조하세요.
 
-## <a name="shared-access-signature-security-(sas)"></a>Shared Access Signature Security (SAS)
-Notification Hubs implements an entity-level security scheme called SAS (Shared Access Signature). This scheme enables messaging entities to declare up to 12 authorization rules in their description that grant rights on that entity.
+## <a name="shared-access-signature-security-sas"></a>SAS(공유 액세스 서명) 보안
+알림 허브는 SAS(공유 액세스 서명)라는 엔터티 수준 보안 체계를 구현합니다. 이 체계를 통해 메시징 엔터티가 해당 엔터티에 대한 권한을 부여하는 설명에서 최대 12개의 권한 부여 규칙을 선언할 수 있습니다.
 
-Each rule contains a name, a key value (shared secret), and a set of rights, as explained in the section “Security Claims.” When creating a Notification Hub, two rules are automatically created: one with Listen rights (that the client app uses) and one with all rights (that the app backend uses).
+"보안 클레임" 섹션에 설명된 대로 각 규칙에는 이름, 키 값(공유 암호) 및 권한 집합이 포함됩니다. 알림 허브를 만들 때 두 개의 규칙이 자동으로 만들어집니다. 즉, 클라이언트 앱에서 사용하는 수신 대기 권한이 있는 규칙과 앱 백 엔드에서 사용하는 모든 권한이 있는 규칙입니다.
 
-When performing registration management from client apps, if the information sent via notifications is not sensitive (for example, weather updates), a common way to access a Notification Hub is to give the key value of the rule Listen-only access to the client app, and to give the key value of the rule full access to the app backend.
+클라이언트 앱에서 등록 관리를 수행할 때 날씨 업데이트와 같이 알림을 통해 보낸 정보가 중요하지 않으면 알림 허브에 액세스하는 일반적인 방법은 규칙 수신 대기 전용 액세스의 키 값을 클라이언트 앱에 부여하는 것과 규칙 모든 권한의 키 값을 앱 백 엔드에 부여하는 것입니다.
 
-It is not recommended that you embed the key value in Windows Store client apps. A way to avoid embedding the key value is to have the client app retrieve it from the app backend at startup.
+Windows 스토어 클라이언트 앱에 키 값을 포함하지 않는 것이 좋습니다. 키 값을 포함하지 않는 방법은 클라이언트 앱이 시작할 때 앱 백 엔드에서 키 값을 검색하도록 하는 것입니다.
 
-It is important to understand that the key with Listen access allows a client app to register for any tag. If your app must restrict registrations to specific tags to specific clients (for example, when tags represent user IDs), then your app backend must perform the registrations. For more information, see Registration Management. Note that in this way, the client app will not have direct access to Notification Hubs.
+수신 대기 액세스가 있는 키를 통해 클라이언트 앱이 모든 태그를 등록할 수 있음을 이해하는 것이 중요합니다. 앱이 특정 클라이언트에 대한 특정 태그로 등록을 제한해야 하는 경우(예: 태그가 사용자 ID를 나타내는 경우) 앱 백 엔드가 등록을 수행해야 합니다. 자세한 내용은 등록 관리를 참조하세요. 이러한 방식으로 클라이언트 앱이 알림 허브에 직접 액세스할 수 없습니다.
 
-## <a name="security-claims"></a>Security claims
-Similar to other entities, Notification Hub operations are allowed for three security claims: Listen, Send, and Manage.
+## <a name="security-claims"></a>보안 클레임
+다른 엔터티와 마찬가지로 알림 허브 작업에 허용된 3가지 보안 클레임은 수신 대기, 전송 및 관리입니다.
 
-| Claim | Description | Operations allowed |
+| 클레임 | 설명 | 허용되는 연산 |
 | --- | --- | --- |
-| Listen |Create/Update, Read, and Delete single registrations |Create/Update registration<br><br>Read registration<br><br>Read all registrations for a handle<br><br>Delete registration |
-| Send |Send messages to the notification hub |Send message |
-| Manage |CRUDs on Notification Hubs (including updating PNS credentials, and security keys), and read registrations based on tags |Create/Update/Read/Delete notification hubs<br><br>Read registrations by tag |
+| 수신 대기 |단일 등록 만들기/업데이트, 읽기 및 삭제 |등록 만들기/업데이트<br><br>등록 읽기<br><br>핸들에 대한 모든 등록 읽기<br><br>등록 삭제 |
+| 보내기 |알림 허브에 메시지 보내기 |메시지 보내기 |
+| 관리 |알림 허브의 CRUD(PNS 자격 증명 및 보안 키 업데이트 포함) 및 태그 기준 등록 읽기 |알림 허브 만들기/업데이트/읽기/삭제<br><br>태그별 등록 읽기 |
 
-Notification Hubs accept claims granted by Microsoft Azure Access Control tokens, and by signature tokens generated with shared keys configured directly on the Notification Hub.
+알림 허브는 Microsoft Azure 액세스 제어 토큰 및 알림 허브에서 직접 구성하는 공유 키로 생성된 서명 토큰에서 부여한 클레임을 허용합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

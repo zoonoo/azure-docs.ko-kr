@@ -1,12 +1,12 @@
 ---
-title: Map storage in Azure Site Recovery for Hyper-V virtual machine replication between on-premises datacenters | Microsoft Docs
-description: Prepare storage mapping for Hyper-V virtual machine replication between two on-premises datacenters with Azure Site Recovery.
+title: "온-프레미스 데이터 센터 간에 Hyper-V 가상 컴퓨터 복제에 대한 Azure Site Recovery의 저장소 매핑 | Microsoft Docs"
+description: "Azure Site Recovery를 사용하여 두 개의 온-프레미스 데이터 센터 간에 Hyper-V 가상 컴퓨터 복제에 대한 저장소 매핑을 준비합니다."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 20e14e9c-87c4-4ad3-aa95-441697b1fc43
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,84 +14,91 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/01/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1f21c41374e2c09a6b9706df2e084123de035f1a
+
 
 ---
-# <a name="prepare-storage-mapping-for-hyperv-virtual-machine-replication-between-two-onpremises-datacenters-with-azure-site-recovery"></a>Prepare storage mapping for Hyper-V virtual machine replication between two on-premises datacenters with Azure Site Recovery
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover, and recovery of virtual machines and physical servers. This article describes storage mapping, which helps you make optimal use of storage when you're using Site Recovery to replicate Hyper-V virtual machines between two on-premises VMM datacenters.
+# <a name="prepare-storage-mapping-for-hyper-v-virtual-machine-replication-between-two-on-premises-datacenters-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 두 개의 온-프레미스 데이터 센터 간에 Hyper-V 가상 컴퓨터 복제에 대한 저장소 매핑 준비
+Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 이 문서에서는 두 개의 온-프레미스 VMM 데이터 센터 간에 Hyper-V 가상 컴퓨터를 복제하기 위해 사이트 복구를 사용하는 경우 저장소를 최적으로 사용하도록 저장소 매핑을 설명합니다.
 
-Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
 
-## <a name="overview"></a>Overview
-Storage mapping is only relevant when you're replicating Hyper-V virtual machines that are located in VMM clouds from a primary datacenter to a secondary datacenter using Hyper-V Replica or SAN replication, as follows:
+## <a name="overview"></a>개요
+저장소 매핑은 다음과 같이 Hyper-V 복제본 또는 SAN 복제를 사용하여 기본 데이터 센터에서 보조 데이터 센터로 VMM 클라우드에 있는 Hyper-v 가상 컴퓨터를 복제하는 경우에만 관련이 있습니다.
 
-* **On-premises to on-premises replication with Hyper-V Replica)**—You set up storage mapping by mapping storage classifications on a source and target VMM servers to do the following:
+* **Hyper-V 복제본과 온-프레미스 간 복제**—다음을 수행하려면 원본 및 대상 VMM 서버에서 저장소 분류를 매핑하여 저장소 매핑을 설정합니다.
   
-  * **Identify target storage for replica virtual machines**—Virtual machines will be replicated to a storage target (SMB share or cluster shared volumes (CSVs)) that you choose.
-  * **Replica virtual machine placement**—Storage mapping is used to optimally place replica virtual machines on Hyper-V host servers. Replica virtual machines will be placed on hosts that can access the mapped storage classification.
-  * **No storage mapping**—If you don’t configure storage mapping, virtual machines will be replicated to the default storage location specified on the Hyper-V host server associated with the replica virtual machine.
-* **On-premises to on-premises replication with SAN**—You set up storage mapping by mapping storage arrays pools on a source and target VMM servers.
+  * **복제본 가상 컴퓨터에 대한 대상 저장소 식별**—가상 컴퓨터는 선택하는 저장소 대상(SMB 공유 또는 클러스터 공유 볼륨(CSV))에 복제됩니다.
+  * **복제본 가상 컴퓨터 배치**—저장소 매핑은 Hyper-V 호스트 서버에 복제본 가상 컴퓨터를 최적으로 배치하는 데 사용됩니다. 복제본 가상 컴퓨터는 매핑된 저장소 분류에 액세스할 수 있는 호스트에 배치됩니다.
+  * **저장소 매핑 없음**- 저장소 매핑을 구성하지 않으면 가상 컴퓨터가 복제본 가상 컴퓨터와 연결된 Hyper-V 호스트 서버에 지정된 기본 저장소 위치에 복제됩니다.
+* **SAN과 온-프레미스 간 복제**—원본 및 대상 VMM 서버에서 저장소 배열 풀을 매핑하여 저장소 매핑을 설정합니다.
   
-  * **Specify pool**—Specifies which secondary storage pool receives replication data from the primary pool.
-  * **Identify target storage pools**—Ensures that LUNs in a source replication group are replicated to mapped target storage pool of your choice.
+  * **풀 지정**—기본 풀에서 복제 데이터를 수신하는 보조 저장소 풀을 지정합니다.
+  * **대상 저장소 풀 식별**—원본 복제 그룹의 LUN이 선택한 매핑된 대상 저장소 풀에 복제됩니다.
 
-## <a name="set-up-storage-classifications-for-hyperv-replication"></a>Set up storage classifications for Hyper-V replication
-When you're using Hyper-V Replica to replicate with Site Recovery,  you map between storage classifications on source and target VMM servers, or on a single VMM server if two sites are managed by the same VMM server. Note that:
+## <a name="set-up-storage-classifications-for-hyper-v-replication"></a>Hyper-V 복제에 대한 저장소 분류 설정
+Hyper-V 복제본을 사용하여 사이트 복구를 복제할 때 두 사이트가 동일한 VMM 서버를 통해 관리되는 경우 원본 및 대상 VMM 서버 또는 단일 VMM 서버에서 저장소 분류 사이를 매핑합니다. 다음 사항에 유의하세요.
 
-* When mapping is configured correctly and replication is enabled, a virtual machine’s virtual hard disk at the primary location will be replicated to storage in the mapped target location.
-* Storage classifications must be available to the host groups located in source and target clouds.
-* Classifications don’t need to have the same type of storage. For example, you can map a source classification that contains SMB shares to a target classification that contains CSVs.
-* Read more in [How to create storage classifications in VMM](https://technet.microsoft.com/library/gg610685.aspx).
+* 매핑이 올바르게 구성되었고 복제가 설정되면 기본 위치의 가상 컴퓨터에 있는 가상 하드 디스크는 매핑된 대상 위치에서 저장소로 복제됩니다.
+* 원본 및 대상 클라우드에 있는 호스트 그룹에서 저장소 분류를 사용할 수 있어야 합니다.
+* 분류의 저장소 유형이 같을 필요는 없습니다. 예를 들어 SMB 공유가 포함된 원본 분류를 CSV가 포함된 대상 분류에 매핑할 수 있습니다.
+* 자세한 내용은 [VMM에서 저장소 분류를 만드는 방법](https://technet.microsoft.com/library/gg610685.aspx)을 참조하세요.
 
-## <a name="example"></a>Example
-If classifications are configured correctly in VMM when you select the source and target VMM server during storage mapping, the source and target classifications will be displayed. Here’s an example of storage files shares and classifications for an organization with two locations in New York and Chicago.
+## <a name="example"></a>예제
+저장소 매핑 중 원본 및 대상 VMM 서버를 선택할 때 분류가 VMM에서 올바르게 구성되는 경우, 원본 및 대상 분류가 표시됩니다. 저장소 파일 공유 및 뉴욕과 시카고 두 위치에 있는 조직에 대한 분류의 예는 다음과 같습니다.
 
-| **Location** | **VMM server** | **File share (source)** | **Classification (source)** | **Mapped to** | **File share (target)** |
+| **위치** | **VMM 서버** | **파일 공유(원본)** | **분류(원본)** | **다음으로 매핑** | **파일 공유(대상)** |
 | --- | --- | --- | --- | --- | --- |
-| New York |VMM_Source |SourceShare1 |GOLD |GOLD_TARGET |TargetShare1 |
+| 뉴욕 |VMM_Source |SourceShare1 |GOLD |GOLD_TARGET |TargetShare1 |
 | SourceShare2 |SILVER |SILVER_TARGET |TargetShare2 | | |
 | SourceShare3 |BRONZE |BRONZE_TARGET |TargetShare3 | | |
-| Chicago |VMM_Target | |GOLD_TARGET |Not mapped | |
-|  |SILVER_TARGET |Not mapped | | | |
-|  |BRONZE_TARGET |Not mapped | | | |
+| 시카코 |VMM_Target | |GOLD_TARGET |매핑되지 않음 | |
+|  |SILVER_TARGET |매핑되지 않음 | | | |
+|  |BRONZE_TARGET |매핑되지 않음 | | | |
 
-You'd configure these on the **Server Storage** tab in the **Resources** page of the Site Recovery portal.
+Site Recovery 포털의 **리소스** 페이지에 있는 **서버 저장소** 탭에 이를 구성했습니다.
 
-![Configure storage mapping](./media/site-recovery-storage-mapping/storage-mapping1.png)
+![저장소 매핑 구성](./media/site-recovery-storage-mapping/storage-mapping1.png)
 
-With this example:
+이 예제에서:
 
-* When a a replica virtual machine is created for any virtual machine on GOLD storage (SourceShare1), it will be replicated to a GOLD_TARGET storage (TargetShare1).
-* When a replica virtual machine is created for any virtual machine on SILVER storage (SourceShare2), it will be replicated to a SILVER_TARGET (TargetShare2) storage, and so on.
+* 복제본 가상 컴퓨터가 GOLD 저장소(SourceShare1)의 임의의 가상 컴퓨터에 대해 만들어지면 GOLD_TARGET 저장소(TargetShare1)로 복제됩니다.
+* 복제본 가상 컴퓨터가 SILVER 저장소(SourceShare2)의 임의의 가상 컴퓨터에 대해 만들어지면 SILVER_TARGET 저장소(TargetShare2) 저장소로 복제되며, 이러한 방식으로 계속됩니다.
 
-The actual file shares and their assigned classifications in VMM appear in the next screen shot.
+실제 파일 공유 및 VMM에서 할당된 해당 분류는 다음 스크린샷과 같습니다.
 
-![Storage classifications in VMM](./media/site-recovery-storage-mapping/storage-mapping2.png)
+![VMM에서 저장소 분류](./media/site-recovery-storage-mapping/storage-mapping2.png)
 
-## <a name="multiple-storage-locations"></a>Multiple storage locations
-If the target classification is assigned to multiple SMB shares or CSVs, the optimal storage location will be selected automatically when the virtual machine is protected. If no suitable target storage is available with the specified classification, the default storage location specified on the Hyper-V host is used to place the replica virtual hard disks.
+## <a name="multiple-storage-locations"></a>여러 저장소 위치
+대상 분류가 여러 SMB 공유 또는 CSV에 할당된 경우 가상 컴퓨터를 보호할 때 최적의 저장소 위치가 자동으로 선택됩니다. 지정된 분류와 사용할 수 있는 적합한 대상 저장소가 없는 경우, Hyper-V 호스트에 지정된 기본 저장소 위치는 복제본 가상 하드 디스크를 배치하는 데 사용됩니다.
 
-The following table show how storage classification and cluster shared volumes are set up in our example.
+다음 표에서는 예시에서 저장소 분류 및 클러스터 공유 볼륨이 설정되는 방법을 보여줍니다.
 
-| **Location** | **Classification** | **Associated storage** |
+| **위치** | **분류** | **관련 저장소** |
 | --- | --- | --- |
-| New York |GOLD |<p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p> |
+| 뉴욕 |GOLD |<p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p> |
 | SILVER |<p>C:\ClusterStorage\SourceVolume2</p><p>\\FileServer\SourceShare2</p> | |
-| Chicago |GOLD_TARGET |<p>C:\ClusterStorage\TargetVolume1</p><p>\\FileServer\TargetShare1</p> |
+| 시카코 |GOLD_TARGET |<p>C:\ClusterStorage\TargetVolume1</p><p>\\FileServer\TargetShare1</p> |
 | SILVER_TARGET |<p>C:\ClusterStorage\TargetVolume2</p><p>\\FileServer\TargetShare2</p> | |
 
-This table summarizes the behavior when you enable protection for virtual machines (VM1 - VM5) in this example environment.
+이 표는 이 예시 환경에서 가상 컴퓨터(VM1 - VM5)에 대한 보호를 사용하도록 설정할 때의 동작을 요약합니다.
 
-| **Virtual machine** | **Source storage** | **Source classification** | **Mapped target storage** |
+| **가상 컴퓨터** | **원본 저장소** | **원본 분류** | **매핑되는 대상 저장소** |
 | --- | --- | --- | --- |
 | VM1 |C:\ClusterStorage\SourceVolume1 |GOLD |<p>C:\ClusterStorage\SourceVolume1</p><p>\\\FileServer\SourceShare1</p><p>Both GOLD_TARGET</p> |
 | VM2 |\\FileServer\SourceShare1 |GOLD |<p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p> <p>Both GOLD_TARGET</p> |
 | VM3 |C:\ClusterStorage\SourceVolume2 |SILVER |<p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p> |
 | VM4 |\FileServer\SourceShare2 |SILVER |<p>C:\ClusterStorage\SourceVolume2</p><p>\\FileServer\SourceShare2</p><p>Both SILVER_TARGET</p> |
-| VM5 |C:\ClusterStorage\SourceVolume3 |N/A |No mapping, so the default storage location of the Hyper-V host is used |
+| VM5 |C:\ClusterStorage\SourceVolume3 |해당 없음 |매핑이 없어 Hyper-V 호스트의 기본 저장소 위치가 사용됨 |
 
-## <a name="next-steps"></a>Next steps
-Now that you have a better understanding of storage mapping, [get ready to deploy Azure Site Recovery](site-recovery-best-practices.md).
+## <a name="next-steps"></a>다음 단계
+저장소 매핑을 보다 이해했으므로 [Azure Site Recovery 배포를 준비](site-recovery-best-practices.md)합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

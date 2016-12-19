@@ -1,55 +1,71 @@
 ---
-title: Azure Functions 타이머 트리거 | Microsoft Docs
-description: Azure Functions에서 타이머 트리거를 사용하는 방법을 파악합니다.
+title: "Azure Functions 타이머 트리거 | Microsoft Docs"
+description: "Azure Functions에서 타이머 트리거를 사용하는 방법을 파악합니다."
 services: functions
 documentationcenter: na
 author: christopheranderson
 manager: erikre
-editor: ''
-tags: ''
-keywords: Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
-
+editor: 
+tags: 
+keywords: "Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
+ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/22/2016
+ms.date: 10/31/2016
 ms.author: chrande; glenga
+translationtype: Human Translation
+ms.sourcegitcommit: b41a5aacec6748af5ee05b01487310cc339af1f9
+ms.openlocfilehash: 542e5378aff893741a68c979bc2c5e8bfe58ba26
+
 
 ---
-# Azure Functions 타이머 트리거
+# <a name="azure-functions-timer-trigger"></a>Azure Functions 타이머 트리거
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-이 문서에서는 Azure Functions에서 타이머 트리거를 구성하는 방법을 설명합니다. 타이머 트리거는 일정에 따라, 한 번만 또는 반복해서 함수를 호출합니다.
+이 문서에서는 Azure Functions에서 타이머 트리거를 구성하고 코딩하는 방법을 설명합니다. Azure Functions는 타이머에 대한 트리거를 지원합니다. 타이머 트리거는 일정에 따라, 한 번만 또는 반복해서 함수를 호출합니다. 
+
+타이머 트리거는 다중 인스턴스 확장을 지원합니다. 특정 타이머 함수의 단일 인스턴스 하나는 모든 인스턴스에 대해 실행됩니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## 타이머 트리거에 대한 function.json
-*function.json* 파일은 일정 식을 제공합니다. 예를 들어 다음 일정은 매 분마다 함수를 실행합니다.
+<a id="trigger"></a>
+
+## <a name="timer-trigger"></a>타이머 트리거
+함수에 대한 타이머 트리거는 function.json의 `bindings` 배열에서 다음과 같은 JSON 개체를 사용합니다.
 
 ```json
 {
-  "bindings": [
-    {
-      "schedule": "0 * * * * *",
-      "name": "myTimer",
-      "type": "timerTrigger",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
+    "schedule": "<CRON expression - see below>",
+    "name": "<Name of trigger parameter in function signature>",
+    "type": "timerTrigger",
+    "direction": "in"
 }
 ```
 
-타이머 트리거는 다중 인스턴스 확장을 자동으로 처리합니다. 특정 타이머 함수의 단일 인스턴스만이 모든 인스턴스에 실행됩니다.
+`schedule`의 값은 `{second} {minute} {hour} {day} {month} {day of the week}`의 6개 필드를 포함하는 [CRON 식](http://en.wikipedia.org/wiki/Cron#CRON_expression)입니다. 온라인에서 볼 수 있는 많은 cron 식은 `{second}` 필드를 생략합니다. 그 중 하나를 복사하는 경우 추가 `{second}` 필드에 대해 조정해야 합니다. 특정 예제를 보려면 아래에 있는 [일정 예제](#examples)를 참조하세요.
 
-## 일정 식의 서식
-일정 식은 6개의 필드 `{second} {minute} {hour} {day} {month} {day of the week}`을(를) 포함하는 [CRON 식](http://en.wikipedia.org/wiki/Cron#CRON_expression)입니다.
+CRON 식과 함께 사용하는 기본 표준 시간대는 UTC(협정 세계시)입니다. 다른 표준 시간대를 기반으로 하는 CRON 식을 사용하려는 경우 `WEBSITE_TIME_ZONE`이라는 함수 앱에 대한 새 앱 설정을 만듭니다. [Microsoft 표준 시간대 색인](https://msdn.microsoft.com/library/ms912391.aspx)에 나온 대로 값을 원하는 표준 시간대의 이름으로 설정합니다. 
 
-온라인에서 찾은 cron 식은 대부분 {두 번째} 필드를 생략하므로 해당 필드 중 하나를 복사하면 추가 필드에 대해 조정해야 합니다.
+예를 들어 *동부 표준시*는 UTC-05:00입니다. 타이머 트리거를 매일 오전 10시 EST에 발생하도록 하려면 UTC 표준 시간대를 반영하는 다음과 같은 CRON 식을 사용할 수 있습니다.
 
-다음은 몇 가지 다른 일정 식의 예입니다.
+```json
+"schedule": "0 0 15 * * *",
+``` 
+
+또는 `WEBSITE_TIME_ZONE`이라는 함수 앱에 대한 새 앱 설정을 추가하고 값을 **동부 표준시**로 설정할 수도 있습니다.  그런 다음 오전 10시 EST에 대해 다음과 같은 CRON 식을 사용할 수 있습니다. 
+
+```json
+"schedule": "0 0 10 * * *",
+``` 
+
+
+<a name="examples"></a>
+
+## <a name="schedule-examples"></a>일정 예제
+다음은 `schedule` 속성에 사용할 수 있는 몇 가지 샘플 CRON 식입니다. 
 
 5분마다 한 번씩 트리거하려면:
 
@@ -87,17 +103,91 @@ ms.author: chrande; glenga
 "schedule": "0 30 9 * * 1-5",
 ```
 
-## 타이머 트리거 C# 코드 예제
-이 C# 코드 예제에서는 함수가 트리거될 때마다 단일 로그를 작성합니다.
+<a name="usage"></a>
 
-```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
+## <a name="trigger-usage"></a>트리거 사용
+타이머 트리거 함수를 호출하면 [타이머 개체](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)가 함수에 전달됩니다. 다음 JSON은 타이머 개체의 예제 표현입니다. 
+
+```json
 {
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");    
+    "Schedule":{
+    },
+    "ScheduleStatus": {
+        "Last":"2016-10-04T10:15:00.012699+00:00",
+        "Next":"2016-10-04T10:20:00+00:00"
+    },
+    "IsPastDue":false
 }
 ```
 
-## 다음 단계
-[!INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
+<a name="sample"></a>
 
-<!---HONumber=AcomDC_0824_2016-->
+## <a name="trigger-sample"></a>트리거 샘플
+function.json의 `bindings` 배열에 다음과 같은 타이머 트리거가 있다고 가정합니다.
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+타이머 개체를 읽어 실행이 지연되는지 여부를 확인하는 언어별 샘플을 참조하세요.
+
+* [C#](#triggercsharp)
+* [F#](#triggerfsharp)
+* [Node.JS](#triggernodejs)
+
+<a name="triggercsharp"></a>
+
+### <a name="trigger-sample-in-c"></a>C에서 트리거 샘플# #
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+}
+```
+
+<a name="triggerfsharp"></a>
+
+### <a name="trigger-sample-in-f"></a>F에서 트리거 샘플# #
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter ) =
+    if (myTimer.IsPastDue) then
+        log.Info("F# function is running late.")
+    let now = DateTime.Now.ToLongTimeString()
+    log.Info(sprintf "F# function executed at %s!" now)
+```
+
+<a name="triggernodejs"></a>
+
+### <a name="trigger-sample-in-nodejs"></a>Node.js에서 트리거 샘플
+```JavaScript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+
+    context.done();
+};
+```
+
+## <a name="next-steps"></a>다음 단계
+[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

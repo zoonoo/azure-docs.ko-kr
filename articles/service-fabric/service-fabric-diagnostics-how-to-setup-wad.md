@@ -1,12 +1,12 @@
 ---
-title: Azure 진단을 사용하여 로그 수집 | Microsoft Docs
-description: 이 문서는 Azure에서 실행 중인 서비스 패브릭에서 로그를 수집하도록 Azure 진단을 설정하는 방법을 설명합니다.
+title: "Azure 진단을 사용하여 로그 수집 | Microsoft Docs"
+description: "이 문서는 Azure에서 실행 중인 서비스 패브릭에서 로그를 수집하도록 Azure 진단을 설정하는 방법을 설명합니다."
 services: service-fabric
 documentationcenter: .net
 author: ms-toddabel
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9f7e1fa5-6543-4efd-b53f-39510f18df56
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2016
 ms.author: toddabel
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 454e1379e4ec598ffd31017b413f6b15c98039a6
+
 
 ---
 # <a name="collect-logs-by-using-azure-diagnostics"></a>Azure 진단을 사용하여 로그 수집
@@ -31,10 +35,10 @@ Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그�
 다음 도구는 이 문서의 일부 작업을 수행하는 데 사용됩니다.
 
 * [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md)(Azure Cloud Services와 관련이 있지만 여러 좋은 정보와 예 제공)
-* [Azure 리소스 관리자](../resource-group-overview.md)
+* [Azure 리소스 관리자](../azure-resource-manager/resource-group-overview.md)
 * [Azure PowerShell](../powershell-install-configure.md)
 * [Azure Resource Manager 클라이언트](https://github.com/projectkudu/ARMClient)
-* [Azure Resource Manager 템플릿](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+* [Azure Resource Manager 템플릿](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="log-sources-that-you-might-want-to-collect"></a>수집하려는 로그 원본
 * **Service Fabric 로그:** 플랫폼에서 표준 ETW(Windows용 이벤트 추적)와 EventSource 채널로 내보냅니다. 로그는 여러 유형 중 하나일 수 있습니다.
@@ -206,15 +210,18 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
         }
 ```
 
-성능 카운터 또는 이벤트 로그를 수집하려면 [Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단이 포함된 Windows 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)에 제공된 예제를 사용하여 Resource Manager 템플릿을 수정합니다. 그런 다음 Resource Manager 템플릿을 다시 게시합니다.
+성능 카운터 또는 이벤트 로그를 수집하려면 [Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단이 포함된 Windows 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 제공된 예제를 사용하여 Resource Manager 템플릿을 수정합니다. 그런 다음 Resource Manager 템플릿을 다시 게시합니다.
 
 ## <a name="next-steps"></a>다음 단계
 문제를 해결하는 동안 조사해야 하는 이벤트에 대한 자세한 내용을 확인하려면 [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) 및 [Reliable Services](service-fabric-reliable-services-diagnostics.md)가 내보낸 진단 이벤트를 확인합니다.
 
 ## <a name="related-articles"></a>관련 문서
-* [진단 확장을 사용하여 성능 카운터 또는 로그를 수집하는 방법 알아보기](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+* [진단 확장을 사용하여 성능 카운터 또는 로그를 수집하는 방법 알아보기](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Log Analytics의 Service Fabric 솔루션](../log-analytics/log-analytics-service-fabric.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

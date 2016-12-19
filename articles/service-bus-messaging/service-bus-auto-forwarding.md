@@ -1,19 +1,23 @@
 ---
-title: 서비스 버스 메시징 엔터티 자동 전달 | Microsoft Docs
-description: 큐 또는 구독을 다른 큐 또는 토픽에 연결하는 방법
-services: service-bus
+title: "Service Bus 메시징 엔터티 자동 전달 | Microsoft Docs"
+description: "큐 또는 구독을 다른 큐 또는 토픽에 연결하는 방법"
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a20450442a8471534e4cd3faab9167d1db65d9b3
+
 
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>자동 전달을 사용한 서비스 버스 엔터티 연결
@@ -67,6 +71,7 @@ Service Bus 성능 향상에 대한 자세한 내용은 [분할된 메시징 엔
 [분할된 메시징 엔터티]: service-bus-partitioning.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 
