@@ -1,12 +1,12 @@
 ---
-title: 리소스 분산 장치 클러스터 설명 | Microsoft Docs
-description: 클러스터 리소스 관리자에 대해 장애 도메인, 업그레이드 도메인, 노드 속성, 노드 용량을 지정하여 서비스 패브릭 클러스터를 설명합니다.
+title: "리소스 분산 장치 클러스터 설명 | Microsoft Docs"
+description: "클러스터 리소스 관리자에 대해 장애 도메인, 업그레이드 도메인, 노드 속성, 노드 용량을 지정하여 서비스 패브릭 클러스터를 설명합니다."
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
 ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/19/2016
 ms.author: masnider
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5c8da2a9fcb824deb2a15a661a5ea355984e4fab
+
 
 ---
-# 서비스 패브릭 클러스터 설명
+# <a name="describing-a-service-fabric-cluster"></a>서비스 패브릭 클러스터 설명
 서비스 패브릭 클러스터 리소스 관리자는 클러스터를 설명하는 몇 가지 메커니즘을 제공합니다. 런타임 중에 클러스터 Resource Manager는 이 정보를 사용하여 클러스터에서 실행되는 서비스의 높은 가용성을 보장하고 동시에 클러스터의 리소스가 적절하게 사용되도록 합니다.
 
-## 주요 개념
+## <a name="key-concepts"></a>주요 개념
 클러스터 Resource Manager는 클러스터를 설명하는 다음과 같은 몇 가지 기능을 지원합니다.
 
 * 장애 도메인
@@ -27,10 +31,11 @@ ms.author: masnider
 * 노드 속성
 * 노드 용량
 
-## 장애 도메인
+## <a name="fault-domains"></a>장애 도메인
 장애 도메인은 통합된 오류는 영역입니다. 단일 컴퓨터는 장애 도메인입니다(전원 공급 장치 오류, 드라이브 오류, 잘못된 NIC 펌웨어 등 다양한 이유로 실패할 수 있기 때문). 동일한 이더넷 스위치에 연결된 다수의 컴퓨터는 하나의 전원에 연결되어 있는 컴퓨터처럼 동일한 장애 도메인에 있는 것입니다. 이와 같이 중복되는 것이 당연하므로 장애 도메인은 기본적으로 계층 구조를 가지며 서비스 패브릭에서 URI로 표시됩니다.
 
-사용자 고유의 클러스터를 설정 된 경우 모든 실패 영역을 고려하여 장애 도메인이 올바르게 설정되었는지 확인하여 서비스 패브릭이 서비스를 안전하게 배치했던 위치를 알 수 있도록 합니다. "안전하게"는 실제로 스마트하게 라는 의미로, 장애 도메인이 손실되어(예를 들어 위에 나열된 구성 요소 중 하나에 장애 발생) 서비스가 정지하는 위치에 서비스를 배치하면 안 됩니다. Azure 환경에서, 사용자 대신 클러스터의 노드를 올바르게 구성하기 위해 작업 환경에 제공되는 장애 도메인 정보를 활용하겠습니다. 아래 그림(그림 7)에서는 간단한 예로서 장애 도메인을 발생시키는 모든 엔터티에 색을 넣고 발생한 여러 장애 도메인을 모두 나열합니다. 이 예제에는 데이터센터(DC), 랙(R) 및 블레이드(B)가 있습니다. 각 블레이드에 하나 이상의 가상 컴퓨터가 있는 경우 장애 도메인 계층 구조에 또 다른 계층이 있다고 볼 수 있습니다.
+사용자 고유의 클러스터를 설정 된 경우 모든 실패 영역을 고려하여 장애 도메인이 올바르게 설정되었는지 확인하여 서비스 패브릭이 서비스를 안전하게 배치했던 위치를 알 수 있도록 합니다. "안전하게"는 실제로 스마트하게 라는 의미로, 장애 도메인이 손실되어(예를 들어 위에 나열된 구성 요소 중 하나에 장애 발생) 서비스가 정지하는 위치에 서비스를 배치하면 안 됩니다.  Azure 환경에서, 사용자 대신 클러스터의 노드를 올바르게 구성하기 위해 작업 환경에 제공되는 장애 도메인 정보를 활용하겠습니다.
+아래 그림(그림 7)에서는 간단한 예로서 장애 도메인을 발생시키는 모든 엔터티에 색을 넣고 발생한 여러 장애 도메인을 모두 나열합니다. 이 예제에는 데이터센터(DC), 랙(R) 및 블레이드(B)가 있습니다. 각 블레이드에 하나 이상의 가상 컴퓨터가 있는 경우 장애 도메인 계층 구조에 또 다른 계층이 있다고 볼 수 있습니다.
 
 ![장애 도메인을 통해 구성된 노드][Image1]
 
@@ -40,11 +45,11 @@ ms.author: masnider
 
  장애 도메인의 "트리" 구조가 불균형하도록 클러스터를 구성하면 클러스터 Resource Manager가 복제본을 최상으로 할당하는 데 어려움을 겪게 되며, 특히 특정 도메인의 손실이 클러스터의 가용성에 과도하게 영향을 미칠 수 있으므로 클러스터 Resource Manager는 "무거운" 도메인에 있는 컴퓨터의 효율적인 사용(서비스 배치)과 도메인의 손실이 문제를 일으키지 않는 서비스 배치 사이에서 고민하게 됩니다.
 
- 아래 다이어그램에서는 서로 다른 두 개의 예제 클러스터 레이아웃을 보여 줍니다. 하나는 노드가 장애 도메인 전체에 잘 분산된 클러스터이고, 다른 하나는 하나의 장애 도메인이 더 많은 노드가 되는 클러스터입니다. Azure에서 사용자를 위해 어떤 장애 및 업그레이드 도메인에 어떤 노드를 포함시킬지에 대한 선택을 처리하기 때문에 사용자는 이러한 유형의 불균형을 볼 수 없습니다. 그러나 자체 클러스터 온-프레미스 또는 다른 환경에서 구축하는 경우 이는 고려해야 할 문제입니다.
+ 아래 다이어그램에서는 서로 다른 두 개의 예제 클러스터 레이아웃을 보여 줍니다. 하나는 노드가 장애 도메인 전체에 잘 분산된 클러스터이고, 다른 하나는 하나의 장애 도메인이 더 많은 노드가 되는 클러스터입니다.  Azure에서 사용자를 위해 어떤 장애 및 업그레이드 도메인에 어떤 노드를 포함시킬지에 대한 선택을 처리하기 때문에 사용자는 이러한 유형의 불균형을 볼 수 없습니다. 그러나 자체 클러스터 온-프레미스 또는 다른 환경에서 구축하는 경우 이는 고려해야 할 문제입니다.
 
  ![두 개의 다른 클러스터 레이아웃][Image2]
 
-## 업그레이드 도메인
+## <a name="upgrade-domains"></a>업그레이드 도메인
 업그레이드 도메인은 서비스 패브릭 리소스 관리자가 실패에 대해 계획을 세울 수 있도록 클러스터의 레이아웃을 이해하는 데 도움을 주는 또 다른 기능입니다. 업그레이드 도메인은 업그레이드함과 동시에 작동이 멈추는 영역(실제 노드 설정)을 정의합니다.
 
 업그레이드 도메인은 장애 도메인과 많이 닮았지만 몇 가지 주요 차이점이 있습니다. 첫째, 업그레이드 도메인은 일반적으로 정책에 의해 정의되는 반면, 장애 도메인은 조정된 오류의 영역에서 엄격하게 정의됩니다(주로 환경의 하드웨어 레이아웃). 그러나 업그레이드 도메인의 경우 몇 개나 필요한지 결정하게 됩니다. 또 다른 차이점으로는 적어도 지금은 업그레이드 도메인은 계층 구조가 아닙니다. 계층 구조라기보다는 간단한 태그에 더 가깝습니다.
@@ -65,8 +70,8 @@ ms.author: masnider
 
 가장 일반적인 모델(및 호스팅된 Azure 서비스 패브릭 클러스터에 사용하는 모델)은 FD/UD 행렬로, FD와 UD는 테이블을 형성하고 노드는 대각선을 따라 배치됩니다. 이는 스파스가 될지 압축될지 여부는 FD와 UD의 수와 비교하여 총 노드 수에 달려 있습니다(다시 말하면, 그림 10의 맨 아래 오른쪽 옵션에 나와있는 대로 충분히 큰 클러스터의 경우 거의 모든 항목이 조밀한 행렬 패턴처럼 보입니다).
 
-## 장애 및 업그레이드 도메인 제약 조건 및 결과 동작
-클러스터 Resource Manager는 장애 및 업그레이드 도메인 간 서비스 분산 작업을 제약 조건으로 지정합니다. [이 문서](service-fabric-cluster-resource-manager-management-integration.md)에서 제약 조건에 대한 자세한 내용을 확인할 수 있습니다. 장애 및 업그레이드 도메인 제약 조건은 다음과 같이 정의됩니다. 즉, "지정한 서비스 파티션에서 두 도메인 간 복제본 수 차이는 *개 이상*이어야 합니다." 즉, 실질적으로 클러스터에서 지정된 서비스를 이동하거나 정렬하는 것은 장애 또는 업그레이드 도메인 제약 조건을 위반할 수 있으므로 유효하지 않습니다.
+## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>장애 및 업그레이드 도메인 제약 조건 및 결과 동작
+클러스터 Resource Manager는 장애 및 업그레이드 도메인 간 서비스 분산 작업을 제약 조건으로 지정합니다. [이 문서](service-fabric-cluster-resource-manager-management-integration.md)에서 제약 조건에 대한 자세한 내용을 확인할 수 있습니다. 장애 및 업그레이드 도메인 제약 조건은 다음과 같이 정의됩니다. 즉, "지정한 서비스 파티션에서 두 도메인 간 복제본 수 차이는 *1개 이상*이어야 합니다."  즉, 실질적으로 클러스터에서 지정된 서비스를 이동하거나 정렬하는 것은 장애 또는 업그레이드 도메인 제약 조건을 위반할 수 있으므로 유효하지 않습니다.
 
 한 가지 예를 살펴보겠습니다. 6개의 노드를 포함하며 5개의 장애 도메인과 5개의 업그레이드 도메인으로 구성된 클러스터가 있다고 가정해 보겠습니다.
 
@@ -117,7 +122,7 @@ FD0에는 복제본이 2개 있지만 FD1에는 복제본이 없으므로 총 2�
 
 장애 도메인을 기준으로 부하가 분산되는 경우도 업그레이드 도메인 제약 조건에 위반되므로(UD1에는 복제본이 2개 있지만 UD0에는 복제본이 없음) 유효하지 않습니다.
 
-## 장애 및 업그레이드 도메인 구성
+## <a name="configuring-fault-and-upgrade-domains"></a>장애 및 업그레이드 도메인 구성
 장애 도메인 및 업그레이드 도메인 정의는 Azure 호스티드 서비스 패브릭 배포에서 자동으로 수행되며, 서비스 패브릭은 Azure의 환경 정보를 선택합니다. Azure에서 장애 및 업그레이드 도메인 정보 모두 "단일 수준"처럼 보이지만, 실제로 Azure 스택의 낮은 계층의 정보를 캡슐화하고 사용자의 관점에서 논리적 장애 및 업그레이드 도메인을 나타냅니다.
 
 사용자의 클러스터를 구축하는 경우(또는 개발 컴퓨터에서 특정 토폴로지를 실행하려는 경우) 장애 도메인 및 업그레이드 도메인 정보를 사용자가 직접 제공해야 합니다. 이 예에서는 세 개의 "데이터센터"(각각 세 개의 랙 포함)에 걸쳐 확장된 9 노드 로컬 개발 클러스터와 세 개의 데이터 센터에 걸쳐 있는 업그레이드 도메인을 정의합니다. 클러스터 매니페스트 템플릿에서는 다음과 같이 나타납니다.
@@ -147,7 +152,7 @@ ClusterManifest.xml
 > 
 > 
 
-## 배치 제약 조건 및 노드 속성
+## <a name="placement-constraints-and-node-properties"></a>배치 제약 조건 및 노드 속성
 종종(실제로 대부분의 경우) 특정 워크로드가 클러스터의 특정 노드 또는 특정 노드 집합에서만 실행되도록 하려 할 것입니다. 예를 들어, 일부 워크로드는GPU 또는 SSD가 필요할 수 있습니다. 이에 대한 좋은 예는 거의 모든 n 계층 아키텍처로, 특정 컴퓨터는 응용 프로그램의 서비스 프런트 엔드/인터페이스의 역할을 하고(따라서 인터넷에 노출될 수 있음) 다른 컴퓨터(종종 다른 하드웨어 리소스 포함)는 계산 또는 저장소 계층의 작업을 처리합니다(일반적으로 인터넷에 노출되지 않음). 서비스 패브릭은 마이크로 서비스 환경에서 특정 워크로드가 특정 하드웨어 구성에서 실행될 것을 기대합니다. 예를 들어,
 
 * 기존 n 계층 응용 프로그램은 서비스 패브릭 환경으로 "리프트 및 이동"되었습니다.
@@ -175,7 +180,7 @@ ClusterManifest.xml
   
   * ()
   
-  다음은 위의 기호 중 일부를 사용하는 기본 제약 조건문의 몇 가지 예입니다. 노드 속성은 문자열, 부울 또는 숫자 값일 수 있습니다.
+  다음은 위의 기호 중 일부를 사용하는 기본 제약 조건문의 몇 가지 예입니다. 노드 속성은 문자열, 부울 또는 숫자 값일 수 있습니다.   
   
   * "Foo >= 5"
   * "NodeColor != green"
@@ -199,7 +204,7 @@ ClusterManifest.xml
     </NodeType>
 ```
 
-다음과 같은 서비스에 대 한 서비스 배치 제약 조건을 만들 수 있습니다.
+다음과 같은 서비스에 대한 서비스 배치 제약 조건을 만들 수 있습니다.
 
 C#
 
@@ -240,12 +245,12 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 이 시점에서 노드의 속성은 클러스터 정의를 통해 정의되므로 클러스터로 업그레이드하지 않고 업데이트할 수 없으며, 해당 속성을 새로 고치기 위해서는 각 노드가 작동 중단되었다가 다시 작동되어야 한다는 점을 이해해야 합니다.
 
-## 용량
+## <a name="capacity"></a>용량
 모든 조정자의 가장 중요한 작업 중 하나는 클러스터에서 리소스 소비를 관리할 수 있도록 돕는 일입니다. 서비스를 효율적으로 실행하려는 경우 마지막으로 해야 할 일은 자주 사용되는 노드(리소스 경합 및 성능 저하로 이어짐)와 자주 사용되지 않는 노드(리소스 낭비)를 구분하는 것입니다. 하지만 분산(곧 다룰 예정)보다 좀더 기본적인 것을 생각해 보겠습니다. 먼저 노드가 리소스를 소모하지 않는 경우는 어떨까요?
 
 서비스 패브릭은 리소스를 "메트릭"으로 나타냅니다. 메트릭은 서비스 패브릭에 대해 설명하려는 논리적 또는 물리적 리소스입니다. 메트릭의 예로는 "WorkQueueDepth" 또는 "MemoryInMb" 등이 있습니다. 메트릭은 해당 노드 속성의 배치 제약 조건 및 노드 속성과 다르며 일반적으로 노드 자체의 정적인 설명자이고, 동시에 노드에서 실행되고 있을 때 노드가 포함하며 해당 서비스가 소비하는 리소스에 관한 것입니다. 속성은 HasSSD와 같은 것으로 True 또는 False로 지정할 수 있지만, 해당 SSD에 서 사용 가능한 공간(서비스에서 사용)의 크기는 "DriveSpaceInMb"와 같은 메트릭일 것입니다. 노드 용량은 "DriveSpaceInMb"를 드라이브의 예약되지 않은 공간의 총 크기로 설정하고 서비스는 런타임 시 메트릭의 사용량을 보고합니다.
 
-모든 리소스 *부하 분산*을 해제한 경우에도 서비스 패브릭의 클러스터 Resource Manager는 여전히 노드가 해당 용량을 초과하지 않도록 할 수 있습니다(전체 클러스터가 너무 꽉 차지 않은 경우 제외). 용량은 클러스터 Resource Manager가 노드에 있는 리소스의 양을 이해하기 위해 사용하는 또 다른 *제약 조건*입니다. 서비스 수준에서 용량과 소비량은 메트릭을 기준으로 표현됩니다. 예를 들어 메트릭이 "MemoryInMb"일 수 있으며, 지정된 노드 용량은 2048 MemoryInMb이지만 지정된 서비스는 현재 64 MemoryInMb를 사용하고 있다고 표시할 수 있습니다.
+모든 리소스 *부하 분산*을 해제한 경우에도 서비스 패브릭의 클러스터 Resource Manager는 여전히 노드가 해당 용량을 초과하지 않도록 할 수 있습니다(전체 클러스터가 너무 꽉 차지 않은 경우 제외). 용량은 클러스터 Resource Manager가 노드에 있는 리소스의 양을 이해하기 위해 사용하는 또 다른 *제약 조건* 입니다. 서비스 수준에서 용량과 소비량은 메트릭을 기준으로 표현됩니다. 예를 들어 메트릭이 "MemoryInMb"일 수 있으며, 지정된 노드 용량은 2048 MemoryInMb이지만 지정된 서비스는 현재 64 MemoryInMb를 사용하고 있다고 표시할 수 있습니다.
 
 런타임 중에 클러스터 Resource Manager는 각 노드(해당 용량에 의해 정의됨)에 각 리소스가 얼마나 있는지 그리고 얼마나 남았는지(각 서비스에서 선언된 모든 사용량 뺌) 추적합니다. 이 정보를 통해 서비스 패브릭 리소스 관리자는 노드가 용량을 초과하지 않도록 복제본을 어디에 배치하거나 이동시킬지 알 수 있습니다.
 
@@ -285,14 +290,14 @@ ClusterManifest.xml
 
 또한 서비스의 부하를 동적으로 변경할 수도 있습니다. 복제본의 부하가 64에서 1024로 변경되었으나 당시에 실행되던 노드에는 512("MemoryInMb" 메트릭)만 남아 있었습니다. 이로 인해 해당 노드의 모든 복제본 및 인스턴스의 총 사용량이 해당 노드의 용량을 초과하여 복제본 또는 인스턴스가 현재 배치된 위치를 사용할 수 없게 될 수 있습니다. 부하가 동적으로 변경되는 이 시나리오에 대한 나중에 자세히 설명할 것이지만, 용량에 관한 한 동일하게 처리됩니다. 즉, 클러스터 Resource Manager는 자동으로 시작되고 하나 이상의 복제본 또는 인스턴스를 해당 노드에서 다른 노드로 이동시켜 노드의 최대 용량 아래로 낮춥니다. 이 작업을 수행하는 경우 클러스터 Resource Manager는 모든 움직임에 따른 비용을 최소화하려 합니다(비용의 개념은 나중에 설명).
 
-## 클러스터 용량
+## <a name="cluster-capacity"></a>클러스터 용량
 그렇다면 전체 클러스터 용량이 꽉 차지 않도록 하려면 어떻게 해야 합니까? 클러스터 Resource Manager에서 수행된 작업과 관계없이 서비스는 부하가 최대로 증가할 수 있습니다. 즉, 오늘은 여유가 많은 클러스터가 내일은 수요가 많아져 전력이 부족해질 수 있으므로 동적 부하의 경우 실제로 할 수 있는 일이 별로 없지만, 기본적인 문제를 방지하기 위해 내장된 컨트롤이 몇 가지 있습니다. 가장 먼저 할 수 있는 작업은 클러스터가 꽉 차도록 만드는 워크로드가 생성되지 않도록 하는 것입니다.
 
 간단한 상태 비저장 서비스를 만들기로 이동하고 이와 관련된 일부 부하가 있다고 가정해 보겠습니다(기본 및 동적 부하 보고에 대해서는 나중에 자세히 설명). 이 서비스의 경우, 일부 리소스(DiskSpace라고 가정)를 관리하고 서비스의 모든 인스턴스에 대해 기본적으로 5단위의 DiskSpace를 소비한다고 가정해 보겠습니다. 3개의 서비스 인스턴스를 만들려고 합니다. 잘하셨습니다. 즉, 이들 서비스 인스턴스를 만들기 위해서는 클러스터에 15단위의 DiskSpace가 필요하다는 의미입니다. 서비스 패브릭은 각 메트릭의 전체 용량 및 소비량을 계속 계산하여 쉽게 결정할 수 있으며 공간이 부족한 경우 서비스 호출을 거부할 수 있습니다.
 
 요구 사항은 15단위만 사용할 수 있기 때문에, 이 공간은 여러 방식으로 할당할 수 있습니다. 15개의 노드에 나머지 용량 단위를 할당하거나 5개의 노드에 나머지 3단위 용량을 할당할 수 있습니다. 세 개의 서로 다른 노드에 용량이 충분하지 않은 경우 서비스 패브릭은 필요한 노드 세 개에 공간을 확보하기 위해 클러스터에 이미 있는 서비스를 다시 구성합니다. 전체 클러스터가 거의 꽉 차지 않은 한 이러한 재배열은 거의 항상 가능합니다.
 
-## 버퍼링된 용량
+## <a name="buffered-capacity"></a>버퍼링된 용량
 전체 클러스터 용량 관리에 도움이 되는 또 다른 개념은 각 노드에서 지정된 용량에 일부 예약된 버퍼를 추가하는 것입니다. 이 설정은 선택 사항이지만, 전체 노드 용량의 일부분을 지정하여 업그레이드 도중이나 클러스터 용량이 감소하여 실패한 경우 서비스를 배치하는 데에만 사용할 수 있습니다. 현재 ClusterManifest를 통해 모든 노드에 대해 메트릭을 기준으로 버퍼가 전역에 지정되어 있습니다. 예약 용량에 대해 선택한 값은 서비스를 더욱 제한하는 리소스의 함수이자 클러스터의 장애 및 업그레이드 도메인 수입니다. 일반적으로 더 많은 장애 및 업그레이드 도메인은 버퍼링된 용량에 대해 낮은 값을 선택할 수 있다는 의미이며, 업그레이드 도중 그리고 실패 시 사용할 수 없는 클러스터 양을 줄여야 합니다. 메트릭에 대해 노드 용량을 지정한 경우 버퍼율을 지정할 수도 있습니다.
 
 버퍼링된 용량을 지정하는 방법의 예는 다음과 같습니다.
@@ -335,18 +340,22 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-## 다음 단계
-* 클러스터 Resource Manager 내의 아키텍처 및 정보 흐름에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-architecture.md)를 확인하세요.
-* 조각 모음 메트릭 정의는 노드의 부하를 분배하는 대신 통합하는 한 가지 방법입니다. 조각 모음을 구성하는 방법에 대해 알아보려면 [이 문서](service-fabric-cluster-resource-manager-defragmentation-metrics.md)를 참조하세요.
+## <a name="next-steps"></a>다음 단계
+* 클러스터 Resource Manager 내의 아키텍처 및 정보 흐름에 대한 자세한 내용은 [이 문서 ](service-fabric-cluster-resource-manager-architecture.md)
+* 조각 모음 메트릭 정의는 노드의 부하를 분배하는 대신 통합하는 한 가지 방법입니다. 조각 모음을 구성하는 방법에 대해 알아보려면 [이 문서](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * 처음부터 시작 및 [서비스 패브릭 클러스터 Resource Manager 소개](service-fabric-cluster-resource-manager-introduction.md)
-* 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)에 대한 문서를 확인하세요.
+* 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
-[Image2]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
-[Image3]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-and-upgrade-domains-with-placement.png
-[Image4]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-and-upgrade-domain-layout-strategies.png
-[Image5]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
-[Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
-[Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
+[Image1]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
+[Image2]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
+[Image3]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-and-upgrade-domains-with-placement.png
+[Image4]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-and-upgrade-domain-layout-strategies.png
+[Image5]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
+[Image6]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
+[Image7]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

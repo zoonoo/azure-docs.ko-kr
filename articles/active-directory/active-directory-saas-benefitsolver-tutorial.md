@@ -1,11 +1,11 @@
 ---
-title: '자습서: Benefitsolver와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory에서 Benefitsolver를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다.
+title: "자습서: Benefitsolver와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory에서 Benefitsolver를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: cf4529b1-3fb6-4475-82b7-2ceedcb70b3c
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eb7dce1c0664e34c4946bb08f5b412e1e01c715d
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-benefitsolver"></a>자습서: Benefitsolver와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>자습서: Benefitsolver와 Azure Active Directory 통합
 이 자습서는 Azure 및 Benefitsolver의 통합을 보여 주기 위한 것입니다.  
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -36,7 +40,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-benefitsolver"></a>Benefitsolver에 응용 프로그램 통합 사용
 이 섹션은 Benefitsolver에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
-### <a name="to-enable-the-application-integration-for-benefitsolver,-perform-the-following-steps:"></a>Benefitsolver에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+### <a name="to-enable-the-application-integration-for-benefitsolver-perform-the-following-steps"></a>Benefitsolver에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
    ![Active Directory](./media/active-directory-saas-benefitsolver-tutorial/IC700993.png "Active Directory")
@@ -65,7 +69,7 @@ Benefitsolver 응용 프로그램은 특정 서식에서 SAML 어설션을 예�
 
 ![특성](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributes")
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **Benefitsolver** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
    ![Single Sign-on 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configure Single Sign-On")
@@ -124,7 +128,7 @@ Benefitsolver의 경우 직원 데이터는 HRIS 시스템의 인구 조사 파�
 ## <a name="assigning-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
-### <a name="to-assign-users-to-benefitsolver,-perform-the-following-steps:"></a>Benefitsolver에 사용자를 할당하려면 다음 단계를 수행합니다.
+### <a name="to-assign-users-to-benefitsolver-perform-the-following-steps"></a>Benefitsolver에 사용자를 할당하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **Benefitsolver** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
@@ -135,6 +139,9 @@ Benefitsolver의 경우 직원 데이터는 HRIS 시스템의 인구 조사 파�
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

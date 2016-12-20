@@ -1,5 +1,5 @@
 # 개요
-## [트래픽 관리자란?](traffic-manager-overview.md)
+## [Traffic Manager란?](traffic-manager-overview.md)
 ## [Traffic Manager 작동 방식](traffic-manager-how-traffic-manager-works.md)
 ## [Traffic Manager 끝점](traffic-manager-endpoint-types.md)
 ## [Traffic Manager 끝점 모니터링 및 장애 조치(failover)](traffic-manager-monitoring.md)
@@ -21,12 +21,17 @@
 ## [네트워크 리소스 사용](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell(클래식)](/powershell/servicemanagement/)
+## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
+## [PowerShell(클래식)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
+## [Azure CLI 2.0 미리 보기](/cli/azure/network/traffic-manager)
+## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
+## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html)
 ## [REST (영문)](https://msdn.microsoft.com/library/mt163667.aspx)
 
 # 관련 항목
-## [응용 프로그램 게이트웨이](/azure/application-gateway/)
+## [Application Gateway](/azure/application-gateway/)
 ## [부하 분산 장치](/azure/load-balancer/)
 ## [Azure DNS](/azure/dns/)
 
@@ -40,6 +45,6 @@
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -29,7 +29,7 @@ Azure DevTest Labs는 개발자와 테스터가 낭비를 최소화하고 비용
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=devtest-lab">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

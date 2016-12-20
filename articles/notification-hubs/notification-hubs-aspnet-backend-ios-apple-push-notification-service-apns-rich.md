@@ -1,12 +1,12 @@
 ---
-title: Azure Notification Hubs Rich Push
-description: Learn how to send rich push notifications to an iOS app from Azure. Code samples written in Objective-C and C#.
+title: "Azure 알림 허브 다양한 푸시"
+description: "Azure에서 iOS 앱에 다양한 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Objective-C 및 C#으로 작성되었습니다."
 documentationcenter: ios
 services: notification-hubs
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 590304df-c0a4-46c5-8ef5-6a6486bb3340
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -14,36 +14,40 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 394efdc2dfaff0666bc23d8a448b0a00d414da99
+
 
 ---
-# <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs Rich Push
-## <a name="overview"></a>Overview
-In order to engage users with instant rich contents, an application might want to push beyond plain text. These notifications promote user interactions and  present content such as urls, sounds, images/coupons, and more. This tutorial builds on the [Notify Users](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) topic, and shows how to send push notifications that incorporate payloads (for example, image).
+# <a name="azure-notification-hubs-rich-push"></a>Azure 알림 허브 다양한 푸시
+## <a name="overview"></a>개요
+사용자에게 즉각적인 풍부한 콘텐츠를 제공하기 위해 응용 프로그램은 일반 텍스트 이상을 푸시할 수 있습니다. 이러한 알림은 사용자 조작을 촉진하고 URL, 소리, 이미지/쿠폰 등의 콘텐츠를 제공합니다. 이 자습서는 [사용자에게 알림](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) 항목을 기반으로 하며 페이로드(예: 이미지)를 통합하는 푸시 알림을 보내는 방법을 보여줍니다.
 
-This tutorial is compatible with iOS 7 & 8.
+이 자습서는 iOS 7 및 8과 호환됩니다.
 
   ![][IOS1]
 
-At a high level:
+개요:
 
-1. The app backend:
-   * Stores the rich payload (in this case, image) in the backend database/local storage
-   * Sends ID of this rich notification to the device
-2. App on the device:
-   * Contacts the backend requesting the rich payload with the ID it receives
-   * Sends users notifications on the device when data retrieval is complete, and shows the payload immediately when users tap to learn more
+1. 앱 백 엔드:
+   * 백 엔드 데이터베이스/로컬 저장소에 풍부한 페이로드(이 경우 이미지)를 저장합니다.
+   * 이 풍부한 알림의 ID를 장치에 보냅니다.
+2. 장치의 앱:
+   * 받은 ID로 풍부한 페이로드를 요청하는 백 엔드에 연결합니다.
+   * 데이터 검색이 완료되면 장치에서 사용자에게 알림을 보내고 사용자가 자세한 내용을 보기 위해 탭하면 즉시 페이로드를 표시합니다.
 
-## <a name="webapi-project"></a>WebAPI Project
-1. In Visual Studio, open the **AppBackend** project that you created in the [Notify Users](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial.
-2. Obtain an image you would like to notify users with, and put it in an **img** folder in your project directory.
-3. Click **Show All Files** in the Solution Explorer, and right-click the folder to **Include In Project**.
-4. With the image selected, change its Build Action in Properties window to **Embedded Resource**.
+## <a name="webapi-project"></a>WebAPI 프로젝트
+1. Visual Studio에서 **사용자에게 알림** 자습서에서 만든 [AppBackend](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) 프로젝트를 엽니다.
+2. 사용자에게 알릴 이미지를 얻어 프로젝트 디렉터리의 **img** 폴더에 배치합니다.
+3. 솔루션 탐색기에서 **모든 파일 표시**를 클릭하고 **프로젝트에 포함**할 폴더를 마우스 오른쪽 단추로 클릭합니다.
+4. 이미지를 선택한 상태로 속성 창에서 해당 빌드 작업을 **포함 리소스**로 변경합니다.
    
     ![][IOS2]
-5. In **Notifications.cs**, add the following using statement:
+5. **Notifications.cs**에서 다음 using 문을 추가합니다.
    
         using System.Reflection;
-6. Update the whole **Notifications** class with the following code. Be sure to replace the placeholders with your notification hub credentials and image file name.
+6. 전체 **Notifications** 클래스를 다음 코드로 업데이트합니다. 자리 표시자를 알림 허브 자격 증명 및 이미지 파일 이름으로 바꿔야 합니다.
    
         public class Notification {
             public int Id { get; set; }
@@ -89,10 +93,10 @@ At a high level:
         }
    
    > [!NOTE]
-   > (optional) Refer to [How to embed and access resources by using Visual C#](http://support.microsoft.com/kb/319292) for more information on how to add and obtain project resources.
+   > (선택 사항) 프로젝트 리소스를 추가하고 얻는 방법에 대한 자세한 내용은 [Visual C#을 사용하여 리소스를 포함 및 액세스하는 방법](http://support.microsoft.com/kb/319292)을 참조하세요.
    > 
    > 
-7. In **NotificationsController.cs**, redefine **NotificationsController**  with the following snippets. This sends an initial silent rich notification id to device and allows client-side retrieval of image:
+7. **NotificationsController.cs**에서 **NotificationsController**를 다음 조각으로 다시 정의합니다. 그러면 초기 자동 풍부한 알림 ID가 장치에 전송되고 클라이언트 쪽에서 이미지를 검색할 수 있습니다.
    
         // Return http response with image binary
         public HttpResponseMessage Get(int id) {
@@ -121,36 +125,36 @@ At a high level:
    
             return Request.CreateResponse(HttpStatusCode.OK);
         }
-8. Now we will re-deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
-9. Select Azure Website as your publish target. Log in with your Azure account and select an existing or new Website, and make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
+8. 이제 모든 장치에서 액세스할 수 있도록 이 앱을 Azure 웹 사이트에 다시 배포합니다. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+9. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인하여 기존 또는 새로운 웹 사이트를 선택하며, **연결** 탭의 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 끝점* 이라고 합니다. **게시**를 클릭합니다.
 
-## <a name="modify-the-ios-project"></a>Modify the iOS project
-Now that you have modified your app backend to send just the *id* of a notification, you will change your iOS app to handle that id and retrieve the rich message from your backend.
+## <a name="modify-the-ios-project"></a>iOS 프로젝트 수정
+알림의 *id* 만 보내도록 앱 백 엔드를 수정했으므로 해당 ID를 처리하고 백 엔드에서 풍부한 메시지를 검색하도록 iOS 앱을 변경합니다.
 
-1. Open your iOS project, and enable remote notifications by going to your main app target in the **Targets** section.
-2. Click on **Capabilities**, turn on **Background Modes**, and check the **Remote Notifications** checkbox.
+1. iOS 프로젝트를 열고 **대상** 섹션에서 기본 앱 대상으로 이동하여 원격 알림을 사용하도록 설정합니다.
+2. **기능**을 클릭하고 **백그라운드 모드**를 켠 후 **원격 알림** 확인란을 선택합니다.
    
     ![][IOS3]
-3. Go to **Main.storyboard**, and make sure you have a View Controller (refered to as Home View Controller in this tutorial) from [Notify User](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial.
-4. Add a **Navigation Controller** to your storyboard, and control-drag to Home View Controller to make it the **root view** of navigation. Make sure the **Is Initial View Controller** in Attributes inspector is selected for the Navigation Controller only.
-5. Add a **View Controller** to storyboard and add an **Image View**. This is the page users will see once they choose to learn more by clicking on the notifiication. Your storyboard should look as follows:
+3. **Main.storyboard**로 이동하여 [사용자에게 알림](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) 자습서의 보기 컨트롤러(이 자습서에서는 홈 보기 컨트롤러라고 함)가 있는지 확인합니다.
+4. 스토리보드에 **탐색 컨트롤러**를 추가하고 Ctrl 키를 누른 상태에서 홈 보기 컨트롤러로 끌어 탐색의 **루트 보기**로 만듭니다. 특성 검사기에서 **Is Initial View Controller** 가 탐색 컨트롤러에 대해서만 선택되어 있어야 합니다.
+5. 스토리보드에 **보기 컨트롤러**를 추가하고 **이미지 보기**를 추가합니다. 이 페이지는 사용자가 자세한 내용을 보기 위해 알림에서 클릭하면 표시되는 페이지입니다. 스토리보드는 다음과 같이 표시됩니다.
    
     ![][IOS4]
-6. Click on the **Home View Controller** in storyboard, and make sure it has **homeViewController** as its **Custom Class** and **Storyboard ID** under the Identity inspector.
-7. Do the same for Image View Controller as **imageViewController**.
-8. Then, create a new View Controller class titled **imageViewController** to handle the UI you just created.
-9. In **imageViewController.h**, add the following to the controller's interface declarations. Make sure to control-drag from the storyboard image view to these properties to link the two:
+6. 스토리보드에서 **홈 보기 컨트롤러**를 클릭하고 특성 검사기에서 **homeViewController**가 해당 **사용자 지정 클래스** 및 **스토리 보드 ID**로 포함되어 있는지 확인합니다.
+7. 이미지 보기 컨트롤러에 대해서도 **imageViewController**와 동일하게 수행합니다.
+8. 그런 다음 방금 만든 UI를 처리하기 위한 **imageViewController** 라는 새 뷰 컨트롤러 클래스를 만듭니다.
+9. **imageViewController.h**에서 컨트롤러의 인터페이스 선언에 다음을 추가합니다. 스토리보드 이미지 보기에서 Ctrl 키를 누른 상태에서 이러한 속성으로 끌어 다음 두 항목을 연결해야 합니다.
    
         @property (weak, nonatomic) IBOutlet UIImageView *myImage;
         @property (strong) UIImage* imagePayload;
-10. In **imageViewController.m**, add the following at the end of **viewDidload**:
+10. **imageViewController.m**에서 **viewDidload** 끝에 다음을 추가합니다.
     
         // Display the UI Image in UI Image View
         [self.myImage setImage:self.imagePayload];
-11. In **AppDelegate.m**, import the image controller you created:
+11. **AppDelegate.m**에서, 사용자가 만든 이미지 컨트롤러를 가져옵니다.
     
         #import "imageViewController.h"
-12. Add an interface section with the following declaration:
+12. 다음 선언을 포함하여 인터페이스 섹션을 추가합니다.
     
         @interface AppDelegate ()
     
@@ -165,7 +169,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
         - (void)redirectToImageViewWithImage: (UIImage *)img;
     
         @end
-13. In **AppDelegate**, make sure your app registers for silent notifications in **application: didFinishLaunchingWithOptions**:
+13. **AppDelegate**에서, 반드시 사용자의 앱이 **application: didFinishLaunchingWithOptions**에 자동 알림을 등록해야 합니다.
     
         // Software version
         self.iOS8 = [[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && [[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)];
@@ -207,14 +211,14 @@ Now that you have modified your app backend to send just the *id* of a notificat
 
         return YES;
 
-1. Subsitute in the following implementation for **application:didRegisterForRemoteNotificationsWithDeviceToken** to take the storyboard UI changes into account:
+1. **application:didRegisterForRemoteNotificationsWithDeviceToken** 에 대한 다음 구현에서 대체하여 스토리보드 UI 변경 내용을 고려합니다.
    
        // Access navigation controller which is at the root of window
        UINavigationController *nc = (UINavigationController *)self.window.rootViewController;
        // Get home view controller from stack on navigation controller
        homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
        hvc.deviceToken = deviceToken;
-2. Then, add the following methods to **AppDelegate.m** to retrieve the image from your endpoint and send a local notification when retrieval is complete. Make sure to substitute the placeholder `{backend endpoint}` with your backend endpoint:
+2. 그런 다음 **AppDelegate.m** 에 다음 메서드를 추가하여 끝점에서 이미지를 검색하고 검색이 완료되면 로컬 알림을 보냅니다. 자리 표시자 `{backend endpoint}` 를 해당 백 엔드 끝점으로 대체해야 합니다.
    
        NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
    
@@ -293,7 +297,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
            }
            // Add "else if" here to handle more types of rich content such as url, sound files, etc.
        }
-3. Handle the local notification above by opening up the image view controller in **AppDelegate.m** with the following methods:
+3. 다음 메서드를 사용하여 **AppDelegate.m** 에서 이미지 뷰 컨트롤러를 열어 위의 로컬 알림을 처리합니다.
    
        // Helper: redirect users to image view controller
        - (void)redirectToImageViewWithImage: (UIImage *)img {
@@ -341,11 +345,11 @@ Now that you have modified your app backend to send just the *id* of a notificat
            completionHandler();
        }
 
-## <a name="run-the-application"></a>Run the Application
-1. In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).
-2. In the iOS app UI, enter a username and password of the same value for authentication and click **Log In**.
-3. Click **Send push** and you should see an in-app alert. If you click on **More**, you will be brought to the image you chose to include in your app backend.
-4. You can also click **Send push** and immediately press the home button of your device. In a few moments, you will receive a push notification. If you tap on it or click More, you will be brought to your app and the rich image content.
+## <a name="run-the-application"></a>응용 프로그램 실행
+1. XCode에서는 실제 iOS 장치에서 앱을 실행합니다(푸시 알림은 시뮬레이터에서 작동하지 않음).
+2. iOS 앱 UI에서 인증에 대해 동일한 값의 사용자 이름과 암호를 입력하고 **로그인**을 클릭합니다.
+3. **푸시 보내기** 를 클릭하면 앱 내 경고가 표시됩니다. **더 보기**를 클릭하면 앱 백 엔드에 포함되도록 선택한 이미지가 표시됩니다.
+4. **푸시 보내기** 를 클릭하고 즉시 장치의 홈 단추를 누를 수도 있습니다. 곧 푸시 알림을 받게 됩니다. 푸시 알림을 탭하거나 More를 클릭하면 앱과 풍부한 이미지 콘텐츠가 표시됩니다.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-1.png
 [IOS2]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png
@@ -354,6 +358,6 @@ Now that you have modified your app backend to send just the *id* of a notificat
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

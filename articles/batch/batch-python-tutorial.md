@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 09/27/2016
+ms.date: 11/30/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
+ms.sourcegitcommit: 64f70aab802ed377de1686fcdb7e641c30299b9c
+ms.openlocfilehash: 6630899081a76d7a8bc54f53a33c76dda9f1b0fa
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
-> 
-> 
+>
+>
 
 Python에서 작성한 작은 배치 응용 프로그램을 다룬 것처럼 [Azure 배치][azure_batch] 및 [배치 Python][py_azure_sdk] 클라이언트의 기본을 알아봅니다. 두 개의 샘플 스크립트에서는 배치 서비스를 사용하여 클라우드의 Linux 가상 컴퓨터에서 병렬 워크로드를 처리하는 방법과 파일 준비 및 검색을 위해 [Azure Storage](../storage/storage-introduction.md) 와 상호 작용하는 방식을 살펴봅니다. 일반적인 배치 응용 프로그램 워크플로를 습득하고 작업, 태스크, 풀 및 계산 노드와 같은 배치의 주요 구성 요소에 대해 이해합니다.
 
@@ -40,7 +40,7 @@ Python에서 작성한 작은 배치 응용 프로그램을 다룬 것처럼 [Az
 * **저장소 계정**: [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 섹션을 참조하세요.
 
 ### <a name="code-sample"></a>코드 샘플
-Python 자습서 [코드 샘플][github_article_samples]은 GitHub의 [azure-batch-samples][github_samples] 리포지토리에서 찾을 수 있는 여러 배치 코드 샘플 중 하나입니다. 리포지토리 홈 페이지에서 **복제 또는 다운로드 > ZIP 다운로드** 단추를 클릭하거나 [azure-batch-samples-master.zip][github_samples_zip] 직접 다운로드 링크를 클릭하여 모든 샘플을 다운로드할 수 있습니다. ZIP 파일의 내용을 추출하면 이 자습서에 대한 두 개의 스크립트는 `article_samples` 디렉터리에 있습니다.
+Python 자습서 [코드 샘플][github_article_samples]은 GitHub의 [azure-batch-samples][github_samples] 리포지토리에서 찾은 많은 배치 코드 샘플 중 하나입니다. 리포지토리 홈 페이지에서 **복제 또는 다운로드 > ZIP 다운로드** 단추를 클릭하거나 [azure-batch-samples-master.zip][github_samples_zip] 직접 다운로드 링크를 클릭하여 모든 샘플을 다운로드할 수 있습니다. ZIP 파일의 내용을 추출하면 이 자습서에 대한 두 개의 스크립트는 `article_samples` 디렉터리에 있습니다.
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
@@ -49,28 +49,28 @@ Python 자습서 [코드 샘플][github_article_samples]은 GitHub의 [azure-bat
 로컬 워크스테이션에서 *python_tutorial_client.py* 샘플 스크립트를 실행하려면 **2.7** 또는 **3.3+**와 호환되는 **Python 인터프리터**가 필요합니다. 스크립트는 Linux와 Windows 모두에서 테스트되었습니다.
 
 ### <a name="cryptography-dependencies"></a>암호화 종속성
-`azure-batch` 및 `azure-storage` Python 패키지에 필수적인 [cryptography][crypto] 라이브러리에 대한 종속성을 설치해야 합니다. 자세한 내용은 플랫폼에 적합한 다음 작업 중 하나를 수행하거나 [암호화 설치][crypto_install] 세부 정보를 참조하세요.
+`azure-batch` 및 `azure-storage` Python 패키지에 필수적인 [암호화][crypto] 라이브러리에 대한 종속성을 설치해야 합니다. 자세한 내용은 플랫폼에 적합한 다음 작업 중 하나를 수행하거나 [암호화 설치][crypto_install] 세부 정보를 참조하세요.
 
 * Ubuntu
-  
+
     `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
 * CentOS
-  
+
     `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
 * SLES/OpenSUSE
-  
+
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
 * Windows
-  
+
     `pip install cryptography`
 
 > [!NOTE]
 > Linux에서 Python 3.3+를 설치하는 경우 Python 종속성에 해당하는 python3을 사용합니다. 예를 들어 Ubuntu에서 `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
-> 
-> 
+>
+>
 
 ### <a name="azure-packages"></a>Azure 패키지
-또한 **Azure 배치** 및 **Azure Storage** Python 패키지를 설치합니다. 다음에 위치한 **pip** 및 *requirements.txt* 를 사용하여 수행할 수 있습니다.
+또한 **Azure 배치** 및 **Azure Storage** Python 패키지를 설치합니다. 다음에 위치한 **pip** 및 *requirements.txt*를 사용하여 두 패키지를 설치할 수 있습니다.
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -84,9 +84,9 @@ Python 자습서 [코드 샘플][github_article_samples]은 GitHub의 [azure-bat
 `pip install azure-storage`
 
 > [!TIP]
-> 권한 없는 계정을 사용하는 경우 명령의 접두사로 `sudo`을 사용합니다. 예: `sudo pip install -r requirements.txt`. Python 패키지를 설치하는 방법에 대한 자세한 내용은 readthedocs.io에서 [패키지 설치][pypi_install]를 참조하세요.
-> 
-> 
+> 권한 없는 계정을 사용하는 경우 명령의 접두사로 `sudo`를 사용합니다. 예: `sudo pip install -r requirements.txt` Python 패키지를 설치하는 방법에 대한 자세한 내용은 python.org에서 [패키지 설치][pypi_install]를 참조하세요.
+>
+>
 
 ## <a name="batch-python-tutorial-code-sample"></a>배치 Python 자습서 코드 샘플
 배치 Python 자습서 코드 샘플은 두 개의 Python 스크립트 및 몇 가지 데이터 파일로 구성됩니다.
@@ -107,7 +107,7 @@ Python 자습서 [코드 샘플][github_article_samples]은 GitHub의 [azure-bat
 [**5단계.**](#step-5-add-tasks-to-job) 작업에 **태스크** 를 추가합니다.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** 태스크는 노드에서 실행되도록 예약됩니다.<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** 각 태스크는 Azure Storage에서 입력 데이터를 다운로드한 다음 실행을 시작합니다.<br/>
-[**Step 6.**](#step-6-monitor-tasks) 태스크를 모니터링합니다.<br/>
+[**6단계.**](#step-6-monitor-tasks) 태스크를 모니터링합니다.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** 태스크가 완료되면 출력 데이터를 Azure Storage에 업로드합니다.<br/>
 [**7단계.**](#step-7-download-task-output)  저장소에서 태스크 출력을 다운로드합니다.
 
@@ -177,8 +177,8 @@ if __name__ == '__main__':
 
 > [!TIP]
 > [Python에서 Azure Blob Storage를 사용하는 방법](../storage/storage-python-how-to-use-blob-storage.md)에서는 Azure Storage 컨테이너 및 Blob을 사용한 작업의 개요를 제공합니다. 배치 작업 시작 단계 읽기 목록의 거의 위쪽에 있습니다.
-> 
-> 
+>
+>
 
 ## <a name="step-2-upload-task-script-and-data-files"></a>2단계: 작업 스크립트 및 데이터 파일 업로드
 ![컨테이너에 작업 응용 프로그램 및 입력(데이터) 파일 업로드][2]
@@ -266,8 +266,8 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 
 > [!TIP]
 > 공유 액세스 서명에 대해 두 부분으로 이루어진 시리즈, [1부: SAS 모델 이해](../storage/storage-dotnet-shared-access-signature-part-1.md) 및 [2부: Blob service를 통해 SAS 만들기 및 사용](../storage/storage-dotnet-shared-access-signature-part-2.md)을 확인하여 저장소 계정의 데이터에 대한 보안 액세스 제공에 대한 자세한 내용을 확인합니다.
-> 
-> 
+>
+>
 
 ## <a name="step-3-create-batch-pool"></a>3단계: 배치 풀 만들기
 ![배치 풀 만들기][3]
@@ -288,7 +288,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
      base_url=_BATCH_ACCOUNT_URL)
 ```
 
-그런 다음 `create_pool`에 대한 호출을 사용하여 배치 계정에서 계산 노드의 풀을 만듭니다.
+그런 다음, 계산 노드의 풀이 `create_pool`에 대한 호출로 배치 계정에서 만들어집니다.
 
 ```python
 def create_pool(batch_service_client, pool_id,
@@ -361,8 +361,8 @@ def create_pool(batch_service_client, pool_id,
 
 * 풀의 **ID**(*id* - 필수)<p/>배치에서 대부분의 엔터티처럼 새 풀은 배치 계정 내에서 고유 ID를 가지고 있어야 합니다. 코드는 해당 ID를 사용하여 이 풀을 참조하고 이를 통해 Azure [Portal][azure_portal]에서 풀을 확인합니다.
 * **계산 노드 수**(*target_dedicated* - 필수)<p/>이 속성은 풀에 배포해야 하는 VM 수를 지정합니다. 모든 배치 계정에서 배치 계정에 있는 **코어**(및 계산 노드)의 수를 제한하는 기본 **할당량**이 있어야 합니다. 기본 할당량 및 [할당량을 증가](batch-quota-limit.md#increase-a-quota)하는 방법에 대한 지침(예: 배치 계정의 최대 코어 수)은 [Azure 배치 서비스에 대한 할당량 및 한도](batch-quota-limit.md)에서 찾을 수 있습니다. "풀이 X 노드보다 더 멀리 도달할 수 없는 경우" 이 코어 할당량이 원인일 수 있습니다.
-* 노드의 **운영 체제**(*virtual_machine_configuration* **또는** *cloud_service_configuration* - 필수)<p/>*python_tutorial_client.py*에서 [VirtualMachineConfiguration][py_vm_config]을 사용하여 Linux 노드 풀을 만듭니다. `common.helpers`의 `select_latest_verified_vm_image_with_node_agent_sku` 함수는 [Azure Virtual Machines 마켓플레이스][vm_marketplace] 이미지를 사용하는 방법을 간소화합니다. 마켓플레이스 이미지를 사용하는 방법에 대한 자세한 내용은 [Azure Batch 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md) 을 참조하세요.
-* **계산 노드 크기** (*vm_size* - 필수)<p/>[VirtualMachineConfiguration][py_vm_config]의 Linux 노드를 지정하는 것이기 때문에 [Azure의 가상 컴퓨터 크기](../virtual-machines/virtual-machines-linux-sizes.md)에서 VM 크기(이 샘플의 `STANDARD_A1`)를 지정합니다. 다시 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md) 을 참조하세요.
+* 노드의 **운영 체제**(*virtual_machine_configuration* **또는** *cloud_service_configuration* - 필수)<p/>*python_tutorial_client.py*에서 [VirtualMachineConfiguration][py_vm_config]을 사용하여 Linux 노드 풀을 만듭니다. `common.helpers`에서 `select_latest_verified_vm_image_with_node_agent_sku` 함수는 [Azure Virtual Machines Marketplace][vm_marketplace] 이미지를 사용하는 방법을 간소화합니다. 마켓플레이스 이미지를 사용하는 방법에 대한 자세한 내용은 [Azure Batch 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md) 을 참조하세요.
+* **계산 노드 크기** (*vm_size* - 필수)<p/>[VirtualMachineConfiguration][py_vm_config]의 Linux 노드를 지정하는 것이기 때문에 [Azure의 가상 컴퓨터 크기](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 VM 크기(이 샘플의 `STANDARD_A1`)를 지정합니다. 다시 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md) 을 참조하세요.
 * **시작 태스크**(*start_task* - 필수 아님)<p/>위의 실제 노드 속성과 함께 풀의 [StartTask][py_starttask]를 지정할 수도 있습니다(필수 아님). StartTask는 해당 노드가 풀을 연결할 때 각 노드에서 실행하고 이 때마다 노드가 다시 시작됩니다. StartTask는 태스크가 실행하는 응용 프로그램을 설치하는 등 태스크를 실행하기 위해 계산 노드를 준비하는 데 특히 유용합니다.<p/>이 샘플 응용 프로그램에서 StartTask는 저장소(StartTask의 **resource_files** 속성을 사용하여 지정됨)에서 다운로드하는 파일을 StartTask *작업 디렉터리*에서 노드에서 실행되는 모든 태스크를 액세스할 수 있는 *공유* 디렉터리에 복사합니다. 기본적으로 노드가 풀에 조인하면 각 노드의 공유 디렉터리에 `python_tutorial_task.py` 를 복사하므로 노드에서 실행되는 모든 태스크가 공유 디렉터리에 액세스할 수 있습니다.
 
 `wrap_commands_in_shell` 도우미 함수에 대한 호출을 볼 수 있습니다. 이 함수는 별도 명령의 컬렉션을 사용하고 작업의 명령줄 속성에 적절한 단일 명령줄을 만듭니다.
@@ -371,8 +371,8 @@ def create_pool(batch_service_client, pool_id,
 
 > [!TIP]
 > 태스크 작업 디렉터리에 대한 정보뿐만 아니라 배치 풀의 계산 노드에 사용할 수 있는 환경 변수에 대한 자세한 내용은 [Azure 배치 기능 개요](batch-api-basics.md)에서 **태스크에 대한 환경 설정** 및 **파일 및 디렉터리** 섹션을 참조하세요.
-> 
-> 
+>
+>
 
 ## <a name="step-4-create-batch-job"></a>4단계: 배치 작업 만들기
 ![배치 작업 만들기][4]<br/>
@@ -460,8 +460,8 @@ def add_tasks(batch_service_client, job_id, input_files,
 
 > [!IMPORTANT]
 > `$AZ_BATCH_NODE_SHARED_DIR` 같은 환경 변수에 액세스하거나 노드의 `PATH`에서 찾을 수 없는 응용 프로그램을 실행하는 경우, 태스크 명령줄은 `/bin/sh -c MyTaskApplication $MY_ENV_VAR`과 같은 쉘을 명시적으로 호출해야 합니다. 태스크가 노드의 `PATH` 에서 응용 프로그램을 실행하는 경우 이 요구 사항이 필요하지 않으며 환경 변수를 참조하지 않습니다.
-> 
-> 
+>
+>
 
 위의 코드 조각의 `for` 루프 내에서 태스크에 대한 명령줄이 *python_tutorial_task.py*에 전달되는 다섯 개의 명령줄 인수로 구성되어 있는 것을 확인할 수 있습니다.
 
@@ -563,8 +563,8 @@ def download_blobs_from_container(block_blob_client,
 
 > [!NOTE]
 > *python_tutorial_client.py*에서 `download_blobs_from_container`에 대한 호출은 홈 디렉터리에 다운로드해야 하는 파일을 지정합니다. 이 출력 위치를 수정해도 됩니다.
-> 
-> 
+>
+>
 
 ## <a name="step-8-delete-containers"></a>8단계: 컨테이너 삭제
 Azure 저장소에 있는 데이터에 대한 요금이 부과되므로 배치 작업에 더 이상 필요 없는 모든 Blob을 제거하는 것이 좋습니다. *python_tutorial_client.py*에서 [BlockBlobService.delete_container][py_delete_container]를 세 번 호출하여 수행합니다.
@@ -593,16 +593,16 @@ if query_yes_no('Delete pool?') == 'yes':
 
 > [!IMPORTANT]
 > 계산 리소스에 대해 요금이 부과되고 사용하지 않는 풀 삭제는 비용을 최소화한다는 점을 유의하세요. 풀 삭제는 해당 풀 내의 모든 계산 노드를 삭제하고 노드의 모든 데이터는 풀이 삭제되면 복구할 수 없게 됩니다.
-> 
-> 
+>
+>
 
 ## <a name="run-the-sample-script"></a>샘플 스크립트 실행
-자습서 [code sample][github_article_samples]에서 *python_tutorial_client.py* 스크립트를 실행하는 경우 콘솔 출력은 다음과 유사합니다. 풀의 계산 노드를 만들고 시작하고 풀의 시작 태스크에서 명령을 실행하는 동안 `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` 에서 일시 중지가 발생합니다. [Azure Portal][azure_portal]을 사용하여 실행 중 및 실행 후에 풀, 계산 노드, 작업 및 태스크를 모니터링합니다. [Azure Portal][azure_portal] 또는 [Microsoft Azure Storage 탐색기][storage_explorer]를 사용하여 응용 프로그램에서 만든 저장소 리소스(컨테이너 및 Blob)를 봅니다.
+자습서 [코드 샘플][github_article_samples]에서 *python_tutorial_client.py* 스크립트를 실행하는 경우 콘솔 출력은 다음과 유사합니다. 풀의 계산 노드를 만들고 시작하고 풀의 시작 태스크에서 명령을 실행하는 동안 `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` 에서 일시 중지가 발생합니다. [Azure Portal][azure_portal]을 사용하여 실행 중 및 실행 후에 풀, 계산 노드, 작업 및 태스크를 모니터링합니다. [Azure Portal][azure_portal] 또는 [Microsoft Azure Storage 탐색기][storage_explorer]를 사용하여 응용 프로그램에서 만든 저장소 리소스(컨테이너 및 Blob)를 봅니다.
 
 > [!TIP]
 > `azure-batch-samples/Python/Batch/article_samples` 디렉터리 내에서 *python_tutorial_client.py* 스크립트를 실행합니다. `common.helpers` 모듈 가져오기에 대한 상대 경로를 사용하므로 이 디렉터리 내에서 스크립트를 실행하지 않는 경우 `ImportError: No module named 'common'`가 표시될 수 있습니다.
-> 
-> 
+>
+>
 
 기본 구성에서 샘플을 실행하는 경우 일반적인 실행 시간은 **약 5-7분** 입니다.
 
@@ -641,7 +641,7 @@ Press ENTER to exit...
 
 * 이 서비스를 처음 사용하는 경우 [Azure 배치 기능 개요](batch-api-basics.md) 문서를 검토하는 것이 좋습니다.
 * [배치 학습 경로][batch_learning_path]의 **개발 세부 정보** 아래에서 다른 배치 개발 문서를 시작하세요.
-* [TopNWords][github_topnwords] 샘플의 배치를 사용하여 "상위 n개 단어" 워크로드 처리의 다른 구현을 확인하세요.
+* [TopNWords][github_topnwords] 샘플의 배치를 사용하여 "상위 N개 단어" 워크로드 처리의 다른 구현을 확인하세요.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
@@ -689,8 +689,7 @@ Press ENTER to exit...
 [py_vm_config]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.VirtualMachineConfiguration
 [pypi_batch]: https://pypi.python.org/pypi/azure-batch
 [pypi_storage]: https://pypi.python.org/pypi/azure-storage
-
-[pypi_install]: http://python-packaging-user-guide.readthedocs.io/en/latest/installing/
+[pypi_install]: https://packaging.python.org/installing/
 [storage_explorer]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
@@ -700,8 +699,8 @@ Press ENTER to exit...
 [3]: ./media/batch-python-tutorial/batch_workflow_03_sm.png "배치 풀 만들기"
 [4]: ./media/batch-python-tutorial/batch_workflow_04_sm.png "배치 작업 만들기"
 [5]: ./media/batch-python-tutorial/batch_workflow_05_sm.png "작업에 태스크 추가"
-[6]: ./media/batch-python-tutorial/batch_workflow_06_sm.png "태스크 모니터링"
-[7]: ./media/batch-python-tutorial/batch_workflow_07_sm.png "Storage에서 태스크 출력 다운로드"
+[6]: ./media/batch-python-tutorial/batch_workflow_06_sm.png "작업 모니터링"
+[7]: ./media/batch-python-tutorial/batch_workflow_07_sm.png "저장소에서 작업 출력 다운로드"
 [8]: ./media/batch-python-tutorial/batch_workflow_sm.png "배치 솔루션 워크플로(전체 다이어그램)"
 [9]: ./media/batch-python-tutorial/credentials_batch_sm.png "포털의 배치 자격 증명"
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "포털의 저장소 자격 증명"
@@ -709,6 +708,6 @@ Press ENTER to exit...
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

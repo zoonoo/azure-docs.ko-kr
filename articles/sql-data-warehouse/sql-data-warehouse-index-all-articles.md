@@ -1,19 +1,23 @@
 ---
-title: SQL 데이터 웨어하우스 서비스에 대한 모든 항목 | Microsoft Docs
-description: http://azure.microsoft.com/documentation/articles/에 있는 SQL 데이터 웨어하우스라는 Azure 서비스에 대한 모든 항목, 제목 및 설명에 대한 테이블입니다.
+title: "SQL Data Warehouse 서비스에 대한 모든 항목 | Microsoft Docs"
+description: "http://azure.microsoft.com/documentation/articles/에 있는 SQL 데이터 웨어하우스라는 Azure 서비스에 대한 모든 항목, 제목 및 설명에 대한 테이블입니다."
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: barbkess
 manager: jhubbard
-editor: MightyPen
-
+editor: 
+ms.assetid: a26a6dec-9c08-4415-8f58-4ee1dd41f718
 ms.service: sql-data-warehouse
 ms.workload: sql-data-warehouse
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ab5b0c283d1bd3fd1b734082d5ccffa4125f6de4
+
 
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Azure SQL 데이터 웨어하우스 서비스에 대한 모든 항목
@@ -22,9 +26,9 @@ ms.author: barbkess
 ## <a name="new"></a>새로 만들기
 | &nbsp; | 제목 | 설명 |
 | ---:|:--- |:--- |
-| 1 |[SQL Data Warehouse 백업](sql-data-warehouse-backup.md) |Azure SQL Data Warehouse를 복원 지점 또는 다른 지역에 복원할 수 있는 SQL Data Warehouse 기본 제공 데이터베이스 백업에 대해 알아봅니다. |
+| 1 |[SQL Data Warehouse 백업](sql-data-warehouse-backups.md) |Azure SQL Data Warehouse를 복원 지점 또는 다른 지역에 복원할 수 있는 SQL Data Warehouse 기본 제공 데이터베이스 백업에 대해 알아봅니다. |
 
-## <a name="updated-articles,-sql-data-warehouse"></a>업데이트된 문서, SQL Data Warehouse
+## <a name="updated-articles-sql-data-warehouse"></a>업데이트된 문서, SQL Data Warehouse
 이 섹션에서는 최근에 대규모로 수행되거나 중요하게 업데이트된 문서가 목록으로 표시됩니다. 업데이트된 각 문서에 대해 추가된 markdown 텍스트의 대략적인 코드 조각이 표시됩니다. 날짜 범위 **2016-08-22**부터 **2016-10-05**까지 문서가 업데이트되었습니다.
 
 | &nbsp; | 문서 | 업데이트된 텍스트, 코드 조각 | 업데이트 시기 |
@@ -160,6 +164,9 @@ ms.author: barbkess
 | 86 |[SQL 데이터 웨어하우스 용량 제한](sql-data-warehouse-service-capacity-limits.md) |SQL 데이터 웨어하우스의 연결, 데이터베이스, 테이블 및 쿼리에 대한 최대값입니다. |
 | 87 |[Azure SQL 데이터 웨어하우스 문제 해결](sql-data-warehouse-troubleshoot.md) |Azure SQL 데이터 웨어하우스 문제 해결 |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

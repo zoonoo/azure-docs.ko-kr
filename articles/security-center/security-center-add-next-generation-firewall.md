@@ -1,12 +1,12 @@
 ---
-title: Add a next generation firewall in Azure Security Center | Microsoft Docs
-description: This document shows you how to implement the Azure Security Center recommendations **Add a Next Generation Firewall** and **Route traffice through NGFW only**.
+title: "Azure Security Center에서 차세대 방화벽 추가 | Microsoft Docs"
+description: "이 문서에서는 Azure 보안 센터 권장 사항 **차세대 방화벽 추가** 및 **NGFW를 통해서만 트래픽 라우팅**을 구현하는 방법을 보여 줍니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: 48b99015-4db8-4ce8-85e4-b544c0fa203e
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,56 +14,60 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/26/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4cc9541251157a3c8c632a01fafb52ea87ba58dd
+
 
 ---
-# <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Add a Next Generation Firewall in Azure Security Center
-Azure Security Center may recommend that you add a next generation firewall (NGFW) from a Microsoft partner in order to increase your security protections. This document walks you through an example of how to do this.
+# <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Azure 보안 센터에서 차세대 방화벽 추가
+Azure 보안 센터에서는 보안 보호를 증가시키기 위해 Microsoft 파트너의 차세대 방화벽(NGFW)을 추가하도록 권장할 수 있습니다. 이 문서에서는 이를 수행하는 방법의 예를 보여 줍니다.
 
 > [!NOTE]
-> This document introduces the service by using an example deployment.  This is not a step-by-step guide.
+> 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  단계별 가이드는 아닙니다.
 > 
 > 
 
-## <a name="implement-the-recommendation"></a>Implement the recommendation
-1. In the **Recommendations** blade, select **Add a Next Generation Firewall**.
-   ![Add a Next Generation Firewall][1]
-2. In the **Add a Next Generation Firewall** blade, select an endpoint.
-   ![Select an endpoint][2]
-3. A second **Add a Next Generation Firewall** blade opens. You can choose to use an existing solution if available or you can create a new one. In this example there are no existing solutions available so we'll create a new NGFW.
-   ![Create new Next Generation Firewall][3]
-4. To create a new NGFW, select a solution from the list of integrated partners. In this example we will select **Check Point**.
-   ![Select Next Generation Firewall solution][4]
-5. The **Check Point** blade opens providing you information about the partner solution. Select **Create** in the information blade.
-   ![Firewall information blade][5]
-6. The **Create virtual machine** blade opens. Here you can enter information required to spin up a virtual machine (VM) that will run the NGFW. Follow the steps and provide the NGFW information required. Select OK to apply.
-   ![Create virtual machine to run NGFW][6]
+## <a name="implement-the-recommendation"></a>권장 사항 구현
+1. **권장 사항** 블레이드에서 **차세대 방화벽 추가**를 선택합니다.
+   ![차세대 방화벽 추가][1]
+2. **차세대 방화벽 추가** 블레이드에서 끝점을 선택합니다.
+   ![끝점 선택][2]
+3. 두 번째 **차세대 방화벽 추가** 블레이드가 열립니다. 새 솔루션을 사용할 수 있거나 만들 수 있는 경우 기존 솔루션을 사용하도록 선택할 수 있습니다. 이 예제에서는 사용할 수 있는 기존 솔루션이 없으므로 새 NGFW를 만들어 보겠습니다.
+   ![새 차세대 방화벽 만들기][3]
+4. 새 NGFW를 만들려면 통합 파트너 목록에서 솔루션을 선택합니다. 이 예에서 선택 **검사점**을 선택합니다.
+   ![차세대 방화벽 솔루션 선택][4]
+5. 파트너 솔루션에 대한 정보를 제공하는 **검사점** 블레이드가 열립니다. 정보 블레이드에서 **만들기** 를 선택합니다.
+   ![방화벽 정보 블레이드][5]
+6. **가상 컴퓨터 만들기** 블레이드가 열립니다. 여기서 NGFW를 실행하는 VM(가상 컴퓨터)을 스핀업하는 데 필요한 정보를 입력할 수 있습니다. 단계를 수행하고 필요한 NGFW 정보를 제공합니다. 적용하려면 확인을 선택합니다.
+   ![NGFW를 실행하기 위해 가상 컴퓨터 만들기][6]
 
-## <a name="route-traffic-through-ngfw-only"></a>Route traffic through NGFW only
-Return to the **Recommendations** blade. A new entry was generated after you added a NGFW via Security Center, called **Route traffic through NGFW only**. This recommendation is created only if you installed your NGFW through Security Center. If you have Internet-facing endpoints, Security Center will recommend that you configure Network Security Group rules that force inbound traffic to your VM through your NGFW.
+## <a name="route-traffic-through-ngfw-only"></a>NGFW를 통해서만 트래픽 라우팅
+**권장 사항** 블레이드로 돌아갑니다. 보안 센터를 통해 NGFW를 추가한 후 **NGFW를 통해서만 트래픽 라우팅**이라는 새 항목이 생성되었습니다. 이 권장 사항은 보안 센터를 통해 NGFW를 설치한 경우에만 생성됩니다. 인터넷 끝점이 있는 경우 보안 센터는 NGFW를 통해 인바운드 트래픽을 VM으로 강제하는 네트워크 보안 그룹 규칙을 구성할 것을 권장합니다.
 
-1. In the **Recommendations blade**, select **Route traffic through NGFW only**.
-   ![Route traffic through NGFW only][7]
-2. This opens the blade **Route traffic through NGFW only** which lists VMs that you can route traffic to. Select a VM from the list.
-   ![Select a VM][8]
-3. A blade for the selected VM opens, displaying related inbound rules. A description provides you with more information on possible next steps. Select **Edit inbound rules** to proceed with editing an inbound rule. The expectation is that **Source** is not set to **Any** for the Internet-facing endpoints linked with the NGFW. To learn more about the properties of the inbound rule, see [NSG rules](../virtual-network/virtual-networks-nsg.md#nsg-rules).
-   ![Configure rules to limit access][9]
-   ![Edit inbound rule][10]
+1. **권장 사항 블레이드**에서 **NGFW를 통해서만 트래픽 라우팅**을 선택합니다.
+   ![NGFW를 통해서만 트래픽 라우팅][7]
+2. 트래픽을 라우팅할 수 있는 VM을 나열하는 **NGFW를 통해서만 트래픽 라우팅** 블레이드가 열립니다. 목록에서 VM을 선택합니다.
+   ![VM 선택][8]
+3. 선택된 VM에 대한 블레이드가 열리고 관련 인바운드 규칙을 표시합니다. 설명은 가능한 다음 단계에 대한 자세한 내용을 제공합니다. **인바운드 규칙 편집** 을 선택하여 인바운드 규칙 편집을 계속 진행합니다. NGFW로 연결된 인터넷 연결 끝점의 경우 **원본**이 **모두**로 설정되지 않아야 합니다. 인바운드 규칙의 속성에 대해 자세히 알아보려면 [NSG 규칙](../virtual-network/virtual-networks-nsg.md#nsg-rules)을 확인합니다.
+   ![액세스를 제한하는 규칙 구성][9]
+   ![인바운드 규칙 편집][10]
 
-## <a name="see-also"></a>See also
-This document showed you how to implement the Security Center recommendation "Add a Next Generation Firewall." To learn more about NGFWs and the Check Point partner solution, see the following:
+## <a name="see-also"></a>참고 항목
+이 문서에서는 보안 센터 권장 사항 "차세대 방화벽 추가"를 구현하는 방법을 보여 주었습니다. NGFW 및 검사점 파트너 솔루션에 대해 자세히 알아보려면 다음을 참조하세요.
 
-* [Next-Generation Firewall](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
-* [Check Point vSEC](https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/)
+* [차세대 방화벽](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
+* [검사점 vSEC](https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/)
 
-To learn more about Security Center, see the following:
+보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies.
-* [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-* [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-* [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
+* [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) -- 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure 보안 센터에서 보안 권장 사항 관리](security-center-recommendations.md) -- 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
+* [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) –- Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) -- 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+* [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) -- 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure 보안 센터 FAQ](security-center-faq.md) -- 서비스 사용에 관한 질문과 대답을 찾습니다.
+* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) -- Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
 <!--Image references-->
 [1]: ./media/security-center-add-next-gen-firewall/add-next-gen-firewall.png
@@ -79,6 +83,6 @@ To learn more about Security Center, see the following:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

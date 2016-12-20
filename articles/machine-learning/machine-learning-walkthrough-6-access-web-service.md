@@ -1,12 +1,12 @@
 ---
-title: '6단계: 기계 학습 웹 서비스 액세스 | Microsoft Docs'
-description: '예측 솔루션 연습 개발의 6단계: 활성 Azure 기계 학습 웹 서비스 액세스'
+title: "6단계: Machine Learning 웹 서비스 액세스 | Microsoft Docs"
+description: "예측 솔루션 연습 개발의 6단계: 활성 Azure 기계 학습 웹 서비스 액세스"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 6a65c89a-40ab-4673-8dd8-8eee0a150e3b
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 80f722c536c822189c1ab2a8160f560a78e7ca01
+
 
 ---
-# <a name="walkthrough-step-6:-access-the-azure-machine-learning-web-service"></a>연습 6단계: Azure 기계 학습 웹 서비스 액세스
+# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>연습 6단계: Azure 기계 학습 웹 서비스 액세스
  [Azure 기계 학습에서 예측 분석 솔루션 개발](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [기계 학습 작업 영역 만들기](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -42,6 +46,9 @@ ms.author: garye
 또한 R, C# 및 Python 프로그래밍 언어에서 제공하는 시작 코드를 사용하여 웹 서비스에 액세스하는 사용자 지정 응용 프로그램을 개발할 수도 있습니다.
 자세한 내용은 [Azure 기계 학습 실험에서 게시된 기계 학습 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

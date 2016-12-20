@@ -1,13 +1,13 @@
 ---
-title: PowerShell을 사용하여 클래식 모드에서 NSG를 만드는 방법 | Microsoft Docs
-description: PowerShell을 사용하여 클래식 모드에서 NSG를 만들고 배포하는 방법을 알아봅니다.
+title: "PowerShell 사용하여 클래식 모드에서 NSG를 만드는 방법 | Microsoft Docs"
+description: "PowerShell을 사용하여 클래식 모드에서 NSG를 만들고 배포하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 86810b0d-0240-46a2-8548-fca22daa56f3
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,25 +15,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bbd1bcba9a56f4cee01101b333c11823d9bd30a0
+
 
 ---
-# PowerShell에서 NSG(클래식)를 만드는 방법
+# <a name="how-to-create-nsgs-classic-in-powershell"></a>PowerShell에서 NSG(클래식)를 만드는 방법
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-이 문서에서는 클래식 배포 모델에 대해 설명합니다. [리소스 관리자 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-arm-ps.md) 수도 있습니다.
+이 문서에서는 클래식 배포 모델에 대해 설명합니다. [리소스 관리자 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-arm-ps.md)수도 있습니다.
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-아래 샘플 PowerShell 명령에는 위의 시나리오를 기반으로 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [VNet을 만들어](virtual-networks-create-vnet-classic-netcfg-ps.md) 테스트 환경을 구축합니다.
+아래 샘플 PowerShell 명령에는 위의 시나리오를 기반으로 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [VNet을 만들어](virtual-networks-create-vnet-classic-netcfg-ps.md)테스트 환경을 구축합니다.
 
-## 프런트 엔드 서브넷에 대한 NSG를 만드는 방법
-위의 시나리오에 따라 **NSG-FrontEnd**라는 NSG를 만들려면 다음 단계를 따르세요.
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>프런트 엔드 서브넷에 대한 NSG를 만드는 방법
+위의 시나리오에 따라 **NSG-FrontEnd** 라는 NSG를 만들려면 다음 단계를 따르세요.
 
-1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
+1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 2. **NSG-FrontEnd**라는 네트워크 보안 그룹을 만듭니다.
    
         New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location uswest `
@@ -118,7 +122,7 @@ ms.author: jdial
                    OUTBOUND                                                                                                      
                    DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-## 백 엔드 서브넷에 대한 NSG를 만드는 방법
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>백 엔드 서브넷에 대한 NSG를 만드는 방법
 1. **NSG-BackEnd**라는 네트워크 보안 그룹을 만듭니다.
    
         New-AzureNetworkSecurityGroup -Name "NSG-BackEnd" -Location uswest `
@@ -202,4 +206,8 @@ ms.author: jdial
                    OUTBOUND                                                                                                      
                    DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

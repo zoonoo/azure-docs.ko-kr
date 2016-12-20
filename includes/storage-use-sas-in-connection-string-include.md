@@ -14,10 +14,10 @@ SharedAccessSignature=sasToken
 
 > [!NOTE]
 > SAS와 함께 HTTPS를 사용하는 것이 가장 좋습니다.
-> 
+>
 > 구성 파일에서 연결 문자열의 SAS를 지정하는 경우 URL의 특수 문자 인코딩이 필요할 수 있습니다.
-> 
-> 
+>
+>
 
 ### <a name="service-sas-example"></a>서비스 SAS 예
 다음은 Blob 저장소에 대한 서비스 SAS를 포함하는 연결 문자열의 예제입니다.
@@ -36,17 +36,17 @@ BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=s
 다음은 Blob 및 파일 저장소에 대한 계정 SAS를 포함하는 연결 문자열의 예제입니다. 두 서비스에 대한 끝점이 지정됩니다.
 
 ```
-    BlobEndpoint=https://storagesample.blob.core.windows.net;
-    FileEndpoint=https://storagesample.file.core.windows.net;
-    SharedAccessSignature=sv=2015-07-08&sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&spr=https&st=2016-04-12T03%3A24%3A31Z&se=2016-04-13T03%3A29%3A31Z&srt=s&ss=bf&sp=rwl
+BlobEndpoint=https://storagesample.blob.core.windows.net;
+FileEndpoint=https://storagesample.file.core.windows.net;
+SharedAccessSignature=sv=2015-07-08&sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&spr=https&st=2016-04-12T03%3A24%3A31Z&se=2016-04-13T03%3A29%3A31Z&srt=s&ss=bf&sp=rwl
 ```
 
 그리고 다음은 URL 인코딩을 사용하는 동일한 연결 문자열의 예제입니다.
 
 ```
-    BlobEndpoint=https://storagesample.blob.core.windows.net;
-    FileEndpoint=https://storagesample.file.core.windows.net;
-    SharedAccessSignature=sv=2015-07-08&amp;sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&amp;spr=https&amp;st=2016-04-12T03%3A24%3A31Z&amp;se=2016-04-13T03%3A29%3A31Z&amp;srt=s&amp;ss=bf&amp;sp=rwl
+BlobEndpoint=https://storagesample.blob.core.windows.net;
+FileEndpoint=https://storagesample.file.core.windows.net;
+SharedAccessSignature=sv=2015-07-08&amp;sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&amp;spr=https&amp;st=2016-04-12T03%3A24%3A31Z&amp;se=2016-04-13T03%3A29%3A31Z&amp;srt=s&amp;ss=bf&amp;sp=rwl
 ```
 
 

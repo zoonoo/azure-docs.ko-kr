@@ -1,12 +1,12 @@
 ---
-title: 필터 및 동적 매니페스트 | Microsoft Docs
-description: 이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍을 보관하기 위해 미디어 서비스는 동적 매니페스트를 생성합니다.
+title: "필터 및 동적 매니페스트 | Microsoft 문서"
+description: "이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍을 보관하기 위해 미디어 서비스는 동적 매니페스트를 생성합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: cenkdin
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: cenkdin;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6b322f69a1b4dec77a1c8c8bcd0e5f231f9617ff
+
 
 ---
 # <a name="filters-and-dynamic-manifests"></a>필터 및 동적 매니페스트
@@ -32,7 +36,7 @@ ms.author: cenkdin;juliako
 
 다음은 매니페스트 파일의 예입니다. 
 
-    <?xml version="1.0" encoding="UTF-8"?>  
+    <?xml version="1.0" encoding="UTF-8"?>    
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="330187755" TimeScale="10000000">
 
     <StreamIndex Chunks="17" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="8">
@@ -88,7 +92,7 @@ ms.author: cenkdin;juliako
 > 
 > 
 
-### <a name="<a-id="filters"></a>filters"></a><a id="filters"></a>필터
+### <a name="a-idfiltersafilters"></a><a id="filters"></a>필터
 자산 필터에는 두 가지 유형이 있습니다. 
 
 * 전역 필터(Azure 미디어 서비스 계정의 모든 자산에 적용 가능, 계정의 수명 동안 보유) 
@@ -96,7 +100,7 @@ ms.author: cenkdin;juliako
 
 전역 및 로컬 필터 형식은 속성과 정확하게 동일합니다. 둘 사이의 주요 차이는 어떤 시나리오에 어떤 유형의 필터가 더 적합한가의 차이입니다. 전역 필터는 일반적으로 장치 프로필에 적합(변환 필터링)한 반면 로컬 필터는 특정 자산을 트리밍하는 데 사용할 수 있습니다.
 
-## <a name="<a-id="scenarios"></a>common-scenarios"></a><a id="scenarios"></a>일반적인 시나리오
+## <a name="a-idscenariosacommon-scenarios"></a><a id="scenarios"></a>일반적인 시나리오
 앞에서 설명한 것처럼 스트리밍 라이브 이벤트 또는 주문형 비디오 등의 콘텐츠를 고객에게 전달할 때는 다양한 네트워크 조건의 다양한 장치에 고품질 비디오를 제공하는 것이 목표입니다. 또한 자산 필터링 및 **동적 매니페스트**사용과 관련된 다른 요구 사항이 있을 수 있습니다. 다음 섹션에서는 다양한 필터링 시나리오에 대한 간략한 개요를 제공합니다.
 
 * 자산과 연결된 모든 변환 대신 특정 장치에서 처리할 수 있는 오디오 및 비디오 변환의 하위 집합만 지정합니다. 
@@ -124,7 +128,7 @@ ms.author: cenkdin;juliako
 
 ![트리밍 시작][trim_filter]
 
-## <a name="creating-sub-clips-(views)-from-a-live-archive"></a>라이브 보관에서 하위 클립(뷰) 만들기
+## <a name="creating-sub-clips-views-from-a-live-archive"></a>라이브 보관에서 하위 클립(뷰) 만들기
 많은 라이브 이벤트가 장시간 실행되며 라이브 보관에는 여러 이벤트가 포함될 수 있습니다. 라이브 이벤트가 끝난 후 브로드캐스터는 라이브 보관을 논리 프로그램 시작 및 중단 시퀀스로 구분하고 싶을 수 있습니다. 그런 다음, 후처리 없이 별도의 자산을 만들지 않고 가상 프로그램을 개별적으로 게시합니다. 따라서 CDN에서 캐시된 기존 조각의 이점을 얻지 못하게 됩니다. 이러한 가상 프로그램(하위 클립)의 예로는 축구 또는 농구 게임의 쿼터, 야구의 이닝 또는 올림픽 프로그램의 오후 개별 행사 등이 있습니다.
 
 동적 매니페스트를 사용하면 시작/종료 시간을 사용하여 필터를 만들고 라이브 보관의 위에 가상 뷰를 만들 수 있습니다. 
@@ -135,12 +139,12 @@ ms.author: cenkdin;juliako
 
 ![스키][skiing]
 
-## <a name="adjusting-presentation-window-(dvr)"></a>프레젠테이션 창(DVR) 조정
+## <a name="adjusting-presentation-window-dvr"></a>프레젠테이션 창(DVR) 조정
 현재, Azure 미디어 서비스는 5분에서 25시간까지 기간을 구성할 수 있는 순환식 보관을 제공합니다. 매니페스트 필터링을 사용하면 미디어를 삭제하지 않고도 보관 위에 롤링 DVR 창을 만들 수 있습니다. 브로드캐스터가 라이브 에지와 함께 이동하는 제한된 DVR 창을 제공하는 동시에 더 큰 보관 창을 유지하는 등의 여러 시나리오가 있습니다. 브로드캐스터는 DVR 창 외부의 데이터를 사용하여 클립을 강조하거나 여러 장치에 대해 서로 다른 DVR 창을 제공하려고 할 수 있습니다. 예를 들어 대부분의 모바일 장치는 큰 DVR 창을 처리하지 못합니다. 모바일 장치의 경우 2분, 데스크톱 클라이언트의 경우 1시간 동안 DVR 창을 표시할 수 있습니다.
 
 ![DVR 창][dvr_filter]
 
-## <a name="adjusting-livebackoff-(live-position)"></a>LiveBackoff(라이브 위치) 조정
+## <a name="adjusting-livebackoff-live-position"></a>LiveBackoff(라이브 위치) 조정
 매니페스트 필터링을 사용하면 라이브 프로그램의 라이브 에지에서 몇 초 정도 제거할 수 있습니다. 따라서 뷰어가 스트림을 수신하기 전에 브로드캐스터가 미리 보기 게시 지점에서 프레젠테이션을 보고 광고 삽입 지점을 만들 수 있습니다(대개 30초까지 백오프됨). 그런 다음, 브로드캐스터는 이러한 광고가 수신되는 시간에 맞춰 해당 광고를 클라이언트 프레임워크에 푸시하고 광고 기회 전에 정보를 처리할 수 있습니다.
 
 광고 지원 외에도 LiveBackoff는 404 또는 412 HTTP 오류가 발생하는 대신 서버에서 여전히 조각을 얻을 수 있는 라이브 에지를 클라이언트가 추이를 보고 적중시킬 수 있도록 클라이언트 라이브 다운로드 위치를 조정하는 데 사용할 수 있습니다.
@@ -157,7 +161,7 @@ ms.author: cenkdin;juliako
 
 [REST API를 사용하여 필터 만들기](media-services-rest-dynamic-manifest.md)
 
-## <a name="combining-multiple-filters-(filter-composition)"></a>여러 개의 필터 결합(필터 컴퍼지션)
+## <a name="combining-multiple-filters-filter-composition"></a>여러 개의 필터 결합(필터 컴퍼지션)
 단일 URL로 여러 개의 필터를 결합할 수도 있습니다. 
 
 다음 시나리오는 필터를 결합하는 이유를 보여 줍니다.
@@ -209,6 +213,6 @@ ms.author: cenkdin;juliako
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

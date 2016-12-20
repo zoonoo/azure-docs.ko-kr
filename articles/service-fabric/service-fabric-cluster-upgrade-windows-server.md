@@ -1,12 +1,12 @@
 ---
-title: Upgrade an Standalone Service Fabric cluster on Windows Server | Microsoft Docs
-description: Upgrade the Service Fabric code and/or configuration that runs a standalone Service Fabric cluster, including setting cluster update mode
+title: "Windows Server에서 독립 실행형 Service Fabric 클러스터 업그레이드 | Microsoft Docs"
+description: "클러스터 업데이트 모드 설정 등 독립 실행형 Service Fabric 클러스터를 실행하는 Service Fabric 코드 및/또는 구성 업그레이드"
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,44 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2016
 ms.author: chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: 3d2e6380e4987c559e9ed62c3eaacb1ce45c917d
+ms.openlocfilehash: 79d9d65c93aae92170667c1bc98fbd6bb1ffc3ff
+
 
 ---
-# <a name="upgrade-your-standalone-service-fabric-cluster-on-windows-server"></a>Upgrade your standalone Service Fabric cluster on Windows Server
+# <a name="upgrade-your-standalone-service-fabric-cluster-on-windows-server"></a>Windows Server에서 독립 실행형 Service Fabric 클러스터 업그레이드
 > [!div class="op_single_selector"]
-> * [Azure Cluster](service-fabric-cluster-upgrade.md)
-> * [Standalone Cluster](service-fabric-cluster-upgrade-windows-server.md)
+> * [Azure 클러스터](service-fabric-cluster-upgrade.md)
+> * [독립 실행형 클러스터](service-fabric-cluster-upgrade-windows-server.md)
 > 
 > 
 
-For any modern system, designing for upgradability is key to achieving long-term success of your product. A Service Fabric cluster is a resource that you own. This article describes how you can make sure that the cluster always runs supported versions of the service fabric code and configurations.
+최신 시스템의 경우 업그레이드 기능 디자인이 제품의 장기적 성공 달성의 비결입니다. 서비스 패브릭 클러스터는 사용자가 소유하는 리소스입니다. 이 문서에서는 어떻게 클러스터가 Service Fabric 코드 및 구성의 지원되는 버전을 항상 실행하도록 하는지에 대해 설명합니다.
 
-## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controlling the fabric version that runs on your Cluster
-You can set your cluster to download the service fabric updates, when Microsoft releases a new version or choose to select a supported fabric version you want your cluster to be on. 
+## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>클러스터에서 실행되는 패브릭 버전 제어
+Microsoft에서 새로운 버전을 릴리스하거나 클러스터가 실행하도록 할 지원되는 패브릭 버전을 선택하도록 한 경우 패브릭 업그레이드를 다운로드하도록 클러스터를 설정할 수 있습니다. 
 
-You do this by setting the "fabricClusterAutoupgradeEnabled" cluster configuration to true or false.
+"FabricClusterAutoupgradeEnabled" 클러스터 구성을 true 또는 false로 설정 하여 이를 수행합니다.
 
 > [!NOTE]
-> Make sure to keep your cluster always running a supported Service Fabric version. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/). The new release is available to choose then. 
+> 클러스터가 지원되는 Service Fabric 버전을 항상 실행하도록 해야 합니다. 새로운 버전의 서비스 패브릭 릴리스를 발표하면 이전 버전은 해당 날짜부터 최소 60일 후 지원 종료되는 것으로 표시됩니다. 새로운 릴리스는 [서비스 패브릭 팀 블로그](https://blogs.msdn.microsoft.com/azureservicefabric/)에서 발표됩니다. 그러면 새로운 릴리스를 선택할 수 있습니다. 
 > 
 > 
 
-You can upgrade your cluster to the new version only if you are using a  production-style node configuration, where each Service Fabric node is allocated on a separate physical or virtual machine. If you have a development cluster, where there are more than one service fabric nodes on a single physical or virtual machine, you must tear down your cluster and recreate it with the new version.
+각 Service Fabric 노드를 별도 물리적 컴퓨터 또는 가상 컴퓨터에 할당하는 프로덕션 스타일 노드 구성를 사용하는 경우에만 클러스터를 새 버전으로 업그레이드할 수 있습니다. 하나의 물리적 또는 가상 컴퓨터에 Service Fabric 노드가 여러 개 있는 개발 클러스터가 있는 경우 클러스터를 삭제하고 새 버전으로 다시 만들어야 합니다.
 
-There are two distinct workflows for upgrading your cluster to the latest or a supported service fabric version. One for clusters that have connectivity to download the latest version automatically and the second one for clusters that are no connectivity to download the latest Service Fabric version.
+클러스터를 최신 또는 지원되는 Service Fabric 버전으로 업그레이드하는 데는 두 가지 워크플로가 있습니다. 하나는 자동으로 최신 Service Fabric 버전을 다운로드하도록 연결된 클러스터를 위한 것이며, 다른 하나는 연결되지 않은 클러스터를 위한 것입니다.
 
-### <a name="upgrade-the-clusters-with-connectivity-to-download-the-latest-code-and-configuration"></a>Upgrade the clusters with connectivity to download the latest code and configuration
-Use these steps to upgrade your cluster to a supported version, if your cluster nodes have internet connectivity to [http://download.microsoft.com](http://download.microsoft.com) 
+### <a name="upgrade-the-clusters-with-connectivity-to-download-the-latest-code-and-configuration"></a>최신 코드와 구성을 다운로드하도록 연결된 클러스터 업그레이드
+클러스터 노드가 [http://download.microsoft.com](http://download.microsoft.com)에 인터넷으로 연결되어 있는 경우 클러스터를 지원되는 버전으로 업그레이드하려면 이 단계를 사용합니다. 
 
-For clusters that have connectivity to [http://download.microsoft.com](http://download.microsoft.com), we periodically check for the availability of new service fabric versions.
+[http://download.microsoft.com](http://download.microsoft.com)에 연결된 클러스터의 경우, 새 Service Fabric 버전의 가용성을 정기적으로 확인합니다.
 
-When a new service fabric version is available, the package is downloaded locally to the cluster and provisioned for upgrade. Additionally to inform the customer of this new version, the system places an explicit cluster health warning similar to the following:
+새 Service Fabric 버전을 사용할 수 있는 경우 패키지를 클러스터에 로컬로 다운로드하고 업그레이드를 위해 프로비전됩니다. 또한 이 새로운 버전을 고객에게 알리기 위해 시스템은 다음과 같이 명시적인 클러스터 상태 경고를 발생시킵니다.
 
-“The current cluster version [version#] support ends [Date].", Once the cluster is running the latest version, the warning goes away.
+"현재 클러스터 버전[버전 #] 지원은 [날짜]로 종료됩니다." 클러스터가 최신 버전을 실행하면 경고는 사라집니다.
 
-#### <a name="cluster-upgrade-workflow."></a>Cluster Upgrade workflow.
-Once you see the cluster health warning, you need to do the following:
+#### <a name="cluster-upgrade-workflow"></a>클러스터 업그레이드 워크플로입니다.
+클러스터 상태 경고가 표시되면 다음을 수행해야 합니다.
 
-1. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on does not have to be part of the cluster
+1. 클러스터에서 노드로 나열된 모든 컴퓨터에 대한 관리자 액세스 권한이 있는 모든 컴퓨터에서 클러스터에 연결합니다. 이 스크립트가 실행되는 컴퓨터가 클러스터의 일부일 필요는 없습니다.
    
     ```powershell
    
@@ -66,7 +70,7 @@ Once you see the cluster health warning, you need to do the following:
         -StoreLocation CurrentUser `
         -StoreName My
     ```
-2. Get the list of service fabric versions that you can upgrade to
+2. 업그레이드할 수 있는 Service Fabric 버전의 목록 가져오기
    
     ```powershell
    
@@ -74,10 +78,10 @@ Once you see the cluster health warning, you need to do the following:
     Get-ServiceFabricRegisteredClusterCodeVersion
     ```
    
-    you should get an output similar to this:
+    다음과 유사한 결과가 표시됩니다.
    
-    ![get fabric versions][getfabversions]
-3. Kick off a cluster upgrade to one of the versions that is available using the [Start-ServiceFabricClusterUpgrade PowerShell cmd ](https://msdn.microsoft.com/library/mt125872.aspx)
+    ![패브릭 버전 가져오기][getfabversions]
+3. [시작 ServiceFabricClusterUpgrade PowerShell cmd ](https://msdn.microsoft.com/library/mt125872.aspx)를 통해 사용할 수 있는 버전 중 하나로 클러스터 업그레이드를 시작합니다.
    
     ```Powershell
    
@@ -88,40 +92,40 @@ Once you see the cluster health warning, you need to do the following:
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion 5.3.301.9590 -Monitored -FailureAction Rollback
    
     ```
-   You can monitor the progress of the upgrade on Service fabric explorer or by running the    following power shell command
+   Service Fabric Explorer에서 또는 다음 PowerShell 명령을 실행하여 업그레이드 진행률을 모니터링할 수 있습니다.
    
     ```powershell
    
     Get-ServiceFabricClusterUpgrade
     ```
    
-    If the cluster health policies are not met, the upgrade is rolled back. You can specify custom health policies at the time for the Start-ServiceFabricClusterUpgrade command refer to [this document](https://msdn.microsoft.com/library/mt125872.aspx) for details. 
+    클러스터 상태 정책이 충족되지 않는 경우 업그레이드가 롤백됩니다. Start-ServiceFabricClusterUpgrade 명령 사용 시 사용자 지정 상태 정책을 지정할 수 있습니다. 자세한 내용은 [이 문서](https://msdn.microsoft.com/library/mt125872.aspx)를 참조하세요. 
 
-Once you have fixed the issues that resulted in the rollback, you need to initiate the upgrade again, by following the same steps as before.
+롤백을 일으킨 문제를 수정했으면 이전과 동일한 단계에 따라 업그레이드를 다시 시작해야 합니다.
 
-### <a name="upgrade-the-clusters-with-<u>no-connectivity</u>-to-download-the-latest-code-and-configuration"></a>Upgrade the clusters with <U>no connectivity</u> to download the latest code and configuration
-Use these steps to upgrade your cluster to a supported version, if your cluster nodes **do not have** internet connectivity to [http://download.microsoft.com](http://download.microsoft.com) 
+### <a name="upgrade-the-clusters-with-uno-connectivityu-to-download-the-latest-code-and-configuration"></a>최신 코드와 구성을 다운로드하도록 <U>연결되지 않은</u> 클러스터 업그레이드
+클러스터 노드가 [http://download.microsoft.com](http://download.microsoft.com)에 인터넷으로 연결되어 **있지 않은** 경우 클러스터를 지원되는 버전으로 업그레이드하려면 이 단계를 사용합니다. 
 
 > [!NOTE]
-> If you are running a cluster that is not internet connected, you will have to monitor the service fabric team blog to get notified of a new release. The system **does not** place any cluster health warning to alert you of it.  
+> 인터넷에 연결되지 않은 클러스터를 실행하는 경우 새 릴리스 알림을 받으려면 Service Fabric 팀 블로그를 모니터링해야 합니다. 시스템은 클러스터 상태 경고를 발생시키지 **않습니다**.  
 > 
 > 
 
-1. Modify your cluster configuration to set the following property to false.
+1. 클러스터 구성을 수정하여 다음 속성을 false로 설정합니다.
    
         "fabricClusterAutoupgradeEnabled": false,
 
-and kick off a configuration upgrade. refer to [Start-ServiceFabricClusterUpgrade PS cmd ](https://msdn.microsoft.com/library/mt125872.aspx) for usage details. The cluster manifest version is the version that you have in the clusterConfig.JSON. Make sure to update it before you kick off the configuration upgrade.
+그런 다음 구성 업그레이드를 시작합니다. 자세한 사용 방법은 [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.microsoft.com/en-us/library/mt788302.aspx)를 참조하세요. 구성 업그레이드를 시작하기 전에 JSON에서 'clusterConfigurationVersion'을 업데이트해야 합니다.
 
 ```powershell
 
-    Start-ServiceFabricClusterUpgrade [-Config] [-ClusterConfigVersion] -FailureAction Rollback -Monitored 
+    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File> 
 
 ```
 
-#### <a name="cluster-upgrade-workflow."></a>Cluster Upgrade workflow.
-1. Download the latest version of the package from [Create service fabric cluster for windows server](service-fabric-cluster-creation-for-windows-server.md) document 
-2. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on does not have to be part of the cluster 
+#### <a name="cluster-upgrade-workflow"></a>클러스터 업그레이드 워크플로입니다.
+1. [Windows Server용 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md) 문서에서 최신 버전의 패키지를 다운로드하세요. 
+2. 클러스터에서 노드로 나열된 모든 컴퓨터에 대한 관리자 액세스 권한이 있는 모든 컴퓨터에서 클러스터에 연결합니다. 이 스크립트가 실행되는 컴퓨터가 클러스터의 일부일 필요는 없습니다. 
    
     ```powershell
    
@@ -136,7 +140,7 @@ and kick off a configuration upgrade. refer to [Start-ServiceFabricClusterUpgrad
         -StoreLocation CurrentUser `
         -StoreName My
     ```
-3. Copy the downloaded package into the cluster image store.
+3. 다운로드 한 패키지를 클러스터 이미지 저장소에 복사합니다.
    
     ```powershell
    
@@ -148,7 +152,7 @@ and kick off a configuration upgrade. refer to [Start-ServiceFabricClusterUpgrad
 
     ```
 
-1. Register the copied package 
+1. 복사된 패키지 등록 
    
     ```powershell
    
@@ -159,7 +163,7 @@ and kick off a configuration upgrade. refer to [Start-ServiceFabricClusterUpgrad
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
    
      ```
-2. Kick off a cluster upgrade to one of the versions that is available. 
+2. 클러스터 업그레이드를 사용 가능한 버전 중 하나에 시작합니다. 
    
     ```Powershell
    
@@ -169,27 +173,27 @@ and kick off a configuration upgrade. refer to [Start-ServiceFabricClusterUpgrad
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion 5.3.301.9590 -Monitored -FailureAction Rollback
    
     ```
-   You can monitor the progress of the upgrade on Service fabric explorer or by running the    following power shell command
+   Service Fabric Explorer에서 또는 다음 PowerShell 명령을 실행하여 업그레이드 진행률을 모니터링할 수 있습니다.
    
     ```powershell
    
     Get-ServiceFabricClusterUpgrade
     ```
    
-    If the cluster health policies are not met, the upgrade is rolled back. You can specify custom health policies at the time for the start-serviceFabricClusterUpgrade command refer to [this document](https://msdn.microsoft.com/library/mt125872.aspx) for details. 
+    클러스터 상태 정책이 충족되지 않는 경우 업그레이드가 롤백됩니다. Start-ServiceFabricClusterUpgrade 명령 사용 시 사용자 지정 상태 정책을 지정할 수 있습니다. 자세한 내용은 [이 문서](https://msdn.microsoft.com/library/mt125872.aspx)를 참조하세요. 
 
-Once you have fixed the issues that resulted in the rollback, you need to initiate the upgrade again, by following the same steps as before.
+롤백을 일으킨 문제를 수정했으면 이전과 동일한 단계에 따라 업그레이드를 다시 시작해야 합니다.
 
-## <a name="next-steps"></a>Next steps
-* Learn how to customize some of the [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md)
-* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md)
-* Learn about [application upgrades](service-fabric-application-upgrade.md)
+## <a name="next-steps"></a>다음 단계
+*  [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
+*  [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
+*  [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

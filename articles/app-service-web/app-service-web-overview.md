@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/28/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: ee8c76d383867ef4a545f690e75b8246a03d1cc4
-ms.openlocfilehash: e9e5408c60332e3def9c312ce06a9a27ecefefb2
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 69f3bd4759e879c6f3b55d8126f34e8ebf4be52d
 
 
 ---
@@ -46,7 +46,7 @@ Web Apps을 사용할 수 있는 일반적인 응용 프로그램 시나리오�
 웹앱에 적용하는 앱 서비스의 주요 기능은 다음과 같습니다.
 
 * **여러 언어 및 프레임워크** - 앱 서비스에서는 ASP.NET, Node.js, Java, PHP 및 Python을 최고 수준으로 지원합니다. 앱 서비스 VM에서 [PowerShell 및 기타 스크립트 또는 실행 파일](web-sites-create-web-jobs.md) 을 실행할 수도 있습니다.
-* **DevOps 최적화** - Visual Studio Team Services, GitHub, BitBucket으로 [연속 통합 및 배포](app-service-continuous-deployment.md) 를 설정합니다. [테스트 및 스테이징 환경](web-sites-staged-publishing.md)을 통해 업데이트를 승격합니다. [A/B 테스트](app-service-web-test-in-production-get-start.md)를 수행합니다. [Azure PowerShell](../powershell-install-configure.md) 또는 [플랫폼 간 CLI(명령줄 인터페이스)](../xplat-cli-install.md)를 사용하여 App Service에서 앱을 관리합니다.
+* **DevOps 최적화** - Visual Studio Team Services, GitHub, BitBucket으로 [연속 통합 및 배포](app-service-continuous-deployment.md) 를 설정합니다. [테스트 및 스테이징 환경](web-sites-staged-publishing.md)을 통해 업데이트를 승격합니다. [A/B 테스트](app-service-web-test-in-production-get-start.md)를 수행합니다. [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [플랫폼 간 CLI(명령줄 인터페이스)](../xplat-cli-install.md)를 사용하여 App Service에서 앱을 관리합니다.
 * **고가용성을 가진 글로벌 규모 조정** - 수동 또는 자동으로 규모를 [강화](web-sites-scale.md) 또는 [확장](../monitoring-and-diagnostics/insights-how-to-scale.md)합니다. Microsoft의 글로벌 데이터 센터 인프라의 모든 위치에서 앱을 호스팅하고 앱 서비스 [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) 를 사용하면 고가용성이 보장됩니다.
 * **SaaS 플랫폼 및 온-프레미스 데이터에 연결** - 엔터프라이즈 시스템(예: SAP, Siebel 및 Oracle), SaaS 서비스(예: Salesforce 및 Office 365), 인기 있는 인터넷 서비스(예: Facebook 및 Twitter) 등을 위한 50개 이상의 [커넥터](../connectors/apis-list.md) 에서 선택합니다. [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 및 [Azure Virtual Networks](web-sites-integrate-with-vnet.md)를 사용하여 온-프레미스 데이터에 액세스합니다.
 * **보안 및 규정 준수** - 앱 서비스는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)입니다.
@@ -65,6 +65,6 @@ Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Se
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

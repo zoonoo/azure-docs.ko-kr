@@ -108,9 +108,9 @@
 ### [포털에서 콘텐츠 보호 구성](media-services-portal-protect-content.md)
 ### [스트림에 대해 AES-128 암호화되지 않은 키 구성](media-services-protect-with-aes128.md)
 ### [AMS REST API를 사용하여 저장소 암호화로 콘텐츠 암호화](media-services-rest-storage-encryption.md)
-### [미디어 서비스 PlayReady 라이선스 템플릿 개요](media-services-playready-license-template-overview.md)
+### [Media Services PlayReady 라이선스 템플릿 개요](media-services-playready-license-template-overview.md)
 ### [DRM 라이선스 배달](media-services-deliver-keys-and-licenses.md)
-### [파트너를 사용하여 Azure 미디어 서비스에 Widevine 라이선스 제공](media-services-licenses-partner-integration.md)
+### [파트너를 사용하여 Azure Media Services에 Widevine 라이선스 제공](media-services-licenses-partner-integration.md)
 ### [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-drm.md)
 ### [Azure Media Services를 사용하여 Apple FairPlay로 보호되는 HLS 콘텐츠 스트리밍](media-services-protect-hls-with-fairplay.md)
 ### [다중 DRM 및 Access Control이 포함된 CENC: Azure 및 Azure Media Services에서 참조 디자인 및 구현](media-services-cenc-with-multidrm-access-control.md)
@@ -195,16 +195,18 @@
 ### [재시도 논리](media-services-retry-logic-in-dotnet-sdk.md)
 
 # 참조
-## [릴리스 정보](media-services-release-notes.md)
-## [.NET](media-services-dotnet-how-to-use.md)
-## [REST (영문)](media-services-rest-how-to-use.md)
+## [PowerShell(리소스 관리자)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
+## [PowerShell(서비스 관리)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST (영문)](/rest/api/media)
 
 # 리소스
+## [릴리스 정보](media-services-release-notes.md)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services 커뮤니티](media-services-community.md)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

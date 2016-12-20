@@ -1,13 +1,13 @@
 ---
-title: Windows VM에서 데이터 디스크 분리 | Microsoft Docs
-description: Resource Manager 배포 모델을 사용하여 Azure의 가상 컴퓨터에서 데이터 디스크를 분리하는 방법을 알아봅니다.
+title: "Windows VM에서 데이터 디스크 분리 | Microsoft Docs"
+description: "Resource Manager 배포 모델을 사용하여 Azure의 가상 컴퓨터에서 데이터 디스크를 분리하는 방법을 알아봅니다."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 730672a8b52ef37c759b5c92bc1e36d8477da3f3
+
 
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Windows 가상 컴퓨터에서 데이터 디스크를 분리하는 방법
@@ -45,16 +49,21 @@ ms.author: cynthn
 
 마지막 명령은 가상 컴퓨터의 상태를 업데이트하여 데이터 디스크 제거 프로세스를 완료합니다.
 
-    $VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" 
-    Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
-    Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
+```powershell
+$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" 
+Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
+Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
+```
 
 
 자세한 내용은 [Remove-AzureRmVMDataDisk](https://msdn.microsoft.com/library/mt603614.aspx)
 
 ## <a name="next-steps"></a>다음 단계
-데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](virtual-machines-windows-attach-disk-portal.md)
+데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

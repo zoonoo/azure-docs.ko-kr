@@ -32,7 +32,7 @@
 
 ## 계획 및 디자인
 ### [Azure Mobile Apps의 인증 및 권한 부여](app-service-mobile-auth.md)
-### [Azure 모바일 앱에서 오프라인 데이터 동기화](app-service-mobile-offline-data-sync.md)
+### [Azure Mobile Apps에서 오프라인 데이터 동기화](app-service-mobile-offline-data-sync.md)
 ### [Azure App Service에 대한 모범 사례](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure App Service 및 기존 Azure 서비스](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [App Service 세부 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -97,7 +97,7 @@
 #### [Azure App Service에서 .NET WebJob 만들기](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [WebJob SDK를 사용하여 Azure 서비스 버스로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [WebJob SDK를 사용하여 Azure Service Bus로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [WebJob SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### App Service 환경
@@ -171,7 +171,7 @@
 #### [계층화된 보안 아키텍처 구현](../app-service-web/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [백 엔드 리소스에 안전하게 연결](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## 백업
+## Backup
 ### [Azure에서 앱 백업](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure에서 앱 복원](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [REST를 사용하여 App Service 앱 백업 및 복원](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -199,7 +199,7 @@
 ### [Azure에서 SendGrid를 사용하여 전자 메일을 보내는 방법](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## 문제 해결
-### 모바일 앱에 대한 일반적인 문제 해결
+### Mobile Apps에 대한 일반적인 문제 해결
 #### [.NET 백 엔드](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-debug-and-troubleshoot-the-net-server-sdk)
 #### [Node.JS 백 엔드](app-service-mobile-node-backend-how-to-use-server-sdk.md#Debugging)
 ### [진단 로깅 사용](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -207,10 +207,12 @@
 ### [Visual Studio를 사용하여 문제 해결](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # 참조
-## [.NET API](https://msdn.microsoft.com/library/azure/dn961176.aspx)
-## [Azure 포털](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [App Service 참조](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [.NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+
+# 관련 항목
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [App Service 참조](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
@@ -225,6 +227,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

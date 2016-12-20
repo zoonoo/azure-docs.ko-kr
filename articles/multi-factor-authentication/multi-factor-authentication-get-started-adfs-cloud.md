@@ -15,18 +15,18 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
 
 
 ---
-# <a name="securing-cloud-resources-with-azure-multifactor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
+# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
 조직이 Azure Active Directory와 페더레이션되어 있는 경우 Azure Multi-Factor Authentication 또는 Active Directory Federation Services를 사용하여 Azure AD에서 액세스하는 리소스를 보호합니다. Azure Multi-Factor Authentication 또는 Active Directory Federation Services를 사용하여 Azure Active Directory 리소스를 보호하려면 다음 절차를 따르세요.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>AD FS를 사용하여 Azure AD 리소스 보안 유지
 클라우드 리소스를 보호하려면 먼저 사용자에 대한 계정을 설정한 다음 클레임 규칙을 설정합니다. 다음 단계를 수행하려면 이 절차를 따르세요.
 
-1. [Multi-Factor Authentication 켜기](multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users)에 설명된 단계에 따라 사용자가 계정을 사용하도록 설정합니다.
+1. [Multi-Factor Authentication 켜기](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users)에 설명된 단계에 따라 사용자가 계정을 사용하도록 설정합니다.
 2. AD FS 관리 콘솔을 시작합니다.
    ![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
 3. **신뢰 당사자 트러스트**로 이동한 후 신뢰 당사자 트러스트를 마우스 오른쪽 단추로 클릭합니다. **클레임 규칙 편집...**을 선택합니다.
@@ -34,13 +34,13 @@ ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
 5. 드롭다운에서 **사용자 지정 규칙을 사용하여 클레임 보내기**를 선택하고 **다음**을 클릭합니다.
 6. 클레임 규칙의 이름을 입력합니다.
 7. 사용자 지정 규칙에 다음 텍스트를 추가합니다.
-   
+
     ```
     => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
     ```
-   
+
     해당 클레임:
-   
+
     ```
     <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
     <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
@@ -74,7 +74,7 @@ ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
 10. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **사용자 지정 규칙을 사용하여 클레임 보내기**를 선택하고 **다음**을 클릭합니다.
 11. 클레임 규칙 이름 아래에 있는 상자에 *로그인한 사용자 유지*를 입력합니다.
 12. 사용자 지정 규칙 상자에서 다음을 입력합니다.
-    
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -83,7 +83,7 @@ ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
 15. **Ok**를 클릭합니다.
 16. AD FS 관리를 닫습니다.
 
-### <a name="configure-azure-multifactor-authentication-trusted-ips-with-federated-users"></a>페더레이션 사용자로 Azure Multi-Factor Authentication 신뢰할 수 있는 IP 구성
+### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>페더레이션 사용자로 Azure Multi-Factor Authentication 신뢰할 수 있는 IP 구성
 이제 클레임이 적용되었으므로 신뢰할 수 있는 IP를 구성할 수 있습니다.
 
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
@@ -100,7 +100,6 @@ ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

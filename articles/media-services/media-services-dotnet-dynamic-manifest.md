@@ -1,12 +1,12 @@
 ---
-title: Azure 미디어 서비스 .NET SDK로 필터 생성
-description: 이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍은 미디어 서비스가 동적 매니페스트를 생성하여 이루어집니다.
+title: "Azure 미디어 서비스 .NET SDK로 필터 생성"
+description: "이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍은 미디어 서비스가 동적 매니페스트를 생성하여 이루어집니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/18/2016
 ms.author: juliako;cenkdin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3fb58dc98d7e9b943116760a401a4118df3e7424
+
 
 ---
-# Azure 미디어 서비스 .NET SDK로 필터 생성
+# <a name="creating-filters-with-azure-media-services-net-sdk"></a>Azure 미디어 서비스 .NET SDK로 필터 생성
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-dynamic-manifest.md)
 > * [REST (영문)](media-services-rest-dynamic-manifest.md)
@@ -27,19 +31,19 @@ ms.author: juliako;cenkdin
 
 필터 및 동적 매니페스트에 대한 더 자세한 내용은 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)를 참조하십시오.
 
-이 항목에서는 미디어 서비스 .NET SDK를 사용하여 필더를 생성하고, 업데이트하며, 삭제하는 방법을 보여줍니다.
+이 항목에서는 미디어 서비스 .NET SDK를 사용하여 필더를 생성하고, 업데이트하며, 삭제하는 방법을 보여줍니다. 
 
-필터를 업데이트하는 경우, 규칙을 새로 고치는 스트리밍 끝점에 최대 2분이 소요될 수 있습니다. 콘텐츠가 이 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터 업데이트 후에는 캐시를 지우는 것이 바람직합니다. 이 옵션을 사용할 수 없는 경우에 서로 다른 필터를 사용 하는 것이 좋습니다.
+필터를 업데이트하는 경우, 규칙을 새로 고치는 스트리밍 끝점에 최대 2분이 소요될 수 있습니다. 콘텐츠가 이 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터 업데이트 후에는 캐시를 지우는 것이 바람직합니다. 이 옵션을 사용할 수 없는 경우에 서로 다른 필터를 사용 하는 것이 좋습니다. 
 
-## 필터 생성에 사용되는 형식
-필터를 생성할 때는 다음 형식이 사용됩니다.
+## <a name="types-used-to-create-filters"></a>필터 생성에 사용되는 형식
+필터를 생성할 때는 다음 형식이 사용됩니다. 
 
-* **IStreamingFilter**. 이 형식은 다음 REST API [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)를 기반으로 합니다.
-* **IStreamingAssetFilter**. 이 형식은 다음 REST API [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)를 기반으로 합니다.
-* **PresentationTimeRange**. 이 형식은 다음 REST API [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)를 기반으로 합니다.
-* **FilterTrackSelectStatement** 및 **IFilterTrackPropertyCondition**. 이 형식은 다음 REST API [FilterTrackSelect 및 FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)을 기반으로 합니다.
+* **IStreamingFilter**.  이 형식은 다음 REST API [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
+* **IStreamingAssetFilter**. 이 형식은 다음 REST API [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
+* **PresentationTimeRange**. 이 형식은 다음 REST API [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
+* **FilterTrackSelectStatement** 및 **IFilterTrackPropertyCondition**. 이 형식은 다음 REST API [FilterTrackSelect 및 FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
 
-## 전역 필터 생성/업데이트/읽기/삭제
+## <a name="createupdatereaddelete-global-filters"></a>전역 필터 생성/업데이트/읽기/삭제
 다음 코드에서는 .NET을 사용하여 자산 필더를 생성, 업데이트, 읽기 및 삭제하는 방법을 보여줍니다.
 
     string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
@@ -68,7 +72,7 @@ ms.author: juliako;cenkdin
     filter.Delete();
 
 
-## 자산 필터 생성/업데이트/읽기/삭제
+## <a name="createupdatereaddelete-asset-filters"></a>자산 필터 생성/업데이트/읽기/삭제
 다음 코드에서는 .NET을 사용하여 자산 필더를 생성, 업데이트, 읽기 및 삭제하는 방법을 보여줍니다.
 
     string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
@@ -99,12 +103,12 @@ ms.author: juliako;cenkdin
 
 
 
-## 필터를 사용하는 스트리밍 URL 작성
+## <a name="build-streaming-urls-that-use-filters"></a>필터를 사용하는 스트리밍 URL 작성
 자산을 게시하고 제공하는 방법에 대한 자세한 내용은 [고객에 콘텐츠 배달 개요](media-services-deliver-content-overview.md)를 참조하십시오.
 
 다음 예제에서는 스트리밍 URL에 필터를 추가하는 방법을 보여줍니다.
 
-**MPEG DASH**
+**MPEG DASH** 
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
 
@@ -126,13 +130,18 @@ ms.author: juliako;cenkdin
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
 
 
-## 미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## 피드백 제공
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

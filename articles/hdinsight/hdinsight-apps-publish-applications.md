@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/18/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ca18e2660d2e59f6dee12010abc9d1780f3a717a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 35a6c06bc4850f3fcfc6221d62998465f3b38251
 
 
 ---
@@ -108,6 +108,6 @@ HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

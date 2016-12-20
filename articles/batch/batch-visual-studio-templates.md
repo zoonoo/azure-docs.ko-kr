@@ -1,12 +1,12 @@
 ---
-title: Azure 배치용 Visual Studio 템플릿 | Microsoft Docs
-description: 이러한 Visual Studio 프로젝트 템플릿을 통해 Azure 배치에서 계산 집약적인 워크로드를 어떻게 구현 및 실행할 수 있는지 알아봅니다.
+title: "Azure 배치용 Visual Studio 템플릿 | Microsoft Docs"
+description: "이러한 Visual Studio 프로젝트 템플릿을 통해 Azure 배치에서 계산 집약적인 워크로드를 어떻게 구현 및 실행할 수 있는지 알아봅니다."
 services: batch
 documentationcenter: .net
 author: fayora
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/07/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3907de9630fec99b1d28c750bfbfdf6f646bf194
+
 
 ---
-# Azure 배치용 Visual Studio 프로젝트 템플릿
+# <a name="visual-studio-project-templates-for-azure-batch"></a>Azure 배치용 Visual Studio 프로젝트 템플릿
 배치용 **작업 관리자** 및 **태스크 프로세서 Visual Studio 템플릿**은 최소한의 노력으로 배치에서 계산 집약적 워크로드를 구현 및 실행하는 데 도움이 되는 코드를 제공합니다. 이 문서에서는 이러한 템플릿을 설명하고 템플릿을 사용하는 방법에 대한 지침을 제공합니다.
 
 > [!IMPORTANT]
@@ -24,7 +28,7 @@ ms.author: marsma
 > 
 > 
 
-## 대략적인 개요
+## <a name="high-level-overview"></a>대략적인 개요
 작업 관리자 및 태스크 프로세서 템플릿은 다음 두 가지 유용한 구성 요소를 만드는 데 사용할 수 있습니다.
 
 * 작업을 독립적으로 병렬 실행 가능한 여러 태스크로 나눌 수 있는 작업 분할자를 구현하는 작업 관리자 태스크.
@@ -45,7 +49,7 @@ ms.author: marsma
 
 ![클라이언트 코드가 배치 서비스와 상호 작용하는 방법을 보여 주는 다이어그램][diagram01]
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 Batch 템플릿을 사용하려면 다음이 필요합니다.
 
 * Visual Studio 2015 이상이 이미 설치되어 있는 컴퓨터
@@ -58,7 +62,7 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
   * Visual Studio의 온라인 갤러리에서 템플릿을 다운로드합니다. [Microsoft Azure 배치 프로젝트 템플릿][vs_gallery_templates]
 * [응용 프로그램 패키지](batch-application-packages.md) 기능을 사용하여 작업 관리자 및 태스크 프로세서를 Batch 계산 노드에 배포할 계획인 경우 저장소 계정을 배치 계정에 연결해야 합니다.
 
-## 준비
+## <a name="preparation"></a>준비
 작업 관리자 및 태스크 프로세서 프로그램 간에 코드를 쉽게 공유할 수 있으므로 작업 관리자 및 태스크 프로세서를 포함할 수 있는 솔루션을 만드는 것이 좋습니다. 이 솔루션을 만들려면 다음 단계를 따르세요.
 
 1. Visual Studio 2015를 열고 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
@@ -66,7 +70,7 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
 3. 응용 프로그램 및 이 솔루션의 용도를 설명하는 이름을 입력합니다(예: "LitwareBatchTaskPrograms").
 4. 새 솔루션을 만들려면 **확인**을 클릭합니다.
 
-## 작업 관리자 템플릿
+## <a name="job-manager-template"></a>작업 관리자 템플릿
 작업 관리자 템플릿을 통해 다음 작업을 수행할 수 있는 작업 관리자 태스크를 구현할 수 있습니다.
 
 * 작업을 여러 태스크로 분할합니다.
@@ -77,17 +81,17 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
 > 
 > 
 
-### 템플릿을 사용하여 작업 관리자 만들기
+### <a name="create-a-job-manager-using-the-template"></a>템플릿을 사용하여 작업 관리자 만들기
 이전에 만든 솔루션에 작업 관리자를 추가하려면 다음 단계를 수행합니다.
 
 1. Visual Studio 2015에서 기존 솔루션을 엽니다.
-2. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트**를 선택합니다.
+2. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트**를 클릭합니다.
 3. **Visual C#** 아래에서 **클라우드**를 클릭한 후 **Azure 배치 작업 관리자 및 작업 분할자**를 클릭합니다.
 4. 응용 프로그램을 설명하고 이 프로젝트를 작업 관리자로 식별하는 이름을 입력합니다(예: "LitwareJobManager").
 5. 프로젝트를 만들려면 **확인**을 클릭합니다.
 6. 마지막으로, 프로젝트를 빌드하여 Visual Studio에서 모든 참조된 NuGet 패키지를 로드하고 수정을 시작하기 전에 해당 프로젝트가 유효한지 확인하도록 합니다.
 
-### 작업 관리자 템플릿 파일 및 그 용도
+### <a name="job-manager-template-files-and-their-purpose"></a>작업 관리자 템플릿 파일 및 그 용도
 작업 관리자 템플릿을 사용하여 프로젝트를 만들면 세 가지 코드 파일 그룹이 생성됩니다.
 
 * 메인 프로그램 파일(Program.cs). 여기에는 프로그램 진입점과 최상위 예외 처리가 포함됩니다. 일반적으로 이 값을 수정할 필요가 없습니다.
@@ -120,7 +124,7 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
 * `Packages.config`: 표준 NuGet 패키지 종속성 파일
 * `Program.cs`: 프로그램 진입점과 최상위 예외 처리가 포함됩니다.
 
-### 작업 분할자 구현
+### <a name="implementing-the-job-splitter"></a>작업 분할자 구현
 작업 관리자 템플릿 프로젝트를 열면 프로젝트에 기본적으로 JobSplitter.cs 파일이 열려 있습니다. 아래 표시된 Split() 메서드를 사용하여 워크로드에서 태스크에 대한 분할 논리를 구현할 수 있습니다.
 
 ```csharp
@@ -172,14 +176,14 @@ Split() 구현에서는 다음에 액세스할 수 있습니다.
 두 경우 모두, 작업 분할자에 의해 이미 반환되어 배치 작업에 추가된 모든 태스크를 실행할 수 있게 됩니다. 이러한 경우가 발생하지 않도록 하려면 다음을 수행할 수 있습니다.
 
 * 작업 분할자에서 반환하기 전에 작업 종료
-* 반환하기 전에 전체 태스크 컬렉션 작성(즉, C# 반복기를 사용하여 작업 분할자를 구현하는 대신 `ICollection<CloudTask>` 또는 `IList<CloudTask>` 반환)
+* 반환하기 전에 전체 태스크 컬렉션 작성(즉, C# 반복기를 사용하여 작업 분할자를 구현하는 대신 `ICollection<CloudTask>` 하나에 `IList<CloudTask>` instead of implementing your job splitter using a C# iterat하나에)
 * 태스크 종속성을 사용하여 모든 태스크가 작업 관리자의 성공적인 완료에 종속되도록 함
 
 **작업 관리자 재시도**
 
 작업 관리자가 실패하는 경우 클라이언트 재시도 설정에 따라 배치 서비스에 의해 재시도될 수 있습니다. 일반적으로 이 방법은 프레임워크가 태스크를 작업에 추가할 경우 이미 존재하는 모든 태스크를 무시하므로 안전합니다. 그러나 태스크 계산 비용이 많이 드는 경우 작업에 이미 추가했던 태스크를 다시 계산하는 비용이 발생하는 것을 원하지 않을 수 있으며 반대로, 다시 실행한다고 해도 동일한 태스크 ID가 생성된다는 보장이 없는 경우 '중복 무시' 동작이 시작되지 않습니다. 이러한 경우 예를 들어 태스크가 생성되기 시작하기 전에 CloudJob.ListTasks를 수행하여 이미 수행되었고 반복되지 않는 작업을 검색하도록 작업 분할자를 설계해야 합니다.
 
-### 작업 관리자 템플릿에서 종료 코드 및 예외
+### <a name="exit-codes-and-exceptions-in-the-job-manager-template"></a>작업 관리자 템플릿에서 종료 코드 및 예외
 종료 코드 및 예외는 프로그램 실행 결과를 확인하는 메커니즘을 제공하며 프로그램의 실행 시 발생하는 문제를 식별하는 데 도움이 될 수 있습니다. 작업 관리자 템플릿은 이 섹션에 설명된 종료 코드 및 예외를 구현합니다.
 
 작업 관리자 템플릿으로 구현된 작업 관리자 태스크는 세 가지 가능한 종료 코드를 반환할 수 있습니다.
@@ -194,12 +198,12 @@ Split() 구현에서는 다음에 액세스할 수 있습니다.
 
 예외에서 반환된 모든 정보는 stdout.txt 및 stderr.txt 파일에 기록됩니다. 자세한 내용은 [오류 처리](batch-api-basics.md#error-handling)를 참조하세요.
 
-### 클라이언트 고려 사항
-이 섹션에서는 이 템플릿을 기반으로 작업 관리자를 호출할 때 일부 클라이언트 구현 요구 사항에 대해 설명합니다. 매개 변수 및 환경 설정 전달에 대한 자세한 내용은 [클라이언트 코드에서 매개 변수 및 환경 변수를 전달하는 방법](#pass-environment-settings)을 참조하세요.
+### <a name="client-considerations"></a>클라이언트 고려 사항
+이 섹션에서는 이 템플릿을 기반으로 작업 관리자를 호출할 때 일부 클라이언트 구현 요구 사항에 대해 설명합니다. 매개 변수 및 환경 설정 전달에 대한 자세한 내용은 [클라이언트 코드에서 매개 변수 및 환경 변수를 전달하는 방법](#pass-environment-settings) 을 참조하세요.
 
 **필수 자격 증명**
 
-Azure 배치 작업에 태스크를 추가하려면 작업 관리자 태스크에 Azure 배치 계정 URL과 키가 필요합니다. YOUR\_BATCH\_URL 및 YOUR\_BATCH\_KEY라는 환경 변수에 이를 전달해야 합니다. 작업 관리자 태스크 환경 설정에서 이러한 내용을 설정할 수 있습니다. 예를 들어 C# 클라이언트에서 다음과 같이 설정합니다.
+Azure 배치 작업에 태스크를 추가하려면 작업 관리자 태스크에 Azure 배치 계정 URL과 키가 필요합니다. YOUR_BATCH_URL 및 YOUR_BATCH_KEY라는 환경 변수에 이를 전달해야 합니다. 작업 관리자 태스크 환경 설정에서 이러한 내용을 설정할 수 있습니다. 예를 들어 C# 클라이언트에서 다음과 같이 설정합니다.
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -223,7 +227,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 클라이언트는 작업 관리자 *killJobOnCompletion* 플래그를 **false**로 설정해야 합니다.
 
-클라이언트가 *runExclusive*를 **false**로 설정하는 것이 일반적으로 안전합니다.
+클라이언트가 *runExclusive* 를 **false**로 설정하는 것이 일반적으로 안전합니다.
 
 클라이언트는 *resourceFiles* 또는 *applicationPackageReferences* 컬렉션을 사용하여 작업 관리자 실행 파일(및 필요한 DLL)이 계산 노드에 배포되도록 해야 합니다.
 
@@ -233,9 +237,9 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 작업 분할자가 종속성과 함께 태스크를 내보내는 경우 클라이언트는 작업의 usesTaskDependencies를 true로 설정해야 합니다.
 
-작업 분할자 모델에서는 클라이언트가 작업 분할자가 생성한 것 이상으로 작업에 태스크를 추가하려는 것은 정상적이지 않습니다. 따라서 클라이언트는 일반적으로 작업의 *onAllTasksComplete*를 **terminatejob**으로 설정해야 합니다.
+작업 분할자 모델에서는 클라이언트가 작업 분할자가 생성한 것 이상으로 작업에 태스크를 추가하려는 것은 정상적이지 않습니다. 따라서 클라이언트는 일반적으로 작업의 *onAllTasksComplete* 를 **terminatejob**으로 설정해야 합니다.
 
-## 태스크 프로세서 템플릿
+## <a name="task-processor-template"></a>태스크 프로세서 템플릿
 태스크 프로세서 템플릿을 통해 다음 작업을 수행할 수 있는 태스크 프로세서를 구현할 수 있습니다.
 
 * 각 배치 태스크를 실행하는 데 필요한 정보를 설정합니다.
@@ -246,7 +250,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 태스크 프로세서가 수행하는 작업은 단순 또는 복잡할 수 있으며 워크로드의 필요에 따라 많거나 적을 수 있습니다. 또한 모든 태스크 작업을 하나의 태스크 프로세서로 구현하여 응용 프로그램 또는 워크로드 요구 사항의 변경에 따라 작업을 쉽게 업데이트 또는 추가할 수 있습니다. 그러나 예를 들어 간단한 명령줄에서 신속하게 시작할 수 있는 작업을 실행하는 경우처럼 일부 경우에는 태스크 프로세서가 불필요한 복잡성을 추가할 수 있으므로 사용자 구현에 대해 최적의 솔루션이 아닐 수 있습니다.
 
-### 템플릿을 사용하여 태스크 프로세서 만들기
+### <a name="create-a-task-processor-using-the-template"></a>템플릿을 사용하여 태스크 프로세서 만들기
 이전에 만든 솔루션에 태스크 프로세서를 추가하려면 다음 단계를 수행합니다.
 
 1. Visual Studio 2015에서 기존 솔루션을 엽니다.
@@ -256,7 +260,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 5. 프로젝트를 만들려면 **확인**을 클릭합니다.
 6. 마지막으로, 프로젝트를 빌드하여 Visual Studio에서 모든 참조된 NuGet 패키지를 로드하고 수정을 시작하기 전에 해당 프로젝트가 유효한지 확인하도록 합니다.
 
-### 태스크 프로세서 템플릿 파일 및 그 용도
+### <a name="task-processor-template-files-and-their-purpose"></a>태스크 프로세서 템플릿 파일 및 그 용도
 태스크 프로세서 템플릿을 사용하여 프로젝트를 만들면 세 가지 코드 파일 그룹이 생성됩니다.
 
 * 메인 프로그램 파일(Program.cs). 여기에는 프로그램 진입점과 최상위 예외 처리가 포함됩니다. 일반적으로 이 값을 수정할 필요가 없습니다.
@@ -294,7 +298,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 * `Packages.config`: 표준 NuGet 패키지 종속성 파일
 * `Program.cs`: 프로그램 진입점과 최상위 예외 처리가 포함됩니다.
 
-## 태스크 프로세서 구현
+## <a name="implementing-the-task-processor"></a>태스크 프로세서 구현
 태스크 프로세서 템플릿 프로젝트를 열면 프로젝트에 기본적으로 TaskProcessor.cs 파일이 열려 있습니다. 아래 표시된 Run() 메서드를 사용하여 워크로드에서 태스크에 대한 실행 논리를 구현할 수 있습니다.
 
 ```csharp
@@ -357,7 +361,7 @@ Run() 구현에서는 다음에 액세스할 수 있습니다.
 
 오류가 발생한 경우 예외를 throw하여 Run() 메서드를 종료할 수 있지만 이렇게 하면 최상위 예외 처리기가 태스크 종료 코드 제어 하에 있게 됩니다. 예를 들어 진단 목적을 위해 다양한 오류 유형을 구분할 수 있도록 종료 코드를 제어해야 하는 경우 또는 일부 오류 모드에서 특정 작업만 종료해야 하므로 0이 아닌 종료 코드를 반환하여 Run() 메서드를 종료해야 합니다. 이것이 태스크 종료 코드가 됩니다.
 
-### 태스크 프로세서 템플릿에서 종료 코드 및 예외
+### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>태스크 프로세서 템플릿에서 종료 코드 및 예외
 종료 코드 및 예외는 프로그램 실행 결과를 확인하는 메커니즘을 제공하며 프로그램의 실행 시 발생하는 문제를 식별하는 데 도움이 될 수 있습니다. 태스크 프로세서 템플릿은 이 섹션에 설명된 종료 코드 및 예외를 구현합니다.
 
 태스크 프로세서 템플릿으로 구현된 태스크 프로세서 태스크는 세 가지 가능한 종료 코드를 반환할 수 있습니다.
@@ -365,7 +369,7 @@ Run() 구현에서는 다음에 액세스할 수 있습니다.
 | 코드 | 설명 |
 | --- | --- |
 | [Process.ExitCode][process_exitcode] |태스크 프로세서가 완료될 때까지 실행됩니다. 사용자가 호출한 프로그램이 성공했음을 의미하는 것은 아니며 태스크 프로세서가 이를 성공적으로 호출했고 예외 없이 후처리를 수행했음만 의미합니다. 종료 코드의 의미는 호출한 프로그램에 따라 다르며 일반적으로 종료 코드 0은 프로그램이 성공했음을 의미하고 그 외의 종료 코드는 프로그램이 실패했음을 의미합니다. |
-| 1 |태스크 프로세서가 프로그램의 '예상된' 부분에서 예외로 인해 실패했습니다. 예외는 진단 정보 및 가능한 경우, 오류를 해결하기 위한 제안과 함께 `TaskProcessorException`으로 해석됩니다. |
+| 1 |태스크 프로세서가 프로그램의 '예상된' 부분에서 예외로 인해 실패했습니다. 예외는 진단 정보 및 가능한 경우, 오류를 해결하기 위한 제안과 함께 `TaskProcessorException` 으로 해석됩니다. |
 | 2 |태스크 프로세서가 '예기치 않은' 예외로 인해 실패했습니다. 예외는 표준 출력에 기록되었지만 태스크 프로세서가 추가 진단 또는 재구성 정보를 추가할 수 없습니다. |
 
 > [!NOTE]
@@ -375,7 +379,7 @@ Run() 구현에서는 다음에 액세스할 수 있습니다.
 
 예외에서 반환된 모든 정보는 stdout.txt 및 stderr.txt 파일에 기록됩니다. 자세한 내용은 배치 설명서의 오류 처리를 참조하세요.
 
-### 클라이언트 고려 사항
+### <a name="client-considerations"></a>클라이언트 고려 사항
 **Storage 자격 증명**
 
 태스크 프로세서에서 출력을 유지하기 위해 Azure Blob 저장소를 사용하는 경우(예를 들어 파일 규약 도우미 라이브러리를 사용하는 경우) 클라우드 저장소 계정 자격 증명 *또는* 공유 액세스 서명(SAS)을 포함하는 Blob 컨테이너 URL 중 *하나에* 액세스해야 합니다. 템플릿에는 일반적인 환경 변수를 통해 자격 증명을 제공하기 위한 지원이 포함됩니다. 클라이언트는 다음과 같이 저장소 자격 증명을 전달할 수 있습니다.
@@ -391,12 +395,12 @@ job.CommonEnvironmentSettings = new [] {
 
 SAS와 함께 컨테이너 URL을 사용하는 것을 선호하는 경우 작업의 일반적인 환경 설정을 통해 이를 전달할 수도 있지만 현재 태스크 프로세서 템플릿은 이에 대한 기본 제공 지원을 포함하지 않습니다.
 
-** Storage 설정**
+**Storage 설정**
 
 클라이언트 또는 작업 관리자 태스크는 태스크를 작업에 추가하기 전에 태스크에 필요한 모든 컨테이너를 생성합니다. SAS와 함께 컨테이너 URL을 사용하는 경우 이러한 URL에는 컨테이너를 생성할 권한이 없으므로 필수입니다. 컨테이너에서 CloudBlobContainer.CreateIfNotExistsAsync를 호출해야 하는 모든 태스크를 저장하므로 저장소 계정 자격 증명을 전달하는 경우에도 권장됩니다.
 
-## 매개 변수 및 환경 변수 전달
-### 환경 설정 전달
+## <a name="pass-parameters-and-environment-variables"></a>매개 변수 및 환경 변수 전달
+### <a name="pass-environment-settings"></a>환경 설정 전달
 클라이언트는 환경 설정 형태로 작업 관리자 태스크에 정보를 전달할 수 있습니다. 그러면 계산 작업의 일부로 실행할 태스크 프로세서 태스크를 생성할 때 작업 관리자 태스크가 이 정보를 사용할 수 있습니다. 환경 설정으로 전달할 수 있는 정보의 예는 다음과 같습니다.
 
 * Storage 계정 이름 및 계정 키
@@ -407,7 +411,7 @@ SAS와 함께 컨테이너 URL을 사용하는 것을 선호하는 경우 작업
 
 예를 들어 배치 계정에 대한 `BatchClient` 인스턴스를 가져오려면 클라이언트 코드에서 배치 계정에 대한 URL 및 공유 키 자격 증명을 환경 변수로 전달할 수 있습니다. 마찬가지로 배치 계정에 연결되는 저장소 계정에 액세스하려면 저장소 계정 이름 및 저장소 계정 키를 환경 변수로 전달할 수 있습니다.
 
-### 매개 변수를 작업 관리자 템플릿으로 전달
+### <a name="pass-parameters-to-the-job-manager-template"></a>매개 변수를 작업 관리자 템플릿으로 전달
 대부분의 경우 작업 분할 프로세스를 제어하거나 작업에 대한 태스크를 구성하기 위해 작업당 매개 변수를 작업 관리자 태스크로 전달하는 데 유용합니다. 작업 관리자 태스크에 대한 리소스 파일로 parameters.json이라는 JSON 파일을 업로드하여 이 작업을 수행할 수 있습니다. 그러면 매개 변수를 작업 관리자 템플릿의 `JobSplitter._parameters` 필드에서 사용할 수 있게 됩니다.
 
 > [!NOTE]
@@ -415,7 +419,7 @@ SAS와 함께 컨테이너 URL을 사용하는 것을 선호하는 경우 작업
 > 
 > 
 
-### 매개 변수를 태스크 프로세서 템플릿으로 전달
+### <a name="pass-parameters-to-the-task-processor-template"></a>매개 변수를 태스크 프로세서 템플릿으로 전달
 매개 변수를 태스크 프로세서 템플릿을 사용하여 구현된 개별 태스크로 전달할 수도 있습니다. 작업 관리자 템플릿처럼 태스크 프로세서 템플릿은
 
 parameters.json이라는 리소스 파일을 찾고 있는 경우 이를 매개 변수 사전으로 로드합니다. 매개 변수를 태스크 프로세서 태스크로 전달하는 방법에 대한 몇 가지 옵션이 있습니다.
@@ -428,14 +432,14 @@ parameters.json이라는 리소스 파일을 찾고 있는 경우 이를 매개 
 > 
 > 
 
-## 다음 단계
-### 작업 유지 및 Azure Storage에 태스크 출력
-배치 솔루션 개발 시 다른 유용한 도구는 [Azure 배치 파일 규칙][nuget_package]입니다. 배치 .NET 응용 프로그램에서 .NET 클래스 라이브러리(현재 미리 보기 상태)를 사용하면 Azure Storage 간에 태스크 출력을 쉽게 저장하고 검색할 수 있습니다. [Azure 배치 작업 및 태스크 출력 보관](batch-task-output.md)에는 라이브러리 및 사용법에 대한 자세한 내용이 포함되어 있습니다.
+## <a name="next-steps"></a>다음 단계
+### <a name="persist-job-and-task-output-to-azure-storage"></a>작업 유지 및 Azure Storage에 태스크 출력
+배치 솔루션 개발 시 다른 유용한 도구는 [Azure 배치 파일 규칙][nuget_package]입니다. 배치 .NET 응용 프로그램에서 .NET 클래스 라이브러리(현재 미리 보기 상태)를 사용하면 Azure Storage 간에 태스크 출력을 쉽게 저장하고 검색할 수 있습니다. [Azure 배치 작업 및 태스크 출력 보관](batch-task-output.md) 에는 라이브러리 및 사용법에 대한 자세한 내용이 포함되어 있습니다.
 
-### 배치 포럼
-MSDN의 [Azure 배치 포럼][forum]은 배치를 설명하고 서비스에 대한 질문을 하는 데 많은 도움이 됩니다. 유용한 "고정" 게시물을 참조하고 배치 솔루션을 빌드하는 동안 질문이 생기면 즉시 게시합니다.
+### <a name="batch-forum"></a>배치 포럼
+MSDN의 [Azure 배치 포럼][forum]은 배치를 설명하고 서비스에 대해 질문하는 데 많은 도움이 됩니다. 유용한 "고정" 게시물을 참조하고 배치 솔루션을 빌드하는 동안 질문이 생기면 즉시 게시합니다.
 
-[forum]: https://social.msdn.microsoft.com/forums/azure/ko-KR/home?forum=azurebatch
+[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
@@ -448,4 +452,8 @@ MSDN의 [Azure 배치 포럼][forum]은 배치를 설명하고 서비스에 대�
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,32 +1,37 @@
 ---
-title: 예측 - ETS + STL | Microsoft Docs
-description: 예측 - ETS + STL
+title: "예측 - ETS + STL | Microsoft Docs"
+description: "예측 - ETS + STL"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: xueshanz
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 153eab4d-6293-45e1-9871-ec339e810dd9
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 10/31/2016
 ms.author: yijichen
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5f9f7366b6e957215bed717e94c8138add6506d6
+
 
 ---
-# 예측 - ETS + STL
-이 [웹 서비스](https://datamarket.azure.com/dataset/aml_labs/demand_forecast)에서는 STL(계절별 추세 분해) 및 ETS(지수 평활) 모델을 구현하여 사용자가 제공한 기록 데이터를 기반으로 한 예측을 생성합니다. 올해 특정 제품에 대한 수요가 늘어납니까? 재고를 효과적으로 계획할 수 있도록 크리스마스 시즌의 제품 판매를 예측할 수 있습니까? 예측 모델로 이러한 질문을 해결할 수 있습니다. 과거 데이터가 제공되면 이러한 모델은 숨겨진 추세와 계절성을 조사하여 미래 추세를 예측합니다.
+# <a name="forecasting---ets-stl"></a>예측 - ETS + STL
+이 [웹 서비스](https://datamarket.azure.com/dataset/aml_labs/demand_forecast) 에서는 STL(계절별 추세 분해) 및 ETS(지수 평활) 모델을 구현하여 사용자가 제공한 기록 데이터를 기반으로 한 예측을 생성합니다. 올해 특정 제품에 대한 수요가 늘어납니까? 재고를 효과적으로 계획할 수 있도록 크리스마스 시즌의 제품 판매를 예측할 수 있습니까? 예측 모델로 이러한 질문을 해결할 수 있습니다. 과거 데이터가 제공되면 이러한 모델은 숨겨진 추세와 계절성을 조사하여 미래 추세를 예측합니다. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-> 사용자는 이 웹 서비스를 모바일 앱이나 웹 사이트를 통해 사용하거나 로컬 컴퓨터에서도 사용할 수 있습니다. 하지만 이 웹 서비스는 Azure 기계 학습을 사용하여 R 코드 기반의 웹 서비스를 만드는 방법을 보여 주는 예로 제공되기도 합니다. Azure 기계 학습 스튜디오 내에서 R 코드 몇 줄을 포함하고 단추를 몇 번 클릭하면 R 코드를 사용하여 실험을 만들고 웹 서비스로 게시할 수 있습니다. 그런 다음 웹 서비스를 Azure 마켓플레이스에 게시하면 웹 서비스 작성자가 인프라를 설정하지 않고도 전 세계의 사용자와 장치에서 이러한 웹 서비스를 사용할 수 있습니다.
+> 사용자는 이 웹 서비스를 모바일 앱이나 웹 사이트를 통해 사용하거나 로컬 컴퓨터에서도 사용할 수 있습니다. 하지만 이 웹 서비스는 Azure 기계 학습을 사용하여 R 코드 기반의 웹 서비스를 만드는 방법을 보여 주는 예로 제공되기도 합니다. Azure 기계 학습 스튜디오 내에서 R 코드 몇 줄을 포함하고 단추를 몇 번 클릭하면 R 코드를 사용하여 실험을 만들고 웹 서비스로 게시할 수 있습니다. 그런 다음 웹 서비스를 Azure 마켓플레이스에 게시하면 웹 서비스 작성자가 인프라를 설정하지 않고도 전 세계의 사용자와 장치에서 이러한 웹 서비스를 사용할 수 있습니다.  
 > 
 > 
 
-## 웹 서비스 사용
-이 서비스는 4개 인수를 수락하고 예측을 계산합니다. 입력 인수는 다음과 같습니다.
+## <a name="consumption-of-web-service"></a>웹 서비스 사용
+이 서비스는 4개 인수를 수락하고 예측을 계산합니다.
+입력 인수는 다음과 같습니다.
 
 * 빈도 - 원시 데이터(일별/주별/월별/분기별/연도별)의 빈도를 나타냅니다.
 * 출시가 임박한 시점 - 미래 예측 시간 프레임입니다.
@@ -35,20 +40,20 @@ ms.author: yijichen
 
 서비스의 출력은 계산된 예측 값입니다.
 
-샘플 입력은 다음과 같을 수 있습니다.
+샘플 입력은 다음과 같을 수 있습니다. 
 
 * 빈도 - 12
 * 출시가 임박한 시점 - 12
 * 날짜 - 1/15/2012, 2/15/2012, 3/15/2012, 4/15/2012, 5/15/2012, 6/15/2012, 7/15/2012, 8/15/2012, 9/15/2012, 10/15/2012, 11/15/2012, 12/15/2012, 1/15/2013, 2/15/2013, 3/15/2013, 4/15/2013, 5/15/2013, 6/15/2013, 7/15/2013, 8/15/2013, 9/15/2013, 10/15/2013, 11/15/2013, 12/15/2013, 1/15/2014, 2/15/2014, 3/15/2014, 4/15/2014, 5/15/2014, 6/15/2014, 7/15/2014, 8/15/2014, 9/15/2014
 * 값 - 3.479, 3.68, 3.832, 3.941, 3.797, 3.586, 3.508, 3.731, 3.915, 3.844, 3.634, 3.549, 3.557, 3.785, 3.782, 3.601, 3.544, 3.556, 3.65, 3.709, 3.682, 3.511, 3.429, 3.51, 3.523, 3.525, 3.626, 3.695, 3.711, 3.711, 3.693, 3.571, 3.509
 
-> Azure 마켓플레이스에서 호스트되는 이 서비스는 OData 서비스이고 POST 또는 GET 메서드를 통해 호출할 수 있습니다.
+> Azure 마켓플레이스에서 호스트되는 이 서비스는 OData 서비스이고 POST 또는 GET 메서드를 통해 호출할 수 있습니다. 
 > 
 > 
 
-다양한 자동화된 방식으로 서비스를 사용할 수 있습니다(예제 앱은 [여기](http://microsoftazuremachinelearning.azurewebsites.net/StlEtsForecasting.aspx) 참조).
+다양한 자동화된 방식으로 서비스를 사용할 수 있습니다(예제 앱은 [여기](http://microsoftazuremachinelearning.azurewebsites.net/StlEtsForecasting.aspx)참조).
 
-### 웹 서비스 사용의 C# 코드 시작:
+### <a name="starting-c-code-for-web-service-consumption"></a>웹 서비스 사용의 C# 코드 시작:
     public class Input
     {
             public string frequency;
@@ -78,21 +83,21 @@ ms.author: yijichen
     }
 
 
-## 웹 서비스 만들기
+## <a name="creation-of-web-service"></a>웹 서비스 만들기
 > 이 웹 서비스는 Azure 기계 학습을 사용하여 만들었습니다. 무료 평가판 및 실험을 만들고 [웹 서비스를 게시](machine-learning-publish-a-machine-learning-web-service.md)하는 방법에 대한 소개 비디오는 [azure.com/ml](http://azure.com/ml)을 참조하세요. 다음은 웹 서비스를 만든 실험과 실험 내 각 모듈의 예제 코드의 스크린샷입니다.
 > 
 > 
 
-Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 샘플 입력 데이터는 미리 정의된 데이터 스키마로 업로드되었습니다. 데이터 스키마에 연결된 것은 R의 ‘stl’, ‘ets’ 및 ‘forecast’ 함수를 사용하여 STL 및 ETS 예측 모델을 생성하는 [R 스크립트 실행][execute-r-script] 모듈입니다.
+Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 샘플 입력 데이터는 미리 정의된 데이터 스키마로 업로드되었습니다. 데이터 스키마에 연결된 것은 R의 ‘stl’, ‘ets’ 및 ‘forecast’ 함수를 사용하여 STL 및 ETS 예측 모델을 생성하는 [R 스크립트 실행][execute-r-script] 모듈입니다. 
 
-### 실험 흐름:
+### <a name="experiment-flow"></a>실험 흐름:
 ![실험 흐름][2]
 
-#### 모듈 1:
+#### <a name="module-1"></a>모듈 1:
     # Add in the CSV file with the data in the format shown below 
-![샘플 데이터][3]
+![샘플 데이터][3]    
 
-#### 모듈 2:
+#### <a name="module-2"></a>모듈 2:
     # Data input
     data <- maml.mapInputPort(1) # class: data.frame
     library(forecast)
@@ -119,10 +124,10 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 샘
     # Data output
     maml.mapOutputPort("data.forecast");
 
-## 제한 사항
+## <a name="limitations"></a>제한 사항
 이는 ETS+STL 예측에 대한 매우 간단한 예제입니다. 위의 예제 코드에서 볼 수 있듯이 오류 catch가 구현되어 있지 않으며, 이 서비스에서는 모든 변수가 연속/양수 값이고 빈도가 1보다 큰 정수여야 한다고 가정합니다. 날짜 및 값 벡터의 길이는 같아야 하고 시계열 길이는 2*빈도보다 커야 합니다. 날짜 변수는 ‘mm/dd/yyyy’ 형식을 준수해야 합니다.
 
-## FAQ
+## <a name="faq"></a>FAQ
 웹 서비스 사용 또는 Azure 마켓플레이스 게시 방법과 관련한 질문과 대답은 [여기](machine-learning-marketplace-faq.md)를 참조하세요.
 
 [1]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img1.png
@@ -134,4 +139,8 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 샘
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

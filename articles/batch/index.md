@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 5b9948f59fad542ce488f7682aef2cc57b1a0b55
-ms.openlocfilehash: 20bf594172ade3277455aae59469181162b4238a
+ms.sourcegitcommit: e48fea077e09518ab5005518c8e8a413df458b93
+ms.openlocfilehash: a661fc1e3946709058e0d2f32122732ba8a32b41
 
 ---
 #<a name="batch-documentation"></a>Batch 설명서
@@ -104,112 +104,46 @@ Azure 배치를 통해 클라우드에서 효율적으로 대규모 병렬 및 H
 
 ---
 
-## <a name="reference"></a>참조
-
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell 참조</p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch">PowerShell cmdlet</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/azure/batch/batch-cli-get-started">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure CLI를 사용하는 Batch</p>
+                        <h3>언어</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.batch">.NET API</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">Python SDK</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
+    <li>
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Batch 관리되는 참조</p>
+                        <h3>REST (영문)</h3>
+                        <p><a href="/rest/api/batchservice">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java SDK 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Node.js</h3>
-                        <p>Node.js 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementbatch.html">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Python</h3>
-                        <p>Python SDK 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/batchservice">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>배치 REST API 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
@@ -223,6 +157,6 @@ Azure Batch 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

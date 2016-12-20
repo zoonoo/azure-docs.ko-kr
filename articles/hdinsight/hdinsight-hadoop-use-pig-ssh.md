@@ -1,13 +1,13 @@
 ---
-title: HDInsight 클러스터에서 SSH와 Hadoop Pig 사용 | Microsoft Docs
-description: SSH를 사용하여 Linux 기반 Hadoop 클러스터에 연결한 다음 Pig 명령을 사용하여 Pig Latin 문을 대화형으로 실행하거나 일괄 처리 작업으로 실행하는 방법에 대해 알아봅니다.
+title: "HDInsight 클러스터에서 SSH와 Hadoop Pig 사용 | Microsoft Docs"
+description: "SSH를 사용하여 Linux 기반 Hadoop 클러스터에 연결한 다음 Pig 명령을 사용하여 Pig Latin 문을 대화형으로 실행하거나 일괄 처리 작업으로 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: b646a93b-4c51-4ba4-84da-3275d9124ebe
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b6a03b5ce95d2bcdf0bd7b3007acedb1e030a379
+
 
 ---
-# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-(ssh)"></a>Pig 명령(SSH)를 사용하여 Linux 기반 클러스터에서 Pig 작업 실행
+# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Pig 명령(SSH)를 사용하여 Linux 기반 클러스터에서 Pig 작업 실행
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
 이 문서에서는 SSH(Secure Shell)를 사용한 다음 대화형으로 또는 일괄 작업으로 Pig Latin 문을 실행하기 위한 Pig 명령을 사용하여 Linux 기반 Azure HDInsight 클러스터에 연결하는 프로세스를 안내합니다.
@@ -29,13 +33,13 @@ Pig Latin 프로그래밍 언어를 사용하면 원하는 출력을 생성하�
 > 
 > 
 
-## <a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>필수 조건
+## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * Linux 기반 HDInsight(HDInsight의 Hadoop) 클러스터
 * SSH 클라이언트. Linux, Unix 및 Mac OS에는 SSH 클라이언트가 함께 제공됩니다. Windows 사용자는 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)와 같은 클라이언트를 다운로드해야 합니다.
 
-## <a name="<a-id="ssh"></a>connect-with-ssh"></a><a id="ssh"></a>SSH를 사용하여 연결
+## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>SSH를 사용하여 연결
 SSH 명령을 사용하여 HDInsight 클러스터의 FQDN(정규화된 도메인 이름)에 연결합니다. FQDN은 지정한 클러스터 이름과 그 뒤에 오는 **.azurehdinsight.net**으로 구성됩니다. 예를 들어 다음 명령은 **myhdinsight**라는 클러스터에 연결합니다.
 
     ssh admin@myhdinsight-ssh.azurehdinsight.net
@@ -48,12 +52,12 @@ SSH 명령을 사용하여 HDInsight 클러스터의 FQDN(정규화된 도메인
 
 HDInsight에서 SSH 사용에 대한 자세한 내용은 [Linux, OS X 및 Unix에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-### <a name="putty-(windows-based-clients)"></a>PuTTY(Windows 기반 클라이언트)
+### <a name="putty-windows-based-clients"></a>PuTTY(Windows 기반 클라이언트)
 Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다( [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
 
 PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과 SSH 사용 ](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
 
-## <a name="<a-id="pig"></a>use-the-pig-command"></a><a id="pig"></a>Pig 명령 사용
+## <a name="a-idpigause-the-pig-command"></a><a id="pig"></a>Pig 명령 사용
 1. 연결되면 다음 명령을 사용하여 Pig CLI(명령줄 인터페이스)를 시작합니다.
    
         pig
@@ -130,10 +134,10 @@ Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있
         (ERROR,6)
         (FATAL,2)
 
-## <a name="<a-id="summary"></a>summary"></a><a id="summary"></a>요약
+## <a name="a-idsummaryasummary"></a><a id="summary"></a>요약
 이처럼 Pig 명령을 사용하면 배치 파일에 저장된 문을 실행할 뿐 아니라 Pig Latin을 사용하여 MapReduce 작업을 대화형으로 실행할 수도 있습니다.
 
-## <a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>다음 단계
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
 HDInsight에서 Pig에 대한 일반 정보.
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
@@ -143,6 +147,9 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure 주문형 미디어 인코더 개요 및 비교 | Microsoft Docs
-description: 이 항목에서는 Azure 주문형 미디어 인코더를 대략적으로 설명하고 비교한 데이터를 제공합니다.
+title: "Azure 주문형 미디어 인코더 개요 및 비교 | Microsoft 문서"
+description: "이 항목에서는 Azure 주문형 미디어 인코더를 대략적으로 설명하고 비교한 데이터를 제공합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dc153e837a20f475c0e0b03ac698f9f84a045364
+
 
 ---
-# Azure 주문형 미디어 인코더 개요 및 비교
-## 인코딩 개요
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 개요 및 비교
+## <a name="encoding-overview"></a>인코딩 개요
 Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한 여러 옵션을 제공합니다.
 
-미디어 서비스로 시작하는 경우 코덱과 파일 형식 간의 차이점을 이해하는 것은 중요합니다. 코덱은 압축/압축 해제 알고리즘을 구현하는 소프트웨어이고 파일 형식은 압축된 비디오를 보관하는 컨테이너입니다.
+미디어 서비스로 시작하는 경우 코덱과 파일 형식 간의 차이점을 이해하는 것은 중요합니다.
+코덱은 압축/압축 해제 알고리즘을 구현하는 소프트웨어이고 파일 형식은 압축된 비디오를 보관하는 컨테이너입니다.
 
 미디어 서비스는 적응 비트 전송률 MP4 또는 부드러운 스트리밍 인코딩 콘텐츠를 미디어 서비스에서 지원되는 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍, HDS)으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다.
 
@@ -38,55 +43,55 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 
 기본적으로 각 미디어 서비스 계정은 한번에 하나의 인코딩 작업을 활성화할 수 있습니다. 구입한 각 인코딩 예약 단위에 대해 하나씩, 여러 인코딩 작업을 동시에 실행할 수 있는 인코딩 단위를 예약할 수 있습니다. 자세한 내용은 [인코딩 단위 크기 조정](media-services-scale-media-processing-overview.md)을 참조하세요.
 
-## 미디어 인코더 표준
-### 사용 방법
+## <a name="media-encoder-standard"></a>미디어 인코더 표준
+### <a name="how-to-use"></a>사용 방법
 [미디어 인코더 표준으로 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-### 형식
+### <a name="formats"></a>형식
 [형식 및 코덱](media-services-media-encoder-standard-formats.md)
 
-### 기본 설정
+### <a name="presets"></a>기본 설정
 미디어 인코더 표준은 [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.
 
-### 입력 및 출력 메타데이터
+### <a name="input-and-output-metadata"></a>입력 및 출력 메타데이터
 인코더 입력 메타데이터는 [여기](http://msdn.microsoft.com/library/azure/dn783120.aspx)에서 설명합니다.
 
 인코더 출력 메타데이터는 [여기](http://msdn.microsoft.com/library/azure/dn783217.aspx)에서 설명합니다.
 
-### 미리 보기 생성
+### <a name="generate-thumbnails"></a>미리 보기 생성
 자세한 내용은 [미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법](media-services-custom-mes-presets-with-dotnet.md#thumbnails)을 참조하세요.
 
-### 비디오 자르기(클리핑)
+### <a name="trim-videos-clipping"></a>비디오 자르기(클리핑)
 자세한 내용은 [미디어 인코더 표준을 사용하여 비디오를 자르는 방법](media-services-custom-mes-presets-with-dotnet.md#trim_video)을 참조하세요.
 
-### 오버레이 만들기
+### <a name="create-overlays"></a>오버레이 만들기
 자세한 내용은 [미디어 인코더 표준을 사용하여 오버레이를 만드는 방법](media-services-custom-mes-presets-with-dotnet.md#overlay)을 참조하세요.
 
-### 참고 항목
+### <a name="see-also"></a>참고 항목
 [미디어 서비스 블로그](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
-## 미디어 인코더 Premium 워크플로
-### 개요
+## <a name="media-encoder-premium-workflow"></a>미디어 인코더 Premium 워크플로
+### <a name="overview"></a>개요
 [Azure 미디어 서비스의 프리미엄 인코딩 소개](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
-### 사용 방법
+### <a name="how-to-use"></a>사용 방법
 미디어 인코더 Premium 워크플로는 복잡한 워크플로를 사용하여 구성됩니다. 워크플로 파일은 [Workflow Designer](media-services-workflow-designer.md) 도구를 사용하여 만들고 업데이트할 수 있습니다.
 
 [Azure 미디어 서비스의 프리미엄 인코딩 사용 방법](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
-### 알려진 문제
-입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다.
+### <a name="known-issues"></a>알려진 문제
+입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다. 
 
-## <a id="compare_encoders"></a>인코더 비교
-### <a id="billing"></a>각 인코더에서 사용되는 요금 청구 기준
+## <a name="a-idcompareencodersacompare-encoders"></a><a id="compare_encoders"></a>인코더 비교
+### <a name="a-idbillingabilling-meter-used-by-each-encoder"></a><a id="billing"></a>각 인코더에서 사용되는 요금 청구 기준
 | 미디어 프로세서 이름 | 적용 가능한 가격 | 참고 사항 |
 | --- | --- | --- |
-| **미디어 인코더 표준** |인코더 |인코딩 작업은 출력 자산의 크기(기가바이트 단위)에 따라 [여기][1](인코더 열 아래)에 지정된 비율로 청구됩니다. |
-| **미디어 인코더 Premium 워크플로** |프리미엄 인코더 |인코딩 작업은 출력 자산의 크기(기가바이트 단위)에 따라 [여기][1](프리미엄 인코더 열 아래)에 지정된 비율로 청구됩니다. |
+| **미디어 인코더 표준** |인코더 |인코딩 작업은 출력 자산의 크기(기가바이트 단위)에 따라 [here][1](ENCODER 열 아래)에 지정된 비율로 청구됩니다. |
+| **Media Encoder Premium 워크플로** |프리미엄 인코더 |인코딩 작업은 출력 자산의 크기(기가바이트 단위)에 따라 [here][1](PREMIUM ENCODER 열 아래)에 지정된 비율로 청구됩니다. |
 
-이 섹션에서는 **미디어 인코더 표준** 및 **미디어 인코더 프리미엄 워크플로**의 인코딩 기능을 비교합니다.
+이 섹션에서는 **Media Encoder Standard** 및 **Media Encoder Premium Workflow**의 인코딩 기능을 비교합니다.
 
-### 입력 컨테이너/파일 형식
+### <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
 | 입력 컨테이너/파일 형식 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
 | Adobe® Flash® F4V |예 |예 |
@@ -103,7 +108,7 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 | Matroska/WebM |예 |아니요 |
 | QuickTime(.mov) |예 |아니요 |
 
-### 입력 비디오 코덱
+### <a name="input-video-codecs"></a>입력 비디오 코덱
 | 입력 비디오 코덱 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
 | AVC 8비트/10비트, 최대 4:2:2, AVCIntra 포함 |8비트 4:2:0 및 4:2:2 |예 |
@@ -123,7 +128,7 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 | Apple ProRes 4444 |예 |아니요 |
 | Apple ProRes 4444 XQ |예 |아니요 |
 
-### 입력 오디오 코덱
+### <a name="input-audio-codecs"></a>입력 오디오 코덱
 | 입력 오디오 코덱 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
 | AES(SMPTE 331M 및 302M, AES3-2003) |아니요 |예 |
@@ -139,7 +144,7 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 | [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |예 |아니요 |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |예 |아니요 |
 
-### 출력 컨테이너/파일 형식
+### <a name="output-containerfile-formats"></a>출력 컨테이너/파일 형식
 | 출력 컨테이너/파일 형식 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
 | Adobe® Flash® F4V |아니요 |예 |
@@ -152,18 +157,17 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 | AVI(압축되지 않은 8비트/10비트) |아니요 |예 |
 | 부드러운 스트리밍 파일 형식(PIFF 1.3) |아니요 |예 |
 
-### 출력 비디오 코덱
+### <a name="output-video-codecs"></a>출력 비디오 코덱
 | 출력 비디오 코덱 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
 | AVC(H.264, 8비트, 최대 High Profile, 수준 5.2, 4K Ultra HD, AVC Intra) |8비트 4:2:0만 |예 |
 | Avid DNxHD(MXF) |아니요 |예 |
-| DVCPro/DVCProHD(MXF) |아니요 |예 |
 | MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |아니요 |예 |
 | MPEG-1 |아니요 |예 |
 | Windows Media 비디오/VC-1 |아니요 |예 |
 | JPEG 축소판 그림 만들기 |아니요 |예 |
 
-### 출력 오디오 코덱
+### <a name="output-audio-codecs"></a>출력 오디오 코덱
 | 출력 오디오 코덱 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
 | AES(SMPTE 331M 및 302M, AES3-2003) |아니요 |예 |
@@ -174,8 +178,8 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 | MP3(MPEG-1 Audio Layer 3) |아니요 |예 |
 | Windows Media 오디오 |아니요 |예 |
 
-## 오류 코드
-다음 표에서는 인코딩 작업을 실행하는 동안 오류가 발생한 경우 반환될 수 있는 오류 코드를 나열합니다. .NET 코드에서 오류 세부 정보를 가져오려면 [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) 클래스를 사용합니다. REST 코드에서 오류 세부 정보를 가져오려면 [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST API를 사용합니다.
+## <a name="error-codes"></a>오류 코드
+다음 표에서는 인코딩 작업을 실행하는 동안 오류가 발생한 경우 반환될 수 있는 오류 코드를 나열합니다.  .NET 코드에서 오류 세부 정보를 가져오려면 [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) 클래스를 사용합니다. REST 코드에서 오류 세부 정보를 가져오려면 [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST API를 사용합니다.
 
 | ErrorDetail.Code | 가능한 오류 원인 |
 | --- | --- |
@@ -188,21 +192,25 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 | ErrorProcessingTask |콘텐츠와 관련되지 않은 작업을 처리하는 동안 미디어 프로세서에서 발생하는 기타 오류 범주입니다. |
 | ErrorUploadingOutputAsset |출력 자산을 업로드할 때 발생하는 오류를 포함하는 오류 범주입니다. |
 | ErrorCancelingTask |작업을 취소하려고 할 때 발생하는 오류를 포함하는 오류 범주입니다. |
-| TransientError |일시적인 문제를 포함하는 오류 범주(예: Azure 저장소의 임시 네트워킹 문제)입니다. |
+| TransientError |일시적인 문제를 포함하는 오류 범주(예:  Azure Storage의 임시 네트워킹 문제)입니다. |
 
 **미디어 서비스** 팀에 도움을 요청하려면 [지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 엽니다.
 
-## 미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## 피드백 제공
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## 관련 문서
+## <a name="related-articles"></a>관련 문서
 * [미디어 인코더 표준 사전 설정을 사용자 지정하여 고급 인코딩 작업 수행](media-services-custom-mes-presets-with-dotnet.md)
 * [할당량 및 제한 사항](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: 사용자 지정 테스트 시나리오 | Microsoft Docs
-description: 정상/비정상 오류로부터 서비스의 보안을 강화하는 방법
+title: "사용자 지정 테스트 시나리오 | Microsoft Docs"
+description: "정상/비정상 오류로부터 서비스의 보안을 강화하는 방법"
 services: service-fabric
 documentationcenter: .net
 author: anmolah
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 44af01f0-ed73-4c31-8ac0-d9d65b4ad2d6
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/17/2016
 ms.author: anmola
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ebdffa2a9270fb19ab80fac234e8c5edcfbaa49e
+
 
 ---
-# 서비스 워크로드 중 오류를 시뮬레이션합니다.
+# <a name="simulate-failures-during-service-workloads"></a>서비스 워크로드 중 오류를 시뮬레이션합니다.
 Azure 서비스 패브릭의 테스트 용이성 시나리오를 통해 개발자는 개별 결함의 처리에 대해 걱정하지 않아도 됩니다. 그러나 클라이언트 워크로드 및 오류의 명시적인 인터리빙이 필요한 시나리오가 있습니다. 클라이언트 워크로드 및 결함의 인터리빙은 장애가 발생했을 때 서비스가 실제로 일부 작업을 수행하도록 보장합니다. 제공되는 제어 테스트 용이성 수준을 볼 때, 이것은 워크로드 실행의 정확한 지점일 수 있습니다. 응용프로그램 내의 다양한 상태에서 결함의 유도를 통해 버그를 찾고 품질을 향상시킬 수 있습니다.
 
-## 사용자 지정 샘플 시나리오
+## <a name="sample-custom-scenario"></a>사용자 지정 샘플 시나리오
 이 테스트는 [정상 및 비정상 오류](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions)가 발생한 비즈니스 워크로드의 인터리빙 시나리오를 보여 줍니다. 최상의 결과를 위해 서비스 작업 또는 계산 중에 결함을 유도해야 합니다.
 
 4개의 워크로드(A, B, C, D)를 노출하는 서비스를 예로 들어보겠습니다. 각 작업은 일련의 워크플로에 해당되며 계산, 저장소 또는 혼합일 수 있습니다. 간단한 설명을 위해 워크로드를 예를 들어 요약해 보겠습니다. 다음은 이 예제에서 실행되는 여러 결함입니다.
@@ -155,4 +159,8 @@ class Test
 }
 ```
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

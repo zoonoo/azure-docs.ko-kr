@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c73d85497e936b0bfb9a0ee97e0172a70e1706ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9637a4dfeaf3d3f95ccdb4bbc5d1f96ec08b6dad
 
 
 ---
@@ -110,11 +110,11 @@ Data Lake Store 계정의 **데이터 탐색기** 블레이드에서 **액세스
 
 ![Data Lake Store ACL](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-그런 다음 **액세스** 블레이드에서 **단순 보기**를 클릭하여 단순 보기를 표시합니다.
+이 블레이드에서 맨 위 섹션에 보유할 권한에 대한 개요가 표시됩니다(스크린샷에서 사용자는 Bob임). 그 아래에 액세스 권한이 표시됩니다.
 
 ![Data Lake Store ACL](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-**고급 보기** 를 클릭하여 고급 보기를 표시합니다.
+**고급**을 클릭하여 기본 ACL, 마스크 및 수퍼 사용자의 개념이 나와 있는 고급 보기를 확인합니다.
 
 ![Data Lake Store ACL](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -133,6 +133,10 @@ Azure에서 Data Lake Store 계정에는 다음과 같은 몇 가지 Azure 역�
 * 등
 
 Data Lake Store 계정에 대한 **소유자** 역할을 지닌 모든 사용자는 자동으로 해당 계정에 대한 슈퍼 사용자입니다. Azure RBAC(역할 기반 액세스 제어)에 대한 자세한 내용은 [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
+
+수퍼 사용자 권한이 있는 사용자 지정 RBAC 역할을 만들려는 경우 다음 권한이 있어야 합니다.
+* Microsoft.DataLakeStore/accounts/Superuser/action
+* Microsoft.Authorization/roleAssignments/write
 
 ## <a name="the-owning-user"></a>소유 그룹
 항목을 만든 사용자는 자동으로 항목의 소유 사용자가 됩니다. 소유 사용자는 다음을 수행할 수 있습니다.
@@ -244,7 +248,11 @@ Data Lake Store에서 ACL에 대해 자주 제기되는 몇 가지 질문은 다
 ### <a name="what-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>폴더 및 해당 내용을 재귀적으로 삭제하는 데 필요한 사용 권한은 무엇인가요?
 * 부모 폴더에는 **쓰기 + 실행**권한이 있어야 합니다.
 * 삭제할 폴더와 그 안의 모든 폴더에는 **읽기 + 쓰기 + 실행**권한이 필요합니다.
-  >[AZURE.NOTE] 폴더에서 파일을 삭제하면 해당 파일에 대한 쓰기 권한이 필요하지 않습니다. 또한 루트 폴더 "/"는 **절대로** 삭제할 수 없습니다.
+
+> [!NOTE] 
+> 폴더에서 파일을 삭제하면 해당 파일에 대한 쓰기 권한이 필요하지 않습니다. 또한 루트 폴더 "/"는 **절대로** 삭제할 수 없습니다.
+>
+>
 
 ### <a name="who-is-set-as-the-owner-of-a-file-or-folder"></a>누가 파일 또는 폴더의 소유자로 설정되나요?
 파일 또는 폴더의 작성자는 소유자가 됩니다.
@@ -254,6 +262,12 @@ Data Lake Store에서 ACL에 대해 자주 제기되는 몇 가지 질문은 다
 
 ### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>파일의 소유 사용자이지만 필요한 RWX 사용 권한이 없습니다. 어떻게 해야 합니까?
 소유 사용자는 필요한 모든 RWX 사용 권한을 부여하도록 파일의 사용 권한을 변경하면 됩니다.
+
+### <a name="when-i-look-at-acls-in-the-azure-portal-i-see-user-names-but-through-apis-i-see-guids-why-is-that"></a>Azure Portal에서 ACL을 확인할 때는 사용자 이름이 표시되지만 API를 통해 확인할 때는 GUID가 표시되는 이유는 무엇인가요?
+ACL의 항목은 Azure Active Directory(AAD)의 사용자에 해당하는 GUID로 저장됩니다. API는 GUID를 있는 그대로 반환합니다. Azure Portal은 GUID를 가능한 친숙한 이름으로 번역하여 ACL을 보다 쉽게 사용할 수 있도록 합니다. 
+
+### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-using-the-portal"></a>Portal을 사용할 때 ACL에 GUID가 간혹 표시되는 이유는 무엇인가요?
+GUID는 AAD에 사용자가 더 이상 존재하지 않을 때 표시됩니다. 일반적으로 사용자가 퇴사하거나 해당 계정이 AAD에서 삭제될 경우 이러한 현상이 발생합니다.
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Data Lake Store는 ACL의 상속을 지원하나요?
 아니요.
@@ -282,6 +296,6 @@ Data Lake Store에서 ACL에 대해 자주 제기되는 몇 가지 질문은 다
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

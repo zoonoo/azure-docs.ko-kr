@@ -1,12 +1,12 @@
 ---
-title: 'MyDriving Azure IoT 예제: 빌드 | Microsoft Docs'
-description: 스트림 분석, 기계 학습, 이벤트 허브를 비롯한 Microsoft Azure를 사용하여 IoT 시스템을 설계하는 방법을 종합적으로 보여주는 앱을 빌드합니다.
-services: ''
+title: "MyDriving Azure IoT 예제: 빌드하기 | Microsoft Docs"
+description: "스트림 분석, 기계 학습, 이벤트 허브를 비롯한 Microsoft Azure를 사용하여 IoT 시스템을 설계하는 방법을 종합적으로 보여주는 앱을 빌드합니다."
+services: 
 documentationcenter: .net
-suite: ''
+suite: 
 author: harikmenon
 manager: douge
-
+ms.assetid: c2fcd6ee-3bbe-43d1-a066-dce52cc3a53d
 ms.service: multiple
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/25/2016
 ms.author: harikm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 012bfc7d8431e2edb2b1056fb465421fad58193a
+
 
 ---
 # <a name="build-and-deploy-the-mydriving-solution-to-your-environment"></a>사용자 환경에 MyDriving 솔루션 빌드 및 배포
@@ -192,7 +196,7 @@ Visual Studio Team Services 빌드를 사용하는 경우 간편하게 Xamarin U
 
 Microsoft Azure는 클라우드 응용 프로그램을 빌드하는 데 사용할 수 있는 다양한 서비스를 제공합니다. 대부분은 개별적으로 사용할 수 있지만(예: 앱 서비스/웹앱) MyDriving에서 사용하는 것처럼 통합된 시스템을 구성하도록 상호 연결된 경우 가장 효과적입니다.
 
-Azure 서비스를 만들고 수동으로 상호 연결할 수 있지만 Azure Resource Manager 템플릿을 사용하는 것이 훨씬 빠르고 안정적입니다. [Resource Manager](../resource-group-overview.md) 는 솔루션의 리소스 배포와 이들 간의 상호 연결을 자동화합니다.
+Azure 서비스를 만들고 수동으로 상호 연결할 수 있지만 Azure Resource Manager 템플릿을 사용하는 것이 훨씬 빠르고 안정적입니다. [Resource Manager](../azure-resource-manager/resource-group-overview.md) 는 솔루션의 리소스 배포와 이들 간의 상호 연결을 자동화합니다.
 
 [scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM)아래 GitHub 리포지토리에 MyDriving 시스템에 대한 템플릿이 있습니다. 아키텍처 내의 다양한 서비스가 어떻게 상호 연결되는지 보여주는 포괄적이고 간결한 보기를 제공합니다. 이에 대해서는 [MyDriving 참조 설명서](http://aka.ms/mydrivingdocs)에서 자세히 설명하지만 템플릿 자체를 읽어 보는 것만으로 상당 부분 학습할 수 있습니다.
 
@@ -364,7 +368,7 @@ Application Insights는 오류 응답 수가 비정상적인 것으로 나타나
 | [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) <br/>웹 서비스 및 사이트의 성능 및 사용 현황 모니터링 |무료 계층. |$0 |
 | [HockeyApp](http://hockeyapp.net/pricing/) <br/>  피드백, 사용 및 충돌 데이터의 컬렉션을 더한 베타 앱 배포 |새 사용자를 위한 두 가지 무료 앱.<br/>  이후에는 $30/월. |$0 |
 | [Xamarin](https://store.xamarin.com/)<br/>  여러 장치에서 균일한 플랫폼에 대한 코드 |무료 평가판. <br/>이후에는 $25/월. |$0 |
-| [SQL 데이터베이스](https://azure.microsoft.com/pricing/details/sql-database/) |기본 계층, 단일 데이터베이스 모델. |$5 |
+| [SQL 데이터베이스](https://azure.microsoft.com/pricing/details/sql-database/)  |기본 계층, 단일 데이터베이스 모델. |$5 |
 | [Service Fabric](https://azure.microsoft.com/pricing/details/service-fabric/)(선택 사항) |로컬 클러스터를 실행합니다. |$0 |
 | [Power BI](https://powerbi.microsoft.com/pricing/)<br/>  스트리밍 및 정적 데이터에 대한 다양한 표시 및 조사 |무료 계층: 1GB, 10,000행/시간, 매일 새로 고침. <br/> [제한 확대](https://powerbi.microsoft.com/documentation/powerbi-power-bi-pro-content-what-is-it/), 추가 연결 옵션, 공동 작업을 위해 $10/사용자/월 |$0 |
 | [저장소](https://azure.microsoft.com/pricing/details/storage/) |L(로컬 중복) &lt; 100 G$0.024/GB. |$3 |
@@ -376,7 +380,7 @@ Application Insights는 오류 응답 수가 비정상적인 것으로 나타나
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure 서비스 할당량 및 제한](../azure-subscription-service-limits.md#iot-hub-limits)
+*  [Azure 서비스 할당량 및 제한](../azure-subscription-service-limits.md#iot-hub-limits)
 * Azure [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
 ## <a name="send-us-your-feedback"></a>사용자 의견을 보냅니다.
@@ -394,6 +398,9 @@ Application Insights는 오류 응답 수가 비정상적인 것으로 나타나
 ## <a name="next-steps"></a>다음 단계
 시스템 및 해당 구성 요소의 설계에 대한 포괄적인 설명을 제공하는 [MyDriving 참조 설명서](http://aka.ms/mydrivingdocs)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

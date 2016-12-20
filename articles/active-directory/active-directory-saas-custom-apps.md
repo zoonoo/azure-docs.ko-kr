@@ -1,11 +1,11 @@
 ---
-title: Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성 | Microsoft Docs
-description: 셀프 서비스가 SAML 및 암호 기반 SSO로 Azure Active Directory에 앱을 연결하는 방법을 알아봅니다.
+title: "Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성 | Microsoft Docs"
+description: "셀프 서비스가 SAML 및 암호 기반 SSO로 Azure Active Directory에 앱을 연결하는 방법을 알아봅니다."
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
 manager: femila
-
+ms.assetid: 0d42eb0c-6d3f-4557-9030-e88e86709a19
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,6 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 10df1eae4ac4dd6ce2c028a2001bf141682f4370
+
 
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성
@@ -23,7 +27,7 @@ Azure Active Directory 응용 프로그램 갤러리는 [이 문서](active-dire
 또한 [Azure Active Directory Premium](active-directory-editions.md) 라이선스가 있는 고객에게는 다음과 같은 기능이 제공됩니다
 
 * SAML 2.0 ID 공급자를 지원하는 응용 프로그램의 셀프 서비스 통합(SP에서 시작 또는 IdP에서 시작)
-* [암호 기반 SSO](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
+*  [암호 기반 SSO](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
 * 사용자 프로비전에 SCIM 프로토콜을 사용하는 응용 프로그램의 셀프 서비스 연결([여기에 설명됨](active-directory-scim-provisioning.md))
 * [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)에서 응용 프로그램에 대한 링크를 추가하는 기능
 
@@ -138,6 +142,6 @@ SAML URL 및 인증서가 Azure AD 및 응용 프로그램에서 구성되면 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

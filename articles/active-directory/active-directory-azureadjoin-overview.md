@@ -1,13 +1,13 @@
 ---
-title: Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장 | Microsoft Docs
-description: Windows 10 장치가 Azure AD 조인을 활용하여 Azure Active Directory에 등록할 수 있는 방법의 자세한 개요를 제공합니다.
+title: "Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장 | Microsoft Docs"
+description: "Windows 10 장치가 Azure AD 조인을 활용하여 Azure Active Directory에 등록할 수 있는 방법의 자세한 개요를 제공합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 0cd4942f-7d54-474e-bd12-8e6764b0d42a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b9dde0fc436cd3bcf4928b78e4c08c39876afbd7
+
 
 ---
 # <a name="extending-cloud-capabilities-to-windows-10-devices-through-azure-active-directory-join"></a>Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장
-## <a name="what-is-azure-active-directory-join?"></a>Azure Active Directory 조인이란?
+## <a name="what-is-azure-active-directory-join"></a>Azure Active Directory 조인이란?
 Azure AD 조인(Azure Active Directory 조인)은 Azure Active Directory에 회사 소유의 장치를 등록하여 장치의 중앙 관리를 가능하게 하는 기능입니다. 이 기능으로 직원 및 학생과 같은 사용자가 Azure Active Directory를 통해 엔터프라이즈 클라우드에 연결할 수 있습니다. 이를 통해 회사 소유 또는 개인 소유(BYOD)를 막론하고 어떤 Windows 장치에서도 Windows 배포가 간편해졌으며 조직 앱 및 리소스에 쉽게 액세스할 수 있게 되었습니다.
 
 Azure AD 조인은 클라우드 우선/클라우드 전용인 기업(일반적으로 온-프레미스 Windows Server Active Directory 인프라가 없는 중소 규모 기업)을 위한 것입니다. 즉, Azure AD 조인은 기존의 도메인 가입을 수행할 수 없는 장치(예: 모바일 장치)를 사용하는 대기업 또는 Office 365나 다른 Azure AD SaaS 앱에 주로 액세스해야 하는 사용자에 의해 사용될 수 있거나 사용됩니다.
@@ -27,13 +31,13 @@ Azure AD 조인은 클라우드 우선/클라우드 전용인 기업(일반적�
 
 ![온-프레미스 Active Directory 및 Azure AD와 개인 장치 및 회사 장치 개요](./media/active-directory-azureadjoin/active-directory-azureadjoin-overview.png)
 
-## <a name="why-should-enterprises-adopt-azure-ad-join?"></a>기업에서 Azure AD 조인을 채택해야 하는 이유는 무엇인가요?
+## <a name="why-should-enterprises-adopt-azure-ad-join"></a>기업에서 Azure AD 조인을 채택해야 하는 이유는 무엇인가요?
 * **클라우드에서 주로 업무를 처리하는 기업**: 온-프레미스 사용 공간을 줄이고 클라우드에서 더 많은 작업을 수행하는 모델을 사용하고 있거나 이러한 모델로 전환하려는 경우 Azure AD 조인이 유용할 수 있습니다. Azure AD 계정을 수동으로 또는 온-프레미스 Active Directory 동기화를 통해 만들었을 수 있습니다. 어떤 경우든 Azure AD에 계정이 있으며 이 계정을 사용하여 Windows 10에 로그인할 수 있습니다. 사용자는 OOBE(첫 실행 경험)나 설정 메뉴를 통해 컴퓨터를 Azure AD에 연결할 수 있습니다. 연결한 후에 사용자는 브라우저나 Office 응용 프로그램에서 SSO(Single-Sign-On)를 사용하여 Office 365와 같은 클라우드 리소스에 편리하게 액세스할 수 있습니다.
 * **교육 기관**: 일반적인 시나리오 중 하나는 교육 기관에 두 가지 사용자 유형인 교직원과 학생이 있는 경우입니다. 교직원은 조직에서 장기 멤버로 간주되므로 온-프레미스 계정을 만드는 것이 적절합니다. 하지만 학생은 조직의 단기 멤버이며 Azure AD에서 관리할 수 있습니다. 즉, 디렉터리 규모를 온-프레미스로 저장하는 대신 클라우드에 푸시할 수 있습니다. 또한 학생들은 자신의 Azure AD 계정으로 Windows에 로그인하고 브라우저 또는 Office 응용 프로그램에서 Office 365 리소스에 액세스할 수 있습니다.
 * **소매 기업**: 고객에게서 들은 다른 시나리오는 비정규직 근로자를 보다 쉽게 관리하고 싶다는 내용입니다.  역시, 장기적인 정규직 직원을 위한 계정은 보통 도메인에 연결된 컴퓨터에 온-프레미스 계정으로 만들어집니다. 하지만 비정규직 근로자는 조직의 단기 멤버이므로 사용자 라이선스를 보다 쉽게 이동할 수 있도록 관리하는 것이 좋습니다. Office 365 라이선스를 사용하여 클라우드에 이러한 사용자 계정을 만들면 이러한 사용자는 Azure AD 계정을 사용하여 Windows 및 Office 응용 프로그램에 로그인할 수 있습니다. 한편, 사용자가 조직을 떠난 후에 해당 라이선스에 더 많은 유연성을 유지할 수 있습니다.
 * **기타 기업**: 온-프레미스 Active Directory에서 사용자를 유지 관리하더라도 사용자가 Azure-AD에 가입되는 장점을 계속 활용할 수 있습니다. Azure AD가 간소화된 가입 환경, 효율적인 장치 관리, 자동 모바일 장치 관리 등록 및 Azure AD/온-프레미스 리소스에 대한 Single Sign-On 기능을 제공하기 때문입니다.  
 
-## <a name="what-capabilities-does-azure-ad-join-offer?"></a>Azure AD 조인에서 제공하는 기능은 무엇인가요?
+## <a name="what-capabilities-does-azure-ad-join-offer"></a>Azure AD 조인에서 제공하는 기능은 무엇인가요?
 Azure AD 조인을 사용하면 다음과 같은 이점을 누릴 수 있습니다.
 
 * **회사 소유의 장치의 자체 프로비전**: Windows 10을 사용하여 사용자는 IT 담당자의 도움 없이도 뛰어난 환경에서 완전히 새로운 장치를 구성할 수 있습니다.
@@ -44,7 +48,7 @@ Azure AD 조인을 사용하면 다음과 같은 이점을 누릴 수 있습니�
 * **OS 상태 로밍**: 내게 필요한 옵션 설정, 웹 사이트, Wi-Fi 암호 및 기타 설정은 개인 Microsoft 계정 없이도 회사 소유의 장치 간에 동기화됩니다.
 * **엔터프라이즈급 Windows 스토어**: Windows 스토어는 Azure AD 계정을 사용한 앱 획득 및 라이선스를 지원합니다. 조직에서는 볼륨 라이선스 방식으로 앱 사용을 허가할 수 있으며 조직의 사용자가 앱을 사용하도록 할 수 있습니다.
 
-## <a name="how-do-different-devices-work-with-azure-ad-join?"></a>다양한 장치가 Azure AD 조인에서 어떻게 작동하나요?
+## <a name="how-do-different-devices-work-with-azure-ad-join"></a>다양한 장치가 Azure AD 조인에서 어떻게 작동하나요?
 | 회사 장치(온-프레미스 도메인에 가입) | 회사 장치(클라우드에 가입) | 개인 장치 |
 | --- | --- | --- |
 | 사용자는 회사 자격 증명을 사용하여 Windows에 로그인할 수 있습니다(현재 방식). |사용자는 Azure AD에서 관리되는 회사 자격 증명을 사용하여 Windows에 로그인할 수 있습니다. 이러한 방식은 다음과 같은 세 가지 경우의 회사 장치에 적합합니다. 1)조직에 Active Directory 온-프레미스가 없습니다(예: 소규모 기업). 2)조직이 Active Directory에 모든 사용자 계정을 다 만드는 것은 아닙니다(예: 학생, 컨설턴트, 비정규직 근로자를 위한 계정이 Active Directory에 만들어지지 않음). 3)조직에 모바일 SKU(예: 공장/소매 매장의 보조 장치)가 실행되는 휴대폰이나 태블릿과 같이 (온-프레미스) 도메인에 가입할 수 없는 회사 장치가 있습니다. Azure AD 조인은 관리 및 페더레이션 조직 모두를 위한 회사 장치의 가입을 지원합니다. |사용자는 개인 Microsoft 계정 자격 증명을 사용하여 Windows에 로그인합니다(변경 없음). |
@@ -60,6 +64,9 @@ Azure AD 조인을 사용하면 다음과 같은 이점을 누릴 수 있습니�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

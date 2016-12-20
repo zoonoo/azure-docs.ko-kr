@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73510d618f414ebedd7cd1df979397e0b00570b8
+ms.sourcegitcommit: aac0354a8fbfb73bab3e7b5da7d9aefa69c9eb16
+ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
 
 
 ---
@@ -192,7 +192,7 @@ ms.openlocfilehash: 73510d618f414ebedd7cd1df979397e0b00570b8
 감사를 활성화하려면 **감사** 옵션에서 **켜기**를 선택합니다.
 
 ### <a name="monitor-applications"></a>응용 프로그램 모니터링
-[노출된 웹 포트(80 및 443 TCP 포트)가 있는 VM(Azure Resource Manager를 통해 만듦)](../resource-manager-deployment-model.md)에 있는 응용 프로그램이 Azure 워크로드에 있는 경우 보안 센터에서는 해당 응용 프로그램을 모니터링하여 잠재적 보안 문제를 파악하고 수정 조치를 권장할 수 있습니다. **응용 프로그램** 타일을 클릭하면 아래와 같이 **응용 프로그램** 블레이드가 열리고 **방지 단계** 섹션에 일련의 권장 사항을 보여 줍니다. 또한 호스트/가상 IP 별 응용 프로그램 분석 결과도 보여 줍니다.
+[노출된 웹 포트(80 및 443 TCP 포트)가 있는 VM(Azure Resource Manager를 통해 만듦)](../azure-resource-manager/resource-manager-deployment-model.md)에 있는 응용 프로그램이 Azure 워크로드에 있는 경우 보안 센터에서는 해당 응용 프로그램을 모니터링하여 잠재적 보안 문제를 파악하고 수정 조치를 권장할 수 있습니다. **응용 프로그램** 타일을 클릭하면 아래와 같이 **응용 프로그램** 블레이드가 열리고 **응용 프로그램 권장 사항** 섹션에 일련의 권장 사항을 보여 줍니다. 또한 호스트/가상 IP 별 응용 프로그램 분석 결과도 보여 줍니다.
 
 ![응용프로그램 보안 상태](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
 
@@ -216,6 +216,6 @@ ms.openlocfilehash: 73510d618f414ebedd7cd1df979397e0b00570b8
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

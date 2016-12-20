@@ -1,12 +1,12 @@
 ---
-title: Notification Hubs Breaking News Tutorial - iOS
-description: Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices.
+title: "알림 허브 속보 자습서 - iOS"
+description: "Azure 서비스 버스 알림 허브를 사용하여 iOS 장치에 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다."
 services: notification-hubs
 documentationcenter: ios
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6ead4169-deff-4947-858c-8c6cf03cc3b2
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,34 +14,38 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
+
 
 ---
-# <a name="use-notification-hubs-to-send-breaking-news"></a>Use Notification Hubs to send breaking news
+# <a name="use-notification-hubs-to-send-breaking-news"></a>알림 허브를 사용하여 속보 보내기
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>Overview
-This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to an iOS app. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc.
+## <a name="overview"></a>개요
+이 항목에서는 Azure 알림 허브를 사용하여 iOS 앱에 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다.
 
-Broadcast scenarios are enabled by including one or more *tags* when creating a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag will receive the notification. Because tags are simply strings, they do not have to be provisioned in advance. For more information about tags, refer to [Notification Hubs Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md).
+브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [알림 허브 라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
 
-## <a name="prerequisites"></a>Prerequisites
-This topic builds on the app you created in [Get started with Notification Hubs][get-started]. Before starting this tutorial, you must have already completed [Get started with Notification Hubs][get-started].
+## <a name="prerequisites"></a>필수 조건
+이 항목은 [Notification Hubs 시작][get-started]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [Notification Hubs 시작][get-started]을 완료해야 합니다.
 
-## <a name="add-category-selection-to-the-app"></a>Add category selection to the app
-The first step is to add the UI elements to your existing storyboard that enable the user to select categories to register. The categories selected by a user are stored on the device. When the app starts, a device registration is created in your notification hub with the selected categories as tags.
+## <a name="add-category-selection-to-the-app"></a>앱에 범주 선택 추가
+첫 번째 단계는 기존의 스토리보드에 사용자가 등록할 범주를 선택할 수 있도록 하는 UI 요소를 추가하는 것입니다. 사용자가 선택한 범주는 장치에 저장됩니다. 앱을 시작하면 장치 등록이 선택한 범주와 함께 태그로서 알림 허브에 생성됩니다.
 
-1. In your MainStoryboard_iPhone.storyboard add the following components from the object library:
+1. MainStoryboard_iPhone.storyboard의 개체 라이브러리에서 다음 구성 요소를 추가합니다.
    
-   * A label with "Breaking News" text,
-   * Labels with category texts "World", "Politics", "Business", "Technology", "Science", "Sports",
-   * Six switches, one per category, set each switch **State** to be **Off** by default.
-   * One button labeled "Subscribe"
+   * "Breaking News" 텍스트가 포함된 레이블
+   * "World", "Politics", "Business", "Technology", "Science", "Sports" 범주 텍스트가 포함된 레이블
+   * 범주당 하나씩인 6개의 스위치는 각 스위치 **상태**를 기본적으로 **Off(꺼짐)**가 되도록 설정합니다.
+   * "Subscribe" 단추
      
-     Your storyboard should look as follows:
+     스토리보드는 다음과 같이 표시됩니다.
      
      ![][3]
-2. In the assistant editor, create outlets for all the switches and call them "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
-3. Create an Action for your button called "subscribe". Your ViewController.h should contain the following:
+2. 단말기 편집기에서 모든 스위치에 대한 콘센트를 만든 다음 "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"로 지정합니다.
+3. "subscribe" 단추에 대한 동작을 만듭니다. ViewController.h에는 다음이 포함되어 있어야 합니다.
    
         @property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
         @property (weak, nonatomic) IBOutlet UISwitch *PoliticsSwitch;
@@ -51,7 +55,7 @@ The first step is to add the UI elements to your existing storyboard that enable
         @property (weak, nonatomic) IBOutlet UISwitch *SportsSwitch;
    
         - (IBAction)subscribe:(id)sender;
-4. Create a new **Cocoa Touch Class** called `Notifications`. Copy the following code in the interface section of the file Notifications.h:
+4. `Notifications`라는 새 **Cocoa Touch 클래스**를 만듭니다. 다음 코드를 Notifications.h 파일의 인터페이스 섹션에 복사합니다.
    
         @property NSData* deviceToken;
    
@@ -63,10 +67,10 @@ The first step is to add the UI elements to your existing storyboard that enable
         - (NSSet*)retrieveCategories;
    
         - (void)subscribeWithCategories:(NSSet*)categories completion:(void (^)(NSError *))completion;
-5. Add the following import directive to Notifications.m:
+5. 다음 import 지시문을 Notifications.m에 추가합니다.
    
         #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
-6. Copy the following code in the implementation section of the file Notifications.m.
+6. 다음 코드를 Notifications.m 파일의 구현 섹션에 복사합니다.
    
         SBNotificationHub* hub;
    
@@ -107,27 +111,27 @@ The first step is to add the UI elements to your existing storyboard that enable
 
 
 
-    This class uses local storage to store and retrieve the categories of news that this device will receive. Also, it contains a method to register for these categories using a [Template](notification-hubs-templates-cross-platform-push-messages.md) registration.
+    이 클래스는 로컬 저장소를 사용하여 이 장치에서 받을 뉴스의 범주를 저장하고 검색합니다. 또한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 등록을 사용하여 이러한 범주에 등록하는 메서드도 포함되어 있습니다.
 
-1. In the AppDelegate.h file, add an import statement for Notifications.h and add a property for an instance of the Notifications class:
+1. AppDelegate.h 파일에서 Notifications.h에 대한 import 문을 추가하고 알림 클래스의 인스턴스에 대한 속성을 추가합니다.
    
         #import "Notifications.h"
    
         @property (nonatomic) Notifications* notifications;
-2. In the **didFinishLaunchingWithOptions** method in AppDelegate.m, add the code to initialize the notifications instance at the beginning of the method.  
+2. AppDelegate.m의 **didFinishLaunchingWithOptions** 메서드에서 메서드 시작 부분에 알림 인스턴스를 초기화하는 코드를 추가합니다.  
    
-    `HUBNAME` and `HUBLISTENACCESS` (defined in hubinfo.h) should already have the `<hub name>` and `<connection string with listen access>` placeholders replaced with your notification hub name and the connection string for *DefaultListenSharedAccessSignature* that you obtained earlier
+    `HUBNAME`과 `HUBLISTENACCESS`(hubinfo.h에 정의됨)는 `<hub name>` 및 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿉니다.
    
         self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
    
    > [!NOTE]
-   > Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.
+   > 클라이언트 앱과 함께 배포되는 자격 증명은 일반적으로 안전하지 않기 때문에 클라이언트 앱과 함께 listen access용 키만 배포해야 합니다. Listen access를 통해 앱에서 알림을 등록할 수 있지만, 기존 등록을 수정할 수 없으며 알림을 전송할 수도 없습니다. 안전한 백 엔드 서비스에서 알림을 보내고 기존 등록을 변경하는 데에는 모든 권한 키가 사용됩니다.
    > 
    > 
-3. In the **didRegisterForRemoteNotificationsWithDeviceToken** method in AppDelegate.m, replace the code in the method with the following code to pass the device token to the notifications class. The notifications class will perform the registering for notifications with the categories. If the user changes category selections, we call the `subscribeWithCategories` method in response to the **subscribe** button to update them.
+3. AppDelegate.m의 **didRegisterForRemoteNotificationsWithDeviceToken** 메서드에서 메서드의 코드를 다음 코드로 바꿔 알림 클래스에 장치 토큰을 전달합니다. 알림 클래스는 범주를 사용하여 알림에 대해 등록을 수행합니다. 사용자가 범주 선택 항목을 변경하는 경우 **구독** 단추에 대한 응답으로 `subscribeWithCategories` 메서드를 호출하여 범주 선택 항목을 업데이트합니다.
    
    > [!NOTE]
-   > Because the device token assigned by the Apple Push Notification Service (APNS) can chance at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.
+   > APNS(Apple Push Notification Service)에서 할당하는 장치 토큰은 언제든지 변경될 수 있으므로 알림 실패를 피하려면 알림을 자주 등록해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
    > 
    > 
    
@@ -143,25 +147,21 @@ The first step is to add the UI elements to your existing storyboard that enable
             }
         }];
 
-    Note that at this point there should be no other code in the **didRegisterForRemoteNotificationsWithDeviceToken** method.
+    이때 **didRegisterForRemoteNotificationsWithDeviceToken** 메서드에 다른 코드가 없어야 합니다.
 
-1. The following methods should already be present in AppDelegate.m from completing the [Get started with Notification Hubs][get-started] tutorial.  If not, add them.
+1. 다음 메서드는 [Notification Hubs 시작][get-started] 자습서를 완료할 때부터 AppDelegate.m에 있어야 합니다.  그렇지 않은 경우 메서드를 추가합니다.
    
-       -(void)MessageBox:(NSString *)title message:(NSString *)messageText
-       {
-           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
-               cancelButtonTitle:@"OK" otherButtonTitles: nil];
-           [alert show];
-       }
+    -(void)MessageBox:(NSString *)title message:(NSString *)messageText  {
    
-       - (void)application:(UIApplication *)application didReceiveRemoteNotification:
-           (NSDictionary *)userInfo {
-           NSLog(@"%@", userInfo);
-           [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
-       }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
+            cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
    
-   This method handles notifications received when the app is running by displaying a simple **UIAlert**.
-2. In ViewController.m, add a import statement for AppDelegate.h and copy the following code into the XCode-generated **subscribe** method. This code will update the notification registration to use the new category tags the user has chosen in the user interface.
+   * (void)application:(UIApplication *)application didReceiveRemoteNotification:   (NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]]; }
+   
+   이 메서드는 단일 **UIAlert**를 표시하여 앱이 실행 중일 때 수신된 알림을 처리합니다.
+2. ViewController.m에서 AppDelegate.h에 대해 import 문을 추가하고 다음 코드를 XCode 생성 **구독** 메서드에 복사합니다. 이 코드는 사용자 인터페이스에서 사용자가 선택한 새 범주 태그를 사용하도록 알림 등록을 업데이트합니다.
    
        ```
        #import "Notifications.h"
@@ -186,8 +186,8 @@ The first step is to add the UI elements to your existing storyboard that enable
            }
        }];
    
-   This method creates an **NSMutableArray** of categories and uses the **Notifications** class to store the list in the local storage and registers the corresponding tags with your notification hub. When categories are changed, the registration is recreated with the new categories.
-3. In ViewController.m, add the following code in the **viewDidLoad** method to set the user interface based on the previously saved categories.
+   이 메서드는 범주의 **NSMutableArray**를 만들고 **Notifications** 클래스를 사용하여, 로컬 저장소에 목록을 저장하고 알림 허브에 해당 태그를 등록합니다. 범주가 변경되면 새 범주로 등록이 다시 생성됩니다.
+3. ViewController.m에서 **viewDidLoad** 메서드에 다음 코드를 추가하여 이전에 저장한 범주를 기반으로 사용자 인터페이스를 설정합니다.
 
         // This updates the UI on startup based on the status of previously saved categories.
 
@@ -204,17 +204,17 @@ The first step is to add the UI elements to your existing storyboard that enable
 
 
 
-The app can now store a set of categories in the device local storage used to register with the notification hub whenever the app starts.  The user can change the selection of categories at runtime and click the **subscribe** method to update the registration for the device. Next, you will update the app to send the breaking news notifications directly in the app itself.
+이제 앱은 앱이 시작할 때마다 알림 허브에 등록하는 데 사용한 장치 로컬 저장소에 범주 집합을 저장할 수 있습니다.  사용자는 런타임 시 범주 선택 사항을 변경하고 **구독** 메서드를 클릭하여 장치에 대한 등록을 업데이트할 수 있습니다. 다음으로, 앱 자체에서 직접 속보 알림을 보내도록 앱을 업데이트합니다.
 
-## <a name="(optional)-sending-tagged-notifications"></a>(optional) Sending tagged notifications
-If you don't have access to Visual Studio, you can skip to the next section and send notifications from the app itself. You can also send the proper template notification from the [Azure Classic Portal] using the debug tab for your notification hub. 
+## <a name="optional-sending-tagged-notifications"></a>(선택 사항) 태그가 지정된 알림 보내기
+Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고 앱 자체에서 알림을 보낼 수 있습니다. 또한 알림 허브에 대한 디버그 탭을 사용하여 [Azure 클래식 포털] 에서 적절한 템플릿 알림을 보낼 수 있습니다. 
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="(optional)-send-notifications-from-the-device"></a>(optional) Send notifications from the device
-Normally notifications would be sent by a backend service but, you can send breaking news notifications directly from the app. To do this we will update the `SendNotificationRESTAPI` method that we defined in the [Get started with Notification Hubs][get-started] tutorial.
+## <a name="optional-send-notifications-from-the-device"></a>(선택 사항) 장치에서 알림 보내기
+일반적으로 백 엔드 서비스에서 알림을 보내지만 속보 알림은 앱 자체에서 직접 보낼 수 있습니다. 이렇게 하기 위해 [Notification Hubs 시작][get-started] 자습서에 정의한 `SendNotificationRESTAPI` 메서드를 업데이트합니다.
 
-1. In ViewController.m update the `SendNotificationRESTAPI` method as follows so that it accepts a parameter for the category tag and sends the proper [template](notification-hubs-templates-cross-platform-push-messages.md) notification.
+1. ViewController.m에서 범주 태그에 대한 매개 변수를 허용하고 적절한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 알림을 보내도록 다음과 같이 `SendNotificationRESTAPI` 메서드를 업데이트합니다.
    
         - (void)SendNotificationRESTAPI:(NSString*)categoryTag
         {
@@ -272,7 +272,7 @@ Normally notifications would be sent by a backend service but, you can send brea
    
             [dataTask resume];
         }
-2. In ViewController.m update the **Send Notification** action as shown in the code that follows. So that it will send the notifications using each tag individually and send to multiple platforms.
+2. ViewController.m에서 다음 코드에 표시된 것처럼 **알림 보내기** 작업을 업데이트합니다. 그러면 개별적으로 각 태그를 사용하여 알림을 보내고 여러 플랫폼으로 보냅니다.
 
         - (IBAction)SendNotificationMessage:(id)sender
         {
@@ -291,25 +291,25 @@ Normally notifications would be sent by a backend service but, you can send brea
 
 
 
-1. Rebuild your project and make sure you have no build errors.
+1. 프로젝트를 다시 빌드하고 빌드 오류가 없는지 확인합니다.
 
-## <a name="run-the-app-and-generate-notifications"></a>Run the app and generate notifications
-1. Press the Run button to build the project and start the app. Select some breaking news options to subscribe to and then press the **Subscribe** button. You should see a dialog indicating the notifications have been subscribed to.
+## <a name="run-the-app-and-generate-notifications"></a>앱 실행 및 알림 생성
+1. 실행 단추를 눌러 프로젝트를 빌드하고 앱을 시작합니다. 구독할 속보 옵션을 선택하고 **구독** 단추를 누릅니다. 알림 구독을 나타내는 대화 상자가 표시됩니다.
    
     ![][1]
    
-    When you choose **Subscribe**, the app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub.
-2. Enter a message to be sent as breaking news then press the **Send Notification** button. Alternatively, run the .NET console app to generate notifications.
+    **구독**을 선택하면 앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 장치 등록을 요청합니다.
+2. 속보로 보낼 메시지를 입력하고 **알림 보내기** 단추를 누릅니다. 또는 .NET 콘솔 앱을 실행하여 알림을 생성합니다.
    
     ![][2]
-3. Each device subscribed to breaking news will receive the breaking news notifications you just sent.
+3. 속보를 구독하는 각 장치에서 방금 보낸 속보 알림을 받게 됩니다.
 
-## <a name="next-steps"></a>Next steps
-In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:
+## <a name="next-steps"></a>다음 단계
+이 자습서에서는 범주별로 속보를 브로드캐스트하는 방법에 대해 알아보았습니다. 이제 기타 고급 알림 허브 시나리오를 다루는 다음 자습서 중 하나를 완료해 보세요.
 
-* **[Use Notification Hubs to broadcast localized breaking news]**
+* **[Notification Hubs를 사용하여 지역화된 속보 브로드캐스트]**
   
-    Learn how to expand the breaking news app to enable sending localized notifications.
+    지역화된 알림을 보낼 수 있도록 속보 앱을 확장하는 방법에 대해 알아보세요.
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-subscribed.png
@@ -324,17 +324,17 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 
 <!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
-[Use Notification Hubs to broadcast localized breaking news]: notification-hubs-ios-xplat-localized-apns-push-notification.md
+[방법: Service Bus Notification Hubs(iOS 앱)]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs를 사용하여 지역화된 속보 브로드캐스트]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs를 통해 사용자에게 알림]: notification-hubs-aspnet-backend-ios-notify-users.md
+[알림 허브 지침]: http://msdn.microsoft.com/library/dn530749.aspx
+[iOS용 알림 허브 방법]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
-[Azure Classic Portal]: https://manage.windowsazure.com
+[Azure 클래식 포털]: https://manage.windowsazure.com
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

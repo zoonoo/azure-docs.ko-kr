@@ -18,6 +18,7 @@
 ### [Java 웹앱](documentdb-java-application.md)
 ### [Python Flask 웹앱](documentdb-python-application.md)
 ## [로컬에서 개발](documentdb-nosql-local-emulator.md)
+### [에뮬레이터 인증서 내보내기](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ## [FAQ](documentdb-faq.md)
 
 # 방법
@@ -41,13 +42,17 @@
 ### [리소스 할당량](documentdb-limits.md)
 ### [할당량 증가](documentdb-increase-limits.md)
 ### [요청 단위](documentdb-request-units.md)
-### [Azure CLI 및 Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### Azure CLI
+#### [계정 만들기](documentdb-automation-resource-manager-cli.md)
+#### [영역 추가 또는 제거](documentdb-automation-region-management.md)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [방화벽 지원](documentdb-firewall-support.md)
 ### [계정 수퍼차지](documentdb-supercharge-your-account.md)
 
 ## 개발
 ### [SQL query](documentdb-sql-query.md)
 ### [저장 프로시저, 트리거 및 UDF](documentdb-programming.md)
+### [변경 피드로 변경 내용 추적](documentdb-change-feed.md)
 ### [성능 테스트](documentdb-performance-testing.md)
 ### [성능 팁](documentdb-performance-tips.md)
 ### MongoDB 개발자용 DocumentDB
@@ -83,18 +88,20 @@
 
 
 # 참조
-## [Java SDK](documentdb-sdk-java.md)
-## [.NET SDK](documentdb-sdk-dotnet.md)
-## [.NET Core SDK](documentdb-sdk-dotnet-core.md)
-## [.NET 샘플](documentdb-dotnet-samples.md)
-## [Node.js SDK](documentdb-sdk-node.md)
-## [Node.js 샘플](documentdb-nodejs-samples.md)
-## [Python SDK](documentdb-sdk-python.md)
-## [Python 샘플](documentdb-python-samples.md)
-## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [SQL 문법 치트 시트](documentdb-sql-query-cheat-sheet.md)
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.JS](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
 ## [REST (영문)](/rest/api/documentdb/)
 ## [REST 리소스 공급자](/rest/api/documentdbresourceprovider/)
+
+# 관련 항목
+## [.NET 샘플](documentdb-dotnet-samples.md)
+## [Node.js 샘플](documentdb-nodejs-samples.md)
+## [Python 샘플](documentdb-python-samples.md)
+## [SQL 구문](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [SQL 문법 치트 시트](documentdb-sql-query-cheat-sheet.md)
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/documentdb/)
@@ -110,6 +117,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

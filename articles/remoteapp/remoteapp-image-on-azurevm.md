@@ -1,11 +1,11 @@
 ---
-title: Azure VM을 기반으로 Azure RemoteApp 이미지 만들기 | Microsoft Docs
-description: Azure 가상 컴퓨터를 시작하여 Azure RemoteApp에 대한 이미지를 만드는 방법에 대해 알아봅니다.
+title: "Azure VM을 기반으로 Azure RemoteApp 이미지 만들기 | Microsoft 문서"
+description: "Azure 가상 컴퓨터를 시작하여 Azure RemoteApp에 대한 이미지를 만드는 방법에 대해 알아봅니다."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-
+ms.assetid: d41583ef-6cd8-4115-8dcb-b2cd5b3d301a
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,11 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 8b02336b05b78d7787caabd59347814af4337ec3
+
 
 ---
-# Azure 가상 컴퓨터를 기반으로 Azure RemoteApp 이미지 만들기
+# <a name="create-a-azure-remoteapp-image-based-on-an-azure-virtual-machine"></a>Azure 가상 컴퓨터를 기반으로 Azure RemoteApp 이미지 만들기
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -25,26 +29,26 @@ Azure 가상 컴퓨터에서 Azure RemoteApp 이미지(컬렉션에서 공유하
 
 Azure VM을 기반으로 자신만의 이미지를 만드는 단계는 두 가지입니다. 이미지를 만든 다음 Azure VM 라이브러리에서 Azure RemoteApp으로 업로드하는 것입니다.
 
-## Azure VM을 기반으로 사용자 지정 이미지 만들기
+## <a name="create-a-custom-image-based-on-an-azure-vm"></a>Azure VM을 기반으로 사용자 지정 이미지 만들기
 Azure VM을 기반으로 이미지를 만들려면 이 단계를 사용합니다.
 
 1. Azure 가상 컴퓨터를 만듭니다. Azure 가상 컴퓨터 이미지 갤러리에서 "Windows Server 원격 데스크톱 세션 호스트" 또는 "Microsoft Office 365 ProPlus가 있는 Windows Server 원격 데스크톱 세션 호스트" 이미지를 사용할 수 있습니다. 이 이미지는 Azure RemoteApp 템플릿 이미지 요구 사항을 모두 충족합니다.
    
-    자세한 내용은 [Windows를 실행하는 VM 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
+    자세한 내용은 [Windows를 실행하는 VM 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 2. VM에 연결하고 RemoteApp을 통해 공유하려는 앱을 구성합니다. 앱에 필요한 모든 추가 Windows 구성을 수행할 수 있는지 확인합니다.
    
-    자세한 내용은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/virtual-machines-windows-classic-connect-logon.md)을 참조하십시오.
-3. Windows Server 원격 데스크톱 세션 호스트 이미지 중 하나를 사용하는 경우 VM이 RemoteApp 사전 요구 사항을 충족하는지 확인하는 유효성 검사 스크립트가 포함되어 있습니다. 스크립트를 실행하려면 바탕 화면에서 **ValidateRemoteAppImage**를 두 번 클릭합니다. 다음 단계를 진행하기 전에 스크립트에서 보고한 모든 오류가 해결되었는지 확인합니다.
-4. SYSPREP가 일반화되고 이미지를 캡처합니다. 지침은 [템플릿으로 사용할 Windows 가상 컴퓨터를 캡처하는 방법](../virtual-machines/virtual-machines-windows-classic-capture-image.md)을 참조하세요.
+    자세한 내용은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+3. Windows Server 원격 데스크톱 세션 호스트 이미지 중 하나를 사용하는 경우 VM이 RemoteApp 사전 요구 사항을 충족하는지 확인하는 유효성 검사 스크립트가 포함되어 있습니다. 스크립트를 실행하려면 바탕 화면에서 **ValidateRemoteAppImage** 를 두 번 클릭합니다. 다음 단계를 진행하기 전에 스크립트에서 보고한 모든 오류가 해결되었는지 확인합니다.
+4. SYSPREP가 일반화되고 이미지를 캡처합니다. 지침에 대해서는 [템플릿으로 사용할 Windows Virtual Machine를 캡처하는 방법](../virtual-machines/virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
-## Azure RemoteApp 이미지 라이브러리로 이미지 가져오기
+## <a name="import-the-image-into-the-azure-remoteapp-image-library"></a>Azure RemoteApp 이미지 라이브러리로 이미지 가져오기
 다음 단계를 사용하여 새 이미지를 Azure RemoteApp으로 가져옵니다.
 
 1. **템플릿 이미지** 탭에서 다음을 수행합니다.
    
    * 기존 이미지가 없는 경우 **템플릿 이미지를 업로드하거나 가져오기**를 클릭합니다.
-   * 하나 이상의 이미지가 이미 있는 경우 **+**를 클릭하여 새 이미지를 추가합니다.
-2. **가상 컴퓨터에서 이미지 가져오기** 라이브러리를 선택한 후 **다음**을 클릭합니다.
+   * 하나 이상의 이미지가 이미 있는 경우 **+** 를 클릭하여 새 이미지를 추가합니다.
+2. **Virtual Machines에서 이미지 가져오기** 라이브러리를 선택한 후 **다음**을 클릭합니다.
 3. 다음 페이지에서 목록에서 사용자 지정 이미지를 선택하고 이미지를 만들 때 나열된 단계를 수행했는지 확인합니다. **Next**를 클릭합니다.
 4. 새 RemoteApp 이미지에 대한 이름을 입력하고 위치를 선택한 다음 확인 표시를 클릭하여 가져오기 프로세스를 시작합니다.
 
@@ -53,6 +57,11 @@ Azure VM을 기반으로 이미지를 만들려면 이 단계를 사용합니다
 > 
 > 
 
-이제 필요에 따라 [클라우드](remoteapp-create-cloud-deployment.md) 컬렉션 또는 [하이브리드](remoteapp-create-hybrid-deployment.md) 컬렉션을 새로 만들 준비가 되었습니다.
+이제 필요에 따라 [클라우드](remoteapp-create-cloud-deployment.md) 컬렉션 또는 [하이브리드](remoteapp-create-hybrid-deployment.md), 컬렉션을 새로 만들 준비가 되었습니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

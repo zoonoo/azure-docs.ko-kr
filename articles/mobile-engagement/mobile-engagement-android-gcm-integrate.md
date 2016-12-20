@@ -1,12 +1,12 @@
 ---
-title: Azure Mobile Engagement Android SDK 통합
-description: Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차
+title: "Azure Mobile Engagement Android SDK 통합"
+description: "Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: d72b5014-a22b-4a7f-a470-d2b8145b5b86
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0282abbf44406cac89c13520bc2a4e375817ed1f
+
 
 ---
 # <a name="how-to-integrate-gcm-with-mobile-engagement"></a>GCM과 Mobile Engagement를 통합하는 방법
@@ -81,6 +85,6 @@ Mobile Engagement에 GCM API 키에 대한 액세스 권한을 부여하려면 [
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

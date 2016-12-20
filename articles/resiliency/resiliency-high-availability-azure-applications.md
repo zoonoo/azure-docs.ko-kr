@@ -1,12 +1,12 @@
 ---
-title: Azure 응용 프로그램에 대한 고가용성 | Microsoft Docs
-description: Microsoft Azure에서 고가용성을 위한 응용 프로그램 설계 및 빌드에 대한 기술 개요와 심층 정보입니다.
-services: ''
+title: "Azure 응용 프로그램의 고가용성 | Microsoft 문서"
+description: "Microsoft Azure에서 고가용성을 위한 응용 프로그램 설계 및 빌드에 대한 기술 개요와 심층 정보입니다."
+services: 
 documentationcenter: na
 author: adamglick
 manager: saladki
-editor: ''
-
+editor: 
+ms.assetid: 8be4f323-ca00-4025-9356-c9bbc998eef3
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f7289c969184b518a6ff836cbb9ed7e20841206b
+
 
 ---
 # <a name="high-availability-for-applications-built-on-microsoft-azure"></a>Microsoft Azure에 빌드된 응용 프로그램에 대한 고가용성
@@ -36,7 +40,7 @@ Azure 패브릭 컨트롤러는 Azure 계산 인스턴스의 상태를 프로비
 ### <a name="features-in-other-services"></a>다른 서비스의 기능
 계산 고가용성을 지원하는 이러한 플랫폼 기능 외에도 Azure는 다른 서비스에 대한 고가용성 기능을 포함합니다. 예를 들어, Azure 저장소는 모든 BLOB, 테이블 및 큐 데이터의 복제본 3개를 유지 관리합니다. 또한 보조 지역에 Blob 및 테이블의 백업을 저장하는 지역에서 복제 옵션을 사용할 수 있습니다. Azure 콘텐츠 배달 네트워크를 사용하면 중복성 및 확장성을 위해 Blob을 전 세계에 캐시할 수 있습니다. Azure SQL 데이터베이스는 여러 복제본도 유지 관리합니다.
 
-문서의 [복원력 기술 지침](https://aka.ms/bctechguide) 시리즈 외에도 [Azure Cloud Services에 대한 대규모 서비스의 설계에 대한 모범 사례](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/) 문서를 참조하세요. 이 문서는 Azure 플랫폼 가용성 기능에 대한 자세한 논의를 제공합니다.
+문서의 [복원력 기술 지침](https://aka.ms/bctechguide) 시리즈 외에도 [Azure 클라우드 서비스에서 대규모 서비스 설계를 위한 모범 사례](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/) 문서를 참조하세요. 이 문서는 Azure 플랫폼 가용성 기능에 대한 자세한 논의를 제공합니다.
 
 Azure에서 고가용성을 지원하는 여러 기능을 제공하지만 이러한 기능의 한계를 이해하는 것이 중요합니다.
 
@@ -134,6 +138,9 @@ Azure 응용 프로그램의 가용성 향상을 위해 느슨하게 결합된 �
 ## <a name="next-steps"></a>다음 단계
 이 문서는 [Microsoft Azure에 빌드된 응용 프로그램에 대한 재해 복구 및 고가용성](resiliency-disaster-recovery-high-availability-azure-applications.md)에 초점을 맞춘 문서 시리즈의 일부입니다. 이 시리즈의 다음 문서는 [Microsoft Azure에 빌드된 응용 프로그램에 대한 재해 복구](resiliency-disaster-recovery-azure-applications.md)입니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

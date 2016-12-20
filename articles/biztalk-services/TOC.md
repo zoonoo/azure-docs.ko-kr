@@ -22,10 +22,8 @@
 ### [액세스 제어](biztalk-issuer-name-issuer-key.md)
 ## [문제 해결](biztalk-troubleshoot-using-ops-logs.md)
 
-# 참조
-## [릴리스 정보](biztalk-release-notes.md)
-
 # 리소스
+## [릴리스 정보](biztalk-release-notes.md)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=biztalk-services)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/biztalk-services/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
@@ -33,6 +31,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

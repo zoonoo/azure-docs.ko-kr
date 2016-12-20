@@ -1,19 +1,23 @@
 ---
-title: '| Microsoft Docs'
-description: Azure 저장소 에뮬레이터는 Azure 저장소에 대한 개발 및 테스트에 대해 무료 로컬 개발 환경을 제공합니다. 요청을 인증하는 방법, 응용 프로그램에서 에뮬레이터에 연결하는 방법 및 명령줄 도구를 사용하는 방법을 포함하여 저장소 에뮬레이터에 알아봅니다.
+title: "개발 및 테스트에 Azure Storage 에뮬레이터 사용 | Microsoft Docs"
+description: "Azure 저장소 에뮬레이터는 Azure 저장소에 대한 개발 및 테스트에 대해 무료 로컬 개발 환경을 제공합니다. 요청을 인증하는 방법, 응용 프로그램에서 에뮬레이터에 연결하는 방법 및 명령줄 도구를 사용하는 방법을 포함하여 저장소 에뮬레이터에 알아봅니다."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: f480b059-df8a-4a63-b05a-7f2f5d1f5c2a
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 11/28/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 94de2ce77328cc9902b054200d52d78fb5ccf5ec
+
 
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure 저장소 에뮬레이터 사용
@@ -49,14 +53,16 @@ Xamarin 라이브러리와 같은 일부 Azure 저장소 클라이언트 라이�
 
 1. 아직 없는 경우 Azure PowerShell을 설치합니다. Azure PowerShell cmdlet의 최신 버전을 사용하는 것이 좋습니다. 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md#Install) 을 참조하세요.
 2. Azure PowerShell을 열고 다음 명령을 실행합니다. 사용자 고유 자격 증명을 사용하여 *ACCOUNT_NAME* 및 *ACCOUNT_KEY==*를 바꿔야 합니다. *CONTAINER_NAME*을 선택한 이름으로 바꿉니다.
-   
-        $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
-   
-        New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
-   
-        $now = Get-Date 
-   
-        New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+
+```powershell
+$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+
+New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+
+$now = Get-Date 
+
+New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+```
 
 새 컨테이너에 대해 결과적으로 생성된 공유 액세스 서명 URI는 다음과 유사해야 합니다.
 
@@ -122,7 +128,7 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
     Queue Service: http://127.0.0.1:10001/<account-name>/<resource-path>
     Table Service: http://127.0.0.1:10002/<account-name>/<resource-path>
 
-### <a name="addressing-the-account-secondary-with-ragrs"></a>RA-GRS를 사용하여 보조 계정 주소 지정
+### <a name="addressing-the-account-secondary-with-ra-grs"></a>RA-GRS를 사용하여 보조 계정 주소 지정
 버전 3.1부터는 저장소 에뮬레이터 계정에 대해 RA-GRS(읽기 권한 지역 중복 복제)를 사용할 수 있습니다. 클라우드와 로컬 에뮬레이터의 저장소 리소스에 대해 계정 이름에 -secondary를 추가하면 보조 위치에 액세스할 수 있습니다. 예를 들어 저장소 에뮬레이터에서 읽기 전용 보조 계정을 사용하여 Blob에 액세스하려는 경우 다음 주소를 사용할 수 있습니다.
 
     http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt 
@@ -132,7 +138,7 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 > 
 > 
 
-## <a name="storage-emulator-commandline-tool-reference"></a>저장소 에뮬레이터 명령줄 도구 참조
+## <a name="storage-emulator-command-line-tool-reference"></a>저장소 에뮬레이터 명령줄 도구 참조
 버전 3.0부터 저장소 에뮬레이터를 시작하면 명령줄 창 팝업이 표시됩니다. 명령줄 창을 사용하여 에뮬레이터를 시작/중지할 수 있으며 상태를 쿼리하고 기타 작업을 수행할 수도 있습니다.
 
 > [!NOTE]
@@ -219,6 +225,9 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 * 저장소 에뮬레이터 그래픽 사용자 인터페이스는 더 이상 사용되지 않으며, 대신 스크립트 가능한 명령줄 인터페이스가 사용됩니다. 명령줄 인터페이스에 대한 자세한 내용은 저장소 에뮬레이터 명령줄 도구 참조를 참조하세요. 그래픽 인터페이스는 버전 3.0에 계속 있지만 시스템 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 저장소 에뮬레이터 UI 표시 보기를 선택하여 계산 에뮬레이터를 설치할 때에만 액세스 할 수 있습니다.
 * 이제 Azure 저장소 서비스의 2013-08-15 버전이 완벽 하게 지원됩니다. (이전에 이 버전은 저장소 에뮬레이터 버전 2.2.1 미리 보기에서만 지원되었습니다.)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Windows Server 및 Linux에서 Azure 서비스 패브릭 클러스터 만들기 | Microsoft Docs
-description: 서비스 패브릭 클러스터는 Windows Server 및 Linux에서 실행됩니다. 즉, Windows Server 또는 Linux를 실행할 수 있는 모든 위치에 서비스 패브릭 응용 프로그램을 배포 및 호스트할 수 있습니다.
+title: "Windows Server 및 Linux에서 Azure Service Fabric 클러스터 만들기 | Microsoft Docs"
+description: "서비스 패브릭 클러스터는 Windows Server 및 Linux에서 실행됩니다. 즉, Windows Server 또는 Linux를 실행할 수 있는 모든 위치에 서비스 패브릭 응용 프로그램을 배포 및 호스트할 수 있습니다."
 services: service-fabric
 documentationcenter: .net
 author: Chackdan
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/22/2016
 ms.author: chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3885733b67933f331f65760474649fba18adce12
+
 
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Windows Server 또는 Linux에서 Service Fabric 클러스터 만들기
@@ -34,7 +38,7 @@ Service Fabric은 온-프레미스 또는 클라우드 공급자에서 독립 �
 
 Windows Server에서 독립 실행형 Service Fabric 클러스터 설치에 자세한 내용은 [Windows Server용 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
 
-### <a name="any-cloud-deployments-vs.-on-premises-deployments"></a>클라우드 배포와 온-프레미스 배포 비교
+### <a name="any-cloud-deployments-vs-on-premises-deployments"></a>클라우드 배포와 온-프레미스 배포 비교
 서비스 패브릭 클러스터 온-프레미스를 만드는 프로세스는 VM 집합이 있는 클라우드를 선택하여 거기에 클러스터를 만드는 프로세스와 비슷합니다. VM을 프로비전하는 초기 단계는 사용하는 클라우드 공급자 또는 온-프레미스 환경에 의해 제어됩니다. VM을 준비하고 VM 간에 네트워크 연결을 설정한 후에는 동일한 방법으로 서비스 패브릭 패키지를 설정하고, 클러스터 설정을 편집하고, 클러스터 만들기 및 관리 스크립트를 실행합니다. 이렇게 하면 새 호스팅 환경을 대상으로 선택할 때 Service Fabric 클러스터 운영 및 관리에 대한 지식과 경험이 전달됩니다.
 
 ### <a name="benefits-of-creating-standalone-service-fabric-clusters"></a>독립 실행형 서비스 패브릭 클러스터를 만들 경우의 이점
@@ -67,6 +71,9 @@ Windows Server를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기:
 
 Linux를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Linux의 서비스 패브릭](service-fabric-linux-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,14 +1,14 @@
 ---
-title: Azure VM에서 SAP HANA 수동 설치에 대한 빠른 시작 가이드 | Microsoft Docs
-description: Azure VM에서 SAP HANA 수동 설치에 대한 빠른 시작 가이드
+title: "Azure VM에서 SAP HANA 수동 설치에 대한 빠른 시작 가이드 | Microsoft Docs"
+description: "Azure VM에서 SAP HANA 수동 설치에 대한 빠른 시작 가이드"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: hermanndms
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-keywords: ''
-
+keywords: 
+ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -16,6 +16,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 751869985c231e216ff03c9ba6375c19fee4138e
+
 
 ---
 # <a name="quickstart-guide-for-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Azure VM에서 단일 인스턴스 SAP HANA 수동 설치에 대한 빠른 시작 가이드
@@ -106,7 +110,7 @@ SWPM을 사용하여 모든 구성 요소(SAP HANA, SAP 응용 프로그램 서�
 ### <a name="disk-setup"></a>디스크 설정
 Azure에서 Linux VM의 루트 파일 시스템 크기는 제한되어 있습니다. 따라서 SAP를 실행하기 위한 추가 디스크 공간을 VM에 연결해야 합니다. 순수 프로토타입/데모 환경에서 사용되는 SAP 앱 서버 VM의 경우 Azure 표준 저장소 디스크를 사용하는 것이 좋습니다. 그러나 SAP HANA DB 데이터 및 로그 파일에 대해서는 프로덕션 환경이 아닌 경우에도 Azure Premium Storage 디스크를 사용해야 합니다.
 
-Linux VM에 디스크를 연결하는 방법에 대한 자세한 내용은 [여기](virtual-machines-linux-add-disk.md)
+Linux VM에 디스크를 연결하는 방법에 대한 자세한 내용은 [여기](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Azure 디스크 캐싱의 경우 HANA 트랜잭션 로그를 저장하는 데 사용할 디스크에 대해 "없음"을 사용해야 합니다. HANA 데이터 파일의 경우 읽기 캐싱을 사용해도 괜찮습니다. HANA는 메모리 내 데이터베이스이므로 전반적인 사용 패턴에 따라 Azure 디스크 수준에서 성능을 향상시키는 읽기 캐시의 양이 달라집니다(예: HANA를 시작하고 디스크의 데이터를 메모리로 읽기).
 
@@ -115,7 +119,7 @@ Azure Premium Storage에 대한 자세한 내용은 [여기](../storage/storage-
 [Here](https://github.com/Azure/azure-quickstart-templates) 를 참조하세요.
 "101-vm-simple-linux"는 100GB 데이터 디스크를 추가하는 저장소 섹션을 포함하여 기본 템플릿이 어떻게 표시되는지 보여 줍니다.
 
-[이 문서](virtual-machines-linux-sap-on-suse-quickstart.md) 에서는 Powershell 또는 CLI를 통해 SUSE 이미지를 찾는 방법과 UUID를 통한 디스크 연결의 중요성에 대해 설명합니다.
+[이 문서](virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 에서는 Powershell 또는 CLI를 통해 SUSE 이미지를 찾는 방법과 UUID를 통한 디스크 연결의 중요성에 대해 설명합니다.
 
 시스템의 크기와 처리량 요구 사항에 따라 하나의 디스크 대신 여러 디스크를 연결하고 나중에 OS 수준에서 이러한 디스크에 대해 스트라이프 세트를 만들어야 할 수 있습니다. 다음은 여러 Azure 디스크에 대해 스트라이프 세트를 만드는 두 가지 이유입니다.
 
@@ -124,9 +128,9 @@ Azure Premium Storage에 대한 자세한 내용은 [여기](../storage/storage-
 
 스트라이프를 구성하는 두 가지 주요 도구에 대한 자세한 정보는 다음을 참조하세요.
 
-[Azure VM에서 mdadm을 사용하여 Linux 소프트웨어 RAID 구성에 대한 문서](virtual-machines-linux-configure-raid.md)
+[Azure VM에서 mdadm을 사용하여 Linux 소프트웨어 RAID 구성에 대한 문서](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Linux Azure VM에서 논리 볼륨 관리자 구성에 대한 문서](virtual-machines-linux-configure-lvm.md)
+[Linux Azure VM에서 논리 볼륨 관리자 구성에 대한 문서](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image003.jpg)
 
@@ -184,14 +188,14 @@ SAP HANA DB VM과 관련하여 sapinst(swpm)를 통해 데이터베이스를 설
 
 표준 SLES 12 Azure 갤러리 이미지에 SAP NetWeaver 설치 시 스왑 공간이 없다는 메시지가 표시됩니다. 이 메시지를 제거하려면 이 문서에 설명된 대로 dd, mkswap 및 swapon을 통해 스왑 파일을 수동으로 추가합니다.  [this article](https://www.suse.com/documentation/sled-12/book_sle_deployment/data/sec_yast2_i_y2_part_expert.html)
 
-또는 Linux VM 에이전트를 통해 스왑 공간을 구성할 수도 있습니다. 자세한 내용은 [여기](virtual-machines-linux-agent-user-guide.md)
+또는 Linux VM 에이전트를 통해 스왑 공간을 구성할 수도 있습니다. 자세한 내용은 [여기](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="/etc/hosts"></a>/etc/hosts
+### <a name="etchosts"></a>/etc/hosts
 ![](./media/virtual-machines-linux-sap-hana-get-started/image011.jpg)
 
 SAP 설치를 시작하기 전에 SAP VM의 호스트 이름 및 IP 주소를 /etc/hosts 파일에 포함하는 것이 중요합니다. 하나의 Azure Virtual Network에 모든 SAP VM을 배포한 다음 내부 IP 주소를 사용해야 합니다.
 
-### <a name="/etc/fstab"></a>/etc/fstab
+### <a name="etcfstab"></a>/etc/fstab
 ![](./media/virtual-machines-linux-sap-hana-get-started/image000c.jpg)
 
 테스트 단계에서 fstab에 nofail 매개 변수를 추가하는 것이 좋습니다. 디스크에 오류가 발생한 경우에도 VM은 계속 작동하므로 부팅 프로세스가 중단되지 않습니다. 그러나 이 경우 추가 디스크 공간을 사용할 수 없어 프로세스가 루트 파일 시스템을 채울 수 있으므로 주의해야 합니다. /hana를 누락한 경우 SAP HANA가 시작되지 않습니다.
@@ -256,7 +260,7 @@ javafx.properties 파일이 없다는 오류 메시지가 발생할 수도 있�
 Yast를 통해 표시되는 IBM Java 버전에는 이 파일이 없습니다. 이 문제를 해결하려면 Oracle에서 Java를 다운로드합니다.
 이 문제에 대한 자세한 내용은 [여기](https://scn.sap.com/thread/3908306)
 
-## <a name="manual-sap-hana-installation-via-swpm-as-part-of-a-netweaver-7.5-installation"></a>NetWeaver 7.5 설치의 일부로 SWPM을 통해 수동 SAP HANA 설치
+## <a name="manual-sap-hana-installation-via-swpm-as-part-of-a-netweaver-75-installation"></a>NetWeaver 7.5 설치의 일부로 SWPM을 통해 수동 SAP HANA 설치
 다음 스크린샷 목록에서는 SWPM(sapinst)을 통해 SAP NetWeaver 7.5 및 SAP HANA SP12를 설치하는 주요 단계를 보여 줍니다. NW 7.5 설치의 일부로 SWPM은 HANA 데이터베이스를 단일 인스턴스로 설치할 수 있습니다.
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image012.jpg)
@@ -373,23 +377,26 @@ SWPM 데이터베이스 인스턴스 설치가 완료되면 HANA Studio에서 SA
 
 마지막으로 SAP 앱 서버 및 SAP GUI를 설치한 후 트랜잭션 "dbacockpit"를 사용하여 HANA DB 인스턴스를 확인할 수 있어야 합니다.
 
-## <a name="general-information-related-to-sap-azure-certifications,-running-sap-hana-on-azure-and-sap-software-download"></a>SAP Azure 인증서, Azure에서 SAP HANA 실행 및 SAP 소프트웨어 다운로드와 관련된 일반 정보
-* Windows OS에서 클래식 모드로 Azure의 SAP를 실행하는 것에 대한 일반 SAP Azure 문서: [Azure의 Windows 가상 컴퓨터에서 SAP 사용](virtual-machines-windows-classic-sap-get-started.md)
+## <a name="general-information-related-to-sap-azure-certifications-running-sap-hana-on-azure-and-sap-software-download"></a>SAP Azure 인증서, Azure에서 SAP HANA 실행 및 SAP 소프트웨어 다운로드와 관련된 일반 정보
+* Windows OS에서 클래식 모드로 Azure의 SAP를 실행하는 것에 대한 일반 SAP Azure 문서: [Azure의 Windows 가상 컴퓨터에서 SAP 사용](virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * 고객이 사용할 수 있는 기존 SAP 템플릿에 대한 자세한 내용: [Azure Quickstart Templates for SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)
-* Linux OS에서 Azure Resource Manager 모델로 Azure의 SAP를 실행하는 것에 대한 일반 SAP Azure 문서: [Linux VM(가상 컴퓨터)에서 SAP 사용](virtual-machines-linux-sap-get-started.md)
+* Linux OS에서 Azure Resource Manager 모델로 Azure의 SAP를 실행하는 것에 대한 일반 SAP Azure 문서: [Linux VM(가상 컴퓨터)에서 SAP 사용](virtual-machines-linux-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * 프로덕션에 대해 지원되는 Azure VM 형식을 나열하는 인증된 SAP HANA 하드웨어 디렉터리: [Certified SAP HANA® Hardware Directory](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html)
-* 특히 Linux 작업을 위한 가상 컴퓨터 크기에 대한 정보: [Azure에서 가상 컴퓨터에 대한 크기](virtual-machines-linux-sizes.md)
+* 특히 Linux 작업을 위한 가상 컴퓨터 크기에 대한 정보: [Azure에서 가상 컴퓨터에 대한 크기](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Azure에서 지원되는 모든 SAP 제품 및 SAP에 대해 지원되는 Azure VM 형식을 나열한 SAP Note: [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533/E)
 * Azure의 Linux VM을 사용한 SAP "고급 모니터링"에 대한 SAP Note: [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498/E)
 * Azure "큰 인스턴스"에 대한 SAP HANA 제공 사항. 이 정보는 Azure VM에서의 SAP HANA 실행에 대한 내용이 아니라 SAP 앱 서버가 Azure VM에서 실행되지만 SAP HANA가 운영 체제 미설치 서버에서 실행되는 하이브리드 환경에 대한 내용입니다. 자세한 내용: [SAP Note 2316233](https://launchpad.support.sap.com/#/notes/2316233/E)
 * Linux의 SAPOSCOL에 대한 SAP Note: [SAP Note 1102124](https://launchpad.support.sap.com/#/notes/1102124/E)
 * Microsoft Azure의 SAP용 주요 모니터링 메트릭: [SAP Note 2178632](https://launchpad.support.sap.com/#/notes/2178632/E)
-* Azure Resource Manager에 대한 정보: [Azure Resource Manager 개요](../resource-group-overview.md)
-* 템플릿을 통한 Linux VM 배포에 대한 정보: [Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-linux-cli-deploy-templates.md)
+* Azure Resource Manager에 대한 정보: [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)
+* 템플릿을 통한 Linux VM 배포에 대한 정보: [Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Azure Resource Manager와 클래식 간의 배포 모델 비교: [Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해](../resource-manager-deployment-model.md)
 * SAP Service Marketplace에서 Linux/HANA용 NetWeaver 7.5 다운로드: ![](./media/virtual-machines-linux-sap-hana-get-started/image001.jpg)
 * SAP Service Marketplace에서 HANA SP12 플랫폼 버전 다운로드: ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

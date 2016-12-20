@@ -1,29 +1,33 @@
 ---
-title: Microsoft Azure 새 지원 요청 파일 업로드 유틸리티 지침 | Microsoft Docs
-description: Microsoft Azure 새 지원 요청 파일 업로드 유틸리티를 사용할 경우의 지침을 설명합니다.
-services: ''
-documentationcenter: ''
+title: "Microsoft Azure 새 지원 요청 파일 업로드 유틸리티 지침 | Microsoft Docs"
+description: "Microsoft Azure 새 지원 요청 파일 업로드 유틸리티를 사용할 경우의 지침을 설명합니다."
+services: 
+documentationcenter: 
 author: genlin
 manager: mbaldwin
-editor: ''
+editor: 
 tags: billing
-
+ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2016
+ms.date: 11/13/2016
 ms.author: genli
+translationtype: Human Translation
+ms.sourcegitcommit: 37d7ad87fc94a6abe8260e11de673515954acef4
+ms.openlocfilehash: 10c919cf994351e2bf7fae7c96ef065b48b25955
+
 
 ---
-# Microsoft Azure 새 지원 요청 파일 업로드 유틸리티 지침
-[새 지원 요청을 만들 때 ](https://portal.azure.com/#create/Microsoft.Support) 파일 업로드 유틸리티를 사용하면 진단 파일이나 인시던트에 관련된 다른 파일을 쉽게 업로드할 수 있습니다.
+# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure 새 지원 요청 파일 업로드 유틸리티 지침
+[지원 요청을 만들 때](https://portal.azure.com/#create/Microsoft.Support)파일 업로드 유틸리티를 사용하면 진단 파일이나 인시던트에 관련된 다른 파일을 쉽게 업로드할 수 있습니다.  
 
 > [!NOTE]
 > 개인 정보를 보호하려면 업로드 시 개인 정보를 포함시키기 마세요.
-> 
-> 
+>
+>
 
 파일 업로드 유틸리티를 사용할 때 다음 지침을 따르세요.
 
@@ -32,36 +36,40 @@ ms.author: genli
 * 둘 이상의 파일을 업로드할 수 없습니다.
 * 파일은 4MB 이하여야 합니다.
 
-## 허용되는 파일 이름 확장명 표
-| 0-9, A-C | D-G | H-M | N-P | R-T | U-W | X-Z |
-| --- | --- | --- | --- | --- | --- | --- |
-| .7z |.dat |.hwl |.odx |.rar |.tdb |.xlam |
-| .a |.db |.ics |.oft |.rdl |.tdf |.xlr |
-| .abc |.DMP |.ini |.old |.rdlc |.text |.xls |
-| .adm |.do\_ |.java |.one |.re\_ |.thmx |.xlsb |
-| .aspx |.doc |.jpg |.osd |.reg |.tif |.xlsm |
-| .ATF |.docm |.LDF |.OUT |.remove |.trc |.xlsx |
-| .b |.docx |.letterhead |.p1 |.ren |.TTD |.xlt |
-| .ba\_ |.dotm |.lnk |.pcap |.rename |.tx\_ |.xltx |
-| .bak |.dotx |.lo\_ |.pdb |.rft |.txt |.xml |
-| .bat |.dtsx |.log |.pdf |.rpt |.uccapilog |.xmla |
-| .blg |.eds |.lpk |.piz |.rte |.uccplog |.xps |
-| .CA\_ |.emf |.manifest |.pmls |.rtf |.udcx |.xsd |
-| .CAB |.eml |.master |.png |.run |.vb\_ |.xsn |
-| .cap |.emz |.mdmp |.potx |.saz |.vbs\_ |.xxx |
-| .catx |.err |.mof |.ppt |.sql |.vcf |.z\_ |
-| .CFG |.etl |.mp3 |.pptm |.sqlplan |.vsd |.z01 |
-| .compressed |.evt |.mpg |.pptx |.stp |.wdb |.z02 |
-| .Config |.evtx |.ms\_ |.prn |.svclog |.wks |.zi |
-| .cpk |.EX |.msg |.psf | |.wma |.zi\_ |
-| .cpp |.ex\_ |.msi |.pst | |.wmv |.zip |
-| .cs |.ex0 |.mso |.pub | |.wmz |.zip\_ |
-| .CSV |.FRD |.msu | | |.wps |.zipp |
-| .cvr |.gif |.nfo | | |.wpt |.zipped |
-| .guid | | | |.wsdl |.zippy | |
-| .gz | | | |.wsp |.zipx | |
-|  | | | |.wtl |.zit | |
-|  | | | | |.zix | |
-|  | | | | |.zzz | |
+## <a name="table-of-the-allowed-file-name-extensions"></a>허용되는 파일 이름 확장명 표
+| 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
+|-------------|-------|-------------|-------|----------|------------|---------|
+| .7z         | .dat  | .hwl        | .odx  | .rar     | .tdb       | .xlam   |
+| .a          | .db   | .ics        | .oft  | .rdl     | .tdf       | .xlr    |
+| .abc        | .DMP  | .ini        | .old  | .rdlc    | .text      | .xls    |
+| .adm        | .do_  | .java       | .one  | .re_     | .thmx      | .xlsb   |
+| .aspx       | .doc  | .jpg        | .osd  | .reg     | .tif       | .xlsm   |
+| .ATF        | .docm | .LDF        | .OUT  | .remove  | .trc       | .xlsx   |
+| .b          | .docx | .letterhead | .p1   | .ren     | .TTD       | .xlt    |
+| .ba_        | .dotm | .lnk        | .pcap | .rename  | .tx_       | .xltx   |
+| .bak        | .dotx | .lo_        | .pdb  | .rft     | .txt       | .xml    |
+| .bat        | .dtsx | .log        | .pdf  | .rpt     | .uccapilog | .xmla   |
+| .blg        | .eds  | .lpk        | .piz  | .rte     | .uccplog   | .xps    |
+| .CA_        | .emf  | .manifest   | .pmls | .rtf     | .udcx      | .xsd    |
+| .CAB        | .eml  | .master     | .png  | .run     | .vb_       | .xsn    |
+| .cap        | .emz  | .mdmp       | .potx | .saz     | .vbs_      | .xxx    |
+| .catx       | .err  | .mof        | .ppt  | .sql     | .vcf       | .z_     |
+| .CFG        | .etl  | .mp3        | .pptm | .sqlplan | .vsd       | .z01    |
+| .compressed | .evt  | .mpg        | .pptx | .stp     | .wdb       | .z02    |
+| .Config     | .evtx | .ms_        | .prn  | .svclog  | .wks       | .zi     |
+| .cpk        | .EX   | .msg        | .psf  |   -       | .wma       | .zi_    |
+| .cpp        | .ex_  | .msi        | .pst  |  -        | .wmv       | .zip    |
+| .cs         | .ex0  | .mso        | .pub  | -         | .wmz       | .zip_   |
+| .CSV        | .FRD  | .msu        | -      |-          | .wps       | .zipp   |
+| .cvr        | .gif  | .nfo        | -      |-          | .wpt       | .zipped |
+| -            | .guid | -            | -      | -         | .wsdl      | .zippy  |
+| -            | .gz   | -            | -      | -         | .wsp       | .zipx   |
+| -            | -      | -            | -      | -         | .wtl       | .zit    |
+| -            | -      | -            | -      | -         |     -       | .zix    |
+| -            | -      | -            | -      | -         |  -          | .zzz    |
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

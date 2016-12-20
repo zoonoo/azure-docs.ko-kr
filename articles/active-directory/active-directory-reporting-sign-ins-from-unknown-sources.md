@@ -1,12 +1,12 @@
 ---
-title: 알 수 없는 원본에서 로그인
-description: 익명 프록시 IP 주소에서 사용자의 디렉터리에 로그인한 사용자를 나타내는 보고서입니다.
+title: "알 수 없는 원본에서 로그인"
+description: "익명 프록시 IP 주소에서 사용자의 디렉터리에 로그인한 사용자를 나타내는 보고서입니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: SSalahAhmed
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2f045543-1578-4972-bf70-b35310f23110
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 04824d96fcce4affc8fb43edebd241f0f7213405
+
 
 ---
 # <a name="sign-ins-from-unknown-sources"></a>알 수 없는 원본에서 로그인
@@ -23,6 +27,9 @@ ms.author: saah;kenhoff
 
 ![알 수 없는 원본에서 로그인](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

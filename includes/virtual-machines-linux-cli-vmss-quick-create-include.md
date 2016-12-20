@@ -4,12 +4,20 @@
 azure config mode arm
 ```
 
-이제 `azure vmss quick-create` 명령을 사용하여 크기 집합을 만듭니다. 다음 예제에서는 `myResourceGroup`라는 리소스 그룹에서 5 VM 인스턴스를 사용하여 `myVMSS`이라는 크기 집합을 만듭니다.
+이제 `azure vmss quick-create` 명령을 사용하여 크기 집합을 만듭니다. 다음 예제에서는 `myResourceGroup`라는 리소스 그룹에서 5개 VM 인스턴스를 사용하여 `myVMSS`이라는 크기 집합을 만듭니다.
 
 ```azurecli
 azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
     -u ops -p P@ssw0rd! \
-    -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
+    -C 5 -Q Canonical:UbuntuServer:16.04.0-LTS:latest
+```
+
+다음 예제에서는 같은 구성으로 Windows 크기 집합을 만듭니다.
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 ```
 
 위치 또는 이미지 urn을 사용자 지정하려는 경우 `azure location list` 및 `azure vm image {list-publishers|list-offers|list-skus|list|show}` 명령을 확인하세요.
@@ -56,6 +64,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

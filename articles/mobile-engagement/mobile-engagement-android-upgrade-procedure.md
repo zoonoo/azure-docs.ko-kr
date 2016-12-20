@@ -1,12 +1,12 @@
 ---
-title: Azure Mobile Engagement Android SDK 통합
-description: Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차
+title: "Azure Mobile Engagement Android SDK 통합"
+description: "Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 11618586-c709-49ca-bcd8-745323ff1af6
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,19 +14,23 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 97ce7f4d682ec12470db4248d046a8367840f0bd
+
 
 ---
-# 업그레이드 절차
+# <a name="upgrade-procedures"></a>업그레이드 절차
 이전 버전의 SDK를 응용 프로그램에 이미 통합한 경우에는 SDK를 업그레이드할 때 다음 사항을 고려해야 합니다.
 
 여러 SDK 버전을 건너뛴 경우에는 여러 절차를 수행해야 할 수 있습니다. 예를 들어 1.4.0에서 1.6.0으로 마이그레이션하는 경우 먼저 "1.4.0에서 1.5.0으로" 절차를 따른 다음 "1.5.0에서 1.6.0으로" 절차를 따라야 합니다.
 
-업그레이드를 수행하려는 소스 버전이 무엇이든, `mobile-engagement-VERSION.jar`을 새로운 파일로 바꾸세요.
+업그레이드를 수행하려는 소스 버전이 무엇이든, `mobile-engagement-VERSION.jar` 을 새로운 파일로 바꾸세요.
 
-## 4\.2.0 ~ 4.2.1
+## <a name="from-420-to-421"></a>4.2.0 ~ 4.2.1
 이 단계는 실제로 모든 버전의 SDK에서 실행할 수 있으며 도달률 활동을 통합할 때 보안을 강화합니다.
 
-이제 모든 도달률 활동에 `exported="false"`을(를) 추가해야 합니다.
+이제 모든 도달률 활동에 `exported="false"` 을(를) 추가해야 합니다.
 
 도달률 활동은 이제 사용자의 `AndroidManifest.xml`에서 다음과 같이 나타납니다.
 
@@ -57,12 +61,13 @@ ms.author: piyushjo
               </intent-filter>
             </activity>
 
-## 4\.0.0에서 4.1.0으로
+## <a name="from-400-to-410"></a>4.0.0에서 4.1.0으로
 이제 SDK가 Android M에서 새 권한 모델을 다룹니다.
 
 위치 기능 또는 큰 그림 알림을 사용하는 경우 [이 섹션](mobile-engagement-android-integrate-engagement.md#android-m-permissions)을 읽으세요.
 
-새 권한 모델 외에도 이제 런타임 시 위치 기능 구성을 지원합니다. 위치에 대한 매니페스트 매개 변수와 계속 호환 가능하지만 더 이상 사용할 수 없습니다. 런타임 구성을 사용하려면 ``AndroidManifest.xml``에서 다음 섹션을 제거합니다.
+새 권한 모델 외에도 이제 런타임 시 위치 기능 구성을 지원합니다.
+위치에 대한 매니페스트 매개 변수와 계속 호환 가능하지만 더 이상 사용할 수 없습니다. 런타임 구성을 사용하려면 ``AndroidManifest.xml``에서 다음 섹션을 제거합니다.
 
     <meta-data
       android:name="engagement:locationReport:lazyArea"
@@ -77,15 +82,15 @@ ms.author: piyushjo
       android:name="engagement:locationReport:realTime:fine"
       android:value="true"/>
 
-대신 런타임 구성을 사용하려면 [이 업데이트된 절차](mobile-engagement-android-integrate-engagement.md#location-reporting)를 확인합니다.
+대신 런타임 구성을 사용하려면 [이 업데이트된 절차](mobile-engagement-android-integrate-engagement.md#location-reporting) 를 확인합니다.
 
-## 3\.0.0에서 4.0.0으로
-### 네이티브 푸시
+## <a name="from-300-to-400"></a>3.0.0에서 4.0.0으로
+### <a name="native-push"></a>네이티브 푸시
 네이티브 푸시(GCM/ADM)가 이제 앱 알림에도 사용되므로 모든 푸시 캠페인 유형에 대한 네이티브 푸시 자격 증명을 구성해야 합니다.
 
 아직 하지 않았다면 [이 절차](mobile-engagement-android-integrate-engagement-reach.md#native-push)를 따르세요.
 
-### AndroidManifest.xml
+### <a name="androidmanifestxml"></a>AndroidManifest.xml
 도달률 통합이 ``AndroidManifest.xml``에서 수정되었습니다.
 
 다음을 바꿉니다.
@@ -124,7 +129,8 @@ ms.author: piyushjo
       </intent-filter>
     </receiver>
 
-이제 공지(텍스트/웹 콘텐츠 포함) 또는 설문 조사를 클릭할 때 로딩 화면이 있을 수 있습니다. 해당 캠페인이 4.0.0에서 작동하려면 이를 추가해야 합니다.
+이제 공지(텍스트/웹 콘텐츠 포함) 또는 설문 조사를 클릭할 때 로딩 화면이 있을 수 있습니다.
+해당 캠페인이 4.0.0에서 작동하려면 이를 추가해야 합니다.
 
     <activity
       android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity"
@@ -135,10 +141,10 @@ ms.author: piyushjo
       </intent-filter>
     </activity>
 
-### 리소스
+### <a name="resources"></a>리소스
 새 `res/layout/engagement_loading.xml` 파일을 프로젝트에 포함합니다.
 
-## 2\.4.0에서 3.0.0으로 마이그레이션
+## <a name="from-240-to-300"></a>2.4.0에서 3.0.0으로 마이그레이션
 아래에서는 SDK 통합을 Capptain SAS 제공 Capptain 서비스에서 Azure Mobile Engagement 구동 앱으로 마이그레이션하는 방법을 설명합니다. 이전 버전에서 마이그레이션하는 경우 Capptain 웹 사이트를 참조하여 먼저 2.4.0으로 마이그레이션한 후 다음 절차를 적용하세요.
 
 > [!IMPORTANT]
@@ -146,15 +152,15 @@ ms.author: piyushjo
 > 
 > 
 
-### JAR 파일
+### <a name="jar-file"></a>JAR 파일
 `libs` 폴더에서 `capptain.jar`을(를) `mobile-engagement-VERSION.jar`로 바꿉니다.
 
-### 리소스 파일
+### <a name="resource-files"></a>리소스 파일
 제공하는 모든 리소스 파일(`capptain_`이(가) 접두사로 지정됨)을 새 파일(`engagement_`이(가) 접두사로 지정됨)로 바꿔야 합니다.
 
 해당 파일을 사용자 지정한 경우 새 파일에 대해 모든 사용자 지정 내용을 다시 적용해야 하며, **리소스 파일의 모든 식별자 이름이 바뀝니다**.
 
-### 응용 프로그램 UI
+### <a name="application-id"></a>응용 프로그램 UI
 이제 Engagement에서 연결 문자열을 사용하여 응용 프로그램 식별자와 같은 SDK 식별자를 구성합니다.
 
 다음과 같은 시작 관리자 작업에서 `EngagementAgent.init` 메서드를 사용해야 합니다.
@@ -173,14 +179,14 @@ ms.author: piyushjo
 
             <meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
-### Java API
+### <a name="java-api"></a>Java API
 SDK의 모든 Java 클래스를 호출할 때마다 이름을 바꿔야 합니다. 예를 들어 `CapptainAgent.getInstance(this)`의 이름은 `EngagementAgent.getInstance(this)`(으)로 바꿔야 하고, `extends CapptainActivity`의 이름은 `extends EngagementActivity`(으)로 바꿔야 하는 식입니다.
 
 기본 에이전트 기본 설정 파일과 통합된 경우 기본 파일 이름은 이제 `engagement.agent`이고 키는 `engagement:agent`입니다.
 
 웹 공지를 만들 때 Javascript 바인더는 이제 `engagementReachContent`입니다.
 
-### AndroidManifest.xml
+### <a name="androidmanifestxml"></a>AndroidManifest.xml
 많은 변경이 발생했으며, 서비스가 더 이상 공유되지 않고 많은 수신기를 더 이상 탐색할 수 없습니다.
 
 서비스 선언은 더욱 간단합니다. 의도 필터 및 그 안의 모든 메타데이터를 제거한 다음 `exportable=false`을(를) 추가합니다.
@@ -389,7 +395,7 @@ and
 
             protected void onXMPPMessageReceived(android.content.Context context, android.os.Bundle message)
 
-그런 다음 아래의 **EngagementAgent**에 대한 모든 호출을 삭제합니다.
+그런 다음 아래의 **EngagementAgent** 에 대한 모든 호출을 삭제합니다.
 
             sendMessageToDevice(java.lang.String deviceId, java.lang.String payload, java.lang.String packageName)
 
@@ -397,7 +403,7 @@ and
 
             sendXMPPMessage(android.os.Bundle msg)
 
-### Proguard
+### <a name="proguard"></a>Proguard
 Proguard 구성은 브랜드 재지정의 영향을 받을 수 있으며, 규칙은 이제 다음과 같습니다.
 
             -dontwarn android.**
@@ -409,4 +415,8 @@ Proguard 구성은 브랜드 재지정의 영향을 받을 수 있으며, 규칙
             }
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

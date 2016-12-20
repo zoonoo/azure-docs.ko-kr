@@ -1,67 +1,86 @@
 ---
-title: Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보 | Microsoft Docs
-description: Azure HDInsight용 Hadoop 구성 요소의 최신 릴리스 정보 및 버전입니다. Hadoop, Apache Storm 및 HBase에 대한 개발 팁 및 세부 정보를 가져옵니다.
+title: "Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보 | Microsoft Docs"
+description: "Azure HDInsight용 Hadoop 구성 요소의 최신 릴리스 정보 및 버전입니다. Hadoop, Apache Storm 및 HBase에 대한 개발 팁 및 세부 정보를 가져옵니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 editor: cgronlun
 manager: jhubbard
 author: nitinme
 tags: azure-portal
-
+ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 11/15/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 6296917393c01d1070482f1711b8d51b4a4b58a6
+ms.openlocfilehash: 195d0db04ebde179c0def69ff52b147db2f4a88e
+
 
 ---
-# Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
-## HDInsight에 대한 R Server의 2016/08/30 릴리스 정보
+# <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
+
+## <a name="notes-for-11162016-release-of-r-server-90-on-hdinsight-35-spark-20"></a>HDInsight 3.5의 R Server 9.0(Spark 2.0)의 2016/11/16 릴리스 정보
+*   R Server 클러스터에는 이제 HDI 3.5의 R Server 9.0(Spark 2.0)과 HDI 3.4의 R Server 8.0(Spark 1.6)의 두 버전에 대한 옵션이 포함되어 있습니다.
+*   HDI 3.5의 R Server 9.0(Spark 2.0)에는 ScaleR의 분석을 위해 Hive 및 Parquet에서 Spark DataFrames로 직접 데이터를 로드하기 위한 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 소스 함수가 포함되어 있습니다. 자세한 내용은 ?RxHiveData 및 ?RxParquetData 명령을 사용하여 R에서 이러한 함수에 대한 온라인 도움말을 참조하세요.
+*   RStudio Server 커뮤니티 버전은 기본적으로 프로비전 흐름의 일부로 클러스터 구성 블레이드(옵트아웃 옵션 사용)에서 설치됩니다.  
+
+## <a name="notes-for-11092016-release-of-spark-20-on-hdinsight"></a>HDInsight의 Spark 2.0 2016/11/09 릴리스 정보
+* 이제 HDInsight 3.5에서 Spark 2.0 클러스터에서는 Livy 및 Jupyter 서비스를 지원합니다.
+
+## <a name="notes-for-10262016-release-of-r-server-on-hdinsight"></a>HDInsight에 대한 R Server의 2016/10/26 릴리스 정보
+* 에지 노드 액세스를 위한 URI가 **clustername**-ed-ssh.azurehdinsight.net으로 변경되었습니다.
+* HDInsight의 R 서버 클러스터 프로비전이 간소화되었습니다.
+* 이제 HDInsight의 R 서버를 일반 HDInsight "R 서버" 클러스터 유형으로 사용할 수 있으며 별도의 HDInsight 응용 프로그램으로 더 이상 설치되지 않습니다. 이제 에지 노드 및 R 서버 이진 파일이 R 서버 클러스터 배포의 일부로 프로비전됩니다. 그러면 프로비전의 속도 및 안정성이 향상됩니다. R 서버에 대한 가격 책정 모델이 이에 따라 업데이트됩니다.
+* R 서버 클러스터 유형 가격은 표준 계층 가격 및 R 서버 추가 요금 가격을 따릅니다. 프리미엄 계층은 다양한 클러스터 유형 간에 사용 가능한 프리미엄 기능용으로 예약되며 R 서버 클러스터 유형에 사용되지 않습니다. 이러한 변경은 R 서버의 실효 가격에 영향을 주지 않으며 청구서에 요금이 표시되는 방식만 변경합니다. 기존의 모든 R 서버 클러스터는 계속 작동하고 ARM 템플릿은 사용 중단 공지가 있을 때까지 계속 작동합니다. **새로운 ARM 템플릿을 사용하도록 스크립트 배포를 업데이트하는 것이 좋습니다.**
+
+## <a name="notes-for-08302016-release-of-r-server-on-hdinsight"></a>HDInsight에 대한 R Server의 2016/08/30 릴리스 정보
 이 릴리스와 함께 배포된 Linux 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
 | HDI | HDI 클러스터 버전 | HDP | HDP 빌드 | Ambari 빌드 |
 | --- | --- | --- | --- | --- |
-| 3\.2 |3\.2.1000.0.8268980 |2\.2 |2\.2.9.1-19 |2\.2.1.12-4 |
-| 3\.3 |3\.3.1000.0.8268980 |2\.3 |2\.3.3.1-25 |2\.2.1.12-4 |
-| 3\.4 |3\.4.1000.0.8269383 |2\.4 |2\.4.2.4-5 |2\.2.1.12-4 |
+| 3.2 |3.2.1000.0.8268980 |2.2 |2.2.9.1-19 |2.2.1.12-4 |
+| 3.3 |3.3.1000.0.8268980 |2.3 |2.3.3.1-25 |2.2.1.12-4 |
+| 3.4 |3.4.1000.0.8269383 |2.4 |2.4.2.4-5 |2.2.1.12-4 |
 
 이 릴리스와 함께 배포된 Windows 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
 | HDI | HDI 클러스터 버전 | HDP | HDP 빌드 |
 | --- | --- | --- | --- |
-| 2\.1 |2\.1.10.1033.2559206 |1\.3 |1\.3.12.0-01795 |
-| 3\.0 |3\.0.6.1033.2559206 |2\.0 |2\.0.13.0-2117 |
-| 3\.1 |3\.1.4.1033.2559206 |2\.1 |2\.1.16.0-2374 |
-| 3\.2 |3\.2.7.1033.2559206 |2\.2 |2\.2.9.1-11 |
-| 3\.3 |3\.3.0.1033.2559206 |2\.3 |2\.3.3.1-25 |
+| 2.1 |2.1.10.1033.2559206 |1.3 |1.3.12.0-01795 |
+| 3.0 |3.0.6.1033.2559206 |2.0 |2.0.13.0-2117 |
+| 3.1 |3.1.4.1033.2559206 |2.1 |2.1.16.0-2374 |
+| 3.2 |3.2.7.1033.2559206 |2.2 |2.2.9.1-11 |
+| 3.3 |3.3.0.1033.2559206 |2.3 |2.3.3.1-25 |
 
-## HDInsight에 대한 R Server의 2016/08/17 릴리스 정보
-* R Server 8.0.5 – 주로 버그 수정 릴리스입니다. 자세한 정보는 [R Server 릴리스 정보](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes)를 참조하세요.
-* 에지 노드에 대한 AzureML 패키지 – [이 R 패키지](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)를 통해 R 모델을 게시하고 Azure ML 웹 서비스로 사용할 수 있습니다. 자세한 정보는 ["HDInsight의 R 서버 개요"](hdinsight-hadoop-r-server-overview.md) 문서의 ["모델 운영"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) 섹션을 참조하세요.
-* [상위 100개 가장 인기 있는 R 패키지](https://github.com/metacran/cranlogs)의 Linux 종속성 - 해당 Linux 패키지 종속성은 사전 설치되어 있습니다.
+## <a name="notes-for-08172016-release-of-r-server-on-hdinsight"></a>HDInsight에 대한 R Server의 2016/08/17 릴리스 정보
+* R Server 8.0.5 – 주로 버그 수정 릴리스입니다. 자세한 정보는 [R Server 릴리스 정보](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) 를 참조하세요. 
+* 에지 노드에 대한 AzureML 패키지 – [이 R 패키지](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) 를 통해 R 모델을 게시하고 Azure ML 웹 서비스로 사용할 수 있습니다.  자세한 정보는 ["HDInsight의 R 서버 개요"](hdinsight-hadoop-r-server-overview.md) 문서의 ["모델 운영"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) 섹션을 참조하세요.
+* [상위 100개 가장 인기 있는 R 패키지](https://github.com/metacran/cranlogs) 의 Linux 종속성 - 해당 Linux 패키지 종속성은 사전 설치되어 있습니다.  
 * R 패키지를 데이터 노드에 추가할 때 CRAN 리포지토리를 사용하는 옵션입니다. 자세한 정보는 ["HDInsight에서 R 서버 사용 시작"](hdinsight-hadoop-r-server-get-started.md) 문서의 ["R 패키지 설치"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) 섹션을 참조하세요.
 * 클러스터가 만들어질 때 R 서버 프로비저닝의 안정성이 개선되었습니다.
 
-## HDInsight의 2016/08/01 릴리스 정보
+## <a name="notes-for-08012016-release-of-hdinsight"></a>HDInsight의 2016/08/01 릴리스 정보
 이 릴리스와 함께 배포된 Linux 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
 | HDI | HDI 클러스터 버전 | HDP | HDP 빌드 | Ambari 빌드 |
 | --- | --- | --- | --- | --- |
-| 3\.2 |3\.2.1000.0.8028416 |2\.2 |2\.2.9.1-19 |2\.2.1.12-4 |
-| 3\.3 |3\.3.1000.0.8028416 |2\.3 |2\.3.3.1-25 |2\.2.1.12-4 |
-| 3\.4 |3\.4.1000.0.8053402 |2\.4 |2\.4.2.4-5 |2\.2.1.12-4 |
+| 3.2 |3.2.1000.0.8028416 |2.2 |2.2.9.1-19 |2.2.1.12-4 |
+| 3.3 |3.3.1000.0.8028416 |2.3 |2.3.3.1-25 |2.2.1.12-4 |
+| 3.4 |3.4.1000.0.8053402 |2.4 |2.4.2.4-5 |2.2.1.12-4 |
 
 이 릴리스와 함께 배포된 Windows 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
 | HDI | HDI 클러스터 버전 | HDP | HDP 빌드 |
 | --- | --- | --- | --- |
-| 2\.1 |2\.1.10.1005.2488842 |1\.3 |1\.3.12.0-01795 |
-| 3\.0 |3\.0.6.1005.2488842 |2\.0 |2\.0.13.0-2117 |
-| 3\.1 |3\.1.4.1005.2488842 |2\.1 |2\.1.16.0-2374 |
-| 3\.2 |3\.2.7.1005.2488842 |2\.2 |2\.2.9.1-11 |
-| 3\.3 |3\.3.0.1005.2488842 |2\.3 |2\.3.3.1-25 |
+| 2.1 |2.1.10.1005.2488842 |1.3 |1.3.12.0-01795 |
+| 3.0 |3.0.6.1005.2488842 |2.0 |2.0.13.0-2117 |
+| 3.1 |3.1.4.1005.2488842 |2.1 |2.1.16.0-2374 |
+| 3.2 |3.2.7.1005.2488842 |2.2 |2.2.9.1-11 |
+| 3.3 |3.3.0.1005.2488842 |2.3 |2.3.3.1-25 |
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -70,50 +89,50 @@ ms.author: nitinme
 | HDInsight 3.4 클러스터에 대한 변경 내용 |성능 향상을 위해 다음과 같은 hive 구성에 대한 기본값이 변경되었습니다. <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul> |부여 |모두 |해당 없음 |
 | 이 릴리스에서 다음 수정 사항이 포함됨 |HIVE-13632, HIVE-12897,HIVE-12907,HIVE-12908,HIVE-12988,HIVE-13510,HIVE-13572,HIVE-13716,HIVE-13726,HIVE-12505,HIVE-13632,HIVE-13661,HIVE-13705,HIVE-13743,HIVE-13810,HIVE-13857,HIVE-13902,HIVE-13911,HIVE-13933 |부여 |모두 |해당 없음 |
 
-## HDInsight의 2016/07/14 릴리스 정보
+## <a name="notes-for-07142016-release-of-hdinsight"></a>HDInsight의 2016/07/14 릴리스 정보
 이 릴리스와 함께 배포된 Linux 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
 | HDI | HDI 클러스터 버전 | HDP | HDP 빌드 | Ambari 빌드 |
 | --- | --- | --- | --- | --- |
-| 3\.2 |3\.2.1000.0.7932505 |2\.2 |2\.2.9.1-11 |2\.2.1.12-2 |
-| 3\.3 |3\.3.1000.0.7932505 |2\.3 |2\.3.3.1-18 |2\.2.1.12-2 |
-| 3\.4 |3\.4.1000.0.7933003 |2\.4 |2\.4.2.0 |2\.2.1.12-2 |
+| 3.2 |3.2.1000.0.7932505 |2.2 |2.2.9.1-11 |2.2.1.12-2 |
+| 3.3 |3.3.1000.0.7932505 |2.3 |2.3.3.1-18 |2.2.1.12-2 |
+| 3.4 |3.4.1000.0.7933003 |2.4 |2.4.2.0 |2.2.1.12-2 |
 
 이 릴리스와 함께 배포된 Windows 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
 | HDI | HDI 클러스터 버전 | HDP | HDP 빌드 |
 | --- | --- | --- | --- |
-| 2\.1 |2\.1.10.989.2441725 |1\.3 |1\.3.12.0-01795 |
-| 3\.0 |3\.0.6.989.2441725 |2\.0 |2\.0.13.0-2117 |
-| 3\.1 |3\.1.4.989.2441725 |2\.1 |2\.1.16.0-2374 |
-| 3\.2 |3\.2.7.989.2441725 |2\.2 |2\.2.9.1-11 |
-| 3\.3 |3\.3.0.989.2441725 |2\.3 |2\.3.3.1-21 |
+| 2.1 |2.1.10.989.2441725 |1.3 |1.3.12.0-01795 |
+| 3.0 |3.0.6.989.2441725 |2.0 |2.0.13.0-2117 |
+| 3.1 |3.1.4.989.2441725 |2.1 |2.1.16.0-2374 |
+| 3.2 |3.2.7.989.2441725 |2.2 |2.2.9.1-11 |
+| 3.3 |3.3.0.989.2441725 |2.3 |2.3.3.1-21 |
 
-## HDInsight의 2016/07/07 릴리스 정보
+## <a name="notes-for-07072016-release-of-hdinsight"></a>HDInsight의 2016/07/07 릴리스 정보
 이 릴리스와 함께 배포된 Linux 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
 | HDI | HDI 클러스터 버전 | HDP | HDP 빌드 |
 | --- | --- | --- | --- |
-| 3\.2 |3\.2.1000.0.7864996 |2\.2 |2\.2.9.1-11 |
-| 3\.3 |3\.3.1000.0.7864996 |2\.3 |2\.3.3.1-18 |
-| 3\.4 |3\.4.1000.0.7861906 |2\.4 |2\.4.2.0 |
+| 3.2 |3.2.1000.0.7864996 |2.2 |2.2.9.1-11 |
+| 3.3 |3.3.1000.0.7864996 |2.3 |2.3.3.1-18 |
+| 3.4 |3.4.1000.0.7861906 |2.4 |2.4.2.0 |
 
 이 릴리스와 함께 배포된 Windows 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
 | HDI | HDI 클러스터 버전 | HDP | HDP 빌드 |
 | --- | --- | --- | --- |
-| 2\.1 |2\.1.10.977.2413853 |1\.3 |1\.3.12.0-01795 |
-| 3\.0 |3\.0.6.977.2413853 |2\.0 |2\.0.13.0-2117 |
-| 3\.1 |3\.1.4.977.2413853 |2\.1 |2\.1.16.0-2374 |
-| 3\.2 |3\.2.7.977.2413853 |2\.2 |2\.2.9.1-11 |
-| 3\.3 |3\.3.0.977.2413853 |2\.3 |2\.3.3.1-21 |
+| 2.1 |2.1.10.977.2413853 |1.3 |1.3.12.0-01795 |
+| 3.0 |3.0.6.977.2413853 |2.0 |2.0.13.0-2117 |
+| 3.1 |3.1.4.977.2413853 |2.1 |2.1.16.0-2374 |
+| 3.2 |3.2.7.977.2413853 |2.2 |2.2.9.1-11 |
+| 3.3 |3.3.0.977.2413853 |2.3 |2.3.3.1-21 |
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
 | 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Spark, Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
 | --- | --- | --- | --- | --- |
 | [IntelliJ용 HDInsight 도구](hdinsight-apache-spark-intellij-tool-plugin.md) |이제 HDInsight Spark 클러스터용 IntelliJ IDEA 플러그 인은 IntelliJ용 Azure 도구 키트와 통합됩니다. Azure SDK v2.9.1, 최신 Java SDK를 지원하며 IntelliJ용 독립 실행형 HDInsight 플러그 인의 모든 기능이 포함됩니다. |도구 |Spark |해당 없음 |
-| [Eclipse용 HDInsight 도구](hdinsight-apache-spark-eclipse-tool-plugin.md) |Eclipse용 Azure 도구 키트는 이제 HDInsight Spark 클러스터를 지원합니다. 다음과 같은 기능을 제공합니다. <ul><li>IntelliSense에 대한 첫 번째 클래스 작성 지원, 자동 서식, 오류 검사 등을 사용하여 Scala 및 Java로 Spark 응용 프로그램을 만들고 쓸 수 있습니다.</li><li>Spark 응용 프로그램을 로컬로 테스트할 수 있습니다.</li><li>HDInsight Spark 클러스터로 작업을 전송하고 결과를 검색할 수 있습니다.</li><li>Azure에 로그인하고 Azure 구독에 연결된 모든 Spark 클러스터에 액세스할 수 있습니다.</li><li>HDInsight Spark 클러스터의 모든 연결된 저장소 리소스를 탐색할 수 있습니다.</li></ul> |도구 |Spark |해당 없음 |
+| [Eclipse용 HDInsight 도구](hdinsight-apache-spark-eclipse-tool-plugin.md) |Eclipse용 Azure 도구 키트는 이제 HDInsight Spark 클러스터를 지원합니다. 다음과 같은 기능을 제공합니다. <ul><li>IntelliSense에 대한 첫 번째 클래스 작성 지원, 자동 서식, 오류 검사 등을 사용하여 Scala 및 Java로 Spark 응용 프로그램을 쉽게 만들고 쓸 수 있습니다.</li><li>Spark 응용 프로그램을 로컬로 테스트할 수 있습니다.</li><li>HDInsight Spark 클러스터로 작업을 전송하고 결과를 검색할 수 있습니다.</li><li>Azure에 로그인하고 Azure 구독에 연결된 모든 Spark 클러스터에 액세스할 수 있습니다.</li><li>HDInsight Spark 클러스터의 모든 연결된 저장소 리소스를 탐색할 수 있습니다.</li></ul> |도구 |Spark |해당 없음 |
 
 이 릴리스부터 Linux 기반 HDInsight 클러스터에 대한 게스트 OS 패치 정책을 변경했습니다. 새 정책의 목표는 패치로 인해 부팅 횟수를 크게 줄이는 것입니다. 새 정책은 월요일 또는 목요일 오전 12시(UTC)마다 시차를 두고 모든 지정된 클러스터의 노드에 있는 Linux 클러스터에서 계속 VM(가상 컴퓨터)을 패치합니다. 그러나 지정된 VM은 게스트 OS 패치로 인해 최대 30일마다 다시 부팅됩니다. 또한 새로 만든 클러스터는 생성된 날짜로부터 30일보다 이전에 첫 번째로 다시 부팅되지 않습니다.
 
@@ -122,32 +141,32 @@ ms.author: nitinme
 > 
 > 
 
-## HDInsight의 2016/06/06 릴리스 정보
+## <a name="notes-for-06062016-release-of-hdinsight"></a>HDInsight의 2016/06/06 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
 | HDP | HDI 버전 | Spark 버전 | Ambari 빌드 번호 | HDP 빌드 번호 |
 | --- | --- | --- | --- | --- |
-| 2\.3 |3\.3.1000.0.7702215 |1\.5.2 |2\.2.1.8-2 |2\.3.3.1-18 |
-| 2\.4 |3\.4.1000.0.7702224 |1\.6.1 |2\.2.1.8-2 |2\.4.2.0 |
+| 2.3 |3.3.1000.0.7702215 |1.5.2 |2.2.1.8-2 |2.3.3.1-18 |
+| 2.4 |3.4.1000.0.7702224 |1.6.1 |2.2.1.8-2 |2.4.2.0 |
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
 | 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Spark, Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
 | --- | --- | --- | --- | --- |
-| HDInsight의 Spark가 일반 공급됨 |이 릴리스는 HDInsight의 오픈 소스 Apache Spark에 향상된 가용성, 확장성 및 생산성을 제공합니다. <ul><li>까다로운 엔터프라이즈 워크로드에 적합한 업계 최고의 99.9% 가용성 SLA</li><li>Azure Data Lake Store를 사용하는 확장 가능한 저장소 계층</li><li>데이터 탐색 및 개발의 모든 단계를 위한 생산성 도구 사용자 지정된 Spark 커널이 있는 Jupyter Notebook은 대화형 데이터 탐색을 가능하게 하고, Power BI, Tableau 및 Qlik과 같은 BI 대시보드와 통합되어 빠른 데이터 공유 및 지속적인 보고에 적합하며, IntelliJ 플러그 인은 장기적인 코드 아티팩트 개발 및 디버깅을 위한 신뢰할 수 있는 옵션입니다.</li></ul> |부여 |Spark |해당 없음 |
-| IntelliJ용 HDInsight 도구 |HDInsight Spark 클러스터용 IntelliJ IDEA 플러그 인입니다. 다음과 같은 기능을 제공합니다.<ul><li>IntelliSense에 대한 첫 번째 클래스 작성 지원, 자동 서식, 오류 검사 등을 사용하여 Scala 및 Java로 Spark 응용 프로그램을 만들고 쓸 수 있습니다.</li><li>Spark 응용 프로그램을 로컬로 테스트할 수 있습니다.</li><li>HDInsight Spark 클러스터로 작업을 전송하고 결과를 검색할 수 있습니다.</li><li>Azure에 로그인하고 Azure 구독에 연결된 모든 Spark 클러스터에 액세스할 수 있습니다.</li><li>HDInsight Spark 클러스터의 모든 연결된 저장소 리소스를 탐색할 수 있습니다.</li><li>HDInsight Spark 클러스터에 대한 모든 작업 기록 및 작업 정보를 탐색할 수 있습니다.</li><li>데스크톱 컴퓨터에서 원격으로 Spark 작업을 디버그할 수 있습니다.</li></ul> |도구 |Spark |해당 없음 |
+| HDInsight의 Spark가 일반 공급됨 |이 릴리스는 HDInsight의 오픈 소스 Apache Spark에 향상된 가용성, 확장성 및 생산성을 제공합니다. <ul><li>까다로운 엔터프라이즈 워크로드에 적합한 업계 최고의 99.9% 가용성 SLA.</li><li>Azure Data Lake Store를 사용하는 확장 가능한 저장소 계층.</li><li>데이터 탐색 및 개발의 모든 단계를 위한 생산성 도구. 사용자 지정된 Spark 커널이 있는 Jupyter Notebook은 대화형 데이터 탐색을 가능하게 하고, Power BI, Tableau 및 Qlik과 같은 BI 대시보드와 통합되어 빠른 데이터 공유 및 지속적인 보고에 적합하며, IntelliJ 플러그 인은 장기적인 코드 아티팩트 개발 및 디버깅을 위한 신뢰할 수 있는 옵션입니다.</li></ul> |부여 |Spark |해당 없음 |
+| IntelliJ용 HDInsight 도구 |HDInsight Spark 클러스터용 IntelliJ IDEA 플러그 인입니다. 다음과 같은 기능을 제공합니다.<ul><li>IntelliSense에 대한 첫 번째 클래스 작성 지원, 자동 서식, 오류 검사 등을 사용하여 Scala 및 Java로 Spark 응용 프로그램을 쉽게 만들고 쓸 수 있습니다.</li><li>Spark 응용 프로그램을 로컬로 테스트할 수 있습니다.</li><li>HDInsight Spark 클러스터로 작업을 전송하고 결과를 검색할 수 있습니다.</li><li>Azure에 로그인하고 Azure 구독에 연결된 모든 Spark 클러스터에 액세스할 수 있습니다.</li><li>HDInsight Spark 클러스터의 모든 연결된 저장소 리소스를 탐색할 수 있습니다.</li><li>HDInsight Spark 클러스터에 대한 작업 기록 및 작업 정보를 탐색할 수 있습니다.</li><li>데스크톱 컴퓨터에서 Spark 작업을 원격으로 디버그할 수 있습니다.</li></ul> |도구 |Spark |해당 없음 |
 
-## HDInsight의 2016/05/13 릴리스 정보
+## <a name="notes-for-05132016-release-of-hdinsight"></a>HDInsight의 2016/05/13 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight(Windows) 2.1.10.875.2159884(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight(Windows) 3.0.6.875.2159884(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight(Windows) 3.1.4.922.2266903(HDP 2.1.15.0-2374 - 변경되지 않음)
-* HDInsight(Windows) 3.2.7.922.2266903(HDP 2.2.9.1-11)
-* HDInsight(Windows) 3.3.0.922.2266903(HDP 2.3.3.1-18)
-* HDInsight(Linux) 3.2.1000.0.7565644(HDP 2.2.9.1-11)
-* HDInsight(Linux) 3.3.1000.0.7565644(HDP 2.3.3.1-18)
-* HDInsight(Linux) 3.4.1000.0.7548380(HDP 2.4.2.0)
+* HDInsight    (Windows)         2.1.10.875.2159884 (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight    (Windows)         3.0.6.875.2159884 (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight    (Windows)         3.1.4.922.2266903  (HDP 2.1.15.0-2374 - 변경되지 않음)
+* HDInsight    (Windows)        3.2.7.922.2266903  (HDP 2.2.9.1-11)
+* HDInsight (Windows)        3.3.0.922.2266903  (HDP 2.3.3.1-18)
+* HDInsight    (Linux)            3.2.1000.0.7565644   (HDP    2.2.9.1-11)
+* HDInsight (Linux)            3.3.1000.0.7565644   (HDP 2.3.3.1-18)
+* HDInsight (Linux)            3.4.1000.0.7548380   (HDP 2.4.2.0)
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -155,18 +174,18 @@ ms.author: nitinme
 | --- | --- | --- | --- | --- |
 | Spark 버전 업데이트 및 기타 버그 수정 |이 릴리스에서는 HDInsight 클러스터의 Spark 버전을 1.6.1로 업데이트하고 기타 버그를 수정합니다. |부여 |Spark |해당 없음 |
 
-## HDInsight의 2016/04/11 릴리스 정보
+## <a name="notes-for-04112016-release-of-hdinsight"></a>HDInsight의 2016/04/11 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight(Windows) 2.1.10.889.2191206(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight(Windows) 3.0.6.889.2191206(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight(Windows) 3.1.4.889.2191206(HDP 2.1.15.0-2374 - 변경되지 않음)
-* HDInsight(Windows) 3.2.7.889.2191206(HDP 2.2.9.1-10)
-* HDInsight(Windows) 3.3.0.889.2191206(HDP 2.3.3.1-16 -변경되지 않음)
-* HDInsight(Linux) 3.2.1000.0.7339916(HDP 2.2.9.1-10)
-* HDInsight(Linux) 3.3.1000.0.7339916(HDP 2.3.3.1-16)
-* HDInsight(Linux) 3.4.1000.0.7338911(HDP 2.4.1.1-3)
-* SDK 1.5.8
+* HDInsight    (Windows)         2.1.10.889.2191206 (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight    (Windows)         3.0.6.889.2191206 (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight    (Windows)         3.1.4.889.2191206  (HDP 2.1.15.0-2374 - 변경되지 않음)
+* HDInsight    (Windows)        3.2.7.889.2191206  (HDP 2.2.9.1-10)
+* HDInsight (Windows)        3.3.0.889.2191206  (HDP 2.3.3.1-16 -변경되지 않음)
+* HDInsight    (Linux)            3.2.1000.0.7339916   (HDP 2.2.9.1-10)
+* HDInsight (Linux)            3.3.1000.0.7339916   (HDP 2.3.3.1-16)
+* HDInsight (Linux)            3.4.1000.0.7338911   (HDP 2.4.1.1-3)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -175,21 +194,21 @@ ms.author: nitinme
 | HDI 3.4에 대한 사용자 지정 Metastore 업그레이드 문제 |다른 HDInsight 클러스터의 더 낮은 버전에서 이전에 사용한 사용자 지정 Metastore를 사용 하는 경우 클러스터 생성이 실패할 수 있습니다. 이렇게 되는 이유는 업그레이드 스크립트 오류 때문이었으며 지금은 해결됨 |클러스터 만들기 |모두 |해당 없음 |
 | Livy Crash 복구 |Livy를 통해 제출된 모든 작업에 대한 작업 상태 복원력 제공 |안정성 |Linux에서의 Spark |해당 없음 |
 | Jupyter 콘텐츠 HA |클러스터와 연결된 저장소 계정에 대해 Jupyter 노트북 콘텐츠를 저장 및 로드하는 기능을 제공합니다. 자세한 내용은 [Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요. |노트북 |Linux에서의 Spark |해당 없음 |
-| Jupter 노트북에서 HiveContext 제거 |`%%hive` 매직 대신 `%%sql` 매직을 사용합니다. SqlContext는 hiveContext와 같습니다. 자세한 내용은 [Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요. |노트북 |Linux에서 Spark 클러스터 |해당 없음 |
+| Jupter 노트북에서 HiveContext 제거 |`%%hive` 매직 대신 `%%sql` 매직을 사용합니다. SqlContext는 hiveContext와 같습니다. 자세한 내용은 [Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md) |노트북 |Linux에서 Spark 클러스터 |해당 없음 |
 | 이전 Spark 버전의 사용 중단 |5/31에 이전 버전 Spark 1.3.1이 서비스에서 제거됩니다. |부여 |Windows에서 Spark 클러스터 |해당 없음 |
 
-## HDInsight의 2016/03/29 릴리스 정보
+## <a name="notes-for-03292016-release-of-hdinsight"></a>HDInsight의 2016/03/29 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight(Windows) 2.1.10.875.2159884(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight(Windows) 3.0.6.875.2159884(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight(Windows) 3.1.4.875.2159884(HDP 2.1.15.0-2374 - 변경되지 않음)
-* HDInsight(Windows) 3.2.7.875.2159884(HDP 2.2.9.1-7 - 변경되지 않음)
-* HDInsight(Windows) 3.3.0.875.2159884(HDP 2.3.3.1-16)
-* HDInsight(Linux) 3.2.1000.0.7193255(HDP 2.2.9.1-8 - 변경되지 않음)
-* HDInsight(Linux) 3.3.1000.0.7193255(HDP 2.3.3.1-7 - 변경되지 않음)
-* HDInsight(Linux) 3.4.1000.0.7195842(HDP 2.4.1.0-327)
-* SDK 1.5.8
+* HDInsight    (Windows)         2.1.10.875.2159884 (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight    (Windows)         3.0.6.875.2159884 (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight    (Windows)         3.1.4.875.2159884  (HDP 2.1.15.0-2374 - 변경되지 않음)
+* HDInsight    (Windows)        3.2.7.875.2159884  (HDP 2.2.9.1-7 - 변경되지 않음)
+* HDInsight (Windows)        3.3.0.875.2159884  (HDP 2.3.3.1-16)
+* HDInsight    (Linux)            3.2.1000.0.7193255   (HDP    2.2.9.1-8 - 변경되지 않음)
+* HDInsight (Linux)            3.3.1000.0.7193255   (HDP 2.3.3.1-7 - 변경되지 않음)
+* HDInsight (Linux)            3.4.1000.0.7195842   (HDP 2.4.1.0-327)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -201,17 +220,17 @@ ms.author: nitinme
 | Spark 1.6.0 |HDInsight 3.4 클러스터에 Spark 1.6.0이 포함됨 |부여 |Linux에서 Spark 클러스터 |해당 없음 |
 | Jupyter 노트북 기능 향상 |Spark 클러스터와 함께 사용할 수 있는 Jupyter 노트북은 이제 추가 Spark 커널을 제공합니다. 또한 %%magic의 사용, 자동 시각화 및 Python 시각화 라이브러리(예: (matplotlib)와 통합과 같은 향상된 기능도 포함합니다. 자세한 내용은 [Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요. |부여 |Linux에서 Spark 클러스터 |해당 없음 |
 
-## HDInsight의 2016/03/22 릴리스 정보
+## <a name="notes-for-03222016-release-of-hdinsight"></a>HDInsight의 2016/03/22 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight(Windows) 2.1.10.875.2159884(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight(Windows) 3.0.6.875.2159884(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight(Windows) 3.1.4.875.2159884(HDP 2.1.15.0-2374 - 변경되지 않음)
-* HDInsight(Windows) 3.2.7.875.2159884(HDP 2.2.9.1-7 - 변경되지 않음)
-* HDInsight(Windows) 3.3.0.875.2159884(HDP 2.3.3.1-16)
-* HDInsight(Linux) 3.2.1000.0.7193255(HDP 2.2.9.1-8 - 변경되지 않음)
-* HDInsight(Linux) 3.3.1000.0.7193255(HDP 2.3.3.1-7 - 변경되지 않음)
-* SDK 1.5.8
+* HDInsight    (Windows)         2.1.10.875.2159884 (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight    (Windows)         3.0.6.875.2159884 (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight    (Windows)         3.1.4.875.2159884  (HDP 2.1.15.0-2374 - 변경되지 않음)
+* HDInsight    (Windows)        3.2.7.875.2159884  (HDP 2.2.9.1-7 - 변경되지 않음)
+* HDInsight (Windows)        3.3.0.875.2159884  (HDP 2.3.3.1-16)
+* HDInsight    (Linux)            3.2.1000.0.7193255   (HDP    2.2.9.1-8 - 변경되지 않음)
+* HDInsight (Linux)            3.3.1000.0.7193255   (HDP 2.3.3.1-7 - 변경되지 않음)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -219,17 +238,17 @@ ms.author: nitinme
 | --- | --- | --- | --- | --- |
 | 모든 HDInsight 클러스터에 대해 HDInsight 버전 업데이트됨 |이 릴리스에서는 모든 HDInsight 클러스터에 대해 HDInsight 버전을 업데이트함 |부여 |모두 |해당 없음 |
 
-## HDInsight의 2016/03/10 릴리스 정보
+## <a name="notes-for-03102016-release-of-hdinsight"></a>HDInsight의 2016/03/10 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight(Windows) 2.1.10.859.2123216(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight(Windows) 3.0.6.859.2123216(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight(Windows) 3.1.4.859.2123216(HDP 2.1.15.0-2374 - 변경되지 않음)
-* HDInsight(Windows) 3.2.7.859.2123216(HDP 2.2.9.1-7)
-* HDInsight(Windows) 3.3.0.859.2123216(HDP 2.3.3.1-5 - 변경되지 않음)
-* HDInsight(Linux) 3.2.1000.7076817(HDP 2.2.9.1-8)
-* HDInsight(Linux) 3.3.1000.7076817(HDP 2.3.3.1-7)
-* SDK 1.5.8
+* HDInsight    (Windows)         2.1.10.859.2123216 (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight    (Windows)         3.0.6.859.2123216 (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight    (Windows)         3.1.4.859.2123216  (HDP 2.1.15.0-2374 - 변경되지 않음)
+* HDInsight    (Windows)        3.2.7.859.2123216  (HDP 2.2.9.1-7)
+* HDInsight (Windows)        3.3.0.859.2123216  (HDP 2.3.3.1-5 - 변경되지 않음)
+* HDInsight    (Linux)            3.2.1000.7076817   (HDP    2.2.9.1-8)
+* HDInsight (Linux)            3.3.1000.7076817   (HDP 2.3.3.1-7)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -237,17 +256,17 @@ ms.author: nitinme
 | --- | --- | --- | --- | --- |
 | 모든 HDInsight 클러스터에 대해 HDInsight 버전 업데이트됨 |이 릴리스에서는 모든 HDInsight 클러스터에 대해 HDInsight 버전을 업데이트함 |부여 |모두 |해당 없음 |
 
-## HDInsight의 2016/01/27 릴리스 정보
+## <a name="notes-for-01272016-release-of-hdinsight"></a>HDInsight의 2016/01/27 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight(Windows) 2.1.10.817.2028315(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight(Windows) 3.0.6.817.2028315(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight(Windows) 3.1.4.817.2028315(HDP 2.1.15.0-2374 - 변경되지 않음)
-* HDInsight(Windows) 3.2.7.817.2028315(HDP 2.2.9.1-1)
-* HDInsight(Windows) 3.3.0.817.2028315(HDP 2.3.3.1-5 - 변경되지 않음)
-* HDInsight(Linux) 3.2.1000.4072335(HDP 2.2.9.1-1)
-* HDInsight(Linux) 3.3.1000.4072335(HDP 2.3.3.1-1)
-* SDK 1.5.8
+* HDInsight    (Windows)         2.1.10.817.2028315 (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight    (Windows)         3.0.6.817.2028315 (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight    (Windows)         3.1.4.817.2028315  (HDP 2.1.15.0-2374 - 변경되지 않음)
+* HDInsight    (Windows)        3.2.7.817.2028315  (HDP 2.2.9.1-1)
+* HDInsight (Windows)        3.3.0.817.2028315  (HDP 2.3.3.1-5 - 변경되지 않음)
+* HDInsight    (Linux)            3.2.1000.4072335   (HDP    2.2.9.1-1)
+* HDInsight (Linux)            3.3.1000.4072335   (HDP 2.3.3.1-1)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -255,17 +274,17 @@ ms.author: nitinme
 | --- | --- | --- | --- | --- |
 | 모든 HDInsight 클러스터에 대해 HDInsight 버전 업데이트됨 |이 릴리스에서는 모든 HDInsight 클러스터에 대해 HDInsight 버전을 업데이트함 |부여 |모두 |해당 없음 |
 
-## HDInsight의 2015/12/02 릴리스 정보
+## <a name="notes-for-12022015-release-of-hdinsight"></a>HDInsight의 2015/12/02 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight(Windows) 2.1.10.763.1931434(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight(Windows) 3.0.6.763.1931434(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight(Windows) 3.1.4.763.1931434(HDP 2.1.15.0-2374 - 변경되지 않음)
-* HDInsight(Windows) 3.2.7.763.1931434(HDP 2.2.7.1-34 - 변경되지 않음)
-* HDInsight(Windows) 3.3.1000.0(HDP 2.3.3.1-5)
-* HDInsight(Linux) 3.2.1000.0.6392801(HDP 2.2.7.1-34 - 변경되지 않음)
-* HDInsight(Linux) 3.3.1000.0(HDP 2.3.3.0-3039)
-* SDK 1.5.8
+* HDInsight    (Windows)         2.1.10.763.1931434 (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight    (Windows)         3.0.6.763.1931434 (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight    (Windows)         3.1.4.763.1931434  (HDP 2.1.15.0-2374 - 변경되지 않음)
+* HDInsight    (Windows)        3.2.7.763.1931434  (HDP 2.2.7.1-34 - 변경되지 않음)
+* HDInsight (Windows)        3.3.1000.0           (HDP 2.3.3.1-5)
+* HDInsight    (Linux)            3.2.1000.0.6392801 (HDP    2.2.7.1-34 - 변경되지 않음)
+* HDInsight (Linux)            3.3.1000.0           (HDP 2.3.3.0-3039)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -273,15 +292,15 @@ ms.author: nitinme
 | --- | --- | --- | --- | --- |
 | 모든 HDInsight 클러스터에 대해 HDInsight 3.3 버전 추가 및 HDP 버전 업데이트됨 |이 릴리스에서 HDInsight v3.3(HDP 2.3에 기반)을 추가하고 다른 HDP 버전도 업데이트했습니다. HDP 2.3 릴리스 정보는 [여기](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html)에서 확인할 수 있고 HDInsight 버전에 대한 자세한 정보는 [여기](hdinsight-component-versioning.md)에서 확인할 수 있습니다. |부여 |모두 |해당 없음 |
 
-## HDInsight의 2015/11/30 릴리스 정보
+## <a name="notes-for-11302015-release-of-hdinsight"></a>HDInsight의 2015/11/30 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight(Windows) 2.1.10.757.1923908(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight(Windows) 3.0.6.757.1923908(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight(Windows) 3.1.4.757.1923908(HDP 2.1.15.0-2374 - 변경되지 않음)
-* HDInsight(Windows) 3.2.7.757.1923908(HDP 2.2.7.1-34)
-* HDInsight(Linux) 3.2.1000.0.6392801(HDP 2.2.7.1-34)
-* SDK 1.5.8
+* HDInsight    (Windows)         2.1.10.757.1923908 (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight    (Windows)         3.0.6.757.1923908  (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight    (Windows)         3.1.4.757.1923908  (HDP 2.1.15.0-2374 - 변경되지 않음)
+* HDInsight    (Windows)        3.2.7.757.1923908  (HDP 2.2.7.1-34)
+* HDInsight    (Linux)            3.2.1000.0.6392801 (HDP    2.2.7.1-34)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -289,15 +308,15 @@ ms.author: nitinme
 | --- | --- | --- | --- | --- |
 | 모든 HDInsight 클러스터의 업데이트된 HDInsight 버전 및 HDInsight 3.2 클러스터의 HDP 버전(Windows 및 Linux) |이 릴리스에서 HDInsight 및 HDP 버전이 업데이트됨 |부여 |모두 |해당 없음 |
 
-## HDInsight의 2015/10/27 릴리스 정보
+## <a name="notes-for-10272015-release-of-hdinsight"></a>HDInsight의 2015/10/27 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight(Windows) 2.1.10.726.1866228(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight(Windows) 3.0.6.726.1866228(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight(Windows) 3.1.4.726.1866228(HDP 2.1.15.0-2374 - 변경되지 않음)
-* HDInsight(Windows) 3.2.7.726.1866228(HDP 2.2.7.1-33)
-* HDInsight(Linux) 3.2.1000.0.6035701(HDP 2.2.7.1-33)
-* SDK 1.5.8
+* HDInsight    (Windows)         2.1.10.726.1866228 (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight    (Windows)         3.0.6.726.1866228  (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight    (Windows)         3.1.4.726.1866228  (HDP 2.1.15.0-2374 - 변경되지 않음)
+* HDInsight    (Windows)        3.2.7.726.1866228  (HDP 2.2.7.1-33)
+* HDInsight    (Linux)            3.2.1000.0.6035701 (HDP    2.2.7.1-33)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -306,32 +325,32 @@ ms.author: nitinme
 | 모든 HDInsight 클러스터에 대해 HDInsight 버전 업데이트됨(Windows 및 Linux) |이 릴리스에서 HDInsight 및 HDP 버전이 업데이트됨 |부여 |모두 |해당 없음 |
 | 대문자 클러스터를 사용하여 Windows Spark 클러스터에 대한 Jupyter 수정됨 |대문자로 지정한 DNS 이름을 가진 클러스터는 원본 요청 검사로 인해 Jupyter Notebook에 문제가 있었습니다. 수정 사항은 Jupyter의 구성에 대한 DNS 이름을 소문자로 변경하는 것이었습니다. |부여 |HDInsight Spark(Windows) |해당 없음 |
 
-## HDInsight 10/20/2015 릴리스 정보
+## <a name="notes-for-10202015-release-of-hdinsight"></a>HDInsight 10/20/2015 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.716.1846990 (Windows) (HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight 3.0.6.716.1846990 (Windows) (HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight 3.1.4.716.1846990 (Windows) (HDP 2.1.16.0-2374)
-* HDInsight 3.2.7.716.1846990 (Windows) (HDP 2.2.7.1-0004)
-* HDInsight 3.2.1000.0.5930166 (Linux) (HDP 2.2.7.1-0004)
-* SDK 1.5.8
+* HDInsight     2.1.10.716.1846990(Windows)    (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight     3.0.6.716.1846990 (Windows)      (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight     3.1.4.716.1846990 (Windows)      (HDP 2.1.16.0-2374)
+* HDInsight        3.2.7.716.1846990 (Windows)      (HDP 2.2.7.1-0004)
+* HDInsight        3.2.1000.0.5930166 (Linux)        (HDP 2.2.7.1-0004)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
 | 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
 | --- | --- | --- | --- | --- |
 | 기본 HDP 버전 HDP 2.2로 변경됨 |HDInsight Windows 클러스터의 기본 버전이 HDP 2.2로 변경됩니다. HDInsight 버전 3.2(HDP 2.2)는 2015년 2월 이후 일반에서 사용할 수 있습니다. 이 변경에서는 Azure 포털, PowerShell cmdlet 또는 SDK를 사용하여 프로비전하는 동안 명시적 선택이 없을 때 기본 클러스터 버전만 앞으로 이동합니다. |부여 |모두 |해당 없음 |
-| 단일 가상 네트워크의 Linux 클러스터에서 여러 HDInsight 배포를 위한 VM 이름 형식 변경 |단일 가상 네트워크에서의 여러 HDInsight Linux 클러스터 배포에 대한 지원이 이 릴리스에 추가되었습니다. 이러한 지원의 일환으로, 클러스터의 가상 컴퓨터 이름 형식이 headnode*, workernode* 및 zookeepernode*에서 각각 hn*, wn* 및 zk*로 변경되었습니다. 이 내용은 변경될 수 있으므로 가상 컴퓨터 이름의 형식에 직접적인 종속성을 만들지 않는 것이 좋습니다. 로컬 컴퓨터나 Ambari API에서 "hostname -f"를 사용하여 호스트 목록과 호스팅 대상 구성 요소의 매핑을 판단합니다. 자세한 내용은[https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) 및 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md)에서 제공합니다. |부여 |Linux 기반 HDInsight 클러스터 |해당 없음 |
-| 구성 변경 내용 |HDInsight 3.1 클러스터의 경우 이제 <ul><li>tez.yarn.ats.enabled 및yarn.log.server.url 구성을 사용할 수 있습니다. 이렇게 하면 응용 프로그램 타임라인 서버 및 로그 서버가 로그를 채울 수 있습니다.</li></ul>HDInsight 3.2 클러스터의 경우 <ul><li>mapreduce.fileoutputcommitter.algorithm.version 구성이 2로 설정되었습니다. 이를 통해 FileOutputCommitter의 V2 버전을 사용할 수 있게 됩니다.</li></ul> |부여 |모두 |해당 없음 |
+| 단일 가상 네트워크의 Linux 클러스터에서 여러 HDInsight 배포를 위한 VM 이름 형식 변경 |단일 가상 네트워크에서의 여러 HDInsight Linux 클러스터 배포에 대한 지원이 이 릴리스에 추가되었습니다. 이러한 지원의 일환으로, 클러스터의 가상 컴퓨터 이름 형식이 headnode\*, workernode\* 및 zookeepernode\*에서 hn\*, wn\*, zk\*로 변경되었습니다. 이 내용은 변경될 수 있으므로 가상 컴퓨터 이름의 형식에 직접적인 종속성을 만들지 않는 것이 좋습니다. 로컬 컴퓨터나 Ambari API에서 "hostname -f"를 사용하여 호스트 목록과 호스팅 대상 구성 요소의 매핑을 판단합니다. 자세한 내용은 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) 및 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md)에서 확인할 수 있습니다. |부여 |Linux 기반 HDInsight 클러스터 |해당 없음 |
+| 구성 변경 내용 |HDInsight 3.1 클러스터의 경우 이제  <ul><li>tez.yarn.ats.enabled 및yarn.log.server.url 구성을 사용할 수 있습니다. 이렇게 하면 응용 프로그램 타임라인 서버 및 로그 서버가 로그를 채울 수 있습니다.</li></ul>HDInsight 3.2 클러스터의 경우 다음 구성이 수정되었습니다. <ul><li>mapreduce.fileoutputcommitter.algorithm.version 구성이 2로 설정되었습니다. 이를 통해 FileOutputCommitter의 V2 버전을 사용할 수 있게 됩니다.</li></ul> |부여 |모두 |해당 없음 |
 
-## HDInsight의 2015/09/09 릴리스 정보
+## <a name="notes-for-09092015-release-of-hdinsight"></a>HDInsight의 2015/09/09 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.675.1768697(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight 3.0.6.675.1768697(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight 3.1.4.675.1768697(HDP 2.1.15.0-2334 - 변경되지 않음)
-* HDInsight 3.2.6.675.1768697(HDP 2.2.6.1-0012 - 변경되지 않음)
-* SDK 1.5.8
+* HDInsight     2.1.10.675.1768697(HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight     3.0.6.675.1768697(HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight     3.1.4.675.1768697(HDP 2.1.15.0-2334 - 변경되지 않음)
+* HDInsight        3.2.6.675.1768697  (HDP 2.2.6.1-0012 - 변경되지 않음)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -339,14 +358,14 @@ ms.author: nitinme
 | --- | --- | --- | --- | --- |
 | 모든 HDInsight 클러스터에 대해 HDInsight 버전 업데이트됨 |이 릴리스에서 HDInsight 버전이 업데이트됨 |부여 |모두 |해당 없음 |
 
-## HDInsight의 2015/07/31 릴리스 정보
+## <a name="notes-for-07312015-release-of-hdinsight"></a>HDInsight의 2015/07/31 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.640.1695824(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight 3.0.6.640.1695824(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight 3.1.4.640.1695824(HDP 2.1.15.0-2334 - 변경되지 않음)
-* HDInsight 3.2.6.640.1695824(HDP 2.2.6.1-0012 - 변경되지 않음)
-* SDK 1.5.8
+* HDInsight     2.1.10.640.1695824(HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight     3.0.6.640.1695824(HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight     3.1.4.640.1695824(HDP 2.1.15.0-2334 - 변경되지 않음)
+* HDInsight        3.2.6.640.1695824  (HDP 2.2.6.1-0012 - 변경되지 않음)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -354,14 +373,14 @@ ms.author: nitinme
 | --- | --- | --- | --- | --- |
 | Spark 클러스터 노드 다시 이미징 워크플로 수정 |다시 이미징 후 Spark 클러스터 노드를 복구할 수 없도록 만드는 버그 수정 |부여 |Spark |해당 없음 |
 
-## HDInsight의 2015/07/31 릴리스 정보
+## <a name="notes-for-07312015-release-of-hdinsight"></a>HDInsight의 2015/07/31 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.635.1684502(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight 3.0.6.635.1684502(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight 3.1.4.635.1684502(HDP 2.1.15.0-2334 - 변경되지 않음)
-* HDInsight 3.2.6.635.1684502(HDP 2.2.6.1-0012 - 변경되지 않음)
-* SDK 1.5.8
+* HDInsight     2.1.10.635.1684502(HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight     3.0.6.635.1684502(HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight     3.1.4.635.1684502(HDP 2.1.15.0-2334 - 변경되지 않음)
+* HDInsight        3.2.6.635.1684502  (HDP 2.2.6.1-0012 - 변경되지 않음)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -369,14 +388,14 @@ ms.author: nitinme
 | --- | --- | --- | --- | --- |
 | 모든 HDInsight 클러스터에 대해 HDInsight 버전 업데이트됨 |이 릴리스에서 HDInsight 버전이 업데이트됨 |부여 |모두 |해당 없음 |
 
-## HDInsight의 2015/07/07 릴리스 정보
+## <a name="notes-for-07072015-release-of-hdinsight"></a>HDInsight의 2015/07/07 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.610.1630216(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight 3.0.6.610.1630216(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight 3.1.4.610.1630216(HDP 2.1.15.0-2334 - 변경되지 않음)
-* HDInsight 3.2.4.610.1630216(HDP 2.2.6.1-0012)
-* SDK 1.5.8
+* HDInsight     2.1.10.610.1630216    (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight     3.0.6.610.1630216    (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight     3.1.4.610.1630216    (HDP 2.1.15.0-2334 - 변경되지 않음)
+* HDInsight        3.2.4.610.1630216    (HDP 2.2.6.1-0012)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -384,14 +403,14 @@ ms.author: nitinme
 | --- | --- | --- | --- | --- |
 | HDInsight 3.2 클러스터에 대한 업데이트된 HDP 버전 |이 릴리스에서는 HDInsight 3.2가 HDP 2.2.6.1-0012를 배포함 |부여 |모두 |해당 없음 |
 
-## HDInsight의 2015/06/26 릴리스 정보
+## <a name="notes-for-06262015-release-of-hdinsight"></a>HDInsight의 2015/06/26 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.601.1610731(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight 3.0.6.601.1610731(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight 3.1.4.601.1610731(HDP 2.1.15.0-2334 - 변경되지 않음)
-* HDInsight 3.2.4.601.1610731(HDP 2.2.6.1-0011)
-* SDK 1.5.8
+* HDInsight     2.1.10.601.1610731    (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight     3.0.6.601.1610731    (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight     3.1.4.601.1610731    (HDP 2.1.15.0-2334 - 변경되지 않음)
+* HDInsight        3.2.4.601.1610731    (HDP 2.2.6.1-0011)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -415,14 +434,14 @@ ms.author: nitinme
 
 </table>
 
-## HDInsight의 2015/06/18 릴리스 정보
+## <a name="notes-for-06182015-release-of-hdinsight"></a>HDInsight의 2015/06/18 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.596.1601657 (HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight 3.0.6.596.1601657 (HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight 3.1.4.596.1601657 (HDP 2.1.15.0-2334)
-* HDInsight 3.2.4.596.1601657 (HDP 2.2.6.1-0002)
-* SDK 1.5.8
+* HDInsight     2.1.10.596.1601657    (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight     3.0.6.596.1601657    (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight     3.1.4.596.1601657    (HDP 2.1.15.0-2334)
+* HDInsight        3.2.4.596.1601657    (HDP 2.2.6.1-0002)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -470,14 +489,14 @@ ms.author: nitinme
 
 </table>
 
-## HDInsight의 2015/06/04 릴리스 정보
+## <a name="notes-for-06042015-release-of-hdinsight"></a>HDInsight의 2015/06/04 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.583.1575584 (HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight 3.0.6.583.1575584 (HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight 3.1.3.583.1575584 (HDP 2.1.12.1-0003 - 변경되지 않음)
-* HDInsight 3.2.4.583.1575584 (HDP 2.2.6.1-1)
-* SDK 1.5.8
+* HDInsight     2.1.10.583.1575584    (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight     3.0.6.583.1575584    (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight     3.1.3.583.1575584    (HDP 2.1.12.1-0003 - 변경되지 않음)
+* HDInsight        3.2.4.583.1575584    (HDP 2.2.6.1-1)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -501,14 +520,14 @@ ms.author: nitinme
 
 </table>
 
-## HDInsight의 2015/06/01 릴리스 정보
+## <a name="notes-for-06012015-release-of-hdinsight"></a>HDInsight의 2015/06/01 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.577.1563827 (HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight 3.0.6.577.1563827 (HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight 3.1.3.577.1563827 (HDP 2.1.12.1-0003 - 변경되지 않음))
-* HDInsight 3.2.4.577.1563827 (HDP 2.2.6.0-2800 - 변경되지 않음)
-* SDK 1.5.8
+* HDInsight     2.1.10.577.1563827    (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight     3.0.6.577.1563827    (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight     3.1.3.577.1563827    (HDP 2.1.12.1-0003 - 변경되지 않음)
+* HDInsight        3.2.4.577.1563827    (HDP 2.2.6.0-2800 - 변경되지 않음)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -532,10 +551,10 @@ ms.author: nitinme
 
 </table>
 
-## HDInsight의 2015/05/27 릴리스 정보
+## <a name="notes-for-05272015-release-of-hdinsight"></a>HDInsight의 2015/05/27 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 3.2.4.570.1554102 (HDP 2.2.6.0-2800)
+* HDInsight        3.2.4.570.1554102    (HDP 2.2.6.0-2800)
 * 다른 클러스터 버전 및 SDK은 이 릴리스의 일부분으로 배포되지 않습니다.
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
@@ -576,14 +595,14 @@ ms.author: nitinme
 
 </table>
 
-## HDInsight의 2015/05/20 릴리스 정보
+## <a name="notes-for-05202015-release-of-hdinsight"></a>HDInsight의 2015/05/20 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.564.1542093 (HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight 3.0.6.564.1542093 (HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight 3.1.3.564.1542093 (HDP 2.1.12.1-0003)
-* HDInsight 3.2.4.564.1542093 (HDP 2.2.4.6-2)
-* SDK 1.5.8
+* HDInsight     2.1.10.564.1542093    (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight     3.0.6.564.1542093    (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight     3.1.3.564.1542093    (HDP 2.1.12.1-0003)
+* HDInsight        3.2.4.564.1542093    (HDP 2.2.4.6-2)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -614,14 +633,14 @@ ms.author: nitinme
 </tr>
 </table>
 
-## HDInsight의 2015/04/27 릴리스 정보
+## <a name="notes-for-04272015-release-of-hdinsight"></a>HDInsight의 2015/04/27 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.537.1486660(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight 3.0.6.537.1486660(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight 3.1.3.537.1486660(HDP 2.1.12.0-2329 - 변경되지 않음)
-* HDInsight 3.2.3.537.1486660(HDP 2.2.2.2-4)
-* SDK 1.5.8
+* HDInsight     2.1.10.537.1486660    (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight     3.0.6.537.1486660    (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight     3.1.3.537.1486660    (HDP 2.1.12.0-2329 - 변경되지 않음)
+* HDInsight        3.2.3.537.1486660    (HDP 2.2.2.2-4)
+* SDK            1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -652,14 +671,14 @@ ms.author: nitinme
 </tr>
 </table>
 
-## HDInsight의 2015/04/14 릴리스 정보
+## <a name="notes-for-04142015-release-of-hdinsight"></a>HDInsight의 2015/04/14 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.521.1453250(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight 3.0.6.521.1453250(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight 3.1.3.521.1453250(HDP 2.1.12.0-2329 - 변경되지 않음)
-* HDInsight 3.2.3.525.1459730(HDP 2.2.2.2-2)
-* SDK 1.5.6
+* HDInsight     2.1.10.521.1453250    (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight     3.0.6.521.1453250    (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight     3.1.3.521.1453250    (HDP 2.1.12.0-2329 - 변경되지 않음)
+* HDInsight        3.2.3.525.1459730    (HDP 2.2.2.2-2)
+* SDK            1.5.6
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -683,14 +702,14 @@ ms.author: nitinme
 </tr>
 </table>
 
-## HDInsight의 2015/04/06 릴리스 정보
+## <a name="notes-for-04062015-release-of-hdinsight"></a>HDInsight의 2015/04/06 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.521.1453250(HDP 1.3.12.0-01795 - 변경되지 않음)
-* HDInsight 3.0.6.521.1453250(HDP 2.0.13.0-2117 - 변경되지 않음)
-* HDInsight 3.1.3.521.1453250(HDP 2.1.12.0-2329 - 변경되지 않음)
-* HDInsight 3.2.3.521.1453250(HDP 2.2.2.2-1)
-* SDK 1.5.6
+* HDInsight     2.1.10.521.1453250    (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight     3.0.6.521.1453250    (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight     3.1.3.521.1453250    (HDP 2.1.12.0-2329 - 변경되지 않음)
+* HDInsight        3.2.3.521.1453250    (HDP 2.2.2.2-1)
+* SDK            1.5.6
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -732,14 +751,14 @@ ms.author: nitinme
 </table>
 <br>
 
-## HDInsight의 2015/04/01 릴리스 정보
+## <a name="notes-for-04012015-release-of-hdinsight"></a>HDInsight의 2015/04/01 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.513.1431705(HDP 1.3.12.0-01795)
-* HDInsight 3.0.6.513.1431705(HDP 2.0.13.0-2117)
-* HDInsight 3.1.3.513.1431705(HDP 2.1.12.0-2329)
-* HDInsight 3.2.3.513.1431705(HDP 2.2.2.1-2600)
-* SDK 1.5.5
+* HDInsight     2.1.10.513.1431705    (HDP 1.3.12.0-01795)
+* HDInsight     3.0.6.513.1431705    (HDP 2.0.13.0-2117)
+* HDInsight     3.1.3.513.1431705    (HDP 2.1.12.0-2329)
+* HDInsight        3.2.3.513.1431705    (HDP 2.2.2.1-2600)
+* SDK            1.5.5
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -790,7 +809,7 @@ ms.author: nitinme
 <td>HBase 클러스터의 노드 크기 조정</td>
 <td>이제 HBase 클러스터에서 HDInsight 버전 3.1 및 3.2에 대한 노드 크기를 조정(확장 및 축소)할 수 있습니다.</td>
 <td>부여</td>
-<td>HBase</td>
+<td>HBase:</td>
 <td>해당 없음</td>
 </tr>
 
@@ -806,7 +825,7 @@ ms.author: nitinme
 <td>JVM 구성 업데이트</td>
 <td>HDInsight 버전 3.1 및 3.2에 대해 JVM 구성 networkaddress.cache.ttl이 기본값 -1에서 300으로 업데이트되었습니다. 이 구성 값은 이름 서비스에서의 성공적인 이름 조회에 대한 캐싱 정책을 제어합니다. 이는 HBase 클러스터 확장 및 축소와 관련된 버그를 수정합니다.</td>
 <td>부여</td>
-<td>HBase</td>
+<td>HBase:</td>
 <td>해당 없음</td>
 </tr>
 
@@ -837,14 +856,14 @@ ms.author: nitinme
 </table>
 <br>
 
-## HDInsight의 2015/03/03 릴리스 정보
+## <a name="notes-for-03032015-release-of-hdinsight"></a>HDInsight의 2015/03/03 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.488.1375841(HDP 1.3.9.0-01351 - 변경되지 않음)
-* HDInsight 3.0.6.488.1375841(HDP 2.0.9.0-2097 - 변경되지 않음)
-* HDInsight 3.1.3.488.1375841(HDP 2.1.10.0-2290 - 변경되지 않음)
-* HDInsight 3.2.3.488.1375841(HDP-2.2.10.0-2340 - 변경되지 않음)
-* SDK 1.5.0(변경되지 않음)
+* HDInsight     2.1.10.488.1375841    (HDP 1.3.9.0-01351 - 변경되지 않음)
+* HDInsight     3.0.6.488.1375841    (HDP 2.0.9.0-2097 -  변경되지 않음)
+* HDInsight     3.1.3.488.1375841    (HDP 2.1.10.0-2290 - 변경되지 않음)
+* HDInsight        3.2.3.488.1375841    (HDP-2.2.10.0-2340 - 변경되지 않음)
+* SDK            1.5.0                (변경되지 않음)
 
 이 릴리스에는 다음 업데이트가 포함됩니다.
 
@@ -872,14 +891,14 @@ ms.author: nitinme
 </table>
 <br>
 
-## HDInsight의 2015/02/18 릴리스 정보
+## <a name="notes-for-02182015-release-of-hdinsight"></a>HDInsight의 2015/02/18 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.471.1342507(HDP 1.3.9.0-01351 - 변경되지 않음)
-* HDInsight 3.0.6.471.1342507(HDP 2.0.9.0-2097 - 변경되지 않음)
-* HDInsight 3.1.3.471.1342507(HDP 2.1.10.0-2290 - 변경되지 않음)
-* HDInsight 3.2.3.471.1342507(HDP-2.2.10.0-2340)
-* SDK 1.5.0
+* HDInsight     2.1.10.471.1342507    (HDP 1.3.9.0-01351 - 변경되지 않음)
+* HDInsight     3.0.6.471.1342507    (HDP 2.0.9.0-2097 -  변경되지 않음)
+* HDInsight     3.1.3.471.1342507    (HDP 2.1.10.0-2290 - 변경되지 않음)
+* HDInsight        3.2.3.471.1342507    (HDP-2.2.10.0-2340)
+* SDK            1.5.0
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -961,13 +980,13 @@ ms.author: nitinme
 </table>
 <br>
 
-## HDInsight의 2015/02/06 릴리스 정보
+## <a name="notes-for-02062015-release-of-hdinsight"></a>HDInsight의 2015/02/06 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.463.1325367(HDP 1.3.9.0-01351 - 변경되지 않음)
-* HDInsight 3.0.6.463.1325367(HDP 2.0.9.0-2097 - 변경되지 않음)
-* HDInsight 3.1.2.463.1325367(HDP 2.1.10.0-2290)
-* SDK N/A
+* HDInsight     2.1.10.463.1325367    (HDP 1.3.9.0-01351 - 변경되지 않음)
+* HDInsight     3.0.6.463.1325367    (HDP 2.0.9.0-2097 -  변경되지 않음)
+* HDInsight     3.1.2.463.1325367    (HDP 2.1.10.0-2290)
+* SDK            N/A
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -1015,13 +1034,13 @@ ms.author: nitinme
 </table>
 <br>
 
-## HDInsight의 2015/1/29 릴리스 정보
+## <a name="notes-for-1292015-release-of-hdinsight"></a>HDInsight의 2015/1/29 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.455.1309616(HDP 1.3.9.0-01351 - 변경되지 않음)
-* HDInsight 3.0.6.455.1309616(HDP 2.0.9.0-2097 - 변경되지 않음)
-* HDInsight 3.1.2.455.1309616(HDP 2.1.9.0-2196 - 변경되지 않음)
-* SDK N/A
+* HDInsight     2.1.10.455.1309616    (HDP 1.3.9.0-01351 - 변경되지 않음)
+* HDInsight     3.0.6.455.1309616    (HDP 2.0.9.0-2097 -  변경되지 않음)
+* HDInsight     3.1.2.455.1309616    (HDP 2.1.9.0-2196 -  변경되지 않음)
+* SDK            N/A
 
 이 릴리스에는 다음 업데이트가 포함됩니다.
 
@@ -1050,12 +1069,12 @@ ms.author: nitinme
 </table>
 <br>
 
-## HDInsight의 2015/1/5 릴리스 정보
+## <a name="notes-for-152015-release-of-hdinsight"></a>HDInsight의 2015/1/5 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.420.1246118(HDP 1.3.9.0-01351 - 변경되지 않음)
-* HDInsight 3.0.6.420.1246118(HDP 2.0.9.0-2097 - 변경되지 않음)
-* HDInsight 3.1.2.420.1246118(HDP 2.1.9.0-2196 - 변경되지 않음)
+* HDInsight     2.1.10.420.1246118    (HDP 1.3.9.0-01351 - 변경되지 않음)
+* HDInsight     3.0.6.420.1246118    (HDP 2.0.9.0-2097 - 변경되지 않음)
+* HDInsight     3.1.2.420.1246118    (HDP 2.1.9.0-2196 - 변경되지 않음)
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
@@ -1095,12 +1114,12 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 </table>
 <br>
 
-## HDInsight의 2014/12/23 릴리스 정보
+## <a name="notes-for-12232014-release-of-hdinsight"></a>HDInsight의 2014/12/23 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.10.420.1246783(HDP 버전 변경되지 않음)
-* HDInsight 3.0.6.420.1246783(HDP 버전 변경되지 않음
-* HDInsight 3.1.1.420.1246783(HDP 버전 변경되지 않음
+* HDInsight     2.1.10.420.1246783    (HDP 버전 변경되지 않음)
+* HDInsight     3.0.6.420.1246783    (HDP 버전 변경되지 않음)
+* HDInsight     3.1.1.420.1246783    (HDP 버전 변경되지 않음)
 
 이 릴리스에는 다음 업데이트가 포함됩니다.
 
@@ -1128,7 +1147,7 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 </table>
 <br>
 
-## HDInsight의 2014/12/18 릴리스 정보
+## <a name="notes-for-12182014-release-of-hdinsight"></a>HDInsight의 2014/12/18 릴리스 정보
 이 릴리스에는 다음 구성 요소 업데이트가 포함됩니다.
 
 <table border="1">
@@ -1153,12 +1172,12 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 </table>
 <br>
 
-## HDInsight의 2014/12/05 릴리스 정보
+## <a name="notes-for-12052014-release-of-hdinsight"></a>HDInsight의 2014/12/05 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1.9.406.1221105(HDP 1.3.9.0-01351)
-* HDInsight 3.0.5.406.1221105(HDP 2.0.9.0-2097)
-* HDInsight 3.1.1.406.1221105(HDP 2.1.9.0-2196)
+* HDInsight     2.1.9.406.1221105    (HDP 1.3.9.0-01351)
+* HDInsight     3.0.5.406.1221105    (HDP 2.0.9.0-2097)
+* HDInsight     3.1.1.406.1221105    (HDP 2.1.9.0-2196)
 * HDInsight SDK 해당 없음
 
 이 릴리스에는 다음 구성 요소 업데이트가 포함됩니다.
@@ -1199,7 +1218,7 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 
 <tr>
 <td>HDP JAR 파일 이름 변경</td>
-<td>HDI 클러스터 버전 3.0의 경우 HDP에 의해 설치되는 내부 JAR 파일에 대한 몇 가지 변경 내용이 있습니다. jetty-6.1.26.jar은 jetty-6.1.26.hwx.jar로 대체되고, jetty-util-6.1.26.jar은 jetty-util-6.1.26.hwx.jar로 대체되었습니다. 이 변경 내용은 Hadoop, Mahout, WebHCat 및 Oozie 프로젝트에 적용됩니다.</td>
+<td>HDI 클러스터 버전 3.0의 경우 HDP를 통해 설치되는 내부 JAR 파일에 몇몇 변경 내용이 있습니다. jetty-6.1.26.jar은 jetty-6.1.26.hwx.jar로 대체되었습니다. jetty-util-6.1.26.jar은 jetty-util-6.1.26.hwx.jar로 대체되었습니다. 이 변경 내용은 Hadoop, Mahout, WebHCat 및 Oozie 프로젝트에 적용됩니다.</td>
 <td>Hadoop, Mahout, WebHCat, Oozie</td>
 <td>Hadoop, HBase</td>
 <td>해당 없음</td>
@@ -1208,7 +1227,7 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 </table>
 <br>
 
-## HDInsight의 2014/11/21 릴리스 정보
+## <a name="notes-for-11212014-release-of-hdinsight"></a>HDInsight의 2014/11/21 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
 * HDInsight 2.1.9.382.1169709(2014/11/14에서 변경 없음)
@@ -1254,7 +1273,7 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 </table>
 <br>
 
-## HDInsight의 2014/11/14 릴리스 정보
+## <a name="notes-for-11142014-release-of-hdinsight"></a>HDInsight의 2014/11/14 릴리스 정보
 
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
@@ -1312,13 +1331,13 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 
 
 
-## HDInsight의 2014/11/07 릴리스 정보
+## <a name="notes-for-11072014-release-of-hdinsight"></a>HDInsight의 2014/11/07 릴리스 정보
 
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
 
-* HDInsight 2.1 2.1.9.374.1153876
-* HDInsight 3.0 3.0.5.374.1153876
-* HDInsight 3.1 3.1.1.374.1153876
+* HDInsight 2.1    2.1.9.374.1153876
+* HDInsight 3.0    3.0.5.374.1153876
+* HDInsight 3.1    3.1.1.374.1153876
 
 이 릴리스에는 다음 구성 요소 업데이트가 포함됩니다.
 
@@ -1341,7 +1360,13 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 
 <tr>
 <td>YARN Timeline Server</td>
-<td>YARN Timeline Server(Generic Application History Server라고도 함)가 기본적으로 사용하도록 설정되었습니다. Timeline Server는 응용 프로그램 ID, 응용 프로그램 이름, 응용 프로그램 상태, 응용 프로그램 전송 시간, 응용 프로그램 완료 시간 등 완료된 응용 프로그램에 대한 일반적인 정보를 제공합니다. 이 응용 프로그램 정보는 URI http://headnodehost:8188에 액세스하거나 YARN 명령: yarn application –list –appStates ALL을 실행하여 헤드 노드에서 검색할 수 있습니다. 이 정보는 REST API를 통해 https://{ClusterDnsName}. azurehdinsight.net/ws/v1/applicationhistory/에서 원격으로 검색할 수도 있습니다. 자세한 내용은 <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a>를 참조하세요.</td>
+<td>YARN Timeline Server(Generic Application History Server라고도 함)가 기본적으로 사용하도록 설정되었습니다. Timeline Server는 응용 프로그램 ID, 응용 프로그램 이름, 응용 프로그램 상태, 응용 프로그램 전송 시간, 응용 프로그램 완료 시간 등 완료된 응용 프로그램에 대한 일반적인 정보를 제공합니다.
+
+이 응용 프로그램 정보는 URI http://headnodehost:8188에 액세스하거나 YARN 명령: yarn application –list –appStates ALL을 실행하여 헤드 노드에서 검색할 수 있습니다.
+
+이 정보는 REST API를 통해 https://{ClusterDnsName}. azurehdinsight.net/ws/v1/applicationhistory/에서 원격으로 검색할 수도 있습니다.
+
+자세한 내용은 <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a>를 참조하세요.</td>
 <td>서비스, YARN</td>
 <td>Hadoop, HBase</td>
 <td>해당 없음</td>
@@ -1359,14 +1384,14 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 
 **참고**: 전체 버전 번호가 포털에 표시되지 않거나 SDK 또는 Windows PowerShell에서 반환되지 않게 하는 버그가 이 릴리스에서 수정되었습니다.
 
-## 2014/10/15 릴리스 정보
+## <a name="notes-for-10152014-release"></a>2014/10/15 릴리스 정보
 
 이 핫픽스 릴리스에서는 Templeton을 많이 사용하는 사용자에게 영향을 주는 Templeton의 메모리 누수 현상이 해결되었습니다. 요청을 실행하기 위한 메모리가 부족하여 Templeton을 많이 사용하는 사용자에게 500 오류 코드가 표시되는 경우가 있었습니다. 이 문제를 해결하려면 Templeton 서비스를 다시 시작해야 했습니다. 이 문제가 해결되었습니다.
 
 
-## 2014/10/7 릴리스 정보
+## <a name="notes-for-1072014-release"></a>2014/10/7 릴리스 정보
 
-* Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host\_name* 필드에서 호스트 이름만이 아니라 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 예를 들어 "**headnode0**"가 반환되는 대신 FQDN인 "**headnode0.{ClusterDNS}.azurehdinsight.net**"이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 가상 네트워크 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
+* Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host_name* 필드에서 호스트 이름만이 아니라 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 예를 들어 "**headnode0**"가 반환되는 대신 FQDN인 "**headnode0.{ClusterDNS}.azurehdinsight.net**"이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 가상 네트워크 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
 
 * HDInsight 클러스터의 기본 배포에 대해 새 메모리 설정이 제공됩니다. 이전의 기본 메모리 설정에서는 배포 중인 CPU 코어 수에 대한 지침을 적절하게 고려하지 않았습니다. 이러한 새 메모리 설정은 Hortonworks 권장 사항에 따라 향상된 기본값을 제공합니다. 이를 변경하려면 클러스터 구성 변경에 대한 SDK 참조 설명서를 참조하세요. 아래 표에는 기본 4개 CPU 코어(8개 컨테이너) HDInsight 클러스터에서 사용되는 새 메모리 설정이 개별 항목으로 나와 있습니다. 이 릴리스 이전에 사용되었던 값도 괄호 안에 나와 있습니다.
 
@@ -1393,11 +1418,11 @@ Azure PowerShell 및 HDInsight SDK 오류 메시지: "*클러스터가 HTTP 서�
 * 이 오류는 HDInsight SDK 또는 Azure PowerShell 버전과 클러스터의 버전 차이로 인해 발생할 수 있는 알려진 [호환성 문제](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight)입니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 HDInsight SDK 또는 Azure PowerShell에서는 이 기능이 올바르게 해석되지 않습니다. 따라서 일부 작업 제출 작업이 실패합니다. HDInsight SDK API 또는 Azure PowerShell cmdlet(**Use-AzureRmHDInsightCluster** 또는 **Invoke-AzureRmHDInsightHiveJob**)을 사용하여 작업을 제출하는 경우 해당 작업이 실패하고 "*클러스터 <clustername>이 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다.*" 오류 메시지가 표시되거나 작업에 따라 "*클러스터에 연결할 수 없습니다.*" 등의 다른 오류 메시지가 표시될 수 있습니다.
 * HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서, Azure PowerShell 도구는 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)에서 얻을 수 있습니다.
 
-## HDInsight 3.1의 2014/9/12 릴리스 정보
-* 이 릴리스는 HDP(Hortonworks Data Platform) 2.1.5에 기반을 둡니다. 이 릴리스에서 수정된 버그 목록을 보려면 Hortonworks 사이트에서 [이 릴리스에서 수정됨](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html)을 참조하세요.
+## <a name="notes-for-9122014-release-of-hdinsight-31"></a>HDInsight 3.1의 2014/9/12 릴리스 정보
+* 이 릴리스는 HDP(Hortonworks Data Platform) 2.1.5에 기반을 둡니다. 이 릴리스에서 수정된 버그 목록을 보려면 Hortonworks 사이트에서 [이 릴리스에서 수정됨](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) 을 참조하세요.
 * Pig 라이브러리 폴더의 "avro-mapred-1.7.4.jar" 파일이 "avro-mapred-1.7.4-hadoop2.jar"로 변경되었습니다. 이 파일의 내용에는 사소한 버그 수정(줄 바꿈 하지 않음)이 포함되어 있습니다. 고객은 파일 이름을 바꿀 때 줄 바꿈을 방지할 수 있도록 JAR 파일의 이름에 대한 직접 종속성을 사용하지 않는 것이 좋습니다.
 
-## 2014/8/21 릴리스 정보
+## <a name="notes-for-8212014-release"></a>2014/8/21 릴리스 정보
 * Templeton 컨트롤러 작업에 대한 기본 메모리 제한을 1GB로 설정하는 다음 WebHCat 구성(HIVE-7155)이 추가됩니다. 이전 기본값은 512MB였습니다.
   
      templeton.mapper.memory.mb (=1024)
@@ -1405,20 +1430,20 @@ Azure PowerShell 및 HDInsight SDK 오류 메시지: "*클러스터가 HTTP 서�
   * 이 변경은 낮은 메모리 제한으로 인해 특정 Hive 쿼리가 발생하는 "컨테이너가 실제 메모리 제한 이상으로 실행합니다." 오류를 해결합니다.
   * 이전 기본값으로 되돌리려면 클러스터 생성 시 다음 명령을 사용하여 Azure PowerShell을 통해 이 구성 값을 512로 설정하면 됩니다.
     
-      Add-AzureHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
-* *zookeeper* 역할의 호스트 이름이 zookeeper로 변경되었습니다. 이 변경은 클러스터 내의 이름 확인에 영향을 주지만 외부 REST API에는 영향을 주지 않습니다. *zookeepernode* 호스트 이름을 사용하는 구성 요소가 있는 경우 새 이름을 사용하도록 해당 구성 요소를 업데이트해야 합니다. 3개 zookeeper 노드의 새로운 이름은 다음과 같습니다.
+      Add-AzureRmHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
+* *zookeeper*역할의 호스트 이름이 zookeeper로 변경되었습니다. 이 변경은 클러스터 내의 이름 확인에 영향을 주지만 외부 REST API에는 영향을 주지 않습니다. *zookeepernode* 호스트 이름을 사용하는 구성 요소가 있는 경우 새 이름을 사용하도록 해당 구성 요소를 업데이트해야 합니다. 3개 zookeeper 노드의 새로운 이름은 다음과 같습니다.
   
   * zookeeper0
   * zookeeper1
   * zookeeper2
 * HBase 버전 지원 매트릭스가 업데이트됩니다. 프로덕션 HBase 워크로드에는 HDInsight 버전 3.1(HBase 버전 0.98)만 지원됩니다. 미리 보기에 사용 가능한 버전 3.0은 앞으로 지원되지 않습니다.
 
-## 2014/8/15 이전에 만든 클러스터에 대한 참고 사항
-Azure PowerShell 또는 HDInsight SDK와 클러스터 간의 버전 차이로 인해 Azure PowerShell 또는 HDInsight SDK 오류 메시지 "클러스터 <clustername>이 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다." 또는 작업에 따라 "클러스터에 연결할 수 없습니다."와 같은 기타 오류 메시지가 발생할 수 있습니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 Azure PowerShell 또는 HDInsight SDK에서는 이 기능이 올바르게 해석되지 않아 작업을 제출하는 작업이 실패합니다. HDInsight SDK API 또는 Azure PowerShell cmdlet(예: Use-AzureRmHDInsightCluster 또는 Invoke-AzureRmHDInsightHiveJob)을 사용하여 작업을 제출하는 경우 해당 작업이 실패하고 위에서 설명한 오류 메시지 중 하나가 표시될 수 있습니다.
+## <a name="notes-about-clusters-created-prior-to-8152014"></a>2014/8/15 이전에 만든 클러스터에 대한 참고 사항
+Azure PowerShell 또는 HDInsight SDK와 클러스터 간의 버전 차이로 인해 Azure PowerShell 또는 HDInsight SDK 오류 메시지 "<clustername> 클러스터가 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다." 또는 작업에 따라 "클러스터에 연결할 수 없습니다."와 같은 기타 오류 메시지가 발생할 수 있습니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 Azure PowerShell 또는 HDInsight SDK에서는 이 기능이 올바르게 해석되지 않아 작업을 제출하는 작업이 실패합니다. HDInsight SDK API 또는 Azure PowerShell cmdlet(예: Use-AzureRmHDInsightCluster 또는 Invoke-AzureRmHDInsightHiveJob)을 사용하여 작업을 제출하는 경우 해당 작업이 실패하고 위에서 설명한 오류 메시지 중 하나가 표시될 수 있습니다.
 
 HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [NuGet][nuget-link]에서 액세스할 수 있고, Azure PowerShell 도구는 [Microsoft 웹 플랫폼 설치 관리자][webpi-link]를 사용하여 액세스할 수 있습니다.
 
-## 2014/7/28 릴리스 정보
+## <a name="notes-for-7282014-release"></a>2014/7/28 릴리스 정보
 * **새로운 지역에서 사용 가능한 HDInsight**: HDInsight 제공 지역을 3개 지역으로 확장했습니다. HDInsight 고객은 다음 지역에서 클러스터를 만들 수 있습니다.
   * 동아시아
   * 미국 중북부
@@ -1436,15 +1461,15 @@ HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성
 
 </table><br>
 
-## 2014/6/24 릴리스 정보
+## <a name="notes-for-6242014-release"></a>2014/6/24 릴리스 정보
 이 릴리스에는 HDInsight 서비스의 향상된 기능이 포함되어 있습니다.
 
 * **HDP 2.1 사용 가능**: HDP 3.1을 포함하는 HDInsight 2.1이 일반 공급되며 새로운 클러스터의 기본 버전입니다.
-* **HBase - Azure 포털 개선 사항**: 미리 보기에서 HBase 클러스터를 사용할 수 있습니다. 몇 번만 클릭하면 포털에서 HBase 클러스터를 만들 수 있습니다.
+* **HBase - Azure 포털 개선 사항**: 미리 보기에서 HBase 클러스터를 사용할 수 있습니다. 몇 번만 클릭하면 포털에서 HBase 클러스터를 만들 수 있습니다. 
 
 HBase에서는, 수백만 개의 끝점에서 들어오는 센서 및 원격 분석 데이터를 저장하는 서비스의 대형 데이터 집합을 사용하는 대화형 웹 사이트에서 HDInsight에 대한 여러 실시간 워크로드를 구성할 수 있습니다. 다음 단계는 Hadoop 작업으로 이러한 워크로드의 데이터를 분석하는 것이며, Azure PowerShell 및 Hive 클러스터 대시보드를 통해 HDInsight에서 수행할 수 있습니다.
 
-### HDInsight 3.1에 사전 설치되는 Apache Mahout
+### <a name="apache-mahout-preinstalled-on-hdinsight-31"></a>HDInsight 3.1에 사전 설치되는 Apache Mahout
  [Mahout](http://hortonworks.com/hadoop/mahout/)이 HDInsight 3.1 Hadoop 클러스터에 사전 설치됩니다. 따라서 추가 클러스터 구성 없이도 Mahout 작업을 실행할 수 있습니다. 예를 들어 RDP(원격 데스크톱 프로토콜)를 사용하여 Hadoop 클러스터에 원격으로 연결할 수 있으며, 추가 단계 없이 다음 Hello World Mahout 명령을 실행할 수 있습니다.
 
         mahout org.apache.mahout.classifier.df.tools.Describe -p /user/hdp/glass.data -f /user/hdp/glass.info -d I 9 N L  
@@ -1453,8 +1478,9 @@ HBase에서는, 수백만 개의 끝점에서 들어오는 센서 및 원격 분
 
 이 절차에 대한 자세한 설명은 Apache Mahout 웹 사이트의 [Breiman 예제](https://mahout.apache.org/users/classification/breiman-example.html) 설명서를 참조하세요.
 
-### Hive 쿼리는 HDinsight 3.1에서 Tez를 사용할 수 있음
-Hive 0.13은 HDInsight 3.1에서 사용 가능하며 Tez를 사용하여 쿼리를 실행할 수 있으므로, 실질적인 성능 개선을 이룰 수 있습니다. Tez는 기본적으로 Hive 쿼리에 사용할 수 없습니다. Tez를 사용하려면 옵트인해야 합니다. 다음 코드 조각을 실행하여 Tez를 사용하도록 설정할 수 있습니다.
+### <a name="hive-queries-can-use-tez-in-hdinsight-31"></a>Hive 쿼리는 HDinsight 3.1에서 Tez를 사용할 수 있음
+Hive 0.13은 HDInsight 3.1에서 사용 가능하며 Tez를 사용하여 쿼리를 실행할 수 있으므로, 실질적인 성능 개선을 이룰 수 있습니다.
+Tez는 기본적으로 Hive 쿼리에 사용할 수 없습니다. Tez를 사용하려면 옵트인해야 합니다. 다음 코드 조각을 실행하여 Tez를 사용하도록 설정할 수 있습니다.
 
         set hive.execution.engine=tez;
         select sc_status, count(*), histogram_numeric(sc_bytes,5) from website_logs_orc_local group by sc_status;
@@ -1463,10 +1489,10 @@ Hortonworks에서 표준 벤치마크로 전달되는 Tez와 함께 사용하는
 
 Tez에서 Hive를 사용하는 방법에 대한 자세한 내용은 [Tez의 Hive](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)를 참조하세요.
 
-### 전 세계 이용 가능 여부
+### <a name="global-availability"></a>전 세계 이용 가능 여부
 Hadoop 2.2의 HDInsight 릴리스부터 Azure를 사용할 수 있는 모든 주요 지역에서 HDInsight를 사용할 수 있게 되었습니다. 특별히 서유럽과 동남아시아 데이터 센터를 온라인으로 전환했습니다. 따라서 고객은 준수 요구 사항이 비슷한 영역에 있는, 가까운 데이터 센터에서 클러스터를 찾을 수 있습니다.
 
-### 클러스터 버전 간에 수행할 수 있는 작업과 수행할 수 없는 작업
+### <a name="dos-donts-between-cluster-versions"></a>클러스터 버전 간에 수행할 수 있는 작업과 수행할 수 없는 작업
 **HDInsight 3.1 클러스터에 사용되는 Oozie Metastore가 이전 버전인 HDInsight 2.1 클러스터와 호환되지 않으므로 해당 이전 버전에서는 사용할 수 없음**
 
 HDInsight 3.1 클러스터와 함께 배포한 사용자 지정 Oozie 메타 저장소 데이터베이스는 HDInsight 2.1 클러스터와 함께 다시 사용할 수 없습니다. 해당 Metastore를 원래 HDInsight 2.1 클러스터에서 만든 경우에도 마찬가지입니다. Metastore를 HDInsight 3.1 클러스터와 함께 사용하면 Metastore 스키마가 업그레이드되어 HDInsight 2.1 클러스터에 필요한 Metastore와는 더 이상 호환되지 않으므로 이 시나리오는 지원되지 않습니다. HDInsight 3.1 클러스터와 함께 사용했던 Oozie Metastore를 다시 사용하려고 하면 HDInsight 2.1 클러스터를 사용할 수 없게 됩니다.
@@ -1475,14 +1501,16 @@ HDInsight 3.1 클러스터와 함께 배포한 사용자 지정 Oozie 메타 저
 
 Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공유할 수 없습니다.
 
-### 주요 변경 내용
+### <a name="breaking-changes"></a>주요 변경 내용
 **접두사 구문**: HDInsight 3.1 및 3.0 클러스터에서는 "wasbs://" 구문만 지원됩니다. 이전 "asv://" 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.1 또는 3.0 클러스터에서는 지원되지 않습니다. 즉, "asv://" 구문을 명시적으로 사용하며 HDInsight 3.1 또는 3.0 클러스터에 제출된 모든 작업은 실패하게 됩니다. 대신 "wasbs://" 구문을 사용해야 합니다. 또한 "asv://" 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 Metastore로 만들어 HDInsight 3.1 또는 3.0 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 “wasbs://” 구문을 사용하여 이러한 Metastore를 다시 만들어야 합니다.
 
 **포트**: HDInsight 서비스에 사용되는 포트가 변경되었습니다. 기존에 사용하는 포트 번호는 Windows 운영 체제의 사용 후 삭제되는 포트 범위 내에 있었습니다. 포트는 수명이 짧은 인터넷 프로토콜 기반 통신용으로 미리 정의된 사용 후 삭제되는 범위에서 자동으로 할당됩니다. 허용되는 새로운 HDP(Hortonworks Data Platform) 서비스 포트 집합은 이 범위를 벗어나므로 헤드 노드에서 실행 중인 서비스에 사용되는 포트로 인해 발생할 수 있는 충돌을 방지합니다. 새로운 포트 번호로 인한 특별한 변경은 없습니다. 사용되는 번호는 다음과 같습니다.
 
- **HDInsight 1.6(HDP 1.1)** <table border="1">
+ **HDInsight 1.6(HDP 1.1)**
 
-<tr><th>Name</th><th>값</th></tr>
+<table border="1">
+
+<tr><th>이름</th><th>값</th></tr>
 
 <tr><td>dfs.http.address</td><td>namenodehost:30070</td></tr>
 
@@ -1503,9 +1531,11 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 <tr><td>templeton.port</td><td>30111</td></tr>
 </table><br>
 
- **HDInsight 3.1 및 3.0(HDP 2.1 및 2.0)** <table border="1">
+ **HDInsight 3.1 및 3.0(HDP 2.1 및 2.0)**
 
-<tr><th>Name</th><th>값</th></tr>
+<table border="1">
+
+<tr><th>이름</th><th>값</th></tr>
 
 <tr><td>dfs.namenode.http-address</td><td>namenodehost:30070</td></tr>
 
@@ -1524,7 +1554,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 <tr><td>templeton.port</td><td>30111</td></tr>
 </table><br>
 
-### 종속성
+### <a name="dependencies"></a>종속성
 다음 종속성이 HDInsight 3.x(HDP2.x)에 추가되었습니다.
 
 * guice-servlet
@@ -1532,7 +1562,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 * javax.inject
 * activation
 * jsr305
-* geronimo-jaspic\_1.0\_spec
+* geronimo-jaspic_1.0_spec
 * jul-to-slf4j
 * java-xmlbuilder
 * ant
@@ -1559,7 +1589,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 * jpam
 * jersey-client
 * aopalliance
-* geronimo-annotation\_1.0\_spec
+* geronimo-annotation_1.0_spec
 * ant-launcher
 * jersey-guice
 * xml-apis
@@ -1567,7 +1597,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 * asm-commons
 * asm-tree
 * wadl
-* geronimo-jta\_1.1\_spec
+* geronimo-jta_1.1_spec
 * guice
 * leveldbjni-all
 * velocity
@@ -1598,7 +1628,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 * HBase:
 * snappy
 
-### 버전 변경 내용
+### <a name="version-changes"></a>버전 변경 내용
 다음 버전 변경 내용이 HDInsight 2.x(HDP1.x)와 HDInsight 3.x(HDP2.x) 간에 수행되었습니다.
 
 * metrics-core: ['2.1.2'] -> ['3.0.0']
@@ -1618,19 +1648,19 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 * datanucleus-api-jdo: ['3.0.7'] -> ['3.2.6']
 * zookeeper: ['3.4.5.1.3.9.0-01320'] -> ['3.4.5.2.1.3.0-1948']
 * bonecp: ['0.7.1.RELEASE'] -> ['
-* 0\.8.0.RELEASE']
+* 0.8.0.RELEASE']
 
-### 드라이버
-SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. odbc를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive odbc(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md) 을 참조하세요.
+### <a name="drivers"></a>드라이버
+SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. ODBC를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive ODBC(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요.
 
-### 버그 수정
+### <a name="bug-fixes"></a>버그 수정
 이 릴리스에서 몇 가지 버그 수정을 통해 다음 HDInsight 버전을 새로 고쳤습니다.
 
 * HDInsight 2.1(HDP 1.3)
 * HDInsight 3.0(HDP 2.0)
 * HDInsight 3.1(HDP 2.1)
 
-## Hortonworks 릴리스 정보
+## <a name="hortonworks-release-notes"></a>Hortonworks 릴리스 정보
 HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 대한 릴리스 정보는 다음 위치에서 사용할 수 있습니다.
 
 * HDInsight 버전 3.1에서는 [Hortonworks Data Platform 2.1.7][hdp-2-1-7]을 기반으로 하는 Hadoop 배포를 사용합니다. 이는 2014년 11월 7일 이후에 Azure 포털을 사용할 때 만든 기본 Hadoop 클러스터입니다. 2014년 11월 7일 이전에 만들어진 HDInsight 3.1 클러스터는 [Hortonworks Data Platform 2.1.1][hdp-2-1-1]을 기반으로 합니다.
@@ -1656,4 +1686,8 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

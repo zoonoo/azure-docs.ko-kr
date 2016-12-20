@@ -1,19 +1,23 @@
 ---
-title: 'Azure AD Connect: 다음 단계 및 Azure AD Connect 관리 방법 | Microsoft Docs'
-description: Azure AD Connect에 대한 기본 구성 및 운영 작업을 확장하는 방법을 알아봅니다.
+title: "Azure AD Connect: 다음 단계 및 Azure AD Connect 관리 방법 | Microsoft Docs"
+description: "Azure AD Connect에 대한 기본 구성 및 운영 작업을 확장하는 방법을 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: c18bee36-aebf-4281-b8fc-3fe14116f1a5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 11/01/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 20195cb0d653cf0b1dc87af0fedbf9e49f259737
+
 
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>다음 단계 및 Azure AD Connect 관리 방법
@@ -70,6 +74,9 @@ Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

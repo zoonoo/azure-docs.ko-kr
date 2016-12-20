@@ -1,12 +1,12 @@
 ---
-title: SQL 데이터 웨어하우스용 드라이버 | Microsoft Docs
-description: SQL 데이터 웨어하우스용 드라이버 및 연결 문자열
+title: "SQL Data Warehouse용 드라이버 | Microsoft Docs"
+description: "SQL 데이터 웨어하우스용 드라이버 및 연결 문자열"
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 5c91f423-b550-4734-8094-c7f2c418ac8d
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 99be9d9b840e3d8cfbb24a76fc3dc8d5e041f63d
+
 
 ---
 # <a name="drivers-for-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스용 드라이버
@@ -62,6 +66,6 @@ Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

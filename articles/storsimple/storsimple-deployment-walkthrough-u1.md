@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 68f3736069a153e6de9a7ba5f11708a4eb648dbf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8a3f389250920dcdb49a5f88812d2e3b88bfd6c6
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device-update-1"></a>온-프레미스 StorSimple 장치(업데이트 1) 배포
+# <a name="deploy-your-on-premises-storsimple-device-update-1"></a>온-프레미스 StorSimple 장치(업데이트 1) 배포
 > [!div class="op_single_selector"]
 > * [업데이트 2](storsimple-deployment-walkthrough-u2.md)
 > * [업데이트 1](storsimple-deployment-walkthrough-u1.md)
@@ -86,11 +86,11 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 | &nbsp; |보조 DNS 서버 |필요한 구성입니다. | |
 | &nbsp; |네트워크 인터페이스: 데이터 0 컨트롤러 고정 IP |이러한 IP는 인터넷에 라우팅 가능해야 합니다.</br>컨트롤러 0 고정 IP 주소:</br>컨트롤러 1 고정 IP 주소: | |
 |  | | | |
-| **추가 네트워크 인터페이스 설정** |네트워크 인터페이스: 데이터 1</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. |용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이: | |
-| &nbsp; |네트워크 인터페이스: 데이터 2</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. |용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이: | |
-| &nbsp; |네트워크 인터페이스: 데이터 3</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. |용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이: | |
-| &nbsp; |네트워크 인터페이스: 데이터 4</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. |용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이: | |
-| &nbsp; |네트워크 인터페이스: 데이터 5</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. |용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이: | |
+| **추가 네트워크 인터페이스 설정** |네트워크 인터페이스: 데이터 1</br>iSCSI가 사용되도록 설정된 경우 게이트웨이를 구성하지 마세요. |용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이: | |
+| &nbsp; |네트워크 인터페이스: 데이터 2</br>iSCSI가 사용되도록 설정된 경우 게이트웨이를 구성하지 마세요. |용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이: | |
+| &nbsp; |네트워크 인터페이스: 데이터 3</br>iSCSI가 사용되도록 설정된 경우 게이트웨이를 구성하지 마세요. |용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이: | |
+| &nbsp; |네트워크 인터페이스: 데이터 4</br>iSCSI가 사용되도록 설정된 경우 게이트웨이를 구성하지 마세요. |용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이: | |
+| &nbsp; |네트워크 인터페이스: 데이터 5</br>iSCSI가 사용되도록 설정된 경우 게이트웨이를 구성하지 마세요. |용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이: | |
 |  | | | |
 | **볼륨 컨테이너 만들기** |볼륨 컨테이너 이름: |컨테이너의 이름 | |
 | &nbsp; |Azure 저장소 계정: |이 볼륨 컨테이너와 연결할 저장소 계정 이름 및 액세스 키 | |
@@ -131,7 +131,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 
 * [StorSimple 장치에 대한 네트워킹 요구 사항](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device)에서 설명한 대로 데이터 센터 방화벽에서 포트가 열려 있어 iSCSI 및 클라우드 트래픽을 허용합니다.
 
-## <a name="stepbystep-deployment"></a>단계별 배포
+## <a name="step-by-step-deployment"></a>단계별 배포
 다음 단계별 지침을 사용하여 데이터 센터에서 StorSimple 장치를 배포합니다.
 
 ## <a name="step-1-create-a-new-service"></a>1단계: 새 서비스 만들기
@@ -270,6 +270,6 @@ Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

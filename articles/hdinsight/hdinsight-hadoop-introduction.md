@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/21/2016
 ms.author: cgronlun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cefda0778fed4ab8d502955dd8eae4bdac70a48e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 66200ad8688928c368146a177130f6e2fad4849b
 
 
 ---
@@ -148,7 +148,7 @@ JVM(Java virtual machine)을 사용하여 Java 이외의 여러 언어를 실행
 * Jython(Java용 Python)
 * Scala
 
-### <a name="hadoopspecific-languages"></a>Hadoop 관련 언어
+### <a name="hadoop-specific-languages"></a>Hadoop 관련 언어
 HDInsight 클러스터는 Hadoop 에코시스템에만 적용되는 다음 언어를 지원합니다.
 
 * Pig 작업에 대한 Pig Latin
@@ -167,12 +167,12 @@ HDInsight의 Hadoop은 Azure 클라우드 에코시스템의 일부분으로 다
 * 가상 네트워크 지원. HDInsight를 Azure 가상 네트워크와 함께 사용하여 데이터 센터의 리소스와 클라우드 리소스를 연결하는 하이브리드 시나리오 또는 클라우드 리소스 격리를 지원할 수 있습니다.
 * 저렴한 초기 비용. [무료 평가판](https://azure.microsoft.com/free/)으로 시작하거나 [HDInsight 가격 책정 정보](https://azure.microsoft.com/pricing/details/hdinsight/)를 확인해 보세요.
 
-HDInsight의 Hadoop이 제공하는 이점에 대한 자세한 내용은 [HDInsight의 Azure 기능 페이지t][marketing-page]를 참조하세요.
+HDInsight의 Hadoop이 제공하는 이점에 대한 자세한 내용은 [HDInsight의 Azure 기능 페이지][marketing-page]를 참조하세요.
 
 ## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard 및 HDInsight Premium
 HDInsight는 빅 데이터 클라우드 제품을 표준 및 프리미엄이라는 두 범주로 제공합니다. HDInsight 표준은 조직에서 해당 빅 데이터 워크로드를 실행하는 데 사용할 수 있는 엔터프라이즈 규모 클러스터를 제공합니다. HDInsight 프리미엄은 여기에 기반하여 HDInsight 클러스터에 대한 고급 분석 및 보안 기능을 제공합니다. 자세한 내용은 [Azure HDInsight 프리미엄](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)
 
-## <a name="a-idresourcesaresources-for-learning-more-about-bigdata-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>빅 데이터 분석, Hadoop 및 HDInsight에 대해 자세히 알아볼 수 있는 리소스
+## <a name="a-idresourcesaresources-for-learning-more-about-big-data-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>빅 데이터 분석, Hadoop 및 HDInsight에 대해 자세히 알아볼 수 있는 리소스
 아래 리소스를 사용하여 클라우드의 Hadoop과 빅 데이터 분석에 대한 이 소개를 작성합니다.
 
 ### <a name="hadoop-documentation-for-hdinsight"></a>HDInsight용 Hadoop 설명서
@@ -204,6 +204,6 @@ HDInsight는 빅 데이터 클라우드 제품을 표준 및 프리미엄이라�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

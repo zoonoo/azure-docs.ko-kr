@@ -1,12 +1,12 @@
 ---
-title: Azure Redis Cache를 관리하는 방법 | Microsoft Docs
-description: Azure Redis Cache 다시 부팅 및 업데이트 예약과 같은 관리 작업을 수행하는 방법을 알아봅니다.
+title: "Azure Redis Cache를 관리하는 방법 | Microsoft Docs"
+description: "Azure Redis Cache 다시 부팅 및 업데이트 예약과 같은 관리 작업을 수행하는 방법을 알아봅니다."
 services: redis-cache
 documentationcenter: na
 author: steved0x
 manager: douge
 editor: tysonn
-
+ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 09/27/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c0a0c113c73c1d77a79989d9cddef90cd370fd19
+
 
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Azure Redis Cache를 관리하는 방법
@@ -33,11 +37,11 @@ Azure Redis Cache **관리** 설정을 사용하여 프리미엄 캐시에 대�
 * [업데이트 예약](#schedule-updates)
 
 ## <a name="reboot"></a>Reboot
-**다시 부팅** 블레이드에서는 하나 이상의 캐시 노드를 다시 부팅할 수 있습니다. 따라서 오류 발생 시 응용 프로그램의 복원력을 테스트할 수 있습니다.
+**재부팅** 블레이드에서는 하나 이상의 캐시 노드를 재부팅할 수 있습니다. 따라서 오류 발생 시 응용 프로그램의 복원력을 테스트할 수 있습니다.
 
 ![Reboot](./media/cache-administration/redis-cache-reboot.png)
 
-클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 다시 부팅할 캐시 분할을 선택할 수 있습니다.
+클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 재부팅할 캐시 분할을 선택할 수 있습니다.
 
 ![Reboot](./media/cache-administration/redis-cache-reboot-cluster.png)
 
@@ -62,10 +66,10 @@ Azure Redis Cache **관리** 설정을 사용하여 프리미엄 캐시에 대�
 * [PowerShell, CLI 또는 기타 관리 도구를 사용하여 내 캐시를 다시 부팅할 수 있나요?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
 * [어떤 가격 책정 계층에서 다시 부팅 기능을 사용할 수 있나요?](#what-pricing-tiers-can-use-the-reboot-functionality)
 
-### <a name="which-node-should-i-reboot-to-test-my-application?"></a>응용 프로그램을 테스트하려는 경우 어떤 노드를 다시 부팅해야 하나요?
+### <a name="which-node-should-i-reboot-to-test-my-application"></a>응용 프로그램을 테스트하려는 경우 어떤 노드를 다시 부팅해야 하나요?
 캐시의 주 노드 장애 시 응용 프로그램의 복원력을 테스트하려면 **마스터** 노드를 다시 부팅합니다. 캐시의 보조 노드 장애 시 응용 프로그램의 복원력을 테스트하려면 **슬레이브** 노드를 다시 부팅합니다. 캐시 전체의 장애 시 응용 프로그램의 복원력을 테스트하려면 **두** 노드를 다시 부팅합니다.
 
-### <a name="can-i-reboot-the-cache-to-clear-client-connections?"></a>캐시를 다시 부팅하여 클라이언트 연결을 끊을 수 있나요?
+### <a name="can-i-reboot-the-cache-to-clear-client-connections"></a>캐시를 다시 부팅하여 클라이언트 연결을 끊을 수 있나요?
 예, 캐시를 다시 부팅하면 모든 클라이언트 연결이 끊어집니다. 이러한 동작은 가령 클라이언트 응용 프로그램의 논리 오류나 버그로 인해 모든 클라이언트 연결이 다 소비된 경우에 유용할 수 있습니다. 각 가격 책정 계층에는 다양한 크기의 [클라이언트 연결 제한](cache-configure.md#default-redis-server-configuration)이 있으며 이러한 제한에 도달하면 추가적인 클라이언트 연결이 더 이상 허용되지 않습니다. 캐시를 다시 부팅하면 모든 클라이언트 연결을 끊을 수 있습니다.
 
 > [!IMPORTANT]
@@ -73,15 +77,15 @@ Azure Redis Cache **관리** 설정을 사용하여 프리미엄 캐시에 대�
 > 
 > 
 
-### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot?"></a>다시 부팅하는 경우 캐시의 데이터가 손실되나요?
+### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>다시 부팅하는 경우 캐시의 데이터가 손실되나요?
 **마스터** 및 **슬레이브** 노드를 둘 다 다시 부팅하는 경우 캐시(또는 클러스터링이 설정된 프리미엄 캐시를 사용하는 해당 분할)의 모든 데이터가 손실됩니다. [데이터 지속성](cache-how-to-premium-persistence.md)을 구성한 경우 캐시가 다시 온라인 상태가 되면 가장 최근 백업이 복원됩니다. 백업 이후에 발생한 캐시 쓰기가 손실되었는지 확인합니다.
 
 노드 중 하나만 다시 부팅하는 경우 일반적으로는 데이터가 손실되지 않지만 여전히 손실될 가능성이 있습니다. 예를 들어 캐시 쓰기가 진행 중일 때 마스터 노드를 다시 부팅하면 캐시 쓰기의 데이터가 손실됩니다. 데이터 손실이 발생할 수 있는 또 다른 시나리오는 노드 하나를 다시 부팅하는 동시에 오류로 인해 다른 노드가 작동 중단되는 경우입니다. 데이터 손실의 가능한 원인에 대한 자세한 내용은 [내 Redis 데이터에서 무엇이 변경되었나요?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)를 참조하세요.
 
-### <a name="can-i-reboot-my-cache-using-powershell,-cli,-or-other-management-tools?"></a>PowerShell, CLI 또는 기타 관리 도구를 사용하여 내 캐시를 다시 부팅할 수 있나요?
+### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>PowerShell, CLI 또는 기타 관리 도구를 사용하여 내 캐시를 다시 부팅할 수 있나요?
 예, PowerShell 소개는 [Redis Cache를 다시 부팅하려면](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache)을 참조하세요.
 
-### <a name="what-pricing-tiers-can-use-the-reboot-functionality?"></a>어떤 가격 책정 계층에서 다시 부팅 기능을 사용할 수 있나요?
+### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a>어떤 가격 책정 계층에서 다시 부팅 기능을 사용할 수 있나요?
 다시 부팅은 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.
 
 ## <a name="schedule-updates"></a>업데이트 예약
@@ -102,13 +106,13 @@ Azure Redis Cache **관리** 설정을 사용하여 프리미엄 캐시에 대�
 * [PowerShell, CLI 또는 기타 관리 도구를 사용하여 관리되는 예약된 업데이트를 수행할 수 있나요?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
 * [어떤 가격 책정 계층에서 업데이트 예약 기능을 사용할 수 있나요?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
 
-### <a name="when-do-updates-occur-if-i-don't-use-the-schedule-updates-feature?"></a>일정 업데이트 기능을 사용하지 않으면 업데이트가 언제 발생하나요?
+### <a name="when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature"></a>일정 업데이트 기능을 사용하지 않으면 업데이트가 언제 발생하나요?
 유지 관리 기간을 지정하지 않으면, 언제든지 업데이트가 진행될 수 있습니다.
 
-### <a name="what-type-of-updates-are-made-during-the-scheduled-maintenance-window?"></a>예약된 유지 관리 기간 동안에는 어떤 유형의 업데이트가 진행되나요?
+### <a name="what-type-of-updates-are-made-during-the-scheduled-maintenance-window"></a>예약된 유지 관리 기간 동안에는 어떤 유형의 업데이트가 진행되나요?
 예약된 유지 관리 기간 동안에는 Redis 서버 업데이트만 수행됩니다. 유지 관리 기간이 Azure 업데이트 또는 VM 운영 체제에 대한 업데이트에는 적용되지 않습니다.
 
-### <a name="can-i-managed-scheduled-updates-using-powershell,-cli,-or-other-management-tools?"></a>PowerShell, CLI 또는 기타 관리 도구를 사용하여 관리되는 예약된 업데이트를 수행할 수 있나요?
+### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>PowerShell, CLI 또는 기타 관리 도구를 사용하여 관리되는 예약된 업데이트를 수행할 수 있나요?
 예, 다음 PowerShell cmdlet을 사용하여 예약된 업데이트를 관리할 수 있습니다.
 
 * [Get-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763835.aspx)
@@ -116,12 +120,15 @@ Azure Redis Cache **관리** 설정을 사용하여 프리미엄 캐시에 대�
 * [New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx)
 * [Remove-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763837.aspx)
 
-### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality?"></a>어떤 가격 책정 계층에서 업데이트 예약 기능을 사용할 수 있나요?
+### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>어떤 가격 책정 계층에서 업데이트 예약 기능을 사용할 수 있나요?
 업데이트 예약 기능은 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Redis Cache 프리미엄 계층](cache-premium-tier-intro.md) 기능에 대해 더 알아봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: PowerShell을 사용하여 기본 모드 보고서 서버로 VM 만들기 | Microsoft Docs
-description: '이 항목에서는 Azure 가상 컴퓨터에서 SQL Server Reporting Services 기본 모드 보고서 서버의 배포 및 구성에 대해 설명하고 안내합니다. '
+title: "PowerShell을 사용하여 기본 모드 보고서 서버로 VM 만들기 | Microsoft Docs"
+description: "이 항목에서는 Azure 가상 컴퓨터에서 SQL Server Reporting Services 기본 모드 보고서 서버의 배포 및 구성에 대해 설명하고 안내합니다. "
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
 manager: erikre
 editor: monicar
 tags: azure-service-management
-
+ms.assetid: 553af55b-d02e-4e32-904c-682bfa20fa0f
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: b86f6c2f87aa3de2292ea8b02c0651c61036c8ef
+
 
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
@@ -33,13 +37,13 @@ ms.author: asaxton
 * **Azure 구독**: Azure 구독에서 사용 가능한 코어 수를 확인합니다. 권장되는 VM 크기인 **A3**을 만드는 경우 **4**개의 사용 가능한 코어가 필요합니다. **A2**의 VM 크기를 사용하는 경우 **2**개의 사용 가능한 코어가 필요합니다.
   
   * 구독의 코어 제한을 확인하려면, Azure 클래식 포털의 왼쪽 창에서 설정을 클릭하고 위쪽 메뉴에서 사용을 클릭합니다.
-  * 코어 할당량을 늘리려면 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요. VM 크기 정보는 [Azure에 대한 가상 컴퓨터 크기](virtual-machines-linux-sizes.md)를 참조하세요.
+  * 코어 할당량을 늘리려면 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요. VM 크기 정보는 [Azure에 대한 가상 컴퓨터 크기](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 * **Windows PowerShell 스크립팅**: 이 항목에서는 Windows PowerShell의 기본 작동 지식이 있다고 가정합니다. Windows PowerShell을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
   
   * [Windows Server에서 Windows PowerShell 시작](https://technet.microsoft.com/library/hh847814.aspx)
   * [Windows PowerShell 시작](https://technet.microsoft.com/library/hh857337.aspx)
 
-## <a name="step-1:-provision-an-azure-virtual-machine"></a>1단계: Azure 가상 컴퓨터 프로비전
+## <a name="step-1-provision-an-azure-virtual-machine"></a>1단계: Azure 가상 컴퓨터 프로비전
 1. Azure 클래식 포털로 이동합니다.
 2. 왼쪽 창에서 **가상 컴퓨터** 를 클릭합니다.
    
@@ -74,13 +78,13 @@ ms.author: asaxton
    * **끝점** **원격 데스크톱** 및 **PowerShell** 끝점을 그대로 유지한 다음 사용자 환경에 따라 HTTP 또는 HTTPS 끝점을 추가합니다.
      
      * **HTTP**: 기본 공용 포트 및 개인 포트가 **80**입니다. 80 이외의 개인 포트를 사용하는 경우 HTTP 스크립트에서 **$HTTPport = 80** 을 수정합니다.
-     * **HTTPS**: 기본 공용 포트 및 개인 포트가 **443**입니다. 보안 모범 사례는 개인 포트를 변경하고 개인 포트를 사용하도록 방화벽 및 보고서 서버를 구성하는 것입니다. 끝점에 대한 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요. 443 이외의 포트를 사용하는 경우 HTTPS 스크립트에서 매개 변수 **$HTTPsport = 443** 을 변경합니다.
+     * **HTTPS**: 기본 공용 포트 및 개인 포트가 **443**입니다. 보안 모범 사례는 개인 포트를 변경하고 개인 포트를 사용하도록 방화벽 및 보고서 서버를 구성하는 것입니다. 끝점에 대한 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. 443 이외의 포트를 사용하는 경우 HTTPS 스크립트에서 매개 변수 **$HTTPsport = 443** 을 변경합니다.
    * 다음을 클릭합니다. ![다음](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. 마법사의 마지막 페이지에서 기본 **VM 에이전트 설치** 를 선택한 상태로 유지합니다. 이 항목의 단계에서 VM 에이전트를 이용하지 않지만 이 VM을 유지하려는 경우 VM 에이전트 및 확장을 사용하면 CM이 향상됩니다.  VM 에이전트에 대한 자세한 내용은 [VM 에이전트 및 확장 – 1부](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/)를 참조하세요. AD 실행을 설치한 기본 확장 중 하나가 VM 데스크톱에서 내부 IP 및 여유 드라이브 공간 같은 시스템 정보를 표시하는 “BGINFO” 확장입니다.
 9. 완료를 클릭합니다. ![Ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. VM의 **상태**는 프로비전 프로세스 중에는 **시작 중(프로비전 중)**으로 표시되다가 VM이 프로비전되고 사용할 준비가 되면 **실행 중**으로 표시됩니다.
 
-## <a name="step-2:-create-a-server-certificate"></a>2단계: 서버 인증서 만들기
+## <a name="step-2-create-a-server-certificate"></a>2단계: 서버 인증서 만들기
 > [!NOTE]
 > 보고서 서버에서 HTTPS가 필요하지 않은 경우 **2단계를 건너뛰고** **스크립트를 사용하여 보고서 서버 및 HTTP 구성** 섹션으로 이동합니다. HTTP 스크립트를 사용하여 신속하게 보고서 서버를 구성하면 보고서 서버를 사용할 준비가 된 것입니다.
 > 
@@ -91,7 +95,7 @@ VM에서 HTTPS를 사용하려면 신뢰할 수 있는 SSL 인증서가 필요�
 * CA(인증 기관)에서 발급하고 Microsoft에서 신뢰하는 유효한 SSL 인증서. CA 루트 인증서는 Microsoft 루트 인증서 프로그램을 통해 배포되어야 합니다. 이 프로그램에 대한 자세한 내용은 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(구성원 CA)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) 및 [Microsoft 루트 인증서 프로그램 소개](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx)를 참조하세요.
 * 자체 서명된 인증서. 자체 서명된 인증서는 프로덕션 환경에 권장되지 않습니다.
 
-### <a name="to-use-a-certificate-created-by-a-trusted-certificate-authority-(ca)"></a>신뢰할 수 있는 CA(인증 기관)에서 만든 인증서를 사용하려면
+### <a name="to-use-a-certificate-created-by-a-trusted-certificate-authority-ca"></a>신뢰할 수 있는 CA(인증 기관)에서 만든 인증서를 사용하려면
 1. **인증 기관에서 웹 사이트에 대한 서버 인증서를 요청합니다**. 
    
     웹 서버 인증서 마법사를 사용하여 인증 기관에 보내는 인증서 요청 파일(Certreq.txt)을 생성하거나 온라인 인증 기관에 대한 요청을 생성할 수 있습니다. 예를 들어 Windows Server 2012의 Microsoft 인증서 서비스입니다. 서버 인증서에서 제공하는 식별 보증 수준에 따라 인증 기관이 요청을 승인하고 인증서 파일을 보내는 데 며칠에서 몇 개월까지 걸립니다. 
@@ -140,7 +144,7 @@ VM이 프로비전되었을 때 자체 서명된 인증서가 VM에 만들어졌
 
 자체 서명된 SSL 인증서를 사용하는 경우 인증서 이름이 이미 VM의 호스트 이름과 일치합니다. 따라서 컴퓨터의 DNS는 이미 전역으로 등록되어 있으므로 모든 클라이언트에서 액세스할 수 있습니다.
 
-## <a name="step-3:-configure-the-report-server"></a>3단계: 보고서 서버 구성
+## <a name="step-3-configure-the-report-server"></a>3단계: 보고서 서버 구성
 이 섹션에서는 Reporting Services 기본 모드 보고서 서버로 VM을 구성하는 과정을 안내합니다. 다음 방법 중 하나를 사용하여 보고서 서버를 구성할 수 있습니다.
 
 * 스크립트를 사용하여 보고서 서버 구성
@@ -519,7 +523,7 @@ PowerShell 스크립트를 실행하여 보고서 서버를 구성하지 않으�
 8. 왼쪽 창에서 **보고서 관리자 URL**을 클릭합니다. 기본 **가상 디렉터리**를 **보고서**로 그대로 적용하고 **적용**을 클릭합니다.
 9. **종료** 를 클릭하여 Reporting Services 구성 관리자를 닫습니다.
 
-## <a name="step-4:-open-windows-firewall-port"></a>4단계: Windows 방화벽 포트 열기
+## <a name="step-4-open-windows-firewall-port"></a>4단계: Windows 방화벽 포트 열기
 > [!NOTE]
 > 스크립트 중 하나를 사용하여 보고서 서버를 구성한 경우 이 섹션을 건너뛸 수 있습니다. 스크립트에는 방화벽 포트를 여는 단계가 포함되어 있습니다. 기본값은 HTTP의 경우 포트 80이고 HTTPS의 경우 포트 443입니다.
 > 
@@ -601,15 +605,18 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 ### <a name="resources"></a>리소스
 * SQL Server Business Intelligence 및 SharePoint 2013의 단일 서버 배포와 관련된 유사한 내용은 [Windows PowerShell을 사용하여 SQL Server BI 및 SharePoint 2013에서 Azure VM 만들기](https://msdn.microsoft.com/library/azure/dn385843.aspx)를 참조하세요.
 * SQL Server Business Intelligence 및 SharePoint 2013의 다중 서버 배포와 관련된 유사한 내용은 [Azure 가상 컴퓨터에서 SQL Server Business Intelligence 배포](https://msdn.microsoft.com/library/dn321998.aspx)를 참조하세요.
-* Azure 가상 컴퓨터에서 SQL Server Business Intelligence 배포와 관련된 일반 정보는 [Azure 가상 컴퓨터에서 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)를 참조하세요.
+* Azure 가상 컴퓨터에서 SQL Server Business Intelligence 배포와 관련된 일반 정보는 [Azure 가상 컴퓨터에서 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 * Azure 계산 요금의 비용에 대한 자세한 내용은 [Azure 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines)의 가상 컴퓨터 탭을 참조하세요.
 
 ### <a name="community-content"></a>커뮤니티 콘텐츠
 * 스크립트를 사용하지 않고 Reporting Services 기본 모드 보고서 서버를 만드는 방법에 대한 단계별 지침은 [Azure 가상 컴퓨터에 SQL Reporting Services 호스트](http://adititechnologiesblog.blogspot.in/2012/07/hosting-sql-reporting-service-on-azure.html)를 참조하세요.
 
 ### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>Azure VM의 SQL Server에 대한 기타 리소스 링크
-[Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)
+[Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

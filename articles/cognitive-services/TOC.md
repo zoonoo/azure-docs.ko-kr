@@ -45,7 +45,7 @@
 ## [언어 인식 인텔리전트 서비스를 사용하여 개발](https://www.luis.ai/Help/)
 
 # 참조
-## [PowerShell cmdlet](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices)
 ## [REST (영문)](https://docs.microsoft.com/rest/api/cognitiveservices/)
 
 # 리소스 
@@ -54,6 +54,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cognitive-services)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

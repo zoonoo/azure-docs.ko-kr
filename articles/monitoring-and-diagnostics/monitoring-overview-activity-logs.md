@@ -1,118 +1,129 @@
 ---
-title: Overview of the Azure Activity Log | Microsoft Docs
-description: Learn what the Azure Activity Log is and how you can use it to understand events occurring within your Azure subscription.
+title: "Azure 활동 로그 개요 | Microsoft Docs"
+description: "Azure 활동 로그란 무엇이고 Azure 구독 내에서 발생하는 이벤트를 파악하는 데 어떻게 사용할 수 있는지 알아봅니다."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 10/25/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fc01f4dd55e1f933243bc23424b54767870374d1
+
 
 ---
-# <a name="overview-of-the-azure-activity-log"></a>Overview of the Azure Activity Log
-The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write (PUT, POST, DELETE) operations taken on the resources in your subscription, plus understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations.
+# <a name="overview-of-the-azure-activity-log"></a>Azure 활동 로그 개요
+**Azure 활동 로그** 는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공하는 로그입니다. 활동 로그는 구독에 대한 제어 평면 이벤트를 보고하므로 이전에 "감사 로그" 또는 "작업 로그"로 알려져 있습니다. 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 '무엇을, 누가, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기(GET) 작업은 포함되지 않습니다.
 
-The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource. 
+활동 로그는 리소스에서 내보낸 모든 로그를 나타내는 [진단 로그](monitoring-overview-of-diagnostic-logs.md)와 다릅니다. 이러한 로그는 해당 리소스에 대한 작업보다는 해당 리소스의 작업에 대한 데이터를 제공합니다.
 
-You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Insights REST API.
+Azure 포털, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 활동 로그에서 이벤트를 검색할 수 있습니다.
 
-## <a name="what-you-can-do-with-the-activity-log"></a>What you can do with the Activity Log
-Here are some of the things you can do with the Activity Log:
+[활동 로그를 소개하는 이 비디오](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz)를 보세요.  
 
-* Query and view it in the **Azure portal**.
-* Query it via REST API, PowerShell Cmdlet, or CLI.
-* [Create an email or webhook alert that triggers off an Activity Log event.](insights-auditlog-to-webhook-email.md)
-* [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using **Log Profiles**.
-* Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
-* [Stream it to an **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third party service or custom analytics solution such as PowerBI.
+## <a name="what-you-can-do-with-the-activity-log"></a>활동 로그에서 수행할 수 있는 작업
+활동 로그를 통해 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
 
-## <a name="export-the-activity-log-with-log-profiles"></a>Export the Activity Log with Log Profiles
-A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
+* **Azure 포털**에서 쿼리하고 봅니다.
+* REST API, PowerShell Cmdlet 또는 CLI를 통해 쿼리합니다.
+* [활동 로그 이벤트를 트리거 해제하는 전자 메일 또는 웹후크 경고를 만듭니다.](insights-auditlog-to-webhook-email.md)
+* [보관 또는 수동 검사를 위해 **저장소 계정**에 저장합니다](monitoring-archive-activity-log.md). **로그 프로필**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
+* [**PowerBI 콘텐츠 팩**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 PowerBI에서 분석합니다.
+* [타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 **Event Hub**](monitoring-stream-activity-logs-event-hubs.md)로 스트림합니다.
 
-* Where the Activity Log should be sent (Storage Account or Event Hubs)
-* Which event categories (eg. Write, Delete, Action) should be sent
-* Which regions (locations) should be exported
-* How long the Activity Log should be retained in a Storage Account – a retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647. If retention policies are set but storing logs in a Storage Account is disabled (eg. if only Event Hubs or OMS options are selected), the retention policies have no effect.
+## <a name="export-the-activity-log-with-log-profiles"></a>로그 프로필과 함께 활동 로그 내보내기
+**로그 프로필** 은 활동 로그를 내보내는 방식을 제어합니다. 로그 프로필을 사용하여 다음을 구성할 수 있습니다.
 
-These settings can be configured via the “Export” option in the Activity Log blade in the portal, or programmatically [using the REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
+* 활동 로그를 보낼 위치(저장소 계정 또는 이벤트 허브)
+* 보낼 이벤트 범주(쓰기, 삭제, 작업)
+* 내보낼 하위 지역(위치)
+* 저장소 계정에 활동 로그를 보존할 기간 - 0일의 보존 기간은 로그를 영원히 보관하는 것을 의미합니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다. 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 Event Hubs 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
 
-### <a name="configure-log-profiles-using-the-azure-portal"></a>Configure log profiles using the Azure portal
-You can stream the Activity Log to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure portal.
+이러한 설정은 포털의 활동 로그 블레이드에서 "내보내기" 옵션을 통해 구성할 수 있습니다. [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlet 또는 CLI를 사용하여 프로그래밍 방식으로 구성할 수도 있습니다. 하나의 구독에는 하나의 로그 프로필만 포함할 수 있습니다.
 
-1. Navigate to the **Activity Log** blade using the menu on the left side of the portal.
+### <a name="configure-log-profiles-using-the-azure-portal"></a>Azure 포털을 사용하여 로그 프로필 구성
+활동 로그를 이벤트 허브로 스트림하거나 Azure 포털의 "내보내기" 옵션을 사용하여 저장소 계정에 저장할 수 있습니다.
+
+1. 포털 왼쪽에 있는 메뉴를 사용하여 **활동 로그** 블레이드로 이동합니다.
    
-    ![Navigate to Activity Log in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Click the **Export** button at the top of the blade.
+    ![포털에서 활동 로그로 이동](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
+2. 블레이드 맨 위에서 **내보내기** 단추를 클릭합니다.
    
-    ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. In the blade that appears, you can select the regions for which you would like to export events, the Storage Account to which you would like to save events (as well as the number of days you want to retain these events in storage--0 days will retain the logs forever), and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
+    ![포털에서 내보내기 단추](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+3. 표시되는 블레이드에서 다음을 선택할 수 있습니다.  
    
-    ![Export Activity Log blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
+   * 이벤트를 내보내려는 지역
+   * 이벤트를 저장하려는 저장소 계정
+   * 저장소에서 이러한 이벤트를 유지하려는 기간(일). 0일로 설정하면 로그를 계속 유지합니다.
+   * 이러한 이벤트를 스트리밍하기 위해 Event Hub를 만들 Service Bus 네임스페이스입니다.
+     
+     ![활동 로그 내보내기 블레이드](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+4. **저장** 을 클릭하여 이러한 설정을 저장합니다. 해당 설정이 구독에 즉시 적용됩니다.
 
-### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Configure log profiles using the Azure PowerShell Cmdlets
-#### <a name="get-existing-log-profile"></a>Get existing log profile
+### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Azure PowerShell Cmdlet을 사용하여 로그 프로필 구성
+#### <a name="get-existing-log-profile"></a>기존 로그 프로필 가져오기
 ```
 Get-AzureRmLogProfile
 ```
 
-#### <a name="add-a-log-profile"></a>Add a log profile
+#### <a name="add-a-log-profile"></a>로그 프로필 추가
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
-| Property | Required | Description |
+| 속성 | 필수 | 설명 |
 | --- | --- | --- |
-| Name |Yes |Name of your log profile. |
-| StorageAccountId |No |Resource ID of the Storage Account to which the Activity Log should be saved. |
-| serviceBusRuleId |No |Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. Will be a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. |
-| RetentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero will store the logs indefinitely (forever). |
-| Categories |No |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
+| 이름 |예 |로그 프로필의 이름입니다. |
+| StorageAccountId |아니요 |활동 로그를 저장할 저장소 계정의 리소스 ID입니다. |
+| serviceBusRuleId |아니요 |이벤트 허브를 만들 서비스 버스 네임스페이스의 서비스 버스 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
+| 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
+| RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
+| 범주 |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
-#### <a name="remove-a-log-profile"></a>Remove a log profile
+#### <a name="remove-a-log-profile"></a>로그 프로필 제거
 ```
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cross-platform-cli"></a>Configure log profiles Using the Azure Cross-Platform CLI
-#### <a name="get-existing-log-profile"></a>Get existing log profile
+### <a name="configure-log-profiles-using-the-azure-cross-platform-cli"></a>Azure 플랫폼 간 CLI를 사용하여 로그 프로필 구성
+#### <a name="get-existing-log-profile"></a>기존 로그 프로필 가져오기
 ```
 azure insights logprofile list
 ```
 ```
 azure insights logprofile get --name my_log_profile
 ```
-The `name` property should be the name of your log profile.
+`name` 속성은 로그 프로필의 이름이어야 합니다.
 
-#### <a name="add-a-log-profile"></a>Add a log profile
-``` 
+#### <a name="add-a-log-profile"></a>로그 프로필 추가
+```
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 
-| Property | Required | Description |
+| 속성 | 필수 | 설명 |
 | --- | --- | --- |
-| name |Yes |Name of your log profile. |
-| storageId |No |Resource ID of the Storage Account to which the Activity Log should be saved. |
-| serviceBusRuleId |No |Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. Will be a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. |
-| locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. |
-| retentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever). |
-| categories |No |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
+| name |예 |로그 프로필의 이름입니다. |
+| storageId |아니요 |활동 로그를 저장할 저장소 계정의 리소스 ID입니다. |
+| serviceBusRuleId |아니요 |이벤트 허브를 만들 서비스 버스 네임스페이스의 서비스 버스 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
+| 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
+| RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
+| 범주 |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
-#### <a name="remove-a-log-profile"></a>Remove a log profile
+#### <a name="remove-a-log-profile"></a>로그 프로필 제거
 ```
 azure insights logprofile delete --name my_log_profile
 ```
 
-## <a name="event-schema"></a>Event schema
-Each event in the Activity Log has a JSON blob like this one:
+## <a name="event-schema"></a>이벤트 스키마
+활동 로그의 각 이벤트는 다음과 같은 JSON Blob을 포함합니다.
 
 ```
 {
@@ -195,34 +206,37 @@ Each event in the Activity Log has a JSON blob like this one:
 }
 ```
 
-| Element Name | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
-| authorization |Blob of RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties. |
-| caller |Email address of the user who has performed the operation, UPN claim, or SPN claim based on availability. |
-| channels |One of the following values: “Admin”, “Operation” |
-| correlationId |Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
-| description |Static text description of an event. |
-| eventDataId |Unique identifier of an event. |
-| eventSource |Name of the Azure service or infrastructure that has generated this event. |
-| httpRequest |Blob describing the Http Request. Usually includes the “clientRequestId”, “clientIpAddress” and “method” (HTTP method e.g. PUT). |
-| level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, “Informational” and “Verbose” |
-| resourceGroupName |Name of the resource group for the impacted resource. |
-| resourceProviderName |Name of the resource provider for the impacted resource |
-| resourceUri |Resource id of the impacted resource. |
-| operationId |A GUID shared among the events that correspond to a single operation. |
-| operationName |Name of the operation. |
-| properties |Set of `<Key, Value>` pairs (i.e. Dictionary) describing the details of the event. |
-| status |String describing the status of the operation. Some common values are: Started, In Progress, Succeeded, Failed, Active, Resolved. |
-| subStatus |Usually the HTTP status code of the corresponding REST call, but can also include other strings describing a substatus, such as these common values: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504). |
-| eventTimestamp |Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
-| submissionTimestamp |Timestamp when the event became available for querying. |
-| subscriptionId |Azure Subscription Id. |
-| nextLink |Continuation token to fetch the next set of results when they are broken up into multiple responses. This is usually the case if there are more than 200 records. |
+| authorization |이벤트의 RBAC 속성 Blob입니다. 일반적으로 "action", "role" 및 "scope" 속성이 포함됩니다. |
+| caller |가용성을 기반으로 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 메일 주소입니다. |
+| channels |"Admin", "Operation" 값 중 하나여야 합니다. |
+| CorrelationId |일반적으로 문자열 형식의 GUID입니다. 동일한 uber 작업에 속하는 correlationId를 공유하는 이벤트입니다. |
+| 설명 |이벤트의 정적 텍스트 설명입니다. |
+| eventDataId |이벤트의 고유 식별자입니다. |
+| eventSource |이 이벤트를 생성한 Azure 서비스 또는 인프라의 이름입니다. |
+| httpRequest |Http 요청을 설명하는 Blob입니다. 일반적으로 "clientRequestId", "clientIpAddress" 및 "method"(PUT 등의 HTTP 메서드) 포함. |
+|  최소 수준 |이벤트의 수준입니다. 다음 값 중 하나: “Critical”, “Error”, “Warning”, “Informational” 및 “Verbose” |
+| resourceGroupName |영향을 받는 리소스의 리소스 그룹 이름입니다. |
+| resourceProviderName |영향을 받는 리소스의 리소스 공급자 이름입니다. |
+| resourceUri |영향을 받는 리소스의 리소스 ID입니다. |
+| operationId |단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
+| operationName |작업의 이름입니다. |
+| properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다. |
+| status |작업의 상태를 설명하는 문자열. 일반적인 값: Started, In Progress, Succeeded, Failed, Active, Resolved. |
+| subStatus |일반적으로 해당 REST 호출의 HTTP 상태 코드이지만 다음과 같이 하위 상태를 설명하는 다른 문자열을 포함할 수 있습니다. 예를 들어 이러한 일반적인 값은 다음과 같습니다. OK(HTTP 상태 코드: 200), Created(HTTP 상태 코드: 201), Accepted(HTTP 상태 코드: 202), No Content(HTTP 상태 코드: 204), Bad Request(HTTP 상태 코드: 400), Not Found(HTTP 상태 코드: 404), Conflict(HTTP 상태 코드: 409), Internal Server Error(HTTP 상태 코드: 500), Service Unavailable(HTTP 상태 코드:503), Gateway Timeout(HTTP 상태 코드: 504). |
+| eventTimestamp |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
+| submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
+| subscriptionId |Azure 구독 ID입니다. |
+| nextLink |결과가 여러 응답으로 세분화되는 경우 다음 결과 집합을 가져올 연속 토큰입니다. 일반적으로 200개가 넘는 레코드가 있는 경우 필요합니다. |
 
-## <a name="next-steps"></a>Next Steps
-* [Learn more about the Activity Log (formerly Audit Logs)](../resource-group-audit.md)
-* [Stream the Azure Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
+## <a name="next-steps"></a>다음 단계
+* [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](../resource-group-audit.md)
+* [Azure 활동 로그를 이벤트 허브로 스트림](monitoring-stream-activity-logs-event-hubs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 255670335151443445e5ea4a87614b904915e76f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1fda0b3c6c3f262c0f4b2f3ad5f37c4ce44cc0e3
 
 
 ---
-# <a name="setting-up-azure-active-directory-for-selfservice-group-management"></a>셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정
+# <a name="setting-up-azure-active-directory-for-self-service-group-management"></a>셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정
 셀프 서비스 그룹 관리를 사용하면 사용자가 Azure AD(Azure Active Directory)에서 보안 그룹 또는 Office 365 그룹을 만들고 관리할 수 있습니다. 사용자는 보안 그룹 또는 Office 365 그룹 멤버 자격을 요청할 수도 있고 그룹의 소유자는 멤버 자격을 수락하거나 거부할 수 있습니다. 이러한 방식으로 그룹 멤버 자격에 대한 일상적인 제어를 해당 멤버 자격에 대한 비즈니스 컨텍스트를 이해하는 사람에게 위임할 수 있습니다. 셀프 서비스 그룹 관리 기능은 보안 그룹 및 Office 365 그룹에 대해서만 사용할 수 있지만 메일 사용 가능 보안 그룹 및 메일 그룹에는 사용할 수 없습니다.
 
 셀프 서비스 그룹 관리는 현재 위임된 그룹 관리 및 셀프 서비스 그룹 관리 등 두 개의 중요한 시나리오로 구성되어 있습니다.
@@ -30,7 +30,7 @@ ms.openlocfilehash: 255670335151443445e5ea4a87614b904915e76f
 * **셀프 서비스 그룹 관리**
    이 시나리오의 예제에서는 독립적으로 설정한 SharePoint Online 사이트를 보유한 두 사용자를 가정합니다. 이들은 상대방 팀을 해당 사이트에 액세스할 수 있도록 하려고 합니다. 이를 위해서 두 사용자는 Azure AD에 하나의 그룹을 만들고 각각 SharePoint Online에서 해당 사이트에 대한 액세스 권한을 제공할 그룹을 선택합니다. 사용자가 액세스 권한이 필요하면 액세스 패널에서 요청하고 승인을 받으면 자동으로 두 SharePoint Online 사이트에 대한 액세스 권한을 얻습니다. 이후 사이트에 액세스하는 모든 사용자가 특정 SaaS 응용 프로그램에 대한 액세스 권한도 가져야 하는지를 둘 중 한 명이 결정할 수 있습니다. SaaS 응용 프로그램의 관리자는 응용 프로그램에 대한 액세스 권한을 SharePoint Online 사이트에 추가할 수 있습니다. 이후로 승인된 모든 요청은 두 SharePoint Online 사이트 및 해당 SaaS 응용 프로그램에 대한 액세스 권한을 부여합니다.
 
-## <a name="making-a-group-available-for-end-user-selfservice"></a>최종 사용자 셀프 서비스에서 그룹을 사용할 수 있도록 지정
+## <a name="making-a-group-available-for-end-user-self-service"></a>최종 사용자 셀프 서비스에서 그룹을 사용할 수 있도록 지정
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 Azure AD 디렉터리로 이동합니다.
 2. **구성** 탭에 **위임된 그룹 관리**를 사용하도록 설정합니다.
 3. **사용자가 보안 그룹을 만들 수 있음** 또는 **사용자가 Office 그룹을 만들 수 있음**을 사용하도록 설정합니다.
@@ -53,6 +53,6 @@ ms.openlocfilehash: 255670335151443445e5ea4a87614b904915e76f
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

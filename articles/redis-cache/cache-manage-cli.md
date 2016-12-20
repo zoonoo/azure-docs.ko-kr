@@ -1,12 +1,12 @@
 ---
-title: Azure CLI(Azure 명령줄 인터페이스)를 사용하여 Azure Redis Cache를 만들고 관리하는 방법 | Microsoft Docs
-description: 모든 플랫폼에서 Azure CLI를 설치하고, Azure CLI를 사용하여 Azure 계정에 연결하고, Azure CLI에서 Redis cache를 만들고 관리하는 방법에 대해 알아봅니다.
+title: "Azure CLI(Azure 명령줄 인터페이스)를 사용하여 Azure Redis Cache를 만들고 관리하는 방법 | Microsoft Docs"
+description: "모든 플랫폼에서 Azure CLI를 설치하고, Azure CLI를 사용하여 Azure 계정에 연결하고, Azure CLI에서 Redis cache를 만들고 관리하는 방법에 대해 알아봅니다."
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
@@ -14,26 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: db8095f225a6d5a954474f7014ce35800a363b55
+
 
 ---
-# Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Azure Redis Cache를 만들고 관리하는 방법
+# <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Azure Redis Cache를 만들고 관리하는 방법
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
 > * [Azure CLI](cache-manage-cli.md)
-> 
-> 
+>
+>
 
 Azure CLI를 사용하면 어떤 플랫폼에서나 Azure 인프라를 효율적으로 관리할 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 Azure Redis Cache 인스턴스를 만들고 관리하는 방법을 보여 줍니다.
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 Azure CLI를 사용하여 Azure Redis Cache 인스턴스를 만들고 관리하려면 다음 단계를 완료해야 합니다.
 
-* Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
+* Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 * [Azure CLI를 설치합니다](../xplat-cli-install.md).
 * Azure CLI 설치를 개인 Azure 계정이나 회사 또는 학교 Azure 계정에 연결하고 `azure login` 명령을 사용하여 Azure CLI에서 로그인합니다. 차이점을 이해하고 선택하려면 [Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독 연결](../xplat-cli-connect.md)을 참조하세요.
-* 다음 명령 중 하나를 실행하기 전에 `azure config mode arm` 명령을 실행하여 Azure CLI를 리소스 관리자 모드로 전환합니다. 자세한 내용은 [Azure Resource Manager 모드 설정](../xplat-cli-azure-resource-manager.md#set-the-azure-resource-manager-mode)을 참조하세요.
+* 다음 명령 중 하나를 실행하기 전에 `azure config mode arm` 명령을 실행하여 Azure CLI를 리소스 관리자 모드로 전환합니다. 자세한 내용은 [Azure 리소스 및 리소스 그룹 관리를 위해 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)을 참조하세요.
 
-## Redis Cache 속성
+## <a name="redis-cache-properties"></a>Redis Cache 속성
 Redis Cache 인스턴스를 만들고 업데이트하는 경우에 다음 속성이 사용됩니다.
 
 | 속성 | Switch | 설명 |
@@ -54,7 +58,7 @@ Redis Cache 인스턴스를 만들고 업데이트하는 경우에 다음 속성
 | VirtualNetwork |-v, --virtual-network <virtual-network> |VNET에서 캐시를 호스트하는 경우 Redis Cache를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | 구독 |-s, --subscription |구독 식별자입니다. |
 
-## 모든 Redis Cache 명령 참조
+## <a name="see-all-redis-cache-commands"></a>모든 Redis Cache 명령 참조
 모든 Redis Cache 명령 및 매개 변수를 보려면 `azure rediscache -h` 명령을 사용합니다.
 
     C:\>azure rediscache -h
@@ -86,7 +90,7 @@ Redis Cache 인스턴스를 만들고 업데이트하는 경우에 다음 속성
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## Redis Cache 만들기
+## <a name="create-a-redis-cache"></a>Redis Cache 만들기
 Redis Cache를 만들려면 다음 명령을 사용합니다.
 
     azure rediscache create [--name <name> --resource-group <resource-group> --location <location> [options]]
@@ -119,7 +123,7 @@ Redis Cache를 만들려면 다음 명령을 사용합니다.
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## 기존 Redis Cache 삭제
+## <a name="delete-an-existing-redis-cache"></a>기존 Redis Cache 삭제
 Redis Cache를 삭제하려면 다음 명령을 사용합니다.
 
     azure rediscache delete [--name <name> --resource-group <resource-group> ]
@@ -142,7 +146,7 @@ Redis Cache를 삭제하려면 다음 명령을 사용합니다.
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## 구독 또는 리소스 그룹 내 모든 Redis Cache 나열
+## <a name="list-all-redis-caches-within-your-subscription-or-resource-group"></a>구독 또는 리소스 그룹 내 모든 Redis Cache 나열
 구독 또는 리소스 그룹 내 모든 Redis Cache를 나열하려면 다음 명령을 사용합니다.
 
     azure rediscache list [options]
@@ -164,7 +168,7 @@ Redis Cache를 삭제하려면 다음 명령을 사용합니다.
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## 기존 Redis Cache의 속성 표시
+## <a name="show-properties-of-an-existing-redis-cache"></a>기존 Redis Cache의 속성 표시
 기존 Redis Cache의 속성을 표시하려면 다음 명령을 사용합니다.
 
     azure rediscache show [--name <name> --resource-group <resource-group>]
@@ -189,7 +193,7 @@ Redis Cache를 삭제하려면 다음 명령을 사용합니다.
 
 <a name="scale"></a>
 
-## 기존 Redis Cache의 설정 변경
+## <a name="change-settings-of-an-existing-redis-cache"></a>기존 Redis Cache의 설정 변경
 기존 Redis Cache의 설정을 변경하려면 다음 명령을 사용합니다.
 
     azure rediscache set [--name <name> --resource-group <resource-group> --redis-configuration <redis-configuration>/--redis-configuration-file <redisConfigurationFile>]
@@ -214,7 +218,7 @@ Redis Cache를 삭제하려면 다음 명령을 사용합니다.
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## 기존 Redis Cache에 대한 인증 키 갱신
+## <a name="renew-the-authentication-key-for-an-existing-redis-cache"></a>기존 Redis Cache에 대한 인증 키 갱신
 기존 Redis Cache에 대한 인증 키를 갱신하려면 다음 명령을 사용합니다.
 
     azure rediscache renew-key [--name <name> --resource-group <resource-group> --key-type <key-type>]
@@ -240,7 +244,7 @@ Redis Cache를 삭제하려면 다음 명령을 사용합니다.
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## 기존 Redis Cache의 주 및 보조 키 나열
+## <a name="list-primary-and-secondary-keys-of-an-existing-redis-cache"></a>기존 Redis Cache의 주 및 보조 키 나열
 기존 Redis Cache의 주 및 보조 키를 나열하려면 다음 명령을 사용합니다.
 
     azure rediscache list-keys [--name <name> --resource-group <resource-group>]
@@ -263,4 +267,8 @@ Redis Cache를 삭제하려면 다음 명령을 사용합니다.
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

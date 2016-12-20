@@ -1,13 +1,13 @@
 ---
-title: 엔터프라이즈 상태 로밍 개요 | Microsoft Docs
-description: Windows 장치의 엔터프라이즈 상태 로밍 설정에 대한 정보를 제공합니다. 엔터프라이즈 상태 로밍은 사용자의 모든 Windows 장치에 통합된 환경을 제공하고 새 장치 구성에 드는 시간을 줄여 줍니다.
+title: "엔터프라이즈 상태 로밍 개요 | Microsoft Docs"
+description: "Windows 장치의 엔터프라이즈 상태 로밍 설정에 대한 정보를 제공합니다. 엔터프라이즈 상태 로밍은 사용자의 모든 Windows 장치에 통합된 환경을 제공하고 새 장치 구성에 드는 시간을 줄여 줍니다."
 services: active-directory
-keywords: 엔터프라이즈 상태 로밍이란, 엔터프라이즈 동기화, windows 클라우드
-documentationcenter: ''
+keywords: "엔터프라이즈 상태 로밍이란, 엔터프라이즈 동기화, windows 클라우드"
+documentationcenter: 
 author: femila
 manager: swadhwa
 editor: curtand
-
+ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b946c4c712544ea49607cf5cdd5ebbd997ff116
+
 
 ---
 # <a name="enterprise-state-roaming-overview"></a>엔터프라이즈 상태 로밍 개요
@@ -33,6 +37,9 @@ Windows 10에서는 [Azure Active Directory(Azure AD)](active-directory-whatis.m
 | [설정 동기화에 대한 그룹 정책 및 MDM 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md) |Windows 10은 설정 동기화를 제한하는 그룹 정책 및 MDM(모바일 장치 관리) 정책 설정을 제공합니다. |
 | [Windows 10 로밍 설정 참조](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) |다음은 Windows 10에서 로밍 및/또는 백업되는 모든 설정의 전체 목록입니다. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

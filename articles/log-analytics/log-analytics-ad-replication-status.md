@@ -1,12 +1,12 @@
 ---
-title: Log Analytics에서 Active Directory 복제 상태 솔루션 | Microsoft Docs
-description: Active Directory 복제 상태 솔루션 팩은 정기적으로 모든 복제 오류에 대한 Active Directory 환경을 모니터링하고 OMS 대시보드에서 결과를 보고합니다.
+title: "Log Analytics에서 Active Directory 복제 상태 솔루션 | Microsoft Docs"
+description: "Active Directory 복제 상태 솔루션 팩은 정기적으로 모든 복제 오류에 대한 Active Directory 환경을 모니터링하고 OMS 대시보드에서 결과를 보고합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 49e5cc5045f5bd626826b4992b8b49f886ef7bde
+
 
 ---
 # <a name="active-directory-replication-status-solution-in-log-analytics"></a>Log Analytics에서 Active Directory 복제 상태 솔루션
@@ -34,7 +38,7 @@ AD 복제 상태 솔루션 팩은 정기적으로 모든 복제 오류에 대한
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![예](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![예](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![아니요](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![아니요](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![예](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |5일마다 |
 
-## <a name="optionally,-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>필요에 따라 AD 데이터를 OMS에 전송하도록 비 도메인 컨트롤러 활성화
+## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>필요에 따라 AD 데이터를 OMS에 전송하도록 비 도메인 컨트롤러 활성화
 OMS에 도메인 컨트롤러를 직접 연결하지 않으려면 도메인에서 OMS에 연결된 다른 컴퓨터를 사용하여 AD 복제 상태 솔루션 팩에 대한 데이터를 수집하고 데이터를 보낼 수도 있습니다.
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>AD 데이터를 OMS에 전송하도록 비 도메인 컨트롤러 활성화하기
@@ -147,6 +151,9 @@ OMS 또는 SCOM에 도메인 컨트롤러를 직접 연결하지 않으려면 [A
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 Active Directory 복제 상태 데이터를 봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

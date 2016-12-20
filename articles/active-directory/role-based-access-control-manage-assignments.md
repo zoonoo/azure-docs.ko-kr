@@ -1,12 +1,12 @@
 ---
-title: Azure 리소스 액세스 권한 할당 보기 | Microsoft Docs
-description: Azure Portal에서 모든 사용자 또는 그룹에 대한 모든 역할 기반 액세스 제어 할당 보기 및 관리
+title: "Azure 리소스 액세스 권한 할당 보기 | Microsoft Docs"
+description: "Azure Portal에서 모든 사용자 또는 그룹에 대한 모든 역할 기반 액세스 제어 할당 보기 및 관리"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: jeffsta
-
+ms.assetid: e6f9e657-8ee3-4eec-a21c-78fe1b52a005
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 87fa4373e5496a91d4e808ceb45095a6aea9e884
+
 
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal---public-preview"></a>Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기 - 공개 미리 보기
@@ -54,9 +58,12 @@ Azure Active Directory 미리 보기 상태인 RBAC(역할 기반 액세스 제�
     ![액세스 권한 할당 제거 - 스크린샷](./media/role-based-access-control-manage-assignments/delete_assignment.png)
 
 ## <a name="related-topics"></a>관련된 항목
-* [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스를 관리](role-based-access-control-configure.md)
-* [RBAC 기본 제공 역할](role-based-access-built-in-roles.md)
+*  [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스를 관리](role-based-access-control-configure.md)
+*  [RBAC 기본 제공 역할](role-based-access-built-in-roles.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

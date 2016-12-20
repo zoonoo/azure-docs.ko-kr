@@ -1,12 +1,12 @@
 ---
-title: Azure Security Center에서 가상 컴퓨터 보호 | Microsoft Docs
-description: 이 문서에서는 가상 컴퓨터를 보호하고 보안 정책을 준수하는 데 도움이 되는 Azure 보안 센터의 권장 사항에 대해 설명합니다.
+title: "Azure Security Center에서 가상 컴퓨터 보호 | Microsoft Docs"
+description: "이 문서에서는 가상 컴퓨터를 보호하고 보안 정책을 준수하는 데 도움이 되는 Azure 보안 센터의 권장 사항에 대해 설명합니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c048263ab1ae453a10f0471ae33a122e21151d94
+
 
 ---
 # <a name="protecting-your-virtual-machines-in-azure-security-center"></a>Azure 보안 센터에서 가상 컴퓨터 보호
@@ -49,6 +53,9 @@ Azure 보안 센터에서는 Azure 리소스의 보안 상태를 분석합니다
 * [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure 보안 센터 FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

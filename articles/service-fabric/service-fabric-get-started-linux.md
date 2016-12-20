@@ -15,19 +15,18 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 567a998102558626df73878865b317b830ba1faa
+ms.sourcegitcommit: ff2e3c27f9fc02ebe30380798be00211113208e3
+ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
 
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
-> -[ Windows](service-fabric-get-started.md)
-> 
+> * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
 > * [OSX](service-fabric-get-started-mac.md)
 > 
-> 
+>  
 
  Linux 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램](service-fabric-application-model.md) 을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core용 선택적 SDK를 설치할 수 있습니다.
 
@@ -71,7 +70,8 @@ apt-get을 통해 SDK 및 관련된 런타임 패키지를 설치하려면 먼�
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-## <a name="set-up-the-azure-crossplatform-cli"></a>Azure 플랫폼 간 CLI 설정
+
+## <a name="set-up-the-azure-cross-platform-cli"></a>Azure 플랫폼 간 CLI 설정
 [Azure 플랫폼 간 CLI][azure-xplat-cli-github]는 클러스터 및 응용 프로그램을 비롯하여 Service Fabric 엔터티와 상호 작용하기 위한 명령을 포함합니다. 아래의 지침을 계속 진행하기 전에 Node.js에 기반하여 [노드를 설치했는지 확인][install-node]합니다.
 
 1. 개발 컴퓨터에 GitHub 리포지토리를 복제합니다.
@@ -150,6 +150,16 @@ Neon Eclipse IDE 내에서 Service Fabric용 Eclipse 플러그 인을 설치할 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
     ```
+## <a name="updating-the-sdk-and-runtime"></a>SDK 및 런타임 업데이트
+
+최신 버전 SDK 및 런타임으로 업데이트하려면 다음 단계를 실행합니다(업데이트하거나 설치하려는 목록에서 SDK 제거).
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+    ```
+
+CLI를 업데이트하는 경우 CLI를 복제한 디렉터리로 이동하고 업데이트할 `git pull`을 실행합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * [Linux에서 첫 번째 Java 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-java.md)
@@ -168,6 +178,6 @@ Neon Eclipse IDE 내에서 Service Fabric용 Eclipse 플러그 인을 설치할 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

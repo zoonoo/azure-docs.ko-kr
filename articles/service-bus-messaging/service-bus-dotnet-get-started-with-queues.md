@@ -1,22 +1,22 @@
 ---
 title: "Service Bus 큐 시작 | Microsoft Docs"
 description: "서비스 버스 메시징에 대한 C# 콘솔 응용 프로그램을 작성하는 방법"
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
 editor: 
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c6405a6353cfcc56c79a6f842c6b150d10db75ee
+ms.sourcegitcommit: 560e73eb7129e665d254c3e93b08f29cfb6b1aa9
+ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
 
 
 ---
@@ -51,7 +51,8 @@ Service Bus 큐를 이미 만든 경우 [큐에 메시지 보내기](#3-send-mes
 큐에 메시지를 보내려면 Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 작성합니다.
 
 ### <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
-1. Visual Studio를 시작하고 새 콘솔 응용 프로그램을 만듭니다.
+
+- Visual Studio를 시작하고 새 콘솔 응용 프로그램을 만듭니다.
 
 ### <a name="add-the-service-bus-nuget-package"></a>서비스 버스 NuGet 패키지 추가
 1. 마우스 오른쪽 단추로 새롭게 만든 프로젝트를 클릭하고 **NuGet 패키지 관리**를 선택합니다.
@@ -62,12 +63,12 @@ Service Bus 큐를 이미 만든 경우 [큐에 메시지 보내기](#3-send-mes
 ### <a name="write-some-code-to-send-a-message-to-the-queue"></a>큐에 메시지를 보내는 코드 작성
 1. Program.cs 파일 위쪽에 다음 using 문을 추가합니다.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 2. `Main` 메서드에 다음 코드를 추가하고 **connectionString** 변수를 네임스페이스를 만들 때 가져온 연결 문자열로 설정하고 **queueName**을 큐를 만들 때 사용된 큐 이름으로 설정합니다.
    
-    ```
+    ```csharp
     var connectionString = "<Your connection string>";
     var queueName = "<Your queue name>";
    
@@ -78,7 +79,7 @@ Service Bus 큐를 이미 만든 경우 [큐에 메시지 보내기](#3-send-mes
    
     Program.cs는 다음과 같아야 합니다.
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -107,12 +108,12 @@ Service Bus 큐를 이미 만든 경우 [큐에 메시지 보내기](#3-send-mes
 1. 새 콘솔 응용 프로그램을 만들고 이전의 응용 프로그램 보내기와 유사하게 서비스 버스 NuGet 패키지에 참조를 추가합니다.
 2. Program.cs 파일 위쪽에 다음 `using` 문을 추가합니다.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 3. `Main` 메서드에 다음 코드를 추가하고 **connectionString** 변수를 네임스페이스를 만들 때 가져온 연결 문자열로 설정하고 **queueName**을 큐를 만들 때 사용된 큐 이름으로 설정합니다.
    
-    ```
+    ```csharp
     var connectionString = "";
     var queueName = "samplequeue";
    
@@ -129,7 +130,7 @@ Service Bus 큐를 이미 만든 경우 [큐에 메시지 보내기](#3-send-mes
    
     Program.cs 파일은 다음과 같아야 합니다.
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -177,6 +178,6 @@ Azure Service Bus 메시징의 더 많은 고급 기능 중 일부를 보여 주
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

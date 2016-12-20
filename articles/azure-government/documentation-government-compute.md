@@ -1,13 +1,13 @@
 ---
-title: Azure Government 설명서 | Microsoft Docs
-description: Azure Government용 응용 프로그램 개발에 대한 지침 및 기능 비교를 제공합니다.
+title: "Azure Government 계산 | Microsoft 문서"
+description: "Azure Government용 응용 프로그램 개발에 대한 지침 및 기능 비교를 제공합니다."
 services: Azure-Government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: ''
-
+editor: 
+ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 09/29/2016
 ms.author: ryansoc
+translationtype: Human Translation
+ms.sourcegitcommit: a0374d6aeae42641e906a7f8e39bfc58eaacf096
+ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
+
 
 ---
 # <a name="azure-government-compute"></a>Azure 정부 계산
 ## <a name="virtual-machines"></a>가상 컴퓨터
-이 서비스와 사용 방법에 대한 자세한 정보는 [Azure Virtual Machines 크기](../virtual-machines/virtual-machines-windows-sizes.md)를 참조하세요.
+이 서비스와 사용 방법에 대한 자세한 정보는 [Azure Virtual Machines 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ### <a name="variations"></a>변형
 다음 VM Sku는 Azure Government에서 일반 공급(GA)됩니다.
@@ -43,6 +47,9 @@ ms.author: ryansoc
 ## <a name="next-steps"></a>다음 단계
 추가 정보 및 업데이트는 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government 블로그</a>를 구독하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

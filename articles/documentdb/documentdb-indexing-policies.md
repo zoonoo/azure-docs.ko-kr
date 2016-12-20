@@ -1,20 +1,24 @@
 ---
-title: DocumentDB 인덱싱 정책 | Microsoft Docs
-description: 인덱싱이 DocumentDB에서 작동하는 방식을 이해하고 인덱싱 정책 구성 및 변경하는 방법을 알아봅니다. 자동 인덱싱 및 성능 향상을 위해 DocumentDB 내에서 인덱싱 정책을 구성합니다.
-keywords: 인덱싱 작동 방법, 자동 인덱싱, 데이터베이스, Documentdb, Azure, Microsoft Azure
+title: "DocumentDB 인덱싱 정책 | Microsoft Docs"
+description: "인덱싱이 DocumentDB에서 작동하는 방식을 이해하고 인덱싱 정책 구성 및 변경하는 방법을 알아봅니다. 자동 인덱싱 및 성능 향상을 위해 DocumentDB 내에서 인덱싱 정책을 구성합니다."
+keywords: "인덱싱 작동 방법, 자동 인덱싱, 데이터베이스, Documentdb, Azure, Microsoft Azure"
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: monicar
-
+ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: documentdb
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/08/2016
+ms.date: 11/11/2016
 ms.author: arramac
+translationtype: Human Translation
+ms.sourcegitcommit: 994fb8080f053ae3eb72eb1dda92bd5aa46c6988
+ms.openlocfilehash: a48cdb58dd48cc033f69de15fc19f313bc12cdfa
+
 
 ---
 # <a name="documentdb-indexing-policies"></a>DocumentDB 인덱싱 정책
@@ -30,10 +34,10 @@ ms.author: arramac
 * 컬렉션의 인덱싱 정책을 어떻게 변경하나요?
 * 저장소 및 다른 인덱싱 정책의 성능을 어떻게 비교하나요?
 
-## <a name="<a-id="customizingindexingpolicy"></a>-customizing-the-indexing-policy-of-a-collection"></a><a id="CustomizingIndexingPolicy"></a> 컬렉션의 인덱싱 정책 사용자 지정
+## <a name="a-idcustomizingindexingpolicya-customizing-the-indexing-policy-of-a-collection"></a><a id="CustomizingIndexingPolicy"></a> 컬렉션의 인덱싱 정책 사용자 지정
 개발자는 DocumentDB 컬렉션의 기본 인덱싱 정책을 재정의하고 다음 측면을 구성하여 저장소, 쓰기/쿼리 성능 및 쿼리 일관성 간의 장단점을 사용자 지정할 수 있습니다.
 
-* **문서 및 인덱스까지/로부터의 경로 포함/제외**. 개발자는 특정 문서를 선택하여 컬렉션에 삽입하거나 대체할 때 인덱스에 포함하거나 제외할 수 있습니다. 개발자는 인덱스에 포함된 문서 간에 인덱싱할 특정 JSON 속성 a.k.a  경로(와일드 카드 패턴 포함)를 포함하거나 제외하도록 선택할 수도 있습니다.
+* **문서 및 인덱스까지/로부터의 경로 포함/제외**. 개발자는 특정 문서를 선택하여 컬렉션에 삽입하거나 대체할 때 인덱스에 포함하거나 제외할 수 있습니다. 또한 개발자는 특정 JSON 속성, 즉 인덱스에 포함된 문서 간에 인덱싱할 경로(와일드카드 패턴 포함)을 포함하거나 제외할 수 있습니다.
 * **다양한 인덱스 유형 구성**. 포함된 각 경로에 대해 개발자는 자신의 데이터 및 예상 쿼리 워크로드 및 각 경로에 대한 숫자/문자열 "전체 자릿수"를 기반으로 컬렉션에 대해 필요한 인덱스의 유형을 지정할 수도 있습니다.
 * **인덱스 업데이트 모드 구성**. DocumentDB는 DocumentDB 컬렉션의 인덱싱 정책을 통해 구성될 수 있는 세 가지 인덱싱 모드, 일관성, 지연 및 없음을 지원합니다. 
 
@@ -72,192 +76,23 @@ DocumentDB는 DocumentDB 컬렉션의 인덱싱 정책을 통해 구성될 수 �
 
 다음 표에서 컬렉션에 대해 구성된 인덱싱 모드(일관성 및 지연) 및 쿼리 요청에 대해 지정된 일관성 수준에 따라 쿼리에 대한 일관성을 보여줍니다. 모든 인터페이스 - REST API, SDK또는 저장 프로시저 및 트리거 내에서 사용하여 만든 쿼리에 적용합니다. 
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>일관성</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>지연</strong>
-                </p>
-            </td>            
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>강력</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-강력 </p>
-            </td>
-            <td valign="top">
-                <p>
-최종 </p>
-            </td>            
-        </tr>       
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>제한된 부실</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-제한된 부실 </p>
-            </td>
-            <td valign="top">
-                <p>
-최종 </p>
-            </td>            
-        </tr>          
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>세션</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-세션 </p>
-            </td>
-            <td valign="top">
-                <p>
-최종 </p>
-            </td>            
-        </tr>      
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>최종</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-최종 </p>
-            </td>
-            <td valign="top">
-                <p>
-최종 </p>
-            </td>            
-        </tr>         
-    </tbody>
-</table>
+|일관성|인덱싱 모드: 일관성|인덱싱 모드: 지연|
+|---|---|---|
+|강력|강력|최종|
+|제한된 부실|제한된 부실|최종|
+|세션|세션|최종|
+|최종|최종|최종|
 
 DocumentDB는 없음 인덱싱 모드를 사용할 경우 컬렉션에 대해 실행된 쿼리에 대해 오류를 반환합니다. 여전히 .NET SDK를 사용하여 REST API의 명시적인 `x-ms-documentdb-enable-scan` 헤더 또는 `EnableScanInQuery` 요청 옵션을 통해 쿼리를 검색으로 실행할 수 있습니다. ORDER BY와 같은 일부 쿼리 기능은 `EnableScanInQuery`을(를) 사용한 검색으로 지원되지 않습니다.
 
 다음 표에서 EnableScanInQuery가 지정되면 인덱싱 모드(일관성, 지연 및 없음)에 기반하는 쿼리에 대한 일관성을 보여 줍니다.
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>일관성</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>지연</strong>
-                </p>
-            </td>       
-            <td valign="top">
-                <p>
-                    <strong>없음</strong>
-                </p>
-            </td>             
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>강력</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-강력 </p>
-            </td>
-            <td valign="top">
-                <p>
-최종 </p>
-            </td>    
-            <td valign="top">
-                <p>
-강력 </p>
-            </td>                
-        </tr>       
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>제한된 부실</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-제한된 부실 </p>
-            </td>
-            <td valign="top">
-                <p>
-최종 </p>
-            </td>      
-            <td valign="top">
-                <p>
-제한된 부실 </p>
-            </td> 
-        </tr>          
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>세션</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-세션 </p>
-            </td>
-            <td valign="top">
-                <p>
-최종 </p>
-            </td>   
-            <td valign="top">
-                <p>
-세션 </p>
-            </td>             
-        </tr>      
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>최종</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-최종 </p>
-            </td>
-            <td valign="top">
-                <p>
-최종 </p>
-            </td>      
-            <td valign="top">
-                <p>
-최종 </p>
-            </td>              
-        </tr>         
-    </tbody>
-</table>
+|일관성|인덱싱 모드: 일관성|인덱싱 모드: 지연|인덱싱 모드: 없음|
+|---|---|---|---|
+|강력|강력|최종|강력|
+|제한된 부실|제한된 부실|최종|제한된 부실|
+|세션|세션|최종|세션|
+|최종|최종|최종|최종|
 
 다음 코드 샘플은 모든 문서 삽입에 일관된 인덱싱을 사용하여 .NET SDK로 DocumentDB 컬렉션을 만드는 방법을 보여 줍니다.
 
@@ -275,122 +110,20 @@ DocumentDB는 없음 인덱싱 모드를 사용할 경우 컬렉션에 대해 �
 ### <a name="index-paths"></a>인덱스 경로
 DocumentDB는 JSON 문서 및 인덱스를 트리로 모델링하고 트리 내 경로에 대한 정책을 튜닝할 수 있습니다. 이 [DocumentDB 인덱싱 소개](documentdb-indexing.md)에서 자세한 세부 정보를 찾을 수 있습니다. 문서 내에서 인덱싱에 포함하거나 인덱싱에서 제외할 경로를 선택할 수 있습니다. 따라서 쿼리 패턴을 사전에 알고 있는 경우 시나리오의 쓰기 성능이 향상되고 인덱스 저장소를 줄일 수 있습니다.
 
-인덱스 경로는 루트(/)로 시작하며, 일반적으로 ?  와일드카드 연산자로 끝나 접두사에 대해 가능한 값이 여러 개 있음을 나타냅니다. 예를 들어 SELECT * FROM Families F WHERE F.familyName = "Andersen"을 처리하려면  컬렉션의 인덱스 정책에 /familyName/?의 인덱스 경로를 포함해야 합니다.
+인덱스 경로는 루트(/)로 시작하고 일반적으로 ? 와일드카드 연산자로 끝나 접두사에 대해 가능한 값이 여러 개 있음을 나타냅니다. 예를 들어 SELECT * FROM Families F WHERE F.familyName = "Andersen"을 처리하려면 컬렉션의 인덱스 정책에 /familyName/?의 인덱스 경로를 포함해야 합니다.
 
 또한 인덱스 경로에 * 와일드카드 연산자를 사용하여 접두사 아래에 재귀적으로 경로에 대한 동작을 지정할 수 있습니다. 예를 들어 /payload/*를 사용하여 페이로드 속성의 모든 항목을 인덱싱에서 제외할 수 있습니다.
 
 인덱스 경로를 지정하는 일반적인 패턴은 다음과 같습니다.
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Path</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>설명/사용 사례</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    /*
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-컬렉션의 기본 경로입니다. 재귀적이며 전체 문서 트리에 적용됩니다.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/prop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-인덱스 경로는 다음과 같은 쿼리를 처리하는 데 필요합니다(각각 해시, 범위 유형이 포함되어 있음). </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop = "value" </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop &gt; 5 </p>
-                <p>
-SELECT * FROM collection c ORDER BY c.prop </p>                
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/prop/* </p>
-            </td>
-            <td valign="top">
-                <p>
-지정된 레이블 아래의 모든 경로의 인덱스 경로입니다. 다음 쿼리로 작동 </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop = "value" </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop &gt; 5 </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop.nextprop = "value" </p>
-                <p>
-SELECT * FROM collection c ORDER BY c.prop </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/props/[]/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-["a", "b", "c"]와 같은 스칼라의 배열에 대한 반복 및 JOIN 쿼리를 제공하는 데 필요한 인덱스 경로입니다. </p>
-                <p>
-SELECT tag FROM tag IN collection.props WHERE tag = "value" </p>
-                <p>
-SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5 </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/props/[]/subprop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-[{subprop: "a"}, {subprop: "b"}]와 같은 개체의 배열에 대한 반복 및 JOIN 쿼리를 제공하는 데 필요한 인덱스 경로입니다. </p>
-                <p>
-SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value" </p>
-                <p>
-SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value" </p>
-            </td>
-        </tr>        
-        <tr>
-            <td valign="top">
-                <p>
-/prop/subprop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-인덱스 경로는 다음과 같은 쿼리를 처리하는 데 필요합니다(각각 해시 또는 범위 유형이 포함되어 있음). </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop = "value" </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop &gt; 5 </p>
-                <p>
-SELECT * FROM collection c ORDER BY c.prop.subprop </p>                
-            </td>
-        </tr>
-    </tbody>
-</table>
+| Path                | 설명/사용 사례                                                                                                                                                                                                                                                                                         |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| /                   | 컬렉션의 기본 경로입니다. 재귀적이며 전체 문서 트리에 적용됩니다.                                                                                                                                                                                                                                   |
+| /prop/?             | 인덱스 경로는 다음과 같은 쿼리를 처리하는 데 필요합니다(각각 해시, 범위 유형이 포함되어 있음).<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
+| /prop/              | 지정된 레이블 아래의 모든 경로의 인덱스 경로입니다. 다음 쿼리로 작동<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
+| /props/[]/?         | ["a", "b", "c"]와 같은 스칼라의 배열에 대한 반복 및 JOIN 쿼리를 제공하는 데 필요한 인덱스 경로입니다.<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5                                                                         |
+| /props/[]/subprop/? | [{subprop: "a"}, {subprop: "b"}]와 같은 개체의 배열에 대한 반복 및 JOIN 쿼리를 제공하는 데 필요한 인덱스 경로입니다.<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"                                  |
+| /prop/subprop/?     | 인덱스 경로는 다음과 같은 쿼리를 처리하는 데 필요합니다(각각 해시 또는 범위 유형이 포함되어 있음).<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
 > 사용자 지정 인덱스 경로를 설정하는 동안 특수 경로 "/*”로 지정된 전체 문서 트리에 대한 기본 인덱싱 규칙을 지정해야 합니다. 
@@ -421,76 +154,35 @@ SELECT * FROM collection c ORDER BY c.prop.subprop </p>
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
 
 
-### <a name="index-data-types,-kinds-and-precisions"></a>인덱스 데이터 형식, 종류 및 전체 자릿수
+### <a name="index-data-types-kinds-and-precisions"></a>인덱스 데이터 형식, 종류 및 전체 자릿수
 이제 경로를 지정하는 방법을 살펴보았으므로 경로에 대한 인덱싱 정책을 구성하는 데 사용할 수 있는 옵션에 대해 살펴보겠습니다. 모든 경로에 대해 하나 이상의 인덱싱 정의를 지정할 수 있습니다.
 
-* 데이터 형식: **문자열**, **숫자** 또는 **점**(경로별로 데이터 형식당 하나만 포함할 수 있음). **다각형** 및 **LineString**은 비공개 미리 보기로 지원됨
+* 데이터 형식: **문자열**, **숫자**, **점**, **다각형** 또는 **LineString**(경로별로 데이터 형식당 하나만 포함할 수 있음)
 * 인덱스 종류: **해시**(같음 쿼리), **범위**(같음, 범위 또는 Order By 쿼리) 또는 **공간**(공간 쿼리) 
 * 전체 자릿수: 숫자의 경우 1-8 또는 -1(최대 전체 자릿수), 문자열의 경우 1-100(최대 전체 자릿수)
 
 #### <a name="index-kind"></a>인덱스 종류
 DocumentDB는 모든 경로에 대해 해시 및 범위 인덱스 종류를 지원합니다(문자열, 숫자 또는 둘 다로 구성할 수 있음).
 
-* **해시** 는 효율적인 같음 및 JOIN 쿼리를 지원합니다. 대부분의 사용 사례에서는 기본값 3바이트보다 큰 자릿수의 해시 인덱스가 불필요합니다.
-* **범위**는 효율적인 같음 쿼리, 범위 쿼리(>, <, >=, <=, != 사용) 및 Order By 쿼리를 지원합니다. 또한 Order By 쿼리에는 기본적으로 최대 인덱스 전체 자릿수(-1)가 필요합니다.
+* **해시** 는 효율적인 같음 및 JOIN 쿼리를 지원합니다. 대부분의 사용 사례에서는 기본값 3바이트보다 큰 자릿수의 해시 인덱스가 불필요합니다. 데이터 형식은 문자열 또는 숫자일 수 있습니다.
+* **범위**는 효율적인 같음 쿼리, 범위 쿼리(>, <, >=, <=, != 사용) 및 Order By 쿼리를 지원합니다. 또한 Order By 쿼리에는 기본적으로 최대 인덱스 전체 자릿수(-1)가 필요합니다. 데이터 형식은 문자열 또는 숫자일 수 있습니다.
 
-DocumentDB는 점 데이터 형식에 지정할 수 있는 공간 인덱스 종류도 모든 경로에 대해 지원합니다. 지정된 경로에 있는 값은 `{"type": "Point", "coordinates": [0.0, 10.0]}`과 같은 유효한 GeoJSON 점이어야 합니다.
+DocumentDB는 점, 다각형 또는 LineString 데이터 형식에 지정할 수 있는 공간 인덱스 종류도 모든 경로에 대해 지원합니다. 지정된 경로에 있는 값은 `{"type": "Point", "coordinates": [0.0, 10.0]}`과 같은 유효한 GeoJSON 조각이어야 합니다.
 
-* **공간** 은 효율적인 공간(이내 및 거리) 쿼리를 지원합니다.
+* **공간** 은 효율적인 공간(이내 및 거리) 쿼리를 지원합니다. 데이터 형식은 점, 다각형 또는 LineString일 수 있습니다.
 
 > [!NOTE]
-> DocumentDB는 점, 다각형(비공개 미리 보기) 및 LineStrings(비공개 미리 보기)의 자동 인덱싱을 지원합니다. 미리 보기에 대한 액세스를 위해서는 전자 메일 askdocdb@microsoft.com,을 보내거나 Azure 지원을 통해 문의하세요.
+> DocumentDB는 점, 다각형 및 LineStrings의 자동 인덱싱을 지원합니다.
 > 
 > 
 
 다음은 지원되는 인덱스 종류와 제공될 수 있는 쿼리 예입니다.
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>인덱스 종류</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>설명/사용 사례</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-해시 </p>
-            </td>
-            <td valign="top">
-                <p>
-/prop/?  (또는 /*)를 통한 해시를 사용하여 다음 쿼리를 효율적으로 처리할 수 있습니다. SELECT * FROM collection c WHERE c.prop = "value" /props/[]/?  (또는 /* 또는 /props*)를 통한 해시를 사용하여 다음 쿼리를 효율적으로 처리할 수 있습니다. SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5 </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-범위 </p>
-            </td>
-            <td valign="top">
-                <p>
-/prop/?  (또는 /*)를 통한 범위를 사용하여 다음 쿼리를 효율적으로 처리할 수 있습니다. SELECT * FROM collection c WHERE c.prop = "value" SELECT * FROM collection c WHERE c.prop > 5 SELECT * FROM collection c ORDER BY c.prop </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-공간 </p>
-            </td>
-            <td valign="top">
-                <p>
-/prop/?  (또는 /*)를 통한 범위를 사용하여 다음 쿼리를 효율적으로 처리할 수 있습니다. SELECT * FROM collection c WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40 SELECT * FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) </p>
-            </td>
-        </tr>        
-    </tbody>
-</table>
+| 인덱스 종류 | 설명/사용 사례                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 해시       | Hash over/prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (또는 /나 /props/)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
+| 범위      | /prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
+| 공간     | /prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled              |
 
 기본적으로, 쿼리를 처리하는 데 검색이 필요할 수 있음을 알리기 위한 범위 인덱스가 없는 경우(자릿수) >=와 같은 범위 연산자로 쿼리에 대한 오류가 반환됩니다. REST API의 x-ms-documentdb-enable-scan 헤더를 사용하거나 .NET SDK의 EnableScanInQuery 요청 옵션을 사용하여 범위 인덱스 없이 범위 쿼리를 수행할 수 있습니다. DocumentDB가 필터링하는 데 인덱스를 사용할 수 있는 쿼리에 다른 필터가 있는 경우, 오류가 반환되지 않습니다.
 
@@ -501,7 +193,7 @@ DocumentDB는 점 데이터 형식에 지정할 수 있는 공간 인덱스 종�
 
 인덱스 전체 자릿수 구성은 문자열 범위와 함께 사용할 때 실질적으로 더 유용합니다. 문자열은 임의의 길이일 수 있으므로 인덱스 전체 자릿수 선택은 문자열 범위 쿼리의 성능에 영향을 줄 수 있으며 필요한 인덱스 저장소 공간의 크기에 영향을 줄 수 있습니다. 문자열 범위 인덱스는 1-100 또는 -1("최대값")로 구성할 수 있습니다. 문자열 속성에 대한 Order By 쿼리를 수행하려는 경우, 해당 경로에 대해 -1의 전체 자릿수를 지정해야 합니다.
 
-공간 인덱스는 항상 점에 대한 기본 인덱스 전체 자릿수를 사용하며 재정의할 수 없습니다. 
+공간 인덱스는 항상 모든 형식(점, LineString 및 다각형)에 대한 기본 인덱스 전체 자릿수를 사용하며 재정의할 수 없습니다. 
 
 다음 예제에서는 .NET SDK를 사용하여 컬렉션의 범위 인덱스 자릿수를 늘리는 방법을 보여 줍니다. 
 
@@ -520,7 +212,7 @@ DocumentDB는 점 데이터 형식에 지정할 수 있는 공간 인덱스 종�
 > 
 > 
 
-마찬가지로 경로는 인덱싱에서 완전히 제외될 수 있습니다. 다음 예제는 "*" 와일드카드를 사용하여 인덱싱에서  문서의 전체 섹션(하위 트리라고도 함)을 제외하는 방법을 보여 줍니다.
+마찬가지로 경로는 인덱싱에서 완전히 제외될 수 있습니다. 다음 예제는 "*" 와일드카드를 사용하여 인덱싱에서 문서의 전체 섹션(하위 트리라고도 함)을 제외하는 방법을 보여 줍니다.
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
@@ -719,6 +411,9 @@ DocumentDB API는 사용된 인덱스 저장소와 같은 성능 메트릭에 �
 2. [DocumentDB REST API 컬렉션 작업](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [DocumentDB SQL을 사용한 쿼리](documentdb-sql-query.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

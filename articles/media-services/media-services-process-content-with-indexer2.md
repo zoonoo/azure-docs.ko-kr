@@ -1,12 +1,12 @@
 ---
-title: Azure Media Indexer 2 Preview를 사용한 미디어 파일 인덱싱 | Microsoft Docs
-description: Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 이 토픽에서는 Media Indexer 2 Preview를 사용하는 방법을 보여 줍니다.
+title: "Azure Media Indexer 2 미리 보기를 사용하여 미디어 파일 인덱싱 | Microsoft 문서"
+description: "Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 이 토픽에서는 Media Indexer 2 Preview를 사용하는 방법을 보여 줍니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 85d25525-a498-44eb-ae3a-2ca5ceb8e53d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: adsolank;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 17571acfab870974186af9849d030e9702f3be76
+
 
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Azure 미디어 인덱서 2 미리 보기를 사용하여 미디어 파일 인덱싱
@@ -50,7 +54,7 @@ ms.author: adsolank;juliako;
 
 이러한 형식의 CC(선택 캡션)는 청각 장애가 있는 사용자가 액세스할 수 있는 오디오 및 비디오 파일을 만드는 데 사용될 수 있습니다.
 
-## <a name="task-configuration-(preset)"></a>작업 구성(기본 설정)
+## <a name="task-configuration-preset"></a>작업 구성(기본 설정)
 **Azure 미디어 인덱서 2 미리 보기**로 인덱싱 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다.
 
 다음 JSON은 사용 가능한 매개 변수를 설정합니다.
@@ -275,6 +279,9 @@ Azure 미디어 인덱서 2 미리 보기는 다음 언어에 대한 음성-텍�
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Service Bus 토픽 및 구독을 사용하는 응용 프로그램 만들기 | Microsoft Docs
-description: Service Bus 토픽 및 구독에서 제공하는 게시-구독 기능 소개입니다.
-services: service-bus
+title: "Service Bus 토픽 및 구독을 사용하는 응용 프로그램 만들기 | Microsoft Docs"
+description: "Service Bus 토픽 및 구독에서 제공하는 게시-구독 기능 소개입니다."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a48fc9b0-b7b0-464e-8187-a517bf8b4eb4
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 75f2cddad471c89fd826097831362d9d51a6dccf
+
 
 ---
 # <a name="create-applications-that-use-service-bus-topics-and-subscriptions"></a>Service Bus 토픽 및 구독을 사용하는 응용 프로그램 만들기
@@ -139,6 +143,9 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 ## <a name="next-steps"></a>다음 단계
 POS 유통업 시나리오에서 큐를 사용하는 방법에 대한 정보는 [Service Bus 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

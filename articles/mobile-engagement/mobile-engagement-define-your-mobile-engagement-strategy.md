@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8cb91a8cdc6d16070034c79515731be7b820d389
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e3d6caee50a57648f4f775029a2e381cee0f1e72
 
 
 ---
@@ -49,7 +49,7 @@ Mobile Engagement 전략을 구축하려면 먼저 앱의 목표 및 KPI(핵심 
 
 통합을 기반으로 하여 응용 프로그램을 게시한 후 마케터로서 실시간으로 분석을 확인하고 대상을 분류한 후 올바르게 대상을 선정한 푸시 알림을 보내기 시작하여 앱 내/외에서 최종 사용자와 관계를 맺을 수 있습니다.
 
-### <a name="usecases-to-get-started"></a>시작할 사용 사례
+### <a name="use-cases-to-get-started"></a>시작할 사용 사례
 1. 환영 전략: 첫 번째 세션의 D+2/5/10/15일 후에 다시 참여를 끌어내려면 응용 프로그램 시작 시 최종 사용자의 행동에 따라 여러 푸시 알림 캠페인을 만들어 첫 번째 실행 유지를 늘립니다.
 2. 최종 사용자의 행동에 따라 새 콘텐츠(기능, 문서/비디오, 제품)를 홍보하고 참여할 가능성이 높은 최종 사용자에게만 정보를 보냅니다.
 3. 응용 프로그램 평가: 스토어에서 앱을 5개 별점으로 평가할 가능성이 가장 높은 1% 미만의 사용자를 대상으로 합니다.
@@ -66,13 +66,13 @@ Mobile Engagement 전략을 구축하려면 먼저 앱의 목표 및 KPI(핵심 
 > 
 > 
 
-### <a name="usecases-and-best-practices"></a>사용 사례 및 모범 사례
+### <a name="use-cases-and-best-practices"></a>사용 사례 및 모범 사례
 다음 섹션에서 시작하는 데 도움이 될 몇 가지 주요 사용 사례에 관해 간략히 설명합니다.
 
 #### <a name="media"></a>미디어
 최종 사용자가 사용하는 콘텐츠 유형을 수집하고 이 행동에 따라 대상을 세그먼트로 나누어 사용할 가능성이 높은 대상에게만 특정 유형의 콘텐츠를 제공합니다. 그에 따라 전체 사용자를 대상으로 스팸 발송하는 것이 방지되며 유지 수준은 높아집니다.
 
-#### <a name="mcommerce"></a>M-상거래
+#### <a name="m-commerce"></a>M-상거래
 응용 프로그램 내에서 가장 많이 방문한 제품 범주를 수집하고 최종 사용자가 구매할 가능성이 높은 범주의 새 제품 또는 할인을 홍보할 대상을 지정합니다. 수익 신장을 목표로 합니다. 마찬가지로 목표가 스팸 발송되지 않습니다!
 
 #### <a name="gaming"></a>게임
@@ -134,6 +134,6 @@ Mobile Engagement 전략을 구축하려면 먼저 앱의 목표 및 KPI(핵심 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

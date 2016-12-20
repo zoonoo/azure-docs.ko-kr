@@ -1,12 +1,12 @@
 ---
-title: Azure Single Sign Out SAML 프로토콜 | Microsoft Docs
-description: 이 문서에서는 Azure Active Directory에서 Single Sign-Out SAML 프로토콜을 설명합니다.
+title: "Azure Single Sign Out SAML 프로토콜 | Microsoft Docs"
+description: "이 문서에서는 Azure Active Directory에서 Single Sign-Out SAML 프로토콜을 설명합니다."
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d05ab5c4bd813b5f371be27605a9096b0b9c9656
+
 
 ---
 # <a name="single-sign-out-saml-protocol"></a>Single Sign-Out SAML 프로토콜
@@ -72,6 +76,9 @@ Azure AD는 이 값을 `https://login.microsoftonline.com/<TenantIdGUID>/`로 �
 ### <a name="status"></a>가동 상태
 Azure AD에서는 `Status` 요소의 `StatusCode` 요소를 사용하여 로그아웃의 성공 여부를 나타냅니다. 로그아웃 시도가 실패하면 `StatusCode` 요소는 사용자 지정 오류 메시지를 포함할 수도 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -8,7 +8,7 @@ HPC 팩 클러스터 계획에 대한 배경 정보는 HPC 팩 TechNet 라이브
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure 구독** - Azure Global 또는 Azure China 서비스의 구독을 사용할 수 있습니다. 구독 제한은 배포할 수 있는 클러스터 노드의 수와 유형에 영향을 줍니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md)을 참조하세요.
-* **Azure PowerShell 0.8.7 이상이 설치 및 구성된 Windows 클라이언트 컴퓨터** - Azure 구독에 연결하기 위한 설치 지침 및 단계는 [Azure PowerShell 설치 및 구성](../articles/powershell-install-configure.md) 을 참조하세요.
+* **Azure PowerShell 0.8.7 이상이 설치 및 구성된 Windows 클라이언트 컴퓨터** - Azure 구독에 연결하기 위한 설치 지침 및 단계는 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 * **HPC 팩 IaaS 배포 스크립트** - [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=44949)에서 최신 버전의 스크립트를 다운로드하고 압축을 풉니다. `New-HPCIaaSCluster.ps1 –Version`을 실행하여 스크립트 버전을 확인합니다. 이 문서는 버전 4.4.1의 스크립트를 기반으로 합니다.
 * **스크립트 구성 파일** - 스크립트가 HPC 클러스터를 구성하는 데 사용하는 XML 파일을 만들어야 합니다. 정보 및 예제는 이 문서의 후반부에 나오는 단원 및 배포 스크립트와 함께 제공되는 Manual.rtf 파일을 참조하세요.
 
@@ -57,6 +57,6 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

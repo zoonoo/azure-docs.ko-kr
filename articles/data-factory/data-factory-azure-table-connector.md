@@ -1,36 +1,40 @@
 ---
-title: Azure 테이블 간 데이터 이동 | Microsoft Docs
-description: Azure Data Factory를 사용하여 Azure 테이블 저장소 간 데이터를 이동하는 방법에 대해 알아봅니다.
+title: "Azure 테이블 간 데이터 이동 | Microsoft Docs"
+description: "Azure Data Factory를 사용하여 Azure 테이블 저장소 간 데이터를 이동하는 방법에 대해 알아봅니다."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 07b046b1-7884-4e57-a613-337292416319
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 12/07/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 52402d5152d4eadfcb6feb313728bd09a39e6268
+ms.openlocfilehash: 87031d315f67ac49711639f238e79cdd09540b97
+
 
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure 테이블 간 데이터 이동
 이 문서는 Azure 데이터 팩터리에서 복사 활동을 사용하여 Azure 테이블에서 다른 데이터 저장소로(또는 그 반대로) 데이터를 이동하는 방법에 대해 설명합니다. 이 문서는 복사 활동을 사용하여 데이터 이동 및 지원되는 데이터 저장소 조합의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 기초로 작성됩니다.
 
 ## <a name="copy-data-wizard"></a>데이터 복사 마법사
-Azure 테이블 저장소 간에 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요. 
+Azure 테이블 저장소 간에 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요.
 
-다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure 테이블 저장소 및 Azure Blob 데이터베이스 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 임의의 원본에서 **여기** 에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores) 데이터를 복사할 수 있습니다.
+다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure 테이블 저장소 및 Azure Blob 데이터베이스 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 임의의 원본에서 지원되는 싱크로 **직접** 데이터를 복사할 수 있습니다. 자세한 내용은 [복사 작업을 사용하여 데이터 이동](data-factory-data-movement-activities.md)에서 "지원되는 데이터 저장소 및 형식" 섹션을 참조하세요.
 
-## <a name="sample:-copy-data-from-azure-table-to-azure-blob"></a>샘플: Azure 테이블에서 Azure Blob로 데이터 복사
+## <a name="sample-copy-data-from-azure-table-to-azure-blob"></a>샘플: Azure 테이블에서 Azure Blob로 데이터 복사
 다음 샘플은 다음과 같은 내용을 보여 줍니다.
 
-1. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스(테이블 및 blob에 모두 사용됨)
+1. [AzureStorage](data-factory-azure-blob-connector.md) 형식의 연결된 서비스(테이블 및 blob에 모두 사용됨)
 2. [AzureTable](#azure-table-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
-3. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md) 
-4. [AzureTableSource](#azure-table-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다. 
+3. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
+4. [AzureTableSource](#azure-table-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 샘플은 매시간 Azure 테이블의 기본 파티션에 속하는 데이터를 blob로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -79,7 +83,7 @@ Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **
 
 **Azure Blob 출력 데이터 집합:**
 
-데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회) Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다. 
+데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회) Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
 
     {
       "name": "AzureBlobOutput",
@@ -151,46 +155,46 @@ Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **
                     "description": "copy activity",
                     "type": "Copy",
                     "inputs": [
-                        {
+                          {
                             "name": "AzureTableInput"
                         }
                     ],
                     "outputs": [
-                        {
-                            "name": "AzureBlobOutput"
-                        }
+                          {
+                                "name": "AzureBlobOutput"
+                          }
                     ],
                     "typeProperties": {
-                        "source": {
+                          "source": {
                             "type": "AzureTableSource",
                             "AzureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'"
-                        },
-                        "sink": {
+                          },
+                          "sink": {
                             "type": "BlobSink"
-                        }
+                          }
                     },
                     "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },              
+                          "frequency": "Hour",
+                          "interval": 1
+                    },                
                     "policy": {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "OldestFirst",
-                        "retry": 0,
-                        "timeout": "01:00:00"
+                          "concurrency": 1,
+                          "executionPriorityOrder": "OldestFirst",
+                          "retry": 0,
+                          "timeout": "01:00:00"
                     }
                 }
-             ]  
+             ]    
         }
     }
 
-## <a name="sample:-copy-data-from-azure-blob-to-azure-table"></a>샘플: Azure Blob에서 Azure 테이블로 데이터 복사
+## <a name="sample-copy-data-from-azure-blob-to-azure-table"></a>샘플: Azure Blob에서 Azure 테이블로 데이터 복사
 다음 샘플은 다음과 같은 내용을 보여 줍니다.
 
-1. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스(테이블 및 blob에 모두 사용됨)
+1. [AzureStorage](data-factory-azure-blob-connector.md) 형식의 연결된 서비스(테이블 및 blob에 모두 사용됨)
 2. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
-3. [AzureTable](#azure-table-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다. 
-4. [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 및 [AzureTableSink](#azure-table-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다. 
+3. [AzureTable](#azure-table-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
+4. [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 및 [AzureTableSink](#azure-table-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 샘플은 Azure Blob에서 Azure 테이블로 매시간 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -206,7 +210,7 @@ Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **
       }
     }
 
-Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **AzureStorage** 및 **AzureStorageSas**를 제공합니다. 첫 번째 것의 경우 계정 키를 포함하는 연결 문자열을 지정하고 이후 것의 경우 SAS(공유 액세스 서명) Uri를 지정합니다. 자세한 내용은 [연결된 서비스](#linked-services) 섹션을 참조하세요. 
+Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **AzureStorage** 및 **AzureStorageSas**를 제공합니다. 첫 번째 것의 경우 계정 키를 포함하는 연결 문자열을 지정하고 이후 것의 경우 SAS(공유 액세스 서명) Uri를 지정합니다. 자세한 내용은 [연결된 서비스](#linked-services) 섹션을 참조하세요.
 
 **Azure Blob 입력 데이터 집합:**
 
@@ -277,7 +281,7 @@ Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **
 
 **Azure 테이블 출력 데이터 집합:**
 
-샘플은 Azure 테이블의 "MyTable"이라는 테이블에 데이터를 복사합니다. Blob CSV 파일을 포함하려 하면 같은 수의 열을 사용하여 Azure 테이블을 만듭니다. 새 행은 매시간 테이블에 추가됩니다. 
+샘플은 Azure 테이블의 "MyTable"이라는 테이블에 데이터를 복사합니다. Blob CSV 파일을 포함하려 하면 같은 수의 열을 사용하여 Azure 테이블을 만듭니다. 새 행은 매시간 테이블에 추가됩니다.
 
     {
       "name": "AzureTableOutput",
@@ -296,7 +300,7 @@ Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **
 
 **복사 작업을 포함하는 파이프라인:**
 
-파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **BlobSource**로 설정되고 **sink** 형식은 **AzureTableSink**로 설정됩니다. 
+파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **BlobSource**로 설정되고 **sink** 형식은 **AzureTableSink**로 설정됩니다.
 
     {  
         "name":"SamplePipeline",
@@ -332,7 +336,7 @@ Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **
             "scheduler": {
               "frequency": "Hour",
               "interval": 1
-            },                      
+            },                        
             "policy": {
               "concurrency": 1,
               "executionPriorityOrder": "OldestFirst",
@@ -367,7 +371,7 @@ Azure 테이블과 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 따라서 스키마 없는 데이터 원본에 대한 모범 사례는 **구조** 속성을 사용하여 데이터의 구조를 지정하는 것입니다.
 
 ## <a name="azure-table-copy-activity-type-properties"></a>Azure 테이블 복사 활동 형식 속성
-활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 데이터 집합, 정책 등의 속성은 모든 유형의 활동에 사용할 수 있습니다. 
+활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 데이터 집합, 정책 등의 속성은 모든 유형의 활동에 사용할 수 있습니다.
 
 반면 활동의 typeProperties 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
 
@@ -379,11 +383,11 @@ Azure 테이블과 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 | azureTableSourceIgnoreTableNotFound |존재하지 않는 테이블의 예외를 받아들이는지를 나타냅니다. |TRUE<br/>FALSE |아니요 |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery 예제
-Azure 테이블 열이 문자열 형식인 경우: 
+Azure 테이블 열이 문자열 형식인 경우:
 
     azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00_9999}\\'', SliceStart)"
 
-Azure 테이블 열이 날짜/시간 형식인 경우: 
+Azure 테이블 열이 날짜/시간 형식인 경우:
 
     "azureTableSourceQuery": "$$Text.Format('DeploymentEndTime gt datetime\\'{0:yyyy-MM-ddTHH:mm:ssZ}\\' and DeploymentEndTime le datetime\\'{1:yyyy-MM-ddTHH:mm:ssZ}\\'', SliceStart, SliceEnd)"
 
@@ -407,9 +411,9 @@ Azure 테이블 열이 날짜/시간 형식인 경우:
     "translator": {
         "type": "TabularTranslator",
         "columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
-    } 
+    }
 
-DivisionID는 파티션 키로 지정됩니다. 
+DivisionID는 파티션 키로 지정됩니다.
 
     "sink": {
         "type": "AzureTableSink",
@@ -427,7 +431,7 @@ DivisionID는 파티션 키로 지정됩니다.
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
 
-Azure 테이블에서 데이터를 이동하는 경우 다음 [Azure 테이블 서비스에서 정의된 매핑](https://msdn.microsoft.com/library/azure/dd179338.aspx)은 Azure 테이블 OData 형식에서 .NET 유형에 또는 그 반대로 사용됩니다. 
+Azure 테이블에서 데이터를 이동하는 경우 다음 [Azure 테이블 서비스에서 정의된 매핑](https://msdn.microsoft.com/library/azure/dd179338.aspx)은 Azure 테이블 OData 형식에서 .NET 유형에 또는 그 반대로 사용됩니다.
 
 | OData 데이터 형식 | .NET 형식 | 세부 정보 |
 | --- | --- | --- |
@@ -441,9 +445,9 @@ Azure 테이블에서 데이터를 이동하는 경우 다음 [Azure 테이블 �
 | Edm.String |문자열 |UTF-16으로 인코딩된 값입니다. 문자열 값은 최대 64KB입니다. |
 
 ### <a name="type-conversion-sample"></a>형식 변환 샘플
-다음 샘플은 Azure Blob에서 형식 변환이 있는 Azure 테이블에 데이터를 복사하는 데 사용합니다. 
+다음 샘플은 Azure Blob에서 형식 변환이 있는 Azure 테이블에 데이터를 복사하는 데 사용합니다.
 
-Blob 데이터 집합이 CSV 형식이며 3개의 열을 포함하고 있다고 가정합니다. 그 중 하나는 요일에 축약된 프랑스 이름을 사용하여 사용자 지정 datetime 형식을 사용하는 datetime 열입니다. 
+Blob 데이터 집합이 CSV 형식이며 3개의 열을 포함하고 있다고 가정합니다. 그 중 하나는 요일에 축약된 프랑스 이름을 사용하여 사용자 지정 datetime 형식을 사용하는 datetime 열입니다.
 
 열에 대한 형식 정의가 다음과 같으면 Blob 원본 데이터 집합을 정의합니다.
 
@@ -451,7 +455,7 @@ Blob 데이터 집합이 CSV 형식이며 3개의 열을 포함하고 있다고 
         "name": " AzureBlobInput",
         "properties":
         {
-             "structure": 
+             "structure":
               [
                     { "name": "userid", "type": "Int64"},
                     { "name": "name", "type": "String"},
@@ -484,7 +488,7 @@ Blob 데이터 집합이 CSV 형식이며 3개의 열을 포함하고 있다고 
         }
     }
 
-Azure 테이블 OData 형식에서 .NET 형식에 형식 매핑을 지정하면 다음 스키마로 Azure 테이블에서 테이블을 정의합니다. 
+Azure 테이블 OData 형식에서 .NET 형식에 형식 매핑을 지정하면 다음 스키마로 Azure 테이블에서 테이블을 정의합니다.
 
 **Azure 테이블 스키마:**
 
@@ -518,6 +522,8 @@ Azure 테이블 OData 형식에서 .NET 형식에 형식 매핑을 지정하면 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

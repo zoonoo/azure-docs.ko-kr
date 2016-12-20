@@ -1,13 +1,13 @@
 ---
-title: 가상 컴퓨터 확장 및 기능 | Microsoft Docs
-description: 확장이 제공하거나 개선하는 기능별로 그룹화하여 Azure 가상 컴퓨터에 사용할 수 있는 확장을 알아봅니다.
+title: "가상 컴퓨터 확장 및 기능 | Microsoft Docs"
+description: "확장이 제공하거나 개선하는 기능별로 그룹화하여 Azure 가상 컴퓨터에 사용할 수 있는 확장을 알아봅니다."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: nepeters
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: f377293e39699cd2be2493df020576389393ee0e
+
 
 ---
 # <a name="about-virtual-machine-extensions-and-features"></a>가상 컴퓨터 확장 및 기능 정보
@@ -26,7 +30,7 @@ Azure 가상 컴퓨터 확장은 Azure 가상 컴퓨터에서 배포 후 구성 
 ## <a name="azure-vm-agent"></a>Azure VM 에이전트
 Azure VM 에이전트는 Azure 가상 컴퓨터와 Azure 패브릭 컨트롤러 간 상호 작용을 관리합니다. VM 에이전트는 VM 확장 실행을 포함하여 Azure 가상 컴퓨터 배포 및 관리의 다양한 기능적 측면을 담당합니다. Azure VM 에이전트는 Azure 갤러리 이미지에 미리 설치되며 지원되는 운영 체제에 설치될 수 있습니다. 
 
-지원되는 운영 체제 및 설치 지침에 대한 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](virtual-machines-linux-agent-user-guide.md)를 참조하세요.
+지원되는 운영 체제 및 설치 지침에 대한 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ## <a name="discover-vm-extensions"></a>VM 확장 검색
 Azure 가상 컴퓨터와 함께 여러 다양한 VM 확장을 사용할 수 있습니다. 전체 목록을 보려면 Azure CLI와 함께 다음 명령을 실행하고 해당 위치를 선택한 위치로 바꿉니다.
@@ -40,11 +44,14 @@ azure vm extension-image list westus
 ## <a name="common-vm-extensions"></a>일반 VM 확장
 | 확장 이름 | 설명 | 추가 정보 |
 | --- | --- | --- |
-| Linux용 사용자 지정 스크립트 확장 |Azure 가상 컴퓨터에 대해 스크립트 실행 |[Linux용 사용자 지정 스크립트 확장](virtual-machines-linux-extensions-customscript.md) |
-| Docker 확장 |원격 Docker 명령을 지원하기 위해 Docker 데몬을 설치합니다. |[Docker VM 확장](virtual-machines-linux-dockerextension.md) |
+| Linux용 사용자 지정 스크립트 확장 |Azure 가상 컴퓨터에 대해 스크립트 실행 |[Linux용 사용자 지정 스크립트 확장](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Docker 확장 |원격 Docker 명령을 지원하기 위해 Docker 데몬을 설치합니다. |[Docker VM 확장](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
 | VM 액세스 확장 |Azure 가상 컴퓨터에 대한 액세스 권한 복구 |[VM 액세스 확장](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure 진단 확장 |Azure 진단 관리 |[Azure 진단 확장](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

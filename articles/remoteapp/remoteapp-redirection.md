@@ -1,23 +1,27 @@
 ---
-title: Azure RemoteApp에서 리디렉션 사용 | Microsoft Docs
-description: RemoteApp에서 리디렉션을 구성 및 사용하는 방법을 알아봅니다.
+title: "Azure RemoteApp에서 리디렉션 사용 | Microsoft 문서"
+description: "RemoteApp에서 리디렉션을 구성 및 사용하는 방법을 알아봅니다."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 2c8c867f-4907-4f2e-9ccd-2eb82bb5b837
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 392f15955362607187abf402dee076e328c11bd3
+
 
 ---
-# Azure RemoteApp에서 리디렉션 사용
+# <a name="using-redirection-in-azure-remoteapp"></a>Azure RemoteApp에서 리디렉션 사용
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -25,58 +29,58 @@ ms.author: elizapo
 
 RemoteApp은 RDP(원격 데스크톱 프로토콜) 및 RemoteFX를 활용하여 리디렉션을 제공합니다.
 
-## 기본적으로 사용할 수 있는 리디렉션
+## <a name="what-redirection-is-enabled-by-default"></a>기본적으로 사용할 수 있는 리디렉션
 RemoteApp을 사용하는 경우 기본적으로 다음과 같은 리디렉션을 사용할 수 있습니다. 괄호 안의 정보는 RDP 설정을 보여 줍니다.
 
-* 로컬 컴퓨터에서 소리 재생(**이 컴퓨터에서 재생**)(audiomode:i:0)
-* 로컬 컴퓨터에서 오디오를 캡처하고 원격 컴퓨터로 보내기(**이 컴퓨터에서 녹음**)(audiocapturemode:i:1)
+* 로컬 컴퓨터에서 소리 재생(**이 컴퓨터에서 재생**) (audiomode:i:0)
+* 로컬 컴퓨터에서 오디오를 캡처하고 원격 컴퓨터로 보내기(**이 컴퓨터에서 녹음**) (audiocapturemode:i:1)
 * 로컬 프린터로 인쇄(redirectprinters:i:1)
 * COM 포트(redirectcomports:i:1)
 * 스마트 카드 장치(redirectsmartcards:i:1)
 * 클립보드(복사 및 붙여넣기 기능)(redirectclipboard:i:1)
 * 암호화되지 않은 형식 글꼴 다듬기(allow font smoothing:i:1)
-* 지원되는 모든 플러그 앤 플레이 장치 리디렉션(devicestoredirect:s: *)
+* 지원되는 모든 플러그 앤 플레이 장치 리디렉션 (devicestoredirect:s:*)
 
-## 사용할 수 있는 기타 리디렉션
+## <a name="what-other-redirection-is-available"></a>사용할 수 있는 기타 리디렉션
 기본적으로 다음 두 가지 리디렉션 옵션은 사용하지 않도록 설정되어 있습니다.
 
 * 드라이브 리디렉션(드라이브 매핑): 로컬 컴퓨터의 드라이브가 원격 세션에서 매핑된 드라이브가 됩니다. 이 경우 원격 세션에서 작업하는 동안 로컬 드라이브에서 파일을 저장하거나 열 수 있습니다.
 * USB 리디렉션: 원격 세션 내에서 로컬 컴퓨터에 연결된 USB 장치를 사용할 수 있습니다.
 
-## RemoteApp에서 리디렉션 설정 변경
+## <a name="change-your-redirection-settings-in-remoteapp"></a>RemoteApp에서 리디렉션 설정 변경
 SDK와 함께 Microsoft Azure PowerShell을 사용하여 컬렉션에 대한 장치 리디렉션 설정을 변경할 수 있습니다. 새 PowerShell과 SDK를 설치한 후 먼저 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)에 설명된 대로 구독을 관리하도록 구성합니다.
 
 그런 후에 다음과 비슷한 명령을 사용하여 사용자 지정 RDP 속성을 설정합니다.
 
     Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
 
-*`n*은 개별 속성 사이의 구분 기호로 사용됩니다.
+*`n* 은 개별 속성 사이의 구분 기호로 사용됩니다.
 
-구성된 사용자 지정 RDP 속성 목록을 가져오려면 다음 cmdlet을 실행합니다. 사용자 지정 속성만 출력 결과로 표시되고 기본 속성은 표시되지 않습니다.
+구성된 사용자 지정 RDP 속성 목록을 가져오려면 다음 cmdlet을 실행합니다. 사용자 지정 속성만 출력 결과로 표시되고 기본 속성은 표시되지 않습니다.  
 
     Get-AzureRemoteAppCollection -CollectionName <collection name>
 
-사용자 지정 속성을 설정하는 경우 매번 모든 사용자 지정 속성을 지정해야 합니다. 그렇지 않으면 설정이 사용 안 함으로 돌아갑니다.
+사용자 지정 속성을 설정하는 경우 매번 모든 사용자 지정 속성을 지정해야 합니다. 그렇지 않으면 설정이 사용 안 함으로 돌아갑니다.   
 
-### 일반적인 예
-드라이브 리디렉션을 사용하도록 설정하려면 다음 cmdlet을 사용합니다.
+### <a name="common-examples"></a>일반적인 예
+드라이브 리디렉션을 사용하도록 설정하려면 다음 cmdlet을 사용합니다.  
 
-    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*”
+    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*"
 
 USB 및 드라이브 리디렉션을 둘 다 사용하도록 설정하려면 다음 cmdlet을 사용합니다.
 
     Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
 
-클립보드 공유를 사용하지 않도록 설정하려면 다음 cmdlet을 사용합니다.
+클립보드 공유를 사용하지 않도록 설정하려면 다음 cmdlet을 사용합니다.  
 
-    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "redirectclipboard:i:0”
+    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "redirectclipboard:i:0"
 
 > [!IMPORTANT]
 > 변경 내용을 테스트하기 전에 단순히 연결을 끊는 것이 아니라 컬렉션의 모든 사용자를 완전히 로그오프해야 합니다. 사용자가 완전히 로그오프되었는지 확인하려면 Azure 포털에서 컬렉션의 **세션** 탭으로 이동한 다음 연결이 끊어졌거나 로그인된 모든 사용자를 로그오프합니다. 경우에 따라 세션 내의 탐색기에 로컬 드라이브가 표시될 때까지 몇 초 정도 걸릴 수 있습니다.
 > 
 > 
 
-## Windows 클라이언트에서 USB 리디렉션 설정 변경
+## <a name="change-usb-redirection-settings-on-your-windows-client"></a>Windows 클라이언트에서 USB 리디렉션 설정 변경
 RemoteApp에 연결하는 컴퓨터에서 USB 리디렉션을 사용하려는 경우 다음 두 작업이 수행되어야 합니다. 1 - 관리자가 Azure PowerShell을 사용하여 컬렉션 수준에서 USB 리디렉션을 사용하도록 설정해야 합니다. 2 - USB 리디렉션을 사용하려는 각 장치에서 허용하는 그룹 정책을 사용하도록 설정해야 합니다. 이 단계는 USB 리디렉션을 사용하려는 각 사용자에 대해 수행해야 합니다.
 
 > [!NOTE]
@@ -84,16 +88,16 @@ RemoteApp에 연결하는 컴퓨터에서 USB 리디렉션을 사용하려는 �
 > 
 > 
 
-### RemoteApp 컬렉션에 대해 USB 리디렉션 사용
+### <a name="enable-usb-redirection-for-the-remoteapp-collection"></a>RemoteApp 컬렉션에 대해 USB 리디렉션 사용
 컬렉션 수준에서 USB 리디렉션을 사용하도록 설정하려면 다음 cmdlet을 사용합니다.
 
     Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
 
-### 클라이언트 컴퓨터에 대해 USB 리디렉션 사용
+### <a name="enable-usb-redirection-for-the-client-computer"></a>클라이언트 컴퓨터에 대해 USB 리디렉션 사용
 컴퓨터에서 USB 리디렉션 설정을 구성하려면
 
 1. 로컬 그룹 정책 편집기(GPEDIT.MSC)를 엽니다. 명령 프롬프트에서 gpedit.msc를 실행하면 됩니다.
-2. **컴퓨터 구성\\정책\\관리 템플릿\\Windows 구성 요소\\원격 데스크톱 서비스\\원격 데스크톱 연결 클라이언트\\RemoteFX USB 장치 리디렉션**을 엽니다.
+2. **Computer Configuration\Policies\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Connection Client\RemoteFX USB Device Redirection**을 엽니다.
 3. **이 컴퓨터에서 지원되는 기타 RemoteFX USB 장치의 RDP 리디렉션 허용**을 두 번 클릭합니다.
 4. **사용**을 선택한 다음 **RemoteFX USB 리디렉션 액세스 권한의 관리자 및 사용자**를 선택합니다.
 5. 관리자 권한으로는 명령 프롬프트를 열고 다음 명령을 실행합니다.
@@ -107,9 +111,14 @@ RemoteApp에 연결하는 컴퓨터에서 USB 리디렉션을 사용하려는 �
 2. 그룹 정책 관리 콘솔을 엽니다. **시작 > 관리 도구 > 그룹 정책 관리**를 클릭하면 됩니다.
 3. 정책을 만들려는 도메인 또는 조직 구성 단위로 이동합니다.
 4. **기본 도메인 정책**을 마우스 오른쪽 단추로 클릭하고 **편집**을 클릭합니다.
-5. **컴퓨터 구성\\정책\\관리 템플릿\\Windows 구성 요소\\원격 데스크톱 서비스\\원격 데스크톱 연결 클라이언트\\RemoteFX USB 장치 리디렉션**을 엽니다.
+5. **Computer Configuration\Policies\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Connection Client\RemoteFX USB Device Redirection**을 엽니다.
 6. **이 컴퓨터에서 지원되는 기타 RemoteFX USB 장치의 RDP 리디렉션 허용**을 두 번 클릭합니다.
 7. **사용**을 선택한 다음 **RemoteFX USB 리디렉션 액세스 권한의 관리자 및 사용자**를 선택합니다.
-8. **확인**을 클릭합니다.
+8. **확인**을 클릭합니다.  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Azure에서 Visual Studio Team Services를 사용한 지속적인 업데이트 | Microsoft Docs
-description: 자동으로 빌드되어 Azure 앱 서비스 또는 클라우드 서비스에서 웹앱에 배포되도록 Visual Studio Team Services 팀 프로젝트를 구성하는 방법을 알아봅니다.
+title: "Azure에서 Visual Studio Team Services를 사용한 지속적인 업데이트 | Microsoft Docs"
+description: "자동으로 빌드되어 Azure 앱 서비스 또는 클라우드 서비스에서 웹앱에 배포되도록 Visual Studio Team Services 팀 프로젝트를 구성하는 방법을 알아봅니다."
 services: cloud-services
 documentationcenter: .net
 author: mlearned
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 797f67ad-e4d4-4063-ae91-41cbdf154191
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,29 +14,31 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 171c3f05b0eacfd8b1ede0b807f284ce6c0555b4
+
 
 ---
-# Visual Studio Team Services를 사용한 지속적인 업데이트
-Azure 웹앱 또는 클라우드 서비스에 자동으로 빌드 및 배포하도록 Visual Studio Team Services 팀 프로젝트를 구성할 수 있습니다. *온-프레미스* Team Foundation Server를 사용하여 연속 빌드 및 배포 시스템을 설정하는 방법에 대한 자세한 내용은 [Azure 클라우드 서비스의 지속적인 전송](cloud-services-dotnet-continuous-delivery.md)(영문)을 참조하세요.
+# <a name="continuous-delivery-to-azure-using-visual-studio-team-services"></a>Visual Studio Team Services를 사용한 지속적인 업데이트
+Azure 웹앱 또는 클라우드 서비스에 자동으로 빌드 및 배포하도록 Visual Studio Team Services 팀 프로젝트를 구성할 수 있습니다.  *온-프레미스* Team Foundation Server를 사용하여 연속 빌드 및 배포 시스템을 설정하는 방법에 대한 자세한 내용은 [Azure 클라우드 서비스의 지속적인 전송](cloud-services-dotnet-continuous-delivery.md)(영문)을 참조하세요.
 
-이 자습서에서는 Visual Studio 2013 및 Azure SDK가 설치되어 있다고 가정합니다. Visual Studio 2013을 아직 설치하지 않은 경우 **www.visualstudio.com**에서 [무료로 시작하기](http://www.visualstudio.com) 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
+이 자습서에서는 Visual Studio 2013 및 Azure SDK가 설치되어 있다고 가정합니다. Visual Studio 2013을 아직 설치하지 않은 경우 **www.visualstudio.com** 에서 [무료로 시작하기](http://www.visualstudio.com)링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
 
 > [!NOTE]
-> 이 자습서를 완료하려면 Visual Studio Team Services 계정이 있어야 합니다.
-> [Visual Studio Team Services 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
+> 이 자습서를 완료하려면 Visual Studio Team Services 계정이 있어야 합니다. [Visual Studio Team Services 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
 > 
 > 
 
 Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배포하도록 클라우드 서비스를 설정하려면 다음 단계를 따르세요.
 
-## 1:팀 프로젝트 만들기
-[여기](http://go.microsoft.com/fwlink/?LinkId=512980)에 나와 있는 지침에 따라 팀 프로젝트를 만들고 Visual Studio에 연결합니다. 이 연습에서는 TFVC(Team Foundation 버전 제어)를 소스 제어 솔루션으로 사용하고 있는 것으로 가정합니다. 버전 제어를 위해 Git를 사용하려는 경우 [이 연습의 Git 버전](http://go.microsoft.com/fwlink/p/?LinkId=397358)을 참조하세요.
+## <a name="1-create-a-team-project"></a>1:팀 프로젝트 만들기
+[여기](http://go.microsoft.com/fwlink/?LinkId=512980) 에 나와 있는 지침에 따라 팀 프로젝트를 만들고 Visual Studio에 연결합니다. 이 연습에서는 TFVC(Team Foundation 버전 제어)를 소스 제어 솔루션으로 사용하고 있는 것으로 가정합니다. 버전 제어를 위해 Git를 사용하려는 경우 [이 연습의 Git 버전](http://go.microsoft.com/fwlink/p/?LinkId=397358)을 참조하세요.
 
-## 2: 소스 제어에 프로젝트 체크 인
-1. Visual Studio에서 배포할 솔루션을 열거나 새 솔루션을 만듭니다. 
-   이 연습의 단계에 따라 웹앱 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다. 새 솔루션을 만들려는 경우 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 
-   프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가하고 웹 역할을 위한 인터넷 응용 프로그램을 선택합니다. 
-   메시지가 표시되면 **인터넷 응용 프로그램**을 선택합니다. 
+## <a name="2-check-in-a-project-to-source-control"></a>2: 소스 제어에 프로젝트 체크 인
+1. Visual Studio에서 배포할 솔루션을 열거나 새 솔루션을 만듭니다.
+   이 연습의 단계에 따라 웹앱 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다.
+   새 솔루션을 만들려는 경우 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가하고 웹 역할을 위한 인터넷 응용 프로그램을 선택합니다. 메시지가 표시되면 **인터넷 응용 프로그램**을 선택합니다.
    웹앱을 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. [Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기](../app-service-web/web-sites-dotnet-get-started.md)
    
    > [!NOTE]
@@ -60,8 +62,8 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
    
     ![][9]
 
-## 3: Azure에 프로젝트 연결
-1. 일부 소스 코드를 포함한 VS Team Services 팀 프로젝트가 있으므로 Azure에 팀 프로젝트를 연결할 준비가 되었습니다. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 클라우드 서비스 또는 웹앱을 선택하거나, 왼쪽 아래에 있는 **+** 아이콘을 선택하고 **클라우드 서비스** 또는 **웹앱**을 선택한 후 **빠른 생성**을 선택하여 새로 만듭니다. **Visual Studio Team Services로 게시 설정** 링크를 선택합니다.
+## <a name="3-connect-the-project-to-azure"></a>3: Azure에 프로젝트 연결
+1. 일부 소스 코드를 포함한 VS Team Services 팀 프로젝트가 있으므로 Azure에 팀 프로젝트를 연결할 준비가 되었습니다.  [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 클라우드 서비스 또는 웹앱을 선택하거나, 왼쪽 아래에 있는 **+** 아이콘을 선택하고 **클라우드 서비스** 또는 **웹앱**을 선택한 후 **빨리 만들기**를 선택하여 새로 만듭니다. **Visual Studio Team Services로 게시 설정** 링크를 선택합니다.
    
     ![][10]
 2. 마법사의 텍스트 상자에 Visual Studio Team Services 계정의 이름을 입력하고 **지금 권한 부여** 링크를 클릭합니다. 로그인하라는 메시지가 표시될 수 있습니다.
@@ -73,21 +75,21 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
 4. 권한 부여가 완료되면 Visual Studio Team Services 팀 프로젝트 목록이 포함된 드롭다운이 표시됩니다. 이전 단계에서 만든 팀 프로젝트 이름을 선택하고 마법사의 확인 표시 단추를 선택합니다.
    
     ![][13]
-5. 프로젝트가 연결되면 Visual Studio Team Services 팀 프로젝트에 대한 변경 내용을 체크 인하는 몇 가지 지침이 표시됩니다. 다음번에 체크 인할 때 Visual Studio Team Services에서 프로젝트를 Azure에 빌드 및 배포합니다. **Visual Studio에서 체크 인** 링크와 **Visual Studio 시작** 링크(또는 포털 화면 아래에 있는 해당 **Visual Studio** 단추)를 차례로 클릭하여 지금 이 작업을 시도합니다.
+5. 프로젝트가 연결되면 Visual Studio Team Services 팀 프로젝트에 대한 변경 내용을 체크 인하는 몇 가지 지침이 표시됩니다.  다음번에 체크 인할 때 Visual Studio Team Services에서 프로젝트를 Azure에 빌드 및 배포합니다.  **Visual Studio에서 체크 인** 링크와 **Visual Studio 시작** 링크(또는 포털 화면 아래에 있는 해당 **Visual Studio** 단추)를 차례로 클릭하여 지금 이 작업을 시도합니다.
    
     ![][14]
 
-## 4: 프로젝트 다시 빌드 및 다시 배포 트리거
+## <a name="4-trigger-a-rebuild-and-redeploy-your-project"></a>4: 프로젝트 다시 빌드 및 다시 배포 트리거
 1. Visual Studio의 **팀 탐색기**에서 **소스 제어 탐색기** 링크를 클릭합니다.
    
     ![][15]
 2. 솔루션 파일로 이동하여 해당 파일을 엽니다.
    
     ![][16]
-3. **솔루션 탐색기**에서 파일을 열어 변경합니다. 예를 들어 MVC 웹 역할의 Views\\Shared 폴더에서 `_Layout.cshtml` 파일을 변경합니다.
+3. **솔루션 탐색기**에서 파일을 열어 변경합니다. 예를 들어 MVC 웹 역할의 Views\\ 폴더에서 `_Layout.cshtml` 파일을 변경합니다.
    
     ![][17]
-4. 사이트 로고를 편집하고 **Ctrl+S**를 눌러 파일을 저장합니다.
+4. 사이트 로고를 편집하고 **Ctrl+S** 를 눌러 파일을 저장합니다.
    
     ![][18]
 5. **팀 탐색기**에서 **보류 중인 변경 내용** 링크를 선택합니다.
@@ -103,13 +105,13 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
    
     ![][22]
    
-    **팀 탐색기**에서 빌드의 체크 인이 트리거되었음을 보여 줍니다.
+    **팀 탐색기** 에서 빌드의 체크 인이 트리거되었음을 보여 줍니다.
    
     ![][23]
 9. 진행 중인 빌드 이름을 두 번 클릭하여 빌드가 진행되는 동안 생성되는 자세한 로그를 확인합니다.
    
     ![][24]
-10. 빌드가 진행되는 동안 마법사를 사용하여 TFS를 Azure에 연결할 때 생성된 빌드 정의를 살펴봅니다. 빌드 정의의 바로 가기 메뉴를 열고 **빌드 정의 편집**을 선택합니다.
+10. 빌드가 진행되는 동안 마법사를 사용하여 TFS를 Azure에 연결할 때 생성된 빌드 정의를 살펴봅니다.  빌드 정의의 바로 가기 메뉴를 열고 **빌드 정의 편집**을 선택합니다.
     
      ![][25]
     
@@ -157,17 +159,17 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
     
     ![][33]
 
-## 5: 초기 빌드 다시 배포
-이 단계는 클라우드 서비스에 적용되며 옵션입니다. Azure 클래식 포털에서 이전 배포를 선택하고 **다시 배포** 단추를 선택하여 사이트를 이전 체크 인으로 되돌립니다. 그러면 TFS에 새 빌드가 트리거되고 배포 기록에 새 항목이 생성됩니다.
+## <a name="5-redeploy-an-earlier-build"></a>5: 초기 빌드 다시 배포
+이 단계는 클라우드 서비스에 적용되며 옵션입니다. Azure 클래식 포털에서 이전 배포를 선택하고 **다시 배포** 단추를 선택하여 사이트를 이전 체크 인으로 되돌립니다.  그러면 TFS에 새 빌드가 트리거되고 배포 기록에 새 항목이 생성됩니다.
 
 ![][34]
 
-## 6: 프로덕션 배포 변경
+## <a name="6-change-the-production-deployment"></a>6: 프로덕션 배포 변경
 이 단계는 웹앱이 아닌 클라우드 서비스에만 적용됩니다. 준비가 되면 Azure 클래식 포털에서 **교환** 단추를 선택하여 스테이징 환경에서 프로덕션 환경으로 수준을 올릴 수 있습니다. 새로 배포된 스테이징 환경에서 프로덕션으로 수준이 올라가며, 이전 프로덕션 환경이 있는 경우 스테이징 환경으로 변경됩니다. 활성 배포는 프로덕션 환경과 스테이징 환경에서 서로 다를 수 있지만 최근 빌드의 배포 기록은 환경과 관계없이 동일합니다.
 
 ![][35]
 
-## 7: 단위 테스트 실행
+## <a name="7-run-unit-tests"></a>7: 단위 테스트 실행
 이 단계는 클라우드 서비스가 아닌 웹앱에만 적용됩니다. 배포에 대한 품질 관문을 배치하기 위해 단위 테스트를 실행하고 실패할 경우 배포를 중지할 수 있습니다.
 
 1. Visual Studio에서 단위 테스트 프로젝트를 추가합니다.
@@ -197,7 +199,7 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
        }
        ```
 4. 빌드 정의를 편집하고 **프로세스** 탭을 선택한 후 **테스트** 노드를 확장합니다.
-5. **테스트 실패 시 빌드 실패**를 True로 설정합니다. 이는 테스트를 통과하지 못하면 배포가 수행되지 않는다는 의미입니다.
+5. **테스트 실패 시 빌드 실패** 를 True로 설정합니다. 이는 테스트를 통과하지 못하면 배포가 수행되지 않는다는 의미입니다.
    
    ![][41]
 6. 새 빌드를 큐에 넣습니다.
@@ -234,8 +236,8 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
     
      ![][50]
 
-## 다음 단계
-Visual Studio Team Services의 단위 테스트에 대한 자세한 내용은 [빌드에서 단위 테스트 실행](http://go.microsoft.com/fwlink/p/?LinkId=510474)을 참조하세요. Git를 사용하는 경우 [Git로 코드 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) 및 [Azure 앱 서비스에 연속 배포](../app-service-web/app-service-continuous-deployment.md)를 참조하세요. Visual Studio Team Services에 대한 자세한 내용은 [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861)를 참조하세요.
+## <a name="next-steps"></a>다음 단계
+Visual Studio Team Services의 단위 테스트에 대한 자세한 내용은 [빌드에서 단위 테스트 실행](http://go.microsoft.com/fwlink/p/?LinkId=510474)을 참조하세요. Git를 사용하는 경우 [Git로 코드 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) 및 [Azure App Service에 연속 배포](../app-service-web/app-service-continuous-deployment.md)를 참조하세요.  Visual Studio Team Services에 대한 자세한 내용은 [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861)를 참조하세요.
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
@@ -288,4 +290,8 @@ Visual Studio Team Services의 단위 테스트에 대한 자세한 내용은 [�
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

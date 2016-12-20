@@ -1,12 +1,12 @@
 ---
-title: Azure Mobile Engagement iOS SDK 업그레이드 절차 | Microsoft Docs
-description: Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차
+title: "Azure Mobile Engagement iOS SDK 업그레이드 절차 | Microsoft Docs"
+description: "Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 72a9e493-3f14-4e52-b6e2-0490fd04b184
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,6 +14,10 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ea5025cf031afb2a6d13356059d090c2d63f1665
+
 
 ---
 # <a name="upgrade-procedures"></a>업그레이드 절차
@@ -21,7 +25,7 @@ ms.author: piyushjo
 
 SDK의 각 새 버전에 대해 먼저 EngagementSDK 및 EngagementReach 폴더를 대체해야 합니다. 즉, xcode에서 이 폴더를 제거한 후에 다시 가져와야 합니다.
 
-## <a name="from-3.0.0-to-4.0.0"></a>3.0.0에서 4.0.0으로
+## <a name="from-300-to-400"></a>3.0.0에서 4.0.0으로
 ### <a name="xcode-8"></a>XCode 8
 XCode 8은 SDK 버전 4.0.0부터 필수입니다.
 
@@ -148,7 +152,7 @@ SDK에 대리자 호출 전달
 > 
 > 
 
-## <a name="from-2.0.0-to-3.0.0"></a>2.0.0에서 3.0.0으로
+## <a name="from-200-to-300"></a>2.0.0에서 3.0.0으로
 iOS 4.X에 대한 지원을 삭제했습니다. 이 버전부터 응용 프로그램의 배포 대상은 iOS 6 이상이어야 합니다.
 
 응용 프로그램에서 도달률을 사용하는 경우 원격 알림을 받기 위해 `remote-notification` 값을 Info.plist 파일의 `UIBackgroundModes` 배열에 추가해야 합니다.
@@ -161,7 +165,7 @@ iOS 4.X에 대한 지원을 삭제했습니다. 이 버전부터 응용 프로�
     -(void)didFailToRetrieveLaunchMessage;
     -(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-## <a name="from-1.16.0-to-2.0.0"></a>1.16.0에서 2.0.0으로 마이그레이션
+## <a name="from-1160-to-200"></a>1.16.0에서 2.0.0으로 마이그레이션
 아래에서는 SDK 통합을 Capptain SAS 제공 Capptain 서비스에서 Azure Mobile Engagement 구동 앱으로 마이그레이션하는 방법을 설명합니다.
 이전 버전에서 마이그레이션하는 경우 Capptain 웹 사이트를 참조하여 먼저 1.16으로 마이그레이션한 후 다음 절차를 적용하세요.
 
@@ -200,6 +204,9 @@ SmartAd 추적이 SDK에서 제거되었으므로 `AETrackModule` 클래스의 �
 * 클래스 `CapptainUtils`의 이름은 `EngagementUtils`(으)로 바뀌었습니다.
 * 클래스 `CapptainViewController`의 이름은 `EngagementViewController`(으)로 바뀌었습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

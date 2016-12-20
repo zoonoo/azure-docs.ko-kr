@@ -1,12 +1,12 @@
 ---
-title: Configure webhooks on Azure metric alerts | Microsoft Docs
-description: Reroute Azure alerts to other non-Azure systems.
+title: "Azure 메트릭 경고에 대한 webhook 구성 | Microsoft 문서"
+description: "Azure 경고를 다른 비Azure 시스템으로 경로를 전환합니다."
 author: kamathashwin
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 8b3ae540-1d19-4f3d-a635-376042f8a5bb
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,30 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: ashwink
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 62d6c15b9c360c74dc5d9436833bb4666048e523
+
 
 ---
-# <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configure a webhook on an Azure metric alert
-Webhooks allow you to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS, log bugs, notify a team via chat/messaging services, or do any number of other actions. This article describes how to set a webhook on an Azure metric alert and what the payload for the HTTP POST to a webhook looks like. For information on the setup and schema for an Azure Activity Log alert (alert on events), [see this page instead](insights-auditlog-to-webhook-email.md).
+# <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Azure 활동 메트릭 경고에 대한 웹후크 구성
+웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 원하는 수의 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다. 이 문서에서는 Azure 메트릭 경고에 웹후크를 설정하는 방법과 웹후크에 나타나는 HTTP POST의 페이로드에 대해 설명합니다. 한편 Azure 활동 로그 경고(이벤트에 대한 경고)에 대한 설정과 스키마에 대해서는 [이 페이지를 대신 참조하세요](insights-auditlog-to-webhook-email.md).
 
-Azure alerts HTTP POST the alert contents in JSON format, schema defined below, to a webhook URI that you provide when creating the alert. This URI must be a valid HTTP or HTTPS endpoint. Azure posts one entry per request when an alert is activated.
+Azure에서는 앞으로 정의될 JSON 형식과 스키마에 포함되는 경고인 HTTP POST를 이 경고를 만들 때 제공되는 웹후크 URI로 알립니다. 이 URI의 HTTP 또는 HTTPS 끝점은 유효해야 합니다. 경고가 활성화되면 Azure에서 요청당 항목 하나만 게시합니다.
 
-## <a name="configuring-webhooks-via-the-portal"></a>Configuring webhooks via the portal
-You can add or update the webhook URI in the Create/Update Alerts screen in the [portal](https://portal.azure.com/).
+## <a name="configuring-webhooks-via-the-portal"></a>포털을 통해 Webhooks 구성
+[포털](https://portal.azure.com/)의 경고 만들기/업데이트 화면에서 웹후크 URI를 추가하거나 업데이트할 수 있습니다.
 
-![Add an alert Rule](./media/insights-webhooks-alerts/Alertwebhook.png)
+![경고 규칙 추가](./media/insights-webhooks-alerts/Alertwebhook.png)
 
-You can also configure an alert to post to a webhook URI using the [Azure PowerShell Cmdlets](insights-powershell-samples.md#create-alert-rules), [Cross-Platform CLI](insights-cli-samples.md#work-with-alerts), or [Insights REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+[Azure PowerShell Cmdlet](insights-powershell-samples.md#create-alert-rules), [플랫폼 간 CLI](insights-cli-samples.md#work-with-alerts) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 webhook URI에 게시하도록 경고를 구성할 수 있습니다.
 
-## <a name="authenticating-the-webhook"></a>Authenticating the webhook
-The webhook can authenticate using either of these methods:
+## <a name="authenticating-the-webhook"></a>웹후크 인증
+웹후크는 다음 방법 중 하나를 사용하여 인증할 수 있습니다.
 
-1. **Token-based authorization** - The webhook URI is saved with a token ID, eg. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Basic authorization** - The webhook URI is saved with a username and password, eg. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+1. **토큰 기반 인증** - 토큰 ID를 사용하여 webhook URI를 저장합니다. 예를 들면 다음과 같습니다. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+2. **기본 인증** - 사용자 이름과 암호를 사용하여 webhook URI를 저장합니다. 예를 들면 다음과 같습니다. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
-## <a name="payload-schema"></a>Payload schema
-The POST operation contains the following JSON payload and schema for all metric-based alerts.
+## <a name="payload-schema"></a>페이로드 스키마
+POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON 페이로드와 스키마가 포함됩니다.
 
-```
+```JSON
 {
 "status": "Activated",
 "context": {
@@ -71,44 +75,47 @@ The POST operation contains the following JSON payload and schema for all metric
 ```
 
 
-| Field | Mandatory | Fixed Set of Values | Notes |
+| 필드 | 필수 | 고정된 값 집합 | 참고 사항 |
 |:--- |:--- |:--- |:--- |
-| status |Y |“Activated”, “Resolved” |Status for the alert based off of the conditions you have set. |
-| context |Y | |The alert context. |
-| timestamp |Y | |The time at which the alert was triggered. |
-| id |Y | |Every alert rule has a unique id. |
-| name |Y | |The alert name. |
-| description |Y | |Description of the alert. |
-| conditionType |Y |“Metric”, “Event” |Two types of alerts are supported. One based on a metric condition and the other based on an event in the Activity Log. Use this value to check if the alert is based on metric or event. |
-| condition |Y | |The specific fields to check for based on the conditionType. |
-| metricName |for Metric alerts | |The name of the metric that defines what the rule monitors. |
-| metricUnit |for Metric alerts |"Bytes", "BytesPerSecond", "Count", "CountPerSecond", "Percent", "Seconds" |The unit allowed in the metric. [Allowed values are listed here](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
-| metricValue |for Metric alerts | |The actual value of the metric that caused the alert. |
-| threshold |for Metric alerts | |The threshold value at which the alert is activated. |
-| windowSize |for Metric alerts | |The period of time that is used to monitor alert activity based on the threshold. Must be between 5 minutes and 1 day. ISO 8601 duration format. |
-| timeAggregation |for Metric alerts |"Average", "Last", "Maximum", "Minimum", "None", "Total" |How the data that is collected should be combined over time. The default value is Average. [Allowed values are listed here](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| operator |for Metric alerts | |The operator used to compare the current metric data to the set threshold. |
-| subscriptionId |Y | |Azure subscription ID. |
-| resourceGroupName |Y | |Name of the resource group for the impacted resource. |
-| resourceName |Y | |Resource name of the impacted resource. |
-| resourceType |Y | |Resource type of the impacted resource. |
-| resourceId |Y | |Resource ID of the impacted resource. |
-| resourceRegion |Y | |Region or location of the impacted resource. |
-| portalLink |Y | |Direct link to the portal resource summary page. |
-| properties |N |Optional |Set of `<Key, Value>` pairs (i.e. `Dictionary<String, String>`) that includes details about the event. The properties field is optional. In a custom UI or Logic app-based workflow, users can enter key/values that can be passed via the payload. The alternate way to pass custom properties back to the webhook is via the webhook uri itself (as query parameters) |
+| status |Y |“Activated”, “Resolved” |설정한 조건을 기반으로 하는 경고에 대한 상태입니다. |
+| context |Y | |경고 컨텍스트입니다. |
+| timestamp |Y | |경고가 트리거된 시점의 시간입니다. |
+| id |Y | |모든 경고 규칙에는 고유한 ID가 있습니다. |
+| name |Y | |경고 이름입니다. |
+| description |Y | |경고에 대한 설명입니다. |
+| conditionType |Y |“Metric”, “Event” |두 형식의 경고가 지원됩니다. 하나는 메트릭 조건에, 다른 하나는 활동 로그의 이벤트에 기반합니다. 이 값을 사용하여 메트릭 또는 이벤트에 기반하는 경고를 확인합니다. |
+| condition |Y | |conditionType에 기반하여 확인하기 위한 특정 필드입니다. |
+| metricName |메트릭 경고의 경우 | |규칙은 모니터링을 정의하는 메트릭의 이름입니다. |
+| metricUnit |메트릭 경고의 경우 |"Bytes", "BytesPerSecond", "Count", "CountPerSecond", "Percent", "Seconds" |메트릭에 사용되는 단위입니다. [허용되는 값은 여기에 나열되어 있습니다](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricValue |메트릭 경고의 경우 | |경고를 발생시킨 메트릭의 실제 값입니다. |
+| threshold |메트릭 경고의 경우 | |경고가 활성화되는 임계값입니다. |
+| windowSize |메트릭 경고의 경우 | |임계값에 기반하여 경보 활동을 모니터링하는 데 사용되는 기간입니다. 5분에서 하루 사이여야 합니다. ISO 8601 기간 형식입니다. |
+| timeAggregation |메트릭 경고의 경우 |"Average", "Last", "Maximum", "Minimum", "None", "Total" |데이터가 수집되는 방법은 시간이 지남에 따라 결합되어야 합니다. 기본값은 평균입니다. [허용되는 값은 여기에 나열되어 있습니다](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
+| operator |메트릭 경고의 경우 | |현재 메트릭 데이터를 설정한 임계값과 비교 하는 데 사용되는 연산자입니다. |
+| subscriptionId |Y | |Azure 구독 ID입니다. |
+| resourceGroupName |Y | |영향을 받는 리소스의 리소스 그룹 이름입니다. |
+| resourceName |Y | |영향을 받는 리소스의 리소스 이름입니다. |
+| resourceType |Y | |영향을 받는 리소스의 리소스 형식입니다. |
+| resourceId |Y | |영향을 받는 리소스의 리소스 ID입니다. |
+| resourceRegion |Y | |영향을 받는 리소스의 지역 또는 위치입니다. |
+| portalLink |Y | |포털 리소스 요약 페이지에 대한 직접 링크입니다. |
+| properties |N |옵션 |이벤트에 대한 세부 정보를 포함하는 `<Key, Value>` 쌍의 집합(예: `Dictionary<String, String>`)입니다. 속성 필드는 선택 사항입니다. 사용자 지정 UI 또는 논리 앱 기반 워크플로에서 페이로드를 통해 전달될 수 있는 키/값을 입력할 수 있습니다. 사용자 지정 속성을 Webhook에 다시 전달할 대체 방법은 Webhook URI 자체를 통하는 것입니다.(쿼리 매개 변수로) |
 
 > [!NOTE]
-> The properties field can only be set using the [Insights REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+> properties 필드만 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 설정할 수 있습니다.
 > 
 > 
 
-## <a name="next-steps"></a>Next steps
-* Learn more about Azure alerts and webhooks in the video [Integrate Azure Alerts with PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
-* [Execute Azure Automation scripts (Runbooks) on Azure alerts](http://go.microsoft.com/fwlink/?LinkId=627081)
-* [Use Logic App to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-* [Use Logic App to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-* [Use Logic App to send a message to an Azure Queue from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+## <a name="next-steps"></a>다음 단계
+*  [Azure 경고와 PagerDuty의 통합](http://go.microsoft.com/fwlink/?LinkId=627080)
+* [Azure 경고에 대한 Azure Automation 스크립트 실행 (Runbooks)](http://go.microsoft.com/fwlink/?LinkId=627081)
+* [논리 앱을 사용하여 Azure 경고에서 Twilio 통해 SMS 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+* [논리 앱을 사용하여 Azure 경고에서 Slack 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+* [논리 앱을 사용하여 Azure 경고에서 Azure Queue에 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

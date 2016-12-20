@@ -1,12 +1,12 @@
 ---
-title: Archive the Azure Activity Log | Microsoft Docs
-description: Learn how to archive your Azure Activity Log for long-term retention in a storage account.
+title: "Azure 활동 로그 보관 | Microsoft Docs"
+description: "저장소 계정에 장기 보존을 위해 Azure 활동 로그를 보관하는 방법에 대해 알아봅니다."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,71 +14,75 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c95e39904a84fab021d625835bdf9686b2323c52
+
 
 ---
-# <a name="archive-the-azure-activity-log"></a>Archive the Azure Activity Log
-In this article, we show how you can use the Azure portal, PowerShell Cmdlets, or Cross-Platform CLI to archive your [**Azure Activity Log**](monitoring-overview-activity-logs.md) in a storage account. This option is useful if you would like to retain your Activity Log longer than 90 days (with full control over the retention policy) for audit, static analysis, or backup. If you only need to retain your events for 90 days or less you do not need to set up archival to a storage account, since Activity Log events are retained in the Azure platform for 90 days without enabling archival.
+# <a name="archive-the-azure-activity-log"></a>Azure 활동 로그 보관
+이 문서에서는 Azure Portal, PowerShell Cmdlet 또는 플랫폼 간 CLI를 사용하여 저장소 계정에서 [**Azure 활동 로그**](monitoring-overview-activity-logs.md)를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 활동 로그를 90일 이상(보존 정책에 대해 모든 권한으로) 유지하려는 경우에 유용합니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그는 보관 활성화 없이 Azure 플랫폼에 90일 동안 보관되므로 저장소 계정에 보관을 설정할 필요가 없습니다.
 
-## <a name="prerequisites"></a>Prerequisites
-Before you begin, you need to [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) to which you can archive your Activity Log. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving Diagnostic Logs and metrics to a storage account, it may make sense to use that storage account for your Activity Log as well to keep all monitoring data in a central location. The storage account you use must be a general purpose storage account, not a blob storage account.
+## <a name="prerequisites"></a>필수 조건
+시작하기 전에 활동 로그를 보관하려면 [저장소 계정을 만들](../storage/storage-create-storage-account.md#create-a-storage-account) 어야 합니다. 모니터링 데이터에 대한 액세스를 보다 잘 제어할 수 있도록 다른 비 모니터링 데이터가 저장된 기존 저장소 계정을 사용하지 않는 것이 좋습니다. 그러나 저장소 계정에 대한 진단 로그 및 메트릭을 보관하는 경우 중앙 위치에서 모든 모니터링 데이터를 유지하도록 활동 로그에 대해 해당 저장소 계정을 사용하는 것이 합리적일 수 있습니다. 사용하는 저장소 계정은 Blob 저장소 계정이 아닌 범용 저장소 계정이어야 합니다.
 
-## <a name="log-profile"></a>Log Profile
-To archive the Activity Log using any of the methods below, you set the **Log Profile** for a subscription. The Log Profile defines the type of events that are stored or streamed and the outputs—storage account and/or event hub. It also defines the retention policy (number of days to retain) for events stored in a storage account. If the retention policy is set to zero, events are stored indefinitely. Otherwise, this can be set to any value between 1 and 2147483647. [You can read more about log profiles here](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
+## <a name="log-profile"></a>로그 프로필
+다음 방법 중 하나를 사용하여 활동 로그를 보관하려면 구독에 대해 **로그 프로필** 을 설정합니다. 로그 프로필은 저장 또는 스트리밍되는 이벤트 및 출력(저장소 계정 및/또는 이벤트 허브)의 형식을 정의합니다. 또한 저장소 계정에 저장되는 이벤트에 대한 보존 정책(보존할 일 수)을 정의합니다. 보존 정책이 0으로 설정된 경우 이벤트 무기한으로 저장됩니다. 그렇지 않으면 1에서 2147483647 사이의 값으로 설정할 수 있습니다. [여기에서 로그 프로필에 대한 자세한 내용을 확인할 수 있습니다](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
 
-## <a name="archive-the-activity-log-using-the-portal"></a>Archive the Activity Log using the portal
-1. In the portal, click the **Activity Log** link on the left-side navigation. If you don’t see a link for the Activity Log, click the **More Services** link first.
+## <a name="archive-the-activity-log-using-the-portal"></a>포털을 사용하여 활동 로그 보관
+1. 포털의 왼쪽 탐색에서 **활동 로그** 링크를 클릭합니다. 활동 로그에 대한 링크가 보이지 않으면 **더 많은 서비스** 링크를 먼저 클릭합니다.
    
-    ![Navigate to Activity Log blade](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. At the top of the blade, click **Export**.
+    ![활동 로그 블레이드로 이동](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
+2. 블레이드 맨 위에서 **내보내기**를 클릭합니다.
    
-    ![Click the Export button](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
-3. In the blade that appears, check the box for **Export to a storage account** and select a storage account.
+    ![내보내기 단추 클릭](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+3. 표시되는 블레이드에서 **저장소 계정에 내보내기** 에 대한 상자를 선택하고 저장소 계정을 선택합니다.
    
-    ![Set a storage account](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
-4. Using the slider or text box, define a number of days for which Activity Log events should be kept in your storage account. If you prefer to have your data persisted in the storage account indefinitely, set this number to zero.
-5. Click **Save**.
+    ![저장소 계정 설정](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
+4. 슬라이더 또는 텍스트 상자를 사용하여 저장소 계정에 활동 로그 이벤트를 보관해야 할 일 수를 정의합니다. 데이터를 저장소 계정에 무기한으로 유지하려는 경우 이 숫자를 0으로 설정합니다.
+5. **Save**를 클릭합니다.
 
-## <a name="archive-the-activity-log-via-powershell"></a>Archive the Activity Log via PowerShell
+## <a name="archive-the-activity-log-via-powershell"></a>PowerShell을 통해 활동 로그 보관
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
 ```
 
-| Property | Required | Description |
+| 속성 | 필수 | 설명 |
 | --- | --- | --- |
-| StorageAccountId |No |Resource ID of the Storage Account to which Activity Logs should be saved. |
-| Locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions [by visiting this page](https://azure.microsoft.com/en-us/regions) or by using [the Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever). |
-| Categories |Yes |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
+| StorageAccountId |아니요 |활동 로그를 저장할 저장소 계정의 리소스 ID입니다. |
+| 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. [이 페이지를 방문](https://azure.microsoft.com/en-us/regions)하거나 [Azure 관리 REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx)를 사용하여 모든 지역의 목록을 볼 수 있습니다. |
+| RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
+| 범주 |예 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
-## <a name="archive-the-activity-log-via-cli"></a>Archive the Activity Log via CLI
+## <a name="archive-the-activity-log-via-cli"></a>CLI를 통해 활동 로그 보관
 ```
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations global,westus,eastus,northeurope --retentionInDays 180 –categories Write,Delete,Action
 ```
 
-| Property | Required | Description |
+| 속성 | 필수 | 설명 |
 | --- | --- | --- |
-| name |Yes |Name of your log profile. |
-| storageId |No |Resource ID of the Storage Account to which Activity Logs should be saved. |
-| locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions [by visiting this page](https://azure.microsoft.com/en-us/regions) or by using [the Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| retentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero will store the logs indefinitely (forever). |
-| categories |Yes |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
+| name |예 |로그 프로필의 이름입니다. |
+| storageId |아니요 |활동 로그를 저장할 저장소 계정의 리소스 ID입니다. |
+| 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. [이 페이지를 방문](https://azure.microsoft.com/en-us/regions)하거나 [Azure 관리 REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx)를 사용하여 모든 지역의 목록을 볼 수 있습니다. |
+| RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
+| 범주 |예 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
-## <a name="storage-schema-of-the-activity-log"></a>Storage schema of the Activity Log
-Once you have set up archival, a storage container will be created in the storage account as soon as an Activity Log event occurs. The blobs within the container follow the same format across the Activity Log and Diagnostic Logs. The structure of these blobs is:
+## <a name="storage-schema-of-the-activity-log"></a>활동 로그의 저장소 스키마
+보관을 설정한 후 활동 로그 이벤트가 발생하는 즉시 저장소 계정에 저장소 컨테이너가 만들어집니다. 컨테이너 내의 Blob은 활동 로그 및 진단 로그와 동일한 형식을 따릅니다. 해당 Blob의 구조는 다음과 같습니다.
 
 > insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 > 
 > 
 
-For example, a blob name might be:
+예를 들어 Blob 이름은 다음과 같습니다.
 
 > insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 > 
 > 
 
-Each PT1H.json blob contains a JSON blob of events that occurred within the hour specified in the blob URL (e.g. h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since Activity Log events are broken into individual blobs per hour.
+각 PT1H.json Blob은 Blob URL에 지정된 시간 내에서 발생한 이벤트의 JSON Blob을 포함합니다(예: h=12). 현재 시간 동안 이벤트는 발생하는 순서대로 PT1H.json 파일에 추가됩니다. 활동 로그 이벤트는 시간당 개별 Blob으로 나뉘므로 분 값(m=00)은 항상 00입니다.
 
-Within the PT1H.json file, each event is stored in the “records” array, following this format:
+PT1H.json 파일 내에서 각 이벤트는 이 형식에 따라 "레코드" 배열에 저장됩니다.
 
 ```
 {
@@ -137,33 +141,36 @@ Within the PT1H.json file, each event is stored in the “records” array, foll
 ```
 
 
-| Element name | Description |
+| 요소 이름 | 설명 |
 | --- | --- |
-| time |Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
-| resourceId |Resource ID of the impacted resource. |
-| operationName |Name of the operation. |
-| category |Category of the action, eg. Write, Read, Action. |
-| resultType |The type of the result, eg. Success, Failure, Start |
-| resultSignature |Depends on the resource type. |
-| durationMs |Duration of the operation in milliseconds |
-| callerIpAddress |IP address of the user who has performed the operation, UPN claim, or SPN claim based on availability. |
-| correlationId |Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
-| identity |JSON blob describing the authorization and claims. |
-| authorization |Blob of RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties. |
-| level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, “Informational” and “Verbose” |
-| location |Region in which the location occurred (or global). |
-| properties |Set of `<Key, Value>` pairs (i.e. Dictionary) describing the details of the event. |
+| 실시간 |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
+| resourceId |영향을 받는 리소스의 리소스 ID입니다. |
+| operationName |작업의 이름입니다. |
+| 카테고리 |작업의 범주 (예: 쓰기, 읽기, 작업) |
+| resultType |결과의 형식 (예: 성공, 실패, 시작) |
+| resultSignature |리소스 종류에 따라 다릅니다. |
+| durationMS |밀리초 단위의 작업 기간 |
+| callerIpAddress |가용성을 기반으로 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 IP 주소입니다. |
+| CorrelationId |일반적으로 문자열 형식의 GUID입니다. 동일한 uber 작업에 속하는 correlationId를 공유하는 이벤트입니다. |
+| ID |권한 부여 및 클레임을 설명하는 JSON Blob입니다. |
+| 권한 부여 |이벤트의 RBAC 속성 Blob입니다. 일반적으로 "action", "role" 및 "scope" 속성이 포함됩니다. |
+| level |이벤트의 수준입니다. 다음 값 중 하나: “Critical”, “Error”, “Warning”, “Informational” 및 “Verbose” |
+| location |발생하는 위치의 지역(또는 전역)입니다. |
+| properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다. |
 
 > [!NOTE]
-> The properties and usage of those properties can vary depending on the resource.
+> 해당 속성의 속성 및 사용은 리소스에 따라 달라질 수 있습니다.
 > 
 > 
 
-## <a name="next-steps"></a>Next steps
-* [Download blobs for analysis](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
-* [Stream the Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
-* [Read more about the Activity Log](monitoring-overview-activity-logs.md)
+## <a name="next-steps"></a>다음 단계
+* [분석을 위한 Blob 다운로드](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
+* [활동 로그를 이벤트 허브로 스트리밍](monitoring-stream-activity-logs-event-hubs.md)
+* [활동 로그에 대한 자세한 내용](monitoring-overview-activity-logs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

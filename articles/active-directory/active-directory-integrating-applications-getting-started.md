@@ -1,12 +1,12 @@
 ---
-title: 응용 프로그램과 Azure Active Directory 통합 시작 가이드 | Microsoft Docs
-description: 이 문서는 온-프레미스 응용 프로그램 및 클라우드 응용 프로그램과 Azure Active Directory(AD)를 통합하는 시작 가이드입니다.
+title: "응용 프로그램과 Azure Active Directory 통합 시작 가이드 | Microsoft Docs"
+description: "이 문서는 온-프레미스 응용 프로그램 및 클라우드 응용 프로그램과 Azure Active Directory(AD)를 통합하는 시작 가이드입니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: ihenkel
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
 ms.author: inhenk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e35ac9ae791f7fa917cccbba5d06319f28b7033c
+
 
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>응용 프로그램과 Azure Active Directory 통합 시작 가이드
 ## <a name="overview"></a>개요
 이 항목은 Azure AD(Active Directory)와 응용 프로그램을 통합하기 위한 로드맵을 제공하려는 용도로 제공됩니다. 아래의 각 섹션에는 더 자세한 항목의 요약이 포함되므로 이 시작 가이드의 어떤 부분이 사용자와 관련 있는지 식별할 수 있습니다.  각 주제에 대해 자세히 알아보려면 링크를 따라갑니다.
 
-## <a name="before-you-begin,-take-inventory"></a>시작 하기 전에 인벤토리를 수행합니다.
+## <a name="before-you-begin-take-inventory"></a>시작 하기 전에 인벤토리를 수행합니다.
 응용 프로그램을 Azure AD와 통합하는 것을 알아보기 전에 현재 위치와 목표를 아는 것이 중요합니다.  다음 질문은 Azure AD 응용 프로그램 통합 프로젝트에 대해 생각해볼 수 있도록 하기 위한 용도로 제공됩니다.
 
 ### <a name="application-inventory"></a>응용 프로그램 인벤토리
@@ -88,6 +92,9 @@ Azure 응용 프로그램 갤러리에 사용자 지정 응용 프로그램을 �
 ## <a name="see-also"></a>참고 항목
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

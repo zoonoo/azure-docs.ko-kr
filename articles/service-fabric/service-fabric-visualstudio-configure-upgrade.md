@@ -1,22 +1,26 @@
 ---
-title: 서비스 패브릭 응용 프로그램의 업그레이드 구성 | Microsoft Docs
-description: Microsoft Visual Studio를 사용하여 서비스 패브릭 응용 프로그램을 업그레이드하기 위한 설정을 구성하는 방법에 대해 알아봅니다.
+title: "Service Fabric 응용 프로그램의 업그레이드 구성 | Microsoft Docs"
+description: "Microsoft Visual Studio를 사용하여 서비스 패브릭 응용 프로그램을 업그레이드하기 위한 설정을 구성하는 방법에 대해 알아봅니다."
 services: service-fabric
 documentationcenter: na
 author: cawaMS
 manager: paulyuk
 editor: tglee
-
+ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/29/2016
+ms.date: 11/18/2016
 ms.author: cawa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 121f1d485e34ba30d3e6c2e5d91da633771e80ab
+
 
 ---
-# Visual Studio에서 서비스 패브릭 응용 프로그램의 업그레이드 구성
+# <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Visual Studio에서 서비스 패브릭 응용 프로그램의 업그레이드 구성
 Azure 서비스 패브릭에 대한 Visual Studio Tools는 로컬 또는 원격 클러스터에 게시하기 위한 업그레이드를 지원합니다. 테스트 및 디버그 중에 응용 프로그램을 바꾸지 않고 새 버전으로 업그레이드하면 두 가지 이점이 있습니다.
 
 * 업그레이드하는 동안 응용 프로그램 데이터가 손실되지 않습니다.
@@ -24,8 +28,8 @@ Azure 서비스 패브릭에 대한 Visual Studio Tools는 로컬 또는 원격 
 
 업그레이드하는 동안 응용 프로그램에 대해 테스트를 실행할 수 있습니다.
 
-## 업그레이드하기 위해 필요한 매개 변수
-두 가지의 배포 형식(일반 또는 업그레이드)에서 선택할 수 있습니다. 일반 배포는 클러스터에서 이전 배포 정보 및 데이터를 지우는 반면 업그레이드 배포는 이러한 정보 및 데이터를 유지합니다. Visual Studio에서 서비스 패브릭 응용 프로그램을 업그레이드하는 경우 응용 프로그램 업그레이드 매개 변수 및 상태 검사 정책을 제공해야 합니다. 응용 프로그램 업그레이드 매개 변수는 업그레이드를 제어하는 반면 상태 검사 정책은 업그레이드가 성공적인지 여부를 확인합니다. 자세한 내용은 [서비스 패브릭 응용 프로그램 업그레이드: 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 참조하세요.
+## <a name="parameters-needed-to-upgrade"></a>업그레이드하기 위해 필요한 매개 변수
+두 가지의 배포 형식(일반 또는 업그레이드)에서 선택할 수 있습니다. 일반 배포는 클러스터에서 이전 배포 정보 및 데이터를 지우는 반면 업그레이드 배포는 이러한 정보 및 데이터를 유지합니다. Visual Studio에서 서비스 패브릭 응용 프로그램을 업그레이드하는 경우 응용 프로그램 업그레이드 매개 변수 및 상태 검사 정책을 제공해야 합니다. 응용 프로그램 업그레이드 매개 변수는 업그레이드를 제어하는 반면 상태 검사 정책은 업그레이드가 성공적인지 여부를 확인합니다. 자세한 내용은 [서비스 패브릭 응용 프로그램 업그레이드: 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 를 참조하세요.
 
 *Monitored*, *UnmonitoredAuto* 및 *UnmonitoredManual*의 세 가지 업그레이드 모드가 있습니다.
 
@@ -33,43 +37,43 @@ Azure 서비스 패브릭에 대한 Visual Studio Tools는 로컬 또는 원격 
 * UnmonitoredAuto 업그레이드는 업그레이드를 자동화하지만 응용 프로그램 상태 검사는 건너뜁니다.
 * UnmonitoredManual 업그레이드를 수행하는 경우 수동으로 각 업그레이드 도메인을 업그레이드해야 합니다.
 
-업그레이드 모드마다 서로 다른 매개 변수 집합이 필요합니다. 사용할 수 있는 업그레이드 옵션에 대해 자세히 알아보려면 [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 참조하세요.
+업그레이드 모드마다 서로 다른 매개 변수 집합이 필요합니다. 사용할 수 있는 업그레이드 옵션에 대해 자세히 알아보려면 [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 를 참조하세요.
 
-## Visual Studio에서 서비스 패브릭 응용 프로그램 업그레이드
+## <a name="upgrade-a-service-fabric-application-in-visual-studio"></a>Visual Studio에서 서비스 패브릭 응용 프로그램 업그레이드
 Visual Studio 서비스 패브릭 도구를 사용하여 서비스 패브릭 응용 프로그램을 업그레이드하는 경우 **응용 프로그램 업그레이드** 확인란을 선택하여 게시 프로세스가 일반 배포가 아닌 업그레이드가 되도록 지정할 수 있습니다.
 
-### 업그레이드 매개 변수를 구성하려면
+### <a name="to-configure-the-upgrade-parameters"></a>업그레이드 매개 변수를 구성하려면
 1. 확인란 옆의 **설정** 단추를 클릭합니다. **업그레이드 매개 변수 편집** 대화 상자가 나타납니다. **업그레이드 매개 변수 편집** 대화 상자는 Monitored, UnmonitoredAuto 및 UnmonitoredManual 업그레이드 모드를 지원합니다.
 2. 사용하려는 업그레이드 모드를 선택한 다음 매개 변수 그리드를 채웁니다.
-   
-    각 매개 변수에는 기본값이 있습니다. 선택적 매개 변수 *DefaultServiceTypeHealthPolicy*는 해시 테이블 입력을 사용합니다. 다음은 *DefaultServiceTypeHealthPolicy*에 대한 해시 테이블 입력 형식의 예제입니다.
-   
+
+    각 매개 변수에는 기본값이 있습니다. 선택적 매개 변수 *DefaultServiceTypeHealthPolicy* 는 해시 테이블 입력을 사용합니다. 다음은 *DefaultServiceTypeHealthPolicy*에 대한 해시 테이블 입력 형식의 예제입니다.
+
     ```
     @{ ConsiderWarningAsError = "false"; MaxPercentUnhealthyDeployedApplications = 0; MaxPercentUnhealthyServices = 0; MaxPercentUnhealthyPartitionsPerService = 0; MaxPercentUnhealthyReplicasPerPartition = 0 }
     ```
-   
-    *ServiceTypeHealthPolicyMap*은 다음과 같은 형식으로 해시 테이블 입력을 사용하는 다른 선택적 매개 변수입니다.
-   
+
+    *ServiceTypeHealthPolicyMap* 은 다음과 같은 형식으로 해시 테이블 입력을 사용하는 다른 선택적 매개 변수입니다.
+
     ```    
     @ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"}
     ```
-   
+
     다음은 실제 예제입니다.
-   
+
     ```
     @{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" }
     ```
-3. UnmonitoredManual 업그레이드 모드를 선택하는 경우 수동으로 PowerShell 콘솔을 시작하여 업그레이드 프로세스를 완료해야 합니다. 수동 업그레이드 작업 방법을 알아보려면 [서비스 패브릭 응용 프로그램 업그레이드: 고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하세요.
+3. UnmonitoredManual 업그레이드 모드를 선택하는 경우 수동으로 PowerShell 콘솔을 시작하여 업그레이드 프로세스를 완료해야 합니다. 수동 업그레이드 작업 방법을 알아보려면 [서비스 패브릭 응용 프로그램 업그레이드: 고급 항목](service-fabric-application-upgrade-advanced.md) 을 참조하세요.
 
-## PowerShell을 사용하여 응용 프로그램 업그레이드
-PowerShell cmdlet을 사용하여 서비스 패브릭 응용 프로그램을 업그레이드할 수 있습니다. 자세한 내용을 보려면 [서비스 패브릭 응용 프로그램 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md) 및 [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/mt125975.aspx)를 참조하세요.
+## <a name="upgrade-an-application-by-using-powershell"></a>PowerShell을 사용하여 응용 프로그램 업그레이드
+PowerShell cmdlet을 사용하여 서비스 패브릭 응용 프로그램을 업그레이드할 수 있습니다. 자세한 내용을 보려면 [Service Fabric 응용 프로그램 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md) 및 [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/mt125975.aspx)를 참조하세요.
 
-## 응용 프로그램 매니페스트 파일에 상태 검사 정책을 지정합니다.
+## <a name="specify-a-health-check-policy-in-the-application-manifest-file"></a>응용 프로그램 매니페스트 파일에 상태 검사 정책을 지정합니다.
 서비스 패브릭 응용 프로그램의 모든 서비스는 기본값을 재정의하는 자체 상태 정책 매개 변수를 가질 수 있습니다. 응용 프로그램 매니페스트 파일에서 이러한 매개 변수 값을 제공할 수 있습니다.
 
 다음 예제에서는 응용 프로그램 매니페스트에서 각 서비스에 대한 고유한 상태 검사 정책을 적용하는 방법을 보여 줍니다.
 
-```
+```xml
 <Policies>
     <HealthPolicy ConsiderWarningAsError="false" MaxPercentUnhealthyDeployedApplications="20">
         <DefaultServiceTypeHealthPolicy MaxPercentUnhealthyServices="20"               
@@ -82,7 +86,11 @@ PowerShell cmdlet을 사용하여 서비스 패브릭 응용 프로그램을 업
     </HealthPolicy>
 </Policies>
 ```
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [Azure 서비스 패브릭에서 기존 응용 프로그램 배포](service-fabric-deploy-existing-app.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

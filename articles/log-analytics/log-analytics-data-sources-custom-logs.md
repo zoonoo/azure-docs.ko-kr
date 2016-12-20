@@ -1,12 +1,12 @@
 ---
-title: Log Analytics의 사용자 지정 로그 | Microsoft Docs
-description: Log Analytics는 Windows와 Linux 컴퓨터의 텍스트 파일에서 이벤트를 수집할 수 있습니다.  이 문서는 새 사용자 지정 로그를 정의하는 방법을 설명하고 OMS 리포지토리에 만드는 레코드에 대한 자세한 정보를 제공합니다.
+title: "Log Analytics의 사용자 지정 로그 | Microsoft Docs"
+description: "Log Analytics는 Windows와 Linux 컴퓨터의 텍스트 파일에서 이벤트를 수집할 수 있습니다.  이 문서는 새 사용자 지정 로그를 정의하는 방법을 설명하고 OMS 리포지토리에 만드는 레코드에 대한 자세한 정보를 제공합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 25c63021160e5259bc72a4f7bbfc248b7ac717aa
+
 
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log Analytics의 사용자 지정 로그
@@ -33,7 +37,7 @@ Log Analytics의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 ## <a name="defining-a-custom-log"></a>사용자 지정 로그 정의
 다음 절차에 따라 사용자 지정 로그 파일을 정의합니다.  사용자 지정 로그를 추가하는 샘플에 대한 연습을 보려면 이 문서의 끝으로 스크롤합니다.
 
-### <a name="step-1.-open-the-custom-log-wizard"></a>1단계. Custom Log Wizard(사용자 지정 로그 마법사) 열기
+### <a name="step-1-open-the-custom-log-wizard"></a>1단계. Custom Log Wizard(사용자 지정 로그 마법사) 열기
 Custom Log Wizard(사용자 지정 로그 마법사)는 OMS 포털에서 실행되며 수집할 새 사용자 지정 로그를 정의할 수 있습니다.
 
 1. OMS 포털에서 **설정**으로 이동합니다.
@@ -41,7 +45,7 @@ Custom Log Wizard(사용자 지정 로그 마법사)는 OMS 포털에서 실행�
 3. 기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다.  Linux 에이전트에서, 구성 파일은 Fluentd 데이터 수집기로 전송됩니다.  각 Linux 에이전트에서 이 파일을 수동으로 수정하려면, *Apply below configuration to my Linux machines*(아래 구성을 내 Linux 컴퓨터에 적용) 확인란 선택을 해제합니다.
 4. **추가+** 를 클릭하여 Custom Log Wizard(사용자 지정 로그 마법사)를 엽니다.
 
-### <a name="step-2.-upload-and-parse-a-sample-log"></a>2단계. 샘플 로그 업로드 및 구문 분석
+### <a name="step-2-upload-and-parse-a-sample-log"></a>2단계. 샘플 로그 업로드 및 구문 분석
 사용자 지정 로그 샘플을 업로드하는 것부터 시작합니다.  마법사는 사용자가 유효성을 검사할 수 있도록 이 파일의 항목을 구문 분석하고 표시합니다.  Log Analytics는 사용자가 지정하는 구분 기호를 사용하여 각 레코드를 식별합니다.
 
 **새 줄** 은 기본적인 구분 기호이며 줄당 하나의 항목을 포함하는 로그 파일에 사용됩니다.  줄이 사용 가능한 형식 중 한 가지의 날짜와 시간으로 시작되는 경우에는, 두 줄 이상에 걸쳐있는 항목을 지원하는 **타임스탬프** 구분 기호를 지정할 수 있습니다. 
@@ -59,7 +63,7 @@ Custom Log Wizard(사용자 지정 로그 마법사)는 OMS 포털에서 실행�
 4. 새 레코드 식별에 사용된 구분 기호를 변경하고 로그 파일의 레코드를 가장 잘 식별하는 구분 기호를 선택합니다.
 5. **다음**을 클릭합니다.
 
-### <a name="step-3.-add-log-collection-paths"></a>3단계. 로그 수집 경로 추가
+### <a name="step-3-add-log-collection-paths"></a>3단계. 로그 수집 경로 추가
 사용자 지정 로그를 찾을 수 있는 에이전트의 경로를 하나 이상의 지정해야 합니다.  로그 파일의 특정 경로 및 이름을 제공하거나 이름의 와일드카드를 포함하는 경로를 지정할 수 있습니다.  이렇게 하면 매일 새 파일을 만드는 응용 프로그램을 지원하거나 하나의 파일이 일정한 크기에 도달하는 경우를 지원합니다.  하나의 로그 파일에 여러 경로를 제공할 수도 있습니다.
 
 예를 들어, 응용 프로그램이 이름에 날짜가 포함된 로그 파일(예: log20100316.txt)을 매일 만들 수 있습니다. 이런 로그의 패턴으로 *log\*.txt*를 사용할 수 있으며, 이것은 응용 프로그램의 명명 체계에 따르는 모든 로그 파일에 적용할 수 있습니다.
@@ -77,14 +81,14 @@ Custom Log Wizard(사용자 지정 로그 마법사)는 OMS 포털에서 실행�
 2. 경로를 입력하고 **+** 단추를 클릭합니다.
 3. 경로가 더 있으면 이 프로세스를 반복합니다.
 
-### <a name="step-4.-provide-a-name-and-description-for-the-log"></a>4단계. 로그의 이름과 설명을 제공합니다.
+### <a name="step-4-provide-a-name-and-description-for-the-log"></a>4단계. 로그의 이름과 설명을 제공합니다.
 지정한 이름은 위의 설명처럼 로그 유형에 사용됩니다.  파일을 사용자 지정 로그로 구분하기 위해 항상_CL로 끝납니다.
 
 1. 로그의 이름을 입력합니다.  **\_CL** 접미사가 자동으로 제공됩니다.
 2. 선택적인 **설명**을 추가합니다.
 3. **다음** 을 클릭하여 사용자 지정 로그 정의를 저장합니다.
 
-### <a name="step-5.-validate-that-the-custom-logs-are-being-collected"></a>5단계. 사용자 지정 로그를 수집 중인지 확인
+### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>5단계. 사용자 지정 로그를 수집 중인지 확인
 Log Analytics에 새 사용자 지정 로그의 초기 데이터가 나타나기 까지 최대 한 시간이 소요될 수 있습니다.  사용자 지정 로그를 정의한 시점부터, 사용자가 지정한 경로에서 찾은 로그로부터 항목을 수집하기 시작합니다.  사용자 지정 로그를 만드는 동안 업로드한 항목은 유지하지 않고, 찾는 로그 파일에 이미 존재하는 항목을 수집합니다.
 
 Log Analytics가 사용자 지정 로그에서 수집을 시작하면, 해당 레코드를 로그 검색을 통해 사용할 수 있습니다.  사용자 지정 로그에 지정한 이름을 쿼리의 **유형** 으로 사용합니다.
@@ -94,7 +98,7 @@ Log Analytics가 사용자 지정 로그에서 수집을 시작하면, 해당 �
 > 
 > 
 
-### <a name="step-6.-parse-the-custom-log-entries"></a>6단계. 사용자 지정 로그 항목 구문 분석
+### <a name="step-6-parse-the-custom-log-entries"></a>6단계. 사용자 지정 로그 항목 구문 분석
 전체 로그 항목은 **RawData**라는 하나의 속성에 저장됩니다.  각 항목에 포함된 다양한 종류의 정보를 레코드에 저장된 개별 속성으로 분리하려는 경우가 많습니다.  이런 작업은 Log Analytics의 [사용자 지정 필드](log-analytics-custom-fields.md) 기능을 사용하여 수행합니다.
 
 사용자 지정 로그 항목을 구문 분석하는 자세한 단계는 여기에 제공되지 않습니다.  이 정보는 [사용자 지정 필드](log-analytics-custom-fields.md) 설명서를 참조하세요.
@@ -170,6 +174,9 @@ Log Analytics는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 * [사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 사용자 지정 로그의 항목을 개별적인 필드로 구문 분석합니다.
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

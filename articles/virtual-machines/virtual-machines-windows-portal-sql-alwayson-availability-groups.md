@@ -1,13 +1,13 @@
 ---
-title: 자동으로 Azure VM의 Always On 가용성 그룹 구성 - 리소스 관리자
-description: Azure Resource Manager 모드에서 Azure 가상 컴퓨터로 Always On 가용성 그룹을 만듭니다. 이 자습서는 주로 사용자 인터페이스를 사용하여 자동으로 전체 솔루션을 만듭니다.
+title: "자동으로 Azure VM의 Always On 가용성 그룹 구성 - 리소스 관리자"
+description: "Azure Resource Manager 모드에서 Azure 가상 컴퓨터로 Always On 가용성 그룹을 만듭니다. 이 자습서는 주로 사용자 인터페이스를 사용하여 자동으로 전체 솔루션을 만듭니다."
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 10/20/2016
 ms.author: MikeRayMSFT
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: fc8dd1f618d36ba8586d5130c579c9d59b8393e5
+
 
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-automatically---resource-manager"></a>자동으로 Azure VM의 Always On 가용성 그룹 구성 - 리소스 관리자
 > [!div class="op_single_selector"]
-> * [Resource Manager: 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [리소스 관리자: 수동](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-> * [클래식: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-> * [클래식: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+> * [Resource Manager: 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [리소스 관리자: 수동](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [클래식: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [클래식: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > 
 > 
 
@@ -47,7 +51,7 @@ ms.author: MikeRayMSFT
 이 자습서에서는 다음을 가정합니다.
 
 * Azure 계정이 있습니다. 계정이 없는 경우 [평가판 계정에 등록](http://azure.microsoft.com/pricing/free-trial/)합니다.
-* GUI를 사용하여 가상 컴퓨터 갤러리에서 SQL Server VM을 프로비전하는 방법을 이미 알고 있습니다. 자세한 내용은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)
+* GUI를 사용하여 가상 컴퓨터 갤러리에서 SQL Server VM을 프로비전하는 방법을 이미 알고 있습니다. 자세한 내용은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
 > [!NOTE]
@@ -123,10 +127,10 @@ Azure의 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 
 
 * **확인**을 클릭합니다.
 
-### <a name="vm-size,-storage-settings"></a>VM 크기, 저장소 설정
+### <a name="vm-size-storage-settings"></a>VM 크기, 저장소 설정
 **VM 크기, 저장소 설정** 에서 SQL Server 가상 컴퓨터 크기를 선택하고 다른 설정을 검토합니다.
 
-* **SQL Server 가상 컴퓨터 크기** 는 두 SQL Server에 대한 Azure 가상 컴퓨터 크기입니다. 워크로드에 적합한 가상 컴퓨터 크기를 선택합니다. 자습서에서 이 환경을 빌드하는 경우 **DS2**를 사용합니다. 프로덕션 워크로드에서 워크로드를 지원할 수 있는 가상 컴퓨터 크기를 선택합니다. 대부분의 프로덕션 워크로드에서는 **DS4** 이상이 필요합니다. 템플릿은 이 크기의 두 가상 컴퓨터를 빌드하고 각 컴퓨터에 SQL Server를 설치합니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-linux-sizes.md)를 참조하세요.
+* **SQL Server 가상 컴퓨터 크기** 는 두 SQL Server에 대한 Azure 가상 컴퓨터 크기입니다. 워크로드에 적합한 가상 컴퓨터 크기를 선택합니다. 자습서에서 이 환경을 빌드하는 경우 **DS2**를 사용합니다. 프로덕션 워크로드에서 워크로드를 지원할 수 있는 가상 컴퓨터 크기를 선택합니다. 대부분의 프로덕션 워크로드에서는 **DS4** 이상이 필요합니다. 템플릿은 이 크기의 두 가상 컴퓨터를 빌드하고 각 컴퓨터에 SQL Server를 설치합니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 > [!NOTE]
 > Azure는 SQL Server의 Enterprise Edition을 설치합니다. 비용은 버전 및 가상 컴퓨터 크기에 따라 다릅니다. 현재 비용에 대한 자세한 내용은 [가상 컴퓨터 가격 책정](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)을 참조하세요.
@@ -168,7 +172,7 @@ Azure의 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 
 * [저장소 공간 개요](http://technet.microsoft.com/library/hh831739.aspx).
 * [Windows Server 백업 및 저장소 풀](http://technet.microsoft.com/library/dn390929.aspx)
 
-SQL Server 구성 모범 사례에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)
+SQL Server 구성 모범 사례에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="sql-server-settings"></a>SQL 서버 설정
 **SQL Server 설정** 에서 SQL Server VM 이름 접두사, SQL Server 버전, SQL Server 서비스 계정과 암호 및 SQL 자동 패치 유지 관리 일정을 검토하고 수정합니다.
@@ -210,7 +214,7 @@ SQL Server의 새 인스턴스는 인터넷에 연결되지 않은 가상 컴퓨
 1. Azure 포털 대시보드에서 해당 배포에 성공했습니다.
 2. **리소스**를 클릭합니다.
 3. **리소스** 블레이드에서 기본 도메인 컨트롤러에 대한 가상 컴퓨터의 컴퓨터 이름인 **ad-primary-dc**를 클릭합니다.
-4. **ad-primary-dc** click **연결**합니다. 브라우저에서 원격 연결 개체를 열거나 저장할지 여부를 묻습니다. **열기**를 클릭합니다.
+4.  **ad-primary-dc** click **연결**합니다. 브라우저에서 원격 연결 개체를 열거나 저장할지 여부를 묻습니다. **열기**를 클릭합니다.
    ![DC에 연결](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
 5. **원격 데스크톱 연결** 은 이 원격 연결의 게시자를 식별할 수 없음을 경고할 수 있습니다. **연결**을 클릭합니다.
 6. Windows 보안은 기본 도메인 컨트롤러의 IP 주소에 연결할 자격 증명을 입력하라는 메시지를 표시합니다. **다른 계정 사용**을 클릭합니다. **사용자 이름**에 **contoso\DomainAdmin**을 입력합니다. 관리자 사용자 이름으로 선택한 계정입니다. 템플릿을 구성할 때 선택한 복잡한 암호를 사용합니다.
@@ -224,6 +228,9 @@ SQL Server의 새 인스턴스는 인터넷에 연결되지 않은 가상 컴퓨
 
 이제 SQL Server에 대한 RDP와 연결됩니다. SQL Server management studio를 열고 SQL Server의 기본 인스턴스에 연결하며 가용성 그룹이 구성되는지 확인합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 디렉터리 동기화 요구 사항 확인 | Microsoft Docs
-description: 기업에 대한 온-프레미스와 클라우드 사이의 모든 사용자를 동기화하는 데 필요한 요구 사항을 식별합니다.
-documentationcenter: ''
+title: "Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 디렉터리 동기화 요구 사항 확인 | Microsoft Docs"
+description: "기업에 대한 온-프레미스와 클라우드 사이의 모든 사용자를 동기화하는 데 필요한 요구 사항을 식별합니다."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 593eaa71-17eb-4c16-8c98-43cc62987e65
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4fc6aa1baa5f558b8e706d94e3e604824f531d4a
+
 
 ---
 # <a name="determine-directory-synchronization-requirements"></a>디렉터리 동기화 요구 사항 결정
@@ -70,6 +74,9 @@ ms.author: billmath
 ## <a name="see-also"></a>참고 항목
 [디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

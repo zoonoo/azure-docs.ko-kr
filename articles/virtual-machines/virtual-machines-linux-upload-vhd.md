@@ -1,13 +1,13 @@
 ---
-title: 사용자 지정 Linux 이미지 만들기 및 업로드 | Microsoft Docs
-description: Resource Manager 배포 모델을 사용하여 사용자 지정 Linux 이미지로 Azure에 VHD(가상 하드 디스크)를 만들고 업로드합니다.
+title: "사용자 지정 Linux 이미지 만들기 및 업로드 | Microsoft Docs"
+description: "Resource Manager 배포 모델을 사용하여 사용자 지정 Linux 이미지로 Azure에 VHD(가상 하드 디스크)를 만들고 업로드합니다."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 125833947af591d4f8995d803b5ee922679f6c8e
+
 
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image"></a>사용자 지정 디스크 이미지에서 Linux VM 업로드 및 만들기
@@ -76,7 +80,7 @@ azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
 ## <a name="requirements"></a>요구 사항
 다음 단계를 완료하려면 다음이 필요합니다.
 
-* **.vhd 파일에 설치된 Linux 운영 체제** - 가상 디스크에 VHD 형식으로 [Azure 보증 Linux 배포판](virtual-machines-linux-endorsed-distros.md)(또는 [보증되지 않는 배포에 대한 정보](virtual-machines-linux-create-upload-generic.md) 참조)을 설치합니다. VM과 VHD를 만드는 도구는 여러 가지가 있습니다.
+* **.vhd 파일에 설치된 Linux 운영 체제** - 가상 디스크에 VHD 형식으로 [Azure 보증 Linux 배포판](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(또는 [보증되지 않는 배포에 대한 정보](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 참조)을 설치합니다. VM과 VHD를 만드는 도구는 여러 가지가 있습니다.
   * [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 또는 [KVM](http://www.linux-kvm.org/page/RunningKVM)을 설치 및 구성하고 VHD를 이미지 형식으로 사용하도록 주의합니다. 필요한 경우 `qemu-img convert`를 사용하여 [이미지를 변환](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)할 수 있습니다.
   * 또한 [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) 또는 [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx)에서 Hyper-V를 사용할 수 있습니다.
 
@@ -100,25 +104,25 @@ azure config mode arm
 <a id="prepimage"> </a>
 
 ## <a name="prepare-the-image-to-be-uploaded"></a>업로드할 이미지 준비
-Azure에서는 다양한 Linux 배포를 지원합니다( [보증 배포판](virtual-machines-linux-endorsed-distros.md)참조). 다음 문서에서는 Azure에서 지원되는 다양한 Linux 배포를 준비하는 방법을 안내합니다.
+Azure에서는 다양한 Linux 배포를 지원합니다( [보증 배포판](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)참조). 다음 문서에서는 Azure에서 지원되는 다양한 Linux 배포를 준비하는 방법을 안내합니다.
 
-* **[CentOS 기반 배포](virtual-machines-linux-create-upload-centos.md)**
-* **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
-* **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)**
-* **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
-* **[SLES 및 openSUSE](virtual-machines-linux-suse-create-upload-vhd.md)**
-* **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
-* **[기타 - 보증되지 않는 배포](virtual-machines-linux-create-upload-generic.md)**
+* **[CentOS 기반 배포](virtual-machines-linux-create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES 및 openSUSE](virtual-machines-linux-suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[기타 - 보증되지 않는 배포](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 또한 Azure용 Linux 이미지를 준비하는 방법에 대한 일반적인 추가 팁은 **[Linux 설치 참고 사항](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)**을 참조하세요.
 
 > [!NOTE]
-> [Azure 인증 배포의 Linux](virtual-machines-linux-endorsed-distros.md)의 '지원되는 버전'에 지정된 대로 보증 배포판 중 하나가 구성 세부 정보와 함께 사용되는 경우에만 Linux를 실행하는 VM에 [Azure 플랫폼 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)가 적용됩니다.
+> [Azure 인증 배포의 Linux](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 '지원되는 버전'에 지정된 대로 보증 배포판 중 하나가 구성 세부 정보와 함께 사용되는 경우에만 Linux를 실행하는 VM에 [Azure 플랫폼 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)가 적용됩니다.
 > 
 > 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-리소스 그룹은 가상 네트워킹 및 저장소와 같은 가상 컴퓨터를 지원하기 위해 논리적으로 모든 Azure 리소스를 모읍니다. [여기서 Azure 리소스 그룹](../resource-group-overview.md)에 대해 자세히 알아 봅니다. 사용자 지정 디스크 이미지를 업로드하고 VM을 만들기 전에 먼저 리소스 그룹을 만들어야 합니다. 
+리소스 그룹은 가상 네트워킹 및 저장소와 같은 가상 컴퓨터를 지원하기 위해 논리적으로 모든 Azure 리소스를 모읍니다. [여기서 Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아 봅니다. 사용자 지정 디스크 이미지를 업로드하고 VM을 만들기 전에 먼저 리소스 그룹을 만들어야 합니다. 
 
 다음 예제에서는 `WestUS` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
@@ -196,7 +200,7 @@ azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
 또한 가상 네트워크, 공용 IP 주소, 사용자 이름 및 SSH 키와 같은 `azure vm create` 명령이 필요로 하는 모든 추가 매개 변수를 지정하거나 프롬프트에 응답할 수 있습니다. [사용 가능한 CLI Resource Manager 매개 변수](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines)에 대해 자세히 알아봅니다.
 
 ### <a name="create-a-vm-using-a-json-template"></a>JSON 템플릿을 사용하여 VM 만들기
-Azure Resource Manager 템플릿은 구축하려는 환경을 정의하는 JSON (JavaScript Notation) 파일입니다. 템플릿은 계산 또는 네트워크과 같은 다양한 리소스 공급자로 세분화됩니다. 기존 템플릿을 사용하거나 직접 템플릿을 작성할 수 있습니다. [Resource Manager 및 템플릿 사용](../resource-group-overview.md)에 대해 자세히 알아봅니다.
+Azure Resource Manager 템플릿은 구축하려는 환경을 정의하는 JSON (JavaScript Notation) 파일입니다. 템플릿은 계산 또는 네트워크과 같은 다양한 리소스 공급자로 세분화됩니다. 기존 템플릿을 사용하거나 직접 템플릿을 작성할 수 있습니다. [Resource Manager 및 템플릿 사용](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.
 
 템플릿의 `Microsoft.Compute/virtualMachines` 공급자 내에 VM에 대한 구성 세부 정보를 포함하는 `storageProfile` 노드가 있게 될 것입니다. 편집할 두 가지 주요 매개 변수는 사용자 지정 디스크 이미지와 새 VM의 가상 디스크를 가리키는 `image`과 `vhd` URI입니다. 다음은 사용자 지정 디스크 이미지 사용에 대한 JSON의 예입니다.
 
@@ -234,8 +238,11 @@ azure group deployment create --resource-group myResourceGroup
 
 
 ## <a name="next-steps"></a>다음 단계
-사용자 지정 가상 디스크를 준비하고 업로드한 후 [Resource Manager 및 템플릿 사용하기](../resource-group-overview.md)에 관해 자세히 알아볼 수 있습니다. 또한 새 Vm에 [데이터 디스크 추가](virtual-machines-linux-add-disk.md) 를 고려할 수도 있습니다. 응용 프로그램이 액세스해야 할 Vm에서 실행되고 있다면 반드시 [포트 및 끝점 열기](virtual-machines-linux-nsg-quickstart.md)를 해야 합니다.
+사용자 지정 가상 디스크를 준비하고 업로드한 후 [Resource Manager 및 템플릿 사용하기](../azure-resource-manager/resource-group-overview.md)에 관해 자세히 알아볼 수 있습니다. 또한 새 Vm에 [데이터 디스크 추가](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 고려할 수도 있습니다. 응용 프로그램이 액세스해야 할 Vm에서 실행되고 있다면 반드시 [포트 및 끝점 열기](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 해야 합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

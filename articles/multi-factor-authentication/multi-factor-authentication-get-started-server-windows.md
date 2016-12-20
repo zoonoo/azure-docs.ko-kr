@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1952e103c574f83c2c6285e32c59144816749348
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 84b6df0b45548d3797528c3723f02bd1a124454f
 
 
 ---
-# <a name="windows-authentication-and-azure-multifactor-authentication-server"></a>Windows 인증 및 Azure Multi-Factor Authentication 서버
+# <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows 인증 및 Azure Multi-Factor Authentication 서버
 Windows 인증 섹션에서 관리자는 하나 이상의 응용 프로그램에 대해 Windows 인증을 설정하고 구성할 수 있습니다.  다음은 Windows 인증을 설정하기 전에 고려해야할 사항의 목록입니다.
 
 * 터미널 서비스에 대한 Azure Multi-Factor Authentication이 적용되기 전에 다시 부팅해야 합니다.
@@ -49,6 +49,6 @@ Windows 인증 섹션에서 관리자는 하나 이상의 응용 프로그램에
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Azure Media Analytics로 얼굴 및 감정 감지 | Microsoft Docs
-description: 이 토픽에는 Azure Media Analytics로 얼굴 및 감정을 감지하는 방법을 보여 줍니다.
+title: "Azure 미디어 분석으로 얼굴 및 감정 탐지 | Microsoft 문서"
+description: "이 토픽에는 Azure Media Analytics로 얼굴 및 감정을 감지하는 방법을 보여 줍니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/15/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 48a4cdf7d50e765ee42cb44d12d1dafd49c13795
+ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
+
 
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 및 감정 검색
@@ -44,7 +48,7 @@ ms.author: milanga;juliako;
 
 검색 및 추적된 얼굴은 개별적인 추적을 나타내는 얼굴 ID 번호뿐만 아니라 이미지 내에서 얼굴의 위치를 픽셀 단위로 나타내는 좌표(왼쪽, 위쪽, 너비 및 높이)와 함께 반환됩니다. 얼굴 ID 번호는 프레임 안에 정면 얼굴이 없거나 겹쳐진 상황에서 재설정될 가능성이 크므로 결과적으로 일부 사용자에게 여러 ID가 할당될 수 있습니다.
 
-### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>출력 JSON 파일의 요소
+### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>출력 JSON 파일의 요소
 얼굴 검색 및 추적 작업의 경우 출력 결과는 지정된 파일 내에서 얼굴에 대한 메타데이터를 JSON 형식으로 포함합니다.
 
 얼굴 검색 및 추적 JSON에는 다음 특성이 포함됩니다.
@@ -70,18 +74,11 @@ ms.author: milanga;juliako;
 * 시작/날짜 표시줄 = 2.1초
 * 초 x (프레임 속도/날짜 표시줄) = 63프레임
 
-다음은 얼굴 검색 및 추적을 위해 JSON을 프레임 형식별로 추출하는 간단한 샘플 예제입니다.
-
-    var faceDetectionResultJsonString = operationResult.ProcessingResult;
-    var faceDetecionTracking = 
-         JsonConvert.DeserializeObject<FaceDetectionResult>(faceDetectionResultJsonString, settings);
-
-
 ## <a name="face-detection-input-and-output-example"></a>얼굴 검색 입력 및 출력 예제
 ### <a name="input-video"></a>입력 동영상
 [입력 동영상](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-(preset)"></a>작업 구성(기본 설정)
+### <a name="task-configuration-preset"></a>작업 구성(기본 설정)
 **Azure 미디어 얼굴 탐지기**로 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다. 다음은 얼굴 검색에 대한 구성 기본 설정입니다.
 
     {"version":"1.0"}
@@ -140,7 +137,7 @@ ms.author: milanga;juliako;
 ### <a name="input-video"></a>입력 동영상
 [입력 동영상](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-(preset)"></a>작업 구성(기본 설정)
+### <a name="task-configuration-preset"></a>작업 구성(기본 설정)
 **Azure 미디어 얼굴 탐지기**로 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다. 다음 구성 기본 설정은 감정 검색을 기반으로 JSON을 만들도록 지정합니다.
 
     {
@@ -514,6 +511,9 @@ ms.author: milanga;juliako;
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

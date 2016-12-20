@@ -1,12 +1,12 @@
 ---
-title: Log Analytics의 데이터 원본 | Microsoft Docs
-description: 데이터 원본은 Log Analytics가 에이전트 및 기타 연결된 원본에서 수집하는 데이터를 정의합니다.  이 문서에서는 Log Analytics에서 데이터 원본을 사용하는 방법에 대한 개념을 제공하고, 데이터 원본을 구성하는 방법을 자세히 설명하며, 사용 가능한 여러 데이터 원본을 요약합니다.
+title: "Log Analytics의 데이터 원본 | Microsoft Docs"
+description: "데이터 원본은 Log Analytics가 에이전트 및 기타 연결된 원본에서 수집하는 데이터를 정의합니다.  이 문서에서는 Log Analytics에서 데이터 원본을 사용하는 방법에 대한 개념을 제공하고, 데이터 원본을 구성하는 방법을 자세히 설명하며, 사용 가능한 여러 데이터 원본을 요약합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 412483cfbce7621612a7283b8a72c24d23b851b5
+
 
 ---
 # <a name="data-sources-in-log-analytics"></a>Log Analytics의 데이터 원본
@@ -58,6 +62,9 @@ Log Analytics에서 수집된 모든 데이터는 OMS 리포지토리에 레코�
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.  
 * 데이터 원본 및 솔루션에서 수집된 중요한 데이터를 사전에 알리도록 [경고](log-analytics-alerts.md)를 구성합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

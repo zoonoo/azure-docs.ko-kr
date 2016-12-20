@@ -1,22 +1,26 @@
 ---
-title: 앱 서비스 응용 프로그램에 대해 Google 인증을 구성하는 방법
-description: 앱 서비스 응용 프로그램에 대해 Google 인증을 구성하는 방법을 알아봅니다.
+title: "앱 서비스 응용 프로그램에 대해 Google 인증을 구성하는 방법"
+description: "앱 서비스 응용 프로그램에 대해 Google 인증을 구성하는 방법을 알아봅니다."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: mattchenderson
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 10/01/2016
 ms.author: mahender
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 015f26c108a10ca346fc990cf1c6435493e137a4
+
 
 ---
-# Google 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
+# <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Google 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 이 항목에서는 Google을 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 줍니다.
@@ -26,10 +30,10 @@ ms.author: mahender
 ## <a name="register"> </a>Google을 사용하여 응용 프로그램 등록
 1. [Azure 포털]에 로그온한 다음 응용 프로그램으로 이동합니다. **URL**을 복사하여 나중에 Google 앱을 구성하는 데 사용합니다.
 2. [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) 웹 사이트로 이동하고 Google 계정 자격 증명으로 로그인하고 **프로젝트 만들기**를 클릭하고 **프로젝트 이름**을 입력한 후 **만들기**를 클릭합니다.
-3. **Social APIs** 아래에서 **Google + API**, **Enable**을 차례로 클릭합니다.
+3. **Social APIs** 아래에서 **Google+ API**, **Enable**을 차례로 클릭합니다.
 4. 왼쪽 탐색에서 **Credentials** > **OAuth consent screen**을 클릭하고 **Email address**를 선택한 다음 **Product Name**을 입력하고 **Save**를 클릭합니다.
-5. **Credentials** 탭에서 **Create credentials** > **OAuth client ID**를 클릭하고 **Web application**을 선택합니다.
-6. 앞서 복사한 앱 서비스 **URL**을 **Authorized JavaScript Origins**에 붙여넣고, 리디렉션 URI를 **Authorized Redirect URI**에 붙여넣습니다. 리디렉션 URI는 경로 _/.auth/login/google/callback_이 추가된 응용 프로그램의 URL입니다. 예: `https://contoso.azurewebsites.net/.auth/login/google/callback` HTTPS 체계를 사용 중인지 확인합니다. 그런 다음 **Create**를 클릭합니다.
+5. **Credentials** 탭에서**Create credentials** > **OAuth client ID**를 클릭하고 **Web application**을 선택합니다.
+6. 앞서 복사한 App Service **URL**을 **Authorized JavaScript Origins**에 붙여넣고, 리디렉션 URI를**Authorized Redirect URI**에 붙여넣습니다. 리디렉션 URI는 경로 */.auth/login/google/callback*이 추가된 응용 프로그램의 URL입니다. 예: `https://contoso.azurewebsites.net/.auth/login/google/callback` HTTPS 체계를 사용 중인지 확인합니다. 그런 다음 **Create**를 클릭합니다.
 7. 다음 화면에서 클라이언트 ID 및 클라이언트 암호 값을 적어 둡니다.
 
     > [AZURE.IMPORTANT]
@@ -65,4 +69,9 @@ ms.author: mahender
 
 [Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

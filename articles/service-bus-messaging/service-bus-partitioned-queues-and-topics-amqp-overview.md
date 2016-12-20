@@ -1,27 +1,31 @@
 ---
-title: Service Bus 분할 큐 및 토픽을 위한 AMQP 1.0 지원 | Microsoft Docs
-description: Service Bus 분할 큐 및 토픽과 함께 AMQP(고급 메시지 큐 프로토콜) 1.0 사용에 대해 알아봅니다.
-services: service-bus
+title: "Service Bus 분할 큐 및 토픽을 위한 AMQP 1.0 지원 | Microsoft Docs"
+description: "Service Bus 분할 큐 및 토픽과 함께 AMQP(고급 메시지 큐 프로토콜) 1.0 사용에 대해 알아봅니다."
+services: service-bus-messaging
 documentationcenter: .net
 author: hillaryc
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: e2549ad3-41eb-47e5-b25f-20043a7ffa2a
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/08/2016
+ms.date: 10/14/2016
 ms.author: hillaryc;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2f343c1f087b516c35eb75fc9a1e61c5cf6d1e93
+
 
 ---
-# <a name="amqp-1.0-support-for-service-bus-partitioned-queues-and-topics"></a>서비스 버스 분할 큐 및 항목을 위한 AMQP 1.0 지원
+# <a name="amqp-10-support-for-service-bus-partitioned-queues-and-topics"></a>서비스 버스 분할 큐 및 항목을 위한 AMQP 1.0 지원
 Azure Service Bus는 이제 Service Bus **분할된 큐 및 토픽**을 위한 **AMQP**(고급 메시지 큐 프로토콜) 1.0을 지원합니다.
 
 **AMQP**는 개방형 표준 메시지 큐 프로토콜로, 서로 다른 프로그래밍 언어를 사용하여 플랫폼 간 응용 프로그램을 개발할 수 있습니다. Service Bus의 AMQP 지원에 대한 일반적인 내용은 [Service Bus의 AMQP 1.0 지원](service-bus-amqp-overview.md)을 참조하세요.
 
-*분할된 엔터티*로도 알려진 **분할된 큐 및 토픽**은 기존의 분할되지 않은 큐 및 토픽에 비해 더 높은 가용성, 안정성 및 처리량을 제공합니다. 분할된 엔터티에 대한 자세한 내용은 [분할된 메시징 엔터티](service-bus-partitioning.md)를 참조하세요.
+*분할된 엔터티*로도 알려진 **분할된 큐 및 토픽**은 기존의 분할되지 않은 큐 및 토픽보다 더 높은 가용성, 안정성 및 처리량을 제공합니다. 분할된 엔터티에 대한 자세한 내용은 [분할된 메시징 엔터티](service-bus-partitioning.md)를 참조하세요.
 
 분할된 큐 및 토픽과 통신하기 위한 프로토콜로 AMQP 1.0을 추가하면 Service Bus 분할된 엔터티에서 제공된 더 높은 가용성, 안정성, 처리량의 이점을 이용할 수 있는 상호 운용 가능한 응용 프로그램을 구축할 수 있습니다.
 
@@ -115,6 +119,6 @@ AMQP 및 분할된 메시징 엔터티에 대한 자세한 내용은 다음 추�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

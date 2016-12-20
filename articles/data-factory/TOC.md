@@ -9,7 +9,7 @@
 # 시작
 ## [자습서: 데이터를 복사하기 위해 파이프라인 생성](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 ### [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
-### [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md)
+### [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 ### [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 ### [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 ### [Azure Resource Manager 템플릿](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -81,13 +81,14 @@
 ### [데이터 관리 게이트웨이를 사용하여 문제 해결](data-factory-troubleshoot-gateway-issues.md)
 
 # 참조
-## [데이터 관리 게이트웨이에 대한 릴리스 정보](data-factory-gateway-release-notes.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
+## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [Azure 데이터 팩터리 개발자 참조](data-factory-sdks.md)
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
 ## [REST (영문)](/rest/api/datafactory/)
 
 # 리소스
+## [데이터 관리 게이트웨이에 대한 릴리스 정보](data-factory-gateway-release-notes.md)
+## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [사례 연구](data-factory-customer-case-studies.md)
 ### [제품 권장 사항](data-factory-product-reco-usecase.md)
 ### [고객 프로파일링](data-factory-customer-profiling-usecase.md)
@@ -100,6 +101,6 @@
 ## [기능 요청](https://feedback.azure.com/forums/270578-azure-data-factory)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Managing your virtual machine image on the Azure Marketplace | Microsoft Docs
-description: Detailed guide on how to manage your virtual machine image on the Azure Marketplace after initial publication.
+title: "Azure Marketplace에서 가상 컴퓨터 이미지 관리 | Microsoft Docs"
+description: "초기 게시 후 Azure 마켓플레이스에서 가상 컴퓨터 이미지를 관리하는 방법에 대한 자세한 가이드입니다."
 services: Azure Marketplace
-documentationcenter: ''
+documentationcenter: 
 author: HannibalSII
 manager: hascipio
-editor: ''
-
+editor: 
+ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,319 +14,326 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: ed2921750f93f344a4c3dbef31d9f523dedc0aae
+
 
 ---
-# <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Post-production guide for virtual machine offers in the Azure Marketplace
-This article explains how you can update a live Virtual Machine offer in the Azure Marketplace. It also guides you on the process of adding one or more new SKUs to an existing offer and remove a live Virtual Machine offer or SKU from the Azure Marketplace.
+# <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Azure 마켓플레이스의 가상 컴퓨터 제품에 대한 프로덕션 이후 가이드
+이 문서에서는 Azure 마켓플레이스의 라이브 가상 컴퓨터 제품을 업데이트하는 방법을 설명합니다. 또한 기존 제품에 하나 이상의 새 SKU를 추가 및 Azure 마켓플레이스에서 라이브 가상 컴퓨터 제품 또는 SKU를 제거하는 과정을 안내합니다.
 
-Once an offer/SKU is staged in the [Azure Portal](http://portal.azure.com), you cannot change the fields given below:
+[Azure 포털](http://portal.azure.com)에서 제품/SKU가 준비되면 아래에 지정된 필드를 변경할 수 없습니다.
 
-* **Offer Identifier:** [Publishing portal -> Virtual Machines -> Select your Offer -> VM Images tab -> Offer Identifier]
-* **SKU Identifier:** [Publishing portal -> Virtual Machines -> Select your Offer -> SKUs tab -> Add a SKU]
-* **Publisher Namespace:** [Publishing portal -> Virtual  Machines -> Walkthrough tab -> Tell Us About Your Company (Found Under “Step 2 Register Your Company”) -> Publisher Namespace -> Namespace]
+* **제품 식별자:** [게시 포털 -> 가상 컴퓨터 -> 제품 선택 -> VM 이미지 탭 -> 제품 식별자]
+* **SKU 식별자:** [게시 포털 -> 가상 컴퓨터 -> 제품 선택 -> SKU 탭 -> SKU 추가]
+* **게시자 네임스페이스:** [게시 포털 -> 가상 컴퓨터 -> 연습 탭 -> 회사에 대한 정보 제공("2단계 회사 등록" 참조) -> 게시자 네임스페이스 -> 네임스페이스]
 
-Once the offer/SKU is listed in the [Azure Marketplace](http://azure.microsoft.com/marketplace), you cannot change the fields given below:
+[Azure 마켓플레이스](http://azure.microsoft.com/marketplace)에서 제품/SKU가 나열되면 아래에 지정된 필드를 변경할 수 없습니다.
 
-* **Offer Identifier:** [Publishing portal -> Virtual Machines ->  Select your Offer -> VM Images tab -> Offer Identifier]
-* **SKU Identifier:** [Publishing portal -> Virtual Machines -> Select your Offer -> SKUs tab -> Add a SKU]
-* **Publisher Namespace:** [Publishing portal -> Virtual Machines -> Walkthrough tab -> Tell Us About Your Company (Found Under Step 2 Register) Publisher Namespace -> Namespace]
-* **Ports** [Publishing portal -> Virtual Machines -> Select your Offer -> VM Images tab -> Open Ports]
-* **Pricing Change of listed SKU(s)**
-* **Billing Model Change of listed SKU(s)**
-* **Removal of billing regions of listed SKU(s)**
-* **Changing the data disk count of listed SKU(s)**
+* **제품 식별자:** [게시 포털 -> 가상 컴퓨터 -> 제품 선택 -> VM 이미지 탭 -> 제품 식별자]
+* **SKU 식별자:** [게시 포털 -> 가상 컴퓨터 -> 제품 선택 -> SKU 탭 -> SKU 추가]
+* **게시자 네임스페이스:** [게시 포털 -> 가상 컴퓨터 -> 연습 탭 -> 회사에 대한 정보 제공(2단계 등록 참조) -> 게시자 네임스페이스 -> 네임스페이스]
+* **포트:** [게시 포털 -> 가상 컴퓨터 -> 제품 선택 -> VM 이미지 탭 -> 포트 열기]
+* **나열된 SKU의 가격 책정 변경**
+* **나열된 SKU의 청구 모델 변경**
+* **나열된 SKU의 청구 지역 제거**
+* **나열된 SKU의 데이터 디스크 수 변경**
 
-## <a name="1.-how-to-update-the-technical-details-of-a-sku"></a>1. How to update the technical details of a SKU
-You can add a new version to the listed SKU and re-publish your offer by following the steps given below:
+## <a name="1-how-to-update-the-technical-details-of-a-sku"></a>1. SKU의 기술 세부 정보를 업데이트하는 방법
+나열된 SKU에 새 버전을 추가하고 아래 제공된 단계에 따라 제품을 다시 게시할 수 있습니다.
 
-1. Login to the [Publishing portal](https://publish.windowsazure.com).
-2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
-3. From the left hand side menu, click on the **VM IMAGES** tab.
-4. From the **SKUs** section of the **VM IMAGES** tab, locate the SKU that you want to update.
-5. After that, add a new version number of the SKU and click on the **"+"** button. The new version should be of X.Y.Z format where X, Y, Z are integers. Version changes should only be incremental.
-6. In the **OS VHD URL** box, add the shared access signature URI created for the operating system VHD and save the changes.
+1. [게시 포털](https://publish.windowsazure.com)에 로그인합니다.
+2. **가상 컴퓨터** 탭으로 이동하고 제품을 선택합니다.
+3. 왼쪽 메뉴에서 **VM 이미지** 탭을 클릭합니다.
+4.  **계획** 탭의 **VM 이미지** 섹션에서 업데이트하려는 SKU를 찾습니다.
+5. 그런 후에 SKU의 새 버전 번호를 추가하고 **"+"** 버튼을 클릭합니다. 새 버전은 X, Y, Z가 정수인 X.Y.Z 형식이어야 합니다. 버전 변경은 증분되어야만 합니다.
+6. **OS VHD URL** 상자에 운영 체제 VHD에 대해 만들어진 공유 액세스 서명 URI를 추가하고 변경 내용을 저장합니다.
    
    > [!IMPORTANT]
-   > You cannot increment/decrement the data disk count of a listed SKU. You need to create a new SKU in this case. Please refer to the section [3. How to add a new SKU under a listed offer](#3-how-to-add-a-new-sku-under-a-live-offer) for detailed guidance.
+   > 나열된 SKU의 데이터 디스크 수를 늘리거나 줄일 수는 없습니다. 이 경우 새로운 SKU를 만들어야 합니다. 자세한 내용은 [3. 나열된 제품에 새 SKU를 추가하는 방법](#3-how-to-add-a-new-sku-under-a-live-offer) 섹션을 참조하세요.
    > 
    > 
-7. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
-8. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+7. 변경 후 **게시** 탭으로 이동하고 **스테이징으로 푸시** 버튼을 클릭합니다. 스테이징 환경에서 제품 테스트에 대한 자세한 지침은 이 [링크](marketplace-publishing-vm-image-test-in-staging.md)
+8. 스테이징에서 제품을 테스트한 후 게시 포털의 **게시** 탭으로 이동하고 **프로덕션으로 푸시 승인 요청** 버튼을 클릭하여 Azure Marketplace에 제품을 다시 게시합니다.
    
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img01_07.png)
 
-## <a name="2.-how-to-update-the-non-technical-details-of-an-offer-or-a-sku"></a>2. How to update the non-technical details of an offer or a SKU
-You can update the non-technical (marketing, legal, support, categories) details of your live offer or SKU in the Azure Marketplace.
+## <a name="2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku"></a>2. 제품 또는 SKU의 비기술적인 세부 정보를 업데이트하는 방법
+Azure 마켓플레이스에서 라이브 제품 또는 SKU의 비기술적인(마케팅, 법률, 지원, 범주) 세부 정보를 업데이트할 수 있습니다.
 
-### <a name="2.1-update-the-offer-description-and-logos"></a>2.1 Update the offer description and logos
-You can update the offer details and re-publish your offer by following the steps below:
+### <a name="21-update-the-offer-description-and-logos"></a>2.1 제품 설명 및 로고 업데이트
+제품 세부 정보를 업데이트하고 아래 제공된 단계에 따라 제품을 다시 게시할 수 있습니다.
 
-1. Login to the [Publishing portal](https://publish.windowsazure.com).
-2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
-3. From the left hand side menu, click on the **MARKETING** tab.
-4. Click on the **ENGLISH (US)** button.
-5. From the left hand side menu, click on the **DETAILS** tab. Under the *DESCRIPTION* section of the **DETAILS** tab you can update the offer title, offer summary, offer long summary and save the changes.
+1. [게시 포털](https://publish.windowsazure.com)에 로그인합니다.
+2. **가상 컴퓨터** 탭으로 이동하고 제품을 선택합니다.
+3. 왼쪽 메뉴에서 **마케팅** 탭을 클릭합니다.
+4. **영어(미국)** 버튼을 클릭합니다.
+5. 왼쪽 메뉴에서 **세부 정보** 탭을 클릭합니다. *세부 정보* 탭의 **설명** 섹션 아래에서 제품 제목, 제품 요약, 제품 세부 요약을 업데이트하고 변경 내용을 저장할 수 있습니다.
    
    > [!NOTE]
-   > Please take care of the following while you are updating the SKU details.
-   > **Do not enter duplicate text under the offer description and the SKU description. Do not enter duplicate text under the SKU title and the offer long summary. Do not enter duplicate text under the SKU title and the offer summary.**
+   > SKU 세부 정보를 업데이트하는 동안 다음을 주의하세요.
+   > **제품 설명 및 SKU 설명에 중복 텍스트는 입력하지 않습니다. SKU 제목 및 제품 세부 요약에 중복 텍스트는 입력하지 않습니다. SKU 제목 및 제품 요약에 중복 텍스트는 입력하지 않습니다.**
    > 
    > 
    
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.1_05.png)
-6. Under the *LOGOS* section of the **DETAILS** tab, you can update the logos. However, ensure that the logos follow the [Azure Marketplace guidelines](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content) (refer to the section Step 1: Provide Marketplace marketing content -> Details-> Azure Marketplace Logo Guidelines).
+6. *세부 정보* 탭의 **로고** 섹션 아래에서 로고를 업데이트할 수 있습니다. 그러나 로고가 [Azure Marketplace 지침](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content)을 따르는지 확인합니다(1단계: Marketplace 마케팅 콘텐츠 제공 -> 세부 정보 -> Azure Marketplace 로고 지침 섹션 참고).
    
    > [!NOTE]
-   > Hero icon is optional. You can choose not to upload a Hero icon. However, once Hero icon is uploaded, then there is no provision to delete it from the Publishing portal. In that case, you must follow the [Hero icon guidelines](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content) (refer to the section Step 1: Provide Marketplace marketing content -> Details-> Additional guidelines for the Hero logo banner).
+   > 대표 아이콘은 선택 사항입니다. 대표 아이콘을 업로드하지 않아도 됩니다. 그러나 대표 아이콘을 업로드하면 게시 포털에서 삭제할 프로비전이 없습니다. 이 경우 [대표 아이콘 지침](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content)을 따라야 합니다(1단계: Marketplace 마케팅 콘텐츠 제공 -> 세부 정보 -> 대표 로고 배너에 대한 추가 지침 섹션 참고).
    > 
    > 
-7. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md).
-8. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+7. 변경 후 **게시** 탭으로 이동하고 **스테이징으로 푸시** 버튼을 클릭합니다. 스테이징 환경에서 제품 테스트에 대한 자세한 지침은 이 [링크](marketplace-publishing-vm-image-test-in-staging.md)를 참조하세요.
+8. 스테이징에서 제품을 테스트한 후 게시 포털의 **게시** 탭으로 이동하고 **프로덕션으로 푸시 승인 요청** 버튼을 클릭하여 Azure Marketplace에 제품을 다시 게시합니다.
    
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.1_08.png)
 
-### <a name="2.2.-update-the-sku-description"></a>2.2. Update the SKU description
-You can update the SKU details and re-publish your offer by following the steps below:
+### <a name="22-update-the-sku-description"></a>2.2. SKU 설명 업데이트
+SKU 세부 정보를 업데이트하고 아래 제공된 단계에 따라 제품을 다시 게시할 수 있습니다.
 
-1. Login to the [Publishing portal](https://publish.windowsazure.com)
-2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
-3. From the left hand side menu, click on the **MARKETING** tab.
-4. Click on the **ENGLISH (US)** button.
-5. From the left hand side menu, click on the **PLANS** tab. Under the *SKUs* section of the **PLANS** tab you can update the SKU title, SKU summary and SKU description details and save the changes.
+1.  [게시 포털](https://publish.windowsazure.com)
+2. **가상 컴퓨터** 탭으로 이동하고 제품을 선택합니다.
+3. 왼쪽 메뉴에서 **마케팅** 탭을 클릭합니다.
+4. **영어(미국)** 버튼을 클릭합니다.
+5. 왼쪽 메뉴에서 **계획** 탭을 클릭합니다. *계획* 탭의 **SKU** 섹션 아래에서 SKU 제목, SKU 요약 및 SKU 설명 세부 정보를 업데이트하고 변경 내용을 저장할 수 있습니다.
    
    > [!NOTE]
-   > Please take care of the following while you are updating the SKU details. **Do not enter duplicate text under the offer description and the SKU description. Do not enter duplicate text under the SKU's title and the offer long summary. Do not enter duplicate text under the SKU Title and the offer summary.**
+   > SKU 세부 정보를 업데이트하는 동안 다음을 주의하세요. **제품 설명 및 SKU 설명에 중복 텍스트는 입력하지 않습니다. SKU 제목 및 제품 세부 요약에 중복 텍스트는 입력하지 않습니다. SKU 제목 및 제품 요약에 중복 텍스트는 입력하지 않습니다.**
    > 
    > 
-6. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this link
-7. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+6. 변경 후 **게시** 탭으로 이동하고 **스테이징으로 푸시** 버튼을 클릭합니다. 스테이징 환경에서 제품 테스트에 대한 자세한 지침은 이 링크를 참조하세요.
+7. 스테이징에서 제품을 테스트한 후 게시 포털의 **게시** 탭으로 이동하고 **프로덕션으로 푸시 승인 요청** 버튼을 클릭하여 Azure Marketplace에 제품을 다시 게시합니다.
    
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.2_07.png)
 
-### <a name="2.3-change-the-existing-links-or-add-new-links"></a>2.3 Change the existing links or add new links
-You can change the existing links or add new links and then re-publish your offer by following the steps below:
+### <a name="23-change-the-existing-links-or-add-new-links"></a>2.3 기존 링크 변경 또는 새 링크 추가
+기존 링크를 변경하거나 새 링크를 추가한 다음 아래 단계를 수행하여 제품을 다시 게시할 수 있습니다.
 
-1. Login to the [Publishing portal](https://publish.windowsazure.com)
-2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
-3. From the left hand side menu, click on the **MARKETING** tab.
-4. Click on the **ENGLISH (US)** button.
-5. From the left hand side menu, click on the **LINKS** tab.
-6. If you want to add a new link, then under the *Links* section click on the **ADD LINK** button. The *“Add Link”* dialog box will open. In this dialog box, you can add the link Title and URL fields and save the changes. You can enter any link which contains information that may help the customers.
-7. If you want to update or delete an existing link, then select the appropriate link and click on the edit button or the delete button accordingly.
+1.  [게시 포털](https://publish.windowsazure.com)
+2. **가상 컴퓨터** 탭으로 이동하고 제품을 선택합니다.
+3. 왼쪽 메뉴에서 **마케팅** 탭을 클릭합니다.
+4. **영어(미국)** 버튼을 클릭합니다.
+5. 왼쪽 메뉴에서 **링크** 탭을 클릭합니다.
+6. 새 링크를 추가하려는 경우 *링크* 섹션 아래에서 **링크 추가** 버튼을 클릭합니다. *"링크 추가"* 대화 상자가 열립니다. 이 대화 상자에서 링크 제목 및 URL 필드를 추가하고 변경 내용을 저장할 수 있습니다. 고객에게 도움이 될 수 있는 정보를 포함하는 모든 링크를 입력할 수 있습니다.
+7. 기존 링크를 업데이트 또는 삭제하려는 경우 적절한 링크를 선택하고 편집 단추 또는 삭제 단추를 적절하게 클릭합니다.
    
    > [!NOTE]
-   > Please make sure that the links which you have entered in this section are working properly, as these links get validated during your production request process.
+   > 이러한 링크는 프로덕션 요청 프로세스 동안 유효성 검사를 받으므로 이 섹션에서 입력한 링크가 제대로 작동하는지 확인합니다.
    > 
    > 
-8. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md).
-9. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+8. 변경 후 **게시** 탭으로 이동하고 **스테이징으로 푸시** 버튼을 클릭합니다. 스테이징 환경에서 제품 테스트에 대한 자세한 지침은 이 [링크](marketplace-publishing-vm-image-test-in-staging.md)를 참조하세요.
+9. 스테이징에서 제품을 테스트한 후 게시 포털의 **게시** 탭으로 이동하고 **프로덕션으로 푸시 승인 요청** 버튼을 클릭하여 Azure Marketplace에 제품을 다시 게시합니다.
    
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.3_09-01.png)
    
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.3-2.png)
 
-### <a name="2.4-change-an-existing-sample-image-or-add-a-new-sample-image"></a>2.4 Change an existing sample image or add a new sample image
-You can change an existing sample images or add new sample images and then re-publish your offer by following the steps below:
+### <a name="24-change-an-existing-sample-image-or-add-a-new-sample-image"></a>2.4 기존 샘플 이미지 변경 또는 새 샘플 이미지 추가
+기존 샘플 이미지를 변경하거나 새 샘플 이미지를 추가한 다음 아래 단계를 수행하여 제품을 다시 게시할 수 있습니다.
 
 > [!NOTE]
-> Only one sample image is displayed in the [https://portal.azure.com](https://portal.azure.com).
+> 하나의 샘플 이미지만 [https://portal.azure.com](https://portal.azure.com)에 표시됩니다.
 > 
 > 
 
-1. Login to the [Publishing portal](https://publish.windowsazure.com)
-2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
-3. From the left hand side menu, click on the **MARKETING** tab.
-4. Click on the **ENGLISH (US)** button.
-5. From the left hand side menu, click on the **SAMPLE IMAGES** tab.
-6. If you want to add a new sample image, then under the *Sample Images* section click on the **UPLOAD A NEW IMAGE** button and then save the changes.
+1.  [게시 포털](https://publish.windowsazure.com)
+2. **가상 컴퓨터** 탭으로 이동하고 제품을 선택합니다.
+3. 왼쪽 메뉴에서 **마케팅** 탭을 클릭합니다.
+4. **영어(미국)** 버튼을 클릭합니다.
+5. 왼쪽 메뉴에서 **샘플 이미지** 탭을 클릭합니다.
+6. 새 샘플 이미지를 추가하려는 경우 *샘플 이미지* 섹션 아래에서 **새 이미지 업로드** 버튼을 클릭한 다음 변경 내용을 저장합니다.
    
    > [!NOTE]
-   > Including a sample image is an optional step.
+   > 샘플 이미지를 포함하는 것은 선택적인 단계입니다.
    > 
    > 
-7. If you want to update or delete an existing sample image, then locate the appropriate sample image and then click on the **REPLACE IMAGE** button or the delete button accordingly.
-8. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md).
-9. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+7. 기존 샘플 이미지를 업데이트 또는 삭제하려는 경우 적절한 샘플 이미지를 찾은 다음 **이미지 바꾸기** 버튼 또는 삭제 버튼을 적절하게 클릭합니다.
+8. 변경 후 **게시** 탭으로 이동하고 **스테이징으로 푸시** 버튼을 클릭합니다. 스테이징 환경에서 제품 테스트에 대한 자세한 지침은 이 [링크](marketplace-publishing-vm-image-test-in-staging.md)를 참조하세요.
+9. 스테이징에서 제품을 테스트한 후 게시 포털의 **게시** 탭으로 이동하고 **프로덕션으로 푸시 승인 요청** 버튼을 클릭하여 Azure Marketplace에 제품을 다시 게시합니다.
    
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.4_09.png)
 
-### <a name="2.5-update-the-legal-content"></a>2.5 Update the legal content
-You can update the legal content and re-publish your offer by following the steps below:
+### <a name="25-update-the-legal-content"></a>2.5 법적 콘텐츠 업데이트
+법적 콘텐츠를 업데이트하고 아래 제공된 단계에 따라 제품을 다시 게시할 수 있습니다.
 
-1. Login to the [Publishing portal](https://publish.windowsazure.com)
-2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
-3. From the left hand side menu, click on the **MARKETING** tab.
-4. Click on the **ENGLISH (US)** button.
-5. From the left hand side menu, click on the **LEGAL** tab. Under the *Legal* section you can update your policies/terms of use. Enter or paste the policies/terms in the *Terms of Use* textbox and save the changes.
-6. The character limit for the legal terms of use is 1,000,000 characters.
-7. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
-8. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+1.  [게시 포털](https://publish.windowsazure.com)
+2. **가상 컴퓨터** 탭으로 이동하고 제품을 선택합니다.
+3. 왼쪽 메뉴에서 **마케팅** 탭을 클릭합니다.
+4. **영어(미국)** 버튼을 클릭합니다.
+5. 왼쪽 메뉴에서 **법적 고지 사항** 탭을 클릭합니다. *법적 고지 사항* 섹션 아래에서 정책/사용 약관을 업데이트할 수 있습니다. *사용 약관* 텍스트 상자에 정책/용어를 입력하거나 붙여 넣고 변경 내용을 저장합니다.
+6. 사용 약관의 문자 제한은 1,000,000자입니다.
+7. 변경 후 **게시** 탭으로 이동하고 **스테이징으로 푸시** 버튼을 클릭합니다. 스테이징 환경에서 제품 테스트에 대한 자세한 지침은 이 [링크](marketplace-publishing-vm-image-test-in-staging.md)
+8. 스테이징에서 제품을 테스트한 후 게시 포털의 **게시** 탭으로 이동하고 **프로덕션으로 푸시 승인 요청** 버튼을 클릭하여 Azure Marketplace에 제품을 다시 게시합니다.
    
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.5_08.png)
 
-### <a name="2.6-update-the-support-information"></a>2.6 Update the support information
-You can update the support information and re-publish your offer by following the steps below:
+### <a name="26-update-the-support-information"></a>2.6 지원 정보 업데이트
+지원 정보를 업데이트하고 아래 제공된 단계에 따라 제품을 다시 게시할 수 있습니다.
 
-1. Login to the [Publishing portal](https://publish.windowsazure.com)
-2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
-3. From the left hand side menu, click on the **SUPPORT** tab.
-4. Under the *Engineering Contact* section of the **SUPPORT** tab you can update the contact details. These details are used for internal communication between the partner and Microsoft only.
-5. Under the *Customer Support* section of the **SUPPORT** tab you can update the Support contact details like **Name, Email, Phone** and **Support URL**. These details are used for internal communication between the partner and Microsoft only.
+1.  [게시 포털](https://publish.windowsazure.com)
+2. **가상 컴퓨터** 탭으로 이동하고 제품을 선택합니다.
+3. 왼쪽 메뉴에서 **지원** 탭을 클릭합니다.
+4. *지원* 탭의 **엔지니어링 연락처** 섹션 아래에서 연락처 세부 정보를 업데이트할 수 있습니다. 세부 정보는 파트너와 Microsoft 간의 내부 통신에만 사용됩니다.
+5. **지원** 탭의 *고객 지원* 섹션 아래에서 **이름, 전자 메일, 전화 번호** 및 **지원 URL**과 같은 지원 연락처 세부 정보를 업데이트할 수 있습니다. 세부 정보는 파트너와 Microsoft 간의 내부 통신에만 사용됩니다.
    
    > [!NOTE]
-   > If you want to provide only email support, provide a dummy phone number under the **Customer Support** section. In this case, your provided email will be used instead.
+   > 전자 메일 지원만 제공하려는 경우 **고객 지원** 섹션 아래에 더미 전화번호를 제공합니다. 이 경우에 제공된 전자 메일이 대신 사용됩니다.
    > 
    > 
-6. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
-7. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+6. 변경 후 **게시** 탭으로 이동하고 **스테이징으로 푸시** 버튼을 클릭합니다. 스테이징 환경에서 제품 테스트에 대한 자세한 지침은 이 [링크](marketplace-publishing-vm-image-test-in-staging.md)
+7. 스테이징에서 제품을 테스트한 후 게시 포털의 **게시** 탭으로 이동하고 **프로덕션으로 푸시 승인 요청** 버튼을 클릭하여 Azure Marketplace에 제품을 다시 게시합니다.
    
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.6_07.png)
 
-### <a name="2.7-update-the-categories"></a>2.7 Update the categories
-You can update the categories section for your offer and re-publish your offer by following the steps below:
+### <a name="27-update-the-categories"></a>2.7 범주 업데이트
+제품에 대한 범주 섹션을 업데이트하고 아래 제공된 단계에 따라 제품을 다시 게시할 수 있습니다.
 
-1. Login to the [Publishing portal](https://publish.windowsazure.com)
-2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
-3. From the left hand side menu, click the **CATEGORIES** tab.
-4. Under the *Categories* section you can update the categories for your offer and save the changes. You can select up to five categories for the Azure Marketplace gallery.
-5. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
-6. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+1.  [게시 포털](https://publish.windowsazure.com)
+2. **가상 컴퓨터** 탭으로 이동하고 제품을 선택합니다.
+3. 왼쪽 메뉴에서 **범주** 탭을 클릭합니다.
+4. *범주* 섹션 아래에서 제품에 대한 범주를 업데이트하고 변경 내용을 저장할 수 있습니다. Azure 마켓플레이스 갤러리에 대해 최대 5개의 범주를 선택할 수 있습니다.
+5. 변경 후 **게시** 탭으로 이동하고 **스테이징으로 푸시** 버튼을 클릭합니다. 스테이징 환경에서 제품 테스트에 대한 자세한 지침은 이 [링크](marketplace-publishing-vm-image-test-in-staging.md)
+6. 스테이징에서 제품을 테스트한 후 게시 포털의 **게시** 탭으로 이동하고 **프로덕션으로 푸시 승인 요청** 버튼을 클릭하여 Azure Marketplace에 제품을 다시 게시합니다.
    
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.7_06.png)
 
-## <a name="3.-how-to-add-a-new-sku-under-a-listed-offer"></a>3. How to add a new SKU under a listed offer
-You can add a new SKU under your live offer by following the steps given below:
+## <a name="3-how-to-add-a-new-sku-under-a-listed-offer"></a>3. 나열된 제품에 새 SKU를 추가하는 방법
+아래에서 제공하는 단계를 수행하여 라이브 제품 아래에 새로운 SKU를 추가할 수 있습니다.
 
-1. Login to the [Publishing portal](https://publish.windowsazure.com).
-2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
-3. From the left hand side menu, click on the **SKUs** tab. After that click on the button **ADD A SKU**.  A new dialog box will open. Enter a SKU identifier in lower case. Check the checkbox for bring-your-own billing model(BYOL) if you want to publish the new SKU with BYOL billing model. Otherwise, uncheck the check box for BYOL. After that click on the tick mark in the dialog box to create a new SKU. If you did not opt for the BYOL billing model for the new SKU, then the billing model will be automatically set to Hourly for the new SKU. If you want to enable the 30days free trial for Hourly billing model, then click on the “One Month” option for “Is a free trial available?”. Otherwise select “NO TRIAL”. [Note: The option “Is a free trial available?” is only shown if you have NOT selected BYOL in the dialog box while creating the new SKU.]
+1. [게시 포털](https://publish.windowsazure.com)에 로그인합니다.
+2. **가상 컴퓨터** 탭으로 이동하고 제품을 선택합니다.
+3. 왼쪽 메뉴에서 **계획** 탭을 클릭합니다. 그다음에 **SKU 추가** 버튼을 클릭합니다.  새 대화 상자가 열립니다. 소문자로 SKU 식별자를 입력합니다. BYOL 청구 모델로 새 SKU를 게시하려는 경우 BYOL(Bring-your-own billing model)에 대한 확인란을 선택합니다. 그렇지 않으면 BYOL에 대한 확인란의 선택을 취소합니다. 그 다음 대화 상자의 확인 표시를 클릭하여 새로운 SKU를 만듭니다. 새로운 SKU에 대한 BYOL 청구 모델에 대해 선택하지 않은 경우 청구 모델은 새 SKU에 대해 자동으로 Hourly로 설정됩니다. Hourly 청구 모델에 대해 30일 무료 평가판을 사용하도록 설정하려는 경우 "무료 평가판이 있나요?"에 대해 "1개월" 옵션을 클릭합니다. 그렇지 않은 경우 "평가판 없음"을 선택합니다. [참고: 새 SKU를 만드는 동안 대화 상자에서 BYOL을 선택하지 않은 경우에만  "무료 평가판이 있나요?" 옵션이 표시됩니다.]
    
    > [!IMPORTANT]
-   > The option “Hide this SKU from the Marketplace because it should always be bought via a solution template” should be marked as “YES” ONLY if you are approved for publishing a solution template offer in the Azure Marketplace. Otherwise, this option should always be marked as “NO”.
+   > Azure 마켓플레이스에서 솔루션 템플릿 제품 게시에 대해 승인한 경우 "솔루션 템플릿을 통해 항상 구입되어야 하기 때문에 마켓플레이스에서 이 SKU를 숨깁니다" 옵션은 "예"로 표시되어야 합니다. 그렇지 않은 경우 이 옵션은 항상 "아니요"로 표시되어야 합니다.
    > 
    > 
-4. Now from the left hand side menu, click on the **VM IMAGES** tab and find out the new SKU which you have created.
-5. To set up the new SKU, refer to the STEP 5 of this [link](marketplace-publishing-vm-image-creation.md#5-obtain-certification-for-your-vm-image) for guidance.
-6. To add the marketing material for the new SKU, refer to the section Step 1: Provide Marketplace marketing content -> Details-> point numbers 2 to 5 of this [link](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
-7. To add the pricing information for the new SKU, refer to the section 2.1. Set your VM prices of this [link](marketplace-publishing-push-to-staging.md#step-2-set-your-prices)
-8. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
-9. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+4. 이제 왼쪽 메뉴에서 **VM 이미지** 탭을 클릭하고 생성한 새로운 SKU를 찾습니다.
+5. 새로운 SKU를 설정하려면 이 [링크](marketplace-publishing-vm-image-creation.md#5-obtain-certification-for-your-vm-image) 의 5단계의 지침을 참조하세요.
+6. 새로운 SKU에 대한 마케팅 자료를 추가하려면 1단계: 마켓플레이스 마케팅 콘텐츠 제공 -> 세부 정보 -> 이 [링크](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content)의 2~5 섹션을 참조하세요.
+7. 새로운 SKU에 대한 가격 정보를 추가하려면 2.1 섹션을 참조하세요. 이 [링크](marketplace-publishing-push-to-staging.md#step-2-set-your-prices)
+8. 변경 후 **게시** 탭으로 이동하고 **스테이징으로 푸시** 버튼을 클릭합니다. 스테이징 환경에서 제품 테스트에 대한 자세한 지침은 이 [링크](marketplace-publishing-vm-image-test-in-staging.md)
+9. 스테이징에서 제품을 테스트한 후 게시 포털의 **게시** 탭으로 이동하고 **프로덕션으로 푸시 승인 요청** 버튼을 클릭하여 Azure Marketplace에 제품을 다시 게시합니다.
    
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img03_09-01.png)
    
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img03_09-02.png)
 
-## <a name="4.-how-to-change-the-data-disk-count-for-a-listed-sku"></a>4. How to change the data disk count for a listed SKU
-You cannot increment/decrement the data disk count of a listed SKU. You need a create a new SKU in this case. Please refer to the section [3. How to add a new SKU under a live offer](#3-how-to-add-a-new-sku-under-a-live-offer) for detailed guidance.
+## <a name="4-how-to-change-the-data-disk-count-for-a-listed-sku"></a>4. 나열된 SKU에 대한 데이터 디스크 수를 변경하는 방법
+나열된 SKU의 데이터 디스크 수를 늘리거나 줄일 수는 없습니다. 이 경우 새로운 SKU를 만들어야 합니다. 자세한 내용은 [3. 라이브 제품에 새 SKU를 추가하는 방법](#3-how-to-add-a-new-sku-under-a-live-offer) 섹션을 참조하세요.
 
-## <a name="5.-how-to-delete-a-listed-offer-from-the-azure-marketplace"></a>5.   How to delete a listed offer from the Azure Marketplace
-There are various aspects that need to be taken care of in case of a request to remove a live offer. Please follow the steps below to get guidance from the support team to remove a listed offer from the Azure Marketplace:
+## <a name="5-how-to-delete-a-listed-offer-from-the-azure-marketplace"></a>5.    Azure 마켓플레이스에서 나열된 제품을 삭제하는 방법
+라이브 제품을 제거하는 요청 시 해결해야 하는 다양한 측면이 있습니다. Azure 마켓플레이스에서 나열된 제품을 제거하려면 다음 단계를 수행하여 지원 팀의 지침을 확인하세요.
 
-1. Raise a support ticket using this [link](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=635993707583706681)
-2. Select Problem type as **“Managing offers”** and select Category as **“Modifying an offer and/or SKU already in production”**
-3. Submit the request
+1. 이 [링크](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=635993707583706681)를 사용하여 지원 티켓 제기
+2. **"제품 관리"**로 문제 형식 선택 및 **"프로덕션 환경에서 제품 및/또는 SKU 수정"**으로 범주 선택
+3. 요청 제출
 
-The support team will guide you through the offer/SKU deletion process.
+지원 팀은 제품/SKU 삭제 프로세스를 안내합니다.
 
 > [!NOTE]
-> You can always delete the offer while it is in a Draft status (i.e., not in STAGING or PRODUCTION) by clicking on the **DISCARD DRAFT** button under the **HISTORY** tab.
+> 제품이 초안 상태(예: 스테이징 또는 프로덕션에 있지 않은 경우)에 있는 동안 **내역** 탭 아래의 **초안 삭제** 버튼을 클릭하여 항상 제품을 삭제할 수 있습니다.
 > 
 > 
 
-## <a name="6.-how-to-delete-a-listed-sku-from-the-azure-marketplace"></a>6. How to delete a listed SKU from the Azure Marketplace
-You can delete a listed SKU from the Azure Marketplace by following the steps given below:
+## <a name="6-how-to-delete-a-listed-sku-from-the-azure-marketplace"></a>6. Azure 마켓플레이스에서 나열된 SKU를 삭제하는 방법
+아래에 제공된 단계를 수행하여 Azure 마켓플레이스에서 나열된 SKU를 삭제할 수 있습니다.
 
-1. Login to the [Publishing portal](https://publish.windowsazure.com).
-2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
-3. From the left hand side pane, click on the **SKUS** tab.
-4. Select the SKU which you want to delete and click on the delete button against that SKU.
-5. Once done, navigate to the PUBLISH tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish the offer in the Azure Marketplace.
-6. Once the offer gets re-published in the Azure Marketplace, the SKU will be deleted from the Azure Marketplace and the Azure Portal.
+1. [게시 포털](https://publish.windowsazure.com)에 로그인합니다.
+2. **가상 컴퓨터** 탭으로 이동하고 제품을 선택합니다.
+3. 왼쪽 창에서 **SKU** 탭을 클릭합니다.
+4. 삭제할 SKU를 선택하고 해당 SKU에 대한 삭제 버튼을 클릭합니다.
+5. 완료되면 게시 포털의 게시 탭으로 이동하고 **프로덕션으로 푸시 승인 요청** 버튼을 클릭하여 Azure 마켓플레이스에 제품을 다시 게시합니다.
+6. Azure 마켓플레이스에 제품이 다시 게시되면 SKU가 Azure 마켓플레이스 및 Azure 포털에서 삭제됩니다.
 
-## <a name="7.-how-to-delete-the-current-version-of-a-listed-sku-from-the-azure-marketplace"></a>7. How to delete the current version of a listed SKU from the Azure Marketplace
-You can delete the current version of a listed SKU from the Azure Marketplace by following the steps given below. Once the process is complete, the SKU will be rolled back to its previous version.
+## <a name="7-how-to-delete-the-current-version-of-a-listed-sku-from-the-azure-marketplace"></a>7. Azure 마켓플레이스에서 나열된 현재 버전의 SKU를 삭제하는 방법
+아래에 제공된 단계를 수행하여 Azure 마켓플레이스에서 나열된 SKU의 현재 버전을 삭제할 수 있습니다. 프로세스가 완료되면 SKU가 이전 버전으로 롤백됩니다.
 
-1. Login to the [Publishing portal](https://publish.windowsazure.com).
-2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
-3. From the left hand side pane, click on the **VM IMAGES** tab.
-4. Select the SKU whose current version you want to delete and click on the delete button against that version.
-5. Once done, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish the offer in the Azure Marketplace.
-6. Once the offer gets re-published in the Azure Marketplace, the current version of the listed SKU will be deleted from the Azure Marketplace and the Azure Portal. The SKU will be rolled back to its previous version.
+1. [게시 포털](https://publish.windowsazure.com)에 로그인합니다.
+2. **가상 컴퓨터** 탭으로 이동하고 제품을 선택합니다.
+3. 왼쪽 창에서 **VM 이미지** 탭을 클릭합니다.
+4. 현재 버전을 삭제할 SKU를 선택하고 해당 버전에 대한 삭제 버튼을 클릭합니다.
+5. 완료되면 게시 포털의 **게시** 탭으로 이동하고 **프로덕션으로 푸시 승인 요청** 버튼을 클릭하여 Azure Marketplace에 제품을 다시 게시합니다.
+6. Azure 마켓플레이스에 제품이 다시 게시되면 나열된 SKU의 현재 버전이 Azure 마켓플레이스 및 Azure 포털에서 삭제됩니다. SKU는 이전 버전으로 롤백됩니다.
 
-## <a name="8.-how-to-revert-listing-price-to-production-values"></a>8. How to revert listing price to production values
-I have changed the pricing of a listed SKU (or I have removed the billing regions of a listed SKU). Since it is not supported in the Azure Marketplace, I want to revert my changes to the production values. How do I achieve that?
+## <a name="8-how-to-revert-listing-price-to-production-values"></a>8. 목록 가격을 프로덕션 값으로 되돌리는 방법
+나열된 SKU의 가격을 변경했습니다(또는 나열된 SKU의 청구 지역을 제거함). Azure 마켓플레이스에서 지원되지 않으므로 내 가격을 프로덕션 값으로 되돌리려고 합니다. 어떻게 해야 하나요?
 
-Please follow the steps given below:
+아래 제공된 단계를 따릅니다.
 
-1. Login to the [Publishing portal](https://publish.windowsazure.com).
-2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
-3. From the left hand side menu, click the **PRICING** tab.
-4. Under the Pricing tab, select a region whose pricing you want to reset.
+1. [게시 포털](https://publish.windowsazure.com)에 로그인합니다.
+2. **가상 컴퓨터** 탭으로 이동하고 제품을 선택합니다.
+3. 왼쪽 메뉴에서 **가격 책정** 탭을 클릭합니다.
+4. 가격 책정 탭 아래에서 가격을 재설정할 지역을 선택합니다.
    
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img08-04.png)
-5. In case of SKUs with hourly billing model, reset the prices for all the cores as they are in the production for the selected region. For SKUs with BYOL billing model, make the SKU available in the region by checking the checkbox against the SKU under the section EXTERNALLY-LICENSED (BYOL) SKU AVAILABILITY (see the screenshot below).
+    ![그리기](media/marketplace-publishing-vm-image-post-publishing/img08-04.png)
+5. 시간당 청구 모델의 SKU를 사용하는 경우 선택한 지역에 대한 프로덕션에 있으므로 모든 코어에 대한 가격을 재설정합니다. BYOL 청구 모델의 SKU를 사용하는 경우 외부 라이선스(BYOL) SKU 가용성 섹션에서 SKU에 대한 확인란을 선택하여 해당 지역에서 SKU를 사용할 수 있게 합니다(아래 스크린숏 참조).
    
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img08-05.png)
-6. Now click the button **AUTOPRICE OTHER MARKETS BASED ON PRICES IN UNITED STATES**.
+    ![그리기](media/marketplace-publishing-vm-image-post-publishing/img08-05.png)
+6. 이제 **미국의 가격에 따라 다른 마켓의 가격 자동 설정**버튼을 클릭합니다.
    
    > [!NOTE]
-   > The button’s label may be different depending on the region which you have selected. Since we have selected United States while creating this document, so the button is labeled as “Auto price other markets based on prices in United States” in the screenshot below.
+   > 버튼의 레이블은 선택한 지역에 따라 달라질 수 있습니다. 이 문서를 작성할 당시에, 미국을 선택했으므로 아래 스크린숏과 같이 "미국의 가격에 따라 다른 마켓의 가격 자동 설정"으로 버튼 레이블이 표시됩니다.
    > 
    > 
    
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img08-06.png)
-7. The auto price wizard will open. The first page displays the selection for base market. Make your section and move to the next page by clicking on the **“->”** button.
+    ![그리기](media/marketplace-publishing-vm-image-post-publishing/img08-06.png)
+7. 자동 가격 설정 마법사가 열립니다. 첫 번째 페이지에는 기본 마켓의 선택 옵션이 표시됩니다. 섹션을 만든 후 **“->”** 버튼을 클릭하여 다음 페이지로 이동합니다.
    
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img08-07.png)
-8. Option for selecting the cores and plans will be displayed on the page 2. Select the desired plans and the cores and click “->” button.
+8. 코어 및 계획을 선택하기 위한 옵션이 2페이지에 표시됩니다. 원하는 계획 및 코어를 선택하고 "->" 버튼을 클릭합니다.
    
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img08-08.png)
-9. Page 3 displays the markets/regions. Click the Toggle All button to select all regions or manually check the boxes for region. Click on the “->” button to move to the next page.
+    ![그리기](media/marketplace-publishing-vm-image-post-publishing/img08-08.png)
+9. 3페이지에 마켓/지역이 표시됩니다. 모두 설정/해제 버튼을 클릭하여 모든 지역을 선택하거나 해당 지역의 확인란을 수동으로 선택합니다. "->" 버튼을 클릭하여 다음 페이지로 이동합니다.
    
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img08-09.png)
-10. Page 4 displays the exchange rates. Click on the finish button to complete the steps. The wizard will reset the pricing according to your selection.
-11. Now navigate to the pricing tab and click the “VIEW SUMMARY AND CHANGES” button.
-    Select “Draft” in the “View Version” section and “Production” in “Compare with” section (see the screenshot below). If you see no pricing difference, it implies pricing has been reverted to the production values successfully.
+    ![그리기](media/marketplace-publishing-vm-image-post-publishing/img08-09.png)
+10. 4페이지에는 환율이 표시됩니다. 마침 버튼을 클릭하여 단계를 완료합니다. 마법사는 선택 항목에 따라 가격 책정을 재설정합니다.
+11. 이제 가격 책정 탭으로 이동한 후 "요약 및 변경 내용 보기" 버튼을 클릭합니다.
+    "버전 보기" 섹션의 "초안"과 "비교 대상" 섹션의 "프로덕션"을 선택합니다(아래 스크린숏 참조). 가격 책정에 차이점이 없으면 가격이 프로덕션 값으로 복귀된 것입니다.
     
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img08-11.png)
-12. After making the changes, navigate to the PUBLISH tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
-13. Once you have tested your offer in staging, navigate to the PUBLISH tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+    ![그리기](media/marketplace-publishing-vm-image-post-publishing/img08-11.png)
+12. 변경 후 게시 탭으로 이동하고 **스테이징으로 푸시**버튼을 클릭합니다. 스테이징 환경에서 제품 테스트에 대한 자세한 지침은 이 [링크](marketplace-publishing-vm-image-test-in-staging.md)
+13. 스테이징에서 제품을 테스트한 후 게시 포털의 게시 탭으로 이동하고 **프로덕션으로 푸시 승인 요청** 버튼을 클릭하여 Azure 마켓플레이스에 제품을 다시 게시합니다.
 
-## <a name="9.-how-to-revert-billing-model-to-production-values"></a>9. How to revert billing model to production values
-I have changed the billing model of a listed SKU. Since it is not supported in the Azure Marketplace, I want to revert my changes to the production values. How do I achieve that?
+## <a name="9-how-to-revert-billing-model-to-production-values"></a>9. 청구 모델을 프로덕션 값으로 되돌리는 방법
+나열된 SKU의 청구 모델을 변경했습니다. Azure 마켓플레이스에서 지원되지 않으므로 내 가격을 프로덕션 값으로 되돌리려고 합니다. 어떻게 해야 하나요?
 
-Please follow the steps below:
+다음 단계를 따르세요.
 
-1. Login to the [Publishing portal](https://publish.windowsazure.com).
-2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
-3. From the left hand side menu, click the **SKUS** tab.
-4. Click EDIT button to revert the billing model. A window will open. Check or uncheck the checkbox **‘Billing and licensing is done externally from Azure (aka Bring Your Own License)’** accordingly.
+1. [게시 포털](https://publish.windowsazure.com)에 로그인합니다.
+2. **가상 컴퓨터** 탭으로 이동하고 제품을 선택합니다.
+3. 왼쪽 메뉴에서 **SKU** 탭을 클릭합니다.
+4. 편집 버튼을 클릭하여 요금 청구 모델을 되돌립니다. 창이 열립니다. 그에 따라 **'청구 및 라이선스를 Azure 외부에서 수행(사용자 라이선스 필요)'** 확인란을 선택하거나 선택 취소합니다.
    
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img09-04.png)
-5. Once done please refer to the answer of the question 8 in this document to revert back the pricing.
-6. After that navigate to the **PUBLISH** tab in the Publishing portal and push the offer to staging to test it. Once you are done with testing the offer, then click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+    ![그리기](media/marketplace-publishing-vm-image-post-publishing/img09-04.png)
+5. 일단 완료되면 이 문서의 질문 8에 대한 답변을 참조하여 가격 책정을 되돌립니다.
+6. 게시 포털의 **게시** 탭으로 이동한 후 제품을 스테이징으로 푸시하여 테스트합니다. 제품 테스트를 마친 후에는 **프로덕션으로 푸시 요청 승인** 버튼을 클릭하여 제품을 Azure 마켓플레이스에 다시 게시합니다.
 
-## <a name="10.-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value"></a>10. How to revert visibility setting of a listed SKU to the production value
-Please follow the steps below:
+## <a name="10-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value"></a>10. 나열된 SKU의 표시 유형 설정을 프로덕션 값으로 복귀하는 방법
+다음 단계를 따르세요.
 
-1. Login to the [Publishing portal](https://publish.windowsazure.com).
-2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
-3. From the left hand side menu, click the **SKUS** tab.
-4. Select your SKU and revert the visibility setting of the SKU to the production value.
+1. [게시 포털](https://publish.windowsazure.com)에 로그인합니다.
+2. **가상 컴퓨터** 탭으로 이동하고 제품을 선택합니다.
+3. 왼쪽 메뉴에서 **SKU** 탭을 클릭합니다.
+4. SKU를 선택하고 SKU의 표시 여부 설정을 프로덕션 값으로 되돌립니다.
    
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img10-04.png)
-5. Once you are done with the changes, then click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+    ![그리기](media/marketplace-publishing-vm-image-post-publishing/img10-04.png)
+5. 변경을 수행한 후에는 **프로덕션으로 푸시 요청 승인** 버튼을 클릭하여 제품을 Azure 마켓플레이스에 다시 게시합니다.
 
-## <a name="see-also"></a>See Also
-* [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
-* [Understanding seller insights reporting](marketplace-publishing-report-seller-insights.md)
-* [Understanding payout reporting](marketplace-publishing-report-payout.md)
-* [How to change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
-* [Troubleshooting common publishing problems in the Marketplace](marketplace-publishing-support-common-issues.md)
-* [Get support as a publisher](marketplace-publishing-get-publisher-support.md)
-* [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
-* [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+## <a name="see-also"></a>참고 항목
+* [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
+* [판매자 통찰력 보고 이해](marketplace-publishing-report-seller-insights.md)
+* [지급 보고 이해](marketplace-publishing-report-payout.md)
+* [클라우드 솔루션 공급자 대리점 인센티브를 변경하는 방법](marketplace-publishing-csp-incentive.md)
+* [마켓플레이스에서 일반적인 게시 문제 해결](marketplace-publishing-support-common-issues.md)
+* [게시자로 지원 받기](marketplace-publishing-get-publisher-support.md)
+* [온-프레미스로 VM 이미지 만들기](marketplace-publishing-vm-image-creation-on-premise.md)
+* [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

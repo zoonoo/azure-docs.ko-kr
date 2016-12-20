@@ -1,12 +1,12 @@
 ---
-title: '자습서: Deputy와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 Deputy 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Deputy와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 Deputy 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f0db022251b16c2c3fe1ca93c25d8550a2b899d8
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-deputy"></a>자습서: Deputy와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-deputy"></a>자습서: Deputy와 Azure Active Directory 통합
 이 자습서에서는 Deputy와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 Deputy를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -104,7 +108,7 @@ Deputy에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     ![Single Sign-On 구성](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_03.png)
 3. **앱 설정 구성** 대화 상자 페이지에서 **IDP 시작 모드**로 응용 프로그램을 구성하려는 경우 다음 단계를 수행하고 **다음**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_04.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_04.png)
    
     a. **식별자** 텍스트 상자에 `https://<your-subdomain>.<region>.deputy.com` 패턴으로 URL을 입력합니다.
    
@@ -113,7 +117,7 @@ Deputy에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     c. **다음**을 클릭합니다.
 4. **앱 설정 구성** 대화 상자 페이지에서 **SP 시작 모드**로 응용 프로그램을 구성하려는 경우 **"고급 설정 표시(선택 사항)"**를 클릭하고 **로그온 URL**을 입력한 후 **다음**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_05.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_05.png)
    
     a. **로그온 URL** 텍스트 상자에서 `https://<your-subdomain>.<region>.deputy.com` 패턴을 사용하여 URL을 입력합니다.
    
@@ -207,7 +211,7 @@ Deputy에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 ### <a name="creating-a-deputy-test-user"></a>Deputy 테스트 사용자 만들기
 Azure AD 사용자가 Deputy에 로그인할 수 있도록 하려면 Deputy로 프로비전되어야 합니다. Deputy의 경우 프로비전은 수동 작업입니다.
 
-#### <a name="to-provision-a-user-account,-perform-the-following-steps:"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
+#### <a name="to-provision-a-user-account-perform-the-following-steps"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 1. Deputy 회사 사이트에 관리자 권한으로 로그인합니다.
 2. 탐색 창 상단에서 **사람**을 클릭합니다.
    
@@ -282,6 +286,6 @@ Azure AD 사용자가 Deputy에 로그인할 수 있도록 하려면 Deputy로 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,28 +1,32 @@
 ---
-title: Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 Git를 사용하여 배포
-description: MySQL에 데이터를 저장하는 PHP 웹앱을 만들고 Git를 사용하여 Azure에 배포하는 방법을 보여 주는 자습서입니다.
+title: "Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 Git를 사용하여 배포"
+description: "MySQL에 데이터를 저장하는 PHP 웹앱을 만들고 Git를 사용하여 Azure에 배포하는 방법을 보여 주는 자습서입니다."
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
-manager: wpickett
-editor: ''
+manager: erikre
+editor: 
 tags: mysql
-
+ms.assetid: 7454475f-e275-4bc7-9f09-1ef07382e5da
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
+
 
 ---
-# Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 Git를 사용하여 배포
-이 자습서에서는 PHP-MySQL 웹앱을 만들고 Git를 사용하여 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하는 방법을 보여 줍니다. 컴퓨터에 설치된 [PHP][install-php], MySQL 명령줄 도구([MySQL][install-mysql]의 일부) 및 [Git][install-git]를 사용합니다. 이 자습서의 지침은 Windows, Mac 및 Linux를 포함하여 모든 운영 체제에 적용될 수 있습니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP/MySQL 웹 앱이 완성됩니다.
+# <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git"></a>Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 Git를 사용하여 배포
+이 자습서에서는 PHP-MySQL 웹앱을 만들고 Git를 사용하여 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 에 배포하는 방법을 보여 줍니다. 컴퓨터에 설치된 [PHP][install-php], MySQL 명령줄 도구([MySQL][install-mysql]의 일부) 및 [Git][install-git]를 사용합니다. 이 자습서의 지침은 Windows, Mac 및 Linux를 포함하여 모든 운영 체제에 적용될 수 있습니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP/MySQL 웹 앱이 완성됩니다.
 
 다음 내용을 배웁니다.
 
-* [Azure 포털][management-portal]을 사용하여 웹앱 및 MySQL 데이터베이스를 만드는 방법. PHP는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에서 기본적으로 사용하도록 설정되므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
+* [Azure Portal][management-portal]을 사용하여 웹앱 및 MySQL 데이터베이스를 만드는 방법. PHP는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714) 에서 기본적으로 사용하도록 설정되므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
 * Git를 사용하여 응용 프로그램을 Azure에 게시 및 다시 게시하는 방법
 * 작성기 확장을 사용하여 `git push`마다 작성기 태스크를 자동화하는 방법
 
@@ -30,17 +34,17 @@ ms.author: robmcm
 
 ![Azure PHP 웹 사이트][running-app]
 
-## 개발 환경 설정
+## <a name="set-up-the-development-environment"></a>개발 환경 설정
 이 자습서의 내용은 컴퓨터에 [PHP][install-php], MySQL 명령줄 도구([MySQL][install-mysql]의 일부) 및 [Git][install-git]가 설치되어 있다는 것을 전제로 합니다.
 
 <a id="create-web-site-and-set-up-git"></a>
 
-## Azure 웹 앱 만들기 및 Git 게시 설정
+## <a name="create-a-web-app-and-set-up-git-publishing"></a>Azure 웹 앱 만들기 및 Git 게시 설정
 웹 앱 및 MySQL 데이터베이스를 만들려면 다음 단계를 따르세요.
 
-1. [Azure 포털][management-portal]에 로그인합니다.
+1. [Azure Portal][management-portal]에 로그인합니다.
 2. **새로 만들기** 아이콘을 클릭합니다.
-3. **마켓플레이스** 옆의 **모두 보기**를 클릭합니다.
+3. **마켓플레이스** 옆의 **모두 보기**를 클릭합니다. 
 4. **웹 + 모바일**, **웹앱 + MySQL**을 차례로 클릭합니다. 그런 다음에 **만들기**를 클릭합니다.
 5. 리소스 그룹의 올바른 이름을 입력합니다.
    
@@ -52,17 +56,17 @@ ms.author: robmcm
    
     ![새 MySQL 데이터베이스 만들기][new-mysql-db]
 8. 웹 앱이 만들어지면 새 웹앱 블레이드가 보입니다.
-9. **설정**에서 **연속 배포**를 클릭하고 _필요한 설정 구성_을 클릭합니다.
+9. **설정**에서 **연속 배포**를 클릭하고 *필요한 설정 구성*을 클릭합니다.
    
     ![Git 게시 설정][setup-publishing]
-10. 원본에 대한 **로컬 Git 리포지토리**를 선택합니다.
+10. 원본에 대한 **로컬 Git 리포지토리** 를 선택합니다.
     
      ![Git 리포지토리 설정][setup-repository]
 11. Git 게시를 사용하도록 설정하려면 사용자 이름 및 암호를 지정해야 합니다. 만든 사용자 이름 및 암호를 기록해 둡니다. 이전에 Git 리포지토리를 설정한 경우 이 단계를 건너뜁니다.
     
      ![게시 자격 증명 만들기][credentials]
 
-## 원격 MySQL 연결 정보 가져오기
+## <a name="get-remote-mysql-connection-information"></a>원격 MySQL 연결 정보 가져오기
 웹 앱에서 실행되는 MySQL 데이터베이스에 연결하려면 연결 정보가 필요합니다. MySQL 연결 정보를 가져오려면 다음 단계를 따르십시오.
 
 1. 리소스 그룹에서 다음 데이터베이스를 클릭합니다.
@@ -75,14 +79,14 @@ ms.author: robmcm
    
     ![참고 속성][note-properties]
 
-## 로컬에서 앱 빌드 및 테스트
+## <a name="build-and-test-your-app-locally"></a>로컬에서 앱 빌드 및 테스트
 웹 앱을 만들었으므로 로컬에서 응용 프로그램을 개발하여 테스트 후 배포할 수 있습니다.
 
 등록 응용 프로그램은 이름과 전자 메일 주소를 지정하여 이벤트에 등록하는 데 사용할 수 있는 간단한 PHP 응용 프로그램입니다. 이전 등록자에 대한 정보가 테이블에 표시되어 있습니다. 등록 정보는 MySQL 데이터베이스에 저장되어 있습니다. 응용 프로그램은 다음 한 파일로 구성되어 있습니다(아래에서 사용할 수 있는 코드 복사/붙여넣기).
 
 * **index.php**: 등록 양식 및 등록자 정보가 포함된 테이블을 표시합니다.
 
-응용 프로그램을 빌드하여 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, MySQL 명령줄 도구(MySQL의 일부)가 설정되어 있으며 [PDO Extension for MySQL][pdo-mysql]을 사용하도록 설정했다는 것을 전제로 합니다.
+응용 프로그램을 빌드하여 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, MySQL 명령줄 도구(MySQL의 일부)가 설정되어 있으며 [PDO extension for MySQL][pdo-mysql]을 사용하도록 설정했다는 것을 전제로 합니다.
 
 1. 이전에 검색한 `Data Source`, `User Id`, `Password` 및 `Database` 값을 사용하여 원격 MySQL 서버에 연결합니다.
    
@@ -184,9 +188,9 @@ ms.author: robmcm
    
        php -S localhost:8000
 
-이제 **http://localhost:8000/** 로 이동하여 응용 프로그램을 테스트할 수 있습니다.
+이제 **http://localhost:8000/**으로 이동하여 응용 프로그램을 테스트할 수 있습니다.
 
-## 앱 게시
+## <a name="publish-your-app"></a>앱 게시
 앱을 로컬에서 테스트한 후 Git를 사용하여 웹 앱에 게시할 수 있습니다. 로컬 Git 리포지토리를 초기화하고 응용 프로그램을 게시하겠습니다.
 
 > [!NOTE]
@@ -194,7 +198,7 @@ ms.author: robmcm
 > 
 > 
 
-1. (옵션) Git 원격 리포지토리 URL을 잊어버렸거나 제대로 보관하지 못한 경우 Azure 포털의 웹앱 속성으로 이동합니다.
+1. (옵션) Git 원격 리포지토리 URL을 잊어버렸거나 제대로 보관하지 못한 경우 Azure Portal의 웹앱 속성으로 이동합니다.
 2. GitBash를 열거나 Git가 `PATH`에 있는 경우 터미널을 열고 응용 프로그램의 루트 디렉터리로 이동한 후 다음 명령을 실행합니다.
    
         git init
@@ -206,13 +210,13 @@ ms.author: robmcm
     이전에 만든 암호를 입력하라는 메시지가 나타납니다.
    
     ![Git를 통해 최초로 Azure에 푸시][git-initial-push]
-3. **http://[site 이름].azurewebsites.net/index.php**로 이동하여 응용 프로그램 사용을 시작합니다(이 정보는 계정 대시보드에 저장됨).
+3. **http://[사이트 이름].azurewebsites.net/index.php**로 이동하여 응용 프로그램의 사용을 시작합니다(이 정보는 계정 대시보드에 저장됨).
    
     ![Azure PHP 웹 사이트][running-app]
 
 앱을 게시한 후 변경을 시작하고 Git를 사용하여 변경 내용을 게시할 수 있습니다.
 
-## 앱의 변경 내용 게시
+## <a name="publish-changes-to-your-app"></a>앱의 변경 내용 게시
 앱에 변경 내용을 게시하려면 다음 단계를 따르세요.
 
 1. 앱을 로컬에서 변경합니다.
@@ -225,34 +229,35 @@ ms.author: robmcm
     이전에 만든 암호를 입력하라는 메시지가 나타납니다.
    
     ![Git를 통해 사이트 변경 내용을 Azure에 푸시][git-change-push]
-3. **http://[site 이름].azurewebsites.net/index.php**로 이동하여 앱과 변경한 내용을 확인합니다.
+3. **http://[사이트 이름].azurewebsites.net/index.php**로 이동하여 앱과 변경한 내용을 확인합니다.
    
     ![Azure PHP 웹 사이트][running-app]
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
 <a name="composer"></a>
 
-## 작성기 확장으로 작성기 자동화 사용
+## <a name="enable-composer-automation-with-the-composer-extension"></a>작성기 확장으로 작성기 자동화 사용
 앱 서비스의 git 배포 프로세스가 PHP 프로젝트에 있는 경우 기본적으로 composer.json로 작업하지 않습니다. 작성기 확장을 사용하여 `git push` 중에 composer.json 처리를 사용할 수 있습니다.
 
-1. [Azure 포털][management-portal]의 PHP 웹앱의 블레이드에서 **도구** > **확장**을 클릭합니다.
+1. [Azure Portal][management-portal]의 PHP 웹앱의 블레이드에서 **도구** > **확장**을 클릭합니다.
    
     ![작성기 확장 설정][composer-extension-settings]
 2. **추가**를 클릭한 다음 **작성기**를 클릭합니다.
    
     ![작성기 확장 추가][composer-extension-add]
-3. **확인**을 클릭하여 약관을 수락합니다. **확인**을 다시 클릭하여 확장을 추가합니다.
+3. **확인** 을 클릭하여 약관을 수락합니다. **확인** 을 다시 클릭하여 확장을 추가합니다.
    
-    **설치된 확장** 블레이드에 이제 작성기 확장이 표시됩니다. ![작성기 확장 보기][composer-extension-view]
+    **설치된 확장** 블레이드에 이제 작성기 확장이 표시됩니다.  
+    ![작성기 확장 보기][composer-extension-view]
 4. 이제 `git add`, `git commit` 및 `git push`을 이전 섹션처럼 수행합니다. 이제 작성기가 composer.json에 정의된 종속성을 설치하고 있다고 표시됩니다.
    
     ![작성기 확장 성공][composer-extension-success]
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
 <!-- URL List -->
@@ -292,4 +297,8 @@ ms.author: robmcm
 [composer-extension-view]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png
 [composer-extension-success]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

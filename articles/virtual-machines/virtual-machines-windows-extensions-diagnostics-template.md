@@ -1,13 +1,13 @@
 ---
-title: Azure 리소스 관리자를 사용하여 Windows 가상 컴퓨터와 모니터링 및 진단 기능 만들기 | Microsoft Docs
-description: Azure 리소스 관리자 템플릿을 사용하여 새로운 Windows 가상 컴퓨터와 Azure 진단 확장을 만듭니다.
+title: "Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 기능이 있는 Windows 가상 컴퓨터 만들기 | Microsoft Docs"
+description: "Azure 리소스 관리자 템플릿을 사용하여 새로운 Windows 가상 컴퓨터와 Azure 진단 확장을 만듭니다."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: sbtron
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 1eb9355b8cdb500224809ab0bd32885358983c23
+
 
 ---
 # <a name="create-a-windows-virtual-machine-with-monitoring-and-diagnostics-using-azure-resource-manager-template"></a>Azure 리소스 관리자를 사용하여 Windows 가상 컴퓨터와 모니터링 및 진단 기능 만들기
-Azure 진단 확장은 Windows 기반 Azure 가상 컴퓨터에 모니터링 및 진단 기능을 제공합니다. 확장을 Azure 리소스 관리자 템플릿에 속하도록 포함시켜서 가상 컴퓨터에서 이러한 기능을 사용하도록 설정할 수 있습니다. 가상 컴퓨터 템플릿의 일부로 확장을 포함시키는 것과 관련된 자세한 내용은 [VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성](virtual-machines-windows-extensions-authoring-templates.md) 을 참조하세요. 이 문서는 Azure 진단 확장을 Windows 가상 컴퓨터 템플릿에 추가하는 방법을 설명합니다.  
+Azure 진단 확장은 Windows 기반 Azure 가상 컴퓨터에 모니터링 및 진단 기능을 제공합니다. 확장을 Azure 리소스 관리자 템플릿에 속하도록 포함시켜서 가상 컴퓨터에서 이러한 기능을 사용하도록 설정할 수 있습니다. 가상 컴퓨터 템플릿의 일부로 확장을 포함시키는 것과 관련된 자세한 내용은 [VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 을 참조하세요. 이 문서는 Azure 진단 확장을 Windows 가상 컴퓨터 템플릿에 추가하는 방법을 설명합니다.  
 
 ## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Azure 진단 확장을 가상 컴퓨터 정의에 추가
 Windows 가상 컴퓨터에서 진단 확장을 사용하도록 설정하려면 진단 확장을 리소스 관리자 템플릿에 VM 리소스로 추가해야 합니다.
@@ -88,7 +92,7 @@ Windows 가상 컴퓨터에서 진단 확장을 사용하도록 설정하려면 
             "type": "string",
             "metadata": {
         "description": "The resource group for the storage account specified in existingdiagnosticsStorageAccountName"
-            }
+              }
         }
 
 가상 컴퓨터에 대한 리소스 그룹에 진단 저장소 계정을 지정하는 것보다는 리소스 그룹별로 진단 저장소 계정을 지정하는 것이 가장 바람직합니다. 리소스 그룹은 자체적인 수명을 갖는 배포 단위라고 간주할 수 있으며, 가상 컴퓨터는 배포되었다가 구성 업데이트가 새로 생성되면 다시 배포될 수 있지만, 이렇게 가상 컴퓨터가 배포되더라도 동일한 저장소 계정에 진단 데이터를 계속 저장하기를 바라는 경우가 일반적입니다. 다른 리소스에 저장소 계정을 지정해 두면, 저장소 계정은 다양한 가상 컴퓨터 배포로부터 데이터를 받아들이기 때문에 다양한 버전에서 손쉽게 문제를 해결하는 것이 가능해집니다.
@@ -161,9 +165,12 @@ MetricAggregation의 *PT1H* 및 *PT1M* 값은 1분간의 집계와 1시간의 �
 
 ## <a name="next-steps"></a>다음 단계
 * 진단 확장을 포함하는 Windows 가상 컴퓨터의 샘플 템플릿은 [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
-* [Azure PowerShell](virtual-machines-windows-ps-manage.md) 또는 [Azure 명령줄](virtual-machines-linux-cli-deploy-templates.md)을 사용하여 Resource Manager 템플릿 배포
-* [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
+* [Azure PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Azure 명령줄](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 Resource Manager 템플릿 배포
+*  [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: '기술 지침: Azure에서 로컬 오류로부터 복구 | Microsoft Docs'
-description: Azure 내에서 로컬 오류에 중점을 둔 재해 복구에 대한 계획 뿐만 아니라 복원력 있고 항상 사용 가능한 내결함성 응용 프로그램을 이해하고 설계하는 방법에 대한 문서입니다.
-services: ''
+title: "기술 지침: Azure에서 로컬 오류 복구 | Microsoft 문서"
+description: "Azure 내에서 로컬 오류에 중점을 둔 재해 복구에 대한 계획 뿐만 아니라 복원력 있고 항상 사용 가능한 내결함성 응용 프로그램을 이해하고 설계하는 방법에 대한 문서입니다."
+services: 
 documentationcenter: na
 author: adamglick
 manager: saladki
-editor: ''
-
+editor: 
+ms.assetid: 2e50f6c1-fa61-4c7d-ac26-566a142fbfc2
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: e3e07066d5fc8fd9ceb45cb4b397e7a1e2869c38
+
 
 ---
-# <a name="azure-resiliency-technical-guidance:-recovery-from-local-failures-in-azure"></a>Azure 복원력 기술 지침 - Azure의 로컬 오류로부터 복구
+# <a name="azure-resiliency-technical-guidance-recovery-from-local-failures-in-azure"></a>Azure 복원력 기술 지침 - Azure의 로컬 오류로부터 복구
 응용 프로그램에 대한 다음과 같은 두 가지 주요 위협 요인이 있습니다.
 
 * 드라이브 및 서버와 같은 장치의 오류
@@ -72,7 +76,7 @@ Azure는 PaaS 응용 프로그램(웹 역할 및 작업자 역할)의 계층을 
 위의 다이어그램에서 웹앱 계층으로 작동하는 IIS(인터넷 정보 서비스) 계층 및 데이터 계층으로 작동하는 SQL 계층은 서로 다른 가용성 집합에 할당됩니다. 이렇게 하면 각 계층의 모든 인스턴스가 장애 도메인에 가상 컴퓨터를 분산하여 하드웨어 중복성을 가질 수 있고 업데이트하는 동안 전체 계층의 작동이 중단되지 않습니다.
 
 ### <a name="load-balancing"></a>부하 분산
-VM에 트래픽을 분산해야 하는 경우 응용 프로그램에서 VM을 그룹화하고 특정 TCP 또는 UDP 끝점에서 부하를 분산해야 합니다. 자세한 내용은 [가상 컴퓨터 부하 분산](../virtual-machines/virtual-machines-linux-load-balance.md)(영문)을 참조하십시오. VM이 다른 원본(예: 큐 메커니즘)에서 입력을 수신하는 경우 부하 분산 장치가 필요하지 않습니다. 부하 분산 장치는 기본적인 상태 검사를 사용하여 트래픽이 노드로 전송되어야 하는지를 결정합니다. 또한 고유한 프로브를 만들어 VM 트래픽을 수신해야 하는지를 결정하는 응용 프로그램 관련 상태 메트릭을 구현할 수 있습니다.
+VM에 트래픽을 분산해야 하는 경우 응용 프로그램에서 VM을 그룹화하고 특정 TCP 또는 UDP 끝점에서 부하를 분산해야 합니다. 자세한 내용은 [가상 컴퓨터 부하 분산](../virtual-machines/virtual-machines-linux-load-balance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(영문)을 참조하십시오. VM이 다른 원본(예: 큐 메커니즘)에서 입력을 수신하는 경우 부하 분산 장치가 필요하지 않습니다. 부하 분산 장치는 기본적인 상태 검사를 사용하여 트래픽이 노드로 전송되어야 하는지를 결정합니다. 또한 고유한 프로브를 만들어 VM 트래픽을 수신해야 하는지를 결정하는 응용 프로그램 관련 상태 메트릭을 구현할 수 있습니다.
 
 ## <a name="storage"></a>저장소
 Azure 저장소는 Azure에 대한 지속 가능한 기본 데이터 서비스입니다. Blob, 테이블, 큐 및 VM 디스크 저장소를 제공합니다. 복제 및 리소스 관리의 조합을 사용하여 단일 데이터 센터 내에서 고가용성을 제공합니다. Azure 저장소 가용성 SLA는 최소한 99.9%의 시간을 보장합니다.
@@ -121,16 +125,16 @@ Azure의 고가용성 솔루션을 구현하는 경우 Azure의 가용성 집합
 
 클래식 포털을 통해 배포되는 Azure 클라우드 서비스가 동일한 가용성 집합에 포함되려면 동일한 클라우드 서비스에 배포해야 합니다. Azure Resource Manager(현재 포털)을 통해 배포된 VM에는 이러한 제한이 적용되지 않습니다. Azure 클라우드 서비스의 클래식 포털 배포 VM의 경우 같은 클라우드 서비스에 있는 노드만 같은 가용성 집합에 참여할 수 있습니다. 또한 클라우드 서비스 VM은 서비스 복구 후에 해당 IP를 유지하는지 확인하기 위해 동일한 가상 네트워크에 위치해야 합니다. 그러면 DNS 업데이트 중단을 피할 수 있습니다.
 
-### <a name="azure-only:-high-availability-solutions"></a>Azure 전용: 고가용성 솔루션
+### <a name="azure-only-high-availability-solutions"></a>Azure 전용: 고가용성 솔루션
 AlwaysOn 가용성 그룹 또는 데이터베이스 미러링을 사용하여 Azure에서 SQL Server 데이터베이스를 위한 고가용성 솔루션을 구현할 수 있습니다.
 
-다음 다이어그램에서는 Azure 가상 컴퓨터에서 실행되는 AlwaysOn 가용성 그룹의 아키텍처를 보여 줍니다. 이 다이어그램은 [Azure 가상 컴퓨터에서 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)라는 제목의 심층 문서에서 가져왔습니다.
+다음 다이어그램에서는 Azure 가상 컴퓨터에서 실행되는 AlwaysOn 가용성 그룹의 아키텍처를 보여 줍니다. 이 다이어그램은 [Azure 가상 컴퓨터에서 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)라는 제목의 심층 문서에서 가져왔습니다.
 
 ![Microsoft Azure의 AlwaysOn 가용성 그룹](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-1.png)
 
 Azure 포털에서 AlwaysOn 템플릿을 사용하여 Azure VM에 AlwaysOn 가용성 그룹 배포 종단 간을 자동으로 프로비전할 수 있습니다. 자세한 내용은 [Microsoft Azure 포털 갤러리의 SQL Server AlwaysOn 제품](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/)을 참조하세요.
 
-다음 다이어그램은 Azure 가상 컴퓨터에서 데이터베이스 미러링의 사용법을 보여 줍니다. [Azure 가상 컴퓨터에서 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)심층 항목에서 가져왔습니다.
+다음 다이어그램은 Azure 가상 컴퓨터에서 데이터베이스 미러링의 사용법을 보여 줍니다. [Azure 가상 컴퓨터에서 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)심층 항목에서 가져왔습니다.
 
 ![Microsoft Azure의 데이터베이스 미러링](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-2.png)
 
@@ -144,11 +148,6 @@ Azure를 기반으로 하는 응용 프로그램은 플랫폼 기능을 활용�
 
 ### <a name="service-bus"></a>서비스 버스
 Azure 서비스 버스의 일시적 중단을 줄이려면 내구성이 있는 클라이언트 쪽 큐를 만드는 것이 좋습니다. 일시적으로 대체 로컬 저장소 메커니즘을 사용하여 서비스 버스 큐에 추가할 수 없는 메시지를 저장합니다. 응용 프로그램은 서비스가 복원된 후에 일시적으로 저장된 메시지를 처리하는 방법을 결정할 수 있습니다. 자세한 내용은 [Service Bus 조정된 메시징을 사용한 성능 향상의 모범 사례](../service-bus-messaging/service-bus-performance-improvements.md) 및 [Service Bus(재해 복구)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services)를 참조하세요.
-
-### <a name="mobile-services"></a>모바일 서비스
-Azure 모바일 서비스에 대한 두 가지의 가용성 고려 사항이 있습니다. 첫째, 모바일 서비스에 연결된 SQL 데이터베이스를 정기적으로 백업합니다. 둘째, 모바일 서비스 스크립트를 백업합니다. 자세한 내용은 [재해가 발생한 경우 모바일 서비스 복구](../mobile-services/mobile-services-disaster-recovery.md)를 참조하세요.
-
-모바일 서비스가 임시 중단 상태인 경우 일시적으로 대체 Azure 데이터 센터를 사용해야 합니다. 자세한 내용은 [모바일 서비스 버스(재해 복구)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services)를 참조하세요.
 
 ### <a name="hdinsight"></a>HDInsight
 Azure HDInsight와 연결된 데이터는 기본적으로 Azure Blob 저장소에 저장됩니다. Azure 저장소는 Blob 저장소에 고가용성 및 내구성 속성을 지정합니다. Hadoop MapReduce 작업과 연결된 다중 노드는 HDInsight에서 필요할 경우 프로비전되는 일시적인 HDFS(Hadoop 분산 파일 시스템)에서 처리됩니다. 또한 MapReduce 작업의 결과가 기본적으로 Azure Blob 저장소에 저장되므로 처리된 데이터는 Hadoop 클러스터의 프로비전을 해제한 후에 내구성 있고 항상 사용 가능한 상태로 유지합니다. 자세한 내용은 [HDInsight(재해 복구)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services)를 참조하세요.
@@ -195,6 +194,9 @@ Azure HDInsight와 연결된 데이터는 기본적으로 Azure Blob 저장소�
 ## <a name="next-steps"></a>다음 단계
 이 문서는 [Azure 복구 기술 지침](resiliency-technical-guidance.md)에 대한 시리즈의 일부입니다. 이 시리즈의 다음 문서는 [지역 전체의 서비스 중단으로부터 복구](resiliency-technical-guidance-recovery-loss-azure-region.md)입니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
 > 
 > 
 
-이 문서에서는 Azure RemoteApp 컬렉션의 개별 사용자에게 응용 프로그램을 게시하는 방법을 설명합니다. Azure RemoteApp의 새로운 기능은 현재 "비공개 미리 보기" 상태이며 평가 목적으로 선택된 초기 채택자만이 사용할 수 있습니다.
+이 문서에서는 Azure RemoteApp 컬렉션의 개별 사용자에게 응용 프로그램을 게시하는 방법을 설명합니다. Azure RemoteApp의 새로운 기능은 현재 비공개 미리 보기 상태이며 평가 목적으로 선택된 초기 채택자만이 사용할 수 있습니다.
 
-원래 Azure RemoteApp을 사용하면 응용 프로그램을 "게시"하는 한 가지 방법만이 가능합니다. 관리자는 이미지에서 앱을 게시하며 컬렉션의 모든 사용자에게 표시됩니다.
+원래 Azure RemoteApp을 사용하면 응용 프로그램을 게시하는 한 가지 방법만이 가능합니다. 관리자는 이미지에서 앱을 게시하며 컬렉션의 모든 사용자에게 표시됩니다.
 
 일반적인 시나리오는 단일 이미지에 많은 응용 프로그램을 포함하고 관리 비용을 줄이기 위해 하나의 컬렉션을 배포합니다. 종종 일부 응용 프로그램은 일부 사용자와 관련이 없습니다. 관리자는 개별 사용자가 응용 프로그램 피드에서 불필요한 응용 프로그램을 확인하지 못하도록 개별 사용자에게 앱을 게시하려 합니다.
 
@@ -36,8 +36,8 @@ ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
 
 1. 컬렉션은 두 가지 모드 중 하나로 설정할 수 있습니다.
    
-   * 원래 "컬렉션 모드"에서 컬렉션의 모든 사용자가 게시된 응용 프로그램을 모두 볼 수 있습니다. 이것이 기본 모드입니다.
-   * 새로운 "응용 프로그램 모드"에서 사용자는 명시적으로 할당된 응용 프로그램만을 볼 수 있습니다.
+   * 원래 컬렉션 모드에서는 컬렉션의 모든 사용자가 게시된 응용 프로그램을 모두 볼 수 있습니다. 이것이 기본 모드입니다.
+   * 새로운 응용 프로그램 모드에서는 사용자가 명시적으로 할당된 응용 프로그램만을 볼 수 있습니다.
 2. 현재 응용 프로그램 모드는 Azure RemoteApp PowerShell cmdlet을 사용하여 사용할 수 있습니다.
    
    * 응용 프로그램 모드로 설정하면 컬렉션의 사용자 할당은 Azure 포털을 통해 관리될 수 없습니다. 사용자 할당은 PowerShell cmdlet을 통해 관리될 수 있습니다.
@@ -49,7 +49,7 @@ ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
 ## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Azure RemoteApp PowerShell cmdlet을 가져오는 방법
 새 미리 보기 기능을 실행하려면 Azure PowerShell cmdlet을 사용해야 합니다. 현재 Azure 관리 포털을 사용하여 새 응용 프로그램 게시 모드를 사용하도록 설정할 수 없습니다.
 
-우선 [Azure PowerShell 모듈](../powershell-install-configure.md) 을 설치했는지 확인합니다.
+우선 [Azure PowerShell 모듈](/powershell/azureps-cmdlets-docs) 을 설치했는지 확인합니다.
 
 그런 다음 관리자 모드에서 PowerShell 콘솔을 시작하고 다음 cmdlet을 실행합니다.
 
@@ -106,6 +106,6 @@ AclLevel 속성은 다음 값을 가질 수 있습니다.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

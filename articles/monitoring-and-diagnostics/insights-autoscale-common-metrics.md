@@ -1,12 +1,12 @@
 ---
-title: 'Azure Insights: Azure Insights autoscaling common metrics. | Microsoft Docs'
-description: Learn which metrics are commonly used for autoscaling your Cloud Services, Virtual Machines and Web Apps.
+title: "Azure Monitor 자동 크기 조정 공용 메트릭. | Microsoft Docs"
+description: "클라우드 서비스, 가상 컴퓨터 및 웹앱의 자동 크기 조정에 일반적으로 사용되는 메트릭에 대해 알아봅니다."
 author: kamathashwin
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 189b2a13-01c8-4aca-afd5-90711903ca59
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,147 +14,151 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2016
 ms.author: ashwink
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 8d5f8dd454741f5946d6a2c265ce67808abdac9e
+
 
 ---
-# <a name="azure-insights-autoscaling-common-metrics"></a>Azure Insights autoscaling common metrics
-Azure Insights autoscaling allows you to scale the number of running instances up or down, based on telemetry data (metrics). This document describes common metrics that you might want to use. In the Azure Portal for Cloud Services and Server Farms, you can choose the metric of the resource to scale by. However, you can also choose any metric from a different resource to scale by.
+# <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor 자동 크기 조정 공용 메트릭
+Azure Monitor 자동 크기 조정을 사용하여 원격 분석 데이터(메트릭)에 따라 실행 중인 인스턴트 수를 늘리거나 줄일 수 있습니다. 이 문서에서는 사용하고자 하는 공용 메트릭에 대해 설명합니다. 클라우드 서비스 및 서버 팜용 Azure 포털에서 크기를 조정할 리소스의 메트릭을 선택할 수 있습니다. 그러나 크기를 조정하기 위해 여러 리소스에서 임의 메트릭을 선택할 수도 있습니다.
 
-Here are the details on how to find and list the metrics you want to scale by. The following applies for scaling Virtual Machine Scale Sets as well.
+다음은 크기를 조정하려는 매트릭을 찾고 나열하는 방법에 대한 세부 정보입니다. 가상 컴퓨터 규모 집합 크기 조정에도 다음이 적용됩니다.
 
-## <a name="compute-metrics"></a>Compute metrics
-By default, Azure VM v2 comes with diagnostics extension configured and they have the following metrics turned on.
+## <a name="compute-metrics"></a>메트릭 계산
+기본적으로 Azure VM v2는 진단 확장이 구성되어 있으며 다음 메트릭이 켜져 있습니다.
 
-* [Guest metrics for Windows VM v2](#compute-metrics-for-windows-vm-v2-as-a-guest-os)
-* [Guest metrics for Linux VM v2](#compute-metrics-for-linux-vm-v2-as-a-guest-os)
+* [Windows VM v2용 게스트 메트릭](#compute-metrics-for-windows-vm-v2-as-a-guest-os)
+* [Linux VM v2용 게스트 메트릭](#compute-metrics-for-linux-vm-v2-as-a-guest-os)
 
-You can use the `Get MetricDefinitions` API/PoSH/CLI to view the metrics available for your VMSS resource. 
+`Get MetricDefinitions` API/PoSH/CLI를 사용하여 VMSS 리소스에 사용할 수 있는 메트릭을 볼 수 있습니다. 
 
-If you're using VM scale sets and you don't see a particular metric listed, then it is likely *disabled* in your diagnostics extension.
+VM 규모 집합을 사용 중인데 특정 메트릭이 목록에 표시되지 않는 경우, 이는 진단 확장에서 *사용하지 않도록 설정*되었을 수 있습니다.
 
-If a particular metric is not being sampled or transferred at the frequency you want, you can update the diagnostics configuration.
+특정 메트릭이 원하는 빈도로 샘플링 또는 전송되고 있지 않은 경우 진단 구성을 업데이트할 수 있습니다.
 
-If either case above is true, then review [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) about PowerShell to configure and update your Azure VM Diagnostics extension to enable the metric. That article also includes a sample diagnostics configuration file.
+위 경우 중 하나가 해당되면 PowerShell에 대한 [PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 검토하여 메트릭을 사용하도록 Azure VM 진단 확장을 구성 및 업데이트합니다. 이 문서에는 샘플 진단 구성 파일도 포함되어 있습니다.
 
-### <a name="compute-metrics-for-windows-vm-v2-as-a-guest-os"></a>Compute metrics for Windows VM v2 as a guest OS
-When you create a new VM (v2) in Azure, diagnostics is enabled by using the Diagnostics extension.
+### <a name="compute-metrics-for-windows-vm-v2-as-a-guest-os"></a>게스트 OS로 Windows VM v2용 메트릭 계산
+Azure에서 새 VM(v2)을 만들 때 진단 확장을 사용하여 진단을 사용하도록 설정합니다.
 
-You can generate a list of the metrics by using the following command in PowerShell.
-
-```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
-```
-
-You can create an alert for the following metrics.
-
-| Metric Name | Unit |
-| --- | --- |
-| \Processor(_Total)\% Processor Time |Percent |
-| \Processor(_Total)\% Privileged Time |Percent |
-| \Processor(_Total)\% User Time |Percent |
-| \Processor Information(_Total)\Processor Frequency |Count |
-| \System\Processes |Count |
-| \Process(_Total)\Thread Count |Count |
-| \Process(_Total)\Handle Count |Count |
-| \Memory\% Committed Bytes In Use |Percent |
-| \Memory\Available Bytes |Bytes |
-| \Memory\Committed Bytes |Bytes |
-| \Memory\Commit Limit |Bytes |
-| \Memory\Pool Paged Bytes |Bytes |
-| \Memory\Pool Nonpaged Bytes |Bytes |
-| \PhysicalDisk(_Total)\% Disk Time |Percent |
-| \PhysicalDisk(_Total)\% Disk Read Time |Percent |
-| \PhysicalDisk(_Total)\% Disk Write Time |Percent |
-| \PhysicalDisk(_Total)\Disk Transfers/sec |CountPerSecond |
-| \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
-| \PhysicalDisk(_Total)\Disk Writes/sec |CountPerSecond |
-| \PhysicalDisk(_Total)\Disk Bytes/sec |BytesPerSecond |
-| \PhysicalDisk(_Total)\Disk Read Bytes/sec |BytesPerSecond |
-| \PhysicalDisk(_Total)\Disk Write Bytes/sec |BytesPerSecond |
-| \PhysicalDisk(_Total)\Avg. Disk Queue Length |Count |
-| \PhysicalDisk(_Total)\Avg. Disk Read Queue Length |Count |
-| \PhysicalDisk(_Total)\Avg. Disk Write Queue Length |Count |
-| \LogicalDisk(_Total)\% Free Space |Percent |
-| \LogicalDisk(_Total)\Free Megabytes |Count |
-
-### <a name="compute-metrics-for-linux-vm-v2-as-a-guest-os"></a>Compute metrics for Linux VM v2 as a guest OS
-When you create a new VM (v2) in Azure, diagnostics is enabled by default by using Diagnostics extension.
-
-You can generate a list of the metrics by using the following command in PowerShell.
+PowerShell에서 다음 명령을 사용하여 메트릭 목록을 생성할 수 있습니다.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
- You can create an alert for the following metrics.
+다음 메트릭에 대한 경고를 만들 수 있습니다.
 
-| Metric Name | Unit |
+| 메트릭 이름 | 단위 |
 | --- | --- |
-| \Memory\AvailableMemory |Bytes |
-| \Memory\PercentAvailableMemory |Percent |
-| \Memory\UsedMemory |Bytes |
-| \Memory\PercentUsedMemory |Percent |
-| \Memory\PercentUsedByCache |Percent |
-| \Memory\PagesPerSec |CountPerSecond |
-| \Memory\PagesReadPerSec |CountPerSecond |
-| \Memory\PagesWrittenPerSec |CountPerSecond |
-| \Memory\AvailableSwap |Bytes |
-| \Memory\PercentAvailableSwap |Percent |
-| \Memory\UsedSwap |Bytes |
-| \Memory\PercentUsedSwap |Percent |
-| \Processor\PercentIdleTime |Percent |
-| \Processor\PercentUserTime |Percent |
-| \Processor\PercentNiceTime |Percent |
-| \Processor\PercentPrivilegedTime |Percent |
-| \Processor\PercentInterruptTime |Percent |
-| \Processor\PercentDPCTime |Percent |
-| \Processor\PercentProcessorTime |Percent |
-| \Processor\PercentIOWaitTime |Percent |
-| \PhysicalDisk\BytesPerSecond |BytesPerSecond |
-| \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
-| \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
-| \PhysicalDisk\TransfersPerSecond |CountPerSecond |
-| \PhysicalDisk\ReadsPerSecond |CountPerSecond |
-| \PhysicalDisk\WritesPerSecond |CountPerSecond |
-| \PhysicalDisk\AverageReadTime |Seconds |
-| \PhysicalDisk\AverageWriteTime |Seconds |
-| \PhysicalDisk\AverageTransferTime |Seconds |
-| \PhysicalDisk\AverageDiskQueueLength |Count |
-| \NetworkInterface\BytesTransmitted |Bytes |
-| \NetworkInterface\BytesReceived |Bytes |
-| \NetworkInterface\PacketsTransmitted |Count |
-| \NetworkInterface\PacketsReceived |Count |
-| \NetworkInterface\BytesTotal |Bytes |
-| \NetworkInterface\TotalRxErrors |Count |
-| \NetworkInterface\TotalTxErrors |Count |
-| \NetworkInterface\TotalCollisions |Count |
+| \Processor(_Total)\% 프로세서 시간 |백분율 |
+| \Processor(_Total)\% 시스템 시간 |백분율 |
+| \Processor(_Total)\% 사용자 시간 |백분율 |
+| \Processor Information(_Total)\Processor Frequency |개수 |
+| \System\Processes |개수 |
+| \Process(_Total)\Thread Count |개수 |
+| \Process(_Total)\Handle Count |개수 |
+| \Memory\% 사용 중인 커밋된 바이트 |백분율 |
+| \Memory\Available Bytes |바이트 |
+| \Memory\Committed Bytes |바이트 |
+| \Memory\Commit Limit |바이트 |
+| \Memory\Pool Paged Bytes |바이트 |
+| \Memory\Pool Nonpaged Bytes |바이트 |
+| \PhysicalDisk(_Total)\% 디스크 시간 |백분율 |
+| \PhysicalDisk(_Total)\% 디스크 읽기 시간 |백분율 |
+| \PhysicalDisk(_Total)\% 디스크 쓰기 시간 |백분율 |
+| \PhysicalDisk(_Total)\디스크 전송/초 |초당 개수 |
+| \PhysicalDisk(_Total)\Disk Reads/sec |초당 개수 |
+| \PhysicalDisk(_Total)\Disk Writes/sec |초당 개수 |
+| \PhysicalDisk(_Total)\Disk Bytes/sec |초당 바이트 수 |
+| \PhysicalDisk(_Total)\Disk Read Bytes/sec |초당 바이트 수 |
+| \PhysicalDisk(_Total)\Disk Write Bytes/sec |초당 바이트 수 |
+| \PhysicalDisk(_Total)\Avg. 디스크 큐 길이 |개수 |
+| \PhysicalDisk(_Total)\Avg. 디스크 읽기 큐 길이 |개수 |
+| \PhysicalDisk(_Total)\Avg. 디스크 쓰기 큐 길이 |개수 |
+| \LogicalDisk(_Total)\% 사용 가능한 공간 |백분율 |
+| \LogicalDisk(_Total)\Free Megabytes |개수 |
 
-## <a name="commonly-used-web-(server-farm)-metrics"></a>Commonly used Web (Server Farm) metrics
-You can also perform autoscale based on common web server metrics such as the Http queue length. It's metric name is **HttpQueueLength**.  The following section lists available server farm (Web Apps) metrics.
+### <a name="compute-metrics-for-linux-vm-v2-as-a-guest-os"></a>게스트 OS로 Linux VM v2용 메트릭 계산
+Azure에서 새 VM(v2)을 만들 때 진단 확장을 사용하여 기본적으로 진단을 사용하도록 설정합니다.
 
-### <a name="web-apps-metrics"></a>Web Apps metrics
-You can generate a list of the Web Apps metrics by using the following command in PowerShell.
+PowerShell에서 다음 명령을 사용하여 메트릭 목록을 생성할 수 있습니다.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-You can alert on or scale by these metrics.
+ 다음 메트릭에 대한 경고를 만들 수 있습니다.
 
-| Metric Name | Unit |
+| 메트릭 이름 | 단위 |
 | --- | --- |
-| CpuPercentage |Percent |
-| MemoryPercentage |Percent |
-| DiskQueueLength |Count |
-| HttpQueueLength |Count |
-| BytesReceived |Bytes |
-| BytesSent |Bytes |
+| \Memory\AvailableMemory |바이트 |
+| \Memory\PercentAvailableMemory |백분율 |
+| \Memory\UsedMemory |바이트 |
+| \Memory\PercentUsedMemory |백분율 |
+| \Memory\PercentUsedByCache |백분율 |
+| \Memory\PagesPerSec |초당 개수 |
+| \Memory\PagesReadPerSec |초당 개수 |
+| \Memory\PagesWrittenPerSec |초당 개수 |
+| \Memory\AvailableSwap |바이트 |
+| \Memory\PercentAvailableSwap |백분율 |
+| \Memory\UsedSwap |바이트 |
+| \Memory\PercentUsedSwap |백분율 |
+| \Processor\PercentIdleTime |백분율 |
+| \Processor\PercentUserTime |백분율 |
+| \Processor\PercentNiceTime |백분율 |
+| \Processor\PercentPrivilegedTime |백분율 |
+| \Processor\PercentInterruptTime |백분율 |
+| \Processor\PercentDPCTime |백분율 |
+| \Processor\PercentProcessorTime |백분율 |
+| \Processor\PercentIOWaitTime |백분율 |
+| \PhysicalDisk\BytesPerSecond |초당 바이트 수 |
+| \PhysicalDisk\ReadBytesPerSecond |초당 바이트 수 |
+| \PhysicalDisk\WriteBytesPerSecond |초당 바이트 수 |
+| \PhysicalDisk\TransfersPerSecond |초당 개수 |
+| \PhysicalDisk\ReadsPerSecond |초당 개수 |
+| \PhysicalDisk\WritesPerSecond |초당 개수 |
+| \PhysicalDisk\AverageReadTime |초 |
+| \PhysicalDisk\AverageWriteTime |초 |
+| \PhysicalDisk\AverageTransferTime |초 |
+| \PhysicalDisk\AverageDiskQueueLength |개수 |
+| \NetworkInterface\BytesTransmitted |바이트 |
+| \NetworkInterface\BytesReceived |바이트 |
+| \NetworkInterface\PacketsTransmitted |개수 |
+| \NetworkInterface\PacketsReceived |개수 |
+| \NetworkInterface\BytesTotal |바이트 |
+| \NetworkInterface\TotalRxErrors |개수 |
+| \NetworkInterface\TotalTxErrors |개수 |
+| \NetworkInterface\TotalCollisions |개수 |
 
-## <a name="commonly-used-storage-metrics"></a>Commonly used Storage metrics
-You can scale by Storage queue length, which is the number of messages in the storage queue. Storage queue length is a special metric and the threshold applied will be the number of messages per instance. This means if there are two instances and if the threshold is set to 100, it will scale when the total number of messages in the queue are 200. For example, 100 messages per instance.
+## <a name="commonly-used-web-server-farm-metrics"></a>일반적으로 사용되는 웹(서버 팜) 메트릭
+Http 큐 길이와 같이 공용 웹 서버 메트릭을 기반으로 자동 크기 조정을 수행할 수도 있습니다. 메트릭 이름은 **HttpQueueLength**입니다.  다음 섹션에는 사용 가능한 서버 팜(웹앱) 메트릭이 나열되어 있습니다.
 
-You can configure this is in the Azure Portal in the **Settings** blade. For VM scale sets, you can update the Autoscale setting in the ARM template to use *metricName* as *ApproximateMessageCount* and pass the ID of the storage queue as *metricResourceUri*.
+### <a name="web-apps-metrics"></a>웹앱 메트릭
+PowerShell에서 다음 명령을 사용하여 웹앱 메트릭 목록을 생성할 수 있습니다.
 
-For example, with a Classic Storage Account the autoscale setting metricTrigger would include:
+```
+Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+```
+
+다음 메트릭에 대한 경고를 만들거나 크기를 조정할 수 있습니다.
+
+| 메트릭 이름 | 단위 |
+| --- | --- |
+| CpuPercentage |백분율 |
+| MemoryPercentage |백분율 |
+| DiskQueueLength |개수 |
+| HttpQueueLength |개수 |
+| BytesReceived |바이트 |
+| BytesSent |바이트 |
+
+## <a name="commonly-used-storage-metrics"></a>일반적으로 사용되는 저장소 메트릭
+저장소 큐의 메시지 수인 저장소 큐 길이의 크기를 조정할 수 있습니다. 저장소 큐 길이는 특수한 메트릭으로, 인스턴스당 메시지 수가 임계값으로 적용됩니다. 이는 인스턴스가 두 개이고 임계값이 100으로 설정된 경우 큐에서 총 메시지 수가 200일 때 크기가 조정됨을 의미합니다. 예를 들어 인스턴스당 메시지가 100개입니다.
+
+Azure Portal의 **설정** 블레이드에서 이를 구성할 수 있습니다. VM 규모 집합의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 저장소 큐 ID를 *metricResourceUri*로 전달하도록 ARM 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
+
+예를 들어 클래식 저장소 계정을 사용하면 자동 크기 조정 설정 metricTrigger는 다음을 포함합니다.
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -162,7 +166,7 @@ For example, with a Classic Storage Account the autoscale setting metricTrigger 
  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
  ```
 
-For a (non-classic) storage account, the metricTrigger would include:
+(클래식이 아닌) 저장소 계정의 경우 metricTrigger는 다음을 포함합니다.
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -170,10 +174,10 @@ For a (non-classic) storage account, the metricTrigger would include:
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
 ```
 
-## <a name="commonly-used-service-bus-metrics"></a>Commonly used Service Bus metrics
-You can scale by Service Bus queue length, which is the number of messages in the Service Bus queue. Service Bus queue length is a special metric and the threshold specified applied will be the number of messages per instance. This means if there are two instances and if the threshold is set to 100, it will scale when the total number of messages in the queue are 200. For example, 100 messages per instance.
+## <a name="commonly-used-service-bus-metrics"></a>자주 사용되는 서비스 버스 메트릭
+서비스 버스 큐의 메시지 수인 서비스 버스 큐 길이의 크기를 조정할 수 있습니다. 서비스 버스 큐 길이는 특수한 메트릭으로, 인스턴스당 메시지 수가 지정된 임계값으로 적용됩니다. 이는 인스턴스가 두 개이고 임계값이 100으로 설정된 경우 큐에서 총 메시지 수가 200일 때 크기가 조정됨을 의미합니다. 예를 들어 인스턴스당 메시지가 100개입니다.
 
-For VM scale sets, you can update the Autoscale setting in the ARM template to use *metricName* as *ApproximateMessageCount* and pass the ID of the storage queue as *metricResourceUri*.
+VM 규모 집합의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 저장소 큐 ID를 *metricResourceUri*로 전달하도록 ARM 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
 
 ```
 "metricName": "MessageCount",
@@ -182,10 +186,13 @@ For VM scale sets, you can update the Autoscale setting in the ARM template to u
 ```
 
 > [!NOTE]
-> For Service Bus, the resource group concept does not exist but Azure Resource Manager creates a default resource group per region. The resource group is usually in the 'Default-ServiceBus-[region]' format. For example, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' etc.
+> 서비스 버스의 경우 리소스 그룹 개념이 없지만 Azure Resource Manager가 지역마다 기본 리소스 그룹을 만듭니다. 리소스 그룹은 일반적으로 'Default-ServiceBus-[region]' 형식입니다. 예를 들어 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' 등입니다.
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

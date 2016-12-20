@@ -1,12 +1,12 @@
 ---
-title: 기계 학습 실험 실험에서 예측 실험으로 변환 | Microsoft Docs
-description: 예측 분석 모델을 학습하는 데 사용되는 기계 학습 학습 실험을 웹 서비스로 배포할 수 있는 예측 실험으로 변환하는 방법입니다.
+title: "Machine Learning 학습 실험에서 예측 실험으로 변환 | Microsoft Docs"
+description: "예측 분석 모델을 학습하는 데 사용되는 기계 학습 학습 실험을 웹 서비스로 배포할 수 있는 예측 실험으로 변환하는 방법입니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: eb943c45-541a-401d-844a-c3337de82da6
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 58b85aeb4a2249be030c78a4a7521676fea811ef
+
 
 ---
-# 기계 학습 실험 실험에서 예측 실험으로 변환
+# <a name="convert-a-machine-learning-training-experiment-to-a-predictive-experiment"></a>기계 학습 실험 실험에서 예측 실험으로 변환
 Azure 기계 학습을 사용하여 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다.
 
-*학습 실험*을 만들고 반복하여 예측 분석 모델을 학습하고 이를 사용하여 새 데이터의 점수를 매길 준비가 완료되었으면 점수 매기기를 위해 실험을 준비하고 간소화해야 합니다. 그런 다음 사용자가 모델로 데이터를 보내고 모델의 예측을 받을 수 있도록 이 *예측 실험*을 Azure 웹 서비스로 배포할 수 있습니다.
+*학습 실험* 을 만들고 반복하여 예측 분석 모델을 학습하고 이를 사용하여 새 데이터의 점수를 매길 준비가 완료되었으면 점수 매기기를 위해 실험을 준비하고 간소화해야 합니다. 그런 다음 사용자가 모델로 데이터를 보내고 모델의 예측을 받을 수 있도록 이 *예측 실험* 을 Azure 웹 서비스로 배포할 수 있습니다.
 
 예측 실험으로 변환하면 학습된 모델을 웹 서비스로 배포할 준비가 완료됩니다. 웹 서비스 사용자가 입력 데이터를 모델로 보내면 모델에서 예측 결과가 다시 전송됩니다. 따라서 예측 실험을 변환할 때 다른 사람이 모델을 사용할 것을 염두에 둘 수 있습니다.
 
@@ -27,14 +31,14 @@ Azure 기계 학습을 사용하여 예측 분석 솔루션을 빌드, 테스트
 
 학습 실험을 예측 실험으로 변환하는 프로세스는 세 단계로 구성됩니다.
 
-1. 학습한 기계 학습 모델을 저장한 다음 기계 학습 알고리즘과 [모델 학습][train-model] 모듈을 저장한 학습된 모델로 바꿉니다.
+1. 학습한 Machine Learning 모델을 저장한 다음 Machine Learning 알고리즘과 [모델 학습][train-model] 모듈을 저장한 학습된 모델로 바꿉니다.
 2. 점수 매기기에 필요한 모듈로만 실험을 자릅니다. 학습 실험에는 학습에 필요하지만 모델이 학습되고 점수 매기기에 사용할 준비가 완료된 후에는 필요 없는 여러 모듈이 포함되어 있습니다.
 3. 실험에서 웹 서비스 사용자의 데이터를 허용할 위치 및 반환할 데이터를 정의합니다.
 
-## 웹 서비스 설정 단추
-실험을 실행하고 나면 (실험 캔버스의 아래쪽에 있는 **실행** 단추), **웹 서비스 설정** 단추 (**예측 웹 서비스** 옵션 선택함)가 학습 실험을 예측 실험으로 전환하는 세 가지 단계를 수행합니다.
+## <a name="set-up-web-service-button"></a>웹 서비스 설정 단추
+실험을 실행하고 나면 (실험 캔버스의 아래쪽에 있는 **실행** 단추), **웹 서비스 설정** 단추(**예측 웹 서비스** 옵션 선택함)가 학습 실험을 예측 실험으로 전환하는 세 가지 단계를 수행합니다.
 
-1. 학습된 모듈을 모듈 팔레트(실험 캔버스의 왼쪽)의 **학습된 모델** 섹션에 모듈로 저장한 다음 기계 학습 알고리즘과 [모델 학습][train-model] 모듈을 저장한 학습된 모델로 바꿉니다.
+1. 학습된 모듈을 모듈 팔레트(실험 캔버스의 왼쪽)의 **학습된 모델** 섹션에 모듈로 저장한 다음 Machine Learning 알고리즘과 [모델 학습][train-model] 모듈을 저장한 학습된 모델로 바꿉니다.
 2. 명확히 필요 없는 모듈을 제거합니다. 이 예제에서는 [분할 데이터][split], 두 번째 [모델 점수 매기기][score-model] 및 [모델 평가][evaluate-model] 모듈이 여기에 포함됩니다.
 3. 웹 서비스 입력 및 출력 모듈을 만들어 실험의 기본 위치에 추가합니다.
 
@@ -61,55 +65,55 @@ Azure 기계 학습을 사용하여 예측 분석 솔루션을 빌드, 테스트
 
 이 정도면 실험을 웹 서비스로 배포하도록 준비하는 데 충분할 수 있습니다. 그러나 실험에 특정한 몇 가지 추가 작업을 수행할 수도 있습니다.
 
-### 입력 및 출력 모듈 조정
-학습 실험에서는 학습 데이터 집합을 사용한 다음 일부 처리를 수행하여 기계 학습 알고리즘에 필요한 형식의 데이터를 가져왔습니다. 웹 서비스를 통해 받아야 하는 데이터에 이 처리가 필요 없는 경우 **웹 서비스 입력 모듈**을 실험의 다른 노드로 이동할 수 있습니다.
+### <a name="adjust-input-and-output-modules"></a>입력 및 출력 모듈 조정
+학습 실험에서는 학습 데이터 집합을 사용한 다음 일부 처리를 수행하여 기계 학습 알고리즘에 필요한 형식의 데이터를 가져왔습니다. 웹 서비스를 통해 받아야 하는 데이터에 이 처리가 필요 없는 경우 **웹 서비스 입력 모듈** 을 실험의 다른 노드로 이동할 수 있습니다.
 
-예를 들어 기본적으로 **웹 서비스 설정**은 위 그림과 같이 데이터 흐름의 맨 위에 **웹 서비스 입력** 모듈을 둡니다. 그러나 입력 데이터에 이 처리가 필요 없는 경우에는 **웹 서비스 입력**을 데이터 처리 모듈 뒤에 수동으로 배치할 수 있습니다.
+예를 들어 기본적으로 **웹 서비스 설정**은 위 그림과 같이 데이터 흐름의 맨 위에 **웹 서비스 입력** 모듈을 둡니다. 그러나 입력 데이터에 이 처리가 필요 없는 경우에는 **웹 서비스 입력** 을 데이터 처리 모듈 뒤에 수동으로 배치할 수 있습니다.
 
 ![웹 서비스 입력 이동][figure4]
 
 이제 웹 서비스를 통해 제공되는 입력 데이터가 전처리 없이 모델 점수 매기기 모듈로 직접 전달됩니다.
 
-마찬가지로 기본적으로 **웹 서비스 설정**은 웹 서비스 출력 모듈을 데이터 흐름의 맨 아래에 둡니다. 이 예제에서 웹 서비스는 사용자에게 전체 입력 데이터 벡터와 점수 매기기 결과가 포함된 [모델 점수 매기기][score-model] 모듈을 반환합니다.
+마찬가지로 기본적으로 **웹 서비스 설정** 은 웹 서비스 출력 모듈을 데이터 흐름의 맨 아래에 둡니다. 이 예제에서 웹 서비스는 사용자에게 전체 입력 데이터 벡터와 점수 매기기 결과가 포함된 [모델 점수 매기기][score-model] 모듈을 반환합니다.
 
 그러나 다른 결과를 반환하려는 경우, 예를 들어 입력 데이터의 전체 벡터를 제외하고 점수 매기기 결과만 반환하려는 경우 점수 매기기 결과를 제외하고 모든 열을 제외하도록 [데이터 집합의 열 선택][select-columns] 모듈을 삽입할 수 있습니다. 그런 다음 **웹 서비스 출력** 모듈을 [데이터 집합의 열 선택][select-columns] 모듈의 출력으로 이동합니다.
 
 ![웹 서비스 출력 이동][figure5]
 
-### 추가 데이터 처리 모듈 추가 또는 제거
+### <a name="add-or-remove-additional-data-processing-modules"></a>추가 데이터 처리 모듈 추가 또는 제거
 점수를 매기는 동안 필요 없다는 것을 알고 있는 추가 모듈이 실험에 있는 경우 이러한 모듈을 제거할 수 있습니다. 예를 들어 **웹 서비스 입력** 모듈을 데이터 처리 모듈 이후의 시점으로 이동했기 때문에 예측 실험에서 [누락된 데이터 정리][clean-missing-data] 모듈을 제거할 수 있습니다.
 
 이제 예측 실험은 다음과 같은 모양입니다.
 
 ![추가 모듈 제거][figure6]
 
-### 선택적 웹 서비스 매개 변수 추가
-경우에 따라 서비스에 액세스할 때 웹 서비스 사용자가 모듈의 동작을 변경하도록 허용할 수 있습니다. *웹 서비스 매개 변수*를 통해 이 작업을 수행할 수 있습니다.
+### <a name="add-optional-web-service-parameters"></a>선택적 웹 서비스 매개 변수 추가
+경우에 따라 서비스에 액세스할 때 웹 서비스 사용자가 모듈의 동작을 변경하도록 허용할 수 있습니다. *웹 서비스 매개 변수* 를 통해 이 작업을 수행할 수 있습니다.
 
 일반적인 예는 배포된 웹 서비스의 사용자가 웹 서비스에 액세스할 때 다른 데이터 원본을 지정할 수 있도록 [데이터 가져오기][import-data] 모듈을 설정하는 것입니다. 또는 다른 대상을 지정할 수 있도록 [데이터 내보내기][export-data] 모듈을 구성하는 것입니다.
 
 웹 서비스 매개 변수를 정의하여 하나 이상의 모듈 매개 변수와 연결하고 이러한 매개 변수가 필수인지 또는 선택 사항인지 지정할 수 있습니다. 그런 다음 웹 서비스의 사용자는 서비스에 액세스할 때 이러한 매개 변수의 값을 제공할 수 있으며, 그에 따라 모듈 동작이 수정됩니다.
 
-웹 서비스 매개 변수에 대한 자세한 내용은 [Azure 기계 학습 웹 서비스 매개 변수 사용][webserviceparameters]을 참조하세요.
+웹 서비스 매개 변수에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 매개 변수 사용][webserviceparameters]을 참조하세요.
 
 [webserviceparameters]: machine-learning-web-service-parameters.md
 
 
-## 예측 실험을 웹 서비스로 배포
+## <a name="deploy-the-predictive-experiment-as-a-web-service"></a>예측 실험을 웹 서비스로 배포
 이제 예측 실험이 충분히 준비되었으므로 이를 Azure 웹 서비스로 배포할 수 있습니다. 웹 서비스를 사용하면 사용자가 모델에 데이터를 보낼 수 있으며, 이 경우 모델에서 해당 예측을 반환합니다.
 
-전체 배포 프로세스에 대한 자세한 내용은 [Azure 기계 학습 웹 서비스 배포][deploy]를 참조하세요.
+전체 배포 프로세스에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포][deploy]를 참조하세요.
 
 [deploy]: machine-learning-publish-a-machine-learning-web-service.md
 
 
 <!-- Images -->
-[figure1]: ./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure1.png
-[figure2]: ./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure2.png
-[figure3]: ./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure3.png
-[figure4]: ./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure4.png
-[figure5]: ./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure5.png
-[figure6]: ./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure6.png
+[figure1]:./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure1.png
+[figure2]:./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure2.png
+[figure3]:./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure3.png
+[figure4]:./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure4.png
+[figure5]:./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure5.png
+[figure6]:./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure6.png
 
 
 <!-- Module References -->
@@ -122,4 +126,8 @@ Azure 기계 학습을 사용하여 예측 분석 솔루션을 빌드, 테스트
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

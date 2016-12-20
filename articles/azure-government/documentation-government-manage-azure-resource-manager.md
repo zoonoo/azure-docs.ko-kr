@@ -1,13 +1,13 @@
 ---
-title: Azure Government documentation | Microsoft Docs
-description: This provides a comparison of features and guidance on developing applications for Azure Government.
+title: "Azure Government Resource Manager | Microsoft 문서"
+description: "이 설명서에서는 Azure Government의 응용 프로그램 개발에 대한 기능 및 지침을 비교합니다."
 services: Azure-Government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: brendalee
 manager: zakramer
-editor: ''
-
+editor: 
+ms.assetid: f270ebe4-dbbb-4e3d-8eba-efe1ca038988
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,115 +15,122 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/10/2016
 ms.author: brendalee
+translationtype: Human Translation
+ms.sourcegitcommit: 4febeb038f1007e1e20981d120debe4db1d7731a
+ms.openlocfilehash: dd511273e8ce3b9dd98b3d26534a9ddb7aee8ebf
+
 
 ---
-# <a name="azure-resource-manager"></a>Azure Resource Manager
-For detailed information on Resource Manager providers, API versions, and schemas, please refer [here](../resource-manager-supported-services.md). The following tables list which services are supported through Resource Manager in Azure Government.
+# <a name="azure-resource-manager"></a>Azure 리소스 관리자
+Resource Manager 공급자, API 버전 및 스키마에 대한 자세한 내용은 [여기](../resource-manager-supported-services.md)를 참조하세요. 다음 표에서는 Azure Government의 Resource Manager를 통해 지원되는 서비스를 나열합니다.
 
 ## <a name="compute"></a>Compute
-| Service | Resource Manager Enabled |
+| 부여 | 리소스 관리자 사용 |
 | --- | --- |
-| Batch |Yes |
-| Container |No |
-| Dynamics Lifecycle Services |No |
-| Scale Sets |Yes |
-| Service Fabric |Yes |
-| Virtual Machines |Yes |
+| Batch |예 |
+| 컨테이너 |아니요 |
+| Dynamics Lifecycle Services |아니요 |
+| 크기 집합 |예 |
+| Service Fabric |예 |
+| 가상 컴퓨터 |yes |
 
-## <a name="networking"></a>Networking
-| Service | Resource Manager Enabled |
+## <a name="networking"></a>네트워킹
+| 부여 | 리소스 관리자 사용 |
 | --- | --- |
-| Application Gateway |Yes |
-| DNS |Yes |
-| ExpressRoute |Yes |
-| Load Balancer |Yes |
-| Traffic Manager |Yes |
-| Virtual Networks |Yes |
-| VPN Gateway |Yes |
+| 응용 프로그램 게이트웨이 |예 |
+| DNS |예 |
+| ExpressRoute |예 |
+| 부하 분산 장치 |예 |
+| 트래픽 관리자 |예 |
+| 가상 네트워크 |yes |
+| VPN 게이트웨이 |yes |
 
-## <a name="data-&-storage"></a>Data & Storage
-| Service | Resource Manager Enabled |
+## <a name="data-storage"></a>데이터 및 저장소
+| 부여 | 리소스 관리자 사용 |
 | --- | --- |
-| DocumentDB |No |
-| Redis Cache |Yes |
-| Search |No |
-| Storage |Yes |
-| SQL Database |Yes |
-| SQL Data Warehouse |Yes |
-| StorSimple |No |
+| DocumentDB |아니요 |
+| Redis 캐시 |yes |
+| Search |아니요 |
+| 저장소 |예 |
+| SQL Database |yes |
+| SQL Data Warehouse |yes |
+| StorSimple |아니요 |
 
-## <a name="web-&-mobile"></a>Web & Mobile
-| Service | Resource Manager Enabled |
+## <a name="web-mobile"></a>웹 및 모바일
+| 부여 | 리소스 관리자 사용 |
 | --- | --- |
-| API Apps |Yes |
-| API Management |No |
-| Logic Apps |No |
-| Mobile Apps |Yes |
-| Mobile Engagements |No |
-| Web Apps |Yes |
+| API Apps |yes |
+| API Management |아니요 |
+| Logic Apps |아니요 |
+| Mobile Apps |yes |
+| 모바일 고객 관리 |아니요 |
+| Web Apps |예 |
 
-## <a name="analytics"></a>Analytics
-| Service | Resource Manager Enabled |
+## <a name="analytics"></a>분석
+| 부여 | 리소스 관리자 사용 |
 | --- | --- |
-| Data Catalog |No |
-| Data Factory |No |
-| Data Lake Analytics |No |
-| Data Lake Store |No |
-| HDInsights |No |
-| Machine Learning |No |
-| Power BI |No |
+| 데이터 카탈로그 |아니요 |
+| 데이터 팩터리 |아니요 |
+| 데이터 레이크 분석 |아니요 |
+| 데이터 레이크 저장소 |아니요 |
+| HDInsights |아니요 |
+| Machine Learning |아니요 |
+| Power BI |아니요 |
 
-## <a name="intelligence"></a>Intelligence
-| Service | Resource Manager Enabled |
+## <a name="intelligence"></a>인텔리전스
+| 부여 | 리소스 관리자 사용 |
 | --- | --- |
-| Cognitive Services |No |
+| Cognitive Services |아니요 |
 
-## <a name="internet-of-things"></a>Internet of Things
-| Service | Resource Manager Enabled |
+## <a name="internet-of-things"></a>사물 인터넷
+| 부여 | 리소스 관리자 사용 |
 | --- | --- |
-| Event Hub |Yes |
-| IoTHubs |No |
-| Notification Hubs |No |
+| 이벤트 허브 |예 |
+| IoTHubs |아니요 |
+| Notification Hubs |아니요 |
 
-## <a name="media-&-cdn"></a>Media & CDN
-| Service | Resource Manager Enabled |
+## <a name="media-cdn"></a>미디어 및 CDN
+| 부여 | 리소스 관리자 사용 |
 | --- | --- |
-| CDN |No |
-| Media Service |No |
+| CDN |아니요 |
+| 미디어 서비스 |아니요 |
 
-## <a name="hybrid-integration"></a>Hybrid Integration
-| Service | Resource Manager Enabled |
+## <a name="hybrid-integration"></a>하이브리드 통합
+| 부여 | 리소스 관리자 사용 |
 | --- | --- |
-| BizTalk Services |No |
-| Recovery Service |No |
-| Service Bus |Yes |
+| BizTalk 서비스 |아니요 |
+| 복구 서비스 |예(Hyper-V만 해당) |
+| Service Bus |yes |
 
-## <a name="developer-services"></a>Developer Services
-| Service | Resource Manager Enabled |
+## <a name="developer-services"></a>개발자 서비스
+| 부여 | 리소스 관리자 사용 |
 | --- | --- |
-| Application Insights |No |
-| Bing Maps |No |
-| DevTest Labs |No |
-| Visual Studio account |No |
+| Application Insights |아니요 |
+| Bing 지도 |아니요 |
+| DevTest Labs |아니요 |
+| Visual Studio 계정 |아니요 |
 
-## <a name="management-and-security"></a>Management and Security
-| Service | Resource Manager Enabled |
+## <a name="management-and-security"></a>관리 및 보안
+| 부여 | 리소스 관리자 사용 |
 | --- | --- |
-| Automation |Yes |
-| Key Vault |Yes |
-| Operational Insights |Yes |
-| Scheduler |Yes |
-| Security (preview) |No |
+| Automation |예 |
+| Key Vault |yes |
+| Operational Insights |예 |
+| 스케줄러 |예 |
+| 보안(미리 보기) |아니요 |
 
-## <a name="resource-manager"></a>Resource Manager
-| Feature | Resource Manager Enabled |
+## <a name="resource-manager"></a>리소스 관리자
+| 기능 | 리소스 관리자 사용 |
 | --- | --- |
-| Authorization |Yes |
-| Resources |Yes |
+| 권한 부여 |yes |
+| 리소스 |예 |
 
-## <a name="next-steps"></a>Next Steps
-For supplemental information and updates, subscribe to the <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+## <a name="next-steps"></a>다음 단계
+추가 정보 및 업데이트는 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government 블로그</a>를 구독하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

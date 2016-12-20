@@ -3,7 +3,7 @@ title: "Azure 배치 PowerShell 시작 | Microsoft 문서"
 description: "Azure 배치 서비스를 관리하는 데 사용되는 Azure PowerShell cmdlet에 대해 간략히 알아보세요."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: f9ad62c5-27bf-4e6b-a5bf-c5f5914e6199
@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 10/20/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9aa49ecfa151b8ab56c0560db47c3b0eb80647a2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1ea51f4053ba0d4e08628d29eca7cb7c82a26d61
 
 
 ---
@@ -30,7 +30,7 @@ Azure 배치 PowerShell cmdlet을 사용하여 배치 API, Azure 포털, Azure C
 ## <a name="prerequisites"></a>필수 조건
 배치 리소스를 관리하도록 Azure PowerShell을 사용하여 다음 작업을 수행합니다.
 
-* [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)
+* [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)
 * **Login-AzureRmAccount** cmdlet을 실행하여 구독에 연결(Azure Batch cmdlet은 Azure Resource Manager 모듈에 탑재됨):
   
     `Login-AzureRmAccount`
@@ -240,6 +240,6 @@ OData 필터의 대안은 **ID** 매개 변수를 사용하는 것입니다. ID�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,36 +1,41 @@
 ---
-title: 앱 서비스 응용 프로그램에 대해 Microsoft 계정 인증을 구성하는 방법
-description: 앱 서비스 응용 프로그램에 대해 Microsoft 계정 인증을 구성하는 방법을 알아봅니다.
+title: "앱 서비스 응용 프로그램에 대해 Microsoft 계정 인증을 구성하는 방법"
+description: "앱 서비스 응용 프로그램에 대해 Microsoft 계정 인증을 구성하는 방법을 알아봅니다."
 author: mattchenderson
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 10/01/2016
 ms.author: mahender
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5f9926b09c8d2bb802b1e1a86695e76fd7a54209
+
 
 ---
-# Microsoft 계정 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
+# <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Microsoft 계정 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-이 항목에서는 Microsoft 계정을 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 줍니다.
+이 항목에서는 Microsoft 계정을 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 줍니다. 
 
 ## <a name="register-microsoft-account"> </a>Microsoft 계정을 사용하여 앱 등록
-1. [Azure 포털]에 로그온한 다음 응용 프로그램으로 이동합니다. **URL**을 복사하여 나중에 Microsoft 계정으로 응용 프로그램을 구성하는 데 사용합니다.
+1. [Azure Portal]에 로그온한 다음 응용 프로그램으로 이동합니다. **URL**을 복사하여 나중에 Microsoft 계정으로 응용 프로그램을 구성하는 데 사용합니다.
 2. Microsoft 계정 개발자 센터의 [내 응용 프로그램] 페이지로 이동하고 필요한 경우 Microsoft 계정으로 로그온합니다.
 3. **앱 추가**를 클릭한 후 응용 프로그램 이름을 입력하고 **응용 프로그램 만들기**를 클릭합니다.
-4. 나중에 필요하므로 **응용 프로그램 ID**를 기록해 둡니다.
-5. "플랫폼" 아래에서 **플랫폼 추가**를 클릭하고 "웹"을 선택합니다.
-6. "리디렉션 URI" 아래에서 응용 프로그램에 대한 끝점을 입력한 다음 **저장**을 클릭합니다.
+4. 나중에 필요하므로 **응용 프로그램 ID**를 기록해 둡니다. 
+5. "플랫폼" 아래에서 **플랫폼 추가** 를 클릭하고 "웹"을 선택합니다.
+6. "리디렉션 URI" 아래에서 응용 프로그램에 대한 끝점을 입력한 다음 **저장**을 클릭합니다. 
    
    > [!NOTE]
-   > 리디렉션 URI는 경로 _/.auth/login/microsoftaccount/callback_이 추가된 응용 프로그램의 URL입니다. 예: `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback` HTTPS 체계를 사용 중인지 확인합니다.
+   > 리디렉션 URI는 경로 */.auth/login/microsoftaccount/callback*이 추가된 응용 프로그램의 URL입니다. 예: `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`   
+   > HTTPS 체계를 사용 중인지 확인합니다.
    > 
    > 
 7. "응용 프로그램 암호" 아래에서 **새 암호 생성**을 클릭합니다. 표시되는 값을 기록해 둡니다. 이 페이지를 떠나면 다시 표시되지 않습니다.
@@ -38,7 +43,7 @@ ms.author: mahender
     > [AZURE.IMPORTANT] 암호는 중요한 보안 자격 증명입니다. 다른 사람과 암호를 공유하거나 클라이언트 응용 프로그램 내에 배포하지 마세요.
 
 ## <a name="secrets"> </a>앱 서비스 응용 프로그램에 Microsoft 계정 정보 추가
-1. [Azure 포털]로 돌아가서 응용 프로그램으로 이동하여 **설정** > **인증/권한 부여**를 클릭합니다.
+1. [Azure Portal]로 돌아가서 응용 프로그램으로 이동하여 **설정** > **인증/권한 부여**를 클릭합니다.
 2. 인증/권한 부여 기능이 사용하도록 설정되지 않은 경우 스위치를 **켭니다**.
 3. **Microsoft 계정**을 클릭합니다. 이전에 가져온 응용 프로그램 ID 및 암호 값을 붙여넣고 필요에 따라 응용 프로그램에 필요한 범위를 설정합니다. 그런 후 **OK**를 클릭합니다.
    
@@ -61,6 +66,10 @@ ms.author: mahender
 <!-- URLs. -->
 
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Azure 포털]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

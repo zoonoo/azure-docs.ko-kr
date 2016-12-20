@@ -127,7 +127,7 @@ info:    vm image list command OK
 
 ## <a name="powershell"></a>PowerShell
 > [!NOTE]
-> [최신 Azure PowerShell](../articles/powershell-install-configure.md)을 설치하고 구성합니다. Azure PowerShell 모듈 1.0 이전을 사용 중인 경우 다음 명령을 사용하지만 먼저 `Switch-AzureMode AzureResourceManager`를 사용해야 합니다. 
+> [최신 Azure PowerShell](/powershell/azureps-cmdlets-docs)을 설치하고 구성합니다. Azure PowerShell 모듈 1.0 이전을 사용 중인 경우 다음 명령을 사용하지만 먼저 `Switch-AzureMode AzureResourceManager`를 사용해야 합니다. 
 > 
 > 
 
@@ -229,6 +229,6 @@ Windows-Server-Technical-Preview
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

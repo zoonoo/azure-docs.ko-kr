@@ -1,12 +1,12 @@
 ---
-title: 네트워크 리소스 공급자 개요 | Microsoft Docs
-description: Azure 리소스 관리자의 새로운 네트워크 리소스 공급자에 대해 알아봅니다.
+title: "네트워크 리소스 공급자 개요 | Microsoft Docs"
+description: "Azure 리소스 관리자의 새로운 네트워크 리소스 공급자에 대해 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 79bf09da-4809-45cb-8d21-705616ef24dc
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 18234ad720d4e85b50d1871dacf243c65f45be33
+
 
 ---
-# 네트워크 리소스 공급자
+# <a name="network-resource-provider"></a>네트워크 리소스 공급자
 현대 비즈니스의 성공에 있어서 가장 필요한 것은 대규모 네트워크 인식 응용 프로그램을 신속하고 유연하고 안전하고 반복 가능한 방법으로 작성하여 관리할 수 있는 기능입니다. ARM(Azure 리소스 관리자)을 사용하면 그런 응용 프로그램을 리소스 그룹에서 단일 리소스 컬렉션으로 만들 수 있습니다. 이러한 리소스는 ARM 아래의 다양한 리소스 공급자를 통해 관리됩니다.
 
 Azure 리소스 관리자는 다양한 리소스 공급자를 사용하여 리소스에 대한 액세스를 제공합니다. 네트워크, 저장소 및 계산의 세 가지 주요 리소스 공급자가 있습니다. 이 문서에서는 다음을 비롯한 네트워크 리소스 공급자의 특징 및 이점에 대해 설명합니다.
@@ -38,7 +42,7 @@ Azure 리소스 관리자는 다양한 리소스 공급자를 사용하여 리�
   * Preview 포털
   * ARM 템플릿 언어
 
-## 네트워크 리소스
+## <a name="network-resources"></a>네트워크 리소스
 이제 네트워크 리소스를 단일 컴퓨팅 리소스(가상 컴퓨터)를 통해 모두 함께 관리하지 않고 독립적으로 관리할 수 있습니다. 이렇게 하면 리소스 그룹에서 복잡한 대규모 인프라를 더 유연하고 신속하게 구성할 수 있습니다.
 
 다중 계층 응용 프로그램을 포함하는 샘플 배포의 개념 보기는 아래와 같습니다. NIC, 공용 IP 주소 및 VM과 같은 표시되는 각 리소스를 독립적으로 관리할 수 있습니다.
@@ -75,10 +79,10 @@ Azure 리소스 관리자는 다양한 리소스 공급자를 사용하여 리�
 
 [!INCLUDE [virtual-networks-nrp-tm-include](../../includes/virtual-networks-nrp-tm-include.md)]
 
-## 관리 인터페이스
+## <a name="management-interfaces"></a>관리 인터페이스
 다양한 인터페이스를 사용하여 Azure 네트워킹 리소스를 관리할 수 있습니다. 이 문서에서는 이러한 인터페이스 중 REST API 및 템플릿 두 가지를 중점적으로 살펴보겠습니다.
 
-### REST API
+### <a name="rest-api"></a>REST API
 앞서 설명한 것처럼 REST API,.NET SDK, Node.JS SDK, Java SDK, PowerShell, CLI, Azure 포털, 템플릿을 비롯하여 다양한 인터페이스를 통해 네트워크 리소스를 관리할 수 있습니다.
 
 Rest API는 HTTP 1.1 프로토콜 사양을 준수합니다. API의 일반 URI 구조는 아래와 같습니다.
@@ -99,7 +103,7 @@ Rest API는 HTTP 1.1 프로토콜 사양을 준수합니다. API의 일반 URI �
 
 요청과 응답이 모두 JSON 페이로드 형식을 준수합니다. 자세한 내용은 [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)를 참조하세요.
 
-### ARM 템플릿 언어
+### <a name="arm-template-language"></a>ARM 템플릿 언어
 API 또는 SDK를 사용하여 명령을 통해 리소스를 관리할 뿐만 아니라, 선언형 프로그래밍 스타일을 사용하여 ARM 템플릿 언어로 네트워크 리소스를 빌드 및 관리할 수 있습니다.
 
 템플릿의 샘플 표현은 아래와 같습니다.
@@ -240,26 +244,31 @@ ARM 템플릿 언어에 대한 자세한 내용은 [Azure 리소스 관리자 �
 
 위의 샘플 템플릿에서는 가상 네트워크와 서브넷 리소스를 사용합니다. 사용 가능한 다른 네트워크 리소스는 아래 목록을 참조하세요.
 
-### 템플릿 사용
+### <a name="using-a-template"></a>템플릿 사용
 PowerShell, AzureCLI를 사용하거나 GitHub에서 배포를 클릭하여 템플릿에서 Azure에 서비스를 배포할 수 있습니다. GitHub의 템플릿에서 서비스를 배포하려면 다음 단계를 실행합니다.
 
 1. GitHub에서 template3 파일을 엽니다. 예를 들어, [두 서브넷을 사용하는 가상 네트워크](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network)를 엽니다.
 2. **Azure에 배포**를 클릭한 다음 자격 증명을 사용하여 Azure 포털에 로그인합니다.
 3. 템플릿을 확인한 다음 **저장**을 클릭합니다.
-4. **매개 변수 편집**을 클릭하고 *미국 서부* 등과 같은 vnet 및 서브넷 위치를 선택합니다.
+4. **매개 변수 편집** 을 클릭하고 *미국 서부*등과 같은 vnet 및 서브넷 위치를 선택합니다.
 5. 필요한 경우 **ADDRESSPREFIX** 및 **SUBNETPREFIX** 매개 변수를 변경하고 **확인**을 클릭합니다.
-6. **리소스 그룹 선택**을 클릭하고 vnet과 서브넷에 추가하려는 리소스 그룹을 클릭합니다. **또는 새로 만들기**를 클릭하여 새 리소스 그룹을 만들 수도 있습니다.
+6. **리소스 그룹 선택** 을 클릭하고 vnet과 서브넷에 추가하려는 리소스 그룹을 클릭합니다. **또는 새로 만들기**를 클릭하여 새 리소스 그룹을 만들 수도 있습니다.
 7. **만들기**를 클릭합니다. **템플릿 배포 프로비저닝**이라고 표시된 타일을 확인합니다. 배포가 완료되면 아래와 비슷한 화면이 표시됩니다.
 
 ![샘플 템플릿 배포](./media/resource-groups-networking/Figure6.png)
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)
 
 [Azure 네트워킹- 일반적으로 사용되는 템플릿](https://github.com/Azure/azure-quickstart-templates)
 
-[계산 리소스 공급자](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
+[Azure Resource Manager 및 클래식 배포](../resource-manager-deployment-model.md)
 
-[Azure 리소스 관리자 개요](../resource-group-overview.md)
+[Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

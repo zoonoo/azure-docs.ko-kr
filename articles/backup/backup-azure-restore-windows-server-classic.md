@@ -1,22 +1,26 @@
 ---
-title: 클래식 배포 모델을 사용하여 Azure에서 Windows 서버 또는 Windows 클라이언트로 데이터 복원 | Microsoft Docs
-description: Windows 서버 또는 Windows 클라이언트에서 복원하는 방법을 알아보세요.
+title: "클래식 배포 모델을 사용하여 Azure에서 Windows 서버 또는 Windows 클라이언트로 데이터 복원 | Microsoft Docs"
+description: "Windows 서버 또는 Windows 클라이언트에서 복원하는 방법을 알아보세요."
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-
+editor: 
+ms.assetid: 85585dfc-c764-4e8c-8f0e-40b969640ac2
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 11/01/2016
 ms.author: trinadhk; jimpark; markgal;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8b22f1a70c516ae2b1a9d095670d1b6719590eaa
+
 
 ---
-# 클래식 배포 모델을 사용하여 Windows 서버 또는 Windows 클라이언트 컴퓨터로 파일 복원
+# <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 Windows 서버 또는 Windows 클라이언트 컴퓨터로 파일 복원
 > [!div class="op_single_selector"]
 > * [클래식 포털](backup-azure-restore-windows-server-classic.md)
 > * [Azure 포털](backup-azure-restore-windows-server.md)
@@ -32,11 +36,11 @@ ms.author: trinadhk; jimpark; markgal;
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-## 동일한 컴퓨터로 데이터 복구
+## <a name="recover-data-to-the-same-machine"></a>동일한 컴퓨터로 데이터 복구
 파일을 실수로 삭제했는데 (백업이 수행된) 동일한 컴퓨터에서 복원하려는 경우 다음 단계를 사용하면 데이터를 복구할 수 있습니다.
 
 1. **Microsoft Azure 백업** 스냅인을 엽니다.
-2. **데이터 복구**를 클릭하여 워크플로를 시작합니다.
+2. **데이터 복구** 를 클릭하여 워크플로를 시작합니다.
    
     ![데이터 복구](./media/backup-azure-restore-windows-server-classic/recover.png)
 3. 동일한 컴퓨터에 백업된 파일을 복원하려면 **이 서버(*yourmachinename*)** 옵션을 선택합니다.
@@ -64,8 +68,8 @@ ms.author: trinadhk; jimpark; markgal;
    * 복구할 파일의 ACL을 복원하는 기본 옵션을 그대로 두는 것이 가장 좋습니다.
 8. 이러한 입력을 제공하면 **다음**을 클릭합니다. 이 컴퓨터에 파일을 복원하는 복구 워크플로를 시작합니다.
 
-## 다른 컴퓨터로 복구
-전체 서버가 손실된 경우에도 Azure 백업에서 데이터를 다른 컴퓨터에 복구할 수 있습니다. 다음 단계는 워크플로를 보여줍니다.
+## <a name="recover-to-an-alternate-machine"></a>다른 컴퓨터로 복구
+전체 서버가 손실된 경우에도 Azure 백업에서 데이터를 다른 컴퓨터에 복구할 수 있습니다. 다음 단계는 워크플로를 보여줍니다.  
 
 다음 단계에서 사용되는 용어는 다음과 같습니다.
 
@@ -78,16 +82,16 @@ ms.author: trinadhk; jimpark; markgal;
 > 
 > 
 
-1. *대상 컴퓨터*에서 **Microsoft Azure 백업** 스냅인을 엽니다.
+1. **대상 컴퓨터** 에서 *Microsoft Azure 백업*스냅인을 엽니다.
 2. *대상 컴퓨터* 및 *원본 컴퓨터*가 동일한 백업 자격 증명 모음에 등록됐는지 확인합니다.
-3. **데이터 복구**를 클릭하여 워크플로를 시작합니다.
+3. **데이터 복구** 를 클릭하여 워크플로를 시작합니다.
    
     ![데이터 복구](./media/backup-azure-restore-windows-server-classic/recover.png)
-4. **다른 서버**를 선택합니다.
+4.  **다른 서버**
    
     ![다른 서버](./media/backup-azure-restore-windows-server-classic/anotherserver.png)
 5. *샘플 자격 증명 모음*에 해당하는 자격 증명 모음 파일을 제공합니다. 자격 증명 모음 파일이 잘못되었거나 만료된 경우 Azure 클래식 포털의 *샘플 자격 증명 모음* 에서 새 자격 증명 모음 파일을 다운로드합니다. 자격 증명 모음 파일이 제공되면 자격 증명 모음 파일에 대한 백업 자격 증명 모음이 표시됩니다.
-6. 표시된 컴퓨터 목록에서 *원본 컴퓨터*를 선택합니다.
+6. 표시된 컴퓨터 목록에서 *원본 컴퓨터* 를 선택합니다.
    
     ![컴퓨터 목록](./media/backup-azure-restore-windows-server-classic/machinelist.png)
 7. **파일 검색** 또는 **파일 찾아보기** 옵션을 선택합니다. 이 섹션에서는 **파일 검색** 옵션을 사용합니다.
@@ -104,13 +108,18 @@ ms.author: trinadhk; jimpark; markgal;
     ![암호화](./media/backup-azure-restore-windows-server-classic/encryption.png)
 11. 입력을 제공하면 제공된 대상에 백업된 파일을 복원하는 작업을 트리거하는 **복구**를 클릭합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [Azure 백업 - FAQ](backup-azure-backup-faq.md)
 * [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-## 자세한 정보
+## <a name="learn-more"></a>자세한 정보
 * [Azure 백업 개요](http://go.microsoft.com/fwlink/p/?LinkId=222425)
 * [Azure 가상 컴퓨터 백업](backup-azure-vms-introduction.md)
 * [Microsoft 워크로드 백업](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

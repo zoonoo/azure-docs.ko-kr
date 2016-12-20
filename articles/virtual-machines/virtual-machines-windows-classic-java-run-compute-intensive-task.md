@@ -1,28 +1,32 @@
 ---
-title: VM의 계산 집약적인 Java 응용 프로그램 | Microsoft Docs
-description: 다른 Java 응용 프로그램에 의해 모니터링될 수 있는 계산 집약적인 Java 응용 프로그램을 실행하는 가상 컴퓨터를 만드는 방법에 대해 알아봅니다.
+title: "VM의 계산 집약적인 Java 응용 프로그램 | Microsoft Docs"
+description: "다른 Java 응용 프로그램에 의해 모니터링될 수 있는 계산 집약적인 Java 응용 프로그램을 실행하는 가상 컴퓨터를 만드는 방법에 대해 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
-editor: ''
+manager: erikre
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: ae6f2737-94c7-4569-9913-d871450c2827
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4ce631d80b84661a61f0aaeb9d29de0b4420ecaf
+
 
 ---
-# 가상 컴퓨터에서 Java로 계산 집약적인 작업을 실행하는 방법
+# <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>가상 컴퓨터에서 Java로 계산 집약적인 작업을 실행하는 방법
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처리할 수 있습니다. 예를 들어 가상 컴퓨터는 작업을 처리하고 그 결과를 클라이언트 컴퓨터 또는 모바일 응용 프로그램에 제공할 수 있습니다. 이 문서를 읽고 나면 다른 Java 응용 프로그램에 의해 모니터링될 수 있는 계산 집약적인 Java 응용 프로그램을 실행하는 가상 컴퓨터를 만드는 방법을 이해할 수 있게 됩니다.
 
-이 자습서에서는 사용자가 Java 콘솔 응용 프로그램을 만드는 방법을 알고 있으며 라이브러리를 Java 응용 프로그램으로 가져오고 Java 아카이브(JAR)를 생성할 수 있다고 가정합니다. Microsoft Azure에 대한 지식은 없는 것으로 가정합니다.
+이 자습서에서는 사용자가 Java 콘솔 응용 프로그램을 만드는 방법을  알고 있으며 라이브러리를 Java 응용 프로그램으로 가져오고 Java 아카이브(JAR)를 생성할 수 있다고 가정합니다. Microsoft Azure에 대한 지식은 없는 것으로 가정합니다.
 
 다음 내용을 배웁니다.
 
@@ -44,63 +48,70 @@ Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처�
 
 [!INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
-## 가상 컴퓨터를 만드는 방법
+## <a name="to-create-a-virtual-machine"></a>가상 컴퓨터를 만드는 방법
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. **새로 만들기**를 클릭하고, **계산**, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
-3. **가상 컴퓨터 이미지 선택** 대화 상자에서 **JDK 7 Windows Server 2012**를 선택합니다. **JDK 6 Windows Server 2012**는 아직 JDK 7에서 실행할 준비가 되지 않은 레거시 응용 프로그램이 있는 경우에 사용 가능합니다.
+2. **새로 만들기**를 클릭하고 **계산**, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
+3. **가상 컴퓨터 이미지 선택** 대화 상자에서 **JDK 7 Windows Server 2012**를 선택합니다.
+   **JDK 6 Windows Server 2012** 는 아직 JDK 7에서 실행할 준비가 되지 않은 레거시 응용 프로그램이 있는 경우에 사용 가능합니다.
 4. **다음**을 클릭합니다.
 5. **가상 컴퓨터 구성** 대화 상자에서 다음을 수행합니다.
    1. 가상 컴퓨터의 이름을 지정합니다.
    2. 가상 컴퓨터에 사용할 크기를 지정합니다.
    3. **사용자 이름** 필드에 관리자의 이름을 입력합니다. 입력하는 이름 및 암호는 나중에 가상 컴퓨터에 원격으로 로그인할 때 사용합니다.
    4. **새 암호** 필드에 암호를 입력하고 **확인** 필드에 다시 입력합니다. 이 암호는 관리자 계정 암호입니다.
-   5. **Next**를 클릭합니다.
+   5. **다음**을 클릭합니다.
 6. 다음 **가상 컴퓨터 구성** 대화 상자에서 다음을 수행합니다.
    1. **클라우드 서비스**의 경우 기본값인 **새 클라우드 서비스 만들기**를 사용합니다.
    2. **클라우드 서비스 DNS 이름** 값은 cloudapp.net에서 고유해야 합니다. 필요한 경우 Azure에서 고유한 이름이 되도록 수정합니다.
    3. 지역, 선호도 그룹 또는 가상 네트워크를 지정합니다. 이 자습서에서는 지역(예: **미국 서부**)을 지정합니다.
    4. **저장소 계정** 상자에서 **자동으로 생성된 저장소 계정 사용**을 선택합니다.
    5. **가용성 집합**에서 **(없음)**을 선택합니다.
-   6. **다음**을 클릭합니다.
+   6. **Next**를 클릭합니다.
 7. 마지막 **가상 컴퓨터 구성** 대화 상자에서 다음을 수행합니다.
    1. 기본 끝점 항목을 그대로 사용합니다.
    2. **완료**를 클릭합니다.
 
-## 가상 컴퓨터에 원격으로 로그인하는 방법
+## <a name="to-remotely-log-in-to-your-virtual-machine"></a>가상 컴퓨터에 원격으로 로그인하는 방법
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그온합니다.
 2. **가상 컴퓨터**를 클릭합니다.
 3. 로그인할 가상 컴퓨터의 이름을 클릭합니다.
 4. **연결**을 클릭합니다.
 5. 가상 컴퓨터에 연결해야 한다는 메시지에 응답합니다. 관리자 이름 및 암호를 묻는 메시지가 표시되면 가상 컴퓨터를 만들 때 제공한 값을 사용하십시오.
 
-Azure 서비스 버스 기능을 사용하려면 Baltimore CyberTrust 루트 인증서가 JRE의 **cacerts** 저장소의 일부로 설치되어야 합니다. 이 인증서는 본 자습서에서 사용하는 JRE(Java Runtime Environment)에 자동으로 포함되어 있습니다. 이 인증서가 JRE **cacerts** 저장소에 없는 경우, [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]에서 인증서 추가에 대한 내용 및 cacerts 저장소의 인증서 보기에 대한 정보를 참조하십시오.
+Azure 서비스 버스 기능을 사용하려면 Baltimore CyberTrust 루트 인증서가 JRE의 **cacerts** 저장소의 일부로 설치되어야 합니다. 이 인증서는 본 자습서에서 사용하는 JRE(Java Runtime Environment)에 자동으로 포함되어 있습니다. 이 인증서가 JRE **cacerts** 저장소에 없는 경우, [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]에서 인증서 추가에 대한 내용 및 cacerts 저장소의 인증서 보기에 대한 정보를 참조하세요.
 
-## 서비스 버스 네임스페이스를 만드는 방법
+## <a name="how-to-create-a-service-bus-namespace"></a>서비스 버스 네임스페이스를 만드는 방법
 Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 서비스 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
 
 서비스 네임스페이스를 만들려면
 
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그온합니다.
-2. Azure 클래식 포털의 왼쪽 하단 탐색 창에서 **서비스 버스, 액세스 제어 및 캐시를 클릭합니다**.
-3. Azure 클래식 포털의 왼쪽 상단 창에서 **서비스 버스** 노드>**새로 만들기** 버튼을 차례로 클릭합니다. ![서비스 버스 노드 스크린샷][svc_bus_node]
-4. **새 서비스 네임스페이스 만들기** 대화 상자에서 **네임스페이스**를 입력한 후 네임스페이스가 중복되지 않는지 확인하기 위해 **중복 확인** 단추를 클릭합니다. ![새 네임스페이스 만들기 스크린샷][create_namespace]
-5. 네임스페이스 이름이 사용 가능한지 확인한 후 해당 네임스페이스를 호스트할 국가 또는 지역을 선택한 다음, **Create Namespace** 단추를 클릭합니다.
+2. Azure 클래식 포털의 왼쪽 하단 탐색 창에서 **Service Bus, 액세스 제어 및 캐시**를 클릭합니다.
+3. Azure 클래식 포털의 왼쪽 상단 창에서 **Service Bus** 노드 및 **새로 만들기** 버튼을 차례로 클릭합니다.  
+   ![서비스 버스 노드 스크린샷][svc_bus_node]
+4. **새 서비스 네임스페이스 만들기** 대화 상자에서 **네임스페이스**를 입력한 후 네임스페이스가 중복되지 않는지 확인하기 위해 **중복 확인** 단추를 클릭합니다.  
+   ![새 네임스페이스 만들기 스크린샷][create_namespace]
+5. 네임스페이스 이름이 사용 가능한지 확인한 후 해당 네임스페이스를 호스트할 국가 또는 지역을 선택한 다음, **Create Namespace** 단추를 클릭합니다.  
    
    생성된 네임스페이스는 Azure 클래식 포털에 나타나며, 잠시후에 활성화 됩니다. 다음 단계를 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
 
-## 네임스페이스에 대한 기본 관리 자격 증명 얻기
+## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>네임스페이스에 대한 기본 관리 자격 증명 얻기
 새 네임스페이스에 대해 큐 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 관리 자격 증명을 받아야 합니다.
 
-1. 왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여 사용 가능한 네임스페이스 목록을 표시합니다. ![사용 가능한 네임스페이스 스크린샷][avail_namespaces]
-2. 표시된 목록에서 방금 만든 네임스페이스를 선택합니다. ![네임스페이스 목록 스크린샷][namespace_list]
-3. 오른쪽 **속성** 창에 새 네임스페이스의 속성이 나열됩니다. ![속성 창 스크린샷][properties_pane]
-4. **기본 키**가 숨겨져 있습니다. **보기** 단추를 클릭하여 보안 자격 증명을 표시합니다. ![기본 키 스크린샷][default_key]
+1. 왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여 사용 가능한 네임스페이스 목록을 표시합니다.
+   ![사용 가능한 네임스페이스 스크린샷][avail_namespaces]
+2. 표시된 목록에서 방금 만든 네임스페이스를 선택합니다.
+   ![네임스페이스 목록 스크린샷][namespace_list]
+3. 오른쪽 **속성** 창에 새 네임스페이스의 속성이 나열됩니다.
+   ![속성 창 스크린샷][properties_pane]
+4. **기본 키** 가 숨겨져 있습니다. **보기** 단추를 클릭하여 보안 자격 증명을 표시합니다.
+   ![기본 키 스크린샷][default_key]
 5. **기본 발급자** 및 **기본 키**를 기록해 둡니다. 이 정보는 아래에서 네임스페이스 관련 작업을 수행하는 데 사용됩니다.
 
-## 계산 집약적인 작업을 수행하는 Java 응용 프로그램을 만드는 방법
+## <a name="how-to-create-a-java-application-that-performs-a-compute-intensive-task"></a>계산 집약적인 작업을 수행하는 Java 응용 프로그램을 만드는 방법
 1. 개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [Java용 Azure SDK](https://azure.microsoft.com/develop/java/)를 다운로드합니다.
-2. 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. 이 자습서에서는 Java 파일 이름으로 **TSPSolver.java**를 사용합니다. **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
-3. 코딩 후에 응용 프로그램을 실행 가능한 Java 아카이브(JAR)로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서에서는 생성된 JAR 이름으로 **TSPSolver.jar**을 사용합니다.
+2. 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. 이 자습서에서는 Java 파일 이름으로 **TSPSolver.java** 를 사용합니다. **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 Service Bus **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
+3. 코딩 후에 응용 프로그램을 실행 가능한 Java 아카이브(JAR)로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서에서는 생성된 JAR 이름으로 **TSPSolver.jar** 을 사용합니다.
 
 <p/>
 
@@ -287,9 +298,9 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 
 
-## 계산 집약적인 작업의 진행 상황을 모니터링하는 Java 응용 프로그램을 만드는 방법
-1. 개발 컴퓨터에서 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. 이 자습서에서는 Java 파일 이름으로 **TSPClient.java**를 사용합니다. 앞에서 살펴본 것처럼 **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
-2. 응용 프로그램을 실행 가능한 JAR로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서에서는 생성된 JAR 이름으로 **TSPClient.jar**을 사용합니다.
+## <a name="how-to-create-a-java-application-that-monitors-the-progress-of-the-compute-intensive-task"></a>계산 집약적인 작업의 진행 상황을 모니터링하는 Java 응용 프로그램을 만드는 방법
+1. 개발 컴퓨터에서 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. 이 자습서에서는 Java 파일 이름으로 **TSPClient.java** 를 사용합니다. **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 Service Bus **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
+2. 응용 프로그램을 실행 가능한 JAR로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서에서는 생성된 JAR 이름으로 **TSPClient.jar** 을 사용합니다.
 
 <p/>
 
@@ -403,14 +414,14 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
     }
 
-## Java 응용 프로그램을 실행하는 방법
+## <a name="how-to-run-the-java-applications"></a>Java 응용 프로그램을 실행하는 방법
 계산 집약적인 응용 프로그램을 실행하여 먼저 큐를 만든 후에 순회 외판원 문제를 해결합니다. 그러면 현 시점에서의 최상의 경로가 서비스 버스 큐에 추가됩니다. 계산 집약적인 응용 프로그램이 실행 중인 동안 또는 실행된 이후에 클라이언트를 실행하여 서비스 버스 큐에서 가져온 결과를 표시합니다.
 
-### 계산 집약적인 응용 프로그램을 실행하려면
+### <a name="to-run-the-compute-intensive-application"></a>계산 집약적인 응용 프로그램을 실행하려면
 1. 가상 컴퓨터에 로그온합니다.
-2. 응용 프로그램을 실행할 폴더(예: **c:\\TSP**)를 만듭니다.
-3. **TSPSolver.jar**를 **c:\\TSP**에 복사합니다.
-4. 다음과 같은 콘텐츠가 포함된 **c:\\TSP\\cities.txt** 파일을 만듭니다.
+2. 응용 프로그램을 실행할 폴더(예: **c:\TSP**를 만듭니다.
+3. **TSPSolver.jar**를 **c:\TSP**에 복사합니다.
+4. 다음과 같은 콘텐츠가 포함된 **c:\TSP\cities.txt** 파일을 만듭니다.
    
         City_1, 1002.81, -1841.35
         City_2, -953.55, -229.6
@@ -462,7 +473,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
         City_48, 363.68, 768.21
         City_49, -120.3, -463.13
         City_50, 588.51, 679.33
-5. 명령 프롬프트에서 디렉터리를 c:\\TSP로 변경합니다.
+5. 명령 프롬프트에서 디렉터리를 c:\TSP로 변경합니다.
 6. JRE의 bin 폴더가 PATH 환경 변수에 포함되어 있는지 확인합니다.
 7. TSP 해 찾기 순열을 실행하기 전에 서비스 버스 큐를 먼저 만들어야 합니다. 다음 명령을 실행하여 서비스 버스 큐를 만듭니다.
    
@@ -478,12 +489,12 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 > 
 > 
 
-### 모니터링하는 클라이언트 응용 프로그램을 실행하는 방법
+### <a name="how-to-run-the-monitoring-client-application"></a>모니터링하는 클라이언트 응용 프로그램을 실행하는 방법
 1. 클라이언트 응용 프로그램을 실행할 컴퓨터에 로그온합니다. 이 컴퓨터가 **TSPSolver** 응용 프로그램을 실행하는 컴퓨터와 같을 수도 있지만 반드시 같아야 하는 것은 아닙니다.
-2. 응용 프로그램을 실행할 폴더(예: **c:\\TSP**)를 만듭니다.
-3. **TSPClient.jar**를 **c:\\TSP**에 복사합니다.
+2. 응용 프로그램을 실행할 폴더(예: **c:\TSP**를 만듭니다.
+3. **TSPClient.jar**를 **c:\TSP**에 복사합니다.
 4. JRE의 bin 폴더가 PATH 환경 변수에 포함되어 있는지 확인합니다.
-5. 명령 프롬프트에서 디렉터리를 c:\\TSP로 변경합니다.
+5. 명령 프롬프트에서 디렉터리를 c:\TSP로 변경합니다.
 6. 다음 명령을 실행합니다.
    
         java -jar TSPClient.jar
@@ -498,8 +509,8 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
    
     모든 경로에 대한 조사를 마칠 때까지 해 찾기가 실행됩니다.
 
-## Java 응용 프로그램을 중지하는 방법
-해 찾기 및 클라이언트 응용 프로그램을 정상적인 완료 이전에 종료하고 싶으면 **Ctrl+C**를 누르면 됩니다.
+## <a name="how-to-stop-the-java-applications"></a>Java 응용 프로그램을 중지하는 방법
+해 찾기 및 클라이언트 응용 프로그램을 정상적인 완료 이전에 종료하고 싶으면 **Ctrl+C** 를 누르면 됩니다.
 
 [solver_output]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/WA_JavaTSPSolver.png
 [client_output]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/WA_JavaTSPClient.png
@@ -511,4 +522,8 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 [default_key]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

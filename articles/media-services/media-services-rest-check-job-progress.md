@@ -1,12 +1,12 @@
 ---
-title: REST API를 사용하여 작업 진행률을 확인하는 방법 | Microsoft Docs
-description: 작업 진행률을 추적하는 방법에 대해 알아봅니다.
+title: "REST API를 사용하여 작업 진행률을 확인하는 방법 | Microsoft 문서"
+description: "작업 진행률을 추적하는 방법에 대해 알아봅니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 04c80dddd1d42f923233eae49d3c1501cdfa5051
+
 
 ---
-# <a name="how-to:-check-job-progress"></a>방법: 작업 진행 상태 확인
+# <a name="how-to-check-job-progress"></a>방법: 작업 진행 상태 확인
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)
@@ -62,6 +66,9 @@ ms.author: juliako
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

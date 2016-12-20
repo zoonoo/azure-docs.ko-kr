@@ -1,9 +1,9 @@
 ---
-title: "Application Insights로 Java 웹앱 분석 | Microsoft Docs"
-description: "Application Insights로 Java 웹 사이트의 성능 및 사용량을 모니터링합니다. "
+title: "Azure Application Insights로 Java 웹앱 분석 | Microsoft Docs"
+description: "Application Insights를 사용하여 Java 웹앱에 대한 응용 프로그램 성능 모니터링. "
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -11,16 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc0167ef78eb3ca84e959599473af5935e5da0d0
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 
 
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
-*Application Insights는 미리 보기 상태입니다.*
+
 
 [Application Insights](https://azure.microsoft.com/services/application-insights/)는 라이브 응용 프로그램의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. Application insights를 사용하여 [성능 문제 및 예외를 진단, 검색](app-insights-detect-triage-diagnose.md)하고 사용자가 수행할 작업을 추적하는 [코드를 작성][api]할 수 있습니다.
 
@@ -31,7 +31,7 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 다음 작업을 수행해야 합니다.
 
 * Oracle JRE 1.6 이상 또는 Zulu JRE 1.6 이상
-* [Microsoft Azure](https://azure.microsoft.com/)구독. ( [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있음.)
+* [Microsoft Azure](https://azure.microsoft.com/)구독.
 
 *이미 라이브 상태인 웹앱이 있는 경우 다른 절차에 따라 [웹 서버에서 런타임으로 SDK를 추가](app-insights-java-live.md)할 수 있습니다. 해당 다른 절차는 코드를 다시 작성할 필요가 없지만 사용자 활동을 추적하는 코드를 작성하는 옵션이 없습니다.*
 
@@ -90,7 +90,7 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
       // or applicationinsights-core for bare API
     }
 
-* *빌드 또는 체크섬 유효성 검사 오류가 있나요? 다음과 같은 특정 버전을 사용해 봅니다.* `version:'1.0.n'`. * [SDK 릴리스 정보](https://github구독.com/Microsoft/ApplicationInsights-Java#release-notes)구독.*
+* *빌드 또는 체크섬 유효성 검사 오류가 있나요? 다음과 같은 특정 버전을 사용해 봅니다.* `version:'1.0.n'`. *[SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)구독.*
 * *새 SDK로 업데이트하려면*
   *  프로젝트의 종속성을 새로 고칩니다.
 
@@ -182,7 +182,7 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
     </filter-mapping>
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Spring Web MVC 3.1 이상을 사용하는 경우
-Application Insights 패키지를 포함하도록 이러한 요소 편집:
+Application Insights 패키지를 포함하도록 *-servlet.xml에서 이러한 요소 편집:
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -244,11 +244,15 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
   
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
+
+* 나가는 트래픽이 방화벽을 통해 라우팅되어야 하는 경우 시스템 속성 `http.proxyHost` 및 `http.proxyPort`를 정의합니다. 
+
 * Windows 서버에 다음을 설치합니다.
   
   * [Microsoft Visual C++ 재배포 가능 패키지](http://www.microsoft.com/download/details.aspx?id=40784)
     
     (이 구성 요소를 통해 성능 카운터를 사용할 수 있게 됩니다.)
+
 
 ## <a name="exceptions-and-request-failures"></a>예외 및 요청 실패
 처리되지 않은 예외는 자동으로 수집됩니다.
@@ -257,7 +261,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
 
-* [사용자 코드에서 trackException()에 대한 호출을 삽입합니다][apiexceptions]. 
+* [사용자 코드에 trackException()에 대한 호출을 삽입합니다][apiexceptions]. 
 * [서버에 Java 에이전트를 설치합니다](app-insights-java-agent.md). 감시 방법을 지정할 수 있습니다.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>메서드 호출 및 외부 종속성 모니터링
@@ -329,7 +333,7 @@ Application Insights를 사용하여 Log4J, Logback 또는 다른 로깅 프레�
 이제 SDK를 설치한 했으므로 API를 사용하여 사용자 고유의 원격 분석을 전송할 수 있습니다.
 
 * [사용자 지정 이벤트 및 메트릭을 추적][api]하여 사용자가 응용 프로그램으로 수행하는 것을 알아볼 수 있습니다.
-* [이벤트 및 로그][진단을 검색]하여 문제를 진단할 수 있습니다.
+* [이벤트 및 로그를 검색][diagnostic]하여 문제를 진단할 수 있습니다.
 
 ## <a name="availability-web-tests"></a>가용성 웹 테스트
 Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다. [설정하려면][availability] 웹 테스트를 클릭합니다.
@@ -367,6 +371,6 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

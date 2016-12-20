@@ -1,12 +1,12 @@
 ---
-title: 클라우드 서비스 수명 주기 이벤트 처리 | Microsoft Docs
-description: .NET에서 클라우드 서비스 역할의 수명 주기 메서드를 사용할 수 있는 방법을 알아봅니다.
+title: "클라우드 서비스 수명 주기 이벤트 처리 | Microsoft Docs"
+description: ".NET에서 클라우드 서비스 역할의 수명 주기 메서드를 사용할 수 있는 방법을 알아봅니다."
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 39b30acd-57b9-48b7-a7c4-40ea3430e451
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9924c7352300c70e949fb86a19dfaf68b9fe8b50
+
 
 ---
-# .NET에서 웹 또는 작업자 역할의 수명 주기 사용자 지정
+# <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>.NET에서 웹 또는 작업자 역할의 수명 주기 사용자 지정
 작업자 역할을 만들 때 수명 주기 이벤트에 응답할 수 있게 재정의하도록 메서드를 제공하는 [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) 클래스를 확장합니다. 웹 역할의 경우, 이 클래스는 선택적이므로 수명 주기 이벤트에 응답하는 데 사용합니다.
 
-## RoleEntryPoint 클래스 확장
-[RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) 클래스는 웹 또는 작업자 역할을 **시작**, **실행** 또는 **중지**할 때 Azure에서 호출하는 메서드를 포함합니다. 필요에 따라 역할 초기화, 역할 종료 시퀀스 또는 역할의 실행 스레드를 관리하는 이 메서드를 재정의할 수 있습니다.
+## <a name="extend-the-roleentrypoint-class"></a>RoleEntryPoint 클래스 확장
+[RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) 클래스는 웹 또는 작업자 역할을 **시작**, **실행** 또는 **중지**할 때 Azure에서 호출하는 메서드를 포함합니다. 필요에 따라 역할 초기화, 역할 종료 시퀀스 또는 역할의 실행 스레드를 관리하는 이 메서드를 재정의할 수 있습니다. 
 
 **RoleEntryPoint**를 확장하면 메서드의 다음 동작을 인식해야 합니다.
 
@@ -38,8 +42,8 @@ ms.author: adegeo
 > 
 > 
 
-## Onstart 메서드
-Azure에서 역할 인스턴스를 온라인 상태로 가져오면 **OnStart** 메서드가 호출됩니다. OnStart 코드가 실행되는 동안 역할 인스턴스는 **Busy**로 표시되며 부하 분산 장치에서 전송된 외부 트래픽은 없습니다. 이벤트 처리기 구현 및 [Azure 진단](cloud-services-how-to-monitor.md) 시작과 같은 초기화 작업을 수행하도록 이 메서드를 재정의할 수 있습니다.
+## <a name="onstart-method"></a>Onstart 메서드
+Azure에서 역할 인스턴스를 온라인 상태로 가져오면 **OnStart** 메서드가 호출됩니다. OnStart 코드가 실행되는 동안 역할 인스턴스는 **Busy** 로 표시되며 부하 분산 장치에서 전송된 외부 트래픽은 없습니다. 이벤트 처리기 구현 및 [Azure 진단](cloud-services-how-to-monitor.md)시작과 같은 초기화 작업을 수행하도록 이 메서드를 재정의할 수 있습니다.
 
 **OnStart**가 **true**를 반환하면, 인스턴스가 성공적으로 초기화되고 Azure는 **RoleEntryPoint.Run** 메서드를 호출합니다. **OnStart**가 **false**를 반환하면, 계획된 종료 시퀀스를 실행하지 않고 역할이 즉시 종료됩니다.
 
@@ -59,7 +63,7 @@ public override bool OnStart()
 }
 ```
 
-## OnStop 메서드
+## <a name="onstop-method"></a>OnStop 메서드
 역할 인스턴스가 Azure에서 오프라인으로 사용된 후 및 프로세스 종료 전에 **OnStop** 메서드가 호출됩니다. 역할 인스턴스가 올바르게 종료하는 데 필요한 코드를 호출하도록 이 메서드를 재정의할 수 있습니다.
 
 > [!IMPORTANT]
@@ -67,15 +71,20 @@ public override bool OnStart()
 > 
 > 
 
-## Run 메서드
+## <a name="run-method"></a>Run 메서드
 역할 인스턴스에 대 한 장기 실행 스레드를 구현하도록 **Run** 메서드를 재정의할 수 있습니다.
 
 **Run** 메서드 재정의는 필요하지 않습니다. 기본 구현은 영원히 중지되는 스레드를 시작합니다. **Run** 메서드를 재정의하는 경우, 코드가 무기한으로 차단되어야 합니다. **Run** 메서드가 반환되면, 역할이 자동으로 정상적으로 재활용됩니다. 즉, 역할이 오프라인 상태로 전환되기 전에 종료 시퀀스가 실행될수 있도록 Azure는 **Stopping** 이벤트를 발생시키고 **OnStop** 메서드를 호출합니다.
 
-### 웹 역할에 대한 ASP.NET 수명 주기 메서드 구현
-**RoleEntryPoint** 클래스에서 제공하는 것 외에도 ASP.NET 수명 주기 메서드를 사용하여 웹 역할에 대한 초기화 및 종료 시퀀스를 관리할 수 있습니다. 이 기존 ASP.NET 응용 프로그램을 Azure에 이식하는 경우 호환성을 위해 유용할 수 있습니다. ASP.NET 수명 주기 메서드는 **RoleEntryPoint** 메서드 내에서 호출됩니다. **Application\_Start** 메서드는**RoleEntryPoint.OnStart** 메서드를 완료한 후 호출됩니다. **Application\_End** 메서드는**RoleEntryPoint.OnStop** 메서드를 호출하기 전에 호출됩니다.
+### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>웹 역할에 대한 ASP.NET 수명 주기 메서드 구현
+**RoleEntryPoint** 클래스에서 제공하는 것 외에도 ASP.NET 수명 주기 메서드를 사용하여 웹 역할에 대한 초기화 및 종료 시퀀스를 관리할 수 있습니다. 이 기존 ASP.NET 응용 프로그램을 Azure에 이식하는 경우 호환성을 위해 유용할 수 있습니다. ASP.NET 수명 주기 메서드는 **RoleEntryPoint** 메서드 내에서 호출됩니다. **Application\_Start** 메서드는 **RoleEntryPoint.OnStart** 메서드를 완료한 후 호출됩니다. **Application\_End** 메서드는 **RoleEntryPoint.OnStop** 메서드를 호출하기 전에 호출됩니다.
 
-## 다음 단계
-[클라우드 서비스 패키지를 만드는](cloud-services-model-and-package.md) 방법에 대해 알아봅니다.
+## <a name="next-steps"></a>다음 단계
+[클라우드 서비스 패키지를 만드는](cloud-services-model-and-package.md)방법에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

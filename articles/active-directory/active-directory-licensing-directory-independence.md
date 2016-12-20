@@ -1,19 +1,23 @@
 ---
-title: 여러 Azure Active Directory 추가 및 관리 | Microsoft Docs
-description: Azure Active Directory 추가 및 관리를 위한 지침 및 모범 사례와 더불어 디렉터리를 완전히 독립된 리소스로 설명합니다.
+title: "여러 Azure Active Directory 추가 및 관리 | Microsoft Docs"
+description: "Azure Active Directory 추가 및 관리를 위한 지침 및 모범 사례와 더불어 디렉터리를 완전히 독립된 리소스로 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2b862b75-14df-45f2-a8ab-2a3ff1e2eb08
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
+ms.openlocfilehash: fff714765508285f4c074b3a7287701a538fbf95
+
 
 ---
 # <a name="add-and-manage-multiple-azure-active-directory-directories"></a>여러 Azure Active Directory 추가 및 관리
@@ -40,11 +44,13 @@ Azure 클래식 포털에서 Azure AD 디렉터리를 추가하려면 왼쪽의 
 
 > [!NOTE]
 > 다른 Azure 리소스와 달리 디렉터리는 Azure 구독의 자식 리소스가 아닙니다. Azure 구독을 취소하거나 만료를 허용하는 경우에도 Azure PowerShell, Azure Graph API 또는 Office 365 관리 센터와 같은 다른 인터페이스를 사용하여 디렉터리 데이터에 계속 액세스할 수 있습니다. 다른 구독을 디렉터리와 연결할 수도 있습니다.
-> 
-> 
+>
+>
 
 Azure AD 라이선스 문제 및 모범 사례에 대한 광범위한 개요는 [Azure Active Directory 라이선스란?](active-directory-licensing-what-is.md)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

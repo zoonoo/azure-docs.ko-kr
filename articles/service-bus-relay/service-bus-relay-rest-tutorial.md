@@ -1,32 +1,36 @@
 ---
-title: 릴레이된 메시징을 사용하는 서비스 버스 REST 자습서 | Microsoft Docs
-description: REST 기반 인터페이스를 표시하는 간단한 서비스 버스 릴레이 호스트 응용 프로그램을 구축합니다.
-services: service-bus
+title: "릴레이된 메시징을 사용하는 Service Bus REST 자습서 | Microsoft Docs"
+description: "REST 기반 인터페이스를 표시하는 간단한 서비스 버스 릴레이 호스트 응용 프로그램을 구축합니다."
+services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
+ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ba69a1a5f363fe5034e3fc7946b1584c9d77b50
+
 
 ---
-# <a name="service-bus-relay-rest-tutorial"></a>Service Bus Relay REST 자습서
+# <a name="service-bus-wcf-relay-rest-tutorial"></a>Service Bus WCF Relay REST 자습서
 이 자습서에서는 REST 기반 인터페이스를 표시하는 간단한 서비스 버스 호스트 응용 프로그램을 구축하는 방법을 설명합니다. REST는 웹 브라우저와 같은 웹 클라이언트가 HTTP 요청을 통해 서비스 버스 API에 액세스할 수 있도록 합니다.
 
 이 자습서에서는 Windows Communication Foundation(WCF) REST 프로그래밍 모델을 사용하여 서비스 버스에 REST 서비스를 구축합니다. 자세한 내용은 WCF 설명서의 [WCF REST 프로그래밍 모델](https://msdn.microsoft.com/library/bb412169.aspx) 및 [서비스 디자인 및 구현](https://msdn.microsoft.com/library/ms729746.aspx)을 참조하세요.
 
-## <a name="step-1:-create-a-service-namespace"></a>1단계: 서비스 네임스페이스 만들기
+## <a name="step-1-create-a-service-namespace"></a>1단계: 서비스 네임스페이스 만들기
 첫 단계는 네임스페이스를 만들고 SAS(공유 액세스 서명) 키를 확보합니다. 네임스페이스는 서비스 버스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 서비스 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 서비스 네임스페이스 및 SAS 키 조합은 서비스 버스에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="step-2:-define-a-rest-based-wcf-service-contract-to-use-with-service-bus"></a>2단계: 서비스 버스와 사용할 REST 기반 WCF 서비스 계약을 정의합니다.
+## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-service-bus"></a>2단계: 서비스 버스와 사용할 REST 기반 WCF 서비스 계약을 정의합니다.
 다른 서비스 버스 서비스와 마찬가지로 REST 스타일 서비스를 만들 때 계약을 정의해야 합니다. 계약은 호스트가 지원하는 작업을 지정합니다. 서비스 작업은 웹 서비스 메서드로 생각할 수 있습니다. 계약은 C++, C#, 또는 Visual Basic 인터페이스를 정의하여 만듭니다. 인터페이스의 각 메서드는 특정 서비스 작업에 해당합니다. [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 특성은 각 인터페이스에 반드시 적용되어야 하고, [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 속성은 각 작업에 반드시 적용되어야 합니다. [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx)을 포함하는 인터페이스의 메서드에 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx)이 없으면 해당 메서드는 드러나지 않습니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 표시됩니다.
 
 기본 Service Bus 계약과 REST 스타일 계약의 주요 차이는 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx)에 대한 속성이 추가되었다는 것입니다. 이 속성을 사용하면 인터페이스의 메서드를 인터페이스 반대편의 메서드로 매핑할 수 있습니다. 이 경우 [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx)을 사용하여 메서드를 HTTP GET으로 연결합니다. 이렇게 하면 서비스 버스가 인터페이스로 보낸 명령을 정확하게 검색하고 해석할 수 있습니다.
@@ -53,7 +57,7 @@ ms.author: sethm
     [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx)은 WCF의 기본 기능에 프로그래밍 방식의 액세스를 가능하게 하는 네임스페이스입니다. 서비스 버스는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다. 이 네임스페이스는 대부분의 서비스 버스 릴레이 응용 프로그램에서 사용됩니다. 마찬가지로 [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx)는 채널을 정의하는데 도움을 주는데, 이 개체를 통해 Service Bus 및 클라이언트 웹 브라우저와 통신하게 됩니다. 마지막으로 [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx)에는 웹 기반 응용 프로그램을 만들 수 있도록 하는 형식이 포함됩니다.
 7. `ImageListener` 네임스페이스의 이름을 **Microsoft.ServiceBus.Samples**로 바꿉니다.
    
-    ```
+     ```
     namespace Microsoft.ServiceBus.Samples
     {
         ...
@@ -129,7 +133,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3:-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>3단계: 서비스 버스를 사용할 REST 기반 WCF 서비스 계약을 구현합니다.
+## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>3단계: 서비스 버스를 사용할 REST 기반 WCF 서비스 계약을 구현합니다.
 REST 스타일 서비스 버스 서비스를 만들려면 첫째로 계약을 만들어야 하는데, 계약은 인터페이스를 사용하여 정의됩니다. 다음 단계는 인터페이스를 구현합니다. 이 과정 중에 사용자 정의 **IImageContract** 인터페이스를 구현하는 **ImageService**라는 클래스가 생성됩니다. 계약을 구현한 후 App.config 파일을 사용하여 인터페이스를 구현합니다. 구성 파일은 서비스 이름, 계약 이름, 서비스 버스와 통신에 사용되는 프로토콜 유형과 같은 응용 프로그램에 필요한 정보를 포함합니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다.
 
 이전 단계에서와 마찬가지로 REST 스타일 계약과 기본 서비스 버스 계약의 구현 간에는 거의 차이가 없습니다.
@@ -236,7 +240,7 @@ REST 스타일 서비스 버스 서비스를 만들려면 첫째로 계약을 �
     ```
    
     이 단계는 이전에 정의된 기본 **webHttpRelayBinding**을 사용하는 서비스를 구성합니다. 기본 **sbTokenProvider**도 사용하며, 이것은 다음 단계에서 정의됩니다.
-4. `<services>` 요소 다음으로 다음과 같은 콘텐츠로 `<behaviors>` 요소를 만들고, "SAS_KEY"를 [Azure Portal][]로부터 이전에 확보한 *공유 액세스 서명*(SAS) 키로 대체합니다.
+4. `<services>` 요소 다음으로 다음과 같은 콘텐츠로 `<behaviors>` 요소를 만들고, "SAS_KEY"를 [쉬운 테이블][쉬운 테이블]로부터 이전에 확보한 *공유 액세스 서명*(SAS) 키로 대체합니다.
    
     ```
     <behaviors>
@@ -260,8 +264,8 @@ REST 스타일 서비스 버스 서비스를 만들려면 첫째로 계약을 �
    
     ```
     <appSettings>
-    <!-- Service Bus specific app settings for messaging connections -->
-    <add key="Microsoft.ServiceBus.ConnectionString"
+       <!-- Service Bus specific app settings for messaging connections -->
+       <add key="Microsoft.ServiceBus.ConnectionString"
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
@@ -423,7 +427,7 @@ namespace Microsoft.ServiceBus.Samples
 </configuration>
 ```
 
-## <a name="step-4:-host-the-rest-based-wcf-service-to-use-service-bus"></a>4단계: 서비스 버스를 사용하기 위해 REST 기반 WCF 서비스를 호스팅
+## <a name="step-4-host-the-rest-based-wcf-service-to-use-service-bus"></a>4단계: 서비스 버스를 사용하기 위해 REST 기반 WCF 서비스를 호스팅
 이 단계에서는 서비스 버스에서 콘솔 응용 프로그램을 사용하여 웹 서비스를 실행하는 방법을 설명합니다. 이 단계에서 작성되는 전체 코드는 과정을 수행하면서 예제에 제공됩니다.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>서비스에 대한 기본 주소를 만들려면
@@ -555,11 +559,12 @@ namespace Microsoft.ServiceBus.Samples
 이제 서비스 버스 릴레이를 사용하는 응용 프로그램을 빌드했습니다. 릴레이된 메시징에 대한 자세한 정보는 다음 문서를 참고하세요.
 
 * [Azure Service Bus 아키텍처 개요](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
-* [Service Bus Relay 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
+* [Service Bus WCF Relay 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
 
-[Azure 포털]: https://portal.azure.com
+[쉬운 테이블]: https://portal.azure.com
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

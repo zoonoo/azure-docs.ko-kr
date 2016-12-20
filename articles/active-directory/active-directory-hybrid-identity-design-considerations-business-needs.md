@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory 하이브리드 ID 디자인 고려 사항 - ID 요구 사항 확인 | Microsoft Docs
-description: 하이브리드 ID 설계에 대한 요구 사항을 정의하도록 하는 회사의 비즈니스 요구를 식별합니다.
-documentationcenter: ''
+title: "Azure Active Directory 하이브리드 ID 디자인 고려 사항 - ID 요구 사항 확인 | Microsoft Docs"
+description: "하이브리드 ID 설계에 대한 요구 사항을 정의하도록 하는 회사의 비즈니스 요구를 식별합니다."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b1e146460c5f31c5ab472260b49484f4fd62ba0a
+
 
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 ID 요구 사항 확인
@@ -105,6 +109,9 @@ ms.author: billmath
 ## <a name="see-also"></a>참고 항목
 [디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

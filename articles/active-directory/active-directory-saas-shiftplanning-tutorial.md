@@ -1,11 +1,11 @@
 ---
-title: '자습서: ShiftPlanning과 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory에서 ShiftPlanning을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다.
+title: "자습서: ShiftPlanning과 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory에서 ShiftPlanning을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 403f297e7f0bfdde8ade3f35c401bcefb79ea2f5
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-shiftplanning"></a>자습서: ShiftPlanning과 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-shiftplanning"></a>자습서: ShiftPlanning과 Azure Active Directory 통합
 이 자습서는 Azure 및 ShiftPlanning의 통합을 보여 주기 위한 것입니다.  
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -36,7 +40,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-shiftplanning"></a>ShiftPlanning에 응용 프로그램 통합 사용
 이 섹션은 ShiftPlanning에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
-### <a name="to-enable-the-application-integration-for-shiftplanning,-perform-the-following-steps:"></a>ShiftPlanning에 응용 프로그램 통합을 사용하도록 설정하려면
+### <a name="to-enable-the-application-integration-for-shiftplanning-perform-the-following-steps"></a>ShiftPlanning에 응용 프로그램 통합을 사용하도록 설정하려면
 1. Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
    ![Active Directory](./media/active-directory-saas-shiftplanning-tutorial/IC700993.png "Active Directory")
@@ -63,7 +67,7 @@ ms.author: jeedes
 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다.  
 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **ShiftPlanning** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "Configure Single Sign-On")
@@ -88,7 +92,7 @@ ms.author: jeedes
    ![Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786905.png "Single Sign-On")
    
    1. **SAML 사용**을 선택합니다.
-   2. **암호 로그인 허용**
+   2.  **암호 로그인 허용**
    3. Azure 클래식 포털의 **ShiftPlanning에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **SAML 발급자 URL** 텍스트 상자에 붙여넣습니다.
    4. Azure 클래식 포털의 **ShiftPlanning에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **원격 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
    5. 다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.  
@@ -101,14 +105,14 @@ ms.author: jeedes
    7. **설정 저장**을 클릭합니다.
 9. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Configure Single Sign-On")
+   ![Single Sign-on 구성](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Configure Single Sign-On")
    
    ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 
 Azure AD 사용자가 ShiftPlanning에 로그인할 수 있도록 하려면 ShiftPlanning으로 프로비전되어야 합니다.  
 ShiftPlanning의 경우 프로비전은 수동 작업입니다.
 
-### <a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
+### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 1. **ShiftPlanning** 회사 사이트에 관리자 권한으로 로그인합니다.
 2. **Admin**을 클릭합니다.
    
@@ -134,7 +138,7 @@ ShiftPlanning의 경우 프로비전은 수동 작업입니다.
 ## <a name="assigning-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
-### <a name="to-assign-users-to-shiftplanning,-perform-the-following-steps:"></a>ShiftPlanning에 사용자를 할당하려면 다음 단계를 수행합니다.
+### <a name="to-assign-users-to-shiftplanning-perform-the-following-steps"></a>ShiftPlanning에 사용자를 할당하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **ShiftPlanning** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
@@ -145,6 +149,9 @@ ShiftPlanning의 경우 프로비전은 수동 작업입니다.
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

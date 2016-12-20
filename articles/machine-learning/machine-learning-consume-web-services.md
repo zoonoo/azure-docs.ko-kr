@@ -1,12 +1,12 @@
 ---
-title: Machine Learning 웹 서비스 사용 | Microsoft Docs
-description: Machine Learning 서비스가 배포된 후에는 요청-응답 서비스 또는 배치 실행 서비스로 RESTFul 웹 서비스를 사용할 수 있습니다.
+title: "Machine Learning 웹 서비스 사용 | Microsoft Docs"
+description: "Machine Learning 서비스가 배포된 후에는 요청-응답 서비스 또는 배치 실행 서비스로 RESTFul 웹 서비스를 사용할 수 있습니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 369b7c8775388f641727cb889b406ac60be13d16
+
 
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service-that-has-been-deployed-from-a-machine-learning-experiment"></a>Azure Machine Learning 실험에서 배포된 Machine Learning 웹 서비스를 사용하는 방법
@@ -39,9 +43,9 @@ Azure Machine Learning 웹 서비스는 요청-응답 서비스 및 배치 실�
 For more information on how to manage Azure Machine Learning Web service endpoints using the REST API, see **Azure machine learning Web service endpoints**.
 -->
 
-Azure Machine Learning 웹 서비스를 만들고 배포하는 방법은 [Azure Machine Learning 웹 서비스 배포][publish]를 참조하세요. Machine Learning 실험을 만들고 배포하는 단계별 연습은 [Azure Machine Learning을 사용하여 예측 솔루션 개발][walkthrough]를 참조하세요.
+Azure Machine Learning 웹 서비스를 만들고 배포하는 방법은 [Azure Machine Learning 웹 서비스 배포] [publish]를 참조하세요. Machine Learning 실험을 만들고 배포하는 단계별 연습은 [Azure Machine Learning을 사용하여 예측 솔루션 개발] [walkthrough]를 참조하세요.
 
-## <a name="requestresponse-service-rrs"></a>RRS(요청-응답 서비스)
+## <a name="request-response-service-rrs"></a>RRS(요청-응답 서비스)
 대기 시간이 짧고 확장성 있는 웹 서비스인 RRS(요청-응답 서비스)는 Azure Machine Learning Studio 실험에서 만들어지고 배포된 상태 비저장 모델에 대한 인터페이스를 제공하는 데 사용됩니다. 사용 중인 응용 프로그램에서 실시간 응답을 예상하는 시나리오를 가능하게 합니다.
 
 RRS는 단일 행 또는 여러 행의 입력 매개 변수를 허용하며 단일 행 또는 여러 행을 출력으로 생성할 수 있습니다. 출력 행에는 여러 열이 포함될 수 있습니다.
@@ -68,7 +72,7 @@ BES는 개인 또는 IOT(사물 인터넷) 장치에 대한 정기적으로 예�
 ### <a name="information-location-in-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning 웹 서비스 포털에서의 정보 위치
 필요한 정보를 찾으려면
 
-1. [Azure Machine Learning 웹 서비스 포털][webservicesportal]에 로그인합니다.
+1. [Azure Machine Learning 웹 서비스 포털] [webservicesportal]에 로그인합니다.
 2. **웹 서비스** 또는 **기존 웹 서비스**를 클릭합니다.
 3. 사용하고 있는 웹 서비스를 클릭합니다. 
 4. 기존 웹 서비스로 작업하는 경우 사용하고 있는 끝점을 클릭합니다.
@@ -84,7 +88,7 @@ BES는 개인 또는 IOT(사물 인터넷) 장치에 대한 정기적으로 예�
 
 Machine Learning Studio에서 필요한 정보를 찾으려면
 
-1. [Machine Learning Studio][mlstudio]에 로그인합니다.
+1. [Machine Learning Studio] [mlstudio]에 로그인합니다.
 2. 화면 왼쪽에서 **웹 서비스**를 클릭합니다.
 3. 사용하고 있는 웹 서비스를 클릭합니다. 
 
@@ -98,7 +102,7 @@ API 도움말 페이지에 액세스하려면 작업에 필요한 **요청/응�
 
 Azure Machine Learning 웹 서비스 포털에서 필요한 정보를 찾으려면
 
-1. [Azure Machine Learning 웹 서비스 포털][webservicesportal]에 로그인합니다.
+1. [Azure Machine Learning 웹 서비스 포털] [webservicesportal]에 로그인합니다.
 2. **기존 웹 서비스**를 클릭합니다.
 3. 사용하고 있는 웹 서비스를 클릭합니다. 
 4. 사용하고 있는 끝점을 클릭합니다.
@@ -244,11 +248,11 @@ Azure Machine Learning 웹 서비스 포털에서 필요한 정보를 찾으려�
 
     /**
      * Download full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
-     */
+      */
         /**
-          * Call REST API for retrieving prediction from Azure ML 
-          * @return response from the REST API
-          */    
+           * Call REST API for retrieving prediction from Azure ML 
+           * @return response from the REST API
+           */    
         public static String rrsHttpPost() {
 
             HttpPost post;
@@ -415,7 +419,7 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
         class Program
         {
             static void Main(string[] args)
-            {               
+            {                
                 InvokeBatchExecutionService().Wait();
             }
 
@@ -530,7 +534,7 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
         "Inputs": { "input1": { "ConnectionString":     "DefaultEndpointsProtocol=https;
             AccountName=myAcctName; AccountKey=Q8kkieg==", 
             "RelativeLocation": "myContainer/sampleinput.csv" } }, 
-        "Outputs": { "output1": { "ConnectionString":   "DefaultEndpointsProtocol=https;
+        "Outputs": { "output1": { "ConnectionString":     "DefaultEndpointsProtocol=https;
             AccountName=myAcctName; AccountKey=kjC12xQ8kkieg==", 
             "RelativeLocation": "myContainer/sampleoutput.csv" } } 
     } 
@@ -541,7 +545,7 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
          * Call REST API to create a job to Azure ML 
          * for batch predictions
          * @return response from the REST API
-         */ 
+         */    
         public static String besCreateJob() {
 
             HttpPost post;
@@ -590,7 +594,7 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
          * 
          * @param job job to be started 
          * @return response from the REST API
-         */ 
+         */    
         public static String besStartJob(String job){
             HttpPost post;
             HttpClient client;
@@ -630,7 +634,7 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
          * 
          * @param job job to be started 
          * @return response from the REST API
-         */ 
+         */    
         public static String besCancelJob(String job) {
             HttpDelete post;
             HttpClient client;
@@ -733,6 +737,7 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
 [mlstudio]: https://studio.azureml.net
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

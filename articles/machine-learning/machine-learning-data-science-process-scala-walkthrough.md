@@ -1,22 +1,26 @@
 ---
-title: Azure에서 Scala 및 Spark를 사용하는 데이터 과학 | Microsoft Docs
-description: Azure HDInsight Spark 클러스터에서 Spark 확장형 MLlib 및 SparkML 패키지를 사용하여 감독 기계 학습 작업에 대해 Scala를 사용하는 방법을 설명합니다.
+title: "Azure에서 Scala 및 Spark를 사용하는 데이터 과학 | Microsoft Docs"
+description: "Azure HDInsight Spark 클러스터에서 Spark 확장형 MLlib 및 SparkML 패키지를 사용하여 감독 기계 학습 작업에 대해 Scala를 사용하는 방법을 설명합니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: a7c97153-583e-48fe-b301-365123db3780
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2016
+ms.date: 12/09/2016
 ms.author: bradsev;deguhath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 99f12dc1ea65d4b9be3249ea5d5c7452f5a8d72e
+
 
 ---
-# Azure에서 Scala 및 Spark를 사용하는 데이터 과학
+# <a name="data-science-using-scala-and-spark-on-azure"></a>Azure에서 Scala 및 Spark를 사용하는 데이터 과학
 이 문서에서는 Azure HDInsight Spark 클러스터에서 Spark 확장형 MLlib 및 SparkML 패키지를 사용하여 감독 기계 학습 작업에 대해 Scala를 사용하는 방법을 설명합니다. 또한 [데이터 과학 프로세스](http://aka.ms/datascienceprocess): 데이터 수집 및 탐색, 시각화, 기능 엔지니어링, 모델링 및 모델 사용으로 이루어진 작업을 단계별로 안내합니다. 이 문서의 모델에는 두 가지 일반적인 감독 기계 학습 작업 외에 로지스틱 및 선형 회귀, 임의 포리스트 및 GBT(그라데이션 향상 트리)가 포함됩니다.
 
 * 회귀 문제: 택시 여정에 대한 팁 금액 예측($)
@@ -26,18 +30,18 @@ ms.author: bradsev;deguhath
 
 Java 가상 컴퓨터 기반 언어인 [Scala](http://www.scala-lang.org/)는 개체 지향 개념과 함수 언어 개념을 통합합니다. 클라우드의 분산형 처리 및 Azure Spark 클러스터에 실행하기에 적합한 확장형 언어입니다.
 
-[Spark](http://spark.apache.org/)는 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다. [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) 패키지는 DataFrames 맨 위에 빌드된 균일한 상위 수준 API 집합을 제공하여 사용자가 실제 기계 학습 파이프라인을 만들고 조정할 수 있도록 합니다. [MLlib](http://spark.apache.org/mllib/)는 Spark의 확장형 기계 학습 라이브러리로, 분산형 환경에서 모델링 기능을 사용할 수 있습니다.
+[Spark](http://spark.apache.org/) 는 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다. [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) 패키지는 DataFrames 맨 위에 빌드된 균일한 상위 수준 API 집합을 제공하여 사용자가 실제 기계 학습 파이프라인을 만들고 조정할 수 있도록 합니다. [MLlib](http://spark.apache.org/mllib/) 는 Spark의 확장형 기계 학습 라이브러리로, 분산형 환경에서 모델링 기능을 사용할 수 있습니다.
 
-[HDInsight Spark](../hdinsight/hdinsight-apache-spark-overview.md)는 Azure에서 호스트하는 오픈 소스 Spark의 제품입니다. 또한 Azure Blob 저장소에 저장된 데이터를 변환, 필터링 및 시각화하기 위해 Spark SQL 대화형 쿼리를 실행할 수 있는 Spark 클러스터 상의 Jupyter Scala Notebook에 대한 지원도 포함하고 있습니다. 이 문서에서 솔루션을 제공하고 데이터 시각화를 위해 관련 플롯을 보여 주는 Scala 코드 조각은 Spark 클러스터에 설치된 Jupyter Notebook에서 실행됩니다. 이러한 항목의 모델링 단계는 각 모델 형식을 학습, 평가, 저장 및 사용하는 방법을 보여 주는 코드를 포함하고 있습니다.
+[HDInsight Spark](../hdinsight/hdinsight-apache-spark-overview.md) 는 Azure에서 호스트하는 오픈 소스 Spark의 제품입니다. 또한 Azure Blob 저장소에 저장된 데이터를 변환, 필터링 및 시각화하기 위해 Spark SQL 대화형 쿼리를 실행할 수 있는 Spark 클러스터 상의 Jupyter Scala Notebook에 대한 지원도 포함하고 있습니다. 이 문서에서 솔루션을 제공하고 데이터 시각화를 위해 관련 플롯을 보여 주는 Scala 코드 조각은 Spark 클러스터에 설치된 Jupyter Notebook에서 실행됩니다. 이러한 항목의 모델링 단계는 각 모델 형식을 학습, 평가, 저장 및 사용하는 방법을 보여 주는 코드를 포함하고 있습니다.
 
-이 문서의 설정 단계 및 코드는 Azure HDInsight 3.4 Spark 1.6용입니다. 그러나 이 문서에 나오는 코드와 [Scala Jupyter Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb)에 포함된 코드는 일반적이므로 모든 Spark 클러스터에서 작동해야 합니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 이 문서에 나오는 내용과 약간 다를 수 있습니다.
+이 문서의 설정 단계 및 코드는 Azure HDInsight 3.4 Spark 1.6용입니다. 그러나 이 문서에 나오는 코드와 [Scala Jupyter Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) 에 포함된 코드는 일반적이므로 모든 Spark 클러스터에서 작동해야 합니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 이 문서에 나오는 내용과 약간 다를 수 있습니다.
 
 > [!NOTE]
 > Scala가 아닌 Python을 사용하여 종단 간 데이터 과학 프로세스에 대한 작업을 완료하는 방법을 보여 주는 항목에 대해서는 [Azure HDInsight에서 Spark를 사용하는 데이터 과학](machine-learning-data-science-spark-overview.md)을 참조하세요.
 > 
 > 
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 * Azure 구독이 있어야 합니다. 아직 없으면 [Azure 무료 평가판을 다운로드하세요](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * 다음 절차를 완료하려면 Azure HDInsight 3.4 Spark 1.6 클러스터가 필요합니다. 클러스터를 만들려면 [시작: Azure HDInsight에서 Apache Spark 만들기](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요. **클러스터 형식 선택** 메뉴에서 클러스터 형식 및 버전을 설정합니다.
 
@@ -47,25 +51,25 @@ Java 가상 컴퓨터 기반 언어인 [Scala](http://www.scala-lang.org/)는 �
 > 
 > 
 
-NYC 택시 여정 데이터에 대한 설명 및 Spark 클러스터의 Jupyter Notebook에서 코드를 실행하는 방법에 관한 지침은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](machine-learning-data-science-spark-overview.md)의 관련 섹션을 참조하세요.
+NYC 택시 여정 데이터에 대한 설명 및 Spark 클러스터의 Jupyter Notebook에서 코드를 실행하는 방법에 관한 지침은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](machine-learning-data-science-spark-overview.md)의 관련 섹션을 참조하세요.  
 
-## Spark 클러스터의 Jupyter Notebook에서 Scala 코드 실행
+## <a name="execute-scala-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Spark 클러스터의 Jupyter Notebook에서 Scala 코드 실행
 Azure 포털에서 Jupyter Notebook을 시작할 수 있습니다. 대시보드에서 Spark 클러스터를 찾아 클릭하여 클러스터에 대한 관리 페이지로 들어갑니다. 다음으로 **클러스터 대시보드**, **Jupyter Notebook**을 차례로 클릭하여 Spark 클러스터와 연결된 Notebook을 엽니다.
 
 ![클러스터 대시보드 및 Jupyter Notebook](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-on-portal.png)
 
-https://&lt;clustername&gt;.azurehdinsight.net/jupyter에서 Jupyter Notebook에 액세스할 수도 있습니다. *clustername*을 사용자의 클러스터 이름으로 바꿉니다. Jupyter Notebook에 액세스하려면 관리자 계정에 대한 암호가 필요합니다.
+https://&lt;clustername&gt;.azurehdinsight.net/jupyter에서 Jupyter Notebook에 액세스할 수도 있습니다. *clustername* 을 사용자의 클러스터 이름으로 바꿉니다. Jupyter Notebook에 액세스하려면 관리자 계정에 대한 암호가 필요합니다.
 
 ![클러스터 이름을 사용하여 Jupyter Notebook으로 이동](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-notebook.png)
 
-**Scala**를 선택하여 PySpark API를 사용하는 미리 패키지된 Notebook의 몇 가지 예제가 있는 디렉터리를 확인합니다. 이 Spark 항목 모음에 대한 코드 샘플이 포함된 Scala.ipynb Notebook을 사용하는 탐색 모델링 및 점수 매기기는 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala)에서 사용할 수 있습니다.
+**Scala** 를 선택하여 PySpark API를 사용하는 미리 패키지된 Notebook의 몇 가지 예제가 있는 디렉터리를 확인합니다. 이 Spark 항목 모음에 대한 코드 샘플이 포함된 Scala.ipynb Notebook을 사용하는 탐색 모델링 및 점수 매기기는 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala)에서 사용할 수 있습니다.
 
 Notebook을 Github에서 Spark 클러스터의 Jupyter Notebook 서버에 직접 업로드할 수 있습니다. Jupyter 홈페이지에서 **Upload** 단추를 클릭합니다. 파일 탐색기에서 Scala Notebook의 Github(원시 콘텐츠) URL을 붙여넣고 **열기**를 클릭합니다. Scala Notebook은 다음 URL로 제공됩니다.
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
-## 설정: 사전 설정 Spark 및 Hive 컨텍스트, Spark 매직 및 Spark 라이브러리
-### 사전 설정 Spark 및 Hive 컨텍스트
+## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>설정: 사전 설정 Spark 및 Hive 컨텍스트, Spark 매직 및 Spark 라이브러리
+### <a name="preset-spark-and-hive-contexts"></a>사전 설정 Spark 및 Hive 컨텍스트
     # SET THE START TIME
     import java.util.Calendar
     val beginningTime = Calendar.getInstance().getTime()
@@ -73,18 +77,18 @@ Notebook을 Github에서 Spark 클러스터의 Jupyter Notebook 서버에 직접
 
 Jupyter Notebook이 제공되는 Spark 커널에는 사전 설정 컨텍스트가 있습니다. 개발하는 응용 프로그램으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요는 없습니다. 사전 설정 컨텍스트는 다음과 같습니다.
 
-* SparkContext용 `sc`
-* HiveContext용 `sqlContext`
+* `sc` 
+* `sqlContext` 
 
-### Spark 매직
-Spark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 `%%` 기호를 사용하여 호출할 수 있습니다. 이러한 명령 중 두 가지는 다음 코드 샘플에 사용됩니다.
+### <a name="spark-magics"></a>Spark 매직
+Spark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 `%%`기호를 사용하여 호출할 수 있습니다. 이러한 명령 중 두 가지는 다음 코드 샘플에 사용됩니다.
 
 * `%%local` 다음 줄의 코드가 로컬로 실행될 것임을 지정합니다. 코드는 유효한 Scala 코드여야 합니다.
 * `%%sql -o <variable name>` `sqlContext`에 대해 Hive 쿼리를 실행합니다. `-o` 매개 변수가 전달된 경우 쿼리 결과가 `%%local` Scala 컨텍스트에서 Spark 데이터 프레임으로 유지됩니다.
 
 Jupyter Notebook의 커널 및 `%%`(예: `%%local`)로 호출할 수 있는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 대해 사용할 수 있는 커널](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
 
-### 라이브러리 가져오기
+### <a name="import-libraries"></a>라이브러리 가져오기
 다음 코드를 사용하여 Spark, MLlib 및 기타 필요한 라이브러리를 가져옵니다.
 
     # IMPORT SPARK AND JAVA LIBRARIES
@@ -121,7 +125,7 @@ Jupyter Notebook의 커널 및 `%%`(예: `%%local`)로 호출할 수 있는 미�
     val sqlContext = new SQLContext(sc)
 
 
-## 데이터 수집
+## <a name="data-ingestion"></a>데이터 수집
 데이터 과학 프로세스의 첫 단계는 분석하려는 데이터를 수집하는 것입니다. 외부 원본 또는 시스템의 데이터를 데이터 탐색 및 모델링 환경으로 가져옵니다. 이 문서에서 수집하는 데이터는 택시 여정 및 요금 파일(.tsv 파일로 저장됨)의 연결된 0.1% 샘플을 나타냅니다. 데이터 탐색 및 모델링 환경은 Spark입니다. 이 섹션은 다음과 같은 일련의 작업을 완료하는 코드를 포함합니다.
 
 1. 데이터 및 모델 저장소에 대한 디렉터리 경로를 설정합니다.
@@ -131,7 +135,7 @@ Jupyter Notebook의 커널 및 `%%`(예: `%%local`)로 호출할 수 있는 미�
 5. 데이터를 SQLContext의 임시 테이블로 등록합니다.
 6. 테이블을 쿼리하고 결과를 데이터 프레임으로 가져옵니다.
 
-### Azure Blob 저장소의 저장소 위치에 대한 디렉터리 경로 설정
+### <a name="set-directory-paths-for-storage-locations-in-azure-blob-storage"></a>Azure Blob 저장소의 저장소 위치에 대한 디렉터리 경로 설정
 Spark에서는 Azure Blob 저장소에서 읽고 쓸 수 있습니다. Spark를 사용하여 기존 데이터를 처리한 다음 결과를 Blob 저장소에 다시 저장할 수 있습니다.
 
 Blob 저장소에 모델 또는 파일을 저장하려면 경로를 적절히 지정해야 합니다. `wasb:///`로 시작하는 경로를 사용하여 Spark 클러스터에 연결된 기본 컨테이너를 참조합니다. `wasb://`를 사용하여 다른 위치를 참조합니다.
@@ -148,7 +152,7 @@ Blob 저장소에 모델 또는 파일을 저장하려면 경로를 적절히 �
     val modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
 
 
-### 데이터 가져오기, RDD 만들기 및 스키마에 따라 데이터 프레임 정의
+### <a name="import-data-create-an-rdd-and-define-a-data-frame-according-to-the-schema"></a>데이터 가져오기, RDD 만들기 및 스키마에 따라 데이터 프레임 정의
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
 
@@ -226,7 +230,7 @@ Blob 저장소에 모델 또는 파일을 저장하려면 경로를 적절히 �
 
 셀 실행 시간: 8초
 
-### 테이블을 쿼리하고 결과를 데이터 프레임으로 가져오기
+### <a name="query-the-table-and-import-results-in-a-data-frame"></a>테이블을 쿼리하고 결과를 데이터 프레임으로 가져오기
 다음으로 요금, 승객 및 팁 데이터에 대한 테이블을 쿼리하고, 손상된 외부 데이터를 필터링하며 여러 행으로 인쇄합니다.
 
     # QUERY THE DATA
@@ -245,22 +249,22 @@ Blob 저장소에 모델 또는 파일을 저장하려면 경로를 적절히 �
 
 **출력:**
 
-| fare\_amount | passenger\_count | tip\_amount | tipped |
+| fare_amount | passenger_count | tip_amount | tipped |
 | --- | --- | --- | --- |
-|  13\.5 |1\.0 |2\.9 |1\.0 |
-|  16\.0 |2\.0 |3\.4 |1\.0 |
-|  10\.5 |2\.0 |1\.0 |1\.0 |
+|        13.5 |1.0 |2.9 |1.0 |
+|        16.0 |2.0 |3.4 |1.0 |
+|        10.5 |2.0 |1.0 |1.0 |
 
-## 데이터 탐색 및 시각화
+## <a name="data-exploration-and-visualization"></a>데이터 탐색 및 시각화
 데이터를 Spark로 가져오면 데이터 과학 프로세스의 다음 단계에서 탐색 및 시각화를 통해 데이터를 더 잘 이해할 수 있습니다. 이 섹션에서는 SQL 쿼리를 사용하여 Taxi 데이터를 검사합니다. 그런 후 결과를 데이터 프레임으로 가져와 Jupyter의 자동 시각화 기능을 사용하여 시각적 조사에 대한 대상 변수 및 잠재 기능을 그립니다.
 
-### 로컬 및 SQL 매직을 사용하여 데이터 그리기
+### <a name="use-local-and-sql-magic-to-plot-data"></a>로컬 및 SQL 매직을 사용하여 데이터 그리기
 기본적으로 Jupyter Notebook에서 실행하는 코드 조각의 출력은 작업자 노드에서 유지되는 세션 컨텍스트 내에서 사용할 수 있습니다. 모든 계산에 대한 작업자 노드에 여정을 저장하는 경우와 계산에 필요한 모든 데이터를 Jupyter 서버 노드(헤드 노드)에서 로컬로 사용할 수 있는 경우, `%%local` 매직을 사용하여 Jupyter 서버에서 코드 조각을 실행할 수 있습니다.
 
 * **SQL 매직**(`%%sql`). HDInsight Spark 커널은 SQLContext에 대해 간편한 인라인 HiveQL 쿼리를 지원합니다. (`-o VARIABLE_NAME`) 인수는 Jupyter 서버에서 Pandas 데이터 프레임으로 SQL 쿼리의 출력을 유지합니다. 즉, 로컬 모드에서 사용할 수 있습니다.
 * `%%local` **매직**. `%%local` 매직은 HDInsight 클러스터의 헤드 노드인 Jupyter 서버에서 코드를 로컬로 실행하는 데 사용됩니다. 일반적으로 `-o` 매개 변수를 사용하여 `%%local` 매직을 `%%sql` 매직과 함께 사용합니다. `-o` 매개 변수는 SQL 쿼리의 출력을 로컬로 유지하고 그 다음 `%%local` 매직은 로컬로 유지되는 SQL 쿼리의 출력에 대해 로컬로 실행할 다음 코드 조각 집합을 트리거합니다.
 
-### SQL을 사용하여 데이터 쿼리
+### <a name="query-the-data-by-using-sql"></a>SQL을 사용하여 데이터 쿼리
 이 쿼리는 요금 금액, 승객 수 및 팁 금액에 따라 택시 여정을 검색합니다.
 
     # RUN THE SQL QUERY
@@ -274,7 +278,7 @@ Blob 저장소에 모델 또는 파일을 저장하려면 경로를 적절히 �
 > 
 > 
 
-### 데이터 그리기
+### <a name="plot-the-data"></a>데이터 그리기
 데이터 프레임이 Pandas 데이터 프레임처럼 로컬 컨텍스트에 있으면 Python 코드를 사용하여 그릴 수 있습니다.
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
@@ -333,16 +337,16 @@ Blob 저장소에 모델 또는 파일을 저장하려면 경로를 적절히 �
 
 ![금액으로 녀건 금액](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-by-fare-amount.png)
 
-## 기능을 만들고 변환한 후 모델링 함수에 입력하기 위한 데이터 준비
+## <a name="create-features-and-transform-features-and-then-prep-data-for-input-into-modeling-functions"></a>기능을 만들고 변환한 후 모델링 함수에 입력하기 위한 데이터 준비
 Spark ML 및 MLlib의 트리 기반 모델링 기능의 경우 범주화, 인덱싱, 원 핫 인코딩(one hot encoding), 벡터화 등의 다양한 해당 기법을 사용하여 대상 및 기능을 준비해야 합니다. 이 섹션에서 수행하는 절차는 다음과 같습니다.
 
-1. 시간을 트래픽 시간 버킷으로 **범주화**하여 새로운 기능을 만듭니다.
-2. 범주 기능에 **인덱싱 및 원 핫 인코딩(one-hot encoding)**을 적용합니다.
-3. **데이터 집합을 학습 및 테스트 부분으로 샘플링 및 분할**합니다.
+1. 시간을 트래픽 시간 버킷으로 **범주화** 하여 새로운 기능을 만듭니다.
+2. 범주 기능에 **인덱싱 및 원 핫 인코딩(one-hot encoding)** 을 적용합니다.
+3. **데이터 집합을 학습 및 테스트 부분으로 샘플링 및 분할** 합니다.
 4. **학습 변수 및 기능을 지정**하고, 인덱싱되었거나 원 핫 인코딩된 학습 및 테스팅 입력 레이블이 지정된 지점 RDD(탄력성 분산 데이터 집합) 또는 데이터 프레임을 만듭니다.
-5. 기계 학습 모델에 대한 입력으로 사용할 **기능과 대상을 자동으로 범주화 및 벡터화**합니다.
+5. 기계 학습 모델에 대한 입력으로 사용할 **기능과 대상을 자동으로 범주화 및 벡터화** 합니다.
 
-### 시간을 트래픽 시간 버킷으로 범주화하여 새로운 기능 만들기
+### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>시간을 트래픽 시간 버킷으로 범주화하여 새로운 기능 만들기
 이 코드는 트래픽 시간 버킷으로 시간을 범주화하여 새로운 기능을 만드는 방법 및 메모리에 결과 데이터 프레임을 캐시하는 방법을 설명합니다. RDD 및 데이터 프레임을 반복해서 사용하는 경우 캐시하면 실행 시간이 향상됩니다. 따라서 RDD 및 데이터 프레임을 다음 절차의 여러 단계에서 캐시합니다.
 
     # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
@@ -363,7 +367,7 @@ Spark ML 및 MLlib의 트리 기반 모델링 기능의 경우 범주화, 인덱
     taxi_df_train_with_newFeatures.count()
 
 
-### 범주 기능 인덱싱 및 원 핫 인코딩
+### <a name="indexing-and-one-hot-encoding-of-categorical-features"></a>범주 기능 인덱싱 및 원 핫 인코딩
 MLlib의 모델링 및 예측 함수는 사용하기 전에 범주 입력 데이터로 기능을 인덱싱 또는 인코딩해야 합니다. 이 섹션에는 모델링 기능에 입력에 대한 범주 기능을 인덱싱하거나 인코딩하는 방법을 설명합니다.
 
 모델에 따라 다양한 방식으로 모델을 인덱싱하거나 인코드해야 합니다. 예를 들어 로지스틱 및 선형 회귀 모델에는 원 핫 인코딩이 필요합니다. 예를 들어 세 개의 범주가 있는 기능을 세 개의 기능 열로 확장할 수 있습니다. 관찰 범주에 따라, 각 열에는 0 또는 1이 포함됩니다. MLlib는 원 핫 인코딩을 위한 [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) 함수를 제공합니다. 이 인코더는 레이블 인덱스의 열을 단 하나의 값을 가진 이진 벡터의 열에 매핑합니다. 이 인코딩을 사용하여 로지스틱 회귀 분석 등과 같은 숫자 값을 가진 기능을 예상하는 알고리즘을 범주 기능에 적용할 수 있습니다.
@@ -411,7 +415,7 @@ MLlib의 모델링 및 예측 함수는 사용하기 전에 범주 입력 데이
 
 셀 실행 시간: 4초
 
-### 데이터 집합을 학습 및 테스트 부분으로 샘플링 및 분할
+### <a name="sample-and-split-the-data-set-into-training-and-test-fractions"></a>데이터 집합을 학습 및 테스트 부분으로 샘플링 및 분할
 이 코드는 데이터의 무작위 샘플링을 만듭니다(이 예제에서는 25%). 데이터 집합의 크기로 인해 이 예제에는 샘플링이 필요하지 않지만, 이 문서에서는 필요한 경우 자신의 문제에 사용하는 방식을 알 수 있도록 샘플링 방법을 설명합니다. 샘플이 큰 경우 모델을 학습하는 동안 상당한 시간을 절약할 수 있습니다. 다음으로, 샘플을 교육 부분(이 예제에서는 75%)과 테스트 부분(이 예제에서는 25%)으로 분할하여 분류 및 회귀 모델링에 사용합니다.
 
 학습 중에 교차 유효성 검사 접기를 선택하는 데 사용할 수 있는 행("rand" 열에서)에 도달하기 위해 난수(0과 1 사이)를 추가합니다.
@@ -450,8 +454,8 @@ MLlib의 모델링 및 예측 함수는 사용하기 전에 범주 입력 데이
 
 셀 실행 시간: 2초
 
-### 학습 변수 및 기능 지정, 인덱싱되었거나 원 핫 인코딩된 학습 및 테스팅 입력 레이블이 지정된 지점 RDD 또는 데이터 프레임 만들기
-이 섹션은 범주 텍스트 데이터를 레이블이 지정된 지점 데이터 형식으로 인덱싱하고 인코딩하는 방법을 보여주는 코드를 포함하여 MLlib 로지스틱 회귀 및 다른 분류 모델을 학습하고 테스트하는 데 사용될 수 있습니다. 레이블이 지정된 지점 개체는 대부분 MLlib의 기계 학습 알고리즘에서 입력 데이터로 필요한 방식으로 형식이 지정된 RDD입니다. [레이블이 지정된 지점](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point)은 레이블/응답과 연결된 로컬 벡터, 밀도 또는 스파스입니다.
+### <a name="specify-training-variable-and-features-and-then-create-indexed-or-one-hot-encoded-training-and-testing-input-labeled-point-rdds-or-data-frames"></a>학습 변수 및 기능 지정, 인덱싱되었거나 원 핫 인코딩된 학습 및 테스팅 입력 레이블이 지정된 지점 RDD 또는 데이터 프레임 만들기
+이 섹션은 범주 텍스트 데이터를 레이블이 지정된 지점 데이터 형식으로 인덱싱하고 인코딩하는 방법을 보여주는 코드를 포함하여 MLlib 로지스틱 회귀 및 다른 분류 모델을 학습하고 테스트하는 데 사용될 수 있습니다. 레이블이 지정된 지점 개체는 대부분 MLlib의 기계 학습 알고리즘에서 입력 데이터로 필요한 방식으로 형식이 지정된 RDD입니다. [레이블이 지정된 지점](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) 은 레이블/응답과 연결된 로컬 벡터, 밀도 또는 스파스입니다.
 
 이 코드에서는 모델을 학습하는 데 사용할 대상(종속) 변수 및 기능을 지정합니다. 그런 후 인덱싱되었거나 원 핫 인코딩된 학습 및 테스팅 입력 레이블이 지정된 지점 RDD 또는 데이터 프레임을 만듭니다.
 
@@ -493,10 +497,10 @@ MLlib의 모델링 및 예측 함수는 사용하기 전에 범주 입력 데이
 
 셀 실행 시간: 4초
 
-### 기계 학습 모델에 대한 입력으로 사용할 기능과 대상을 자동으로 범주화 및 벡터화
+### <a name="automatically-categorize-and-vectorize-features-and-targets-to-use-as-inputs-for-machine-learning-models"></a>기계 학습 모델에 대한 입력으로 사용할 기능과 대상을 자동으로 범주화 및 벡터화
 Spark ML을 사용하여 트리 기반 모델링 기능에 사용할 대상 및 기능을 범주화합니다. 이 코드는 다음 두 작업을 완료합니다.
 
-* 0\.5의 임계값을 사용하는 0과 1 사이의 각 데이터 요소에 0 또는 1 값을 할당하여 분류의 이진 대상을 만듭니다.
+* 0.5의 임계값을 사용하는 0과 1 사이의 각 데이터 요소에 0 또는 1 값을 할당하여 분류의 이진 대상을 만듭니다.
 * 기능을 자동으로 범주화합니다. 기능에 대한 고유 숫자 값이 32보다 작은 경우 해당 기능은 범주화됩니다.
 
 이러한 두 작업에 대한 코드는 다음과 같습니다.
@@ -530,21 +534,21 @@ Spark ML을 사용하여 트리 기반 모델링 기능에 사용할 대상 및 
 
 
 
-## 이진 분류 모델: 팁이 지불되었는지 예측
+## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>이진 분류 모델: 팁이 지불되었는지 예측
 이 섹션에서는 팁이 지불되었는지 아닌지를 예측하기 위해 이진 분류 모델을 세 가지 형식으로 만듭니다.
 
-* Spark ML `LogisticRegression()` 함수를 사용하여 **로지스틱 회귀 모델** 만들기
-* Spark ML `RandomForestClassifier()` 함수를 사용하여 **임의 포리스트 분류 모델** 만들기
-* MLlib `GradientBoostedTrees()` 함수를 사용하여 **그라데이션 향상 트리 분류 모델** 만들기
+* Spark ML `LogisticRegression()` 함수를 사용하는 **로지스틱 회귀 모델**
+* Spark ML `RandomForestClassifier()` 함수를 사용하는 **임의 포리스트 분류 모델**
+* MLlib `GradientBoostedTrees()` 함수를 사용하는 **그라데이션 향상 트리 분류 모델**
 
-### 로지스틱 회귀 모델 만들기
+### <a name="create-a-logistic-regression-model"></a>로지스틱 회귀 모델 만들기
 다음으로, Spark ML `LogisticRegression()` 함수를 사용하여 로지스틱 회귀 모델을 만듭니다. 다음과 같은 단계를 통해 모델 빌딩 코드를 만듭니다.
 
-1. 하나의 매개 변수 집합이 있는 **모델 학습** 데이터
-2. 메트릭이 있는 테스트 데이터 집합에서 **모델 평가**
-3. 나중에 사용할 수 있도록 Blob 저장소에 **모델 저장**
-4. 테스트 데이터에 대해 **모델 점수 매기기**
-5. ROC(수신자 조작 특성) 곡선을 사용하여 **결과 그리기**
+1. **모델 학습** 데이터
+2. **모델 평가** 
+3. **모델 저장** 
+4. **모델 점수 매기기** 
+5. **결과 그리기** 
 
 이러한 절차에 대한 코드는 다음과 같습니다.
 
@@ -634,7 +638,7 @@ ROC on test data = 0.9827381497557599
 
 ![팁 여부 ROC 곡선](./media/machine-learning-data-science-process-scala-walkthrough/plot-roc-curve-tip-or-not.png)
 
-### 임의 포리스트 분류 모델 만들기
+### <a name="create-a-random-forest-classification-model"></a>임의 포리스트 분류 모델 만들기
 다음으로 Spark ML `RandomForestClassifier()` 함수를 사용하는 임의 포리스트 분류 모델을 만들고 테스트 데이터에 대해 모델을 평가합니다.
 
     # RECORD THE START TIME
@@ -667,7 +671,7 @@ ROC on test data = 0.9827381497557599
 
 ROC on test data = 0.9847103571552683
 
-### GBT 분류 모델 만들기
+### <a name="create-a-gbt-classification-model"></a>GBT 분류 모델 만들기
 다음으로 MLlib `GradientBoostedTrees()` 함수를 사용하여 GBT 분류 모델을 만들고 테스트 데이터에 대해 모델을 평가합니다.
 
     # TRAIN A GBT CLASSIFICATION MODEL BY USING MLLIB AND A LABELED POINT
@@ -723,13 +727,13 @@ ROC on test data = 0.9847103571552683
 
 Area under ROC curve: 0.9846895479241554
 
-## 회귀 모델: 팁 금액 예측
+## <a name="regression-model-predict-tip-amount"></a>회귀 모델: 팁 금액 예측
 이 섹션에서는 팁 금액을 예측하기 위해 두 가지 형식의 회귀 모델을 만듭니다.
 
-* Spark ML `LinearRegression()` 함수를 사용하여 **정칙 선형 회귀 모델** 모델을 저장하고 테스트 데이터에 대해 모델을 평가합니다.
-* Spark ML `GBTRegressor()` 함수를 사용하여 **그라데이션 향상 트리 회귀 모델**
+* Spark ML `LinearRegression()` 함수를 사용하는 **정칙 선형 회귀 모델** 모델을 저장하고 테스트 데이터에 대해 모델을 평가합니다.
+* Spark ML `GBTRegressor()` 함수를 사용하는 **그라데이션 향상 트리 회귀 모델**
 
-### 정칙 선형 회귀 모델 만들기
+### <a name="create-a-regularized-linear-regression-model"></a>정칙 선형 회귀 모델 만들기
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
 
@@ -848,10 +852,10 @@ Python matplotlib를 사용하여 도표를 만듭니다.
 
 ![팁 금액: 실제 및 예측](./media/machine-learning-data-science-process-scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
-### GBT 회귀 모델 만들기
+### <a name="create-a-gbt-regression-model"></a>GBT 회귀 모델 만들기
 Spark ML `GBTRegressor()` 함수를 사용하여 GBT 회귀 모델을 만들고 테스트 데이터에 대해 모델을 평가합니다.
 
-[GBT](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts)(그라데이션 향상 트리)는 결정 트리의 결합체입니다. GBT는 기능 손실을 최소화하기 위해 결정 트리를 반복적으로 학습합니다. 회귀 및 분류에 대해 GBT를 사용할 수 있습니다. GBT는 범주 기능을 처리하고 기능 규모 결정을 요구하지 않으며 비선형 기능 상호 작용을 캡처할 수 있습니다. 또한 다중 클래스 분류 설정에도 사용할 수 있습니다.
+[GBT](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (그라데이션 향상 트리)는 결정 트리의 결합체입니다. GBT는 기능 손실을 최소화하기 위해 결정 트리를 반복적으로 학습합니다. 회귀 및 분류에 대해 GBT를 사용할 수 있습니다. GBT는 범주 기능을 처리하고 기능 규모 결정을 요구하지 않으며 비선형 기능 상호 작용을 캡처할 수 있습니다. 또한 다중 클래스 분류 설정에도 사용할 수 있습니다.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -881,20 +885,20 @@ Spark ML `GBTRegressor()` 함수를 사용하여 GBT 회귀 모델을 만들고 
 
 Test R-sqr is: 0.7655383534596654
 
-## 최적화를 위한 고급 모델링 유틸리티
+## <a name="advanced-modeling-utilities-for-optimization"></a>최적화를 위한 고급 모델링 유틸리티
 이 섹션에서는 개발자가 모델 최적화를 위해 자주 사용하는 기계 학습 유틸리티를 사용합니다. 특히, 매개 변수 스윕 작업 및 교차 유효성 검사를 사용하여 세 가지 다른 방식으로 기계 학습 모델을 최적화할 수 있습니다.
 
 * 데이터를 학습 및 유효성 검사 집합으로 분할하고, 학습 집합에서 하이퍼 매개 변수 스윕 작업을 사용하여 모델을 최적화하고, 유효성 검사 집합에서 평가를 수행합니다(선형 회귀).
 * Spark ML의 CrossValidator 함수(이진 분류)를 사용하여 교차 유효성 검사 및 하이퍼 매개 변수 스윕 작업을 통해 모델을 최적화합니다.
 * 사용자 지정 교차 유효성 검사 및 매개 변수 스윕 작업 코드를 사용하여 모든 기계 학습 함수 및 매개 변수 집합을 통해 모델을 최적화합니다(선형 회귀).
 
-**교차 유효성 검사**는 알려진 데이터 집합에서 학습된 모델이 학습되지 않은 데이터 집합의 기능 예측을 얼마나 잘 일반화하는지 평가하는 기술입니다. 이 기술의 일반 개념은 알려진 데이터의 데이터 집합에서 모델을 학습한 다음 독립된 데이터 집합에 대해 예측 정확도를 테스트하는 것입니다. 일반적인 구현은 데이터 집합을 *k* 접기로 나눈 다음 접기 중 하나를 제외한 모든 접기에서 라운드 로빈 방식으로 모델을 학습하는 것입니다.
+**교차 유효성 검사** 는 알려진 데이터 집합에서 학습된 모델이 학습되지 않은 데이터 집합의 기능 예측을 얼마나 잘 일반화하는지 평가하는 기술입니다. 이 기술의 일반 개념은 알려진 데이터의 데이터 집합에서 모델을 학습한 다음 독립된 데이터 집합에 대해 예측 정확도를 테스트하는 것입니다. 일반적인 구현은 데이터 집합을 *k*접기로 나눈 다음 접기 중 하나를 제외한 모든 접기에서 라운드 로빈 방식으로 모델을 학습하는 것입니다.
 
-**하이퍼 매개 변수 최적화**는 학습 알고리즘에 대한 하이퍼 매개 변수 집합을 선택하는 문제이며, 일반적으로 독립된 데이터 집합에서의 알고리즘 성능 측정값을 최적화하는 것을 목표로 합니다. 하이퍼 매개 변수는 모델 학습 프로시저 외부에서 지정해야 하는 값입니다. 하이퍼 매개 변수 값에 대한 가정은 모델의 유연성 및 정확도에 영향을 줄 수 있습니다. 의사 결정 트리에는 원하는 깊이와 트리의 리프 수와 같은 하이퍼 매개 변수가 있습니다. SVM(지원 벡터 컴퓨터)은 오분류 페널티 조건을 설정해야 합니다.
+**하이퍼 매개 변수 최적화** 는 학습 알고리즘에 대한 하이퍼 매개 변수 집합을 선택하는 문제이며, 일반적으로 독립된 데이터 집합에서의 알고리즘 성능 측정값을 최적화하는 것을 목표로 합니다. 하이퍼 매개 변수는 모델 학습 프로시저 외부에서 지정해야 하는 값입니다. 하이퍼 매개 변수 값에 대한 가정은 모델의 유연성 및 정확도에 영향을 줄 수 있습니다. 의사 결정 트리에는 원하는 깊이와 트리의 리프 수와 같은 하이퍼 매개 변수가 있습니다. SVM(지원 벡터 컴퓨터)은 오분류 페널티 조건을 설정해야 합니다.
 
 하이퍼 매개 변수 최적화를 수행하는 일반적인 방법은 **매개 변수 스윕**이라고도 하는 그리드 검색을 사용하는 것입니다. 그리드 검색에서는 학습 알고리즘에 대한 하이퍼 매개 변수 공간의 지정된 하위 집합 값으로 철저하게 검색합니다. 교차 유효성 검사는 그리드 검색 알고리즘에 의해 생성되는 최적의 결과를 분류하는 성능 메트릭을 제공할 수 있습니다. 교차 유효성 검사 하이퍼 매개 변수 스윕 작업을 사용하는 경우 모델 과잉 맞춤과 같은 문제를 학습 데이터로 제한하는 데 도움이 될 수 있습니다. 이러한 방식으로 모델은 학습 데이터가 추출된 일반적인 데이터 집합에 적용할 수 있는 용량을 유지합니다.
 
-### 하이퍼 매개 변수 스윕 작업으로 선형 회귀 모델 최적화
+### <a name="optimize-a-linear-regression-model-with-hyper-parameter-sweeping"></a>하이퍼 매개 변수 스윕 작업으로 선형 회귀 모델 최적화
 다음으로 데이터를 학습 및 유효성 검사 집합으로 분할하고, 학습 집합에서 하이퍼 매개 변수 스윕 작업을 사용하여 모델을 최적화하고, 유효성 검사 집합에서 평가를 수행합니다(선형 회귀).
 
     # RECORD THE START TIME
@@ -938,7 +942,7 @@ Test R-sqr is: 0.7655383534596654
 
 Test R-sqr is: 0.6226484708501209
 
-### 교차 유효성 검사 및 하이퍼 매개 변수 스윕 작업을 사용하여 이진 분류 모델 최적화
+### <a name="optimize-the-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>교차 유효성 검사 및 하이퍼 매개 변수 스윕 작업을 사용하여 이진 분류 모델 최적화
 이 섹션에서는 교차 유효성 검사 및 하이퍼 매개 변수 스윕 작업을 사용하여 이진 분류 모델을 최적화하는 방법을 설명합니다. 여기서는 Spark ML `CrossValidator` 함수를 사용합니다.
 
     # RECORD THE START TIME
@@ -982,7 +986,7 @@ Test R-sqr is: 0.6226484708501209
 
 셀 실행 시간: 33초
 
-### 사용자 지정 교차 유효성 검사 및 매개 변수 스윕 작업 코드를 사용하여 선형 회귀 모델 최적화
+### <a name="optimize-the-linear-regression-model-by-using-custom-cross-validation-and-parameter-sweeping-code"></a>사용자 지정 교차 유효성 검사 및 매개 변수 스윕 작업 코드를 사용하여 선형 회귀 모델 최적화
 다음으로 사용자 지정 코드를 사용하여 모델을 최적화하고 최고 정확도 기준을 사용하여 최적의 모델 매개 변수를 식별합니다. 그런 다음 최종 모델을 만들고 테스트 데이터로 모델을 평가하고 Blob 저장소에 모델을 저장합니다. 마지막으로 모델을 로드하고 테스트 데이터의 점수를 매기며 해당 정확도를 평가합니다.
 
     # RECORD THE START TIME
@@ -1097,11 +1101,16 @@ Test R-sqr is: 0.6226484708501209
 
 셀 실행 시간: 61초
 
-## Scala를 사용하여 Spark에서 빌드한 기계 학습 모델을 자동으로 사용
+## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Scala를 사용하여 Spark에서 빌드한 기계 학습 모델을 자동으로 사용
 Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 항목에 대한 개요는 [팀 데이터 과학 프로세스](http://aka.ms/datascienceprocess)를 참조하세요.
 
-[팀 데이터 과학 프로세스 연습](data-science-process-walkthroughs.md)에서는 특정 시나리오에 대한 팀 데이터 과학 프로세스의 단계를 보여 주는 다른 종단 간 연습에 대해 설명합니다. 또한 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 설명합니다.
+[팀 데이터 과학 프로세스 연습](data-science-process-walkthroughs.md) 에서는 특정 시나리오에 대한 팀 데이터 과학 프로세스의 단계를 보여 주는 다른 종단 간 연습에 대해 설명합니다. 또한 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 설명합니다.
 
-[Spark에서 빌드한 기계 학습 모델 점수 매기기](machine-learning-data-science-spark-model-consumption.md)에서는 Scala 코드를 사용하여 Spark에서 빌드한 기계 학습 모델과 함께 Azure Blob 저장소에 저장된 새 데이터 집합을 자동으로 로드하고 점수를 매기는 방법을 설명합니다. 사용자는 제공된 지침을 따르고 자동 사용을 위해 Python 코드를 이 문서의 Scala 코드로 바꿀 수 있습니다.
+[Spark에서 빌드한 기계 학습 모델 점수 매기기](machine-learning-data-science-spark-model-consumption.md) 에서는 Scala 코드를 사용하여 Spark에서 빌드한 기계 학습 모델과 함께 Azure Blob 저장소에 저장된 새 데이터 집합을 자동으로 로드하고 점수를 매기는 방법을 설명합니다. 사용자는 제공된 지침을 따르고 자동 사용을 위해 Python 코드를 이 문서의 Scala 코드로 바꿀 수 있습니다.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

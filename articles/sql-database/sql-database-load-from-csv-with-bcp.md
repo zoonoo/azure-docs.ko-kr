@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
@@ -15,8 +16,8 @@ ms.workload: data-services
 ms.date: 09/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8d6e201ba5fb8283d883272e0cb2b8e7c11f43e5
+ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
+ms.openlocfilehash: 389c7c75bcc0c1a5a66f66a9692ebe2e4095db5e
 
 
 ---
@@ -31,9 +32,9 @@ bcp 명령줄 유틸리티를 사용하여 CSV 파일에서 Azure SQL 데이터�
 * 설치된 bcp 명령줄 유틸리티
 * 설치된 sqlcmd 명령줄 유틸리티
 
-[Microsoft 다운로드 센터][Microsoft 다운로드 센터]에서 bcp 및 sqlcmd 유틸리티를 다운로드할 수 있습니다.
+[Microsoft 다운로드 센터][Microsoft Download Center]에서 bcp 및 sqlcmd 유틸리티를 다운로드할 수 있습니다.
 
-### <a name="data-in-ascii-or-utf16-format"></a>ASCII 또는 UTF-16 형식 데이터
+### <a name="data-in-ascii-or-utf-16-format"></a>ASCII 또는 UTF-16 형식 데이터
 사용자의 데이터로 이 자습서를 수행하는 경우에는, bcp가 UTF-8을 지원하지 않으므로, 데이터에 ASCII 또는 UTF-16 인코딩을 사용해야 합니다. 
 
 ## <a name="1-create-a-destination-table"></a>1. 대상 테이블 만들기
@@ -72,14 +73,14 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 20150101,1,3
 ```
 
-(선택 사항) SQL Server 데이터베이스에서 사용자의 데이터를 내보내려면, 명령 프롬프트를 열고 다음 명령을 실행합니다. TableName, ServerName, DatabaseName, Username, 및 Password를 사용자의 정보로 바꿉니다.
+(선택 사항) SQL Server 데이터베이스에서 사용자의 데이터를 내보내려면, 명령 프롬프트를 열고 다음 명령을 실행합니다. TableName, ServerName, DatabaseName, Username 및 Password를 사용자의 정보로 바꿉니다.
 
 ```sql
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
 ```
 
 ## <a name="3-load-the-data"></a>3. 데이터 로드
-데이터를 로드하려면, 명령 프롬프트를 열고 Server Name, Database name, Username, 및 Password 값을 사용자의 정보로 바꿔서 다음 명령을 실행합니다.
+데이터를 로드하려면, 명령 프롬프트를 열고 Server Name, Database name, Username 및 Password 값을 사용자의 정보로 바꿔서 다음 명령을 실행합니다.
 
 ```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
@@ -113,13 +114,13 @@ SQL Server 데이터베이스를 마이그레이션하려면 [SQL Server 데이�
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE 구문]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Microsoft 다운로드 센터]: https://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

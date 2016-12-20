@@ -1,19 +1,23 @@
 ---
-title: Azure Portal을 사용하여 콘텐츠 보호 정책 구성 | Microsoft Docs
-description: 이 문서에서는 Azure Portal을 사용하여 콘텐츠 보호 정책을 구성하는 방법에 대해 설명합니다. 또한 자산에서 동적 암호화를 사용하도록 설정하는 방법을 보여 줍니다.
+title: "Azure Portal을 사용하여 콘텐츠 보호 정책 구성 | Microsoft 문서"
+description: "이 문서에서는 Azure Portal을 사용하여 콘텐츠 보호 정책을 구성하는 방법에 대해 설명합니다. 또한 자산에서 동적 암호화를 사용하도록 설정하는 방법을 보여 줍니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0f9b0cf4e88a1ab27546063ae89cde8de7761609
+
 
 ---
 # <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Azure Portal을 사용하여 콘텐츠 보호 정책 구성
@@ -39,12 +43,12 @@ AMS는 DRM 라이선스 및 AES 암호화되지 않은 키를 인증된 클라�
 ## <a name="start-configuring-content-protection"></a>콘텐츠 보호 구성 시작
 포털을 사용하여 AMS 계정 전역에 콘텐츠 보호 구성을 시작하려면 다음을 수행합니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.
 2. **설정** > **Content Protection**을 선택합니다.
 
 ![콘텐츠 보호](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
-## <a name="key/license-authorization-policy"></a>키/라이선스 권한 부여 정책
+## <a name="keylicense-authorization-policy"></a>키/라이선스 권한 부여 정책
 AMS는 키 또는 라이선스를 요청하는 사용자를 인증하는 여러 방법을 지원합니다. 콘텐츠 키 권한 부여 정책은 사용자가 구성해야 하며 이 키/라이선스를 클라이언트에 배달하기 위해서는 해당 클라이언트를 충족시켜야 합니다. 콘텐츠 키 권한 부여 정책에는 **열기** 또는 **토큰** 제한과 같은 하나 이상의 권한 부여 제한이 있을 수 있습니다.
 
 Azure Portal을 사용하면 모든 암호화 형식에 대해 **키/라이선스 권한 부여 정책** 을 만들 수 있습니다.
@@ -130,6 +134,9 @@ FairPlay 암호화를 사용하려면 Content Protection 설정 블레이드의 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

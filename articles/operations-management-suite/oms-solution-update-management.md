@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 12/06/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
+ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 
 
 ---
-# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![OMS의 업데이트 관리 솔루션](./media/oms-solution-update-management/update-management-solution-icon.png) OMS의 업데이트 관리 솔루션
+# <a name="update-management-solution-in-oms"></a>OMS의 업데이트 관리 솔루션
 OMS의 업데이트 관리 솔루션을 사용하면 Windows 및 Linux 컴퓨터에 대한 업데이트를 관리할 수 있습니다.  모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 대한 필수 업데이트를 설치하는 프로세스를 시작할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -33,7 +33,10 @@ OMS의 업데이트 관리 솔루션을 사용하면 Windows 및 Linux 컴퓨터
 * Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.  Linux용 OMS 에이전트를 [GitHub](https://github.com/microsoft/oms-agent-for-linux)에서 다운로드할 수 있습니다. 
 
 ## <a name="configuration"></a>구성
-다음 단계를 수행하여 업데이트 관리 솔루션을 OMS 작업 영역에 추가하고 Linux 에이전트를 추가합니다.  Windows 에이전트는 추가 구성 없이 자동으로 추가됩니다.
+다음 단계를 수행하여 업데이트 관리 솔루션을 OMS 작업 영역에 추가하고 Linux 에이전트를 추가합니다. Windows 에이전트는 추가 구성 없이 자동으로 추가됩니다.
+
+> [!NOTE]
+> 현재 이 솔루션을 사용하도록 설정하면 이 솔루션의 일부인 Runbook을 지원하기 위해 OMS 작업 영역에 연결된 모든 Windows 컴퓨터가 자동으로 Hybrid Runbook Worker로 구성됩니다.  그러나 해당 솔루션은 Automation 계정에서 만든 모든 Hybrid Worker 그룹에 등록되지 않고 Hybrid Worker 그룹에 추가하여 고유한 Runbook을 실행할 수 없습니다.  Windows 컴퓨터를 이미 Hybrid Runbook Worker로 지정하고 OMS 작업 영역에 연결한 경우 Runbook이 예상대로 작동하지 않는 것을 방지하기 위해 솔루션을 추가하기 전에 OMS 작업 영역에서 제거해야 합니다.  
 
 1. 솔루션 갤러리에서 [OMS 솔루션 추가](../log-analytics/log-analytics-add-solutions.md)에 설명된 프로세스를 사용하여 OMS 작업 영역에 업데이트 관리 솔루션을 추가합니다.  
 2. OMS 포털에서 **설정** 및 **연결된 원본**을 차례로 선택합니다.  **작업 영역 ID** 및 **기본 키** 또는 **보조 키** 중 하나를 적어둡니다.
@@ -41,11 +44,13 @@ OMS의 업데이트 관리 솔루션을 사용하면 Windows 및 Linux 컴퓨터
    
    a.    다음 명령을 실행하여 최신 버전의 Linux용 OMS 에이전트를 설치합니다.  <Workspace ID>을 작업 영역 ID로 바꾸고 <Key>를 기본 또는 보조 키로 바꿉니다.
    
-     cd ~   wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh   sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
-   
+        cd ~
+        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh  
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+
    b. 에이전트를 제거하려면 다음 명령을 실행합니다.
    
-     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
 ## <a name="management-packs"></a>관리 팩
 System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된 경우 이 솔루션을 추가할 때 다음 관리 팩이 System Center Operations Manager에 설치됩니다. 이 관리 팩에 대한 구성 또는 유지 관리는 필요 없습니다. 
@@ -242,6 +247,6 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다.  현재 이�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -3,7 +3,7 @@ title: "Azure 배치 서비스 기본 사항 | Microsoft 문서"
 description: "대규모 병렬 및 HPC 워크로드의 경우 Azure 배치 서비스를 사용하는 방법에 대해 알아봅니다."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 93e37d44-7585-495e-8491-312ed584ab79
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2559aae752f319805c2c9f87a2e2a81d9b37e4b2
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 2d83a9a42a17ddade81f891fca4463099a42f5e4
 
 
 ---
@@ -77,7 +77,7 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 ### <a name="batch-resource-management"></a>배치 리소스 관리
 클라이언트 API 외에도 다음을 사용하여 배치 계정 내에서 리소스를 관리할 수 있습니다.
 
-* [배치 PowerShell cmdlet][batch_ps]: [Azure PowerShell](../powershell-install-configure.md) 모듈의 Azure 배치 cmdlet을 사용하여 PowerShell로 배치 리소스를 관리할 수 있습니다.
+* [배치 PowerShell cmdlets][batch_ps]: [Azure PowerShell](/powershell/azureps-cmdlets-docs) 모듈의 Azure 배치 cmdlet을 사용하여 PowerShell로 배치 리소스를 관리할 수 있습니다.
 * [Azure CLI](../xplat-cli-install.md): Azure CLI(Azure 명령줄 인터페이스)는 배치를 포함하여 여러 Azure 서비스와 상호 작용하기 위한 셸 명령을 제공하는 크로스 플랫폼 도구 집합입니다.
 * [배치 관리 .NET](batch-management-dotnet.md) 클라이언트 라이브러리: [NuGet][api_net_mgmt_nuget]을 통해서도 제공되는 배치 관리 .NET 클라이언트 라이브러리를 사용하면 배치 계정, 할당량 및 응용 프로그램 패키지를 프로그래밍 방식으로 관리할 수 있습니다. 관리 라이브러리에 대한 참조는 [MSDN][api_net_mgmt]에 있습니다.
 
@@ -114,7 +114,7 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 
 * 배치를 사용하려는 사용자를 위한 중요한 정보는 [개발자를 위한 배치 기능 개요](batch-api-basics.md)를 참고합니다. 문서에는 배치 응용 프로그램을 빌드하는 동안 사용할 수 있는 풀, 노드, 작업 및 태스크와 같은 배치 서비스 리소스 및 여러 API 기능에 대한 자세한 내용이 포함됩니다.
 * [.NET용 Azure 배치 라이브러리 시작](batch-dotnet-get-started.md) 에서는 일반적인 배치 워크플로를 사용하여 간단한 워크로드를 실행하는 데 C# 및 배치 .NET 라이브러리를 사용하는 방법을 알아봅니다. 이 문서는 배치 서비스 사용 방법을 학습하는 과정의 첫 단계입니다. 또한 [Python 버전](batch-python-tutorial.md) 자습서도 있습니다.
-* [GitHub의 코드 샘플][github_samples]를 다운로드하여 샘플 워크로드를 예약하고 처리하기 위해 C# 및 Python가 배치와 상호 작용하는 방법을 확인합니다.
+* [GitHub의 코드 샘플][github_samples]을 다운로드하여 샘플 워크로드를 예약하고 처리하기 위해 C# 및 Python가 배치와 상호 작용하는 방법을 확인합니다.
 * 배치로 작업할 때 사용할 수 있는 리소스를 알아보려면 [배치 학습 경로][learning_path]를 확인하세요.
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
@@ -146,6 +146,6 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Azure 가상 컴퓨터의 백업 및 복구에 대해 증분 스냅숏 사용 | Microsoft Docs
-description: 증분 스냅숏을 사용하여 Azure 가상 컴퓨터 디스크의 백업 및 복구에 대한 사용자 지정 솔루션을 만듭니다.
+title: "Azure 가상 컴퓨터의 백업 및 복구에 대해 증분 스냅숏 사용 | Microsoft Docs"
+description: "증분 스냅숏을 사용하여 Azure 가상 컴퓨터 디스크의 백업 및 복구에 대한 사용자 지정 솔루션을 만듭니다."
 services: storage
 documentationcenter: na
 author: aungoo-msft
 manager: tadb
 editor: tysonn
-
+ms.assetid: 3524b987-bd65-4e35-83e7-fbc2136643e5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: aungoo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9ade78c954ca6443354b198c7141b6fb5c88afdb
+
 
 ---
 # <a name="back-up-azure-virtual-machine-disks-with-incremental-snapshots"></a>증분 스냅숏을 사용하여 Azure 가상 컴퓨터 디스크 백업
@@ -22,7 +26,7 @@ Azure 저장소는 Blob의 스냅숏을 만드는 기능을 제공합니다. 스
 
 Azure 가상 컴퓨터 디스크는 Azure 저장소에 페이지 Blob으로 저장됩니다. 이 문서에서는 가상 컴퓨터 디스크에 대한 백업 전략을 논의하고 있으므로 페이지 Blob의 컨텍스트에서 스냅숏을 참조합니다. 스냅숏에 대한 자세한 내용은 [Blob의 스냅숏 만들기](https://msdn.microsoft.com/library/azure/hh488361.aspx)를 참조하세요.
 
-## <a name="what-is-a-snapshot?"></a>스냅숏은 무엇입니까?
+## <a name="what-is-a-snapshot"></a>스냅숏은 무엇입니까?
 Blob 스냅숏은 특정 시점에 캡처된 Blob의 읽기 전용 버전입니다. 스냅숏이 생성된 후에는 읽거나 복사하거나 삭제할 수 있지만 수정할 수는 없습니다. 스냅숏을 사용하면 특정 시점에서 표시된 대로 Blob을 백업할 수 있습니다. REST 버전 2015-04-05까지 전체 스냅숏을 복사하는 기능이 있었습니다. REST 버전 2015-07-08 이상에서는 증분 스냅숏을 복사할 수도 있습니다.
 
 ## <a name="full-snapshot-copy"></a>전체 스냅숏 복사
@@ -116,6 +120,9 @@ Blob의 스냅숏을 만들고 아래와 같은 링크를 사용하여 VM 백업
 * [Blob의 스냅숏 만들기](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 * [VM 백업 인프라 계획](../backup/backup-azure-vms-introduction.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

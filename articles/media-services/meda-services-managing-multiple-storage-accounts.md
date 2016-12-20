@@ -1,12 +1,12 @@
 ---
-title: 여러 저장소 계정에서 Media Services 자산 관리 | Microsoft Docs
-description: 이 문서에서는 여러 저장소 계정에서 미디어 서비스 자산을 관리하는 방법에 대한 지침을 제공합니다.
+title: "여러 저장소 계정에서 Media Services 자산 관리 | Microsoft 문서"
+description: "이 문서에서는 여러 저장소 계정에서 미디어 서비스 자산을 관리하는 방법에 대한 지침을 제공합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4e4a9ec3-8ddb-4938-aec1-d7172d3db858
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
+
 
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>여러 저장소 계정에서 미디어 서비스 자산 관리
@@ -250,6 +254,9 @@ Media Services는 스트리밍 콘텐츠(예: http://{WAMSAccount}.origin.medias
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

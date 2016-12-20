@@ -1,12 +1,12 @@
 ---
-title: Log Analytics 로그 검색 REST API | Microsoft Docs
-description: 이 가이드에서는 OMS(Operations Management Suite)의 Log Analytics 검색 REST API를 사용하는 방법을 설명하는 기본 자습서를 제공하며, 명령 사용 방법을 보여 주는 예제를 제공합니다.
+title: "Log Analytics 로그 검색 REST API | Microsoft Docs"
+description: "이 가이드에서는 OMS(Operations Management Suite)의 Log Analytics 검색 REST API를 사용하는 방법을 설명하는 기본 자습서를 제공하며, 명령 사용 방법을 보여 주는 예제를 제공합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: b4e9ebe8-80f0-418e-a855-de7954668df7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 81dd7d9dc799f6f4c0dd54a12409724c182a0349
+
 
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Log Analytics 로그 검색 REST API
@@ -93,7 +97,7 @@ Azure Resource Manager는 [Library for.NET](https://msdn.microsoft.com/library/a
 ## <a name="log-analytics-search-rest-api-reference-examples"></a>Log Analytics 검색 REST API 참조 예제
 다음 예제에서는 검색 API를 사용하는 방법을 보여줍니다.
 
-### <a name="search---action/read"></a>검색-동작/읽기
+### <a name="search---actionread"></a>검색-동작/읽기
 **샘플 Url:**
 
 ```
@@ -179,7 +183,7 @@ Azure Resource Manager는 [Library for.NET](https://msdn.microsoft.com/library/a
     }
 ```
 
-### <a name="search/{id}---action/read"></a>검색/{ID}-동작/읽기
+### <a name="searchid---actionread"></a>검색/{ID}-동작/읽기
 **저장된 검색의 내용을 요청:**
 
 ```
@@ -356,7 +360,7 @@ Azure Resource Manager는 [Library for.NET](https://msdn.microsoft.com/library/a
         "Tags": [{
             "Name": "Group",
             "Value": "Computer"
-        }],
+          }],
     "Version": 1
     }
 
@@ -395,6 +399,9 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 ## <a name="next-steps"></a>다음 단계
 * 조건에 대한 사용자 지정 필드를 사용하여 쿼리를 빌드하기 위해 [검색 로그](log-analytics-log-searches.md) 에 대해 알아봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

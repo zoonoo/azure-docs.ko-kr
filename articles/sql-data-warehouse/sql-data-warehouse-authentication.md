@@ -1,13 +1,13 @@
 ---
-title: Azure SQL 데이터 웨어하우스에 대한 인증 | Microsoft Docs
-description: Azure SQL 데이터 웨어하우스에 대한 AAD(Azure Active Directory) 및 SQL Server 인증
+title: "Azure SQL Data Warehouse에 대한 인증 | Microsoft Docs"
+description: "Azure SQL 데이터 웨어하우스에 대한 AAD(Azure Active Directory) 및 SQL Server 인증"
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: byham
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
 ms.service: sql-data-warehouse
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/24/2016
 ms.author: rickbyh;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2b08b48713e98eedfd93b290491fee59729d2dcc
+
 
 ---
 # <a name="authentication-to-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스에 대한 인증
@@ -45,12 +49,12 @@ SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 �
 * SSDT에서 세션을 만들기 전에 사용자 데이터베이스를 강조 표시합니다.
 
 > [!NOTE]
-> 연결을 위한 데이터베이스 변경의 경우 Transact-SQL 문 **USE MyDatabase;** 는 지원되지 않습니다. SSDT를 사용하여 SQL 데이터 웨어하우스에 연결하는 지침은 [Visual Studio로 쿼리][] 문서를 참조하세요.
+> 연결을 위한 데이터베이스 변경의 경우 Transact-SQL 문 **USE MyDatabase;** 는 지원되지 않습니다. SSDT를 사용하여 SQL Data Warehouse에 연결하는 지침은 [Visual Studio를 사용하여 쿼리][Visual Studio를 사용하여 쿼리] 문서를 참조하세요.
 > 
 > 
 
 ## <a name="azure-active-directory-aad-authentication"></a>AAD(Azure Active Directory) 인증
-[Azure Active Directory][Azure Active Directory] 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Microsoft Azure SQL Data Warehouse에 연결하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 SQL 데이터 웨어하우스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 
+[Azure Active Directory란?][Azure Active Directory란?] 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Microsoft Azure SQL Data Warehouse에 연결하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 SQL 데이터 웨어하우스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 
 
 ### <a name="benefits"></a>이점
 Azure Active Directory의 이점은 다음과 같습니다.
@@ -96,6 +100,6 @@ Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

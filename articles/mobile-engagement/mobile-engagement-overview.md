@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58d8043e09cb04ef2cdf4f5c005d549a6cb6f73c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
 
 
 ---
@@ -30,10 +30,10 @@ Azure Mobile Engagement는 데이터 기반 통찰력을 앱 사용, 실시간 �
 
 Azure Mobile Engagement를 통해 응용 프로그램 게시자와 마케팅 전문가는 앱 사용자를 더 잘 이해하고 상호 작용할 수 있습니다.
 
-## <a name="realtime-actionable-analytics-to-maximize-return-on-investment"></a>투자 수익률(ROI) 극대화를 위해 실행 가능한 실시간 분석
+## <a name="real-time-actionable-analytics-to-maximize-return-on-investment"></a>투자 수익률(ROI) 극대화를 위해 실행 가능한 실시간 분석
 `big data` 수집과 실시간 메시지 처리를 결합하여 사용자 동작 및 인구 통계에 따라 참여 시나리오를 트리거하세요. Mobile Engagement는 특정 비즈니스 요구 사항과 관련된 거의 모든 질문에 답변할 수 있습니다. 예를 들어 사용자 지정 대시보드를 만들어 KPI(핵심 성과 지표)를 측정하고, 사용자 깔때기 경로에서 사용 병목 상태를 빠르게 찾아 해결하고, 재방문 주기 및 사용자 연결 유지를 추적하여, 이를 통해 어떤 캠페인이 가장 높은 투자 수익률을 끌어내는지 알아낼 수 있습니다. Mobile Engagement의 360도 사용자 경로 뷰를 통해 사용자 환경을 지속적으로 간편하게 개선하고 최적화하여 재방문 주기 비율을 높이고 앱 사용을 향상시킬 수 있습니다.
 
-## <a name="valueadded-push-and-communications-platform"></a>부가 가치 푸시 및 통신 플랫폼
+## <a name="value-added-push-and-communications-platform"></a>부가 가치 푸시 및 통신 플랫폼
 Mobile Engagement는 앱 내 메시징 기능을 제공하고 Google의 GCM, Apple의 APNS 및 Microsoft MPNS와 같이 네이티브 푸시 알림 게이트웨이를 사용하게 원활하게 작동합니다. 더 나아가, 특유한 고객층을 식별하기 위하여 사용자 동작을 분석하여 특정 고객을 대상으로 하는 캠페인을 만들 수 있는 역량을 제공합니다.
 
 따라서 앱 개발자자 매우 효율적인 비주입식 방법으로 고객과 연결하는 이점을 제공합니다.
@@ -47,13 +47,13 @@ Microsoft는 오랫동안 개인 정보 보호를 위해 노력해 왔으며 개
 ### <a name="next-steps"></a>다음 단계:
 [모범 사례 및 사용자의 Mobile Engagement를 만드는 프로세스](mobile-engagement-getting-started-best-practices.md)
 
-[시작](/documentation/services/mobile-engagement/)
+[시작](/index.md)
 
 [소스 코드와 함께 데모 앱 다운로드](https://aka.ms/azmedemoapps)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

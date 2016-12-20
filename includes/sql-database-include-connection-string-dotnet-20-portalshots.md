@@ -15,7 +15,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
     ![SQL 선택][1-select-sql]
 2. **SQL 데이터베이스** 블레이드 왼쪽 위에 있는 필터 텍스트 상자에 데이터베이스 이름을 입력합니다.
    
-    ![데이터베이스 선택][2-select-database]]
+    ![데이터베이스 선택][2-select-database]
 3. 해당 데이터베이스에 대한 행을 클릭합니다.
 4. 데이터베이스 블레이드가 표시된 후 시각적 편의를 위해 표준 최소화 컨트롤을 클릭하여 검색 및 데이터베이스 필터링에 사용한 블레이드를 축소할 수 있습니다.
 5. 데이터베이스 블레이드에서 **데이터베이스 연결 문자열 표시**를 클릭합니다.
@@ -45,6 +45,6 @@ includes/sql-database-include-connection-string-40-config.md
 -->
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -44,19 +44,22 @@
 ## [Linux VM에 대한 DHCPv6 구성](load-balancer-ipv6-for-linux.md)
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Azure CLI](/cli/azure/network/lb)
-## [Java](/java/api)
-## [.NET](/dotnet/api)
+## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
+## [Azure CLI 2.0(미리 보기)](/cli/azure/network/lb)
+## [.NET](/dotnet/api/microsoft.azure.management.network.models)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
 ## [REST (영문)](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # 관련 항목
-## [응용 프로그램 게이트웨이](/azure/application-gateway/)
-## [Express 경로](/azure/expressroute/)
-## [가상 네트워크](/azure/virtual-network/)
+## [Application Gateway](/azure/application-gateway/)
+## [Express Route](/azure/expressroute/)
+## [Virtual Network](/azure/virtual-network/)
 ## [VPN Gateway](/azure/vpn-gateway/)
 ## [가상 컴퓨터](/azure/virtual-machines/)
-## [트래픽 관리자](/azure/traffic-manager/)
+## [Traffic Manager](/azure/traffic-manager/)
 ## [DNS](/azure/dns/)
 
 # 리소스
@@ -64,6 +67,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=load-balancer)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8ac37244d1e691a2f075116f3d78b89923cfb845
 
 
 ---
@@ -67,7 +67,7 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 
 1. 새 자격 증명 모음을 클릭하여 대시보드를 엽니다.
 2. 자격 증명 모음 대시보드에서 자동으로 열리는 **설정** 블레이드에서 **백업 인프라**를 클릭합니다.
-3. 백업 인프라 블레이드에서 **백업 구성**을 클릭하여 **저장소 복제 유형**을 확인합니다.
+3. [백업 인프라] 블레이드에서 **백업 구성**을 클릭하여 **저장소 복제 유형**을 확인합니다.
    
     ![복구 서비스 자격 증명 모음 만들기 5단계](./media/backup-try-azure-backup-in-10-mins/backup-infrastructure.png)
 4. 자격 증명 모음에 대해 적절한 저장소 복제 옵션을 선택합니다.
@@ -78,18 +78,18 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 
 자격 증명 모음을 만들었으므로 이제 Microsoft Azure 복구 서비스 에이전트 및 자격 증명 모음을 다운로드하여 파일과 폴더를 백업합니다.
 
-## <a name="step-3-download-files"></a>3단계 - 파일 다운로드
+## <a name="step-3---download-files"></a>3단계 - 파일 다운로드
 1. 복구 서비스 자격 증명 모음 대시보드에서 **설정** 을 클릭합니다.
    
     ![백업 목표 블레이드 열기](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
-2. 설정 블레이드에서 **시작 > 백업**을 클릭합니다.
+2. [설정] 블레이드에서 **시작 > 백업**을 클릭합니다.
    
     ![백업 목표 블레이드 열기](./media/backup-try-azure-backup-in-10-mins/getting-started-backup.png)
 3. 백업 블레이드에서 **백업 목표** 를 클릭합니다.
    
     ![백업 목표 블레이드 열기](./media/backup-try-azure-backup-in-10-mins/backup-goal.png)
-4. 워크로드 실행 위치 메뉴에서 **온-프레미스**를 선택합니다.
-5. 백업할 항목 메뉴에서 **파일 및 폴더**를 선택하고 **확인**을 클릭합니다.
+4. [워크로드 실행 위치] 메뉴에서 **온-프레미스**를 선택합니다.
+5. [백업할 항목] 메뉴에서 **파일 및 폴더**를 선택하고 **확인**을 클릭합니다.
 
 ### <a name="download-the-recovery-services-agent"></a>복구 서비스 에이전트 다운로드
 1. **인프라 준비** 블레이드에서 **Windows Server 또는 Windows 클라이언트의 에이전트 다운로드**를 클릭합니다.
@@ -98,11 +98,11 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 2. 다운로드 팝업에서 **저장** 을 클릭합니다. 기본적으로 **MARSagentinstaller.exe** 파일이 다운로드 폴더에 저장됩니다.
 
 ### <a name="download-vault-credentials"></a>저장소 자격 증명 다운로드
-1. 인프라 준비 블레이드에서 **다운로드 > 저장**을 클릭합니다.
+1. [인프라 준비] 블레이드에서 **다운로드 > 저장**을 클릭합니다.
    
     ![Windows Server 또는 Windows 클라이언트의 에이전트 다운로드](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## <a name="step-4-install-and-register-the-agent"></a>4단계: 에이전트 설치 및 등록
+## <a name="step-4--install-and-register-the-agent"></a>4단계: 에이전트 설치 및 등록
 > [!NOTE]
 > Azure 포털을 통한 백업 활성화가 곧 지원될 예정입니다. 현재는 Microsoft Azure 복구 서비스 에이전트 온-프레미스를 사용하여 파일과 폴더를 백업합니다.
 > 
@@ -142,7 +142,7 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 3. 백업 예약 마법사의 시작 페이지에서 **다음**을 클릭합니다.
 4. 백업할 항목 선택 페이지에서 **항목 추가**를 클릭합니다.
 5. 백업할 파일 및 폴더를 선택한 다음 **확인**을 클릭합니다.
-6. **다음**을 클릭합니다.
+6. **Next**를 클릭합니다.
 7. **백업 일정 지정** 페이지에서 **백업 일정**을 지정하고 **다음**을 클릭합니다.
    
     매일(하루에 최대 속도로 3회) 또는 매주 백업을 예약할 수 있습니다.
@@ -184,6 +184,6 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

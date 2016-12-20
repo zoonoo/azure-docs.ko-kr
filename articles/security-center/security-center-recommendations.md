@@ -1,12 +1,12 @@
 ---
-title: Azure 보안 센터에서 보안 권장 사항 관리 | Microsoft Docs
-description: 이 문서에서는 Azure 보안 센터의 권장 사항이 Azure 리소스를 보호하고 보안 정책을 준수하는 데 어떤 도움이 되는지 알아봅니다.
+title: "Azure Security Center에서 보안 권장 사항 관리 | Microsoft Docs"
+description: "이 문서에서는 Azure 보안 센터의 권장 사항이 Azure 리소스를 보호하고 보안 정책을 준수하는 데 어떤 도움이 되는지 알아봅니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,37 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d5ac3ffa4c3e1a916fb7d81b54ae603ea3658cc5
+
 
 ---
-# Azure 보안 센터에서 보안 권장 사항 관리
+# <a name="managing-security-recommendations-in-azure-security-center"></a>Azure 보안 센터에서 보안 권장 사항 관리
 이 문서에서는 Azure 보안 센터의 권장 사항을 사용하여 Azure 리소스를 보호하는 데 도움이 되는 방법을 안내합니다.
 
 > [!NOTE]
-> 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
+> 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  단계별 가이드는 아닙니다.
 > 
 > 
 
-## 보안 권장 사항이란?
+## <a name="what-are-security-recommendations"></a>보안 권장 사항이란?
 보안 센터에서는 Azure 리소스의 보안 상태를 주기적으로 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 권장 사항을 만듭니다. 권장 사항은 필요한 컨트롤을 구성하는 과정을 안내합니다.
 
-## 보안 권장 사항 구현
-### 권장 사항 설정
+## <a name="implementing-security-recommendations"></a>보안 권장 사항 구현
+### <a name="set-recommendations"></a>권장 사항 설정
 [Azure 보안 센터의 보안 정책 설정](security-center-policies.md)에서 다음을 배울 수 있습니다.
 
 * 보안 정책 구성.
 * 데이터 수집 사용.
 * 보안 정책의 일부로 표시될 권장 사항 선택.
 
-현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md), SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다. [보안 정책 설정](security-center-policies.md)은 각 권장 사항 옵션에 대한 설명을 제공합니다.
+현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md) , SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다.  [보안 정책 설정](security-center-policies.md) 은 각 권장 사항 옵션에 대한 설명을 제공합니다.
 
-### 권장 사항 모니터링
-보안 정책이 설정되면 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. **보안 센터** 블레이드의 **권장 사항** 타일은 보안 센터에서 식별된 권장 사항의 총 수를 알려 줍니다.
+### <a name="monitor-recommendations"></a>권장 사항 모니터링
+보안 정책이 설정되면 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. **Security Center** 블레이드의 **권장 사항** 타일은 Security Center에서 식별된 권장 사항의 총 수를 알려줍니다.
 
 ![권장 사항 타일][1]
 
 각 권장 사항에 대한 세부 정보를 보려면:
 
-1. **보안 센터** 블레이드에서 **권장 사항 타일**을 클릭합니다. **권장 사항** 블레이드가 열립니다.
+1. **Security Center** 블레이드에서 **권장 사항 타일**을 클릭합니다. **권장 사항** 블레이드가 열립니다.
 
 권장 사항은 각 줄이 한 가지 특정 권장을 나타내는 표 형식으로 표시됩니다. 이 테이블의 열은 다음과 같습니다.
 
@@ -62,7 +66,7 @@ ms.author: terrylan
 아래 테이블을 참조로 사용하여 제공되는 권장 사항을 이해하고 각 권장 사항을 적용할 경우 어떻게 되는지 이해할 수 있습니다.
 
 > [!NOTE]
-> Azure 리소스의 [클래식 및 Resource Manager 배포 모델](../azure-classic-rm.md)을 이해하게 됩니다.
+> Azure 리소스의 [클래식 및 Resource Manager 배포 모델](../azure-classic-rm.md) 을 이해하게 됩니다.
 > 
 > 
 
@@ -86,7 +90,7 @@ ms.author: terrylan
 | [VM 에이전트 사용](security-center-enable-vm-agent.md) |VM 에이전트가 필요한 VM을 확인할 수 있습니다. 패치 검색, 기준 검색 및 맬웨어 방지 프로그램을 프로비전하려면 VM에 VM 에이전트가 설치되어 있어야 합니다. Azure 마켓플레이스에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. [VM 에이전트 및 확장 - 2부](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) 문서에 VM 에이전트 설치 방법이 설명되어 있습니다. |
 | [디스크 암호화 적용](security-center-apply-disk-encryption.md) |Azure 디스크 암호화(Windows 및 Linux VM)를 사용하여 VM 디스크를 암호화하는 것이 좋습니다. VM에서 OS 및 데이터 볼륨에 암호화를 사용하는 것이 좋습니다. |
 | [보안 연락처 세부 정보 제공](security-center-provide-security-contact-details.md) |각 구독에 대한 보안 연락처 정보를 제공하는 것을 권장합니다. 연락처 정보는 전자 메일 주소 및 전화 번호입니다. 정보는 보안 팀에서 리소스가 손상된 것을 발견한 경우에 고객에게 연락하는 데 사용됩니다. |
-| [OS 버전 업데이트](security-center-update-os-version.md) |클라우드 서비스의 OS(운영 체제) 버전을 OS 제품군에 대해 사용할 수 있는 가장 최신 버전으로 업데이트하는 것이 좋습니다. 클라우드 서비스에 대한 자세한 내용은 [클라우드 서비스 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요. |
+| [OS 버전 업데이트](security-center-update-os-version.md) |클라우드 서비스의 OS(운영 체제) 버전을 OS 제품군에 대해 사용할 수 있는 가장 최신 버전으로 업데이트하는 것이 좋습니다.  클라우드 서비스에 대한 자세한 내용은 [클라우드 서비스 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요. |
 | [취약점 평가 설치되지 않음](security-center-vulnerability-assessment-recommendations.md) |VM에 취약점 평가 솔루션을 설치하는 것이 좋습니다. |
 | [취약점 해결](security-center-vulnerability-assessment-recommendations.md#review-recommendation) |VM에 설치된 취약점 평가 솔루션에 감지되는 시스템 및 응용 프로그램 취약점을 볼 수 있습니다. |
 
@@ -99,12 +103,12 @@ ms.author: terrylan
    
     ![권장 사항 해제][3]
 
-### 권장 사항 적용
+### <a name="apply-recommendations"></a>권장 사항 적용
 모든 권장 사항을 검토한 후에 가장 먼저 적용해야 할 권장 사항을 결정합니다. 심각도 등급을 기본 매개 변수로 사용하여 가장 먼저 적용해야 할 권장 사항을 평가하는 것이 좋습니다.
 
 위의 권장 사항 표에서 권장 사항을 선택하고 권장 사항을 적용하는 방법의 예제로 연습합니다.
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 이 문서에서는 보안 센터의 보안 권장 사항을 소개했습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) - Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
@@ -119,4 +123,8 @@ ms.author: terrylan
 [2]: ./media/security-center-recommendations/filter-recommendations.png
 [3]: ./media/security-center-recommendations/dismiss-recommendations.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Azure Mobile Engagement iOS SDK 도달률 통합 | Microsoft Docs
-description: Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차
+title: "Azure Mobile Engagement iOS SDK 도달률 통합 | Microsoft Docs"
+description: "Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 1f5f5857-867c-40c5-9d76-675a343a0296
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,6 +14,10 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 090f653da4825d7953dde27740d219bf40a4bd97
+
 
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>iOS에서 Engagement 도달률을 통합하는 방법
@@ -331,7 +335,7 @@ SDK에 대리자 호출 전달
 
 1. 인터페이스 작성기를 사용하여 알림 뷰 추가
    
-   * *인터페이스 작성기*
+   *  *인터페이스 작성기*
    * 알림을 표시할 320x60(iPad의 경우 768x60) 크기의 `UIView` 을(를) 배치합니다.
    * 이 뷰의 태그 값 설정: **36822491**
 2. 프로그래밍 방식으로 알림 뷰를 추가합니다. 이렇게 하려면 뷰가 초기화된 후 다음 코드만 추가하면 됩니다.
@@ -500,6 +504,6 @@ SDK에 대리자 호출 전달
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

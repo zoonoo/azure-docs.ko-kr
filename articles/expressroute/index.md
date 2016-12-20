@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 448cccdf35510db9bac9cdb5648739b18302c90b
-ms.openlocfilehash: 146078c8caf1bcd757d3e19aae5860aba9049ab9
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 48de017fea28d3f76097095cfca17fd03ace65b2
 
 ---
-#<a name="expressroute-documentation"></a>Express 경로 설명서
+#<a name="expressroute-documentation"></a>ExpressRoute 설명서
 
 Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다.
 
@@ -93,8 +93,8 @@ Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 전�
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>ExpressRoute REST API 참조</p>
+                        <h3>REST (영문)</h3>
+                        <p>ExpressRoute REST API</p>
                     </div>
                 </div>
             </div>
@@ -113,6 +113,6 @@ ExpressRoute 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

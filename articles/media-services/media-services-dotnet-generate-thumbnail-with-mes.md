@@ -1,12 +1,12 @@
 ---
-title: .NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법
-description: 이 항목에서는 .NET과 함께 미디어 인코더 표준을 사용하여 동시에 자산을 인코드하고 미리 보기를 생성하는 방법을 보여 줍니다.
+title: ".NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법"
+description: "이 항목에서는 .NET과 함께 미디어 인코더 표준을 사용하여 동시에 자산을 인코드하고 미리 보기를 생성하는 방법을 보여 줍니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1c28e756548b69d336b7f66ae9fbfa3c9259f787
+
 
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-.net"></a>.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법
 이 항목에서는 미디어 서비스 .NET SDK를 사용하여 자산을 인코드하고 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법을 보여 줍니다. 항목에서는 동시에 인코딩을 수행하고 미리 보기를 생성하는 작업을 만드는 데 사용할 수 있는 XML 및 JSON 미리 보기 기본 설정을 정의합니다. [이](https://msdn.microsoft.com/library/mt269962.aspx) 문서에는 이러한 기본 설정에서 사용되는 요소에 대해 설명합니다.
 
 [고려 사항](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) 섹션을 검토해야 합니다.
@@ -168,7 +172,7 @@ ms.author: juliako
             }
         }
 
-## <a name="<a-id="json"></a>thumbnail-json-preset"></a><a id="json"></a>미리 보기 JSON 기본 설정
+## <a name="a-idjsonathumbnail-json-preset"></a><a id="json"></a>미리 보기 JSON 기본 설정
 스키마에 대한 자세한 내용은 [이 항목](https://msdn.microsoft.com/library/mt269962.aspx) 을 참조하세요.
 
     {
@@ -270,7 +274,7 @@ ms.author: juliako
     }
 
 
-## <a name="<a-id="xml"></a>thumbnail-xml-preset"></a><a id="xml"></a>미리 보기 XML 기본 설정
+## <a name="a-idxmlathumbnail-xml-preset"></a><a id="xml"></a>미리 보기 XML 기본 설정
 스키마에 대한 자세한 내용은 [이 항목](https://msdn.microsoft.com/library/mt269962.aspx) 을 참조하세요.
 
     <?xml version="1.0" encoding="utf-16"?>
@@ -370,6 +374,9 @@ ms.author: juliako
 ## <a name="see-also"></a>참고 항목
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

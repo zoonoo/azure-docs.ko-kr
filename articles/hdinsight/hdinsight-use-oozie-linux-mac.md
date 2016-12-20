@@ -1,13 +1,13 @@
 ---
-title: Linux 기반 HDInsight에서 Hadoop Oozie 워크플로 사용 | Microsoft Docs
-description: Linux 기반 HDInsight에서 Hadoop Oozie를 사용합니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
+title: "Linux 기반 HDInsight에서 Hadoop Oozie 워크플로 사용 | Microsoft Docs"
+description: "Linux 기반 HDInsight에서 Hadoop Oozie를 사용합니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 79c3ad47ca40c2b64b5304ae377d2e84224a823e
+
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>Hadoop과 함께 Oozie를 사용하여 Linux 기반 HDInsight에서 워크플로 정의 및 실행
@@ -66,7 +70,7 @@ Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리�
     hdfs dfs -mkdir -p /tutorials/useoozie/data
 
 > [!NOTE]
-> `-p` 매개 변수는 경로의 모든 디렉터리(없는 경우)가 만들어지도록 합니다. **data** 디렉터리는 **useooziewf.hql** 스크립트에서 사용되는 데이터를 유지하는 데 사용됩니다.
+>  `-p` 매개 변수는 경로의 모든 디렉터리(없는 경우)가 만들어지도록 합니다. **data** 디렉터리는 **useooziewf.hql** 스크립트에서 사용되는 데이터를 유지하는 데 사용됩니다.
 > 
 > 
 
@@ -553,7 +557,7 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 다음은 발생할 수 있는 특정 오류 및 해결 방법입니다.
 
-### <a name="ja009:-cannot-initialize-cluster"></a>JA009: 클러스터를 초기화할 수 없음
+### <a name="ja009-cannot-initialize-cluster"></a>JA009: 클러스터를 초기화할 수 없음
 **증상**: 작업 상태가 **일시 중단**으로 변경됩니다. 작업에 대한 세부 정보에 RunHiveScript 상태가 **START_MANUAL**로 표시됩니다. 동작을 선택하면 다음과 같은 오류 메시지가 표시됩니다.
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
@@ -562,7 +566,7 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 **해결 방법**: 작업에서 사용하는 WASB 주소를 변경합니다.
 
-### <a name="ja002:-oozie-is-not-allowed-to-impersonate-&lt;user>"></a>JA002: Oozie에서 &lt;USER>를 가장할 수 없음
+### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie에서 &lt;USER>를 가장할 수 없음
 **증상**: 작업 상태가 **일시 중단**으로 변경됩니다. 작업에 대한 세부 정보에 RunHiveScript 상태가 **START_MANUAL**로 표시됩니다. 동작을 선택하면 다음과 같은 오류 메시지가 표시됩니다.
 
     JA002: User: oozie is not allowed to impersonate <USER>
@@ -578,7 +582,7 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 > 
 > 
 
-### <a name="launcher-error-(sqoop)"></a>시작 관리자 오류(Sqoop)
+### <a name="launcher-error-sqoop"></a>시작 관리자 오류(Sqoop)
 **증상**: 작업 상태가 **종료**로 변경됩니다. 작업에 대한 세부 정보에 RunSqoopExport 상태가 **오류**로 표시됩니다. 동작을 선택하면 다음과 같은 오류 메시지가 표시됩니다.
 
     Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
@@ -655,6 +659,6 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Azure에서 자신만의 개인 Docker 레지스트리 배포하기 | Microsoft Docs
-description: Docker 레지스트리를 사용하여 Azure Blob 저장소 서비스에 컨테이너 이미지를 호스트하는 방법에 대해 설명합니다.
+title: "Azure에서 자신만의 개인 Docker 레지스트리 배포하기 | Microsoft Docs"
+description: "Docker 레지스트리를 사용하여 Azure Blob 저장소 서비스에 컨테이너 이미지를 호스트하는 방법에 대해 설명합니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: ahmetalpbalkan
 editor: squillace
 manager: timlt
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: d72c9425-4a52-4f6d-935f-70f28df529d8
 ms.service: virtual-machines-linux
 ms.devlang: multiple
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/27/2016
 ms.author: ahmetb
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4dee43f5cb5ce27831e2a56c9c31784317c22559
+
 
 ---
 # <a name="deploying-your-own-private-docker-registry-on-azure"></a>Azure에서 자신만의 개인 Docker 레지스트리 배포하기
@@ -27,7 +31,7 @@ ms.author: ahmetb
 1. Docker 사용 방법 및 Docker 이미지를 저장하는 방법을 알고 있습니다. (없는 경우 [Docker에 대해 알아보기](https://www.docker.com))
 2. Docker 엔진이 설치된 서버가 있습니다. (없는 경우 [Azure에서 신속하게 수행합니다.](https://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
 
-## <a name="what-is-a-private-docker-registry?"></a>개인 Docker 레지스트리란?
+## <a name="what-is-a-private-docker-registry"></a>개인 Docker 레지스트리란?
 클라우드에 컨테이너화된 응용 프로그램을 제공하기 위해 Docker 컨테이너 이미지를 생성하고 이를 저장하여 직접 또는 다른 사람이 사용할 수 있도록 합니다. 
 
 컨테이너 이미지를 생성하고 이를 클라우드에 전달하는 것은 쉽지만 생성한 이미지를 안정적으로 저장하는 것은 까다롭습니다. 이런 이유로 Docker는 [Docker Hub][docker-hub]라는 중앙화된 서비스를 제공하여 클라우드에 컨테이너 이미지를 저장하고 해당 이미지를 사용하여 언제든지 컨테이너를 만들 수 있도록 합니다.
@@ -35,7 +39,7 @@ ms.author: ahmetb
 [Docker Hub][docker-hub]는 개인 응용 프로그램 컨테이너 이미지 저장을 위한 유료 서비스임에도 불구하고 Docker는 개발자의 필요를 존중하고 공용 인터넷에 접하지 않고도 방화벽 또는 온-프레미스를 넘어 자신만의 개인 Docker 레지스트리에 이미지를 저장할 수 있도록 오픈 소스 도구 모음을 제공합니다.
 Azure Blob 저장소는 쉽게 보호할 수 있으므로 이를 신속하게 만들어 직접 제어하는 Azure에서 개인 Docker 레지스트리를 만들고 사용할 수 있습니다.
 
-## <a name="why-should-you-host-a-docker-registry-on-azure?"></a>Azure에서 Docker 레지스트리를 호스팅해야 이유는 무엇인가요?
+## <a name="why-should-you-host-a-docker-registry-on-azure"></a>Azure에서 Docker 레지스트리를 호스팅해야 이유는 무엇인가요?
 Microsoft Azure에서 Docker 레지스트리 인스턴스를 호스팅하고 Azure Blob 저장소에 이미지를 저장하여 다양한 혜택을 누릴 수 있습니다.
 
 **보안:** Docker 이미지는 Azure 데이터센터를 떠나지 않기 때문에 Docker Hub를 사용하는 경우와 같이 공용 인터넷을 사용하지 않습니다.
@@ -99,6 +103,6 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

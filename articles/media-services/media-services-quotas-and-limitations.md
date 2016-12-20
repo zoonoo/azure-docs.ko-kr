@@ -1,12 +1,12 @@
 ---
-title: Media Services 할당량 및 제한 사항 | Microsoft Docs
-description: 이 토픽은 Microsoft Azure Media Services와 관련된 할당량 및 제한 사항에 대해 설명합니다.
+title: "Media Services 할당량 및 제한 사항 | Microsoft 문서"
+description: "이 토픽은 Microsoft Azure Media Services와 관련된 할당량 및 제한 사항에 대해 설명합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: d4c43afd-dba8-40a2-ad92-6de54152f7ec
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cc6737217ee24f1e698644648ad4f1552f900d96
+
 
 ---
 # <a name="quotas-and-limitations"></a>할당량 및 제한 사항
@@ -27,6 +31,9 @@ ms.author: juliako
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

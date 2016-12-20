@@ -1,12 +1,12 @@
 ---
-title: Developing with multiple regions in DocumentDB | Microsoft Docs
-description: Learn how to access your data in multiple regions from Azure DocumentDB, a fully managed NoSQL database service.
+title: "DocumentDB에서 여러 지역을 사용하여 개발 | Microsoft Docs"
+description: "완전히 관리되는 NoSQL 데이터베이스 서비스, Azure DocumentDB에서 여러 지역의 데이터에 액세스하는 방법을 알아봅니다."
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: kiratp
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: d4579378-0b3a-44a5-9f5b-630f1fa4c66d
 ms.service: documentdb
 ms.devlang: multiple
 ms.topic: article
@@ -14,45 +14,49 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2016
 ms.author: kipandya
+translationtype: Human Translation
+ms.sourcegitcommit: f480b8155c7bee797f1fed0f80200eec500e95a2
+ms.openlocfilehash: b188c8d8d66f0af1afa6f357f4d67db7b778ec86
+
 
 ---
-# <a name="developing-with-multi-region-documentdb-accounts"></a>Developing with multi-region DocumentDB accounts
+# <a name="developing-with-multi-region-documentdb-accounts"></a>다중 지역 DocumentDB 계정으로 개발
 > [!NOTE]
-> Global distribution of DocumentDB databases is generally available and automatically enabled for any newly created DocumentDB accounts. We are working to enable global distribution on all existing accounts, but in the interim, if you want global distribution enabled on your account, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you now.
-> 
-> 
+> DocumentDB 데이터베이스의 전역 배포는 일반적으로 사용 가능하며, 새로 만든 DocumentDB 계정에 대해 자동으로 사용되도록 설정됩니다. 현재, 모든 기존 계정에 대해 전역 배포를 사용하도록 설정하기 위해 작업 중이지만 계정에 대해 전역 배포를 일시적으로 사용하도록 설정하려면 [지원 서비스에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요. Microsoft에서 처리해 드리겠습니다.
+>
+>
 
-In order to take advantage of [global distribution](documentdb-distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the Azure DocumentDB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SDK to perform write and read operations. 
+[전역 배포](documentdb-distribute-data-globally.md)를 활용하기 위해 클라이언트 응용 프로그램은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. 이는 연결 정책을 설정하여 수행할 수 있습니다. Azure DocumentDB 계정 구성, 현재 지역 가용성과 지정된 기본 설정 목록에 기초한 최적 끝점은 쓰기 및 읽기 작업을 수행할 SDK가 선택합니다.
 
-This preference list is specified when initializing a connection using the DocumentDB client SDKs. The SDKs accept an optional parameter "PreferredLocations" that is an ordered list of Azure regions.
+이 기본 설정 목록은 DocumentDB 클라이언트 SDK로 연결을 초기화할 때 지정됩니다. SDK는 Azure 지역의 정렬된 목록인 "PreferredLocations"라는 선택적 매개 변수를 수락합니다.
 
-The SDK will automatically send all writes to the current write region. 
+SDK는 현재 쓰기 지역에 모든 쓰기를 자동 전송합니다.
 
-All reads will be sent to the first available region in the PreferredLocations list. If the request fails, the client will fail down the list to the next region, and so on. 
+모든 읽기는 PreferredLocations 목록에서 첫 번째 사용 가능한 지역으로 전송됩니다. 요청이 실패하면 클라이언트는 목록의 다음 지역으로 옮겨갑니다.
 
-The client SDKs will only attempt to read from the regions specified in PreferredLocations. So, for example, if the Database Account is available in three regions, but the client only specifies two of the non-write regions for PreferredLocations, then no reads will be served out of the write region, even in the case of failover.
+클라이언트 SDK는 PreferredLocations에 지정된 지역에서 읽기를 시도합니다. 따라서 가령 데이터베이스 계정이 3개 지역에서 사용할 수 있지만 클라이언트는 PreferredLocations에 쓰기에 해당하지 않는 지역 중 두 가지만 지정했다면, 장애 조치 시에도 쓰기 지역에서 읽기를 제공하지 않습니다.
 
-The application can verify the current write endpoint and read endpoint chosen by the SDK by checking two properties, WriteEndpoint and ReadEndpoint, available in SDK version 1.8 and above. 
+응용 프로그램은 두 가지 속성(WirteEndpoint 및 ReadEndpoint)을 확인하여 SDK가 선택한 현재의 쓰기 끝점과 읽기 끝점을 확인할 수 있습니다. SDK 버전 1.8 이상부터 사용 가능합니다.
 
-If the PreferredLocations property is not set, all requests will be served from the current write region. 
+PreferredLocations 속성이 설정되지 않는다면 모든 요청은 현재 쓰기 지역에서 제공됩니다.
 
-## <a name=".net-sdk"></a>.NET SDK
-The SDK can be used without any code changes. In this case, the SDK automatically directs both reads and writes to the current write region. 
+## <a name="net-sdk"></a>.NET SDK
+SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기와 쓰기를 현재 쓰기 하위 지역에 자동으로 가져옵니다.
 
-In version 1.8 and later of the .NET SDK, the ConnectionPolicy parameter for the DocumentClient constructor has a property called Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. This property is of type Collection `<string>` and should contain a list of region names. The string values are formatted per the Region Name column on the [Azure Regions][regions] page, with no spaces before or after the first and last character respectively.
+.NET SDK의 1.8 버전 이상에서 DocumentClient 생성자의 ConnectionPolicy 매개 변수는 Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations라는 속성이 있습니다. 이 속성은 컬렉션 `<string>` 형식이며 지역 이름 목록을 포함합니다. 문자열 값은 [Azure 지역][regions] 페이지의 지역 이름 열에 따라 서식이 지정되고 첫 글자와 마지막 글자 앞/뒤에 공백이 없습니다.
 
-The current write and read endpoints are available in DocumentClient.WriteEndpoint and DocumentClient.ReadEndpoint respectively.
+현재 읽기 및 쓰기 끝점은 각각 DocumentClient.WriteEndpoint와 DocumentClient.ReadEndpoint에서 이용할 수 있습니다.
 
 > [!NOTE]
-> The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK handles this change automatically.
-> 
-> 
+> 끝점의 URL은 수명이 긴 상수로 간주하지 말아야 합니다. 서비스는 언제든지 이 URL을 업데이트할 수 있습니다. SDK가 이런 변경 내용을 자동으로 처리합니다.
+>
+>
 
     // Getting endpoints from application settings or other configuration location
     Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
     string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
 
-    //Setting read region selection preference 
+    //Setting read region selection preference
     connectionPolicy.PreferredLocations.Add(LocationNames.WestUS); // first preference
     connectionPolicy.PreferredLocations.Add(LocationNames.EastUS); // second preference
     connectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope); // third preference
@@ -63,23 +67,23 @@ The current write and read endpoints are available in DocumentClient.WriteEndpoi
         accountKey,
         connectionPolicy);
 
-    // connect to DocDB 
+    // connect to DocDB
     await docClient.OpenAsync().ConfigureAwait(false);
 
 
-## <a name="nodejs,-javascript,-and-python-sdks"></a>NodeJS, JavaScript, and Python SDKs
-The SDK can be used without any code changes. In this case, the SDK will automatically direct both reads and writes to the current write region. 
+## <a name="nodejs-javascript-and-python-sdks"></a>NodeJS, JavaScript 및 Python SDK
+SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기와 쓰기를 현재 쓰기 지역에 자동으로 가져옵니다.
 
-In version 1.8 and later of each SDK, the ConnectionPolicy parameter for the DocumentClient constructor a new property called DocumentClient.ConnectionPolicy.PreferredLocations. This is parameter is an array of strings that takes a list of region names. The names are formatted per the Region Name column in the [Azure Regions][regions] page. You can also use the predefined constants in the convenience object AzureDocuments.Regions
+각 SDK의 1.8 버전 이상에서 DocumentClient 생성자의 ConnectionPolicy 매개 변수에는 DocumentClient.ConnectionPolicy.PreferredLocations라는 새로운 속성이 있습니다. 이 매개 변수는 지역 이름 목록을 가지는 문자열 배열입니다. 이름은 [Azure 지역][regions] 페이지의 지역 이름 열에 따라 서식이 지정됩니다. 또한, 편의 개체 AzureDocuments.Regions에 사전 지정된 상수를 사용할 수도 있습니다.
 
-The current write and read endpoints are available in DocumentClient.getWriteEndpoint and DocumentClient.getReadEndpoint respectively.
+현재 쓰기 및 읽기 끝점은 각각 DocumentClient.getWriteEndpoint와 DocumentClient.getReadEndpoint에서 이용할 수 있습니다.
 
 > [!NOTE]
-> The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK will handle this change automatically.
-> 
-> 
+> 끝점의 URL은 수명이 긴 상수로 간주하지 말아야 합니다. 서비스는 언제든지 이 URL을 업데이트할 수 있습니다. SDK가 이런 변경 내용을 자동으로 처리합니다.
+>
+>
 
-Below is a code example for NodeJS/Javascript. Python and Java will follow the same pattern.
+다음은 NodeJS/Javascript의 코드 예제입니다. Python과 Java도 같은 패턴을 따릅니다.
 
     // Creating a ConnectionPolicy object
     var connectionPolicy = new DocumentBase.ConnectionPolicy();
@@ -94,14 +98,14 @@ Below is a code example for NodeJS/Javascript. Python and Java will follow the s
     var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
 
 
-## <a name="rest"></a>REST
-Once a database account has been made available in multiple regions, clients can query its availability by performing a GET request on the following URI.
+## <a name="rest"></a>REST (영문)
+데이터베이스 계정을 여러 지역에서 이용할 수 있게 되면 클라이언트는 다음 URI에서 GET 요청을 수행하여 가용성을 쿼리할 수 있습니다.
 
     https://{databaseaccount}.documents.azure.com/
 
-The service will return a list of regions and their corresponding DocumentDB endpoint URIs for the replicas. The current write region will be indicated in the response. The client can then select the appropriate endpoint for all further REST API requests as follows.
+서비스는 지역 목록과 복제본의 해당 DocumentDB 끝점 URI를 반환합니다. 현재 쓰기 지역이 응답에 표시됩니다. 클라이언트는 다음과 같이 모든 추가 REST API 요청에 알맞은 끝점을 선택할 수 있습니다.
 
-Example response
+예제 응답
 
     {
         "_dbs": "//dbs/",
@@ -134,25 +138,25 @@ Example response
     }
 
 
-* All PUT, POST and DELETE requests must go to the indicated write URI
-* All GETs and other read-only requests (for example queries) may go to any endpoint of the client’s choice
+* 모든 PUT, POST 및 DELETE 요청은 표시된 쓰기 URI로 이동해야 합니다.
+* 모든 GET과 다른 읽기 전용 요청(예: 쿼리)은 클라이언트가 선택한 끝점으로 이동할 수 있습니다.
 
-Write requests to read-only regions will fail with HTTP error code 403 (“Forbidden”).
+읽기 전용 지역에 대한 쓰기 요청은 HTTP 오류 코드 403(“사용 권한 없음”)과 함께 실패합니다.
 
-If the write region changes after the client’s initial discovery phase, subsequent writes to the previous write region will fail with HTTP error code 403 (“Forbidden”). The client should then GET the list of regions again to get the updated write region.
+클라이언트의 최초 검색 단계 이후에 쓰기 지역이 변경되면 나중에 이전 쓰기 지역에 쓰려고 하면 HTTP 오류 코드 403(“사용 권한 없음”)과 함께 실패합니다. 클라이언트는 업데이트된 쓰기 지역을 가져오려면 지역 목록을 다시 가져와야 합니다.
 
-## <a name="next-steps"></a>Next steps
-Learn more about the distributing data globally with DocumentDB in the following articles:
+## <a name="next-steps"></a>다음 단계
+다음 문서에서 DocumentDB로 데이터를 글로벌 배포하는 방법에 대해 자세히 알아봅니다.
 
-* [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md)
-* [Consistency levels](documentdb-consistency-levels.md)
-* [How throughput works with multiple regions](documentdb-manage.md#how-throughput-works-with-multiple-regions)
-* [Add regions using the Azure portal](documentdb-portal-global-replication.md)
+* [DocumentDB로 데이터를 글로벌 배포](documentdb-distribute-data-globally.md)
+* [일관성 수준](documentdb-consistency-levels.md)
+* [여러 지역에 처리량을 적용하는 방법](documentdb-manage.md)
+* [Azure 포털을 사용하여 지역 추가](documentdb-portal-global-replication.md)
 
-[regions]: https://azure.microsoft.com/regions/ 
+[regions]: https://azure.microsoft.com/regions/
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

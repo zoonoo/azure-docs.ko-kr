@@ -15,17 +15,12 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: 2809b7f5367a333a7aac99db890d0aee3bc6667a
+ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
+ms.openlocfilehash: d8108368a157ed05c4fe0defbcef8372e205f6f8
 
 
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Node.js 응용 프로그램 빌드 및 배포
-> [!div class="op_single_selector"]
-> * [Node.JS](cloud-services-nodejs-develop-deploy-app.md)
-> * [.NET](cloud-services-dotnet-get-started.md)
->
->
 
 이 자습서에서는 Azure 클라우드 서비스에서 실행되는 간단한 Node.js 응용 프로그램을 만드는 방법을 보여줍니다. 클라우드 서비스는 Azure에서 확장 가능한 클라우드 응용 프로그램의 구성 요소입니다. 이 클라우드 서비스는 응용 프로그램의 프런트 엔드 및 백 엔드 구성 요소의 구분과 독립적인 관리 및 확장을 허용합니다.  클라우드 서비스는 각 역할을 안정적으로 호스팅할 수 있는 강력한 전용 가상 컴퓨터를 제공합니다.
 
@@ -33,8 +28,6 @@ ms.openlocfilehash: 2809b7f5367a333a7aac99db890d0aee3bc6667a
 
 > [!TIP]
 > 간단한 웹 사이트를 빌드하려는 경우 시나리오에 간단한 웹 사이트 프런트 엔드만 포함된 경우 [간단한 웹앱 사용]을 고려해 보십시오. 그러면 웹앱이 커지고 요구 사항이 변경될 때 클라우드 서비스로 쉽게 업그레이드할 수 있습니다.
->
->
 
 이 자습서를 수행하여 웹 역할 내에서 호스트되는 간단한 웹 응용 프로그램을 빌드합니다. 계산 에뮬레이터를 사용하여 로컬에서 응용 프로그램을 테스트한 다음 PowerShell 명령줄 도구를 사용하여 배포합니다.
 
@@ -45,8 +38,6 @@ ms.openlocfilehash: 2809b7f5367a333a7aac99db890d0aee3bc6667a
 ## <a name="prerequisites"></a>필수 조건
 > [!NOTE]
 > 이 자습서는 Azure PowerShell을 사용하며,
->
->
 
 * [Azure PowerShell]을 설치하고 구성합니다.
 * [Azure SDK for .NET 2.7]을 다운로드 및 설치합니다. 설치 설정에서 다음을 선택합니다.
@@ -80,8 +71,6 @@ ms.openlocfilehash: 2809b7f5367a333a7aac99db890d0aee3bc6667a
 
    > [!NOTE]
    > 역할 이름을 지정하지 않으면 기본 이름이 사용됩니다. 첫번째 cmdlet 매개변수로 이름을 제공할 수 있습니다. `Add-AzureNodeWebRole MyRole`
-   >
-   >
 
 Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일에 정의됩니다(기본값은 **WebRole1**). 코드는 다음과 같습니다.
 
@@ -95,7 +84,9 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 이 코드는 클라우드 환경에서 지정된 포트 번호를 사용한다는 점을 제외하고 기본적으로 [nodejs.org] 웹사이트의 "Hello World" 예제와 동일합니다.
 
 ## <a name="deploy-the-application-to-azure"></a>Azure에 응용 프로그램 배포
-    [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+
+> [!NOTE]
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)하거나 [무료 계정을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)할 수 있습니다.
 
 ### <a name="download-the-azure-publishing-settings"></a>Azure 게시 설정 다운로드
 응용 프로그램을 Azure에 배포하려면 먼저 Azure 구독에 대한 게시 설정을 다운로드해야 합니다.
@@ -111,12 +102,13 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 
        Import-AzurePublishSettingsFile [path to file]
 
-    > [AZURE.NOTE] 게시 설정을 가져온 후, 다른 사용자가 계정에 액세스할 수 있는 정보가 포함되어 있으므로 다운로드한 .publishSettings 파일 삭제를 고려합니다.
+    > [!NOTE]
+    > 게시 설정을 가져온 후, 다른 사용자가 계정에 액세스할 수 있는 정보가 포함되어 있으므로 다운로드한 .publishSettings 파일 삭제를 고려합니다.
 
 ### <a name="publish-the-application"></a>응용 프로그램 게시
 게시하려면 다음 명령을 실행합니다.
 
-      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
     Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
 * **-ServiceName**은 배포에 대한 이름을 지정합니다. 이 이름은 고유해야 합니다. 그렇지 않으면 게시 프로세스가 실패합니다. **Get-Date** 명령은 이름을 고유하게 만들어야 하는 날짜/시간 문자열을 추적합니다.
@@ -129,8 +121,6 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 
 > [!NOTE]
 > 응용 프로그램이 처음 게시된 후 몇 분 지나야 배포되어 사용이 가능할 수도 있습니다.
->
->
 
 배포가 완료되면 브라우저 창이 열리고 클라우드 서비스로 이동합니다.
 
@@ -167,8 +157,6 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 
    > [!NOTE]
    > 서비스를 삭제해도 서비스가 처음 게시될 때 만들어진 저장소 계정은 삭제되지 않으므로 사용된 저장소에 대해 계속 요금이 청구됩니다. 저장소를 전혀 사용하지 않으면 삭제하는 것이 좋습니다.
-   >
-   >
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Node.js 개발자 센터]를 참조하세요.
@@ -177,25 +165,25 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 
 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: ../app-service-web/choose-web-site-cloud-service-vm.md
 [간단한 웹앱 사용]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Azure PowerShell]: ../powershell-install-configure.md
-[.NET 2.7용 Azure SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[PowerShell을 연결]: ../powershell-install-configure.md#step-3-connect
+[Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
+[PowerShell을 연결]: /powershell/azureps-cmdlets-docs#step-3-connect
 [nodejs.org]: http://nodejs.org/
 [Azure에 대한 호스티드 서비스 만들기 개요]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js 개발자 센터]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 
-[New-AzureService helloworld 명령의 결과]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[Add-AzureNodeWebRole 명령의 출력]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-[Hello World 웹 페이지를 표시하는 웹 브라우저]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[hello world 페이지가 표시된 브라우저 창의 URL은 Azure에 호스팅된 페이지임을 나타냅니다.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[Stop-AzureService 명령의 상태]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[Remove-AzureService 명령의 상태]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

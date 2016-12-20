@@ -1,19 +1,23 @@
 ---
-title: Log Analytics 뷰 디자이너 | Microsoft Docs
-description: Log Analytics에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있는 데이터의 서로 다른 시각화 요소를 포함하고 있는 OMS 콘솔에서 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 포함되어 있습니다.
+title: "Log Analytics 뷰 디자이너 | Microsoft Docs"
+description: "Log Analytics에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있는 데이터의 서로 다른 시각화 요소를 포함하고 있는 OMS 콘솔에서 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 포함되어 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4ba6ce876df3ec426e02e10eda062b67d0d42c4e
+
 
 ---
 # <a name="log-analytics-view-designer"></a>Log Analytics 뷰 디자이너
@@ -92,6 +96,9 @@ Log Analytics에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있�
 * 사용자 지정 보기에 [타일](log-analytics-view-designer-tiles.md) 추가
 * 사용자 지정 보기에 [시각화 요소](log-analytics-view-designer-parts.md) 추가
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

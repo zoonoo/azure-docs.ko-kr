@@ -12,12 +12,14 @@
 
 다음 샘플에서는 3개의 열 즉, userid, name 및 lastlogindate가 있는 테이블에 대한 구조 섹션 JSON을 보여줍니다.
 
-    "structure": 
-    [
-        { "name": "userid"},
-        { "name": "name"},
-        { "name": "lastlogindate"}
-    ],
+```json
+"structure": 
+[
+    { "name": "userid"},
+    { "name": "name"},
+    { "name": "lastlogindate"}
+],
+```
 
 "structure" 정보를 포함할 시기 및 **structure** 섹션에 포함할 항목에 대해서는 다음 지침을 따르세요.
 

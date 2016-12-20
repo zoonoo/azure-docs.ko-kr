@@ -1,25 +1,29 @@
 ---
-title: 행위자 형식 직렬화에 대한 Reliable Actors 참고 사항 | Microsoft Docs
-description: 서비스 패브릭 Reliable Actors 상태 및 인터페이스를 정의하는 데 사용될 수 있는 직렬화가 가능 클래스를 정의하기 위한 기본 요구 사항을 설명합니다.
+title: "행위자 형식 직렬화에 대한 Reliable Actors 참고 사항 | Microsoft Docs"
+description: "서비스 패브릭 Reliable Actors 상태 및 인터페이스를 정의하는 데 사용될 수 있는 직렬화가 가능 클래스를 정의하기 위한 기본 요구 사항을 설명합니다."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 6e50e4dc-969a-4a1c-b36c-b292d964c7e3
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/06/2015
+ms.date: 10/19/2016
 ms.author: vturecek
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: f08fc1df10506dead5d049fb2c6cdc29c8f89d90
+
 
 ---
-# 서비스 패브릭 신뢰할 수 있는 행위자 형식 직렬화에 대한 참고 사항
-모든 메서드의 인수인 행위자 인터페이스의 각 메서드에 의해 반환되는 태스크의 결과 형식 및 행위자의 상태 관리자에 저장된 개체는 [데이터 계약 직렬화가 가능](https://msdn.microsoft.com/library/ms731923.aspx)해야 합니다... 또한 [행위자 이벤트 인터페이스](service-fabric-reliable-actors-events.md#actor-events)에 정의된 메서드의 인수에도 적용됩니다. (행위자 이벤트 인터페이스 메서드는 항상 void를 반환합니다.)
+# <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>서비스 패브릭 신뢰할 수 있는 행위자 형식 직렬화에 대한 참고 사항
+모든 메서드의 인수인 행위자 인터페이스의 각 메서드에 의해 반환되는 태스크의 결과 형식 및 행위자의 상태 관리자에 저장된 개체는 [데이터 계약 직렬화가 가능](https://msdn.microsoft.com/library/ms731923.aspx)해야 합니다... 또한 [행위자 이벤트 인터페이스](service-fabric-reliable-actors-events.md)에 정의된 메서드의 인수에도 적용됩니다. (행위자 이벤트 인터페이스 메서드는 항상 void를 반환합니다.)
 
-## 사용자 지정 데이터 형식
+## <a name="custom-data-types"></a>사용자 지정 데이터 형식
 이 예제에서 다음과 같은 행위자 인터페이스는 `VoicemailBox`이라는 사용자 지정 데이터 형식을 반환하는 메서드를 정의합니다.
 
 ```csharp
@@ -35,6 +39,11 @@ public interface IVoiceMailBoxActor : IActor
 [StatePersistence(StatePersistence.Persisted)]
 public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
 {
+    public VoiceMailBoxActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task<VoicemailBox> GetMailboxAsync()
     {
         return this.StateManager.GetStateAsync<VoicemailBox>("Mailbox");
@@ -82,7 +91,7 @@ public class VoicemailBox
 }
 ```
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [행위자 수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
 * [행위자 타이머 및 미리 알림](service-fabric-reliable-actors-timers-reminders.md)
 * [행위자 이벤트](service-fabric-reliable-actors-events.md)
@@ -90,4 +99,8 @@ public class VoicemailBox
 * [행위자 다형성 및 개체 지향 디자인 패턴](service-fabric-reliable-actors-polymorphism.md)
 * [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

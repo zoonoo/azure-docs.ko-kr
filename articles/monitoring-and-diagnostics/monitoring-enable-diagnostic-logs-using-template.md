@@ -1,12 +1,12 @@
 ---
-title: Resource Manager 템플릿을 사용하여 진단 설정 자동 활성화 | Microsoft Docs
-description: Resource Manager 템플릿을 사용하여 이벤트 허브로 진단 로그 스트림을 활성화하거나 로그를 저장소 계정에 저장하는 진단 설정을 만드는 방법을 알아봅니다.
+title: "Resource Manager 템플릿을 사용하여 진단 설정 자동 활성화 | Microsoft Docs"
+description: "Resource Manager 템플릿을 사용하여 이벤트 허브로 진단 로그 스트림을 활성화하거나 로그를 저장소 계정에 저장하는 진단 설정을 만드는 방법을 알아봅니다."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: a8a88a8c-4a48-4df6-8f7e-d90634d39c57
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
+
 
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정 자동 활성화
@@ -185,12 +189,15 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
 > 
 > 
 
-샘플을 포함한 전체 과정은 [이 문서](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)에 설명되어 있습니다.
+샘플을 포함한 전체 과정은 [이 문서](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 설명되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 진단 로그에 대해 자세히 알아보기](monitoring-overview-of-diagnostic-logs.md)
 * [이벤트 허브로 Azure 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

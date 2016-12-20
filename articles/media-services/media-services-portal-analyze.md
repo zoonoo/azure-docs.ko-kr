@@ -1,143 +1,151 @@
 ---
-title: Analyze your media using the Azure portal | Microsoft Docs
-description: This topic discusses how to process your media with Media Analytics media processors (MPs) using the Azure portal.
+title: "Azure Portal을 사용하여 미디어 분석 | Microsoft 문서"
+description: "이 항목에서는 Azure Portal을 사용하여 미디어 분석 미디어 프로세서(MP)로 미디어를 처리하는 방법을 설명합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d66b9e4c237ca195e2e0094aead7ce029f4fdf36
+
 
 ---
-# <a name="analyze-your-media-using-the-azure-portal"></a>Analyze your media using the Azure portal
+# <a name="analyze-your-media-using-the-azure-portal"></a>Azure Portal을 사용하여 미디어 분석
 > [!NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
 > 
 > 
 
-## <a name="overview"></a>Overview
-Azure Media Services Analytics is a collection of speech and vision components (at enterprise scale, compliance, security and global reach) that make it easier for organizations and enterprises to derive actionable insights from their video files. For more detailed overview of Azure Media Services Analytics see [this](media-services-analytics-overview.md) topic. 
+## <a name="overview"></a>개요
+Azure Media Services Analytics는 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음으로, 미디어 분석을 엔터프라이즈 규모, 규정 준수, 보안 및 전 세계 범위로 제공합니다. Azure Media Services Analytics에 대한 자세한 개요는 [이](media-services-analytics-overview.md) 항목을 참조하세요. 
 
-This topic discusses how to process your media with Media Analytics media processors (MPs) using the Azure portal. Media Analytics MPs produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage. 
+이 항목에서는 Azure Portal을 사용하여 미디어 분석 미디어 프로세서(MP)로 미디어를 처리하는 방법을 설명합니다. 미디어 분석 MP는 MP4 파일 또는 JSON 파일을 생성합니다. 미디어 프로세서가 MP4 파일을 생한 경우 파일을 점진적으로 다운로드할 수 있습니다. 미디어 프로세서가 JSON 파일을 생성한 경우 Azure Blob 저장소에서 해당 파일을 다운로드할 수 있습니다. 
 
-## <a name="choose-an-asset-that-you-want-to-analyze"></a>Choose an asset that you want to analyze
-1. In the **Settings** window, select **Assets**.  
-   .
-    ![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
-2. Select the asset that you would like to analyze and press the **Analyze** button.
+## <a name="choose-an-asset-that-you-want-to-analyze"></a>분석하려는 자산을 선택
+1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.
+2. **설정** 창에서 **자산**을 선택합니다.  
+   을 참조하세요.
+    ![비디오 분석](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
+3. 분석할 자산을 선택하고 **분석** 단추를 누릅니다.
    
-    ![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze002.png)
-3. In the **Process media asset with  Media Analytics** window, select the processor. 
+    ![비디오 분석](./media/media-services-portal-analyze/media-services-portal-analyze002.png)
+4. **미디어 분석기를 사용하여 미디어 자산 처리** 창에서 프로세서를 선택합니다. 
    
-    The rest of the article explains why and how to use each processor. 
-4. Press **Create** to the start a job.
+    문서의 나머지 부분에서는 각 프로세서를 사용하는 이유와 방법을 설명합니다. 
+5. **만들기**를 눌러 작업을 시작합니다.
 
-## <a name="azure-media-indexer"></a>Azure Media Indexer
-The **Azure Media Indexer** media processor enables you to make media files and content searchable, as well as generate closed captioning tracks. This sections gives some details about options that you can specify for this MP.
+## <a name="azure-media-indexer"></a>Azure 미디어 인덱서
+**Azure Media Indexer** 미디어 프로세서를 사용하여 미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙을 생성할 수 있습니다. 이 섹션에서는 이 MP에 대해 지정할 수 있는 옵션에 대한 자세한 내용을 제공합니다.
 
-![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
+![비디오 분석](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
-### <a name="language"></a>Language
-The natural language to be recognized in the multimedia file. For example, English or Spanish. 
+### <a name="language"></a>언어
+멀티미디어 파일에서 인식되는 자연 언어입니다. 예를 들어 영어 또는 스페인어입니다. 
 
-### <a name="captions"></a>Captions
-You can choose a caption format that will be generated from your content. An indexing job can generate closed caption files in the following formats:  
+### <a name="captions"></a>자막
+콘텐츠에서 생성할 자막 형식을 선택할 수 있습니다. 인덱싱 작업은 다음 형식의 선택 캡션 파일을 생성할 수 있습니다.  
 
 * **SAMI**
 * **TTML**
 * **WebVTT**
 
-Closed Caption (CC) files in these formats can be used to make audio and video files accessible to people with hearing disability.
+이러한 형식의 CC(선택 캡션)는 청각 장애가 있는 사용자가 액세스할 수 있는 오디오 및 비디오 파일을 만드는 데 사용될 수 있습니다.
 
-### <a name="aib-file"></a>AIB file
-Select this option if you would like to generate the Audio Index Blob file for use with the custom SQL Server IFilter. For more information, see [this](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blog.
+### <a name="aib-file"></a>AIB 파일
+사용자 지정 SQL Server IFilter에 사용하기 위해 Audio Index Blob 파일을 생성하려는 경우 이 옵션을 선택합니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) 를 참조하세요.
 
-### <a name="keywords"></a>Keywords
-Select this option if you would like to generate a keywords XML file. This file contains keywords extracted from the speech content, with frequency and offset information.
+### <a name="keywords"></a>키워드
+키워드 XML 파일을 생성하려는 경우 이 옵션을 선택합니다. 이 파일은 빈도 및 오프셋 정보를 포함하며 음성 콘텐츠에서 추출된 키워드를 포함합니다.
 
-### <a name="job-name"></a>Job name
-A friendly name that lets you identify the job. [This](media-services-portal-check-job-progress.md) article describes how you can monitor the progress of a job. 
+### <a name="job-name"></a>작업 이름
+작업을 식별할 수 있는 친숙한 이름입니다. [이](media-services-portal-check-job-progress.md) 문서에서는 작업 진행률을 모니터링하는 방법을 설명합니다. 
 
-### <a name="output-file"></a>Output file
-A friendly name that lets you identify the output content. 
+### <a name="output-file"></a>출력 파일
+출력 콘텐츠를 식별할 수 있는 친숙한 이름입니다. 
 
-## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse is an MP that creates smooth time-lapsed videos from first-person or action-camera content.  For more information, see [this](media-services-hyperlapse-content.md) topic. This sections gives some details about options that you can specify for this MP.
+## <a name="azure-media-hyperlapse"></a>Azure 미디어 Hyperlapse
+Azure Media Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만드는 MP입니다.  자세한 내용은 [이 항목](media-services-hyperlapse-content.md)을 참조하세요. 이 섹션에서는 이 MP에 대해 지정할 수 있는 옵션에 대한 자세한 내용을 제공합니다.
 
-![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
+![비디오 분석](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
-### <a name="speed"></a>Speed
-Specify the speed with which to speed up the input video. The output is a stabilized and time-lapsed rendition of the input video.
+### <a name="speed"></a>속도
+입력 비디오를 가속화할 속도를 지정합니다. 출력은 입력 비디오의 안정화되고 시간 경과된 표현입니다.
 
-### <a name="job-name"></a>Job name
-A friendly name that lets you identify the job. [This](media-services-portal-check-job-progress.md) article describes how you can monitor the progress of a job. 
+### <a name="job-name"></a>작업 이름
+작업을 식별할 수 있는 친숙한 이름입니다. [이](media-services-portal-check-job-progress.md) 문서에서는 작업 진행률을 모니터링하는 방법을 설명합니다. 
 
-### <a name="output-file"></a>Output file
-A friendly name that lets you identify the output content. 
+### <a name="output-file"></a>출력 파일
+출력 콘텐츠를 식별할 수 있는 친숙한 이름입니다. 
 
-## <a name="azure-media-face-detector"></a>Azure Media Face Detector
-The **Azure Media Face Detector** media processor (MP) enables you to count, track movements, and even gauge audience participation and reaction via facial expressions. This service contains two features: 
+## <a name="azure-media-face-detector"></a>Azure 미디어 얼굴 탐지기
+**Azure 미디어 얼굴 탐지기** MP(미디어 프로세서)를 사용하여 이동 추적, 계산이 가능해지며 표정을 통해 대상 그룹 참여 및 반응 판단도 가능합니다. 이 서비스는 두 가지 기능을 포함합니다. 
 
-* **Face detection**
+* **얼굴 검색**
   
-    Face detection finds and tracks human faces within a video. Multiple faces can be detected and subsequently be tracked as they move around, with the time and location metadata returned in a JSON file. During tracking, it will attempt to give a consistent ID to the same face while the person is moving around on screen, even if they are obstructed or briefly leave the frame.
+    얼굴 검색은 동영상 내의 얼굴을 찾아 추적합니다. 여러 얼굴이 검색될 수 있으며 이후 JSON 파일로 반환되는 시간 및 위치 메타데이터를 사용하여 얼굴이 움직일 때마다 추적할 수 있습니다. 추적하는 동안 화면에서 사용자가 움직일 때, 가려지거나 프레임에서 잠시 벗어나는 경우에도 동일한 얼굴에 일관된 ID를 지정하려고 합니다.
   
   > [!NOTE]
-  > This services does not perform facial recognition. An individual who leaves the frame or becomes obstructed for too long will be given a new ID when they return.
+  > 이 서비스는 안면 인식을 수행하지 않습니다. 너무 오래 프레임에서 벗어나있거나 가려지는 경우에는 다시 돌아왔을 때 새 ID가 지정됩니다.
   > 
   > 
-* **Emotion detection**
+* **감정 검색**
   
-    Emotion Detection is an optional component of the Face Detection Media Processor that returns analysis on multiple emotional attributes from the faces detected, including happiness, sadness, fear, anger, and more. 
+    감정 검색은 검색된 얼굴로부터 행복, 슬픔, 두려움, 분노 등의 여러 감정적 특성에 대한 분석을 반환하는 얼굴 탐지 미디어 프로세서의 선택적 구성 요소입니다. 
 
-![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze005.png)
+![비디오 분석](./media/media-services-portal-analyze/media-services-portal-analyze005.png)
 
-### <a name="detection-mode"></a>Detection mode
-One of the following modes can be used by the processor:
+### <a name="detection-mode"></a>감지 모드
+프로세서에 다음 모드 중 하나를 사용할 수 있습니다.
 
-* face detection
-* per face emotion detection
-* aggregate emotion detection
+* 얼굴 감지
+* 얼굴별 감정 감지
+* 감정 집계 감지
 
-### <a name="job-name"></a>Job name
-A friendly name that lets you identify the job. [This](media-services-portal-check-job-progress.md) article describes how you can monitor the progress of a job. 
+### <a name="job-name"></a>작업 이름
+작업을 식별할 수 있는 친숙한 이름입니다. [이](media-services-portal-check-job-progress.md) 문서에서는 작업 진행률을 모니터링하는 방법을 설명합니다. 
 
-### <a name="output-file"></a>Output file
-A friendly name that lets you identify the output content. 
+### <a name="output-file"></a>출력 파일
+출력 콘텐츠를 식별할 수 있는 친숙한 이름입니다. 
 
-## <a name="azure-media-motion-detector"></a>Azure Media Motion Detector
-The **Azure Media Motion Detector** media processor (MP) enables you to efficiently identify sections of interest within an otherwise long and uneventful video. Motion detection can be used on static camera footage to identify sections of the video where motion occurs. It generates a JSON file containing a metadata with timestamps and the bounding region where the event occurred.
+## <a name="azure-media-motion-detector"></a>Azure 미디어 동작 탐지기
+**Azure 미디어 동작 탐지기** 의 MP(미디어 프로세서)를 사용하여 길고 특별하지 않은 동영상 중에서 원하는 섹션을 효율적으로 식별합니다. 동작 검색은 고정된 카메라 장면에서 동작이 발생한 동영상 섹션을 식별하는 데 사용할 수 있습니다. 이벤트가 발생한 경계 영역 및 타임스탬프가 있는 메타데이터를 포함하는 JSON 파일을 생성합니다.
 
-Targeted towards security video feeds, this technology is able to categorize motion into relevant events and false positives such as shadows and lighting changes. This allows you to generate security alerts from camera feeds without being spammed with endless irrelevant events, while being able to extract moments of interest from extremely long surveillance videos.
+보안 동영상 피드를 대상으로 하는 이 기술은 동작을 관련 이벤트와 그림자 및 조명 변화와 같은 가양성으로 분류할 수 있습니다. 이를 통해 수많은 관련 없는 이벤트로 인해 스팸 처리되지 않고 카메라 피드로부터 보안 경고를 생성할 수 있으며, 아주 긴 감시 동영상으로부터 필요한 순간을 추출할 수 있습니다.
 
-![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze006.png)
+![비디오 분석](./media/media-services-portal-analyze/media-services-portal-analyze006.png)
 
-## <a name="azure-media-video-thumbnails"></a>Azure Media Video Thumbnails
-This processor can help you create summaries of long videos by automatically selecting interesting snippets from the source video. This is useful when you want to provide a quick overview of what to expect in a long video. For detailed information and examples, see [Use Azure Media Video Thumbnails to Create a Video Summarization](media-services-video-summarization.md)
+## <a name="azure-media-video-thumbnails"></a>Azure 미디어 비디오 미리 보기
+이 프로세서를 사용하면 원본 비디오에서 흥미로운 조각을 자동으로 선택하여 긴 비디오의 요약을 만들 수 있습니다. 이는 긴 비디오에서 예상되는 사항에 대한 빠른 개요를 제공하려는 경우에 유용합니다. 자세한 내용 및 예제는 [Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기](media-services-video-summarization.md)
 
-![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze008.png)
+![비디오 분석](./media/media-services-portal-analyze/media-services-portal-analyze008.png)
 
-### <a name="job-name"></a>Job name
-A friendly name that lets you identify the job. [This](media-services-portal-check-job-progress.md) article describes how you can monitor the progress of a job. 
+### <a name="job-name"></a>작업 이름
+작업을 식별할 수 있는 친숙한 이름입니다. [이](media-services-portal-check-job-progress.md) 문서에서는 작업 진행률을 모니터링하는 방법을 설명합니다. 
 
-### <a name="output-file"></a>Output file
-A friendly name that lets you identify the output content. 
+### <a name="output-file"></a>출력 파일
+출력 콘텐츠를 식별할 수 있는 친숙한 이름입니다. 
 
-## <a name="next-steps"></a>Next steps
-View Media Services learning paths.
+## <a name="next-steps"></a>다음 단계
+Media Services 학습 경로 보기.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Provide feedback
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

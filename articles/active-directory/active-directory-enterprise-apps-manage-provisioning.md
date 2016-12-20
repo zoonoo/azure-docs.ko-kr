@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory 미리 보기에서 엔터프라이즈 앱에 대한 사용자 프로비저닝 관리 | Microsoft Docs
-description: Azure Active Directory 미리 보기를 사용하여 엔터프라이즈 앱에 대한 사용자 계정 프로비전을 관리하는 방법에 대해 알아봅니다.
+title: "Azure Active Directory 미리 보기에서 엔터프라이즈 앱에 대한 사용자 프로비저닝 관리 | Microsoft Docs"
+description: "Azure Active Directory 미리 보기를 사용하여 엔터프라이즈 앱에 대한 사용자 계정 프로비전을 관리하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/12/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9cecfdee4af934e68412699ce3166514c5521bb0
+
 
 ---
-# <a name="preview:-managing-user-account-provisioning-for-enterprise-apps-in-the-new-azure-portal"></a>미리 보기: 새 Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
+# <a name="preview-managing-user-account-provisioning-for-enterprise-apps-in-the-new-azure-portal"></a>미리 보기: 새 Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
 이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 지원하는 응용 프로그램(특히 [Azure Active Directory 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)의 "기능을 갖춘" 범주에서 추가된 응용 프로그램)에 대한 자동 사용자 계정 프로비전 및 프로비전 해제를 관리하는 방법을 설명합니다. 새 Azure Portal의 이 관리 환경은 현재 공개 미리 보기 상태이며, 이 문서에서는 새로운 기능뿐만 아니라 미리 보기 기간 중에 적용되는 몇 가지 임시 제한 사항에 대해 설명합니다. [미리 보기 상태에서의 기능](active-directory-preview-explainer.md)
 
 자동 사용자 계정 프로비전 및 작동 방식에 대한 자세한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램에 사용자 프로비전 및 프로비전 해제 자동화](active-directory-saas-app-provisioning.md)를 참조하세요.
@@ -81,6 +85,6 @@ Azure AD와 대상 응용 프로그램 간에 만들어지고 업데이트 및 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Distributed data and distributed table options for the Massively Parallel Processing (MPP) systems of SQL Data Warehouse and Parallel Data Warehouse | Microsoft Docs
-description: Learn how data is distributed for Massively Parallel Processing (MPP) and the options for distributing tables in Azure SQL Data Warehouse and Parallel Data Warehouse.
+title: "SQL Data Warehouse 및 병렬 데이터 웨어하우스의 대규모 병렬 처리(MPP) 시스템에 대한 분산 데이터 및 분산 테이블 옵션 | Microsoft Docs"
+description: "SQL Data Warehouse 및 병렬 데이터 웨어하우스의 대규모 병렬 처리(MPP) 시스템에 데이터가 분산되는 원리와 분산 테이블의 옵션에 대해 알아봅니다."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: bae494a6-7ac5-4c38-8ca3-ab2696c63a9f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,62 +14,69 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1090c2156df11adc6f18dffe00a9d37921c0a3a3
+
 
 ---
-# <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>Distributed data and distributed tables for Massively Parallel Processing (MPP)
-Learn how user data is distributed in Azure SQL Data Warehouse and Parallel Data Warehouse, which are Microsoft's Massively Parallel Processing (MPP) systems. Designing your data warehouse to use distributed data effectively helps you to achieve the query processing benefits of the MPP architecture. A few database design choices can have a significant impact on improving query performance.  
+# <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>대규모 병렬 처리(MPP)에 대한 분산 데이터 및 분산 테이블
+Microsoft의 대규모 병렬 처리(MPP) 시스템인 SQL Data Warehouse 및 병렬 데이터 웨어하우스의 사용자 데이터가 분산되는 원리에 대해 알아봅니다. 분산 데이터를 효율적으로 사용하도록 데이터 웨어하우스를 디자인하면 MPP 아키텍처의 쿼리 처리 장점을 얻을 수 있습니다. 몇 가지 데이터베이스 디자인 선택에 따라 쿼리 성능 향상에 상당한 영향을 미칠 수 있습니다.  
 
 > [!NOTE]
-> Azure SQL Data Warehouse and Parallel Data Warehouse use the same Massively Parallel Processing (MPP) design, but they have a few differences because of the underlying platform. SQL Data Warehouse is a Platform as a Service (PaaS) that runs on Azure. Parallel Data Warehouse runs on Analytics Platform System (APS) which is an on-premises appliance that runs on Windows Server.
+> Azure SQL Data Warehouse 및 병렬 데이터 웨어하우스는 동일한 대규모 병렬 처리(MPP) 디자인을 사용하지만, 기본 플랫폼 때문에 몇 가지 차이점이 있습니다. SQL Data Warehouse는 Azure에서 실행되는 PaaS(Platform as a Service)입니다. 병렬 데이터 웨어하우스는 Windows Server에서 실행되는 온-프레미스 어플라이언스인 APS(분석 플랫폼 시스템)에서 실행됩니다.
 > 
 > 
 
-## <a name="what-is-distributed-data"></a>What is distributed data?
-In SQL Data Warehouse and Parallel Data Warehouse, distributed data refers to user data that is stored in multiple locations across the MPP system. Each of those locations functions as an independent storage and processing unit that runs queries on its portion of the data. Distributed data is fundamental to running queries in parallel to achieve high query performance.
+## <a name="what-is-distributed-data"></a>분산 데이터란?
+SQL Data Warehouse 및 병렬 데이터 웨어하우스에서 분산 데이터란 MPP 시스템의 여러 위치에 저장되는 사용자 데이터를 말합니다. 이러한 각 위치는 데이터의 해당 부분에서 쿼리를 실행하는 독립 저장소이자 처리 장치로써 역할을 수행합니다. 분산 데이터는 쿼리를 병렬로 실행하여 높은 쿼리 성능을 얻기 위한 기본 사항입니다.
 
-To distribute data, the data warehouse assigns each row of a user table to one distributed location.  You can distribute tables with a hash-distribution method or a round-robin method. The distribution method is specified in the CREATE TABLE statement. 
+데이터를 분산하기 위해 데이터 웨어하우스는 사용자 테이블의 각 행을 하나의 분산 위치에 할당합니다.  해시 분산 메서드 또는 라운드 로빈 메서드를 사용하여 테이블을 분산할 수 있습니다. 분산 메서드는 CREATE TABLE 문에서 지정합니다. 
 
-## <a name="hashdistributed-tables"></a>Hash-distributed tables
-The following diagram illustrates how a full (non-distributed table) gets stored as a hash-distributed table. A deterministic function assigns each row to belong to one distribution. In the table definition, one of the columns is designated as the distribution column. The hash function uses the value in the distribution column to assign each row to a distribution.
+## <a name="hash-distributed-tables"></a>해시 분산 테이블
+다음은 전체(분산되지 않은 테이블)가 해시 분산 테이블로 저장되는 방식을 보여 주는 다이어그램입니다. 결정적 함수는 각 행이 한 분산에 속하도록 각 행을 할당합니다. 테이블 정의에서 열 중 하나는 분산 열로 지정됩니다. 해시 함수는 분산 열의 값을 사용하여 각 행을 분산에 할당합니다.
 
-There are performance considerations for the selection of a distribution column, such as distinctness, data skew, and the types of queries run on the system.
+분산 열을 선택할 때 고유성, 데이터 오차, 시스템에서 실행되는 쿼리 종류 등 성능에 대해 고려할 사항이 있습니다.
 
-![Distributed table](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
+![분산 테이블](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
 
-* Each row belongs to one distribution.  
-* A deterministic hash algorithm assigns each row to one distribution.  
-* The number of table rows per distribution varies as shown by the different sizes of tables.
+* 각 행은 하나의 분산에 속합니다.  
+* 결정적 해시 알고리즘은 각 행을 하나의 분산에 할당합니다.  
+* 분산당 테이블 행의 수는 테이블 크기에 따라 달라집니다.
 
-## <a name="roundrobin-distributed-tables"></a>Round-robin distributed tables
-A round-robin distributed table distributes the rows by assigning each row to a distribution in a sequential manner. It is quick to load data into a round-robin table, but query performance might be slower.  Joining a round-robin table usually requires reshuffling the rows to enable the query to produce an accurate result, which takes time.
+## <a name="round-robin-distributed-tables"></a>라운드 로빈 분산 테이블
+라운드 로빈 분산 테이블은 각 행을 순차적으로 분산에 할당하여 행을 분산합니다. 데이터를 라운드 로빈 테이블에 로드하는 속도는 빠르지만 쿼리 성능이 느려질 수 있습니다.  일반적으로 라운드 로빈 테이블을 조인하려면 쿼리에서 정확한 결과를 도출할 수 있도록 행을 다시 섞어야 하며, 이 작업에 시간이 걸립니다.
 
-## <a name="distributed-storage-locations-are-called-distributions"></a>Distributed storage locations are called distributions
-Each distributed location is called a distribution. When a query runs in parallel, each distribution performs a SQL query on its portion of the data. SQL Data Warehouse uses SQL Database to run the query. Parallel Data Warehouse uses SQL Server to run the query. This shared-nothing architecture design is fundamental to achieving scale-out parallel computing.
+## <a name="distributed-storage-locations-are-called-distributions"></a>분산된 저장소 위치를 분산이라고 함
+분산된 각 위치를 분산이라고 부릅니다. 쿼리가 병렬로 실행되면 각 분산은 데이터의 해당 부분에서 SQL 쿼리를 수행합니다. SQL Data Warehouse는 SQL Database를 사용하여 쿼리를 실행합니다. 병렬 데이터 웨어하우스는 SQL Server를 사용하여 쿼리를 실행합니다. 이 비공유 아키텍처 설계는 확장 병렬 컴퓨팅을 구축하기 위한 기본입니다.
 
-### <a name="can-i-view-the-distributions"></a>Can I view the distributions?
-Each distribution has a distribution ID and is visible in system views that pertain to SQL Data Warehouse and Parallel Data Warehouse. You can use the distribution ID to troubleshoot query performance and other problems. For a list of the system views, see the [MPP system view](sql-data-warehouse-reference-tsql-statements.md).
+### <a name="can-i-view-the-distributions"></a>분산을 볼 수 있나요?
+각 분산은 분산 ID를 갖고 있으며 SQL Data Warehouse 및 병렬 데이터 웨어하우스와 관련된 시스템 뷰에 표시됩니다. 분산 ID를 사용하여 쿼리 성능 및 기타 문제를 해결할 수 있습니다. 시스템 뷰 목록은 [MPP 시스템 뷰](sql-data-warehouse-reference-tsql-statements.md)를 참조하세요.
 
-## <a name="difference-between-a-distribution-and-a-compute-node"></a>Difference between a distribution and a Compute node
-A distribution is the basic unit for storing distributed data and processing parallel queries. Distributions are grouped into Compute nodes. Each Compute node tracks one or more distributions.  
+## <a name="difference-between-a-distribution-and-a-compute-node"></a>분산과 계산 노드의 차이점
+분산은 분산 데이터를 저장하고 병렬 쿼리를 처리하는 기본 단위입니다. 분산은 계산 노드로 그룹화됩니다. 각 계산 노드는 하나 이상의 분산을 추적합니다.  
 
-* Analytics Platform System uses Compute nodes as a central component of the hardware architecture and scale-out capabilities. It always uses eight distributions per Compute node, as shown in the diagram for hash-distributed tables. The number of Compute nodes, and therefore the number of distributions, is determined by the number of Compute nodes you purchase for the appliance. For example, if you purchase eight Compute nodes, you get 64 distributions (8 Compute nodes x 8 distributions/node). 
-* SQL Data Warehouse has a fixed number of 60 distributions and a flexible number of Compute nodes. The Compute nodes are implemented with Azure computing and storage resources. The number of Compute nodes can change according to the backend service workload and the computing capacity (DWUs) you specify for the data warehouse. When the number of Compute nodes changes, the number of distributions per Compute node also changes. 
+* 분석 플랫폼 시스템은 하드웨어 아키텍처 및 확장 기능의 중앙 구성 요소로 계산 노드를 사용합니다. 해시 분산 테이블에 대한 다이어그램처럼 항상 계산 노드 하나당 8개의 분산을 사용합니다. 계산 노드의 수 그리고 그에 따른 분산의 수는 어플라이언스에 대해 구매하는 계산 노드의 수에 따라 결정됩니다. 예를 들어 8개의 계산 노드를 구매하면 64개의 분산(계산 노드 8개 x 분산 8개/노드)을 얻게 됩니다. 
+* SQL Data Warehouse는 분산의 수는 60개로 고정되어 있고 계산 노드의 수는 유연하게 결정할 수 있습니다. 계산 노드는 Azure 컴퓨팅 및 저장소 리소스를 통해 구현됩니다. 데이터 웨어하우스에 대해 지정하는 백 엔드 서비스 워크로드 및 컴퓨팅 용량(DWU)에 따라 계산 노드의 수가 달라질 수 있습니다. 계산 노드의 수가 변경되면 계산 노드당 분산의 수도 변경됩니다. 
 
-### <a name="can-i-view-the-compute-nodes"></a>Can I view the Compute nodes?
-Each Compute node has a node ID and is visible in system views that pertain to SQL Data Warehouse and Parallel Data Warehouse.  You can see the Compute node by looking for the node_id column in system views whose names begin with sys.pdw_nodes. For a list of the system views, see the [MPP system view](sql-data-warehouse-reference-tsql-statements.md).
+### <a name="can-i-view-the-compute-nodes"></a>계산 노드를 볼 수 있나요?
+각 계산 노드는 노드 ID를 갖고 있으며 SQL Data Warehouse 및 병렬 데이터 웨어하우스와 관련된 시스템 뷰에 표시됩니다.  시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 계산 노드를 볼 수 있습니다. 시스템 뷰 목록은 [MPP 시스템 뷰](sql-data-warehouse-reference-tsql-statements.md)를 참조하세요.
 
-## <a name="a-namereplicatedareplicated-tables-for-parallel-data-warehouse"></a><a name="Replicated"></a>Replicated Tables for Parallel Data Warehouse
-Applies to: Parallel Data Warehouse
+## <a name="a-namereplicatedareplicated-tables-for-parallel-data-warehouse"></a><a name="Replicated"></a>병렬 데이터 웨어하우스의 복제 테이블
+적용 대상: 병렬 데이터 웨어하우스
 
-In addition to using distributed tables, Parallel Data Warehouse offers an option to replicate tables. A *replicated table* is a table that is stored in its entirety on each Compute node. Replicating a table removes the need to transfer its table rows among Compute nodes before using the table in a join or aggregation. Replicated tables are only feasible with small tables because of the extra storage required to store the full table on each compute node.  
+병렬 데이터 웨어하우스는 분산 테이블을 사용할 뿐 아니라 테이블을 복제하는 옵션을 제공합니다. *복제 테이블*은 각 계산 노드에 통째로 저장된 테이블입니다. 테이블을 복제하면 계산 노드 간에 테이블 행을 전송하지 않아도 조인 또는 집계에 테이블을 사용할 수 있습니다. 테이블 복제는 테이블 크기가 작은 경우에만 가능합니다. 각 계산 노드의 전체 테이블을 저장하려면 추가 저장소가 필요하기 때문입니다.  
 
-The following diagram shows a replicated table that is stored on each Compute node. The replicated table is stored across all disks assigned to the Compute node. This disk strategy is implemented by using SQL Server filegroups.  
+다음은 각 계산 노드에 저장된 복제 테이블을 보여 주는 다이어그램입니다. 복제 테이블은 해당 계산 노드에 할당된 모든 디스크에 저장됩니다. 이 디스크 전략은 SQL Server 파일 그룹을 사용하여 구현됩니다.  
 
-![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
+![복제 테이블](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
 
-## <a name="next-steps"></a>Next steps
-To use distributed tables effectively, see [Distributing tables in SQL Data Warehouse](sql-data-warehouse-tables-distribute.md)  
+## <a name="next-steps"></a>다음 단계
+분산 테이블을 효과적으로 사용하려면 [SQL Data Warehouse의 테이블 분산](sql-data-warehouse-tables-distribute.md)을 참조하세요.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

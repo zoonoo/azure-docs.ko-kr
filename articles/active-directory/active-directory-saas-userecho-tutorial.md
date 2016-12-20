@@ -1,12 +1,12 @@
 ---
-title: '자습서: UserEcho와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory 및 UserEcho 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: UserEcho와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory 및 UserEcho 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bedd916b-8f69-4b50-9b8d-56f4ee3bd3ed
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a59878b0cb6f33af27f5008faf828cd4eb0eb537
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-userecho"></a>자습서: UserEcho와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-userecho"></a>자습서: UserEcho와 Azure Active Directory 통합
 이 자습서에서는 UserEcho와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.  
 UserEcho를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다. 
 
@@ -277,6 +281,6 @@ UserEcho를 사용하여 시작할 수 있는 초대장이 Britta에게 전송�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: 클래식 배포 모델 및 PowerShell을 사용하여 가상 네트워크를 Express 경로 회로에 연결 | Microsoft Docs
-description: 이 문서는 클래식 배포 모델 및 PowerShell을 사용하여 VNet(가상 네트워크)을 Express 경로 회로에 연결하는 방법에 대한 개요를 제공합니다.
+title: "클래식 배포 모델 및 PowerShell을 사용하여 ExpressRoute 회로에 가상 네트워크 연결 | Microsoft 문서"
+description: "이 문서는 클래식 배포 모델 및 PowerShell을 사용하여 VNet(가상 네트워크)을 Express 경로 회로에 연결하는 방법에 대한 개요를 제공합니다."
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 9b53fd72-9b6b-4844-80b9-4e1d54fd0c17
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 99d5facce236b82ea84c708edf5e934a0d69919c
+ms.openlocfilehash: 1c0891c79081f068fd6e4a60a05a6b58ebdc9598
+
 
 ---
 # <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>가상 네트워크를 Express 경로 회로에 연결합니다.
@@ -66,7 +70,9 @@ ms.author: ganesr
 회로 소유자는 언제든지 부여된 권한을 수정하고 해지할 수 있습니다. 권한 부여를 해지하면 액세스가 해지된 구독에서 모든 링크가 삭제됩니다.
 
 ### <a name="circuit-owner-operations"></a>회로 소유자 작업
-#### <a name="creating-an-authorization"></a>권한 부여 만들기
+
+**권한 부여 만들기**
+
 회로 소유자는 다른 구독 관리자에게 지정한 회로를 사용할 수 있는 권한을 부여합니다. 아래 예제에서 회로 관리자는(Contoso IT) 다른 구독의 관리자가(Dev-Test) 회로에 대해 최대 2개의 가상 네트워크를 연결하도록 설정합니다. Contoso IT 관리자는 Dev-Test Microsoft ID를 지정하여 이것을 설정합니다. 다음 cmdlet은 지정된 Microsoft ID로 전자 메일을 보내지 않습니다. 회로 소유자는 권한 부여가 완료된 사실을 다른 구독 소유자에게 명시적으로 알려야 합니다.
 
     New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
@@ -77,7 +83,8 @@ ms.author: ganesr
     MicrosoftIds        : devtest@contoso.com
     Used                : 0
 
-#### <a name="reviewing-authorizations"></a>권한 부여 검토
+**권한 부여 검토**
+
 회로 소유자는 다음 cmdlet을 실행하여 특정 회로에 발급한 모든 권한 부여를 검토할 수 있습니다.
 
     Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
@@ -101,7 +108,8 @@ ms.author: ganesr
     Used                : 2
 
 
-#### <a name="updating-authorizations"></a>권한 부여 업데이트하기
+**권한 부여 업데이트**
+
 회로 소유자는 다음 cmdlet을 사용하여 권한 부여를 수정할 수 있습니다.
 
     Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
@@ -113,14 +121,17 @@ ms.author: ganesr
     Used                : 0
 
 
-#### <a name="deleting-authorizations"></a>권한 부여 삭제하기
+**권한 부여 삭제**
+
 회로 소유자는 다음 cmdlet을 실행하여 권한 부여를 취소/삭제할 수 있습니다.
 
     Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
 
 
 ### <a name="circuit-user-operations"></a>회로 사용자 작업
-#### <a name="reviewing-authorizations"></a>권한 부여 검토
+
+**권한 부여 검토**
+
 회로 사용자는 다음 cmdlet을 사용하여 권한 부여를 검토할 수 있습니다.
 
     Get-AzureAuthorizedDedicatedCircuit
@@ -135,7 +146,8 @@ ms.author: ganesr
     Status                           : Enabled
     UsedLinks                        : 0
 
-#### <a name="redeeming-link-authorizations"></a>링크 권한 부여 사용하기
+**링크 권한 부여 사용**
+
 회로 사용자는 다음 cmdlet을 실행하여 링크 권한 부여를 사용할 수 있습니다.
 
     New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
@@ -147,6 +159,9 @@ ms.author: ganesr
 ## <a name="next-steps"></a>다음 단계
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

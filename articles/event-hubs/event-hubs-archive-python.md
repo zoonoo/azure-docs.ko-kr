@@ -1,12 +1,12 @@
 ---
-title: Azure Event Hubs 보관 연습 | Microsoft Docs
-description: Azure Python SDK를 통해 Event Hubs 보관 기능을 사용하는 방법을 설명하는 예제입니다.
+title: "Azure Event Hubs 보관 연습 | Microsoft Docs"
+description: "Azure Python SDK를 통해 Event Hubs 보관 기능을 사용하는 방법을 설명하는 예제입니다."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: djrosanova
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 ms.author: darosa;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c836558426b44633993f9f52de39d0a843039614
+
 
 ---
-# Event Hubs 보관 연습: Python
+# <a name="event-hubs-archive-walkthrough-python"></a>Event Hubs 보관 연습: Python
 Event Hubs 보관은 Event Hubs의 스트림 데이터를 선택한 Azure Blob Storage 계정에 자동으로 전달할 수 있도록 하는 이벤트 허브의 새로운 기능입니다. 이렇게 하면 손쉽게 실시간 스트리밍 데이터에서 일괄 처리를 수행할 수 있습니다. 이 문서에서는 Python과 함께 Event Hubs 보관을 사용하는 방법을 설명합니다. Event Hubs 보관에 대한 자세한 내용은 [개요 문서](event-hubs-archive-overview.md)를 참조하세요.
 
 이 샘플에서는 Azure Python SDK를 사용하여 보관 기능 사용 방법을 보여 줍니다. sender.py가 JSON 형식으로 Event Hubs에 시뮬레이트된 환경 원격 분석을 보냅니다. 이벤트 허브는 보관 기능을 사용하여 Blob Storage에 일괄 작업으로 이 데이터를 작성하도록 구성됩니다. 그런 다음 archivereader.py가 이러한 Blob을 읽고 장치당 추가 파일을 만들어 .csv 파일에 데이터를 작성합니다.
@@ -36,23 +40,23 @@ Event Hubs 보관은 Event Hubs의 스트림 데이터를 선택한 Azure Blob S
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## Azure 저장소 계정 만들기
-1. [Azure 포털][Azure 포털]에 로그온합니다.
+## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+1. [쉬운 테이블][쉬운 테이블]에 로그인합니다.
 2. 포털의 왼쪽 탐색 창에서 새로 만들기, 데이터 + 저장소, 저장소 계정을 차례로 클릭합니다.
 3. 저장소 계정 블레이드에서 필드를 완성하고 **만들기**를 클릭합니다.
    
    ![][1]
-4. **배포 성공** 메시지가 나타나면 새 저장소 계정을 클릭하고 **필수** 블레이드에서 **Blob**을 클릭합니다. **Blob service** 블레이드가 열리면 맨 위의 **+ 컨테이너**를 클릭합니다. 컨테이너 이름을 **보관**으로 지정한 다음 **Blob service** 블레이드를 닫습니다.
-5. 왼쪽 블레이드에서 **액세스 키**를 클릭하고 저장소 계정 이름과 **key1** 값을 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 저장합니다.
+4. **배포 성공** 메시지가 나타나면 새 저장소 계정을 클릭하고 **Essentials** 블레이드에서 **Blob**을 클릭합니다. **Blob service** 블레이드가 열리면 맨 위의 **+ 컨테이너**를 클릭합니다. 컨테이너 이름을 **archive**로 지정한 다음 **Blob service** 블레이드를 닫습니다.
+5. 왼쪽 블레이드에서 **선택키** 를 클릭하고 저장소 계정 이름과 **key1** 값을 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 저장합니다.
 
 [!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
-## 이벤트 허브로 이벤트를 보내는 Python 스크립트 만들기
-1. 선호하는 Python 편집기(예: [Visual Studio Code][Visual Studio Code])를 엽니다.
-2. **sender.py**라는 스크립트 만들기 이 스크립트는 이벤트 허브에 200개의 이벤트를 전송합니다. 이 이벤트는 JSON 형식으로 전송한 간단한 환경 판독값입니다.
+## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>이벤트 허브로 이벤트를 보내는 Python 스크립트 만들기
+1. 선호하는 Python 편집기(예: [Contact.java][Contact.java])를 엽니다.
+2. **sender.py**라는 스크립트를 만듭니다. 이 스크립트는 이벤트 허브에 200개의 이벤트를 전송합니다. 이 이벤트는 JSON 형식으로 전송한 간단한 환경 판독값입니다.
 3. 다음 코드를 sender.py에 붙여넣습니다.
    
-   ```
+   ```python
    import uuid
    import datetime
    import random
@@ -73,12 +77,12 @@ Event Hubs 보관은 Event Hubs의 스트림 데이터를 선택한 Azure Blob S
    ```
 4. Event Hubs 네임스페이스를 만들 때 얻은 키 값과 네임스페이스 이름을 사용하도록 앞의 코드를 업데이트합니다.
 
-## 보관 파일을 읽는 Python 스크립트 만들기
+## <a name="create-a-python-script-to-read-your-archive-files"></a>보관 파일을 읽는 Python 스크립트 만들기
 1. 블레이드를 채우고 **만들기**를 클릭합니다.
 2. **archivereader.py**라는 스크립트를 만듭니다. 이 스크립트는 보관 파일을 읽고 장치마다 파일을 만들어 해당 장치에만 데이터를 씁니다.
 3. archivereader.py에 다음 코드를 붙여넣습니다.
    
-   ```
+   ```python
    import os
    import string
    import json
@@ -122,7 +126,7 @@ Event Hubs 보관은 Event Hubs의 스트림 데이터를 선택한 Azure Blob S
    ```
 4. 호출의 저장소 계정 이름 및 키의 적절한 값을 `startProcessing`에 붙여넣습니다.
 
-## 스크립트 실행
+## <a name="run-the-scripts"></a>스크립트 실행
 1. 해당 경로에 Python을 포함하는 명령 프롬프트를 열고 다음 명령을 실행하여 Python 필수 구성 요소 패키지를 설치합니다.
    
    ```
@@ -153,21 +157,25 @@ Event Hubs 보관은 Event Hubs의 스트림 데이터를 선택한 Azure Blob S
 
 이 보관 프로세서는 로컬 디렉터리를 사용하여 저장소 계정/컨테이너에서 모든 Blob을 다운로드합니다. 비어 있지 않은 모든 Blob을 처리하고 로컬 디렉터리에 .csv 파일로 결과를 작성합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-* [Event Hubs 보관 개요][Event Hubs 보관 개요]
-* [이벤트 허브를 사용하는 샘플 응용 프로그램][이벤트 허브를 사용하는 샘플 응용 프로그램] 전체.
-* [이벤트 허브를 사용하는 이벤트 처리 확장][이벤트 허브를 사용하는 이벤트 처리 확장] 샘플
-* [이벤트 허브 개요][이벤트 허브 개요]
+* [Event Hubs 보관의 개요][Event Hubs 보관 개요]
+* 전체 [Event Hubs를 사용하는 샘플 응용 프로그램][이벤트 허브를 사용하는 샘플 응용 프로그램].
+* [Event Hubs를 사용하는 이벤트 처리 확장][이벤트 허브를 사용하는 이벤트 처리 확장] 샘플.
+* [Event Hubs 개요][이벤트 허브 개요]
 
-[Azure 포털]: https://portal.azure.com/
+[쉬운 테이블]: https://portal.azure.com/
 [Event Hubs 보관 개요]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
-[About Azure storage accounts]: https://azure.microsoft.com/documentation/articles/storage-create-storage-account/
-[Visual Studio Code]: https://code.visualstudio.com/
+[Azure 저장소 계정 정보]: https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
+[Contact.java]: https://code.visualstudio.com/
 [이벤트 허브 개요]: event-hubs-overview.md
 [이벤트 허브를 사용하는 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [이벤트 허브를 사용하는 이벤트 처리 확장]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

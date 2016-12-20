@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/17/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 
 ---
-# <a name="getting-started-with-azure-multifactor-authentication-in-the-cloud"></a>클라우드에서 Azure Multi-Factor Authentication 시작
+# <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>클라우드에서 Azure Multi-Factor Authentication 시작
 이 문서에서는 클라우드에서 Azure Multi-Factor Authentication을 사용하기 시작하는 방법에 대해 설명합니다.
 
 > [!NOTE]
@@ -41,12 +41,12 @@ ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
 > 
 > 
 
-## <a name="turn-on-twostep-verification-for-users"></a>사용자에 대한 2단계 확인을 설정합니다.
+## <a name="turn-on-two-step-verification-for-users"></a>사용자에 대한 2단계 확인을 설정합니다.
 사용자에 대한 2단계 확인을 요구하려면 사용자의 상태를 사용 안 함에서 사용으로 변경합니다.  사용자 상태에 대한 자세한 내용은 [Azure Multi-Factor Authentication의 사용자 상태](multi-factor-authentication-get-started-user-states.md)를 참조하세요.
 
 다음 절차를 사용하여 사용자에 대해 MFA를 사용하도록 설정합니다.
 
-### <a name="to-turn-on-multifactor-authentication"></a>다단계 인증을 설정하려면
+### <a name="to-turn-on-multi-factor-authentication"></a>다단계 인증을 설정하려면
 1. 관리자 권한으로 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. 왼쪽에서 **Active Directory**를 클릭합니다.
 3. 디렉터리에서 사용하도록 설정하려는 사용자에 대한 디렉터리를 선택합니다.
@@ -66,8 +66,8 @@ ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
 
 사용자를 사용하도록 설정하면 전자 메일을 통해 알려야 합니다. 다음에 로그인하려는 경우 2단계 확인에 대한 해당 계정을 등록하라는 메시지가 표시됩니다. 2단계 확인을 사용하기 시작하면 비 브라우저 앱이 잠기지 않도록 방지하려면 앱 암호를 설정해야 합니다.
 
-## <a name="use-powershell-to-automate-turning-on-twostep-verification"></a>PowerShell을 사용하여 2단계 확인 자동 켜기
-[Azure AD PowerShell](../powershell-install-configure.md)을 사용하여 [상태](multi-factor-authentication-whats-next.md)를 변경하려면 다음을 사용할 수 있습니다.  `$st.State` 를 다음 중 하나로 변경할 수 있습니다.
+## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>PowerShell을 사용하여 2단계 확인 자동 켜기
+[Azure AD PowerShell](/powershell/azureps-cmdlets-docs)을 사용하여 [상태](multi-factor-authentication-whats-next.md)를 변경하려면 다음을 사용할 수 있습니다.  `$st.State` 를 다음 중 하나로 변경할 수 있습니다.
 
 * 사용
 * 적용
@@ -107,6 +107,6 @@ PowerShell을 사용하면 많은 사용자에 대해 사용을 설정할 수 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

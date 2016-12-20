@@ -1,12 +1,12 @@
 ---
-title: Azure Monitor에서의 역할, 권한 및 보안 시작 | Microsoft Docs
-description: Azure Monitor 기본 제공 역할 및 권한을 사용하여 모니터링 리소스에 대한 액세스를 제한하는 방법을 알아봅니다.
+title: "Azure Monitor에서의 역할, 권한 및 보안 시작 | Microsoft Docs"
+description: "Azure Monitor 기본 제공 역할 및 권한을 사용하여 모니터링 리소스에 대한 액세스를 제한하는 방법을 알아봅니다."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
+
 
 ---
-# <a name="get-started-with-roles,-permissions,-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
+# <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
 많은 팀에서는 모니터링 데이터 및 설정에 대한 액세스를 엄격히 규제할 필요가 있습니다. 예를 들어 모니터링에 대해 단독으로 작업하는 팀원(지원 엔지니어, devops 엔지니어)이 있거나, 관리되는 서비스 공급자를 사용할 경우 이들에게 리소스 생성, 수정 또는 삭제 기능은 제한하면서 모니터링 데이터에 대해서만 액세스를 부여하고자 할 수 있씁니다. 이 문서에서는 Azure의 사용자에게 기본 제공 모니터링 RBAC 역할을 신속하게 적용하거나 제한된 모니터링 권한이 필요한 사용자에 대해 자체 사용자 지정 역할을 구성하는 방법을 보여 줍니다. 그런 다음 Azure Monitor 관련 리소스에 대한 보안 고려 사항과, 포함된 데이터에 대한 액세스를 제한하는 방법에 대해 논의합니다.
 
 ## <a name="built-in-monitoring-roles"></a>기본 제공 모니터링 역할
@@ -57,6 +61,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 * Log Analytics(OMS) 인텔리전스 팩을 사용하거나 사용하지 않도록 설정합니다.
 * Log Analytics(OMS) 저장된 검색을 만들고 삭제합니다.
 * Log Analytics(OMS) 저장소 구성을 만들고 삭제합니다.
+
 * 사용자가 로그 프로필이나 진단 설정을 구성하려면 대상 리소스(저장소 계정 또는 이벤트 허브 네임스페이스)에 대한 ListKeys 권한도 별도로 받아야 합니다.
 
 > [!NOTE]
@@ -165,6 +170,9 @@ New-AzureRmRoleDefinition -Role $role
 * [Resource Manager의 RBAC 및 권한에 대해 읽기](../active-directory/role-based-access-control-what-is.md)
 * [Azure의 모니터링 개요 읽기](monitoring-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

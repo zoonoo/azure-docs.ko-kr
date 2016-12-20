@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
-ms.author: osamazia
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bd7537a81661bc175a770fdbd6388ba07ea912ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5e3c65d9ada5c75e0ddef3b3778a79ca77aa07d8
 
 
 ---
@@ -101,7 +101,7 @@ Azure 개인 피어링을 통해 보급된 최대 4000개의 접두사를 지원
 
 접두사의 수가 제한을 초과하는 경우 BGP 세션은 삭제됩니다. 개인 피어링 링크의 기본 경로만을 수락합니다. 공급자는 공용 Azure 및 Microsoft 피어 링 경로에서 기본 경로 및 개인 IP 주소(RFC 1918)를 필터링해야 합니다. 
 
-## <a name="transit-routing-and-crossregion-routing"></a>전송 라우팅 및 영역 간 라우팅
+## <a name="transit-routing-and-cross-region-routing"></a>전송 라우팅 및 영역 간 라우팅
 Express 경로는 전송 라우터로 구성할 수 없습니다. 전송 라우팅 서비스의 경우 연결 공급자에 의존해야 합니다.
 
 ## <a name="advertising-default-routes"></a>기본 경로 광고
@@ -194,6 +194,6 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

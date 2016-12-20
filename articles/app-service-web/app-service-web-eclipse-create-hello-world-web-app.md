@@ -1,12 +1,12 @@
 ---
-title: Eclipse에서 Azure용 Hello World 웹앱 만들기 | Microsoft Docs
-description: 이 자습서에서는Eclipse용 Azure 도구 키트를 사용하여 Azure용 Hello World 웹앱을 만드는 방법을 보여 줍니다.
+title: "Eclipse에서 Azure용 Hello World 웹앱 만들기 | Microsoft Docs"
+description: "이 자습서에서는Eclipse용 Azure 도구 키트를 사용하여 Azure용 Hello World 웹앱을 만드는 방법을 보여 줍니다."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 20d41e88-9eab-462e-8ee3-89da71e7a33f
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
+
 
 ---
 # <a name="create-a-hello-world-web-app-for-azure-in-eclipse"></a>Eclipse에서 Azure용 Hello World 웹앱 만들기
@@ -70,9 +74,9 @@ ms.author: robmcm
     ![Azure 웹앱 컨테이너에 배포 대화 상자][06]
 6. 이전에 Azure 웹앱 컨테이너를 만들지 않은 경우 또는 응용 프로그램을 새 컨테이너에 게시하려는 경우 다음 단계를 사용합니다. 그렇지 않으면 기존 웹앱 컨테이너를 선택하고 아래의 7단계로 건너뜁니다.
    
-   1. **새로 만들기...**
+   1.  **새로 만들기...**
       
-      ![Azure 웹앱 컨테이너에 배포 대화 상자][15]
+       ![Azure 웹앱 컨테이너에 배포 대화 상자][15]
    2. **새 웹앱 컨테이너** 대화 상자가 표시됩니다.
       
        ![새 웹앱 컨테이너 대화 상자][07a]
@@ -85,7 +89,7 @@ ms.author: robmcm
       
        기존 리소스 그룹(있는 경우)을 선택하고 아래 g 단계로 건너뛰거나 이들 단계를 통해 새 리소스 그룹을 만들 수 있습니다.
       
-      * **새로 만들기...**
+      *  **새로 만들기...**
       * **새 리소스 그룹** 대화 상자가 표시됩니다.
         
           ![새 리소스 그룹 대화 상자][08]
@@ -103,7 +107,7 @@ ms.author: robmcm
       
        기존 앱 서비스 계획(있는 경우)을 선택하고 아래 h 단계로 건너뛰거나 이들 단계를 통해 새 앱 서비스 계획을 만들 수 있습니다.
       
-      * **새로 만들기...**
+      *  **새로 만들기...**
       * **새 앱 서비스 계획** 대화 상자가 표시됩니다.
         
           ![새 App Service 계획 대화 상자][09]
@@ -211,6 +215,6 @@ Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

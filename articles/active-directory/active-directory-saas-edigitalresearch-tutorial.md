@@ -1,12 +1,12 @@
 ---
-title: '자습서: eDigitalResearch와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 eDigitalResearch 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: eDigitalResearch와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 eDigitalResearch 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c6b66ea0-16ba-45b4-b550-e81c56262b1f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ce449d6a64b4ef9022939f0487a30157f7014673
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-edigitalresearch"></a>자습서: eDigitalResearch와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>자습서: eDigitalResearch와 Azure Active Directory 통합
 이 자습서에서는 eDigitalResearch와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 eDigitalResearch을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -104,7 +108,7 @@ eDigitalResearch에서 Microsoft Azure AD Single Sign-On을 구성하고 테스�
     ![Single Sign-on 구성](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_03.png) 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행하고 **다음**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_04.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_04.png)
    
     a. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
    
@@ -125,11 +129,11 @@ eDigitalResearch에서 Microsoft Azure AD Single Sign-On을 구성하고 테스�
     b. **다음**을 클릭합니다.
 5. 응용 프로그램에 대해 구성된 SSO를 얻으려면 eDigitalResearch 지원 팀에 문의하고 다음을 제공하십시오. 
    
-   * **다운로드한 인증서** 파일
-     
-     – **엔터티 ID**
-     
-     - **Single Sign-Out 서비스 URL**
+      - **다운로드한 인증서** 파일
+   
+      – **엔터티 ID**
+   
+      - **Single Sign-Out 서비스 URL**
 6. 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
    
     ![Azure AD Single Sign-On][10]
@@ -242,6 +246,6 @@ eDigitalResearch에서 Microsoft Azure AD Single Sign-On을 구성하고 테스�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,5 +1,5 @@
 # 개요
-## [SQL 데이터베이스 정의](sql-database-technical-overview.md)
+## [SQL Database 정의](sql-database-technical-overview.md)
 ### [서비스 계층](sql-database-service-tiers.md)
 ### [데이터베이스 트랜잭션 단위](sql-database-what-is-a-dtu.md)
 ### [DTU 벤치마크 개요](sql-database-benchmark-overview.md)
@@ -21,7 +21,8 @@
 ## [솔루션 빠른 시작](sql-database-solution-quick-starts.md)
 ## 보안
 ### [Azure SQL Database에 대한 Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
-### [SQL 보안 센터](https://msdn.microsoft.com/library/azure/bb510589)
+### [SQL Security Center](https://msdn.microsoft.com/library/azure/bb510589)
+
 # 시작
 ## 데이터베이스 및 서버
 ### 단일 데이터베이스
@@ -104,7 +105,7 @@
 ##### [열 암호화](https://msdn.microsoft.com/library/azure/ms179331)
 #### 데이터 마스킹
 ##### 동적 데이터 마스킹
-###### [Azure 포털](sql-database-dynamic-data-masking-get-started.md)
+###### [Azure Portal](sql-database-dynamic-data-masking-get-started.md)
 ### 실행 사항
 #### [Azure Portal을 사용하여 동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)
 ## 비즈니스 연속성
@@ -125,7 +126,7 @@
 ##### [Azure Portal](sql-database-point-in-time-restore-portal.md)
 ##### [PowerShell](sql-database-point-in-time-restore-powershell.md)
 #### 지역 복원 데이터베이스
-##### [Azure 포털](sql-database-geo-restore-portal.md)
+##### [Azure Portal](sql-database-geo-restore-portal.md)
 ##### [PowerShell](sql-database-geo-restore-powershell.md)
 #### [단일 테이블](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 #### [데이터 센터 가동 중단에서 복구](sql-database-disaster-recovery.md)
@@ -133,11 +134,11 @@
 ### 데이터베이스 복제
 #### [활성 지역 복제 개요](sql-database-geo-replication-overview.md)
 #### 활성 지역 복제 구성
-##### [Azure 포털](sql-database-geo-replication-portal.md)
+##### [Azure Portal](sql-database-geo-replication-portal.md)
 ##### [PowerShell](sql-database-geo-replication-powershell.md)
 ##### [T-SQL](sql-database-geo-replication-transact-sql.md)
 #### 활성 지역 복제로 장애 조치
-##### [Azure 포털](sql-database-geo-replication-failover-portal.md)
+##### [Azure Portal](sql-database-geo-replication-failover-portal.md)
 ##### [PowerShell](sql-database-geo-replication-failover-powershell.md)
 ##### [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 ## 앱 개발
@@ -189,11 +190,12 @@
 #### [Azure Portal을 사용하여 업그레이드](sql-database-upgrade-server-portal.md)
 #### [Powershell을 사용하여 업그레이드](sql-database-upgrade-server-powershell.md)
 #### [가격 책정 계층 권장 사항](sql-database-service-tier-advisor.md)
+
 # 방법
 ## 만들기 및 관리
 ### 서버 및 데이터베이스
 #### [단일 데이터베이스](sql-database-manage-portal.md)
-#### [Azure 포털](sql-database-get-started.md)
+#### [Azure Portal](sql-database-get-started.md)
 #### [C#](sql-database-get-started-csharp.md)
 #### [PowerShell](sql-database-manage-powershell.md)
 #### [SQL Server Management Studio](sql-database-manage-azure-ssms.md)
@@ -270,7 +272,7 @@
 #### [링 버퍼 대상 코드](sql-database-xevent-code-ring-buffer.md)
 ## 데이터 이동
 ### [SQL 데이터베이스 복사](sql-database-copy.md)
-#### [Azure 포털](sql-database-copy-portal.md)
+#### [Azure Portal](sql-database-copy-portal.md)
 #### [PowerShell](sql-database-copy-powershell.md)
 #### [T-SQL](sql-database-copy-transact-sql.md)
 ### 데이터베이스를 BACPAC 파일로 내보내기
@@ -315,7 +317,6 @@
 #### [Azure Portal](sql-database-geo-replication-failover-portal.md)
 #### [PowerShell](sql-database-geo-replication-failover-powershell.md)
 #### [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-
 ## 문제 해결
 ### [연결 문제](sql-database-troubleshoot-common-connection-issues.md)
 ### [일시적인 연결 오류](sql-database-troubleshoot-connection.md)
@@ -325,26 +326,26 @@
 
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
-## [PowerShell 클래식](/powershell/servicemanagement/)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
+## [PowerShell(탄력적 DB)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [.NET](https://docs.microsoft.com)
+## [Java](/java/api/com.microsoft.azure.management.sql)
+## [Node.JS](https://msdn.microsoft.com/library/mt652093.aspx)
+## [Python](https://msdn.microsoft.com/library/mt652092.aspx)
+## [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+## [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [Azure SQL Database cmdlet](/powershell/resourcemanager/AzureRM.Sql/v1.0.12/AzureRM.Sql)
-## [SQL Server Cmdlet](https://msdn.microsoft.com/library/mt740629.aspx)
 ## [REST (영문)](/rest/api/sql/)
 
+# 관련 항목
 ## SQL Database 관리 라이브러리
-### [SQL Database 관리 라이브러리 참조](https://msdn.microsoft.com/library/azure/mt349017.aspx)
 ### [SQL Database 관리 라이브러리 패키지 가져오기](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 ## [SQL Server 드라이버](https://msdn.microsoft.com/library/mt654049.aspx)
 ### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
 ### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
-### [Node.JS](https://msdn.microsoft.com/library/mt652093.aspx)
+
 ### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
-### [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
-### [Python](https://msdn.microsoft.com/library/mt652092.aspx)
-### [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)
@@ -360,6 +361,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

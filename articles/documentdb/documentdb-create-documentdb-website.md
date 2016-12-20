@@ -1,12 +1,12 @@
 ---
-title: Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 및 Azure 앱 서비스 웹앱 배포 | Microsoft Docs
-description: Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 계정, Azure 앱 서비스 웹앱 및 샘플 웹 응용 프로그램을 배포하는 방법을 알아봅니다.
+title: "Azure Resource Manager 템플릿을 사용하여 DocumentDB 및 Azure App Service Web Apps 배포 | Microsoft Docs"
+description: "Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 계정, Azure 앱 서비스 웹앱 및 샘플 웹 응용 프로그램을 배포하는 방법을 알아봅니다."
 services: documentdb, app-service\web
 author: h0n
 manager: jhubbard
 editor: monicar
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2016
 ms.author: hawong
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ea624ffc9a33fe89aea065de8c96efd79d6c2b9a
+
 
 ---
 # <a name="deploy-documentdb-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 및 Azure 앱 서비스 웹앱 배포
@@ -38,7 +42,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 
 * Azure 구독. Azure는 구독 기반 플랫폼입니다.  구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](https://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](https://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-## <a name="<a-id="createdb"></a>step-1:-download-the-template-files"></a><a id="CreateDB"></a>1단계: 템플릿 파일 다운로드
+## <a name="a-idcreatedbastep-1-download-the-template-files"></a><a id="CreateDB"></a>1단계: 템플릿 파일 다운로드
 먼저 이 자습서에서 사용할 템플릿 파일을 다운로드합니다.
 
 1. [DocumentDB 계정, 웹앱 만들기 및 데모 응용 프로그램 배포 샘플](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json) 템플릿을 로컬 폴더(예: C:\DocumentDBTemplates)에 다운로드합니다. 이 템플릿은 DocumentDB 계정, 앱 서비스 웹앱 및 웹 응용 프로그램을 배포합니다.  또한 DocumentDB 계정에 연결되도록 웹 응용 프로그램을 자동으로 구성합니다.
@@ -46,7 +50,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 
 <a id="Build"></a>
 
-## <a name="step-2:-deploy-the-documentdb-account,-app-service-web-app-and-demo-application-sample"></a>2단계: DocumentDB 계정, 앱 서비스 웹앱 및 데모 응용 프로그램 샘플 배포
+## <a name="step-2-deploy-the-documentdb-account-app-service-web-app-and-demo-application-sample"></a>2단계: DocumentDB 계정, 앱 서비스 웹앱 및 데모 응용 프로그램 샘플 배포
 이제 첫 번째 템플릿을 배포합니다.
 
 > [!TIP]
@@ -86,7 +90,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 
 <a id="Build"></a> 
 
-## <a name="step-3:-deploy-the-document-account-and-web-app-sample"></a>3단계: 문서 계정 및 웹앱 샘플 배포
+## <a name="step-3-deploy-the-document-account-and-web-app-sample"></a>3단계: 문서 계정 및 웹앱 샘플 배포
 이제 두 번째 템플릿을 배포합니다.  이 템플릿은 계정 끝점 및 마스터 키와 같은 DocumentDB 연결 정보를 응용 프로그램 설정 또는 사용자 지정 연결 문자열로 웹앱에 주입하는 방법을 보여 주는 데 유용합니다. 예를 들어 DocumentDB 계정을 사용하여 배포하는 웹 응용 프로그램이 있어서 배포하는 동안 연결 정보가 자동으로 채워졌을 수도 있습니다.
 
 > [!TIP]
@@ -129,7 +133,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 * Azure 앱 서비스 웹앱에 대해 자세히 알아보려면 [여기](http://go.microsoft.com/fwlink/?LinkId=325362)를 클릭하세요.
 * Azure 리소스 관리자 템플릿에 대해 자세히 알아보려면 [여기](https://msdn.microsoft.com/library/azure/dn790549.aspx)를 클릭하세요.
 
-## <a name="what's-changed"></a>변경된 내용
+## <a name="whats-changed"></a>변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [Azure 클래식 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
 
@@ -138,6 +142,9 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

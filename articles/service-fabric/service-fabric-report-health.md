@@ -1,12 +1,12 @@
 ---
-title: 사용자 지정 서비스 패브릭 상태 보고서 추가 | Microsoft Docs
-description: Azure 서비스 패브릭 상태 엔터티에 사용자 지정 상태 보고서를 보내는 방법을 설명합니다. 고품질 상태 보고서 설계 및 구현에 대한 권장 사항을 제공합니다.
+title: "사용자 지정 Service Fabric 상태 보고서 추가 | Microsoft Docs"
+description: "Azure 서비스 패브릭 상태 엔터티에 사용자 지정 상태 보고서를 보내는 방법을 설명합니다. 고품질 상태 보고서 설계 및 구현에 대한 권장 사항을 제공합니다."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2016
 ms.author: oanapl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d986275612b3e5c97636936a5e448dd6d0fcfc4e
+
 
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>사용자 지정 서비스 패브릭 상태 보고서 추가
@@ -156,7 +160,7 @@ Watchdog 세부 정보가 마무리되면 Watchdog를 고유하게 식별하는 
 
 하지만 위에 설명된 상황에서 보고가 수행되며, 상태를 평가할 때 응용 프로그램 상태에서 보고서가 포착됩니다.
 
-## <a name="report-periodically-vs.-on-transition"></a>주기적 보고 대 전환기 보고
+## <a name="report-periodically-vs-on-transition"></a>주기적 보고 대 전환기 보고
 상태 보고 모델을 사용하면 Watchdog에서 주기적으로 또는 전환기에 보고서를 보낼 수 있습니다. 코드가 훨씬 간단하고 오류 가능성이 적으므로 Watchdog 보고에는 주기적 보고를 권장합니다. 잘못된 보고서를 트리거하는 버그를 방지할 수 있도록 Watchdog는 최대한 간단해야 합니다. 잘못된 *비정상* 보고서는 상태 평가에 영향을 미치고 업그레이드를 비롯한 상태 기반 시나리오에도 영향을 미칩니다. 잘못된 *정상* 보고서는 클러스터의 문제를 숨기는데, 이것은 바람직하지 않습니다.
 
 주기적인 보고를 위해 Watchdog를 타이머와 함께 구현할 수 있습니다. 타이머 콜백이 발생하면 Watchdog는 상태를 확인하고 현재 상태를 기반으로 보고서를 보냅니다. 이전에 어떤 보고서를 전송했는지 확인하거나 메시지 전송과 관련한 최적화를 수행할 필요가 없습니다. 상태 클라이언트에는 성능을 돕기 위한 일괄 처리 논리가 있습니다. 상태 클라이언트가 유지되는 동안 Health 스토어에서 보고서가 ACK될 때까지 또는 Watchdog가 동일한 엔터티, 속성 및 소스에 대한 새 보고서를 생성할 때가지 내부적으로 재시도합니다.
@@ -303,6 +307,9 @@ HealthEvents          :
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

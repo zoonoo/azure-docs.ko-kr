@@ -1,12 +1,12 @@
 ---
-title: Azure Mobile Engagement 사용자 인터페이스 - 홈
-description: Azure Mobile Engagement를 사용하여 기존 응용 프로그램과 프로젝트를 관리하는 방법을 알아봅니다.
+title: "Azure Mobile Engagement 사용자 인터페이스 - 홈"
+description: "Azure Mobile Engagement를 사용하여 기존 응용 프로그램과 프로젝트를 관리하는 방법을 알아봅니다."
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: aff578d2-40f6-43e4-b0ea-7d2674cb28a1
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a3af9aa0a7b9707203932051883f61792047558a
+
 
 ---
-# 기존 응용 프로그램 및 프로젝트를 관리하는 방법
-이 문서에서는 **Mobile Engagement** 포털의 **홈**페이지를 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다. 포털 사용을 시작하려면 먼저 **Azure Mobile Engagement** 계정을 만들어야 합니다.
+# <a name="how-to-manage-your-existing-application-and-projects"></a>기존 응용 프로그램 및 프로젝트를 관리하는 방법
+이 문서에서는 **Mobile Engagement** 포털의 **홈** 페이지를 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다. 포털 사용을 시작하려면 먼저 **Azure Mobile Engagement** 계정을 만들어야 합니다. 
 
-홈페이지로 이동하려면 페이지의 왼쪽 위에서 **홈**을 클릭합니다. 선택한 컬렉션에 속하는 모든 응용 프로그램 목록이 있습니다. 이 페이지에서는 응용 프로그램의 빠른 개요만 참조합니다.
+홈페이지로 이동하려면 페이지의 왼쪽 위에서 **홈** 을 클릭합니다. 선택한 컬렉션에 속하는 모든 응용 프로그램 목록이 있습니다. 이 페이지에서는 응용 프로그램의 빠른 개요만 참조합니다.
 
 또한 홈페이지에는 계정의 모든 응용 프로그램을 포함할 수 있는 모든 프로젝트가 있습니다. 누구나 계정을 만들면 UI의 홈페이지에 액세스할 수 있지만 다른 사용자들이 **내 프로젝트**의 사용자 지정 응용 프로그램에 액세스하도록 하려면 해당 사용자에게 권한을 부여해야 합니다.
 
@@ -27,7 +31,7 @@ ms.author: piyushjo
 
 ![Home1][0]
 
-## 내 응용 프로그램
+## <a name="my-applications"></a>내 응용 프로그램
 응용 프로그램에 대한 간략한 개요에서 상세한 리본 옵션을 확인하기 위해 열 응용 프로그램을 선택할 수 있습니다. 응용 프로그램 이름을 클릭하면 응용 프로그램에서 가장 자주 방문하는 리본 위치가 반환되며, 기어 아이콘을 클릭하면 응용 프로그램의 "설정" 페이지로 직접 이동할 수 있습니다. 응용 프로그램 테이블에 표시되는 정보를 검색, 필터링 또는 정렬할 수 있습니다. 열 머리글을 끌어서 놓는 방법으로 순서를 변경할 수도 있습니다.
 
 무엇보다도 응용 프로그램 개요에는 다음 항목이 포함됩니다.
@@ -38,14 +42,14 @@ ms.author: piyushjo
 * **세션**: 세션은 사용자가 응용 프로그램 사용을 시작한 시간부터 중지할 때까지 한 번 사용하는 것
 * **세션 추세**: 지난 2주 동안의 세션 증가 수
 
-응용 프로그램을 클릭하면 UI를 통해 앱 모니터링 및 관리를 시작할 수 있습니다. 예:
+응용 프로그램을 클릭하면 UI를 통해 앱 모니터링 및 관리를 시작할 수 있습니다. 예:    
 
 * [응용 프로그램에 대한 실시간 데이터 모니터링](mobile-engagement-user-interface-monitor.md)
 * [응용 프로그램에 대한 기록 데이터 분석](mobile-engagement-user-interface-analytics.md)
 * [사용자의 세그먼트를 만들고 관리하여 사용 패턴 식별](mobile-engagement-user-interface-segments.md)
 * [푸시 알림으로 응용 프로그램의 사용자에게 알림](mobile-engagement-user-interface-reach.md)
 
-## 내 프로젝트
+## <a name="my-projects"></a>내 프로젝트
 프로젝트를 사용하여 응용 프로그램을 그룹화하고 다른 사용자에게 응용 프로그램에 액세스할 수 있는 권한을 부여할 수 있습니다. 메일 주소를 제공하여 다른 사용자에게 권한을 부여합니다. **새 프로젝트** 단추를 사용하면 새 프로젝트의 "이름"과 "설명"만 입력하여 새 프로젝트를 만들 수 있습니다. 프로젝트를 만든 후에는 프로젝트 이름을 클릭하여 제품 이름과 설명을 편집하고 이 프로젝트에 표시할 모든 응용 프로그램을 선택할 수 있습니다.
 
 ![Home6][60]
@@ -60,9 +64,9 @@ ms.author: piyushjo
 
 ![Home2][3]
 
-## 참고 항목
-* [개념][Link 6]
-* [문제 해결 가이드 서비스][Link 24]
+## <a name="see-also"></a>참고 항목
+* [개념][링크 6]
+* [문제 해결 가이드 서비스][링크 24]
 
 <!--Image references-->
 [0]: ./media/mobile-engagement-user-interface-home/home0.png
@@ -127,38 +131,42 @@ ms.author: piyushjo
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: ../mobile-engagement-how-tos-first-push.md
-[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Link 32]: ../mobile-engagement-how-tos-text-view.md
-[Link 33]: ../mobile-engagement-how-tos-web-view.md
+[링크 1]: mobile-engagement-user-interface.md
+[링크 2]: mobile-engagement-troubleshooting-guide.md
+[링크 3]: mobile-engagement-how-tos.md
+[링크 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[링크 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[링크 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[링크 7]: https://account.windowsazure.com/PreviewFeatures
+[링크 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[링크 9]: http://azure.microsoft.com/services/mobile-engagement/
+[링크 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[링크 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[링크 12]: mobile-engagement-user-interface-navigation.md
+[링크 13]: mobile-engagement-user-interface-home.md
+[링크 14]: mobile-engagement-user-interface-my-account.md
+[링크 15]: mobile-engagement-user-interface-analytics.md
+[링크 16]: mobile-engagement-user-interface-monitor.md
+[링크 17]: mobile-engagement-user-interface-reach.md
+[링크 18]: mobile-engagement-user-interface-segments.md
+[링크 19]: mobile-engagement-user-interface-dashboard.md
+[링크 20]: mobile-engagement-user-interface-settings.md
+[링크 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[링크 22]: mobile-engagement-troubleshooting-guide-apis.md
+[링크 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[링크 24]: mobile-engagement-troubleshooting-guide-service.md
+[링크 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[링크 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[링크 27]: ../mobile-engagement-how-tos-first-push.md
+[링크 28]: ../mobile-engagement-how-tos-test-campaign.md
+[링크 29]: ../mobile-engagement-how-tos-personalize-push.md
+[링크 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[링크 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[링크 32]: ../mobile-engagement-how-tos-text-view.md
+[링크 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

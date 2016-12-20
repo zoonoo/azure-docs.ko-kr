@@ -40,12 +40,15 @@
 
 
 # 참조
-## [PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Azure CLI](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
-## [지원 메트릭 목록](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-## [REST API](https://msdn.microsoft.com/library/azure/dn931943)
+## [REST (영문)](/rest/api/monitor/)
 
-<!--HONumber=Nov16_HO4-->
+# 리소스
+## [PowerShell 샘플](../monitoring-and-diagnostics/insights-powershell-samples.md)
+## [Azure CLI 2.0(미리보기) 샘플](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [지원 메트릭 목록](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
+
+<!--HONumber=Dec16_HO1-->
 
 

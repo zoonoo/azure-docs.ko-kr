@@ -1,19 +1,23 @@
 ---
-title: 서비스 버스와 쌍을 이루는 네임 스페이스 | Microsoft Docs
-description: 쌍을 이루는 네임스페이스 구현의 세부 사항 및 비용
-services: service-bus
+title: "Service Bus와 쌍을 이루는 네임 스페이스 | Microsoft Docs"
+description: "쌍을 이루는 네임스페이스 구현의 세부 사항 및 비용"
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3e384611b598f4e5256f2957227927ffd7c4e5ff
+
 
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>쌍을 이루는 네임스페이스 구현의 세부 사항 및 비용의 영향
@@ -90,8 +94,8 @@ Ping 메시지는 [ContentType][ContentType] 속성을 application/vnd.ms-servic
 3. 기본 큐로 보냅니다.
 4. 기본 큐에서 수신합니다.
 
-## <a name="close/fault-behavior"></a>닫기/오류 동작
-사이펀을 호스팅하는 응용 프로그램 내에서 기본 또는 보조 [MessagingFactory][MessagingFactory]이 해당 파트너에 오류가 발생하거나 닫히지 않은 상태에서 오류가 발생하거나 닫히고, 사이펀이 이 상태를 감지하면 사이펀이 작동합니다. 다른 [MessagingFactory][MessagingFactory]가 5초 내에 닫히지 않으면 사이펀이 계속 열려 있는 [MessagingFactory][MessagingFactory]를 오류 처리합니다.
+## <a name="closefault-behavior"></a>닫기/오류 동작
+사이펀을 호스팅하는 응용 프로그램 내에서 기본 또는 보조 [MessagingFactory][MessagingFactory]가 해당 파트너에 오류가 발생하거나 닫히지 않은 상태에서 오류가 발생하거나 닫히고, 사이펀이 이 상태를 감지하면 사이펀이 작동합니다. 다른 [MessagingFactory][MessagingFactory]가 5초 내에 닫히지 않으면 사이펀이 계속 열려 있는 [MessagingFactory][MessagingFactory]를 오류 처리합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Service Bus 비동기 메시징에 대한 자세한 내용은 [비동기 메시징 패턴 및 고가용성][비동기 메시징 패턴 및 고가용성]을 참조하세요. 
@@ -118,6 +122,6 @@ Service Bus 비동기 메시징에 대한 자세한 내용은 [비동기 메시�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

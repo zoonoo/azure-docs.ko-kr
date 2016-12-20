@@ -1,12 +1,12 @@
 ---
-title: StorSimple 시스템 제한 | Microsoft Docs
-description: StorSimple 8000 시리즈 구성 요소 및 연결에 대한 시스템 제한 및 권장 크기에 대해 설명합니다.
+title: "StorSimple 시스템 제한 | Microsoft Docs"
+description: "StorSimple 8000 시리즈 구성 요소 및 연결에 대한 시스템 제한 및 권장 크기에 대해 설명합니다."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: c7392678-0924-46c6-9c59-1665cb9b6586
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/06/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 884f9ad8cf3c0862fa0f235ee19efd0dbdadbab6
+
 
 ---
 # <a name="storsimple-system-limits"></a>StorSimple 시스템 제한
@@ -53,6 +57,9 @@ StorSimple는 데이터 센터에 대해 확장 가능하고 유연한 저장소
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 시스템 요구 사항](storsimple-system-requirements.md)을 검토하십시오. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

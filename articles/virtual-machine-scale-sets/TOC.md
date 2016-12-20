@@ -2,15 +2,17 @@
 ## [가상 컴퓨터 크기 집합이란?](virtual-machine-scale-sets-overview.md)
 
 # 시작
-## [Windows 크기 집합 만들기](virtual-machine-scale-sets-windows-create.md)
-## [Linux 크기 집합 만들기](virtual-machine-scale-sets-linux-create-cli.md)
+## [포털에 크기 집합 만들기](virtual-machine-scale-sets-portal-create.md)
 
 # 방법
 ## 계획 및 디자인
 ### [디자인 고려 사항](virtual-machine-scale-sets-design-overview.md)
+
 ## 배포
 ### [포털을 사용하는 크기 집합](virtual-machine-scale-sets-portal-create.md)
 ### [Visual Studio를 사용하는 크기 집합](virtual-machine-scale-sets-vs-create.md)
+### [PowerShell을 사용한 크기 집합](virtual-machine-scale-sets-windows-create.md)
+### [Azure CLI를 사용한 크기 집합](virtual-machine-scale-sets-linux-create-cli.md)
 ### [자동 크기 조정 기능이 포함된 Linux 크기 집합](virtual-machine-scale-sets-linux-autoscale.md)
 ### [자동 크기 조정 기능이 포함된 Windows 크기 집합](virtual-machine-scale-sets-windows-autoscale.md)
 ### [크기 집합의 응용 프로그램](virtual-machine-scale-sets-deploy-app.md)
@@ -38,6 +40,6 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

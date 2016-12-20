@@ -1,28 +1,67 @@
 ---
-title: Azure SDK for .NET 2.9 릴리스 정보
-description: Azure SDK for .NET 2.9 릴리스 정보
+title: "Azure SDK for .NET 2.9 릴리스 정보"
+description: "Azure SDK for .NET 2.9 릴리스 정보"
 services: app-service\web
 documentationcenter: .net
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 10/17/2016
-ms.author: juliako
+ms.date: 11/16/2016
+ms.author: juliako;mikhegn
+translationtype: Human Translation
+ms.sourcegitcommit: 52ae631ad516767682122b0b5c05efb19e462209
+ms.openlocfilehash: a8be2c34358c817ca35ccfe46c97409a57ed539a
+
 
 ---
-# <a name="azure-sdk-for-.net-2.9-release-notes"></a>Azure SDK for .NET 2.9 릴리스 정보
+# <a name="azure-sdk-for-net-29-release-notes"></a>Azure SDK for .NET 2.9 릴리스 정보
+
+이 항목에는 Azure SDK for .NET 버전 2.9 및 2.9.6에 대한 릴리스 정보가 포함되어 있습니다.
+
+##<a name="azure-sdk-for-net-296-release-summary"></a>Azure SDK for .NET 2.9.6 릴리스 요약
+
+릴리스 날짜: 11/16/2016
+ 
+Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않았습니다. 기존 클라우드 서비스 프로젝트에서 이 SDK를 활용하는 데 필요한 업그레이드 프로세스도 없습니다.
+
+### <a name="visual-studio-2017-release-candidate"></a>Visual Studio 2017 릴리스 후보
+
+- Visual Studio 2017 RC에서는 이 Azure SDK for .NET 릴리스가 Azure 워크로드에 구축되었습니다. Azure 개발을 수행하는 데 필요한 모든 도구는 앞으로 Visual Studio 2017 RC에 포함될 예정입니다. Visual Studio 2015 및 Visual Studio 2013의 경우 해당 SDK는 계속 WebPI를 통해 사용할 수 있습니다. Visual Studio 2017이 최종 제품으로 출시될 때는 Visual Studio 2013용 Azure SDK for .NET 릴리스가 중단될 것입니다. Visual Studio 2017 RC를 다운로드하려면 https://www.visualstudio.com/vs/visual-studio-2017-rc/ 링크를 따라 이동하세요.
+
+### <a name="azure-diagnostics"></a>Azure 진단
+
+- 이 동작은 키가 클라우드 서비스 진단 저장소 연결 문자열에 대한 토큰으로 교체되어 부분 연결 문자열만 저장하는 방식으로 변경되었습니다. 이제 실제 저장소 키가 액세스를 제어할 수 있도록 사용자 프로필 폴더에 저장됩니다. Visual Studio는 로컬 디버깅 및 게시 프로세스에 대한 사용자 프로필 폴더에서 저장소 키를 읽습니다. 
+- 위에 설명된 변경에 대한 응답으로, Visual Studio Online 팀은 사용자가 연속 통합 및 배포에서 Azure에 게시할 때 진단 확장을 설정하기 위한 저장소 키를 지정할 수 있도록 Azure 클라우드 서비스 배포 작업 템플릿을 개선했습니다.
+- 작업 환경 간 구성 문제를 해결하는 데 도움을 주기 위해 Azure 진단(WAD)에 대한 보안 연결 문자열 및 토큰화를 저장할 수 있게 했습니다.
+ 
+### <a name="windows-server-2016-virtual-machines"></a>Windows Server 2016 가상 컴퓨터
+
+- 이제 Visual Studio에서는 OS 제품군 5(Windows Server 2016) 가상 컴퓨터에 클라우드 서비스를 배포하도록 지원합니다. 기존 클라우드 서비스의 경우, 새 OS 제품군을 대상으로 설정을 변경할 수 있습니다. 새 클라우드 서비스를 만들 때 .NET 4.6 이상을 사용하여 서비스를 만들려면 선택하는 경우 기본적으로 서비스는 OS 제품군 5를 사용하게 됩니다.  자세한 내용은 [게스트 OS 제품군 지원 테이블](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/)을 참조하세요.
+
+ 
+### <a name="azure-in-role-cache"></a>Azure In-Role Cache 
+
+- Azure In-Role Cache에 대한 지원은 2016년 11월 30일에 종료됩니다. 자세한 내용을 보려면 [여기](https://azure.microsoft.com/en-us/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)를 클릭하세요.
+
+### <a name="azure-resource-manager-templates-for-azure-stack"></a>Azure Stack용 Azure Resource Manager 템플릿
+
+- Azure Resource Manager 템플릿에 대한 배포 대상으로 Azure Stack을 도입했습니다.
+
+
+## <a name="azure-sdk-for-net-29-summary"></a>Azure SDK for .NET 2.9 요약
+
 ## <a name="overview"></a>개요
 이 문서에는 Azure SDK for .NET 2.9 릴리스의 릴리스 정보가 포함되어 있습니다. 
 
 이 릴리스의 업데이트에 대한 자세한 정보는 [Azure SDK 2.9 발표 게시물](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)을 참조하세요.
 
-## <a name="azure-sdk-2.9-for-visual-studio-2015-update-2-and-visual-studio-"15"-preview"></a>Visual Studio 2015 업데이트 2 및 Visual Studio "15" Preview용 Azure SDK 2.9
+## <a name="azure-sdk-29-for-visual-studio-2015-update-2-and-visual-studio-15-preview"></a>Visual Studio 2015 업데이트 2 및 Visual Studio "15" Preview용 Azure SDK 2.9
 이 업데이트는 다음 버그 수정을 포함합니다.
 
 * "알 수 없는 형식" 문자열이 코드 생성 폴더의 이름 및/또는 생성된 코드에 포함될 네임스페이스 이름으로 나타나는 REST API 클라이언트 생성과 관련된 문제
@@ -49,6 +88,9 @@ ms.author: juliako
 ## <a name="see-also"></a>참고 항목
 [Azure SDK 2.9 발표 게시물](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

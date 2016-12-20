@@ -1,12 +1,12 @@
 ---
-title: 논리 앱 설치 온-프레미스 데이터 게이트웨이 | Microsoft Docs
-description: 논리 앱에서 사용하기 위해 온-프레미스 데이터 게이트웨이를 설치하는 방법에 대한 정보입니다.
+title: "논리 앱 설치 온-프레미스 데이터 게이트웨이 | Microsoft Docs"
+description: "논리 앱에서 사용하기 위해 온-프레미스 데이터 게이트웨이를 설치하는 방법에 대한 정보입니다."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ddd62d3112a2c93ea3c935ce89ff387049899c09
+
 
 ---
 # <a name="install-the-on-premises-data-gateway-for-logic-apps"></a>논리 앱에 대한 온-프레미스 데이터 게이트웨이 설치
@@ -142,7 +146,7 @@ TcpTestSucceeded       : True
 **질문**: 내 자격 증명은 어디에 저장되나요? <br/>
 **대답**: 데이터 원본에 대해 입력한 자격 증명은 게이트웨이 클라우드 서비스에 암호화되어 저장됩니다. 자격 증명은 게이트웨이 온-프레미스에서 해독됩니다.
 
-### <a name="high-availability/disaster-recovery"></a>고가용성/재해 복구
+### <a name="high-availabilitydisaster-recovery"></a>고가용성/재해 복구
 **질문**: 게이트웨이에 고가용성 시나리오를 사용하기 위한 계획이 있나요? <br/>
 **대답**: 로드맵에는 있지만 아직 일정은 나와 있지 않습니다.
 
@@ -175,7 +179,7 @@ TcpTestSucceeded       : True
 ### <a name="update-to-the-latest-version"></a>최신 버전으로 업데이트
 게이트웨이 버전이 오래되면 여러 가지 문제가 발생할 수 있습니다.  따라서 최신 버전을 사용 중인지 확인하는 것이 좋습니다.  한 달 동안 게이트웨이를 업데이트하지 않은 경우 최신 버전의 게이트웨이를 설치하고 문제가 재현되는지 확인하는 것이 좋습니다.
 
-### <a name="error:-failed-to-add-user-to-group.-(-2147463168-pbiegwservice-performance-log-users-)"></a>오류: 그룹에 사용자를 추가하지 못했습니다. (-2147463168 PBIEgwService 성능 로그 사용자)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users-"></a>오류: 그룹에 사용자를 추가하지 못했습니다. (-2147463168 PBIEgwService 성능 로그 사용자)
 지원되지 않는 도메인 컨트롤러에 게이트웨이 설치하려고 하면 이 오류가 나타날 수 있습니다. 도메인 컨트롤러가 아닌 컴퓨터에 게이트웨이를 배포해야 합니다.
 
 ## <a name="tools"></a>도구
@@ -202,6 +206,9 @@ TcpTestSucceeded       : True
 * [엔터프라이즈 통합 기능](app-service-logic-enterprise-integration-overview.md)
 * [논리 앱 커넥터](../connectors/apis-list.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: Java 서비스 버스 API와 함께 AMQP 1.0 사용 | Microsoft Docs
-description: Azure Service Bus 및 고급 메시지 큐(Advanced Message Queueing)와 함께 JMS(Java Message Service)를 사용하는 방법에 대해 알아봅니다.
-services: service-bus
+title: "Java Service Bus API와 함께 AMQP 1.0 사용 | Microsoft Docs"
+description: "Azure Service Bus 및 고급 메시지 큐(Advanced Message Queueing)와 함께 JMS(Java Message Service)를 사용하는 방법에 대해 알아봅니다."
+services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: e53d42e6-aa85-4fff-b685-3c6129af65f1
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f6a5c1073d1bcea725e1e4be9dec13fea4112751
+
 
 ---
-# <a name="how-to-use-the-java-message-service-(jms)-api-with-service-bus-and-amqp-1.0"></a>서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법
+# <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법
 AMQP(Advanced Message Queuing Protocol) 1.0은 효율성과 안정성이 뛰어난 유선 수준 메시징 프로토콜로, 이를 통해 여러 플랫폼 간에 상호 운용되는 강력한 메시징 응용 프로그램을 만들 수 있습니다. AMQP 1.0 지원은 2012년 10월에 Azure 서비스 버스에 추가되었으며, 2013년 5월에 GA(General Availability)로 전환되었습니다.
 
 AMQP 1.0이 추가됨으로써 효율적인 이진 프로토콜을 사용하여 다양한 플랫폼에서 서비스 버스의 큐 및 게시/구독 조정된 메시징 기능을 활용할 수 있습니다. 뿐만 아니라 여러 언어, 프레임워크 및 운영 체제가 혼합되어 사용된 구성 요소로 이루어진 응용 프로그램을 만들 수 있습니다.
@@ -26,7 +30,7 @@ AMQP 1.0이 추가됨으로써 효율적인 이진 프로토콜을 사용하여 
 ## <a name="get-started-with-service-bus"></a>서비스 버스 시작
 이 가이드에서는 사용자가 **queue1**이라는 큐가 포함된 Service Bus 네임스페이스를 이미 가지고 있다고 가정합니다. 가지고 있지 않은 사용자는 [Azure Portal](https://portal.azure.com)을 사용하여 [네임스페이스와 큐를 만들](service-bus-create-namespace-portal.md) 수 있습니다. Service Bus 네임스페이스와 큐를 만드는 방법에 대한 자세한 내용은 [Service Bus 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)을 참조하세요.
 
-### <a name="downloading-the-amqp-1.0-jms-client-library"></a>AMQP 1.0 JMS 클라이언트 라이브러리 다운로드
+### <a name="downloading-the-amqp-10-jms-client-library"></a>AMQP 1.0 JMS 클라이언트 라이브러리 다운로드
 최신 버전의 Apache Qpid JMS AMQP 1.0 클라이언트 라이브러리를 다운로드할 위치에 대한 자세한 내용은 [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html)을 참조하세요.
 
 서비스 버스를 사용하여 JMS 응용 프로그램을 빌드 및 실행할 때 Apache Qpid JMS AMQP 1.0 배포 보관에 포함된 다음 JAR 파일 4개를 Java CLASSPATH에 추가해야 합니다.
@@ -37,7 +41,7 @@ AMQP 1.0이 추가됨으로써 효율적인 이진 프로토콜을 사용하여 
 * qpid-amqp-1-0-common-[version].jar
 
 ## <a name="coding-java-applications"></a>Java 응용 프로그램 코딩
-### <a name="java-naming-and-directory-interface-(jndi)"></a>JNDI(Java Naming and Directory Interface)
+### <a name="java-naming-and-directory-interface-jndi"></a>JNDI(Java Naming and Directory Interface)
 JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이름과 물리적 이름 간에 구분을 만듭니다. JNDI를 사용하여 두 유형의 JMS 개체인 ConnectionFactory와 Destination을 확인합니다. JNDI는 다양한 디렉터리 서비스를 연결할 수 있는 공급자 모델을 사용하여 이름 확인 책임을 처리합니다. Apache Qpid JMS AMQP 1.0 라이브러리에는 다음 형식의 속성 파일을 사용하여 구성된 간단한 속성 파일 기반 JNDI 공급자가 포함되어 있습니다.
 
 ```
@@ -214,7 +218,7 @@ public class SimpleSenderReceiver implements MessageListener {
             e.printStackTrace();
         }
     }
-}   
+}    
 ```
 
 ### <a name="run-the-application"></a>응용 프로그램 실행
@@ -235,14 +239,14 @@ Received message with JMSMessageID = ID:956102171969368961
 exit
 ```
 
-## <a name="cross-platform-messaging-between-jms-and-.net"></a>JMS와 .NET 간의 크로스 플랫폼 메시징
+## <a name="cross-platform-messaging-between-jms-and-net"></a>JMS와 .NET 간의 크로스 플랫폼 메시징
 이 가이드에서는 JMS를 사용하여 서비스 버스로 메시지를 보내고 받는 방법을 보여 줍니다. 그러나 AMQP 1.0의 주요 이점 중 하나는 다른 언어로 작성된 구성 요소로 응용 프로그램을 빌드하여 안정적이며 완전히 신뢰할 수 있는 상태로 메시지를 교환할 수 있다는 것입니다.
 
 위에서 설명한 샘플 JMS 응용 프로그램 및 동반 가이드([.NET Service Bus .NET API와 함께 AMQP 1.0을 사용하는 방법](service-bus-dotnet-advanced-message-queuing.md))에서 제공하는 유사한 .NET 응용 프로그램을 사용하여 .NET과 Java 간에 메시지를 교환할 수 있습니다. 
 
 Service Bus 및 AMQP 1.0을 사용하는 크로스 플랫폼 메시징에 대한 자세한 내용은 [Service Bus AMQP 1.0 개발자 가이드](service-bus-amqp-dotnet.md)를 참조하세요.
 
-### <a name="jms-to-.net"></a>JMS에서 .NET으로
+### <a name="jms-to-net"></a>JMS에서 .NET으로
 JMS에서 .NET으로의 메시징을 시연하려면:
 
 * 명령줄 인수 없이 .NET 샘플 응용 프로그램을 시작합니다.
@@ -260,9 +264,9 @@ Sent message with JMSMessageID = ID:1565011046230456854
 exit
 ```
 
-#### <a name="output-from-.net-application"></a>.NET 응용 프로그램의 출력
+#### <a name="output-from-net-application"></a>.NET 응용 프로그램의 출력
 ```
-> SimpleSenderReceiver.exe  
+> SimpleSenderReceiver.exe    
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Received message with MessageID = 4364096528752411591
 Received message with MessageID = 459252991689389983
@@ -270,7 +274,7 @@ Received message with MessageID = 1565011046230456854
 exit
 ```
 
-### <a name=".net-to-jms"></a>.NET에서 JMS로
+### <a name="net-to-jms"></a>.NET에서 JMS로
 .NET에서 JMS로의 메시징을 시연하려면:
 
 * "sendonly" 명령줄 인수로 .NET 샘플 응용 프로그램을 시작합니다. 이 모드에서는 응용 프로그램이 큐에서 메시지를 받지 않고 보내기만 합니다.
@@ -278,11 +282,11 @@ exit
 * .NET 응용 프로그램 콘솔에서 **Enter** 키를 몇 번 누릅니다. 그러면 메시지가 전송됩니다.
 * Java 응용 프로그램에서 이러한 메시지를 수신합니다.
 
-#### <a name="output-from-.net-application"></a>.NET 응용 프로그램의 출력
+#### <a name="output-from-net-application"></a>.NET 응용 프로그램의 출력
 ```
 > SimpleSenderReceiver.exe sendonly
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
-Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3  
+Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3    
 Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
 Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
 exit
@@ -290,7 +294,7 @@ exit
 
 #### <a name="output-from-jms-application"></a>JMS 응용 프로그램의 출력
 ```
-> java SimpleSenderReceiver 
+> java SimpleSenderReceiver    
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
 Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
@@ -318,6 +322,9 @@ exit
 * [Service Bus AMQP 1.0 개발자 가이드](service-bus-amqp-dotnet.md)
 * [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

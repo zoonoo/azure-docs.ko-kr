@@ -1,13 +1,13 @@
 ---
-title: 설정에서 Azure AD으로 Windows 10 장치 설정| Microsoft Docs
-description: 사용자가 설정 메뉴를 통해 Azure AD에 조인시킬 수 있는 방법에 대해 설명합니다.
+title: "설정에서 Azure AD으로 Windows 10 장치 설정| Microsoft Docs"
+description: "사용자가 설정 메뉴를 통해 Azure AD에 조인시킬 수 있는 방법에 대해 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: b844e1d9-ad43-4e4a-a398-5c4a43bf2f5c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 70610ec2c5a056d63ed854b33d84e29951940c2f
+
 
 ---
 # <a name="set-up-a-windows-10-device-with-azure-ad-from-settings"></a>설정에서 Azure AD으로 Windows 10 장치 설정
@@ -43,6 +47,9 @@ Windows 7 또는 Windows 8을 이미 사용 중이고 컴퓨터 또는 장치를
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 * [Microsoft Passport를 통해 암호 없이 ID 인증](active-directory-azureadjoin-passport.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

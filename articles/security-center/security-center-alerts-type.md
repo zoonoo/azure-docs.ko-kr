@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/20/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4ddc691f4f3d53dbff2e55b7a97446427b93a8a4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: bdd7d3d6e532efe7c3ed8225dd29a895725f2ff9
 
 
 ---
@@ -171,7 +171,7 @@ Azure 보안 센터는 많은 경우 명령 및 제어 센터에서 Microsoft �
 
 [AZURE.NOTE] 라이브 IP 주소는 개인 정보 보호 목적을 위해 이 스크린샷에서 제거되었습니다.
 
-### <a name="possible-outgoing-denialofservice-attack-detected"></a>가능한 발신 서비스 거부 공격 감지
+### <a name="possible-outgoing-denial-of-service-attack-detected"></a>가능한 발신 서비스 거부 공격 감지
 하나의 가상 컴퓨터에서 시작된 비정상적인 네트워크 트래픽으로 인해 Security Center에서 잠재적 서비스 거부 유형의 공격을 트리거할 수 있습니다.
 
 이러한 유형의 경고 예제는 다음과 같습니다.
@@ -214,6 +214,6 @@ SQL 삽입 공격에 발생할 수 있는 취약점을 나타낼 수 있는 데�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

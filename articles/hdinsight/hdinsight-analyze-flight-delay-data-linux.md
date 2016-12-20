@@ -1,13 +1,13 @@
 ---
-title: Linux 기반 HDInsight의 Hive를 사용하여 비행 지연 데이터 분석 | Microsoft Docs
-description: 'Hive를 사용하여 Linux 기반 HDInsight에서 비행 데이터를 분석한 다음 Sqoop을 사용하여 SQL 데이터베이스에 데이터를 내보내는 방법에 대해 알아봅니다 '
+title: "Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석 | Microsoft 문서"
+description: "Hive를 사용하여 Linux 기반 HDInsight에서 비행 데이터를 분석한 다음 Sqoop을 사용하여 SQL 데이터베이스에 데이터를 내보내는 방법에 대해 알아봅니다 "
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 266891083fa0d2a33ef8fd7e533b036e99b00208
+
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
@@ -75,9 +79,9 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
     hdfs dfs -mkdir -p /tutorials/flightdelays/data hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
 
 ## <a name="create-and-run-the-hiveql"></a>HiveQL 만들기 및 실행
-다음 단계를 사용하여 CSV 파일에서 __지연__라는 Hive 테이블로 데이터를 가져옵니다.
+다음 단계를 사용하여 CSV 파일에서 **지연**라는 Hive 테이블로 데이터를 가져옵니다.
 
-1. 다음을 사용하여 __flightdelays.hql__이라는 새 파일을 만들고 편집합니다.
+1. 다음을 사용하여 **flightdelays.hql**이라는 새 파일을 만들고 편집합니다.
    
         nano flightdelays.hql
    
@@ -140,7 +144,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
             SECURITY_DELAY AS security_delay,
             LATE_AIRCRAFT_DELAY AS late_aircraft_delay
         FROM delays_raw;
-2. **Ctrl + X**, __Y__를 차례로 사용하여 파일을 저장합니다.
+2. **Ctrl + X**, **Y**를 차례로 사용하여 파일을 저장합니다.
 3. 다음을 사용하여 Hive를 시작하고 **flightdelays.hql** 파일을 실행합니다.
    
         beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
@@ -166,7 +170,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 6. Beeline을 종료하려면 프롬프트에 `!quit` 을 입력합니다.
 
 ## <a name="create-a-sql-database"></a>SQL 데이터베이스 만들기
-SQL 데이터베이스가 이미 있는 경우 서버 이름을 가져와야 합니다. [SQL 데이터베이스](https://portal.azure.com) 를 선택하여 **Azure 포털__에서 데이터베이스를 찾은 다음 사용하려는 데이터베이스의 이름을 필터링합니다. 서버 이름은 __서버** 열에 나열됩니다.
+SQL 데이터베이스가 이미 있는 경우 서버 이름을 가져와야 합니다. [SQL 데이터베이스](https://portal.azure.com) 를 선택하여 **Azure 포털**에서 데이터베이스를 찾은 다음 사용하려는 데이터베이스의 이름을 필터링합니다. 서버 이름은 **서버** 열에 나열됩니다.
 
 SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 분 만에 SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md) 의 정보를 사용하여 만듭니다. 데이터베이스에 사용한 서버 이름을 저장해야 합니다.
 
@@ -180,7 +184,7 @@ SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 �
 2. 다음 명령을 사용하여 FreeTDS:를 설치합니다.
    
         sudo apt-get --assume-yes install freetds-dev freetds-bin
-3. FreeTDS가 설치되면 다음 명령을 사용하여 SQL 데이터베이스 서버에 연결합니다. **serverName** 을 SQL 데이터베이스 서버 이름으로 바꿉니다. **adminLogin** 및 **adminPassword__를 SQL Database의 로그인으로 바꿉니다. __databaseName** 을 데이터베이스 이름으로 바꿉니다.
+3. FreeTDS가 설치되면 다음 명령을 사용하여 SQL 데이터베이스 서버에 연결합니다. **serverName** 을 SQL 데이터베이스 서버 이름으로 바꿉니다. **adminLogin** 및 **adminPassword**를 SQL Database의 로그인으로 바꿉니다. **databaseName** 을 데이터베이스 이름으로 바꿉니다.
    
         TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
    
@@ -200,7 +204,7 @@ SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 �
         ([origin_city_name] ASC))
         GO
    
-    `GO` 명령문을 입력하면 이전 명령문이 평가됩니다. 클러스터된 인덱스(SQL 데이터베이스에서 필요한)가 있는 __지연__이라는 새 테이블을 만듭니다.
+    `GO` 명령문을 입력하면 이전 명령문이 평가됩니다. 클러스터된 인덱스(SQL 데이터베이스에서 필요한)가 있는 **지연**이라는 새 테이블을 만듭니다.
    
     다음을 사용하여 테이블이 생성되었는지 확인합니다.
    
@@ -211,7 +215,7 @@ SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 �
    
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
         databaseName       dbo     delays      BASE TABLE
-5. `exit` at the `1>` 를 입력하여 tsql 유틸리티를 종료합니다.
+5.  `exit` at the `1>` 를 입력하여 tsql 유틸리티를 종료합니다.
 
 ## <a name="export-data-with-sqoop"></a>Sqoop으로 데이터 내보내기
 1. 다음 명령을 사용하여 Sqoop이 SQL 데이터베이스를 볼 수 있는지 확인합니다.
@@ -235,7 +239,7 @@ SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 �
    
     테이블에 데이터 목록이 표시됩니다. `exit` 를 입력하여 tsql 유틸리티를 종료합니다.
 
-## <a name="<a-id="nextsteps"></a>-next-steps"></a><a id="nextsteps"></a> 다음 단계
+## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> 다음 단계
 이제 파일을 Azure Blob 저장소로 업로드하는 방법, Azure Blob 저장소의 데이터를 사용하여 Hive 테이블을 채우는 방법, Hive 쿼리를 실행하는 방법, Sqoop을 사용하여 HDFS의 데이터를 Azure SQL 데이터베이스로 내보내는 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight 시작][hdinsight-get-started]
@@ -274,6 +278,6 @@ SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -123,7 +123,7 @@ Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 �
 중복성을 제공하려면 동일한 가용성 집합에 둘 이상의 비슷하게 구성된 VM을 넣습니다. 이렇게 하면 계획된 또는 계획되지 않은 유지 관리를 하는 동안 적어도 하나 이상의 VM을 사용할 수 있습니다. Azure는 이 구성에 대해 특정한 수준의 VM 가용성을 보장합니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
-[Azure Virtual Machines 정보](../articles/virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Azure Virtual Machines 정보](../articles/virtual-machines/virtual-machines-linux-about.md)
 
 [Linux 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -131,6 +131,6 @@ Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: 설치하는 동안 Azure AD로 새 장치 설정| Microsoft Docs
-description: 첫 실행 경험 동안 사용자가 Azure AD 조인을 설정하는 방법에 대해 설명하는 항목입니다.
+title: "설치하는 동안 Azure AD로 새 장치 설정| Microsoft Docs"
+description: "첫 실행 경험 동안 사용자가 Azure AD 조인을 설정하는 방법에 대해 설명하는 항목입니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 209414cf468311b8d597ec5654be832125f59683
+
 
 ---
 # <a name="set-up-a-new-device-with-azure-ad-during-setup"></a>설치하는 동안 Azure AD로 새 장치 설정
@@ -53,6 +57,9 @@ Windows 10 Professional 또는 Windows 10 Enterprise 버전을 장치에 설치�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

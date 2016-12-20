@@ -3,6 +3,7 @@
 ## [마이크로 서비스 이해](service-fabric-overview-microservices.md)
 ## [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
 ## [아키텍처](service-fabric-architecture.md)
+## [용어](service-fabric-technical-overview.md)
 
 # 시작
 ## 개발 환경 설정
@@ -176,28 +177,20 @@
 ### [응용 프로그램 부하 테스트](service-fabric-vso-load-test.md)
 
 # 참조
-## [용어](service-fabric-technical-overview.md)
-## [Reliable Actors](https://go.microsoft.com/fwlink/p/?linkid=833398)
-## [Reliable Actors WCF](https://go.microsoft.com/fwlink/p/?linkid=833401)
-## [Reliable Services](https://go.microsoft.com/fwlink/p/?linkid=833402)
-## [Reliable Services WCF](https://go.microsoft.com/fwlink/p/?linkid=833403)
-## [데이터](https://go.microsoft.com/fwlink/p/?linkid=833404)
-## [데이터 인터페이스](https://go.microsoft.com/fwlink/p/?linkid=833406)
-## [시스템](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [샘플 코드](http://aka.ms/servicefabricsamples)
-## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
-## [Java API](https://go.microsoft.com/fwlink/p/?linkid=833410)
-## [.NET](/dotnet/api)
-## [REST (영문)](/rest/api/servicefabric/)
+## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
+## [Java API](/java/api/microsoft.servicefabric.services)
+## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [REST (영문)](/rest/api/servicefabric)
 
 # 리소스
-## [학습 패스](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+## [샘플 코드](http://aka.ms/servicefabricsamples)
+## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

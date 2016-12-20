@@ -1,13 +1,13 @@
 ---
-title: 네트워크 보안 그룹 문제 해결 - PowerShell | Microsoft Docs
-description: Azure PowerShell을 사용하여 Azure Resource Manager 배포 모델에서 네트워크 보안 그룹 문제를 해결하는 방법에 알아봅니다.
+title: "네트워크 보안 그룹 문제 해결 - PowerShell | Microsoft Docs"
+description: "Azure PowerShell을 사용하여 Azure Resource Manager 배포 모델에서 네트워크 보안 그룹 문제를 해결하는 방법에 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 4c732bb7-5cb1-40af-9e6d-a2a307c2a9c4
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 10a56e134f0e31e60758d6e616b771dabc0f4dad
+
 
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Azure PowerShell을 사용하여 네트워크 보안 그룹 문제 해결
@@ -194,6 +198,9 @@ VM에 대한 NSG 문제를 해결하려면 다음 단계를 완료합니다.
 * 유효 보안 규칙은 VM의 NIC 및/또는 서브넷에 연결된 NSG가 있을 때만 표시됩니다. 
 * NIC 또는 서브넷과 연결된 NSG가 없고 VM에 할당된 공용 IP 주소가 있는 경우 모든 포트가 인바운드 및 아웃바운드 액세스를 위해 열립니다. VM에 공용 IP 주소가 있을 때는 NIC 또는 서브넷에 NSG를 적용하는 것이 강력하게 권장됩니다.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

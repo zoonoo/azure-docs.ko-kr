@@ -1,12 +1,12 @@
 ---
-title: Azure Media Services 커뮤니티 개요 | Microsoft Docs
-description: '이 Azure 미디어 서비스(AMS) 커뮤니티 페이지에서는 AMS에 대한 업데이트를 받고 새 비디오 및 팟캐스트를 보고 질문을 하며 피드백을 제공하는 다양한 방법에 대해 설명합니다. '
+title: "Azure Media Services 커뮤니티 개요 | Microsoft 문서"
+description: "이 Azure 미디어 서비스(AMS) 커뮤니티 페이지에서는 AMS에 대한 업데이트를 받고 새 비디오 및 팟캐스트를 보고 질문을 하며 피드백을 제공하는 다양한 방법에 대해 설명합니다. "
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0df020f4-8297-4f31-92bf-de098283e997
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 735f8d81ce089727b14b8b67de7233ab71fc5abd
+
 
 ---
 # <a name="azure-media-services-community"></a>Azure 미디어 서비스 커뮤니티
@@ -56,6 +60,9 @@ Azure 미디어 서비스 기본 전자 메일: **mediaservices@microsoft.com**
 | Azure 미디어 탐색기 |amse@microsoft.com |
 | Workflow Designer |mepd@microsoft.com |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

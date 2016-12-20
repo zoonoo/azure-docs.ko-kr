@@ -1,14 +1,14 @@
 ---
-title: 조직에서 비즈니스용 Microsoft Windows Hello 사용 | Microsoft Docs
-description: 조직에서 Microsoft Passport를 사용하도록 설정하는 배포 지침입니다.
+title: "조직에서 비즈니스용 Microsoft Windows Hello 사용 | Microsoft Docs"
+description: "조직에서 Microsoft Passport를 사용하도록 설정하는 배포 지침입니다."
 services: active-directory
-documentationcenter: ''
-keywords: Microsoft Passport 구성, 비즈니스용 Microsoft Windows Hello 배포
+documentationcenter: 
+keywords: "Microsoft Passport 구성, 비즈니스용 Microsoft Windows Hello 배포"
 author: MarkusVi
 manager: femila
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 7dbbe3c6-1cd7-429c-a9b2-115fcbc02416
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,6 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 115fbee1990b20f6a7186e5f36d0b618cf2e3b7b
+
 
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>조직에서 비즈니스용 Microsoft Windows Hello 사용
@@ -110,6 +114,9 @@ System Center Configuration Manager 사용은 인증서를 배포하기 위해 �
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

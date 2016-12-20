@@ -1,20 +1,24 @@
 ---
-title: Resource Manager 및 PowerShell을 사용하여 Express 경로에 대한 가상 네트워크에 VNet 게이트웨이 추가 | Microsoft Docs
-description: 이 문서에서는 Express 경로에 대해 이미 만들어진 Resource Manager VNet에 Vnet 게이트웨이를 추가하는 과정을 안내합니다.
+title: "Resource Manager 및 PowerShell을 사용하여 ExpressRoute용 가상 네트워크에 VNet 게이트웨이 추가 | Microsoft 문서"
+description: "이 문서에서는 Express 경로에 대해 이미 만들어진 Resource Manager VNet에 Vnet 게이트웨이를 추가하는 과정을 안내합니다."
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 63e0bd60-abad-4963-8e27-3aa973e0d968
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 11/21/2016
 ms.author: charwen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 61817e1bd5b4af9aa9e3fda2043acc1036b7268a
+
 
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-resource-manager-and-powershell"></a>리소스 관리자 및 PowerShell을 사용하여 Express 경로에 대한 가상 네트워크 게이트웨이 구성
@@ -38,6 +42,9 @@ ms.author: charwen
 ## <a name="next-steps"></a>다음 단계
 VNet 게이트웨이를 만든 후 VNet을 Express 경로 회로에 연결할 수 있습니다. [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

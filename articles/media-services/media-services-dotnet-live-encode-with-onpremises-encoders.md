@@ -1,22 +1,26 @@
 ---
-title: .NET을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법 | Microsoft Docs
-description: 이 항목에서는 .NET을 사용하여 온-프레미스 인코더로 라이브 인코딩을 수행하는 방법을 보여 줍니다.
+title: ".NET을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법 | Microsoft 문서"
+description: "이 항목에서는 .NET을 사용하여 온-프레미스 인코더로 라이브 인코딩을 수행하는 방법을 보여 줍니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 08/31/2016
-ms.author: cenkdin;juliako
+ms.author: cenkd;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 46cd4171b4d88aa68386b80471f1e7d05539cdd4
+
 
 ---
-# .NET을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법
+# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-net"></a>.NET을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -24,13 +28,13 @@ ms.author: cenkdin;juliako
 > 
 > 
 
-이 자습서에서는 Azure Media Services .NET SDK를 사용하여 통과 배달을 위해 구성된 **채널**을 만드는 단계를 안내합니다.
+이 자습서에서는 Azure Media Services .NET SDK를 사용하여 통과 배달을 위해 구성된 **채널** 을 만드는 단계를 안내합니다. 
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * Azure 계정.
-* 미디어 서비스 계정. 미디어 서비스 계정을 만들려면 [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)을 참조하세요.
+* 미디어 서비스 계정.    Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * 개발 환경을 설정합니다. 자세한 내용은 [환경 설정](media-services-set-up-computer.md)을 참조하세요.
 * 웹캠. 예를 들어, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm)
 
@@ -39,7 +43,7 @@ ms.author: cenkdin;juliako
 * [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)
 
-## 예제
+## <a name="example"></a>예제
 다음 코드 예제는 다음 작업을 수행하는 방법을 보여 줍니다.
 
 * 미디어 서비스에 연결
@@ -382,12 +386,17 @@ ms.author: cenkdin;juliako
         }
     }
 
-## 다음 단계
+## <a name="next-step"></a>다음 단계
 미디어 서비스 학습 경로 검토
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## 피드백 제공
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

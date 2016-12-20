@@ -1,14 +1,11 @@
 # 개요
 ## [Azure Automation이란?](automation-intro.md)
 ## [Azure Automation의 보안](automation-security-overview.md)
-
 # 시작
 ## [Runbook 만들기](automation-first-runbook-graphical.md)
 ## [PowerShell Runbook 만들기](automation-first-runbook-textual-powershell.md)
 ## [PowerShell 워크플로 Runbook 만들기](automation-first-runbook-textual.md)
 ## [역할 기반 액세스 제어 관리](automation-role-based-access-control.md)
-
-
 # 방법
 ## Runbook 만들기
 ### [Runbook 유형](automation-runbook-types.md)
@@ -55,26 +52,22 @@
 ### [JSON 태그가 있는 VM 시작/중지](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [리소스 그룹 제거](automation-scenario-remove-resourcegroup.md)
 ### [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
-
+### [GitHub Enterprise와 소스 제어 통합](automation-scenario-source-control-integration-with-github-ent.md)
 ## [모니터](automation-manage-send-joblogs-log-analytics.md)
-
 ## 마이그레이션
 ### [조정자에서 마이그레이션](automation-orchestrator-migration.md)
 ### [Automation 계정 이동](automation-migrate-account-subscription.md)
-
 ## 문제 해결
 ### [일반적인 오류 해결](automation-troubleshooting-automation-errors.md)
 ### [Runbook 작업이 일시 중단됨](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
-
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [클래식 PowerShell](/powershell/servicemanagement)
-## [.NET](/dotnet/api)
+## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
+## [PowerShell(클래식)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
+## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST (영문)](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [클래식 REST](https://msdn.microsoft.com/library/azure/mt163781)
-## [릴리스 정보](https://azure.microsoft.com/updates/?product=automation)
-
+## [REST(클래식)](https://msdn.microsoft.com/library/azure/mt163781)
 # 리소스
+## [릴리스 정보](https://azure.microsoft.com/updates/?product=automation)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/automation/)  
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-automation)
@@ -85,6 +78,6 @@
 ## [Automation 소개 비디오](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

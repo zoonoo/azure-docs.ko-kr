@@ -1,34 +1,38 @@
 ---
-title: Maven을 사용하여 Scalding MapReduce 작업 개발 | Microsoft Docs
-description: Maven을 사용하여 Scalding MapReduce 작업을 만든 다음 HDInsight 클러스터의 Hadoop에서 작업을 배포하고 실행하는 방법에 대해 알아봅니다.
+title: "Maven을 사용하여 Scalding MapReduce 작업 개발 | Microsoft 문서"
+description: "Maven을 사용하여 Scalding MapReduce 작업을 만든 다음 HDInsight 클러스터의 Hadoop에서 작업을 배포하고 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 26a4d4e8-2623-4fae-a0ca-17792b7a5713
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/02/2016
+ms.date: 10/18/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d83a1f9755d22512834d23b8fd12f740c4198a85
+
 
 ---
-# HDInsight에서 Apache Hadoop을 사용하여 Scalding MapReduce 작업 개발
+# <a name="develop-scalding-mapreduce-jobs-with-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hadoop을 사용하여 Scalding MapReduce 작업 개발
 Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Scala 라이브러리입니다. 간결한 구문을 제공하며 Scala와 긴밀하게 통합됩니다.
 
 이 문서에서는 Maven을 사용하여 Scalding으로 작성된 기본 단어 계산 MapReduce 작업을 만드는 방법에 대해 알아봅니다. 그런 다음 이 작업을 HDInsight 클러스터에서 배포하고 실행하는 방법에 대해 알아봅니다.
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* **HDInsight 클러스터의 Windows 또는 Linux 기반 Hadoop** 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 프로비전](hdinsight-hadoop-provision-linux-clusters.md) 또는 [HDInsight에서 Windows 기반 Hadoop 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
+* **HDInsight 클러스터에서 Windows 또는 Linux 기반 Hadoop**. 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 프로비전](hdinsight-hadoop-provision-linux-clusters.md) 또는 [HDInsight에서 Windows 기반 Hadoop 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 * **[Maven](http://maven.apache.org/)**
 * **[Java 플랫폼 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 이상**
 
-## 프로젝트 만들기 및 빌드
+## <a name="create-and-build-the-project"></a>프로젝트 만들기 및 빌드
 1. 다음 명령을 사용하여 새 Maven 프로젝트를 만듭니다.
    
         mvn archetype:generate -DgroupId=com.microsoft.example -DartifactId=scaldingwordcount -DarchetypeGroupId=org.scala-tools.archetypes -DarchetypeArtifactId=scala-archetype-simple -DinteractiveMode=false
@@ -132,7 +136,7 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
    
    * **maven.compiler.source** 및 **maven.compiler.target**:이 프로젝트에 대한 Java 버전을 설정합니다.
    * **repositories**: 이 프로젝트에서 사용되는 종속성 파일이 포함된 리포지토리입니다.
-   * **scalding-core\_2.11** 및 **hadoop-core**: 이 프로젝트는 Scalding 및 Hadoop 핵심 패키지 둘 다에 종속됩니다.
+   * **scalding-core_2.11** 및 **hadoop-core**: 이 프로젝트는 Scalding 및 Hadoop 핵심 패키지 둘 다에 종속됩니다.
    * **maven-scala-plugin**: Scala 응용 프로그램을 컴파일하는 플러그 인입니다.
    * **maven-shade-plugin**: shaded(fat) jar을 만드는 플러그 인입니다. 이 플러그 인은 필터 및 변환을 적용합니다.
      
@@ -169,7 +173,7 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
    
     이 작업이 완료되면 WordCount 응용 프로그램이 포함된 패키지를 **target/scaldingwordcount-1.0-SNAPSHOT.jar**에서 확인할 수 있습니다.
 
-## Linux 기반 클러스터에서 작업 실행
+## <a name="run-the-job-on-a-linux-based-cluster"></a>Linux 기반 클러스터에서 작업 실행
 > [!NOTE]
 > 다음 단계에서는 SSH 및 Hadoop 명령을 사용합니다. MapReduce 작업을 실행하는 다른 방법은 [HDInsight의 Hadoop에서 MapReduce 사용](hdinsight-use-mapreduce.md)을 참조하세요.
 > 
@@ -197,7 +201,7 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
    
         yarn jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasbs:///example/data/gutenberg/davinci.txt --output wasbs:///example/wordcountout
    
-    이 명령은 앞에서 구현한 WordCount 클래스를 실행합니다. `--hdfs`는 작업에 HDFS를 사용하도록 지시하고, `--input`은 입력 텍스트 파일을 지정하며, `--output`은 출력 위치를 지정합니다.
+    앞에서 구현한 WordCount 클래스를 실행 합니다. `--hdfs` 작업에 HDFS를 사용하도록 지시합니다. `--input` 작업이 입력된 텍스트 파일을 지정하는 반면 `--output` 작업은 출력 위치를 지정합니다.
 4. 작업이 완료되면 다음을 사용하여 출력을 확인합니다.
    
         hdfs dfs -text wasbs:///example/wordcountout/*
@@ -218,7 +222,7 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
         wrotefootnote   1
         wrought 7
 
-## Windows 기반 클러스터에서 작업 실행
+## <a name="run-the-job-on-a-windows-based-cluster"></a>Windows 기반 클러스터에서 작업 실행
 다음 단계에서는 Windows PowerShell을 사용합니다. MapReduce 작업을 실행하는 다른 방법은 [HDInsight의 Hadoop에서 MapReduce 사용](hdinsight-use-mapreduce.md)을 참조하세요.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -241,14 +245,14 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
 3. 다음 스크립트를 사용하여WordCount 작업을 업로드 및 실행합니다. `CLUSTERNAME`을 HDInsight 클러스터 이름으로 대체하고, `$fileToUpload`가 **scaldingwordcount-1.0-SNAPSHOT.jar** 파일의 정확한 경로를 가리키고 있는지 확인합니다.
    
         #Cluster name, file to be uploaded, and where to upload it
-        $clustername = "CLUSTERNAME"
-        $fileToUpload = "scaldingwordcount-1.0-SNAPSHOT.jar"
+        $clustername = Read-Host -Prompt "Enter the HDInsight cluster name"
+        $fileToUpload = Read-Host -Prompt "Enter the path to the scaldingwordcount-1.0-SNAPSHOT.jar file"
         $blobPath = "example/jars/scaldingwordcount-1.0-SNAPSHOT.jar"
    
         #Login to your Azure subscription
         Login-AzureRmAccount
         #Get HTTPS/Admin credentials for submitting the job later
-        $creds = Get-Credential
+        $creds = Get-Credential -Message "Enter the login credentials for the cluster"
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         $resourceGroup = $clusterInfo.ResourceGroup
@@ -275,10 +279,10 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
             -JarFile wasbs:///example/jars/scaldingwordcount-1.0-SNAPSHOT.jar `
             -ClassName com.microsoft.example.WordCount `
             -arguments "--hdfs", `
-                       "--input", `
-                       "wasbs:///example/data/gutenberg/davinci.txt", `
-                       "--output", `
-                       "wasbs:///example/wordcountout"
+                        "--input", `
+                        "wasbs:///example/data/gutenberg/davinci.txt", `
+                        "--output", `
+                        "wasbs:///example/wordcountout"
         $job = Start-AzureRmHDInsightJob `
             -clustername $clusterName `
             -jobdefinition $jobDef `
@@ -325,11 +329,16 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
         wrotefootnote   1
         wrought 7
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 Scalding을 사용하여 HDInsight용 MapRedcue 작업을 만드는 방법을 살펴보았으므로 이제 다음 링크를 사용하여 Azure HDInsight로 작업하는 다른 방법을 알아봅니다.
 
 * [HDInsight에서 하이브 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

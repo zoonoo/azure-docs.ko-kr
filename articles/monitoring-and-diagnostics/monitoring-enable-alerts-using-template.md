@@ -1,19 +1,23 @@
 ---
-title: Resource Manager 템플릿을 사용하여 메트릭 경고 만들기 | Microsoft Docs
-description: Resource Manager 템플릿을 사용하여 이메일 또는 Webhook으로 알림을 받는 메트릭 경고를 만드는 방법을 알아봅니다.
+title: "Resource Manager 템플릿을 사용하여 메트릭 경고 만들기 | Microsoft Docs"
+description: "Resource Manager 템플릿을 사용하여 이메일 또는 Webhook으로 알림을 받는 메트릭 경고를 만드는 방법을 알아봅니다."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/28/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4788235f470fafb043f72dfb44dbe96ebb595df9
+
 
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
@@ -26,7 +30,7 @@ ms.author: johnkem
 
 아래에서는 먼저 경고만을 위한 Resource Manager 템플릿을 만들고 이후 다른 리소스를 만드는 동안 경고에 대한 템플릿을 만드는 방법을 설명합니다.
 
-## <a name="resource-manager-template-for-a-metric-alert"></a>메트릭 경고를 위한 Resource Manager 템플릿
+## <a name="resource-manager-template-for-a-metric-alert"></a>메트릭 경고를 위한 Resource Manager 템플릿 
 Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Insights/alertRules` 형식의 리소스를 만들어 관련 속성을 기입합니다. 다음은 경고 규칙을 만드는 템플릿입니다.
 
 ```json
@@ -139,7 +143,7 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
             "type": "Microsoft.Insights/alertRules",
             "name": "[parameters('alertName')]",
             "location": "[resourceGroup().location]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2016-03-01",
             "properties": {
                 "name": "[parameters('alertName')]",
                 "description": "[parameters('alertDescription')]",
@@ -361,7 +365,7 @@ Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경�
                 "[variables('vmID')]"
             ],
             "location": "[variables('location')]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2016-03-01",
             "properties": {
                 "name": "[variables('alertName')]",
                 "description": "variables('alertDescription')",
@@ -397,9 +401,12 @@ Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경�
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [경고에 대해 알아보기](../azure-portal/insights-receive-alert-notifications.md)
+* [경고에 대해 알아보기](insights-receive-alert-notifications.md)
 * [진단 설정 추가](monitoring-enable-diagnostic-logs-using-template.md) 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

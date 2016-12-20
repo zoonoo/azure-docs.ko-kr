@@ -1,12 +1,12 @@
 ---
-title: 그룹 설정 구성을 위한 Azure Active Directory cmdlets | Microsoft Docs
-description: Azure Active Directory cmdlets를 사용하여 그룹 설정을 관리하는 방법입니다.
+title: "그룹 설정 구성을 위한 Azure Active Directory cmdlet | Microsoft Docs"
+description: "Azure Active Directory cmdlets를 사용하여 그룹 설정을 관리하는 방법입니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6a8bd076830d9b639007ee0130320869d2a63746
+
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
@@ -98,7 +102,7 @@ ms.author: curtand
 ## <a name="cmdlet-syntax-reference"></a>Cmdlet 구문 참조
 [Azure Active Directory Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=808260)에서 더 많은 Azure Active Directory PowerShell 설명서를 찾을 수 있습니다.
 
-## <a name="settingstemplate-object-reference-(group.unified-settingstemplate-object)"></a>SettingsTemplate 개체 참조(Group.Unified SettingsTemplate 개체)
+## <a name="settingstemplate-object-reference-groupunified-settingstemplate-object"></a>SettingsTemplate 개체 참조(Group.Unified SettingsTemplate 개체)
 * "name": "EnableGroupCreation", "type": "System.Boolean", "defaultValue": "true", "description": "통합 그룹 만들기 기능이 켜져 있는지 나타내는 부울 플래그."
 * "name": "GroupCreationAllowedGroupId", "type": "System.Guid", "defaultValue": "", "description": "통합 그룹 만들기가 허용된 보안 그룹의 GUID."
 * "name": "ClassificationList", "type": "System.String", "defaultValue": "", "description": "통합 그룹에 적용할 수 있는 유효한 분류 값을 쉼표로 구분한 목록."
@@ -119,6 +123,9 @@ ms.author: curtand
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

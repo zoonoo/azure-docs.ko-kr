@@ -1,13 +1,13 @@
 ---
-title: Introduction to App Service on Linux | Microsoft Docs
-description: Learn about App Service on Linux.
+title: "Linux의 App Service 소개 | Microsoft Docs"
+description: "Linux의 App Service에 대해 자세히 알아봅니다."
 keywords: azure app service, linux, oss
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: naziml
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,58 +15,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
+translationtype: Human Translation
+ms.sourcegitcommit: 44980a015f74110442f8684479ab0c911f605e8d
+ms.openlocfilehash: e2f1024f428647c05fb0faced70e779acbd86489
+
 
 ---
-# <a name="introduction-to-app-service-on-linux"></a>Introduction to App Service on Linux
-App Service on Linux is currently in Public Preview and supports running web apps natively on Linux. 
+# <a name="introduction-to-app-service-on-linux"></a>Linux의 App Service 소개
+Linux의 Azure App Service는 현재 공개 미리 보기이 제공되며 Linux에서 웹앱을 실행하도록 지원합니다.
 
-## <a name="overview"></a>Overview
-Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks. The following features section lists the currently supported application stacks.
+## <a name="overview"></a>개요
+고객은 지원되는 응용 프로그램 스택에 대해 Linux의 App Service를 사용하여 Linux에서 웹앱을 호스트할 수 있습니다. 다음 섹션에는 현재 지원되는 응용 프로그램 스택이 나와 있습니다. 
 
-## <a name="features"></a>Features
-App Service on Linux currently supports the following application stacks
+## <a name="features"></a>기능
+Linux의 App Service는 현재 다음과 같은 응용 프로그램 스택을 지원합니다.
 
 * Node.js
 * PHP
+* .NET Core
 
-Customers can deploy their applications using
+고객은 다음을 사용하여 해당 응용 프로그램을 배포할 수 있습니다.
 
-* FTP.
-* Local Git.
-* GitHub or BitBucket.
+* FTP
+* 로컬 Git
+* GitHub 또는 Bitbucket
 
-For application scaling
+응용 프로그램 크기 조정:
 
-* Customers can scale their web app up and down by changing the tier in their App Service Plan. 
-* Customers can scale out their applications out and run their app across multiple instances within the confines of their SKU.
+* 고객은 App Service 계획에서 계층을 변경하여 웹앱을 확장 및 축소할 수 있습니다.
+* 고객은 자신의 SKU 범위 내에서 응용 프로그램을 확장하고 여러 인스턴스에서 앱을 실행할 수 있습니다.
 
-For Kudu some of the basic functionality will work
+Kudu의 경우 일부 기본 기능이 다음에 작동합니다.
 
-* Environment.
-* Deployments.
-* Basic console.
+* 환경
+* 배포
+* 기본 콘솔
 
-## <a name="limitations"></a>Limitations
-The Azure management portal will only show currently supported features for App Service on Linux and hide the rest. As our team enabling more features we will keep reflecting this on the management portal. Some features like VNET integration and AAD / third-party authentication or Kudu site extensions do not currently work. But as we get these working we will update our documentation and blog about changes.
+## <a name="limitations"></a>제한 사항
+Azure Portal에는 Linux의 App Service에 대해 작동하는 기능만 표시되고 나머지는 숨겨집니다. 더 많은 기능이 사용 가능해지면 포털에 표시될 것입니다.
 
-This public preview is currently only available in the following regions
+가상 네트워크 통합, Azure Active Directory/타사 인증 또는 Kudu 사이트 확장 등의 일부 기능은 현재 작동하지 않습니다. 하지만 이러한 기능이 사용 가능해지면 설명서와 블로그에 변경 내용이 업데이트될 것입니다.
 
-* West US.
-* West Europe.
-* Southeast Asia.
+이 공개 미리 보기는 현재 다음 지역에서 사용할 수 있습니다.
 
-Web app on Linux is only supported in Dedicated App Service Plans and does not have a Free or Shared tier. Also, app service plans for regular and Linux web apps are mutually exclusive, so you cannot create a Linux web app in a non-Linux app service plan.
+* 미국 서부
+* 서유럽 
+* 동남아시아
 
-Web app on Linux must be created in a resource group that does not contain non-Linux web apps in the same region.
+Linux의 웹앱은 전용 App Service 계획에서만 지원되며 무료 또는 공유 계층은 없습니다. 또한 일반 및 Linux 웹앱에 대한 App Service 계획은 상호 배타적이므로 비 Linux App Service 계획에서 Linux 웹앱을 만들 수 없습니다.
 
-Due to the lack of overlapped recycling of the web apps, customers should expect a small downtime in the event of a web app got restarted. 
+Linux의 웹앱은 동일한 지역에 비 Linux 웹앱을 포함하지 않는 리소스 그룹에서 만들어야 합니다.
 
-## <a name="next-steps"></a>Next Steps
-Follow the following links to get started with App Service on Linux. Please post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+재활용되는 웹앱이 겹치는 경우가 적으므로 웹앱을 다시 시작할 때 약간의 가동 중지 시간이 발생할 수 있습니다.
 
-* [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
-* [Using PM2 Configuration for Node.js in Web Apps on Linux](app-service-linux-using-nodejs-pm2.md)
+## <a name="next-steps"></a>다음 단계
+Linux에서 App Service를 시작하려면 다음 링크를 참조하세요. [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+* [Linux의 App Service에서 웹앱 만들기](app-service-linux-how-to-create-a-web-app.md)
+* [Linux에서 App Service에 대한 사용자 지정 Docker 이미지를 사용하는 방법](app-service-linux-using-custom-docker-image.md)
+* [Linux의 웹앱에 있는 Node.js용 PM2 구성 사용](app-service-linux-using-nodejs-pm2.md)
+* [Linux의 Azure App Service 웹앱에서 .NET Core 사용](app-service-linux-intro.md)
+
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

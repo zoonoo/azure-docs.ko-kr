@@ -1,14 +1,14 @@
 ---
-title: Azure VM에서 S/4 HANA 또는 BW/4 HANA 배포 | Microsoft Docs
-description: Azure VM에서 S/4 HANA 또는 BW/4 HANA 배포
+title: "Azure VM에서 S/4 HANA 또는 BW/4 HANA 배포 | Microsoft Docs"
+description: "Azure VM에서 S/4 HANA 또는 BW/4 HANA 배포"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: hermanndms
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-keywords: ''
-
+keywords: 
+ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -16,9 +16,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f653e69590ee15d272543dc58840b1ee6983e953
+
 
 ---
-# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Microsoft Azure에서 S/4 HANA 또는 BW/4 HANA 배포
+# <a name="deploying-s4-hana-or-bw4-hana-on-microsoft-azure"></a>Microsoft Azure에서 S/4 HANA 또는 BW/4 HANA 배포
 이 문서에서는 SAP 클라우드 어플라이언스 라이브러리 3.0을 통해 Microsoft Azure에서 S/4 HANA를 배포하는 방법을 설명합니다.
 스크린샷은 프로세스를 단계별로 보여줍니다. 프로세스 관점에서 동일한 방식으로 작동하는 BW/4 HANA와 같은 다른 SAP HANA 기반 솔루션을 배포합니다. 서로 다른 솔루션을 선택하면 됩니다.
 
@@ -89,6 +93,9 @@ Azure 포털에서 가상 컴퓨터가 SAP CAL에 지정된 것과 동일한 인
 
 다른 옵션은 클라이언트 Windows VM에 로그인하고 예를 들어 미리 구성된 SAP GUI를 시작하는 것입니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

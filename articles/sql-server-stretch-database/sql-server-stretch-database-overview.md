@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2fcea994b3de924f1170dae2d7a0a3b6d4786538
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f63900b0a4f32e1bc5a88c068091916bd96aafb8
 
 
 ---
@@ -28,13 +28,13 @@ ms.openlocfilehash: 2fcea994b3de924f1170dae2d7a0a3b6d4786538
 ## <a name="what-are-the-benefits-of-stretch-database"></a>스트레치 데이터베이스의 장점은 무엇입니까?
 스트레치 데이터베이스는 다음과 같은 이점을 제공합니다.
 
-### <a name="provides-costeffective-availability-for-cold-data"></a>콜드 데이터에 비용\-효율적인 가용성을 제공
+### <a name="provides-cost-effective-availability-for-cold-data"></a>콜드 데이터에 비용\-효율적인 가용성을 제공
 SQL Server 스트레치 데이터베이스를 통해 콜드 및 웜 트랜잭션 데이터를 SQL Server에서 Microsoft Azure로 동적으로 확장합니다. 일반적인 콜드 데이터 저장소와 달리 데이터가 항상 온라인 상태이며 쿼리할 수 있습니다. 고객 주문 내역과 같은 큰 테이블에 대한 뱅크를 차단하지 않고 긴 데이터 보존 일정을 제공할 수 있습니다. 값비싼 온\-프레미스 저장소를 확장하는 대신 저렴한 비용의 Azure의 이점을 활용합니다. 가격 책정 계층을 선택하고 Azure 포털에서 설정을 구성하여 가격을 제어합니다. 필요한 만큼 규모를 확장하거나 축합니다. 자세한 내용은 [SQL Server 스트레치 데이터베이스 가격 책정](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/) 페이지를 방문합니다.
 
 ### <a name="doesnt-require-changes-to-queries-or-applications"></a>쿼리 또는 응용 프로그램을 변경하지 않아도 됩니다.
 온\-프레미스인지, 클라우드로 확장되었는지에 관계없이 SQL Server 데이터에 원활하게 액세스합니다.  데이터를 저장하고 SQL Server가 백그라운드에서 데이터 이동을 처리하는 위치를 결정하는 정책을 설정합니다. 전체 테이블은 항상 온라인 상태이며 쿼리할 수 있습니다. 그리고 스트레치 데이터베이스는 기존 쿼리 또는 응용 프로그램에 변경할 필요가 없습니다. 데이터의 위치는 응용 프로그램에 대해 완전히 투명합니다.
 
-### <a name="streamlines-onpremises-data-maintenance"></a>온\-프레미스 데이터 유지 관리 간소화
+### <a name="streamlines-on-premises-data-maintenance"></a>온\-프레미스 데이터 유지 관리 간소화
 온\-프레미스 유지 관리와 데이터의 저장소를 줄입니다. 온\-프레미스 데이터에 대한 백업을 더 빠르게 실행하고 유지 관리 기간 내에 완료합니다. 데이터의 클라우드 부분에 대한 백업이 자동으로 실행됩니다. 온\-프레미스 저장소 요구량이 크게 감소합니다. Azure 저장소는 온\-프레미스 SSD에 추가하는 비용의 80%까지 절약할 수 있습니다.
 
 ### <a name="keeps-your-data-secure-even-during-migration"></a>마이그레이션 중에도 데이터 보호
@@ -72,7 +72,7 @@ SQL Server 2016의 임시 테이블 기능을 사용하는 경우, 연결된 기
 SQL Server 2016 업그레이드 관리자의 기능인 스트레치 데이터베이스 관리자를 사용하여 스트레치 데이터베이스용 데이터베이스 및 테이블을 식별합니다. 자세한 내용은 [스트레치 데이터베이스용 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md)을 참조하세요. 잠재적인 차단 문제에 대한 자세한 내용은 [스트레치 데이터베이스에 대한 제한](sql-server-stretch-database-limitations.md)을 참조하세요.
 
 ## <a name="test-drive-stretch-database"></a>스트레치 데이터베이스 시험 사용
-**AdventureWorks 샘플 데이터베이스를 통해 스트레치 데이터베이스를 시험 사용합니다.** AdventureWorks 샘플 데이터베이스를 얻으려면 [여기](https://www을 참조하세요.microsoft을 참조하세요.com/download/details을 참조하세요.aspx?id=49502)을 참조하세요. 샘플 데이터베이스를 SQL Server 2016의 인스턴스에 복원한 후, 샘플 파일의 압축을 풀고 스트레치 DB 폴더에서 스트레치 DB 샘플 파일을 엽니다. 이 파일에서 스크립트를 실행하여 Stretch Database 사용 전후 데이터가 사용하는 공간을 확인하고, 데이터 마이그레이션의 진행 상황을 추적하며, 그리고 데이터 마이그레이션 도중 및 이후에도 계속 기존 데이터를 쿼리하고 새 데이터를 삽입할 수 있는지 확인합니다.
+**AdventureWorks 샘플 데이터베이스를 통해 스트레치 데이터베이스를 시험 사용합니다.** AdventureWorks 샘플 데이터베이스를 얻으려면 [여기](https://www.microsoft.com/download/details.aspx?id=49502)을 참조하세요. 샘플 데이터베이스를 SQL Server 2016의 인스턴스에 복원한 후, 샘플 파일의 압축을 풀고 스트레치 DB 폴더에서 스트레치 DB 샘플 파일을 엽니다. 이 파일에서 스크립트를 실행하여 Stretch Database 사용 전후 데이터가 사용하는 공간을 확인하고, 데이터 마이그레이션의 진행 상황을 추적하며, 그리고 데이터 마이그레이션 도중 및 이후에도 계속 기존 데이터를 쿼리하고 새 데이터를 삽입할 수 있는지 확인합니다.
 
 ## <a name="next-step"></a>다음 단계
 **스트레치 데이터베이스의 후보인 데이터베이스 및 테이블을 식별합니다.**  SQL Server 2016 업그레이드 관리자를 다운로드하고 스트레치 데이터베이스 관리자를 실행하여 스트레치 데이터베이스의 후보인 데이터베이스 및 테이블을 식별합니다. 스트레치 데이터베이스 관리자는 차단 문제도 식별합니다. 자세한 내용은 [스트레치 데이터베이스용 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md)을 참조하세요.
@@ -84,6 +84,6 @@ SQL Server 2016 업그레이드 관리자의 기능인 스트레치 데이터베
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

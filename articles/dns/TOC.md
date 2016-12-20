@@ -35,15 +35,21 @@
 ## [.NET SDK를 사용하여 DNS 작업 자동화](dns-sdk.md)
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [REST API](/rest/api/dns/)
+## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
+## [Azure CLI 2.0(미리 보기)](/cli/azure/network/dns)
+## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
+## [Java](/java/api/com.microsoft.azure.management.dns)
+## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html)
+## [REST (영문)](/rest/api/dns/)
 
 # 관련 항목
-## [응용 프로그램 게이트웨이](/azure/application-gateway/)
+## [Application Gateway](/azure/application-gateway/)
 ## [Virtual Network](/azure/virtual-network/)
 ## [가상 컴퓨터](/azure/virtual-machines/)
 ## [부하 분산 장치](/azure/load-balancer/)
-## [트래픽 관리자](/azure/traffic-manager/)
+## [Traffic Manager](/azure/traffic-manager/)
 ## [웹앱](/azure/app-service-web/)
 
 # 리소스
@@ -53,6 +59,6 @@
 ## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

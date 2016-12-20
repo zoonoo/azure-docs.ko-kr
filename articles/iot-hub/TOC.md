@@ -8,6 +8,10 @@
 ### [IoT Hub 시작(.NET)](iot-hub-csharp-csharp-getstarted.md)
 ### [IoT Hub 시작(Java)](iot-hub-java-java-getstarted.md)
 ### [IoT Hub 시작(Node)](iot-hub-node-node-getstarted.md)
+## IoT 장치 SDK 시작
+### [C용 Azure IoT 장치 SDK 소개](iot-hub-device-sdk-c-intro.md)
+### [C용 IoT 장치 SDK: IoTHubClient에 대한 자세한 정보](iot-hub-device-sdk-c-iothubclient.md)
+### [C용 IoT 장치 SDK: 직렬 변환기에 대한 자세한 정보](iot-hub-device-sdk-c-serializer.md)
 ## Raspberry Pi로 시작하기
 ### [Raspberry Pi 3 시작하기](iot-hub-raspberry-pi-kit-node-get-started.md)
 ### 단원 1: 장치 구성
@@ -32,6 +36,7 @@
 ## [Gateway SDK 시작(Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Gateway SDK 시작(Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 # 방법
 ## [장치-클라우드 메시지 처리 자습서(.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [장치-클라우드 메시지 처리 자습서(Java)](iot-hub-java-java-process-d2c.md)
@@ -51,7 +56,7 @@
 ## [장치 작업을 사용하여 .NET/노드용 장치 펌웨어 업데이트](iot-hub-csharp-node-firmware-update.md)
 ## [Node.js용 작업 예약 및 브로드캐스트](iot-hub-node-node-schedule-jobs.md)
 ## [.NET/노드용 작업 예약 및 브로드캐스트](iot-hub-csharp-node-schedule-jobs.md)
-## 배포 계획
+## 계획
 ### [IoT Hub를 Event Hubs에 비교](iot-hub-compare-event-hubs.md)
 ### [솔루션 확장](iot-hub-scaling.md)
 ### [고가용성 및 재해 복구](iot-hub-ha-dr.md)
@@ -74,9 +79,10 @@
 ### [장치 및 서비스 SDK](iot-hub-devguide-sdks.md)
 ### [MQTT 지원](iot-hub-mqtt-support.md)
 ### [용어](iot-hub-devguide-glossary.md)
-## 서비스 관리
+## 관리
 ### [포털을 사용하여 IoT Hub 만들기](iot-hub-create-through-portal.md)
-### [CLI를 사용하여 IoT Hub 만들기](iot-hub-create-using-cli.md)
+### [CLI 2.0 미리 보기를 사용하여 IoT Hub 만들기](iot-hub-create-using-cli.md)
+### [CLI를 사용하여 IoT Hub 만들기](iot-hub-create-using-cli-nodejs.md)
 ### [REST를 사용하여 IoT Hub 만들기](iot-hub-rm-rest.md)
 ### [Powershell을 사용하여 IoT Hub 만들기](iot-hub-rm-template-powershell.md)
 ### [템플릿을 사용하여 IoT Hub 만들기](iot-hub-rm-template.md)
@@ -96,23 +102,22 @@
 ### [IoT 배포 보안 유지](iot-hub-security-deployment.md)
 
 # 참조
-## [Azure CLI](https://docs.microsoft.com/cli/azure)
-## [Java](https://docs.microsoft.com/java/api)
-## [.NET API](https://docs.microsoft.com/dotnet/api)
+## [Azure CLI 2.0 미리 보기](/cli/azure/iot)
+## [.NET(서비스)](/dotnet/api/microsoft.azure.devices)
+## [.NET(장치)](/dotnet/api/microsoft.azure.devices.client)
+## [.NET(서비스)](/java/api/com.microsoft.azure.iot.service.auth)
+## [Java(장치)](/java/api/com.microsoft.azure.iothub)
 ## [Azure IoT SDK](http://azure.github.io/azure-iot-sdks/)
-## [Gateway SDK API](http://azure.github.io/azure-iot-gateway-sdk)
-## [리소스 공급자 REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [장치 ID REST API](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [장치 메시징 REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
-## [C용 Azure IoT 장치 SDK 소개](iot-hub-device-sdk-c-intro.md)
-## [C용 IoT 장치 SDK: IoTHubClient에 대한 자세한 정보](iot-hub-device-sdk-c-iothubclient.md)
-## [C용 IoT 장치 SDK: 직렬 변환기에 대한 자세한 정보](iot-hub-device-sdk-c-serializer.md)
+## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
+## [REST(리소스 공급자)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
+## [REST(장치 ID)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
+## [REST(장치 메시징) REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 
 # 관련 항목
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
 ## [Azure 이벤트 허브](https://azure.microsoft.com/documentation/services/event-hubs/)
-## [스트림 분석](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [기계 학습](https://azure.microsoft.com/documentation/services/machine-learning/)
+## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
+## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)
@@ -125,6 +130,6 @@
 ## [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

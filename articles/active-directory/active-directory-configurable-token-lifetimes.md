@@ -1,12 +1,12 @@
 ---
-title: Configurable Token Lifetimes in Azure Active Directory  | Microsoft Docs
-description: This feature is used by admins and developers to specify the lifetimes of tokens issued by Azure AD.
+title: "Azure Active Directory에서 구성 가능한 토큰 수명 | Microsoft Docs"
+description: "관리자와 개발자는 이 기능을 사용하여 Azure AD에서 발급된 토큰의 수명을 지정할 수 있습니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,189 +14,193 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/06/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f61d23fec6badb8dd53379d183b177e4c19e5711
+
 
 ---
-# <a name="configurable-token-lifetimes-in-azure-active-directory-(public-preview)"></a>Configurable Token Lifetimes in Azure Active Directory (Public Preview)
+# <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory에서 구성 가능한 토큰 수명(공개 미리 보기)
 > [!NOTE]
-> This capability is currently in public preview.  You should be prepared to revert or remove any changes.  We are opening up this feature for everyone to try during the public preview, however, certain aspects may require an [Azure AD Premium subscription](active-directory-get-started-premium.md) once generally available.
+> 이 기능은 현재 공개 미리 보기로 제공되고 있습니다.  변경 내용을 되돌리거나 제거할 준비를 해야 합니다.  모든 사람이 공개 미리 보기 중에 사용해 볼 수 있도록 이 기능을 공개하지만 일반 공급 후에는 특정 측면에 [Azure AD Premium 구독](active-directory-get-started-premium.md)이 필요할 수 있습니다.
 > 
 > 
 
-## <a name="introduction"></a>Introduction
-This feature is used by admins and developers to specify the lifetimes of tokens issued by Azure AD. Token lifetimes can be configured for all apps in a tenant, for a multi-tenant application, or for a specific Service Principal in a tenant.
+## <a name="introduction"></a>소개
+관리자와 개발자는 이 기능을 사용하여 Azure AD에서 발급된 토큰의 수명을 지정할 수 있습니다. 테넌트의 모든 앱, 다중 테넌트 응용 프로그램 또는 테넌트의 특정 서비스 사용자에 대해 토큰 수명을 구성할 수 있습니다.
 
-In Azure AD, a policy object represents a set of rules enforced on individual applications or all applications in a tenant.  Each type of policy has a unique structure with a set of properties that are then applied to objects to which they are assigned.
+Azure AD에서 정책 개체는 개별 응용 프로그램 또는 테넌트의 모든 응용 프로그램에 적용되는 규칙 집합을 나타냅니다.  각 유형의 정책에는 할당된 개체에 적용되는 속성 집합이 포함된 고유한 구조가 있습니다.
 
-A policy can be designated as the default for a tenant. This policy then takes effect on any application that resides within that tenant as long as it is not overridden by a policy with a higher priority. Policies can also be assigned to specific applications. The order of priority varies by policy type.
+정책을 테넌트에 대한 기본값으로 지정할 수 있습니다. 그러면 우선 순위가 더 높은 정책에 의해 재정의되지 않는 한 해당 테넌트 내에 있는 응용 프로그램에 정책이 적용됩니다. 특정 응용 프로그램에 정책을 할당할 수도 있습니다. 우선 순위는 정책 유형에 따라 다릅니다.
 
-Token lifetime policies can be configured for refresh tokens, access tokens, session tokens, and ID tokens.
+새로 고침 토큰, 액세스 토큰, 세션 토큰 및 ID 토큰에 대한 토큰 수명 정책을 구성할 수 있습니다.
 
-### <a name="access-tokens"></a>Access tokens
-An access token is used by a client to access a protected resource. An access token can only be used for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime.  Adjusting access token lifetime is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user’s account is disabled.  Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token. 
+### <a name="access-tokens"></a>액세스 토큰
+액세스 토큰은 클라이언트에서 보호된 리소스에 액세스하는 데 사용됩니다. 사용자, 클라이언트 및 리소스의 특정 조합에만 액세스 토큰을 사용할 수 있습니다. 액세스 토큰은 해지될 수 없으며 만료될 때까지 유효합니다. 액세스 토큰을 획득한 악의적인 행위자는 수명 범위 동안 이를 사용할 수 있습니다.  액세스 토큰의 수명을 조정하는 것은 시스템 성능을 개선하는 것과 사용자 계정이 비활성화된 후 클라이언트에서 액세스를 유지하는 기간을 늘리는 것 간의 절충 작업입니다.  시스템 성능을 개선하려면 클라이언트에서 새 액세스 토큰을 획득해야 하는 횟수를 줄이면 됩니다. 
 
-### <a name="refresh-tokens"></a>Refresh tokens
-When a client acquires an access token to access a protected resource, it receives both a refresh token and an access token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. Refresh tokens are bound to combinations of user and client. They can be revoked and their validity is checked every time they are used.
+### <a name="refresh-tokens"></a>새로 고침 토큰
+클라이언트에서 보호된 리소스에 액세스하기 위해 액세스 토큰을 획득하는 경우 새로 고침 토큰과 액세스 토큰이 둘 다 제공됩니다. 새로 고침 토큰은 현재 액세스 토큰이 만료된 경우 새 액세스/새로 고침 토큰 쌍을 얻는 데 사용됩니다. 새로 고침 토큰은 사용자와 클라이언트의 조합에 바인딩됩니다. 이 토큰은 해지될 수 있으며 사용될 때마다 유효성이 검사됩니다.
 
-It is important to make a distinction between confidential and public clients. Confidential clients are applications that are able to securely store a client password, allowing them to prove that requests are coming from the client application and not a malicious actor. As these flows are more secure, the default lifetimes of refresh tokens issued to these flows are higher and cannot be changed using policy.
+비밀 클라이언트와 공용 클라이언트를 구분해야 합니다. 비밀 클라이언트는 요청이 악의적인 행위자가 아니라 클라이언트 응용 프로그램에서 들어온 것임을 증명할 수 있도록 클라이언트 암호를 안전하게 저장할 수 있는 응용 프로그램입니다. 이러한 흐름은 보다 안전하기 때문에 이러한 흐름에 발급된 새로 고침 토큰의 기본 수명은 더 길고 정책을 사용하여 변경할 수 없습니다.
 
-Due to limitations of the environment that the applications run in, public clients are unable to securely store a client password. Policies can be set on resources to prevent refresh tokens from public clients older than a specified period from obtaining a new access/refresh token pair (Refresh Token Max Inactive Time).  Additionally, policies can be used to set a period of time beyond which the refresh tokens are no longer accepted (Refresh Token Max Age).  Adjusting refresh token lifetime allows you to control when and how often the user is required to reenter credentials instead of being silently re-authenticated when using a public client application.
+응용 프로그램이 실행되는 환경의 제한 사항으로 인해 공용 클라이언트는 클라이언트 암호를 안전하게 저장할 수 없습니다. 지정된 기간보다 오래된 공용 클라이언트의 새로 고침 토큰이 새 액세스/새로 고침 토큰 쌍을 얻는 것을 방지하기 위해 리소스에 대한 정책을 설정할 수 있습니다(새로 고침 토큰 최대 비활성 시간).  또한 정책을 사용하여 새로 고침 토큰이 더 이상 허용되지 않는 기간을 설정할 수 있습니다(새로 고침 토큰 최대 기간).  새로 고침 토큰의 수명을 조정하여 공용 클라이언트 응용 프로그램을 사용할 때 자동으로 재인증되는 대신 사용자가 자격 증명을 다시 입력해야 하는 경우 및 빈도를 제어할 수 있습니다.
 
-### <a name="id-tokens"></a>ID tokens
-ID tokens are passed to web sites and native clients and contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until expiry.  Normally, a web application matches a user’s session lifetime in the application to the lifetime of the ID token issued for the user.  Adjusting ID token lifetime allows you to control how often the web application will expire the application session and require the user to be re-authenticated with Azure AD (either silently or interactively).
+### <a name="id-tokens"></a>ID 토큰
+ID 토큰은 웹 사이트 및 네이티브 클라이언트에 전달되며, 사용자에 대한 프로필 정보를 포함합니다. ID 토큰은 사용자와 클라이언트의 특정 조합에 바인딩되며, 만료될 때까지 유효합니다.  일반적으로 웹 응용 프로그램은 응용 프로그램의 사용자 세션 수명을 해당 사용자에 대해 발급된 ID 토큰의 수명과 일치시킵니다.  ID 토큰의 수명을 조정하여 웹 응용 프로그램이 응용 프로그램 세션을 만료하는 빈도 및 사용자에게 Azure AD에 다시 인증(자동 또는 대화형)하도록 요구하는 빈도를 제어할 수 있습니다.
 
-### <a name="single-sign-on-session-token"></a>Single sign-on session token
-When a user authenticates with Azure AD, a single sign-on session is established with the user’s browser and Azure AD.  The Single Sign-On Session Token, in the form of a cookie, represents this session. It is important to note that the SSO session token is not bound to a specific resource/client application. SSO session tokens can be revoked and their validity is checked every time they are used.
+### <a name="single-sign-on-session-token"></a>Single Sign-On 세션 토큰
+사용자가 Azure AD에 인증하고 "로그인 유지" 상자를 선택하면 사용자의 브라우저와 Azure AD에 Single Sign-On 세션이 설정됩니다.  Single Sign-On 세션 토큰은 쿠키 형식으로 이 세션을 나타냅니다. SSO 세션 토큰은 특정 리소스/클라이언트 응용 프로그램에 바인딩되지 않습니다. SSO 세션 토큰은 해지될 수 있으며 사용될 때마다 유효성이 검사됩니다.
 
-There are two kinds of SSO session tokens. Persistent session tokens are stored as persistent cookies by the browser and non-persistent session tokens are stored as session cookies (these are destroyed when the browser is closed).
+SSO 세션 토큰에는 두 종류가 있습니다. 영구 세션 토큰은 브라우저에 의해 영구 쿠키로 저장되고, 비영구 세션 토큰은 세션 쿠키로 저장됩니다(브라우저가 닫히면 삭제됨).
 
-Non-persistent session tokens have a lifetime of 24 hours whereas persistent tokens have a lifetime of 180 days. Any time the SSO session token is used within its validity period, the validity period is extended another 24 hours or 180 days. If the SSO session token is not used within its validity period, it is considered expired and will no longer be accepted. 
+비영구 세션 토큰의 수명은 24시간인 반면, 영구 토큰의 수명은 180일입니다. SSO 세션 토큰은 유효 기간 내에 언제든지 사용할 수 있으며, 유효 기간은 추가 24시간 또는 180일 동안 연장됩니다. 유효 기간 내에 SSO 세션 토큰을 사용하지 않으면 만료된 것으로 간주되며 더 이상 허용되지 않습니다. 
 
-Policies can be used to set a period of time after the first session token was issued beyond which the session tokens are no longer accepted (Session Token Max Age).  Adjusting session token lifetime allows you to control when and how often the user is required to re-enter credentials instead of being silently authenticated when using a web application.
+정책을 사용하여 첫 세션 토큰이 발급된 후 일정 기간이 지나면 세션 토큰이 더 이상 허용되지 않도록 설정할 수 있습니다(세션 토큰 최대 기간).  세션 토큰의 수명을 조정하여 웹 클라이언트 응용 프로그램을 사용할 때 자동으로 인증되는 대신 사용자가 자격 증명을 다시 입력해야 하는 경우 및 빈도를 제어할 수 있습니다.
 
-### <a name="token-lifetime-policy-properties"></a>Token lifetime policy properties
-A token lifetime policy is a type of policy object that contains token lifetime rules.  The properties of the policy are used to control specified token lifetimes.  If no policy is set, the system enforces the default lifetime value.
+### <a name="token-lifetime-policy-properties"></a>토큰 수명 정책 속성
+토큰 수명 정책은 토큰 수명 규칙을 포함하는 정책 개체의 형식입니다.  정책의 속성은 지정된 토큰 수명을 제어하는 데 사용됩니다.  설정된 정책이 없는 경우 시스템에서 기본 수명값을 적용합니다.
 
-### <a name="configurable-token-lifetime-properties"></a>Configurable token lifetime properties
-| Property | Policy property string | Affects | Default | Minimum | Maximum |
+### <a name="configurable-token-lifetime-properties"></a>구성 가능한 토큰 수명 속성
+| 속성 | 정책 속성 문자열 | 영향 | 기본값 | 최소 | 최대 |
 | --- | --- | --- | --- | --- | --- |
-| Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
-| Refresh Token Max Inactive Time |MaxInactiveTime |Refresh tokens |14 days |10 minutes |90 days |
-| Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Refresh tokens (for any users) |90 days |10 minutes |Until-revoked* |
-| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Refresh tokens (for any users) |90 days |10 minutes |Until-revoked* |
-| Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor** |Session tokens(persistent and non-persistent) |Until-revoked |10 minutes |Until-revoked* |
-| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor*** |Session tokens (persistent and non-persistent) |Until-revoked |10 minutes |Until-revoked* |
+| 액세스 토큰 수명 |AccessTokenLifetime |액세스 토큰, ID 토큰, SAML2 토큰 |1시간 |10분 |1일 |
+| 새로 고침 토큰 최대 비활성 시간 |MaxInactiveTime |새로 고침 토큰 |14일 |10분 |90일 |
+| 단일 단계 새로 고침 토큰 최대 기간 |MaxAgeSingleFactor |새로 고침 토큰(모든 사용자) |90일 |10분 |Until-revoked* |
+| 다단계 새로 고침 토큰 최대 기간 |MaxAgeMultiFactor |새로 고침 토큰(모든 사용자) |90일 |10분 |Until-revoked* |
+| 단일 단계 세션 토큰 최대 기간 |MaxAgeSessionSingleFactor** |세션 토큰(영구 및 비영구적) |Until-revoked |10분 |Until-revoked* |
+| 다단계 세션 토큰 최대 기간 |MaxAgeSessionMultiFactor*** |세션 토큰 (영구 및 비영구적) |Until-revoked |10분 |Until-revoked* |
 
-* *365 days is the maximum explicit length that can be set for these attributes.
-* **If MaxAgeSessionSingleFactor is not set then this value takes the MaxAgeSingleFactor value. If neither parameter is set, the property takes on the default value (Until-revoked).
-* ***If MaxAgeSessionMultiFactor is not set then this value takes the MaxAgeMultiFactor value. If neither parameter is set, the property takes on the default value (Until-revoked).
+* *이러한 특성에 대해 설정할 수 있는 명시적인 최대 기간은 365일입니다.
+* **MaxAgeSessionSingleFactor가 설정되지 않은 경우 이 값은 MaxAgeSingleFactor 값을 사용합니다. 두 매개 변수 모두 설정되지 않은 경우에는 이 속성에 기본값(Until-revoked)이 사용됩니다.
+* ***MaxAgeSessionMultiFactor가 설정되지 않은 경우 이 값은 MaxAgeMultiFactor 값을 사용합니다. 두 매개 변수 모두 설정되지 않은 경우에는 이 속성에 기본값(Until-revoked)이 사용됩니다.
 
-### <a name="exceptions"></a>Exceptions
-| Property | Affects | Default |
+### <a name="exceptions"></a>예외
+| 속성 | 영향 | 기본값 |
 | --- | --- | --- |
-| Refresh Token Max Inactive Time (federated users with insufficient revocation information) |Refresh tokens (Issued for federated users with insufficient revocation information) |12 hours |
-| Refresh Token Max Inactive Time (Confidential Clients) |Refresh tokens (Issued for Confidential Clients) |90 days |
-| Refresh token Max Age (Issued for Confidential Clients) |Refresh tokens (Issued for Confidential Clients) |Until-revoked |
+| 새로 고침 토큰 최대 비활성 시간(해지 정보가 부족한 페더레이션된 사용자) |새로 고침 토큰(해지 정보가 부족한 페더레이션된 사용자에 대해 발급됨) |12시간 |
+| 새로 고침 토큰 최대 비활성 시간(비밀 클라이언트) |새로 고침 토큰(비밀 클라이언트에 대해 발급됨) |90일 |
+| 새로 고침 최대 기간(비밀 클라이언트에 대해 발급됨) |새로 고침 토큰(비밀 클라이언트에 대해 발급됨) |Until-revoked |
 
-### <a name="priority-and-evaluation-of-policies"></a>Priority and evaluation of policies
-Token Lifetime policies can be created and assigned to specific applications, tenants and service principals. This means that it is possible for multiple policies to apply to a specific application. The Token Lifetime policy that takes effect follows these rules:
+### <a name="priority-and-evaluation-of-policies"></a>정책의 우선 순위 및 평가
+토큰 수명 정책을 만들어 특정 응용 프로그램, 테넌트 및 서비스 사용자에게 할당할 수 있습니다. 즉, 여러 정책을 특정 응용 프로그램에 적용할 수 있습니다. 적용되는 토큰 수명 정책은 다음 규칙을 따릅니다.
 
-* If a policy is explicitly assigned to the service principal, it will be enforced. 
-* If no policy is explicitly assigned to the service principal, a policy explicitly assigned to the parent tenant of the service principal will be enforced. 
-* If no policy is explicitly assigned to the service principal or the tenant, the policy assigned to the application will be enforced. 
-* If no policy has been assigned to the service principal, the tenant, or the application object, the default values will be enforced (see table above).
+* 정책이 서비스 사용자에게 명시적으로 할당된 경우 해당 정책이 적용됩니다. 
+* 사용자에게 명시적으로 할당된 정책이 없는 경우 서비스 사용자의 상위 테넌트에 명시적으로 할당된 정책이 적용됩니다. 
+* 서비스 사용자 또는 테넌트에 명시적으로 할당된 정책이 없는 경우 응용 프로그램에 할당된 정책이 적용됩니다. 
+* 서비스 사용자, 테넌트 또는 응용 프로그램 개체에 할당된 정책이 없는 경우 기본값이 적용됩니다(위 표 참조).
 
-For more information on the relationship between application objects and service principal objects in Azure AD, see [Application and service principal objects in Azure Active Directory](active-directory-application-objects.md).
+Azure AD의 응용 프로그램 개체와 서비스 사용자 간 관계에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](active-directory-application-objects.md)를 참조하세요.
 
-A token’s validity is evaluated at the time it is used. The policy with the highest priority on the application that is being accessed takes effect.
+토큰의 유효성은 사용되는 시점에 평가됩니다. 액세스하는 응용 프로그램에 대한 우선 순위가 가장 높은 정책이 적용됩니다.
 
 > [!NOTE]
-> Example
+> 예제
 > 
-> A user wants to access 2 web applications, A and B. 
+> 사용자가 두 개의 웹 응용 프로그램(A와 B)에 액세스하려면 합니다. 
 > 
-> * Both applications are in the same parent tenant. 
-> * Token lifetime policy 1 with a Session Token Max Age of 8 hours is set as the parent tenant’s default.
-> * Web application A is a regular use web application and isn’t linked to any policies. 
-> * Web application B is used for highly sensitive processes and its service principal is linked to token lifetime policy 2 with a Session Token Max Age of 30 minutes.
+> * 두 응용 프로그램 모두 동일한 상위 테넌트에 있습니다. 
+> * 세션 토큰 최대 기간이 8시간인 토큰 수명 정책 1은 상위 테넌트의 기본값으로 설정됩니다.
+> * 웹 응용 프로그램 A는 어떤 정책에도 연결되지 않은 일반적인 용도의 웹 응용 프로그램입니다. 
+> * 웹 응용 프로그램 B는 매우 중요한 프로세스에 사용되며, 해당 서비스 사용자는 세션 토큰 처리 기간이 30분인 토큰 수명 정책 2에 연결됩니다.
 > 
-> At 12:00PM the user opens up a new browser session and tries to access web application A. the user is redirected to Azure AD and is asked to sign-in. This drops a cookie with a session token in the browser. The user is redirected back to web application A with an ID token that allows them to access the application.
+> 오후 12시에 사용자는 새 브라우저 세션을 열고 웹 응용 프로그램 A에 액세스하려고 합니다. 사용자는 Azure AD로 리디렉션되며 로그인하라는 메시지가 표시됩니다. 그러면 세션 토큰이 있는 쿠키가 브라우저에서 삭제됩니다. 사용자는 응용 프로그램에 액세스할 수 있는 ID 토큰으로 웹 응용 프로그램 A로 다시 리디렉션됩니다.
 > 
-> At 12:15PM, the user then tries to access web application B. The browser redirects to Azure AD which detects the session cookie. Web application B’s service principal is linked to a policy 1, but is also part of the parent tenant with default policy 2. Policy 2 takes effect since policies linked to service principals have a higher priority than tenant default policies. The session token was originally issued within the last 30 minutes so it is considered valid. The user is redirected back to web application B with an ID token granting them access.
+> 오후 12시 15분에 사용자는 웹 응용 프로그램 B에 액세스하려고 합니다. 브라우저는 세션 쿠키를 검색하는 Azure AD로 리디렉션합니다. 웹 응용 프로그램 B의 서비스 사용자는 정책 2에 연결되지만 기본 정책 1이 적용되는 상위 테넌트의 일부이기도 합니다. 서비스 사용자에게 연결된 정책이 테넌트 기본 정책보다 우선 순위가 높기 때문에 정책 2가 적용됩니다. 세션 토큰은 지난 30분 이내에 처음 발급되었기 때문에 유효한 것으로 간주됩니다. 사용자는 액세스 권한을 부여하는 ID 토큰으로 웹 응용 프로그램 B로 리디렉션됩니다.
 > 
-> At 1:00PM the user tries navigating to web application A. The user is redirected to Azure AD. Web application A is not linked to any policies, but since it is in a tenant with default policy 1, this policy takes effect. The session cookie is detected that was originally issued within the last 8 hours and the user is silently redirected back to web application A with a new ID token without needing to authenticate.
+> 오후 1시에 사용자는 웹 응용 프로그램 A를 탐색하려고 합니다. 사용자는 Azure AD로 리디렉션됩니다. 웹 응용 프로그램 A는 정책에 연결되지 않았지만 기본 정책 1이 적용되는 테넌트에 있기 때문에 이 정책이 적용됩니다. 세션 쿠키는 지난 8시간 이내에 처음 발급된 것으로 검색되며, 사용자는 인증할 필요가 없는 새 ID 토큰으로 웹 응용 프로그램 A로 자동으로 다시 리디렉션됩니다.
 > 
-> The user immediately tries to access web application B. The user is redirected to Azure AD. As before, policy 2 takes effect. As the token was issued longer than 30 minutes ago, the user is then prompted to re-enter their credentials, and a brand new session and ID token are issued. The user can then access web application B.
+> 사용자는 웹 응용 프로그램 B에 즉시 액세스하려고 합니다. 사용자는 Azure AD로 리디렉션됩니다. 이전과 마찬가지로 정책 2가 적용됩니다. 토큰이 발급된지 30분이 넘은 경우 사용자에게 자격 증명을 다시 입력하라는 메시지가 표시되며, 새로운 세션 및 ID 토큰이 발급됩니다. 그런 다음 사용자는 웹 응용 프로그램 B에 액세스할 수 있습니다.
 > 
 > 
 
-## <a name="configurable-policy-properties:-in-depth"></a>Configurable policy properties: In-Depth
-### <a name="access-token-lifetime"></a>Access token lifetime
-**String:** AccessTokenLifetime
+## <a name="configurable-policy-properties-in-depth"></a>구성 가능한 정책 속성: 세부 정보
+### <a name="access-token-lifetime"></a>액세스 토큰 수명
+**문자열:** AccessTokenLifetime
 
-**Affects:** Access tokens, ID tokens
+**영향:** 액세스 토큰, ID 토큰
 
-**Summary:** This policy controls how long access and ID tokens for this resource are considered valid. Reducing the access token lifetime mitigates the risk of an access or ID token being used by a malicious actor for an extended period of time (as they cannot be revoked) but also adversely impacts performance as the tokens will have to be replaced more often.
+**요약:** 이 정책은 이 리소스에 대한 액세스 및 ID 토큰이 유효한 것으로 간주되는 기간을 제어합니다. 액세스 토큰 수명을 줄이면 악의적인 행위자가 연장된 기간 동안(해지할 수 없음) 액세스하거나 ID 토큰을 사용할 위험이 줄어들며 토큰을 더 자주 교체해야 하므로 성능에 저하됩니다.
 
-### <a name="refresh-token-max-inactive-time"></a>Refresh token max inactive time
-**String:** MaxInactiveTime
+### <a name="refresh-token-max-inactive-time"></a>새로 고침 토큰 최대 비활성 시간
+**문자열:** MaxInactiveTime
 
-**Affects:** Refresh tokens
+**영향:** 새로 고침 토큰
 
-**Summary:** This policy controls how old a refresh token can be before a client can no longer use it to retrieve a new access/refresh token pair when attempting to access this resource. Since a new Refresh token is usually returned a refresh token is used, the client must not have reached out to any resource using the current refresh token for the specified period of time before this policy would prevent access. 
+**요약:** 이 정책은 클라이언트에서 이 리소스에 액세스하려고 할 때 새 액세스/새로 고침 토큰을 검색하는 데 새로 고침 토큰을 더 이상 사용할 수 없을 때까지의 기간을 제어합니다. 새로 고침 토큰이 사용될 때 일반적으로 새로운 새로 고침 토큰이 반환되기 때문에 클라이언트는 이 정책에 따라 액세스가 방지되기 전에 지정된 기간 동안 현재 새로 고침 토큰을 사용하여 리소스에 연결해서는 안 됩니다. 
 
-This policy will force users who have not been active on their client to re-authenticate to retrieve a new refresh token. 
+이 정책은 클라이언트에서 활성화되지 않은 사용자가 새로운 새로 고침 토큰을 검색하려면 다시 인증해야 하도록 합니다. 
 
-It is important to note that the Refresh Token Max Inactive Time must be set to a lower value than the Single-Factor Token Max Age and the Multi-Factor Refresh Token Max Age.
+새로 고침 토큰 최대 비활성 시간은 단일 단계 토큰 최대 기간 및 다단계 새로 고침 토큰 최대 기간보다 낮은 값으로 설정해야 합니다.
 
-### <a name="single-factor-refresh-token-max-age"></a>Single-factor refresh token max age
-**String:** MaxAgeSingleFactor
+### <a name="single-factor-refresh-token-max-age"></a>단일 단계 새로 고침 토큰 최대 기간
+**문자열:** MaxAgeSingleFactor
 
-**Affects:** Refresh tokens
+**영향:** 새로 고침 토큰
 
-**Summary:** This policy controls how long a user can continue to use refresh tokens to get new access/refresh token pairs after the last time they authenticated successfully with only a single factor. Once a user authenticates and receives a new refresh token, they will be able to use the refresh token flow (as long as the current refresh token is not revoked and it is not left unused for longer than the inactive time) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new refresh token. 
+**요약:** 이 정책은 사용자가 단일 단계만 사용하여 마지막으로 인증에 성공한 후 계속해서 새로 고침 토큰을 사용하여 새로운 액세스/새로 고침 토큰을 얻을 수 있는 기간을 제어합니다. 사용자가 인증하고 새로운 새로 고침 토큰을 받은 후에는 지정된 기간 동안 새로 고침 토큰을 사용할 수 있습니다(현재 새로 고침 토큰이 해지되거나 비활성 시간보다 오랫동안 사용되지 않은 상태로 남아 있지 않은 경우). 이때 사용자는 새로운 새로 고침 토큰을 받기 위해 다시 인증해야 합니다. 
 
-Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or lesser value than the Multi-Factor Refresh Token Max Age Policy.
+최대 기간을 줄이면 사용자가 더 자주 인증해야 합니다. 단일 단계 인증은 다단계 인증보다 안전하지 않은 것으로 간주되므로 이 정책을 다단계 새로 고침 토큰 최대 기간 정책보다 작거나 같은 값으로 설정하는 것이 좋습니다.
 
-### <a name="multi-factor-refresh-token-max-age"></a>Multi-factor refresh token max age
-**String:** MaxAgeMultiFactor
+### <a name="multi-factor-refresh-token-max-age"></a>다단계 새로 고침 토큰 최대 기간
+**문자열:** MaxAgeMultiFactor
 
-**Affects:** Refresh tokens
+**영향:** 새로 고침 토큰
 
-**Summary:** This policy controls how long a user can continue to use refresh tokens to get new access/refresh token pairs after the last time they authenticated successfully with multiple factors. Once a user authenticates and receives a new refresh token, they will be able to use the refresh token flow (as long as the current refresh token is not revoked and it is not left unused for longer than the inactive time) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new refresh token. 
+**요약:** 이 정책은 사용자가 다단계를 사용하여 마지막으로 인증에 성공한 후 계속해서 새로 고침 토큰을 사용하여 새로운 액세스/새로 고침 토큰 쌍을 얻을 수 있는 기간을 제어합니다. 사용자가 인증하고 새로운 새로 고침 토큰을 받은 후에는 지정된 기간 동안 새로 고침 토큰을 사용할 수 있습니다(현재 새로 고침 토큰이 해지되거나 비활성 시간보다 오랫동안 사용되지 않은 상태로 남아 있지 않은 경우). 이때 사용자는 새로운 새로 고침 토큰을 받기 위해 다시 인증해야 합니다. 
 
-Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or greater value than the Single-Factor Refresh Token Max Age Policy.
+최대 기간을 줄이면 사용자가 더 자주 인증해야 합니다. 단일 단계 인증은 다단계 인증보다 안전하지 않은 것으로 간주되므로 이 정책을 단일 단계 새로 고침 토큰 최대 기간 정책보다 크거나 같은 값으로 설정하는 것이 좋습니다.
 
-### <a name="single-factor-session-token-max-age"></a>Single-factor session token max age
-**String:** MaxAgeSessionSingleFactor
+### <a name="single-factor-session-token-max-age"></a>단일 단계 세션 토큰 최대 기간
+**문자열:** MaxAgeSessionSingleFactor
 
-**Affects:** Session tokens (persistent and non-persistent)
+**영향:** 세션 토큰(영구 및 비영구)
 
-**Summary:** This policy controls how long a user can continue to use session tokens to get new ID and session tokens after the last time they authenticated successfully with only a single factor. Once a user authenticates and receives a new session token, they will be able to use the session token flow (as long as the current session token is not revoked or expired) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new session token. 
+**요약:** 이 정책은 사용자가 단일 단계만 사용하여 마지막으로 인증에 성공한 후 계속해서 세션 토큰을 사용하여 새로운 ID 및 세션 토큰을 얻을 수 있는 기간을 제어합니다. 사용자가 인증하고 새로운 세션 토큰을 받은 후에는 지정된 기간 동안 세션 토큰을 사용할 수 있습니다(현재 세션 토큰이 해지되거나 만료되지 않은 경우). 이때 사용자는 새로운 세션 토큰을 받기 위해 다시 인증해야 합니다. 
 
-Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or lesser value than the Multi-Factor Session Token Max Age Policy.
+최대 기간을 줄이면 사용자가 더 자주 인증해야 합니다. 단일 단계 인증은 다단계 인증보다 안전하지 않은 것으로 간주되므로 이 정책을 다단계 세션 토큰 최대 기간 정책보다 작거나 같은 값으로 설정하는 것이 좋습니다.
 
-### <a name="multi-factor-session-token-max-age"></a>Multi-factor session token max age
-**String:** MaxAgeSessionMultiFactor
+### <a name="multi-factor-session-token-max-age"></a>다단계 세션 토큰 최대 기간
+**문자열:** MaxAgeSessionMultiFactor
 
-**Affects:** Session tokens (persistent and non-persistent)
+**영향:** 세션 토큰(영구 및 비영구)
 
-**Summary:** This policy controls how long a user can continue to use session tokens to get new ID and session tokens after the last time they authenticated successfully with multiple factors. Once a user authenticates and receives a new session token, they will be able to use the session token flow (as long as the current session token is not revoked or expired) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new session token. 
+**요약:** 이 정책은 사용자가 다단계를 사용하여 마지막으로 인증에 성공한 후 계속해서 세션 토큰을 사용하여 새로운 ID 및 세션 토큰을 얻을 수 있는 기간을 제어합니다. 사용자가 인증하고 새로운 세션 토큰을 받은 후에는 지정된 기간 동안 세션 토큰을 사용할 수 있습니다(현재 세션 토큰이 해지되거나 만료되지 않은 경우). 이때 사용자는 새로운 세션 토큰을 받기 위해 다시 인증해야 합니다. 
 
-Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or greater value than the Single-Factor Session Token Max Age Policy.
+최대 기간을 줄이면 사용자가 더 자주 인증해야 합니다. 단일 단계 인증은 다단계 인증보다 안전하지 않은 것으로 간주되므로 이 정책을 단일 단계 세션 토큰 최대 기간 정책보다 크거나 같은 값으로 설정하는 것이 좋습니다.
 
-## <a name="sample-token-lifetime-policies"></a>Sample token lifetime policies
-Being able to create and manage token lifetimes for apps, service principals, and your overall tenant exposes all kinds of new scenarios possible in Azure AD.  We're going to walk through a few common policy scenarios that will help you impose new rules for:
+## <a name="sample-token-lifetime-policies"></a>샘플 토큰 수명 정책
+앱, 서비스 사용자 및 전체 테넌트에 대한 토큰 수명을 만들고 관리할 수 있다는 것은 Azure AD에서 가능한 모든 종류의 새로운 시나리오를 보여 줍니다.  새 규칙을 적용하는 데 도움이 되는 몇 가지 일반적인 정책 시나리오를 살펴보겠습니다.
 
-* Token Lifetimes
-* Token Max Inactive Times
-* Token Max Age
+* 토큰 수명
+* 토큰 최대 비활성 시간
+* 토큰 최대 기간
 
-We'll walk through a few scenarios including:
+다음을 비롯한 몇 가지 시나리오를 살펴보겠습니다.
 
-* Managing a Tenant's Default Policy
-* Creating a Policy for Web Sign-in
-* Creating a Policy for Native Apps calling a Web API
-* Managing an Advanced Policy 
+* 테넌트의 기본 정책 관리
+* 웹 로그인에 대한 정책 만들기
+* Web API를 호출하는 네이티브 앱에 대한 정책 만들기
+* 고급 정책 관리 
 
-### <a name="prerequisites"></a>Prerequisites
-In the sample scenarios we'll be creating, updating, linking, and deleting policies on apps, service principals, and your overall tenant.  If you are new to Azure AD, checkout [this article](active-directory-howto-tenant.md) to help you get started before proceeding with these samples.  
+### <a name="prerequisites"></a>필수 조건
+샘플 시나리오에서는 앱, 서비스 사용자 및 전체 테넌트에 대한 정책을 만들고, 업데이트하고, 연결하고, 삭제합니다.  Azure AD를 처음 접하는 경우 이러한 샘플을 진행하기 전에 [이 문서](active-directory-howto-tenant.md)를 확인하는 것이 시작하는 데 도움이 됩니다.  
 
-1. To begin, download the latest [Azure AD PowerShell Cmdlet Preview](https://www.powershellgallery.com/packages/AzureADPreview). 
-2. Once you have the Azure AD PowerShell Cmdlets, run Connect command to sign into your Azure AD admin account. You'll need to do this whenever you start a new session.
+1. 시작하려면 최신 [Azure AD PowerShell Cmdlet 미리 보기](https://www.powershellgallery.com/packages/AzureADPreview)를 다운로드합니다. 
+2. Azure AD PowerShell Cmdlet을 다운로드한 후에는 Connect 명령을 실행하여 Azure AD 관리 계정에 로그인합니다. 새 세션을 시작할 때마다 이 작업을 수행해야 합니다.
    
-       Connect-AzureAD -Confirm
-3. Run the following command to see all policies that have been created in your tenant.  This command should be used after most operations in the following scenarios.  It will also help you get the **Object ID** of your policies. 
+     Connect-AzureAD -Confirm
+3. 다음 명령을 실행하여 테넌트에서 만든 모든 정책을 확인합니다.  이 명령은 다음 시나리오에서 대부분의 작업 후에 사용됩니다.  또한 정책의 **개체 ID**를 가져오는 데 도움이 됩니다. 
    
-       Get-AzureADPolicy
+     Get-AzureADPolicy
 
-### <a name="sample:-managing-a-tenant's-default-policy"></a>Sample: Managing a tenant's default policy
-In this sample, we will create a policy that allows your users to sign in less frequently across your entire tenant. 
+### <a name="sample-managing-a-tenants-default-policy"></a>샘플: 테넌트의 기본 정책 관리
+이 샘플에서는 전체 테넌트에서 사용자의 로그인 횟수를 줄이는 정책을 만듭니다. 
 
-To do this, we create a token lifetime policy for Single-Factor Refresh Tokens that is applied across your tenant. This policy will be applied to every application in your tenant, and each service principal that doesn’t already have a policy set to it. 
+이렇게 하려면 전체 테넌트에 적용되는 단일 단계 새로 고침 토큰에 대한 토큰 수명 정책을 만듭니다. 이 정책은 아직 설정된 정책이 없는 각 서비스 사용자 및 테넌트의 모든 응용 프로그램에 적용됩니다. 
 
-1. **Create a Token Lifetime Policy.** 
+1. **토큰 수명 정책을 만듭니다.** 
 
-Set the Single-Factor Refresh Token to "until-revoked" meaning it won't expire until access is revoked.  The policy definition below is what we will be creating:
+단일 단계 새로 고침 토큰을 "until-revoked"로 설정합니다. 이는 액세스가 해지될 때까지 만료되지 않음을 의미합니다.  만들려는 정책 정의는 다음과 같습니다.
 
         @("{
           `"TokenLifetimePolicy`":
@@ -206,247 +210,250 @@ Set the Single-Factor Refresh Token to "until-revoked" meaning it won't expire u
               }
         }")
 
-Then run the following command to create this policy. 
+이제 다음 명령을 실행하여 이 정책을 만듭니다. 
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName TenantDefaultPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
 
-To see your new policy and get its ObjectID, run the following command.
+새 정책을 보고 해당 ObjectID를 가져오려면 다음 명령을 실행합니다.
 
     Get-AzureADPolicy
-&nbsp;&nbsp;2.  **Update the Policy**
+&nbsp;&nbsp;2.    **정책을 업데이트합니다.**
 
-You've decided that the first policy is not quite as strict as your service requires, and have decided you want your Single-Factor Refresh Tokens to expire in 2 days. Run the following command. 
+첫 번째 정책이 서비스에 필요한 것만큼 엄격하지 않다고 결정하여 단일 단계 새로 고침 토큰을 2일 후에 만료되도록 설정하기로 결정했습니다. 다음 명령을 실행합니다. 
 
     Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName TenantDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
 
-&nbsp;&nbsp;3. **You're done!** 
+&nbsp;&nbsp;3. **완료되었습니다!** 
 
-### <a name="sample:-creating-a-policy-for-web-sign-in"></a>Sample: Creating a policy for web sign-in
-In this sample, we will create a policy that will require your users to authenticate more frequently into your Web App. This policy will set the lifetime of the Access/Id Tokens and the Max Age of a Multi-Factor Session Token to the service principal of your web app.
+### <a name="sample-creating-a-policy-for-web-sign-in"></a>샘플: 웹 로그인에 대한 정책 만들기
+이 샘플에서는 사용자가 웹앱에 보다 자주 인증하도록 요구하는 정책을 만듭니다. 이 정책은 액세스/ID 토큰의 수명 및 다단계 세션 토큰의 최대 기간을 웹앱의 서비스 사용자로 설정합니다.
 
-1. **Create a Token Lifetime Policy.**
+1. **토큰 수명 정책을 만듭니다.**
 
-This policy for Web Sign-in will set the Access/Id Token lifetime and the Max Single-Factor Session Token Age to 2 hours.
+웹 로그인에 대한 이 정책은 액세스/ID 토큰 수명 및 최대 단일 단계 세션 토큰 기간을 2시간으로 설정합니다.
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy
 
-To see your new policy and get its ObjectID, run the following command.
+새 정책을 보고 해당 ObjectID를 가져오려면 다음 명령을 실행합니다.
 
     Get-AzureADPolicy
-&nbsp;&nbsp;2.  **Assign the policy to your service principal.**
+&nbsp;&nbsp;2.    **서비스 사용자에게 정책을 할당합니다.**
 
-We're going to link this new policy with a service principal.  You'll also need a way to access the **ObjectId** of your service principal. You can query the [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) or go to our [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign into your Azure AD account to see all your tenant's service principals. 
+이 새 정책을 서비스 사용자와 연결합니다.  서비스 사용자의 **ObjectId**에 액세스하는 방법도 필요합니다. [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리하거나 [Graph 탐색기 도구](https://graphexplorer.cloudapp.net/)로 이동해 Azure AD 계정에 로그인하여 테넌트의 모든 서비스 사용자를 확인할 수 있습니다. 
 
-Once you have the **ObjectId**, Run the following command.
+**ObjectId**가 있는 경우 다음 명령을 실행합니다.
 
     Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
-&nbsp;&nbsp;3.  **You're Done!** 
+&nbsp;&nbsp;3.    **완료되었습니다!** 
 
  
 
-### <a name="sample:-creating-a-policy-for-native-apps-calling-a-web-api"></a>Sample: Creating a policy for native apps calling a Web API
+### <a name="sample-creating-a-policy-for-native-apps-calling-a-web-api"></a>샘플: Web API를 호출하는 네이티브 앱에 대한 정책 만들기
 > [!NOTE]
-> Linking policies to applications is currently disabled.  We are working on enabling this shortly.  This page will be updated as soon as the feature is available.
+> 현재 정책을 응용 프로그램에 연결할 수 없습니다.  이 기능을 곧 사용할 수 있도록 개발하는 중입니다.  이 기능을 사용할 수 있게 되는 즉시 이 페이지는 업데이트될 예정입니다.
 > 
 > 
 
-In this sample, we will create a policy that requires users to authenticate less and will lengthen the amount of time they can be inactive without having to authenticate again. The policy will be applied to the Web API, that way when the Native App requests it as a resource this policy will be applied.
+이 샘플에서는 사용자가 인증해야 하는 횟수를 줄이고 다시 인증하지 않고도 비활성 상태로 있을 수 있는 기간을 늘리는 정책을 만듭니다. 이 정책은 Web API에 적용됩니다. 즉, 네이티브 앱에서 Web API를 리소스로 요청하는 경우 이 정책이 적용됩니다.
 
-1. **Create a Token Lifetime Policy.** 
+1. **토큰 수명 정책을 만듭니다.** 
 
-This command will create a strict policy for a Web API. 
+이 명령은 Web API에 대한 엄격한 정책을 만듭니다. 
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy
 
-To see your new policy and get its ObjectID, run the following command.
+새 정책을 보고 해당 ObjectID를 가져오려면 다음 명령을 실행합니다.
 
     Get-AzureADPolicy
 
-&nbsp;&nbsp;2.  **Assign the policy to your Web API**.
+&nbsp;&nbsp;2.    **Web API에 정책을 할당합니다.**
 
-We're going to link this new policy with an application.  You'll also need a way to access the **ObjectId** of your application. The best way to find your app's **ObjectId** is to use the [Azure Portal](https://portal.azure.com/). 
+이 새 정책을 응용 프로그램과 연결합니다.  응용 프로그램의 **ObjectId**에 액세스하는 방법도 필요합니다. 앱의 **ObjectId**를 찾는 가장 좋은 방법은 [Azure Portal](https://portal.azure.com/)을 사용하는 것입니다. 
 
-Once you have the **ObjectId**, Run the following command.
+**ObjectId**가 있는 경우 다음 명령을 실행합니다.
 
     Add-AzureADApplicationPolicy -ObjectId <ObjectID of the App> -RefObjectId <ObjectId of the Policy>
 
-&nbsp;&nbsp;3.  **You're Done!** 
+&nbsp;&nbsp;3.    **완료되었습니다!** 
 
-### <a name="sample:-managing-an-advanced-policy"></a>Sample: Managing an advanced policy
-In this sample, we will create a few policies to demonstrate how the priority system works, and how you can manage multiple policies applied to several objects. This will give some insight into the priority of policies explained above, and will also help you manage more complicated scenarios. 
+### <a name="sample-managing-an-advanced-policy"></a>샘플: 고급 정책 관리
+이 샘플에서는 우선 순위 시스템이 작동하는 방식 및 여러 개체에 적용되는 여러 정책을 관리하는 방법을 보여 주기 위해 몇 가지 정책을 만듭니다. 이는 위에서 설명한 정책의 우선 순위에 몇 가지 정보를 얻고 보다 복잡한 시나리오를 관리하는데 도움이 됩니다. 
 
-1. **Create a Token Lifetime Policy**
+1. **토큰 수명 정책을 만듭니다.**
 
-So far pretty simple. We've created a tenant default policy that sets the Single-Factor Refresh Token lifetime to 30 days. 
+아주 간단합니다. 단일 단계 새로 고침 토큰 수명을 30일로 설정하는 테넌트 기본 정책을 만들었습니다. 
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
-To see your new policy and get it's ObjectID, run the following command.
+새 정책을 보고 해당 ObjectID를 가져오려면 다음 명령을 실행합니다.
 
     Get-AzureADPolicy
 
-&nbsp;&nbsp;2.  **Assign the Policy to a Service Principal**
+&nbsp;&nbsp;2.    **서비스 사용자에게 정책을 할당합니다.**
 
-Now we have a policy on the entire tenant.  Let's say we want to preserve this 30 day policy for a specific service principal, but change the tenant default policy to be the upper limit of "until-revoked". 
+이제 전체 테넌트에 대한 정책이 생성되었습니다.  특정 서비스 사용자에 대해 이 30일 정책을 유지하되, 테넌트 기본 정책의 상한을 "until-revoked"로 변경하려는 경우를 가정해 봅니다. 
 
-First, We're going to link this new policy with our service principal.  You'll also need a way to access the **ObjectId** of your service principal. You can query the [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) or go to our [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign into your Azure AD account to see all your tenant's service principals. 
+먼저 이 새 정책을 서비스 사용자와 연결합니다.  서비스 사용자의 **ObjectId**에 액세스하는 방법도 필요합니다. [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리하거나 [Graph 탐색기 도구](https://graphexplorer.cloudapp.net/)로 이동해 Azure AD 계정에 로그인하여 테넌트의 모든 서비스 사용자를 확인할 수 있습니다. 
 
-Once you have the **ObjectId**, Run the following command.
+**ObjectId**가 있는 경우 다음 명령을 실행합니다.
 
     Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
 
-&nbsp;&nbsp;3.  **Set the IsTenantDefault flag to false using the following command**. 
+&nbsp;&nbsp;3.    **다음 명령을 사용하여 IsTenantDefault 플래그를 false로 설정합니다.** 
 
     Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsTenantDefault $false
-&nbsp;&nbsp;4.  **Create a new Tenant Default Policy**
+&nbsp;&nbsp;4.    **새 테넌트 기본 정책을 만듭니다.**
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsTenantDefault $true -Type TokenLifetimePolicy
 
-&nbsp;&nbsp;5.   **You're Done!** 
+&nbsp;&nbsp;5.     **완료되었습니다!** 
 
-You now have the original policy linked to your service principal and the new policy set as your tenant default policy.  It's important to remember that policies applied to service principals have priority over tenant default policies. 
+이제 원래 정책을 서비스 사용자와 연결하고 새 정책을 테넌트 기본 정책으로 설정했습니다.  서비스 사용자에게 적용되는 정책이 테넌트 기본 정책보다 우선한다는 점을 기억해야 합니다. 
 
-## <a name="cmdlet-reference"></a>Cmdlet Reference
-### <a name="manage-policies"></a>Manage policies
-The following cmdlets can be used to manage policies.</br></br>
+## <a name="cmdlet-reference"></a>Cmdlet 참조
+### <a name="manage-policies"></a>정책 관리
+다음 cmdlet을 사용하여 정책을 관리할 수 있습니다.</br></br>
 
 #### <a name="new-azureadpolicy"></a>New-AzureADPolicy
-Creates a new policy.
+새 정책을 만듭니다.
 
     New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsTenantDefault <boolean> -Type <Policy Type> 
 
-| Parameters | Description | Example |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
-| -Definition |The array of stringified JSON that contains all the rules of the policy. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -DisplayName |String of the policy name |-DisplayName MyTokenPolicy |
-| -IsTenantDefault |If true sets the policy as tenant's default policy, if false does nothing |-IsTenantDefault $true |
-| -Type |The type of policy, for token lifetimes always use "TokenLifetimePolicy" |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [Optional] |Sets an alternative id to the policy. |-AlternativeIdentifier myAltId |
+| -Definition |정책의 모든 규칙을 포함하는 문자열로 변환된 JSON의 배열입니다. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
+| -DisplayName |정책 이름의 문자열입니다. |-DisplayName MyTokenPolicy |
+| -IsTenantDefault |True이면 정책이 테넌트의 기본 정책으로 설정되고 False이면 아무 작업도 수행되지 않습니다. |-IsTenantDefault $true |
+| -Type |정책의 유형입니다. 토큰 수명의 경우 항상 "TokenLifetimePolicy"를 사용합니다. |-Type TokenLifetimePolicy |
+| -AlternativeIdentifier [선택 사항] |정책에 대한 대체 ID를 설정합니다. |-AlternativeIdentifier myAltId |
 
 </br></br>
 
 #### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
-Gets all AzureAD Policies or specified policy 
+모든 AzureAD 정책 또는 지정된 정책을 가져옵니다. 
 
     Get-AzureADPolicy 
 
-| Parameters | Description | Example |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
-| -ObjectId [Optional] |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId [선택 사항] |가져오려는 정책의 개체 ID입니다. |-ObjectId &lt;정책의 ObjectID&gt; |
 
 </br></br>
 
 #### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
-Gets all apps and service principals linked to a policy
+정책에 연결된 모든 앱 및 서비스 사용자를 가져옵니다.
 
     Get-AzureADPolicyAppliedObject -ObjectId <object id of policy> 
 
-| Parameters | Description | Example |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId |가져오려는 정책의 개체 ID입니다. |-ObjectId &lt;정책의 ObjectID&gt; |
 
 </br></br>
 
 #### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
-Updates an existing policy
+기존 정책을 업데이트합니다.
 
     Set-AzureADPolicy -ObjectId <object id of policy> -DisplayName <string> 
 
-| Parameters | Description | Example |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
-| -DisplayName |String of the policy name |-DisplayName MyTokenPolicy |
-| -Definition [Optional] |The array of stringified JSON that contains all the rules of the policy. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -IsTenantDefault [Optional] |If true sets the policy as tenant's default policy, if false does nothing |-IsTenantDefault $true |
-| -Type [Optional] |The type of policy, for token lifetimes always use "TokenLifetimePolicy" |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [Optional] |Sets an alternative id to the policy. |-AlternativeIdentifier myAltId |
+| -ObjectId |가져오려는 정책의 개체 ID입니다. |-ObjectId &lt;정책의 ObjectID&gt; |
+| -DisplayName |정책 이름의 문자열입니다. |-DisplayName MyTokenPolicy |
+| -Definition [선택 사항] |정책의 모든 규칙을 포함하는 문자열로 변환된 JSON의 배열입니다. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
+| -IsTenantDefault [선택 사항] |True이면 정책이 테넌트의 기본 정책으로 설정되고 False이면 아무 작업도 수행되지 않습니다. |-IsTenantDefault $true |
+| -Type [선택 사항] |정책의 유형입니다. 토큰 수명의 경우 항상 "TokenLifetimePolicy"를 사용합니다. |-Type TokenLifetimePolicy |
+| -AlternativeIdentifier [선택 사항] |정책에 대한 대체 ID를 설정합니다. |-AlternativeIdentifier myAltId |
 
 </br></br>
 
 #### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
-Deletes the specified policy
+지정된 정책을 삭제합니다.
 
      Remove-AzureADPolicy -ObjectId <object id of policy>
 
-| Parameters | Description | Example |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId |가져오려는 정책의 개체 ID입니다. |-ObjectId &lt;정책의 ObjectID&gt; |
 
 </br></br>
 
-### <a name="application-policies"></a>Application policies
-The following cmdlets can be used for application policies.</br></br>
+### <a name="application-policies"></a>응용 프로그램 정책
+응용 프로그램 정책에 사용할 수 있는 cmdlet은 다음과 같습니다.</br></br>
 
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
-Links the specified policy to an application
+지정된 정책을 응용 프로그램에 연결합니다.
 
     Add-AzureADApplicationPolicy -ObjectId <object id of application> -RefObjectId <object id of policy>
 
-| Parameters | Description | Example |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -RefObjectId |The object Id of the Policy. |-RefObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId |응용 프로그램의 개체 ID입니다. |-ObjectId &lt;응용 프로그램의 ObjectID&gt; |
+| -RefObjectId |정책의 개체 ID입니다. |-RefObjectId &lt;정책의 ObjectID&gt; |
 
 </br></br>
 
 #### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
-Gets the policy assigned to an application
+응용 프로그램에 할당된 정책을 가져옵니다.
 
     Get-AzureADApplicationPolicy -ObjectId <object id of application>
 
-| Parameters | Description | Example |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
+| -ObjectId |응용 프로그램의 개체 ID입니다. |-ObjectId &lt;응용 프로그램의 ObjectID&gt; |
 
 </br></br>
 
 #### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
-Removes a policy from an application
+응용 프로그램에서 정책을 제거합니다.
 
     Remove-AzureADApplicationPolicy -ObjectId <object id of application> -PolicyId <object id of policy>
 
-| Parameters | Description | Example |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -PolicyId |The ObjectId of Policy. |-PolicyId &lt;ObjectID of Policy&gt; |
+| -ObjectId |응용 프로그램의 개체 ID입니다. |-ObjectId &lt;응용 프로그램의 ObjectID&gt; |
+| -PolicyId |정책의 ObjectId입니다. |-PolicyId &lt;정책의 ObjectID&gt; |
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Service principal policies
-The following cmdlets can be used for service principal policies.</br></br>
+### <a name="service-principal-policies"></a>서비스 사용자 정책
+서비스 사용자 정책에 사용할 수 있는 cmdlet은 다음과 같습니다.</br></br>
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
-Links the specified policy to a service principal
+지정된 정책을 서비스 사용자에게 연결합니다.
 
     Add-AzureADServicePrincipalPolicy -ObjectId <object id of service principal> -RefObjectId <object id of policy>
 
-| Parameters | Description | Example |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -RefObjectId |The object Id of the Policy. |-RefObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId |응용 프로그램의 개체 ID입니다. |-ObjectId &lt;응용 프로그램의 ObjectID&gt; |
+| -RefObjectId |정책의 개체 ID입니다. |-RefObjectId &lt;정책의 ObjectID&gt; |
 
 </br></br>
 
 #### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
-Gets any policy linked to the specified service principal
+지정된 서비스 사용자에게 연결된 모든 정책을 가져옵니다.
 
     Get-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>
 
-| Parameters | Description | Example |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
+| -ObjectId |응용 프로그램의 개체 ID입니다. |-ObjectId &lt;응용 프로그램의 ObjectID&gt; |
 
 </br></br>
 
 #### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
-Removes the policy from specified service principal
+지정된 서비스 사용자에서 정책을 제거합니다.
 
     Remove-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>  -PolicyId <object id of policy>
 
-| Parameters | Description | Example |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -PolicyId |The ObjectId of Policy. |-PolicyId &lt;ObjectID of Policy&gt; |
+| -ObjectId |응용 프로그램의 개체 ID입니다. |-ObjectId &lt;응용 프로그램의 ObjectID&gt; |
+| -PolicyId |정책의 ObjectId입니다. |-PolicyId &lt;정책의 ObjectID&gt; |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

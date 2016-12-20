@@ -1,12 +1,12 @@
 ---
-title: .NET SDK를 사용하여 Azure Mobile Engagement 서비스 API에 액세스
-description: Mobile Engagement .NET SDK를 사용하여 Azure Mobile Engagement 서비스 API에 액세스하는 방법을 설명합니다.
+title: ".NET SDK를 사용하여 Azure Mobile Engagement 서비스 API에 액세스"
+description: "Mobile Engagement .NET SDK를 사용하여 Azure Mobile Engagement 서비스 API에 액세스하는 방법을 설명합니다."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: c07728aa-43f2-4238-8b4a-c9eddf9d838b
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -14,18 +14,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 57b2abc37551a782cb7106b9fc4540ce2ba37732
+
 
 ---
-# .NET SDK를 사용하여 Azure Mobile Engagement 서비스 API에 액세스
-장치, 도달률/푸시 캠페인 등을 관리하기 위해 Azure Mobile Engagement는 API 집합을 노출합니다. 또한 이러한 API와 상호 작용하기 위해 기본 설정 언어에 대한 SDK를 생성하는 도구와 함께 사용할 수 있는 [Swagger 파일](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)을 제공합니다. Swagger 파일에서 SDK를 생성하는 [AutoRest](https://github.com/Azure/AutoRest) 도구를 사용하는 것이 좋습니다.
+# <a name="using-net-sdk-to-access-azure-mobile-engagement-service-apis"></a>.NET SDK를 사용하여 Azure Mobile Engagement 서비스 API에 액세스
+장치, 도달률/푸시 캠페인 등을 관리하기 위해 Azure Mobile Engagement는 API 집합을 노출합니다. 또한 이러한 API와 상호 작용하기 위해 기본 설정 언어에 대한 SDK를 생성하는 도구와 함께 사용할 수 있는 [Swagger 파일](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)을 제공합니다. Swagger 파일에서 SDK를 생성하는 [AutoRest](https://github.com/Azure/AutoRest) 도구를 사용하는 것이 좋습니다. 
 
-C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한 방식으로 .NET SDK를 만들었으며 인증 토큰 협상을 수행하거나 새로 고칠 필요가 없습니다.
+C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한 방식으로 .NET SDK를 만들었으며 인증 토큰 협상을 수행하거나 새로 고칠 필요가 없습니다.  
 
 이 샘플에서는 .NET SDK를 사용하기 위해 일련의 단계를 수행합니다.
 
-1. 먼저 [여기](mobile-engagement-api-authentication.md#authentication) 설명된 대로 Azure Active Directory를 사용하여 API에 대한 인증을 설정해야 합니다. 마지막 단계에서는 유효한 **SubscriptionId**, **TenantId**, **ApplicationId** 및 **암호**가 필요합니다.
-2. 간단한 Windows 콘솔 앱을 사용하여 알림 캠페인을 만드는 시나리오에서 .NET SDK를 사용하는 작업을 보여 줍니다. 따라서 Visual Studio를 열고 **콘솔 응용 프로그램**을 만듭니다.
-3. 다음으로 [여기](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement/) Nuget 갤러리에서 **Microsoft Azure Engagement 관리 라이브러리**로 사용할 수 있는 .NET SDK를 다운로드해야 합니다. Visual Studio에서 Nuget을 설치하는 경우 패키지를 검색하는 동안 **시험판 포함** 옵션을 선택했는지 확인해야 합니다.
+1. 먼저 [여기](mobile-engagement-api-authentication.md#authentication)설명된 대로 Azure Active Directory를 사용하여 API에 대한 인증을 설정해야 합니다. 마지막 단계에서는 유효한 **SubscriptionId**, **TenantId**, **ApplicationId** 및 **암호**가 필요합니다. 
+2. 간단한 Windows 콘솔 앱을 사용하여 알림 캠페인을 만드는 시나리오에서 .NET SDK를 사용하는 작업을 보여 줍니다. 따라서 Visual Studio를 열고 **콘솔 응용 프로그램**을 만듭니다.   
+3. 다음으로 **여기** Nuget 갤러리에서 [Microsoft Azure Engagement 관리 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement/)로 사용할 수 있는 .NET SDK를 다운로드해야 합니다.
+   Visual Studio에서 Nuget을 설치하는 경우 패키지를 검색하는 동안 **시험판 포함** 옵션을 선택했는지 확인해야 합니다.
    
     ![][1]
 4. `Program.cs` 파일에서 다음 네임스페이스를 추가합니다.
@@ -42,7 +47,7 @@ C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한
         const string SUBSCRIPTION_ID = "<Your Subscription Id>";
    
         // This is the Azure Resource group concept for grouping together resources 
-        //  see here: https://azure.microsoft.com/documentation/articles/resource-group-portal/
+        //  see here: https://azure.microsoft.com/en-us/documentation/articles/resource-group-portal/
         const string RESOURCE_GROUP = "";
    
         // For Mobile Engagement operations
@@ -68,7 +73,7 @@ C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한
                 Console.WriteLine(ex.InnerException.Message);
                 throw ex;
             }
-8. 먼저 인증한 다음 알림 캠페인을 만들려는 Mobile Engagement 앱과 연결하여 `EngagementManagementClient`를 초기화하는 다음 메서드를 정의합니다.
+8. 먼저 인증한 다음 알림 캠페인을 만들려는 Mobile Engagement 앱과 연결하여 `EngagementManagementClient` 를 초기화하는 다음 메서드를 정의합니다.
    
         private static async Task InitEngagementClient()
         {
@@ -84,15 +89,15 @@ C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한
         }
    
    > [!IMPORTANT]
-   > AppName 매개 변수에 대해 Azure 관리 포털에 정의된 **앱 리소스 이름**을 사용해야 합니다.
+   > AppName 매개 변수에 대해 Azure 관리 포털에 정의된 **앱 리소스 이름** 을 사용해야 합니다. 
    > 
    > 
-9. 마지막으로 제목 및 메시지로 간단한 **항상** & **알림 전용** 캠페인을 만들기 위해 이전에 초기화된 EngagementClient를 사용하는 CreateCampaign 메서드를 정의합니다.
+9. 마지막으로 제목 및 메시지로 간단한 **항상** & **알림 전용** 캠페인을 만들기 위해 이전에 초기화된 EngagementClient를 사용하는 CreateCampaign 메서드를 정의합니다. 
    
         private async static Task CreateCampaign()
         {
             //  Refer to the Announcement Campaign format from here - 
-            //      https://msdn.microsoft.com/ko-KR/library/azure/mt683751.aspx
+            //      https://msdn.microsoft.com/en-us/library/azure/mt683751.aspx
             // Make sure you are passing all the non-optional parameters
             Campaign parameters = new Campaign(
                 name:"WelcomeCampaign",
@@ -102,7 +107,7 @@ C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한
                 deliveryTime:"any"
                 );
    
-            // Refer to the Campaign Kinds from here - https://msdn.microsoft.com/ko-KR/library/azure/mt683742.aspx
+            // Refer to the Campaign Kinds from here - https://msdn.microsoft.com/en-us/library/azure/mt683742.aspx
             CampaignStateResult result = 
                 await engagementClient.Campaigns.CreateAsync(CampaignKinds.Announcements, parameters);
             Console.WriteLine("Campaign Id '{0}' was created successfully and it is in '{1}' state", result.Id, result.State);
@@ -115,4 +120,8 @@ C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

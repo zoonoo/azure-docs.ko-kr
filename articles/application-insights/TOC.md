@@ -30,18 +30,20 @@
 
 # 방법
 ## 계획 및 디자인
-
 ### [웹앱 및 서비스 심층 진단](app-insights-devops.md)
 ### [Application Insights 및 HockeyApp을 사용한 개발자 분석](app-insights-developer-analytics.md)
 ### [웹 응용 프로그램의 성능 모니터링](app-insights-web-monitor-performance.md)
 ### [Application Insights를 사용하여 사용량 분석](app-insights-overview-usage.md)
 ### [Application Insights 리소스 구분](app-insights-separate-resources.md)
 ### [Application Insights에서 다음을 수행하는 방법](app-insights-how-do-i.md)
+## 마이그레이션
+### [Azure 끝점 모니터링에서 가용성 테스트로 마이그레이션](app-insights-migrate-azure-endpoint-tests.md)
 
 ## 구성
-
+### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 ### Azure
 #### [진단](app-insights-azure-diagnostics.md)
+## [IP 주소](app-insights-ip-addresses.md)
 
 ### ASP.NET
 #### [더 많은 원격 분석 수집](app-insights-asp-net-more.md)
@@ -102,7 +104,6 @@
 ### [연속 내보내기](app-insights-export-telemetry.md)
 ### [Power BI에 내보내기](app-insights-export-power-bi.md)
 
-
 ## 개발
 
 ### [사용자 지정 이벤트 및 메트릭용 API ](app-insights-api-custom-events-metrics.md)
@@ -111,33 +112,30 @@
 
 
 ## 관리
-
 ### [가격 책정 및 할당량 관리](app-insights-pricing.md)
 ### [SCOM에 대해 Application Insights를 사용하여 응용 프로그램 성능 모니터링](app-insights-scom.md)
 
+##내보내기
+## [데이터 모델 내보내기](app-insights-export-data-model.md)
 
 ## 보안
-
 ### [데이터 수집, 보존 및 저장](app-insights-data-retention-privacy.md)
 ### [리소스, 역할 및 액세스 제어](app-insights-resources-roles-access-control.md)
-
-
 ## 문제 해결
 ### [.NET에 대한 데이터 없음](app-insights-asp-net-troubleshoot-no-data.md)
 ### [분석](app-insights-analytics-troubleshooting.md)
 ### [Java](app-insights-java-troubleshoot.md)
 
 # 참조
-## [Java API](http://dl.windowsazure.com/applicationinsights/javadoc/)
-## [.NET API](https://docs.microsoft.com/dotnet/api)
-## [JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
+## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [REST (영문)](https://dev.applicationinsights.io/)
+
+# 리소스
 ## [분석 참조](app-insights-analytics-reference.md)
-## [샘플링](app-insights-sampling.md)
-## [IP 주소](app-insights-ip-addresses.md)
-## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-## [데이터 모델 내보내기](app-insights-export-data-model.md)
-## [Azure 끝점 모니터링에서 가용성 테스트로 마이그레이션](app-insights-migrate-azure-endpoint-tests.md)
+## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [개발자 분석: 언어, 플랫폼 및 통합](app-insights-platforms.md)
+### [샘플링](app-insights-sampling.md)
 ### [샘플 및 연습](app-insights-code-samples.md)
 #### [연습: Microsoft Dynamics CRM Online에 대한 원격 분석 설정](app-insights-sample-mscrm.md)
 #### [연습: Stream Analytics를 사용하여 SQL로 내보내기](app-insights-code-sample-export-sql-stream-analytics.md)
@@ -145,9 +143,6 @@
 ## [Windows Phone 및 Store용 Application Insights SDK에 대한 릴리스 정보](app-insights-release-notes-windows.md)
 ## [개발자 분석 도구에 대한 릴리스 정보](app-insights-release-notes-vsix.md)
 ## [SDK 릴리스 정보 - Application Insights](app-insights-release-notes.md)
-## [데이터 액세스 REST API](https://dev.applicationinsights.io/)
-
-# 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/application-insights/)  
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/az-application-insights)
@@ -157,6 +152,7 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

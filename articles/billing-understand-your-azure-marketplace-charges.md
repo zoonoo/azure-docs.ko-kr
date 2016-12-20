@@ -1,13 +1,13 @@
 ---
-title: Azure 외부 서비스 요금의 이해 | Microsoft Docs
-description: 이전에는 마켓플레이스로 알려진 외부 서비스의 요금 청구, Azure의 요금에 대해 알아봅니다.
-services: ''
-documentationcenter: ''
+title: "Azure 외부 서비스 요금의 이해 | Microsoft Docs"
+description: "이전에는 마켓플레이스로 알려진 외부 서비스의 요금 청구, Azure의 요금에 대해 알아봅니다."
+services: 
+documentationcenter: 
 author: adpick
 manager: felixwu
-editor: ''
+editor: 
 tags: billing
-
+ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: adpick
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 45e0d553179b63de2d0664314271472f1151d73f
+
 
 ---
 # <a name="understand-your-azure-external-service-charges"></a>Azure 외부 서비스 요금의 이해
@@ -25,7 +29,7 @@ ms.author: adpick
 * 외부 서비스의 사용에서 축적한 모든 비용 확인 및 추적
 * 외부 서비스 주문 및 지불 방법 관리
 
-## <a name="what-are-azure-external-services?"></a>Azure 외부 서비스는 무엇입니까?
+## <a name="what-are-azure-external-services"></a>Azure 외부 서비스는 무엇입니까?
 외부 서비스는 Azure Marketplace로 불렸습니다. 일반적으로 Azure에 대해 사용 가능한 제 3자에 의해 게시된 서비스입니다. 예를 들어 ClearDB 및 SendGrid는 Azure에서 구입할 수 있지만 Microsoft에서 게시되지 않은 외부 서비스입니다.
 
 ### <a name="identify-external-services"></a>외부 서비스 식별
@@ -44,21 +48,19 @@ ms.author: adpick
 ### <a name="each-external-service-has-a-different-billing-model"></a>각 외부 서비스에는 다른 청구 모델이 있습니다.
 일부 서비스는 종량제 방식으로 청구되는 반면 다른 서비스는 월별 기반 지불 모델을 사용합니다. Azure 외부 서비스에 대한 신용 카드가 필요하며 청구서 지불로 외부 서비스를 구입할 수 없습니다.
 
-### <a name="you-can't-use-monthly-free-credits-for-external-services"></a>외부 서비스에 대한 월별 무료 크레딧을 사용할 수 없습니다.
+### <a name="you-cant-use-monthly-free-credits-for-external-services"></a>외부 서비스에 대한 월별 무료 크레딧을 사용할 수 없습니다.
 [무료 크레딧](https://azure.microsoft.com/pricing/spending-limits/)을 포함하는 Azure 구독을 사용하는 경우 외부 서비스 청구에 적용될 수 없습니다. 신용 카드를 사용하여 외부 서비스를 구입합니다.
 
 ## <a name="view-external-service-spending-and-history"></a>외부 서비스 지출 및 기록 보기
 [Azure 포털](https://portal.azure.com/) 내에서 각 구독에 있는 외부 서비스의 목록을 볼 수 있습니다. 
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인하고 [**청구** 블레이드로 이동합니다](https://portal.azure.com/?flight=1#blade/Microsoft_Azure_Billing/BillingBlade).
+1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. 허브 메뉴에서 **구독**을 선택합니다.
    
-    ![허브 메뉴에서 청구 선택](./media/billing-understand-your-azure-marketplace-charges/billing-button.png) 
-2. **구독 비용** 섹션에서 확인하려는 구독을 선택합니다. 
+    ![허브 메뉴에서 구독 선택](./media/billing-understand-your-azure-marketplace-charges/sub-button.png) 
+3. **구독** 블레이드에서 보려는 구독을 선택하고 **외부 서비스**를 선택합니다.
    
-    ![청구 블레이드에서 구독 선택](./media/billing-understand-your-azure-marketplace-charges/select-sub.png)
-3. **외부 서비스**를 클릭합니다.
-   
-    ![구독 블레이드에서 외부 서비스 클릭](./media/billing-understand-your-azure-marketplace-charges/external-service-blade.png)
+    ![청구 블레이드에서 구독 선택](./media/billing-understand-your-azure-marketplace-charges/select-sub-external-services.png)
 4. 각 외부 서비스 주문, 게시자 이름, 구입한 서비스 계층, 리소스를 지정한 이름 및 현재 주문 상태가 표시됩니다. 외부 서비스를 선택하여 과거 청구서를 봅니다.
    
     ![외부 서비스 선택](./media/billing-understand-your-azure-marketplace-charges/external-service-blade2.png)
@@ -92,9 +94,12 @@ ms.author: adpick
 
 ![리소스 삭제](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
-## <a name="need-help?-contact-support."></a>도움이 필요하세요? 지원에 문의하세요.
-계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 하여 문제를 신속하게 해결하세요.
+## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure 앱 서비스에서 웹 앱 구성
-description: Azure 앱 서비스에서 웹 앱을 구성 하는 방법
+title: "Azure 앱 서비스에서 웹 앱 구성"
+description: "Azure 앱 서비스에서 웹 앱을 구성 하는 방법"
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8ee1f42cd54e191fa30813d972a664208124c971
+
 
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure 앱 서비스에서 웹 앱 구성
-이 항목에서는 [Azure 포털]을 사용하여 웹앱을 구성하는 방법을 설명합니다.
+이 항목에서는 [Azure Portal]을 사용하여 웹앱을 구성하는 방법을 설명합니다.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="application-settings"></a>응용 프로그램 설정
-1. [Azure 포털]에서, 웹 앱에 대한 블레이드를 엽니다.
+1. [Azure Portal]에서, 웹 앱에 대한 블레이드를 엽니다.
 2. **모든 설정**을 클릭합니다
 3. **응용 프로그램 설정**을 클릭합니다.
 
@@ -50,7 +54,7 @@ ms.author: robmcm
 
 **관리되는 파이프라인 버전**. IIS [파이프라인 모드]를 설정합니다. 이전 버전의 IIS가 필요한 레거시 앱이 없으면 통합(기본값)으로 설정된 상태로 그대로 둡니다.
 
-**자동 교체**. 배포 슬롯에 대한 자동 교체를 사용 하는 경우, 업데이트를 해당 슬롯에 푸시하면 앱 서비스는 자동으로 웹 앱을 프로덕션으로 교체합니다. 자세한 내용은 [Azure App Service에서 Web Apps에 대한 스테이징 슬롯에 배포](web-sites-staged-publishing.md)를 참조하세요.
+**자동 교체**. 배포 슬롯에 대한 자동 교체를 사용 하는 경우, 업데이트를 해당 슬롯에 푸시하면 앱 서비스는 자동으로 웹 앱을 프로덕션으로 교체합니다. 자세한 내용은 [Azure 앱 서비스에서 웹 앱에 대한 스테이징 슬롯에 배포](web-sites-staged-publishing.md)를 참조하세요.
 
 ### <a name="debugging"></a>디버그
 **원격 디버깅**. 원격 디버깅을 사용하도록 설정합니다. 사용하도록 설정되면 Visual Studio에서 원격 디버거를 사용하여 웹 앱에 바로 연결할 수 있습니다. 원격 디버깅은 48시간 동안 사용 가능한 상태로 유지됩니다. 
@@ -157,7 +161,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 <!-- URL List -->
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
-[Azure 앱 서비스에서 웹앱]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성]: ./web-sites-custom-domain-name.md
 [Azure 앱 서비스에서 웹앱에 대한 스테이징 환경으로 배포]: ./web-sites-staged-publishing.md
 [Azure 앱 서비스에서 앱에 대한 HTTPS를 사용하도록 설정]: ./web-sites-configure-ssl-certificate.md
@@ -166,7 +170,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 [파이프라인 모드]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Azure 앱 서비스에서 웹 앱 크기 조정]: ./web-sites-scale.md
 [socket.io]: ./web-sites-nodejs-chat-app-socketio.md
-[앱 서비스 평가]: http://go.microsoft.com/fwlink/?LinkId=523751
+[App Service 체험]: http://go.microsoft.com/fwlink/?LinkId=523751
 
 <!-- IMG List -->
 
@@ -176,6 +180,6 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

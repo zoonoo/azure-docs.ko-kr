@@ -31,26 +31,26 @@
     ![](./media/app-service-mobile-android-configure-push/android-studio-create-class.png)
 
 
-1. MyHandler 파일에서 클래스 선언을 다음으로 바꿉니다.
+9. MyHandler 파일에서 클래스 선언을 다음으로 바꿉니다.
    
         public class MyHandler extends NotificationsHandler {
-2. `MyHandler` 클래스에 대한 다음 import 문을 추가합니다.
+10. `MyHandler` 클래스에 대한 다음 import 문을 추가합니다.
    
-       import com.microsoft.windowsazure.notifications.NotificationsHandler;
-       import android.app.NotificationManager;
-       import android.app.PendingIntent;
-       import android.content.Context;
-       import android.content.Intent;
-       import android.os.AsyncTask;
-       import android.os.Bundle;
-       import android.support.v4.app.NotificationCompat;
-3. 이제 이 구성원을 `MyHandler` 클래스에 추가합니다.
+        import com.microsoft.windowsazure.notifications.NotificationsHandler;
+        import android.app.NotificationManager;
+        import android.app.PendingIntent;
+        import android.content.Context;
+        import android.content.Intent;
+        import android.os.AsyncTask;
+        import android.os.Bundle;
+        import android.support.v4.app.NotificationCompat;
+11. 이제 이 구성원을 `MyHandler` 클래스에 추가합니다.
    
-       public static final int NOTIFICATION_ID = 1;
-4. `MyHandler` 클래스에서 다음 코드를 추가하여 장치를 모바일 서비스 알림 허브에 등록하는 **onRegistered** 메서드를 재정의합니다.
+        public static final int NOTIFICATION_ID = 1;
+12. `MyHandler` 클래스에서 다음 코드를 추가하여 장치를 모바일 서비스 알림 허브에 등록하는 **onRegistered** 메서드를 재정의합니다.
    
-       @Override
-       public void onRegistered(Context context,  final String gcmRegistrationId) {
+        @Override
+        public void onRegistered(Context context,  final String gcmRegistrationId) {
            super.onRegistered(context, gcmRegistrationId);
    
            new AsyncTask<Void, Void, Void>() {
@@ -67,10 +67,10 @@
                }
            }.execute();
        }
-5. `MyHandler` 클래스에서 다음 코드를 추가하여 **onReceive** 메서드를 재정의하면 알림 수신 시 표시됩니다.
+13. `MyHandler` 클래스에서 다음 코드를 추가하여 **onReceive** 메서드를 재정의하면 알림 수신 시 표시됩니다.
    
-       @Override
-       public void onReceive(Context context, Bundle bundle) {
+        @Override
+        public void onReceive(Context context, Bundle bundle) {
                String msg = bundle.getString("message");
    
                PendingIntent contentIntent = PendingIntent.getActivity(context,
@@ -90,13 +90,13 @@
                        context.getSystemService(Context.NOTIFICATION_SERVICE);
                notificationManager.notify(NOTIFICATION_ID, notification);
        }
-6. 다시 TodoActivity.java 파일에서 **ToDoActivity** 클래스의 *onCreate* 메서드를 업데이트하여 알림 처리기 클래스를 등록합니다. *MobileServiceClient* 가 인스턴스화된 후에 이 코드를 추가해야 합니다.
+14. 다시 TodoActivity.java 파일에서 **ToDoActivity** 클래스의 *onCreate* 메서드를 업데이트하여 알림 처리기 클래스를 등록합니다. *MobileServiceClient* 가 인스턴스화된 후에 이 코드를 추가해야 합니다.
 
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
     이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

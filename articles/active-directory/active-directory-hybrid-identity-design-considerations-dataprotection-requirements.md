@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 데이터 보호 요구 사항 확인 | Microsoft Docs
-description: 하이브리드 ID 솔루션을 계획할 때 이러한 요구 사항을 가장 잘 수행할 수 있도록 비즈니스에 대한 데이터 보호 요구 사항 및 사용할 수 있는 옵션을 식별합니다.
-documentationcenter: ''
+title: "Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 데이터 보호 요구 사항 확인 | Microsoft Docs"
+description: "하이브리드 ID 솔루션을 계획할 때 이러한 요구 사항을 가장 잘 수행할 수 있도록 비즈니스에 대한 데이터 보호 요구 사항 및 사용할 수 있는 옵션을 식별합니다."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 797b467e480ba51c531ea6eddf3ad2447ec16f1a
+
 
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획
@@ -81,6 +85,9 @@ IT가 해당 단계에서 각각 스스로 데어타를 보호할 수 있는 기
 ## <a name="see-also"></a>참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

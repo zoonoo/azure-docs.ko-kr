@@ -39,13 +39,17 @@
 ### [사용자 계정 관리](api-management-howto-create-or-invite-developers.md)
 ### [자동화를 사용하여 관리](automation-manage-api-management.md)
 ### [Git를 사용하여 구성](api-management-configuration-repository-git.md)
-#참조
+
+# 참조
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [클래식 PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
+## [PowerShell(클래식)](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST (영문)](/rest/api/apimanagement/)
+## [REST(원본)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
+
+
+# 리소스
 ## [정책](https://msdn.microsoft.com/library/azure/dn894081)
 ## [템플릿](https://msdn.microsoft.com/library/azure/mt697540)
-#리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/api-management/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-api-management)
@@ -63,6 +67,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

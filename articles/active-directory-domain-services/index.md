@@ -29,7 +29,7 @@ Azure AD DS(Domain Services)는 도메인 가입, 그룹 정책, LDAP, Kerberos/
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=active-directory">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=active-directory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

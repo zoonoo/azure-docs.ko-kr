@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73fafeff227061feae1fbc0a1c50e5056116e3ea
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 00c4336bd5cef4ddc0b92127d0945d39291b9c7f
 
 
 ---
@@ -127,17 +127,17 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 앱 서비스 웹앱으로 작업하는 방법에 대한 자세한 정보는 페이지의 왼쪽(넓은 브라우저 창의 경우) 또는 페이지의 위쪽(좁은 브라우저 창의 경우)에서 링크를 참조하세요.
 
-Azure에서 WordPress 웹앱을 개발하는 방법은 [Azure App Service에서 WordPress 개발][WordPressOnAzure]를 참조하세요.
+Azure에서 WordPress 웹앱을 개발하는 방법은 [Azure App Service에서 WordPress 개발][WordPressOnAzure]을 참조하세요.
 
 <!-- URL List -->
 
 [PHP]: https://azure.microsoft.com/develop/php/
 [.NET]: https://azure.microsoft.com/develop/net/
-[Node.JS]: https://azure.microsoft.com/develop/nodejs/
+[Node.js]: https://azure.microsoft.com/develop/nodejs/
 [Java]: https://azure.microsoft.com/develop/java/
 [Python]: https://azure.microsoft.com/develop/python/
 [activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[무료 평가판]: https://azure.microsoft.com/pricing/free-trial/
+[free trial]: https://azure.microsoft.com/pricing/free-trial/
 [앱 서비스 평가]: http://go.microsoft.com/fwlink/?LinkId=523751
 [ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
@@ -168,6 +168,6 @@ Azure에서 WordPress 웹앱을 개발하는 방법은 [Azure App Service에서 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

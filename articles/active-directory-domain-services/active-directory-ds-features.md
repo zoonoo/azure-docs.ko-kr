@@ -1,12 +1,12 @@
 ---
-title: 'Azure Active Directory Domain Services: 기능 | Microsoft Docs'
-description: Azure Active Directory 도메인 서비스의 기능
+title: "Azure Active Directory Domain Services: 기능 | Microsoft Docs"
+description: "Azure Active Directory 도메인 서비스의 기능"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 8d1c3eb3-1022-4add-a919-c98cc6584af1
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 18c3400063097cdf70398a95e9e39e9097e27992
+
 
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD Domain Services
@@ -36,6 +40,9 @@ ms.author: maheshu
 * **고가용성:** Azure AD Domain Services는 도메인에 고가용성을 제공합니다. 이 기능은 향상된 서비스 가동 시간과 오류 복원을 보장합니다. 기본 제공 상태 모니터링은 새 인스턴스를 생성하여 실패한 인스턴스를 대체하고 도메인에 연속 서비스를 제공하는 방법으로 오류에 대한 자동 수정 기능을 제공합니다.
 * **익숙한 관리 도구 사용:** 관리되는 도메인을 관리하기 위해 Active Directory 관리 센터 또는 Active Directory PowerShell과 같은 익숙한 Windows Server Active Directory 관리 도구를 사용할 수 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

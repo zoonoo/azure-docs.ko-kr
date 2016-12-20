@@ -14,11 +14,11 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
+ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
+ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
 
 
 ---
@@ -31,15 +31,15 @@ ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
 이 자습서를 완료해야 Azure 앱 서비스에서 모바일 앱 기능을 사용하는 방법에 대한 다른 모든 Apache Cordova 자습서를 진행할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서를 완료하려면 다음이 필요합니다.
+이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 * [Visual Studio Community 2015] 이상이 설치된 PC
 * [Visual Studio Tools for Apache Cordova]
 * [활성 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
 
-Visual Studio를 바이패스하고 직접 Apache Cordova 명령줄을 사용할 수도 있습니다.  이 옵션은 Mac 컴퓨터에서 자습서를 완료하는 경우 유용합니다.  명령줄을 사용하여 Apache Cordova 클라이언트 응용 프로그램을 컴파일하는 작업은 이 자습서에서 다루지 않습니다.
+Visual Studio를 바이패스하고 직접 Apache Cordova 명령줄을 사용할 수도 있습니다.  명령줄을 사용하면 Mac 컴퓨터에서 자습서를 완료하는 경우 유용합니다.  명령줄을 사용하여 Apache Cordova 클라이언트 응용 프로그램을 컴파일하는 작업은 이 자습서에서 다루지 않습니다.
 
-## <a name="create-a-new-azure-mobile-app-backend"></a>새 Azure 모바일 앱 백 엔드 만들기
+## <a name="create-an-azure-mobile-app-backend"></a>Azure 모바일 앱 백 엔드 만들기
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 [유사한 단계를 보여 주는 비디오 보기](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
@@ -53,11 +53,13 @@ Visual Studio를 바이패스하고 직접 Apache Cordova 명령줄을 사용할
 ## <a name="next-steps"></a>다음 단계
 이제 이 빠른 시작 자습서를 완료했으므로 다음 자습서 중 하나로 이동합니다.
 
-* [인증을 추가] 합니다.
-* [푸시 알림을 추가] 합니다.
+* Apache Cordova 앱에 [오프라인 데이터 추가](app-service-mobile-cordova-get-started-offline-data.md)
+* [인증을 추가](app-service-mobile-cordova-get-started-users.md) 합니다.
+* [푸시 알림을 추가](app-service-mobile-cordova-get-started-push.md) 합니다.
 
 Azure 앱 서비스의 주요 개념에 대해 자세히 알아봅니다.
 
+* [오프라인 데이터]
 * [인증]
 * [푸시 알림]
 
@@ -70,11 +72,10 @@ SDK 사용 방법을 알아봅니다.
 <!-- Images. -->
 
 <!-- URLs -->
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
-[인증을 추가]: app-service-mobile-cordova-get-started-users.md
-[푸시 알림을 추가]: app-service-mobile-cordova-get-started-push.md
+[오프라인 데이터]: app-service-mobile-offline-data-sync.md
 [인증]: app-service-mobile-auth.md
 [푸시 알림]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
@@ -83,6 +84,6 @@ SDK 사용 방법을 알아봅니다.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Office 365 및 Azure Active Directory 사용자를 위한 인증서 갱신 지침. | Microsoft Docs
-description: 이 문서에서는 Office 365 사용자가 인증서 갱신에 대해 알리는 전자 메일을 받는 경우 문제를 해결하는 방법에 대해 설명합니다.
+title: "Office 365 및 Azure Active Directory 사용자를 위한 인증서 갱신 지침. | Microsoft Docs"
+description: "이 문서에서는 Office 365 사용자가 인증서 갱신에 대해 알리는 전자 메일을 받는 경우 문제를 해결하는 방법에 대해 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
+ms.openlocfilehash: dda6ff2f39980a3fc74e771e5bbbca00562bb989
+
 
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 및 Azure Active Directory에 대한 페더레이션 인증서 갱신
@@ -32,8 +36,8 @@ Azure AD(Azure Active Directory)와 AD FS(Active Directory Federation Services) 
 ### <a name="renewal-notification-from-the-office-365-portal-or-an-email"></a>Office 365 포털 또는 전자 메일로 갱신 알림
 > [!NOTE]
 > Office용 인증서를 갱신하도록 요청하는 전자 메일 또는 포털 알림을 받은 경우 [토큰 서명 인증서에 대한 변경 내용 관리](#managecerts) 를 참조하여 조치를 취해야 하는지를 확인합니다. Microsoft에서는 아무 조치도 필요하지 않은 경우에도 인증서 갱신에 대한 알림이 보내지도록 이끌 수 있는 가능한 문제에 주의를 기울입니다.
-> 
-> 
+>
+>
 
 Azure AD는 이 메타데이터에서 표시한 대로 페더레이션 메타데이터를 모니터링하고 토큰 서명 인증서를 업데이트하려고 합니다. 토큰 서명 인증서 만료 30일 전에 Azure AD는 페더레이션 메타데이터를 폴링하여 새 인증서를 사용할 수 있는지를 확인합니다.
 
@@ -44,15 +48,15 @@ Azure AD는 이 메타데이터에서 표시한 대로 페더레이션 메타데
 
 > [!IMPORTANT]
 > 비즈니스 연속성을 위해 AD FS를 사용하는 경우 알려진 문제에 대한 인증 실패가 발생하지 않도록 서버에 다음 업데이트를 설치했는지 확인합니다. 이는 갱신 및 향후 갱신 기간에 대해 알려진 AD FS 프록시 서버 문제를 완화합니다.
-> 
+>
 > 서버 2012 R2 - [Windows Server 2014년 5월 롤업](http://support.microsoft.com/kb/2955164)
-> 
+>
 > Server 2008 R2 및 2012 - [Windows Server 2008 또는 Windows 2012 R2 SP1에서 프록시를 통한 인증 실패](http://support.microsoft.com/kb/3094446)
-> 
-> 
+>
+>
 
-## <a name="check-if-the-certificates-need-to-be-updated-<a-name="managecerts"></a>"></a>인증서를 업데이트해야 하는지를 확인합니다. <a name="managecerts"></a>
-### <a name="step-1:-check-the-autocertificaterollover-state"></a>1단계: AutoCertificateRollover 상태 검사
+## <a name="check-if-the-certificates-need-to-be-updated-a-namemanagecertsa"></a>인증서를 업데이트해야 하는지를 확인합니다. <a name="managecerts"></a>
+### <a name="step-1-check-the-autocertificaterollover-state"></a>1단계: AutoCertificateRollover 상태 검사
 AD FS 서버에서 PowerShell을 엽니다. AutoCertificateRollover 값을 True로 설정했는지 확인합니다.
 
     Get-Adfsproperties
@@ -61,13 +65,13 @@ AD FS 서버에서 PowerShell을 엽니다. AutoCertificateRollover 값을 True�
 
 [AZURE.NOTE] AD FS 2.0을 사용하는 경우 Add-Pssnapin 먼저 Microsoft.Adfs.Powershell을 실행합니다.
 
-### <a name="step-2:-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>2단계: AD FS와 Azure AD가 동기화되었는지 확인
+### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>2단계: AD FS와 Azure AD가 동기화되었는지 확인
 AD FS 서버에서 Azure AD PowerShell 프롬프트를 열고 Azure AD에 연결합니다.
 
 > [!NOTE]
 > Azure AD PowerShell을 [여기](https://technet.microsoft.com/library/jj151815.aspx)에서 다운로드할 수 있습니다.
-> 
-> 
+>
+>
 
     Connect-MsolService
 
@@ -79,7 +83,7 @@ AD FS에서 구성된 인증서 및 지정된 도메인에 대한 Azure AD 트�
 
 두 출력의 지문이 일치하는 경우 인증서는 Azure AD와 동기화됩니다.
 
-### <a name="step-3:-check-if-your-certificate-is-about-to-expire"></a>3단계: 인증서가 만료되려고 하는지 확인
+### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>3단계: 인증서가 만료되려고 하는지 확인
 Get-MsolFederationProperty 또는 Get-AdfsCertificate 중 하나의 출력에서 "이후가 아님" 아래에 있는 날짜를 확인합니다. 날짜가 30일 이내인 경우 조치를 취해야 합니다.
 
 | AutoCertificateRollover | Azure AD와 동기화된 인증서 | 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다. | 유효성 검사 | 동작 |
@@ -90,7 +94,7 @@ Get-MsolFederationProperty 또는 Get-AdfsCertificate 중 하나의 출력에서
 
 \[-] 중요하지 않습니다.
 
-## <a name="renew-the-token-signing-certificate-automatically-(recommended)-<a-name="autorenew"></a>"></a>토큰 서명 인증서를 자동으로 갱신(권장됨) <a name="autorenew"></a>
+## <a name="renew-the-token-signing-certificate-automatically-recommended-a-nameautorenewa"></a>토큰 서명 인증서를 자동으로 갱신(권장됨) <a name="autorenew"></a>
 다음 두 가지가 true일 경우 수동 단계를 수행할 필요가 없습니다.
 
 * 엑스트라넷에서 페더레이션 메타데이터에 액세스할 수 있는 웹 응용 프로그램 프록시를 배포했습니다.
@@ -108,7 +112,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 예: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
-## <a name="renew-the-token-signing-certificate-manually-<a-name="manualrenew"></a>"></a>수동으로 토큰 서명 인증서 갱신 <a name="manualrenew"></a>
+## <a name="renew-the-token-signing-certificate-manually-a-namemanualrenewa"></a>수동으로 토큰 서명 인증서 갱신 <a name="manualrenew"></a>
 토큰 서명 인증서를 수동으로 갱신하도록 선택할 수 있습니다. 예를 들어, 다음과 같은 경우 수동 갱신에 대 한 더 적합할 수 있습니다.
 
 * 토큰 서명 인증서는 자체 서명된 인증서가 아닙니다. 가장 일반적인 이유는 조직이 조직 인증 기관에서 등록한 AD FS 인증서를 관리하기 때문입니다.
@@ -116,7 +120,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 토큰 서명 인증서를 업데이트할 때마다 이러한 시나리오에서는 PowerShell 명령인 Update-MsolFederatedDomain을 사용하여 Office 365 도메인을 또한 업데이트해야 합니다.
 
-### <a name="step-1:-ensure-that-ad-fs-has-new-token-signing-certificates"></a>1단계: AD FS에 새 토큰 서명 인증서가 있는지 확인
+### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>1단계: AD FS에 새 토큰 서명 인증서가 있는지 확인
 **기본이 아닌 구성**
 
 **AutoCertificateRollover**가 **False**로 설정된 AD FS의 기본이 아닌 구성을 사용하는 경우 사용자 지정 인증서(자체 서명되지 않음)을 사용할 가능성이 높습니다. AD FS 토큰 서명 인증서를 갱신하는 방법에 대한 포괄적인 지침은 [AD FS 자체 서명된 인증서를 사용하지 않는 고객에 대한 지침](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert)을 참고하세요.
@@ -127,13 +131,13 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 1. 기본 AD FS 서버에 로그온했는지 확인합니다.
 2. PowerShell 명령 창을 열고 다음 명령을 실행하여 AD FS에서 현재 서명 인증서를 확인합니다.
-   
+
     PS C:\>Get-ADFSCertificate –CertificateType token-signing
-   
+
    > [!NOTE]
    > AD FS 2.0을 사용하는 경우 Add-Pssnapin Microsoft.Adfs.Powershell을 먼저 실행해야 합니다.
-   > 
-   > 
+   >
+   >
 3. 나열된 모든 인증서에서 명령 출력을 살펴봅니다. AD FS에서 새 인증서를 생성했으면 두 인증서가 출력에 표시됩니다. 하나는 **IsPrimary** 값이 **True**이고 **NotAfter** 날짜는 5일 이내이며 다른 하나는 **IsPrimary**가 **False**이고 **NotAfter**는 향후 1년 정도입니다.
 4. 인증서가 하나만 표시되는 경우 **NotAfter** 날짜가 5일 이내이면 새 인증서를 생성해야 합니다.
 5. 새 인증서를 생성하려면 PowerShell 명령 프롬프트에서 다음 명령을 실행합니다: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
@@ -141,7 +145,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 이제 두 인증서 나열되어야 하며 둘 중 하나의 **NotAfter** 날짜가 향후 약 1년 정도이고 **IsPrimary** 값은 **False**입니다.
 
-### <a name="step-2:-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>2단계: Office 365 트러스트에 대한 새 토큰 서명 인증서 업데이트
+### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>2단계: Office 365 트러스트에 대한 새 토큰 서명 인증서 업데이트
 새 토큰 서명 인증서를 가진 Office 365를 다음과 같이 트러스트에 사용하도록 업데이트합니다.
 
 1. Windows PowerShell용 Microsoft Azure Active Directory 모듈을 엽니다.
@@ -152,14 +156,16 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 > [!NOTE]
 > contoso.com과 fabrikam.com 등의 여러 최상위 도메인을 지원해야 하는 경우에는 cmdlet과 함께 **SupportMultipleDomain** 스위치를 사용해야 합니다. 자세한 내용은 [여러 최상위 도메인에 대한 지원](active-directory-aadconnect-multiple-domains.md)을 참조하세요.
-> 
-> 
+>
+>
 
-## <a name="repair-azure-ad-trust-by-using-azure-ad-connect-<a-name="connectrenew"></a>"></a>Azure AD Connect를 사용하여 Azure AD 트러스트 복구 <a name="connectrenew"></a>
+## <a name="repair-azure-ad-trust-by-using-azure-ad-connect-a-nameconnectrenewa"></a>Azure AD Connect를 사용하여 Azure AD 트러스트 복구 <a name="connectrenew"></a>
 Azure AD Connect를 사용하여 AD FS 팜/Azure AD 트러스트를 구성했다면 Azure AD Connect을 사용하여 토큰 서명 인증서에 대한 어떤 작업을 할 필요가 있는지 감지할 수 있습니다. 인증서를 갱신해야 하는 경우 Azure AD Connect를 사용하여 이렇게 할 수 있습니다.
 
-자세한 내용은 [트러스트 복구](active-directory-aadconnect-federation-management.md#repairing-the-trust)를 참조합니다.
+자세한 내용은 [트러스트 복구](active-directory-aadconnect-federation-management.md)를 참조합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

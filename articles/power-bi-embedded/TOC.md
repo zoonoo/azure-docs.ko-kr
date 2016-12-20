@@ -21,8 +21,8 @@
 ### [Power BI Embedded를 사용하는 행 수준 보안](power-bi-embedded-rls.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
+## [.NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [.NET SDK 다운로드](https://www.nuget.org/profiles/powerbi)
 ## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [REST (영문)](/rest/api/powerbiembedded/)
@@ -34,6 +34,6 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/powerbi)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

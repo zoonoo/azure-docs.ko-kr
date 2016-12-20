@@ -1,26 +1,30 @@
 ---
-title: Log Analytics의 Syslog 메시지 | Microsoft Docs
-description: Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.   이 문서에서는 Log Analytics의 Syslog 메시지 수집을 구성하는 방법을 설명하고, OMS 리포지토리에 생성되는 레코드에 대한 자세한 정보를 제공합니다.
+title: "Log Analytics의 Syslog 메시지 | Microsoft Docs"
+description: "Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.   이 문서에서는 Log Analytics의 Syslog 메시지 수집을 구성하는 방법을 설명하고, OMS 리포지토리에 생성되는 레코드에 대한 자세한 정보를 제공합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 724567b853bec19cb41ef6a78b7d25a665830897
+
 
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Log Analytics의 Syslog 데이터 원본
 Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.  응용 프로그램은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다.  Linux용 OMS 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다.  그러면 에이전트는 Log Analytics에 해당 메시지를 보내며 OMS 리포지토리에 해당 레코드가 만들어집니다.  
 
 > [!NOTE]
-> Log Analytics는 rsyslog 또는 syslog-ng에서 보낸 메시지의 수집을 지원합니다. Red Hat Enterprise Linux 버전 5, CentOS, 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 [rsyslog 디먼](http://rsyslog.com) 을 설치하고 sysklog를 대체하도록 구성해야 합니다.
+> Log Analytics는 rsyslog 또는 syslog-ng에서 보낸 메시지의 수집을 지원합니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 [rsyslog 디먼](http://rsyslog.com) 을 설치하고 sysklog를 대체하도록 구성해야 합니다.
 > 
 > 
 
@@ -69,7 +73,7 @@ rsyslog에 대한 구성 파일은 **/etc/rsyslog.d/95-omsagent.conf**에 있습
 
 구성 파일의 해당 섹션을 제거하여 기능을 제거할 수 있습니다.  해당 기능 항목을 수정하여 특정 기능에 대해 수집되는 심각도를 제한할 수 있습니다.  예를 들어 오류 또는 더 높은 심각도의 메시지로 사용자 기능을 제한하려면 다음 구성 파일 줄을 다음과 같이 수정합니다.
 
-    user.error  @127.0.0.1:25224
+    user.error    @127.0.0.1:25224
 
 
 #### <a name="syslog-ng"></a>syslog-ng
@@ -175,6 +179,9 @@ Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니�
 * [사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 syslog 레코드의 데이터를 개별 필드로 구문 분석합니다.
 * [Linux 에이전트를 구성](log-analytics-linux-agents.md) 합니다. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

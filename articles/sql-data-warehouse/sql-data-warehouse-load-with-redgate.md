@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 804b0ba72ca73da1a076bd4dbca8bbca33cb76b1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dd77457bfa7ebfc701750e090778f2976d82b141
 
 
 ---
@@ -120,8 +120,8 @@ DPS에 데이터를 온-프레미스 SQL Serer에서 추출 및 업로드하는 
 ## <a name="next-steps"></a>다음 단계
 SQL Data Warehouse 내에서 데이터를 탐색하려면 다음을 확인하여 시작합니다.
 
-* [Azure SQL Data Warehouse 쿼리(Visual Studio)][Azure SQL Data Warehouse 쿼리(Visual Studio)]
-* [Power BI를 사용하여 데이터 시각화][Power BI를 사용하여 데이터 시각화]
+* [Azure SQL Data Warehouse 쿼리(Visual Studio)][Query Azure SQL Data Warehouse (Visual Studio)]
+* [Power BI를 사용하여 데이터 시각화][Visualize data with Power BI]
 
 Redgate의 Data Platform Studio에 대해 자세히 알아보려면:
 
@@ -130,7 +130,7 @@ Redgate의 Data Platform Studio에 대해 자세히 알아보려면:
 
 SQL Data Warehouse에서 데이터를 마이그레이션 및 로드하는 다른 방법에 대한 개요는 다음을 참조하세요.
 
-* [SQL Data Warehouse로 솔루션 마이그레이션][SQL Data Warehouse로 솔루션 마이그레이션]
+* [SQL Data Warehouse에 솔루션 마이그레이션][Migrate your solution to SQL Data Warehouse]
 * [Azure SQL 데이터 웨어하우스에 데이터 로드](sql-data-warehouse-overview-load.md)
 
 더 많은 개발 팁은 [SQL Data Warehouse 개발 개요](sql-data-warehouse-overview-develop.md)를 참조하세요.
@@ -146,14 +146,14 @@ SQL Data Warehouse에서 데이터를 마이그레이션 및 로드하는 다른
 [8]: media/sql-data-warehouse-redgate/2016-10-05_12-57-10.png
 
 <!--Article references-->
-[Azure SQL 데이터 웨어하우스 쿼리(Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
-[Power BI를 사용하여 데이터 시각화]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[SQL 데이터 웨어하우스에 솔루션 마이그레이션]: ./sql-data-warehouse-overview-migrate.md
-[Azure SQL 데이터 웨어하우스에 데이터 로드]: ./sql-data-warehouse-overview-load.md
-[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
+[Query Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
+[Visualize data with Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
+[Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
+[Load data into Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

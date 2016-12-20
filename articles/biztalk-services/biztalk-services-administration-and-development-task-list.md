@@ -1,12 +1,12 @@
 ---
-title: BizTalk 서비스의 관리 및 개발 작업 목록 | Microsoft Docs
-description: 계획 및 작업은 Azure BizTalk 서비스를 배포하는 데 도움을 줍니다.
+title: "BizTalk 서비스의 관리 및 개발 작업 목록 | Microsoft Docs"
+description: "계획 및 작업은 Azure BizTalk 서비스를 배포하는 데 도움을 줍니다."
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: msftman
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0ab70b5b-1a88-4ba5-b329-ec51b785010e
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1013419f9283c3e81a6a6e8ed56a34d6ee5937ea
+
 
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>BizTalk 서비스의 관리 및 개발 작업 목록
@@ -50,6 +54,9 @@ Microsoft Azure BizTalk 서비스로 작업할 때 고려해야 할 몇 가지 �
 [BizTalk 어댑터 서비스(BAS) 사용](https://msdn.microsoft.com/library/azure/hh689889.aspx)  
 [Azure BizTalk 서비스](http://go.microsoft.com/fwlink/p/?LinkID=303664)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

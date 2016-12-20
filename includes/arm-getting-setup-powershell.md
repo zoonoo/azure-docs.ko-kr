@@ -50,10 +50,10 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 현재 
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-Azure 구독 및 계정에 대한 자세한 내용은 [방법: 구독에 연결](../articles/powershell-install-configure.md#step-3-connect)을 참조하세요.
+Azure 구독 및 계정에 대한 자세한 내용은 [방법: 구독에 연결](/powershell/azureps-cmdlets-docs#step-3-connect)을 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f03701746cb36838c7db7055f5dd98f77e1adfbd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: aae9215ea67ff254bb3b67c5b113ad55eb3b1ca2
 
 
 ---
-# <a name="configure-expressroute-and-sitetosite-coexisting-connections-for-the-classic-deployment-model"></a>클래식 배포 모델에 대한 Express 경로 및 사이트 간 공존 연결 구성
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-classic-deployment-model"></a>클래식 배포 모델에 대한 Express 경로 및 사이트 간 공존 연결 구성
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - 클래식](expressroute-howto-coexist-classic.md)
@@ -49,12 +49,12 @@ ms.openlocfilehash: f03701746cb36838c7db7055f5dd98f77e1adfbd
 * **ExpressRoute 게이트웨이를 먼저 구성해야 합니다.** 사이트 간 VPN Gateway를 추가하기 전에 ExpressRoute 게이트웨이를 먼저 만들어야 합니다.
 
 ## <a name="configuration-designs"></a>구성 디자인
-### <a name="configure-a-sitetosite-vpn-as-a-failover-path-for-expressroute"></a>사이트 간 VPN을 Express 경로에 대한 장애 조치(failover) 경로로 구성
+### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>사이트 간 VPN을 Express 경로에 대한 장애 조치(failover) 경로로 구성
 Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 있습니다. Azure 개인 피어링 경로에 연결된 가상 네트워크에만 적용됩니다. 공용 Azure 및 Microsoft 피어링을 통해 액세스할 수 있는 서비스에 대한 VPN 기반 장애 조치 솔루션은 없습니다. Express 경로 회로는 항상 기본 링크입니다. Express 경로 회로가 실패하면 데이터는 사이트 간 VPN 경로를 통해 전송됩니다. 
 
 ![공존](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
-### <a name="configure-a-sitetosite-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>사이트 간 VPN을 구성하여 Express 경로를 통해 연결되지 않은 사이트에 연결
+### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>사이트 간 VPN을 구성하여 Express 경로를 통해 연결되지 않은 사이트에 연결
 일부 사이트는 사이트 간 VPN을 통해 Azure에 직접 연결하고 일부 사이트는 Express 경로를 통해 연결된 네트워크를 구성할 수 있습니다. 
 
 ![공존](media/expressroute-howto-coexist-classic/scenario2.jpg)
@@ -79,7 +79,7 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 ## <a name="a-namenewato-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>새 가상 네트워크 및 공존 연결을 만들려면
 이 절차는 VNet 만들기를 안내하고 함께 사용하는 사이트 간 및 Express 경로 연결을 만듭니다.
 
-1. 최신 버전의 Azure PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 을 참조하세요. 이 구성에 사용할 cmdlet은 지금까지 익숙하던 cmdlet과는 약간 다를 수 있습니다. 다음 지침에 지정된 cmdlet을 사용해야 합니다. 
+1. 최신 버전의 Azure PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요. 이 구성에 사용할 cmdlet은 지금까지 익숙하던 cmdlet과는 약간 다를 수 있습니다. 다음 지침에 지정된 cmdlet을 사용해야 합니다. 
 2. 가상 네트워크의 스키마를 만듭니다. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
    
     스키마를 만들 때 다음 값을 사용해야 합니다.
@@ -192,7 +192,7 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 > 
 > 
 
-1. 최신 버전의 Azure 리소스 관리자 PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 을 참조하세요. 이 구성에 사용할 cmdlet은 지금까지 익숙하던 cmdlet과는 약간 다를 수 있습니다. 다음 지침에 지정된 cmdlet을 사용해야 합니다. 
+1. 최신 버전의 Azure 리소스 관리자 PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요. 이 구성에 사용할 cmdlet은 지금까지 익숙하던 cmdlet과는 약간 다를 수 있습니다. 다음 지침에 지정된 cmdlet을 사용해야 합니다. 
 2. 기존 Express 경로 또는 사이트 간 VPN 게이트웨이를 삭제합니다. 다음 cmdlet(사용자 고유의 값으로 대체)을 사용합니다.
    
         Remove-AzureVNetGateway –VnetName MyAzureVNET
@@ -226,6 +226,6 @@ Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-f
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

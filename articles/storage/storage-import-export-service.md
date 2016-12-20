@@ -1,23 +1,27 @@
 ---
-title: 가져오기/내보내기를 사용하여 Blob 저장소로 데이터 전송| Microsoft Docs
-description: Blob 저장소로 데이터를 전송하기 위해 Azure 클래식 포털에서 가져오기 및 내보내기 작업을 만드는 방법에 대해 알아봅니다.
+title: "가져오기/내보내기를 사용하여 Blob Storage로 데이터 전송| Microsoft Docs"
+description: "Blob 저장소로 데이터를 전송하기 위해 Azure 클래식 포털에서 가져오기 및 내보내기 작업을 만드는 방법에 대해 알아봅니다."
 author: renashahmsft
 manager: aungoo
 editor: tysonn
 services: storage
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 668f53f2-f5a4-48b5-9369-88ec5ea05eb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
-ms.author: renash;robinsh
+ms.date: 10/18/2016
+ms.author: renash
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a1993b2aef38cb76111bbb793f02e4bd307eb64e
+
 
 ---
-# Microsoft Azure 가져오기/내보내기 서비스를 사용하여 Blob 저장소로 데이터 전송
-## 개요
+# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Microsoft Azure 가져오기/내보내기 서비스를 사용하여 Blob 저장소로 데이터 전송
+## <a name="overview"></a>개요
 Azure 가져오기/내보내기 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob 저장소로 전송할 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Blob 저장소에서 하드 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 이 서비스는 몇 TB의 데이터를 Azure로 또는 Azure에서 전송하고자 할 때 적합하지만, 제한된 대역폭 또는 높은 네트워크 비용으로 인해 네트워크를 통한 업로드 및 다운로드는 적합하지 않습니다.
 
 이 서비스를 사용하려면 데이터 보안을 위해 하드 디스크 드라이브를 BitLocker 암호화해야 합니다. 이 서비스는 공용 Azure의 모든 영역에 있는 클래식 저장소 계정을 지원합니다. 이 문서의 뒷부분에 지정된 지원되는 위치 중 한 곳에 하드 디스크 드라이브를 발송해야 합니다.
@@ -29,7 +33,7 @@ Azure 가져오기/내보내기 서비스를 사용하면 하드 디스크 드�
 > 
 > 
 
-## 언제 Azure 가져오기/내보내기 서비스를 사용해야 하나요?
+## <a name="when-should-i-use-the-azure-importexport-service"></a>언제 Azure 가져오기/내보내기 서비스를 사용해야 하나요?
 네트워크를 통한 데이터 업로드 또는 다운로드가 너무 느리거나 추가 네트워크 대역폭 비용이 너무 비싼 경우 Azure 가져오기/내보내기 서비스 사용을 고려할 수 있습니다.
 
 다음과 같은 시나리오에서 이 서비스를 사용할 수 있습니다.
@@ -39,16 +43,16 @@ Azure 가져오기/내보내기 서비스를 사용하면 하드 디스크 드�
 * 백업: 온-프레미스 데이터의 백업을 가져와 Azure Blob 저장소에 저장합니다.
 * 데이터 복구: Blob 저장소에 저장된 많은 양의 데이터를 복구하여 온-프레미스 위치에 배달합니다.
 
-## 필수 구성 요소
+## <a name="pre-requisites"></a>필수 구성 요소
 이 섹션에서는 이 서비스를 사용하는 데 필요한 필수 조건에 대해 설명합니다. 드라이브를 발송하기 전에 주의 깊게 검토하세요.
 
-### 저장소 계정
+### <a name="storage-account"></a>저장소 계정
 가져오기/내보내기 서비스를 사용하려면 기존 Azure 구독과 하나 이상의 **클래식** 저장소 계정이 있어야 합니다. 각 작업은 하나의 클래식 저장소 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 가져오기/내보내기 작업이 여러 저장소 계정에서 사용될 수 없습니다. 새 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)(영문)을 참조하세요.
 
-### Blob 형식
+### <a name="blob-types"></a>Blob 형식
 Azure 가져오기/내보내기 서비스를 사용하여 데이터를 **블록** Blob 또는 **페이지** Blob으로 복사할 수 있습니다. 반대로 이 서비스를 사용하여 Azure 저장소에서 **블록** Blob, **페이지** Blob 또는 **추가** Blob을 내보내기만 할 수도 있습니다.
 
-### 작업
+### <a name="job"></a>작업
 Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하려면 먼저 작업을 만듭니다. 작업은 가져오기 작업 또는 내보내기 작업이 될 수 있습니다.
 
 * 온-프레미스에 있는 데이터를 Azure 저장소 계정의 Blob으로 전송하려면 가져오기 작업을 만듭니다.
@@ -62,7 +66,7 @@ Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하�
 
 [클래식 포털](https://manage.windowsazure.com/) 또는 [Azure 저장소 가져오기/내보내기 REST API](http://go.microsoft.com/fwlink/?LinkID=329099)를 사용하여 가져오기 또는 내보내기 작업을 만들 수 있습니다.
 
-### 클라이언트 도구
+### <a name="client-tool"></a>클라이언트 도구
 **가져오기** 작업을 만드는 첫 번째 단계는 가져오기를 위해 발송할 드라이브를 준비하는 것입니다. 드라이브를 준비하려면 드라이브를 로컬 서버에 연결하고 로컬 서버에서 Azure 가져오기/내보내기 클라이언트 도구를 실행해야 합니다. 이 클라이언트 도구는 드라이브에 데이터 복사, 드라이브에 있는 데이터를 BitLocker로 암호화 및 드라이브 저널 파일 생성 작업을 용이하게 해줍니다.
 
 저널 파일은 드라이브 일련 번호 및 저장소 계정 이름과 같은 작업 및 드라이브에 대한 기본 정보를 저장합니다. 이 저널 파일은 드라이브에 저장되지 않으며 가져오기 작업을 만드는 동안 사용됩니다. 작업 만들기의 단계별 세부 내용은 이 문서의 뒷부분에 제공됩니다.
@@ -71,8 +75,10 @@ Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하�
 
 최신 버전의 [Azure 가져오기/내보내기 클라이언트 도구](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409)를 다운로드합니다. Azure 가져오기/내보내기 도구 사용에 대한 자세한 내용은 [Azure 가져오기/내보내기 도구 참조](http://go.microsoft.com/fwlink/?LinkId=329032)를 참조하세요.
 
-### 하드 디스크 드라이브
-3\.5인치 SATA II/III 내부 하드 드라이브만 가져오기/내보내기 서비스에서 사용하도록 지원됩니다. 최대 10TB의 하드 드라이브를 사용할 수 있습니다. 가져오기 작업의 경우 드라이브의 첫 번째 데이터 볼륨만 처리됩니다. 데이터 볼륨은 NTFS로 포맷되어 있어야 합니다. 하드 드라이브에 데이터를 복사할 때 SATA 커넥터를 사용하여 직접 연결하거나 외장 SATA II/III USB 어댑터를 사용하여 외부에서 연결할 수 있습니다. 다음 외장 SATA II/III USB 어댑터 중 하나를 사용하는 것이 좋습니다.
+### <a name="hard-disk-drives"></a>하드 디스크 드라이브
+3.5인치 SATA II/III 내부 하드 드라이브만 가져오기/내보내기 서비스에서 사용하도록 지원됩니다. 최대 10TB의 하드 드라이브를 사용할 수 있습니다.
+가져오기 작업의 경우 드라이브의 첫 번째 데이터 볼륨만 처리됩니다. 데이터 볼륨은 NTFS로 포맷되어 있어야 합니다.
+하드 드라이브에 데이터를 복사할 때 SATA 커넥터를 사용하여 직접 연결하거나 외장 SATA II/III USB 어댑터를 사용하여 외부에서 연결할 수 있습니다. 다음 외장 SATA II/III USB 어댑터 중 하나를 사용하는 것이 좋습니다.
 
 * Anker 68UPSATAA-02BU
 * Anker 68UPSHHDS-BU
@@ -86,14 +92,14 @@ Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하�
 > 
 > 
 
-### 암호화
+### <a name="encryption"></a>암호화
 드라이브의 데이터는 BitLocker 드라이브 암호화를 사용하여 암호화되어야 합니다. 이렇게 하면 전송 중 데이터가 보호됩니다.
 
 가져오기 작업의 경우 암호화를 수행하는 두 가지 방법이 있습니다. 첫 번째 방법은 드라이브를 준비하는 동안 클라이언트 도구를 실행할 때 /encrypt 매개 변수를 사용하는 것입니다. 두 번째 방법은 드라이브를 준비하는 동안 드라이브에서 수동으로 BitLocker 암호화를 사용하도록 설정하고 클라이언트 도구 명령줄에서 암호화 키를 지정하는 것입니다.
 
-내보내기 작업의 경우 데이터가 드라이브에 복사된 후 서비스에서 이를 다시 사용자에게 발송하기 전에 BitLocker를 사용하여 드라이브를 암호화합니다. 클래식 포털을 통해 암호화 키가 제공됩니다.
+내보내기 작업의 경우 데이터가 드라이브에 복사된 후 서비스에서 이를 다시 사용자에게 발송하기 전에 BitLocker를 사용하여 드라이브를 암호화합니다. 클래식 포털을 통해 암호화 키가 제공됩니다.  
 
-### 운영 체제
+### <a name="operating-system"></a>운영 체제
 다음 64비트 운영 체제 중 하나를 사용하여 드라이브를 Azure에 발송하기 전에 Azure 가져오기/내보내기 도구를 사용하여 하드 드라이브를 준비할 수 있습니다.
 
 Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. 이러한 모든 운영 체제는 BitLocker 드라이브 암호화를 지원합니다.
@@ -103,7 +109,7 @@ Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, W
 > 
 > 
 
-### 위치
+### <a name="locations"></a>위치
 Azure 가져오기/내보내기 서비스는 모든 공용 Azure 저장소 계정으로의 데이터 복사를 지원합니다. 다음 위치 중 하나로 하드 디스크 드라이브를 발송할 수 있습니다. 저장소 계정이 여기에 지정되지 않은 공용 Azure 위치에 있는 경우 클래식 포털 또는 가져오기/내보내기 REST API를 사용하여 작업을 만들 때 대체 발송 위치가 제공됩니다.
 
 지원되는 발송 위치:
@@ -124,7 +130,7 @@ Azure 가져오기/내보내기 서비스는 모든 공용 Azure 저장소 계�
 * 일본 동부
 * 인도 중부
 
-### 발송
+### <a name="shipping"></a>발송
 **데이터 센터에 드라이브 배송:**
 
 가져오기 또는 내보내기 작업을 만들 때 지원되는 드라이브 발송 위치 중 하나의 배송지 주소를 제공합니다. 제공되는 배송지 주소는 저장소 계정 위치에 따라 달라지지만 저장소 계정 위치와 같지 않을 수도 있습니다.
@@ -144,17 +150,17 @@ FedEx, DHL, UPS 또는 US 우편 서비스와 같은 운송업체를 사용하�
 > 
 > 
 
-## Azure 가져오기/내보내기 서비스는 어떻게 작동하나요?
-Azure 가져오기/내보내기 서비스를 통해 작업을 만들고 하드 디스크 드라이브를 Azure 데이터 센터에 발송함으로써 온-프레미스 사이트와 Azure Blob 저장소 간에 데이터를 전송할 수 있습니다. 발송하는 각 하드 디스크 드라이브는 단일 작업과 연결됩니다. 각 작업은 단일 저장소 계정과 연결됩니다. [필수 조건 섹션](#pre-requisites)을 주의 깊게 검토하여 지원되는 Blob 형식, 디스크 형식, 위치 및 발송과 같은 이 서비스의 세부 사항에 대해 알아봅니다.
+## <a name="how-does-the-azure-importexport-service-work"></a>Azure 가져오기/내보내기 서비스는 어떻게 작동하나요?
+Azure 가져오기/내보내기 서비스를 통해 작업을 만들고 하드 디스크 드라이브를 Azure 데이터 센터에 발송함으로써 온-프레미스 사이트와 Azure Blob 저장소 간에 데이터를 전송할 수 있습니다. 발송하는 각 하드 디스크 드라이브는 단일 작업과 연결됩니다. 각 작업은 단일 저장소 계정과 연결됩니다. [필수 조건 섹션](#pre-requisites) 을 주의 깊게 검토하여 지원되는 Blob 형식, 디스크 형식, 위치 및 발송과 같은 이 서비스의 세부 사항에 대해 알아봅니다.
 
 이 섹션에서는 가져오기 및 내보내기 작업에 관련된 단계를 개략적으로 설명합니다. [빠른 시작 섹션](#quick-start)의 뒷부분에서 가져오기 및 내보내기 작업을 만드는 단계별 지침을 제공합니다.
 
-### 가져오기 작업 내부
+### <a name="inside-an-import-job"></a>가져오기 작업 내부
 가져오기 작업은 개략적으로 다음 단계를 포함합니다.
 
 * 가져올 데이터와 필요한 드라이브 수를 결정합니다.
 * Blob 저장소에서 데이터의 대상 Blob을 식별합니다.
-* Azure 가져오기/내보내기 도구를 사용하여 데이터를 하나 이상의 하드 디스크 드라이브에 복사하고 BitLocker로 암호화합니다.
+* Azure 가져오기/내보내기 도구를 사용하여 데이터를 하나 이상의 하드 디스크 드라이브에 복사하고 BitLocker로 암호화합니다.  
 * 클래식 포털 또는 가져오기/내보내기 REST API를 사용하여 대상 클래식 저장소 계정에 가져오기 작업을 만듭니다. 클래식 포털을 사용하는 경우 드라이브 저널 파일을 업로드합니다.
 * 드라이브를 다시 배송하는 데 사용될 반송 주소 및 운송업체 계정 번호를 제공합니다.
 * 작업을 만드는 동안 제공된 배송지 주소로 하드 디스크 드라이브를 발송합니다.
@@ -164,7 +170,7 @@ Azure 가져오기/내보내기 서비스를 통해 작업을 만들고 하드 �
   
     ![그림 1: 가져오기 작업 흐름](./media/storage-import-export-service/importjob.png)
 
-### 내보내기 작업 내부
+### <a name="inside-an-export-job"></a>내보내기 작업 내부
 내보내기 작업은 개략적으로 다음 단계를 포함합니다.
 
 * 내보낼 데이터와 필요한 드라이브 수를 결정합니다.
@@ -175,12 +181,12 @@ Azure 가져오기/내보내기 서비스를 통해 작업을 만들고 하드 �
 * 작업을 만드는 동안 제공된 배송지 주소로 하드 디스크 드라이브를 발송합니다.
 * 내보내기 작업 세부 정보에서 배송 추적 번호를 업데이트하고 내보내기 작업을 제출합니다.
 * 드라이브는 Azure 데이터 센터에서 수신 및 처리됩니다.
-* 드라이브를 BitLocker로 암호화하고 클래식 포털을 통해 키를 사용할 수 있습니다.
+* 드라이브를 BitLocker로 암호화하고 클래식 포털을 통해 키를 사용할 수 있습니다.  
 * 드라이브는 운송업체 계정을 사용하여 가져오기 작업에 제공된 반송 주소로 배송됩니다.
   
     ![그림 2: 내보내기 작업 흐름](./media/storage-import-export-service/exportjob.png)
 
-### 작업 상태 보기
+### <a name="viewing-your-job-status"></a>작업 상태 보기
 클래식 포털에서 가져오기 또는 내보내기 작업 상태를 추적할 수 있습니다. 클래식 포털에서 저장소 계정으로 이동하여 **가져오기/내보내기** 탭을 클릭합니다. 작업 목록이 페이지에 표시됩니다. 작업 상태, 작업 이름, 작업 유형 또는 추적 번호로 목록을 필터링할 수 있습니다.
 
 프로세스에서 드라이브 위치에 따라 다음 작업 상태 중 하나가 표시됩니다.
@@ -193,10 +199,10 @@ Azure 가져오기/내보내기 서비스를 통해 작업을 만들고 하드 �
 | 패키징 |데이터 전송이 완료되었고 하드 드라이브를 사용자에게 발송하기 위해 준비하는 중입니다. |
 | 완료 |하드 드라이브를 사용자에게 발송했습니다. |
 
-### 작업 처리 시간
+### <a name="time-to-process-job"></a>작업 처리 시간
 가져오기/내보내기 작업을 처리하는 데 소요되는 총 시간은 발송 시간, 작업 유형, 복사되는 데이터 유형 및 크기, 제공된 디스크 크기와 같은 다양한 요소에 따라 다릅니다. 가져오기/내보내기 서비스에는 SLA가 없습니다. REST API를 사용하여 작업 진행 상태를 좀 더 자세히 추적할 수 있습니다. 작업 나열 작업에는 복사 진행 상태를 나타내는 완료율 매개 변수가 있습니다. 시간이 매우 중요한 가져오기/내보내기 작업을 완료하는 예상 시간이 필요한 경우 문의하세요.
 
-### 가격
+### <a name="pricing"></a>가격
 **드라이브 취급 수수료**
 
 가져오기 또는 내보내기 작업의 일부로 처리되는 각 드라이브에 대해 드라이브 취급 수수료가 있습니다. [Azure 가져오기/내보내기 가격 책정](https://azure.microsoft.com/pricing/details/storage-import-export/)에서 자세한 내용을 확인하세요.
@@ -207,72 +213,85 @@ Azure에 드라이브를 발송하는 경우 운송업체에 발송 비용을 �
 
 **트랜잭션 비용**
 
-Blob 저장소로 데이터를 가져올 때는 트랜잭션 비용이 없습니다. Blob 저장소에서 데이터를 내보낼 때는 표준 송신 요금이 적용됩니다. 트랜잭션 비용에 대한 자세한 내용은 [데이터 전송 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/)을 참조하세요.
+Blob 저장소로 데이터를 가져올 때는 트랜잭션 비용이 없습니다. Blob 저장소에서 데이터를 내보낼 때는 표준 송신 요금이 적용됩니다. 트랜잭션 비용에 대한 자세한 내용은 [데이터 전송 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-## 빠른 시작
-이 섹션에서 가져오기 및 내보내기 작업을 만드는 단계별 지침을 제공합니다. 계속 진행하기 전에 모든 [필수 구성 요소](#pre-requisites)를 충족하는지 확인하세요.
+## <a name="quick-start"></a>빠른 시작
+이 섹션에서 가져오기 및 내보내기 작업을 만드는 단계별 지침을 제공합니다. 계속 진행하기 전에 모든 [필수 구성 요소](#pre-requisites) 를 충족하는지 확인하세요.
 
-## 가져오기 작업을 만드는 방법
-데이터를 포함하는 하나 이상의 드라이브를 지정된 데이터 센터로 발송하여 하드 드라이브에서 Azure 저장소 계정으로 데이터를 복사하는 가져오기 작업을 만듭니다. 가져오기 작업은 하드 디스크 드라이브, 복사할 데이터, 대상 저장소 계정 및 발송 정보에 대한 세부 정보를 Azure 가져오기/내보내기 서비스에 전달합니다. 가져오기 작업 만들기는 3단계 프로세스입니다. 첫째, Azure 가져오기/내보내기 클라이언트 도구를 사용하여 드라이브를 준비합니다. 둘째, 클래식 포털을 사용하여 가져오기 작업을 제출합니다. 셋째, 작업을 만드는 동안 제공된 배송지 주소로 드라이브를 발송하고 작업 세부 정보에서 발송 정보를 업데이트합니다.
+## <a name="how-to-create-an-import-job"></a>가져오기 작업을 만드는 방법
+데이터를 포함하는 하나 이상의 드라이브를 지정된 데이터 센터로 발송하여 하드 드라이브에서 Azure 저장소 계정으로 데이터를 복사하는 가져오기 작업을 만듭니다. 가져오기 작업은 하드 디스크 드라이브, 복사할 데이터, 대상 저장소 계정 및 발송 정보에 대한 세부 정보를 Azure 가져오기/내보내기 서비스에 전달합니다. 가져오기 작업 만들기는 3단계 프로세스입니다. 첫째, Azure 가져오기/내보내기 클라이언트 도구를 사용하여 드라이브를 준비합니다. 둘째, 클래식 포털을 사용하여 가져오기 작업을 제출합니다. 셋째, 작업을 만드는 동안 제공된 배송지 주소로 드라이브를 발송하고 작업 세부 정보에서 발송 정보를 업데이트합니다.   
 
 > [!IMPORTANT]
 > 저장소 계정당 하나의 작업만 제출할 수 있습니다. 발송하는 각 드라이브를 하나의 저장소 계정으로 가져올 수 있습니다. 예를 들어 두 개의 저장소 계정으로 데이터를 가져오고 싶다고 가정해 보겠습니다. 각 저장소 계정에 대해 별도의 하드 디스크 드라이브를 사용해야 하며 저장소 계정당 별도의 작업을 만들어야 합니다.
 > 
 > 
 
-### 드라이브 준비
+### <a name="prepare-your-drives"></a>드라이브 준비
 Azure 가져오기/내보내기 서비스를 사용하여 데이터를 가져올 때 첫 번째 단계는 Azure 가져오기/내보내기 클라이언트 도구를 사용하여 드라이브를 준비하는 것입니다. 아래 단계를 따라 드라이브를 준비합니다.
 
-1. 가져올 데이터를 식별합니다. 이는 로컬 서버에 있는 디렉터리 및 독립 실행형 파일이거나 또는 네트워크 공유일 수 있습니다.
+1. 가져올 데이터를 식별합니다. 이는 로컬 서버에 있는 디렉터리 및 독립 실행형 파일이거나 또는 네트워크 공유일 수 있습니다.  
 2. 전체 데이터 크기에 따라 필요한 드라이브 수를 결정합니다. 필요한 3.5인치 SATA II/III 하드 디스크 드라이브 수를 확보합니다.
 3. 대상 저장소 계정, 컨테이너, 가상 디렉터리 및 Blob을 식별합니다.
 4. 각 하드 디스크 드라이브에 복사할 독립 실행형 파일 및/또는 디렉터리를 결정합니다.
-5. [Azure 가져오기/내보내기 도구](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409)를 사용하여 하나 이상의 하드 드라이브로 데이터를 복사합니다.
+5. [Azure 가져오기/내보내기 도구](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) 를 사용하여 하나 이상의 하드 드라이브로 데이터를 복사합니다.
    
    * Azure 가져오기/내보내기 도구는 데이터를 원본으로부터 하드 디스크 드라이브로 복사하는 복사 세션을 만듭니다. 단일 복사 세션에서 도구는 단일 디렉터리를 해당 하위 디렉터리와 함께 복사하거나 단일 파일을 복사할 수 있습니다.
    * 원본 데이터가 여러 디렉터리에 걸쳐 있는 경우에는 여러 복사 세션이 필요할 수 있습니다.
    * 준비하는 각 하드 디스크 드라이브에는 최소한 하나의 복사 세션이 필요합니다.
 6. /encrypt 매개 변수를 지정하여 하드 디스크 드라이브에서 BitLocker 암호화를 사용하도록 설정할 수 있습니다. 또는 도구를 실행하는 동안 하드 디스크 드라이브에서 수동으로 BitLocker 암호화를 사용하도록 설정하고 키를 제공할 수도 있습니다.
-7. Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 드라이브의 드라이브 저널 파일을 생성합니다. 드라이브 저널 파일은 드라이브 자체가 아니라 로컬 컴퓨터에 저장됩니다. 가져오기 작업을 만들면 저널 파일을 업로드합니다. 드라이브 저널 파일에는 드라이브 ID, BitLocker 키 및 드라이브에 대한 기타 정보가 포함되어 있습니다. **중요**: 준비하는 각 하드 디스크 드라이브에는 저널 파일이 생성됩니다. 클래식 포털을 사용하여 가져오기 작업을 만들 때 해당 가져오기 작업에 관련된 드라이브의 모든 저널 파일을 업로드해야 합니다. 저널 파일이 없는 드라이브는 처리되지 않습니다.
+7. Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 드라이브의 드라이브 저널 파일을 생성합니다. 드라이브 저널 파일은 드라이브 자체가 아니라 로컬 컴퓨터에 저장됩니다. 가져오기 작업을 만들면 저널 파일을 업로드합니다. 드라이브 저널 파일에는 드라이브 ID, BitLocker 키 및 드라이브에 대한 기타 정보가 포함되어 있습니다.
+   **중요**: 준비하는 각 하드 디스크 드라이브에는 저널 파일이 생성됩니다. 클래식 포털을 사용하여 가져오기 작업을 만들 때 해당 가져오기 작업에 관련된 드라이브의 모든 저널 파일을 업로드해야 합니다. 저널 파일이 없는 드라이브는 처리되지 않습니다.
 8. 디스크 준비를 완료한 후 하드 디스크 드라이브 또는 저널 파일에 있는 데이터를 수정하지 마세요.
 
 다음은 Azure 가져오기/내보내기 클라이언트 도구를 사용하여 하드 디스크 드라이브를 준비하기 위한 명령 및 예제입니다.
 
 첫 번째 복사 세션에서 디렉터리를 복사하기 위한 Azure 가져오기/내보내기 클라이언트 도구 PrepImport 명령:
 
-    WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 **예제:**
 
-아래 예제에서는 모든 파일 및 하위 디렉터리를 H:\\Video에서 X에 탑재된 하드 디스크 드라이브로 복사합니다. 데이터를 저장소 계정 키에 의해 지정된 대상 저장소 계정과 video라는 저장소 컨테이너로 가져옵니다. 저장소 컨테이너가 없는 경우 만들어집니다. 이 명령은 또한 대상 하드 디스크 드라이브를 포맷하고 암호화합니다.
+아래 예제에서는 모든 파일 및 하위 디렉터리를 H:\Video에서 X에 탑재된 하드 디스크 드라이브로 복사합니다. 데이터를 저장소 계정 키에 의해 지정된 대상 저장소 계정과 video라는 저장소 컨테이너로 가져옵니다. 저장소 컨테이너가 없는 경우 만들어집니다. 이 명령은 또한 대상 하드 디스크 드라이브를 포맷하고 암호화합니다.
 
-    WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:storageaccountkey /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
+WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:storageaccountkey /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
 
 후속 복사 세션에서 디렉터리를 복사하기 위한 Azure 가져오기/내보내기 클라이언트 도구 PrepImport 명령:
 
-    WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
-같은 하드 디스크 드라이브에 대한 후속 복사 세션의 경우 동일한 저널 파일 이름을 지정하고, 새 세션 ID를 제공합니다. 저장소 계정 키 및 대상 드라이브를 제공하거나 드라이브를 포맷 또는 암호화하지 않아도 됩니다. 이 예제에서는 H:\\Photo 폴더와 해당 하위 디렉터리를 동일한 대상 드라이브, photo라는 저장소 컨테이너에 복사합니다.
+같은 하드 디스크 드라이브에 대한 후속 복사 세션의 경우 동일한 저널 파일 이름을 지정하고, 새 세션 ID를 제공합니다. 저장소 계정 키 및 대상 드라이브를 제공하거나 드라이브를 포맷 또는 암호화하지 않아도 됩니다. 이 예제에서는 H:\Photo 폴더와 해당 하위 디렉터리를 동일한 대상 드라이브, photo라는 저장소 컨테이너에 복사합니다.
 
-    WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
+WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
 
 첫 번째 복사 세션에서 파일을 복사하기 위한 Azure 가져오기/내보내기 클라이언트 도구 PrepImport 명령:
 
-    WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 후속 복사 세션에서 파일을 복사하기 위한 Azure 가져오기/내보내기 클라이언트 도구 PrepImport 명령:
 
-    WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 **주의**: 기본적으로 데이터는 블록 Blob으로 가져옵니다. /BlobType 매개 변수를 사용하여 데이터를 페이지 Blob으로 가져올 수 있습니다. 예를 들어 Azure VM에 디스크로 탑재되는 VHD 파일을 가져오는 경우 페이지 Blob으로 가져와야 합니다. 어떤 Blob 유형을 사용할지 확실하지 않은 경우 /blobType:auto를 지정하면 올바른 유형을 결정하도록 도와드립니다. 이 경우 모든 vhd 및 vhdx 파일을 페이지 Blob으로 가져오고 나머지는 블록 Blob으로 가져옵니다.
 
 Azure 가져오기/내보내기 클라이언트 도구 사용에 대한 자세한 내용은 [가져오기 작업을 위해 하드 드라이브 준비](https://msdn.microsoft.com/library/dn529089.aspx)에서 확인하세요.
 
-또한 좀 더 자세한 단계별 지침에 대해서는 [가져오기 작업을 위해 하드 드라이브를 준비하는 예제 워크플로](https://msdn.microsoft.com/library/dn529097.aspx)를 참조하세요.
+또한 좀 더 자세한 단계별 지침에 대해서는 [가져오기 작업을 위해 하드 드라이브를 준비하는 예제 워크플로](https://msdn.microsoft.com/library/dn529097.aspx) 를 참조하세요.  
 
-### 가져오기 작업 만들기
-1. 드라이브 준비가 완료되면 [클래식 포털](https://manage.windowsazure.com)의 저장소 계정으로 이동하여 대시보드를 확인합니다. **간략 상태**에서 **가져오기 작업 만들기**를 클릭합니다. 단계를 검토하고 확인란을 선택하여 드라이브를 준비했으며 사용 가능한 드라이브 저널 파일이 있음을 지정합니다.
-2. 1단계에서는 해당 가져오기 작업을 담당하는 사용자의 연락처 정보와 올바른 반송 주소를 제공합니다. 가져오기 작업에 대한 자세한 로그 데이터를 저장하려면 **내 'waimportexport' blob 컨테이너에 자세한 로그 저장** 옵션을 선택합니다.
+### <a name="create-the-import-job"></a>가져오기 작업 만들기
+1. 드라이브 준비가 완료되면 [클래식 포털](https://manage.windowsazure.com) 의 저장소 계정으로 이동하여 대시보드를 확인합니다. **간략 상태**에서 **가져오기 작업 만들기**를 클릭합니다. 단계를 검토하고 확인란을 선택하여 드라이브를 준비했으며 사용 가능한 드라이브 저널 파일이 있음을 지정합니다.
+2. 1단계에서는 해당 가져오기 작업을 담당하는 사용자의 연락처 정보와 올바른 반송 주소를 제공합니다. 가져오기 작업에 대한 자세한 로그 데이터를 저장하려면 **내 'waimportexport' blob 컨테이너에 자세한 로그 저장**옵션을 선택합니다.
 3. 2단계에서는 드라이브 준비 단계 중 얻은 드라이브 저널 파일을 업로드합니다. 준비한 각 드라이브에 파일을 하나씩 업로드해야 합니다.
    
    ![가져오기 작업 만들기 - 3단계](./media/storage-import-export-service/import-job-03.png)
@@ -291,21 +310,21 @@ Azure 가져오기/내보내기 클라이언트 도구 사용에 대한 자세�
     작업이 만드는 중, 발송 중 또는 전송 중 상태이면 마법사 2단계에서 택배사 계정 번호를 업데이트할 수도 있습니다. 작업이 포장 중 상태이면 해당 작업에 대한 택배사 계정 번호를 업데이트할 수 없습니다.
 7. 포털 대시보드에서 작업 진행 상태를 추적할 수 있습니다. 각 작업 상태가 무엇을 의미하는지는 [작업 상태 보기](#viewing-your-job-status)에 대한 이전 섹션에서 확인하세요.
 
-## 내보내기 작업을 만드는 방법
+## <a name="how-to-create-an-export-job"></a>내보내기 작업을 만드는 방법
 내보내기 작업을 만들고 저장소 계정에서 드라이브로 데이터를 내보낸 다음 드라이브를 사용자에게 발송할 수 있도록 하나 이상의 빈 드라이브가 데이터 센터로 발송됨을 가져오기/내보내기 서비스에 알립니다.
 
-### 드라이브 준비
+### <a name="prepare-your-drives"></a>드라이브 준비
 내보내기 작업을 위한 드라이브 준비를 위해 다음 사전 검사를 수행하는 것이 좋습니다.
 
 1. Azure 가져오기/내보내기 도구의 PreviewExport 명령을 사용하여 필요한 디스크 수를 확인합니다. 자세한 내용은 [내보내기 작업에 대한 드라이브 사용량 미리 보기](https://msdn.microsoft.com/library/azure/dn722414.aspx)를 참조하세요. 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob에 대한 드라이브 사용량을 미리볼 수 있습니다.
 2. 내보내기 작업에 대해 제공될 하드 드라이브에 읽거나/쓸 수 있는지 확인합니다.
 
-### 내보내기 작업 만들기
+### <a name="create-the-export-job"></a>내보내기 작업 만들기
 1. 내보내기 작업을 만들려면 [클래식 포털](https://manage.windowsazure.com)의 저장소 계정으로 이동하여 대시보드를 봅니다. **간략 상태**에서 **내보내기 작업 만들기**를 클릭하고 마법사를 진행합니다.
-2. 2단계에서는 해당 내보내기 작업을 담당하는 사용자의 연락처 정보를 제공합니다. 내보내기 작업에 대한 자세한 로그 데이터를 저장하려면 **내 'waimportexport' blob 컨테이너에 자세한 로그 저장** 옵션을 선택합니다.
+2. 2단계에서는 해당 내보내기 작업을 담당하는 사용자의 연락처 정보를 제공합니다. 내보내기 작업에 대한 자세한 로그 데이터를 저장하려면 **내 'waimportexport' blob 컨테이너에 자세한 로그 저장**옵션을 선택합니다.
 3. 3단계에서는 저장소 계정에서 하나 이상의 빈 드라이브로 내보낼 Blob 데이터를 지정합니다. 저장소 계정의 모든 Blob 데이터를 내보내도록 선택하거나 내보낼 Blob 또는 Blob 집합을 지정할 수 있습니다.
    
-   내보낼 Blob을 지정하려면 **같음** 선택기를 사용하여 컨테이너 이름으로 시작하는 Blob의 상대 경로를 지정합니다. 루트 컨테이너를 지정하려면 *$root*를 사용합니다.
+   내보낼 Blob을 지정하려면 **같음** 선택기를 사용하여 컨테이너 이름으로 시작하는 Blob의 상대 경로를 지정합니다. 루트 컨테이너를 지정하려면 *$root* 를 사용합니다.
    
    특정 접두사로 시작하는 Blob을 모두 지정하려면 **시작 단어** 선택기를 사용하고 슬래시 '/'로 시작하는 접두사를 지정합니다. 접두사는 컨테이너 이름의 접두사, 완전한 컨테이너 이름 또는 Blob 이름 접두사가 뒤에 오는 완전한 컨테이너 이름일 수 있습니다.
    
@@ -313,12 +332,12 @@ Azure 가져오기/내보내기 클라이언트 도구 사용에 대한 자세�
    
    | 선택기 | Blob 경로 | 설명 |
    | --- | --- | --- |
-   | 시작 |/ |저장소 계정의 모든 Blob을 내보냄 |
-   | 시작 |/$root/ |루트 컨테이너의 모든 Blob을 내보냄 |
-   | 시작 |/book |접두사 **book**으로 시작하는 모든 컨테이너의 Blob을 모두 내보냄 |
-   | 시작 |/music/ |컨테이너 **music**의 모든 Blob을 내보냄 |
-   | 시작 |/music/love |접두사 **love**로 시작하는 컨테이너 **music**의 모든 Blob을 내보냄 |
-   | 같음 |$root/logo.bmp |루트 컨테이너의 Blob **logo.bmp**를 내보냄 |
+   | 시작 단어 |/ |저장소 계정의 모든 Blob을 내보냄 |
+   | 시작 단어 |/$root/ |루트 컨테이너의 모든 Blob을 내보냄 |
+   | 시작 단어 |/book |접두사 **book** |
+   | 시작 단어 |/music/ |컨테이너 **music** |
+   | 시작 단어 |/music/love |접두사 **love**로 시작하는 컨테이너 **music**의 모든 Blob을 내보냄 |
+   | 같음 |$root/logo.bmp |루트 컨테이너의 Blob **logo.bmp** 를 내보냄 |
    | 같음 |videos/story.mp4 |컨테이너 **videos**의 Blob **story.mp4**를 내보냄 |
    
    처리 중 오류 발생을 방지하려면 이 스크린샷에 표시된 것처럼 유효한 형식의 Blob 경로를 제공해야 합니다.
@@ -349,16 +368,17 @@ Azure 가져오기/내보내기 클라이언트 도구 사용에 대한 자세�
 
 아래 FAQ 섹션은 이 서비스를 사용하면서 고객들이 가장 일반적으로 질문하는 내용이므로 확인하세요.
 
-## 질문과 대답
+## <a name="frequently-asked-questions"></a>질문과 대답
 **드라이브가 데이터 센터에 도달한 후 데이터를 복사하는 데 시간이 얼마나 걸리나요?**
 
 복사하는 시간은 작업 유형, 복사되는 데이터 유형 및 크기, 제공된 디스크 크기 및 기존 워크로드와 같은 다양한 요소에 따라 다릅니다. 이러한 요소에 따라 며칠에서 몇 주까지 걸릴 수 있습니다. 따라서 일반적인 예상 시간을 제공하기 어렵습니다. 서비스는 가능한 경우 여러 드라이브를 병렬로 복사하여 작업을 최적화하고자 노력합니다. 시간이 매우 중요한 가져오기/내보내기 작업의 경우 예상 시간에 대해 문의해 주세요.
 
-**언제 Azure 가져오기/내보내기 서비스를 사용해야 하나요?** 네트워크를 통한 업로드 또는 다운로드가 대략적으로 7일보다 오래 걸릴 것으로 예상되는 경우 Azure 가져오기 또는 내보내기를 사용해야 합니다. 온라인 계산기를 사용하거나 Azure 샘플 리포지토리의 Azure 가져오기 또는 내보내기 REST API 샘플에 포함된 [데이터 전송 속도 계산기](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html)를 [다운로드](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/archive/master.zip)하여 업로드 또는 다운로드에 걸리는 시간을 계산할 수 있습니다. 정확한 시간을 계산할 수 있는 것은 아니며 대략적인 예상 시간만 확인할 수 있습니다.
+**언제 Azure 가져오기/내보내기 서비스를 사용해야 하나요?**
+ 네트워크를 통한 업로드 또는 다운로드가 대략적으로 7일보다 오래 걸릴 것으로 예상되는 경우 Azure 가져오기 또는 내보내기를 사용해야 합니다. 온라인 계산기를 사용하거나 [데이터 전송 속도 계산기](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html)의 Azure 샘플 리포지토리에서 Azure Import Export REST API 샘플에 포함된 온라인 계산기를 [다운로드](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/archive/master.zip)하는데 걸리는 시간을 계산할 수 있습니다. 정확한 시간을 계산할 수 있는 것은 아니며 대략적인 예상 시간만 확인할 수 있습니다.
 
 **리소스 관리자 저장소 계정으로 Azure 가져오기/내보내기 서비스를 사용할 수 있나요?**
 
-아니요. Azure 가져오기/내보내기 서비스를 사용하여 리소스 관리자 저장소 계정 간 데이터를 직접 복사할 수 없습니다. 서비스는 클래식 저장소 계정만 지원합니다. 리소스 관리자 저장소 계정은 곧 지원될 예정입니다. 클래식 저장소 계정에 데이터를 가져온 다음 [AzCopy](storage-use-azcopy.md) 또는 CopyBlob를 사용하여 Resource Manager 저장소 계정으로 마이그레이션할 수도 있습니다.
+아니요. Azure 가져오기/내보내기 서비스를 사용하여 리소스 관리자 저장소 계정 간 데이터를 직접 복사할 수 없습니다. 서비스는 클래식 저장소 계정만 지원합니다. 리소스 관리자 저장소 계정은 곧 지원될 예정입니다. 클래식 저장소 계정에 데이터를 가져온 다음 [AzCopy](storage-use-azcopy.md) 또는 CopyBlob을 사용하여 Resource Manager 저장소 계정으로 마이그레이션할 수도 있습니다.
 
 **Azure 가져오기/내보내기 서비스를 사용하여 Azure Files를 복사할 수 있나요?**
 
@@ -412,7 +432,8 @@ Azure 데이터 센터에서는 지원 요구 사항에 맞지 않는 드라이�
 
 드라이브를 준비할 때 /Disposition:<rename|no-overwrite|overwrite>라는 매개 변수를 사용하여 대상 파일을 덮어쓰거나 무시해야 하는지 여부를 지정할 수 있습니다. 기본적으로 서비스는 기존 Blob을 덮어쓰지 않고 새 파일의 이름을 변경합니다.
 
-**Azure 가져오기/내보내기 클라이언트 도구는 32비트 운영 체제와 호환되나요?** 아니요. 클라이언트 도구는 64비트 Windows 운영 체제와만 호환됩니다. 지원되는 OS 버전의 전체 목록은 [필수 구성 요소](#pre-requisites)의 운영 체제 섹션을 참조하세요.
+**Azure 가져오기/내보내기 클라이언트 도구는 32비트 운영 체제와 호환되나요?**
+아니요. 클라이언트 도구는 64비트 Windows 운영 체제와만 호환됩니다. 지원되는 OS 버전의 전체 목록은 [필수 구성 요소](#pre-requisites) 의 운영 체제 섹션을 참조하세요.
 
 **하드 디스크 드라이브 외에 패키지에 포함해야 하는 다른 항목이 있나요?**
 
@@ -436,7 +457,7 @@ FedEx, DHL, UPS 또는 US 우편 서비스와 같이 알려진 모든 운송업�
 
 **드라이브를 발송할 때 운송업체에서 데이터 센터 연락처 이름 및 전화 번호를 요청합니다. 무엇을 제공해야 하나요?**
 
-전화 번호는 작업을 만드는 동안 제공됩니다. 연락처 이름이 필요한 경우 waimportexport@microsoft.com에 문의하시면 해당 정보를 제공합니다.
+전화 번호는 작업을 만드는 동안 제공됩니다. 연락처 이름이 필요한 경우 waimportexport@microsoft.com 에 문의하시면 해당 정보를 제공합니다.
 
 **Azure 가져오기/내보내기 서비스를 사용하여 PST 사서함 및 SharePoint 데이터를 O365에 복사할 수 있나요?**
 
@@ -446,9 +467,14 @@ FedEx, DHL, UPS 또는 US 우편 서비스와 같이 알려진 모든 운송업�
 
 [Azure 백업의 오프라인 백업 워크플로](../backup/backup-azure-backup-import-export.md)를 참조하세요.
 
-## 참고 항목:
+## <a name="see-also"></a>참고 항목:
 * [Azure 가져오기/내보내기 클라이언트 도구 설정](https://msdn.microsoft.com/library/dn529112.aspx)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 * [Azure 가져오기 또는 내보내기 REST API 샘플](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: 가상 네트워크 구성 파일에서 DNS 설정 지정 | Microsoft Docs
-description: 클래식 배포 모델에서 가상 네트워크 구성 파일을 사용하여 가상 네트워크에서 DNS 서버 설정을 변경하는 방법
+title: "Virtual Network 구성 파일에서 DNS 설정 지정 | Microsoft Docs"
+description: "클래식 배포 모델에서 가상 네트워크 구성 파일을 사용하여 가상 네트워크에서 DNS 서버 설정을 변경하는 방법"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: a8905927-92ac-42b5-8c33-8e42c000692c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec33268915a1888509834ce6a5b2bc782a12ce4a
+
 
 ---
-# 가상 네트워크 구성 파일에서 DNS 설정 지정
+# <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>가상 네트워크 구성 파일에서 DNS 설정 지정
 네트워크 구성 파일에는 도메인 이름 시스템(DNS) 설정 지정에 사용할 수 있는 두 요소 **DnsServers** 및 **DnsServerRef**가 있습니다. **DnsServers** 요소에 해당 IP 주소 및 참조 이름를 지정하여 DNS 서버 목록을 추가할 수 있습니다. 그런 다음 **DnsServerRef** 요소를 사용하여 가상 네트워크 내의 다른 네트워크 사이트에 대해 사용될 DnsServers 요소의 DNS 서버 항목을 지정할 수 있습니다.
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
@@ -59,9 +63,14 @@ ms.author: jdial
 > 
 > 
 
-## 다음 단계
-* [Azure 가상 네트워크 구성 스키마](http://go.microsoft.com/fwlink/?LinkId=248093) 이해
-* [Azure 서비스 구성 스키마](https://msdn.microsoft.com/library/windowsazure/ee758710) 이해
+## <a name="next-steps"></a>다음 단계
+* [Azure 가상 네트워크 구성 스키마](http://go.microsoft.com/fwlink/?LinkId=248093)이해
+* [Azure 서비스 구성 스키마](https://msdn.microsoft.com/library/windowsazure/ee758710)이해
 * [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

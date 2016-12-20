@@ -1,19 +1,23 @@
 ---
-title: Azure Active Directory에서 관리 단위 관리
-description: Azure Active Directory에서 보다 세부적인 권한 위임을 위해 관리 단위 사용
+title: "Azure Active Directory에서 관리 단위 관리"
+description: "Azure Active Directory에서 보다 세부적인 권한 위임을 위해 관리 단위 사용"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8464cd6b-1d1a-470d-a4fb-ee29b8eab4c4
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
+ms.openlocfilehash: f54b28df432788cb42027133de09c3579fa41a18
+
 
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Azure AD - 공용 미리 보기에서 관리 단위 관리
@@ -23,8 +27,8 @@ ms.author: curtand
 
 > [!IMPORTANT]
 > Azure Active Directory Premium을 사용할 수 있는 경우에만 관리 단위를 만들고 사용할 수 있습니다. 자세한 내용은 [Azure AD Premium 시작을 참조하세요](active-directory-get-started-premium.md).
-> 
-> 
+>
+>
 
 중앙 관리자의 관점에서 관리 단위는 리소스로 생성하고 채울 수 있는 디렉터리 개체입니다. **이 릴리스에서는 사용자만 이 리소스가 될 수 있습니다.**  관리 단위가 생성되고 채워지면, 관리 단위에 포함된 리소스에게만 권한을 부여하도록 제한하는 범위로 사용할 수 있습니다.
 
@@ -36,6 +40,8 @@ ms.author: curtand
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory 버전](active-directory-editions.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

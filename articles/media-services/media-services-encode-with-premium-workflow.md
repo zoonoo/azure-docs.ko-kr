@@ -1,12 +1,12 @@
 ---
-title: 미디어 인코더 Premium 워크플로를 사용한 고급 인코딩 | Microsoft Docs
-description: 미디어 인코더 Premium 워크플로를 사용하여 인코딩하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다.
+title: "Media Encoder Premium Workflow를 사용하는 고급 인코딩 | Microsoft 문서"
+description: "미디어 인코더 Premium 워크플로를 사용하여 인코딩하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0f4c87ac-810a-4d42-8df8-923dff2016c6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4e86a871222def32f7779f07eab5668d366ecec4
+
 
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>미디어 인코더 Premium 워크플로를 사용한 고급 인코딩
@@ -59,12 +63,13 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
    
     b. 두 번째 – 비디오 자산입니다.
    
-    **참고**: 워크플로 자산은 미디어 자산보다 먼저 태스크에 추가되어야 합니다. 이 태스크에 대한 구성 문자열은 비어 있어야 합니다. 
+    **참고**: 워크플로 자산은 미디어 자산보다 먼저 태스크에 추가되어야 합니다. 
+   이 태스크에 대한 구성 문자열은 비어 있어야 합니다. 
 6. 인코딩 작업을 제출합니다.
 
 다음은 전체 예제입니다. 미디어 서비스 .NET 개발을 설정하는 방법에 대한 자세한 내용은 [.NET을 사용한 미디어 서비스 개발](media-services-dotnet-how-to-use.md)을 참조하세요
 
-    using System; 
+     using System; 
     using System.Linq;
     using System.Configuration;
     using System.IO;
@@ -272,6 +277,9 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

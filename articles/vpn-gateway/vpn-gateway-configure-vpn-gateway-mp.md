@@ -1,13 +1,13 @@
 ---
-title: Azure 클래식 포털에서 VPN 게이트웨이 구성 | Microsoft Docs
-description: 이 문서에서는 가상 네트워크 VPN 게이트웨이 구성하고 게이트웨이 VPN 라우팅 형식을 변경하는 방법을 안내합니다.
+title: "Azure 클래식 포털에서 VPN Gateway 구성 | Microsoft Docs"
+description: "이 문서에서는 가상 네트워크 VPN 게이트웨이 구성하고 게이트웨이 VPN 라우팅 형식을 변경하는 방법을 안내합니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: fbe59ba8-b11f-4d21-9bb1-225ec6c6d351
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,24 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 799a7ebd9df049bc3f8f4452f33ac40fa414c390
+
 
 ---
-# 클래식 배포 모델에 대한 VPN 게이트웨이 구성
-Azure 및 온-프레미스 위치 간에 보안 프레미스 간 연결을 만들려면 VPN 게이트웨이 연결을 구성해야 합니다. 클래식 배포 모델에서 게이트웨이는 두 VPN 라우팅 형식인 정적 또는 동적 중 하나일 수 있습니다. 선택하는 형식은 네트워크 디자인 계획과 사용하려는 온-프레미스 VPN 장치 둘 다에 따라 좌우됩니다.
+# <a name="configure-a-vpn-gateway-for-the-classic-deployment-model"></a>클래식 배포 모델에 대한 VPN 게이트웨이 구성
+Azure 및 온-프레미스 위치 간에 보안 프레미스 간 연결을 만들려면 VPN 게이트웨이 연결을 구성해야 합니다. 클래식 배포 모델에서 게이트웨이는 두 VPN 라우팅 형식인 정적 또는 동적 중 하나일 수 있습니다. 선택하는 형식은 네트워크 디자인 계획과 사용하려는 온-프레미스 VPN 장치 둘 다에 따라 좌우됩니다. 
 
-예를 들어 지점 및 사이트 간 연결과 같은 일부 연결 옵션은 동적 라우팅 게이트웨이가 필요합니다. 지점 및 사이트 간(P2S) 연결과 사이트 간(S2S) 연결을 모두 지원하도록 게이트웨이를 구성하려면, 두 게이트웨이 VPN 라우팅 형식 중 하나로 사이트 간 연결을 구성할 수 있더라도 동적 라우팅 게이트웨이를 구성해야 합니다.
+예를 들어 지점 및 사이트 간 연결과 같은 일부 연결 옵션은 동적 라우팅 게이트웨이가 필요합니다. 지점 및 사이트 간(P2S) 연결과 사이트 간(S2S) 연결을 모두 지원하도록 게이트웨이를 구성하려면, 두 게이트웨이 VPN 라우팅 형식 중 하나로 사이트 간 연결을 구성할 수 있더라도 동적 라우팅 게이트웨이를 구성해야 합니다. 
 
 또한 연결에 사용하려는 장치가 만들려는 VPN 라우팅 형식을 지원하는지 확인해야 합니다. [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
 
-**이 문서의 내용**
+**이 문서의 내용** 
 
-이 문서는 [클래식 포털](https://manage.windowsazure.com)(Azure 포털이 아님)을 사용하는 클래식 배포 모델을 위해 작성되었습니다.
+이 문서는 [클래식 포털](https://manage.windowsazure.com) (Azure 포털이 아님)을 사용하는 클래식 배포 모델을 위해 작성되었습니다. 
 
 **Azure 배포 모델 정보**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-## 구성 개요
+## <a name="configuration-overview"></a>구성 개요
 다음 단계에서는 Azure 클래식 포털에서 VPN 게이트웨이를 구성하는 방법을 안내합니다. 이러한 단계는 클래식 배포 모델을 사용하여 만든 가상 네트워크에 대한 게이트웨이에 적용됩니다. 현재 게이트웨이에 대한 구성 설정의 일부만 Azure 포털에서 사용할 수 있습니다. 사용 가능한 경우 Azure 포털에 적용되는 새 명령 집합이 생성됩니다.
 
 1. [VNet용 VPN 게이트웨이 만들기](#create-a-vpn-gateway)
@@ -40,19 +44,19 @@ Azure 및 온-프레미스 위치 간에 보안 프레미스 간 연결을 만�
 3. [VPN 장치 구성](#configure-your-vpn-device)
 4. [로컬 네트워크 범위 및 VPN 게이트웨이 IP 주소 확인](#verify-your-local-network-ranges-and-vpn-gateway-ip-address)
 
-### 시작하기 전에
-게이트웨이를 구성하기 전에 먼저 가상 네트워크를 만들어야 합니다. 프레미스 간 연결을 위해 가상 네트워크를 만드는 단계는 [사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](vpn-gateway-site-to-site-create.md) 또는 [지점 및 사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](vpn-gateway-point-to-site-create.md)을 참조하세요. 그런 후 다음 단계에 따라 VPN 게이트웨이 구성하고 VPN 장치를 구성하는 데 필요한 정보를 수집합니다.
+### <a name="before-you-begin"></a>시작하기 전에
+게이트웨이를 구성하기 전에 먼저 가상 네트워크를 만들어야 합니다. 프레미스 간 연결을 위해 가상 네트워크를 만드는 단계는 [사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](vpn-gateway-site-to-site-create.md) 또는 [지점 및 사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](vpn-gateway-point-to-site-create.md)을 참조하세요. 그런 후 다음 단계에 따라 VPN 게이트웨이 구성하고 VPN 장치를 구성하는 데 필요한 정보를 수집합니다. 
 
 VPN 게이트웨이가 이미 있는 경우 VPN 라우팅 형식을 변경하려면 [게이트웨이의 VPN 라우팅 형식을 변경하는 방법](#how-to-change-the-vpn-routing-type-for-your-gateway)을 참조하세요.
 
-## VPN 게이트웨이 만들기
-1. [Azure 클래식 포털](https://manage.windowsazure.com)의 **네트워크** 페이지에서, 가상 네트워크의 상태 열이 **생성됨**인지 확인합니다.
+## <a name="create-a-vpn-gateway"></a>VPN 게이트웨이 만들기
+1. [Azure 클래식 포털](https://manage.windowsazure.com)의 **Networks** 페이지에서, 가상 네트워크의 상태 열이 **생성됨**인지 확인합니다.
 2. **이름** 열에서 가상 네트워크의 이름을 클릭합니다.
 3. **대시보드** 페이지에서 이 VNet에 게이트웨이가 아직 구성되지 않은 것을 볼 수 있습니다. 게이트웨이 구성 단계를 진행할 때 이 상태가 표시됩니다.
 
 ![게이트웨이가 만들어지지 않음](./media/vpn-gateway-configure-vpn-gateway-mp/IC717025.png)
 
-그런 다음 페이지 아래쪽에서 **게이트웨이 만들기**를 클릭합니다. *고정 라우팅* 또는 *동적 라우팅*을 선택할 수 있습니다. VPN 라우팅 형식은 몇 가지 요인에 따라 선택합니다. 예를 들어 VPN 장치가 지원하는 항목과 지점 및 사이트 간 연결을 지원해야 하는지 여부 등에 따라 달라집니다. 필요한 VPN 라우팅 형식은 [가상 네트워크 연결을 위한 VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 확인하세요. 게이트웨이를 만든 후 게이트웨이 VPN 라우팅 유형 간에 변경하려면 게이트웨이를 삭제하고 다시 만들어야 합니다. 시스템에서 게이트웨이 만들 것인지 확인하는 메시지를 표시하면 **예**를 클릭합니다.
+그런 다음 페이지 아래쪽에서 **게이트웨이 만들기**를 클릭합니다. *고정 라우팅* 또는 *동적 라우팅*을 선택할 수 있습니다. VPN 라우팅 형식은 몇 가지 요인에 따라 선택합니다. 예를 들어 VPN 장치가 지원하는 항목과 지점 및 사이트 간 연결을 지원해야 하는지 여부 등에 따라 달라집니다. 필요한 VPN 라우팅 형식은 [가상 네트워크 연결을 위한 VPN 장치 정보](vpn-gateway-about-vpn-devices.md) 를 확인하세요. 게이트웨이를 만든 후 게이트웨이 VPN 라우팅 유형 간에 변경하려면 게이트웨이를 삭제하고 다시 만들어야 합니다. 시스템에서 게이트웨이 만들 것인지 확인하는 메시지를 표시하면 **예**를 클릭합니다.
 
 ![게이트웨이 VPN 라우팅 유형](./media/vpn-gateway-configure-vpn-gateway-mp/IC717026.png)
 
@@ -64,7 +68,7 @@ VPN 게이트웨이가 이미 있는 경우 VPN 라우팅 형식을 변경하려
 
 ![게이트웨이 연결](./media/vpn-gateway-configure-vpn-gateway-mp/IC717028.png)
 
-## VPN 장치 구성에 대한 정보 수집
+## <a name="gather-information-for-your-vpn-device-configuration"></a>VPN 장치 구성에 대한 정보 수집
 게이트웨이를 만든 후 VPN 장치 구성에 대한 정보를 수집합니다. 이 정보는 가상 네트워크에 대한 **대시보드** 페이지에 있습니다.
 
 1. **게이트웨이 IP 주소 -** IP 주소는 **대시보드** 페이지에서 찾을 수 있습니다. IP 주소는 게이트웨이 만들기를 완료한 이후에 표시됩니다.
@@ -72,8 +76,8 @@ VPN 게이트웨이가 이미 있는 경우 VPN 라우팅 형식을 변경하려
 
 ![키 관리](./media/vpn-gateway-configure-vpn-gateway-mp/IC717029.png)
 
-## VPN 장치 구성
-이전 단계를 완료한 후 사용자 또는 네트워크 관리자는 연결을 설정하기 위해 VPN 장치를 구성해야 합니다. VPN 장치에 대한 자세한 내용은 [가상 네트워크 연결을 위한 VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
+## <a name="configure-your-vpn-device"></a>VPN 장치 구성
+이전 단계를 완료한 후 사용자 또는 네트워크 관리자는 연결을 설정하기 위해 VPN 장치를 구성해야 합니다. VPN 장치에 대한 자세한 내용은 [가상 네트워크 연결을 위한 VPN 장치 정보](vpn-gateway-about-vpn-devices.md) 를 참조하세요.
 
 VPN 장치를 구성한 후 VNet에 대한 대시보드 페이지에서 업데이트된 연결 정보를 볼 수 있습니다.
 
@@ -84,25 +88,25 @@ VPN 장치를 구성한 후 VNet에 대한 대시보드 페이지에서 업데�
 | **Check main mode SAs** |show crypto isakmp sa |show crypto isakmp sa |get ike cookie |show security ike security-association |
 | **Check quick mode SAs** |show crypto ipsec sa |show crypto ipsec sa |get sa |show security ipsec security-association |
 
-## 로컬 네트워크 범위 및 VPN 게이트웨이 IP 주소 확인
-### VPN 게이트웨이 IP 주소 확인
+## <a name="verify-your-local-network-ranges-and-vpn-gateway-ip-address"></a>로컬 네트워크 범위 및 VPN 게이트웨이 IP 주소 확인
+### <a name="verify-your-vpn-gateway-ip-address"></a>VPN 게이트웨이 IP 주소 확인
 게이트웨이를 올바르게 연결하려면 프레미스 간 구성에 대해 지정한 로컬 네트워크에 대해 VPN 장치의 IP 주소를 올바르게 구성해야 합니다. 일반적으로 이 구성은 사이트 간 구성 프로세스 중에 설정합니다. 그러나 이전에 다른 장치에서 이 로컬 네트워크를 사용했거나 이 로컬 네트워크에 대한 IP 주소가 변경된 경우 설정을 편집하여 올바른 게이트웨이 IP 주소를 지정할 수 있습니다.
 
-1. 게이트웨이 IP 주소를 확인하려면 왼쪽 포털 창에서 **네트워크**를 클릭한 다음 페이지 위쪽에 있는 **로컬 네트워크**를 선택합니다. 사용자가 만든 각 로컬 네트워크에 대한 VPN 게이트웨이 주소가 표시됩니다. IP 주소를 편집하려면 VNet을 선택하고 페이지 아래쪽에 있는 **편집**을 클릭합니다.
+1. 게이트웨이 IP 주소를 확인하려면 왼쪽 포털 창에서 **Networks**를 클릭한 다음 페이지 위쪽에 있는 **로컬 네트워크**를 선택합니다. 사용자가 만든 각 로컬 네트워크에 대한 VPN 게이트웨이 주소가 표시됩니다. IP 주소를 편집하려면 VNet을 선택하고 페이지 아래쪽에 있는 **편집** 을 클릭합니다.
 2. **로컬 네트워크 정보 지정** 페이지에서 IP 주소를 편집한 후 페이지의 아래쪽에 있는 다음 화살표를 클릭합니다.
 3. **주소 공간 지정** 페이지에서 오른쪽 아래의 확인 표시를 클릭하여 설정을 저장합니다.
 
-### 로컬 네트워크의 주소 범위 확인
+### <a name="verify-the-address-ranges-for-your-local-networks"></a>로컬 네트워크의 주소 범위 확인
 게이트웨이를 통해 온-프레미스 위치로 올바른 트래픽이 이동되려면 각 IP 주소 범위가 지정되어 있는지 확인해야 합니다. 각 범위가 Azure **로컬 네트워크** 구성에 나열되어야 합니다. 온-프레미스 위치의 네트워크 구성에 따라 이 작업은 다소 커질 수 있습니다. 나열된 범위 내에 포함된 IP 주소에 대해 바인딩되는 트래픽은 가상 네트워크 VPN 게이트웨이를 통해 전송됩니다. 온-프레미스 구성이 인바운드 트래픽을 받을 수 있는지 확인하려는 경우에도 나열하는 범위가 전용 범위일 필요는 없습니다.
 
 로컬 네트워크에 대한 범위를 추가하거나 편집하려면 다음 단계를 사용하세요.
 
-1. 로컬 네트워크에 대한 IP 주소 범위를 편집하려면 왼쪽 포털 창에서 **네트워크**를 클릭한 다음 페이지 위쪽에 있는 **로컬 네트워크**를 선택합니다. 포털에서 나열된 범위를 확인하는 가장 쉬운 방법은 **편집** 페이지를 사용하는 것입니다. 범위를 확인하려면 VNet을 선택하고 페이지 아래쪽에 있는 **편집**을 클릭합니다.
+1. 로컬 네트워크에 대한 IP 주소 범위를 편집하려면 왼쪽 포털 창에서 **Networks**를 클릭한 다음 페이지 위쪽에 있는 **로컬 네트워크**를 선택합니다. 포털에서 나열된 범위를 확인하는 가장 쉬운 방법은 **편집** 페이지를 사용하는 것입니다. 범위를 확인하려면 VNet을 선택하고 페이지 아래쪽에 있는 **편집** 을 클릭합니다.
 2. **로컬 네트워크 정보 지정** 페이지에서 아무것도 변경하지 않습니다. 페이지 맨 아래에 있는 다음 화살표를 클릭합니다.
 3. **주소 공간 지정** 페이지에서 네트워크 주소 공간을 변경합니다. 그런 다음 확인 표시를 클릭하여 구성을 저장합니다.
 
-## 게이트웨이 트래픽을 확인하는 방법
-가상 네트워크 **대시보드**에서 게이트웨이 및 게이트웨이 트래픽을 확인할 수 있습니다.
+## <a name="how-to-view-gateway-traffic"></a>게이트웨이 트래픽을 확인하는 방법
+가상 네트워크 **대시보드** 에서 게이트웨이 및 게이트웨이 트래픽을 확인할 수 있습니다.
 
 **대시보드** 페이지에서 다음을 확인할 수 있습니다.
 
@@ -111,7 +115,7 @@ VPN 장치를 구성한 후 VNet에 대한 대시보드 페이지에서 업데�
 * 게이트웨이 및 VPN 장치 간 연결
 * VPN 장치에 대한 게이트웨이 연결을 구성하는 데 사용되는 공유 키
 
-## 게이트웨이의 VPN 라우팅 유형을 변경하는 방법
+## <a name="how-to-change-the-vpn-routing-type-for-your-gateway"></a>게이트웨이의 VPN 라우팅 유형을 변경하는 방법
 일부 연결 구성은 특정 게이트웨이 라우팅 유형에만 사용할 수 있으므로 기존 VPN 게이트웨이의 게이트웨이 VPN 라우팅 유형을 변경해야 할 수도 있습니다. 예를 들어 고정 게이트웨이를 사용하는 기존 사이트 간 연결에 지점 및 사이트 간 연결을 추가할 수 있습니다. 지점 및 사이트 간 연결에는 동적 게이트웨이가 필요합니다. 즉, P2S 연결을 구성하려면 게이트웨이 VPN 라우팅 형식을 정적에서 동적으로 변경해야 합니다.
 
 게이트웨이 VPN 라우팅 형식을 변경해야 하는 경우 기존 게이트웨이를 삭제한 다음 새 라우팅 형식으로 새 게이트웨이를 만듭니다. 게이트웨이 라우팅 형식을 변경하기 위해 전체 가상 네트워크를 삭제할 필요는 없습니다.
@@ -130,9 +134,14 @@ VPN 장치를 구성한 후 VNet에 대한 대시보드 페이지에서 업데�
    
     페이지 맨 위의 절차를 사용하여 새 게이트웨이를 만듭니다. [VPN 게이트웨이 만들기](#create-a-vpn-gateway).
 
-## 다음 단계
-가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. [사용자 지정 가상 컴퓨터를 만드는 방법](../virtual-machines/virtual-machines-windows-classic-createportal.md)을 참조하세요.
+## <a name="next-steps"></a>다음 단계
+가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. [사용자 지정 가상 컴퓨터를 만드는 방법](../virtual-machines/virtual-machines-windows-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 지점 및 사이트 간 VPN 연결을 구성하려면 [지점 및 사이트 간 VPN 연결 구성](vpn-gateway-point-to-site-create.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

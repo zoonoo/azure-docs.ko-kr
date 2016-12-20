@@ -1,19 +1,23 @@
 ---
-title: 저장소 계정을 모니터링하는 방법 | Microsoft Docs
-description: Azure 포털을 사용하여 Azure에서 저장소 계정을 모니터링하는 방법에 대해 알아봅니다.
+title: "저장소 계정을 모니터링하는 방법 | Microsoft Docs"
+description: "Azure 포털을 사용하여 Azure에서 저장소 계정을 모니터링하는 방법에 대해 알아봅니다."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
-
+ms.assetid: b83cba7b-4627-4ba7-b5d0-f1039fe30e78
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/08/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c0506fd6745c9ab04f10b60936315901ed35edbc
+
 
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure 포털에서 저장소 계정 모니터링
@@ -129,6 +133,9 @@ ms.author: robinsh
 
 진단 로그는 저장소 계정의 이름이 $logs인 Blob 컨테이너에 저장됩니다. $logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 분석 로깅 정보](http://msdn.microsoft.com/library/azure/hh343262.aspx)를 참조하십시오.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

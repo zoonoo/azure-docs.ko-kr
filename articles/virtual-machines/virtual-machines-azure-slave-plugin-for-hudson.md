@@ -1,12 +1,12 @@
 ---
-title: Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법 | Microsoft Docs
-description: Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법에 대해 설명합니다.
+title: "Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법 | Microsoft Docs"
+description: "Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법에 대해 설명합니다."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: rmcmurray
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: b2083d1c-4de8-4a19-a615-ccc9d9b6e1d9
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
@@ -14,12 +14,16 @@ ms.devlang: java
 ms.topic: article
 ms.date: 09/20/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a18054e89c0a81de74feecc8df7767876e3f9a4f
+
 
 ---
-# Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법
+# <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법
 Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 실행할 때 슬레이브 노드를 프로비전할 수 있습니다.
 
-## Azure 슬레이브 플러그인 설치
+## <a name="install-the-azure-slave-plug-in"></a>Azure 슬레이브 플러그인 설치
 1. Hudson 대시보드에서 **Manage Hudson**을 클릭합니다.
 2. **Manage Hudson** 페이지에서 **Manage Plugins**를 클릭합니다.
 3. **Available** 탭을 클릭합니다.
@@ -32,7 +36,7 @@ Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 �
 
 이제 플러그인이 설치되었으므로 다음으로 Azure 구독 프로필로 플러그인을 구성하고 슬레이브 노드에 대한 VM을 만드는 데 사용할 템플릿을 만들어야 합니다.
 
-## 구독 프로필로 Azure 슬레이브 플러그인 구성
+## <a name="configure-the-azure-slave-plug-in-with-your-subscription-profile"></a>구독 프로필로 Azure 슬레이브 플러그인 구성
 게시 설정으로도 참조되는 구독 프로필은 보안 자격 증명 및 개발 환경에서 Azure로 작업할 때 필요한 일부 추가 정보를 포함하는 XML 파일입니다. Azure 슬레이브 플러그인을 구성하려면 다음이 필요합니다.
 
 * 구독 ID
@@ -73,17 +77,17 @@ Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 �
     ![프로필 구성][configure profile]
 5. 구독 프로필에서 구독 ID 및 관리 인증서를 복사하여 해당 필드에 붙여넣습니다.
    
-    구독 ID 및 관리 인증서를 복사할 때 값을 묶고 있는 따옴표는 포함하지**마세요**.
+    구독 ID 및 관리 인증서를 복사할 때 값을 묶고 있는 따옴표는 포함하지 **마세요** .
 6. **Verify configuration**을 클릭합니다.
 7. 구성이 성공적으로 확인되면 **Save**를 클릭합니다.
 
-## Azure 슬레이브 플러그인용 가상 컴퓨터 템플릿 설정
+## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plug-in"></a>Azure 슬레이브 플러그인용 가상 컴퓨터 템플릿 설정
 가상 컴퓨터 템플릿은 플러그인이 Azure에 슬레이브 노드를 만들 때 사용할 매개 변수를 정의합니다. 다음 단계에서는 Ubuntu VM용 템플릿을 만들 것입니다.
 
 1. Hudson 대시보드에서 **Manage Hudson**을 클릭합니다.
 2. **Configure System**을 클릭합니다.
 3. 페이지를 아래로 스크롤해서 **Cloud** 섹션을 찾습니다.
-4. **Cloud** 섹션 내에서 **Add Azure Virtual Machine Template**을 찾은 후 **Add** 단추를 클릭합니다.
+4. **Cloud** 섹션 내에서 **Add Azure Virtual Machine Template**를 찾은 후 **Add** 단추를 클릭합니다.
    
     ![VM 템플릿 추가][add vm template]
 5. **Name** 필드에서 클라우드 서비스 이름을 지정합니다. 지정한 이름이 기존 클라우드 서비스를 참조하는 경우, VM은 해당 서비스를 프로비전합니다. 그렇지 않은 경우 Azure는 새로운 서비스를 만듭니다.
@@ -98,13 +102,13 @@ Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 �
      이때 다음과 유사한 형식으로 표시되게 됩니다.
     
      ![템플릿 구성][template config]
-13. **Image Family or Id**에서 VM에 설치할 시스템 이미지를 지정해야 합니다. 이미지 제품군 목록에서 선택하거나 사용자 지정 이미지를 지정할 수 있습니다.
+13. **Image Family or Id** 에서 VM에 설치할 시스템 이미지를 지정해야 합니다. 이미지 제품군 목록에서 선택하거나 사용자 지정 이미지를 지정할 수 있습니다.
     
-     이미지 제품군 목록에서 선택하려는 경우, 이미지 제품군 이름의 첫 글자(대/소문자 구분)를 입력합니다. 예를 들어 **U**를 입력하면 Ubuntu Server 제품군 목록이 표시됩니다. 목록에서 선택하면 VM을 프로비저닝할 때 Jenkins가 해당 제품군에서 시스템 이미지의 최신 버전을 사용하게 됩니다.
+     이미지 제품군 목록에서 선택하려는 경우, 이미지 제품군 이름의 첫 글자(대/소문자 구분)를 입력합니다. 예를 들어 **U** 를 입력하면 Ubuntu Server 제품군 목록이 표시됩니다. 목록에서 선택하면 VM을 프로비저닝할 때 Jenkins가 해당 제품군에서 시스템 이미지의 최신 버전을 사용하게 됩니다.
     
      ![OS 제품군 목록][OS family list]
     
-     이미지 제품군 목록에서 선택하는 대신 사용하고자 하는 사용자 지정 이미지가 있는 경우, 해당 사용자 지정 이미지의 이름을 입력합니다. 사용자 지정 이미지 이름은 목록에 표시되지 않으므로 이름을 올바르게 입력했는지 확인해야 합니다.
+     이미지 제품군 목록에서 선택하는 대신 사용하고자 하는 사용자 지정 이미지가 있는 경우, 해당 사용자 지정 이미지의 이름을 입력합니다. 사용자 지정 이미지 이름은 목록에 표시되지 않으므로 이름을 올바르게 입력했는지 확인해야 합니다.    
     
      이 자습서에서는 **U**를 입력하여 Ubuntu 이미지 목록을 표시하고 **Ubuntu Server 14.04 LTS**를 선택합니다.
 14. **Launch method**에 대해서는 **SSH**를 선택합니다.
@@ -132,12 +136,12 @@ Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 �
     
          sudo apt-get install -y ant
     
-     **Init script**는 VM이 만들어진 다음에 실행됩니다. 이 예에서는 이 스크립트가 Java, git 및 ant를 설치합니다.
-16. **Username** 및 **Password** 필드에는 VM에 만들어질 관리자 계정에 대한 기본 설정값을 입력합니다.
-17. **Verify Template**을 클릭하여 지정한 매개 변수가 유효한지 확인합니다.
+     **Init script** 는 VM이 만들어진 다음에 실행됩니다. 이 예에서는 이 스크립트가 Java, git 및 ant를 설치합니다.
+16. **Username** 및 **Password** 필드에는 VM에 만들어질 관리자 계정에 대한 기본 설정 값을 입력합니다.
+17. **Verify Template** 을 클릭하여 지정한 매개 변수가 유효한지 확인합니다.
 18. **Save**를 클릭합니다.
 
-## Azure의 슬레이브 노드에서 실행되는 Hudson 작업 만들기
+## <a name="create-a-hudson-job-that-runs-on-a-slave-node-on-azure"></a>Azure의 슬레이브 노드에서 실행되는 Hudson 작업 만들기
 이 섹션에서는 Azure의 슬레이브 노드에서 실행할 Hudson 작업을 만듭니다.
 
 1. Hudson 대시보드에서 **New Job**을 클릭합니다.
@@ -146,8 +150,8 @@ Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 �
 4. **확인**을 클릭합니다.
 5. 작업 구성 페이지에서 **Restrict where this project can be run**을 선택합니다.
 6. **Node and label menu**를 선택하고 **linux**를 선택합니다(이전 섹션에서 가상 컴퓨터 템플릿을 만들 때 이 레이블을 지정했습니다).
-7. **Build** 섹션에서 **Add build step**을 클릭하고 **Execute shell**을 선택합니다.
-8. 다음 스크립트를 편집하여 **{GitHub 계정 이름}**, **{프로젝트 이름}** 및 **{프로젝트 디렉터리}**를 적합한 값으로 대체하고, 편집한 스크립트를 표시되는 텍스트 영역에 붙여넣습니다.
+7. **빌드** 섹션에서 **빌드 단계 추가**를 클릭하고 **셸 실행**을 선택합니다.
+8. 다음 스크립트를 편집하여 **{github 계정 이름}**, **{프로젝트 이름}** 및 **{프로젝트 디렉터리}**를 적절한 값으로 대체하고, 편집한 스크립트를 표시되는 텍스트 영역에 붙여넣습니다.
    
         # Clone from git repo
    
@@ -177,7 +181,7 @@ Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 �
 
 그러면 Hudson은 이전 섹션에서 만든 템플릿을 사용하여 슬레이브 노드를 만들고 이 작업에 대한 빌드 단계에서 지정한 스크립트를 실행합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 
 <!-- URL List -->
@@ -187,10 +191,15 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 <!-- IMG List -->
 
-[add new cloud]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-addcloud.png
-[configure profile]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-configureprofile.png
-[add vm template]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-addnewvmtemplate.png
-[template config]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-templateconfig1-withdata.png
-[OS family list]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-oslist.png
+[새 클라우드 추가]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-addcloud.png
+[프로필 구성]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-configureprofile.png
+[VM 템플릿 추가]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-addnewvmtemplate.png
+[템플릿 구성]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-templateconfig1-withdata.png
+[OS 제품군 목록]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-oslist.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

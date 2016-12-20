@@ -1,29 +1,36 @@
 ---
-title: MongoDB를 사용하여 Node.js 응용 프로그램 배포 | Microsoft Docs
-description: 여러 게스트 실행 파일을 패키지하여 Azure 서비스 패브릭 클러스터에 배포하는 방법에 대한 연습
+title: "MongoDB를 사용하여 Node.js 응용 프로그램 배포 | Microsoft Docs"
+description: "여러 게스트 실행 파일을 패키지하여 Azure 서비스 패브릭 클러스터에 배포하는 방법에 대한 연습"
 services: service-fabric
 documentationcenter: .net
-author: bmscholl
-manager: ''
-editor: ''
-
+author: msfussell
+manager: timlt
+editor: 
+ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/20/2016
-ms.author: bscholl;mikhegn
+ms.date: 10/22/2016
+ms.author: msfussell;mikhegn
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: 6f9580bd96007239eb5dc0276a87c63ec62804c5
+
 
 ---
-# 여러 개의 게스트 실행 파일 배포
-이 문서에서는 [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool)에서 제공하는 서비스 패브릭 패키징 도구의 Preview 버전을 사용하여 여러 게스트 실행 파일을 패키지하고 Azure 서비스 패브릭에 배포하는 방법을 설명합니다.
+# <a name="deploy-multiple-guest-executables"></a>여러 개의 게스트 실행 파일 배포
+이 문서에서는 여러 게스트 실행 파일을 패키징하고 Azure Service Fabric에 배포하는 방법을 보여 줍니다. 단일 Service Fabric 패키지를 빌드 및 배포하는 방법은 [Service Fabric에 게스트 실행 파일 배포](service-fabric-deploy-existing-app.md) 방법을 참조하세요.
 
-서비스 패브릭 패키지를 수동으로 빌드하는 방법은 [서비스 패브릭에 게스트 실행 파일 배포](service-fabric-deploy-existing-app.md) 방법을 참조하세요.
+이 연습에서는 MongoDB를 데이터 저장소로 사용하는 Node.js 프런트 엔드를 통해 응용 프로그램을 배포하는 방법을 보여 줍니다. 이 단계는 다른 응용 프로그램에 종속된 모든 응용 프로그램에 적용할 수 있습니다.   
 
-이 연습에서는 MongoDB를 데이터 저장소로 사용하는 Node.js 프런트 엔드를 통해 응용 프로그램을 배포하는 방법을 보여 줍니다. 이 단계는 다른 응용 프로그램에 종속된 모든 응용 프로그램에 적용할 수 있습니다.
+Visual Studio를 사용하여 여러 게스트 실행 파일이 포함된 응용 프로그램 패키지를 생성할 수 있습니다. [Visual Studio를 사용하여 기존 응용 프로그램 패키징](service-fabric-deploy-existing-app.md#use-visual-studio-to-package-an-existing-executable)을 참조하세요. 첫 번째 게스트 실행 파일을 추가한 후 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가->새 Service Fabric 서비스**를 선택하여 솔루션에 두 번째 게스트 실행 프로젝트를 추가합니다. 참고: Visual Studio 솔루션을 구축하는 Visual Studio 프로젝트에서 원본을 연결하려는 경우 응용 프로그램 패키지는 원본의 변경 내용으로 최신 상태로 업데이트됩니다. 
 
-## Node.js 응용 프로그램 패키지
+## <a name="manually-package-the-multiple-guest-executable-application"></a>수동으로 여러 게스트 실행 응용 프로그램 패키징
+또는 실행 게스트를 수동으로 패키징할 수 있습니다. 수동 패키징의 경우 이 문서에서는 [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool)에서 제공되는 Service Fabric 패키징 도구를 사용합니다.
+
+### <a name="packaging-the-nodejs-application"></a>Node.js 응용 프로그램 패키징
 이 문서에서는 서비스 패브릭 클러스터의 노드에 Node.js가 아직 설치되지 않은 것으로 가정합니다. 결과적으로 패키징 전에 노드 응용 프로그램의 루트 디렉터리에 node.exe를 추가해야 합니다. Node.js 응용 프로그램의 디렉터리 구조(Express 웹 프레임워크 및 Jade 템플릿 엔진 사용)는 다음과 비슷합니다.
 
 ```
@@ -57,17 +64,12 @@ ms.author: bscholl;mikhegn
 
 다음은 사용 중인 매개 변수에 대한 설명입니다.
 
-* **/source**: 패키지할 응용 프로그램의 디렉터리를 가리킵니다.
-* **/target**: 패키지를 만들 디렉터리를 정의합니다. 이 디렉터리는 원본 디렉터리와 달라야 합니다.
-* **/appname**: 기존 응용 프로그램의 응용 프로그램 이름을 정의합니다. 이 이름은 매니페스트에서 서비스 패브릭 응용 프로그램 이름이 아니라 서비스 이름으로 변환된다는 점을 이해하는 것이 중요합니다.
-* **/exe**: 서비스 패브릭이 시작할 실행 파일을 정의합니다. 이 예에서는 `node.exe`입니다.
-* **/ma**: 실행 파일을 시작하는 데 사용되는 인수를 정의합니다. Node.js가 설치되지 않았기 때문에 서비스 패브릭에서 `node.exe bin/www`를 실행하여 Node.js 웹 서버를 시작해야 합니다. `/ma:'bin/www'`는 `bin/ma`를 node.exe 인수로 사용하도록 패키징 도구에 지시합니다.
-* **/AppType**: 서비스 패브릭 응용 프로그램 형식 이름을 정의합니다.
-
-> [!NOTE]
-> 또한 Visual Studio를 사용하여 응용 프로그램 프로젝트의 일환으로 응용 프로그램 패키지를 생성할 수 있습니다. Visual Studio 솔루션을 구축하는 Visual Studio 프로젝트에서 원본을 연결하려는 경우 응용 프로그램 패키지는 원본의 변경 내용으로 최신 상태로 업데이트됩니다. [Visual Studio를 사용하여 기존 응용 프로그램 패키징](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
-> 
-> 
+* **/source** : 패키지할 응용 프로그램의 디렉터리를 가리킵니다.
+* **/target** : 패키지를 만들 디렉터리를 정의합니다. 이 디렉터리는 원본 디렉터리와 달라야 합니다.
+* **/appname** : 기존 응용 프로그램의 응용 프로그램 이름을 정의합니다. 이 이름은 매니페스트에서 서비스 패브릭 응용 프로그램 이름이 아니라 서비스 이름으로 변환된다는 점을 이해하는 것이 중요합니다.
+* **/exe**: Service Fabric이 시작할 실행 파일을 정의합니다. 이 예에서는 `node.exe`입니다.
+* **/ma** : 실행 파일을 시작하는 데 사용되는 인수를 정의합니다. Node.js가 설치되지 않았기 때문에 서비스 패브릭에서 `node.exe bin/www`를 실행하여 Node.js 웹 서버를 시작해야 합니다.  `/ma:'bin/www'`는 패키징 도구에 `bin/ma`를 node.exe의 인수로 사용하도록 지시합니다.
+* **/AppType** : 서비스 패브릭 응용 프로그램 형식 이름을 정의합니다.
 
 /target 매개 변수에서 지정한 디렉터리로 이동하면 다음과 같이 도구가 완벽하게 작동하는 서비스 패브릭 패키지를 만든 것을 볼 수 있습니다.
 
@@ -102,7 +104,7 @@ ms.author: bscholl;mikhegn
     </EntryPoint>
 </CodePackage>
 ```
-이 샘플에서 Node.js 웹 서버는 포트 3000에서 수신하므로 ServiceManifest.xml 파일의 끝점 정보를 아래와 같이 업데이트해야 합니다.
+이 샘플에서 Node.js 웹 서버는 포트 3000에서 수신하므로 ServiceManifest.xml 파일의 끝점 정보를 아래와 같이 업데이트해야 합니다.   
 
 ```xml
 <Resources>
@@ -111,7 +113,8 @@ ms.author: bscholl;mikhegn
       </Endpoints>
 </Resources>
 ```
-Node.js 응용 프로그램을 패키지했으므로 이제 MongoDB를 패키지할 수 있습니다. 앞서 언급했듯이 이제부터 수행할 단계는 Node.js 및 MongoDB에만 적용되는 것이 아니라 하나의 서비스 패브릭 응용 프로그램으로 패키지되어야 하는 모든 응용 프로그램에 적용됩니다.
+### <a name="packaging-the-mongodb-application"></a>MongoDB 응용 프로그램 패키징
+Node.js 응용 프로그램을 패키지했으므로 이제 MongoDB를 패키지할 수 있습니다. 앞서 언급했듯이 이제부터 수행할 단계는 Node.js 및 MongoDB에만 적용되는 것이 아니라 하나의 서비스 패브릭 응용 프로그램으로 패키지되어야 하는 모든 응용 프로그램에 적용됩니다.  
 
 MongoDB를 패키지하려면 Mongod.exe 및 Mongo.exe를 패키지해야 합니다. 이 두 이진 파일은 MongoDB 설치 디렉터리의 `bin` 디렉터리에 있습니다. 디렉터리 구조는 아래와 유사합니다.
 
@@ -128,9 +131,9 @@ MongoDB를 패키지하려면 Mongod.exe 및 Mongo.exe를 패키지해야 합니
 mongod.exe --dbpath [path to data]
 ```
 > [!NOTE]
-> MongoDB 데이터 디렉터리를 노드의 로컬 디렉터리에 넣으면 노드 오류 발생 시 데이터가 보존되지 않습니다. 데이터 손실을 방지하려면 지속형 저장소를 사용하거나 MongoDB 복제본 세트를 구현해야 합니다.
-> 
-> 
+> MongoDB 데이터 디렉터리를 노드의 로컬 디렉터리에 넣으면 노드 오류 발생 시 데이터가 보존되지 않습니다. 데이터 손실을 방지하려면 지속형 저장소를 사용하거나 MongoDB 복제본 세트를 구현해야 합니다.  
+>
+>
 
 PowerShell 또는 명령 셸에서 다음 매개 변수와 함께 패키징 도구를 실행합니다.
 
@@ -139,11 +142,6 @@ PowerShell 또는 명령 셸에서 다음 매개 변수와 함께 패키징 도�
 ```
 
 서비스 패브릭 응용 프로그램 패키지에 MongoDB를 추가하려면 /target 매개 변수가 응용 프로그램 매니페스트와 Node.js 응용 프로그램이 이미 포함된 디렉터리를 가리켜야 합니다. 또한 동일한 ApplicationType 이름을 사용해야 합니다.
-
-> [!NOTE]
-> 또한 Visual Studio를 사용하여 응용 프로그램 프로젝트의 일환으로 응용 프로그램 패키지를 생성할 수 있습니다. Visual Studio 솔루션을 구축하는 Visual Studio 프로젝트에서 원본을 연결하려는 경우 응용 프로그램 패키지는 원본의 변경 내용으로 최신 상태로 업데이트됩니다. [Visual Studio를 사용하여 기존 응용 프로그램 패키징](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
-> 
-> 
 
 해당 디렉터리로 이동하여 도구가 만든 항목을 확인합니다.
 
@@ -186,6 +184,7 @@ PowerShell 또는 명령 셸에서 다음 매개 변수와 함께 패키징 도�
 </ApplicationManifest>  
 ```
 
+### <a name="publishing-the-application"></a>응용 프로그램 게시
 마지막 단계는 아래의 PowerShell 스크립트를 사용하여 로컬 서비스 패브릭 클러스터에 응용 프로그램을 게시하는 것입니다.
 
 ```
@@ -200,16 +199,15 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-> [!NOTE]
-> Visual Studio를 사용하면 디버깅(F5) 또는 게시 마법사를 사용하여 응용 프로그램을 로컬로 게시할 수 있습니다.
-> 
-> 
-
 응용 프로그램을 성공적으로 로컬 클러스터에 게시한 후에는 Node.js 응용 프로그램의 서비스 매니페스트에 입력한 포트(예: http://localhost:3000)에서 Node.js 응용 프로그램에 액세스할 수 있습니다.
 
 이 자습서에서는 간편하게 두 기존 응용 프로그램을 하나의 서버 패브릭 응용 프로그램으로 패키지하는 방법을 알아보았습니다. 또한 고가용성 및 상태 시스템 통합 같은 서비스 패브릭의 장점을 활용할 수 있도록 응용 프로그램을 서비스 패브릭에 배포하는 방법도 알아보았습니다.
 
-## 다음 단계
-* [게스트 응용 프로그램을 수동으로 패키지](service-fabric-deploy-existing-app.md)하는 방법을 알아보세요.
+## <a name="next-steps"></a>다음 단계
+* [Service Fabric 및 컨테이너 개요](service-fabric-containers-overview.md)에서 컨테이너 배포 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

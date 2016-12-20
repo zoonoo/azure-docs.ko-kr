@@ -1,12 +1,12 @@
 ---
-title: Azure AD .NET 프로토콜 개요 | Microsoft Docs
-description: 이 문서에서는 Azure Active Directory 및 OpenID Connect를 사용하여 테넌트에서 웹 응용 프로그램 및 Web API에 대한 액세스 권한을 부여하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다.
+title: "Azure AD .NET 프로토콜 개요 | Microsoft Docs"
+description: "이 문서에서는 Azure Active Directory 및 OpenID Connect를 사용하여 테넌트에서 웹 응용 프로그램 및 Web API에 대한 액세스 권한을 부여하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다."
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
+translationtype: Human Translation
+ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
+ms.openlocfilehash: c5b1305b71c5d4076cb22fb70be3d7904695715c
+
 
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>OpenID Connect 및 Azure Active Directory를 사용하여 웹 응용 프로그램에 대한 액세스 권한 부여
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 는 OAuth 2.0 프로토콜을 기반으로 하는 간단한 ID 계층입니다. OAuth 2.0은 보호된 리소스에 액세스하기 위해 **액세스 토큰** 을 가져오고 사용하는 메커니즘을 정의하지만 ID 정보를 제공하는 표준 메서드는 정의하지 않습니다. OpenID Connect는 OAuth 2.0 권한 부여 프로세스에 대한 확장으로 인증을 구현하며 사용자의 ID를 확인할 뿐만 아니라 사용자에 대한 기본 프로필 정보를 제공하는 `id_token` 형태로 최종 사용자에 대한 정보를 제공합니다.
 
 OpenID Connect는 서버에서 호스트되고 브라우저를 통해 액세스되는 웹 응용 프로그램을 빌드하는 경우 권장 사항입니다.
+
+[!INCLUDE [active-directory-protocols-getting-started](../../includes/active-directory-protocols-getting-started.md)]
 
 ## <a name="authentication-flow-using-openid-connect"></a>OpenID Connect를 사용하는 인증 흐름
 대부분의 기본 로그인 흐름은 다음 단계를 포함합니다. - 각 단계를 아래에서 자세히 설명합니다.
@@ -90,7 +96,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+|  매개 변수를 포함해야 합니다. | 설명 |
 | --- | --- |
 | error |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | error_description |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -108,7 +114,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | temporarily_unavailable |서버가 일시적으로 사용량이 많아 요청을 처리할 수 없습니다. |요청을 다시 시도하십시오. 클라이언트 응용 프로그램이 일시적 상태 때문에 응답이 지연되었음을 사용자에게 설명할 수 있습니다. |
 | invalid_resource |대상 리소스가 존재하지 않거나 Azure AD에서 해당 리소스를 찾을 수 없거나 올바르게 구성되지 않았기 때문에 잘못되었습니다. |리소스가 존재하는 경우 테넌트에 구성되지 않았음을 나타냅니다. 응용 프로그램이 사용자에게 응용 프로그램을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다. |
 
-## <a name="validate-the-id_token"></a>id_token 유효성 검사
+## <a name="validate-the-idtoken"></a>id_token 유효성 검사
 `id_token`을 받는 것만으로는 사용자를 인증하는 데 충분하지 않습니다. 서명의 유효성을 검사하고 앱의 요구 사항에 따라 `id_token`의 클레임을 확인해야 합니다. Azure AD 끝점은 JWT(JSON 웹 토큰) 및 공개 키 암호화를 사용하여 토큰에 서명하고 토큰이 유효한지 확인합니다.
 
 클라이언트 코드에서 `id_token`의 유효성을 검사하도록 선택할 수 있지만, 일반적으로 `id_token`을 백 엔드 서버에 보내서 그 곳에서 유효성 검사를 수행합니다. `id_token`의 서명 유효성을 검사한 후 확인해야 하는 몇 개의 클레임이 있습니다.
@@ -146,14 +152,14 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 // Line breaks for legibility only
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/authorize?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e      // Your registered Application Id
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application Id
 &response_type=id_token+code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your registered Redirect Uri, url encoded
 &response_mode=form_post                              // form_post', or 'fragment'
 &scope=openid
-&resource=https%3A%2F%2Fservice.contoso.com%2F                                   
-&state=12345                                         // Any value, provided by your app
-&nonce=678910                                        // Any value, provided by your app
+&resource=https%3A%2F%2Fservice.contoso.com%2F                                     
+&state=12345                                          // Any value, provided by your app
+&nonce=678910                                         // Any value, provided by your app
 ```
 
 `authorize` 끝점은 요청에 사용 권한 범위를 포함하고 `response_type=code+id_token`을(를) 사용하여 `scope` 쿼리 매개 변수에 표시된 사용 권한에 사용자가 동의했음을 보장하고 액세스 토큰과 교환할 인증 코드를 앱에 반환합니다.
@@ -169,7 +175,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+|  매개 변수를 포함해야 합니다. | 설명 |
 | --- | --- |
 | id_token |앱이 요청한 `id_token` 입니다. `id_token` 을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다. |
 | 코드 |앱이 요청한 authorization_code입니다. 앱은 인증 코드를 사용하여 대상 리소스에 대한 액세스 토큰을 요청할 수 있습니다. authorization_code는 수명이 매우 짧으며, 일반적으로 약 10분 후에 만료됩니다. |
@@ -186,15 +192,17 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+|  매개 변수를 포함해야 합니다. | 설명 |
 | --- | --- |
 | error |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | error_description |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
 가능한 오류 코드 및 권장되는 클라이언트 작업에 대한 설명은 [권한 부여 끝점 오류에 대한 오류 코드](#error-codes-for-authorization-endpoint-errors)를 참조합니다.
 
-인증 `code` 및 `id_token`을 받은 후 사용자를 로그인하고 대신 액세스 토큰을 얻을 수 있습니다.  사용자를 로그인하려면 위에 설명된 대로 정확하게 `id_token` 의 유효성을 검사해야 합니다. 액세스 토큰을 얻으려면 [OAuth 프로토콜 설명서](active-directory-protocols-oauth-code.md#Use-the-Authorization-Code-to-Request-an-Access-Token)에 설명된 단계를 따르세요.
+인증 `code` 및 `id_token`을 받은 후 사용자를 로그인하고 대신 액세스 토큰을 얻을 수 있습니다.  사용자를 로그인하려면 위에 설명된 대로 정확하게 `id_token` 의 유효성을 검사해야 합니다. 액세스 토큰을 얻으려면 [OAuth 프로토콜 설명서](active-directory-protocols-oauth-code.md)의 "권한 부여 코드를 사용하여 액세스 토큰 요청" 섹션에 설명된 단계를 따르면 됩니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

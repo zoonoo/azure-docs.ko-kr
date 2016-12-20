@@ -1,12 +1,12 @@
 ---
-title: Eclipse의 Azure에서 Java 웹앱 디버깅 | Microsoft Docs
-description: 이 자습서에서는 Eclipse용 Azure 도구 키트를 사용하여 Azure에서 실행되는 Java 웹앱을 디버깅하는 방법을 보여 줍니다.
+title: "Eclipse의 Azure에서 Java 웹앱 디버깅 | Microsoft Docs"
+description: "이 자습서에서는 Eclipse용 Azure 도구 키트를 사용하여 Azure에서 실행되는 Java 웹앱을 디버깅하는 방법을 보여 줍니다."
 services: app-service\web
 documentationcenter: java
 author: selvasingh
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 321d2d19-9ce0-4165-8555-b6b15e671393
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,25 +14,29 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/20/2016
 ms.author: asirveda;robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 08e833420420522e5b903afba0bcc8bd624d3b8f
+
 
 ---
-# Eclipse의 Azure에서 Java 웹앱 디버깅
+# <a name="debug-a-java-web-app-on-azure-in-eclipse"></a>Eclipse의 Azure에서 Java 웹앱 디버깅
 이 자습서에서는 [Eclipse용 Azure 도구 키트]를 사용하여 Azure에서 실행되는 Java 웹앱을 디버깅하는 방법을 보여 줍니다. 편의상 이 자습서에서는 기본 JSP (Java서버 페이지) 예제를 사용하지만 Azure에서 디버깅할 때 Java 서블릿에서도 비슷한 단계를 사용합니다.
 
 이 자습서를 완료한 경우 응용 프로그램을 Eclipse에 디버깅하면 다음 그림과 같이 표시됩니다.
 
 ![][01]
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 * JDK(Java 개발자 키트), v 1.8 이상.
 * Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다.
 * Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat 또는 Jetty)
-* Azure 구독(<https://azure.microsoft.com/ko-KR/free/> 또는 <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있음)
+* Azure 구독은 <https://azure.microsoft.com/en-us/free/> 또는 <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있습니다.
 * Eclipse용 Azure 도구 키트 자세한 내용은 [Eclipse용 Azure 도구 키트 설치]를 참조하세요.
-* Azure 앱 서비스에서 만들고 배포된 동적 웹 프로젝트는 [Eclipse에서 Azure용 Hello World 웹앱 만들기] 등을 참조하세요.
+* Azure 앱 서비스에서 만들고 배포된 동적 웹 프로젝트는 [Eclipse에서 Azure용 Hello World 웹앱 만들기]등을 참조하세요.
 
-## Azure에서 Java 웹앱을 디버깅하려면
-이 섹션에서 다음 단계를 완료하려면 Azure에서 Java 웹앱으로 이미 배포한 기존 동적 웹 프로젝트를 사용할 수 있습니다. [샘플 동적 웹 프로젝트]를 다운로드하고 [Eclipse에서 Azure용 Hello World 웹앱 만들기]의 단계를 수행하여 Azure에 배포합니다.
+## <a name="to-debug-a-java-web-app-on-azure"></a>Azure에서 Java 웹앱을 디버깅하려면
+이 섹션에서 다음 단계를 완료하려면 Azure에서 Java 웹앱으로 이미 배포한 기존 동적 웹 프로젝트를 사용할 수 있습니다. [샘플 동적 웹 프로젝트]를 다운로드하고 [Eclipse에서 Azure용 Hello World 웹앱 만들기]의 단계를 수행하여 Azure에 배포합니다. 
 
 1. Eclipse를 엽니다.
 2. 원격 디버깅에 대한 제한 시간을 구성합니다.
@@ -59,12 +63,12 @@ ms.author: asirveda;robmcm
     ![][06]
 9. JSP 페이지의 중단점을 삽입한 다음 브라우저에서 Java 웹앱에 대한 URL을 엽니다.
    
-   1. Eclipse에서 **Azure 탐색기**를 엽니다.
+   1. Eclipse에서 **Azure 탐색기** 를 엽니다.
    2. 디버깅하려는 **웹앱** 및 Java 웹앱으로 이동합니다.
    3. 웹앱을 마우스 오른쪽 단추로 클릭하고 **브라우저에서 열기**를 클릭합니다.
    4. 이제 Eclipse는 디버깅 모드가 됩니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 
 Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조하세요.
@@ -73,7 +77,7 @@ Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조�
 
 <!-- URL List -->
 
-[Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Azure 앱 서비스]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Eclipse용 Azure 도구 키트]: ../azure-toolkit-for-eclipse.md
 [Eclipse용 Azure 도구 키트 설치]: ../azure-toolkit-for-eclipse-installation.md
 [Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web-eclipse-create-hello-world-web-app.md
@@ -91,4 +95,8 @@ Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조�
 [05]: ./media/app-service-web-debug-java-web-app-in-eclipse/05-ready-for-remote-debugging.png
 [06]: ./media/app-service-web-debug-java-web-app-in-eclipse/06-windows-command-prompt-connection-successful-to-remote.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: Chef를 사용하여 Azure 가상 컴퓨터 배포 | Microsoft Docs
-description: Chef를 사용하여 자동화된 가상 컴퓨터 배포 및 Microsoft Azure에서 구성하는 방법에 알아봅니다.
+title: "Chef를 사용하여 Azure 가상 컴퓨터 배포 | Microsoft Docs"
+description: "Chef를 사용하여 자동화된 가상 컴퓨터 배포 및 Microsoft Azure에서 구성하는 방법을 알아봅니다."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: diegoviso
 manager: timlt
 tags: azure-service-management,azure-resource-manager
-editor: ''
-
+editor: 
+ms.assetid: 0b82ca70-89ed-496d-bb49-c04ae59b4523
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2015
 ms.author: diviso
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7ea98cd5cf63e1bd870eac93bd4200e50798578a
+
 
 ---
-# Chef를 사용하여 Azure 가상 컴퓨터 배포 자동화
+# <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Chef를 사용하여 Azure 가상 컴퓨터 배포 자동화
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef는 자동화 및 필요한 상태 구성을 제공하는 유용한 도구입니다.
@@ -28,8 +32,8 @@ Chef는 자동화 및 필요한 상태 구성을 제공하는 유용한 도구�
 
 시작해 보겠습니다.
 
-## Chef 기본 사항
-시작하기 전에 Chef의 기본 개념을 검토해야 합니다. 훌륭한 자료가 <a href="http://www.chef.io/chef" target="_blank">여기</a>에 있으니 연습에 앞서 빠르게 읽어 보시기 바랍니다. 하지만 시작하기 전에 기본 사항을 요약해 드릴 것입니다.
+## <a name="chef-basics"></a>Chef 기본 사항
+시작하기 전에 Chef의 기본 개념을 검토해야 합니다. 훌륭한 자료가 <a href="http://www.chef.io/chef" target="_blank">여기</a> 에 있으니 연습에 앞서 빠르게 읽어 보시기 바랍니다. 하지만 시작하기 전에 기본 사항을 요약해 드릴 것입니다.
 
 다음 다이어그램에 대략적인 Chef 아키텍처가 나와 있습니다.
 
@@ -45,20 +49,20 @@ Chef Workstation은 정책을 만들고 관리 명령을 실행하는 관리 워
 
 “Cookbook” 및 “Recipe” 개념도 있습니다. 이는 우리가 정의하고 서버에 적용하는 효과적인 정책입니다.
 
-## 워크스테이션 준비
+## <a name="preparing-the-workstation"></a>워크스테이션 준비
 먼저 워크스테이션을 준비하겠습니다. 여기서는 표준 Windows 워크스테이션을 사용합니다. 구성 파일과 cookbook을 저장할 디렉터리를 만들어야 합니다.
 
-먼저 C:\\chef라는 디렉터리를 만듭니다.
+먼저 C:\chef라는 디렉터리를 만듭니다.
 
-그런 다음 c:\\chef\\cookbooks라는 두 번째 디렉터리를 만듭니다.
+그런 다음 c:\chef\cookbooks라는 두 번째 디렉터리를 만듭니다.
 
 이제 Chef가 Azure 구독과 통신할 수 있도록 Azure 설정 파일을 다운로드해야 합니다.
 
 [여기](https://manage.windowsazure.com/publishsettings/)에서 게시 설정을 다운로드합니다.
 
-게시 설정 파일을 C:\\chef에 저장합니다.
+게시 설정 파일을 C:\chef에 저장합니다.
 
-## 관리되는 Chef 계정 만들기
+## <a name="creating-a-managed-chef-account"></a>관리되는 Chef 계정 만들기
 [여기](https://manage.chef.io/signup)에 호스트되는 Chef 계정에 등록합니다.
 
 등록 프로세스 중에 새 조직을 만들지 묻는 메시지가 나타납니다.
@@ -76,20 +80,20 @@ Chef Workstation은 정책을 만들고 관리 명령을 실행하는 관리 워
 
 이 시작 키트 zip 파일에는 조직 구성 파일 및 키가 포함되어 있습니다.
 
-## Chef 워크스테이션 구성
-chef-starter.zip 내용을 C:\\chef에 추출합니다.
+## <a name="configuring-the-chef-workstation"></a>Chef 워크스테이션 구성
+chef-starter.zip 내용을 C:\chef에 추출합니다.
 
-chef-starter\\chef-repo.chef의 모든 파일을 c:\\chef 디렉터리에 복사합니다.
+chef-starter\chef-repo\.chef의 모든 파일을 c:\chef 디렉터리에 복사합니다.
 
 이제 디렉터리가 다음 예제와 같이 표시됩니다.
 
 ![][5]
 
-이제 c:\\chef 루트에 있는 Azure 게시 파일을 포함하여 네 개의 파일이 있습니다.
+이제 c:\chef 루트에 있는 Azure 게시 파일을 포함하여 네 개의 파일이 있습니다.
 
 PEM 파일에는 조직 및 관리자의 통신용 개인 키가 들어 있고, knife.rb 파일에는 knife 구성이 들어 있습니다. knife.rb 파일을 편집해야 합니다.
 
-원하는 편집기에서 파일을 열고 다음에 보듯이 표시되도록 경로에서 /../를 제거하여 “cookbook\_path”를 수정합니다.
+원하는 편집기에서 파일을 열고 다음에 보듯이 표시되도록 경로에서 /../를 제거하여 “cookbook_path”를 수정합니다.
 
     cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -101,20 +105,20 @@ PEM 파일에는 조직 및 관리자의 통신용 개인 키가 들어 있고, 
 
 ![][6]
 
-이러한 줄은 Knife가 c:\\chef\\cookbooks 아래의 cookbooks 디렉터리에서 참조되고 Azure 작업 중 Azure 게시 설정 파일을 사용하도록 해줍니다.
+이러한 줄은 Knife가 c:\chef\cookbooks 아래의 cookbooks 디렉터리에서 참조되고 Azure 작업 중 Azure 게시 설정 파일을 사용하도록 해줍니다.
 
-## Chef Development Kit 설치
-이제 ChefDK(Chef Development Kit)를 [다운로드 및 설치](http://downloads.getchef.com/chef-dk/windows)하여 Chef Workstation을 설치합니다.
+## <a name="installing-the-chef-development-kit"></a>Chef Development Kit 설치
+이제 ChefDK(Chef Development Kit)를 [다운로드 및 설치](http://downloads.getchef.com/chef-dk/windows) 하여 Chef Workstation을 설치합니다.
 
 ![][7]
 
-기본 위치인 c:\\opscode에 설치합니다. 설치하는 데 10분 정도 걸립니다.
+기본 위치인 c:\opscode에 설치합니다. 설치하는 데 10분 정도 걸립니다.
 
-PATH 변수에 C:\\opscode\\chefdk\\bin;C:\\opscode\\chefdk\\embedded\\bin;c:\\users\\yourusername.chefdk\\gem\\ruby\\2.0.0\\bin에 대한 항목이 포함되어 있어야 합니다.
+PATH 변수에 C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\yourusername\.chefdk\gem\ruby\2.0.0\bin에 대한 항목이 포함되어 있어야 합니다.
 
 그렇지 않으면 이러한 경로를 추가해야 합니다.
 
-*경로 순서가 중요합니다!* opscode 경로가 올바른 순서가 아니면 문제가 발생합니다.
+*경로 순서가 중요합니다!*  opscode 경로가 올바른 순서가 아니면 문제가 발생합니다.
 
 계속하기 전에 워크스테이션을 다시 부팅하세요.
 
@@ -141,18 +145,18 @@ PATH 변수에 C:\\opscode\\chefdk\\bin;C:\\opscode\\chefdk\\embedded\\bin;c:\\u
 
 축하합니다. 워크스테이션이 설정되었습니다!
 
-## Cookbook 만들기
+## <a name="creating-a-cookbook"></a>Cookbook 만들기
 Cookbook은 Chef에서 관리되는 클라이언트를 실행할 명령 집합을 정의하는 데 사용됩니다. Cookbook 만들기는 간단하며, **chef generate cookbook** 명령을 사용하여 Cookbook 템플릿을 생성할 수 있습니다. 저는 IIS를 자동으로 배포하는 정책을 좋아하므로 저의 Cookbook 웹 서버를 호출해 보겠습니다.
 
-C:\\Chef 디렉터리에서 다음 명령을 실행합니다.
+C:\Chef 디렉터리에서 다음 명령을 실행합니다.
 
     chef generate cookbook webserver
 
-C:\\Chef\\cookbooks\\webserver 디렉터리 아래에 파일 집합이 생성됩니다. 이제 관리되는 가상 컴퓨터에서 Chef 클라이언트를 실행할 명령 집합을 정의해야 합니다.
+C:\Chef\cookbooks\webserver 디렉터리 아래에 파일 집합이 생성됩니다. 이제 관리되는 가상 컴퓨터에서 Chef 클라이언트를 실행할 명령 집합을 정의해야 합니다.
 
 명령은 default.rb 파일에 저장되어 있습니다. 이 파일에서 IIS를 설치하고, IIS를 시작하며, 템플릿 파일을 wwwroot 폴더에 복사하는 명령 집합을 정의합니다.
 
-C:\\chef\\cookbooks\\webserver\\recipes\\default.rb를 수정하고 다음 줄을 추가합니다.
+C:\chef\cookbooks\webserver\recipes\default.rb를 수정하고 다음 줄을 추가합니다.
 
     powershell_script 'Install IIS' do
          action :run
@@ -170,23 +174,23 @@ C:\\chef\\cookbooks\\webserver\\recipes\\default.rb를 수정하고 다음 줄�
 
 작업이 완료되면 파일을 한 번 저장합니다.
 
-## 템플릿 만들기
+## <a name="creating-a-template"></a>템플릿 만들기
 앞서 설명한 바와 같이, default.html 페이지로 사용할 템플릿 파일을 생성해야 합니다.
 
 다음 명령을 실행하여 템플릿을 생성합니다.
 
     chef generate template webserver Default.htm
 
-이제 C:\\chef\\cookbooks\\webserver\\templates\\default\\Default.htm.erb 파일로 이동합니다. 간단한 “Hello World” HTML 코드를 추가하여 파일을 편집하고 파일을 저장합니다.
+이제 C:\chef\cookbooks\webserver\templates\default\Default.htm.erb 파일로 이동합니다. 간단한 “Hello World” HTML 코드를 추가하여 파일을 편집하고 파일을 저장합니다.
 
-## Chef Server에 Cookbook 업로드
+## <a name="upload-the-cookbook-to-the-chef-server"></a>Chef Server에 Cookbook 업로드
 이 단계에서는 로컬 컴퓨터에서 만든 Cookbook을 복사하여 Chef Hosted Server에 업로드합니다. 업로드가 완료되면 **정책** 탭에 Cookbook이 표시됩니다.
 
     knife cookbook upload webserver
 
 ![][9]
 
-## Knife Azure를 사용하여 가상 컴퓨터 배포
+## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Knife Azure를 사용하여 가상 컴퓨터 배포
 이제 Azure 가상 컴퓨터를 배포하고 IIS 웹 서비스 및 기본 웹 페이지를 설치할 “Webserver” Cookbook을 적용합니다.
 
 이 작업을 수행하려면 **knife azure server create** 명령을 사용합니다.
@@ -236,4 +240,8 @@ C:\\chef\\cookbooks\\webserver\\recipes\\default.rb를 수정하고 다음 줄�
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

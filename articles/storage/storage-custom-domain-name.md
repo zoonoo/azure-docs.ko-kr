@@ -1,12 +1,12 @@
 ---
-title: Blob 저장소 끝점에 대한 도메인 이름 구성 | Microsoft Docs
-description: Azure 클래식 포털에서 Azure 저장소 계정에 대해 사용자 지정 사용자 도메인을 Blob 저장소 끝점에 매핑하는 방법을 알아봅니다.
+title: "Blob 저장소 끝점에 대한 도메인 이름 구성 | Microsoft Docs"
+description: "Azure 클래식 포털에서 Azure 저장소 계정에 대해 사용자 지정 사용자 도메인을 Blob 저장소 끝점에 매핑하는 방법을 알아봅니다."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9e81c98e0da32e0ac432a1a4bae0fb771e35cff7
+
 
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성
@@ -101,6 +105,9 @@ asverify 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인
 ## <a name="additional-resources"></a>추가 리소스
 * [사용자 지정 도메인을 CDN(콘텐츠 배달 네트워크) 끝점에 매핑하는 방법](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

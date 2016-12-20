@@ -1,14 +1,14 @@
 ---
-title: Linux VM에 디스크 추가 | Microsoft Docs
-description: Linux VM에 영구 디스크를 추가하는 방법 알아보기
-keywords: Linux 가상 컴퓨터, 리소스 디스크 추가
+title: "Linux VM에 디스크 추가 | Microsoft Docs"
+description: "Linux VM에 영구 디스크를 추가하는 방법 알아보기"
+keywords: "Linux 가상 컴퓨터, 리소스 디스크 추가"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: rickstercdn
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
@@ -16,55 +16,59 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.date: 09/06/2016
 ms.author: rclaus
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 9baff59be09c168b31ec78ccdb58c4b8b26de274
+
 
 ---
-# Linux VM에 디스크 추가
-이 문서에는 유지 관리 또는 크기 조정으로 인해 VM이 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여 줍니다. 디스크를 추가하려면 Resource Manager 모드(`azure config mode arm`)로 구성된 [Azure CLI](../xplat-cli-install.md)가 필요합니다.
+# <a name="add-a-disk-to-a-linux-vm"></a>Linux VM에 디스크 추가
+이 문서에는 유지 관리 또는 크기 조정으로 인해 VM이 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여 줍니다. 디스크를 추가하려면 Resource Manager 모드(`azure config mode arm`)로 구성된 [Azure CLI](../xplat-cli-install.md)가 필요합니다.  
 
-## 빠른 명령
-다음 명령 예제에서 &lt;와 &gt; 사이의 값을 사용자 환경의 값으로 바꿉니다.
+## <a name="quick-commands"></a>빠른 명령
+다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에 `50`GB 디스크를 연결합니다.
 
-```bash
-azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
+```azurecli
+azure vm disk attach-new myResourceGroup myVM 50
 ```
 
-## 디스크 연결
-새 디스크 연결이 빠릅니다. `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>`를 입력하여 VM에 대한 새 GB 디스크를 만들어 연결합니다. 저장소 계정을 명시적으로 식별하지 않는 경우 만드는 모든 디스크가 OS 디스크가 있는 동일한 저장소 계정에 배치됩니다. 다음과 유사해야 합니다.
+## <a name="attach-a-disk"></a>디스크 연결
+새 디스크 연결이 빠릅니다. `azure vm disk attach-new myResourceGroup myVM sizeInGB` 를 입력하여 VM에 대한 새 GB 디스크를 만들어 연결합니다. 저장소 계정을 명시적으로 식별하지 않는 경우 만드는 모든 디스크가 OS 디스크가 있는 동일한 저장소 계정에 배치됩니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에 `50`GB 디스크를 연결합니다.
 
-```bash
-azure vm disk attach-new myuniquegroupname myuniquevmname 5
+```azurecli
+azure vm disk attach-new myResourceGroup myVM 50
 ```
 
 출력
 
-```bash
+```azurecli
 info:    Executing command vm disk attach-new
-+ Looking up the VM "myuniquevmname"
-info:    New data disk location: https://cliexxx.blob.core.windows.net/vhds/myuniquevmname-20150526-0xxxxxxx43.vhd
-+ Updating VM "myuniquevmname"
++ Looking up the VM "myVM"
+info:    New data disk location: https://mystorageaccount.blob.core.windows.net/vhds/myVM-20150526-043.vhd
++ Updating VM "myVM"
 info:    vm disk attach-new command OK
 ```
 
-## Linux VM에 연결하여 새 디스크 탑재
+## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Linux VM에 연결하여 새 디스크 탑재
 > [!NOTE]
-> 이 항목에서는 사용자 이름 및 암호를 사용하여 VM에 연결합니다. 공용 및 개인 키 쌍을 사용하여 VM과 통신하려면 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-mac-create-ssh-keys.md)을 참조하세요. `azure vm reset-access` 명령을 사용하여 `azure vm quick-create` 명령으로 만든 VM의 **SSH** 연결 기능을 수정하여 **SSH** 액세스를 완전히 초기화하거나 사용자를 추가/제거하고 공용 키 파일을 추가하여 액세스를 보호할 수 있습니다.
+> 이 항목에서는 사용자 이름 및 암호를 사용하여 VM에 연결합니다. 공용 및 개인 키 쌍을 사용하여 VM과 통신하려면 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. `azure vm reset-access` 명령을 사용하여 `azure vm quick-create` 명령으로 만든 VM의 **SSH** 연결 기능을 수정하여 **SSH** 액세스를 완전히 초기화하거나 사용자를 추가/제거하고 공용 키 파일을 추가하여 액세스를 보호할 수 있습니다.
 > 
 > 
 
 Linux VM에서 사용할 수 있도록 새 디스크를 파티션, 포맷 및 탑재하기 위해 Azure VM에 SSH해야 합니다. **ssh**를 사용하여 연결하는 데 익숙하지 않을 경우 명령은 `ssh <username>@<FQDNofAzureVM> -p <the ssh port>`의 형식으로 다음과 유사하게 표시됩니다.
 
 ```bash
-ssh ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com -p 22
+ssh ops@mypublicdns.westus.cloudapp.azure.com -p 22
 ```
 
 출력
 
 ```bash
-The authenticity of host 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
+The authenticity of host 'mypublicdns.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
 ECDSA key fingerprint is bx:xx:xx:xx:xx:xx:xx:xx:xx:x:x:x:x:x:x:xx.
 Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com,191.239.51.1' (ECDSA) to the list of known hosts.
-ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com's password:
+Warning: Permanently added 'mypublicdns.westus.cloudapp.azure.com,191.239.51.1' (ECDSA) to the list of known hosts.
+ops@mypublicdns.westus.cloudapp.azure.com's password:
 Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.16.0-37-generic x86_64)
 
 * Documentation:  https://help.ubuntu.com/
@@ -90,10 +94,10 @@ individual files in /usr/share/doc/*/copyright.
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-ops@myuniquevmname:~$
+ops@myVM:~$
 ```
 
-VM에 연결했으므로 디스크를 연결할 준비가 되었습니다. 먼저 `dmesg | grep SCSI`를 사용하여 디스크를 찾습니다(새 디스크를 찾는 데 사용하는 방법은 다를 수 있습니다). 이 경우, 다음과 유사하게 표시됩니다.
+VM에 연결했으므로 디스크를 연결할 준비가 되었습니다.  먼저 `dmesg | grep SCSI` 를 사용하여 디스크를 찾습니다(새 디스크를 찾는 데 사용하는 방법은 다를 수 있습니다). 이 경우, 다음과 유사하게 표시됩니다.
 
 ```bash
 dmesg | grep SCSI
@@ -137,7 +141,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-프롬프트에서 `p`를 입력하여 파티션을 만듭니다.
+프롬프트에서 `p` 를 입력하여 파티션을 만듭니다.
 
 ```bash
 Command (m for help): p
@@ -215,7 +219,7 @@ bin   datadrive  etc   initrd.img  lib64       media  opt   root  sbin  sys  usr
 boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 ```
 
-다시 부팅 후 드라이브가 자동으로 다시 탑재되도록 하려면 /etc/fstab 파일에 추가해야 합니다. 또한 /etc/fstab에 UUID(Universally Unique IDentifier)를 사용하여 장치 이름(예:`/dev/sdc1`) 대신 드라이브를 가리키는 것이 좋습니다. 부팅하는 동안 OS에서 디스크 오류를 검색하는 경우 UUID를 사용하여 지정된 위치에 탑재되어 있는 잘못된 디스크를 회피합니다. 그런 다음 남아 있는 데이터 디스크를 동일한 장치 ID에 할당합니다. 새 드라이브의 UUID를 찾으려면 **blkid** 유틸리티를 사용합니다.
+다시 부팅 후 드라이브가 자동으로 다시 탑재되도록 하려면 /etc/fstab 파일에 추가해야 합니다. 또한 /etc/fstab에 UUID(Universally Unique IDentifier)를 사용하여 장치 이름(예: `/dev/sdc1`) 대신 드라이브를 가리키는 것이 좋습니다. 부팅하는 동안 OS에서 디스크 오류를 검색하는 경우 UUID를 사용하여 지정된 위치에 탑재되어 있는 잘못된 디스크를 회피합니다. 그런 다음 남아 있는 데이터 디스크를 동일한 장치 ID에 할당합니다. 새 드라이브의 UUID를 찾으려면 **blkid** 유틸리티를 사용합니다.
 
 ```bash
 sudo -i blkid
@@ -243,40 +247,51 @@ sudo vi /etc/fstab
 이 예제에서는 이전 단계에서 만든 새 **/dev/sdc1** 장치의 UUID 값과 탑재 지점 **/datadrive**를 사용합니다. **/etc/fstab** 파일의 끝에 다음 줄을 추가합니다.
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
 > [!NOTE]
 > 나중에 fstab을 편집하지 않고 데이터 디스크를 제거하면 VM이 부팅되지 않을 수 있습니다. 대부분의 배포는 `nofail` 및/또는 `nobootwait` fstab 옵션를 제공합니다. 이러한 옵션을 사용하면 디스크가 부팅 시 탑재되지 않더라도 시스템을 부팅할 수 있습니다. 이러한 매개 변수에 대한 자세한 내용은 배포 설명서를 참조하세요.
 > 
-> 
+> **nofail** 옵션은 파일 시스템이 손상되었거나 디스크가 부팅 시 존재하지 않더라도 VM이 시작되도록 합니다. 이 옵션이 없으면 [FSTAB 오류로 인해 Linux에 SSH를 사용할 수 없음](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)(영문)에 설명되어 있는 동작이 발생할 수 있습니다.
 
-### Azure에서 Linux에 대한 TRIM/UNMAP 지원
+### <a name="trimunmap-support-for-linux-in-azure"></a>Azure에서 Linux에 대한 TRIM/UNMAP 지원
 일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이것은 Azure에 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 알리는 데 표준 저장소에서 주로 유용합니다. 큰 파일을 만들고 삭제하는 경우 이렇게 하면 비용을 절감할 수 있습니다.
 
 Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
 
 * `/etc/fstab`에 `discard` 탑재 옵션을 사용합니다. 예:
-  
-        UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+
+    ```bash
+    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+    ```
 * 또는 `fstrim` 명령을 명령줄에서 수동으로 실행하거나, 또는 정기적으로 실행하기 위해 crontab에 추가할 수 있습니다.
   
     **Ubuntu**
   
-        # sudo apt-get install util-linux
-        # sudo fstrim /datadrive
+    ```bash
+    sudo apt-get install util-linux
+    sudo fstrim /datadrive
+    ```
   
     **RHEL/CentOS**
-  
-        # sudo yum install util-linux
-        # sudo fstrim /datadrive
 
-## 문제 해결
+    ```bash
+    sudo yum install util-linux
+    sudo fstrim /datadrive
+    ```
+
+## <a name="troubleshooting"></a>문제 해결
 [!INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * 해당 정보를 [fstab](http://en.wikipedia.org/wiki/Fstab) 파일에 쓰지 않았는데 다시 부팅하면 새 디스크를 VM에 사용할 수 없게 됩니다.
-* Linux VM을 올바르게 구성했는지 확인하려면 [Linux 컴퓨터 성능 최적화](virtual-machines-linux-optimization.md) 권장 사항을 검토합니다.
-* 디스크를 추가하여 저장소 용량을 확장하고 추가 성능이 필요할 경우 [RAID를 구성](virtual-machines-linux-configure-raid.md)합니다.
+* Linux VM을 올바르게 구성했는지 확인하려면 [Linux 컴퓨터 성능 최적화](virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 권장 사항을 검토합니다.
+* 디스크를 추가하여 저장소 용량을 확장하고 추가 성능이 필요할 경우 [RAID를 구성](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 합니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: 웹 사이트에서 ReportViewer 사용 | Microsoft Docs
-description: 이 항목에서는 Microsoft Azure 가상 컴퓨터에 저장된 보고서를 표시하는 Visual Studio ReportViewer 컨트롤을 사용하여 Microsoft Azure 웹 사이트를 빌드하는 방법에 대해 설명합니다.
+title: "웹 사이트에서 ReportViewer 사용 | Microsoft Docs"
+description: "이 항목에서는 Microsoft Azure 가상 컴퓨터에 저장된 보고서를 표시하는 Visual Studio ReportViewer 컨트롤을 사용하여 Microsoft Azure 웹 사이트를 빌드하는 방법에 대해 설명합니다."
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
 manager: erikre
 editor: monicar
 tags: azure-service-management
-
+ms.assetid: 78b76318-d9bf-48ef-9d9e-d1b7d8cf3042
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 65b564e6600bbf13a68c68b2d5118544fd79bab2
+
 
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Azure에서 호스트되는 웹 사이트에서 ReportViewer 사용
@@ -34,7 +38,7 @@ Microsoft Azure 웹 사이트에 ReportViewer를 통합하려면 다음 작업�
 * **게시** 
 
 ## <a name="prerequisites"></a>필수 조건
-[Azure 가상 컴퓨터의 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)에서 "일반 권장 사항 및 모범 사례" 섹션을 검토합니다.
+[Azure 가상 컴퓨터의 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)에서 "일반 권장 사항 및 모범 사례" 섹션을 검토합니다.
 
 > [!NOTE]
 > ReportViewer 컨트롤은 Visual Studio Standard Edition 이상 버전과 함께 제공됩니다. Web Developer Express Edition을 사용하려면 [MICROSOFT REPORT VIEWER 2012 런타임](https://www.microsoft.com/download/details.aspx?id=35747) 을 설치하여 ReportViewer 런타임 기능을 사용해야 합니다.
@@ -53,10 +57,10 @@ ASP.NET 응용 프로그램 온-프레미스를 호스트할 때 ReportViewer �
 * **Microsoft.ReportViewer.WebForms.dll**: 페이지에서 ReportViewer를 사용하는 데 필요한 ReportViewer 코드를 포함합니다. 프로젝트의 ASP.NET 페이지로 ReportViewer 컨트롤을 끌어 놓으면 이 어셈블리에 대한 참조가 프로젝트에 추가됩니다.
 * **Microsoft.ReportViewer.Common.dll**: 런타임 시 ReportViewer 컨트롤에서 사용하는 클래스를 포함합니다. 프로젝트에 자동으로 추가되지 않습니다.
 
-### <a name="to-add-a-reference-to-microsoft.reportviewer.common"></a>Microsoft.ReportViewer.Common에 대한 참조를 추가하려면
+### <a name="to-add-a-reference-to-microsoftreportviewercommon"></a>Microsoft.ReportViewer.Common에 대한 참조를 추가하려면
 * 프로젝트의 **참조** 노드를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택한 다음 .NET 탭에서 어셈블리를 선택하고 **확인**을 클릭합니다.
 
-### <a name="to-make-the-assemblies-locally-accessible-by-your-asp.net-application"></a>ASP.NET 응용 프로그램에서 어셈블리를 로컬로 액세스할 수 있도록 하려면
+### <a name="to-make-the-assemblies-locally-accessible-by-your-aspnet-application"></a>ASP.NET 응용 프로그램에서 어셈블리를 로컬로 액세스할 수 있도록 하려면
 1. **참조** 폴더에서 Microsoft.ReportViewer.Common 어셈블리를 클릭하여 해당 속성을 속성 창에 표시합니다.
 2. 속성 창에서 **로컬 복사** 를 True로 설정합니다.
 3. Microsoft.ReportViewer.WebForms에 대해 1단계 및 2단계를 반복합니다.
@@ -77,7 +81,7 @@ ASP.NET 응용 프로그램 온-프레미스를 호스트할 때 ReportViewer �
 ## <a name="configuring-authentication-and-authorization"></a>인증 및 권한 부여 구성
 ReportViewer는 적절한 자격 증명을 사용하여 보고서 서버로 인증해야 하고 원하는 보고서에 액세스하는 보고서 서버에서 자격 증명의 권한을 부여해야 합니다. 인증에 대한 자세한 내용은 [Reporting Services 보고서 뷰어 컨트롤 및 Microsoft Azure 가상 컴퓨터 기반 보고서 서버](https://msdn.microsoft.com/library/azure/dn753698.aspx)백서를 참조하세요.
 
-## <a name="publish-the-asp.net-web-application-to-azure"></a>Azure에 ASP.NET 웹 응용 프로그램 게시
+## <a name="publish-the-aspnet-web-application-to-azure"></a>Azure에 ASP.NET 웹 응용 프로그램 게시
 Azure에 ASP.NET 웹 응용 프로그램을 게시하기 위한 지침은 [Visual Studio에서 Azure에 웹 응용 프로그램 마이그레이션 및 게시 방법](../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) 및 [Web Apps 및 ASP.NET 시작](../app-service-web/web-sites-dotnet-get-started.md)을 참조하세요.
 
 > [!IMPORTANT]
@@ -90,12 +94,15 @@ Azure에 ASP.NET 웹 응용 프로그램을 게시하기 위한 지침은 [Visua
 ## <a name="resources"></a>리소스
 [Microsoft 보고서](http://go.microsoft.com/fwlink/?LinkId=205399)
 
-[Azure 가상 컴퓨터의 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)
+[Azure 가상 컴퓨터의 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기](virtual-machines-windows-classic-ps-sql-report.md)
+[PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기](virtual-machines-windows-classic-ps-sql-report.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Reporting Services 보고서 뷰어 컨트롤 및 Microsoft Azure 가상 컴퓨터 기반 보고서 서버](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: StorSimple 하드웨어 구성 요소 교체 | Microsoft Docs
-description: StorSimple 장치의 PCM, 배터리, 컨트롤러 모듈, EBOD 컨트롤러, 디스크 드라이브 및 섀시를 안전하게 교체하는 방법을 설명합니다.
+title: "StorSimple 하드웨어 구성 요소 교체 | Microsoft Docs"
+description: "StorSimple 장치의 PCM, 배터리, 컨트롤러 모듈, EBOD 컨트롤러, 디스크 드라이브 및 섀시를 안전하게 교체하는 방법을 설명합니다."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: e8087ba7-0b66-4f59-8988-e53aad52ee21
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/11/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 50df20f1f84f570cec1261e14028f3a700871dac
+
 
 ---
 # <a name="storsimple-hardware-component-replacement"></a>StorSimple 하드웨어 구성 요소 교체
@@ -131,6 +135,9 @@ StorSimple 장치에 사용할 수 있는 FRU(필드 교체 장치)는 다음과
 ## <a name="next-steps"></a>다음 단계
 StorSimple 하드웨어 구성 요소를 교체하기 전에 모든 [안전 정보](storsimple-safety.md) 를 검토하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

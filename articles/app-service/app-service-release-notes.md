@@ -1,12 +1,12 @@
 ---
-title: Azure SDK for .NET 2.5.1 릴리스 정보
-description: Azure SDK for .NET 2.5.1 릴리스 정보
+title: "Azure SDK for .NET 2.5.1 릴리스 정보"
+description: "Azure SDK for .NET 2.5.1 릴리스 정보"
 services: app-service
 documentationcenter: .net,nodejs,java
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 8d3d815f-bb58-447e-8ff0-f9b9603c7b00
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
+
 
 ---
-# <a name="azure-sdk-for-.net-2.5.1-release-notes"></a>Azure SDK for .NET 2.5.1 릴리스 정보
+# <a name="azure-sdk-for-net-251-release-notes"></a>Azure SDK for .NET 2.5.1 릴리스 정보
 이 문서에는 Azure SDK for .NET 2.5.1 릴리스의 릴리스 정보가 포함되어 있습니다. 
 
-## <a name="azure-sdk-for-.net-2.5.1-release-notes"></a>Azure SDK for .NET 2.5.1 릴리스 정보
+## <a name="azure-sdk-for-net-251-release-notes"></a>Azure SDK for .NET 2.5.1 릴리스 정보
 다음은 Azure SDK for .NET 2.5.1의 새로운 기능 및 업데이트입니다.
 
 * **웹 도구 확장**과 관련된 새로운 기능\시나리오 
@@ -42,7 +46,7 @@ ms.author: juliako
     
     자세한 내용은 [Visual Studio용 HDInsight Hadoop 도구 사용 시작](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
-## <a name="<a-id="known_issues_2_5_1"></a>azure-sdk-for-.net-2.5.1-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Azure SDK for .NET 2.5.1 알려진 문제 및 제한
+## <a name="a-idknownissues251aazure-sdk-for-net-251-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Azure SDK for .NET 2.5.1 알려진 문제 및 제한
 * Azure API 앱은 모바일 앱의 배포 대상으로 표시됩니다. 후속 릴리스가 출시될 때까지 모바일 앱의 유일한 대상은 웹앱이어야 합니다. 
 * Azure API 앱 프로비저닝이 성공해도 Azure 앱 서비스 작업 창에서 진행률이 업데이트되지 않는 경우가 가끔 발생합니다. 해결 방법은 Azure 포털에서 새로운 Azure API 앱의 상태를 확인하는 것입니다. 
 * default/index.html이 없으므로 파일 > 새 프로젝트 > API 앱 > F5 키를 클릭하면 HTTP 오류가 발생합니다. 해결 방법은 수동으로 /api/values URL을 찾는 것입니다. 
@@ -59,6 +63,9 @@ ms.author: juliako
 * API 앱 프로젝트 템플릿은 C#에서만 사용할 수 있습니다.
 * "Azure API 앱 클라이언트 추가" 상황에 맞는 메뉴를 통한 API 앱 사용은 C#에서만 지원됩니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

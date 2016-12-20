@@ -1,12 +1,12 @@
 ---
-title: 인코딩 단위를 추가하는 방법
-description: .NET을 사용하여 인코딩 단위를 추가하는 방법 알아보기
+title: "인코딩 단위를 추가하는 방법"
+description: ".NET을 사용하여 인코딩 단위를 추가하는 방법 알아보기"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/01/2016
 ms.author: juliako;milangada;gtrifonov
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3dc67791d7bfd7221ad484e967b5e9bf49ed8c02
+
 
 ---
-# .NET SDK를 사용하여 인코딩 크기를 조정하는 방법
+# <a name="how-to-scale-encoding-with-net-sdk"></a>.NET SDK를 사용하여 인코딩 크기를 조정하는 방법
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-scale-media-processing.md)
 > * [.NET](media-services-dotnet-encoding-units.md)
@@ -26,7 +30,7 @@ ms.author: juliako;milangada;gtrifonov
 > 
 > 
 
-## 개요
+## <a name="overview"></a>개요
 > [!IMPORTANT]
 > 미디어 처리 크기 조정에 대해 자세히 알아보려면 이 [개요](media-services-scale-media-processing-overview.md) 항목을 참조하세요.
 > 
@@ -44,10 +48,10 @@ ms.author: juliako;milangada;gtrifonov
 
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
-## 지원 티켓 열기
+## <a name="opening-a-support-ticket"></a>지원 티켓 열기
 기본적으로 모든 미디어 서비스 계정은 인코딩 예약 단위 최대 25개, 주문형 스트리밍 예약 단위 최대 5개까지 확장할 수 있습니다. 지원 티켓을 열어 더 높은 한도를 요청할 수 있습니다.
 
-### 지원 티켓 열기
+### <a name="open-a-support-ticket"></a>지원 티켓 열기
 지원 티켓을 열려면 다음을 수행합니다.
 
 1. [지원 받기](https://manage.windowsazure.com/?getsupport=true)를 클릭합니다. 로그인하지 않은 경우 자격 증명을 입력하라는 메시지가 표시됩니다.
@@ -60,10 +64,15 @@ ms.author: juliako;milangada;gtrifonov
 8. 다음 페이지의 지시에 따라 문제에 대한 세부 정보를 입력합니다.
 9. 제출을 클릭하여 티켓을 엽니다.
 
-## 미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## 피드백 제공
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
