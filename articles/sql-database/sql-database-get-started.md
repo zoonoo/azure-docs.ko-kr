@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d772dabf84fc3b6c061c0f4607c989aabf9dd272
-ms.openlocfilehash: 6d15839ce4084a808d9ecd5900a39a4f67dec822
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
 
 
 ---
@@ -30,15 +30,15 @@ ms.openlocfilehash: 6d15839ce4084a808d9ecd5900a39a4f67dec822
 * Azure SQL 논리 서버 만들기
 * Azure SQL 논리 서버 속성 보기
 * 서버 수준 방화벽 규칙 만들기
-* Adventure Works LT 샘플 데이터베이스 만들기
+* Adventure Works LT 샘플 데이터베이스를 독립 실행형 데이터베이스로 만들기
 * Azure에서 Adventure Works LT 샘플 데이터베이스 속성 보기
 
 또한 이 자습서에서는 다음을 수행하기 위해 최신 버전의 SQL Server Management Studio를 사용합니다.
 
 * 논리 서버 및 해당 master 데이터베이스 연결
-* master 데이터베이스 속성 보기
+* master 데이터베이스 쿼리
 * 샘플 데이터베이스 연결
-* 사용자 데이터베이스 속성 보기
+* 샘플 데이터베이스 쿼리
 
 이 자습서를 완료하면 샘플 데이터베이스와 빈 데이터베이스가 Azure 리소스 그룹에서 실행되며 논리 서버에 연결됩니다. 또한 서버 수준 보안 주체가 지정된 IP 주소(또는 IP 주소 범위)에서 서버에 로그인할 수 있도록 구성된 서버 수준 방화벽 규칙을 갖게 됩니다. 
 
@@ -208,7 +208,7 @@ ms.openlocfilehash: 6d15839ce4084a808d9ecd5900a39a4f67dec822
     ![서버 자격 증명](./media/sql-database-get-started/server-credentials.png)
 
     > [!NOTE]
-    > 서버에 데이터베이스를 추가할 때 데이터베이스를 단일 데이터베이스(기본값)로 또는 SQL 탄력적 풀에 추가할 수 있습니다. 탄력적 풀에 대한 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
+    > 서버에 데이터베이스를 추가할 때 데이터베이스를 독립 실행형 데이터베이스(기본값)로 또는 탄력적 풀에 추가할 수 있습니다. 탄력적 풀에 대한 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
     >
 
 7. [가격 책정] 계층에서 가격 책정 계층을 **기본**으로 변경합니다. 나중에 원하는 경우 가격 책정 계층을 높일 수 있지만 여기서는 학습 목적으로 최저 비용 계층을 사용하는 것이 좋습니다.
@@ -304,6 +304,6 @@ ms.openlocfilehash: 6d15839ce4084a808d9ecd5900a39a4f67dec822
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

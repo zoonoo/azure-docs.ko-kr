@@ -15,6 +15,7 @@
 ## [Spark로 시작](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [HBase 및 NoSQL로 시작](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Storm으로 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [대화형 Hive 미리 보기 시작](hdinsight-hadoop-use-interactive-hive.md)
 ## [Kafka 미리 보기로 시작](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop 샌드박스](hdinsight-hadoop-emulator-get-started.md)
 ## [Hortonworks 샌드박스를 사용한 Data Lake 도구](hdinsight-hadoop-emulator-visual-studio.md)
@@ -224,6 +225,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

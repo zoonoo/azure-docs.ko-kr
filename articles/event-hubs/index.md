@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: b5e9c3193e41320fa97a6a0246faaac622f2822a
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 8244f410fa3337ae161657fe11ae5db2a2f378cd
 
 ---
 #<a name="event-hubs-documentation"></a>Event Hubs 설명서
@@ -86,52 +86,32 @@ Event Hubs는 초당 수백만 개의 이벤트를 수집할 수 있는 확장�
 
 ---
 
-## <a name="reference"></a>참조
-
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET 관리되는 참조</p>
-                    </div>
+                        <h3>언어</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.eventhubs">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.eventhubs">Java</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/azure/service-bus-messaging/service-bus-amqp-protocol-guide">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>AMQP</h3>
-                        <p>AMQP 1.0 프로토콜 가이드</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/eventhub">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p>이벤트 허브 REST API</p>
+                        <p><a href="/rest/api/eventhub">REST API 참조</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 

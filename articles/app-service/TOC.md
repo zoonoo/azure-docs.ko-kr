@@ -47,7 +47,7 @@
 #### [Azure App Service에서 .NET WebJob 만들기](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [WebJob SDK를 사용하여 Azure 서비스 버스로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [WebJob SDK를 사용하여 Azure Service Bus로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [WebJob SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### App Service 환경
@@ -114,7 +114,7 @@
 #### [계층화된 보안 아키텍처 구현](../app-service-web/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [백 엔드 리소스에 안전하게 연결](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-## 백업
+## Backup
 ### [Azure에서 앱 백업](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Azure에서 앱 복원](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [REST를 사용하여 App Service 앱 백업 및 복원](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -145,20 +145,19 @@
 ### [스트리밍 로그 및 콘솔](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Visual Studio를 사용하여 문제 해결](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-# 참조
-## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+# 리소스
+## [쉬운 테이블](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [App Service 참조](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [모범 사례](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [WebJob 리소스](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [REST (영문)](https://docs.microsoft.com/rest/api/appservice/)
-
-# 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/app-service/)  
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=app-service) 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO2-->
 
 

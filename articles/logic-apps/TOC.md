@@ -7,7 +7,7 @@
 ## [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [논리 앱 기능 사용](../app-service-logic/app-service-logic-use-logic-app-features.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [템플릿 개요](../app-service-logic/app-service-logic-use-logic-app-templates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [사용자 지정 템플릿 만들기](../app-service-logic/app-service-logic-arm-provision.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [템플릿을 사용하여 앱 만들기](../app-service-logic/app-service-logic-arm-provision.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [예 및 시나리오](../app-service-logic/app-service-logic-examples-and-scenarios.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Service Bus 시나리오](../app-service-logic/app-service-logic-scenario-function-sb-trigger.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [B2B 처리](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)

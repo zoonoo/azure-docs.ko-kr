@@ -2,13 +2,13 @@
 layout: LandingPage
 toc_rel: breadcrumb.json
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 3bd265e2376180e5285c81b011b469b6a46353b0
+ms.sourcegitcommit: c086dc37b8665017de0dbbad9c7ac82931932a72
+ms.openlocfilehash: 57994a1476186696b81b05e0ce7ae645337d35b2
 
 ---
 #<a name="virtual-machines-documentation"></a>Virtual Machines 설명서
 
-Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어를 구입 및 유지 관리하지 않고도 가상화의 유연성을 제공합니다. 그러나 가상 컴퓨터에서 실행되는 소프트웨어를 구성, 패치 및 유지 관리하는 등 여전히 가상 컴퓨터를 유지 관리해야 합니다.
+Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어를 구입 및 유지 관리하지 않고도 가상화의 유연성을 제공합니다. 하지만 가상 컴퓨터도 여전히 가상 컴퓨터에서 실행하는 소프트웨어를 구성, 패치 및 유지 관리하는 등의 유지 관리가 필요합니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -47,69 +47,6 @@ Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어�
         </div>
         </a>
     </li>    
-</ul>
-
----
-
-## <a name="reference"></a>참조
-
-<ul class="panelContent cardsW">
-    <li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Virtual Machines 관리되는 참조 API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (영문)</h3>
-                        <p>Virtual Machine REST API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/cli/azure/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Virtual Machines용 Azure CLI</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Virtual Machines PowerShell Cmdlet</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
 </ul>
 
 <div class="downloadHolder">

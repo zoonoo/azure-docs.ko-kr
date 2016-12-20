@@ -15,10 +15,32 @@
 ## 예방
 ### [보안 정책 설정](security-center-policies.md)
 ### [보안 권장 사항 구현](security-center-recommendations.md)
+
 ### [응용 프로그램 권장 사항](security-center-application-recommendations.md)
+#### [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md)
+
 ### [네트워크 권장 사항](security-center-network-recommendations.md)
+#### [차세대 방화벽 추가](security-center-add-next-generation-firewall.md)
+#### [네트워크 보안 그룹 활성화](security-center-enable-network-security-groups.md)
+#### [인터넷 끝점을 통한 액세스 제한](security-center-restrict-access-through-internet-facing-endpoints.md)
+
 ### [SQL 서비스 권장 사항](security-center-sql-service-recommendations.md)
+#### [Enable auditing on SQL databases](security-center-enable-auditing-on-sql-databases.md)
+#### [Enable auditing on SQL servers](security-center-enable-auditing-on-sql-servers.md)
+#### [투명한 데이터 암호화 사용](security-center-enable-transparent-data-encryption.md)
+
 ### [가상 컴퓨터 권장 사항](security-center-virtual-machine-recommendations.md)
+#### [디스크 암호화 적용](security-center-apply-disk-encryption.md)
+#### [시스템 업데이트 적용](security-center-apply-system-updates.md)
+#### [데이터 수집 활성화](security-center-enable-data-collection.md)
+#### [VM 에이전트 사용](security-center-enable-vm-agent.md)
+#### [Endpoint Protection 설치](security-center-install-endpoint-protection.md)
+#### [보안 연락처 세부 정보 제공](security-center-provide-security-contact-details.md)
+#### [OS 취약성 해결](security-center-remediate-os-vulnerabilities.md)
+#### [Endpoint Protection 상태 경고 해결](security-center-resolve-endpoint-protection-health-alerts.md)
+#### [OS 버전 업데이트](security-center-update-os-version.md)
+#### [취약점 평가 설치되지 않음](security-center-vulnerability-assessment-recommendations.md)
+
 ### [보안 상태 모니터링](security-center-monitoring.md)
 ### [파트너 솔루션 모니터링](security-center-partner-solutions.md)
 
@@ -27,27 +49,8 @@
 ### [보안 경고 관리](security-center-managing-and-responding-alerts.md)
 ### [보안 인시던트 관리](security-center-incident.md)
 ### [Azure 로그 통합](security-center-integrating-alerts-with-log-integration.md)
-### [취약점 평가](security-center-vulnerability-assessment-recommendations.md)
 ### [보안 경고 형식](security-center-alerts-type.md)
 ### [위협 인텔리전스 보고서](security-center-threat-report.md)
-
-### 보안 경고 관리
-#### [차세대 방화벽 추가](security-center-add-next-generation-firewall.md)
-#### [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md)
-#### [디스크 암호화 적용](security-center-apply-disk-encryption.md)
-#### [시스템 업데이트 적용](security-center-apply-system-updates.md)
-#### [SQL 데이터베이스 감사 활성화](security-center-enable-auditing-on-sql-databases.md)
-#### [SQL Server 감사 활성화](security-center-enable-auditing-on-sql-servers.md)
-#### [데이터 수집 활성화](security-center-enable-data-collection.md)
-#### [네트워크 보안 그룹 활성화](security-center-enable-network-security-groups.md)
-#### [투명한 데이터 암호화 사용](security-center-enable-transparent-data-encryption.md)
-#### [VM 에이전트 사용](security-center-enable-vm-agent.md)
-#### [Endpoint Protection 설치](security-center-install-endpoint-protection.md)
-#### [보안 연락처 세부 정보 제공](security-center-provide-security-contact-details.md)
-#### [OS 취약성 해결](security-center-remediate-os-vulnerabilities.md)
-#### [Endpoint Protection 상태 경고 해결](security-center-resolve-endpoint-protection-health-alerts.md)
-#### [인터넷 끝점을 통한 액세스 제한](security-center-restrict-access-through-internet-facing-endpoints.md)
-#### [OS 버전 업데이트](security-center-update-os-version.md)
 
 ## 문제 해결
 ### [문제 해결 가이드](security-center-troubleshooting-guide.md)
@@ -66,6 +69,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

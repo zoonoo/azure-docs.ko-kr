@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/6/2016
+ms.date: 12/7/2016
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: b9737c3da308aecf25d5f18088f96c319edeafd5
-ms.openlocfilehash: 76ec51a75240710b24c0e91042d6229e60eeada9
+ms.sourcegitcommit: 9de8032bc69b054d5d13857159ff994f505497a6
+ms.openlocfilehash: 08e7d4402ad52835d193b2083e3c9b2776e0332e
 
 
 ---
@@ -33,10 +33,11 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 
 **무제한 확장** - Azure Backup은 유지 관리 및 모니터링 비용을 부담할 필요 없이 기본 전력과 Azure 클라우드의 무제한 확장을 사용하여 높은 가용성을 제공합니다. 이벤트 정보를 제공하도록 경고를 설정할 수 있지만 클라우드에 있는 데이터의 고가용성에 대해 걱정할 필요가 없습니다.
 
-**여러 저장소 옵션** - 높은 가용성의 한 양상으로 저장소 복제가 있습니다. Azure Backup에는 두 가지 유형의 복제, 즉 [로컬 중복 저장소](../storage/storage-redundancy.md#locally-redundant-storage)와 [지역 복제 저장소](../storage/storage-redundancy.md#geo-redundant-storage)가 있습니다. 필요에 따라 다음과 같은 백업 저장소 옵션을 선택합니다.
+**여러 저장소 옵션** - 높은 가용성의 한 양상으로 저장소 복제가 있습니다. Azure Backup에는 두 가지 유형의 복제, 즉 [로컬 중복 저장소](../storage/storage-redundancy.md#locally-redundant-storage)와 [지역 중복 저장소](../storage/storage-redundancy.md#geo-redundant-storage)가 있습니다. 필요에 따라 다음과 같은 백업 저장소 옵션을 선택합니다.
 
-* LRS(로컬 중복 저장소)는 동일한 지역에서 쌍으로 구성된 데이터 센터에 데이터를 세 번 복제합니다(3개 데이터 복사본을 만듦). LRS는 저비용 옵션으로 로컬 하드웨어 오류로부터 데이터를 보호하기 때문에 가격에 민감한 고객에게 적합합니다.
-* GRS(지역 복제 저장소)는 데이터 원본의 기본 위치에서 수백 마일 떨어진 보조 지역에 데이터를 복제합니다. GRS는 LRS보다 많은 비용이 소요되지만 지역 가동 중단이 발생해도 높은 수준의 데이터 내구성을 제공합니다.
+* LRS(로컬 중복 저장소)는 동일한 지역에서 쌍으로 구성된 데이터 센터에 데이터를 세 번 복제합니다(3개 데이터 복사본을 만듦). LRS는 로컬 하드웨어 오류로부터 데이터를 보호하기 위한 저비용 옵션입니다.
+
+* GRS(지역 중복 저장소)는 데이터 원본의 기본 위치에서 수백 마일 떨어진 보조 지역에 데이터를 복제합니다. GRS는 LRS보다 많은 비용이 소요되지만 GRS는 지역 가동 중단이 발생해도 높은 수준의 데이터 내구성을 제공합니다.
 
 **무제한 데이터 전송** - 인바운드 또는 아웃바운드 데이터를 무제한으로 전송할 수 있습니다. 또한 전송되는 데이터에 대해 요금을 청구하지 않습니다. 그러나 Azure 가져오기/내보내기 서비스를 통해 대량의 데이터를 가져오는 경우 인바운드 데이터와 관련 된 비용이 발생합니다. 이 비용에 대한 자세한 내용은 [Azure Backup의 오프라인 백업 워크플로](backup-azure-backup-import-export.md)를 참조하세요. 아웃바운드 데이터는 복원 작업 중에 백업 자격 증명 모음에서 전송되는 데이터입니다.
 
@@ -111,7 +112,7 @@ Premium Storage VM은 Premium Storage 또는 일반 저장소 중 하나로 복�
 다음 표에서는 각 Azure Backup 구성 요소의 다양한 기능에 대한 가용성 또는 지원을 요약하고 있습니다. 추가 지원 및 자세한 내용에 대해서는 각 표에 포함된 정보를 참조하세요.
 
 ### <a name="storage"></a>저장소
-| 기능 | Azure Backup 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM 백업 |
+| 기능 | Azure 백업 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM 백업 |
 | --- | --- | --- | --- | --- |
 | Azure Backup 자격 증명 모음 |![예][green] |![예][green] |![예][green] |![예][green] |
 | 디스크 저장소 | |![예][green] |![예][green] | |
@@ -158,7 +159,7 @@ AES(Advanced Encryption Standard) 256을 사용하여 서버에서 백업 자격
 Azure VM을 백업하려면 가상 컴퓨터 *내에서* 암호화를 설정해야 합니다. Windows 가상 컴퓨터에서는 BitLocker를 사용하고 Linux 가상 컴퓨터에서는 **dm-crypt** 을 사용합니다. Azure Backup은 이 경로를 통해 제공되는 백업 데이터를 자동으로 암호화하지 않습니다.
 
 ### <a name="network"></a>네트워크
-| 기능 | Azure Backup 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM 백업 |
+| 기능 | Azure 백업 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM 백업 |
 | --- | --- | --- | --- | --- |
 | 네트워크 압축 <br/>(**백업 서버**에 대한) | |![예][green] |![예][green] | |
 | 네트워크 압축 <br/>(**백업 자격 증명 모음**에 대한) |![예][green] |![예][green] |![예][green] | |
@@ -176,17 +177,26 @@ Azure Backup 에이전트는 데이터 전송 중에 네트워크 대역폭이 �
 
 ### <a name="backup-and-retention"></a>백업 및 보존
 
-Azure Backup에는 Backup 자격 증명 모음 하나당 최대 9,999개 복구 지점(백업 복사본 또는 스냅숏이라고도 함)이 있습니다. 다음 표에서 각 구성 요소의 자격 증명 모음에 대한 최대 백업 빈도를 보여 줍니다. 백업 정책 구성은 복구 지점을 사용하는 속도를 결정합니다. 예를 들어 매일 복구 지점을 만들면 복구 지점을 27년 동안 보존한 후 실행합니다. 월별 복구 지점을 사용하는 경우 833년 동안 복구 지점을 보존할 수 있습니다. Backup 서비스는 복구 지점에 만료 시간 제한을 설정하지 않습니다.
+Azure Backup에는 *보호된 인스턴스*당 최대 9999개 복구 지점(백업 복사본 또는 스냅숏이라고도 함)이 있습니다. 보호된 인스턴스는 Azure에 데이터를 백업하도록 구성된 컴퓨터, 서버(실제 또는 가상) 또는 워크로드입니다. 자세한 내용은 [보호된 인스턴스란 무엇인가요?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) 섹션을 참조하세요. 데이터의 백업 복사본이 저장되면 인스턴스가 보호됩니다. 데이터의 백업 복사본이 보호 기능입니다. 원본 데이터가 손실되었거나 손상된 경우 백업 복사본이 원본 데이터를 복원할 수 있습니다. 다음 표는 각 구성 요소의 최대 백업 빈도를 보여줍니다. 백업 정책 구성은 복구 지점을 사용하는 속도를 결정합니다. 예를 들어 매일 복구 지점을 만들면 복구 지점을 27년 동안 보존한 후 실행합니다. 월별 복구 지점을 사용하는 경우 833년 동안 복구 지점을 보존할 수 있습니다. Backup 서비스는 복구 지점에 만료 시간 제한을 설정하지 않습니다.
 
 |  | Azure Backup 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM 백업 |
 | --- | --- | --- | --- | --- |
 | 백업 주기<br/> (백업 자격 증명 모음에 대한) |매일 3회 백업 |매일 2회 백업 |매일 2회 백업 |매일 1회 백업 |
 | 백업 주기<br/> (디스크에 대한) |해당 없음 |<li>SQL Server에 대해 15분마다 <li>다른 워크로드에 대해 1시간마다 |<li>SQL Server에 대해 15분마다 <li>다른 워크로드에 대해 1시간마다</p> |해당 없음 |
 | 보존 옵션 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |
-| 서버당 최대 복구 지점 |9999|9999|9999|9999|
+| 보호된 인스턴스당 최대 복구 지점 |9999|9999|9999|9999|
 | 최대 보존 기간 |백업 빈도에 따라 다름 |백업 빈도에 따라 다름 |백업 빈도에 따라 다름 |백업 빈도에 따라 다름 |
 | 로컬 디스크의 복구 지점 |해당 없음 |<li>파일 서버의 경우 64<li>응용 프로그램 서버의 경우 448 |<li>파일 서버의 경우 64<li>응용 프로그램 서버의 경우 448 |해당 없음 |
 | 테이프의 복구 지점 |해당 없음 |Unlimited |해당 없음 |해당 없음 |
+
+## <a name="what-is-a-protected-instance"></a>보호된 인스턴스란 무엇인가요?
+보호된 인스턴스는 Azure에 백업하도록 구성된 Windows 컴퓨터, 서버(실제 또는 가상) 또는 SQL Database에 대한 일반 참조입니다. 컴퓨터, 서버 또는 데이터베이스에 대한 백업 정책을 구성하고 데이터의 백업 복사본을 만들면 인스턴스가 보호됩니다. 해당 보호된 인스턴스(복구 지점이라고 함)에 대한 백업 데이터의 후속 복사본으로 인해 저장소 사용량이 늘어납니다. 보호된 인스턴스에 대해 최대 9999개의 복구 지점을 만들 수 있습니다. 저장소에서 복구 지점을 삭제하더라도 9999개의 복구 지점 전체 개수에는 영향을 주지 않습니다.
+보호된 인스턴스의 몇 가지 일반적인 예로는 Windows 운영 체제를 실행하는 가상 컴퓨터, 응용 프로그램 서버, 데이터베이스 및 개인용 컴퓨터가 있습니다. 예:
+
+* Hyper-V 또는 Azure IaaS 하이퍼바이저 패브릭을 실행하는 가상 컴퓨터. 가상 컴퓨터의 게스트 운영 체제는 Windows Server 또는 Linux가 될 수 있습니다.
+* 응용 프로그램 서버: 응용 프로그램 서버는 Windows Server를 실행하는 실제 또는 가상 컴퓨터와 백업해야 하는 데이터 워크로드가 될 수 있습니다. 일반적인 워크로드로는 Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server, Microsoft Dynamics 및 Windows Server의 파일 서버 역할이 있습니다. 이러한 워크로드를 백업하려면 System Center Data Protection Manager(DPM) 또는 Azure Backup Server가 필요합니다.
+* Windows 운영 체제를 실행하는 개인용 컴퓨터 또는 랩톱입니다.
+
 
 ## <a name="what-is-the-vault-credential-file"></a>자격 증명 모음 자격 증명 파일이란?
 자격 증명 모음 자격 증명 파일은 각 백업 자격 증명 모음에 대해 포털에서 생성하는 인증서입니다. 그런 다음 포털은 액세스 제어 서비스(ACS)에 공개 키를 업로드합니다. 개인 키는 자격 증명을 다운로드할 때 제공됩니다. 이를 사용하여 보호하는 컴퓨터를 등록합니다. 개인 키를 사용하면 서버 또는 컴퓨터를 인증하여 특정 자격 증명 모음으로 백업 데이터를 보낼 수 있습니다.

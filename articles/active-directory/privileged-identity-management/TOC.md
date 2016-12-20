@@ -4,6 +4,7 @@
 ## [역할](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
 # 시작
+## [구독 요구 사항](subscription-requirements.md)
 ## [포털에서 시작](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [보안 마법사](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [PIM에 대한 액세스 부여](../active-directory-privileged-identity-management-how-to-give-access-to-pim.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
@@ -26,6 +27,6 @@
 ## [역할 기반 액세스 제어](../role-based-access-control-what-is.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

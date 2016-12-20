@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: d92df7e0291eb109c339c4de3bf5307b6e186194
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 0ecc51f19240ecfa49852ed1eafcf78d1227af16
 
 ---
 #<a name="service-bus-documentation"></a>Service Bus 설명서
@@ -29,7 +29,7 @@ Service Bus에서는 온-프레미스 솔루션을 클라우드에 연결할 수
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=service-bus">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -194,52 +194,45 @@ Service Bus에서는 온-프레미스 솔루션을 클라우드에 연결할 수
 
 ---
 
-## <a name="reference"></a>참조
-
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell 참조</p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET 관리되는 참조 API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/servicebus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p>Service Bus REST API</p>
+                        <p><a href="/rest/api/servicebus">REST API 참조</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>다른</h3>
+                        <p><a href="/dotnet/api/">관리되는 참조 API</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-bus.pdf">

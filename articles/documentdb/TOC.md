@@ -18,6 +18,7 @@
 ### [Java 웹앱](documentdb-java-application.md)
 ### [Python Flask 웹앱](documentdb-python-application.md)
 ## [로컬에서 개발](documentdb-nosql-local-emulator.md)
+### [에뮬레이터 인증서 내보내기](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ## [FAQ](documentdb-faq.md)
 
 # 방법
@@ -41,13 +42,17 @@
 ### [리소스 할당량](documentdb-limits.md)
 ### [할당량 증가](documentdb-increase-limits.md)
 ### [요청 단위](documentdb-request-units.md)
-### [Azure CLI 및 Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### Azure CLI
+#### [계정 만들기](documentdb-automation-resource-manager-cli.md)
+#### [영역 추가 또는 제거](documentdb-automation-region-management.md)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [방화벽 지원](documentdb-firewall-support.md)
 ### [계정 수퍼차지](documentdb-supercharge-your-account.md)
 
 ## 개발
 ### [SQL query](documentdb-sql-query.md)
 ### [저장 프로시저, 트리거 및 UDF](documentdb-programming.md)
+### [변경 피드로 변경 내용 추적](documentdb-change-feed.md)
 ### [성능 테스트](documentdb-performance-testing.md)
 ### [성능 팁](documentdb-performance-tips.md)
 ### MongoDB 개발자용 DocumentDB
@@ -112,6 +117,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

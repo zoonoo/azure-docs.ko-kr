@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: d166ca607b89d0da24d42d4f6f70f97e2c9e7f81
+ms.sourcegitcommit: 6d6459646a269212364822ef6797b5850c2b0c2a
+ms.openlocfilehash: 93a2c8da64000d03538f73befc167368915c3dbb
 
 ---
 #<a name="azure-government-documentation"></a>Azure Government 설명서
@@ -51,38 +51,26 @@ Microsoft Azure Government는 보안, 개인 정보 보호 및 제어, 규정 �
 
 ---
 
-## <a name="reference"></a>참조
-
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/rest/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST (영문)</h3>
-                        <p>Azure Government REST API</p>
+                        <h3>서비스</h3>
+                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-compute">계산</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-storage">저장소</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-database">데이터베이스</a></p>
+                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-networking">네트워킹</a></p>
+                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity">보안 + ID</a></p>
+                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement">모니터링 + 관리</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Azure Government 관리되는 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    </ul>
+</ul>
     
 
 <div class="downloadHolder">
