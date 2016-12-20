@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: darrmi
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -31,28 +31,30 @@ Azure API 관리 서비스에서 사용할 수 있는 정책은 순수하게 들
 ### <a name="alerting-with-slack"></a>Slack에 경고
 다음 예제에서는 HTTP 응답 상태 코드가 500 이상인 경우 Slack 대화방에 메시지를 보내는 방법을 보여줍니다. 500 범위 오류는 API의 클라이언트가 자체로 해결할 수 없는 백 엔드 API에 문제가 있음을 나타냅니다. 일반적으로 일부에 일종의 개입이 필요합니다.  
 
-    <choose>
-        <when condition="@(context.Response.StatusCode >= 500)">
-          <send-one-way-request mode="new">
-            <set-url>https://hooks.slack.com/services/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</set-url>
-            <set-method>POST</set-method>
-            <set-body>@{
-                    return new JObject(
-                            new JProperty("username","APIM Alert"),
-                            new JProperty("icon_emoji", ":ghost:"),
-                            new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",
-                                                    context.Request.Method,
-                                                    context.Request.Url.Path + context.Request.Url.QueryString,
-                                                    context.Request.Url.Host,
-                                                    context.Response.StatusCode,
-                                                    context.Response.StatusReason,
-                                                    context.User.Email
-                                                    ))
-                            ).ToString();
-                }</set-body>
-          </send-one-way-request>
-        </when>
-    </choose>
+```xml
+<choose>
+    <when condition="@(context.Response.StatusCode >= 500)">
+      <send-one-way-request mode="new">
+        <set-url>https://hooks.slack.com/services/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</set-url>
+        <set-method>POST</set-method>
+        <set-body>@{
+                return new JObject(
+                        new JProperty("username","APIM Alert"),
+                        new JProperty("icon_emoji", ":ghost:"),
+                        new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",
+                                                context.Request.Method,
+                                                context.Request.Url.Path + context.Request.Url.QueryString,
+                                                context.Request.Url.Host,
+                                                context.Response.StatusCode,
+                                                context.Response.StatusReason,
+                                                context.User.Email
+                                                ))
+                        ).ToString();
+            }</set-body>
+      </send-one-way-request>
+    </when>
+</choose>
+```
 
 Slack에는 인바운드 웹 후크가 있습니다. 인바운드 웹 후크를 구성할 때 Slack은 간단한 게시 요청을 수행하고 Slack 채널에 메시지를 전달하는 특별한 URL을 생성합니다. 만든 JSON 본문은 Slack에서 정의된 형식을 기반으로 합니다.
 
@@ -73,22 +75,26 @@ API 관리의 주요 기능은 백 엔드 리소스를 보호하는 것입니다
 ### <a name="extracting-the-token"></a>토큰 추출
 첫 번째 단계는 권한 부여 헤더에서 토큰을 추출하는 작업입니다. 헤더 값은 `Bearer` 권한 부여 체계, 공백 및 권한 부여 토큰을 [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1)단위로 형식이 지정되어야 합니다. 하지만 권한 부여 체계를 생략하는 경우가 있습니다. 구문 분석할 때 이를 세려면 헤더 값을 공간에 분할하고 반환된 문자열 배열에서 마지막 문자열을 선택합니다. 잘못된 형식의 권한 부여 헤더에 대한 해결 방법을 제공합니다.
 
-    <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
+```xml
+<set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
+```
 
 ### <a name="making-the-validation-request"></a>유효성 검사 요청하기
 권한 부여 토큰이 있다면 토큰의 유효성 검사를 요청할 수 있습니다. RFC 7662은 프로세스 검사를 호출하고 검사 리소스에 `POST` HTML 양식을 필요로 합니다. HTML 양식은 키 `token`를 통해 적어도 키/값 쌍을 포함해야 합니다. 또한 권한 부여 서버에 대한 요청은 인증되어 악의적인 클라이언트가 유효한 토큰을 방해할 수 없도록 해야 합니다.
 
-    <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
-      <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>
-      <set-method>POST</set-method>
-      <set-header name="Authorization" exists-action="override">
-        <value>basic dXNlcm5hbWU6cGFzc3dvcmQ=</value>
-      </set-header>
-      <set-header name="Content-Type" exists-action="override">
-        <value>application/x-www-form-urlencoded</value>
-      </set-header>
-      <set-body>@($"token={(string)context.Variables["token"]}")</set-body>
-    </send-request>
+```xml
+<send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
+  <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>
+  <set-method>POST</set-method>
+  <set-header name="Authorization" exists-action="override">
+    <value>basic dXNlcm5hbWU6cGFzc3dvcmQ=</value>
+  </set-header>
+  <set-header name="Content-Type" exists-action="override">
+    <value>application/x-www-form-urlencoded</value>
+  </set-header>
+  <set-body>@($"token={(string)context.Variables["token"]}")</set-body>
+</send-request>
+```
 
 ### <a name="checking-the-response"></a>응답 확인
 `response-variable-name` 특성은 반환된 응답의 액세스를 제공하는 데 사용됩니다. 이 속성에 정의된 이름은 `context.Variables` 사전에 키로 사용하여 `IResponse` 개체에 액세스할 수 있습니다.
@@ -98,53 +104,57 @@ API 관리의 주요 기능은 백 엔드 리소스를 보호하는 것입니다
 ### <a name="reporting-failure"></a>오류 보고
 `<choose>` 정책을 사용하여 토큰이 유효한지 감지하고 그럴 경우 401 응답을 반환합니다.
 
-    <choose>
-      <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
-        <return-response response-variable-name="existing response variable">
-          <set-status code="401" reason="Unauthorized" />
-          <set-header name="WWW-Authenticate" exists-action="override">
-            <value>Bearer error="invalid_token"</value>
-          </set-header>
-        </return-response>
-      </when>
-    </choose>
+```xml
+<choose>
+  <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
+    <return-response response-variable-name="existing response variable">
+      <set-status code="401" reason="Unauthorized" />
+      <set-header name="WWW-Authenticate" exists-action="override">
+        <value>Bearer error="invalid_token"</value>
+      </set-header>
+    </return-response>
+  </when>
+</choose>
+```
 
 또한 `bearer` 토큰을 사용해야 하는 방법을 설명하는 [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3)대로 401 응답을 사용하여 `WWW-Authenticate` 헤더를 반환합니다. WWW 인증은 클라이언트에게 적절한 권한이 있는 요청을 생성하는 방법을 지시하는 데 사용됩니다. OAuth2 프레임워크에 다양한 접근 방법이 가능하기 때문에 필요한 모든 정보를 통신하기가 어렵습니다. 다행스럽게도 [클라이언트가 리소스 서버에 대한 요청 권한을 제대로 부여하는 방법을 검색](http://tools.ietf.org/html/draft-jones-oauth-discovery-00)하도록 노력하고 있습니다.
 
 ### <a name="final-solution"></a>최종 솔루션
 모든 요소를 결합하여 다음 정책을 가져옵니다.
 
-    <inbound>
-      <!-- Extract Token from Authorization header parameter -->
-      <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
+```xml
+<inbound>
+  <!-- Extract Token from Authorization header parameter -->
+  <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
 
-      <!-- Send request to Token Server to validate token (see RFC 7662) -->
-      <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
-        <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>
-        <set-method>POST</set-method>
-        <set-header name="Authorization" exists-action="override">
-          <value>basic dXNlcm5hbWU6cGFzc3dvcmQ=</value>
-        </set-header>
-        <set-header name="Content-Type" exists-action="override">
-          <value>application/x-www-form-urlencoded</value>
-        </set-header>
-        <set-body>@($"token={(string)context.Variables["token"]}")</set-body>
-      </send-request>
+  <!-- Send request to Token Server to validate token (see RFC 7662) -->
+  <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
+    <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>
+    <set-method>POST</set-method>
+    <set-header name="Authorization" exists-action="override">
+      <value>basic dXNlcm5hbWU6cGFzc3dvcmQ=</value>
+    </set-header>
+    <set-header name="Content-Type" exists-action="override">
+      <value>application/x-www-form-urlencoded</value>
+    </set-header>
+    <set-body>@($"token={(string)context.Variables["token"]}")</set-body>
+  </send-request>
 
-      <choose>
-              <!-- Check active property in response -->
-              <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
-                  <!-- Return 401 Unauthorized with http-problem payload -->
-                  <return-response response-variable-name="existing response variable">
-                      <set-status code="401" reason="Unauthorized" />
-                      <set-header name="WWW-Authenticate" exists-action="override">
-                          <value>Bearer error="invalid_token"</value>
-                      </set-header>
-                  </return-response>
-              </when>
-          </choose>
-      <base />
-    </inbound>
+  <choose>
+          <!-- Check active property in response -->
+          <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
+              <!-- Return 401 Unauthorized with http-problem payload -->
+              <return-response response-variable-name="existing response variable">
+                  <set-status code="401" reason="Unauthorized" />
+                  <set-header name="WWW-Authenticate" exists-action="override">
+                      <value>Bearer error="invalid_token"</value>
+                  </set-header>
+              </return-response>
+          </when>
+      </choose>
+  <base />
+</inbound>
+```
 
 `send-request` 정책이 API 관리 서비스를 통해 흐르는 요청 및 응답 프로세스에 유용한 외부 서비스를 통합하는 데 사용할 수 있는 방법에 대한 여러 가지 방법 중 하나입니다.
 
@@ -166,10 +176,64 @@ API 관리의 주요 기능은 백 엔드 리소스를 보호하는 것입니다
 
 첫 번째 단계는 들어오는 요청에서 쿼리 매개 변수를 추출하므로 백 엔드에 전달할 수 있습니다. 이 예에서 대시보드는 시간의 경과에 따라 정보를 보여주며 따라서 `fromDate` 및 `toDate` 매개 변수가 있습니다. `set-variable` 정책을 사용하여 요청 URL에서 정보를 추출할 수 있습니다.
 
-    <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
-    <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
+```xml
+<set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
+<set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
+```
 
 이 정보가 있는 경우 모든 백 엔드 시스템에 요청을 할 수 있습니다. 각 요청은 매개 변수 정보를 포함하는 새 URL을 생성하고 관련 서버를 호출하며 컨텍스트 변수의 응답을 저장합니다.
+
+```xml
+<send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
+  <set-url>@($"https://accounting.acme.com/salesdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+  <set-method>GET</set-method>
+</send-request>
+
+<send-request mode="new" response-variable-name="materialdata" timeout="20" ignore-error="true">
+  <set-url>@($"https://inventory.acme.com/materiallevels?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+  <set-method>GET</set-method>
+</send-request>
+
+<send-request mode="new" response-variable-name="throughputdata" timeout="20" ignore-error="true">
+<set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+  <set-method>GET</set-method>
+</send-request>
+
+<send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
+<set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+  <set-method>GET</set-method>
+</send-request>
+```
+
+이러한 요청은 순서 대로 실행되며 이는 가장 좋은 방법은 아닙니다. 예정된 릴리스에서 이러한 요청을 병렬로 실행할 수 있도록 하는 `wait` 라는 새 정책을 도입합니다.
+
+### <a name="responding"></a>응답
+복합 응답을 생성하려면 [반환-응답](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) 정책을 사용할 수 있습니다. `set-body` 요소는 속성으로 포함 된 모든 구성 요소 표현을 사용하여 새 `JObject`을 생성하도록 식을 사용할 수 있습니다.
+
+```xml
+<return-response response-variable-name="existing response variable">
+  <set-status code="200" reason="OK" />
+  <set-header name="Content-Type" exists-action="override">
+    <value>application/json</value>
+  </set-header>
+  <set-body>
+    @(new JObject(new JProperty("revenuedata",((IResponse)context.Variables["revenuedata"]).Body.As<JObject>()),
+                  new JProperty("materialdata",((IResponse)context.Variables["materialdata"]).Body.As<JObject>()),
+                  new JProperty("throughputdata",((IResponse)context.Variables["throughputdata"]).Body.As<JObject>()),
+                  new JProperty("accidentdata",((IResponse)context.Variables["accidentdata"]).Body.As<JObject>())
+                  ).ToString())
+  </set-body>
+</return-response>
+```
+
+완성된 정책은 다음과 같습니다.
+
+```xml
+<policies>
+    <inbound>
+
+  <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
+  <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
 
     <send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
       <set-url>@($"https://accounting.acme.com/salesdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
@@ -191,11 +255,6 @@ API 관리의 주요 기능은 백 엔드 리소스를 보호하는 것입니다
       <set-method>GET</set-method>
     </send-request>
 
-이러한 요청은 순서 대로 실행되며 이는 가장 좋은 방법은 아닙니다. 예정된 릴리스에서 이러한 요청을 병렬로 실행할 수 있도록 하는 `wait` 라는 새 정책을 도입합니다.
-
-### <a name="responding"></a>응답
-복합 응답을 생성하려면 [반환-응답](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) 정책을 사용할 수 있습니다. `set-body` 요소는 속성으로 포함 된 모든 구성 요소 표현을 사용하여 새 `JObject`을 생성하도록 식을 사용할 수 있습니다.
-
     <return-response response-variable-name="existing response variable">
       <set-status code="200" reason="OK" />
       <set-header name="Content-Type" exists-action="override">
@@ -209,56 +268,15 @@ API 관리의 주요 기능은 백 엔드 리소스를 보호하는 것입니다
                       ).ToString())
       </set-body>
     </return-response>
-
-완성된 정책은 다음과 같습니다.
-
-    <policies>
-        <inbound>
-
-      <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
-      <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
-
-        <send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
-          <set-url>@($"https://accounting.acme.com/salesdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
-          <set-method>GET</set-method>
-        </send-request>
-
-        <send-request mode="new" response-variable-name="materialdata" timeout="20" ignore-error="true">
-          <set-url>@($"https://inventory.acme.com/materiallevels?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
-          <set-method>GET</set-method>
-        </send-request>
-
-        <send-request mode="new" response-variable-name="throughputdata" timeout="20" ignore-error="true">
-        <set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
-          <set-method>GET</set-method>
-        </send-request>
-
-        <send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
-        <set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
-          <set-method>GET</set-method>
-        </send-request>
-
-        <return-response response-variable-name="existing response variable">
-          <set-status code="200" reason="OK" />
-          <set-header name="Content-Type" exists-action="override">
-            <value>application/json</value>
-          </set-header>
-          <set-body>
-            @(new JObject(new JProperty("revenuedata",((IResponse)context.Variables["revenuedata"]).Body.As<JObject>()),
-                          new JProperty("materialdata",((IResponse)context.Variables["materialdata"]).Body.As<JObject>()),
-                          new JProperty("throughputdata",((IResponse)context.Variables["throughputdata"]).Body.As<JObject>()),
-                          new JProperty("accidentdata",((IResponse)context.Variables["accidentdata"]).Body.As<JObject>())
-                          ).ToString())
-          </set-body>
-        </return-response>
-        </inbound>
-        <backend>
-            <base />
-        </backend>
-        <outbound>
-            <base />
-        </outbound>
-    </policies>
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+</policies>
+```
 
 데이터의 특성이 한 시간 전에 만료되더라도 사용자에게 중요한 정보를 전달하는 데 충분히 효율적이기 때문에 자리 표시자 작업의 구성에서 대시보드 리소스를 최소 한 시간 동안 캐시되도록 구성합니다.
 

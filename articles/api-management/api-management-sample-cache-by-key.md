@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: darrmi
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -31,66 +31,81 @@ API 관리 서비스는 테넌트 단위 공유 데이터 캐시를 사용하므
 
 백 엔드 API에서 다음과 같은 JSON 응답을 고려합니다.
 
-    {
-      "airline" : "Air Canada",
-      "flightno" : "871",
-      "status" : "ontime",
-      "gate" : "B40",
-      "terminal" : "2A",
-      "userprofile" : "$userprofile$"
-    }  
+```json
+{
+  "airline" : "Air Canada",
+  "flightno" : "871",
+  "status" : "ontime",
+  "gate" : "B40",
+  "terminal" : "2A",
+  "userprofile" : "$userprofile$"
+}  
+```
 
 그리고 다음과 같은 `/userprofile/{userid}` 에 있는 보조 리소스도 고려합니다.
 
-     { "username" : "Bob Smith", "Status" : "Gold" }
+```json
+{ "username" : "Bob Smith", "Status" : "Gold" }
+```
 
 포함할 적절한 사용자 정보를 확인하기 위해 최종 사용자가 누구인지를 식별해야 합니다. 이 메커니즘은 구현에 따라 다릅니다. 예를 들어 `JWT` 토큰의 `Subject` 클레임을 사용합니다. 
 
-    <set-variable
-      name="enduserid"
-      value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
+```xml
+<set-variable
+  name="enduserid"
+  value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
+```
 
 이 `enduserid` 값을 나중에 사용할 컨텍스트 변수에 저장합니다. 다음 단계는 이전 요청이 사용자 정보를 검색하고 캐시에 저장했는지 여부를 결정합니다. 이렇게 하려면 `cache-lookup-value` 정책을 사용합니다.
 
-      <cache-lookup-value
-      key="@("userprofile-" + context.Variables["enduserid"])"
-      variable-name="userprofile" />
+```xml
+<cache-lookup-value
+key="@("userprofile-" + context.Variables["enduserid"])"
+variable-name="userprofile" />
+```
 
 키 값에 해당하는 캐시에 항목이 없는 경우 어떤 `userprofile` 컨텍스트 변수도 생성되지 않습니다. `choose` 제어 흐름 정책을 사용하여 조회가 성공했는지를 확인합니다.
 
-    <choose>
-        <when condition="@(!context.Variables.ContainsKey("userprofile"))">
-            <!— If the userprofile context variable doesn’t exist, make an HTTP request to retrieve it.  -->
-        </when>
-    </choose>
-
+```xml
+<choose>
+    <when condition="@(!context.Variables.ContainsKey("userprofile"))">
+        <!— If the userprofile context variable doesn’t exist, make an HTTP request to retrieve it.  -->
+    </when>
+</choose>
+```
 
 `userprofile` 컨텍스트 변수가 존재하지 않으면 찾아오기 위해 HTTP 요청을 만들어야 합니다.
 
-    <send-request
-      mode="new"
-      response-variable-name="userprofileresponse"
-      timeout="10"
-      ignore-error="true">
+```xml
+<send-request
+  mode="new"
+  response-variable-name="userprofileresponse"
+  timeout="10"
+  ignore-error="true">
 
-      <!-- Build a URL that points to the profile for the current end-user -->
-      <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),
-          (string)context.Variables["enduserid"]).AbsoluteUri)
-      </set-url>
-      <set-method>GET</set-method>
-    </send-request>
+  <!-- Build a URL that points to the profile for the current end-user -->
+  <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),
+      (string)context.Variables["enduserid"]).AbsoluteUri)
+  </set-url>
+  <set-method>GET</set-method>
+</send-request>
+```
 
 `enduserid` 를 사용하여 사용자 프로필 리소스에 URL을 생성합니다. 응답을 하면 응답에서 본문 텍스트를 가져오고 컨텍스트 변수에 다시 저장할 수 있습니다.
 
-    <set-variable
-        name="userprofile"
-        value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
+```xml
+<set-variable
+    name="userprofile"
+    value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
+```
 
 이 HTTP 요청을 다시 하지 않으려면 동일한 사용자가 다른 요청을 할 때 사용자 프로필을 캐시에 저장할 수 있습니다.
 
-    <cache-store-value
-        key="@("userprofile-" + context.Variables["enduserid"])"
-        value="@((string)context.Variables["userprofile"])" duration="100000" />
+```xml
+<cache-store-value
+    key="@("userprofile-" + context.Variables["enduserid"])"
+    value="@((string)context.Variables["userprofile"])" duration="100000" />
+```
 
 원래 검색하려고 시도하는 동일한 키를 사용하여 캐시에 값을 저장합니다. 값을 저장하도록 선택한 기간은 정보 변경 주기 및 사용자의 오래된 정보 허용치에 기반해야 합니다. 
 
@@ -98,64 +113,68 @@ API 관리 서비스는 테넌트 단위 공유 데이터 캐시를 사용하므
 
 프로세스의 마지막 단계는 사용자 프로필 정보를 사용하여 반환된 응답을 업데이트하는 것입니다.
 
-    <!—Update response body with user profile-->
-    <find-and-replace
-        from='"$userprofile$"'
-        to="@((string)context.Variables["userprofile"])" />
+```xml
+<!—Update response body with user profile-->
+<find-and-replace
+    from='"$userprofile$"'
+    to="@((string)context.Variables["userprofile"])" />
+```
 
 나는 토큰의 일부로 인용 부호를 포함하도록 선택하여 대체가 발생하지 않더라도 여전히 응답은 유효한 JSON입니다. 주로 디버깅을 쉽게 만듭니다.
 
 이러한 모든 단계를 함께 결합하면 최종 결과는 다음과 같은 정책입니다.
 
-     <policies>
-        <inbound>
-            <!-- How you determine user identity is application dependent -->
-            <set-variable
-              name="enduserid"
-              value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
+```xml
+<policies>
+    <inbound>
+        <!-- How you determine user identity is application dependent -->
+        <set-variable
+          name="enduserid"
+          value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 
-            <!--Look for userprofile for this user in the cache -->
-            <cache-lookup-value
-              key="@("userprofile-" + context.Variables["enduserid"])"
-              variable-name="userprofile" />
+        <!--Look for userprofile for this user in the cache -->
+        <cache-lookup-value
+          key="@("userprofile-" + context.Variables["enduserid"])"
+          variable-name="userprofile" />
 
-            <!-- If we don’t find it in the cache, make a request for it and store it -->
-            <choose>
-                <when condition="@(!context.Variables.ContainsKey("userprofile"))">
-                    <!—Make HTTP request to get user profile -->
-                    <send-request
-                      mode="new"
-                      response-variable-name="userprofileresponse"
-                      timeout="10"
-                      ignore-error="true">
+        <!-- If we don’t find it in the cache, make a request for it and store it -->
+        <choose>
+            <when condition="@(!context.Variables.ContainsKey("userprofile"))">
+                <!—Make HTTP request to get user profile -->
+                <send-request
+                  mode="new"
+                  response-variable-name="userprofileresponse"
+                  timeout="10"
+                  ignore-error="true">
 
-                       <!-- Build a URL that points to the profile for the current end-user -->
-                        <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),(string)context.Variables["enduserid"]).AbsoluteUri)</set-url>
-                        <set-method>GET</set-method>
-                    </send-request>
+                   <!-- Build a URL that points to the profile for the current end-user -->
+                    <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),(string)context.Variables["enduserid"]).AbsoluteUri)</set-url>
+                    <set-method>GET</set-method>
+                </send-request>
 
-                    <!—Store response body in context variable -->
-                    <set-variable
-                      name="userprofile"
-                      value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
+                <!—Store response body in context variable -->
+                <set-variable
+                  name="userprofile"
+                  value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 
-                    <!—Store result in cache -->
-                    <cache-store-value
-                      key="@("userprofile-" + context.Variables["enduserid"])"
-                      value="@((string)context.Variables["userprofile"])"
-                      duration="100000" />
-                </when>
-            </choose>
-            <base />
-        </inbound>
-        <outbound>
-            <!—Update response body with user profile-->
-            <find-and-replace
-                  from='"$userprofile$"'
-                  to="@((string)context.Variables["userprofile"])" />
-            <base />
-        </outbound>
-     </policies>
+                <!—Store result in cache -->
+                <cache-store-value
+                  key="@("userprofile-" + context.Variables["enduserid"])"
+                  value="@((string)context.Variables["userprofile"])"
+                  duration="100000" />
+            </when>
+        </choose>
+        <base />
+    </inbound>
+    <outbound>
+        <!—Update response body with user profile-->
+        <find-and-replace
+              from='"$userprofile$"'
+              to="@((string)context.Variables["userprofile"])" />
+        <base />
+    </outbound>
+</policies>
+```
 
 이 캐싱 방법은 주로 HTML가 서버 쪽에서 구성되는 웹 사이트에서 사용되므로 단일 페이지로 렌더링될 수 있습니다. 그러나 클라이언트가 클라이언트 쪽 HTTP 캐싱을 수행할 수 없는 API에서 유용할 수 있고 또는 클라이언트에서 해당 역할을 넣지 않는 것이 바람직할 수 있습니다.
 
@@ -168,71 +187,86 @@ API의 여러 다른 구현 버전이 한 번에 지원되는 것이 일반적�
 
 첫 번째 단계는 원하는 버전을 구성하는 데 사용되는 식별자를 결정하는 것입니다. 이 예제에서는 제품 구독 키에 버전을 연결하도록 선택합니다. 
 
-        <set-variable name="clientid" value="@(context.Subscription.Key)" />
+```xml
+<set-variable name="clientid" value="@(context.Subscription.Key)" />
+```
 
 캐시 조회를 수행하여 이미 원하는 클라이언트 버전을 검색했는지 확인할 수 있습니다.
 
-        <cache-lookup-value
-        key="@("clientversion-" + context.Variables["clientid"])"
-        variable-name="clientversion" />
+```xml
+<cache-lookup-value
+key="@("clientversion-" + context.Variables["clientid"])"
+variable-name="clientversion" />
+```
 
 그런 다음 캐시에 있지 않은지를 확인합니다.
 
-    <choose>
-        <when condition="@(!context.Variables.ContainsKey("clientversion"))">
+```xml
+<choose>
+    <when condition="@(!context.Variables.ContainsKey("clientversion"))">
+```
 
 찾지 못한 경우 이동하여 검색합니다.
 
-    <send-request
-        mode="new"
-        response-variable-name="clientconfiguresponse"
-        timeout="10"
-        ignore-error="true">
-                <set-url>@(new Uri(new Uri(context.Api.ServiceUrl.ToString() + "api/ClientConfig/"),(string)context.Variables["clientid"]).AbsoluteUri)</set-url>
-                <set-method>GET</set-method>
-    </send-request>
+```xml
+<send-request
+    mode="new"
+    response-variable-name="clientconfiguresponse"
+    timeout="10"
+    ignore-error="true">
+            <set-url>@(new Uri(new Uri(context.Api.ServiceUrl.ToString() + "api/ClientConfig/"),(string)context.Variables["clientid"]).AbsoluteUri)</set-url>
+            <set-method>GET</set-method>
+</send-request>
+```
 
 응답에서 응답 본문 텍스트를 추출합니다.
 
-    <set-variable
-          name="clientversion"
-          value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
+```xml
+<set-variable
+      name="clientversion"
+      value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
+```
 
 나중에 사용할 캐시에 다시 저장합니다.
 
-    <cache-store-value
-          key="@("clientversion-" + context.Variables["clientid"])"
-          value="@((string)context.Variables["clientversion"])"
-          duration="100000" />
+```xml
+<cache-store-value
+      key="@("clientversion-" + context.Variables["clientid"])"
+      value="@((string)context.Variables["clientversion"])"
+      duration="100000" />
+```
 
 마지막으로 백 엔드 URL을 업데이트하여 클라이언트가 원하는 서비스의 버전을 선택합니다.
 
-    <set-backend-service
-          base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
+```xml
+<set-backend-service
+      base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
+```
 
 전체 정책은 다음과 같습니다.
 
-     <inbound>
-        <base />
-        <set-variable name="clientid" value="@(context.Subscription.Key)" />
-        <cache-lookup-value key="@("clientversion-" + context.Variables["clientid"])" variable-name="clientversion" />
+```xml
+<inbound>
+    <base />
+    <set-variable name="clientid" value="@(context.Subscription.Key)" />
+    <cache-lookup-value key="@("clientversion-" + context.Variables["clientid"])" variable-name="clientversion" />
 
-        <!-- If we don’t find it in the cache, make a request for it and store it -->
-        <choose>
-            <when condition="@(!context.Variables.ContainsKey("clientversion"))">
-                <send-request mode="new" response-variable-name="clientconfiguresponse" timeout="10" ignore-error="true">
-                    <set-url>@(new Uri(new Uri(context.Api.ServiceUrl.ToString() + "api/ClientConfig/"),(string)context.Variables["clientid"]).AbsoluteUri)</set-url>
-                    <set-method>GET</set-method>
-                </send-request>
-                <!-- Store response body in context variable -->
-                <set-variable name="clientversion" value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
-                <!-- Store result in cache -->
-                <cache-store-value key="@("clientversion-" + context.Variables["clientid"])" value="@((string)context.Variables["clientversion"])" duration="100000" />
-            </when>
-        </choose>
-        <set-backend-service base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
-    </inbound>
-
+    <!-- If we don’t find it in the cache, make a request for it and store it -->
+    <choose>
+        <when condition="@(!context.Variables.ContainsKey("clientversion"))">
+            <send-request mode="new" response-variable-name="clientconfiguresponse" timeout="10" ignore-error="true">
+                <set-url>@(new Uri(new Uri(context.Api.ServiceUrl.ToString() + "api/ClientConfig/"),(string)context.Variables["clientid"]).AbsoluteUri)</set-url>
+                <set-method>GET</set-method>
+            </send-request>
+            <!-- Store response body in context variable -->
+            <set-variable name="clientversion" value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
+            <!-- Store result in cache -->
+            <cache-store-value key="@("clientversion-" + context.Variables["clientid"])" value="@((string)context.Variables["clientversion"])" duration="100000" />
+        </when>
+    </choose>
+    <set-backend-service base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
+</inbound>
+```
 
 클라이언트가 클라이언트를 업데이트하고 다시 배포할 필요 없이 백 엔드 버전에 액세스하도록 투명하게 제어하도록 API 소비자를 사용하도록 설정하는 것이 많은 API 버전 관리 문제를 해결하는 세련된 솔루션입니다.
 

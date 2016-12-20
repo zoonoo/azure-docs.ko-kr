@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: darrmi
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -32,23 +32,27 @@ ms.openlocfilehash: 2a5078b34f74efd5d394587d8ace7f339ecedb5e
 ## <a name="ip-address-throttling"></a>IP 주소 제한
 다음 정책은 단일 클라이언트 IP 주소를 1분에 10개 호출만으로 제한하고 1개월에 총 1,000,000개 호출과 10,000킬로바이트의 대역폭으로 제한합니다. 
 
-    <rate-limit-by-key  calls="10"
-              renewal-period="60"
-              counter-key="@(context.Request.IpAddress)" />
+```xml
+<rate-limit-by-key  calls="10"
+          renewal-period="60"
+          counter-key="@(context.Request.IpAddress)" />
 
-    <quota-by-key calls="1000000"
-              bandwidth="10000"
-              renewal-period="2629800"
-              counter-key="@(context.Request.IpAddress)" />
+<quota-by-key calls="1000000"
+          bandwidth="10000"
+          renewal-period="2629800"
+          counter-key="@(context.Request.IpAddress)" />
+```
 
 인터넷의 모든 클라이언트가 고유 IP 주소를 사용한 경우 사용자별로 사용량을 제한하는 효과적인 방법일 수 있습니다. 그러나 사용자는 NAT 장치를 통해 인터넷에 액세스하므로 여러 사용자가 하나의 공용 IP 주소를 공유할 가능성이 높습니다. 그럼에도 불구하고 `IpAddress` 에 대한 무단 액세스를 허용하는 API에 대해서는 최상의 옵션일 수 있습니다.
 
 ## <a name="user-identity-throttling"></a>사용자 ID 제한
 최종 사용자가 인증된 후 해당 사용자를 고유하게 식별하는 정보를 기반으로 제한 키를 생성할 수 있습니다.
 
-    <rate-limit-by-key calls="10"
-        renewal-period="60"
-        counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
+```xml
+<rate-limit-by-key calls="10"
+    renewal-period="60"
+    counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
+```
 
 이 예제에서는 인증 헤더를 추출하여 `JWT` 개체로 변환하고 토큰의 주체를 사용하여 사용자를 식별하고 속도 제한 키로 사용합니다. 사용자 ID가 `JWT` 에 다른 클레임 중 하나로 저장된 경우 해당 값을 대신 사용할 수 있습니다.
 
@@ -58,9 +62,11 @@ ms.openlocfilehash: 2a5078b34f74efd5d394587d8ace7f339ecedb5e
 ## <a name="client-driven-throttling"></a>클라이언트 기반 제한
 제한 키가 [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx)을 사용하여 정의된 경우 제한 범위를 정하는 방식을 선택하는 것은 API 공급자입니다. 그러나 개발자가 자신의 고객을 속도 제한하는 방식을 제어하려 할 수 있습니다. API 공급자가 개발자의 클라이언트 응용 프로그램이 키를 API에 전달하도록 허용하는 사용자 지정 헤더를 도입하여 이를 수행할 수 있습니다.
 
-    <rate-limit-by-key calls="100"
-              renewal-period="60"
-              counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
+```xml
+<rate-limit-by-key calls="100"
+          renewal-period="60"
+          counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
+```
 
 따라서 개발자의 클라이언트 응용 프로그램이 속도 제한 키를 만드는 방법을 선택할 수 있습니다. 약간의 창의성만 발휘한다면 클라이언트 개발자는 키 집합을 사용자에 할당하고 키 사용을 회전하여 자신의 고유한 속도 계층을 만들 수 있습니다.
 

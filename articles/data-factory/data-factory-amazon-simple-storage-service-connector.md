@@ -53,33 +53,38 @@ Amazon S3에서 데이터를 복사하는 파이프라인을 만드는 가장 �
 
 **Amazon S3 연결된 서비스**
 
-    {
-        "name": "AmazonS3LinkedService",
-        "properties": {
-            "type": "AwsAccessKey",
-            "typeProperties": {
-                "accessKeyId": "<access key id>",
-                "secretAccessKey": "<secret access key>"
-            }
+```json
+{
+    "name": "AmazonS3LinkedService",
+    "properties": {
+        "type": "AwsAccessKey",
+        "typeProperties": {
+            "accessKeyId": "<access key id>",
+            "secretAccessKey": "<secret access key>"
         }
     }
+}
+```
 
 **Azure 저장소 연결된 서비스**
 
-    {
-      "name": "AzureStorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```json
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
+  }
+}
+```
 
 **Amazon S3 입력 데이터 집합**
 
 **"external": true** 로 설정하면 데이터 집합이 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실이 Data Factory 서비스에 전달됩니다. 파이프라인에서의 작업에 의해 생성되지 않은 입력 데이터 집합에서 이 속성을 true로 설정합니다.
 
+```json
     {
         "name": "AmazonS3InputDataset",
         "properties": {
@@ -99,117 +104,119 @@ Amazon S3에서 데이터를 복사하는 파이프라인을 만드는 가장 �
             "external": true
         }
     }
-
+```
 
 
 **Azure Blob 출력 데이터 집합**
 
 데이터는 매시간 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
 
-    {
-        "name": "AzureBlobOutputDataSet",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "mycontainer/fromamazons3/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                },
-                "partitionedBy": [
-                    {
-                        "name": "Year",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "yyyy"
-                        }
-                    },
-                    {
-                        "name": "Month",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "MM"
-                        }
-                    },
-                    {
-                        "name": "Day",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "dd"
-                        }
-                    },
-                    {
-                        "name": "Hour",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "HH"
-                        }
-                    }
-                ]
+```json
+{
+    "name": "AzureBlobOutputDataSet",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "mycontainer/fromamazons3/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
             },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ]
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
+}
+```
 
 
 **복사 작업을 포함하는 파이프라인**
 
 파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **FileSystemSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다.
 
-    {
-        "name": "CopyAmazonS3ToBlob",
-        "properties": {
-            "description": "pipeline for copy activity",
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "FileSystemSource",
-                            "recursive": true
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "writeBatchSize": 0,
-                            "writeBatchTimeout": "00:00:00"
-                        }
+```json
+{
+    "name": "CopyAmazonS3ToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "FileSystemSource",
+                        "recursive": true
                     },
-                    "inputs": [
-                        {
-                            "name": "AmazonS3InputDataset"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobOutputDataSet"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "AmazonS3ToBlob"
-                }
-            ],
-            "start": "2014-08-08T18:00:00Z",
-            "end": "2014-08-08T19:00:00Z"
-        }
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "AmazonS3InputDataset"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutputDataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "AmazonS3ToBlob"
+            }
+        ],
+        "start": "2014-08-08T18:00:00Z",
+        "end": "2014-08-08T19:00:00Z"
     }
-
+}
+```
 
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
@@ -240,59 +247,67 @@ Amazon S3에서 데이터를 복사하는 파이프라인을 만드는 가장 �
 >
 
 ### <a name="sample-dataset-with-prefix"></a>접두사를 사용한 샘플 데이터 집합
-    {
-        "name": "dataset-s3",
-        "properties": {
-            "type": "AmazonS3",
-            "linkedServiceName": "link- testS3",
-            "typeProperties": {
-                "prefix": "testFolder/test",
-                "bucketName": "testbucket",
-                "format": {
-                    "type": "OrcFormat"
-                }
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true
-        }
-    }
 
+```json
+{
+    "name": "dataset-s3",
+    "properties": {
+        "type": "AmazonS3",
+        "linkedServiceName": "link- testS3",
+        "typeProperties": {
+            "prefix": "testFolder/test",
+            "bucketName": "testbucket",
+            "format": {
+                "type": "OrcFormat"
+            }
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true
+    }
+}
+```
 ### <a name="sample-data-set-with-version"></a>샘플 데이터 집합 (버전 포함)
-    {
-        "name": "dataset-s3",
-        "properties": {
-            "type": "AmazonS3",
-            "linkedServiceName": "link- testS3",
-            "typeProperties": {
-                "key": "testFolder/test.orc",
-                "bucketName": "testbucket",
-                "version": "WBeMIxQkJczm0CJajYkHf0_k6LhBmkcL",
-                "format": {
-                    "type": "OrcFormat"
-                }
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true
-        }
-    }
 
+```json
+{
+    "name": "dataset-s3",
+    "properties": {
+        "type": "AmazonS3",
+        "linkedServiceName": "link- testS3",
+        "typeProperties": {
+            "key": "testFolder/test.orc",
+            "bucketName": "testbucket",
+            "version": "WBeMIxQkJczm0CJajYkHf0_k6LhBmkcL",
+            "format": {
+                "type": "OrcFormat"
+            }
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true
+    }
+}
+```
 
 ### <a name="dynamic-paths-for-s3"></a>S3에 대한 동적 경로
 이 샘플에서는 Amazon S3 데이터 집합의 키 및 bucketName 속성에 대해 고정 값을 사용합니다.
 
-    "key": "testFolder/test.orc",
-    "bucketName": "testbucket",
+```json
+"key": "testFolder/test.orc",
+"bucketName": "testbucket",
+```
 
 SliceStart와 같은 시스템 변수를 사용하여 데이터 팩터리가 런타임에 동적으로 키와 bucketName 계산하게 할 수 있습니다.
 
-    "key": "$$Text.Format('{0:MM}/{0:dd}/test.orc', SliceStart)"
-    "bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
+```json
+"key": "$$Text.Format('{0:MM}/{0:dd}/test.orc', SliceStart)"
+"bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
+```
 
 Amazon S3 데이터 집합의 접두사 속성에 대해서도 동일하게 수행할 수 있습니다. 지원되는 함수 및 변수 목록은 [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md) 를 참조하세요.
 
