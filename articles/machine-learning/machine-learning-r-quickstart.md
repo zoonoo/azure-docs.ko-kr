@@ -1,13 +1,13 @@
 ---
-title: 기계 학습을 위한 R 언어의 빠른 시작 자습서 | Microsoft Docs
-description: 이 R 프로그래밍 자습서를 사용하여 신속하게 Azure 기계 학습 스튜디오에서 R 언어를 사용하여 예측 솔루션을 만듭니다.
-keywords: 빠른 시작, r 언어, r 프로그래밍 언어, r 프로그래밍 자습서
+title: "Machine Learning용 R 언어의 빠른 시작 자습서 | Microsoft Docs"
+description: "이 R 프로그래밍 자습서를 사용하여 신속하게 Azure 기계 학습 스튜디오에서 R 언어를 사용하여 예측 솔루션을 만듭니다."
+keywords: "빠른 시작, r 언어, r 프로그래밍 언어, r 프로그래밍 자습서"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 120e7819535dca314ae9bc8cc266ec8771516735
+
 
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Azure 기계 학습에 대한 프로그래밍 언어는 R에 대한 빠른 시작 자습서
@@ -136,7 +140,7 @@ RStudio에 대한 자습서 소개는 https://support.rstudio.com/hc/sections/20
 **csdairydata.csv** 파일을 Azure 기계 학습 스튜디오로 로드하여 시작합니다.
 
 * Azure 기계 학습 스튜디오 환경을 시작합니다.
-* 화면의 왼쪽 아래에 있는 __+ 새로 만들기__를 클릭하고 **데이터 집합**을 선택합니다.
+* 화면의 왼쪽 아래에 있는 **+ 새로 만들기**를 클릭하고 **데이터 집합**을 선택합니다.
 * **로컬 파일에서**를 선택한 다음 **찾아보기**를 선택하여 파일을 선택합니다.
 * **Generic CSV file with header (.csv)(헤더가 포함된 일반 CSV 파일(.csv))**를 데이터 집합 형식으로 선택했는지 확인합니다.
 * 확인 표시를 클릭합니다.
@@ -145,7 +149,7 @@ RStudio에 대한 자습서 소개는 https://support.rstudio.com/hc/sections/20
 #### <a name="create-an-experiment"></a>실험 만들기
 이제 기계 학습 스튜디오에 일부 데이터가 있으므로 분석을 수행하기 위한 실험을 만들어야 합니다.  
 
-* 왼쪽 아래에 있는 __+ 새로 만들기__를 클릭하고 **실험**, **빈 실험**을 차례로 선택합니다.
+* 왼쪽 아래에 있는 **+ 새로 만들기**를 클릭하고 **실험**, **빈 실험**을 차례로 선택합니다.
 * 페이지 위쪽에 있는 **Experiment created on ...(...에서 만든 실험)**을 선택하고 수정하여 실험의 이름을 지정할 수 있습니다. 예를 들어 **CA Dairy Analysis**로 변경합니다.
 * 실험 페이지의 왼쪽에서 **저장된 데이터 집합**, **내 데이터 집합**을 차례로 확장합니다. 이전에 업로드한 **cadairydata.csv**가 표시되어야 합니다.
 * **csdairydata.csv 데이터 집합**을 실험에 끌어다 놓습니다.
@@ -217,7 +221,7 @@ Azure 기계 학습 스튜디오에서 실험할 간단한 첫 번째 R 스크�
         ## The following line should be executed only when running in
         ## Azure Machine Learning Studio
         maml.mapOutputPort('cadairydata')
-2. Zip 파일을 만들고 스크립트를 이 zip 파일에 복사합니다. Windows에서 파일을 마우스 오른쪽 단추로 클릭하고 __보내기__를 선택한 다음 __압축 폴더__를 선택할 수 있습니다. 그러면 "simpleplot.R" 파일을 포함하는 zip 파일이 새로 만들어집니다.
+2. Zip 파일을 만들고 스크립트를 이 zip 파일에 복사합니다. Windows에서 파일을 마우스 오른쪽 단추로 클릭하고 **보내기**를 선택한 다음 **압축 폴더**를 선택할 수 있습니다. 그러면 "simpleplot.R" 파일을 포함하는 zip 파일이 새로 만들어집니다.
 3. 파일을 **zip** 형식으로 지정하여 Machine Learning Studio의 **데이터 집합**에 추가합니다. 이제 데이터 집합에 zip 파일이 표시됩니다.
 4. Zip 파일을 **데이터 집합**에서 **ML Studio 캔버스**로 끌어다 놓습니다.
 5. **Zip 데이터** 아이콘의 출력을 [R 스크립트 실행][execute-r-script] 모듈의 **스크립트 번들** 입력에 연결합니다.
@@ -709,7 +713,7 @@ POSIXct 시계열 클래스가 일반적으로 사용되며 비교적 간단합�
                     'ERROR: ts.detrend has encountered a Time argument not of class POSIXct',
                     'ERROR: Detrend regression has failed in ts.detrend',
                     'ERROR: Exception occurred in ts.detrend while standardizing time series in function ts.detrend'
-    )
+      )
       # Create a vector of zeros to return as a default in some cases
       zerovec  <- rep(length(ts), 0.0)
 
@@ -981,7 +985,7 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ##
     ## Residual standard error: 0.0418 on 212 degrees of freedom
-    ## Multiple R-squared:  0.941,  Adjusted R-squared:  0.94
+    ## Multiple R-squared:  0.941,    Adjusted R-squared:  0.94
     ## F-statistic: 1.12e+03 on 3 and 212 DF,  p-value: <2e-16
 
 이 출력의 P 값(Pr(>|t|))을 통해 제곱항이 중요하지 않을 수 있다는 사실을 알 수 있습니다. 제곱항을 삭제하고 `update()` 함수를 사용하여 이 모델을 수정합니다.
@@ -1065,7 +1069,7 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ##
     ## Residual standard error: 0.0263 on 202 degrees of freedom
-    ## Multiple R-squared:     1,   Adjusted R-squared:     1
+    ## Multiple R-squared:     1,    Adjusted R-squared:     1
     ## F-statistic: 1.42e+06 on 14 and 202 DF,  p-value: <2e-16
 
 모델에 절편항이 없고 12개의 중요한 월 요소가 있음을 알 수 있습니다. 이것이 바로 원했던 결과입니다.
@@ -1148,7 +1152,7 @@ Azure 기계 학습에서 이 코드를 실행하면 그림 24와 같은 도표�
         return(NA)}
 
       if((length(series1) != length(series2))) {
-        warning(messages[3])
+           warning(messages[3])
         return(NA)}
 
       ## If is.log is TRUE exponentiate the values, else just copy
@@ -1280,6 +1284,6 @@ R 시계열 패키지 카탈로그는 CRAN Task View for time series analysis(ht
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

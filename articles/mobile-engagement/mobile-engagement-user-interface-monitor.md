@@ -1,12 +1,12 @@
 ---
-title: Azure Mobile Engagement 사용자 인터페이스 - 모니터
-description: Azure Mobile Engagement를 사용하여 응용 프로그램에 대한 실시간 데이터를 모니터링하는 방법 알아보기
+title: "Azure Mobile Engagement 사용자 인터페이스 - 모니터"
+description: "Azure Mobile Engagement를 사용하여 응용 프로그램에 대한 실시간 데이터를 모니터링하는 방법 알아보기"
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: b91ad89a-b89d-4377-abb0-cc2d16a2836d
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 838079ed1317aca19ee8e5c5721efb0d93dd97e6
+
 
 ---
-# 응용 프로그램에 대한 실시간 데이터를 모니터링하는 방법
-이 문서에서는 **Mobile Engagement** 포털의 **모니터** 탭을 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다. 포털 사용을 시작하려면 먼저 **Azure Mobile Engagement** 계정을 만들어야 합니다.
+# <a name="how-to-monitor-real-time-data-about-your-application"></a>응용 프로그램에 대한 실시간 데이터를 모니터링하는 방법
+이 문서에서는 **Mobile Engagement** 포털의 **모니터링** 탭을 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다. 포털 사용을 시작하려면 먼저 **Azure Mobile Engagement** 계정을 만들어야 합니다. 
 
 UI의 모니터 섹션에서는 실시간 분석 정보를 제공하며, 이전부터 UI의 [분석](mobile-engagement-user-interface-analytics.md) 섹션에 있었던 거의 대부분의 정보에 대해 임계값에 도달하면 전송할 경고를 설정할 수 있습니다. 분석 및 모니터링에서 사용되는 용어와 약어의 정의는 [개념](http://go.microsoft.com/fwlink/?LinkId=525555) 항목의 **용어집** 섹션을 참조하세요. 이러한 용어로는 활성 사용자, 새 사용자, 재방문 사용자, 세션, 사용자 경로 그래프, 사용자 맵, 추적 URL, 추세, 활동, 이벤트, 작업, 오류, 추가 정보, 작동 중단, 앱 정보 등이 있습니다.
 
@@ -26,35 +30,35 @@ UI의 모니터 섹션에서는 실시간 분석 정보를 제공하며, 이전�
 > 
 > 
 
-## 모니터 - 세션, 작업, 이벤트, 오류 및 작동 중단
-현재 세션 및 특정 화면을 사용 중인 사용자나 특정 작업을 수행 중인 사용자의 수를 확인할 수 있습니다. 세션, 작업, 이벤트, 오류 및 작동 중단을 기준으로 구분된 사용자 활동을 확인할 수 있습니다. 현재 정보를 보고 지난 1시간, 1일 또는 1주 동안의 정보를 표시할 수 있습니다. 각 범주의 모든 정보를 볼 수도 있고 특정 세션/작업/이벤트/오류/작동 중단을 기준으로 정렬할 수 있습니다. 푸시 캠페인 등의 이벤트 중에 라이브 모니터링을 수행하면 푸시 알림을 보낸 직후에 작업이 다소 증가하는지 확인할 수 있습니다.
+## <a name="monitor---sessions-jobs-events-errors-and-crashes"></a>모니터 - 세션, 작업, 이벤트, 오류 및 작동 중단
+현재 세션 및 특정 화면을 사용 중인 사용자나 특정 작업을 수행 중인 사용자의 수를 확인할 수 있습니다. 세션, 작업, 이벤트, 오류 및 작동 중단을 기준으로 구분된 사용자 활동을 확인할 수 있습니다. 현재 정보를 보고 지난 1시간, 1일 또는 1주 동안의 정보를 표시할 수 있습니다. 각 범주의 모든 정보를 볼 수도 있고 특정 세션/작업/이벤트/오류/작동 중단을 기준으로 정렬할 수 있습니다.  푸시 캠페인 등의 이벤트 중에 라이브 모니터링을 수행하면 푸시 알림을 보낸 직후에 작업이 다소 증가하는지 확인할 수 있습니다.
 
-![Monitor1][14]
+![Monitor1][14]  
 
-## 모니터를 통해 문제 해결 - 이벤트 - 세부 정보
+## <a name="troubleshooting-with-monitor---events---details"></a>모니터를 통해 문제 해결 - 이벤트 - 세부 정보
 테스트 장치의 응용 프로그램에서 이벤트를 생성한 다음 모니터 - 이벤트 - 세부 정보에서 해당 이벤트를 찾으면 매우 쉽게 테스트 장치의 장치 ID를 찾고 Azure Mobile Engagement와 통합된 분석, 모니터링 및 세그먼트가 응용 프로그램에서 작동하는지 확인할 수 있습니다. 테스트 장치의 장치 ID를 찾은 후에는 "내 계정 - 장치"에서 테스트 장치에 해당 ID를 추가할 수 있습니다. 이벤트를 생성할 수 없는 경우 SDK가 설치된 Android/iOS/Web/Windows/Windows Phone 앱에 Azure Mobile Engagement가 올바르게 통합되어 있는지 확인합니다.
 
-자세한 내용은 [SDK 설명서][Link 5]를 참조하세요.
+자세한 내용은 [SDK 설명서][링크 5]를 참조하세요.
 
-![Monitor2][15]
+![Monitor2][15]  
 
-## 모니터를 통해 문제 해결 - 작동 중단 - 세부 정보
+## <a name="troubleshooting-with-monitor---crashes---details"></a>모니터를 통해 문제 해결 - 작동 중단 - 세부 정보
 모니터 - 작동 중단 - 세부 정보에서 앱에 대한 작동 중단 정보를 검토하여 앱의 작동이 중단되는 이유를 확인할 수 있습니다. 또한 Android/iOS/Web/Windows/Windows Phone용 각 SDK 버전의 릴리스 정보에서 각 SDK 버전의 알려진 문제를 찾아보아야 합니다.
 
-자세한 내용은 [SDK 설명서 - 릴리스 정보][Link 5]를 참조하세요.
+자세한 내용은 [SDK 설명서 - 릴리스 정보][링크 5]를 참조하세요.
 
 ![Monitor3][16]
 
-## 모니터 - 경고
-전자 메일 또는 인스턴트 메시지를 통해 자동으로 전송할 경고에 대한 조건을 지정할 수도 있습니다. Google의 GTalk, Apple의 iChat 등 XMPP 호환 서비스가 지원됩니다. 경고는 초/분/시간당 특정 세션, 작업, 이벤트, 오류 또는 작동 중단 수보다 크거나(>) 작은(<) 미리 정의된 검색 임계값을 기준으로 합니다. 경고는 지정된 유형의 모든 활동을 모니터링할 수도 있고 특정 작업, 이벤트 또는 오류 활동만 모니터링할 수도 있습니다.
+## <a name="monitor---alerts"></a>모니터 - 경고
+전자 메일 또는 인스턴트 메시지를 통해 자동으로 전송할 경고에 대한 조건을 지정할 수도 있습니다. Google의 GTalk, Apple의 iChat 등 XMPP 호환 서비스가 지원됩니다. 경고는 초/분/시간당 특정 세션, 작업, 이벤트, 오류 또는 작동 중단 수보다 크거나(>) 작은(<) 미리 정의된 검색 임계값을 기준으로 합니다. 경고는 지정된 유형의 모든 활동을 모니터링할 수도 있고 특정 작업, 이벤트 또는 오류 활동만 모니터링할 수도 있습니다. 
 
 경고 트리거 시 지정된 간격당 알림을 두 개 이상 받지 않도록 같은 경고에 대해 알림을 두 개로 구분하여 간격을 유지할 최소 시간(분)인 최소 검색 속도를 지정할 수도 있습니다.
 
 ![Monitor4][17]
 
-## 참고 항목
-* [개념][Link 6]
-* [문제 해결 가이드 서비스][Link 24]
+## <a name="see-also"></a>참고 항목
+* [개념][링크 6]
+* [문제 해결 가이드 서비스][링크 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -117,38 +121,42 @@ UI의 모니터 섹션에서는 실시간 분석 정보를 제공하며, 이전�
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: ../mobile-engagement-how-tos-first-push.md
-[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Link 32]: ../mobile-engagement-how-tos-text-view.md
-[Link 33]: ../mobile-engagement-how-tos-web-view.md
+[링크 1]: mobile-engagement-user-interface.md
+[링크 2]: mobile-engagement-troubleshooting-guide.md
+[링크 3]: mobile-engagement-how-tos.md
+[링크 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[링크 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[링크 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[링크 7]: https://account.windowsazure.com/PreviewFeatures
+[링크 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[링크 9]: http://azure.microsoft.com/services/mobile-engagement/
+[링크 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[링크 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[링크 12]: mobile-engagement-user-interface-navigation.md
+[링크 13]: mobile-engagement-user-interface-home.md
+[링크 14]: mobile-engagement-user-interface-my-account.md
+[링크 15]: mobile-engagement-user-interface-analytics.md
+[링크 16]: mobile-engagement-user-interface-monitor.md
+[링크 17]: mobile-engagement-user-interface-reach.md
+[링크 18]: mobile-engagement-user-interface-segments.md
+[링크 19]: mobile-engagement-user-interface-dashboard.md
+[링크 20]: mobile-engagement-user-interface-settings.md
+[링크 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[링크 22]: mobile-engagement-troubleshooting-guide-apis.md
+[링크 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[링크 24]: mobile-engagement-troubleshooting-guide-service.md
+[링크 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[링크 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[링크 27]: ../mobile-engagement-how-tos-first-push.md
+[링크 28]: ../mobile-engagement-how-tos-test-campaign.md
+[링크 29]: ../mobile-engagement-how-tos-personalize-push.md
+[링크 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[링크 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[링크 32]: ../mobile-engagement-how-tos-text-view.md
+[링크 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: HPC 팩 클러스터의 Linux 계산 VM | Microsoft Docs
-description: Azure에서 Linux HPC(고성능 컴퓨팅) 워크로드에 대한 HPC Pack 클러스터를 만들고 사용하는 방법을 알아봅니다.
+title: "HPC 팩 클러스터의 Linux 계산 VM | Microsoft Docs"
+description: "Azure에서 Linux HPC(고성능 컴퓨팅) 워크로드에 대한 HPC Pack 클러스터를 만들고 사용하는 방법을 알아봅니다."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: dlepow
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager,hpc-pack
-
+ms.assetid: 4d080fdd-5ffe-4f54-a78d-4c818f6eb3fb
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,14 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 38c1494a3089bac46e565a373a83a939791beef7
+
 
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작
 Windows Server를 실행하는 헤드 노드 및 지원되는 Linux 배포를 실행하는 여러 컴퓨터 노드를 포함하는 Azure의 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) 클러스터를 설정합니다. 클러스터의 Windows 헤드 노드와 Linux 노드 간에 데이터를 이동하는 옵션을 탐색합니다. Linux HPC 작업을 클러스터에 제출하는 방법에 대해 알아봅니다.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
-.
 
 다음 다이어그램은 만들고 작업하려는 HPC Pack 클러스터를 개략적으로 보여 줍니다.
 
@@ -34,9 +36,9 @@ Azure에서 Linux HPC 워크로드를 실행하기 위한 다른 옵션을 보�
 이 문서에서는 Azure에서 Linux 계산 노드와 함께 HPC Pack 클러스터를 배포하기 위한 두 가지 옵션을 보여 줍니다. 두 방법 모두 HPC Pack과 함께 Windows Server의 마켓플레이스 이미지를 사용하여 헤드 노드를 만듭니다. 
 
 * **Azure Resource Manager 템플릿** - Azure 마켓플레이스의 템플릿 또는 커뮤니티의 빠른 시작 템플릿을 사용하여 Resource Manager 배포 모델에서 클러스터 만들기를 자동화합니다. 예를 들어 Azure 마켓플레이스의 [Linux 워크로드에 대한 HPC Pack 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 템플릿은 Linux HPC 워크로드에 대한 완전한 HPC Pack 클러스터 인프라를 만듭니다.
-* **PowerShell 스크립트** - [Microsoft HPC Pack IaaS 배포 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)(**New-HpcIaaSCluster.ps1**)를 사용하여 클래식 배포 모델의 완전한 클러스터 배포를 자동화합니다. 이 Azure PowerShell 스크립트는 빠른 배포를 위해 Azure 마켓플레이스의 HPC Pack VM 이미지를 사용하며 Linux 컴퓨터 노드 배포를 위한 포괄적인 구성 매개 변수 집합을 제공합니다.
+* **PowerShell 스크립트** - [Microsoft HPC Pack IaaS 배포 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)(**New-HpcIaaSCluster.ps1**)를 사용하여 클래식 배포 모델의 완전한 클러스터 배포를 자동화합니다. 이 Azure PowerShell 스크립트는 빠른 배포를 위해 Azure 마켓플레이스의 HPC Pack VM 이미지를 사용하며 Linux 컴퓨터 노드 배포를 위한 포괄적인 구성 매개 변수 집합을 제공합니다.
 
-Azure의 HPC Pack 클러스터 배포 옵션에 대한 자세한 내용은 [Microsoft HPC Pack을 사용하여 Azure에서 HPC(고성능 컴퓨팅) 클러스터를 만들고 관리하는 옵션](virtual-machines-linux-hpcpack-cluster-options.md)을 참조하세요.
+Azure의 HPC Pack 클러스터 배포 옵션에 대한 자세한 내용은 [Microsoft HPC Pack을 사용하여 Azure에서 HPC(고성능 컴퓨팅) 클러스터를 만들고 관리하는 옵션](virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
 ### <a name="prerequisites"></a>필수 조건
 * **Azure 구독** - Azure Global 또는 Azure China 서비스의 구독을 사용할 수 있습니다. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
@@ -49,7 +51,7 @@ Azure의 HPC Pack 클러스터 배포 옵션에 대한 자세한 내용은 [Micr
   * **Ubuntu Server**: 14.04 LTS, 16.04 LTS
     
     > [!TIP]
-    > RDMA 지원 VM 크기 중 하나에서 Azure RDMA 네트워크를 사용하려면 Azure 마켓플레이스에서 SUSE Linux Enterprise Server 12 HPC 또는 CentOS 기반 HPC 이미지를 지정합니다. 자세한 내용은 [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](virtual-machines-linux-a8-a9-a10-a11-specs.md)를 참조하세요.
+    > RDMA 지원 VM 크기 중 하나에서 Azure RDMA 네트워크를 사용하려면 Azure 마켓플레이스에서 SUSE Linux Enterprise Server 12 HPC 또는 CentOS 기반 HPC 이미지를 지정합니다. 자세한 내용은 [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
     > 
     > 
 
@@ -59,7 +61,7 @@ HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 배포하는 �
 * **Azure PowerShell** - [Azure PowerShell(버전 0.8.10 이상)을 설치 및 구성](../powershell-install-configure.md) 합니다.
 * **HPC 팩 IaaS 배포 스크립트** - [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=44949)에서 최신 버전의 스크립트를 다운로드하고 압축을 풉니다. `.\New-HPCIaaSCluster.ps1 –Version`을 실행하여 스크립트 버전을 확인할 수 있습니다. 이 문서는 4.4.1 이상 버전의 스크립트를 기반으로 합니다.
 
-### <a name="deployment-option-1.-use-a-resource-manager-template"></a>배포 옵션 1. Resource Manager 템플릿 사용
+### <a name="deployment-option-1-use-a-resource-manager-template"></a>배포 옵션 1. Resource Manager 템플릿 사용
 1. Azure 마켓플레이스의 [Linux 워크로드용 HPC Pack 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 템플릿으로 이동하여 **배포**를 클릭합니다.
 2. Azure 포털에서 정보를 검토한 다음 **만들기**를 클릭합니다.
    
@@ -80,7 +82,7 @@ HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 배포하는 �
    > 
 7. 유효성 검사 테스트가 실행되고 사용 약관을 검토한 후에는 **구매**를 클릭합니다.
 
-### <a name="deployment-option-2.-use-the-iaas-deployment-script"></a>배포 옵션 2. IaaS 배포 스크립트 사용
+### <a name="deployment-option-2-use-the-iaas-deployment-script"></a>배포 옵션 2. IaaS 배포 스크립트 사용
 HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 배포하는 경우 추가 필수 조건은 다음과 같습니다.
 
 * **클라이언트 컴퓨터** - 클러스터 배포 스크립트를 실행할 Windows 기반 클라이언트 컴퓨터가 필요합니다.
@@ -91,7 +93,7 @@ HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 배포하는 �
 
 HPC Pack IaaS 배포 스크립트는 XML 구성 파일을 입력으로 사용하여 HPC 클러스터에 대해 설명합니다. 다음 샘플 구성 파일은 HPC Pack 헤드 노드와 두 가지 크기의 A7 CentOS 7.0 Linux 컴퓨터 노드로 구성된 작은 클러스터를 지정합니다. 
 
-환경 및 원하는 클러스터 구성의 필요에 따라 파일을 수정하고 HPCDemoConfig.xml 등의 이름을 지정하여 저장합니다. 예를 들어 구독 이름 및 고유 저장소 계정 이름과 클라우드 서비스 이름을 제공해야 합니다. 또한 계산 노드에 대해 지원되는 다른 Linux 이미지를 선택할 수도 있습니다. 구성 파일의 요소에 대한 자세한 내용은 스크립트 폴더의 Manual.rtf 파일과 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)를 참조하세요.
+환경 및 원하는 클러스터 구성의 필요에 따라 파일을 수정하고 HPCDemoConfig.xml 등의 이름을 지정하여 저장합니다. 예를 들어 구독 이름 및 고유 저장소 계정 이름과 클라우드 서비스 이름을 제공해야 합니다. 또한 계산 노드에 대해 지원되는 다른 Linux 이미지를 선택할 수도 있습니다. 구성 파일의 요소에 대한 자세한 내용은 스크립트 폴더의 Manual.rtf 파일과 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -163,7 +165,7 @@ HPC Pack IaaS 배포 스크립트는 XML 구성 파일을 입력으로 사용하
    > 
 
 ## <a name="connect-to-the-head-node"></a>헤드 노드에 연결
-Azure에서 HPC Pack 클러스터를 배포한 후에 클러스터를 배포할 때 제공한 도메인 자격 증명(예: *hpc\\clusteradmin*)을 사용하여 [원격 데스크톱을 통해 헤드 노드 VM에 연결](virtual-machines-windows-connect-logon.md)합니다. 헤드 노드에서 클러스터를 관리합니다.
+Azure에서 HPC Pack 클러스터를 배포한 후에 클러스터를 배포할 때 제공한 도메인 자격 증명(예: *hpc\\clusteradmin*)을 사용하여 [원격 데스크톱을 통해 헤드 노드 VM에 연결](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)합니다. 헤드 노드에서 클러스터를 관리합니다.
 
 헤드 노드에서 HPC 클러스터 관리자를 시작하여 HPC Pack 클러스터의 상태를 확인합니다. Windows 계산 노드에서 작업하는 것과 동일한 방식으로 Linux 계산 노드를 관리 및 모니터링할 수 있습니다. 예를 들어 **리소스 관리**에 나열된 Linux 노드가 표시됩니다(이러한 노드는 **LinuxNode** 템플릿으로 배포됨).
 
@@ -266,7 +268,7 @@ HPC Pack 클러스터에 작업을 제출하는 방법에는 여러 가지가 �
 * HPC 웹 포털
 * REST API
 
-Azure에서 HPC Pack GUI 도구 및 HPC 웹 포털을 통해 클러스터에 작업을 제출하는 방법은 Windows 컴퓨터 노드의 경우와 동일합니다. [HPC Pack 작업 관리자](https://technet.microsoft.com/library/ff919691.aspx) 및 [온-프레미스 클라이언트 컴퓨터에서 작업을 제출하는 방법](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)을 참조하세요.
+Azure에서 HPC Pack GUI 도구 및 HPC 웹 포털을 통해 클러스터에 작업을 제출하는 방법은 Windows 컴퓨터 노드의 경우와 동일합니다. [HPC Pack 작업 관리자](https://technet.microsoft.com/library/ff919691.aspx) 및 [온-프레미스 클라이언트 컴퓨터에서 작업을 제출하는 방법](virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 REST API를 통해 작업을 제출하려면 [Microsoft HPC Pack의 REST API를 사용하여 작업 만들기 및 제출](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx)을 참조하세요. 또한 Linux 클라이언트에서 작업을 제출하려면 [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756)의 Python 샘플을 참조하세요.
 
@@ -295,8 +297,8 @@ HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) 도구�
 > 
 
 ## <a name="next-steps"></a>다음 단계
-* 클러스터의 노드 수를 확장하거나 클러스터에서 Linux 워크로드를 실행해 보세요. 예제는 [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](virtual-machines-linux-classic-hpcpack-cluster-namd.md)을 참조하세요.
-* [RDMA 지원, 계산 집약적 VM](virtual-machines-windows-a8-a9-a10-a11-specs.md)이 있는 클러스터로 MPI 작업을 실행해 보세요. 그에 대한 예는 [Azure의 Linux RDMA 클러스터에서 Microsoft HPC Pack을 사용하여 OpenFOAM 실행](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)을 참조하세요.
+* 클러스터의 노드 수를 확장하거나 클러스터에서 Linux 워크로드를 실행해 보세요. 예제는 [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](virtual-machines-linux-classic-hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
+* [RDMA 지원, 계산 집약적 VM](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)이 있는 클러스터로 MPI 작업을 실행해 보세요. 그에 대한 예는 [Azure의 Linux RDMA 클러스터에서 Microsoft HPC Pack을 사용하여 OpenFOAM 실행](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
 * 온-프레미스 HPC Pack 클러스터의 Linux 노드를 사용한 작업에 관심이 있는 경우 [TechNet 지침](https://technet.microsoft.com/library/mt595803.aspx)을 참조하세요.
 
 <!--Image references-->
@@ -316,6 +318,6 @@ HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) 도구�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

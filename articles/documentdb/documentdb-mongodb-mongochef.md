@@ -1,13 +1,13 @@
 ---
-title: MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정으로 MongoChef 사용 | Microsoft Docs
-description: MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정으로 MongoChef를 사용하는 방법을 알아봅니다. 현재 미리 보기를 지원합니다.
+title: "MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정으로 MongoChef 사용 | Microsoft Docs"
+description: "MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정으로 MongoChef를 사용하는 방법을 알아봅니다. 현재 미리 보기를 지원합니다."
 keywords: MongoChef
 services: documentdb
 author: AndrewHoh
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2016
 ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 90039d2626724ed789415967a345d2aadc3407af
+
 
 ---
 # <a name="use-mongochef-with-a-documentdb-account-with-protocol-support-for-mongodb"></a>MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정으로 MongoChef 사용
 MongoChef를 사용하여 MongoDB에 대한 프로토콜 지원을 사용하는 Azure DocumentDB 계정에 연결하려면 다음을 수행해야 합니다.
 
-* [MongoChef](http://3t.io/mongochef)
+*  [MongoChef](http://3t.io/mongochef)
 * MongoDB [연결 문자열](documentdb-connect-mongodb-account.md) 정보에 대한 프로토콜 지원을 사용하는 DocumentDB 계정이 필요합니다.
 
 ## <a name="create-the-connection-in-mongochef"></a>MongoChef에서 연결을 만듭니다.
@@ -45,7 +49,7 @@ MongoChef 연결 관리자에 MongoDB에 대한 프로토콜 지원을 사용하
    
     ![MongoChef 테스트 연결 창의 스크린샷](./media/documentdb-mongodb-mongochef/TestConnectionResults.png)
 
-## <a name="use-mongochef-to-create-a-database,-collection,-and-documents"></a>MongoChef를 사용하여 데이터베이스, 컬렉션 및 문서를 만듭니다.
+## <a name="use-mongochef-to-create-a-database-collection-and-documents"></a>MongoChef를 사용하여 데이터베이스, 컬렉션 및 문서를 만듭니다.
 MongoChef를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려면 다음 단계를 수행합니다.
 
 1. **연결 관리자**에서 연결을 강조 표시하고 **연결**을 클릭합니다.
@@ -66,14 +70,14 @@ MongoChef를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려�
         "_id": "AndersenFamily",
         "lastName": "Andersen",
         "parents": [
-            { "firstName": "Thomas" },
-            { "firstName": "Mary Kay"}
+               { "firstName": "Thomas" },
+               { "firstName": "Mary Kay"}
         ],
         "children": [
-        {
-            "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-            "pets": [{ "givenName": "Fluffy" }]
-        }
+           {
+               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+               "pets": [{ "givenName": "Fluffy" }]
+           }
         ],
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
@@ -89,7 +93,7 @@ MongoChef를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려�
         "children": [
             {
                 "familyName": "Merriam", 
-                "givenName": "Jesse", 
+                 "givenName": "Jesse", 
                 "gender": "female", "grade": 1,
                 "pets": [
                     { "givenName": "Goofy" },
@@ -98,9 +102,9 @@ MongoChef를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려�
             },
             { 
                 "familyName": "Miller", 
-                "givenName": "Lisa", 
-                "gender": "female", 
-                "grade": 8 }
+                 "givenName": "Lisa", 
+                 "gender": "female", 
+                 "grade": 8 }
         ],
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
@@ -112,6 +116,9 @@ MongoChef를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려�
 ## <a name="next-steps"></a>다음 단계
 * MongoDB [샘플](documentdb-mongodb-samples.md)에 대한 프로토콜 지원을 사용하여 DocumentDB를 탐색합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

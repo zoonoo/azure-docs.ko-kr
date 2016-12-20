@@ -1,12 +1,12 @@
 ---
-title: 미디어 인코더 표준을 사용한 고급 인코딩 | Microsoft Docs
-description: 이 항목에서는 미디어 인코더 표준 태스크 사전 설정을 사용자 지정하여 고급 인코딩을 수행하는 방법을 설명합니다. 그리고 Media Services .NET SDK를 사용하여 인코딩 태스크와 작업을 만드는 방법을 설명합니다. 또한 인코딩 작업에 사용자 지정 사전 설정을 제공하는 방법을 보여줍니다.
+title: "Media Encoder Standard을 사용하는 고급 인코딩 | Microsoft 문서"
+description: "이 항목에서는 미디어 인코더 표준 태스크 사전 설정을 사용자 지정하여 고급 인코딩을 수행하는 방법을 설명합니다. 그리고 Media Services .NET SDK를 사용하여 인코딩 태스크와 작업을 만드는 방법을 설명합니다. 또한 인코딩 작업에 사용자 지정 사전 설정을 제공하는 방법을 보여줍니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e85bc8a1e9193474fa3c9ef3f19ead25f314ecac
+
 
 ---
 # <a name="advanced-encoding-with-media-encoder-standard"></a>미디어 인코더 표준을 사용한 고급 인코딩
@@ -29,7 +33,7 @@ ms.author: juliako
 * [자동 디인터레이스 사용 안 함](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 * [오디오 전용 사전 설정](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 
-## <a name="<a-id="encoding_with_dotnet"></a>encoding-with-media-services-.net-sdk"></a><a id="encoding_with_dotnet"></a>미디어 서비스 .NET SDK를 사용하여 인코딩
+## <a name="a-idencodingwithdotnetaencoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>미디어 서비스 .NET SDK를 사용하여 인코딩
 다음 코드 예제에서는 미디어 서비스 .NET SDK를 사용하여 다음 작업을 수행합니다.
 
 * 인코딩 작업을 만듭니다.
@@ -230,7 +234,7 @@ ms.author: juliako
         }
 
 
-## <a name="<a-id="thumbnails"></a>generate-thumbnails"></a><a id="thumbnails"></a>미리 보기 생성
+## <a name="a-idthumbnailsagenerate-thumbnails"></a><a id="thumbnails"></a>미리 보기 생성
 이 섹션에서는 미리 보기를 생성하는 기본 설정을 사용자 지정하는 방법을 보여줍니다. 아래에 정의된 사전 설정은 미리 보기를 생성하는 데 필요한 정보 뿐만 아니라 파일을 인코딩하는 방법에 대한 정보를 포함합니다. [여기](https://msdn.microsoft.com/library/mt269960.aspx) 에 문서로 작성되어 있는 MES 사전 설정 중 원하는 항목을 가져와서 미리 보기를 생성하는 코드를 추가할 수 있습니다.  
 
 > [!NOTE]
@@ -242,7 +246,7 @@ ms.author: juliako
 
 [고려 사항](media-services-custom-mes-presets-with-dotnet.md#considerations) 섹션을 검토해야 합니다.
 
-### <a name="<a-id="json"></a>json-preset"></a><a id="json"></a>JSON 사전 설정
+### <a name="a-idjsonajson-preset"></a><a id="json"></a>JSON 사전 설정
     {
       "Version": 1.0,
       "Codecs": [
@@ -342,7 +346,7 @@ ms.author: juliako
     }
 
 
-### <a name="<a-id="xml"></a>xml-preset"></a><a id="xml"></a>XML 사전 설정
+### <a name="a-idxmlaxml-preset"></a><a id="xml"></a>XML 사전 설정
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -431,12 +435,12 @@ ms.author: juliako
   * 기본값: Start:{Best}
 * 각 이미지 형식에 대해 출력 형식을 명시적으로 제공해야 합니다. Jpg/Png/BmpFormat. 있는 경우 MES는 JpgFormat을 JpgVideo에 일치시키는 식으로 진행합니다. OutputFormat은 새 이미지 코덱 특유의 Macro: {Index}를 도입하며, 이는 이미지 출력 형식에 대해 존재해야(한 번만) 합니다.
 
-## <a name="<a-id="trim_video"></a>trim-a-video-(clipping)"></a><a id="trim_video"></a>비디오 자르기(클리핑)
+## <a name="a-idtrimvideoatrim-a-video-clipping"></a><a id="trim_video"></a>비디오 자르기(클리핑)
 이 섹션에서는 입력이 소위 중 2층 파일이나 주문형 파일인 경우 입력 비디오를 클립하거나 자르는 인코더 사전 설정을 수정하는 방법을 설명합니다. 인코더는 라이브 스트림에서 캡처되거나 보관된 자산을 클립하거나 자르는 데 사용할 수도 있습니다. 이에 대한 세부 정보는 [이 블로그](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)에서 확인할 수 있습니다.
 
 비디오를 자르려면 [여기](https://msdn.microsoft.com/library/mt269960.aspx) 에서 문서화된 MES 사전 설정 중 하나를 수행하고 **원본** 요소를 아래와 같이 수정할 수 있습니다. StartTime 값이 입력 비디오의 절대 타임스탬프와 일치해야 합니다. 예를 들어 입력 비디오의 첫 번째 프레임에 12:00:10.000 타임스탬프가 있으면 StartTime은 12:00:10.000 이상이어야 합니다. 아래 예에서는 입력 비디오의 시작 타임스탬프가 0인 것으로 가정합니다. 스키마의 맨 위에 **원본** 이 배치되어야 합니다. 
 
-### <a name="<a-id="json"></a>json-preset"></a><a id="json"></a>JSON 사전 설정
+### <a name="a-idjsonajson-preset"></a><a id="json"></a>JSON 사전 설정
     {
       "Version": 1.0,
       "Sources": [
@@ -673,7 +677,7 @@ ms.author: juliako
       </Outputs>
     </Preset>
 
-## <a name="<a-id="overlay"></a>create-an-overlay"></a><a id="overlay"></a>오버레이 만들기
+## <a name="a-idoverlayacreate-an-overlay"></a><a id="overlay"></a>오버레이 만들기
 미디어 인코더 표준을 사용하면 이미지를 기존 비디오에 오버레이할 수 있습니다. 현재 png, jpg, gif 및 bmp 형식이 지원됩니다. 아래에 정의된 사전 설정은 비디오 오버레이의 기본적인 예입니다.
 
 또한 사전 설정 파일을 정의하는 것 외에도 미디어 서비스를 통해 오버레이 이미지에 해당하는 자산의 파일 및 이미지를 오버레이하려는 원본 비디오에 해당하는 파일을 알 수 있습니다. 비디오 파일은 **기본** 파일이어야 합니다. 
@@ -827,7 +831,7 @@ ms.author: juliako
       </Outputs>
     </Preset>
 
-## <a name="<a-id="silent_audio"></a>insert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>입력에 오디오가 없을 때 조용한 오디오 트랙 삽입
+## <a name="a-idsilentaudioainsert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>입력에 오디오가 없을 때 조용한 오디오 트랙 삽입
 기본적으로 비디오만을 포함하고 오디오 없는 인코더에 입력을 보내는 경우 출력 자산은 비디오 데이터만을 포함하는 파일을 포함합니다. 일부 플레이어는 해당 출력 스트림을 처리할 수 없습니다. 이 시나리오에서는 이 설정을 사용하여 출력에 조용한 오디오 트랙을 추가하는 인코더를 강제할 수 있습니다.
 
 입력에 오디오가 없을 때 조용한 오디오 트랙을 포함하는 자산을 생성하도록 인코더를 적용하려면 "InsertSilenceIfNoAudio" 값을 지정합니다.
@@ -850,7 +854,7 @@ ms.author: juliako
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-## <a name="<a-id="deinterlacing"></a>disable-auto-de-interlacing"></a><a id="deinterlacing"></a>자동 디인터레이스 사용 안 함
+## <a name="a-iddeinterlacingadisable-auto-de-interlacing"></a><a id="deinterlacing"></a>자동 디인터레이스 사용 안 함
 인터레이스 콘텐츠가 자동으로 디인터레이스되도록 원하는 고객은 아무 작업도 수행할 필요가 없습니다. 자동 디인터레이스가 설정(기본값)된 경우 MES에서는 인터레이스 프레임 및 인터레이스로 표시된 디인터레이스 프레임만 자동으로 검색합니다.
 
 자동 디인터레이스를 해제할 수 있습니다. 이 옵션은 권장되지 않습니다.
@@ -878,7 +882,7 @@ ms.author: juliako
     </Sources>
 
 
-## <a name="<a-id="audio_only"></a>audio-only-presets"></a><a id="audio_only"></a>오디오 전용 사전 설정
+## <a name="a-idaudioonlyaaudio-only-presets"></a><a id="audio_only"></a>오디오 전용 사전 설정
 이 섹션에서는 AAC 오디오 및 AAC 고급 품질 오디오라는 두 개의 오디오 전용 MES 사전 설정을 설명합니다.
 
 ### <a name="aac-audio"></a>AAC 오디오
@@ -934,6 +938,9 @@ ms.author: juliako
 ## <a name="see-also"></a>참고 항목
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

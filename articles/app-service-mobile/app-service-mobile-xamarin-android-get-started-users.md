@@ -1,39 +1,43 @@
 ---
-title: Xamarin Android에서 모바일 앱에 대한 인증 시작
-description: 모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin Android 앱 사용자를 인증하는 방법을 알아봅니다.
+title: "Xamarin Android에서 모바일 앱에 대한 인증 시작"
+description: "모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin Android 앱 사용자를 인증하는 방법을 알아봅니다."
 services: app-service\mobile
 documentationcenter: xamarin
-author: mattchenderson
+author: adrianhall
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/28/2016
-ms.author: mahender
+ms.date: 10/01/2016
+ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4c0ba82ca010f1ee571424fa3d650718e5acdd8b
+
 
 ---
-# Xamarin Android 앱에 인증 추가
+# <a name="add-authentication-to-your-xamarinandroid-app"></a>Xamarin Android 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 이 항목에서는 클라이언트 응용 프로그램에서 모바일 앱의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 Azure 모바일 앱이 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 앱에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
 
-이 자습서는 모바일 앱 퀵 스타트를 기반으로 합니다. 또한 [Xamarin Android 앱 만들기] 자습서를 먼저 완료해야 합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 인증 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
+이 자습서는 모바일 앱 퀵 스타트를 기반으로 합니다. 또한 [Xamarin Android 앱 만들기]자습서를 먼저 완료해야 합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 인증 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
-## <a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
+## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-app-services"></a><a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 에뮬레이터에서 실행합니다. 앱 시작 후 상태 코드가 401(권한이 부여되지 않음)인 처리되지 않은 예외가 발생했는지 확인합니다. 이 예외는 앱이 인증되지 않은 사용자로 모바일 앱 백 엔드에 액세스하려고 시도합니다. *TodoItem* 테이블에서 이제 인증을 요구합니다.
 
 다음으로 클라이언트 앱을 업데이트하여 모바일 앱 백엔드에서 인증된 된 사용자를 사용하여 리소스를 요청합니다.
 
-## <a name="add-authentication"></a>앱에 인증 추가
+## <a name="a-nameadd-authenticationaadd-authentication-to-the-app"></a><a name="add-authentication"></a>앱에 인증 추가
 앱은 데이터가 표시되기 전에 사용자가 **로그인** 단추를 탭하고 인증하는 것을 요구하도록 업데이트되었습니다.
 
 1. **TodoActivity** 클래스에 다음 코드를 추가합니다.
@@ -83,7 +87,7 @@ Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치
 2. **OnCreate** 메서드에서 다음 코드 줄을 삭제하거나 주석으로 처리합니다.
    
         OnRefreshItemsSelected ();
-3. Activity\_To\_Do.axml 파일에서 기존의 *AddItem* 단추 전에 다음 *LoginUser* 단추 정의를 추가합니다.
+3. Activity_To_Do.axml 파일에서 기존의 *AddItem* 단추 전에 다음 *LoginUser* 단추 정의를 추가합니다.
    
           <Button
             android:id="@+id/buttonLoginUser"
@@ -96,9 +100,13 @@ Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치
         <string name="login_button_text">Sign in</string>
 5. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 에뮬레이터에서 실행하고 선택된 ID 공급자로 로그인합니다.
    
-       성공적으로 로그인하면 앱이 로그인 ID 및 todo 항목 목록을 표시하고 사용자가 데이터를 업데이트할 수 있습니다.
+       When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
 
 <!-- URLs. -->
 [Xamarin Android 앱 만들기]: app-service-mobile-xamarin-android-get-started.md
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

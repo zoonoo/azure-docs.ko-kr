@@ -1,13 +1,13 @@
 ---
-title: Sign-in experiences with Azure AD Identity Protection| Microsoft Docs
-description: Provides an overview of the user experience when Identity Protection has mitigated or remediated a user or when multi-factor authentication is required by a policy.
+title: "Azure AD ID 보호를 사용하는 로그인 환경 | Microsoft Docs"
+description: "ID 보호가 완화되었거나 사용자를 재구성한 경우 또는 정책에서 다단계 인증을 요구하는 경우의 사용자 환경에 대한 개요를 제공합니다."
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
-documentationcenter: ''
+keywords: "Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책"
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,98 +15,106 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d264d63aeeff584fca96595f1d2f2d5a2f7ba792
+
 
 ---
-# <a name="signin-experiences-with-azure-ad-identity-protection"></a>Sign-in experiences with Azure AD Identity Protection
-With Azure Active Directory Identity Protection, you can:
+# <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Azure AD ID 보호를 사용하는 로그인 환경
+Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습니다.
 
-* require users to register for multi-factor authentication
-* handle risky sign-ins and compromised users
+* 사용자에게 다단계 인증 등록 요구
+* 위험한 로그인 및 손상된 사용자 처리
 
-The response of the system to these issues has an impact on a user's sign-in experience because just directly signing-in by providing a user name and a password won't be possible anymore. Additional steps are required to get a user safely back into business.
+더 이상 사용자 이름과 암호를 제공하여 직접 로그인할 수 없기 때문에 이러한 문제에 대한 시스템의 응답은 사용자의 로그인 환경에 영향을 줍니다. 사용자를 업무 환경으로 안전하게 복귀시키려면 추가 단계가 필요합니다.
 
-This topic gives you an overview of a user's sign-in experience for all cases that can occur.
+이 항목에서는 발생할 수 있는 모든 경우의 사용자 로그인 환경에 대한 개요를 제공합니다.
 
-**Multi-factor authentication**
+**Multi-Factor Authentication**
 
-* Multi-factor authentication registration
+* Multi-Factor Authentication 등록
 
-**Sign-in at risk**
+**위험한 로그인**
 
-* Risky sign-in recovery
-* Risky sign-in blocked
-* Multi-factor authentication registration during a risky sign-in
+* 위험한 로그인 복구
+* 위험한 로그인 차단됨
+* 위험한 로그인 시 Multi-Factor Authentication 등록
 
-**User at risk**
+**위험한 사용자**
 
-* Compromised account recovery
-* Compromised account blocked
+* 손상된 계정 복구
+* 손상된 계정 차단됨
 
-## <a name="multifactor-authentication-registration"></a>Multi-factor authentication registration
-The best user experience for both, the compromised account recovery flow and the risky sign-in flow, is when the user can self-recover. If users are registered for multi-factor authentication, they already have a phone number associated with their account that can be used to pass security challenges. No help desk or administrator involvement is needed to recover from account compromise. Thus, it’s highly recommended to get your users registered for multi-factor authentication. 
+## <a name="multi-factor-authentication-registration"></a>Multi-Factor Authentication 등록
+손상된 계정 복구 흐름 및 위험한 로그인 흐름 모두에 대한 최상의 사용자 환경은 사용자가 자체 복구할 수 있는 경우입니다. 사용자가 다단계 인증에 등록된 경우 보안 과제를 전달하는 데 사용될 수 있는 해당 계정으로 연결된 전화 번호가 있습니다. 계정 손상을 복구하는 데 기술 지원팀 또는 관리자의 관여는 필요하지 않습니다. 따라서 사용자를 Multi-Factor Authentication에 등록하는 것이 좋습니다. 
 
-Administrators can:
+관리자는 다음을 수행할 수 있습니다.
 
-* set a policy that requires users to set up their accounts for additional security verification. 
-* allow skipping multi-factor authentication registration for up to 30 days, in case they want to give users a grace period before registering.
+* 사용자가 해당 계정에 추가 보안 확인을 설정해야 하는 정책을 설정합니다. 
+* 등록하기 전에 사용자에게 유예 기간을 제공하려는 경우 최대 30일 동안 Multi-Factor Authentication 등록을 건너뛸 수 있습니다.
 
-**The multi-factor authentication registration has three steps:**
+**다단계 인증 등록에 세 가지 단계가 있습니다.**
 
-1. In the first step, the user gets a notification about the requirement to set the account up for multi-factor authentication. 
+1. 첫 번째 단계에서 다단계 인증에 대한 계정을 설정하라는 요구 사항에 대한 알림이 나타납니다. 
    
-    ![Remediation](./media/active-directory-identityprotection-flows/140.png "Remediation")
-2. To set multi-factor authentication up, you need to let the system know how you want to be contacted.
+    ![재구성](./media/active-directory-identityprotection-flows/140.png "Remediation")
+2. 다단계 인증을 설정하려면 연결하려는 방법을 시스템에 알려야 합니다.
    
-    ![Remediation](./media/active-directory-identityprotection-flows/141.png "Remediation")
-3. The system submits a challenge to you and you need to respond.
+    ![재구성](./media/active-directory-identityprotection-flows/141.png "Remediation")
+3. 시스템에서 챌린지를 제출하면 응답해야 합니다.
    
-    ![Remediation](./media/active-directory-identityprotection-flows/142.png "Remediation")
+    ![재구성](./media/active-directory-identityprotection-flows/142.png "Remediation")
 
-## <a name="risky-signin-recovery"></a>Risky sign-in recovery
-When an administrator has configured a policy for sign-in risks, the affected users are notified when they try to sign-in. 
+## <a name="risky-sign-in-recovery"></a>위험한 로그인 복구
+관리자가 로그인 위험에 대한 정책을 구성하는 경우 로그인하려고 할 때 영향을 받는 사용자에게 알려지게 됩니다. 
 
-**The risky sign-in flow has two steps:** 
+**위험한 로그인 흐름에는 두 단계가 있습니다.** 
 
-1. The user is informed that something unusual was detected about their sign-in, such as signing in from a new location, device, or app. 
+1. 사용자는 새 위치, 장치 또는 앱에서 로그인과 같은 해당 로그인에 대해 비정상적인 점이 검색되었음을 통보받습니다. 
    
-    ![Remediation](./media/active-directory-identityprotection-flows/120.png "Remediation")
-2. The user is required to prove their identity by solving a security challenge. If the user is registered for multi-factor authentication they need to round-trip a security code to their phone number. Since this is a just a risky sign in and not a compromised account, the user won’t have to change the password in this flow. 
+    ![재구성](./media/active-directory-identityprotection-flows/120.png "Remediation")
+2. 사용자가 보안 과제를 해결하여 해당 ID를 증명해야 합니다. 사용자가 Multi-Factor Authentication에 등록된 경우 전화 번호에 대한 보안 코드를 왕복해야 합니다. 손상된 계정이 아닌 위험한 로그인일 뿐이기 때문에 사용자는 이 흐름에서 암호를 변경할 필요가 없습니다. 
    
-    ![Remediation](./media/active-directory-identityprotection-flows/121.png "Remediation")
+    ![재구성](./media/active-directory-identityprotection-flows/121.png "Remediation")
 
-## <a name="risky-signin-blocked"></a>Risky sign-in blocked
-Administrators can also choose to set a Sign-In Risk policy to block users upon sign-in depending on the risk level. To get unblocked, end users must contact an administrator or help desk, or they can try signing in from a familiar location or device. Self-recovering by solving multi-factor authentication is not an option in this case.
+## <a name="risky-sign-in-blocked"></a>위험한 로그인 차단됨
+관리자는 로그인 위험 정책을 설정하도록 선택하여 위험 수준에 따라 로그인 시 사용자를 차단할 수 있습니다. 차단을 해제하려면 최종 사용자는 관리자나 기술 지원팀에 문의해야 하고 익숙한 위치 또는 장치에서 로그인을 시도할 수 있습니다. 다단계 인증을 해결하는 자체 복구는 이 경우에 불가능합니다.
 
-![Remediation](./media/active-directory-identityprotection-flows/200.png "Remediation")
+![재구성](./media/active-directory-identityprotection-flows/200.png "Remediation")
 
-## <a name="compromised-account-recovery"></a>Compromised account recovery
-When a user risk security policy has been configured, users who meet the user risk level specified in the policy (and are therefore assumed compromised) must go through the user compromise recovery flow before they can sign-in. 
+## <a name="compromised-account-recovery"></a>손상된 계정 복구
+사용자 위험 보안 정책이 구성된 경우 정책에 지정된 사용자 위험 수준을 만족하는 사용자(따라서 손상되었다고 가정됨)는 로그인할 수 있기 전에 사용자 손상 복구 흐름을 통해 이동해야 합니다. 
 
-**The user compromise recovery flow has three steps:**
+**사용자 손상 복구 흐름에는 세 가지 단계가 있습니다.**
 
-1. The user is informed that their account security is at risk because of suspicious activity or leaked credentials.
+1. 사용자는 해당 계정 보안이 의심스러운 작업 또는 유출된 자격 증명으로 인해 위험에 노출되었다는 알림을 받습니다.
    
-    ![Remediation](./media/active-directory-identityprotection-flows/101.png "Remediation")
-2. The user is required to prove their identity by solving a security challenge. If the user is registered for multi-factor authentication they can self-recover from being compromised. They will need to round-trip a security code to their phone number. 
+    ![재구성](./media/active-directory-identityprotection-flows/101.png "Remediation")
+2. 사용자가 보안 과제를 해결하여 해당 ID를 증명해야 합니다. Multi-Factor Authentication에 사용자를 등록하는 경우 손상되지 않도록 자체 복구할 수 있습니다. 해당 전화 번호에 보안 코드를 왕복해야 합니다. 
    
-   ![Remediation](./media/active-directory-identityprotection-flows/110.png "Remediation")
-3. Finally, the user is forced to change their password since someone else may have had access to their account. Screenshots of this experience are below.
+   ![재구성](./media/active-directory-identityprotection-flows/110.png "Remediation")
+3. 마지막으로, 다른 사람이 해당 계정에 액세스했을 수 있으므로 사용자는 해당 암호를 변경하도록 강제됩니다. 
+   이러한 환경의 스크린 샷은 다음과 같습니다.
    
-   ![Remediation](./media/active-directory-identityprotection-flows/111.png "Remediation")
+   ![재구성](./media/active-directory-identityprotection-flows/111.png "Remediation")
 
-## <a name="compromised-account-blocked"></a>Compromised account blocked
-To get a user that was blocked by a user risk security policy unblocked, the user must contact an administrator or help desk. Self-recovering by solving multi-factor authentication is not an option in this case.
+## <a name="compromised-account-blocked"></a>손상된 계정 차단됨
+차단 해제된 사용자 위험 보안 정책에 의해 차단된 사용자를 가져오려면 사용자는 관리자 또는 기술 지원팀에 문의해야 합니다. 다단계 인증을 해결하는 자체 복구는 이 경우에 불가능합니다.
 
-![Remediation](./media/active-directory-identityprotection-flows/104.png "Remediation")
+![재구성](./media/active-directory-identityprotection-flows/104.png "Remediation")
 
-## <a name="reset-password"></a>Reset password
-If compromised users are blocked from signing in, an administrator can generate a temporary password for them. The users will have to change their password during a next sign-in.
+## <a name="reset-password"></a>암호 재설정
+손상된 사용자가 로그인할 수 없으면 관리자가 해당 사용자에게 임시 암호를 생성할 수 있습니다. 사용자는 다음 로그인 시 자신의 암호를 변경해야 합니다.
 
-![Remediation](./media/active-directory-identityprotection-flows/160.png "Remediation")
+![재구성](./media/active-directory-identityprotection-flows/160.png "Remediation")
 
-## <a name="see-also"></a>See also
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
+## <a name="see-also"></a>참고 항목
+* [Azure Active Directory ID 보호](active-directory-identityprotection.md) 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

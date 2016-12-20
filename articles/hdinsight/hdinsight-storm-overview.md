@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e2fa11046adf828497b142e1043ac1c2a15443ef
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
 
 
 ---
-# <a name="introduction-to-apache-storm-on-hdinsight-realtime-analytics-for-hadoop"></a>HDInsight의 Apache Storm 소개: Hadoop에 대한 실시간 분석
+# <a name="introduction-to-apache-storm-on-hdinsight-real-time-analytics-for-hadoop"></a>HDInsight의 Apache Storm 소개: Hadoop에 대한 실시간 분석
 HDInsight의 Apache Storm을 사용하면 [Apache Hadoop](http://hadoop.apache.org)을 통해 Azure 환경에서 분산형 실시간 분석 솔루션을 만들 수 있습니다.
 
 ## <a name="what-is-apache-storm"></a>Apache Storm의 정의
@@ -47,13 +47,13 @@ HDInsight의 Apache Storm은 Azure 환경에 통합된 관리되는 클러스터
 
 실시간 분석 솔루션에 Apache Storm을 사용하는 회사 목록은 [Apache Storm을 사용하는 회사](https://storm.apache.org/documentation/Powered-By.html)를 참조하세요.
 
-Storm을 사용하기 시작하려면 [HDInsight에서 Storm 시작][gettingstarted]을 참조하세요.
+Storm 사용을 시작하려면 [HDInsight에서 Storm 시작][gettingstarted]을 참조하세요.
 
 ### <a name="ease-of-provisioning"></a>프로비전 편의성
 새 HDInsight Storm 클러스터를 몇 분 내에 프로비전할 수 있습니다. 클러스터 이름, 크기, 관리자 계정 및 저장소 계정을 지정합니다. Azure에서 샘플 토폴로지 및 웹 관리 대시보드가 포함된 클러스터를 만듭니다.
 
 > [!NOTE]
-> [Azure CLI](../xplat-cli-install.md) 또는 [Azure PowerShell](../powershell-install-configure.md)을 사용하여 Storm 클러스터를 프로비전할 수도 있습니다.
+> [Azure CLI](../xplat-cli-install.md) 또는 [Azure PowerShell](/powershell/azureps-cmdlets-docs)을 사용하여 Storm 클러스터를 프로비전할 수도 있습니다.
 > 
 > 
 
@@ -107,7 +107,7 @@ Apache Storm의 기본 구성에는 하나의 Nimbus 노드만 있습니다. HDI
 ### <a name="support"></a>지원
 HDInsight의 Storm에는 완전한 엔터프라이즈 수준의 24/7 지원이 제공됩니다. HDInsight의 Storm에는 99.9%의 SLA도 있습니다. 따라서 클러스터가 최소 99.9%의 시간 동안 외부 연결을 사용할 수 있도록 보장됩니다.
 
-## <a name="common-use-cases-for-realtime-analytics"></a>실시간 분석의 일반적인 사용 사례
+## <a name="common-use-cases-for-real-time-analytics"></a>실시간 분석의 일반적인 사용 사례
 아래에는 HDInsight의 Apache Storm을 사용할 수 있는 몇 가지 일반적인 시나리오가 나와 있습니다. 실제 시나리오에 대한 자세한 내용은 [기업에서 Storm을 사용하는 방식](https://storm.apache.org/documentation/Powered-By.html)을 참조하세요.
 
 * IoT(사물 인터넷)
@@ -138,7 +138,7 @@ Apache Storm에서는 HDInsight 또는 Hadoop에서 친숙한 MapReduce 작업 �
   
   * **Nimbus**는 Thrift 서비스이며 **토폴로지**는 Thrift 정의이므로 다양한 프로그래밍 언어를 사용하여 토폴로지를 개발할 수 있습니다.
 
-Storm 구성 요소에 대한 자세한 내용은 apache.org의 [Storm 자습서][apachetutorial]를 참조하세요.
+Storm 구성 요소에 대한 자세한 내용은 apache.org에서 [Storm 자습서][apachetutorial]를 참조하세요.
 
 ## <a name="what-programming-languages-can-i-use"></a>사용 가능한 프로그래밍 언어
 HDInsight의 Storm 클러스터는 C#, Java 및 Python에 대한 지원을 제공합니다.
@@ -206,6 +206,6 @@ HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

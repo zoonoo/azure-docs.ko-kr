@@ -1,12 +1,12 @@
 ---
-title: Azure의 VMware 가상 컴퓨터 및 물리적 서버를 VMware로 장애 복구(레거시) | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure에 복제된 VMware 가상 컴퓨터를 장애 복구하는 방법을 설명합니다.
+title: "Azure의 VMware 가상 컴퓨터 및 물리적 서버를 VMware로 장애 복구(레거시) | Microsoft Docs"
+description: "이 문서에서는 Azure Site Recovery를 사용하여 Azure에 복제된 VMware 가상 컴퓨터를 장애 복구하는 방법을 설명합니다."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: ruturaj
 manager: mkjain
-editor: ''
-
+editor: 
+ms.assetid: a63524bf-990c-42ee-8554-e017e6e67e68
 ms.service: site-recovery
 ms.devlang: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: ruturajd@microsoft.com
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45695926bce3ec3460a572c0c01ffa4038f73ea5
+
 
 ---
-# <a name="fail-back-vmware-virtual-machines-and-physical-servers-from-azure-to-vmware-with-azure-site-recovery-(legacy)"></a>Azure Site Recovery를 사용하여 Azure의 VMware 가상 컴퓨터 및 물리적 서버를 VMware로 장애 복구(failback)(레거시)
+# <a name="fail-back-vmware-virtual-machines-and-physical-servers-from-azure-to-vmware-with-azure-site-recovery-legacy"></a>Azure Site Recovery를 사용하여 Azure의 VMware 가상 컴퓨터 및 물리적 서버를 VMware로 장애 복구(failback)(레거시)
 > [!div class="op_single_selector"]
 > * [Azure 포털](site-recovery-failback-azure-to-vmware.md)
 > * [Azure 클래식 포털](site-recovery-failback-azure-to-vmware-classic.md)
@@ -48,7 +52,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 1. **장애 복구 구성 요소 설정**: 온-프레미스에 vContinuum 서버를 설정하고 Azure의 구성 서버 VM을 가리키도록 해야 합니다. 또한 온-프레미스 마스터 대상 서버에 데이터를 다시 보내려면 프로세스 서버를 Azure VM으로 설정합니다. 장애 조치를 처리하는 구성 서버와 프로세스 서버를 등록합니다. 온-프레미스 마스터 대상 서버를 설치합니다. Windows 마스터 대상 서버가 필요한 경우 vContinuum을 설치하면 자동으로 설정됩니다. Linux가 필요한 경우 별도 서버에서 수동으로 설정해야 합니다.
 2. **보호 및 장애 복구 사용**: 구성 요소를 설정한 후 vContinuum에서 Azure VM에 대한 장애 조치를 위해 보호를 사용해야 합니다. VM에 대한 준비 상태 확인을 실행하고 Azure에서 온-프레미스 사이트로 장애 조치를 실행합니다. 장애 복구가 완료된 후 Azure에 복제를 시작하도록 온-프레미스 컴퓨터를 다시 보호합니다.
 
-## <a name="step-1:-install-vcontinuum-on-premises"></a>1단계: 온-프레미스에 vContinuum 설치
+## <a name="step-1-install-vcontinuum-on-premises"></a>1단계: 온-프레미스에 vContinuum 설치
 온-프레미스에 vContinuum 서버를 설치하고 구성 서버를 가리키도록 해야 합니다.
 
 1. [VContinuum을 다운로드합니다](http://go.microsoft.com/fwlink/?linkid=526305). 
@@ -72,7 +76,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 9. 설치가 완료되면 vContinuum을 시작할 수 있습니다.
     ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
-## <a name="step-2:-install-a-process-server-in-azure"></a>2단계: Azure에 프로세스 서버 설치
+## <a name="step-2-install-a-process-server-in-azure"></a>2단계: Azure에 프로세스 서버 설치
 프로세스 서버를 Azure에 설치해야 Azure 내의 VM이 데이터를 온-프레미스 마스터 대상 서버에 다시 보낼 수 있습니다. 
 
 1. Azure의 **구성 서버** 페이지에서 선택하여 새 프로세스 서버를 추가합니다.
@@ -94,7 +98,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 > 
 > 
 
-## <a name="step-3:-install-a-master-target-server-on-premises"></a>3단계: 온-프레미스에 마스터 대상 서버 설치
+## <a name="step-3-install-a-master-target-server-on-premises"></a>3단계: 온-프레미스에 마스터 대상 서버 설치
 원본 가상 컴퓨터 운영 체제에 따라 Linux 또는 Windows 마스터 대상 서버를 온-프레미스에 설치해야 합니다.
 
 ### <a name="deploy-a-windows-master-target-server"></a>Windows 마스터 대상 서버 배포
@@ -221,7 +225,7 @@ Azure Site Recovery 자격 증명 모음 > **구성 서버** > **서버 세부 �
 > 
 > 
 
-## <a name="step-4:-protect-the-virtual-machines-to-the-on-premises-site"></a>4단계: 온-프레미스 사이트에 가상 컴퓨터 보호
+## <a name="step-4-protect-the-virtual-machines-to-the-on-premises-site"></a>4단계: 온-프레미스 사이트에 가상 컴퓨터 보호
 장애 복구 전에 온-프레미스 사이트에 VM을 보호해야 합니다.
 
 ### <a name="before-you-begin"></a>시작하기 전에
@@ -357,6 +361,9 @@ VM이 Azure로 장애 조치되면 페이지 파일에 임시 드라이브가 �
 ## <a name="next-steps"></a>다음 단계
 * [알아봅니다](site-recovery-vmware-to-azure-classic.md) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

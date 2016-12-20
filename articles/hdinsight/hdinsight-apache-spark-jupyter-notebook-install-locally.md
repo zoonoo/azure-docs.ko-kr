@@ -1,13 +1,13 @@
 ---
-title: 컴퓨터에 Jupyter 노트북을 설치하고 HDInsight Spark 클러스터에 연결 | Microsoft Docs
-description: 컴퓨터에 로컬로 Jupyter 노트북을 설치하고 Azure HDInsight에서 Apache Spark 클러스터에 연결하는 방법을 알아봅니다.
+title: "컴퓨터에 Jupyter Notebook을 설치하고 HDInsight Spark 클러스터에 연결 | Microsoft 문서"
+description: "컴퓨터에 로컬로 Jupyter 노트북을 설치하고 Azure HDInsight에서 Apache Spark 클러스터에 연결하는 방법을 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 48593bdf-4122-4f2e-a8ec-fdc009e47c16
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a5008302306f6024d69ea82c537990ef4360495d
+
 
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-cluster-on-hdinsight-linux"></a>컴퓨터에 Jupyter 노트북을 설치하고 HDInsight Linux에서 Apache Spark 클러스터에 연결
@@ -99,7 +103,7 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
 
     >[AZURE.TIP] 다른 클러스터에 연결하도록 노트북 구성을 업데이트하려는 경우 위의 3단계와 같이 새 값 집합으로 config.json을 업데이트합니다. 
 
-## <a name="why-should-i-install-jupyter-on-my-computer?"></a>내 컴퓨터에 Jupyter를 설치해야 해야 이유는 무엇인가요?
+## <a name="why-should-i-install-jupyter-on-my-computer"></a>내 컴퓨터에 Jupyter를 설치해야 해야 이유는 무엇인가요?
 컴퓨터에 Jupyter를 설치한 다음 HDInsight의 Spark 클러스터에 연결하는 데는 여러 가지 이유가 있을 수 있습니다.
 
 * Jupyter 노트북을 Azure HDInsight의 Spark 클러스터에 이미 사용할 수 있더라도 컴퓨터에 Jupyter를 설치하면 로컬에서 노트북을 만들고, 실행 중인 클러스터에 대해 응용 프로그램을 테스트한 다음 클러스터에 노트북을 업로드하는 옵션이 제공됩니다. 노트북에 클러스터를 업로드하려면 클러스터에서 실행되는 Jupyter 노트북을 사용하여 업로드하거나 클러스터와 연결된 저장소 계정의 /HdiNotebooks 폴더에 저장할 수 있습니다. 클러스터에 Notebook을 저장하는 방법에 대한 자세한 내용은 [Jupyter Notebook이 저장되는 위치](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)를 참조하세요.
@@ -113,7 +117,7 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
 > 
 > 
 
-## <a name="<a-name="seealso"></a>see-also"></a><a name="seealso"></a>참고 항목
+## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
@@ -138,6 +142,9 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

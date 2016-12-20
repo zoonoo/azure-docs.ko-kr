@@ -1,12 +1,12 @@
 ---
-title: IntelliJ용 Azure 도구 키트의 새로운 기능 | Microsoft Docs
-description: IntelliJ용 Azure 도구 키트의 최신 기능에 대해 알아봅니다.
-services: ''
+title: "IntelliJ용 Azure 도구 키트의 새로운 기능 | Microsoft Docs"
+description: "IntelliJ용 Azure 도구 키트의 최신 기능에 대해 알아봅니다."
+services: 
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 46ed791f-df59-416a-809e-f52345ad973c
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm;asirveda;martinsawicki
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3ed0ef3d245ff8b5cddc2e26bc8574bf4ae67bec
+
 
 ---
 # <a name="whats-new-in-the-azure-toolkit-for-intellij"></a>IntelliJ용 Azure 도구 키트의 새로운 기능
@@ -56,7 +60,7 @@ IntelliJ용 Azure 도구 키트 - 2016년 4월 릴리스에는 다음과 같은 
 ## <a name="see-also"></a>참고 항목
 Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-* [Eclipse용 Azure 도구 키트]
+* [Eclipse용 Azure 도구 키트 설치]
   * [Eclipse용 Azure 도구 키트 설치]
   * [Eclipse에서 Azure용 Hello World 웹앱 만들기]
   * [Eclipse용 Azure 도구 키트의 새로운 기능]
@@ -69,7 +73,7 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 <!-- URL List -->
 
-[Eclipse용 Azure 도구 키트]: ./azure-toolkit-for-eclipse.md
+[Eclipse용 Azure 도구 키트 설치]: ./azure-toolkit-for-eclipse.md
 [IntelliJ용 Azure 도구 키트]: ./azure-toolkit-for-intellij.md
 [Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [IntelliJ에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
@@ -84,6 +88,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

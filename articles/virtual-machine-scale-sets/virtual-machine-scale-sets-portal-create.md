@@ -1,21 +1,25 @@
 ---
-title: Azure Portal을 사용하여 가상 컴퓨터 크기 집합 만들기 | Microsoft Docs
-description: Azure Portal을 사용하여 크기 집합을 배포합니다.
-keywords: 가상 컴퓨터 크기 집합
+title: "Azure Portal을 사용하여 가상 컴퓨터 크기 집합 만들기 | Microsoft Docs"
+description: "Azure Portal을 사용하여 크기 집합을 배포합니다."
+keywords: "가상 컴퓨터 크기 집합"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: gatneil
 manager: madhana
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 9c1583f0-bcc7-4b51-9d64-84da76de1fda
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
-ms.author: gatneil
+ms.author: negat
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8c4248077626cba2f1ace3c119d301b99247e19f
+
 
 ---
 # <a name="create-a-virtual-machine-scale-set-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 컴퓨터 규모 집합 만들기
@@ -64,6 +68,9 @@ Visual Studio에서 크기 집합을 배포하는 방법에 대한 설명서를 
 
 일반적인 정보는 [크기 집합에 대한 주 방문 페이지](https://azure.microsoft.com/services/virtual-machine-scale-sets/)를 확인하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

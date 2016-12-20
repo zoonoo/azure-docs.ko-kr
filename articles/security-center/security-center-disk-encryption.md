@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 05/27/2016
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 
 ---
@@ -47,7 +47,7 @@ Azure 보안 센터에 의해 암호화가 필요하다고 식별된 Azure 가�
 > 
 
 ## <a name="install-and-configure-azure-powershell"></a>Azure PowerShell 설치 및 구성
-Azure PowerShell 버전 1.2.1 이상이 컴퓨터에 설치되어야 합니다. [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md) 문서는 Azure PowerShell로 작업할 컴퓨터를 프로비전하는 데 필요한 모든 단계를 포함합니다. 가장 간단한 방법은 해당 문서에 언급된 웹 PI 설치 접근 방식을 사용하는 것입니다. 이미 Azure PowerShell이 설치되었더라도 웹 PI 접근 방식을 사용하여 다시 설치하여 최신 버전의 Azure PowerShell을 사용합니다.
+Azure PowerShell 버전 1.2.1 이상이 컴퓨터에 설치되어야 합니다. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 문서는 Azure PowerShell로 작업할 컴퓨터를 프로비전하는 데 필요한 모든 단계를 포함합니다. 가장 간단한 방법은 해당 문서에 언급된 웹 PI 설치 접근 방식을 사용하는 것입니다. 이미 Azure PowerShell이 설치되었더라도 웹 PI 접근 방식을 사용하여 다시 설치하여 최신 버전의 Azure PowerShell을 사용합니다.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Azure 디스크 암호화 필수 구성 요소 구성 스크립트 가져오기 및 실행
 Azure 디스크 암호화 필수 구성 요소 구성 스크립트는 Azure 가상 컴퓨터를 암호화하는 데 필요한 모든 필수 구성 요소를 설정합니다.
@@ -57,7 +57,7 @@ Azure 디스크 암호화 필수 구성 요소 구성 스크립트는 Azure 가�
 3. **CTRL-A**를 사용하여 페이지에서 모든 텍스트를 선택한 다음 **CTRL-C**를 사용하여 페이지의 모든 텍스트를 클립보드에 복사합니다.
 4. **메모장** 을 열고 복사한 텍스트를 메모장에 붙여넣습니다.
 5. **AzureADEScript**라는 C: 드라이브에 새 폴더를 만듭니다.
-6. 메모장 파일을 저장합니다. **파일**을 클릭한 다음 **이름으로 저장**을 클릭합니다. 파일 이름 텍스트 상자에 **“ADEPrereqScript.ps1”**을 입력하고 **저장**을 클릭합니다. (이름을 따옴표로 묶지 않으면 .txt 파일 확장으로 파일을 저장합니다.)
+6. 메모장 파일을 저장합니다. **파일**을 클릭한 다음 **이름으로 저장**을 클릭합니다. 파일 이름 텍스트 상자에 **"ADEPrereqScript.ps1"**을 입력하고 **저장**을 클릭합니다. (이름을 따옴표로 묶지 않으면 .txt 파일 확장으로 파일을 저장합니다.)
 
 스크립트 콘텐츠를 저장했으므로 PowerShell ISE에서 스크립트를 엽니다.
 
@@ -182,6 +182,6 @@ PowerShell ISE로 돌아갑니다. 스크립트가 완료되면 아래 그림에
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

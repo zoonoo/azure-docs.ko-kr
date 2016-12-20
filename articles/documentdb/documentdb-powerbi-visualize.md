@@ -1,13 +1,13 @@
 ---
-title: DocumentDB 커넥터에 대한 Power BI 자습서 | Microsoft Docs
-description: 이 Power BI 자습서를 사용하여 JSON을 가져오고, 통찰력 있는 보고서를 만들고, DocumentDB 및 Power BI 커넥터를 사용하여 데이터를 시각화할 수 있습니다.
-keywords: power bi 자습서, 데이터 시각화, power bi 커넥터
+title: "DocumentDB 커넥터에 대한 Power BI 자습서 | Microsoft Docs"
+description: "이 Power BI 자습서를 사용하여 JSON을 가져오고, 통찰력 있는 보고서를 만들고, DocumentDB 및 Power BI 커넥터를 사용하여 데이터를 시각화할 수 있습니다."
+keywords: "power bi 자습서, 데이터 시각화, power bi 커넥터"
 services: documentdb
 author: h0n
 manager: jhubbard
 editor: mimig
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: hawong
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 35c469ce0cfb99dc6a26fbcc0734938ad6b66fd7
+
 
 ---
-# <a name="power-bi-tutorial-for-documentdb:-visualize-data-using-the-power-bi-connector"></a>DocumentDB에 대한 Power BI 자습서: Power BI 커넥터를 사용하여 데이터 시각화
+# <a name="power-bi-tutorial-for-documentdb-visualize-data-using-the-power-bi-connector"></a>DocumentDB에 대한 Power BI 자습서: Power BI 커넥터를 사용하여 데이터 시각화
 [PowerBI.com](https://powerbi.microsoft.com/) 은 사용자 및 조직에 중요한 데이터로 대시보드와 보고서를 만들어 공유할 수 있는 온라인 서비스입니다.  Power BI 데스크톱은 다양한 데이터 원본에서 데이터를 검색하고, 데이터를 병합 및 변환하며, 강력한 보고서 및 시각화를 제작하고, 보고서를 Power BI에 게시할 수 있는 전용 보고서 제작 도구입니다.  Power BI 데스크톱의 최신 버전을 사용하면 Power BI용 DocumentDB 커넥터를 사용하여 DocumentDB 계정에 연결할 수 있습니다.   
 
 이 Power BI 자습서에서는 Power BI 데스크톱에서 DocumentDB 계정에 연결하고, 탐색기를 사용하여 데이터를 추출할 컬렉션으로 이동하며, Power BI 데스크톱 쿼리 편집기를 사용하여 JSON 데이터를 탭 형식으로 변환하고, 보고서를 빌드하여 PowerBI.com에 게시하는 단계를 살펴봅니다.
@@ -42,24 +46,24 @@ ms.author: hawong
 
 PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.  Power BI for Free 및 Power BI Pro에 대한 자세한 내용은 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)을 참조하세요.
 
-## <a name="let's-get-started"></a>이제 시작하겠습니다.
+## <a name="lets-get-started"></a>이제 시작하겠습니다.
 이 자습서에서는 전세계 화산을 연구하는 지질학자라고 보겠습니다.  화산 데이터는 DocumentDB 계정에 저장되며 JSON 문서는 아래와 같습니다.
 
     {
         "Volcano Name": "Rainier",
-        "Country": "United States",
-        "Region": "US-Washington",
-        "Location": {
+           "Country": "United States",
+          "Region": "US-Washington",
+          "Location": {
             "type": "Point",
             "coordinates": [
-            -121.758,
-            46.87
+              -121.758,
+              46.87
             ]
-        },
-        "Elevation": 4392,
-        "Type": "Stratovolcano",
-        "Status": "Dendrochronology",
-        "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
+          },
+          "Elevation": 4392,
+          "Type": "Stratovolcano",
+          "Status": "Dendrochronology",
+          "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
 DocumentDB 계정에서 화산 데이터를 검색하고 아래와 같은 대화형 Power BI 보고서에서 데이터를 시각화하려고 합니다.
@@ -171,7 +175,7 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
    
     ![Power BI에 게시 성공! Power BI에서 자습서 열기](./media/documentdb-powerbi-visualize/power_bi_connector_open_in_powerbi.png)
 
-## <a name="create-a-dashboard-in-powerbi.com"></a>PowerBI.com에서 대시보드 만들기
+## <a name="create-a-dashboard-in-powerbicom"></a>PowerBI.com에서 대시보드 만들기
 이제 보고서가 있으니 PowerBI.com에서 공유하겠습니다.
 
 보고서를 Power BI 데스크톱에서 PowerBI.com에 게시하는 경우 PowerBI.com 테넌트에 **보고서** 및 **데이터 집합**을 생성합니다. 예를 들어 **PowerBITutorial**이라는 보고서를 PowerBI.com에 게시한 후 PowerBI.com의 **보고서** 및 **데이터 집합** 섹션 모두에서 PowerBITutorial이 표시됩니다.
@@ -186,7 +190,7 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 
 또한 대시보드를 만들기 전에 보고서에 대한 임시 수정을 수행할 수 있습니다. 그러나 Power BI 데스크톱을 사용하여 수정 작업을 수행하고 보고서를 PowerBI.com 다시 게시하는 것이 좋습니다.
 
-## <a name="refresh-data-in-powerbi.com"></a>PowerBI.com에서 데이터 새로 고침
+## <a name="refresh-data-in-powerbicom"></a>PowerBI.com에서 데이터 새로 고침
 임시 및 예약의 두 가지 방법으로 데이터를 새로 고칠 수 있습니다.
 
 임시 새로 고침의 경우 **데이터 집**으로 줄임표(...)를 클릭합니다(예: PowerBITutorial). **지금 새로 고침**을 포함한 작업의 목록이 표시됩니다. **지금 새로 고침**을 클릭하여 데이터를 새로 고칩니다.
@@ -209,6 +213,9 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 * Power BI에 대한 자세한 내용은 [Power BI 시작](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)을 참조하세요.
 * DocumentDB에 대한 자세한 내용은 [DocumentDB 설명서 방문 페이지](https://azure.microsoft.com/documentation/services/documentdb/)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

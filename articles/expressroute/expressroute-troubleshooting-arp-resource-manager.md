@@ -1,25 +1,29 @@
 ---
-title: ExpressRoute 문제 해결 가이드 - ARP 테이블 가져오기 | Microsoft Docs
-description: 이 페이지는 ExpressRoute 회로의 ARP 테이블을 가져오는 방법을 안내합니다.
+title: "ExpressRoute 문제 해결 가이드 - ARP 테이블 가져오기 | Microsoft 문서"
+description: "이 페이지는 ExpressRoute 회로의 ARP 테이블을 가져오는 방법을 안내합니다."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carolz
 editor: tysonn
-
+ms.assetid: 0a6bf1d5-6baf-44dd-87d3-1ebd2fd08bdc
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 10/11/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: e63a0e17d7c3794608130ad0b654c5c903d404a0
+
 
 ---
 # <a name="expressroute-troubleshooting-guide---getting-arp-tables-in-the-resource-manager-deployment-model"></a>ExpressRoute 문제 해결 가이드 - 리소스 관리자 배포 모델에서 ARP 테이블 가져오기
 > [!div class="op_single_selector"]
-> [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
-> [PowerShell - 클래식](expressroute-troubleshooting-arp-classic.md)
+> * [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
+> * [PowerShell - 클래식](expressroute-troubleshooting-arp-classic.md)
 > 
 > 
 
@@ -30,7 +34,7 @@ ms.author: ganesr
 > 
 > 
 
-## <a name="address-resolution-protocol-(arp)-and-arp-tables"></a>주소 확인 프로토콜(ARP) 및 ARP 테이블
+## <a name="address-resolution-protocol-arp-and-arp-tables"></a>주소 확인 프로토콜(ARP) 및 ARP 테이블
 주소 확인 프로토콜(ARP)은 [RFC 826](https://tools.ietf.org/html/rfc826)에 정의된 계층 2 프로토콜입니다. ARP는 IP 주소로 이더넷 주소(MAC 주소)를 매핑하는 데 사용합니다.
 
 ARP 테이블은 특정 피어링에 대한 ipv4 주소와 MAC 주소 매핑을 제공합니다. ExpressRoute 회로 피어링의 ARP 테이블은 각 인터페이스(기본 및 보조)에 대한 다음 정보를 제공합니다.
@@ -130,7 +134,7 @@ ARP 테이블의 예:
 ## <a name="how-to-use-this-information"></a>이 정보를 사용하는 방법
 피어링의 ARP 테이블을 사용하여 계층 2 구성과 연결의 유효성을 검사할 수 있습니다. 이 섹션은 다양한 시나리오에서 ARP 테이블이 표시되는 모습의 개요를 보여줍니다.
 
-### <a name="arp-table-when-a-circuit-is-in-operational-state-(expected-state)"></a>회로가 작동 상태일 때 ARP 테이블(예상 상태)
+### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>회로가 작동 상태일 때 ARP 테이블(예상 상태)
 * ARP 테이블은 유효한 IP 주소 및 MAC 주소가 포함된 온-프레미스 측의 항목과 Microsoft 측의 유사한 항목이 있습니다. 
 * 온-프레미스 IP 주소의 마지막 옥텟은 항상 홀수입니다.
 * Microsoft IP 주소의 마지막 옥텟은 항상 짝수입니다.
@@ -141,7 +145,7 @@ ARP 테이블의 예:
          10 On-Prem           65.0.0.1 ffff.eeee.dddd
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
-### <a name="arp-table-when-on-premises-/-connectivity-provider-side-has-problems"></a>온-프레미스/연결 공급자 측에 문제가 있을 때 ARP 테이블
+### <a name="arp-table-when-on-premises-connectivity-provider-side-has-problems"></a>온-프레미스/연결 공급자 측에 문제가 있을 때 ARP 테이블
 * ARP 테이블에 항목이 하나만 표시됩니다. Microsoft 측에서 사용된 MAC 주소와 IP 주소 사이의 매핑을 보여줍니다. 
   
        Age InterfaceProperty IpAddress  MacAddress    
@@ -164,6 +168,9 @@ ARP 테이블의 예:
 * 바이트 입출력으로 데이터 전송의 유효성 검사
 * 여전히 문제가 해결되지 않을 경우 [Microsoft 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 으로 지원 티켓을 엽니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

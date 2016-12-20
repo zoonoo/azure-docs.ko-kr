@@ -1,12 +1,12 @@
 ---
 title: Log Analytics FAQ | Microsoft Docs
-description: Log Analytics 서비스에 대해 자주 묻는 질문에 대한 답변입니다.
+description: "Log Analytics 서비스에 대해 자주 묻는 질문에 대한 답변입니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e24e6f9cc383be77dc631a0dd67db099906dccc0
+
 
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
@@ -45,7 +49,7 @@ A: 아니요. Log Analytics에서 대량의 데이터를 처리하고 저장합�
 ## <a name="configuration"></a>구성
 **Q. WAD(Azure 진단)에서 읽어오는 데 사용되는 테이블/Blob 컨테이너의 이름을 변경할 수 있나요?**  
 
-A.  아니요, 현재는 불가능하지만 향후 릴리스에서 가능할 예정입니다.
+A.    아니요, 현재는 불가능하지만 향후 릴리스에서 가능할 예정입니다.
 
 **Q. OMS 서비스에서 사용하는 IP 주소는 어떻게 되나요? 내 방화벽에서 OMS 서비스에 대한 트래픽만 허용하도록 하려면 어떻게 하나요?**  
 
@@ -118,6 +122,9 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics 시작](log-analytics-get-started.md) 에서 Log Analytics에 대한 정보와 Log Analytics를 몇 분 만에 시작 및 실행하는 방법에 대해 알아보세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

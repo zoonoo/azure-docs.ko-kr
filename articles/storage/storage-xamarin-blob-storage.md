@@ -1,19 +1,23 @@
 ---
-title: Xamarin에서 Blob 저장소를 사용하는 방법 | Microsoft Docs
-description: Xamarin용 Azure Storage 클라이언트 라이브러리를 사용하면 개발자들이 기본 사용자 인터페이스를 가진 iOS, Android 및 Windows Store 앱을 만들 수 있습니다. 이 자습서에서는 Xamarin을 사용하여 Azure Blob 저장소를 사용하는 응용 프로그램을 만드는 방법을 설명합니다.
+title: "Xamarin에서 Blob 저장소를 사용하는 방법 | Microsoft Docs"
+description: "Xamarin용 Azure Storage 클라이언트 라이브러리를 사용하면 개발자들이 기본 사용자 인터페이스를 가진 iOS, Android 및 Windows Store 앱을 만들 수 있습니다. 이 자습서에서는 Xamarin을 사용하여 Azure Blob 저장소를 사용하는 응용 프로그램을 만드는 방법을 설명합니다."
 services: storage
 documentationcenter: xamarin
 author: micurd
 manager: jahogg
 editor: tysonn
-
+ms.assetid: 44cb845d-cf78-4942-95b8-952da4f9a2c2
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2016
+ms.date: 11/28/2016
 ms.author: micurd
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b438a4c90a5ccbcfb47b24ef85b70ba91fa228d6
+
 
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Xamarin에서 Blob 저장소를 사용하는 방법
@@ -46,156 +50,166 @@ Xamarin을 사용하면 개발자들이 공유된 C# 코드베이스를 사용�
 ## <a name="create-container-and-upload-blob"></a>컨테이너 만들기 및 blob 업로드
 다음으로, 공유 클래스 `MyClass.cs` 에 컨테이너를 만들고 blob을 이 컨테이너에 업로드하는 일부 코드를 추가합니다. `MyClass.cs` 는 다음과 같이 표시되어야 합니다.
 
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Blob;
-    using System.Threading.Tasks;
+```csharp
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using System.Threading.Tasks;
 
-    namespace XamarinApp
+namespace XamarinApp
+{
+    public class MyClass
     {
-        public class MyClass
+        public MyClass ()
         {
-            public MyClass ()
-            {
-            }
+        }
 
-            public static async Task createContainerAndUpload()
-            {
-                // Retrieve storage account from connection string.
-                CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here");
+        public static async Task createContainerAndUpload()
+        {
+            // Retrieve storage account from connection string.
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here");
 
-                // Create the blob client.
-                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            // Create the blob client.
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-                // Retrieve reference to a previously created container.
-                CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+            // Retrieve reference to a previously created container.
+            CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-                // Create the container if it doesn't already exist.
-                await container.CreateIfNotExistsAsync();
+            // Create the container if it doesn't already exist.
+            await container.CreateIfNotExistsAsync();
 
-                // Retrieve reference to a blob named "myblob".
-                CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
+            // Retrieve reference to a blob named "myblob".
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
 
-                // Create the "myblob" blob with the text "Hello, world!"
-                await blockBlob.UploadTextAsync("Hello, world!");
-            }
+            // Create the "myblob" blob with the text "Hello, world!"
+            await blockBlob.UploadTextAsync("Hello, world!");
         }
     }
+}
+```
 
 "your_account_name_here" 및 "your_account_key_here"를 실제 계정 이름과 계정 키로 바꾸어야 합니다. 그런 후 IOS, Android 및 Windows Phone 응용 프로그램에서 이 공유 클래스를 사용할 수 있습니다. 각 프로젝트에 `MyClass.createContainerAndUpload()` 를 간단히 추가할 수 있습니다. 예:
 
-### <a name="xamarinapp.droid->-mainactivity.cs"></a>XamarinApp.Droid > MainActivity.cs
-    using Android.App;
-    using Android.Widget;
-    using Android.OS;
+### <a name="xamarinappdroid-mainactivitycs"></a>XamarinApp.Droid > MainActivity.cs
 
-    namespace XamarinApp.Droid
+```csharp
+using Android.App;
+using Android.Widget;
+using Android.OS;
+
+namespace XamarinApp.Droid
+{
+    [Activity (Label = "XamarinApp.Droid", MainLauncher = true, Icon = "@drawable/icon")]
+    public class MainActivity : Activity
     {
-        [Activity (Label = "XamarinApp.Droid", MainLauncher = true, Icon = "@drawable/icon")]
-        public class MainActivity : Activity
+        int count = 1;
+
+        protected override async void OnCreate (Bundle bundle)
         {
-            int count = 1;
+            base.OnCreate (bundle);
 
-            protected override async void OnCreate (Bundle bundle)
-            {
-                base.OnCreate (bundle);
+            // Set our view from the "main" layout resource
+            SetContentView (Resource.Layout.Main);
 
-                // Set our view from the "main" layout resource
-                SetContentView (Resource.Layout.Main);
+            // Get our button from the layout resource,
+            // and attach an event to it
+            Button button = FindViewById<Button> (Resource.Id.myButton);
 
-                // Get our button from the layout resource,
-                // and attach an event to it
-                Button button = FindViewById<Button> (Resource.Id.myButton);
+            button.Click += delegate {
+                button.Text = string.Format ("{0} clicks!", count++);
+            };
 
-                button.Click += delegate {
-                    button.Text = string.Format ("{0} clicks!", count++);
-                };
-
-              await MyClass.createContainerAndUpload();
-            }
+            await MyClass.createContainerAndUpload();
         }
     }
+}
+```
 
-### <a name="xamarinapp.ios->-viewcontroller.cs"></a>XamarinApp.iOS > ViewController.cs
-    using System;
-    using UIKit;
+### <a name="xamarinappios-viewcontrollercs"></a>XamarinApp.iOS > ViewController.cs
 
-    namespace XamarinApp.iOS
+```csharp
+using System;
+using UIKit;
+
+namespace XamarinApp.iOS
+{
+    public partial class ViewController : UIViewController
     {
-        public partial class ViewController : UIViewController
+        int count = 1;
+
+        public ViewController (IntPtr handle) : base (handle)
         {
-            int count = 1;
+        }
 
-            public ViewController (IntPtr handle) : base (handle)
-            {
-            }
+        public override async void ViewDidLoad ()
+        {
+            base.ViewDidLoad ();
+            // Perform any additional setup after loading the view, typically from a nib.
+            Button.AccessibilityIdentifier = "myButton";
+            Button.TouchUpInside += delegate {
+                var title = string.Format ("{0} clicks!", count++);
+                Button.SetTitle (title, UIControlState.Normal);
+            };
 
-            public override async void ViewDidLoad ()
-            {
-                base.ViewDidLoad ();
-                // Perform any additional setup after loading the view, typically from a nib.
-                Button.AccessibilityIdentifier = "myButton";
-                Button.TouchUpInside += delegate {
-                    var title = string.Format ("{0} clicks!", count++);
-                    Button.SetTitle (title, UIControlState.Normal);
-                };
+            await MyClass.createContainerAndUpload();
+        }
 
-                await MyClass.createContainerAndUpload();
-            }
-
-            public override void DidReceiveMemoryWarning ()
-            {
-                base.DidReceiveMemoryWarning ();
-                // Release any cached data, images, etc that aren't in use.
-            }
+        public override void DidReceiveMemoryWarning ()
+        {
+            base.DidReceiveMemoryWarning ();
+            // Release any cached data, images, etc that aren't in use.
         }
     }
+}
+```
 
-### <a name="xamarinapp.winphone->-mainpage.xaml->-mainpage.xaml.cs"></a>XamarinApp.WinPhone > MainPage.xaml > MainPage.xaml.cs
-    using Windows.UI.Xaml.Controls;
-    using Windows.UI.Xaml.Navigation;
+### <a name="xamarinappwinphone-mainpagexaml-mainpagexamlcs"></a>XamarinApp.WinPhone > MainPage.xaml > MainPage.xaml.cs
 
-    // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+```csharp
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
-    namespace XamarinApp.WinPhone
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+
+namespace XamarinApp.WinPhone
+{
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class MainPage : Page
     {
+        int count = 1;
+
+        public MainPage()
+        {
+            this.InitializeComponent();
+
+            this.NavigationCacheMode = NavigationCacheMode.Required;
+        }
+
         /// <summary>
-        /// An empty page that can be used on its own or navigated to within a Frame.
+        /// Invoked when this page is about to be displayed in a Frame.
         /// </summary>
-        public sealed partial class MainPage : Page
+        /// <param name="e">Event data that describes how this page was reached.
+        /// This parameter is typically used to configure the page.</param>
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            int count = 1;
+            // TODO: Prepare page for display here.
 
-            public MainPage()
-            {
-                this.InitializeComponent();
+            // TODO: If your application contains multiple pages, ensure that you are
+            // handling the hardware Back button by registering for the
+            // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
+            // If you are using the NavigationHelper provided by some templates,
+            // this event is handled for you.
+            Button.Click += delegate {
+                var title = string.Format("{0} clicks!", count++);
+                Button.Content = title;
+            };
 
-                this.NavigationCacheMode = NavigationCacheMode.Required;
-            }
-
-            /// <summary>
-            /// Invoked when this page is about to be displayed in a Frame.
-            /// </summary>
-            /// <param name="e">Event data that describes how this page was reached.
-            /// This parameter is typically used to configure the page.</param>
-            protected override async void OnNavigatedTo(NavigationEventArgs e)
-            {
-                // TODO: Prepare page for display here.
-
-                // TODO: If your application contains multiple pages, ensure that you are
-                // handling the hardware Back button by registering for the
-                // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
-                // If you are using the NavigationHelper provided by some templates,
-                // this event is handled for you.
-                Button.Click += delegate {
-                    var title = string.Format("{0} clicks!", count++);
-                    Button.Content = title;
-                };
-
-                await MyClass.createContainerAndUpload();
-            }
+            await MyClass.createContainerAndUpload();
         }
     }
-
+}
+```
 
 ## <a name="run-the-application"></a>응용 프로그램 실행
 이제 Android 또는 Windows Phone 에뮬레이터에서 이 응용 프로그램을 실행할 수 있습니다. iOS 에뮬레이터에서 이 응용 프로그램을 실행할 수도 있지만 Mac이 있어야 합니다. 이 작업을 수행하는 방법에 대한 특정 지침은 [Visual Studio를 Mac에 연결](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
@@ -212,6 +226,9 @@ Xamarin을 사용하면 개발자들이 공유된 C# 코드베이스를 사용�
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

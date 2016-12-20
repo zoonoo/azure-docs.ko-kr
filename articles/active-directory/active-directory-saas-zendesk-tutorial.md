@@ -1,11 +1,11 @@
 ---
-title: '자습서: Azure Active Directory와 Zendesk 통합 | Microsoft Docs'
-description: Azure Active Directory에서 Zendesk을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다.
+title: "자습서: Azure Active Directory와 Zendesk 통합 | Microsoft Docs"
+description: "Azure Active Directory에서 Zendesk을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 9d7c91e5-78f5-4016-862f-0f3242b00680
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/09/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a2e80047f251473d7d70fc3c5a362c279fdac82d
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-zendesk"></a>자습서:Azure Active Directory와 Zendesk 통합
+# <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>자습서:Azure Active Directory와 Zendesk 통합
 이 자습서는 Azure와 Zendesk 통합을 보여줍니다.  
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -36,7 +40,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-zendesk"></a>Zendesk에 응용 프로그램 통합 사용
 이 섹션에서는 Zendesk에 응용 프로그램 통합을 사용하는 방법에 대해 간략하게 설명합니다.
 
-### <a name="to-enable-the-application-integration-for-zendesk,-perform-the-following-steps:"></a>Zendesk에 응용 프로그램 통합을 사용하려면, 다음 단계를 수행합니다.
+### <a name="to-enable-the-application-integration-for-zendesk-perform-the-following-steps"></a>Zendesk에 응용 프로그램 통합을 사용하려면, 다음 단계를 수행합니다.
 1. Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
    ![Active Directory](./media/active-directory-saas-zendesk-tutorial/IC700993.png "Active Directory")
@@ -62,7 +66,7 @@ ms.author: jeedes
 Zendesk에 singl sign-on을 구성하려면 인증서에서 지문 값을 검색해야 합니다.  
 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure AD 포털의 **Zendesk** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Configure Single Sign On** 대화 상자를 엽니다.
    
    ![SSO(Single sign-on)](./media/active-directory-saas-zendesk-tutorial/IC773086.png "Single sign-on")
@@ -105,7 +109,7 @@ Zendesk에 singl sign-on을 구성하려면 인증서에서 지문 값을 검색
 Azure AD 사용자가 **Zendesk**에 로그인할 수 있도록 하려면 사용자 계정이 **Zendesk**에 프로비전되어야 합니다.  
 **Zendesk**의 경우, 수동으로 프로비전합니다.
 
-### <a name="to-provision-a-user-account-to-zendesk,-perform-the-following-steps:"></a>사용자 계정을 Zendesk로 프로비전 하려면 다음 단계를 수행합니다.
+### <a name="to-provision-a-user-account-to-zendesk-perform-the-following-steps"></a>사용자 계정을 Zendesk로 프로비전 하려면 다음 단계를 수행합니다.
 1. **Zendesk** 테넌트에 로그인합니다.
 2. **고객 목록** 탭을 선택합니다.
 3. **사용자** 탭을 선택하고 **추가**를 클릭합니다.
@@ -123,7 +127,7 @@ Azure AD 사용자가 **Zendesk**에 로그인할 수 있도록 하려면 사용
 ## <a name="assigning-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
-### <a name="to-assign-users-to-zendesk,-perform-the-following-steps:"></a>Zendesk에 사용자를 할당하려면 다음 단계를 수행합니다.
+### <a name="to-assign-users-to-zendesk-perform-the-following-steps"></a>Zendesk에 사용자를 할당하려면 다음 단계를 수행합니다.
 1. Azure AD 포털에서 테스트 계정을 만듭니다.
 2. **Zendesk** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
@@ -134,6 +138,9 @@ Azure AD 사용자가 **Zendesk**에 로그인할 수 있도록 하려면 사용
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

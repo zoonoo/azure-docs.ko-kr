@@ -1,13 +1,13 @@
 ---
-title: 논리 앱에서 Office 365 비디오 커넥터 사용 | Microsoft Docs
-description: Microsoft Azure 앱 서비스 논리 앱에서 Office 365 비디오 커넥터 사용을 시작
-services: ''
-documentationcenter: ''
+title: "논리 앱에서 Office 365 비디오 커넥터 사용 | Microsoft Docs"
+description: "Microsoft Azure 앱 서비스 논리 앱에서 Office 365 비디오 커넥터 사용을 시작"
+services: 
+documentationcenter: 
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 738e5aa7-2523-4116-8b65-211b9063852d
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 959eaca7aafd8516cfc6f3b5dd2a44ce21ec4825
+
 
 ---
-# Office 365 비디오 커넥터 시작
+# <a name="get-started-with-the-office365-video-connector"></a>Office 365 비디오 커넥터 시작
 Office 365 비디오에 연결하여 Office 365 비디오에 대한 정보 가져오기, 비디오 목록 가져오기 등을 수행합니다. Office 365 비디오 커넥터를 다음에서 사용할 수 있습니다.
 
 * 논리 앱 
@@ -34,154 +38,160 @@ Office 365 비디오로 다음을 수행할 수 있습니다.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
-## 트리거 및 작업
+## <a name="triggers-and-actions"></a>트리거 및 작업
 Office 365 비디오 커넥터에서는 다음과 같은 작업을 사용할 수 있습니다. 트리거는 없습니다.
 
 | 트리거 | actions |
 | --- | --- |
-| 없음 |<ul><li>비디오 포털 상태 확인</li><li>볼 수 있는 모든 채널 가져오기</li><li>비디오에 대한 Azure 미디어 서비스 매니페스트의 재생 URL 가져오기</li><li>비디오 암호를 해독하기 위해 액세스를 가져오는 전달자 토큰 가져오기</li><li>특정 Office365 비디오에 대한 정보 가져오기</li><li>채널에 있는 모든 Office365 비디오 나열</li></ul> |
+| 없음 |<ul><li>비디오 포털 상태 확인</li><li>볼 수 있는 모든 채널 가져오기</li><li>비디오에 대한 Azure 미디어 서비스 매니페스트의 재생 URL을 가져옵니다.</li><li>비디오 암호 해독 권한을 얻기 위해 전달자 토큰을 가져옵니다.</li><li>특정 Office 365 비디오에 대한 정보를 가져옵니다.</li><li>채널에 있는 모든 Office 365 비디오를 나열합니다.</li></ul> |
 
-모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다. 
 
-## Office 365 비디오 커넥터에 대한 연결 만들기
+## <a name="create-a-connection-to-office365-video-connector"></a>Office 365 비디오 커넥터에 대한 연결 만들기
 논리 앱에 이 커넥터를 추가할 때 Office 365 비디오 계정에 로그인하고 논리 앱을 계정에 연결해야 합니다.
 
-> [!INCLUDE [Office 365 비디오에 대한 연결을 만드는 단계](../../includes/connectors-create-api-office365video.md)]
+> [!INCLUDE [Steps to create a connection to Office 365 Video](../../includes/connectors-create-api-office365video.md)]
 > 
 > 
 
-연결을 만든 후 테넌트 이름 또는 채널 ID 등의 Office 365 비디오 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
+연결을 만든 후 테넌트 이름 또는 채널 ID 등의 Office 365 비디오 속성을 입력합니다. 이 항목의 **REST API 참조** 에서는 이러한 속성에 대해 설명합니다.
 
 > [!TIP]
 > 다른 논리 앱에서 이와 동일한 Office 365 비디오 연결을 사용할 수 있습니다.
 > 
 > 
 
-## Swagger REST API 참조
+## <a name="swagger-rest-api-reference"></a>Swagger REST API 참조
 적용 버전: 1.0
 
-### 비디오 포털 상태 확인
-비디오 포털 상태를 확인하여 비디오 서비스를 사용할 수 있는지 알아봅니다. ```GET: /{tenant}/IsEnabled```
+### <a name="checks-video-portal-status"></a>비디오 포털 상태 확인
+비디오 포털 상태를 확인하여 비디오 서비스를 사용할 수 있는지 알아봅니다.  
+```GET: /{tenant}/IsEnabled``` 
 
 | 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| tenant |string |yes |path |없음 |사용자가 속해 있는 디렉터리의 테넌트 이름 |
+| tenant |string |예 |path |없음 |사용자가 속해 있는 디렉터리의 테넌트 이름 |
 
-#### 응답
+#### <a name="response"></a>응답
 | 이름 | 설명 |
 | --- | --- |
 | 200 |작업이 성공했습니다. |
 | 400 |BadRequest |
 | 401 |권한 없음 |
-| 404 |찾을 수 없음 |
+| 404 | 찾을 수 없음 |
 | 500 |내부 서버 오류 |
 | 기본값 |작업이 실패했습니다. |
 
-### 볼 수 있는 모든 채널 가져오기
-사용자가 볼 수 있는 모든 채널을 가져옵니다. ```GET: /{tenant}/Channels```
+### <a name="get-all-viewable-channels"></a>볼 수 있는 모든 채널 가져오기
+사용자가 볼 수 있는 모든 채널을 가져옵니다.  
+```GET: /{tenant}/Channels``` 
 
 | 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| tenant |string |yes |path |없음 |사용자가 속해 있는 디렉터리의 테넌트 이름 |
+| tenant |string |예 |path |없음 |사용자가 속해 있는 디렉터리의 테넌트 이름 |
 
-#### 응답
+#### <a name="response"></a>응답
 | 이름 | 설명 |
 | --- | --- |
 | 200 |작업이 성공했습니다. |
 | 400 |BadRequest |
 | 401 |권한 없음 |
-| 404 |찾을 수 없음 |
+| 404 | 찾을 수 없음 |
 | 500 |내부 서버 오류 |
 | 기본값 |작업이 실패했습니다. |
 
-### 채널에 있는 모든 Office 365 비디오를 나열합니다.
-채널에 있는 모든 Office 365 비디오를 나열합니다. ```GET: /{tenant}/Channels/{channelId}/Videos```
+### <a name="lists-all-the-office365-videos-present-in-a-channel"></a>채널에 있는 모든 Office 365 비디오를 나열합니다.
+채널에 있는 모든 Office 365 비디오를 나열합니다.  
+```GET: /{tenant}/Channels/{channelId}/Videos``` 
 
 | 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| tenant |string |yes |path |없음 |사용자가 속해 있는 디렉터리의 테넌트 이름 |
-| channelId |string |yes |path |없음 |비디오를 가져와야 하는 채널 ID |
+| tenant |string |예 |path |없음 |사용자가 속해 있는 디렉터리의 테넌트 이름 |
+| channelId |string |예 |path |없음 |비디오를 가져와야 하는 채널 ID |
 
-#### 응답
+#### <a name="response"></a>응답
 | 이름 | 설명 |
 | --- | --- |
 | 200 |작업이 성공했습니다. |
 | 400 |BadRequest |
 | 401 |권한 없음 |
-| 404 |찾을 수 없음 |
+| 404 | 찾을 수 없음 |
 | 500 |내부 서버 오류 |
 | 기본값 |작업이 실패했습니다. |
 
-### 특정 Office 365 비디오에 대한 정보를 가져옵니다.
-특정 Office 365 비디오에 대한 정보를 가져옵니다. ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}```
+### <a name="gets-information-about-a-particular-office365-video"></a>특정 Office 365 비디오에 대한 정보를 가져옵니다.
+특정 Office 365 비디오에 대한 정보를 가져옵니다.  
+```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}``` 
 
 | 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| tenant |string |yes |path |없음 |사용자가 속해 있는 디렉터리의 테넌트 이름 |
-| channelId |string |yes |path |없음 |채널 ID |
-| videoId |string |yes |path |없음 |비디오 ID |
+| tenant |string |예 |path |없음 |사용자가 속해 있는 디렉터리의 테넌트 이름 |
+| channelId |string |예 |path |없음 |채널 ID |
+| videoId |string |예 |path |없음 |비디오 ID |
 
-#### 응답
+#### <a name="response"></a>응답
 | 이름 | 설명 |
 | --- | --- |
 | 200 |작업이 성공했습니다. |
 | 400 |BadRequest |
 | 401 |권한 없음 |
-| 404 |찾을 수 없음 |
+| 404 | 찾을 수 없음 |
 | 500 |내부 서버 오류 |
 | 기본값 |작업이 실패했습니다. |
 
-### 비디오에 대한 Azure 미디어 서비스 매니페스트의 재생 URL을 가져옵니다.
-비디오에 대한 Azure 미디어 서비스 매니페스트의 재생 URL을 가져옵니다. ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/playbackurl```
+### <a name="get-playback-url-of-the-azure-media-services-manifest-for-a-video"></a>비디오에 대한 Azure 미디어 서비스 매니페스트의 재생 URL을 가져옵니다.
+비디오에 대한 Azure 미디어 서비스 매니페스트의 재생 URL을 가져옵니다.  
+```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/playbackurl``` 
 
 | 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| tenant |string |yes |path |없음 |사용자가 속해 있는 디렉터리의 테넌트 이름 |
-| channelId |string |yes |path |없음 |채널 ID |
-| videoId |string |yes |path |없음 |비디오 ID |
+| tenant |string |예 |path |없음 |사용자가 속해 있는 디렉터리의 테넌트 이름 |
+| channelId |string |예 |path |없음 |채널 ID |
+| videoId |string |예 |path |없음 |비디오 ID |
 | streamingFormatType |string |yes |쿼리 |없음 |스트리밍 형식 유형입니다. 1 - 부드러운 스트리밍 또는 MPEG-DASH 0 - HLS 스트리밍 |
 
-#### 응답
+#### <a name="response"></a>응답
 | 이름 | 설명 |
 | --- | --- |
 | 200 |작업이 성공했습니다. |
 | 400 |BadRequest |
 | 401 |권한 없음 |
-| 404 |찾을 수 없음 |
+| 404 | 찾을 수 없음 |
 | 500 |내부 서버 오류 |
 | 기본값 |작업이 실패했습니다. |
 
-### 비디오 암호 해독 권한을 얻기 위해 전달자 토큰을 가져옵니다.
-비디오 암호 해독 권한을 얻기 위해 전달자 토큰을 가져옵니다. ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/token```
+### <a name="get-the-bearer-token-to-get-access-to-decrypt-the-video"></a>비디오 암호 해독 권한을 얻기 위해 전달자 토큰을 가져옵니다.
+비디오 암호 해독 권한을 얻기 위해 전달자 토큰을 가져옵니다.  
+```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/token```
 
 | 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| tenant |string |yes |path |없음 |사용자가 속해 있는 디렉터리의 테넌트 이름 |
-| channelId |string |yes |path |없음 |채널 ID |
-| videoId |string |yes |path |없음 |비디오 ID |
+| tenant |string |예 |path |없음 |사용자가 속해 있는 디렉터리의 테넌트 이름 |
+| channelId |string |예 |path |없음 |채널 ID |
+| videoId |string |예 |path |없음 |비디오 ID |
 
-#### 응답
+#### <a name="response"></a>응답
 | 이름 | 설명 |
 | --- | --- |
 | 200 |작업이 성공했습니다. |
 | 400 |BadRequest |
 | 401 |권한 없음 |
-| 404 |찾을 수 없음 |
+| 404 | 찾을 수 없음 |
 | 500 |내부 서버 오류 |
 | 기본값 |작업이 실패했습니다. |
 
-## 개체 정의
-#### 채널: 채널 클래스
+## <a name="object-definitions"></a>개체 정의
+#### <a name="channel-channel-class"></a>채널: 채널 클래스
 | 이름 | 데이터 형식 | 필수 |
 | --- | --- | --- |
-| Id |string |no |
+| id |string |no |
 | 제목 |string |no |
 | 설명 |string |no |
 
-#### 비디오
+#### <a name="video"></a>비디오
 | 이름 | 데이터 형식 | 필수 |
 | --- | --- | --- |
-| Id |string |no |
+| id |string |no |
 | 제목 |string |no |
 | 설명 |string |no |
 | CreationDate |string |no |
@@ -192,7 +202,12 @@ Office 365 비디오 커넥터에서는 다음과 같은 작업을 사용할 수
 | VideoProcessingStatus |정수 |no |
 | ViewCount |정수 |no |
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

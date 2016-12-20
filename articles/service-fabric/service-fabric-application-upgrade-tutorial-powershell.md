@@ -1,19 +1,23 @@
 ---
-title: PowerShell을 사용하여 서비스 패브릭 앱 업그레이드 | Microsoft Docs
-description: 이 문서는 PowerShell을 사용하여 서비스 패브릭 응용 프로그램의 배포, 코드 변경, 업그레이드 롤아웃 환경을 안내합니다.
+title: "PowerShell을 사용하여 Service Fabric 앱 업그레이드 | Microsoft Docs"
+description: "이 문서는 PowerShell을 사용하여 서비스 패브릭 응용 프로그램의 배포, 코드 변경, 업그레이드 롤아웃 환경을 안내합니다."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2016
+ms.date: 11/15/2016
 ms.author: subramar
+translationtype: Human Translation
+ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
+ms.openlocfilehash: 568d32f713fa4af1e0841fbf457014c5705be265
+
 
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell을 사용하여 서비스 패브릭 응용 프로그램 업그레이드
@@ -31,7 +35,7 @@ ms.author: subramar
 
 서비스 패브릭 모니터링되는 롤링 업그레이드는 응용 프로그램 관리자가 서비스 패브릭이 사용하여 응용 프로그램이 정상인지 결정하는 상태 평가 정책을 구성할 수 있게 합니다. 또한 관리자는 상태 평가가 실패했을 때 자동 롤백과 같은 수행할 작업을 구성할 수 있습니다. 이 섹션에서는 PowerShell을 사용하는 SDK 샘플 중 하나에 대해 모니터링되는 업그레이드를 연습합니다.
 
-## <a name="step-1:-build-and-deploy-the-visual-objects-sample"></a>1단계: 시각적 개체 샘플 빌드 및 배포
+## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>1단계: 시각적 개체 샘플 빌드 및 배포
 응용 프로그램 프로젝트 **VisualObjectsApplication,**을 마우스 오른쪽 단추로 클릭하고 **게시** 명령을 선택하여 응용 프로그램을 빌드 및 게시합니다.  자세한 내용은 [서비스 패브릭 응용 프로그램 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)를 참조하세요.  또는 PowerShell을 사용하여 응용 프로그램을 배포할 수 있습니다.
 
 > [!NOTE]
@@ -43,7 +47,7 @@ Visual Studio에서 프로젝트를 빌드한 후, PowerShell 명령 **Copy-Serv
 
 이제 [클러스터 및 응용 프로그램을 보는 서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md)를 사용할 수 있습니다. 응용 프로그램에는 웹 서비스가 있으며, Internet Explorer 주소 표시줄에 [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) 를 입력하여 웹 서비스로 이동할 수 있습니다.  화면에서 일부 부동 시각적 개체가 움직이는 것을 볼 수 있을 것입니다.  또한 **Get-ServiceFabricApplication** 을 사용하여 응용 프로그램 상태를 확인할 수 있습니다.
 
-## <a name="step-2:-update-the-visual-objects-sample"></a>2단계: 시각적 개체 샘플 업데이트
+## <a name="step-2-update-the-visual-objects-sample"></a>2단계: 시각적 개체 샘플 업데이트
 1단계에서에서 배포된 버전에서 알 수 있듯이 시각적 개체는 회전하지 않습니다. 이 응용 프로그램을 시각적 개체도 회전하도록 업그레이드하겠습니다.
 
 VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택하고, StatefulVisualObjectActor.cs 파일을 엽니다. 해당 파일 내에서 `MoveObject` 메서드로 이동하고 `this.State.Move()`를 주석 처리하고 `this.State.Move(true)`의 주석 처리를 제거합니다. 이렇게 변경하면 서비스가 업그레이드된 후 개체가 회전됩니다.
@@ -70,7 +74,7 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
 
 이제 **ActorService** 프로젝트를 선택하고 마우스 오른쪽 단추를 클릭한 후 Visual Studio에서 **Build** 옵션을 선택하여 프로젝트를 빌드합니다. **모두 다시 빌드**를 선택한 경우 코드가 변경되었으므로 모든 프로젝트의 버전을 업데이트해야 합니다. 다음으로, ***VisualObjectsApplication***을 마우스 오른쪽 단추로 클릭하고 서비스 패브릭 메뉴를 선택한 후 **패키지**를 선택하여 업데이트된 응용 프로그램을 패키지해봅시다. 이 작업을 수행하면 배포 가능한 응용 프로그램 패키지가 만들어집니다.  업데이트된 응용 프로그램의 배포 준비가 되었습니다.
 
-## <a name="step-3:-decide-on-health-policies-and-upgrade-parameters"></a>3단계: 상태 정책 결정 및 매개 변수 업그레이드
+## <a name="step-3-decide-on-health-policies-and-upgrade-parameters"></a>3단계: 상태 정책 결정 및 매개 변수 업그레이드
 [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md)를 파악하여 다양한 업그레이드 매개 변수, 제한 시간 및 적용되는 상태 조건을 잘 이해하세요. 이 연습에서는 서비스 상태 평가 조건이 모든 서비스 및 인스턴스가 업그레이드 후에 *정상* 이 되어야 함을 의미하는 기본값(및 권장값)으로 설정됩니다.  
 
 그러나 *HealthCheckStableDuration* 을 60초로 증가시켜 보겠습니다(그러면 서비스는 다음 업데이트 도메인으로 업그레이드를 진행하기 전에 적어도 20초간 정상이 됩니다).  또한 *UpgradeDomainTimeout*을 1200초로, *UpgradeTimeout*을 3000초로 설정해 보겠습니다.
@@ -85,7 +89,7 @@ UpgradeDomainTimeoutSec = 1200
 
 UpgradeTimeout = 3000
 
-## <a name="step-4:-prepare-application-for-upgrade"></a>4단계: 업그레이드를 위한 응용 프로그램 준비
+## <a name="step-4-prepare-application-for-upgrade"></a>4단계: 업그레이드를 위한 응용 프로그램 준비
 이제 응용 프로그램이 빌드되고 업그레이드 준비되었습니다. 관리자로 PowerShell 창을 열고 **Get-ServiceFabricApplication**을 입력하면 **VisualObjects**의 응용 프로그램 형식 1.0.0.0이 배포되었음을 알려줍니다.  
 
 이 응용 프로그램 패키지는 Service Fabric SDK의 압축을 푼 다음 상대 경로 아래 저장됩니다. *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug* 디렉터리에서 응용 프로그램 패키지가 저장된 "Package" 폴더를 찾을 수 있습니다. 타임스탬프를 확인하여 최신 빌드인지 확인합니다(경로를 적절하게 수정해야 할 수 있음).
@@ -105,7 +109,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObject
 
 위 명령이 실패하면 모든 서비스를 다시 빌드해야 할 가능성이 높습니다. 2단계에서 언급했듯이 WebService 버전도 업데이트해야 합니다.
 
-## <a name="step-5:-start-the-application-upgrade"></a>5단계: 응용 프로그램 업그레이드 시작
+## <a name="step-5-start-the-application-upgrade"></a>5단계: 응용 프로그램 업그레이드 시작
 이제 다음 명령을 사용하면 응용 프로그램 업그레이드를 시작할 준비가 모두 되었습니다.
 
 ```powershell
@@ -132,6 +136,9 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

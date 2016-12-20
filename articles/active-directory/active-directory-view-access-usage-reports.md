@@ -1,12 +1,12 @@
 ---
-title: 액세스 및 사용 보고서 보기 | Microsoft Docs
-description: 액세스 및 사용 보고서를 사용하여 조직 디렉터리의 무결성 및 보안을 보는 방법에 대해 설명합니다.
+title: "액세스 및 사용 보고서 보기 | Microsoft Docs"
+description: "액세스 및 사용 보고서를 사용하여 조직 디렉터리의 무결성 및 보안을 보는 방법에 대해 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a074bc4e-cf3f-4ad1-8cc6-4199d2e09ce4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2016
 ms.author: dhanyahk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8b3835d354512645cd47ffa4541d6155c80e77ee
+
 
 ---
-# 액세스 및 사용 보고서 보기
+# <a name="view-your-access-and-usage-reports"></a>액세스 및 사용 보고서 보기
 *이 설명서는 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)의 일부입니다.*
 
 Azure Active Directory의 액세스 및 사용 보고서를 사용하여 조직 디렉터리의 무결성 및 보안을 볼 수 있습니다 이 정보를 사용하면 디렉터리 관리자는 가능한 보안 위험이 발생할 수 있는 위치를 보다 잘 결정하여 이러한 위험을 적절하게 완화할 수 있습니다.
@@ -35,7 +39,7 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 > 
 > 
 
-## 보고서
+## <a name="reports"></a>보고서
 | 보고서 | 설명 |
 | --- | --- |
 | **비정상적인 작업 보고서** | |
@@ -63,88 +67,88 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 | RMS 장치 사용 |RMS로 보호된 파일에 액세스하는 데 사용된 장치를 나열합니다. |
 | RMS 사용 응용 프로그램 사용 현황 |RMS 사용 응용 프로그램의 사용 현황을 제공합니다. |
 
-## 보고서 버전
+## <a name="report-editions"></a>보고서 버전
 | 보고서 | 무료 | Basic | Premium |
 | --- | --- | --- | --- |
 | **비정상적인 작업 보고서** | | | |
-| 알 수 없는 원본에서 로그인 |✓ |✓ |✓ |
-| 여러 번의 실패 후 로그인 |✓ |✓ |✓ |
-| 여러 지역에서의 로그인 |✓ |✓ |✓ |
+| 알 수 없는 원본에서 로그인 |✓ |✓  |✓ |
+| 여러 번의 실패 후 로그인 |✓ |✓  |✓ |
+| 여러 지역에서의 로그인 |✓ |✓  |✓ |
 | 의심스러운 활동을 포함하는 IP 주소의 로그인 | | |✓ |
 | 감염 가능성이 있는 장치에서의 로그인 | | |✓ |
 | 비정상적인 로그인 활동 | | |✓ |
 | 비정상적인 로그인 활동을 포함하는 사용자 보고서 | | |✓ |
 | 자격 증명이 손실된 사용자 | | |✓ |
 | **활동 로그** | | | |
-| 감사 보고서 |✓ |✓ |✓ |
+| 감사 보고서 |✓ |✓  |✓ |
 | 암호 재설정 활동 | | |✓ |
 | 암호 재설정 등록 활동 | | |✓ |
 | 셀프 서비스 그룹 활동 | | |✓ |
 | **통합된 응용 프로그램** | | | |
 | 응용 프로그램 사용 현황 | | |✓ |
-| 계정 프로비전 활동 |✓ |✓ |✓ |
+| 계정 프로비전 활동 |✓ |✓  |✓ |
 | 암호 롤오버 상태 | | |✓ |
-| 계정 프로비전 오류 |✓ |✓ |✓ |
+| 계정 프로비전 오류 |✓ |✓  |✓ |
 | **권한 관리** | | | |
 | RMS 사용 현황 | | |RMS만 해당 |
 | 가장 활동적인 RMS 사용자 | | |RMS만 해당 |
 | RMS 장치 사용 | | |RMS만 해당 |
 | RMS 사용 응용 프로그램 사용 현황 | | |RMS만 해당 |
 
-## 비정상적인 활동 보고서
+## <a name="anomalous-activity-reports"></a>비정상적인 활동 보고서
 <p>비정상적인 로그인 활동 보고서는 Office365, Azure 관리 포털, Azure AD 액세스 패널, Sharepoint Online, Dynamics CRM Online 및 기타 Microsoft 온라인 서비스에 대한 의심스러운 로그인 활동에 플래그를 지정합니다.</p>
 
 <p>"여러 번의 실패 후 로그인" 보고서를 제외하고 이러한 모든 보고서는 페더레이션 공급자에 관계없이 앞서 언급한 서비스에 대한 의심스러운 <i>페더레이션</i> 로그인에도 플래그를 지정합니다. </p>
 
 <p>사용할 수 있는 보고서는 다음과 같습니다. </p><ul>
 
-<li>[알 수 없는 원본에서 로그인](active-directory-reporting-sign-ins-from-unknown-sources.md).</li>
+<li>[알 수 없는 원본에서 로그인](active-directory-reporting-sign-ins-from-unknown-sources.md)의 일부입니다.</li>
 
-<li>[여러 번 실패 후 로그인](active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
+<li>[여러 번의 실패 후 로그인](active-directory-reporting-sign-ins-after-multiple-failures.md)의 일부입니다.</li>
 
-<li>[여러 지역에서의 로그인](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li>
+<li>[여러 지역에서의 로그인](active-directory-reporting-sign-ins-from-multiple-geographies.md)의 일부입니다.</li>
 
-<li>[의심스러운 활동을 포함하는 IP 주소의 로그인](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li>
+<li>[의심스러운 활동을 포함하는 IP 주소의 로그인](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)의 일부입니다.</li>
 
-<li>[비정상적인 로그인 활동](active-directory-reporting-irregular-sign-in-activity.md).</li>
+<li>[비정상적인 로그인 활동](active-directory-reporting-irregular-sign-in-activity.md)의 일부입니다.</li>
 
-<li>[감염 가능성이 있는 장치에서의 로그인](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li>
+<li>[감염 가능성이 있는 장치에서의 로그인](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)의 일부입니다.</li>
 
-<li>[비정상적인 로그인 활동을 포함하는 사용자](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li>
+<li>[비정상적인 로그인 활동을 포함하는 사용자 보고서](active-directory-reporting-users-with-anomalous-sign-in-activity.md)의 일부입니다.</li>
 
 <li>자격 증명이 손실된 사용자</li></ul>
 
-## 활동 로그
-### 감사 보고서
+## <a name="activity-logs"></a>활동 로그
+### <a name="audit-report"></a>감사 보고서
 | 설명 | 보고서 위치 |
 |:--- |:--- |
-| 최근 24시간, 최근 7일 또는 최근 30일 내에 감사된 모든 이벤트의 레코드를 보여 줍니다. <br /> 자세한 내용은 [Azure Active Directory 감사 보고서 이벤트](active-directory-reporting-audit-events.md)를 참조하세요. |디렉터리 > 보고서 탭 |
+| 최근 24시간, 최근 7일 또는 최근 30일 내에 감사된 모든 이벤트의 레코드를 보여 줍니다. <br /> 자세한 내용은 [Azure Active Directory 감사 보고서 이벤트](active-directory-reporting-audit-events.md) |디렉터리 > 보고서 탭 |
 
 ![감사 보고서](./media/active-directory-view-access-usage-reports/auditReport.PNG)
 
-### 암호 재설정 활동
+### <a name="password-reset-activity"></a>암호 재설정 활동
 | 설명 | 보고서 위치 |
 |:--- |:--- |
 | 조직 내에서 발생한 모든 암호 재설정 시도를 보여 줍니다. |디렉터리 > 보고서 탭 |
 
 ![암호 재설정 활동](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)
 
-### 암호 재설정 등록 활동
+### <a name="password-reset-registration-activity"></a>암호 재설정 등록 활동
 | 설명 | 보고서 위치 |
 |:--- |:--- |
 | 조직 내에서 발생한 모든 암호 재설정 등록을 보여 줍니다. |디렉터리 > 보고서 탭 |
 
 ![암호 재설정 등록 활동](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)
 
-### 셀프 서비스 그룹 활동
+### <a name="self-service-groups-activity"></a>셀프 서비스 그룹 활동
 | 설명 | 보고서 위치 |
 |:--- |:--- |
 | 디렉터리의 셀프 서비스 관리 그룹에 대한 모든 활동을 보여 줍니다. |디렉터리 > 사용자 > <i>사용자</i> > 장치 탭 |
 
 ![셀프 서비스 그룹 활동](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)
 
-## 통합된 응용 프로그램 보고서
-### 응용 프로그램 사용: 요약
+## <a name="integrated-applications-reports"></a>통합된 응용 프로그램 보고서
+### <a name="application-usage-summary"></a>응용 프로그램 사용: 요약
 | 설명 | 보고서 위치 |
 |:--- |:--- |
 | 디렉터리에서의 모든 SaaS 응용 프로그램에 대한 사용 현황을 확인하려는 경우 이 보고서를 사용합니다. 이 보고서는 액세스 패널에서 해당 응용 프로그램을 클릭한 횟수를 기반으로 작성됩니다. |디렉터리 > 보고서 탭 |
@@ -155,62 +159,62 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 
 ![응용 프로그램 사용 요약](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
-### 응용 프로그램 사용: 세부
+### <a name="application-usage-detailed"></a>응용 프로그램 사용: 세부
 | 설명 | 보고서 위치 |
 |:--- |:--- |
 | 특정 SaaS 응용 프로그램이 어느 정도 사용되고 있는지 확인하려는 경우 이 보고서를 사용합니다. 이 보고서는 액세스 패널에서 해당 응용 프로그램을 클릭한 횟수를 기반으로 작성됩니다. |디렉터리 > 보고서 탭 |
 
-### 응용 프로그램 대시보드
+### <a name="application-dashboard"></a>응용 프로그램 대시보드
 | 설명 | 보고서 위치 |
 |:--- |:--- |
 | 이 보고서는 선택한 시간 간격 동안 조직 사용자의 누적 응용 프로그램 로그인을 나타냅니다. 대시보드 페이지의 차트는 해당 응용 프로그램의 모든 사용 추세를 식별하는 데 도움이 됩니다. |디렉터리 > 응용 프로그램 > 대시보드 탭 |
 
-## 오류 보고서
-### 계정 프로비전 오류
+## <a name="error-reports"></a>오류 보고서
+### <a name="account-provisioning-errors"></a>계정 프로비전 오류
 | 설명 | 보고서 위치 |
 |:--- |:--- |
 | 이 보고서를 사용하면 SaaS 응용 프로그램에서 Azure Active Directory로의 계정 동기화 중에 발생한 오류를 모니터링할 수 있습니다. |디렉터리 > 보고서 탭 |
 
 ![계정 프로비전 오류](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)
 
-## 사용자별 보고서
-### 장치
+## <a name="user-specific-reports"></a>사용자별 보고서
+### <a name="devices"></a>장치
 | 설명 | 보고서 위치 |
 |:--- |:--- |
 | 특정 사용자가 Azure Active Directory에 액세스하는 데 사용한 장치의 IP 주소 및 지리적 위치를 확인하려는 경우 이 보고서를 사용합니다. |디렉터리 > 사용자 > <i>사용자</i> > 장치 탭 |
 
-### 작업
+### <a name="activity"></a>작업
 | 설명 | 보고서 위치 |
 |:--- |:--- |
 | 사용자에 대한 로그인 활동을 보여 줍니다. 보고서에는 로그인한 응용 프로그램, 사용한 장치, IP 주소, 위치 등의 정보가 포함됩니다. Microsoft 계정으로 로그인하는 사용자에 대한 기록은 수집되지 않습니다. |디렉터리 > 사용자 > <i>사용자</i> > 활동 탭 |
 
-#### 사용자 활동 보고서에 포함된 로그인 이벤트
+#### <a name="sign-in-events-included-in-the-user-activity-report"></a>사용자 활동 보고서에 포함된 로그인 이벤트
 특정 유형의 로그인 이벤트만 사용자 활동 보고서에 표시됩니다.
 
 | 이벤트 유형 | 포함 여부 |
 | --- | --- |
-| [액세스 패널](http://myapps.microsoft.com/)에 로그인 |예 |
-| [Azure 관리 포털](https://manage.windowsazure.com/)에 로그인 |예 |
-| [Microsoft Azure 포털](https://portal.azure.com/)에 로그인 |예 |
-| [Office 365 포털](http://portal.office.com/)에 로그인 |예 |
+|  [액세스 패널](http://myapps.microsoft.com/) |예 |
+|  [Azure 관리 포털](https://manage.windowsazure.com/) |예 |
+|  [Microsoft Azure 포털](https://portal.azure.com/) |예 |
+|  [Office 365 포털](http://portal.office.com/) |예 |
 | Outlook 같은 네이티브 응용 프로그램에 로그인(아래 예외 참조) |예 |
 | Salesforce 같은 액세스 패널을 통해 페더레이션/프로 비전된 응용 프로그램에 로그인 |예 |
 | Twitter 같은 액세스 패널을 통해 암호 기반 응용 프로그램에 로그인 |예 |
 | 디렉터리에 추가된 사용자 지정 비즈니스 응용 프로그램에 로그인 |아니요(포함 예정) |
 | 디렉토리에 추가된 Azure AD 응용 프로그램 프록시 앱에 로그인 |아니요(포함 예정) |
 
-> 참고: 이 보고서의 노이즈를 줄이기 위해 [Microsoft Online Services 로그인 도우미](http://community.office365.com/ko-KR/w/sso/534.aspx)를 통한 로그인은 표시되지 않습니다.
+> 참고: 이 보고서의 노이즈를 줄이기 위해 [Microsoft Online Services 로그인 도우미](http://community.office365.com/en-us/w/sso/534.aspx) 를 통한 로그인은 표시되지 않습니다.
 > 
 > 
 
-## 보안 위반이 의심될 때 고려할 사항
+## <a name="things-to-consider-if-you-suspect-security-breach"></a>보안 위반이 의심될 때 고려할 사항
 사용자 계정이 손상되었다고 의심되거나 클라우드에서 디렉터리 데이터의 보안 위반을 초래할 수 있는 의심스러운 사용자 활동이 있는 경우 다음 작업 중 하나 이상을 고려하는 것이 좋습니다.
 
 * 사용자에게 연락하여 활동 확인
 * 사용자 암호 재설정
-* 추가 보안을 위해 [다단계 인증](../multi-factor-authentication/multi-factor-authentication-get-started.md) 사용
+* [다단계 인증](../multi-factor-authentication/multi-factor-authentication-get-started.md) 사용
 
-## 보고서 보기 또는 다운로드
+## <a name="view-or-download-a-report"></a>보고서 보기 또는 다운로드
 1. Azure 클래식 포털에서 **Active Directory**를 클릭하고 조직의 디렉터리 이름을 클릭한 다음 **보고서**를 클릭합니다.
 2. 보고서 페이지에서 보거나 다운로드하려는 보고서를 클릭합니다.
    
@@ -225,18 +229,23 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
    * 최근 30일
 4. 확인 표시 아이콘을 클릭하여 보고서를 실행합니다.
    * 최대 1000개의 이벤트가 Azure 클래식 포털에 표시됩니다.
-5. 해당하는 경우 **다운로드**를 클릭하여 오프라인으로 보거나 보관하기 위해 CSV(쉼표로 구분된 값) 형식의 압축 파일로 보고서를 다운로드합니다.
+5. 해당하는 경우 **다운로드** 를 클릭하여 오프라인으로 보거나 보관하기 위해 CSV(쉼표로 구분된 값) 형식의 압축 파일로 보고서를 다운로드합니다.
    * 최대 75,000개의 이벤트가 다운로드한 파일에 포함됩니다.
    * 더 많은 데이터는 [Azure AD Reporting API](active-directory-reporting-api-getting-started.md)를 확인하세요.
 
-## 이벤트 무시
+## <a name="ignore-an-event"></a>이벤트 무시
 비정상 보고서를 본다면 관련 보고서에 표시된 다양한 이벤트를 무시할 수 있다는 것을 알 수 있습니다. 이벤트를 무시하려면 보고서에서 해당 이벤트를 강조 표시한 후 **무시**를 클릭합니다. **무시** 단추를 클릭하면 강조 표시된 이벤트가 영구적으로 보고서에서 제거되며 허가받은 전역 관리자만 사용할 수 있습니다.
 
-## 자동 전자 메일 알림
+## <a name="automatic-email-notifications"></a>자동 전자 메일 알림
 Azure AD의 보고 알림에 대한 자세한 내용은 [Azure Active Directory Reporting 알림](active-directory-reporting-notifications.md)을 확인하세요.
 
-## 다음 단계
+## <a name="whats-next"></a>다음 단계
 * [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
 * [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,6 +1,6 @@
 ---
-title: "Node.js용 Azure IoT Hub 시작 | Microsoft Docs"
-description: "Node.js용 Azure IoT Hub 시작 자습서입니다. Microsoft Azure IoT SDK를 포함한 Azure IoT Hub 및 Node.js를 사용하여 사물 인터넷의 솔루션을 구현합니다."
+title: "Azure IoT Hub 시작(Node) | Microsoft Docs"
+description: "Node.js용 Azure IoT SDK를 사용하여 장치에서 Azure IoT Hub로 장치-클라우드 메시지를 보내는 방법입니다. 메시지를 보내는 시뮬레이션된 장치 앱, ID 레지스트리에서 장치를 등록할 서비스 앱 및 IoT Hub에서 장치-클라우드로 메시지를 읽는 서비스 앱을 만듭니다."
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -15,36 +15,36 @@ ms.workload: na
 ms.date: 09/12/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ddd9c1ed88e30eaaa200dc6b83d34746da14aa8
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 6a4275b7fb7501fec4e98f87b09e20b2114b556b
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-for-nodejs"></a>Node.js용 Azure IoT Hub 시작
+# <a name="get-started-with-azure-iot-hub-node"></a>Azure IoT Hub 시작(Node)
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-이 자습서의 끝 부분에서 다음의 세 가지 Node.js 콘솔 응용 프로그램이 만들어집니다.
+이 자습서의 끝 부분에서 다음의 세 가지 Node.js 콘솔 앱이 만들어집니다.
 
-* **CreateDeviceIdentity.js**는 장치 ID 및 시뮬레이션된 보안 키를 만들어 시뮬레이션된 장치에 연결합니다.
-* **ReadDeviceToCloudMessages.js**는 시뮬레이션된 장치에서 보낸 원격 분석을 표시합니다.
+* **CreateDeviceIdentity.js**는 장치 ID 및 시뮬레이션된 보안 키를 만들어 시뮬레이션된 장치 앱에 연결합니다.
+* **ReadDeviceToCloudMessages.js**는 시뮬레이션된 장치 앱에서 보낸 원격 분석을 표시합니다.
 * **SimulatedDevice.js**는 앞에서 만든 장치 ID로 IoT Hub에 연결하고 AMQP 프로토콜을 사용하여 매초마다 원격 분석 메시지를 보냅니다.
 
 > [!NOTE]
-> [IoT Hub SDK][lnk-hub-sdks] 문서는 장치와 솔루션 백 엔드에서 실행할 두 응용 프로그램을 빌드하는 데 사용할 수 있는 다양한 SDK에 대한 정보를 제공합니다.
+> [Azure IoT SDKs][lnk-hub-sdks] 문서는 장치와 솔루션 백 엔드에서 실행하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보를 제공합니다.
 > 
 > 
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Node.js 버전 0.10.x 이상
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 데 필요한 IoT Hub 호스트 이름 및 IoT Hub 연결 문자열을 갖게 되었습니다.
 
 ## <a name="create-a-device-identity"></a>장치 ID 만들기
-이 섹션에서는 IoT Hub의 ID 레지스트리에서 장치 ID를 만드는 Node.js 콘솔 앱을 만듭니다. 장치 ID 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 **장치 ID 레지스트리** 섹션을 참조하세요. 이 콘솔 응용 프로그램을 실행하면 장치-클라우드 메시지를 IoT Hub로 보낼 때 장치가 자체적으로 ID를 식별하는 데 사용할 수 있는 고유한 장치 ID와 키를 생성합니다.
+이 섹션에서는 IoT Hub의 ID 레지스트리에서 장치 ID를 만드는 Node.js 콘솔 앱을 만듭니다. ID 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 **ID 레지스트리** 섹션을 참조하세요. 이 콘솔 앱을 실행하면 장치-클라우드 메시지를 IoT Hub로 보낼 때 장치가 자체적으로 ID를 식별하는 데 사용할 수 있는 고유한 장치 ID와 키를 생성합니다.
 
 1. **createdeviceidentity**라는 새 빈 폴더를 만듭니다. **createdeviceidentity** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
    
@@ -64,14 +64,14 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
    
     var iothub = require('azure-iothub');
     ```
-5. **CreateDeviceIdentity.js** 파일에 다음 코드를 추가하고 자리 표시자 값을 이전 섹션에서 만든 IoT Hub의 연결 문자열로 바꿉니다. 
+5. **CreateDeviceIdentity.js** 파일에 다음 코드를 추가하고 자리 표시자 값을 이전 섹션에서 만든 허브의 IoT Hub 연결 문자열로 바꿉니다. 
    
     ```
     var connectionString = '{iothub connection string}';
    
     var registry = iothub.Registry.fromConnectionString(connectionString);
     ```
-6. 다음 코드를 추가하여 IoT Hub의 장치 ID 레지스트리에서 장치 정의를 만듭니다. 이 코드는 장치 ID가 레지스트리에 없는 경우 장치를 만들고, 있으면 기존 장치의 키를 반환합니다.
+6. 다음 코드를 추가하여 IoT Hub의 ID 레지스트리에서 장치 정의를 만듭니다. 이 코드는 장치 ID가 ID 레지스트리에 없는 경우 장치를 만들고, 있으면 기존 장치의 키를 반환합니다.
    
     ```
     var device = new iothub.Device(null);
@@ -87,8 +87,8 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
    
     function printDeviceInfo(err, deviceInfo, res) {
       if (deviceInfo) {
-        console.log('Device id: ' + deviceInfo.deviceId);
-        console.log('Device key: ' + deviceInfo.authentication.SymmetricKey.primaryKey);
+        console.log('Device ID: ' + deviceInfo.deviceId);
+        console.log('Device key: ' + deviceInfo.authentication.symmetricKey.primaryKey);
       }
     }
     ```
@@ -101,12 +101,12 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
 9. **장치 ID**와 **장치 키**를 기록해 둡니다. 나중에 장치로 IoT Hub에 연결하는 응용 프로그램을 만들 때 이러한 값이 필요합니다.
 
 > [!NOTE]
-> IoT Hub ID 레지스트리는 장치 ID만 저장하여 허브에 보안 액세스를 사용합니다. 보안 자격 증명으로 사용하기 위해 장치 ID 및 키와 개별 장치에 대해 액세스하지 못하도록 설정할 수 있는 사용/사용 안 함 플래그를 저장합니다. 응용 프로그램이 다른 장치별 메타데이터를 저장해야 할 경우 응용 프로그램별 저장소를 사용해야 합니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]를 참조하세요.
+> IoT Hub ID 레지스트리는 장치 ID만 저장하여 IoT Hub에 보안 액세스를 사용합니다. 보안 자격 증명으로 사용하기 위해 장치 ID 및 키와 개별 장치에 대해 액세스하지 못하도록 설정할 수 있는 사용/사용 안 함 플래그를 저장합니다. 응용 프로그램이 다른 장치별 메타데이터를 저장해야 할 경우 응용 프로그램별 저장소를 사용해야 합니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]를 참조하세요.
 > 
 > 
 
-## <a name="receive-devicetocloud-messages"></a>장치-클라우드 메시지 받기
-이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Node.js 콘솔 앱을 만듭니다. IoT Hub가 [Event Hubs][lnk-event-hubs-overview] 호환 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-process-d2c-tutorial] 자습서는 대량의 장치-클라우드 메시지를 처리하는 방법을 보여 줍니다. [Event Hubs 시작][lnk-eventhubs-tutorial] 자습서는 Event Hubs의 메시지를 처리하는 방법에 대해 추가 정보를 제공하며 IoT Hub Event Hubs 호환 끝점에 적용할 수 있습니다.
+## <a name="receive-device-to-cloud-messages"></a>장치-클라우드 메시지 받기
+이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Node.js 콘솔 앱을 만듭니다. IoT Hub가 [Event Hubs][lnk-event-hubs-overview]와 호환되는 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-process-d2c-tutorial] 자습서는 대량의 장치-클라우드 메시지를 처리하는 방법을 보여 줍니다. [Event Hubs 시작][lnk-eventhubs-tutorial] 자습서는 Event Hubs의 메시지를 처리하는 방법에 대해 추가 정보를 제공하며 IoT Hub Event Hub 호환 끝점에 적용됩니다.
 
 > [!NOTE]
 > 장치-클라우드 메시지를 읽는 Event Hub와 호환 가능한 끝점은 항상 AMQP 프로토콜을 사용합니다.
@@ -131,7 +131,7 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
    
     var EventHubClient = require('azure-event-hubs').Client;
     ```
-5. 다음 변수 선언을 추가하고 자리 표시자 값을 IoT Hub에 대한 연결 문자열로 바꿉니다.
+5. 다음 변수 선언을 추가하고 자리 표시자 값을 허브의 IoT Hub 연결 문자열로 바꿉니다.
    
     ```
     var connectionString = '{iothub connection string}';
@@ -190,7 +190,7 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
     var clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
     ```
-5. **connectionString** 변수를 추가하고 이 변수를 사용하여 장치 클라이언트를 만듭니다. **{youriothostname}** 을 *IoT Hub 만들기* 섹션에서 만든 IoT Hub의 이름으로 바꿉니다. **{yourdevicekey}** 를 *장치 ID 만들기* 섹션에서 만든 장치 키 값으로 바꿉니다.
+5. **connectionString** 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다. **{youriothostname}** 을 *IoT Hub 만들기* 섹션에서 만든 IoT Hub의 이름으로 바꿉니다. **{yourdevicekey}** 를 *장치 ID 만들기* 섹션에서 만든 장치 키 값으로 바꿉니다.
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
@@ -239,8 +239,8 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
 > 
 > 
 
-## <a name="run-the-applications"></a>응용 프로그램 실행
-이제 응용 프로그램을 실행할 준비가 되었습니다.
+## <a name="run-the-apps"></a>앱 실행
+이제 앱을 실행할 준비가 되었습니다.
 
 1. **readdevicetocloudmessages** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub 모니터링을 시작합니다.
    
@@ -248,20 +248,20 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
     node ReadDeviceToCloudMessages.js 
     ```
    
-    ![장치->클라우드 메시지 모니터링을 위한 Node.js IoT Hub 서비스 클라이언트 응용 프로그램][7]
+    ![장치-클라우드 메시지를 모니터링하는 Node.js IoT Hub 서비스 앱][7]
 2. **simulateddevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 원격 분석 데이터를 IoT Hub로 전송을 시작합니다.
    
     ```
     node SimulatedDevice.js
     ```
    
-    ![장치->클라우드 메시지 전송을 위한 Node.js IoT Hub 장치 클라이언트 응용 프로그램][8]
-3. [Azure Portal][lnk-portal]의 **사용량** 타일에 허브로 전송된 메시지 수가 표시됩니다.
+    ![장치-클라우드 메시지를 보내는 Node.js IoT Hub 장치 앱][8]
+3. [Azure Portal][lnk-portal]의 **사용량** 타일에 IoT Hub로 전송된 메시지 수가 표시됩니다.
    
     ![IoT Hub에 전송된 메시지의 수를 보여주는 Azure Portal 사용량 타일][43]
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure Portal에서 새 IoT Hub를 구성한 다음, 허브의 ID 레지스트리에서 장치 ID를 만들었습니다. 장치-클라우드 메시지를 허브로 보내기 위해 시뮬레이션된 장치 앱을 사용하는 이 장치 ID를 사용했습니다. 허브에서 받은 메시지를 표시하는 앱도 만들었습니다. 
+이 자습서에서는 Azure Portal에서 새 IoT Hub를 구성한 다음, IoT Hub의 ID 레지스트리에서 장치 ID를 만들었습니다. 장치-클라우드 메시지를 IoT Hub로 보내기 위해 시뮬레이션된 장치 앱을 사용하는 이 장치 ID를 사용했습니다. IoT Hub에서 받은 메시지를 표시하는 앱도 만들었습니다. 
 
 계속해서 IoT Hub을 시작하고 다른 IoT 시나리오를 탐색하려면 다음을 참조하세요.
 
@@ -290,12 +290,12 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

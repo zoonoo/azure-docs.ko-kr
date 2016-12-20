@@ -29,7 +29,7 @@ Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션�
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=multi-factor-authentication">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=multi-factor-authentication">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

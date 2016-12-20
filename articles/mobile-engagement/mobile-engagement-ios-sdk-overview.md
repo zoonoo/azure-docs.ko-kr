@@ -1,12 +1,12 @@
 ---
-title: Azure Mobile Engagement iOS SDK 개요 | Microsoft Docs
-description: Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차
+title: "Azure Mobile Engagement iOS SDK 개요 | Microsoft Docs"
+description: "Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 3a03bbd6-bcf8-436c-9775-5a8188629252
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,34 +14,38 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8bfadc110b8b2e0de470185ec9d84343125c960d
+
 
 ---
-# Azure Mobile Engagement용 iOS SDK
+# <a name="ios-sdk-for-azure-mobile-engagement"></a>Azure Mobile Engagement용 iOS SDK
 이 문서에서는 iOS 앱에 Azure Mobile Engagement를 통합하는 방법에 대한 모든 세부 사항을 확인할 수 있습니다. 먼저 통합을 연습해 보려면 [15분 자습서](mobile-engagement-ios-get-started.md)의 단계를 진행하세요
 
-[SDK 콘텐츠](mobile-engagement-ios-sdk-content.md)를 보려면 클릭하세요.
+ [SDK 콘텐츠](mobile-engagement-ios-sdk-content.md)
 
-## 통합 절차
+## <a name="integration-procedures"></a>통합 절차
 1. 시작: [iOS 앱에서 Mobile Engagement를 통합하는 방법](mobile-engagement-ios-integrate-engagement.md)
 2. 알림: [iOS 앱에서 도달률(알림)을 통합하는 방법](mobile-engagement-ios-integrate-engagement-reach.md)
 3. 태그 계획 구현: [iOS 앱에서 고급 Mobile Engagement API 태깅을 사용하는 방법](mobile-engagement-ios-use-engagement-api.md)
 
-## 릴리스 정보
-### 4\.0.0(09/12/2016)
+## <a name="release-notes"></a>릴리스 정보
+### <a name="400-09122016"></a>4.0.0(09/12/2016)
 * iOS 10 장치에서 알림이 작동하지 않는 문제를 해결했습니다.
 * XCode 7은 더 이상 사용되지 않습니다.
 
-이전 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-ios-release-notes.md)를 참조하세요.
+이전 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-ios-release-notes.md)
 
-## 업그레이드 절차
+## <a name="upgrade-procedures"></a>업그레이드 절차
 이전 버전의 Engagement를 응용 프로그램에 이미 통합한 경우에는 SDK를 업그레이드할 때 다음 사항을 고려해야 합니다.
 
-여러 SDK 버전을 건너뛴 경우에는 여러 절차를 수행해야 할 수 있습니다. 관련 정보는 전체 [업그레이드 절차](mobile-engagement-ios-upgrade-procedure.md)를 참조하세요
+여러 SDK 버전을 건너뛴 경우에는 여러 절차를 수행해야 할 수 있습니다. 관련 정보는 전체 [업그레이드 절차](mobile-engagement-ios-upgrade-procedure.md)를 참조하세요.
 
 SDK의 각 새 버전에 대해 먼저 EngagementSDK 및 EngagementReach 폴더를 대체해야 합니다. 즉, xcode에서 이 폴더를 제거한 후에 다시 가져와야 합니다.
 
-### 3\.0.0에서 4.0.0으로
-### XCode 8
+### <a name="from-300-to-400"></a>3.0.0에서 4.0.0으로
+### <a name="xcode-8"></a>XCode 8
 XCode 8은 SDK 버전 4.0.0부터 필수입니다.
 
 > [!NOTE]
@@ -60,16 +64,16 @@ XCode 8은 SDK 버전 4.0.0부터 필수입니다.
 > 
 > 
 
-#### UserNotifications 프레임워크
+#### <a name="usernotifications-framework"></a>UserNotifications 프레임워크
 빌드 단계에서 `UserNotifications` 프레임워크를 추가해야 합니다.
 
 프로젝트 탐색기에서 프로젝트 창을 열고 올바른 대상을 선택합니다. 그런 다음 **"빌드 단계"** 탭을 열고 **"이진과 라이브러리 연결"** 메뉴에서 프레임워크 `UserNotifications.framework` - 링크를 `Optional`로 설정을 추가합니다.
 
-#### 응용 프로그램 푸시 기능
+#### <a name="application-push-capability"></a>응용 프로그램 푸시 기능
 XCode 8은 앱 푸시 기능을 다시 설정할 수 있습니다. 선택한 대상의 `capability` 탭에서 한 번 더 확인하세요.
 
-#### 새 iOS 10 알림 등록 코드
-알림에 앱을 등록하는 이전 코드 조각은 계속 작동하지만 iOS 10에서 실행되는 동안은 사용이 중단된 API를 사용합니다.
+#### <a name="add-the-new-ios-10-notification-registration-code"></a>새 iOS 10 알림 등록 코드
+알림에 앱을 등록하는 이전 코드 조각은 계속 작동하지만 iOS 10에서 실행되는 동안은 사용이 중단된 API를 사용합니다. 
 
 `User Notification` 프레임워크 가져오기:
 
@@ -104,7 +108,7 @@ XCode 8은 앱 푸시 기능을 다시 설정할 수 있습니다. 선택한 대
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
-#### 사용자 고유의 UNUserNotificationCenterDelegate 구현이 이미 있는 경우
+#### <a name="if-you-already-have-your-own-unusernotificationcenterdelegate-implementation"></a>사용자 고유의 UNUserNotificationCenterDelegate 구현이 이미 있는 경우
 SDK에는 자체적으로 UNUserNotificationCenterDelegate 프로토콜이 구현되어 있습니다. 이 프로토콜은 iOS 10 이상에서 실행되는 장치의 Engagement 알림 수명 주기를 모니터링하기 위해 SDK에서 사용됩니다. SDK에서 대리자를 검색하는 경우 응용 프로그램당 UNUserNotificationCenter 대리자가 하나만 있기 때문에 자체 구현을 사용하지 않습니다. 즉, 자체 대리자에 Engagement 논리를 추가해야 합니다.
 
 이 작업은 다음 두 가지 방법으로 수행할 수 있습니다.
@@ -167,4 +171,9 @@ SDK에 대리자 호출 전달
 > 
 > 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

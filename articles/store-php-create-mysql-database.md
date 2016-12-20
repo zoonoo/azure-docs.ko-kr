@@ -1,20 +1,24 @@
 ---
-title: Azure에서 MySQL 데이터베이스 만들기 및 연결
-description: Azure 포털을 사용하여 MySQL 데이터베이스를 만든 후 Azure의 PHP 웹앱에서 연결하는 방법을 알아봅니다.
+title: "Azure에서 MySQL 데이터베이스 만들기 및 연결"
+description: "Azure 포털을 사용하여 MySQL 데이터베이스를 만든 후 Azure의 PHP 웹앱에서 연결하는 방법을 알아봅니다."
 documentationcenter: php
 services: app-service\web
 author: cephalin
-manager: wpickett
-editor: ''
+manager: erikre
+editor: 
 tags: mysql
-
+ms.assetid: 55465a9a-7e65-4fd9-8a65-dd83ee41f3e5
 ms.service: multiple
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm;cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b5f828f90c73f5fd0356fde4e71c11d4d27ec794
+
 
 ---
 # <a name="create-and-connect-to-a-mysql-database-in-azure"></a>Azure에서 MySQL 데이터베이스 만들기 및 연결
@@ -37,7 +41,7 @@ Azure 포털에서 MySQL 데이터베이스를 만들려면 다음을 수행합�
    * **데이터베이스 이름**: 고유하게 식별 가능한 이름을 입력합니다.
    * **구독**: 사용할 구독을 선택합니다.
    * **데이터베이스 유형**: 저비용 또는 무료 계층의 경우 **공유**를, 전용 리소스를 가져오려면 **전용**을 선택합니다. 
-   * **리소스 그룹**: 기존 [리소스 그룹](resource-group-overview.md) 에 MySQL 데이터베이스를 추가하거나 새 그룹에 넣습니다. 동일한 그룹의 리소스는 쉽게 함께 관리할 수 있습니다.
+   * **리소스 그룹**: 기존 [리소스 그룹](azure-resource-manager/resource-group-overview.md) 에 MySQL 데이터베이스를 추가하거나 새 그룹에 넣습니다. 동일한 그룹의 리소스는 쉽게 함께 관리할 수 있습니다.
    * **위치**: 가까운 위치를 선택합니다. 기존 리소스 그룹에 추가할 때 리소스 그룹의 위치로 고정됩니다.
    * **가격 책정 계층**: **가격 책정 계층**을 클릭한 후 가격 책정 옵션(**Mercury** 계층은 무료)을 선택한 후 **선택**을 클릭합니다. 
    * **약관**: **약관**을 클릭하고 구매 정보를 검토한 후 **구매**를 클릭합니다.
@@ -64,7 +68,7 @@ Azure 포털에서 MySQL 데이터베이스를 만들려면 다음을 수행합�
 
 이제 모든 웹앱에서 연결 정보를 사용할 수 있습니다. 간단한 PHP 앱에서 연결 정보를 사용하는 방법을 보여 주는 샘플은 [여기](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql)에서 사용할 수 있습니다.
 
-## <a name="connect-a-laravel-web-app-(from-the-php-get-started-tutorial)"></a>Laravel 웹앱 연결(PHP 시작 자습서에서)
+## <a name="connect-a-laravel-web-app-from-the-php-get-started-tutorial"></a>Laravel 웹앱 연결(PHP 시작 자습서에서)
 방금 [Azure에 PHP 웹앱 만들기, 구성 및 배포](app-service-web/app-service-web-php-get-started.md) 자습서를 완료했고 [Laravel](https://www.laravel.com/) 웹앱이 Azure에서 실행 중이라고 가정해 보세요. Laravel 앱에 데이터베이스 기능을 쉽게 추가할 수 있습니다. 다음 단계를 따르기만 하면 됩니다.
 
 > [!NOTE]
@@ -82,12 +86,13 @@ Azure 포털에서 MySQL 데이터베이스를 만들려면 다음을 수행합�
         DB_PASSWORD=<PASSWORD_from_properties_blade>
    
    > [!NOTE]
-   > **속성** 블레이드에서 MySQL 데이터베이스의 이름은 **데이터베이스 이름** 필드에 표시된 것이거나 다른 것일 수 있습니다. **연결 문자열** 필드에서 데이터베이스 매개 변수를 확인하는 것이 좋습니다. 
+   > **속성** 블레이드에서 MySQL 데이터베이스의 이름은 **데이터베이스 이름** 필드에 표시된 것이거나 다른 것일 수 있습니다. **연결 문자열** 필드에서 데이터베이스 매개 변수를 확인하는 것이 좋습니다.    
    > 
    > ![Azure에서 MySQL 데이터베이스 만들기 - 진행 중](./media/store-php-create-mysql-database/connect-db-1-database-name.png)
    > 
    > 
-2. MySQL 액세스 권한이 있는지 확인하는 가장 빠른 방법은 [Laravel의 기본 인증 스캐폴딩](https://laravel.com/docs/5.2/authentication#authentication-quickstart)을 사용하는 것입니다. 명령줄 터미널에서, Laravel 앱의 루트 디렉터리에서 다음 명령을 실행합니다.
+2. MySQL 액세스 권한이 있는지 확인하는 가장 빠른 방법은 [Laravel의 기본 인증 스캐폴딩](https://laravel.com/docs/5.2/authentication#authentication-quickstart)을 사용하는 것입니다. 
+   명령줄 터미널에서, Laravel 앱의 루트 디렉터리에서 다음 명령을 실행합니다.
    
          php artisan migrate
          php artisan make:auth
@@ -136,6 +141,9 @@ Azure 포털에서 MySQL 데이터베이스를 만들려면 다음을 수행합�
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure Monitor 메트릭 - 리소스 유형별 지원 메트릭 | Microsoft Docs
-description: Azure Monitor의 각 리소스 유형별로 사용 가능한 메트릭 목록
+title: "Azure Monitor 메트릭 - 리소스 유형별 지원 메트릭 | Microsoft Docs"
+description: "Azure Monitor의 각 리소스 유형별로 사용 가능한 메트릭 목록"
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 63d4ac65-1688-40d1-85c8-7cd408285b0f
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fd07342dad07e70a09f372c9c6c116376630e6f8
+
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
@@ -24,7 +28,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 > 
 > 
 
-## <a name="microsoft.batch/batchaccounts"></a>Microsoft.Batch/batchAccounts
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | CoreCount |코어 수 |개수 |합계 |배치 계정의 총 코어 수 |
@@ -49,7 +53,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | PoolDeleteStartEvent |풀 삭제 시작 이벤트 |개수 |합계 |시작된 총 풀 삭제 수 |
 | PoolDeleteCompleteEvent |풀 삭제 완료 이벤트 |개수 |합계 |완료된 총 풀 삭제 수 |
 
-## <a name="microsoft.cache/redis"></a>Microsoft.Cache/redis
+## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | connectedclients |연결된 클라이언트 |개수 |최대 | |
@@ -218,13 +222,13 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | cacheRead9 |캐시 읽기(분할 9) |초당 바이트 수 |최대 | |
 | percentProcessorTime9 |CPU(분할 9) |백분율 |최대 | |
 
-## <a name="microsoft.cognitiveservices/accounts"></a>Microsoft.CognitiveServices/accounts
+## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | NumberOfCalls |총 API 호출 수 |개수 |합계 |총 API 호출 수. |
 | NumberOfFailedCalls |총 실패한 API 호출 수 |개수 |합계 |총 실패한 API 호출 수. |
 
-## <a name="microsoft.compute/virtualmachines"></a>Microsoft.Compute/virtualMachines
+## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | 백분율 CPU |백분율 CPU |백분율 |평균 |현재 가상 컴퓨터에서 사용 중인 할당된 계산 단위의 백분율 |
@@ -235,7 +239,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | 디스크 읽기 작업/초 |디스크 읽기 작업/초 |초당 개수 |평균 |디스크 읽기 IOPS |
 | 디스크 쓰기 작업/초 |디스크 쓰기 작업/초 |초당 개수 |평균 |디스크 쓰기 IOPS |
 
-## <a name="microsoft.compute/virtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
+## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | 백분율 CPU |백분율 CPU |백분율 |평균 |현재 가상 컴퓨터에서 사용 중인 할당된 계산 단위의 백분율 |
@@ -246,7 +250,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | 디스크 읽기 작업/초 |디스크 읽기 작업/초 |초당 개수 |평균 |디스크 읽기 IOPS |
 | 디스크 쓰기 작업/초 |디스크 쓰기 작업/초 |초당 개수 |평균 |디스크 쓰기 IOPS |
 
-## <a name="microsoft.compute/virtualmachinescalesets/virtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
+## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | 백분율 CPU |백분율 CPU |백분율 |평균 |현재 가상 컴퓨터에서 사용 중인 할당된 계산 단위의 백분율 |
@@ -257,7 +261,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | 디스크 읽기 작업/초 |디스크 읽기 작업/초 |초당 개수 |평균 |디스크 읽기 IOPS |
 | 디스크 쓰기 작업/초 |디스크 쓰기 작업/초 |초당 개수 |평균 |디스크 쓰기 IOPS |
 
-## <a name="microsoft.devices/iothubs"></a>Microsoft.Devices/IotHubs
+## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | d2c.telemetry.ingress.allProtocol |원격 분석 메시지 보내기 시도 |개수 |합계 |IoT 허브로 보내려 한 장치-클라우드 원격 분석 메시지 수 |
@@ -268,7 +272,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | devices.totalDevices |총 장치 |개수 |합계 |IoT 허브에 등록된 장치 수 |
 | devices.connectedDevices.allProtocol |연결된 장치 |개수 |합계 |IoT 허브에 연결된 장치 수 |
 
-## <a name="microsoft.eventhub/namespaces"></a>Microsoft.EventHub/namespaces
+## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | INREQS |들어오는 요청 |개수 |합계 |Event Hub 네임스페이스에 대한 들어오는 메시지 처리량 |
@@ -277,15 +281,15 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | SVRBSY |서버 작업 중 오류 |개수 |합계 |네임스페이스에 대한 총 서버 작업 중 오류 |
 | INTERR |내부 서버 오류 |개수 |합계 |네임스페이스에 대한 총 내부 서버 오류 |
 | MISCERR |다른 오류 |개수 |합계 |네임스페이스에 대한 총 실패한 요청 |
-| INMSGS |들어오는 메시지 |개수 |합계 |네임스페이스에 대한 총 들어오는 메시지 |
-| OUTMSGS |보내는 메시지 |개수 |합계 |네임스페이스에 대한 총 나가는 메시지 |
+| INMSGS |들어오는 메시지  |개수 |합계 |네임스페이스에 대한 총 들어오는 메시지 |
+| OUTMSGS |보내는 메시지  |개수 |합계 |네임스페이스에 대한 총 나가는 메시지 |
 | EHINMBS |초당 들어오는 바이트 |초당 바이트 수 |합계 |Event Hub 네임스페이스에 대한 들어오는 메시지 처리량 |
 | EHOUTMBS |초당 나가는 바이트 |초당 바이트 수 |합계 |네임스페이스에 대한 총 나가는 메시지 |
 | EHABL |백로그 메시지 보관 |개수 |합계 |Event Hub 네임스페이스에 대한 백로그에 메시지 보관 |
 | EHAMSGS |메시지 보관 |개수 |합계 |Event Hub 네임스페이스에 보관된 메시지 |
 | EHAMBS |메시지 보관 처리량 |초당 바이트 수 |합계 |Event Hub 네임스페이스에서 보관된 메시지 처리량 |
 
-## <a name="microsoft.logic/workflows"></a>Microsoft.Logic/workflows
+## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | RunsStarted |실행 시작됨 |개수 |합계 |실행 시작된 워크플로 수 |
@@ -293,8 +297,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | RunsSucceeded |실행 성공함 |개수 |합계 |실행 성공한 워크플로 수 |
 | RunsFailed |실행 실패함 |개수 |합계 |실행 실패한 워크플로 수 |
 | RunsCancelled |실행 취소됨 |개수 |합계 |실행 취소된 워크플로 수 |
-| RunLatency |실행 대기 시간 |초 |평균 |완료된 워크플로 실행 대기 시간 |
-| RunSuccessLatency |실행 성공 대기 시간 |초 |평균 |성공한 워크플로 실행 대기 시간 |
+| RunLatency |실행 대기 시간 |초 |평균 |완료된 워크플로 실행 대기 시간  |
+| RunSuccessLatency |실행 성공 대기 시간 |초 |평균 |성공한 워크플로 실행 대기 시간  |
 | RunThrottledEvents |실행 제한 이벤트 |개수 |합계 |워크플로 작업 또는 트리거 제한 이벤트 수 |
 | RunFailurePercentage |실행 오류 비율 |백분율 |합계 |실행 실패한 워크플로 비율. |
 | ActionsStarted |작업 시작됨 |개수 |합계 |시작된 워크플로 작업 수 |
@@ -302,8 +306,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | ActionsSucceeded |작업 성공함 |개수 |합계 |성공한 워크플로 작업 수 |
 | ActionsFailed |작업 실패함 |개수 |합계 |실패한 워크플로 작업 수 |
 | ActionsSkipped |작업 생략됨 |개수 |합계 |생략한 워크플로 작업 수 |
-| ActionLatency |작업 대기 시간 |초 |평균 |완료된 워크플로 작업 대기 시간 |
-| ActionSuccessLatency |작업 성공 대기 시간 |초 |평균 |성공한 워크플로 작업 대기 시간 |
+| ActionLatency |작업 대기 시간 |초 |평균 |완료된 워크플로 작업 대기 시간  |
+| ActionSuccessLatency |작업 성공 대기 시간 |초 |평균 |성공한 워크플로 작업 대기 시간  |
 | ActionThrottledEvents |작업 제한 이벤트 |개수 |합계 |워크플로 작업 제한 이벤트 수 |
 | TriggersStarted |트리거 시작됨 |개수 |합계 |시작된 워크플로 트리거 수 |
 | TriggersCompleted |트리거 완료됨 |개수 |합계 |완료된 워크플로 트리거 수 |
@@ -311,7 +315,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | TriggersFailed |트리거 실패함 |개수 |합계 |실패한 워크플로 트리거 수 |
 | TriggersSkipped |트리거 생략함 |개수 |합계 |생략한 워크플로 트리거 수 |
 | TriggersFired |트리거 실행됨 |개수 |합계 |실행한 워크플로 트리거 수 |
-| TriggerLatency |트리거 대기 시간 |초 |평균 |완료된 워크플로 트리거 대기 시간 |
+| TriggerLatency |트리거 대기 시간 |초 |평균 |완료된 워크플로 트리거 대기 시간  |
 | TriggerFireLatency |트리거 실행 대기 시간 |초 |평균 |실행한 워크플로 트리거 대기 시간 |
 | TriggerSuccessLatency |트리거 성공 대기 시간 |초 |평균 |성공한 워크플로 트리거 대기 시간 |
 | TriggerThrottledEvents |트리거 제한 이벤트 |개수 |합계 |워크플로 트리거 제한 이벤트 수 |
@@ -319,25 +323,25 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | BillableTriggerExecutions |청구 가능한 트리거 실행 |개수 |합계 |청구되는 워크플로 트리거 실행 수. |
 | TotalBillableExecutions |총 청구 가능 실행 |개수 |합계 |청구되는 워크플로 실행 수. |
 
-## <a name="microsoft.network/applicationgateways"></a>Microsoft.Network/applicationGateways
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | 처리량 |처리량 |초당 바이트 수 |평균 | |
 
-## <a name="microsoft.search/searchservices"></a>Microsoft.Search/searchServices
+## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | SearchLatency |검색 대기 시간 |초 |평균 |검색 서비스에 대한 평균 검색 대기 시간 |
 | SearchQueriesPerSecond |초당 검색 쿼리 수 |초당 개수 |평균 |검색 서비스에 대한 초당 검색 쿼리 |
 | ThrottledSearchQueriesPercentage |제한된 검색 쿼리 백분율 |백분율 |평균 |검색 서비스에 대해 제한된 검색 쿼리의 백분율 |
 
-## <a name="microsoft.servicebus/namespaces"></a>Microsoft.ServiceBus/namespaces
+## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | CPUXNS |네임스페이스당 CPU 사용량 |백분율 |최대 |서비스 버스 프리미엄 네임스페이스 CPU 사용량 메트릭 |
 | WSXNS |네임스페이스당 메모리 크기 사용 |백분율 |최대 |서비스 버스 프리미엄 네임스페이스 메모리 사용량 메트릭 |
 
-## <a name="microsoft.sql/servers/databases"></a>Microsoft.Sql/servers/databases
+## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | cpu_percent |CPU 비율 |백분율 |평균 |CPU 비율 |
@@ -360,7 +364,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | dwu_consumption_percent |DWU 백분율 |백분율 |평균 |DWU 백분율 |
 | dwu_used |DWU 사용됨 |개수 |평균 |DWU 사용됨 |
 
-## <a name="microsoft.sql/servers/elasticpools"></a>Microsoft.Sql/servers/elasticPools
+## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | cpu_percent |CPU 비율 |백분율 |평균 |CPU 비율 |
@@ -375,7 +379,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | eDTU_used |eDTU 사용 |개수 |평균 |eDTU 사용 |
 | storage_used |저장소 사용됨 |바이트 |평균 |저장소 사용됨 |
 
-## <a name="microsoft.streamanalytics/streamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
+## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | ResourceUtilization |SU % 사용률 |백분율 |최대 |SU % 사용률 |
@@ -390,7 +394,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | AMLCalloutFailedRequests |실패한 기능 요청 |개수 |합계 |실패한 기능 요청 |
 | AMLCalloutInputEvents |함수 이벤트 |개수 |합계 |함수 이벤트 |
 
-## <a name="microsoft.web/serverfarms"></a>Microsoft.Web/serverfarms
+## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | CpuPercentage |CPU 비율 |백분율 |평균 |CPU 비율 |
@@ -400,7 +404,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | BytesReceived |데이터 입력 |바이트 |합계 |데이터 입력 |
 | BytesSent |데이터 출력 |바이트 |합계 |데이터 출력 |
 
-## <a name="microsoft.web/sites"></a>Microsoft.Web/sites
+## <a name="microsoftwebsites"></a>Microsoft.Web/sites
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | CpuTime |CPU 시간 |초 |합계 |CPU 시간 |
@@ -419,7 +423,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 | AverageMemoryWorkingSet |평균 메모리 작업 집합 |바이트 |평균 |평균 메모리 작업 집합 |
 | AverageResponseTime |평균 응답 시간 |초 |평균 |평균 응답 시간 |
 
-## <a name="microsoft.web/sites/slots"></a>Microsoft.Web/sites/slots
+## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 | 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | CpuTime |CPU 시간 |초 |합계 |CPU 시간 |
@@ -440,9 +444,12 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Monitor의 메트릭에 대해 읽기](monitoring-overview.md#monitoring-sources)
-* [메트릭에 대한 경고 만들기](../azure-portal/insights-receive-alert-notifications.md)
+* [메트릭에 대한 경고 만들기](insights-receive-alert-notifications.md)
 * [저장소, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](monitoring-overview-of-diagnostic-logs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 파트너를 사용하여 Azure Media Services에 Widevine 라이선스 제공 | Microsoft Docs
-description: 이 문서에서는 Azure 미디어 서비스(AMS)를 사용하여 PlayReady와 Widevine DRM이 모두 있는 AMS에서 동적으로 암호화된 스트림을 전달하는 방법을 설명합니다. PlayReady 라이선스는 미디어 서비스 PlayReady 라이선스 서버에서 제공되며 Widevine 라이선스는 castLabs 라이선스 서버에서 제공됩니다.
+title: "파트너를 사용하여 Azure Media Services에 Widevine 라이선스 제공 | Microsoft 문서"
+description: "이 문서에서는 Azure 미디어 서비스(AMS)를 사용하여 PlayReady와 Widevine DRM이 모두 있는 AMS에서 동적으로 암호화된 스트림을 전달하는 방법을 설명합니다. PlayReady 라이선스는 미디어 서비스 PlayReady 라이선스 서버에서 제공되며 Widevine 라이선스는 castLabs 라이선스 서버에서 제공됩니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5bcad5a4-c0bb-4871-9cce-808a913c53e6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b4211cef3b4f3ffa2c0c97fd7650606f3eef7008
+
 
 ---
 # <a name="using-partners-to-deliver-widevine-licenses-to-azure-media-services"></a>파트너를 사용하여 Azure 미디어 서비스에 Widevine 라이선스 제공
@@ -39,6 +43,9 @@ Microsoft Azure 미디어 서비스를 사용하면 CENC(Common Encryption) 사�
 
 [Mingfei의 블로그](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

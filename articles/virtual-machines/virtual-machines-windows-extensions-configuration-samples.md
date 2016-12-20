@@ -1,13 +1,13 @@
 ---
-title: Windows VM 확장에 대한 샘플 구성 | Microsoft Docs
-description: 확장으로 템플릿 작성에 대한 샘플 구성
+title: "Windows VM 확장에 대한 샘플 구성 | Microsoft Docs"
+description: "확장으로 템플릿 작성에 대한 샘플 구성"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: kundanap
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 0a1cee6c-51ea-4c03-b607-f158586d7175
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 380778b28a233e28c93f1ae8b16ac01a9f72ca20
+
 
 ---
-# Azure Windows VM 확장 구성 샘플
+# <a name="azure-windows-vm-extension-configuration-samples"></a>Azure Windows VM 확장 구성 샘플
 > [!div class="op_single_selector"]
-> * [PowerShell - 템플릿](virtual-machines-windows-extensions-configuration-samples.md)
-> * [CLI - 템플릿](virtual-machines-linux-extensions-configuration-samples.md)
+> * [PowerShell - 템플릿](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [CLI - 템플릿](virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -28,13 +32,13 @@ ms.author: kundanap
 
 이 문서에서는 Windows VM에 대해 Azure VM 확장을 구성하기 위한 샘플 구성을 제공합니다.
 
-이러한 확장에 대해 자세히 알아보려면 [Azure VM 확장 개요](virtual-machines-windows-extensions-features.md)를 참조하세요.
+이러한 확장에 대해 자세히 알아보려면 [Azure VM 확장 개요](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-확장 템플릿 작성에 대해 자세히 알아보려면 [확장 템플릿 작성](virtual-machines-windows-extensions-authoring-templates.md)을 참조하세요.
+확장 템플릿 작성에 대해 자세히 알아보려면 [확장 템플릿 작성](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 이 문서에서는 일부 Windows 확장에 대해 예상되는 구성 값을 나열합니다.
 
-## IaaS VM에서 VM 확장에 대한 샘플 템플릿 코드 조각
+## <a name="sample-template-snippet-for-vm-extensions-with-iaas-vms"></a>IaaS VM에서 VM 확장에 대한 샘플 템플릿 코드 조각
 확장을 배포하기 위한 템플릿 코드 조각은 다음과 같습니다.
 
       {
@@ -55,7 +59,7 @@ ms.author: kundanap
       }
       }
 
-## VM 규모 집합에서 VM 확장에 대한 샘플 템플릿 코드 조각
+## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets"></a>VM 규모 집합에서 VM 확장에 대한 샘플 템플릿 코드 조각
     {
      "type":"Microsoft.Compute/virtualMachineScaleSets",
     ....
@@ -82,7 +86,7 @@ ms.author: kundanap
 
 확장을 배포하기 전에 최신 확장 버전을 확인하고 "typeHandlerVersion"을 현재 최신 버전으로 바꿉니다.
 
-### CustomScript 확장 1.4
+### <a name="customscript-extension-14"></a>CustomScript 확장 1.4
       {
           "publisher": "Microsoft.Compute",
           "type": "CustomScriptExtension",
@@ -99,13 +103,13 @@ ms.author: kundanap
           }
       }
 
-#### 매개 변수 설명:
+#### <a name="parameter-description"></a>매개 변수 설명:
 * fileUris: 확장에 의해 VM에 다운로드할 파일의 URL 목록(쉼표로 구분됨) 아무것도 지정하지 않으면 파일이 다운로드되지 않습니다. 파일이 Azure 저장소에 있는 경우 fileURLs를 비공개로 표시할 수 있으며 해당하는 storageAccountName 및 storageAccountKey를 다음 파일에 액세스하기 위한 개인 매개 변수로 전달할 수 있습니다.
 * commandToExecute: [필수 매개 변수]: 확장에 의해 실행되는 명령입니다.
 * storageAccountName: [선택적 매개 변수]: 비공개로 표시된 경우 fileURLs에 액세스하기 위한 저장소 계정 이름입니다.
 * storageAccountKey: [선택적 매개 변수]: 비공개로 표시된 경우 fileURLs에 액세스하기 위한 저장소 계정 키입니다.
 
-### CustomScript 확장 1.7
+### <a name="customscript-extension-17"></a>CustomScript 확장 1.7
 매개 변수에 대한 설명은 CustomScript 버전 1.4를 참조하세요. 버전 1.7에서는 스크립트 매개 변수(commandToExecute)를 protectedSettings로 보내는 작업을 지원하며 이 경우 매개 변수는 보내기 전에 암호화됩니다. 'commandToExecute' 매개 변수는 settings 또는 protectedSettings 중 하나에만 지정될 수 있습니다.
 
         {
@@ -125,7 +129,7 @@ ms.author: kundanap
             }
         }
 
-### VMAccess 확장
+### <a name="vmaccess-extension"></a>VMAccess 확장
       {
           "publisher": "Microsoft.Compute",
           "type": "VMAccessAgent",
@@ -138,7 +142,7 @@ ms.author: kundanap
           }
       }
 
-### DSC 확장
+### <a name="dsc-extension"></a>DSC 확장
       {
           "publisher": "Microsoft.Powershell",
           "type": "DSC",
@@ -170,7 +174,7 @@ ms.author: kundanap
       }
 
 
-### Symantec Endpoint Protection
+### <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection
       {
         "publisher": "SymantecEndpointProtection",
         "type": "Symantec",
@@ -178,13 +182,13 @@ ms.author: kundanap
         "settings": {}
       }
 
-### Trend Micro Deep Security Agent
+### <a name="trend-micro-deep-security-agent"></a>Trend Micro Deep Security Agent
       {
         "publisher": "TrendMicro.DeepSecurity",
         "type": "TrendMicroDSA",
         "typeHandlerVersion": "9.6",
         "settings": {
-          "ManagerAddress" : "Enter the externally accessible DNS name or IP address of the Deep Security Manager. Please enter "agents.deepsecurity.trendmicro.com" if using Deep Security as a Service",
+          "ManagerAddress" : "Enter the externally accessible DNS name or IP address of the Deep Security Manager. Please enter \"agents.deepsecurity.trendmicro.com\" if using Deep Security as a Service",
 
           "ActivationPort" : "Enter the port number of the Deep Security Manager, default value - 443",
 
@@ -196,7 +200,7 @@ ms.author: kundanap
         }
       }
 
-### Vormertric Transparent Encryption Agent
+### <a name="vormertric-transparent-encryption-agent"></a>Vormertric Transparent Encryption Agent
             {
               "publisher": "Vormetric",
               "type": "VormetricTransparentEncryptionAgent",
@@ -205,7 +209,7 @@ ms.author: kundanap
               }
             }
 
-### Puppet Enterprise Agent
+### <a name="puppet-enterprise-agent"></a>Puppet Enterprise Agent
             {
               "publisher": "PuppetLabs",
               "type": "PuppetEnterpriseAgent",
@@ -215,7 +219,7 @@ ms.author: kundanap
               }
             }  
 
-### Microsoft Monitoring Agent for Azure Operational Insights
+### <a name="microsoft-monitoring-agent-for-azure-operational-insights"></a>Microsoft Monitoring Agent for Azure Operational Insights
             {
               "publisher": "Microsoft.EnterpriseCloud.Monitoring",
               "type": "MicrosoftMonitoringAgent",
@@ -229,7 +233,7 @@ ms.author: kundanap
               }
             }
 
-### McAfee EndpointSecurity
+### <a name="mcafee-endpointsecurity"></a>McAfee EndpointSecurity
             {
               "publisher": "McAfee.EndpointSecurity",
               "type": "McAfeeEndpointSecurity",
@@ -243,7 +247,7 @@ ms.author: kundanap
               }
             }
 
-### Azure IaaS Antimalware
+### <a name="azure-iaas-antimalware"></a>Azure IaaS Antimalware
           {
             "publisher": "Microsoft.Azure.Security",
             "type": "IaaSAntimalware",
@@ -261,7 +265,7 @@ ms.author: kundanap
             }
           }
 
-### ESET File Security
+### <a name="eset-file-security"></a>ESET File Security
           {
             "publisher": "ESET",
             "type": "FileSecurity",
@@ -270,7 +274,7 @@ ms.author: kundanap
             }
           }
 
-### Datadog Agent
+### <a name="datadog-agent"></a>Datadog Agent
           {
             "publisher": "Datadog.Agent",
             "type": "DatadogWindowsAgent",
@@ -280,7 +284,7 @@ ms.author: kundanap
             }
           }
 
-### Confer Advanced Threat Prevention and Incident Response for Azure
+### <a name="confer-advanced-threat-prevention-and-incident-response-for-azure"></a>Confer Advanced Threat Prevention and Incident Response for Azure
           {
             "publisher": "Confer",
             "type": "ConferForAzure",
@@ -291,7 +295,7 @@ ms.author: kundanap
             }
           }
 
-### CloudLink SecureVM Agent
+### <a name="cloudlink-securevm-agent"></a>CloudLink SecureVM Agent
           {
             "publisher": "CloudLinkEMC.SecureVM",
             "type": "CloudLinkSecureVMWindowsAgent",
@@ -301,7 +305,7 @@ ms.author: kundanap
             }
           }
 
-### Barracuda VPN Connectivity Agent for Microsoft Azure
+### <a name="barracuda-vpn-connectivity-agent-for-microsoft-azure"></a>Barracuda VPN Connectivity Agent for Microsoft Azure
           {
             "publisher": "Barracuda.Azure.ConnectivityAgent",
             "type": "BarracudaConnectivityAgent",
@@ -314,7 +318,7 @@ ms.author: kundanap
             }
           }
 
-### Alert Logic Log Manager
+### <a name="alert-logic-log-manager"></a>Alert Logic Log Manager
           {
             "publisher": "AlertLogic.Extension",
             "type": "AlertLogicLM",
@@ -324,7 +328,7 @@ ms.author: kundanap
             }
           }
 
-### Chef Agent
+### <a name="chef-agent"></a>Chef Agent
           {
             "publisher": "Chef.Bootstrap.WindowsAzure",
             "type": "ChefClient",
@@ -336,8 +340,8 @@ ms.author: kundanap
             }
           }
 
-### Azure 진단
-진단을 구성하는 방법에 대한 자세한 내용은 [Azure 진단 확장](virtual-machines-windows-extensions-diagnostics-template.md)을 참조하세요.
+### <a name="azure-diagnostics"></a>Azure 진단
+진단을 구성하는 방법에 대한 자세한 내용은 [Azure 진단 확장](virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
@@ -361,4 +365,9 @@ ms.author: kundanap
 
 [Windows VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

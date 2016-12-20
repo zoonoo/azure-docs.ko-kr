@@ -1,22 +1,22 @@
 ---
 title: "Azure 포털을 사용하여 Service Bus 네임스페이스 만들기 | Microsoft Docs"
 description: "서비스 버스를 시작하려면 네임스페이스가 필요합니다. Azure 포털을 사용하여 만드는 방법은 다음과 같습니다."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
 editor: 
 ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/22/2016
+ms.date: 11/30/2016
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a341d32149a84b9959afb6c3c1796c66c4d593cd
+ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
+ms.openlocfilehash: 89610512c264cef4bd52728240ddc0a34091edea
 
 
 ---
@@ -32,13 +32,13 @@ ms.openlocfilehash: a341d32149a84b9959afb6c3c1796c66c4d593cd
 축하합니다. 이제 서비스 버스 메시징 네임스페이스를 만들었습니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Service Bus 메시징의 더 많은 고급 기능 중 일부를 보여 주는 샘플이 있는 [GitHub 샘플][github-samples]를 확인합니다.
+Azure Service Bus 메시징의 더 많은 고급 기능 중 일부를 보여 주는 [GitHub 샘플][github-samples]을 확인합니다.
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

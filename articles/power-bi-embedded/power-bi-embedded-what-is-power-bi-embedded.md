@@ -1,13 +1,13 @@
 ---
-title: Microsoft Power BI Embedded란?
-description: Power BI Embedded를 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램으로 통합할 수 있으므로 사용자에게 데이터를 시각화하기 위해 사용자 지정 솔루션을 빌드할 필요가 없습니다.
+title: "Microsoft Power BI Embedded란?"
+description: "Power BI Embedded를 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램으로 통합할 수 있으므로 사용자에게 데이터를 시각화하기 위해 사용자 지정 솔루션을 빌드할 필요가 없습니다."
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 75994d06c147fe0554dc5549df5816e6faaf8fb6
+
 
 ---
-# <a name="what-is-microsoft-power-bi-embedded?"></a>Microsoft Power BI Embedded란?
+# <a name="what-is-microsoft-power-bi-embedded"></a>Microsoft Power BI Embedded란?
 **Power BI Embedded**를 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램에 통합할 수 있습니다.
 
 ![](media\\powerbi-embedded-whats-is\\what-is.png)
@@ -25,7 +29,7 @@ ms.author: asaxton
 Power BI Embedded는 ISV(독립 소프트웨어 공급업체) 및 앱 개발자가 응용 프로그램 내에서 Power BI 데이터 환경을 표시할 수 있도록 하는 **Azure 서비스** 입니다. 개발자가 응용 프로그램을 구축한 경우 이러한 응용 프로그램에는 고유한 사용자 및 고유한 기능 집합이 있습니다. 이러한 앱에는 이제 Microsoft Power BI Embedded를 통해 강력한 기능을 가질 수 있는 차트 및 보고서와 같은 일부 기본 제공 데이터 요소가 있을 수도 있습니다. 사용자는 앱을 사용하기 위한 Power BI 계정이 필요 없습니다. 사용자는 이전처럼 응용 프로그램에 계속 로그인할 수 있으며 추가 라이선스를 요구하지 않고 Power BI 보고 환경을 보고 조작할 수 있습니다.
 
 ## <a name="licensing-for-microsoft-power-bi-embedded"></a>Microsoft Power BI Embedded 라이선스
-**Microsoft Power BI Embedded** 사용 모델에서 Power BI 라이선스에 대한 책임이 최종 사용자에게 있지 않습니다.  대신 시각적 개체를 사용하는 앱의 개발자가 **렌더링** 을 구매하고 해당 리소스를 소유하는 구독에 요금이 부과됩니다.
+**Microsoft Power BI Embedded** 사용 모델에서 Power BI 라이선스에 대한 책임이 최종 사용자에게 있지 않습니다.  대신 시각적 개체를 사용하는 앱의 개발자가 **세션**을 구매하고 해당 리소스를 소유하는 구독에 요금이 부과됩니다. 자세한 정보는 가격 책정 페이지(https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/)에서 확인할 수 있습니다.
 
 ## <a name="microsoft-power-bi-embedded-conceptual-model"></a>Microsoft Power BI Embedded 개념적 모델
 ![](media\\powerbi-embedded-whats-is\\model.png)
@@ -49,7 +53,7 @@ Azure의 다른 서비스와 같이 Power BI Embedded의 리소스는 [Azure ARM
 캐시된 데이터 집합은 미리 보기에서 사용할 수 있습니다.  그러나 캐시된 데이터가 **Microsoft Power BI Embedded**에 로드되면 새로 고칠 수 없습니다.
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>앱 토큰으로 인증 및 권한 부여
-**Microsoft Power BI Embedded** 는 응용 프로그램에 따라 필요한 모든 사용자 인증 및 권한 부여를 수행합니다. 최종 사용자가 Azure AD(Azure Active Directory)의 고객이어야 한다는 명시적인 요구 사항은 없습니다.  대신, 응용 프로그램은 **Microsoft Power BI Embedded** 권한 부여에서 **응용 프로그램 인증 토큰(앱 토큰)**을 사용하여 Power BI 보고서를 렌더링하도록 지시합니다.  이러한 **앱 토큰** 은 앱에서 보고서를 렌더링하려고 할 때 필요한 경우에 만들어집니다.  [앱 토큰](power-bi-embedded-get-started-sample.md#key-flow)을 참조하세요.
+**Microsoft Power BI Embedded** 는 응용 프로그램에 따라 필요한 모든 사용자 인증 및 권한 부여를 수행합니다. 최종 사용자가 Azure AD(Azure Active Directory)의 고객이어야 한다는 명시적인 요구 사항은 없습니다.  대신, 응용 프로그램은 **Microsoft Power BI Embedded** 권한 부여에서 **응용 프로그램 인증 토큰(앱 토큰)**을 사용하여 Power BI 보고서를 렌더링하도록 지시합니다.  이러한 **앱 토큰** 은 앱에서 보고서를 렌더링하려고 할 때 필요한 경우에 만들어집니다.
 
 ![](media\\powerbi-embedded-whats-is\\app-tokens.png)
 
@@ -65,6 +69,8 @@ Azure의 다른 서비스와 같이 Power BI Embedded의 리소스는 [Azure ARM
 * [일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)
 * [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

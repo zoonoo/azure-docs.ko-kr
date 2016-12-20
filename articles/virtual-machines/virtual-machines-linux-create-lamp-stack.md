@@ -1,29 +1,33 @@
 ---
-title: Linux 가상 컴퓨터에 LAMP 배포 | Microsoft Docs
-description: Linux VM에 LAMP 스택 설치 방법을 알아봅니다.
+title: "Linux 가상 컴퓨터에 LAMP 배포 | Microsoft Docs"
+description: "Linux VM에 LAMP 스택 설치 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: jluk
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 6c12603a-e391-4d3e-acce-442dd7ebb2fe
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: NA
 ms.topic: article
 ms.date: 06/07/2016
-ms.author: jluk
+ms.author: juluk
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 29b295b7e061b16e187db59cdf9b777e12d63034
+
 
 ---
-# Azure에서의 LAMP 스택 배포
+# <a name="deploy-lamp-stack-on-azure"></a>Azure에서의 LAMP 스택 배포
 이 문서는 Azure에서 Apache 웹 서버, MySQL 및 PHP (LAMP 스택)를 배포하는 방법을 안내합니다. Azure 계정([여기에서 무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/)) 및 [Azure 계정에 연결된](../xplat-cli-connect.md) [Azure CLI](../xplat-cli-install.md)가 필요합니다.
 
 이 문서에서 다루는 LAMP 설치 방법에는 두 가지가 있습니다.
 
-## 빠른 명령 요약
-1) 새 Vm에 LAMP 배포
+## <a name="quick-command-summary"></a>빠른 명령 요약
+1) 새 VM에 LAMP 배포
 
 ```
 # One command to create a resource group holding a VM with LAMP already on it
@@ -38,8 +42,8 @@ user@ubuntu$ sudo apt-get update
 user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 ```
 
-## 새 Vm에 LAMP 배포 연습
-VM을 포함하는 새 [리소스 그룹](../resource-group-overview.md) 만들어서 시작할 수 있습니다.
+## <a name="deploy-lamp-on-new-vm-walkthrough"></a>새 Vm에 LAMP 배포 연습
+VM을 포함하는 새 [리소스 그룹](../azure-resource-manager/resource-group-overview.md) 만들어서 시작할 수 있습니다.
 
     $ azure group create uniqueResourceGroup westus
     info:    Executing command group create
@@ -54,7 +58,7 @@ VM을 포함하는 새 [리소스 그룹](../resource-group-overview.md) 만들�
     data:
     info:    group create command OK
 
-VM 자체를 만들려면 [여기 GitHub에서](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app) 찾을 수 있는 이미 작성된 Azure Resource Manager 템플릿을 사용할 수 있습니다.
+VM 자체를 만들려면 [여기 GitHub에서](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app)찾을 수 있는 이미 작성된 Azure Resource Manager 템플릿을 사용할 수 있습니다.
 
     $ azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json uniqueResourceGroup uniqueLampName
 
@@ -94,28 +98,30 @@ VM 자체를 만들려면 [여기 GitHub에서](https://github.com/Azure/azure-q
 
 이미 설치된 LAMP를 사용해 이제 Linux VM을 만들었습니다. 원하는 경우 [LAMP가 성공적으로 설치되었는지 확인하기]로 이동하여 설치를 확인할 수 있습니다.
 
-## 기존 Vm에 LAMP 배포 연습
-Linux VM을 만드는 데 도움이 필요한 경우 [Linux VM을 만드는 방법을 알아보려면 여기](virtual-machines-linux-quick-create-cli.md)로 갈 수 있습니다. 다음으로, Linux VM에 SSH해야 합니다. SSH 키를 만드는 데 도움이 필요한 경우 [Linux/Mac에서 SSH 키를 만드는 방법을 알아보려면 여기](virtual-machines-linux-mac-create-ssh-keys.md)로 갈 수 있습니다. SSH 키를 이미 있는 경우 계속해서 `ssh username@uniqueDNS`으로 Linux Vm에 SSH합니다.
+## <a name="deploy-lamp-on-existing-vm-walkthrough"></a>기존 Vm에 LAMP 배포 연습
+Linux VM을 만드는 데 도움이 필요한 경우 [Linux VM을 만드는 방법을 알아보려면 여기](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)로 갈 수 있습니다. 다음으로, Linux VM에 SSH해야 합니다. SSH 키를 만드는 데 도움이 필요한 경우 [Linux/Mac에서 SSH 키를 만드는 방법을 알아보려면 여기](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)로 갈 수 있습니다.
+SSH 키를 이미 있는 경우 계속해서 `ssh username@uniqueDNS`으로 Linux Vm에 SSH합니다.
 
 이제 Linux VM에서 작업할 수 있으므로 Debian 기반 배포에 LAMP 스택 설치를 단계별로 안내합니다. 정확한 명령은 다른 Linux 배포판에서 다를 수도 있습니다.
 
-#### Debian/Ubuntu에 설치
-다음 패키지 `apache2`, `mysql-server`, `php5`, `php5-mysql`를 설치해야 합니다. 이러한 패키지를 직접 가져오거나 Tasksel을 사용하여 설치할 수 있습니다. 아래에는 두 옵션 모두에 대한 지침이 나와 있습니다. 설치하기 전에 패키지 목록을 다운로드하고 업데이트해야 합니다.
+#### <a name="installing-on-debianubuntu"></a>Debian/Ubuntu에 설치
+다음 패키지 `apache2`, `mysql-server`, `php5`, `php5-mysql`를 설치해야 합니다. 이러한 패키지를 직접 가져오거나 Tasksel을 사용하여 설치할 수 있습니다. 아래에는 두 옵션 모두에 대한 지침이 나와 있습니다.
+설치하기 전에 패키지 목록을 다운로드하고 업데이트해야 합니다.
 
     user@ubuntu$ sudo apt-get update
 
-##### 개별 패키지
+##### <a name="individual-packages"></a>개별 패키지
 apt-get을 사용합니다.
 
     user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 
-##### Tasksel 사용
+##### <a name="using-tasksel"></a>Tasksel 사용
 또는 관련된 여러 패키지를 하나의 조정된 “작업”으로 시스템에 설치하는 Debian/Ubuntu 도구인 Tasksel을 다운로드할 수 있습니다.
 
     user@ubuntu$ sudo apt-get install tasksel
     user@ubuntu$ sudo tasksel install lamp-server
 
-위의 옵션 중 하나를 실행하고 나면 이러한 패키지와 그 밖의 많은 종속성을 설치할 것인지를 묻는 메시지가 표시됩니다. 'y'를 누른 후 'Enter' 키를 눌러 계속 진행하고 화면에 표시되는 메시지에 따라 MySQL에 대한 관리 암호를 설정합니다. 이렇게 하면 PHP와 MySQL을 함께 사용하는 데 필요한 최소한의 PHP 확장이 설치됩니다.
+위의 옵션 중 하나를 실행하고 나면 이러한 패키지와 그 밖의 많은 종속성을 설치할 것인지를 묻는 메시지가 표시됩니다. 'y'를 누른 후 'Enter' 키를 눌러 계속 진행하고 화면에 표시되는 메시지에 따라 MySQL에 대한 관리 암호를 설정합니다. 이렇게 하면 PHP와 MySQL을 함께 사용하는 데 필요한 최소한의 PHP 확장이 설치됩니다. 
 
 ![][1]
 
@@ -124,7 +130,7 @@ apt-get을 사용합니다.
     user@ubuntu$ apt-cache search php5
 
 
-#### Info.php 문서 만들기
+#### <a name="create-infophp-document"></a>Info.php 문서 만들기
 이제 명령줄에 `apache2 -v`, `mysql -v`, 또는 `php -v`을 입력하여 Apache, MySQL 및 PHP의 버전을 확인할 수 있습니다.
 
 테스트를 추가 하려는 경우 브라우저에서 보려면 빠른 PHP 정보 페이지를 만들 수 있습니다. 이 명령 사용하여 나노 텍스트 편집기로 새 파일을 만듭니다.
@@ -143,18 +149,18 @@ GNU Nano 텍스트 편집기에서 다음 줄을 추가합니다.
 
     user@ubuntu$ sudo service apache2 restart
 
-## LAMP 설치가 성공적인지 확인
-이제 다음과 유사하게 표시될 http://youruniqueDNS/info.php로 가서 브라우저에서 방금 만든 PHP 정보 페이지를 확인할 수 있습니다.
+## <a name="verify-lamp-successfully-installed"></a>LAMP 설치가 성공적인지 확인
+이제 다음과 유사하게 표시될 http://youruniqueDNS/info.php로 이동하여 브라우저에서 방금 만든 PHP 정보 페이지를 확인할 수 있습니다.
 
 ![][2]
 
-http://youruniqueDNS/로 가서 Apache2 Ubuntu 기본 페이지 보기로 Apache 설치를 확인할 수 있습니다. 다음과 유사한 결과가 표시됩니다.
+http://youruniqueDNS/로 이동하여 Apache2 Ubuntu 기본 페이지 보기로 Apache 설치를 확인할 수 있습니다. 다음과 유사한 결과가 표시됩니다.
 
 ![][3]
 
 축하합니다. 이제 방금 Azure Vm에 LAMP 스택 설정을 마쳤습니다!
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 LAMP 스택에서 Ubuntu 설명서를 확인하세요.
 
 * [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
@@ -163,4 +169,8 @@ LAMP 스택에서 Ubuntu 설명서를 확인하세요.
 [2]: ./media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png
 [3]: ./media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

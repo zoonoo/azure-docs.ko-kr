@@ -1,13 +1,13 @@
 ---
-title: Azure MFA 개요 | Microsoft Docs
-description: 'Azure Multi-factor Authentication이란 무엇인가에 대해 설명하고 MFA를 사용하는 이유, Multi-Factor Authentication 클라이언트 및 사용 가능한 다양한 방법과 버전에 대해 설명합니다. '
-keywords: MFA 소개, mfa 개요, mfa 정의
+title: "Azure MFA 개요 | Microsoft Docs"
+description: "Azure Multi-factor Authentication이란 무엇인가에 대해 설명하고 MFA를 사용하는 이유, Multi-Factor Authentication 클라이언트 및 사용 가능한 다양한 방법과 버전에 대해 설명합니다. "
+keywords: "MFA 소개, mfa 개요, mfa 정의"
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: yossib
-
+ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a510763fe70d90a328c835cb123e78f455796850
+
 
 ---
-# <a name="what-is-azure-multi-factor-authentication?"></a>Azure Multi-Factor Authentication 정의
+# <a name="what-is-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 정의
 2단계 인증은 두 개 이상의 검증 방법이 필요하며 사용자 로그인 및 트랜잭션에 중요한 두 번째 계층을 추가하는 인증 방법입니다. 이러한 인증에서는 다음 중 두 가지 이상의 검증 방법을 요구합니다.
 
 * 사용자가 알고 있는 정보(일반적으로 암호)
@@ -32,7 +36,7 @@ Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션�
 > 
 > 
 
-## <a name="why-use-azure-multi-factor-authentication?"></a>Azure Multi-Factor Authentication을 사용하는 이유
+## <a name="why-use-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication을 사용하는 이유
 오늘날, 어느 때 보다 연결된 사람들이 늘어나고 있습니다. 스마트폰, 태블릿, 랩톱 및 PC를 사용하여, 사람들은 연결하고 언제든지 연결 상태를 유지하는 방법에 대한 여러 다른 옵션을 사용합니다. 사람들이 어디에서나 계정 및 응용 프로그램에 액세스할 수 있으며, 이는 더 많은 작업을 수행할 수 있고 고객에게 더 나은 서비스를 제공할 수 있음을 의미합니다.
 
 Azure Multi-Factor Authentication은 인증의 두번째 메서드를 제공하여 사용자가 항상 보호되는 사용하기 쉽고 확장 가능한 신뢰할 수 있는 솔루션입니다.
@@ -46,7 +50,7 @@ Azure Multi-Factor Authentication은 인증의 두번째 메서드를 제공하�
 * **항상 보호** -Azure Multi-Factor Authentication은 가장 높은 업계 표준을 사용하여 강력한 인증을 제공합니다.
 * **안정성** -Azure Multi-Factor Authentication의 99.9%의 가용성을 보장합니다. 2단계 인증 요청을 수신하거나 처리할 수 없는 경우 서비스는 사용할 수 없는 것으로 간주됩니다.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Windows-Azure-Multi-Factor-Authentication/player]
+> [! 비디오 https://channel9.msdn.com/Blogs/Windows-Azure/Windows-Azure-Multi-Factor-Authentication/player]
 > 
 > 
 
@@ -122,6 +126,9 @@ Azure Multi-Factor Authentication은 클라우드와 서버 모두에 대해 선
 ## <a name="next-steps"></a>다음 단계
 Azure Multi-Factor Authentication을 시작하기 위한 첫 번째 단계는 [클라우드 또는 온-프레미스에서 MFA 중 선택](multi-factor-authentication-get-started.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

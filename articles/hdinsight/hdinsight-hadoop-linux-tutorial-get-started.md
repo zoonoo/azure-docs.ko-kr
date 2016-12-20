@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 11/30/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 63a4eaf9fbb76480e0617b36d15aebae03ec3da4
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: 5e32b6fc0c87195fc82eedb00ffc7082b73007a0
 
 
 ---
-# <a name="hadoop-tutorial-get-started-using-linuxbased-hadoop-in-hdinsight"></a>Hadoop 자습서: HDInsight에서 Linux 기반 Hadoop 사용 시작
+# <a name="hadoop-tutorial-get-started-using-linux-based-hadoop-in-hdinsight"></a>Hadoop 자습서: HDInsight에서 Linux 기반 Hadoop 사용 시작
 > [!div class="op_single_selector"]
 > * [Linux 기반](hdinsight-hadoop-linux-tutorial-get-started.md)
 > * [Windows 기반](hdinsight-hadoop-tutorial-get-started-windows.md)
 > 
 > 
 
-HDInsight에서 Linux 기반 [Hadoop](http://hadoop.apache.org/) 클러스터를 만들고, HDInsight에서 Hive 작업을 실행하는 방법을 알아봅니다. [Apache Hive](https://hive.apache.org/) 는 Hadoop 에코시스템에서 가장 인기 있는 구성 요소입니다. 현재 HDInsight는 [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) and [Storm](hdinsight-storm-overview.md)와 같은 4가지 유형의 클러스터가 제공됩니다.  각 클러스터 유형은 서로 다른 구성 요소 집합을 지원합니다. 4가지 클러스터 모두 Hive를 지원합니다. HDInsight에서 지원되는 구성 요소 목록은 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능](hdinsight-component-versioning.md)  
+HDInsight에서 Linux 기반 [Hadoop](http://hadoop.apache.org/) 클러스터를 만들고, HDInsight에서 Hive 작업을 실행하는 방법을 알아봅니다. [Apache Hive](https://hive.apache.org/) 는 Hadoop 에코시스템에서 가장 인기 있는 구성 요소입니다. 현재 HDInsight는 [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [대화형 Hive(미리 보기)](hdinsight-hadoop-use-interactive-hive.md) 및 [R server](hdinsight-hadoop-r-server-overview.md)와 같은 6가지 유형의 클러스터가 제공됩니다.  각 클러스터 유형은 서로 다른 구성 요소 집합을 지원합니다. 6가지 클러스터 유형 모두 Hive를 지원합니다. HDInsight에서 지원되는 구성 요소 목록은 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -41,36 +41,48 @@ HDInsight에서 Linux 기반 [Hadoop](http://hadoop.apache.org/) 클러스터를
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-cluster"></a>클러스터 만들기
-Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 일부 작업을 실행한 다음 클러스터를 삭제합니다. 이 섹션에서는 [Azure Resource Manager 템플릿](../resource-group-template-deploy.md)을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터를 만듭니다. Resource Manager 템플릿은 완전히 사용자 지정할 수 있으므로 HDInsight와 같은 Azure 리소스를 쉽게 만들 수 있습니다. 이 자습서를 따라 하는 데 Resource Manager 템플릿 환경이 필요하지는 않습니다. 기타 클러스터 생성 방법 및 이 자습서에 사용된 속성에 대한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 이 자습서에 사용되는 Resource Manager 템플릿은 공용 Blob 컨테이너 [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json)에 있습니다. 
 
-1. Azure에 로그인하여 Azure 포털에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다. 
+Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 일부 작업을 실행한 다음 클러스터를 삭제합니다. 이 섹션에서는 [Azure Resource Manager 템플릿](../resource-group-template-deploy.md)을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터를 만듭니다. Resource Manager 템플릿은 완전히 사용자 지정할 수 있으므로 HDInsight와 같은 Azure 리소스를 쉽게 만들 수 있습니다. 이 자습서를 따라 하는 데 Resource Manager 템플릿 환경이 필요하지는 않습니다. 기타 클러스터 생성 방법 및 이 자습서에 사용된 속성에 대한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 페이지 상단에서 선택기를 사용하여 클러스터 만들기 옵션을 선택합니다.
+
+이 자습서에 사용되는 Resource Manager 템플릿은 공용 Blob 컨테이너 [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json)에 있습니다. 
+
+1. Azure에 로그인하여 Azure Portal에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. **매개 변수** 블레이드에서 다음을 입력합니다.
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+2. 다음 값을 입력하거나 선택합니다.
    
-    ![HDInsight Linux 포털에서 Resource Manager 템플릿 시작](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png) 등 4가지 유형의 클러스터가 제공됩니다.
+    ![HDInsight Linux 포털에서 Resource Manager 템플릿 시작](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png)을 클릭합니다.
    
-   * **ClusterName**: 만들려는 Hadoop 클러스터의 이름을 입력합니다.
-   * **클러스터 로그인 이름 및 암호**: 기본 로그인 이름은 **admin**입니다.
-   * **SSH 사용자 이름 및 암호**: 기본 사용자 이름은 **sshuser**입니다.  이름은 변경할 수 있습니다. 
+    * **구독**: Azure 구독을 선택합니다.
+    * **리소스 그룹**: 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. 
+    * **위치**: 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. 
+    * **ClusterName**: 만들려는 Hadoop 클러스터의 이름을 입력합니다.
+    * **클러스터 로그인 이름 및 암호**: 기본 로그인 이름은 **admin**입니다.
+    * **SSH 사용자 이름 및 암호**: 기본 사용자 이름은 **sshuser**입니다.  이름은 변경할 수 있습니다. 
      
-     다른 매개 변수는 이 자습서를 따라 하기 위한 선택 사항입니다. 그대로 유지해도 됩니다. 
-     
+    일부 속성이 템플릿에 하드 코딩되었습니다.  템플릿에서 이러한 값을 구성할 수 있습니다.
+
+    * **위치**: 클러스터 및 종속 저장소 계정의 위치는 리소스 그룹과 동일한 위치를 사용합니다.
+    * **클러스터 버전**: 3.4
+    * **OS 유형**: Linux
+    * **클러스터 유형**: Hadoop
+    * **작업자 노드 수**: 2
+
      각 클러스터에는 Azure Blob 저장소 계정 종속성이 있습니다. 이 저장소 계정을 일반적으로 기본 저장소 계정이라고 합니다. HDInsight 클러스터와 해당 기본 저장소 계정은 같은 Azure 지역에 있어야 합니다. 클러스터를 삭제해도 저장소 계정은 삭제되지 않습니다. 템플릿에서 기본 저장소 계정 이름은 클러스터 이름에 "store"가 추가되는 형태로 정의됩니다. 
-3. **확인** 을 클릭하여 매개 변수를 저장합니다.
-4. **사용자 지정 배포** 블레이드에서 **새 리소스 그룹 이름**을 입력하여 새 리소스 그룹을 만듭니다.  리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 항목을 그룹화하는 컨테이너입니다. 리소스 그룹 위치는 클러스터 위치와 다를 수 있습니다.
-5. **약관**을 클릭한 다음 **만들기**를 클릭합니다.
-6. **대시보드에 고정** 확인란이 선택되었는지 확인한 다음 **만들기**를 클릭합니다. **템플릿 배포 배포 중**이라는 제목의 새 타일이 표시됩니다. 클러스터를 만들려면 20분 정도가 걸립니다. 
-7. 클러스터가 생성되면 타일의 캡션이 지정한 리소스 그룹 이름으로 변경됩니다. 그리고 포털에서 클러스터와 클러스터 설정이 포함된 두 개의 블레이드가 자동으로 열립니다. 
+
+3. **위에 명시된 사용 약관에 동의함** 및 **대시보드에 고정**을 선택한 다음 **구매**를 클릭합니다. 포털 대시보드에 **템플릿 배포 배포 중**이라는 제목의 새 타일이 표시됩니다. 클러스터를 만들려면 20분 정도가 걸립니다. 클러스터가 생성되면 타일의 캡션이 지정한 리소스 그룹 이름으로 변경됩니다. 포털의 새 블레이드에서 리소스 그룹이 자동으로 열립니다. 클러스터와 기본 저장소 목록을 모두 확인할 수 있습니다.
    
-   ![HDInsight Linux 클러스터 설정 시작](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png)으로 이동합니다.
-   
-   두 개의 리소스가 나열됩니다. 하나는 클러스터이고 다른 하나는 기본 저장소 계정입니다.
+    ![HDInsight Linux에서 리소스 그룹 시작](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png)을 클릭합니다.
+
+4. 클러스터 이름을 클릭하여 새 블레이드에서 클러스터를 엽니다.
+
+   ![HDInsight Linux 클러스터 설정 시작](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png)
+
 
 ## <a name="run-hive-queries"></a>Hive 쿼리 실행
 [Apache Hive](hdinsight-use-hive.md) 는 HDInsight에서 사용되는 가장 인기 있는 구성 요소입니다. HDInsight에서 Hive 작업을 실행하는 방법은 여러 가지가 있습니다. 이 자습서에서는 포털에서 Ambari Hive 뷰를 사용하여 일부 Hive 작업을 실행합니다. Hive 작업을 제출하는 다른 방법은 [HDInsight에서 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
-1. **https://&lt;ClusterName>.azurehdinsight.net**으로 이동합니다. 여기서 &lt;ClusterName>은 이전 섹션에서 Ambari를 열기 위해 만든 클러스터입니다.
+1. 이전 스크린샷에서 **클러스터 대시보드**, **HDInsight 클러스터 대시보드**를 차례로 클릭합니다.  **https://&lt;ClusterName>.azurehdinsight.net**으로 이동할 수도 있습니다. 여기서 &lt;ClusterName>은 이전 섹션에서 Ambari를 열기 위해 만든 클러스터입니다.
 2. 이전 섹션에서 지정한 Hadoop 사용자 이름 및 암호를 입력합니다. 기본 사용자 이름은 **admin**입니다.
 3. 다음 스크린샷에 표시된 것처럼 **Hive 뷰** 를 엽니다.
    
@@ -119,7 +131,7 @@ Hive 작업을 완료한 후에 [결과를 Azure SQL Database 또는 SQL Server 
 
 HDInsight를 사용해서 데이터를 분석하는 데 대한 자세한 내용은 다음을 참조하세요.
 
-* Visual Studio에서 Hive 쿼리를 수행하는 방법을 비롯하여 HDInsight로 Hive를 사용하는 데 대한 자세한 내용은 [HDInsight로 Hive 사용][hdinsight-use-hive]을 참조하세요.
+* Visual Studio에서 Hive 쿼리를 수행 하는 방법을 비롯하여 HDInsight로 Hive를 사용하는 데 대한 자세한 내용은 [HDInsight로 Hive 사용][hdinsight-use-hive]을 참조하세요.
 * 데이터를 변환하는 데 사용되는 언어인 Pig에 대해 알아보려면 [HDInsight로 Pig 사용][hdinsight-use-pig]을 참조하세요.
 * Hadoop에서 데이터를 처리하는 프로그램을 작성하는 방법인 MapReduce에 대해 알아보려면 [HDInsight로 MapReduce 사용][hdinsight-use-mapreduce]을 참조하세요.
 * Visual Studio에 HDInsight Tools를 사용하여 HDInsight의 데이터를 분석하는 방법에 대해 알아보려면 [HDInsight용 Visual Studio Hadoop 도구를 사용하여 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
@@ -127,7 +139,7 @@ HDInsight를 사용해서 데이터를 분석하는 데 대한 자세한 내용�
 사용자 고유의 데이터로 작업을 시작하고 HDInsight이 데이터를 저장하는 방법과 HDInsight로 데이터를 가져오는 방법에 대해 더 알아보려면 다음을 참조하세요.
 
 * HDInsight에서 Azure Blob 저장소를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
-* 데이터를 HDInsight로 업로드하는 방법에 대한 정보는 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요.
+* 데이터를 HDInsight로 업로드하는 방법에 대한 정보는 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하십시오.
 
 HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 알아보려면 다음을 참조하세요.
 
@@ -149,8 +161,8 @@ HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 �
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: powershell-install-configure.md
-[powershell-open]: powershell-install-configure.md#Install
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
+[powershell-open]: /powershell/azureps-cmdlets-docs#Install
 
 [img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.png
 [img-hdi-dashboard-query-select]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.png
@@ -163,6 +175,6 @@ HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

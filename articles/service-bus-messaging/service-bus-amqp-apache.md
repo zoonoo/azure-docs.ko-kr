@@ -1,19 +1,23 @@
 ---
-title: Linux VM에 Apache Qpid Proton-c 설치 하는 방법 | Microsoft Docs
-description: Azure 가상 컴퓨터를 사용하여 CentOS Linux VM을 만드는 방법 및 Apache Qpid Proton-C 라이브러리를 빌드 및 설치하는 방법입니다.
-services: service-bus
+title: "Linux VM에 Apache Qpid Proton-c 설치 하는 방법 | Microsoft Docs"
+description: "Azure 가상 컴퓨터를 사용하여 CentOS Linux VM을 만드는 방법 및 Apache Qpid Proton-C 라이브러리를 빌드 및 설치하는 방법입니다."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 3158d69f-c409-494d-9a6c-32613c1a3c74
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 226703f9b4a4b295231ecd48d719638321ae55ef
+
 
 ---
 # <a name="install-apache-qpid-proton-c-on-an-azure-linux-vm"></a>Azure Linux VM에 Apache Qpid Proton-C 설치
@@ -84,15 +88,15 @@ Python 및 PHP 응용 프로그램의 경우 이 예제에서는 Apache의 Proto
    
    mkdir build cd build
    
-   # Set the install prefix. You may need to adjust depending on your      
-   # system.       
+   # Set the install prefix. You may need to adjust depending on your        
+   # system.        
    cmake -DCMAKE\_INSTALL\_PREFIX=/usr ..
    
-   # Omit the docs target if you do not wish to build or install       
+   # Omit the docs target if you do not wish to build or install        
    # documentation.        
    make all docs
    
-   # Note that this step will require root privileges.     
+   # Note that this step will require root privileges.        
    make install
    ```
 
@@ -115,6 +119,6 @@ Python 및 PHP 응용 프로그램의 경우 이 예제에서는 Apache의 Proto
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

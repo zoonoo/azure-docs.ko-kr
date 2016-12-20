@@ -1,12 +1,12 @@
 ---
-title: Azure 앱 서비스에서 논리 앱 모니터링 | Microsoft Docs
-description: 논리 앱의 기능을 확인하는 방법
+title: "Azure App Service에서 논리 앱 모니터링 | Microsoft Docs"
+description: "논리 앱의 기능을 확인하는 방법"
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 services: logic-apps
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cc73caf6ffdc47199369112a5310a3f4dd0cc9bf
+
 
 ---
 # <a name="monitor-your-logic-apps"></a>논리 앱 모니터링
@@ -49,7 +53,7 @@ ms.author: jehollan
 Azure 포털 및 REST API에서 제공하는 위의 세부 정보 외에도 Azure 진단을 사용하여 보다 자세한 정보와 디버깅을 제공하도록 논리 앱을 구성할 수 있습니다.
 
 1. 논리 앱 블레이드의 **진단** 섹션을 클릭합니다.
-2. **진단 설정**
+2.  **진단 설정**
 3. 데이터를 내보낼 이벤트 허브 또는 저장소 계정을 구성합니다.
    
     ![Azure 진단 설정](./media/app-service-logic-monitor-your-logic-apps/diagnostics.png)
@@ -134,6 +138,9 @@ Event Hub 또는 저장소에서 이 원격 분석을 [Operations Management Sui
 * [논리 앱 배포 템플릿 만들기](app-service-logic-create-deploy-template.md)
 * [엔터프라이즈 통합 기능](app-service-logic-enterprise-integration-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure Multi-Factor Authentication 보고서
-description: Azure Multi-Factor Authentication 기능 - 보고서를 사용하는 방법을 설명합니다.
+title: "Azure Multi-Factor Authentication 보고서"
+description: "Azure Multi-Factor Authentication 기능 - 보고서를 사용하는 방법을 설명합니다."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: 3f6b33c4-04c8-47d4-aecb-aa39a61c4189
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 738f9862ce8a8e4a0d63ec94583c4c868d914686
+
 
 ---
-# Azure Multi-Factor Authentication에서 보고서
+# <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
 Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 사용할 수 있는 다양한 보고서를 제공합니다. Multi-Factor Authentication 관리 포털을 통해 이러한 보고서에 액세스할 수 있으며 Azure MFA 공급자나 Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 필요합니다. 다음은 사용 가능한 보고서의 목록입니다.
 
 Azure 관리 포털을 통해 보고서에 액세스할 수 있습니다.
@@ -30,7 +34,7 @@ Azure 관리 포털을 통해 보고서에 액세스할 수 있습니다.
 | 사기 행위 경고 |지정한 날짜 범위 동안 제출된 사기 행위 경고 기록을 보여 줍니다. |
 | Queued |처리 및 해당 상태에 대해 대기 중인 보고서가 나열되어 있습니다. 보고서가 완료되면 보고서를 다운로드하거나 볼 링크가 제공됩니다. |
 
-## 보고서를 보려면
+## <a name="to-view-reports"></a>보고서를 보려면
 1. http://azure.microsoft.com에 로그온합니다.
 2. 왼쪽에서 Active Directory를 선택합니다.
 3. 다음 옵션 중 하나를 선택합니다.
@@ -38,12 +42,17 @@ Azure 관리 포털을 통해 보고서에 액세스할 수 있습니다.
    * **옵션 2**: 디렉터리를 선택하고 구성 탭을 클릭합니다. 다단계 인증 섹션에서 서비스 설정 관리를 선택합니다. MFA 서비스 설정 페이지의 맨 아래에서 포털로 이동 링크를 클릭합니다.
 4. Azure Multi-Factor Authentication 관리 포털의 왼쪽 탐색에서 보고서 보기 섹션을 찾을 수 있습니다. 여기에서 위에 설명된 보고서를 선택할 수 있습니다.
 
-<center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
+<center>![클라우드](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
 
 **추가 리소스**
 
-* [사용자](multi-factor-authentication-end-user.md)
+* [사용자](end-user/multi-factor-authentication-end-user.md)
 * [MSDN에서 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

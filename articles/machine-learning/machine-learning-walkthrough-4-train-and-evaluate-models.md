@@ -1,12 +1,12 @@
 ---
-title: '4단계: 예측 분석 모델 학습 및 평가 | Microsoft Docs'
-description: '예측 솔루션 개발 연습 4단계: Azure 기계 학습 스튜디오에서 다중 모델을 학습하고, 점수를 매기고, 평가합니다.'
+title: "4단계: 예측 분석 모델 학습 및 평가 | Microsoft Docs"
+description: "예측 솔루션 개발 연습 4단계: Azure 기계 학습 스튜디오에서 다중 모델을 학습하고, 점수를 매기고, 평가합니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 434e7e2c40f98956de44435c23642bdee6072379
+
 
 ---
-# <a name="walkthrough-step-4:-train-and-evaluate-the-predictive-analytic-models"></a>연습 4단계: 예측 분석 모델 학습 및 평가
+# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>연습 4단계: 예측 분석 모델 학습 및 평가
 이 토픽에는 연습의 4번째 단계인 [Azure Machine Learning에서 예측 분석 솔루션 개발](machine-learning-walkthrough-develop-predictive-solution.md)이 포함되어 있습니다.
 
 1. [기계 학습 작업 영역 만들기](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -119,7 +123,8 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 > [!TIP]
 > 실험을 실행할 때마다 해당 반복에 대한 레코드가 실행 기록에서 유지됩니다. 이러한 반복을 확인하고 캔버스 아래에서 **실행 기록 보기**를 클릭하여 원하는 반복으로 돌아갈 수 있습니다. **속성** 창에서 **이전 실행**을 클릭하여 열었던 반복의 바로 이전 반복으로 돌아갈 수도 있습니다.
 > 
-> 캔버스 아래에서 **다른 이름으로 저장**을 클릭하여 실험을 반복하도록 복사본을 만들 수 있습니다. 실험의 **요약** 및 **설명** 속성을 사용하면 실험 반복에서 시도한 항목을 기록할 수 있습니다.
+> 캔버스 아래에서 **다른 이름으로 저장**을 클릭하여 실험을 반복하도록 복사본을 만들 수 있습니다. 
+> 실험의 **요약** 및 **설명** 속성을 사용하면 실험 반복에서 시도한 항목을 기록할 수 있습니다.
 > 
 > 자세한 내용은 [Azure 기계 학습 스튜디오에서 실험 반복 관리](machine-learning-manage-experiment-iterations.md)를 참조하세요.  
 > 
@@ -146,6 +151,6 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 시스템 상태 보고서 문제 해결 | Microsoft Docs
-description: Azure 서비스 패브릭 구성 요소에서 보낸 상태 보고서와 클러스터 또는 응용 프로그램 문제 해결에 대한 사용을 설명합니다.
+title: "시스템 상태 보고서 문제 해결 | Microsoft Docs"
+description: "Azure 서비스 패브릭 구성 요소에서 보낸 상태 보고서와 클러스터 또는 응용 프로그램 문제 해결에 대한 사용을 설명합니다."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2016
 ms.author: oanapl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5e940cd05a5e3d368f42cf3457f0a4b12e86440a
+
 
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
@@ -54,7 +58,7 @@ Azure 서비스 패브릭 구성 요소가 클러스터 내의 모든 엔터티�
 ## <a name="node-system-health-reports"></a>노드 시스템 상태 보고서
 장애 조치(Failover) 관리자 서비스를 나타내는 **System.FM**은 클러스터 노드에 대한 정보를 관리하는 기관입니다. 모든 노드는 상태를 보여주는 System.FM로부터 하나의 보고서를 가져야 합니다. 노드 상태가 제거되면 노드 엔터티도 제거됩니다( [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx)참조).
 
-### <a name="node-up/down"></a>노드 위/아래
+### <a name="node-updown"></a>노드 위/아래
 System.FM은 노드가 링에 조인하는 경우 확인으로 보고합니다.(실행 중) 노드가 링에서 분리하는 경우 오류를 보고합니다.(업그레이드이든 단순히 실패한 것이든 중단되었습니다) Health 스토어에서 작성한 상태 계층이 System.FM 노드 보고서와의 상관관계에 따라, 배포된 엔터티에 대해 조치를 취합니다. 배포된 모든 엔터티의 가상 부모를 노드로 간주합니다. 엔터티와 연결된 인스턴스와 동일한 인스턴스와 함께 노드가 가동 중인 것으로 System.FM에 의해 보고되면 해당 노드에 배포된 엔터티가 쿼리를 통해 노출됩니다. System.FM에서 노드가 다운되었거나 다시 시작한 것을 보고하면(새로운 인스턴스) Health 스토어가 다운 노드 또는 이전 노드 인스턴스에서만 존재할 수 있는 배포된 엔터티를 자동으로 정리합니다.
 
 * **SourceId**: System.FM
@@ -361,7 +365,7 @@ HealthEvents          :
 복제본 열기가 구성된 기간(기본: 30분)보다 오래 걸릴 경우 **System.RA**는 경고를 보고합니다. API가 서비스 가용성에 영향을 주는 경우 보고서가 훨씬 더 빠르게 발행됩니다.(구성 가능한 간격, 기본 30초) 측정된 시간에는 복제기 열기 및 서비스 열기에 소요된 시간이 포함됩니다. 열기가 완료되면 속성이 확인으로 변경됩니다.
 
 * **SourceId**: System.RA
-* **Property**에 상태 이벤트를 보여 줍니다. **ReplicaOpenStatus**
+* Property에 상태 이벤트를 보여 줍니다. ReplicaOpenStatus
 * **다음 단계**: 성능 상태가 정상이 아닌 경우 복제본의 열기가 예상보다 오래 걸린 이유를 확인합니다.
 
 ### <a name="slow-service-api-call"></a>느린 서비스 API 호출
@@ -678,6 +682,9 @@ HealthEvents          :
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

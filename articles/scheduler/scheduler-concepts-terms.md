@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8c0d2b57f7a998ae52a08a5ae0cbc57a0a77f002
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
 
 
 ---
@@ -143,9 +143,9 @@ HTTP 작업(SSL을 지원하는 HTTPS 작업 포함), 저장소 큐 작업, 서�
 다음은 서비스 버스 큐 동작의 예입니다.
 
   "action": { "serviceBusQueueMessage": { "queueName": "q1",  
-       "namespace": "mySBNamespace", "transportType": "netMessaging", // netMessaging 또는 AMQP "인증"일 수 있습니다: {  
-         "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message",  
-       "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
+      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": {  
+        "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message",  
+      "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
 
 “errorAction”은 오류 처리기로, 주 동작 실패 시 호출되는 동작입니다. 이 변수를 사용하여 오류 처리 끝점을 호출하거나 사용자 알림을 보낼 수 있습니다. 주 끝점을 사용할 수 없을 때(예: 끝점 사이트의 장애) 보조 끝점에 연결하거나, 오류 처리 끝점을 알리는 데 사용할 수 있습니다. 기본 동작과 마찬가지로 오류 동작은 다른 동작에 따라 단순 또는 복합 로직이 될 수 있습니다. SAS 토큰을 만드는 방법을 알아보려면 [공유 액세스 서명 만들기 및 사용](https://msdn.microsoft.com/library/azure/jj721951.aspx)을 참조하세요.
 
@@ -200,6 +200,6 @@ JSON 정의에 지정된 되풀이 개체가 있으면 작업이 반복됩니다
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

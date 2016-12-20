@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 883b3a27b4b06785068d04a143bae6c33fbed99b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0374fea21dbecabc0008cf6cd9096cd8c2d3f206
 
 
 ---
@@ -75,10 +75,10 @@ Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure Multi-Factor Authen
 
 <li>모든 컴퓨터에서 웹 브라우저를 열고 모바일 앱 웹 서비스가 설치된 URL(예: https://www.publicwebsite.com/PA)로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.</li>
 
-### <a name="configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 모바일 앱 설정 구성
+### <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 모바일 앱 설정 구성
 모바일 앱 웹 서비스가 설치되었으므로 포털을 사용하도록 Azure Multi-Factor Authentication 서버를 구성해야 합니다.
 
-#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 모바일 앱 설정을 구성하려면
+#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 모바일 앱 설정을 구성하려면
 1. Azure Multi-Factor Authentication 서버에서 사용자 포털 아이콘을 클릭합니다. 사용자가 자신의 인증 방법을 제어할 수 있도록 허용되면 설정 탭의 Allow users to select method(사용자의 방법 선택 허용)에서 모바일 앱을 선택합니다. 이 기능을 사용하도록 설정하면 최종 사용자는 지원 센터에 문의하여 모바일 앱에 대한 정품 인증을 요청해야 합니다.
 2. 사용자가 모바일 앱을 활성화할 수 있도록 허용 확인란을 선택합니다.
 3. 사용자 등록 허용 확인란을 선택합니다.
@@ -89,6 +89,6 @@ Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure Multi-Factor Authen
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8dc246755c90686f890d2ac9df05b3a8b2a9341f
 
 
 ---
@@ -47,6 +47,10 @@ ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+ 
+    또는 
+
+    [Azure DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md) 로컬 설치를 참조하세요.
 * [Visual Studio 2013](http://www.visualstudio.com/) 이상 또는 [Visual Studio Express]()은 무료 버전입니다. 이 자습서의 지침은 특별히 Visual Studio 2015용으로 작성되었습니다. 
 * [GitHub](http://microsoft.github.io/PTVS/)에서 Visual Studio용 Python 도구. 이 자습서에서는 Python Tools for VS 2015를 사용합니다. 
 * [azure.com](https://azure.microsoft.com/downloads/)에서 사용 가능한 Visual Studio용 Azure Python SDK 2.4 버전 이상. Python 2.7용 Microsoft Azure SDK를 사용했습니다.
@@ -62,7 +66,7 @@ ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
 * [Microsoft 다운로드 센터][3]에서 Python 2.7용 Microsoft Visual C++ 컴파일러.
 
 ## <a name="step-1-create-a-documentdb-database-account"></a>1단계: DocumentDB 데이터베이스 계정 만들기
-먼저 DocumentDB 계정을 만듭니다. 계정이 이미 있는 경우 [2단계: 새 Python Flask 웹 응용 프로그램 만들기](#step-2:-create-a-new-python-flask-web-application)로 건너뛸 수 있습니다.
+먼저 DocumentDB 계정을 만듭니다. 계정이 있거나 이 자습서에 DocumentDB 에뮬레이터를 사용하고 있는 경우 [2단계: 새 Python Flask 응용 프로그램 만들기](#step-2:-create-a-new-python-flask-web-application)로 건너뛸 수 있습니다.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -404,11 +408,11 @@ Azure, Visual Studio 및 Python에 대한 자세한 내용은 [Python 개발자 
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [2]: https://www.python.org/downloads/windows/
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Microsoft 웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
-[Azure 포털]: http://portal.azure.com
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[Azure portal]: http://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

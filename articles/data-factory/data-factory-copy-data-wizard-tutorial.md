@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
+ms.openlocfilehash: 11754bbe534638d8321f509d7d82e025c667176c
 
 
 ---
@@ -60,8 +60,8 @@ Azure Data Factory **복사 마법사**를 사용하면 데이터 수집/이동 
    2. Azure **구독**을 선택합니다.
    3. 리소스 그룹에 대해 다음 단계 중 하나를 수행합니다. 
       
-      1. **기존 항목 사용**을 선택하고 기존 리소스 그룹을 선택합니다.
-      2. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
+      - **기존 항목 사용**을 선택하고 기존 리소스 그룹을 선택합니다.
+      - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
          
           이 자습서의 일부 단계에서는 리소스 그룹에 **ADFTutorialResourceGroup** 이라는 이름을 사용한다고 가정합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
    4. Data Factory의 **위치**를 선택합니다.
@@ -163,6 +163,6 @@ Azure Data Factory **복사 마법사**를 사용하면 데이터 수집/이동 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

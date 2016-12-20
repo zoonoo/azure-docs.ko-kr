@@ -1,12 +1,12 @@
 ---
-title: '자습서: OpsGenie와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 OpsGenie 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: OpsGenie와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 OpsGenie 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 552b1a2a7ef63bc1c958adf8e06cd1c92c5c0ea2
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-opsgenie"></a>자습서: OpsGenie와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>자습서: OpsGenie와 Azure Active Directory 통합
 이 자습서에서는 OpsGenie와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 OpsGenie를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -273,6 +277,6 @@ Britta는 자신의 프로필 설정에 대한 지침이 포함된 메일을 받
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

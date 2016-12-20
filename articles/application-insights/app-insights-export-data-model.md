@@ -1,11 +1,11 @@
 ---
-title: Application Insights 데이터 모델
-description: JSON의 연속 내보내기에서 내보내고 필터로 사용하는 속성을 설명합니다.
+title: "Application Insights 데이터 모델"
+description: "JSON의 연속 내보내기에서 내보내고 필터로 사용하는 속성을 설명합니다."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,32 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: e4576409641db73ad8920a1eec2eea1e3580109f
+ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
+
 
 ---
-# Application Insights 데이터 모델 내보내기
-이 테이블은 [Application Insights](app-insights-overview.md) SDK에서 포털로 전송된 원격 분석의 속성을 나열합니다. 이러한 속성이 [연속 내보내기](app-insights-export-telemetry.md)에서 데이터 출력에 표시됩니다 또한 [메트릭 탐색기](app-insights-metrics-explorer.md) 및 [진단 검색](app-insights-diagnostic-search.md)의 속성 필터에 나타납니다.
+# <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
+이 테이블은 [Application Insights](app-insights-overview.md) SDK에서 포털로 전송된 원격 분석의 속성을 나열합니다.
+이러한 속성이 [연속 내보내기](app-insights-export-telemetry.md)에서 데이터 출력에 표시됩니다
+또한 [메트릭 탐색기](app-insights-metrics-explorer.md) 및 [진단 검색](app-insights-diagnostic-search.md)의 속성 필터에 나타납니다.
 
 주의할 사항:
 
-* 이러한 테이블에서 `[0]`은 인덱스를 삽입해야 하는 경로의 지점을 나타내지만 항상 0은 아닙니다.
+* `[0]` 은 인덱스를 삽입해야 하는 경로의 지점을 나타내지만 항상 0은 아닙니다.
 * 기간의 단위는 10분의 1 마이크로초이므로 10000000은 1초입니다.
-* 날짜와 시간은 UTC이며 ISO 형식 `yyyy-MM-DDThh:mm:ss.sssZ`로 지정됩니다.
+* 날짜와 시간은 UTC이며 ISO 형식 `yyyy-MM-DDThh:mm:ss.sssZ`
 
-사용하는 방법을 설명하는 몇 가지 [샘플](app-insights-export-telemetry.md#code-samples)이 있습니다.
+사용하는 방법을 설명하는 몇 가지 [샘플](app-insights-export-telemetry.md#code-samples) 이 있습니다.
 
-## 예
+## <a name="example"></a>예
     // A server report about an HTTP request
     {
-    "request": [ 
+    "request": [
       {
         "urlData": { // derived from 'url'
           "host": "contoso.org",
           "base": "/",
-          "hashTag": "" 
+          "hashTag": ""
         },
         "responseCode": 200, // Sent to client
         "success": true, // Default == responseCode<400
-        // Request id becomes the operation id of child events 
+        // Request id becomes the operation id of child events
         "id": "fCOhCdCnZ9I=",  
         "name": "GET Home/Index",
         "count": 1, // 100% / sampling rate
@@ -71,14 +77,14 @@ ms.author: awills
         "continent": "North America",
         "country": "United States",
         // last octagon is anonymized to 0 at portal:
-        "clientip": "168.62.177.0", 
+        "clientip": "168.62.177.0",
         "province": "",
         "city": ""
       },
       "data": {
         "isSynthetic": true, // we identified source as a bot
         // percentage of generated data sent to portal:
-        "samplingRate": 100.0, 
+        "samplingRate": 100.0,
         "eventTime": "2016-03-21T10:05:45.7334717Z" // UTC
       },
       "user": {
@@ -106,7 +112,7 @@ ms.author: awills
     }
   }
 
-## Context
+## <a name="context"></a>Context
 모든 유형의 원격 분석에는 컨텍스트 섹션이 함께 제공됩니다. 이러한 모든 필드가 모든 데이터 요소와 함께 전송되는 것은 아닙니다.
 
 | Path | 형식 | 참고 |
@@ -148,24 +154,24 @@ ms.author: awills
 | internal.data.documentVersion |string | |
 | internal.data.id |string | |
 
-## 이벤트
+## <a name="events"></a>이벤트
 [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event)에 의해 생성된 사용자 지정 이벤트입니다.
 
 | Path | 형식 | 참고 |
 | --- | --- | --- |
-| event [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25% |
-| event [0] name |string |이벤트 이름입니다. 최대 길이 250 |
+| event [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
+| event [0] name |string |이벤트 이름입니다.  최대 길이 250 |
 | event [0] url |string | |
 | event [0] urlData.base |string | |
 | event [0] urlData.host |string | |
 
-## 예외
-서버 및 브라우저의 [예외](app-insights-asp-net-exceptions.md)를 보고합니다.
+## <a name="exceptions"></a>예외
+서버 및 브라우저의 [예외](app-insights-asp-net-exceptions.md) 를 보고합니다.
 
 | Path | 형식 | 참고 |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
-| basicException [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25% |
+| basicException [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
 | basicException [0] exceptionGroup |string | |
 | basicException [0] exceptionType |string | |
 | basicException [0] failedUserCodeMethod |string | |
@@ -188,7 +194,7 @@ ms.author: awills
 | basicException [0] stack |string |최대 길이 10000 |
 | basicException [0] typeName |string | |
 
-## 추적 메시지
+## <a name="trace-messages"></a>추적 메시지
 [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) 및 [로깅 어댑터](app-insights-asp-net-trace-logs.md)에서 전송합니다.
 
 | Path | 형식 | 참고 |
@@ -198,15 +204,15 @@ ms.author: awills
 | message [0] raw |string |로그 메시지입니다(최대 길이 10k). |
 | message [0] severityLevel |string | |
 
-## 원격 종속성
-TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](app-insights-asp-net-dependencies.md)과 브라우저의 AJAX 호출 성능 및 사용을 보고하는 데 사용됩니다.
+## <a name="remote-dependency"></a>원격 종속성
+TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](app-insights-asp-net-dependencies.md) 과 브라우저의 AJAX 호출 성능 및 사용을 보고하는 데 사용됩니다.
 
 | Path | 형식 | 참고 |
 | --- | --- | --- |
 | remoteDependency [0] async |부울 | |
 | remoteDependency [0] baseName |string | |
 | remoteDependency [0] commandName |string |예를 들어 "홈/인덱스" |
-| remoteDependency [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25% |
+| remoteDependency [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
 | remoteDependency [0] dependencyTypeName |string |HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value |number |호출부터 종속성의 응답 완료까지 걸리는 시간 |
 | remoteDependency [0] id |string | |
@@ -219,23 +225,23 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](ap
 | remoteDependency [0] urlData.hashTag |string | |
 | remoteDependency [0] urlData.host |string |최대 길이 200 |
 
-## 요청
+## <a name="requests"></a>요청
 [TrackRequest](app-insights-api-custom-events-metrics.md#track-request)에서 전송합니다. 표준 모듈이 서버에서 측정된 서버 응답 시간을 보고하는 데 사용됩니다.
 
 | Path | 형식 | 참고 |
 | --- | --- | --- |
-| request [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25% |
+| request [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
 | request [0] durationMetric.value |number |요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
 | request [0] id |string |작업 ID |
-| request [0] name |string |GET/POST + url 기본입니다. 최대 길이 250 |
+| request [0] name |string |GET/POST + url 기본입니다.  최대 길이 250 |
 | request [0] responseCode |정수 |클라이언트에 보낸 HTTP 응답 |
-| request [0] success |boolean |기본값 == (responseCode &lt; 400) |
+| request [0] success |부울 |기본값 == (responseCode &lt; 400) |
 | request [0] url |string |호스트를 포함하지 않음 |
 | request [0] urlData.base |string | |
 | request [0] urlData.hashTag |string | |
 | request [0] urlData.host |string | |
 
-## 페이지 보기 성능
+## <a name="page-view-performance"></a>페이지 보기 성능
 브라우저에서 전송합니다. 사용자가 요청을 시작할 때부터 표시가 완료될 때까지 페이지 처리 시간을 측정합니다(비동기 AJAX 호출 제외).
 
 컨텍스트 값은 클라이언트 OS 및 브라우저 버전을 표시합니다.
@@ -254,27 +260,27 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](ap
 | clientPerformance [0] urlData.host |string | |
 | clientPerformance [0] urlData.protocol |string | |
 
-## 페이지 보기
-trackPageView() 또는 [stopTrackPage](app-insights-api-custom-events-metrics.md#page-view)에서 전송됩니다.
+## <a name="page-views"></a>페이지 보기
+trackPageView() 또는 [stopTrackPage](app-insights-api-custom-events-metrics.md#page-views)에서 전송
 
 | Path | 형식 | 참고 |
 | --- | --- | --- |
-| view [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25% |
+| view [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
 | view [0] durationMetric.value |정수 |필요에 따라 trackPageView()에서 또는 startTrackPage() - stopTrackPage()에 의해 설정한 값입니다. clientPerformance 값과 다릅니다. |
-| view [0] name |string |페이지 제목입니다. 최대 길이 250 |
+| view [0] name |string |페이지 제목입니다.  최대 길이 250 |
 | view [0] url |string | |
 | view [0] urlData.base |string | |
 | view [0] urlData.hashTag |string | |
 | view [0] urlData.host |string | |
 
-## Availability
+## <a name="availability"></a>Availability
 [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)를 보고합니다.
 
 | Path | 형식 | 참고 |
 | --- | --- | --- |
-| availability [0] availabilityMetric.name |string |availability |
-| availability [0] availabilityMetric.value |number |1\.0 또는 0.0 |
-| availability [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25% |
+| availability [0] availabilityMetric.name |string |Availability |
+| availability [0] availabilityMetric.value |number |1.0 또는 0.0 |
+| availability [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
 | availability [0] dataSizeMetric.name |string | |
 | availability [0] dataSizeMetric.value |정수 | |
 | availability [0] durationMetric.name |string | |
@@ -286,7 +292,7 @@ trackPageView() 또는 [stopTrackPage](app-insights-api-custom-events-metrics.md
 | availability [0] testRunId |string | |
 | availability [0] testTimestamp |string | |
 
-## 메트릭
+## <a name="metrics"></a>메트릭
 TrackMetric()에서 생성합니다.
 
 메트릭 값은 context.custom.metrics[0]에서 찾을 수 있습니다.
@@ -316,7 +322,7 @@ TrackMetric()에서 생성합니다.
          } ] }
     }
 
-## 메트릭 값 정보
+## <a name="about-metric-values"></a>메트릭 값 정보
 메트릭 보고서 및 기타 다른 곳의 메트릭 값은 모두 표준 개체 구조를 사용하여 보고됩니다. 예:
 
       "durationMetric": {
@@ -336,14 +342,18 @@ TrackMetric()에서 생성합니다.
 
 위의 테이블에서는 거의 사용되지 않는 필드인 count, min, max, stdDev 및 sampledValue가 생략되었습니다.
 
-원격 분석의 양을 줄여야 하는 경우 사전 집계 메트릭 대신 [샘플링](app-insights-sampling.md)을 사용할 수 있습니다
+원격 분석의 양을 줄여야 하는 경우 사전 집계 메트릭 대신 [샘플링](app-insights-sampling.md) 을 사용할 수 있습니다
 
-### 기간
+### <a name="durations"></a>기간
 달리 명시된 경우를 제외하고, 기간은 10분의 1 마이크로초로 표현되므로 10000000.0은 1초를 의미합니다.
 
-## 참고 항목
-* [Application Insights](app-insights-overview.md) 
+## <a name="see-also"></a>참고 항목
+* [Application Insights](app-insights-overview.md)
 * [연속 내보내기](app-insights-export-telemetry.md)
 * [코드 샘플](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

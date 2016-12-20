@@ -1,12 +1,12 @@
 ---
-title: 미디어 인코더 표준 형식 및 코덱
-description: 이 항목에서는 미디어 인코더 표준 형식 및 코덱에 대한 개요를 제공합니다.
+title: "미디어 인코더 표준 형식 및 코덱"
+description: "이 항목에서는 미디어 인코더 표준 형식 및 코덱에 대한 개요를 제공합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 382913f0501c692cc1ee460d2264118414ad20c3
+
 
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>미디어 인코더 표준 형식 및 코덱
 이 문서에는 미디어 인코더 표준에서 사용할 수 있는 가장 일반적인 가져오기 및 내보내기 파일 형식 목록이 포함되어 있습니다.
 
-## <a name="input-container/file-formats"></a>입력 컨테이너/파일 형식
+## <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
 | 파일 형식(파일 확장명) | 지원됨 |
 | --- | --- | --- | --- |
 | FLV(H.264 및 AAC 코덱 포함)(.flv) |예 |
@@ -108,6 +112,9 @@ ms.author: juliako;anilmur
 
 [미디어 인코더 표준으로 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: 서비스 관리 모드의 Azure CLI 명령 | Microsoft Docs
-description: 클래식 배포 모델에서 배포를 관리하기 위한 서비스 관리 모드의 Azure CLI(명령줄 인터페이스) 명령
+title: "서비스 관리 모드의 Azure CLI 명령 | Microsoft Docs"
+description: "클래식 배포 모델에서 배포를 관리하기 위한 서비스 관리 모드의 Azure CLI(명령줄 인터페이스) 명령"
 services: virtual-machines-linux,virtual-machines-windows,mobile-services, cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: dlepow
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: b9ccdeed-0ab8-4de2-937f-4046c7918bd8
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: danlep
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 614adbd3536d6740e6a46895b36575f0f4c66a8c
+
 
 ---
-# <a name="azure-cli-commands-in-azure-service-management-(asm)-mode"></a>ASM(Azure 서비스 관리) 모드의 Azure CLI 명령
+# <a name="azure-cli-commands-in-azure-service-management-asm-mode"></a>ASM(Azure 서비스 관리) 모드의 Azure CLI 명령
 [!INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)]
 
 [모든 Resource Manager 모델 명령에 대한 읽기](virtual-machines/azure-cli-arm-commands.md)도 가능하고 CLI를 사용하여 클래식에서 Resource Manager 모델로 [리소스를 마이그레이션](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)할 수 있습니다.
@@ -921,7 +925,7 @@ Azure 웹 앱은 URI로 액세스할 수 있는 웹 구성입니다. 웹 앱은 
     Web site name: mydemosite
     + Getting sites
     + Getting site information
-    data:    Subject                       Expiration Date                    Thumbprint
+    data:    Subject                       Expiration Date                      Thumbprint
     data:    ----------------------------  -----------------------------------------
     ----------------  ----------------------------------------
     data:    *.msopentech.com              Fri Nov 28 2014 09:49:57 GMT-0800 (Pacific Standard Time)  A40E82D3DC0286D1F58650E570ECF8224F69A148
@@ -1144,7 +1148,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 * **-v** 또는 **--verbose**: 자세한 정보를 출력합니다.
 * **--json**: JSON 출력을 씁니다.
 
-### <a name="<a-name="mobile_services"></a>commands-to-manage-mobile-service-instances"></a><a name="Mobile_Services"></a>모바일 서비스 인스턴스를 관리하는 명령
+### <a name="a-namemobileservicesacommands-to-manage-mobile-service-instances"></a><a name="Mobile_Services"></a>모바일 서비스 인스턴스를 관리하는 명령
 **mobile locations [options]**
 
 이 명령은 모바일 서비스에서 지원되는 지리적 위치를 나열합니다.
@@ -1300,7 +1304,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 이 명령은 모바일 서비스 키를 특정 값으로 설정합니다.
 
-### <a name="<a-name="mobile_configuration"></a>commands-to-manage-mobile-service-configuration"></a><a name="Mobile_Configuration"></a>모바일 서비스 구성을 관리하는 명령
+### <a name="a-namemobileconfigurationacommands-to-manage-mobile-service-configuration"></a><a name="Mobile_Configuration"></a>모바일 서비스 구성을 관리하는 명령
 **mobile config list [options] [servicename]**
 
 이 명령은 모바일 서비스에 대한 구성 옵션을 나열합니다.
@@ -1341,7 +1345,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
     info:    mobile config set command OK
 
 
-### <a name="<a-name="mobile_tables"></a>commands-to-manage-mobile-service-tables"></a><a name="Mobile_Tables"></a>모바일 서비스 테이블을 관리하는 명령
+### <a name="a-namemobiletablesacommands-to-manage-mobile-service-tables"></a><a name="Mobile_Tables"></a>모바일 서비스 테이블을 관리하는 명령
 **mobile table list [options] [servicename]**
 
 이 명령은 모바일 서비스의 모든 테이블을 나열합니다.
@@ -1453,8 +1457,8 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
     info:    mobile data truncate command OK
 
 
-### <a name="<a-name="mobile_scripts"></a>commands-to-manage-scripts"></a><a name="Mobile_Scripts"></a>스크립트를 관리하는 명령
-이 섹션에 나오는 명령을 사용하여 모바일 서비스에 속하는 서버 스크립트를 관리할 수 있습니다. 자세한 내용은 [모바일 서비스에서 서버 스크립트 작업](mobile-services/mobile-services-how-to-use-server-scripts.md)을 참조하세요.
+### <a name="a-namemobilescriptsacommands-to-manage-scripts"></a><a name="Mobile_Scripts"></a>스크립트를 관리하는 명령
+이 섹션에 나오는 명령을 사용하여 모바일 서비스에 속하는 서버 스크립트를 관리할 수 있습니다. 자세한 내용은 [모바일 서비스에서 서버 스크립트 작업](https://github.com/Azure/azure-mobile-services/blob/master/docs/mobile-services-how-to-use-server-scripts.md)을 참조하세요.
 
 **mobile script list [options] [servicename]**
 
@@ -1510,7 +1514,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
     info:    Executing command mobile script delete
     info:    mobile script delete command OK
 
-### <a name="<a-name="mobile_jobs"></a>commands-to-manage-scheduled-jobs"></a><a name="Mobile_Jobs"></a>예약된 작업을 관리하는 명령
+### <a name="a-namemobilejobsacommands-to-manage-scheduled-jobs"></a><a name="Mobile_Jobs"></a>예약된 작업을 관리하는 명령
 이 섹션에 나오는 명령을 사용하여 모바일 서비스에 속하는 예약된 작업을 관리할 수 있습니다. 자세한 내용은 [작업 예약](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx)을 참조하세요.
 
 **mobile job list [options] [servicename]**
@@ -1539,7 +1543,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
 * **-i `<number>`** 또는 **--interval `<number>`**: 작업 간격을 정수로 나타냅니다. 기본값은 `15`입니다.
-* **-u `<unit>`** 또는 **--intervalUnit `<unit>`**: _interval_의 단위이며 다음 값 중 하나일 수 있습니다.
+* **-u `<unit>`** 또는 **--intervalUnit `<unit>`**: *interval*의 단위이며 다음 값 중 하나일 수 있습니다.
   * **minute**(기본값)
   * **hour**
   * **day**
@@ -1563,7 +1567,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
 * **-i `<number>`** 또는 **--interval `<number>`**: 작업 간격을 정수로 나타냅니다. 기본값은 `15`입니다.
-* **-u `<unit>`** 또는 **--intervalUnit `<unit>`**: _interval_의 단위이며 다음 값 중 하나일 수 있습니다.
+* **-u `<unit>`** 또는 **--intervalUnit `<unit>`**: *interval*의 단위이며 다음 값 중 하나일 수 있습니다.
   * **minute**(기본값)
   * **hour**
   * **day**
@@ -1585,7 +1589,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 > 
 > 
 
-### <a name="<a-name="mobile_scale"></a>commands-to-scale-a-mobile-service"></a><a name="Mobile_Scale"></a>모바일 서비스의 크기를 조정하는 명령
+### <a name="a-namemobilescaleacommands-to-scale-a-mobile-service"></a><a name="Mobile_Scale"></a>모바일 서비스의 크기를 조정하는 명령
 이 섹션에 나오는 명령을 사용하여 모바일 서비스를 크기 조정할 수 있습니다. 자세한 내용은 [모바일 서비스 확장](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx)을 참조하세요.
 
 **mobile scale show [options] [servicename]**
@@ -2047,7 +2051,7 @@ Service Bus 네임스페이스를 만듭니다.
 ## <a name="commands-to-manage-sql-databases"></a>SQL 데이터베이스를 관리하는 명령
 이러한 명령을 사용하여 Azure SQL 데이터베이스를 관리할 수 있습니다.
 
-### <a name="commands-to-manage-sql-servers."></a>SQL Server를 관리하는 명령.
+### <a name="commands-to-manage-sql-servers"></a>SQL Server를 관리하는 명령.
 이러한 명령을 사용하여 SQL Server를 관리할 수 있습니다.
 
 **sql server create &lt;administratorLogin> &lt;administratorPassword> &lt;location>**
@@ -2350,6 +2354,6 @@ DNS 서버 항목을 네트워크 구성에서 제거합니다.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 2계층 응용 프로그램을 사용한 하이브리드 연결 | Microsoft Docs
-description: Azure에서 다중 계층 응용 프로그램 환경을 만드는 UDR 및 가상 어플라이언스를 배포하는 방법에 대해 알아봅니다.
+title: "2계층 응용 프로그램을 사용한 하이브리드 연결 | Microsoft Docs"
+description: "Azure에서 다중 계층 응용 프로그램 환경을 만드는 UDR 및 가상 어플라이언스를 배포하는 방법에 대해 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fb8d59469eadad51dcf269ec8ff2829b2f8ef922
+
 
 ---
 # <a name="virtual-appliance-scenario"></a>가상 어플라이언스 시나리오
@@ -65,7 +69,7 @@ ms.author: jdial
   * **AZF2**. **azsn2** 및 **azsn3** 간의 트래픽을 제어하는 데 사용되는 내부 방화벽입니다. 또한 3-NIC 가상 어플라이언스입니다.
   * **AZF3**. 온-프레미스 데이터 센터에서 관리자가 액세스할 수 있고 모든 방화벽 어플라이언스를 관리하는 데 사용되는 관리 서브넷에 연결된 관리 방화벽입니다. 마켓플레이스에서 2-NIC 가상 어플라이언스 템플릿을 찾거나 어플라이언스 공급업체로부터 직접 요청할 수 있습니다.
 
-## <a name="user-defined-routing-(udr)"></a>UDR(사용자 정의 라우팅)
+## <a name="user-defined-routing-udr"></a>UDR(사용자 정의 라우팅)
 Azure에서 각 서브넷은 해당 서브넷에서 시작된 트래픽이 라우트되는 방법을 정의하는 데 사용된 UDR 테이블에 연결될 수 있습니다. UDR이 정의되지 않은 경우 Azure는 기본 경로를 사용하여 한 서브넷에서 다른 서브넷으로 트래픽 흐름을 허용합니다. UDR에 대한 자세한 내용은 [사용자 정의된 경로 및 IP 전달이란?](virtual-networks-udr-overview.md#ip-forwarding)을 참조하세요.
 
 위의 마지막 요구 사항에 따라 적절한 방화벽 어플라이언스를 통해 통신이 수행되려면 **azurevnet**에서 UDR을 포함하는 다음 경로 테이블을 만들어야 합니다.
@@ -80,8 +84,8 @@ Azure에서 각 서브넷은 해당 서브넷에서 시작된 트래픽이 라�
 ### <a name="azsn2udr"></a>azsn2udr
 | 대상 | 다음 홉 | 설명 |
 | --- | --- | --- |
-| 10.0.3.0/24 |10.0.2.11 |**AZF2** |
-| 0.0.0.0/0 |10.0.2.10 |**AZF1** |
+| 10.0.3.0/24 |10.0.2.11 | **AZF2** |
+| 0.0.0.0/0 |10.0.2.10 | **AZF1** |
 
 ### <a name="azsn3udr"></a>azsn3udr
 | 대상 | 다음 홉 | 설명 |
@@ -98,7 +102,7 @@ Azure에서 각 서브넷은 해당 서브넷에서 시작된 트래픽이 라�
 ### <a name="onpremsn2udr"></a>onpremsn2udr
 | 대상 | 다음 홉 | 설명 |
 | --- | --- | --- |
-| 10.0.3.0/24 |192.168.2.4 |**onpremsn2** |
+| 10.0.3.0/24 |192.168.2.4 | **onpremsn2** |
 | 192.168.1.0/24 |192.168.2.4 |**OPFW**를 통해 **onpremsn1**에 대한 트래픽 허용 |
 
 ## <a name="ip-forwarding"></a>IP 전달
@@ -111,7 +115,7 @@ IP 전달에 대한 자세한 내용은 [사용자 정의된 경로 및 IP 전�
 예를 들어 Azure vnet에서 다음과 같이 설정한다고 가정해 봅니다.
 
 * 서브넷 **onpremsn1**은 **onpremvm1**이라는 VM을 포함합니다.
-* 서브넷 **onpremsn2**는 **onpremvm2**라는 VM을 포함합니다.
+* 서브넷 **onpremsn2**은 **onpremvm2**이라는 VM을 포함합니다.
 * **OPFW**라는 가상 어플라이언스는 **onpremsn1** 및 **onpremsn2**에 연결되어 있습니다.
 * **onpremsn1**에 연결된 사용자 정의 경로에는 **onpremsn2**에 대한 모든 트래픽이 **OPFW**로 전송되어야 한다고 지정합니다.
 
@@ -143,7 +147,7 @@ AZF2는 다음 규칙을 포함하는 Azure 가상 어플라이언스를 나타�
 * **경로**: 10.0.0.0/16(**onpremvnet**)에 대한 모든 트래픽을 **포트1**을 통해 Azure 게이트웨이 IP 주소(즉, 10.0.0.1)로 전송해야 합니다.
 * **정책**: **port1** 및 **port2** 간의 모든 양방향 트래픽을 허용합니다.
 
-## <a name="network-security-groups-(nsgs)"></a>NSG(네트워크 보안 그룹)
+## <a name="network-security-groups-nsgs"></a>NSG(네트워크 보안 그룹)
 이 시나리오에서 NSG는 사용되지 않습니다. 그러나 들어오고 나가는 트래픽을 제한하기 위해 각 서브넷에 NSG를 적용할 수 있습니다. 예를 들어 외부 FW 서브넷에 다음 NSG 규칙을 적용할 수 있습니다.
 
 **수신**
@@ -164,6 +168,9 @@ AZF2는 다음 규칙을 포함하는 Azure 가상 어플라이언스를 나타�
 4. **onpremvnet**에서 **azurevnet**으로 터널을 프로비전합니다.
 5. 모든 리소스를 프로비전한 후 **onpremvm2** 로그온하고 10.0.3.101을 ping하여 **onpremsn2**와 **azsn3** 사이의 연결을 테스트합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,18 +15,18 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e2785d007aa30d3ef70ce2ca6049cdd4e9733099
 
 
 ---
 # <a name="create-a-java-web-app-in-azure-app-service"></a>Azure 앱 서비스에서 Java 웹앱 만들기
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-이 자습서는 [Azure Portal]을 사용하여 Java [Azure App Service에서 웹앱]을 만드는 방법을 보여 줍니다. Azure 포털은 Azure 리소스를 관리하는 데 사용할 수 있는 웹 인터페이스입니다.
+이 자습서는 [Azure 포털]을 사용하여 Java [Azure App Service에서 웹앱]을 만드는 방법을 보여 줍니다. Azure 포털은 Azure 리소스를 관리하는 데 사용할 수 있는 웹 인터페이스입니다.
 
 > [!NOTE]
-> 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 Visual Studio 구독자 혜택]을 [활성화하거나 [무료 평가판을 등록]할 수 있습니다.
+> 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화]하거나 [무료 평가판을 등록]할 수 있습니다.
 > 
 > Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가]로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
 > 
@@ -37,7 +37,7 @@ ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
 
 1. 앱을 만든 다음 **응용 프로그램 설정**을 구성합니다.
    
-    앱 서비스는 기본 구성을 사용하여 여러 Tomcat 및 Jetty 버전을 제공합니다. 호스팅하는 응용 프로그램이 기본 제공 버전 중 하나와 작동하는 경우 웹 컨테이너를 설정하는 이 메서드는 가장 쉬우며 war 파일을 웹 컨테이너에 업로드하는 경우에 완벽합니다. 이 메서드의 경우 Azure 포털에서 앱을 만든 다음 앱의 **응용 프로그램 설정** 블레이드로 이동하여 원하는 Java 웹 컨테이너와 함께 Java의 버전을 선택합니다. 이 메서드를 사용하는 경우 Java와 웹 컨테이너는 모두 프로그램 파일에서 실행됩니다. 다른 메서드는 웹 컨테이너와 잠재적으로 JVM을 디스크 공간에 배치합니다. 이 모델을 사용하는 경우 파일 시스템의 이 부분에서 파일을 편집하는 액세스가 없습니다. 즉, *server.xml* 파일 구성 또는 */lib* 폴더에 라이브러리 파일 배치와 같은 작업을 수행할 수 없습니다. 자세한 내용은 이 자습서 뒷부분의 [Java 웹앱 만들기 및 구성](#appsettings) 섹션을 참조하세요.
+    앱 서비스는 기본 구성을 사용하여 여러 Tomcat 및 Jetty 버전을 제공합니다. 호스팅하는 응용 프로그램이 기본 제공 버전 중 하나와 작동하는 경우 웹 컨테이너를 설정하는 이 메서드는 가장 쉬우며 war 파일을 웹 컨테이너에 업로드하는 경우에 완벽합니다. 이 메서드의 경우 Azure 포털에서 앱을 만든 다음 앱의 **응용 프로그램 설정** 블레이드로 이동하여 원하는 Java 웹 컨테이너와 함께 Java의 버전을 선택합니다. 이 메서드를 사용하는 경우 Java와 웹 컨테이너는 모두 프로그램 파일에서 실행됩니다. 다른 메서드는 웹 컨테이너와 잠재적으로 JVM을 디스크 공간에 배치합니다. 이 모델을 사용하는 경우 파일 시스템의 이 부분에서 파일을 편집하는 액세스가 없습니다. 즉, *server.xml* 파일 구성 또는 */lib* 폴더에 라이브러리 파일 배치와 같은 작업을 수행할 수 없습니다. 자세한 내용은 이 자습서 뒷부분의 [Java 웹앱 만들기 및 구성](#portal) 섹션을 참조하세요.
 2. Azure 마켓플레이스에서 템플릿 사용
    
     Azure 마켓플레이스는 Tomcat 또는 Jetty 웹 컨테이너로 Java 웹앱을 자동으로 만들고 구성하는 템플릿을 포함합니다. 템플릿을 만드는 웹 컨테이너를 구성할 수 있습니다. 자세한 내용은 이 자습서의 [Azure 마켓플레이스에서 Java 템플릿 사용](#marketplace) 섹션을 참조하세요.
@@ -64,7 +64,7 @@ ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
     웹앱의 URL이 {name}.azurewebsites.net이기 때문에 이 이름은 azurewebsites.net 도메인에서 고유해야 합니다. 입력한 이름이 고유하지 않으면 빨간색 느낌표가 텍스트 상자에 나타납니다.
 4. **리소스 그룹** 을 선택하거나 새로 만듭니다.
    
-    리소스 그룹에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리]를 참조하세요.
+    리소스 그룹에 대한 자세한 내용은 [Resource Manager 개요]를 참조하세요.
 5. **앱 서비스 계획/위치** 을 선택하거나 새로 만듭니다.
    
     앱 서비스 계획에 대한 자세한 내용은 [Azure 앱 서비스 계획 개요]를 참조하세요.
@@ -92,7 +92,7 @@ ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
 ## <a name="a-namemarketplacea-use-a-java-template-from-the-azure-marketplace"></a><a name="marketplace"></a> Azure 마켓플레이스에서Java 템플릿 사용
 이 섹션에서는 Azure 마켓플레이스를 사용하여 Java 웹앱을 만드는 방법을 보여줍니다. 동일한 일반 흐름은 Java 기반 모바일 또는 API 앱을 만드는 데도 사용될 수 있습니다. 
 
-1.  [Azure 앱 서비스에서 웹앱]
+1. [Azure 포털]에 로그인합니다
 2. **새로 만들기 > 마켓플레이스**를 클릭합니다.
    
     ![새 마켓플레이스][newmarketplace]
@@ -111,7 +111,7 @@ ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
     웹앱의 URL이 {name}.azurewebsites.net이기 때문에 이 이름은 azurewebsites.net 도메인에서 고유해야 합니다. 입력한 이름이 고유하지 않으면 빨간색 느낌표가 텍스트 상자에 나타납니다.
 8. **리소스 그룹** 을 선택하거나 새로 만듭니다.
    
-    리소스 그룹에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리]를 참조하세요.
+    리소스 그룹에 대한 자세한 내용은 [Resource Manager 개요]를 참조하세요.
 9. **앱 서비스 계획/위치** 을 선택하거나 새로 만듭니다.
    
     앱 서비스 계획에 대한 자세한 내용은 [Azure 앱 서비스 계획 개요]를 참조하세요.
@@ -150,25 +150,25 @@ Azure에서 Java 응용 프로그램을 개발하는 방법에 대한 자세한 
 [앱 서비스 평가]: http://go.microsoft.com/fwlink/?LinkId=523751
 [Azure App Service에서 웹앱]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Java 개발자 센터]: /develop/java/
-[Azure 포털을 사용하여 Azure 리소스 관리]: ../azure-portal/resource-group-portal.md
+[Resource Manager 개요]: ../azure-resource-manager/resource-group-overview.md
 [Azure에 사용자 지정 Java 웹앱 업로드]: ./web-sites-java-custom-upload.md
 
 <!-- IMG List -->
 
-[새 웹앱]: ./media/web-sites-java-get-started/newwebapp.png
-[새 웹앱2]: ./media/web-sites-java-get-started/newwebapp2.png
-[웹앱 선택]: ./media/web-sites-java-get-started/selectwebapp.png
-[버전]: ./media/web-sites-java-get-started/versions.png
-[새 마켓플레이스]: ./media/web-sites-java-get-started/newmarketplace.png
-[웹 모바일 jetty]: ./media/web-sites-java-get-started/webmobilejetty.png
-[jetty 블레이드]: ./media/web-sites-java-get-started/jettyblade.png
-[jetty 포털 생성2]: ./media/web-sites-java-get-started/jettyportalcreate2.png
-[jetty url]: ./media/web-sites-java-get-started/jettyurl.png
+[newwebapp]: ./media/web-sites-java-get-started/newwebapp.png
+[newwebapp2]: ./media/web-sites-java-get-started/newwebapp2.png
+[selectwebapp]: ./media/web-sites-java-get-started/selectwebapp.png
+[versions]: ./media/web-sites-java-get-started/versions.png
+[newmarketplace]: ./media/web-sites-java-get-started/newmarketplace.png
+[webmobilejetty]: ./media/web-sites-java-get-started/webmobilejetty.png
+[jettyblade]: ./media/web-sites-java-get-started/jettyblade.png
+[jettyportalcreate2]: ./media/web-sites-java-get-started/jettyportalcreate2.png
+[jettyurl]: ./media/web-sites-java-get-started/jettyurl.png
 [tomcat]: ./media/web-sites-java-get-started/tomcat.png
 [jetty]: ./media/web-sites-java-get-started/jetty.png
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

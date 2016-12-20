@@ -1,22 +1,26 @@
 ---
-title: SQL 데이터 웨어하우스 | Microsoft Docs
-description: 솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 GROUP BY 옵션 구현을 위한 팁.
+title: "SQL Data Warehouse의 GROUP BY 옵션 | Microsoft Docs"
+description: "솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 GROUP BY 옵션 구현을 위한 팁."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: f95a1e43-768f-4b7b-8a10-8a0509d0c871
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e8c486ca190ae2af650a7fa17843c84538dde8d9
+
 
 ---
-# SQL 데이터 웨어하우스의 GROUP BY 옵션
+# <a name="group-by-options-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 GROUP BY 옵션
 [GROUP BY][GROUP BY] 절을 사용하여 데이터를 요약 행 집합으로 집계합니다. 또한 Azure SQL 데이터 웨어하우스에서 직접 지원하지 않기 때문에 해결해야 하는 기능을 확장하는 몇 가지 옵션이 있습니다.
 
 이들 옵션은
@@ -25,8 +29,8 @@ ms.author: jrj;barbkess;sonyama
 * 그룹화 집합
 * GROUP BY with CUBE
 
-## 롤업 및 그룹화 집합 옵션
-여기서 가장 간단한 옵션은 명시적 구문에 의존하는 대신 `UNION ALL`을 사용하여 롤업을 수행하는 것입니다. 결과는 완전히 동일합니다.
+## <a name="rollup-and-grouping-sets-options"></a>롤업 및 그룹화 집합 옵션
+여기서 가장 간단한 옵션은 명시적 구문에 의존하는 대신 `UNION ALL` 을 사용하여 롤업을 수행하는 것입니다. 결과는 완전히 동일합니다.
 
 다음은 `ROLLUP` 옵션을 사용하는 GROUP BY 문의 예제입니다.
 
@@ -78,7 +82,7 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 
 GROUPING SETS의 경우 같은 원칙을 적용하되 보고자 하는 집계 수준에 맞는 UNION ALL 섹션만 만들면 됩니다.
 
-## 큐브 옵션
+## <a name="cube-options"></a>큐브 옵션
 UNION ALL 접근방식을 사용하여 GROUP BY WITH CUBE를 만들 수 있습니다. 문제는 코드가 금세 번거롭고 다루기 힘들게 될 수 있다는 것입니다. 이 문제를 완화하기 위해 더 고급스러운 이 접근방식을 사용할 수 있습니다.
 
 위의 예제를 사용해 보겠습니다.
@@ -176,7 +180,7 @@ ORDER BY 1,2,3
 
 코드를 섹션으로 분할하고 반복 구성을 생성하면 코드의 관리 및 유지 관리가 더 쉬워집니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 더 많은 개발 팁은 [개발 개요][개발 개요]를 참조하세요.
 
 <!--Image references-->
@@ -191,4 +195,8 @@ ORDER BY 1,2,3
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

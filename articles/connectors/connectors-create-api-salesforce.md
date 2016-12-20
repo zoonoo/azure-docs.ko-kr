@@ -1,13 +1,13 @@
 ---
-title: 논리 앱에서 Salesforce 커넥터 사용 방법 알아보기 | Microsoft Docs
-description: Azure 앱 서비스로 논리 앱을 만듭니다. Salesforce 커넥터는 Salesforce 개체와 함께 작동하는 API를 제공합니다.
+title: "논리 앱에서 Salesforce 커넥터 사용 방법 알아보기 | Microsoft Docs"
+description: "Azure 앱 서비스로 논리 앱을 만듭니다. Salesforce 커넥터는 Salesforce 개체와 함께 작동하는 API를 제공합니다."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/05/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f2f9a4d182527d2772e78d78a0c10bd94742d0fe
+
 
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Salesforce 커넥터 시작
@@ -219,13 +223,16 @@ TablesList
 | 400 |잘못된 요청 |
 | 401 |권한 없음 |
 | 403 |사용할 수 없음 |
-| 404 |찾을 수 없음 |
+| 404 | 찾을 수 없음 |
 | 500 |내부 서버 오류. 알 수 없는 오류 발생. |
 | 기본값 |작업이 실패했습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

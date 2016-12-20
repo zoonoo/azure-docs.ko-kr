@@ -1,12 +1,12 @@
 ---
-title: Azure에서 음성, VoIP 및 SMS 메시징을 위해 Twilio 사용
-description: Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 코드 샘플은 Node.js로 작성되었습니다.
-services: ''
+title: "Azure에서 음성, VoIP 및 SMS 메시징을 위해 Twilio 사용"
+description: "Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 코드 샘플은 Node.js로 작성되었습니다."
+services: 
 documentationcenter: nodejs
 author: devinrader
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: f558cbbd-13d2-416f-b9b1-33a99c426af9
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,34 +14,38 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: wpickett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 83c8f126073f62b4d0b2165a57eb1b9ee6bdcc57
+
 
 ---
-# Azure에서 음성, VoIP 및 SMS 메시징을 위해 Twilio 사용
+# <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Azure에서 음성, VoIP 및 SMS 메시징을 위해 Twilio 사용
 이 가이드에서는 Azure에서 Twilio 및 node.js와 통신하는 앱을 빌드하는 방법을 보여 줍니다.
 
 <a id="whatis"/>
 
-## Twilio 정의
-Twilio는 개발자가 전화 통화를 걸고 받고, 문자 메시지를 보내고 받고, VoIP 호출을 브라우저 기반 및 네이티브 모바일 응용 프로그램에 포함하는 작업을 쉽게 수행할 수 있게 해주는 API 플랫폼입니다. 깊이 있게 설명하기 전에 이러한 내용을 간략하게 살펴보겠습니다.
+## <a name="what-is-twilio"></a>Twilio 정의
+Twilio는 개발자가 전화 통화를 걸고 받고, 문자 메시지를 보내고 받고, VoIP 호출을 브라우저 기반 및 네이티브 모바일 응용 프로그램에 포함하는 작업을 쉽게 수행할 수 있게 해주는 API 플랫폼입니다.  깊이 있게 설명하기 전에 이러한 내용을 간략하게 살펴보겠습니다.
 
-### 전화 및 문자 메시지 받기
-Twilio를 통해 개발자는 전화 및 문자 메시지를 보내고 받는 데 모두 사용할 수 있는 [프로그램 가능 전화 번호를 구입][purchase_phone]할 수 있습니다. Twilio 번호가 인바운드 전화 또는 문자를 받으면 Twilio는 웹 응용 프로그램에 HTTP POST 또는 GET 요청을 보내 전화 또는 문자를 처리하는 방법에 대한 지침을 요청합니다. 서버는 전화 또는 문자를 처리하는 방법에 대한 지침이 포함된 간단한 XML 태그 집합인 [TwiML][twiml]을 통해 Twilio의 HTTP 요청에 응답합니다. 잠시 후에 TwiML 예제를 살펴보겠습니다.
+### <a name="receiving-calls-and-text-messages"></a>전화 및 문자 메시지 받기
+Twilio를 통해 개발자는 전화 및 문자 메시지를 보내고 받는 데 모두 사용할 수 있는 [프로그램 가능 전화 번호를 구입][purchase_phone]할 수 있습니다.  Twilio 번호가 인바운드 전화 또는 문자를 받으면 Twilio는 웹 응용 프로그램에 HTTP POST 또는 GET 요청을 보내 전화 또는 문자를 처리하는 방법에 대한 지침을 요청합니다.  서버는 전화 또는 문자를 처리하는 방법에 대한 지침이 포함된 간단한 XML 태그 집합인 [TwiML][twiml]을 통해 Twilio의 HTTP 요청에 응답합니다.  잠시 후에 TwiML 예제를 살펴보겠습니다.
 
-### 전화 걸기 및 문자 메시지 보내기
-개발자는 Twilio 웹 서비스 API에 대한 HTTP 요청을 만들어 문자 메시지를 보내거나 아웃바운드 전화 통화를 시작할 수 있습니다. 아웃바운드 전화의 경우 개발자는 아웃바운드 전화가 연결된 후 해당 전화를 처리하는 방법에 대한 TwiML 지침을 반환하는 URL도 지정해야 합니다.
+### <a name="making-calls-and-sending-text-messages"></a>전화 걸기 및 문자 메시지 보내기
+개발자는 Twilio 웹 서비스 API에 대한 HTTP 요청을 만들어 문자 메시지를 보내거나 아웃바운드 전화 통화를 시작할 수 있습니다.  아웃바운드 전화의 경우 개발자는 아웃바운드 전화가 연결된 후 해당 전화를 처리하는 방법에 대한 TwiML 지침을 반환하는 URL도 지정해야 합니다.
 
-### UI 코드(JavaScript, iOS 또는 Android)에 VoIP 기능 포함
-Twilio는 모든 데스크톱 웹 브라우저, iOS 앱 또는 Android 앱을 VoIP 전화로 변환할 수 있는 클라이언트 쪽 SDK를 제공합니다. 이 문서에서는 브라우저에서 VoIP 호출을 사용하는 방법을 집중적으로 설명합니다. 브라우저에서 실행되는 Twilio JavaScript SDK 외에 서버 쪽 응용 프로그램(node.js 응용 프로그램)을 사용하여 "기능 토큰"을 JavaScript 클라이언트에 발급해야 합니다. node.js에 VoIP를 사용하는 방법에 대한 자세한 내용은 [Twilio 개발자 블로그][voipnode](영문)에서 참조할 수 있습니다.
+### <a name="embedding-voip-capabilities-in-ui-code-javascript-ios-or-android"></a>UI 코드(JavaScript, iOS 또는 Android)에 VoIP 기능 포함
+Twilio는 모든 데스크톱 웹 브라우저, iOS 앱 또는 Android 앱을 VoIP 전화로 변환할 수 있는 클라이언트 쪽 SDK를 제공합니다.  이 문서에서는 브라우저에서 VoIP 호출을 사용하는 방법을 집중적으로 설명합니다.  브라우저에서 실행되는 Twilio JavaScript SDK 외에 서버 쪽 응용 프로그램(node.js 응용 프로그램)을 사용하여 "기능 토큰"을 JavaScript 클라이언트에 발급해야 합니다.  node.js에 VoIP를 사용하는 방법에 대한 자세한 내용은 [Twilio 개발자 블로그voipnode][voipnode](영문)에서 확인할 수 있습니다.
 
 <a id="signup"/>
 
-## Twilio 등록(Microsoft 할인)
-Twilio 서비스를 사용하기 전에 먼저 [계정을 등록][signup](영문)해야 합니다. Microsoft Azure 고객은 특별 할인을 받습니다. [반드시 여기서 등록하셔야 합니다][signup]!
+## <a name="sign-up-for-twilio-microsoft-discount"></a>Twilio 등록(Microsoft 할인)
+Twilio 서비스를 사용하기 전에 먼저 [계정을 등록][signup](영문)해야 합니다.  Microsoft Azure 고객은 특별 할인을 받습니다. [반드시 여기서 등록하셔야 합니다][signup]!
 
 <a id="azuresite"/>
 
-## node.js Azure 웹 사이트 만들기 및 배포
-이제 Azure에서 실행되는 node.js 웹 사이트를 만들어야 합니다. [이 작업을 수행하는 공식 설명서가 여기에 있습니다][azure_new_site](영문). 높은 수준에서 봤을 때 다음과 같은 작업을 수행합니다.
+## <a name="create-and-deploy-a-nodejs-azure-website"></a>node.js Azure 웹 사이트 만들기 및 배포
+이제 Azure에서 실행되는 node.js 웹 사이트를 만들어야 합니다.  [이 작업을 수행하는 공식 설명서가 여기에 있습니다][azure_new_site](영문).  높은 수준에서 봤을 때 다음과 같은 작업을 수행합니다.
 
 * Azure 계정 등록(아직 없는 경우)
 * Azure 관리 콘솔을 사용하여 새 웹 사이트 만들기
@@ -51,29 +55,29 @@ Twilio 서비스를 사용하기 전에 먼저 [계정을 등록][signup](영문
 
 <a id="twiliomodule"/>
 
-## Twilio 모듈 구성
-이제 Twilio API를 사용하는 간단한 node.js 응응 프로그램 작성을 시작합니다. 시작하기 전에 Twilio 계정 자격 증명을 구성해야 합니다.
+## <a name="configure-the-twilio-module"></a>Twilio 모듈 구성
+이제 Twilio API를 사용하는 간단한 node.js 응응 프로그램 작성을 시작합니다.  시작하기 전에 Twilio 계정 자격 증명을 구성해야 합니다.  
 
-### 시스템 환경 변수에서 Twilio 자격 증명 구성
+### <a name="configuring-twilio-credentials-in-system-environment-variables"></a>시스템 환경 변수에서 Twilio 자격 증명 구성
 Twilio 백 엔드에 대해 인증된 요청을 만들려면 Twilio 계정에 대해 사용자 이름 및 암호 집합 역할을 하는 계정 SID 및 인증 토큰이 필요합니다. Azure에서 노드 모듈에 사용하기 위해 이를 구성하는 가장 안전한 방법은 시스템 환경 변수를 사용하는 것입니다. 시스템 환경 변수는 Azure 관리 콘솔에서 직접 설정할 수 있습니다.
 
-node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다. 아래로 조금 스크롤하면 응용 프로그램의 구성 속성을 설정할 수 있는 영역이 표시됩니다. 표시된 것처럼 Twilio 계정 자격 증명([Twilio 대시보드에서 찾을 수 있음][twilio_dashboard](영문))을 입력하고 이름을 각각 "TWILIO\_ACCOUNT\_SID" 및 "TWILIO\_AUTH\_TOKEN"으로 지정합니다.
+node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다.  아래로 조금 스크롤하면 응용 프로그램의 구성 속성을 설정할 수 있는 영역이 표시됩니다.  표시된 것처럼 Twilio 계정 자격 증명([Twilio 대시보드에서 찾을 수 있음][twilio_dashboard](영문))을 입력하고 이름을 각각 "TWILIO_ACCOUNT_SID" 및 "TWILIO_AUTH_TOKEN"으로 지정합니다.
 
 ![Azure 관리 콘솔][azure-admin-console]
 
 이러한 변수를 구성하고 나서 Azure 콘솔에서 응용 프로그램을 다시 시작합니다.
 
-### package.json에서 Twilio 모듈 선언
-이제 [npm]을 통해 노드 모듈 종속성을 관리하기 위한 package.json을 만들어야 합니다. Azure/node.js 자습서에서 만든 "server.js" 파일과 같은 수준에서 "package.json"이라는 파일을 만듭니다. 이 파일 내에 다음을 배치합니다.
+### <a name="declaring-the-twilio-module-in-packagejson"></a>package.json에서 Twilio 모듈 선언
+이제 [npm]을 통해 노드 모듈 종속성을 관리하기 위한 package.json을 만들어야 합니다.  Azure/node.js 자습서에서 만든 "server.js" 파일과 같은 수준에서 "package.json"이라는 파일을 만듭니다.  이 파일 내에 다음을 배치합니다.
 
   { "name": "application-name", "version": "0.0.1", "private": true, "scripts": { "start": "node server" }, "dependencies": { "express": "3.1.0", "ejs": "*", "twilio":"*" } }
 
-그러면 널리 사용되는 [express 웹 프레임워크][express](영문) 및 EJS 템플릿 엔진뿐만 아니라 종속성으로 twilio 모듈이 선언됩니다. 이제 모두 준비되었으니 코드를 작성하겠습니다.
+그러면 널리 사용되는 [express 웹 프레임워크][express](영문) 및 EJS 템플릿 엔진뿐만 아니라 종속성으로 twilio 모듈이 선언됩니다.  이제 모두 준비되었으니 코드를 작성하겠습니다.
 
 <a id="makecall"/>
 
-## 아웃바운드 전화 걸기
-선택한 번호로 전화하는 간단한 양식을 만들어보겠습니다. server.js를 열고 다음 코드를 입력합니다. "CHANGE\_ME"라고 표시된 곳에 Azure 웹 사이트의 이름을 배치합니다.
+## <a name="make-an-outbound-call"></a>아웃바운드 전화 걸기
+선택한 번호로 전화하는 간단한 양식을 만들어보겠습니다.  server.js를 열고 다음 코드를 입력합니다.  "CHANGE_ME"라고 표시된 곳에 Azure 웹 사이트의 이름을 배치합니다.
 
     // Module dependencies
     var express = require('express'), 
@@ -163,12 +167,12 @@ node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다. 아래
     </body>
     </html>
 
-이제 웹 사이트를 Azure에 배포하고 홈을 엽니다. 텍스트 필드에 전화 번호를 입력하고 Twilio 번호로부터 전화를 받을 수 있어야 합니다.
+이제 웹 사이트를 Azure에 배포하고 홈을 엽니다.  텍스트 필드에 전화 번호를 입력하고 Twilio 번호로부터 전화를 받을 수 있어야 합니다.
 
 <a id="sendmessage"/>
 
-## SMS 메시지 보내기
-이제 사용자 인터페이스 및 양식 처리 논리를 설정하여 문자 메시지를 보내겠습니다. "server.js"를 열고 "app.post"에 대한 마지막 호출 뒤에 다음 코드를 추가합니다.
+## <a name="send-an-sms-message"></a>SMS 메시지 보내기
+이제 사용자 인터페이스 및 양식 처리 논리를 설정하여 문자 메시지를 보내겠습니다.  "server.js"를 열고 "app.post"에 대한 마지막 호출 뒤에 다음 코드를 추가합니다.
 
     app.post('/sms', function(request, response) {
       var client = twilio();
@@ -203,12 +207,12 @@ node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다. 아래
 
 <a id="nextsteps"/>
 
-## 다음 단계
-이제 node.js 및 Twilio를 사용하여 통신하는 앱을 빌드하는 방법에 대한 기본 사항을 배웠습니다. 그러나 이러한 예제는 Twilio 및 node.js를 사용하여 수행할 수 있는 작업의 극히 일부에 불과합니다. Twilio와 node.js 사용에 대한 자세한 내용은 다음 리소스를 참조하십시오.
+## <a name="next-steps"></a>다음 단계
+이제 node.js 및 Twilio를 사용하여 통신하는 앱을 빌드하는 방법에 대한 기본 사항을 배웠습니다.  그러나 이러한 예제는 Twilio 및 node.js를 사용하여 수행할 수 있는 작업의 극히 일부에 불과합니다.  Twilio와 node.js 사용에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
 * [공식 모듈 문서][docs]
 * [node.js 응용 프로그램에 VoIP 사용 자습서][voipnode]
-* [Votr - node.js 및 CouchDB를 사용한 실시간 SMS 투표 응용 프로그램(세 부분으로 구성되어 있음)][votr]
+* [Votr - node.js 및 CouchDB를 사용한 실시간 SMS 투표 응용 프로그램(3개 부분으로 구성되어 있음)][votr]
 * [node.js를 사용한 브라우저에서의 쌍 프로그래밍][pair]
 
 Azure에서 node.js와 Twilio 해킹을 즐기시기를 바랍니다.
@@ -226,4 +230,11 @@ Azure에서 node.js와 Twilio 해킹을 즐기시기를 바랍니다.
 [pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
 [azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
 
-<!---HONumber=AcomDC_0302_2016-->
+
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

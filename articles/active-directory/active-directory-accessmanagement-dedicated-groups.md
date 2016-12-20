@@ -1,22 +1,26 @@
 ---
-title: Azure Active Directory의 전용 그룹 | Microsoft Docs
-description: 전용된 그룹의 Azure Active Directory를 사용한 작업 방식 및 작성된 방법의 개요입니다.
+title: "Azure Active Directory의 전용 그룹 | Microsoft Docs"
+description: "전용된 그룹의 Azure Active Directory를 사용한 작업 방식 및 작성된 방법의 개요입니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 86158909-083a-41fe-8090-955e96ad1865
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 352532e176a2849c0ea637ea7de09a2299b9862c
+
 
 ---
-# Azure Active Directory의 전용 그룹
+# <a name="dedicated-groups-in-azure-active-directory"></a>Azure Active Directory의 전용 그룹
 Azure Active Directory(Azure AD)에서 전용 그룹 기능은 Azure AD 미리 정의된 그룹에 대한 멤버 자격을 자동으로 만들고 채웁니다. 전용 그룹의 멤버를 Azure 클래식 포털, Windows PowerShell cmdlet 또는 프로그래밍 방식으로 추가하거나 제거할 수 없습니다.
 
 > [!NOTE]
@@ -31,7 +35,7 @@ Azure Active Directory(Azure AD)에서 전용 그룹 기능은 Azure AD 미리 �
 
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **Active Directory**를 선택한 다음 조직의 디렉터리를 엽니다.
 2. **그룹** 탭을 선택하고 편집할 그룹을 엽니다.
-3. **구성** 탭을 선택한 다음 **전용 그룹 사용하도록 설정**을 **예**로 설정합니다.
+3. **구성** 탭을 선택한 다음 **전용 그룹 사용**을 **예**로 설정합니다.
 
 전용 그룹 사용 스위치가 **예**로 설정되면 **“모든 사용자” 그룹 사용** 스위치를 **예**로 설정하여 모든 사용자 전용 그룹을 자동으로 생성할 디렉터리를 추가로 사용하도록 설정할 수 있습니다. 그런 다음 **“모든 사용자” 그룹에 표시 이름** 필드에 입력하여 이 전용 그룹의 이름을 편집할 수도 있습니다.
 
@@ -54,4 +58,9 @@ Azure Active Directory(Azure AD)에서 전용 그룹 기능은 Azure AD 미리 �
 * [Azure Active Directory란?](active-directory-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

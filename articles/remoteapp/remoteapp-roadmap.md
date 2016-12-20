@@ -1,23 +1,27 @@
 ---
-title: Azure RemoteApp에서 제공되는 사항 | Microsoft Docs
-description: Azure RemoteApp에 대한 새로운 기능이 제공되는 시기에 대해 알아봅니다.
+title: "Azure RemoteApp의 특징 | Microsoft 문서"
+description: "Azure RemoteApp에 대한 새로운 기능이 제공되는 시기에 대해 알아봅니다."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: b4aedf83-dd93-4573-b432-abbbabaee07a
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: NA
 ms.devlang: NA
 ms.topic: article
 ms.date: 09/19/2016
-ms.author: elizapo
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4bfc5ac853833b8e51e7e3a556ed6208f22884d3
+
 
 ---
-# Azure RemoteApp의 예정된 기능
+# <a name="whats-coming-in-azure-remoteapp"></a>Azure RemoteApp의 예정된 기능
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -25,7 +29,7 @@ ms.author: elizapo
 
 | 기능 | 가동 상태 |
 | --- | --- | --- |
-| [Azure 클래식 포털](http://manage.windowsazure.com)과 [Azure 포털](https://portal.azure.com) 둘 다에서 Azure Remote App 사용 가능 - 비공개 미리 보기 |**Canceled** |
+| [Azure 클래식 포털](http://manage.windowsazure.com)과 [Azure Portal](https://portal.azure.com) 둘 다에서 Azure Remote App 사용 가능 - 비공개 미리 보기 |**Canceled** |
 | 특정 사용자에게 개별 응용 프로그램을 게시하는 기능 - 비공개 미리 보기([피드백](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/)) |**Canceled** |
 | Windows 클라이언트 재배포 가능 MSI 패키지([피드백](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/)) - 비공개 미리 보기 |**Canceled** |
 | ARM(Azure 리소스 관리자) 지원 |**Canceled** |
@@ -49,4 +53,9 @@ ms.author: elizapo
 * CSV 파일을 사용하여 많은 사용자 프로비전
 * 오스트레일리아 데이터 센터의 가용성
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Azure Mobile Engagement Android SDK에 대한 위치 보고
-description: Azure Mobile Engagement Android SDK에 대해 위치 보고를 구성하는 방법에 대해 설명합니다
+title: "Azure Mobile Engagement Android SDK에 대한 위치 보고"
+description: "Azure Mobile Engagement Android SDK에 대해 위치 보고를 구성하는 방법에 대해 설명합니다"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6cab5ed1-b767-46ac-9f0b-48a4e249d88c
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,9 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 777d5719cce505b55dfb61c91dcac7e713b077a9
+
 
 ---
-# Azure Mobile Engagement Android SDK에 대한 위치 보고
+# <a name="location-reporting-for-azure-mobile-engagement-android-sdk"></a>Azure Mobile Engagement Android SDK에 대한 위치 보고
 > [!div class="op_single_selector"]
 > * [Android](mobile-engagement-android-integrate-engagement.md)
 > 
@@ -24,13 +28,13 @@ ms.author: piyushjo;ricksal
 
 이 항목에서는 Android 응용 프로그램에서 위치 보고를 수행하는 방법을 설명합니다.
 
-## 필수 조건
-[!INCLUDE [선행 조건](../../includes/mobile-engagement-android-prereqs.md)]
+## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
-## 위치 보고
+## <a name="location-reporting"></a>위치 보고
 위치가 보고되도록 하려는 경우 몇 줄의 구성을 `<application>` 태그와 `</application>` 태그 사이에 추가해야 합니다.
 
-### 지연 영역 위치 보고
+### <a name="lazy-area-location-reporting"></a>지연 영역 위치 보고
 지연 영역 위치 보고를 통해 국가, 지역 및 장치와 연결된 위치를 보고할 수 있습니다. 이러한 유형의 위치 보고에서는 네트워크 위치(셀 ID 또는 WIFI 기반)만 사용합니다. 장치 영역은 세션당 한번 이하로 보고됩니다. GPS는 전혀 사용되지 않으므로 이러한 위치 보고 형식은 배터리에 미미한 영향을 미칩니다.
 
 보고된 영역은 사용자, 세션, 이벤트 및 오류에 대한 지리적 통계를 계산하는 데 사용됩니다. 이 영역은 도달률 캠페인의 기준으로도 사용할 수 있습니다.
@@ -46,12 +50,12 @@ ms.author: piyushjo;ricksal
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
-앱에서 필요한 경우 대신 ``ACCESS_FINE_LOCATION``을 사용할 수 있습니다.
+앱에서 필요한 경우 대신 ``ACCESS_FINE_LOCATION`` 을 사용할 수 있습니다.
 
-### 실시간 위치 보고
+### <a name="real-time-location-reporting"></a>실시간 위치 보고
 실시간 위치 보고를 통해 장치와 연결된 위도와 경도를 보고할 수 있습니다. 기본적으로 이러한 형식의 위치 보고에서는 셀 ID 또는 WIFI를 기반으로 하는 네트워크 위치만 사용합니다. 이 보고 기능은 응용 프로그램이 포그라운드로 실행되는 경우(예: 세션 중)에만 활성 상태입니다.
 
-실시간 위치는 통계를 계산하는 데 사용되지 *않습니다*. 유일한 용도는 도달률 캠페인에서 실시간 지리적 펜스 <Reach-Audience-geofencing> 사용을 허용하는 것입니다.
+실시간 위치는 통계를 계산하는 데 사용되지 *않습니다* . 유일한 용도는 도달률 캠페인에서 실시간 지리적 펜스 \<Reach-Audience-geofencing\> 사용을 허용하는 것입니다.
 
 실시간 위치 보고를 활성화하려면 시작 관리자 활동에서 Engagement 연결 문자열을 설정하는 위치에 코드 행을 추가합니다. 결과는 다음과 같이 표시됩니다.
 
@@ -66,7 +70,7 @@ ms.author: piyushjo;ricksal
 
         If your app requires it, you can use ``ACCESS_FINE_LOCATION`` instead.
 
-#### GPS 기반 보고
+#### <a name="gps-based-reporting"></a>GPS 기반 보고
 기본적으로 실시간 위치 보고에서는 네트워크 기반 위치만 사용합니다. 훨씬 더 정밀한 GPS 기반 위치의 사용을 설정하려면 구성 개체를 사용합니다.
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -79,7 +83,7 @@ ms.author: piyushjo;ricksal
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
-#### 백그라운드 보고
+#### <a name="background-reporting"></a>백그라운드 보고
 기본적으로 실시간 위치 보고는 응용 프로그램이 포그라운드로 실행되는 경우(예: 세션 중)에만 활성 상태입니다. 백그라운드에서도 보고를 활성화하려면 이 구성 개체를 사용합니다.
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -106,7 +110,7 @@ ms.author: piyushjo;ricksal
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-## Android M 권한
+## <a name="android-m-permissions"></a>Android M 권한
 Android M부터는 일부 권한이 런타임 시 관리되며 사용자 승인이 필요합니다.
 
 Android API Level 23을 대상으로 하는 경우 새 앱 설치에 대해서는 기본적으로 런타임 권한이 해제됩니다. 그렇지 않으면 기본적으로 활성화됩니다.
@@ -118,7 +122,7 @@ Mobile Engagement 위치 보고의 컨텍스트에서 런타임 시 승인이 �
 * `ACCESS_COARSE_LOCATION`
 * `ACCESS_FINE_LOCATION`
 
-표준 시스템 대화 상자를 사용하여 사용자로부터 권한을 요청합니다. 사용자가 승인하는 경우 ``EngagementAgent``에 실시간으로 변경을 고려할 것을 지시합니다. 그렇지 않으면 다음에 사용자가 응용 프로그램을 시작할 때 변경 내용이 처리됩니다.
+표준 시스템 대화 상자를 사용하여 사용자로부터 권한을 요청합니다. 사용자가 승인하는 경우 ``EngagementAgent`` 에 실시간으로 변경을 고려할 것을 지시합니다. 그렇지 않으면 다음에 사용자가 응용 프로그램을 시작할 때 변경 내용이 처리됩니다.
 
 다음은 사용 권한을 요청하고 ``EngagementAgent``에 긍정적인 경우 결과를 전달하는 응용 프로그램의 활동에 사용할 코드 샘플입니다.
 
@@ -156,4 +160,8 @@ Mobile Engagement 위치 보고의 컨텍스트에서 런타임 시 승인이 �
         getEngagementAgent().refreshPermissions();
     }
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

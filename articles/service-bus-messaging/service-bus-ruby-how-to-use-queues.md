@@ -1,19 +1,23 @@
 ---
-title: Ruby를 통해 서비스 버스 큐를 사용하는 방법 | Microsoft Docs
-description: Azure에서 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Ruby로 작성되었습니다.
-services: service-bus
+title: "Ruby를 통해 Service Bus 큐를 사용하는 방법 | Microsoft Docs"
+description: "Azure에서 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Ruby로 작성되었습니다."
+services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 0a11eab2-823f-4cc7-842b-fbbe0f953751
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bde6cfe0daa95fc64e18be308798263544119b9f
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>서비스 버스 큐를 사용하는 방법
@@ -21,7 +25,7 @@ ms.author: sethm
 
 이 가이드에서는 서비스 버스 큐를 사용하는 방법을 설명합니다. 샘플은 Ruby로 작성되었으며 Azure gem을 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기, 메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다. Service Bus 큐에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
-## <a name="what-are-service-bus-queues?"></a>서비스 버스 큐 정의
+## <a name="what-are-service-bus-queues"></a>서비스 버스 큐 정의
 Service Bus 큐는 *조정된 메시징* 통신 모델을 지원합니다. 큐를 사용하는 경우 분산 응용 프로그램의 구성 요소가 서로 직접 통신하지 않고 중간자 역할을 하는 큐를 통해 메시지를 교환합니다. 메시지 생산자(보낸 사람)는 메시지를 큐로 전달한 후 계속해서 처리합니다.
 메시지 소비자(받는 사람)는 비동기적으로 큐에서 메시지를 끌어와서 처리합니다. 생산자는 계속해서 추가 메시지를 처리하고 보내기 위해 소비자의 회신을 기다릴 필요가 없습니다. 큐는 하나 이상의 경쟁 소비자에게 **FIFO(선입선출)** 메시지 배달을 제공합니다. 즉, 일반적으로 메시지가 큐에 추가된 순서대로 받는 사람이 메시지를 받고 처리하며, 각 메시지가 하나의 메시지 소비자에 의해서만 수신 및 처리됩니다.
 
@@ -154,6 +158,9 @@ azure_service_bus_service.delete_queue_message(message)
 
 이 문서에서 설명한 Azure Service Bus 큐와 [Ruby에서 큐 Storage를 사용하는 방법](../storage/storage-ruby-how-to-use-queue-storage.md) 문서에서 설명한 Azure 큐를 비교하려면 [Azure 큐 및 Azure Service Bus 큐 - 비교 및 대조](service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

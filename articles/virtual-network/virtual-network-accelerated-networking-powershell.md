@@ -1,13 +1,13 @@
 ---
-title: 가상 컴퓨터에 대한 가속 네트워킹 - | Microsoft Docs
-description: PowerShell을 사용하여 Azure 가상 컴퓨터에 대한 가속 네트워킹을 구성하는 방법을 알아봅니다.
+title: "가상 컴퓨터에 대한 가속 네트워킹 - PowerShell | Microsoft Docs"
+description: "PowerShell을 사용하여 Azure 가상 컴퓨터에 대한 가속 네트워킹을 구성하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a0b63599-c23b-40b5-a8ab-23af8b07dded
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 8ae59a99a8397676160c032b744460c0b2bcc1d7
+
 
 ---
 # <a name="accelerated-networking-for-a-virtual-machine"></a>가상 컴퓨터에 대한 가속 네트워킹
@@ -50,7 +54,7 @@ ms.author: jdial
 * **VM 만들기:** VM을 만들 때 가속 네트워킹이 설정된 네트워크 인터페이스만 VM에 연결할 수 있습니다. 이 네트워크 인터페이스를 기존 VM에 연결할 수 없습니다.
 * **지역:** 미국 중서부 및 유럽 서부 Azure 지역에만 제공됩니다. 이 지역 집합은 나중에 확장될 것입니다.
 * **지원되는 운영 체제:** Microsoft Windows Server 2012 R2 및 Windows Server 2016 Technical Preview 5. Linux 및 Windows Server 2012 지원은 곧 추가될 예정입니다.
-* **VM 크기:** Standard_D15_v2 및 Standard_DS15_v2만 VM 인스턴스 크기로 지원됩니다. 자세한 내용은 [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md) 문서를 참조하세요. 지원되는 VM 인스턴스 크기 집합은 앞으로 확장될 예정입니다.
+* **VM 크기:** Standard_D15_v2 및 Standard_DS15_v2만 VM 인스턴스 크기로 지원됩니다. 자세한 내용은 [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 문서를 참조하세요. 지원되는 VM 인스턴스 크기 집합은 앞으로 확장될 예정입니다.
 
 이러한 제한 사항이 변경되면 [Azure 가상 네트워킹 업데이트](https://azure.microsoft.com/updates/accelerated-networking-in-preview) 페이지에 공지됩니다.
 
@@ -111,7 +115,7 @@ ms.author: jdial
 10. 인터페이스에 공용 IP 주소 리소스를 추가하지 않도록 선택한 경우 다음에 나오는 명령 끝에서 *-PublicIPAddress $PIP1* 을 제거합니다. 다음 명령을 입력하여 가속 네트워킹으로 네트워크 인터페이스를 만듭니다.
     
         $nic = New-AzureRmNetworkInterface -Location $locName -Name $NICName -ResourceGroupName $rgName -Subnet $Subnet -EnableAcceleratedNetworking -PublicIpAddress $PIP1 
-11. [VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md) 문서의 3~6단계에 나오는 지침에 따라 VM을 만들 때 VM에 네트워크 인터페이스를 할당합니다. 6-2단계에서 *Standard_A1*을 이 문서의 [제한 사항](#limitations) 섹션에 나열된 VM 크기 중 하나로 바꿉니다.
+11. [VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 문서의 3~6단계에 나오는 지침에 따라 VM을 만들 때 VM에 네트워크 인터페이스를 할당합니다. 6-2단계에서 *Standard_A1*을 이 문서의 [제한 사항](#limitations) 섹션에 나열된 VM 크기 중 하나로 바꿉니다.
     
     > [!NOTE]
     > 이 문서에서 $locName, $rgName 또는 $nic 변수의 *이름* 을 변경한 경우 VM 만들기 문서의 6단계가 실패합니다. 그러나 변수의 *값* 은 변경할 수 있습니다.
@@ -122,6 +126,9 @@ ms.author: jdial
     
     ![장치 관리자](./media/virtual-network-accelerated-networking-powershell/image2.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

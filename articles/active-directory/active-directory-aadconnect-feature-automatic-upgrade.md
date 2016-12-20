@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect: 자동 업그레이드 | Microsoft Docs'
-description: 이 항목에서는 Azure AD Connect 동기화의 기본 제공 자동 업그레이드 기능을 설명합니다.
+title: "Azure AD Connect: 자동 업그레이드 | Microsoft Docs"
+description: "이 항목에서는 Azure AD Connect 동기화의 기본 제공 자동 업그레이드 기능을 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/24/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bcf0d318f747d359229d1dc8161a952ad3e8ff47
+
 
 ---
-# <a name="azure-ad-connect:-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
+# <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
 이 기능은 빌드 1.1.105.0(2016년 2월에 발표됨)에서 도입되었습니다.
 
 ## <a name="overview"></a>개요
@@ -89,13 +93,16 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 | UpgradeNotSupportedMetaverseSizeExceeeded |메타버스에 10만 개가 넘는 개체가 있습니다. |
 | UpgradeNotSupportedMultiForestSetup |둘 이상의 포리스트에 연결되어 있습니다. 빠른 설치는 하나의 포리스트에만 연결합니다. |
 | UpgradeNotSupportedNonLocalDbInstall |SQL Server Express LocalDB 데이터베이스를 사용하고 있지 않습니다. |
-| UpgradeNotSupportedNonMsolAccount |[AD Connector 계정](active-directory-aadconnect-accounts-permissions.md#active-directory-account)이 더 이상 기본 MSOL_ 계정이 아닙니다. |
+| UpgradeNotSupportedNonMsolAccount |[AD Connector 계정](connect/active-directory-aadconnect-accounts-permissions.md#active-directory-account)이 더 이상 기본 MSOL_ 계정이 아닙니다. |
 | UpgradeNotSupportedStagingModeEnabled |서버가 [준비 모드](active-directory-aadconnectsync-operations.md#staging-mode)로 설정되어 있습니다. |
 | UpgradeNotSupportedUserWritebackEnabled |[사용자 쓰기 저장](active-directory-aadconnect-feature-preview.md#user-writeback) 기능을 사용하도록 설정했습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

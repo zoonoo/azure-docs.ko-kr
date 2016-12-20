@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9486fcb56b05b22120aef5a8373c6558b2d88d6c
+ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
+ms.openlocfilehash: 046cc1286d894e28ed4d560c7c0b815f582e1e77
 
 
 ---
@@ -50,7 +50,7 @@ Service Fabric은 .NET Core 및 Java 모두에서 Linux에 대한 서비스를 �
 ## <a name="build-the-application"></a>응용 프로그램 빌드
 Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을 사용하여 터미널에서 앱을 빌드할 수 있습니다(응용 프로그램 폴더로 이동한 후).
 
-  ```bash
+  ```sh
  cd myapp 
  ./build.sh 
   ```
@@ -60,7 +60,7 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 
 1. 로컬 Service Fabric 클러스터에 연결합니다.
    
-    ```bash
+    ```sh
     azure servicefabric cluster connect
     ```
 2. 템플릿에 제공된 설치 스크립트를 사용하여 클러스터의 이미지 저장소에 응용 프로그램 패키지를 복사하고 응용 프로그램 유형을 등록하며 응용 프로그램의 인스턴스를 만듭니다.
@@ -83,7 +83,18 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 2. Service Fabric Explorer에서 행위자 서비스에 대한 기본 복제본을 호스팅하는 노드를 찾습니다. 아래 스크린샷에 있는 노드 3입니다.
    
     ![Service Fabric Explorer에서 기본 복제본 찾기][sfx-primary]
-3. 이전 단계에서 찾은 노드를 클릭한 다음 작업 메뉴에서 **비활성화(다시 시작)** 를 선택합니다. 이 작업은 로컬 클러스터에서 다섯 개의 노드 중 하나를 다시 시작하고 다른 노드에서 실행 중인 보조 복제본에 장애 조치를 강제합니다. 이 작업을 수행하면 테스트 클라이언트에서 출력에 주의하고 장애 조치에도 불구하고 카운터가 계속 증가하게 됩니다.
+3. 이전 단계에서 찾은 노드를 클릭한 다음 작업 메뉴에서 **비활성화(다시 시작)** 를 선택합니다. 이 작업은 다른 노드에서 실행 중인 보조 복제본에 장애 조치를 강제하는 로컬 클러스터에서 하나의 노드를 다시 시작합니다. 이 작업을 수행하면 테스트 클라이언트에서 출력에 주의하고 장애 조치에도 불구하고 카운터가 계속 증가하게 됩니다.
+
+
+
+## <a name="adding-more-services-to-an-existing-application"></a>기존 응용 프로그램에 더 많은 서비스 추가
+
+`yo`을 사용하여 만든 응용 프로그램에 다른 서비스를 추가하려면 다음 단계를 수행합니다. 
+1. 기존 응용 프로그램의 루트로 디렉터리를 변경합니다.  예를 들어 `MyApplication`이 Yeoman에서 만든 응용 프로그램인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
+2. `yo azuresfcsharp:AddService` 실행
+
+
+
 
 ## <a name="next-steps"></a>다음 단계
 * [Reliable Actors에 대해 자세히 알아보기](service-fabric-reliable-actors-introduction.md)
@@ -95,6 +106,6 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

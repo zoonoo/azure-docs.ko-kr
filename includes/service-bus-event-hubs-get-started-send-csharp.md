@@ -12,19 +12,19 @@
     Visual Studio는 [Azure 서비스 버스 라이브러리 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)에 대한 참조를 다운로드, 설치 및 추가합니다.
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
    
-    ```
+    ```csharp
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
 5. **Program** 클래스에 다음 필드를 추가하고, 이전 섹션에서 만든 이벤트 허브 이름과 이전에 저장한 네임스페이스 수준 연결 문자열로 위치 지정자 값을 대체합니다.
    
-    ```
+    ```csharp
     static string eventHubName = "{Event Hub name}";
     static string connectionString = "{send connection string}";
     ```
 6. **Program** 클래스에 다음 메서드를 추가합니다.
    
-    ```
+    ```csharp
     static void SendingRandomMessages()
     {
         var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
@@ -51,7 +51,7 @@
     이 메서드는 200ms 지연과 함께 이벤트 허브에 이벤트를 지속적으로 보냅니다.
 7. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
    
-    ```
+    ```csharp
     Console.WriteLine("Press Ctrl-C to stop the sender process");
     Console.WriteLine("Press Enter to start now");
     Console.ReadLine();
@@ -60,6 +60,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

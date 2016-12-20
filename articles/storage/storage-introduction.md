@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73bd16f44f0848c74ce3edd5042900525e4811db
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ac0044da9cf804dabd9d71e3380782120728a55a
 
 
 ---
@@ -200,7 +200,7 @@ Azure 저장소 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 �
 * [Azure 저장소 클라이언트 도구](storage-explorers.md)
 * [Azure SDK 및 도구](https://azure.microsoft.com/tools/)
 * [Azure 저장소 에뮬레이터](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [AzCopy 명령줄 유틸리티](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>다음 단계
@@ -246,9 +246,12 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 살펴보세�
 * [Python에서 큐 저장소를 사용하는 방법](storage-python-how-to-use-queue-storage.md)
 * [Python에서 파일 저장소를 사용하는 방법](storage-python-how-to-use-file-storage.md)
 
+## <a name="next-steps"></a>다음 단계
+
+* [저장소 계정을 만드는](storage-create-storage-account.md)
+* [5분 만에 Azure 저장소 시작](storage-getting-started-guide.md)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,11 +1,12 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 965b96507d66f3880bdf3b38362d1eb026afdb51
-ms.openlocfilehash: e72557a87088ba66a669d37ba0033da951e7fdb8
+ms.sourcegitcommit: a6c333ae45868d5c29ce2f2587f1417fa9fafc0b
+ms.openlocfilehash: 27fd664b69ca4467daa2b0abc6e53c9cece221ae
 
 ---
-#<a name="storage-documentation"></a>저장소 설명서
+
+# <a name="storage-documentation"></a>저장소 설명서
 
 Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다.  확장성이 뛰어나며 탄력적이고 전역 액세스가 가능하며 트래픽을 기반으로 데이터를 자동으로 부하 분산합니다.  Azure Storage는 응용 프로그램 요구 사항을 충족하도록 Blob 저장소, 테이블 저장소, 큐 저장소, 디스크 저장소 및 파일 저장소 등의 4가지 서비스를 제공합니다.
 
@@ -85,91 +86,56 @@ Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요�
 </ul>
 
 ---
-
-## <a name="reference"></a>참조
-
+ 
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/storage">PowerShell</a></p>
+                        <p><a href="/cli/azure/storage">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/storage">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure CLI를 사용한 Storage 참조</p>
+                        <h3>언어</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: 리소스 관리자</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: 데이터 이동</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: Blob, 큐, 테이블 및 파일</a></p>
+                        <p><a href="/java/api/">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p>
+                        <p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p>
+                        <p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java로 된 Storage 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt347887">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Storage 관리되는 참조 API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/storageservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p>Storage REST API 참조</p>
-                    </div>
+                        <p><a href="/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference">REST: 가져오기/내보내기</a></p>
+                        <p><a href="/rest/api/storagerp">REST: 리소스 공급자</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
-        <a href="/rest/api/storagerp">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>저장소 리소스 공급자 REST API 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>   
+    </li>
 </ul>
 
 <div class="downloadHolder">
@@ -182,6 +148,6 @@ Storage 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

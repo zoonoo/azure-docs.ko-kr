@@ -1,19 +1,23 @@
 ---
-title: PowerShell을 사용한 서비스 버스 및 이벤트 허브 리소스 관리 | Microsoft Docs
-description: PowerShell을 사용한 서비스 버스 및 이벤트 허브 리소스 만들기 및 관리
-services: service-bus,event-hubs
+title: "PowerShell을 사용한 Service Bus 및 Event Hubs 리소스 관리 | Microsoft Docs"
+description: "PowerShell을 사용한 서비스 버스 및 이벤트 허브 리소스 만들기 및 관리"
+services: service-bus-messaging,event-hubs
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: f6436f6f-2156-41ea-a4ca-08cfaecbb778
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 95068f046c57bd65b5258771a272e70124f3dd12
+
 
 ---
 # <a name="use-powershell-to-manage-service-bus-and-event-hubs-resources"></a>PowerShell을 사용한 서비스 버스 및 이벤트 허브 리소스 관리
@@ -22,11 +26,11 @@ Microsoft Azure PowerShell은 Azure 서비스의 배포와 관리를 제어하�
 ## <a name="prerequisites"></a>필수 조건
 이 작업을 수행하려면 다음이 필요합니다.
 
-* Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][구매 옵션], [구성원 제공 항목][] 또는 [무료 계정][무료 계정]을 참조하세요.
+* Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][구매 옵션], [구성원 제안][구성원 제안] 또는 [무료 계정][무료 계정]을 참조하세요.
 * Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요.
 * PowerShell 스크립트, NuGet 패키지 및 .NET Framework 전반에 대한 지식
 
-## <a name="include-a-reference-to-the-.net-assembly-for-service-bus"></a>서비스 버스에 대한 .NET 어셈블리의 참조 포함
+## <a name="include-a-reference-to-the-net-assembly-for-service-bus"></a>서비스 버스에 대한 .NET 어셈블리의 참조 포함
 서비스 버스를 관리하는 데 사용할 수 있는 PowerShell cmdlet은 제한되어 있습니다. 기존 cmdlet을 통해 노출되지 않은 엔터티를 프로비전하려면 [Service Bus NuGet 패키지]를 참조하여 PowerShell 내에서 Service Bus용 .NET 클라이언트를 사용할 수 있습니다.
 
 먼저 스크립트가 NuGet 패키지와 함께 설치되는 **Microsoft.ServiceBus.dll** 어셈블리를 찾을 수 있는지 확인합니다. 유연한 작업을 위해 스크립트는 다음 단계를 수행합니다.
@@ -258,7 +262,7 @@ Service Bus 네임스페이스를 사용할 때는 .NET SDK 대신 [Get-AzureSBN
 [구매 옵션]: http://azure.microsoft.com/pricing/purchase-options/
 [구성원 제안]: http://azure.microsoft.com/pricing/member-offers/
 [무료 계정]: http://azure.microsoft.com/pricing/free-trial/
-[서비스 버스 NuGet 패키지]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
+[Service Bus NuGet 패키지]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
@@ -267,6 +271,6 @@ Service Bus 네임스페이스를 사용할 때는 .NET SDK 대신 [Get-AzureSBN
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

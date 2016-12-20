@@ -1,22 +1,26 @@
 ---
-title: .NET을 사용하여 미디어 서비스 개발을 위한 컴퓨터를 설정하는 방법
-description: 미디어 서비스 .NET SDK를 사용하는 미디어 서비스에 대한 일반적인 필수 구성 요소에 대해 알아봅니다. 또한 Visual Studio 앱을 만드는 방법에 대해서도 알아봅니다.
+title: ".NET을 사용하여 미디어 서비스 개발을 위한 컴퓨터를 설정하는 방법"
+description: "미디어 서비스 .NET SDK를 사용하는 미디어 서비스에 대한 일반적인 필수 구성 요소에 대해 알아봅니다. 또한 Visual Studio 앱을 만드는 방법에 대해서도 알아봅니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9cfa3ecf3788dfd90a7e1d6c79827961d3dbeb54
+
 
 ---
-# <a name="media-services-development-with-.net"></a>.NET을 사용한 미디어 서비스 개발
+# <a name="media-services-development-with-net"></a>.NET을 사용한 미디어 서비스 개발
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 이 항목에서는.NET을 사용하여 미디어 서비스 응용 프로그램 개발을 시작하는 방법을 설명합니다.
@@ -36,30 +40,25 @@ ms.author: juliako
 
 또는 GitHub에서 최신 Media Services .NET SDK 비트를 가져오고([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 및 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), 솔루션을 빌드하고 클라이언트 프로젝트에 대한 참조를 추가합니다. 자동으로 모든 필수적인 종속을 다운로드 및 추출하려면 참고합니다.
 
-1. Visual Studio 2013, Visual Studio 2012 또는 Visual Studio 2010 SP1에서 새 C# 콘솔 응용 프로그램을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 확인을 클릭합니다.
+1. Visual Studio 2010 SP1 이상 VS 버전에서 새 C# 콘솔 응용 프로그램을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 확인을 클릭합니다.
 2. 솔루션을 빌드하십시오.
 3. 설치하려면 **NuGet**을 사용하고 **Azure Media Services .NET SDK 확장**을 추가합니다. 이 패키지를 설치하면 **미디어 서비스 .NET SDK** 도 설치되고 다른 모든 필수 종속성이 추가됩니다.
-4. 최신 버전의 NuGet이 설치 되어있는지 확인하십시오. 자세한 내용 및 설치 지침은 [NuGet](http://nuget.codeplex.com/)을 참조하세요.
-5. 솔루션 탐색기에서 프로젝트의 이름을 마우스 오른쪽 단추를 클릭하고 NuGet 패키지 관리...를 선택합니다.
-
-NuGet 패키지 관리 대화 상자가 나타납니다.
-
-1. 온라인 갤러리에서 Azure 미디어 서비스 확장에 대한 검색하여 Azure 미디어 서비스 .NET SDK 확장을 선택한 다음 설치 단추를 클릭합니다.
-
-프로젝트가 수정되고 Media Services .NET SDK 확장, Media Services .NET SDK 및 기타 종속 어셈블리에 대한 참조가 추가됩니다.
-
-1. 클리너 개발 환경의 수준을 올릴 NuGet 패키지 복원을 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [NuGet 패키지 복원"](http://docs.nuget.org/consume/package-restore)을 참조하세요.
-2. **System.Configuration** 어셈블리에 참조를 추가합니다. 이 어셈블리는 구성 파일(예: App.config)에 액세스하는 데 사용되는 System.Configuration.**ConfigurationManager** 클래스를 포함합니다.
-
-참조 관리 대화 상자를 사용하여 참조를 추가하려면 다음과 같이 합니다.
-
-1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭합니다. 그런 다음 추가 및 참조를 선택합니다.
-
-참조 관리 대화 상자가 나타납니다.
-
-1. .NET framework 어셈블리에서 찾아 System.Configuration 어셈블리를 선택합니다.
-2. 확인을 누릅니다.
-3. App.config 파일을 열고(기본적으로 추가되지 않은 경우 프로젝트에 파일 추가) *appSettings* 섹션을 파일에 추가합니다.     
+   
+    최신 버전의 NuGet이 설치 되어있는지 확인하십시오. 자세한 내용 및 설치 지침은 [NuGet](http://nuget.codeplex.com/)을 참조하세요.
+4. 솔루션 탐색기에서 프로젝트의 이름을 마우스 오른쪽 단추를 클릭하고 NuGet 패키지 관리...를 선택합니다.
+   
+    NuGet 패키지 관리 대화 상자가 나타납니다.
+5. 온라인 갤러리에서 Azure 미디어 서비스 확장에 대한 검색하여 Azure 미디어 서비스 .NET SDK 확장을 선택한 다음 설치 단추를 클릭합니다.
+   
+    프로젝트가 수정되고 Media Services .NET SDK 확장, Media Services .NET SDK 및 기타 종속 어셈블리에 대한 참조가 추가됩니다.
+6. 클리너 개발 환경의 수준을 올릴 NuGet 패키지 복원을 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [NuGet 패키지 복원"](http://docs.nuget.org/consume/package-restore)을 참조하세요.
+7. **System.Configuration** 어셈블리에 참조를 추가합니다. 이 어셈블리는 구성 파일(예: App.config)에 액세스하는 데 사용되는 System.Configuration.**ConfigurationManager** 클래스를 포함합니다.
+   
+    참조 관리 대화 상자를 사용하여 참조를 추가하려면 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭합니다. 그런 다음 추가 및 참조를 선택합니다.
+   
+    참조 관리 대화 상자가 나타납니다.
+8. .NET framework 어셈블리에서 찾아 System.Configuration 어셈블리를 찾아 선택하고 확인을 누릅니다.
+9. App.config 파일을 열고(기본적으로 추가되지 않은 경우 프로젝트에 파일 추가) *appSettings* 섹션을 파일에 추가합니다.     
    Azure 미디어 서비스 계정 이름 및 계정 키의 값을 다음 예제와 같이 설정합니다.
    
     이름 및 키 값을 찾으려면 Azure Portal로 이동하여 계정을 선택합니다. 설정 창이 오른쪽에 나타납니다. 설정 창에서 키를 선택합니다. 각 텍스트 상자 옆에 있는 아이콘을 클릭하면 값을 시스템 클립보드에 복사합니다.
@@ -73,7 +72,7 @@ NuGet 패키지 관리 대화 상자가 나타납니다.
 
         </configuration>
 
-1. 다음 코드를 사용하여 Program.cs 파일의 앞부분에 있는 기존 using 문을 덮어씁니다.
+1. 다음 코드를 사용하여 Program.cs 파일의 앞부분에 있는 기존 **using** 문을 덮어씁니다.
    
         using System;
         using System.Collections.Generic;
@@ -93,6 +92,9 @@ NuGet 패키지 관리 대화 상자가 나타납니다.
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: 샘플 시작
-description: Power BI Embedded, SDK를 사용하여 대화형 Power BI 보고서를 비즈니스 인텔리전스 응용 프로그램에 추가
+title: "샘플 시작"
+description: "Power BI Embedded, SDK를 사용하여 대화형 Power BI 보고서를 비즈니스 인텔리전스 응용 프로그램에 추가"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 90207623273c3c8f959a07425e1bdf7324649067
+
 
 ---
 # <a name="get-started-with-power-bi-embedded-sample"></a>Power BI Embedded 시작 샘플
@@ -28,8 +32,8 @@ ms.author: asaxton
 
 > [!NOTE]
 > Power BI Embedded 시작 샘플을 구성하고 실행하려면 먼저 Azure 구독에 적어도 하나의 **작업 영역 컬렉션** 을 만들어야 합니다. Azure 포털에 **작업 영역 컬렉션** 을 만드는 방법을 알아보려면 [Power BI Embedded 시작](power-bi-embedded-get-started.md)을 참조하세요.
-> 
-> 
+>
+>
 
 ## <a name="configure-the-sample-app"></a>샘플 앱 구성
 샘플 앱을 실행하는 데 필요한 구성 요소에 액세스할 Visual Studio 개발 환경을 설정하는 방법을 단계적으로 안내합니다.
@@ -39,15 +43,15 @@ ms.author: asaxton
 3. 솔루션을 빌드하십시오.
 4. **ProvisionSample** 콘솔 앱을 실행합니다. 샘플 콘솔 앱에서 작업 영역을 프로비전하고 PBIX 파일을 가져옵니다.
 5. 새 **작업 영역**을 프로비전하려면 옵션 5 **기존 작업 영역 컬렉션에서 새 작업 영역 프로비전**을 선택합니다.
-   
+
     ![](media\\powerbi-embedded-get-started-sample\\console-option-5.png)
-6. **작업 영역 컬렉션** 이름 및 **선택키**를 입력합니다. **Azure 포털**에서 이러한 정보를 가져올 수 있습니다. **선택키**를 가져오는 방법에 대해 알아보려면 Microsoft Power BI Embedded 시작의 [Power BI API 선택키 보기](power-bi-embedded-get-started-sample.md#view-access-keys) 를 참조하세요.
-   
+6. **작업 영역 컬렉션** 이름 및 **선택키**를 입력합니다. **Azure 포털**에서 이러한 정보를 가져올 수 있습니다. **선택키**를 가져오는 방법에 대해 알아보려면 Microsoft Power BI Embedded 시작의 [Power BI API 선택키 보기](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) 를 참조하세요.
+
     ![](media\\powerbi-embedded-get-started-sample\\azure-portal.png)
 7. 이 문서의 뒷부분에서 사용할 수 있도록 새로 만든 **작업 영역 ID** 를 복사하여 저장합니다. **작업 영역 ID**는 **Azure Portal**에서 확인할 수 있습니다.
-   
+
     ![](media\\powerbi-embedded-get-started-sample\\workspace-id.png)
-8. PBIX 파일을 **작업 영역**으로 가져오려면 옵션 **6, 기존 작업 영역**에 PBIX Desktop 파일을 가져옵니다. 사용할 수 있는 PBIX 파일이 없는 경우 [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
+8. PBIX 파일을 **작업 영역**으로 가져오려면 옵션 **6, 기존 작업 영역**에 PBIX Desktop 파일을 가져옵니다. 사용할 수 있는 PBIX 파일이 없는 경우 [소매점 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
 9. 메시지가 표시되면 **데이터 집합**의 식별 이름을 입력합니다.
 
 다음과 같은 응답이 표시됩니다.
@@ -59,8 +63,8 @@ Checking import state... Succeeded
 
 > [!NOTE]
 > If your PBIX file contains any direct query connections, run option 7 to update the connection strings.
-> 
-> 
+>
+>
 
 At this point, you have a Power BI PBIX report imported into your **Workspace**. Now, let's look at how to run the **Power BI Embedded** get started sample web app.
 
@@ -69,7 +73,7 @@ The web app sample is a sample dashboard that renders reports imported into your
 
 1. In the **PowerBI-embedded** Visual Studio solution, right click the **EmbedSample** web application, and choose **Set as StartUp project**.
 2. In **web.config**, in the **EmbedSample** web application, edit the **appSettings**: **AccessKey**, **WorkspaceCollection** name, and **WorkspaceId**.
-   
+
     ```
     <appSettings>
         <add key="powerbi:AccessKey" value="" />
@@ -95,8 +99,8 @@ The **Microsoft Power BI Embedded** sample code is separated as follows. Each se
 
 > [!NOTE]
 > This section is a summary of the sample code that shows how the code was written. To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
-> 
-> 
+>
+>
 
 ### Model
 The sample has a **ReportsViewModel** and **ReportViewModel**.
@@ -231,13 +235,15 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 > [!NOTE]
 > {tableName/fieldName} cannot include spaces or special characters. The {fieldValue} accepts a single categorical value.  
-> 
-> 
+>
+>
 
 ## See also
 * [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
 * [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

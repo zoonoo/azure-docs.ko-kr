@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a63d15e7b7954fa63d04facc7d440092e24459da
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
 
 
 ---
@@ -44,7 +44,7 @@ ms.openlocfilehash: a63d15e7b7954fa63d04facc7d440092e24459da
 * (.NET에 대해) MVC를 포함한 ASP.NET의 기능 활용
 * (Node.js에 대해) 일반적인 MVC 라이브러리를 포함하여 노드 에코 시스템의 순수 JavaScript 라이브러리를 활용합니다.
 
-## <a name="access-onpremises-data-using-vnet"></a>VNet을 사용하여 온-프레미스 데이터 액세스
+## <a name="access-on-premises-data-using-vnet"></a>VNet을 사용하여 온-프레미스 데이터 액세스
 현재 모바일 서비스에서 이미 하이브리드 연결을 사용하여 온-프레미스 리소스에 액세스할 수 있습니다. 그러나 VPN 솔루션이 선호되는 경우가 있습니다. *Azure 앱 서비스* 에서는 Azure VNet을 모바일 앱 백 엔드 코드에 사용할 수 있습니다.
 
 ## <a name="use-your-favorite-backend-language"></a>좋아하는 백 엔드 언어 사용
@@ -67,6 +67,6 @@ ms.openlocfilehash: a63d15e7b7954fa63d04facc7d440092e24459da
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

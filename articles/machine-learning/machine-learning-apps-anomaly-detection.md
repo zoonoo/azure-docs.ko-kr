@@ -1,22 +1,26 @@
 ---
-title: '기계 학습 앱: 이상 감지 서비스 | Microsoft Docs'
-description: 이상 감지 API는 Microsoft Azure 기계 학습을 사용하여 빌드한 예로서, 시간 간격이 불균일한 숫자 값이 있는 시계열 데이터에서 이상을 감지합니다.
+title: "Machine Learning 앱: 이상 감지 서비스 | Microsoft Docs"
+description: "이상 감지 API는 Microsoft Azure 기계 학습을 사용하여 빌드한 예로서, 시간 간격이 불균일한 숫자 값이 있는 시계열 데이터에서 이상을 감지합니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
 ms.devlang: na
-ms.topic: reference
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/11/2016
 ms.author: alokkirpal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9b900e3febd3ba945250b52ff4b878f22eae33f3
+
 
 ---
-# <a name="machine-learning-anomaly-detection-service#"></a>기계 학습 이상 감지 서비스
+# <a name="machine-learning-anomaly-detection-service"></a>기계 학습 이상 감지 서비스
 ## <a name="overview"></a>개요
 [이상 감지 API](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)는 Azure Machine Learning을 사용하여 빌드한 예로서, 시간 간격이 불균일한 숫자 값이 있는 시계열 데이터에서 이상을 감지합니다. 
 
@@ -36,7 +40,7 @@ ms.author: alokkirpal
 > [!NOTE]
 > [이 API](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)에서 제공되는 **IT Anomaly Insights 솔루션**을 사용해 봅니다.
 > 
-> Azure 구독에 배포된 이 종단 간 솔루션을 가져오려면 <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **여기에서 시작하세요 >**</a>
+> Azure 구독에 배포된 이 종단 간 솔루션을 가져오려면 <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**여기에서 시작 >**</a>하세요.
 > 
 > 
 
@@ -139,10 +143,10 @@ ScoreWithSeasonality API는 계절성 패턴이 있는 시계열에 대한 이�
         "odata.metadata": "https://api.datamarket.azure.com/data.ashx/aml_labs/anomalydetection/v2/$metadata#AnomalyDetection.FrontEndService.Models.AnomalyDetectionResult",
         "ADOutput": "{
             "ColumnNames":["Time","OriginalData","ProcessedData","TSpike","ZSpike","PScore","PAlert","RPScore","RPAlert","TScore","TAlert"],
-            "ColumnTypes":["DateTime","Double","Double","Double","Double","Double","Int32","Double","Int32","Double","Int32"],
-            "Values":[
+              "ColumnTypes":["DateTime","Double","Double","Double","Double","Double","Int32","Double","Int32","Double","Int32"],
+              "Values":[
                 ["9/21/201411: 20: 00AM","10","10","0","0","-1.30229513613974","0","-1.30229513613974","0","-1.173800281031","0"]
-            ]
+              ]
         }"
     }
 
@@ -152,7 +156,7 @@ ScoreWithSeasonality API는 계절성 패턴이 있는 시계열에 대한 이�
 | 감지기 범주 | 감지기 | 설명 | 입력 매개 변수 | 출력 |
 | --- | --- | --- | --- | --- |
 | 급증 감지기 |TSpike 감지기 |값이 첫 번째와 세 번째 사분위 수에서 얼마나 떨어져 있는지를 기반으로 급증과 급락을 감지합니다. |*tspikedetector.sensitivity:* 1-10 범위의 정수 값을 갖습니다. 기본값: 3. 값이 높을수록 더 극단값을 포착하므로 민감도는 낮습니다. |TSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ |
-| ZSpike 감지기 |데이터 요소가 평균값에서 얼마나 떨어져 있는지를 기반으로 급증 및 급락을 감지합니다. |*zspikedetector.sensitivity:* 1-10 범위의 정수 값을 갖습니다. 기본값: 3. 값이 높을수록 더 극단값을 포착하므로 민감도는 낮습니다. |ZSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ | |
+| ZSpike 감지기 |데이터 요소가 평균값에서 얼마나 떨어져 있는지를 기반으로 급증 및 급락을 감지합니다. |*zspikedetector.sensitivity:* 1~10 범위의 정수 값을 갖습니다. 기본값: 3. 값이 높을수록 더 극단값을 포착하므로 민감도는 낮습니다. |ZSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ | |
 | 느린 추세 감지기 |느린 추세 감지기 |집합 민감도에 따른 느리고 긍정적인 추세 감지 |*trenddetector.sensitivity:* 감지기 점수 임계값(기본값: 3.25. 3.25 – 5는 선택하기에 적절한 범위입니다. 값이 높을수록 민감도가 낮습니다.) |TScore: 추세에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
 | 수준 변화 감지기 |단방향 수준 변화 감지기 |집합 민감도에 따른 상향 수준 변경 감지 |*upleveldetector.sensitivity:* 감지기 점수 임계값(기본값: 3.25. 3.25 – 5는 선택하기에 적절한 범위입니다. 값이 높을수록 민감도가 낮습니다.) |PSscore: 상향 수준 변화에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
 | 양방향 수준 변화 감지기 |집합 민감도에 따른 상향 및 하향 수준 변경 감지 |*bileveldetector.sensitivity:* 감지기 점수 임계값(기본값: 3.25. 3.25 – 5는 선택하기에 적절한 범위입니다. 값이 높을수록 민감도가 낮습니다.) |RPScore: 상향 및 하향 수준 변화에 대한 이상 점수를 나타내는 부동 소수점 숫자 | |
@@ -204,6 +208,6 @@ API는 시계열 데이터에서 모든 감지기를 실행하고 각 시점에 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 비디오를 자르는 방법 | Microsoft Docs
-description: 이 문서에서는 미디어 인코더 표준으로 비디오를 자르는 방법을 보여 줍니다.
+title: "비디오를 자르는 방법 | Microsoft 문서"
+description: "이 문서에서는 미디어 인코더 표준으로 비디오를 자르는 방법을 보여 줍니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7628f674-2005-4531-8b61-d7a4f53e46ba
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: anilmur;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 770eaaba800ed9847a34d38813ebbda82014a697
+
 
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>미디어 인코더 표준으로 비디오 자르기
@@ -139,6 +143,9 @@ AMS에서 제공하는 훌륭한 기능에 대해 자세히 알아보려면 Azur
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

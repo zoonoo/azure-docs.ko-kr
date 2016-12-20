@@ -1,13 +1,13 @@
 ---
-title: Windows VM 확장을 사용하여 템플릿 작성 | Microsoft Docs
-description: Windows VM 확장을 사용하여 Azure Resource Manager 템플릿 작성에 대해 알아봅니다.
+title: "Windows VM 확장을 사용하여 템플릿 작성 | Microsoft Docs"
+description: "Windows VM 확장을 사용하여 Azure Resource Manager 템플릿 작성에 대해 알아봅니다."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: kundanap
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 418dd1f7-ded8-45ab-9a5a-a59d245e2555
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: cc2e3c234ef9219d1b836771dbbc456d73a13ac8
+
 
 ---
-# Windows VM 확장을 사용하여 Azure Resource Manager 템플릿 작성
+# <a name="authoring-azure-resource-manager-templates-with-windows-vm-extensions"></a>Windows VM 확장을 사용하여 Azure Resource Manager 템플릿 작성
 [!INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
 Azure PowerShell에서 다음 Azure PowerShell cmdlet을 실행합니다.
@@ -38,10 +42,10 @@ Azure PowerShell에서 다음 Azure PowerShell cmdlet을 실행합니다.
 > 
 > 
 
-## 확장 구성 매개 변수에 대한 스키마를 식별합니다.
+## <a name="identifying-the-schema-for-the-extension-configuration-parameters"></a>확장 구성 매개 변수에 대한 스키마를 식별합니다.
 확장 템플릿 작성을 사용하는 다음 단계는 구성 매개 변수를 제공하기 위한 형식을 식별하는 것입니다. 각 확장은 자체 매개 변수 집합을 지원합니다.
 
-Windows 확장에 대한 샘플 구성을 보려면 [Windows 확장 샘플](virtual-machines-windows-extensions-configuration-samples.md)을 참조하세요.
+Windows 확장에 대한 샘플 구성을 보려면 [Windows 확장 샘플](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 VM 확장으로 템플릿을 완벽하게 완료하려면 다음을 참조하세요.
 
@@ -49,4 +53,9 @@ VM 확장으로 템플릿을 완벽하게 완료하려면 다음을 참조하세
 
 템플릿을 작성한 후 Azure PowerShell을 사용하여 배포할 수 있습니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

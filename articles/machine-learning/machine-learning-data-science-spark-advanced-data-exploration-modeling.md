@@ -1,12 +1,12 @@
 ---
-title: 고급 Spark로 데이터 탐색 및 모델링 | Microsoft Docs
-description: HDInsight Spark를 사용하여 데이터 탐색 및 학습 이진 분류를 수행하며 교차 유효성 검사 및 하이퍼 매개 변수 최적화를 사용하는 회귀 모델링을 수행합니다.
+title: "고급 Spark로 데이터 탐색 및 모델링 | Microsoft Docs"
+description: "HDInsight Spark를 사용하여 데이터 탐색 및 학습 이진 분류를 수행하며 교차 유효성 검사 및 하이퍼 매개 변수 최적화를 사용하는 회귀 모델링을 수행합니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: f90d9a80-4eaf-437b-a914-23514390cd60
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: deguhath;bradsev;gokuma
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c844eeb0e01422dac468484a8458f243a2afb87d
+
 
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>고급 Spark로 데이터 탐색 및 모델링
@@ -51,12 +55,12 @@ Azure 계정과 HDInsight Spark가 필요합니다. 이 연습을 완료하려�
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="setup:-storage-locations,-libraries,-and-the-preset-spark-context"></a>설정: 저장소 위치, 라이브러리 및 사전 설정 Spark 컨텍스트
+## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>설정: 저장소 위치, 라이브러리 및 사전 설정 Spark 컨텍스트
 Spark는 Azure 저장소 Blob(WASB라고도 함)를 읽고 쓸 수 있습니다. 따라서 Spark 및 WASB에 다시 저장된 결과를 사용하여 해당 저장소에 저장된 기존 데이터를 처리할 수 있습니다.
 
 모델 또는 파일을 WASB에 저장하려면 경로를 올바르게 지정해야 합니다. "wasb///"로 시작하는 경로를 사용하여 Spark 클러스터에 연결된 기본 컨테이너를 참조할 수 있습니다. 다른 위치를 “wasb://”에서 참조합니다.
 
-### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>WASB의 저장소 위치에 대 한 디렉터리 경로를 설정합니다.
+### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>WASB의 저장소 위치에 대한 디렉터리 경로를 설정합니다.
 다음 코드 샘플은 읽을 데이터의 위치 및 모델 출력을 저장할 모델 저장소 디렉터리에 대한 경로를 지정합니다.
 
     # SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
@@ -109,7 +113,7 @@ PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하
 
 Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
 
-## <a name="data-ingestion-from-public-blob:"></a>공용 blob에서 데이터 수집:
+## <a name="data-ingestion-from-public-blob"></a>공용 blob에서 데이터 수집:
 데이터 과학 프로세스의 첫 번째 단계는 원본에서 분석할 데이터를 수집하여 데이터 탐색 및 모델링 환경에 상주시키는 것입니다. 이 환경은 이 연습에서 Spark입니다. 이 섹션은 일련의 작업을 완료하는 코드를 포함합니다.
 
 * 모델링할 데이터 샘플 수집
@@ -180,7 +184,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 
 위의 셀을 실행하는 데 걸린 시간: 276.62초
 
-## <a name="data-exploration-&-visualization"></a>데이터 탐색 및 시각화
+## <a name="data-exploration-visualization"></a>데이터 탐색 및 시각화
 데이터를 Spark로 가져오면 데이터 과학 프로세스의 다음 단계에서 탐색 및 시각화를 통해 데이터를 더 잘 이해할 수 있습니다. 이 섹션에서는 SQL 쿼리를 사용하여 Taxi 데이터를 검사하고 시각적 조사에 대한 대상 변수 및 잠재 기능을 그립니다. 특히, Taxi Trip에서 승객 수의 빈도, 팁 금액의 빈도 및 지불 금액 및 형식에 따른 팁의 변화를 그립니다.
 
 ### <a name="plot-a-histogram-of-passenger-count-frequencies-in-the-sample-of-taxi-trips"></a>Taxi Trip의 샘플에서 승객 수 빈도의 히스토그램을 그립니다.
@@ -236,7 +240,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 
 Notebook의 **형식** 메뉴 버튼을 사용하여 다양한 시각화 형식(테이블, 원형, 꺾은선형, 영역 또는 막대) 중에서 선택할 수 있습니다. 막대 그리기는 다음과 같습니다.
 
-### <a name="plot-a-histogram-of-tip-amounts-and-how-tip-amount-varies-by-passenger-count-and-fare-amounts."></a>승객 수 및 요금 금액에 따라 팁 금액이 어떻게 달라지는지와 팁 금액에 대한 히스토그램을 그립니다.
+### <a name="plot-a-histogram-of-tip-amounts-and-how-tip-amount-varies-by-passenger-count-and-fare-amounts"></a>승객 수 및 요금 금액에 따라 팁 금액이 어떻게 달라지는지와 팁 금액에 대한 히스토그램을 그립니다.
 SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 
     # SQL SQUERY
@@ -291,7 +295,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 
 ![금액에 따른 팁 금액](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-fare-amount.png)
 
-## <a name="feature-engineering,-transformation-and-data-preparation-for-modeling"></a>모델링에 대한 기능 엔지니어링, 변환 및 데이터 준비
+## <a name="feature-engineering-transformation-and-data-preparation-for-modeling"></a>모델링에 대한 기능 엔지니어링, 변환 및 데이터 준비
 이 섹션에서는 기계 학습 모델링에 사용할 데이터를 준비하는 데 사용되는 프로시저에 대한 코드를 설명하고 제공합니다. 다음 작업을 수행하는 방법을 보여줍니다.
 
 * 시간을 트래픽 시간 버킷으로 범주화하여 새로운 기능 만들기
@@ -791,7 +795,7 @@ ROC 곡선을 그리고 예측을 수행하는 코드는 다음과 같습니다.
 
 위의 셀을 실행하는 데 걸린 시간: 34.57초
 
-### <a name="use-mllib's-crossvalidator-pipeline-function-with-logistic-regression-(elastic-regression)-model"></a>로지스틱 회귀(탄력적 회귀) 모델과 함께 MLlib의 CrossValidator 파이프라인 함수 사용
+### <a name="use-mllibs-crossvalidator-pipeline-function-with-logistic-regression-elastic-regression-model"></a>로지스틱 회귀(탄력적 회귀) 모델과 함께 MLlib의 CrossValidator 파이프라인 함수 사용
 이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 집합에서 팁이 여정에 지불되었는지를 예측하는 [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) 로 로지스틱 회귀 분석 모델을 학습하고 평가하며 저장하는 방법을 보여 줍니다. 매개 변수 비우기와 함께 CV에 대한 MLlib CrossValidator 파이프라인 함수로 구현되는 CV(교차 유효성 검사) 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습합니다.   
 
 > [!NOTE]
@@ -978,7 +982,7 @@ Area under ROC = 0.985336538462
 
 위의 셀을 실행하는 데 걸린 시간: 28.13초
 
-## <a name="predict-tip-amount-with-regression-models-(not-using-cv)"></a>회귀 모델로 CV를 사용하지 않고 팁 금액 예측
+## <a name="predict-tip-amount-with-regression-models-not-using-cv"></a>회귀 모델로 CV를 사용하지 않고 팁 금액 예측
 이 섹션에서는 다른 팁 기능에 따라 지불한 팁의 금액을 예측하는 회귀 작업에 대한 세 가지 모델을 사용하는 방법을 보여줍니다. 제공된 모델은 다음과 같습니다.
 
 * 정칙 선형 회귀
@@ -1191,7 +1195,7 @@ R-sqr = 0.732680354389
 
 ![Actual-vs-predicted-tip-amounts](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
-## <a name="appendix:-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>부록: 매개 변수 비우기를 사용하는 교차 유효성 검사로 추가 회귀 작업
+## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>부록: 매개 변수 비우기를 사용하는 교차 유효성 검사로 추가 회귀 작업
 이 부록에는 선형 회귀에 대한 탄력적 net을 사용하여 CV를 수행하는 방법 및 임의 포리스트 회귀에 대한 사용자 지정 코드로 매개 변수 비우기를 사용하여 CV를 수행하는 방법을 보여 주는 코드가 있습니다.
 
 ### <a name="cross-validation-using-elastic-net-for-linear-regression"></a>선형 회귀에 대한 탄력적 net을 사용하여 교차 유효성 검사
@@ -1428,11 +1432,14 @@ BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassificatio
 
 BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0316_52_18.827237"
 
-## <a name="what's-next?"></a>다음 작업
+## <a name="whats-next"></a>다음 작업
 Spark MlLib로 회귀 및 분류 모델을 만든 경우 이러한 모델의점수를  매기고 평가하는 방법을 배울 수 있습니다.
 
 **모델 사용:** 이 토픽에서 만든 분류 및 회귀 모델의 점수를 매기고 평가하는 방법을 알아보려면 [Spark에서 만든 기계 학습 모델 점수 매기기 및 평가](machine-learning-data-science-spark-model-consumption.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

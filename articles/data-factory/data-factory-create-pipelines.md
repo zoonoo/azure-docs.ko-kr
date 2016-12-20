@@ -1,20 +1,24 @@
 ---
-title: 데이터 팩터리에서 파이프라인, 체인 작업 만들기/예약 | Microsoft Docs
-description: Azure Data Factory에서 데이터 파이프라인을 만들어 데이터를 이동하고 변환하는 방법을 배웁니다. 데이터 기반 워크플로를 만들어 정보를 사용하도록 준비합니다.
-keywords: 데이터 파이프라인, 데이터 기반 워크플로
+title: "데이터 팩터리에서 파이프라인, 체인 작업 만들기/예약 | Microsoft Docs"
+description: "Azure Data Factory에서 데이터 파이프라인을 만들어 데이터를 이동하고 변환하는 방법을 배웁니다. 데이터 기반 워크플로를 만들어 정보를 사용하도록 준비합니다."
+keywords: "데이터 파이프라인, 데이터 기반 워크플로"
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: sharonlo101
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 13b137c7-1033-406f-aea7-b66f25b313c0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 11/01/2016
 ms.author: shlo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d841c57dc736f7d690a6dc97863b7568365fd01a
+
 
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure 데이터 팩터리의 파이프라인 및 활동
@@ -25,10 +29,10 @@ ms.author: shlo
 > 
 > 
 
-## <a name="what-is-a-data-pipeline?"></a>데이터 파이프라인이란?
+## <a name="what-is-a-data-pipeline"></a>데이터 파이프라인이란?
 **파이프라인**은 논리적으로 관련된 **활동**의 그룹화입니다. 파이프라인은 여러 활동을 작업을 수행하는 하나의 단위로 그룹화하기 위해 사용됩니다. 파이프라인을 더 이해하려면 먼저 활동을 이해해야 합니다. 
 
-## <a name="what-is-an-activity?"></a>활동 정의
+## <a name="what-is-an-activity"></a>활동 정의
 활동은 데이터에 수행할 작업을 정의합니다. 각 활동은 0개 이상의 [데이터 집합](data-factory-create-datasets.md)을 입력 항목으로 취하며 하나 이상의 데이터 집합을 출력물로 생성합니다. 
 
 예를 들어 하나의 데이터 저장소에서 다른 데이터 저장소로의 데이터 복사를 오케스트레이션하기 위해 복사 활동을 사용할 수 있습니다. 마찬가지로 데이터를 변환하기 위해서 Azure HDInsight 클러스터에서 Hive 쿼리를 실행하는 HDInsight Hive 활동을 사용할 수 있습니다. Azure Data Factory는 다양한 [데이터 변환](data-factory-data-transformation-activities.md) 및 [데이터 이동](data-factory-data-movement-activities.md) 활동을 제공합니다. 또한 사용자 고유의 코드를 실행하려면 사용자 지정 .NET 활동을 만들 수 있습니다. 
@@ -36,46 +40,48 @@ ms.author: shlo
 ## <a name="sample-copy-pipeline"></a>샘플 복사 파이프라인
 다음 샘플 파이프라인에는 **Copy** in the **활동** 유형의 하나의 활동이 있습니다. 샘플에서 [복사 작업](data-factory-data-movement-activities.md)은 Azure Blob 저장소의 데이터를 Azure SQL 데이터베이스에 복사합니다. 
 
-    {
-      "name": "CopyPipeline",
-      "properties": {
-        "description": "Copy data from a blob to Azure SQL table",
-        "activities": [
+```json
+{
+  "name": "CopyPipeline",
+  "properties": {
+    "description": "Copy data from a blob to Azure SQL table",
+    "activities": [
+      {
+        "name": "CopyFromBlobToSQL",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "CopyFromBlobToSQL",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "InputDataset"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "OutputDataset"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "SqlSink",
-                "writeBatchSize": 10000,
-                "writeBatchTimeout": "60:00:00"
-              }
-            },
-            "Policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "InputDataset"
           }
         ],
-        "start": "2016-07-12T00:00:00Z",
-        "end": "2016-07-13T00:00:00Z"
+        "outputs": [
+          {
+            "name": "OutputDataset"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "SqlSink",
+            "writeBatchSize": 10000,
+            "writeBatchTimeout": "60:00:00"
+          }
+        },
+        "Policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
       }
-    } 
+    ],
+    "start": "2016-07-12T00:00:00Z",
+    "end": "2016-07-13T00:00:00Z"
+  }
+} 
+```
 
 다음 사항에 유의하세요.
 
@@ -88,48 +94,50 @@ ms.author: shlo
 ## <a name="sample-transformation-pipeline"></a>샘플 변환 파이프라인
 다음 샘플 파이프라인에는 **HDInsightHive** in the **활동** 유형의 하나의 활동이 있습니다. 이 샘플에서 [HDInsight Hive 활동](data-factory-hive-activity.md) 은 Azure HDInsight Hadoop 클러스터에서 Hive 스크립트 파일을 실행하여 Azure Blob 저장소에서 데이터를 변환합니다. 
 
-    {
-        "name": "TransformPipeline",
-        "properties": {
-            "description": "My first Azure Data Factory pipeline",
-            "activities": [
-                {
-                    "type": "HDInsightHive",
-                    "typeProperties": {
-                        "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                        "scriptLinkedService": "AzureStorageLinkedService",
-                        "defines": {
-                            "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
-                            "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "AzureBlobInput"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobOutput"
-                        }
-                    ],
-                    "policy": {
-                        "concurrency": 1,
-                        "retry": 3
-                    },
-                    "scheduler": {
-                        "frequency": "Month",
-                        "interval": 1
-                    },
-                    "name": "RunSampleHiveActivity",
-                    "linkedServiceName": "HDInsightOnDemandLinkedService"
-                }
-            ],
-            "start": "2016-04-01T00:00:00Z",
-            "end": "2016-04-02T00:00:00Z",
-            "isPaused": false
-        }
+```json
+{
+    "name": "TransformPipeline",
+    "properties": {
+        "description": "My first Azure Data Factory pipeline",
+        "activities": [
+            {
+                "type": "HDInsightHive",
+                "typeProperties": {
+                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                    "scriptLinkedService": "AzureStorageLinkedService",
+                    "defines": {
+                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "AzureBlobInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutput"
+                    }
+                ],
+                "policy": {
+                    "concurrency": 1,
+                    "retry": 3
+                },
+                "scheduler": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
+                "name": "RunSampleHiveActivity",
+                "linkedServiceName": "HDInsightOnDemandLinkedService"
+            }
+        ],
+        "start": "2016-04-01T00:00:00Z",
+        "end": "2016-04-02T00:00:00Z",
+        "isPaused": false
     }
+}
+```
 
 다음 사항에 유의하세요. 
 
@@ -180,11 +188,13 @@ Azure 데이터 팩터리에 파이프라인을 작성하고 배포하려면 Vis
 ### <a name="using-azure-powershell"></a>Azure PowerShell 사용
 Azure 데이터 공장에서 파이프라인을 만들려면 Azure PowerShell을 사용할 수 있습니다. 다시 말하면 c:\DPWikisample.json에 있는 파일에 파이프라인 JSON를 정의했습니다. 다음 예제와 같이 Azure 데이터 팩터리 인스턴스로 업로드할 수 있습니다.
 
-    New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+```PowerShell
+New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+```
 
 파이프라인으로 데이터 팩터리 만들기에 대한 전체 연습은 [Azure Data Factory 시작(Azure PowerShell)](data-factory-build-your-first-pipeline-using-powershell.md) 을 참조하세요. 
 
-### <a name="using-.net-sdk"></a>.NET SDK 사용
+### <a name="using-net-sdk"></a>.NET SDK 사용
 .NET SDK를 통해 파이프라인을 만들고 배포할 수 있습니다. 프로그래밍 방식으로 파이프라인을 만들려면 이 메커니즘을 사용할 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 데이터 팩터리 만들기, 관리 및 모니터링](data-factory-create-data-factories-programmatically.md)을 참조하세요. 
 
 ### <a name="using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
@@ -199,40 +209,44 @@ REST API를 사용하여 파이프라인을 만들고 배포할 수 있습니다
 ## <a name="pipeline-json"></a>파이프라인 JSON
 JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살펴보겠습니다. 파이프라인에 대한 일반 구조는 다음과 같이 보입니다.
 
+```json
+{
+    "name": "PipelineName",
+    "properties": 
     {
-        "name": "PipelineName",
-        "properties": 
-        {
-            "description" : "pipeline description",
-            "activities":
-            [
+        "description" : "pipeline description",
+        "activities":
+        [
 
-            ],
-            "start": "<start date-time>",
-            "end": "<end date-time>"
-        }
+        ],
+        "start": "<start date-time>",
+        "end": "<end date-time>"
     }
+}
+```
 
 **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. 각 활동에는 다음과 같은 최상위 수준 구조가 있습니다.
 
+```json
+{
+    "name": "ActivityName",
+    "description": "description", 
+    "type": "<ActivityType>",
+    "inputs":  "[]",
+    "outputs":  "[]",
+    "linkedServiceName": "MyLinkedService",
+    "typeProperties":
     {
-        "name": "ActivityName",
-        "description": "description", 
-        "type": "<ActivityType>",
-        "inputs":  "[]",
-        "outputs":  "[]",
-        "linkedServiceName": "MyLinkedService",
-        "typeProperties":
-        {
 
-        },
-        "policy":
-        {
-        }
-        "scheduler":
-        {
-        }
+    },
+    "policy":
+    {
     }
+    "scheduler":
+    {
+    }
+}
+```
 
 다음 테이블은 활동 및 파이프라인 JSON 정의 내에서 속성을 설명합니다.
 
@@ -261,7 +275,7 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 | --- | --- | --- | --- |
 | 동시성 |정수  <br/><br/>최대값: 10 |1 |작업의 동시 실행 수입니다.<br/><br/>다른 조각에 발생할 수 있는 병렬 작업 실행 횟수를 결정합니다. 예를 들어 활동이 사용 가능한 많은 데이터 집합을 거쳐야 하는 경우 동시성 값을 높이면 데이터 처리가 빨라집니다. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |처리 중인 데이터 조각의 순서를 결정합니다.<br/><br/>예를 들어 2개의 조각이 있으며(각각 오후 4시 및 오후 5시에 발생) 둘 다 실행 보류 상태입니다. executionPriorityOrder를 설정하여 NewestFirst가 되도록 하면 오후 5시에 조각이 먼저 처리됩니다. 마찬가지로 executionPriorityORder를 OldestFIrst로 설정하면 오후 4시의 조각이 처리됩니다. |
-| retry |정수 <br/><br/>최대값이 10이 될 수 있음 |3 |조각에 대한 데이터 처리 전에 다시 시도 횟수가 실패로 표시됩니다. 데이터 조각에 대한 활동 실행은 지정된 재시도 횟수까지 다시 시도됩니다. 재시도는 실패 후 가능한 한 빨리 수행합니다. |
+| retry |정수 <br/><br/>최대값이 10이 될 수 있음 |0 |조각에 대한 데이터 처리 전에 다시 시도 횟수가 실패로 표시됩니다. 데이터 조각에 대한 활동 실행은 지정된 재시도 횟수까지 다시 시도됩니다. 재시도는 실패 후 가능한 한 빨리 수행합니다. |
 | 시간 제한 |TimeSpan |00:00:00 |활동에 대한 시간 제한입니다. 예: 00:10:00(시간 제한 10분을 의미함)<br/><br/>값이 지정되지 않거나 0인 경우 시간 제한은 무한입니다.<br/><br/>조각의 데이터 처리 시간이 시간 제한 값을 초과하면 취소되고 시스템이 처리를 다시 시도합니다. 다시 시도 횟수는 다시 시도 속성에 따라 달라집니다. 시간 제한이 발생할 때 상태는 TimedOut으로 설정됩니다. |
 | delay |TimeSpan |00:00:00 |조각의 데이터 처리 작업이 시작되기 전에 지연을 지정합니다.<br/><br/>데이터 조각에 대한 활동의 실행은 지연이 예상된 실행 시간을 지난 후에 시작됩니다.<br/><br/>예: 00:10:00(10분의 지연을 의미함) |
 | longRetry |정수 <br/><br/>최대값: 10 |1 |조각 실행이 실패하기 전까지의 긴 재시도 횟수입니다.<br/><br/>longRetry 시도는 longRetryInterval에 따라 간격이 조정됩니다. 따라서 재시도 간의 시간을 지정해야 하는 경우 longRetry를 사용합니다. Retry 및 longRetry를 둘 다 지정하면 각 longRetry 시도에는 Retry 시도가 포함되고 최대 시도 횟수는 Retry * longRetry가 됩니다.<br/><br/>예를 들어 활동 정책에 다음 설정이 있는 경우:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>실행할 조각이 하나뿐이며(Waiting 상태) 작업 실행이 매번 실패한다고 가정합니다. 우선 3번 연속 실행 시도를 합니다. 시도한 후 각 조각 상태는 다시 시도입니다. 처음 3번 시도 후에 조각 상태는 LongRetry입니다.<br/><br/>한 시간(즉, longRetryInteval의 값) 후에 3번 연속 실행이 다시 시도됩니다. 그 후에 조각 상태가 실패이면 다시 시도는 더 이상 시도하지 않습니다. 즉, 전체적으로 6번의 시도가 일어납니다.<br/><br/>모든 실행에 성공하면 조각 상태는 준비 상태가 되며 더 이상 다시 시도하지 않습니다.<br/><br/>longRetry는 종속 데이터가 명확하지 않은 시간에 도착하거나 데이터 처리가 발생하는 전체적인 환경을 신뢰할 수 없는 상황에서 사용될 수 있습니다. 이러한 경우 하나씩 다시 시도를 수행해도 도움이 되지 않을 수 있으며 특정 시간 간격 후에 시도할 경우 출력이 나타납니다.<br/><br/>주의: longRetry 또는 longRetryInterval에 높은 값을 설정하지 마세요. 일반적으로 더 높은 값을 지정하면 다른 시스템 문제가 발생합니다. |
@@ -273,6 +287,9 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 * [Azure 데이터 팩터리에서 관리 및 모니터링](data-factory-monitor-manage-pipelines.md)을 이해합니다.
 * [첫 번째 파이프라인을 빌드 및 배포](data-factory-build-your-first-pipeline.md)합니다. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

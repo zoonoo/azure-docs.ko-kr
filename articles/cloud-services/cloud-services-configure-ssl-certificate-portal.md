@@ -1,12 +1,12 @@
 ---
-title: 클라우드 서비스에 대해 SSL 구성 | Microsoft Docs
-description: 웹 역할에 대해 HTTPS 끝점을 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
+title: "클라우드 서비스에 대해 SSL 구성 | Microsoft Docs"
+description: "웹 역할에 대해 HTTPS 끝점을 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다."
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5360387816cbbcd631114730fad8b7ce2c8c8aa6
+
 
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Azure에서 응용 프로그램에 대한 SSL 구성
@@ -36,7 +40,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 [!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-## <a name="step-1:-get-an-ssl-certificate"></a>1단계: SSL 인증서 다운로드
+## <a name="step-1-get-an-ssl-certificate"></a>1단계: SSL 인증서 다운로드
 응용 프로그램에 대해 SSL을 구성하려면 먼저 이 목적으로 인증서를 발급하는 신뢰할 수 있는 타사 CA(인증 기관)에서 서명한 SSL 인증서를 가져와야 합니다. 아직 없는 경우 SSL 인증서를 판매하는 회사에서 구입해야 합니다.
 
 인증서는 Azure의 SSL 인증서에 대한 다음 요구 사항을 충족해야 합니다.
@@ -52,7 +56,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 <a name="modify"> </a>
 
-## <a name="step-2:-modify-the-service-definition-and-configuration-files"></a>2단계: 서비스 정의 및 구성 파일 수정
+## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>2단계: 서비스 정의 및 구성 파일 수정
 인증서를 사용하도록 응용 프로그램을 구성하고 HTTPS 끝점을 추가해야 합니다. 따라서 서비스 정의 및 서비스 구성 파일을 업데이트해야 합니다.
 
 1. 개발 환경에서 서비스 정의 파일(CSDEF)을 열고 **WebRole** 섹션 내에 **Certificates** 섹션을 추가한 후 인증서(및 중간 인증서)에 대한 다음 정보를 포함합니다.
@@ -131,7 +135,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 서비스 정의 및 서비스 구성 파일이 업데이트되었으므로 Azure에 업로드할 배포를 패키지합니다. **cspack**를 사용하는 경우 **/generateConfigurationFile** 플래그를 사용하지 않도록 하세요. 이 플래그는 방금 삽입한 인증서 정보를 덮어씁니다.
 
-## <a name="step-3:-upload-a-certificate"></a>3단계: 인증서 업로드
+## <a name="step-3-upload-a-certificate"></a>3단계: 인증서 업로드
 포털에 연결하고 다음을 수행합니다.
 
 1. 포털에서 클라우드 서비스를 선택하고 **클라우드 서비스**를 선택합니다. (**모든 리소스** 섹션에 있음) 
@@ -142,7 +146,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
     ![인증서 아이콘 클릭](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 3. **파일**, **암호**를 제공한 다음 **업로드**를 클릭합니다.
 
-## <a name="step-4:-connect-to-the-role-instance-by-using-https"></a>4단계: HTTPS를 사용하여 역할 인스턴스에 연결
+## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>4단계: HTTPS를 사용하여 역할 인스턴스에 연결
 이제 Azure에서 배포가 실행되고 있으므로 HTTPS를 사용하여 연결할 수 있습니다.
 
 1. **사이트 URL**을 클릭하여 웹 브라우저를 엽니다.
@@ -170,6 +174,9 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

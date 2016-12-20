@@ -1,13 +1,13 @@
 ---
-title: Azure 데이터 카탈로그 | Microsoft Docs
-description: 이 문서는 Azure 데이터 카탈로그에 대한 키보드 바로 가기를 보여줍니다.
+title: "Azure 데이터 카탈로그 | Microsoft Docs"
+description: "이 문서는 Azure 데이터 카탈로그에 대한 키보드 바로 가기를 보여줍니다."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 00b77c88-fbca-4e6f-a175-d40b5cbbf144
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,15 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/13/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 190f46f9994be1a0699488eb813955070070ee51
+
 
 ---
-# Azure 데이터 카탈로그에 대한 키보드 바로 가기
-## 데이터 카탈로그 데이터 원본 등록 도구에 대한 바로 가기 키
-### 일반 키보드 바로 가기
+# <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Azure 데이터 카탈로그에 대한 키보드 바로 가기
+## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>데이터 카탈로그 데이터 원본 등록 도구에 대한 바로 가기 키
+### <a name="general-keyboard-shortcuts"></a>일반 키보드 바로 가기
 | 작업 | 누르기 |
 | --- | --- |
 | 페이지의 각 컨트롤에 대해 탭 |탭 |
@@ -28,24 +32,24 @@ ms.author: spelluru
 | 페이지 복원/최소화 |WIN+아래쪽 화살표 |
 | 페이지 메뉴 열기 |ALT+스페이스바 |
 
-### 인증 페이지
+### <a name="authentication-page"></a>인증 페이지
 | 작업 | 누르기 |
 | --- | --- |
 | 서비스에 로그인 |ALT+S |
 
-### 데이터 원본 선택 페이지
+### <a name="data-source-selection-page"></a>데이터 원본 선택 페이지
 | 작업 | 누르기 |
 | --- | --- |
 | 다음 페이지로 이동(설정된 경우) |ALT+N |
 | 타일에 포커스가 있을 때 선택한 형식 변경 |왼쪽, 위쪽, 오른쪽 또는 아래쪽 화살표 |
 
-### 데이터 원본 연결 페이지
+### <a name="data-source-connection-page"></a>데이터 원본 연결 페이지
 | 작업 | 누르기 |
 | --- | --- |
 | 이전 페이지로 이동(설정된 경우). |ALT+P |
 | 연결 단추를 선택합니다. |ALT+C |
 
-### 연결 컨텍스트 페이지
+### <a name="connection-context-page"></a>연결 컨텍스트 페이지
 | 작업 | 누르기 |
 | --- | --- |
 | 등록 단추(설정된 경우) |ALT+R |
@@ -55,20 +59,20 @@ ms.author: spelluru
 | 서버 계층 구조, 트리 보기 노드 확장 |오른쪽 화살표 |
 | **사용 가능한 개체** 또는 **등록할 개체**에 대해 선택한 항목 이동 |스페이스바 |
 
-### 진행률 페이지 게시
+### <a name="publish-progress-page"></a>진행률 페이지 게시
 | 작업 | 누르기 |
 | --- | --- |
 | 취소 단추 |ALT+C |
 | 추가 개체 등록 단추 |ALT+R |
 | 포털 보기 단추 |ALT + V |
 
-### 진행률 페이지 게시
+### <a name="publish-progress-page"></a>진행률 페이지 게시
 | 작업 | 누르기 |
 | --- | --- |
 | 저장 단추(설정된 경우) |ALT+S |
 | 취소 단추 |ALT+C |
 
-## 데이터 카탈로그 포털에 대한 바로 가기 키
+## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>데이터 카탈로그 포털에 대한 바로 가기 키
 | 작업 | 누르기 |
 | --- | --- |
 | 이동 |TAB 및 SHIFT+TAB |
@@ -82,4 +86,9 @@ ms.author: spelluru
 | **열기** 메뉴 토글 |ALT + O |
 | 자산이 컨테이너인 경우 컨테이너 탐색 |ALT+L |
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

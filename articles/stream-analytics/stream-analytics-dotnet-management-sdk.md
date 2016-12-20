@@ -1,13 +1,13 @@
 ---
-title: 스트림 분석용 관리 .NET SDK | Microsoft Docs
-description: '스트림 분석 관리 .NET SDK를 시작합니다. 분석 작업 설정 및 실행 방법 알아보기: 프로젝트, 입력, 출력 및 변환을 만듭니다.'
-keywords: .net SDK, 분석 API
+title: "Stream Analytics용 관리 .NET SDK | Microsoft Docs"
+description: "Stream Analytics 관리 .NET SDK를 시작합니다. 분석 작업 설정 및 실행 방법 알아보기: 프로젝트, 입력, 출력 및 변환을 만듭니다."
+keywords: ".net SDK, 분석 API"
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 5e93de87-0c6f-4f4b-be98-08d63f832897
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,21 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3f3f7633f5ef863d42e1f0e3e26b58f38817ac01
+
 
 ---
-# 관리 .NET SDK: .NET용 Azure 스트림 분석 API를 사용하여 분석 작업 설정 및 실행
-관리 .NET SDK에서 .NET용 Azure 스트림 분석 API를 사용하여 분석 작업을 설정 및 실행하는 방법을 알아봅니다. 프로젝트를 설정하고, 입출력 소스를 만들고, 변환하고, 작업을 시작 및 중지합니다. 분석 작업에 대해 Blob 저장소 또는 이벤트 허브에서 데이터를 스트리밍할 수 있습니다.
+# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>관리 .NET SDK: .NET용 Azure Stream Analytics API를 사용하여 분석 작업 설정 및 실행
+관리 .NET SDK에서 .NET용 Azure Stream Analytics API를 사용하여 분석 작업을 설정 및 실행하는 방법을 알아봅니다. 프로젝트를 설정하고, 입출력 소스를 만들고, 변환하고, 작업을 시작 및 중지합니다. 분석 작업에 대해 Blob 저장소 또는 이벤트 허브에서 데이터를 스트리밍할 수 있습니다.
 
-[.NET용 스트림 분석 API에 대한 관리 참조 설명서](https://msdn.microsoft.com/library/azure/dn889315.aspx)를 참조하세요.
+[.NET용 Stream Analytics API에 대한 관리 참조 설명서](https://msdn.microsoft.com/library/azure/dn889315.aspx)를 참조하세요.
 
-Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. 스트림 분석 기능은 고객이 데이터 스트림을 분석하도록 스트리밍 작업을 설정하고 거의 실시간으로 분석할 수 있도록 해 줍니다.
+Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. Stream Analytics 기능은 고객이 데이터 스트림을 분석하도록 스트리밍 작업을 설정하고 거의 실시간으로 분석할 수 있도록 해 줍니다.  
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 * Visual Studio 2012 또는 2013 설치
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)를 다운로드하여 설치합니다.
-* 구독에서 Azure 리소스 그룹을 만듭니다. 다음은 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
+* 구독에서 Azure 리소스 그룹을 만듭니다. 다음은 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.  
 
         # Log in to your Azure account
         Add-AzureAccount
@@ -46,11 +50,11 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 
 * 사용하려는 입력 소스 및 출력 대상을 설정합니다. 샘플 입력 설정 방법에 대한 자세한 지침은 [입력 추가](stream-analytics-add-inputs.md)를 참조하고 샘플 출력 설정 방법에 대한 자세한 지침은 [출력 추가](stream-analytics-add-outputs.md)를 참조하세요.
 
-## 프로젝트 설정
-.NET용 스트림 분석 API를 사용하여 분석 작업을 만들려면 먼저 프로젝트를 설정합니다.
+## <a name="set-up-a-project"></a>프로젝트 설정
+.NET용 Stream Analytics API를 사용하여 분석 작업을 만들려면 먼저 프로젝트를 설정합니다.
 
 1. Visual Studio C# .NET 콘솔 응용 프로그램을 만듭니다.
-2. 패키지 관리자 콘솔에서 NuGet 패키지를 설치하려면 다음 명령을 실행합니다. 첫 번째는 Azure 스트림 분석 관리.NET SDK입니다. 두 번째는 인증에 사용되는 Azure Active Directory 클라이언트 인증입니다.
+2. 패키지 관리자 콘솔에서 NuGet 패키지를 설치하려면 다음 명령을 실행합니다. 첫 번째는 Azure Stream Analytics 관리.NET SDK입니다. 두 번째는 인증에 사용되는 Azure Active Directory 클라이언트 인증입니다.
    
         Install-Package Microsoft.Azure.Management.StreamAnalytics
         Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -82,8 +86,7 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 2. 인증 도우미 메서드를 추가합니다.
    
-     public static string GetAuthorizationHeader()
-     {
+     public static string GetAuthorizationHeader()   {
    
          AuthenticationResult result = null;
          var thread = new Thread(() =>
@@ -119,7 +122,7 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
          throw new InvalidOperationException("Failed to acquire token");
      }  
 
-## 스트림 분석 관리 클라이언트 만들기
+## <a name="create-a-stream-analytics-management-client"></a>Stream Analytics 관리 클라이언트 만들기
 **StreamAnalyticsManagementClient** 개체를 사용하면 입력, 출력 및 변환 등의 작업 구성 요소와 작업을 관리할 수 있습니다.
 
 **Main** 메서드의 시작에 다음 코드를 추가합니다.
@@ -145,8 +148,8 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 
 이 문서의 나머지 섹션에서는 이 코드가 **Main** 메서드의 시작 부분에 있다고 가정합니다.
 
-## 스트림 분석 작업 만들기
-다음 코드는 사용자가 정의한 리소스 그룹 아래 스트림 분석 작업을 만듭니다. 나중에 입력, 출력 및 변환을 작업에 추가합니다.
+## <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
+다음 코드는 사용자가 정의한 리소스 그룹 아래 Stream Analytics 작업을 만듭니다. 나중에 입력, 출력 및 변환을 작업에 추가합니다.
 
     // Create a Stream Analytics job
     JobCreateOrUpdateParameters jobCreateParameters = new JobCreateOrUpdateParameters()
@@ -169,8 +172,8 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
     JobCreateOrUpdateResponse jobCreateResponse = client.StreamingJobs.CreateOrUpdate(resourceGroupName, jobCreateParameters);
 
 
-## 스트림 분석 입력 소스 만들기
-다음 코드는 blob 입력 소스 형식 및 CSV serialization으로 스트림 분석 입력 소스를 만듭니다. 이벤트 허브 입력 소스를 만들려면 **BlobStreamInputDataSource** 대신 **EventHubStreamInputDataSource**를 사용합니다. 마찬가지로, 입력 소스의 serialization 형식을 사용자 지정할 수 있습니다.
+## <a name="create-a-stream-analytics-input-source"></a>Stream Analytics 입력 소스 만들기
+다음 코드는 blob 입력 소스 형식 및 CSV serialization으로 Stream Analytics 입력 소스를 만듭니다. 이벤트 허브 입력 소스를 만들려면 **BlobStreamInputDataSource** 대신 **EventHubStreamInputDataSource**를 사용합니다. 마찬가지로, 입력 소스의 serialization 형식을 사용자 지정할 수 있습니다.
 
     // Create a Stream Analytics input source
     InputCreateOrUpdateParameters jobInputCreateParameters = new InputCreateOrUpdateParameters()
@@ -213,15 +216,15 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 
 Blob 저장소 또는 이벤트 허브의 입력 소스는 특정 작업에 연결됩니다. 다른 작업에 대해 동일한 입력 소스를 사용하려면, 메서드를 다시 호출하고 다른 작업 이름을 지정해야 합니다.
 
-## 스트림 분석 입력 소스 테스트
-**TestConnection** 메서드는 스트림 분석 작업이 입력 소스 및 입력 소스 유형에 특정한 다른 측면에도 연결할 수 있는지 여부를 테스트합니다. 예를 들어 이전 단계에서 만든 blob 입력 소스에서 메서드는 저장소 계정 이름 및 키 쌍을 사용하여 저장소 계정에 연결할 수 있는지를 확인하고 지정된 컨테이너가 존재하는지 점검합니다.
+## <a name="test-a-stream-analytics-input-source"></a>Stream Analytics 입력 소스 테스트
+**TestConnection** 메서드는 Stream Analytics 작업이 입력 소스 및 입력 소스 유형에 특정한 다른 측면에도 연결할 수 있는지 여부를 테스트합니다. 예를 들어 이전 단계에서 만든 blob 입력 소스에서 메서드는 저장소 계정 이름 및 키 쌍을 사용하여 저장소 계정에 연결할 수 있는지를 확인하고 지정된 컨테이너가 존재하는지 점검합니다.
 
     // Test input source connection
     DataSourceTestConnectionResponse inputTestResponse =
         client.Inputs.TestConnection(resourceGroupName, streamAnalyticsJobName, streamAnalyticsInputName);
 
-## 스트림 분석 출력 대상 만들기
-출력 대상 만들기는 스트림 분석 입력 소스 만들기와 매우 유사합니다. 입력 소스와 같이 출력 대상은 특정 작업에 연결됩니다. 다른 작업에 대해 동일한 출력 소스를 사용하려면, 메서드를 다시 호출하고 다른 작업 이름을 지정해야 합니다.
+## <a name="create-a-stream-analytics-output-target"></a>Stream Analytics 출력 대상 만들기
+출력 대상 만들기는 Stream Analytics 입력 소스 만들기와 매우 유사합니다. 입력 소스와 같이 출력 대상은 특정 작업에 연결됩니다. 다른 작업에 대해 동일한 출력 소스를 사용하려면, 메서드를 다시 호출하고 다른 작업 이름을 지정해야 합니다.
 
 다음 코드는 출력 대상(Azure SQL 데이터베이스)를 만듭니다. 출력 대상의 데이터 형식 및/또는 serialization 형식을 사용자 지정할 수 있습니다.
 
@@ -251,15 +254,15 @@ Blob 저장소 또는 이벤트 허브의 입력 소스는 특정 작업에 연�
     OutputCreateOrUpdateResponse outputCreateResponse =
         client.Outputs.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, jobOutputCreateParameters);
 
-## 스트림 분석 출력 대상 테스트
-스트림 분석 출력 대상에는 연결 테스트를 위한 **TestConnection** 메서드가 있습니다.
+## <a name="test-a-stream-analytics-output-target"></a>Stream Analytics 출력 대상 테스트
+Stream Analytics 출력 대상에는 연결 테스트를 위한 **TestConnection** 메서드가 있습니다.
 
     // Test output target connection
     DataSourceTestConnectionResponse outputTestResponse =
         client.Outputs.TestConnection(resourceGroupName, streamAnalyticsJobName, streamAnalyticsOutputName);
 
-## 스트림 분석 변환 만들기
-다음 코드는 쿼리 "입력에서 *선택"를 사용하여 스트림 분석 변환을 만들고 스트림 분석 작업에 대한 하나의 스트리밍 단위를 할당하도록 지정합니다. 스트리밍 단위 조정에 대한 자세한 내용은 [Azure 스트림 분석 작업 크기 조정](stream-analytics-scale-jobs.md)을 참조하세요.
+## <a name="create-a-stream-analytics-transformation"></a>Stream Analytics 변환 만들기
+다음 코드는 쿼리 "입력에서 *선택"를 사용하여 Stream Analytics 변환을 만들고 Stream Analytics 작업에 대한 하나의 스트리밍 단위를 할당하도록 지정합니다. 스트리밍 단위 조정에 대한 자세한 내용은 [Azure Stream Analytics 작업 크기 조정](stream-analytics-scale-jobs.md)을 참조하세요.
 
     // Create a Stream Analytics transformation
     TransformationCreateOrUpdateParameters transformationCreateParameters = new TransformationCreateOrUpdateParameters()
@@ -278,12 +281,12 @@ Blob 저장소 또는 이벤트 허브의 입력 소스는 특정 작업에 연�
     var transformationCreateResp =
         client.Transformations.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, transformationCreateParameters);
 
-입력 및 출력의 경우와 마찬가지로 변환에는 작성된 특정 스트림 분석 작업과 연결됩니다.
+입력 및 출력의 경우와 마찬가지로 변환에는 작성된 특정 Stream Analytics 작업과 연결됩니다.
 
-## 스트림 분석 작업 시작
-스트림 분석 작업 및 해당 입력, 출력 및 변환을 만든 후, **Start** 메서드를 호출하여 시작할 수 있습니다.
+## <a name="start-a-stream-analytics-job"></a>Stream Analytics 작업 시작
+Stream Analytics 작업 및 해당 입력, 출력 및 변환을 만든 후, **Start** 메서드를 호출하여 시작할 수 있습니다.
 
-다음 샘플 코드는 2012년 12월 12일, 12:12:12 UTC로 시작 시간이 설정된 사용자 지정 출력이 있는 스트림 분석 작업을 시작합니다.
+다음 샘플 코드는 2012년 12월 12일, 12:12:12 UTC로 시작 시간이 설정된 사용자 지정 출력이 있는 Stream Analytics 작업을 시작합니다.
 
     // Start a Stream Analytics job
     JobStartParameters jobStartParameters = new JobStartParameters
@@ -296,31 +299,31 @@ Blob 저장소 또는 이벤트 허브의 입력 소스는 특정 작업에 연�
 
 
 
-## 스트림 분석 작업 중지
-**Stop** 메서드를 호출하여 실행 중인 스트림 분석 작업을 중지할 수 있습니다.
+## <a name="stop-a-stream-analytics-job"></a>Stream Analytics 작업 중지
+**Stop** 메서드를 호출하여 실행 중인 Stream Analytics 작업을 중지할 수 있습니다.
 
     // Stop a Stream Analytics job
     LongRunningOperationResponse jobStopResponse = client.StreamingJobs.Stop(resourceGroupName, streamAnalyticsJobName);
 
-## 스트림 분석 작업 삭제
+## <a name="delete-a-stream-analytics-job"></a>Stream Analytics 작업 삭제
 **Delete** 메서드는 입력, 출력 및 변환 작업을 포함한 기본 하위 리소스 및 작업을 삭제합니다.
 
     // Delete a Stream Analytics job
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 
-## 지원 받기
-추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
+## <a name="get-support"></a>지원 받기
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 .NET SDK를 사용하여 분석 작업을 만들고 실행하는 기본을 알아보았습니다. 자세한 알아보려면 다음을 참조하세요.
 
-* [Azure 스트림 분석 소개](stream-analytics-introduction.md)
-* [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md)
-* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure 스트림 분석 관리 .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx).
-* [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics 소개](stream-analytics-introduction.md)
+* [Azure Stream Analytics 사용 시작](stream-analytics-get-started.md)
+* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics 관리 .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx).
+* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
@@ -345,4 +348,8 @@ Blob 저장소 또는 이벤트 허브의 입력 소스는 특정 작업에 연�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

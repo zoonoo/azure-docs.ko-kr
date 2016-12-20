@@ -1,12 +1,12 @@
 ---
-title: REST를 사용하여 Contentkey 만들기 | Microsoft Docs
-description: 자산에 대한 보안 액세스를 제공하는 콘텐츠 키를 만드는 방법에 대해 알아봅니다.
+title: "REST를 사용하여 Contentkey 만들기 | Microsoft 문서"
+description: "자산에 대한 보안 액세스를 제공하는 콘텐츠 키를 만드는 방법에 대해 알아봅니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8e4ca5083761f870d93447eb6561d9f0c088284e
+
 
 ---
 # <a name="create-contentkeys-with-rest"></a>REST를 사용하여 Contentkey 만들기
@@ -44,22 +48,22 @@ ms.author: juliako
    
    다음.NET 예제에서는 키 식별자와 암호화되지 않은 콘텐츠 키의 GUID 부분을 사용하여 체크섬을 계산합니다.
    
-       public static string CalculateChecksum(byte[] contentKey, Guid keyId)
-       {
-           byte[] array = null;
-           using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
-           {
-               aesCryptoServiceProvider.Mode = CipherMode.ECB;
-               aesCryptoServiceProvider.Key = contentKey;
-               aesCryptoServiceProvider.Padding = PaddingMode.None;
-               ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
-               array = new byte[16];
-               cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
-           }
-           byte[] array2 = new byte[8];
-           Array.Copy(array, array2, 8);
-           return Convert.ToBase64String(array2);
-       }
+     public static string CalculateChecksum(byte[] contentKey, Guid keyId)   {
+   
+         byte[] array = null;
+         using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+         {
+             aesCryptoServiceProvider.Mode = CipherMode.ECB;
+             aesCryptoServiceProvider.Key = contentKey;
+             aesCryptoServiceProvider.Padding = PaddingMode.None;
+             ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
+             array = new byte[16];
+             cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+         }
+         byte[] array2 = new byte[8];
+         Array.Copy(array, array2, 8);
+         return Convert.ToBase64String(array2);
+     }
 5. 이전 단계에서 받은**EncryptedContentKey**(base64 인코딩된 문자열로 변환), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** 및 **Checksum** 값을 사용하여 콘텐츠 키를 만듭니다.
 6. $links 작업을 통해 **ContentKey** 엔터티와 **Asset** 엔터티를 연결합니다.
 
@@ -251,6 +255,9 @@ ContentKey를 만든 후 다음 예제와 같이 $links 작업을 사용하여 �
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

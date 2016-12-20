@@ -1,9 +1,9 @@
-## PowerShell에서 네트워크 구성 파일을 사용하여 VNet을 만드는 방법
-Azure에서는 xml 파일을 사용하여 구독에 사용할 수 있는 모든 VNet을 정의합니다. 이 파일을 다운로드하고, 편집하여 기존 VNet을 수정 또는 삭제하고 새 VNet을 만들 수 있습니다. 이 문서에서는 네트워크 구성(또는 netcgf) 파일이라고 하는 이 파일을 다운로드하고 편집하여 새 VNet을 만드는 방법을 알아봅니다. 네트워크 구성 파일에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
+## <a name="how-to-create-a-vnet-using-a-network-config-file-from-powershell"></a>PowerShell에서 네트워크 구성 파일을 사용하여 VNet을 만드는 방법
+Azure에서는 xml 파일을 사용하여 구독에 사용할 수 있는 모든 VNet을 정의합니다. 이 파일을 다운로드하고, 편집하여 기존 VNet을 수정 또는 삭제하고 새 VNet을 만들 수 있습니다. 이 문서에서는 네트워크 구성(또는 netcgf) 파일이라고 하는 이 파일을 다운로드하고 편집하여 새 VNet을 만드는 방법을 알아봅니다. 네트워크 구성 파일에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx) 를 참조하세요.
 
 PowerShell과 netcfg 파일을 사용하여 VNet을 만들려면 다음 단계를 수행합니다.
 
-1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](../articles/powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
+1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 2. Azure PowerShell 콘솔에서 **Get-AzureVnetConfig** cmdlet을 사용하고 명령을 실행하여 네트워크 구성 파일을 다운로드합니다. 
    
         Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml
@@ -39,7 +39,7 @@ PowerShell과 netcfg 파일을 사용하여 VNet을 만들려면 다음 단계�
        OperationDescription OperationId                          OperationStatus
        -------------------- -----------                          ---------------
        Set-AzureVNetConfig  49579cb9-3f49-07c3-ada2-7abd0e28c4e4 Succeeded 
-7. Azure PowerShell 콘솔에서 **Get-AzureVnetSite** cmdlet을 사용하고 아래 명령을 실행하여 새 네트워크가 추가되었는지 확인합니다.
+7. Azure PowerShell 콘솔에서 **Get-AzureVnetSite** cmdlet을 사용하고 아래 명령을 실행하여 새 네트워크가 추가되었는지 확인합니다. 
    
        Get-AzureVNetSite -VNetName TestVNet
    
@@ -61,4 +61,8 @@ PowerShell과 netcfg 파일을 사용하여 VNet을 만들려면 다음 단계�
        OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
        OperationStatus      : Succeeded
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Dec16_HO1-->
+
+

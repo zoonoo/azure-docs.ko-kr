@@ -1,13 +1,13 @@
 ---
-title: 리소스 관리자 모드에서 Azure CLI 명령 | Microsoft Docs
-description: 리소스 관리자 배포 모델에서 리소스를 관리하는 Azure CLI(명령줄 인터페이스) 명령
+title: "Resource Manager 모드에서 Azure CLI 명령 | Microsoft Docs"
+description: "리소스 관리자 배포 모델에서 리소스를 관리하는 Azure CLI(명령줄 인터페이스) 명령"
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: dlepow
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2016
 ms.author: danlep
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 028e09c031037f3c4001eccfb4543122eef2c055
+
 
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>리소스 관리자 모드에서 Azure CLI 명령
-이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. Azure 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.  
+이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. Azure 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
 
 시작하려면 먼저 회사 또는 학교 계정 또는 Microsoft 계정 ID를 사용하여 [Azure CLI를 설치](../xplat-cli-install.md)하고 [Azure 구독에 연결](../xplat-cli-connect.md)합니다.
 
@@ -38,7 +42,7 @@ ms.author: danlep
 > 
 > 
 
-## <a name="azure-account:-manage-your-account-information"></a>Azure account: 계정 정보 관리
+## <a name="azure-account-manage-your-account-information"></a>Azure account: 계정 정보 관리
 Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 **가져온 구독 나열**
@@ -65,7 +69,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     account env set [options] [environment]
     account env delete [options] [environment]
 
-## <a name="azure-ad:-commands-to-display-active-directory-objects"></a>azure ad: Active Directory 개체를 표시하는 명령
+## <a name="azure-ad-commands-to-display-active-directory-objects"></a>azure ad: Active Directory 개체를 표시하는 명령
 **Active Directory 응용 프로그램을 표시하는 명령**
 
     ad app create [options]
@@ -92,7 +96,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     ad user list [options]
     ad user show [options]
 
-## <a name="azure-availset:-commands-to-manage-your-availability-sets"></a>azure availset: 가용성 집합을 관리하는 명령
+## <a name="azure-availset-commands-to-manage-your-availability-sets"></a>azure availset: 가용성 집합을 관리하는 명령
 **리소스 그룹 내 가용성 집합 만들기**
 
     availset create [options] <resource-group> <name> <location> [tags]
@@ -109,7 +113,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     availset delete [options] <resource-group> <name>
 
-## <a name="azure-config:-commands-to-manage-your-local-settings"></a>azure config: 로컬 설정을 관리하는 명령
+## <a name="azure-config-commands-to-manage-your-local-settings"></a>azure config: 로컬 설정을 관리하는 명령
 **Azure CLI 구성 설정 나열**
 
     config list [options]
@@ -127,7 +131,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     config mode [options] <modename>
 
 
-## <a name="azure-feature:-commands-to-manage-account-features"></a>azure feature: 계정 기능을 관리하는 명령
+## <a name="azure-feature-commands-to-manage-account-features"></a>azure feature: 계정 기능을 관리하는 명령
 **구독에 대해 사용할 수 있는 모든 기능 나열**
 
     feature list [options]
@@ -140,7 +144,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     feature register [options] <providerName> <featureName>
 
-## <a name="azure-group:-commands-to-manage-your-resource-groups"></a>azure group: 리소스 그룹을 관리하는 명령
+## <a name="azure-group-commands-to-manage-your-resource-groups"></a>azure group: 리소스 그룹을 관리하는 명령
 **리소스 그룹 만들기**
 
     group create [options] <name> <location>
@@ -179,7 +183,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     group template download [options] [name] [file]
     group template validate [options] <resource-group>
 
-## <a name="azure-hdinsight:-commands-to-manage-your-hdinsight-clusters"></a>azure hdinsight: HDInsight 클러스터를 관리하는 명령
+## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>azure hdinsight: HDInsight 클러스터를 관리하는 명령
 **클러스터 구성 파일을 만들거나 클러스터 구성 파일에 추가하는 명령**
 
     hdinsight config create [options] <configFilePath> <overwrite>
@@ -297,17 +301,17 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights:-commands-related-to-monitoring-insights-(events,-alert-rules,-autoscale-settings,-metrics)"></a>azure insight: Insights 모니터링 관련 명령(이벤트, 경고 규칙, 자동 크기 조정 설정, 메트릭)
+## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>azure insight: Insights 모니터링 관련 명령(이벤트, 경고 규칙, 자동 크기 조정 설정, 메트릭)
 **구독, 상관 관계 ID, 리소스 그룹, 리소스 또는 리소스 공급자에 대한 작업 로그 검색**
 
     insights logs list [options]
 
-## <a name="azure-location:-commands-to-get-the-available-locations-for-all-resource-types"></a>azure location: 모든 리소스 유형에 사용 가능한 위치를 가져오는 명령
+## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>azure location: 모든 리소스 유형에 사용 가능한 위치를 가져오는 명령
 **사용 가능한 위치 나열**
 
     location list [options]
 
-## <a name="azure-network:-commands-to-manage-network-resources"></a>azure network: 네트워크 리소스를 관리하는 명령
+## <a name="azure-network-commands-to-manage-network-resources"></a>azure network: 네트워크 리소스를 관리하는 명령
 **가상 네트워크를 관리하는 명령**
 
     network vnet create [options] <resource-group> <name> <location>
@@ -334,18 +338,18 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 매개 변수 옵션:
 
-    -h, --help                                 output usage information
-    -v, --verbose                              use verbose output
+     -h, --help                                 output usage information
+     -v, --verbose                              use verbose output
     --json                                     use json output
-    -g, --resource-group <resource-group>      the name of the resource group
-    -n, --name <name>                          the name of the virtual network
-    -l, --location <location>                  the location
-    -a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network
+     -g, --resource-group <resource-group>      the name of the resource group
+     -n, --name <name>                          the name of the virtual network
+     -l, --location <location>                  the location
+     -a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network
       For example -a 10.0.0.0/24,10.0.1.0/24.
       Default value is 10.0.0.0/8
 
     -d, --dns-servers <dns-servers>            the comma separated list of DNS servers IP addresses
-    -t, --tags <tags>                          the tags set on this virtual network.
+     -t, --tags <tags>                          the tags set on this virtual network.
       Can be multiple. In the format of "name=value".
       Name is required and value is optional.
       For example, -t tag1=value1;tag2
@@ -579,14 +583,14 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 매개 변수 옵션:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -e, --vnet-name <vnet-name>            the name of the virtual network
-    -n, --name <name>                      the subnet name
-    -s, --subscription <subscription>      the subscription identifier
-    -q, --quiet                            quiet mode, do not ask for delete confirmation
+     -h, --help                             output usage information
+     -v, --verbose                          use verbose output
+     --json                                 use json output
+     -g, --resource-group <resource-group>  the name of the resource group
+     -e, --vnet-name <vnet-name>            the name of the virtual network
+     -n, --name <name>                      the subnet name
+     -s, --subscription <subscription>      the subscription identifier
+     -q, --quiet                            quiet mode, do not ask for delete confirmation
 
 **부하 분산 장치를 관리하는 명령**
 
@@ -681,13 +685,13 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 매개 변수 옵션:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -n, --name <name>                      the name of the load balancer
-    -q, --quiet                            quiet mode, do not ask for delete confirmation
-    -s, --subscription <subscription>      the subscription identifier
+     -h, --help                             output usage information
+     -v, --verbose                          use verbose output
+     --json                                 use json output
+     -g, --resource-group <resource-group>  the name of the resource group
+     -n, --name <name>                      the name of the load balancer
+     -q, --quiet                            quiet mode, do not ask for delete confirmation
+     -s, --subscription <subscription>      the subscription identifier
 
 **부하 분산 장치의 검색을 관리하는 명령**
 
@@ -704,9 +708,9 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 매개 변수 옵션:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
+     -h, --help                             output usage information
+     -v, --verbose                          use verbose output
+     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -l, --lb-name <lb-name>                the name of the load balancer
     -n, --name <name>                      the name of the probe
@@ -1031,12 +1035,12 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 매개 변수 옵션:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -s, --subscription <subscription>      the subscription identifier
+     -h, --help                             output usage information
+     -v, --verbose                          use verbose output
+     --json                                 use json output
+     -g, --resource-group <resource-group>  the name of the resource group
+     -l, --lb-name <lb-name>                the name of the load balancer
+     -s, --subscription <subscription>      the subscription identifier
 
 <BR>
     network lb address-pool delete [options] <resource-group> <lb-name> <name>
@@ -1574,7 +1578,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     network gateway list [options] <resource-group>
 
-## <a name="azure-provider:-commands-to-manage-resource-provider-registrations"></a>azure provider: 리소스 공급자 등록을 관리하는 명령
+## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>azure provider: 리소스 공급자 등록을 관리하는 명령
 **Resource Manager에 현재 등록된 공급자 나열**
 
     provider list [options]
@@ -1591,7 +1595,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     provider unregister [options] <namespace>
 
-## <a name="azure-resource:-commands-to-manage-your-resources"></a>azure group: 리소스를 관리하는 명령
+## <a name="azure-resource-commands-to-manage-your-resources"></a>azure group: 리소스를 관리하는 명령
 **리소스 그룹에 리소스 만들기**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1612,7 +1616,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
-## <a name="azure-role:-commands-to-manage-your-azure-roles"></a>azure role: Azure 역할을 관리하는 명령
+## <a name="azure-role-commands-to-manage-your-azure-roles"></a>azure role: Azure 역할을 관리하는 명령
 **모든 사용 가능한 역할 정의 가져오기**
 
     role list [options]
@@ -1627,7 +1631,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage:-commands-to-manage-your-storage-objects"></a>azure storage: 저장소 개체를 관리하는 명령
+## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>azure storage: 저장소 개체를 관리하는 명령
 **저장소 계정을 관리하는 명령**
 
     storage account list [options]
@@ -1750,7 +1754,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="azure-tag:-commands-to-manage-your-resource-manager-tag"></a>azure tag: 리소스 관리자 태그를 관리하는 명령
+## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>azure tag: 리소스 관리자 태그를 관리하는 명령
 **태그 추가**
 
     tag create [options] <name> <value>
@@ -1767,7 +1771,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     tag show [options] [name]
 
-## <a name="azure-vm:-commands-to-manage-your-azure-virtual-machines"></a>azure vm: Azure 가상 컴퓨터를 관리하는 명령
+## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>azure vm: Azure 가상 컴퓨터를 관리하는 명령
 **VM 만들기**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1857,6 +1861,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

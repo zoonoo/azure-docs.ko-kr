@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5fa7882653d6a41376cffb0eaca78c8d05044dc2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
 
 
 ---
-# <a name="getting-started-with-an-azure-multifactor-auth-provider"></a>Azure Multi-Factor Auth 공급자 시작
+# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Azure Multi-Factor Auth 공급자 시작
 두 단계 인증은 기본적으로 Azure Active Directory 및 Office 365 사용자가 있는 전역 관리자를 위해 사용할 수 있습니다. 그러나 [고급 기능](multi-factor-authentication-whats-next.md)을 활용하려는 경우 Azure MFA(Multi-Factor Authentication)의 전체 버전을 구입해야 합니다.
 
 > [!NOTE]
@@ -35,7 +35,7 @@ SDK를 다운로드하려면 Azure Multi-Factor Auth 공급자가 필요합니�
 > 
 > 
 
-## <a name="to-create-a-multifactor-auth-provider"></a>Multi-Factor Auth 공급자를 만들려면
+## <a name="to-create-a-multi-factor-auth-provider"></a>Multi-Factor Auth 공급자를 만들려면
 다음 단계를 따라 Azure Multi-Factor Auth 공급자를 만듭니다.
 
 1. 관리자 권한으로 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
@@ -64,6 +64,6 @@ SDK를 다운로드하려면 Azure Multi-Factor Auth 공급자가 필요합니�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

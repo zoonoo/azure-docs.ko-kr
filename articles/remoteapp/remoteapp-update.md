@@ -1,24 +1,28 @@
 ---
-title: Azure RemoteApp 컬렉션 업데이트 | Microsoft Docs
-description: Azure RemoteApp 컬렉션 업데이트 방법
+title: "Azure RemoteApp 컬렉션 업데이트 | Microsoft 문서"
+description: "Azure RemoteApp 컬렉션 업데이트 방법"
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: e553d432-e581-48fe-b996-c432357eb64a
 ms.service: remoteapp
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: compute
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 593718b0d0d99f813321cb9ad6a7241e2315f6d0
+
 
 ---
-# Azure RemoteApp에서 컬렉션 업데이트
+# <a name="update-a-collection-in-azure-remoteapp"></a>Azure RemoteApp에서 컬렉션 업데이트
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -29,7 +33,7 @@ ms.author: elizapo
 그렇다면 컬렉션은 어떻게 업데이트할 수 있을까요? 방법은 상당히 간단합니다.
 
 1. 컬렉션에 사용되는 이미지를 업데이트합니다. 필요한 모든 패치 또는 업데이트를 적용하고 새 이름으로 저장합니다.
-2. 이 이미지를 RemoteApp으로 [업로드](remoteapp-uploadimage.md) 또는 [가져오기](remoteapp-image-on-azurevm.md)합니다.
+2. 해당 이미지를 RemoteApp으로 [업로드](remoteapp-uploadimage.md) 또는 [가져오기](remoteapp-image-on-azurevm.md)를 수행합니다.
 3. 이제 컬렉션 페이지에서 **업데이트**를 클릭합니다.
 4. **템플릿 이미지** 목록에서 새 이미지를 선택합니다.
 5. 여기서 신경 쓸 부분이 하나 있습니다. 컬렉션의 앱을 현재 사용하고 있는 사용자를 어떻게 처리할까 하는 부분을 결정해야 합니다. 다음 옵션이 있습니다.
@@ -38,4 +42,9 @@ ms.author: elizapo
    * **사용자를 즉시 로그아웃**. 업데이트가 완료되면 경고 없이 모든 사용자를 자동으로 로그오프합니다. 이 옵션을 선택하면 사용자가 데이터를 잃을 수 있습니다. 그러나 즉시 앱에 다시 연결하는 것은 가능합니다.
 6. 확인 표시를 클릭하여 업데이트를 시작합니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

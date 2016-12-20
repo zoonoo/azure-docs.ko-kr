@@ -1,13 +1,13 @@
 ---
-title: Linux 기반 HDInsight에서 Hadoop MapReduce 샘플을 실행 | Microsoft Docs
-description: Linux 기반 HDInsight에서 MapReduce 샘플 사용 시작 SSH를 사용하여 클러스터에 연결한 다음 Hadoop 명령을 사용하여 샘플 작업을 실행합니다.
+title: "Linux 기반 HDInsight에서 Hadoop MapReduce 샘플 실행 | Microsoft 문서"
+description: "Linux 기반 HDInsight에서 MapReduce 샘플 사용 시작 SSH를 사용하여 클러스터에 연결한 다음 Hadoop 명령을 사용하여 샘플 작업을 실행합니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d4b6db263becb722cabfab2160c0a460034eae72
+
 
 ---
 # <a name="run-the-hadoop-samples-in-hdinsight"></a>HDInsight에서 Hadoop 샘플 실행
@@ -61,7 +65,7 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 **소스 코드**: 이러한 샘플에 대한 소스 코드는 HDInsight 클러스터 **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**에 포함되어 있습니다.
 
 > [!NOTE]
-> `2.2.4.9-1` 은 HDInsight 클러스터용 Hortonworks Data Platform의 버전이며 HDInsight 업데이트 시 변경될 수 있습니다.
+>  `2.2.4.9-1` 은 HDInsight 클러스터용 Hortonworks Data Platform의 버전이며 HDInsight 업데이트 시 변경될 수 있습니다.
 > 
 > 
 
@@ -133,7 +137,7 @@ Sudoku 예제에는 "Include a puzzle on the command line" 등 다소 유용하�
     ? ? ? ? 4 5 ? 7 8
 
 > [!NOTE]
-> `2.2.4.9-1` 부분은 HDInsight 클러스터에 업데이트가 적용됨에 따라 변경될 수 있습니다.
+>  `2.2.4.9-1` 부분은 HDInsight 클러스터에 업데이트가 적용됨에 따라 변경될 수 있습니다.
 > 
 > 
 
@@ -153,7 +157,7 @@ Sudoku 예제를 통해 이를 실행하려면 다음 명령을 사용합니다.
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## <a name="pi-(π)"></a>Pi(π)
+## <a name="pi-"></a>Pi(π)
 Pi 샘플에서는 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 추정합니다. 단위 정사각형 내에 무작위로 놓인 점은 원의 영역과 같은 확률인 Pi/4로 해당 정사각형 내의 내접원 안에 들어갑니다. Pi의 값은 4R의 값에서 추정할 수 있습니다. 여기에서 R은 정사각형 내에 있는 점의 총수에 대한 원 내부에 있는 점 개수의 비율입니다. 사용한 점 샘플이 크면 클수록 추정이 향상됩니다.
 
 이 샘플의 mapper는 단위 정사각형 내에 무작위로 놓인 점의 개수를 생성한 후 원 내부에 있는 해당 점 개수를 계산합니다.
@@ -220,6 +224,6 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

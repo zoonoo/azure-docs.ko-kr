@@ -17,12 +17,12 @@ ms.topic: get-started-article
 ms.date: 09/06/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7baf1aa756221df62a36cd975ffb92fc8cd27232
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 74416d2740c4eaa49d508468df68fdb786ea2902
 
 
 ---
-# <a name="use-hdfscompatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop로 HDFS 호환 가능한 Azure Blob 저장소 사용
+# <a name="use-hdfs-compatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop로 HDFS 호환 가능한 Azure Blob 저장소 사용
 HDInsight로 저비용 Azure Blob 저장소를 사용하고 Azure 저장소 계정 및 Blob 저장소 컨테이너를 만든 다음 데이터 내부에서 해결하는 방법에 대해 알아봅니다.
 
 Azure Blob 저장소는 HDInsight와 매끄럽게 통합되는 강력한 범용 저장소 솔루션입니다. HDFS(Hadoop Distributed File System) 인터페이스를 통해 HDInsight의 전체 구성 요소 집합을 Blob 저장소에서 구조적 또는 비구조적 데이터에 대해 직접 작동할 수 있습니다.
@@ -34,12 +34,12 @@ Blob 저장소에 데이터를 저장하면 사용자 데이터 손실 없이 �
 > 
 > 
 
-HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight 시작][hdinsight-get-started] 및 [HDInsight 클러스터 만들기][hdinsight-creation]를 참조하세요.
+HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight 시작하기][hdinsight-get-started] 또는 [HDInsight 클러스터 만들기][hdinsight-creation]를 참조하세요.
 
 ## <a name="hdinsight-storage-architecture"></a>HDInsight 저장소 아키텍처
 다음 다이어그램은 HDInsight 저장소 아키텍처의 추상 보기를 제공합니다.
 
-![Hadoop 클러스터는 HDFS API를 사용하여 Blob 저장소의 구조적 및 비구조적 데이터에 액세스하고 저장합니다.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
+![Hadoop 클러스터는 HDFS API를 사용하여 Blob Storage의 구조적 및 비구조적 데이터에 액세스하고 저장합니다.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage 아키텍처")
 
 HDInsight는 컴퓨터 노드에 로컬로 연결된 분산 파일 시스템에 대한 액세스를 제공합니다. 정규화된 URI를 사용하여 이 파일 시스템에 액세스할 수 있습니다. 예를 들어:
 
@@ -78,7 +78,7 @@ Hive, MapReduce, Hadoop 스트리밍 및 Pig를 비롯한 여러 WebHCat 작업�
 
 HDFS 대신Azure Blob 저장소에 데이터를 저장할 경우 몇 가지 이점이 있습니다:
 
-* **데이터 다시 사용 및 공유:** HDFS의 데이터는 계산 클러스터 내에 있습니다. 계산 클러스터에 액세스할 수 있는 응용 프로그램만 HDFS API를 통해 데이터를 사용할 수 있습니다. Azure Blob Storage는 HDFS API 또는 [Blob Storage REST API][blob-storage-restAPI]를 통해 액세스될 수 있습니다. 따라서 데이터의 생성과 소비에 더 많은 응용 프로그램(기타 HDInsight 클러스터 포함)과 도구를 사용할 수 있습니다.
+* **데이터 다시 사용 및 공유:** HDFS의 데이터는 계산 클러스터 내에 있습니다. 계산 클러스터에 액세스할 수 있는 응용 프로그램만 HDFS API를 통해 데이터를 사용할 수 있습니다. Azure Blob Storage의 데이터는 HDFS API 또는 [Blob Storage REST API][blob-storage-restAPI]를 통해 액세스할 수 있습니다. 따라서 데이터의 생성과 소비에 더 많은 응용 프로그램(기타 HDInsight 클러스터 포함)과 도구를 사용할 수 있습니다.
 * **데이터 보관:** Blob 저장소에 데이터를 저장하면 계산에 사용된 HDInsight 클러스터를 사용자 데이터 손실 없이 안전하게 삭제할 수 있습니다.
 * **데이터 저장 비용:** 데이터를 장기간 저장하는 경우 DFS에 저장하는 것이 Azure Blob 저장소에 저장하는 것보다 비용이 많이 드는데, 이는 계산 클러스터의 비용이 Azure Blob 저장소 컨테이너의 비용보다 비싸기 때문입니다. 또한 계산 클러스터를 생성할 때마다 데이터를 다시 로드할 필요가 없기 때문에 데이터 로드 비용도 절약됩니다.
 * **탄력적인 확장:** HDFS는 확장된 파일 시스템을 제공하지만, 확장은 클러스터에 대해 만드는 노드의 수에 의해 결정됩니다. 규모를 변경하는 것이 Azure Blob Storage에서 자동으로 수행되는 탄력적인 확장 기능에 의존하는 것보다 더 복잡한 프로세스가 될 수 있습니다.
@@ -92,7 +92,7 @@ HDFS 대신Azure Blob 저장소에 데이터를 저장할 경우 몇 가지 이�
 > 
 
 ## <a name="create-blob-containers"></a>Blob 컨테이너 만들기
-Blob을 사용하려면 먼저 [Azure Storage 계정][azure-storage-create]을 만들어야 합니다. 이 작업의 일부로, 이 계정을 사용하여 만드는 개체를 저장할 Azure 지역을 지정합니다. 클러스터와 저장소 계정은 동일한 지역에서 호스팅되어야 합니다. Hive Metastore SQL Server 데이터베이스 및 Oozie Metastore SQL Server 데이터베이스도 동일한 지역에 위치해야 합니다.
+Blob을 사용하려면 먼저 [Azure Storage 계정][azure-storage-create]을 만듭니다. 이 작업의 일부로, 이 계정을 사용하여 만드는 개체를 저장할 Azure 지역을 지정합니다. 클러스터와 저장소 계정은 동일한 지역에서 호스팅되어야 합니다. Hive Metastore SQL Server 데이터베이스 및 Oozie Metastore SQL Server 데이터베이스도 동일한 지역에 위치해야 합니다.
 
 어디에 있든, 만들어진 각 Blob은 Azure 저장소 계정의 일부 컨테이너에 속합니다. 이 컨테이너는 HDInsight 외부에 생성된 기존 Blob일 수도 있고 HDInsight 클러스터용으로 생성된 컨테이너일 수도 있습니다.
 
@@ -289,7 +289,7 @@ $clusterName = "<HDInsightClusterName>"
 * [Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: ../powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -305,6 +305,6 @@ $clusterName = "<HDInsightClusterName>"
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

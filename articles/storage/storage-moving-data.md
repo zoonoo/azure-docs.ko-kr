@@ -1,19 +1,23 @@
 ---
-title: Azure 저장소의 데이터 이동 | Microsoft Docs
-description: 이 문서에서는 Azure 저장소의 데이터를 이동하는 여러 방법을 개략적으로 설명합니다.
+title: "Azure Storage의 데이터 이동 | Microsoft Docs"
+description: "이 문서에서는 Azure 저장소의 데이터를 이동하는 여러 방법을 개략적으로 설명합니다."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: micurd
 manager: jahogg
 editor: tysonn
-
+ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 11/18/2016
 ms.author: micurd
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26dc2d2269855bcb31bc8f6faf2277ac059b81f5
+
 
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure 저장소의 데이터 이동
@@ -28,7 +32,7 @@ Azure 저장소는 .NET, iOS, Java, Android, UWP(Universal Windows Platform), Xa
 
 또한 Azure 내부/외부로 데이터를 복사할 때 고성능을 보장하도록 설계된 라이브러리인 [Azure Storage 데이터 이동 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) 도 제공됩니다. 자세한 내용은 데이터 이동 라이브러리 [설명서](https://github.com/Azure/azure-storage-net-data-movement) 를 참조하세요. 
 
-## <a name="quickly-viewing/interacting-with-your-data"></a>신속하게 데이터 보기/상호 작용
+## <a name="quickly-viewinginteracting-with-your-data"></a>신속하게 데이터 보기/상호 작용
 간편하게 Azure 저장소 데이터를 살펴보고 데이터를 업로드 및 다운로드할 수 있는 기능을 원하신다면 Azure 저장소 탐색기를 사용해 보세요.
 
 자세한 내용은 [Azure 저장소 탐색기](storage-explorers.md) 목록을 확인하세요.
@@ -71,6 +75,9 @@ Azure 저장소에 데이터를 백업해야 하는 경우 Azure 백업을 사�
 
 자세한 내용은 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) 를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

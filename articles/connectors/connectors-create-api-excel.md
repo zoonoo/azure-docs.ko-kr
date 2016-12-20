@@ -1,13 +1,13 @@
 ---
-title: Excel 커넥터 추가 | Microsoft Docs
-description: REST API 매개 변수를 사용하는 Excel 커넥터 개요
-services: ''
-documentationcenter: ''
+title: "Excel 커넥터 추가 | Microsoft Docs"
+description: "REST API 매개 변수를 사용하는 Excel 커넥터 개요"
+services: 
+documentationcenter: 
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 03af8652-9223-4348-9490-602872a680f0
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4fe8a9dfd00ef85382733dcb2488c62ab651bc56
+
 
 ---
-# Excel 커넥터 시작
-현재는 논리 앱에 Excel 커넥터가 없습니다.
+# <a name="get-started-with-the-excel-connector"></a>Excel 커넥터 시작
+현재는 논리 앱에 Excel 커넥터가 없습니다. 
 
-## Excel 데이터를 사용하려면
+## <a name="to-use-excel-data"></a>Excel 데이터를 사용하려면
 Excel 데이터를 저장소 폴더(예: [OneDrive](connectors-create-api-onedrive.md))에 쉼표로 구분된 값(CSV)으로 저장할 수 있습니다. 또한 이 CSV 파일을 [플랫 파일 커넥터](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md)와 함께 사용할 수도 있습니다.
 
 <!---
@@ -213,4 +217,8 @@ Applies to version: 1.0.
 
 -->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

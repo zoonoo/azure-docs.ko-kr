@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: fbd98ba8100dddf870c8d40d65edc9709bfeda41
-ms.openlocfilehash: 4023b92302b0e7462ff5c067b4ded3123a6f6bcb
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: b3774d229255bbcab433e570e679678e70761f05
 
 ---
 # <a name="site-recovery-documentation"></a>Site Recovery 설명서
@@ -87,8 +87,8 @@ Azure Site Recovery는 온-프레미스 가상 컴퓨터와 물리적 서버의 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Site Recovery REST API 참조</p>
+                        <h3>REST (영문)</h3>
+                        <p>사이트 복구 REST API</p>
                     </div>
                 </div>
             </div>
@@ -107,6 +107,6 @@ Site Recovery 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

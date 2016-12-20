@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fcc3e2cb76a06607d0bfbbad810968b70d67e4f4
+ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
+ms.openlocfilehash: eddc3e7c4914936a8a83a042dc0f7d528b91f059
 
 
 ---
@@ -38,14 +38,14 @@ Azure 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있
 * [이벤트 허브 개요](event-hubs-overview.md)
 * [이벤트 허브 프로그래밍 가이드](event-hubs-programming-guide.md)
 * [이벤트 허브 가용성 및 지원 FAQ](event-hubs-availability-and-support-faq.md)
-* [Event Hubs 자습서][Event Hubs tutorial]를 시작합니다.
-* 전체 [Event Hubs를 사용하는 샘플 응용 프로그램][sample application that uses Event Hubs]
+* [Event Hubs 자습서][Event Hubs tutorial] 시작
+* [Event Hubs를 사용하는 응용 프로그램 예제][sample application that uses Event Hubs] 전체
 
-[이벤트 허브 자습서]: event-hubs-csharp-ephcs-getstarted.md
-[이벤트 허브를 사용하는 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

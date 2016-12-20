@@ -1,11 +1,11 @@
 ---
-title: '자습서: Picturepark와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory에서 Picturepark를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다.
+title: "자습서: Picturepark와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory에서 Picturepark를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 31c21cd4-9c00-4cad-9538-a13996dc872f
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98f2e5596a0af2fc9e633e005642cc3cd21621ce
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-picturepark"></a>자습서: Picturepark와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>자습서: Picturepark와 Azure Active Directory 통합
 이 자습서는 Azure 및 Picturepark의 통합을 보여 주기 위한 것입니다.  
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -36,7 +40,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-picturepark"></a>Picturepark에 응용 프로그램 통합 사용
 이 섹션은 Picturepark에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
-### <a name="to-enable-the-application-integration-for-picturepark,-perform-the-following-steps:"></a>Picturepark에 응용 프로그램 통합을 사용하도록 설정하려면
+### <a name="to-enable-the-application-integration-for-picturepark-perform-the-following-steps"></a>Picturepark에 응용 프로그램 통합을 사용하도록 설정하려면
 1. Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
    ![Active Directory](./media/active-directory-saas-picturepark-tutorial/IC700993.png "Active Directory")
@@ -62,7 +66,7 @@ ms.author: jeedes
 Picturepark에 대한 Single Sign-On을 구성하려면 인증서의 지문(thumbprint) 값을 검색해야 합니다.  
 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **Picturepark** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
    ![Single Sign-on 구성](./media/active-directory-saas-picturepark-tutorial/IC795058.png "Configure Single Sign-On")
@@ -108,7 +112,7 @@ Picturepark에 대한 Single Sign-On을 구성하려면 인증서의 지문(thum
 Azure AD 사용자가 Picturepark에 로그인할 수 있도록 하려면 Picturepark로 프로비전되어야 합니다.  
 Picturepark의 경우 프로비전은 수동 작업입니다.
 
-### <a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
+### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 1. **Picturepark** 테넌트에 로그인합니다.
 2. 위쪽의 도구 모음에서 **관리 도구**를 클릭한 다음 **사용자**를 클릭합니다.
    
@@ -132,7 +136,7 @@ Picturepark의 경우 프로비전은 수동 작업입니다.
 ## <a name="assigning-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
-### <a name="to-assign-users-to-picturepark,-perform-the-following-steps:"></a>Picturepark에 사용자를 할당하려면 다음 단계를 수행합니다.
+### <a name="to-assign-users-to-picturepark-perform-the-following-steps"></a>Picturepark에 사용자를 할당하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **Picturepark **응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
@@ -143,6 +147,9 @@ Picturepark의 경우 프로비전은 수동 작업입니다.
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

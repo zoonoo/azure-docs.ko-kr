@@ -1,26 +1,30 @@
 ---
-title: OMS의 네트워크 성능 모니터 | Microsoft Docs
-description: 네트워크 성능 모니터를 사용하면 네트워크 성능을 거의 실시간으로 모니터링하여 네트워크 성능 병목을 감지하고 찾을 수 있습니다.
+title: "OMS의 네트워크 성능 모니터 | Microsoft Docs"
+description: "네트워크 성능 모니터를 사용하면 네트워크 성능을 거의 실시간으로 모니터링하여 네트워크 성능 병목을 감지하고 찾을 수 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: 4f5c7208cabc565c4f5dddc917c4756ae4776c33
+
 
 ---
-# <a name="network-performance-monitor-(preview)-solution-in-oms"></a>OMS의 네트워크 성능 모니터(미리 보기)
+# <a name="network-performance-monitor-preview-solution-in-oms"></a>OMS의 네트워크 성능 모니터(미리 보기)
 > [!NOTE]
 > [미리 보기 솔루션](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features)입니다.
-> 
-> 
+>
+>
 
 이 문서는 OMS에서 네트워크 성능을 거의 실시간으로 모니터링하여 네트워크 성능 병목을 감지하고 찾을 수 있는 네트워크 성능 모니터 솔루션을 설정하고 사용하는 방법에 대해 설명합니다. 네트워크 성능 모니터 솔루션에서는 두 네트워크, 서브넷 또는 서버 간 손실과 대기 시간을 모니터링할 수 있습니다. 네트워크 성능 모니터는 트래픽 블랙홀, 라우팅 오류 등의 네트워크 문제와 기존 네트워크 모니터링 방법으로 감지할 수 없는 문제를 감지합니다. 네트워크 성능 모니터는 네트워크 링크의 임계값이 위반될 때 경고와 알림을 표시합니다. 이러한 임계값은 시스템에서 자동으로 학습할 수 있으며 사용자 지정 경고 규칙을 사용하도록 구성할 수도 있습니다. 네트워크 성능 모니터는 네트워크 성능 문제를 빠르게 감지하고 문제의 소스를 특정 네트워크 세그먼트 또는 장치로 지역화합니다.
 
@@ -48,8 +52,8 @@ ms.author: banders
 
 > [!NOTE]
 > 네트워크 리소스를 검색 및 모니터링하는 데 충분한 데이터를 확보하려면 2개 이상의 에이전트를 설치해야 합니다. 그렇지 않을 경우 추가 에이전트를 설치 및 구성할 때까지 솔루션이 구성 중 상태로 유지됩니다.
-> 
-> 
+>
+>
 
 ### <a name="where-to-install-the-agents"></a>에이전트 설치 위치
 에이전트를 설치하기 전에 네트워크 토폴로지 및 모니터링할 네트워크 부분을 고려하십시오. 모니터링하려는 각 서브넷에 대해 둘 이상의 에이전트를 설치하는 것이 좋습니다. 즉, 모니터링하려는 모든 서브넷에 대해 둘 이상의 서버 또는 VM을 선택하고 여기에 에이전트를 설치합니다.
@@ -67,8 +71,8 @@ ms.author: banders
 
 > [!NOTE]
 > EnableRules.ps1 스크립트는 스크립트가 실행되는 컴퓨터에서만 Windows 방화벽 규칙을 구성합니다. 네트워크 방화벽이 있는 경우 네트워크 성능 모니터에서 사용하는 TCP 포트로 트래픽이 전송될 수 있도록 해야 합니다.
-> 
-> 
+>
+>
 
 ## <a name="configuring-the-solution"></a>솔루션 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
@@ -158,8 +162,8 @@ ms.author: banders
 
 > [!NOTE]
 > 에이전트가 서로 자주 통신하긴 하지만 테스트를 수행하는 동안 많은 네트워크 트래픽을 생성하지 않습니다. 에이전트는 TCP SYN-SYNACK-ACK 핸드셰이크에만 의존하여 손실과 대기 시간을 결정하며 데이터 패킷은 교환되지 않습니다. 이 프로세스에서 에이전트는 필요할 때에만 다른 에이전트와 통신하며 네트워크 트래픽을 줄이도록 에이전트 통신 토폴로지가 최적화됩니다.
-> 
-> 
+>
+>
 
 ## <a name="using-the-solution"></a>솔루션 사용
 이 섹션에서는 모든 대시보드 기능과 사용 방법에 대해 설명합니다.
@@ -233,13 +237,15 @@ ms.author: banders
 5. 선택된 두 노드 사이의 모든 패스가 토폴로지 맵에 그려져 있습니다. 토폴로지 맵에서 두 노드 간 경로의 홉 단위 토폴로지를 시각화할 수 있습니다. 이를 통해 두 노드 간 존재하는 경로 수와 데이터 패킷이 사용하는 패스를 분명히 확인할 수 있습니다. 네트워크 성능 병목은 빨간색으로 표시되어 있습니다. 토폴로지 맵에서 빨간색으로 표시된 요소를 찾아 문제가 있는 네트워크 연결 또는 장애가 발생한 네트워크 장치를 찾을 수 있습니다.  
    ![비정상 토폴로지 보기 예](./media/log-analytics-network-performance-monitor/npm-investigation05.png)
 6. 각 패스의 손실, 지연 시간, 홉 수는 **Path Details** 창에서 검토할 수 있습니다. 이 예제에서는 창에 표시된 대로 비정상 패스가 3개인 것을 확인할 수 있습니다. 비정상 패스의 세부 정보를 보려면 스크롤 막대를 사용합니다.  한 패스의 토폴로지만 그리려면 확인란을 사용하여 한 개 패스만 선택합니다. 마우스 휠을 사용하여 토폴로지 맵을 확대 또는 축소할 수 있습니다.
-   
+
    아래 이미지에서 빨간색으로 표시된 패스와 홉을 확인하여 문제 영역의 근본 원인이 네트워크의 특정 섹션에 있는 것을 확인할 수 있습니다. 토폴로지 맵에서 노드를 클릭하면 FQDN, IP 주소 등의 노드 속성이 표시됩니다. 홉을 클릭하면 홉의 IP 주소가 표시됩니다.  
    ![비정상 토폴로지 - 패스 세부 정보 예](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
 
 ## <a name="next-steps"></a>다음 단계
 * 자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](log-analytics-log-searches.md)을 수행합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

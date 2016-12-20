@@ -1,12 +1,12 @@
 ---
-title: 저장소 액세스 키 롤링 후 Media Services 업데이트 | Microsoft Docs
-description: 이 문서에서는 저장소 액세스 키를 롤링한 후 미디어 서비스를 업데이트하는 방법에 대한 지침을 제공합니다.
+title: "저장소 액세스 키 롤링 후 Media Services 업데이트 | Microsoft Docs"
+description: "이 문서에서는 저장소 액세스 키를 롤링한 후 미디어 서비스를 업데이트하는 방법에 대한 지침을 제공합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: milangada;cenkdin;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
+ms.openlocfilehash: a979519dc617f40e6f090a412d17aa7778cbcf69
+
 
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>저장소 액세스 키 롤링 후 Media Services 업데이트
@@ -25,15 +29,15 @@ ms.author: milangada;cenkdin;juliako
 
 > [!NOTE]
 > 여러 저장소 계정이 있는 경우 각각의 저장소 계정마다 이 과정을 수행해야 합니다.
-> 
+>
 > 이 토픽에서 설명한 단계를 프로덕션 계정에서 실행하기 전에 사전 프로덕션 계정에서 테스트해야 합니다.
-> 
-> 
+>
+>
 
-## <a name="step-1:-regenerate-secondary-storage-access-key"></a>1단계: 보조 저장소 액세스 키 다시 생성
-보조 저장소 키 다시 생성을 시작합니다. 기본적으로 보조 키는 미디어 서비스에서 사용됩니다.  저장소 키를 롤링하는 방법에 대한 자세한 내용은 [방법: 저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+## <a name="step-1-regenerate-secondary-storage-access-key"></a>1단계: 보조 저장소 액세스 키 다시 생성
+보조 저장소 키 다시 생성을 시작합니다. 기본적으로 보조 키는 미디어 서비스에서 사용됩니다.  저장소 키를 롤링하는 방법에 대한 자세한 내용은 [방법: 저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)을 참조하세요.
 
-## <a name="<a-id="step2"></a>step-2:-update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>2단계: Media Services를 업데이트하여 새 보조 저장소 키 사용
+## <a name="a-idstep2astep-2-update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>2단계: Media Services를 업데이트하여 새 보조 저장소 키 사용
 미디어 서비스를 업데이트하여 보조 저장소 액세스 키를 사용합니다. 다음 두 가지 방법 중 하나를 사용하여 미디어 서비스와 다시 생성된 저장소 키를 동기화할 수 있습니다.
 
 * Azure Portal 사용: 이름 및 키 값을 찾으려면 Azure Portal로 이동하여 계정을 선택합니다. 설정 창이 오른쪽에 나타납니다. 설정 창에서 키를 선택합니다. 미디어 서비스와 동기화하려는 저장소 키에 따라 기본 키 동기화 또는 보조 키 동기화 단추를 선택합니다. 이 경우에는 보조 키를 사용합니다.
@@ -79,14 +83,14 @@ ms.author: milangada;cenkdin;juliako
 
 > [!NOTE]
 > 보류 중인 작업에 영향을 받지 않기 위해 미디어 서비스와 함께 작업을 수행하기 전에 30분 가량 기다립니다.
-> 
-> 
+>
+>
 
-## <a name="step-3:-update-locators"></a>3단계: 로케이터 업데이트
+## <a name="step-3-update-locators"></a>3단계: 로케이터 업데이트
 > [!NOTE]
 > 저장소 액세스 키를 롤링할 때 기존 로케이터 업데이트를 확인해야 스트리밍 서비스에서의 중단이 없습니다.
-> 
-> 
+>
+>
 
 새 저장소 키를 AMS와 동기화 한 후 30분 이상 기다립니다. 그런 다음 지정된 저장소 키에 대한 종속성을 가져오고 기존 URL을 유지할 수 있도록 주문형 로케이터를 다시 만듭니다.
 
@@ -94,8 +98,8 @@ SAS 로케이터를 업데이트하거나 다시 만들 때마다 URL이 변경�
 
 > [!NOTE]
 > 주문형 로케이터의 기존 URL을 유지하려면 기존 로케이터를 삭제하고 동일한 ID로 새 로케이터를 만들어야 합니다.
-> 
-> 
+>
+>
 
 아래 .NET 예제에서는 동일한 ID로 로케이터를 다시 만드는 방법을 보여줍니다.
 
@@ -122,18 +126,18 @@ if (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.
     }
 
 
-## <a name="step-5:-regenerate-primary-storage-access-key"></a>5단계: 기본 저장소 액세스 키 다시 생성
-기본 저장소 액세스 키를 다시 생성합니다. 저장소 키를 롤링하는 방법에 대한 자세한 내용은 [방법: 저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+## <a name="step-5-regenerate-primary-storage-access-key"></a>5단계: 기본 저장소 액세스 키 다시 생성
+기본 저장소 액세스 키를 다시 생성합니다. 저장소 키를 롤링하는 방법에 대한 자세한 내용은 [방법: 저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)을 참조하세요.
 
-## <a name="step-6:-update-media-services-to-use-the-new-primary-storage-key"></a>6단계: 미디어 서비스를 업데이트하여 새 기본 저장소 키 사용
+## <a name="step-6-update-media-services-to-use-the-new-primary-storage-key"></a>6단계: 미디어 서비스를 업데이트하여 새 기본 저장소 키 사용
 이번에만 [2단계](media-services-roll-storage-access-keys.md#step2) 에서 설명한 것과 동일한 과정을 통해 새 기본 저장소 액세스 키와 Media Services 계정을 동기화합니다.
 
 > [!NOTE]
 > 보류 중인 작업에 영향을 받지 않기 위해 미디어 서비스와 함께 작업을 수행하기 전에 30분 가량 기다립니다.
-> 
-> 
+>
+>
 
-## <a name="step-7:-update-locators"></a>7단계: 로케이터 업데이트
+## <a name="step-7-update-locators"></a>7단계: 로케이터 업데이트
 30분 후 주문형 로케이터를 다시 만들어 새 기본 저장소 키에 대한 종속성을 가져오고 기존의 URL을 유지할 수 있습니다.
 
 [3단계](media-services-roll-storage-access-keys.md#step-3-update-locators)에 설명된 것과 동일한 절차를 사용하세요.
@@ -147,6 +151,8 @@ if (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.
 ### <a name="acknowledgments"></a>승인
 이 문서를 만들 때 기여한 다음 사람들에게 감사 드리고자 합니다. Cenk Dingiloglu, Milan Gada, Seva Titov
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

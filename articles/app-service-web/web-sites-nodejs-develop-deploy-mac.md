@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c63b2b59143b57d6666910e701d8810bd517a42d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2537b0c4dcc71d02d25959a0b21d96bce7deaac6
 
 
 ---
@@ -45,7 +45,7 @@ ms.openlocfilehash: c63b2b59143b57d6666910e701d8810bd517a42d
 더 복잡한 Node.js 응용 프로그램을 가진 자습서 및 샘플 코드 또는 Azure에서 Node.js를 사용하는 방법에 대한 다른 항목은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 
 > [!NOTE]
-> 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 Visual Studio 구독자 혜택](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)을 [활성화하거나 [무료 평가판을 등록](/en-us/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
+> 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/en-us/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 > 
 > Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
 > 
@@ -186,7 +186,7 @@ Node.js는 응용 프로그램에 사용될 수 있는 풍부한 모듈 에코�
 
 응용 프로그램을 Azure에 배포한 후 문제가 발생하는 경우 [Azure 앱 서비스에서 Node.js 응용 프로그램을 디버그하는 방법](web-sites-nodejs-debug.md) 에서 문제를 진단하는 방법에 대한 정보를 참조하세요.
 
-이 문서에서는 Azure 포털을 사용하여 웹앱을 만듭니다. 또한 [Azure 명령줄 인터페이스](../xplat-cli-install.md) 또는 [Azure PowerShell](../powershell-install-configure.md)을 사용하여 동일한 작업을 수행할 수 있습니다.
+이 문서에서는 Azure 포털을 사용하여 웹앱을 만듭니다. 또한 [Azure 명령줄 인터페이스](../xplat-cli-install.md) 또는 [Azure PowerShell](/powershell/azureps-cmdlets-docs)을 사용하여 동일한 작업을 수행할 수 있습니다.
 
 Azure에서 Node.js 응용 프로그램을 개발하는 방법에 대한 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 
@@ -202,6 +202,6 @@ Azure에서 Node.js 응용 프로그램을 개발하는 방법에 대한 자세�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

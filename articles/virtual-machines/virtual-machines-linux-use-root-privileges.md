@@ -1,31 +1,35 @@
 ---
-title: Linux 가상 컴퓨터에서 루트 권한 사용 | Microsoft Docs
-description: Azure의 Linux 가상 컴퓨터에서 루트 권한을 사용하는 방법에 대해 알아봅니다.
+title: "Linux 가상 컴퓨터에서 루트 권한 사용 | Microsoft Docs"
+description: "Azure의 Linux 가상 컴퓨터에서 루트 권한을 사용하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: szarkos
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: a2c106a2-dceb-43a3-9dd1-50ed77685952
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2016
+ms.date: 10/17/2016
 ms.author: szark
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1c8c5f4e622863a0961bd5e1c7a915e9511c871f
+
 
 ---
-# Azure의 Linux 가상 컴퓨터에서 루트 권한 사용
+# <a name="using-root-privileges-on-linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 컴퓨터에서 루트 권한 사용
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 기본적으로 `root` 사용자는 Azure의 Linux 가상 컴퓨터에서는 사용되지 않도록 설정됩니다. 사용자는 `sudo` 명령을 사용하여 승격된 권한으로 명령을 실행할 수 있습니다. 그러나 환경은 시스템이 프로비전된 방법에 따라 다릅니다.
 
-1. **SSH 키 및 암호 또는 암호만** - 가상 컴퓨터가 인증서(`.CER` 파일) 또는 SSH 키와 암호를 함께 사용하거나 사용자 이름 및 암호만 사용하여 프로비전되었습니다. 이 경우 `sudo`에서 명령을 실행하기 전에 사용자 암호를 묻는 메시지를 표시합니다.
-2. **SSH 키만** - 가상 컴퓨터가 암호 없이 인증서(`.cer`, `.pem` 또는 `.pub` 파일)만 사용하여 프로비전되었습니다. 이 경우 `sudo` 에서 명령을 실행하기 전에 사용자 암호를 묻는 메시지를 표시하지 **않습니다**.
+1. **SSH 키 및 암호 또는 암호만** - 가상 컴퓨터가 인증서(`.CER` 파일) 또는 SSH 키와 암호를 함께 사용하거나 사용자 이름 및 암호만 사용하여 프로비전되었습니다. 이 경우 `sudo` 에서 명령을 실행하기 전에 사용자 암호를 묻는 메시지를 표시합니다.
+2. **SSH 키만** - 가상 컴퓨터가 암호 없이 인증서(`.cer`, `.pem` 또는 `.pub` 파일)만 사용하여 프로비전되었습니다.  이 경우 `sudo` **않습니다** .
 
-## SSH 키 및 암호 또는 암호만
+## <a name="ssh-key-and-password-or-password-only"></a>SSH 키 및 암호 또는 암호만
 SSH 키 또는 암호 인증을 사용하여 Linux 가상 컴퓨터에 로그인한 후 `sudo`를 사용하여 명령을 실행합니다. 예를 들면 다음과 같습니다.
 
     # sudo <command>
@@ -40,11 +44,16 @@ SSH 키 또는 암호 인증을 사용하여 Linux 가상 컴퓨터에 로그인
 
 이렇게 변경하면 "azureuser" 사용자가 암호 없는 sudo를 사용할 수 있습니다.
 
-## SSH 키만
+## <a name="ssh-key-only"></a>SSH 키만
 SSH 키 인증을 사용하여 Linux 가상 컴퓨터에 로그인한 후 `sudo`를 사용하여 명령을 실행합니다. 예를 들면 다음과 같습니다.
 
     # sudo <command>
 
-이 경우에는 사용자에게 암호를 묻는 메시지가 **표시되지 않습니다**. `<enter>`를 누르면 `sudo`에서 `root` 권한으로 명령을 실행합니다.
+이 경우에는 사용자에게 암호를 묻는 메시지가 **표시되지 않습니다** . `<enter>`를 누르면 `sudo`에서 `root` 권한으로 명령을 실행합니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

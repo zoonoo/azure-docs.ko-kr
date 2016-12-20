@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cfd3da08a8c8674e686ae2933db331809fb0e34d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
 
 
 ---
@@ -44,9 +44,9 @@ Azure RemoteApp에서 Windows 응용 프로그램을 호스트합니다. 다음�
 ## <a name="app-and-sql-configuration-considerations"></a>앱 및 SQL 구성 고려 사항
 RemoteApp과 함께 Azure SQL을 사용하는 경우 고려해야 할 몇가지 사항이 있습니다.
 
-[Azure SQL 데이터베이스 방화벽을 구성하는 방법](../sql-database/sql-database-firewall-configure.md)을 알아봅니다. 문서의 출처에서는 다음과 같이 언급합니다. “먼저 Azure SQL 데이터베이스 서버로의 모든 액세스는 방화벽에 의해 차단됩니다. Azure SQL 데이터베이스 서버를 사용하려면 클래식 포털로 가서 Azure SQL 데이터베이스 서버로 액세스를 가능하게 하는 하나 이상의 서버 수준 방화벽 규칙을 꼭 지정해야 합니다. 방화벽 규칙을 사용하여 인터넷이 허용하는 IP 주소 범위 및 Azure 응용 프로그램 Azure SQL 데이터베이스 서버의 연결 시도 가능 여부를 지정할 수 있습니다.”
+[Azure SQL 데이터베이스 방화벽을 구성하는 방법](../sql-database/sql-database-firewall-configure.md)을 알아봅니다. 문서의 출처에서는 다음과 같이 언급합니다. "먼저 Azure SQL Database 서버로의 모든 액세스는 방화벽에 의해 차단됩니다. Azure SQL 데이터베이스 서버를 사용하려면 클래식 포털로 가서 Azure SQL 데이터베이스 서버로 액세스를 가능하게 하는 하나 이상의 서버 수준 방화벽 규칙을 꼭 지정해야 합니다. 방화벽 규칙을 사용하여 허용되는 인터넷의 IP 주소 범위 및 Azure 응용 프로그램을 Azure SQL Database 서버에 연결 시도 가능 여부를 지정할 수 있습니다."
 
-또한 컴퓨터가 인터넷의 데이터베이스로 연결을 시도할 때, 방화벽은 서버 수준 및 데이터베이스 수준(필요한 경우) 방화벽 규칙의 전체 집합 대응을 요청하는 본래 IP 주소를 확인합니다. “요청된 IP 주소가 서버 수준 방화벽 규칙의 지정된 범위 안에 있을 경우, Azure SQL 데이터베이스 서버로 연결됩니다.” 따라서 개별 원본 IP 주소 뿐만 아니라 IP 범위를 사용할 수 있습니다.
+또한 컴퓨터가 인터넷의 데이터베이스로 연결을 시도할 때, 방화벽은 서버 수준 및 데이터베이스 수준(필요한 경우) 방화벽 규칙의 전체 집합 대응을 요청하는 본래 IP 주소를 확인합니다. "요청된 IP 주소가 서버 수준 방화벽 규칙의 지정된 범위 안에 있을 경우, Azure SQL Database 서버로 연결됩니다." 따라서 개별 원본 IP 주소 뿐만 아니라 IP 범위를 사용할 수 있습니다.
 
 [방법: Azure 포털을 사용하여 SQL 데이터베이스에 방화벽 설정 구성](../sql-database/sql-database-configure-firewall-settings.md) 의 단계별 지침에 따라 IP 범위를 지정합니다. SQL 방화벽 규칙을 구성하는 경우 Azure RemoteApp 컬렉션에 지정된 서브넷의 IP 범위를 제공합니다. 이렇게 하면 ARA 서버에 동적으로 할당된 IP 주소가 있더라도 SQL DB에 연결할 수 있습니다.
 
@@ -60,6 +60,6 @@ Azure 또는 온-프레미스에 호스팅되는 SQL 데이터베이스에 연�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

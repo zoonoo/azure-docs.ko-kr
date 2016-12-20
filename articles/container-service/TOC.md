@@ -5,9 +5,7 @@
 ## [Azure CLI 2.0(미리 보기)을 사용하여 ACS에 배포](container-service-create-acs-cluster-cli.md)
 ## [ACS 클러스터와 연결](container-service-connect.md)
 ## [ACS 클러스터 확장](container-service-scale.md)
-
 # 방법
-
 ## DC/OS를 사용하여 관리
 ### [컨테이너 관리 - DC/OS 웹 UI](container-service-mesos-marathon-ui.md)
 ### [컨테이너 관리 - DC/OS REST API](container-service-mesos-marathon-rest.md)
@@ -21,16 +19,16 @@
 ### [Sysdig로 모니터링(DC/OS)](container-service-monitoring-sysdig.md)
 ## [Kubernetes를 사용하여 관리](container-service-kubernetes-walkthrough.md)
 ## [Docker Swarm을 사용하여 관리](container-service-docker-swarm.md)
-
 # 참조
-## [REST API](/rest/api/compute/containerservices)
-
+## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
+## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
+## [REST (영문)](/rest/api/compute/containerservices)
 # 리소스
 ## [지역 가용성](https://azure.microsoft.com/regions/services/)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/container-service/)
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

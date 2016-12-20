@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8e03f7b3d4b9c17b08aca033f44ebfc5f3332eec
+ms.sourcegitcommit: 312231f395f19fde98431c24b71ce7cec3061eaf
+ms.openlocfilehash: 4a1d5d706cbfb5c42a36fd03033aa361ef3d4d11
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 8e03f7b3d4b9c17b08aca033f44ebfc5f3332eec
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-create-account.md)
 > * [PowerShell](media-services-manage-with-powershell.md)
-> * [REST (영문)](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/media/mediaservice)
 > 
 > [!NOTE]
 > 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
@@ -100,6 +100,6 @@ Azure 포털을 통해 AMS(Azure 미디어 서비스) 계정을 신속하게 만
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

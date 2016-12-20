@@ -1,13 +1,13 @@
 ---
-title: PowerShell을 사용하여 Azure VM의 Always On 가용성 그룹 구성
-description: 이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, PowerShell을 사용하여 Azure에 Always On 가용성 그룹을 만듭니다.
+title: "PowerShell을 사용하여 Azure VM의 Always On 가용성 그룹 구성"
+description: "이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, PowerShell을 사용하여 Azure에 Always On 가용성 그룹을 만듭니다."
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: a4e2f175-fe56-4218-86c7-a43fb916cc64
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: mikeray
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 56eea7ff47aea37ea14c3f2a51d52ba1edf4e066
+
 
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-with-powershell"></a>PowerShell을 사용하여 Azure VM의 Always On 가용성 그룹 구성
 > [!div class="op_single_selector"]
-> * [Resource Manager: 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [리소스 관리자: 수동](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-> * [클래식: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-> * [클래식: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+> * [Resource Manager: 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [리소스 관리자: 수동](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [클래식: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [클래식: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > 
 > 
 
@@ -475,7 +479,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. **Azure VM에서 Always On 가용성 그룹을 위한 WSFC 클러스터 만들기** 에서 [CreateAzureFailoverCluster.ps1](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) 을 로컬 작업 디렉터리로 다운로드합니다. 이 스크립트를 사용하면 작동 가능한 WSFC 클러스터를 만들 수 있습니다. WSFC가 Azure 네트워크와 상호 작용하는 방식에 대한 중요 정보는 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
+7. **Azure VM에서 Always On 가용성 그룹을 위한 WSFC 클러스터 만들기** 에서 [CreateAzureFailoverCluster.ps1](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) 을 로컬 작업 디렉터리로 다운로드합니다. 이 스크립트를 사용하면 작동 가능한 WSFC 클러스터를 만들 수 있습니다. WSFC가 Azure 네트워크와 상호 작용하는 방식에 대한 중요 정보는 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 8. 작업 디렉터리로 변경하고 다운로드한 스크립트로 WSFC 클러스터를 만듭니다.
    
         Set-ExecutionPolicy Unrestricted -Force
@@ -559,10 +563,13 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
              -Database $db
 
 ## <a name="next-steps"></a>다음 단계
-이제 Azure에서 가용성 그룹을 만들어 SQL Server Always On을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
+이제 Azure에서 가용성 그룹을 만들어 SQL Server Always On을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
-Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

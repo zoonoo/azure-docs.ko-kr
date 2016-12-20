@@ -1,22 +1,27 @@
 ---
-title: PowerShell로 Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치 시작 | Microsoft Docs
-description: PowerShell을 사용하여 Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치 시작
+title: "PowerShell로 Azure SQL Database에 대해 계획 또는 계획되지 않은 장애 조치 시작 | Microsoft Docs"
+description: "PowerShell을 사용하여 Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치 시작"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 5849b600-89cb-4995-ae9f-0188a17b4e1b
 ms.service: sql-database
+ms.custom: business continuity; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 08/29/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a16d278262f6fb645163f8d94139c86019df0cde
+
 
 ---
-# PowerShell로 Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치 시작
+# <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-powershell"></a>PowerShell로 Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치 시작
 > [!div class="op_single_selector"]
 > * [Azure 포털](sql-database-geo-replication-failover-portal.md)
 > * [PowerShell](sql-database-geo-replication-failover-powershell.md)
@@ -26,15 +31,15 @@ ms.author: sstein
 
 이 문서에서는 PowerShell로 SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치를 시작하는 방법을 보여 줍니다. 지역에서 복제를 구성하려면 [Azure SQL 데이터베이스에 대한 지역에서 복제 구성](sql-database-geo-replication-powershell.md)을 참조하세요.
 
-## 계획된 장애 조치(failover) 시작
+## <a name="initiate-a-planned-failover"></a>계획된 장애 조치(failover) 시작
 **Set-AzureRmSqlDatabaseSecondary** cmdlet를 **-Failover** 매개 변수와 함께 사용하여 기존 주가 보조가 되도록 강등시키는 방식으로 보조 데이터베이스가 새로운 주 데이터베이스가 되도록 승격할 수 있습니다. 이 기능은 재해 복구 훈련 중과 같은 계획된 장애 조치(failover)에 대해 설계되었으며 주 데이터베이스는 사용할 수 있어야 합니다.
 
 명령은 다음 워크플로 수행합니다.
 
 1. 일시적으로 복제가 동기 모드로 전환됩니다. 이로 인해 처리되지 않은 모든 트랜잭션이 보조 데이터베이스로 플러시됩니다.
-2. 지역에서 복제 파트너 관계에서 두 데이터베이스의 역할을 전환합니다.
+2. 지역에서 복제 파트너 관계에서 두 데이터베이스의 역할을 전환합니다.  
 
-이 순서는 두 데이터베이스가 역할이 전환되기 전에 동기화됨을 보장하므로 데이터 손실이 발생하지 않습니다. 역할이 전환되는 동안 두 데이터베이스를 모두 사용할 수 없는 (0-25초의 순서로) 짧은 기간이 있습니다. 전체 작업은 정상적인 상황에서 완료하는데 1분 미만이 걸려야 합니다. 자세한 내용은 [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx)를 참조하세요.
+이 순서는 두 데이터베이스가 역할이 전환되기 전에 동기화됨을 보장하므로 데이터 손실이 발생하지 않습니다. 역할이 전환되는 동안 두 데이터베이스를 모두 사용할 수 없는 (0-25초의 순서로) 짧은 기간이 있습니다. 전체 작업은 정상적인 상황에서 완료하는데 1분 미만이 걸려야 합니다. 자세한 내용은 [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393\(v=azure.300\).aspx)를 참조하세요.
 
 이 cmdlet은 보조 데이터베이스를 주 데이터베이스로 전환하는 프로세스가 완료되면 반환합니다.
 
@@ -49,7 +54,7 @@ ms.author: sstein
 > 
 > 
 
-## 주 데이터베이스에서 보조 데이터베이스로 계획되지 않은 장애 조치 시작
+## <a name="initiate-an-unplanned-failover-from-the-primary-database-to-the-secondary-database"></a>주 데이터베이스에서 보조 데이터베이스로 계획되지 않은 장애 조치 시작
 **Set-AzureRmSqlDatabaseSecondary** cmdlet와 **–Failover** 및 **-AllowDataLoss** 매개 변수를 함께 사용하여 주 데이터베이스를 더 이상 사용할 수 없는 경우 보조가 되도록 기존 주의 수준 내리기를 강제하는 계획되지 않은 방식으로 보조 데이터베이스가 새로운 주 데이터베이스가 되도록 승격할 수 있습니다.
 
 이 기능은 데이터베이스의 가용성 복원이 중요하고 일부 데이터 손실이 허용되는 경우 재해 복구를 위해 설계되었습니다. 강제 장애 조치가 호출되면 지정된 보조 데이터베이스는 즉시 주 데이터베이스가 되며 쓰기 트랜잭션 승인을 시작합니다. 강제 장애 조치(failover) 작업 후, 기존 주 데이터베이스가 이 새 주 데이터베이스와 다시 연결할 수 있는 즉시 기존 주 데이터베이스에서 증분 백업이 수행되고 이어서 이전 주 데이터베이스는 새 주 데이터베이스에 대한 보조 데이터베이스로 만들어지며 이는 단순히 새 주의 복제본입니다.
@@ -71,12 +76,17 @@ ms.author: sstein
 
 
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * 장애 조치(failover) 후에는 새로운 주 데이터베이스에서 서버 및 데이터베이스의 인증 요구 사항이 구성되어 있는지 확인합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
-* 사전 및 사후 복구 단계를 비롯한 활성 지역 복제를 사용하고 재해 복구 훈련을 수행하여 재해 후에 복구하는 방법을 알아보려면 [재해 복구 훈련](sql-database-disaster-recovery.md)을 참조하세요.
-* 활성 지역 복제에 대한 Sasha Nosov의 블로그 게시물은 [새로운 지역에서 복제 기능에 대한 주요 내용](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)을 참조하세요.
-* 활성 지역 복제를 사용하여 클라우드 응용 프로그램을 설계하는 방법에 대한 자세한 내용은 [지역에서 복제를 사용하여 무중단 업무 방식에 사용 가능하도록 클라우드 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)를 참조하세요.
+* 사전 및 사후 복구 단계를 비롯한 활성 지역 복제를 사용하고 재해 복구 훈련을 수행하여 재해 후에 복구하는 방법을 알아보려면 [재해 복구 훈련](sql-database-disaster-recovery.md)
+* 활성 지역 복제에 대한 Sasha Nosov의 블로그 게시물은 [새로운 지역에서 복제 기능에 대한 주요 내용](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+* 활성 지역 복제를 사용하여 클라우드 응용 프로그램을 설계하는 방법에 대한 자세한 내용은 [지역에서 복제를 사용하여 무중단 업무 방식에 사용 가능하도록 클라우드 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 * 탄력적 데이터베이스 풀에서 활성 지역 복제를 사용하는 방법에 대한 자세한 내용은 [탄력적 풀 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
-* 무중단 업무 방식에 대한 개략적 정보는 [무중단 업무 방식 개요](sql-database-business-continuity.md)를 참조하세요.
+* 무중단 업무 방식에 대한 개략적 정보는 [무중단 업무 방식 개요](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

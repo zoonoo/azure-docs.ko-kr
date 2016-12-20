@@ -1,12 +1,12 @@
 ---
-title: '논리 앱 시나리오: Azure Functions 서비스 버스 트리거 만들기 | Microsoft Docs'
-description: Azure Functions로 논리 앱에 대한 서비스 버스 트리거 만들기
+title: "논리 앱 시나리오: Azure Functions Service Bus 트리거 만들기 | Microsoft Docs"
+description: "Azure Functions로 논리 앱에 대한 서비스 버스 트리거 만들기"
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -14,21 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3f8031d31d1291972026430e67005863579ae911
+
 
 ---
-# 논리 앱 시나리오: Azure Functions를 사용하여 Azure 서비스 버스 트리거 만들기
+# <a name="logic-app-scenario-create-an-azure-service-bus-trigger-by-using-azure-functions"></a>논리 앱 시나리오: Azure Functions를 사용하여 Azure 서비스 버스 트리거 만들기
 Azure Functions로 장기 실행 수신기 또는 작업을 배포하는 데 필요한 논리 앱용 트리거를 만들 수 있습니다. 예를 들어, 큐에서 수신 대기하고 있다가 푸시 트리거로 즉시 논리 앱을 실행하는 Azure Function을 만들 수 있습니다.
 
-## 논리 앱 빌드
-이 예에는 트리거할 필요가 있는 각 논리 앱에 대해 실행되는 함수가 있습니다. 먼저, HTTP 요청 트리거가 있는 논리 앱을 만듭니다. 이 함수는 큐 메시지를 수신할 때마다 끝점을 호출합니다.
+## <a name="build-the-logic-app"></a>논리 앱 빌드
+이 예에는 트리거할 필요가 있는 각 논리 앱에 대해 실행되는 함수가 있습니다. 먼저, HTTP 요청 트리거가 있는 논리 앱을 만듭니다. 이 함수는 큐 메시지를 수신할 때마다 끝점을 호출합니다.  
 
-1. 새 논리 앱을 만들고 **수동 - HTTP 요청을 받은 경우** 트리거를 생성합니다. 또는, [jsonschema.net](http://jsonschema.net)과 같은 도구로 큐 메시지와 함께 사용할 JSON 스키마를 지정할 수 있습니다. 트리거에 스키마를 붙여넣습니다. 이는 디자이너가 데이터의 형태를 이해하고 워크플로에서 속성이 쉽게 흐를 수 있도록 도와줍니다.
-2. 큐 메시지를 수신한 후 실행하기를 원하는 추가 절차를 추가합니다. 예를 들어, Office 365로 이메일을 전송합니다.
+1. 새 논리 앱을 만들고 **수동 - HTTP 요청을 받은 경우** 트리거를 생성합니다.  
+   또는, [jsonschema.net](http://jsonschema.net)과 같은 도구로 큐 메시지와 함께 사용할 JSON 스키마를 지정할 수 있습니다. 트리거에 스키마를 붙여넣습니다. 이는 디자이너가 데이터의 형태를 이해하고 워크플로에서 속성이 쉽게 흐를 수 있도록 도와줍니다.
+2. 큐 메시지를 수신한 후 실행하기를 원하는 추가 절차를 추가합니다. 예를 들어, Office 365로 이메일을 전송합니다.  
 3. 논리 앱을 저장하여 이 논리 앱에 트리거에 대한 콜백 URL을 생성합니다. URL은 트리거 카드에 표시됩니다.
 
 ![트리거 카드에 나타나는 콜백 URL][1]
 
-## 함수 빌드
+## <a name="build-the-function"></a>함수 빌드
 다음으로 트리거로 작동하고 큐에 수신 대기하는 Azure Function을 만들어야 합니다.
 
 1. [Azure Functions 포털](https://functions.azure.com/signin)에서 **새 함수**를 선택한 다음 **ServiceBusQueueTrigger - C#** 템플릿을 선택합니다.
@@ -56,10 +61,14 @@ Azure Functions로 장기 실행 수신기 또는 작업을 배포하는 데 필
    }
    ```
 
-테스트를 하려면 [서비스 버스 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer) 등의 도구로 큐 메시지를 추가합니다. 함수가 메시지를 받는 즉시 논리 앱이 실행되는지 확인합니다.
+테스트를 하려면 [서비스 버스 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)등의 도구로 큐 메시지를 추가합니다. 함수가 메시지를 받는 즉시 논리 앱이 실행되는지 확인합니다.
 
 <!-- Image References -->
 [1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
 [2]: ./media/app-service-logic-scenario-function-sb-trigger/newQueueTriggerFunction.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

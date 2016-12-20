@@ -61,12 +61,15 @@
 ### [Log Search API](log-analytics-log-search-api.md)
 ### [알림 API](log-analytics-api-alerts.md)
 
+# 참조
+## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+
 # 리소스
 ## [Analytics 업그레이드](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

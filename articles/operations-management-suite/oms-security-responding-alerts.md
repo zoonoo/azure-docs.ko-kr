@@ -1,25 +1,30 @@
 ---
-title: Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답 | Microsoft Docs
-description: 이 문서는 OMS 보안 및 감사에서 사용 가능한 위협 인텔리전스 옵션을 사용하여 보안 경고를 모니터링하고 대응하는 방법을 설명합니다.
+title: "Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답 | Microsoft Docs"
+description: "이 문서는 OMS 보안 및 감사에서 사용 가능한 위협 인텔리전스 옵션을 사용하여 보안 경고를 모니터링하고 대응하는 방법을 설명합니다."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 7d45a32b-1341-4bb5-a436-1f42a8a2590a
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2016
+ms.date: 12/01/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7161cacfd371aa73974e635a343793bbec76d858
+
 
 ---
 # <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답
 이 문서는 OMS 보안 및 감사에서 사용 가능한 위협 인텔리전스 옵션을 사용하여 보안 경고를 모니터링하고 대응하는 방법을 설명합니다.
 
-## <a name="what-is-oms?"></a>OMS란?
+## <a name="what-is-oms"></a>OMS란?
 Microsoft Operations Management Suite(OMS)란 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. OMS에 대한 자세한 내용은 [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx)문서를 참조하세요.
 
 ## <a name="threat-intelligence"></a>위협 인텔리전스
@@ -74,6 +79,11 @@ OMS 보안 및 감사 솔루션의 **위협 인텔리전스** 정보를 활용�
 
 ![위협 인텔리전스 맵](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig5.png)
 
+> [!NOTE]
+> 인시던트 응답 프로세스 중에 이 기능을 사용하는 방법에 대한 데모는 Microsoft Ignite에서 제공하는 [Operations Management Suite를 사용하여 안내식 조사를 통해 데이터 센터 보안 위협 완화](https://myignite.microsoft.com/videos/5000) 프레젠테이션을 참조하세요.
+> 
+> 
+
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 OMS 보안 및 감사 솔루션의 **위협 인텔리전스** 옵션을 사용하여 보안 경고에 대응하는 방법에 대해 알아보았습니다. OMS 보안에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
@@ -81,6 +91,9 @@ OMS 보안 및 감사 솔루션의 **위협 인텔리전스** 정보를 활용�
 * [Operations Management Suite 보안 및 감사 솔루션 시작](oms-security-getting-started.md)
 * [Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

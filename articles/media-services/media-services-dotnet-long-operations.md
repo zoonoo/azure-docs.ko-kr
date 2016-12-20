@@ -1,12 +1,12 @@
 ---
-title: 폴링 장기 실행 작업 | Microsoft Docs
-description: 이 토픽에서는 장기 실행 작업을 폴링하는 방법을 보여 줍니다.
+title: "폴링 장기 실행 작업 | Microsoft 문서"
+description: "이 토픽에서는 장기 실행 작업을 폴링하는 방법을 보여 줍니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2a24c683b66878e4404a6baf879890453755bc0c
+
 
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Azure 미디어 서비스를 사용하여 라이브 스트리밍 제공
@@ -187,6 +191,9 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

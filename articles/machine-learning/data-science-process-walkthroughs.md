@@ -1,12 +1,12 @@
 ---
-title: 팀 데이터 과학 프로세스 연습 | Microsoft Docs
-description: 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 보여 줍니다.
+title: "팀 데이터 과학 프로세스 연습 | Microsoft 문서"
+description: "연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 보여 줍니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fde069560d53c5b5010bbb59b52d60a6971d8dac
+
 
 ---
 # <a name="team-data-science-process-walkthroughs"></a>팀 데이터 과학 프로세스 연습
@@ -46,9 +50,12 @@ ms.author: bradsev
 ## <a name="use-t-sql-with-sql-server-r-services"></a>SQL Server R 서비스와 함께 T-SQL 사용
 [SQL 개발자를 위한 데이터베이스 내 고급 분석](https://msdn.microsoft.com/library/mt683480.aspx) 연습은 R 솔루션을 작동시키는 SQL Server R 서비스를 사용하여 Transact-SQL과 함께 고급 분석 솔루션을 구축하는 경험을 SQL 프로그래머에게 제공합니다.
 
-## <a name="what's-next?"></a>다음 작업
+## <a name="whats-next"></a>다음 작업
 Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 토픽에 대한 개요는 [데이터 과학 프로세스](http://aka.ms/datascienceprocess)를 참조하세요. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

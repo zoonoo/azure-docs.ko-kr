@@ -12,20 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/10/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: a3fc284a436173f1a1debc205a83d55cc1869b32
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
 
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure 클라우드 서비스 및 ASP.NET 시작
-> [!div class="op_single_selector"]
-> * [Node.JS](cloud-services-nodejs-develop-deploy-app.md)
-> * [.NET](cloud-services-dotnet-get-started.md)
->
->
 
 ## <a name="overview"></a>개요
 이 자습서에서는 ASP.NET MVC 프런트 엔드를 사용하여 다중 계층 .NET 응용 프로그램을 만들어 [Azure 클라우드 서비스](cloud-services-choose-me.md)에 배포하는 방법을 보여 줍니다. 이 응용 프로그램은 [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문) 및 [Azure 큐 서비스](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)를 사용합니다. MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) 할 수 있습니다.
@@ -53,7 +48,7 @@ ms.openlocfilehash: a3fc284a436173f1a1debc205a83d55cc1869b32
 ## <a name="prerequisites"></a>필수 조건
 이 자습서에서는 *웹 역할* 및 *작업자 역할* 용어와 같이 [Azure Cloud Services에 대한 기본 개념](cloud-services-choose-me.md)을 알고 있다고 가정합니다.  또한 Visual Studio에서 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문) 또는 [웹 양식](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)(영문) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다. 응용 프로그램 예제는 MVC를 사용하지만, 자습서 내용의 대부분은 Web Forms에도 적용됩니다.
 
-Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로그램을 클라우드에 배포하려면 구독이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)하거나 [무료 평가판을 등록](/pricing/free-trial/?WT.mc_id=A55E3C668)할 수 있습니다.
+Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로그램을 클라우드에 배포하려면 구독이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)하거나 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668)할 수 있습니다.
 
 자습서의 지침은 다음 제품 중 하나에 적용됩니다.
 
@@ -415,7 +410,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 * [EF 6 및 MVC 5 시작](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
 * [.NET 4.5의 비동기 프로그래밍 소개](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
-### <a name="contosoadscommon-adcs"></a>ContosoAdsCommon - Ad.cs
+### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon - Ad.cs
 Ad.cs 파일은 광고 범주의 열거형 및 광고 정보에 대한 POCO 엔터티 클래스를 정의합니다.
 
 ```csharp
@@ -459,7 +454,7 @@ public class Ad
 }
 ```
 
-### <a name="contosoadscommon-contosoadscontextcs"></a>ContosoAdsCommon - ContosoAdsContext.cs
+### <a name="contosoadscommon---contosoadscontextcs"></a>ContosoAdsCommon - ContosoAdsContext.cs
 ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된다는 것을 지정하며, Entity Framework는 이를 SQL 데이터베이스에 저장합니다.
 
 ```csharp
@@ -478,7 +473,7 @@ public class ContosoAdsContext : DbContext
 
 이 클래스에는 두 개의 생성자가 있습니다. 첫 번째 생성자는 웹 프로젝트에서 사용되며 Web.config 파일에 저장되는 연결 문자열의 이름을 지정합니다. 두 번째 생성자는 실제 연결 문자열을 전달할 수 있게 합니다. 이 과정은 작업자 역할 프로젝트에서 필요합니다. 여기에는 Web.config 파일이 없기 때문입니다. 앞에서 이 연결 문자열이 저장된 위치를 확인했으며, 이후에 코드가 DbContext 클래스를 인스턴스화할 때 연결 문자열을 검색하는 방법을 확인하게 될 것입니다.
 
-### <a name="contosoadsweb-globalasaxcs"></a>ContosoAdsWeb - Global.asax.cs
+### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb - Global.asax.cs
 `Application_Start` 메서드에서 호출되는 코드는 *images* Blob 컨테이너 및 *images* 큐를 만듭니다(아직 없는 경우). 따라서 새 저장소 계정을 사용하기 시작하거나 새 컴퓨터에서 저장소 에뮬레이터를 사용하기 시작할 때마다 필수 Blob 컨테이너와 큐가 자동으로 만들어집니다.
 
 이 코드는 *.cscfg* 파일의 저장소 연결 문자열을 사용하여 저장소 계정에 액세스합니다.
@@ -511,10 +506,10 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-### <a name="contosoadsweb-layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
+### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
 *_Layout.cshtml* 파일은 머리글과 바닥글에서 앱 이름을 설정하고 "Ads" 메뉴 항목을 만듭니다.
 
-### <a name="contosoadsweb-viewshomeindexcshtml"></a>ContosoAdsWeb - Views\Home\Index.cshtml
+### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb - Views\Home\Index.cshtml
 *Views\Home\Index.cshtml* 파일은 홈페이지에 범주 링크를 표시합니다. 이 링크는 쿼리 문자열 변수의 `Category` 열거형 정수 값을 광고 인덱스 페이지에 전달합니다.
 
 ```razor
@@ -524,8 +519,8 @@ imagesQueue.CreateIfNotExists();
 <li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
 ```
 
-### <a name="contosoadsweb-adcontrollercs"></a>ContosoAdsWeb - AdController.cs
-*AdController.cs`InitializeStorage` 파일에서 생성자는 * 메서드를 호출하여 Blob 및 큐 작업을 위한 API를 제공하는 Azure Storage 클라이언트 라이브러리 개체를 만듭니다.
+### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
+*AdController.cs* 파일에서 생성자는 `InitializeStorage` 메서드를 호출하여 Blob 및 큐 작업을 위한 API를 제공하는 Azure Storage 클라이언트 라이브러리 개체를 만듭니다.
 
 그런 다음 이 코드는 앞서 *Global.asax.cs*에서 확인한 *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) (영문)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기서 지정된 재시도 정책은 시도 횟수 최대 3회까지 각 시도 이후에 3초 동안 대기합니다.
 
@@ -621,7 +616,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 }
 ```
 
-### <a name="contosoadsweb-viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb - Views\Ad\Index.cshtml 및 Details.cshtml
+### <a name="contosoadsweb---viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb - Views\Ad\Index.cshtml 및 Details.cshtml
 *Index.cshtml* 파일은 다른 광고 데이터가 포함된 미리 보기를 표시합니다.
 
 ```razor
@@ -634,7 +629,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 <img src="@Html.Raw(Model.ImageURL)" />
 ```
 
-### <a name="contosoadsweb-viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb - Views\Ad\Create.cshtml 및 Edit.cshtml
+### <a name="contosoadsweb---viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb - Views\Ad\Create.cshtml 및 Edit.cshtml
 *Create.cshtml* 및 *Edit.cshtml* 파일은 컨트롤러가 `HttpPostedFileBase` 개체를 가져올 수 있게 하는 양식 인코딩을 지정합니다.
 
 ```razor
@@ -647,7 +642,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 ```
 
-### <a name="contosoadsworker-workerrolecs-onstart-method"></a>ContosoAdsWorker - WorkerRole.cs - OnStart 메서드
+### <a name="contosoadsworker---workerrolecs---onstart-method"></a>ContosoAdsWorker - WorkerRole.cs - OnStart 메서드
 Azure 작업자 역할 환경은 작업자 역할이 시작될 때 `OnStart` 메서드(`WorkerRole` 클래스에 있음)를 호출하고 `Run` 메서드를 호출합니다(`OnStart` 메서드가 완료되는 경우).
 
 `OnStart` 메서드는 *.cscfg** 파일에서 데이터베이스 연결 문자열을 가져와 Entity Framework DbContext 클래스에 전달합니다. SQLClient 공급자는 기본적으로 사용되므로, 이 공급자를 지정할 필요가 없습니다.
@@ -659,7 +654,7 @@ db = new ContosoAdsContext(dbConnString);
 
 그런 다음, 이 메서드는 저장소 계정에 대한 참조를 가져오고 Blob 컨테이너 및 큐를 만듭니다(없는 경우). 이에 대한 코드는 웹 역할 `Application_Start` 메서드에서 이미 확인한 코드와 비슷합니다.
 
-### <a name="contosoadsworker-workerrolecs-run-method"></a>ContosoAdsWorker - WorkerRole.cs - Run 메서드
+### <a name="contosoadsworker---workerrolecs---run-method"></a>ContosoAdsWorker - WorkerRole.cs - Run 메서드
 `Run` 메서드는 `OnStart` 메서드가 초기화 작업을 마치면 호출됩니다. 이 메서드는 새 큐 메시지를 찾고 해당 메시지가 도달하면 이를 처리하는 무한 루프를 실행합니다.
 
 ```csharp
@@ -777,6 +772,6 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

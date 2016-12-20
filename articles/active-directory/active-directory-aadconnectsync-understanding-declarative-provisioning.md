@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect 동기화: 선언적 프로비전 이해 | Microsoft Docs'
-description: Azure AD connect에서 선언적 프로비전 구성 모델을 설명합니다.
+title: "Azure AD Connect 동기화: 선언적 프로비전 이해 | Microsoft Docs"
+description: "Azure AD connect에서 선언적 프로비전 구성 모델을 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a52714e1b549452929827edd5bf77bfc64d405c3
+
 
 ---
-# <a name="azure-ad-connect-sync:-understanding-declarative-provisioning"></a>Azure AD Connect 동기화: 선언적 프로비전 이해
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 동기화: 선언적 프로비전 이해
 이 항목에서는 Azure AD Connect에서 구성 모델을 설명합니다. 이 모델은 선언적 프로비전이라고 하고 구성을 쉽게 변경할 수 있습니다. 이 항목에서 설명하는 여러 가지 항목은 고급이며 대부분의 고객 시나리오에 필요하지 않습니다.
 
 ## <a name="overview"></a>개요
@@ -159,6 +163,9 @@ ImportedValue 함수는 특성 이름을 대괄호 대신 따옴표로 묶어야
 
 * [Azure AD 동기화 연결: 함수 참조](active-directory-aadconnectsync-functions-reference.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

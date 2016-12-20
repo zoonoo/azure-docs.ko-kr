@@ -1,12 +1,12 @@
 ---
-title: Widevine 라이선스 템플릿 개요 | Microsoft Docs
-description: 이 토픽에서는 Widevine 라이선스를 구성하는 데 사용되는 Widevine 라이선스 템플릿의 개요를 제공합니다.
+title: "Widevine 라이선스 템플릿 개요 | Microsoft Docs"
+description: "이 토픽에서는 Widevine 라이선스를 구성하는 데 사용되는 Widevine 라이선스 템플릿의 개요를 제공합니다."
 author: juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 0e6f1f05-7ed6-4ed6-82a0-0cc2182b075a
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a90e56bb2b7db0bb964684f9cac04096a6577adc
+
 
 ---
 # <a name="widevine-license-template-overview"></a>Widevine 라이선스 템플릿 개요
@@ -102,10 +106,10 @@ use_policy_overrides_exclusively 옵션에 관계없이 모든 트랙에 대해 
 | provider_client_token |Base64 인코딩된 문자열 |라이선스 응답으로 다시 보낼 클라이언트 토큰입니다.  클라이언트 요청에 클라이언트 토큰이 포함된 경우 이 값은 무시됩니다. 클라이언트 토큰은 라이선스 세션 이후에 유지됩니다. |
 | override_provider_client_token |boolean. true 또는 false |false이고 라이선스 요청에 클라이언트 토큰이 포함된 경우 이 구조에 클라이언트 토큰이 지정된 경우에도 요청의 토큰을 사용합니다.  true이면 항상 이 구조에 지정된 토큰을 사용합니다. |
 
-## <a name="configure-your-widevine-licenses-using-.net-types"></a>.NET 형식을 사용하여 Widevine 라이선스 구성
+## <a name="configure-your-widevine-licenses-using-net-types"></a>.NET 형식을 사용하여 Widevine 라이선스 구성
 미디어 서비스는 Widevine 라이선스를 구성할 수 있는 .NET API를 제공합니다. 
 
-### <a name="classes-as-defined-in-the-media-services-.net-sdk"></a>미디어 서비스 .NET SDK에 정의된 클래스
+### <a name="classes-as-defined-in-the-media-services-net-sdk"></a>미디어 서비스 .NET SDK에 정의된 클래스
 이러한 형식에 대한 정의는 다음과 같습니다.
 
     public class WidevineMessage
@@ -194,6 +198,9 @@ use_policy_overrides_exclusively 옵션에 관계없이 모든 트랙에 대해 
 ## <a name="see-also"></a>참고 항목
 [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-drm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -16,12 +16,12 @@ ms.topic: hero-article
 ms.date: 05/31/2016
 ms.author: dendeli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dc946619fa3134594d3891ffdf78417d054293e3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
 
 
 ---
-# <a name="geofenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Azure 알림 허브 및 Bing 공간 데이터가 있는 지역 구분 푸시 알림
+# <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Azure 알림 허브 및 Bing 공간 데이터가 있는 지역 구분 푸시 알림
 > [!NOTE]
 > 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02)을 참조하세요.
 > 
@@ -394,6 +394,6 @@ UWP 앱으로 다시 돌아가면 이제 알림을 테스트할 수 있어야 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure 자동화로 가상 컴퓨터 시작 및 중지 - PowerShell 워크플로 | Microsoft Docs
-description: 기존 가상 컴퓨터를 시작 또는 중지하기 위해 Runbook을 포함하는 Azure 자동화 시나리오의 그래픽 버전
+title: "Azure 자동화로 가상 컴퓨터 시작 및 중지 - PowerShell 워크플로 | Microsoft Docs"
+description: "기존 가상 컴퓨터를 시작 또는 중지하기 위해 Runbook을 포함하는 Azure 자동화 시나리오의 그래픽 버전"
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: mgoedtel
 manager: jwhit
 editor: tysonn
-
+ms.assetid: d380bd43-d45d-45af-a5b2-78e7f66263c3
 ms.service: automation
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 820ef7238593cd99d41cc3fe5d1d7a29699397fc
+
 
 ---
 # <a name="azure-automation-scenario---starting-and-stopping-virtual-machines"></a>Azure 자동화 시나리오 - 가상 컴퓨터 시작 및 중지
 Azure 자동화 시나리오는 기존 가상 컴퓨터를 시작하고 중지하는 Runbook을 포함합니다.  다음과 같은 경우에 이 시나리오를 사용할 수 있습니다.  
 
-* 사용자의 환경에서 수정하지 않고 Runbook을 사용합니다. 
+* 사용자의 환경에서 수정하지 않고 Runbook을 사용합니다.
 * 사용자 지정 기능을 수행하도록 Runbook을 수정합니다.  
-* 전체 솔루션의 일부로 다른 Runbook에서 Runbook을 호출합니다. 
-* Runbook을 자습서로 사용하여 Runbook 작성 개념을 알아봅니다. 
+* 전체 솔루션의 일부로 다른 Runbook에서 Runbook을 호출합니다.
+* Runbook을 자습서로 사용하여 Runbook 작성 개념을 알아봅니다.
 
 > [!div class="op_single_selector"]
 > * [그래픽](automation-solution-startstopvm-graphical.md)
@@ -41,13 +45,13 @@ Azure 자동화 시나리오는 기존 가상 컴퓨터를 시작하고 중지�
 | Stop-AzureVMs |[Azure 클래식 VM 중지](https://gallery.technet.microsoft.com/Stop-Azure-Classic-VMs-7a4ae43e) |PowerShell 워크플로 |자동화 계정의 모든 가상 컴퓨터 또는 특정 서비스 이름의 모든 가상 컴퓨터를 중지합니다. |
 
 ## <a name="installing-and-configuring-the-scenario"></a>시나리오 설치 및 구성
-### <a name="1.-install-the-runbooks"></a>1. Runbook 설치
+### <a name="1-install-the-runbooks"></a>1. Runbook 설치
 Runbook을 다운로드한 후에 [Runbook 가져오기](http://msdn.microsoft.com/library/dn643637.aspx#ImportRunbook)의 절차를 사용하여 가져올 수 있습니다.
 
-### <a name="2.-review-the-description-and-requirements"></a>2. 설명 및 요구 사항 검토
-Runbook은 설명 및 필수 자산을 포함하는 주석 처리된 도움말 텍스트를 포함합니다.  이 문서에서 동일한 정보를 얻을 수 있습니다. 
+### <a name="2-review-the-description-and-requirements"></a>2. 설명 및 요구 사항 검토
+Runbook은 설명 및 필수 자산을 포함하는 주석 처리된 도움말 텍스트를 포함합니다.  이 문서에서 동일한 정보를 얻을 수 있습니다.
 
-### <a name="3.-configure-assets"></a>3. 자산 구성
+### <a name="3-configure-assets"></a>3. 자산 구성
 Runbook은 적절한 값으로 생성하고 채워야 하는 다음 자산을 필요로 합니다.
 
 | 자산 형식 | 자산 이름 | 설명 |
@@ -85,7 +89,7 @@ Runbook은 각각의 가상 컴퓨터에 대해 시작 또는 중지 명령이 �
 | Stop-AzureVMs |가상 컴퓨터에 대한 중지 요청이 성공적으로 제출됨 |MyVM 중지됨 |
 | Stop-AzureVMs |가상 컴퓨터에 대한 중지 요청 실패 |MyVM 중지 실패 |
 
-예를 들어 Runbook의 다음 코드 조각은 서비스 이름이 *MyServiceName*인 모든 가상 컴퓨터를 시작하려고 합니다.  실패하는 시작 요청이 있으면 오류 작업에 착수할 수 있습니다. 
+예를 들어 Runbook의 다음 코드 조각은 서비스 이름이 *MyServiceName*인 모든 가상 컴퓨터를 시작하려고 합니다.  실패하는 시작 요청이 있으면 오류 작업에 착수할 수 있습니다.
 
     $results = Start-AzureVMs -ServiceName "MyServiceName"
     foreach ($result in $results) {
@@ -103,13 +107,13 @@ Runbook은 각각의 가상 컴퓨터에 대해 시작 또는 중지 명령이 �
 
 ### <a name="parameters"></a>매개 변수
     param (
-        [Parameter(Mandatory=$false)] 
+        [Parameter(Mandatory=$false)]
         [String]  $AzureCredentialAssetName = 'AzureCredential',
 
         [Parameter(Mandatory=$false)]
         [String] $AzureSubscriptionIdAssetName = 'AzureSubscriptionId',
 
-        [Parameter(Mandatory=$false)] 
+        [Parameter(Mandatory=$false)]
         [String] $ServiceName
     )
 
@@ -128,7 +132,7 @@ Runbook은 각각의 가상 컴퓨터에 대해 시작 또는 중지 명령이 �
     $SubId = Get-AutomationVariable -Name $AzureSubscriptionIdAssetName
     $null = Select-AzureSubscription -SubscriptionId $SubId -ErrorAction Stop
 
-다음 줄은 Runbook 나머지 부분에서 사용될 Azure 구독 및 [자격 증명](automation-configuring.md#configuring-authentication-to-azure-resources) 을 설정합니다.
+다음 줄은 Runbook 나머지 부분에서 사용될 Azure 구독 및 [자격 증명](automation-credentials.md) 을 설정합니다.
 우선 Azure 구독에서 가상 컴퓨터를 시작 및 중지하기 위해 자격 증명을 포함하는 자산을 가져오도록 **Get-AutomationPSCredential** 을 사용합니다. **Credential** 에서 이 자산을 사용하여 자격 증명을 설정합니다.  출력은 Runbook 출력에 포함되지 않도록 더미 변수에 할당됩니다.  
 
 **Get-AutomationVariable**로 구독 ID를 포함하는 변수 자산이 검색되며 **Select-AzureSubscription**으로 구독 세트가 검색됩니다.
@@ -136,18 +140,18 @@ Runbook은 각각의 가상 컴퓨터에 대해 시작 또는 중지 명령이 �
 ### <a name="get-vms"></a>VM 가져오기
     # If there is a specific cloud service, then get all VMs in the service,
     # otherwise get all VMs in the subscription.
-    if ($ServiceName) 
-    { 
+    if ($ServiceName)
+    {
         $VMs = Get-AzureVM -ServiceName $ServiceName
     }
-    else 
-    { 
+    else
+    {
         $VMs = Get-AzureVM
     }
 
 **Get-AzureVM** 이 사용됩니다.  **ServiceName** 입력 변수에 값이 제공되면 해당 서비스 이름을 갖는 가상 컴퓨터만 검색됩니다.  **ServiceName** 을 비워두면 모든 가상 컴퓨터가 검색됩니다.
 
-### <a name="start/stop-virtual-machines-and-send-output"></a>가상 컴퓨터 시작/중지 및 출력 보내기
+### <a name="startstop-virtual-machines-and-send-output"></a>가상 컴퓨터 시작/중지 및 출력 보내기
     # Start each of the stopped VMs
     foreach ($VM in $VMs)
     {
@@ -177,9 +181,12 @@ Runbook은 각각의 가상 컴퓨터에 대해 시작 또는 중지 명령이 �
 다음 줄은 각각의 가상 컴퓨터에 적용됩니다.  우선 가상 컴퓨터가 실행 중인지, 중지되었는지(Runbook에 따라서) 파악하기 위해 가상 컴퓨터의 **PowerState**를 확인합니다.  이미 대상 상태이면 메시지가 출력을 위해 전송되고 runbook은 종료됩니다.  그렇지 않으면 변수에 저장된 요청의 결과를 사용하여 가상 컴퓨터를 시작 또는 중지하기 위해 **Start-AzureVM** 또는 **Stop-AzureVM**이 사용됩니다.  그러면 시작 또는 중지 요청이 성공적으로 제출되었는지를 알리는 메시지가 출력을 위해 전송됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 자식 Runbook으로 작업하는 방법에 대해 자세히 알아보려면 [Azure 자동화의 자식 Runbook](automation-child-runbooks.md) 
+* 자식 Runbook으로 작업하는 방법에 대해 자세히 알아보려면 [Azure 자동화의 자식 Runbook](automation-child-runbooks.md)
 * 문제를 해결하기 위해 Runbook을 실행 및 로깅하는 동안 출력 메시지에 대해 알아보려면 [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

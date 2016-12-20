@@ -15,6 +15,7 @@
 ## [Spark로 시작](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [HBase 및 NoSQL로 시작](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Storm으로 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [대화형 Hive 미리 보기 시작](hdinsight-hadoop-use-interactive-hive.md)
 ## [Kafka 미리 보기로 시작](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop 샌드박스](hdinsight-hadoop-emulator-get-started.md)
 ## [Hortonworks 샌드박스를 사용한 Data Lake 도구](hdinsight-hadoop-emulator-visual-studio.md)
@@ -148,7 +149,7 @@
 #### [cURL 및 Azure REST API 사용](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
 #### [.NET SDK 사용](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 #### [Azure CLI 사용](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
-#### [Azure 포털 사용](hdinsight-hadoop-create-linux-clusters-portal.md)
+#### [Azure Portal 사용](hdinsight-hadoop-create-linux-clusters-portal.md)
 #### [Azure 리소스 관리자 템플릿 사용](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 ### [Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)
 #### [.NET SDK 사용](hdinsight-administer-use-dotnet-sdk.md)
@@ -181,12 +182,12 @@
 #### [Hive 쿼리 성능](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # 참조
-## [PowerShell cmdlet](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
-## [Hadoop용 .NET SDK](https://msdn.microsoft.com/library/mt271028.aspx)
-## [HBase용 .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/)
-## [.NET library for Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-## [REST API 참조](/rest/api/hdinsight/)
-## [원격 작업에 대한 Spark REST API](/rest/api/hdinsightspark/)
+## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [.NET(Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
+## [.NET(HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
+## [.NET(Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST (영문)](/rest/api/hdinsight/)
+## [REST(Spark)](/rest/api/hdinsightspark/)
 
 # 관련 항목
 ## Windows 클러스터
@@ -197,7 +198,7 @@
 ### [HDInsight 샘플 갤러리](hdinsight-learn-hadoop-use-sample-gallery.md)
 ### [Hadoop MapReduce 샘플 실행](hdinsight-run-samples.md)
 ### [Hadoop 클러스터 만들기](hdinsight-provision-clusters.md)
-#### [Azure 포털 사용](hdinsight-hadoop-create-windows-clusters-portal.md)
+#### [Azure Portal 사용](hdinsight-hadoop-create-windows-clusters-portal.md)
 #### [.NET SDK 사용](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
 #### [Azure CLI 사용](hdinsight-hadoop-create-windows-clusters-cli.md)
 #### [Azure PowerShell 사용](hdinsight-hadoop-create-windows-clusters-powershell.md)
@@ -216,7 +217,7 @@
 ### [비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)
 ### [스크립트 작업 개발](hdinsight-hadoop-script-actions.md)
 ### [Hadoop을 사용하여](hdinsight-analyze-twitter-data.md)
-### [Azure 포털을 사용하여 클러스터 관리](hdinsight-administer-use-management-portal.md)
+### [Azure Portal을 사용하여 클러스터 관리](hdinsight-administer-use-management-portal.md)
 ### [Ambari API를 사용하여 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md)
 
 # 리소스
@@ -224,6 +225,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: StorSimple 장치에 대한 안정성 | Microsoft Docs
-description: 안전성 규칙, 지침 및 고려 사항을 설명하고 StorSimple 장치를 안전하게 설치하고 작동하는 방법을 설명합니다.
+title: "StorSimple 장치에 대한 안정성 | Microsoft Docs"
+description: "안전성 규칙, 지침 및 고려 사항을 설명하고 StorSimple 장치를 안전하게 설치하고 작동하는 방법을 설명합니다."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: dae6d535-1ca2-4d2b-b221-6819043aa068
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,14 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7ab38d9fb438a5629e0a9c2388a2ce296ab7ba03
+
 
 ---
-# StorSimple 장치의 안전한 설치 및 작동
-![경고 아이콘](./media/storsimple-safety/IC740879.png) ![안전성 고지 읽기 아이콘](./media/storsimple-safety/IC740885.png) **안전성 및 상태 정보 읽기**
+# <a name="safely-install-and-operate-your-storsimple-device"></a>StorSimple 장치의 안전한 설치 및 작동
+![경고 아이콘](./media/storsimple-safety/IC740879.png)
+![안전성 고지 읽기 아이콘](./media/storsimple-safety/IC740885.png) **안전성 및 상태 정보 읽기**
 
 이 문서에서 Microsoft Azure StorSimple 장치에 적용되는 모든 안전성 및 상태 정보를 읽으십시오 나중에 참조할 수 있도록 StorSimple 장치와 함께 제공되는 모든 인쇄된 가이드를 보관하십시오. 지침을 따르지 않고 이 제품을 적절하게 설정, 사용 및 관리하지 않으면 심각한 부상 또는 사망 위험이 증가하거나 장치가 손상될 수 있습니다. [이 가이드의 다운로드할 수 있는 버전](http://www.microsoft.com/download/details.aspx?id=44233)도 제공됩니다.
 
-## 안전성 아이콘 표시 규칙
+## <a name="safety-icon-conventions"></a>안전성 아이콘 표시 규칙
 다음은 Microsoft Azure StorSimple 장치를 설정 및 실행할 때 관찰되는 안전 주의 사항을 검토할 때 표시되는 아이콘입니다.
 
 | 아이콘 | 설명 |
@@ -36,8 +41,8 @@ ms.author: alkohli
 | ![안전성 고지 읽기 아이콘](./media/storsimple-safety/IC740885.png)**먼저 모든 지침 읽기** | |
 | ![기울어짐 위험 아이콘](./media/storsimple-safety/IC740886.png) **기울어짐 위험** | |
 
-## 취급 주의 사항
-![경고 아이콘](./media/storsimple-safety/IC740879.png) ![무거운 무게 아이콘](./media/storsimple-safety/IC740883.png) **경고!**
+## <a name="handling-precautions"></a>취급 주의 사항
+![경고 아이콘](./media/storsimple-safety/IC740879.png) ![무거운 무게 아이콘](./media/storsimple-safety/IC740883.png) **경고!** 
 
 부상 위험을 줄이려면:
 
@@ -45,7 +50,7 @@ ms.author: alkohli
 * 인클로저를 이동하기 전에 항상 두 사람이 무게를 지탱하도록 해야 합니다. 한 사람이 이 무게를 들어 올릴 경우 부상을 당할 수 있습니다.
 * 장치의 뒷면에 있는 전원 및 냉각 모듈(PCM)의 핸들로 인클로저를 들지 마십시오. 무게를 지탱하도록 설계되지 않았습니다.
 
-## 연결 주의 사항
+## <a name="connection-precautions"></a>연결 주의 사항
 ![경고 아이콘](./media/storsimple-safety/IC740879.png) ![감전 아이콘](./media/storsimple-safety/IC740882.png) **경고!**
 
 부상, 감전 또는 사망 가능성을 줄이려면:
@@ -73,7 +78,7 @@ ms.author: alkohli
 * 앞-뒤 냉각 설계를 수용할 수 있는 랙에 장치를 설치해야 합니다.
 * 모든 플러그인 모듈 및 블랭크 판은 시스템 인클로저의 일부입니다. 교체품을 즉시 추가할 수 있을 때만 제거해야 합니다. 시스템은 모든 모듈 또는 블랭크가 장착된 상태에서만 실행해야 합니다.
 
-## 랙 시스템 주의 사항
+## <a name="rack-system-precautions"></a>랙 시스템 주의 사항
 랙 캐비닛에 장치를 탑재할 때는 다음 안전 요구 사항을 고려해야 합니다.
 
 ![경고 아이콘](./media/storsimple-safety/IC740879.png) ![기울어짐 위험 아이콘](./media/storsimple-safety/IC740886.png) **경고!**
@@ -84,7 +89,7 @@ ms.author: alkohli
 * 랙을 로드할 때는 아래에서 위로 랙을 채우고 위에서 아래로 비우십시오.
 * 두 개 이상의 인클로저를 랙 바깥쪽으로 동시에 밀지 마십시오. 랙이 넘어질 위험이 있습니다.
 
-![경고 아이콘](./media/storsimple-safety/IC740879.png) ![감전 아이콘](./media/storsimple-safety/IC740882.png) **경고!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **경고!**
 
 부상, 감전 또는 사망 가능성을 줄이려면:
 
@@ -100,7 +105,7 @@ ms.author: alkohli
 * 랙 설계 시 섭씨 35도(화씨 95도)의 인클로저 작동을 위한 최대 주변 온도를 고려해야 합니다.
 * 시스템은 저압의 후면 배기 설치에서 작동합니다(랙 도어에서 발생하는 배압 및 장애물이 5파스칼[0.5mm 수면계]을 초과하지 않음).
 
-## PCM(전원 냉각 모듈) 주의 사항
+## <a name="power-cooling-module-pcm-precautions"></a>PCM(전원 냉각 모듈) 주의 사항
 장치는 두 개의 PCM과 함께 작동하도록 설계되었습니다. 각 PCM에는 전원 공급 장치와 이중 축 팬이 있습니다. 임계 조건에서 시스템은 한 대의 전원 공급 장치에 오류가 발생해도 정상적인 작동을 계속할 수 있습니다. 항상 두 PCM(및 전원 공급 장치)을 설치해야 합니다. PCM 하나로는 예비 전력을 제공하지 않습니다. 따라서 하나의 PCM만 고장나도 가동 중지 시간 또는 데이터 손실이 발생할 수 있습니다..
 
 ![경고 아이콘](./media/storsimple-safety/IC740879.png) ![감전 아이콘](./media/storsimple-safety/IC740882.png) **경고!**
@@ -116,7 +121,7 @@ ms.author: alkohli
 * 실패한 PCM은 24시간 이내 교체해야 합니다. 교체할 PCM을 제거한 후 제거 시점부터 10분이내 교체를 완료해야 합니다.
 * 교체품을 즉시 설치할 수 없는 경우 PCM을 제거하지 마십시오. 모든 모듈이 장착된 상태에서만 인클로저를 작동해야 합니다.
 
-## 정전기 방전(ESD) 주의 사항
+## <a name="electrostatic-discharge-esd-precautions"></a>정전기 방전(ESD) 주의 사항
 ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**
 
 다음 ESD 관련 주의 상태를 확인하세요.
@@ -126,7 +131,7 @@ ms.author: alkohli
 * 백플레인 구성 요소 및 모듈 커넥터에 닿지 않도록 하십시오.
 * ESD 손상 시 보증이 적용되지 않습니다.
 
-## 배터리 폐기 주의 사항
+## <a name="battery-disposal-precautions"></a>배터리 폐기 주의 사항
 전원 공급 장치는 일시적인 단기 정전 중에 메모리 내용을 보호하는 특수 배터리를 사용합니다. 이 배터리는 PCM에 장착되어 있습니다. 배터리에 대한 다음 정보를 숙지하십시오.
 
 ![경고 아이콘](./media/storsimple-safety/IC740879.png) **경고!**
@@ -139,12 +144,17 @@ ms.author: alkohli
 
 ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**
 
-배터리를 선적하거나 항공편으로 달리 운송하는 경우 IATA 리튬 배터리 지침 문서([http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx))를 따르십시오.
+배터리를 선적하거나 항공편으로 달리 운송하는 경우 IATA 리튬 배터리 지침 문서( [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 이 보안 공지를 검토한 후 다음 단계에서는 장치를 개봉하고 랙 및 케이블을 연결합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * 8100 장치의 경우 [StorSimple 8100 장치 설치](storsimple-8100-hardware-installation.md)로 이동합니다.
 * 8600 장치의 경우 [StorSimple 8600 장치 설치](storsimple-8600-hardware-installation.md)로 이동합니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

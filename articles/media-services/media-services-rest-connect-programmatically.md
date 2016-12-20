@@ -1,12 +1,12 @@
 ---
-title: REST API를 사용하여 Media Services 계정에 연결 | Microsoft Docs
-description: 이 토픽에서는 REST API를 사용하여 Media Services에 연결하는 방법을 설명합니다.
+title: "REST API를 사용하여 Media Services 계정에 연결 | Microsoft 문서"
+description: "이 토픽에서는 REST API를 사용하여 Media Services에 연결하는 방법을 설명합니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 79dc64f1-15d8-4a81-b9d9-3d3c44d2e1e8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9ec07aacbde3f218d7a1bbddadad7552e737e1ea
+
 
 ---
 # <a name="connecting-to-media-services-account-using-media-services-rest-api"></a>미디어 서비스 REST API를 사용하여 미디어 서비스 계정에 연결
@@ -179,6 +183,9 @@ Note 루트 자산 파일 업로드 및 다운로드에 대 한 URI 인지 https
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

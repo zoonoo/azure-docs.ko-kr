@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 02623fc3d663a674e2184380915d651dff5760bc
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
 자습서에서는 데이터 및 지침을 사용하여 간단히 만들 수 있는 [샘플 Azure DocumentDB 데이터베이스](#apdx-sampledata) 를 가정하지만 DocumentDB 또는 SQL 데이터베이스에서 기존 데이터에 이들 단계를 적용할 수도 있습니다.
 
 > [!NOTE]
-> 이 시작 자습서에는 [Azure 구독](/pricing/free-trial/?WT.mc_id=A261C142F) 및 [Azure Search 서비스](search-create-service-portal.md)가 필요합니다. 
+> 이 시작 자습서에는 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) 및 [Azure Search 서비스](search-create-service-portal.md)가 필요합니다. 
 > 
 > 
 
@@ -181,6 +181,6 @@ Azure 가상 컴퓨터에서 Azure SQL 데이터베이스 또는 SQL Server와 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

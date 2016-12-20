@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정 | Microsoft Docs
-description: Windows Server 2012 R2에서 AD FS(Active Directory Federation Service)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
+title: "Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정 | Microsoft Docs"
+description: "Windows Server 2012 R2에서 AD FS(Active Directory Federation Service)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 453c71fe4636eddb4e96eef7acc7e62b99dca4dd
+
 
 ---
 # <a name="setting-up-on-premises-conditional-access-using-azure-active-directory-device-registration"></a>Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정
@@ -52,7 +56,7 @@ ms.author: femila
 ## <a name="scenario-assumptions"></a>시나리오의 가정
 이 시나리오는 사용자에게 Azure AD 테넌트와 온-프레미스 Active Directory로 구성된 하이브리드 환경이 있다고 가정합니다. 이러한 테넌트는 Azure AD Connect를 사용하여 연결되어야 하며 확인된 도메인과 SSO용 AD FS도 필요합니다. 아래 검사 목록을 통해 위에서 설명한 상태로 환경이 구성되었는지 확인해 보세요.
 
-## <a name="checklist:-prerequisites-for-conditional-access-scenario"></a>검사 목록: 조건부 액세스 시나리오를 위한 필수 구성 요소
+## <a name="checklist-prerequisites-for-conditional-access-scenario"></a>검사 목록: 조건부 액세스 시나리오를 위한 필수 구성 요소
 온-프레미스 Active Directory로 Azure AD 테넌트를 연결합니다.
 
 ## <a name="configure-azure-active-directory-device-registration-service"></a>Azure Active Directory Device Registration 서비스 구성
@@ -62,7 +66,7 @@ ms.author: femila
 
 Azure Active Directory Device Registration 서비스 및 Azure Active Directory 테넌트를 배포하려면 다음 검사 목록의 작업을 순서대로 완료합니다. 참조 링크를 통해 개념 항목으로 이동하는 경우 개념 항목을 검토한 후 이 검사 목록으로 돌아와서 이 검사 목록의 나머지 태스크를 계속할 수 있습니다. 일부 작업에는 단계가 성공적으로 완료되었는지 확인하는 데 도움이 되는 시나리오 유효성 검사 단계가 포함됩니다.
 
-## <a name="part-1:-enable-azure-active-directory-device-registration"></a>1부: Azure Active Directory Device Registration을 사용하도록 설정
+## <a name="part-1-enable-azure-active-directory-device-registration"></a>1부: Azure Active Directory Device Registration을 사용하도록 설정
 아래 검사 목록에 따라 Azure Active Directory Device Registration 서비스를 사용하도록 설정하고 구성합니다.
 
 | 작업 | 참조 |
@@ -70,21 +74,21 @@ Azure Active Directory Device Registration 서비스 및 Azure Active Directory 
 | Azure Active Directory 테넌트에서 장치 등록을 사용하도록 설정하여 장치가 작업 공간에 연결할 수 있게 합니다. 기본적으로 다단계 인증은 서비스에 대해 사용되지 않습니다. 그러나 장치를 등록하는 경우 다단계 인증을 사용하는 것이 좋습니다. ADRS에서 다단계 인증을 사용하도록 설정하기 전에 다단계 인증 공급자에 대해 AD FS가 구성되었는지 확인합니다. |[Azure Active Directory Device Registration 사용](active-directory-conditional-access-device-registration-overview.md) |
 | 장치는 잘 알려진 DNS 레코드를 찾아 Azure Active Directory Device Registration 서비스를 검색합니다. 장치가 Azure Active Directory Device Registration 서비스를 검색할 수 있도록 회사 DNS를 구성해야 합니다. |[Azure Active Directory Device Registration 검색 구성](active-directory-conditional-access-device-registration-overview.md) |
 
-## <a name="part-2:-deploy-and-configure-windows-server-2012-r2-active-directory-federation-services-and-set-up-a-federation-relationship-with-azure-ad"></a>2부: Windows Server 2012 R2 Active Directory Federation Services를 배포 및 구성하고 Azure AD와의 페더레이션 관계를 설정합니다.
+## <a name="part-2-deploy-and-configure-windows-server-2012-r2-active-directory-federation-services-and-set-up-a-federation-relationship-with-azure-ad"></a>2부: Windows Server 2012 R2 Active Directory Federation Services를 배포 및 구성하고 Azure AD와의 페더레이션 관계를 설정합니다.
 | 작업 | 참조 |
 | --- | --- |
 | Windows Server 2012 R2 스키마 확장을 사용하여 Active Directory 도메인 서비스 도메인을 배포합니다. 도메인 컨트롤러는 Windows Server 2012 R2로 업그레이드할 필요가 없습니다. 스키마 업그레이드만 수행하면 됩니다. |[Active Directory 도메인 서비스 스키마 업그레이드](#upgrade-your-active-directory-domain-services-schema) |
 | 장치는 잘 알려진 DNS 레코드를 찾아 Azure Active Directory Device Registration 서비스를 검색합니다. 장치가 Azure Active Directory Device Registration 서비스를 검색할 수 있도록 회사 DNS를 구성해야 합니다. |[Active Directory 지원 장치 준비](#prepare-your-active-directory-to-support-devices) |
 
-## <a name="part-3:-enable-device-writeback-in-azure-ad"></a>3부: Azure AD에서 장치 쓰기 저장 사용
+## <a name="part-3-enable-device-writeback-in-azure-ad"></a>3부: Azure AD에서 장치 쓰기 저장 사용
 | 작업 | 참조 |
 | --- | --- |
 | Azure AD Connect에서 장치 쓰기 저장 사용의 2부를 완료합니다. 완료되면 이 가이드로 돌아옵니다. |[Azure AD Connect에서 장치 쓰기 저장 사용](#upgrade-your-active-directory-domain-services-schema) |
 
-## <a name="[optional]-part-4:-enable-multi-factor-authentication"></a>[선택 사항] 4부: Multi-Factor Authentication 사용
+## <a name="optional-part-4-enable-multi-factor-authentication"></a>[선택 사항] 4부: Multi-Factor Authentication 사용
 Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 것이 좋습니다. MFA가 필요하도록 하려면 [다단계 보안 솔루션 선택](../multi-factor-authentication/multi-factor-authentication-get-started.md)을 참조하세요. 여기에는 각 솔루션에 대한 설명, 선택한 솔루션을 구성하는 데 도움이 되는 링크가 포함되어 있습니다.
 
-## <a name="part-5:-verification"></a>5부: 확인
+## <a name="part-5-verification"></a>5부: 확인
 이제 배포가 완료되었습니다. 몇 가지 시나리오를 시도해 볼 수 있습니다. 아래 링크를 따라 서비스를 시험해 보고 기능을 익혀 보십시오.
 
 | 작업 | 참조 |
@@ -104,7 +108,7 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 5. **배포 및 관리** 섹션에서 1-3단계에 따라 온-프레미스 디렉터리와 Azure Active Directory를 통합합니다.
    
    1. 도메인을 추가합니다.
-   2. Azure AD Connect 설치 및 실행: [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) 지침을 사용하여 Azure AD Connect를 설치합니다.
+   2. Azure AD Connect 설치 및 실행: [Azure AD Connect의 사용자 지정 설치](connect/active-directory-aadconnect-get-started-custom.md) 지침을 사용하여 Azure AD Connect를 설치합니다.
    3. 디렉터리 동기화를 확인하고 관리합니다. 이 단계에는 SSO(Single Sign-On) 지침이 포함되어 있습니다.
    
    > [!NOTE]
@@ -163,7 +167,7 @@ Azure Active Directory Device Registration은 iOS 장치에 대해 무선 프로
 
 다양한 방법으로 이 URL을 사용자에게 알릴 수 있습니다. 한 가지 권장 방법은 AD FS의 사용자 지정 응용 프로그램 액세스 거부 메시지에 이 URL을 게시하는 것입니다. 이 내용은 이후 섹션: [응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기](#create-an-application-access-policy-and-custom-access-denied-message)에서 설명합니다.
 
-### <a name="join-a-windows-8.1-device-using-azure-active-directory-device-registration"></a>Azure Active Directory Device Registration을 사용하여 Windows 8.1 장치 연결
+### <a name="join-a-windows-81-device-using-azure-active-directory-device-registration"></a>Azure Active Directory Device Registration을 사용하여 Windows 8.1 장치 연결
 1. Windows 8.1 장치에서 **PC 설정** > **네트워크** > **작업 공간**으로 이동합니다.
 2. 사용자 이름을 UPN 형식으로 입력합니다. 예: dan@contoso.com...
 3. **연결**을 선택합니다.
@@ -231,6 +235,9 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 ## <a name="related-articles"></a>관련 문서
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

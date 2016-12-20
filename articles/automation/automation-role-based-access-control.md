@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;sngun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9fff24dfd2b20a785c6046b6c9700b583c309de4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
 
 
 ---
-# <a name="rolebased-access-control-in-azure-automation"></a>Azure 자동화의 역할 기반 액세스 제어
-## <a name="rolebased-access-control"></a>역할 기반 액세스 제어
+# <a name="role-based-access-control-in-azure-automation"></a>Azure 자동화의 역할 기반 액세스 제어
+## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 대한 액세스 관리가 가능합니다. [RBAC](../active-directory/role-based-access-control-configure.md)를 사용하여 팀 내에서 업무를 분리하고 사용자, 그룹 및 응용 프로그램에 해당 작업을 수행하는 데에만 필요한 권한을 부여할 수 있습니다. Azure 포털, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 사용자에게 역할 기반 액세스를 부여할 수 있습니다.
 
 ## <a name="rbac-in-automation-accounts"></a>자동화 계정의 RBAC
@@ -233,6 +233,6 @@ Azure 자동화의 자동화 계정 범위에서 사용자, 그룹 및 응용 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

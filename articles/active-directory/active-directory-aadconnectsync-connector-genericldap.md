@@ -1,12 +1,12 @@
 ---
-title: 일반 LDAP 커넥터 | Microsoft Docs
-description: 이 문서에서는 Microsoft의 일반 LDAP 커넥터를 구성하는 방법을 설명합니다.
+title: "일반 LDAP 커넥터 | Microsoft Docs"
+description: "이 문서에서는 Microsoft의 일반 LDAP 커넥터를 구성하는 방법을 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 783952ef1a19d18c3dd5d25c9ccf25cf3b29af45
+
 
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>일반 LDAP 커넥터 기술 참조
@@ -258,6 +262,9 @@ Novell eDirectory의 경우 델타 가져오기는 개체 삭제를 탐지하지
 ## <a name="troubleshooting"></a>문제 해결
 * 커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731)참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

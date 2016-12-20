@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8bd214c166190248662634d488d8e7b1427b5738
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1fd0451809c8afca5c330229390ec691f4a25eb5
 
 
 ---
@@ -97,7 +97,7 @@ Azure 구독에 연결한 후에는 다음을 수행할 수 있습니다.
 ![Visual Studio용 Data Lake 도구 서버 탐색기 Blob 작업](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)
 
 ## <a name="run-a-hive-query"></a>HIVE 쿼리 실행
-[Apache Hive][apache.hive]는 Hadoop을 기반으로 하는 데이터 웨어하우스 인프라로, 데이터 요약, 쿼리 및 분석 기능을 제공합니다. Visual Studio용 Data Lake 도구는 Visual Studio에서 Hive 쿼리를 실행하도록 지원합니다. Hive에 대한 자세한 내용은 [HDInsight에서 Hive 사용][hdinsight.hive]을 참조하세요.
+[Apache Hive][apache.hive]는 Hadoop을 기반으로 하는 데이터 웨어하우스 인프라로, 데이터 요약, 쿼리 및 분석 기능을 제공합니다. Visual Studio용 Data Lake 도구는 Visual Studio에서 Hive 쿼리를 실행하도록 지원합니다. Hive에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight.hive]을 참조하세요.
 
 HDInsight 클러스터에 대해 Hive 스크립트를 테스트하려면 많은 시간이 걸립니다. 몇 분 이상 걸릴 수 있습니다. Visual Studio용 Data Lake 도구는 로컬로 라이브 클러스터에 연결하지 않고 Hive 스크립트의 유효성 검사를 할 수 있습니다.
 
@@ -173,7 +173,7 @@ GUI를 사용하여 Hive 테이블을 만들거나 Hive 쿼리를 사용할 수 
 ### <a name="view-hive-jobs"></a>Hive 작업 보기
 Hive 작업에 대한 작업 쿼리, 작업 출력, 작업 로그 및 Yarn 로그를 볼 수 있습니다. 자세한 내용은 이전 스크린샷을 참조하세요.
 
-최신 릴리스의 도구에서는 YARN 로그를 수집하고 표시하여 Hive 작업 내의 항목을 확인할 수 있습니다. YARN 로그를 사용하여 성능 문제를 조사할 수 있습니다. HDInsight가 Yarn 로그를 수집하는 방법에 대한 자세한 내용은 [프로그래밍 방식으로 HDInsight 응용 프로그램 로그에 액세스][hdinsight.access.application.logs]를 참조하세요.
+최신 릴리스의 도구에서는 YARN 로그를 수집하고 표시하여 Hive 작업 내의 항목을 확인할 수 있습니다. YARN 로그를 사용하여 성능 문제를 조사할 수 있습니다. HDInsight가 YARN 로그를 수집하는 방법에 대한 자세한 내용은 [프로그래밍 방식으로 HDInsight 응용 프로그램 로그에 액세스][hdinsight.access.application.logs]를 참조하세요.
 
 **Hive 작업을 보려면**
 
@@ -243,14 +243,14 @@ Visual Studio용 Data Lake 도구는 Pig 스크립트를 만들어 HDInsight 클
 * [HDInsight에서 Hadoop Hive 사용][hdinsight.hive]
 * [HDInsight에서 Hadoop 사용 시작][hdinsight.get.started]
 * [HDInsight에서 Hadoop 작업 제출][hdinsight.submit.jobs]
-* [HDInsight의 Hadoop에서 Twitter 데이터 분석][hdinsight.analyze.twitter.data]
+* [HDInsight에서 Hadoop으로 Twitter 데이터 분석][hdinsight.analyze.twitter.data]
 
 <!--Anchors-->
-[설치]: #installation
-[Azure 구독에 연결]: #connect-to-your-azure-subscription
-[연결된 리소스 탐색]: #navigate-the-linked-resources
-[Hive 쿼리 실행]: #run-hive-queries
-[다음 단계]: #next-steps
+[Installation]: #installation
+[Connect to your Azure subscription]: #connect-to-your-azure-subscription
+[Navigate the linked resources]: #navigate-the-linked-resources
+[Run Hive queries]: #run-hive-queries
+[Next steps]: #next-steps
 
 <!--Image references-->
 [1]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.wpi.png
@@ -281,6 +281,6 @@ Visual Studio용 Data Lake 도구는 Pig 스크립트를 만들어 HDInsight 클
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

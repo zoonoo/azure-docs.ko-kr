@@ -1,12 +1,12 @@
 ---
-title: StorSimple 하드웨어 구성 요소 및 상태 | Microsoft Docs
-description: StorSimple Manager 서비스를 통해 StorSimple 장치의 하드웨어 구성 요소를 모니터링하는 방법에 대해 알아봅니다.
+title: "StorSimple 하드웨어 구성 요소 및 상태 | Microsoft Docs"
+description: "StorSimple Manager 서비스를 통해 StorSimple 장치의 하드웨어 구성 요소를 모니터링하는 방법에 대해 알아봅니다."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 0d56a2ba-daf0-45ad-9610-8b8712dd5750
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0544cb9aaf9ec03c16cc07f2974b6b8d90b3c61d
+
 
 ---
-# StorSimple 관리자 서비스를 사용하여 하드웨어 구성 요소 및 상태 모니터링
-## 개요
-이 문서에서는 온-프레미스 StorSimple 장치에서 다양한 물리적 및 논리적 구성 요소를 설명합니다. StorSimple 관리자 서비스의 **유지 관리** 페이지를 사용하여 장치 구성 요소 상태를 모니터링하는 방법도 설명합니다.
+# <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>StorSimple 관리자 서비스를 사용하여 하드웨어 구성 요소 및 상태 모니터링
+## <a name="overview"></a>개요
+이 문서에서는 온-프레미스 StorSimple 장치에서 다양한 물리적 및 논리적 구성 요소를 설명합니다. StorSimple 관리자 서비스의 **유지 관리** 페이지를 사용하여 장치 구성 요소 상태를 모니터링하는 방법도 설명합니다. 
 
-**유지 관리** 페이지는 모든 StorSimple 장치 구성 요소의 하드웨어 상태를 보여줍니다.
+**유지 관리** 페이지는 모든 StorSimple 장치 구성 요소의 하드웨어 상태를 보여줍니다. 
 
 8100에 대한 구성 요소 목록 아래에는 다음을 설명하는 세 섹션이 있습니다.
 
@@ -39,11 +43,11 @@ ms.author: alkohli
 > 
 > 
 
-## 하드웨어 상태 모니터링
+## <a name="monitor-the-hardware-status"></a>하드웨어 상태 모니터링
 장치 구성 요소의 하드웨어 상태를 보려면 다음 단계를 수행합니다.
 
-1. **장치**로 이동하여 특정 StorSimple 장치를 선택합니다. 클릭하여 장치 수준 메뉴로 이동한 다음 **유지 관리**를 클릭합니다.
-2. **하드웨어 상태** 섹션을 찾고 사용 가능한 구성 요소(위에서 설명한)를 선택합니다. 구성 요소 레이블 목록 앞의 화살표를 클릭하여 목록을 확장하고 다양한 장치 구성 요소의 상태를 봅니다. [기본 인클로저에 대한 자세한 구성 요소 목록](#component-list-for-primary-enclosure-of-storsimple-device) 및 [EBOD 인클로저에 대한 자세한 구성 요소](#component-list-for-ebod-enclosure-of-storsimple-device)를 참조하세요.
+1. **장치**로 이동하여 특정 StorSimple 장치를 선택합니다. 클릭하여 장치 수준 메뉴로 이동한 다음 **유지 관리**를 클릭합니다. 
+2. **하드웨어 상태** 섹션을 찾고 사용 가능한 구성 요소(위에서 설명한)를 선택합니다. 구성 요소 레이블 목록 앞의 화살표를 클릭하여 목록을 확장하고 다양한 장치 구성 요소의 상태를 봅니다. [기본 엔클로저에 대한 자세한 구성 요소 목록](#component-list-for-primary-enclosure-of-storsimple-device) 및 [EBOD 엔클로저에 대한 자세한 구성 요소](#component-list-for-ebod-enclosure-of-storsimple-device)를 참조하세요.
 3. 다음 색 코딩 구성표를 사용하여 구성 요소 상태를 해석합니다.
    
    * **녹색 확인 표시** – **정상** 또는 **확인** 구성 요소를 표시합니다.
@@ -52,7 +56,7 @@ ms.author: alkohli
    * **검정 텍스트에 흰색** – 존재하지 않는 구성 요소를 표시합니다.
 4. **정상** 상태가 아닌 구성 요소가 있는 경우 Microsoft 지원에 문의하세요. 장치에서 경고를 설정한 경우, 메일 경고를 받게 됩니다. 실패한 하드웨어 구성 요소를 교체해야 하는 경우 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)를 참조하세요.
 
-## StorSimple 장치의 기본 인클로저에 대한 구성 요소 목록
+## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>StorSimple 장치의 기본 인클로저에 대한 구성 요소 목록
 다음 표에서 온-프레미스 StorSimple 장치의 기본 인클로저에 포함된 물리적 및 논리적 구성 요소를 간략하게 설명합니다.
 
 | 구성 요소 | 모듈 | 형식 | 위치 | FRU(Field replaceable unit)? | 설명 |
@@ -62,7 +66,7 @@ ms.author: alkohli
 | 중간 평면 온도 센서 |엔클로저 |물리적 |공유됨 |아니요 |중간 평면 온도를 측정합니다. |
 | 청각적 경고 |엔클로저 |물리적 |공유됨 |아니요 |섀시 내 청각적 경고 하위 시스템의 작동 여부를 나타냅니다. |
 | 엔클로저 |엔클로저 |물리적 |공유됨 |예 |섀시의 존재를 표시합니다. |
-| 인클로저 설정 |인클로저 |물리적 |공유됨 |아니요 |섀시 전면 패널을 가리킵니다. |
+| 인클로저 설정 |엔클로저 |물리적 |공유됨 |아니요 |섀시 전면 패널을 가리킵니다. |
 | 정격 전압 센서 |PCM |물리적 |공유됨 |아니요 |다양한 정격 전압 센서는 허용 오차 내에서 측정된 전압인지 여부를 나타내는 상태를 표시합니다. |
 | 정격 전류 센서 |PCM |물리적 |공유됨 |아니요 |다양한 정격 전류 센서는 허용 오차 내에서 측정된 전류인지 여부를 나타내는 상태를 표시합니다. |
 | PCM의 온도 센서 |PCM |물리적 |공유됨 |아니요 |입구 온도 센서 및 핫스팟 센서와 같은 여러 온도 센서는 허용 오차 내에서 측정된 온도인지를 나타내는 상태를 표시합니다. |
@@ -83,7 +87,7 @@ ms.author: alkohli
 | SSD 저장소 풀 |해당 없음 |논리 |공유됨 |해당 없음 |SSD 장치에서 생성되는 논리 저장소 풀의 상태가 표시됩니다. |
 | 컨트롤러 [0-1] [state] |I/O |물리적 |Controller |예 |컨트롤러의 상태 및 섀시 내에서 활성 모드인지 또는 대기 모드인지를 표시합니다. |
 | 컨트롤러의 온도 센서 |I/O |물리적 |Controller |아니요 |I/O 모듈, CPU 온도, DIMM 및 PCIe 센서와 같은 다양한 온도 센서는 허용 오차 내에서 발생하는 온도인지 여부를 나타내는 상태를 표시합니다. |
-| SAS 확장기 |I/O |물리적 |Controller |아니요 |직렬 연결된 SCSI(SAS) 확장기의 상태를 표시하며, 통합된 저장소를 컨트롤러에 연결하는 데 사용됩니다. |
+| ﻿SAS 확장기 |I/O |물리적 |Controller |아니요 |직렬 연결된 SCSI(SAS) 확장기의 상태를 표시하며, 통합된 저장소를 컨트롤러에 연결하는 데 사용됩니다. |
 | SAS 커넥터 [0-1] |I/O |물리적 |Controller |아니요 |SAS 확장기에 통합된 저장소를 연결하는데 사용되는 각 SAS 커넥터의 상태를 나타냅니다. |
 | SBB 중간 평면 상호 연결 |I/O |물리적 |Controller |아니요 |각 컨트롤러에서 중간 평면에 연결하는데 사용되는 중간 평면 커넥터의 상태를 나타냅니다. |
 | 프로세서 코어 |I/O |물리적 |Controller |아니요 |각 컨트롤러 내에서 프로세서 코어의 상태를 나타냅니다. |
@@ -93,7 +97,7 @@ ms.author: alkohli
 | 이더넷 |I/O |물리적 |Controller |아니요 |각 네트워크 인터페이스, 즉, 컨트롤러에서 제공하는 관리 및 데이터 포트의 상태를 나타냅니다. |
 | NVRAM |I/O |물리적 |Controller |아니요 |전원 오류가 발생할 경우 응용 프로그램에 중요한 정보를 유지하기 위해 사용되는 배터리에서 백업된 비휘발성 임의 액세스 메모리, NVRAM의 상태를 나타냅니다. |
 
-## StorSimple 장치의 EBOD 인클로저에 대한 구성 요소 목록
+## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>StorSimple 장치의 EBOD 인클로저에 대한 구성 요소 목록
 다음 표에서 온-프레미스 StorSimple 장치의 EBOD 인클로저에 포함된 물리적 및 논리적 구성 요소를 간략하게 설명합니다.
 
 | 구성 요소 | 모듈 | 형식 | 위치 | FRU? | 설명 |
@@ -103,7 +107,7 @@ ms.author: alkohli
 | 중간 평면 온도 센서 |엔클로저 |물리적 |공유됨 |아니요 |중간 평면 온도를 측정합니다. |
 | 청각적 경고 |엔클로저 |물리적 |공유됨 |아니요 |섀시 내 청각적 경고 하위 시스템의 작동 여부를 나타냅니다. |
 | 엔클로저 |엔클로저 |물리적 |공유됨 |예 |섀시의 존재를 표시합니다. |
-| 인클로저 설정 |인클로저 |물리적 |공유됨 |아니요 |섀시 전면 패널 또는 OPS를 가리킵니다. |
+| 인클로저 설정 |엔클로저 |물리적 |공유됨 |아니요 |섀시 전면 패널 또는 OPS를 가리킵니다. |
 | 정격 전압 센서 |PCM |물리적 |공유됨 |아니요 |다양한 정격 전압 센서는 허용 오차 내에서 측정된 전압인지 여부를 나타내는 상태를 표시합니다. |
 | 정격 전류 센서 |PCM |물리적 |공유됨 |아니요 |다양한 정격 전류 센서는 허용 오차 내에서 측정된 전류인지 여부를 나타내는 상태를 표시합니다. |
 | PCM의 온도 센서 |PCM |물리적 |공유됨 |아니요 |입구 온도 센서 및 핫스팟 센서와 같은 여러 온도 센서는 허용 오차 내에서 측정된 온도인지를 나타내는 상태를 표시합니다. |
@@ -112,17 +116,22 @@ ms.author: alkohli
 | 로컬 저장소 [HDD] |해당 없음 |논리 |공유됨 |해당 없음 |HDD 장치에서 생성되는 논리 저장소 풀의 상태가 표시됩니다. |
 | 컨트롤러 [0-1] [state] |I/O |물리적 |Controller |예 |EBOD 모듈의 컨트롤러 상태를 표시합니다. |
 | EBOD의 온도 센서 |I/O |물리적 |Controller |아니요 |각 컨트롤러의 여러 온도 센서는 허용 오차 내에서 측정된 온도인지를 나타내는 상태를 표시합니다. |
-| SAS 확장기 |I/O |물리적 |Controller |아니요 |SAS 확장기의 상태를 표시하며, 통합된 저장소를 컨트롤러에 연결하는 데 사용됩니다. |
+| ﻿SAS 확장기 |I/O |물리적 |Controller |아니요 |SAS 확장기의 상태를 표시하며, 통합된 저장소를 컨트롤러에 연결하는 데 사용됩니다. |
 | SAS 커넥터 [0-2] |I/O |물리적 |Controller |아니요 |SAS 확장기에 통합된 저장소를 연결하는데 사용되는 각 SAS 커넥터의 상태를 나타냅니다. |
 | SBB 중간 평면 상호 연결 |I/O |물리적 |Controller |아니요 |각 컨트롤러에서 중간 평면에 연결하는데 사용되는 중간 평면 커넥터의 상태를 나타냅니다. |
 | 인클로저 전자 기기 전원 |I/O |물리적 |Controller |아니요 |인클로저에에서 사용된 전원 시스템의 상태를 나타냅니다. |
 | 인클로저 전자 기기 진단 |I/O |물리적 |Controller |아니요 |컨트롤러에서 제공된 진단 하위 시스템의 상태를 나타냅니다. |
 | 장치 컨트롤러에 연결 |I/O |물리적 |Controller |아니요 |EBOD I/O 모듈 및 장치 컨트롤러 간의 연결 상태를 나타냅니다. |
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * StorSimple Manager 서비스를 사용하여 장치를 관리하려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
-* 성능 저하 또는 실패 상태의 장치 구성 요소 문제를 해결해야 하는 경우 [StorSimple 모니터링 표시기](storsimple-monitoring-indicators.md)를 참조하세요.
+* 성능 저하 또는 실패 상태의 장치 구성 요소 문제를 해결해야 하는 경우 [StorSimple 모니터링 표시기](storsimple-monitoring-indicators.md)를 참조하세요. 
 * 오류가 발생한 하드웨어 구성 요소를 교체하려면 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)를 참조하세요.
 * 장치 문제가 계속되면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

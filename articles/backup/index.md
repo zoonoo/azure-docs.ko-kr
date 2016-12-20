@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: fc9ecdbafdd81a4e1c4dfce546ea9c9cebc647d6
+ms.sourcegitcommit: 3fb1fc0e1198733d47378ec149082330b6350abc
+ms.openlocfilehash: db1ba8a832b9b5efa380adf804a55b5ca67ef1a2
 
 ---
 #<a name="backup-documentation"></a>Backup 설명서
@@ -103,39 +103,35 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 </ul>
 
 ---
-
-## <a name="reference"></a>참조
-
+ 
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET 관리되는 참조</p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/recoveryservices">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Backup REST API 참조</p>
+                        <h3>언어</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.backupservices">/dotnet/api/microsoft.azure.management.backupservices</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
+
 
 
 <div class="downloadHolder">
@@ -148,6 +144,6 @@ Azure Backup 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Log Analytics로 Surface Hub 모니터링 | Microsoft Docs
-description: Surface Hub 솔루션으로 Surface Hub 상태를 추적하여 Surface Hub가 사용되고 있는 방식을 파악합니다.
+title: "Log Analytics로 Surface Hub 모니터링 | Microsoft Docs"
+description: "Surface Hub 솔루션으로 Surface Hub 상태를 추적하여 Surface Hub가 사용되고 있는 방식을 파악합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: 9ba6b1b3fcdaf090eee696ba3cb33be5d94be039
+
 
 ---
 # <a name="monitor-surface-hubs-with-log-analytics"></a>Log Analytics로 Surface Hub 모니터링
@@ -46,7 +50,7 @@ InTune은 하나 이상의 장치에 적용되는 OMS 구성 설정을 중앙에
 4. 정책의 OMS (Azure Operational Insights) 섹션으로 이동한 다음 해당 정책에 *작업 영역 ID* 및 *작업 영역 키*를 추가합니다.
 5. 해당 정책을 저장합니다.
 6. 장치가 속한 그룹에 해당 정책을 연결합니다.
-   
+
    ![InTune 정책](./media/log-analytics-surface-hubs/intune.png)
 
 그러면 InTune에서 대상 그룹의 장치와 OMS 설정을 동기화하여 OMS 작업 영역에 해당 장치를 등록 합니다.
@@ -72,7 +76,7 @@ OMS를 통한 Surface Hub 모니터링은 등록된 다른 장치 모니터링�
 1. OMS 포털에 로그인합니다.
 2. Surface Hub 솔루션 팩 대시보드로 이동합니다.
 3. 장치 상태가 표시됩니다.
-   
+
    ![Surface Hub 대시보드](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
 기존 또는 사용자 지정 로그 검색에 기반한 [경고](log-analytics-alerts.md)를 만들 수 있습니다. OMS에서 Surface Hub로부터 수집한 데이터를 사용하면 문제를 검색하여 장치에 정의하는 조건에 대해 경고할 수 있습니다.
@@ -81,6 +85,8 @@ OMS를 통한 Surface Hub 모니터링은 등록된 다른 장치 모니터링�
 * [Log Analytics에서 로그 검색](log-analytics-log-searches.md)을 통한 자세한 Surface Hub 데이터 보기
 * Surface Hub 문제 발생 시 알리는 [경고](log-analytics-alerts.md) 만들기
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

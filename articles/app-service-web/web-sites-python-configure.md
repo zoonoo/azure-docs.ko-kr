@@ -1,13 +1,13 @@
 ---
-title: Azure 앱 서비스 웹앱에서 Python 구성
-description: 이 자습서에서는 Azure 앱 서비스 웹앱에서 기본 WSGI(Web Server Gateway Interface) 규격 Python 응용 프로그램을 제작 및 구성하는 옵션을 설명합니다.
+title: "Azure 앱 서비스 웹앱에서 Python 구성"
+description: "이 자습서에서는 Azure 앱 서비스 웹앱에서 기본 WSGI(Web Server Gateway Interface) 규격 Python 응용 프로그램을 제작 및 구성하는 옵션을 설명합니다."
 services: app-service
 documentationcenter: python
 tags: python
 author: huguesv
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,31 +15,35 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8a9cdbc993468db23f2a256c1ff092c1b057a18
+
 
 ---
-# Azure 앱 서비스 웹앱에서 Python 구성
+# <a name="configuring-python-with-azure-app-service-web-apps"></a>Azure 앱 서비스 웹앱에서 Python 구성
 이 자습서에서는 [Azure 앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에서 기본 WSGI(Web Server Gateway Interface) 규격 Python 응용 프로그램을 제작 및 구성하는 옵션을 설명합니다.
 
 또한 가상 환경 및 requirements.txt를 사용한 패키지 설치 등 Git 배포의 추가 기능에 대해 설명합니다.
 
-## Bottle, Django 또는 Flask
+## <a name="bottle-django-or-flask"></a>Bottle, Django 또는 Flask
 Azure 마켓플레이스에는 Bottle, Django 및 Flask 프레임워크용 템플릿이 들어 있습니다. Azure 앱 서비스에서 웹앱을 처음 개발하거나 Git에 익숙하지 않은 경우 다음 자습서 중 하나를 따르는 것이 좋습니다. 이러한 자습서에는 Windows 또는 Mac에서 Git 배포를 사용하여 갤러리를 통해 작업 응용 프로그램을 빌드하는 방법에 대한 단계별 지침이 포함되어 있습니다.
 
 * [Bottle을 사용하여 웹앱 만들기](web-sites-python-create-deploy-bottle-app.md)
 * [Django를 사용하여 웹앱 만들기](web-sites-python-create-deploy-django-app.md)
 * [Flask를 사용하여 웹앱 만들기](web-sites-python-create-deploy-flask-app.md)
 
-## Azure 포털에서 웹앱 만들기
+## <a name="web-app-creation-on-azure-portal"></a>Azure 포털에서 웹앱 만들기
 이 자습서에서는 기존 Azure 구독 및 Azure 포털에 대한 액세스 권한이 있다고 가정합니다.
 
-기존 웹앱이 없는 경우 [Azure 포털](https://portal.azure.com)에서 웹앱을 만들 수 있습니다. 왼쪽 위에 있는 새로 만들기 단추를 클릭한 다음 **웹 + 모바일** > **웹앱**을 클릭합니다.
+기존 웹앱이 없는 경우 [Azure 포털](https://portal.azure.com)에서 웹앱을 만들 수 있습니다.  왼쪽 위에 있는 새로 만들기 단추를 클릭한 다음 **웹 + 모바일** > **웹앱**을 클릭합니다.
 
-## Git 게시
+## <a name="git-publishing"></a>Git 게시
 [Azure 앱 서비스에 로컬 Git 배포](app-service-deploy-local-git.md)의 지침에 따라 새로 만든 웹앱에 대한 Git 게시를 구성합니다. 이 자습서에서는 Git를 사용하여 Python 웹앱을 만들고 관리하며 Azure 앱 서비스에 게시합니다.
 
 Git 게시가 설정되면 Git 리포지토리가 생성되고 웹앱과 연결됩니다. 리포지토리의 URL이 표시되고 로컬 개발 환경에서 클라우드로 데이터를 보내는 데 사용할 수 있습니다. Git를 통해 응용 프로그램을 게시하려면 Git 클라이언트가 설치되어 있는지 확인하고 제공된 지침에 따라 웹앱 콘텐츠를 Azure 앱 서비스에 게시합니다.
 
-## 응용 프로그램 개요
+## <a name="application-overview"></a>응용 프로그램 개요
 다음 섹션에서는 다음 파일을 만듭니다. 이러한 파일은 Git 리포지토리의 루트에 배치해야 합니다.
 
     app.py
@@ -49,8 +53,8 @@ Git 게시가 설정되면 Git 리포지토리가 생성되고 웹앱과 연결�
     ptvs_virtualenv_proxy.py
 
 
-## WSGI 처리기
-WSGI는 웹 서버와 Python 간 인터페이스를 정의하는 [PEP 3333](http://www.python.org/dev/peps/pep-3333/)(영문)에 설명된 Python 표준입니다. WSGI는 Python을 사용하여 다양한 웹 응용 프로그램 및 프레임워크 쓰기에 대해 표준화된 인터페이스를 제공합니다. 오늘날 인기 있는 Python 웹 프레임워크는 WSGI를 사용합니다. Azure 앱 서비스 웹앱은 그러한 프레임워크에 대한 지원을 제공하며, 고급 사용자는 사용자 지정 처리기가 WSGI 사양 지침을 따르는 경우 고유한 프레임워크를 제작할 수도 있습니다.
+## <a name="wsgi-handler"></a>WSGI 처리기
+WSGI는 웹 서버와 Python 간 인터페이스를 정의하는 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) (영문)에 설명된 Python 표준입니다. WSGI는 Python을 사용하여 다양한 웹 응용 프로그램 및 프레임워크 쓰기에 대해 표준화된 인터페이스를 제공합니다. 오늘날 인기 있는 Python 웹 프레임워크는 WSGI를 사용합니다. Azure 앱 서비스 웹앱은 그러한 프레임워크에 대한 지원을 제공하며, 고급 사용자는 사용자 지정 처리기가 WSGI 사양 지침을 따르는 경우 고유한 프레임워크를 제작할 수도 있습니다.
 
 다음은 사용자 지정 처리기를 정의하는 `app.py`의 예입니다.
 
@@ -69,7 +73,7 @@ WSGI는 웹 서버와 Python 간 인터페이스를 정의하는 [PEP 3333](http
 
 `python app.py`를 사용하여 이 응용 프로그램을 로컬로 실행한 다음 웹 브라우저에서 `http://localhost:5555`로 이동합니다.
 
-## 가상 환경
+## <a name="virtual-environment"></a>가상 환경
 위 예제 앱에는 외부 패키지가 필요 없지만 응용 프로그램에 일부 외부 패키지가 필요할 수 있습니다.
 
 외부 패키지 종속성을 관리하도록 도와주기 위해 Azure Git 배포에서는 가상 환경 만들기를 지원합니다.
@@ -78,7 +82,7 @@ Azure에서는 리포지토리의 루트에서 requirements.txt를 발견한 경
 
 개발을 위해 가상 환경을 로컬로 만들 수 있지만 이를 Git 리포지토리에 포함하지 마세요.
 
-## 패키지 관리
+## <a name="package-management"></a>패키지 관리
 requirements.txt에 나열된 패키지는 pip를 사용하여 가상 환경에 자동으로 설치됩니다. 이는 모든 배포에서 발생하지만 패키지가 이미 설치된 경우에는 pip에서 설치를 건너뜁니다.
 
 예제 `requirements.txt`:
@@ -86,7 +90,7 @@ requirements.txt에 나열된 패키지는 pip를 사용하여 가상 환경에 
     azure==0.8.4
 
 
-## Python 버전
+## <a name="python-version"></a>Python 버전
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 예제 `runtime.txt`:
@@ -94,14 +98,14 @@ requirements.txt에 나열된 패키지는 pip를 사용하여 가상 환경에 
     python-2.7
 
 
-## Web.config
+## <a name="webconfig"></a>Web.config
 web.config 파일을 만들어 서버에서 요청을 처리하는 방법을 지정해야 합니다.
 
 web.x.y.config 파일(여기서 x.y는 선택한 Python 런타임과 일치)이 리포지토리에 있으면 Azure에서 해당 파일을 web.config로 자동으로 복사합니다.
 
-다음 web.config 예제는 다음 섹션에 설명된 가상 환경 프록시 스크립트를 기반으로 합니다. 이는 위 예제 `app.py`에서 사용된 WSGI 처리기에 적용됩니다.
+다음 web.config 예제는 다음 섹션에 설명된 가상 환경 프록시 스크립트를 기반으로 합니다.  이는 위 예제 `app.py` 에서 사용된 WSGI 처리기에 적용됩니다.
 
-Python 2.7용 예제 `web.config`:
+Python 2.7용 예제 `web.config` :
 
     <?xml version="1.0"?>
     <configuration>
@@ -151,7 +155,7 @@ Python 2.7용 예제 `web.config`:
     </configuration>
 
 
-Python 3.4용 예제 `web.config`:
+Python 3.4용 예제 `web.config` :
 
     <?xml version="1.0"?>
     <configuration>
@@ -203,11 +207,11 @@ Python 3.4용 예제 `web.config`:
 
 위 예제에서 디스크에 있는 정적 파일의 위치는 URL 내의 위치와 일치해야 합니다. 이는 `http://pythonapp.azurewebsites.net/static/site.css`에 대한 요청 시 `\static\site.css`에서 디스크의 파일이 제공됨을 의미합니다.
 
-`WSGI_ALT_VIRTUALENV_HANDLER`는 지정한 WSGI 처리기의 위치입니다. 위 예제에서는 처리기가 루트 폴더의 `app.py`에 있는 `wsgi_app`이라는 함수이므로 `app.wsgi_app`입니다.
+`WSGI_ALT_VIRTUALENV_HANDLER` 는 지정한 WSGI 처리기의 위치입니다. 위 예제에서는 처리기가 루트 폴더의 `app.py`에 있는 `wsgi_app`이라는 함수이므로 `app.wsgi_app`입니다.
 
-`PYTHONPATH`를 사용자 지정할 수 있지만 requirements.txt에서 모든 종속성을 지정하여 가상 환경에 설치한 경우에는 변경해서는 안 됩니다.
+`PYTHONPATH` 를 사용자 지정할 수 있지만 requirements.txt에서 모든 종속성을 지정하여 가상 환경에 설치한 경우에는 변경해서는 안 됩니다.
 
-## 가상 환경 프록시
+## <a name="virtual-environment-proxy"></a>가상 환경 프록시
 다음 스크립트는 WSGI 처리기를 검색하고 가상 환경을 활성화하며 오류를 기록하는 데 사용됩니다. 이 스크립트는 수정 없이 범용적으로 사용됩니다.
 
 `ptvs_virtualenv_proxy.py`의 내용:
@@ -266,7 +270,7 @@ Python 3.4용 예제 `web.config`:
             except: 
                 log('ptvsd.enable_attach failed\n')
         except ImportError:
-            log('error importing ptvsd.\n');
+            log('error importing ptvsd.\n')
 
     def get_wsgi_handler(handler_name):
         if not handler_name:
@@ -336,24 +340,29 @@ Python 3.4용 예제 `web.config`:
         return handler
 
 
-## Git 배포 사용자 지정
+## <a name="customize-git-deployment"></a>Git 배포 사용자 지정
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-deployment.md)]
 
-## 문제 해결 - 패키지 설치
+## <a name="troubleshooting---package-installation"></a>문제 해결 - 패키지 설치
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## 문제 해결 - 가상 환경
+## <a name="troubleshooting---virtual-environment"></a>문제 해결 - 가상 환경
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
-## 변경된 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
+## <a name="whats-changed"></a>변경된 내용
+* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,19 +1,23 @@
 ---
-title: Azure 큐 및 서비스 버스 큐 - 비교 및 대조 | Microsoft Docs
-description: Azure에서 제공하는 두 가지 유형의 큐 사이의 차이점과 유사점을 분석합니다.
-services: service-bus
+title: "Azure 큐 및 Service Bus 큐 - 비교 및 대조 | Microsoft Docs"
+description: "Azure에서 제공하는 두 가지 유형의 큐 사이의 차이점과 유사점을 분석합니다."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: tysonn
-
-ms.service: service-bus
+ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/23/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0740427b1cd990fb94e82f1f045cc9e7f11468cd
+
 
 ---
 # <a name="azure-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 서비스 버스 큐 - 비교 및 대조
@@ -141,11 +145,11 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 
 ### <a name="additional-information"></a>추가 정보
 * 서비스 버스의 경우 큐 크기 제한이 강제 적용됩니다. 최대 큐 크기는 큐 생성 시에 지정되며, 1GB ~ 80GB 사이의 값이 될 수 있습니다. 큐 생성 시에 설정된 큐 크기 값에 도달하면, 추가로 수신되는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. Service Bus의 할당량에 대한 자세한 내용은 [Service Bus 할당량](service-bus-quotas.md)을 참조하세요.
-* 서비스 버스 큐는 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용하는 경우(기본값) 서비스 버스는 사용자가 지정한 각 GB마다 16개의 파티션을 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 * 16) = 80GB가 됩니다. [Azure Portal][]에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
+* 서비스 버스 큐는 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용하는 경우(기본값) 서비스 버스는 사용자가 지정한 각 GB마다 16개의 파티션을 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 * 16) = 80GB가 됩니다. [Azure 포털][Azure 포털]에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
 * Azure Queues의 경우 메시지 콘텐츠가 XML-safe가 아니라면 **Base64**로 인코딩되어야 합니다. 메시지를 **Base64**로 인코딩하면 사용자 페이로드가 64KB가 아니라 최대 48KB가 될 수 있습니다.
 * 서비스 버스 큐의 경우 큐에 저장된 각 메시지가 헤더와 본문의 두 부분으로 구성됩니다. 메시지의 총 크기는 서비스 계층에서 지원하는 최대 메시지 크기를 초과할 수 없습니다.
 * 클라이언트가 TCP 프로토콜을 통해 서비스 버스와 통신할 때, 단일 서비스 버스 큐에 대한 최대 동시 연결 수가 100으로 제한됩니다. 이 숫자는 보낸 사람과 받는 사람 사이에 공유됩니다. 이 할당량에 도달하면 후속 추가 연결 요청이 거부되며 호출 코드에서 예외를 수신합니다. REST 기반 API를 사용하여 큐에 연결하는 클라이언트에게는 이 제한이 적용되지 않습니다.
-* 단일 서비스 버스 네임스페이스에 10,000개 이상의 큐가 필요할 경우, Azure 지원 팀에 문의하여 확장을 요청할 수 있습니다. 또한 Service Bus에서 큐를 10,000개 이상으로 확장하려면 [Azure portal][]을 사용하여 추가 네임스페이스를 만들어야 합니다.
+* 단일 서비스 버스 네임스페이스에 10,000개 이상의 큐가 필요할 경우, Azure 지원 팀에 문의하여 확장을 요청할 수 있습니다. 또한 Service Bus에서 큐를 10,000개 이상으로 확장하려면 [Azure 포털][Azure 포털]을 사용하여 추가 네임스페이스를 만들어야 합니다.
 
 ## <a name="management-and-operations"></a>관리 및 운영
 이 섹션에서는 Azure 큐와 서비스 버스 큐에서 제공하는 관리 기능을 비교합니다.
@@ -227,6 +231,6 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

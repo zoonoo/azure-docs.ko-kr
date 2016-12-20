@@ -1,12 +1,12 @@
 ---
-title: '자습서: Novatus와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 Novatus 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Novatus와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 Novatus 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d2f13779-bdb7-4408-9738-be67ed3de4e5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 270d1a62d3522e154ba63192f11dc4394532c529
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-novatus"></a>자습서: Novatus와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-novatus"></a>자습서: Novatus와 Azure Active Directory 통합
 이 자습서에서는 Novatus와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 Novatus를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -234,6 +238,6 @@ Novatus에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

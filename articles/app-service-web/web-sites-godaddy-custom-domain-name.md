@@ -1,12 +1,12 @@
 ---
-title: Azure 앱 서비스에 대한 사용자 지정 도메인 이름 구성(GoDaddy)
-description: Azure 웹 앱에서 GoDaddy의 도메인 이름을 사용하는 방법에 대해 알아봅니다.
+title: "Azure 앱 서비스에 대한 사용자 지정 도메인 이름 구성(GoDaddy)"
+description: "Azure 웹 앱에서 GoDaddy의 도메인 이름을 사용하는 방법에 대해 알아봅니다."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: erikre
 manager: wpickett
 editor: jimbe
-
+ms.assetid: 33233e30-5846-488f-83f3-b32e5c114564
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dc3ee1f4d3205b40397d5f82959a78316def5f45
+
 
 ---
-# <a name="configure-a-custom-domain-name-in-azure-app-service-(purchased-directly-from-godaddy)"></a>GoDaddy에서 직접 구입한 Azure 앱 서비스에서 사용자 지정 도메인 이름 구성
+# <a name="configure-a-custom-domain-name-in-azure-app-service-purchased-directly-from-godaddy"></a>GoDaddy에서 직접 구입한 Azure 앱 서비스에서 사용자 지정 도메인 이름 구성
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
@@ -81,9 +85,12 @@ Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 [웹앱 도�
 > 
 > 
 
-## <a name="what's-changed"></a>변경된 내용
+## <a name="whats-changed"></a>변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

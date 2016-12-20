@@ -1,12 +1,12 @@
 ---
-title: '자습서: Ariba와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 Ariba 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Ariba와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 Ariba 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 45a8364c-55d1-4dc7-b079-9eb2a701842d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4c264854aaac29489bb70e1c0fa52be456a598e9
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-ariba"></a>자습서: Ariba와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-ariba"></a>자습서: Ariba와 Azure Active Directory 통합
 이 자습서에서는 Ariba와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 Ariba를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -239,6 +243,6 @@ Ariba에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

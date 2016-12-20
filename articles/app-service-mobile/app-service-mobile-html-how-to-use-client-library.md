@@ -1,12 +1,12 @@
 ---
-title: Azure 모바일 앱용 JavaScript SDK를 사용하는 방법
-description: Azure 모바일 앱에 v를 사용하는 방법
+title: "Azure 모바일 앱용 JavaScript SDK를 사용하는 방법"
+description: "Azure 모바일 앱에 v를 사용하는 방법"
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: html
@@ -14,6 +14,10 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7705670592c353032740bd80d03bc8f174028e39
+
 
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Azure 모바일 앱용 JavaScript 클라이언트 라이브러리를 사용하는 방법
@@ -26,7 +30,7 @@ ms.author: adrianha
 
 패키지는 범용 JavaScript 모듈로 배포되므로 전역, AMD 및 CommonJS 서식을 지원합니다.
 
-## <a name="<a-name="setup"></a>setup-and-prerequisites"></a><a name="Setup"></a>설정 및 필수 조건
+## <a name="a-namesetupasetup-and-prerequisites"></a><a name="Setup"></a>설정 및 필수 조건
 이 가이드에서는 테이블과 함께 백 엔드를 만들었다고 가정합니다. 이 가이드에서는 해당 테이블에 이러한 자습서의 테이블과 동일한 스키마가 있다고 가정합니다.
 
 `npm` 명령을 통해 Azure 모바일 앱 JavaScript SDK를 설치할 수 있습니다.
@@ -52,14 +56,14 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="<a-name="auth"></a>how-to:-authenticate-users"></a><a name="auth"></a>방법: 사용자 인증
+## <a name="a-nameauthahow-to-authenticate-users"></a><a name="auth"></a>방법: 사용자 인증
 Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [인증 시작] 자습서를 참조하십시오.
 
 두 가지의 인증 흐름, 즉 서버 흐름과 클라이언트 흐름이 지원됩니다.  서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급자별 SDK를 사용하므로 Single Sign-On과 같은 장치 특정 기능을 통해 심도 깊은 통합이 가능합니다.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="<a-name="configure-external-redirect-urls"></a>how-to:-configure-your-mobile-app-service-for-external-redirect-urls."></a><a name="configure-external-redirect-urls"></a>방법: 외부 리디렉션 URL에 대해 모바일 앱 서비스 구성
+### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>방법: 외부 리디렉션 URL에 대해 모바일 앱 서비스 구성
 여러 가지 유형의 JavaScript 응용 프로그램은 루프백 기능을 사용하여 OAuth UI 흐름을 처리합니다.  이러한 기능은 다음과 같습니다.
 
 * 로컬로 서비스 실행
@@ -68,7 +72,7 @@ Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 �
 
 로컬로 실행하면 기본적으로 App Service 인증이 모바일 앱 백 엔드에서 액세스만 허용하도록 구성되므로 문제가 발생할 수 있습니다. 다음 단계에 따라 App Service 설정을 변경하여 서버를 로컬로 실행할 때 인증을 사용하도록 설정합니다.
 
-1. [Azure 포털]
+1.  [Azure 포털]
 2. 모바일 앱 백 엔드로 이동합니다.
 3. **개발 도구** 메뉴에서 **리소스 탐색기**를 선택합니다.
 4. **이동** 을 클릭하여 새 탭 또는 창에서 모바일 앱 백 엔드에 대한 리소스 탐색기를 엽니다.
@@ -90,7 +94,7 @@ Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 �
 2. 모바일 앱 백 엔드로 이동합니다.
 3. **API** 메뉴에서 **CORS**를 클릭합니다.
 4. 빈 **허용된 원본** 텍스트 상자에 각 URL을 입력합니다.  새 텍스트 상자가 생성됩니다.
-5. **저장**
+5.  **저장**
 
 백 엔드가 업데이트되면 앱에서 새 루프백 URL을 사용할 수 있습니다.
 
@@ -106,6 +110,6 @@ Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

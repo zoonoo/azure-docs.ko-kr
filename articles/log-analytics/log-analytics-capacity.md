@@ -1,32 +1,36 @@
 ---
-title: Log Analytics의 용량 관리 솔루션 | Microsoft Docs
-description: Log Analytics의 용량 계획 솔루션을 사용하여 System Center Virtual Machine Manager에서 관리되는 Hyper-V 서버의 용량을 이해할 수 있습니다.
+title: "Log Analytics의 용량 관리 솔루션 | Microsoft Docs"
+description: "Log Analytics의 용량 계획 솔루션을 사용하여 System Center Virtual Machine Manager에서 관리되는 Hyper-V 서버의 용량을 이해할 수 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/15/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 57e7fbdaa393e078b62a6d6a0b181b67d532523d
+ms.openlocfilehash: c34cda0da164c711c8effc78d2af38ad8df581aa
+
 
 ---
 # <a name="capacity-management-solution-in-log-analytics"></a>Log Analytics의 용량 관리 솔루션
-Log Analytics의 용량 계획 솔루션을 사용하여 System Center Virtual Machine Manager에서 관리되는 Hyper-V 서버의 용량을 이해할 수 있습니다. 이 솔루션을 사용하려면 System Center Operations Manager 및 System Center Virtual Machine Manager가 모두 필요합니다. 용량 계획은 직접 연결 에이전트만을 사용하는 경우 사용할 수 없습니다. Operations Manager 에이전트를 업데이트하는 솔루션을 설치합니다. 이 솔루션은 모니터링되는 서버에서 성능 카운터를 읽고 처리하도록 클라우드의 OMS 서비스로 사용 현황 데이터를 보냅니다. 논리는 사용 현황 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다. 시간이 지남에 따라 사용 패턴이 식별되고 현재 사용량에 따라 용량이 프로젝션됩니다.
+Log Analytics의 용량 관리 솔루션을 사용하여 Hyper-V 서버의 용량을 이해할 수 있습니다. 이 솔루션을 사용하려면 System Center Operations Manager 및 System Center Virtual Machine Manager가 모두 필요합니다. 직접 연결된 에이전트를 사용하면 용량 계획 솔루션이 작동하지 않습니다. 이 솔루션은 모니터링되는 서버에서 성능 카운터를 읽고 처리하도록 클라우드의 OMS 서비스로 사용 현황 데이터를 보냅니다. 논리는 사용 현황 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다. 시간이 지남에 따라 사용 패턴이 식별되고 현재 사용량에 따라 용량이 프로젝션됩니다.
 
-예를 들어, 개별 서버에 대한 추가 프로세서 코어 또는 추가 메모리가 필요한 시기를 프로젝션이 식별할 수 있습니다. 이 예에서는 프로젝션이 30일 후 서버에 추가 메모리가 필요함을 나타낼 수 있습니다. 서버의 다음 유지 관리 기간 동안 메모리 업그레이드를 계획할 수 있으며 2주마다 한번 발생할 수 있습니다.
+예를 들어, 개별 서버에 대한 추가 프로세서 코어 또는 추가 메모리가 필요한 시기를 프로젝션이 식별할 수 있습니다. 이 예에서는 프로젝션이 30일 후 서버에 추가 메모리가 필요함을 나타낼 수 있습니다. 이 프로젝션은 서버의 다음 유지 관리 기간 동안 메모리 업그레이드를 계획할 수 있습니다.
 
 > [!NOTE]
 > 용량 관리 솔루션은 작업 영역에 추가할 수 없습니다. 용량 관리 솔루션을 설치한 고객은 이 솔루션을 계속 사용할 수 있습니다.  
 > 
 > 
 
-용량 계획 솔루션은 다음과 같은 고객이 보고한 과제를 해결하도록 업데이트된 프로세스 내에 있습니다.
+대체 용량 및 성능 솔루션은 비공개 미리 보기 버전 상태입니다. 이 대체 솔루션은 원래 용량 관리 솔루션에서 문제가 발생한 고객 문제를 해결하기 위해 만들어졌습니다.
 
 * Virtual Machine Manager 및 Operations Manager를 사용하기 위한 요구 사항
 * 그룹을 기반으로 사용자 지정/필터링할 수 없음
@@ -38,8 +42,11 @@ Log Analytics의 용량 계획 솔루션을 사용하여 System Center Virtual M
 
 * 향상된 안정성 및 정확도로 세부적인 데이터 수집 지원
 * VMM이 필요 없이 Hyper-V 지원
-* PowerBI에서 메트릭의 시각화
 * VM 수준 사용률에 대한 유용한 정보
+
+현재 새 솔루션에는 Hyper-V 서버 2012 이상이 필요합니다. 솔루션은 Hyper-V 환경에 대한 정보를 제공하고 호스트의 전체 사용률(CPU, 메모리 및 디스크) 및 해당 Hyper-V 서버에서 실행 중인 VM에 대한 가시성을 제공합니다. 메트릭은 실행 중인 모든 호스트 및 VM에 걸친 CPU, 메모리 및 디스크에 수집됩니다.
+
+이 페이지에 대한 나머지 설명서는 이전 용량 관리 솔루션을 참조합니다. 새 솔루션이 공개 미리 보기 상태가 되면 이 문서는 업데이트됩니다.
 
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
@@ -55,7 +62,7 @@ Log Analytics의 용량 계획 솔루션을 사용하여 System Center Virtual M
 
 다음 표에서는 데이터 수집 방법 및 용량 관리를 위해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
 
-| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![아니요](./media/log-analytics-capacity/oms-bullet-red.png) |![예](./media/log-analytics-capacity/oms-bullet-green.png) |![아니요](./media/log-analytics-capacity/oms-bullet-red.png) |![예](./media/log-analytics-capacity/oms-bullet-green.png) |![예](./media/log-analytics-capacity/oms-bullet-green.png) |매시간 |
 
@@ -68,7 +75,7 @@ Log Analytics의 용량 계획 솔루션을 사용하여 System Center Virtual M
 | 시스템 상태 |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="capacity-management-page"></a>용량 관리 페이지
- 용량 계획 솔루션이 설치된 후, OMS의 **개요** 페이지에서 **용량 계획** 타일을 사용하여 모니터링되는 서버의 용량을 볼 수 있습니다.
+용량 계획 솔루션이 설치된 후, OMS의 **개요** 페이지에서 **용량 계획** 타일을 사용하여 모니터링되는 서버의 용량을 볼 수 있습니다.
 
 ![용량 계획 타일의 이미지](./media/log-analytics-capacity/oms-capacity01.png)
 
@@ -152,11 +159,11 @@ OMS의 **직접 연결 저장소** 대시보드를 사용하여 저장소 사용
 
 **디스크 성능**
 
-OMS를 사용하여 디스크 공간 사용률에 대한 과거 추세를 볼 수 있습니다. 프로젝션 기능은 차후 사용률에 대한 알고리즘을 사용합니다. 특히 공간 사용률에 대해 프로젝션 기능을 사용하면 디스크 공간이 부족해지는 시기를 예상할 수 있습니다. 이렇게 하면 적절한 저장소를 계획하고 저장소를 추가로 구입해야 하는 시기를 알 수 있습니다.
+OMS를 사용하여 디스크 공간 사용률에 대한 과거 추세를 볼 수 있습니다. 프로젝션 기능은 차후 사용률에 대한 알고리즘을 사용합니다. 특히 공간 사용률에 대해 프로젝션 기능을 사용하면 디스크 공간이 부족해지는 시기를 예상할 수 있습니다. 이 프로젝션을 통해 적절한 저장소를 계획하고 저장소를 추가로 구입해야 하는 시기를 알 수 있습니다.
 
 **프로젝션 도구**
 
-프로젝션 도구를 사용하여 디스크 공간 사용률에 대한 과거의 추세를 볼 수 있습니다. 프로젝션 기능을 사용하여 디스크 공간이 부족한 시기를 예상할 수도 있습니다. 이렇게 하면 적절한 용량을 계획하고 저장소 용량을 추가로 구입해야 하는 시기를 알 수 있습니다.
+프로젝션 도구를 사용하여 디스크 공간 사용률에 대한 과거의 추세를 볼 수 있습니다. 프로젝션 기능을 사용하여 디스크 공간이 부족한 시기를 예상할 수도 있습니다. 이 프로젝션을 통해 적절한 용량을 계획하고 저장소 용량을 추가로 구입해야 하는 시기를 알 수 있습니다.
 
 ### <a name="to-work-with-items-on-the-direct-attached-storage-page"></a>직접 연결 저장소 페이지에서 항목을 작업하려면
 1. **직접 연결 저장소** 대시보드의 **사용률** 영역에서 디스크 사용률 정보를 볼 수 있습니다.
@@ -167,6 +174,9 @@ OMS를 사용하여 디스크 공간 사용률에 대한 과거 추세를 볼 �
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics에서 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 용량 관리 데이터를 볼 수 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

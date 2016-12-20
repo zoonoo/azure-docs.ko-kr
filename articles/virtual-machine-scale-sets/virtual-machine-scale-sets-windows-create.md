@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
 이 문서의 단계를 수행하려면 약 30분이 걸립니다.
 
 ## <a name="step-1-install-azure-powershell"></a>1단계: Azure PowerShell 설치
-최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 ## <a name="step-2-create-resources"></a>2단계: 리소스 만들기
 새 크기 집합에 필요한 리소스를 만듭니다.
@@ -130,7 +130,7 @@ ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
    
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
    
-    이 예제는 3개의 가상 컴퓨터로 크기 집합을 만드는 방법을 보여줍니다. 크기 집합의 용량에 대한 자세한 내용은 [가상 컴퓨터 크기 집합 개요](virtual-machine-scale-sets-overview.md) 를 참조하십시오. 이 단계에서는 집합에 있는 가상 컴퓨터의 크기(SkuName이라고 함)도 설정합니다. 요구 사항에 맞는 크기를 찾으려면 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-windows-sizes.md)를 참조하세요.
+    이 예제는 3개의 가상 컴퓨터로 크기 집합을 만드는 방법을 보여줍니다. 크기 집합의 용량에 대한 자세한 내용은 [가상 컴퓨터 크기 집합 개요](virtual-machine-scale-sets-overview.md) 를 참조하십시오. 이 단계에서는 집합에 있는 가상 컴퓨터의 크기(SkuName이라고 함)도 설정합니다. 요구 사항에 맞는 크기를 찾으려면 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 5. 크기 집합 구성에 네트워크 인터페이스 구성을 추가합니다.
    
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
@@ -172,7 +172,7 @@ ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
    
-    사용할 이미지에 대한 자세한 내용은 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md)을 참조하세요.
+    사용할 이미지에 대한 자세한 내용은 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 3. **$vhdContainer** 값을 가상 하드 디스크가 저장된 경로가 들어 있는 목록과 바꾼 다음(예: "https://mystorage.blob.core.windows.net/vhds") 변수를 만듭니다.
    
         $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
@@ -225,6 +225,6 @@ ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

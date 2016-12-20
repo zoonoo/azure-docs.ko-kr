@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f85c3a0d3bb9fb61802ba3ce070ead2e650a29cc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: f85c3a0d3bb9fb61802ba3ce070ead2e650a29cc
 
 이 문서의 모든 샘플 코드는 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](http://aka.ms/search-dotnet-howto)를 참조하세요.
 
-## <a name="i-identify-your-azure-search-services-query-apikey"></a>I. Azure 검색 서비스의 쿼리 API 키 식별
+## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Azure 검색 서비스의 쿼리 API 키 식별
 Azure 검색 인덱스를 만들었으므로 .NET SDK를 사용하여 쿼리를 발급할 준비가 되었습니다. 먼저 프로비전한 검색 서비스에 대해 생성된 쿼리 API 키 중 하나가 있어야 합니다. .NET SDK는 서비스에 대한 모든 요청에 대해 이 API 키를 전송합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 1. 서비스의 API 키를 찾으려면 [Azure 포털](https://portal.azure.com/)
@@ -170,6 +170,6 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

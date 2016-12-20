@@ -1,13 +1,13 @@
 ---
-title: Azure AD의 그룹 관리를 위한 Azure Active Directory PowerShell 미리 보기 cmdlet | Microsoft Docs
-description: 이 페이지에는 Azure Active Directory에서 그룹을 관리하는 데 도움이 되는 PowerShell 예제가 나와 있습니다.
-keywords: Azure AD, Azure Active Directory, PowerShell, 그룹, 그룹 관리
+title: "Azure AD의 그룹 관리를 위한 Azure Active Directory PowerShell 미리 보기 cmdlet | Microsoft Docs"
+description: "이 페이지에는 Azure Active Directory에서 그룹을 관리하는 데 도움이 되는 PowerShell 예제가 나와 있습니다."
+keywords: "Azure AD, Azure Active Directory, PowerShell, 그룹, 그룹 관리"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 7a5023dc-2727-4c25-8254-b531fc3244ac
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,13 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: aa5199af3fabd535e929161018db0fd5fe47e474
+
 
 ---
 # <a name="azure-active-directory-preview-cmdlets-for-group-management"></a>그룹 관리를 위한 Azure Active Directory 미리 보기 cmdlet
 > [!div class="op_single_selector"]
 > * [Azure 포털](active-directory-groups-create-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-accessmanagement-manage-groups.md)
-> * [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+> * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 > 
 > 
 
@@ -45,7 +49,7 @@ Azure AD PowerShell 미리 보기 모듈을 설치하려면 다음 명령을 사
 ## <a name="connecting-to-the-directory"></a>디렉터리에 연결
 Azure AD PowerShell 미리 보기 cmdlet을 사용하여 그룹 관리를 시작하기 전에 PowerShell 세션을 관리하려는 디렉터리에 연결해야 합니다. 이렇게 하려면 다음 명령을 실행합니다.
 
-    PS C:\Windows\system32> Connect-AzureAD -Force
+    PS C:\Windows\system32> Connect-AzureAD
 
 이 cmdlet은 디렉터리에 액세스하는 데 사용할 자격 증명을 묻습니다. 이 예제에서는 karen@drumkit.onmicrosoft.com 을 사용하여 데모 디렉터리에 액세스합니다. 이 cmdlet은 세션이 디렉터리에 정상적으로 연결되었음을 표시하기 위한 확인을 반환합니다.
 
@@ -173,8 +177,8 @@ Azure AD PowerShell cmdlet은 OData 쿼리 표준을 구현합니다. 자세한 
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------
-                        72cd4bbd-2594-40a2-935c-016f3cfeeeea User
-                        8120cc36-64b4-4080-a9e8-23aa98e8b34f User
+                          72cd4bbd-2594-40a2-935c-016f3cfeeeea User
+                          8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 
 이전에 추가한 그룹에 구성원을 제거하려면 다음과 같이 Remove-AzureADGroupMember cmdlet을 사용합니다.
 
@@ -192,8 +196,8 @@ Azure AD PowerShell cmdlet은 OData 쿼리 표준을 구현합니다. 자세한 
 
     PS C:\Windows\system32> Select-AzureADGroupIdsUserIsMemberOf -ObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea -GroupIdsForMembershipCheck $g
 
-    OdataMetadata                                                                                               Value
-    -------------                                                                                               -----
+    OdataMetadata                                                                                                 Value
+    -------------                                                                                                  -----
     https://graph.windows.net/85b5ff1e-0402-400c-9e3c-0f9e965325d1/$metadata#Collection(Edm.String)             {31f1ff6c-d48c-4f8a-b2e1-abca7fd399df}
 
 
@@ -214,7 +218,7 @@ Azure AD PowerShell cmdlet은 OData 쿼리 표준을 구현합니다. 자세한 
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------
-                        e831b3fd-77c9-49c7-9fca-de43e109ef67 User
+                          e831b3fd-77c9-49c7-9fca-de43e109ef67 User
 
 그룹에서 소유자를 제거하려면 Remove-AzureADGroupOwner를 사용합니다.
 
@@ -226,6 +230,9 @@ Azure AD PowerShell cmdlet은 OData 쿼리 표준을 구현합니다. 자세한 
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

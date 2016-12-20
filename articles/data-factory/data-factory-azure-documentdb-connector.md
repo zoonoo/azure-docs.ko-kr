@@ -1,37 +1,44 @@
 ---
-title: DocumentDB 간 데이터 이동 | Microsoft Docs
-description: Azure 데이터 팩터리를 사용하여 Azure DocumentDB 컬렉션 간 데이터를 이동하는 방법에 대해 알아봅니다.
+title: "DocumentDB 간 데이터 이동 | Microsoft Docs"
+description: "Azure 데이터 팩터리를 사용하여 Azure DocumentDB 컬렉션 간 데이터를 이동하는 방법에 대해 알아봅니다."
 services: data-factory, documentdb
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: c9297b71-1bb4-4b29-ba3c-4cf1f5575fac
 ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/02/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: a86d5fb7c0215293e281a52d0f805053bb7b7c11
+ms.openlocfilehash: 935de6643bbfdc8674836a33ce0dfe77df0e2d1e
+
 
 ---
 # <a name="move-data-to-and-from-documentdb-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 DocumentDB 간 데이터 이동
 이 문서에서는 Azure Data Factory에서 복사 작업을 사용하여 다른 데이터 저장소에서 Azure DocumentDB로 데이터를 이동하고 DocumentDB에서 다른 데이터 저장소로 데이터를 이동하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
-다음 샘플은 Azure DocumentDB 및 Azure Blob Storage 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 **여기** 에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores) 데이터를 복사할 수 있습니다.  
+다음 샘플은 Azure DocumentDB 및 Azure Blob Storage 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 임의의 원본에서 지원되는 싱크로 **직접** 데이터를 복사할 수 있습니다. 자세한 내용은 [복사 작업을 사용하여 데이터 이동](data-factory-data-movement-activities.md)에서 "지원되는 데이터 저장소 및 형식" 섹션을 참조하세요.  
 
 > [!NOTE]
 > 온-프레미스/Azure IaaS 데이터 저장소의 데이터를 Azure DocumentDB에 복사하는 것과 그 반대 과정은 데이터 관리 게이트웨이 버전 2.1 이상에서 지원됩니다.
-> 
-> 
+>
+>
 
-## <a name="sample:-copy-data-from-documentdb-to-azure-blob"></a>샘플: DocumentDB에서 Azure Blob로 데이터 복사
+## <a name="supported-versions"></a>지원되는 버전
+이 DocumentDB 커넥터는 DocumentDB 단일 파티션 컬렉션과 분할된 컬렉션 간 데이터 복사를 지원합니다. [MongoDB에 대한 DocDB](../documentdb/documentdb-protocol-mongodb.md)는 지원되지 않습니다.
+
+## <a name="sample-copy-data-from-documentdb-to-azure-blob"></a>샘플: DocumentDB에서 Azure Blob로 데이터 복사
 아래 샘플은 다음을 보여줍니다.
 
 1. [DocumentDb](#azure-documentdb-linked-service-properties)형식의 연결된 서비스입니다.
-2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)형식의 연결된 서비스 
-3. [DocumentDbCollection](#azure-documentdb-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다. 
+2. [AzureStorage](data-factory-azure-blob-connector.md)형식의 연결된 서비스
+3. [DocumentDbCollection](#azure-documentdb-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
 4. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 5. [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
@@ -108,7 +115,7 @@ ms.author: jingwang
       }
     }
 
-DocumentDB 데이터베이스의 사용자 컬렉션에서 샘플 JSON 문서: 
+DocumentDB 데이터베이스의 사용자 컬렉션에서 샘플 JSON 문서:
 
     {
       "PersonId": 2,
@@ -119,9 +126,13 @@ DocumentDB 데이터베이스의 사용자 컬렉션에서 샘플 JSON 문서:
       }
     }
 
-DocumentDB는 계층적 JSON 문서에 대한 구문과 같이 SQL을 사용하여 쿼리 문서를 지원합니다. 
+DocumentDB는 계층적 JSON 문서에 대한 구문과 같이 SQL을 사용하여 쿼리 문서를 지원합니다.
 
-예제: SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
+예제: 
+
+```sql
+SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
+```
 
 다음 파이프라인은 DocumentDB 데이터베이스의 Person 컬렉션에서 Azure blob에 데이터를 복사합니다. 복사 작업의 부분인 입력 및 출력 데이터 집합이 지정되었습니다.  
 
@@ -165,13 +176,13 @@ DocumentDB는 계층적 JSON 문서에 대한 구문과 같이 SQL을 사용하�
       }
     }
 
-## <a name="sample:-copy-data-from-azure-blob-to-azure-documentdb"></a>샘플: Azure Blob에서 Azure DocumentDB로 데이터 복사
+## <a name="sample-copy-data-from-azure-blob-to-azure-documentdb"></a>샘플: Azure Blob에서 Azure DocumentDB로 데이터 복사
 아래 샘플은 다음을 보여줍니다.
 
 1. [DocumentDb](#azure-documentdb-linked-service-properties)형식의 연결된 서비스입니다.
-2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)형식의 연결된 서비스
+2. [AzureStorage](data-factory-azure-blob-connector.md)형식의 연결된 서비스
 3. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
-4. [DocumentDbCollection](#azure-documentdb-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다. 
+4. [DocumentDbCollection](#azure-documentdb-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
 5. [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 및 [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 샘플은 Azure Blob에서 Azure DocumentDB로 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
@@ -279,7 +290,7 @@ DocumentDB는 계층적 JSON 문서에 대한 구문과 같이 SQL을 사용하�
       }
     }
 
-다음 파이프라인은 Azure Blob에서 DocumentDB의 사용자 컬렉션에 데이터를 복사합니다. 복사 작업의 부분인 입력 및 출력 데이터 집합이 지정되었습니다. 
+다음 파이프라인은 Azure Blob에서 DocumentDB의 사용자 컬렉션에 데이터를 복사합니다. 복사 작업의 부분인 입력 및 출력 데이터 집합이 지정되었습니다.
 
     {
       "name": "BlobToDocDbPipeline",
@@ -323,7 +334,7 @@ DocumentDB는 계층적 JSON 문서에 대한 구문과 같이 SQL을 사용하�
       }
     }
 
-샘플 blob 입력이 인 경우 
+샘플 blob 입력이 인 경우
 
     1,John,,Doe
 
@@ -339,10 +350,10 @@ DocumentDB에서 출력 JSON은 다음과 같습니다.
       "id": "a5e8595c-62ec-4554-a118-3940f4ff70b6"
     }
 
-DocumentDB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure 데이터 팩터리를 사용하면 **nestingSeparator** 즉,  이 예에서 "."를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 "Name.First", "Name.Middle" 및 "Name.Last"에 따르면 구분 기호를 사용하여 복사 작업이 3개의 자식 요소(처음, 중간 및 마지막)가 있는 "Name" 개체를 생성합니다.
+DocumentDB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure 데이터 팩터리를 사용하면 **nestingSeparator** 즉, 이 예에서 "."를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 "Name.First", "Name.Middle" 및 "Name.Last"에 따르면 구분 기호를 사용하여 복사 작업이 3개의 자식 요소(처음, 중간 및 마지막)가 있는 "Name" 개체를 생성합니다.
 
 ## <a name="azure-documentdb-linked-service-properties"></a>Azure DocumentDB 연결된 서비스 속성
-다음 테이블은 Azure DocumentDB 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다. 
+다음 테이블은 Azure DocumentDB 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
 | **속성** | **설명** | **필수** |
 | --- | --- | --- |
@@ -396,41 +407,52 @@ DocumentDB와 같은 스키마 없는 데이터 저장소의 경우 Data Factory
 | **속성** | **설명** | **허용되는 값** | **필수** |
 | --- | --- | --- | --- |
 | 쿼리 |데이터를 읽는 쿼리를 지정합니다. |DocumentDB에서 지원하는 쿼리 문자열입니다. <br/><br/>예제: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |아니요 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
-| nestingSeparator |문서가 중첩됨을 나타내는 특수 문자 |모든 character입니다. <br/><br/>DocumentDB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure 데이터 팩터리를 사용하면 nestingSeparator 즉,  이 예에서 "."를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 "Name.First", "Name.Middle" 및 "Name.Last"에 따르면 구분 기호를 사용하여 복사 작업이 3개의 자식 요소(처음, 중간 및 마지막)가 있는 "Name" 개체를 생성합니다. |아니요 |
+| nestingSeparator |문서가 중첩됨을 나타내는 특수 문자 |모든 character입니다. <br/><br/>DocumentDB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure 데이터 팩터리를 사용하면 nestingSeparator, 즉 위 예에서 "."를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 "Name.First", "Name.Middle" 및 "Name.Last"에 따르면 구분 기호를 사용하여 복사 작업이 3개의 자식 요소(처음, 중간 및 마지막)가 있는 "Name" 개체를 생성합니다. |아니요 |
 
 **DocumentDbCollectionSink**는 다음 속성을 지원합니다.
 
 | **속성** | **설명** | **허용되는 값** | **필수** |
 | --- | --- | --- | --- |
-| nestingSeparator |중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <br/><br/>위의 예에서 출력 테이블의 `Name.First`은(는) DocumentDB 문서에서 다음 JSON 구조를 생성합니다.<br/><br/>"Name": {<br/>  "First": "John"<br/>}, |중첩 수준을 구분하는데 사용되는 문자입니다.<br/><br/>기본값은 `.`.(점)입니다. |중첩 수준을 구분하는데 사용되는 문자입니다. <br/><br/>기본값은 `.`.(점)입니다. |
-| writeBatchSize |문서를 작성하는 DocumentDB 서비스에 대한 병렬 요청 수입니다.<br/><br/>이 속성을 사용하여 DocumentDB 간 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. DocumentDB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 오류 메시지: “요청 빈도가 높습니다."를 발생 시킬 수 있는 제한을 방지해야 합니다.<br/><br/>제한은 문서의 크기, 문서에서 용어의 수, 대상 컬렉션의 인덱싱 정책 등 여러 가지 요인으로 결정됩니다. 복사 작업의 경우 더 나은 컬렉션(예: S3)을 사용하여 사용할 수 있는 처리량(2,500개의 요청 단위/초)을 보유할 수 있습니다. |Integer |아니요(기본값: 10000) |
+| nestingSeparator |중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <br/><br/>위의 예에서 출력 테이블의 `Name.First`은(는) DocumentDB 문서에서 다음 JSON 구조를 생성합니다.<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |중첩 수준을 구분하는데 사용되는 문자입니다.<br/><br/>기본값은 `.`.(점)입니다. |중첩 수준을 구분하는데 사용되는 문자입니다. <br/><br/>기본값은 `.`.(점)입니다. |
+| writeBatchSize |문서를 작성하는 DocumentDB 서비스에 대한 병렬 요청 수입니다.<br/><br/>이 속성을 사용하여 DocumentDB 간 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. DocumentDB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 오류 메시지: “요청 빈도가 높습니다."를 발생 시킬 수 있는 제한을 방지해야 합니다.<br/><br/>제한은 문서의 크기, 문서에서 용어의 수, 대상 컬렉션의 인덱싱 정책 등 여러 가지 요인으로 결정됩니다. 복사 작업의 경우 더 나은 컬렉션(예: S3)을 사용하여 사용할 수 있는 처리량(2,500개의 요청 단위/초)을 보유할 수 있습니다. |Integer |아니요(기본값: 5) |
 | writeBatchTimeout |시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다. |timespan<br/><br/>  예: “00:30:00”(30분). |아니요 |
 
+## <a name="importexport-json-documents"></a>JSON 문서 가져오기/내보내기
+이 DocumentDB 커넥터를 사용하여 다음을 쉽게 수행할 수 있습니다.
+
+* Azure Blob, Azure Data Lake, 온-프레미스 파일 시스템 또는 기타 Azure 데이터 팩토리에서 지원하는 파일 기반 저장소 등 다양한 원본에서 DocumentDB로 JSON 문서를 가져오기
+* DocumentDB 컬렉션에서 다양한 파일 기반 저장소로 JSON 문서 내보내기
+* 두 DocumentDB 컬렉션 간에 데이터를 있는 그대로 마이그레이션
+
+이러한 스키마에 구애받지 않는 복사를 실현하려면 복사 작업에서 DocumentDB 원본/싱크의 "nestingSeparator" 속성 또는 입력 데이터 집합에 "structure" 섹션을 지정하지 마세요. JSON 형식 구성에 대한 자세한 내용은 해당하는 파일 기반 커넥터 항목에서 "형식 지정" 섹션을 참조하세요.
+
 ## <a name="appendix"></a>부록
-1. **질문:** 
+1. **질문:**
     복사 작업은 기존 레코드의 업데이트를 지원합니까?
-   
-    **대답:** 
+
+    **대답:**
     아니요.
-2. **질문:** 
+2. **질문:**
     DocumentDB로 복사 재시도는 이미 복사된 레코드를 어떻게 처리하나요?
-   
-    **대답:** 
+
+    **대답:**
     레코드에 "ID" 필드가 있고 복사 작업이 동일한 ID를 가진 레코드를 삽입하려고 시도하는 경우 복사 작업에서 오류가 발생합니다.  
 3. **질문:**
-    데이터 팩터리는 [범위 또는 해시 기반 데이터 분할](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)을 지원합니까? 
-   
+    데이터 팩터리는 [범위 또는 해시 기반 데이터 분할](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)을 지원합니까?
+
     **대답:**
-    아니요. 
+    아니요.
 4. **질문:**
     하나의 테이블에 대해 하나 이상의 DocumentDB 컬렉션을 지정할 수 있습니까?
-   
+
     **대답:**
     아니요. 이 경우 하나의 컬렉션만 지정할 수 있습니다.
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

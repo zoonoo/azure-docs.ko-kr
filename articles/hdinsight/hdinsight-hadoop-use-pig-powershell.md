@@ -1,13 +1,13 @@
 ---
-title: HDInsight에서 PowerShell과 Hadoop Pig 사용 | Microsoft Docs
-description: Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터에 Pig 작업을 제출하는 방법에 대해 알아봅니다.
+title: "HDInsight에서 PowerShell과 Hadoop Pig 사용 | Microsoft Docs"
+description: "Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터에 Pig 작업을 제출하는 방법에 대해 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 737089c1-b494-4387-9def-7b4dac3be532
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2def733a07d3e8132f998c29538df1c7cbacfee4
+
 
 ---
 # <a name="run-pig-jobs-using-powershell"></a>PowerShell을 사용하여 Pig 작업 실행
@@ -27,7 +31,7 @@ ms.author: larryfr
 > 
 > 
 
-## <a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>필수 조건
+## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
@@ -35,7 +39,7 @@ ms.author: larryfr
   
     [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-## <a name="<a-id="powershell"></a>run-pig-jobs-using-powershell"></a><a id="powershell"></a>PowerShell을 사용하여 Pig 작업 실행
+## <a name="a-idpowershellarun-pig-jobs-using-powershell"></a><a id="powershell"></a>PowerShell을 사용하여 Pig 작업 실행
 Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있는 *cmdlet* 을 제공합니다. 내부적으로는 HDInsight 클러스터에서 실행되는 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (이전의 Templeton)에 대한 REST 호출을 사용하여 이 작업을 수행합니다.
 
 다음 cmdlet은 원격 HDInsight 클러스터에서 Pig 작업을 실행할 때 사용됩니다.
@@ -122,7 +126,7 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
         (ERROR,6)
         (FATAL,2)
 
-## <a name="<a-id="troubleshooting"></a>troubleshooting"></a><a id="troubleshooting"></a>문제 해결
+## <a name="a-idtroubleshootingatroubleshooting"></a><a id="troubleshooting"></a>문제 해결
 작업이 완료될 때 정보가 반환되지 않은 경우, 처리하는 동안 오류가 발생했을 수 있습니다. 이 작업에 대한 오류 정보를 보려면 **pigjob.ps1** 파일 끝에 다음 명령을 추가하고 저장한 다음 다시 실행합니다.
 
     # Print the output of the Pig job.
@@ -138,10 +142,10 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
 
 이 명령은 작업을 실행할 때 서버의 STDERR에 기록된 정보를 반환하며 이 정보는 작업이 실패한 이유를 확인하는 데 도움이 될 수 있습니다.
 
-## <a name="<a-id="summary"></a>summary"></a><a id="summary"></a>요약
+## <a name="a-idsummaryasummary"></a><a id="summary"></a>요약
 이처럼 Azure PowerShell은 HDInsight 클러스터에서 Pig 작업을 실행하고, 작업 상태를 모니터링하고, 출력을 검색하는 쉬운 방법을 알려줍니다.
 
-## <a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>다음 단계
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
 HDInsight의 Pig에 대한 일반적인 정보:
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
@@ -151,6 +155,9 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

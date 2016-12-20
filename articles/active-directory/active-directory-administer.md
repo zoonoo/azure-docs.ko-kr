@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20f38ef90d9f3793c0bb0814e6fd5d67aa550209
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
 
 
 ---
@@ -66,7 +66,7 @@ Azure AD와 온-프레미스 디렉터리 통합에 대한 자세한 내용은 [
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azureprovisioned-default-directory"></a>Azure 프로비전 기본 디렉터리 관리
+### <a name="manage-an-azure-provisioned-default-directory"></a>Azure 프로비전 기본 디렉터리 관리
 지금은 Azure에 등록하면 디렉터리가 자동으로 만들어지고 구독이 해당 디렉터리에 연결됩니다. 그러나 2013년 10월 이전에는 Azure에 처음 등록해도 디렉터리가 자동으로 만들어지지 않았습니다. 이 경우 Azure에서 기본 디렉터리를 프로비전하여 계정을 “백필"했을 수 있습니다. 그런 다음 해당 기본 디렉터리에 구독을 연결했습니다.
 
 2013년 10 월 디렉터리 백필은 Azure에 대한 보안 모델의 전체적인 기능 향상의 일부로 수행되었습니다. 이를 통해 모든 Azure 고객에게 조직 ID 기능을 제공할 수 있으며 디렉터리의 사용자 컨텍스트에서 모든 Azure 리소스에 액세스할 수 있습니다. 디렉터리가 없으면 Azure를 사용할 수 없습니다. 따라서 2013년 7월 7일 이전에 등록했지만 디렉터리가 없는 사용자는 디렉터리를 만들어야 했습니다. 디렉터리를 이미 만든 경우에는 구독을 해당 디렉터리에 연결했습니다.
@@ -150,6 +150,6 @@ Azure AD에서 디렉터리를 삭제하려면 특정 조건을 충족해야 합
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

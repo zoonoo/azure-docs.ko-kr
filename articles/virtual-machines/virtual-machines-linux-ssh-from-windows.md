@@ -1,161 +1,191 @@
 ---
-title: Windows의 SSH를 사용하여 Linux 가상 컴퓨터에 연결 | Microsoft Docs
-description: Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure에서 Linux 가상 컴퓨터에 연결하는 방법에 대해 알아봅니다.
+title: "Linux VM용 Windows를 통한 SSH 키 사용 | Microsoft Docs"
+description: "Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure에서 Linux 가상 컴퓨터에 연결하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: squillace
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 10/18/2016
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: d991801d6e22a4bc541c1a6c4766ff36a381585b
+
 
 ---
-# Azure에서 Windows와 함께 SSH를 사용하는 방법
+# <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 > [!div class="op_single_selector"]
-> * [Windows](virtual-machines-linux-ssh-from-windows.md)
-> * [Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md)
+> * [Windows](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> * [Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
-이 항목에서는 **ssh-rsa** 및 **.pem** 형식의 공용 및 개인 키 파일을 Windows에 만들고 사용하여 **ssh** 명령으로 Azure에 Linux VM을 연결할 방법에 대해 설명합니다. **.pem** 파일이 이미 만들어져 있는 경우 해당 파일을 사용하여 Linux VM(**ssh**를 사용하여 연결)을 만듭니다. 일부 다른 명령은 **SSH** 프로토콜 및 키 파일을 사용하여 작업을 안전하게 수행하며 특히 **scp** 또는 [안전한 복사](https://en.wikipedia.org/wiki/Secure_copy)는 **SSH** 연결을 지원하는 컴퓨터에서 파일을 안전하게 복사할 수 있습니다.
+Azure에서 Linux VM(가상 컴퓨터)에 연결할 때 [public-key cryptography](https://wikipedia.org/wiki/Public-key_cryptography)를 사용하면 더욱 안전한 방법으로 Linux VM에 로그인할 수 있습니다. 이 프로세스는 사용자를 인증하는 데 있어 사용자 이름과 암호가 아니라 SSH(보안 셸) 명령을 사용하는 공용 및 개인 키의 교환과 관계됩니다. 암호는 무차별 암호 대입 공격, 특히 웹 서버와 같은 인터넷 연결 VM에 대한 공격에 취약합니다. 이 문서에서는 SSH 키 개요 및 Windows 컴퓨터에 적절한 키를 생성하는 방법에 대해 설명합니다.
 
-> [!NOTE]
-> 잠시 시간을 내어 사용 환경에 대한 [간단한 설문](https://aka.ms/linuxdocsurvey)에 응답하여 Azure Linux VM 설명서를 개선하는 데 도움을 주세요. 모든 답변은 작업 수행에 도움이 될 것입니다.
-> 
-> 
+## <a name="overview-of-ssh-and-keys"></a>SSH 및 키에 대한 개요
+다음과 같은 공개 및 개인 키를 사용하면 Linux VM에 안전하게 로그인할 수 있습니다.
 
-## 어떤 SSH 및 키 생성 프로그램이 필요한가요?
-**SSH** &#8212; 또는 [secure shell](https://en.wikipedia.org/wiki/Secure_Shell) &#8212;은 안전하지 않은 연결을 통해 안전하게 로그인할 수 있도록 하는 암호화된 연결 프로토콜입니다. Linux VM이 다른 연결 메커니즘을 사용하도록 구성하지 않는 한 Azure에 호스트되는 Linux VM에 대한 기본 연결 프로토콜입니다. Windows 사용자는 **ssh** 클라이언트 구현을 사용하여 Azure에서 Linux VM을 연결하고 관리할 수도 있지만 일반적으로 Windows 컴퓨터는 **ssh** 클라이언트와 함께 제공되지 않으므로 하나를 선택해야 합니다.
+* **공개 키**는 public-key 암호화를 사용하려는 Linux VM 또는 다른 서비스에 배치됩니다.
+* **개인 키**는 사용자가 로그인할 때 자신의 ID를 확인하도록 Linux VM에 제출하는 키입니다. 이 개인 키는 보호해야 하는 한편, 공유하면 안됩니다.
 
-설치할 수 있는 일반적인 클라이언트는 다음과 같습니다.
+이러한 공용 및 개인 키는 여러 VM 및 서비스에서 사용할 수 있습니다. 각 VM 또는 서비스에 액세스하기 위해 키 쌍이 반드시 필요한 것은 아닙니다. 자세한 개요에 대해서는 [public-key 암호화](https://wikipedia.org/wiki/Public-key_cryptography)를 참조하세요.
 
-* [puTTY 및 puTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
+SSH는 안전하지 않은 연결에서 안전하게 로그인할 수 있도록 하는 암호화된 연결 프로토콜입니다. Azure에서 호스팅되는 Linux VM에 대한 기본 연결 프로토콜입니다. SSH 자체에서 암호화된 연결을 제공하지만 SSH 연결과 함께 암호를 하더라도 VM은 여전히 무차별 암호 대입 공격이나 암호 추측에 취약합니다. SSH를 사용하여 VM에 연결하는 데 있어 더 안전하고 선호하는 방법은 이러한 공개 및 개인 키, 즉 SSH 키를 사용하는 것입니다.
+
+SSH 키를 사용하지 않지 않더라도 여전히 암호를 사용하여 Linux VM에 로그인할 수 있습니다. VM이 인터넷에 노출되지 않는 경우에는 암호만 사용 하는 것으로도 충분할 수 있습니다. 그렇지만 지속적으로 각 Linux VM에 대한 암호를 관리하고, 최소 암호 길이, 정기 업데이트 등 정상적 암호 정책 및 사례들을 유지 관리해야 합니다. SSH 키를 사용하면 여러 VM에 대한 개별적인 자격 증명 관리의 복잡성을 줄입니다.
+
+## <a name="windows-packages-and-ssh-clients"></a>Windows 패키지 및 SSH 클라이언트
+Azure에서 **ssh** 클라이언트를 통해 Linux VM에 연결하고 관리합니다. 일반적으로 Windows 컴퓨터에는 **ssh** 클라이언트를 설치하지 않습니다. 설치할 수 있는 공용 Windows SSH 클라이언트는 다음과 같은 패키지에 포함되어 있습니다.
+
+* [Windows 용 Git](https://git-for-windows.github.io/)
+* [puTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [MobaXterm](http://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
-* 환경 및 도구와 함께 제공되는 [Git For Windows](https://git-for-windows.github.io/)
 
-충분한 식견이 있다면 [새 포트의 **OpenSSH** 도구 집합을 Windows에](http://blogs.msdn.com/b/powershell/archive/2015/10/19/openssh-for-windows-update.aspx) 사용해 볼 수 있습니다. 그러나 이 코드는 현재 개발 중이므로 프로덕션 시스템에 사용하기 전에 코드베이스를 검토해야 합니다.
-
-> [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+> [!NOTE]
+> 최신 Windows 10주년 업데이트에는 Windows용 Bash가 포함되어 있습니다. 이 기능을 사용하면 Linux용 Windows 하위 시스템 및 액세스 유틸리티(예: SSH 클라이언트)를 실행할 수 있습니다. Windows용 Bash는 아직 개발 중이며 베타 릴리스 버전으로 간주됩니다. Windows용 Bash에 대한 자세한 내용은 [Ubuntu on Windows의 Bash](https://msdn.microsoft.com/commandline/wsl/about)를 참조하세요.
 > 
 > 
 
-## 어떤 키 파일을 만들어야 하나요?
-Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**은 기본값을 변경하지 않는 한 이러한 파일을 **~/.ssh/id\_rsa** 및 **~/.ssh/id-rsa.pub**으로 저장)의 **ssh-rsa** 공용 및 개인 키 쌍뿐만 아니라 클래식 포털의 클래식 배포 모델과 함께 사용하기 위한 **id\_rsa** 개인 키 파일에서 생성된 `.pem` 파일을 포함합니다.
+## <a name="which-key-files-do-you-need-to-create"></a>어떤 키 파일을 만들어야 하나요?
+Azure에는 최소 2048비트 **ssh-rsa** 형식의 공개 및 개인 키가 필요합니다. 클래식 배포 모델을 사용하여 Azure 리소스를 관리하는 경우 PEM(`.pem` 파일)도 생성해야 합니다.
 
 다음은 배포 시나리오 및 각각에 사용되는 파일 형식입니다.
 
-1. **ssh-rsa** 키는 배포 모델과 관계없이 [Azure 포털](https://portal.azure.com)을 사용하는 모든 배포에 필요합니다.
-2. [클래식 포털](https://manage.windowsazure.com)을 사용하는 VM을 만들려면 .pem 파일이 필요합니다. .pem 파일은 [Azure CLI](../xplat-cli-install.md)를 사용하는 클래식 배포에서도 지원됩니다.
+1. **ssh-rsa** 키는 [Azure 포털](https://portal.azure.com)을 사용하는 모든 배포 및 [Azure CLI](../xplat-cli-install.md)를 사용하는 Resource Manager 배포에 필요합니다.
+   * 대개 이러한 키는 대부분의 모든 사용자에게 필요한 것입니다.
+2. `.pem` 파일은 [클래식 포털](https://manage.windowsazure.com)을 사용하여 VM을 만드는 데 필요합니다. 이러한 키는 [Azure CLI](../xplat-cli-install.md)를 사용하는 클래식 배포에서도 지원합니다.
+   * 클래식 배포 모델을 사용하여 만든 리소스를 관리하는 경우 이러한 추가 키와 인증서를 만들기만 하면 됩니다.
 
-> [!NOTE]
-> 클래식 배포 모델로 배포되는 서비스를 관리하려는 경우 **.cer** 서식 파일을 만들어 포털에 업로드하려고 할 수 있습니다. 여기엔 이 문서의 주제인 Linux VM에 연결 또는 **ssh**는 포함되어 있지 않습니다. Windows에서 이러한 파일을 만들려면 <br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer을 입력합니다.
-> 
-> 
+## <a name="install-git-for-windows"></a>Windows용 Git 설치
+이전 섹션에서는 Windows용 `openssl` 도구가 포함된 다수의 패키지를 나열했습니다. 이 도구는 공용 및 개인 키를 만드는 데 필요합니다. 다음 예제에서는 선호하는 패키지를 선택할 수도 있겠지만 **Windows 용 Git**를 설치하고 사용하는 방법에 대해 자세히 설명합니다. **Windows 용 Git**를 사용하면 Linux VM을 사용할 때 유용할 수도 있는 몇 가지 추가 오픈 소스 소프트웨어([OSS](https://en.wikipedia.org/wiki/Open-source_software)) 도구와 유틸리티에 액세스할 수 있습니다.
 
-## Windows에서 ssh-keygen 및 openssl 가져오기
-Windows용 `ssh-keygen` 및 `openssl`을 포함한 여러 유틸리티가 [이 섹션](#What-SSH-and-key-creation-programs-do-you-need) 위에 나열되어 있습니다. 몇 가지 예가 아래 나열되어 있습니다.
-
-### Windows용 Git 사용
-1. [https://git-for-windows.github.io/](https://git-for-windows.github.io/)에서 Windows용 Git를 다운로드하여 설치합니다.
-2. 시작 메뉴 > 모든 앱 > Git Shell에서 Git Bash를 실행합니다.
-
-> [!NOTE]
-> 위의 `openssl` 명령을 실행할 때 다음 오류가 발생할 수 있습니다.
-> 
-> 
-
-        Unable to load config info from /usr/local/ssl/openssl.cnf
-
-이를 해결하는 가장 쉬운 방법은 `OPENSSL_CONF` 환경 변수를 설정하는 것입니다. 이 변수를 설정하기 위한 프로세스는 Github에 구성된 셸에 따라 다를 수 있습니다.
-
-**Powershell:**
-
-        $Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
-
-**CMD:**
-
-        set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
-
-**Git Bash:**
-
-        export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
-
-
-### Cygwin 사용
-1. 다음 위치에서 Cygwin 다운로드 및 설치: [http://cygwin.com/](http://cygwin.com/)
-2. OpenSSL 패키지와 모든 종속성이 설치되었는지 확인합니다.
-3. `cygwin` 실행
-
-## 개인 키 만들기
-1. 위의 지침 집합 중 하나를 따라 `openssl.exe`를 실행합니다.
-2. 다음 명령을 입력합니다.
+1. [https://git-for-windows.github.io/](https://git-for-windows.github.io/) 위치에서 **Windows 용 Git**를 다운로드하고 설치합니다.
+2. 자격 증명을 별도로 변경할 필요가 없으면 설치 과정에서 기본 옵션을 적용합니다.
+3. **시작 메뉴** > **Git** > **Git Bash**에서 **Git Bash**를 실행합니다. 콘솔에서 다음 예와 비슷한 모양으로 보여 줍니다.
    
-   ```
-   openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
-   ```
-3. 화면이 다음과 같이 표시됩니다.
-   
-   ```
-   $ openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
-   Generating a 2048 bit RSA private key
-   .......................................+++
-   .......................+++
-   writing new private key to 'myPrivateKey.key'
-   -----
-   You are about to be asked to enter information that will be incorporated
-   into your certificate request.
-   What you are about to enter is what is called a Distinguished Name or a DN.
-   There are quite a few fields but you can leave some blank
-   For some fields there will be a default value,
-   If you enter '.', the field will be left blank.
-   -----
-   Country Name (2 letter code) [AU]:
-   ```
-4. 표시되는 질문에 대답합니다.
-5. `myPrivateKey.key` 및 `myCert.pem`, 2개의 파일을 만들었습니다.
-6. API를 직접 사용하고 관리 포털을 사용하지 않으려는 경우 다음 명령을 사용하여 `myCert.pem`을 `myCert.cer`(DER 인코딩된 X509 인증서)로 변환합니다.
-   
-   ```
-   openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
-   ```
+    ![Windows용 Git의 Bash 셸](./media/virtual-machines-linux-ssh-from-windows/git-bash-window.png)
 
-## Putty용 PPK 만들기
-1. 다음 위치에서 Puttygen 다운로드 및 설치: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-2. Puttygen은 앞에서 만든 개인 키(`myPrivateKey.key`)를 읽지 못할 수도 있습니다. 이 경우 다음 명령을 실행하여 해당 키를 Puttygen이 이해할 수 있는 RSA 개인 키로 변환합니다.
+## <a name="create-a-private-key"></a>개인 키 만들기
+1. **Git Bash** 창에서 `openssl.exe`를 사용하여 개인 키를 만듭니다. 다음 예제에서는 `myPrivateKey` 키 및 `myCert.pem` 인증서를 만듭니다.
    
-        # openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
-        # chmod 600 ./myPrivateKey_rsa
+    ```bash
+    openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 \
+        -keyout myPrivateKey.key -out myCert.pem
+    ```
    
-    위의 명령을 실행하면 새 개인 키 myPrivateKey\_rsa가 생성됩니다.
-3. `puttygen.exe` 실행
-4. 메뉴 클릭: 파일 > 개인 키 로드
-5. 위에서 이름을 `myPrivateKey_rsa`로 지정한 개인 키를 찾습니다. **모든 파일(*.*)**을 표시하도록 파일 필터를 변경해야 합니다.
-6. **열기**를 클릭합니다. 다음과 같은 프롬프트가 표시됩니다.
+    다음 예제와 유사하게 출력됩니다.
    
-    ![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-windows/linuxgoodforeignkey.png)
-7. **확인**을 클릭합니다.
-8. 아래 스크린샷에서 강조 표시된 **개인 키 저장**을 클릭합니다.
+    ```bash
+    Generating a 2048 bit RSA private key
+    .......................................+++
+    .......................+++
+    writing new private key to 'myPrivateKey.key'
+    -----
+    You are about to be asked to enter information that will be incorporated
+    into your certificate request.
+    What you are about to enter is what is called a Distinguished Name or a DN.
+    There are quite a few fields but you can leave some blank
+    For some fields there will be a default value,
+    If you enter '.', the field will be left blank.
+    -----
+    Country Name (2 letter code) [AU]:
+    ```
+2. 국가 이름, 위치, 조직 이름 등을 묻는 메시지에 응답합니다.
+3. 새 개인 키와 인증서가 현재 작업 중인 디렉터리에 만들어집니다. 보안 모범 사례로서 사용자의 개인 키에만 액세스할 수 있도록 해당 키의 사용 권한을 설정해야 합니다.
    
-    ![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtygenprivatekey.png)
-9. 파일을 PPK로 저장합니다.
+    ```bash
+    chmod 0600 myPrivateKey.key
+    ```
 
-## Putty를 사용하여 Linux 컴퓨터에 연결
-1. 다음 위치에서 putty 다운로드 및 설치: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-2. putty.exe를 실행합니다.
-3. 관리 포털의 IP를 사용하여 호스트 이름을 입력합니다.
-   
-   ![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
-4. **열기**를 선택하기 전에 연결 > SSH > 인증 탭을 클릭하여 개인 키를 선택합니다. 내용을 입력할 필드는 아래 스크린샷을 참조하세요.
-   
-   ![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtyprivatekey.png)
-5. **열기**를 클릭하여 가상 컴퓨터에 연결합니다.
+4. [다음 섹션](#create-a-private-key-for-putty)에서는 PuTTY를 사용하여 공개 키를 확인하고 사용하는 방법에 대해 설명하고 SSH에 PuTTY를 사용하기 위해 특정된 개인 키를 Linux VM에 만듭니다. 다음 명령은 지금 바로 사용할 수 있는 `myPublicKey.key`라는 공개 키 파일을 생성합니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+    ```bash
+    openssl.exe rsa -pubout -in myPrivateKey.key -out myPublicKey.key
+    ```
+
+5. 클래식 리소스도 관리해야 하는 경우 `myCert.pem`을 `myCert.cer`(DER 인코딩된 X509 인증서)로 변환합니다. 특히 이전 클래식 리소스를 관리해야 하는 경우에만 선택적으로 이 단계를 수행합니다. 
+   
+    다음 명령을 사용하여 인증서를 변환합니다.
+   
+    ```bash
+    openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
+    ```
+
+## <a name="create-a-private-key-for-putty"></a>PuTTY용 개인 키 만들기
+PuTTY는 Windows용 공용 SSH 클라이언트입니다. 원하는 SSH 클라이언트를 무료로 사용할 수 있습니다. PuTTY를 사용하려면 추가 형식의 키인 PuTTY 개인 키(PPK)를 만들어야 합니다. PuTTY를 사용하지 않으려면 이 섹션을 건너뜁니다.
+
+다음 예제에서는 특별히 PuTTY용 추가 개인 키를 만들어 사용합니다.
+
+1. **Git Bash**를 사용하여 개인 키를 PuTTYgen에서 인식할 수 있는 RSA 개인 키로 변환합니다. 다음 예제에서는 기존의 `myPrivateKey` 키에서 `myPrivateKey_rsa` 키를 만듭니다.
+   
+    ```bash
+    openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
+    ```
+   
+    보안 모범 사례로서 사용자의 개인 키에만 액세스할 수 있도록 해당 키의 사용 권한을 설정해야 합니다.
+   
+    ```bash
+    chmod 0600 myPrivateKey_rsa
+    ```
+2. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 위치에서 PuTTYgen을 다운로드하고 실행합니다.
+3. 메뉴에서 **파일** > **개인 키 로드**를 클릭합니다.
+4. 개인 키(이전 예제의 `myPrivateKey_rsa`)를 찾습니다. **Git Bash**를 시작할 때의 기본 디렉터리는 `C:\Users\%username%`입니다. **모든 파일 (\*.\*)**을 표시하도록 파일 필터를 변경합니다.
+   
+    ![PuTTYgen에 기존 개인 키 로드](./media/virtual-machines-linux-ssh-from-windows/load-private-key.png)
+5. **열기**를 클릭합니다. 다음과 같이 키를 성공적으로 가져왔다는 메시지를 표시합니다.
+   
+    ![성공적으로 PuTTYgen으로 가져온 키](./media/virtual-machines-linux-ssh-from-windows/successfully-imported-key.png)
+6. **확인**을 클릭하여 창을 닫습니다.
+7. 공개 키는 **PuTTYgen** 창의 맨 위에 표시됩니다. Linux VM을 만들 때 이 공개 키를 복사하여 Azure 포털 또는 Azure Resource Manager 템플릿에 붙여넣습니다. 다음과 같이 **공개 키 저장**을 클릭하면 컴퓨터에 복사본을 저장할 수도 있습니다.
+   
+    ![PuTTY 공개 키 파일 저장](./media/virtual-machines-linux-ssh-from-windows/save-public-key.png)
+   
+    다음 예제에서는 Linux VM을 만들 때 이 공개 키를 복사하여 Azure 포털에 붙여넣는 방법을 보여 줍니다. 그런 다음 공개 키는 대개 새 VM의 `~/.ssh/authorized_keys`에 저장됩니다.
+   
+    ![Azure 포털에서 VM을 만들 때의 공개 키 사용](./media/virtual-machines-linux-ssh-from-windows/use-public-key-azure-portal.png)
+8. 다음과 같이 다시 **PuTTYgen**에서 **개인 키 저장**을 클릭합니다.
+   
+    ![PuTTY 개인 키 파일 저장](./media/virtual-machines-linux-ssh-from-windows/save-ppk-file.png)
+   
+   > [!WARNING]
+   > 키에 대한 전달 구를 입력하지 않고 계속하기를 원하는지 묻는 메시지가 표시됩니다. 전달 구는 개인 키에 연결되는 암호와 비슷합니다. 다른 사용자가 개인 키를 가져오더라도 키만으로는 인증할 수 없기 때문에 전달 구가 필요합니다. 전달 구를 사용하지 않을 때 개인 키를 가져오면 해당 키를 사용하는 모든 VM 또는 서비스에 로그인 할 수 있습니다. 따라서 전달 구를 만드는 것이 좋습니다. 하지만 전달 구를 잊어버린 경우에는 복구할 수 있는 방법이 없으므로 주의해야 합니다.
+   > 
+   > 
+   
+    전달 구를 입력하려면 **아니요**를 클릭하고, 주 PuTTYgen 창에서 전달 구를 입력한 다음 **개인 키 저장**을 다시 클릭합니다. 그렇지 않을 경우 **예**를 클릭하여 선택적인 전달 구를 암호를 제공하지 않고서 계속합니다.
+9. 이름과 위치를 입력하여 PPK 파일을 저장합니다.
+
+## <a name="use-putty-to-ssh-to-a-linux-machine"></a>Linux 컴퓨터의 SSH에 Putty 사용
+다시금 말하지만 PuTTY는 Windows용 공용 SSH 클라이언트입니다. 원하는 SSH 클라이언트를 무료로 사용할 수 있습니다. 다음 단계에서는 개인 키를 사용하여 SSH 사용 Azure VM에서 인증하는 방법에 대해 자세히 설명합니다. 이러한 단계는 SSH 연결을 인증하기 위해 개인 키를 로드해야 하는 점에서 다른 SSH 키 클라이언트에서 수행하는 단계들과 비슷합니다.
+
+1. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 위치에서 putty를 다운로드하고 실행합니다.
+2. 다음과 같이 Azure 포털에서 VM의 호스트 이름 또는 IP 주소를 입력합니다.
+   
+    ![새 PuTTY 연결 열기](./media/virtual-machines-linux-ssh-from-windows/putty-new-connection.png)
+3. **열기**를 선택하기 전에 **연결** > **SSH** > **인증** 탭을 클릭합니다. 개인 키 찾기 및 선택:
+   
+    ![인증용 PuTTY 개인 키 선택](./media/virtual-machines-linux-ssh-from-windows/putty-auth-dialog.png)
+4. **열기** 를 클릭하여 가상 컴퓨터에 연결합니다.
+
+## <a name="next-steps"></a>다음 단계
+[OS X 및 Linux를 사용](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하여 공개 및 개인 키를 생성할 수도 있습니다.
+
+Windows용 Bash 및 Windows 컴퓨터에서 쉽게 사용할 수 있는 OSS 도구의 이점에 대한 자세한 내용은 [Ubuntu on Windows의 Bash](https://msdn.microsoft.com/commandline/wsl/about)를 참조하세요.
+
+SSH를 사용하여 Linux VM을 연결하는 데 문제가 있으면 [Azure Linux VM에 대한 SSH 연결 문제 해결](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

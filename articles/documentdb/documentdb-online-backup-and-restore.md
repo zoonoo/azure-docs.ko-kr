@@ -1,13 +1,13 @@
 ---
-title: DocumentDB로 온라인 백업 및 복원 | Microsoft Docs
-description: Azure DocumentDB를 사용하여 NoSQL 데이터베이스의 자동 백업 및 복원을 수행하는 방법에 대해 알아봅니다.
-keywords: 백업 및 복원, 온라인 백업
+title: "DocumentDB로 온라인 백업 및 복원 | Microsoft Docs"
+description: "Azure DocumentDB를 사용하여 NoSQL 데이터베이스의 자동 백업 및 복원을 수행하는 방법에 대해 알아봅니다."
+keywords: "백업 및 복원, 온라인 백업"
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: RahulPrasad16
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: raprasa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 23f6049bc0df133966911b2352b044cdbc777b36
+
 
 ---
 # <a name="automatic-online-backup-and-restore-with-documentdb"></a>DocumentDB로 자동 온라인 백업 및 복원
@@ -33,7 +37,7 @@ DocumentDB는 [전역적으로 분산](documentdb-distribute-data-globally.md)�
 
 ![높은 수준의 DocumentDB와의 중복성](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-global-distribution.png)
 
-## <a name="full,-automatic,-online-backups"></a>전체, 자동, 온라인 백업
+## <a name="full-automatic-online-backups"></a>전체, 자동, 온라인 백업
 이런, 내 컬렉션 또는 데이터베이스를 삭제했습니다! DocumentDB를 사용하면 데이터 뿐만 아니라 데이터의 백업이 높은 중복 및 지역 재해에 대한 복원력으로 만들어집니다. 이러한 자동화된 백업은 현재 약 4시간마다 수행됩니다. 
 
 백업은 데이터베이스 작업의 성능이나 가용성에 영향을 주지 않고 수행됩니다. DocumentDB는 프로비전된 RU를 소비하거나 성능에 영향을 주지 않고 NoSQL 데이터베이스의 가용성에 영향을 주지 않고 백그라운드에서 백업을 수행합니다. 
@@ -55,6 +59,9 @@ DocumentDB 내에 저장된 데이터와 달리 자동 백업은 Azure Blob Stor
 
 Azure 지원에 문의하려면 [Azure 포털에서 티켓 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

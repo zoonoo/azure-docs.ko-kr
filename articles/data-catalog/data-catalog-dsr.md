@@ -1,13 +1,13 @@
 ---
-title: Azure 데이터 카탈로그 지원되는 데이터 원본 | Microsoft Docs
-description: 현재 지원되는 데이터 원본의 사양.
+title: "Azure 데이터 카탈로그 지원되는 데이터 원본 | Microsoft Docs"
+description: "현재 지원되는 데이터 원본의 사양."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: jstrauss
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/15/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c357d477684444342c74e04a2c5545a76b9ee0e3
+
 
 ---
 # <a name="azure-data-catalog-supported-data-sources"></a>Azure 데이터 카탈로그 지원되는 데이터 원본
@@ -428,7 +432,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>데이터 레이크</td>
 > <td>
-> <font size=2> 프로토콜: webhdfs <br>authentication: {basic, oauth} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: webhdfs
+> <br>authentication: {basic, oauth}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -436,7 +443,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>디렉터리, 파일</td>
 > <td>
-> <font size=2> 프로토콜: webhdfs <br>authentication: {basic, oauth} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: webhdfs
+> <br>authentication: {basic, oauth}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -444,7 +454,12 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>컨테이너</td>
 > <td>
-> <font size=2> protocol: azure-blobs <br>인증: {azure-access-key} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 도메인 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 계정 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 컨테이너 </font>
+> <font size=2> protocol: azure-blobs
+> <br>인증: {azure-access-key}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 도메인
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 계정
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 컨테이너 </font>
 > </td>
 > </tr>
 > <tr>
@@ -452,7 +467,13 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>Blob, 디렉터리</td>
 > <td>
-> <font size=2> protocol: azure-blobs <br>인증: {azure-access-key} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 도메인 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 계정 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 컨테이너 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 이름 </font>
+> <font size=2> protocol: azure-blobs
+> <br>인증: {azure-access-key}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 도메인
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 계정
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 컨테이너
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 이름 </font>
 > </td>
 > </tr>
 > <tr>
@@ -460,7 +481,11 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>컨테이너</td>
 > <td>
-> <font size=2> protocol: azure-tables <br>인증: {azure-access-key} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 도메인 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 계정 </font>
+> <font size=2> protocol: azure-tables
+> <br>인증: {azure-access-key}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 도메인
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 계정 </font>
 > </td>
 > </tr>
 > <tr>
@@ -468,7 +493,12 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>테이블</td>
 > <td>
-> <font size=2> protocol: azure-tables <br>인증: {azure-access-key} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 도메인 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 계정 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 이름 </font>
+> <font size=2> protocol: azure-tables
+> <br>인증: {azure-access-key}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 도메인
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 계정
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 이름 </font>
 > </td>
 > </tr>
 > <tr>
@@ -476,7 +506,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>가상 클러스터</td>
 > <td>
-> <font size=2> 프로토콜: cosmos <br>인증: {기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: cosmos
+> <br>인증: {기본, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -484,7 +517,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>스트림, 스트림 집합, 뷰</td>
 > <td>
-> <font size=2> 프로토콜: cosmos <br>인증: {기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: cosmos
+> <br>인증: {기본, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -492,7 +528,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>사이트</td>
 > <td>
-> <font size=2> 프로토콜: http <br>authentication: {none, basic, windows, oauth} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: http
+> <br>authentication: {none, basic, windows, oauth}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -500,7 +539,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>보고서</td>
 > <td>보고서, 대시보드</td>
 > <td>
-> <font size=2> 프로토콜: http <br>authentication: {none, basic, windows, oauth} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: http
+> <br>authentication: {none, basic, windows, oauth}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -508,7 +550,11 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>데이터베이스</td>
 > <td>
-> <font size=2> 프로토콜: db2 <br>인증: {기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
+> <font size=2> 프로토콜: db2
+> <br>인증: {기본, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
 > </td>
 > </tr>
 > <tr>
@@ -516,7 +562,13 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>테이블, 뷰</td>
 > <td>
-> <font size=2> 프로토콜: db2 <br>인증: {기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마 </font>
+> <font size=2> 프로토콜: db2
+> <br>인증: {기본, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마 </font>
 > </td>
 > </tr>
 > <tr>
@@ -524,7 +576,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>파일</td>
 > <td>
-> <font size=2> 프로토콜: 파일 <br>인증: {없음, 기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 경로 </font>
+> <font size=2> 프로토콜: 파일
+> <br>인증: {없음, 기본, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 경로 </font>
 > </td>
 > </tr>
 > <tr>
@@ -532,7 +587,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>디렉터리, 파일</td>
 > <td>
-> <font size=2> 프로토콜: ftp <br>인증: {없음, 기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: ftp
+> <br>인증: {없음, 기본, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -540,7 +598,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>프로비전</td>
 > <td>
-> <font size=2> 프로토콜: webhdfs <br>authentication: {basic, oauth} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: webhdfs
+> <br>authentication: {basic, oauth}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -548,7 +609,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>디렉터리, 파일</td>
 > <td>
-> <font size=2> 프로토콜: webhdfs <br>authentication: {basic, oauth} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: webhdfs
+> <br>authentication: {basic, oauth}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -556,7 +620,13 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>데이터베이스</td>
 > <td>
-> <font size=2> protocol: hive <br>인증: {hdinsight, 기본, 사용자 이름, 없음} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
+> <font size=2> protocol: hive
+> <br>인증: {hdinsight, 기본, 사용자 이름, 없음}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>connectionProperties:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
 > </td>
 > </tr>
 > <tr>
@@ -564,7 +634,14 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>테이블, 뷰</td>
 > <td>
-> <font size=2> protocol: hive <br>인증: {hdinsight, 기본, 사용자 이름, 없음} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
+> <font size=2> protocol: hive
+> <br>인증: {hdinsight, 기본, 사용자 이름, 없음}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체
+> <br>connectionProperties:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
 > </td>
 > </tr>
 > <tr>
@@ -572,7 +649,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>사이트</td>
 > <td>
-> <font size=2> 프로토콜: http <br>authentication: {none, basic, windows, oauth} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: http
+> <br>authentication: {none, basic, windows, oauth}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -580,7 +660,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>보고서</td>
 > <td>보고서, 대시보드</td>
 > <td>
-> <font size=2> 프로토콜: http <br>authentication: {none, basic, windows, oauth} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: http
+> <br>authentication: {none, basic, windows, oauth}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -588,7 +671,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>끝점, 파일</td>
 > <td>
-> <font size=2> 프로토콜: http <br>authentication: {none, basic, windows, oauth} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: http
+> <br>authentication: {none, basic, windows, oauth}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -596,7 +682,11 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>데이터베이스</td>
 > <td>
-> <font size=2> 프로토콜: mysql <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
+> <font size=2> 프로토콜: mysql
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
 > </td>
 > </tr>
 > <tr>
@@ -604,7 +694,12 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>테이블, 뷰</td>
 > <td>
-> <font size=2> 프로토콜: mysql <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
+> <font size=2> 프로토콜: mysql
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
 > </td>
 > </tr>
 > <tr>
@@ -612,7 +707,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>엔터티 컨테이너</td>
 > <td>
-> <font size=2> 프로토콜: odata <br>인증: {없음, 기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: odata
+> <br>인증: {없음, 기본, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -620,7 +718,11 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>엔터티 집합, 함수</td>
 > <td>
-> <font size=2> 프로토콜: odata <br>인증: {없음, 기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 리소스 </font>
+> <font size=2> 프로토콜: odata
+> <br>인증: {없음, 기본, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 리소스 </font>
 > </td>
 > </tr>
 > <tr>
@@ -628,7 +730,11 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>데이터베이스</td>
 > <td>
-> <font size=2> 프로토콜: oracle <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
+> <font size=2> 프로토콜: oracle
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
 > </td>
 > </tr>
 > <tr>
@@ -636,7 +742,13 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>테이블, 뷰</td>
 > <td>
-> <font size=2> 프로토콜: oracle <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
+> <font size=2> 프로토콜: oracle
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
 > </td>
 > </tr>
 > <tr>
@@ -644,7 +756,11 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>데이터베이스</td>
 > <td>
-> <font size=2> 프로토콜: postgresql <br>인증: {기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
+> <font size=2> 프로토콜: postgresql
+> <br>인증: {기본, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
 > </td>
 > </tr>
 > <tr>
@@ -652,7 +768,13 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>테이블, 뷰</td>
 > <td>
-> <font size=2> 프로토콜: postgresql <br>인증: {기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
+> <font size=2> 프로토콜: postgresql
+> <br>인증: {기본, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
 > </td>
 > </tr>
 > <tr>
@@ -660,7 +782,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>사이트</td>
 > <td>
-> <font size=2> 프로토콜: http <br>authentication: {none, basic, windows, oauth} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: http
+> <br>authentication: {none, basic, windows, oauth}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -668,7 +793,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>보고서</td>
 > <td>보고서, 대시보드</td>
 > <td>
-> <font size=2> 프로토콜: http <br>authentication: {none, basic, windows, oauth} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: http
+> <br>authentication: {none, basic, windows, oauth}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -676,7 +804,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>데이터 매시업</td>
 > <td>
-> <font size=2> 프로토콜: power-query <br>인증: {oauth} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: power-query
+> <br>인증: {oauth}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -684,7 +815,12 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>Object</td>
 > <td>
-> <font size=2> 프로토콜: salesforce-com <br>인증: {기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName </font>
+> <font size=2> 프로토콜: salesforce-com
+> <br>인증: {기본, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName </font>
 > </td>
 > </tr>
 > <tr>
@@ -692,7 +828,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>서버</td>
 > <td>
-> <font size=2> 프로토콜: sap-hana-sql <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 </font>
+> <font size=2> 프로토콜: sap-hana-sql
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 </font>
 > </td>
 > </tr>
 > <tr>
@@ -700,7 +839,12 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>보기</td>
 > <td>
-> <font size=2> 프로토콜: sap-hana-sql <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
+> <font size=2> 프로토콜: sap-hana-sql
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
 > </td>
 > </tr>
 > <tr>
@@ -708,7 +852,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>나열</td>
 > <td>
-> <font size=2> 프로토콜: sharepoint-list <br>인증: {기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> 프로토콜: sharepoint-list
+> <br>인증: {기본, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -716,7 +863,13 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>명령</td>
 > <td>저장 프로시저</td>
 > <td>
-> <font size=2> 프로토콜: tds <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
+> <font size=2> 프로토콜: tds
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
 > </td>
 > </tr>
 > <tr>
@@ -724,7 +877,13 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>TableValuedFunction</td>
 > <td>테이블 값 함수</td>
 > <td>
-> <font size=2> 프로토콜: tds <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
+> <font size=2> 프로토콜: tds
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
 > </td>
 > </tr>
 > <tr>
@@ -732,7 +891,11 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>데이터베이스</td>
 > <td>
-> <font size=2> 프로토콜: tds <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
+> <font size=2> 프로토콜: tds
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
 > </td>
 > </tr>
 > <tr>
@@ -740,7 +903,13 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>테이블, 뷰</td>
 > <td>
-> <font size=2> 프로토콜: tds <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
+> <font size=2> 프로토콜: tds
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
 > </td>
 > </tr>
 > <tr>
@@ -748,7 +917,13 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>명령</td>
 > <td>저장 프로시저</td>
 > <td>
-> <font size=2> 프로토콜: tds <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
+> <font size=2> 프로토콜: tds
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
 > </td>
 > </tr>
 > <tr>
@@ -756,7 +931,13 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>TableValuedFunction</td>
 > <td>테이블 값 함수</td>
 > <td>
-> <font size=2> 프로토콜: tds <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
+> <font size=2> 프로토콜: tds
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
 > </td>
 > </tr>
 > <tr>
@@ -764,7 +945,11 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>데이터베이스</td>
 > <td>
-> <font size=2> 프로토콜: tds <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
+> <font size=2> 프로토콜: tds
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
 > </td>
 > </tr>
 > <tr>
@@ -772,7 +957,13 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>테이블, 뷰</td>
 > <td>
-> <font size=2> 프로토콜: tds <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
+> <font size=2> 프로토콜: tds
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
 > </td>
 > </tr>
 > <tr>
@@ -780,7 +971,12 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>모델</td>
 > <td>
-> <font size=2> 프로토콜: analysis-services <br>authentication: {windows, basic, anonymous, none} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델 </font>
+> <font size=2> 프로토콜: analysis-services
+> <br>authentication: {windows, basic, anonymous, none}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델 </font>
 > </td>
 > </tr>
 > <tr>
@@ -788,7 +984,14 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>KPI</td>
 > <td>KPI</td>
 > <td>
-> <font size=2> 프로토콜: analysis-services <br>authentication: {windows, basic, anonymous, none} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
+> <font size=2> 프로토콜: analysis-services
+> <br>authentication: {windows, basic, anonymous, none}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
 > </td>
 > </tr>
 > <tr>
@@ -796,7 +999,14 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>측정값</td>
 > <td>측정값</td>
 > <td>
-> <font size=2> 프로토콜: analysis-services <br>authentication: {windows, basic, anonymous, none} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {측정값} </font>
+> <font size=2> 프로토콜: analysis-services
+> <br>authentication: {windows, basic, anonymous, none}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {측정값} </font>
 > </td>
 > </tr>
 > <tr>
@@ -804,7 +1014,14 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>차원</td>
 > <td>
-> <font size=2> 프로토콜: analysis-services <br>authentication: {windows, basic, anonymous, none} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {차원} </font>
+> <font size=2> 프로토콜: analysis-services
+> <br>authentication: {windows, basic, anonymous, none}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {차원} </font>
 > </td>
 > </tr>
 > <tr>
@@ -812,7 +1029,12 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>모델</td>
 > <td>
-> <font size=2> 프로토콜: analysis-services <br>authentication: {windows, basic, anonymous, none} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델 </font>
+> <font size=2> 프로토콜: analysis-services
+> <br>authentication: {windows, basic, anonymous, none}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델 </font>
 > </td>
 > </tr>
 > <tr>
@@ -820,7 +1042,14 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>KPI</td>
 > <td>KPI</td>
 > <td>
-> <font size=2> 프로토콜: analysis-services <br>authentication: {windows, basic, anonymous, none} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
+> <font size=2> 프로토콜: analysis-services
+> <br>authentication: {windows, basic, anonymous, none}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
 > </td>
 > </tr>
 > <tr>
@@ -828,7 +1057,14 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>측정값</td>
 > <td>측정값</td>
 > <td>
-> <font size=2> 프로토콜: analysis-services <br>authentication: {windows, basic, anonymous, none} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {측정값} </font>
+> <font size=2> 프로토콜: analysis-services
+> <br>authentication: {windows, basic, anonymous, none}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {측정값} </font>
 > </td>
 > </tr>
 > <tr>
@@ -836,7 +1072,14 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>테이블</td>
 > <td>
-> <font size=2> 프로토콜: analysis-services <br>authentication: {windows, basic, anonymous, none} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {테이블} </font>
+> <font size=2> 프로토콜: analysis-services
+> <br>authentication: {windows, basic, anonymous, none}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {테이블} </font>
 > </td>
 > </tr>
 > <tr>
@@ -844,7 +1087,11 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>서버</td>
 > <td>
-> <font size=2> 프로토콜: reporting-services <br>인증: {windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 버전: {ReportingService2010} </font>
+> <font size=2> 프로토콜: reporting-services
+> <br>인증: {windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 버전: {ReportingService2010} </font>
 > </td>
 > </tr>
 > <tr>
@@ -852,7 +1099,12 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>보고서</td>
 > <td>보고서</td>
 > <td>
-> <font size=2> 프로토콜: reporting-services <br>인증: {windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 경로 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 버전: {ReportingService2010} </font>
+> <font size=2> 프로토콜: reporting-services
+> <br>인증: {windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 경로
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 버전: {ReportingService2010} </font>
 > </td>
 > </tr>
 > <tr>
@@ -860,7 +1112,11 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>데이터베이스</td>
 > <td>
-> <font size=2> 프로토콜: teradata <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
+> <font size=2> 프로토콜: teradata
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
 > </td>
 > </tr>
 > <tr>
@@ -868,7 +1124,12 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>테이블, 뷰</td>
 > <td>
-> <font size=2> 프로토콜: teradata <br>인증: {프로토콜, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
+> <font size=2> 프로토콜: teradata
+> <br>인증: {프로토콜, windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
 > </td>
 > </tr>
 > <tr>
@@ -876,7 +1137,12 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>컨테이너</td>
 > <td>모델</td>
 > <td>
-> <font size="2"> 프로토콜: mssql-mds <br>인증: {windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 버전 </font>
+> <font size="2"> 프로토콜: mssql-mds
+> <br>인증: {windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 버전 </font>
 > </td>
 > </tr>
 > <tr>
@@ -884,7 +1150,13 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>테이블</td>
 > <td>엔터티</td>
 > <td>
-> <font size="2"> 프로토콜: mssql-mds <br>인증: {windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 버전 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 엔터티 </font>
+> <font size="2"> 프로토콜: mssql-mds
+> <br>인증: {windows}
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 모델
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 버전
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 엔터티 </font>
 > </td>
 > </tr>
 > <tr>
@@ -892,15 +1164,16 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <td>\*</td>
 > <td>\*</td>
 > <td>
-> <font size=2> 프로토콜: generic-asset <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
+> <font size=2> 프로토콜: generic-asset
+> <br>주소:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
 > </td>
 > </tr>
-> </table>
-> 
-> 
-> 
-> 
+> </table> 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

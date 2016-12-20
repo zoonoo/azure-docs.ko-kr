@@ -1,23 +1,27 @@
 ---
-title: Visual Studio에서 응용 프로그램 디버그 | Microsoft Docs
-description: 로컬 개발 클러스터의 Visual Studio에서 개발하고 디버그하여 서비스의 안정성과 성능을 향상시킵니다.
+title: "Visual Studio에서 응용 프로그램 디버그 | Microsoft Docs"
+description: "로컬 개발 클러스터의 Visual Studio에서 개발하고 디버그하여 서비스의 안정성과 성능을 향상시킵니다."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2016
+ms.date: 11/01/2016
 ms.author: vturecek;mikhegn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 97bfd27368c2f317e4edadb38a0685d92ad92b9a
+
 
 ---
-# Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 디버그
-## 로컬 서비스 패브릭 응용 프로그램 디버깅
+# <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 디버그
+## <a name="debug-a-local-service-fabric-application"></a>로컬 서비스 패브릭 응용 프로그램 디버깅
 로컬 컴퓨터 개발 클러스터에서 Azure 서비스 패브릭 응용 프로그램을 배포하고 디버그하여 시간과 비용을 절약할 수 있습니다. Visual Studio는 로컬 클러스터에 응용 프로그램을 배포하고 응용 프로그램의 모든 인스턴스에 디버거를 자동으로 연결할 수 있습니다.
 
 1. [서비스 패브릭 개발 환경 설정](service-fabric-get-started.md)의 단계를 따라 로컬 개발 클러스터를 시작합니다.
@@ -33,7 +37,7 @@ ms.author: vturecek;mikhegn
 4. **진단 이벤트** 창이 자동으로 열려서 실시간으로 진단 이벤트를 볼 수 있습니다.
    
     ![실시간으로 진단 이벤트 보기][diagnosticevents]
-5. 클라우드 탐색기의 **진단 이벤트** 창도 열 수 있습니다. **서비스 패브릭**에서 아무 노드를 마우스 오른쪽 단추로 클릭하고 **스트리밍 추적 보기**를 선택합니다.
+5. 클라우드 탐색기의 **진단 이벤트** 창도 열 수 있습니다.  **Service Fabric**에서 아무 노드를 마우스 오른쪽 단추로 클릭하고 **스트리밍 추적 보기**를 선택합니다.
    
     ![진단 이벤트 창 열기][viewdiagnosticevents]
    
@@ -43,7 +47,7 @@ ms.author: vturecek;mikhegn
     ```csharp
     ServiceEventSource.Current.ServiceMessage(this, "My ServiceMessage with a parameter {0}", result.Value.ToString());
     ```
-7. **진단 이벤트** 창은 필터링, 일시 중지 및 실시간 이벤트 검사를 지원합니다. 필터는 해당 콘텐츠를 포함하는 이벤트 메시지의 단순 문자열 검색입니다.
+7. **진단 이벤트** 창은 필터링, 일시 중지 및 실시간 이벤트 검사를 지원합니다.  필터는 해당 콘텐츠를 포함하는 이벤트 메시지의 단순 문자열 검색입니다.
    
     ![필터링, 일시 중지, 다시 시작 또는 실시간으로 이벤트 검사][diagnosticeventsactions]
 8. 서비스 디버깅은 다른 모든 응용 프로그램의 디버깅과 같습니다. 손쉬운 디버깅을 위해 일반적으로 Visual Studio를 통해 중단점을 설정할 수 있습니다. 신뢰할 수 있는 컬렉션은 여러 노드에 걸쳐 복제하더라도 여전히 IEnumerable을 구현합니다. 따라서 디버그하는 동안 Visual Studio에서 결과 뷰를 사용하여 내부에 저장한 내용을 볼 수 있습니다. 코드의 아무 곳에나 중단점을 설정하기만 하면 됩니다.
@@ -52,11 +56,11 @@ ms.author: vturecek;mikhegn
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## 원격 서비스 패브릭 응용 프로그램 디버깅
+## <a name="debug-a-remote-service-fabric-application"></a>원격 서비스 패브릭 응용 프로그램 디버깅
 Azure의 서비스 패브릭 클러스터에서 서비스 패브릭 응용 프로그램이 실행 중인 경우, Visual Studio에서 직접 원격으로 이를 디버깅할 수 있습니다.
 
 > [!NOTE]
-> 이 기능은 [서비스 패브릭 SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) 및 [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/)가 필요합니다.
+> 이 기능은 [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) 및 [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/)가 필요합니다.    
 > 
 > 
 
@@ -96,17 +100,19 @@ Azure의 서비스 패브릭 클러스터에서 서비스 패브릭 응용 프�
    
     ![원격 디버깅 사용 안 함][disableremotedebugging]
 
-## 원격 클러스터 노드에서 스트리밍 추적
-또한 원격 클러스터 노드에서 Visual Studio까지 추적을 직접 스트리밍할 수 있습니다. 이 기능을 통해 Visual Studio에서 직접 서비스 패브릭 클러스터 노드에서 생성된 ETW 추적 이벤트를 스트리밍할 수 있습니다.
+## <a name="streaming-traces-from-a-remote-cluster-node"></a>원격 클러스터 노드에서 스트리밍 추적
+또한 원격 클러스터 노드에서 Visual Studio까지 추적을 직접 스트리밍할 수 있습니다. 이 기능을 통해 Service Fabric 클러스터 노드에서 생성된 ETW 추적 이벤트를 스트리밍할 수 있습니다.
 
 > [!NOTE]
-> 이 기능은 [서비스 패브릭 SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) 및 [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/)가 필요합니다.
+> 이 기능은 [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) 및 [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/)가 필요합니다.
+> 이 기능은 Azure에서 실행되는 클러스터만 지원합니다.
 > 
 > 
 
 <!-- -->
 > [!WARNING]
-> 스트리밍 추적은 실행 중인 응용 프로그램에 영향을 미치기 때문에 개발/테스트 시나리오를 위한 것이며 프로덕션 환경에서는 사용되지 않습니다. 프로덕션 시나리오에서는 Azure 진단을 통해 이벤트 전달을 사용해야 합니다.
+> 스트리밍 추적은 실행 중인 응용 프로그램에 영향을 미치기 때문에 개발/테스트 시나리오를 위한 것이며 프로덕션 환경에서는 사용되지 않습니다.
+> 프로덕션 시나리오에서는 Azure 진단을 통해 이벤트 전달을 사용해야 합니다.
 > 
 > 
 
@@ -128,7 +134,7 @@ Azure의 서비스 패브릭 클러스터에서 서비스 패브릭 응용 프�
    
     ![원격 스트리밍 추적 사용 안 함][disablestreamingtraces]
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [서비스 패브릭 서비스 테스트](service-fabric-testability-overview.md)
 * [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)
 
@@ -148,4 +154,8 @@ Azure의 서비스 패브릭 클러스터에서 서비스 패브릭 응용 프�
 [viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

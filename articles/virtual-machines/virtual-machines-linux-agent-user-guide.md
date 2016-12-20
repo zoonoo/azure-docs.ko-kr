@@ -1,13 +1,13 @@
 ---
-title: Linux 에이전트 사용자 가이드 | Microsoft Docs
-description: Linux 에이전트(waagent)를 설치 및 구성하여 가상 컴퓨터와 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다.
+title: "Linux 에이전트 사용자 가이드 | Microsoft Docs"
+description: "Linux 에이전트(waagent)를 설치 및 구성하여 가상 컴퓨터와 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: szarkos
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 43d3ad9e2b50a84cb9fd70582eb03b9d7d45d788
+
 
 ---
 # <a name="azure-linux-agent-user-guide"></a>Azure Linux 에이전트 사용자 가이드
@@ -57,7 +61,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
 * **VM 확장**
   
   * 소프트웨어 및 구성 자동화를 사용하도록 Microsoft 및 Partner에서 작성된 구성 요소를 Linux VM(IaaS)에 삽입
-  * [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  *  [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>통신
 플랫폼에서 에이전트로의 정보 흐름은 다음 두 채널을 통해 진행됩니다.
@@ -98,7 +102,7 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 * UDF 파일 시스템 탑재에 대한 커널 지원
 
 ## <a name="installation"></a>설치
-배포 패키지에서 리포지토리의 RPM 또는 DEB 패키지를 사용한 설치는 선호하는 Azure Linux Azure 설치 및 업그레이드 방법입니다. 모든 [인증 배포 공급자](virtual-machines-linux-endorsed-distros.md)는 이미지 및 리포지토리에 Azure Linux 에이전트 패키지를 통합합니다.
+배포 패키지에서 리포지토리의 RPM 또는 DEB 패키지를 사용한 설치는 선호하는 Azure Linux Azure 설치 및 업그레이드 방법입니다. 모든 [인증 배포 공급자](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)는 이미지 및 리포지토리에 Azure Linux 에이전트 패키지를 통합합니다.
 
 원본에서 설치 또는 사용자 지정 위치 또는 접두사로의 설치와 같은 고급 설치 옵션에 대한 자세한 내용은 [Github의 Azure Linux 에이전트 리포지토리](https://github.com/Azure/WALinuxAgent).
 
@@ -300,8 +304,11 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 * 프로비전 중 Ubuntu 클라우드 이미지에서 리소스 디스크 탑재 지점 및 swap 공간을 구성하려면 다음 리소스를 참조하세요.
   
   * [Ubuntu Wiki: Swap 파티션 구성](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Azure 가상 컴퓨터에 사용자 지정 데이터 삽입](virtual-machines-windows-classic-inject-custom-data.md)
+  * [Azure 가상 컴퓨터에 사용자 지정 데이터 삽입](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

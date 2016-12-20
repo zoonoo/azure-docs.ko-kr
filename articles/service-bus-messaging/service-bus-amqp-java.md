@@ -1,27 +1,31 @@
 ---
-title: AMQP 1.0을 사용한 서비스 버스 및 Java | Microsoft Docs
-description: AMQP를 사용하여 Java에서 서비스 버스 사용
-services: service-bus
+title: "AMQP 1.0을 사용한 Service Bus 및 Java | Microsoft Docs"
+description: "AMQP를 사용하여 Java에서 서비스 버스 사용"
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 1848f58d-1b40-43e0-89c4-ab14ba34c032
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: eb41df70551bc327473caea4fab95cd269bc0175
+
 
 ---
-# <a name="use-service-bus-from-java-with-amqp-1.0"></a>AMQP 1.0을 사용하여 Java에서 서비스 버스 사용
+# <a name="use-service-bus-from-java-with-amqp-10"></a>AMQP 1.0을 사용하여 Java에서 서비스 버스 사용
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 JMS(Java Message Service)는 Java 플랫폼의 메시지 지향 미들웨어 작업에 대한 표준 API입니다. Microsoft Azure 서비스 버스는 Apache Qpid 프로젝트에 의해 개발된 JMS 클라이언트 라이브러리 기반 AMQP 1.0과 함께 테스트되었습니다. 이 라이브러리는 전체 JMS 1.1 API를 지원하며 모든 AMQP 1.0 호환 메시징 서비스와 함께 사용할 수 있습니다. 이 시나리오는 [Windows Serve용 Service Bus](https://msdn.microsoft.com/library/dn282144.aspx)(온-프레미스 Service Bus)에서도 지원됩니다. 자세한 내용은 [Windows Server용 Service Bus의 AMQP][Windows Server용 Service Bus의 AMQP]를 참조하세요.
 
-## <a name="download-the-apache-qpid-amqp-1.0-jms-client-library"></a>Apache Qpid AMQP 1.0 JMS 클라이언트 라이브러리 다운로드
+## <a name="download-the-apache-qpid-amqp-10-jms-client-library"></a>Apache Qpid AMQP 1.0 JMS 클라이언트 라이브러리 다운로드
 최신 버전의 Apache Qpid JMS AMQP 1.0 클라이언트 라이브러리를 다운로드할 위치에 대한 자세한 내용은 [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)을 참조하세요.
 
 서비스 버스를 사용하여 JMS 응용 프로그램을 빌드 및 실행할 때 Apache Qpid JMS AMQP 1.0 배포 보관에 포함된 다음 JAR 파일 4개를 Java CLASSPATH에 추가해야 합니다.
@@ -31,8 +35,8 @@ JMS(Java Message Service)는 Java 플랫폼의 메시지 지향 미들웨어 작
 * qpid-amqp-1-0-client-jms-[version].jar
 * qpid-amqp-1-0-common-[version].jar
 
-## <a name="work-with-service-bus-queues,-topics,-and-subscriptions-from-jms"></a>JMS에서 서비스 버스 큐, 토픽 및 구독 작업
-### <a name="java-naming-and-directory-interface-(jndi)"></a>JNDI(Java Naming and Directory Interface)
+## <a name="work-with-service-bus-queues-topics-and-subscriptions-from-jms"></a>JMS에서 서비스 버스 큐, 토픽 및 구독 작업
+### <a name="java-naming-and-directory-interface-jndi"></a>JNDI(Java Naming and Directory Interface)
 JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이름과 물리적 이름 간에 구분을 만듭니다. JNDI를 사용하여 두 유형의 JMS 개체인 **ConnectionFactory** 및 **Destination**을 확인합니다. JNDI는 다양한 디렉터리 서비스를 연결할 수 있는 공급자 모델을 사용하여 이름 확인 책임을 처리합니다. Apache Qpid JMS AMQP 1.0 라이브러리에는 텍스트 파일을 사용하여 구성된 간단한 속성 파일 기반 JNDI 공급자가 포함되어 있습니다.
 
 Qpid 속성 파일 JNDI 공급자는 다음과 같은 형식의 속성 파일을 사용하여 구성됩니다.
@@ -75,9 +79,9 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 
 | 이름 | 의미 |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
-| `[namespace]` |[Azure Portal][]에서 가져온 Service Bus 네임스페이스입니다. | | | | |
-| `[username]` |[Azure Portal][]에서 가져온 Service Bus SAS 키 이름입니다. | | | | |
-| `[password]` |[Azure Portal][]에서 가져온 URL 인코딩된 형식의 Service Bus SAS 키입니다. | | | | |
+| `[namespace]` |[Azure 포털][Azure 포털]에서 가져온 Service Bus 네임스페이스입니다. | | | | |
+| `[username]` |[Azure 포털][Azure 포털]에서 가져온 Service Bus SAS 키 이름입니다. | | | | |
+| `[password]` |[Azure 포털][Azure 포털]에서 가져온 URL 인코딩된 형식의 Service Bus SAS 키입니다. | | | | |
 
 > [!NOTE]
 > 수동으로 암호를 URL 인코딩해야 합니다. 유용한 URL 인코딩 유틸리티는 [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp)에서 사용할 수 있습니다.
@@ -174,11 +178,11 @@ JMS 사양은 이러한 예외를 처리하도록 API 메서드 및 응용 프�
   1. Service Bus가 전송되는 특정 메시지를 거부하는 방식으로 인해 문제가 발생한 경우 **MessageRejectedException** 예외가 발생합니다. 이 오류는 일시적이거나 메시지의 문제로 인해 발생됩니다. 일부 백오프 논리로 작업을 다시 시도하는 것이 좋습니다. 문제가 지속되면 메시지는 로컬로 로그온한 오류와 함께 중단되어야 합니다. 이 경우 **JMS Connection**, **Session** 또는 **MessageProducer** 개체를 다시 만들 필요가 없습니다. 
   2. Service Bus가 AMQP 링크를 닫는 것으로 인해 문제가 발생한 경우 **InvalidDestinationException** 예외가 발생합니다. 이는 일시적인 문제 또는 삭제되는 메시지 엔터티로 인한 문제일 수 있습니다. 두 경우 모두 **JMS Connection**, **Session** 및 **MessageProducer** 개체를 다시 만들어야 합니다. 오류 상태가 일시적이었다면 이 작업은 결국 성공적으로 수행될 것입니다. 엔터티가 삭제된 경우 오류가 영구적이 됩니다.
 
-## <a name="messaging-between-.net-and-jms"></a>.NET과 JMS 간의 메시징
+## <a name="messaging-between-net-and-jms"></a>.NET과 JMS 간의 메시징
 ### <a name="message-bodies"></a>메시지 본문
 JMS는 다섯 가지 다른 메시지 유형 **BytesMessage**, **MapMessage**, **ObjectMessage**, **StreamMessage** 및 **TextMessage**를 정의합니다. Service Bus .NET API에는 단일 메시지 유형, [BrokeredMessage][BrokeredMessage]가 있습니다.
 
-#### <a name="jms-to-service-bus-.net-api"></a>JMS에서 서비스 버스 .NET API
+#### <a name="jms-to-service-bus-net-api"></a>JMS에서 서비스 버스 .NET API
 다음 섹션에서는 .NET에서 각 JMS 메시지 형식의 메시지를 사용하는 방법을 보여 줍니다. **ObjectMessage**의 본문이 .NET 응용 프로그램에서 해석할 수 없는 Java 프로그래밍 언어의 직렬화 가능 개체를 포함하므로 **ObjectMessage** 예는 포함되지 않습니다.
 
 ##### <a name="bytesmessage"></a>BytesMessage
@@ -233,7 +237,7 @@ foreach (Object item in list)
 Console.WriteLine("Text: " + message.GetBody<String>());
 ```
 
-#### <a name="service-bus-.net-apis-to-jms"></a>서비스 버스 .NET API에서 JMS
+#### <a name="service-bus-net-apis-to-jms"></a>서비스 버스 .NET API에서 JMS
 다음 섹션은 .NET 응용 프로그램에서 다른 각 JMS 메시지 유형의 JMS에서 수신된 메시지를 만드는 방법을 보여 줍니다. **ObjectMessage**의 본문이 .NET 응용 프로그램에서 해석할 수 없는 Java 프로그래밍 언어의 직렬화 가능 개체를 포함하므로 **ObjectMessage** 예는 포함되지 않습니다.
 
 ##### <a name="bytesmessage"></a>BytesMessage
@@ -264,7 +268,7 @@ message = new BrokeredMessage("this is a text string");
 ```
 
 ### <a name="application-properties"></a>응용 프로그램 속성
-#### <a name="jms-to-service-bus-.net-apis"></a>JMS에서 서비스 버스 .NET API
+#### <a name="jms-to-service-bus-net-apis"></a>JMS에서 서비스 버스 .NET API
 JMS 메시지는 **boolean**, **byte**, **short**, **int**, **long**, **float**, **double** 및 **String**과 같은 형식의 응용 프로그램 속성을 지원합니다. 다음 Java 코드는 이러한 각 형식의 속성을 사용하여 메시지에서 속성을 설정하는 방법을 보여 줍니다.
 
 ```
@@ -301,7 +305,7 @@ if (message.Properties.Keys.Count > 0)
 | Boolean |bool |
 | String |string |
 
-[BrokeredMessage][BrokeredMessage] 형식은 **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** 및 **TimeSpan**과 같은 형식의 응용 프로그램 속성을 지원합니다. 다음 .NET 코드는 이러한 각 속성 형식을 사용하여 [BrokeredMessage][BrokeredMessage]에서 속성을 설정하는 방법을 보여 줍니다.
+[BrokeredMessage][BrokeredMessage] 형식은 **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset**, **TimeSpan**과 같은 형식의 응용 프로그램 속성을 지원합니다. 다음 .NET 코드는 이러한 각 속성 형식을 사용하여 [BrokeredMessage][BrokeredMessage]에서 속성을 설정하는 방법을 보여 줍니다.
 
 ```
 message.Properties["TestByte"] = (byte)128;
@@ -364,7 +368,7 @@ while (propertyNames.hasMoreElements())
 ### <a name="standard-headers"></a>표준 헤더
 다음 테이블은 JMS 표준 헤더 및 [BrokeredMessage][BrokeredMessage] 표준 속성을 AMQP 1.0을 사용하여 매핑하는 방법을 보여 줍니다.
 
-#### <a name="jms-to-service-bus-.net-apis"></a>JMS에서 서비스 버스 .NET API
+#### <a name="jms-to-service-bus-net-apis"></a>JMS에서 서비스 버스 .NET API
 | JMS | 서비스 버스 .NET | 참고 사항 |
 | --- | --- | --- |
 | JMSCorrelationID |Message.CorrelationID |- |
@@ -378,7 +382,7 @@ while (propertyNames.hasMoreElements())
 | JMSTimestamp |Message.EnqueuedTimeUtc |변환 |
 | JMSType |Message.Properties[“jms-type”] |- |
 
-#### <a name="service-bus-.net-apis-to-jms"></a>서비스 버스 .NET API에서 JMS
+#### <a name="service-bus-net-apis-to-jms"></a>서비스 버스 .NET API에서 JMS
 | 서비스 버스 .NET | JMS | 참고 사항 |
 | --- | --- | --- |
 | ContentType |- |현재 사용할 수 없음 |
@@ -391,8 +395,7 @@ while (propertyNames.hasMoreElements())
 | ScheduledEnqueueTimeUtc |해당 없음 |현재 사용할 수 없음 |
 | SessionId |해당 없음 |현재 사용할 수 없음 |
 | TimeToLive |JMSExpiration |변환 |
-| 받는 사람 | | |
-| JMSDestination |- | |
+| 받는 사람 |JMSDestination |- |
 
 ## <a name="unsupported-features-and-restrictions"></a>지원되지 않는 기능 및 제한
 서비스 버스와 함께 JMS over AMQP 1.0을 사용하는 경우 다음과 같은 제한 사항이 있습니다.
@@ -418,6 +421,6 @@ while (propertyNames.hasMoreElements())
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

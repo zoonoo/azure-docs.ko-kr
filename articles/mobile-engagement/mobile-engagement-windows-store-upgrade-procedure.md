@@ -1,12 +1,12 @@
 ---
-title: Windows 유니버설 앱 SDK 업그레이드 절차
-description: Azure Mobile Engagement용 Windows 유니버설 앱 SDK 업그레이드 절차
+title: "Windows 유니버설 앱 SDK 업그레이드 절차"
+description: "Azure Mobile Engagement용 Windows 유니버설 앱 SDK 업그레이드 절차"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 4c898175-2cd6-43db-b350-bb408332f24d
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
@@ -14,42 +14,46 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c7b3441892484cf54e2055e9153858171d738e85
+
 
 ---
-# Windows 유니버설 앱 SDK 업그레이드 절차
+# <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Windows 유니버설 앱 SDK 업그레이드 절차
 이전 버전의 Engagement를 응용 프로그램에 이미 통합한 경우에는 SDK를 업그레이드할 때 다음 사항을 고려해야 합니다.
 
 여러 SDK 버전을 건너뛴 경우에는 여러 절차를 수행해야 할 수 있습니다. 예를 들어 0.10.1에서 0.11.0으로 마이그레이션하는 경우에는 먼저 "0.9.0에서 0.10.1로 마이그레이션" 절차를 수행한 후에 "0.10.1에서 0.11.0으로 마이그레이션" 절차를 수행해야 합니다.
 
-## 3\.3.0에서 3.4.0으로
-### 테스트 로그
+## <a name="from-330-to-340"></a>3.3.0에서 3.4.0으로
+### <a name="test-logs"></a>테스트 로그
 이제 SDK에서 생성된 콘솔 로그를 사용/사용 안 함/필터링할 수 있습니다. 이를 사용자 지정하려면 속성 `EngagementAgent.Instance.TestLogEnabled`를 `EngagementTestLogLevel` 열거형에서 사용 가능한 값 중 하나로 업데이트합니다. 예를 들어 다음과 같습니다.
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
 
-### 리소스
+### <a name="resources"></a>리소스
 도달률 오버레이가 향상되었습니다. SDK NuGet 패키지 리소스의 일부입니다.
 
 새 버전의 SDK로 업그레이드하는 동안 리소스의 오버레이 폴더에서 기존 파일을 보관할 것인지 보관하지 않을 것인지 여부를 선택할 수 있습니다.
 
-* 이전 오버레이가 작동 중이거나 `WebView` 요소를 수동으로 통합하는 경우 기존 파일을 보관하도록 결정하여 계속 작동하도록 할 수 있습니다.
-* 새 오버레이로 업데이트하려는 경우 리소스의 전체 `overlay` 폴더를 SDK 패키지의 새 폴더로 바꿉니다(UWP 앱: 업그레이드 후 새 오버레이 폴더를 %USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\\3.4.0\\content\\win81\\Resources에서 가져올 수 있음).
+* 이전 오버레이가 작동 중이거나 `WebView` 요소를 수동으로 통합하는 경우 기존 파일을 보관하도록 결정하여 계속 작동하도록 할 수 있습니다. 
+* 새 오버레이로 업데이트하려는 경우 리소스의 전체 `overlay` 폴더를 SDK 패키지의 새 폴더로 바꿉니다(UWP 앱: 업그레이드 후 새 오버레이 폴더를 %USERPROFILE%\\.nuget\packages\MicrosoftAzure.MobileEngagement\3.4.0\content\win81\Resources에서 가져올 수 있음).
 
 > [!WARNING]
 > 새 오버레이를 사용하면 이전 버전에서 설정한 모든 사용자 지정을 덮어씁니다.
 > 
 > 
 
-## 3\.2.0에서 3.3.0으로
-### 리소스
+## <a name="from-320-to-330"></a>3.2.0에서 3.3.0으로
+### <a name="resources"></a>리소스
 이 단계는 사용자 지정된 리소스에만 관련됩니다. SDK(html, 이미지, 오버레이)에서 제공되는 리소스를 사용자 지정한 경우 업그레이드된 리소스에서 사용자 지정한 내용을 업그레이드 및 다시 적용하기 전에 백업해야 합니다.
 
-## 3\.1.0에서 3.2.0으로
-### 리소스
+## <a name="from-310-to-320"></a>3.1.0에서 3.2.0으로
+### <a name="resources"></a>리소스
 이 단계는 사용자 지정된 리소스에만 관련됩니다. SDK(html, 이미지, 오버레이)에서 제공되는 리소스를 사용자 지정한 경우 업그레이드된 리소스에서 사용자 지정한 내용을 업그레이드 및 다시 적용하기 전에 백업해야 합니다.
 
-### 웹 보기 통합을 사용하지 마세요.
+### <a name="webview-integration"></a>웹 보기 통합을 사용하지 마세요.
 다른 장치 형식 요인과 일치하는 일부 개선 사항이 이 버전에 도입되었습니다. Webview 통합이 다음과 일치하는지 확인합니다.
 
 XAML 페이지 ()에서:
@@ -164,12 +168,12 @@ XAML 페이지 ()에서:
             }
     }
 
-## 2\.0.0에서 3.0.0으로
-### 리소스
+## <a name="from-200-to-300"></a>2.0.0에서 3.0.0으로
+### <a name="resources"></a>리소스
 이 단계는 사용자 지정된 리소스에만 관련됩니다. SDK(html, 이미지, 오버레이)에서 제공되는 리소스를 사용자 지정한 경우 업그레이드된 리소스에서 사용자 지정한 내용을 업그레이드 및 다시 적용하기 전에 백업해야 합니다.
 
-## 1\.1.1에서 2.0.0으로 마이그레이션
-아래에서는 SDK 통합을 Capptain SAS 제공 Capptain 서비스에서 Azure Mobile Engagement 구동 앱으로 마이그레이션하는 방법을 설명합니다.
+## <a name="from-111-to-200"></a>1.1.1에서 2.0.0으로 마이그레이션
+아래에서는 SDK 통합을 Capptain SAS 제공 Capptain 서비스에서 Azure Mobile Engagement 구동 앱으로 마이그레이션하는 방법을 설명합니다. 
 
 > [!IMPORTANT]
 > Capptain과 Mobile Engagement는 같은 서비스가 아니며, 아래에서 제공하는 절차에서는 클라이언트 앱을 마이그레이션하는 방법만 중점적으로 설명합니다. 앱에서 SDK를 마이그레이션해도 데이터가 Capptain 서버에서 Mobile Engagement 서버로 마이그레이션되지는 않습니다.
@@ -178,15 +182,15 @@ XAML 페이지 ()에서:
 
 이전 버전에서 마이그레이션하는 경우에는 Capptain 웹 사이트를 참조하여 1.1.1로 먼저 마이그레이션한 후에 다음 절차를 따르세요.
 
-### NuGet 패키지
+### <a name="nuget-package"></a>NuGet 패키지
 **Capptain.WindowsPhone**을 **MicrosoftAzure.MobileEngagement** Nuget 패키지로 대체합니다.
 
-### Mobile Engagement 적용
+### <a name="applying-mobile-engagement"></a>Mobile Engagement 적용
 SDK에서는 `Engagement`(이)라는 용어를 사용합니다. 이 변경 내용에 맞게 프로젝트를 업데이트해야 합니다.
 
 현재 Capptain NuGet 패키지는 제거해야 합니다. Capptain 리소스 폴더의 모든 변경 내용도 제거됩니다. 해당 폴더의 파일을 보존하려면 복사본을 만드세요.
 
-그런 다음 새 Microsoft Azure Engagement NuGet 패키지를 프로젝트에 설치합니다. 해당 패키지는 [NuGet 웹 사이트] 또는 여기 인덱스에서 직접 찾을 수 있습니다. 이 작업을 수행하면 Engagement에서 사용하는 모든 리소스 파일이 바뀌며 프로젝트 참조에 새 Engagement DLL이 추가됩니다.
+그런 다음 새 Microsoft Azure Engagement NuGet 패키지를 프로젝트에 설치합니다. 해당 패키지는 [NuGet 웹 사이트]  또는 여기 인덱스에서 직접 찾을 수 있습니다. 이 작업을 수행하면 Engagement에서 사용하는 모든 리소스 파일이 바뀌며 프로젝트 참조에 새 Engagement DLL이 추가됩니다.
 
 Capptain DLL 참조를 삭제하여 프로젝트 참조를 정리해야 합니다. 이렇게 하지 않으면 Capptain 버전이 충돌하여 오류가 발생합니다.
 
@@ -266,13 +270,13 @@ Capptain 리소스를 사용자 지정한 경우 이전 파일 콘텐츠를 복�
         </engagement:EngagementPageOverlay>
 5. Capptain 그림 및 HTML 파일과 같은 기타 리소스도 "Engagement"를 사용하도록 이름이 바뀌었습니다.
 
-### 프로젝트 선언
-Package.appxmanifest에서 `File Type Associations`이(가) 다음과 같이 업데이트되었습니다.
+### <a name="project-declaration"></a>프로젝트 선언
+Package.appxmanifest에서 `File Type Associations` 이(가) 다음과 같이 업데이트되었습니다.
 
-* capptain\_reach\_content to engagement\_reach\_content
-* capptain\_log\_file to engagement\_log\_file
+* capptain\_reach\_content를 engagement\_reach\_content로
+* capptain\_log\_file을 engagement\_log\_file로
 
-### 응용 프로그램 ID/SDK 키
+### <a name="application-id-sdk-key"></a>응용 프로그램 ID/SDK 키
 Engagement에서는 연결 문자열을 사용합니다. 따라서 Mobile Engagement에서는 응용 프로그램 ID와 SDK 키를 지정할 필요가 없으며 연결 문자열만 지정하면 됩니다. EngagementConfiguration 파일에서 연결 문자열을 설정할 수 있습니다.
 
 Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파일에서 설정할 수 있습니다.
@@ -292,8 +296,8 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
 응용 프로그램의 연결 문자열은 Azure 클래식 포털에 표시됩니다.
 
-### 항목 이름 변경
-이름에 *capptain* 이 포함된 모든 항목은 이름에 *engagement* 를 포함하도록 지정됩니다. 마찬가지로 *Capptain* 은 *Engagement* 로 지정됩니다.
+### <a name="items-name-change"></a>항목 이름 변경
+*capptain*이라는 모든 항목은 *engagement*라고 이름을 지정합니다. 마찬가지로 *Capptain*은 *Engagement*로 지정됩니다.
 
 일반적으로 사용되는 Capptain 항목의 예제:
 
@@ -305,4 +309,9 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
 이와 같이 바뀐 이름은 재정의되는 메서드에도 영향을 줍니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

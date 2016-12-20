@@ -1,12 +1,12 @@
 ---
-title: '자습서: GaggleAMP와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory 및 GaggleAMP 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: GaggleAMP와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory 및 GaggleAMP 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 9cc1a4b7-964b-406b-9e0c-05cb1a7c9856
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 50b4b23f4cbf8503fb6115f516df7ae88bf15d30
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-gaggleamp"></a>자습서: GaggleAMP와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>자습서: GaggleAMP와 Azure Active Directory 통합
 이 자습서에서는 GaggleAMP와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 GaggleAMP를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -242,6 +246,6 @@ GaggleAMP에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

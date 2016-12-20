@@ -1,19 +1,23 @@
 ---
-title: Log Analytics에 구성 관리자 연결 | Microsoft Docs
-description: 이 문서는 구성 관리자를 Log Analytics에 연결하고 데이터 분석을 시작하는 단계를 보여줍니다.
+title: "Log Analytics에 구성 관리자 연결 | Microsoft Docs"
+description: "이 문서는 구성 관리자를 Log Analytics에 연결하고 데이터 분석을 시작하는 단계를 보여줍니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: 240db424645778c0fcd0f8abd17411e58bd95ab9
+
 
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Log Analytics에 구성 관리자 연결
@@ -36,25 +40,25 @@ OMS에 구성 관리자를 연결하는 데 많은 단계가 필요하므로 여
 
 > [!NOTE]
 > 구성 관리자의 OMS에 사용 권한을 지정해야 합니다. 그렇지 않고 구성 관리자에세 구성 마법사를 사용하면 오류 메시지가 표시됩니다.
-> 
-> 
+>
+>
 
 1. [Azure Portal](https://portal.azure.com/)을 열고 **찾아보기** > **Log Analytics(OMS)**를 클릭하여 Log Analytics(OMS) 블레이드를 엽니다.  
 2. **Log Analytics(OMS)** 블레이드에서 **추가**를 클릭해 **OMS 작업 영역** 블레이드를 엽니다.  
    ![OMS 블레이드](./media/log-analytics-sccm/sccm-azure01.png)
 3. **OMS 작업 영역** 블레이드에서 다음 정보를 제공한 다음 **확인**을 클릭합니다.
-   
+
    * **OMS 작업 영역**
    * **구독**
    * **리소스 그룹**
    * **위치**
    * **가격 책정 계층**  
      ![OMS 블레이드](./media/log-analytics-sccm/sccm-azure02.png)  
-     
+
      > [!NOTE]
      > 위의 예제는 새 리소스 그룹을 만듭니다. 리소스 그룹은 구성 관리자에 이 예제의 OMS 작업 영역에 대한 권한을 제공하는 데에만 사용됩니다.
-     > 
-     > 
+     >
+     >
 4. **찾아보기** > **리소스 그룹**을 클릭하여 **리소스 그룹** 블레이드를 엽니다.
 5. **리소스 그룹** 블레이드에서 위에서 만든 리소스 그룹을 클릭하여 &lt;리소스 그룹 이름&gt; 설정 블레이드를 엽니다.  
    ![리소스 그룹 설정 블레이드](./media/log-analytics-sccm/sccm-azure03.png)
@@ -71,7 +75,7 @@ OMS 연결을 추가하려면 구성 관리자 환경에 온라인 모드를 위
 
 1. 구성 관리자의 **관리** 작업 영역에서 **OMS 커넥터**를 선택합니다. 그러면 **OMS 연결 추가 마법사**가 열립니다. **다음**을 선택합니다.
 2. **일반** 화면에서 아래의 작업을 완료했는지와 각 항목에 대한 상세 정보가 있는지 확인하고 **다음**을 선택합니다.
-   
+
    1. Azure Management Portal에서 구성 관리자를 웹 응용 프로그램 및/또는 웹 API 앱으로 등록했는지 여부 및 [등록 시 지정한 클라이언트 ID](../active-directory/active-directory-integrating-applications.md)가 있는지 여부
    2. Azure Management Portal에서 Azure Active Directory에 등록된 앱의 앱 비밀 키를 만들었는지 여부  
    3. Azure Management Portal에서 등록된 웹앱에 OMS에 대한 액세스 권한을 제공했는지 여부  
@@ -86,8 +90,8 @@ OMS 연결을 추가하려면 구성 관리자 환경에 온라인 모드를 위
 
 > [!NOTE]
 > OMS를 계층의 최고 계층 사이트에 연결해야 합니다. OMS를 독립형 기본 사이트에 연결한 다음 환경에 중앙 관리 사이트를 추가할 경우 새 계층 안에서 OMS 연결을 삭제하고 다시 만들어야 합니다.
-> 
-> 
+>
+>
 
 OMS에 구성 관리자를 연결한 후에는 컬렉션을 추가 또는 제거하고 OMS 연결의 속성을 확인합니다.
 
@@ -126,6 +130,8 @@ OMS에 구성 관리자를 연결한 후에는 컬렉션을 추가 또는 제거
 ## <a name="next-steps"></a>다음 단계
 * [로그 검색](log-analytics-log-searches.md)을 사용하여 구성 관리자 데이터에 대한 자세한 정보를 볼 수 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

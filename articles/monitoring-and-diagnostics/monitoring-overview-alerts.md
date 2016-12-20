@@ -1,12 +1,12 @@
 ---
-title: Microsoft Azure의 경고 개요 | Microsoft Docs
-description: 경고를 통해 Azure 리소스 메트릭, 이벤트 또는 로그를 모니터링하고 사용자가 지정한 조건에 부합하면 알림을 받을 수 있습니다.
+title: "Microsoft Azure의 경고 개요 | Microsoft Docs"
+description: "경고를 통해 Azure 리소스 메트릭, 이벤트 또는 로그를 모니터링하고 사용자가 지정한 조건에 부합하면 알림을 받을 수 있습니다."
 author: rboucher
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: a6dea224-57bf-43d8-a292-06523037d70b
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2016
 ms.author: robb
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f80179a487d08244cbd5e57d34b10c4ab67b3cf5
+
 
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요
 이 문서에서는 경고에 대해 설명하고 그 이점과 경고 사용을 시작하는 방법을 소개합니다.  
 
-## <a name="what-are-alerts?"></a>경고란?
+## <a name="what-are-alerts"></a>경고란?
 경고는 Azure 리소스 메트릭, 이벤트 또는 로그를 모니터링하고 사용자가 지정한 조건에 부합하면 알림을 보내는 방법입니다.
 
 다음을 기준으로 경고를 받을 수 있습니다.
@@ -31,8 +35,8 @@ ms.author: robb
 경고는 다음과 같은 다양한 서비스에서 사용할 수 있습니다.
 
 * **Application Insights**: 웹 테스트 및 메트릭 경고가 가능합니다. [Application Insights에서 경고 설정](../application-insights/app-insights-alerts.md) 및 [모든 웹 사이트의 가용성 및 응답성 모니터링](../application-insights/app-insights-monitor-web-app-availability.md)을 참조하세요.
-* **Log Analytics(Operations Management Suite)**: 진단 로그를 Log Analytics로 라우팅할 수 있습니다. Operations Management Suite에서는 메트릭, 로그 및 기타 경고 유형을 지원합니다. 자세한 내용은 [Log Analytics의 경고](../log-analytics/log-analytics-alerts.md)를 참조하세요.   
-* **Azure Monitor**: Azure Monitor에서는 메트릭 값과 활동 로그 이벤트 모두를 기반으로 한 경고가 가능합니다. Azure Monitor에는 [Azure Insights REST API](https://msdn.microsoft.com/library/dn931943.aspx)가 포함됩니다.  자세한 내용은 [Azure 포털, PowerShell 또는 명령줄 인터페이스를 사용하여 경고 만들기](insights-alerts-portal.md)를 참조하세요.
+* **Log Analytics(Operations Management Suite)**: 진단 로그를 Log Analytics로 라우팅할 수 있습니다. Operations Management Suite에서는 메트릭, 로그 및 기타 경고 유형을 지원합니다. 자세한 내용은 [Log Analytics의 경고](../log-analytics/log-analytics-alerts.md)를 참조하세요.  
+* **Azure Monitor**: Azure Monitor에서는 메트릭 값과 활동 로그 이벤트 모두를 기반으로 한 경고가 가능합니다. Azure Monitor에는 [Azure Monitor REST API](https://msdn.microsoft.com/library/dn931943.aspx)가 포함됩니다.  자세한 내용은 [Azure 포털, PowerShell 또는 명령줄 인터페이스를 사용하여 경고 만들기](insights-alerts-portal.md)를 참조하세요.
 
 ## <a name="alert-actions"></a>경고 작업
 다음을 수행하도록 경고를 구성할 수 있습니다.
@@ -47,9 +51,12 @@ ms.author: robb
 
 * [Azure 포털](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
-* [명령줄 인터페이스(CLI)](../azure-portal/insights-alerts-command-line-interface.md)
+* [명령줄 인터페이스(CLI)](insights-alerts-command-line-interface.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

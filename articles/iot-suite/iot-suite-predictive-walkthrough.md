@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6d80f266730701dc4e678f4365a2166be72c9143
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
 
 녹색 항목은 항공기 엔진을 나타내는 시뮬레이션된 장치입니다. 다음 섹션에서 이러한 시뮬레이션된 장치에 대해 자세히 알아볼 수 있습니다.
 
-회색 항목은 *장치 관리* 기능을 구현하는 구성 요소를 나타냅니다. 미리 구성된 예측 유지 관리 솔루션의 현재 릴리스에서는 이러한 리소스를 프로비전하지 않습니다. 장치 관리에 대한 자세한 내용은 [솔루션 원격 미리 구성된 모니터링][lnk-remote-monitoring]을 참조하세요.
+회색 항목은 *장치 관리* 기능을 구현하는 구성 요소를 나타냅니다. 미리 구성된 예측 유지 관리 솔루션의 현재 릴리스에서는 이러한 리소스를 프로비전하지 않습니다. 장치 관리에 대한 자세한 내용은 [미리 구성된 솔루션 원격 모니터링][lnk-remote-monitoring]을 참조합니다.
 
 ## <a name="simulated-devices"></a>시뮬레이션된 장치
 미리 구성된 솔루션에서 시뮬레이션된 장치는 항공기 엔진을 나타냅니다. 솔루션은 단일 비행기에 매핑하는 2개의 엔진으로 프로비전됩니다. 각 엔진은 다음과 같은 4가지 형식의 원격 분석을 내보냅니다. 센서9, 센서11, 센서14 및 센서15는 기계 학습 모델이 엔진의 RUL(잔여 수명)을 계산하는 데 필요한 데이터를 제공합니다. 시뮬레이션된 각 장치는 IoT Hub에 다음과 같은 원격 분석 메시지를 보냅니다.
@@ -67,7 +67,7 @@ IoT Hub는 장치 명령 승인을 제공합니다.
 이 섹션은 솔루션의 구성 요소를 안내하고, 의도된 사용 사례에 설명하며, 예제를 제공합니다.
 
 ### <a name="predictive-maintenance-dashboard"></a>대시보드에서 예측 유지 관리
-웹 응용 프로그램의 이 페이지는 PowerBI JavaScript 컨트롤([PowerBI 시각 효과 리포지토리][lnk-powerbi]를 참조)을 사용하여 다음을 시각화합니다.
+웹 응용 프로그램의 이 페이지는 PowerBI JavaScript 제어를 사용하여([PowerBI 시각 효과 리포지토리][lnk-powerbi]를 참조) 다음을 시각화합니다.
 
 * Blob 저장소의 스트림 분석 작업에서 출력 데이터.
 * 항공기 엔진 당 RUL 및 주기 수.
@@ -77,7 +77,7 @@ Azure 포털에서 선택한 솔루션 이름을 가진 리소스 그룹으로 �
 
 ![][img-resource-group]
 
-미리 구성된 솔루션을 프로비전할 때 기계 학습 작업 영역에 대한 링크가 포함된 전자 메일을 수신합니다. 또한 **준비** 상태일 때 프로비전된 솔루션에 대해 [azureiotsuite.com][lnk-azureiotsuite] 페이지에서 기계 학습 작업 영역으로 이동할 수 있습니다.
+미리 구성된 솔루션을 프로비전할 때 기계 학습 작업 영역에 대한 링크가 포함된 전자 메일을 수신합니다. 또한 **준비** 상태일 때 프로비전된 솔루션에 대한 [azureiotsuite.com][lnk-azureiotsuite] 페이지에서 Machine Learning 작업 영역으로 이동할 수 있습니다.
 
 ![][img-machine-learning]
 
@@ -100,7 +100,7 @@ RUL가 160(데모 목적으로 선택한 임의의 임계값) 미만인 경우, 
 언제든 시뮬레이션을 중지할 수 있지만 **시뮬레이션 시작** 을 클릭하면 데이터 집합의 처음부터 시뮬레이션을 재생합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 수정하려는 미리 구성된 예측 유지 관리 솔루션을 실행했으면 [미리 구성된 사용자 지정 솔루션에 대한 지침][lnk-customize]을 참조하세요.
+이제 수정하려는 미리 구성된 예측 유지 관리 솔루션을 실행했으므로 [미리 구성된 사용자 지정 솔루션에 대한 지침][lnk-customize]을 참조하세요.
 
 [IoT 도구 모음 - 내부 살펴보기 - 예측 유지 관리](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) TechNet 블로그 게시물은 미리 구성된 예측 유지 관리 솔루션에 대한 추가 정보를 제공합니다.
 
@@ -127,6 +127,6 @@ RUL가 160(데모 목적으로 선택한 임의의 임계값) 미만인 경우, 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

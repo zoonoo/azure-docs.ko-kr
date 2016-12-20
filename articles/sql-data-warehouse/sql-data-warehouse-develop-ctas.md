@@ -1,26 +1,30 @@
 ---
-title: SQL 데이터 웨어하우스 | Microsoft Docs
-description: 솔루션 개발을 위해 Azure SQL 데이터 웨어하우스의 CTAS(Create Table As Select) 문으로 코딩에 대한 팁.
+title: "SQL Data Warehouse의 CTAS(Create Table As Select) | Microsoft Docs"
+description: "솔루션 개발을 위해 Azure SQL 데이터 웨어하우스의 CTAS(Create Table As Select) 문으로 코딩에 대한 팁."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 68ac9a94-09f9-424b-b536-06a125a653bd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6b8ca8430765ef2377d2ef693a67951cff08534e
+
 
 ---
-# SQL 데이터 웨어하우스의 CTAS(Create Table As Select)
-`CTAS`(Create Table As Select)는 현재 제공되고 있는 가장 중요한 T-SQL 기능 중 하나이며, SELECT 문의 출력을 기반으로 새 테이블을 만드는 완벽하게 병렬화된 연산입니다. `CTAS`를 사용하면 가장 빠르고 간편하게 테이블 복사본을 만들 수 있습니다. CTAS는 `SELECT..INTO`의 보강된 버전으로 간주할 수 있습니다. 이 문서는 `CTAS`에 대한 예제와 모범 사례를 모두 제공합니다.
+# <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 CTAS(Create Table As Select)
+`CTAS`(Create Table As Select)는 현재 제공되고 있는 가장 중요한 T-SQL 기능 중 하나이며, 이는 SELECT 문의 출력을 기반으로 새 테이블을 만드는 완전하게 병렬화된 연산입니다. `CTAS`는 테이블 사본을 만드는 가장 간단하고 빠른 방법입니다. CTAS는 `SELECT..INTO`의 보강된 버전으로 간주할 수 있습니다. 이 문서는 `CTAS`에 대한 예제와 모범 사례를 모두 제공합니다.
 
-## CTAS를 사용하여 테이블 복사
-`CTAS`는 DDL을 변경할 수 있도록 테이블 복사본을 만드는 데 가장 흔히 사용됩니다. 예를 들어 원래 `ROUND_ROBIN`으로 만든 테이블을 특정 열에서 배포되는 테이블로 변경하려는 경우 `CTAS`를 사용하면 배포 열을 변경할 수 있습니다. `CTAS`를 사용해 분할, 인덱싱 또는 열 유형도 변경할 수 있습니다.
+## <a name="using-ctas-to-copy-a-table"></a>CTAS를 사용하여 테이블 복사
+`CTAS` 는 DDL을 변경할 수 있도록 테이블 복사본을 만드는 데 가장 흔히 사용됩니다. 예를 들어 원래 `ROUND_ROBIN`으로 테이블을 만들었는데 열에 배포된 테이블로 변경하고 싶다면, `CTAS`를 통해 배포 열을 변경할 수 있습니다. `CTAS` 를 사용해 분할, 인덱싱 또는 열 유형도 변경할 수 있습니다.
 
 `CREATE TABLE`에서는 배포 열을 지정하지 않았으므로 기본 배포 유형인 `ROUND_ROBIN` 배포 방식을 사용하여 이 테이블을 만들었다고 가정해 보겠습니다.
 
@@ -84,12 +88,12 @@ DROP TABLE FactInternetSales_old;
 ```
 
 > [!NOTE]
-> Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다. 쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다. 통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][통계] 항목을 참조하세요.
+> Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다.  쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다.  통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][통계] 항목을 참조하세요.
 > 
 > 
 
-## CTAS를 사용하여 지원되지 않는 기능 해결
-`CTAS`를 사용하면 아래에 나와 있는 여러 지원되지 않는 기능과 관련된 문제도 해결할 수 있습니다. 많은 경우 이는 코드가 규정을 준수하면서도 SQL 데이터 웨어하우스에서 더 빠르게 실행되는 윈/윈 상황으로 입증될 수 있습니다. 이는 완전히 병렬화된 디자인의 결과입니다. CTAS로 해결할 수 있는 시나리오는 다음과 같습니다.
+## <a name="using-ctas-to-work-around-unsupported-features"></a>CTAS를 사용하여 지원되지 않는 기능 해결
+`CTAS` 를 사용하면 아래에 나와 있는 여러 지원되지 않는 기능과 관련된 문제도 해결할 수 있습니다. 많은 경우 이는 코드가 규정을 준수하면서도 SQL 데이터 웨어하우스에서 더 빠르게 실행되는 윈/윈 상황으로 입증될 수 있습니다. 이는 완전히 병렬화된 디자인의 결과입니다. CTAS로 해결할 수 있는 시나리오는 다음과 같습니다.
 
 * SELECT..INTO
 * UPDATE에 대한 ANSI JOINS
@@ -97,12 +101,12 @@ DROP TABLE FactInternetSales_old;
 * MERGE 문
 
 > [!NOTE]
-> "CTAS를 먼저" 생각해 보십시오. `CTAS`를 사용하여 문제를 해결할 수 있다면 그 결과로 더 많은 데이터를 작성하더라도 대개 CTAS를 사용하는 것이 가장 효율적인 문제 해결 방식입니다.
+> "CTAS를 먼저" 생각해 보십시오. `CTAS` 를 사용하여 문제를 해결할 수 있다면 그 결과로 더 많은 데이터를 작성하더라도 대개 CTAS를 사용하는 것이 가장 효율적인 문제 해결 방식입니다.
 > 
 > 
 
-## SELECT..INTO
-솔루션의 여러 위치에 `SELECT..INTO`를 사용할 수 있습니다.
+## <a name="selectinto"></a>SELECT..INTO
+솔루션의 여러 위치에 `SELECT..INTO` 를 사용할 수 있습니다.
 
 아래에 `SELECT..INTO` 문의 예제가 나와 있습니다.
 
@@ -112,7 +116,7 @@ INTO    #tmp_fct
 FROM    [dbo].[FactInternetSales]
 ```
 
-위의 문을 `CTAS`로 변환하는 것은 매우 간단합니다.
+위의 문을 `CTAS` 로 변환하는 것은 매우 간단합니다.
 
 ```sql
 CREATE TABLE #tmp_fct
@@ -127,11 +131,11 @@ FROM    [dbo].[FactInternetSales]
 ```
 
 > [!NOTE]
-> 현재 CTAS는 배포 열 지정이 필요합니다. 배포 열을 의도적으로 변경하려는 것이 아니라면 기본 테이블과 같은 배포 열을 선택하는 경우 `CTAS`가 가장 빠르게 실행됩니다. 이 전략을 사용하면 데이터가 이동되지 않기 때문입니다. 성능이 그다지 중요하지 않은 작은 테이블을 만드는 경우에는 배포 열을 결정하지 않아도 되도록 `ROUND_ROBIN`을 지정할 수 있습니다.
+> 현재 CTAS는 배포 열 지정이 필요합니다.  배포 열을 의도적으로 변경하려는 것이 아니라면 기본 테이블과 같은 배포 열을 선택하는 경우 `CTAS`가 가장 빠르게 실행됩니다. 이 전략을 사용하면 데이터가 이동되지 않기 때문입니다.  성능이 그다지 중요하지 않은 작은 테이블을 만드는 경우에는 배포 열을 결정하지 않아도 되도록 `ROUND_ROBIN`을 지정할 수 있습니다.
 > 
 > 
 
-## Update 문에 대한 ANSI 조인 대체
+## <a name="ansi-join-replacement-for-update-statements"></a>Update 문에 대한 ANSI 조인 대체
 UPDATE 또는 DELETE를 수행하기 위해 ANSI 조인 구문을 사용하여 둘 이상의 테이블을 조인하는 복잡한 업데이트가 있을 수 있습니다.
 
 이 테이블을 업데이트해야 한다고 가정해 보겠습니다.
@@ -176,7 +180,7 @@ AND    [acs].[CalendarYear]                = [fis].[CalendarYear]
 
 SQL 데이터 웨어하우스는 `UPDATE` 문의 `FROM` 절에서 ANSI 조인을 지원하지 않으므로 이 코드를 약간 변경해야 복사할 수 있습니다.
 
-`CTAS`와 암시적 조인의 조합을 사용하여 이 코드를 대체할 수 있습니다.
+`CTAS` 와 암시적 조인의 조합을 사용하여 이 코드를 대체할 수 있습니다.
 
 ```sql
 -- Create an interim table
@@ -210,8 +214,8 @@ DROP TABLE CTAS_acs
 ;
 ```
 
-## Delete 문에 대한 ANSI 조인 대체
-`CTAS`를 사용하여 데이터를 삭제하는 것이 최선의 방법인 경우가 있습니다. 단순히 데이터를 삭제하는 대신 유지 하려는 데이터를 선택합니다. ANSI 조인 구문을 사용하는 `DELETE` 문에서 이러한 방법을 사용하면 특히 유용합니다. SQL 데이터 웨어하우스는 `DELETE` 문의 `FROM` 절에서 ANSI 조인을 지원하지 않기 때문입니다.
+## <a name="ansi-join-replacement-for-delete-statements"></a>Delete 문에 대한 ANSI 조인 대체
+`CTAS`를 사용하여 데이터를 삭제하는 것이 최선의 방법인 경우가 있습니다. 단순히 데이터를 삭제하는 대신 유지 하려는 데이터를 선택합니다. ANSI 조인 구문을 사용하는 `DELETE` 문에서 이러한 방법을 사용하면 특히 유용합니다. SQL Data Warehouse는 `DELETE` 문의 `FROM` 절에서 ANSI 조인을 지원하지 않기 때문입니다.
 
 변환된 DELETE 문의 예를 아래에서 볼 수 있습니다.
 
@@ -234,10 +238,10 @@ RENAME OBJECT dbo.DimProduct        TO DimProduct_old;
 RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
-## Merge 문 대체
+## <a name="replace-merge-statements"></a>Merge 문 대체
 `CTAS`를 사용하면 Merge 문을 최소한 부분적으로는 대체할 수 있습니다. `INSERT` 및 `UPDATE`를 단일 문으로 통합할 수 있습니다. 삭제된 모든 레코드를 두 번째 문에서 종료해야 합니다.
 
-`UPSERT`의 예를 아래에서 볼 수 있습니다.
+`UPSERT` 의 예를 아래에서 볼 수 있습니다.
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -269,7 +273,7 @@ RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
 
 ```
 
-## CTAS 권장 사항: 데이터 형식 및 출력의 null 허용 여부를 명시적으로 지정
+## <a name="ctas-recommendation-explicitly-state-data-type-and-nullability-of-output"></a>CTAS 권장 사항: 데이터 형식 및 출력의 null 허용 여부를 명시적으로 지정
 코드를 마이그레이션하는 경우 이 유형의 코딩 패턴을 볼 수 있습니다.
 
 ```sql
@@ -322,7 +326,7 @@ from ctas_r
 
 데이터 마이그레이션의 경우 이 값이 특히 중요합니다. 두 번째 쿼리가 더 정확한 것은 분명하지만 한 가지 문제가 있습니다. 데이터는 원본 시스템과 비교할 때 다를 수 있으며 따라서 마이그레이션에서 무결성 문제가 발생합니다. 이는 "잘못된" 답이 실제로 정답인 드문 경우 중 하나입니다!
 
-두 결과 사이의 이러한 차이가 발생하는 이유는 암시적 형식 캐스팅에 바탕을 두고 있습니다. 첫 번째 예제에서는 테이블에 열 정의를 지정합니다. 행이 삽입될 때 암시적 형식 변환이 발생합니다. 두 번째 예제에서는 식이 해당 열의 데이터 형식을 정의하므로 암시적 형 변환이 발생하지 않습니다. 또한 참고로 두 번째 예제의 열은 null 허용으로 정의된 반면에 첫 번째 예제는 그렇지 않았습니다. 첫 번째 예제에서는 테이블이 생성될 때 열의 null 허용 여부가 명시적으로 정의되었습니다. 두 번째 예제에서는 식을 그대로 두기만 했는데, 기본적으로 이렇게 하면 null 정의가 발생할 수 있습니다.
+두 결과 사이의 이러한 차이가 발생하는 이유는 암시적 형식 캐스팅에 바탕을 두고 있습니다. 첫 번째 예제에서는 테이블에 열 정의를 지정합니다. 행이 삽입될 때 암시적 형식 변환이 발생합니다. 두 번째 예제에서는 식이 해당 열의 데이터 형식을 정의하므로 암시적 형 변환이 발생하지 않습니다. 또한 참고로 두 번째 예제의 열은 null 허용으로 정의된 반면에 첫 번째 예제는 그렇지 않았습니다. 첫 번째 예제에서는 테이블이 생성될 때 열의 null 허용 여부가 명시적으로 정의되었습니다. 두 번째 예제에서는 식을 그대로 두기만 했는데, 기본적으로 이렇게 하면 null 정의가 발생할 수 있습니다.  
 
 이러한 문제를 해결하려면 `CTAS` 문의 `SELECT` 부분에서 형식 변환 및 Null 허용 여부를 명시적으로 설정해야 합니다. 테이블 생성 부분에서는 이러한 속성을 설정할 수 없습니다.
 
@@ -346,7 +350,7 @@ SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 * ISNULL의 두 번째 부분은 상수, 즉 0입니다.
 
 > [!NOTE]
-> Null 허용 여부를 올바르게 설정하려면 `COALESCE`가 아닌 `ISNULL`을 사용해야 합니다. `COALESCE`는 결정적 함수가 아니므로 식 결과는 항상 Null 허용이지만 `ISNULL`은 그렇지 않습니다. 이는 결정적입니다. 그러므로 `ISNULL` 함수의 두 번째 부분이 상수이거나 리터럴이면 결과 값은 NOT NULL이 됩니다.
+> null 허용 여부를 올바르게 설정하려면 `COALESCE`가 아닌 `ISNULL`을 사용해야 합니다. `COALESCE`는 결정적 함수가 아니므로 식의 결과는 언제나 null을 허용합니다. `ISNULL`은 다릅니다. 이는 결정적입니다. 그러므로 `ISNULL` 함수의 두 번째 부분이 상수이거나 리터럴이면 결과 값은 NOT NULL이 됩니다.
 > 
 > 
 
@@ -426,7 +430,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 [CTAS][CTAS] 사용에 대한 자세한 내용은 MSDN을 참조하세요. 이는 Azure SQL 데이터 웨어하우스의 매우 중요한 문 중 하나이므로, 완전하게 이해해야 합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 더 많은 개발 팁은 [개발 개요][개발 개요]를 참조하세요.
 
 <!--Image references-->
@@ -441,4 +445,8 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

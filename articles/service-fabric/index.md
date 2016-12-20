@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: c6d2e90a58359c809a2b01a97cb25c12f7600008
-ms.openlocfilehash: 798d728c163df6647fb2607e14decf880f43b053
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 2ec806d0d00f8db624820fac72083f3e53b89dfa
 
 ---
 #<a name="service-fabric-documentation"></a>Service Fabric 설명서
 
-Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 또한 서비스 패브릭은 클라우드 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. 
+Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 또한 Service Fabric은 클라우드 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -157,8 +157,8 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Service Fabric REST API 참조</p>
+                        <h3>REST (영문)</h3>
+                        <p>Service Fabric REST API</p>
                     </div>
                 </div>
             </div>
@@ -178,6 +178,6 @@ Service Fabric 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

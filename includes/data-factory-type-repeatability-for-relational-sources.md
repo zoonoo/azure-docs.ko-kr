@@ -12,20 +12,23 @@
 
 일반적으로 관계형 저장소에서 읽어올 때는 해당 조각에 대한 데이터만 읽고자 할 것입니다. 이것은 Azure 데이터 팩터리에서 제공하는 WindowStart 및 WindowEnd 변수를 사용하면 됩니다. [예약 및 실행](../articles/data-factory/data-factory-scheduling-and-execution.md) 문서의 Azure 데이터 팩터리 부분에서 변수 및 함수에 대해 확인해 보세요. 예제: 
 
-      "source": {
-        "type": "SqlSource",
-        "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
-      },
-
+```json
+"source": {
+"type": "SqlSource",
+"sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
+},
+```
 이 쿼리에서는 조각 기간 범위 안에 해당하는 'MyTable'에서 데이터를 읽을 것입니다. 이 조각을 다시 실행하면 항상 해당 동작을 확인하게 됩니다. 
 
 다른 경우 전체 테이블을 읽고(단 한 번의 이동이라고 가정할 때) 다음과 같이 sqlReaderQuery를 정의하고자 할 수 있습니다.
 
-    "source": {
-                "type": "SqlSource",
-                "sqlReaderQuery": "select * from MyTable"
-              },
-
+```json
+"source": 
+{            
+    "type": "SqlSource",
+    "sqlReaderQuery": "select * from MyTable"
+},
+```
 
 
 <!--HONumber=Nov16_HO3-->

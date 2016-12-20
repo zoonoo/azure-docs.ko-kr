@@ -1,26 +1,30 @@
 ---
-title: Java와 함께 서비스 버스 큐를 사용하는 방법 | Microsoft Docs
-description: Azure에서 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다.
-services: service-bus
+title: "Java와 함께 Service Bus 큐를 사용하는 방법 | Microsoft Docs"
+description: "Azure에서 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다."
+services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-
-ms.service: service-bus
+ms.assetid: f701439c-553e-402c-94a7-64400f997d59
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 29cab1dff7ffc0f42ee8c605e3817b855967eb53
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>서비스 버스 큐를 사용하는 방법
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-이 문서에서는 서비스 버스 큐를 사용하는 방법을 설명합니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK][Java용 Azure SDK]를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기**, **메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
+이 문서에서는 서비스 버스 큐를 사용하는 방법을 설명합니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK][Java용 Azure SDK](영문)를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기**, **메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
 
-## <a name="what-are-service-bus-queues?"></a>서비스 버스 큐 정의
+## <a name="what-are-service-bus-queues"></a>서비스 버스 큐 정의
 서비스 버스 큐는 **조정된 메시징** 통신 모델을 지원합니다. 큐를 사용하는 경우 분산 응용 프로그램의 구성 요소가 서로 직접 통신하지 않고 중간자(브로커) 역할을 하는 큐를 통해 메시지를 교환합니다. 메시지 생산자(보낸 사람)는 메시지를 큐로 전달한 후 계속해서 처리합니다.
 메시지 소비자(받는 사람)는 비동기적으로 큐에서 메시지를 끌어와서 처리합니다. 생산자는 계속해서 추가 메시지를 처리하고 보내기 위해 소비자의 회신을 기다릴 필요가 없습니다. 큐는 하나 이상의 경쟁 소비자에게 **FIFO(선입선출)** 메시지 배달을 제공합니다. 즉, 일반적으로 메시지가 큐에 추가된 순서대로 받는 사람이 메시지를 받고 처리하며, 각 메시지가 하나의 메시지 소비자에 의해서만 수신 및 처리됩니다.
 
@@ -112,7 +116,7 @@ catch (ServiceException e)
 }
 ```
 
-서비스 버스 큐로 보내고 받은 메시지는 [BrokeredMessage][BrokeredMessage] 클래스 인스턴스입니다. [BrokeredMessage][BrokeredMessage] 개체에는 표준 속성 집합(예: [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) 및 [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문이 있습니다. 응용 프로그램은 [BrokeredMessage][BrokeredMessage] 생성자에 직렬화 가능 개체를 전달하여 메시지 본문을 설정할 수 있으며, 적절한 직렬 변환기가 개체를 직렬화하는 데 사용됩니다. 또는 **java.IO.InputStream** 개체를 제공할 수 있습니다.
+Service Bus 큐로 보내고 받은 메시지는 [BrokeredMessage][BrokeredMessage] 클래스 인스턴스입니다. [BrokeredMessage][BrokeredMessage] 개체에는 표준 속성 집합(예: [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) 및 [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문이 있습니다. 응용 프로그램은 [BrokeredMessage][BrokeredMessage] 생성자에 직렬화 가능 개체를 전달하여 메시지 본문을 설정할 수 있으며, 적절한 직렬 변환기가 개체를 직렬화하는 데 사용됩니다. 또는 **java.IO.InputStream** 개체를 제공할 수 있습니다.
 
 다음 예제에서는 5개의 테스트 메시지를 이전 코드 조각에서 얻은 `TestQueue` **MessageSender**에 보내는 방법을 보여 줍니다.
 
@@ -148,7 +152,7 @@ try
 
     while(true)  {
          ReceiveQueueMessageResult resultQM =
-                service.receiveQueueMessage("TestQueue", opts);
+                 service.receiveQueueMessage("TestQueue", opts);
         BrokeredMessage message = resultQM.getValue();
         if (message != null && message.getMessageId() != null)
         {
@@ -201,7 +205,7 @@ catch (Exception e) {
 응용 프로그램이 메시지를 처리한 후 **deleteMessage** 요청이 실행되기 전에 크래시되는 경우 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 **최소 한 번 이상 처리**라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지되는 메시지의 **getMessageId** 메서드를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
-지금까지 Service Bus 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 [큐, 토픽 및 구독][]을 참조하세요.
+지금까지 Service Bus 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 [큐, 토믹 및 구독][큐, 토믹 및 구독]을 참조하세요.
 
 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
 
@@ -213,6 +217,6 @@ catch (Exception e) {
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

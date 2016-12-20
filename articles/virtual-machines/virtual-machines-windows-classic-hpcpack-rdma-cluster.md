@@ -1,13 +1,13 @@
 ---
-title: MPI 응용 프로그램을 실행하도록 Windows RDMA 클러스터 설정 | Microsoft Docs
-description: Azure RDMA 네트워크를 사용하여 MPI 앱을 실행하기 위해 크기가 H16r, H16mr, A8 또는 A9인 VM으로 Windows HPC Pack 클러스터를 만드는 방법을 알아보세요.
+title: "MPI 응용 프로그램을 실행하도록 Windows RDMA 클러스터 설정 | Microsoft Docs"
+description: "Azure RDMA 네트워크를 사용하여 MPI 앱을 실행하기 위해 크기가 H16r, H16mr, A8 또는 A9인 VM으로 Windows HPC Pack 클러스터를 만드는 방법을 알아보세요."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: dlepow
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,hpc-pack
-
+ms.assetid: 7d9f5bc8-012f-48dd-b290-db81c7592215
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/20/2016
 ms.author: danlep
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: caab5d5d95200e909d0be26a0712f78e3960deb1
+
 
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>MPI 응용 프로그램을 실행하기 위해 HPC Pack을 사용하여 Windows RDMA 클러스터 설정
-Azure에서 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 및 [H 시리즈 또는 계산 집약적 A 시리즈 인스턴스](virtual-machines-windows-a8-a9-a10-a11-specs.md)를 사용하여 MPI(메시지 전달 인터페이스) 응용 프로그램을 병렬로 실행하도록 Windows RDMA 클러스터를 설정합니다. HPC 팩 클러스터에서 RDMA 지원, Windows Server 기반 노드를 설정하는 경우 MPI 응용 프로그램은 Azure에서 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 낮은 대기 시간 및 높은 처리량의 네트워크에서 효율적으로 통신합니다.
+Azure에서 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 및 [H 시리즈 또는 계산 집약적 A 시리즈 인스턴스](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하여 MPI(메시지 전달 인터페이스) 응용 프로그램을 병렬로 실행하도록 Windows RDMA 클러스터를 설정합니다. HPC 팩 클러스터에서 RDMA 지원, Windows Server 기반 노드를 설정하는 경우 MPI 응용 프로그램은 Azure에서 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 낮은 대기 시간 및 높은 처리량의 네트워크에서 효율적으로 통신합니다.
 
-Azure RDMA 네트워크에 액세스하는 Linux VM에서 MPI 워크로드를 실행하려는 경우 [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-classic-rdma-cluster.md)을 참조하세요.
+Azure RDMA 네트워크에 액세스하는 Linux VM에서 MPI 워크로드를 실행하려는 경우 [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
 
 ## <a name="hpc-pack-cluster-deployment-options"></a>HPC 팩 클러스터 배포 옵션
 Microsoft HPC Pack은 Windows 또는 Linux HPC 응용 프로그램을 실행하기 위해 온-프레미스 또는 Azure에서 HPC 클러스터를 만들 수 있도록 추가 비용 없이 제공되는 도구입니다. HPC Pack에 Windows(MS-MPI)용 메시지 전달 인터페이스의 Microsoft 구현에 대한 런타임 환경을 포함합니다. HPC Pack을 지원되는 Windows Server 운영 체제를 실행하는 RDMA 지원 인스턴스와 함께 사용하는 경우 Azure RDMA 네트워크에 액세스하는 Windows MPI 응용 프로그램을 효율적으로 실행할 수 있습니다. 
@@ -30,9 +34,9 @@ Microsoft HPC Pack은 Windows 또는 Linux HPC 응용 프로그램을 실행하�
 * 시나리오 1. 계산 집약적 작업자 역할 인스턴스 배포(PaaS)
 * 시나리오 2. 계산 집약적 VM에 계산 노드 배포(IaaS)
 
-Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 필수 구성 요소에 대해서는 [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](virtual-machines-windows-a8-a9-a10-a11-specs.md) 를 참조하세요.
+Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 필수 구성 요소에 대해서는 [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 참조하세요.
 
-## <a name="scenario-1.-deploy-compute-intensive-worker-role-instances-(paas)"></a>시나리오 1. 계산 집약적 작업자 역할 인스턴스 배포(PaaS)
+## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>시나리오 1. 계산 집약적 작업자 역할 인스턴스 배포(PaaS)
 기존 HPC 팩 클러스터에서 클라우드 서비스(PaaS)에서 실행 중인 Azure 작업자 역할 인스턴스(Azure 노드)에 추가 계산 리소스를 추가합니다. 이 기능은 HPC 팩에서 "Azure로 버스트"라고도 하며 작업자 역할 인스턴스에 다양한 크기를 지원합니다. Azure 노드를 추가할 때 RDMA 지원 크기 중 하나를 지정하면 됩니다.
 
 다음은 기존 (일반적으로 온-프레미스) 클러스터에서 RDMA 지원 Azure 인스턴스로 버스트하는 단계 및 고려 사항입니다. 유사한 절차를 사용하여 Azure VM에 배포된 HPC 팩 헤드 노드에 작업자 역할 인스턴스를 추가합니다.
@@ -79,8 +83,8 @@ Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 
    
    작업 실행을 마쳤으면 노드를 오프라인으로 전환하고 HPC 클러스터 관리자에서 **중지** 작업을 사용합니다.
 
-## <a name="scenario-2.-deploy-compute-nodes-in-compute-intensive-vms-(iaas)"></a>시나리오 2. 계산 집약적 VM에 계산 노드 배포(IaaS)
-이 시나리오에서는 Azure 가상 네트워크의 Active Directory 도메인에 연결된 VM에 HPC 팩 헤드 노드와 클러스터 계산 노드를 배포합니다. HPC Pack은 자동 배포 스크립트 및 Azure 빠른 시작 템플릿을 포함하여 다양한 [Azure VM의 배포 옵션](virtual-machines-linux-hpcpack-cluster-options.md)을 제공합니다. 예를 들어 고려 사항 및 다음 단계는 [HPC Pack IaaS 배포 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) 를 사용하여 이 프로세스의 대부분을 자동화할 수 있는 방법을 안내합니다.
+## <a name="scenario-2-deploy-compute-nodes-in-compute-intensive-vms-iaas"></a>시나리오 2. 계산 집약적 VM에 계산 노드 배포(IaaS)
+이 시나리오에서는 Azure 가상 네트워크의 Active Directory 도메인에 연결된 VM에 HPC 팩 헤드 노드와 클러스터 계산 노드를 배포합니다. HPC Pack은 자동 배포 스크립트 및 Azure 빠른 시작 템플릿을 포함하여 다양한 [Azure VM의 배포 옵션](virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 제공합니다. 예를 들어 고려 사항 및 다음 단계는 [HPC Pack IaaS 배포 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) 를 사용하여 이 프로세스의 대부분을 자동화할 수 있는 방법을 안내합니다.
 
 ![Azure VM의 클러스터][iaas]
 
@@ -89,7 +93,7 @@ Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 
    
     [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=49922)에서 HPC 팩 IaaS 배포 스크립트 패키지를 다운로드합니다.
    
-    클라이언트 컴퓨터를 준비하고 스크립트 구성 파일을 만들어 스크립트를 실행하려면 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)를 참조하세요. 
+    클라이언트 컴퓨터를 준비하고 스크립트 구성 파일을 만들어 스크립트를 실행하려면 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요. 
    
     RDMA 지원 계산 노드를 배포하려면 다음 추가 고려 사항을 참조하세요.
    
@@ -104,13 +108,13 @@ Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 
     노드를 선택하고 HPC 클러스터 관리자에서 **온라인 상태로 전환** 작업을 사용합니다. 노드에서 작업을 실행할 준비가 되었습니다.
 3. **클러스터에 작업 제출**
    
-    작업을 제출하려면 헤드 노드에 연결하거나 온-프레미스 컴퓨터를 설정합니다. 자세한 내용은 [Azure에서 HPC 클러스터에 작업 제출](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)을 참조하세요.
+    작업을 제출하려면 헤드 노드에 연결하거나 온-프레미스 컴퓨터를 설정합니다. 자세한 내용은 [Azure에서 HPC 클러스터에 작업 제출](virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 4. **노드를 오프라인 상태로 전환 및 중지(할당 취소)**
    
     작업 실행을 마쳤으면 HPC 클러스터 관리자에서 노드를 오프라인 상태로 전환합니다. 그런 다음 Azure 관리 도구를 사용하여 종료합니다.
 
 ## <a name="run-mpi-applications-on-the-cluster"></a>클러스터에서 MPI 응용 프로그램 실행
-### <a name="example:-run-mpipingpong-on-an-hpc-pack-cluster"></a>예: HPC 팩 클러스터에서 mpipingpong 실행
+### <a name="example-run-mpipingpong-on-an-hpc-pack-cluster"></a>예: HPC 팩 클러스터에서 mpipingpong 실행
 RDMA 지원 인스턴스의 HPC 팩 배포를 확인하려면 클러스터에서 HPC 팩 **mpipingpong** 명령을 실행합니다. **mpipingpong** 은 쌍으로 연결된 노드 사이에서 데이터 패킷을 반복적으로 전송하여 RDMA를 사용하는 응용 프로그램 네트워크의 대기 시간, 처리량 측정값 및 통계를 계산합니다. 이 예제에서는 클러스터 **mpiexec** 명령을 사용하여 MPI 작업(이 경우 **mpipingpong**)을 실행하는 일반적 패턴을 보여줍니다.
 
 이 예제에서는 "Azure로 버스트" 구성에 Azure 노드를 추가했다고 가정합니다([시나리오 1](#scenario-1.-deploy-compute-intensive-worker-role-instances-\(PaaS\) in this article)). Azure VM의 클러스터에 HPC 팩을 배포한 경우 명령 구문을 수정하여 다른 노드 그룹을 지정하고 추가 변수를 설정하여 네트워크 트래픽이 RDMA 네트워크로 가도록 해야 합니다.
@@ -180,7 +184,7 @@ RDMA 지원 인스턴스의 HPC 팩 배포를 확인하려면 클러스터에서
 
 ## <a name="next-steps"></a>다음 단계
 * HPC Pack을 사용하는 대신 Azure의 관리되는 계산 노드 풀에서 MPI 응용 프로그램을 실행하기 위해 Azure 배치 서비스를 사용하여 개발합니다. [다중 인스턴스 작업을 사용하여 Azure 배치에서 MPI(메시지 전달 인터페이스) 응용 프로그램 실행](../batch/batch-mpi.md)을 참조하세요.
-* Azure RDMA 네트워크에 액세스하는 Linux MPI 응용 프로그램을 실행하려는 경우 [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-classic-rdma-cluster.md)을 참조하세요.
+* Azure RDMA 네트워크에 액세스하는 Linux MPI 응용 프로그램을 실행하려는 경우 [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/burst.png
@@ -189,6 +193,7 @@ RDMA 지원 인스턴스의 HPC 팩 배포를 확인하려면 클러스터에서
 [pingpong2]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong2.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

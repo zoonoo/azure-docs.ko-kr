@@ -1,12 +1,12 @@
 ---
-title: Azure Site Recovery에서 VMM을 통한 Hyper-V 가상 컴퓨터 보호에 대한 네트워크 매핑 준비 | Microsoft Docs
-description: 온-프레미스 데이터 센터에서 Azure 또는 보조 사이트에 Hyper-V 가상 컴퓨터 복제에 대한 네트워크 매핑을 설정합니다.
+title: "Azure Site Recovery에서 VMM을 통한 Hyper-V 가상 컴퓨터 보호에 대한 네트워크 매핑 준비 | Microsoft Docs"
+description: "온-프레미스 데이터 센터에서 Azure 또는 보조 사이트에 Hyper-V 가상 컴퓨터 복제에 대한 네트워크 매핑을 설정합니다."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: a798580b-b166-426b-bdca-573167b0e451
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8023643345812a9bc18dcca43cfc0ecff31a5007
+
 
 ---
 # <a name="prepare-network-mapping-for-hyper-v-virtual-machine-protection-with-vmm-in-azure-site-recovery"></a>Azure Site Recovery에서 VMM을 통한 Hyper-V 가상 컴퓨터 보호에 대한 네트워크 매핑 준비
@@ -106,6 +110,9 @@ VMM 클라우드가 예제 조직 및 클라우드와 연결된 논리 네트워
 ## <a name="next-steps"></a>다음 단계
 네트워크 매핑을 보다 이해했으므로 [Azure Site Recovery 배포를 시작](site-recovery-best-practices.md)합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

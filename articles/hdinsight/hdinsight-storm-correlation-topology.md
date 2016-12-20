@@ -1,20 +1,24 @@
 ---
-title: HDInsight에서 Storm 및 HBase를 사용하여 시간 별로 이벤트의 상관 관계 지정
-description: HDInsight에서 Storm 및 HBase를 사용함으로써 다른 시간에 도착하는 이벤트의 상관관계를 지정하는 방법에 대해 알아봅니다.
+title: "HDInsight에서 Storm 및 HBase를 사용하여 시간 별로 이벤트의 상관 관계 지정"
+description: "HDInsight에서 Storm 및 HBase를 사용함으로써 다른 시간에 도착하는 이벤트의 상관관계를 지정하는 방법에 대해 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 17d11479-2d02-4790-8d29-05fb38351479
 ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 10/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 477568c4e1da51928f3618ba13b670cd62791fb9
+
 
 ---
 # <a name="correlate-events-over-time-with-storm-and-hbase-on-hdinsight"></a>HDInsight에서 Storm 및 HBase를 사용하여 시간 별로 이벤트의 상관 관계 지정
@@ -22,12 +26,15 @@ Apache Storm으로 영구적인 데이터 저장소를 사용하여 다른 시�
 
 이 문서에서는 사용자 세션에 대한 로그인 및 로그아웃 이벤트를 추적하는 기본 C# 스톰 토폴로지를 만드는 방법을 배우고 세션의 지속 시간을 계산합니다. 토폴로지는 영구 데이터 저장소로 HBase를 사용합니다. HBase는 또한 기록 데이터에 대해 배치 쿼리를 수행시켜서 특정 기간에 얼마나 많은 사용자 세션이 시작 또는 종료했는지와 같은 추가적인 통찰력을 생성해줍니다.
 
-[!INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
-
 ## <a name="prerequisites"></a>필수 조건
 * Visual Studio 및 HDInsight Tools for Visual Studio: 설치 정보는 [HDInsight Tools for Visual Studio 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md) 을 참조하세요.
 * HDInsight 클러스터의 Apache Storm(Windows 기반). 들어오는 데이터를 처리하고 HBase에 저장하는 Storm 토폴로지를 실행합니다.
-* HDInsight 클러스터의 Apache HBase(Windows 또는 Linux 기반). 이 예제의 데이터 저장소입니다.
+  
+  > [!IMPORTANT]
+  > 2016년 10월 28일 이후 생성된 Linux 기반 Storm 클러스터에서는 SCP.NET 토폴로지가 지원되지만 2016년 10월 28일 기준으로 사용 가능한 HBase SDK for .NET 패키지는 Linux에서 제대로 작동하지 않습니다.
+  > 
+  > 
+* HDInsight 클러스터에서 Apache HBase(Linux 또는 Windows 기반) 이 예제의 데이터 저장소입니다.
 
 ## <a name="architecture"></a>아키텍처
 ![토폴로지를 통한 데이터 흐름 다이어그램](./media/hdinsight-storm-correlation-topology/correlationtopology.png)
@@ -176,6 +183,9 @@ END 이벤트의 검색은 START 이벤트의 검색과 동일하게 동작합�
 ## <a name="next-steps"></a>다음 단계
 더 많은 Storm 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하십시오.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

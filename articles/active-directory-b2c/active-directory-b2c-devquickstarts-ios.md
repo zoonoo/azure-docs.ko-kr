@@ -3,7 +3,7 @@ title: "Azure Active Directory B2C: 타사 라이브러리를 사용하여 iOS �
 description: "이 문서에서는 타사 라이브러리를 사용하는 OAuth 2.0 전달자 토큰을 사용하여 Node.js Web API를 호출하는 iOS ‘할 일 목록’ 앱을 만드는 방법을 보여 줍니다."
 services: active-directory-b2c
 documentationcenter: ios
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: 
 ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 07/26/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1b570e66afb7a4d3f7fc9b65600bfa7dc0fcc4b5
+ms.sourcegitcommit: 0175f4e83aace12d8e4607f2ad924893093c6734
+ms.openlocfilehash: cc5e199816668a5a0f936019ab8096e93a7a2f5a
 
 
 ---
@@ -28,9 +28,9 @@ Microsoft ID 플랫폼은 OAuth2 및 OpenID Connect와 같은 개방형 표준�
 OAuth2 또는 OpenID Connect를 처음 접하는 경우 이 샘플 구성 대부분이 잘 이해되지 않을 수도 있습니다. [여기서 추천한 프로토콜에 관한 개요](active-directory-b2c-reference-protocols.md)를 간략히 살펴볼 것을 추천합니다.
 
 > [!NOTE]
-> 조건부 액세스 및 Intune 정책 관리 등과 같은 이런 표준의 식을 사용하는 플랫폼의 일부 기능은 수행하려면 오픈 소스인 Microsoft Azure ID 라이브러리를 사용해야 합니다. 
-> 
-> 
+> 조건부 액세스 및 Intune 정책 관리 등과 같은 이런 표준의 식을 사용하는 플랫폼의 일부 기능은 수행하려면 오픈 소스인 Microsoft Azure ID 라이브러리를 사용해야 합니다.
+>
+>
 
 일부 Azure Active Directory 시나리오 및 기능만 B2C 플랫폼에서 지원합니다.  B2C 플랫폼 사용 여부를 결정하려면 [B2C 제한 사항](active-directory-b2c-limitations.md)을 참조하세요.
 
@@ -46,11 +46,11 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>정책 만들기
-Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 앱은 하나의 ID 환경: 결합된 로그인 및 등록을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 이 정책을 만들어야 합니다. 정책을 만들 때 다음을 확인합니다.
+Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 앱은 하나의 ID 환경: 결합된 로그인 및 등록을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#create-a-sign-up-policy)에서 설명한 대로 각 형식에 이 정책을 만들어야 합니다. 정책을 만들 때 다음을 확인합니다.
 
 * 정책에서 **표시 이름** 및 등록 특성을 선택합니다.
 * 모든 정책에서 **표시 이름** 및 **개체 ID** 응용 프로그램 클레임을 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-* 각 정책을 만든 후에 **이름** 을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다.  정책 이름이 나중에 필요합니다.
+* 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다.  정책 이름이 나중에 필요합니다.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -63,7 +63,7 @@ Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-refe
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-또는 완성된 코드를 다운로드하고 지금 바로 시작합습니다. 
+또는 완성된 코드를 다운로드하고 지금 바로 시작합습니다.
 
 ```
 git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
@@ -240,7 +240,7 @@ AccountStore를 만들고 방금 `settings.plist` 파일에서 읽은 데이터�
 
 이제 B2C 서비스와 관련하여 알아야 할 몇 가지 사항이 있습니다. 이를 통해 코드를 쉽게 이해할 수 있습니다.
 
-1. Azure AD B2C는 쿼리 매개 변수에서 제공한 대로 *정책* 을 사용하여 요청을 처리합니다. 이렇게 하면 Azure Active Directory에서 응용 프로그램에 대해서만 독립된 서비스의 역할을 할 수 있습니다. 이러한 추가 쿼리 매개 변수를 제공하기 위해 사용자 지정 정책 매개 변수와 함께 `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` 메서드를 제공해야 합니다. 
+1. Azure AD B2C는 쿼리 매개 변수에서 제공한 대로 *정책* 을 사용하여 요청을 처리합니다. 이렇게 하면 Azure Active Directory에서 응용 프로그램에 대해서만 독립된 서비스의 역할을 할 수 있습니다. 이러한 추가 쿼리 매개 변수를 제공하기 위해 사용자 지정 정책 매개 변수와 함께 `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` 메서드를 제공해야 합니다.
 2. Azure AD B2C는 OAuth2 서버와 거의 동일한 방식으로 범위를 사용합니다. 그러나 B2C를 사용하는 작업은 리소스에 액세스하는 작업만큼 많은 사용자를 인증하는 것이기 때문에 흐름이 제대로 작동하기 위해 일정 범위가 절대적으로 필요합니다. `openid` 범위입니다. Microsoft ID SDK는 `openid` 범위를 자동으로 제공하므로 SDK 구성에서 표시되지 않습니다. 타사 라이브러리를 사용하지만 이 범위를 지정해야 합니다.
 
 ```objc
@@ -274,7 +274,7 @@ AccountStore를 만들고 방금 `settings.plist` 파일에서 읽은 데이터�
                                         forAccountType:data.accountIdentifier];
 }
 ```
-다음으로 `didFinishLaunchingWithOptions:` 메서드의 AppDelegate에서 호출하는지 확인합니다. 
+다음으로 `didFinishLaunchingWithOptions:` 메서드의 AppDelegate에서 호출하는지 확인합니다.
 
 ```
 [self setupOAuth2AccountStore];
@@ -299,16 +299,16 @@ AccountStore를 만들고 방금 `settings.plist` 파일에서 읽은 데이터�
 
 > [!NOTE]
 > `loginView`을 스토리 보드 내에 있는 실제 웹 보기에 바인딩하도록 합니다. 그렇지 않으면 인증할 때 팝업할 수 있는 웹 보기가 없을 수도 있습니다.
-> 
-> 
+>
+>
 
 * `LoginViewController.m` 클래스를 만듭니다.
 * 인증한 대로 상태를 가져오는 일부 변수를 추가합니다.
 
 ```objc
-NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory 
+NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory
 NSURL *myLoadedUrl; \\ The URL loaded for Azure Active Directory
-bool loginFlow = FALSE; 
+bool loginFlow = FALSE;
 bool isRequestBusy; \\ A way to give status to the thread that the request is still happening
 NSURL *authcode; \\ A placeholder for our auth code.
 ```
@@ -387,7 +387,7 @@ NSURL *authcode; \\ A placeholder for our auth code.
 
 * OAuth2 요청의 결과를 처리할 코드를 작성합니다.
 
-WebView에서 반환되는 redirectURL를 처리할 코드가 필요합니다. 성공적이지 않았다면, 다시 시도합니다. 한편 라이브러리는 콘솔에서 보거나 비동기식으로 처리할 수 있는 오류를 제공합니다. 
+WebView에서 반환되는 redirectURL를 처리할 코드가 필요합니다. 성공적이지 않았다면, 다시 시도합니다. 한편 라이브러리는 콘솔에서 보거나 비동기식으로 처리할 수 있는 오류를 제공합니다.
 
 ```objc
 - (void)handleOAuth2AccessResult:(NSURL *)accessResult {
@@ -487,7 +487,7 @@ WebView에서 반환되는 redirectURL를 처리할 코드가 필요합니다. �
 이제 로그인하기 위해 응용 프로그램과 상호 작용하는 기본적인 방법을 만들었습니다. 로그인한 후에 받은 토큰을 사용해야 합니다. 이를 위해 이 라이브러리를 사용하여 REST API를 호출하는 도우미 코드를 만듭니다.
 
 ## <a name="create-a-graphapicaller-class-to-handle-our-requests-to-a-rest-api"></a>`GraphAPICaller` 클래스를 만들어서 REST API에 대한 요청을 처리합니다.
-앱을 로드할 때마다 로드된 구성이 있습니다. 이제 토큰이 있으면 작업을 수행해야 합니다. 
+앱을 로드할 때마다 로드된 구성이 있습니다. 이제 토큰이 있으면 작업을 수행해야 합니다.
 
 * `GraphAPICaller.h` 파일을 만듭니다.
 
@@ -511,7 +511,7 @@ completionBlock:(void (^)(bool, NSError *error))completionBlock;
 ```objc
 @implementation GraphAPICaller
 
-// 
+//
 // Gets the tasks from our REST endpoint we specified in settings
 //
 
@@ -564,7 +564,7 @@ completionBlock:(void (^)(bool, NSError *error))completionBlock;
       }];
 }
 
-// 
+//
 // Adds a task from our REST endpoint we specified in settings
 //
 
@@ -631,7 +631,6 @@ API가 수신한 액세스 토큰에서 사용자의 ID를 추출하므로 태�
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

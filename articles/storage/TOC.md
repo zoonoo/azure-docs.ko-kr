@@ -43,33 +43,25 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
-
-
 # 방법
-
 ## [저장소 계정을 만드는](storage-create-storage-account.md)
-
 ## Blob 사용
 ### [서비스 개요](https://msdn.microsoft.com/library/dd179376.aspx)
 ### [핫 및 쿨 계층](storage-blob-storage-tiers.md)
 ### [사용자 지정 도메인](storage-custom-domain-name.md)
 ### [Blob에 대한 익명 액세스](storage-manage-access-to-resources.md)
 ### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)
-
 ## 큐 사용
 ### [개념](https://msdn.microsoft.com/library/dd179353.aspx)
 ### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=queue)
-
 ## 테이블 사용
 ### [개요](https://msdn.microsoft.com/library/dd179463.aspx)
 ### [테이블 디자인 가이드](storage-table-design-guide.md)
 ### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
-
 ## 파일 사용
 ### [개요](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
 ### [Azure 파일 문제 해결](storage-troubleshoot-file-connection-problems.md)
 ### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-
 ## 가상 컴퓨터 디스크 사용
 ### Premium Storage
 #### [VM 작업을 위한 고성능 저장소](storage-premium-storage.md)
@@ -77,24 +69,20 @@
 #### [고성능을 위한 디자인](storage-premium-storage-performance.md)
 ### 표준 저장소
 #### [증분 스냅숏을 사용하여 VM 디스크 백업](storage-incremental-snapshots.md)
-
 ## 계획 및 디자인
 ### [복제](storage-redundancy.md)
 ### [확장성 및 성능 대상](storage-scalability-targets.md)
 ### [성능 및 확장성 검사 목록](storage-performance-checklist.md)
 ### [동시성](storage-concurrency.md)
-
 ## 개발
 ### [샘플](storage-samples.md)
 ### [연결 문자열 구성](storage-configure-connection-string.md)
 ### [저장소 에뮬레이터 사용](storage-use-emulator.md)
 ### [속성 및 메타데이터 설정 및 검색](storage-properties-metadata.md)
-
 ## 관리
 ### [PowerShell](storage-powershell-guide-full.md)
 ### [Azure CLI](storage-azure-cli.md)
 ### [Azure Automation](automation-manage-storage.md)
-
 ## 보안
 ### [보안 지침](storage-security-guide.md)
 ### [미사용 데이터 암호화](storage-service-encryption.md)
@@ -105,7 +93,6 @@
 #### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
-
 ## 모니터링 및 문제 해결
 ### 메트릭 및 로깅
 #### [저장소 분석](storage-analytics.md)
@@ -117,29 +104,29 @@
 #### [클래식 배포](storage-cannot-delete-storage-account-container-vhd.md)
 ### [파일 저장소 문제 해결](storage-troubleshoot-file-connection-problems.md)
 ### [재해 복구 지침](storage-disaster-recovery-guidance.md)
-
 ## 데이터 전송
 ### [저장소로 또는 반대로 데이터 이동](storage-moving-data.md)
 ### [AzCopy 명령줄 유틸리티](storage-use-azcopy.md)
 ### [Blob Storage에 대한 가져오기/내보내기 서비스](storage-import-export-service.md)
 
-
-
 # 참조
-## [PowerShell](/powershell/storage/)
+## [PowerShell](/powershell/storage)
 ## [Azure CLI](/cli/azure/storage)
-## [Java](/java/api/)
-
 ## .NET
+### [리소스 관리자](/dotnet/api/microsoft.azure.management.storage)
+### [데이터 이동](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
 ### [Blob, 큐, 테이블 및 파일](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-### [리소스 공급자](/dotnet/api/)
-### [데이터 이동](/dotnet/api/)
-
-## REST
-### [Blob, 큐, 테이블 및 파일](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
-### [리소스 공급자](/rest/api/storagerp/)
+## [Java](/java/api/)
+## [Node.JS](http://azure.github.io/azure-storage-node)
+## [Ruby](http://azure.github.io/azure-storage-ruby)
+## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
+## [C++](http://azure.github.io/azure-storage-cpp)
+## [iOS](https://github.com/Azure/azure-storage-ios)
+## [Android](http://azure.github.io/azure-storage-android)
+## [REST]
+### [Blob, 큐, 테이블 및 파일](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [리소스 공급자](/rest/api/storagerp)
 ### [가져오기/내보내기](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
-
 
 # 관련 항목
 ## 클래식 포털
@@ -147,8 +134,6 @@
 ### [메트릭 사용 및 보기](storage-enable-and-view-metrics-classic-portal.md)
 ### [모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting-classic-portal.md)
 ### [문제 해결 자습서](storage-e2e-troubleshooting-classic-portal.md)
-
-
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)
@@ -181,6 +166,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

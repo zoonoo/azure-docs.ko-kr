@@ -1,11 +1,12 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 5cf17ad514127f97319130c4f3f78cdfa1eed052
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: c57faa7c307420bb92bec2f661e6739a7cfca7ee
 
 ---
-#<a name="stream-analytics-documentation"></a>Stream Analytics 설명서
+
+# <a name="stream-analytics-documentation"></a>Stream Analytics 설명서
 
 Azure Stream Analytics는 데이터에서 깊이 있는 통찰력의 잠금을 해제할 수 있도록 완전히 관리된 실시간 이벤트 처리 엔진입니다.  Stream Analytics는 손쉽게 장치, 센서, 웹 사이트, 소셜 미디어, 응용 프로그램, 인프라 시스템 등에서 데이터 스트리밍을 실시간으로 분석 계산하도록 설정합니다.
 
@@ -57,7 +58,7 @@ Azure Stream Analytics는 데이터에서 깊이 있는 통찰력의 잠금을 �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>스트림 분석 시작</h3>
+                        <h3>Stream Analytics 시작</h3>
                     </div>
                 </div>
             </div>
@@ -122,66 +123,43 @@ Azure Stream Analytics는 데이터에서 깊이 있는 통찰력의 잠금을 �
 
 ---
 
-## <a name="reference"></a>참조
-
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell 참조</p>
+                    <div class="Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET 관리되는 참조</p>
+                    <div class="Languages</h3>
+                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn834998">쿼리 언어</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/dn834998">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>쿼리 언어</h3>
-                        <p>Stream Analytics 쿼리 언어 참조</p>
+                    <div class="REST</h3>
+                        <p><a href="/rest/api/streamanalytics">REST API 참조</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/rest/api/streamanalytics">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Stream Analytics REST API 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>   
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
@@ -193,6 +171,6 @@ Stream Analytics 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

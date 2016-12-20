@@ -17,12 +17,58 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97f74f845e19ae99cf6c5abbb9f076c7c5171993
+ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
+ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Azure 컨테이너 서비스 클러스터에 연결
+Azure Container Service에 의해 배포되는 DC/OS 및 Docker Swarm 클러스터는 REST 끝점을 노출합니다.  Kubernetes의 경우 이 끝점은 안전하게 인터넷에 노출되고 인터넷에 연결된 모든 컴퓨터에서 직접 액세스할 수 있습니다. DC/OS 및 Docker Swarm의 경우 안전하게 REST 끝점에 연결하기 위해 SSH 터널을 만들어야 합니다. 아래에서는 이러한 연결 각각에 대해 설명합니다.
+
+## <a name="connecting-to-a-kubernetes-cluster"></a>Kubernetes 클러스터에 연결
+Kubernetes 클러스터에 연결하려면 `kubectl` 명령줄 도구를 설치해야 합니다.  이 도구를 설치하는 가장 쉬운 방법은 Azure 2.0 `az` 명령줄 도구를 사용하는 것입니다.
+
+```console
+az acs kubernetes install cli [--install-location=/some/directory]
+```
+
+또는 클라이언트를 [릴리스 페이지](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146)에서 직접 다운로드할 수 있습니다.
+
+일단 `kubectl`을 설치하면 클러스터 자격 증명을 컴퓨터에 복사해야 합니다.  이를 위한 가장 쉬운 방법은 `az` 명령줄 도구를 사용하는 것입니다.
+
+```console
+az acs kubernetes get-credentials --dns-prefix=<some-prefix> --location=<some-location>
+```
+
+클러스터 자격 증명을 `kubectl`를 배치한 `$HOME/.kube/config`로 다운로드하게 됩니다.
+
+또는 `scp`을 사용하여 마스터 VM의 `$HOME/.kube/config`에서 로컬 컴퓨터로 파일을 안전하게 복사할 수 있습니다.
+
+```console
+mkdir $HOME/.kube/config
+scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
+```
+
+Windows인 경우 Windows에 있는 Ubuntu의 Bash를 사용하거나 Putty 'pscp' 도구를 사용해야 합니다.
+
+`kubectl`를 구성한 경우 클러스터에 노드를 나열하여 이를 테스트할 수 있습니다.
+
+```console
+kubectl get nodes
+```
+
+마지막으로 Kubernetes 대시보드를 볼 수 있습니다. 먼저 다음을 실행합니다.
+
+```console
+kubectl proxy
+```
+
+이제 Kubernetes UI는 http://localhost:8001/ui에서 사용 가능합니다.
+
+자세한 내용은 [Kubernetes 빠른 시작](http://kubernetes.io/docs/user-guide/quick-start/)을 참조하세요.
+
+## <a name="connecting-to-a-dcos-or-swarm-cluster"></a>DC/OS 또는 Swarm 클러스터에 연결
+
 Azure 컨테이너 서비스에 의해 배포되는 DC/OS 및 Docker Swarm 클러스터는 REST 끝점을 노출합니다. 그러나 이러한 끝점 외부에 열려 있지 않습니다. 이러한 끝점을 관리하기 위해 SSH(보안 셸) 터널을 만들어야 합니다. SSH 터널이 설정되면 클러스터 끝점에 대해 명령을 실행하고 사용자 자신의 시스템에 있는 브라우저를 통해 클러스터 UI를 볼 수 있습니다. 이 문서에서는 Linux, OSX 및 Windows에서 SSH 터널을 만드는 방법을 안내합니다.
 
 > [!NOTE]
@@ -126,6 +172,6 @@ DC/OS 또는 Swarm으로 컨테이너를 배포 및 관리합니다.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

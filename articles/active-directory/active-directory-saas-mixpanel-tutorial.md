@@ -1,12 +1,12 @@
 ---
-title: '자습서: Mixpanel과 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory 및 Mixpanel 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Mixpanel과 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory 및 Mixpanel 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a2df26ef-d441-44ac-a9f3-b37bf9709bcb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f76b0f17eecaa6f86e67810296df14decf459153
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-mixpanel"></a>자습서: Mixpanel과 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>자습서: Mixpanel과 Azure Active Directory 통합
 이 자습서에서는 Mixpanel과 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 Mixpanel을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -254,6 +258,6 @@ Mixpanel에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

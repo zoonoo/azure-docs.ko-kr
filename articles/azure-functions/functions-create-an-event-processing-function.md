@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2381b04e32a6d65075dadf04f717f4946ba4d464
+ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
+ms.openlocfilehash: df3d303ee10fcc982552ea9756eb59198c87b650
 
 
 ---
@@ -27,9 +27,9 @@ Azure Functions은 이벤트 기반 주문형 계산 환경이며 이를 통해 
 이 항목에서는 이벤트 타이머에 따라 실행되는 C#에 새 함수를 만들어 저장소 큐에 메시지를 추가하는 방법을 보여 줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [무료 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다.
+함수 앱은 Azure에서 함수 실행을 호스트합니다. Azure 계정이 없는 경우 [Functions 사용](https://functions.azure.com/try) 환경을 확인하거나 [무료 Azure 계정을 만드세요](https://azure.microsoft.com/free/). 
 
-## <a name="create-a-timertriggered-function-from-the-template"></a>템플릿에서 타이머로 트리거된 함수 만들기
+## <a name="create-a-timer-triggered-function-from-the-template"></a>템플릿에서 타이머로 트리거된 함수 만들기
 함수 앱은 Azure에서 함수 실행을 호스트합니다. 함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [무료 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다. 
 
 1. [Azure Functions 포털](https://functions.azure.com/signin) 로 이동하여 Azure 계정으로 로그인합니다.
@@ -72,13 +72,13 @@ Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
 * [Azure Functions 테스트](functions-test-a-function.md)  
    함수를 테스트하는 다양한 도구와 기법을 설명합니다.
 * [Azure Functions 크기 조정 방법](functions-scale.md)  
-   동적 서비스 계획 등 Azure Functions에 사용할 수 있는 서비스 계획과 적절한 계획을 선택하는 방법을 설명합니다.  
+  소비 호스팅 요금제, 올바른 요금제 선택 방법을 포함하여 Azure Functions에서 사용 가능한 서비스 요금제에 대해 설명합니다.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

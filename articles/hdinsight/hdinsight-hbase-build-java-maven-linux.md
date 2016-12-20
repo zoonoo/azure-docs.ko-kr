@@ -1,35 +1,39 @@
 ---
-title: Maven 및 Java를 사용하여 HBase 응용 프로그램을 빌드한 다음 Linux 기반 HDInsight에 배포 | Microsoft Docs
-description: Apache Maven을 사용하여 Java 기반 Apache HBase 응용 프로그램을 빌드한 다음 Azure 클라우드에서 Linux 기반 HDInsight에 배포하는 방법에 대해 알아봅니다.
+title: "Maven 및 Java를 사용하여 HBase 응용 프로그램을 빌드한 다음 Linux 기반 HDInsight에 배포 | Microsoft Docs"
+description: "Apache Maven을 사용하여 Java 기반 Apache HBase 응용 프로그램을 빌드한 다음 Azure 클라우드에서 Linux 기반 HDInsight에 배포하는 방법에 대해 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 10/03/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0f321065b9c24075837bebb71251cbc5751a1854
+
 
 ---
-# Maven을 사용하여 Linux 기반 HDInsight(Hadoop)에서 HBase를 사용하는 Java 응용 프로그램 빌드
+# <a name="use-maven-to-build-java-applications-that-use-hbase-with-linux-based-hdinsight-hadoop"></a>Maven을 사용하여 Linux 기반 HDInsight(Hadoop)에서 HBase를 사용하는 Java 응용 프로그램 빌드
 Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만들어 빌드하는 방법을 알아봅니다. 그런 다음 Linux 기반 HDInsight 클러스터에서 응용 프로그램을 사용합니다.
 
-[Maven](http://maven.apache.org/)은 Java 프로젝트용 소프트웨어, 문서화 및 보고를 빌드할 수 있는 소프트웨어 프로젝트 관리 및 종합 도구입니다. 이 문서에서는 Maven을 사용하여 Linux 기반 HDInsight 클러스터에서 HBase 테이블을 만들고, 쿼리하고, 삭제하는 기본 Java 응용 프로그램을 만드는 방법을 알아봅니다.
+[Maven](http://maven.apache.org/) 은 Java 프로젝트용 소프트웨어, 문서화 및 보고를 빌드할 수 있는 소프트웨어 프로젝트 관리 및 종합 도구입니다. 이 문서에서는 Maven을 사용하여 Linux 기반 HDInsight 클러스터에서 HBase 테이블을 만들고, 쿼리하고, 삭제하는 기본 Java 응용 프로그램을 만드는 방법을 알아봅니다.
 
 > [!NOTE]
-> 이 문서의 단계는 Linux 기반 HDInsight 클러스터를 사용하고 있다고 가정합니다. Windows 기반 HDInsight 클러스터 사용에 대한 자세한 내용은 [Maven을 사용하여 Windows 기반 HDInsight에서 HBase를 사용하는 Java 응용 프로그램 빌드](hdinsight-hbase-build-java-maven.md)를 참조하세요.
+> 이 문서의 단계는 Linux 기반 HDInsight 클러스터를 사용하고 있다고 가정합니다. Windows 기반 HDInsight 클러스터 사용에 대한 자세한 내용은 [Maven을 사용하여 Windows 기반 HDInsight에서 HBase를 사용하는 Java 응용 프로그램 빌드](hdinsight-hbase-build-java-maven.md)
 > 
 > 
 
-## 요구 사항
+## <a name="requirements"></a>요구 사항
 * [Java 플랫폼 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 이상
 * [Maven](http://maven.apache.org/)
-* [Linux 기반 Azure HDInsight 클러스터 및 HBase](../hdinsight-hbase-get-started-linux.md#create-hbase-cluster)
+* [Linux 기반 Azure HDInsight 클러스터 및 HBase](hdinsight-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
   
   > [!NOTE]
   > 이 문서의 단계는 HDInsight 클러스터 버전 3.2, 3.3 및 3.4로 테스트되었습니다. 예제에 제공되는 기본값은 HDInsight 3.4 클러스터에 대한 것입니다.
@@ -37,10 +41,10 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
   > 
 * **SSH 및 SCP 사용 경험**. HDInsight에서 SSH와 SCP를 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
   
-  * **Linux, Unix 또는 OS X 클라이언트**: [Linux, OS X 또는 Unix에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-  * **Windows 클라이언트**: [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+  * **Linux, Unix 또는 OS X 클라이언트**: [Linux, OS X 또는 Unix에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+  * **Windows 클라이언트**: [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-## 프로젝트 만들기
+## <a name="create-the-project"></a>프로젝트 만들기
 1. 개발 환경의 명령줄에서 프로젝트를 만들 위치(예: `cd code/hdinsight`)로 디렉터리를 변경합니다.
 2. Maven과 함께 설치되는 **mvn** 명령을 사용하여 프로젝트용 스캐폴딩을 생성합니다.
    
@@ -52,7 +56,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
    * **src**: **main/java/com/microsoft/examples** 디렉터리를 포함하는 디렉터리이며 여기서 응용 프로그램을 작성합니다.
 3. **src/test/java/com/microsoft/examples/apptest.java** 파일은 이 예제에서 사용되지 않으므로 이 파일을 삭제합니다.
 
-## 프로젝트 개체 모델 업데이트
+## <a name="update-the-project-object-model"></a>프로젝트 개체 모델 업데이트
 1. **pom.xml** 파일을 편집하고 `<dependencies>` 섹션 안에 다음 코드를 추가합니다.
    
         <dependency>
@@ -61,7 +65,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
           <version>1.1.2</version>
         </dependency>
    
-    이 코드를 통해 Maven은 프로젝트에 **hbase-client** 버전 __1.1.2__가 필요하다는 것을 인식합니다. 컴파일 시간에 이 파일이 기본 Maven 리포지토리에서 다운로드됩니다. [Maven 중앙 리포지토리 검색](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar)을 사용하여 이 종속성에 대한 자세한 정보를 확인할 수 있습니다.
+    이 코드를 통해 Maven은 프로젝트에 **hbase-client** 버전 **1.1.2**가 필요하다는 것을 인식합니다. 컴파일 시간에 이 파일이 기본 Maven 리포지토리에서 다운로드됩니다. [Maven 중앙 리포지토리 검색](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) 을 사용하여 이 종속성에 대한 자세한 정보를 확인할 수 있습니다.
    
    > [!IMPORTANT]
    > 버전 번호는 HDInsight 클러스터와 함께 제공되는 HBase 버전과 일치해야 합니다. 다음 표를 사용하여 올바른 버전 번호를 찾으세요.
@@ -70,8 +74,8 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
    
    | HDInsight 클러스터 버전 | 사용할 HBase 버전 |
    | --- | --- |
-   | 3\.2 |0\.98.4-hadoop2 |
-   | 3\.3 및 3.4 |1\.1.2 |
+   | 3.2 |0.98.4-hadoop2 |
+   | 3.3 및 3.4 |1.1.2 |
    
     HDInsight 버전 및 구성 요소에 대한 자세한 내용은 [HDInsight에서 사용할 수 있는 다양한 Hadoop 구성 요소](hdinsight-component-versioning.md)를 참조하세요.
 2. HDInsight 3.3 또는 3.4 클러스터를 사용하는 경우 `<dependencies>` 섹션에 다음을 추가해야 합니다.
@@ -139,8 +143,8 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
    
     또한 maven-shade-plugin은 응용 프로그램에 필요한 모든 종속성을 포함하는 uber jar(또는 fat jar)도 생성합니다.
 4. **pom.xml** 파일을 저장합니다.
-5. **hbaseapp** 디렉터리에 __conf__라는 새 디렉터리를 만듭니다. HBase에 연결하기 위한 구성 정보를 저장하는 데 사용됩니다.
-6. 다음 명령을 사용하여 HDInsight 서버에서 **conf** 디렉터리로 HBase 구성을 복사합니다. **USERNAME**을 SSH 로그인의 이름으로 바꿉니다. **CLUSTERNAME**을 HDInsight 클러스터 이름으로 바꿉니다.
+5. **hbaseapp** 디렉터리에 **conf**이라는 새 디렉터리를 만듭니다. HBase에 연결하기 위한 구성 정보를 저장하는 데 사용됩니다.
+6. 다음 명령을 사용하여 HDInsight 서버에서 **conf** 디렉터리로 HBase 구성을 복사합니다. **USERNAME** 을 SSH 로그인의 이름으로 바꿉니다. **CLUSTERNAME** 을 HDInsight 클러스터 이름으로 바꿉니다.
    
         scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
    
@@ -151,8 +155,8 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
    > 
    > 
 
-## 응용 프로그램 만들기
-1. **hbaseapp/src/main/java/com/microsoft/examples** 디렉터리로 이동하여 app.java 파일 이름을 __CreateTable.java__로 바꿉니다.
+## <a name="create-the-application"></a>응용 프로그램 만들기
+1. **hbaseapp/src/main/java/com/microsoft/examples** 디렉터리로 이동하여 app.java 파일 이름을 **CreateTable.java**로 바꿉니다.
 2. **CreateTable.java** 파일을 열고 기존 내용을 다음으로 바꿉니다.
    
         package com.microsoft.examples;
@@ -223,9 +227,9 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
           }
         }
    
-    이 코드는 **CreateTable** 클래스이며, __people__이라는 테이블을 만들고 미리 정의된 사용자로 채웁니다.
+    이 코드는 **CreateTable** 클래스이며, **people**이라는 테이블을 만들고 미리 정의된 사용자로 채웁니다.
 3. **CreateTable.java** 파일을 저장합니다.
-4. **hbaseapp/src/main/java/com/microsoft/examples** 디렉터리에서 __SearchByEmail.java__라는 새 파일을 만듭니다. 이 파일의 내용으로 다음을 사용합니다.
+4. **hbaseapp/src/main/java/com/microsoft/examples** 디렉터리에서 **SearchByEmail.java**라는 새 파일을 만듭니다. 이 파일의 내용으로 다음을 사용합니다.
    
         package com.microsoft.examples;
         import java.io.IOException;
@@ -300,7 +304,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
    
     **SearchByEmail** 클래스를 사용하여 메일 주소로 행을 쿼리할 수 있습니다. 정규식 필터를 사용하므로, 이 클래스를 사용할 때 문자열 또는 정규식을 제공할 수 있습니다.
 5. **SearchByEmail.java** 파일을 저장합니다.
-6. **hbaseapp/src/main/hava/com/microsoft/examples** 디렉터리에서 __DeleteTable.java__라는 새 파일을 만듭니다. 이 파일의 내용으로 다음을 사용합니다.
+6. **hbaseapp/src/main/hava/com/microsoft/examples** 디렉터리에서 **DeleteTable.java**라는 새 파일을 만듭니다. 이 파일의 내용으로 다음을 사용합니다.
    
         package com.microsoft.examples;
         import java.io.IOException;
@@ -325,21 +329,21 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
     이 클래스는 **CreateTable** 클래스로 생성된 테이블을 비활성화하고 제거하여 이 예제를 정리하는 데 사용됩니다.
 7. **DeleteTable.java** 파일을 저장합니다.
 
-## 응용 프로그램 빌드 및 패키지화
+## <a name="build-and-package-the-application"></a>응용 프로그램 빌드 및 패키지화
 1. **hbaseapp** 디렉터리에서 다음 명령을 사용하여 응용 프로그램을 포함하는 JAR 파일을 빌드합니다.
    
         mvn clean package
    
     이 코드는 이전 빌드 아티팩트를 정리하고, 아직 설치되지 않은 모든 종속성을 다운로드한 후 응용 프로그램을 빌드 및 패키지화합니다.
-2. 명령이 완료되면 **hbaseapp/target** 디렉터리에 __hbaseapp-1.0-SNAPSHOT.jar__이라는 파일이 포함됩니다.
+2. 명령이 완료되면 **hbaseapp/target** 디렉터리에 **hbaseapp-1.0-SNAPSHOT.jar**이라는 파일이 포함됩니다.
    
    > [!NOTE]
    > **hbaseapp-1.0-SNAPSHOT.jar** 파일은 응용 프로그램을 실행하는 데 필요한 모든 종속성을 포함하는 uber jar(fat jar라고도 함)입니다.
    > 
    > 
 
-## JAR 파일 업로드 및 작업 실행
-1. 다음을 사용하여 jar을 HDInsight 클러스터에 업로드합니다. **USERNAME**을 SSH 로그인의 이름으로 바꿉니다. **CLUSTERNAME**을 HDInsight 클러스터 이름으로 바꿉니다.
+## <a name="upload-the-jar-file-and-run-jobs"></a>JAR 파일 업로드 및 작업 실행
+1. 다음을 사용하여 jar을 HDInsight 클러스터에 업로드합니다. **USERNAME** 을 SSH 로그인의 이름으로 바꿉니다. **CLUSTERNAME** 을 HDInsight 클러스터 이름으로 바꿉니다.
    
         scp ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.
    
@@ -351,7 +355,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
    > `scp -i ~/.ssh/id_rsa ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`
    > 
    > 
-2. SSH를 사용하여 HDInsight 클러스터에 연결합니다. **USERNAME**을 SSH 로그인의 이름으로 바꿉니다. **CLUSTERNAME**을 HDInsight 클러스터 이름으로 바꿉니다.
+2. SSH를 사용하여 HDInsight 클러스터에 연결합니다. **USERNAME** 을 SSH 로그인의 이름으로 바꿉니다. **CLUSTERNAME** 을 HDInsight 클러스터 이름으로 바꿉니다.
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
@@ -365,7 +369,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
    
         hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
    
-    그러면 __people__이라는 새 HBase 테이블이 만들어지고 데이터로 채워집니다.
+    그러면 **people**이라는 새 HBase 테이블이 만들어지고 데이터로 채워집니다.
 4. 그런 후, 다음을 사용하여 테이블에 저장된 메일 주소를 검색합니다.
    
         hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.SearchByEmail contoso.com
@@ -379,9 +383,14 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
         Gabriela Ingram - ID: 6
         Gabriela Ingram - gabriela@contoso.com - ID: 6
 
-## 테이블 삭제
+## <a name="delete-the-table"></a>테이블 삭제
 예제를 완료하면 Azure PowerShell 세션에서 다음 명령을 사용하여 이 예제에 사용된 **people** 테이블을 삭제합니다.
 
     hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

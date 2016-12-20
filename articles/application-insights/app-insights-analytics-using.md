@@ -1,18 +1,22 @@
 ---
-title: Analytics 사용 - Application Insights의 강력한 검색 도구 | Microsoft Docs
-description: 'Application Insights의 강력한 진단 검색 도구인 Analytics를 사용하는 방법에 대해 설명합니다. '
+title: "Analytics 사용 - Application Insights의 강력한 검색 도구 | Microsoft Docs"
+description: "Application Insights의 강력한 진단 검색 도구인 Analytics를 사용하는 방법에 대해 설명합니다. "
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: danhadari
 manager: douge
-
+ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: danha
+ms.date: 11/16/2016
+ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
+ms.openlocfilehash: f9c02c11c6f0143f8da7a329f23033120f31ba59
+
 
 ---
 # <a name="using-analytics-in-application-insights"></a>Application Insights에서 Analytics 사용
@@ -34,15 +38,18 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 ### <a name="write-a-query"></a>쿼리 작성
 ![스키마 표시](./media/app-insights-analytics-using/150.png)
 
-왼쪽에 나열된 테이블의 이름(또는 [range](app-insights-analytics-reference.md#range-operator) 또는 [union](app-insights-analytics-reference.md#union-operator) 연산자)으로 시작합니다. [연산자](app-insights-analytics-reference.md#queries-and-operators) 파이프라인을 만들려면 `|`을(를) 사용합니다. IntelliSense에 사용할 수 있는 연산자 및 식 요소 일부를 지정하라는 메시지가 표시됩니다.
+왼쪽에 나열된 테이블의 이름(또는 [range](app-insights-analytics-reference.md#range-operator) 또는 [union](app-insights-analytics-reference.md#union-operator) 연산자)으로 시작합니다. [연산자](app-insights-analytics-reference.md#queries-and-operators) 파이프라인을 만들려면 `|`을(를) 사용합니다. 
 
-[분석 언어 개요](app-insights-analytics-tour.md) 및 [언어 참조](app-insights-analytics-reference.md)를 참조하세요.
+IntelliSense에 사용할 수 있는 연산자 및 식 요소를 지정하라는 메시지가 표시됩니다. 정보 아이콘을 클릭하거나 Ctrl+스페이스바를 눌러 보다 긴 설명 및 각 요소를 사용하는 방법에 대한 예제를 가져옵니다.
+
+[Analytics 언어 개요](app-insights-analytics-tour.md) 및 [언어 참조](app-insights-analytics-reference.md)를 참조하세요.
 
 ### <a name="run-a-query"></a>쿼리 실행
 ![쿼리 실행](./media/app-insights-analytics-using/130.png)
 
 1. 쿼리에서는 단일 줄 바꿈을 사용할 수 있습니다.
 2. 실행하려는 쿼리의 내부 또는 끝에 커서를 놓습니다.
+3. 쿼리 시간 범위를 확인합니다. 쿼리에 고유한 [`where...timestamp...`](app-insights-analytics-tour.md#time-range) 절을 포함하여 재정의하거나 변경할 수 있습니다.
 3. 이동을 클릭하여 쿼리를 실행합니다.
 4. 쿼리에 빈 줄을 넣으면 안 됩니다. 빈 줄로 구분하여 하나의 쿼리 탭에서 분리된 여러 개의 쿼리를 유지할 수 있습니다. 커서가 있는 쿼리만 실행됩니다.
 
@@ -84,15 +91,28 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 ![그룹](./media/app-insights-analytics-using/060.png)
 
-### <a name="missing-some-results?"></a>일부 결과가 누락되었나요?
-포털에서 반환된 결과에 대해 약 10,000개의 행 제한이 있습니다. 이 제한을 초과하면 경고가 표시됩니다. 이런 경우 테이블의 결과를 정렬한다고 해서 항상 첫 번째 또는 마지막 실제 결과가 모두 표시되는 것은 아닙니다. 
+### <a name="missing-some-results"></a>일부 결과가 누락되었나요?
 
-이 제한에 도달하지 않도록 하는 것이 좋습니다. 다음과 같은 연산자를 사용합니다.
+예상한 결과 중 일부가 표시되지 않는 경우 두 가지 가능한 이유가 있습니다.
 
-* [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
-* [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
-* [take 100](app-insights-analytics-reference.md#take-operator)
-* [summarize ](app-insights-analytics-reference.md#summarize-operator) 
+* **시간 범위 필터**. 기본적으로 지난 24시간 동안의 결과만 표시됩니다. 원본 테이블에서 검색된 결과의 범위를 제한하는 자동 필터가 있습니다. 
+
+    그러나 드롭다운 메뉴를 사용하여 시간 범위 필터를 변경할 수 있습니다.
+
+    또는 [`where  ... timestamp ...` 절](app-insights-analytics-reference.md#where-operator)을 쿼리에 포함하여 자동 범위를 재정의할 수 있습니다. 예:
+
+    `requests | where timestamp > ago('2d')`
+
+* **결과 제한**. 포털에서 반환된 결과에 대해 약 10,000개의 행 제한이 있습니다. 이 제한을 초과하면 경고가 표시됩니다. 이런 경우 테이블의 결과를 정렬한다고 해서 항상 첫 번째 또는 마지막 실제 결과가 모두 표시되는 것은 아닙니다. 
+
+    이 제한에 도달하지 않도록 하는 것이 좋습니다. 시간 범위 필터를 사용하거나 다음과 같은 연산자를 사용합니다.
+
+  * [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
+  * [take 100](app-insights-analytics-reference.md#take-operator)
+  * [summarize ](app-insights-analytics-reference.md#summarize-operator) 
+  * [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
+
+10,000개가 넘는 행을 원하는 경우 [연속 내보내기](app-insights-export-telemetry.md)를 대신 사용하는 것이 좋습니다. Analytics는 원시 데이터를 검색하기 위한 것이 아니라 분석용으로 설계되었습니다.
 
 ## <a name="diagrams"></a>다이어그램
 원하는 다이어그램의 유형을 선택합니다.
@@ -112,13 +132,16 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 테이블에 열이 네 개 이하인 경우 대시보드에 고정할 수 있습니다. 상위 7개의 행만 표시됩니다.
 
-#### <a name="dashboard-refresh"></a>대시보드 새로 고침
-약 30분마다 쿼리를 다시 실행하면 대시보드에 고정된 차트가 자동으로 새로 고침됩니다.
+### <a name="dashboard-refresh"></a>대시보드 새로 고침
+약 2시간마다 쿼리를 다시 실행하면 대시보드에 고정된 차트가 자동으로 새로 고침됩니다.
 
-#### <a name="automatic-simplifications"></a>자동 단순화
-일부 경우 차트를 대시보드에 고정할 때 특정 단순화가 적용됩니다.
+### <a name="automatic-simplifications"></a>자동 단순화
 
-수많은 불연속 막대(일반적으로 가로 막대형 차트)를 표시하는 차트를 고정할 경우 덜 채워진 막대가 하나의 "기타" 막대로 자동으로 그룹화됩니다. 예를 들어 다음 쿼리는
+차트를 대시보드에 고정할 때 특정 단순화가 적용됩니다.
+
+**시간 제한:** 쿼리는 지난 14일로 자동으로 제한됩니다. 이는 쿼리에 `where timestamp > ago(14d)`를 포함한 것과 같습니다.
+
+**Bin 수 제한:** 수많은 불연속 막대(일반적으로 가로 막대형 차트)가 있는 차트를 표시할 경우 덜 채워진 막대가 하나의 "기타" 막대로 자동으로 그룹화됩니다. 예를 들어 다음 쿼리는
 
     requests | summarize count_search = count() by client_CountryOrRegion
 
@@ -134,23 +157,66 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 쿼리를 실행한 후 .csv 파일을 다운로드할 수 있습니다. 이렇게 하려면 **Excel로 내보내기**를 클릭합니다.
 
 ## <a name="export-to-power-bi"></a>Power BI에 내보내기
-1. 쿼리에 커서를 놓고 **Power BI로 내보내기**를 선택합니다.
-   
-    ![](./media/app-insights-analytics-using/240.png)
-   
-    그러면 M 스크립트 파일이 다운로드됩니다.
-2. Power BI Desktop 고급 쿼리 편집기에 M 언어 스크립트를 복사합니다.
-   
-   * 내보낸 파일을 엽니다.
-   * Power BI Desktop에서 **데이터 가져오기 &gt; 빈 쿼리 &gt; 고급 편집기** 를 선택하고 M 언어 스크립트를 붙여넣습니다.
-     
-     ![](./media/app-insights-analytics-using/250.png)
-3. 필요에 따라 자격 증명을 편집한 후 보고서를 작성할 수 있습니다.
-   
-    ![](./media/app-insights-analytics-using/260.png)
+쿼리에 커서를 놓고 **Power BI로 내보내기**를 선택합니다.
+
+![Analytics에서 Power BI로 내보내기](./media/app-insights-analytics-using/240.png)
+
+Power BI에서 쿼리를 실행합니다. 일정에 따라 새로 고침을 설정할 수 있습니다.
+
+Power BI를 사용하여 다양한 원본에서 데이터를 결합하는 대시보드를 만들 수 있습니다.
+
+[Power BI에 내보내기에 대한 자세한 정보](app-insights-export-power-bi.md)
+
+
+## <a name="automation"></a>Automation
+
+[데이터 액세스 REST API](https://dev.applicationinsights.io/)(예: PowerShell 사용)를 통해 Analytics 쿼리를 실행할 수 있습니다.
+
+
+
+## <a name="import-data"></a>데이터 가져오기
+
+CSV 파일에서 데이터를 가져올 수 있습니다. 일반적인 용도는 원격 분석에서 테이블을 결합할 수 있는 정적 데이터를 가져오는 것입니다. 
+
+예를 들어 원격 분석에서 인증된 사용자가 별칭 또는 임시 ID로 식별되는 경우 별칭을 실제 이름에 매핑하는 테이블을를 가져올 수 있습니다. 요청 원격 분석에서 조인을 수행하여 Analytics 보고서의 실제 이름으로 사용자를 식별할 수 있습니다.
+
+### <a name="define-your-data-schema"></a>데이터 스키마 정의
+
+1. **설정**(왼쪽 위), **데이터 원본**을 차례로 클릭합니다. 
+2. 지침에 따라 데이터 원본을 추가합니다. 10개 이상의 행을 포함해야 하는 데이터의 샘플을 제공하라는 메시지가 표시됩니다. 그런 다음 스키마를 수정합니다.
+
+그러면 개별 테이블을 가져오는 데 사용할 수 있는 데이터 원본이 정의됩니다.
+
+### <a name="import-a-table"></a>테이블 가져오기
+
+1. 목록에서 데이터 원본 정의를 엽니다.
+2. "업로드"를 클릭하고 지침에 따라 테이블을 업로드합니다. 여기에는 REST API에 대한 호출이 포함되므로 쉽게 자동화할 수 있습니다. 
+
+이제 Analytics 쿼리에서 테이블을 사용할 수 있습니다. Analytics에 표시됩니다. 
+
+### <a name="use-the-table"></a>테이블 사용
+
+`usermap`이라는 데이터 원본 정의가 있고 여기에 `realName` 및 `user_AuthenticatedId`라는 두 개의 필드가 있다고 가정해 보겠습니다. `requests` 테이블에도 `user_AuthenticatedId` 필드가 있으므로 쉽게 조인할 수 있습니다.
+
+```AIQL
+
+    requests
+    | where notempty(user_AuthenticatedId) | take 10
+    | join kind=leftouter ( usermap ) on user_AuthenticatedId 
+```
+요청의 결과 테이블에는 `realName`이라는 추가 열이 있습니다.
+
+### <a name="import-from-logstash"></a>LogStash에서 가져오기
+
+[LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html)를 사용하는 경우 Analytics를 사용하여 로그를 쿼리할 수 있습니다. [Analytics로 데이터를 파이프하는 플러그 인](https://github.com/Microsoft/logstash-output-application-insights)을 사용합니다. 
+
+
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

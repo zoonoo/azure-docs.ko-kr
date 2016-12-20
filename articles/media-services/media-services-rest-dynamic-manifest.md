@@ -1,12 +1,12 @@
 ---
-title: Azure Media Services REST API로 필터 생성 | Microsoft Docs
-description: 이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍은 미디어 서비스가 동적 매니페스트를 생성하여 이루어집니다.
+title: "Azure Media Services REST API로 필터 생성 | Microsoft Docs"
+description: "이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍은 미디어 서비스가 동적 매니페스트를 생성하여 이루어집니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: f7d23daf-7cd2-49c7-a195-ab902912ab3c
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako;cenkdin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 941f9e45b7b61c2ae7ce0fcd5b3a3d1891ff8315
+
 
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Azure 미디어 서비스 REST API로 필터 생성
@@ -153,7 +157,7 @@ ms.author: juliako;cenkdin
     . . . 
 
 ## <a name="list-filters"></a>필터 나열
-### <a name="get-all-global-**filter**s-in-the-ams-account"></a>AMS 계정의 모든 전역 **Filter**가져오기
+### <a name="get-all-global-filters-in-the-ams-account"></a>AMS 계정의 모든 전역 **Filter**가져오기
 필터를 나열하려면 다음 HTTP 요청을 사용합니다. 
 
 #### <a name="http-request"></a>HTTP 요청
@@ -166,7 +170,7 @@ ms.author: juliako;cenkdin
     x-ms-version: 2.11 
     Host: media.windows.net 
 
-### <a name="get-**assetfilter**s-associated-with-an-asset"></a>자산에 연결된 **AssetFilter**가져오기
+### <a name="get-assetfilters-associated-with-an-asset"></a>자산에 연결된 **AssetFilter**가져오기
 #### <a name="http-request"></a>HTTP 요청
     GET https://media.windows.net/API/Assets('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592')/AssetFilters HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -178,7 +182,7 @@ ms.author: juliako;cenkdin
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
-### <a name="get-an-**assetfilter**-based-on-its-id"></a>해당 ID에 따라 **AssetFilter** 가져오기
+### <a name="get-an-assetfilter-based-on-its-id"></a>해당 ID에 따라 **AssetFilter** 가져오기
 #### <a name="http-request"></a>HTTP 요청
     GET https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter') HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -339,6 +343,9 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
 ## <a name="see-also"></a>참고 항목
 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

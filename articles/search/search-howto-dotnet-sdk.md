@@ -1,12 +1,12 @@
 ---
-title: .NET 응용 프로그램에서 Azure 검색을 사용하는 방법 | Microsoft Docs
-description: .NET 응용 프로그램에서 Azure 검색을 사용하는 방법
+title: ".NET 응용 프로그램에서 Azure Search를 사용하는 방법 | Microsoft Docs"
+description: ".NET 응용 프로그램에서 Azure 검색을 사용하는 방법"
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: brjohnstmsft
 manager: pablocas
-editor: ''
-
+editor: 
+ms.assetid: 93653341-c05f-4cfd-be45-bb877f964fcb
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
@@ -14,12 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/06/2016
 ms.author: brjohnst
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 21bd4f05eabfd685cb87b819621fe8d826f209b5
+
 
 ---
-# <a name="how-to-use-azure-search-from-a-.net-application"></a>.NET 응용 프로그램에서 Azure 검색을 사용하는 방법
+# <a name="how-to-use-azure-search-from-a-net-application"></a>.NET 응용 프로그램에서 Azure 검색을 사용하는 방법
 이 문서는 [Azure 검색.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)를 준비하여 실행하기 위한 연습입니다. Azure 검색을 사용하여 응용 프로그램에서 풍부한 검색 환경을 구현하는 .NET SDK를 사용할 수 있습니다.
 
-## <a name="what's-in-the-azure-search-sdk"></a>Azure 검색 SDK의 주요 기능
+## <a name="whats-in-the-azure-search-sdk"></a>Azure 검색 SDK의 주요 기능
 SDK는 클라이언트 라이브러리 `Microsoft.Azure.Search`로 구성되어 있습니다. 인덱스, 데이터 원본 및 인덱서를 관리할 뿐만 아니라 문서를 업로드 및 관리, 쿼리를 실행할 수 있으며, 이 모두를 HTTP와 JSON의 세부 정보를 처리하지 않고 수행할 수 있습니다.
 
 클라이언트 라이브러리는 `SearchServiceClient` 및 `SearchIndexClient` 클래스에서 `Index`, `Field`, `Document` 등의 클래스와 `Indexes.Create` 및 `Documents.Search` 등의 작업을 정의합니다. 이러한 클래스는 다음과 같은 네임 스페이스에 구성됩니다.
@@ -304,7 +308,7 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
 
 마지막으로, 메서드가 2초 동안 지연됩니다. Azure 검색 서비스에서 인덱싱이 비동기적으로 발생하기 때문에, 샘플 응용 프로그램은 문서 검색을 위해 잠시 기다려야 합니다. 이와 같이 데모, 테스트, 샘플 응용 프로그램에서는 일반적으로 지연만 필요합니다.
 
-#### <a name="how-the-.net-sdk-handles-documents"></a>.NET SDK가 문서를 처리하는 방법
+#### <a name="how-the-net-sdk-handles-documents"></a>.NET SDK가 문서를 처리하는 방법
 Azure 검색.NET SDK가 어떻게 `Hotel` 와(과) 같은 사용자 정의 클래스의 인스턴스를 업로드할 수 있는지 궁금할 수 있습니다. 이 질문에 대답하기 위해 `Hotel` 클래스를 살펴보겠습니다.
 
     [SerializePropertyNamesAsCamelCase]
@@ -367,7 +371,7 @@ Azure 검색.NET SDK가 어떻게 `Hotel` 와(과) 같은 사용자 정의 클�
 
 <a name="JsonDotNet"></a>
 
-#### <a name="custom-serialization-with-json.net"></a>JSON.NET으로 직렬화 사용자 지정
+#### <a name="custom-serialization-with-jsonnet"></a>JSON.NET으로 직렬화 사용자 지정
 이 SDK는 문서를 직렬화 및 역직렬화하는 데 JSON.NET을 사용합니다. 사용자 고유의 `JsonConverter` 또는 `IContractResolver`를 정의하여 필요한 경우 직렬화 및 역직렬화를 사용자 지정할 수 있습니다(자세한 내용은 [JSON.NET 설명서](http://www.newtonsoft.com/json/help/html/Introduction.htm) 참조). 이 기능은 Azure 검색에 사용할 응용 프로그램에서 기존 모델 클래스를 적용하려는 경우와 기타 고급 시나리오에서 유용할 수 있습니다. 예를 들어 사용자 지정 serialization으로 다음을 수행할 수 있습니다.
 
 * 모델 클래스의 특정 속성을 문서 필드로 저장하는 데 포함 또는 제외할 수 있습니다.
@@ -663,6 +667,6 @@ namespace AzureSearch.SDKHowTo
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

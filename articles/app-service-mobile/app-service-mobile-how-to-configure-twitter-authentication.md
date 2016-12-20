@@ -1,22 +1,26 @@
 ---
-title: 앱 서비스 응용 프로그램에 대해 Twitter 인증을 구성하는 방법
-description: 앱 서비스 응용 프로그램에 대해 Twitter 인증을 구성하는 방법을 알아봅니다.
+title: "앱 서비스 응용 프로그램에 대해 Twitter 인증을 구성하는 방법"
+description: "앱 서비스 응용 프로그램에 대해 Twitter 인증을 구성하는 방법을 알아봅니다."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: mattchenderson
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 10/01/2016
 ms.author: mahender
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ce436f2581780e1aa7cdb95cc59bda9ce6398d4f
+
 
 ---
-# Twitter 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
+# <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Twitter 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 이 항목에서는 Twitter를 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 줍니다.
@@ -26,10 +30,10 @@ ms.author: mahender
 ## <a name="register"> </a>Twitter를 사용하여 응용 프로그램 등록
 1. [Azure 포털]에 로그인한 다음 응용 프로그램으로 이동합니다. **URL**을 복사합니다. Twitter 앱을 구성하는 데 사용합니다.
 2. [Twitter 개발자] 웹 사이트로 이동하고 Twitter 계정 자격 증명을 사용하여 로그인한 다음 **새 앱 만들기**를 클릭합니다.
-3. 새 앱에 대한 **이름** 및 **설명**을 입력합니다. **Website** 값으로 응용 프로그램의 **URL**을 붙여 넣습니다. 그런 다음에 **Callback URL**에 앞서 복사한 **콜백 URL**을 붙여넣습니다. 이는 */.auth/login/twitter/callback* 경로를 사용하여 추가된 모바일 앱 게이트웨이입니다. 예: `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. HTTPS 체계를 사용 중인지 확인합니다.
-4. 페이지 맨 아래에서 사용 약관을 읽고 동의합니다. 그런 다음 **Twitter 응용 프로그램 만들기**을 클릭합니다. 앱이 등록되고 응용 프로그램 세부 정보가 표시됩니다.
+3. 새 앱에 대한 **이름** 및 **설명**을 입력합니다. **Website** 값으로 응용 프로그램의 **URL**을 붙여 넣습니다. 그런 다음에 **Callback URL**에 앞서 복사한 **Callback URL**을 붙여 넣습니다. 이는 */.auth/login/twitter/callback*경로를 사용하여 추가된 모바일 앱 게이트웨이입니다. 예: `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. HTTPS 체계를 사용 중인지 확인합니다.
+4. 페이지 맨 아래에서 사용 약관을 읽고 동의합니다. 그런 다음 **Create your Twitter application**을 클릭합니다. 앱이 등록되고 응용 프로그램 세부 정보가 표시됩니다.
 5. **Settings** 탭을 클릭하고 **Allow this application to be used to sign in with Twitter**를 선택한 다음 **Update Settings**를 클릭합니다.
-6. **키 및 액세스 토큰** 탭을 선택합니다. **API 키(소비자 키)** 및 **API 비밀(소비자 비밀)**의 값을 적어 둡니다.
+6. **Keys and Access Tokens** 탭을 선택합니다. **Consumer Key (API Key)** 및 **Consumer secret (API Secret)**의 값을 적어 둡니다.
    
    > [!NOTE]
    > 소비자 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 앱과 함께 배포하지 마세요.
@@ -61,6 +65,10 @@ ms.author: mahender
 
 [Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Azure 포털]: https://portal.azure.com/
-[xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
+[Xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

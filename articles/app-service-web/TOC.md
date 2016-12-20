@@ -6,7 +6,7 @@
 
 # 시작
 
-## 웹앱
+## Web Apps
 ### [.NET](web-sites-dotnet-get-started.md)
 ### [Node.JS](app-service-web-nodejs-get-started.md)
 ### [Python](web-sites-python-ptvs-django-mysql.md)
@@ -14,13 +14,13 @@
 ### [마켓플레이스 앱](web-sites-php-web-site-gallery.md)
 ### [PHP](app-service-web-php-get-started.md)   
 
-## API 앱
+## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
 ### [Java](../app-service-api/app-service-api-java-api-app.md)
 ### [Node.JS](../app-service-api/app-service-api-nodejs-api-app.md)
 ### [CORS](../app-service-api/app-service-api-cors-consume-javascript.md)
 
-## 모바일 앱
+## Mobile Apps
 ### [Android](../app-service-mobile/app-service-mobile-android-get-started.md)
 ### [Cordova](../app-service-mobile/app-service-mobile-cordova-get-started.md)
 ### [iOS](../app-service-mobile/app-service-mobile-ios-get-started.md)
@@ -68,7 +68,7 @@
 #### [Node.js 웹앱 만들기](web-sites-nodejs-develop-deploy-mac.md)
 #### [Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 만들기](web-sites-nodejs-chat-app-socketio.md)
 #### [Web Apps에서 io.js를 사용하는 방법](web-sites-nodejs-iojs.md)
-#### [Azure 앱 서비스에 Sails.js 웹앱 배포](app-service-web-nodejs-sails.md)
+#### [Azure App Service에 Sails.js 웹앱 배포](app-service-web-nodejs-sails.md)
 #### [WebMatrix를 사용하여 빌드 및 배포](web-sites-nodejs-use-webmatrix.md)
 
 ### PHP 앱
@@ -76,7 +76,7 @@
 #### [Git를 사용하여 PHP-SQL 웹앱 만들기 및 배포](web-sites-php-sql-database-deploy-use-git.md)
 #### [Azure App Service에서 WordPress 웹앱 만들기](web-sites-php-web-site-gallery.md)
 #### [Azure에서 MySQL 데이터베이스 만들기 및 연결](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Azure 앱 서비스의 엔터프라이즈급 WordPress](web-sites-php-enterprise-wordpress.md)
+#### [Azure App Service의 엔터프라이즈급 WordPress](web-sites-php-enterprise-wordpress.md)
 
 ### Java 앱
 #### [5분 내에 Azure에 첫 번째 Java 웹앱 배포](web-sites-java-get-started.md)
@@ -106,12 +106,12 @@
 #### [.NET WebJob 만들기](websites-dotnet-webjobs-sdk-get-started.md)
 #### [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 #### [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
-#### [WebJob SDK를 사용하여 Azure 서비스 버스로 작업하는 방법](websites-dotnet-webjobs-sdk-service-bus.md)
+#### [WebJob SDK를 사용하여 Azure Service Bus로 작업하는 방법](websites-dotnet-webjobs-sdk-service-bus.md)
 #### [WebJob SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 
 ### App Service 환경
-#### [앱 서비스 환경을 만드는 방법](app-service-web-how-to-create-an-app-service-environment.md)
-#### [앱 서비스 환경에서 웹앱 만들기](app-service-web-how-to-create-a-web-app-in-an-ase.md)
+#### [App Service 환경을 만드는 방법](app-service-web-how-to-create-an-app-service-environment.md)
+#### [App Service 환경에서 웹앱 만들기](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 #### [Azure Resource Manager 템플릿을 사용하여 ILB ASE를 만드는 방법](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 #### [내부 부하 분산 장치 사용](app-service-environment-with-internal-load-balancer.md)
 
@@ -153,7 +153,7 @@
 ### [온-프레미스 연결](web-sites-hybrid-connection-get-started.md)
 ### [Azure Virtual Network](web-sites-integrate-with-vnet.md)
 ### [고급 구성](web-sites-transform-extend.md)
-### [Linux에서 App Serv ce에대한 컨테이너 구성](app-service-linux-using-custom-docker-image.md)
+### [Linux에서 App Service에 대한 컨테이너 구성](app-service-linux-using-custom-docker-image.md)
 ### [리소스 그룹](app-service-move-resources.md)
 ### [WordPress를 멀티 사이트로 변환](web-sites-php-convert-wordpress-multisite.md) 
 
@@ -167,7 +167,7 @@
 #### [네트워크 아키텍처 개요](app-service-app-service-environment-network-architecture-overview.md)
 #### [ExpressRoute를 사용하기 위한 네트워크 구성 세부 정보](app-service-app-service-environment-network-configuration-expressroute.md)
 
-## 백업
+## Backup
 ### [Azure에서 앱 백업](web-sites-backup.md)
 ### [Azure에서 앱 복원](web-sites-restore.md)
 ### [REST를 사용하여 App Service 앱 백업 및 복원](websites-csm-backup.md)
@@ -247,9 +247,9 @@
 ### [웹앱 성능 문제 해결](app-service-web-troubleshoot-performance-degradation.md)
 
 # 참조
-## [Azure CLI](/cli/azure/)
-## [Java](/java/api/)
+## [Azure CLI 2.0 미리 보기](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
+## [Java](/java/api/)
 ## [REST (영문)](/rest/api/appservice)
 
 # 관련 항목
@@ -266,6 +266,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

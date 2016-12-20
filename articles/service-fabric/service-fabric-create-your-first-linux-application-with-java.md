@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
+ms.sourcegitcommit: 4450ad62a9b05ac4c963ae3271590f9431b782ed
+ms.openlocfilehash: 87f5ac490f113a7c0144b20563a4f8f4bbcc6b21
 
 
 ---
@@ -28,13 +28,16 @@ ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
 > 
 > 
 
-Service Fabric은 .NET Core 및 Java 모두에서 Linux에 대한 서비스를 구축하는 SDK를 제공합니다. 이 자습서에서는 Java를 사용하여 Linux용 응용 프로그램을 만들고 서비스를 구축하는 방법을 살펴보겠습니다.
+Service Fabric은 .NET Core 및 Java 모두에서 Linux에 대한 서비스를 구축하는 SDK를 제공합니다. 이 자습서에서는 Java를 사용하여 Linux용 응용 프로그램을 만들고 서비스를 구축합니다.  또한 다음 Microsoft Virtual Academy 비디오는 Linux에서 Java 앱을 만드는 과정을 안내합니다.  
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="prerequisites"></a>필수 조건
 시작하기 전에 [Linux 개발 환경을 설정](service-fabric-get-started-linux.md)하도록 합니다. Mac OS X을 사용하는 경우 [Vagrant를 사용하여 가상 컴퓨터에서 Linux one-box 환경을 설정](service-fabric-get-started-mac.md)할 수 있습니다.
 
 ## <a name="create-the-application"></a>응용 프로그램 만들기
-서비스 패브릭 응용 프로그램은 응용 프로그램의 기능을 제공하는 특정 역할이 있는 하나 이상의 서비스를 포함할 수 있습니다. Linux용 Service Fabric SDK는 쉽게 첫 번째 서비스를 만들고 나중에 더 추가할 수 있는 [Yeoman](http://yeoman.io/) 생성기를 포함합니다. 단일 서비스를 사용하여 새 응용 프로그램을 만들기 위해 Yeoman을 사용해 보겠습니다.
+서비스 패브릭 응용 프로그램은 응용 프로그램의 기능을 제공하는 특정 역할이 있는 하나 이상의 서비스를 포함할 수 있습니다. Linux용 Service Fabric SDK는 쉽게 첫 번째 서비스를 만들고 나중에 더 추가할 수 있는 [Yeoman](http://yeoman.io/) 생성기를 포함합니다. 단일 서비스를 사용하여 응용 프로그램을 만들기 위해 Yeoman을 사용해 보겠습니다.
 
 1. 터미널에서 **yo azuresfjava**를 입력합니다.
 2. 응용 프로그램의 이름을 지정합니다.
@@ -86,7 +89,7 @@ Service Fabric Yeoman 템플릿은 [Gradle](https://gradle.org/)에 대한 빌�
 3. 이전 단계에서 찾은 노드를 클릭한 다음 작업 메뉴에서 **비활성화(다시 시작)** 를 선택합니다. 로컬 클러스터에서 다섯 개의 노드 중 하나를 다시 시작하고 다른 노드에서 실행 중인 보조 복제본 중 하나에 장애 조치를 강제합니다. 이렇게 하면 테스트 클라이언트에서 출력에 주의하고 장애 조치에도 불구하고 카운터가 계속 증가하게 됩니다.
 
 ## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Eclipse Neon 플러그 인으로 응용 프로그램 빌드 및 배포
-Eclipse Neon에 대한 서비스 플러그 인을 설치한 경우 Java로 Service Fabric 응용 프로그램을 만들고 빌드하고 배포하는 데 사용할 수 있습니다.  Eclipse를 설치할 때 **Java 개발자를 위한 Eclipse IDE**를 선택합니다.
+Eclipse Neon용 [Service Fabric 플러그 인](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional)을 설치한 경우 Java로 Service Fabric 응용 프로그램을 만들고 빌드하고 배포하는 데 사용할 수 있습니다.  Eclipse를 설치할 때 **Java 개발자를 위한 Eclipse IDE**를 선택합니다.
 
 ### <a name="create-the-application"></a>응용 프로그램 만들기
 Service Fabric 플러그 인은 Eclipse 확장성을 통해 사용할 수 있습니다.
@@ -98,13 +101,22 @@ Service Fabric 플러그 인은 Eclipse 확장성을 통해 사용할 수 있습
 3. Service Fabric 관점을 사용할지를 확인하는 메시지가 표시되며 Service Fabric 프로젝트와 함께 사용할 Eclipse를 최적화합니다. '예'를 선택합니다.
 
 ### <a name="deploy-the-application"></a>응용 프로그램 배포
-Service Fabric 템플릿은 Eclipse를 통해 트리거할 수 있는 응용 프로그램을 빌드하고 배포하기 위한 Gradle 태스크 집합을 포함합니다.
+Service Fabric 템플릿은 Eclipse를 통해 트리거할 수 있는 응용 프로그램을 빌드하고 배포하기 위한 Gradle 태스크 집합을 포함합니다. 
 
 1. **실행 > 구성 실행**을 선택합니다.
-2. **Gradle Project**를 확장하고 **ServiceFabricDeployer**를 선택합니다.
-3. **실행**을 클릭합니다.
+2. **로컬** 또는 **클라우드**를 지정합니다. 기본 설치는 **로컬**입니다. 원격 클러스터에 배포하는 경우 **클라우드**를 선택합니다.
+3. `local.json` 또는 `cloud.json`를 적절하게 편집하여 적절한 정보를 게시 프로필에 채우도록 합니다.
+4. **실행**을 클릭합니다.
 
 몇 분 내로 앱을 빌드하고 배포합니다. Service Fabric Explorer에서 해당 상태를 모니터링할 수 있습니다.
+
+
+## <a name="adding-more-services-to-an-existing-application"></a>기존 응용 프로그램에 더 많은 서비스 추가
+
+`yo`을 사용하여 만든 응용 프로그램에 다른 서비스를 추가하려면 다음 단계를 수행합니다. 
+1. 기존 응용 프로그램의 루트로 디렉터리를 변경합니다.  예를 들어 `MyApplication`이 Yeoman에서 만든 응용 프로그램인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
+2. `yo azuresfjava:AddService` 실행
+
 
 ## <a name="next-steps"></a>다음 단계
 * [Reliable Actors에 대해 자세히 알아보기](service-fabric-reliable-actors-introduction.md)
@@ -117,6 +129,6 @@ Service Fabric 템플릿은 Eclipse를 통해 트리거할 수 있는 응용 프
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

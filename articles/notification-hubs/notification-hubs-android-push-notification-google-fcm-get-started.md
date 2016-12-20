@@ -70,7 +70,7 @@ FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Androi
 
 이제 알림 허브가 Firebase Cloud Messaging과 작동하도록 구성되었으며, 푸시 알림을 받고 보내도록 앱을 등록하기 위한 연결 문자열이 있습니다.
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>알림 허브에 앱 연결
+## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>알림 허브에 앱 연결
 ### <a name="add-google-play-services-to-the-project"></a>프로젝트에 Google Play Services 추가
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
@@ -131,7 +131,7 @@ FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Androi
    
    * **SenderId**: [Firebase 콘솔](https://firebase.google.com/console/)의 프로젝트 설정에 있는 **클라우드 메시징** 탭에서 이전에 가져온 보낸 사람 ID입니다.
    * **HubListenConnectionString**: 허브의 **DefaultListenAccessSignature** 연결 문자열입니다. [Azure Portal]에 있는 허브의 **설정** 블레이드에서 **액세스 정책**을 클릭하여 이 연결 문자열을 복사할 수 있습니다.
-   * **HubName**: [Azure 포털]의 허브 블레이드에 표시되는 알림 허브 이름을 사용합니다.
+   * **HubName**: [Azure Portal]의 허브 블레이드에 표시되는 알림 허브 이름을 사용합니다.
      
      `NotificationSettings` 코드:
      
@@ -676,7 +676,7 @@ FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Androi
 [알림 허브 지침]: notification-hubs-push-notification-overview.md
 [알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[액세스 정책]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
 
 

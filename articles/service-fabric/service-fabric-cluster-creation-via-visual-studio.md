@@ -1,12 +1,12 @@
 ---
-title: Visual Studio를 사용하여 서비스 패브릭 클러스터 설정 | Microsoft Docs
-description: Visual Studio의 Azure 리소스 그룹 프로젝트에 의해 만들어진 Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터를 설정하는 방법을 설명합니다.
+title: "Visual Studio를 사용하여 Service Fabric 클러스터 설정 | Microsoft Docs"
+description: "Visual Studio의 Azure 리소스 그룹 프로젝트에 의해 만들어진 Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터를 설정하는 방법을 설명합니다."
 services: service-fabric
 documentationcenter: .net
 author: karolz-ms
 manager: adegeo
-editor: ''
-
+editor: 
+ms.assetid: bd2c0511-36c9-4828-8dc3-69e4b6a70567
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2016
 ms.author: karolz@microsoft.com
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 01498faf6d150cb0a96af150d6c9ce1ed62c26dd
+
 
 ---
 # <a name="set-up-a-service-fabric-cluster-by-using-visual-studio"></a>Visual Studio를 사용하여 서비스 패브릭 클러스터 설정
@@ -49,12 +53,12 @@ ms.author: karolz@microsoft.com
 
 Visual Studio 서비스 패브릭 리소스 관리자 템플릿은 인증서로 보호되는 보안 클러스터를 만듭니다. 이 인증서는 마지막 3개의 템플릿 매개 변수(`certificateThumbprint`, `sourceVaultValue` 및 `certificateUrlValue`)로 식별되며 **Azure 주요 자격 증명 모음**에 있어야 합니다. 클러스터 보안 인증서를 만드는 방법에 대한 자세한 내용은 [서비스 패브릭 클러스터 보안 시나리오](service-fabric-cluster-security.md#x509-certificates-and-service-fabric) 문서를 참조하세요.
 
-## <a name="optional:-change-the-cluster-name"></a>선택 사항: 클러스터 이름 변경
+## <a name="optional-change-the-cluster-name"></a>선택 사항: 클러스터 이름 변경
 모든 서비스 패브릭 클러스터에는 이름이 있습니다. Azure에서 패브릭 클러스터가 만들어지면 클러스터 이름은 클러스터에 대한 DNS(Domain Name System) 이름을 Azure 지역과 함께 결정합니다. 예를 들어 클러스터 이름을 `myBigCluster`로 지정했으며 새 클러스터를 호스트할 리소스 그룹의 위치(Azure 하위 지역)가 미국 동부이면 클러스터의 DNS 이름은 `myBigCluster.eastus.cloudapp.azure.com`이 됩니다.
 
 기본적으로 클러스터 이름은 자동으로 생성되며 임의의 접미사를 "cluster" 접두사에 추가하여 고유하게 만들어집니다. 이렇게 하면 템플릿을 **Ci(연속 통합)** 시스템의 일부로 쉽게 사용할 수 있습니다. 클러스터에 대해 사용자에게 의미가 있는 특정 이름을 사용하려는 경우 Resource Manager 템플릿 파일(`ServiceFabricCluster.json`)의 `clusterName` 변수 값을 선택한 이름으로 설정합니다. 해당 파일에 정의된 첫 번째 변수입니다.
 
-## <a name="optional:-add-public-application-ports"></a>옵션: 공용 응용 프로그램 포트 추가
+## <a name="optional-add-public-application-ports"></a>옵션: 공용 응용 프로그램 포트 추가
 배포하기 전에 클러스터에 대한 공용 응용 프로그램 포트를 변경할 수도 있습니다. 기본적으로 템플릿에서는 두 개의 공용 TCP 포트(80과 8081)만 열립니다. 응용 프로그램에 더 많은 포트가 필요한 경우 템플릿에서 Azure 부하 분산 장치 정의를 수정합니다. 정의는 기본 템플릿 파일(`ServiceFabricCluster.json`)에 저장됩니다. 해당 파일을 열고 `loadBalancedAppPort`를 검색합니다. 각 포트는 세 개의 아티팩트에 연결됩니다.
 
 1. 포트에 대한 TCP 포트 값을 정의하는 템플릿 매개 변수:
@@ -142,6 +146,6 @@ Visual Studio 출력 창에서 배포 프로세스의 진행률을 모니터링�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

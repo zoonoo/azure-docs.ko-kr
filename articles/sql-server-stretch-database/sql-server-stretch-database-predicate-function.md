@@ -1,12 +1,12 @@
 ---
-title: Select rows to migrate by using a filter function (Stretch Database) | Microsoft Docs
-description: Learn how to select rows to migrate by using a filter function.
+title: "필터 함수를 사용하여 마이그레이션할 행 선택(Stretch Database)| Microsoft Docs"
+description: "필터 함수를 사용하여 마이그레이션할 행을 선택하는 방법을 알아봅니다."
 services: sql-server-stretch-database
-documentationcenter: ''
+documentationcenter: 
 author: douglaslMS
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: f5ef79d9-68ef-4394-a057-d7aac5706b72
 ms.service: sql-server-stretch-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,57 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2016
 ms.author: douglasl
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 76af756316523935cf04e19f12a3a1380d0f3a42
+
 
 ---
-# <a name="select-rows-to-migrate-by-using-a-filter-function-(stretch-database)"></a>Select rows to migrate by using a filter function (Stretch Database)
-If you store cold data in a separate table, you can configure Stretch Database to migrate the entire table. If your table contains both hot and cold data, on the other hand, you can specify a filter function to select the rows to migrate. The filter predicate is an inline table\-valued function. This topic describes how to write an inline table\-valued function to select rows to migrate.
+# <a name="select-rows-to-migrate-by-using-a-filter-function-stretch-database"></a>필터 함수를 사용하여 마이그레이션할 행 선택(Stretch Database)
+콜드 데이터를 별도 테이블에 저장하는 경우 전체 테이블을 마이그레이션할 Stretch Database를 구성할 수 있습니다. 반면 테이블에 핫 및 콜드 데이터가 모두 포함된 경우 필터 함수를 지정하여 마이그레이션할 행을 선택할 수 있습니다. 필터 조건자는 인라인 테이블\-값 함수입니다. 이 항목은 마이그레이션할 행을 선택하는 인라인 테이블\-값 함수를 작성하는 방법을 설명합니다.
 
 > [!NOTE]
-> If you provide a filter function that performs poorly, data migration also performs poorly. Stretch Database applies the filter function to the table by using the CROSS APPLY operator.
+> 제대로 수행되지 않는 필터 함수를 제공하는 경우 데이터 마이그레이션도 제대로 수행되지 않습니다. Stretch Database는 CROSS APPLY 연산자를 사용하여 테이블에 필터 함수를 적용합니다.
 > 
 > 
 
-If you don't specify a filter function, the entire table is migrated.
+필터 함수를 지정하지 않으면 전체 테이블이 마이그레이션됩니다.
 
-When you run the Enable Database for Stretch Wizard, you can migrate an entire table or you can specify a simple filter function in the wizard. If you want to use a different type of filter function to select rows to migrate, do one of the following things.
+스트레치에 데이터베이스 사용 마법사를 실행할 때, 전체 테이블을 마이그레이션하거나 마법사에서 간단한 필터 함수를 지정할 수 있습니다. 다른 종류의 필터 함수를 사용하여 마이그레이션할 행을 선택하려면 다음 중 하나를 수행합니다.
 
-* Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a filter function.
-* Run the ALTER TABLE statement to specify a filter function after you exit the wizard.
+* 마법사를 종료하고 ALTER TABLE 문을 실행하여 테이블에 대한 스트레치를 사용하도록 설정하고 필터 함수를 지정합니다.
+* 마법사를 종료한 후 ALTER TABLE 문을 실행하여 필터 함수를 지정합니다.
 
-The ALTER TABLE syntax for adding a function is described later in this topic.
+함수를 추가하는 ALTER TABLE 구문은 이 항목의 뒷부분에서 설명합니다.
 
-## <a name="basic-requirements-for-the-filter-function"></a>Basic requirements for the filter function
-The inline table\-valued function required for a Stretch Database filter predicate looks like the following example.
+## <a name="basic-requirements-for-the-filter-function"></a>필터 함수에 대한 기본 요구 사항
+Stretch Database 필터 조건자에 필요한 인라인 테이블\-값 함수는 다음 예제와 같습니다.
 
 ```tsql
 CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datatype1, @column2 datatype2 [, ...n])
 RETURNS TABLE
 WITH SCHEMABINDING
 AS
-RETURN  SELECT 1 AS is_eligible
+RETURN    SELECT 1 AS is_eligible
         WHERE <predicate>
 ```
-The parameters for the function have to be identifiers for columns from the table.
+함수의 매개 변수는 테이블의 열에 대한 식별자이어야 합니다.
 
-Schema binding is required to prevent columns that are used by the filter function from being dropped or altered.
+스키마 바인딩은 필터 함수에 의해 사용되는 열이 삭제되거나 변경되는 것을 방지하기 위해 필요합니다.
 
-### <a name="return-value"></a>Return value
-If the function returns a non\-empty result, the row is eligible to be migrated. Otherwise \- that is, if the function doesn't return a result \- the row is not eligible to be migrated.
+### <a name="return-value"></a>반환 값
+함수가 비어 있지 않은 결과를 반환하는 경우 해당 행을 마이그레이션할 수 있습니다. 그렇지 않은 경우 \- 즉 함수가 결과를 반환하지 않는 경우에는 \- 해당 행을 마이그레이션할 수 없습니다.
 
-### <a name="conditions"></a>Conditions
-The &lt;*predicate*&gt; can consist of one condition, or of multiple conditions joined with the AND logical operator.
+### <a name="conditions"></a>조건
+&lt;*조건자*&gt;는 하나의 조건 또는 AND 논리 연산자로 결합된 여러 조건으로 구성할 수 있습니다.
 
 ```
 <predicate> ::= <condition> [ AND <condition> ] [ ...n ]
 ```
-Each condition in turn can consist of one primitive condition, or of multiple primitive conditions joined with the OR logical operator.
+그러면 각 조건은 하나의 기본 조건 또는 OR 논리 연산자로 결합된 여러 기본 조건으로 구성할 수 있습니다.
 
 ```
 <condition> ::= <primitive_condition> [ OR <primitive_condition> ] [ ...n ]
 ```
 
-### <a name="primitive-conditions"></a>Primitive conditions
-A primitive condition can do one of the following comparisons.
+### <a name="primitive-conditions"></a>기본 조건
+기본 조건은 다음 비교 중 하나를 수행할 수 있습니다.
 
 ```
 <primitive_condition> ::=
@@ -75,16 +79,16 @@ A primitive condition can do one of the following comparisons.
 }
 ```
 
-* Compare a function parameter to a constant expression. For example, `@column1 < 1000`.
+* 함수 매개 변수와 상수 식을 비교합니다. 예: `@column1 < 1000`
   
-  Here's an example that checks whether the value of a *date* column is &lt; 1/1/2016.
+  다음은 *날짜* 열의 값이 &lt; 2016/1/1 이전인지 확인하는 예제입니다.
   
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 < CONVERT(datetime, '1/1/2016', 101)
   GO
   
@@ -93,17 +97,17 @@ A primitive condition can do one of the following comparisons.
       MIGRATION_STATE = OUTBOUND
   ) )
   ```
-* Apply the IS NULL or IS NOT NULL operator to a function parameter.
-* Use the IN operator to compare a function parameter to a list of constant values.
+* IS NULL 또는 IS NOT NULL 연산자를 함수 매개 변수에 적용합니다.
+* IN 연산자를 사용하여 함수 매개 변수를 상수 값의 목록과 비교합니다.
   
-  Here's an example that checks whether the value of a *shipment\_status*  column is `IN (N'Completed', N'Returned', N'Cancelled')`.
+  다음은 *shipment\_status* 열의 값이 `IN (N'Completed', N'Returned', N'Cancelled')`인지 확인하는 예제입니다.
   
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate(@column1 nvarchar(15))
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 IN (N'Completed', N'Returned', N'Cancelled')
   GO
   
@@ -113,8 +117,8 @@ A primitive condition can do one of the following comparisons.
   ) )
   ```
 
-### <a name="comparison-operators"></a>Comparison operators
-The following comparison operators are supported.
+### <a name="comparison-operators"></a>비교 연산자
+다음 비교 연산자가 지원됩니다.
 
 `<, <=, >, >=, =, <>, !=, !<, !>`
 
@@ -122,21 +126,21 @@ The following comparison operators are supported.
 <comparison_operator> ::= { < | <= | > | >= | = | <> | != | !< | !> }
 ```
 
-### <a name="constant-expressions"></a>Constant expressions
-The constants that you use in a filter function can be any deterministic expression that can be evaluated when you define the function. Constant expressions can contain the following things.
+### <a name="constant-expressions"></a>상수 식
+필터 함수에서 사용하는 상수는 함수를 정의할 때 계산될 수 있는 결정 식이 될 수 있습니다. 상수 식에는 다음을 포함할 수 있습니다.
 
-* Literals. For example, `N’abc’, 123`.
-* Algebraic expressions. For example, `123 + 456`.
-* Deterministic functions. For example, `SQRT(900)`.
-* Deterministic conversions that use CAST or CONVERT. For example, `CONVERT(datetime, '1/1/2016', 101)`.
+* 리터럴 예: `N’abc’, 123`
+* 대수 식 예: `123 + 456`
+* 결정 함수 예: `SQRT(900)`
+* CAST 또는 CONVERT를 사용하는 결정 변환 예: `CONVERT(datetime, '1/1/2016', 101)`
 
-### <a name="other-expressions"></a>Other expressions
-You can use the BETWEEN and NOT BETWEEN operators if the resulting function conforms to the rules described here after you replace the BETWEEN and NOT BETWEEN operators with the equivalent AND and OR expressions.
+### <a name="other-expressions"></a>기타 식
+BETWEEN과 NOT BETWEEN을 동등한 AND와 OR 식으로 대체한 후 결과 함수가 여기에 설명된 규칙을 준수하는 경우 BETWEEN 및 NOT BETWEEN 연산자를 사용할 수 있습니다.
 
-You can't use subqueries or non\-deterministic functions such as RAND() or GETDATE().
+하위 쿼리나 rand() 또는 getdate() 등의 비결정 함수를 사용할 수 없습니다.
 
-## <a name="add-a-filter-function-to-a-table"></a>Add a filter function to a table
-Add a filter function to a table by running the **ALTER TABLE** statement and specifying an existing inline table\-valued function as the value of the **FILTER\_PREDICATE** parameter. For example:
+## <a name="add-a-filter-function-to-a-table"></a>테이블에 필터 함수 추가
+**ALTER TABLE** 문을 실행하고 기존 인라인 테이블\-값 함수를 **FILTER\_PREDICATE** 매개 변수 값으로 지정하여 필터 함수를 테이블에 추가합니다. 예:
 
 ```tsql
 ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
@@ -144,22 +148,22 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
     MIGRATION_STATE = <desired_migration_state>
 ) )
 ```
-After you bind the function to the table as a predicate, the following things are true.
+함수를 조건자로 테이블에 바인딩한 후에는 다음과 같은 것들은 true가 됩니다.
 
-* The next time data migration occurs, only the rows for which the function returns a non\-empty value are migrated.
-* The columns used by the function are schema bound. You can't alter these columns as long as a table is using the function as its filter predicate.
+* 다음 번 데이터 마이그레이션 수행 시, 함수가 비어 있지 않은 값을 반환하는 행만 마이그레이션됩니다.
+* 함수에 의해 사용되는 열은 스키마 바운드됩니다. 테이블이 필터 조건자로 함수를 사용하는 한 이들 열을 변경할 수 없습니다.
 
-You can't drop the inline table\-valued function as long as a table is using the function as its filter predicate.
+테이블이 필터 조건자로 함수를 사용하는 한 인라인 테이블\-값 함수를 삭제할 수 없습니다.
 
 > [!NOTE]
-> To improve the performance of the filter function, create an index on the columns used by the function.
+> 필터 함수의 성능을 향상시키려면 해당 함수에서 사용되는 열에 대해 인덱스를 만듭니다.
 > 
 > 
 
-### <a name="passing-column-names-to-the-filter-function"></a>Passing column names to the filter function
-When you assign a filter function to a table, specify the column names passed to the filter function with a one-part name. If you specify a three-part name when you pass the column names, subsequent queries against the Stretch\-enabled table will fail.
+### <a name="passing-column-names-to-the-filter-function"></a>필터 함수에 열 이름 전달
+테이블에 필터 함수를 할당하는 경우 필터 함수에 전달되는 열 이름을 한 부분으로 된 이름으로 지정합니다. 열 이름을 전달할 때 세 부분으로 된 이름을 지정하면 스트레치\-지원 테이블에 대한 후속 쿼리가 실패합니다.
 
-For example, if you specify a three-part column name as shown in the following example, the statement will run successfully, but subsequent queries against the table will fail.
+예를 들어, 다음 예제와 같이 세 부분으로 이루어진 열 이름을 지정하면 문이 성공적으로 실행되지만 테이블에 대한 후속 쿼리는 실패합니다.
 
 ```tsql
 ALTER TABLE SensorTelemetry
@@ -169,7 +173,7 @@ ALTER TABLE SensorTelemetry
   )
 ```
 
-Instead, specify the filter function with a one-part column name as shown in the following example.
+대신에 다음 예제와 같이 한 부분으로 이루어진 열 이름을 사용하여 필터 함수를 지정합니다.
 
 ```tsql
 ALTER TABLE SensorTelemetry
@@ -179,18 +183,18 @@ ALTER TABLE SensorTelemetry
   )
 ```
 
-## <a name="<a-name="addafterwiz"></a>add-a-filter-function-after-running-the-wizard"></a><a name="addafterwiz"></a>Add a filter function after running the Wizard
-If you want use a function that you can't create in the **Enable Database for Stretch** Wizard, you can run the ALTER TABLE statement to specify a function after you exit the wizard. Before you can apply a function, however, you have to stop the data migration that's already in progress and bring back migrated data. (For more info about why this is necessary, see [Replace an existing filter function](#replacePredicate).  
+## <a name="a-nameaddafterwizaadd-a-filter-function-after-running-the-wizard"></a><a name="addafterwiz"></a>마법사를 실행한 후 필터 함수 추가
+**스트레치에 데이터베이스 사용** 마법사에서 만들 수 없는 함수를 사용하려는 경우 마법사를 종료한 후에 ALTER TABLE 문을 실행하여 함수를 지정할 수 있습니다. 그렇지만 함수를 적용하려면 먼저 이미 진행 중인 데이터 마이그레이션을 중지하고 마이그레이션된 데이터를 다시 가져와야 합니다. (이 작업이 필요한 이유에 대한 자세한 내용은 [기존 필터 함수 대체](#replacePredicate)를 참조하세요.  
 
-1. Reverse the direction of migration and bring back the data already migrated. You can't cancel this operation after it starts. You also incur costs on Azure for outbound data transfers \(egress\). For more info, see [How Azure pricing works](https://azure.microsoft.com/pricing/details/data-transfers/).  
+1. 마이그레이션 방향을 반대로 바꾸고 이미 마이그레이션된 데이터를 불러옵니다. 이 작업은 일단 시작되면 취소할 수 없습니다. 또한 Azure에서 아웃바운드 데이터 전송\(송신\)에 따른 비용이 발생합니다. 자세한 내용은 [Azure 가격 책정 방식](https://azure.microsoft.com/pricing/details/data-transfers/)을 참조하세요.  
    
     ```tsql  
     ALTER TABLE <table name>  
          SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;   
     ```  
-2. Wait for migration to finish. You can check the status in **Stretch Database Monitor** from SQL Server Management Studio, or you can query the **sys.dm_db_rda_migration_status** view. For more info, see [Monitor and troubleshoot data migration](sql-server-stretch-database-monitor.md) or [sys.dm_db_rda_migration_status](https://msdn.microsoft.com/library/dn935017.aspx).  
-3. Create the filter function that you want to apply to the table.  
-4. Add the function to the table and restart data migration to Azure.  
+2. 마이그레이션이 완료될 때까지 기다립니다. SQL Server Management Studio에서 **Stretch Database 모니터**에서 상태를 확인하거나 **sys.dm_db_rda_migration_status** 뷰를 쿼리할 수 있습니다. 자세한 내용은 [데이터 마이그레이션 모니터링 및 문제 해결](sql-server-stretch-database-monitor.md) 또는 [sys.dm_db_rda_migration_status](https://msdn.microsoft.com/library/dn935017.aspx)를 참조하세요.  
+3. 테이블에 적용할 필터 함수를 만듭니다.  
+4. 테이블에 함수를 추가하고 Azure에 대한 데이터 마이그레이션을 다시 시작합니다.  
    
     ```tsql  
     ALTER TABLE <table name>  
@@ -202,8 +206,8 @@ If you want use a function that you can't create in the **Enable Database for St
         );   
     ```  
 
-## <a name="filter-rows-by-date"></a>Filter rows by date
-The following example migrates rows where the **date** column contains a value earlier than January 1, 2016.
+## <a name="filter-rows-by-date"></a>날짜별로 행 필터링
+다음 예제에서는 **date** 열에 2016년 1월 1일 이전 값이 포함된 경우 행을 마이그레이션합니다.
 
 ```tsql
 -- Filter by date
@@ -216,8 +220,8 @@ AS
 GO
 ```
 
-## <a name="filter-rows-by-the-value-in-a-status-column"></a>Filter rows by the value in a status column
-The following example migrates rows where the **status** column contains one of the specified values.
+## <a name="filter-rows-by-the-value-in-a-status-column"></a>상태 열 값으로 행 필터링
+다음 예제에서는 **status** 열에 지정된 값 중 하나가 포함된 경우 행을 마이그레이션합니다.
 
 ```tsql
 -- Filter by status column
@@ -230,13 +234,13 @@ AS
 GO
 ```
 
-## <a name="filter-rows-by-using-a-sliding-window"></a>Filter rows by using a sliding window
-To filter rows by using a sliding window, keep in mind the following requirements for the filter function.
+## <a name="filter-rows-by-using-a-sliding-window"></a>슬라이딩 윈도우를 사용하여 행 필터링
+슬라이딩 윈도우를 사용하여 행을 필터링하려면 필터 함수에 대한 다음 요구 사항을 염두에 두어야 합니다.
 
-* The function has to be deterministic. Therefore you can't create a function that automatically recalculates the sliding window as time passes.
-* The function uses schema binding. Therefore you can't simply update the function "in place" every day by calling **ALTER FUNCTION** to move the sliding window.
+* 함수는 명확해야 합니다. 따라서 시간이 지남에 따라 슬라이딩 윈도우를 자동으로 다시 계산하는 함수를 만들 수 없습니다.
+* 함수에서 스키마 바인딩을 사용해야 합니다. 따라서 슬라이딩 윈도우를 이동하기 위해 **ALTER FUNCTION** 을 호출하여 매일 "현재 위치"에서 함수를 업데이트할 수 없습니다.
 
-Start with a filter function like the following example, which migrates rows where the **systemEndTime** column contains a value earlier than January 1, 2016.
+다음 예제와 같이 **systemEndTime** 열에 2016년 1월 1일 이전 값이 포함된 행을 마이그레이션하는 필터 함수로 시작합니다.
 
 ```tsql
 CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160101(@systemEndTime datetime2)
@@ -247,7 +251,7 @@ RETURN SELECT 1 AS is_eligible
   WHERE @systemEndTime < CONVERT(datetime2, '2016-01-01T00:00:00', 101) ;
 ```
 
-Apply the filter function to the table.
+테이블에 필터 함수를 적용합니다.
 
 ```tsql
 ALTER TABLE <table name>
@@ -261,11 +265,11 @@ SET (
 ;
 ```
 
-When you want to update the sliding window, do the following things.
+슬라이딩 윈도우를 업데이트하려는 경우에 다음을 수행합니다.
 
-1. Create a new function that specifies the new sliding window. The following example selects dates earlier than January 2, 2016, instead of January 1, 2016.
-2. Replace the previous filter function with the new one by calling **ALTER TABLE**, as shown in the following example.
-3. Optionally, drop the previous filter function that you're no longer using by calling **DROP FUNCTION**. (This step is not shown in the example.)
+1. 새 슬라이딩 윈도우를 지정하는 새 함수를 만듭니다. 다음 예제에서는 2016년 1월 1일 대신 2016년 1월 2일 이전 날짜를 선택합니다.
+2. 다음 예제와 같이 **ALTER TABLE**을 호출하여 이전 필터 함수를 새 필터 함수로 바꿉니다.
+3. 필요에 따라 **DROP FUNCTION**을 호출하여 더 이상 사용하지 않는 이전 필터 함수를 삭제합니다. 이 단계는 예제에 표시되어 있지 않습니다.
 
 ```tsql
 BEGIN TRAN
@@ -292,15 +296,15 @@ GO
 COMMIT ;
 ```
 
-## <a name="more-examples-of-valid-filter-functions"></a>More examples of valid filter functions
-* The following example combines two primitive conditions by using the AND logical operator.
+## <a name="more-examples-of-valid-filter-functions"></a>유효한 필터 함수의 추가 예제
+* 다음 예제는 AND 논리 연산자를 사용하여 두 개의 기본 조건을 결합한 것입니다.
   
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate((@column1 datetime, @column2 nvarchar(15))
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
     WHERE @column1 < N'20150101' AND @column2 IN (N'Completed', N'Returned', N'Cancelled')
   GO
   
@@ -309,94 +313,94 @@ COMMIT ;
       MIGRATION_STATE = OUTBOUND
   ) )
   ```
-* The following example uses several conditions and a deterministic conversion with CONVERT.
+* 다음 예제는 CONVERT를 통해 몇 가지 조건과 결정 변환을 사용한 것입니다.
   
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example1(@column1 datetime, @column2 int, @column3 nvarchar)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
       WHERE @column1 < CONVERT(datetime, '1/1/2015', 101)AND (@column2 < -100 OR @column2 > 100 OR @column2 IS NULL)AND @column3 IN (N'Completed', N'Returned', N'Cancelled')
   GO
   ```
-* The following example uses mathematical operators and functions.
+* 다음 예제는 수치 연산자와 함수를 사용한 것입니다.
   
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example2(@column1 float)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 < SQRT(400) + 10
   GO
   ```
-* The following example uses the BETWEEN and NOT BETWEEN operators. This usage is valid because the resulting function conforms to the rules described here after you replace the BETWEEN and NOT BETWEEN operators with the equivalent AND and OR expressions.
+* 다음 예제는 BETWEEN 및 NOT BETWEEN 연산자를 사용한 것입니다. BETWEEN과 NOT BETWEEN을 동등한 AND와 OR 식으로 대체한 후 결과 함수가 여기에 설명된 규칙을 준수하기 때문에 이렇게 사용하는 것은 올바릅니다.
   
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example3(@column1 int, @column2 int)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 BETWEEN 0 AND 100
               AND (@column2 NOT BETWEEN 200 AND 300 OR @column1 = 50)
   GO
   ```
-  The preceding function is equivalent to the following function after you replace the BETWEEN and NOT BETWEEN operators with the equivalent AND and OR expressions.
+  BETWEEN과 NOT BETWEEN 연산자를 동등한 AND와 OR 식으로 대체하고 나면 선행 함수는 다음 함수와 동등하게 됩니다.
   
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example4(@column1 int, @column2 int)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 >= 0 AND @column1 <= 100AND (@column2 < 200 OR @column2 > 300 OR @column1 = 50)
   GO
   ```
 
-## <a name="examples-of-filter-functions-that-aren't-valid"></a>Examples of filter functions that aren't valid
-* The following function isn't valid because it contains a non\-deterministic conversion.
+## <a name="examples-of-filter-functions-that-arent-valid"></a>올바르지 않는 필터 함수 예제
+* 다음 함수는 비결정 변환을 포함하기 때문에 올바르지 않습니다.
   
   ```tsql
   CREATE FUNCTION dbo.fn_example5(@column1 datetime)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 < CONVERT(datetime, '1/1/2016')
   GO
   ```
-* The following function isn't valid because it contains a non\-deterministic function call.
+* 다음 함수는 비결정 함수 호출을 포함하기 때문에 올바르지 않습니다.
   
   ```tsql
   CREATE FUNCTION dbo.fn_example6(@column1 datetime)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 < DATEADD(day, -60, GETDATE())
   GO
   ```
-* The following function isn't valid because it contains a subquery.
+* 다음 함수는 하위 쿼리를 포함하기 때문에 올바르지 않습니다.
   
   ```tsql
   CREATE FUNCTION dbo.fn_example7(@column1 int)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 IN (SELECT SupplierID FROM Supplier WHERE Status = 'Defunct'))
   GO
   ```
-* The following functions aren't valid because expressions that use algebraic operators or built\-in functions must evaluate to a constant when you define the function. You can't include column references in algebraic expressions or function calls.
+* 다음 함수는 함수를 정의할 때 대수 연산자 또는 기본\-제공 함수를 사용하는 식이 상수에 대해 계산해야 하기 때문에 올바르지 않습니다. 대수 식 또는 함수 호출에 열 참조를 포함시킬 수 없습니다.
   
   ```tsql
   CREATE FUNCTION dbo.fn_example8(@column1 int)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 % 2 =  0
   GO
   
@@ -404,124 +408,124 @@ COMMIT ;
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE SQRT(@column1) = 30
   GO
   ```
-* The following function isn't valid because it violates the rules described here  after you replace the BETWEEN operator with the equivalent AND expression.
+* 다음 함수는 BETWEEN 연산자를 동등한 AND 식으로 대체한 후 여기에 설명된 규칙을 위반하기 때문에 올바르지 않습니다.
   
   ```tsql
   CREATE FUNCTION dbo.fn_example10(@column1 int, @column2 int)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE (@column1 BETWEEN 1 AND 200 OR @column1 = 300) AND @column2 > 1000
   GO
   ```
-  The preceding function is equivalent to the following function after you replace the BETWEEN operator with the equivalent AND expression. This function isn't valid because primitive conditions can only use the OR logical operator.
+  BETWEEN 연산자를 동등한 AND 식으로 대체하고 나면 선행 함수는 다음 함수와 동등하게 됩니다. 이 함수는 기본 조건이 OR 논리 연산자만 사용할 수 있기 때문에 올바르지 않습니다.
   
   ```tsql
   CREATE FUNCTION dbo.fn_example11(@column1 int, @column2 int)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE (@column1 >= 1 AND @column1 <= 200 OR @column1 = 300) AND @column2 > 1000
   GO
   ```
 
-## <a name="how-stretch-database-applies-the-filter-function"></a>How Stretch Database applies the filter function
-Stretch Database applies the filter function to the table and determines eligible rows by using the CROSS APPLY operator. For example:
+## <a name="how-stretch-database-applies-the-filter-function"></a>Stretch Database가 필터 함수를 적용하는 방법
+Stretch Database는 CROSS APPLY 연산자를 사용하여 테이블에 필터 함수를 적용하고 해당 행을 결정합니다. 예:
 
 ```tsql
 SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column2)
 ```
-If the function returns a non\-empty result for the row, the row is eligible to be migrated.
+함수가 행에 대해 비어 있지 않은 결과 반환할 경우 해당 행을 마이그레이션할 수 있습니다.
 
-## <a name="<a-name="replacepredicate"></a>replace-an-existing-filter-function"></a><a name="replacePredicate"></a>Replace an existing filter function
-You can replace a previously specified filter function by running the **ALTER TABLE** statement again and specifying a new value for the **FILTER\_PREDICATE** parameter. For example:
+## <a name="a-namereplacepredicateareplace-an-existing-filter-function"></a><a name="replacePredicate"></a>기존 필터 함수 대체
+**ALTER TABLE** 문을 다시 실행하고 **FILTER\_PREDICATE** 매개 변수에 대해 새 값을 지정하여 이전에 지정된 필터 함수를 대체할 수 있습니다. 예:
 
 ```tsql
 ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
     FILTER_PREDICATE = dbo.fn_stretchpredicate2(column1, column2),
     MIGRATION_STATE = <desired_migration_state>
 ```
-The new inline table\-valued function has the following requirements.
+새 인라인 테이블\-값 함수에는 다음과 같은 요구 사항이 있습니다.
 
-* The new function has to be less restrictive than the previous function.
-* All the operators that existed in the old function must exist in the new function.
-* The new function can't contain operators that don't exist in the old function.
-* The order of operator arguments can't change.
-* Only constant values that are part of a `<, <=, >, >=`  comparison can be changed in a way that makes the function less restrictive.
+* 새 함수는 이전 함수보다 덜 제한적이어야 합니다.
+* 이전 함수에 존재하는 모든 연산자는 새 함수에 있어야 합니다.
+* 새 함수는 이전 함수에 존재하지 않는 연산자를 포함할 수 없습니다.
+* 연산자 인수의 순서를 변경할 수 없습니다.
+* `<, <=, >, >=` 비교의 일부인 상수 값만이 함수를 덜 제한적으로 만드는 방식으로 변경될 수 있습니다.
 
-### <a name="example-of-a-valid-replacement"></a>Example of a valid replacement
-Assume that the following function is the current filter predicate.
+### <a name="example-of-a-valid-replacement"></a>올바른 대체의 예제
+다음 함수가 현재 필터 조건자임을 가정합니다.
 
 ```tsql
 CREATE FUNCTION dbo.fn_stretchpredicate_old (@column1 datetime, @column2 int)
 RETURNS TABLE
 WITH SCHEMABINDING
 AS
-RETURN  SELECT 1 AS is_eligible
+RETURN    SELECT 1 AS is_eligible
         WHERE @column1 < CONVERT(datetime, '1/1/2016', 101)
             AND (@column2 < -100 OR @column2 > 100)
 GO
 ```
-The following function is a valid replacement because the new date constant (which specifies a later cutoff date) makes the function less restrictive.
+다음 함수는 새 날짜 상수(나중 구분 날짜를 지정)가 함수를 덜 제한적으로 만들기 때문에 올바른 대체입니다.
 
 ```tsql
 CREATE FUNCTION dbo.fn_stretchpredicate_new (@column1 datetime, @column2 int)
 RETURNS TABLE
 WITH SCHEMABINDING
 AS
-RETURN  SELECT 1 AS is_eligible
+RETURN    SELECT 1 AS is_eligible
         WHERE @column1 < CONVERT(datetime, '2/1/2016', 101)
             AND (@column2 < -50 OR @column2 > 50)
 GO
 ```
 
-### <a name="examples-of-replacements-that-aren't-valid"></a>Examples of replacements that aren't valid
-The following function isn't a valid replacement because the new date constant (which specifies an earlier cutoff date) doesn't make the function less restrictive.
+### <a name="examples-of-replacements-that-arent-valid"></a>올바르지 않은 대체의 예제
+다음 함수는 새 날짜 상수(이전 구분 날짜를 지정)가 함수를 덜 제한적으로 만들지 않기 때문에 올바른 대체가 아닙니다.
 
 ```tsql
 CREATE FUNCTION dbo.fn_notvalidreplacement_1 (@column1 datetime, @column2 int)
 RETURNS TABLE
 WITH SCHEMABINDING
 AS
-RETURN  SELECT 1 AS is_eligible
+RETURN    SELECT 1 AS is_eligible
         WHERE @column1 < CONVERT(datetime, '1/1/2015', 101)
             AND (@column2 < -100 OR @column2 > 100)
 GO
 ```
-The following function isn't a valid replacement because one of the comparison operators has been removed.
+다음 함수는 비교 연산자 중 하나가 제거되었기 때문에 올바른 대체가 아닙니다.
 
 ```tsql
 CREATE FUNCTION dbo.fn_notvalidreplacement_2 (@column1 datetime, @column2 int)
 RETURNS TABLE
 WITH SCHEMABINDING
 AS
-RETURN  SELECT 1 AS is_eligible
+RETURN    SELECT 1 AS is_eligible
         WHERE @column1 < CONVERT(datetime, '1/1/2016', 101)
             AND (@column2 < -50)
 GO
 ```
-The following function isn't a valid replacement because a new condition has been added with the AND logical operator.
+다음 함수는 AND 논리 연산자를 통해 새 조건이 추가되었기 때문에 올바른 대체가 아닙니다.
 
 ```tsql
 CREATE FUNCTION dbo.fn_notvalidreplacement_3 (@column1 datetime, @column2 int)
 RETURNS TABLE
 WITH SCHEMABINDING
 AS
-RETURN  SELECT 1 AS is_eligible
+RETURN    SELECT 1 AS is_eligible
         WHERE @column1 < CONVERT(datetime, '1/1/2016', 101)
             AND (@column2 < -100 OR @column2 > 100)
             AND (@column2 <> 0)
 GO
 ```
 
-## <a name="remove-a-filter-function-from-a-table"></a>Remove a filter function from a table
-To migrate the entire table instead of selected rows, remove the existing function by setting **FILTER\_PREDICATE** to null. For example:
+## <a name="remove-a-filter-function-from-a-table"></a>테이블에서 필터 함수 제거
+선택한 행이 아니라 테이블 전체를 마이그레이션하려면 **FILTER\_PREDICATE**를 null로 설정하여 기존 함수를 제거합니다. 예:
 
 ```tsql
 ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
@@ -529,20 +533,23 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
     MIGRATION_STATE = <desired_migration_state>
 ) )
 ```
-After you remove the filter function, all rows in the table are eligible for migration. As a result, you cannot specify a filter function for the same table later unless you bring back all the remote data for the table from Azure first. This restriction exists to avoid the situation where rows that are not eligible for migration when you provide a new filter function have already been migrated to Azure.
+필터 함수를 제거한 후 테이블의 모든 행은 마이그레이션할 수 있습니다. 따라서 먼저 Azure에서 테이블에 대한 모든 원격 데이터를 다시 가져오지 않는 한 나중에 같은 테이블에 대해 필터 함수를 지정할 수 없습니다. 이 제한 사항은 새 필터 함수를 제공할 때 마이그레이션할 수 없는 행이 Azure에 이미 마이그레이션되는 상황을 방지하기 위한 것입니다.
 
-## <a name="check-the-filter-function-applied-to-a-table"></a>Check the filter function applied to a table
-To check the filter function applied to a table, open the catalog view **sys.remote\_data\_archive\_tables** and check the value of the **filter\_predicate** column. If the value is null, the entire table is eligible for archiving. For more info, see [sys.remote_data_archive_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+## <a name="check-the-filter-function-applied-to-a-table"></a>테이블에 적용된 필터 함수 확인
+테이블에 적용된 필터 함수를 확인하려면 카탈로그 뷰 **sys.remote\_data\_archive\_tables**를 열고 **filter\_predicate** 열의 값을 확인합니다. 값이 null이면 전체 테이블을 보관할 수 있습니다. 자세한 내용은 [sys.remote_data_archive_tables(Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx)를 참조하세요.
 
-## <a name="security-notes-for-filter-functions"></a>Security notes for filter functions
-A compromised account with db_owner privileges can do the following things.  
+## <a name="security-notes-for-filter-functions"></a>필터 함수에 대한 보안 정보
+Db_owner 권한이 있는 손상된 계정은 다음 작업을 수행할 수 있습니다.  
 
-* Create and apply a table-valued function that consumes large amounts of server resources or waits for an extended period resulting in a denial of service.  
-* Create and apply a table-valued function that makes it possible to infer the content of a table for which the user has been explicitly denied read access.  
+* 많은 양의 서버 리소스를 소비하거나 장시간 대기하다가 서비스 거부를 초래하는 테이블 반환 함수를 만들고 적용합니다.  
+* 사용자의 읽기 액세스가 명시적으로 거부된 테이블의 콘텐츠를 유추할 수 있도록 하는 테이블 반환 함수를 만들고 적용합니다.  
 
-## <a name="see-also"></a>See also
-[ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
+## <a name="see-also"></a>참고 항목
+[ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

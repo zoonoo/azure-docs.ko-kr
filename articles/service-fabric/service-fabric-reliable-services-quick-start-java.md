@@ -1,12 +1,12 @@
 ---
-title: Get started with Reliable Services | Microsoft Docs
-description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services.
+title: "Reliable Services 시작 |Microsoft Docs"
+description: "상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure 서비스 패브릭 응용 프로그램 만들기 소개"
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: article
@@ -14,37 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: vturecek
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 224538560a50f9ab24b8c2746e99de1ab87f084b
+
 
 ---
-# <a name="get-started-with-reliable-services"></a>Get started with Reliable Services
+# <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
 > [!div class="op_single_selector"]
-> * [C# on Windows](service-fabric-reliable-services-quick-start.md)
-> * [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
+> * [Windows에서 C#](service-fabric-reliable-services-quick-start.md)
+> * [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
 > 
 > 
 
-This article explains the basics of Azure Service Fabric Reliable Services and walks you through creating and deploying a simple Reliable Service application written in Java.
+이 문서는 Azure Service Fabric Reliable Services의 기본 개념을 설명하고 Java로 작성된 Reliable Services 응용 프로그램을 생성 및 배포하는 과정을 안내합니다.
 
-## <a name="installation-and-setup"></a>Installation and setup
-Before you start, make sure you have the Service Fabric development environment set up on your machine.
-If you need to set it up, go to [getting started on Mac](service-fabric-get-started-mac.md) or [getting started on Linux](service-fabric-get-started-linux.md).
+## <a name="installation-and-setup"></a>설치 및 설정
+시작하기 전에 컴퓨터에 Service Fabric 개발 환경이 설정되어 있는지 확인합니다.
+설정해야 하는 경우 [Mac에서 시작](service-fabric-get-started-mac.md) 또는 [Linux에서 시작](service-fabric-get-started-linux.md)으로 이동합니다.
 
-## <a name="basic-concepts"></a>Basic concepts
-To get started with Reliable Services, you only need to understand a few basic concepts:
+## <a name="basic-concepts"></a>기본 개념
+Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 됩니다.
 
-* **Service type**: This is your service implementation. It is defined by the class you write that extends `StatelessService` and any other code or dependencies used therein, along with a name and a version number.
-* **Named service instance**: To run your service, you create named instances of your service type, much like you create object instances of a class type. Service instances are in fact object instantiations of your service class that you write. 
-* **Service host**: The named service instances you create need to run inside a host. The service host is just a process where instances of your service can run.
-* **Service registration**: Registration brings everything together. The service type must be registered with the Service Fabric runtime in a service host to allow Service Fabric to create instances of it to run.  
+* **서비스 유형**: 서비스 구현입니다. 이름 및 버전 번호와 함께 `StatelessService` 및 기타 코드 또는 여기에 사용된 종속성을 확장하도록 사용자가 작성한 클래스에 의해 정의됩니다.
+* **명명된 서비스 인스턴스**: 서비스를 실행하려면 클래스 유형의 개체 인스턴스를 만드는 것처럼 서비스 유형의 명명된 인스턴스를 만듭니다. 서비스 인스턴스는 실제로 사용자가 작성한 서비스 클래스의 개체 인스턴스화입니다. 
+* **서비스 호스트**: 호스트 내에서 실행해야 하는 사용자가 만든 명명된 서비스 인스턴스입니다. 서비스 호스트는 서비스의 인스턴스에서 실행할 수 있는 프로세스일 뿐입니다.
+* **서비스 등록**: 등록은 모든 항목을 함께 모읍니다. Service Fabric에서 실행할 인스턴스를 만들 수 있도록 서비스 호스트의 Service Fabric 런타임에 서비스 유형을 등록해야 합니다.  
 
-## <a name="create-a-stateless-service"></a>Create a stateless service
-Start by creating a new Service Fabric application. The Service Fabric SDK for Linux includes a Yeoman generator to provide the scaffolding for a Service Fabric application with a stateless service. Start by running the following Yeoman command:
+## <a name="create-a-stateless-service"></a>상태 비저장 서비스 만들기
+새 Service Fabric 응용 프로그램을 만들어 시작합니다. Linux용 Service Fabric SDK는 Service Fabric 응용 프로그램용 스캐폴딩에 상태 비저장 서비스를 제공하기 위해 Yeoman 생성기를 포함합니다. 다음 Yeoman 명령을 실행하여 시작합니다.
 
 ```bash
 $ yo azuresfjava
 ```
 
-Follow the instructions to create a **Reliable Stateless Service**. For this tutorial, name the application "HelloWorldApplication" and the service "HelloWorld". The result will include directories for the `HelloWorldApplication` and `HelloWorld`.
+지침에 따라 **신뢰할 수 있는 상태 비저장 서비스**를 만듭니다. 이 자습서에서는 응용 프로그램을 "HelloWorldApplication", 행위자를 "HelloWorld"라고 이름을 지정합니다. 결과에는 `HelloWorldApplication` 및 `HelloWorld`에 대한 디렉터리가 포함됩니다.
 
 ```bash
 HelloWorldApplication/
@@ -71,10 +75,10 @@ HelloWorldApplication/
 └── uninstall.sh
 ```
 
-## <a name="implement-the-service"></a>Implement the service
-Open **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. This class defines the service type, and can run any code. The service API provides two entry points for your code:
+## <a name="implement-the-service"></a>서비스 구현
+**HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**를 엽니다. 이 클래스는 서비스 유형을 정의하고 모든 코드를 실행할 수 있습니다. 서비스 API는 코드에 대한 두 진입점을 제공합니다.
 
-* An open-ended entry point method, called `runAsync()`, where you can begin executing any workloads, including long-running compute workloads.
+* 장기 실행 계산 워크로드 등 모든 워크로드의 실행을 시작할 수 있는 `runAsync()`라는 개방형 진입점 메서드.
 
 ```java
 @Override
@@ -83,7 +87,7 @@ protected CompletableFuture<?> runAsync() {
 }
 ```
 
-* A communication entry point where you can plug in your communication stack of choice. This is where you can start receiving requests from users and other services.
+* 원하는 통신 스택을 연결할 수 있는 통신 진입점. 사용자 및 다른 서비스에서 요청을 수신하도록 시작할 수 있습니다.
 
 ```java
 @Override
@@ -92,20 +96,20 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-In this tutorial, we will focus on the `runAsync()` entry point method. This is where you can immediately start running your code.
+이 자습서에서는 `runAsync()` 진입점 메서드에 집중합니다. 바로 코드를 실행하기 시작할 수 있습니다.
 
 ### <a name="runasync"></a>RunAsync
-The platform calls this method when an instance of a service is placed and ready to execute. The open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
+서비스의 인스턴스가 배치되어 실행할 준비가 되면 플랫폼이 이 메서드를 호출합니다. 서비스 인스턴스의 열림-닫힘 주기는 서비스의 수명 동안 전체적으로 여러 번 발생할 수 있습니다. 다음을 포함하여 여러 가지 이유로 발생할 수 있습니다.
 
-* The system moves your service instances for resource balancing.
-* Faults occur in your code.
-* The application or system is upgraded.
-* The underlying hardware experiences an outage.
+* 시스템은 리소스 분산을 위해 서비스 인스턴스를 이동시킵니다.
+* 오류는 코드에서 발생합니다.
+* 응용 프로그램 또는 시스템 업그레이드됩니다.
+* 기본 하드웨어가 중단됩니다.
 
-This orchestration is managed by Service Fabric to keep your service highly available and properly balanced.
+이러한 오케스트레이션은 서비스의 가용성을 높게 유지하고 제대로 균형을 유지하기 위해 Service Fabric에 의해 관리됩니다.
 
-#### <a name="cancellation"></a>Cancellation
-It is vital that your code in `runAsync()` can stop execution when notified by Service Fabric. The `CompletableFuture` returned from `runAsync()` is canceled when Service Fabric requires your service to stop execution. The following example demonstrates how to handle a cancellation event: 
+#### <a name="cancellation"></a>취소
+Service Fabric에서 알림을 받을 때 `runAsync()`의 코드가 실행을 중지할 수 있습니다. Service Fabric이 서비스 실행을 중지해야 하는 경우 `runAsync()`에서 반환된 `CompletableFuture`는 취소됩니다. 다음 예제에서는 취소 이벤트를 처리하는 방법을 보여줍니다. 
 
 ```java
     @Override
@@ -141,8 +145,8 @@ It is vital that your code in `runAsync()` can stop execution when notified by S
    }
 ``` 
 
-### <a name="service-registration"></a>Service registration
-Service types must be registered with the Service Fabric runtime. The service type is defined in the `ServiceManifest.xml` and your service class that implements `StatelessService`. Service registration is performed in the process main entry point. In this example, the process main entry point is `HelloWorldServiceHost.java`:
+### <a name="service-registration"></a>서비스 등록
+서비스 유형은 Service Fabric 런타임에 등록되어야 합니다. 서비스 유형은 `ServiceManifest.xml`에서 정의되고 `StatelessService`를 구현하는 서비스 클래스입니다. 서비스 등록은 프로세스 주 진입점에서 수행됩니다. 이 예제에서는 프로세스 주 진입점은 `HelloWorldServiceHost.java`입니다.
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -158,14 +162,14 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
-## <a name="run-the-application"></a>Run the application
-The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and un-deploy the application. To run the application, first build the application with gradle:
+## <a name="run-the-application"></a>응용 프로그램 실행
+Yeoman 스캐폴딩은 응용 프로그램을 빌드하는 Gradle 스크립트와 응용 프로그램을 배포하고 배포 취소하는 Bash 스크립트를 포함합니다. 응용 프로그램을 실행하려면 먼저 다음과 같은 Gradle을 통해 응용 프로그램을 빌드합니다.
 
 ```bash
 $ gradle
 ```
 
-This will produce a Service Fabric application package that can be deployed using Service Fabric Azure CLI. The install.sh script contains the necessary Azure CLI commands to deploy the application package. Simply run the install.sh script to deploy:
+이는 Service Fabric Azure CLI를 사용하여 배포할 수 있는 Service Fabric 응용 프로그램 패키지를 생성합니다. install.sh 스크립트는 응용 프로그램 패키지를 배포하는 데 필요한 Azure CLI 명령을 포함합니다. 다음과 같이 배포할 install.sh 스크립트를 실행하면 됩니다.
 
 ```bask
 $ ./install.sh
@@ -173,6 +177,6 @@ $ ./install.sh
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

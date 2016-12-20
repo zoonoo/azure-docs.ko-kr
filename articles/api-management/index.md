@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 43f480acb3e49a1b6a081a8338bb66daa571be55
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 79b75ae11af07735449714d3a3034c867224ebf4
 
 ---
 # <a name="api-management-documentation"></a>API Management 설명서
 
-API 관리를 사용하여 조직은 외부, 파트너 및 내부의 개발자에게 API를 게시하여 데이터 및 서비스의 잠재성을 활용할 수 있습니다.  API 관리는 개발자 참여, 비즈니스 통찰력, 분석, 보안과 보호 등을 통해 성공적인 API 프로그램을 보장하는 핵심적인 역량을 제공합니다.
+API Management를 사용하여 조직은 외부, 파트너 및 내부의 개발자에게 API를 게시하여 데이터 및 서비스의 잠재성을 활용할 수 있습니다.  API Management는 개발자 참여, 비즈니스 통찰력, 분석, 보안과 보호 등을 통해 성공적인 API 프로그램을 보장하는 핵심적인 역량을 제공합니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +29,7 @@ API 관리를 사용하여 조직은 외부, 파트너 및 내부의 개발자�
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=api-management">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=api-management">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,7 +57,7 @@ API 관리를 사용하여 조직은 외부, 파트너 및 내부의 개발자�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>API 관리 시작</h3>
+                        <h3>API Management 시작</h3>
                     </div>
                 </div>
             </div>
@@ -86,36 +86,46 @@ API 관리를 사용하여 조직은 외부, 파트너 및 내부의 개발자�
 
 ---
 
-## <a name="reference"></a>참조
-
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>API Management Resource Manager PowerShell cmdlet</p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt613507">클래식 PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/apimanagement/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>API Management REST API 참조</p>
+                        <h3>REST (영문)</h3>
+                        <p><a href="/rest/api/apimanagement/">REST API</a></p>
+                        <p><a href="/rest/api/apimanagement/ApiManagementREST/API-Management-REST">REST API(원본)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>기타</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn894081">정책</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt697540">템플릿</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 
@@ -131,6 +141,6 @@ API Management 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
 
 
 ---
@@ -126,7 +126,7 @@ ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
 ### <a name="step-3-reset-your-azure-ad-password-as-a-user"></a>3단계: 사용자로 Azure AD 암호 재설정
 사용자 재설정 정책을 구성하고 사용자에 대한 연락처 정보를 지정하였으므로 이 사용자는 셀프 서비스 암호 재설정을 수행할 수 있습니다.
 
-#### <a name="to-perform-a-selfservice-password-reset"></a>셀프 서비스 암호 재설정을 수행하려면
+#### <a name="to-perform-a-self-service-password-reset"></a>셀프 서비스 암호 재설정을 수행하려면
 1. [**portal.microsoftonline.com**](http://portal.microsoftonline.com)과 같은 사이트로 이동하는 경우, 아래와 같은 로그인 화면이 표시됩니다.  **계정에 액세스할 수 없습니까?** 링크를 클릭하여 암호 재설정 UI를 테스트합니다.
    
    ![][011]
@@ -365,6 +365,6 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

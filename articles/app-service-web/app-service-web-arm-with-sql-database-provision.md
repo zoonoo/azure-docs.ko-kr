@@ -1,12 +1,12 @@
 ---
-title: SQL 데이터베이스를 사용하는 웹앱을 프로비전
-description: SQL 데이터베이스가 포함된 웹앱을 배포하는 Azure 리소스 관리자 템플릿을 사용합니다.
+title: "SQL 데이터베이스를 사용하는 웹앱을 프로비전"
+description: "SQL 데이터베이스가 포함된 웹앱을 배포하는 Azure 리소스 관리자 템플릿을 사용합니다."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fb9648e1-9bf2-4537-bc4a-ab8d4953168c
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 461b97b56058620202a5f7f69171ffa0f2cb25cb
+
 
 ---
-# SQL 데이터베이스를 사용하는 웹앱을 프로비전
+# <a name="provision-a-web-app-with-a-sql-database"></a>SQL 데이터베이스를 사용하는 웹앱을 프로비전
 이 항목에서는 웹앱 및 SQL 데이터베이스를 배포하는 Azure 리소스 관리자 템플릿을 만드는 방법을 배웁니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
 템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하세요.
@@ -27,7 +31,7 @@ ms.author: cephalin
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## 배포할 내용
+## <a name="what-you-will-deploy"></a>배포할 내용
 이 서식 파일에서 다음을 배포합니다:
 
 * 웹앱
@@ -39,26 +43,26 @@ ms.author: cephalin
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
-[![Azure에 배포](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)로 바꿉니다.
+[![Azure에 배포](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
-## 지정할 매개변수
+## <a name="parameters-to-specify"></a>지정할 매개변수
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
-### administratorLogin
+### <a name="administratorlogin"></a>administratorLogin
 데이터베이스 서버 관리자에 사용할 계정 이름입니다.
 
     "administratorLogin": {
       "type": "string"
     }
 
-### administratorLoginPassword
+### <a name="administratorloginpassword"></a>administratorLoginPassword
 데이터베이스 서버 관리자에 사용할 암호입니다.
 
     "administratorLoginPassword": {
       "type": "securestring"
     }
 
-### databaseName
+### <a name="databasename"></a>databaseName
 만들려는 새 데이터베이스의 이름입니다.
 
     "databaseName": {
@@ -66,7 +70,7 @@ ms.author: cephalin
       "defaultValue": "sampledb"
     }
 
-### collation
+### <a name="collation"></a>collation
 문자의 적절한 사용을 제어하기 위해 사용하는 데이터베이스 데이터 정렬입니다.
 
     "collation": {
@@ -74,7 +78,7 @@ ms.author: cephalin
       "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
     }
 
-### edition
+### <a name="edition"></a>edition
 만들려는 데이터베이스의 형식입니다.
 
     "edition": {
@@ -90,7 +94,7 @@ ms.author: cephalin
       }
     }
 
-### maxSizeBytes
+### <a name="maxsizebytes"></a>maxSizeBytes
 (바이트)는 데이터베이스의 최대 크기입니다.
 
     "maxSizeBytes": {
@@ -98,8 +102,8 @@ ms.author: cephalin
       "defaultValue": "1073741824"
     }
 
-### requestedServiceObjectiveName
-버전에 대한 성능 수준에 해당하는 이름입니다.
+### <a name="requestedserviceobjectivename"></a>requestedServiceObjectiveName
+버전에 대한 성능 수준에 해당하는 이름입니다. 
 
     "requestedServiceObjectiveName": {
       "type": "string",
@@ -118,7 +122,7 @@ ms.author: cephalin
       }
     }
 
-## 이름에 대한 변수
+## <a name="variables-for-names"></a>이름에 대한 변수
 이 템플릿에는 템플릿에 사용되는 이름을 생성하는 변수가 포함되어 있습니다. 변수 값은 **uniqueString** 함수를 사용하여 리소스 그룹 id의 이름을 생성합니다.
 
     "variables": {
@@ -128,9 +132,9 @@ ms.author: cephalin
     },
 
 
-## 배포할 리소스
-### SQL Server 및 데이터베이스
-새 SQL Server 및 데이터베이스를 만듭니다. 서버 이름은 **serverName** 매개 변수에 지정되고 위치는 **serverLocation** 매개변수에 지정됩니다. 새 서버를 만들 때 데이터베이스 서버 관리자용 로그인 이름 및 암호를 제공해야 합니다.
+## <a name="resources-to-deploy"></a>배포할 리소스
+### <a name="sql-server-and-database"></a>SQL Server 및 데이터베이스
+새 SQL Server 및 데이터베이스를 만듭니다. 서버 이름은 **serverName** 매개 변수에 지정되고 위치는 **serverLocation** 매개변수에 지정됩니다. 새 서버를 만들 때 데이터베이스 서버 관리자용 로그인 이름 및 암호를 제공해야 합니다. 
 
     {
       "name": "[variables('sqlserverName')]",
@@ -181,7 +185,7 @@ ms.author: cephalin
 
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### 웹앱
+### <a name="web-app"></a>웹앱
     {
       "apiVersion": "2015-08-01",
       "name": "[variables('webSiteName')]",
@@ -217,7 +221,7 @@ ms.author: cephalin
     },
 
 
-### 자동 크기 조정
+### <a name="autoscale"></a>자동 크기 조정
     {
       "apiVersion": "2014-04-01",
       "name": "[concat(variables('hostingPlanName'), '-', resourceGroup().name)]",
@@ -286,7 +290,7 @@ ms.author: cephalin
     },
 
 
-### 경고는 상태 코드 403 및 500's, 높은 CPU 사용률 및 HTTP 큐 길이를 규정해야 합니다.
+### <a name="alert-rules-for-status-codes-403-and-500s-high-cpu-and-http-queue-length"></a>경고는 상태 코드 403 및 500's, 높은 CPU 사용률 및 HTTP 큐 길이를 규정해야 합니다.
     {
       "apiVersion": "2014-04-01",
       "name": "[concat('ServerErrors ', variables('webSiteName'))]",
@@ -424,7 +428,7 @@ ms.author: cephalin
       }
     },
 
-### App Insights
+### <a name="app-insights"></a>App Insights
     {
       "apiVersion": "2014-04-01",
       "name": "[concat('AppInsights', variables('webSiteName'))]",
@@ -442,16 +446,20 @@ ms.author: cephalin
       }
     }
 
-## 배포 실행 명령
+## <a name="commands-to-run-deployment"></a>배포 실행 명령
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
-### Azure CLI
+### <a name="azure-cli"></a>Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
 
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

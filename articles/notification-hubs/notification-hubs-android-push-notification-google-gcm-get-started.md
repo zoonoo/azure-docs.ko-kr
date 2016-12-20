@@ -59,7 +59,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 이제 알림 허브가 GCM과 작동하도록 구성되었으며, 푸시 알림을 받고 보내도록 앱을 등록하기 위한 연결 문자열이 있습니다.
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>알림 허브에 앱 연결
+## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>알림 허브에 앱 연결
 ### <a name="create-a-new-android-project"></a>새 Android 프로젝트 만들기
 1. Android Studio에서 새 Android Studio 프로젝트를 시작합니다.
    
@@ -133,7 +133,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
    
    * **SenderId**: 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 얻은 프로젝트 번호입니다.
    * **HubListenConnectionString**: 허브의 **DefaultListenAccessSignature** 연결 문자열입니다. [Azure Portal]에 있는 허브의 **설정** 블레이드에서 **액세스 정책**을 클릭하여 이 연결 문자열을 복사할 수 있습니다.
-   * **HubName**: [Azure 포털]의 허브 블레이드에 표시되는 알림 허브 이름을 사용합니다.
+   * **HubName**: [Azure Portal]의 허브 블레이드에 표시되는 알림 허브 이름을 사용합니다.
      
      `NotificationSettings` 코드:
      
@@ -667,7 +667,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 [알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[액세스 정책]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
 
 

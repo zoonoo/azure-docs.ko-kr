@@ -8,15 +8,16 @@ manager: swadhwa
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/01/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
+ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
 
 
 ---
@@ -148,7 +149,7 @@ ID 활동을 모니터링함으로써 문제가 발생하기 전에 사전 대�
 
 ![위협 인텔리전스](./media/oms-security-getting-started/oms-getting-started-fig12.png)
 
-이 옵션은 인시던트 대응을 조사하는 과정에 사용되어 평가를 수행하고 공격에 대한 자세한 정보를 가져올 수 있습니다.
+이 옵션은 [인시던트 대응을 조사](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/)하는 과정에 사용되어 평가를 수행하고 공격에 대한 자세한 정보를 가져올 수 있습니다.
 
 > [!NOTE]
 > 인시던트 대응에 OMS를 사용하는 방법에 대한 자세한 내용은 [인시던트 대응에 대한 Azure Security Center 및 Microsoft Operations Management Suite를 활용하는 방법](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703)을 시청하세요.
@@ -186,6 +187,6 @@ ID 활동을 모니터링함으로써 문제가 발생하기 전에 사전 대�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

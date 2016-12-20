@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory 미리 보기에서 엔터프라이즈 앱에 대한 Single Sign-On 관리 | Microsoft Docs
-description: Azure Active Directory를 사용하여 엔터프라이즈 앱에 대한 Single Sign-On을 관리하는 방법에 대해 알아봅니다.
+title: "Azure Active Directory 미리 보기에서 엔터프라이즈 앱에 대한 Single Sign-On 관리 | Microsoft Docs"
+description: "Azure Active Directory를 사용하여 엔터프라이즈 앱에 대한 Single Sign-On을 관리하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/30/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0d523630e39d2dbeba2b3c11e19fc775032b23e7
+
 
 ---
-# <a name="preview:-managing-single-sign-on-for-enterprise-apps-in-the-new-azure-portal"></a>미리 보기: 새 Azure Portal에서 엔터프라이즈 앱에 대한 Single Sign-On 관리
+# <a name="preview-managing-single-sign-on-for-enterprise-apps-in-the-new-azure-portal"></a>미리 보기: 새 Azure Portal에서 엔터프라이즈 앱에 대한 Single Sign-On 관리
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-enterprise-apps-manage-sso.md)
+> * [Azure 포털](active-directory-enterprise-apps-manage-sso.md)
 > * [Azure 클래식 포털](active-directory-sso-integrate-saas-apps.md)
 > 
 > 
 
-이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 응용 프로그램, 특히 [Azure AD(Azure Active Directory) 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)에서 추가된 응용 프로그램에 대한 Single Sign-On 설정을 관리하는 방법을 설명합니다. Single Sign-On에 대한 Azure AD 관리 환경은 현재 공개 미리 보기이며 이 문서에서는 새로운 기능뿐만 아니라 미리 보기 기간 동안만 적용될 몇 가지 임시 제한 사항에 대해 설명합니다. [미리 보기 상태에서의 기능](active-directory-preview-explainer.md)
+이 문서에서는 [Azure 포털](https://portal.azure.com)을 사용하여 응용 프로그램, 특히 [Azure AD(Azure Active Directory) 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)에서 추가된 응용 프로그램에 대한 Single Sign-On 설정을 관리하는 방법을 설명합니다. Single Sign-On에 대한 Azure AD 관리 환경은 현재 공개 미리 보기이며 이 문서에서는 새로운 기능뿐만 아니라 미리 보기 기간 동안만 적용될 몇 가지 임시 제한 사항에 대해 설명합니다. [미리 보기 상태에서의 기능](active-directory-preview-explainer.md)
 
 ## <a name="finding-your-apps-in-the-new-portal"></a>새 포털에서 앱 찾기
 2016년 9월을 기준으로 [Azure 클래식 포털](https://manage.windowsazure.com) 내의 [Azure Active Directory 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)를 사용하여 디렉터리 관리자에 의해 디렉터리의 Single Sign-On이 구성된 모든 응용 프로그램을 이제 Azure Portal에서 확인하고 관리할 수 있습니다.
@@ -41,9 +45,9 @@ Single Sign-On 설정을 관리하려면 **Single Sign-On**을 선택합니다.
 ## <a name="single-sign-on-modes"></a>Single Sign-On 모드
 **Single Sign-On** 블레이드는 Single Sign-On 모드를 구성할 수 있는 **모드** 메뉴로 시작합니다. 사용 가능한 옵션은 다음과 같습니다.
 
-* **SAML 기반 로그온** - 이 옵션은 응용 프로그램이 SAML 2.0 프로토콜을 사용하여 Azure Active Directory로 전체 페더레이션된 Single Sign-On을 지원하는 경우 사용할 수 있습니다. 이
+* **SAML 기반 로그온** - 이 옵션은 응용 프로그램이 SAML 2.0 프로토콜을 사용하여 Azure Active Directory로 전체 페더레이션된 Single Sign-On을 지원하는 경우 사용할 수 있습니다.
 * **암호 기반 로그온** - 이 옵션은 Azure AD가 이 응용 프로그램에 대해 입력하는 암호 양식을 지원하는 경우 사용할 수 있습니다.
-* **연결된 로그온** - 이전에 "기존 Single Sign-On"이었던 이 옵션을 사용하면 관리자가 해당 사용자의 Azure AD 액세스 패널 또는 Office 365 응용 프로그램 실행 관리자에서 이 응용 프로그램에 대한 링크를 배치할 수 있습니다.
+* **연결된 로그온** - 이전에 "기존 Single Sign-On"이었던 이 옵션을 사용하면 관리자가 해당 사용자의 Azure AD 액세스 패널 또는 Office 365 응용 프로그램 시작 관리자에서 이 응용 프로그램에 대한 링크를 배치할 수 있습니다.
 
 이러한 모드에 대한 자세한 내용은 [Azure Active Directory에서 Single Sign-On이 작동하는 방식](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)을 참조하세요.
 
@@ -100,6 +104,6 @@ Single Sign-On 설정을 관리하려면 **Single Sign-On**을 선택합니다.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -22,11 +22,11 @@
 
    DocumentDB 계정의 기본 일관성은 **세션**으로 설정됩니다.  리소스 메뉴에서 **기본 일관성** 을 클릭하여 기본 일관성을 조정할 수 있습니다. DocumentDB에서 제공되는 일관성 수준에 대한 자세한 내용은 [DocumentDB의 일관성 수준](../articles/documentdb/documentdb-consistency-levels.md)을 참조하세요.
 
-[방법: DocumentDB 계정 만들기]: #Howto
-[다음 단계]: #NextSteps
+[How to: Create a DocumentDB account]: #Howto
+[Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

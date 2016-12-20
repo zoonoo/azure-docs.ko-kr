@@ -1,13 +1,13 @@
 ---
-title: Azure DocumentDB에서 데이터 모델링 | Microsoft Docs
-description: DocumentDB, NoSQL 문서 데이터베이스에 대한 데이터 모델링에 대해 알아봅니다.
-keywords: 데이터 모델링
+title: "Azure DocumentDB에서 데이터 모델링 | Microsoft Docs"
+description: "DocumentDB, NoSQL 문서 데이터베이스에 대한 데이터 모델링에 대해 알아봅니다."
+keywords: "데이터 모델링"
 services: documentdb
 author: kiratp
 manager: jhubbard
 editor: mimig1
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2016
 ms.author: kipandya
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ba0dbc287964aa700cbded834e4b5da09144efe8
+
 
 ---
-# <a name="modeling-data-in-documentdb#"></a>DocumentDB에서 데이터 모델링
+# <a name="modeling-data-in-documentdb"></a>DocumentDB에서 데이터 모델링
 Azure DocumentDB와 같은 스키마가 없는 데이터베이스에서는 데이터 모델을 매우 쉽게 변경할 수 있지만, 데이터를 고려할 어느 정도의 시간이 필요합니다. 
 
 데이터를 어떻게 저장할 것인가? 응용 프로그램에서 데이터를 검색 및 쿼리하는 방법은 무엇인가? 응용 프로그램 부하가 읽기 또는 쓰기 중 어디에 집중되어 있는가? 
@@ -30,7 +34,7 @@ Azure DocumentDB와 같은 스키마가 없는 데이터베이스에서는 데�
 * 비관계형 데이터베이스에서 데이터 관계는 어떻게 표현하는가?
 * 데이터를 포함해야 하는 경우 및 데이터에 링크하는 경우는 언제인가?
 
-## <a name="embedding-data##"></a>데이터 포함
+## <a name="embedding-data"></a>데이터 포함
 DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때는 엔터티를 JSON에 표현된 **자체 포함 문서** 로 취급해야 합니다.
 
 자세한 설명을 시작하기 전에 먼저 이전 단계로 돌아가서 관계형 데이터베이스에서 모델링을 수행하는 방법에 대해 살펴보겠습니다. 다음 예제에서는 관계형 데이터베이스에서 사용자가 저장되는 방법을 보여 줍니다. 
@@ -182,7 +186,7 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 
 *zaza* 주식은 하루에도 수백 번 거래될 수 있으며 수천 명의 사용자 포트폴리오에 *zaza* 주식이 포함되어 있을 수 있습니다. 위와 같은 데이터 모델에서는 매일 여러 번 수천 개의 포트폴리오 문서를 업데이트해야 하므로, 시스템의 확장성이 낮아질 수 있습니다. 
 
-## <a name="<a-id="refer"></a>referencing-data##"></a><a id="Refer"></a>데이터 참조
+## <a name="a-idreferareferencing-data"></a><a id="Refer"></a>데이터 참조
 따라서 데이터 포함 방식이 많은 경우에 효과적일 수 있지만, 데이터 비정규화로 인해 얻는 이득보다 잃게 되는 손실이 큰 경우도 있다는 것을 잘 알 수 있습니다. 그러면 이제 무엇을 해야 할까요? 
 
 관계형 데이터베이스는 엔터티 간의 관계를 생성할 수 있는 유일한 대안이 아닙니다. 문서 데이터베이스에서는 다른 문서에 있는 데이터와 연관되는 정보를 하나의 문서에 저장할 수 있습니다. 여기에서는 DocumentDB의 관계형 데이터베이스에 보다 적합할 수 있는 시스템을 구축하기 보다는 단순한 관계로도 충분하고 매우 유용할 수 있다는 것을 알려드리고자 합니다. 
@@ -230,7 +234,7 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 > 
 > 
 
-### <a name="what-about-foreign-keys?"></a>외래 키의 경우는 어떻게 될까요?
+### <a name="what-about-foreign-keys"></a>외래 키의 경우는 어떻게 될까요?
 현재는 제약 조건이라는 개념이 없으므로, 외래 키 등 문서에 포함될 수 있는 모든 문서 간 관계는 실질적으로 "약한 링크"이며 데이터베이스 자체에서 확인되지 않습니다. 문서가 참조하는 데이터가 실제로 존재하는지 확인하기 위해서는 응용 프로그램에서 또는 서버측 트리거 또는 DocumentDB의 저장 프로시저를 사용해서 이를 수행해야 합니다.
 
 ### <a name="when-to-reference"></a>참조하는 경우
@@ -246,7 +250,7 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 > 
 > 
 
-### <a name="where-do-i-put-the-relationship?"></a>관계는 어디에 배치해야 할까요?
+### <a name="where-do-i-put-the-relationship"></a>관계는 어디에 배치해야 할까요?
 관계의 성장은 참조를 저장할 문서를 결정하는 데 도움이 됩니다.
 
 아래의 JSON에서는 발행자와 책을 모델링합니다.
@@ -288,7 +292,7 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 
 위 예제에서는 발행자 문서에 바인딩되지 않은 컬렉션을 배치했습니다. 그리고 각 책 문서에서 발행자에 대한 참조만 두었습니다.
 
-### <a name="how-do-i-model-many:many-relationships?"></a>다대다 관계는 어떻게 모델링할 수 있을까요?
+### <a name="how-do-i-model-manymany-relationships"></a>다대다 관계는 어떻게 모델링할 수 있을까요?
 관계형 데이터베이스에서 *다대다* 관계는 다른 테이블의 레코드를 단순히 하나로 조인하는 조인 테이블을 사용해서 모델링되는 경우가 많습니다. 
 
 ![테이블 조인](./media/documentdb-modeling-data/join-table.png)
@@ -329,7 +333,7 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 
 특정 저자가 있으면, 그가 작성한 책이 무엇인지 즉시 알 수 있고, 반대로, 로드된 책 문서가 있으면, 해당 저자의 ID를 알 수 있습니다. 이렇게 하면 조인 테이블에 대한 중간 쿼리를 절약해서 응용 프로그램에서 수행해야 하는 서버 라운드 트립 수를 줄일 수 있습니다. 
 
-## <a name="<a-id="wrapup"></a>hybrid-data-models##"></a><a id="WrapUp"></a>하이브리드 데이터 모델
+## <a name="a-idwrapupahybrid-data-models"></a><a id="WrapUp"></a>하이브리드 데이터 모델
 지금까지 데이터 포함(또는 비정규화)과 참조(또는 정규화)에 대해 살펴봤습니다. 이러한 데이터 포함과 참조는 위에서 살펴본 것처럼 각각 장점과 단점을 갖고 있습니다. 
 
 하지만 어느 쪽이든 장단점이 있으므로 두 방식을 혼합해서 사용해도 좋습니다. 
@@ -342,9 +346,9 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
     {
         "id": "a1",
         "firstName": "Thomas",
-        "lastName": "Andersen",     
+        "lastName": "Andersen",        
         "countOfBooks": 3,
-        "books": ["b1", "b2", "b3"],
+         "books": ["b1", "b2", "b3"],
         "images": [
             {"thumbnail": "http://....png"}
             {"profile": "http://....png"}
@@ -389,7 +393,7 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 
 모델에 사전 계산된 필드를 포함할 수 있는 기능은 DocumentDB에서 **다중 문서 트랜잭션**이 지원되기 때문에 가능합니다. 많은 NoSQL 저장소에서는 문서 간 트랜잭션을 수행할 수 없기 때문에 이러한 제한으로 인해 "항상 모든 것으로 포함"하는 디자인을 선호합니다. DocumentDB에서는 서버측 트리거 또는 저장 프로시저를 사용해서 ACID 트랜잭션 내에서 책을 삽입하고 저자를 업데이트할 수 있습니다. 이제는 단지 데이터 일관성 유지를 위해 모든 것을 하나의 문서에 포함시켜야 할 **필요가** 없습니다.
 
-## <a name="<a-name="nextsteps"></a>next-steps"></a><a name="NextSteps"></a>다음 단계
+## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>다음 단계
 이 문서에서 가장 중요한 사항은 스키마가 없는 환경에서의 데이터 모델링도 이전과 같이 중요하다는 것을 이해하는 것입니다. 
 
 화면에 데이터를 표시하는 방법이 하나만 있지 않은 것처럼 데이터를 모델링하는 방법도 하나만 있는 것이 아닙니다. 응용 프로그램을 이해하고 데이터를 생산, 소비 및 처리하는 방법을 이해해야 합니다. 그런 다음 여기에 제공된 일부 지침을 적용해서 응용 프로그램에 즉시 필요한 사항을 처리할 수 있는 모델을 제작 방법을 설정할 수 있습니다. 응용 프로그램에 변경이 필요한 경우에는 스키마가 없는 데이터베이스의 유연성을 활용해서 변경 사항을 포용하고 데이터 모델을 쉽게 발전시킬 수 있습니다. 
@@ -402,6 +406,9 @@ Azure DocumentDB의 인덱스 튜닝에 대한 자세한 내용은 [인덱싱 �
 
 끝으로, 다중 테넌트 응용 프로그램에 대한 데이터 모델링 및 분할에 대한 자세한 내용은 [Azure DocumentDB로 다중 테넌트 응용 프로그램 확장](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

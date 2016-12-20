@@ -1,12 +1,12 @@
 ---
-title: DMV를 사용하여 작업 모니터링 | Microsoft Docs
-description: DMV를 사용하여 작업을 모니터링하는 방법을 알아봅니다.
+title: "DMV를 사용하여 작업 모니터링 | Microsoft Docs"
+description: "DMV를 사용하여 작업을 모니터링하는 방법을 알아봅니다."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6877a54f77a4c0137e4f6a8b2b2fcff41664a4b5
+
 
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>DMV를 사용하여 작업 모니터링
@@ -67,7 +71,7 @@ WHERE   [label] = 'My Query';
 
 위의 쿼리 결과에서 조사할 쿼리의 **요청 ID를 적어 둡니다** .
 
-**일시 중단됨** 상태의 쿼리는 동시성 제한으로 인해 대기 중인 쿼리입니다. 이러한 쿼리는 sys.dm_pdw_waits 대기 쿼리에도 UserConcurrencyResourceType 형식으로 표시됩니다. 동시성 제한에 대한 자세한 내용은 [동시성 및 워크로드 관리][동시성 및 워크로드 관리] 를 참조하세요. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사][리소스를 대기 중인 쿼리 조사] 를 참조하세요.
+**일시 중단됨** 상태의 쿼리는 동시성 제한으로 인해 대기 중인 쿼리입니다. 이러한 쿼리는 sys.dm_pdw_waits 대기 쿼리에도 UserConcurrencyResourceType 형식으로 표시됩니다. 동시성 제한에 대한 자세한 내용은 [동시성 및 워크로드 관리][동시성 및 워크로드 관리]를 참조하세요. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사][리소스를 대기 중인 쿼리 조사]를 참조하세요.
 
 sys.dm_pdw_exec_requests 테이블에서 쿼리 조회를 간소화하려면 [LABEL][LABEL]을 사용하여 sys.dm_pdw_exec_requests 보기에서 조회할 수 있는 주석을 쿼리에 할당합니다.
 
@@ -170,7 +174,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 
 ## <a name="next-steps"></a>다음 단계
 DMV에 대한 자세한 내용은 [시스템 뷰][시스템 뷰]를 참조하세요.
-모범 사례에 대한 자세한 내용은 [SQL Data Warehouse 모범 사례][]를 참조하세요.
+모범 사례에 대한 자세한 내용은 [SQL 데이터 웨어하우스 모범 사례][SQL 데이터 웨어하우스 모범 사례]를 참조하세요.
 
 <!--Image references-->
 
@@ -194,6 +198,6 @@ DMV에 대한 자세한 내용은 [시스템 뷰][시스템 뷰]를 참조하세
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

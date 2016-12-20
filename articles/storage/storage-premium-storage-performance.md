@@ -1,12 +1,12 @@
 ---
-title: 'Azure 프리미엄 저장소: 성능을 위한 설계 | Microsoft Docs'
-description: Azure 프리미엄 저장소를 사용하여 고성능 응용 프로그램을 설계합니다. 프리미엄 저장소는 Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다.
+title: "Azure Premium Storage: 성능을 위한 설계 | Microsoft Docs"
+description: "Azure 프리미엄 저장소를 사용하여 고성능 응용 프로그램을 설계합니다. 프리미엄 저장소는 Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다."
 services: storage
 documentationcenter: na
 author: aungoo-msft
 manager: tadb
 editor: tysonn
-
+ms.assetid: e6a409c3-d31a-4704-a93c-0a04fdc95960
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: aungoo
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 67b5ea270bc8bcbe22aa4a3cbdd15b7affbbb4e6
+
 
 ---
-# <a name="azure-premium-storage:-design-for-high-performance"></a>Azure 프리미엄 저장소: 고성능을 위한 설계
+# <a name="azure-premium-storage-design-for-high-performance"></a>Azure 프리미엄 저장소: 고성능을 위한 설계
 ## <a name="overview"></a>개요
 이 문서는 Azure 프리미엄 저장소를 사용하여 고성능 응용 프로그램을 구축하기 위한 지침을 제공합니다. 응용 프로그램에서 사용되는 기술에 적용 가능한 성능 모범 사례가 결합된 이 문서에 제공된 지침을 사용할 수 있습니다. 지침을 설명하기 위해 이 문서 전체에서 한 예로 프리미엄 저장소에서 실행되는 SQL Server를 사용했습니다.
 
@@ -88,9 +92,9 @@ Azure 프리미엄 저장소에서 실행되는 고성능 응용 프로그램을
 | 큐 크기 | | | |
 
 > **중요:**  
-> 응용 프로그램의 예상된 향후 성장에 따라 이러한 숫자를 확장하는 것이 좋습니다. 나중에 성능 향상을 위한 인프라를 변경하기가 더 어려울 수 있으므로 사전 확장을 계획하는 것이 좋습니다.
-> 
-> 
+>  응용 프로그램의 예상된 향후 성장에 따라 이러한 숫자를 확장하는 것이 좋습니다. 나중에 성능 향상을 위한 인프라를 변경하기가 더 어려울 수 있으므로 사전 확장을 계획하는 것이 좋습니다.
+>
+>
 
 기존 응용 프로그램이 있고 프리미엄 저장소로 이동하려는 경우 먼저 기존 응용 프로그램에 대해 위의 검사 목록을 빌드합니다. 그런 다음 프리미엄 저장소에 있는 응용 프로그램의 프로토타입을 빌드하고 이 문서의 이후 섹션의 *응용 프로그램 성능 최적화* 에 설명된 지침에 따라 응용 프로그램을 설계합니다. 다음 섹션에서는 성능 측정값을 수집하는데 사용할 수 있는 도구를 설명합니다.
 
@@ -119,7 +123,7 @@ PerfMon 카운터는 프로세서, 메모리, 각 논리 디스크 및 서버의
 
 이 섹션 전체에서 응용 프로그램 성능을 최적화하기 위해 필요한 정도를 식별하도록 만든 응용 프로그램 요구 사항 검사 목록을 참조하세요. 그에 따라 이 섹션에서 조정할 요인을 확인할 수 있습니다. 각 요인이 응용 프로그램 성능에 미치는 영향을 감시하려면 응용 프로그램 설치에서 벤치마킹 도구를 실행합니다. Windows 및 Linux VM에서 일반적인 벤치마킹 도구를 실행하는 단계에 대한 문서의 마지막에 있는 [벤치마킹](#Benchmarking) 섹션을 참조하세요.
 
-### <a name="optimizing-iops,-throughput-and-latency-at-a-glance"></a>한 눈에 IOPS, 처리량 및 대기 시간 최적화
+### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>한 눈에 IOPS, 처리량 및 대기 시간 최적화
 다음 표에서 모든 성능 요소 및 IOPS, 처리량 및 대기 시간을 최적화하는 단계를 요약합니다. 이 요약에 이어지는 섹션에서는 각 요인을 더 자세히 설명합니다.
 
 |  | **IOPS** | **처리량** | **대기 시간** |
@@ -166,9 +170,9 @@ IO 크기를 변경할 수 있는 응용 프로그램을 사용하는 경우 다
 단일 프리미엄 저장소 디스크의 최대값보다 높은 IOPS 및 대역폭을 얻으려면 함께 스트라이프된 여러 프리미엄 디스크를 사용합니다. 예를 들어 10000 IOPS의 결합된 IOPS 또는 초당 400MB의 결합된 처리량을 얻으려면 두 P30 디스크를 스트라이프합니다. 다음 섹션에서 설명한 것과 같이 결합된 디스크 IOPS 및 처리량을 지원하는 VM 크기를 사용해야 합니다.
 
 > **참고:**  
-> IOPS 또는 처리량을 늘리면 다른 쪽 또한 증가하므로 둘 중 하나를 늘리는 경우 디스크 또는 VM의 처리량 또는 IOPS 제한에 도달하지 않도록 합니다.
-> 
-> 
+>  IOPS 또는 처리량을 늘리면 다른 쪽 또한 증가하므로 둘 중 하나를 늘리는 경우 디스크 또는 VM의 처리량 또는 IOPS 제한에 도달하지 않도록 합니다.
+>
+>
 
 응용 프로그램 성능에 미치는 IO 크기의 영향을 감시하려면 VM 및 디스크에서 벤치마킹 도구를 실행할 수 있습니다. 여러 테스트 실행을 만들고 각 실행에 대한 다른 IO 크기를 사용하여 어떤 영향이 있는지 확인합니다. 자세한 내용은 이 문서의 마지막 부분에 있는 [벤치마킹](#Benchmarking) 섹션을 참조하세요.
 
@@ -182,7 +186,7 @@ IO 크기를 변경할 수 있는 응용 프로그램을 사용하는 경우 다
 | Standard_DS14 |16 |112GB |OS = 1023GB  <br>  로컬 SSD = 224GB |32 |576GB |50,000 IOPS  <br>  초당 512MB |4,000 IOPS 및 초당 33MB |
 | Standard_GS5 |32 |448GB |OS = 1023GB  <br>  로컬 SSD = 896GB |64 |4224GB |80,000 IOPS  <br>  초당 2,000MB |5,000 IOPS 및 초당 50MB |
 
-사용 가능한 모든 Azure VM 크기의 전체 목록을 보려면 [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md) 또는 [Linux VM 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요. 원하는 응용 프로그램 성능 요구 사항에 충족하고 확장할 수 있는 VM 크기를 선택합니다. 이 외에도 VM 크기를 선택할 때 다음 중요한 고려 사항을 고려합니다.
+사용 가능한 모든 Azure VM 크기의 전체 목록을 보려면 [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Linux VM 크기](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 원하는 응용 프로그램 성능 요구 사항에 충족하고 확장할 수 있는 VM 크기를 선택합니다. 이 외에도 VM 크기를 선택할 때 다음 중요한 고려 사항을 고려합니다.
 
 *규모 제한*  
  VM당 및 디스크당 최대 IOPS 제한은 서로 다르고 독립적입니다. 응용 프로그램이 연결된 프리미엄 디스크 뿐만 아니라 VM의 제한 내에서 IOPS를 구동하는지 확인합니다. 그렇지 않은 경우 응용 프로그램 성능에 제한이 발생합니다.
@@ -206,7 +210,7 @@ IO 크기를 변경할 수 있는 응용 프로그램을 사용하는 경우 다
 
 *Linux 배포판*  
 
-Azure 프리미엄 저장소를 사용하여 Windows 및 Linux를 실행하는 VM에 대해 동일한 성능 수준을 얻습니다. Linux 배포판의 여러 버전을 지원하고 [여기](../virtual-machines/virtual-machines-linux-endorsed-distros.md)에서 전체 목록을 볼 수 있습니다. 다양한 배포판은 다양한 유형의 작업에 더 적합합니다. 작업이 실행 중인 배포판에 따라 다른 수준의 성능을 확인할 수 있습니다. 응용 프로그램을 사용하여 Linux 배포판을 테스트하고 가장 잘 작동하는 것을 선택합니다.
+Azure 프리미엄 저장소를 사용하여 Windows 및 Linux를 실행하는 VM에 대해 동일한 성능 수준을 얻습니다. Linux 배포판의 여러 버전을 지원하고 [여기](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 전체 목록을 볼 수 있습니다. 다양한 배포판은 다양한 유형의 작업에 더 적합합니다. 작업이 실행 중인 배포판에 따라 다른 수준의 성능을 확인할 수 있습니다. 응용 프로그램을 사용하여 Linux 배포판을 테스트하고 가장 잘 작동하는 것을 선택합니다.
 
 프리미엄 저장소를 사용하여 Linux를 실행할 때 높은 성능을 보장하기 위해 필요한 드라이버에 대한 최신 업데이트를 확인합니다.
 
@@ -227,11 +231,11 @@ Azure 프리미엄 저장소는 현재 3개의 디스크 크기를 제공합니�
 예를 들어 응용 프로그램 요구 사항이 최대 250MB/초의 처리량이고 단일 P30 디스크와 함께 DS4 VM을 사용하는 경우를 가정합니다. DS4 VM은 최대 256MB/초의 처리량을 제공할 수 있습니다. 그러나 단일 P30 디스크는 200MB/초의 처리량 제한이 있습니다. 따라서 디스크 제한으로 인해 응용 프로그램에 200MB/초로 제한이 적용됩니다. 이 제한을 극복하기 위해 VM에 둘 이상의 데이터 디스크를 프로비전합니다.
 
 > **참고:**  
-> 캐시에서 제공하는 읽기는 디스크 IOPS 및 처리량에 포함되지 않으므로 디스크 제한이 없습니다. 캐시에는 VM당 별도 IOPS 및 처리량 제한이 있습니다.
-> 
+>  캐시에서 제공하는 읽기는 디스크 IOPS 및 처리량에 포함되지 않으므로 디스크 제한이 없습니다. 캐시에는 VM당 별도 IOPS 및 처리량 제한이 있습니다.
+>
 > 예를 들어 처음에 읽기 및 쓰기는 각각 60MB/초 및 40MB/초입니다. 시간이 지남에 따라 캐시는 가동 준비하고 캐시에서 더 많은 읽기를 제공합니다. 그런 다음 디스크에서 더 높은 쓰기 처리량을 얻을 수 있습니다.
-> 
-> 
+>
+>
 
 *디스크 수*  
  응용 프로그램 요구 사항을 평가하여 필요한 디스크 수를 결정합니다. 각 VM 크기는 VM에 연결할 수 있는 디스크 수의 제한 또한 있습니다. 일반적으로 코어 수의 두 배입니다. 선택한 VM 크기가 필요한 디스크 수를 지원할 수 있는지 확인합니다.
@@ -243,8 +247,8 @@ Azure 프리미엄 저장소를 활용하는 높은 확장성의 VM에는 BlobCa
 
 > [!WARNING]
 > Azure 디스크의 캐시 설정을 변경하면 대상 디스크가 분리되었다가 다시 연결됩니다. 운영 체제 디스크인 경우 VM이 다시 시작됩니다. 디스크 캐시 설정을 변경하기 전에 이 중단의 영향을 받을 수 있는 모든 응용 프로그램/서비스를 중지합니다.
-> 
-> 
+>
+>
 
 BlobCache를 작동하는 방법에 대한 자세한 내용은 내부 [Azure 프리미엄 저장소](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) 블로그 게시물을 참조하세요.
 
@@ -253,7 +257,7 @@ BlobCache를 작동하는 방법에 대한 자세한 내용은 내부 [Azure 프
 | **디스크 유형** | **기본 캐시 설정** |
 | --- | --- |
 | OS 디스크 |ReadWrite |
-| 데이터 디스크 |없음 |
+| 데이터 디스크  |없음 |
 
 다음은 데이터 디스크에 대한 권장 디스크 캐시 설정입니다.
 
@@ -287,19 +291,19 @@ Windows에서 저장소 공간을 사용하여 디스크를 함께 스트라이�
 
 중요: 서버 관리자 UI를 사용하여 스트라이프 볼륨에 대해 최대 8개까지 열의 총 수를 설정할 수 있습니다. 8개 이상의 디스크를 연결하는 경우 PowerShell을 사용하여 볼륨을 만듭니다. PowerShell을 사용하여 디스크 수와 동일한 열 수를 설정할 수 있습니다. 예를 들어 단일 스트라이프 집합에 16개의 디스크가 있는 경우 *New-VirtualDisk* PowerShell cmdlet의 *NumberOfColumns* 매개 변수에 16개의 열을 지정합니다.
 
-Linux에서 MDADM 유틸리티를 사용하여 디스크를 함께 스트라이프합니다. Linux에서 디스크 스트라이프에 대한 자세한 단계는 [Linux에서 소프트웨어 RAID 구성](../virtual-machines/virtual-machines-linux-configure-raid.md)을 참조하세요.
+Linux에서 MDADM 유틸리티를 사용하여 디스크를 함께 스트라이프합니다. Linux에서 디스크 스트라이프에 대한 자세한 단계는 [Linux에서 소프트웨어 RAID 구성](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
 *스트라이프 크기*  
  디스크 스트라이프에서 중요한 구성은 스트라이프 크기입니다. 스트라이프 크기 또는 블록 크기는 응용 프로그램이 스트라이프 볼륨을 해결할 수 있는 데이터의 가장 작은 청크입니다. 구성한 스트라이프 크기는 응용 프로그램 및 해당 요청 패턴의 형식에 따라 달라집니다. 잘못된 스트라이프 크기를 선택하는 경우 응용 프로그램의 성능이 저하되는 IO 정렬 문제가 발생할 수 있습니다.
 
 예를 들어 응용 프로그램에 의해 생성된 IO 요청이 디스크 스트라이프 크기보다 큰 경우 저장소 시스템은 둘 이상의 디스크에 스트라이프 단위 경계를 넘어 작성합니다. 해당 데이터에 액세스할 때 요청을 완료하려면 둘 이상의 스트라이프 단위 간을 검색해야 합니다. 이러한 동작의 누적 된 효과로 성능이 상당히 저하될 수 있습니다. 반면에 IO 요청 크기가 스트라이프 크기보다 작고 기본적으로 임의일 경우 IO 요청은 병목 상태가 발생하고 궁극적으로 IO 성능이 저하되는 동일한 디스크에 추가할 수 있습니다.
 
-응용 프로그램이 실행하는 작업의 유형에 따라 적절한 스트라이프 크기를 선택합니다. 작은 임의 IO 요청의 경우 더 작은 스트라이프 크기를 사용합니다. 반면 큰 순차 IO 요청의 경우 더 큰 스트라이프 크기를 사용합니다. 프리미엄 저장소에서 실행되는 응용 프로그램에 대한 스트라이프 크기 권장 사항에 대해 알아봅니다. SQL Server의 경우 OLTP 작업에 대해 64KB의 스트라이프 크기, 데이터 웨어하우징 작업에 대해 256KB의 스트라이프 크기를 구성합니다. 자세한 내용은 [Azure VM의 SQL Server에 대한 성능 모범 사례](../virtual-machines/virtual-machines-windows-sql-performance.md#disks-and-performance-considerations) 를 참조하세요.
+응용 프로그램이 실행하는 작업의 유형에 따라 적절한 스트라이프 크기를 선택합니다. 작은 임의 IO 요청의 경우 더 작은 스트라이프 크기를 사용합니다. 반면 큰 순차 IO 요청의 경우 더 큰 스트라이프 크기를 사용합니다. 프리미엄 저장소에서 실행되는 응용 프로그램에 대한 스트라이프 크기 권장 사항에 대해 알아봅니다. SQL Server의 경우 OLTP 작업에 대해 64KB의 스트라이프 크기, 데이터 웨어하우징 작업에 대해 256KB의 스트라이프 크기를 구성합니다. 자세한 내용은 [Azure VM의 SQL Server에 대한 성능 모범 사례](../virtual-machines/virtual-machines-windows-sql-performance.md#disks-guidance) 를 참조하세요.
 
 > **참고:**  
-> DS 시리즈 VM에 최대 32개의 프리미엄 저장소 디스크를 GS 시리즈 VM에 64개의 프리미엄 저장소 디스크를 함께 스트라이프할 수 있습니다.
-> 
-> 
+>  DS 시리즈 VM에 최대 32개의 프리미엄 저장소 디스크를 GS 시리즈 VM에 64개의 프리미엄 저장소 디스크를 함께 스트라이프할 수 있습니다.
+>
+>
 
 ## <a name="multi-threading"></a>다중 스레드
 Azure는 대규모로 병렬되도록 프리미엄 저장소 플랫폼을 설계합니다. 따라서 다중 스레드 응용 프로그램은 단일 스레드 응용 프로그램에 비해 훨씬 더 높은 성능을 얻을 수 있습니다. 다중 스레드 응용 프로그램은 여러 스레드로 해당 작업을 분할하고 VM 및 디스크 리소스를 최대한으로 활용하여 해당 실행의 효율성을 높입니다.
@@ -354,9 +358,9 @@ Windows 및 Linux용으로 각각 일반 벤치마킹 도구 Iometer 및 FIO를 
  ReadOnly 호스트 캐싱을 사용한 디스크는 디스크 제한보다 더 높은 IOPS를 부여할 수 있습니다. 호스트 캐시에서 이 최대 읽기 성능을 얻으려면 먼저 이 디스크의 캐시를 준비해야 합니다. 이렇게 하면 벤치마킹 도구에서 CacheReads 볼륨을 구동하는 읽기 IO는 실제로 디스크가 아닌 캐시에 도달합니다. 캐시는 단일 캐시가 사용된 디스크에서 추가 IOPS 결과에 도달합니다.
 
 > **중요:**  
-> VM을 다시 부팅할 때마다 벤치마킹을 실행하기 전에 캐시를 준비해야 합니다.
-> 
-> 
+>  VM을 다시 부팅할 때마다 벤치마킹을 실행하기 전에 캐시를 준비해야 합니다.
+>
+>
 
 #### <a name="iometer"></a>Iometer
 [Iometer 도구를 다운로드](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) 합니다.
@@ -390,18 +394,18 @@ Windows 및 Linux용으로 각각 일반 벤치마킹 도구 Iometer 및 FIO를 
  아래 단계를 수행하여 캐시를 준비합니다.
 
 1. 아래에 표시된 값으로 두 액세스 사양을 만듭니다.
-   
+
    | 이름 | 요청 크기 | 임의 % | 읽기 % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1MB |100 |0 |
    | RandomReads\_1MB |1MB |100 |100 |
 2. 다음 매개 변수로 캐시 디스크 초기화를 위한 Iometer 테스트를 실행합니다. 대상 볼륨에 대해 3개의 작업자 스레드 및 128의 큐 크기를 사용합니다. 테스트의 "실행 시간" 기간을 "테스트 설정" 탭에서 2hrs로 설정합니다.
-   
+
    | 시나리오 | 대상 볼륨 | 이름 | 기간 |
    | --- | --- | --- | --- |
    | 디스크 캐시 초기화 |CacheReads |RandomWrites\_1MB |2hrs |
 3. 다음 매개 변수로 캐시 디스크 준비를 위한 Iometer 테스트를 실행합니다. 대상 볼륨에 대해 3개의 작업자 스레드 및 128의 큐 크기를 사용합니다. 테스트의 "실행 시간" 기간을 "테스트 설정" 탭에서 2hrs로 설정합니다.
-   
+
    | 시나리오 | 대상 볼륨 | 이름 | 기간 |
    | --- | --- | --- | --- |
    | 캐시 디스크 준비 |CacheReads |RandomReads\_1MB |2hrs |
@@ -410,7 +414,7 @@ Windows 및 Linux용으로 각각 일반 벤치마킹 도구 Iometer 및 FIO를 
 
 | 테스트 시나리오 | 대상 볼륨 | 이름 | 결과 |
 | --- | --- | --- | --- |
-| 최대 읽기 IOPS |CacheReads |RandomWrites\_8K |50,000 IOPS |
+| 최대 읽기 IOPS |CacheReads |RandomWrites\_8K |50,000 IOPS  |
 | 최대 쓰기 IOPS |NoCacheWrites |RandomReads\_8K |64,000 IOPS |
 | 최대 결합된 IOPS |CacheReads |RandomWrites\_8K |100,000 IOPS |
 | NoCacheWrites |RandomReads\_8K | | |
@@ -579,9 +583,11 @@ Azure 프리미엄 저장소에 대한 자세한 정보
 
 SQL Server 사용자의 경우 SQL Server에 대한 성능 모범 사례의 문서를 읽으세요.
 
-* [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](../virtual-machines/virtual-machines-windows-sql-performance.md)
-* [Azure 프리미엄 저장소는 Azure VM의 SQL Server에 대해 가장 높은 성능을 제공합니다](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
+* [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](../virtual-machines/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure 프리미엄 저장소는 Azure VM의 SQL Server에 대해 가장 높은 성능을 제공합니다](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

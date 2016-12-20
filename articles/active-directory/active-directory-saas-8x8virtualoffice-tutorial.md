@@ -1,12 +1,12 @@
 ---
-title: '자습서: 8x8 Virtual Office와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 8x8 Virtual Office 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: 8x8 Virtual Office와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 8x8 Virtual Office 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2f8d126b9c2cfe5aaa6ef8f72f23ae7d66d6c524
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-8x8-virtual-office"></a>자습서: 8x8 Virtual Office와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>자습서: 8x8 Virtual Office와 Azure Active Directory 통합
 이 자습서에서는 8x8 Virtual Office와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 8x8 Virtual Office를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -102,7 +106,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 2. **8x8 Virtual Office에 대한 사용자 로그인 방법 선택** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
     ![Single Sign-on 구성](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_03.png) 
-3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행하고 **다음**을 선택합니다.
+3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행하고 **다음**을 클릭합니다.
    
     ![Single Sign-On 구성](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_04.png)
    
@@ -256,6 +260,6 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

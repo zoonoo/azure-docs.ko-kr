@@ -1,12 +1,12 @@
 ---
-title: Log Analytics에 Operations Manager 연결 | Microsoft Docs
-description: System Center Operations Manager의 기존 투자를 유지 관리하고 Log Analytics로 확장된 기능을 사용하려면 OMS 작업 영역으로 Operations Manager를 통합할 수 있습니다.
+title: "Log Analytics에 Operations Manager 연결 | Microsoft Docs"
+description: "System Center Operations Manager의 기존 투자를 유지 관리하고 Log Analytics로 확장된 기능을 사용하려면 OMS 작업 영역으로 Operations Manager를 통합할 수 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 961a3867362d14ab7b6ff99ce4002380d763082f
+
 
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Log Analytics에 Operations Manager 연결
@@ -260,6 +264,9 @@ Operations Manager 관리 그룹과 OMS 작업 영역 간의 통합이 더 이�
 * [솔루션 갤러리에서 Log Analytics 솔루션을 추가](log-analytics-add-solutions.md) 하여 기능을 추가하고 데이터를 수집합니다.
 * [Log Analytics에서 프록시 및 방화벽 설정 구성](log-analytics-proxy-firewall.md) 합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

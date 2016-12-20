@@ -25,34 +25,36 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
 1. 아직 앱을 등록하지 않은 경우 Apple Developer Center의 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>로 이동하여 Apple ID로 로그온하고 **Identifiers**와 **App IDs**를 클릭한 다음에 **+** 기호를 클릭하여 새 앱을 등록합니다.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
+      
 2. 새 앱에 다음과 같은 세 개의 필드를 업데이트한 다음 **Continue**를 클릭합니다.
    
    * **Name**: **App ID Description** 섹션의 **Name** 필드에서 앱에 대한 설명이 포함된 이름을 입력합니다.
    * **번들 식별자**: **명시적 앱 ID** 섹션에 [앱 배포 가이드](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8)에 설명된 대로 `<Organization Identifier>.<Product Name>` 형식으로 **번들 식별자**를 입력합니다. 사용하는 *Organization Identifier* 및 *Product Name*은 XCode 프로젝트를 만들 때 사용할 조직 식별자 및 제품 이름과 일치해야 합니다. 아래 스크린샷에서는 조직 식별자로 *NotificationHubs*가 사용되고 제품 이름으로 *GetStarted*가 사용되었습니다. 이 값이 XCode 프로젝트에서 사용할 값과 일치하면 XCode에서 올바른 게시 프로필을 사용할 수 있습니다. 
    * **푸시 알림**: **App Services** 섹션에서 **푸시 알림** 옵션을 선택합니다.
      
-     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
      
       그러면 앱 ID가 생성되고 정보를 확인하라는 요청이 표시됩니다. **등록** 을 클릭하여 새 앱 ID를 확인합니다.
      
       **등록**을 클릭하면 아래와 같은 **등록 완료** 화면이 표시됩니다. **Done**을 클릭합니다.
-
-    ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+      
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 
 1. 개발자 센터의 앱 ID에서 방금 만든 앱 ID를 찾아 해당 행을 클릭합니다.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
    
-       Clicking on the app ID will display the app details. Click the **Edit** button at the bottom.
+      앱 ID를 클릭하면 앱 세부 정보가 표시됩니다. 아래쪽에 있는 **Edit** 단추를 클릭합니다.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
+      
 2. 화면 아래로 스크롤하여 **Development Push SSL Certificate** 섹션에서 **Create Certificate...** 단추를 클릭합니다.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
    
-       This displays the "Add iOS Certificate" assistant.
+      "Add iOS Certificate" assistant가 표시됩니다.
    
    > [!NOTE]
    > 이 자습서에서는 개발 인증서를 사용합니다. 프로덕션 인증서를 등록할 때에도 동일한 프로세스가 사용됩니다. 알림을 보낼 때 동일한 인증서 유형을 사용하는지만 확인하면 됩니다.
@@ -65,7 +67,7 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
    
-       This downloads the certificate and saves it to your computer in your Downloads folder.
+      인증서가 다운로드되어 컴퓨터의 다운로드 폴더에 저장됩니다.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
    
@@ -75,9 +77,9 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
    > 
 5. 다운로드한 푸시 인증서 **aps_development.cer**을 두 번 클릭합니다.
    
-       This installs the new certificate in the Keychain, as shown below:
+      아래와 같이 새 인증서가 Keychain에 설치됩니다.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
    
    > [!NOTE]
    > 인증서의 이름은 다를 수 있지만 **Apple Development iOS Push Services:**가 앞에 옵니다.
@@ -97,26 +99,25 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 ## <a name="create-a-provisioning-profile-for-the-app"></a>앱용 프로비저닝 프로필 만들기
 1. <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>로 돌아가서 **Provisioning Profiles**와 **All**을 차례로 선택하고 **+** 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisioning Profile** 마법사가 실행됩니다.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 2. **Development**에서 프로비저닝 프로필 유형으로 **iOS App Development**를 선택하고 **Continue**를 클릭합니다. 
 3. **App ID** 드롭다운 목록에서 방금 만든 앱 ID를 선택하고 **Continue**를 클릭합니다.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
 4. **Select certificates** 화면에서 코드 서명에 사용되는 일반적인 개발 인증서를 선택하고 **Continue**를 클릭합니다. 이는 방금 만든 푸시 인증서가 아닙니다.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
 5. 테스트에 사용할 **Devices**를 선택하고 **Continue**를 클릭합니다.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 6. 마지막으로, **Profile Name**에서 프로필의 이름을 선택하고 **Generate**를 클릭합니다.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 7. 새 프로비전 프로필이 만들어질 때 다운로드를 클릭하고 Xcode 개발 컴퓨터에 설치합니다. **완료**를 클릭합니다.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

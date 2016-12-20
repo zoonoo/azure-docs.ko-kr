@@ -1,12 +1,12 @@
 ---
-title: Eclipse용 Azure 도구 키트의 새로운 기능
-description: Eclipse용 Azure 도구 키트의 최신 기능에 대해 알아봅니다.
-services: ''
+title: "Eclipse용 Azure 도구 키트의 새로운 기능"
+description: "Eclipse용 Azure 도구 키트의 최신 기능에 대해 알아봅니다."
+services: 
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 16b066ea-aae7-4c30-9a12-fa0c3711b93e
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm;asirveda;martinsawicki
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2b572ac3416936b1511a9d267c30b56af714eaf3
+
 
 ---
 # <a name="whats-new-in-the-azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트의 새로운 기능
@@ -205,7 +209,7 @@ Eclipse용 Azure 도구 키트 - 2014년 6월 릴리스는 다음과 같은 향�
 2013년 7월 - Eclipse용 Azure 플러그 인 미리 보기가 출시되었습니다. 이 업데이트는 2013년 5월 미리 보기 이후의 새 기능, 버그 수정 및 일부 피드백 기반 유용성 향상 기능을 포함합니다.
 
 * **새 저장소 계정을 만드는 기능.** **새로 만들기** 단추가 **저장소 계정 추가** 대화 상자에 추가되었습니다. 이 옵션을 사용하면 Azure 관리 포털에 로그인할 필요 없이 Eclipse 플러그 인 내에서 저장소 계정을 만들 수 있습니다. (이 기능을 사용하려면 Azure 구독이 있어야 합니다.) 새 저장소 계정 만들기에 대한 자세한 내용은 [새 저장소 계정 만들기]를 참조하세요.
-* **JDK 및 서버의 자동 배포 및 캐싱에 사용되는 저장소 계정에 대한 새로운 &quot;(자동)&quot; 옵션.** JDK 및 응용 프로그램 서버에 대해 **자동으로 업로드**를 사용하는 경우 JDK 및 응용 프로그램 서버를 업로드하거나 Azure 캐싱을 사용할 때 사용하도록 URL 및 저장소 계정에 대해 **(자동)**을 지정할 수 있습니다. 그런 다음 이러한 기능은 **Azure 게시** 대화 상자에서 선택한 것과 동일한 저장소 계정을 자동으로 사용합니다. 새로운 [(자동)] 옵션을 사용하도록 **Eclipse에서 Azure용 Hello World 응용 프로그램 만들기** 자습서가 업데이트되었습니다.
+* **JDK 및 서버의 자동 배포 및 캐싱에 사용되는 저장소 계정에 대한 새로운 &quot;(자동)&quot; 옵션.** JDK 및 응용 프로그램 서버에 대해 **자동으로 업로드**를 사용하는 경우 JDK 및 응용 프로그램 서버를 업로드하거나 Azure 캐싱을 사용할 때 사용하도록 URL 및 저장소 계정에 대해 **(자동)**을 지정할 수 있습니다. 그런 다음 이러한 기능은 **Azure 게시** 대화 상자에서 선택한 것과 동일한 저장소 계정을 자동으로 사용합니다. 새로운 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기] 옵션을 사용하도록 **(자동)** 자습서가 업데이트되었습니다.
 * **Azure 서비스 끝점을 설정하는 기능.**  응용 프로그램이 글로벌 Azure 플랫폼에서 배포되고 관리되는지, 중국의 21Vianet에서 운영하는 Azure인지, 개인 Azure 플랫폼인지 결정하는 서비스 끝점을 지정합니다. 자세한 내용은 [Azure 서비스 끝점]을 참조하세요.
 * **대규모 배포는 로컬 저장소 리소스를 지정할 수 있습니다.**  배포가 너무 커서 기본 approot 폴더에 들어가지 않는 경우 이제 로컬 저장소 리소스를 JDK 및 응용 프로그램 서버의 배포 대상으로 지정할 수 있습니다. 자세한 내용은 [대규모 배포]를 참조하세요.
 * **A6 및 A7 Azure 가상 컴퓨터 크기에 대한 지원.**  이제 높은 메모리 A6 및 A7 가상 컴퓨터 크기에 클라우드 서비스를 배포할 수 있습니다. 이러한 크기에 대한 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기]를 참조하세요.
@@ -275,7 +279,7 @@ Eclipse용 Azure 도구 키트 - 2014년 6월 릴리스는 다음과 같은 향�
   * 이러한 Azure 도구 모음 단추의 대부분은 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]에서 사용됩니다.
 * **Java용 Azure 라이브러리:** 이제 Eclipse에서 Java 라이브러리용 Azure 라이브러리에 대한 단일 패키지의 일부로 사용할 수 있습니다. 플러그 인 설치를 제공하고 필수 종속성을 포함합니다. Java 프로젝트에 라이브러리에 대한 참조를 추가하고 별도로 어떤 항목도 다운로드할 필요가 없습니다. 자세한 내용은 [Eclipse용 Azure 도구 키트 설치]를 참조하세요.
 * **플러그 인 설치 중 SQL Server용 Microsoft JDBC 드라이버 4.0 사용 가능:** 새 플러그 인을 설치하는 동안 최신 버전의 SQL Server용 Microsoft JDBC 드라이버를 설치할 수 있습니다.
-* **플러그 인 설치 중 Azure 액세스 제어 서비스 필터 사용 가능:** 도구 키트에 Eclipse 라이브러리로 포함된 이 새 구성 요소를 통해 Java 웹 응용 프로그램에서 Google, Live.com, yahoo!와 같은 다양한 ID 공급자를 사용하여 Azure ACS(액세스 제어 서비스) 인증을 원활하게 활용할 수 있습니다. 사용자가 직접 인증 논리를 작성할 필요가 없고 몇 가지 옵션을 구성하고 필터가 ACS를 사용하여 사용자가 로그인을 하도록 두면 됩니다. 요청 개체 내의 필터로 응용 프로그램에 반환되므로 사용자에게 ID를 기반으로 한 리소스에 대한 액세스를 주는 코드 작성에 주력할 수 있습니다. ACS 필터 사용에 대한 자습서는 [Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법]을 참조하세요.
+* **플러그 인 설치 중 Azure 액세스 제어 서비스 필터 사용 가능:** 도구 키트에 Eclipse 라이브러리로 포함된 이 새 구성 요소를 통해 Java 웹 응용 프로그램에서 Google, Live.com, yahoo!와 같은 다양한 ID 공급자를 사용하여 Azure ACS(액세스 제어 서비스) 인증을 원활하게 활용할 수 있습니다. 사용자가 직접 인증 논리를 작성할 필요가 없고 몇 가지 옵션을 구성하고 필터가 ACS를 사용하여 사용자가 로그인을 하도록 두면 됩니다. 요청 개체 내의 필터로 응용 프로그램에 반환되므로 사용자에게 ID를 기반으로 한 리소스에 대한 액세스를 주는 코드 작성에 주력할 수 있습니다. ACS 필터 사용에 대한 자습서는 [Eclipse를 사용하여 Azure 액세스 제어 서비스로 웹 사용자를 인증하는 방법]을 참조하세요.
 * **Azure SDK 1.7 필수 구성 요소의 자동 검색:** 새 Azure 배포 프로젝트를 만들 때 아직 설치되지 않은 경우 Azure SDK 1.7이 자동으로 다운로드됩니다.
 * **인스턴스 끝점:** 부하 분산된 역할 인스턴스와의 통신을 위한 직접 포트 끝점 액세스를 허용합니다. [끝점 속성] 페이지를 통해 사용 가능한 끝점 UI를 통해 인스턴스 끝점을 추가할 수 있습니다. 이렇게 하면 다중 인스턴스 배포로 시나리오의 클라우드에서 실행 중인 특정 계산 인스턴스에 대한 원격 디버깅 및 JMX 진단을 사용할 수 있습니다. 
 * **구성 요소 UI:** 고급 사용자가 프로젝트의 개별 Azure 역할과 Java 응용 프로그램 프로젝트와 같은 기타 외부 리소스 간 프로젝트 종속성을 쉽게 설정하고 배포 논리를 쉽게 설명할 수 있도록 합니다. 자세한 내용은 [구성 요소 속성]을 참조하세요.
@@ -326,7 +330,7 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [Azure 서비스 끝점]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure 저장소 계정 목록]: http://go.microsoft.com/fwlink/?LinkID=699528
 [구성 요소 속성]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
-[(자동)]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Eclipse에서 Azure 응용 프로그램 디버깅]: http://go.microsoft.com/fwlink/?LinkID=699535
 [대규모 배포]: http://go.microsoft.com/fwlink/?LinkID=699536
 [끝점 속성]: http://go.microsoft.com/fwlink/?LinkID=699525#endpoints_properties
@@ -358,6 +362,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

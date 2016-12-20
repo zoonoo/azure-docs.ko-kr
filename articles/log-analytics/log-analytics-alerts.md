@@ -1,19 +1,23 @@
 ---
-title: Log Analytics의 경고 | Microsoft Docs
-description: Log Analytics의 경고는 OMS 저장소의 중요한 정보를 식별하며 문제를 미리 알리거나 작업을 호출하여 문제 해결을 시도합니다.  이 문서에서는 경고 규칙을 만드는 방법을 설명하고 규칙에서 실행할 수 있는 여러 가지 작업을 자세히 설명합니다.
+title: "Log Analytics의 경고 | Microsoft Docs"
+description: "Log Analytics의 경고는 OMS 저장소의 중요한 정보를 식별하며 문제를 미리 알리거나 작업을 호출하여 문제 해결을 시도합니다.  이 문서에서는 경고 규칙을 만드는 방법을 설명하고 규칙에서 실행할 수 있는 여러 가지 작업을 자세히 설명합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 6cfd2a46-b6a2-4f79-a67b-08ce488f9a91
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/22/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7f8603c9ddfd3f99ea38ad07b7a8a0a553e5e4dd
+
 
 ---
 # <a name="alerts-in-log-analytics"></a>Log Analytics의 경고
@@ -46,8 +50,8 @@ Log Analytics의 경고는 OMS 저장소에서 중요한 정보를 식별합니�
 | 알림 표시 안 함 |경고 규칙 표시 안 함 기능을 켜면 규칙에 대한 작업이 새 경고를 만든 후 정의된 기간 동안 비활성화됩니다.  규칙은 여전히 실행되고 있으며 조건을 만족하면 경고 레코드를 생성합니다.  이 기능을 사용하여 중복 작업을 실행하지 않고 문제를 해결할 시간 여유를 갖게 됩니다. |
 | **actions** | |
 | 메일 알림 |경고가 트리거될 때 전자 메일을 보내려면 **예** 를 지정합니다. |
-| 제목 | |
-| 전자 메일의 제목입니다.  메일의 본문을 수정할 수 없습니다. | |
+| 제목
+ |전자 메일의 제목입니다.  메일의 본문을 수정할 수 없습니다. |
 | 받는 사람 |모든 전자 메일 받는 사람의 주소입니다.  둘 이상의 주소를 지정하는 경우 주소를 세미콜론(;)으로 구분합니다. |
 | 웹후크 |경고가 트리거될 때 웹후크를 호출하려면 **예** 를 지정합니다. |
 | Webhook URL |웹후크의 URL입니다. |
@@ -206,6 +210,9 @@ Log Analytics의 규칙에 의해 만든 경고 레코드에는 **경고**의 **
 * 경고 규칙을 사용하여 [웹후크를 구성](log-analytics-alerts-webhooks.md) 하는 연습을 완료합니다.  
 * 경고에 의해 식별된 문제를 수정하는 [Azure 자동화의 Runbook](https://azure.microsoft.com/documentation/services/automation) 을 작성하는 방법에 대해 알아봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

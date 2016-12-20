@@ -1,13 +1,13 @@
 ---
-title: HDInsight .NET SDK를 사용하여 Hive 쿼리 실행 | Microsoft Docs
-description: HDInsight .NET SDK를 사용하여 Azure HDInsight Hadoop에 Hadoop 작업을 제출하는 방법에 대해 알아봅니다.
+title: "HDInsight .NET SDK를 사용하여 Hive 쿼리 실행 | Microsoft 문서"
+description: "HDInsight .NET SDK를 사용하여 Azure HDInsight Hadoop에 Hadoop 작업을 제출하는 방법에 대해 알아봅니다."
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
-
+ms.assetid: 4e291890-f8b4-426c-b5e8-d4fd512ff042
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 2168147972184e14705781765b9afb3f2ee902e3
+
 
 ---
-# HDInsight .NET SDK를 사용하여 Hive 쿼리 실행
-[!INCLUDE [hive-선택기](../../includes/hdinsight-selector-use-hive.md)]
+# <a name="run-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Hive 쿼리 실행
+[!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
 HDInsight.NET SDK를 사용하여 Hive 쿼리를 제출하는 방법에 대해 알아봅니다.
 
@@ -27,14 +31,14 @@ HDInsight.NET SDK를 사용하여 Hive 쿼리를 제출하는 방법에 대해 �
 > 
 > 
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-* **HDInsight에 Hadoop 클러스터**. [클러스터 및 SQL 데이터베이스 만들기](hdinsight-use-sqoop.md#create-cluster-and-sql-database)를 참조하세요.
+* **HDInsight에 Hadoop 클러스터**. [HDInsight에서 Linux 기반 Hadoop 사용 시작](hdinsight-use-sqoop.md#create-cluster-and-sql-database)을 참조하세요.
 * **Visual Studio 2012/2013/2015**.
 
-## HDInsight .NET SDK를 사용하여 Hive 쿼리 제출
-HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다.
+## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Hive 쿼리 제출
+HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 
 
 **작업을 제출하려면**
 
@@ -43,7 +47,8 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. 다음 코드를 사용합니다.
-   
+
+    ```csharp
         using System.Collections.Generic;
         using System.IO;
         using System.Text;
@@ -124,9 +129,10 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
                 }
             }
         }
+    ```
 4. **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 이 문서에서는 HDInsight 클러스터를 만드는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure HDInsight 시작][hdinsight-get-started]
@@ -140,4 +146,10 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

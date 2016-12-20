@@ -1,13 +1,13 @@
 ---
-title: Linux VM에 대한 벤치마크 점수 계산 | Microsoft Docs
-description: Linux를 실행하는 Azure VM에 대한 CoreMark 계산 벤치마크 점수를 비교합니다.
+title: "Linux VM에 대한 벤치마크 점수 계산 | Microsoft Docs"
+description: "Linux를 실행하는 Azure VM에 대한 CoreMark 계산 벤치마크 점수를 비교합니다."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 93e812c1-79dd-40c5-b97b-aa79f5cd7d76
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 0cc49ad1aac612a2704827e01c9092bef14c69f9
+
 
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM에 대한 벤치마크 점수 계산
-다음 CoreMark 벤치마크 점수는 Ubuntu를 실행하는 Azure의 고성능 VM 라인업에 대한 계산 성능을 보여 줍니다. [Windows Vm](virtual-machines-windows-compute-benchmark-scores.md)에 대해 계산 벤치마크 점수를 사용할 수도 있습니다.
+다음 CoreMark 벤치마크 점수는 Ubuntu를 실행하는 Azure의 고성능 VM 라인업에 대한 계산 성능을 보여 줍니다. [Windows Vm](virtual-machines-windows-compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 계산 벤치마크 점수를 사용할 수도 있습니다.
 
 ## <a name="a-series---compute-intensive"></a>A 시리즈-계산 집약적
 | 크기 | vCPU | NUMA 노드 | CPU | 실행 | 반복 수/초 | StdDev |
@@ -83,9 +87,12 @@ ms.author: cynthn
 Linux 숫자는 Ubuntu에서 [CoreMark](http://www.eembc.org/coremark/faq.php) 를 실행하여 계산됩니다. CoreMark는 가상 CPU의 수에 설정된 스레드 수와 PThread에 설정된 동시성 수로 구성 되었습니다. 대상 반복 횟수는 20초 이상(일반적으로 훨씬 더 김)의 런타임을 제공하기 위해 예상되는 성능에 따라 조정되었습니다. 최종 점수는 완료된 반복 횟수를 테스트를 실행하는 데 걸린 시간(초)으로 나누어 나타냅니다. 각 테스트는 각 VM에서 적어도 7번 실행되었습니다. 테스트(H 시리즈 제외)는 2015년 10월에 실행 당일 VM이 지원되는 모든 Azure 공용 지역에서 여러 VM 상에서 실행되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 저장 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-linux-sizes.md)를 참조하세요.
+* 저장 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 * Linux VM에서 CoreMark 스크립트를 실행하려면 [CoreMark 스크립트 팩](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip)을 다운로드합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

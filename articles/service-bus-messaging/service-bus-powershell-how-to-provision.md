@@ -1,43 +1,47 @@
 ---
-title: Manage Service Bus with PowerShell | Microsoft Docs
-description: Manage Service Bus with PowerShell scripts
-services: service-bus
+title: "PowerShell을 사용하여 Service Bus 관리 | Microsoft Docs"
+description: "PowerShell 스크립트를 사용하여 서비스 버스 관리"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: aff8e2ce-bc8b-489f-aca9-a18782be0375
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ea48cceb265a90138d9618b3e4ab94aef60ad2d4
+
 
 ---
-# <a name="manage-service-bus-with-powershell"></a>Manage Service Bus with PowerShell
-## <a name="overview"></a>Overview
-Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. This article describes how to use PowerShell to provision and manage Service Bus entities such as namespaces, queues, and Event Hubs using a local Azure PowerShell console.
+# <a name="manage-service-bus-with-powershell"></a>PowerShell을 사용하여 서비스 버스 관리
+## <a name="overview"></a>개요
+Microsoft Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 스크립팅 환경입니다. 이 문서에서는 로컬 Azure PowerShell 콘솔에서 PowerShell을 사용하여 네임스페이스, 큐, 이벤트 허브와 같은 서비스 버스 엔터티를 프로비전하고 관리하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>Prerequisites
-Before you begin this article, you must have the following prerequisites:
+## <a name="prerequisites"></a>필수 조건
+이 문서를 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
-* An Azure subscription. Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options][Purchase Options], [Member Offers][Member Offers], or [Free Trial][Free Trial].
-* A computer with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][Install and configure Azure PowerShell].
-* A general understanding of PowerShell scripts, NuGet packages, and the .NET Framework.
+* Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][구매 옵션], [구성원 제안][구성원 제안] 또는 [무료 평가판][무료 평가판]을 참조하세요.
+* Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요.
+* PowerShell 스크립트, NuGet 패키지 및 .NET Framework 전반에 대한 지식
 
-## <a name="including-a-reference-to-the-.net-assembly-for-service-bus"></a>Including a reference to the .NET assembly for Service Bus
-There are a limited number of PowerShell cmdlets available for managing Service Bus. To provision entities that are not exposed through the existing cmdlets, you can use the .NET client for Service Bus in the [Service Bus NuGet package][Service Bus NuGet package].
+## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>.NET 어셈블리에 서비스 버스에 대한 참조 포함
+서비스 버스를 관리하는 데 사용할 수 있는 PowerShell cmdlet은 제한되어 있습니다. 기존 cmdlet을 통해 표시되지 않은 엔터티를 프로비전하려면 [서비스 버스 NuGet 패키지][서비스 버스 NuGet 패키지]에서 Service Bus용 .NET 클라이언트를 사용할 수 있습니다.
 
-First, make sure that the script can locate the **Microsoft.ServiceBus.dll** assembly, which is installed with the NuGet package. In order to be flexible, the script performs these steps:
+먼저 스크립트가 NuGet 패키지와 함께 설치되는 **Microsoft.ServiceBus.dll** 어셈블리를 찾을 수 있는지 확인합니다. 유연한 작업을 위해 스크립트는 다음 단계를 수행합니다.
 
-1. Determines the path at which it was invoked.
-2. Traverses the path until it finds a folder named `packages`. This folder is created when you install NuGet packages.
-3. Recursively searches the `packages` folder for an assembly named **Microsoft.ServiceBus.dll**.
-4. References the assembly so that the types are available for later use.
+1. 호출된 경로를 파악합니다.
+2. 이름이 `packages`인 폴더를 찾을 때까지 경로를 탐색합니다. 이 폴더는 NuGet 패키지를 설치할 때 생성됩니다.
+3. **Microsoft.ServiceBus.dll** 어셈블리에 대한 `packages` 폴더를 재귀적으로 검색합니다.
+4. 해당 형식을 나중에 사용할 수 있도록 어셈블리를 참조합니다.
 
-Here's how these steps are implemented in a PowerShell script:
+PowerShell 스크립트에서 이러한 단계는 다음과 같이 구현됩니다.
 
 ```
 try
@@ -58,22 +62,22 @@ catch [System.Exception]
 }
 ```
 
-## <a name="provision-a-service-bus-namespace"></a>Provision a Service Bus namespace
-Two PowerShell cmdlets support Service Bus namespace operations. Instead of the .NET SDK APIs, you can use [Get-AzureSBNamespace][Get-AzureSBNamespace] and [New-AzureSBNamespace][New-AzureSBNamespace].
+## <a name="provision-a-service-bus-namespace"></a>서비스 버스 네임스페이스 프로비전
+두 PowerShell cmdlet은 서비스 버스 네임스페이스 작업을 지원합니다. .NET SDK API 대신 [Get-AzureSBNamespace][Get-AzureSBNamespace] 및 [New-AzureSBNamespace][New-AzureSBNamespace]를 사용할 수 있습니다.
 
-This example creates a few local variables in the script; `$Namespace` and `$Location`.
+이 예제에서는 스크립트에 `$Namespace`과(와) `$Location`(이)라는 몇 가지 로컬 변수를 만듭니다.
 
-* `$Namespace` is the name of the Service Bus namespace with which we want to work.
-* `$Location` identifies the data center in which the script provisions the namespace.
-* `$CurrentNamespace` stores the reference namespace that the script retrieves (or creates).
+* `$Namespace`은(는) 사용하려는 Service Bus 네임스페이스의 이름입니다.
+* `$Location` 은 스크립트가 네임스페이스를 프로비전할 데이터 센터를 식별합니다.
+* `$CurrentNamespace`에는 스크립트가 검색하거나 만드는 참조 네임스페이스가 저장됩니다.
 
-In an actual script, `$Namespace` and `$Location` can be passed as parameters.
+실제 스크립트에서 `$Namespace` 및 `$Location`은(는) 매개 변수로 전달할 수 있습니다.
 
-This part of the script performs the following tasks:
+스크립트의 이 부분은 다음 작업을 수행합니다.
 
-1. Attempts to retrieve a Service Bus namespace with the provided name.
-2. If the namespace is found, it reports what was found.
-3. If the namespace is not found, it creates the namespace and then retrieves the newly created namespace.
+1. 제공된 이름의 서비스 버스 네임스페이스 검색을 시도합니다.
+2. 네임스페이스가 있으면 발견된 항목을 보고합니다.
+3. 네임스페이스가 없으면 만든 다음 새로 만든 네임스페이스를 검색합니다.
    
     ```
     $Namespace = "MyServiceBusNS"
@@ -97,8 +101,8 @@ This part of the script performs the following tasks:
     }
     ```
 
-To provision other Service Bus entities, create an instance of the [NamespaceManager][NamespaceManager] class from the SDK.
-You can use the [Get-AzureSBAuthorizationRule][Get-AzureSBAuthorizationRule] cmdlet to retrieve an authorization rule that's used to provide a connection string. We'll store a reference to the `NamespaceManager` instance in the `$NamespaceManager` variable. We will use `$NamespaceManager` later in the script to provision other entities.
+다른 Service Bus 엔터티를 프로비전하려면 SDK에서 [NamespaceManager][NamespaceManager] 클래스의 인스턴스를 만듭니다.
+[Get-AzureSBAuthorizationRule][Get-AzureSBAuthorizationRule] cmdlet을 사용하면 연결 문자열을 제공하는 데 사용되는 권한 부여 규칙을 검색할 수 있습니다. 여기서는 `NamespaceManager` 인스턴스에 대한 참조를 `$NamespaceManager` 변수에 저장합니다. 나중에 스크립트에 `$NamespaceManager` 를 사용하여 다른 엔터티를 프로비전합니다.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -108,14 +112,14 @@ $NamespaceManager = [Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectio
 Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
 ```
 
-## <a name="provisioning-other-service-bus-entities"></a>Provisioning other Service Bus entities
-In order to provision other entities, such as queues, topics, and Event Hubs, use the [.NET API for Service Bus][.NET API for Service Bus]. This article focuses only on Event Hubs, but the steps for other entities are similar. In addition, more detailed examples, including other entities, are referenced at the end of this article.
+## <a name="provisioning-other-service-bus-entities"></a>다른 서비스 버스 엔터티 프로비전
+큐, 토픽, Event Hubs와 같은 다른 엔터티를 프로비전하려는 경우 [서비스 버스용 .NET API][서비스 버스용 .NET API]를 사용합니다. 이 문서에서는 이벤트 허브에 대해서만 중점적으로 설명하지만 다른 엔터티에 대해 수행하는 단계도 비슷합니다. 뿐만 아니라 다른 엔터티를 비롯한 보다 자세한 예제도 이 문서 끝부분에 참조용으로 나와 있습니다.
 
-This part of the script creates four more local variables. These variables are used to instantiate an `EventHubDescription` object. The script performs the following tasks:
+이 스크립트 부분에서는 로컬 변수를 4개 더 만듭니다. 이러한 변수는 `EventHubDescription` 개체를 인스턴스화하는 데 사용됩니다. 스크립트는 다음 작업을 수행합니다.
 
-1. Using the `NamespaceManager` object, check to see if the Event Hub identified by `$Path` exists.
-2. If it does not exist, create an `EventHubDescription` and pass that to the `NamespaceManager` class `CreateEventHubIfNotExists` method.
-3. After determining that the Event Hub is available, create a consumer group using `ConsumerGroupDescription` and `NamespaceManager`.
+1. `NamespaceManager` 개체를 사용하여 `$Path`(으)로 식별되는 이벤트 허브가 있는지 확인합니다.
+2. 해당 이벤트 허브가 없으면 `EventHubDescription`을(를) 만든 다음 `NamespaceManager` 클래스의 `CreateEventHubIfNotExists` 메서드에 전달합니다.
+3. 이벤트 허브를 사용할 수 있음을 확인한 후 `ConsumerGroupDescription` 및 `NamespaceManager`을(를) 사용하여 소비자 그룹을 만듭니다.
    
     ```
     $Path  = "MyEventHub"
@@ -149,8 +153,8 @@ This part of the script creates four more local variables. These variables are u
     Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
     ```
 
-## <a name="migrate-a-namespace-to-another-azure-subscription"></a>Migrate a namespace to another Azure subscription
-The following sequence of commands moves a namespace from one Azure subscription to another. To execute this operation, the namespace must already be active, and the user running the PowerShell commands must be an administrator on both the source and target subscriptions.
+## <a name="migrate-a-namespace-to-another-azure-subscription"></a>다른 Azure 구독으로 네임스페이스 마이그레이션
+다음 명령 시퀀스는 네임스페이스를 Azure 구독 간에 이동합니다. 이 작업을 실행하려면 네임스페이스 이미 활성 상태여야 하며 PowerShell 명령을 실행하는 사용자는 원본 및 대상 구독의 관리자여야 합니다.
 
 ```
 # Create a new resource group in target subscription
@@ -163,32 +167,32 @@ $res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Mic
 Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="next-steps"></a>Next steps
-This article provided a basic outline for provisioning Service Bus entities using PowerShell. Anything that you can do using the .NET client libraries, you can also do in a PowerShell script.
+## <a name="next-steps"></a>다음 단계
+이 문서에서는 PowerShell을 사용하여 서비스 버스 엔터티를 프로비전하는 방법에 대해 간략하게 설명했습니다. .NET 클라이언트 라이브러리를 사용하여 수행할 수 있는 모든 작업은 PowerShell 스크립트에서도 수행할 수 있습니다.
 
-There are more detailed examples available on these blog posts:
+다음 블로그 게시물에서 보다 자세한 설명을 확인할 수 있습니다.
 
-* [How to create Service Bus queues, topics and subscriptions using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [How to create a Service Bus Namespace and an Event Hub using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [PowerShell 스크립트를 사용하여 서비스 버스 큐, 토픽 및 구독을 만드는 방법](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [PowerShell 스크립트를 사용하여 서비스 버스 네임스페이스 및 이벤트 허브를 만드는 방법](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Some ready-made scripts are also available for download:
+즉시 사용 가능한 스크립트도 다운로드 가능합니다.
 
-* [Service Bus PowerShell Scripts](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
+* [Service Bus PowerShell 스크립트](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Link references-->
-[Purchase Options]: http://azure.microsoft.com/pricing/purchase-options/
-[Member Offers]: http://azure.microsoft.com/pricing/member-offers/
-[Free Trial]: http://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell]: ../powershell-install-configure.md
-[Service Bus NuGet package]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
+[구매 옵션]: http://azure.microsoft.com/pricing/purchase-options/
+[구성원 제안]: http://azure.microsoft.com/pricing/member-offers/
+[무료 평가판]: http://azure.microsoft.com/pricing/free-trial/
+[Azure PowerShell 설치 및 구성]: ../powershell-install-configure.md
+[서비스 버스 NuGet 패키지]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[.NET API for Service Bus]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
+[서비스 버스용 .NET API]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

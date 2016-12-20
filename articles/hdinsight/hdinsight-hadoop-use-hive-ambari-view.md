@@ -1,13 +1,13 @@
 ---
-title: Use Ambari Views to work with Hive on HDInsight (Hadoop) | Microsoft Docs
-description: Learn how to use the Hive View from your web browser to submit Hive queries. The Hive View is part of the Ambari Web UI provided with your Linux-based HDInsight cluster.
+title: "HDInsight(Hadoop)에서 Ambari 보기를 사용하는 Hive 작업| Microsoft 문서"
+description: "웹 브라우저에서 Hive 뷰를 사용하여 Hive 쿼리를 제출하는 방법을 알아봅니다. Hive 뷰는 Linux 기반 HDInsight 클러스터와 함께 제공되는 Ambari 웹 UI의 일부입니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 1abe9104-f4b2-41b9-9161-abbc43de8294
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,50 +15,54 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/28/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4cdc1f0a8958edd23f8df02c4d16d3f60fe648bd
+
 
 ---
-# <a name="use-the-hive-view-with-hadoop-in-hdinsight"></a>Use the Hive View with Hadoop in HDInsight
+# <a name="use-the-hive-view-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Hive 사용
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Ambari is a management and monitoring utility provided with Linux-based HDInsight clusters. One of the features provided through Ambari is a Web UI that can be used to run Hive queries. This is the **Hive View**, part of the Ambari Views provided with your HDInsight cluster.
+Ambari는 Linux 기반 HDInsight 클러스터와 함께 제공되는 관리 및 모니터링 유틸리티입니다. Ambari를 통해 제공되는 기능 중 하나는 Hive 쿼리를 실행하는 데 사용할 수 있는 웹 UI입니다. 이는 **Hive 보기**이며, HDInsight 클러스터에서 제공하는 Ambari 보기의 일부입니다.
 
 > [!NOTE]
-> Ambari has a lot of capabilities that won't be discussed in this document. For more information, see [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
+> Ambari는 이 문서에 설명되지 않은 여러 기능을 갖고 있습니다. 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisites
-* A Linux-based HDInsight cluster. For information on creating a new cluster, see [Get started with Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+## <a name="prerequisites"></a>필수 조건
+* Linux 기반 HDInsight 클러스터입니다. 새 클러스터를 만드는 방법에 대한 정보는 [Linux 기반 HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-## <a name="open-the-hive-view"></a>Open the Hive view
-You can Ambari Views from the Azure Portal; select your HDInsight cluster and then select **Ambari Views** from the **Quick Links** section.
+## <a name="open-the-hive-view"></a>Hive 뷰를 엽니다.
+Azure Portal에서 HDInsight 클러스터를 선택한 다음 **빠른 링크** 섹션에서 **Ambari 보기**를 선택하면 Ambari 보기를 볼 수 있습니다.
 
-![quick links section](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
+![빠른 링크 섹션](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
 
-You can also navigate directly to Ambari by going to https://CLUSTERNAME.azurehdinsight.net in a web browser (where **CLUSTERNAME** is the name of your HDInsight cluster,) and then select the set of squares from the page menu (next to the **Admin** link and button on the left of the page,) to list available views. Select the **Hive view**.
+웹 브라우저에서 https://CLUSTERNAME.azurehdinsight.net으로 이동한 다음(여기서 **CLUSTERNAME**은 HDInsight 클러스터 이름임) 페이지 메뉴에서 사각형 집합(**관리자** 링크 옆 및 페이지 왼쪽의 단추)을 선택하여 사용 가능한 보기의 목록을 표시하면 Ambari로 바로 이동할 수도 있습니다. **Hive 보기**를 선택합니다.
 
-![Selecting ambari views](./media/hdinsight-hadoop-use-hive-ambari-view/selecthiveview.png).
+![Ambari 뷰 선택](./media/hdinsight-hadoop-use-hive-ambari-view/selecthiveview.png)를 참조하세요.
 
 > [!NOTE]
-> When accessing Ambari, you will be prompted to authenticate to the site. Enter the admin (default `admin`,) account name and password you used when creating the cluster.
+> Ambari에 액세스할 때 사이트에 인증하라는 메시지가 표시됩니다. 클러스터를 만들 때 사용한 관리자(기본값 `admin`), 계정 이름 및 암호를 입력합니다.
 > 
 > 
 
-You should see a page similar to the following:
+다음과 유사한 결과가 표시됩니다.
 
-![Image of the hive view page, containing a query editor section](./media/hdinsight-hadoop-use-hive-ambari-view/hiveview.png)
+![쿼리 편집기 섹션이 포함된 Hive 뷰 페이지 이미지](./media/hdinsight-hadoop-use-hive-ambari-view/hiveview.png)
 
-## <a name="view-tables"></a>View tables
-In the **Database Explorer** section of the page, select the **default** entry on the **Databases** tab. This will display a list of tables in the default database. For a new HDInsight cluster, only one table should exist; **hivesampletable**.
+## <a name="view-tables"></a>테이블 보기
+페이지의 **데이터베이스 탐색기**섹션에서 **데이터베이스** 탭의 **기본** 항목을 선택합니다. 기본 데이터베이스에 테이블의 목록이 나타납니다. 새 HDInsight 클러스터의 경우 단 하나의 테이블, 즉 **hivesampletable**이 있어야 합니다.
 
-![database explorer with the default database expanded](./media/hdinsight-hadoop-use-hive-ambari-view/databaseexplorer.png)
+![확장된 기본 데이터베이스를 사용한 데이터베이스 탐색기](./media/hdinsight-hadoop-use-hive-ambari-view/databaseexplorer.png)
 
-As new tables are added through the steps in this document, you can use the refresh icon in the upper right corner of the Database Explorer to refresh the list of available tables.
+새 테이블이 이 문서의 단계를 통해 추가되면 데이터베이스 탐색기의 오른쪽 위 모서리에서 새로 고침 아이콘을 사용하여 사용 가능한 테이블 목록을 새로 고칠 수 있습니다.
 
-## <a name="<a-name="hivequery"></a>query-editor"></a><a name="hivequery"></a>Query editor
-Use the following steps from the Hive view to run a Hive query against data included with the cluster.
+## <a name="a-namehivequeryaquery-editor"></a><a name="hivequery"></a>쿼리 편집기
+Hive 뷰에서 다음 단계에 따라 클러스터에 포함된 데이터에 대해 Hive 쿼리를 실행합니다.
 
-1. In the **Query Editor** section of the page, paste the following HiveQL statements into the worksheet:
+1. 페이지의 **쿼리 편집기** 섹션에서 다음 HiveQL 문을 워크시트에 붙여넣습니다.
    
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -66,133 +70,136 @@ Use the following steps from the Hive view to run a Hive query against data incl
         STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
    
-    These statements perform the following actions:
+    이러한 문은 다음 작업을 수행합니다.
    
-   * **DROP TABLE** - Deletes the table and the data file, in case the table already exists.
-   * **CREATE EXTERNAL TABLE** - Creates a new "external" table in Hive. External tables store only the table definition in Hive; the data is left in the original location.
-   * **ROW FORMAT** - Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
-   * **STORED AS TEXTFILE LOCATION** - Tells Hive where the data is stored (the example/data directory), and that it is stored as text.
-   * **SELECT** - Selects a count of all rows where column t4 contains the value [ERROR].
+   * **DROP TABLE** - 테이블이 이미 있는 경우 테이블과 데이터 파일을 삭제합니다.
+   * **CREATE EXTERNAL TABLE** - Hive에서 새 “외부” 테이블을 만듭니다. 외부 테이블은 Hive에 테이블 정의만 저장하고, 데이터는 원래 위치에 남아 있습니다.
+   * **ROW FORMAT** - 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
+   * **STORED AS TEXTFILE LOCATION** - 데이터가 저장된 위치(example/data 디렉터리) 및 텍스트로 저장되었음을 Hive에 알립니다.
+   * **SELECT** - t4 열에 ERROR 값이 포함된 모든 행의 수를 선택합니다.
      
      > [!NOTE]
-     > External tables should be used when you expect the underlying data to be updated by an external source, such as an automated data upload process, or by another MapReduce operation, but you always want Hive queries to use the latest data. Dropping an external table does *not* delete the data, only the table definition.
+     > 자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다. 외부 테이블을 삭제하면 데이터는 삭제되지 *않고* 테이블 정의만 삭제됩니다.
      > 
      > 
-2. Use the **Execute** button at the bottom of the Query Editor to start the query. It should turn orange and the text will change to **Stop execution**. A **Query Process Results** section should appear beneath the Query Editor and display information about the job.
+2. [쿼리 편집기] 아래쪽의 **실행** 단추를 사용하여 쿼리를 시작합니다. 이때 단추는 주황색으로, 텍스트는 **실행 중지**로 바뀝니다. 쿼리 편집기 아래에 **쿼리 프로세스 결과** 섹션이 나타나고 작업에 대한 정보가 표시될 것입니다.
    
    > [!IMPORTANT]
-   > Some browsers may not correctly refresh the log or results information. If you run a job and it appears to run forever without updating the log or returning results, try using Mozilla FireFox or Google Chrome instead.
+   > 일부 브라우저에서는 로그 또는 결과 정보가 올바르게 새로 고침되지 않을 수 있습니다. 작업을 실행했는데 로그가 업데이트되거나 결과가 반환되지 않고 작업이 계속 실행되는 것 같으면 Mozilla FireFox 또는 Google Chrome를 사용해 보세요.
    > 
    > 
-3. Once the query has finished, The **Query Process Results** section will display the results of the operation. The **Stop execution** button will also change back to a green **Execute** button. The **Results** tab should contain the following information:
+3. 쿼리가 완료되면 **쿼리 프로세스 결과** 섹션에 작업 결과가 표시됩니다. 이때 **실행 중지** 단추는 녹색 **실행** 단추로 다시 바뀝니다. **결과** 탭에는 다음 정보가 표시됩니다.
    
         sev       cnt
         [ERROR]   3
    
-    The **Logs** tab can be used to view the logging information created by the job. You can use this for troubleshooting if there are problems with a query.
+    **로그** 탭을 사용하면 작업에서 생성된 로깅 정보를 볼 수 있습니다. 쿼리에 문제가 있는 경우 이 정보를 사용하여 문제를 해결할 수 있습니다.
    
    > [!TIP]
-   > Note the **Save results** drop-down dialog in the upper left of the **Query Process Results** section; you can use this to either download the results, or save them to HDInsight storage as a CSV file.
+   > **쿼리 프로세스 결과** 섹션의 왼쪽 위에 결과를 다운로드하거나 HDInsight 저장소에 CSV 파일로 저장할 수 있는 **결과 저장** 드롭다운 대화 상자가 있습니다.
    > 
    > 
-4. Select the first four lines of this query, then select **Execute**. Notice that there are no results when the job completes. This is because using the **Execute** button when part of the query is selected will only run the selected statements. In this case, the selection didn't include the final statement that retrieves rows from the table. If you select just that line and use **Execute**, you should see the expected results.
-5. Use the **New Worksheet** button at the bottom of the **Query Editor** to create a new worksheet. In the new worksheet, enter the following HiveQL statements:
+4. 이 쿼리의 처음 네 줄을 선택한 다음 **실행**을 선택합니다. 작업이 완료되어도 결과가 없습니다. 쿼리의 일부를 선택했을 때 **실행** 단추를 사용하면 선택한 문만 실행되기 때문입니다. 이 예에서는 테이블에서 행을 검색하는 최종 문이 선택한 네 줄에 포함되지 않았습니다. 해당 줄만 선택하고 **실행**단추를 사용하면 예상된 결과가 표시됩니다.
+5. **쿼리 편집기** 아래쪽의 **새 워크시트** 단추를 사용하여 새 워크시트를 만듭니다. 새 워크시트에 다음 HiveQL 문을 입력합니다.
    
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
    
-    These statements perform the following actions:
+    이러한 문은 다음 작업을 수행합니다.
    
-   * **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive. Unlike external tables, dropping an internal table will delete the underlying data as well.
-   * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
-   * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain [ERROR], and then inserts the data into the **errorLogs** table.
+   * **CREATE TABLE IF NOT EXISTS** - 테이블이 아직 없는 경우 테이블을 만듭니다. **EXTERNAL** 키워드가 사용되지 않으면 Hive 데이터 웨어하우스에 저장되고 Hive에서 완전히 관리되는 내부 테이블입니다. 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
+   * **STORED AS ORC** - 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
+   * **덮어쓰기 삽입... SELECT** - [ERROR]가 포함된 **log4jLogs** 테이블에서 행을 선택한 다음 **errorLogs** 테이블에 데이터를 삽입합니다.
      
-     Use the **Execute** button to run this query. The **Results** tab will not contain any information as no rows are returned by this query, but the status should show as **SUCCEEDED**.
+     **실행** 단추를 사용하여 해당 쿼리를 실행합니다. 이 쿼리에서 아무런 행도 반환하지 않기 때문에 **결과** 탭에는 어떤 정보도 없지만 상태는 **SUCCEEDED**로 표시됩니다.
 
-### <a name="hive-settings"></a>Hive settings
-Select the **Settings** icon to the right of the editor.
+### <a name="hive-settings"></a>Hive 설정
+편집기 오른쪽의 **설정** 아이콘을 선택합니다.
 
-![icons](./media/hdinsight-hadoop-use-hive-ambari-view/settings.png)
+![아이콘](./media/hdinsight-hadoop-use-hive-ambari-view/settings.png)
 
-Settings can be used to change various Hive settings, such as changing the execution engine for Hive from Tez (the default,) to MapReduce.
+설정은 Tez(기본값,)에서 MapReduce로 Hive에 대한 실행 엔진을 변경하는 등 다양한 Hive 설정을 변경하는 데 사용할 수 있습니다.
 
-### <a name="visual-explain"></a>Visual explain
-Select the **Visual Explain** icon to the right of the editor.
+### <a name="visual-explain"></a>시각적 개체 설명
+편집기 오른쪽의 **시각적 개체 설명** 아이콘을 선택합니다.
 
-![icons](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplainicon.png)
+![아이콘](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplainicon.png)
 
-This is the **Visual Explain** view of the query, which can be helpful in understanding the flow of complex queries. You can view a textual equivalent of this view by using the **Explain** button in the Query Editor.
+이 아이콘은 쿼리의 **시각적 설명** 보기이며, 복잡한 쿼리 흐름을 이해하는 데 도움이 됩니다. [쿼리 편집기]의 **설명** 단추를 사용하면 이 보기에 해당하는 텍스트 명령을 볼 수 있습니다.
 
-![visual explain image](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
+![시각적 설명 이미지](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
 
 ### <a name="tez"></a>Tez
-Select the **Tez** icon to the right of the editor.
+편집기 오른쪽의 **Tez** 아이콘을 선택합니다.
 
-![icons](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
+![아이콘](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
 
-This will display the Directed Acyclic Graph (DAG) used by Tez for this query, if one is available. If you want to view the DAG for queries you've ran in the past, or debug the Tez process, use the [Tez View](hdinsight-debug-ambari-tez-view.md) instead.
+사용 가능한 경우 이 쿼리에 대해 Tez에서 사용된 Directed Acyclic Graph(DAG)가 표시됩니다. 이전에 실행한 쿼리에 대한 DAG를 보거나 Tez 프로세스를 디버그하려면 [Tez 뷰](hdinsight-debug-ambari-tez-view.md) 를 대신 사용합니다.
 
-### <a name="notifications"></a>Notifications
-Select the **Notifications** icon to the right of the editor.
+### <a name="notifications"></a>알림
+편집기 오른쪽에의 **알림** 아이콘을 선택합니다.
 
-![icons](./media/hdinsight-hadoop-use-hive-ambari-view/notifications.png)
+![아이콘](./media/hdinsight-hadoop-use-hive-ambari-view/notifications.png)
 
-Notifications are messages that are generated when running queries. For example, you will receive a notification when a query is submitted, or when an error occurs.
+알림은 쿼리를 실행할 때 생성되는 메시지입니다. 예를 들어 쿼리를 제출하거나 오류가 발생할 때 알림을 받게 됩니다.
 
-## <a name="saved-queries"></a>Saved queries
-1. From the Query Editor, create a new worksheet and enter the following query:
+## <a name="saved-queries"></a>저장된 쿼리
+1. 쿼리 편집기에서 새 워크시트를 만들고 다음 쿼리를 입력합니다.
    
         SELECT * from errorLogs;
    
-    Execute the query to verify that it works. The results will be as follows:
+    작동하는지 확인하려면 쿼리를 실행합니다. 다음과 같은 결과가 표시될 것입니다.
    
-        errorlogs.t1    errorlogs.t2    errorlogs.t3    errorlogs.t4    errorlogs.t5    errorlogs.t6    errorlogs.t7
-        2012-02-03  18:35:34    SampleClass0    [ERROR]     incorrect   id  
-        2012-02-03  18:55:54    SampleClass1    [ERROR]     incorrect   id  
-        2012-02-03  19:25:27    SampleClass4    [ERROR]     incorrect   id
-2. Use the **Save as** button at the bottom of the editor. Name this query **Errorlogs** and select **OK**. Note that the name of the worksheet changes to **Errorlogs**.
-3. Select the **Saved Queries** tab at the top of the Hive View page. Note that **Errorlogs** is now listed as a saved query. It will remain in this list until you remove it. Selecting the name will open the query in the Query Editor.
+        errorlogs.t1     errorlogs.t2     errorlogs.t3     errorlogs.t4     errorlogs.t5     errorlogs.t6     errorlogs.t7
+        2012-02-03     18:35:34     SampleClass0     [ERROR]     incorrect     id     
+        2012-02-03     18:55:54     SampleClass1     [ERROR]     incorrect     id     
+        2012-02-03     19:25:27     SampleClass4     [ERROR]     incorrect     id
+2. 편집기 아래쪽의 **다른 이름으로 저장** 단추를 사용합니다. 이 쿼리의 이름으로 **Errorlogs**를 입력하고 **확인**을 선택합니다. 워크시트 이름이 **Errorlogs**로 바뀝니다.
+3. Hive 보기 페이지의 위쪽에서 **저장된 쿼리** 탭을 선택합니다. 이제 **Errorlogs**가 저장된 쿼리로 나열됩니다. 이 목록에서 제거될 때까지 유지됩니다. 이름을 선택하면 쿼리 편집기에서 해당 쿼리가 열립니다.
 
-## <a name="query-history"></a>Query history
-The **History** button at the top of the Hive View allows you to view queries you have ran previously. Use it now and select some of the queries you have ran previously. When you select a query, it opens it in the Query Editor.
+## <a name="query-history"></a>쿼리 기록
+Hive 보기 위쪽의 **기록** 단추를 사용하면 이전에 실행한 쿼리를 볼 수 있습니다. 이제 사용하여 이전에 실행한 쿼리 중 일부를 선택합니다. 쿼리를 선택하면 쿼리 편집기에서 열립니다.
 
-## <a name="user-defined-functions-(udf)"></a>User Defined Functions (UDF)
-Hive can also be extended through **user-defined functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL.
+## <a name="user-defined-functions-udf"></a>UDF(사용자 정의 함수)
+Hive는 **사용자 정의 함수(UDF)**를 통해 확장 될 수도 있습니다. UDF를 사용하면 HiveQL에서 쉽게 모델링할 수 있는 기능 또는 논리를 구현할 수 있습니다.
 
-While you can add a UDF as part of the HiveQL statements in your query, the UDF tab at the top of the Hive View allows you to declare and save a set of UDFs that can be used with the **Query Editor**.
+쿼리에 HiveQL 문의 일부로 UDF를 추가할 수 있는 반면 Hive 보기 위쪽의 UDF 탭에서는 **쿼리 편집기**를 통해 사용할 수 있는 UDF 집합을 선언하고 사용할 수 있습니다.
 
-Once you have added a UDF to the Hive View, an **Insert udfs** button will appear at the bottom of the **Query Editor**. Selecting this will display a drop-down list of the UDFs defined in the Hive View. Selecting a UDF will add HiveQL statements to your query to enable the UDF.
+UDF를 Hive 보기에 추가하면 **쿼리 편집기** 아래쪽에 **udf 삽입** 단추가 표시됩니다. 이 단추를 선택하면 Hive 뷰에서 정의된 UDF의 드롭다운 목록을 표시합니다. UDF를 선택하면 쿼리에 HiveQL 문을 추가하여 UDF를 사용하도록 설정합니다.
 
-For example, if you have defined a UDF with the following properties:
+예를 들어 다음 속성으로 UDF를 정의하는 경우:
 
-* Resource name: myudfs
-* Resource path: wasbs:///myudfs.jar
-* UDF name: myawesomeudf
-* UDF class name: com.myudfs.Awesome
+* 리소스 이름: myudfs
+* 리소스 경로: wasbs:///myudfs.jar
+* UDF 이름: myawesomeudf
+* UDF 클래스 이름: com.myudfs.Awesome
 
-Using the **Insert udfs** button will display an entry named **myudfs**, with another drop-down for each UDF defined for that resource. In this case, **myawesomeudf**. Selecting this entry will add the following to the beginning of the query:
+**udf 삽입** 단추를 사용하면 해당 리소스에 정의된 각 UDF에 대한 또 다른 드롭다운 목록과 함께 **myudfs**라는 항목이 표시됩니다. 이 경우 **myawesomeudf**입니다. 이 항목을 선택하면 쿼리의 시작 부분에 다음을 추가합니다.
 
     add jar wasbs:///myudfs.jar;
 
     create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
-You can then use the UDF in your query. For example, `SELECT myawesomeudf(name) FROM people;`.
+그런 다음 쿼리에서 UDF를 사용할 수 있습니다. 예: `SELECT myawesomeudf(name) FROM people;`.
 
-For more information on using UDFs with Hive on HDInsight, see the following:
+HDInsight에서 Hive를 통해 UDF를 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Using Python with Hive and Pig in HDInsight](hdinsight-python.md)
-* [How to add a custom Hive UDF to HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [HDInsight에서 Hive 및 Pig와 함께 Python 사용](hdinsight-python.md)
+* [HDInsight에 사용자 지정 하이브 UDF를 추가 하는 방법](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-## <a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Next steps
-For general information on Hive in HDInsight:
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
+HDInsight의 Hive에 대한 일반적인 정보:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 
-For information on other ways you can work with Hadoop on HDInsight:
+HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

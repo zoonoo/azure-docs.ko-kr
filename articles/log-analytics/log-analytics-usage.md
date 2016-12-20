@@ -1,6 +1,6 @@
 ---
 title: "Log Analytics에서 데이터 사용 현황 분석 | Microsoft Docs"
-description: "Log Analytics에서 사용량 페이지를 사용하여 OMS 서비스로 전송되는 데이터의 양을 볼 수 있습니다."
+description: "Log Analytics에서 사용량 대시보드를 사용하여 OMS 서비스로 전송되는 데이터의 양을 볼 수 있습니다."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,66 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/11/2016
+ms.date: 11/14/2016
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4c1d0319e768eec69718d8b49db30069ec1331d9
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
 
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics에서 데이터 사용 현황 분석
-OMS(Operations Management Suite)의 Log Analytics는 데이터를 수집하여 주기적으로 OMS 서비스에 보냅니다.  **사용량** 페이지를 사용하여 OMS 서비스로 전송되는 데이터의 양을 볼 수 있습니다. **사용량** 페이지에는 솔루션에서 매일 전송되는 데이터의 양 및 서버에서 데이터를 보내는 빈도도 표시됩니다.
+Log Analytics는 데이터를 수집하여 주기적으로 OMS 서비스에 보냅니다.  **Log Analytics 사용량** 대시보드를 사용하여 OMS 서비스로 전송되는 데이터의 양을 볼 수 있습니다. 이 대시보드에는 솔루션에서 전송되는 데이터의 양 및 서버에서 데이터를 보내는 빈도도 표시됩니다.
 
 > [!NOTE]
-> [OMS 웹 사이트](http://www.microsoft.com/oms)를 사용하여 만든 무료 계정이 있는 경우 매일 OMS 서비스로 전송할 수 있는 데이터 양이 500MB로 제한됩니다. 일일 한도에 도달한 경우 데이터 분석이 중지되고 다음 날이 시작될 때 재개됩니다. 또한 OMS에서 허용 또는 처리되지 않은 모든 데이터를 다시 전송해야 합니다.
-> 
-> 
+> 무료 계정이 있는 경우, 매일 OMS 서비스에 500MB의 데이터를 전송하도록 제한됩니다. 일일 한도에 도달한 경우 데이터 분석이 중지되고 다음 날이 시작될 때 재개됩니다. 이 경우 OMS에서 허용 또는 처리되지 않은 모든 데이터를 다시 전송해야 합니다.
 
-OMS의 **개요** 대시보드에서 **사용량** 타일을 사용하여 사용량을 볼 수 있습니다.
+일일 사용량 한도를 초과하거나 근접한 경우, 선택적으로 솔루션을 제거하여 OMS 서비스에 보내는 데이터의 크기를 줄일 수 있습니다. 솔루션 제거에 대한 자세한 내용은 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)를 참조하세요.
 
-![사용량 타일](./media/log-analytics-usage/usage-tile.png)
+![사용량 대시보드](./media/log-analytics-usage/usage-dashboard01.png)
 
-일일 사용량 한도를 초과하거나 거의 한도에 도달한 경우, 선택적으로 솔루션을 제거하여 OMS 서비스에 보내는 데이터의 크기를 줄일 수 있습니다. 솔루션 제거에 대한 자세한 내용은 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)를 참조하세요.
+**Log Analytics 사용량** 대시보드에는 다음 정보가 표시됩니다.
 
-![사용량 대시보드](./media/log-analytics-usage/usage-dashboard.png)
-
-**사용량** 페이지에는 다음 정보가 표시됩니다.
-
-* 하루 평균 사용량
-* 지난 30일 동안 각 솔루션의 데이터 사용량
-* 지난 30일 동안 사용자 환경의 서버에서 OMS로 전송된 데이터의 양
-* 데이터 요금제 가격 책정 계층 및 예상 비용
-* OMS에서 데이터를 처리하는 데 걸리는 시간을 비롯한 SLA(서비스 수준 계약)에 대한 정보
+- 데이터 볼륨
+    - (현재 시간 범위에 기반) 시간에 따른 데이터 볼륨
+    - 솔루션별 데이터 볼륨
+    - 컴퓨터와 연결되지 않은 데이터
+- 컴퓨터
+    - 데이터를 전송하는 컴퓨터
+    - 지난 24시간 동안 데이터가 없는 컴퓨터
+- 제품
+    - 이해 및 분석 노드
+    - 자동화 및 제어 노드
+    - 보안 노드
+- 성능
+    - 데이터 수집 및 인덱싱 소요 시간
+- 쿼리 목록
 
 ## <a name="to-work-with-usage-data"></a>사용률 데이터를 작업하려면
-1. **개요** 페이지에서 **사용량** 타일을 클릭합니다.
-2. **사용량** 페이지에서 염려되는 영역을 표시하는 사용량 범주를 나타냅니다.
-3. 일일 업로드 할당량을 너무 많이 소비하는 솔루션이 있는 경우 해당 솔루션을 제거하는 것이 좋을 수 있습니다.
+1. [Azure Portal](https://portal.azure.com)에 아직 로그인하지 않은 경우 Azure 구독을 사용하여 로그인합니다.
+2. **허브** 메뉴에서 **추가 서비스**를 클릭하고 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 클릭합니다.  
+    ![Azure 허브](./media/log-analytics-usage/hub.png)
+3. **Log Analytics** 대시보드는 작업 영역 목록을 표시합니다. 작업 영역을 선택합니다.
+4. *작업 영역* 대시보드에서 **Log Analytics 사용량**을 클릭합니다.
+5. **Log Analytics 사용량** 대시보드에서 **시간: 최근 24시간**을 클릭하여 시간 간격을 변경합니다.  
+    ![시간 간격](./media/log-analytics-usage/time.png)
+6. 관심이 있는 영역을 표시하는 사용량 범주 블레이드를 확인합니다. [로그 검색](log-analytics-log-searches.md)에서 블레이드를 선택하고 더 자세히 보려는 항목을 클릭합니다.  
+    ![예제 데이터 사용량 블레이드](./media/log-analytics-usage/blade.png)
+7. 로그 검색 대시보드에서 검색에서 반환되는 결과를 검토합니다.  
+    ![예제 사용량 로그 검색](./media/log-analytics-usage/usage-log-search.png)
 
-## <a name="to-view-your-estimated-cost-and-billing-information"></a>예상 비용 및 청구 정보를 보려면
-1. **개요** 페이지에서 **사용량** 타일을 클릭합니다.
-2. **사용량** 페이지의 **사용량**에서 **예상 비용** 옆의 펼침 단추(**>**)를 클릭합니다.
-3. 확장된 **데이터 계획** 정보에서 월별 예상 비용을 확인할 수 있습니다.  
-    ![데이터 요금제](./media/log-analytics-usage/usage-data-plan.png)
-4. 대금 청구 정보를 보려면 **내 청구서 보기** 를 클릭하여 구독 정보를 확인합니다.
-   * 구독 페이지에서 구독을 클릭하여 세부 정보 및 사용량 품목 목록을 확인합니다.  
-       ![(구독당)](./media/log-analytics-usage/usage-sub01.png)
-   * 구독에 대한 요약 페이지에서 다양한 작업을 수행하여 구독을 관리하고 구독에 대한 보다 자세한 정보를 볼 수 있습니다.  
-       ![구독 정보](./media/log-analytics-usage/usage-sub02.png)
-
-## <a name="to-view-data-batches-for-your-sla"></a>SLA에 대한 데이터 배치를 보려면
-1. **개요** 페이지에서 **사용량** 타일을 클릭합니다.
-2. **Service Level Agreement(서비스 수준 약정)**에서 **SLA 세부 정보 다운로드**를 클릭합니다.
-3. 검토할 수 있도록 Excel XLSX 파일이 다운로드됩니다.  
-    ![SLA 정보](./media/log-analytics-usage/usage-sla-details.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 솔루션에서 수집한 자세한 정보를 보려면 [Log Analytics에서 로그 검색](log-analytics-log-searches.md) 을 참조하세요.
+* 기능 및 솔루션에 따라 수집되어 OMS로 전송되는 상세 정보를 확인하려면 [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 참조하세요.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

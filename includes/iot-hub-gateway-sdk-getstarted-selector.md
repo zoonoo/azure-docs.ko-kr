@@ -4,7 +4,7 @@
 > 
 > 
 
-이 문서는 [Azure IoT Gateway SDK][lnk-gateway-sdk] 아키텍처의 기본적인 구성 요소를 설명하기 위해 [Hello World 샘플 코드][lnk-helloworld-sample]에 대한 자세한 연습을 제공합니다. 샘플에서는 IoT Hub Gateway SDK를 사용하여 5초마다 파일에 "hello world" 메시지를 기록하는 간단한 게이트웨이를 작성합니다.
+이 문서는 [Azure IoT Gateway SDK][lnk-gateway-sdk] 아키텍처의 기본적인 구성 요소를 설명하기 위해 [Hello World 샘플 코드][lnk-helloworld-sample]에 대한 자세한 연습을 제공합니다. 샘플에서는 Azure IoT Gateway SDK를 사용하여 5초마다 파일에 "hello world" 메시지를 기록하는 간단한 게이트웨이를 작성합니다.
 
 이 연습에서는 다음 내용을 다룹니다.
 
@@ -72,6 +72,6 @@ Hello World 샘플은 이전 섹션에서 설명한 개념을 보여줍니다. H
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

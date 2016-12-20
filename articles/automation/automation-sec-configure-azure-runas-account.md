@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1e7529de2968b2745b42001cc16b54d70b2a5b86
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32afda1861c2c558f8bb9ffedf897cd8d1df0b5c
 
 
 ---
@@ -137,7 +137,7 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
 
 1. Windows 7을 실행하는 경우 [WMF(Windows 관리 프레임워크) 4.0](https://www.microsoft.com/download/details.aspx?id=40855) 을 다운로드하고 설치했습니다.   
     Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 및 Windows 7 SP1을 실행하는 경우 [Windows 관리 프레임워크 5.0](https://www.microsoft.com/download/details.aspx?id=50395) 을 설치에 사용할 수 있습니다.
-2. Azure PowerShell 1.0 이 릴리스에 대한 정보 및 설치 방법은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+2. Azure PowerShell 1.0 이 릴리스에 대한 정보 및 설치 방법은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 3. 자동화 계정을 만들었습니다.  이 계정은 아래 두 스크립트에서 –AutomationAccountName 및 -ApplicationDisplayName 매개 변수에 대한 값으로 참조됩니다.
 
 스크립트에 대한 필수 매개 변수인 *SubscriptionID*, *ResourceGroup* 및 *AutomationAccountName*에 대한 값을 가져오려면, Azure 포털에서 **자동화 계정** 블레이드의 자동화 계정을 선택하고 **모든 설정**을 선택합니다.  **계정 설정** 아래에 있는 **모든 설정** 블레이드에서 **속성**을 선택합니다.  **속성** 블레이드에서 이들 값을 기록할 수 있습니다.<br> ![자동화 계정 속성](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
@@ -394,6 +394,6 @@ Runbook으로 클래식 리소스를 관리하는 클래식 실행 계정을 사
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

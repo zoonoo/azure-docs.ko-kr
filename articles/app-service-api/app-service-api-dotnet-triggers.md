@@ -1,12 +1,12 @@
 ---
-title: 앱 서비스 API 앱 트리거 | Microsoft Docs
-description: Azure 앱 서비스의 API 앱에서 트리거 구현 방법
+title: "App Service API 앱 트리거 | Microsoft Docs"
+description: "Azure 앱 서비스의 API 앱에서 트리거 구현 방법"
 services: logic-apps
 documentationcenter: .net
 author: guangyang
 manager: wpickett
 editor: jimbe
-
+ms.assetid: 493c3703-786d-4434-9dca-8f77744b2f5d
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: dotnet
@@ -14,34 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f3970e39dab23f65c623e134d9e38df9831b37f8
+
 
 ---
-# Azure 앱 서비스 API 앱 트리거
+# <a name="azure-app-service-api-app-triggers"></a>Azure 앱 서비스 API 앱 트리거
 > [!NOTE]
 > 이 버전의 문서는 API 앱 2014-12-01-preview 스키마 버전에 적용됩니다.
 > 
 > 
 
-## 개요
+## <a name="overview"></a>개요
 이 문서에서는 API 앱 트리거를 구현하고 논리 앱에서 이를 사용하는 방법을 설명합니다.
 
-[FileWatcher API 앱 코드 샘플](http://go.microsoft.com/fwlink/?LinkId=534802)에서 이 항목의 모든 코드 조각을 복사합니다.
+[FileWatcher API 앱 코드 샘플](http://go.microsoft.com/fwlink/?LinkId=534802)에서 이 항목의 모든 코드 조각을 복사합니다. 
 
 이 문서의 코드를 빌드 및 실행하려면 nuget 패키지 [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/)를 다운로드해야 합니다.
 
-## API 앱 트리거 정의
-일반적으로 API 앱은 API 앱 클라이언트가 이벤트에 대한 응답으로 적절한 조치를 취할 수 있도록 이벤트를 발생시킵니다. 이 시나리오를 지원하는 REST API 기반 메커니즘을 API 앱 트리거라고 합니다.
+## <a name="what-are-api-app-triggers"></a>API 앱 트리거 정의
+일반적으로 API 앱은 API 앱 클라이언트가 이벤트에 대한 응답으로 적절한 조치를 취할 수 있도록 이벤트를 발생시킵니다. 이 시나리오를 지원하는 REST API 기반 메커니즘을 API 앱 트리거라고 합니다. 
 
-예를 들어 클라이언트 코드에서 [Twitter Connector API 앱](../app-service-logic/app-service-logic-connector-twitter.md)을 사용하는 경우 코드는 특정 단어가 포함된 새 트윗을 기반으로 작업을 수행해야 합니다. 이 경우 밀어넣기 또는 끌어오기 트리거를 설정하면 용이할 수 있습니다.
+예를 들어 클라이언트 코드에서 [Twitter Connector API 앱](../app-service-logic/app-service-logic-connector-twitter.md) 을 사용하는 경우 코드는 특정 단어가 포함된 새 트윗을 기반으로 작업을 수행해야 합니다. 이 경우 밀어넣기 또는 끌어오기 트리거를 설정하면 용이할 수 있습니다.
 
-## 폴링 트리거와 밀어넣기 트리거
+## <a name="poll-trigger-versus-push-trigger"></a>폴링 트리거와 밀어넣기 트리거
 현재 다음 두 가지 유형의 트리거가 지원됩니다.
 
-* 폴링 트리거 - 클라이언트가 발생한 이벤트의 알림에 대해 API 앱을 폴링합니다.
-* 밀어넣기 트리거 - 이벤트가 발생한 경우 API 앱에서 클라이언트로 알림을 보냅니다.
+* 폴링 트리거 - 클라이언트가 발생한 이벤트의 알림에 대해 API 앱을 폴링합니다. 
+* 밀어넣기 트리거 - 이벤트가 발생한 경우 API 앱에서 클라이언트로 알림을 보냅니다. 
 
-### 폴링 트리거
-폴링 트리거는 일반 REST API로 구현되며, 해당 클라이언트(예: 논리 앱)는 알림을 받기 위해 이를 폴링해야 합니다. 클라이언트는 상태를 유지 관리할 수 있지만 폴링 트리거 자체는 상태 비저장입니다.
+### <a name="poll-trigger"></a>폴링 트리거
+폴링 트리거는 일반 REST API로 구현되며, 해당 클라이언트(예: 논리 앱)는 알림을 받기 위해 이를 폴링해야 합니다. 클라이언트는 상태를 유지 관리할 수 있지만 폴링 트리거 자체는 상태 비저장입니다. 
 
 요청 및 응답 패킷에 대한 다음 정보는 폴링 트리거 계약의 몇 가지 주요 측면을 보여 줍니다.
 
@@ -89,11 +93,13 @@ ms.author: rachelap
 
 이 폴링 트리거를 테스트하려면 다음 단계를 따르세요.
 
-1. **공용(익명)** 인증 설정으로 API 앱을 배포합니다.
-2. **touch** 작업을 호출하여 파일을 터치합니다. 다음 그림에서는 Postman을 통한 샘플 요청을 보여 줍니다. ![Postman을 통해 Touch 작업 호출](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-3. 2단계 이전의 타임스탬프로 설정된 **triggerState** 매개 변수 집합을 사용하여 폴링 트리거를 호출합니다. 다음 그림에서는 Postman을 통한 샘플 요청을 보여 줍니다. ![Postman을 통해 폴링 트리거 호출](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
+1. **공용(익명)**인증 설정으로 API 앱을 배포합니다.
+2. **touch** 작업을 호출하여 파일을 터치합니다. 다음 그림에서는 Postman을 통한 샘플 요청을 보여 줍니다.
+   ![Postman을 통해 Touch 작업 호출](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+3. 2단계 이전의 타임스탬프로 설정된 **triggerState** 매개 변수 집합을 사용하여 폴링 트리거를 호출합니다. 다음 그림에서는 Postman을 통한 샘플 요청을 보여 줍니다.
+   ![Postman을 통해 폴링 트리거 호출](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
-### 밀어넣기 트리거
+### <a name="push-trigger"></a>밀어넣기 트리거
 밀어넣기 트리거는 특정 이벤트가 발생하면 알림을 받도록 등록된 클라이언트로 알림을 푸시하는 일반 REST API로 구현됩니다.
 
 요청 및 응답 패킷에 대한 다음 정보는 밀어넣기 트리거 계약의 몇 가지 주요 측면을 보여 줍니다.
@@ -191,13 +197,16 @@ ms.author: rachelap
 
 이 폴링 트리거를 테스트하려면 다음 단계를 따르세요.
 
-1. **공용(익명)** 인증 설정으로 API 앱을 배포합니다.
-2. [http://requestb.in/](http://requestb.in/)을 찾아서 콜백 URL로 사용할 RequestBin을 만듭니다.
-3. **triggerId**를 GUID로 사용하고 **callbackUrl**을 RequestBin URL로 사용하여 밀어넣기 트리거를 호출합니다. ![Postman을 통해 밀어넣기 트리거 호출](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
-4. **touch** 작업을 호출하여 파일을 터치합니다. 다음 그림에서는 Postman을 통한 샘플 요청을 보여 줍니다. ![Postman을 통해 Touch 작업 호출](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-5. RequestBin을 검사하여 밀어넣기 트리거 콜백이 속성 출력으로 호출되었는지 확인합니다. ![Postman을 통해 폴링 트리거 호출](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
+1. **공용(익명)**인증 설정으로 API 앱을 배포합니다.
+2. [http://requestb.in/](http://requestb.in/) 을 찾아서 콜백 URL로 사용할 RequestBin을 만듭니다.
+3. **triggerId**를 GUID로 사용하고 **callbackUrl**을 RequestBin URL로 사용하여 밀어넣기 트리거를 호출합니다.
+   ![Postman을 통해 밀어넣기 트리거 호출](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
+4. **touch** 작업을 호출하여 파일을 터치합니다. 다음 그림에서는 Postman을 통한 샘플 요청을 보여 줍니다.
+   ![Postman을 통해 Touch 작업 호출](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+5. RequestBin을 검사하여 밀어넣기 트리거 콜백이 속성 출력으로 호출되었는지 확인합니다.
+   ![Postman을 통해 폴링 트리거 호출](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
 
-### API 정의에서 트리거 설명
+### <a name="describe-triggers-in-api-definition"></a>API 정의에서 트리거 설명
 트리거를 구현하고 API 앱을 Azure에 배포한 후에는 Azure Preview 포털에서 **API 정의** 블레이드로 이동하여 API 앱의 Swagger 2.0 API 정의로 구동되는 UI에서 트리거가 자동으로 인식되는지 확인합니다.
 
 ![API 정의 블레이드](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
@@ -219,7 +228,7 @@ ms.author: rachelap
       }
     }
 
-확장 속성 **x-ms-schedular-trigger**는 API 정의에서 트리거를 설명하는 방식이며, 게이트웨이 통해 API 정의를 요청할 때 다음 조건 중 하나에 해당하는 경우 API 앱 게이트웨이에 의해 자동으로 추가됩니다. 이 속성을 수동으로 추가할 수도 있습니다.
+확장 속성 **x-ms-schedular-trigger** 는 API 정의에서 트리거를 설명하는 방식이며, 게이트웨이 통해 API 정의를 요청할 때 다음 조건 중 하나에 해당하는 경우 API 앱 게이트웨이에 의해 자동으로 추가됩니다. 이 속성을 수동으로 추가할 수도 있습니다.
 
 * 폴링 트리거
   * HTTP 메서드가 **GET**인 경우
@@ -230,8 +239,8 @@ ms.author: rachelap
   * **operationId** 속성에 문자열 **trigger**가 포함된 경우
   * **parameters** 속성에 **name** 속성이 **triggerId**로 설정된 매개 변수가 포함된 경우
 
-## 논리 앱에서 API 앱 트리거 사용
-### 논리 앱 디자이너에서 API 앱 트리거 나열 및 구성
+## <a name="use-api-app-triggers-in-logic-apps"></a>논리 앱에서 API 앱 트리거 사용
+### <a name="list-and-configure-api-app-triggers-in-the-logic-apps-designer"></a>논리 앱 디자이너에서 API 앱 트리거 나열 및 구성
 API 앱과 동일한 리소스 그룹에서 논리 앱을 만든 경우 클릭 작업만으로 디자이너 캔버스에 간단히 추가할 수 있습니다. 다음 그림에서는 이 과정을 보여 줍니다.
 
 ![논리 앱 디자이너의 트리거](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
@@ -240,16 +249,16 @@ API 앱과 동일한 리소스 그룹에서 논리 앱을 만든 경우 클릭 �
 
 ![논리 앱 디자이너에서 밀어넣기 트리거 구성](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
 
-## 논리 앱에 맞게 API 앱 트리거 최적화
+## <a name="optimize-api-app-triggers-for-logic-apps"></a>논리 앱에 맞게 API 앱 트리거 최적화
 API 앱에 트리거를 추가한 후에는 몇 가지 작업을 통해 논리 앱에서 API 앱을 사용할 때 환경을 개선할 수 있습니다.
 
-예를 들어 논리 앱에서 폴링 트리거의 **triggerState** 매개 변수를 다음 식으로 설정해야 합니다. 이 식은 논리 앱의 마지막 트리거 호출을 평가하여 해당 값을 반환합니다.
+예를 들어 논리 앱에서 폴링 트리거의 **triggerState** 매개 변수를 다음 식으로 설정해야 합니다. 이 식은 논리 앱의 마지막 트리거 호출을 평가하여 해당 값을 반환합니다.  
 
     @coalesce(triggers()?.outputs?.body?['triggerState'], '')
 
 참고: 위 식에서 사용된 함수에 대한 설명은 [논리 앱 워크플로 정의 언어](https://msdn.microsoft.com/library/azure/dn948512.aspx)의 설명서를 참조하세요.
 
-논리 앱 사용자는 트리거를 사용하는 동안 위 식을 **triggerState** 매개 변수로 제공해야 합니다. 확장 속성 **x-ms-scheduler-recommendation**을 통해 논리 앱 디자이너가 이 값을 미리 설정할 수 있습니다. 매개 변수 자체가 디자이너에 표시되지 않도록 **x-ms-visibility** 확장 속성을 *internal* 값으로 설정할 수 있습니다. 다음 코드에서는 이러한 설정을 보여 줍니다.
+논리 앱 사용자는 트리거를 사용하는 동안 위 식을 **triggerState** 매개 변수로 제공해야 합니다. 확장 속성 **x-ms-scheduler-recommendation**을 통해 논리 앱 디자이너가 이 값을 미리 설정할 수 있습니다.  매개 변수 자체가 디자이너에 표시되지 않도록 **x-ms-visibility** 확장 속성을 *internal* 값으로 설정할 수 있습니다.  다음 코드에서는 이러한 설정을 보여 줍니다.
 
     "/api/Messages/poll": {
       "get": {
@@ -286,7 +295,7 @@ API 앱에 트리거를 추가한 후에는 몇 가지 작업을 통해 논리 �
           },
 
 
-### API 정의에서 확장 속성 추가
+### <a name="add-extension-properties-in-api-defintion"></a>API 정의에서 확장 속성 추가
 **x-ms-scheduler-recommendation** 및 **x-ms-visibility** 확장 속성과 같은 추가 메타데이터 정보를 정적 또는 동적으로 API 정의에 추가할 수 있습니다.
 
 정적 메타데이터의 경우 프로젝트에서 직접 */metadata/apiDefinition.swagger.json* 파일을 편집하고 속성을 수동으로 추가할 수 있습니다.
@@ -333,4 +342,8 @@ API 앱에 트리거를 추가한 후에는 몇 가지 작업을 통해 논리 �
     }
 
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

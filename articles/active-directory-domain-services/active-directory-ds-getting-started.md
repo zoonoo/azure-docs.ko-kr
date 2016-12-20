@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD 도메인 서비스: AAD DC Administrators 그룹 만들기 | Microsoft Docs'
-description: Azure Active Directory 도메인 서비스 시작
+title: "Azure AD 도메인 서비스: AAD DC Administrators 그룹 만들기 | Microsoft Docs"
+description: "Azure Active Directory 도메인 서비스 시작"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0dfc373cc65033cfb7c2b1882dca41faa7c7bcae
+
 
 ---
 # <a name="get-started-with-azure-ad-domain-services"></a>Azure AD Domain Services 시작
 이 문서에서는 Azure AD 테넌트에 Azure AD 도메인 서비스를 사용하도록 설정하는 데 필요한 구성 작업을 안내합니다.
 
-## <a name="task-1:-create-the-'aad-dc-administrators'-group"></a>작업 1: 'AAD DC Administrators' 그룹 만들기
+## <a name="task-1-create-the-aad-dc-administrators-group"></a>작업 1: 'AAD DC Administrators' 그룹 만들기
 첫 번째 작업은 Azure Active Directory 테넌트에 관리 그룹을 만드는 것입니다. 이 특수 관리 그룹을 **AAD DC Administrators**라고 합니다. 이 그룹의 구성원에게는 Azure AD Domain Services 관리 도메인에 가입한 컴퓨터에 대한 관리 권한이 부여됩니다. 이 그룹은 도메인 가입 컴퓨터에서 '관리자' 그룹에 추가됩니다. 또한 이 그룹의 구성원은 원격 데스크톱을 사용하여 도메인에 가입한 컴퓨터에 원격으로 연결할 수 있습니다.  
 
 > [!NOTE]
@@ -56,9 +60,12 @@ ms.author: maheshu
 
 <br>
 
-## <a name="task-2:-create-or-select-an-azure-virtual-network"></a>작업 2: Azure 가상 네트워크 만들기 또는 선택
+## <a name="task-2-create-or-select-an-azure-virtual-network"></a>작업 2: Azure 가상 네트워크 만들기 또는 선택
 다음 구성 태스크에서는 [Azure 가상 네트워크를 만들거나 선택](active-directory-ds-getting-started-vnet.md)합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

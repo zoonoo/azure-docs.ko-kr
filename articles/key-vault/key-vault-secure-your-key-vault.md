@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: fd93a6634175df47cd3ef871b01d08e9f5fea27b
 
 
 ---
@@ -71,8 +71,8 @@ Azure Key Vault는 Azure Resource Manager 배포 모델을 통해 사용할 수 
 ## <a name="management-plane-access-control"></a>관리 평면 액세스 제어
 관리 평면은 키 자격 증명 모음 자체에 영향을 주는 작업으로 구성됩니다. 예를 들어 키 자격 증명 모음을 만들거나 삭제할 수 있습니다. 구독에서 자격 증명 모음 목록을 가져올 수 있습니다. 키 자격 증명 모음 속성(예: SKU, 태그)을 검색하며, 사용자를 제어하는 키 자격 증명 모음 액세스 정책을 설정하고, 키 자격 증명 모음의 키와 암호에 액세스할 수 있는 응용 프로그램을 설정할 수 있습니다. 관리 평면 액세스 제어는 RBAC를 사용합니다. 이전 섹션의 표에서 관리 평면을 통해 수행할 수 있는 키 자격 증명 모음 작업의 전체 목록을 참조하십시오. 
 
-### <a name="rolebased-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)
-각 Azure 구독에는 Azure Active Directory가 있습니다. 이 디렉터리의 사용자, 그룹 및 응용 프로그램에 Resource Manager 배포 모델을 사용하는 Azure 구독의 리소스를 관리할 수 있는 액세스 권한을 부여할 수 있습니다. 이러한 유형의 액세스 제어를 RBAC(역할 기반 액세스 제어)라고 합니다. 이 액세스를 관리하기 위해 [Azure 포털](https://portal.azure.com/), [Azure CLI 도구](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) 또는 [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn906885.aspx)를 사용할 수 있습니다.
+### <a name="role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)
+각 Azure 구독에는 Azure Active Directory가 있습니다. 이 디렉터리의 사용자, 그룹 및 응용 프로그램에 Resource Manager 배포 모델을 사용하는 Azure 구독의 리소스를 관리할 수 있는 액세스 권한을 부여할 수 있습니다. 이러한 유형의 액세스 제어를 RBAC(역할 기반 액세스 제어)라고 합니다. 이 액세스를 관리하기 위해 [Azure 포털](https://portal.azure.com/), [Azure CLI 도구](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn906885.aspx)를 사용할 수 있습니다.
 
 Azure Resource Manager 모델을 사용하면 리소스 그룹에 키 자격 증명 모음을 만들고 Azure Active Directory를 사용하여 이 키 자격 증명 모음의 관리 평면에 대한 액세스를 제어할 수 있습니다. 예를 들어 특정 리소스 그룹의 키 자격 증명 모음을 관리할 수 있는 권한을 사용자 또는 그룹에게 부여할 수 있습니다.
 
@@ -89,7 +89,7 @@ Azure Resource Manager 모델을 사용하면 리소스 그룹에 키 자격 증
 데이터 평면 액세스 권한은 키 자격 증명 모음에 대한 액세스 정책을 설정함으로써 부여됩니다. 사용자, 그룹 또는 응용 프로그램은 키 자격 증명 모음의 관리 평면에 대해 참가자 권한(RBAC)이 있어야 해당 키 자격 증명 모음에 대한 액세스 정책을 설정할 수 있습니다. 키 자격 증명 모음의 키 또는 암호에 대해 특정 작업을 수행하기 위해 사용자, 그룹 또는 응용 프로그램에 액세스 권한을 부여할 수 있습니다. 키 자격 증명 모음 각각은 최대 16개 액세스 정책 항목을 지원합니다. Azure Active Directory 보안 그룹을 만들고 해당 그룹에 사용자를 추가하여 여러 사용자에게 키 자격 증명 모음의 데이터 평면에 대한 액세스 권한을 부여하십시오.
 
 ### <a name="key-vault-access-policies"></a>키 자격 증명 모음 액세스 정책
-키 자격 증명 모음 액세스 정책은 키, 암호 및 인증서에 대한 권한을 별도로 부여합니다. 예를 들어 사용자에게 키에 대한 액세스 권한만 부여하고 암호에 대해서는 권한을 부여하지 않을 수 있습니다. 그러나 키, 암호 또는 인증서에 대한 액세스 권한은 자격 증명 모음 수준에 있습니다. 즉 키 자격 증명 모음 액세스 정책에서는 개체 수준 권한을 지원하지 않습니다. [Azure 포털](https://portal.azure.com/), [Azure CLI 도구](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) 또는 [키 자격 증명 모음 관리 REST API](https://msdn.microsoft.com/library/azure/mt620024.aspx)를 사용하면 자격 증명 모음에 대한 액세스 정책을 설정할 수 있습니다.
+키 자격 증명 모음 액세스 정책은 키, 암호 및 인증서에 대한 권한을 별도로 부여합니다. 예를 들어 사용자에게 키에 대한 액세스 권한만 부여하고 암호에 대해서는 권한을 부여하지 않을 수 있습니다. 그러나 키, 암호 또는 인증서에 대한 액세스 권한은 자격 증명 모음 수준에 있습니다. 즉 키 자격 증명 모음 액세스 정책에서는 개체 수준 권한을 지원하지 않습니다. [Azure 포털](https://portal.azure.com/), [Azure CLI 도구](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [키 자격 증명 모음 관리 REST API](https://msdn.microsoft.com/library/azure/mt620024.aspx)를 사용하면 자격 증명 모음에 대한 액세스 정책을 설정할 수 있습니다.
 
 > [!IMPORTANT]
 > 키 자격 증명 모음 액세스 정책은 자격 증명 모음 수준에 적용됩니다. 예를 들어 사용자에게 키를 만들고 삭제하는 권한이 부여되면 해당 사용자는 키 자격 증명 모음의 모든 키에 대해 이러한 작업을 수행할 수 있습니다.
@@ -210,7 +210,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 * [RBAC: 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)
   
   이 문서에서는 RBAC에서 사용할 수 있는 모든 기본 제공 역할에 대해 자세히 설명합니다.
-* [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)
+* [리소스 관리자 배포 및 클래식 배포 이해](../azure-resource-manager/resource-manager-deployment-model.md)
   
   이 문서에서는 리소스 관리자 배포 및 기존 배포 모델에 대해 설명하고 리소스 관리자를 사용할 때와 리소스 그룹을 사용할 때의 이점에 대해서도 설명합니다.
 * [Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리](../active-directory/role-based-access-control-manage-access-powershell.md)
@@ -253,6 +253,6 @@ Azure 키 자격 증명 모음에서 키 및 암호를 사용하는 방법에 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

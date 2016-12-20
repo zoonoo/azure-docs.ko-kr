@@ -1,12 +1,12 @@
 ---
-title: 일반적인 게시자 지원 문제를 해결하는 방법 | Microsoft Docs
-description: 일반적인 게시자 지원 문제를 해결하고 지원을 받는 방법 설명
+title: "일반적인 게시자 지원 문제를 해결하는 방법 | Microsoft Docs"
+description: "일반적인 게시자 지원 문제를 해결하고 지원을 받는 방법 설명"
 services: marketplace-publishing
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: f8465448-8328-41f3-8288-48c1c4098134
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2016
 ms.author: v-jeana; hascipio; v-dabosl
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3849aa88b5314d36a98d3caf5f3307e656e1a931
+
 
 ---
-# 일반적인 Azure 마켓플레이스 게시자 문제를 해결하는 방법
+# <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>일반적인 Azure 마켓플레이스 게시자 문제를 해결하는 방법
 이 문서에서는 일반적인 마켓플레이스 시나리오 문제를 해결하고 지원을 받는 방법에 대해 설명합니다.
 
-## 크레딧 및 환불
-고객을 대신하여 크레딧 또는 환불을 요청해야 하는 경우가 있습니다. Microsoft 지원에서는 고객의 크레딧 및 환불 요청을 신중하게 고려하며 적절한 시기에 응답을 제공할 수 있도록 합니다.
+## <a name="credits-and-refunds"></a>크레딧 및 환불
+고객을 대신하여 크레딧 또는 환불을 요청해야 하는 경우가 있습니다.  Microsoft 지원에서는 고객의 크레딧 및 환불 요청을 신중하게 고려하며 적절한 시기에 응답을 제공할 수 있도록 합니다.
 
 다음은 고객을 대신하여 크레딧 또는 환불을 요청하는 방법을 보여 줍니다.
 
@@ -29,14 +33,14 @@ ms.author: v-jeana; hascipio; v-dabosl
 > 
 > 
 
-  ![1\_RequestRefund][1]
+  ![1_RequestRefund][1]
 
-1. [https://support.microsoft.com/ko-KR/getsupport?tenant=ClassicCommercial&locale=ko-KR&supportregion=ko-KR&pesid=15635&sd=&oaspworkflow=start\_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/ko-KR/getsupport?tenant=ClassicCommercial&locale=ko-KR&supportregion=ko-KR&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884)의 지원 페이지로 이동합니다.
+1. [https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884)의 지원 페이지로 이동합니다.
 2. **문제 유형** 상자에서 **고객 관리**를 선택합니다.
 3. **범주** 상자에서 **고객 환불 승인 또는 요청**을 선택합니다.
 4. **요청 시작**을 클릭합니다.
    
-   ![2\_RequestRefund][2]
+   ![2_RequestRefund][2]
 
 1. 연락처 정보 제공
 2. **문제가 무엇인가요?** 상자에서 다음 정보를 입력합니다.
@@ -50,7 +54,7 @@ ms.author: v-jeana; hascipio; v-dabosl
 
 그러면 제공된 정보가 Microsoft에 접수되었다는 확인 메일을 24시간 이내에 받게 됩니다. 귀하의 요청과 관련하여 결정이 되면 이에 대한 결과를 통보받게 됩니다.
 
-## 고객 구독 유효성 검사
+## <a name="customer-subscription-validation"></a>고객 구독 유효성 검사
 경우에 따라서는 고객 중 하나에 대한 구독 정보 유효성 검사를 해야 합니다. 이에 대한 도움말은 Microsoft에 지원에 문의할 수 있습니다. Microsoft 지원에서는 알려진 고객에 대한 구독 ID 및 대금 청구 주소를 확인할 수 있도록 지원합니다.
 
   ![subscriptionvalidation][3]
@@ -61,17 +65,17 @@ ms.author: v-jeana; hascipio; v-dabosl
 * 고객 구독 ID 및 대금 청구 주소를 제공해야 합니다.
 * Microsoft에서 귀하에게 연락하여 알려진 대금 청구 주소 및 구독 ID를 확인해드립니다.
 
-## 내 게시자 프로필을 업데이트하려면 어떻게 해야 하나요?
+## <a name="how-do-i-update-my-publisher-profile"></a>내 게시자 프로필을 업데이트하려면 어떻게 해야 하나요?
 게시자 프로필을 업데이트하려는 경우 Microsoft 개발자 센터를 통해 수행할 수 있습니다.
 
 **1. Windows 개발자 센터**에 로그인합니다.
 
 * 새 Chrome Incognito 또는 Internet Explorer InPrivate 검색 세션을 열어 개인 계정에 로그인되지 않았는지 확인합니다.
-* [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)로 이동합니다.
+*  [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
 ![inprivate][4]
 
-**2. 회사 또는 학교 계정(즉, AzureStore@yourcompany.com)으로 로그인합니다**.
+**2. 회사 또는 학교 계정(즉, AzureStore@yourcompany.com).)으로 로그인합니다**.
 
 ![signin][5]
 
@@ -88,7 +92,7 @@ ms.author: v-jeana; hascipio; v-dabosl
 
 ![acctdetails][7]
 
-## 내 게시 계정에서 관리자를 추가 또는 삭제하는 방법은 무엇인가요?
+## <a name="how-do-i-add-or-delete-an-administrator-from-my-publishing-account"></a>내 게시 계정에서 관리자를 추가 또는 삭제하는 방법은 무엇인가요?
 ![manageadmins][8]
 
 1. 게시 포털로 이동합니다.
@@ -97,7 +101,7 @@ ms.author: v-jeana; hascipio; v-dabosl
 4. 추가 또는 제거할 공동 관리자의 메일 주소를 추가합니다.
 5. **저장**을 선택합니다.
 
-## 다음 단계: 기타 지원 쿼리
+## <a name="next-steps-other-support-queries"></a>다음 단계: 기타 지원 쿼리
 다음과 같은 문제는 [https://portal.azure.com](https://portal.azure.com)에서 문제를 기록하세요.
 
 * 대금 청구 오류를 보고하려면 어떻게 해야 하나요?
@@ -118,4 +122,8 @@ ms.author: v-jeana; hascipio; v-dabosl
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

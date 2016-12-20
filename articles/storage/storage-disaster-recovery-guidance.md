@@ -1,19 +1,23 @@
 ---
-title: Azure 저장소 중단이 발생할 경우 수행할 작업 | Microsoft Docs
-description: Azure 저장소 중단이 발생할 경우 수행할 작업
+title: "Azure Storage 중단이 발생할 경우 수행할 작업 | Microsoft Docs"
+description: "Azure 저장소 중단이 발생할 경우 수행할 작업"
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
-
+ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/08/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 14997080496adfd363fee249c858ed9a0b553066
+
 
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Azure 저장소 중단이 발생할 경우 수행할 작업
@@ -34,10 +38,10 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 ## <a name="what-to-do-if-a-storage-outage-occurs"></a>저장소 중단이 발생할 경우 수행할 작업
 하나 이상의 지역에서 하나 이상의 저장소 서비스를 일시적으로 사용할 수 없는 경우 두 가지 옵션을 고려할 수 있습니다. 데이터에 즉시 액세스하려는 경우에는 옵션 2를 고려합니다.
 
-### <a name="option-1:-wait-for-recovery"></a>옵션 1: 복구 대기
+### <a name="option-1-wait-for-recovery"></a>옵션 1: 복구 대기
 이 경우에 사용자의 조치가 필요하지 않습니다. Azure 서비스 가용성을 복원하기 위해 열심히 노력 중입니다. [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)에서 서비스 상태를 모니터링할 수 있습니다.
 
-### <a name="option-2:-copy-data-from-secondary"></a>옵션 2: 보조에서 데이터 복사
+### <a name="option-2-copy-data-from-secondary"></a>옵션 2: 보조에서 데이터 복사 
 저장소 계정에 대해 [RA-GRS(읽기 액세스 지역 중복 저장소)](storage-redundancy.md#read-access-geo-redundant-storage) (권장)를 선택한 경우 보조 지역의 데이터에 대한 읽기 권한을 가집니다. [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) 및 [Azure 데이터 이동 라이브러리](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)와 같은 도구를 사용하여 보조 지역의 데이터를 영향을 받지 않은 지역의 다른 저장소 계정으로 복사할 수 있으며, 응용 프로그램이 읽기 및 쓰기 가용성 모두에 대한 해당 저장소 계정을 가리키도록 할 수 있습니다.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>저장소 장애 조치(failover)가 발생할 경우 예상 결과
@@ -62,6 +66,9 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 * 테이블 – [AzCopy](storage-use-azcopy.md) 를 사용하여 다른 지역에 있는 다른 저장소 계정으로 테이블 데이터를 내보냅니다.
 * 파일 – [AzCopy](storage-use-azcopy.md) 또는 [Azure PowerShell](storage-powershell-guide-full.md)을 사용하여 다른 지역에 있는 다른 저장소 계정에 파일을 복사합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

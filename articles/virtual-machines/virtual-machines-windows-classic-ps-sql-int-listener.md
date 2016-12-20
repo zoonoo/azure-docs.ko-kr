@@ -1,13 +1,13 @@
 ---
-title: Always On 가용성 그룹에 대한 ILB 수신기 구성 | Microsoft Docs
-description: 이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, ILB(내부 부하 분산 장치)를 사용하여 Azure에서 Always On 가용성 그룹 수신기를 만듭니다.
+title: "Always On 가용성 그룹에 대한 ILB 수신기 구성 | Microsoft Docs"
+description: "이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, ILB(내부 부하 분산 장치)를 사용하여 Azure에서 Always On 가용성 그룹 수신기를 만듭니다."
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,37 +15,41 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 08/19/2016
 ms.author: MikeRayMSFT
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: f49770b04358e92136452d2fd9500a8722ecf5b4
+
 
 ---
-# Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성
+# <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성
 > [!div class="op_single_selector"]
-> * [내부 수신기](virtual-machines-windows-classic-ps-sql-int-listener.md)
-> * [외부 수신기](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+> * [내부 수신기](virtual-machines-windows-classic-ps-sql-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [외부 수신기](virtual-machines-windows-classic-ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > 
 > 
 
-## 개요
+## <a name="overview"></a>개요
 이 항목에서는 **ILB(내부 부하 분산장치)**를 사용하여 Always On 가용성 그룹에 대해 수신기를 구성하는 방법을 보여줍니다.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Resource Manager 모델에서 Always On 가용성 그룹에 대한 ILB 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 내부 부하 분산 장치 구성](virtual-machines-windows-portal-sql-alwayson-int-listener.md)을 참조하세요.
+Resource Manager 모델에서 Always On 가용성 그룹에 대한 ILB 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 내부 부하 분산 장치 구성](virtual-machines-windows-portal-sql-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
-가용성 그룹은 온-프레미스 전용, Azure 전용 또는 하이브리드 구성에 대한 온-프레미스와 Azure 모두에 걸쳐 있는 복제본을 포함할 수 있습니다. Azure 복제본은 동일한 지역 내 또는 여러 Vnet(가상 네트워크)을 사용하 여 여러 지역에 걸쳐 있을 수 있습니다. 다음 단계에서는 [가용성 그룹을 구성](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)했지만 수신기는 구성하지 않았다고 가정합니다.
+가용성 그룹은 온-프레미스 전용, Azure 전용 또는 하이브리드 구성에 대한 온-프레미스와 Azure 모두에 걸쳐 있는 복제본을 포함할 수 있습니다. Azure 복제본은 동일한 지역 내 또는 여러 Vnet(가상 네트워크)을 사용하 여 여러 지역에 걸쳐 있을 수 있습니다. 다음 단계에서는 [가용성 그룹을 구성](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)했지만 수신기는 구성하지 않았다고 가정합니다.
 
-## 내부 수신기에 대한 지침 및 제한 사항
+## <a name="guidelines-and-limitations-for-internal-listeners"></a>내부 수신기에 대한 지침 및 제한 사항
 ILB를 사용하는 Azure에서는 가용성 그룹 수신기에 다음과 같은 지침이 적용됩니다.
 
 * 가용성 그룹 수신기는 Windows Server 2008 R2, Windows Server 2012 및 Windows Server 2012 R2에서 지원됩니다.
-* 수신기는 ILB로 구성되고 ILB는 클라우드 서비스당 하나만 있기 때문에 하나의 내부 가용성 그룹 수신기만 지원됩니다. 그러나 외부 수신기는 여러 개를 만들 수 있습니다. 자세한 내용은 [Azure에서 Always On 가용성 그룹에 대한 외부 수신기 구성](virtual-machines-windows-classic-ps-sql-ext-listener.md)을 참조하세요.
+* 수신기는 ILB로 구성되고 ILB는 클라우드 서비스당 하나만 있기 때문에 하나의 내부 가용성 그룹 수신기만 지원됩니다. 그러나 외부 수신기는 여러 개를 만들 수 있습니다. 자세한 내용은 [Azure에서 Always On 가용성 그룹에 대한 외부 수신기 구성](virtual-machines-windows-classic-ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 * 클라우드 서비스의 공용 VIP를 사용하여 외부 수신기도 있는 동일한 클라우드 서비스에서 내부 수신기를 만들 수는 없습니다.
 
-## 수신기의 액세스 가능 여부 확인
+## <a name="determine-the-accessibility-of-the-listener"></a>수신기의 액세스 가능 여부 확인
 [!INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-이 문서에서는 **ILB(내부 부하 분산 장치)**를 사용하는 수신기를 만드는 데 중점을 둡니다. 공용/외부 수신기가 필요한 경우 [외부 수신기](virtual-machines-windows-classic-ps-sql-ext-listener.md) 설정 단계를 제공하는 이 문서의 다른 버전을 참조하세요.
+이 문서에서는 **ILB(내부 부하 분산 장치)**를 사용하는 수신기를 만드는 데 중점을 둡니다. 공용/외부 수신기가 필요한 경우 [외부 수신기](virtual-machines-windows-classic-ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) 설정 단계를 제공하는 이 문서의 다른 버전을 참조하세요.
 
-## 직접 서버 반환이 있는 부하 분산 VM 끝점 만들기
+## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>직접 서버 반환이 있는 부하 분산 VM 끝점 만들기
 ILB의 경우 먼저 내부 부하 분산기를 만들어야 합니다. 이 작업은 아래 스크립트로 수행됩니다.
 
 [!INCLUDE [load-balanced-endpoints](../../includes/virtual-machines-ag-listener-load-balanced-endpoints.md)]
@@ -78,18 +82,18 @@ ILB의 경우 먼저 내부 부하 분산기를 만들어야 합니다. 이 작�
 6. 변수를 설정한 후에는 텍스트 편집기에서 해당 스크립트를 Azure PowerShell 세션에 복사하여 실행합니다. 프롬프트에 >>가 계속 표시되면 Enter를 다시 입력하여 스크립트 실행이 시작되도록 합니다. 참고:
 
 > [!NOTE]
-> Azure 클래식 포털은 현재 내부 부하 분산 장치를 지원하지 않으므로 Azure 클래식 포털에서 ILB나 끝점이 표시되지 않습니다. 그러나 포털에서 부하 분산 장치를 실행하는 경우 **Get-AzureEndpoint**에서 내부 IP주소가 반환됩니다. 그렇지 않은 경우 null을 반환합니다.
+> Azure 클래식 포털은 현재 내부 부하 분산 장치를 지원하지 않으므로 Azure 클래식 포털에서 ILB나 끝점이 표시되지 않습니다. 그러나 포털에서 부하 분산 장치를 실행하는 경우 **Get-AzureEndpoint** 에서 내부 IP주소가 반환됩니다. 그렇지 않은 경우 null을 반환합니다.
 > 
 > 
 
-## 필요한 경우 KB2854082가 설치되었는지 확인합니다.
+## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>필요한 경우 KB2854082가 설치되었는지 확인합니다.
 [!INCLUDE [kb2854082](../../includes/virtual-machines-ag-listener-kb2854082.md)]
 
-## 가용성 그룹 노드에서 방화벽 포트 열기
-[!INCLUDE [방화벽](../../includes/virtual-machines-ag-listener-open-firewall.md)]
+## <a name="open-the-firewall-ports-in-availability-group-nodes"></a>가용성 그룹 노드에서 방화벽 포트 열기
+[!INCLUDE [firewall](../../includes/virtual-machines-ag-listener-open-firewall.md)]
 
-## 가용성 그룹 수신기 만들기
-[!INCLUDE [방화벽](../../includes/virtual-machines-ag-listener-create-listener.md)]
+## <a name="create-the-availability-group-listener"></a>가용성 그룹 수신기 만들기
+[!INCLUDE [firewall](../../includes/virtual-machines-ag-listener-create-listener.md)]
 
 1. ILB의 경우 앞서 만든 ILB(내부 부하 분산 장치)의 IP 주소를 사용해야 합니다. 다음 스크립트를 사용하여 PowerShell에서 이 IP 주소를 가져옵니다.
    
@@ -122,16 +126,21 @@ ILB의 경우 먼저 내부 부하 분산기를 만들어야 합니다. 이 작�
 3. 변수를 설정한 후에는 앞으로 온 Windows PowerShell 창을 열고 텍스트 편집기의 스크립트를 복사하여 Azure PowerShell 세션에 붙여넣어 실행합니다. 프롬프트에 >>가 계속 표시되면 Enter를 다시 입력하여 스크립트 실행이 시작되도록 합니다.
 4. 각 VM에서 이 작업을 반복합니다. 이 스크립트는 클라우드 서비스의 IP 주소로 IP 주소 리소스를 구성하고 프로프 포트 등의 다른 매개 변수를 설정합니다. IP 주소 리소스를 온라인으로 불러올 때 이 자습서의 앞 부분에서 부하 분산된 끝점으로부터 프로브 포트에 대한 폴링에 응답할 수 있습니다.
 
-## 수신기를 온라인 상태로 만들기
+## <a name="bring-the-listener-online"></a>수신기를 온라인 상태로 만들기
 [!INCLUDE [Bring-Listener-Online](../../includes/virtual-machines-ag-listener-bring-online.md)]
 
-## 추가 작업 항목
+## <a name="follow-up-items"></a>추가 작업 항목
 [!INCLUDE [Follow-up](../../includes/virtual-machines-ag-listener-follow-up.md)]
 
-## (동일한 VNet 내)가용성 그룹 수신기 테스트
+## <a name="test-the-availability-group-listener-within-the-same-vnet"></a>(동일한 VNet 내)가용성 그룹 수신기 테스트
 [!INCLUDE [Test-Listener-Within-VNET](../../includes/virtual-machines-ag-listener-test.md)]
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 [!INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

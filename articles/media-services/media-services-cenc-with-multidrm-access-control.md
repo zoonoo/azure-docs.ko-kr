@@ -1,12 +1,12 @@
 ---
-title: '다중 DRM 및 Access Control이 포함된 CENC: Azure 및 Azure Media Services에서 참조 디자인 및 구현 | Microsoft Docs'
-description: Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스를 얻는 방법에 대해 알아보세요.
+title: "다중 DRM 및 Access Control이 포함된 CENC: Azure 및 Azure Media Services에서 참조 설계 및 구현 | Microsoft 문서"
+description: "Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스를 얻는 방법에 대해 알아보세요."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: willzhan
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7814739b-cea9-4b9b-8370-538702e5c615
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: willzhan;kilroyh;yanmf;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
+ms.openlocfilehash: a4f363fcd05e8596f445ce7d40638c5e27c896e6
+
 
 ---
-# <a name="cenc-with-multi-drm-and-access-control:-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>다중 DRM 및 액세스 제어가 포함된 CENC: Azure 및 Azure 미디어 서비스에서 참조 디자인 및 구현
+# <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>다중 DRM 및 액세스 제어가 포함된 CENC: Azure 및 Azure 미디어 서비스에서 참조 디자인 및 구현
 ## <a name="key-words"></a>키워드
-Azure Active Directory, Azure 미디어 서비스, Azure 미디어 플레이어, 동적 암호화, 라이선스 배달, PlayReady, Widevine, FairPlay, CENC(일반적인 암호화), 다중 DRM, Axinom, DASH, EME, MSE, JWT(JSON 웹 토큰), 클레임, 최신 브라우저, 키 롤오버, 대칭 키, 비대칭 키, OpenID Connect, X509 인증서. 
+Azure Active Directory, Azure 미디어 서비스, Azure 미디어 플레이어, 동적 암호화, 라이선스 배달, PlayReady, Widevine, FairPlay, CENC(일반적인 암호화), 다중 DRM, Axinom, DASH, EME, MSE, JWT(JSON 웹 토큰), 클레임, 최신 브라우저, 키 롤오버, 대칭 키, 비대칭 키, OpenID Connect, X509 인증서.
 
 ## <a name="in-this-article"></a>이 문서에서는 다음을 수행합니다.
 이 문서에서 다루는 토픽은 다음과 같습니다.
@@ -39,7 +43,7 @@ Azure Active Directory, Azure 미디어 서비스, Azure 미디어 플레이어,
   * [사용자 지정 STS를 사용하려면 어떻게 하나요?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
 * [완료된 시스템 및 테스트](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
   * [사용자 로그인](media-services-cenc-with-multidrm-access-control.md#user-login)
-  * [PlayReady에 암호화된 미디어 확장 사용](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensipons-for-playready)
+  * [PlayReady에 암호화된 미디어 확장 사용](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensions-for-playready)
   * [Widevine에 EME 사용](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
   * [자격이 없는 사용자](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
   * [사용자 지정 보안 토큰 서비스 실행](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
@@ -145,15 +149,15 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 
 또 다른 중요한 고려 사항은 영구 및 비영구 라이선스의 사용에 관한 것입니다.
 
-이러한 고려 사항이 중요한 이유는 무엇인가요? 
+이러한 고려 사항이 중요한 이유는 무엇인가요?
 
 라이선스 배달에 공용 클라우드를 사용하는 경우 라이선스 배달 비용에 직접적인 영향이 있습니다. 이를 설명하기 위해 다음 두 가지 다른 디자인 사례를 살펴보겠습니다.
 
-1. 월간 구독: 영구 라이선스와 일대다(1–to-Many) 콘텐츠 키 대 자산 매핑을 사용합니다. 예: 예를 들어 모든 어린이용 영화의 경우 암호화에 단일 콘텐츠 키를 사용합니다. 이 경우 다음과 같습니다. 
-   
+1. 월간 구독: 영구 라이선스와 일대다(1–to-Many) 콘텐츠 키 대 자산 매핑을 사용합니다. 예: 예를 들어 모든 어린이용 영화의 경우 암호화에 단일 콘텐츠 키를 사용합니다. 이 경우 다음과 같습니다.
+
     모든 어린이용 영화에 요청된 전체 라이선스 수/장치 = 1
 2. 월간 구독: 비영구 라이선스와 콘텐츠 키 및 자산 간에 일대일(1–to-1) 매핑을 사용합니다. 이 경우 다음과 같습니다.
-   
+
     모든 어린이용 영화에 요청된 전체 라이선스 수/장치 = [본 영화 수] x [세션 수]
 
 쉽게 확인할 수 있듯이 두 가지 서로 다른 디자인으로 인해 라이선스 요청 패턴이 매우 달라지므로 라이선스 배달 서비스가 Azure 미디어 서비스와 같은 공용 클라우드에서 제공되는 경우 라이선스 배달 비용이 달라집니다.
@@ -197,8 +201,8 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 1. 사용자 인증 시 JWT 토큰이 생성됩니다.
 2. JWT 토큰에 포함된 클레임 중 하나는 "EntitledUserGroup"의 그룹 개체 ID를 포함하는 "groups" 클레임입니다. 이 클레임은 "자격 확인"을 전달하는 데 사용됩니다.
 3. 플레이어는 CENC로 보호된 콘텐츠의 클라이언트 매니페스트를 다운로드하고 다음을 "확인"합니다.
-   
-   1. 키 ID 
+
+   1. 키 ID
    2. 콘텐츠가 CENC로 보호되는지
    3. 라이선스 획득 URL
 4. 플레이어는 브라우저/DRM 지원에 따라 라이선스 획득 요청을 합니다. 라이선스 획득 요청에서 키 ID 및 JWT 토큰도 제출됩니다. 라이선스 배달 서비스는 필요한 라이선스를 발급하기 전에 포함된 JWT 토큰 및 클레임을 확인합니다.
@@ -209,7 +213,7 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 
 1. 테스트 자산 준비: Azure 미디어 서비스에서 테스트 비디오를 다중 비트 전송률 조각화된 MP4로 인코딩/패키지합니다. 이 자산은 DRM으로 보호되지 않습니다. DRM 보호는 나중에 동적 보호로 수행됩니다.
 2. 키 ID 및 콘텐츠 키(필요한 경우 키 시드에서)를 만듭니다. 여기서는 여러 테스트 자산에 대해 단일 집합의 키 ID 및 콘텐츠 키만 다루므로 키 관리 시스템이 필요하지 않습니다.
-3. AMS API를 사용하여 테스트 자산에 대한 다중 DRM 라이선스 배달 서비스를 구성합니다. 회사 또는 회사의 공급업체에서 Azure 미디어 서비스의 라이선스 서비스 대신 사용자 지정 라이선스 서버를 사용하는 경우 이 단계를 건너뛰고 라이선스 배달 구성 단계에 라이선스 획득 URL을 지정할 수 있습니다. AMS API는 권한 부여 정책 제한, 다양한 DRM 라이선스 서비스에 대한 라이선스 응답 템플릿 등과 같은 일부 세부적인 구성을 지정하는 데 필요합니다. 현재는 Azure 포털에서 이 구성에 필요한 UI를 제공하지 않습니다. Julia Kornich의 문서 [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-drm.md)에서 API 수준 정보 및 샘플 코드를 찾을 수 있습니다. 
+3. AMS API를 사용하여 테스트 자산에 대한 다중 DRM 라이선스 배달 서비스를 구성합니다. 회사 또는 회사의 공급업체에서 Azure 미디어 서비스의 라이선스 서비스 대신 사용자 지정 라이선스 서버를 사용하는 경우 이 단계를 건너뛰고 라이선스 배달 구성 단계에 라이선스 획득 URL을 지정할 수 있습니다. AMS API는 권한 부여 정책 제한, 다양한 DRM 라이선스 서비스에 대한 라이선스 응답 템플릿 등과 같은 일부 세부적인 구성을 지정하는 데 필요합니다. 현재는 Azure 포털에서 이 구성에 필요한 UI를 제공하지 않습니다. Julia Kornich의 문서 [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-drm.md)에서 API 수준 정보 및 샘플 코드를 찾을 수 있습니다.
 4. AMS API를 사용하여 테스트 자산에 대한 자산 배달 정책을 구성합니다. Julia Kornich의 문서 [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-drm.md)에서 API 수준 정보 및 샘플 코드를 찾을 수 있습니다.
 5. Azure에서 Azure Active Directory 테넌트를 만들고 구성합니다.
 6. Azure Active Directory 테넌트에서 몇 가지 사용자 계정 및 그룹 만들기: "EntitledUser" 그룹 이상을 만들고 사용자를 이 그룹에 추가합니다. 이 그룹의 사용자는 라이선스 획득 시 자격 확인을 전달하고 이 그룹에 없는 사용자는 인증 확인 전달에 실패하며 라이선스를 획득할 수 없게 됩니다. 이 "EntitledUser" 그룹의 멤버가 되려면 Azure AD에서 발급한 JWT 토큰의 필수 "groups" 클레임이 필요합니다. 이 클레임 요구 사항은 다중 DRM 라이선스 배달 서비스 단계를 구성하는 데 지정해야 합니다.
@@ -241,40 +245,40 @@ Azure Active Directory에 대한 자세한 내용은 다음을 참조하세요.
 구현에 대해 몇 가지 "알려진 문제"가 있습니다. 다행히 다음 "알려진 문제" 목록을 통해 문제가 발생하는 문제를 해결할 수 있습니다.
 
 1. **발급자** URL은 **"/"**로 끝나야 합니다.  
-   
+
     **대상**은 플레이어 응용 프로그램 클라이언트 ID여야 하며 발급자 URL 끝에 **"/"**를 추가해야 합니다.
-   
+
         <add key="ida:audience" value="[Application Client ID GUID]" />
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" /> 
-   
+        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+
     [JWT 디코더](http://jwt.calebb.net/)에서 JWT 토큰에 다음과 같이 **aud** 및 **iss**가 나타납니다.
-   
+
     ![첫 번째 알려진 문제](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
 2. AAD의 응용 프로그램에 권한을 추가합니다(응용 프로그램의 구성 탭). 각 응용 프로그램(로컬 및 배포된 버전)에 필요합니다.
-   
+
     ![두 번째 알려진 문제](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
 3. 동적 CENC 보호 설정에 올바른 발급자를 사용합니다.
-   
+
         <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
-   
+
     다음은 작동하지 않습니다.
-   
+
         <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
-   
+
     GUID는 AAD 테넌트 ID입니다. Azure 포털의 끝점 팝업 창에서 GUID를 찾을 수 있습니다.
 4. 그룹 멤버 자격 클레임 권한을 부여합니다. AAD 응용 프로그램 매니페스트 파일에서 다음이 있는지 확인합니다.
-   
+
     "groupMembershipClaims": "All", (기본값은 null)
 5. 제한 사항 요구 사항을 만들 때 적절한 TokenType을 설정합니다.
-   
+
         objTokenRestrictionTemplate.TokenType = TokenType.JWT;
-   
+
     SWT(ACS) 외에도 JWT(AAD)의 지원이 추가되었으므로 기본 TokenType은 TokenType.JWT입니다. SWT/ACS를 사용하는 경우 TokenType.SWT로 설정해야 합니다.
 
 ## <a name="additional-topics-for-implementation"></a>구현에 대한 추가 토픽
 다음으로 디자인 및 구현에 대한 몇 가지 추가 토픽에 대해서 설명합니다.
 
-### <a name="http-or-https?"></a>HTTP 또는 HTTPS
+### <a name="http-or-https"></a>HTTP 또는 HTTPS
 구축한 ASP.NET MVC 플레이어 응용 프로그램은 다음을 지원해야 합니다.
 
 1. Azure AD를 통한 사용자 인증이 HTTPS를 사용해야 함
@@ -296,12 +300,12 @@ Azure AD에서는 업계 표준을 사용하여 Azure AD 자체와 Azure AD를 �
 
 Azure AD 키 롤오버에 대한 자세한 정보는 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](../active-directory/active-directory-signing-key-rollover.md)에서 확인할 수 있습니다.
 
-[공개-개인 키 쌍](https://login.windows.net/common/discovery/keys/)중에서, 
+[공개-개인 키 쌍](https://login.windows.net/common/discovery/keys/)중에서,
 
 * Azure Active Directory가 JWT 토큰을 생성하는 데 개인 키가 사용됩니다.
 * AMS의 DRM 라이선스 배달 서비스와 같은 응용 프로그램에서 JWT 토큰을 확인하는 데 공개 키가 사용됩니다.
 
-보안을 위해 Azure Active Directory는 이 인증서를 주기적(6주마다)으로 바꿉니다. 보안 침해가 발생하는 경우에는 언제든지 키 롤오버가 발생할 수 있습니다. 따라서 AMS의 라이선스 배달 서비스는 Azure AD에서 키 쌍을 바꾸므로 사용된 공개 키를 업데이트해야 하며 그렇지 않으면 AMS의 토큰 인증이 실패하고 라이선스가 발급되지 않습니다. 
+보안을 위해 Azure Active Directory는 이 인증서를 주기적(6주마다)으로 바꿉니다. 보안 침해가 발생하는 경우에는 언제든지 키 롤오버가 발생할 수 있습니다. 따라서 AMS의 라이선스 배달 서비스는 Azure AD에서 키 쌍을 바꾸므로 사용된 공개 키를 업데이트해야 하며 그렇지 않으면 AMS의 토큰 인증이 실패하고 라이선스가 발급되지 않습니다.
 
 이 작업은 DRM 라이선스 배달 서비스를 구성할 때 TokenRestrictionTemplate.OpenIdConnectDiscoveryDocument를 설정하여 수행합니다.
 
@@ -314,11 +318,11 @@ JWT 토큰 흐름은 다음과 같습니다.
 
 DRM 라이선스 배달 서비스는 항상 Azure AD에서 최신/유효한 공개 키를 확인합니다. Azure AD에서 제공되는 공개 키는 Azure AD에서 발급한 JWT 토큰을 확인하는 데 사용되는 키가 됩니다.
 
-AAD가 JWT 토큰을 생성한 후, 플레이어가 확인을 위해 JWT 토큰을 AMS의 DRM 라이선스 배달 서비스로 보내기 전에 키 롤오버가 발생한다면 어떻게 되나요? 
+AAD가 JWT 토큰을 생성한 후, 플레이어가 확인을 위해 JWT 토큰을 AMS의 DRM 라이선스 배달 서비스로 보내기 전에 키 롤오버가 발생한다면 어떻게 되나요?
 
 키는 언제든지 롤오버될 수 있으므로 페더레이션 메타데이터 문서에는 사용 가능한 공개 키가 항상 두 개 이상 있습니다. Azure 미디어 서비스 라이선스 배달에서는 하나의 키가 곧 롤오버되고 다른 키가 대체되는 방식으로 문서에 지정된 키를 사용할 수 있습니다.
 
-### <a name="where-is-the-access-token?"></a>액세스 토큰 위치
+### <a name="where-is-the-access-token"></a>액세스 토큰 위치
 웹앱에서 [OAuth 2.0 클라이언트 자격 증명 권한을 사용한 응용 프로그램 ID](../active-directory/active-directory-authentication-scenarios.md#web-application-to-web-api)로 API 앱을 호출하는 방식을 살펴보면 인증 흐름은 다음과 같습니다.
 
 1. 사용자가 웹 응용 프로그램에서 Azure AD에 로그인합니다( [웹 브라우저-웹 응용 프로그램](../active-directory/active-directory-authentication-scenarios.md#web-browser-to-web-application)참조).
@@ -336,34 +340,34 @@ AAD가 JWT 토큰을 생성한 후, 플레이어가 확인을 위해 JWT 토큰�
 다음 단계에 따라 Azure AD에서 "포인터" 앱을 등록 및 구성해야 합니다.
 
 1. Azure AD 테넌트에서
-   
-   * 로그온 URL과 함께 응용 프로그램(리소스)을 추가합니다. 
-   
-   https://[resource_name].azurewebsites.net/ 및 
-   
-   * 앱 ID URL: 
-   
-   https://[aad_tenant_name].onmicrosoft.com/[resource_name]; 
+
+   * 로그온 URL과 함께 응용 프로그램(리소스)을 추가합니다.
+
+   https://[resource_name].azurewebsites.net/ 및
+
+   * 앱 ID URL:
+
+   https://[aad_tenant_name].onmicrosoft.com/[resource_name];
 2. 리소스 앱에 대한 새 키를 추가합니다.
 3. groupMembershipClaims 속성이 "groupMembershipClaims": "All"을 포함하도록 앱 매니페스트 파일을 업데이트합니다.  
 4. 플레이어 웹앱을 가리키는 Azure AD 앱의 "다른 응용 프로그램에 대한 권한" 섹션에서 위의 1단계에서 추가한 리소스 앱을 추가합니다. "위임된 권한"에서 "[resource_name] 액세스" 확인 표시를 선택합니다. 그러면 리소스 앱에 액세스하기 위한 액세스 토큰을 만드는 웹앱 권한이 제공됩니다. Visual Studio 및 Azure 웹앱으로 개발 중이라면 웹앱의 로컬 및 배포된 버전 모두에 대해 이 작업을 수행해야 합니다.
 
 따라서 Azure AD에서 발급한 JWT 토큰이 실제로 이 "포인터" 리소스에 액세스하기 위한 액세스 토큰입니다.
 
-### <a name="what-about-live-streaming?"></a>라이브 스트리밍의 경우는 어떨까요?
+### <a name="what-about-live-streaming"></a>라이브 스트리밍의 경우는 어떨까요?
 위의 설명에서는 주문형 자산에 초점을 두었습니다. 라이브 스트리밍의 경우는 어떨까요?
 
 좋은 소식은 프로그램과 연결된 자산을 "VOD 자산"으로 처리하여 Azure 미디어 서비스에서 라이브 스트리밍을 보호하는 데 정확히 동일한 디자인 및 구현을 사용할 수 있다는 점입니다.
 
 특히 잘 알려진 것처럼 Azure 미디어 서비스에서 라이브 스트리밍할 경우 채널을 만든 후 해당 채널 아래 프로그램을 만들어야 합니다. 프로그램을 만들려면 프로그램에 대한 라이브 아카이브를 포함할 자산을 만들어야 합니다. 라이브 콘텐츠의 다중 DRM 보호로 CENC를 제공하려면 프로그램 시작 전에, "VOD 자산"이었던 것처럼 자산에 동일한 설정/처리를 적용하기만 하면 됩니다.
 
-### <a name="what-about-license-servers-outside-of-azure-media-services?"></a>Azure 미디어 서비스 외부에서 라이선스 서버는 어떨까요?
+### <a name="what-about-license-servers-outside-of-azure-media-services"></a>Azure 미디어 서비스 외부에서 라이선스 서버는 어떨까요?
 고객들은 대체로 고유한 데이터 센터 또는 DRM 서비스 공급자가 호스팅하는 형태로 라이선스 서버 팜에 투자할 수 있습니다. 다행스럽게도 Azure 미디어 서비스 콘텐츠 보호를 사용하면 Azure 미디어 서비스에서 호스팅 및 동적으로 보호되는 콘텐츠를 하이브리드 모드로 작업할 수 있습니다. 반면 DRM 라이선스는 Azure 미디어 서비스 외부 서버에서 제공됩니다. 이 경우 변경에 대한 다음 고려 사항이 있습니다.
 
-1. 보안 토큰 서비스는 라이선스 서버 팜에서 허용되고 확인할 수 있는 토큰을 발급해야 합니다. 예를 들어 Axinom에서 제공하는 Widevine 라이선스 서버에는 "자격 메시지"를 포함하는 특정 JWT 토큰이 필요합니다. 따라서 이러한 JWT 토큰을 발급하는 STS가 있어야 합니다. 저자는 이러한 구현을 완료했으며 이에 대한 세부 사항은 [Azure 설명서 센터](https://azure.microsoft.com/documentation/): [Axinom을 사용하여 Azure Media Services에 Widevine 라이선스 제공](media-services-axinom-integration.md)에서 확인할 수 있습니다. 
+1. 보안 토큰 서비스는 라이선스 서버 팜에서 허용되고 확인할 수 있는 토큰을 발급해야 합니다. 예를 들어 Axinom에서 제공하는 Widevine 라이선스 서버에는 "자격 메시지"를 포함하는 특정 JWT 토큰이 필요합니다. 따라서 이러한 JWT 토큰을 발급하는 STS가 있어야 합니다. 저자는 이러한 구현을 완료했으며 이에 대한 세부 사항은 [Azure 설명서 센터](https://azure.microsoft.com/documentation/): [Axinom을 사용하여 Azure Media Services에 Widevine 라이선스 제공](media-services-axinom-integration.md)에서 확인할 수 있습니다.
 2. 더 이상 Azure 미디어 서비스에서 라이선스 배달 서비스(ContentKeyAuthorizationPolicy)를 구성하지 않아도 됩니다. 수행해야 하는 작업은 다중 DRM으로 CENC 설정에서 AssetDeliveryPolicy를 구성할 때 라이선스 획득 URL(PlayReady, Widevine 및 FairPlay에 대해)을 제공하는 것입니다.
 
-### <a name="what-if-i-want-to-use-a-custom-sts?"></a>사용자 지정 STS를 사용하려면 어떻게 하나요?
+### <a name="what-if-i-want-to-use-a-custom-sts"></a>사용자 지정 STS를 사용하려면 어떻게 하나요?
 고객이 JWT 토큰을 제공하는 데 사용자 지정 STS(보안 토큰 서비스)를 사용하기로 선택하는 데는 몇 가지 이유가 있습니다. 다음과 같습니다.
 
 1. 고객이 사용한 IDP(ID 공급자)에서 STS를 지원하지 않습니다. 이 경우 사용자 지정 STS가 옵션일 수 있습니다.
@@ -382,7 +386,7 @@ AAD가 JWT 토큰을 생성한 후, 플레이어가 확인을 위해 JWT 토큰�
 #### <a name="tech-note"></a>기술 참고 사항
 개발 플랫폼으로 .NET Framework/C#을 사용하는 경우 비공개 보안 키에 사용된 X509 인증서에는 키 길이가 2048 이상이어야 합니다. 이는 .NET Framework에서 System.IdentityModel.Tokens.X509AsymmetricSecurityKey 클래스의 요구 사항입니다. 그렇지 않으면 다음 예외가 throw됩니다.
 
-IDX10630: 서명을 위한 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey'는 '2048'비트 이상이어야 합니다. 
+IDX10630: 서명을 위한 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey'는 '2048'비트 이상이어야 합니다.
 
 ## <a name="the-completed-system-and-test"></a>완료된 시스템 및 테스트
 이 문서의 독자가 로그인 계정을 얻기 전 동작에 대한 기본적인 "그림"을 그려볼 수 있도록 완료된 종단 간 시스템에 대한 몇 가지 시나리오를 살펴보겠습니다.
@@ -394,7 +398,7 @@ IDX10630: 서명을 위한 'System.IdentityModel.Tokens.X509AsymmetricSecurityKe
 비디오 자산이 Azure 미디어 서비스에서 동적 DRM 보호 하에 있고 토큰 인증 및 Azure AD가 생성하는 JWT 토큰이 있는 종단 간 통합된 시나리오가 필요한 경우 로그인해야 합니다.
 
 ### <a name="user-login"></a>사용자 로그인
-종단 간 통합된 DRM 시스템을 테스트하려면 "계정"을 만들거나 추가해야 합니다. 
+종단 간 통합된 DRM 시스템을 테스트하려면 "계정"을 만들거나 추가해야 합니다.
 
 계정이란?
 
@@ -408,7 +412,7 @@ Azure AD는 Microsoft 계정(MSA) 도메인을 신뢰하므로 다음 도메인�
 | **회사 도메인** |microsoft.com |
 | **Microsoft 계정(MSA) 도메인** |outlook.com, live.com, hotmail.com |
 
-사용자를 위한 계정을 만들거나 추가한 작성자에게 연락할 수 있습니다. 
+사용자를 위한 계정을 만들거나 추가한 작성자에게 연락할 수 있습니다.
 
 다음은 다양한 도메인 계정에서 사용하는 다양한 로그인 페이지의 스크린샷입니다.
 
@@ -429,7 +433,7 @@ Windows 8.1 이상의 IE 11, Windows 10의 Microsoft Edge 브라우저와 같이
 
 ![PlayReady에 EME 사용](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-playready1.png)
 
-플레이어 영역에서 어두운 부분은 PlayReady 보호 기능이 보호된 비디오의 화면 캡처를 차단하기 때문입니다. 
+플레이어 영역에서 어두운 부분은 PlayReady 보호 기능이 보호된 비디오의 화면 캡처를 차단하기 때문입니다.
 
 다음 화면에는 플레이어 플러그인 및 MSE/EME 지원을 보여줍니다.
 
@@ -454,7 +458,7 @@ Widevine은 보호된 비디오의 화면 캡처 만들기를 차단하지 않�
 ![자격이 없는 사용자](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
 
 ### <a name="running-custom-secure-token-service"></a>사용자 지정 보안 토큰 서비스 실행
-사용자 지정 STS(보안 토큰 서비스)를 실행하는 시나리오에서는 사용자 지정 STS에서 대칭 또는 비대칭 키를 사용하여 JWT 토큰을 발급합니다. 
+사용자 지정 STS(보안 토큰 서비스)를 실행하는 시나리오에서는 사용자 지정 STS에서 대칭 또는 비대칭 키를 사용하여 JWT 토큰을 발급합니다.
 
 대칭 키를 사용하는 경우(Chrome 사용):
 
@@ -482,6 +486,8 @@ X509 인증서를 통해 비대칭 키를 사용하는 경우(Microsoft 최신 �
 ### <a name="acknowledgments"></a>승인
 William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

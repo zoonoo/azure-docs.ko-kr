@@ -1,13 +1,13 @@
 ---
-title: Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션 | Microsoft Docs
-description: 이 문서에서는 플랫폼 지원 방식의 Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 리소스를 마이그레이션하는 과정을 안내합니다.
+title: "Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션 | Microsoft Docs"
+description: "이 문서에서는 플랫폼 지원 방식의 Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 리소스를 마이그레이션하는 과정을 안내합니다."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: d6f5a877-05b6-4127-a545-3f5bede4e479
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3fa3dacd0b5e2ad97cd751395d58ef3afe92aee3
+
 
 ---
-# Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
+# <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
 이러한 단계에서는 Azure CLI(명령줄 인터페이스) 명령을 사용하여 클래식 배포 모델의 laaS(Infrastructure as a Service) 리소스를 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 보여 줍니다. 이 문서는 [Azure CLI](../xplat-cli-install.md)가 필요합니다.
 
 > [!NOTE]
@@ -25,13 +29,13 @@ ms.author: cynthn
 > 
 > 
 
-## 1단계: 마이그레이션 준비
+## <a name="step-1-prepare-for-migration"></a>1단계: 마이그레이션 준비
 클래식에서 Resource Manager로 IaaS 리소스 마이그레이션을 평가하는 몇 가지 모범 사례가 있습니다.
 
 * [지원되지 않는 구성 또는 기능 목록](virtual-machines-windows-migration-classic-resource-manager.md)을 읽어보세요. 지원되지 않는 구성 또는 기능을 사용하는 가상 컴퓨터가 있다면, 해당 기능/구성 지원이 발표되기를 기다리는 것이 좋습니다. 아니면, 필요에 맞을 경우 마이그레이션이 가능하도록 해당 기능을 제거하거나 해당 구성을 사용하지 않을 수 있습니다.
 * 현재 인프라 및 응용 프로그램을 배포하는 스크립트를 자동화한 경우 마이그레이션을 위해 해당 스크립트를 사용하여 유사한 테스트 설정을 만들어봅니다. 또는 Azure 포털을 사용하여 샘플 환경을 설정할 수도 있습니다.
 
-## 2단계: 구독 설정 및 공급자 등록
+## <a name="step-2-set-your-subscription-and-register-the-provider"></a>2단계: 구독 설정 및 공급자 등록
 마이그레이션 시나리오의 경우 클래식 및 Resource Manager에 대한 환경을 설정해야 합니다. [Azure CLI를 설치](../xplat-cli-install.md)하고 [구독을 선택](../xplat-cli-connect.md)합니다.
 
 계정에 로그인합니다.
@@ -43,9 +47,9 @@ ms.author: cynthn
     azure account set "<azure-subscription-name>"
 
 > [!NOTE]
-> 등록은 일회용 단계이지만 마이그레이션 전에 한 번 수행해야 합니다. 등록하지 않으면 다음과 같은 오류 메시지가 표시됩니다.
+> 등록은 일회용 단계이지만 마이그레이션 전에 한 번 수행해야 합니다. 등록하지 않으면 다음과 같은 오류 메시지가 표시됩니다. 
 > 
-> *BadRequest : Subscription is not registered for migration.* 
+> *BadRequest : 구독이 마이그레이션에 대해 등록되지 않았습니다.* 
 > 
 > 
 
@@ -53,7 +57,7 @@ ms.author: cynthn
 
     azure provider register Microsoft.ClassicInfrastructureMigrate
 
-등록이 완료될 때까지 5분 정도 기다려 주세요. 다음 명령을 사용하여 승인 상태를 확인할 수 있습니다. 계속 진행하기 전에 RegistrationState가 `Registered`인지 확인합니다.
+등록이 완료될 때까지 5분 정도 기다려 주세요. 다음 명령을 사용하여 승인 상태를 확인할 수 있습니다. 계속 진행하기 전에 RegistrationState가 `Registered` 인지 확인합니다.
 
     azure provider show Microsoft.ClassicInfrastructureMigrate
 
@@ -61,7 +65,7 @@ ms.author: cynthn
 
     azure config mode asm
 
-## 3단계: 현재 배포의 Azure 지역 또는 VNET에 Azure Resource Manager 가상 컴퓨터 코어가 충분한지 확인
+## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>3단계: 현재 배포의 Azure 지역 또는 VNET에 Azure Resource Manager 가상 컴퓨터 코어가 충분한지 확인
 이 단계를 위해 `arm` 모드로 전환해야 합니다. 다음 명령을 사용하여 이 작업을 수행합니다.
 
 ```
@@ -79,7 +83,7 @@ azure vm list-usage -l "<Your VNET or Deployment's Azure region"
     azure config mode asm
 
 
-## 4단계: 옵션 1 - 클라우드 서비스에서 가상 컴퓨터 마이그레이션
+## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>4단계: 옵션 1 - 클라우드 서비스에서 가상 컴퓨터 마이그레이션
 다음 명령을 사용하여 클라우드 서비스 목록을 가져와서 마이그레이션할 클라우드 서비스를 선택합니다. 클라우드 서비스의 VM이 가상 네트워크이거나 VM에 웹/작업자 역할이 있으면, 오류 메시지가 표시됩니다.
 
     azure service list
@@ -112,7 +116,7 @@ CLI 또는 Azure 포털을 사용하여 준비된 리소스에 대한 구성을 
 
 
 
-## 4단계: 옵션 2 - 가상 네트워크에서 가상 컴퓨터 마이그레이션
+## <a name="step-4-option-2---migrate-virtual-machines-in-a-virtual-network"></a>4단계: 옵션 2 - 가상 네트워크에서 가상 컴퓨터 마이그레이션
 마이그레이션할 가상 네트워크를 선택합니다. 가상 네트워크에 웹/작업자 역할이 포함되어 있거나 지원되지 않는 구성을 포함하는 VM이 있으면, 유효성 검사 오류 메시지가 표시됩니다.
 
 다음 명령을 사용하여 구독의 모든 가상 네트워크를 가져옵니다.
@@ -137,7 +141,7 @@ CLI 또는 Azure 포털을 사용하여 준비된 가상 컴퓨터에 대한 구
 
     azure network vnet commit-migration <virtualNetworkName>
 
-## 5단계: 저장소 계정 마이그레이션
+## <a name="step-5-migrate-a-storage-account"></a>5단계: 저장소 계정 마이그레이션
 가상 컴퓨터 마이그레이션이 완료되면 저장소 계정을 마이그레이션하는 것이 좋습니다.
 
 다음 명령을 사용하여 마이그레이션을 위한 저장소 계정을 준비합니다.
@@ -152,8 +156,13 @@ CLI 또는 Azure 포털을 사용하여 준비된 저장소 계정에 대한 구
 
     azure storage account commit-migration <storageAccountName>
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [클래식에서 Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](virtual-machines-windows-migration-classic-resource-manager.md)
 * [클래식에서 Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: 앱 서비스 모바일 앱으로 관리되는 클라이언트 라이브러리 작업(Windows | Microsoft Docs
-description: Windows 및 Xamarin 앱에서 Azure 앱 서비스 모바일 앱용 .NET 클라이언트를 사용하는 방법에 대해 알아봅니다.
+title: "App Service Mobile Apps로 관리되는 클라이언트 라이브러리 작업(Windows) | Microsoft Docs"
+description: "Windows 및 Xamarin 앱에서 Azure 앱 서비스 모바일 앱용 .NET 클라이언트를 사용하는 방법에 대해 알아봅니다."
 services: app-service\mobile
-documentationcenter: ''
+documentationcenter: 
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 790ca8b1adfece3a008b1dbf42a827d8ee283d9a
+ms.openlocfilehash: 5044dfc3cd5ba070ab4c57ca052bdf4e2aa852cb
+
 
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법
@@ -55,7 +59,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음 클래�
 
 [JsonPropertyAttribute][6]는 클라이언트 형식과 테이블 간의 *PropertyName* 매핑을 정의하는 데 사용됩니다.
 
-Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.NET 서버 SDK 토픽][7] 또는 [Node.js 서버 SDK 토픽][8]의 정보를 참조하세요. 빠른 시작을 사용하여 Azure Portal에서 Mobile App 백 엔드를 만든 경우 **Azure Portal** 에서 [쉬운 테이블]설정을 사용할 수도 있습니다.
+Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.NET 서버 SDK 토픽][7] 또는 [Node.js 서버 SDK 토픽][8]을 참조하세요. 빠른 시작을 사용하여 Azure Portal에서 Mobile App 백 엔드를 만든 경우 **Azure Portal** 에서 [Azure Portal]설정을 사용할 수도 있습니다.
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>방법: 관리되는 클라이언트 SDK 패키지 설치
 다음 메서드 중 하나를 사용하여 [NuGet][9]에서 Mobile Apps용 관리되는 클라이언트 SDK 패키지를 설치합니다.
@@ -70,7 +74,7 @@ Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.
 ### <a name="a-namesymbolsourceahow-to-work-with-debug-symbols-in-visual-studio"></a><a name="symbolsource"></a>방법: Visual Studio에서 디버그 작업
 Microsoft.Azure.Mobile 네임스페이스의 기호는 [SymbolSource][10]에 있습니다.  SymbolSource를 Visual Studio와 통합하려면 [SymbolSource 지침][11]을 참조하세요.
 
-## <a name="a-namecreateclientacreate-the-mobile-apps-client"></a><a name="create-client"></a>Mobile Apps 클라이언트 만들기
+## <a name="a-namecreate-clientacreate-the-mobile-apps-client"></a><a name="create-client"></a>Mobile Apps 클라이언트 만들기
 다음 코드는 모바일 앱 백 엔드에 액세스하는 데 사용되는 [MobileServiceClient][12] 개체를 만듭니다.
 
     var client = new MobileServiceClient("MOBILE_APP_URL");
@@ -118,8 +122,8 @@ Microsoft.Azure.Mobile 네임스페이스의 기호는 [SymbolSource][10]에 있
 
 > [!NOTE]
 > 모든 행이 반환되는 것을 방지하기 위해 서버 기반 페이지 크기가 적용됩니다.  페이징은 대규모 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않게 방지합니다.  50개가 넘는 행을 반환하려면 페이지에서 데이터 반환에서 설명하는 대로 `Skip` 및 `Take` 메서드를 사용하세요.
-> 
-> 
+>
+>
 
 ### <a name="a-namefilteringahow-to-filter-returned-data"></a><a name="filtering"></a>방법: 반환된 데이터 필터링
 다음 코드는 쿼리에 `Where` 절을 포함하여 데이터를 필터링하는 방법을 보여줍니다. 이 코드에서는 `todoTable`에서 해당 `Complete` 속성이 `false`인 모든 항목을 반환합니다. [Where] 함수는 테이블에 대한 쿼리에 행 필터링 조건자를 적용합니다.
@@ -180,12 +184,12 @@ Microsoft.Azure.Mobile 네임스페이스의 기호는 [SymbolSource][10]에 있
     // Sort items in ascending order by Text field
     MobileServiceTableQuery<TodoItem> query = todoTable
                     .OrderBy(todoItem => todoItem.Text)
-    List<TodoItem> items = await query.ToListAsync();
+     List<TodoItem> items = await query.ToListAsync();
 
     // Sort items in descending order by Text field
     MobileServiceTableQuery<TodoItem> query = todoTable
                     .OrderByDescending(todoItem => todoItem.Text)
-    List<TodoItem> items = await query.ToListAsync();
+     List<TodoItem> items = await query.ToListAsync();
 
 ### <a name="a-namepagingahow-to-return-data-in-pages"></a><a name="paging"></a>방법: 페이지에서 데이터 반환
 기본적으로 백 엔드는 첫 50개 행만 반환합니다. [Take] 메서드를 호출하여 반환 행 수를 늘릴 수 있습니다. `Take` 을(를) [Skip] 메서드와 함께 사용하면 쿼리에서 반환되는 전체 데이터 집합의 특정 "페이지"가 요청됩니다. 다음 쿼리를 실행하면 테이블에서 맨 위에 있는 세 개의 항목을 반환합니다.
@@ -211,10 +215,10 @@ Microsoft.Azure.Mobile 네임스페이스의 기호는 [SymbolSource][10]에 있
 
 > [!NOTE]
 > 모바일 앱 백 엔드에서 50행 제한을 재정의하려면 [EnableQueryAttribute] 를 공용 GET 메서드에도 적용하고 페이징 동작을 지정해야 합니다. 메서드에 적용할 때 다음은 최대 반환 행을 1000으로 설정합니다.
-> 
+>
 > [EnableQuery(MaxTop=1000)]
-> 
-> 
+>
+>
 
 ### <a name="a-nameselectingahow-to-select-specific-columns"></a><a name="selecting"></a>방법: 특정 열 선택
 쿼리에 [Select] 절을 추가하면 결과에 포함할 속성 집합을 지정할 수 있습니다. 예를 들어 다음 코드는 하나의 필드만 선택하는 방법 및 여러 필드를 선택하고 형식을 지정하는 방법을 보여 줍니다.
@@ -450,7 +454,7 @@ Azure Mobile Apps는 기본적으로 요청당 최대 50개의 항목을 반환�
 
 1. Visual Studio에서 솔루션 > **솔루션에 대한 NuGet 패키지 관리...**를 마우스 오른쪽 단추로 클릭한 후 솔루션의 모든 프로젝트에서 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 패키지를 검색하고 설치합니다.
 2. (선택 사항) Windows 장치를 지원하려면 다음 SQLite 런타임 패키지 중 하나를 설치합니다.
-   
+
    * **Windows 8.1 런타임:** [Windows 8.1][3]용 SQLite를 설치합니다.
    * **Windows Phone 8.1:** [Windows Phone 8.1][4]용 SQLite를 설치합니다.
    * **범용 Windows 플랫폼 [SQLite for the Universal Windows Universal][5]를 **설치합니다.
@@ -545,8 +549,8 @@ Mobile Apps는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Dire
 
 > [!NOTE]
 > 프로덕션 앱에서 클라이언트 관리 흐름을 사용하는 것이 좋습니다.
-> 
-> 
+>
+>
 
 인증을 설정하려면 하나 이상의 ID 공급자로 앱을 등록해야 합니다.  ID 공급자는 앱의 클라이언트 ID 및 클라이언트 암호를 생성합니다.  그러면 Azure App Service 인증/권한 부여를 사용할 수 있도록 백 엔드에서 이러한 값이 설정됩니다.  자세한 내용은 [앱에 인증 추가]자습서의 자세한 지침을 따르세요.
 
@@ -556,7 +560,7 @@ Mobile Apps는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Dire
 * [서버 관리 인증](#serverflow)
 * [인증 토큰 캐시](#caching)
 
-### <a name="a-nameclientflowaclientmanaged-authentication"></a><a name="clientflow"></a>클라이언트 관리 인증
+### <a name="a-nameclientflowaclient-managed-authentication"></a><a name="clientflow"></a>클라이언트 관리 인증
 앱이 독립적으로 ID 공급자에 연결한 후 반환된 토큰을 백 엔드로 로그인하는 동안 제공할 수도 있습니다. 이 클라이언트 흐름을 사용하면 단일 로그온 환경을 사용자에게 제공하거나 ID 공급자로부터 더 많은 사용자 데이터를 검색할 수 있습니다. 클라이언트 흐름 인증은 ID 공급자 SDK가 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 서버 흐름보다 선호도가 높습니다.
 
 다음 클라이언트 흐름 인증 패턴에 대한 예제가 제공됩니다.
@@ -571,20 +575,18 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
 1. 다음으로 [Active Directory 로그온에 앱 서비스를 구성하는 방법] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다.
 2. Visual Studio 또는 Xamarin Studio에서 프로젝트를 열고 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 패키지에 참조를 추가합니다. 검색할 때 시험판 버전을 포함합니다.
 3. 사용하는 플랫폼에 따라 응용 프로그램에 다음 코드를 추가합니다. 각각에서 다음과 같이 대체합니다.
-   
+
    * **INSERT-AUTHORITY-HERE** 를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.windows.net/contoso.onmicrosoft.com이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
    * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
    * **INSERT-CLIENT-ID-HERE** 를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
-   * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 끝점으로 바꿉니다. 이 값은 _https://contoso.azurewebsites.net/.auth/login/done_과 유사합니다.
-     
+   * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 끝점으로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 유사합니다.
+
      각 플랫폼에 필요한 코드는 다음과 같습니다.
-     
+
      **Windows:**
-     
-       private MobileServiceUser user;
-       private async Task AuthenticateAsync()
-       {
-     
+
+       private MobileServiceUser user;   private async Task AuthenticateAsync()   {
+
            string authority = "INSERT-AUTHORITY-HERE";
            string resourceId = "INSERT-RESOURCE-ID-HERE";
            string clientId = "INSERT-CLIENT-ID-HERE";
@@ -612,13 +614,11 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
                await dialog.ShowAsync();
            }
        }
-     
+
      **Xamarin.iOS**
-     
-       private MobileServiceUser user;
-       private async Task AuthenticateAsync(UIViewController view)
-       {
-     
+
+       private MobileServiceUser user;   private async Task AuthenticateAsync(UIViewController view)   {
+
            string authority = "INSERT-AUTHORITY-HERE";
            string resourceId = "INSERT-RESOURCE-ID-HERE";
            string clientId = "INSERT-CLIENT-ID-HERE";
@@ -638,13 +638,11 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
                Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
            }
        }
-     
+
      **Xamarin.Android**
-     
-       private MobileServiceUser user;
-       private async Task AuthenticateAsync()
-       {
-     
+
+       private MobileServiceUser user;   private async Task AuthenticateAsync()   {
+
            string authority = "INSERT-AUTHORITY-HERE";
            string resourceId = "INSERT-RESOURCE-ID-HERE";
            string clientId = "INSERT-CLIENT-ID-HERE";
@@ -666,15 +664,13 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
                builder.SetTitle("You must log in. Login Required");
                builder.Create().Show();
            }
-       }
-       protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-       {
-     
+       }   protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)   {
+
            base.OnActivityResult(requestCode, resultCode, data);
            AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
        }
 
-#### <a name="a-nameclientfacebookasingle-signon-using-a-token-from-facebook-or-google"></a><a name="client-facebook"></a>Facebook 또는 Google의 토큰을 사용하는 Single Sign-On
+#### <a name="a-nameclient-facebookasingle-sign-on-using-a-token-from-facebook-or-google"></a><a name="client-facebook"></a>Facebook 또는 Google의 토큰을 사용하는 Single Sign-On
 다음과 같은 Facebook 또는 Google용 코드 조각에 나온 대로 클라이언트 흐름을 사용할 수 있습니다.
 
     var token = new JObject();
@@ -706,13 +702,13 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
         }
     }
 
-#### <a name="a-nameclientlivesdkasingle-signin-using-microsoft-account-with-the-live-sdk"></a><a name="client-livesdk"></a>Live SDK와 함께 Microsoft 계정을 사용한 단일 로그인
+#### <a name="a-nameclient-livesdkasingle-sign-in-using-microsoft-account-with-the-live-sdk"></a><a name="client-livesdk"></a>Live SDK와 함께 Microsoft 계정을 사용한 단일 로그인
 사용자를 인증하려면 먼저 Microsoft 계정 개발자 센터에서 앱을 등록해야 합니다. 모바일 앱 백 엔드의 등록 세부 정보를 구성합니다. Microsoft 계정 등록을 만들어서 모바일 앱 백 엔드에 연결하려면 [Microsoft 계정 로그인을 사용하도록 앱 등록]의 단계를 완료합니다. Windows 스토어 및 Windows Phone 8/Silverlight 버전의 앱이 둘 다 있는 경우 Windows 스토어 버전을 먼저 등록합니다.
 
 다음 코드는 Live SDK를 사용하여 인증하고 반환된 토큰을 사용하여 모바일 앱 백 엔드에 로그인합니다.
 
     private LiveConnectSession session;
-    //private static string clientId = "<microsoft-account-client-id>";
+     //private static string clientId = "<microsoft-account-client-id>";
     private async System.Threading.Tasks.Task AuthenticateAsync()
     {
 
@@ -760,7 +756,7 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
 
 자세한 내용은 [Windows Live SDK] 문서를 참조하세요.
 
-### <a name="a-nameserverflowaservermanaged-authentication"></a><a name="serverflow"></a>서버 관리 인증
+### <a name="a-nameserverflowaserver-managed-authentication"></a><a name="serverflow"></a>서버 관리 인증
 ID 공급자를 등록하고 나면, 공급자의 [MobileServiceAuthenticationProvider] 값을 사용하여 MobileServiceClient의 [LoginAsync] 메서드를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
 
     private MobileServiceUser user;
@@ -821,7 +817,7 @@ UserId 값은 자격 증명의 사용자 이름으로 저장되며 토큰은 암
     client.Logout();
     vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 
-Xamarin 앱은 [Xamarin.Auth] API를 사용하여 **Account** 개체에 자격 증명을 안전하게 저장합니다. 이러한 API 사용의 예제는 [ContosoMoments 사진 공유 샘플]에서 [AuthStore.cs] 코드 파일을 참조하세요.
+Xamarin 앱은 [Xamarin.Auth] API를 사용하여 **Account** 개체에 자격 증명을 안전하게 저장합니다. 이러한 API 사용의 예제는 [ContosoMoments 사진 공유 샘플](https://github.com/azure-appservice-samples/ContosoMoments)에서 [AuthStore.cs] 코드 파일을 참조하세요.
 
 클라이언트 관리 인증을 사용하는 경우 Facebook 또는 Twitter와 같은 공급자로부터 얻은 액세스 토큰을 캐시할 수도 있습니다. 다음과 같이 백 엔드에서 새 인증 토큰을 요청하기 위해 이 토큰을 제공할 수 있습니다.
 
@@ -839,7 +835,7 @@ Xamarin 앱은 [Xamarin.Auth] API를 사용하여 **Account** 개체에 자격 �
 * [Windows 스토어 패키지 SID 가져오기](#package-sid)
 * [플랫폼 간 템플릿을 사용하여 등록](#register-xplat)
 
-### <a name="a-nameregisterforpushahow-to-register-for-push-notifications"></a><a name="register-for-push"></a>방법: 푸시 알림 등록
+### <a name="a-nameregister-for-pushahow-to-register-for-push-notifications"></a><a name="register-for-push"></a>방법: 푸시 알림 등록
 모바일 앱 클라이언트를 사용하면 Azure 알림 허브로 푸시 알림을 등록할 수 있습니다. 등록할 때 플랫폼 특정 푸시 알림 서비스(PNS)에서 구하는 핸들을 가져옵니다. 그런 다음 등록을 만들 때 태그와 함께 이 값을 제공합니다. 다음 코드는 Windows 알림 서비스(WNS)를 통한 푸시 알림에 Windows 앱을 등록합니다.
 
     private async void InitNotificationsAsync()
@@ -856,7 +852,7 @@ WNS에 푸시하는 경우, [Windows 스토어 패키지 SID를 가져와야](#p
 클라이언트에서 태그 요청은 지원되지 않습니다.  태그 요청은 등록에서 자동으로 삭제됩니다.
 태그로 장치를 등록하려는 경우 사용자를 대신해 알림 허브 API를 사용하여 등록을 수행하는 사용자 지정 API를 만듭니다.  `RegisterNativeAsync()` 메서드 대신에 [사용자 지정 API를 호출합니다.](#customapi)
 
-### <a name="a-namepackagesidahow-to-obtain-a-windows-store-package-sid"></a><a name="package-sid"></a>방법: Windows 스토어 패키지 SID 가져오기
+### <a name="a-namepackage-sidahow-to-obtain-a-windows-store-package-sid"></a><a name="package-sid"></a>방법: Windows 스토어 패키지 SID 가져오기
 Windows 스토어 앱에서 푸시 알림 사용에 패키지 SID가 필요합니다.  패키지 SID를 수신하려면, Windows 스토어에 응용 프로그램을 등록합니다.
 
 이 값을 가져오려면
@@ -872,9 +868,9 @@ Windows 스토어 앱에서 푸시 알림 사용에 패키지 SID가 필요합�
 iOS 또는 Android 플랫폼에서 실행되는 앱을 등록하려면 Xamarin 앱에 추가 코드가 필요합니다. 자세한 내용은 사용하는 플랫폼에 대한 토픽을 참조하세요.
 
 * [Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md#add-push)
-* [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-push.md#add-push)
+* [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-push.md#add-push-notifications-to-your-app)
 
-### <a name="a-nameregisterxplatahow-to-register-push-templates-to-send-crossplatform-notifications"></a><a name="register-xplat"></a>방법: 플랫폼 간 알림을 보내기 위해 푸시 템플릿 등록
+### <a name="a-nameregister-xplatahow-to-register-push-templates-to-send-cross-platform-notifications"></a><a name="register-xplat"></a>방법: 플랫폼 간 알림을 보내기 위해 푸시 템플릿 등록
 템플릿을 등록하려면 다음과 같이 템플릿으로 `RegisterAsync()` 메서드를 사용합니다.
 
         JObject templates = myTemplates();
@@ -977,7 +973,7 @@ iOS 또는 Android 플랫폼에서 실행되는 앱을 등록하려면 Xamarin �
 [4]: https://msdn.microsoft.com/en-us/library/azure/mt419521(v=azure.10).aspx
 [5]: https://github.com/Azure-Samples
 [6]: http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm
-[7]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller
+[7]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
 [8]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [9]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/
 [10]: http://www.symbolsource.org/
@@ -985,19 +981,19 @@ iOS 또는 Android 플랫폼에서 실행되는 앱을 등록하려면 Xamarin �
 [12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
 [앱에 인증 추가]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[Azure 모바일 앱에서 오프라인 데이터 동기화]: app-service-mobile-offline-data-sync.md
+[Azure Mobile Apps에서 오프라인 데이터 동기화]: app-service-mobile-offline-data-sync.md
 [앱에 푸시 알림 추가]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Microsoft 계정 로그인을 사용하도록 앱 등록]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Active Directory 로그인에 대한 앱 서비스를 구성하는 방법]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Active Directory 로그온에 앱 서비스를 구성하는 방법]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx
 [MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/en-us/library/azure/dn268408(v=azure.10).aspx
-[LoginAsync]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
+[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
 [GetTable]: https://msdn.microsoft.com/en-us/library/azure/jj554275(v=azure.10).aspx
-[형식화되지 않은 테이블에 참조를 만듭니다]: https://msdn.microsoft.com/en-us/library/azure/jj554278(v=azure.10).aspx
+[형식화되지 않은 테이블에 참조를 만듭니다.]: https://msdn.microsoft.com/en-us/library/azure/jj554278(v=azure.10).aspx
 [DeleteAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296407(v=azure.10).aspx
 [IncludeTotalCount]: https://msdn.microsoft.com/en-us/library/azure/dn250560(v=azure.10).aspx
 [InsertAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296400(v=azure.10).aspx
@@ -1007,13 +1003,13 @@ iOS 또는 Android 플랫폼에서 실행되는 앱을 등록하려면 Xamarin �
 [OrderBy]: https://msdn.microsoft.com/en-us/library/azure/dn250572(v=azure.10).aspx
 [OrderByDescending]: https://msdn.microsoft.com/en-us/library/azure/dn250568(v=azure.10).aspx
 [ReadAsync]: https://msdn.microsoft.com/en-us/library/azure/mt691741(v=azure.10).aspx
-[take]: https://msdn.microsoft.com/en-us/library/azure/dn250574(v=azure.10).aspx
+[Take]: https://msdn.microsoft.com/en-us/library/azure/dn250574(v=azure.10).aspx
 [Select]: https://msdn.microsoft.com/en-us/library/azure/dn250569(v=azure.10).aspx
-[skip]: https://msdn.microsoft.com/en-us/library/azure/dn250573(v=azure.10).aspx
+[Skip]: https://msdn.microsoft.com/en-us/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/en-us/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
-[쉬운 테이블]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/en-us/library/system.guid.newguid(v=vs.110).aspx
@@ -1032,10 +1028,11 @@ iOS 또는 Android 플랫폼에서 실행되는 앱을 등록하려면 Xamarin �
 [Fiddler]: http://www.telerik.com/fiddler
 [Json.NET]: http://www.newtonsoft.com/json
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
-[AuthStore.cs]: (https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs)
+[AuthStore.cs]: https://github.com/azure-appservice-samples/ContosoMoments
 [AuthStore.cs]: https://github.com/azure-appservice-samples/ContosoMoments
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

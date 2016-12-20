@@ -1,13 +1,13 @@
 ---
-title: PowerShell을 사용하여 클래식 배포 모델에 대한 Express 경로 회로의 라우팅 구성 방법 | Microsoft Docs
-description: 이 문서에서는 Express 경로 회로의 개인, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다.
+title: "PowerShell을 사용하여 클래식 배포 모델에 대한 ExpressRoute 회로의 라우팅 구성 방법 | Microsoft 문서"
+description: "이 문서에서는 Express 경로 회로의 개인, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: a4bd39d2-373a-467a-8b06-36cfcc1027d2
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: 1442295477760e7f528621be42b72f1c02625c50
+
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Express 경로 회로의 라우팅 만들기 및 수정
 > [!div class="op_single_selector"]
-> [Azure Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
-> [PowerShell - 클래식](expressroute-howto-routing-classic.md)
+> * [Azure 포털 - 리소스 관리자](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
+> * [PowerShell - 클래식](expressroute-howto-routing-classic.md)
 > 
 > 
 
@@ -303,6 +307,9 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 * 워크플로에 대한 자세한 내용은 [Express 경로 워크플로](expressroute-workflows.md)를 참조하세요.
 * 회로 피어링에 대한 자세한 내용은 [Express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,30 +1,34 @@
 ---
-title: Mobile Engagement 내보내기 API 개요
-description: 사용자 고유의 도구에서 활용하기 위해 사용자의 장치에서 생성된 원시 데이터 내보내기에 대한 기본 사항을 알아봅니다.
+title: "Mobile Engagement 내보내기 API 개요"
+description: "사용자 고유의 도구에서 활용하기 위해 사용자의 장치에서 생성된 원시 데이터 내보내기에 대한 기본 사항을 알아봅니다."
 services: mobile-engagement
 documentationcenter: mobile
 author: kpiteira
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 9380d47b-d7fa-4d4c-888f-97e6482196bb
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
-ms.author: kpiteira
+ms.author: kapiteir
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9c17a1cb33616ad297d0fad9b8ea674de75bd8fb
+
 
 ---
-# Mobile Engagement 내보내기 API 개요
-## 소개
+# <a name="mobile-engagement-export-api-overview"></a>Mobile Engagement 내보내기 API 개요
+## <a name="introduction"></a>소개
 이 문서에서는 사용자 고유의 도구에서 활용하기 위해 사용자의 장치에서 생성된 원시 데이터 내보내기에 대한 기본 사항을 알아봅니다.
 
-## 필수 구성 요소
+## <a name="pre-requisites"></a>필수 구성 요소
 Mobile Engagement에서 원시 데이터를 내보내려면 다음이 필요합니다.
 
-* API를 사용하려면 API 인증 설정([인증 수동 설정](mobile-engagement-api-authentication-manual.md) 참조),
-* REST API 또는 [.net SDK](mobile-engagement-dotnet-sdk-service-api.md) 사용,
+* API를 사용하려면 API 인증 설정( [인증 수동 설정](mobile-engagement-api-authentication-manual.md)참조),
+* REST API 또는 [.net SDK](mobile-engagement-dotnet-sdk-service-api.md)사용,
 * Azure 저장소 계정.
 
 > [!NOTE]
@@ -32,8 +36,9 @@ Mobile Engagement에서 원시 데이터를 내보내려면 다음이 필요합�
 > 
 > 
 
-## 무엇을 내보낼 수 있습니까?
-Mobile Engagement를 통해 사용자는 다양한 유형의 데이터를 수집하고 이러한 여러 유형의 데이터에 적합한 다양한 내보내기 유형을 가질 수 있습니다. 두 가지 필수 내보내기 유형이 있습니다.
+## <a name="what-can-be-exported"></a>무엇을 내보낼 수 있습니까?
+Mobile Engagement를 통해 사용자는 다양한 유형의 데이터를 수집하고 이러한 여러 유형의 데이터에 적합한 다양한 내보내기 유형을 가질 수 있습니다.
+두 가지 필수 내보내기 유형이 있습니다.
 
 * 스냅숏: 상태 및 기록이 없는 Mobile Engagement를 나타내는 데이터를 내보내는 데 일반적으로 사용됩니다. 예를 들어 토큰(앱 정보), 토큰 또는 푸시 캠페인 피드백을 포함합니다. 결과적으로 이러한 유형의 내보내기는 날짜와 관련이 없습니다.
 * 기록: 이러한 내보내기 유형은 예를 들어 이벤트 또는 작업과 같은 시간에 따라 누적되는 데이터에 사용됩니다.
@@ -51,12 +56,13 @@ Mobile Engagement를 통해 사용자는 다양한 유형의 데이터를 수집
 | 기록 |작업 |지정된 기간 동안 각 장치에 대한 모든 작업의 내보내기 생성 |
 | 기록 |오류 |지정된 기간 동안 각 장치에 대한 모든 오류의 내보내기 생성 |
 
-## 작동 원리
-내보내기는 대용량 데이터 파일을 생성할 수 있는 장기 실행 작업입니다. 이런 이유로 다운로드할 파일을 즉시 반환하도록 호출될 수 없습니다. Mobile Engagement에서 데이터를 내보내려면 일반적으로 다음을 지정한 API를 통해 **내보내기 작업**을 만들어야 합니다.
+## <a name="how-does-it-work"></a>작동 원리
+내보내기는 대용량 데이터 파일을 생성할 수 있는 장기 실행 작업입니다. 이런 이유로 다운로드할 파일을 즉시 반환하도록 호출될 수 없습니다.
+Mobile Engagement에서 데이터를 내보내려면 일반적으로 다음을 지정한 API를 통해 **내보내기 작업** 을 만들어야 합니다.
 
 * 내보내기 형식(스냅숏 또는 기록),
 * 데이터 형식,
-* 내보내기의 결과가 작성될 **Azure 저장소 컨테이너**(쓰기 액세스가 있는 유효한 SAS 포함).
+* 내보내기의 결과가 작성될 **Azure 저장소 컨테이너** (쓰기 액세스가 있는 유효한 SAS 포함).
 
 작업이 시작되려면 몇 분 정도가 걸릴 수 있으며 작은 앱에 대해 몇 초에서 많은 사용자 또는 작업의 앱에 대해 몇 시간 동안 실행될 수 있습니다.
 
@@ -64,4 +70,9 @@ Mobile Engagement를 통해 사용자는 다양한 유형의 데이터를 수집
 
 작업이 성공되면 제공된 저장소 컨테이너에서 결과 데이터 파일을 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,19 +1,23 @@
 ---
-title: Blob의 읽기 전용 스냅숏 만들기 | Microsoft Docs
-description: 지정된 시점에서 Blob 데이터를 백업하는 Blob의 스냅숏을 만드는 방법을 알아봅니다. 용량 요금을 최소화하기 위해 스냅숏의 청구 방법 및 사용 방법을 파악합니다.
+title: "Blob의 읽기 전용 스냅숏 만들기 | Microsoft Docs"
+description: "지정된 시점에서 Blob 데이터를 백업하는 Blob의 스냅숏을 만드는 방법을 알아봅니다. 용량 요금을 최소화하기 위해 스냅숏의 청구 방법 및 사용 방법을 파악합니다."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 11/16/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 664f03a8492178daf342b659595f035b7cccec5a
+
 
 ---
 # <a name="create-a-blob-snapshot"></a>Blob 스냅숏 만들기
@@ -36,37 +40,38 @@ Blob의 스냅숏을 만들면 blob의 시스템 속성이 같은 값으로 스�
 ## <a name="create-a-snapshot"></a>스냅숏 만들기
 다음 코드 예제에서는 .NET에서 스냅숏을 만드는 방법을 보여 줍니다. 이 예제에서는 만들 때 스냅숏에 대한 별도의 메타데이터를 지정합니다.
 
-    private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
+```csharp
+private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
+{
+    // Create a new block blob in the container.
+    CloudBlockBlob baseBlob = container.GetBlockBlobReference("sample-base-blob.txt");
+
+    // Add blob metadata.
+    baseBlob.Metadata.Add("ApproxBlobCreatedDate", DateTime.UtcNow.ToString());
+
+    try
     {
-        // Create a new block blob in the container.
-        CloudBlockBlob baseBlob = container.GetBlockBlobReference("sample-base-blob.txt");
+        // Upload the blob to create it, with its metadata.
+        await baseBlob.UploadTextAsync(string.Format("Base blob: {0}", baseBlob.Uri.ToString()));
 
-        // Add blob metadata.
-        baseBlob.Metadata.Add("ApproxBlobCreatedDate", DateTime.UtcNow.ToString());
+        // Sleep 5 seconds.
+        System.Threading.Thread.Sleep(5000);
 
-        try
-        {
-            // Upload the blob to create it, with its metadata.
-            await baseBlob.UploadTextAsync(string.Format("Base blob: {0}", baseBlob.Uri.ToString()));
-
-            // Sleep 5 seconds.
-            System.Threading.Thread.Sleep(5000);
-
-            // Create a snapshot of the base blob.
-            // Specify metadata at the time that the snapshot is created to specify unique metadata for the snapshot.
-            // If no metadata is specified when the snapshot is created, the base blob's metadata is copied to the snapshot.
-            Dictionary<string, string> metadata = new Dictionary<string, string>();
-            metadata.Add("ApproxSnapshotCreatedDate", DateTime.UtcNow.ToString());
-            await baseBlob.CreateSnapshotAsync(metadata, null, null, null);
-        }
-        catch (StorageException e)
-        {
-            Console.WriteLine(e.Message);
-            Console.ReadLine();
-            throw;
-        }
+        // Create a snapshot of the base blob.
+        // Specify metadata at the time that the snapshot is created to specify unique metadata for the snapshot.
+        // If no metadata is specified when the snapshot is created, the base blob's metadata is copied to the snapshot.
+        Dictionary<string, string> metadata = new Dictionary<string, string>();
+        metadata.Add("ApproxSnapshotCreatedDate", DateTime.UtcNow.ToString());
+        await baseBlob.CreateSnapshotAsync(metadata, null, null, null);
     }
-
+    catch (StorageException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
+}
+```
 
 ## <a name="copy-snapshots"></a>스냅숏 복사
 Blob 및 스냅숏 관련 복사 작업에는 다음 규칙이 적용됩니다.
@@ -84,7 +89,9 @@ Blob 및 스냅숏 관련 복사 작업에는 다음 규칙이 적용됩니다.
 
 다음 코드 예제에서는 .NET에서 Blob 및 해당 스냅숏을 삭제하는 방법을 보여 줍니다. 여기서 `blockBlob`은 **CloudBlockBlob** 유형의 변수입니다.
 
-    await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+```csharp
+await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+```
 
 ## <a name="snapshots-with-azure-premium-storage"></a>Azure 프리미엄 저장소를 사용한 스냅숏
 프리미엄 저장소에서 스냅숏을 사용할 때는 다음 규칙이 적용됩니다.
@@ -97,23 +104,25 @@ Blob 및 스냅숏 관련 복사 작업에는 다음 규칙이 적용됩니다.
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>스냅숏에 대한 절대 URI 반환
 이 C# 코드 예제에서는 스냅숏을 만들고 기본 위치에 대한 절대 URI를 작성합니다.
 
-    //Create the blob service client object.
-    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+```csharp
+//Create the blob service client object.
+const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
 
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    //Get a reference to a container.
-    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
-    container.CreateIfNotExists();
+//Get a reference to a container.
+CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+container.CreateIfNotExists();
 
-    //Get a reference to a blob.
-    CloudBlockBlob blob = container.GetBlockBlobReference("sampleblob.txt");
-    blob.UploadText("This is a blob.");
+//Get a reference to a blob.
+CloudBlockBlob blob = container.GetBlockBlobReference("sampleblob.txt");
+blob.UploadText("This is a blob.");
 
-    //Create a snapshot of the blob and write out its primary URI.
-    CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
-    Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
+//Create a snapshot of the blob and write out its primary URI.
+CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
+Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
+```
 
 ## <a name="understand-how-snapshots-accrue-charges"></a>스냅숏 요금 청구 방법 이해
 Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 저장소 요금이 추가로 부과될 수 있습니다. 응용 프로그램을 디자인할 때는 불필요한 비용을 최소화할 수 있도록 이러한 요금 발생 방식을 파악하는 것이 중요합니다.
@@ -156,6 +165,9 @@ Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 �
 ## <a name="next-steps"></a>다음 단계
 Blob 저장소를 사용하는 추가 예제는 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

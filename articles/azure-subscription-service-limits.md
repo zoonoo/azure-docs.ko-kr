@@ -1,23 +1,27 @@
 ---
-title: Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건
-description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 여기에는 최대값과 함께 제한을 늘리는 방법에 대한 정보가 포함됩니다.
-services: ''
-documentationcenter: ''
+title: "Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건"
+description: "일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 여기에는 최대값과 함께 제한을 늘리는 방법에 대한 정보가 포함됩니다."
+services: 
+documentationcenter: 
 author: rothja
 manager: jeffreyg
-editor: ''
+editor: 
 tags: billing
-
+ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: btardif
+ms.author: byvinyal
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
+
 
 ---
-# <a name="azure-subscription-and-service-limits,-quotas,-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 ## <a name="overview"></a>개요
 이 문서는 가장 일반적인 Microsoft Azure 제한을 지정합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 제한은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
 
@@ -29,7 +33,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 > 
 
 ## <a name="limits-and-the-azure-resource-manager"></a>제한 및 Azure 리소스 관리자
-이제 단일 Azure 리소스 그룹에 여러 Azure 리소스를 결합할 수 있습니다. 리소스 그룹을 사용하는 경우 전역이었던 제한이 Azure 리소스 관리자에서 지역 수준으로 관리됩니다. Azure 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요.
+이제 단일 Azure 리소스 그룹에 여러 Azure 리소스를 결합할 수 있습니다. 리소스 그룹을 사용하는 경우 전역이었던 제한이 Azure 리소스 관리자에서 지역 수준으로 관리됩니다. Azure 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
 아래 제한에서는 Azure 리소스 관리자를 사용할 때 제한에 차이를 반영할 수 있도록 새로운 테이블이 추가되었습니다. 예를 들어, **구독 제한** 테이블 및 **구독 제한 - Azure Resource Manager** 테이블이 있습니다. 두 시나리오에 모두 제한이 적용되면 첫 번째 테이블에서만 표시됩니다. 별도로 지정하지 않으면 제한은 모든 지역에 걸쳐 전역으로 적용됩니다.
 
@@ -44,6 +48,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Active Directory](#active-directory-limits)
 * [API 관리](#api-management-limits)
 * [앱 서비스](#app-service-limits)
+* [응용 프로그램 게이트웨이](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [자동화](#automation-limits)
 * [Azure Redis 캐시(영문)](#azure-redis-cache-limits)
@@ -114,6 +119,9 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 #### <a name="networking-limits"></a>네트워킹 제한
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
+#### <a name="application-gateway-limits"></a>Application Gateway 제한
+[!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
+
 #### <a name="traffic-manager-limits"></a>트래픽 관리자 제한
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
@@ -129,7 +137,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 #### <a name="virtual-machine-disk-limits"></a>가상 컴퓨터 디스크 제한
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-자세한 내용은 [가상 컴퓨터 크기](virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
+자세한 내용은 [가상 컴퓨터 크기](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 **표준 저장소 계정**
 
@@ -174,7 +182,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 * *무료* 다중 테넌트 서비스는 다른 Azure 구독자와 공유되며 평가 및 소규모 개발 프로젝트용으로 사용하기 위한 것입니다.
 * *기본* 은 높은 가용성의 쿼리 작업에 대한 최대 3개의 복제본과 함께 프로덕션 워크로드 전용 컴퓨팅 리소스를 더 작은 규모로 제공합니다.
-* *표준(S1, S2, S3, S3 고밀도)* 은 더 큰 프로덕션 작업용입니다. 표준 계층 내에는 여러 수준이 있으므로 특정 시나리오에 대한 리소스 구성을 선택할 수 있습니다.
+* *표준(S1, S2, S3, S3 고밀도)* 은 더 큰 프로덕션 작업용입니다. 표준 계층 내에는 여러 수준이 있으므로 워크로드 프로필에 가장 적합한 리소스 구성을 선택할 수 있습니다.
 
 **구독당 제한**
 
@@ -184,7 +192,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 [!INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-문서 크기, 초당 쿼리, 키, 요청 및 응답을 비롯한 기타 제한 사항에 대한 자세한 내용은 [Azure 검색의 서비스 제한 사항](search/search-limits-quotas-capacity.md)을 참조하세요.
+문서 크기, 초당 쿼리, 키, 요청 및 응답을 비롯한 좀 더 자세한 수준의 제한 사항에 대한 자세한 내용은 [Azure Search의 서비스 제한 사항](search/search-limits-quotas-capacity.md)을 참조하세요.
 
 ### <a name="media-services-limits"></a>미디어 서비스 제한
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
@@ -261,10 +269,13 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 ## <a name="see-also"></a>참고 항목
 [Azure 제한 및 증가 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines/virtual-machines-linux-sizes.md)
+[Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [클라우드 서비스 크기](cloud-services/cloud-services-sizes-specs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: C#을 사용하여 Azure 리소스 배포 | Microsoft Docs
-description: C# 및 Azure Resource Manager를 사용하여 Microsoft Azure 리소스를 만드는 방법에 대해 알아봅니다.
+title: "C#을 사용하여 Azure 리소스 배포 | Microsoft Docs"
+description: "C# 및 Azure Resource Manager를 사용하여 Microsoft Azure 리소스를 만드는 방법에 대해 알아봅니다."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
@@ -15,20 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/06/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 57faf185f88a56cf1b5b871a4a2d7ab6c8ca3dd6
+
 
 ---
-# <a name="deploy-azure-resources-using-c#"></a>C를 사용하여 Azure 리소스 배포
+# <a name="deploy-azure-resources-using-c"></a>C를 사용하여 Azure 리소스 배포
 이 문서에서는 C#을 사용하여 Azure 리소스를 만드는 방법을 보여 줍니다.
 
 먼저 다음 작업을 완료했는지 확인해야 합니다.
 
-* [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
+*  [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 * [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855) 설치 확인
-* [인증 토큰](../resource-group-authenticate-service-principal.md)
+*  [인증 토큰](../resource-group-authenticate-service-principal.md)
 
 이러한 단계를 수행하려면 약 30분이 걸립니다.
 
-## <a name="step-1:-create-a-visual-studio-project-and-install-the-libraries"></a>1단계: Visual Studio 프로젝트를 만들고 라이브러리 설치
+## <a name="step-1-create-a-visual-studio-project-and-install-the-libraries"></a>1단계: Visual Studio 프로젝트를 만들고 라이브러리 설치
 NuGet 패키지는 이 자습서를 완료하는데 필요한 라이브러리를 설치하는 가장 쉬운 방법입니다. Visual Studio에서 필요한 라이브러리를 가져오려면 다음 단계를 수행합니다.
 
 1. **파일** > **새로 만들기** > **프로젝트**를 클릭합니다.
@@ -42,7 +46,7 @@ NuGet 패키지는 이 자습서를 완료하는데 필요한 라이브러리를
 
 이제 라이브러리를 사용하기 시작하여 응용 프로그램을 만들 준비가 되었습니다.
 
-## <a name="step-2:-create-the-credentials-that-are-used-to-authenticate-requests"></a>2단계: 요청을 인증하는 데 사용되는 자격 증명 만들기
+## <a name="step-2-create-the-credentials-that-are-used-to-authenticate-requests"></a>2단계: 요청을 인증하는 데 사용되는 자격 증명 만들기
 이제 이전에 만든 응용 프로그램 정보의 서식을 Azure Resource Manager에 요청을 인증하는 데 사용되는 자격 증명으로 지정합니다.
 
 1. 만들었던 프로젝트에 대한 Program.cs 파일을 연 후, 다음 using 문을 파일의 위쪽에 추가합니다.
@@ -79,7 +83,7 @@ NuGet 패키지는 이 자습서를 완료하는데 필요한 라이브러리를
         var credential = new TokenCredentials(token.Result.AccessToken);
 4. Program.cs 파일을 저장합니다.
 
-## <a name="step-3:-register-the-resource-providers-and-create-the-resources"></a>3단계: 리소스 공급자 등록 및 리소스 만들기
+## <a name="step-3-register-the-resource-providers-and-create-the-resources"></a>3단계: 리소스 공급자 등록 및 리소스 만들기
 ### <a name="register-the-providers-and-create-a-resource-group"></a>공급자 등록 및 리소스 그룹 만들기
 모든 리소스는 리소스 그룹에 포함되어야 합니다. 그룹에 리소스를 추가할 수 있기 전에 구독은 리소스 공급자로 등록되어야 합니다.
 
@@ -428,7 +432,7 @@ NuGet 패키지는 이 자습서를 완료하는데 필요한 라이브러리를
         }
    
    > [!NOTE]
-   > 이 자습서는 Windows Server 운영 체제의 버전을 실행하는 가상 컴퓨터를 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 탐색 및 선택](virtual-machines-linux-cli-ps-findimage.md)을 참조하세요.
+   > 이 자습서는 Windows Server 운영 체제의 버전을 실행하는 가상 컴퓨터를 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 탐색 및 선택](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
    > 
    > 
 2. 이전에 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
@@ -447,30 +451,33 @@ NuGet 패키지는 이 자습서를 완료하는데 필요한 라이브러리를
         Console.WriteLine(vmResult.Result.ProvisioningState);
         Console.ReadLine();
 
-## <a name="step-4:-delete-the-resources"></a>4단계: 리소스 삭제
+## <a name="step-4-delete-the-resources"></a>4단계: 리소스 삭제
 Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, 더 이상 필요하지 않은 리소스를 항상 삭제하는 것이 좋습니다. 가상 컴퓨터 및 모든 지원 리소스를 삭제하려는 경우, 리소스 그룹을 삭제해야 합니다.
 
 1. 리소스 그룹을 삭제하려면 Program 클래스에 다음 메서드를 추가합니다.
    
-       public static async void DeleteResourceGroupAsync(
-         TokenCredentials credential,
-         string groupName,
-         string subscriptionId)
-       {
-         Console.WriteLine("Deleting resource group...");
-         var resourceManagementClient = new ResourceManagementClient(credential)
-           { SubscriptionId = subscriptionId };
-         await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-       }
+     public static async void DeleteResourceGroupAsync(
+   
+       TokenCredentials credential,
+       string groupName,
+       string subscriptionId)
+     {
+   
+       Console.WriteLine("Deleting resource group...");
+       var resourceManagementClient = new ResourceManagementClient(credential)
+         { SubscriptionId = subscriptionId };
+       await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+     }
 2. 이전에 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
    
-       DeleteResourceGroupAsync(
-         credential,
-         groupName,
-         subscriptionId);
-       Console.ReadLine();
+     DeleteResourceGroupAsync(
+   
+       credential,
+       groupName,
+       subscriptionId);
+     Console.ReadLine();
 
-## <a name="step-5:-run-the-console-application"></a>5단계: 콘솔 응용 프로그램 실행
+## <a name="step-5-run-the-console-application"></a>5단계: 콘솔 응용 프로그램 실행
 1. 콘솔 응용 프로그램을 실행하려면, Visual Studio에서 **시작** 을 클릭한 다음 구독에 사용되는 동일한 사용자 이름 및 암호를 사용하여 Azure AD에 로그인합니다.
 2. 각 리소스를 생성하도록 각 상태 코드가 반환된 후 **Enter** 를 누릅니다. 가상 컴퓨터를 만든 후 Enter 키를 눌러 모든 리소스를 삭제하기 전에 다음 단계를 수행합니다.
    
@@ -480,9 +487,12 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
     ![Azure 포털에서 감사 로그 찾아보기](./media/virtual-machines-windows-csharp/crpportal.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [C# 및 Resource Manager 템플릿을 사용하여 Azure 가상 컴퓨터 배포](virtual-machines-windows-csharp-template.md)의 정보를 사용하여 가상 컴퓨터를 만드는 데 템플릿을 활용합니다.
-* [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-csharp-manage.md)를 검토하여 자신이 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
+* [C# 및 Resource Manager 템플릿을 사용하여 Azure 가상 컴퓨터 배포](virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 정보를 사용하여 가상 컴퓨터를 만드는 데 템플릿을 활용합니다.
+* [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 검토하여 자신이 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

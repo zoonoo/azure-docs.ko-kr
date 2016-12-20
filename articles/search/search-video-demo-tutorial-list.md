@@ -1,13 +1,13 @@
 ---
-title: Azure 검색의 비디오, 샘플 및 자습서 | Microsoft Docs
-description: Microsoft Azure에서 호스팅되는 클라우드 서비스인 Azure 검색에 대해 만들어진 모든 비디오, 샘플, 데모 및 자습서의 중앙 목록
+title: "Azure Search의 비디오, 샘플 및 자습서 | Microsoft Docs"
+description: "Microsoft Azure에서 호스팅되는 클라우드 서비스인 Azure 검색에 대해 만들어진 모든 비디오, 샘플, 데모 및 자습서의 중앙 목록"
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: 4ffa17a3-9e2b-4172-ad77-30c6a1354b24
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/22/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1011a19ae7ffae0fedee1d6202d1b00d35d948f9
+
 
 ---
-# <a name="azure-search:-code-samples,-demos,-videos-and-tutorials"></a>Azure 검색: 코드 샘플, 데모, 비디오 및 자습서
+# <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Azure 검색: 코드 샘플, 데모, 비디오 및 자습서
 다음 비디오, 데모, 자습서 및 샘플 앱으로 빠르게 기능을 활용해 보세요.
 
 ## <a name="code-samples"></a>코드 샘플
@@ -81,6 +85,9 @@ ms.author: heidist
 | [프로필 자습서 점수 매기기](search-get-started-scoring-profiles.md) |콘솔 앱을 사용하여 점수 매기기 프로필을 테스트합니다. |
 | [Azure 검색 관리 REST API 자습서](search-get-started-management-api.md) |관리 REST API를 사용하여 서비스를 프로비전하고 관리 또는 쿼리 api 키를 관리하는 방법입니다. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

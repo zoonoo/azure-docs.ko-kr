@@ -1,19 +1,23 @@
 ---
-title: 'Azure AD Connect: 연결 문제 해결 | Microsoft Docs'
-description: Azure AD Connect의 연결 문제를 해결하는 방법을 설명합니다.
+title: "Azure AD Connect: 연결 문제 해결 | Microsoft Docs"
+description: "Azure AD Connect의 연결 문제를 해결하는 방법을 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2016
+ms.date: 11/01/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fecca4c7667608bf081ed51025a92d40826f94c4
+
 
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect 연결 문제 해결
@@ -46,7 +50,7 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 | \*.microsoftonline.com |HTTPS/443 |Azure AD 디렉터리를 구성하고 데이터 가져오거나 내보내는 데 사용됩니다. |
 
 ## <a name="errors-in-the-wizard"></a>마법사 오류
-설치 마법사는 두 개의 서로 다른 보안 컨텍스트를 사용합니다. **Azure AD에 연결** 페이지에서 현재 로그인된 사용자를 사용합니다. **구성** 페이지에서 [동기화 엔진에 대한 서비스를 실행하는 계정](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)으로 변경합니다. 프록시 구성은 컴퓨터에 전체적으로 적용되므로 문제가 있다면 이미 마법사의 **Azure AD에 연결** 페이지에 나타날 가능성이 매우 높습니다.
+설치 마법사는 두 개의 서로 다른 보안 컨텍스트를 사용합니다. **Azure AD에 연결** 페이지에서 현재 로그인된 사용자를 사용합니다. **구성** 페이지에서 [동기화 엔진에 대한 서비스를 실행하는 계정](connect/active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)으로 변경합니다. 프록시 구성은 컴퓨터에 전체적으로 적용되므로 문제가 있다면 이미 마법사의 **Azure AD에 연결** 페이지에 나타날 가능성이 매우 높습니다.
 
 다음은 설치 마법사에 표시되는 가장 일반적인 오류입니다.
 
@@ -168,7 +172,7 @@ MFA(Multi-Factor Authentication) 시도를 취소했습니다.
 ### <a name="retrievedomains"></a>RetrieveDomains
 인증이 성공했습니다. Azure AD에서 도메인 정보를 검색할 수 없습니다.
 
-## <a name="troubleshooting-steps-for-previous-releases."></a>이전 릴리스에 대한 문제 해결 단계입니다.
+## <a name="troubleshooting-steps-for-previous-releases"></a>이전 릴리스에 대한 문제 해결 단계입니다.
 빌드 번호 1.1.105.0(2016년 2월에 발표됨)으로 시작하는 릴리스에서 로그인 도우미 사용이 중지되었습니다. 이 섹션 및 구성은 더 이상 필요하지 않지만 참조로 유지됩니다.
 
 단일 로그인 도우미를 작동하려면 winhttp가 구성되어야 합니다.  [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity)에 나와 있습니다.  
@@ -185,6 +189,9 @@ MFA(Multi-Factor Authentication) 시도를 취소했습니다.
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

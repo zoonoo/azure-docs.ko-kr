@@ -1,12 +1,12 @@
 ---
-title: 보안 개인 클러스터에 연결 | Microsoft Docs
-description: 이 문서에서는 클라이언트와 클러스터 사이 뿐만 아니라 독립 실행형 클러스터 또는 개인 클러스터 내에서 통신을 보호하는 방법을 설명합니다.
+title: "독립 실행형 클러스터 보안 | Microsoft Docs"
+description: "이 문서에서는 클라이언트와 클러스터 사이 뿐만 아니라 독립 실행형 클러스터 또는 개인 클러스터 내에서 통신을 보호하는 방법을 설명합니다."
 services: service-fabric
 documentationcenter: .net
 author: dsk-2015
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/08/2016
 ms.author: dkshir
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 885b5102d19df786ae6f1f380e3f791033041838
+
 
 ---
-# <a name="secure-a-standalone-cluster-on-windows-using-x.509-certificates"></a>X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호
+# <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호
 이 문서에서는 독립 실행형 Windows 클러스터의 다양한 노드 간에 통신을 보호하는 방법 뿐만 아니라 X.509 인증서를 사용하여 이 클러스터에 연결된 클라이언트를 인증하는 방법을 설명합니다. 이렇게 하면 권한이 있는 사용자만 클러스터 및 배포된 응용 프로그램에 액세스할 수 있으며 관리 작업을 수행할 수 있습니다.  인증서 보안은 클러스터가 만들어지기 전에 클러스터에서 사용되어야 합니다.  
 
 노드 간 보안, 클라이언트-노드 보안 및 역할 기반 액세스 제어와 같은 클러스터 보안에 대한 자세한 내용은 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 참조하세요.
 
-## <a name="which-certificates-will-you-need?"></a>어떤 인증서가 필요한가요?
+## <a name="which-certificates-will-you-need"></a>어떤 인증서가 필요한가요?
 처음에 클러스터의 노드 중 하나에 [독립 실행형 클러스터 패키지를 다운로드](service-fabric-cluster-creation-for-windows-server.md#downloadpackage) 합니다. 다운로드한 패키지에서 **ClusterConfig.X509.MultiMachine.json** 파일을 찾을 수 있습니다. 파일을 열고 **속성** 섹션의 **보안**을 위한 섹션을 검토합니다.
 
     "security": {
@@ -91,7 +95,7 @@ ms.author: dkshir
         "upgradeDomain": "UD0"
     }, {
       "nodeName": "vm1",
-            "metadata": "Replace the localhost with valid IP address or FQDN",
+              "metadata": "Replace the localhost with valid IP address or FQDN",
         "iPAddress": "10.7.0.4",
         "nodeTypeRef": "NodeType0",
         "faultDomain": "fd:/dc1/r1",
@@ -99,7 +103,7 @@ ms.author: dkshir
     }, {
         "nodeName": "vm2",
       "iPAddress": "10.7.0.6",
-            "metadata": "Replace the localhost with valid IP address or FQDN",
+              "metadata": "Replace the localhost with valid IP address or FQDN",
         "nodeTypeRef": "NodeType0",
         "faultDomain": "fd:/dc1/r2",
         "upgradeDomain": "UD2"
@@ -165,14 +169,14 @@ ms.author: dkshir
 }
  ```
 
-## <a name="aquire-the-x.509-certificates"></a>X.509 인증서 획득
+## <a name="acquire-the-x509-certificates"></a>X.509 인증서를 획득합니다.
 클러스터 내에서 통신을 보호하려면 클러스터 노드에 대한 X.509 인증서를 먼저 가져와야 합니다. 또한 권한이 있는 컴퓨터/사용자에게 이 클러스터에 연결을 제한하려면 클라이언트 컴퓨터에 인증서를 가져와서 설치해야 합니다.
 
 프로덕션 워크로드를 실행하는 클러스터의 경우 클러스터 보호를 위해 [CA(인증 기관)](https://en.wikipedia.org/wiki/Certificate_authority) 로 서명된 X.509 인증서를 사용해야 합니다. 이러한 인증서를 얻는 방법에 대한 자세한 내용은 [방법: 인증서 가져오기](http://msdn.microsoft.com/library/aa702761.aspx)를 참조하세요.
 
 테스트 목적으로 사용하는 클러스터의 경우 자체 서명된 인증서를 사용하도록 선택할 수 있습니다.
 
-## <a name="optional:-create-a-self-signed-certificate"></a>선택 사항: 자체 서명된 인증서 만들기
+## <a name="optional-create-a-self-signed-certificate"></a>선택 사항: 자체 서명된 인증서 만들기
 제대로 보호할 수 있는 자체 서명된 인증서를 만드는 한 가지 방법은 *C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure* 디렉터리의 Service Fabric SDK 폴더에 있는 *CertSetup.ps1* 스크립트를 사용하는 것입니다. 이 파일을 편집하고 이를 사용하여 적절한 이름으로 인증서를 만듭니다.
 
 이제 암호로 보호된 PFX 파일에 인증서를 내보냅니다. 먼저 인증서의 지문을 가져와야 합니다. certmgr.exe 응용 프로그램을 실행합니다. **로컬 컴퓨터/개인** 폴더로 이동하고 방금 만든 인증서를 찾습니다. 인증서를 두 번 클릭하여 열고 *세부 정보* 탭을 선택하고 *지문* 필드로 스크롤합니다. 공백을 제거하여 아래 PowerShell 명령에 지문 값을 복사합니다.  *$pswd* 값을 적절한 보안 암호로 변경하여 보호하고 PowerShell을 실행합니다.
@@ -199,7 +203,7 @@ Write-Host $cert.ToString($true)
    
     ```
     $pswd = "1234"
-    $PfcFilePath ="C:\mypfx.pfx"
+    $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
 3. 다음으로 네트워크 서비스 계정에서 실행되는 서비스 패브릭 프로세스가 다음 스크립트를 실행하여 사용할 수 있도록 이 인증서에 액세스 제어를 설정해야 합니다. 서비스 계정에 대해 인증서의 지문 및 "NETWORK SERVICE"를 제공합니다. certmgr.exe 도구를 사용하고 인증서의 개인 키 관리를 확인하여 인증서의 ACL이 올바른지 확인할 수 있습니다.
@@ -207,66 +211,73 @@ Write-Host $cert.ToString($true)
     ```
     param
     (
-        [Parameter(Position=1, Mandatory=$true)]
-        [ValidateNotNullOrEmpty()]
-        [string]$pfxThumbPrint,
+    [Parameter(Position=1, Mandatory=$true)]
+    [ValidateNotNullOrEmpty()]
+    [string]$pfxThumbPrint,
    
-        [Parameter(Position=2, Mandatory=$true)]
-        [ValidateNotNullOrEmpty()]
-        [string]$serviceAccount
-        )
+    [Parameter(Position=2, Mandatory=$true)]
+    [ValidateNotNullOrEmpty()]
+    [string]$serviceAccount
+    )
    
-        $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; };
+    $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; }
    
-        # Specify the user, the permissions and the permission type
-        $permission = "$($serviceAccount)","FullControl","Allow"
-        $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission;
+    # Specify the user, the permissions and the permission type
+    $permission = "$($serviceAccount)","FullControl","Allow"
+    $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission
    
-        # Location of the machine related keys
-        $keyPath = $env:ProgramData + "\Microsoft\Crypto\RSA\MachineKeys\";
-        $keyName = $cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName;
-        $keyFullPath = $keyPath + $keyName;
+    # Location of the machine related keys
+    $keyPath = Join-Path -Path $env:ProgramData -ChildPath "\Microsoft\Crypto\RSA\MachineKeys"
+    $keyName = $cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName
+    $keyFullPath = Join-Path -Path $keyPath -ChildPath $keyName
    
-        # Get the current acl of the private key
-        $acl = (Get-Item $keyFullPath).GetAccessControl('Access')
+    # Get the current acl of the private key
+    $acl = (Get-Item $keyFullPath).GetAccessControl('Access')
    
-        # Add the new ace to the acl of the private key
-        $acl.SetAccessRule($accessRule);
+    # Add the new ace to the acl of the private key
+    $acl.SetAccessRule($accessRule)
    
-        # Write back the new acl
-        Set-Acl -Path $keyFullPath -AclObject $acl -ErrorAction Stop
+    # Write back the new acl
+    Set-Acl -Path $keyFullPath -AclObject $acl -ErrorAction Stop
    
-        #Observe the access rights currently assigned to this certificate.
-        get-acl $keyFullPath| fl
-        ```
-4. Repeat the steps above for each server certificate. You can also use these steps to install the client certificates on the machines that you want to allow access to the cluster.
+    # Observe the access rights currently assigned to this certificate.
+    get-acl $keyFullPath| fl
+    ```
+4. 각 서버 인증서에 대해 위의 단계를 반복합니다. 또한 이러한 단계를 사용하여 클러스터에 대한 액세스를 허용하려는 컴퓨터에 클라이언트 인증서를 설치할 수 있습니다.
 
-## Create the secure cluster
-After configuring the **security** section of the **ClusterConfig.X509.MultiMachine.json** file, you can proceed to [Create your cluster](service-fabric-cluster-creation-for-windows-server.md#createcluster) section to configure the nodes and create the standalone cluster. Remember to use the **ClusterConfig.X509.MultiMachine.json** file while creating the cluster. For example, your command might look like the following:
+## <a name="create-the-secure-cluster"></a>보안 클러스터 만들기
+**ClusterConfig.X509.MultiMachine.json** 파일의 **보안** 섹션을 구성한 후에 [클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md#createcluster) 섹션을 진행하여 노드를 구성하고 독립 실행형 클러스터를 만들 수 있습니다. 클러스터를 만드는 동안 **ClusterConfig.X509.MultiMachine.json** 파일을 사용하도록 합니다. 예를 들어, 명령은 다음과 같을 수 있습니다.
 
 ```
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -AcceptEULA $true
 ```
 
-Once you have the secure standalone Windows cluster successfully running, and have setup the authenticated clients to connect to it, follow the section [Connect to a secure cluster using PowerShell](service-fabric-connect-to-secure-cluster.md#connectsecurecluster) to connect to it. For example:
+보안 독립 실행형 Windows 클러스터를 성공적으로 실행하고 여기에 연결할 인증된 클라이언트를 설정했다면 [PowerShell을 사용하여 보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md#connectsecurecluster) 섹션을 따라 연결합니다. 예:
 
 ```
 Connect-ServiceFabricCluster -ConnectionEndpoint 10.7.0.4:19000 -KeepAliveIntervalInSec 10 -X509Credential -ServerCertThumbprint 057b9544a6f2733e0c8d3a60013a58948213f551 -FindType FindByThumbprint -FindValue 057b9544a6f2733e0c8d3a60013a58948213f551 -StoreLocation CurrentUser -StoreName My
 ```
 
-If you are logged on to one of the machines in the cluster, since this already has the certificate installed locally you can simply run the Powershell command to connect to the cluster and show a list of nodes:
+클러스터의 컴퓨터 중 하나에 로그온한 경우 로컬로 설치된 인증서가 이미 있기 때문에 간단히 Powershell 명령을 실행하여 클러스터에 연결하고 노드 목록을 표시할 수 있습니다.
 
 ```
-Connect-ServiceFabricCluster Get-ServiceFabricNode
+Connect-ServiceFabricCluster
+Get-ServiceFabricNode
 ```
-To remove the cluster call the following command:
+클러스터를 제거하려면 다음 명령을 호출합니다.
 
 ```
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json   -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
 ```
 
+> [!NOTE]
+> 인증서 구성이 잘못되면 배포 도중 클러스터가 나타나지 않을 수 있습니다. 보안 문제를 자체 진단하려면 이벤트 뷰어 그룹 *응용 프로그램 및 서비스 로그* > *Microsoft-Service Fabric*에서 확인하세요.
+> 
+> 
 
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

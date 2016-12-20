@@ -1,48 +1,52 @@
 ---
-title: Azure 보안 센터에서 OS 취약성 해결 | Microsoft Docs
-description: 이 문서에서는 Azure 보안 센터 권장 사항 **OS 취약성 해결**을 구현하는 방법을 보여 줍니다.
+title: "Azure Security Center에서 OS 취약성 해결 | Microsoft Docs"
+description: "이 문서에서는 Azure 보안 센터 권장 사항 **OS 취약성 해결**을 구현하는 방법을 보여 줍니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/20/2016
+ms.date: 10/17/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3f38ec79596152d67e3591583d6016e8528caf4c
+
 
 ---
-# Azure 보안 센터에서 OS 취약성 해결
-Azure 보안 센터는 매일 가상 컴퓨터(VM) 운영 체제(OS)를 분석하여 VM을 공격에 더 취약하게 만들 수 있는 구성을 찾고 이러한 취약성을 해결하기 위한 구성 변경을 권장합니다. 모니터링되는 특정 구성에 대한 자세한 내용은 [권장 구성 규칙 목록](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)을 참조하세요. 보안 센터는 VM의 OS 구성이 권장 구성 규칙과 일치하지 않는 경우 취약성 해결을 권장합니다.
+# <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Azure 보안 센터에서 OS 취약성 해결
+Azure 보안 센터는 매일 가상 컴퓨터(VM) 운영 체제(OS)를 분석하여 VM을 공격에 더 취약하게 만들 수 있는 구성을 찾고 이러한 취약성을 해결하기 위한 구성 변경을 권장합니다. 모니터링되는 특정 구성에 대한 자세한 내용은 [권장 구성 규칙 목록](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) 을 참조하세요. Security Center는 VM의 OS 구성이 권장 구성 규칙과 일치하지 않는 경우 취약성 해결을 권장합니다.
 
 > [!NOTE]
-> 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
+> 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  단계별 가이드는 아닙니다.
 > 
 > 
 
-## 권장 사항 구현
-1. **권장 사항** 블레이드에서 **OS 취약성 해결**을 선택합니다. **OS 취약성 해결** 블레이드가 열립니다. ![OS 취약성 해결][1]
-2. **OS 취약성 해결** 블레이드에 권장 구성 규칙과 일치하지 않는 OS 구성이 있는 VM을 나열합니다. 각 VM에 대해 블레이드에서 다음을 식별합니다.
+## <a name="implement-the-recommendation"></a>권장 사항 구현
+1. **권장 사항** 블레이드에서 **OS 취약성 해결**을 선택합니다.
+   ![OS 취약성 해결][1]
+   
+    **OS 취약성 해결** 블레이드가 열리고 권장 구성 규칙과 일치하지 않는 OS 구성이 있는 VM이 나열됩니다.  각 VM에 대해 블레이드에서 다음을 식별합니다.
    
    * **실패한 규칙** -- VM의 OS 구성이 실패한 규칙 수입니다.
-   * **마지막 검사 시간**: 보안 센터가 VM을 마지막으로 검사한 날짜 및 시간입니다.
-   * **상태**: 권장 사항의 현재 상태입니다.
+   * **마지막 검사 시간** : 보안 센터가 VM을 마지막으로 검사한 날짜 및 시간입니다.
+   * **상태** : 권장 사항의 현재 상태입니다.
      
      * 열기: 취약성이 아직 해결되지 않음
      * 진행 중: 취약성이 현재 적용되고 있으며 아무런 작업도 수행할 필요가 없음
      * 해결됨: 취약성이 이미 해결됨(문제가 해결되면 항목이 회색으로 표시됨)
-   * **심각도** -- 모든 취약성이 낮음 심각도로 설정됩니다. 즉, 취약성을 해결해야 하지만 즉시 주의할 필요는 없습니다.
-   
-   VM을 선택합니다. 해당 VM에 대한 **OS 취약성 해결** 블레이드가 열리고 실패한 규칙을 표시합니다.
-   
+   * **심각도** - 모든 취약성이 낮음 심각도로 설정됩니다. 즉, 취약성을 해결해야 하지만 즉시 주의할 필요는 없습니다.
+
+VM을 선택합니다. 해당 VM에 대한 블레이드가 열리고 실패한 규칙이 표시됩니다.
    ![실패한 구성 규칙][2]
 
 규칙을 선택합니다. 이 예제에서는 **암호는 복잡성 조건을 만족해야 함**을 선택합니다. 실패한 규칙 및 영향을 설명하는 블레이드가 열립니다. 세부 정보를 검토하고 운영 체제 구성을 적용할 방법을 생각합니다.
-
   ![실패한 규칙에 대한 설명][3]
 
   보안 센터는 일반 구성 열거형(CCE)을 사용하여 구성 규칙에 대한 고유 ID를 할당합니다. 이 블레이드에 다음과 같은 정보가 제공됩니다.
@@ -58,7 +62,7 @@ Azure 보안 센터는 매일 가상 컴퓨터(VM) 운영 체제(OS)를 분석�
 * 실제 값 -- 규칙을 기준으로 VM OS 구성을 분석한 후 반환되는 값
 * 평가 결과 –- 분석 결과: 통과, 실패
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 이 문서에서는 보안 센터 권장 사항 "OS 취약성 해결"을 구현하는 방법을 보여 주었습니다. [여기](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)서 구성 규칙 집합을 검토할 수 있습니다. 보안 센터는 일반 구성 열거형(CCE)을 사용하여 구성 규칙에 대한 고유 ID를 할당합니다. 자세한 내용은 [CCE](http://cce.mitre.org) 사이트를 방문하세요.
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
@@ -73,7 +77,11 @@ Azure 보안 센터는 매일 가상 컴퓨터(VM) 운영 체제(OS)를 분석�
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/recommendation.png
-[2]: ./media/security-center-remediate-os-vulnerabilities/vm-remediate-os-vulnerabilities.png
+[2]:./media/security-center-remediate-os-vulnerabilities/vm-remediate-os-vulnerabilities.png
 [3]: ./media/security-center-remediate-os-vulnerabilities/vulnerability-details.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

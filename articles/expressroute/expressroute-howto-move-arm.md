@@ -1,13 +1,13 @@
 ---
-title: 클래식에서 리소스 관리자로 Express 경로 회로 이동 | Microsoft Docs
-description: 이 페이지는 클래식 회로를 리소스 관리자 배포 모델로 이동하는 방법을 설명합니다.
+title: "클래식에서 Resource Manager로 ExpressRoute 회로 이동 | Microsoft 문서"
+description: "이 페이지는 클래식 회로를 리소스 관리자 배포 모델로 이동하는 방법을 설명합니다."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1c3bd8e01e02fb66bf5e04c307863bbe54176128
+
 
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>클래식에서 리소스 관리자 배포 모델로 Express 경로 회로 이동
@@ -28,7 +32,7 @@ ms.author: ganesr
 ## <a name="move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>리소스 관리자 배포 모델로 Express 경로 회로 이동
 클래식 및 리소스 관리자 배포 모델 모두에서 사용할 수 있도록 Express 경로 회로를 리소스 관리자 배포 모델로 이동해야 합니다. 다음 PowerShell 명령을 실행하여 이 작업을 수행할 수 있습니다.
 
-### <a name="step-1:-gather-circuit-details-from-the-classic-deployment-model"></a>1단계: 클래식 배포 모델에서 회로 세부 정보 수집
+### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>1단계: 클래식 배포 모델에서 회로 세부 정보 수집
 먼저 Express 경로 회로에 대한 정보를 수집해야 합니다.
 
 Azure 클래식 환경에 로그인하고 서비스 키를 수집합니다. 다음 PowerShell 코드 조각을 사용하여 정보를 수집할 수 있습니다.
@@ -48,7 +52,7 @@ Azure 클래식 환경에 로그인하고 서비스 키를 수집합니다. 다�
 
 리소스 관리자 배포 모델로 이동하려는 회로의 **서비스 키** 를 복사합니다.
 
-### <a name="step-2:-sign-in-to-the-resource-manager-environment,-and-create-a-new-resource-group"></a>2단계: 리소스 관리자 환경에 로그인하고 새 리소스 그룹 만들기
+### <a name="step-2-sign-in-to-the-resource-manager-environment-and-create-a-new-resource-group"></a>2단계: 리소스 관리자 환경에 로그인하고 새 리소스 그룹 만들기
 다음 코드 조각을 사용하여 새로운 리소스 그룹을 만들 수 있습니다.
 
     # Sign in to your Azure Resource Manager environment
@@ -62,7 +66,7 @@ Azure 클래식 환경에 로그인하고 서비스 키를 수집합니다. 다�
 
 리소스 그룹이 이미 있는 경우 기존 리소스 그룹을 사용할 수도 있습니다.
 
-### <a name="step-3:-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>3단계: 리소스 관리자 배포 모델로 Express 경로 회로 이동
+### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>3단계: 리소스 관리자 배포 모델로 Express 경로 회로 이동
 이제 클래식에서 리소스 관리자 배포 모델로 Express 경로 회로를 이동할 준비가 되었습니다. 계속 진행하기 전에 [클래식에서 리소스 관리자 배포 모델로 Express 경로 회로 이동](expressroute-move.md) 에서 제공되는 정보를 검토합니다.
 
 다음 코드 조각을 실행하여 이 작업을 수행할 수 있습니다.
@@ -119,6 +123,9 @@ Express 경로 회로의 세부 정보를 가져오려면 다음을 실행합니
 * [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)
 * [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/22/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4f6bb074a607bd8a6bd201d71973993759860937
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
 
 
 ---
@@ -45,7 +45,7 @@ ms.openlocfilehash: 4f6bb074a607bd8a6bd201d71973993759860937
 
 ## <a name="prerequisites"></a>필수 조건
 * 이 자습서에서는 사용자가 ASP.NET MVC 및 Visual Studio로 작업을 수행했다고 가정합니다. 소개가 필요한 경우 [ASP.NET MVC 5 시작](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)을 참조하세요.
-* Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/free-trial/?WT.mc_id=A261C142F) 또는 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다. 
+* Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) 또는 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다. 
   
     Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 앱을 만들 수 있습니다.
 
@@ -219,6 +219,6 @@ Azure 앱 서비스에서 ASP.NET 웹앱이 실행 중인 경우 문제 해결�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Linux VM 배포 클래식 문제 해결 | Microsoft Docs
-description: Azure에서 새 Linux 가상 컴퓨터를 만드는 경우 클래식 배포 문제 해결
+title: "Linux VM 배포 클래식 문제 해결 | Microsoft Docs"
+description: "Azure에서 새 Linux 가상 컴퓨터를 만드는 경우 클래식 배포 문제 해결"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: JiangChen79
 manager: felixwu
-editor: ''
+editor: 
 tags: top-support-issue
-
+ms.assetid: c8a963fa-6b2a-4c7a-a1f4-7793adb02b19
 ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: cjiang
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 8c13f9289a5873dbc3cffe4c8fb6a32d30fc2312
+
 
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Azure에서 새 Linux 가상 컴퓨터 생성 관련 클래식 배포 문제 해결
@@ -23,6 +27,8 @@ ms.author: cjiang
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+
+이 문서의 Resource Manager 버전은 [여기](virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -45,7 +51,7 @@ Azure 포털에서 **찾아보기** > **가상 컴퓨터** > *Windows 가상 컴
 
 **해결 방법:**
 
-이 두 가지 오류를 모두 해결하려면, 온-프레미스에 있는 원본 VHD를, OS와 같은 설정(일반화/특수화)으로 업로드합니다. 일반화된 것으로 업로드하려면, 먼저 프로비전 해제를 실행해야 합니다. 자세한 내용은 [Linux 운영 체제를 포함한 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-classic-create-upload-vhd.md) 를 참조하세요.
+이 두 가지 오류를 모두 해결하려면, 온-프레미스에 있는 원본 VHD를, OS와 같은 설정(일반화/특수화)으로 업로드합니다. 일반화된 것으로 업로드하려면, 먼저 프로비전 해제를 실행해야 합니다. 자세한 내용은 [Linux 운영 체제를 포함한 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 를 참조하세요.
 
 **캡처 오류:**
 
@@ -55,9 +61,9 @@ Azure 포털에서 **찾아보기** > **가상 컴퓨터** > *Windows 가상 컴
 
 **해결 방법:**
 
-이 두 가지 오류를 모두 해결하려면, 현재 이미지를 포털에서 제거하고, OS와 같은 설정(일반화/특수화)으로 [현재 VHD에서 다시 캡처](virtual-machines-linux-classic-capture-image.md) 합니다.
+이 두 가지 오류를 모두 해결하려면, 현재 이미지를 포털에서 제거하고, OS와 같은 설정(일반화/특수화)으로 [현재 VHD에서 다시 캡처](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 합니다.
 
-## <a name="issue:-custom/-gallery/-marketplace-image;-allocation-failure"></a>문제: 사용자 지정/ 갤러리/ 마켓플레이스 이미지; 할당 오류
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>문제: 사용자 지정/ 갤러리/ 마켓플레이스 이미지; 할당 오류
 이 오류는 요청을 수용할 여유 공간이 없거나 요청되는 VM 크기를 지원할 수 없는 클러스터로 새 VM 요청이 전송된 상황에서 발생합니다. 동일한 클라우드 서비스에 일련의 다른 VM을 혼합하는 것은 불가능합니다. 따라서 클라우드 서비스에서 지원할 수 있는 것과 다른 크기의 VM을 새로 만들려고 하면, 계산 요청이 실패합니다.
 
 새 VM을 만드는 데 사용한 클라우드 서비스의 제약 조건에 따라서, 둘 중 한가지 상황에 의해 유발되는 오류를 접하게 됩니다.
@@ -84,8 +90,11 @@ Azure 포털에서 **찾아보기** > **가상 컴퓨터** > *Windows 가상 컴
 * [기존 가상 네트워크를 연결](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) 합니다. [지역 가상 네트워크](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참조하세요. 또는 [선호도 그룹 기반 가상 네트워크를 지역 가상 네트워크로 마이그레이션](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)한 다음 새 VM을 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-중지된 Linux VM을 시작하거나 Azure에서 기존 Linux VM의 크기를 조정할 때 문제가 발생하면 [Azure의 기존 Linux 가상 컴퓨터 재시작 또는 크기 조정 관련 클래식 배포 문제 해결](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)을 참조하세요.
+중지된 Linux VM을 시작하거나 Azure에서 기존 Linux VM의 크기를 조정할 때 문제가 발생하면 [Azure의 기존 Linux 가상 컴퓨터 재시작 또는 크기 조정 관련 클래식 배포 문제 해결](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

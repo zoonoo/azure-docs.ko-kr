@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 11/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 72347099d980f2ca73f39f984787197e1f87e45a
+ms.sourcegitcommit: b160a4f4ad4d1e383b460a3d17078908da1f4ef1
+ms.openlocfilehash: bcf8a709b9c457f517386b4a4baf9fdf5864cc65
 
 
 ---
-# <a name="choose-the-azure-multifactor-authentication-solution-for-you"></a>사용자를 위한 Azure Multi-Factor Authentication 솔루션 선택
+# <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>사용자를 위한 Azure Multi-Factor Authentication 솔루션 선택
 Azure MFA(Multi-Factor Authentication)에는 여러 가지 버전이 있기 때문에 사용하기에 적절한 버전을 파악하기 위해 몇 가지 질문에 답해야 합니다.  해당 질문은 다음과 같습니다.
 
 * [보안을 유지하려는 대상은 무엇입니까](#what-am-i-trying-to-secure)
@@ -32,7 +32,7 @@ Azure MFA(Multi-Factor Authentication)에는 여러 가지 버전이 있기 때�
 ## <a name="what-am-i-trying-to-secure"></a>보안을 유지하려는 대상은 무엇입니까?
 올바른 2단계 인증 솔루션을 결정하려면 먼저 두 번째 인증 방법으로 보안을 유지하려는 대상이 무엇인지 답해야 합니다.  Azure에 있는 응용프로그램입니까?  또는 원격 액세스 시스템입니까?  보안을 유지하려는 대상이 무엇인지 결정하여 Multi-Factor Authentication 활성화가 필요한 곳에 대한 질문에 답할 수 있습니다.  
 
-| 보안을 유지하려는 대상은 무엇입니까 | 클라우드에서 Multi-Factor Authentication | Multi-Factor Authentication 서버 |
+| 보안을 유지하려는 대상은 무엇입니까 | 클라우드의 MFA | MFA 서버  |
 | --- |:---:|:---:|
 | 자사 Microsoft 앱 |● |● |
 | 앱 갤러리의 SaaS 앱 |● |● |
@@ -43,7 +43,7 @@ Azure MFA(Multi-Factor Authentication)에는 여러 가지 버전이 있기 때�
 ## <a name="where-are-the-users-located"></a>사용자는 어디에 있습니까
 다음으로 사용자의 위치를 확인하여 사용할 올바른 솔루션이 클라우드에 있는지 MFA 서버를 사용한 온-프레미스인지를 확인하는 데 도움을 줍니다.
 
-| 사용자 위치 | 클라우드에서 Multi-Factor Authentication | Multi-Factor Authentication 서버 |
+| 사용자 위치 | 클라우드의 MFA | MFA 서버  |
 | --- |:---:|:---:|
 | Azure Active Directory |● | |
 | Azure AD 및 AD FS로 페더레이션을 사용한 온-프레미스 AD |● |● |
@@ -54,26 +54,26 @@ Azure MFA(Multi-Factor Authentication)에는 여러 가지 버전이 있기 때�
 ## <a name="what-features-do-i-need"></a>어떤 기능이 필요합니까?
 다음 표는 클라우드에서 Multi-Factor Authentication과 함께 사용할 수 있는 경우와 Multi-Factor Authentication 서버와 함께 사용할 수 있는 경우에 대한 기능 비교입니다.
 
-| 클라우드에서 Multi-Factor Authentication | Multi-Factor Authentication 서버 |
+| 기능 | 클라우드의 MFA | MFA 서버  |
 | --- |:---:|:---:|
-| 두 번째 단계로 모바일 앱 알림 |● |
-| 두 번째 단계로 모바일 앱 확인 코드 |● |
-| 두 번째 단계로 전화 통화 |● |
-| 두 번째 단계로 단방향 SMS |● |
-| 두 번째 단계로 양방향 SMS | |
-| 두 번째 단계로 하드웨어 토큰 | |
-| MFA를 지원하지 않는 클라이언트에 대한 앱 암호 |● |
-| 인증 방법에 대한 관리자 제어 |● |
-| PIN 모드 | |
-| 사기 행위 경고 |● |
-| MFA 보고서 |● |
-| 일회성 바이패스 | |
-| 전화 통화에 대한 사용자 지정 인사말 |● |
-| 전화 통화에 대한 사용자 지정 가능한 발신자 번호 |● |
-| 신뢰할 수 있는 IP |● |
-| 신뢰할 수 있는 장치에 대한 MFA 기억 |● |
-| 조건부 액세스 |● |
-| 캐시 | |
+| 두 번째 단계로 모바일 앱 알림 | ● | ● |
+| 두 번째 단계로 모바일 앱 확인 코드 | ● | ● |
+| 두 번째 단계로 전화 통화 | ● | ● |
+| 두 번째 단계로 단방향 SMS | ● | ● |
+| 두 번째 단계로 양방향 SMS | | ● |
+| 두 번째 단계로 하드웨어 토큰 | | ● |
+| MFA를 지원하지 않는 클라이언트에 대한 앱 암호 | ● | |
+| 인증 방법에 대한 관리자 제어 | | ● |
+| PIN 모드 | | ● |
+| 사기 행위 경고 |● | ● |
+| MFA 보고서 |● | ● |
+| 일회성 바이패스 | ● | ● |
+| 전화 통화에 대한 사용자 지정 인사말 | ● | ● |
+| 전화 통화에 대한 사용자 지정 가능한 발신자 번호 | ● | ● |
+| 신뢰할 수 있는 IP | ● | ● |
+| 신뢰할 수 있는 장치에 대한 MFA 기억 | ● | |
+| 조건부 액세스 | ● | ● |
+| 캐시 | ● | ● |
 
 클라우드 다단계 인증 또는 MFA 서버 온-프레미스 사용 여부를 결정했으므로 Azure Multi-Factor Authentication을 설정하고 사용을 시작할 수 있습니다. **시나리오를 나타내는 아이콘을 선택하십시오!**
 
@@ -87,6 +87,6 @@ Azure MFA(Multi-Factor Authentication)에는 여러 가지 버전이 있기 때�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

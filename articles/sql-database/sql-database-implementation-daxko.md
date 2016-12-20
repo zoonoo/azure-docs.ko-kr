@@ -1,22 +1,27 @@
 ---
-title: Azure SQL 데이터베이스 Azure 사례 연구 - Daxko/CSI | Microsoft Docs
-description: Daxko/CSI에서 SQL 데이터베이스를 사용하여 개발 주기를 가속화하고 고객 서비스 및 성능을 개선하는 방법을 알아봅니다.
+title: "Azure SQL Database Azure 사례 연구 - Daxko/CSI | Microsoft Docs"
+description: "Daxko/CSI에서 SQL 데이터베이스를 사용하여 개발 주기를 가속화하고 고객 서비스 및 성능을 개선하는 방법을 알아봅니다."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
+ms.custom: app development case study; app development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 357b402955187a08a35faacdcb178af75698433d
+
 
 ---
-# <a name="daxko/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI에서 Azure를 사용하여 개발 주기를 가속화하고 고객 서비스 및 성능 개선
+# <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI에서 Azure를 사용하여 개발 주기를 가속화하고 고객 서비스 및 성능 개선
 ![Daxko/CSI 로고](./media/sql-database-implementation-daxko/csidaxkologo25.png)
 
 Daxko/CSI Software는 한 가지 문제에 직면해 있습니다. 이 기업에서는 포괄적인 엔터프라이즈 소프트웨어 솔루션의 성공 덕분에 피트니스 및 레크리에이션 센터의 고객 기반이 빠르게 증가하고 있지만 증가하는 고객 기반의 IT 인프라 요구를 충족하기 위해 회사의 IT 직원을 테스트하고 있습니다. 이 회사는 특히 증가하는 데이터베이스 관리를 위한 운영 오버헤드 증가로 압박을 받고 있습니다. 더 나쁜 점은 운영 오버헤드 때문에 새 이니셔티브(예: 회사 소프트웨어에 대한 새로운 모바일 기능)를 위한 개발 리소스가 감소하고 있다는 것이었습니다.
@@ -86,10 +91,13 @@ Azure SQL 데이터베이스는 빠르고 안정적인 서비스를 즐기는 Sp
 * 데이터베이스 도구 및 탄력적 크기 조정에 대한 자세한 내용은 [탄력적 데이터베이스 도구 및 탄력적 크기 조정](sql-database-elastic-scale-get-started.md)을 참조하세요.
 * SQL Server 데이터베이스 마이그레이션에 대한 자세한 내용은 [Azure SQL 마이그레이션 마법사](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)를 참조하세요.
 * 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
-* 웹 역할 및 작업자 역할에 대한 자세한 내용은 [작업자 역할](../fundamentals-introduction-to-azure.md#compute)을 참조하세요. 
+* 웹 역할 및 작업자 역할에 대한 자세한 내용은 [작업자 역할](../fundamentals-introduction-to-azure.md#compute)을 참조하세요.    
 * Azure 서비스 버스에 대한 자세한 내용은 [Azure 서비스 버스](https://azure.microsoft.com/services/service-bus/)를 참조하세요.
 * 자동 크기 조정에 대한 자세한 내용은 [클라우드 서비스 크기 조정](../cloud-services/cloud-services-how-to-scale.md)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

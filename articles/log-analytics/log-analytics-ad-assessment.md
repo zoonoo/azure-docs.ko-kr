@@ -1,12 +1,12 @@
 ---
-title: Log Analytics에서 Active Directory 평가 솔루션을 사용하여 사용자 환경 최적화 | Microsoft Docs
-description: Active Directory 평가 솔루션을 사용하여 일정한 간격으로 서버 환경의 위험 및 상태를 평가할 수 있습니다.
+title: "Log Analytics에서 Active Directory 평가 솔루션을 사용하여 사용자 환경 최적화 | Microsoft Docs"
+description: "Active Directory 평가 솔루션을 사용하여 일정한 간격으로 서버 환경의 위험 및 상태를 평가할 수 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
+
 
 ---
 # <a name="optimize-your-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Log Analytics에서 Active Directory 평가 솔루션을 사용하여 사용자 환경 최적화
@@ -73,7 +77,7 @@ Active Directory 평가는 사용하도록 설정한 에이전트를 통해 WMI 
 
 **업그레이드, 마이그레이션 및 배포** - 이 주요 영역은 기존 인프라를 업그레이드 및 마이그레이션하고 Active Directory를 배포하는 데 도움이 되는 권장 사항을 보여 줍니다.
 
-### <a name="should-you-aim-to-score-100%-in-every-focus-area?"></a>모든 주요 영역에서 100%의 점수를 목표로 해야 하나요?
+### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>모든 주요 영역에서 100%의 점수를 목표로 해야 하나요?
 그럴 필요는 없습니다. 권장 사항은 수천 번의 고객 방문에서 Microsoft 엔지니어가 얻은 지식과 경험을 기반으로 합니다. 그러나 두 서버 인프라는 동일하지 않으며 특정 권장 사항은 거의 사용자와 관련 될 수 있습니다. 예를 들어, 가상 컴퓨터가 인터넷에 노출되지 않는 경우 일부 보안 권장 사항의 관련성은 떨어질 수 있습니다. 일부 가용성 권장 사항은 우선순위가 낮은 임시 데이터 수집 및 보고를 제공하는 서비스와는 관련성이 떨어질 수 있습니다. 성숙한 비즈니스에 중요한 문제는 시작에 덜 중요할 수 있습니다. 우선하는 주요 영역을 식별하고 시간이 지남에 따라 다음 점수가 어떻게 변경되는지 확인할 수 있습니다.
 
 모든 권장 사항에는 중요한 이유에 대한 지침이 포함됩니다. IT 서비스의 특성 및 조직의 비즈니스 요구를 고려해 볼 때, 이 가이드를 사용하여 권장 사항 구현이 사용자에 적절한지 여부를 평가해야 합니다
@@ -103,7 +107,7 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
    로그 검색 쿼리를 보여 주는 스크린샷은 다음과 같습니다.![실패한 권장 사항](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 2. 무시할 권장 사항을 선택합니다. RecommendationId 값은 다음 절차에서 사용됩니다.
 
-### <a name="to-create-and-use-an-ignorerecommendations.txt-text-file"></a>IgnoreRecommendations.txt 텍스트 파일을 만들고 사용하려면
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>IgnoreRecommendations.txt 텍스트 파일을 만들고 사용하려면
 1. IgnoreRecommendations.txt라는 파일을 만듭니다.
 2. Log Analytics에서 무시할 각 권장 사항에 대한 RecommendationId를 별도의 줄에 붙여 넣거나 입력한 다음 파일을 저장하고 닫습니다.
 3. OMS에서 권장 사항을 무시할 각 컴퓨터의 다음 폴더에 파일을 둡니다.
@@ -167,6 +171,9 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics에서 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 AD 평가 데이터 및 권장 사항을 볼 수 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

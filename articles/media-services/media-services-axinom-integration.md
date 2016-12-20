@@ -1,12 +1,12 @@
 ---
-title: Axinom을 사용하여 Azure Media Services에 Widevine 라이선스 제공 | Microsoft Docs
-description: 이 문서에서는 Azure 미디어 서비스(AMS)를 사용하여 PlayReady와 Widevine DRM이 모두 있는 AMS에서 동적으로 암호화된 스트림을 전달하는 방법을 설명합니다. PlayReady 라이선스는 미디어 서비스 PlayReady 라이선스 서버에서 제공되며 Widevine 라이선스는 Axinom 라이선스 서버에서 제공됩니다.
+title: "Axinom을 사용하여 Azure Media Services에 Widevine 라이선스 배달 | Microsoft 문서"
+description: "이 문서에서는 Azure 미디어 서비스(AMS)를 사용하여 PlayReady와 Widevine DRM이 모두 있는 AMS에서 동적으로 암호화된 스트림을 전달하는 방법을 설명합니다. PlayReady 라이선스는 미디어 서비스 PlayReady 라이선스 서버에서 제공되며 Widevine 라이선스는 Axinom 라이선스 서버에서 제공됩니다."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: willzhan
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 9c93fa4e-b4da-4774-ab6d-8b12b371631d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c02b75dc2c783b96dc9e1256051b8c6df290d425
+
 
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Axinom을 사용하여 Azure 미디어 서비스에 Widevine 라이선스 제공
@@ -197,6 +201,9 @@ Axinom Widevine 라이선스 서버를 활용하는 미니 솔루션에는 다�
 ### <a name="acknowledgments"></a>승인
 이 문서를 만들 때 기여한 Axinom의 Kristjan Jõgi, Mingfei Yan 그리고 Amit Rajput에게 감사를 드립니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

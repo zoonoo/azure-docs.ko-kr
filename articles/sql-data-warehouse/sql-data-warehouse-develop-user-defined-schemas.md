@@ -1,22 +1,26 @@
 ---
-title: SQL 데이터 웨어하우스의 사용자 정의 스키마 | Microsoft Docs
-description: 솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 Transact-SQL 스키마 사용을 위한 팁
+title: "SQL Data Warehouse의 사용자 정의 스키마 | Microsoft Docs"
+description: "솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 Transact-SQL 스키마 사용을 위한 팁"
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 52af5bd5-d5d3-4f9b-8704-06829fb924e3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9d59ffe4b0f0d858af18f30f848a63a28ac5f9b8
+
 
 ---
-# SQL 데이터 웨어하우스의 사용자 정의 스키마
+# <a name="user-defined-schemas-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 사용자 정의 스키마
 일반적인 데이터 웨어하우스는 작업, 도메인 또는 보안에 따라 응용 프로그램 경계를 만들기 위해 별도 데이터베이스를 사용합니다. 예를 들어, 기존의 SQL Server 데이터 웨어하우스는 스테이징 데이터베이스, 데이터 웨어하우스 데이터베이스 및 일부 데이터마트 데이터베이스를 포함할 수 있습니다. 이 토폴로지에서 각 데이터베이스는 아키텍처에서 워크로드 및 보안 경계로 작동합니다.
 
 반면, SQL 데이터 웨어하우스는 하나의 데이터베이스 내에서 전체 데이터 웨어하우스 워크로드를 실행합니다. 데이터베이스 간 조인은 허용되지 않습니다. 따라서 SQL 데이터 웨어하우스는 웨어하우스에서 사용된 모든 테이블을 하나의 데이터베이스 내에 저장할 것으로 예상합니다.
@@ -26,12 +30,12 @@ ms.author: jrj;barbkess;sonyama
 > 
 > 
 
-## 추천
+## <a name="recommendations"></a>추천
 사용자 정의 스키마를 사용하여 워크로드, 보안, 도메인 및 기능 경계를 통합하기 위한 권장 사항입니다.
 
 1. SQL 데이터 웨어하우스 데이터베이스를 사용하여 전체 데이터 웨어하우스 워크로드를 실행합니다.
 2. SQL 데이터 웨어하우스 데이터베이스 하나를 사용하여 기존 데이터 웨어하우스 환경을 통합합니다.
-3. **사용자 정의 스키마**를 활용하여 데이터베이스를 사용하여 이전에 구현된 경계를 제공합니다.
+3. **사용자 정의 스키마** 를 활용하여 데이터베이스를 사용하여 이전에 구현된 경계를 제공합니다.
 
 사용자 정의 스키마를 이전에 사용하지 않은 경우, 초기 상태입니다. SQL 데이터 웨어하우스 데이터베이스에서 사용자 정의 스키마에 대한 기준으로 이전 데이터베이스 이름을 사용하면 됩니다.
 
@@ -46,7 +50,7 @@ ms.author: jrj;barbkess;sonyama
 > 
 > 
 
-### 예제:
+### <a name="examples"></a>예제:
 데이터베이스 이름을 기반으로 사용자 정의 스키마를 구현합니다.
 
 ```sql
@@ -115,7 +119,7 @@ FROM    [edw].customer
 > 
 > 
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 더 많은 개발 팁은 [개발 개요][개발 개요]를 참조하세요.
 
 <!--Image references-->
@@ -127,4 +131,8 @@ FROM    [edw].customer
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,20 +1,24 @@
 ---
-title: '스트림 분석: 입력 및 출력에 대한 로그인 자격 증명 회전 | Microsoft Docs'
-description: 스트림 분석 입력 및 출력에 대한 자격 증명을 업데이트 하는 방법에 대해 알아봅니다.
-keywords: 로그인 자격 증명
+title: "Stream Analytics: 입력 및 출력에 대한 로그인 자격 증명 회전 | Microsoft Docs"
+description: "스트림 분석 입력 및 출력에 대한 자격 증명을 업데이트 하는 방법에 대해 알아봅니다."
+keywords: "로그인 자격 증명"
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 11/11/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 0b82ffed4b09dcde3f04282d3d0ce368eb2d614f
+ms.openlocfilehash: 45156a48c24192bdfe76585891b7fbd0176efc8b
+
 
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-in-stream-analytics-jobs"></a>스트림 분석 작업에서 입력 및 출력을 위한 로그인 자격 증명 회전
@@ -23,7 +27,7 @@ ms.author: jeffstok
 
 Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하지만, 작업의 중지 및 시작과 로그인 자격 증명 회전 사이의 간격을 최소화하기 위해 전체 프로세스를 공유합니다.
 
-## <a name="part-1---prepare-the-new-set-of-credentials:"></a>1부-새로운 자격 증명 집합을 준비합니다.
+## <a name="part-1---prepare-the-new-set-of-credentials"></a>1부-새로운 자격 증명 집합을 준비합니다.
 이 부분은 다음 입력/출력에 적용할 수 있습니다.
 
 * Blob 저장소
@@ -33,7 +37,7 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 
 다른 입력/출력의 경우 2부를 진행합니다.
 
-### <a name="blob-storage/table-storage"></a>Blob 저장소/테이블 저장소
+### <a name="blob-storagetable-storage"></a>Blob 저장소/테이블 저장소
 1. Azure 관리 포털에서 Storage 확장명으로 이동합니다.  
    ![graphic1][graphic1]
 2. 사용자 작업에서 사용되는 Storage를 찾아 이동합니다.  
@@ -65,13 +69,13 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 9. 히트 다시 생성:   
    ![graphic12][graphic12]
 10. 새로 생성된 키를 복사합니다.  
-    ![graphic13][graphic13]
+   ![graphic13][graphic13]
 11. 2부를 계속합니다.  
 
 ### <a name="sql-database"></a>SQL 데이터베이스
 > [!NOTE]
 > 참고: SQL 데이터베이스 서비스에 연결해야 합니다. Azure 관리 포털에서 관리 환경을 사용하여 이를 수행하는 방법을 보여줄 수 있지만 SQL Server Management Studio와 같은 일부 클라이언트측 도구를 함께 사용하 여 선택할 수 있습니다.
-> 
+>
 > 
 
 1. Azure 관리 포털에서 SQL Database 확장명으로 이동합니다.  
@@ -93,19 +97,19 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 9. 2단계로 돌아가서 데이터베이스를 클릭합니다.  
    ![graphic21][graphic21]
 10. 관리 명령을 클릭합니다.  
-    ![graphic22][graphic22]
+   ![graphic22][graphic22]
 11. 사용자 이름, 암호를 입력하고 로그를 클릭합니다.  
-    ![graphic23][graphic23]
+   ![graphic23][graphic23]
 12. 새 쿼리를 클릭합니다.  
-    ![graphic24][graphic24]
+   ![graphic24][graphic24]
 13. 이 데이터베이스의 컨텍스트에서 이 로그인을 식별할 이름으로 <user_name>을 대체하고(예를 들어, <login_name>에 대해 동일한 값을 제공할 수 있음) 및 새 사용자 이름으로 <login_name>을 대체하는 다음 쿼리에 입력합니다.  
-    `CREATE USER <user_name> FROM LOGIN <login_name>`
+   `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. 실행을 클릭합니다.  
-    ![graphic25][graphic25]
+   ![graphic25][graphic25]
 15. 이제 원래 사용자가 가졌던 동일한 역할과 권한을 새로운 사용자에게 제공해야 합니다.
 16. 2부를 계속합니다.
 
-## <a name="part-2:-stopping-the-stream-analytics-job"></a>2부: 스트림 분석 작업 중지
+## <a name="part-2-stopping-the-stream-analytics-job"></a>2부: 스트림 분석 작업 중지
 1. Azure 관리 포털에서 Stream Analytics 확장으로 이동합니다.  
    ![graphic26][graphic26]
 2. 작업을 찾아 이동합니다.  
@@ -118,8 +122,8 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
    ![graphic30][graphic30]
 6. 3부로 이동합니다.
 
-## <a name="part-3:-editing-the-credentials-on-the-stream-analytics-job"></a>3 부: 스트림 분석 작업에서 자격 증명 편집
-### <a name="blob-storage/table-storage"></a>Blob 저장소/테이블 저장소
+## <a name="part-3-editing-the-credentials-on-the-stream-analytics-job"></a>3 부: 스트림 분석 작업에서 자격 증명 편집
+### <a name="blob-storagetable-storage"></a>Blob 저장소/테이블 저장소
 1. Storage 계정 키 필드를 찾아 새로 생성된 키를 붙여넣습니다.  
    ![graphic31][graphic31]
 2. 저장 명령을 클릭하고 변경 내용 저장을 확인합니다.  
@@ -137,13 +141,15 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 
 ### <a name="power-bi"></a>Power BI
 1. 권한 부여 갱신을 클릭합니다.  
-2. ![graphic35][graphic35]
-3. 다음 확인 메시지가 나타납니다.  
-4. ![graphic36][graphic36]
-5. 저장 명령을 클릭하고 변경 내용 저장을 확인합니다.  
+
+   ![graphic35][graphic35]
+2. 다음 확인 메시지가 나타납니다.  
+
+   ![graphic36][graphic36]
+3. 저장 명령을 클릭하고 변경 내용 저장을 확인합니다.  
    ![graphic37][graphic37]
-6. 변경 내용을 저장할 때 연결 테스트가 자동으로 시작되며 성공적으로 통과했는지 확인합니다.
-7. 4부로 이동합니다.
+4. 변경 내용을 저장할 때 연결 테스트가 자동으로 시작되며 성공적으로 통과했는지 확인합니다.
+5. 4부로 이동합니다.
 
 ### <a name="sql-database"></a>SQL 데이터베이스
 1. 사용자 이름 및 암호 필드를 찾아 새로 만든 자격 증명 집합을 붙여넣습니다.  
@@ -153,7 +159,7 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 3. 변경 내용을 저장할 때 연결 테스트가 자동으로 시작되며 성공적으로 통과했는지 확인합니다.  
 4. 4부로 이동합니다.
 
-## <a name="part-4:-starting-your-job-from-last-stopped-time"></a>4부: 마지막 중지된 시간에서 해당 작업 시작
+## <a name="part-4-starting-your-job-from-last-stopped-time"></a>4부: 마지막 중지된 시간에서 해당 작업 시작
 1. 입/출력에서 다른 부분으로 이동합니다.  
    ![graphic40][graphic40]
 2. 시작 명령을 클릭합니다.  
@@ -162,7 +168,7 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
    ![graphic42][graphic42]
 4. 5부로 이동합니다.  
 
-## <a name="part-5:-removing-the-old-set-of-credentials"></a>5부: 이전 자격 증명 집합 제거
+## <a name="part-5-removing-the-old-set-of-credentials"></a>5부: 이전 자격 증명 집합 제거
 이 부분은 다음 입력/출력에 적용할 수 있습니다.
 
 * Blob 저장소
@@ -170,7 +176,7 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 * SQL 데이터베이스
 * 테이블 저장소
 
-### <a name="blob-storage/table-storage"></a>Blob 저장소/테이블 저장소
+### <a name="blob-storagetable-storage"></a>Blob 저장소/테이블 저장소
 이제 사용되지 않은 액세스 키를 갱신하 도록 이전에 작업에서 사용한 액세스 키에 대해 1부를 반복합니다.
 
 ### <a name="event-hubs"></a>이벤트 허브(영문)
@@ -243,6 +249,6 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

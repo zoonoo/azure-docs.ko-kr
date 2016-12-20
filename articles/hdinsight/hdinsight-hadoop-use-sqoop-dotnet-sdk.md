@@ -1,13 +1,13 @@
 ---
-title: HDInsight에서 Hadoop Sqoop 사용 | Microsoft Docs
-description: HDInsight .NET SDK를 사용하여 Hadoop 클러스터와 Azure SQL 데이터베이스 사이에서 Sqoop 가져오기 및 내보내기를 실행하는 방법을 알아봅니다.
+title: "HDInsight에서 Hadoop Sqoop 사용 | Microsoft Docs"
+description: "HDInsight .NET SDK를 사용하여 Hadoop 클러스터와 Azure SQL 데이터베이스 사이에서 Sqoop 가져오기 및 내보내기를 실행하는 방법을 알아봅니다."
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
-
+ms.assetid: 87bacd13-7775-4b71-91da-161cb6224a96
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 027ac136d4c4f242c75e8a25605ace646624d64d
+
 
 ---
-# HDInsight에서 Hadoop용 .NET SDK를 사용하여 Sqoop 작업 실행
-[!INCLUDE [sqoop 선택기](../../includes/hdinsight-selector-use-sqoop.md)]
+# <a name="run-sqoop-jobs-using-net-sdk-for-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop용 .NET SDK를 사용하여 Sqoop 작업 실행
+[!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
 HDInsight에서 HDInsight .NET SDK를 사용하여 HDInsight 클러스터와 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스 사이에서 가져오기 및 내보내는 방법을 알아봅니다.
 
@@ -27,12 +31,12 @@ HDInsight에서 HDInsight .NET SDK를 사용하여 HDInsight 클러스터와 Azu
 > 
 > 
 
-### 필수 조건
+### <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **HDInsight에 Hadoop 클러스터**. [클러스터 및 SQL 데이터베이스 만들기](hdinsight-use-sqoop.md#create-cluster-and-sql-database)를 참조하세요.
 
-## .NET SDK를 사용하여 Sqoop 실행
+## <a name="run-sqoop-using-net-sdk"></a>.NET SDK를 사용하여 Sqoop 실행
 HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 이 섹션에서는 C# 콘솔 응용 프로그램을 만들어 이 자습서의 앞 부분에서 만든 SQL 데이터베이스 테이블에 hivesampletable 내보냅니다.
 
 **Sqoop 작업을 제출하려면**
@@ -104,17 +108,22 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
                 }
             }
         }
-4. **F5** 키를 눌러 프로그램을 실행합니다.
+4. **F5** 키를 눌러 프로그램을 실행합니다. 
 
-## 제한 사항
+## <a name="limitations"></a>제한 사항
 * 대량 내보내기 - Linux 기반 HDInsight와 함께 Microsoft SQL Server 또는 Azure SQL 데이터베이스에 데이터를 내보내는 데 사용된 Sqoop 커넥터도 현재 대량 삽입을 지원하지 않습니다.
 * 배치 - Linux 기반 HDInsight와 함께 삽입을 수행할 때 `-batch` 스위치를 사용하는 경우 Sqoop는 삽입 작업을 일괄 처리하는 대신 여러 삽입 작업을 수행합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 이제 Sqoop을 사용하는 방법에 대해 알아봤습니다. 자세한 내용은 다음을 참조하세요.
 
 * [HDInsight와 함께 Oozie 사용](hdinsight-use-oozie.md): Oozie 워크플로에서 Sqoop 작업을 사용합니다.
 * [HDInsight를 사용하여 비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md): Hive를 사용하여 비행 지연 데이터를 분석한 후 Sqoop을 사용하여 데이터를 Azure SQL 데이터베이스로 내보냅니다.
 * [HDInsight에 데이터 업로드](hdinsight-upload-data.md): HDInsight/Azure Blob 저장소에 데이터를 업로드하는 다른 방법을 찾습니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14de66f6035d8cd0579351d64b85bd7e1c8f2ab2
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
 
 
 ---
@@ -51,7 +51,7 @@ Azure 포털에서 또는 [Azure Resource Manager](../azure-resource-manager/res
    **저장**을 클릭하면 API 앱이 지정된 URL의 JavaScript 호출을 수락합니다.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Azure 리소스 관리자 도구를 사용하여 CORS 구성
-명령줄 도구에서 [Azure PowerShell](../powershell-install-configure.md)과 [Azure CLI](../xplat-cli-install.md) 등의 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 API 앱에 대한 CORS를 구성할 수도 있습니다. 
+명령줄 도구에서 [Azure PowerShell](/powershell/azureps-cmdlets-docs)과 [Azure CLI](../xplat-cli-install.md) 등의 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 API 앱에 대한 CORS를 구성할 수도 있습니다. 
 
 CORS 속성을 설정하는 Azure Resource Manager 템플릿의 예를 보려면 [이 자습서의 응용 프로그램 예제에 대한 리포지토리에 있는 azuredeploy.json 파일](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json)을 엽니다. 다음 예제와 같은 탬플릿의 섹션을 찾습니다.
 
@@ -61,7 +61,7 @@ CORS 속성을 설정하는 Azure Resource Manager 템플릿의 예를 보려면
             ]
         }
 
-## <a name="a-idtutorialstarta-continuing-the-net-gettingstarted-tutorial"></a><a id="tutorialstart"></a> .NET 시작 자습서 계속
+## <a name="a-idtutorialstarta-continuing-the-net-getting-started-tutorial"></a><a id="tutorialstart"></a> .NET 시작 자습서 계속
 API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 시작 시리즈를 완료했습니다. [다음 단계](#next-steps) 섹션으로 건너뛰어 API 앱에 대한 추가 학습을 위한 제안을 찾습니다.
 
 이 문서의 나머지 부분은 .NET 시작 시리즈를 계속 진행하며 성공적으로 [첫 번째 자습서](app-service-api-dotnet-get-started.md)를 완료했다고 가정합니다.
@@ -252,6 +252,6 @@ API 앱으로 Azure API 관리를 사용하는 경우 API 앱 대신 API 관리�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

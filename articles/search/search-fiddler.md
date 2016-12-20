@@ -12,23 +12,24 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 10/27/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
-
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c38b73fa69bee34ce2434c6274cb017c99ef3c35
 
 ---
+
 # <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트
 > [!div class="op_single_selector"]
+>
 > * [개요](search-query-overview.md)
 > * [검색 탐색기](search-explorer.md)
 > * [Fiddler](search-fiddler.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST (영문)](search-query-rest-api.md)
-> 
-> 
+>
+>
 
 이 문서에서는 [Telerik에서 무료로 다운로드](http://www.telerik.com/fiddler)할 수 있는 Fiddler를 사용하여 HTTP 요청을 실행하고 코드를 작성할 필요 없이 Azure 검색 REST API를 사용하여 응답을 확인하는 방법을 설명합니다. Azure 검색은 Microsoft Azure에서 완벽하게 관리되는 호스트된 클라우드 검색 서비스이며 .NET 및 REST API를 통해 쉽게 프로그래밍 가능합니다. Azure 검색 서비스 REST API는 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)에 설명되어 있습니다.
 
@@ -39,26 +40,26 @@ ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
 ## <a name="create-an-index"></a>인덱스 만들기
 1. Fiddler를 시작합니다. **File** 메뉴에서 **Capture Traffic**을 해제하여 현재 작업과 관련 없는 HTTP 활동을 숨깁니다.
 2. **작성기** 탭에서 다음 스크린샷과 같은 요청을 작성합니다.
-   
+
       ![][1]
 3. **PUT**을 선택합니다.
 4. 서비스 URL을 지정하는 URL, 요청 특성 및 api-version을 입력합니다. 다음 몇 가지 사항에 주의하세요.
-   
+
    * HTTPS를 접두사로 사용합니다.
    * 요청 특성은 "/indexes/hotels"입니다. 그러면 검색에서 'hotels'라는 인덱스를 만듭니다.
-   * api-version은 소문자이며 "?api-version=2015-02-28"로 지정됩니다. Azure 검색은 주기적으로 업데이트를 배포하므로 API 버전이 중요합니다. 드물긴 하지만 서비스 업데이트에서 새로운 API 변경 사항을 소개할 수도 있습니다. 이러한 이유로 Azure 검색은 각 요청에 API 버전이 필요하므로 어떤 것을 사용할지 전체를 제어합니다.
-     
+   * api-version은 소문자이며 "?api-version=2016-09-01"로 지정됩니다. Azure 검색은 주기적으로 업데이트를 배포하므로 API 버전이 중요합니다. 드물긴 하지만 서비스 업데이트에서 새로운 API 변경 사항을 소개할 수도 있습니다. 이러한 이유로 Azure 검색은 각 요청에 API 버전이 필요하므로 어떤 것을 사용할지 전체를 제어합니다.
+
      다음 예제와 같은 전체 URL이 표시됩니다.
-     
-             https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
+
+             https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01
 5. 호스트와 api-key를 해당 서비스에 유효한 값으로 바꾸어 요청 헤더를 지정합니다.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
 6. 요청 본문에 인덱스 정의를 구성하는 필드를 붙여 넣습니다.
-   
+
           {
          "name": "hotels",  
          "fields": [
@@ -87,17 +88,17 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
    ![][2]
 
 1. **POST**를 선택합니다.
-2. HTTPS, 서비스 URL, "/indexes/<'indexname'>/docs/index?api-version=2015-02-28" 순으로 URL을 입력합니다. 다음 예제와 같은 전체 URL이 표시됩니다.
-   
-         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+2. HTTPS, 서비스 URL, "/indexes/<'indexname'>/docs/index?api-version=2016-09-01" 순으로 URL을 입력합니다. 다음 예제와 같은 전체 URL이 표시됩니다.
+
+         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
 3. 요청 헤더는 이전과 동일해야 합니다. 호스트와 api-key를 해당 서비스에 유효한 값으로 바꾼 것에 주의하세요.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
 4. 요청 본문에 호텔 인덱스에 추가될 문서 4개가 포함됩니다.
-   
+
          {
          "value": [
          {
@@ -169,12 +170,12 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 
 1. **GET**을 선택합니다.
 2. HTTPS, 서비스 URL, "/indexes/<'indexname'>/docs?", 쿼리 매개 변수 순으로 URL을 입력합니다. 예를 들어 샘플 호스트 이름을 해당 서비스에 유효한 이름으로 바꾸어 다음 URL을 사용합니다.
-   
-         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
-   
+
+         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2016-09-01
+
    이 쿼리는 "motel" 용어를 검색하고 등급에 대한 패싯 범주를 가져옵니다.
 3. 요청 헤더는 이전과 동일해야 합니다. 호스트와 api-key를 해당 서비스에 유효한 값으로 바꾼 것에 주의하세요.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
@@ -188,11 +189,11 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 
 **공백을 바꾸기 전:**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01
 
 **공백을 +로 바꾼 후:**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2015-02-28
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
 
 ## <a name="query-the-system"></a>시스템 쿼리
 시스템을 쿼리하여 문서 수와 저장소 사용을 가져올 수도 있습니다. **작성기** 탭에서 요청은 다음과 유사하고, 응답에서 문서 수와 사용된 공간을 반환합니다.
@@ -200,11 +201,11 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
  ![][5]
 
 1. **GET**을 선택합니다.
-2. 해당 서비스 URL과 그 뒤에 "/indexes/hotels/stats?api-version=2015-02-28"을 포함하는 URL을 입력합니다.
-   
-         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
+2. 해당 서비스 URL과 그 뒤에 "/indexes/hotels/stats?api-version=2016-09-01"을 포함하는 URL을 입력합니다.
+
+         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01
 3. 호스트와 api-key를 해당 서비스에 유효한 값으로 바꾸어 요청 헤더를 지정합니다.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
@@ -225,6 +226,6 @@ Azure 검색을 관리 및 사용하는 코드 없는 접근 방식은 [Azure에
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,24 +1,28 @@
 ---
-title: Azure CLI를 사용하여 Hadoop 클러스터 관리 | Microsoft Docs
-description: Azure CLI를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법
+title: "Azure CLI를 사용하여 Hadoop 클러스터 관리 | Microsoft Docs"
+description: "Azure CLI를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법"
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: mumian
 tags: azure-portal
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/15/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a8115205c674221ee3dc46b0c3149c64081135b8
+
 
 ---
-# Azure CLI를 사용하여 HDInsight의 Hadoop 클러스터 관리
-[!INCLUDE [선택기](../../includes/hdinsight-portal-management-selector.md)]
+# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Azure CLI를 사용하여 HDInsight의 Hadoop 클러스터 관리
+[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 [Azure 명령줄 인터페이스](../xplat-cli-install.md)를 사용하여 Azure HDInsight의 Hadoop 클러스터를 관리하는 방법을 알아봅니다. Azure CLI는 Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js를 지원하는 플랫폼에서 사용할 수 있습니다.
 
@@ -26,28 +30,28 @@ ms.author: jgao
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* **Azure CLI** - 설치 및 구성 정보는 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
+* **Azure CLI** - 설치 및 구성 정보는 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 을 참조하세요.
 * **Azure에 연결**. 다음 명령을 사용합니다.
   
         azure login
   
     회사 또는 학교 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](../xplat-cli-connect.md)을 참조하세요.
-* **Azure 리소스 관리자 모드로 전환**. 다음 명령을 사용합니다.
+* **Azure Resource Manager 모드로 전환**은 다음 명령을 사용합니다.
   
         azure config mode arm
 
-도움말을 보려면 **-h** 스위치를 사용합니다. 예:
+도움말을 보려면 **-h** 스위치를 사용합니다.  예:
 
     azure hdinsight cluster create -h
 
-## 클러스터 만들기
-[Azure CLI를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md) 참조하세요.
+## <a name="create-clusters"></a>클러스터 만들기
+[Azure CLI를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md)참조하세요.
 
-## 클러스터 세부 정보 나열 및 표시
+## <a name="list-and-show-cluster-details"></a>클러스터 세부 정보 나열 및 표시
 클러스터 세부 정보를 나열하고 표시하려면 다음 명령을 사용합니다.
 
     azure hdinsight cluster list
@@ -55,7 +59,7 @@ ms.author: jgao
 
 ![HDI.CLIListCluster][image-cli-clusterlisting]
 
-## 클러스터 삭제
+## <a name="delete-clusters"></a>클러스터 삭제
 클러스터를 삭제하려면 다음 명령을 사용합니다.
 
     azure hdinsight cluster delete <Cluster Name>
@@ -64,25 +68,25 @@ ms.author: jgao
 
     azure group delete <Resource Group Name>
 
-## 클러스터 크기 조정
+## <a name="scale-clusters"></a>클러스터 크기 조정
 Hadoop 클러스터 크기를 변경하려면
 
     azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
 
 
-## 클러스터에 대한 HTTP 액세스 사용/사용 안 함
+## <a name="enabledisable-http-access-for-a-cluster"></a>클러스터에 대한 HTTP 액세스 사용/사용 안 함
     azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
     azure hdinsight cluster disable-http-access [options] <Cluster Name>
 
-## 클러스터에 대한 RDP 액세스 사용/사용 안 함
+## <a name="enabledisable-rdp-access-for-a-cluster"></a>클러스터에 대한 RDP 액세스 사용/사용 안 함
       azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
       azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 이 문서에서는 HDInsight 클러스터 관리 작업을 수행하는 여러 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure 포털을 사용하여 HDInsight 관리][hdinsight-admin-portal]
+* [Azure Portal을 사용하여 HDInsight 관리][hdinsight-admin-portal]
 * [Azure PowerShell을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-powershell]
 * [Azure HDInsight 시작][hdinsight-get-started]
 * [Azure CLI를 사용하는 방법][azure-command-line-tools]
@@ -103,4 +107,8 @@ Hadoop 클러스터 크기를 변경하려면
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "클러스터 나열 및 표시"
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

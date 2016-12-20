@@ -1,13 +1,13 @@
 ---
-title: HDInsight에서 Python MapReduce 작업 개발 | Microsoft Docs
-description: Linux 기반 HDInsight 클러스터에서 Python MapReduce 작업을 만들고 실행하는 방법에 대해 알아봅니다.
+title: "HDInsight에서 Python MapReduce 작업 개발 | Microsoft Aure"
+description: "Linux 기반 HDInsight 클러스터에서 Python MapReduce 작업을 만들고 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 729550243e18c7a9f514aa18d1f4fdd8142d141b
+
 
 ---
 # <a name="develop-python-streaming-programs-for-hdinsight"></a>HDInsight용 Python 스트리밍 프로그램 개발
@@ -46,7 +50,7 @@ Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하
 
 ![map reduce 그림](./media/hdinsight-hadoop-streaming-python/HDI.WordCountDiagram.png)
 
-## <a name="why-python?"></a>Python을 사용하는 이유
+## <a name="why-python"></a>Python을 사용하는 이유
 Python은 범용, 상위 수준 프로그래밍 언어이며 다른 언어에 비해 더 적은 줄의 코드로 개념을 표현할 수 있습니다. 데이터 과학자들로부터 인터프린트가 자연스러우며 동적으로 입력할 수 있고, 세련된 구문을 가지고 있어서 빠른 응용 프로그램 개발에 적합한 프로토타입 언어로 인기를 얻고 있습니다.
 
 Python은 모든 HDInsight 클러스터에 설치됩니다.
@@ -63,7 +67,7 @@ Python은 STDIN에서 읽을 수 있는 **sys** 모듈 및 STDOUT에 출력하�
 ## <a name="create-the-mapper-and-reducer"></a>mapper 및 reducer 만들기
 mapper 및 reducer는 텍스트 파일이며 이 예제에서는 어떤 것이 어떤 작업을 수행하는지 명확하게 하기 위해 **mapper.py** 및 **reducer.py**를 사용합니다. 선택한 편집기를 사용하여 mapper와 reducer를 만들 수 있습니다.
 
-### <a name="mapper.py"></a>Mapper.py
+### <a name="mapperpy"></a>Mapper.py
 **mapper.py** 라는 새 파일을 만들고 다음 코드를 그 내용으로 사용합니다.
 
     #!/usr/bin/env python
@@ -92,7 +96,7 @@ mapper 및 reducer는 텍스트 파일이며 이 예제에서는 어떤 것이 �
 
 코드를 읽어 보면 이 코드의 내용을 이해할 수 있습니다.
 
-### <a name="reducer.py"></a>reducer.py
+### <a name="reducerpy"></a>reducer.py
 **reducer.py** 라는 새 파일을 만들고 다음 코드를 그 내용으로 사용합니다.
 
     #!/usr/bin/env python
@@ -204,6 +208,9 @@ HDInsight에서 스트리밍 MapRedcue 작업을 사용하는 방법을 배웠�
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

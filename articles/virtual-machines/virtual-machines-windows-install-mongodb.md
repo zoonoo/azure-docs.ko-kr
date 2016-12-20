@@ -1,12 +1,12 @@
 ---
-title: Install MongoDB on a Windows VM | Microsoft Docs
-description: Learn how to install MongoDB on an Azure VM running Windows Server 2012 R2 created with the Resource Manager deployment model.
+title: "Windows VM에 MongoDB 설치 | Microsoft Docs"
+description: "Windows Server 2012 R2를 실행하는 Azure VM에 Resource Manager 배포 모델을 사용하여 만든 MongoDB를 설치하는 방법을 알아봅니다."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: iainfoulds
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -14,154 +14,159 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 6f171df26ba58d01b1ad81e7ff33f9ce47f34c4c
+
 
 ---
-# <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Install and Configure MongoDB on a Windows VM in Azure
-[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article guides you through installing and configuring MongoDB on a Windows Server 2012 R2 virtual machine (VM) in Azure created using the Resource Manager deployment model. You can also [install MongoDB on a Linux VM in Azure](virtual-machines-linux-install-mongodb.md).
+# <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Azure에서 Windows VM에 MongoDB를 설치 및 구성
+[MongoDB](http://www.mongodb.org)는 인기 있는 오픈 소스 고성능 NoSQL 데이터베이스입니다. 이 문서에서는 Azure에서 Windows Server 2012 R2 VM(가상 컴퓨터)에 MongoDB를 설치 및 구성하는 방법을 안내합니다. [Azure에서 Linux VM에 MongoDB를 설치](virtual-machines-linux-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 수도 있습니다.
 
-## <a name="prerequisites"></a>Prerequisites
-Before you install and configure MongoDB you need to create a VM and, ideally, add a data disk to it. See the following articles to create a VM and add a data disk:
+## <a name="prerequisites"></a>필수 조건
+MongoDB를 설치 및 구성하기 전에 VM을 만들고, 데이터 디스크를 추가해야 합니다. 다음 문서를 참조하여 VM을 만들고 데이터 디스크를 추가하세요.
 
-* [Create a Windows Server VM using the Azure portal](virtual-machines-windows-hero-tutorial.md)
-  * Or, [create a Windows Server VM using Azure PowerShell](virtual-machines-windows-ps-create.md)
-* [Attach a data disk to a Windows Server VM using the Azure portal](virtual-machines-windows-attach-disk-portal.md)
-  * Or, [attach a data disk to a Windows Server VM using Azure PowerShell](https://msdn.microsoft.com/library/mt603673.aspx)
+* [Azure Portal을 사용하여 Windows Server VM 만들기](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Azure PowerShell을 사용하여 Windows Server VM 만들기](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure Portal을 사용하여 Windows Server VM에 데이터 디스크 추가](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Azure PowerShell을 사용하여 Windows Server VM에 데이터 디스크 추가](https://msdn.microsoft.com/library/mt603673.aspx)
 
-[Log on to your Windows Server VM](virtual-machines-windows-connect-logon.md) using Remote Desktop to begin installing and configuring MongoDB.
+MongoDB 설치 및 구성을 시작하려면 원격 데스크톱을 사용하여 [Windows Server VM에 로그온](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)합니다.
 
-## <a name="install-mongodb"></a>Install MongoDB
+## <a name="install-mongodb"></a>MongoDB 설치
 > [!IMPORTANT]
-> MongoDB security features, such as authentication and IP address binding, are not enabled by default. Security features should be enabled before deploying MongoDB to a production environment. For more information, see [MongoDB Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
+> 인증 및 IP 주소 바인딩과 같은 MongoDB 보안 기능은 기본적으로 사용하도록 설정되어 있지 않습니다. MongoDB를 프로덕션 환경에 배포하기 전에 보안 기능을 사용하도록 설정해야 합니다. 자세한 내용은 [MongoDB 보안 및 인증](http://www.mongodb.org/display/DOCS/Security+and+Authentication)을 참조하세요.
 > 
 > 
 
-1. After you've connected to your VM using Remote Desktop, open Internet Explorer from the **Start** menu on the VM.
-2. Select **Use recommended security, privacy, and compatibility settings** when Internet Explorer first opens and click **OK**.
-3. Internet Explorer enhanced security configuration is enabled by default. Add the MongoDB website to the list of allowed sites:
+1. 원격 데스크톱을 사용하여 VM에 연결한 후에는 VM의 **시작** 메뉴에서 Internet Explorer를 엽니다.
+2. Internet Explorer가 처음으로 열리면 **권장 보안, 개인 정보 및 호환성 설정 사용**을 선택한 다음 **확인**을 클릭합니다.
+3. Internet Explorer 향상된 보안 구성이 기본적으로 사용됩니다. 허용되는 사이트 목록에 MongoDB 웹 사이트를 추가합니다.
    
-   * Select the **Tools** button in the upper right corner.
-   * In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon.
-   * Click the **Sites** button. Add *https://\*.mongodb.org* to the list of trusted sites, then close the dialog box.
+   * 오른쪽 위 모퉁이에서 **도구** 아이콘을 선택합니다.
+   * **인터넷 옵션**에서 **보안** 탭을 선택한 다음 **신뢰할 수 있는 사이트** 아이콘을 선택합니다.
+   * **사이트** 단추를 클릭합니다. 신뢰할 수 있는 사이트 목록에 *https://\*.mongodb.org*를 추가하고 대화 상자를 닫습니다.
      
-     ![Configure Internet Explorer security settings](./media/virtual-machines-windows-install-mongodb/configure-internet-explorer-security.png)
-4. Browse to the [MongoDB - Downloads](http://www.mongodb.org/downloads) page (http://www.mongodb.org/downloads).
-5. By default, it should select the **Community Server** edition and the latest current stable release for Windows Server 2008 R2 64-bit and later. To download the installer, click the **DOWNLOAD (msi)** button:
+     ![Internet Explorer 보안 설정 구성](./media/virtual-machines-windows-install-mongodb/configure-internet-explorer-security.png)
+4. [MongoDB - 다운로드](http://www.mongodb.org/downloads) 페이지(http://www.mongodb.org/downloads)로 이동합니다.
+5. 기본적으로 **커뮤니티 서버** 버전 및 Windows Server 2008 R2 64비트 이상의 안정판을 선택해야 합니다. 설치 관리자를 다운로드하려면 **다운로드(msi)**를 클릭합니다.
    
-    ![Download MongoDB installer](./media/virtual-machines-windows-install-mongodb/download-mongodb.png)
+    ![MongoDB 설치 관리자 다운로드](./media/virtual-machines-windows-install-mongodb/download-mongodb.png)
    
-    Run the installer once the download is complete.
-6. Read and accept the license agreement. When prompted, select **Complete** install.
-7. On the final screen, click **Install**.
+    다운로드가 완료되면 설치 관리자를 실행합니다.
+6. 사용권 계약을 읽고 동의합니다. 메시지가 나타나면 **전체**를 선택합니다.
+7. 마지막 화면에서 **설치**를 클릭합니다.
 
-## <a name="configure-vm-and-mongodb"></a>Configure VM and MongoDB
-1. The PATH variables are not updated by the MongoDB installer. Without the MongoDB `bin` location in your PATH variable, you need to specify the full path each time you use a MongoDB executable. To add the location to your PATH variable:
+## <a name="configure-the-vm-and-mongodb"></a>VM 및 MongoDB 구성
+1. path 변수는 MongoDB 설치 관리자를 통해 업데이트되지 않습니다. path 변수에 MongoDB `bin` 위치가 없으면 MongoDB 실행 파일을 사용할 때마다 전체 경로를 지정해야 합니다. path 변수에 위치를 추가하려면:
    
-   * Right-click the **Start** menu and select **System**.
-   * Click **Advanced System Settings** and then **Environment Variables**.
-   * Under **System variables**, select **Path** and then click **Edit**.
+   * **시작** 메뉴를 마우스 오른쪽 단추로 클릭하고 **시스템**을 선택합니다.
+   * **고급 시스템 설정**을 클릭한 다음 **환경 변수**를 클릭합니다.
+   * **시스템 변수**에서 **경로**를 선택한 다음 **편집**을 클릭합니다.
      
-     ![Configure PATH variables](./media/virtual-machines-windows-install-mongodb/configure-path-variables.png)
+     ![PATH 변수 구성](./media/virtual-machines-windows-install-mongodb/configure-path-variables.png)
      
-     Add the path to your MongoDB `bin` folder. MongoDB is typically installed in `C:\Program Files\MongoDB`. Verify the installation path on your VM. The following example adds the default MongoDB install location to the `PATH` variable:
+     MongoDB `bin` 폴더에 경로를 추가합니다. MongoDB는 일반적으로 `C:\Program Files\MongoDB`에 설치됩니다. VM의 설치 경로를 확인합니다. 다음은 `PATH` 변수에 기본 MongoDB 설치 위치를 추가하는 예제입니다.
      
      ```
      ;C:\Program Files\MongoDB\Server\3.2\bin
      ```
      
      > [!NOTE]
-     > Be sure to add the leading semicolon (`;`) to indicate that you are adding a location to your `PATH` variable.
+     > `PATH` 변수에 위치를 추가하는 것을 나타내는 선행 세미콜론(`;`)을 추가합니다.
      > 
      > 
-2. Create MongoDB data and log directories on your data disk. From the **Start** menu, select **Command Prompt**. The following examples create the directories on the **F:** drive:
+2. 데이터 디스크에 MongoDB 데이터 및 로그 디렉터리를 만듭니다. **시작** 메뉴에서 **명령 프롬프트**를 선택합니다. 다음 예에서는 F: 드라이브에 디렉터리를 만듭니다.
    
     ```
     mkdir F:\MongoData
     mkdir F:\MongoLogs
     ```
-3. Start a MongoDB instance with the following command, adjusting the path to your data and log directories accordingly:
+3. 다음 명령을 사용하여 MongoDB 인스턴스를 시작하 고, 데이터 및 로그 디렉터리를 적절하게 조정합니다.
    
     ```
     mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
     ```
    
-    It may take several minutes for MongoDB to preallocate the journal files and start listening for connections. All log messages are directed to the *F:\MongoLogs\mongolog.log* file as `mongod.exe` server starts and preallocates journal files.
+    MongoDB가 저널 파일을 할당하고 연결 수신을 시작할 때까지 몇 분 정도 걸릴 수 있습니다. `mongod.exe` 서버가 시작되어 저널 파일을 할당하면 모든 로그 메시지가 *F:\MongoLogs\mongolog.log* 파일로 보내집니다.
    
    > [!NOTE]
-   > The command prompt stays focused on this task while your MongoDB instance is running. Leave the command prompt window open to continue running MongoDB. Or, install MongoDB as service, as detailed in the next step.
+   > 명령 프롬프트는 MongoDB 인스턴스가 실행되는 동안 이 태스크에 계속 집중합니다. 명령 프롬프트 창을 열어 놓고 MongoDB를 계속 실행합니다. 또는 다음 단계에 설명된 대로 MongoDB를 서비스로 설치합니다.
    > 
    > 
-4. For a more robust MongoDB experience, install the `mongod.exe` as a service. Creating a service means you don't need to leave a command prompt running each time you wish to use MongoDB. Create the service as follows, adjusting the path to your data and log directories accordingly:
+4. 보다 강력한 MongoDB 경험을 원한다면 `mongod.exe`를 서비스로 설치합니다. 서비스를 만들면 MongoDB를 사용할 때마다 명령 프롬프트를 계속 실행 상태로 둘 필요가 없습니다. 다음과 같이 서비스를 만들고, 데이터 및 로그 디렉터리 경로를 적절하게 조정합니다.
    
     ```
     mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log `
         --logappend  --install
     ```
    
-    The preceding command creates a service named MongoDB with a description of "Mongo DB". The following parameters are also specified:
+    앞의 명령은 MongoDB라는 이름의 서비스를 만들고 그에 대한 설명으로 "Mongo DB"를 붙입니다. 다음 매개 변수도 지정됩니다.
    
-   * The `--dbpath` option specifies the location of the data directory. 
-   * The `--logpath` option must be used to specify a log file, since the running service does not have a command window to display output.
-   * The `--logappend` option specifies that a restart of the service causes output to append to the existing log file.
-     
-     To start the MongoDB service, run the following command:
-     
-     ```
-     net start MongoDB
-     ```
-     
-     For more information about creating the MongoDB service, see [Configure a Windows Service for MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#mongodb-as-a-windows-service).
+   * `--dbpath` 옵션은 데이터 디렉터리의 위치를 지정합니다.
+   * 실행 중인 서비스는 명령 창에 결과가 표시되지 않으므로 `--logpath` 옵션을 사용하여 로그 파일을 지정해야 합니다.
+   * `--logappend` 옵션은 서비스를 다시 시작할 때 기존 로그 파일에 출력을 추가하도록 지정합니다.
+   
+   MongoDB 서비스를 시작하려면 다음 명령을 실행합니다.
+   
+    ```
+    net start MongoDB
+    ```
+   
+    MongoDB 서비스를 만드는 방법에 대한 자세한 내용은 [MongoDB에 대한 Windows 서비스 구성](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#mongodb-as-a-windows-service)을 참조하세요.
 
-## <a name="test-the-mongodb-instance"></a>Test the MongoDB instance
-With MongoDB running as a single instance or installed as a service, you can now start creating and using your databases. To start the MongoDB administrative shell, open another command prompt window from the **Start** menu and enter the following command:
+## <a name="test-the-mongodb-instance"></a>MongoDB 인스턴스 테스트
+MongoDB를 단일 인스턴스로 실행하거나 서비스로 설치했으면, 이제 데이터베이스를 만들어 사용할 수 있습니다. MongoDB 관리 셸을 시작하려면 **시작** 메뉴에서 명령 프롬프트 창을 하나 더 열고 다음 명령을 입력합니다.
 
 ```
 mongo  
 ```
 
-You can list the databases with the `db` command. Insert some data as follows:
+`db` 명령으로 데이터베이스를 나열할 수 있습니다. 다음과 같이 일부 데이터를 삽입합니다.
 
 ```
 db.foo.insert( { a : 1 } )
 ```
 
-Search for data as follows:
+다음과 같이 일부 데이터를 검색합니다.
 
 ```
 db.foo.find()
 ```
 
-The output is similar to the following example:
+다음 예제와 유사하게 출력됩니다.
 
 ```
-{ "_id" : "ObjectId("57f6a86cee873a6232d74842"), "a" : 1 } 
+{ "_id" : "ObjectId("57f6a86cee873a6232d74842"), "a" : 1 }
 ```
 
-Exit the `mongo` console as follows:
+다음과 같이 `mongo` 콘솔을 종료합니다.
 
 ```
 exit
 ```
 
-## <a name="configure-firewall-and-network-security-group-rules"></a>Configure firewall and Network Security Group rules
-Now that MongoDB is installed and running, open a port in Windows Firewall so you can remotely connect to MongoDB. To create a new inbound rule to allow TCP port 27017, open an administrative PowerShell prompt and enter the following command:
+## <a name="configure-firewall-and-network-security-group-rules"></a>방화벽 및 네트워크 보안 그룹 규칙 구성
+MongoDB를 설치하고 실행했으니, 원격으로 MongoDB에 연결할 수 있도록 Windows 방화벽에 있는 포트를 열어야 합니다. TCP 포트 27017을 허용하는 새 인바운드 규칙을 만들려면 관리 PowerShell 프롬프트를 열고 다음 명령을 입력합니다.
 
 ```powerShell
 New-NetFirewallRule -DisplayName "Allow MongoDB" -Direction Inbound `
     -Protocol TCP -LocalPort 27017 -Action Allow
 ```
 
-You can also create the rule using **Windows Firewall with Advanced Security** graphical management tool. Create a new inbound rule to allow TCP port 27017.
+**고급 보안이 포함된 Windows 방화벽** 그래픽 관리 도구를 사용하여 규칙을 만들 수도 있습니다. TCP 포트 27017을 허용하는 새 인바운드 규칙을 만듭니다.
 
-If needed, create a Network Security Group rule to allow access to MongoDB from outside of the existing Azure virtual network subnet. You can create the Network Security Group rules using the [Azure portal](virtual-machines-windows-nsg-quickstart-portal.md) or [Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md). As with the Windows Firewall rules, allow TCP port 27017 to the virtual network interface of your MongoDB VM.
+필요한 경우 기존 Azure 가상 네트워크 서브넷 외부에서 MongoDB에 액세스하도록 허용하는 네트워크 보안 그룹 규칙을 만듭니다. [Azure Portal](virtual-machines-windows-nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 네트워크 보안 그룹 규칙을 만들 수 있습니다. Windows 방화벽 규칙과 마찬가지로 MongoDB VM의 가상 네트워크 인터페이스에 TCP 포트 27017을 허용합니다.
 
 > [!NOTE]
-> TCP port 27017 is the default port used by MongoDB. You can change this port by using the `--port` parameter when starting `mongod.exe` manually or from a service. If you change the port, make sure to update the Windows Firewall and Network Security Group rules in the preceding steps.
+> TCP 포트 27017은 MongoDB가 사용하는 기본 포트입니다. 수동으로 또는 서비스에서 `mongod.exe`를 시작하고 `--port` 매개 변수를 사용하여 이 포트를 변경할 수 있습니다. 포트를 변경하는 경우 이전 단계의 Windows 방화벽 및 네트워크 보안 그룹 규칙을 업데이트해야 합니다.
 > 
 > 
 
-## <a name="next-steps"></a>Next steps
-In this tutorial, you learned how to install and configure MongoDB on your Windows VM. You can now access MongoDB on your Windows VM, by following the advanced topics in the [MongoDB documentation](https://docs.mongodb.com/manual/).
+## <a name="next-steps"></a>다음 단계
+이 자습서에서는 Windows VM에 MongoDB를 설치하고 구성하는 방법을 배웠습니다. 이제 [MongoDB 설명서](https://docs.mongodb.com/manual/)(영문)의 고급 토픽에 따라 Windows VM의 MongoDB에 액세스할 수 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

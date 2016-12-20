@@ -1,20 +1,24 @@
 ---
-title: 자동 크기 조정 및 가상 컴퓨터 규모 집합 | Microsoft Docs
-description: 진단 및 자동 크기 조정 리소스를 사용하여 규모 집합의 가상 컴퓨터를 자동적으로 크기 조정하는 방법을 알아봅니다.
+title: "자동 크기 조정 및 가상 컴퓨터 크기 집합 | Microsoft Docs"
+description: "진단 및 자동 크기 조정 리소스를 사용하여 규모 집합의 가상 컴퓨터를 자동적으로 크기 조정하는 방법을 알아봅니다."
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 10/18/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: ff6a29db5450a78840f27cb69abc726a147406a1
+ms.openlocfilehash: fec4155c2c54e47f92ff93aff662b59e775a02c9
+
 
 ---
 # <a name="automatic-scaling-and-virtual-machine-scale-sets"></a>자동 크기 조정 및 가상 컴퓨터 규모 집합
@@ -22,7 +26,7 @@ ms.author: davidmu
 
 자동 크기 조정은 관리 오버헤드를 줄이기 위해 자동화된 프로세스입니다. 오버헤드를 줄이면 지속적으로 시스템 성능을 모니터링하거나 리소스 관리 방법을 결정할 필요가 없습니다. 크기 조정은 탄력적인 프로세스입니다. 부하가 증가함에 따라 더 많은 리소스를 추가할 수 있으나 수요가 감소할 경우 비용을 최소화하고 성능 수준을 유지하기 위해 리소스를 제거할 수 있습니다.
 
-Azure Resource Manager 템플릿, Azure PowerShell 또는 Azure CLI를 사용하여 규모 집합에 자동 크기 조정을 설정합니다.
+Azure Resource Manager 템플릿, Azure PowerShell, Azure CLI 또는 Azure Portal을 사용하여 크기 집합에 자동 크기 조정을 설정합니다.
 
 ## <a name="set-up-scaling-by-using-resource-manager-templates"></a>리소스 관리자 템플릿을 사용하여 크기 조정 설정
 각 응용 프로그램의 리소스를 개별적으로 배포하고 관리하는 대신, 모든 리소스를 하나의 조정된 작업으로 배포하는 템플릿을 사용합니다. 템플릿에서 응용 프로그램 리소스를 정의하고 다양한 환경에 대한 배포 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. 자세한 내용은 [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)을 살펴보세요.
@@ -193,14 +197,17 @@ autoScaleSettings 리소스는 크기 집합에 있는 가상 컴퓨터의 수�
 5분의 휴지 기간 후 컴퓨터의 평균 스레드 수가 600개 이상으로 유지되는 경우 집합에 다른 컴퓨터가 추가됩니다. 평균 스레드 수가 550개 미만으로 유지되는 경우 규모 집합의 용량이 1씩 감소하며 집합에서 컴퓨터 하나가 제거됩니다.
 
 ## <a name="set-up-scaling-using-azure-powershell"></a>Azure PowerShell을 사용하여 크기 조정 설정
-PowerShell을 사용하여 자동 크기 조정을 설정하는 예제를 보려면 [Azure Insights PowerShell 빠른 시작 샘플](../monitoring-and-diagnostics/insights-powershell-samples.md)을 참조하세요.
+PowerShell을 사용하여 자동 크기 조정을 설정하는 예제를 보려면 [Azure Monitor PowerShell 빠른 시작 샘플](../monitoring-and-diagnostics/insights-powershell-samples.md)을 참조하세요.
 
 ## <a name="set-up-scaling-using-azure-cli"></a>Azure CLI를 사용하여 크기 조정 설정
-Azure CLI를 사용하여 자동 크기 조정을 설정하는 예제를 보려면 [Azure Insights 플랫폼 간 CLI 빠른 시작 샘플](../monitoring-and-diagnostics/insights-cli-samples.md)을 참조하세요.
+Azure CLI를 사용하여 자동 크기 조정을 설정하는 예제를 보려면 [Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플](../monitoring-and-diagnostics/insights-cli-samples.md)을 참조하세요.
+
+## <a name="set-up-scaling-using-the-azure-portal"></a>Azure Portal을 사용하여 크기 조정 설정
+Azure Portal을 사용하여 자동 크기 조정을 설정하는 예제를 보려면 [Azure Portal을 사용하여 Virtual Machine Scale Set 만들기](virtual-machine-scale-sets-portal-create.md)를 참조하세요.
 
 ## <a name="investigate-scaling-actions"></a>크기 조정 작업 조사
-* [Azure 포털]() - 포털을 사용하여 현재 제한된 양의 정보를 얻을 수 있습니다.
-* [Azure 리소스 탐색기]() - 크기 집합의 현재 상태를 탐색하는 데 가장 적합한 도구입니다. 이 경로를 따라 사용자가 만든 규모 집합의 인스턴스 보기가 표시됩니다. 구독 > {구독} > resourceGroups > {리소스 그룹} > 공급자 > Microsoft.Compute > virtualMachineScaleSets > {규모 집합} > virtualMachines
+* Azure Portal - 포털을 사용하여 현재 제한된 양의 정보를 얻을 수 있습니다.
+* Azure 리소스 탐색기 - 크기 집합의 현재 상태를 탐색하는 데 가장 적합한 도구입니다. 이 경로를 따라 사용자가 만든 크기 집합의 인스턴스 보기가 표시됩니다. 구독 > {구독} > resourceGroups > {리소스 그룹} > 공급자 > Microsoft.Compute > virtualMachineScaleSets > {크기 집합} > virtualMachines
 * Azure PowerShell - 이 명령을 사용하여 몇 가지 정보를 가져옵니다.
   
         Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
@@ -209,11 +216,14 @@ Azure CLI를 사용하여 자동 크기 조정을 설정하는 예제를 보려�
 
 ## <a name="next-steps"></a>다음 단계
 * 구성된 자동 크기 조정을 사용하여 크기 집합을 만드는 방법에 대한 예제를 보려면 [가상 컴퓨터 크기 집합에서 자동으로 컴퓨터 크기 조정](virtual-machine-scale-sets-windows-autoscale.md) 을 살펴보세요.
-* [Azure Insights PowerShell 빠른 시작 샘플](../monitoring-and-diagnostics/insights-powershell-samples.md)
-* [크기 자동 조정 작업을 사용하여 Azure Insight에서 전자 메일 및 Webhook 경고 알림 보내기](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)의 알림 기능에 대해 자세히 알아봅니다.
-* [Azure Insights에서 감사 로그를 사용하여 메일 및 Webhook 경고 알림 보내기](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+* [Azure Monitor PowerShell 빠른 시작 샘플](../monitoring-and-diagnostics/insights-powershell-samples.md)에서 Azure Monitor 모니터링 기능 예제를 찾아보세요.
+* [크기 자동 조정 작업을 사용하여 Azure Monitor에서 전자 메일 및 웹후크 경고 알림 보내기](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)에서 알림 기능에 대해 알아보세요.
+* [감사 로그를 사용하여 Azure Monitor에서 전자 메일 및 웹후크 경고 알림을 보내는](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) 방법에 대해 알아보세요.
 * [고급 자동 크기 조정 시나리오](virtual-machine-scale-sets-advanced-autoscale.md)에 대해 자세히 알아봅니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

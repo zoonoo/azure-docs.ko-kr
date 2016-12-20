@@ -3,8 +3,8 @@ title: "Azure CLI를 사용하여 Resource Manager에서 인터넷 연결 부하
 description: "Azure CLI를 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
@@ -14,15 +14,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86220eabc2625bf8bf1e4d6fac9c0ae41adc962c
+ms.sourcegitcommit: f3e06e802e8a5b98afc96747dee0db4173da40f0
+ms.openlocfilehash: 9129a1941b138e6f3e9b2d0359015a20fd819565
 
 ---
-# <a name="creating-an-internal-load-balancer-using-the-azure-cli"></a>Azure CLI를 사용하여 내부 부하 분산 장치 만들기
+# <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Azure CLI를 사용하여 인터넷 부하 분산 장치 만들기
 
-[!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [포털](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [템플릿](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -59,7 +63,7 @@ ms.openlocfilehash: 86220eabc2625bf8bf1e4d6fac9c0ae41adc962c
 
         info:    New mode is arm
 
-## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-frontend-ip-pool"></a>프런트 엔드 IP 풀에 대한 공용 IP 주소 및 가상 네트워크 만들기
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>프런트 엔드 IP 풀에 대한 공용 IP 주소 및 가상 네트워크 만들기
 
 1. *NRPRG*라는 리소스 그룹을 사용하여 미국 동부 위치에 *NRPVnet*이라는 가상 네트워크(VNet)를 만듭니다.
 
@@ -91,7 +95,7 @@ ms.openlocfilehash: 86220eabc2625bf8bf1e4d6fac9c0ae41adc962c
     azure network lb create NRPRG NRPlb eastus
     ```
 
-## <a name="create-a-frontend-ip-pool-and-a-backend-address-pool"></a>프런트 엔드 IP 풀 및 백 엔드 주소 풀 만들기
+## <a name="create-a-front-end-ip-pool-and-a-backend-address-pool"></a>프런트 엔드 IP 풀 및 백 엔드 주소 풀 만들기
 이 예제에서는 부하 분산 장치에 들어오는 네트워크 트래픽을 수신하는 프런트 엔드 IP 풀 및 프런트 엔드 풀이 부하 분산된 네트워크 트래픽을 보내는 백 엔드 IP 풀을 만드는 방법을 설명합니다.
 
 1. 이전 단계에서 만든 공용 IP를 연결하는 프런트 엔드 IP 풀 및 부하 분산 장치를 만듭니다.
@@ -307,6 +311,6 @@ azure network lb delete --resource-group nrprg --name nrplb
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

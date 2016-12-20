@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cf8f9a06c4d720dade11ea67fc1befe07a56cf85
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5dc9822072417b41856a7d4015c54b8573e56587
 
 
 ---
@@ -81,9 +81,9 @@ ms.openlocfilehash: cf8f9a06c4d720dade11ea67fc1befe07a56cf85
 * [Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->
-[모바일 앱 백 엔드 시작]:#getting-started
-[새 모바일 앱 백 엔드 만들기]:#create-new-service
-[다음 단계]:#next-steps
+[Getting started with mobile app backends]:#getting-started
+[Create a new mobile app backend]:#create-new-service
+[Next Steps]:#next-steps
 
 <!-- Images. -->
 [6]: ./media/app-service-mobile-xamarin-ios-get-started/xamarin-ios-quickstart.png
@@ -92,10 +92,10 @@ ms.openlocfilehash: cf8f9a06c4d720dade11ea67fc1befe07a56cf85
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

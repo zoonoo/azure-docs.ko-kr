@@ -1,12 +1,12 @@
 ---
-title: Express 경로 회로를 구성하기 위한 워크플로 | Microsoft Docs
-description: 이 페이지는 Express 경로 회로 및 피어링을 구성하기 위한 워크플로를 안내합니다.
+title: "ExpressRoute로 회로를 구성하기 위한 워크플로 | Microsoft 문서"
+description: "이 페이지는 Express 경로 회로 및 피어링을 구성하기 위한 워크플로를 안내합니다."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 570a98aafca6babc5a7089880d4120c2a8f4a0d8
+ms.openlocfilehash: 5a275620639a801d7e60ef9ada1af29062dfe440
+
 
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>회로에 대한 Express 경로 워크플로 프로비전 및 회로 상태
@@ -53,21 +57,24 @@ ms.author: cherylmc
 ### <a name="possible-states-of-an-expressroute-circuit"></a>Express 경로 회로의 가능한 상태
 이 섹션은 Express 경로 회로에 대해 가능한 상태를 나열합니다.
 
-#### <a name="at-creation-time"></a>생성 시
+**만드는 경우**
+
 PowerShell cmdlet을 실행하여 Express 경로 회로를 만드는 즉시 다음 상태의 Express 경로 회로가 표시됩니다.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
 
-#### <a name="when-connectivity-provider-is-in-the-process-of-provisioning-the-circuit"></a>연결 공급자가 회로를 프로비전하는 과정인 경우
+**연결 공급자에서 회로를 프로비전하고 있는 경우**
+
 연결 공급자에 서비스 키를 전달하고 프로비전 프로세스를 시작하는 즉시 다음 상태의 Express 경로 회로가 표시됩니다.
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
 
 
-#### <a name="when-connectivity-provider-has-completed-the-provisioning-process"></a>연결 공급자가 프로세스를 프로비전하기를 완료한 경우
+**연결 공급자에서 프로비전 프로세스를 완료한 경우**
+
 연결 공급자가 프로비전 프로세스를 완료하는 즉시 다음 상태의 Express 경로 회로가 표시됩니다.
 
     ServiceProviderProvisioningState : Provisioned
@@ -75,7 +82,8 @@ PowerShell cmdlet을 실행하여 Express 경로 회로를 만드는 즉시 다�
 
 프로비전됨 및 사용은 회로를 사용할 수 있는 유일한 상태입니다. 2계층 공급자를 사용하는 경우 이 상태인 경우 회로에 라우팅을 구성할 수 있습니다.
 
-#### <a name="when-connectivity-provider-is-deprovisioning-the-circuit"></a>연결 공급자가 회로 프로비전을 해제하는 경우
+**연결 공급자에서 회로 프로비전을 해제하는 경우**
+
 서비스 공급자에게 Express 경로 회로 프로비전 해제를 요청한 경우 서비스 공급자가 프로비전 해제 프로세스를 완료하고 나면 회로가 다음 상태로 설정됩니다.
 
     ServiceProviderProvisioningState : NotProvisioned
@@ -108,6 +116,9 @@ BGP 프로비전 상태를 사용하면 Microsoft Edge에서 BGP 세션을 사�
   * [라우팅 구성](expressroute-howto-routing-arm.md)
   * [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

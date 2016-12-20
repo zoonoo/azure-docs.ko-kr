@@ -8,25 +8,27 @@
 
 데이터 집합에 대한 압축을 지정하려면 다음 예제와 같이 데이터 집합 JSON의 **압축** 속성을 사용합니다.   
 
-    {  
-        "name": "AzureBlobDataSet",  
-          "properties": {  
-            "availability": {  
-                "frequency": "Day",  
-                  "interval": 1  
-            },  
-            "type": "AzureBlob",  
-            "linkedServiceName": "StorageLinkedService",  
-            "typeProperties": {  
-                "fileName": "pagecounts.csv.gz",  
-                  "folderPath": "compression/file/",  
-                  "compression": {  
-                    "type": "GZip",  
-                    "level": "Optimal"  
-                  }  
-            }  
-          }  
-    }  
+```json
+{  
+    "name": "AzureBlobDataSet",  
+      "properties": {  
+        "availability": {  
+            "frequency": "Day",  
+              "interval": 1  
+        },  
+        "type": "AzureBlob",  
+        "linkedServiceName": "StorageLinkedService",  
+        "typeProperties": {  
+            "fileName": "pagecounts.csv.gz",  
+              "folderPath": "compression/file/",  
+              "compression": {  
+                "type": "GZip",  
+                "level": "Optimal"  
+              }  
+        }  
+      }  
+}  
+```
 
 **압축** 섹션에는 두 가지 속성이 있습니다.  
 

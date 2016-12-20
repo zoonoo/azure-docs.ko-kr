@@ -1,13 +1,13 @@
 ---
-title: .NET SDK를 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기 | Microsoft Docs
-description: .NET SDK를 사용하여 Azure HDInsight에 HDInsight 클러스터를 만드는 방법을 알아봅니다.
+title: ".NET SDK를 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기 | Microsoft 문서"
+description: ".NET SDK를 사용하여 Azure HDInsight에 HDInsight 클러스터를 만드는 방법을 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 134fbcdf-8f62-492f-84fd-8e2a3e0cd896
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 21f2a14c1514c3f70787613c5f0962dc3eabd7b1
+
 
 ---
-# .NET SDK를 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기
-[!INCLUDE [선택기](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기
+[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 .NET SDK를 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다. 다른 클러스터 만들기 도구 및 기능은 이 페이지 맨 위에 있는 탭 선택을 클릭하거나 [클러스터 생성 방법](hdinsight-provision-clusters.md#cluster-creation-methods)을 참조하세요.
 
-## 필수 조건:
+## <a name="prerequisites"></a>필수 조건:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 이 문서의 지침을 시작하기 전에 다음이 있어야 합니다.
@@ -30,10 +34,13 @@ ms.author: jgao
 * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * Visual Studio 2013 또는 2015
 
-## 클러스터 만들기
+### <a name="access-control-requirements"></a>액세스 제어 요구 사항
+[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
+## <a name="create-clusters"></a>클러스터 만들기
 HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 아래 지침에 따라 Visual Studio 콘솔 응용 프로그램을 만들고 클러스터를 만들기 위한 코드를 붙여 넣으세요.
 
-응용 프로그램에는 Azure 리소스 그룹 및 기본 저장소 계정이 필요합니다. [부록 A](#appx-a-create-dependent-components)는 종속 구성 요소를 만드는 PowerShell 스크립트를 제공합니다.
+응용 프로그램에는 Azure 리소스 그룹 및 기본 저장소 계정이 필요합니다.  [부록 A](#appx-a-create-dependent-components) 는 종속 구성 요소를 만드는 PowerShell 스크립트를 제공합니다.
 
 **Visual Studio 콘솔 응용 프로그램을 만들려면**
 
@@ -43,7 +50,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
-3. 솔루션 탐색기에서 **Program.cs**를 두 번 클릭하여 열고 다음 코드를 붙여넣은 후 변수 값을 제공합니다.
+3. 솔루션 탐색기에서 **Program.cs** 를 두 번 클릭하여 열고 다음 코드를 붙여넣은 후 변수 값을 제공합니다.
    
         using System;
         using System.Threading;
@@ -146,9 +153,9 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
             }
         }
 
-1. **F5** 키를 눌러 응용 프로그램을 실행합니다. 콘솔 창이 열리고 응용 프로그램의 상태가 표시되며 또한 Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. HDInsight 클러스터를 만들려면 몇 분 정도 걸릴 수 있습니다.
+1. **F5** 키를 눌러 응용 프로그램을 실행합니다. 콘솔 창이 열리고 응용 프로그램의 상태가 표시되며 또한 Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. 또한 Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. HDInsight 클러스터를 만들려면 몇 분 정도 걸릴 수 있습니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 이 문서에서는 HDInsight 클러스터를 만드는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md) - HDInsight 클러스터를 시작하는 방법을 알아봅니다.
@@ -156,7 +163,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 * [.NET SDK를 사용하여 HDInsight에서 Pig 작업 실행](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 * [.NET SDK를 사용하여 HDInsight에서 Sqoop 작업 실행](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 * [HDInsight에서 Oozie 작업 실행](hdinsight-use-oozie.md)
-* [Azure HDInsight SDK 문서][hdinsight-sdk-documentation] - HDInsight SDK를 살펴봅니다.
+* [Azure HDInsight SDK 설명서][hdinsight-sdk-documentation] - HDInsight SDK를 살펴봅니다.
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
@@ -166,7 +173,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
 
-## 부록 A 종속 구성 요소 만들기
+## <a name="appx-a-create-dependent-components"></a>부록 A 종속 구성 요소 만들기
 다음 Azure PowerShell 스크립트는 이 자습서에서 .NET 응용 프로그램에 필요한 종속된 구성 요소를 만드는 데 사용될 수 있습니다.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -236,4 +243,8 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
     Write-host "Default Storage Account Key: $defaultStorageAccountKey"
     Write-host "Default Blob Container Name: $defaultBlobContainerName"
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

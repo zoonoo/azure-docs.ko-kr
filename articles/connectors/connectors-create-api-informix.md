@@ -1,13 +1,13 @@
 ---
-title: Logic Apps에서 Informix 커넥터 추가 | Microsoft Docs
-description: REST API 매개 변수를 사용하는 Informix 커넥터 개요
-services: ''
-documentationcenter: ''
+title: "Logic Apps에서 Informix 커넥터 추가 | Microsoft Docs"
+description: "REST API 매개 변수를 사용하는 Informix 커넥터 개요"
+services: 
+documentationcenter: 
 author: gplarsen
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1b9ea0593e0ae6dc9e1b6b07665fc3b3fad264bf
+
 
 ---
 # <a name="get-started-with-the-informix-connector"></a>Informix 커넥터 시작
@@ -389,7 +393,7 @@ Informix 테이블의 기존 행을 업데이트합니다.
 | 400 |잘못된 요청 |
 | 401 |권한 없음 |
 | 403 |사용할 수 없음 |
-| 404 |찾을 수 없음 |
+| 404 | 찾을 수 없음 |
 | 500 |내부 서버 오류. 알 수 없는 오류 발생 |
 | 기본값 |작업이 실패했습니다. |
 
@@ -402,6 +406,9 @@ DRDA (Distributed Relational Database Architecture) 클라이언트 연결을 �
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

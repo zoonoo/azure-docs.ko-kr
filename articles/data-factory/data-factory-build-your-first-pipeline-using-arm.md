@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14a4d55409e9fd6b840f4c856110ae150499bb6f
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 6e29f5b26a06a83bd7f996169f2e53815e24a8e5
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 14a4d55409e9fd6b840f4c856110ae150499bb6f
 
 ## <a name="prerequisites"></a>필수 조건
 * [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
-* [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell의 최신 버전을 설치합니다.
+* [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell의 최신 버전을 설치합니다.
 * Azure Resource Manager 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md) 을 참조하세요. 
 
 ## <a name="in-this-tutorial"></a>자습서 내용
@@ -43,11 +43,11 @@ ms.openlocfilehash: 14a4d55409e9fd6b840f4c856110ae150499bb6f
 | --- | --- |
 | Azure 저장소 연결된 서비스 |Azure Storage 계정을 데이터 팩터리에 연결합니다. Azure Storage 계정은 이 샘플의 파이프라인에 대한 입력 및 출력 데이터를 가집니다. |
 | HDInsight 주문형 연결된 서비스 |주문형 HDInsight 클러스터를 데이터 팩터리에 연결합니다. 이 클러스터는 사용자가 데이터를 처리할 수 있도록 자동으로 생성되며 처리 작업이 완료되면 삭제됩니다. |
-| Azure Blob 입력 데이터 집합 |Azure Storage 연결된 서비스 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 집합은 입력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다. |
+| Azure Blob 입력 데이터 집합 |Azure Storage 연결된 서비스를 참조하세요. 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 집합은 입력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다. |
 | Azure Blob 출력 데이터 집합 |Azure Storage 연결된 서비스 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 집합은 출력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다. |
 | 데이터 파이프라인 |파이프라인에는 HDInsightHive가 입력 데이터 집합을 사용하여 출력 데이터 집합을 생성하는 활동 유형이 하나 있습니다. |
 
-데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 이러한 두 가지 활동은 [데이터 이동 활동](data-factory-data-movement-activities.md) 및 [데이터 변환 활동](data-factory-data-transformation-activities.md)입니다. 이 자습서에는 한 가지 활동(복사 활동)이 있는 파이프라인을 만듭니다.
+데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 이러한 두 가지 유형의 활동은 [데이터 이동 활동](data-factory-data-movement-activities.md) 및 [데이터 변환 활동](data-factory-data-transformation-activities.md)입니다. 이 자습서에는 한 가지 활동(복사 활동)이 있는 파이프라인을 만듭니다.
 
 다음 섹션에서는 신속하게 자습서를 살펴보고 템플릿을 테스트할 수 있도록 데이터 팩터리 엔터티를 정의하기 위한 완전한 Resource Manager 템플릿을 제공합니다. 각 데이터 팩터리 엔터티를 정의하는 방법을 알아보려면 [템플릿의 데이터 팩터리 엔터티](#data-factory-entities-in-the-template) 섹션을 참조하세요.
 
@@ -379,7 +379,7 @@ dataFactoryName은 다음과 같이 정의됩니다.
 
 **connectionString**은 storageAccountName 및 storageAccountKey 매개 변수를 사용합니다. 이러한 매개 변수의 값은 구성 파일을 사용하여 전달됩니다. 정의 또한 템플릿에 정의된 azureStroageLinkedService 및 dataFactoryName 변수를 사용합니다. 
 
-#### <a name="hdinsight-ondemand-linked-service"></a>HDInsight 주문형 연결된 서비스
+#### <a name="hdinsight-on-demand-linked-service"></a>HDInsight 주문형 연결된 서비스
 HDInsight 주문형 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [연결된 서비스 계산](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 문서를 참조하세요.  
 
       {
@@ -591,6 +591,6 @@ HDInsight 주문형 연결된 서비스를 정의하는 데 사용되는 JSON �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

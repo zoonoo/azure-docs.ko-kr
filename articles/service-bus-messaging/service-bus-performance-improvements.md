@@ -1,32 +1,40 @@
 ---
-title: 서비스 버스를 사용하여 성능을 향상하는 모범 사례 | Microsoft Docs
-description: broker 저장 메시지를 교환할 때 Azure 서비스 버스를 사용하여 성능을 최적화하는 방법에 대해 설명합니다.
-services: service-bus
+title: "Service Bus를 사용하여 성능을 향상하는 모범 사례 | Microsoft Docs"
+description: "broker 저장 메시지를 교환할 때 Azure 서비스 버스를 사용하여 성능을 최적화하는 방법에 대해 설명합니다."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/08/2016
+ms.date: 10/25/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5402481a0adc27474f7ddd9b5be1d71dc2c91d44
+
 
 ---
-# <a name="best-practices-for-performance-improvements-using-service-bus-brokered-messaging"></a>서비스 버스 조정된 메시징을 사용한 성능 향상의 모범 사례
-이 항목에서는 조정된 메시지를 교환할 때 Azure Service Bus를 사용하여 성능을 최적화하는 방법에 대해 설명합니다. 이 항목의 첫 번째 부분에서는 성능 향상을 위해 제공되는 다양한 메커니즘에 대해 설명합니다. 두 번째 부분은 특정 시나리오에서 최고의 성능을 제공하는 방식으로 서비스 버스를 사용하는 방법에 대해 안내합니다.
+# <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus 메시징을 사용한 성능 향상의 모범 사례
+이 항목에서는 조정된 메시지를 교환할 때 Azure Service Bus 메시징을 사용하여 성능을 최적화하는 방법에 대해 설명합니다. 이 항목의 첫 번째 부분에서는 성능 향상을 위해 제공되는 다양한 메커니즘에 대해 설명합니다. 두 번째 부분은 특정 시나리오에서 최고의 성능을 제공하는 방식으로 서비스 버스를 사용하는 방법에 대해 안내합니다.
 
 이 항목 전반적으로 "클라이언트"라는 용어는 Service Bus에 액세스하는 모든 엔터티를 가리킵니다. 클라이언트는 발신기 또는 수신기의 역할을 수행할 수 있습니다. "발신기"라는 용어는 메시지를 Service Bus 큐 또는 토픽에 보내는 Service Bus 큐 또는 토픽 클라이언트에 사용됩니다. "수신기"라는 용어는 Service Bus 큐 또는 구독에서 메시지를 수신하는 Service Bus 큐 또는 구독 클라이언트를 가리킵니다.
 
 다음 섹션에서는 서비스 버스가 성능 향상을 위해 사용하는 몇 가지 개념에 대해 소개합니다.
 
 ## <a name="protocols"></a>프로토콜
-클라이언트는 서비스 버스를 사용하여 두 가지 프로토콜, 즉, 서비스 버스 클라이언트 프로토콜과 HTTP(REST)를 통해 메시지를 보내고 받을 수 있습니다. 서비스 버스 클라이언트 프로토콜은 메시징 팩터리가 있는 이상 서비스 버스 서비스에 대한 연결을 유지하기 때문에 더 효율적입니다. 또한 일괄 처리와 프리페치도 구현합니다. 서비스 버스 클라이언트 프로토콜은.NET API를 사용하는 .NET 응용 프로그램에 사용할 수 있습니다.
+Service Bus를 사용하면 클라이언트에서 세 가지 프로토콜을 통해 메시지를 보내고 받을 수 있습니다.
 
-명시적으로 언급하지 않는 한 이 항목의 모든 내용에서는 Service Bus 클라이언트 프로토콜을 사용하는 것으로 가정합니다.
+1. AMQP(고급 메시지 큐 프로토콜)
+2. SBMP(Service Bus 메시징 프로토콜)
+3. HTTP
+
+AMQP와 SBMP는 메시징 팩터리가 존재하는 한 Service Bus에 대한 연결을 유지하기 때문에 둘 다 보다 효율적입니다. 또한 일괄 처리와 프리페치도 구현합니다. 명시적으로 언급하지 않는 한 이 항목의 모든 내용에서는 AMQP 또는 SBMP를 사용하는 것으로 가정합니다.
 
 ## <a name="reusing-factories-and-clients"></a>팩터리 및 클라이언트 다시 사용
 [QueueClient][QueueClient] 또는 [MessageSender][MessageSender]와 같은 Service Bus 클라이언트 개체는 내부 연결 관리도 제공하는 [MessagingFactory][MessagingFactory] 개체를 통해 만듭니다. 메시지를 보낸 다음 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 닫은 후 다음 메시지를 보낼 때 이러한 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 다시 만들지 않아야 합니다. 메시징 팩터리를 닫을 경우 서비스 버스 서비스에 대한 연결이 삭제되고 팩터리를 다시 만들면 새 연결이 구축됩니다. 여러 작업에 대해 동일한 팩터리와 클라이언트 개체를 다시 사용하면 많은 비용이 드는 연결 작업을 하지 않아도 됩니다. 동시 비동기 작업 및 다중 스레드에서 메시지를 보내기 위해 [QueueClient][QueueClient] 개체를 안전하게 사용할 수 있습니다. 
@@ -144,6 +152,13 @@ namespaceManager.CreateQueue(qd);
 ## <a name="use-of-multiple-queues"></a>여러 큐 사용
 분할된 큐 또는 토픽을 사용할 수 없거나 분할된 단일 큐 또는 토픽으로 예상 부하를 처리할 수 없을 경우 여러 메시징 엔터티를 사용해야 합니다. 여러 엔터티를 사용할 때는 모든 엔터티에 동일한 클라이언트를 사용하는 대신 각 엔터티의 전용 클라이언트를 만듭니다.
 
+## <a name="development-testing-features"></a>개발 및 테스트 기능
+Service Bus에는 특별히 **프로덕션 구성에서 사용해서는 안 되는** 개발에 사용되는 한 가지 기능이 있습니다.
+
+[TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
+
+* 새 규칙 또는 필터가 항목에 추가되면 EnableFilteringMessagesBeforePublishing을 사용하여 새 필터 식이 예상대로 작동하는지 확인할 수 있습니다.
+
 ## <a name="scenarios"></a>시나리오
 다음 섹션에서는 일반적인 메시징 시나리오에 대해 설명하고 기본 서비스 버스 설정에 대해 간단히 소개합니다. 처리량 속도는 적음(초당 1개 메시지 미만), 보통(초당 1개 메시지 이상, 초당 100개 메시지 미만), 높음(초당 100개 메시지 이상)으로 분류됩니다. 클라이언트 수는 적음(5개 이하), 보통(5개 초과, 20개 이하), 많음(20개 초과)으로 분류됩니다.
 
@@ -243,6 +258,6 @@ Service Bus 성능 최적화에 대한 자세한 내용은 [분할된 메시징 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

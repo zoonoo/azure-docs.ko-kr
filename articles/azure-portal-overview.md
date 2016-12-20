@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 31bea465db1afb5efc22b2280d83d3b50bced329
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7383380ee07f9ee52858038bd4d623be4689a31a
 
 
 ---
@@ -64,7 +64,7 @@ Azure에는 수천 개의 항목을 한 곳에서 만들 수 있는 마켓플레
 Azure에서는 리소스의 블레이드를 미리 구성하지만 이러한 블레이드의 타일은 사용자가 제어합니다.  사용자 지정 모드로 이동하여 타일을 손쉽게 추가, 제거, 크기 조정 또는 다시 정렬할 수 있습니다. 블레이드를 사용자 지정하려면 다음 작업을 수행합니다.
 
 1. 리소스를 찾습니다.
-2. 사용자 지정할 블레이드의 맨 위에 있는  '...'를 클릭합니다.
+2. ‘…’를 클릭합니다. 사용자 지정할 블레이드의 맨 위에 있는 '...'를 클릭합니다.
 3. ‘파트 추가’를 클릭합니다.
 4. 파트를 끌어서 놓기 시작합니다.  
 
@@ -97,6 +97,6 @@ Microsoft Azure 포털은 클라우드에서 응용 프로그램을 빌드 및 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

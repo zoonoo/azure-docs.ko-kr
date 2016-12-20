@@ -10,16 +10,17 @@ Azure Storage에 대한 계정 키를 보거나 복사하는 단계는 [저장�
 
 **예제:**  
 
-    {  
-        "name": "StorageLinkedService",  
-        "properties": {  
-            "type": "AzureStorage",  
-            "typeProperties": {  
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
-            }  
+```json
+{  
+    "name": "StorageLinkedService",  
+    "properties": {  
+        "type": "AzureStorage",  
+        "typeProperties": {  
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
         }  
     }  
-
+}  
+```
 
 ## <a name="azure-storage-sas-linked-service"></a>Azure 저장소 SAS 연결된 서비스
 SAS(공유 액세스 서명)는 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. 즉, 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에게 저장소 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다. SAS는 저장소 리소스에 인증된 액세스를 수행하는 데 필요한 모든 정보가 쿼리 매개 변수에 있는 URI입니다. SAS를 사용하여 저장소 리소스에 액세스하려는 클라이언트는 SAS를 적절한 생성자 또는 메서드에 전달하면 됩니다. SAS에 대한 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](../articles/storage/storage-dotnet-shared-access-signature-part-1.md)
@@ -33,15 +34,17 @@ Azure 저장소 SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 �
 
 **예제:**
 
-    {  
-        "name": "StorageSasLinkedService",  
-        "properties": {  
-            "type": "AzureStorageSas",  
-            "typeProperties": {  
-                "sasUri": "<storageUri>?<sasToken>"   
-            }  
+```json
+{  
+    "name": "StorageSasLinkedService",  
+    "properties": {  
+        "type": "AzureStorageSas",  
+        "typeProperties": {  
+            "sasUri": "<storageUri>?<sasToken>"   
         }  
     }  
+}  
+```
 
 **SAS URI**를 만들 때 다음 사항을 고려하세요.  
 

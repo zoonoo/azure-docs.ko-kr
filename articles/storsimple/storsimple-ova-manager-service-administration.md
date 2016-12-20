@@ -1,12 +1,12 @@
 ---
-title: StorSimple 관리자 가상 배열 관리 | Microsoft Docs
-description: Azure 클래식 포털에서 StorSimple 관리자 서비스를 사용하여 StorSimple 온-프레미스 가상 배열을 관리하는 방법을 알아봅니다.
+title: "StorSimple Manager 가상 배열 관리 | Microsoft Docs"
+description: "Azure 클래식 포털에서 StorSimple 관리자 서비스를 사용하여 StorSimple 온-프레미스 가상 배열을 관리하는 방법을 알아봅니다."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: f0ae362c-dffd-4a14-bbcf-c304bfb93268
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d90864501485344d93c1f3bd32237683c2abb4ab
+
 
 ---
 # <a name="use-the-storsimple-manager-service-to-administer-your-storsimple-virtual-array"></a>StorSimple Manager 서비스를 사용하여 StorSimple 가상 배열 관리
@@ -92,6 +96,9 @@ StorSimple Manager 서비스 UI에 대한 탐색 기록이 다음 테이블에 �
 ## <a name="next-steps"></a>다음 단계
 웹 UI 및 사용 방법에 대한 자세한 내용은 [StorSimple 웹 UI를 사용하여 StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

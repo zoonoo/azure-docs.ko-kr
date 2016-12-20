@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: af5563f875c532c0b902685219818b1cd0945a66
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a896240331d901ae839c2489c6266daac2780899
 
 
 ---
@@ -44,14 +44,18 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 ## <a name="a-nametoc395637760aprerequisites-for-this-database-tutorial"></a><a name="_Toc395637760"></a>이 데이터베이스 자습서의 필수 조건
 이 문서의 지침을 따르기 전에 다음이 있는지 확인해야 합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 
+
+    또는
+
+    [Azure DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md) 로컬 설치를 참조하세요.
 * [Visual Studio 2015](http://www.visualstudio.com/) 또는 Visual Studio 2013 업데이트 4 이상 Visual Studio 2013을 사용하는 경우 C# 6.0 지원을 추가하기 위해 [Microsoft.Net.Compilers nuget 패키지](https://www.nuget.org/packages/Microsoft.Net.Compilers/)를 설치해야 합니다. 
-* Azure SDK for .NET 버전 2.5.1 이상은 [Microsoft 웹 플랫폼 설치 관리자][Microsoft Web Platform Installer]를 통해 사용 가능합니다.
+* Azure SDK for .NET 버전 2.5.1 이상([Microsoft 웹 플랫폼 설치 관리자][Microsoft Web Platform Installer]를 통해 사용 가능)
 
 이 문서의 모든 스크린샷은 Visual Studio 2013 업데이트 4 및 Azure SDK for .NET 버전 2.5.1을 사용하여 생성되었습니다. 시스템이 다른 버전으로 구성된 경우 화면과 옵션이 일부 달라질 수 있지만 위의 필수 구성 요소를 충족하면 솔루션을 사용할 수 있습니다.
 
 ## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>1단계: DocumentDB 데이터베이스 계정 만들기
-먼저 DocumentDB 계정을 만듭니다. 계정이 이미 있는 경우를 [새 ASP.NET MVC 응용 프로그램 만들기](#_Toc395637762)로 건너뛸 수 있습니다.
+먼저 DocumentDB 계정을 만듭니다. 계정이 있거나 이 자습서에 DocumentDB 에뮬레이터를 사용하고 있는 경우 [새 ASP.NET MVC 응용 프로그램 만들기](#_Toc395637762)로 건너뛸 수 있습니다.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -78,6 +82,9 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 5. 템플릿 창에서 **MVC**를 선택합니다.
 6. Azure에서 응용 프로그램을 호스트하려는 경우 오른쪽 아래에서 **클라우드의 호스트** 를 선택하여 Azure에서 응용 프로그램이 호스트되도록 합니다. 클라우드에 호스트하도록 선택하고 Azure 웹 사이트에서 호스트되는 응용 프로그램을 실행하도록 선택했습니다. 이 옵션을 선택하면 Azure 웹 사이트가 미리 프로비전되며 최종 응용 프로그램을 훨씬 쉽게 배포할 수 있습니다. 다른 곳에 호스트하거나 Azure에서 구성하지 않으려면 **클라우드의 호스트**옵션을 선택 취소합니다.
 7. **확인** 을 클릭하면 Visual Studio에서 빈 ASP.NET MVC 템플릿을 스캐폴딩합니다. 
+
+    "An error occurred while processing your request" 오류가 나타나면 [문제 해결](#troubleshooting) 섹션을 참조하세요.
+
 8. 클라우드에 호스트를 선택하면 Azure 계정에 로그인하고 새 웹 사이트에 대한 값을 입력하라는 추가 화면이 하나 이상 표시됩니다. 모든 추가 값을 지정하고 계속합니다. 
    
       여기서 Azure SQL 데이터베이스 서버를 사용하지 않기 때문에 "데이터베이스 서버"를 선택하지 않았고 나중에 Azure 포털에서 새 Azure DocumentDB 계정을 만들 예정입니다.
@@ -423,9 +430,9 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
    
     이 코드는 DocumentDBRepository를 호출하고 CreateItemAsync 메서드를 사용하여 새로운 todo 항목을 데이터베이스에 유지합니다. 
    
-    **보안 정보**: **ValidateAntiForgeryToken** 특성은 여기서 교차 사이트 요청 위조 공격으로부터 이 응용 프로그램을 보호하는 데 사용됩니다. 이 특성을 추가하는 것 외에 뷰가 이 위조 방지 토큰과 작동하도록 해야 합니다. 이 주제에 대한 자세한 내용과 이를 올바르게 구현하는 방법의 예는 [교차 사이트 요청 위조 방지][Preventing Cross-Site Request Forgery]를 참조하세요. [GitHub][GitHub]에서 제공하는 소스 코드에는 완벽하게 구현되어 있습니다.
+    **보안 정보**: **ValidateAntiForgeryToken** 특성은 여기서 교차 사이트 요청 위조 공격으로부터 이 응용 프로그램을 보호하는 데 사용됩니다. 이 특성을 추가하는 것 외에 뷰가 이 위조 방지 토큰과 작동하도록 해야 합니다. 이 주제에 대한 자세한 내용과 이를 올바르게 구현하는 방법의 예는 [교차 사이트 요청 위조 방지(영문)][Preventing Cross-Site Request Forgery]를 참조하세요. [GitHub][GitHub]에서 제공하는 소스 코드에는 완벽하게 구현되어 있습니다.
    
-    **보안 정보**: 또한 메서드 매개 변수에 **Bind** 특성을 사용하여 과도한 게시 공격으로부터 보호할 수 있습니다. 자세한 내용은 [ASP.NET MVC의 기본 CRUD 작업][Basic CRUD Operations in ASP.NET MVC]을 참조하세요.
+    **보안 정보**: 또한 메서드 매개 변수에 **Bind** 특성을 사용하여 과도한 게시 공격으로부터 보호할 수 있습니다. 자세한 내용은 [ASP.NET MVC의 기본 CRUD 작업(영문)][Basic CRUD Operations in ASP.NET MVC]을 참조하세요.
 
 데이터베이스에 새 항목을 추가하는 데 필요한 코드가 완성되었습니다.
 
@@ -510,7 +517,7 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
    
     ![이 데이터베이스 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/documentdb-dotnet-application/image24.png)
    
-    Visual Studio 2013을 사용하고 "Cannot await in the body of a catch clause."  오류를 수신하는 경우 [Microsoft.Net.Compilers nuget 패키지](https://www.nuget.org/packages/Microsoft.Net.Compilers/)를 설치해야 합니다. [GitHub][GitHub]에서 샘플 프로젝트에 대해 코드를 비교할 수도 있습니다. 
+    Visual Studio 2013을 사용하고 "Cannot await in the body of a catch clause." 오류를 수신하는 경우  [Microsoft.Net.Compilers nuget 패키지](https://www.nuget.org/packages/Microsoft.Net.Compilers/)를 설치해야 합니다. [GitHub][GitHub]에서 샘플 프로젝트에 대해 코드를 비교할 수도 있습니다. 
 2. **새로 만들기** 링크를 클릭하고 **이름** 및 **설명** 필드에 값을 추가합니다. **완료** 확인란을 선택 취소된 상태로 둡니다. 그렇지 않으면 새 **항목**이 완료 상태로 추가되며 초기 목록에 나타나지 않습니다.
    
     ![만들기 뷰의 스크린샷](./media/documentdb-dotnet-application/image25.png)
@@ -536,6 +543,25 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 
 몇 초 후에 Visual Studio에서 웹 응용 프로그램 게시를 완료하고 브라우저를 시작하며, Azure에서 실행되는 작업 내용을 확인할 수 있습니다.
 
+## <a name="a-nametroubleshootingatroubleshooting"></a><a name="Troubleshooting"></a>문제 해결
+
+웹앱을 배포하는 동안 "An error occurred while processing your request" 메시지가 나타나면 다음을 수행합니다. 
+
+1. 오류 메시지를 취소한 다음 **Microsoft Azure Web Apps**를 다시 선택합니다. 
+2. 로그인 후 **새로 만들기**를 선택하여 새 웹앱을 만듭니다. 
+3. **Microsoft Azure에서 웹앱 만들기** 화면에서 다음을 수행합니다. 
+    
+    - 웹앱 이름: "todo-net-app"
+    - App Service 계획: 새로 만들기, 이름: "todo-net-app"
+    - 리소스 그룹: 새로 만들기, 이름: "todo-net-app"
+    - 지역: 앱 사용자에게 가장 가까운 지역 선택
+    - 데이터베이스 서버: 데이터베이스 없음을 클릭한 다음 **만들기**를 클릭합니다. 
+
+4. "todo-net-app * 화면”에서 **연결 유효성 검사**를 클릭합니다. 연결을 확한 후 **게시**합니다. 
+    
+    그러면 응용 프로그램이 브라우저에 표시됩니다.
+
+
 ## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>다음 단계
 축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 ASP.NET MVC 웹 응용 프로그램을 빌드하고 Azure 웹 사이트에 게시했습니다. 이 자습서에 포함되지 않은 세부 정보 및 삭제 기능을 비롯한 전체 응용 프로그램 소스 코드는 [GitHub][GitHub]에서 다운로드하거나 복제할 수 있습니다. 따라서 이 내용을 앱에 추가하려는 경우 코드를 끌어와서 이 앱에 추가하면 됩니다.
 
@@ -543,13 +569,13 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Microsoft 웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
-[교차 사이트 요청 위조 방지(영문)]: http://go.microsoft.com/fwlink/?LinkID=517254
-[ASP.NET MVC의 기본 CRUD 작업(영문)]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

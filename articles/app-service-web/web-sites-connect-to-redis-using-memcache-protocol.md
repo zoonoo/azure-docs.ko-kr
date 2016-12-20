@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f0321c71655f1b023862aeeef4615544135adb5a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
 
 
 ---
@@ -32,7 +32,7 @@ ms.openlocfilehash: f0321c71655f1b023862aeeef4615544135adb5a
 
 이 문서에 설명된 단계를 따르세요.
 
-* [Azure Redis Cache 서비스]의 인스턴스 프로비전[0]
+* [Azure Redis Cache Service의 인스턴스 프로비전][0]
 * [Azure에서 확장 가능한 WordPress 사이트 배포][1]
 
 확장 가능한 WordPress 사이트가 배포되고 Redis Cache 인스턴스가 프로비전되면 Azure 앱 서비스 웹앱에서 Memcache shim을 사용하여 진행할 준비가 됩니다.
@@ -111,7 +111,7 @@ WordPress 플러그 인 페이지에서 **새로 추가**를 클릭합니다.
 
 ### <a name="enable-the-memcache-wordpress-plugin"></a>Memcache WordPress 플러그인 사용
 > [!NOTE]
-> Visual Studio Team Services를 설치하려면 [웹앱에서 사이트 확장을 사용하는 방법][8]에 있는 이 블로그의 지침을 따르세요.
+> Visual Studio Team Services를 설치하려면 [Web Apps에서 사이트 확장을 사용하는 방법][8]에 있는 이 블로그의 지침을 따르세요.
 > 
 > 
 
@@ -136,7 +136,7 @@ $memcached_servers = array(
 ## <a name="verify-the-memcache-object-cache-plugin-is-functioning"></a>Memcache Object Cache 플러그 인이 작동하는지 확인
 이제 웹앱 Memcache shim 사용 설정의 모든 단계가 완료되었습니다. 데이터가 Redis Cache 인스턴스에 채워졌는지 확인하는 단계만 남아 있습니다.
 
-### <a name="enable-the-nonssl-port-support-in-azure-redis-cache"></a>Azure Redis Cache에서 비SSL 포트 지원 사용 설정
+### <a name="enable-the-non-ssl-port-support-in-azure-redis-cache"></a>Azure Redis Cache에서 비SSL 포트 지원 사용 설정
 > [!NOTE]
 > 이 문서가 작성된 현재, Redis CLI는 SSL 연결을 지원하지 않습니다. 따라서 다음 단계가 필요합니다.
 > 
@@ -158,9 +158,9 @@ Azure 포털에서 이 웹앱에 대해 만들어진 Redis Cache 인스턴스를
 
 ![Azure Redis Cache Redis SSL이 아닌 포털에 액세스](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
 
-### <a name="connect-to-azure-redis-cache-from-rediscli"></a>redis-cli에서 Azure Redis Cache로 연결
+### <a name="connect-to-azure-redis-cache-from-redis-cli"></a>redis-cli에서 Azure Redis Cache로 연결
 > [!NOTE]
-> 이 단계에서는 redis가 개발 컴퓨터에 로컬로 설치된 것으로 간주합니다. [다음 지침][9]을 사용하여 Redis를 로컬로 설치합니다.
+> 이 단계에서는 redis가 개발 컴퓨터에 로컬로 설치된 것으로 간주합니다. [다음 지침을 사용하여 Redis를 로컬로 설치합니다][9].
 > 
 > 
 
@@ -177,7 +177,7 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 키 나열에 대한 호출은 값을 반환합니다. 값을 반환하지 않으면 웹앱을 찾아 다시 시도해 봅니다.
 
 ## <a name="conclusion"></a>결론
-축하합니다. 이제 WordPress 앱에 증가하는 처리량을 지원하기 위해 중앙 메모리 내 캐시가 생겼습니다. 웹앱 Memcache Shim은 프로그래밍 언어 또는 응용 프로그램 프레임워크와 상관 없이 Memcache 클라이언트에 사용할 수 있습니다. 피드백 게시 또는 웹 앱 Memcache shim에 대한 문의는 [MSDN 포럼][10] 또는 [Stackoverflow][11]에 게시하세요.
+축하합니다. 이제 WordPress 앱에 증가하는 처리량을 지원하기 위해 중앙 메모리 내 캐시가 생겼습니다. 웹앱 Memcache Shim은 프로그래밍 언어 또는 응용 프로그램 프레임워크와 상관 없이 Memcache 클라이언트에 사용할 수 있습니다. 피드백 게시 또는 Web Apps Memcache shim에 대한 문의는 [MSDN Forums][10] 또는 [Stackoverflow][11]에 게시하세요.
 
 > [!NOTE]
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
@@ -191,7 +191,7 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
-[4]: ../powershell-install-configure.md
+[4]: /powershell/azureps-cmdlets-docs
 [5]: /downloads
 [6]: http://pecl.php.net
 [7]: http://pecl.php.net/package/memcache
@@ -204,6 +204,6 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

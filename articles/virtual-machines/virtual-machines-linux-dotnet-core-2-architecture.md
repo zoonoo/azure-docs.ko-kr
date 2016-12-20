@@ -1,26 +1,30 @@
 ---
-title: Azure Resource Manager 템플릿을 사용하여 계산 리소스 배포 | Microsoft Docs
-description: Azure 가상 컴퓨터 DotNet Core 자습서
+title: "Azure Resource Manager 템플릿을 사용하여 계산 리소스 배포 | Microsoft Docs"
+description: "Azure 가상 컴퓨터 DotNet Core 자습서"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 1c4d419e-ba0e-45e4-a9dd-7ee9975a86f9
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 17aa03a3fef2bf3b4d933e7653656d58994321e7
+
 
 ---
 # <a name="application-architecture-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하는 응용 프로그램 아키텍처
 Azure Resource Manager 배포를 개발할 때 계산 요구 사항을 Azure 리소스 및 서비스에 매핑해야 합니다. 응용 프로그램이 몇 개의 http 끝점, 데이터베이스 및 데이터 캐싱 서비스로 구성되면 이러한 각 데이터는 구성 요소를 호스트하는 Azure 리소스를 합리적으로 할당해야 합니다. 예를 들어 샘플 Music Store 응용 프로그램에는 가상 컴퓨터에 호스트되는 웹 응용 프로그램과 Azure SQL Database에 호스트되는 SQL Database가 포함됩니다. 
 
-이 문서에서는 샘플 Azure Resource Manager 템플릿에서 Music Store 계산 리소스를 구성하는 방법을 자세히 설명합니다. 모든 종속성 및 고유한 구성이 강조 표시됩니다. 최상의 환경을 위해서는 솔루션 인스턴스를 Azure 구독에 미리 배포하고 Azure Resource Manager 템플릿을 따라 작업하는 것이 좋습니다. 전체 템플릿은 [Ubuntu의 Music Store 배포](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)에서 확인할 수 있습니다.
+이 문서에서는 샘플 Azure Resource Manager 템플릿에서 Music Store 계산 리소스를 구성하는 방법을 자세히 설명합니다. 모든 종속성 및 고유한 구성이 강조 표시됩니다. 최상의 환경을 위해서는 솔루션 인스턴스를 Azure 구독에 미리 배포하고 Azure Resource Manager 템플릿을 따라 작업하는 것이 좋습니다. 전체 템플릿은 [Ubuntu의 Music Store 배포](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)에서 확인할 수 있습니다. 
 
 ## <a name="virtual-machine"></a>가상 컴퓨터
 Music Store 응용 프로그램에는 고객이 음악을 찾아보고 구매할 수 있는 웹 응용 프로그램이 포함되어 있습니다. 웹 응용 프로그램을 호스트할 수 있는 여러 Azure 서비스가 있지만 이 예제에서는 가상 컴퓨터가 사용됩니다. 샘플 Music Store 템플릿을 사용하여 가상 컴퓨터가 배포되고, 웹 서버가 설치되며 Music Store 웹 사이트가 설치 및 구성됩니다. 이 문서에서는 목적에 맞게 가상 컴퓨터 배포만 자세히 설명합니다. 웹 서버와 응용 프로그램의 구성은 다음 문서에서 자세히 설명합니다.
@@ -29,7 +33,7 @@ Visual Studio 새 리소스 추가 마법사를 사용하거나 배포 템플릿
 
 [가상 컴퓨터 JSON](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L295)링크를 따라 Resource Manager 템플릿 내의 JSON 샘플을 볼 수 있습니다.
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Compute/virtualMachines",
@@ -64,7 +68,7 @@ Visual Studio 새 리소스 추가 마법사를 사용하거나 배포 템플릿
 
 [저장소 계정](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L109)링크를 따라 Resource Manager 템플릿 내의 JSON 샘플을 볼 수 있습니다.
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Storage/storageAccounts",
@@ -76,14 +80,14 @@ Visual Studio 새 리소스 추가 마법사를 사용하거나 배포 템플릿
   "properties": {
     "accountType": "[variables('vhdStorageType')]"
   }
-},
+}
 ```
 
 저장소 계정은 가상 컴퓨터의 Resource Manager 템플릿 선언 내에 있는 가상 컴퓨터와 연결됩니다. 
 
 [가상 컴퓨터 및 저장소 계정 연결](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L341)링크를 따라 Resource Manager 템플릿 내의 JSON 샘플을 볼 수 있습니다.
 
-```none
+```json
 "osDisk": {
   "name": "osdisk",
   "vhd": {
@@ -109,7 +113,7 @@ Azure 저장소에 대한 자세한 내용은 [저장소 설명서](https://azur
 
 [가상 네트워크 및 서브넷](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136)링크를 따라 Resource Manager 템플릿 내의 JSON 샘플을 볼 수 있습니다.
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/virtualNetworks",
@@ -151,7 +155,7 @@ Azure Portal에서 가상 네트워크는 다음 이미지와 비슷합니다. �
 
  [네트워크 인터페이스](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166)링크를 따라 Resource Manager 템플릿 내의 JSON 샘플을 볼 수 있습니다.
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/networkInterfaces",
@@ -200,7 +204,7 @@ Azure Portal에서 가상 네트워크는 다음 이미지와 비슷합니다. �
 
 [가상 컴퓨터 네트워크 프로필](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L350)링크를 따라 Resource Manager 템플릿 내의 JSON 샘플을 볼 수 있습니다.
 
-```none
+```json
 "networkProfile": {
   "networkInterfaces": [
     {
@@ -221,9 +225,9 @@ Music Store 웹 사이트를 호스트하는 가상 컴퓨터 외에도, Azure S
 
 Visual Studio 새 리소스 추가 마법사를 사용하거나 템플릿에 유효한 JSON을 삽입하여 Azure SQL Database를 추가할 수 있습니다. SQL Server 리소스에는 SQL 인스턴스에 대해 관리자 권한이 부여되는 사용자 이름 및 암호가 포함됩니다. 또한 SQL 방화벽 리소스도 추가됩니다. 기본적으로 Azure에서 호스트되는 응용 프로그램은 SQL 인스턴스에 연결할 수 있습니다. SQL Server Management Studio와 같은 외부 응용 프로그램이 SQL 인스턴스에 연결할 수 있게 하려면 방화벽을 구성해야 합니다. Music Store 데모에 맞게 기본 구성에는 문제가 없습니다. 
 
-다음 링크에 따라 Resource Manager 템플릿 내에서 JSON 샘플을 확인하세요. [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401.
+[Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401) 링크를 따라 Resource Manager 템플릿 내의 JSON 샘플을 볼 수 있습니다.
 
-```none
+```json
 {
   "apiVersion": "2014-04-01-preview",
   "type": "Microsoft.Sql/servers",
@@ -265,8 +269,11 @@ Azure SQL Database 배포에 대한 자세한 내용은 [Azure SQL Database 설�
 ## <a name="next-step"></a>다음 단계
 <hr>
 
-[2단계 - Azure Resource Manager 템플릿의 액세스 및 보안](virtual-machines-linux-dotnet-core-3-access-security.md)
+[2단계 - Azure Resource Manager 템플릿의 액세스 및 보안](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

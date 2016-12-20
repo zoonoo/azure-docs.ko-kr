@@ -3,7 +3,7 @@ title: Azure RemoteApp FAQ | Microsoft Docs
 description: "Azure RemoteApp에 대해 자주 묻는 질문에 대한 대답을 알아봅니다."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: swadhwa
 editor: 
 ms.assetid: bad66603-91f9-437f-8a70-236405d2a27f
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3a2927164a01dd4b76e264cd1b7152f170f79cb
+ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
+ms.openlocfilehash: 31df73e3fc4142ba8c3634ac9d2b6fea4cc1b2d9
 
 
 ---
@@ -40,12 +40,12 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 * **이 서비스를 무료로 사용해 볼 수 있나요?**  예. 30일 동안 사용할 수 있는 무료 평가판이 있습니다. 평가 기간이 끝난 후 유료 계정으로 전환하거나(프로덕션 환경에서 사용할 수 있음) 서비스 사용을 중지할 수 있습니다. [portal.azure.com](http://portal.azure.com) 으로 이동하여 무료 평가판을 시작하고 RemoteApp의 새 인스턴스를 만듭니다. 무료 평가판으로 인스턴스당 10명의 사용자와 RemoteApp의 인스턴스를 2개 만들 수 있습니다. 이 평가판은 30일 동안만 사용할 수 있습니다.
   
   ## <a name="azure-remoteapp-subscription-details"></a>Azure RemoteApp 구독 세부 정보
-* **서비스의 제한 사항은 무엇입니까?**  [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](에 대한 더 알아봅니다.에 대한 더 알아봅니다./azure-subscription-service-limits에 대한 더 알아봅니다.md)에 대한 더 알아봅니다. 추가 질문이 있으면 알려주세요.
+* **서비스의 제한 사항은 무엇입니까?** [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에 대한 더 알아봅니다. 추가 질문이 있으면 알려주세요.
 * **얼마나 많은 사용자가 필요합니까?** 최소 20명의 사용자입니다. 분명히 알아두어야 합니다. 최소 20명입니다. 20명에 대한 비용이 청구됩니다. 
-* **RemoteApp 비용은 얼마인가요?**  [Azure RemoteApp 가격 정보 ](https://azure에 대한 더 알아봅니다.microsoft에 대한 더 알아봅니다.com/pricing/details/remoteapp/)에 대한 더 알아봅니다.
+* **RemoteApp 비용은 얼마인가요?** [Azure RemoteApp 가격 정보 ](https://azure.microsoft.com/pricing/details/remoteapp/)에 대한 더 알아봅니다.
 * **한 가지 형식의 컬렉션이 다른 것 보다 비용이 듭니까?**  예, 컬렉션 요구 사항에 따라 다를 수 있습니다. 하이브리드 컬렉션은 Azure RemoteApp에서 온-프레미스 네트워크까지 연결을 필요로 합니다. 기존 VNET/Express 경로를 사용하면 추가 비용이 없습니다. 하지만 새 Azure VNET 및 게이트웨이 또는 Express 경로를 사용하는 경우 [VPN 게이트웨이](https://azure.microsoft.com/pricing/details/vpn-gateway) 또는 [Express 경로](https://azure.microsoft.com/pricing/details/expressroute/)의 비용이 청구됩니다. 해당 비용(링크에 자세히 설명됨)은 월별 Azure RemoteApp 비용에 우선합니다.
 
-## <a name="collections-whats-supported-which-should-you-use-and-others"></a>컬렉션 - 사용해야 하는 지원되는 기능 및 기타 기능
+## <a name="collections---whats-supported-which-should-you-use-and-others"></a>컬렉션 - 사용해야 하는 지원되는 기능 및 기타 기능
 * **사용자 지정 LOB(기간 업무) 응용 프로그램이 지원되나요?**  예. Azure RemoteApp에서 사용자 지정 응용 프로그램을 사용하려면 [사용자 지정 템플릿 이미지](remoteapp-create-custom-image.md)를 만든 후 RemoteApp 컬렉션에 업로드하세요.
 * **Azure RemoteApp에서 사용자 지정 LOB 응용 프로그램이 동작하나요?**  이를 알아보는 가장 좋은 방법은 테스트하는 것입니다. [RD 호환성 센터](http://www.rdcompatibility.com/compatibility/default.aspx)를 확인해 보세요.
 * **어느 배포 메서드(클라우드 또는 하이브리드)가 내 조직에 가장 적합한가요?**  하이브리드 컬렉션은 SSO(Single Sign-On) 및 안전한 온-프레미스 네트워크 연결을 완벽하게 통합하려는 경우에 가장 완벽한 경험을 제공합니다. 클라우드 컬렉션은 여러 인증 방법을 사용하여 배포를 분리하는 민첩하고 쉬운 방법을 제공합니다. [배포 옵션](remoteapp-whatis.md)에 대해 자세히 알아봅니다.
@@ -69,7 +69,7 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 
 * **내 Azure Active Directory 계정 액세스를 왜 지정할 수 없나요?**  Azure Active Directory 사용자는 구독과 연결된 디렉터리로부터 시작되어야 합니다. 포털의 설정 탭에서 해당 디렉터리를 보거나 수정할 수 있습니다. 자세한 내용은 [RemoteApp에서 사용되는 Azure Active Directory 테넌트 변경](remoteapp-changetenant.md) 을 참조하세요.
 
-## <a name="clients-what-device-can-i-use-to-access-azure-remoteapp"></a>클라이언트 - Azure RemoteApp에 액세스하는 데 어떤 장치를 사용할 수 있습니까?
+## <a name="clients---what-device-can-i-use-to-access-azure-remoteapp"></a>클라이언트 - Azure RemoteApp에 액세스하는 데 어떤 장치를 사용할 수 있습니까?
 [Azure RemoteApp의 앱에 액세스](remoteapp-clients.md)에 다른 클라이언트를 설치하기 위한 단계를 포함하여 좋은 클라이언트 정보를 찾을 수 있습니다.
 
 * **클라이언트 응용 프로그램에서 지원하는 장치 및 운영 체제는 무엇인가요?**
@@ -126,6 +126,6 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
