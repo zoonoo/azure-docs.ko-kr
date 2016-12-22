@@ -11,11 +11,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
 
 
 ---
@@ -24,11 +24,11 @@ ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
 > * [개요](search-query-overview.md)
 > * [포털](search-explorer.md)
 > * [.NET](search-query-dotnet.md)
-> * [REST (영문)](search-query-rest-api.md)
+> * [REST](search-query-rest-api.md)
 > 
 > 
 
-이 문서는 [Azure 검색 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)를 사용하여 인덱스를 쿼리하는 방법을 보여줍니다.
+이 문서는 [Azure 검색 .NET SDK](https://aka.ms/search-sdk)를 사용하여 인덱스를 쿼리하는 방법을 보여줍니다.
 
 이 연습을 시작하기 전에 [Azure 검색 인덱스를 만들고](search-what-is-an-index.md) [데이터로 채워야](search-what-is-data-import.md) 합니다.
 
@@ -37,7 +37,7 @@ ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
 ## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Azure 검색 서비스의 쿼리 API 키 식별
 Azure 검색 인덱스를 만들었으므로 .NET SDK를 사용하여 쿼리를 발급할 준비가 되었습니다. 먼저 프로비전한 검색 서비스에 대해 생성된 쿼리 API 키 중 하나가 있어야 합니다. .NET SDK는 서비스에 대한 모든 요청에 대해 이 API 키를 전송합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
-1. 서비스의 API 키를 찾으려면 [Azure 포털](https://portal.azure.com/)
+1. 서비스의 API 키를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인해야 합니다.
 2. Azure 검색 서비스의 블레이드로 이동합니다.
 3. "키" 아이콘을 클릭합니다.
 
@@ -162,7 +162,6 @@ Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
 Search the entire index for the term 'motel':
 
 ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
-
 ```
 
 위의 샘플 코드는 콘솔을 사용하여 검색 결과를 출력합니다. 마찬가지로 고유한 응용 프로그램에 검색 결과를 표시해야 합니다. ASP.NET MVC 기반 웹 응용 프로그램에서 검색 결과를 렌더링하는 방법의 예는 [GitHub에서 이 샘플](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) 을 참조하세요.

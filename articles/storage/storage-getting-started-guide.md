@@ -3,8 +3,8 @@ title: "5분 만에 Azure 저장소 시작 | Microsoft Docs"
 description: "Azure 저장소 빠른 시작, Visual Studio 및 Azure 저장소 에뮬레이터를 사용하여 Microsoft Azure Blob, 테이블 및 큐에 대해 간략하게 알아봅니다. 5분 만에 첫 번째 Azure 저장소 응용 프로그램을 실행합니다."
 services: storage
 documentationcenter: .net
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 582f76f8-c814-4a69-8a5c-1fd0e0d5d8f2
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a8f90f07a4402c0d2fb9ffc3bd35de18e2a39927
+ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
+ms.openlocfilehash: 47b2623eb3b83220ef8e3cfafde06dab3ac3d22e
 
 
 ---
@@ -32,10 +32,10 @@ Azure 저장소 개발을 쉽게 시작할 수 있습니다. 이 자습서에서
 1. 응용 프로그램을 컴파일 및 빌드하려면 컴퓨터에 [Visual Studio](https://www.visualstudio.com/) 가 설치되어 있어야 합니다.
 2. 최신 버전의 [.NET용 Azure SDK](https://azure.microsoft.com/downloads/)를 설치합니다. SDK에는 Azure 빠른 시작 샘플 프로젝트, Azure 저장소 에뮬레이터 및 [.NET 용 Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn261237.aspx)가 포함되어 있습니다.
 3. [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) 이 자습서에서 사용할 Azure 빠른 시작 샘플 프로젝트에 필요하므로 컴퓨터에 이 프로그램이 설치되어 있어야 합니다.
-   
+
     컴퓨터에 .NET Framework의 어느 버전이 설치되어 있는지 모를 경우 [방법: 설치된 .NET Framework 버전 결정](https://msdn.microsoft.com/vstudio/hh925568.aspx)을 참조하세요. 또는 **시작** 단추나 Windows 키를 누르고 **제어판**을 입력합니다. 그런 다음 **프로그램** > **프로그램 및 기능**을 차례로 클릭하고, 설치된 프로그램 중에 .NET Framework 4.5가 나열되어 있는지 확인합니다.
 4. Azure 구독 및 Azure Storage 계정이 필요합니다.
-   
+
    * Azure 구독을 만들려면 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/), [구입 옵션](https://azure.microsoft.com/pricing/purchase-options/) 및 [회원 제안](https://azure.microsoft.com/pricing/member-offers/)(MSDN, Microsoft 파트너 네트워크, BizSpark 및 기타 Microsoft 프로그램의 회원인 경우)을 참조하세요.
    * Azure에서 저장소 계정을 만들려면 [저장소 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)을 참조하세요.
 
@@ -48,7 +48,7 @@ Azure 저장소 개발을 쉽게 시작할 수 있습니다. 이 자습서에서
     a. **Azure Storage: Blob**, **Azure Storage: 파일**, **Azure Storage: 큐** 또는 **Azure Storage: 테이블** 템플릿 중 하나를 선택합니다.
     b. **.NET Framework 4.5**가 대상 프레임워크로 선택되었는지 확인합니다.
     c. 다음과 같이 프로젝트에 대한 이름을 지정하고 새 Visual Studio 솔루션을 만듭니다.
-     
+
     ![Azure 빠른 시작][Image1]
 
 응용 프로그램을 실행하기 전에 소스 코드를 검토하는 것이 좋습니다. 코드를 검토하려면 Visual Studio의 **보기** 메뉴에서 **솔루션 탐색기**를 선택합니다. 그런 다음 Program.cs 파일을 두 번 클릭합니다.
@@ -56,13 +56,13 @@ Azure 저장소 개발을 쉽게 시작할 수 있습니다. 이 자습서에서
 다음으로, 샘플 응용 프로그램을 실행합니다.
 
 1. Visual Studio의 **보기** 메뉴에서 **솔루션 탐색기**를 선택합니다. App.config 파일을 열고 다음과 같이 Azure 저장소 에뮬레이터에 대한 연결 문자열을 주석으로 처리합니다.
-   
+
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 
 2. 다음과 같이 Azure 저장소 서비스에 대한 연결 문자열의 주석 처리를 제거하고 App.config 파일에서 저장소 계정 이름과 액세스 키를 제공합니다.
-   
+
    `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
-   
+
    저장소 계정 액세스 키를 검색하려면 [저장소 액세스 키 다시 관리](storage-create-storage-account.md#manage-your-storage-access-keys)를 참조하세요.
 3. App.config 파일에서 저장소 계정 이름과 액세스 키를 제공한 후 **파일** 메뉴에서 **모두 저장**을 클릭하여 모든 프로젝트 파일을 저장합니다.
 4. **빌드** 메뉴에서 **솔루션 빌드**를 클릭합니다.
@@ -79,11 +79,11 @@ Azure 저장소 개발을 쉽게 시작할 수 있습니다. 이 자습서에서
     a. **Azure Storage: Blob**, **Azure Storage: 파일**, **Azure Storage: 큐** 또는 **Azure Storage: 테이블** 템플릿 중 하나를 선택합니다.
     b. **.NET Framework 4.5**가 대상 프레임워크로 선택되었는지 확인합니다.
     c. 다음과 같이 프로젝트에 대한 이름을 지정하고 새 Visual Studio 솔루션을 만듭니다.
-   
+
     ![Azure 빠른 시작][Image1]
 
 4. Visual Studio의 **보기** 메뉴에서 **솔루션 탐색기**를 선택합니다. App.config 파일을 열고, Azure 저장소 계정을 이미 추가했으면 Azure 저장소 계정에 대한 연결 문자열을 주석으로 처리합니다. 그런 다음 Azure 저장소 에뮬레이터에 대한 연결 문자열의 주석을 제거합니다.
-   
+
    `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
 
 응용 프로그램을 실행하기 전에 소스 코드를 검토하는 것이 좋습니다. 코드를 검토하려면 Visual Studio의 **보기** 메뉴에서 **솔루션 탐색기**를 선택합니다. 그런 다음 Program.cs 파일을 두 번 클릭합니다.
