@@ -1,12 +1,12 @@
 ---
-title: IoT Hub 장치-클라우드 메시지 처리(Java) | Microsoft Docs
-description: 이 Java 자습서를 수행하여 IoT Hub 장치-클라우드 메시지를 처리하는 데 유용한 패턴을 알아봅니다.
+title: "IoT Hub 장치-클라우드 메시지 처리(Java) | Microsoft Docs"
+description: "이 Java 자습서를 수행하여 IoT Hub 장치-클라우드 메시지를 처리하는 데 유용한 패턴을 알아봅니다."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bd9af5f9-a740-4780-a2a6-8c0e2752cf48
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: article
@@ -14,20 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
+ms.openlocfilehash: f94d28836e75416743533c99257885e2d7b3ee38
+
 
 ---
-# <a name="tutorial-how-to-process-iot-hub-devicetocloud-messages-using-java"></a>자습서: Java를 사용하여 IoT Hub 장치-클라우드 메시지를 처리하는 방법
+# <a name="tutorial-how-to-process-iot-hub-device-to-cloud-messages-using-java"></a>자습서: Java를 사용하여 IoT Hub 장치-클라우드 메시지를 처리하는 방법
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## <a name="introduction"></a>소개
-Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다. 기타 자습서([IoT Hub 시작] 및 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기][lnk-c2d])는 IoT Hub의 기본 장치-클라우드 및 클라우드-장치 메시징 기능을 사용하는 방법을 보여 줍니다.
+Azure IoT Hub는 수백만의 장치와 응용 프로그램 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다. 기타 자습서([simulated-device] 및 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기][lnk-c2d])는 IoT Hub의 기본 장치-클라우드 및 클라우드-장치 메시징 기능을 사용하는 방법을 보여 줍니다.
 
-이 자습서는 [IoT Hub 시작] 자습서에 나와있는 코드에 기반하고 장치-클라우드 메시지를 처리하는 데 사용할 수 있는 확장성 있는 두 개의 패턴을 보여 줍니다.
+이 자습서는 [simulated-device] 자습서에 나와있는 코드에 기반하고 장치-클라우드 메시지를 처리하는 데 사용할 수 있는 확장성 있는 두 개의 패턴을 보여 줍니다.
 
-* [Azure Blob 저장소]에서 장치-클라우드 메시지의 신뢰할 수 있는 저장소입니다. 일반적인 시나리오는 분석 프로세스에 대한 입력으로 사용할 원격 분석 데이터를 blob에 저장하는 *콜드 경로* 분석입니다. 이러한 프로세스는 [Azure Data Factory] 또는 [HDInsight(Hadoop)] 스택과 같은 도구를 통해 진행됩니다.
+* [Azure Blob Storage]에서 장치-클라우드 메시지의 신뢰할 수 있는 저장소입니다. 일반적인 시나리오는 분석 프로세스에 대한 입력으로 사용할 원격 분석 데이터를 blob에 저장하는 *콜드 경로* 분석입니다. 이러한 프로세스는 [Azure Data Factory] 또는 [HDInsight(Hadoop)] 스택과 같은 도구를 통해 진행됩니다.
 * *대화형* 장치-클라우드 메시지의 신뢰할 수 있는 처리입니다. 장치-클라우드 메시지는 응용 프로그램 백 엔드에서 일련의 작업에 대해 즉각적인 트리거인 경우 대화형입니다. 예를 들어 장치는 CRM 시스템으로의 티켓 삽입을 트리거하는 경보 메시지를 보낼 수 있습니다. 이와 반대로 *데이터 요소* 메시지는 단순히 분석 엔진에 공급됩니다. 예를 들어 나중에 분석을 위해 저장해야 하는 장치의 온도 원격 분석이 데이터 요소 메시지에 해당합니다.
 
-IoT Hub가 [Event Hubs][lnk-event-hubs] 호환 끝점을 노출하여 장치-클라우드 메시지를 받기 때문에 이 자습서에서는 [EventProcessorHost] 인스턴스를 사용합니다. 이 인스턴스는 다음을 수행합니다.
+IoT Hub가 [Event Hubs][lnk-event-hubs] 호환 끝점을 노출하여 장치-클라우드 메시지를 수신하기 때문에 이 자습서에서는 [EventProcessorHost] 인스턴스를 사용합니다. 이 인스턴스는 다음을 수행합니다.
 
 * *데이터 요소* 메시지를 Azure Blob 저장소에 안정적으로 저장합니다.
 * 즉시 처리를 위해 *대화형* 장치-클라우드 메시지를 [Azure 서비스 버스 큐] 에 전달합니다.
@@ -35,14 +39,14 @@ IoT Hub가 [Event Hubs][lnk-event-hubs] 호환 끝점을 노출하여 장치-클
 서비스 버스는 메시지당 검사점 및 시간 기반 중복 제거 기능을 제공하므로 신뢰할 수 있게 대화형 메시지를 처리할 수 있도록 도와줍니다.
 
 > [!NOTE]
-> **EventProcessorHost** 인스턴스는 대화형 메시지를 처리하는 유일한 방법입니다. 기타 옵션으로는 [Azure Service Fabric][lnk-service-fabric] 및 [Azure Stream Analytics][lnk-stream-analytics]이 있습니다.
+> **EventProcessorHost** 인스턴스는 대화형 메시지를 처리하는 유일한 방법입니다. 기타 옵션으로는 [Azure Service Fabric][lnk-service-fabric] 및 [Azure Stream Analytics][lnk-stream-analytics]가 있습니다.
 > 
 > 
 
 이 자습서의 끝 부분에서는 다음의 세 가지 Java 콘솔 앱을 실행합니다.
 
-* **simulated-device**, [IoT Hub 시작] 자습서에서 만든 수정된 버전의 앱이며, 매초 데이터 요소 장치-클라우드 메시지를 보내고 10초마다 대화형 장치-클라우드 메시지를 보냅니다. 이 앱에서는 IoT Hub와 통신하는 데 AMQPS 프로토콜을 사용합니다.
-* **process-d2c-messages** 에서는 [EventProcessorHost] 클래스를 사용하여 이벤트 허브 호환 끝점에서 메시지를 검색합니다. 그런 다음 Azure Blob 저장소에 데이터 요소 메시지를 안정적으로 저장하고 대화형 메시지를 서비스 버스 큐에 전달합니다.
+* **simulated-device**, [simulated-device] 자습서에서 만든 수정된 버전의 앱이며, 매초 데이터 요소 장치-클라우드 메시지를 보내고 10초마다 대화형 장치-클라우드 메시지를 보냅니다. 이 앱에서는 IoT Hub와 통신하는 데 AMQP 프로토콜을 사용합니다.
+* **process-d2c-messages**에서는 [EventProcessorHost] 클래스를 사용하여 이벤트 허브 호환 끝점에서 메시지를 검색합니다. 그런 다음 Azure Blob Storage에 데이터 요소 메시지를 안정적으로 저장하고 대화형 메시지를 Service Bus 큐에 전달합니다.
 * **process-interactive-messages** 는 서비스 버스 큐에서 대화형 메시지를 제거합니다.
 
 > [!NOTE]
@@ -50,19 +54,19 @@ IoT Hub가 [Event Hubs][lnk-event-hubs] 호환 끝점을 노출하여 장치-클
 > 
 > 
 
-이 자습서는 [HDInsight(Hadoop)] 프로젝트와 같이 이벤트 허브와 호환되는 메시지를 사용하는 다른 방법에 직접 적용할 수 있습니다. 자세한 내용은 [Azure IoT Hub 개발자 가이드 - 장치-클라우드]를 참조하세요.
+이 자습서는 [HDInsight(Hadoop)] 프로젝트와 같이 Event Hub와 호환되는 메시지를 사용하는 다른 방법에 직접 적용할 수 있습니다. 자세한 내용은 [Azure IoT Hub 개발자 가이드 - 장치-클라우드]를 참조하세요.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [IoT Hub 시작] 자습서의 전체 작업 버전
+* [simulated-device] 자습서의 전체 작업 버전
 * Java SE 8. <br/> [개발 환경 준비][lnk-dev-setup]는 Windows 또는 Linux에서 이 자습서에 대한 Java를 설치하는 방법을 설명합니다.
 * Maven 3.  <br/> [개발 환경 준비][lnk-dev-setup]는 Windows 또는 Linux에서 이 자습서에 대한 Maven을 설치하는 방법을 설명합니다.
-* 활성 Azure 계정. <br/>Azure 구독이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/) 을 만들 수 있습니다.
+* 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/free/) 을 만들 수 있습니다.
 
 [Azure Storage] 및 [Azure Service Bus]에 대한 기본 지식이 있어야 합니다.
 
-## <a name="send-interactive-messages-from-a-simulated-device"></a>시뮬레이트된 장치에서 대화형 메시지 보내기
-이 섹션에서는 [IoT Hub 시작] 에서 만든 시뮬레이트된 장치 응용 프로그램을 수정하여 대화형 장치-클라우드 메시지를 IoT Hub로 보냅니다.
+## <a name="send-interactive-messages-from-a-simulated-device-app"></a>시뮬레이션된 장치 앱에서 대화형 메시지 보내기
+이 섹션에서는 [simulated-device]에서 만든 시뮬레이션된 장치 앱을 수정하여 대화형 장치-클라우드 메시지를 IoT Hub로 보냅니다.
 
 1. 텍스트 편집기를 사용하여 simulated-device\src\main\java\com\mycompany\app\App.java 파일을 엽니다. 이 파일에는 **IoT Hub 시작** 자습서에서 만든 [simulated-device] 앱이 포함되어 있습니다.
 2. 다음 중첩 클래스를 **App** 클래스에 추가합니다.
@@ -114,43 +118,43 @@ IoT Hub가 [Event Hubs][lnk-event-hubs] 호환 끝점을 노출하여 장치-클
 4. simulated-device\src\main\java\com\mycompany\app\App.java 파일을 저장한 후 닫습니다.
    
    > [!NOTE]
-   > 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
+   > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 재시도 정책(예: 지수 백오프)을 구현해야 합니다.
    > 
    > 
-5. Maven을 사용하여 **simulated-device** 응용 프로그램을 빌드하려면 simulated-device 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
+5. Maven을 사용하여 **simulated-device** 앱을 빌드하려면 simulated-device 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
    
     ```
     mvn clean package -DskipTests
     ```
 
-## <a name="process-devicetocloud-messages"></a>장치-클라우드 메시지 처리
-이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 처리하는 Java 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브]와 호환되는 끝점을 노출하여 응용 프로그램이 장치-클라우드 메시지를 읽을 수 있습니다. 이 자습서에서는 [EventProcessorHost] 클래스를 사용하여 콘솔 응용 프로그램에서 이러한 메시지를 처리합니다. 이벤트 허브에서 메시지를 처리하는 방법에 대한 자세한 내용은 [이벤트 허브 시작] 자습서를 참조하세요.
+## <a name="process-device-to-cloud-messages"></a>장치-클라우드 메시지 처리
+이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 처리하는 Java 콘솔 앱을 만듭니다. IoT Hub가 [Event Hub]와 호환되는 끝점을 노출하여 응용 프로그램이 장치-클라우드 메시지를 읽을 수 있습니다. 이 자습서에서는 [EventProcessorHost] 클래스를 사용하여 콘솔 응용 프로그램에서 이러한 메시지를 처리합니다. 이벤트 허브에서 메시지를 처리하는 방법에 대한 자세한 내용은 [이벤트 허브 시작] 자습서를 참조하세요.
 
-데이터 요소 메시지 또는 대화형 메시지 전달의 신뢰할 수 있는 저장소를 구현하는 경우 주요 해결 과제는 이벤트 처리가 해당 진행 상태에 대한 검사점을 제공하기 위해 메시지 소비자에 의존한다는 점입니다. 또한 높은 처리량을 달성하기 위해 이벤트 허브에서 읽은 경우 큰 배치에서 검사점을 제공해야 합니다. 이러한 접근 방식을 사용할 경우, 오류가 발생하여 이전 검사점으로 되돌리려고 하면 많은 수의 메시지가 중복 처리될 가능성이 있습니다. 이 자습서에서는 **EventProcessorHost** 검사점을 사용하여 Azure Storage 쓰기와 서비스 버스 중복 제거 창을 동기화하는 방법이 표시됩니다.
+데이터 요소 메시지 또는 대화형 메시지 전달의 신뢰할 수 있는 저장소를 구현하는 경우 주요 해결 과제는 이벤트 처리가 해당 진행 상태에 대한 검사점을 제공하기 위해 메시지 소비자에 의존한다는 점입니다. 또한 높은 처리량을 달성하기 위해 이벤트 허브에서 읽은 경우 큰 배치에서 검사점을 제공해야 합니다. 이러한 접근 방식을 사용할 경우, 오류가 발생하여 이전 검사점으로 되돌리려고 하면 많은 수의 메시지가 중복 처리될 가능성이 있습니다. 이 자습서에서는 **EventProcessorHost** 검사점을 사용하여 Azure Storage 쓰기와 Service Bus 중복 제거 창을 동기화하는 방법이 표시됩니다.
 
-Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 Blob][Azure 블록 Blob]의 개별 블록 커밋 기능을 사용합니다. 이벤트 프로세서는 검사점을 제공할 시간이 될 때까지 메모리에 메시지를 누적합니다. 예를 들어 메시지의 누적된 버퍼가 4MB의 최대 블록 크기에 도달하거나, 서비스 버스 중복 제거 기간이 결과한 이후가 여기에 해당합니다. 그런 다음 검사점을 설정하기 전에 코드는 새 블록은 Blob에 커밋합니다.
+Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 Blob][Azure Block Blobs]의 개별 블록 커밋 기능을 사용합니다. 이벤트 프로세서는 검사점을 제공할 시간이 될 때까지 메모리에 메시지를 누적합니다. 예를 들어 메시지의 누적된 버퍼가 4MB의 최대 블록 크기에 도달하거나, 서비스 버스 중복 제거 기간이 결과한 이후가 여기에 해당합니다. 그런 다음 검사점을 설정하기 전에 코드는 새 블록은 Blob에 커밋합니다.
 
 이벤트 프로세서는 블록 ID로 이벤트 허브 메시지 오프셋을 사용합니다. 이 메커니즘을 따르면 이벤트 프로세서가 저장소에 새 블록을 커밋하기 전에 중복 제거 확인을 수행할 수 있으므로 블록 커밋과 검사점 간의 가능한 충돌이 방지됩니다.
 
 > [!NOTE]
-> 이 자습서는 단일 저장소 계정을 사용하여 IoT Hub에서 검색된 모든 메시지를 작성합니다. 솔루션에 여러 Azure 저장소 계정을 사용해야 하는 경우 [Azure 저장소 확장성 지침]을 참조하여 결정하세요.
+> 이 자습서는 단일 Azure Storage 계정을 사용하여 IoT Hub에서 검색된 모든 메시지를 작성합니다. 솔루션에 여러 Azure 저장소 계정을 사용해야 하는 경우 [Azure 저장소 확장성 지침]을 참조하여 결정하세요.
 > 
 > 
 
-응용 프로그램은 서비스 버스 중복 제거 기능을 사용하여 대화형 메시지를 처리할 때 중복을 방지합니다. 시뮬레이션된 장치는 고유한 **MessageId**를 사용하여 각 대화형 메시지를 스탬프 처리합니다. 이를 통해 서비스 버스는 지정된 중복 제거 기간에 동일한 **MessageId** 를 갖는 어느 두 개의 메시지도 수신자에게 전달되지 않도록 할 수 있습니다. 해당 중복 제거는 서비스 버스 큐에서 제공된 메시지당 완료 의미 체계와 함께 대화형 메시지를 안정적으로 처리하도록 구현할 수 있게 합니다.
+응용 프로그램은 서비스 버스 중복 제거 기능을 사용하여 대화형 메시지를 처리할 때 중복을 방지합니다. 시뮬레이션된 장치 앱은 고유한 **MessageId**를 사용하여 각 대화형 메시지를 스탬프 처리합니다. 이를 통해 서비스 버스는 지정된 중복 제거 기간에 동일한 **MessageId** 를 갖는 어느 두 개의 메시지도 수신자에게 전달되지 않도록 할 수 있습니다. 해당 중복 제거는 서비스 버스 큐에서 제공된 메시지당 완료 의미 체계와 함께 대화형 메시지를 안정적으로 처리하도록 구현할 수 있게 합니다.
 
 메시지가 중복 제거 창 외부에서 다시 전송되지 않도록 하려면 코드가 **EventProcessorHost** 검사점 메커니즘을 서비스 버스 큐 중복 제거 창과 동기화합니다. 중복 제거 창이 경과(이 자습서에서 1시간)될 때마다 검사점을 최소 한 번 강제 적용하여 이러한 동기화가 수행됩니다.
 
 > [!NOTE]
-> 이 자습서에서는 단일 분할된 서비스 버스 큐를 사용하여 IoT Hub에서 검색된 모든 대화형 메시지를 처리합니다. 서비스 버스 큐를 사용하여 솔루션의 확장성 요구를 충족하는 방법에 대한 자세한 내용은 [Azure 서비스 버스] 설명서를 참조하세요.
+> 이 자습서에서는 단일 분할된 서비스 버스 큐를 사용하여 IoT Hub에서 검색된 모든 대화형 메시지를 처리합니다. 서비스 버스 큐를 사용하여 솔루션의 확장성 요구를 충족하는 방법에 대한 자세한 내용은 [Azure Service Bus] 설명서를 참조하세요.
 > 
 > 
 
 ### <a name="provision-an-azure-storage-account-and-a-service-bus-queue"></a>Azure 저장소 계정 및 서비스 버스 큐 프로비전
-[EventProcessorHost] 클래스를 사용하기 위해서는 **EventProcessorHost** 검사점 정보를 기록하도록 하는 Azure Storage 계정이 있어야 합니다. 기존 저장소 계정을 사용하거나 [Azure 저장소 정보] 의 지침에 따라 새 계정을 만들 수 있습니다. 저장소 계정 연결 문자열을 기록해 둡니다.
+[EventProcessorHost] 클래스를 사용하기 위해서는 **EventProcessorHost** 검사점 정보를 기록하도록 하는 Azure Storage 계정이 있어야 합니다. 기존 Azure Storage 계정을 사용하거나 [Azure Storage 정보]의 지침에 따라 새 계정을 만들 수 있습니다. Azure Storage 계정 연결 문자열을 기록해 둡니다.
 
 > [!NOTE]
-> 저장소 계정 연결 문자열을 복사하여 붙여 넣는 경우 공백이 없는지 확인합니다.
+> Azure Storage 계정 연결 문자열을 복사하여 붙여 넣는 경우 공백이 없는지 확인합니다.
 > 
 > 
 
@@ -164,11 +168,11 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
     ![Azure 포털에서 큐 구성][31]
 
 ### <a name="create-the-event-processor"></a>이벤트 프로세서 만들기
-이 섹션에서는 이벤트 허브 호환 끝점의 메시지를 처리하는 Java 응용 프로그램을 만듭니다.
+이 섹션에서는 Event Hub 호환 끝점의 메시지를 처리하는 Java 응용 프로그램을 만듭니다.
 
-첫 번째 작업은 IoT Hub 이벤트 허브 호환 끝점에서 장치-클라우드 메시지를 받아 다른 백 엔드 서비스로 보내는 **process-d2c-messages** 라는 Maven 프로젝트를 추가하는 것입니다.
+첫 번째 작업은 IoT Hub Event Hub 호환 끝점에서 장치-클라우드 메시지를 받아 다른 백 엔드 서비스로 보내는 **process-d2c-messages**라는 Maven 프로젝트를 추가하는 것입니다.
 
-1. 명령 프롬프트에서 다음 명령을 사용하여 [IoT Hub 시작] 자습서에서 만든 iot-java-get-started 폴더에 **read-d2c-messages** 라는 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
+1. 명령 프롬프트에서 다음 명령을 사용하여 [simulated-device] 자습서에서 만든 iot-java-get-started 폴더에 **read-d2c-messages** 라는 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=process-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -224,7 +228,7 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
 **AppendAndCheckPoint** 메서드는 먼저 blob에 추가될 블록에 대한 **blockId**를 생성합니다. Azure Storage는 모든 블록 ID가 동일한 길이를 갖도록 하므로 메서드는 선행 0으로 오프셋을 채웁니다. 그런 다음 해당 ID의 블록이 이미 Blob에 있는 경우 메서드는 현재 블록 내용으로 덮어씁니다.
 
 > [!NOTE]
-> 코드를 단순화하기 위해 이 자습서는 파티션당 단일 Blob 파일을 사용하여 메시지를 저장합니다. 실제 솔루션은 특정 기간이 결과한 후에 또는 특정 크기에 도달할 때 추가 파일을 만들어 파일 롤링을 구현합니다. Azure 블록 Blob는 최대 195GB의 데이터를 포함할 수 있습니다.
+> 코드를 단순화하기 위해 이 자습서는 파티션당 단일 Blob을 사용하여 메시지를 저장합니다. 실제 솔루션은 특정 기간이 결과한 후에 또는 특정 크기에 도달할 때 추가 파일을 만들어 파일 롤링을 구현합니다. Azure 블록 Blob는 최대 195GB의 데이터를 포함할 수 있습니다.
 > 
 > 
 
@@ -425,7 +429,7 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
     import java.security.InvalidKeyException;
     import java.util.concurrent.*;
     ```
-3. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{yourstorageaccountconnectionstring}** 을(를) 이전에 [Azure Storage 계정 및 서비스 버스 큐 프로비전](#provision-an-azure-storage-account-and-a-service-bus-queue) 섹션에서 적어둔 Azure Storage 계정 연결 문자열로 바꿉니다.
+3. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{yourstorageaccountconnectionstring}**을(를) 이전에 [Azure Storage 계정 및 Service Bus 큐 프로비전](#provision-an-azure-storage-account-and-a-service-bus-queue) 섹션에서 적어둔 Azure Storage 계정 연결 문자열로 바꿉니다.
    
     ```
     private final static String storageConnectionString = "{yourstorageaccountconnectionstring}";
@@ -438,7 +442,7 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
     private final static String serviceBusSASKey = "{yourservicebussendkey}";
     private final static String serviceBusRootUri = ".servicebus.windows.net";
     ```
-5. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{youreventhubcompatibleendpoint}**을(를) 이벤트 허브 호환 끝점 이름으로 바꿉니다. 끝점 이름은 **ihs....namespace**와 같이 보이므로 **sb://** 접두사 및 **.servicebus.windows.net/** 접미사를 제거해야 합니다. **{youreventhubcompatiblename}**을(를) 이벤트 허브 호환 이름으로 바꿉니다. **{youriothubkey}**를 **iothubowner ** 키와 바꿉니다. *Java용 Azure IoT Hub 시작* 자습서의 [IoT Hub 만들기][lnk-create-an-iot-hub] 섹션에서 다음 값을 적어두었을 것입니다.
+5. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{youreventhubcompatibleendpoint}**을(를) 이벤트 허브 호환 끝점 값으로 바꿉니다. 끝점 값은 **ihs....namespace**와 같이 보이므로 **sb://** 접두사 및 **.servicebus.windows.net/** 접미사를 제거해야 합니다. **{youreventhubcompatiblename}**을(를) 이벤트 허브 호환 이름으로 바꿉니다. **{youriothubkey}**를 **iothubowner ** 키와 바꿉니다. *Java용 Azure IoT Hub 시작* 자습서의 [IoT Hub 만들기][lnk-create-an-iot-hub] 섹션에서 다음 값을 적어두었을 것입니다.
    
     ```
     private final static String consumerGroupName = "$Default";
@@ -531,7 +535,7 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
 
 첫 번째 작업은 **EventProcessor** 인스턴스에서 Service Bus 큐에 전송된 메시지를 수신하는 **process-interactive-messages**라는 Maven 프로젝트를 추가하는 것입니다.
 
-1. 명령 프롬프트에서 다음 명령을 사용하여 [IoT Hub 시작] 자습서에서 만든 iot-java-get-started 폴더에 **process-interactive-messages** 라는 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
+1. 명령 프롬프트에서 다음 명령을 사용하여 [simulated-device] 자습서에서 만든 iot-java-get-started 폴더에 **process-interactive-messages** 라는 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=process-interactive-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -660,7 +664,7 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
    ```
    
    ![process-d2c-messages 실행][processd2c]
-3. **simulated-device** 응용 프로그램을 실행하려면 명령 프롬프트 또는 셸에서 simulated-device 폴더로 이동한 후 다음 명령을 실행합니다.
+3. **simulated-device** 앱을 실행하려면 명령 프롬프트 또는 셸에서 simulated-device 폴더로 이동한 후 다음 명령을 실행합니다.
    
    ```
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -669,7 +673,7 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
    ![simulated-device 실행][simulateddevice]
 
 > [!NOTE]
-> Blob 파일의 업데이트를 보려면 **StoreEventProcessor** 클래스의 **MAX_BLOCK_SIZE** 상수를 **1024**와 같은 더 작은 값으로 줄여야 합니다. 시뮬레이션된 장치에서 보낸 데이터로 블록 크기 제한에 도달하는데 시간이 걸리기 때문에 이렇게 변경하는 것이 좋습니다. 블록 크기가 작을수록 Blob가 만들어지고 업데이트되는 과정을 오래 기다리지 않습니다. 그러나 더 큰 블록 크기를 사용하면 응용 프로그램을 더 확장할 수 있습니다.
+> Blob의 업데이트를 보려면 **StoreEventProcessor** 클래스의 **MAX_BLOCK_SIZE** 상수를 **1024**와 같은 더 작은 값으로 줄여야 합니다. 시뮬레이션된 장치 앱에서 보낸 데이터로 블록 크기 제한에 도달하는데 시간이 걸리기 때문에 이렇게 변경하는 것이 좋습니다. 블록 크기가 작을수록 Blob가 만들어지고 업데이트되는 과정을 오래 기다리지 않습니다. 그러나 더 큰 블록 크기를 사용하면 응용 프로그램을 더 확장할 수 있습니다.
 > 
 > 
 
@@ -692,18 +696,18 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 
 <!-- Links -->
 
-[Azure Blob 저장소]: ../storage/storage-dotnet-how-to-use-blobs.md
+[Azure Blob Storage]: ../storage/storage-dotnet-how-to-use-blobs.md
 [Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight(Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [Azure 서비스 버스 큐]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
 [Azure IoT Hub 개발자 가이드 - 장치-클라우드]: iot-hub-devguide-messaging.md
 
-[Azure 저장소]: https://azure.microsoft.com/documentation/services/storage/
-[Azure 서비스 버스]: https://azure.microsoft.com/documentation/services/service-bus/
+[Azure Storage]: https://azure.microsoft.com/documentation/services/storage/
+[Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
 
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
-[IoT Hub 시작]: iot-hub-java-java-getstarted.md
+[simulated-device]: iot-hub-java-java-getstarted.md
 [Azure IoT 개발자 센터]: https://azure.microsoft.com/develop/iot
 [lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
@@ -711,11 +715,11 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [일시적인 오류 처리]: https://msdn.microsoft.com/library/hh675232.aspx
 
 <!-- Links -->
-[Azure 저장소 정보]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Azure Storage 정보]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [이벤트 허브 시작]: ../event-hubs/event-hubs-java-ephjava-getstarted.md
 [Azure 저장소 확장성 지침]: ../storage/storage-scalability-targets.md
-[Azure 블록 Blob]: https://msdn.microsoft.com/library/azure/ee691964.aspx
-[이벤트 허브]: ../event-hubs/event-hubs-overview.md
+[Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
+[Event Hubs]: ../event-hubs/event-hubs-overview.md
 [EventProcessorHost]: https://github.com/Azure/azure-event-hubs/tree/master/java/azure-eventhubs-eph
 [일시적인 오류 처리]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
@@ -727,6 +731,7 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [lnk-create-an-iot-hub]: iot-hub-java-java-getstarted.md#create-an-iot-hub
 
 
-<!---HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 

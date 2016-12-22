@@ -1,22 +1,26 @@
 ---
-title: '자습서: Lesson.ly와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 Lesson.ly 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Lesson.ly와 Azure Active Directory 통합 | Microsoft 문서"
+description: "Azure Active Directory와 Lesson.ly 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8c9dc6e6-5d85-4553-8a35-c7137064b928
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/21/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 33f4c13930017bdcbaf899b16d32ba84bdfbf9ee
+ms.openlocfilehash: e51deb2cb890669c4800c232e2b781c5f27117f2
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-lesson.ly"></a>자습서: Lesson.ly와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>자습서: Lesson.ly와 Azure Active Directory 통합
 이 자습서에서는 Lesson.ly와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 Lesson.ly를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -51,7 +55,7 @@ Lesson.ly와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다
 1. 갤러리에서 Lesson.ly 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
-## <a name="adding-lesson.ly-from-the-gallery"></a>갤러리에서 Lesson.ly 추가
+## <a name="adding-lessonly-from-the-gallery"></a>갤러리에서 Lesson.ly 추가
 Lesson.ly의 Azure AD 통합을 구성하려면 갤러리의 Lesson.ly를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 Lesson.ly를 추가하려면 다음 단계를 수행합니다.**
@@ -127,7 +131,7 @@ Lesson.ly 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하
    
     ![Single Sign-On 구성](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_04.png) 
 
-    a. 로그인 URL 텍스트 상자에 다음의 **“https://companyname.Lesson.ly/signin”**패턴을 사용하여 사용자가 Lesson.ly 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다. **companyname** 을 실제 이름으로 교체해야 하는 일반 이름을 참조하는 경우
+    a. 로그인 URL 텍스트 상자에 다음의 **“https://companyname.lesson.ly/signin”**패턴을 사용하여 사용자가 Lessonly 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다. **companyname** 을 실제 이름으로 교체해야 하는 일반 이름을 참조하는 경우
 
 
 1. **Lesson.ly에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
@@ -137,7 +141,7 @@ Lesson.ly 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
     b. **다음**을 클릭합니다.
-2. 응용 프로그램에 대해 SSO를 구성하려면 dev@lesson.ly. 다운로드한 인증서 파일을 메일에 첨부하고 해당하는 쪽에 SSO를 설정하기 위해 Lesson.ly 팀과 메타데이터 URL(엔터티 ID, SSO 로그인 URL 및 로그아웃 URL)을 공유합니다.
+2. 응용 프로그램에 대해 SSO를 구성하려면 dev@lessonly.com. 다운로드한 인증서 파일을 메일에 첨부하고 해당하는 쪽에 SSO를 설정하기 위해 Lesson.ly 팀과 메타데이터 URL(엔터티 ID, SSO 로그인 URL 및 로그아웃 URL)을 공유합니다.
 3. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
    
    ![Azure AD Single Sign-On][10]
@@ -173,17 +177,18 @@ Lesson.ly 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하
     c. **다음**을 클릭합니다.
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lessonly-tutorial/create_aaduser_06.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lessonly-tutorial/create_aaduser_06.png) 
    
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
    
-   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
+    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
    
-   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
    
-   d. **역할** 목록에서 **사용자**를 선택합니다.
+    d. **역할** 목록에서 **사용자**를 선택합니다.
    
-   e. **다음**을 클릭합니다.
+    e. **다음**을 클릭합니다.
+
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lessonly-tutorial/create_aaduser_07.png) 
@@ -195,7 +200,7 @@ Lesson.ly 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하
    
     b. **완료**를 클릭합니다.   
 
-### <a name="creating-a-lesson.ly-test-user"></a>Lesson.ly 테스트 사용자 만들기
+### <a name="creating-a-lessonly-test-user"></a>Lesson.ly 테스트 사용자 만들기
 이 섹션은 Lesson.ly에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Lesson.ly는 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정합니다.
 
 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Lesson.ly에 액세스하는 동안 만들어질 수 있습니다. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on)
@@ -255,6 +260,6 @@ Lesson.ly 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

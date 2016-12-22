@@ -1,39 +1,47 @@
 ---
-title: Azure 보안 센터에서 Endpoint Protection 설치 | Microsoft Docs
-description: 이 문서에서는 Azure 보안 센터 권장 사항 **Endpoint Protection 설치**를 구현하는 방법을 보여 줍니다.
+title: "Azure Security Center에서 Endpoint Protection 설치 | Microsoft Docs"
+description: "이 문서에서는 Azure 보안 센터 권장 사항 **Endpoint Protection 설치**를 구현하는 방법을 보여 줍니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/23/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: b8a69d89f335c00c5ddc3c201e33a66e1dea1da5
+ms.openlocfilehash: 6ccb5367b1c7c6cae7b9d35b6a5471c8edfe6f85
+
 
 ---
-# Azure 보안 센터에서 Endpoint Protection 설치
-Azure 보안 센터에서는 맬웨어 방지 기능을 아직 사용하지 않는 경우 Azure 가상 컴퓨터(VM)에 맬웨어 방지 프로그램을 프로비전하도록 권장합니다. 이 권장 사항은 Windows VM에만 적용됩니다.
+# <a name="install-endpoint-protection-in-azure-security-center"></a>Azure 보안 센터에서 Endpoint Protection 설치
+Azure 보안 센터에서는 맬웨어 방지 기능을 아직 사용하지 않는 경우 Azure 가상 컴퓨터(VM)에 맬웨어 방지 프로그램을 프로비전하도록 권장합니다. 이 권장 사항은 Windows VM에만 적용됩니다. 현재는 Windows Defender 또는 TrendMicro Deep Security 중 하나가 있는지를 확인합니다. 향후에는 추가 끝점 보호 솔루션이 추가될 예정입니다.
 
 > [!NOTE]
-> 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
-> 
-> 
+> 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  단계별 가이드는 아닙니다.
+>
+>
 
-## 권장 사항 구현
-1. **권장 사항** 블레이드에서 **Endpoint Protection 설치**를 선택합니다. ![Endpoint Protection 설치 선택][1]
-2. 맬웨어 방지 프로그램을 사용하지 않는 VM의 목록을 표시하는 **Endpoint Protection 설치** 블레이드가 열립니다. 목록에서 맬웨어 방지 프로그램을 설치하려는 VM을 선택하고 **VM에 설치**를 클릭합니다. ![맬웨어 방지 프로그램을 설치할 VM 선택][2]
-3. 사용할 맬웨어 방지 솔루션을 선택할 수 있는 **Endpoint Protection 선택** 블레이드가 열립니다. 이 예제에서는 **Microsoft 맬웨어 방지 프로그램**을 선택합니다. ![Endpoint Protection 선택][3]
-4. 맬웨어 방지 솔루션에 대한 추가 정보가 표시됩니다. **만들기**를 선택합니다. ![맬웨어 방지 솔루션 만들기][4]
+## <a name="implement-the-recommendation"></a>권장 사항 구현
+1. **권장 사항** 블레이드에서 **Endpoint Protection 설치**를 선택합니다.
+   ![Endpoint Protection 설치 선택][1]
+2. 맬웨어 방지 프로그램을 사용하지 않는 VM의 목록을 표시하는 **Endpoint Protection 설치** 블레이드가 열립니다. 목록에서 맬웨어 방지 프로그램을 설치하려는 VM을 선택하고 **VM에 설치**를 클릭합니다.
+   ![맬웨어 방지 프로그램을 설치할 VM 선택][2]
+3. 사용할 맬웨어 방지 솔루션을 선택할 수 있는 **Endpoint Protection 선택** 블레이드가 열립니다. 이 예제에서는 **Microsoft 맬웨어 방지 프로그램**을 선택합니다.
+   ![Endpoint Protection 선택][3]
+4. 맬웨어 방지 솔루션에 대한 추가 정보가 표시됩니다. **만들기**를 선택합니다.
+   ![맬웨어 방지 솔루션 만들기][4]
 5. **확장 추가** 블레이드에서 필요한 구성 설정을 입력하고 **확인**을 선택합니다. 구성 설정에 대한 자세한 내용은 [기본 및 사용자 지정 맬웨어 방지 구성](../security/azure-security-antimalware.md#default-and-custom-antimalware-configuration)을 참조하세요.
 
-이제 선택한 VM에서 [Microsoft 맬웨어 방지 프로그램](../security/azure-security-antimalware.md)이 활성화됩니다.
+선택한 VM에서 [Microsoft 맬웨어 방지 프로그램](../security/azure-security-antimalware.md)이 활성화됩니다.
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 이 문서에서는 보안 센터 권장 사항 "Endpoint Protection 설치"를 구현하는 방법을 보여 주었습니다. Azure에서 맬웨어 방지 프로그램을 사용하도록 설정하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * [클라우드 서비스 및 가상 컴퓨터용 Microsoft 맬웨어 방지 프로그램](../security/azure-security-antimalware.md) -- Microsoft 맬웨어 방지 프로그램을 배포하는 방법을 알아봅니다.
@@ -49,9 +57,13 @@ Azure 보안 센터에서는 맬웨어 방지 기능을 아직 사용하지 않�
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) -- Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
 <!--Image references-->
-[1]: ./media/security-center-install-endpoint-protection/select-install-endpoint-protection.png
-[2]: ./media/security-center-install-endpoint-protection/install-endpoint-protection-blade.png
-[3]: ./media/security-center-install-endpoint-protection/select-endpoint-protection.png
-[4]: ./media/security-center-install-endpoint-protection/create-antimalware-solution.png
+[1]:./media/security-center-install-endpoint-protection/select-install-endpoint-protection.png
+[2]:./media/security-center-install-endpoint-protection/install-endpoint-protection-blade.png
+[3]:./media/security-center-install-endpoint-protection/select-endpoint-protection.png
+[4]:./media/security-center-install-endpoint-protection/create-antimalware-solution.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO4-->
+
+

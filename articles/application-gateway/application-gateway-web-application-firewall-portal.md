@@ -1,36 +1,42 @@
 ---
-title: 포털을 사용하여 웹 응용 프로그램 방화벽이 있는 Application Gateway 만들기 | Microsoft Docs
-description: 포털을 사용하여 웹 응용 프로그램 방화벽이 있는 Application Gateway를 만드는 방법에 대해 알아보기
+title: "포털을 사용하여 웹 응용 프로그램 방화벽이 있는 Application Gateway 만들기 | Microsoft Docs"
+description: "포털을 사용하여 웹 응용 프로그램 방화벽이 있는 Application Gateway를 만드는 방법에 대해 알아보기"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.date: 11/16/2016
 ms.author: gwallace
+translationtype: Human Translation
+ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
+ms.openlocfilehash: 216b3890cde6f41c33aa34f23d7e103322d9b502
+
 
 ---
 # <a name="create-an-application-gateway-with-web-application-firewall-by-using-the-portal"></a>포털을 사용하여 웹 응용 프로그램 방화벽이 있는 Application Gateway 만들기
+
 > [!div class="op_single_selector"]
 > * [Azure 포털](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
 > 
 > 
 
+Azure Application Gateway의 웹 응용 프로그램 방화벽(WAF)은 SQL 삽입 공격, 사이트 간 스크립팅 공격, 세션 하이재킹 등의 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다. 웹 응용 프로그램은 다양한 OWASP 상위 10 일반적인 웹 취약점으로부터 보호합니다.
+
 Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다.
 응용 프로그램은 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC(Application Delivery Controller)를 제공합니다.
 지원되는 기능의 전체 목록을 찾으려면 [Application Gateway 개요](application-gateway-introduction.md)
 
-Azure Application Gateway의 웹 응용 프로그램 방화벽(WAF)은 SQL 삽입 공격, 사이트 간 스크립팅 공격, 세션 하이재킹 등의 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다.
-
 ## <a name="scenarios"></a>시나리오
+
 이 문서에는 두 가지 시나리오가 있습니다.
 
 첫 번째 시나리오에서는 [기존 Application Gateway에 웹 응용 프로그램 방화벽을 추가하는 방법](#add-web-application-firewall-to-an-existing-application-gateway)에 대해 알아봅니다.
@@ -45,17 +51,21 @@ Azure Application Gateway의 웹 응용 프로그램 방화벽(WAF)은 SQL 삽�
 > 
 
 ## <a name="before-you-begin"></a>시작하기 전에
+
 Azure 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니다. 가상 네트워크를 만들 때 여러 서브넷을 둘 수 있는 충분한 주소 공간이 있는지 확인합니다. Application Gateway를 서브넷에 배포한 경우 추가 Application Gateway를 서브넷에 추가할 수 있습니다.
 
 ## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>기존 Application Gateway에 웹 응용 프로그램 방화벽을 추가하는 방법
+
 이 시나리오에서는 방지 모드에서 웹 응용 프로그램 방화벽을 지원하도록 기존 Application Gateway를 업데이트합니다.
 
 ### <a name="step-1"></a>1단계
+
 Azure Portal로 이동하여 기존 Application Gateway를 선택합니다.
 
 ![Application Gateway 만들기][1]
 
 ### <a name="step-2"></a>2단계
+
 **구성** 을 클릭하고 Application Gateway 설정을 업데이트합니다. 완료되면 **저장**
 
 웹 응용 프로그램 방화벽을 지원하도록 기존 Application Gateway를 업데이트하는 설정은 다음과 같습니다.
@@ -73,6 +83,7 @@ Azure Portal로 이동하여 기존 Application Gateway를 선택합니다.
 > 
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>웹 응용 프로그램 방화벽을 사용하여 Application Gateway를 만드는 방법
+
 이 시나리오에서는 다음을 수행합니다.
 
 * 두 인스턴스를 사용하여 중형 웹 응용 프로그램 방화벽 Application Gateway를 만듭니다.
@@ -81,11 +92,13 @@ Azure Portal로 이동하여 기존 Application Gateway를 선택합니다.
 * SSL 오프로드용 인증서를 구성합니다.
 
 ### <a name="step-1"></a>1단계
+
 Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 프로그램 게이트웨이**를 클릭합니다.
 
 ![Application Gateway 만들기][1-1]
 
 ### <a name="step-2"></a>2단계
+
 응용 프로그램 게이트웨이에 대한 기본 정보를 입력합니다. 계층으로 **WAF** 를 선택해야 합니다. 완료되면 **확인**
 
 기본 설정에 필요한 정보는 다음과 같습니다.
@@ -105,6 +118,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 > 
 
 ### <a name="step-3"></a>3단계
+
 기본 설정을 정의한 후에는 사용할 가상 네트워크를 정의합니다. 가상 네트워크는 Application Gateway에서 부하를 분산하는 응용 프로그램을 수용합니다.
 
 **가상 네트워크 선택** 을 클릭하여 가상 네트워크를 구성합니다.
@@ -112,18 +126,21 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 ![응용 프로그램 게이트웨이에 대한 설정이 표시된 블레이드][3]
 
 ### <a name="step-4"></a>4단계
-**가상 네트워크 선택** 블레이드에서 **새로 만들기**를 클릭합니다.
+
+ **가상 네트워크 선택** 블레이드에서 **새로 만들기**
 
 이 시나리오에는 설명되어 있지 않지만 여기서 기존 Virtual Network를 선택할 수도 있습니다.  기존 가상 네트워크를 사용하는 경우 해당 가상 네트워크에 사용할 빈 서브넷 또는 Application Gateway 리소스의 서브넷이 필요합니다.
 
 ![가상 네트워크 선택 블레이드][4]
 
 ### <a name="step-5"></a>5단계
+
 위 **시나리오** 설명에 따라 [가상 네트워크 만들기](#scenario) 블레이드에서 네트워크 정보를 입력합니다.
 
 ![정보가 입력된 가상 네트워크 만들기 블레이드][5]
 
 ### <a name="step-6"></a>6단계
+
 가상 네트워크를 만든 후에는 응용 프로그램 게이트웨이에 대한 프런트 엔드 IP를 정의합니다. 이 시점에서는 프런트 엔드에 대해 공용 또는 개인 IP 주소를 선택합니다. 응용 프로그램이 인터넷 연결용인지 내부용인지에 따라 선택이 달라집니다. 이 시나리오에서는 공용 IP 주소를 사용하는 것으로 가정합니다. 개인 IP 주소를 선택하려면 **개인** 단추를 클릭하면 됩니다. 자동으로 할당된 IP 주소가 선택되거나, **특정 개인 IP 주소 선택** 확인란을 클릭하여 수동으로 입력할 수 있습니다.
 
 **공용 IP 주소 선택**을 클릭합니다. 기존 공용 IP 주소를 사용할 수 있는 경우 이 시점에서 선택될 수 있지만 이 시나리오에서는 새 공용 IP 주소를 만듭니다.  **Create new**
@@ -131,11 +148,13 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 ![공용 IP 주소 선택 블레이드][6]
 
 ### <a name="step-7"></a>7단계
+
 공용 IP 주소의 이름을 지정하고 **확인**
 
 ![공용 IP 주소 만들기 블레이드][7]
 
 ### <a name="step-8"></a>8단계
+
 다음으로 수신기 구성을 설정합니다.  **http**가 사용되는 경우 구성할 항목이 더 이상 없으므로 **확인**을 클릭하면 됩니다. **https** 를 사용하려면 추가 구성이 필요합니다.
 
 **https**를 사용하려면 인증서가 필요합니다. 인증서의 개인 키가 필요하므로 인증서의 .pfx 내보내기 및 파일의 암호를 제공해야 합니다.
@@ -148,6 +167,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 ![설정 블레이드의 수신기 구성 섹션][8]
 
 ### <a name="step-9"></a>9단계
+
 **WAF** 설정을 구성합니다.
 
 * **방화벽 상태** - 이 설정은 WAF를 켜고 끕니다.
@@ -156,9 +176,11 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 ![웹 응용 프로그램 방화벽 설정][9]
 
 ### <a name="step-10"></a>10단계
+
 요약 페이지를 검토하고 **확인**을 클릭합니다.  이제 응용 프로그램 게이트웨이가 만들어지고 대기 상태가 됩니다.
 
-### <a name="step-12"></a>12단계
+### <a name="step-11"></a>11단계
+
 응용 프로그램 게이트웨이를 만든 후에는 포털에서 해당 응용 프로그램 게이트웨이로 이동하여 응용 프로그램 게이트웨이 구성을 계속합니다.
 
 ![응용 프로그램 게이트웨이 리소스 보기][10]
@@ -166,6 +188,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 이러한 단계에서는 수신기, 백 엔드 풀, 백 엔드 http 설정 및 규칙에 대한 기본 설정으로 기본 Application Gateway를 만듭니다. 프로비전에 성공하면 배포에 맞게 이러한 설정을 수정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
  [Application Gateway 진단](application-gateway-diagnostics.md)
 
  [사용자 지정 상태 프로브 만들기](application-gateway-create-probe-portal.md)
@@ -188,6 +211,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 [scenario]: ./media/application-gateway-web-application-firewall-portal/scenario.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 
