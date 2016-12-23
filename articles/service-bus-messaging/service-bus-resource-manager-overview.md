@@ -1,25 +1,29 @@
 ---
-title: Azure Resource Manager 템플릿을 사용하여 서비스 버스 리소스 만들기 | Microsoft Docs
-description: Azure Resource Manager 템플릿을 사용하여 자동으로 서비스 버스 리소스 만들기
-services: service-bus
+title: "Azure Resource Manager 템플릿을 사용하여 Service Bus 리소스 만들기 | Microsoft Docs"
+description: "Azure Resource Manager 템플릿을 사용하여 자동으로 서비스 버스 리소스 만들기"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 10/14/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 182b4378cfd876d3700a1f0028a681ce936be03c
+ms.openlocfilehash: 1425628c6e0c544b5b84a4f828bfaef3073fddee
+
 
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 서비스 버스 리소스 만들기
-이 문서에서는 Azure Resource Manager 템플릿, PowerShell 및 서비스 버스 리소스 공급자를 사용하여 서비스 버스와 이벤트 허브를 만들어 배포하는 방법을 보여줍니다.
+이 문서에서는 Azure Resource Manager 템플릿, PowerShell 및 Service Bus 리소스 공급자를 사용하여 Service Bus 리소스를 만들어 배포하는 방법을 설명합니다.
 
-Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. Azure Resource Manager 템플릿 작성에 대한 자세한 내용과 템플릿 형식에 대한 논의는 [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요. 
+Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. Azure Resource Manager 템플릿 작성에 대한 자세한 내용과 템플릿 형식에 대한 논의는 [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
 
 > [!NOTE]
 > 이 문서의 예제에서는 Azure Resource Manager를 사용하여 서비스 버스 네임스페이스와 메시징 엔터티(큐)를 만드는 방법을 보여 줍니다. 다른 템플릿 예제는 [Azure 빠른 시작 템플릿 갤러리][Azure 빠른 시작 템플릿 갤러리]를 방문하고 "Service Bus"를 검색하세요.
@@ -27,15 +31,15 @@ Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 �
 > 
 
 ## <a name="service-bus-and-event-hubs-resource-manager-templates"></a>서비스 버스 및 이벤트 허브 리소스 관리자 템플릿
-이러한 서비스 버스와 이벤트 허브 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다. 각각에 대한 자세한 내용은 GitHub의 템플릿에 대한 링크가 포함된 다음 링크를 클릭하세요. 
+이러한 Service Bus Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다. 각각에 대한 자세한 내용은 GitHub의 템플릿에 대한 링크가 포함된 다음 링크를 클릭하세요.
 
 * [서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
 * [큐가 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
 * [토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
 * [큐 및 권한 부여 규칙이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
-* [이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스 만들기](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
+* [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
 다음 절차에서는 **표준** 계층 Service Bus 네임스페이스와, 네임스페이스 안의 큐를 만드는 Azure Resource Manager 템플릿을 PowerShell을 사용하여 배포하는 방법을 설명합니다. 이 예제는 [큐가 있는 Service Bus 네임스페이스 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) 템플릿을 기초로 합니다. 대략적인 워크플로 다음과 같습니다.
 
 1. PowerShell을 설치합니다.
@@ -48,7 +52,7 @@ Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 �
 
 Azure Resource Manager 배포 템플릿에 대한 모든 내용은 [Azure Resource Manager 템플릿으로 리소스 배포][Azure Resource Manager 템플릿으로 리소스 배포]를 참조하세요.
 
-### <a name="install-powershell"></a>PowerShell 설치
+### <a name="install-powershell"></a>PowerShell 설치 
 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)의 지침에 따라 Azure PowerShell을 설치합니다.
 
 ### <a name="create-a-template"></a>템플릿 만들기
@@ -120,8 +124,8 @@ GitHub에서 [201-servicebus-create-queue](https://github.com/Azure/azure-quicks
 }
 ```
 
-### <a name="create-a-parameters-file-(optional)"></a>매개 변수 파일 만들기(옵션)
-옵션인 매개 변수 파일을 사용하려면 [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) 파일을 복사합니다. `serviceBusNamespaceName` 값을 이 배포에 만들려는 서비스 버스 네임스페이스의 이름으로 바꾸고, `serviceBusQueueName` 값을 만들려는 큐의 이름으로 바꿉니다. 
+### <a name="create-a-parameters-file-optional"></a>매개 변수 파일 만들기(옵션)
+옵션인 매개 변수 파일을 사용하려면 [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) 파일을 복사합니다. `serviceBusNamespaceName` 값을 이 배포에 만들려는 서비스 버스 네임스페이스의 이름으로 바꾸고, `serviceBusQueueName` 값을 만들려는 큐의 이름으로 바꿉니다.
 
 ```
 {
@@ -141,7 +145,7 @@ GitHub에서 [201-servicebus-create-queue](https://github.com/Azure/azure-quicks
 }
 ```
 
-자세한 내용은 [매개 변수 파일](../resource-group-template-deploy.md#parameter-file) 항목을 참조하세요.
+자세한 내용은 [매개 변수 파일](../resource-group-template-deploy.md#parameter-precedence) 항목을 참조하세요.
 
 ### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Azure에 로그인하고 Azure 구독 설정
 PowerShell 프롬프트에서 다음 명령을 실행합니다.
@@ -210,7 +214,7 @@ New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyD
 [전체](../resource-group-template-deploy.md#incremental-and-complete-deployments) 배포를 실행하려면 **Mode** 매개 변수를 **Complete**로 설정합니다.
 
 ```
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ### <a name="verify-the-deployment"></a>배포 확인
@@ -239,11 +243,12 @@ Parameters        :
 * [Azure Resource Manager 템플릿으로 리소스 배포][Azure Resource Manager 템플릿으로 리소스 배포]
 * [템플릿 작성](../resource-group-authoring-templates.md)
 
-[Azure Resource Manager 개요]: ../resource-group-overview.md
+[Azure Resource Manager 개요]: ../azure-resource-manager/resource-group-overview.md
 [Azure Resource Manager 템플릿으로 리소스 배포]: ../resource-group-template-deploy.md
 [Azure 빠른 시작 템플릿 갤러리]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 
