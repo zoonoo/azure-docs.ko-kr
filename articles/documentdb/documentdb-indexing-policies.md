@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/11/2016
+ms.date: 12/22/2016
 ms.author: arramac
 translationtype: Human Translation
 ms.sourcegitcommit: 994fb8080f053ae3eb72eb1dda92bd5aa46c6988
@@ -96,9 +96,8 @@ DocumentDB는 없음 인덱싱 모드를 사용할 경우 컬렉션에 대해 �
 
 다음 코드 샘플은 모든 문서 삽입에 일관된 인덱싱을 사용하여 .NET SDK로 DocumentDB 컬렉션을 만드는 방법을 보여 줍니다.
 
-     // Default collection creates a hash index for all string and numeric    
-     // fields. Hash indexes are compact and offer efficient
-     // performance for equality queries.
+     // Default collection creates a hash index for all string fields and a range index for all numeric    
+     // fields. Hash indexes are compact and offer efficient performance for equality queries.
 
      var collection = new DocumentCollection { Id ="defaultCollection" };
 
