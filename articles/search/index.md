@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "작업 모니터링을 포함하는 강력한 검색 기능을 사용자 지정 웹 또는 모바일 응용 프로그램에 추가하는 방법에 대해 알아봅니다. API, 참조 및 기타 설명서입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3273e748265fa23efadd010bb5f0bc9ce43223b6
-ms.openlocfilehash: dae331e93ab1682741a34758172d7c8cdb38aec5
+ms.sourcegitcommit: 8a89b85795c0707d7fda9480c53db4a3469560d7
+ms.openlocfilehash: 324584a63e6f76b9a2aed98d11f2a66fefac69c3
 
 ---
 # <a name="azure-search-documentation"></a>Azure Search 설명서
 
-Azure Search는 사용자 지정 앱에 강력한 검색 환경을 만든 다음 포털 뷰를 통해 서비스, 인덱스 및 쿼리 작업을 모니터링하는 데 도움이 되는 관리된 클라우드 검색 서비스입니다. 주요 기능에는 여러 언어, 지리 공간 검색, 필터링 및 패싯 탐색, 자동 완성 쿼리, 적중 항목 강조 표시 및 사용자 지정 분석기를 통해 확장 가능한 전체 텍스트 검색이 포함됩니다.
+관리되는 클라우드 검색 서비스인 Azure Search를 사용하여 사용자 지정 웹 또는 모바일 앱에 검색 기능을 추가하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 여러 언어, 지리 공간 검색, 필터링 및 패싯 탐색, 자동 완성 쿼리, 적중 항목 강조 표시 및 사용자 지정 분석기를 통해 확장 가능한 전체 텍스트 검색을 포함하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Azure Search는 사용자 지정 앱에 강력한 검색 환경을 만든 다음
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=search">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=search">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -120,69 +121,38 @@ Azure Search는 사용자 지정 앱에 강력한 검색 환경을 만든 다음
     </li>
 </ul>
 
-
 ---
 
-## <a name="reference"></a>참조
-
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/dotnet/api/microsoft.azure.search">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>서비스.NET API</p>
-                    </div>
+                        <h3>언어</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET 관리</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.search">Java</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/microsoft.azure.management.search">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>관리 .NET API</p>
+                        <h3>REST (영문)</h3>
+                        <p><a href="/rest/api/searchservice">REST API 참조</a></p>
+                        <p><a href="/rest/api/searchmanagement">REST(관리) API 참조</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/rest/api/searchservice/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>서비스 REST API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/searchmanagement/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>관리 REST API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-<ul>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
@@ -194,6 +164,6 @@ Azure Search 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

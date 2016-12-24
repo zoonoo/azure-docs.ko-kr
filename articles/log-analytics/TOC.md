@@ -45,7 +45,8 @@
 #### [네트워킹 분석](log-analytics-azure-networking-analytics.md)
 #### [네트워크 성능 모니터](log-analytics-network-performance-monitor.md)
 #### [보안 감사](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
-#### [Service Fabric](log-analytics-service-fabric.md)
+#### [서비스 패브릭](log-analytics-service-fabric.md)
+#### [서비스 맵](../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [SQL 평가](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [VMware](log-analytics-vmware.md)
@@ -70,6 +71,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

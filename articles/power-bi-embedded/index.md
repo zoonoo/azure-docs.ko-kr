@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "앱에 Power BI 데이터 시각화 및 대화형 보고서를 포함하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: e17065b92c3bce2463df283f82efae5965c5c02e
+ms.sourcegitcommit: 531e3606330a55563ae77d18d5fd270d799d6d30
+ms.openlocfilehash: 08270fca90bb74f166c94e0f4acc406bca936eb8
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded 설명서
 
-Power BI Embedded는 응용 프로그램 개발자가 자신의 응용 프로그램에 대화형 Power BI 보고서를 추가할 수 있는 Azure 서비스입니다. Power BI Embedded는 사용자가 로그인하는 방식을 다시 디자인하거나 변경하지 않고 기존 응용 프로그램을 사용합니다.
+Power BI embedded를 사용하여 응용 프로그램에 데이터 시각화 및 대화형 보고서를 추가하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Power BI 보고서 및 대시보드를 앱에 원활하게 포함하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Power BI Embedded는 응용 프로그램 개발자가 자신의 응용 프로그
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=power-bi-embedded">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=power-bi-embedded">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,54 +87,47 @@ Power BI Embedded는 응용 프로그램 개발자가 자신의 응용 프로그
 
 ---
 
-## <a name="reference"></a>참조
-
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Power BI Embedded PowerShell Cmdlet</p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Power BI Embedded 관리되는 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/powerbiembedded/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>언어</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.powerbiembedded">.NET</a></p>
+                        <p><a href="https://www.nuget.org/profiles/powerbi">.NET SDK 다운로드</a></p>
+                        <p><a href="https://github.com/Microsoft/PowerBI-JavaScript">JavaScript</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p>Power BI Embedded REST API</p>
+                        <p><a href="/rest/api/powerbiembedded/">REST API 참조</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
-
-
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/power-bi-embedded.pdf">
@@ -144,6 +138,7 @@ Power BI Embedded 설명서 다운로드 </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

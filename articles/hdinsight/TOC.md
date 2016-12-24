@@ -10,7 +10,6 @@
 
 # 시작
 ## [Hadoop으로 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [대화형 Hive 미리 보기 시작](hdinsight-hadoop-use-interactive-hive.md)
 ## [R 서버 시작](hdinsight-hadoop-r-server-get-started.md)
 ## [Spark로 시작](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [HBase 및 NoSQL로 시작](hdinsight-hbase-tutorial-get-started-linux.md)
@@ -225,6 +224,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

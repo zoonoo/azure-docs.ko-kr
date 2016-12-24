@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Azure Stack 미리 보기를 사용하여 데이터 센터에서 Azure 서비스를 제공하는 방법에 대해 알아봅니다. 개념 환경 검증의 기능에 대해 알아보고 설명합니다."
 translationtype: Human Translation
-ms.sourcegitcommit: cc7cf80b26a0bdc79448fc87d2d8b6fff1931d49
-ms.openlocfilehash: eb675cc7a401583cf0f2dc0605a16d5dda8b306f
+ms.sourcegitcommit: c93027a575b2f9d6507448f9f68011723b165bf3
+ms.openlocfilehash: c964ed3b3fe8b3af31c50f0aacb2ef1c0a8aad74
 
 ---
 #<a name="azure-stack-documentation"></a>Azure Stack 설명서
 
-Microsoft Azure Stack은 조직의 데이터 센터에서 Azure 서비스를 제공할 수 있게 해주는 새로운 하이브리드 클라우드 플랫폼 제품입니다. Microsoft Azure Stack Technical Preview 2는 POC(개념 증명)를 통해 제공됩니다. POC는 Azure 스택 기능을 학습하고 시연하기 위한 환경입니다. 이를 통해 핵심 개념과 기능을 평가하고 API에 대한 확장성 모델의 유효성을 검사하기 위한 환경을 만드는 단일 물리적 컴퓨터에서 모든 필수 구성 요소를 배포할 수 있습니다.
+Azure Stack 기술 미리 보기를 사용하여 조직의 데이터 센터에서 Azure 서비스를 제공하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 개념 환경 검증을 사용하여 Azure Stack의 기능을 알아보고 설명하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -96,6 +97,6 @@ Azure Stack 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "클라우드에서 Analysis Services를 사용하여 데이터 모델링을 설정하는 방법에 대해 알아봅니다. 설명서에서는 표 형식 데이터를 사용하여 엔터프라이즈 BI 솔루션을 만드는 방법을 보여 줍니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: a10f328258bfe7d34d0807d4e15aa4a8ce5bbafb
+ms.sourcegitcommit: fad85d382ef508b65b57559f7f52e079caae9363
+ms.openlocfilehash: 40c79ea2a68c69352d7f14bd138f8131b3b01da9
 
 ---
 # <a name="analysis-services-documentation"></a>Analysis Services 설명서
 
-검증된 Microsoft SQL Server Analysis Services 분석 엔진을 기반으로 구축된 Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 모델링을 제공합니다.
+Analysis Services를 사용하여 데이터 모델링을 설정하고 관리하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 클라우드 또는 온-프레미스에서 표 형식 데이터를 사용하여 엔터프라이즈 수준 BI 솔루션을 만드는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -108,6 +109,6 @@ Analysis Services 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

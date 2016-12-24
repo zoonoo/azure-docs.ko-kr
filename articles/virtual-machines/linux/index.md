@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "사용자가 선택한 Linux 배포를 사용하여 가상 컴퓨터를 만드는 방법에 대해 알아봅니다. 설명서에서는 VM 템플릿을 만드는 여러 가지 방법을 보여 줍니다."
 translationtype: Human Translation
-ms.sourcegitcommit: f368f2700bd349e106169d1828af7a148daa5cc2
-ms.openlocfilehash: f87947ed5f072ba4f0927ade1b1d3ec0e1424f3c
+ms.sourcegitcommit: eabfc16b3714006f74cdaec68efb46f651ee1b97
+ms.openlocfilehash: 4ae49635b13d564a4bf03ea12e233c1b18985cce
 
 ---
-#<a name="linux-virtual-machine-documentation"></a>Linux Virtual Machine 설명서
+# <a name="linux-virtual-machine-documentation"></a>Linux Virtual Machine 설명서
 
-Azure Virtual Machines를 사용하여 Azure의 계산, 네트워킹 및 저장소 인프라에서 Linux 가상 컴퓨터를 만들고 실행하세요.  인터넷 전체 배포를 위해 수천 개 컴퓨터로 확장하든 한 컴퓨터를 몇 분 동안 실행하여 상당히 많은 수를 계산하든 빠르고 일관성 있게 수행할 수 있습니다.
+사용자가 선택한 Linux 배포를 사용하여 Azure의 가상 컴퓨터를 실행하는 방법에 대해 알아봅니다. 설명서, API 참조 및 샘플에서는 VM 템플릿을 만들고 배포하는 여러 가지 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -140,6 +141,6 @@ Linux Virtual Machine 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

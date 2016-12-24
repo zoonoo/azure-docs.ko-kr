@@ -107,8 +107,43 @@
 ## 데이터 전송
 ### [저장소로 또는 반대로 데이터 이동](storage-moving-data.md)
 ### [AzCopy 명령줄 유틸리티](storage-use-azcopy.md)
-### [Blob Storage에 대한 가져오기/내보내기 서비스](storage-import-export-service.md)
-
+### [가져오기-내보내기 서비스 사용](storage-import-export-service.md)
+### [가져오기-내보내기 도구 사용](storage-import-export-tool-how-to.md)
+#### [가져오기-내보내기 도구 설정](storage-import-export-tool-setup.md)
+#### [가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-tool-preparing-hard-drives-import.md)
+##### [가져오기 프로세스 중에 속성 및 메타데이터 설정](storage-import-export-tool-setting-properties-metadata-import.md)
+##### [가져오기 작업을 위한 하드 드라이브를 준비하는 샘플 워크플로](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
+##### [가져오기 작업에 자주 사용 되는 명령에 대한 빠른 참조](storage-import-export-tool-quick-reference.md)
+#### [내보내기 작업에 대한 드라이브 사용량 미리 보기](storage-import-export-tool-previewing-drive-usage-export-v1.md)
+#### [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)
+#### [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)
+#### [내보내기 작업 복구](storage-import-export-tool-repairing-an-export-job-v1.md)
+#### [가져오기-내보내기 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
+#### [가져오기-내보내기 서비스 매니페스트 파일 형식](storage-import-export-file-format-manifest.md)
+#### [가져오기-내보내기 서비스 메타데이터 및 속성 파일 형식](storage-import-export-file-format-metadata-and-properties.md)
+#### [가져오기-내보내기 서비스 로그 파일 형식](storage-import-export-file-format-log.md)
+### [가져오기-내보내기 도구 사용(v1)](storage-import-export-tool-how-to-v1.md)
+#### [가져오기-내보내기 도구 설정](storage-import-export-tool-setup-v1.md)
+#### [가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-tool-preparing-hard-drives-import-v1.md)
+##### [가져오기 프로세스 중에 속성 및 메타데이터 설정](storage-import-export-tool-setting-properties-metadata-import-v1.md)
+##### [가져오기 작업을 위한 하드 드라이브를 준비하는 샘플 워크플로](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
+##### [가져오기 작업에 자주 사용 되는 명령에 대한 빠른 참조](storage-import-export-tool-quick-reference-v1.md)
+#### [내보내기 작업에 대한 드라이브 사용량 미리 보기](storage-import-export-tool-previewing-drive-usage-export-v1.md)
+#### [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)
+#### [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)
+#### [내보내기 작업 복구](storage-import-export-tool-repairing-an-export-job-v1.md)
+#### [가져오기-내보내기 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
+#### [가져오기-내보내기 서비스 매니페스트 파일 형식](storage-import-export-file-format-manifest.md)
+#### [가져오기-내보내기 서비스 메타데이터 및 속성 파일 형식](storage-import-export-file-format-metadata-and-properties.md)
+#### [가져오기-내보내기 서비스 로그 파일 형식](storage-import-export-file-format-log.md)
+### [Azure 가져오기-내보내기 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
+#### [가져오기 작업 만들기](storage-import-export-creating-an-import-job.md)
+#### [내보내기 작업 만들기](storage-import-export-creating-an-export-job.md)
+#### [작업에 대한 상태 정보 검색](storage-import-export-retrieving-state-info-for-a-job.md)
+#### [작업 열거](storage-import-export-enumerating-jobs.md)
+#### [작업 취소 및 삭제](storage-import-export-cancelling-and-deleting-jobs.md)
+#### [드라이브 매니페스트 백업](storage-import-export-backing-up-drive-manifests.md)
+#### [가져오기-내보내기 작업에 대한 진단 및 오류 복구](storage-import-export-diagnostics-and-error-recovery.md)
 # 참조
 ## [PowerShell](/powershell/storage)
 ## [Azure CLI](/cli/azure/storage)
@@ -123,7 +158,7 @@
 ## [C++](http://azure.github.io/azure-storage-cpp)
 ## [iOS](https://github.com/Azure/azure-storage-ios)
 ## [Android](http://azure.github.io/azure-storage-android)
-## [REST]
+## REST (영문)
 ### [Blob, 큐, 테이블 및 파일](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
 ### [리소스 공급자](/rest/api/storagerp)
 ### [가져오기/내보내기](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
@@ -166,6 +201,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

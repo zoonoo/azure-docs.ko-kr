@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "온-프레미스 및 클라우드에 비즈니스 워크플로를 자동화하고 간소화하는 논리 앱을 개발하는 방법에 대해 알아봅니다. 자습서, 템플릿 및 API 참조입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: ba5941d636a605059d981ddda8ea66288a682451
+ms.sourcegitcommit: 09066e463fe42bb845ccadc98cd79ed1c5881462
+ms.openlocfilehash: e8ab6aecb3d614a7b42e0524382022eabf66ea36
 
 ---
 # <a name="logic-apps-documentation"></a>Logic Apps 설명서
 
-Logic Apps는 워크플로로 프로세스를 모델링 및 자동화하기 위한 디자인 도구입니다. 서비스 및 프로토콜에 걸쳐 신속하게 통합하기 위해 클라우드 및 온-프레미스에 많은 커넥터가 있습니다. 논리 앱은 ('Dynamics CRM에 계정을 추가하는 경우'와 같이) 트리거로 시작하고 실행 후에 여러 조합 작업, 변환 및 조건 논리 실행을 시작할 수 있습니다.
+클라우드에서 확장 가능한 워크플로를 단순화하고 통합하는 논리 앱을 개발하는 방법에 대해 알아봅니다. 자습서, 템플릿 및 API 참조를 통해 온-프레미스 및 클라우드에 자동화된 비즈니스 워크플로를 디자인하고 배포할 수 있습니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Logic Apps는 워크플로로 프로세스를 모델링 및 자동화하기 위�
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=app-service">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -104,52 +105,44 @@ Logic Apps는 워크플로로 프로세스를 모델링 및 자동화하기 위�
 
 ---
 
-## <a name="reference"></a>참조
-
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Logic Apps PowerShell Cmdlet</p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Logic Apps 관리되는 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
     <li>
-        <a href="/rest/api/logic/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>스키마 기록</h3>
+                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2016-04-01?toc=%2fazure%2flogic-apps%2ftoc.json">GA</a></p>
+                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2015-08-01?toc=%2fazure%2flogic-apps%2ftoc.json">미리 보기</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p>Logic Apps REST API</p>
+                        <p><a href="/rest/api/logic/">REST API 참조</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -162,6 +155,7 @@ Logic Apps 설명서 다운로드 </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

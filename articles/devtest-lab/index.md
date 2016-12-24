@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "다시 사용할 수 있는 아티팩트를 사용하여 신속하게 응용 프로그램 테스트 환경을 만드는 방법에 대해 알아봅니다. 자습서, 비디오 등에서는 실습을 생성하고 관리하며 보호하는 방법을 보여 줍니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 381c936b7e615cc35ddd429f2a70c468d511a8cf
-ms.openlocfilehash: 838593f4b7d1d83b182faf88433a5bfbf5620288
+ms.sourcegitcommit: 6ac97ee4e1c20bcca92d2c4b2d4865e286a12ed3
+ms.openlocfilehash: 079976fbc7e482944916364507aeaacb27acbdcb
 
 ---
 #<a name="devtest-labs-documentation"></a>DevTest Labs 설명서
 
-Azure DevTest Labs는 개발자와 테스터가 낭비를 최소화하고 비용을 제어하면서 Azure에서 빠르게 환경을 만들 수 있도록 돕는 서비스입니다.  재사용이 가능한 템플릿과 아티팩트를 사용하여 Windows와 Linux 환경을 빠르게 프로비전함으로써 최신 버전의 응용 프로그램을 테스트할 수 있습니다.
+다시 사용할 수 있는 아티팩트를 사용하여 신속하게 응용 프로그램 테스트 환경을 만드는 데 DevTest Labs을 사용하는 방법에 대해 알아봅니다. 자습서, 비디오 및 기타 설명서에서는 실습을 생성, 관리 및 보호하고 아티팩트를 추가 및 관리하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -113,6 +114,7 @@ Devtest Lab 설명서 다운로드 </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

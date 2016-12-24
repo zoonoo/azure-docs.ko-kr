@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "BizTalk Services를 사용하여 SAP, Oracle EBS, SQL Server 및 PeopleSoft용 온-프레미스 및 LOB(기간 업무) 응용 프로그램 통합에 클라우드를 제공하는 방법을 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 329bf8f57270c901d54f27a2159287e08e4c355a
-ms.openlocfilehash: dfde406339068f9261fccb87039d18a0dfdedeff
+ms.sourcegitcommit: 74eb1a0a0f532ffe23fdfac0d8b25ee9434175a1
+ms.openlocfilehash: 754a932b8d98bbae8f7e24daab073cbec1d4d16e
 
 ---
 # <a name="biztalk-services-documentation"></a>BizTalk Services 설명서
 
-BizTalk Services는 SAP, Oracle EBS, SQL Server 및 PeopleSoft용 온-프레미스 업종별 응용 프로그램 통합을 위한 클라우드를 제공합니다. 이 서비스를 통해 HTTP, FTP, SFTP 또는 REST 데이터 원본에 연결할 수 있습니다. Service Bus 큐, 주제, SQL Database 및 Blob Storage와 같은 다양한 Azure 아티팩트로 메시지를 라우팅할 수 있습니다.   
+BizTalk Services를 사용하여 SAP, Oracle EBS, SQL Server 및 PeopleSoft용 온-프레미스 및 LOB(기간 업무) 응용 프로그램 통합에 클라우드를 제공하는 방법을 알아봅니다. 자습서 및 기타 설명서에서는 엔터프라이즈 및 클라우드를 통합하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -77,6 +78,7 @@ BizTalk Services 설명서 다운로드 </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

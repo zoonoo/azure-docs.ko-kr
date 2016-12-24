@@ -44,7 +44,7 @@
 ##### [Media Encoder Standard 스키마](media-services-mes-schema.md)
 ##### [입력 메타데이터](media-services-input-metadata-schema.md)
 ##### [출력 메타데이터](media-services-output-metadata-schema.md)
-#### MES 기본 설정 
+#### [MES 기본 설정](media-services-mes-presets-overview.md) 
 ##### [H264 다중 비트 전송률 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
 ##### [H264 다중 비트 전송률 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
 ##### [H264 다중 비트 전송률 16x9 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
@@ -135,7 +135,7 @@
 ### [Face Detector를 사용하여 처리](media-services-face-and-emotion-detection.md)
 ### [Motion Detector를 사용하여 처리](media-services-motion-detection.md)
 ### [Face Redactor를 사용하여 처리](media-services-face-redaction.md)
-#### [얼굴 편집 연습](media-services-redactor-walkthrough.md)
+#### [Face Redactor 연습](media-services-redactor-walkthrough.md)
 ### [비디오 미리 보기로 처리](media-services-video-summarization.md)
 ### [OCR을 사용하여 처리](media-services-video-optical-character-recognition.md)
 
@@ -207,6 +207,6 @@
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

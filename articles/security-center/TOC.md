@@ -8,6 +8,7 @@
 # 시작
 ## [빠른 시작](security-center-get-started.md)
 ## [계획 및 작업](security-center-planning-and-operations-guide.md)
+## [권한](security-center-permissions.md)
 ## [FAQ](security-center-faq.md)
 
 # 방법
@@ -69,6 +70,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

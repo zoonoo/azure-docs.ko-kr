@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "클라우드에서 포괄적인 소비자 ID 관리를 배포하는 방법에 대해 알아봅니다. 설명서에서는 소비자 지향 웹 및 모바일 앱을 보호하는 방법을 보여 줍니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3cee8c74ed77a27c8a2006dcd28729f9c077aea9
-ms.openlocfilehash: 330f2c0efed16ae587c6f069d3feae1bb80f3097
+ms.sourcegitcommit: e3ffd8f83b4ad25d28f6d0afd82efc6150d98fa2
+ms.openlocfilehash: c5f925446b5e2cc7ea8739e22e9d093428700483
 
 ---
 
 #<a name="active-directory-b2c-documentation"></a>Active Directory B2C 설명서
 
-Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로그램을 위한 포괄적인 클라우드 ID 관리 솔루션입니다. 수억 개의 소비자 ID로 확장되는 고가용성 글로벌 서비스입니다. 엔터프라이즈급 보안 플랫폼에 기반하여 Azure Active Directory B2C는 응용 프로그램, 비즈니스 및 소비자를 보호합니다.
+Active Directory B2C를 사용하여 클라우드에서 포괄적인 소비자 ID 관리를 설정하고 관리하는 방법에 대해 알아봅니다. 자습서, 참조 및 기타 설명서에서는 보안 로그인을 사용하여 소비자 지향 웹 및 모바일 응용 프로그램을 보호하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -187,6 +188,6 @@ Active Directory B2C 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

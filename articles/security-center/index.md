@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Azure 리소스에 대한 보안 모니터링 및 정책 관리를 설정하는 방법에 대해 알아봅니다. 자습서, REST API, 참조 및 기타 설명서입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 7ac552010e41d59e07f2881750540206ffa24f5b
+ms.sourcegitcommit: 4488a052681c0c146bf6efaf44f8ecebc400fecc
+ms.openlocfilehash: 92eb080a7234cb25a5560127edadfafeafc0253a
 
 ---
 # <a name="security-center-documentation"></a>Security Center 설명서
 
-Security Center는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
+Security Center를 사용하여 Azure 리소스에 대한 가시성을 얻고 보안을 제어하는 방법에 대해 알아봅니다.  자습서, REST API 참조 및 기타 설명서에서는 보안 솔루션의 광범위한 에코시스템을 사용하는 보안 모니터링 및 정책 관리를 설정하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Security Center는 Azure 리소스의 보안에 대한 향상된 가시성과 �
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=security-center">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=security-center">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -67,26 +68,23 @@ Security Center는 Azure 리소스의 보안에 대한 향상된 가시성과 �
 </ul>
 
 ---
-## <a name="reference"></a>참조
 
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/en-US/library/mt704034(Azure.100)">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p>Security Center REST API</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">REST API 참조</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>    
+</ul>   
 
----
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
         <div class="img"></div>
@@ -96,6 +94,7 @@ Security Center 설명서 다운로드 </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 
