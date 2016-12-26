@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "응용 프로그램 성능을 최적화하기 위해 들어오는 트래픽을 관리하는 방법에 대해 알아봅니다. 설명서에서는 Azure 또는 외부 서비스 끝점에 트래픽을 분산하는 방법을 보여 줍니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 07d7e13862c252db61136110e04559e51a53e4b7
+ms.sourcegitcommit: 3123dc992bb821e79edceef01d2654aaff2468c1
+ms.openlocfilehash: a10c68140066de5be6690f30c89f4f6f2fad0825
 
 ---
 #<a name="traffic-manager-documentation"></a>Traffic Manager 설명서
 
-Azure Traffic Manager를 사용하면 다양한 지역에서 서비스 끝점에 대한 사용자 트래픽의 배포를 제어할 수 있습니다. Traffic Manager는 DNS(Domain Name System)를 사용하여 선택된 트래픽 라우팅 메서드 및 끝점의 상태를 기반으로 클라이언트 요청을 가장 적절한 끝점으로 리디렉션하여, 여러분의 응용 프로그램에 더 높은 가용성 및 응답성을 제공합니다.
+응용 프로그램 성능 및 안정성을 최적화하기 위해 Traffic Manager를 사용하여 들어오는 트래픽을 라우팅하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Azure 또는 외부 서비스 끝점에 대한 트래픽을 관리하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -129,6 +130,6 @@ Traffic Manager 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

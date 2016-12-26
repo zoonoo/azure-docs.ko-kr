@@ -66,7 +66,6 @@
 
 #### [감사 이벤트](active-directory-reporting-audit-events.md)
 #### [보존](active-directory-reporting-retention.md)
-#### [백필](active-directory-reporting-backfill.md)
 #### [대기 시간](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 ### 보고서 이해
@@ -203,6 +202,7 @@
 #### [그룹 정책 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 #### [Windows 10 설정](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
+#### [문제 해결](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 ### [Azure AD B2B와 파트너 통합](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [개요](active-directory-b2b-collaboration-overview.md)
 #### [작동 방법](active-directory-b2b-how-it-works.md)
@@ -297,6 +297,6 @@
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

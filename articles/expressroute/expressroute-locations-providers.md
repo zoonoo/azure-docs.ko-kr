@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2016
+ms.date: 12/08/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bd4d6f59ac4fbaa9bd0cb6a33a697cac0d13eb8c
-ms.openlocfilehash: 7a86469a9513869362eb37b21b155889dcee7942
+ms.sourcegitcommit: cbbc9f29fc4dea49807f1093b673bebac628314b
+ms.openlocfilehash: e886f9c1984003d1bd1391012b26eea39d4a0b76
 
 
 ---
@@ -37,7 +37,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | --- | --- | --- |
 | **북아메리카** |미국 동부, 미국 서부, 미국 동부 2, 중앙 미국, 미국 중남부, 미국 중북부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 댈러스, 라스베이거스, 로스앤젤레스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC, 몬트리올+, 퀘벡 시티+, 토론토 |
 | **남미** |브라질 남부 |상파울루 |
-| **유럽** |북유럽, 서유럽, 영국 서부, 영국 남부 |암스테르담, 더블린, 런던, 뉴포트(웨일스)+, 파리 |
+| **유럽** |북유럽, 서유럽, 영국 서부, 영국 남부 |암스테르담, 더블린, 런던, 뉴포트(웨일스), 파리 |
 | **아시아** |동아시아, 동남 아시아 |홍콩 특별행정구, 싱가포르 |
 | **일본** |일본 서부, 일본 동부 |오사카, 도쿄 |
 | **오스트레일리아** |오스트레일리아 남동부, 오스트레일리아 동부 |멜버른, 시드니 |
@@ -95,7 +95,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 ### <a name="national-cloud-environments"></a>국가별 클라우드 환경
 
 ### <a name="us-government-cloud"></a>미국 정부 클라우드
-| **위치** | **서비스 공급자** |
+| **위치**: | **서비스 공급자** |
 | --- | --- |
 | **시카코** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **댈러스** |Equinix, Verizon |
@@ -103,7 +103,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **워싱턴 DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>중국
-| **위치** | **서비스 공급자** |
+| **위치**: | **서비스 공급자** |
 | --- | --- |
 | **베이징** |China Telecom |
 | **상하이** |China Telecom |
@@ -111,7 +111,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 자세한 내용은 [중국의 ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)
 
 ### <a name="germany"></a>독일
-| **위치** | **서비스 공급자** |
+| **위치**: | **서비스 공급자** |
 | --- | --- |
 | **베를린** |Colt+, e-shelter |
 | **프랑크푸르트** |Colt, Equinix, Interxion |
@@ -132,13 +132,15 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 * Microsoft에 연결할 연결 공급자로 Exchange를 지정하여 Express 경로 회로를 정렬합니다.
   * [Express 경로 회로 만들기](expressroute-howto-circuit-classic.md) 의 단계에 따라 연결을 설정합니다.
 
-| **위치** | **Exchange** | **연결 공급자** |
+| **위치**: | **Exchange** | **연결 공급자** |
 | --- | --- | --- |
+| **런던** | Equinix | 지수 E |
 | **뉴욕** |Equinix |Lightower |
 | **시애틀** |Equinix |Alaska Communications |
 | **실리콘밸리** |Equinix |XO Communications |
 | **싱가포르** |Equinix |1CLOUDSTAR |
-| **워싱턴 DC** |Equinix |Lightower |
+| **시드니** | Megaport | Macquarie |
+| **워싱턴 DC** |Equinix | Lightower, Masergy |
 
 ## <a name="expressroute-system-integrators"></a>Express 경로 시스템 통합업체
 사용자 요구에 맞도록 개인 연결을 사용하도록 설정하면 네트워크의 크기에 따라 어려울 수 있습니다. 다음 표에 나열된 시스템 통합 업체와 함께 작업하여 Express 경로에 등록할 수 있습니다.
@@ -158,6 +160,6 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

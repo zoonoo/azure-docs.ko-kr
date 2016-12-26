@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Event Hubs를 사용하여 광범위한 플랫폼에 있는 연결된 IoT 장치 및 응용 프로그램에서 초당 수백만 개의 이벤트를 수집하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8244f410fa3337ae161657fe11ae5db2a2f378cd
+ms.sourcegitcommit: bedc8c16671de6071383659697ecd932e14cf3ba
+ms.openlocfilehash: 3d404f115c9a21c7ea62fb485a2129bca9de5c6c
 
 ---
 #<a name="event-hubs-documentation"></a>Event Hubs 설명서
 
-Event Hubs는 초당 수백만 개의 이벤트를 수집할 수 있는 확장성이 뛰어난 데이터 수집 서비스이므로 연결된 장치와 응용 프로그램이 생성하는 대량의 데이터를 처리하고 분석할 수 있습니다. Event Hubs는 이벤트 파이프라인에 대한 "현관" 역할을 하고 데이터가 이벤트 허브에 수집되면 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환 및 저장될 수 있습니다.
+Event Hubs를 사용하여 연결된 IoT 장치 및 응용 프로그램에서 초당 수백만 개의 이벤트를 수집하고 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 광범위한 플랫폼에서 이벤트에 대한 확장 가능한 수집을 설정하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -125,6 +126,6 @@ Event Hubs 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,34 +1,38 @@
 ---
-title: Azure SQL 데이터베이스로 마이그레이션하기 전에 SQL Server Management Studio를 사용하여 SQL 데이터베이스 호환성 확인 | Microsoft Docs
-description: Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, SQL 데이터베이스 호환성, 데이터 계층 응용 프로그램 내보내기 마법사
+title: "Azure SQL Database로 마이그레이션하기 전에 SQL Server Management Studio를 사용하여 SQL Database 호환성 확인 | Microsoft Azure"
+description: "Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, SQL 데이터베이스 호환성, 데이터 계층 응용 프로그램 내보내기 마법사"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: c9ead868-aa1e-4a92-a099-6baf7c0dda32
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 08/29/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
+ms.openlocfilehash: 15d0bf86d6094b6a8c0d6aaf1e1bb59382a81ffb
+
 
 ---
-# Azure SQL 데이터베이스로 마이그레이션하기 전에 SQL Server Management Studio를 사용하여 SQL 데이터베이스 호환성 확인
+# <a name="use-sql-server-management-studio-to-determine-sql-database-compatibility-before-migration-to-azure-sql-database"></a>Azure SQL 데이터베이스로 마이그레이션하기 전에 SQL Server Management Studio를 사용하여 SQL 데이터베이스 호환성 확인
 > [!div class="op_single_selector"]
 > * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 > * [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 > * [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-> * [업그레이드 관리자](http://www.microsoft.com/download/details.aspx?id=48119)
 > * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
 > 
 > 
 
 이 문서에서는 SQL Server Management Studio의 데이터 계층 응용 프로그램 내보내기 마법사를 사용하여 SQL Server 데이터베이스가 SQL 데이터베이스로 마이그레이션하는 데 호환되는지 확인하는 방법을 배웁니다.
 
-## SQL Server Management Studio 사용
+## <a name="using-sql-server-management-studio"></a>SQL Server Management Studio 사용
 1. 최신 버전의 SQL Server Management Studio가 있는지 확인합니다. 새로운 버전의 Management Studio는 매월 업데이트되어 Azure 포털의 업데이트와 동기화 상태를 유지합니다.
    
    > [!IMPORTANT]
@@ -48,18 +52,24 @@ ms.author: carlrab
 6. **다음**을 클릭한 후 **마침**을 클릭합니다. 마법사가 스키마의 유효성을 확인하고 나면 데이터베이스 호환성 문제(있는 경우)가 표시됩니다.
    
     ![설정 내보내기](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS04.png)
-7. 오류가 표시되지 않을 경우 데이터베이스가 호환되며 마이그레이션할 준비가 된 것입니다. 오류가 있을 경우 해결해야 합니다. 오류를 보려면 **스키마 유효성 검사**에 대해 **오류**를 클릭합니다. ![설정 내보내기](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
+7. 오류가 표시되지 않을 경우 데이터베이스가 호환되며 마이그레이션할 준비가 된 것입니다. 오류가 있을 경우 해결해야 합니다. 오류를 보려면 **스키마 유효성 검사**에 대해 **오류**를 클릭합니다. 
+    ![설정 내보내기](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
 8. *.BACPAC 파일이 성공적으로 생성되면 데이터베이스가 SQL 데이터베이스와 호환되며, 이제 마이그레이션 준비가 완료되었습니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [SSDT 최신 버전](https://msdn.microsoft.com/library/mt204009.aspx)
 * [SQL Server Management Studio 최신 버전](https://msdn.microsoft.com/library/mt238290.aspx)
 * [데이터베이스 마이그레이션 호환성 문제 해결](sql-database-cloud-migrate.md#fix-database-migration-compatibility-issues)
 * [호환되는 SQL Server 데이터베이스를 SQL 데이터베이스로 마이그레이션](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-## 추가 리소스
-* [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)
+## <a name="additional-resources"></a>추가 리소스
+* [SQL Database 기능](sql-database-features.md)
 * [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
 * [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

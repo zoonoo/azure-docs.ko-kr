@@ -69,7 +69,7 @@
 # 리소스
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=search)
 ## Search API 사용
-##X [API 버전](search-api-versions.md)
+## [API 버전](search-api-versions.md)
 ## [서비스 REST(미리 보기)](search-api-2015-02-28-preview.md)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/search/)
 ## 데모 사이트
@@ -87,6 +87,6 @@
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

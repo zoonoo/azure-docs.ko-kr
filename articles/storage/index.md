@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "클라우드에서 Azure Storage - Blob, 테이블, 큐, 파일 및 Virtual Machine 디스크 저장소를 사용하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: a6c333ae45868d5c29ce2f2587f1417fa9fafc0b
-ms.openlocfilehash: 27fd664b69ca4467daa2b0abc6e53c9cece221ae
+ms.sourcegitcommit: 3cd1ef210c363fc280cefca3c0697eb66da85a1d
+ms.openlocfilehash: 426166d22b721d45853f3f578d39e14966c57c50
 
 ---
 
 # <a name="storage-documentation"></a>저장소 설명서
 
-Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다.  확장성이 뛰어나며 탄력적이고 전역 액세스가 가능하며 트래픽을 기반으로 데이터를 자동으로 부하 분산합니다.  Azure Storage는 응용 프로그램 요구 사항을 충족하도록 Blob 저장소, 테이블 저장소, 큐 저장소, 디스크 저장소 및 파일 저장소 등의 4가지 서비스를 제공합니다.
+내구성, 가용성 및 확장성이 뛰어난 클라우드 저장소 서비스인 Azure Storage를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Blob, 테이블, 큐, 파일 및 Virtual Machine 디스크 저장소를 설정하고 관리하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -148,6 +149,6 @@ Storage 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

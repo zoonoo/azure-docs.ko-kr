@@ -31,7 +31,7 @@ sql-database-service-tiers.md
 | 데이터베이스당 최대 eDTU | {10,20,<br>50} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
 ||||||||
 
-### <a name="standard-elastic-pool-limits-continued-"></a>표준 탄력적 풀 제한(계속)**
+### <a name="standard-elastic-pool-limits-continued"></a>표준 탄력적 풀 제한(계속) 
 
 | 풀 크기(eDTU)  |  **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
@@ -57,7 +57,7 @@ sql-database-service-tiers.md
 | 데이터베이스당 최대 eDTU | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | {25,50,75,<br>125,250,500,<br>1000,1500} |  
 ||||||||
 
-### <a name="premium-elastic-pool-limits-continued-"></a>프리미엄 탄력적 풀 제한(계속)**
+### <a name="premium-elastic-pool-limits-continued"></a>프리미엄 탄력적 풀 제한(계속) 
 
 | 풀 크기(eDTU)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
@@ -72,9 +72,8 @@ sql-database-service-tiers.md
 
 \* Elastic Database는 풀 저장소를 공유하므로 데이터베이스 저장소는 남은 풀 저장소 또는 데이터베이스당 최대 저장소 중 작은 값으로 제한됩니다.
 
-\** 표준 탄력적 풀의 3000 eDTU 풀 크기와 프리미엄 탄력적 풀의 4000 eDTU 풀 크기는 현재 PowerShell 및 REST API를 통해서만 사용할 수 있습니다. 이러한 풀 크기는 곧 Azure Portal에서 사용할 수 있습니다. 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

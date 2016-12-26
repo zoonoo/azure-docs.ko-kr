@@ -1,22 +1,26 @@
 ---
-title: Node.js용 Azure SDK를 사용하여 Azure Data Lake 저장소 관리 | Microsoft Docs
-description: 데이터 레이크 저장소 계정 및 파일 시스템을 관리하는 방법을 알아봅니다.
+title: "Node.js용 Azure SDK를 사용하여 Azure Data Lake Store 시작 | Microsoft 문서"
+description: "Node.js를 사용하여 Data Lake Store 계정 및 파일 시스템을 사용하는 방법에 대해 알아봅니다."
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 2fee173c-69ae-4e1d-8773-48618cda9e16
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/13/2016
+ms.date: 11/21/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
+ms.openlocfilehash: 968e4039b2c94d67560fafb245b6558c70b6d2e3
+
 
 ---
-# Node.js용 Azure SDK를 사용하여 Azure 데이터 레이크 저장소 관리
+# <a name="get-started-with-azure-data-lake-store-using-azure-sdk-for-nodejs"></a>Node.js용 Azure SDK를 사용하여 Azure Data Lake Store 시작
 > [!div class="op_single_selector"]
 > * [포털](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -25,32 +29,32 @@ ms.author: nitinme
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.JS](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
-Node.js용 Azure SDK는 Azure Data Lake 저장소 계정은 물론 파일 시스템 작업을 관리하는 데 사용할 수 있습니다.
-
-현재는 다음이 지원됩니다.
+Node.js용 Azure SDK를 사용하여 Azure Data Lake Store 계정을 만들고 기본 작업(예: 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등)을 수행하는 방법에 대해 알아봅니다. Data Lake Store에 대한 자세한 내용은 [Data Lake Store 개요](data-lake-store-overview.md)를 참조하세요. 현재는 SDK에서 다음을 지원합니다.
 
 * **Node.js 버전: 0.10.0 이상**
 * **계정에 대한 REST API 버전: 2015-10-01-preview**
 * **FileSystem용 REST API 버전: 2015-10-01-preview**
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure Active Directory 응용 프로그램을 만듭니다**. Azure AD 응용 프로그램을 사용하여 Azure AD로 Data Lake Store 응용 프로그램을 인증합니다. Azure AD로 인증하는 여러 접근 방법에는 **최종 사용자 인증** 또는 **서비스 간 인증**이 있습니다. 인증 하는 방법에 대한 지침 및 자세한 내용은 [Azure Active Directory를 사용하여 Data Lake Store로 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
-## 기능
-* 계정 관리: 만들기, 가져오기, 나열, 업데이트 및 삭제
-* 파일 시스템 관리: 만들기, 가져오기, 업로드, 추가, 다운로드, 읽기, 삭제, 나열
-
-## 설치 방법
+## <a name="how-to-install"></a>설치 방법
 ```bash
 npm install azure-arm-datalake-store
 ```
 
-## Azure Active Directory를 사용하여 인증
+## <a name="authenticate-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증
+아래 코드 조각은 Azure AD를 사용하여 Data Lake Store에서 인증하는 별도의 두 가지 방법을 보여 줍니다. Data Lake Store 인증에 사용하는 다양한 방법에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Data Lake Store로 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
+
+아래 코드 조각에서도 Azure AD 도메인 이름, Azure AD 앱의 클라이언트 ID 등의 입력이 필요합니다. 이러한 모든 세부 정보는 사용자가 만들어야 하는 Azure AD 응용 프로그램에서 가져올 수 있습니다. 자세한 내용은 위 링크에도 포함되어 있습니다.
+
  ```javascript
  var msrestAzure = require('ms-rest-azure');
  //user authentication
@@ -59,14 +63,14 @@ npm install azure-arm-datalake-store
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-## Data Lake 분석 클라이언트 만들기
+## <a name="create-the-data-lake-store-clients"></a>Data Lake Store 클라이언트 만들기
 ```javascript
 var adlsManagement = require("azure-arm-datalake-store");
 var acccountClient = new adlsManagement.DataLakeStoreAccountClient(credentials, "your-subscription-id");
 var filesystemClient = new adlsManagement.DataLakeStoreFileSystemClient(credentials);
 ```
 
-## Data Lake 저장소 계정 만들기
+## <a name="create-a-data-lake-store-account"></a>Data Lake 저장소 계정 만들기
 ```javascript
 var util = require('util');
 var resourceGroupName = 'testrg';
@@ -102,7 +106,7 @@ client.account.create(resourceGroupName, accountName, accountToCreate, function 
 });
 ```
 
-## 콘텐츠를 포함하는 파일 만들기
+## <a name="create-a-file-with-content"></a>콘텐츠를 포함하는 파일 만들기
 ```javascript
 var util = require('util');
 var accountName = 'testadlsacct';
@@ -121,7 +125,7 @@ filesystemClient.fileSystem.listFileStatus(accountName, fileToCreate, options, f
 });
 ```
 
-## 파일 및 폴더 목록 가져오기
+## <a name="get-a-list-of-files-and-folders"></a>파일 및 폴더 목록 가져오기
 ```javascript
 var util = require('util');
 var accountName = 'testadlsacct';
@@ -135,8 +139,13 @@ filesystemClient.fileSystem.listFileStatus(accountName, pathToEnumerate, functio
 });
 ```
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 * [Node.js용 Microsoft Azure SDK](https://github.com/azure/azure-sdk-for-node)
 * [Node.js용 Microsoft Azure SDK - Data Lake 분석 관리](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

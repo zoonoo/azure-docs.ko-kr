@@ -1,22 +1,26 @@
 ---
-title: AMQP 1.0을 사용한 서비스 버스 및 Python | Microsoft Docs
-description: AMQP를 사용하여 Python에서 서비스 버스 사용.
-services: service-bus
+title: "AMQP 1.0을 사용한 Service Bus 및 Python | Microsoft Docs"
+description: "AMQP를 사용하여 Python에서 서비스 버스 사용."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 375396e7-cbec-4d25-9b98-63ef8de75fef
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 97e90f5429fe4f2535a246db8dfbe81c772b3c88
+
 
 ---
-# <a name="using-service-bus-from-python-with-amqp-1.0"></a>AMQP 1.0을 사용하여 Python에서 서비스 버스 사용
+# <a name="using-service-bus-from-python-with-amqp-10"></a>AMQP 1.0을 사용하여 Python에서 서비스 버스 사용
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 Proton-Python은 Proton-C로 바인딩된 Python 언어로 Proton-Python은 C에서 구현된 엔진에 대한 래퍼로 구현됩니다.
@@ -26,7 +30,7 @@ Proton-Python은 Proton-C로 바인딩된 Python 언어로 Proton-Python은 C에
 
 이 문서 작성 시 Proton-C의 SSL 지원은 Linux 운영 체제에서만 사용할 수 있습니다. Azure 서비스 버스는 SSL을 사용하므로 이 경우 Proton-C(및 언어 바인딩)는 Linux에서 서비스 버스에 액세스하는데만 사용될 수 있습니다. Windows에서 SSL과 함께 Proton-C를 사용하도록 설정하는 작업은 진행 중이므로 업데이트를 자주 확인하세요.
 
-## <a name="working-with-service-bus-queues,-topics,-and-subscriptions-from-python"></a>Python에서 Service Bus 큐, 토픽 및 구독 작업
+## <a name="working-with-service-bus-queues-topics-and-subscriptions-from-python"></a>Python에서 Service Bus 큐, 토픽 및 구독 작업
 다음 코드는 서비스 버스 메시징 엔터티에서 메시지를 전송하고 수신하는 방법을 보여 줍니다.
 
 ### <a name="send-messages-using-proton-python"></a>Proton-Python을 사용하여 메시지 보내기
@@ -58,9 +62,9 @@ if messenger.incoming:
 messenger.stop()
 ```
 
-## <a name="messaging-between-.net-and-proton-python"></a>.NET과 Proton-Python 간의 메시징
+## <a name="messaging-between-net-and-proton-python"></a>.NET과 Proton-Python 간의 메시징
 ### <a name="application-properties"></a>응용 프로그램 속성
-#### <a name="proton-python-to-service-bus-.net-apis"></a>Proton-Python에서 서비스 버스 .NET API
+#### <a name="proton-python-to-service-bus-net-apis"></a>Proton-Python에서 서비스 버스 .NET API
 Proton-Python 메시지는 **int**, **long**, **float**, **uuid**, **bool**, **string**과 같은 형식의 응용 프로그램 속성을 지원합니다. 다음 Python 코드는 이러한 각 형식의 속성을 사용하여 메시지에서 속성을 설정하는 방법을 보여 줍니다.
 
 ```
@@ -96,8 +100,8 @@ if (message.Properties.Keys.Count > 0)
 | bool |bool |
 | string |string |
 
-#### <a name="service-bus-.net-apis-to-proton-python"></a>서비스 버스 .NET API에서 Proton-Python
-[BrokeredMessage][BrokeredMessage] 형식은 **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** 및 **TimeSpan**과 같은 형식의 응용 프로그램 속성을 지원합니다. 다음 .NET 코드는 이러한 각 속성 형식을 사용하여 [BrokeredMessage][BrokeredMessage]에서 속성을 설정하는 방법을 보여 줍니다.
+#### <a name="service-bus-net-apis-to-proton-python"></a>서비스 버스 .NET API에서 Proton-Python
+[BrokeredMessage][BrokeredMessage] 형식은 **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset**, **TimeSpan**과 같은 형식의 응용 프로그램 속성을 지원합니다. 다음 .NET 코드는 이러한 각 속성 형식을 사용하여 [BrokeredMessage][BrokeredMessage]에서 속성을 설정하는 방법을 보여 줍니다.
 
 ```
 message.Properties["TestByte"] = (byte)128;
@@ -155,9 +159,9 @@ if message.properties != None:
 | Uri |DescribedType |AMQP 유형에 매핑된 Uri.AbsoluteUri:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### <a name="standard-properties"></a>표준 속성
-다음 테이블은 Proton-Python 표준 메시지 속성과 [BrokeredMessage][BrokeredMessage] 표준 메시지 속성 간의 매핑을 보여 줍니다.
+다음 테이블에서는 Proton-Python 표준 메시지 속성과 [BrokeredMessage][BrokeredMessage] 표준 메시지 속성 간의 매핑을 보여 줍니다.
 
-#### <a name="proton-python-to-service-bus-.net-apis"></a>Proton-Python에서 서비스 버스 .NET API
+#### <a name="proton-python-to-service-bus-net-apis"></a>Proton-Python에서 서비스 버스 .NET API
 | Proton-Python | 서비스 버스 .NET | 참고 사항 |
 | --- | --- | --- |
 | 지속성 |해당 없음 |서비스 버스는 지속적 메시지만 지원합니다. |
@@ -192,8 +196,7 @@ if message.properties != None:
 | ScheduledEnqueueTimeUtc |해당 없음 |- |
 | SessionId |Message.group\_id |- |
 | TimeToLive |Message.ttl |변환, Proton-Python TTL이 밀리초 단위로 정의됩니다. |
-| 받는 사람 | | |
-| Message.address |- | |
+| 받는 사람 |Message.address |- |
 
 ## <a name="next-steps"></a>다음 단계
 자세히 알아볼 준비가 되셨습니까? 다음 링크를 방문하세요.
@@ -208,6 +211,6 @@ if message.properties != None:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

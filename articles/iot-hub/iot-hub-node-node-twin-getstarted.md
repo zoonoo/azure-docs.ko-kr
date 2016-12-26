@@ -1,12 +1,12 @@
 ---
-title: 쌍 시작 | Microsoft Docs
-description: 이 자습서에서는 쌍을 사용하는 방법에 대해 설명합니다.
+title: "장치 쌍 시작 | Microsoft Docs"
+description: "이 자습서에서는 장치 쌍을 사용하는 방법에 대해 설명합니다."
 services: iot-hub
 documentationcenter: node
 author: fsautomata
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
+translationtype: Human Translation
+ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
+ms.openlocfilehash: d7b615476bb5e9ed08e1e84f63c1a40c11154b23
+
 
 ---
-# <a name="tutorial:-get-started-with-device-twins-(preview)"></a>장치 쌍 시작(미리 보기)
+# <a name="tutorial-get-started-with-device-twins"></a>자습서: 장치 쌍 시작
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 이 자습서의 끝 부분에 다음 두 개의 Node.js 콘솔 응용 프로그램이 제공됩니다.
@@ -25,19 +29,21 @@ ms.author: elioda
 * **TwinSimulatedDevice.js** - 앞에서 만든 장치 ID와 IoT Hub를 연결하고 연결 상태를 보고하는 장치를 시뮬레이션하는 Node.js 앱.
 
 > [!NOTE]
-> [IoT Hub SDK][lnk-hub-sdks] 문서는 장치 및 백 엔드 응용 프로그램을 빌드하는 데 사용할 수 있는 다양한 SDK에 대한 정보를 제공합니다.
+> [Azure IoT SDK][lnk-hub-sdks] 문서는 장치 및 백 엔드 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 대한 정보를 제공합니다.
 > 
 > 
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Node.js 버전 0.10.x 이상
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][lnk-free-trial]을 참조하세요.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
-[!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
+[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
-이 섹션에서는 **myDeviceId**와 연결된 쌍에 위치 메타데이터를 추가하는 Node.js 콘솔 앱을 만듭니다. 그런 다음 미국에 위치한 장치를 선택한 후 셀룰러 연결을 보고하는 장치를 선택하는 허브에 저장된 쌍을 쿼리합니다.
+이 섹션에서는 **myDeviceId**와 연결된 장치 쌍에 위치 메타데이터를 추가하는 Node.js 콘솔 앱을 만듭니다. 그런 다음 미국에 위치한 장치를 선택한 후 셀룰러 연결을 보고하는 장치를 선택하는 IoT Hub에 저장된 장치 쌍을 쿼리합니다.
 
 1. **addtagsandqueryapp**라는 빈 폴더를 새로 만듭니다. **addtagsandqueryapp** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
    
@@ -47,7 +53,7 @@ ms.author: elioda
 2. **addtagsandqueryapp** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iothub** 패키지를 설치합니다.
    
     ```
-    npm install azure-iothub@dtpreview --save
+    npm install azure-iothub --save
     ```
 3. 텍스트 편집기를 사용하여 **addtagsandqueryapp** 폴더에 새 **AddTagsAndQuery.js** 파일을 만듭니다.
 4. 다음 코드를 **AddTagsAndQuery.js** 파일에 추가하고 허브를 만들 때 복사한 연결 문자열을 사용해 **{서비스 연결 문자열}** 자리 표시자를 대체합니다.
@@ -81,7 +87,7 @@ ms.author: elioda
             }
         });
    
-    **레지스트리** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드는 **레지스트리** 개체를 초기화한 다음 **myDeviceId**에 대한 쌍을 검색하고, 마지막으로 원하는 위치 정보를 사용해 태그를 업데이트합니다.
+    **레지스트리** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드는 **Registry** 개체를 초기화한 다음 **myDeviceId**에 대한 장치 쌍을 검색하고, 마지막으로 원하는 위치 정보를 사용해 태그를 업데이트합니다.
    
     태그를 업데이트한 후 **queryTwins** 함수를 호출합니다.
 5. 다음 코드를 **queryTwins** 함수를 구현할 **AddTagsAndQuery.js** 끝 부분에 추가합니다.
@@ -120,7 +126,7 @@ ms.author: elioda
 다음 섹션에서는 연결 정보를 보고하고 이전 섹션의 쿼리 결과를 변경하는 장치 앱을 만듭니다.
 
 ## <a name="create-the-device-app"></a>장치 앱 만들기
-이 섹션에서는 **myDeviceId**로 허브에 연결하는 Node.js 콘솔 앱을 만들고 셀룰러 네트워크를 사용하여 연결된 정보에 들어 있는 쌍의 reported 속성을 업데이트합니다.
+이 섹션에서는 **myDeviceId**로 허브에 연결하는 Node.js 콘솔 앱을 만들고 셀룰러 네트워크를 사용하여 연결된 정보를 포함하도록 장치 쌍의 reported 속성을 업데이트합니다.
 
 > [!NOTE]
 > 현재 장치 쌍은 MQTT 프로토콜을 사용하여 IoT Hub에 연결하는 장치에서만 액세스할 수 있습니다. 기존 장치 앱이 MQTT를 사용하도록 변환하는 방법에 관한 설명은 [MQTT 지원][lnk-devguide-mqtt] 문서를 참조하세요.
@@ -135,7 +141,7 @@ ms.author: elioda
 2. **reportconnectivity** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. 텍스트 편집기를 사용하여 **reportconnectivity** 폴더에 새 **ReportConnectivity.js** 파일을 만듭니다.
 4. 다음 코드를 **ReportConnectivity.js** 파일에 추가하고 **myDeviceId** 장치 ID를 만들 때 복사한 연결 문자열을 사용해 **{장치 연결 문자열}** 자리 표시자를 대체합니다.
@@ -176,7 +182,7 @@ ms.author: elioda
         }
         });
    
-    **Client** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드는 **Client** 개체를 초기화한 다음 **myDeviceId**에 대한 쌍을 검색하고, 연결 정보를 사용해 reported 속성을 업데이트합니다.
+    **Client** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드는 **Client** 개체를 초기화한 다음 **myDeviceId**에 대한 장치 쌍을 검색하고 연결 정보를 사용해 reported 속성을 업데이트합니다.
 5. 장치 앱 실행
    
         node ReportConnectivity.js
@@ -191,13 +197,13 @@ ms.author: elioda
     ![][3]
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서 포털에서 새 IoT Hub를 구성한 다음, 허브의 ID 레지스트리에서 장치 ID를 만들었습니다. 백 엔드 응용 프로그램으로부터 장치 메타데이터를 태그로 추가했고 장치 쌍에 들어 있는 장치 연결 정보를 보고하는 시물레이션된 장치 앱을 작성했습니다. 또한 IoT Hub SQL과 유사한 쿼리 언어를 사용하여 이 정보를 쿼리하는 방법을 배웠습니다.
+이 자습서에서는 Azure Portal에서 새 IoT Hub를 구성한 다음, IoT Hub의 ID 레지스트리에서 장치 ID를 만들었습니다. 백 엔드 응용 프로그램으로부터 장치 메타데이터를 태그로 추가했고 장치 쌍에 들어 있는 장치 연결 정보를 보고하는 시뮬레이션된 장치 앱을 작성했습니다. 또한 SQL과 유사한 IoT Hub 쿼리 언어를 사용하여 이 정보를 쿼리하는 방법을 배웠습니다.
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 
-* 장치에서 [IoT Hub 시작][lnk-iothub-getstarted] 자습서와 함께 원격 분석을 보냅니다.
-* [desired 속성을 사용하여 장치 구성][lnk-twin-how-to-configure] 자습서와 함께 쌍의 desired 속성을 사용하여 장치를 구성합니다.
-* [직접 메서드 사용][lnk-methods-tutorial]자습서를 사용하여 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 장치를 제어합니다.
+* [IoT Hub 시작][lnk-iothub-getstarted] 자습서를 참조하여 장치에서 원격 분석을 보냅니다.
+* [desired 속성을 사용하여 장치 구성][lnk-twin-how-to-configure] 자습서를 참조하여 장치 쌍의 desired 속성을 사용하여 장치를 구성합니다.
+* [직접 메서드 사용][lnk-methods-tutorial] 자습서를 참조하여 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 장치를 제어합니다.
 
 <!-- images -->
 [1]: media/iot-hub-node-node-twin-getstarted/service1.png
@@ -214,17 +220,18 @@ ms.author: elioda
 [lnk-identity]: iot-hub-devguide-identity-registry.md
 
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
-[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 [lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
-[lnk-methods-tutorial]: iot-hub-c2d-methods.md
+[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 
