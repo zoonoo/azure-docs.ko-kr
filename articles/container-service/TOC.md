@@ -17,8 +17,13 @@
 ### [OMS(DC/OS) 모니터](container-service-monitoring-oms.md)
 ### [Datadog로 모니터링(DC/OS)](container-service-monitoring.md)
 ### [Sysdig로 모니터링(DC/OS)](container-service-monitoring-sysdig.md)
-## [Kubernetes를 사용하여 관리](container-service-kubernetes-walkthrough.md)
+### [Dynatrace로 모니터링(DC/OS)](container-service-monitoring-dynatrace.md)
+## Kubernetes를 사용하여 관리
+### [Kubernetes 시작](container-service-kubernetes-walkthrough.md)
+### [Kubernetes 웹 UI와 상호 작용](container-service-kubernetes-ui.md)
 ## [Docker Swarm을 사용하여 관리](container-service-docker-swarm.md)
+### [Docker 및 Docker Compose](container-service-docker-swarm.md)
+### [Docker Swarm 연속 통합](container-service-docker-swarm-setup-ci-cd.md)
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
@@ -29,6 +34,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

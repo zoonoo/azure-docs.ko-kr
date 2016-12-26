@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Log Analytics를 사용하여 실제 위치에 관계 없이 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성된 데이터를 수집하고 분석하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: a70f352a076f0d018856c1bdf5c326515405d154
+ms.sourcegitcommit: edbf9890b63219e7d87256be3600a1d41c87e295
+ms.openlocfilehash: 31726ed708006d504eea1e948561c108d39622f2
 
 ---
+
 # <a name="log-analytics-documentation"></a>Log Analytics 설명서
 
-Log Analytics는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성된 데이터를 수집 및 분석하도록 도와주는 OMS(Operations Management Suite)의 서비스입니다. 통합 검색 및 사용자 지정 대시보드를 사용하여 실제 위치에 상관없이 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 정보를 제공합니다.
+Operations Management Suite에서 Log Analytics를 사용하여 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성된 데이터를 수집하고 분석하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 물리적 위치에 관계 없이 워크로드 및 서버에서 실시간 정보를 가져오는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -68,22 +70,19 @@ Log Analytics는 클라우드 및 온-프레미스 환경에서 리소스에 의
 
 ---
 
-## <a name="automation"></a>Automation
-
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell 참조</p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -97,6 +96,6 @@ Log Analytics 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

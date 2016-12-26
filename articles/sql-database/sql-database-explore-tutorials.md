@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 0b200aff6a38a76abd1abaa742006f3d75e7121e
-ms.openlocfilehash: 0cbde2e33517e46e49824d9f66f75e4e2f384d97
+ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
+ms.openlocfilehash: 25725a28686dc3bb33bb400f4882d539cba2b691
 
 
 ---
@@ -99,7 +99,7 @@ ms.openlocfilehash: 0cbde2e33517e46e49824d9f66f75e4e2f384d97
 | [개별 쿼리 세부 정보 보기](sql-database-query-performance.md#viewing-individual-query-details) |이 자습서에서는 SQL 데이터베이스 관리자 Query Performance Insight를 사용하여 개별 쿼리 성능 세부 정보를 보는 방법을 알아봅니다. |
 |  | |
 
-## <a name="sql-database-migration-and-archive"></a>SQL 데이터베이스 마이그레이션 및 보관
+## <a name="sql-database-migration-and-archive"></a>SQL Database 마이그레이션 및 보관
 다음 자습서에서 [Azure SQL 데이터베이스에 기존 SQL Server 데이터베이스를 마이그레이션](sql-database-cloud-migrate.md)하는 방법을 알아봅니다.
 
 | 자습서 | 설명 |
@@ -135,7 +135,7 @@ ms.openlocfilehash: 0cbde2e33517e46e49824d9f66f75e4e2f384d97
 | [Ruby를 사용하여 SQL 데이터베이스에 연결](sql-database-develop-ruby-simple.md) |이 자습서에서는 Ruby를 사용하여 Azure SQL 데이터베이스에 연결하는 방법을 알아봅니다. |
 |  | |
 
-## <a name="database-access"></a>데이터베이스 액세스
+## <a name="database-authentication-and-authorization"></a>데이터베이스 인증 및 권한 부여
 다음 자습서에서 [로그인 및 사용자 만들기 및 관리](sql-database-manage-logins.md)에 대해 알아봅니다.
 
 | 자습서 | 설명 |
@@ -152,7 +152,7 @@ ms.openlocfilehash: 0cbde2e33517e46e49824d9f66f75e4e2f384d97
 | [사용자로 Azure SQL 데이터베이스에 연결](sql-database-get-started-security.md#connect-to-azure-sql-database-as-a-user) |이 자습서에서는 데이터베이스 수준 사용자 계정을 사용하여 Azure SQL 데이터베이스에 연결하는 방법을 알아봅니다. |
 |  | |
 
-## <a name="data-security"></a>데이터 보안
+## <a name="secure-and-protect-data"></a>데이터 보안 및 보호
 다음 자습서에서 [Azure SQL 데이터베이스 데이터 보호](sql-database-security.md)에 대해 알아봅니다.
 
 | 자습서 | 설명 |
@@ -164,7 +164,7 @@ ms.openlocfilehash: 0cbde2e33517e46e49824d9f66f75e4e2f384d97
 | [동적 데이터 마스킹 설정](sql-database-dynamic-data-masking-get-started.md#set-up-dynamic-data-masking-for-your-database-using-the-azure-portal) |이 자습서에서는 Azure SQL 데이터베이스에 대한 동적 데이터 마스킹을 설정하는 방법을 알아봅니다. |
 |  | |
 
-## <a name="business-continuity-and-query-scale-out"></a>무중단 업무 방식 및 쿼리 확장
+## <a name="business-continuity"></a>비즈니스 연속성
 다음 자습서에서 무중단 업무 방식 및 쿼리 확장을 위해 [지역 복원 및 활성 지역 복제](sql-database-business-continuity.md) 를 사용하여 오류를 복구하는 방법에 대해 알아봅니다.
 
 | 자습서 | 설명 |
@@ -194,6 +194,6 @@ ms.openlocfilehash: 0cbde2e33517e46e49824d9f66f75e4e2f384d97
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

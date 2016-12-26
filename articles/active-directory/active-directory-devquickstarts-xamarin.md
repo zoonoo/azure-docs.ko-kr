@@ -1,12 +1,12 @@
 ---
-title: Azure AD Xamarin 시작 | Microsoft Docs
-description: 로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호되는 API를 호출하는 Xamarin 응용 프로그램 빌드 방법
+title: "Azure AD Xamarin 시작 | Microsoft 문서"
+description: "로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호되는 API를 호출하는 Xamarin 응용 프로그램 빌드 방법"
 services: active-directory
 documentationcenter: xamarin
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 1865043ca9c9019b9813f11eb4a55f7f16d79287
+ms.openlocfilehash: 701e24d2613a4e650714ae3eaae0010425c20a63
+
 
 ---
-# Xamarin 앱에 Azure AD 통합
+# <a name="integrate-azure-ad-into-a-xamarin-app"></a>Xamarin 앱에 Azure AD 통합
 [!INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
@@ -36,27 +40,27 @@ Xamarin을 사용하면 iOS, Android 및 Windows(모바일 장치 및 PC)에서 
 3. ADAL을 설치 및 구성합니다.
 4. ADAL을 사용하여 Azure AD에서 토큰을 가져옵니다.
 
-시작하려면 [기본 프로젝트를 다운로드](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip)하거나 [완성된 샘플을 다운로드](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)하세요. 각 샘플은 Visual Studio 2013 솔루션입니다. 또한 사용자를 만들고 응용 프로그램을 등록할 수 있는 Azure AD 테넌트도 필요합니다. 테넌트가 아직 없는 경우 [가져오는 방법을 알아봅니다](active-directory-howto-tenant.md).
+시작하려면 [기본 프로젝트를 다운로드](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip)하거나 [완성된 샘플을 다운로드](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)하세요. 각 샘플은 Visual Studio 2013 솔루션입니다. 또한 사용자를 만들고 응용 프로그램을 등록할 수 있는 Azure AD 테넌트도 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](active-directory-howto-tenant.md).
 
-## *0. Xamarin 개발 환경 설정*
-이 자습서에는 iOS, Android 및 Windows용 프로젝트가 포함되어 있으므로 Visual Studio와 Xamarin이 둘 다 필요합니다. 필요한 환경을 만들려면 MSDN에서 [Visual Studio 및 Xamarin 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx)의 전체 지침을 따르세요. 이러한 지침에는 설치 관리자가 완료되기를 기다리는 동안 Xamarin에 대해 자세히 알아보기 위해 검토할 수 있는 자료가 포함되어 있습니다.
+## <a name="0-set-up-your-xamarin-development-environment"></a>*0. Xamarin 개발 환경 설정*
+이 자습서에는 iOS, Android 및 Windows용 프로젝트가 포함되어 있으므로 Visual Studio와 Xamarin이 둘 다 필요합니다. 필요한 환경을 만들려면 MSDN에서 [Visual Studio 및 Xamarin 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx) 의 전체 지침을 따르세요. 이러한 지침에는 설치 관리자가 완료되기를 기다리는 동안 Xamarin에 대해 자세히 알아보기 위해 검토할 수 있는 자료가 포함되어 있습니다.
 
 필요한 설정이 끝나면 Visual Studio에서 솔루션을 열어 시작합니다. 그러면 5개의 플랫폼별 프로젝트와 모든 플랫폼에서 공유되는 1개의 이식 가능 클래스 라이브러리(`DirectorySearcher.cs`)의 6개 프로젝트를 찾을 수 있습니다.
 
-## *1. Directory Searcher 응용 프로그램 등록*
+## <a name="1-register-the-directory-searcher-application"></a>*1. Directory Searcher 응용 프로그램 등록*
 앱에서 토큰을 가져올 수 있게 하려면 먼저 Azure AD 테넌트에 등록하고 Azure AD Graph API에 액세스할 수 있는 권한을 부여해야 합니다.
 
-* [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
-* 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+* [Azure Portal](https://portal.azure.com)에 로그인합니다.
 * 응용 프로그램을 등록할 테넌트를 선택합니다.
-* **응용 프로그램** 탭을 클릭하고 아래쪽 서랍에서 **추가**를 클릭합니다.
+* 왼쪽 탐색 창에서 **Azure Active Directory**를 클릭합니다.
+* **앱 등록** 탭을 클릭하고 **추가**를 클릭합니다.
 * 프롬프트에 따라 새 **네이티브 클라이언트 응용 프로그램**을 만듭니다.
-  * 응용 프로그램의 **이름**은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
-  * **리디렉션 Uri**는 Azure AD가 토큰 응답을 반환하는 데 사용하는 구성표 및 문자열 조합입니다. 값(예: `http://DirectorySearcher`)을 입력합니다.
-* 등록이 끝나면 AAD는 앱에 고유한 클라이언트 식별자를 할당합니다. 이 값은 다음 섹션에서 필요하므로 **구성** 탭에서 복사해둡니다.
-* 또한 **구성** 탭에서 “다른 응용 프로그램에 대한 권한” 섹션을 찾습니다. "Azure Active Directory" 응용 프로그램의 경우 **위임된 권한**에서 **조직 디렉터리 액세스** 권한을 추가합니다. 이렇게 하면 응용 프로그램은 Graph API에서 사용자를 쿼리할 수 있습니다.
+  * 응용 프로그램의 **이름** 은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
+  * **리디렉션 Uri** 는 Azure AD가 토큰 응답을 반환하는 데 사용하는 구성표 및 문자열 조합입니다. 값(예: `http://DirectorySearcher`)을 입력합니다.
+* 등록을 완료하면 AAD는 앱에 고유한 응용 프로그램 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 응용 프로그램 페이지에서 복사해 둡니다.
+* 응용 프로그램에 대한 권한 구성 - 설정 메뉴에서 [필수 권한] 섹션을 선택하고 **추가**, **API 선택**을 차례로 클릭한 다음 [Windows Azure Active Directory](현재 AADGraph API임)를 선택합니다. 그런 다음 **권한 선택**을 클릭하고 **디렉터리 데이터 읽기**를 선택합니다. 이렇게 하면 응용 프로그램은 Graph API에서 사용자를 쿼리할 수 있습니다.
 
-## *2. ADAL 설치 및 구성*
+## <a name="2-install--configure-adal"></a>*2. ADAL 설치 및 구성*
 Azure AD에서 응용 프로그램이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성할 수 있습니다. ADAL이 Azura AD와 통신할 수 있게 하려면, 앱 등록에 관한 일부 정보를 제공해야 합니다.
 
 * 먼저 패키지 관리자 콘솔을 사용하여 솔루션의 각 프로젝트에 ADAL을 추가합니다.
@@ -83,15 +87,15 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName
 
 * ADAL의 PCL 부분과 플랫폼별 부분의 두 라이브러리 참조가 각 프로젝트에 추가됩니다.
 * DirectorySearcherLib 프로젝트에서 `DirectorySearcher.cs`를 엽니다. Azure 포털에 입력한 값을 반영하도록 클래스 멤버 값을 바꿉니다. 코드는 ADAL을 사용할 때마다 이러한 값을 참조합니다.
-  
-  * `tenant`는 Azure AD 테넌트의 도메인(예: contoso.onmicrosoft.com)입니다.
+
+  * `tenant` 는 Azure AD 테넌트의 도메인(예: contoso.onmicrosoft.com)입니다.
   * `clientId`는 포털에서 복사한 응용 프로그램의 clientId여야 합니다.
   * `returnUri`는 포털에 입력한 redirectUri(예: `http://DirectorySearcher`)입니다.
 
-## *3. ADAL을 사용하여 AAD에서 토큰을 가져오기*
+## <a name="3----use-adal-to-get-tokens-from-aad"></a>*3.    ADAL을 사용하여 AAD에서 토큰을 가져오기*
 *거의* 모든 앱 인증 논리가 `DirectorySearcher.SearchByAlias(...)`에 있습니다. 플랫폼별 프로젝트에서는 `DirectorySearcher` PCL에 컨텍스트 매개 변수를 전달하기만 하면 됩니다.
 
-* 먼저 `DirectorySearcher.cs`를 열고 새 매개 변수를 `SearchByAlias(...)` 메서드에 추가합니다. `IPlatformParameters`는 ADAL이 인증을 수행하는 데 필요한 플랫폼별 개체를 캡슐화하는 컨텍스트 매개 변수입니다.
+* 먼저 `DirectorySearcher.cs`를 열고 새 매개 변수를 `SearchByAlias(...)` 메서드에 추가합니다. `IPlatformParameters` 는 ADAL이 인증을 수행하는 데 필요한 플랫폼별 개체를 캡슐화하는 컨텍스트 매개 변수입니다.
 
 ```C#
 public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
@@ -115,7 +119,7 @@ public static async Task<List<User>> SearchByAlias(string alias, IPlatformParame
     }
 ...
 ```
-* `AcquireTokenAsync(...)`는 먼저 사용자에게 자격 증명을 요구하지 않고(이전 토큰을 캐시하거나 새로 고침) 요청된 리소스(이 경우 Graph API)에 대한 토큰을 반환하려고 합니다. 필요한 경우에만 요청된 토큰을 획득하기 전에 사용자에게 Azure AD 로그인 페이지를 표시합니다.
+* `AcquireTokenAsync(...)` 는 먼저 사용자에게 자격 증명을 요구하지 않고(이전 토큰을 캐시하거나 새로 고침) 요청된 리소스(이 경우 Graph API)에 대한 토큰을 반환하려고 합니다. 필요한 경우에만 요청된 토큰을 획득하기 전에 사용자에게 Azure AD 로그인 페이지를 표시합니다.
 * 그러면 Authorization 헤더의 Graph API GET 요청에 액세스 토큰을 연결할 수 있습니다.
 
 ```C#
@@ -124,15 +128,15 @@ public static async Task<List<User>> SearchByAlias(string alias, IPlatformParame
 ...
 ```
 
-`DirectorySearcher` PCL 및 앱의 ID 관련 코드에 대한 작업이 끝났습니다. 이제 각 플랫폼 보기에서 `SearchByAlias(...)` 메서드를 호출하고, 필요한 경우 UI 수명 주기를 올바르게 처리하기 위한 코드를 추가하면 됩니다.
+`DirectorySearcher` PCL 및 앱의 ID 관련 코드에 대한 작업이 끝났습니다.  이제 각 플랫폼 보기에서 `SearchByAlias(...)` 메서드를 호출하고, 필요한 경우 UI 수명 주기를 올바르게 처리하기 위한 코드를 추가하면 됩니다.
 
-#### Android:
+#### <a name="android"></a>Android:
 * `MainActivity.cs`의 단추 클릭 처리기에서 `SearchByAlias(...)` 호출을 추가합니다.
 
 ```C#
 List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new PlatformParameters(this));
 ```
-* 또한 `OnActivityResult` 수명 주기 메서드를 재정의하여 인증 리디렉션을 해당 메서드로 다시 전달해야 합니다. ADAL은 Android에서 이 작업을 위한 도우미 메서드를 제공합니다.
+* 또한 `OnActivityResult` 수명 주기 메서드를 재정의하여 인증 리디렉션을 해당 메서드로 다시 전달해야 합니다.  ADAL은 Android에서 이 작업을 위한 도우미 메서드를 제공합니다.
 
 ```C#
 ...
@@ -144,7 +148,7 @@ protected override void OnActivityResult(int requestCode, Result resultCode, Int
 ...
 ```
 
-#### Windows 데스크톱:
+#### <a name="windows-desktop"></a>Windows 데스크톱:
 * `MainWindow.xaml.cs`에서 데스크톱의 `PlatformParameters` 개체에 `WindowInteropHelper`를 전달하여 `SearchByAlias(...)`를 호출하면 됩니다.
 
 ```C#
@@ -153,7 +157,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
 ```
 
-#### iOS:
+#### <a name="ios"></a>iOS:
 * `DirSearchClient_iOSViewController.cs`에서 iOS `PlatformParameters` 개체는 단순히 보기 컨트롤러를 참조합니다.
 
 ```C#
@@ -162,7 +166,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
 ```
 
-#### Windows 유니버설:
+#### <a name="windows-universal"></a>Windows 유니버설:
 * Windows 유니버설에서 `MainPage.xaml.cs`를 열고 `Search` 메서드를 구현합니다. 이 메서드는 필요에 따라 공유 프로젝트에서 도우미 메서드를 사용하여 UI를 업데이트합니다.
 
 ```C#
@@ -181,4 +185,8 @@ ADAL은 앱에 일반적인 ID 기능을 쉽게 통합할 수 있습니다. 또�
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO5-->
+
+

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "특수한 인프라 없이 일정에 따라 또는 백그라운드에서 선택한 태스크 실행하는 언어로 함수를 개발하고 배포하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 87316969b7849396c6542decde3257774c35c454
-ms.openlocfilehash: dc15cd4e497135ea9ce07d671020af6df49ad3f6
+ms.sourcegitcommit: 76fed1f753b910007be4d9bb16630483aa225760
+ms.openlocfilehash: 91deffe385997c3e658a7fbfe194c9c2b762df58
 
 ---
 #<a name="azure-functions-documentation"></a>Azure Functions 설명서
 
-Azure Functions는 클라우드에서 작은 코드("함수")를 실행하기 위한 솔루션입니다. 실행할 인프라의 전체 응용 프로그램에 대한 우려 없이 당면한 문제에 필요한 코드를 작성할 수 있습니다. C#, F #, Node.js, Python 또는 PHP와 같은 원하는 언어에서 개발할 수 있습니다.
+함수를 사용하여 인프라를 설정하지 않고 클라우드에서 선택한 언어로 코드의 작은 부분을 개발하고 배포하는 방법에 대해 알아봅니다. 자습서, 템플릿 및 기타 설명서에서는 백그라운드 스레드에서 또는 일정에 따라 실행하려는 태스크에 대한 함수를 만드는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -115,6 +116,6 @@ Azure Functions 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

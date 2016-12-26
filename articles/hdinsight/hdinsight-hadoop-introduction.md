@@ -1,6 +1,6 @@
 ---
-title: "Hadoop 소개 - HDInsight의 Hadoop은 무엇입니까? | Microsoft Docs"
-description: "HDInsight의 클라우드에서 Hadoop, 분산된 빅 데이터 처리 및 분석과 Hadoop 에코시스템의 구성 요소에 대해 소개합니다."
+title: "Hadoop이란? Azure HDInsight에 대한 소개 | Microsoft Docs"
+description: "HDInsight의 Hadoop 에코시스템 및 구성 요소에 대한 소개. HDInsight은 Hadoop, Spark, HBase 및 빅 데이터 처리 및 분석을 위한 더 많은 구성 요소를 포함합니다."
 keywords: "빅 데이터 분석, Hadoop 소개, Hadoop이란, Hadoop 기술 스택, Hadoop 에코시스템"
 services: hdinsight
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/21/2016
+ms.date: 12/14/2016
 ms.author: cgronlun
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 66200ad8688928c368146a177130f6e2fad4849b
+ms.sourcegitcommit: 10d684bd6c9408f2fbd48a0a8804b011f098d71c
+ms.openlocfilehash: 8f38b9eaf8bcb498a7983756cbf57f3e372d7fe0
 
 
 ---
@@ -25,9 +25,9 @@ ms.openlocfilehash: 66200ad8688928c368146a177130f6e2fad4849b
  이 문서는 Azure HDInsight, 해당 에코시스템 및 빅 데이터에 Hadoop에 대한 소개를 제공합니다. Hadoop 구성 요소, 일반적인 용어 및 빅 데이터 분석의 시나리오에 대해 알아봅니다.
 
 ## <a name="what-is-hadoop-on-hdinsight"></a>HDInsight의 Hadoop은 무엇입니까?
-Hadoop은 컴퓨터의 클러스터에서 빅 데이터 집합의 분산 처리, 저장 및 분석을 위한 프레임워크인 오픈 소스 소프트웨어의 에코시스템을 가리킵니다. Azure HDInsight를 사용하면 **HDP(Hortonworks Data Platform)** 배포의 Hadoop 구성 요소를 클라우드에서 사용할 수 있고 높은 안정성 및 가용성을 가진 관리되는 클러스터를 배포하고 프로비전할 수 있습니다.  
+Hadoop은 컴퓨터의 클러스터에서 빅 데이터 집합의 분산 처리, 저장 및 분석을 위한 프레임워크인 오픈 소스 소프트웨어의 에코시스템을 가리킵니다. Azure HDInsight를 사용하여 **HDP(Hortonworks Data Platform)** 배포의 Hadoop 구성 요소를 클라우드에서 사용할 수 있도록 하고, 높은 안정성 및 가용성을 갖춘 관리된 클러스트를 배포하고, Active Directory를 사용하여 엔터프라이즈급 보안 및 거버넌스를 제공합니다.  
 
-Apache Hadoop은 원래 빅 데이터 처리를 위한 오픈 소스 프로젝트였습니다. Apache Hive, Apache HBase, Apache Spark 및 많은 기타 프로그램을 포함하는 Hadoop 기술 스택의 일부로 간주되는 관련된 소프트웨어 및 유틸리티는 다음과 같이 개발되었습니다. 자세한 내용은 [HDInsight의 Hadoop 에코시스템 개요](#overview)를 참조하세요.
+Apache Hadoop은 원래 빅 데이터 처리를 위한 오픈 소스 프로젝트였습니다. Apache Hive, Apache HBase, Apache Spark, Apache Kafka 및 많은 기타 프로그램을 포함하는 Hadoop 기술 스택의 일부로 간주되는 관련된 소프트웨어 및 유틸리티는 다음과 같이 개발되었습니다. 자세한 내용은 [HDInsight의 Hadoop 에코시스템 개요](#overview)를 참조하세요.
 
 ## <a name="what-is-big-data"></a>빅 데이터란?
 빅 데이터는 Twitter 피드의 텍스트, 산업 장비의 센서 정보, 웹사이트의 고객 검색 및 구매 관련 정보에 이르기까지 모든 디지털 정보의 본문을 설명하며 기록 데이터, 즉 저장된 데이터일 수도 있고 실시간 데이터, 즉 원본에서 직접 스트리밍되는 데이터일 수도 있습니다. 빅 데이터는 갈수록 많은 양이 다양한 형식으로 더 빠르게 수집되고 있습니다.
@@ -35,18 +35,23 @@ Apache Hadoop은 원래 빅 데이터 처리를 위한 오픈 소스 프로젝�
 실행 가능한 인텔리전스 또는 의견을 제공하는 빅 데이터의 경우 관련 데이터를 수집하고 올바로 질문해야 합니다. 또한 데이터에 액세스 가능하고 데이터를 정리, 분석하고 유용한 방식으로 표시하도록 합니다. 이 경우 HDInsight의 Hadoop에 대한 빅 데이터 분석이 유용할 수 있습니다.
 
 ## <a name="a-nameoverviewaoverview-of-the-hadoop-ecosystem-in-hdinsight"></a><a name="overview"></a>HDInsight의 Hadoop 에코 시스템 개요
-HDInsight는 빅 데이터 분석을 위해 빠르게 확장되는 Apache Hadoop 기술 스택인 Microsoft Azure를 기반으로 하는 클라우드 구현입니다. Apache Spark, HBase, Storm, Pig, Hive, Sqoop, Oozie, Ambari 등의 구현이 포함됩니다. 또한 HDInsight는 Power BI, Excel, SQL Server Analysis Services 및 SQL Server Reporting Services 등의 BI(비즈니스 인텔리전스) 도구와도 통합됩니다.
+HDInsight는 빅 데이터 분석을 위해 빠르게 확장되는 Apache Hadoop 기술 스택인 Microsoft Azure를 기반으로 하는 클라우드 구현입니다. Apache Spark, HBase, Kafka, Storm, Pig, Hive, Interactive Hive, Sqoop, Oozie, Ambari 등의 구현이 포함됩니다. 또한 HDInsight는 Power BI, Excel, SQL Server Analysis Services 및 SQL Server Reporting Services 등의 BI(비즈니스 인텔리전스) 도구와도 통합됩니다.
 
-### <a name="hadoop-hbase-spark-storm-and-customized-clusters"></a>Hadoop, HBase, Spark, Storm 및 사용자 지정된 클러스터
-HDInsight는 Apache Hadoop, Spark, HBase 또는 Storm에 대한 클러스터 구성을 제공합니다. 또는 [스크립트 동작으로 클러스터를 사용자 지정할](hdinsight-hadoop-customize-cluster-linux.md)수 있습니다.
+### <a name="hadoop-hbase-spark-kafka-interactive-hive-storm-customized-and-other-clusters"></a>Hadoop, HBase, Spark, Kafka, Interactive Hive, Storm, 사용자 지정 및 기타 클러스터
+HDInsight는 다음 클러스터 형식을 제공합니다.
 
-* **Hadoop**: 데이터를 병렬로 처리하고 분석하도록 [HDFS](#hdfs)를 통해 신뢰할 수 있는 데이터 저장소와 간단한 [MapReduce](#mapreduce) 프로그래밍 모델을 제공합니다.
-* **<a target="_blank" href="http://spark.apache.org/">Apache Spark</a>**: 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램, SQL의 Spark 작업, 스트리밍 데이터 및 기계 학습의 성능을 향상하는 병렬 처리 프레임워크입니다. 자세한 내용은 [개요: HDInsight에서 Apache Spark란?](hdinsight-apache-spark-overview.md)
-* **<a target="_blank" href="http://hbase.apache.org/">HBase</a>**: 구조화되지 않은/반구조화된 대량 데이터(잠재적으로 수십억 개의 행과 수십억 개의 열로 구성됨)에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 NoSQL 데이터베이스입니다. [HDInsight의 HBase 개요](hdinsight-hbase-overview.md)를 참조하세요.
-* **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>**: 대규모 데이터 스트림을 빠르게 처리하기 위한 분산형 실시간 계산 시스템으로입니다. HDInsight에서 관리 클러스터로 제공됩니다. [Storm 및 Hadoop을 사용하여 실시간 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md)을 참조하세요.
+* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: 데이터를 병렬로 처리하고 분석하도록 [HDFS](#hdfs)를 통해 신뢰할 수 있는 데이터 저장소와 간단한 [MapReduce](#mapreduce) 프로그래밍 모델을 제공합니다.
+* **[Apache Spark](http://spark.apache.org/)**: 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램, SQL의 Spark 작업, 스트리밍 데이터 및 기계 학습의 성능을 향상하는 병렬 처리 프레임워크입니다. 자세한 내용은 [개요: HDInsight에서 Apache Spark란?](hdinsight-apache-spark-overview.md)
+* **[Apache HBase](http://hbase.apache.org/)**: 구조화되지 않은/반구조화된 대량 데이터(잠재적으로 수십억 개의 행과 수십억 개의 열로 구성됨)에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 NoSQL 데이터베이스입니다. [HDInsight의 HBase 개요](hdinsight-hbase-overview.md)를 참조하세요.
+* **[Microsoft R Server](https://msdn.microsoft.com/en-us/microsoft-r/rserver)**: 병렬, 분산된 R 프로세스 호스팅 및 관리하기 위한 엔터프라이즈급 서버입니다. 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다. [HDInsight의 서버 개요](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-r-server-overview)를 참조하세요.
+* **[Apache Storm](https://storm.incubator.apache.org/)**: 대규모 데이터 스트림을 빠르게 처리하기 위한 분산형 실시간 계산 시스템으로입니다. HDInsight에서 관리 클러스터로 제공됩니다. [Storm 및 Hadoop을 사용하여 실시간 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md)을 참조하세요.
+* **[Apache Interactive Hive 미리 보기 (AKA: Live Long 및 Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: 대화형이며 더 빠른 하이브 쿼리에 대한 메모리 내 캐싱입니다. [HDInsight에서 대화형 Hive 사용](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-interactive-hive)을 참조하세요.
+* **[Apache Kafka 미리 보기](https://kafka.apache.org/)**: 스트리밍 데이터 파이프라인 및 응용 프로그램을 빌드하는 데 사용되는 오픈 소스 플랫폼입니다. 또한 Kafka는 고 데이터 스트림을 게시하고 구독할 수 있는 메시지 큐 기능을 제공합니다. [HDInsight에서 Apache Kafka에 대한 소개](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-kafka-introduction)를 참조하세요.
+* **[도메인에 연결된 클러스터 미리 보기](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-domain-joined-introduction)**: Active Directory 도메인에 연결된 클러스터를 사용하여 액세스를 제어하고 데이터에 대한 거버넌스를 제공할 수 있습니다.
+* **[스크립트 동작을 사용하는 사용자 지정 클러스터](hdinsight-hadoop-customize-cluster-linux.md)**: 프로비전되는 동안에 실행되고 추가 구성 요소를 설치하는 스크립트가 있는 클러스터입니다.
 
 ### <a name="example-customization-scripts"></a>예제 사용자 지정 스크립트
-스크립트 동작은 클러스터가 프로비전되는 동안 실행되는 스크립트이며 클러스터에 추가 구성 요소를 설치하는 데 사용할 수 있습니다. Linux 기반 클러스터의 경우에는 Bash 스크립트가 해당합니다.
+스크립트 작업은 클러스터가 프로비전되는 동안 실행되는 Linux 기반 Bash 스크립트이며 클러스터에 추가 구성 요소를 설치하는데 사용할 수 있습니다.
 
 다음은 HDInsight 팀에서 제공하는 예제 스크립트입니다.
 
@@ -75,8 +80,8 @@ HDInsight는 Apache Hadoop, Spark, HBase 또는 Storm에 대한 클러스터 구
 
 > [!NOTE]
 > 특정 구성 요소 및 버전 정보에 대한 자세한 내용은 [HDInsight의 Hadoop 구성 요소, 버전 관리 및 서비스 제품][component-versioning]을 참조하세요.
-> 
-> 
+>
+>
 
 ### <a name="a-nameambariaambari"></a><a name="ambari"></a>Ambari
 Apache Ambari는 Apache Hadoop 클러스터를 프로비전하고 관리 및 모니터링합니다. Hadoop의 복잡성을 숨기고 클러스터 작업을 단순화하는 직관적인 연산자 도구 모음 및 강력한 API 집합이 포함되어 있습니다. Linux 기반 HDInsight 클러스터는 Ambari 웹 UI와 Ambari REST API 둘 다 제공하는 반면 Windows 기반 클러스터는 REST API의 하위 집합을 제공합니다. HDInsight 클러스터의 Ambari 뷰는 플러그 인 UI 기능을 허용합니다.
@@ -90,7 +95,7 @@ Avro 파일의 형식은 분산된 MapReduce 프로그래밍 모델을 지원합
 ### <a name="a-namehdfsahdfs"></a><a name="hdfs"></a>HDFS
 HDFS(Hadoop Distributed File System)는 MapReduce 및 YARN과 함께 Hadoop 에코시스템의 핵심 구성 요소인 분산 파일 시스템이자 HDInsight의 Hadoop 클러스터용 표준 파일 시스템입니다.
 
-### <a name="a-namehiveahive-hcatalog"></a><a name="hive"></a>Hive & HCatalog
+### <a name="a-namehiveahive--hcatalog"></a><a name="hive"></a>Hive & HCatalog
 <a target="_blank" href="http://hive.apache.org/">Apache Hive</a>는 Hadoop을 기반으로 작성되는 데이터 웨어하우스 소프트웨어로, HiveQL이라는 SQL 스타일 언어를 사용하여 분산 저장소에서 대형 데이터 집합을 쿼리 및 관리하는 데 사용할 수 있습니다. Pig와 마찬가지로 Hive는 MapReduce 위에 있는 추상화 계층입니다. Hive를 실행하면 일련의 MapReduce 작업을 쿼리합니다. 개념상 Hive는 Pig보다 관계형 데이터베이스 관리 시스템에 더 가까우므로 보다 구조적인 데이터에 사용하기에 적합합니다. 구조화되지 않은 데이터의 경우에는 Pig가 더 적합합니다. [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
 <a target="_blank" href="https://cwiki.apache.org/confluence/display/Hive/HCatalog/">Apache HCatalog</a>는 사용자에게 데이터의 관계형 뷰를 표시하는 Hadoop의 테이블 및 저장소 관리 계층입니다. HCatalog에서, Hive SerDe(serializer-deserializer)를 쓸 수 있는 모든 형식으로 파일을 읽고 쓸 수 있습니다.
@@ -134,8 +139,8 @@ HDInsight 클러스터--Hadoop, HBase, Storm 및 Spark 클러스터는 다양한
 ### <a name="default-programming-language-support"></a>기본 프로그래밍 언어 지원
 기본적으로 HDInsight 클러스터는 다음을 지원합니다.
 
-* Java
-* Python
+* 자바
+* 파이썬
 
 [HDInsight를 사용하여 스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md) 스크립트 작업을 사용하여 추가 언어를 설치할 수 있습니다.
 
@@ -146,7 +151,7 @@ JVM(Java virtual machine)을 사용하여 Java 이외의 여러 언어를 실행
 
 * Clojure
 * Jython(Java용 Python)
-* Scala
+* 스칼라
 
 ### <a name="hadoop-specific-languages"></a>Hadoop 관련 언어
 HDInsight 클러스터는 Hadoop 에코시스템에만 적용되는 다음 언어를 지원합니다.
@@ -160,7 +165,7 @@ HDInsight의 Hadoop은 Azure 클라우드 에코시스템의 일부분으로 다
 * Hadoop 클러스터 자동 프로비저닝 수동으로 Hadoop 클러스터를 구성하는 것보다 HDInsight 클러스터를 만들기가 훨씬 쉽습니다. 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 * 최신 Hadoop 구성 요소. 자세한 내용은 [HDInsight의 Hadoop 구성 요소, 버전 관리 및 서비스 제품][component-versioning]을 참조하세요.
 * 클러스터의 고가용성 및 안정성. 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md) 을 참조하세요.
-* Hadoop 호환 옵션인 Azure Blob 저장소를 통한 효율적이고 경제적인 데이터 저장. 자세한 내용은 [HDInsight에서 Hadoop과 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md) 을 참조하세요.
+* Hadoop 호환 옵션인 Azure Blob Storage 또는 Azure Data Lake Store를 통한 효율적이고 경제적인 데이터 저장. 자세한 내용은 [HDInsight에서 Hadoop와 함께 Azure Blob Storage 사용](hdinsight-hadoop-use-blob-storage.md) 또는 [HDInsight 클러스터와 함께 Data Lake Store 사용](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal)을 참조하세요.
 * [웹앱](https://azure.microsoft.com/documentation/services/app-service/web/) 및 [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)를 포함한 다른 Azure 서비스와의 통합.
 * HDInsight 클러스터를 실행하는 추가 VM 크기와 형식. 자세한 내용은 [HDInsight의 Hadoop 구성 요소, 버전 관리 및 서비스 제품][component-versioning]을 참조하세요.
 * 클러스터 크기 조정. 클러스터 크기 조정을 사용하면 HDInsight 클러스터를 삭제하거나 다시 작성하지 않고 실행 중인 HDInsight 클러스터의 노드 수를 변경할 수 있습니다.
@@ -192,8 +197,8 @@ HDInsight는 빅 데이터 클라우드 제품을 표준 및 프리미엄이라�
 
 이러한 BI 도구를 통해 빅 데이터를 보다 쉽게 분석할 수 있습니다.
 
-* [파워 쿼리로 Hadoop에 Excel 연결](hdinsight-connect-excel-power-query.md): HDInsight 클러스터와 연결된 데이터를 저장하는 Azure 저장소 계정에 Microsoft Excel용 파워 쿼리를 사용하여 Excel을 연결하는 방법을 알아 봅니다. Windows 워크스테이션이 필요합니다. Windows 또는 Linux 기반 클러스터와 함께 작동합니다.
-* [Microsoft Hive ODBC 드라이버로 Hadoop에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md): Microsoft Hive ODBC 드라이버를 사용하여 HDInsight에서 데이터를 가져오는 방법에 대해 알아봅니다. Windows 워크스테이션이 필요합니다. Windows 또는 Linux 기반 클러스터와 함께 작동합니다.
+* [파워 쿼리로 Hadoop에 Excel 연결](hdinsight-connect-excel-power-query.md): HDInsight 클러스터와 연결된 데이터를 저장하는 Azure 저장소 계정에 Microsoft Excel용 파워 쿼리를 사용하여 Excel을 연결하는 방법을 알아 봅니다. Windows 워크스테이션이 필요합니다. Linux 또는 Windows에서 클러스터와 함께 작동합니다.
+* [Microsoft Hive ODBC 드라이버로 Hadoop에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md): Microsoft Hive ODBC 드라이버를 사용하여 HDInsight에서 데이터를 가져오는 방법에 대해 알아봅니다. Windows 워크스테이션이 필요합니다. Linux 또는 Windows에서 클러스터와 함께 작동합니다.
 * [Microsoft 클라우드 플랫폼](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): Office 365용 Power BI에 대해 알아보고 SQL Server 평가판을 다운로드하고 SharePoint Server 2013 및 SQL Server BI를 설치합니다.
 * [SQL Server Analysis Services](http://msdn.microsoft.com/library/hh231701.aspx)
 * [SQL Server Reporting Services](http://msdn.microsoft.com/library/ms159106.aspx)

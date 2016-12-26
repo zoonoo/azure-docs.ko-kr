@@ -1,13 +1,13 @@
 ---
-title: Azure Functions를 사용하여 예약된 정리 작업 수행 | Microsoft Docs
-description: Azure Functions를 사용하여 이벤트 타이머에 기반하여 실행되는 C# 함수를 만듭니다.
+title: "Azure Functions를 사용하여 예약된 정리 작업 수행 | Microsoft 문서"
+description: "Azure Functions를 사용하여 이벤트 타이머에 기반하여 실행되는 C# 함수를 만듭니다."
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: glenga
+translationtype: Human Translation
+ms.sourcegitcommit: b873a7d0ef9efa79c9a173a8bfd3522b12522322
+ms.openlocfilehash: c0b4a963275dae5bbf203388cb61086393803b15
+
 
 ---
 # <a name="use-azure-functions-to-perform-a-scheduled-clean-up-task"></a>Azure Functions을 사용하여 예약된 정리 작업 수행하기
@@ -48,16 +52,20 @@ ms.author: glenga
    
     ![새 타이머로 트리거되는 함수 만들기](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 2. **개발** 탭의 **코드** 창에서 기존 함수 코드의 맨 위에 다음 어셈블리 참조를 추가합니다.
-   
+    ```cs
         #r "System.Configuration"
         #r "System.Data"
+    ```
+
 3. 다음 `using` 문을 함수에 추가합니다.
-   
+    ```cs
         using System.Configuration;
         using System.Data.SqlClient;
-        using System.Threading.Tasks; 
+        using System.Threading.Tasks;
+    ```
+
 4. 기존 **Run** 함수를 다음 코드로 바꿉니다.
-   
+    ```cs
         public static async Task Run(TimerInfo myTimer, TraceWriter log)
         {
             var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
@@ -73,6 +81,8 @@ ms.author: glenga
                 }
             }
         }
+    ```
+
 5. **저장**을 클릭하고 **로그** 창에서 다음 함수 실행을 지켜본 다음, TodoItems 테이블에서 삭제된 행 개수를 메모합니다.
 6. (선택 사항) [모바일 앱 퀵스타트 앱](../app-service-mobile/app-service-mobile-ios-get-started.md)을 사용하여 추가 항목을 "완료됨"으로 표시하고 **로그** 창으로 돌아와서 다음 함수 실행 시 같은 개수의 행이 삭제되는지 확인합니다. 
 
@@ -80,14 +90,17 @@ ms.author: glenga
 Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
 
 * [Azure Functions 개발자 참조](functions-reference.md)  
-  함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
+   함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
 * [Azure Functions 테스트](functions-test-a-function.md)  
-  함수를 테스트하는 다양한 도구와 기법을 설명합니다.
+   함수를 테스트하는 다양한 도구와 기법을 설명합니다.
 * [Azure Functions 크기 조정 방법](functions-scale.md)  
-  동적 서비스 계획 등 Azure Functions에 사용할 수 있는 서비스 계획과 적절한 계획을 선택하는 방법을 설명합니다.  
+  Azure Functions와 함께 제공되는 서비스 계획(소비 계획 포함) 및 올바른 계획 선택 방법에 대해 설명합니다.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

@@ -19,6 +19,7 @@
 ## [논리 앱을 원격 모니터링 솔루션에 연결](iot-suite-logic-apps-tutorial.md)
 ## [미리 구성된 솔루션 사용자 지정](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [원격 모니터링 솔루션과 함께 동적 원격 분석 사용](iot-suite-dynamic-telemetry.md)
+## [원격 모니터링 솔루션에서 사용자 지정 규칙 만들기](iot-suite-custom-rule.md)
 ## [원격 모니터링 솔루션의 장치 정보](iot-suite-remote-monitoring-device-info.md)
 
 # 참조
@@ -42,6 +43,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

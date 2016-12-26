@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "복제본을 배포하고 관리하여 물리적 서버 및 가상 컴퓨터에 대한 클라우드 재해 복구 및 비즈니스 연속성을 설정하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: b3774d229255bbcab433e570e679678e70761f05
+ms.sourcegitcommit: 13d77644673b86be22bf7be40f77d6ebfb1f8baa
+ms.openlocfilehash: d815422edd036711525d8c2f1eea0348295416d5
 
 ---
 # <a name="site-recovery-documentation"></a>Site Recovery 설명서
 
-Azure Site Recovery는 온-프레미스 가상 컴퓨터와 물리적 서버의 복제를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 기본 온-프레미스 데이터 센터에서 Azure 또는 보조 데이터 센터로 서버와 VM을 복제합니다. 기본 사이트에서 중단이 발생하면 보조 사이트로 장애 조치하여 워크로드를 액세스 가능하고 사용 가능한 상태로 유지합니다.
+사설 클라우드에 대한 비즈니스 연속성 및 재해 복구 전략에 Site Recovery를 사용하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 온-프레미스 물리적 서버 및 가상 컴퓨터를 클라우드 또는 보조 데이터 센터에 복제하는 오케스트레이션을 계획, 배포 및 관리하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -50,52 +51,34 @@ Azure Site Recovery는 온-프레미스 가상 컴퓨터와 물리적 서버의 
 
 ---
 
-## <a name="reference"></a>참조
-
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell 참조</p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery">PowerShell</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery">PowerShell 클래식</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Site Recovery Java API 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/en-us/library/mt750497">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p>사이트 복구 REST API</p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/mt750497">REST API 참조</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-</ul>   
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
@@ -107,6 +90,6 @@ Site Recovery 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
 +toc_rel: breadcrumb.json
+description: "클라우드에서 가상 네트워크를 사용하는 방법에 대해 알아봅니다. 설명서에서는 VNet을 배포하고 사용하여 리소스를 시작하고 온-프레미스 네트워크와 통합하는 방법을 보여 줍니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: c285a2be335bed0adada1877f94c7999d7c8b7e5
+ms.sourcegitcommit: 9a76fe5c0b518cdd95be71e0c3cf928f0ff93668
+ms.openlocfilehash: 7e2c2db7000b2ea0a4fe698e47e775cc2a7db4dd
 
 ---
 # <a name="virtual-network-documentation"></a>Virtual Network 설명서
 
-Azure VNet(Virtual Network)은 클라우드의 사용자 네트워크를 나타내는 논리적 표현입니다.  VNet을 사용하여 네트워크의 요소를 완전히 제어하고 VNet을 서브넷으로 분할하고 Azure Virtual Machines 또는 Cloud Services를 시작할 수 있습니다.  또한 리소스에 대한 제어를 유지하면서 클라우드로 네트워크를 확장하는 Azure에서 사용할 수 있는 연결 옵션 중 하나를 사용하여 온-프레미스 네트워크에 VNet을 연결할 수 있습니다.
+클라우드의 사용자 네트워크를 논리적으로 나타내는 표현인 VNet(Virtual Network)을 사용하는 방법에 대해 알아봅니다. 설명서에서는 리소스에 대한 제어를 유지하면서 VNet을 설정하고 관리하고 사용하여 Virtual Machines 또는 Cloud Services를 시작하고 VNet을 온-프레미스 네트워크에 연결하고 네트워크를 클라우드로 확장하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -158,6 +159,6 @@ Virtual Network 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

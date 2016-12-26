@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Active Directory Domain Services를 사용하여 도메인 컨트롤러를 사용하지 않고 Azure 가상 컴퓨터를 도메인에 조인하고 그룹 정책으로 관리하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 55dedcab5b8e62b3666cffcfc7d9a0a31c624784
-ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
+ms.sourcegitcommit: 5c25e7f81a4f2219c244044ea70416d1e0c63b4e
+ms.openlocfilehash: b05e7bfbc89de74937daa7daf578aa8a9bb39d64
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Active Directory Domain Services 설명서
 
-Azure AD DS(Domain Services)는 도메인 가입, 그룹 정책, LDAP, Kerberos/NTLM 인증 등과 같이 Windows Server Active Directory와 완전히 호환되는 관리된 도메인 서비스를 제공합니다.  이를 사용하면 사용자가 다양한 컴퓨팅 솔루션을 민첩하게 배포할 수 있습니다.
+Active Directory Domain Services를 사용하여 도메인 컨트롤러를 사용하지 않고 Azure 가상 컴퓨터를 도메인에 조인하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 그룹 정책을 사용하여 가상 컴퓨터를 관리하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -168,6 +169,6 @@ Active Directory Domain Services 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 
