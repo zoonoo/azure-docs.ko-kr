@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
+ms.date: 12/09/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3e587c9422e008a7b3c46e34fed4d0f1b2a8189c
+ms.sourcegitcommit: 0500d903438e0fb062ca848e6f488860e214a705
+ms.openlocfilehash: 55b6f6e03bfd1877d4f204cb5751ae46379d6951
 
 
 ---
@@ -28,7 +28,7 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure AD(Active Directory)
 2. [Azure AD 인증 시나리오](active-directory-authentication-scenarios.md): Azure AD의 간단한 인증을 활용하여 응용 프로그램에 로그인을 제공하세요.
 3. [Azure AD와 응용 프로그램 통합](active-directory-integrating-applications.md): Azure AD에서 응용 프로그램을 추가, 업데이트 및 제거하는 방법 및 통합된 앱에 대한 브랜딩 지침에 대해 알아보세요.
 4. [Azure AD Graph API](active-directory-graph-api.md): Azure AD Graph API를 사용하여 프로그래밍 방식으로 REST API 끝점을 통해 Azure AD에 액세스하세요. 또한 Azure AD Graph API는 [Microsoft Graph](https://graph.microsoft.io/)를 통해 액세스할 수 있습니다. Microsoft Graph는 단일 REST API 끝점을 통하고 단일 액세스 토큰을 사용하여 여러 Microsoft 클라우드 서비스 API에 액세스할 수 있도록 하는 통합 API를 제공합니다.
-5. [Azure AD 인증 라이브러리](active-directory-authentication-libraries.md): 사용자가 .NET, JavaScript, Objective-C, Android 등에 대한 Azure AD 인증 라이브러리를 사용하여 액세스 토큰을 얻을 수 있도록 쉽게 인증할 수 있습니다.
+5. [Azure AD 인증 라이브러리](active-directory-authentication-libraries.md): .NET, JavaScript, Objective-C, Android 등에 대한 Azure AD 인증 라이브러리를 사용하여 쉽게 사용자를 인증하고 액세스 토큰을 얻도록 할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
 이러한 자습서는 여러 플랫폼에 맞게 작성되었으며 Azure Active Directory를 사용하여 빠르게 개발을 시작할 수 있도록 도와줄 수 있습니다. 필수 조건으로, 먼저 [Azure Active Directory 테넌트를 가져와야](active-directory-howto-tenant.md)합니다.
@@ -58,17 +58,19 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure AD(Active Directory)
 
 * [Azure AD 테넌트 가져오기](active-directory-howto-tenant.md)
 * [다중 테넌트 응용 프로그램 패턴을 사용하는 모든 Azure AD 사용자 로그인](active-directory-devhowto-multi-tenant-overview.md)
+* [인증서를 사용하여 서비스/데몬 응용 프로그램 인증](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/)
 * [Android](active-directory-sso-android.md) 및 [iOS](active-directory-sso-ios.md) 장치에서 ADAL을 사용하여 앱 간 SSO 사용
 * [Azure AD에 대한 AppSource 인증된 응용 프로그램](active-directory-devhowto-appsource-certified.md)
 * [Azure AD 응용 프로그램 갤러리에 응용 프로그램 나열](active-directory-app-gallery-listing.md)
 * [판매자 대시보드로 Office 365용 웹앱 제출](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+* [Azure Portal을 사용하여 Azure Active Directory에 응용 프로그램 등록](active-directory-app-registration.md)
 * [Azure Active Directory 응용 프로그램 매니페스트 이해](active-directory-application-manifest.md)
-* [클라이언트 응용 프로그램에서 로그인 및 앱 취득 단추에 대한 브랜딩 지침 이해](active-directory-branding-guidelines.md)
-* [미리 보기: 개인 및 회사 또는 학교 계정 모두를 사용하여 사용자를 로그인하는 앱을 빌드하는 방법](active-directory-appmodel-v2-overview.md)
-* [미리 보기: 소비자를 등록 및 로그인하는 앱을 빌드하는 방법](../active-directory-b2c/active-directory-b2c-overview.md)
-* [미리 보기: PowerShell을 사용하여 Azure AD에서 토큰 수명 구성](active-directory-configurable-token-lifetimes.md) Azure AD Graph API를 통해 구성하는 방법에 대한 자세한 내용은 [정책 작업](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) 및 [정책 엔터티](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity)를 참조하세요.
+* [클라이언트 응용 프로그램에서 로그인 및 앱 취득 버튼에 대한 브랜딩 지침 이해](active-directory-branding-guidelines.md)
+* [미리 보기: 개인 및 회사 또는 학교 계정 모두를 사용하여 로그인할 수 있는 앱을 빌드하는 방법](active-directory-appmodel-v2-overview.md)
+* [미리 보기: 사용자를 등록하고 로그인하게 하는 앱을 빌드하는 방법](../active-directory-b2c/active-directory-b2c-overview.md)
+* [미리 보기: PowerShell을 사용하여 Azure AD의 토큰 수명 구성](active-directory-configurable-token-lifetimes.md) Azure AD Graph API를 통해 구성하는 방법에 대한 자세한 내용은 [정책 작업](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) 및 [정책 엔터티](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity)를 참조하세요.
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고 자료
 이러한 문서는 REST 및 인증 라이브러리 API, 프로토콜, 오류, 코드 샘플 및 끝점에 대한 기초 참조를 제공합니다.  
 
 ### <a name="support"></a>지원
@@ -85,8 +87,8 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure AD(Active Directory)
 * [Graph API 사용 권한 범위](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): 앱이 테넌트의 디렉터리 데이터에 대해 가져야 하는 액세스 권한을 제어하는 데 사용되는 OAuth 2.0 사용 권한 범위입니다.
 
 ### <a name="authentication-and-authorization-protocols"></a>인증 및 권한 부여 프로토콜
-* [Azure AD에서 서명 키 롤오버](active-directory-signing-key-rollover.md): Azure AD의 서명 키 롤오버 주기 및 가장 일반적인 응용 프로그램 시나리오에 대한 키를 업데이트하는 방법에 대해 알아봅니다.
-* [OAuth 2.0 프로토콜: 권한 부여 코드 부여 사용](active-directory-protocols-oauth-code.md): OAuth 2.0 프로토콜의 권한 부여 코드 부여를 사용하여 Azure Active Directory 테넌트의 웹 응용 프로그램 및 웹 API에 대한 액세스 권한을 부여할 수 있습니다.
+* [Azure AD에서 서명 키 롤오버](active-directory-signing-key-rollover.md): Azure AD의 서명 키 롤오버 주기 및 가장 일반적인 응용 프로그램 시나리오에서 키를 업데이트하는 방법에 대해 알아봅니다.
+* [OAuth 2.0 프로토콜: 권한 부여 코드 부여 사용](active-directory-protocols-oauth-code.md): OAuth 2.0 프로토콜의 "권한부여코드 허용(authorization code grant)"을 사용하여 Azure Active Directory 테넌트의 웹 응용 프로그램 및 웹 API에 대한 액세스 권한을 부여할 수 있습니다.
 * [OAuth 2.0 프로토콜: 암시적 부여 이해](active-directory-dev-understanding-oauth2-implicit-grant.md): 암시적 권한 부여에 대한 자세한 정보 및 응용 프로그램에 적합한지 여부를 알아봅니다.
 * [OAuth 2.0 프로토콜: 클라이언트 자격 증명을 사용하여 서비스를 호출하는 서비스](active-directory-protocols-oauth-service-to-service.md): OAuth 2.0 클라이언트 자격 증명 부여는 사용자를 가장하는 대신 다른 웹 서비스를 호출할 때 웹 서비스(기밀 클라이언트)가 자체 자격 증명을 사용하여 인증하도록 허용합니다. 이 시나리오에서 클라이언트는 일반적으로 중간 계층 웹 서비스, 데몬 서비스 또는 웹 사이트입니다.
 * [OpenID Connect 1.0 프로토콜: 로그인 및 인증](active-directory-protocols-openid-connect-code.md): OpenID Connect 1.0 프로토콜은 인증 프로토콜로 사용하는 OAuth 2.0을 확장합니다. 클라이언트 응용 프로그램은 id_token을 수신하여 로그인 프로세스를 관리하거나 권한 부여 코드 흐름을 보강하여 id_token 및 권한 부여 코드를 수신할 수 있습니다.
@@ -94,9 +96,9 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure AD(Active Directory)
 * [WS-Federation 1.2 프로토콜](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory는 웹 서비스 페더레이션 버전 1.2 사양에 따라 WS-Federation 1.2를 지원합니다. 페더레이션 메타데이터 문서에 대한 자세한 정보는 [페더레이션 메타데이터](active-directory-federation-metadata.md)를 참조하세요.
 * [지원되는 토큰 및 클레임 유형](active-directory-token-and-claims.md): 이 가이드를 사용하여 SAML 2.0 및 JWT(JSON 웹 토큰) 토큰에서 클레임을 파악 및 평가할 수 있습니다.
 
-## <a name="videos"></a>비디오
-### <a name="build"></a>빌드
-엔지니어링 팀에서 직접 작업하는 Azure Active Directory 기능 스피커를 사용하여 앱을 개발하는 것을 보여주는 개요 프레젠테이션입니다. 프레젠테이션은 IDMaaS, 인증, ID 페더레이션 및 단일 로그인을 비롯한 기본 항목을 다룹니다.
+## <a name="videos"></a>동영상
+### <a name="build"></a>구축
+엔지니어링 팀에서 직접 작업하는 Azure Active Directory 발표자가 앱을 개발하는 것을 보여주는 개요 프레젠테이션입니다. 프레젠테이션은 IDMaaS, 인증, ID 페더레이션 및 단일 로그인을 비롯한 기본 항목을 다룹니다.
 
 * [Microsoft ID: Union의 상태 및 향후 방향](https://azure.microsoft.com/documentation/videos/build-2016-microsoft-identity-state-of-the-union-and-future-direction/)
 * [Azure Active Directory: 최신 응용 프로그램에 대한 ID 관리 서비스(영문)](https://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications/)
@@ -110,7 +112,7 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure AD(Active Directory)
 * [Azure Identity 102(영문)](https://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
 * [Azure Identity 103(영문)](https://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)
 
-## <a name="social"></a>소셜
+## <a name="social"></a>사회적
 * [Active Directory 팀 블로그](http://blogs.technet.com/b/ad/)(영문): Azure Active Directory 분야에서 최근에 진행된 개발을 살펴봅니다.
 * [Azure Active Directory Graph 팀 블로그](http://blogs.msdn.com/b/aadgraphteam): Graph API와 관련된 Azure Active Directory 정보입니다.
 * [클라우드 ID](http://www.cloudidentity.net)(영문): Identity Management as a Service에 대한 선임 Azure Active Directory PM의 견해입니다.  
@@ -121,7 +123,6 @@ Windows Server 및 ADFS(Active Directory Federation Services) 개발 사용에 �
 
 * [개발자를 위한 AD FS 시나리오](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): AD FS 구성 요소 및 원리의 개요, 지원되는 인증/권한 부여 시나리오에 대한 자세한 내용을 제공합니다.
 * [AD FS 연습](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): 관련된 인증/권한 부여 흐름을 구현하는 방법에 대한 단계별 지침을 제공하는 연습 문서의 목록입니다.
-
 
 
 
