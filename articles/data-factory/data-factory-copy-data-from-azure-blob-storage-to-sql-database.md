@@ -1,20 +1,24 @@
 ---
-title: Blob 저장소에서 SQL 데이터베이스로 데이터 복사 | Microsoft Docs
-description: 이 자습서에서는 Azure Data Factory 파이프라인에서 복사 작업을 사용하여 Blob 저장소에서 SQL 데이터베이스로 데이터를 복사하는 방법을 보여 줍니다.
-keywords: Blob SQL, Blob 저장소, 데이터 복사
+title: "Blob Storage에서 SQL Database로 데이터 복사 | Microsoft 문서"
+description: "이 자습서에서는 Azure Data Factory 파이프라인에서 복사 작업을 사용하여 Blob 저장소에서 SQL 데이터베이스로 데이터를 복사하는 방법을 보여 줍니다."
+keywords: "Blob SQL, Blob 저장소, 데이터 복사"
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/29/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 0c5ee903840ee10bf296038e10da11662a9e0fbb
+ms.openlocfilehash: 98a93b683da1bfdc28be1f6e21174f814dd65220
+
 
 ---
 # <a name="copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>데이터 팩터리를 사용하여 Blob 저장소에서 SQL 데이터베이스로 데이터 복사
@@ -27,8 +31,8 @@ ms.author: spelluru
 > * [Azure Resource Manager 템플릿](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-> 
-> 
+>
+>
 
 이 자습서에서는 파이프라인을 포함한 데이터 팩터리를 만들어서 Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다.
 
@@ -36,8 +40,8 @@ ms.author: spelluru
 
 > [!NOTE]
 > 데이터 팩터리 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.
-> 
-> 
+>
+>
 
 ## <a name="prerequisites-for-the-tutorial"></a>자습서의 필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
@@ -52,17 +56,17 @@ ms.author: spelluru
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴의 **더 많은 서비스**를 클릭하고 **저장소 계정**을 선택합니다.
-   
+
     ![찾아보기 - 저장소 계정](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\browse-storage-accounts.png)
 3. **저장소 계정** 블레이드에서, 이 자습서에서 사용하려는 **Azure 저장소 계정**을 선택합니다.
 4. **설정** 아래에 있는 **액세스 키** 링크를 선택합니다.
 5. **저장소 계정 이름** 텍스트 상자 옆에 있는 **복사**(이미지) 단추를 클릭하고 텍스트 파일 등에 저장/붙여넣습니다.
 6. 이전 단계를 반복하여 복사하거나 **key1**을 적어둡니다.
-   
+
     ![저장소 액세스 키](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\storage-access-key.png)
 7. **X**를 클릭하여 모든 블레이드를 닫습니다.
 
-## <a name="collect-sql-server,-database,-user-names"></a>SQL server, 데이터베이스, 사용자 이름 수집
+## <a name="collect-sql-server-database-user-names"></a>SQL server, 데이터베이스, 사용자 이름 수집
 이 자습서를 수행하려면 Azure SQL Server, 데이터베이스 및 사용자의 이름이 필요합니다. Azure SQL 데이터베이스의 **서버**, **데이터베이스** 및 **사용자**의 이름을 적어둡니다.
 
 1. **Azure 포털**에서 왼쪽의 **더 많은 서비스**를 클릭하고 **SQL 데이터베이스**를 선택합니다.
@@ -75,7 +79,7 @@ ms.author: spelluru
 데이터 팩터리 서비스가 Azure SQL Server에 액세스할 수 있도록 Azure SQL Server에 대해 **Azure 서비스에 대한 액세스 허용** 설정이 **ON**인지 확인합니다. 이 설정을 확인하고 켜려면 다음 단계를 수행합니다.
 
 1. 왼쪽의 **더 많은 서비스** 허브를 클릭하고 **SQL 서버**를 클릭합니다.
-2. 서버를 선택하고 **설정** 아래의 **방화벽**을 클릭합니다. 
+2. 서버를 선택하고 **설정** 아래의 **방화벽**을 클릭합니다.
 3. **방화벽 설정** 블레이드에서 **Azure 서비스에 대한 액세스 허용**에 대해 **켜기**를 클릭합니다.
 4. **X**를 클릭하여 모든 블레이드를 닫습니다.
 
@@ -83,37 +87,45 @@ ms.author: spelluru
 이제 다음 단계를 수행하여 자습서에서 사용할 Azure Blob 저장소 및 Azure SQL 데이터베이스를 준비합니다.  
 
 1. 메모장을 시작하고 다음 텍스트를 붙여 넣은 다음 **emp.txt**로 하드 드라이브의 **C:\ADFGetStarted** 폴더에 저장합니다.
-   
-        John, Doe
-        Jane, Doe
+
+    ```
+    John, Doe
+    Jane, Doe
+    ```
 2. [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)와 같은 도구를 사용하여 **adftutorial** 컨테이너를 만들고 **emp.txt** 파일을 이 컨테이너에 업로드합니다.
-   
+
     ![Azure 저장소 탐색기. Blob 저장소에서 SQL 데이터베이스로 데이터 복사](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. 다음 SQL 스크립트를 사용하여 **emp** 테이블을 Azure SQL 데이터베이스에 만듭니다.  
 
-        CREATE TABLE dbo.emp
-        (
-            ID int IDENTITY(1,1) NOT NULL,
-            FirstName varchar(50),
-            LastName varchar(50),
-        )
-        GO
+    ```SQL
+    CREATE TABLE dbo.emp
+    (
+        ID int IDENTITY(1,1) NOT NULL,
+        FirstName varchar(50),
+        LastName varchar(50),
+    )
+    GO
 
-        CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+    ```
 
-    **SQL Server 2012/2014가 컴퓨터에 설치된 경우:**[2단계: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 관리의 SQL 데이터베이스에 연결](../sql-database/sql-database-manage-azure-ssms.md#Step2) 문서의 지침에 따라 Azure SQL Server에 연결하고 SQL 스크립트를 실행합니다. 이 문서에서는 [새 Azure 포털](https://portal.azure.com)이 아닌 [Azure 클래식 포털](http://manage.windowsazure.com)을 사용하여 Azure SQL Server의 방화벽을 구성합니다.
+    **컴퓨터에 SQL Server 2012/2014가 설치된 경우:** [SQL Server Management Studio를 사용하여 Azure SQL Database 관리](../sql-database/sql-database-manage-azure-ssms.md)의 지침에 따라 Azure SQL 서버에 연결하고 SQL 스크립트를 실행합니다. 이 문서에서는 [새 Azure 포털](https://portal.azure.com)이 아닌 [Azure 클래식 포털](http://manage.windowsazure.com)을 사용하여 Azure SQL Server의 방화벽을 구성합니다.
 
     클라이언트가 Azure SQL Server에 액세스할 수 없는 경우 컴퓨터(IP 주소)의 액세스를 허용하도록 Azure SQL Server의 방화벽을 구성해야 합니다. Azure SQL Server의 방화벽을 구성하는 단계는 [이 문서](../sql-database/sql-database-configure-firewall-settings.md)를 참조하세요.
 
-필수 조건을 완료했습니다. 다음 방법 중 하나를 사용하여 데이터 팩터리를 만들 수 있습니다. 위쪽의 탭이나 다음 링크 중 하나를 클릭하여 자습서를 수행합니다.     
+필수 조건을 완료했습니다. 다음 방법 중 하나를 사용하여 데이터 팩터리를 만들 수 있습니다. 위쪽의 드롭다운 목록에 있는 옵션 또는 다음 링크 중 하나를 클릭하여 자습서를 수행합니다.     
 
+* [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
 * [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md)
 * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+* [Azure Resource Manager 템플릿](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 * [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO5-->
 
 

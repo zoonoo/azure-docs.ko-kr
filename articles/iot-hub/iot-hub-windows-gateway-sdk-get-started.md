@@ -1,26 +1,30 @@
 ---
-title: IoT Hub Gateway SDK 시작 | Microsoft Docs
-description: Azure IoT Hub Gateway SDK를 사용할 때 이해해야 하는 주요 개념을 보여 주는 Windows용 Azure IoT Hub Gateway SDK 연습입니다.
+title: "IoT Hub Gateway SDK 시작 | Microsoft Docs"
+description: "Azure IoT Gateway SDK를 사용할 때 이해해야 하는 주요 개념을 보여 주는 Windows용 Azure IoT Gateway SDK 연습입니다."
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: chipalost
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9aff3724-5e4e-40ec-b95a-d00df4f590c5
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: andbuc
+translationtype: Human Translation
+ms.sourcegitcommit: 2d8b98fbd5345edd5dc6891df12f05eccd8e7ca8
+ms.openlocfilehash: 6f2fe4fd3442d97955519348416b35fe6f9075d1
+
 
 ---
-# <a name="iot-gateway-sdk-(beta)---get-started-using-windows"></a>IoT Gateway SDK(베타) - Windows를 사용하여 시작
+# <a name="azure-iot-gateway-sdk---get-started-using-windows"></a>Azure IoT Gateway SDK - Windows를 사용하여 시작
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>샘플을 빌드하는 방법
-시작하기 전에 먼저 Windows에서 SDK를 사용할 수 있도록 [개발 환경을 설정][lnk-setupdevbox]해야 합니다.
+시작하기 전에 먼저 Windows에서 SDK를 사용할 수 있도록 [개발 환경을 설정][lnk-setupdevbox]합니다.
 
 1. **VS2015용 개발자 명령 프롬프트** 를 엽니다.
 2. **azure-iot-gateway-sdk** 리포지토리의 로컬 복사본에서 루트 폴더로 이동합니다.
@@ -29,41 +33,47 @@ ms.author: andbuc
 ## <a name="how-to-run-the-sample"></a>샘플을 실행하는 방법
 1. **build.cmd** 스크립트는 리포지토리의 로컬 복사본에 **build**라는 폴더를 만듭니다. 이 폴더에는 이 샘플에서 사용된 두 개의 모듈이 들어 있습니다.
    
-    빌드 스크립트는 **build\\modules\\hello_world\\Debug** 폴더의 **hello_world_hl.dll** 및 **build\\modules\\logger\\Debug** 폴더에 **logger_hl.dll**을 배치합니다. 아래의 JSON 설정 파일에 표시된 대로 이러한 경로를 **module path** 값에 사용합니다.
-2. **samples\\hello_world\\src** 폴더의 **hello_world_win.json** 파일은 샘플을 실행하는 데 사용할 수 있는 Windows용 예제 JSON 설정 파일입니다. 아래에 표시된 예제 JSON 설정 파일에서는 Gateway SDK 리포지토리를 **C:** 드라이브의 루트에 복제한 것으로 가정합니다. 다른 위치에 다운로드한 경우 **samples\\hello_world\\src\\hello_world_win.json** 파일에서 **module path** 값을 해당 위치에 맞게 조정해야 합니다.
-3. **logger_hl** 모듈의 경우 **args** 섹션에서 **filename** 값을 로그 데이터를 포함할 파일의 이름 및 경로로 설정합니다.
-   
-    다음은 **C:** 드라이브의 루트에 있는 **log.txt** 파일에 작성할 Windows용 JSON 설정 파일의 예제입니다.
+    빌드 스크립트는 **logger.dll**을 **build\\modules\\logger\\Debug** 폴더에 배치하고 **hello_world.dll**을 **build\\modules\\hello_world\\Debug** 폴더에 배치합니다. 다음 JSON 설정 파일에 표시된 대로 이러한 경로를 **module path** 값에 사용합니다.
+2. hello_world_sample 프로세스는 JSON 구성 파일 경로를 명령줄의 인수 형태로 취합니다. 다음 예제 JSON 파일은 **azure-iot-gateway-sdk/samples/hello_world/src/hello_world_win.json**에 리포지토리의 일부로 제공됩니다. 사용자가 빌드 스크립트를 수정하여 모듈 또는 샘플 실행 파일을 기본이 아닌 위치에 배치하지 않은 한 그대로 작동합니다. 
+
+   > [!NOTE]
+   > 모듈 경로는 hello_world_sample.exe가 있는 디렉터리에 대한 상대 경로입니다. 샘플 JSON 구성 파일은 현재 작업 디렉터리에서 작성 중인 'log.txt'를 기본값으로 사용합니다.
    
     ```
     {
-      "modules" :
-      [
+      "modules": [
         {
-          "module name" : "logger_hl",
-          "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\logger\\Debug\\logger_hl.dll",
-          "args" : 
-          {
-            "filename":"C:\\log.txt"
-          }
+          "name": "logger",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "..\\..\\..\\modules\\logger\\Debug\\logger.dll"
+            }
+          },
+          "args": { "filename": "log.txt" }
         },
         {
-          "module name" : "hello_world",
-          "module path" : "C:\\azure-iot-gateway-sdk\\build\\\\modules\\hello_world\\Debug\\hello_world_hl.dll",
-          "args" : null
-        }
+          "name": "hello_world",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "..\\..\\..\\modules\\hello_world\\Debug\\hello_world.dll"
+            }
+          },
+          "args": null
+          }
       ],
-      "links" :
-      [
+      "links": [
         {
           "source": "hello_world",
-          "sink": "logger_hl"
+          "sink": "logger"
         }
       ]
     }
     ```
-4. 명령 프롬프트에서 **azure-iot-gateway-sdk** 리포지토리의 로컬 복사본 루트 폴더로 이동합니다.
-5. 다음 명령을 실행합니다.
+3. **azure-iot-gateway-sdk** 리포지토리의 로컬 복사본에서 루트 폴더로 이동합니다.
+
+4. 다음 명령을 실행합니다.
    
    ```
    build\samples\hello_world\Debug\hello_world_sample.exe samples\hello_world\src\hello_world_win.json
@@ -75,6 +85,7 @@ ms.author: andbuc
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 

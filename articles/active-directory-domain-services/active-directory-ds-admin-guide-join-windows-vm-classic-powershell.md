@@ -1,22 +1,26 @@
 ---
-title: 'Azure Active Directory Domain Services: 관리 가이드 | Microsoft Docs'
-description: Windows 가상 컴퓨터를 Azure PowerShell 및 클래식 배포 모델을 사용하여 관리되는 도메인에 가입합니다.
+title: "Azure Active Directory Domain Services: 관리 가이드 | Microsoft 문서"
+description: "Windows 가상 컴퓨터를 Azure PowerShell 및 클래식 배포 모델을 사용하여 관리되는 도메인에 가입합니다."
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 9143b843-7327-43c3-baab-6e24a18db25e
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 10/01/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 6f952fc8ae2ab065c3e1aa5f1a5622ee894d6fd1
+
 
 ---
-# PowerShell을 사용하여 Windows Server 가상 컴퓨터를 관리되는 도메인에 가입
+# <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-powershell"></a>PowerShell을 사용하여 Windows Server 가상 컴퓨터를 관리되는 도메인에 가입
 > [!div class="op_single_selector"]
 > * [Azure 클래식 포털 - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 > * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
@@ -26,7 +30,7 @@ ms.author: maheshu
 <br>
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 다양한 배포 모델이 있습니다. [리소스 관리자 및 클래식](../resource-manager-deployment-model.md) 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. Azure AD 도메인 서비스는 현재 리소스 관리자 모델을 지원하지 않습니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. Azure AD 도메인 서비스는 현재 리소스 관리자 모델을 지원하지 않습니다.
 > 
 > 
 
@@ -34,15 +38,15 @@ ms.author: maheshu
 
 다음 단계에서는 빈 칸 채우기 접근 방식에 따라 Azure PowerShell 명령 집합을 만듭니다. 이 접근 방식은 PowerShell을 처음 접하거나 성공적인 구성을 위해 지정할 값을 알기를 원하는 경우에 유용할 수 있습니다. 고급 PowerShell 사용자는 명령을 가져와 고유한 변수 값("$"로 시작하는 줄)을 대체할 수 있습니다.
 
-[Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Windows PowerShell 명령 프롬프트를 엽니다.
+[Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md) 의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Windows PowerShell 명령 프롬프트를 엽니다.
 
-## 1단계: 사용자 계정 추가
-1. PowerShell 프롬프트에서 **Add-AzureAccount**를 입력하고 **입력**을 클릭합니다.
+## <a name="step-1-add-your-account"></a>1단계: 사용자 계정 추가
+1. PowerShell 프롬프트에서 **Add-AzureAccount**를 입력하고 **Enter**.
 2. Azure 구독과 연관된 메일 주소를 입력하고 **계속**을 클릭합니다.
 3. 계정에 암호를 입력합니다.
 4. **로그인**을 클릭합니다.
 
-## 2단계: 구독 및 저장소 계정 설정
+## <a name="step-2-set-your-subscription-and-storage-account"></a>2단계: 구독 및 저장소 계정 설정
 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure 구독 및 저장소 계정을 설정합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
     $subscr="<subscription name>"
@@ -52,7 +56,7 @@ Windows PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure
 
 **Get-AzureSubscription** 명령의 출력에 표시된 SubscriptionName 속성에서 올바른 구독 이름을 가져올 수 있습니다. **Select-AzureSubscription** 명령을 실행한 후 **Get-AzureStorageAccount** 명령의 출력에 표시된 Label 속성에서 올바른 저장소 계정 이름을 가져올 수 있습니다.
 
-## 3단계: 단계별 연습 - 가상 컴퓨터 프로비전 및 관리되는 도메인에 가입
+## <a name="step-3-step-by-step-walkthrough---provision-the-virtual-machine-and-join-it-to-the-managed-domain"></a>3단계: 단계별 연습 - 가상 컴퓨터 프로비전 및 관리되는 도메인에 가입
 다음은 이 가상 컴퓨터를 만드는 해당 Azure PowerShell 명령 집합입니다. 각 블록 사이의 빈 줄은 가독성을 위해 추가된 것입니다.
 
 프로비전할 Windows 가상 컴퓨터에 대한 정보를 지정합니다.
@@ -84,7 +88,7 @@ VM을 구성합니다. VM 이름, 인스턴스 크기 및 사용할 이미지를
 
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-VM에 대한 로컬 관리자 자격 증명을 가져옵니다. 강력한 로컬 관리자 암호를 선택합니다. 암호 강도를 확인하려면 [암호 검사기: 강력한 암호 사용](https://www.microsoft.com/security/pc-security/password-checker.aspx)을 참조하세요.
+VM에 대한 로컬 관리자 자격 증명을 가져옵니다. 강력한 로컬 관리자 암호를 선택합니다.
 
     $localadmincred=Get-Credential –Message "Type the name and password of the local administrator account."
 
@@ -110,7 +114,7 @@ VM에 대한 서브넷을 설정합니다.
 
 <br>
 
-## Windows VM을 프로비전하고 AAD 도메인 서비스 관리되는 도메인에 자동으로 가입하는 스크립트
+## <a name="script-to-provision-a-windows-vm-and-automatically-join-it-to-an-aad-domain-services-managed-domain"></a>Windows VM을 프로비전하고 AAD 도메인 서비스 관리되는 도메인에 자동으로 가입하는 스크립트
 이 PowerShell 명령 집합은 다음과 같은 LOB(기간 업무) 서버용 가상 컴퓨터를 만듭니다.
 
 * Windows Server 2012 R2 Datacenter 이미지를 사용함
@@ -149,8 +153,13 @@ Windows 가상 컴퓨터를 만들고 자동으로 Azure AD 도메인 서비스 
 
 <br>
 
-## 관련 콘텐츠
-* [Azure AD 도메인 서비스 - 시작 가이드](active-directory-ds-getting-started.md)
+## <a name="related-content"></a>관련 콘텐츠
+* [Azure AD Domain Services - 시작 가이드](active-directory-ds-getting-started.md)
 * [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

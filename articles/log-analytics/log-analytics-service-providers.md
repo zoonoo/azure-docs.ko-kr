@@ -1,19 +1,23 @@
 ---
-title: 서비스 공급자에 대한 Log Analytics 기능 | Microsoft Docs
-description: Log Analytics는 MSP(Managed Service Providers), 대기업, ISV(Independent Software Vendor)를 지원하며 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리하고 모니터링할 수 있도록 합니다.
+title: "서비스 공급자에 대한 Log Analytics 기능 | Microsoft Docs"
+description: "Log Analytics는 MSP(Managed Service Providers), 대기업, ISV(Independent Software Vendor)를 지원하며 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리하고 모니터링할 수 있도록 합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/22/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: d5e4a19ddb2b60a6796ba48c864d443164de86c1
+ms.openlocfilehash: 8a67d9a9d345682e9e6c8f5c7779204a038f5f6a
+
 
 ---
 # <a name="log-analytics-features-for-service-providers"></a>서비스 공급자에 대한 Log Analytics 기능
@@ -47,7 +51,7 @@ CSP(클라우드 솔루션 공급자)의 *고객*은 다음을 수행할 수 있
 * OMS 포털의 설정에서 사용자 관리 페이지 보기 및 사용
 
 > [!NOTE]
-> Log Analytics에 대한 Backup 및 Site Recovery 솔루션을 Recovery Services 자격 증명 모음에 연결할 수 없으며 CSP 구독에서 구성할 수 없습니다.
+> Log Analytics에 대해 포함된 Backup 및 Site Recovery 솔루션을 Recovery Services 자격 증명 모음에 연결할 수 없으며 CSP 구독에서 구성할 수 없습니다. 
 > 
 > 
 
@@ -61,13 +65,15 @@ CSP(클라우드 솔루션 공급자)의 *고객*은 다음을 수행할 수 있
 
 고객당 작업 영역을 만들면 각 고객의 데이터를 별도로 유지하고 각 고객의 사용 현황을 추적할 수도 있습니다.
 
-여러 작업 영역을 만드는 시기와 이유에 대한 자세한 내용은 [Log Analytics에 대한 액세스 관리](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need)에서 설명합니다.
+여러 작업 영역을 만들어야 하는 시기와 이유에 대한 자세한 내용은 [Log Analytics에 대한 액세스 관리](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need)에 설명되어 있습니다.
 
 고객 작업 영역의 생성 및 구성은 [PowerShell](log-analytics-powershell-workspace-configuration.md), [Resource Manager 템플릿](log-analytics-template-workspace-configuration.md), [REST API](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/)를 사용하여 자동화할 수 있습니다.
 
 작업 영역 구성을 위해 Resource Manager 템플릿을 사용하면 작업 영역을 만들고 구성하는 데 사용할 수 있는 마스터 구성을 활용할 수 있습니다. 사용자 요구 사항에 따라 자동으로 구성된 작업 영역이 고객에 대해 생성되는 것을 확신할 수 있습니다. 요구 사항을 업데이트하면 템플릿이 업데이트된 후 기존 작업 영역에 다시 적용됩니다. 이 프로세스는 기존 작업 영역이 새로운 표준을 충족하는지도 확인합니다.    
 
 여러 Log Analytics 작업 영역을 관리할 때는 [경고](log-analytics-alerts.md) 기능을 사용하여 각 작업 영역을 기존의 티켓 시스템/운영 콘솔과 통합하는 것이 좋습니다. 기존 시스템과 통합되므로 지원 담당자는 친숙한 프로세스를 계속 진행할 수 있습니다. Log Analytics는 각 작업 영역에서 사용자가 지정한 경고 기준을 정기적으로 확인하고 작업이 필요하면 경고를 생성합니다.
+
+데이터에 대한 개인 설정된 보기는 Azure Portal의 [대시보드](../azure-portal/azure-portal-dashboards.md) 기능을 사용하세요.  
 
 작업 영역 전반의 데이터를 요약하는 경영진 수준 보고서를 얻기 위해서는 Log Analytics와 [PowerBI](log-analytics-powerbi.md)의 통합을 사용하면 됩니다. 다른 보고 시스템과 통합이 필요한 경우 Search API(PowerShell 또는 [REST](log-analytics-log-search-api.md)를 통해)를 사용하여 쿼리를 실행하고 검색 결과를 내보낼 수 있습니다.
 
@@ -77,6 +83,9 @@ CSP(클라우드 솔루션 공급자)의 *고객*은 다음을 수행할 수 있
 * [경고](log-analytics-alerts.md)를 사용하여 기존 시스템과 통합
 * [PowerBI](log-analytics-powerbi.md)를 사용하여 요약 보고서 생성
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 
