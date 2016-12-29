@@ -16,7 +16,7 @@ ms.date: 08/15/2016
 ms.author: asmalser-msft
 
 ---
-# Azure Active Directory 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
+# Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
 Single Sign-On이란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 한번 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다.
 
 대부분의 조직은 최종 사용자 생산성을 위해 Office 365, Box, Salesforce와 같은 SaaS(Software as a Service) 응용 프로그램에 의존합니다. 지금까지 IT 담당자는 각 SaaS 응용 프로그램에서 사용자 계정을 개별적으로 만들고 업데이트해야 했으며, 사용자는 각 SaaS 응용 프로그램에 대한 암호를 기억해야 했습니다.
