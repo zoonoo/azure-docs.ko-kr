@@ -17,7 +17,7 @@ ms.author: asmalser-msft
 
 ---
 # Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
-Single Sign-On이란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는 데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 한번 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다.
+Single Sign-On이란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 한번 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다.
 
 대부분의 조직은 최종 사용자 생산성을 위해 Office 365, Box, Salesforce와 같은 SaaS(Software as a Service) 응용 프로그램에 의존합니다. 지금까지 IT 담당자는 각 SaaS 응용 프로그램에서 사용자 계정을 개별적으로 만들고 업데이트해야 했으며, 사용자는 각 SaaS 응용 프로그램에 대한 암호를 기억해야 했습니다.
 
@@ -84,7 +84,7 @@ Azure AD는 HTML 기반 로그인 페이지가 있는 모든 클라우드 기반
 ### 사용자 프로비저닝
 선택된 응용 프로그램에 한해, Azure AD를 사용하면 Windows Server Active Directory 또는 Azure AD ID 정보를 사용하여 Azure 관리 포털 내에서 타사 SaaS 응용 프로그램에 대한 자동화된 사용자 프로비저닝 및 프로비저닝 해제가 가능합니다. 이러한 응용 프로그램 중 하나에 대해 Azure AD의 사용자 권한을 사용자에게 제공하면 대상 SaaS 응용 프로그램에 계정을 자동으로 만들거나 프로비전할 수 있습니다.
 
-Azure AD에서 사용자가 삭제되거나 사용자 정보가 변경되면 변경 내용은 SaaS 응용 프로그램에도 반영됩니다. 즉, 자동화된 ID 수명 주기 관리를 구성하면 관리자가 SaaS 응용 프로그램에서 자동화된 프로비저닝 및 프로비저닝 해제를 제어하고 제공할 수 있습니다. Azure AD에서 이러한 ID 수명 주기 관리의 자동화는 사용자 프로비전닝에 의해 활성화됩니다.
+Azure AD에서 사용자가 삭제되거나 사용자 정보가 변경되면 변경 내용은 SaaS 응용 프로그램에도 반영됩니다. 즉, 자동화된 ID 수명 주기 관리를 구성하면 관리자가 SaaS 응용 프로그램에서 자동화된 프로비저닝 및 프로비저닝 해제를 제어하고 제공할 수 있습니다. Azure AD에서 이러한 ID 수명 주기 관리의 자동화는 사용자 프로비저닝에 의해 활성화됩니다.
 
 자세한 내용은 [SaaS 응용 프로그램에 자동화된 사용자 프로비저닝 및 프로비저닝 해제](active-directory-saas-app-provisioning.md)를 참조하세요.
 
@@ -101,7 +101,7 @@ Azure AD에서 사용자가 삭제되거나 사용자 정보가 변경되면 변
 * Azure AD는 [Azure Active Directory 응용 프로그램 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)에서 모든 "기능을 갖춘" 앱에 대한 자동 프로비저닝 및 프로비저닝 해제를 지원합니다.
 * SAML, WS-Federation 또는 OpenID Connect와 같은 프로토콜을 사용하여 페더레이션된 Single Sign-On을 지원하는 페더레이션된 응용 프로그램 목록은 [여기](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)서 확인할 수 있습니다.
 
-사용할 응용 프로그램을 찾으면, 응용 프로그램 갤러리와 Azure 관리 포털에서 Single Sign-On 활성화에 대해 제공된 단계별 지침을 따라 시작할 수 있습니다.
+Azure AD 응용 프로그램 갤러리에서 사용할 응용 프로그램을 찾으면, 응용 프로그램 갤러리와 Azure 관리 포털에서 Single Sign-On 활성화에 대해 제공된 단계별 지침을 따라 시작할 수 있습니다.
 
 ### 응용 프로그램이 갤러리에 없습니까?
 응용 프로그램이 Azure AD 응용 프로그램 갤러리에 없으면 다음과 같은 옵션이 제공됩니다.
