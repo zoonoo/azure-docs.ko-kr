@@ -46,6 +46,6 @@ Azure Active Directory(Azure AD) 미리 보기에서 사용자가 로그인하�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

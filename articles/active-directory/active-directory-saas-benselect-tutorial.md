@@ -1,12 +1,12 @@
 ---
-title: '자습서: BenSelect와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory 및 BenSelect 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: BenSelect와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory 및 BenSelect 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ffa17478-3ea1-4356-a289-545b5b9a4494
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 296a7ce8f84c226dfa899788bd4e0581f0a80eae
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-benselect"></a>자습서: BenSelect와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-benselect"></a>자습서: BenSelect와 Azure Active Directory 통합
 이 자습서에서는 Azure AD(Azure Active Directory)와 BenSelect를 통합하는 방법에 대해 알아봅니다.
 
 BenSelect를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -111,7 +115,7 @@ BenSelect 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니
    
     a. **사용자 특성 추가**를 클릭하여 **사용자 특성 추가** 대화 상자를 엽니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_08.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_08.png)
    
     b. **특성 이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
    
@@ -262,6 +266,6 @@ BenSelect 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO5-->
 
 

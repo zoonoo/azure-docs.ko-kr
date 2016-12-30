@@ -1,12 +1,12 @@
 ---
-title: '사용자 지정: Azure AD 암호 관리 | Microsoft Docs'
-description: 요구 사항에 맞게 Azure AD에서 암호 관리의 모양과 느낌, 동작 및 알림을 사용자 지정하는 방법.
+title: "사용자 지정: Azure AD 암호 관리 | Microsoft Docs"
+description: "요구 사항에 맞게 Azure AD에서 암호 관리의 모양과 느낌, 동작 및 알림을 사용자 지정하는 방법."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: 2cddd150-8747-447a-a7cf-1d7d5775c0b3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c02f5a2b0ef127805aed0f8b8b5ec8ccac1f879f
+
 
 ---
-# <a name="customizing-password-management-to-fit-your-organization's-needs"></a>해당 조직의 요구에 맞게 사용자 지정 암호 관리
+# <a name="customizing-password-management-to-fit-your-organizations-needs"></a>해당 조직의 요구에 맞게 사용자 지정 암호 관리
 > [!IMPORTANT]
 > **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
 > 
@@ -131,7 +135,7 @@ ms.author: asteen
             </tr>
           </tbody></table>
 
-## <a name="password-management-behavior"></a>암호 관리 동작
+## <a name="password-management-behavior"></a>암호 관리 동작 
 다음 테이블에서 각 컨트롤이 암호 재설정을 위해 등록하여 암호를 재설정하는 사용자의 경험에 미치는 영향을 설명합니다.  [Azure 관리 포털](https://manage.windowsazure.com) 내 사용자 디렉터리의 **구성** 탭의 **사용자 암호 재설정 정책** 섹션에서 이 옵션을 구성할 수 있습니다.
 
 > [!NOTE]
@@ -867,15 +871,15 @@ Azure AD Connect의 최신 버전을 다운로드 하고 <strong>선택적 기�
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
-* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다.
+* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다
 * [**FAQ**](active-directory-passwords-faq.md) -자주 묻는 질문에 답변합니다.
-* [**문제 해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스의 문제를 해결하는 방법에 대해 알아봅니다.
+* [**문제해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스와의 문제를 해결하는 방법에 대해 알아봅니다.
 * [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO5-->
 
 

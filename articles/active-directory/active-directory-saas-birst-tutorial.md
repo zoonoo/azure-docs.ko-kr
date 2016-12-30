@@ -1,12 +1,12 @@
 ---
-title: '자습서: Birst Agile Business Analytics와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 Birst Agile Business Analytics 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Birst Agile Business Analytics와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 Birst Agile Business Analytics 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 677183b1-5348-4302-88cc-5c8ab63a3c6c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 23a30a9d1630bd2cb0a8009751bd41b44675403f
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-birst-agile-business-analytics"></a>자습서: Birst Agile Business Analytics와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>자습서: Birst Agile Business Analytics와 Azure Active Directory 통합
 이 자습서에서는 Birst Agile Business Analytics와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 Birst Agile Business Analytics를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -109,7 +113,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
     a. 로그인 URL 텍스트 상자에 **“https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID”**의 패턴을 사용하여 사용자가 Birst Agile Business Analytics 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
     URL는 Birst 계정이 있는 데이터 센터에 종속됩니다. 미국 데이터 센터의 경우 **“https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID”**를 사용하며, 유럽 데이터 센터의 경우 **“https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID"**를 사용합니다.
 
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 
 
 1. **Birst Agile Business Analytics에서 Single Sign-on 구성** 페이지에서 다음 단계를 수행합니다.
@@ -118,7 +122,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
    
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 2. 응용 프로그램에 SSO를 구성하려면 [info@birst.com](emailTo:info@birst.com) 을 통해 Birst Agile Business Analytics 지원 팀에 문의하고 다운로드한 인증서 파일을 메일에 첨부합니다. 또한 SSO 통합을 맞게 구성할 수 있도록 SAML SSO URL, 로그아웃 URL 및 발급자 URL을 제공하십시오.
 
 > [!NOTE]
@@ -243,6 +247,6 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO5-->
 
 

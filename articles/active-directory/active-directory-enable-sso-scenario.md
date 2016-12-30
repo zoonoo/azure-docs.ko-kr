@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory와 응용 프로그램 관리 | Microsoft Docs
-description: 이 문서는 온-프레미스, 클라우드 및 SaaS 응용 프로그램을 사용하여 Azure Active Directory를 통합하는 이점을 얻을 수 있습니다.
+title: "Azure Active Directory와 응용 프로그램 관리 | Microsoft Docs"
+description: "이 문서는 온-프레미스, 클라우드 및 SaaS 응용 프로그램을 사용하여 Azure Active Directory를 통합하는 이점을 얻을 수 있습니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f6bceb2fd03230e4a39c22605ad1fea8dd422be1
+
 
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Azure Active Directory로 응용 프로그램 관리
@@ -94,7 +98,7 @@ Azure AD를 사용하여 응용 프로그램을 관리하고 SSO를 사용하도
 ## <a name="access-management"></a>액세스 관리
 Azure AD를 사용하여 개별 또는 규칙 기반 할당을 사용하는 응용 프로그램에 대한 액세스를 관리할 수 있습니다. 또한 최상의 감독을 보장하고 Helpdesk의 부담을 줄이는 조직에서 적당한 사람에게 액세스 관리를 위임할 수 있습니다.
 
-## <a name="onpremises-applications"></a>온-프레미스 응용 프로그램
+## <a name="on-premises-applications"></a>온-프레미스 응용 프로그램
 기본 제공 응용 프로그램 프록시를 사용하면 결과적으로 사용자에게 최신 클라우드 응용 프로그램과 함께 일관된 액세스 환경 및 Azure AD 모니터링, 보고 및 보안 기능에서 혜택을 주어 온-프레미스 응용 프로그램을 게시할 수 있습니다.
 
 ## <a name="reporting-and-monitoring"></a>보고 및 모니터링
@@ -109,6 +113,9 @@ Azure AD를 사용하여 세부적인 액세스 정책 및 사전 통합된 MFA�
 ## <a name="see-also"></a>참고 항목
 [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 
