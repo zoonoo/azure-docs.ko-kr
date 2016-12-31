@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
+ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
-ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
 
 서비스 패브릭 SDK는 서비스 패브릭 응용 프로그램을 만들고, 배포하고, 디버그하는 도구를 제공하는 Visual Studio용 추가 기능을 포함합니다. 이 항목에서는 Visual Studio에서 응용 프로그램을 처음 만드는 과정을 안내합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 시작하기 전에 [개발 환경을 설정](service-fabric-get-started.md)하도록 합니다.
 
 ## <a name="video-walkthrough"></a>연습 동영상
@@ -41,7 +41,7 @@ ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
 > 
 
 ## <a name="create-the-application"></a>응용 프로그램 만들기
-서비스 패브릭 응용 프로그램은 응용 프로그램의 기능을 제공하는 특정 역할이 있는 하나 이상의 서비스를 포함할 수 있습니다. 새 프로젝트 마법사를 사용하여 첫 번째 서비스 프로젝트와 함께 응용 프로그램 프로젝트를 만들 수 있습니다. 나중에 더 많은 서비스를 추가할 수 있습니다.
+서비스 패브릭 응용 프로그램은 응용 프로그램의 기능을 제공하는 특정 역할이 있는 하나 이상의 서비스를 포함할 수 있습니다. New Project 마법사를 사용하여 첫 번째 서비스 프로젝트와 함께 응용 프로그램 프로젝트를 만들 수 있습니다. 또한 원하는 경우 나중에 더 많은 서비스를 추가할 수 있습니다.
 
 1. 관리자 권한으로 Visual Studio를 시작합니다.
 2. **파일 > 새 프로젝트 > 클라우드 > Service Fabric 응용 프로그램**을 클릭합니다.
@@ -106,7 +106,7 @@ ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
    
     Service Fabric Explorer는 클러스터의 시각적 표현을 제공하며 이는 여기에 배포된 응용 프로그램 집합 및 만드는 실제 노드 집합을 포함합니다. Service Fabric Explorer에 대해 자세히 알아보려면 [클러스터 시각화(영문)](service-fabric-visualizing-your-cluster.md)를 참조하세요.
 6. 왼쪽 창에서 **클러스터 > 노드**를 확장하고 코드가 실행될 노드를 찾습니다.
-7. **작업 > 비활성화(다시 시작)**를 클릭하여 컴퓨터 다시 시작을 시뮬레이션합니다. (왼쪽 창에 있는 노드 목록 보기의 상황에 맞는 메뉴에서 비활성화할 수 있습니다.)
+7. **작업 > 비활성화(다시 시작)**를 클릭하여 컴퓨터 다시 시작을 시뮬레이션합니다. 또는 왼쪽 창의 노드 목록 보기에서 노드를 비활성화합니다.)
    
     ![서비스 패브릭 탐색기에서 노드 중지][sfx-stop-node]
    
@@ -116,14 +116,14 @@ ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
     ![장애 조치 후 진단 이벤트 뷰어][diagnostic-events-viewer-detail-post-failover]
 
 ## <a name="switch-cluster-mode"></a>클러스터 모드 전환
-기본적으로 로컬 개발 클러스터는 5개 노드 클러스터로 실행되도록 구성되며, 이렇게 하면 여러 노드에 배포된 서비스를 디버깅하는 데 유용합니다. 그러나 응용 프로그램을 개발 5개의 노드 개발 클러스터에 배포하는 데는 시간이 걸릴 수 있습니다. 5개의 노드에서 앱을 실행하지 않고도 코드 변경 내용을 신속하게 반복하려는 경우 개발 클러스터를 1개의 노드 모드로 전환할 수 있습니다. 하나의 노드가 있는 클러스터에서 코드를 실행하려면 시스템 트레이에서 로컬 클러스터 관리자를 마우스 오른쪽 단추로 클릭하고 **클러스터 모드 전환 -> 1개의 노드**를 선택합니다.  
+기본적으로 로컬 개발 클러스터는 5개 노드 클러스터로 실행되도록 구성되며, 이렇게 하면 여러 노드에 배포된 서비스를 디버깅하는 데 유용합니다. 그러나 응용 프로그램을 5개 노드 개발 클러스터로 배포하는 데에는 시간이 걸릴 수 있습니다. 5개의 노드에서 앱을 실행하지 않고도 코드 변경 내용을 신속하게 반복하려는 경우 개발 클러스터를 1개의 노드 모드로 전환할 수 있습니다. 하나의 노드가 있는 클러스터에서 코드를 실행하려면 시스템 트레이에서 로컬 클러스터 관리자를 마우스 오른쪽 단추로 클릭하고 **클러스터 모드 전환 -> 1개의 노드**를 선택합니다.  
 
 ![클러스터 모드 전환][switch-cluster-mode]
 
 클러스터 모드를 변경하면 개발 클러스터가 다시 설정되고 클러스터에서 프로비전되거나 실행 중인 모든 응용 프로그램이 제거됩니다.
 
 ## <a name="cleaning-up"></a>정리
-  마무리하기 전에, 로컬 클러스터가 실제로 존재한다는 것을 기억하는 것이 중요합니다. 디버거를 중지하면 응용 프로그램 인스턴스를 제거하고 응용 프로그램 형식의 등록을 취소합니다. 하지만 클러스터는 백그라운드에서 계속 실행됩니다. 클러스터를 관리하는 몇 가지 옵션이 있습니다.
+마무리하기 전에, 로컬 클러스터가 존재한다는 것을 기억하는 것이 중요합니다. 디버거를 중지하면 응용 프로그램 인스턴스를 제거하고 응용 프로그램 형식의 등록을 취소합니다. 하지만 클러스터는 백그라운드에서 계속 실행됩니다. 클러스터를 관리하는 몇 가지 옵션이 있습니다.
 
 1. 클러스터는 끄되 응용 프로그램 데이터와 추적은 유지하려면 시스템 트레이 앱에서 **로컬 클러스터 중지** 를 클릭합니다.
 2. 클러스터를 완전히 제거하려면 시스템 트레이 앱에서 **로컬 클러스터 제거** 를 클릭합니다. 다음에 Visual Studio에서 F5 키를 누르면 이 옵션이 다른 느린 배포를 발생시킵니다. 일정 시간 동안 로컬 클러스터를 사용하지 않거나 또는 리소스를 확보해야 할 경우에만 클러스터를 삭제합니다.
@@ -131,8 +131,9 @@ ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
 ## <a name="next-steps"></a>다음 단계
 * [Azure에서 클러스터](service-fabric-cluster-creation-via-portal.md)를 만들거나 [Windows에서 독립 실행형 클러스터](service-fabric-cluster-creation-for-windows-server.md)를 만드는 방법을 알아봅니다.
 * [Reliable Services](service-fabric-reliable-services-quick-start.md) 또는 [Reliable Actors](service-fabric-reliable-actors-get-started.md) 프로그래밍 모델을 사용하여 서비스를 만들어 봅니다.
-* [웹 서비스 프런트 엔드](service-fabric-add-a-web-frontend.md)를 사용하여 인터넷에 서비스를 노출할 수 있는 방법을 알아봅니다.
+* [웹 서비스 프런트 엔드](service-fabric-add-a-web-frontend.md)를 사용하여 인터넷에 서비스를 노출하는 방법을 알아봅니다.
 * [실습 교육](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) 을 안내하고 상태 비저장 서비스를 만들고 모니터링 및 상태 보고서를 구성하고 응용 프로그램 업그레이드를 수행합니다.
+* [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
 
 <!-- Image References -->
 
@@ -151,6 +152,6 @@ ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

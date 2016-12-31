@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 1db24abb38ff28dd3535f527ef95a84abac5ea9c
-ms.openlocfilehash: 6f479beb6caf8a6dfccc0b13e6926bd5e47fb547
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 6d5f4640556f98f9601139c318ffc578e9df2539
 
 
 ---
@@ -27,8 +27,8 @@ ms.openlocfilehash: 6f479beb6caf8a6dfccc0b13e6926bd5e47fb547
 ## <a name="what-is-azure-sql-database"></a>Azure SQL Database 정의
 Azure SQL Database의 데이터베이스는 각각 로컬 서버와 연결됩니다. 데이터베이스는 다음과 같을 수 있습니다.
 
-- [고유한 리소스 집합](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus)(DTU)이 있는 단일 데이터베이스
-- 일부 [데이터베이스의 풀](sql-database-elastic-pool.md)은 [리소스 집합을 공유](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus)(eDTU)
+- [고유한 리소스 집합](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus)(DTU)이 있는 독립 실행형 데이터베이스
+- [리소스 집합을 공유](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus)(eDTU)하는 [탄력적 풀](sql-database-elastic-pool.md)의 일부
 - 일부 [분할 데이터베이스의 확장된 집합](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling)은 단일 또는 풀링된 데이터베이스
 - [다중 테넌트 SaaS 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)에 속한 데이터베이스 집합의 일부 및 해당 데이터베이스는 단일 또는 풀링된 데이터베이스 또는 둘 다일 수 있습니다. 
 
@@ -71,6 +71,6 @@ Microsoft Azure SQL Database에서 사용하는 기본 데이터베이스 데이
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

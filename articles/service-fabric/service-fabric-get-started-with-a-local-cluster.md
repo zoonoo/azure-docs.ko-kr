@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/09/2016
+ms.date: 12/14/2016
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 515daddf2c118f26721a557b0caf5d5415cb22c5
+ms.sourcegitcommit: efe9845280de3bcd882a7c879b53576600aae0a7
+ms.openlocfilehash: 1bc418f3cadfc83fbec0f2e2c508c77d97b84285
 
 
 ---
@@ -56,7 +56,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 ## <a name="deploy-an-application"></a>응용 프로그램 배포
 서비스 패브릭 SDK는 응용 프로그램을 만들기 위한 다양한 개발자 도구 및 프레임워크의 집합을 포함합니다. Visual Studio에서 응용 프로그램을 만드는 방법에 관심이 있는 경우 [Visual Studio에서 서비스 패브릭 응용 프로그램 처음 만들기](service-fabric-create-your-first-application-in-visual-studio.md)를 참조하세요.
 
-이 자습서에서는 기존 샘플 응용 프로그램(WordCount라고 함)을 사용하므로 배포, 모니터링 및 업그레이드를 포함하는 플랫폼의 관리 측면에 중점을 둘 수 있습니다.
+이 자습서에서는 기존 샘플 응용 프로그램(WordCount라고 함)을 사용하므로 플랫폼의 관리 측면인 배포, 모니터링 및 업그레이드에 중점을 둘 수 있습니다.
 
 1. 새 PowerShell 창을 관리자 권한으로 실행합니다.
 2. 서비스 패브릭 SDK PowerShell 모듈을 가져옵니다.
@@ -82,14 +82,14 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
    Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
     ```
    
-    정상적으로 작동하면 다음과 유사한 출력이 표시됩니다.
+    정상적으로 작동하면 다음 출력이 표시됩니다.
    
     ![로컬 클러스터에 응용 프로그램 배포][deploy-app-to-local-cluster]
 7. 작업에서 응용 프로그램을 보려면 브라우저를 시작하고 [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html)로 이동합니다. 다음과 같은 결과가 표시됩니다.
    
     ![배포된 응용 프로그램 UI][deployed-app-ui]
    
-    WordCount 응용 프로그램은 매우 간단합니다. 클라이언트쪽 JavaScript 코드를 포함하여 임의의 다섯 개의 문자 "words"를 생성하며 이는 ASP.NET Web API를 통해 응용 프로그램에 릴레이됩니다. 상태 저장 서비스는 계산된 단어의 수를 추적합니다. 단어의 첫 번째 문자를 기준으로 분할됩니다. [샘플 시작](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/)에서 WordCount 앱에 대한 소스 코드를 찾을 수 있습니다.
+    WordCount 응용 프로그램은 간단합니다. 클라이언트쪽 JavaScript 코드를 포함하여 임의의 다섯 개의 문자 "words"를 생성하며 이는 ASP.NET Web API를 통해 응용 프로그램에 릴레이됩니다. 상태 저장 서비스는 계산된 단어의 수를 추적합니다. 단어의 첫 번째 문자를 기준으로 분할됩니다. [샘플 시작](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/)에서 WordCount 앱에 대한 소스 코드를 찾을 수 있습니다.
    
     배포된 응용 프로그램은 네 개의 파티션을 포함합니다. 그러므로 A부터 G로 시작하는 단어는 첫 번째 파티션에 저장되고 H부터 N까지로 시작하는 단어는 두 번째 파티션에 저장되는 방식으로 계속됩니다.
 
@@ -134,18 +134,18 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
    > 
 
 ## <a name="upgrade-an-application"></a>응용 프로그램 업그레이드
-서비스 패브릭은 클러스터 전체에 걸쳐 롤백되므로 응용 프로그램의 상태를 모니터링하여 가동 중지 업그레이드가 발생하지 않습니다. WordCount 응용 프로그램의 간단한 업그레이드를 수행해보겠습니다.
+서비스 패브릭은 클러스터 전체에 걸쳐 롤백되므로 응용 프로그램의 상태를 모니터링하여 가동 중지 업그레이드가 발생하지 않습니다. WordCount 응용 프로그램 업그레이드를 수행합니다.
 
 응용 프로그램의 새 버전은 모음으로 시작하는 단어만 계산합니다. 업그레이드가 출시되면 응용 프로그램의 동작에 두 가지 변경 사항이 나타납니다. 첫째, 적은 단어 수가 계산되므로 수가 증가하면 속도는 느려져야 합니다. 둘째, 첫 번째 파티션에 두 개의 모음(A 및 E)이 있고 다른 모든 파티션이 각각 하나만 포함하므로 결국 개수가 다른 파티션을 앞서도록 시작해야 합니다.
 
-1. [WordCount v2 패키지를 다운로드](http://aka.ms/servicefabric-wordcountappv2) 합니다.
+1. 버전 1 패키지를 다운로드한 동일한 위치에 [WordCount 버전 2 패키지를 다운로드](http://aka.ms/servicefabric-wordcountappv2) 합니다.
 2. PowerShell 창으로 돌아가서 SDK의 업그레이드 명령을 사용하여 클러스터의 새 버전을 등록합니다. 그런 다음 fabric:/WordCount 응용 프로그램을 업그레이드하기 시작합니다.
    
     ```powershell
     Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
     ```
    
-    업그레이드가 시작되면 다음과 유사한 PowerShell의 출력이 표시됩니다.
+    업그레이드가 시작되면 PowerShell에 다음 출력이 표시됩니다.
    
     ![PowerShell에서 업그레이드 진행률][ps-appupgradeprogress]
 3. 업그레이드를 진행하는 동안 서비스 패브릭 탐색기에서 해당 상태를 모니터링하는 작업이 쉬워집니다. 브라우저 창을 시작하고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)로 이동합니다. 왼쪽의 트리에서 **응용 프로그램**을 선택한 다음 **WordCount**, **패브릭:/WordCount**를 차례로 선택합니다. 필수 탭에서 클러스터의 업그레이드 도메인을 통해 진행될 때 업그레이드의 상태가 표시됩니다.
@@ -153,7 +153,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
     ![서비스 패브릭 탐색기에서 업그레이드 진행][sfx-upgradeprogress]
    
     각 도메인을 통해 업그레이드가 진행될 때 응용 프로그램이 제대로 작동되도록 상태 검사를 수행합니다.
-4. fabric:/WordCount 응용 프로그램에 있는 서비스의 집합에 대한 이전 쿼리를 다시 실행하는 경우 WordCountService의 버전이 변경되지만 WordCountWebService 버전은 변경되지 않습니다.
+4. fabric:/WordCount 응용 프로그램에 있는 서비스의 집합에 대한 이전 쿼리를 다시 실행하는 경우 WordCountService 버전이 변경되지만 WordCountWebService 버전은 변경되지 않습니다.
    
     ```powershell
     Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
@@ -161,7 +161,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
    
     ![업그레이드 후 응용 프로그램 서비스 쿼리][ps-getsfsvc-postupgrade]
    
-    이 서비스 패브릭은 응용 프로그램 업그레이드를 관리하는 방법을 보여줍니다. 이렇게 하면 이는 변경된 서비스 집합(또는 해당 서비스 내에서 코드/구성 패키지)을 터치하고 보다 빠르고 안정적으로 업그레이드 프로세스를 진행할 수 있습니다.
+    이 예제는 Service Fabric이 응용 프로그램 업그레이드를 관리하는 방법을 보여줍니다. 이렇게 하면 이는 변경된 서비스 집합(또는 해당 서비스 내에서 코드/구성 패키지)을 터치하고 보다 빠르고 안정적으로 업그레이드 프로세스를 진행할 수 있습니다.
 5. 마지막으로 브라우저로 돌아와서 응용 프로그램의 새 버전의 동작을 관찰합니다. 예상된 대로 개수 프로세스는 느려지고 첫 번째 파티션은 볼륨이 더 증가하게 됩니다.
    
     ![브라우저에서 응용 프로그램의 새 버전 보기][deployed-app-ui-v2]
@@ -169,16 +169,16 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 ## <a name="cleaning-up"></a>정리
 마무리하기 전에, 로컬 클러스터가 존재한다는 것을 기억하는 것이 중요합니다. 응용 프로그램은 제거될 때까지 백그라운드에서 계속 실행됩니다.  앱의 특성에 따라서, 앱을 실행하면 컴퓨터에서 상당한 리소스를 차지할 수 있습니다. 응용 프로그램과 클러스터를 관리하는 몇 가지 옵션이 있습니다.
 
-1. 개별 응용 프로그램 및 모든 데이터를 제거하려면 다음을 실행합니다.
+1. 개별 응용 프로그램 및 모든 데이터를 제거하려면 다음 명령을 실행합니다.
    
     ```powershell
     Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
     ```
    
-    또는 Service Fabric Explorer의 **작업** 메뉴 또는 왼쪽 창의 응용 프로그램 목록 보기에 있는 상황에 맞는 메뉴에서 응용 프로그램을 제거합니다.
+    또는 Service Fabric Explorer **ACTIONS** 메뉴 또는 왼쪽 창 응용 프로그램 목록 보기에 있는 상황에 맞는 메뉴에서 응용 프로그램을 제거합니다.
    
     ![서비스 패브릭 탐색기에서 응용 프로그램 삭제][sfe-delete-application]
-2. 클러스터에서 응용 프로그램을 삭제한 후에 WordCount 응용 프로그램 형식의 버전 1.0.0 및 2.0.0의 등록을 취소할 수 있습니다. 삭제하면 클러스터 이미지 저장소에서 코드와 구성을 포함한 응용 프로그램 패키지를 제거합니다.
+2. 클러스터에서 응용 프로그램을 삭제한 후에 WordCount 응용 프로그램 형식의 버전 1.0.0 및 2.0.0의 등록을 취소합니다. 삭제하면 클러스터 이미지 저장소에서 코드와 구성을 포함한 응용 프로그램 패키지를 제거합니다.
    
     ```powershell
     Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
@@ -189,19 +189,21 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 3. 클러스터는 끄되 응용 프로그램 데이터와 추적은 유지하려면 시스템 트레이 앱에서 **로컬 클러스터 중지** 를 클릭합니다.
 4. 클러스터를 완전히 제거하려면 시스템 트레이 앱에서 **로컬 클러스터 제거** 를 클릭합니다. 다음에 Visual Studio에서 F5 키를 누르면 이 옵션이 다른 느린 배포를 발생시킵니다. 일정 시간 동안 로컬 클러스터를 사용하지 않거나 또는 리소스를 확보해야 할 경우에만 로컬 클러스트를 제거합니다.
 
-## <a name="1-node-and-5-node-cluster-mode"></a>1개의 노드 및 5개의 노드 클러스터 모드
-응용 프로그램을 개발하는 로컬 클러스터를 사용할 때 종종 코드를 작성, 디버깅, 변경 등을 빠르게 반복하여 수행합니다. 이 프로세스를 최적화할 수 있기 위해 로컬 클러스터는 1개의 노드 및 5개의 노드 등 두 가지 모드에서 실행할 수 있습니다. 클러스터 모드는 모두 해당되는 혜택이 있습니다.
-5개의 노드 클러스터 모드를 사용하면 실제 클러스터와 함께 사용할 수 있습니다. 장애 조치 시나리오를 테스트하고 더 많은 인스턴스 및 서비스의 복제본을 사용할 수 있습니다.
-1개의 노드 클러스터 모드는 서비스를 빠르게 배포하고 등록하는 데 최적화되어 Service Fabric 런타임을 사용하여 신속하게 코드의 유효성을 검사할 수 있습니다.
+## <a name="one-node-and-five-node-cluster-mode"></a>1개 노드 및 5개 노드 클러스터 모드
+응용 프로그램을 개발할 때 종종 코드 작성, 디버깅, 코드 변경, 디버깅을 빠르게 반복하여 수행합니다. 이 프로세스를 최적화할 수 있기 위해 로컬 클러스터는 1개 노드 및 5개 노드 등 두 가지 모드에서 실행할 수 있습니다. 클러스터 모드는 모두 해당되는 혜택이 있습니다. 5개 노드 클러스터 모드를 사용하면 실제 클러스터와 함께 사용할 수 있습니다. 장애 조치 시나리오를 테스트하고 더 많은 인스턴스 및 서비스의 복제본을 사용할 수 있습니다. 1개 노드 클러스터 모드는 서비스를 빠르게 배포하고 등록하는 데 최적화되어 Service Fabric 런타임을 사용하여 신속하게 코드의 유효성을 검사할 수 있습니다.
 
-1개의 노드 클러스터 모드와 5개의 노드 클러스터 모드는 에뮬레이터나 시뮬레이터가 아닙니다. 다중 컴퓨터 클러스터에 있는 동일한 플랫폼 코드를 실행합니다.
+1개 노드 클러스터 또는 5개 노드 클러스터 모드 모두 에뮬레이터 또는 시뮬레이터가 아닙니다. 컬 개발 클러스터는 다중 컴퓨터 클러스터에 있는 동일한 플랫폼 코드를 실행합니다.
 
-> [!NOTE]
-> 이 기능은 SDK 버전 5.2 이상에서 사용할 수 있습니다.
+> [!WARNING]
+> 클러스터 모드를 변경할 때 현재 클러스터가 시스템에서 제거되고 새 클러스터가 생성됩니다. 클러스터 모드를 변경할 때 클러스터에 저장해야 하는 데이터가 삭제됩니다.
 > 
 > 
 
-클러스터 모드를 1개의 노드 클러스터로 변경하려면 다음과 같은 방법으로 Service Fabric 로컬 클러스터 관리자 또는 PowerShell을 사용합니다.
+모드를 1개 노드 클러스터로 변경하려면 Service Fabric Local Cluster Manager에서 **클러스터 모드 전환**을 선택합니다.
+
+![클러스터 모드 전환][switch-cluster-mode]
+
+또는 PowerShell을 사용하여 클러스터 모드를 변경합니다.
 
 1. 새 PowerShell 창을 관리자 권한으로 실행합니다.
 2. SDK 폴더에서 클러스터 설치 스크립트를 실행합니다.
@@ -213,15 +215,6 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
     클러스터 설치는 몇 분 정도 걸립니다. 설치가 완료된 후 다음과 같은 출력이 표시됩니다.
    
     ![클러스터 설정 출력][cluster-setup-success-1-node]
-
-Service Fabric 로컬 클러스터 관리자를 사용하는 경우:
-
-![클러스터 모드 전환][switch-cluster-mode]
-
-> [!WARNING]
-> 클러스터 모드를 변경할 때 현재 클러스터가 시스템에서 제거되고 새 클러스터가 생성됩니다. 클러스터 모드를 변경할 때 클러스터에 저장해야 하는 데이터가 삭제됩니다.
-> 
-> 
 
 ## <a name="next-steps"></a>다음 단계
 * 미리 작성된 응용 프로그램을 배포하고 업그레이드했으니 [Visual Studio에서 응용 프로그램 빌드](service-fabric-create-your-first-application-in-visual-studio.md)를 수행해 보겠습니다.
@@ -250,6 +243,6 @@ Service Fabric 로컬 클러스터 관리자를 사용하는 경우:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

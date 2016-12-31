@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/12/2016
+ms.date: 12/11/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1a680f20bc9ceee8efd943cd71312372fe56a878
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: 698b834ffa82f2a1ab171fb5efc13a2fe916b4ec
 
 
 ---
@@ -46,16 +46,17 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 * [AMS 라이브 스트리밍 워크플로](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 * [AMS 주문형 스트리밍 워크플로](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
+
 Azure 미디어 서비스 사용을 시작하려면 다음이 있어야 합니다.
 
-1. Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com)을 참조하십시오.
+1. Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com)을 참조하세요.
 2. Azure 미디어 서비스 계정. Azure 포털, .NET 또는 REST API를 사용하여 Azure 미디어 서비스 계정을 만듭니다. 자세한 내용은 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 3. (선택 사항) 개발 환경 설정. 개발 환경에 .NET 또는 REST API를 선택합니다. 자세한 내용은 [환경 설정](media-services-dotnet-how-to-use.md)을 참조하세요.
 
-프로그래밍 방식으로 자동으로 [연결](media-services-dotnet-connect-programmatically.md)하는 방법도 알아봅니다.
+    프로그래밍 방식으로 자동으로 [연결](media-services-dotnet-connect-programmatically.md)하는 방법도 알아봅니다.
 
-1. (권장) 하나 이상의 배율 단위 할당. 프로덕션 환경에서 응용 프로그램에 대한 하나 이상의 확장 단위를 할당하는 것이 좋습니다.   자세한 내용은 [스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)를 참조하세요.
+4. (권장) 하나 이상의 배율 단위 할당. 프로덕션 환경에서 응용 프로그램에 대한 하나 이상의 확장 단위를 할당하는 것이 좋습니다.   자세한 내용은 [스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)를 참조하세요.
 
 ## <a name="concepts-and-overview"></a>개념 및 개요
 Azure 미디어 서비스 개념은 [개념](media-services-concepts.md)을 참조하세요.
@@ -129,11 +130,11 @@ Azure 미디어 서비스의 모든 주요 구성 요소를 소개하는 사용 
 * (선택 사항) 스트림을 적응 비트 전송률 스트림으로 인코딩
 * 라이브 스트림 미리 보기
 * 나중에 스트리밍하기 위해 수집된 콘텐츠 기록 및 저장(주문형 비디오)
-* 일반적인 스트리밍 프로토콜(예: MPEG DASH, 부드러운, HLS, HDS)을 통해 고객에게 직접 또는 추가 배포를 위해 CDN(콘텐츠 배달 네트워크)에 콘텐츠 배달
+* 일반적인 스트리밍 프로토콜(예: MPEG DASH, 부드러운, HLS)을 통해 고객에게 직접 또는 추가 배포를 위해 CDN(Content Delivery Network)에 콘텐츠 배달.
 
 **Microsoft Azure Media Services**(AMS)에서는 라이브 스트리밍 콘텐츠를 수집, 인코딩, 미리 보기, 저장 및 배달하는 기능을 제공합니다.
 
-콘텐츠를 고객에게 배달할 때는 서로 다른 네트워크 조건에 따라 다양한 장치에 고화질 영상을 제공하는 것이 목표입니다. 품질 및 네트워크 상태를 관리하려면 라이브 인코더를 사용하여 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다.  여러 장치에서 스트리밍을 관리하려면 미디어 서비스 [동적 패키징](media-services-dynamic-packaging-overview.md) 을 사용하여 스트림을 여러 프로토콜에 동적으로 다시 패키징합니다. 미디어 서비스에서 지원하는 적응 비트 전송률 스트리밍 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 및 HDS(Adobe PrimeTime/Access 정식 사용자만 해당)입니다.
+콘텐츠를 고객에게 배달할 때는 서로 다른 네트워크 조건에 따라 다양한 장치에 고화질 영상을 제공하는 것이 목표입니다. 품질 및 네트워크 상태를 관리하려면 라이브 인코더를 사용하여 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다.  여러 장치에서 스트리밍을 관리하려면 미디어 서비스 [동적 패키징](media-services-dynamic-packaging-overview.md) 을 사용하여 스트림을 여러 프로토콜에 동적으로 다시 패키징합니다. Media Services에서 지원하는 적응 비트 전송률 스트리밍은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH입니다.
 
 Azure Media Services에서 **채널**, **프로그램** 및 **스트리밍 끝점**은 수집, 형식 지정, DVR, 보안, 확장성 및 중복성을 포함한 라이브 스트리밍 기능 전반을 처리합니다.
 

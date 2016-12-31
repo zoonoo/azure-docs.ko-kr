@@ -3,7 +3,7 @@ title: "REST API를 통해 Azure Container Service 컨테이너 관리 | Microso
 description: "Marathon REST API를 사용하여 컨테이너를 Azure 컨테이너 서비스 Mesos 클러스터에 배포합니다."
 services: container-service
 documentationcenter: 
-author: neilpeterson
+author: dlepow
 manager: timlt
 editor: 
 tags: acs, azure-container-service
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
-ms.author: timlt
+ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e8f1ad596d2b64380876a501ebcf127afdda9ccf
+ms.sourcegitcommit: 54832afbc9a7bf1d660de3fd898ad5c97715ca5d
+ms.openlocfilehash: a01993eb01b9e05b4848d5a81b841fe10ccae035
 
 
 ---
@@ -33,7 +33,7 @@ DC/OS는 기본 하드웨어를 추상화하는 동안 클러스터형 워크로
 Azure Container Service 클러스터에 연결한 후에 http://localhost:local-port를 통해 DC/OS 및 관련된 REST API에 액세스할 수 있습니다. 이 문서의 예제에서는 포트 80에서 터널링하는 것을 가정합니다. 예를 들어, Marathon 끝점은 있으신 `http://localhost/marathon/v2/`에 도달할 수 있습니다. 다양한 API에 대한 자세한 내용은 [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) 및 [Chronos API](https://mesos.github.io/chronos/docs/api.html)에 대한 Mesosphere 문서와 [Mesos 스케줄러 API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)에 대한 Apache 문서를 참조하세요.
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>DC/OS 및 Marathon에서 정보 수집
-DC/OS 클러스터에 컨테이너를 배포하기 전에 이름, DC/OS 에이전트의 현재 상태와 같은 DC/OS 클러스터에 대한 정보를 수집합니다. 이렇게 하려면 DC/OS REST API에서 `master/slaves` 끝점을 쿼리합니다. 모든 작업이 제대로 진행되었다면 DC/OS 에이전트와 각각에 대한 여러 속성 목록이 표시됩니다.
+DC/OS 클러스터에 컨테이너를 배포하기 전에 이름, DC/OS 에이전트의 현재 상태와 같은 DC/OS 클러스터에 대한 정보를 수집합니다. 이렇게 하려면 DC/OS REST API에서 `master/slaves` 끝점을 쿼리합니다. 모든 작업이 제대로 진행되었다면 쿼리는 DC/OS 에이전트와 각각에 대한 여러 속성 목록을 반환합니다.
 
 ```bash
 curl http://localhost/mesos/master/slaves
@@ -84,7 +84,7 @@ curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-typ
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-이제 응용 프로그램에 대해 Marathon을 쿼리하면 이 새 응용 프로그램이 출력에 표시됩니다.
+이제 응용 프로그램에 대해 Marathon을 쿼리하면 이 새 응용 프로그램이 출력에 나타납니다.
 
 ```
 curl localhost/marathon/v2/apps
@@ -100,7 +100,7 @@ Marathon API를 사용하여 응용 프로그램 배포의 규모를 확장 또�
 응용 프로그램의 규모를 확장하려면 다음 명령을 실행합니다.
 
 > [!NOTE]
-> URI는 http://localhost/marathon/v2/apps/이며 확장할 응용 프로그램의 ID입니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http://localhost/marathon/v2/apps/nginx입니다.
+> URI은 http://localhost/marathon/v2/apps/이고 그 다음에 크기를 조정할 응용 프로그램의 ID가 표시됩니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http://localhost/marathon/v2/apps/nginx입니다.
 > 
 > 
 
@@ -159,7 +159,7 @@ Marathon API를 사용하여 응용 프로그램 배포의 규모를 확장 또�
 응용 프로그램의 규모를 확장하려면 다음 명령을 실행합니다.
 
 > [!NOTE]
-> URI는 http://localhost/marathon/v2/apps/이며 확장할 응용 프로그램의 ID입니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http://localhost/marathon/v2/apps/nginx입니다.
+> URI은 http://localhost/marathon/v2/apps/이고 그 다음에 크기를 조정할 응용 프로그램의 ID가 표시됩니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http://localhost/marathon/v2/apps/nginx입니다.
 > 
 > 
 

@@ -3,7 +3,7 @@ title: "Azure 배치 CLI 시작 | Microsoft 문서"
 description: "Azure CLI에서 Azure Batch 서비스 리소스를 관리하기 위한 Batch 명령에 대한 간단한 소개를 봅니다."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/30/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a874623c7ab24478af14e6cf4391dcc29052590f
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: cb1f049597d53263f0f92fe1192b285c09d78eeb
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: a874623c7ab24478af14e6cf4391dcc29052590f
 
 이 문서는 Azure CLI 버전 0.10.5를 기반으로 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 * [Azure CLI 설치](../xplat-cli-install.md)
 * [Azure 구독에 Azure CLI 연결](../xplat-cli-connect.md)
 * **Resource Manager** 모드로 전환: `azure config mode arm`
@@ -36,7 +36,7 @@ ms.openlocfilehash: a874623c7ab24478af14e6cf4391dcc29052590f
 > 
 
 ## <a name="command-help"></a>명령 도움말
-명령 이후에 `-h` 을 옵션으로 추가하여 Azure CLI에서 모든 명령에 대한 도움말 텍스트를 표시할 수 있습니다. 예:
+명령 이후에 `-h` 을 옵션으로 추가하여 Azure CLI에서 모든 명령에 대한 도움말 텍스트를 표시할 수 있습니다. 다음과 같은 노래들을 선곡할 수 있다.
 
 * `azure` 명령에 대한 도움말을 보려면 `azure -h`을 입력합니다.
 * CLI에서 모든 Batch 명령의 목록을 가져오려면 `azure batch -h`을 사용합니다.
@@ -49,11 +49,11 @@ Usage:
 
     azure batch account create [options] <name>
 
-예제:
+예:
 
     azure batch account create --location "West US"  --resource-group "resgroup001" "batchaccount001"
 
-지정된 매개 변수를 사용하여 새 배치 계정을 만듭니다. 최소한 위치, 리소스 그룹 및 계정 이름을 지정해야 합니다. 리소스 그룹이 아직 없는 경우 `azure group create`을 실행하여 만들고 `--location` 옵션에 Azure 지역(예: "미국 서부") 중 하나를 지정합니다. 예:
+지정된 매개 변수를 사용하여 새 배치 계정을 만듭니다. 최소한 위치, 리소스 그룹 및 계정 이름을 지정해야 합니다. 리소스 그룹이 아직 없는 경우 `azure group create`을 실행하여 만들고 `--location` 옵션에 Azure 지역(예: "미국 서부") 중 하나를 지정합니다. 다음과 같은 노래들을 선곡할 수 있다.
 
     azure group create --name "resgroup001" --location "West US"
 
@@ -80,7 +80,7 @@ Usage:
 
     azure batch account delete [options] <name>
 
-예제:
+예:
 
     azure batch account delete --resource-group "resgroup001" "batchaccount001"
 
@@ -94,7 +94,7 @@ Usage:
 
     azure batch account keys list [options] <name>
 
-예제:
+예:
 
     azure batch account keys list --resource-group "resgroup001" "batchaccount001"
 
@@ -105,7 +105,7 @@ Usage:
 
     azure batch account keys renew [options] --<primary|secondary> <name>
 
-예제:
+예:
 
     azure batch account keys renew --resource-group "resgroup001" --primary "batchaccount001"
 
@@ -123,13 +123,13 @@ Azure CLI를 사용하여 풀, 계산 노드, 작업 및 태스크 같은 Batch 
 > 
 
 ### <a name="json-files"></a>JSON 파일
-풀 및 작업같은 Batch 리소스를 만들 때 매개 변수를 명령줄 옵션으로 전달하는 대신 새 리소스의 구성이 포함된 JSON 파일을 지정할 수 있습니다. 예:
+풀 및 작업같은 Batch 리소스를 만들 때 매개 변수를 명령줄 옵션으로 전달하는 대신 새 리소스의 구성이 포함된 JSON 파일을 지정할 수 있습니다. 다음과 같은 노래들을 선곡할 수 있다.
 
 `azure batch pool create my_batch_pool.json`
 
 명령줄 옵션만 사용하여 여러 리소스 생성 작업을 수행할 수 있지만 일부 기능에는 리소스 세부 정보를 포함하는 JSON 형식의 파일이 필요합니다. 예를 들어 시작 태스크에 대한 리소스 파일을 지정하려면 JSON 파일을 사용해야 합니다.
 
-리소스를 만드는 데 필요한 JSON을 찾으려면 MSDN에 대한 [배치 REST API 참조][rest_api] 설명서를 참조하세요. 각 " *리소스 유형*추가" 항목은 리소스를 만드는 예제 JSON을 포함하며 JSON 파일에 대한 템플릿으로 사용할 수 있습니다. 예를 들어, 풀 생성을 위한 JSON은 [계정에 풀 추가][rest_add_pool]에서 찾을 수 있습니다.
+리소스를 만드는 데 필요한 JSON을 찾으려면 MSDN에 대한 [Batch REST API 참조][rest_api] 설명서를 참조하세요. 각 " *리소스 유형*추가" 항목은 리소스를 만드는 예제 JSON을 포함하며 JSON 파일에 대한 템플릿으로 사용할 수 있습니다. 예를 들어, 풀 생성을 위한 JSON은 [계정에 풀 추가][rest_add_pool]에 위치합니다.
 
 > [!NOTE]
 > 리소스를 만들 때 JSON 파일을 지정하면 해당 리소스에 대한 명령줄에 지정된 다른 모든 매개 변수가 무시됩니다.
@@ -169,7 +169,7 @@ Usage:
 
     azure batch job create [options] [json-file]
 
-예제:
+예:
 
     azure batch job create --id "job001" --pool-id "pool001"
 
@@ -259,7 +259,7 @@ Batch CLI는 Batch 서비스에서 지원하는 세 개의 절을 모두 지원�
 * `-h` 을 사용하여 모든 CLI 명령의 **도움말 텍스트** 를 봅니다.
 * `-v` 및 `-vv`를 사용하여 **자세한 정보** 명령 출력을 표시합니다. `-vv`는 "추가" 자세한 정보이며 실제 REST 요청 및 응답을 표시합니다. 이러한 스위치는 전체 오류 출력을 표시하는 데 유용합니다.
 * `--json` 옵션을 사용하여 **명령 출력을 JSON으로** 볼 수 있습니다. 예를 들어 `azure batch pool show "pool001" --json` 은 JSON 형식으로 pool001의 속성을 표시합니다. 그런 다음 이 출력을 복사하고 수정하여 `--json-file` 에서 사용할 수 있습니다(이 문서의 앞부분에서 [JSON 파일](#json-files) 참조).
-* [MSDN에 대한 배치 포럼][batch_forum]은 도움말 리소스이며 배치 팀 구성원에 의해 밀접하게 모니터링됩니다. 문제가 발생하거나 특정 작업에 도움이 필요한 경우 거기에 질문을 게시해야 합니다.
+* [MSDN에 대한 Batch 포럼][batch_forum]은 도움말 리소스이며 Batch 팀 구성원에 의해 밀접하게 모니터링됩니다. 문제가 발생하거나 특정 작업에 도움이 필요한 경우 거기에 질문을 게시해야 합니다.
 * 모든 Batch 리소스 작업은 현재 Azure CLI에서 지원됩니다. 예를 들어 현재는 풀에 대한 응용 프로그램 패키지 *버전* 인 패키지 ID을 지정할 수 없습니다. 이러한 경우는 명령줄 옵션을 사용하는 대신 명령에 대한 `--json-file` 를 제공해야 합니다. 최신 CLI 버전을 최신 상태로 유지하여 이후 향상 기능을 선택해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -273,6 +273,6 @@ Batch CLI는 Batch 서비스에서 지원하는 세 개의 절을 모두 지원�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
