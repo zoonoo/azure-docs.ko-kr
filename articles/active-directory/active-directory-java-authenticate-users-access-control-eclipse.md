@@ -39,7 +39,7 @@ ACS에서 사용할 수 있는 기능은 다음과 같습니다.
 * ACS 설정에 대한 프로그래밍 방식의 액세스를 제공하는 OData(Open Data Protocol) 기반 관리 서비스
 * ACS 설정에 대한 관리자 액세스 권한을 허용하는 관리 포털
 
-ACS에 대한 자세한 내용은 [액세스 제어 서비스 2.0][액세스 제어 서비스 2.0]을 참조하세요.
+ACS에 대한 자세한 내용은 [Access Control Service 2.0][Access Control Service 2.0]을 참조하세요.
 
 ## <a name="concepts"></a>개념
 Azure ACS는 온-프레미스 또는 클라우드에서 실행되는 응용 프로그램에 대한 인증 메커니즘을 만들기 위한 일관된 접근 방식인 클레임 기반 ID 사용자를 기반으로 합니다. 클레임 기반 ID는 응용 프로그램과 서비스가 조직 내부, 다른 조직 및 인터넷의 사용자에 대해 필요한 ID 정보를 얻는 일반적인 방법을 제공합니다.
@@ -87,7 +87,7 @@ ACS가 IP를 신뢰하도록 구성된 경우 시스템은 해당 IP에서 발�
 ## <a name="create-an-acs-namespace"></a>ACS 네임스페이스 만들기
 Azure에서 ACS(액세스 제어 서비스) 사용을 시작하려면 ACS 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 ACS 리소스의 주소를 지정하기 위한 고유 범위를 제공합니다.
 
-1. [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
+1. [Azure 관리 포털][Azure Management Portal]에 로그인합니다.
 2. **Active Directory**를 클릭합니다. 
 3. 새 액세스 제어 네임스페이스를 만들려면 **새로 만들기**, **앱 서비스**, **액세스 제어**, **빠른 생성**을 차례로 클릭합니다. 
 4. 네임스페이스의 이름을 입력합니다. Azure에서 이름이 고유한지 검증합니다.
@@ -100,7 +100,7 @@ Azure에서 네임스페이스를 만들고 활성화합니다. 계속하기 전
 ## <a name="add-identity-providers"></a>ID 공급자 추가
 이 작업에서는 인증을 위해 RP 응용 프로그램에 사용할 IP를 추가합니다. 데모 목적으로 이 작업에서는 IP로 Windows Live를 추가하는 방법을 보여 주지만 ACS 관리 포털에 나열되는 있는 모든 IP를 사용할 수 있습니다.
 
-1. [Azure 관리 포털][Azure 관리 포털]에서 **Active Directory**를 클릭하고 액세스 제어 네임스페이스를 선택한 후 **관리**를 클릭합니다. ACS 관리 포털이 열립니다.
+1. [Azure 관리 포털][Azure Management Portal]에서 **Active Directory**를 클릭하고 Access Control 네임스페이스를 선택한 다음 **관리**를 클릭합니다. ACS 관리 포털이 열립니다.
 2. ACS 관리 포털의 왼쪽 탐색 창에서 **ID 공급자**를 클릭합니다.
 3. Windows Live ID가 기본적으로 사용하도록 설정되어 있으며 삭제할 수 없습니다. 이 자습서에서는 Windows Live ID만 사용됩니다. 그러나 이 화면에서 **추가** 단추를 클릭하여 다른 IP를 추가할 수 있습니다.
 
@@ -141,7 +141,7 @@ Azure에서 네임스페이스를 만들고 활성화합니다. 계속하기 전
 3. **토큰 서명 인증서 또는 키 추가** 페이지에서 다음을 수행합니다.
    1. **용도** 섹션에서 **신뢰 당사자 응용 프로그램**을 클릭하고 **Azure Web App**(앞에서 신뢰 당사자 응용 프로그램의 이름으로 설정한 이름)을 선택합니다.
    2. **유형** 섹션에서 **X.509 인증서**를 선택합니다.
-   3. **인증서** 섹션에서 찾아보기 단추를 클릭하고 사용할 X.509 인증서 파일로 이동합니다. 이 파일은 .PFX 파일입니다. 파일을 선택하고 **열기**를 클릭한 후 **암호** 텍스트 상자에 인증서 암호를 입력합니다. 테스트 목적으로 자체 서명된 인증서를 사용할 수 있습니다. 자체 서명된 인증서를 만들려면 **ACS 필터 라이브러리** 대화 상자(뒷부분의 설명 참조)에서 **새로 만들기** 단추를 사용하거나 Azure Starter Kit for Java의 [프로젝트 웹 사이트][encutil.exe]에서 **encutil.exe** 유틸리티를 사용하세요.
+   3. **인증서** 섹션에서 찾아보기 단추를 클릭하고 사용할 X.509 인증서 파일로 이동합니다. 이 파일은 .PFX 파일입니다. 파일을 선택하고 **열기**를 클릭한 후 **암호** 텍스트 상자에 인증서 암호를 입력합니다. 테스트 목적으로 자체 서명된 인증서를 사용할 수 있습니다. 자체 서명된 인증서를 만들려면**ACS 필터 라이브러리** 대화 상자(뒷부분 설명 참조)에서 **새로 만들기** 단추를 사용하거나 Java용 Azure 시작 키트의 [프로젝트 웹 사이트][project website]에서 **encutil.exe** 유틸리티를 사용합니다.
    4. **Make Primary** 가 선택되어 있는지 확인합니다. **토큰 서명 인증서 또는 키 추가** 페이지는 다음과 유사합니다.
        ![토큰 서명 인증서 추가][add_token_signing_cert]
    5. **저장**을 클릭하여 설정을 저장하고 **토큰 서명 인증서 또는 키 추가** 페이지를 닫습니다.
@@ -237,7 +237,7 @@ Azure에 배포하려면 ACS 네임스페이스의 신뢰 당사자 영역 및 �
 ACS Hello World 응용 프로그램 사용을 완료했으면 배포를 삭제해야 합니다( [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) (영문) 항목에서 배포 삭제 방법을 알아볼 수 있음).
 
 ## <a name="a-namenextstepsanext-steps"></a><a name="next_steps"></a>다음 단계
-ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Markup Language)의 예제는 [Azure 액세스 제어 서비스에 의해 반환되는 SAML을 확인하는 방법][Azure 액세스 제어 서비스에서 반환한 SAML을 보는 방법]을 참조하세요. ACS 기능을 자세히 살펴보고 보다 정교한 시나리오를 실험하려면 [액세스 제어 서비스 2.0][액세스 제어 서비스 2.0]을 참조하세요.
+ACS에서 응용 프로그램에 반환하는 SAML(Security Assertion Markup Language)을 검토하려면 [Azure Access Control Service에서 반환하는 SAML을 보는 방법][How to view SAML returned by the Azure Access Control Service]을 참조하세요. ACS 기능을 자세히 살펴 보고 보다 정교한 시나리오를 실험하려면 [Access Control Service 2.0][Access Control Service 2.0]을 참조하세요.
 
 또한 이 예제에서는 **Embed the certificate in the WAR file** 옵션을 사용했습니다. 이 옵션을 사용하면 인증서를 더 간단하게 배포할 수 있습니다. 대신 서명 인증서를 WAR 파일과 별도로 유지하려면 다음 방법을 사용하면 됩니다.
 
@@ -258,29 +258,29 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
        ![인증서 구성 요소 추가][add_cert_component]
    5. **확인**을 클릭합니다.
 
-이때 인증서가 배포에 포함됩니다. 인증서를 WAR 파일에 포함하든 배포에 구성 요소로 추가하든 관계없이 [ACS 네임스페이스에 인증서 업로드][ACS 네임스페이스에 인증서 업로드] 섹션에 설명된 대로 인증서를 네임스페이스에 업로드해야 합니다.
+이때 인증서가 배포에 포함됩니다. 인증서를 WAR 파일에 포함하든 배포에 구성 요소로 추가하든 관계없이 [ACS 네임스페이스에 인증서 업로드][Upload a certificate to your ACS namespace] 섹션에서 설명한 대로 네임스페이스에 인증서를 업로드해야 합니다.
 
-[ACS 정의]: #what-is
-[개념]: #concepts
-[필수 조건]: #pre
-[Java 웹 응용 프로그램 만들기]: #create-java-app
-[ACS 네임스페이스 만들기]: #create-namespace
+[What is ACS?]: #what-is
+[Concepts]: #concepts
+[Prerequisites]: #pre
+[Create a Java web application]: #create-java-app
+[Create an ACS Namespace]: #create-namespace
 [Add Identity Providers]: #add-IP
 [Add a Relying Party Application]: #add-RP
 [Create Rules]: #create-rules
-[ACS 네임스페이스에 인증서 업로드]: #upload-certificate
+[Upload a certificate to your ACS namespace]: #upload-certificate
 [Review the Application Integration Page]: #review-app-int
-[ACS 및 ASP.NET 웹 응용 프로그램 간 신뢰 구성]: #config-trust
-[응용 프로그램에 ACS Filter 라이브러리 추가]: #add_acs_filter_library
-[계산 에뮬레이터에 배포]: #deploy_compute_emulator
-[Azure에 배포]: #deploy_azure
-[다음 단계]: #next_steps
-[encutil.exe]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[Azure 액세스 제어 서비스에서 반환한 SAML을 보는 방법]: /en-us/develop/java/how-to-guides/view-saml-returned-by-acs/
-[액세스 제어 서비스 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
+[Configure Trust between ACS and Your ASP.NET Web Application]: #config-trust
+[Add the ACS Filter library to your application]: #add_acs_filter_library
+[Deploy to the compute emulator]: #deploy_compute_emulator
+[Deploy to Azure]: #deploy_azure
+[Next steps]: #next_steps
+[project website]: http://wastarterkit4java.codeplex.com/releases/view/61026
+[How to view SAML returned by the Azure Access Control Service]: /en-us/develop/java/how-to-guides/view-saml-returned-by-acs/
+[Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
-[Azure 관리 포털]: https://manage.windowsazure.com
+[Azure Management Portal]: https://manage.windowsazure.com
 [acs_flow]: ./media/active-directory-java-authenticate-users-access-control-eclipse/ACSFlow.png
 
 <!-- Eclipse-specific -->
@@ -300,6 +300,6 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

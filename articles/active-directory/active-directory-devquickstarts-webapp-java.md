@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 1865043ca9c9019b9813f11eb4a55f7f16d79287
-ms.openlocfilehash: db0113dc98480b63d2b3eb50578fd97bdfb0a89d
+ms.sourcegitcommit: 0175f4e83aace12d8e4607f2ad924893093c6734
+ms.openlocfilehash: a6bbdde19868449cf89a4ffe0c3c84a0f2235b0d
 
 
 ---
@@ -1749,6 +1749,6 @@ public class BasicFilter implements Filter {
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO5-->
 
 

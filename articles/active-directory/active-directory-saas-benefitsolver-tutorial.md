@@ -35,7 +35,7 @@ ms.openlocfilehash: eb7dce1c0664e34c4946bb08f5b412e1e01c715d
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-benefitsolver-tutorial/IC804820.png "Scenario")
+![시나리오](./media/active-directory-saas-benefitsolver-tutorial/IC804820.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-benefitsolver"></a>Benefitsolver에 응용 프로그램 통합 사용
 이 섹션은 Benefitsolver에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -47,16 +47,16 @@ ms.openlocfilehash: eb7dce1c0664e34c4946bb08f5b412e1e01c715d
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-   ![응용 프로그램](./media/active-directory-saas-benefitsolver-tutorial/IC700994.png "Applications")
+   ![응용 프로그램](./media/active-directory-saas-benefitsolver-tutorial/IC700994.png "응용 프로그램")
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-   ![응용 프로그램 추가](./media/active-directory-saas-benefitsolver-tutorial/IC749321.png "Add application")
+   ![응용 프로그램 추가](./media/active-directory-saas-benefitsolver-tutorial/IC749321.png "응용 프로그램 추가")
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-benefitsolver-tutorial/IC749322.png "Add an application from gallerry")
+   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-benefitsolver-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 6. **검색 상자**에 **Benefitsolver**를 입력합니다.
    
-   ![응용 프로그램 갤러리](./media/active-directory-saas-benefitsolver-tutorial/IC804821.png "Application Gallery")
+   ![응용 프로그램 갤러리](./media/active-directory-saas-benefitsolver-tutorial/IC804821.png "응용 프로그램 갤러리")
 7. 결과 창에서 **Benefitsolver**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
    ![Benefitssolver](./media/active-directory-saas-benefitsolver-tutorial/IC804822.png "Benefitssolver")
@@ -67,25 +67,25 @@ ms.openlocfilehash: eb7dce1c0664e34c4946bb08f5b412e1e01c715d
 Benefitsolver 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, **SAML 토큰 특성** 구성에 사용자 지정 특성 매핑을 추가해야 합니다.  
 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
-![특성](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributes")
+![특성](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "특성")
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **Benefitsolver** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-   ![Single Sign-on 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Single Sign-On 구성")
 2. **Benefitsolver에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-   ![Single Sign-on 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804825.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804825.png "Single Sign-On 구성")
 3. **앱 설정 구성** 페이지에서 다음 단계를 수행합니다.
    
-   ![앱 설정 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configure App Settings")
+   ![앱 설정 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "앱 설정 구성")
    
    1. **로그온 URL** 텍스트 상자에 **http://azure.benefitsolver.com**을 입력합니다.
    2. **회신 URL** 텍스트 상자에 **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**을 입력합니다.  
    3. **다음**을 클릭합니다.
 4. **Benefitsolver에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드하려면 **메타데이터 다운로드**를 클릭한 다음 메타데이터 파일을 컴퓨터에 로컬로 저장합니다.
    
-   ![Single Sign-on 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804827.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804827.png "Single Sign-On 구성")
 5. 다운로드한 메타데이터 파일을 Benefitsolver 지원팀에 보냅니다.
    
    > [!NOTE]
@@ -95,13 +95,13 @@ Benefitsolver 응용 프로그램은 특정 서식에서 SAML 어설션을 예�
    > 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Single Sign-On 구성")
 7. 위쪽 메뉴에서 **특성** to open the **SAML Token 특성** 대화 상자를 엽니다.
    
-   ![특성](./media/active-directory-saas-benefitsolver-tutorial/IC795920.png "Attributes")
+   ![특성](./media/active-directory-saas-benefitsolver-tutorial/IC795920.png "특성")
 8. 필요한 특성 매핑을 추가하려면 다음 단계를 수행합니다.
    
-   ![특성](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributes")
+   ![특성](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "특성")
    
    | 특성 이름 | 특성 값 |
    | --- | --- |
@@ -132,16 +132,16 @@ Benefitsolver의 경우 직원 데이터는 HRIS 시스템의 인구 조사 파�
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **Benefitsolver** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-   ![사용자 할당](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "Assign Users")
+   ![사용자 할당](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "사용자 할당")
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-   ![예](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "Yes")
+   ![예](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory에서 암호 정책 및 제한 | Microsoft 문서"
-description: "허용되는 문자, 길이 및 만료를 포함하여 Azure Active Directory에서 암호에 적용되는 정책을 설명합니다."
+description: "허용되는 문자, 길이 및 만료를 포함하여 Azure Active Directory에서 암호에 적용되는 정책에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 0c80622734c1be69092386f6ed40d7f590a0f8d1
-ms.openlocfilehash: f207c8fde53f0c0f132066bcd319bd048b0da8fe
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1e3ba55fd8c63f1189e06d1aa0bbf5f334e68459
 
 
 ---
@@ -67,6 +67,6 @@ Azure AD 인증 시스템에 로그인해야 하는 모든 사용자 계정에�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO5-->
 
 

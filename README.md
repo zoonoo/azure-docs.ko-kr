@@ -1,5 +1,5 @@
 # <a name="azure-technical-documentation-contributor-guide"></a>Azure 기술 설명서 참여자 가이드
-[http://docs.microsoft.com/azure](http://docs.microsoft.com/azure)에 게시되는 Azure 기술 설명서에 대한 원본을 보관하는 GitHub 리포지토리입니다.
+[https://docs.microsoft.com/azure](https://docs.microsoft.com/azure)에 게시되는 Azure 기술 설명서에 대한 원본을 보관하는 GitHub 리포지토리입니다.
 
 또한 이 리포지토리는 기술 설명서에 참가하는 데 도움이 되는 지침을 포함합니다. 참여자의 가이드에서 문서 목록은 [인덱스](contributor-guide/contributor-guide-index.md)를 참조하세요.
 
@@ -17,9 +17,9 @@ Azure 설명서에 관심을 가져 주셔서 감사합니다.
 * [모든 참여자 가이드 문서의 인덱스](contributor-guide/contributor-guide-index.md)(새 페이지를 엽니다.)
 
 ## <a name="ways-to-contribute"></a>참가 방법
-[Azure 설명서](http://docs.microsoft.com/azure)에 대한 업데이트는 다음과 같이 제출할 수 있습니다.
+[Azure 설명서](https://docs.microsoft.com/azure)에 대한 업데이트는 다음과 같이 제출할 수 있습니다.
 
-* GitHub 사용자 인터페이스에서 기술 문서에 쉽게 참여할 수 있습니다. 이 리포지토리에서 문서를 찾거나 [http://docs.microsoft.com/azur](http://docs.microsoft.com/azur) 문서로 이동하여 해당 문서에 대한 GitHub 원본으로 이동하는 문서의 링크를 클릭합니다.
+* GitHub 사용자 인터페이스에서 기술 문서에 쉽게 참여할 수 있습니다. 이 리포지토리에서 문서를 찾거나 [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) 문서로 이동하여 해당 문서에 대한 GitHub 원본으로 이동하는 문서의 링크를 클릭합니다.
 * 기존 문서의 많은 부분을 변경하거나 이미지를 추가 또는 변경하고 혹은 새 문서에 참가하는 경우, 이 리포지토리를 분기하고 Git Bash인 Markdown Pad를 설치하고 일부 git 명령을 알아보아야 합니다.
 
 ## <a name="code-of-conduct"></a>준수 사항
@@ -27,16 +27,16 @@ Azure 설명서에 관심을 가져 주셔서 감사합니다.
 
 ## <a name="about-your-contributions-to-azure-content"></a>Azure 콘텐츠에 참가 방법
 ### <a name="minor-corrections"></a>사소한 수정
-이 리포지토리의 설명서 및 코드 예제에 대해 제출한 사소한 수정 또는 확인 내용은 [docs.microsoft.com 사용 약관](/enterprise-mobility-security/termsofuse)에서 다룹니다.
+이 리포지토리의 설명서 및 코드 예제에 대해 제출한 사소한 수정 또는 확인 내용은 [docs.microsoft.com 사용 약관](https://docs.microsoft.com/legal/termsofuse)에서 다룹니다.
 
 ### <a name="larger-submissions"></a>대규모 제출
 설명서 및 코드 예제에 대한 새롭거나 중요한 변경 내용을 통해 끌어오기 요청을 제출하면, Microsoft 직원이 아닌 경우 온라인 참가 사용권 계약(CLA)을 제출하도록 요청하는 GitHub의 설명이 전송됩니다. 온라인 양식 작성을 먼저 완료해야 Microsoft에서 끌어오기 요청을 수락할 수 있습니다.
 
 ## <a name="repository-organization"></a>리포지토리 조직
-azure-docs 리포지토리의 콘텐츠는 http://docs.microsoft.com/azure에 있는 설명서의 구성을 따릅니다. 이 리포지토리에는 두 개의 루트 폴더가 포함됩니다.
+azure-docs 리포지토리의 콘텐츠는 https://docs.microsoft.com/azure에 있는 설명서의 구성을 따릅니다. 이 리포지토리에는 두 개의 루트 폴더가 포함됩니다.
 
 ### <a name="articles"></a>\articles
-*\articles* 폴더는 *.md* 확장명의 markdown 파일 형식의 설명서를 포함합니다. 일반적으로 문서는 Azure 서비스별로 그룹화됩니다. 
+*\articles* 폴더는 *.md* 확장명의 markdown 파일 형식의 설명서를 포함합니다. 일반적으로 문서는 Azure 서비스별로 그룹화됩니다.
 
 문서는 엄격한 파일 명명 지침을 따라야 합니다. 자세한 내용은 [당사의 파일 명명 지침](contributor-guide/file-names-and-locations.md)을 참조하세요.
 
@@ -48,8 +48,8 @@ azure-docs 리포지토리의 콘텐츠는 http://docs.microsoft.com/azure에 �
 ### <a name="markdown-templates"></a>\markdown templates
 이 폴더는 문서에 필요한 기본 markdown 서식을 사용하는 표준 마크다운 템플릿이 포함됩니다.
 
-### <a name="contributorguide"></a>\contributor-guide
-이 폴더는 참여자의 가이드 중 일부인 문서를 포함합니다.  
+### <a name="contributor-guide"></a>\contributor-guide
+이 폴더는 참여자의 가이드 중 일부인 문서를 포함합니다.
 
 ## <a name="use-github-git-and-this-repository"></a>GitHub, Git 및 이 리포지토리 사용
 참가 방법, 몇 가지 변경 사항을 위한 GitHub UI를 사용하는 방법 및 중요한 참가에 대한 리포지토리를 분기 및 복제하는 방법에 대한 내용은 [GitHub에서 작성을 위한 도구 설치 및 설정](contributor-guide/tools-and-setup.md)을 참조하세요.
@@ -87,6 +87,6 @@ GitBash를 설치하고 로컬에서 작동하도록 선택하면 새 로컬 작
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

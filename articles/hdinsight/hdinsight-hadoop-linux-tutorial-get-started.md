@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/30/2016
+ms.date: 12/16/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: 5e32b6fc0c87195fc82eedb00ffc7082b73007a0
+ms.sourcegitcommit: e37e9aa4419929e91664ec1d70c9610de33e3b45
+ms.openlocfilehash: 4ee5a7df3398924f7f40e7cd0467a08c55f299e8
 
 
 ---
@@ -44,11 +44,11 @@ HDInsight에서 Linux 기반 [Hadoop](http://hadoop.apache.org/) 클러스터를
 
 Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 일부 작업을 실행한 다음 클러스터를 삭제합니다. 이 섹션에서는 [Azure Resource Manager 템플릿](../resource-group-template-deploy.md)을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터를 만듭니다. Resource Manager 템플릿은 완전히 사용자 지정할 수 있으므로 HDInsight와 같은 Azure 리소스를 쉽게 만들 수 있습니다. 이 자습서를 따라 하는 데 Resource Manager 템플릿 환경이 필요하지는 않습니다. 기타 클러스터 생성 방법 및 이 자습서에 사용된 속성에 대한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 페이지 상단에서 선택기를 사용하여 클러스터 만들기 옵션을 선택합니다.
 
-이 자습서에 사용되는 Resource Manager 템플릿은 공용 Blob 컨테이너 [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json)에 있습니다. 
+이 자습서에서 사용된 Resource Manager 템플릿은 [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)에 있습니다. 
 
 1. Azure에 로그인하여 Azure Portal에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. 다음 값을 입력하거나 선택합니다.
    
     ![HDInsight Linux 포털에서 Resource Manager 템플릿 시작](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png)을 클릭합니다.
@@ -56,7 +56,8 @@ Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 
     * **구독**: Azure 구독을 선택합니다.
     * **리소스 그룹**: 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. 
     * **위치**: 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. 
-    * **ClusterName**: 만들려는 Hadoop 클러스터의 이름을 입력합니다.
+    * **클러스터 유형**: 이 자습서에서는 **hadoop**을 선택합니다.
+    * **클러스터 이름**: 만들려는 Hadoop 클러스터의 이름을 입력합니다.
     * **클러스터 로그인 이름 및 암호**: 기본 로그인 이름은 **admin**입니다.
     * **SSH 사용자 이름 및 암호**: 기본 사용자 이름은 **sshuser**입니다.  이름은 변경할 수 있습니다. 
      
@@ -65,7 +66,6 @@ Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 
     * **위치**: 클러스터 및 종속 저장소 계정의 위치는 리소스 그룹과 동일한 위치를 사용합니다.
     * **클러스터 버전**: 3.4
     * **OS 유형**: Linux
-    * **클러스터 유형**: Hadoop
     * **작업자 노드 수**: 2
 
      각 클러스터에는 Azure Blob 저장소 계정 종속성이 있습니다. 이 저장소 계정을 일반적으로 기본 저장소 계정이라고 합니다. HDInsight 클러스터와 해당 기본 저장소 계정은 같은 Azure 지역에 있어야 합니다. 클러스터를 삭제해도 저장소 계정은 삭제되지 않습니다. 템플릿에서 기본 저장소 계정 이름은 클러스터 이름에 "store"가 추가되는 형태로 정의됩니다. 
@@ -175,6 +175,6 @@ HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 �
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

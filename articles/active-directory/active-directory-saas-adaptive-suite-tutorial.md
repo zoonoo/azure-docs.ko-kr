@@ -14,8 +14,8 @@ ms.workload: identity
 ms.date: 09/29/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 652b0cef09625ed354c2c72178cc98a0482bb789
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0e21378d3ce568917296665a134c8d376d488091
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 652b0cef09625ed354c2c72178cc98a0482bb789
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-adaptive-suite-tutorial/IC805637.png "Scenario")
+![시나리오](./media/active-directory-saas-adaptive-suite-tutorial/IC805637.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-adaptive-suite"></a>Adaptive Suite에 응용 프로그램 통합 사용
 이 섹션은 Adaptive Suite에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -47,16 +47,16 @@ ms.openlocfilehash: 652b0cef09625ed354c2c72178cc98a0482bb789
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-   ![응용 프로그램](./media/active-directory-saas-adaptive-suite-tutorial/IC700994.png "Applications")
+   ![응용 프로그램](./media/active-directory-saas-adaptive-suite-tutorial/IC700994.png "응용 프로그램")
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-   ![응용 프로그램 추가](./media/active-directory-saas-adaptive-suite-tutorial/IC749321.png "Add application")
+   ![응용 프로그램 추가](./media/active-directory-saas-adaptive-suite-tutorial/IC749321.png "응용 프로그램 추가")
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-adaptive-suite-tutorial/IC749322.png "Add an application from gallerry")
+   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-adaptive-suite-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 6. **검색 상자**에 **Adaptive Suite**를 입력합니다.
    
-   ![응용 프로그램 갤러리](./media/active-directory-saas-adaptive-suite-tutorial/IC805638.png "Application Gallery")
+   ![응용 프로그램 갤러리](./media/active-directory-saas-adaptive-suite-tutorial/IC805638.png "응용 프로그램 갤러리")
 7. 결과 창에서 **Adaptive Suite**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
    ![Adaptive Suite](./media/active-directory-saas-adaptive-suite-tutorial/IC805639.png "Adaptive Suite")
@@ -70,10 +70,10 @@ Adaptive Suite에 대한 Single Sign-On을 구성하려면 인증서의 손도�
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **Adaptive Suite** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-   ![Single Sign-on 구성](./media/active-directory-saas-adaptive-suite-tutorial/IC805640.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-adaptive-suite-tutorial/IC805640.png "Single Sign-On 구성")
 2. **Adaptive Suite에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-   ![Single Sign-on 구성](./media/active-directory-saas-adaptive-suite-tutorial/IC805641.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-adaptive-suite-tutorial/IC805641.png "Single Sign-On 구성")
 3. **앱 설정 구성** 페이지의 **회신 URL** 텍스트 상자에 "*https://login.adaptiveinsights.com:443/samlsso/RlJFRVRSSUFMMTI3MTE=*" 패턴을 사용하여 URL을 입력하고 **다음**을 클릭합니다.
    
    > [!NOTE]
@@ -81,20 +81,20 @@ Adaptive Suite에 대한 Single Sign-On을 구성하려면 인증서의 손도�
    > 
    > 
    
-   ![앱 설정 구성](./media/active-directory-saas-adaptive-suite-tutorial/IC805642.png "Configure App Settings")
+   ![앱 설정 구성](./media/active-directory-saas-adaptive-suite-tutorial/IC805642.png "앱 설정 구성")
 4. **Adaptive Suite에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-adaptive-suite-tutorial/IC805643.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-adaptive-suite-tutorial/IC805643.png "Single Sign-On 구성")
 5. 다른 웹 브라우저 창에서 Adaptive Suite 회사 사이트에 관리자로 로그인합니다.
 6. **관리자**로 이동합니다.
    
-   ![관리자](./media/active-directory-saas-adaptive-suite-tutorial/IC805644.png "Admin")
+   ![관리자](./media/active-directory-saas-adaptive-suite-tutorial/IC805644.png "관리자")
 7. **사용자 및 역할** 섹션에서 **SAML SSO 설정 관리**를 클릭합니다.
    
-   ![SAML SSO 설정 관리](./media/active-directory-saas-adaptive-suite-tutorial/IC805645.png "Manage SAML SSO Settings")
+   ![SAML SSO 설정 관리](./media/active-directory-saas-adaptive-suite-tutorial/IC805645.png "SAML SSO 설정 관리")
 8. **SAML SSO 설정** 페이지에서 다음 단계를 수행합니다.
    
-   ![SAML SSO 설정](./media/active-directory-saas-adaptive-suite-tutorial/IC805646.png "SAML SSO Settings")
+   ![SAML SSO 설정](./media/active-directory-saas-adaptive-suite-tutorial/IC805646.png "SAML SSO 설정")
    
    1. **ID 공급자 이름** 텍스트 상자에 구성할 이름을 입력합니다.
    2. Azure 클래식 포털의 **Adaptive Suite에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **엔터티 ID** 값을 복사한 다음 **ID 공급자 엔터티 ID** 텍스트 상자에 붙여넣습니다.
@@ -108,7 +108,7 @@ Adaptive Suite에 대한 Single Sign-On을 구성하려면 인증서의 손도�
    10. **Save**를 클릭합니다.
 9. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
-   ![Single Sign-on 구성](./media/active-directory-saas-adaptive-suite-tutorial/IC805647.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-adaptive-suite-tutorial/IC805647.png "Single Sign-On 구성")
    
    ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 
@@ -119,13 +119,13 @@ Adaptive Suite의 경우 프로비전은 수동 작업입니다.
 1. **Adaptive Suite** 회사 사이트에 관리자 권한으로 로그인합니다.
 2. **관리자**로 이동합니다.
    
-   ![관리자](./media/active-directory-saas-adaptive-suite-tutorial/IC805644.png "Admin")
+   ![관리자](./media/active-directory-saas-adaptive-suite-tutorial/IC805644.png "관리자")
 3. **사용자 및 역할** 섹션에서 **사용자 추가**를 클릭합니다.
    
-   ![사용자 추가](./media/active-directory-saas-adaptive-suite-tutorial/IC805648.png "Add User")
+   ![사용자 추가](./media/active-directory-saas-adaptive-suite-tutorial/IC805648.png "사용자 추가")
 4. **새 사용자** 섹션에서 다음 단계를 수행합니다.
    
-   ![Submit](./media/active-directory-saas-adaptive-suite-tutorial/IC805649.png "Submit")
+   ![제출](./media/active-directory-saas-adaptive-suite-tutorial/IC805649.png "제출")
    
    1. 관련된 텍스트 상자에 프로비전할 유효한 Azure Active Directory 사용자의 **이름**, **로그인**, **전자 메일**, **암호**를 입력합니다.
    2. **역할**을 선택합니다.
@@ -143,16 +143,16 @@ Adaptive Suite의 경우 프로비전은 수동 작업입니다.
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **Adaptive Suite** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-   ![사용자 할당](./media/active-directory-saas-adaptive-suite-tutorial/IC805650.png "Assign Users")
+   ![사용자 할당](./media/active-directory-saas-adaptive-suite-tutorial/IC805650.png "사용자 할당")
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-   ![예](./media/active-directory-saas-adaptive-suite-tutorial/IC767830.png "Yes")
+   ![예](./media/active-directory-saas-adaptive-suite-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

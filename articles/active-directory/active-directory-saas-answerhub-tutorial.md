@@ -35,7 +35,7 @@ ms.openlocfilehash: 067d47bdfa5459a8e751292339a0e7ff4a8ad46b
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-answerhub-tutorial/IC785165.png "Scenario")
+![시나리오](./media/active-directory-saas-answerhub-tutorial/IC785165.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-answerhub"></a>AnswerHub에 응용 프로그램 통합 사용
 이 섹션은 AnswerHub에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -47,16 +47,16 @@ ms.openlocfilehash: 067d47bdfa5459a8e751292339a0e7ff4a8ad46b
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-   ![응용 프로그램](./media/active-directory-saas-answerhub-tutorial/IC700994.png "Applications")
+   ![응용 프로그램](./media/active-directory-saas-answerhub-tutorial/IC700994.png "응용 프로그램")
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-   ![응용 프로그램 추가](./media/active-directory-saas-answerhub-tutorial/IC749321.png "Add application")
+   ![응용 프로그램 추가](./media/active-directory-saas-answerhub-tutorial/IC749321.png "응용 프로그램 추가")
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-answerhub-tutorial/IC749322.png "Add an application from gallerry")
+   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-answerhub-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 6. **검색 상자**에 **AnswerHub**를 입력합니다.
    
-   ![응용 프로그램 갤러리](./media/active-directory-saas-answerhub-tutorial/IC785166.png "Application Gallery")
+   ![응용 프로그램 갤러리](./media/active-directory-saas-answerhub-tutorial/IC785166.png "응용 프로그램 갤러리")
 7. 결과 창에서 **AnswerHub**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
    ![AnswerHub](./media/active-directory-saas-answerhub-tutorial/IC785167.png "AnswerHub")
@@ -69,16 +69,16 @@ ms.openlocfilehash: 067d47bdfa5459a8e751292339a0e7ff4a8ad46b
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **AnswerHub** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-answerhub-tutorial/IC785168.png "Configure single sign-on")
+   ![Single Sign-On 구성](./media/active-directory-saas-answerhub-tutorial/IC785168.png "Single Sign-On 구성")
 2. **AnswerHub에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-answerhub-tutorial/IC785169.png "Configure single sign-on")
+   ![Single Sign-On 구성](./media/active-directory-saas-answerhub-tutorial/IC785169.png "Single Sign-On 구성")
 3. **앱 URL 구성** 페이지의 **AnswerHub 로그인 URL** 텍스트 상자에 다음 패턴 "*https://company.answerhub.com*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
    
-   ![앱 URL 구성](./media/active-directory-saas-answerhub-tutorial/IC785170.png "Configure App URL")
+   ![앱 URL 구성](./media/active-directory-saas-answerhub-tutorial/IC785170.png "앱 URL 구성")
 4. **AnswerHub에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-answerhub-tutorial/IC785171.png "Configure single sign-on")
+   ![Single Sign-On 구성](./media/active-directory-saas-answerhub-tutorial/IC785171.png "Single Sign-On 구성")
 5. 다른 웹 브라우저 창에서 AnswerHub 회사 사이트에 관리자로 로그인합니다.
    
    > [!NOTE]
@@ -91,7 +91,7 @@ ms.openlocfilehash: 067d47bdfa5459a8e751292339a0e7ff4a8ad46b
 9. **IDP 구성** 탭을 클릭합니다.
 10. **IDP 구성** 탭에서 다음 단계를 수행합니다.
     
-    ![SAML 설정](./media/active-directory-saas-answerhub-tutorial/IC785172.png "SAML Setup")
+    ![SAML 설정](./media/active-directory-saas-answerhub-tutorial/IC785172.png "SAML 설정")
     
     1. Azure 클래식 포털의 **AnswerHub에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **IDP 로그인 URL** 텍스트 상자에 붙여 넣습니다.
     2. Azure 클래식 포털의 **AnswerHub에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **IDP 로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
@@ -99,7 +99,7 @@ ms.openlocfilehash: 067d47bdfa5459a8e751292339a0e7ff4a8ad46b
     4. **키 및 인증서**를 클릭합니다.
 11. 키와 인증서 탭에서 다음 단계를 수행 합니다.
     
-    ![키 및 인증서](./media/active-directory-saas-answerhub-tutorial/IC785173.png "Keys and Certificates")
+    ![키 및 인증서](./media/active-directory-saas-answerhub-tutorial/IC785173.png "키 및 인증서")
     
     1. 다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.  
        
@@ -112,7 +112,7 @@ ms.openlocfilehash: 067d47bdfa5459a8e751292339a0e7ff4a8ad46b
 12. **IDP 구성** 탭에서 **저장**을 클릭합니다.
 13. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
     
-    ![Single Sign-On 구성](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Single Sign-On 구성")
 
 ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 Azure AD 사용자가 AnswerHub에 로그인할 수 있도록 하려면 AnswerHub로 프로비전되어야 합니다.  
@@ -124,7 +124,7 @@ AnswerHub의 경우 프로비전은 수동 작업입니다.
 3. **사용자 및 그룹** 탭을 클릭합니다.
 4. 왼쪽 탐색 창의 **사용자 관리** 섹션에서 **사용자 만들기 또는 가져오기**를 클릭합니다.
    
-   ![사용자 및 그룹](./media/active-directory-saas-answerhub-tutorial/IC785175.png "Users & Groups")
+   ![사용자 및 그룹](./media/active-directory-saas-answerhub-tutorial/IC785175.png "사용자 및 그룹")
 5. 관련된 텍스트 상자에 프로비전할 유효한 Azure Active Directory 계정의 **전자 메일 주소**, **사용자 이름** 및 **암호**를 입력한 다음 **저장**을 클릭합니다.
 
 > [!NOTE]
@@ -139,16 +139,16 @@ AnswerHub의 경우 프로비전은 수동 작업입니다.
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **AnswerHub** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-   ![사용자 할당](./media/active-directory-saas-answerhub-tutorial/IC785176.png "Assign users")
+   ![사용자 할당](./media/active-directory-saas-answerhub-tutorial/IC785176.png "사용자 할당")
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-   ![예](./media/active-directory-saas-answerhub-tutorial/IC767830.png "Yes")
+   ![예](./media/active-directory-saas-answerhub-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

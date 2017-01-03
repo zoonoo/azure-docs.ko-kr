@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a7bd1a45d745ce16732e1887dbc952b12f4071e3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 894e19d2873f2a7db81aa992cab569ae1a0aca60
 
 
 ---
@@ -191,7 +191,7 @@ Aravo에서 Microsoft Azure AD Single Sign-On을 구성하고 테스트하려면
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-a-aravo-test-user"></a>Aravo 테스트 사용자 만들기
 이 섹션은 Aravo에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Aravo 계정에 사용자를 추가하려면 Aravo 지원 팀에 문의하세요.
@@ -246,6 +246,6 @@ Aravo에서 Microsoft Azure AD Single Sign-On을 구성하고 테스트하려면
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

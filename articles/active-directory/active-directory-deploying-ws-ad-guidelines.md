@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 497d8b17fe29328008fd2d13cf61432a913aa898
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5172ce4edbea0f5587075308c97d07aac98e9699
 
 
 ---
@@ -219,7 +219,7 @@ AD FS 서버에 대한 트래픽은 다음 원본을 통해서만 허용됩니�
 | AD FS 및 DirSync를 사용하여 Office 365 Single Sign-On | DirSync + 암호 동기화를 사용하여 Office 365 동일한 로그온 |
 | --- | --- |
 | 1. 사용자는 회사 네트워크에 로그온하고 Windows Server Active Directory에 인증됩니다. |1. 사용자는 회사 네트워크에 로그온하고 Windows Server Active Directory에 인증됩니다. |
-| 2. 사용자는 Office 365에 액세스하려고 시도합니다(@contoso.com). |2. 사용자는 Office 365에 액세스하려고 시도합니다(@contoso.com). |
+| 2. 사용자(@contoso.com))는 Office 365에 액세스하려고 시도합니다. |2. 사용자(@contoso.com))는 Office 365에 액세스하려고 시도합니다. |
 | 3. Office 365는 Azure AD에 사용자를 리디렉션합니다. |3. Office 365는 Azure AD에 사용자를 리디렉션합니다. |
 | 4. Azure AD는 사용자를 인증할 수 없으므로 AD FS 온-프레미스와 트러스트가 있음을 이해하고 사용자를 AD FS로 리디렉션합니다. |4. Azure AD는 Kerberos 티켓을 직접 수락할 수 없고 트러스트 관계가 없으므로 사용자가 자격 증명을 입력하도록 요청합니다. |
 | 5. 사용자는 AD FS STS에 Kerberos 티켓을 보냅니다. |5. 사용자는 동일한 온-프레미스 암호를 입력하고 Azure AD는 DirSync에 의해 동기화된 사용자 이름 및 암호를 확인합니다. |
@@ -393,7 +393,7 @@ Azure 가상 컴퓨터는 기본적으로 "DHCP 임대 주소"로 할당됩니�
 
 VM은 시작 시 또는 이름 변경 내용이 있을 때 자동으로 해당 DNS 이름을 등록합니다.
 
-첫 번째 VM을 프로비전하고 AD DS를 설치하는 방법을 보여 주는 이 예제 및 다른 예제에 대한 자세한 내용은 [Microsoft Azure에서 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine.md)를 참조하세요. Windows PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 설치](../powershell-install-configure.md) 및 [Azure 관리 Cmdlet](https://msdn.microsoft.com/library/azure/jj152841)을 참조하세요.
+첫 번째 VM을 프로비전하고 AD DS를 설치하는 방법을 보여 주는 이 예제 및 다른 예제에 대한 자세한 내용은 [Microsoft Azure에서 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine.md)를 참조하세요. Windows PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 설치](/powershell/azureps-cmdlets-docs) 및 [Azure 관리 Cmdlet](https://msdn.microsoft.com/library/azure/jj152841)을 참조하세요.
 
 ### <a name="a-namebkmkdistributeddcsageo-distributed-dcs"></a><a name="BKMK_DistributedDCs"></a>지리적으로 분산된 DC
 Azure는 서로 다른 가상 네트워크에 여러 DC를 호스팅하는 경우 이점을 제공합니다.
@@ -501,6 +501,6 @@ VM을 인터넷에 직접 노출하거나 인터넷 연결 부하 분산된 응�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

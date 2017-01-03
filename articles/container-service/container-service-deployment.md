@@ -7,7 +7,7 @@ author: rgardler
 manager: timlt
 editor: 
 tags: acs, azure-container-service
-keywords: "Docker, 컨테이너, 마이크로 서비스, Mesos, Azure"
+keywords: "Docker, 컨테이너, 마이크로 서비스, Mesos, Azure, DCOS, Swarm, Kubernetes, Azure Container Service, ACS"
 ms.assetid: 696a736f-9299-4613-88c6-7177089cfc23
 ms.service: container-service
 ms.devlang: na
@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c8c06906a5f99890295ff2b2433ff6f7e02dece5
+ms.sourcegitcommit: 52f158fd50ee8427cf567889d584e342ea42abb3
+ms.openlocfilehash: b52f7b36a28a345e8693ecbafd3771c27c683a37
 
 
 ---
 # <a name="deploy-an-azure-container-service-cluster"></a>Azure 컨테이너 서비스 클러스터 배포
-Azure 컨테이너 서비스는 인기 있는 오픈 소스 컨테이너 클러스터링 및 오케스트레이션 솔루션의 신속한 배포를 제공합니다. Azure 컨테이너 서비스를 사용하면 Azure Resource Manager 템플릿 또는 Azure 포털에서 DC/OS 및 Docker Swarm 클러스터를 배포할 수 있습니다. Azure 가상 컴퓨터 규모 집합을 사용하여 이러한 클러스터를 배포하면 클러스터가 Azure 네트워킹 및 저장소 기능을 활용합니다. Azure 컨테이너 서비스에 액세스하려면 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록할 수 있습니다.
+Azure 컨테이너 서비스는 인기 있는 오픈 소스 컨테이너 클러스터링 및 오케스트레이션 솔루션의 신속한 배포를 제공합니다. Azure Container Service를 사용하면 Azure Resource Manager 템플릿 또는 Azure Portal에서 DC/OS, Kubernetes 및 Docker Swarm 클러스터를 배포할 수 있습니다. Azure 가상 컴퓨터 규모 집합을 사용하여 이러한 클러스터를 배포하면 클러스터가 Azure 네트워킹 및 저장소 기능을 활용합니다. Azure 컨테이너 서비스에 액세스하려면 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록할 수 있습니다.
 
 이 문서에서는 [Azure portal](#creating-a-service-using-the-azure-portal), [Azure CLI(명령줄 인터페이스)](#creating-a-service-using-the-azure-cli) 및 [Azure PowerShell 모듈](#creating-a-service-using-powershell)을 사용하여 Azure Container Service 클러스터를 배포하는 방법을 안내합니다.  
 
@@ -52,15 +52,20 @@ Azure Portal에 로그인하여 **새로 만들기**를 선택하고 Azure Marke
 
 * **DC/OS**: DC/OS 클러스터를 배포합니다.
 * **Swarm**: Docker Swarm 클러스터를 배포합니다.
+* **Kubernetes**: Kubernetes 클러스터를 배포합니다.
 
 진행할 준비가 되면 **확인** 을 클릭합니다.
 
-![배포 만들기 4](media/acs-portal4.png)  <br />
+![배포 만들기 4](media/acs-portal4-new.png)  <br />
+
+드롭다운 목록에서 **Kubernetes**를 선택한 경우 서비스 주체 클라이언트 ID 및 서비스 주체 클라이언트 비밀을 입력해야 합니다. 자세한 내용은 [Kubernetes 클러스터의 서비스 주체 정보](container-service-kubernetes-service-principal.md)를 참조하세요. 
+
+![배포 4.5 만들기](media/acs-portal10.PNG)  <br />
 
 다음 정보를 입력합니다.
 
-* **마스터 수**: 클러스터의 마스터 수입니다.
-* **에이전트 수**: Docker Swarm의 경우, 에이전트 규모 집합의 초기 에이전트 수입니다. DC/OS의 경우, 사설 규모 집합의 초기 에이전트 수입니다. 또한, 사전에 지정된 수의 에이전트를 포함하는 공개 규모 집합이 생성됩니다. 이 공개 규모 집합의 에이전트 수는 클러스터에 생성된 마스터의 수를(1개의 마스터에 대한 공개 에이전트 1개, 3 또는 5개의 마스터에 대한 공개 에이전트 2개)를 결정합니다.
+* **마스터 수**: 클러스터의 마스터 수입니다. 'Kubernetes'를 선택하는 경우 마스터의 수는 1이라는 기본값으로 설정됩니다
+* **에이전트 수**: Docker Swarm 및 Kubernetes의 경우, 에이전트 크기 집합의 초기 에이전트 수입니다. DC/OS의 경우, 사설 규모 집합의 초기 에이전트 수입니다. 또한, 사전에 지정된 수의 에이전트를 포함하는 공개 규모 집합이 생성됩니다. 이 공개 규모 집합의 에이전트 수는 클러스터에 생성된 마스터의 수를(1개의 마스터에 대한 공개 에이전트 1개, 3 또는 5개의 마스터에 대한 공개 에이전트 2개)를 결정합니다.
 * **에이전트 가상 컴퓨터 크기**: 에이전트 가상 컴퓨터의 크기입니다.
 * **DNS 접두사**: 서비스의 정규화된 도메인 이름의 주요 부분에 접두사로 사용될 세계적으로 고유 이름입니다.
 
@@ -85,10 +90,11 @@ Azure 포털에 배포를 고정하도록 선택한 경우 배포 상태를 볼 
 ## <a name="create-a-service-by-using-the-azure-cli"></a>Azure CLI를 사용하여 서비스 만들기
 명령줄을 사용하여 Azure 컨테이너 서비스의 인스턴스를 만들려면 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록할 수 있습니다. 또한 Azure CLI를 [설치](../xplat-cli-install.md) 및 [구성](../xplat-cli-connect.md)해야 합니다.
 
-DC/OS 또는 Docker Swarm 클러스터를 배포하려면 GitHub에서 다음 템플릿 중 하나를 선택합니다. 이러한 두 템플릿은 기본 Orchestrator 선택을 제외하고 동일합니다.
+DC/OS 또는 Docker Swarm이나 Kubernetes 클러스터를 배포하려면 GitHub에서 다음 템플릿 중 하나를 선택합니다. 
 
 * [DC/OS 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Swarm 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Kubernetes 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
 다음으로, Azure CLI가 Azure 구독에 연결되어 있는지 확인합니다. 다음 명령을 사용하여 이 작업을 수행할 수 있습니다.
 
@@ -140,10 +146,11 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
 ## <a name="create-a-service-by-using-powershell"></a>PowerShell을 사용하여 서비스 만들기
 PowerShell 사용하여 Azure 컨테이너 서비스 클러스터를 배포할 수도 있습니다. 이 문서는 [Azure PowerShell 모듈](https://azure.microsoft.com/blog/azps-1-0/)버전 1.0을 기반으로 합니다.
 
-DC/OS 또는 Docker Swarm 클러스터를 배포하려면 다음 템플릿 중 하나를 선택합니다. 이러한 두 템플릿은 기본 Orchestrator 선택을 제외하고 동일합니다.
+DC/OS 또는 Docker Swarm이나 Kubernetes 클러스터를 배포하려면 다음 템플릿 중 하나를 선택합니다. 이러한 두 템플릿은 기본 Orchestrator 선택을 제외하고 동일합니다.
 
 * [DC/OS 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Swarm 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Kubernetes 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
 Azure 구독에서 클러스터를 만들기 전에 PowerShell 세션이 Azure에 로그인했는지 확인합니다. 이렇게 하려면 `Get-AzureRMSubscription` 명령을 사용합니다.
 
@@ -184,10 +191,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 * [Azure 컨테이너 서비스 클러스터에 연결](container-service-connect.md)
 * [Azure 컨테이너 서비스 및 DC/OS로 작업](container-service-mesos-marathon-rest.md)
 * [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](container-service-docker-swarm.md)
+* [Azure Container Service 및 Kubernetes로 작업](container-service-kubernetes-walkthrough.md)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

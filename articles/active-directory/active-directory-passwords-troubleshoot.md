@@ -1,12 +1,12 @@
 ---
-title: '문제 해결: Azure AD 암호 관리 | Microsoft Docs'
-description: Azure AD 암호 관리를 위한 일반적인 문제 해결 단계는 재설정, 변경, 쓰기 저장, 등록 및 도움이 필요한 경우 포함할 정보를 포함합니다.
+title: "문제 해결: Azure AD 암호 관리 | Microsoft Docs"
+description: "Azure AD 암호 관리를 위한 일반적인 문제 해결 단계는 재설정, 변경, 쓰기 저장, 등록 및 도움이 필요한 경우 포함할 정보를 포함합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: 18f3dcf7-9314-4a2b-8fed-54b00c0026dd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: 3515091cf71ecb595d8c08902ff13549a9ddd2f4
+
 
 ---
-# 암호 관리 문제 해결 방법
+# <a name="how-to-troubleshoot-password-management"></a>암호 관리 문제 해결 방법
 > [!IMPORTANT]
 > **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
 > 
@@ -33,12 +37,12 @@ ms.author: asteen
   * [암호 쓰기 저장 이벤트 로그 오류 코드](#password-writeback-event-log-error-codes)
   * [암호 쓰기 저장 연결에 문제가 있음](#troubleshoot-password-writeback-connectivity)
 
-아래의 문제 해결 단계를 시도해도 여전히 문제가 발생하면 [Azure AD 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)에 질문을 게시하거나 지원에 문의하면 빠른 시일 내에 문제를 살펴보겠습니다.
+아래의 문제 해결 단계를 시도해도 여전히 문제가 발생하면 [Azure AD 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) 에 질문을 게시하거나 지원에 문의하면 빠른 시일 내에 문제를 살펴보겠습니다.
 
-## 도움이 필요한 경우 포함할 정보
+## <a name="information-to-include-when-you-need-help"></a>도움이 필요한 경우 포함할 정보
 아래 지침 관련 문제를 해결할 수 없는 경우 지원 엔지니어에 문의할 수 있습니다. 이렇게 문의할 때 다음 정보를 포함 하는 것이 좋습니다.
 
-* **오류에 대한 일반적인 설명** – 사용자가 본 정확한 오류 메시지 정의 오류 메시지가 있는 경우 알아낸 예기치 않은 동작을 자세히 설명합니다.
+* **오류에 대한 일반적인 설명** – 사용자가 본 정확한 오류 메시지 정의  오류 메시지가 있는 경우 알아낸 예기치 않은 동작을 자세히 설명합니다.
 * **페이지** – 오류(URL 포함)가 나타나는 경우 페이지 정의
 * **날짜/시간/표준 시간대** – 오류(표준 시간대 포함)가 나타나는 경우 정확한 날짜 및 시간 정의
 * **지원 코드** – 오류가 나타나는 경우 생성된 지원 코드 정의(오류를 찾으려면 오류를 재현한 후 화면 아래에서 코드 지원 링크를 클릭하고 지원 엔지니어에게 결과인 GUID를 보냄.)
@@ -46,13 +50,13 @@ ms.author: asteen
   * 아래에서 지원 코드 없이 페이지에서 F12 키를 누르고 SID 및 CID를 검색한 후 지원 엔지니어에게 이러한 두 개의 결과를 보냅니다.
     
     ![][001]
-* **사용자 ID** – 오류가 나타난 사용자의 ID 정의(예: user@contoso.com)
-* **사용자에 대한 정보** – 페더레이션된 사용자, 동기화된 암호 해시, 클라우드 정의 AAD Premium 또는 AAD 기본 라이선스가 할당된 사용자입니까?
+* **사용자 ID** – 오류가 나타난 사용자의 ID 정의(예: user@contoso.com)?)
+* **사용자에 대한 정보** – 페더레이션된 사용자, 동기화된 암호 해시, 클라우드 정의  AAD Premium 또는 AAD 기본 라이선스가 할당된 사용자입니까?
 * **응용 프로그램 이벤트 로그** – 암호 쓰기 저장을 사용 중이고 온-프레미스 인프라에서 오류가 발생한 경우 Azure AD Connect 서버에서 응용 프로그램 이벤트 로그의 복사본을 압축하고 요청과 함께 보내주십시오.
 
 이 정보를 포함하면 최대한 빨리 문제를 해결하는데 도움이 됩니다.
 
-## Azure 관리 포털에서 암호 재설정 구성 문제 해결
+## <a name="troubleshoot-password-reset-configuration-in-the-azure-management-portal"></a>Azure 관리 포털에서 암호 재설정 구성 문제 해결
 암호 재설정을 구성할 때 오류가 발생하면 다음 문제해결 단계를 수행하여 해결할 수 있습니다.
 
 <table>
@@ -69,20 +73,20 @@ ms.author: asteen
             </td>
             <td>
               <p>
-                <strong>솔루션</strong>
+                <strong>해결 방법</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Azure 관리 포털의 <strong>구성</strong> 탭 아래에서 <strong>사용자 암호 재설정 정책 </strong>섹션이 보이지 않습니다. </p>
+              <p>Azure 관리 포털의 <strong>구성</strong> 탭 아래에서 <strong>사용자 암호 재설정 정책</strong> 섹션이 보이지 않습니다.</p>
             </td>
             <td>
-              <p>Azure 관리 포털의 <strong>구성</strong> 탭에서 <strong>사용자 암호 재설정 정책 </strong>섹션이 보이지 않습니다. </p>
+              <p>Azure 관리 포털의 <strong>구성</strong> 탭에서 <strong>사용자 암호 재설정 정책</strong> 섹션이 보이지 않습니다.</p>
             </td>
             <td>
               <p>이 작업을 수행하는 관리자에게 할당된 AAD Premium 또는 AAD 기본 라이선스가 없는 경우 발생할 수 있습니다. </p>
-              <p>이 문제를 수정하려면 <strong>라이선스</strong> 탭으로 이동하여 해당 관리자 계정에 AAD Premium 또는 AAD 기본 라이선스를 할당하고 다시 시도하십시오.</p>
+              <p>이 문제를 수정하려면 <strong>라이선스</strong> 탭으로 이동하여 해당 관리자 계정에 AAD Premium 또는 AAD 기본 라이선스를 할당하고 다시 시도하세요.</p>
             </td>
           </tr>
           <tr>
@@ -90,10 +94,10 @@ ms.author: asteen
               <p>설명서에서 설명된 <strong>사용자 암호 재설정 정책</strong> 아래에서 구성 옵션이 보이지 않습니다.</p>
             </td>
             <td>
-              <p><strong>사용자 암호 재설정 정책 </strong>섹션이 보이지만 그 아래에 나타나는 유일한 플래그는 <strong>암호 재설정 활성화한 사용자</strong> 플래그입니다.</p>
+              <p><strong>사용자 암호 재설정 정책</strong> 섹션이 보이지만 그 아래에 나타나는 유일한 플래그는 <strong>암호 재설정 활성화한 사용자</strong> 플래그입니다.</p>
             </td>
             <td>
-              <p><strong>암호 재설정 활성화한 사용자</strong> 플래그를 <strong>예</strong>로 전환하는 경우 UI의 나머지가 나타납니다.</p>
+              <p><strong>암호 재설정 활성화한 사용자</strong> 플래그를 <strong>예로 전환하는 경우 UI의 나머지가 나타납니다.</strong></p>
             </td>
           </tr>
           <tr>
@@ -105,7 +109,7 @@ ms.author: asteen
             </td>
             <td>
               <p>필요할 때까지 UI의 요소는 대부분 숨겨져 있습니다. 참조하려면 페이지의 모든 옵션을 사용하도록 설정하십시오.</p>
-              <p>모든 컨트롤을 사용할 수 있는 방법에 대한 자세한 정보는 <a href="active-directory-passwords-customize.md#password-management-behavior">암호 관리 동작</a>을 참조하십시오.</p>
+              <p>모든 컨트롤을 사용할 수 있는 방법에 대한 자세한 정보는 <a href="active-directory-passwords-customize.md#password-management-behavior">암호 관리 동작</a>을 참조하세요.</p>
             </td>
           </tr>
           <tr>
@@ -117,12 +121,12 @@ ms.author: asteen
             </td>
             <td>
               <p>Azure AD 연결을 다운로드하고 암호 쓰기 저장을 구성하는 경우 이 옵션을 표시합니다. 이 작업을 하는 경우 해당 옵션이 표시되고 클라우드에서 쓰기 저장을 사용하거나 사용하지 않도록 설정할 수 있습니다.</p>
-              <p>이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#step-2-enable-password-writeback-in-azure-ad-connect">Azure AD Connect에서 비밀번호 쓰기 저장 활성화</a>를 참조하십시오.</p>
+              <p>이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#step-2-enable-password-writeback-in-azure-ad-connect">Azure AD Connect에서 비밀번호 쓰기 저장 활성화</a>를 참조하세요.</p>
             </td>
           </tr>
         </tbody></table>
 
-## Azure 관리 포털에서 암호 관리 보고서에 문제 해결
+## <a name="troubleshoot-password-management-reports-in-the-azure-management-portal"></a>Azure 관리 포털에서 암호 관리 보고서에 문제 해결
 암호 관리 보고서를 사용할 때 오류가 발생하면 다음 문제해결 단계를 수행하여 해결할 수 있습니다.
 
 <table>
@@ -139,7 +143,7 @@ ms.author: asteen
             </td>
             <td>
               <p>
-                <strong>솔루션</strong>
+                <strong>해결 방법</strong>
               </p>
             </td>
           </tr>
@@ -152,7 +156,7 @@ ms.author: asteen
             </td>
             <td>
               <p>이 작업을 수행하는 관리자에게 할당된 AAD Premium 또는 AAD 기본 라이선스가 없는 경우 발생할 수 있습니다. </p>
-              <p>이 문제를 수정하려면 <strong>라이선스</strong> 탭으로 이동하여 해당 관리자 계정에 AAD Premium 또는 AAD 기본 라이선스를 할당하고 다시 시도하십시오.</p>
+              <p>이 문제를 수정하려면 <strong>라이선스</strong> 탭으로 이동하여 해당 관리자 계정에 AAD Premium 또는 AAD 기본 라이선스를 할당하고 다시 시도하세요.</p>
             </td>
           </tr>
           <tr>
@@ -169,7 +173,7 @@ ms.author: asteen
           </tr>
         </tbody></table>
 
-## 암호 재설정 등록 포털에서 문제 해결
+## <a name="troubleshoot-the-password-reset-registration-portal"></a>암호 재설정 등록 포털에서 문제 해결
 암호 재설정을 위해 사용자를 등록할 때 오류가 발생하면 다음 문제해결 단계를 수행하여 해결할 수 있습니다.
 
 <table>
@@ -186,7 +190,7 @@ ms.author: asteen
             </td>
             <td>
               <p>
-                <strong>솔루션</strong>
+                <strong>해결 방법</strong>
               </p>
             </td>
           </tr>
@@ -226,12 +230,12 @@ ms.author: asteen
             </td>
             <td>
               <p>많은 문제로 인해 발생할 수 있지만 일반적으로 확인할 수 없는 서비스 중단 또는 구성 문제로 인해 이 오류가 발생합니다. </p>
-              <p>이 오류가 나타나고 비즈니스에 영향을 주는 경우 지원에 문의하시면 되도록 빨리 도움을 드립니다. 신속한 문제해결을 돕기 위해 지원 엔지니어에게 제공해야 할 내용을 보려면 <a href="#information-to-include-when-you-need-help">도움이 필요한 경우 포함할 정보</a>를 참조하십시오.</p>
+              <p>이 오류가 나타나고 비즈니스에 영향을 주는 경우 지원에 문의하시면 되도록 빨리 도움을 드립니다. 신속한 문제해결을 돕기 위해 지원 엔지니어에게 제공해야 할 내용을 보려면 <a href="#information-to-include-when-you-need-help">도움이 필요한 경우 포함할 정보</a>를 참조하세요.</p>
             </td>
           </tr>
         </tbody></table>
 
-## 암호 재설정 포털에서 문제 해결
+## <a name="troubleshoot-the-password-reset-portal"></a>암호 재설정 포털에서 문제 해결
 사용자용 암호를 재설정할 때 오류가 발생하면 다음 문제해결 단계를 수행하여 해결할 수 있습니다.
 
 <table>
@@ -248,7 +252,7 @@ ms.author: asteen
             </td>
             <td>
               <p>
-                <strong>솔루션</strong>
+                <strong>해결 방법</strong>
               </p>
             </td>
           </tr>
@@ -292,7 +296,7 @@ ms.author: asteen
               <p>원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다.</p>
             </td>
             <td>
-              <p>진행하기 전에 사용자가 디렉터리에서 파일에 연락처 데이터를 제대로 구성했는지 확인합니다. 디렉터리에 인증 정보를 구성하는 방법에 대한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정으로 사용되는 데이터 정의</a>를 참조하여 사용자에게 이 오류가 표시되지 않도록 합니다. </p>
+              <p>진행하기 전에 사용자가 디렉터리에서 파일에 연락처 데이터를 제대로 구성했는지 확인합니다. 디렉터리에 인증 정보를 구성하는 방법에 대한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정으로 사용되는 데이터 정의</a>를 참조하여 사용자에게 이 오류가 표시되지 않도록 합니다.</p>
             </td>
           </tr>
           <tr>
@@ -308,7 +312,7 @@ ms.author: asteen
               <p>원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다.</p>
             </td>
             <td>
-              <p>계속하기 전에 해당 사용자에게 둘 이상의 제대로 구성된 연락 방법(예: 휴대폰 및 사무실 전화)이 있는지를 확인합니다. 디렉터리에 인증 정보를 구성하는 방법에 대한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정으로 사용되는 데이터 정의</a>를 참조하여 사용자에게 이 오류가 표시되지 않도록 합니다. </p>
+              <p>계속하기 전에 해당 사용자에게 둘 이상의 제대로 구성된 연락 방법(예: 휴대폰 및 사무실 전화)이 있는지를 확인합니다. 디렉터리에 인증 정보를 구성하는 방법에 대한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정으로 사용되는 데이터 정의</a>를 참조하여 사용자에게 이 오류가 표시되지 않도록 합니다.</p>
             </td>
           </tr>
           <tr>
@@ -316,7 +320,7 @@ ms.author: asteen
               <p>암호 재설정에 디렉터리를 사용할 수 있고 사용자가 올바르게 구성되어 있지만 사용자와 연결할 수 없습니다. </p>
             </td>
             <td>
-              <p>아이쿠! 사용자를 연결하는 동안 예기치 않은 오류가 발생했습니다.</p>
+              <p>아이쿠!  사용자를 연결하는 동안 예기치 않은 오류가 발생했습니다.</p>
             </td>
             <td>
               <p>이것은 임시 서비스 오류 또는 우리가 제대로 검색할 수 없는 잘못 구성한 연락처 데이터 결과입니다. 사용자가 10초 동안 기다리면 다시 시도하고 "관리자에게 문의" 링크가 표시됩니다. 다시 시도를 클릭하면 호출을 다시 발송하는 반면 "관리자에게 문의"를 클릭하면 해당 사용자 계정을 위해 암호 재설정이 수행되도록 요청하는 전자 메일 양식을 사용자, 암호 또는 전역 관리자에게(이 우선순위 대로) 전송할 것입니다.</p>
@@ -330,7 +334,7 @@ ms.author: asteen
               <p>사용자는 "내게 텍스트" 또는 "내게 전화 걸기"를 클릭하고 아무것도 수신하지 않습니다.</p>
             </td>
             <td>
-              <p>이것은 디렉터리에서 형식이 잘못된 전화번호의 결과일 수 있습니다. 전화번호가 "+ ccc xxxyyyzzzzXeeee" 형식인지 확인합니다. 암호 재설정에 사용할 전화번호 형식에 대한 자세한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정에서 사용하는 데이터 정의</a>를 참조하십시오.</p>
+              <p>이것은 디렉터리에서 형식이 잘못된 전화번호의 결과일 수 있습니다. 전화번호가 "+ ccc xxxyyyzzzzXeeee" 형식인지 확인합니다. 암호 재설정에 사용할 전화번호 형식에 대한 자세한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정에서 사용하는 데이터 정의</a>를 참조하세요.</p>
               <p>문제의 사용자에게 라우팅할 확장이 필요한 경우 디렉터리에서 하나를 지정하더라도 해당 암호 재설정은 확장을 지원하지 않습니다.(호출이 발송되기 전에 제거됨)  확장을 사용하지 않고 숫자를 사용하거나 사용자의 PBX의 전화번호에 확장을 통합하려 합니다.</p>
             </td>
           </tr>
@@ -343,7 +347,7 @@ ms.author: asteen
             </td>
             <td>
               <p>이 문제에 대한 가장 일반적인 원인은 스팸 필터에 의해 메시지가 거부된다는 점입니다. 전자 메일에 대한 스팸, 정크, 또는 삭제된 항목 폴더를 확인하십시오.</p>
-              <p>또한 메시지를 위해 올바른 전자 메일인지를 확인하십시오...많은 사람이 매우 유사한 전자 메일 주소가 있고 메시지를 받은 편지함을 잘못 확인합니다. 이러한 두 옵션이 모두 효과가 없으면 디렉터리에서 전자 메일 주소 형식이 잘못된 것일 수도 있습니다. 전자 메일 주소가 올바른지 확인하고 다시 시도하십시오. 암호 재설정에 사용할 전자 메일 주소 형식에 대한 자세한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정에서 사용하는 데이터 정의</a>를 참조하십시오.</p>
+              <p>또한 메시지를 위해 올바른 전자 메일인지를 확인하십시오...많은 사람이 매우 유사한 전자 메일 주소가 있고 메시지를 받은 편지함을 잘못 확인합니다. 이러한 두 옵션이 모두 효과가 없으면 디렉터리에서 전자 메일 주소 형식이 잘못된 것일 수도 있습니다. 전자 메일 주소가 올바른지 확인하고 다시 시도하십시오. 암호 재설정에 사용할 전자 메일 주소 형식에 대한 자세한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정에서 사용하는 데이터 정의</a>를 참조하세요.</p>
             </td>
           </tr>
           <tr>
@@ -351,7 +355,7 @@ ms.author: asteen
               <p>필자는 암호 재설정 정책을 설정했지만 관리자 계정이 암호 재설정을 사용하는 경우 해당 정책이 적용되지 않습니다.</p>
             </td>
             <td>
-              <p><strong>구성</strong> 탭의 <strong>사용자 암호 재설정 정책</strong> 섹션에서 어떤 정책을 설정했는지에 관계 없이 암호를 재설정한 관리자 계정은 전자 메일 및 휴대폰에서 암호 재설정을 위해 활성화된 동일한 옵션을 나타냅니다. </p>
+              <p><strong>구성</strong> 탭의 <strong>사용자 암호 재설정 정책</strong> 섹션에서 어떤 정책을 설정했는지에 관계 없이 암호를 재설정한 관리자 계정은 전자 메일 및 휴대폰에서 암호 재설정을 위해 활성화된 동일한 옵션을 나타냅니다.</p>
             </td>
             <td>
               <p><strong>구성</strong> 탭의 <strong>사용자 암호 재설정 정책</strong> 섹션 아래에서 구성된 옵션만이 사용자의 조직에서 최종 사용자에게 적용됩니다.</p>
@@ -375,11 +379,11 @@ ms.author: asteen
               <p>짧은 시간 동안에 너무 여러 번 자신의 암호를 다시 설정하려는 사용자를 차단하는 자동 제한 메커니즘을 구현합니다. 다음과 같은 때 이것이 일어납니다.</p>
               <ol class="ordered">
                 <li>
-                                        사용자는 한 시간 동안 5회에 걸쳐 전화번호의 유효성을 검사하려 합니다.<br\><br\></li>
+사용자는 한 시간 동안 5회에 걸쳐 전화번호의 유효성을 검사하려 합니다.<br\><br\></li>
                 <li>
-                                        사용자는 한 시간 동안 5회에 걸쳐 보안 질문 게이트를 사용하려 합니다.<br\><br\></li>
+사용자는 한 시간 동안 5회에 걸쳐 보안 질문 게이트를 사용하려 합니다.<br\><br\></li>
                 <li>
-                                        사용자가 한 시간 동안 5회에 걸쳐 동일한 사용자 계정에 대한 암호를 재설정하려 합니다.<br\><br\></li>
+사용자가 한 시간 동안 5회에 걸쳐 동일한 사용자 계정에 대한 암호를 재설정하려 합니다.<br\><br\></li>
               </ol>
               <p>이를 해결하려면 사용자가 마지막 시도 후 24시간 동안 대기하도록 하고 사용자가 자신의 암호를 재설정합니다.</p>
             </td>
@@ -414,12 +418,12 @@ ms.author: asteen
             </td>
             <td>
               <p>많은 문제로 인해 발생할 수 있지만 일반적으로 확인할 수 없는 서비스 중단 또는 구성 문제로 인해 이 오류가 발생합니다. </p>
-              <p>이 오류가 나타나고 비즈니스에 영향을 주는 경우 지원에 문의하시면 되도록 빨리 도움을 드립니다. 신속한 문제해결을 돕기 위해 지원 엔지니어에게 제공해야 할 내용을 보려면 <a href="#information-to-include-when-you-need-help">도움이 필요한 경우 포함할 정보</a>를 참조하십시오.</p>
+              <p>이 오류가 나타나고 비즈니스에 영향을 주는 경우 지원에 문의하시면 되도록 빨리 도움을 드립니다. 신속한 문제해결을 돕기 위해 지원 엔지니어에게 제공해야 할 내용을 보려면 <a href="#information-to-include-when-you-need-help">도움이 필요한 경우 포함할 정보</a>를 참조하세요.</p>
             </td>
           </tr>
         </tbody></table>
 
-## 암호 쓰기 저장 문제 해결
+## <a name="troubleshoot-password-writeback"></a>암호 쓰기 저장 문제 해결
 암호 쓰기 저장을 활성화, 비활성화 또는 사용할 때 오류가 발생하면 다음 문제해결 단계를 수행하여 해결할 수 있습니다.
 
 <table>
@@ -436,7 +440,7 @@ ms.author: asteen
             </td>
             <td>
               <p>
-                <strong>솔루션</strong>
+                <strong>해결 방법</strong>
               </p>
             </td>
           </tr>
@@ -466,7 +470,7 @@ ms.author: asteen
                             </p>
             </td>
             <td>
-              <p>Azure AD Connect에 대한 [Active Directory 계정 찾기](active-directory-aadconnect-accounts-permissions.md#active-directory-account) 및 127자 미만의 문자를 포함하는 암호를 다시 설정합니다. 그런 다음 시작 메뉴에서 **동기화 서비스**를 엽니다. **커넥터**로 이동하고 **Active Directory Connector**를 찾습니다. 선택하고 **속성**을 클릭합니다. **자격 증명** 페이지로 이동하고 새 암호를 입력합니다. **확인**을 선택하여 페이지를 닫습니다.
+              <p>Azure AD Connect에 대한 [Active Directory 계정을 찾고](connect/active-directory-aadconnect-accounts-permissions.md#active-directory-account) 127자 이하를 포함하도록 암호를 다시 설정합니다. 그런 다음 시작 메뉴에서 **동기화 서비스**를 엽니다. **커넥터**로 이동하고 **Active Directory Connector**를 찾습니다. 이를 선택하고 **속성**을 클릭합니다. **자격 증명** 페이지로 이동하고 새 암호를 입력합니다. **확인**을 선택하여 페이지를 닫습니다.
                             </p>
             </td>
           </tr>
@@ -485,11 +489,11 @@ ms.author: asteen
               <p>이 오류는 다음과 같은 두 경우에 발생합니다.</p>
               <ul>
                 <li class="unordered">
-                                        Azure AD Connect 설치 프로세스를 시작할 때 지정된 전역 관리자 계정에 잘못된 암호를 지정했습니다.<br\><br\></li>
+Azure AD Connect 설치 프로세스를 시작할 때 지정된 전역 관리자 계정에 잘못된 암호를 지정했습니다.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Azure AD Connect 설치 프로세스를 시작할 때 지정된 전역 관리자 계정에 페더레이션된 사용자를 사용하려 했습니다.<br\><br\></li>
+Azure AD Connect 설치 프로세스를 시작할 때 지정된 전역 관리자 계정에 페더레이션된 사용자를 사용하려 했습니다.<br\><br\></li>
               </ul>
               <p>이 오류를 해결하려면 Azure AD Connect 설치 프로세스를 시작할 때 지정한 전역 관리자로 페더레이션된 계정을 사용하지 않고 지정된 암호가 올바른지 확인하십시오.</p>
             </td>
@@ -516,11 +520,11 @@ ms.author: asteen
               <p>방화벽이 다음에서 아웃 바운드 연결을 허용하는지 확인합니다.</p>
               <ul>
                 <li class="unordered">
-                                        TCP 443(HTTPS)를 통한 모든 트래픽<br\><br\></li>
+TCP 443(HTTPS)를 통한 모든 트래픽<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        에 아웃바운드 연결<br\><br\></li>
+다음에 아웃바운드 연결 <br\><br\></li>
               </ul>
               <p>
 
@@ -536,7 +540,7 @@ ms.author: asteen
               <p>시간이 지난 후에 페더레이션되거나 암호 해시 동기화된 사용자는 자신의 암호를 재설정할 수 없습니다.</p>
             </td>
             <td>
-              <p>일부 드문 경우에서 Azure AD Connect를 다시 시작할 때 암호 쓰기 저장 서비스를 다시 시작하지 못할 수 있습니다. 이러한 경우 먼저 암호 쓰기 저장이 활성화된 온-프레미스에 나타나는지 확인하십시오. 이렇게 하려면 Azure AD Connect 마법사 또는 Powershell를 사용해야 합니다.(위의 HowTos 섹션 참조) 기능을 사용 가능하도록 표시되면 UI 또는 PowerShell을 통해 이 기능을 활성화 또는 비활성화하도록 시도합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">암호 쓰기 저장을 활성화/비활성화하는 방법</a>에서 "2단계: 디렉터리 동기화 컴퓨터에서 암호 쓰기 저장 활성화 및 방화벽 규칙을 구성"을 참조하십시오.</p>
+              <p>일부 드문 경우에서 Azure AD Connect를 다시 시작할 때 암호 쓰기 저장 서비스를 다시 시작하지 못할 수 있습니다. 이러한 경우 먼저 암호 쓰기 저장이 활성화된 온-프레미스에 나타나는지 확인하십시오. 이렇게 하려면 Azure AD Connect 마법사 또는 Powershell를 사용해야 합니다.(위의 HowTos 섹션 참조) 기능을 사용 가능하도록 표시되면 UI 또는 PowerShell을 통해 이 기능을 활성화 또는 비활성화하도록 시도합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">비밀번호 쓰기 저장을 활성화/비활성화하는 방법</a>에서 "2단계: 디렉터리 동기화 컴퓨터에서 비밀번호 쓰기 저장 사용 &amp; 방화벽 규칙을 구성"을 참조하세요.</p>
               <p>
 
               </p>
@@ -574,13 +578,13 @@ ms.author: asteen
               <p>다음과 같은 상황에서 매니페스트한 Azure AD Connect의 릴리스 버전에서는 알려진 버그가 있습니다.</p>
               <ol class="ordered">
                 <li>
-                                        자격 증명을 사용하여 테넌트 abc.com(확인된 도메인)에 대한 Azure AD Connect을 구성합니다. "abc.com – AAD"라는 이름으로 AAD 커넥터가 생성되었습니다. <br\><br\></li>
+자격 증명을 사용하여 테넌트 abc.com(확인된 도메인)에 대한 Azure AD Connect을 구성합니다. "abc.com – AAD"라는 이름으로 AAD 커넥터가 생성되었습니다.<br\><br\></li>
                 <li>
-                                        그런 다음 커넥터용 AAD 자격 증명을 (이전 동기화 UI 사용함) (동일한 테넌트지만 서로 다른 도메인 이름임)로 바꿉니다. <br\><br\></li>
+그런 다음 커넥터용 AAD 자격 증명을 (이전 동기화 UI 사용함) (동일한 테넌트지만 서로 다른 도메인 이름임)로 바꿉니다. <br\><br\></li>
                 <li>
-                                        이제 암호 쓰기 저장 활성화/비활성화를 시도할 수 있습니다. 마법사는 자격 증명을 사용하여 "abc.onmicrosoft.com – AAD"으로 커넥터의 이름을 생성하고 암호 쓰기 저장 cmdlet에 전달합니다. 이 이름을 사용하여 만든 커넥터가 없기 때문에 실패합니다.<br\><br\></li>
+이제 암호 쓰기 저장 활성화/비활성화를 시도할 수 있습니다. 마법사는 자격 증명을 사용하여 "abc.onmicrosoft.com – AAD"으로 커넥터의 이름을 생성하고 암호 쓰기 저장 cmdlet에 전달합니다. 이 이름을 사용하여 만든 커넥터가 없기 때문에 실패합니다.<br\><br\></li>
               </ol>
-              <p>이것은 최신 빌드에서 수정되었습니다. 이전 빌드를 설정한 경우 해결 방법은 기능을 활성화/비활성화하는 Powershell cmdlet을 사용하는 것입니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">암호 쓰기 저장을 활성화/비활성화하는 방법</a>에서 "2단계: 디렉터리 동기화 컴퓨터에서 암호 쓰기 저장 활성화 및 방화벽 규칙을 구성"을 참조하십시오.</p>
+              <p>이것은 최신 빌드에서 수정되었습니다. 이전 빌드를 설정한 경우 해결 방법은 기능을 활성화/비활성화하는 Powershell cmdlet을 사용하는 것입니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">비밀번호 쓰기 저장을 활성화/비활성화하는 방법</a>에서 "2단계: 디렉터리 동기화 컴퓨터에서 비밀번호 쓰기 저장 사용 &amp; 방화벽 규칙을 구성"을 참조하세요.</p>
             </td>
           </tr>
           <tr>
@@ -591,7 +595,7 @@ ms.author: asteen
               <p>페더레이션된 페더레이션되거나 암호 해시 동기화되어 보호된 그룹의 일부로서 자신의 암호를 재설정하려는 사용자는 서비스 문제가 나타나는 암호를 제출한 후 오류가 나타납니다.</p>
             </td>
             <td>
-              <p>Active Directory에 권한이 있는 사용자는 AdminSDHolder를 사용하여 보호됩니다. 자세한 내용은 <a href="https://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx">http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx</a>을 참조하십시오. </p>
+              <p>Active Directory에 권한이 있는 사용자는 AdminSDHolder를 사용하여 보호됩니다. 자세한 내용은 <a href="https://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx">http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx</a>를 참조하세요. </p>
               <p>
 
               </p>
@@ -644,7 +648,7 @@ ms.author: asteen
               <p>구성 오류가 있으면 암호 작업은 실패합니다. 응용 프로그램 이벤트 로그는 텍스트와 함께 Azure AD Connect 오류 6329를 포함합니다. 0x8023061f (이 관리 에이전트에서 암호 동기화를 사용하지 않기 때문에 작업이 실패했습니다.)</p>
             </td>
             <td>
-              <p>암호 쓰기 저장 기능이 이미 설정된 <strong>후에</strong> Azure AD Connect이 새 AD 포리스트를 추가(또는 기존 포리스트를 제거하고 다시 추가)하여 변경하려는 경우 발생합니다. 이렇게 새로 추가된 포리스트에서 사용자용 암호 작업은 실패합니다. 이 문제를 해결하려면 포리스트 구성이 변경된 후에 비활성화 및 재활성화된 암호 쓰기 저장 기능을 완료합니다.</p>
+              <p>암호 쓰기 저장 기능이 이미 설정된&nbsp;<strong>후에</strong> Azure AD Connect이 새 AD 포리스트를 추가(또는 기존 포리스트를 제거하고 다시 추가)하여 변경하려는 경우 발생합니다. 이렇게 새로 추가된 포리스트에서 사용자용 암호 작업은 실패합니다. 이 문제를 해결하려면 포리스트 구성이 변경된 후에 비활성화 및 재활성화된 암호 쓰기 저장 기능을 완료합니다.</p>
             </td>
           </tr>
           <tr>
@@ -655,13 +659,13 @@ ms.author: asteen
               <p>Azure 관리 포털에서 사용자를 대신하여 암호를 재설정하려고 할 때 다음과 같은 내용의 메시지가 표시됩니다. “온-프레미스 환경에서 실행되는 암호 재설정 서비스는 관리자가 사용자 암호 재설정하도록 지원하지 않습니다. 이 문제를 해결하려면 Azure AD Connect최신 버전으로 업그레이드하십시오.”</p>
             </td>
             <td>
-              <p>이는 동기화 엔진 버전이 사용된 특정 암호 쓰기 저장 작업을 지원하지 않는 경우 발생합니다. Azure AD Connect 1.0.0419.0911 이후 버전은 Azure 관리 포털에서 암호를 재설정 쓰기 저장, 암호 변경 쓰기 저장 및 관리자가 시작한 암호 재설정 쓰기 저장을 포함하는 모든 암호 관리 작업을 지원합니다.&#160; DirSync 1.0.6862 이후 버전이 암호 재설정 쓰기 저장을 지원합니다. 이 문제를 해결하려면 Azure AD Connect 또는 Azure Active Directory Connect의 최신 버전을 설치하여(자세한 내용은 <a href="active-directory-aadconnect">디렉터리 통합 도구</a>를 참조) 조직에서 이 문제를 해결 하고 암호 쓰기 저장을 최대한 활용하는 것이 좋습니다</p>
+              <p>이는 동기화 엔진 버전이 사용된 특정 암호 쓰기 저장 작업을 지원하지 않는 경우 발생합니다. Azure AD Connect 1.0.0419.0911 이후 버전은 Azure 관리 포털에서 암호를 재설정 쓰기 저장, 암호 변경 쓰기 저장 및 관리자가 시작한 암호 재설정 쓰기 저장을 포함하는 모든 암호 관리 작업을 지원합니다.&nbsp; DirSync 1.0.6862 이후 버전이 암호 재설정 쓰기 저장을 지원합니다. 이 문제를 해결하려면 Azure AD Connect 또는 Azure Active Directory Connect의 최신 버전을 설치하는 것이 좋습니다. 조직에서 이 문제를 해결하고 암호 쓰기 저장을 최대한 활용하려면 [온-프레미스 ID 통합](connect/active-directory-aadconnect.md)을 참조하세요.</p>
             </td>
           </tr>
         </tbody></table>
 
 
-## 암호 쓰기 저장 이벤트 로그 오류 코드
+## <a name="password-writeback-event-log-error-codes"></a>암호 쓰기 저장 이벤트 로그 오류 코드
 암호 쓰기 저장과 관련된 문제를 해결할 때 가장 좋은 방법은 Azure AD Connect 컴퓨터에서 해당 응용 프로그램 이벤트 로그를 검사하는 것입니다. 이 이벤트 로그는 암호 쓰기 저장에 관심을 둔 두 개의 소스에서 비롯된 이벤트를 포함합니다. PasswordResetService 소스는 암호 쓰기 저장 작업에 관련된 작업 및 문제를 설명합니다. ADSync 소스는 AD 환경에서 암호 설정과 관련된 작업 및 문제를 설명합니다.
 
 <table>
@@ -673,7 +677,7 @@ ms.author: asteen
             </td>
             <td>
               <p>
-                <strong>이름 / 메시지</strong>
+                <strong>이름/메시지</strong>
               </p>
             </td>
             <td>
@@ -701,19 +705,19 @@ ms.author: asteen
               <p>이 이벤트는 암호 쓰기 저장 서비스가 암호 사용 기간, 기록, 복잡성 또는 도메인의 필터링 요구 사항에 맞지 않는 로컬 디렉터리에 암호를 설정하려고 할 때 발생 합니다.</p>
               <ul>
                 <li class="unordered">
-                                        최소 암호 사용 기간을 사용하고 최근 시간의 해당 창 내에서 암호를 변경하는 경우 사용자 도메인에 지정된 보존 기간에 도달할 때까지 다시 암호를 변경할 수 없습니다. 테스트를 위해 최소 보존 기간을 0으로 설정해야 합니다. <br\><br\></li>
+최소 암호 사용 기간을 사용하고 최근 시간의 해당 창 내에서 암호를 변경하는 경우 사용자 도메인에 지정된 보존 기간에 도달할 때까지 다시 암호를 변경할 수 없습니다. 테스트를 위해 최소 보존 기간을 0으로 설정해야 합니다.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        암호 기록 요구 사항을 활성화하는 경우 마지막 N 번에서 사용되지 않은 암호를 선택해야 합니다. 여기서 N은 암호 기록 설정입니다. 마지막 N 번에서 사용된 암호를 선택하는 경우 오류가 나타납니다. 테스트를 위해 기록을 0으로 설정해야 합니다. <br\><br\></li>
+암호 기록 요구 사항을 활성화하는 경우 마지막 N 번에서 사용되지 않은 암호를 선택해야 합니다. 여기서 N은 암호 기록 설정입니다. 마지막 N 번에서 사용된 암호를 선택하는 경우 오류가 나타납니다. 테스트를 위해 기록을 0으로 설정해야 합니다.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        암호 복잡성 요구 사항이 있는 경우 사용자가 암호를 변경하거나 재설정하려고 할 때 이들 모두를 강제제합니다. <br\><br\></li>
+암호 복잡성 요구 사항이 있는 경우 사용자가 암호를 변경하거나 재설정하려고 할 때 이들 모두를 강제제합니다.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        암호 필터를 사용하고 사용자가 필터링 조건을 충족하지 않는 암호를 선택한 경우 재설정 또는 변경 작업이 실패합니다. <br\><br\></li>
+암호 필터를 사용하고 사용자가 필터링 조건을 충족하지 않는 암호를 선택한 경우 재설정 또는 변경 작업이 실패합니다.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -728,7 +732,7 @@ ms.author: asteen
               <p>ADSync</p>
             </td>
             <td>
-              <p>이 이벤트는 여러 도메인에 동일한 사용자 ID가 설정된 경우에 발생합니다. 예를 들어 계정/리소스 포리스트를 동기화하고 각각에서 동일한 사용자 ID가 나타나고 사용된 경우 이 오류가 발생할 수 있습니다.  </p>
+              <p>이 이벤트는 여러 도메인에 동일한 사용자 ID가 설정된 경우에 발생합니다.  예를 들어 계정/리소스 포리스트를 동기화하고 각각에서 동일한 사용자 ID가 나타나고 사용된 경우 이 오류가 발생할 수 있습니다.  </p>
               <p>사용자가 고유하지 않은 앵커 특성(예: 별칭 또는 UPN)을 사용하고 두 명의 사용자가 해당하는 동일한 앵커 특성을 공유하는 경우 이 오류가 발생할 수 있습니다.</p>
               <p>이 문제를 해결하려면 도메인 내에서 중복된 사용자가 없도록 하고 각 사용자에 고유한 앵커 특성을 사용하고 있는지를 확인합니다.</p>
             </td>
@@ -775,17 +779,17 @@ ms.author: asteen
               <p>이 이벤트는 사용자가 암호를 선택하고 암호가 온-프레미스 환경에 성공적으로 도달했지만 로컬 AD 환경에서 암호를 설정하려고 할 때 오류가 발생했음을 나타냅니다. 이 옵션은 다음과 같은 이유로 발생할 수 있습니다.</p>
               <ul>
                 <li class="unordered">
-                                        사용자의 암호는 도메인에 대한 나이, 기록, 복잡성 또는 필터 요구를 충족하지 않습니다. 이를 해결하려면 완전히 새로운 암호를 시도하십시오. <br\><br\></li>
+사용자의 암호는 도메인에 대한 나이, 기록, 복잡성 또는 필터 요구를 충족하지 않습니다. 이를 해결하려면 완전히 새로운 암호를 시도하세요.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        MA 서비스 계정은 우려되는 사용자 계정에 새 암호를 설정하는 적절한 권한이 없습니다.<br\><br\></li>
+MA 서비스 계정은 우려되는 사용자 계정에 새 암호를 설정하는 적절한 권한이 없습니다.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        사용자의 계정은 암호 집합 작업을 허용하지 않는 도메인 또는 엔터프라이즈 관리자와 같은 보호되는 그룹에 있습니다.<br\><br\></li>
+사용자의 계정은 암호 집합 작업을 허용하지 않는 도메인 또는 엔터프라이즈 관리자와 같은 보호되는 그룹에 있습니다.<br\><br\></li>
               </ul>
-              <p>이 오류를 일으킬 수 있는 다른 상황에 대한 자세한 내용은 <a href="#troubleshoot-password-writeback">암호 쓰기 저장 문제 해결</a>을 참조하십시오.</p>
+              <p>이 오류를 일으킬 수 있는 다른 상황에 대한 자세한 내용은 <a href="#troubleshoot-password-writeback">암호 쓰기 저장 문제 해결</a>을 참조하세요.</p>
             </td>
           </tr>
           <tr>
@@ -858,17 +862,17 @@ ms.author: asteen
               <p>이 이벤트는 사용자가 암호를 선택하고 암호가 온-프레미스 환경에 성공적으로 도달했지만 로컬 AD 환경에서 암호를 설정하려고 할 때 오류가 발생했음을 나타냅니다. 이 옵션은 다음과 같은 이유로 발생할 수 있습니다.</p>
               <ul>
                 <li class="unordered">
-                                        사용자의 암호는 도메인에 대한 나이, 기록, 복잡성 또는 필터 요구를 충족하지 않습니다. 이를 해결하려면 완전히 새로운 암호를 시도하십시오. <br\><br\></li>
+사용자의 암호는 도메인에 대한 나이, 기록, 복잡성 또는 필터 요구를 충족하지 않습니다. 이를 해결하려면 완전히 새로운 암호를 시도하세요.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        MA 서비스 계정은 우려되는 사용자 계정에 새 암호를 설정하는 적절한 권한이 없습니다.<br\><br\></li>
+MA 서비스 계정은 우려되는 사용자 계정에 새 암호를 설정하는 적절한 권한이 없습니다.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        사용자의 계정은 암호 집합 작업을 허용하지 않는 도메인 또는 엔터프라이즈 관리자와 같은 보호되는 그룹에 있습니다.<br\><br\></li>
+사용자의 계정은 암호 집합 작업을 허용하지 않는 도메인 또는 엔터프라이즈 관리자와 같은 보호되는 그룹에 있습니다.<br\><br\></li>
               </ul>
-              <p>이 오류를 일으킬 수 있는 다른 상황에 대한 자세한 내용은 <a href="#troubleshoot-password-writeback">암호 쓰기 저장 문제 해결</a>을 참조하십시오.</p>
+              <p>이 오류를 일으킬 수 있는 다른 상황에 대한 자세한 내용은 <a href="#troubleshoot-password-writeback">암호 쓰기 저장 문제 해결</a>을 참조하세요.</p>
             </td>
           </tr>
           <tr>
@@ -913,17 +917,17 @@ ms.author: asteen
               <p>관리자가 사용자 대신 암호를 선택하고 암호가 온-프레미스 환경에 성공적으로 도달했지만 로컬 AD 환경에서 암호를 설정하려고 할 때 오류가 발생했음을 나타냅니다. 이 옵션은 다음과 같은 이유로 발생할 수 있습니다.</p>
               <ul>
                 <li class="unordered">
-                                        사용자의 암호는 도메인에 대한 나이, 기록, 복잡성 또는 필터 요구를 충족하지 않습니다. 이를 해결하려면 완전히 새로운 암호를 시도하십시오. <br\><br\></li>
+사용자의 암호는 도메인에 대한 나이, 기록, 복잡성 또는 필터 요구를 충족하지 않습니다. 이를 해결하려면 완전히 새로운 암호를 시도하세요.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        MA 서비스 계정은 우려되는 사용자 계정에 새 암호를 설정하는 적절한 권한이 없습니다.<br\><br\></li>
+MA 서비스 계정은 우려되는 사용자 계정에 새 암호를 설정하는 적절한 권한이 없습니다.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        사용자의 계정은 암호 집합 작업을 허용하지 않는 도메인 또는 엔터프라이즈 관리자와 같은 보호되는 그룹에 있습니다.<br\><br\></li>
+사용자의 계정은 암호 집합 작업을 허용하지 않는 도메인 또는 엔터프라이즈 관리자와 같은 보호되는 그룹에 있습니다.<br\><br\></li>
               </ul>
-              <p>이 오류를 일으킬 수 있는 다른 상황에 대한 자세한 내용은 <a href="#troubleshoot-password-writeback">암호 쓰기 저장 문제 해결</a>을 참조하십시오.</p>
+              <p>이 오류를 일으킬 수 있는 다른 상황에 대한 자세한 내용은 <a href="#troubleshoot-password-writeback">암호 쓰기 저장 문제 해결</a>을 참조하세요.</p>
             </td>
           </tr>
           <tr>
@@ -1063,7 +1067,7 @@ ms.author: asteen
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 테넌트의 서비스 버스 인스턴스에 연결하는 오류가 발생했음을 나타냅니다. 이는 온-프레미스 환경에서 아웃 바운드 연결을 차단하기 때문에 발생할 수 있습니다. TCP 443을 통해 <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>로 연결을 허용하도록 방화벽을 확인하고 다시 시도하십시오. 여전히 문제가 발생하는 경우 암호 쓰기 저장 기능을 비활성화하고 재활성화하여 시도하십시오.</p>
+              <p>이 이벤트는 테넌트의 서비스 버스 인스턴스에 연결하는 오류가 발생했음을 나타냅니다. 이는 온-프레미스 환경에서 아웃 바운드 연결을 차단하기 때문에 발생할 수 있습니다. TCP 443을 통해 <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>으로 연결을 허용하도록 방화벽을 확인하고 다시 시도하세요. 여전히 문제가 발생하는 경우 암호 쓰기 저장 기능을 비활성화하고 재활성화하여 시도하십시오.</p>
             </td>
           </tr>
           <tr>
@@ -1189,7 +1193,7 @@ ms.author: asteen
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 온보딩 프로세스를 시작하기 위해 온-프레미스 서비스가 암호 재설정 웹 서비스와 제대로 통신하지 못함을 나타냅니다. 이는 테넌트에 대한 인증 토큰을 가져오는 방화벽 규칙 또는 문제 때문일 수 있습니다. 이를 해결하려면 TCP 443 및 TCP 9350-9354를 통해 <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>로 아웃 바운드 연결을 차단하지 않았는지와 온보드에 사용하는 AAD 관리자 계정이 페더레이션되었는지를 확인합니다. </p>
+              <p>이 이벤트는 온보딩 프로세스를 시작하기 위해 온-프레미스 서비스가 암호 재설정 웹 서비스와 제대로 통신하지 못함을 나타냅니다. 이는 테넌트에 대한 인증 토큰을 가져오는 방화벽 규칙 또는 문제 때문일 수 있습니다. 이를 해결하려면 TCP 443 및 TCP 9350-9354를 통해 <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>으로 아웃 바운드 연결을 차단하지 않았는지와 온보드에 사용하는 AAD 관리자 계정이 페더레이션되었는지를 확인합니다. </p>
             </td>
           </tr>
           <tr>
@@ -1217,7 +1221,7 @@ ms.author: asteen
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 오프보딩 프로세스를 시작하기 위해 온-프레미스 서비스가 암호 재설정 웹 서비스와 제대로 통신하지 못함을 나타냅니다. 이는 테넌트에 대한 인증 토큰을 가져오는 방화벽 규칙 또는 문제 때문일 수 있습니다. 이를 해결하려면 443을 통해 또는 <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>로 아웃 바운드 연결을 차단하지 않았는지와 오프보드에 사용하는 AAD 관리자 계정이 페더레이션되었는지를 확인합니다. </p>
+              <p>이 이벤트는 오프보딩 프로세스를 시작하기 위해 온-프레미스 서비스가 암호 재설정 웹 서비스와 제대로 통신하지 못함을 나타냅니다. 이는 테넌트에 대한 인증 토큰을 가져오는 방화벽 규칙 또는 문제 때문일 수 있습니다. 이를 해결하려면 443을 통해 또는 <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>으로 아웃 바운드 연결을 차단하지 않았는지와 오프보드에 사용하는 AAD 관리자 계정이 페더레이션되었는지를 확인합니다. </p>
             </td>
           </tr>
           <tr>
@@ -1301,7 +1305,7 @@ ms.author: asteen
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 관리 에이전트 서비스 계정이 해당 계정에 새 암호를 설정할 적절한 권한을 가지지 않음을 나타냅니다. 사용자의 포리스트에서 MA 계정이 포리스트의 모든 개체에 암호 재설정 및 변경 권한이 있는지 확인합니다. 이를 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">4단계: 적절한 Active Directory 사용 권한 설정</a>을 참조하십시오.</p>
+              <p>이 이벤트는 관리 에이전트 서비스 계정이 해당 계정에 새 암호를 설정할 적절한 권한을 가지지 않음을 나타냅니다. 사용자의 포리스트에서 MA 계정이 포리스트의 모든 개체에 암호 재설정 및 변경 권한이 있는지 확인합니다.  이를 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">4단계: 적절한 Active Directory 사용 권한 설정</a>을 참조하세요.</p>
             </td>
           </tr>
           <tr>
@@ -1360,19 +1364,19 @@ ms.author: asteen
               <p>이 이벤트는 암호 쓰기 저장 서비스가 암호 사용 기간, 기록, 복잡성 또는 도메인의 필터링 요구 사항에 맞지 않는 로컬 디렉터리에 암호를 설정하려고 할 때 발생 합니다.</p>
               <ul>
                 <li class="unordered">
-                                        최소 암호 사용 기간을 사용하고 최근 시간의 해당 창 내에서 암호를 변경하는 경우 사용자 도메인에 지정된 보존 기간에 도달할 때까지 다시 암호를 변경할 수 없습니다. 테스트를 위해 최소 보존 기간을 0으로 설정해야 합니다. <br\><br\></li>
+최소 암호 사용 기간을 사용하고 최근 시간의 해당 창 내에서 암호를 변경하는 경우 사용자 도메인에 지정된 보존 기간에 도달할 때까지 다시 암호를 변경할 수 없습니다. 테스트를 위해 최소 보존 기간을 0으로 설정해야 합니다.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        암호 기록 요구 사항을 활성화하는 경우 마지막 N 번에서 사용되지 않은 암호를 선택해야 합니다. 여기서 N은 암호 기록 설정입니다. 마지막 N 번에서 사용된 암호를 선택하는 경우 오류가 나타납니다. 테스트를 위해 기록을 0으로 설정해야 합니다. <br\><br\></li>
+암호 기록 요구 사항을 활성화하는 경우 마지막 N 번에서 사용되지 않은 암호를 선택해야 합니다. 여기서 N은 암호 기록 설정입니다. 마지막 N 번에서 사용된 암호를 선택하는 경우 오류가 나타납니다. 테스트를 위해 기록을 0으로 설정해야 합니다.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        암호 복잡성 요구 사항이 있는 경우 사용자가 암호를 변경하거나 재설정하려고 할 때 이들 모두를 강제제합니다. <br\><br\></li>
+암호 복잡성 요구 사항이 있는 경우 사용자가 암호를 변경하거나 재설정하려고 할 때 이들 모두를 강제제합니다.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        암호 필터를 사용하고 사용자가 필터링 조건을 충족하지 않는 암호를 선택한 경우 재설정 또는 변경 작업이 실패합니다. <br\><br\></li>
+암호 필터를 사용하고 사용자가 필터링 조건을 충족하지 않는 암호를 선택한 경우 재설정 또는 변경 작업이 실패합니다.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -1434,7 +1438,7 @@ ms.author: asteen
           </tr>
         </tbody></table>
 
-## 암호 쓰기 저장 연결 문제 해결
+## <a name="troubleshoot-password-writeback-connectivity"></a>암호 쓰기 저장 연결 문제 해결
 Azure AD Connect의 암호 쓰기 저장 구성 요소로 서비스 중단이 발생하는 경우 이 문제를 해결하기 위해 수행할 수 있는 빠른 단계는 다음과 같습니다.
 
 * [Azure AD Connect 동기화 서비스 다시 시작](#restart-the-azure-AD-Connect-sync-service)
@@ -1444,19 +1448,19 @@ Azure AD Connect의 암호 쓰기 저장 구성 요소로 서비스 중단이 �
 
 일반적으로 가장 빠른 방법으로 서비스를 복구하기 위해 위의 순서로 이 단계를 실행하는 것이 좋습니다.
 
-### Azure AD Connect 동기화 서비스 다시 시작
+### <a name="restart-the-azure-ad-connect-sync-service"></a>Azure AD Connect 동기화 서비스 다시 시작
 Azure AD Connect 동기화 서비스를 다시 시작하면 연결 문제 또는 서비스와 관련된 다른 일시적인 문제를 해결하는 데 도움이 됩니다.
 
 1. 관리자로써 **Azure AD Connect**를 실행하는 서버에서 **시작**을 클릭합니다.
-2. 검색 상자에서 **"services.msc"**를 입력하고 **Enter** 키를 누릅니다.
+2. 검색 상자에 **“services.msc”**를 입력하고 **Enter** 키를 누릅니다.
 3. **Microsoft Azure AD Connect** 항목을 찾습니다.
 4. 서비스 항목을 마우스 오른쪽 단추로 클릭하여 **다시 시작**을 클릭하고 작업이 완료되기를 기다립니다.
    
    ![][002]
 
-이러한 단계는 클라우드 서비스를 사용하여 연결을 다시 설정하고 발생한 중단이 해결할 수 있습니다. 동기화 서비스를 다시 시작해도 문제가 해결되지 않으면 다음 단계로 암호 쓰기 저장 기능을 비활성화 및 재활성화하는 것이 좋습니다.
+이러한 단계는 클라우드 서비스를 사용하여 연결을 다시 설정하고 발생한 중단이 해결할 수 있습니다.  동기화 서비스를 다시 시작해도 문제가 해결되지 않으면 다음 단계로 암호 쓰기 저장 기능을 비활성화 및 재활성화하는 것이 좋습니다.
 
-### 암호 쓰기 저장 기능을 비활성화 및 재활성화
+### <a name="disable-and-re-enable-the-password-writeback-feature"></a>암호 쓰기 저장 기능을 비활성화 및 재활성화
 다시 암호 쓰기 저장 기능을 비활성화 및 재활성화하면 연결 문제를 해결할 수 있습니다.
 
 1. 관리자 권한으로 **Azure AD Connect 구성 마법사**를 엽니다.
@@ -1470,7 +1474,7 @@ Azure AD Connect 동기화 서비스를 다시 시작하면 연결 문제 또는
 7. 구성 페이지가 **암호 쓰기 저장 옵션을 사용 안함으로** 표시하는지 확인하고 변경 내용을 적용하려면 녹색 **구성** 단추를 클릭합니다.
 8. **마침** 대화 상자에서 **지금 동기화** 옵션을 선택 취소한 다음 마법사를 닫기 위해 **마침**을 클릭합니다.
 9. **Azure AD Connect 구성 마법사**를 다시 엽니다.
-10. 서비스를 다시 활성화하는 **선택적 기능 **화면에서 **암호 쓰기 저장 옵션을 선택**했는지 확인한 후 **2-8 단계를 반복합니다**.
+10. 서비스를 다시 활성화하는 **선택적 기능** 화면에서 **암호 쓰기 저장 옵션을 선택**했는지 확인한 후 **2~8단계를 반복**합니다.
     
     ![][004]
 
@@ -1478,12 +1482,13 @@ Azure AD Connect 동기화 서비스를 다시 시작하면 연결 문제 또는
 
 암호 쓰기 저장 기능을 비활성화 및 재활성화해도 문제가 해결되지 않으면 다음 단계로 Azure AD Connect를 재설치하는 것이 좋습니다.
 
-### 최신 Azure AD Connect 릴리스 설치
-Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또는 로컬 AD 환경에서 암호를 관리하는 능력에 영향을 미칠 수 있는 모든 구성 문제를 해결할 것입니다. 위에서 설명한 처음 두 단계를 시도한 후에 이 단계를 수행하는 것이 좋습니다.
+### <a name="install-the-latest-azure-ad-connect-release"></a>최신 Azure AD Connect 릴리스 설치
+Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또는 로컬 AD 환경에서 암호를 관리하는 능력에 영향을 미칠 수 있는 모든 구성 문제를 해결할 것입니다.
+위에서 설명한 처음 두 단계를 시도한 후에 이 단계를 수행하는 것이 좋습니다.
 
-1. 최신 버전의 Azure AD Connect을 [여기서](active-directory-aadconnect.md#install-azure-ad-connect) 다운로드
+1. 최신 버전의 Azure AD Connect을 [여기서](connect/active-directory-aadconnect.md#install-azure-ad-connect)다운로드
 2. Azure AD Connect를 이미 설치했기 때문에 Azure AD Connect 설치를 최신 버전으로 업데이트하려면 바로 업그레이드를 수행해야 합니다.
-3. 다운로드한 패키지를 실행하고 화면에 나타나는 지침을 따라 Azure AD Connect 컴퓨터를 업데이트하십시오. 상자 동기화 규칙 중 사용자 지정을 하지 않으면 추가 수동 단계가 필요하지 않으며 이 경우 **업그레이드를 계속하기 전에 이를 백업하고 완료된 이후 수동으로 다시 배포**해야 합니다.
+3. 다운로드한 패키지를 실행하고 화면에 나타나는 지침을 따라 Azure AD Connect 컴퓨터를 업데이트하십시오.  상자 동기화 규칙 중 사용자 지정을 하지 않으면 추가 수동 단계가 필요하지 않으며 이 경우 **업그레이드를 계속하기 전에 이를 백업하고 완료된 이후 수동으로 다시 배포**해야 합니다.
 
 이러한 단계를 실행하여 클라우드 서비스를 사용하여 연결을 다시 설정하고 발생할 수 있는 중단이 해결될 수 있습니다.
 
@@ -1491,14 +1496,16 @@ Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또�
 
 문제를 해결되지 않으면 [암호 쓰기 저장 문제 해결](#troubleshoot-password-writeback) 및 [Azure AD 암호 관리 FAQ](active-directory-passwords-faq.md)에서 문제를 논의했는지 확인하기 위해 살펴보는 것이 좋습니다
 
-<br/> <br/> <br/>
+<br/>
+<br/>
+<br/>
 
-## 암호 재설정 설명서에 대한 링크
+## <a name="links-to-password-reset-documentation"></a>암호 재설정 설명서에 대한 링크
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
 * **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
-* [**시작**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
+* [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
 * [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다
@@ -1510,4 +1517,8 @@ Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또�
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Dec16_HO5-->
+
+

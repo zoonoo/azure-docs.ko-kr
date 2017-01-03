@@ -1,19 +1,23 @@
 ---
-title: 액세스 패널 소개 | Microsoft Docs
-description: 다양한 액세스 패널(웹 브라우저, Android 앱, iPhone 및 iPad 응용 프로그램)을 사용해 할당된 SaaS 앱에 액세스하는 방법을 알아봅니다.
+title: "액세스 패널 소개 | Microsoft Docs"
+description: "다양한 액세스 패널(웹 브라우저, Android 앱, iPhone 및 iPad 응용 프로그램)을 사용해 할당된 SaaS 앱에 액세스하는 방법을 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: markusvi
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
+ms.openlocfilehash: 2dd9c96e1c15e424588869b61eb26501b1b66be3
+
 
 ---
 # <a name="introduction-to-the-access-panel"></a>액세스 패널 소개
@@ -93,12 +97,12 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure 관리
 
 사용자가 Office 365 응용 프로그램에 대한 응용 프로그램 타일을 클릭한 경우 해당 응용 프로그램으로 리디렉션되고 자동 로그인됩니다.
 
-### <a name="microsoft-and-thirdparty-applications-configured-with-federationbased-sso"></a>페더레이션 기반의 SSO로 구성된 Microsoft 및 타사 응용 프로그램
+### <a name="microsoft-and-third-party-applications-configured-with-federation-based-sso"></a>페더레이션 기반의 SSO로 구성된 Microsoft 및 타사 응용 프로그램
 관리자가 Azure 관리 포털의 Active Directory 섹션에 “*Azure AD Single Sign-On*”으로 설정된 Single Sign-On 모드로 추가한 응용 프로그램입니다. 응용 프로그램에 대한 액세스가 관리자에 의해 명시적으로 부여된 경우 사용자는 이 응용 프로그램들만 볼 수 있습니다.
 
 사용자가 이 응용 프로그램에 대한 응용 프로그램 타일을 클릭한 경우 해당 응용 프로그램으로 리디렉션되고 자동 로그인됩니다.
 
-### <a name="passwordbased-sso-without-identity-provisioning"></a>ID 프로비전 없는 암호 기반 SSO
+### <a name="password-based-sso-without-identity-provisioning"></a>ID 프로비전 없는 암호 기반 SSO
 관리자가 Azure 관리 포털의 Active Directory 섹션에 “*Password-based Single Sign-On*”으로 설정된 Single Sign-On 모드로 추가한 응용 프로그램입니다. <br>  디렉터리의 모든 사용자가 이 모드에 구성된 모든 응용 프로그램을 볼 수 있습니다.
 
 처음에 사용자가 이 응용 프로그램 중의 하나인 응용 프로그램 타일을 클릭하면 Internet Explorer 또는 Chrome에 대한 암호 SSO 플러그인 설치가 요청되며 웹 브라우저를 재시작해야 할 수도 있습니다. 액세스 패널로 돌아와 응용 프로그램 타일을 다시 클릭하면 응용 프로그램에 대한 사용자 이름 및 암호 요청 메시지가 보입니다. 사용자 이름 및 암호를 입력하면 이 자격 증명은 Azure AD에 보안 저장되며 Azure AD에 있는 계정에 연결되고, 액세스 패널은 이 자격 증명을 사용하여 응용 프로그램에 사용자 로그인을 자동화합니다.
@@ -107,7 +111,7 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure 관리
 
 사용자의 자격 증명이 타사 응용 프로그램에서 변경된 경우 사용자는 Azure AD에 저장된 자격 증명 또한 업데이트해야 합니다. 자격 증명을 업데이트하려면 사용자는 응용 프로그램 타일의 오른쪽 아래에 있는 아이콘을 선택하고 “자격 증명 업데이트”를 클릭하여 응용 프로그램에 대한 사용자 이름과 암호를 재입력합니다.
 
-### <a name="passwordbased-sso-with-identity-provisioning"></a>ID 프로비전을 사용한 암호 기반 SSO
+### <a name="password-based-sso-with-identity-provisioning"></a>ID 프로비전을 사용한 암호 기반 SSO
 관리자가 Azure 관리 포털의 Active Directory 섹션에 “*Password-based Single Sign-On*”으로 설정된 Single Sign-On 모드 및 ID 프로비전으로 추가한 응용 프로그램입니다.
 
 처음에 사용자가 이 응용 프로그램 중의 하나인 응용 프로그램 타일을 클릭하면 Internet Explorer 또는 Chrome에 대한 암호 SSO 플러그인 설치가 요청되며 웹 브라우저를 재시작해야 할 수도 있습니다. 액세스 패널로 돌아와 응용 프로그램 타일을 다시 클릭하면 자동으로 응용 프로그램에 로그인됩니다.
@@ -131,6 +135,6 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure 관리
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO5-->
 
 

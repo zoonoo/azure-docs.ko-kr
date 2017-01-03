@@ -51,6 +51,6 @@ Azure AD 라이선스 문제 및 모범 사례에 대한 광범위한 개요는 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

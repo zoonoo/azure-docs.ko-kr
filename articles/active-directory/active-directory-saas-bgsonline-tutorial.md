@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b42fe210ecfe2243aa2461bd542e73f7b9aa25cc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 42911ac76e2aa887460abd44e462a8d288d55f91
 
 
 ---
@@ -176,7 +176,7 @@ BGS Online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-an-bgs-online-test-user"></a>BGS Online 테스트 사용자 만들기
 이 섹션에서는 BGS Online에서 Britta Simon이라는 사용자를 만듭니다. BGS Online 플랫폼에서 사용자를 추가하려면 BGS Online [지원 팀](mailTo:bgsdashboardteam@millwardbrown.com)에 문의하세요.
@@ -231,6 +231,6 @@ BGS Online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

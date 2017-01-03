@@ -47,16 +47,16 @@ ms.openlocfilehash: 5f2030abf8b6c2d5884f4c5c2cb29d89ff329227
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-   ![응용 프로그램](./media/active-directory-saas-airwatch-tutorial/IC700994.png "Applications")
+   ![응용 프로그램](./media/active-directory-saas-airwatch-tutorial/IC700994.png "응용 프로그램")
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-   ![응용 프로그램 추가](./media/active-directory-saas-airwatch-tutorial/IC749321.png "Add application")
+   ![응용 프로그램 추가](./media/active-directory-saas-airwatch-tutorial/IC749321.png "응용 프로그램 추가")
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-airwatch-tutorial/IC749322.png "Add an application from gallerry")
+   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-airwatch-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 6. **검색 상자**에 **AirWatch**를 입력합니다.
    
-   ![응용 프로그램 갤러리](./media/active-directory-saas-airwatch-tutorial/IC791914.png "Application Gallery")
+   ![응용 프로그램 갤러리](./media/active-directory-saas-airwatch-tutorial/IC791914.png "응용 프로그램 갤러리")
 7. 결과 창에서 **AirWatch**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
    ![AirWatch](./media/active-directory-saas-airwatch-tutorial/IC791915.png "AirWatch")
@@ -70,39 +70,39 @@ ms.openlocfilehash: 5f2030abf8b6c2d5884f4c5c2cb29d89ff329227
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **AirWatch** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-airwatch-tutorial/IC791916.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-airwatch-tutorial/IC791916.png "Single Sign-On 구성")
 2. **AirWatch에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-   ![Single Sign-on 구성](./media/active-directory-saas-airwatch-tutorial/IC791917.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-airwatch-tutorial/IC791917.png "Single Sign-On 구성")
 3. **앱 URL 구성** 페이지의 **AirWatch Sign On URL** 텍스트 상자에서 사용자가 사용한 URL을 입력하여 AirWatch 응용 프로그램에 로그인하고(예: "*https:// companycode.awmdm.com/AirWatch/Login?gid=companycode*") **다음**을 클릭합니다.
    
-   ![앱 URL 구성](./media/active-directory-saas-airwatch-tutorial/IC791918.png "Configure App URL")
+   ![앱 URL 구성](./media/active-directory-saas-airwatch-tutorial/IC791918.png "앱 URL 구성")
 4. **AirWatch에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-airwatch-tutorial/IC791919.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-airwatch-tutorial/IC791919.png "Single Sign-On 구성")
 5. 다른 웹 브라우저 창에서 AirWatch 회사 사이트에 관리자로 로그인합니다.
 6. 왼쪽 탐색 창에서 **계정**과 **관리자**를 차례로 클릭합니다.
    
-   ![관리자](./media/active-directory-saas-airwatch-tutorial/IC791920.png "Administrators")
+   ![관리자](./media/active-directory-saas-airwatch-tutorial/IC791920.png "관리자")
 7. **설정** 메뉴를 확장한 다음 **디렉터리 서비스**를 클릭합니다.
    
-   ![설정](./media/active-directory-saas-airwatch-tutorial/IC791921.png "Settings")
+   ![설정](./media/active-directory-saas-airwatch-tutorial/IC791921.png "설정")
 8. **사용자** 탭을 클릭하고 **Base DN** 텍스트 필드에 도메인 이름을 입력한 다음 **저장**을 클릭합니다.
    
-   ![사용자](./media/active-directory-saas-airwatch-tutorial/IC791922.png "User")
+   ![사용자](./media/active-directory-saas-airwatch-tutorial/IC791922.png "사용자")
 9. **서버** 탭을 클릭합니다.
    
-   ![서버](./media/active-directory-saas-airwatch-tutorial/IC791923.png "Server")
+   ![서버](./media/active-directory-saas-airwatch-tutorial/IC791923.png "서버")
 10. 다음 단계를 수행합니다.
     
-    ![업로드](./media/active-directory-saas-airwatch-tutorial/IC791924.png "Upload")
+    ![업로드](./media/active-directory-saas-airwatch-tutorial/IC791924.png "업로드")
     
     1. **디렉터리 유형**으로 **없음**을 선택합니다.
     2. **인증에 SAML 사용**을 선택합니다.
     3. 다운로드한 인증서를 업로드하려면 **업로드**를 클릭합니다.
 11. **요청** 섹션에서 다음 단계를 수행합니다.
     
-    ![요청](./media/active-directory-saas-airwatch-tutorial/IC791925.png "Request")
+    ![요청](./media/active-directory-saas-airwatch-tutorial/IC791925.png "요청")
     
     1. **요청 바인딩 형식**으로 **POST**를 선택합니다.
     2. Azure 클래식 포털의 **Airwatch에서 Single Sign-on 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **ID 공급자 Single Sign-On URL** 텍스트 상자에 붙여넣습니다.
@@ -110,10 +110,10 @@ ms.openlocfilehash: 5f2030abf8b6c2d5884f4c5c2cb29d89ff329227
     4. **Save**를 클릭합니다.
 12. **사용자** 탭을 다시 클릭합니다.
     
-    ![사용자](./media/active-directory-saas-airwatch-tutorial/IC791926.png "User")
+    ![사용자](./media/active-directory-saas-airwatch-tutorial/IC791926.png "사용자")
 13. **특성** 섹션에서 다음 단계를 수행합니다.
     
-    ![특성](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Attribute")
+    ![특성](./media/active-directory-saas-airwatch-tutorial/IC791927.png "특성")
     
     1. **개체 식별자** 텍스트 상자에 **http://schemas.microsoft.com/identity/claims/objectidentifier**를 입력합니다.
     2. **사용자 이름** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
@@ -124,7 +124,7 @@ ms.openlocfilehash: 5f2030abf8b6c2d5884f4c5c2cb29d89ff329227
     7. **Save**를 클릭합니다.
 14. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
     
-    ![Single Sign-on 구성](./media/active-directory-saas-airwatch-tutorial/IC791928.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-airwatch-tutorial/IC791928.png "Single Sign-On 구성")
     
     ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 
@@ -135,13 +135,13 @@ AirWatch의 경우 프로비전은 수동 작업입니다.
 1. **AirWatch** 회사 사이트에 관리자 권한으로 로그인합니다.
 2. 왼쪽의 탐색 창에서 **계정**과 **사용자**를 차례로 클릭합니다.
    
-   ![사용자](./media/active-directory-saas-airwatch-tutorial/IC791929.png "Users")
+   ![사용자](./media/active-directory-saas-airwatch-tutorial/IC791929.png "사용자")
 3. **사용자** 메뉴에서 **목록 보기**와 **추가 \> 사용자 추가**를 차례로 클릭합니다.
    
-   ![사용자 추가](./media/active-directory-saas-airwatch-tutorial/IC791930.png "Add User")
+   ![사용자 추가](./media/active-directory-saas-airwatch-tutorial/IC791930.png "사용자 추가")
 4. **사용자 추가/편집** 대화 상자에서 다음 단계를 수행합니다.
    
-   ![사용자 추가](./media/active-directory-saas-airwatch-tutorial/IC791931.png "Add User")
+   ![사용자 추가](./media/active-directory-saas-airwatch-tutorial/IC791931.png "사용자 추가")
    
    1. 관련된 텍스트 상자에 프로비전할 유효한 Azure Active Directory 계정의 **사용자 이름**, **암호**, **암호 확인**, **이름**, **성**, **전자 메일 주소**를 입력합니다.
    2. **Save**를 클릭합니다.
@@ -158,16 +158,16 @@ AirWatch의 경우 프로비전은 수동 작업입니다.
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **AirWatch** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-   ![사용자 할당](./media/active-directory-saas-airwatch-tutorial/IC791932.png "Assign Users")
+   ![사용자 할당](./media/active-directory-saas-airwatch-tutorial/IC791932.png "사용자 할당")
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-   ![예](./media/active-directory-saas-airwatch-tutorial/IC767830.png "Yes")
+   ![예](./media/active-directory-saas-airwatch-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

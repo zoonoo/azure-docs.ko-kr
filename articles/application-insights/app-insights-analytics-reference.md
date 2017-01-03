@@ -1,27 +1,30 @@
 ---
-title: Application Insights 내 Analytics 참조 | Microsoft Docs
-description: 'Application Insights의 강력한 검색 도구인 분석의 문 참조입니다. '
+title: "Azure Application Insights 내 Analytics 참조 | Microsoft Docs"
+description: "Application Insights의 강력한 검색 도구인 분석의 문 참조입니다. "
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
-manager: douge
-
+manager: carmonm
+ms.assetid: eea324de-d5e5-4064-9933-beb3a97b350b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 11/23/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
+ms.openlocfilehash: 1b153af33ef2f7c112336a2de2a3710613ad3887
+
 
 ---
 # <a name="reference-for-analytics"></a>분석에 대한 참조
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
-> [!NOTE]
-> 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우, [시뮬레이션된 데이터에 대한 드라이브 분석을 테스트](https://analytics.applicationinsights.io/demo)합니다.
-> 
-> 
+* [SQL 사용자 치트 시트](https://aka.ms/sql-analytics)에서는 가장 일반적인 코드를 변환합니다.
+* 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우, [시뮬레이션된 데이터에 대한 드라이브 분석을 테스트](https://analytics.applicationinsights.io/demo)합니다.
+ 
 
 ## <a name="index"></a>인덱스
 **사용** [사용](#let-clause)
@@ -36,7 +39,7 @@ ms.author: awills
 
 **날짜 및 시간** [날짜 및 시간 식](#date-and-time-expressions) | [날짜 및 시간 리터럴](#date-and-time-literals) | [전](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [지금](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
-**문자열** [Guid](#guids) | [난독 처리하는 문자열 리터럴](#obfuscated-string-literals) | [문자열 리터럴](#string-literals) | [문자열 비교](#string-comparisons) | [countof](#countof) | [추출](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [대체](#replace) | [분할](#split) | [strcat](#strcat) | [strlen](#strlen) | [부분 문자열](#substring) | [tolower](#tolower) | [toupper](#toupper)
+**문자열** [Guid](#guids) | [난독 처리하는 문자열 리터럴](#obfuscated-string-literals) | [문자열 리터럴](#string-literals) | [문자열 비교](#string-comparisons) | [countof](#countof) | [추출](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [대체](#replace) | [분할](#split) | [strcat](#strcat) | [strlen](#strlen) | [부분 문자열](#substring) | [tolower](#tolower) | [toupper](#toupper)
 
 **배열, 개체 및 동적** [배열 및 개체 리터럴](#array-and-object-literals) | [동적 개체 함수](#dynamic-object-functions) | [let 절의 동적 개체](#dynamic-objects-in-let-clauses) | [JSON Path 식](#json-path-expressions) | [이름](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
 
@@ -58,8 +61,14 @@ ms.author: awills
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-    let us_date = (t:datetime) { strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
-    requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
+    let us_date = (t:datetime)
+    {
+      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ", 
+      bin((t-1h)%12h+1h,1s), iff(t%24h<12h, "AM", "PM"))
+    };
+    requests 
+    | summarize count() by bin(timestamp, 1h) 
+    | project count_, pacificTime=us_date(timestamp-8h)
 
 Let 절은 테이블 형식 결과, 스칼라 값 또는 함수에 [name](#names) 을 바인딩합니다. 이 절은 쿼리에 대한 접두사이며 바인딩 범위는 해당 쿼리입니다. (Let은 세션에서 나중에 사용할 사항의 이름을 지정하는 방법을 제공하지 않습니다.)
 
@@ -86,12 +95,12 @@ Self-join:
 
     let Recent = events | where timestamp > ago(7d);
     Recent | where name contains "session_started" 
-      | project start = timestamp, session_id
-      | join (Recent 
+    | project start = timestamp, session_id
+    | join (Recent 
         | where name contains "session_ended" 
         | project stop = timestamp, session_id)
       on session_id
-      | extend duration = stop - start 
+    | extend duration = stop - start 
 
 
 ## <a name="queries-and-operators"></a>쿼리 및 연산자
@@ -395,11 +404,15 @@ traces
 
 **팁**
 
+결과 테이블에는 64MB의 제한이 적용됩니다.
+
 최상의 성능을 얻으려면:
 
 * `where` 및 `project`를 사용하여 `join`에 앞서 입력 테이블의 행 및 열 수를 줄입니다. 
 * 한 테이블이 언제나 다른 테이블보다 더 작으면 해당 테이블을 조인의 좌변(파이프된)으로 사용합니다.
 * 조인 일치에 대한 열은 같은 이름을 가져야 합니다. 테이블 중 하나의 열 이름을 바꾸어야 할 경우 project 연산자를 사용합니다.
+
+
 
 **예제**
 
@@ -408,13 +421,13 @@ traces
 ```AIQL
     let Events = MyLogTable | where type=="Event" ;
     Events
-      | where Name == "Start"
-      | project Name, City, ActivityId, StartTime=timestamp
-      | join (Events
+    | where Name == "Start"
+    | project Name, City, ActivityId, StartTime=timestamp
+    | join (Events
            | where Name == "Stop"
            | project StopTime=timestamp, ActivityId)
         on ActivityId
-      | project City, ActivityId, StartTime, StopTime, Duration, StopTime, StartTime
+    | project City, ActivityId, StartTime, StopTime, Duration, StopTime, StartTime
 
 ```
 
@@ -442,7 +455,7 @@ traces
 
 동적 형식(JSON)의 셀에서 각 항목이 별도의 행을 가진 목록을 확장합니다. 확장된 행의 모든 다른 셀이 중복됩니다. 
 
-(반대 기능을 수행하는 [`summarize makelist`](#summarize-operator) 을(를) 참조하세요.)
+(반대 기능을 수행하는 [`summarize makelist`](#summarize-operator)을(를) 참조하세요.)
 
 **예제**
 
@@ -493,7 +506,7 @@ traces
 **예**
 
     exceptions | take 1 
-      | mvexpand details[0]
+    | mvexpand details[0]
 
 예외 레코드를 세부 정보 필드의 각 항목에 대한 행으로 분할합니다.
 
@@ -507,7 +520,7 @@ traces
     with * "got" counter:long " " present "for" * "was" year:long * 
 
     T |  parse kind=regex "I got socks for my 63rd birthday" 
-    with "(I|She) got" present "for .*?" year:long * 
+    with "(I|She) got " present " for .*?" year:long * 
 
 문자열에서 값을 추출합니다. simple 또는 보통의 식 일치를 사용할 수 있습니다.
 
@@ -603,21 +616,21 @@ traces
 // Run a test without reading a table:
 range x from 1 to 1 step 1 
 // Test string:
-| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)" 
+| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 07:31, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 06:20:00 ) }" 
 // Parse it:
 | parse kind=regex s 
-  with ".*?[a-zA-Z]*=" resource 
+  with ".*?=" resource 
        ", total.*?sliceNumber=" slice:long *
        "lockTime=" lock
        ",.*?releaseTime=" release 
        ",.*?previousLockTime=" previous:date 
-       ".*\\)"
+       @".*\)" *
 | project-away x, s
 ```
 
 | resource | slice | lock | 릴리스 | previous |
 | --- | --- | --- | --- | --- |
-| 스케줄러 |16 |02/17/2016 08:41:00 |02/17/2016 08:41 |2016-02-17T08:40:00Z |
+| 스케줄러 |16 |02/17/2016 07:31:00 |02/17/2016 08:41 |2016-02-17T06:20:00Z |
 
 ### <a name="project-operator"></a>project 연산자
     T | project cost=price*quantity, price
@@ -654,7 +667,7 @@ T
     ['where'] = client_City // rename, using a keyword as a column name
 ```
 
-### <a name="projectaway-operator"></a>project-away 연산자
+### <a name="project-away-operator"></a>project-away 연산자
     T | project-away column1, column2, ...
 
 지정된 열을 제외합니다. 결과는 이름을 지정하는 것을 제외하고 모든 입력 열을 포함합니다.
@@ -791,7 +804,7 @@ Traces
 입력된 테이블의 내용을 집계하는 테이블을 생성합니다.
 
     requests
-      | summarize count(), avg(duration), makeset(client_City) 
+    | summarize count(), avg(duration), makeset(client_City) 
       by client_CountryOrRegion
 
 숫자, 평균 요청 기간 및 각 국가의 도시 집합을 표시하는 테이블입니다. 각 고유 국가에 대한 출력의 행이 있습니다. 출력 열은 개수, 평균 기간, 도시 및 국가를 표시합니다. 모든 다른 입력된 열은 무시됩니다.
@@ -821,11 +834,11 @@ Traces
 
 입력 행은 `by` 식의 같은 값을 가진 그룹으로 배열됩니다. 그런 다음 지정된 집계 함수를 각 그룹에 대해 계산하여 각 그룹에 대해 한 행을 생성합니다. 결과는 `by` 열 및 계산된 각 집계에 대해 열을 하나 이상 포함하고 있습니다. (일부 집계 함수는 여러 열을 반환합니다.)
 
-결과는 `by` 값의 고유 조합의 수만큼 행이 있습니다. 숫자 값의 범위에 대해 요약하려면 `bin()` 을(를) 사용하여 불연속 값으로 범위를 줄입니다.
+결과는 `by` 값의 고유 조합의 수만큼 행이 있습니다. 숫자 값의 범위에 대해 요약하려면 `bin()`을(를) 사용하여 불연속 값으로 범위를 줄입니다.
 
 **참고**
 
-집계와 그룹화 식에 대해 모두 임의 식을 제공할 수 있지만 단순 열 이름을 사용하거나 `bin()` 을(를) 숫자 열에 적용하는 것이 더 효율적입니다.
+집계와 그룹화 식에 대해 모두 임의 식을 제공할 수 있지만 단순 열 이름을 사용하거나 `bin()`을(를) 숫자 열에 적용하는 것이 더 효율적입니다.
 
 ### <a name="take-operator"></a>take 연산자
  [limit](#limit-operator)의 별칭
@@ -850,12 +863,12 @@ Traces
 
 `top 5 by name`은(는) 외관상으로는 `sort by name | take 5`와(과) 동일하지만 그러나 이는 더 빠르게 실행되며 언제나 정렬된 결과를 반환하는 반면에, `take` 은 그러한 실행과 결과가 보장되지 않습니다.
 
-### <a name="topnested-operator"></a>top-nested 연산자
+### <a name="top-nested-operator"></a>top-nested 연산자
     requests 
-      | top-nested 5 of name by count()  
+    | top-nested 5 of name by count()  
     , top-nested 3 of performanceBucket by count() 
     , top-nested 3 of client_CountryOrRegion by count()
-      | render barchart 
+    | render barchart 
 
 각 수준이 이전 수준에서의 드릴다운에 해당하는 계층적 결과를 생성합니다. 이 연산자는 "상위 5개의 요청은 무엇이며, 각각에 대해 상위 3개의 성능 버킷은 무엇이며, 각각에 대해 요청이 시작된 상위 3개 국가는 어느 것입니까?"와 같은 질문에 답변하는 데 유용합니다.
 
@@ -884,7 +897,7 @@ Traces
 
 * *Table1*, *Table2* ...
   * `requests`와(과) 같은 테이블의 이름 또는 [let 절](#let-clause)에 정의된 테이블 또는
-  * `(requests | where success=="True")`
+  *  `(requests | where success=="True")`
   * 와일드 카드를 사용하여 지정한 테이블 집합입니다. 예를 들어 `e*`은(는) 'exceptions' 테이블과 함께 이름이 'e'로 시작하는 이전 let 절에 정의된 모든 테이블의 합집합을 형성합니다.
 * `kind`: 
   * `inner` - 결과에는 모든 입력 테이블에 공통인 열의 하위 집합이 있습니다.
@@ -895,35 +908,51 @@ Traces
 
 모든 입력 테이블에 있는 만큼의 행과 입력에서 고유한 열이 있는 만큼의 열을 가진 테이블을 반환합니다.
 
+행에 순서대로 표시된다고 보장할 수 없습니다.
+
 **예제**
 
-```AIQL
-
-let ttrr = requests | where timestamp > ago(1h);
-let ttee = exceptions | where timestamp > ago(1h);
-union tt* | count
-```
 이름이 "tt"로 시작하는 모든 테이블의 합집합입니다.
 
-**예제**
-
 ```AIQL
 
-union withsource=SourceTable kind=outer Query, Command
-| where Timestamp > ago(1d)
-| summarize dcount(UserId)
+    let ttrr = requests | where timestamp > ago(1h);
+    let ttee = exceptions | where timestamp > ago(1h);
+    union tt* | count
 ```
+
+**예제**
+
 전날에 `exceptions` 이벤트 또는 `traces` 이벤트를 생성한 고유 사용자 수입니다. 결과에서 'SourceTable' 열은 "쿼리" 또는 "명령"을 나타냅니다.
 
 ```AIQL
-exceptions
-| where Timestamp > ago(1d)
-| union withsource=SourceTable kind=outer 
-   (Command | where Timestamp > ago(1d))
-| summarize dcount(UserId)
+
+    union withsource=SourceTable kind=outer Query, Command
+    | where Timestamp > ago(1d)
+    | summarize dcount(UserId)
 ```
 
 더 효율적인 이 버전은 동일한 결과를 생성합니다. 합집합을 생성하기 전에 각 테이블을 필터링합니다.
+
+```AIQL
+
+    exceptions
+    | where Timestamp > ago(1d)
+    | union withsource=SourceTable kind=outer 
+       (Command | where Timestamp > ago(1d))
+    | summarize dcount(UserId)
+```
+
+### <a name="forcing-an-order-of-results"></a>강제로 결과 순서 지정
+
+합집합의 경우도 결과 행이 특정 순서로 표시된다고 보장할 수 없습니다.
+쿼리를 실행할 때마다 동일한 순서를 가져오려면 각 입력 테이블에 태그 열을 추가합니다.
+
+    let r1 = (traces | count | extend tag = 'r1');
+    let r2 = (requests | count| extend tag = 'r2');
+    let r3 = (pageViews | count | extend tag = 'r3');
+    r1 | union r2,r3 | sort by tag
+
 
 ### <a name="where-operator"></a>where 연산자
      requests | where resultCode==200
@@ -967,7 +996,7 @@ traces
 
 참고로 마지막 두 열은 인덱스를 이용할 수 없고 스캔을 강제로 실행하므로 해당 두 열 사이에 비교를 넣습니다.
 
-### <a name="wherein-operator"></a>where-in 연산자
+### <a name="where-in-operator"></a>where-in 연산자
     requests | where resultCode !in (200, 201)
 
     requests | where resultCode in (403, 404)
@@ -1017,7 +1046,7 @@ traces
 
 *ExprToMaximize*를 최소화/최대화하는 그룹의 행을 찾고 *ExprToReturn* (또는 `*`전체 행을 반환하려면)의 값을 반환합니다.
 
-**팁**: 통과된 열의 이름은 자동으로 바뀝니다. 올바른 이름을 사용하고 있는지 확인하려면 결과를 다른 연산자에 파이프하기 전에 `take 5` 을(를) 사용하여 결과를 검사합니다.
+**팁**: 통과된 열의 이름은 자동으로 바뀝니다. 올바른 이름을 사용하고 있는지 확인하려면 결과를 다른 연산자에 파이프하기 전에 `take 5`을(를) 사용하여 결과를 검사합니다.
 
 **예**
 
@@ -1033,7 +1062,7 @@ traces
 각 메트릭의 가장 낮은 값을 해당 타임스탬프 및 다른 데이터와 함께 찾습니다.
 
     metrics 
-      | summarize minValue=argmin(value, *) 
+    | summarize minValue=argmin(value, *) 
       by name
 
 
@@ -1167,7 +1196,7 @@ traces
 **예제**
 
     pageViews 
-      | summarize cities=dcount(client_City) 
+    | summarize cities=dcount(client_City) 
       by client_CountryOrRegion
 
 ![](./media/app-insights-analytics-reference/dcount.png)
@@ -1186,7 +1215,7 @@ traces
 **예제**
 
     pageViews 
-      | summarize cities=dcountif(client_City, client_City startswith "St") 
+    | summarize cities=dcountif(client_City, client_City startswith "St") 
       by client_CountryOrRegion
 
 
@@ -1207,7 +1236,7 @@ traces
 **예제**
 
     pageViews 
-      | summarize cities=makeset(client_City) 
+    | summarize cities=makeset(client_City) 
       by client_CountryOrRegion
 
 ![](./media/app-insights-analytics-reference/makeset.png)
@@ -1252,7 +1281,7 @@ traces
 샘플 집합의 95%보다는 크고 5%보다는 작은 `duration` 의 값을 각 요청 이름에 대해 계산하는 함수는 다음과 같습니다.
 
     request 
-      | summarize percentile(duration, 95)
+    | summarize percentile(duration, 95)
       by name
 
 전체 테이블에 대해 계산하려면 “by...”를 생략합니다.
@@ -1260,7 +1289,7 @@ traces
 서로 다른 요청 이름에 대해 여러 백분위수를 동시에 계산합니다.
 
     requests 
-      | summarize 
+    | summarize 
         percentiles(duration, 5, 20, 50, 80, 95) 
       by name
 
@@ -1271,7 +1300,7 @@ traces
 여러 통계를 계산합니다.
 
     requests 
-      | summarize 
+    | summarize 
         count(), 
         avg(Duration),
         percentiles(Duration, 5, 50, 95)
@@ -1308,7 +1337,7 @@ Analytics에서 다음과 같은 이벤트 그룹이 표시됩니다.
 
     customEvents | summarize percentilesw(latency, opCount, 20, 50, 80)
 
-원래 측정 집합에서 기본적인 `percentiles` 을(를) 사용했을 때 얻는 결과와 같습니다.
+원래 측정 집합에서 기본적인 `percentiles`을(를) 사용했을 때 얻는 결과와 같습니다.
 
 > [!NOTE]
 > 가중치가 적용된 백분위 수는 [샘플링한 데이터](app-insights-sampling.md)에 적용할 수 없습니다. 샘플링된 데이터에서는 각 샘플링된 행이 bin이 아니라 원래 행의 무작위 샘플을 나타냅니다. 일반 백분위 수 함수는 샘플링된 데이터에 적합합니다.
@@ -1515,7 +1544,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
         | where floor(timestamp, 1d) == floor(ago(5d),1d) | count);
     // List the counts relative to that baseline:
     requests | summarize daycount = count() by floor(timestamp, 1d)  
-      | extend relative = daycount - baseline
+    | extend relative = daycount - baseline
 ```
 
 
@@ -1551,7 +1580,6 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 | * |곱하기 |
 | / |나누기 |
 | % |모듈로 |
-|  | |
 | `<` |더 작음 |
 | `<=` |작거나 같음 |
 | `>` |더 큼 |
@@ -1672,7 +1700,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 **반환**
 
-* `sqrt(x) * sqrt(x) == x`
+*  `sqrt(x) * sqrt(x) == x`
 * 인수가 음수이거나 `real` 값으로 변환할 수 없는 경우 `null`입니다. 
 
 ### <a name="toint"></a>toint
@@ -1935,7 +1963,7 @@ T | where ... | extend Elapsed=now() - timestamp
 정수 결과는 ISO 8601 표준에 따라 주차를 나타냅니다. 주의 첫째 요일은 일요일이고, 년의 첫째 주는 해당 년의 첫 번째 목요일을 포함하는 주입니다. 따라서 년의 마지막 주중 일에 다음 년의 첫째 주에 포함된 일부 일이 포함되거나, 첫째 주중 일에 이전 년의 52번째 또는 53번째 주 일부가 포함될 수 있습니다.
 
 ## <a name="string"></a>String
-[countof](#countof) | [추출](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [대체](#replace) | [분할](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
+[countof](#countof) | [추출](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [parseurl](#parseurl) | [대체](#replace) | [분할](#split) | [strcat](#strcat) | [strlen](#strlen) | [부분 문자열](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
 
 ### <a name="string-literals"></a>문자열 리터럴
 규칙은 JavaScript에서와 동일 합니다.
@@ -2099,7 +2127,35 @@ extract("^.{2,2}(.{4,4})", 1, Text)
     T | where isempty(fieldName) | count
 
 
+### <a name="parseurl"></a>parseurl
+URL을 해당 부분으로 분할합니다.
 
+**구문**
+
+    parseurl(urlstring)
+
+**인수**
+
+* *urlstring:* URL입니다.
+
+**반환**
+
+문자열로 부분을 포함하는 개체입니다.
+
+**예제**
+
+    parseurl("http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag")
+
+    {
+    "Scheme" : "http",
+    "Host" : "contoso.com",
+    "Port" : "80",
+    "Path" : "/icecream/buy.aspx",
+    "Username" : "user",
+    "Password" : "pass",
+    "Query Parameters" : {"a":"1","b":"2"},
+    "Fragment" : "tag"
+    }
 
 ### <a name="replace"></a>replace
 모든 정규식 일치 항목을 다른 문자열로 바꿉니다.
@@ -2233,7 +2289,7 @@ substring("ABCD", 0, 2)       // AB
 **Indexing:** JavaScript에서와 같은 인덱스 배열 및 개체입니다.
 
     exceptions | take 1
-      | extend 
+    | extend 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
@@ -2242,11 +2298,11 @@ substring("ABCD", 0, 2)       // AB
 **Casting:** 경우에 따라 형식이 달라질 수 있기 때문에 개체에서 추출하는 요소를 캐스트해야 합니다. 예를 들어 `summarize...to` 에 특정 형식이 필요합니다.
 
     exceptions 
-      | summarize count() 
+    | summarize count() 
       by toint(details[0].parsedStack[0].line)
 
     exceptions 
-      | summarize count() 
+    | summarize count() 
       by tostring(details[0].parsedStack[0].assembly)
 
 **Literals:** 명시적 배열 또는 속성 모음 개체를 만들려면 JSON 문자열로 쓰고 캐스트합니다.
@@ -2257,7 +2313,7 @@ substring("ABCD", 0, 2)       // AB
 **mvexpand:** 개체의 속성을 별도의 행으로 끌어오려면 mvexpand를 사용합니다.
 
     exceptions | take 1 
-      | mvexpand details[0].parsedStack[0]
+    | mvexpand details[0].parsedStack[0]
 
 
 ![](./media/app-insights-analytics-reference/410.png)
@@ -2265,8 +2321,8 @@ substring("ABCD", 0, 2)       // AB
 **treepath:** 복합 개체에서 모든 경로를 찾으려면 다음을 수행합니다.
 
     exceptions | take 1 | project timestamp, details 
-      | extend path = treepath(details) 
-      | mvexpand path
+    | extend path = treepath(details) 
+    | mvexpand path
 
 
 ![](./media/app-insights-analytics-reference/420.png)
@@ -2405,7 +2461,7 @@ path 식을 사용하여 JSON 텍스트에서 지정된 요소를 가져옵니�
 
 **성능 팁**
 
-* `extractjson()`
+*  `extractjson()`
 * 정규식 일치 사용은 [extract](#extract) 를 대신 사용하는 것으로 간주합니다. 이렇게 하면 훨씬 더 빠르게 실행될 수 있으며 JSON이 템플릿에서 생성된 경우 효과적입니다.
 * JSON에서 값을 둘 이상 추출해야 하는 경우 `parsejson()` 을 사용합니다.
 * 열 형식을 동적으로 선언하여 수집 시 JSON이 구문 분석되게 하는 것으로 간주합니다.
@@ -2548,6 +2604,9 @@ path 식의 배열입니다.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

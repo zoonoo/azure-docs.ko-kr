@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Domain Services에서 보안 LDAP(LDAPS) 구성 | Microsoft Docs"
-description: "Azure AD 도메인 서비스 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성"
+description: "Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -232,6 +232,6 @@ LDAPS 인증서를 .PFX 파일로 내보내려면 다음 단계를 수행합니�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

@@ -43,6 +43,6 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

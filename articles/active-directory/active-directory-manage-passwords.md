@@ -1,19 +1,23 @@
 ---
-title: Azure Active Directory에서 암호 관리하기 | Microsoft Docs
-description: Azure Active Directory에서 암호 관리하는 방법.
+title: "Azure Active Directory에서 암호 관리하기 | Microsoft Docs"
+description: "Azure Active Directory에서 암호 관리하는 방법."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a7679724-0ed5-4973-92e2-bd1285a6ef93
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 794b1e5deca6c3bda078e3ea9006d334bc3a8052
+
 
 ---
 # <a name="manage-passwords-in-azure-active-directory"></a>Azure Active Directory에서 암호 관리하기
@@ -29,8 +33,8 @@ ms.author: curtand
 
 > [!NOTE]
 > 중국 고객의 경우 전 세계의 Azure AD 인스턴스를 사용하여 Azure AD Premium을 사용할 수 있습니다. 중국의 21Vianet에서 운영하는 Microsoft Azure 서비스는 현재 Azure AD Premium을 지원하지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
-> 
-> 
+>
+>
 
 다음 링크를 사용하여 가장 관심 있는 설명서로 이동하세요.
 
@@ -43,11 +47,13 @@ ms.author: curtand
 * [Azure AD 암호 관리 문제 해결](active-directory-passwords-troubleshoot.md)
 * [Azure AD 암호 관리에 대한 FAQ](active-directory-passwords-faq.md)
 
-## <a name="what's-next"></a>다음 단계
+## <a name="whats-next"></a>다음 단계
 * [Azure AD 관리](active-directory-administer.md)
 * [Azure AD에서 사용자 만들기 또는 편집](active-directory-create-users.md)
 * [Azure AD에서 그룹 관리](active-directory-manage-groups.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO5-->
 
 

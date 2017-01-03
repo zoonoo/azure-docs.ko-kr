@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory에서 사용자 지정 도메인 이름의 개념적 개요 | Microsoft Docs
-description: Single Sign-On을 위한 페더레이션을 포함하여 Azure Active Directory에서 사용자 지정 도메인 이름 사용에 대한 개념적 프레임워크를 설명합니다.
+title: "Azure Active Directory에서 사용자 지정 도메인 이름의 개념적 개요 | Microsoft Docs"
+description: "Azure Active Directory에서 Single Sign-On을 위한 페더레이션을 포함하여 사용자 지정 도메인 이름을 사용하기 위한 개념적 프레임워크에 대해 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeffsta
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: curtand;jeffsta
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2faa2c270b192a9b3476fa911333f6abfabb1ee9
+
 
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 도메인 이름의 개념적 개요
@@ -58,6 +62,9 @@ Azure 클래식 포털 및 PowerShell에서 도메인 관리 작업을 완료할
 * [PowerShell을 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Azure AD Graph API를 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 

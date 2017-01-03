@@ -1,12 +1,12 @@
 ---
-title: Developer guide - jobs | Microsoft Docs
-description: Azure IoT Hub developer guide - scheduling jobs to run on multiple devices connected to your hub
+title: "개발자 가이드 - 작업 | Microsoft Docs"
+description: "Azure IoT Hub 개발자 가이드 - 허브에 연결된 여러 장치에서 실행할 작업 예약"
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,35 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
+translationtype: Human Translation
+ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
+ms.openlocfilehash: d57e52d2b97d226b62a356798a9e0b5fcabd1a00
+
 
 ---
-# <a name="schedule-jobs-on-multiple-devices-(preview)"></a>Schedule jobs on multiple devices (preview)
-## <a name="overview"></a>Overview
-As described by previous articles, Azure IoT Hub enables a number of building blocks ([device twin properties and tags][lnk-twin-devguide] and [cloud-to-device methods][lnk-dev-methods]).  Typically, IoT back end applications enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time.  Jobs encapsulate the execution of device twin updates and C2D methods against a set of devices at a schedule time.  For example, an operator would use a back end application that would initiate and track a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
+# <a name="schedule-jobs-on-multiple-devices"></a>여러 장치에서 작업 예약
+## <a name="overview"></a>개요
+이전 문서에 설명된 대로, Azure IoT Hub를 통해 다양한 구성 요소([장치 쌍 속성 및 태그][lnk-twin-devguide] 및 [직접 메서드][lnk-dev-methods])를 사용할 수 있습니다.  일반적으로, IoT 백 엔드 응용 프로그램을 사용하면 장치 관리자 및 운영자는 IoT 장치를 대량으로 및 예약된 시간에 업데이트 및 조작할 수 있습니다.  작업은 예약된 시간에 장치 집합에 대해 장치 쌍 업데이트 및 직접 메서드를 실행하는 것을 캡슐화합니다.  예를 들어 운영자는 빌딩 운영에 지장을 주지 않는 시간에 빌딩 43 및 3층에서 장치 집합을 재부팅하기 위해 작업을 시작 및 추적하는 백 엔드 응용 프로그램을 사용합니다.
 
-### <a name="when-to-use"></a>When to use
-Consider using jobs when: a solution back end needs to schedule and track progress any of the following activities on a set of device:
+### <a name="when-to-use"></a>사용하는 경우
+솔루션 백 엔드가 장치 집합에서 다음 작업을 예약하고 진행 상태를 추적해야 하는 경우 작업을 사용하는 것이 좋습니다.
 
-* Update device twin desired properties
-* Update device twin tags
-* Invoke C2D methods
+* desired 속성 업데이트
+* 태그 업데이트
+* 직접 메서드 호출
 
-## <a name="job-lifecycle"></a>Job lifecycle
-Jobs are initiated by the solution back end and maintained by IoT Hub.  You can initiate a job through a service-facing URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-09-30-preview`) and query for progress on an executing job through a service-facing URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-09-30-preview`).  Once a job is initiated, querying for jobs will enable the back end application to refresh the status of running jobs.
+## <a name="job-lifecycle"></a>작업 수명 주기
+작업은 솔루션 백 엔드에 의해 시작되고 IoT Hub에 의해 유지 관리됩니다.  서비스 지향 URI(`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-09-30-preview`)를 통해 작업을 시작하고 서비스 지향 URI(`{iot hub}/jobs/v2/<jobId>?api-version=2016-09-30-preview`)를 통해 작업 실행 진행 상태를 쿼리할 수 있습니다.  작업이 시작된 후에는 작업 쿼리를 통해 백 엔드 응용 프로그램에서 실행 중인 작업의 상태를 새로 고칠 수 있습니다.
 
 > [!NOTE]
-> When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
+> 작업을 시작할 때 속성 이름과 값은 US-ASCII로 출력 가능한 영숫자만 포함할 수 있으며 다음 집합은 제외됩니다. ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 > 
 
-## <a name="reference"></a>Reference
-For all HTTP requests, see the following references:
+## <a name="reference-topics"></a>참조 항목:
+다음 참조 항목에서는 작업 사용에 대한 자세한 정보를 제공합니다.
 
-* Query condition: [Details for querying of twins][lnk-query]
-* Method details: [Details for C2D methods][lnk-dev-methods]
-
-## <a name="jobs-to-execute-c2d-methods"></a>Jobs to execute C2D methods
-The following is the HTTP 1.1 request details for executing a C2D method on a set of devices using a job:
+## <a name="jobs-to-execute-direct-methods"></a>직접 메서드를 실행할 작업
+작업을 사용하여 장치 집합에서 [직접 메서드][lnk-dev-methods]를 실행하기 위한 HTTP 1.1 요청 세부 정보는 다음과 같습니다.
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-09-30-preview
@@ -67,8 +68,8 @@ The following is the HTTP 1.1 request details for executing a C2D method on a se
     }
     ```
 
-## <a name="jobs-to-update-device-twin-properties"></a>Jobs to update device twin properties
-The following is the HTTP 1.1 request details for updating device twin properties using a job:
+## <a name="jobs-to-update-device-twin-properties"></a>장치 쌍 속성을 업데이트하는 작업
+작업을 사용하여 장치 쌍 속성을 업데이트하는 HTTP 1.1 요청 세부 정보는 다음과 같습니다.
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-09-30-preview
@@ -88,8 +89,8 @@ The following is the HTTP 1.1 request details for updating device twin propertie
     }
     ```
 
-## <a name="querying-for-progress-on-jobs"></a>Querying for progress on jobs
-The following is the HTTP 1.1 request details for querying for jobs:
+## <a name="querying-for-progress-on-jobs"></a>작업 진행 상태 쿼리
+[작업 쿼리][lnk-query]를 위한 HTTP 1.1 요청 세부 정보는 다음과 같습니다.
 
     ```
     GET /jobs/v2/query?api-version=2016-09-30-preview[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
@@ -100,51 +101,51 @@ The following is the HTTP 1.1 request details for querying for jobs:
     User-Agent: <sdk-name>/<sdk-version>
     ```
 
-The continuationToken is provided from the response.  
+응답에서 continuationToken이 제공됩니다.  
 
-## <a name="jobs-properties"></a>Jobs Properties
-The following is a list of properties and corresponding descriptions, which can be used when querying for jobs or job results.
+## <a name="jobs-properties"></a>작업 속성
+작업 또는 작업 결과를 쿼리할 때 사용할 수 있는 속성 목록 및 해당 설명은 다음과 같습니다.
 
-| Property | Description |
+| 속성 | 설명 |
 | --- | --- |
-| **jobId** |Application provided ID for the job. |
-| **startTime** |Application provided start time (ISO-8601) for the job. |
-| **endTime** |IoT Hub provided date (ISO-8601) for when the job completed. Valid only after the job reaches the 'completed' state. |
-| **type** |Types of jobs: |
-| **scheduledUpdateTwin**: A job used to update a set of twin desired properties or tags. | |
-| **scheduledDeviceMethod**: A job used to invoke a device method on a set of twin. | |
-| **status** |Current state of the job. Possible values for status: |
-| **pending** : Scheduled and waiting to be picked up by the job service. | |
-| **scheduled** : Scheduled for a time in the future. | |
-| **running** : Currently active job. | |
-| **cancelled** : Job has been cancelled. | |
-| **failed** : Job failed. | |
-| **completed** : Job has completed. | |
-| **deviceJobStatistics** |Statistics about the job's execution. |
+| **jobId** |작업에 대해 응용 프로그램에서 제공한 ID입니다. |
+| **startTime** |작업에 대해 응용 프로그램에서 제공한 시작 시간(ISO-8601)입니다. |
+| **endTime** |작업이 완료될 때 IoT Hub에서 제공한 날짜(ISO-8601)입니다. 작업이 '완료됨' 상태에 도달한 후에만 유효합니다. |
+| **type** |작업 형식: |
+| **scheduledUpdateTwin**: desired 속성 또는 태그 집합을 업데이트하는 데 사용되는 작업입니다. | |
+| **scheduledDeviceMethod**: 장치 쌍 집합에서 장치 메서드를 호출하는 데 사용되는 작업입니다. | |
+| **상태** |작업의 현재 상태입니다. 가능한 상태 값: |
+| **보류 중** : 예약되어 작업 서비스에서 선택되기를 기다립니다. | |
+| **예약됨** : 이후 시간에 예약됩니다. | |
+| **실행 중** : 현재 활성 상태의 작업입니다. | |
+| **취소됨** : 작업이 취소되었습니다. | |
+| **실패함** : 작업이 실패했습니다. | |
+| **완료됨** : 작업이 완료되었습니다. | |
+| **deviceJobStatistics** |작업 실행에 대한 통계입니다. |
 
-During the preview, the deviceJobStatistics object is available only after the job is completed.
+미리 보기 중에는 deviceJobStatistics 개체를 작업이 완료된 후에만 사용할 수 있습니다
 
-| Property | Description |
+| 속성 | 설명 |
 | --- | --- |
-| **deviceJobStatistics.deviceCount** |Number of devices in the job. |
-| **deviceJobStatistics.failedCount** |Number of devices where the job failed. |
-| **deviceJobStatistics.succeededCount** |Number of devices where the job succeeded. |
-| **deviceJobStatistics.runningCount** |Number of devices that are currently running the job. |
-| **deviceJobStatistics.pendingCount** |Number of devices that are pending to run the job. |
+| **deviceJobStatistics.deviceCount** |작업에서 장치 수입니다. |
+| **deviceJobStatistics.failedCount** |작업이 실패한 장치 수입니다. |
+| **deviceJobStatistics.succeededCount** |작업이 성공한 장치 수입니다. |
+| **deviceJobStatistics.runningCount** |현재 작업을 실행 중인 장치 수입니다. |
+| **deviceJobStatistics.pendingCount** |작업 실행이 보류 중인 장치 수입니다. |
 
-### <a name="additional-reference-material"></a>Additional reference material
-Other reference topics in the Developer Guide include:
+### <a name="additional-reference-material"></a>추가 참조 자료
+개발자 가이드의 다른 참조 자료:
 
-* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
-* [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [Query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
-* [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
+* [IoT Hub 끝점][lnk-endpoints]에서는 각 IoT Hub가 런타임 및 관리 작업에 노출하는 다양한 끝점을 설명합니다.
+* [제한 및 할당량][lnk-quotas]에서는 IoT Hub 서비스에 적용되는 할당량과 서비스를 언제 사용할지 예상하는 제한 동작을 설명합니다.
+* [Azure IoT 장치 및 서비스 SDK][lnk-sdks]에는 IoT Hub와 상호 작용하는 장치 및 서비스 응용 프로그램을 개발할 때 사용할 수 있는 다양한 언어 SDK가 나열되어 있습니다.
+* [장치 쌍 및 작업용 IoT Hub 쿼리 언어][lnk-query]에는 IoT Hub에서 장치 쌍 및 작업에 대한 내용을 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어가 설명되어 있습니다.
+* [IoT Hub MQTT 지원][lnk-devguide-mqtt]에는 MQTT 프로토콜에 대한 IoT Hub 지원에 대하여 자세한 정보가 제공됩니다.
 
-## <a name="next-steps"></a>Next steps
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
+## <a name="next-steps"></a>다음 단계
+이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 살펴보세요.
 
-* [Schedule and broadcast jobs][lnk-jobs-tutorial]
+* [작업 예약 및 브로드캐스트][lnk-jobs-tutorial]
 
 <!-- links and images -->
 
@@ -153,14 +154,14 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-jobs-tutorial]: iot-hub-schedule-jobs.md
-[lnk-c2d-methods]: iot-hub-c2d-methods.md
+[lnk-jobs-tutorial]: iot-hub-node-node-schedule-jobs.md
+[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

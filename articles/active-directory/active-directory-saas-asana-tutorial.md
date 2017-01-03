@@ -112,7 +112,7 @@ Asana에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. 로그인 URL 텍스트 상자에서 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://app.asana.com`
 
-    c. **Next**를 클릭합니다.
+    c. **다음**을 클릭합니다.
 
 1. **Asana에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 파일을 컴퓨터에 저장합니다. 또한 SAML SSO URL에 대한 값을 복사합니다.
    
@@ -219,7 +219,7 @@ Asana에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 이 섹션은 Azure AD Single Sign-On을 테스트하기 위한 것입니다.
 
-Asana 로그인 페이지로 이동합니다. 전자 메일 주소 텍스트 상자에서 전자 메일 주소 britta.simon@contoso.com. 암호 텍스트 상자를 비어 있는 상태로 둔 다음 **로그인**을 참조하세요. Azure AD 로그인 페이지로 리디렉션됩니다. Azure AD 자격 증명을 완료합니다. 이제 Asana에 로그인되었습니다.
+Asana 로그인 페이지로 이동합니다. 전자 메일 주소 텍스트 상자에서 전자 메일 주소 britta.simon@contoso.com을(를) 삽입합니다. 암호 텍스트 상자를 비워 둔 다음 **로그인**을 클릭합니다. Azure AD 로그인 페이지로 리디렉션됩니다. Azure AD 자격 증명을 완료합니다. 이제 Asana에 로그인되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
@@ -248,6 +248,6 @@ Asana 로그인 페이지로 이동합니다. 전자 메일 주소 텍스트 상
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

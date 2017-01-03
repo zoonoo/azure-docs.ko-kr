@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
+ms.sourcegitcommit: 4e2508883998b1435d7c4f099bd6ef0e00bd885e
+ms.openlocfilehash: 4f9127ca06668884e6b6f5dbc81aad0a2b1ea9df
 
 
 ---
@@ -50,7 +50,7 @@ ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
 * [2단계: 테스트 사용자에 대한 연락처 데이터 추가](#step-2-add-contact-data-for-your-test-user)
 * [3단계: 사용자로 암호 재설정](#step-3-reset-your-azure-ad-password-as-a-user)
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>선행 조건
 셀프 서비스 암호 재설정을 사용하도록 설정하고 사용하기 전에, 다음 필수 조건을 완료해야 합니다.
 
 * AAD 테넌트를 만듭니다. 자세한 내용은 [Azure AD Premium 시작](https://azure.microsoft.com/trial/get-started-active-directory/)
@@ -104,7 +104,7 @@ ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
 * [Azure 클래식 포털](https://manage.windowsazure.com) 또는 [Office 365 관리자 포털](https://portal.microsoftonline.com)에서 사용자를 편집합니다.
 * AAD Connect를 사용하여 온-프레미스 Active Directory 도메인에서 Azure AD로 사용자 속성을 동기화합니다.
 * Windows PowerShell을 사용하여 사용자 속성을 편집합니다.
-*  [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)의 등록 포털로 안내하여 사용자는 사용자 자신의 데이터를 등록할 수 있습니다.
 * **사용자가 액세스 패널에 로그인할 때 등록해야 함** SSPR 구성 옵션을 **예**로 설정하여 [http://myapps.microsoft.com](http://myapps.microsoft.com)의 액세스 패널에 로그인할 때 암호 재설정을 위해 사용자를 등록해야 합니다.
 
 암호 재설정으로 사용되는 데이터 및 이 데이터에 대한 형식 요구사항에 대해 자세히 알아보려면 [암호 재설정에서 사용되는 데이터](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset)를 참조하세요.
@@ -185,7 +185,7 @@ ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
   > 이전 버전의 Windows Server 2008 또는 2008 R2를 실행 중인 경우, 이 기능을 여전히 사용할 수 있지만 클라우드에서 로컬 AD 암호 정책을 적용할 수 있으려면 [KB 2386717를 다운로드하고 설치](https://support.microsoft.com/kb/2386717) 해야 합니다.
   > 
   > 
-* Azure AD Connect 도구가 설치되어 있고 클라우드로 동기화할 AD 환경을 준비합니다.  자세한 내용은 [클라우드에서 온-프레미스 ID 인프라 사용](active-directory-aadconnect.md)을 참조하세요.
+* Azure AD Connect 도구가 설치되어 있고 클라우드로 동기화할 AD 환경을 준비합니다.  자세한 내용은 [클라우드에서 온-프레미스 ID 인프라 사용](connect/active-directory-aadconnect.md)을 참조하세요.
   
   > [!NOTE]
   > 비밀번호 쓰기 저장을 테스트하기 전에 먼저 Azure AD Connect의 AD와 Azure AD에서 모두 전체 가져오기 및 전체 동기화를 완료하도록 합니다.
@@ -199,7 +199,7 @@ ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
   > 
 
 ### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>1단계: 최신 버전의 Azure AD Connect 다운로드
-암호 쓰기 저장은 Azure AD Connect 또는 **1.0.0419.0911** 이상의 버전이 있는 Azure AD Sync 도구의 릴리스에서 사용 가능합니다.  자동 계정 잠금 해제가 있는 암호 쓰기 저장은 Azure AD Connect 또는 **1.0.0485.0222** 이상의 버전이 있는 Azure AD Sync 도구의 릴리스에서 사용 가능합니다. 이전 버전을 실행하는 경우 진행하기 전에 적어도 이 버전으로 업그레이드합니다. [여기를 클릭하여 최신 버전의 Azure AD Connect를 다운로드합니다](active-directory-aadconnect.md#install-azure-ad-connect).
+암호 쓰기 저장은 Azure AD Connect 또는 **1.0.0419.0911** 이상의 버전이 있는 Azure AD Sync 도구의 릴리스에서 사용 가능합니다.  자동 계정 잠금 해제가 있는 암호 쓰기 저장은 Azure AD Connect 또는 **1.0.0485.0222** 이상의 버전이 있는 Azure AD Sync 도구의 릴리스에서 사용 가능합니다. 이전 버전을 실행하는 경우 진행하기 전에 적어도 이 버전으로 업그레이드합니다. [여기를 클릭하여 최신 버전의 Azure AD Connect를 다운로드합니다](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### <a name="to-check-the-version-of-azure-ad-sync"></a>Azure AD Sync의 버전을 확인하려면
 1. **%ProgramFiles%\Azure Active Directory Sync\**로 이동합니다.
@@ -256,12 +256,40 @@ ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>3단계: 방화벽 구성
-Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 후, 서비스가 클라우드에 연결할 수 있는지 확인해야 합니다.
+비밀번호 쓰기 저장을 사용하도록 설정한 후에 Azure AD Connect를 실행하는 컴퓨터에서 비밀번호 쓰기 저장 요청을 수신하도록 Microsoft 클라우드 서비스에 연결할 수 있는지 확인해야 합니다. 이 단계에서는 Microsoft에서 소유한 특정 URL 및 특정 네트워크 포트를 통한 IP 주소에 대한 아웃바운드 연결을 허용하도록 네트워크 어플라이언스(프록시 서버, 방화벽 등)에서의 연결 규칙을 업데이트하는 것을 포함합니다. 이러한 변경은 Azure AD Connect 도구 버전에 따라 달라질 수도 있습니다. 자세한 컨텍스트는 [비밀번호 쓰기 저장의 작동 원리](active-directory-passwords-learn-more.md#how-password-writeback-works) 및 [비밀번호 쓰기 저장 보안 모델](active-directory-passwords-learn-more.md#password-writeback-security-model)에서 자세히 알아볼 수 있습니다.
 
-1. 설치가 완료되면, 사용자 환경에서 알 수 없는 아웃바운드 연결을 차단한 경우 방화벽에 다음 규칙도 추가해야 합니다. 변경한 후 AAD Connect 컴퓨터를 다시 부팅해야 합니다.
-   * 포트 443 TCP를 통한 아웃바운드 연결 허용
-   * https://ssprsbprodncu-sb.accesscontrol.windows.net/에 대한 아웃바운드 연결 허용
-   * 프록시를 사용하거나 일반적인 연결 문제가 있는 경우, 포트 9350-9354 및 포트 5671 TCP를 통한 아웃바운드 연결 허용
+#### <a name="why-do-i-need-to-do-this"></a>이렇게 하는 것이 왜 필요한가요?
+
+비밀번호 쓰기 저장이 제대로 작동하려면, Azure AD Connect를 실행하는 컴퓨터가 [Microsoft Azure 데이터 센터 IP 범위 목록](https://www.microsoft.com/download/details.aspx?id=41653)에 정의된 대로 **. servicebus.windows.net* 및 Azure에서 사용되는 특정 IP 주소에 대한 아웃바운드 HTTPS 연결을 설정할 수 있어야 합니다.
+
+Azure AD Connect의 경우 도구 버전 1.0.8667.0 이상:
+
+- **옵션 1:** 포트 443 통해 모든 아웃바운드 HTTPS 연결을 허용합니다.(URL 또는 IP 주소 사용)
+    - 이것을 사용해야 하는 경우:
+        - Azure Datacenter IP 범위가 시간이 지남에 따라 변경될 때 업데이트해야 할 필요가 없는 가장 간단한 구성을 원할 경우 이 옵션을 사용합니다.
+    - 필요한 단계:
+        - URL 또는 IP 주소 사용하여 포트 443 통해 모든 아웃바운드 HTTPS 연결을 허용합니다.
+<br><br>
+- **옵션 2:** 특정 IP 범위 및 URL에 대한 아웃바운드 HTTPS 연결을 허용합니다.
+    - 이것을 사용해야 하는 경우:
+        - 네트워크 환경이 제한적이거나 다음 아웃바운드 연결을 허용하는 것에 대해 불편하게 느껴질 경우 이 옵션을 사용합니다.
+        - 이 구성에서 비밀번호 쓰기 저장이 정상적으로 계속 작동하게 하려면 네트워킹 어플라이언스가 매주 Microsoft Azure Datacenter IP Ranges 목록에서 최신 IP를 받아 업데이트된 상태를 유지하는지 확인해야 합니다. 이러한 IP 범위는 XML 파일 형태로 제공되며 매주 수요일(태평양 표준시)에 업데이트되고 다음 월요일(태평양 표준시)에 발효됩니다.
+    - 필요한 단계:
+        - *. Servicebus.windows.net에 모든 아웃바운드 HTTPS 연결을 허용합니다.
+        - Microsoft Azure Datacenter IP Ranges 목록에 있는 모든 IP에 대한 모든 아웃바운드 HTTPS 연결을 허용하며 이 구성은 매주 업데이트됩니다.
+
+> [!NOTE]
+> 위의 지침에 따라 비밀번호 쓰기 저장을 구성했고 Azure AD Connect 이벤트 로그에 오류가 보이지 않으나, 테스트할 때 연결 오류가 발생한다면 사용자 환경에 있는 네트워킹 어플라이언스가 IP 주소에 대한 HTTPS 연결을 차단하는 경우일 수도 있습니다. 예를 들어, *https://*. servicebus.windows.net*에 대한 연결이 허용되는 반면에 해당 범위 내의 특정 IP 주소에 대한 연결이 차단될 수도 있습니다. 이 문제를 해결하려면 포트 443 통해 모든 URL 또는 IP 주소에 대한 모든 아웃바운드 HTTPS 연결을 허용 하거나(위의 옵션 1), 네트워크 팀과 함께 특정 IP 주소에 대한 HTTPS 연결을 명시적으로 허용하도록(위의 옵션 2) 네트워킹 환경을 구성할 필요가 있습니다.
+
+**이전 버전:**
+
+- 포트 443, 9350-9354 및 5671을 통한 아웃바운드 TCP 연결 허용 
+- *https://ssprsbprodncu-sb.accesscontrol.windows.net/*에 대한 아웃바운드 연결을 허용합니다.
+
+> [!NOTE]
+> Azure AD Connect 버전이 1.0.8667.0 이전이라면 구성을 쉽게 할 수 있도록 여러 비밀번호 쓰기 저장 네트워킹 기능을 향상시킨 [Azure AD Connect 최신 버전](https://www.microsoft.com/download/details.aspx?id=47594)으로 업그레이드하는 것이 좋습니다.
+
+네트워크 어플라이언스를 구성한 후 Azure AD Connect 도구를 실행하는 컴퓨터를 다시 부팅합니다.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>4단계: 적절한 Active Directory 사용 권한 설정
 암호를 재설정한 사용자를 포함한 모든 포리스트의 경우, X가 구성 마법사에서 해당 포리스트에 대해 지정된 계정이면(초기 구성 중), X는 **암호 재설정**, **암호 변경**, `lockoutTime`에서 **쓰기 권한**, `pwdLastSet`에서 **쓰기 권한**를 제공하며 해당 포리스트에서 각 도메인의 루트 개체에 대한 권한을 확장합니다. 오른쪽은 모든 사용자 개체에서 상속된 것으로 표시되어야 합니다.  
@@ -325,9 +353,9 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
-* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다.
+* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다
 * [**FAQ**](active-directory-passwords-faq.md) -자주 묻는 질문에 답변합니다.
-* [**문제 해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스의 문제를 해결하는 방법에 대해 알아봅니다.
+* [**문제해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스와의 문제를 해결하는 방법에 대해 알아봅니다.
 * [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
 
 [001]: ./media/active-directory-passwords-getting-started/001.jpg "Image_001.jpg"
@@ -365,6 +393,6 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

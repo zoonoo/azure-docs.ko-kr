@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
-ms.openlocfilehash: 9d9ddbddb1039f56c420cb8f10dfa9bb82788b72
+ms.sourcegitcommit: 3fdd561bba898b0e790f69a82ed731d7fd87d8c8
+ms.openlocfilehash: 7cf9fe659a91816e42394c1377232e122fe924a6
 
 
 ---
@@ -48,7 +48,7 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
-| response_type |필수 |요청된 응답 유형을 지정합니다. 클라이언트 자격 증명 부여 흐름에서 값은 **client_credentials**이어야 합니다. |
+| grant_type |필수 |요청된 응답 유형을 지정합니다. 클라이언트 자격 증명 부여 흐름에서 값은 **client_credentials**이어야 합니다. |
 | client_id |필수 |호출 웹 서비스의 Azure AD 클라이언트 ID를 지정합니다. Azure 관리 포털에서 호출 응용 프로그램의 클라이언트 ID를 찾으려면, **Active Directory**을 클릭하고, 디렉터리를 클릭하고, 응용 프로그램을 클릭한 후 **구성**을 클릭합니다. |
 | client_secret |필수 |Azure AD에서 호출 웹 서비스에 등록된 키를 입력합니다. Azure 관리 포털에서 키를 생성하려면, **Active Directory**을 클릭하고, 디렉터리를 클릭하고, 응용 프로그램을 클릭한 후 **구성**을 클릭합니다. |
 | resource |필수 |수신 웹 서비스의 앱 ID URI를 입력합니다. Azure 관리 포털에서 앱 ID URI을 찾으려면, **Active Directory**을 클릭하고, 디렉터리를 클릭하고, 응용 프로그램을 클릭한 후 **구성**을 클릭합니다. |
@@ -93,6 +93,6 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

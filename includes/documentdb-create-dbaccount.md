@@ -1,4 +1,4 @@
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. 새 창에서 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 표시줄에서 **새로 만들기**를 클릭하고 **데이터베이스**를 클릭한 다음 **NoSQL(DocumentDB)**를 클릭합니다.
    
    ![더 많은 서비스와 DocumentDB(NoSQL)를 강조 표시한 Azure 포털의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
@@ -20,13 +20,13 @@
 
    ![Azure Portal에서 Azure DocumentDB 데이터베이스 계정을 여는 방법을 보여주는 스크린샷](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
 
-   DocumentDB 계정의 기본 일관성은 **세션**으로 설정됩니다.  리소스 메뉴에서 **기본 일관성** 을 클릭하여 기본 일관성을 조정할 수 있습니다. DocumentDB에서 제공되는 일관성 수준에 대한 자세한 내용은 [DocumentDB의 일관성 수준](../articles/documentdb/documentdb-consistency-levels.md)을 참조하세요.
+   DocumentDB 계정의 기본 일관성은 **세션**으로 설정됩니다.  사용 가능한 다른 일관성 옵션 중 하나를 선택하여 기본 일관성을 조정할 수 있습니다. DocumentDB에서 제공되는 일관성 수준에 대한 자세한 내용은 [DocumentDB의 일관성 수준](../articles/documentdb/documentdb-consistency-levels.md)을 참조하세요.
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

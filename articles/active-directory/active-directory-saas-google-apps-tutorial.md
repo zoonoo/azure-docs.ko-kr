@@ -1,12 +1,12 @@
 ---
-title: '자습서: Google Apps와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory에서 Google Apps를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다.
+title: "자습서: Google Apps와 Azure Active Directory 통합 | Microsoft 문서"
+description: "Azure Active Directory에서 Google Apps를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2016
 ms.author: asmalser-msft
+translationtype: Human Translation
+ms.sourcegitcommit: 0edd2d9b2d71d95260aa122545930aab64612106
+ms.openlocfilehash: cc7348b933b1ed4a79bf282c1d9a8e073b1f3ba4
+
 
 ---
-# <a name="tutorial:-how-to-integrate-google-apps-with-azure-active-directory"></a>자습서: Azure Active Directory와 Google Apps를 통합하는 방법
+# <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>자습서: Google Apps와 Azure Active Directory 통합
 이 자습서에서는 Google Apps 환경을 Azure Active Directory(Azure AD)에 연결하는 방법을 보여줍니다. Single Sign-On을 Google Apps에 구성하는 방법, 자동화된 사용자 프로비저닝을 사용하도록 설정하는 방법 및 사용자에게 Google Apps에 대한 액세스 권한을 할당하는 방법을 알아봅니다. 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -44,7 +48,7 @@ ms.author: asmalser-msft
    
     A: 이 시나리오에는 두 가지 옵션을 사용할 수 있습니다. 첫째, [Azure Active Directory 조인](active-directory-azureadjoin-overview.md)을 통해 Windows 10 장치에 로그인할 수 있습니다. 또는 [AD FS(Active Directory Federation Services)](active-directory-aadconnect-user-signin.md) 배포를 통해 Azure AD에 Single Sign-On을 사용할 수 있도록 설정한 온-프레미스 Active Directory에 도메인 가입한 Windows 장치에 로그인할 수 있습니다. 물론 두 옵션 모두 다음 자습서를 따라 Azure AD와 Google 앱 간에 Single Sign-On을 사용하도록 설정해야 합니다.
 
-## <a name="step-1:-add-google-apps-to-your-directory"></a>1단계: 디렉터리에 Google Apps 추가
+## <a name="step-1-add-google-apps-to-your-directory"></a>1단계: 디렉터리에 Google Apps 추가
 1. [Azure 클래식 포털](https://manage.windowsazure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
     ![왼쪽 탐색 창에서 Active Directory를 선택합니다.][0]
@@ -65,7 +69,7 @@ ms.author: asmalser-msft
    
     ![Azure AD의 Google Apps 빠른 시작 페이지][5]
 
-## <a name="step-2:-enable-single-sign-on"></a>2단계: Single Sign-On 사용
+## <a name="step-2-enable-single-sign-on"></a>2단계: Single Sign-On 사용
 1. Azure AD에서 Google Apps에 대한 빠른 시작 페이지에 있는 **Single Sign-On 구성** 단추를 클릭합니다.
    
     ![Single Sign-On 구성 단추][6]
@@ -97,7 +101,7 @@ ms.author: asmalser-msft
    ![전자 메일 주소를 입력합니다.][14]
 8. **완료** 를 클릭하여 대화 상자를 닫습니다. 구성을 테스트하려면 [Google Apps에 사용자 할당](#step-4-assign-users-to-google-apps)섹션을 참조하세요.
 
-## <a name="optional-step:-manually-configure-single-sign-on"></a>선택적 단계: 수동으로 Single Sign-on 구성
+## <a name="optional-step-manually-configure-single-sign-on"></a>선택적 단계: 수동으로 Single Sign-on 구성
 Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 단계를 완료합니다.
 
 1. Azure AD에서 Google Apps에 대한 빠른 시작 페이지에 있는 **Single Sign-On 구성** 단추를 클릭합니다.
@@ -143,9 +147,9 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 11. 대화 상자의 마지막 페이지에서 이 Single Sign-On 구성 유지 관리와 관련된 오류 및 경고에 대한 전자 메일 알림을 수신하려는 경우 전자 메일 주소에 입력합니다. 
     
     ![전자 메일 주소를 입력합니다.][14]
-12. **완료**를 클릭하여 대화 상자를 닫습니다. 구성을 테스트하려면 [Google Apps에 사용자 할당](#step-4-assign-users-to-google-apps)섹션을 참조하세요.
+12. **완료** 를 클릭하여 대화 상자를 닫습니다. 구성을 테스트하려면 [Google Apps에 사용자 할당](#step-4-assign-users-to-google-apps)섹션을 참조하세요.
 
-## <a name="step-3:-enable-automated-user-provisioning"></a>3단계: 자동화된 사용자 프로비저닝 사용
+## <a name="step-3-enable-automated-user-provisioning"></a>3단계: 자동화된 사용자 프로비저닝 사용
 > [!NOTE]
 > Google Apps로 사용자 프로비저닝을 자동화하는 데 실행 가능한 다른 옵션은 온-프레미스 Active Directory ID를 Google Apps에 프로비전하는 [GADS(Google Apps Directory Sync)](https://support.google.com/a/answer/106368?hl=en) 를 사용하는 것입니다. 반대로 이 자습서의 솔루션은 Azure Active Directory(클라우드) 사용자 및 메일 사용이 가능한 그룹을 Google Apps에 프로비전합니다.
 > 
@@ -221,7 +225,7 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
     ![사용 권한을 확인합니다.][28]
 12. **완료** 를 클릭하여 대화 상자를 닫습니다.
 
-## <a name="step-4:-assign-users-to-google-apps"></a>4단계: Google Apps에 사용자 할당
+## <a name="step-4-assign-users-to-google-apps"></a>4단계: Google Apps에 사용자 할당
 1. 구성을 테스트하려면 디렉터리에 새 테스트 계정 만들기를 시작합니다.
 2. Google Apps 빠른 시작 페이지에서 **사용자 할당** 단추를 클릭합니다.
    
@@ -230,7 +234,7 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
    
    * 자동화된 사용자 프로비저닝 사용하지 않도록 설정하면 다음을 확인하는 메시지가 표시됩니다.
      
-        ![Confirm the assignment.][30]
+        ![할당을 확인합니다.][30]
    * 자동화된 사용자 프로비저닝 사용하도록 설정하면 Google Apps에서 사용자가 갖고 있어야 하는 역할 유형을 정의하라는 메시지가 표시됩니다. 잠시 후에 새로 프로비저닝된 사용자가 Google Apps 환경에 표시됩니다.
 4. Single Sign-On 설정을 테스트하려면 [https://myapps.microsoft.com](https://myapps.microsoft.com/)에서 액세스 패널을 연 다음 테스트 계정에 로그인하고 **Google Apps**를 클릭합니다.
 
@@ -272,6 +276,6 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

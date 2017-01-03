@@ -1,31 +1,37 @@
 ---
-title: Azure Active Directory ID 보호에서 검색하는 취약성 | Microsoft Docs
-description: Azure Active Directory ID 보호에서 검색하는 취약성에 대한 개요입니다.
+title: "Azure Active Directory ID 보호에서 검색하는 취약성 | Microsoft Docs"
+description: "Azure Active Directory ID 보호에서 검색하는 취약성에 대한 개요입니다."
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
-documentationcenter: ''
+keywords: "Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책"
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 11/11/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2e229cab7b8a498d3015183d438e2bc2465822aa
+ms.openlocfilehash: f526af67a94ce0cab61591d9250f4742b1ede579
+
 
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호에서 검색하는 취약성
 취약점은 공격자에 의해 악용될 수 있는 환경의 단점입니다. 이러한 취약성을 해결하여 조직에서 보안 상태를 개선하고 공격자가 이러한 취약성을 악용하지 않도록 방지하는 것이 좋습니다.
-<br><br>
-![취약성](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilities")
-<br>
+
+
+![취약성](./media/active-directory-identityprotection-vulnerabilities/101.png "취약성")
+
+
 
 다음 섹션에서는 ID 보호에서 보고하는 취약성에 대한 개요를 제공합니다.
 
-## <a name="multifactor-authentication-registration-not-configured"></a>Multi-Factor Authentication 등록 구성되지 않음
+## <a name="multi-factor-authentication-registration-not-configured"></a>Multi-Factor Authentication 등록 구성되지 않음
 이 취약점을 사용하면 조직에서 Azure Multi-Factor Authentication의 배포를 제어할 수 있습니다. 
 
 Multi-Factor Authentication은 사용자 인증에 두 번째 계층의 보안을 제공합니다. 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 응용 프로그램에 대한 액세스를 보호하는 데 도움이 됩니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OATH 토큰과 같은 다양한 손쉬운 확인 옵션을 통해 강력한 인증을 전달합니다.
@@ -55,6 +61,9 @@ Azure Active Directory를 사용하여 관리되지 않은 클라우드 응용 �
 ## <a name="see-also"></a>참고 항목
 * [Azure Active Directory ID 보호](active-directory-identityprotection.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 

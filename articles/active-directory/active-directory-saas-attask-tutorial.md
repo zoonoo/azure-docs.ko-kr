@@ -1,22 +1,26 @@
 ---
-title: '자습서: @Task| Microsoft Docs'
-description: Azure Active Directory와 @Task 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: @Task|와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 @Task 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: aab8bd2f-f9dd-42da-a18e-d707865687d7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/30/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: cba595704af8e48506a25d592770ec273cb9bd30
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-@task"></a>자습서: @Task와(과) Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-task"></a>자습서: @Task와(과) Azure Active Directory 통합
 이 자습서에서는 @Task와(과) Azure AD(Azure Active Directory)를 통합하는 방법을 보여줍니다.  
 @Task을(를) Azure AD와 통합하면 다음과 같은 이점이 제공됩니다. 
 
@@ -49,7 +53,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 1. 갤러리에서 @Task 추가 
 2. Azure AD Single Sign-on 구성 및 테스트
 
-## <a name="adding-@task-from-the-gallery"></a>갤러리에서 @Task 추가
+## <a name="adding-task-from-the-gallery"></a>갤러리에서 @Task 추가
 @Task의 Azure AD 통합을 구성하려면 갤러리의 @Task을(를) 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 @Task을(를) 추가하려면 다음 단계를 수행합니다.**
@@ -78,7 +82,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 @Task(으)로 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여주기 위해 작성되었습니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 @Task 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 @Task의 관련 사용자 간에 연결이 형성되어야 합니다.   
-이 연결 관계는 Azure AD의 **사용자 이름** 값을 @Task.의 **Username** 값으로 할당하여 설정합니다.
+이 연결 관계는 Azure AD의 **사용자 이름** 값을 @Task의 **Username** 값으로 할당하여 설정합니다.
 
 @Task,에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
@@ -161,16 +165,18 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
     c. **다음**을 클릭합니다.
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다. 
    
-   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-attask-tutorial/create_aaduser_06.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-attask-tutorial/create_aaduser_06.png) 
    
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
    
-   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
+    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
    
-   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
    
-   d. **역할** 목록에서 **사용자**를 선택합니다.
-   e. **다음**을 클릭합니다.
+    d. **역할** 목록에서 **사용자**를 선택합니다.
+
+    e. **다음**을 클릭합니다.
+
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-attask-tutorial/create_aaduser_07.png) 
@@ -182,8 +188,8 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
    
     b. **완료**를 클릭합니다.   
 
-### <a name="creating-an-@task-test-user"></a>@Task 테스트 사용자 만들기
-이 섹션은 @Task에서 Britta Simon이라는 사용자를 만들기 위한 것입니다.
+### <a name="creating-an-task-test-user"></a>@Task 테스트 사용자 만들기
+이 섹션에서는 @Task에서 Britta Simon이라는 사용자를 만듭니다.
 
 **@Task,에서 Britta Simon이라는 사용자를 만들려면 다음 단계를 수행합니다.**
 
@@ -203,7 +209,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
     d. **사람 추가**를 클릭합니다.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
-이 섹션의 목적은 Britta Simon에게 @Task에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하는 것입니다.
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 @Task에 대한 액세스 권한을 부여합니다.
 
 ![사용자 할당][200] 
 
@@ -268,6 +274,6 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO5-->
 
 

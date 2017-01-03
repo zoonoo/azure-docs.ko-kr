@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f2e607924f17b42bba73672a2d24257e672e1134
+ms.sourcegitcommit: 29c4c2a2818468a2fa8360eebd4b653bdcbbde19
+ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
 
 
 ---
@@ -39,9 +39,8 @@ ms.openlocfilehash: f2e607924f17b42bba73672a2d24257e672e1134
    1. 새 랩에 대한 **랩 이름** 을 입력합니다.
    2. **구독** 을 선택하여 랩과 연결합니다.
    3. 랩을 저장할 **위치** 를 선택합니다.
-   4. **자동 종료** 를 선택하여 사용하려는지를 지정하고 랩의 VM을 모두 자동 종료하는 매개 변수를 정의할 수 있습니다.
-   5. **저장소 유형** 을 선택하여 랩의 VM에 대한 저장소 디스크 형식을 지정합니다. 
-   6. **만들기**를 선택합니다.
+   4. **자동 종료** 를 선택하여 사용하려는지를 지정하고 랩의 VM을 모두 자동 종료하는 매개 변수를 정의할 수 있습니다. 
+   5. **만들기**를 선택합니다.
       
       ![랩 블레이드 만들기](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
@@ -59,6 +58,6 @@ ms.openlocfilehash: f2e607924f17b42bba73672a2d24257e672e1134
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
