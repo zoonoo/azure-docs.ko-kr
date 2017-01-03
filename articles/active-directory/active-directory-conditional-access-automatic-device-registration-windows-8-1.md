@@ -1,6 +1,6 @@
 ---
 title: "Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성| Microsoft Docs"
-description: " Windows 8.1 도메인 가입 장치를 Azure AD에 자동으로 등록하도록 하는 그룹 정책을 구성하는 단계입니다. "
+description: " Azure AD에 자동으로 등록되도록 Windows 8.1 도메인 가입 장치에 대한 그룹 정책을 구성하는 단계입니다.. "
 services: active-directory
 documentationcenter: 
 author: femila
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: Markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 03585694b3934147f1f5d58615155ba8ae4d1bc0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2117267c409afed40094fadf546d53bf9f5d1ec3
 
 
 ---
@@ -54,7 +54,7 @@ Active Directory 그룹 정책을 사용하여 Windows 8.1 도메인 가입 장�
 
 이 명령은 컴퓨터에 로그인한 각 도메인 사용자의 컨텍스트에서 실행해야 합니다.
 
-## <a name="event-viewer-errors-for-windows-81-domain-joined-devices"></a>Windows 8.1 도메인 가입 장치에 대한 이벤트 뷰어 및 오류
+## <a name="event-viewer--errors-for-windows-81-domain-joined-devices"></a>Windows 8.1 도메인 가입 장치에 대한 이벤트 뷰어 및 오류
 Windows 8.1 컴퓨터의 Windows 이벤트 로그에는 장치 등록과 관련된 메시지가 표시됩니다. 성공 및 실패 이벤트에 대한 메시지를 확인할 수 있습니다. 
 
 이벤트 로그는 이벤트 뷰어의 응용 프로그램 및 서비스 **로그** > **Microsoft** > **Windows > 작업 공간 연결** 아래에 있습니다.
@@ -70,6 +70,6 @@ Windows 8.1 컴퓨터의 Windows 이벤트 로그에는 장치 등록과 관련�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

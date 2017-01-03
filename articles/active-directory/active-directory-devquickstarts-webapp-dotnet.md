@@ -1,12 +1,12 @@
 ---
-title: Azure AD .NET 시작 | Microsoft Docs
-description: 로그인을 위해 Azure AD와 통합되는 .NET MVC 웹앱을 빌드하는 방법
+title: "Azure AD .NET 시작 | Microsoft Docs"
+description: "로그인을 위해 Azure AD와 통합되는 .NET MVC 웹앱을 빌드하는 방법"
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: e15a41a4-dc5d-4c90-b3fe-5dc33b9a1e96
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 1865043ca9c9019b9813f11eb4a55f7f16d79287
+ms.openlocfilehash: 4c66ce2996d3444d02b55bd0214398f69c45b6bd
+
 
 ---
-# <a name="asp.net-web-app-sign-in-&-sign-out-with-azure-ad"></a>Azure AD를 사용하는 ASP.NET 웹앱 로그인 및 로그아웃
+# <a name="aspnet-web-app-sign-in--sign-out-with-azure-ad"></a>Azure AD를 사용하는 ASP.NET 웹앱 로그인 및 로그아웃
 [!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
 Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃소싱하고 몇 개의 코드 줄만으로 단일 로그인 및 로그아웃을 제공할 수 있습니다.  Asp.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft에서 구현한 커뮤니티 기반 OWIN 미들웨어를 사용하여 이 작업을 수행할 수 있습니다.  OWIN을 사용하는 경우는 다음과 같습니다.
@@ -34,20 +38,19 @@ Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃
 
 시작하려면 [앱 기본 사항을 다운로드](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip)하거나 [완성된 샘플을 다운로드](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip)하세요.  응용 프로그램을 등록할 Azure AD 테넌트도 필요합니다.  테넌트가 아직 없는 경우 [가져오는 방법을 알아봅니다](active-directory-howto-tenant.md).
 
-## <a name="*1.-register-an-application-with-azure-ad*"></a>*1.  Azure AD에 응용 프로그램 등록*
+## <a name="1----register-an-application-with-azure-ad"></a>*1.    Azure AD에 응용 프로그램 등록*
 앱에서 사용자를 인증할 수 있게 하려면 먼저 새 응용 프로그램을 테넌트에 등록해야 합니다.
 
-* Azure 관리 포털에 로그인합니다.
-* 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+* [Azure Portal](https://portal.azure.com)에 로그인합니다.
 * 응용 프로그램을 등록할 테넌트를 선택합니다.
-* **응용 프로그램** 탭을 클릭하고 아래쪽 서랍에서 추가를 클릭합니다.
+* 왼쪽 탐색 창에서 **Azure Active Directory**를 클릭합니다.
+* **앱 등록** 탭을 클릭하고 **추가**를 클릭합니다.
 * 프롬프트에 따라 새 **웹 응용 프로그램 및/또는 WebAPI**를 만듭니다.
   * 응용 프로그램의 **이름** 은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
   * **로그온 URL** 은 앱의 기본 URL입니다.  기본값은 `https://localhost:44320/`입니다.
-  * **앱 ID URI** 는 응용 프로그램의 고유 식별자입니다.  규칙은 `https://<tenant-domain>/<app-name>`(예: `https://contoso.onmicrosoft.com/my-first-aad-app`)을 사용하는 것입니다.
-* 등록이 끝나면 AAD는 앱에 고유한 클라이언트 식별자를 할당합니다.  이 값은 다음 섹션에서 필요하므로 구성 탭에서 복사해둡니다.
+* 등록을 완료하면 AAD는 앱에 고유한 응용 프로그램 ID를 할당합니다.  이 값은 다음 섹션에서 필요하므로 응용 프로그램 페이지에서 복사해 둡니다.
 
-## <a name="*2.-set-up-your-app-to-use-the-owin-authentication-pipeline*"></a>*2. OWIN 인증 파이프라인을 사용하도록 앱 설정*
+## <a name="2-set-up-your-app-to-use-the-owin-authentication-pipeline"></a>*2. OWIN 인증 파이프라인을 사용하도록 앱 설정*
 여기서는 OpenID Connect 인증 프로토콜을 사용하도록 OWIN 미들웨어를 구성합니다.  OWIN은 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
 * 시작하려면 패키지 관리자 콘솔을 사용하여 OWIN 미들웨어 NuGet 패키지를 프로젝트에 추가합니다.
@@ -95,7 +98,7 @@ public void ConfigureAuth(IAppBuilder app)
   * `ida:Tenant` 는 Azure AD 테넌트의 이름(예: “contoso.onmicrosoft.com”)입니다.
   * `ida:PostLogoutRedirectUri`는 로그아웃 요청이 성공적으로 완료된 후 사용자가 리디렉션되는 Azure AD를 나타냅니다.
 
-## <a name="*3.-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad*"></a>*3. OWIN을 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행*
+## <a name="3-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>*3. OWIN을 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행*
 이제 앱은 OpenID Connect 인증 프로토콜을 사용하여 Azure AD와 통신하도록 올바르게 구성되었습니다.  OWIN이 인증 메시지를 작성하고, Azure AD에서 토큰의 유효성을 검사하고, 사용자 세션을 유지 관리하는 까다로운 모든 세부 과정을 처리했습니다.  이제 사용자에게 로그인하고 로그아웃하는 방법을 알려주기만 하면 됩니다.
 
 * 컨트롤러에서 권한 부여 태그를 사용하여 사용자가 특정 페이지에 액세스하기 전에 로그인하도록 요구할 수 있습니다.  `Controllers\HomeController.cs`를 열고 About 컨트롤러에 `[Authorize]` 태그를 추가합니다.
@@ -150,7 +153,7 @@ else
 }
 ```
 
-## <a name="*4.-display-user-information*"></a>*4.  사용자 정보 표시*
+## <a name="4----display-user-information"></a>*4.    사용자 정보 표시*
 OpenID Connect로 사용자를 인증할 때 Azure AD는 "클레임" 또는 사용자에 대한 어설션을 포함하는 id_token을 응용 프로그램에 반환합니다.  이러한 클레임을 사용하여 앱 개인 설정을 수행할 수 있습니다.
 
 * `Controllers\HomeController.cs` 파일을 엽니다.  `ClaimsPrincipal.Current` 보안 주체 개체를 통해 컨트롤러의 사용자 클레임에 액세스할 수 있습니다.
@@ -178,6 +181,8 @@ public ActionResult About()
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO5-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: '자습서: Everbridge와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory 및 Everbridge 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Everbridge와 Azure Active Directory 통합 | Microsoft 문서"
+description: "Azure Active Directory 및 Everbridge 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 58d7cd22-98c0-4606-9ce5-8bdb22ee8b3e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 11/22/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 5608f38de6ae78772499a40c4e2d449cd5efc79c
+ms.openlocfilehash: 511a3883cadd9bf2fe1cc39a8626c49fa19a7d8e
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-everbridge"></a>자습서: Everbridge와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>자습서: Everbridge와 Azure Active Directory 통합
 이 자습서에서는 Everbridge와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 Everbridge를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -104,7 +108,7 @@ Everbridge에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     ![Single Sign-On 구성](./media/active-directory-saas-everbridge-tutorial/tutorial_everbridge_03.png) 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행하고 **다음**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-everbridge-tutorial/tutorial_everbridge_04.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-everbridge-tutorial/tutorial_everbridge_04.png)
    
     a. **식별자** 텍스트 상자에 다음 패턴 `https://sso.everbridge.net/{<company name>}`을 사용하여 URL을 입력합니다.
    
@@ -173,17 +177,18 @@ Everbridge에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     c. **다음**을 클릭합니다.
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-everbridge-tutorial/create_aaduser_06.png)
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-everbridge-tutorial/create_aaduser_06.png)
    
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
    
-   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
+    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
    
-   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
    
-   d. **역할** 목록에서 **사용자**를 선택합니다.
+    d. **역할** 목록에서 **사용자**를 선택합니다.
    
-   e. **다음**을 클릭합니다.
+    e. **다음**을 클릭합니다.
+
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-everbridge-tutorial/create_aaduser_07.png)
@@ -248,6 +253,6 @@ Everbridge에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

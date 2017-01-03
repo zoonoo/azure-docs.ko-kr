@@ -1,19 +1,23 @@
 ---
-title: 계정 프로비전 알림 | Microsoft Docs
-description: 계정 프로비전 알림 활성화를 통해 주의가 필요한 사용자 프로비전 관련 문제에 대한 알림을 받는 방법을 알아보세요.
+title: "계정 프로비전 알림 | Microsoft Docs"
+description: "계정 프로비전 알림 활성화를 통해 주의가 필요한 사용자 프로비전 관련 문제에 대한 알림을 받는 방법을 알아보세요."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a637aac7-f06b-48ef-a66d-639835a8edec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: markusvi
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
+ms.openlocfilehash: e15f3740fbf7cd97002b0b7efda34e968db4fe3c
+
 
 ---
 # <a name="account-provisioning-notifications"></a>계정 프로비전 알림
@@ -49,6 +53,7 @@ ms.author: markusvi
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Dec16_HO5-->
 
 

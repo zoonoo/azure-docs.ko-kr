@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 12/16/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9ab8558808dc509855d075c6bba305b8524407ff
+ms.sourcegitcommit: ce9474f2926a856673efbab5103a308d31001343
+ms.openlocfilehash: ed1c66f72b09a14a14c6ecd0bf39cd92f2bd22b8
 
 
 ---
-# <a name="get-started-with-certificate-based-authentication-on-android---public-preview"></a>Android에서 인증서 기반 인증 시작 - 공개 미리 보기
+# <a name="get-started-with-certificate-based-authentication-on-android"></a>Android에서 인증서 기반 인증 시작
 > [!div class="op_single_selector"]
 > * [iOS](active-directory-certificate-based-authentication-ios.md)
 > * [Android](active-directory-certificate-based-authentication-android.md)
@@ -50,7 +50,7 @@ CBA를 사용하면 Exchange Online 계정을 다음에 연결할 때 Android �
 | 앱 | 지원 |
 | --- | --- |
 | Word / Excel / PowerPoint |![확인][1] |
-| OneNote |서비스 예정 |
+| OneNote |![확인][1] |
 | OneDrive |![확인][1] |
 | Outlook |![확인][1] |
 | Yammer |![확인][1] |
@@ -70,9 +70,14 @@ Azure Active Directory에서 클라이언트 인증서를 해지하려면 ADFS �
 
 Azure Active Directory는 이러한 클레임이 ADFS 토큰(또는 다른 SAML 토큰)에서 사용 가능한 경우 새로 고침 토큰에 이러한 클레임을 추가합니다. 새로 고침 토큰의 유효성을 검사해야 하는 경우 이 정보가 해지를 확인하는 데 사용됩니다. 
 
-ADFS 오류 페이지를 사용자 인증서를 가져오는 방법에 대한 지침으로 업데이트하는 것이 가장 좋습니다. 
-
+ADFS 오류 페이지를 사용자 인증서를 가져오는 방법에 대한 지침으로 업데이트하는 것이 가장 좋습니다.  
 자세한 내용은 [AD FS 로그인 페이지 사용자 지정](https://technet.microsoft.com/library/dn280950.aspx)을 참조하세요.  
+
+일부 Office 앱(최신 인증 사용)은 요청 시 Azure AD에 '*prompt=login*'을 보냅니다. 기본적으로 Azure AD는 ADFS에 대한 요청 시 이를 '*wauth=usernamepassworduri*'(ADFS에 U/P 인증을 수행하도록 요청함) 및 '*wfresh=0*'(ADFS에 SSO 상태를 무시하고 새 인증을 수행하도록 요청함)으로 변환합니다. 이러한 앱에 인증서 기반 인증을 사용하려면 기본 Azure AD 동작을 수정해야 합니다. 페더레이션된 도메인 설정에서 '*PromptLoginBehavior*'를 '*Disabled*'로 설정만 하면 됩니다. 다음과 같은 [MSOLDomainFederationSettings](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msoldomainfederationsettings) cmdlet을 사용하면 이 작업을 수행할 수 있습니다.
+
+`Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
+
+
 
 ### <a name="exchange-activesync-clients-support"></a>Exchange ActiveSync 클라이언트 지원
 Android 5.0(Lollipop) 이상의 특정 Exchange ActiveSync 응용 프로그램은 지원됩니다. 전자 메일 응용 프로그램에서 이 기능을 지원하는지 확인하려면 응용 프로그램 개발자에게 문의하세요. 
@@ -113,9 +118,9 @@ Android 5.0(Lollipop) 이상의 특정 Exchange ActiveSync 응용 프로그램�
 
 ### <a name="configuring-your-azure-ad-tenant-for-certificate-based-authentication"></a>인증서 기반 인증서에 맞게 Azure AD 테넌트 구성
 1. 관리자 권한으로 Windows PowerShell을 시작합니다. 
-2. Azure AD 모듈을 설치합니다. 버전 [1.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) 이상을 설치해야 합니다.  
+2. Azure AD 모듈을 설치합니다. 버전 [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) 이상을 설치해야 합니다.  
    
-        Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
+        Install-Module -Name AzureADPreview –RequiredVersion 2.0.0.33 
 3. 대상 테넌트에 연결합니다. 
    
         Connect-AzureAD 
@@ -208,6 +213,6 @@ Android 5.0(Lollipop) 이상의 응용 프로그램으로 인증서 인증을 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

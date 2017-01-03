@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/02/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 922219ec12343bd40dd343613e370ddd1813f126
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: acb1cd18cf6e4fa9504d76fcac48dbe85579eab0
 
 
 ---
@@ -43,7 +43,7 @@ ms.openlocfilehash: 922219ec12343bd40dd343613e370ddd1813f126
 | 페더레이션된 Single Sign-On |[SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md) |
 | 암호 기반 Single Sign-On |[Internet Explorer용 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md) |
 | 응용 프로그램 프록시 |[앱 프록시 문제 해결 가이드](active-directory-application-proxy-troubleshoot.md) |
-| 온-프레미스 AD 및 Azure AD 간의 Single Sign-On |[암호 동기화 문제 해결](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[비밀번호 쓰기 저장 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| 온-프레미스 AD 및 Azure AD 간의 Single Sign-On |[암호 동기화 문제 해결](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[비밀번호 쓰기 저장 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | 동적 그룹 멤버 자격 |[동적 그룹 멤버 자격 문제 해결](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>SSO(Single Sign-On)
@@ -114,7 +114,7 @@ Azure AD Connect는 [모든 버전의 Azure Active Directory](https://azure.micr
 
 조건부 액세스는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
 
-## <a name="apps-azure-ad"></a>앱 및 Azure AD
+## <a name="apps--azure-ad"></a>앱 및 Azure AD
 ### <a name="cloud-app-discovery-find-which-saas-apps-are-being-used-in-your-organization"></a>클라우드 앱 검색: 조직에서 사용된 SaaS 앱 찾기
 Cloud App Discovery는 IT 부서가 조직 전체에서 사용되고 있는 SaaS 앱을 배우는 데 도움이 됩니다. 앱 사용 및 인기를 측정할 수 있으므로 IT 부서는 IT 제어로 가져오고 Azure AD와 통합되는 과정에서 가장 이득을 얻을 응용 프로그램을 결정할 수 있습니다.
 
@@ -214,6 +214,6 @@ Azure Active Directory의 다른 버전에 포함된 보고서를 보려면 [여
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

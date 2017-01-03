@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/12/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c2783aabc66eb5eeae7d11a3487307986a61426
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 59f4cd3de4524a5ed51b7ef434b7b21c151dd2e0
 
 
 ---
@@ -149,7 +149,7 @@ PowerShell을 사용하여 이 데이터를 읽고 쓰는 방법은 [사용자�
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다.
 * [**FAQ**](active-directory-passwords-faq.md) -자주 묻는 질문에 답변합니다.
-* [**문제 해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스의 문제를 해결하는 방법에 대해 알아봅니다.
+* [**문제해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스와의 문제를 해결하는 방법에 대해 알아봅니다.
 * [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
 
 [001]: ./media/active-directory-passwords-best-practices/001.jpg "Image_001.jpg"
@@ -162,6 +162,6 @@ PowerShell을 사용하여 이 데이터를 읽고 쓰는 방법은 [사용자�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

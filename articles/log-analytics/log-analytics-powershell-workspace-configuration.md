@@ -1,23 +1,27 @@
 ---
-title: PowerShell을 사용하여 Log Analytics 작업 영역 만들기 및 구성 | Microsoft Docs
-description: Log Analytics는 온-프레미스 또는 클라우드 인프라의 서버에서 데이터를 사용합니다. Azure 진단에 의해 생성된 경우에 Azure 저장소에서 컴퓨터 데이터를 수집할 수 있습니다.
+title: "PowerShell을 사용하여 Log Analytics 작업 영역 만들기 및 구성 | Microsoft Docs"
+description: "Log Analytics는 온-프레미스 또는 클라우드 인프라의 서버에서 데이터를 사용합니다. Azure 진단에 의해 생성된 경우에 Azure 저장소에서 컴퓨터 데이터를 수집할 수 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 3b9b7ade-3374-4596-afb1-51b695f481c2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/21/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: b39cd142925be91bd7a90183cada7ba040a344c0
+ms.openlocfilehash: b8ebf6a2b3c8d2e5b173e429f39c9836e7d214ac
+
 
 ---
 # <a name="manage-log-analytics-using-powershell"></a>PowerShell을 사용하여 Log Analytics 관리
-[Log Analytics PowerShell cmdlet](http://msdn.microsoft.com/library/mt188224.aspx)을 사용하여 명령줄에서 또는 스크립트의 일부로 Log Analytics의 다양한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:
+[Log Analytics PowerShell cmdlet](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx)을 사용하여 명령줄에서 또는 스크립트의 일부로 Log Analytics의 다양한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:
 
 * 작업 영역 만들기
 * 솔루션 추가 또는 제거
@@ -25,13 +29,13 @@ ms.author: richrund
 * 컴퓨터 그룹 만들기
 * Windows 에이전트가 설치된 컴퓨터에서 IIS 로그 수집 활성화
 * Linux 및 Windows 컴퓨터에서 성능 카운터 수집
-* Linux 컴퓨터에서 syslog의 이벤트 수집 
+* Linux 컴퓨터의 syslog에서 이벤트 수집 
 * Windows 이벤트 로그에서 이벤트 수집
 * 사용자 지정 이벤트 로그 수집
 * Azure 가상 컴퓨터에 Log Analytics 에이전트 추가
 * Azure 진단을 사용하여 수집된 데이터를 인덱싱하도록 Log Analytics 구성
 
-이 문서에서는 PowerShell에서 수행할 수 있는 몇 가지 기능을 보여 주는 두 가지 코드 샘플을 제공합니다.  다른 기능에 대해서는 [Log Analytics PowerShell Cmdlet 참조](http://msdn.microsoft.com/library/mt188224.aspx) 를 참조할 수 있습니다.
+이 문서에서는 PowerShell에서 수행할 수 있는 몇 가지 기능을 보여 주는 두 가지 코드 샘플을 제공합니다.  다른 기능에 대해서는 [Log Analytics PowerShell Cmdlet 참조](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) 를 참조할 수 있습니다.
 
 > [!NOTE]
 > Log Analytics는 이전에 Operational Insights라고 했기 때문에 cmdlet에서는 Operational Insights라고 합니다.
@@ -39,16 +43,8 @@ ms.author: richrund
 > 
 
 ## <a name="prerequisites"></a>필수 조건
-Log Analytics 작업 영역에서 PowerShell을 사용하려면 다음을 갖추어야 합니다.
+이 예제는 AzureRm.OperationalInsights 모듈 버전 2.3.0 이상에서 작동합니다.
 
-* Azure 구독, 그리고 
-* Azure 구독에 연결된 Azure Log Analytics 작업 영역.
-
-OMS 작업 공간을 만들었지만 아직 Azure 구독에 연결하지 않은 경우 링크를 만들 수 있습니다.
-
-* Azure 포털에서 다음을 수행합니다.
-* OMS 포털에서 만듭니다. 또는 
-* Get-AzureRmOperationalInsightsLinkTargets 및 New-AzureRmOperationalInsightsWorkspace cmdlet을 사용하여 만듭니다.
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기 및 구성
 다음 스크립트 샘플에서는 다음 작업의 방법을 보여 줍니다.
@@ -60,7 +56,7 @@ OMS 작업 공간을 만들었지만 아직 Azure 구독에 연결하지 않은 
 5. 저장된 검색 내보내기
 6. 컴퓨터 그룹 만들기
 7. Windows 에이전트가 설치된 컴퓨터에서 IIS 로그 수집 활성화
-8. Linux 컴퓨터에서 Logical Disk 성능 카운터 수집(% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
+8. Linux 컴퓨터에서 논리 디스크 성능 카운터 수집(사용된 Inode 비율, 사용 가능한 MB, 사용된 공간 비율, 초당 디스크 전송, 초당 디스크 읽기, 초당 디스크 쓰기)
 9. Linux 컴퓨터에서 syslog 이벤트 수집
 10. Windows 컴퓨터에서 응용 프로그램 이벤트 로그의 오류 및 경고 이벤트 수집
 11. Windows 컴퓨터에서 사용 가능한 메모리(MB) 성능 카운터 수집
@@ -161,8 +157,12 @@ foreach ($search in $ExportedSearches) {
 # Export Saved Searches
 (Get-AzureRmOperationalInsightsSavedSearch -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Value.Properties | ConvertTo-Json 
 
-# Create Computer Group
+# Create Computer Group based on a query
 New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Web Servers" -DisplayName "Web Servers" -Category "My Saved Searches" -Query "Computer=""web*"" | distinct Computer" -Version 1
+
+# Create a computer group based on names (up to 5000)
+$computerGroup = """servername1.contoso.com"",""servername2.contoso.com"",""servername3.contoso.com"",""servername4.contoso.com"""
+New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Named Servers" -DisplayName "Named Servers" -Category "My Saved Searches" -Query $computerGroup -Version 1
 
 # Enable IIS Log Collection using agent
 Enable-AzureRmOperationalInsightsIISLogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
@@ -187,15 +187,49 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 ```
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Azure 진단을 인덱싱하도록 Log Analytics 구성
-에이전트 없이 Azure 리소스를 모니터링할 경우 리소스가 Azure 진단을 사용할 수 있어야 하며 저장소 계정에 쓰도록 구성해야 합니다. 그런 다음 Log Analytics를 구성하여 저장소 계정에서 로그를 수집할 수 있습니다. 위와 같이 구성해야 하는 리소스는 다음과 같습니다.
+에이전트 없이 Azure 리소스를 모니터링할 경우 리소스가 Azure 진단을 사용할 수 있어야 하며 Log Analytics 작업 영역에 쓰도록 구성되어야 합니다. 이러한 방식은 데이터를 Log Analytics에 바로 보내며 데이터를 저장소 계정에 쓸 필요가 없습니다. 지원되는 리소스는 다음과 같습니다.
+
+| 리소스 종류 | 로그 | 메트릭 |
+| --- | --- | --- |
+| 응용 프로그램 게이트웨이    | 예 | 예 |
+| 자동화 계정     | 예 | |
+| 배치 계정          | 예 | 예 |
+| Data Lake Analytics     | 예 | | 
+| Data Lake Store         | 예 | |
+| 탄력적인 SQL 풀        |     | 예 |
+| 이벤트 허브 네임스페이스     |     | 예 |
+| IoT Hub                |     | 예 |
+| 키 자격 증명 모음               | 예 | |
+| Load Balancer          | 예 | |
+| Logic Apps              | 예 | 예 |
+| 네트워크 보안 그룹 | 예 | |
+| Redis 캐시             |     | 예 |
+| Search 서비스         | 예 | 예 |
+| 서비스 버스 네임스페이스   |     | 예 |
+| SQL(v12)               |     | 예 |
+| 웹 사이트               |     | 예 |
+| 웹 서버 팜        |     | 예 |
+
+사용 가능한 메트릭에 대한 자세한 내용은 [Azure Monitor에서 지원되는 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md)을 참조하세요.
+
+사용 가능한 로그에 대한 자세한 내용은 [진단 로그에 지원되는 서비스 및 스키마](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs)를 참조하세요.
+
+```
+$workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
+
+$resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
+
+Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
+```
+
+위의 cmdlet을 사용하여 다른 구독에 속하는 리소스에서 로그를 수집할 수도 있습니다. 리소스 생성 로그의 ID 및 로그를 보내는 작업 영역의 ID를 모두 제공하기 때문에 cmdlet은 구독 간에 작업이 가능합니다.
+
+
+## <a name="configuring-log-analytics-to-index-azure-diagnostics-from-storage"></a>저장소에서 Azure 진단을 인덱싱하도록 Log Analytics 구성
+클래식 클라우드 서비스 또는 Service Fabric 클러스터의 실행 중인 인스턴스 내에서 로그 데이터를 수집하려면 먼저 Azure Storage에 데이터를 써야 합니다. 그런 다음 저장소 계정에서 로그를 수집하도록 Log Analytics를 구성합니다. 지원되는 리소스는 다음과 같습니다.
 
 * 기존 Cloud Services(웹 및 작업자 역할)
 * Service Fabric 클러스터
-* 네트워크 보안 그룹
-* 주요 자격 증명 모음 
-* 응용 프로그램 게이트웨이
-
-또한 PowerShell을 사용하여 Azure 구독 한 개에 Log Analytics 작업 영역을 구성하고 다른 Azure 구독에서 로그를 수집할 수도 있습니다.
 
 아래 예제는 다음과 같은 작업의 방법을 보여 줍니다.
 
@@ -219,16 +253,22 @@ Get-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resou
 New-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -StorageAccountResourceId $storageId -StorageAccountKey $key -Tables @("WADWindowsEventLogsTable") -Containers @("wad-iis-logfiles")
 
 # Update existing insight
-Set-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -Tables @("WADWindowsEventLogsTable", "WADETWEventTable") -Containers @("wad-iis-logfiles", "insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO")
+Set-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -Tables @("WADWindowsEventLogsTable", "WADETWEventTable") -Containers @("wad-iis-logfiles")
 
 # Remove the insight
 Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" 
 
 ```
 
-## <a name="next-steps"></a>다음 단계
-* [Log Analytics PowerShell Cmdlet 검토](http://msdn.microsoft.com/library/mt188224.aspx) 를 참조하세요.
+위의 스크립트를 사용하여 다른 구독에 속하는 저장소 계정에서 로그를 수집할 수도 있습니다. 저장소 계정 리소스 ID와 해당 액세스 키를 제공하기 때문에 스크립트는 구독 간에 작업이 가능합니다. 액세스 키를 변경할 때 저장소 정보가 새 키를 갖도록 업데이트해야 합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+## <a name="next-steps"></a>다음 단계
+* [Log Analytics PowerShell Cmdlet 검토](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) 를 참조하세요.
+
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

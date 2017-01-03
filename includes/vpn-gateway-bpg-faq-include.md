@@ -40,14 +40,14 @@ Azure VPN 게이트웨이는 온-프레미스 BGP 장치에 다음 경로를 알
 ### <a name="does-azure-vpn-gateway-support-bgp-transit-routing"></a>Azure VPN 게이트웨이가 BGP 전송 라우팅을 지원하나요?
 예. BGP 전송 라우팅이 지원됩니다. 단 Azure VPN 게이트웨이가 기본 경로를 타 BGP 피어에 알리지 **않는다**는 점이 다릅니다. 여러 Azure VPN 게이트웨이 간 전송 라우팅을 활성화하려면 모든 중간 VNet-VNet 연결에서 BGP를 활성화해야 합니다. 
 
-### <a name="can-i-have-more-than-one-tunnels-between-azure-vpn-gateway-and-my-on-premises-network"></a>Azure VPN 게이트웨이와 내 온-프레미스 네트워크 간에 여러 터널이 있을 수 있나요?
-예. Azure VPN 게이트웨이와 내 온-프레미스 네트워크 간에 여러 S2S VPN 터널을 구축할 수 있습니다. 이러한 모든 터널은 Azure VPN 게이트웨이에 대한 총 처널 수에 대해 산출됩니다. 예를 들어, Azure VPN 게이트웨이와 온-프레미스 네트워크 중 하나 사이에 2개의 중복 터널이 구성되어 있는 경우 총 Azure VPN 게이트웨이 할당량 중 2개의 터널을 사용하는 것입니다(표준 10, HighPerformance 30).
+### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>Azure VPN 게이트웨이와 내 온-프레미스 네트워크 간에 터널이 여러 개 있을 수 있나요?
+예, Azure VPN 게이트웨이와 내 온-프레미스 네트워크 간에 S2S VPN 터널을 여러 개 구축할 수 있습니다. 이러한 모든 터널은 Azure VPN 게이트웨이에 대한 총 처널 수에 대해 산출됩니다. 예를 들어 Azure VPN 게이트웨이와 온-프레미스 네트워크 중 하나 간에 2개의 중복 터널이 있는 경우 총 Azure VPN 게이트웨이 할당량 중 2개 터널을 사용하는 것입니다(표준 10, HighPerformance 30).
 
 ### <a name="can-i-have-multiple-tunnels-between-two-azure-vnets-with-bgp"></a>두 Azure VNet과 BGP와 간에 여러 터널이 있을 수 있나요?
 아니요. 한 쌍의 가상 네트워크 사이에는 중복 구성 터널이 지원되지 않습니다.
 
 ### <a name="can-i-use-bgp-for-s2s-vpn-in-an-expressroutes2s-vpn-co-existence-configuration"></a>Express 경로/S2S VPN 동시 존재 구성에서 S2S VPN에 BGP를 사용할 수 있나요?
-지금은 없습니다.
+예. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Azure VPN 게이트웨이는 BGP 피어 IP에 어떤 주소를 사용하나요?
 Azure VPN 게이트웨이는 가상 네트워크에 대해 정의된 게이트웨이 서브넷 범위로부터 단일 IP 주소를 할당합니다. 기본적으로 이 값은 범위 마지막에서 두 번째의 값입니다. 예를 들어 GatewaySubnet이 10.12.255.0/27이고 범위가 10.12.255.0 ~ 10.12.255.31이라면 Azure VPN 게이트웨이의 BGP 피어 IP 주소는 10.12.255.30입니다. Azure VPN 게이트웨이 정보를 열거할 때 이 정보를 확인할 수 있습니다.
@@ -63,6 +63,6 @@ IPsec S2S VPN 터널을 가리키는 VPN 장치에서 Azure BGP 피어 IP 주소
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

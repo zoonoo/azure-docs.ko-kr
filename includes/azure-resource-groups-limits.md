@@ -1,6 +1,6 @@
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
-| [리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) 당 리소스(리소스 유형당) |800 |800 |
+| [리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) 당 리소스(리소스 유형당) |800 |리소스 유형마다 다름 |
 | 리소스 그룹당 배포 |800 |800 |
 | 배포당 리소스 |800 |800 |
 | 관리 잠금(고유 범위당) |20 |20 |
@@ -10,6 +10,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

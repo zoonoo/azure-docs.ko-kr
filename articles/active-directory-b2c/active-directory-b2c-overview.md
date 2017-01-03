@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 217ffc63e07d66de522accc42c246125d01713c8
+ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
+ms.openlocfilehash: 37c9d6808b3282d86583f6305672405775a7f306
 
 
 ---
@@ -40,7 +40,7 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 * 현재 [서비스 제한, 제한 사항 및 제약 조건](active-directory-b2c-limitations.md)입니다.
 * 마지막으로 Azure AD B2C 및 ASP.NET Core를 사용하는 [코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c)입니다.
 
-## <a name="howto-articles"></a>방법 문서
+## <a name="how-to-articles"></a>방법 문서
 특정 Azure Active Directory B2C 기능을 사용하는 방법을 알아봅니다.
 
 * 소비자 지향 응용 프로그램에서 사용하기 위해 [Facebook](active-directory-b2c-setup-fb-app.md), [Google +](active-directory-b2c-setup-goog-app.md), [Microsoft 계정](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) 및 [LinkedIn](active-directory-b2c-setup-li-app.md) 계정을 구성합니다.
@@ -67,6 +67,6 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

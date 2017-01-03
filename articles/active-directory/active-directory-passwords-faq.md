@@ -1,12 +1,12 @@
 ---
-title: 'FAQ: Azure AD 암호 관리 | Microsoft Docs'
-description: 암호 재설정, 등록, 보고서 및 쓰기 저장 온-프레미스 Active Directory를 포함한 Azure AD에서의 암호 관리에 대한 질문과 대답(FAQ).
+title: "FAQ: Azure AD 암호 관리 | Microsoft Docs"
+description: "암호 재설정, 등록, 보고서 및 쓰기 저장 온-프레미스 Active Directory를 포함한 Azure AD에서의 암호 관리에 대한 질문과 대답(FAQ)."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: 3a157d27-a410-4371-bcbf-8312941ae9d1
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 33d837c6f52d6b24a6636f398c1d5209ebf8da21
+
 
 ---
-# 암호 관리 질문과 대답
+# <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 > [!IMPORTANT]
 > **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
 > 
@@ -24,7 +28,7 @@ ms.author: asteen
 
 다음은 암호 관리와 관련된 모든 항목에 대한 몇 가지 질문과 대답입니다.
 
-답변을 모르는 질문이 있거나 특정 문제에 대한 도움이 필요한 경우, 다음을 읽고 이미 이 문제를 다루었는지 살펴 볼 수 있습니다. 아직 다루지 않은 경우라도 걱정하지 마세요! [Azure AD 포럼](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)에서 다루지 않는 문제에 자유롭게 질문하면 빠른 시일 내에 답변하겠습니다.
+답변을 모르는 질문이 있거나 특정 문제에 대한 도움이 필요한 경우, 다음을 읽고 이미 이 문제를 다루었는지 살펴 볼 수 있습니다.  아직 다루지 않은 경우라도 걱정하지 마세요! [Azure AD 포럼](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD) 에서 다루지 않는 문제에 자유롭게 질문하면 빠른 시일 내에 답변하겠습니다.
 
 이 FAQ는 다음 섹션으로 구분하여 설명합니다.
 
@@ -33,7 +37,7 @@ ms.author: asteen
 * [**암호 관리 보고서에 대한 질문**](#password-management-reports)
 * [**암호 쓰기 저장에 대한 질문**](#password-writeback)
 
-## 암호 재설정 등록
+## <a name="password-reset-registration"></a>암호 재설정 등록
 * **Q: 내 사용자가 자신의 암호 재설정 데이터를 등록할 수 있습니까?**
   
   > **A:** 예, 암호 재설정이 사용되고 라이선스가 부여된 경우 http://aka.ms/ssprsetup의 암호 재설정 등록 포털로 이동하여 암호 재설정에 사용될 인증 정보를 등록할 수 있습니다. 사용자는 http://myapps.microsoft.com의 액세스 패널로 이동하고, 프로필 탭을 클릭하고 암호 재설정 등록 옵션을 클릭하여 등록할 수도 있습니다. 사용자가 암호 재설정을 구성하는 방법을 읽어 사용자가 암호 재설정을 구성하는 방법에 대해 알아봅니다.
@@ -75,7 +79,7 @@ ms.author: asteen
   > 
   > 
 
-## 암호 재설정
+## <a name="password-reset"></a>암호 재설정
 * **Q: 암호 재설정에서 전자 메일, SMS 또는 전화 통화를 받으려면 얼마나 오래 대기해야 합니까?**
   
   > **A:** 전자 메일, SMS 메시지 및 전화 통화는 1초 미만이며, 일반적인 경우 5-20초 대기해야 합니다. 이 시간 내에 알림을 받지 못한 경우, 정크 폴더를 확인하고, 연락하려는 번호 / 전자 메일이고 디렉터리의 인증 데이터의 형식이 올바르게 지정되었는지 확인합니다. 암호 재설정에 사용할 전화번호 및 전자 메일 형식에 대한 자세한 내용은 암호 재설정에서 데이터가 사용되는 방법을 참조하세요.
@@ -120,7 +124,7 @@ ms.author: asteen
   > 
 * **Q: 보안 질문 인증 옵션으로 얼마나 많은 질문을 구성할 수 있습니까?**
   
-  > **A:** [Azure 관리 포털](https://manage.windowsazure.com)에서 최대 20개의 사용자 지정 보안 질문을 구성할 수 있습니다.
+  > **A:**[Azure 관리 포털](https://manage.windowsazure.com)에서 최대 20개의 사용자 지정 보안 질문을 구성할 수 있습니다.
   > 
   > 
 * **Q: 질문의 길이는 어떻게 설정할 수 있습니까?**
@@ -164,7 +168,7 @@ ms.author: asteen
   > 
   > 
 
-## 암호 관리 보고서
+## <a name="password-management-reports"></a>암호 관리 보고서
 * **Q: 데이터가 암호 관리 보고서를 표시하는 데 시간이 얼마나 소요됩니까?**
   
   > **A:** 데이터는 5~10분 내에 암호 관리 보고서를 표시됩니다. 최대 한 시간이 소요되는 경우도 있습니다.
@@ -179,7 +183,7 @@ ms.author: asteen
   ![][002]
 * **Q: 암호 관리 보고서에 저장되는 최대 이벤트 수는 무엇입니까?**
   
-  > **A:** 최대 1,000개의 암호 재설정 또는 암호 재설정 등록 이벤트가 암호 관리 보고서에 저장됩니다. 이 번호를 확장하여 더 많은 이벤트를 포함하도록 노력하고 있습니다.
+  > **A:** 최대 1,000개의 암호 재설정 또는 암호 재설정 등록 이벤트가 암호 관리 보고서에 저장됩니다.  이 번호를 확장하여 더 많은 이벤트를 포함하도록 노력하고 있습니다.
   > 
   > 
 * **Q: 암호 관리 보고서는 어디까지 표시할 수 있습니까?**
@@ -194,17 +198,17 @@ ms.author: asteen
   > 
 * **Q: 암호 재설정 또는 등록 보고 데이터에 액세스하는 API가 있습니까?**
   
-  > **A:** 예, 데이터 스트림을 보고하는 암호 재설정에 액세스하는 방법에 대해 알아보려면 다음 설명서를 참조하세요. [이벤트를 프로그래밍 방식으로 보고하는 암호 재설정에 액세스하는 방법을 알아봅니다](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **A:** 예, 데이터 스트림을 보고하는 암호 재설정에 액세스하는 방법에 대해 알아보려면 다음 설명서를 참조하세요.  [이벤트를 프로그래밍 방식으로 보고하는 암호 재설정에 액세스하는 방법을 알아봅니다](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
   > 
   > 
 
-## 암호 쓰기 저장
+## <a name="password-writeback"></a>암호 쓰기 저장
 * **Q: 암호 쓰기 저장은 배후에서 어떻게 작동합니까?**
   
-  > **A:** 비밀번호 쓰기 저장을 사용하는 경우 및 시스템을 통해 온-프레미스 환경으로 다시 데이터가 흐르는 경우에 발생하는 일에 대한 자세한 설명은 [비밀번호 쓰기 저장 작동 원리](active-directory-passwords-learn-more.md#how-password-writeback-works)를 참조하세요. 비밀번호 쓰기 저장이 매우 안전한 서비스인지 알 수 있는 방법에 대해 알아보려면 비밀번호 쓰기 저장 작동 원리에서 [비밀번호 쓰기 저장 보안 모델](active-directory-passwords-learn-more.md#password-writeback-security-model)을 참조하세요.
+  > **A:** 비밀번호 쓰기 저장을 사용하는 경우 및 시스템을 통해 온-프레미스 환경으로 다시 데이터가 흐르는 경우에 발생하는 일에 대한 자세한 설명은 [비밀번호 쓰기 저장 작동 원리](active-directory-passwords-learn-more.md#how-password-writeback-works) 를 참조하세요. 비밀번호 쓰기 저장이 매우 안전한 서비스인지 알 수 있는 방법에 대해 알아보려면 비밀번호 쓰기 저장 작동 원리에서 [비밀번호 쓰기 저장 보안 모델](active-directory-passwords-learn-more.md#password-writeback-security-model) 을 참조하세요.
   > 
   > 
-* **Q: 얼마동안 암호 쓰기 저장이 작동합니까? 암호 해시 동기화와 같이 동기화 지연이 있습니까?**
+* **Q: 얼마동안 암호 쓰기 저장이 작동합니까?  암호 해시 동기화와 같이 동기화 지연이 있습니까?**
   
   > **A:** 비밀번호 쓰기 저장은 인스턴트입니다. 암호 해시 동기화와는 근본적으로 다르게 작동하는 동기 파이프라인입니다. 암호 쓰기 저장을 사용하면 변경 작업 또는 해당 암호 재설정의 성공 여부에 대한 실시간 피드백을 받을 수 있습니다. 성공적인 쓰기 저장에 대한 평균 시간은 500밀리초 미만입니다.
   > 
@@ -219,25 +223,29 @@ ms.author: asteen
   > **A:** 예, 비밀번호 쓰기 저장을 암호 사용 기간, 기록, 복잡성, 필터 및 로컬 도메인의 암호에 대해 시행할 다른 제한 사항에 적용합니다.
   > 
   > 
-* **Q: 암호 쓰기 저장은 안전합니까? 해킹을 당하지 않는다고 어떻게 확신할 수 있습니까?**
+* **Q: 암호 쓰기 저장은 안전합니까?  해킹을 당하지 않는다고 어떻게 확신할 수 있습니까?**
   
-  > **A:** 예, 비밀번호 쓰기 저장은 매우 안전합니다. 비밀번호 쓰기 저장 서비스에서 구현된 4개의 보안 계층 구현에 대한 자세한 내용은 비밀번호 쓰기 저장 작동 원리에서 [비밀번호 쓰기 저장 보안 모델](active-directory-passwords-learn-more.md#password-writeback-security-model)을 확인합니다.
+  > **A:** 예, 비밀번호 쓰기 저장은 매우 안전합니다. 비밀번호 쓰기 저장 서비스에서 구현된 4개의 보안 계층 구현에 대한 자세한 내용은 비밀번호 쓰기 저장 작동 원리에서 [비밀번호 쓰기 저장 보안 모델](active-directory-passwords-learn-more.md#password-writeback-security-model) 을 확인합니다.
   > 
   > 
 
-## 암호 재설정 설명서에 대한 링크
+## <a name="links-to-password-reset-documentation"></a>암호 재설정 설명서에 대한 링크
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
 * **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
-* [**시작**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
+* [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
-* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다
-* [**문제해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스와의 문제를 해결하는 방법에 대해 알아봅니다.
+* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다.
+* [**문제 해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스의 문제를 해결하는 방법에 대해 알아봅니다.
 * [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
 
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Dec16_HO5-->
+
+

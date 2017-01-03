@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 453c71fe4636eddb4e96eef7acc7e62b99dca4dd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02d8de2e37af9ccbf79bb77180b0eda0d187eb5c
 
 
 ---
@@ -169,7 +169,7 @@ Azure Active Directory Device Registration은 iOS 장치에 대해 무선 프로
 
 ### <a name="join-a-windows-81-device-using-azure-active-directory-device-registration"></a>Azure Active Directory Device Registration을 사용하여 Windows 8.1 장치 연결
 1. Windows 8.1 장치에서 **PC 설정** > **네트워크** > **작업 공간**으로 이동합니다.
-2. 사용자 이름을 UPN 형식으로 입력합니다. 예: dan@contoso.com...
+2. 사용자 이름을 UPN 형식으로 입력합니다. 예: dan@contoso.com.
 3. **연결**을 선택합니다.
 4. 메시지가 표시되면 자격 증명을 사용하여 로그인합니다. 이제 장치가 연결되었습니다.
 
@@ -238,6 +238,6 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

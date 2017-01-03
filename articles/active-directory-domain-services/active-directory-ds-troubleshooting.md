@@ -158,6 +158,6 @@ Azure AD에서는 사용자 개체를 실수로 삭제하지 못하도록 보호
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b37d419f799e5a56c67344ca634bdecec2f3c1f2
+ms.sourcegitcommit: 9cc0081588f54f77a69ded336d063651b12c8dd8
+ms.openlocfilehash: a185e802a2713c6b6d4101477f0fc61bca0bf29c
 
 
 ---
@@ -25,7 +25,8 @@ ms.openlocfilehash: b37d419f799e5a56c67344ca634bdecec2f3c1f2
 
 1. Azure AD(Azure Active Directory) B2C에서 내보낸 보안 토큰의 수명.
 2. Azure AD B2C에서 관리하는 웹 응용 프로그램 세션의 수명.
-3. B2C 테넌트에 있는 여러 앱 및 정책의 SSO(Single Sign-On) 동작.
+3. Azure AD B2C에서 내보낸 보안 토큰의 중요한 클레임 형식
+4. B2C 테넌트에 있는 여러 앱 및 정책의 SSO(Single Sign-On) 동작.
 
 다음과 같이 B2C 테넌트에서 이 기능을 사용할 수 있습니다.
 
@@ -37,8 +38,6 @@ ms.openlocfilehash: b37d419f799e5a56c67344ca634bdecec2f3c1f2
 6. 원하는 변경 사항을 적용합니다. 이후 섹션에서 사용할 수 있는 속성에 대해 알아봅니다.
 7. **확인**을 클릭합니다.
 8. 블레이드 맨 위의 **저장**을 클릭합니다.
-
-![토큰, 세션 및 Single Sign-On 구성의 스크린샷](./media/active-directory-b2c-token-session-sso/token-session-sso.png)
 
 ## <a name="token-lifetimes-configuration"></a>토큰 수명 구성
 Azure AD B2C는 보호된 리소스에 대한 보안 액세스를 활성화하도록 [OAuth 2.0 권한 부여 프로토콜](active-directory-b2c-reference-protocols.md)을 지원합니다. 이 지원을 구현하기 위해 Azure AD B2C는 다양한 [보안 토큰](active-directory-b2c-reference-tokens.md)을 내보냅니다. 다음은 Azure AD B2C에서 내보낸 보안 토큰의 수명을 관리하는 데 사용할 수 있는 속성입니다.
@@ -61,7 +60,20 @@ Azure AD B2C는 보호된 리소스에 대한 보안 액세스를 활성화하�
 * 응용 프로그램에서 지속적으로 활성 상태인 한 사용자가 모바일 응용 프로그램에 무기한으로 로그인 상태를 유지하도록 허용합니다. 로그인 정책에서 **새로 고침 토큰 슬라이딩 창 수명(일)** 스위치를 **제한 없는**으로 설정하여 이를 수행할 수 있습니다.
 * 적절한 액세스 토큰 수명을 설정하여 업계의 보안 및 규정 준수 요구 사항을 충족합니다.
 
-## <a name="session-configuration"></a>세션 구성
+## <a name="token-compatibility-settings"></a>토큰 호환성 설정
+Azure AD B2C에서 내보낸 보안 토큰에서 중요한 클레임에 대한 형식을 변경했습니다. 이는 표준 프로토콜 지원을 개선하고 타사 ID 라이브러리와의 상호 운용성을 향상시키기 위해 수행되었습니다. 그러나 기존 앱을 손상시키지 않기 위해 고객이 필요에 따라 옵트인할 수 있도록 다음과 같은 속성을 만들었습니다.
+
+* **발급자(iss) 클레임**: 토큰을 발급한 Azure AD B2C 테넌트를 식별합니다.
+  * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/`: 기본값입니다.
+  * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: 이 값에는 B2C 테넌트 및 토큰 요청에 사용된 정책에 대한 ID가 포함됩니다. 앱이나 라이브러리에 [OpenID Connect 검색 1.0 사양](http://openid.net/specs/openid-connect-discovery-1_0.html)과 호환되도록 Azure AD B2C가 필요한 경우 이 값을 사용합니다.
+* **주체(sub) 클레임**: 토큰에서 정보를 어설션하는 엔터티, 즉 사용자를 식별합니다.
+  * **ObjectID**: 기본값입니다. 디렉터리에 있는 사용자의 개체 ID를 토큰의 `sub` 클레임에 채웁니다.
+  * **지원되지 않음**: 이전 버전과의 호환성을 위해서만 제공되므로 가능한 한 빨리 **ObjectID**로 전환하는 것이 좋습니다.
+* **정책 ID를 나타내는 클레임**: 토큰 요청에 사용된 정책 ID가 채워지는 클레임 유형을 식별합니다.
+  * **tfp**: 기본값입니다.
+  * **acr**: 이전 버전과의 호환성을 위해서만 제공되므로 가능한 한 빨리 `tfp`로 전환하는 것이 좋습니다.
+
+## <a name="session-behavior"></a>세션 동작
 Azure AD B2C는 웹 응용 프로그램에 대한 보안 로그인을 활성화하도록 [OpenID Connect 인증 프로토콜](active-directory-b2c-reference-oidc.md)을 지원합니다. 다음은 웹 응용 프로그램 세션을 관리하는 데 사용할 수 있는 속성입니다.
 
 * **웹앱 세션 수명(분)**: 인증 성공 시 사용자의 브라우저에 저장된 Azure AD B2C 세션 쿠키의 수명입니다.
@@ -86,6 +98,6 @@ B2C 테넌트에 여러 응용 프로그램 및 정책이 있는 경우 **Single
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

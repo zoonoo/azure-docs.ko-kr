@@ -1,20 +1,24 @@
 ---
-title: Azure Active Directory ID 보호 플레이 북 | Microsoft Docs
-description: Azure AD ID 보호를 사용하여 손상된 ID 및 장치를 악용하는 공격자의 능력을 제한하고 이전에 손상이 우려되거나 손상된 ID 또는 장치를 보호할 수 있는 방법을 알아봅니다.
+title: "Azure Active Directory ID 보호 플레이 북 | Microsoft Docs"
+description: "Azure AD ID 보호를 사용하여 손상된 ID 및 장치를 악용하는 공격자의 능력을 제한하고 이전에 손상이 우려되거나 손상된 ID 또는 장치를 보호할 수 있는 방법을 알아봅니다."
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
-documentationcenter: ''
+keywords: "Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책"
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 11/11/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
+ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
+
 
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory ID 보호 플레이 북
@@ -32,7 +36,7 @@ ms.author: markvi
 
 안전한 방법으로 다른 위험 이벤트를 시뮬레이션할 수 없습니다.
 
-### <a name="signins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
+### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
 이 위험 이벤트 유형은 익명 프록시 IP 주소로 식별된 IP 주소에서 시도하여 성공적으로 로그인한 사용자를 식별합니다. 이 프록시는 해당 장치의 IP 주소를 숨기려는 사용자가 사용하며 악의적인 의도로 사용될 수 있습니다.
 
 **익명 IP에서 로그인을 시뮬레이트하려면 다음 단계를 수행합니다.**
@@ -43,7 +47,7 @@ ms.author: markvi
 
 로그인이 5분 이내에 ID 보호 대시보드에 나타납니다. 
 
-### <a name="signins-from-unfamiliar-locations"></a>알 수 없는 위치에서 로그인
+### <a name="sign-ins-from-unfamiliar-locations"></a>알 수 없는 위치에서 로그인
 알 수 없는 위치 위험은 새로운 위치/알 수 없는 위치를 확인하기 위해 과거 로그인 위치(IP, 위도/경도 및 ASN)를 고려하는 실시간 로그인 평가 메커니즘입니다. 시스템은 이전 IP, 위도/경도 및 사용자의 ASN을 저장하고 익숙한 위치인지 고려합니다. 로그인 위치가 기존의 익숙한 위치 중 하나와 일치하지 않는 경우 로그인 위치는 알 수 없는 위치로 간주됩니다.
 
 Azure Active Directory ID 보호:  
@@ -108,7 +112,7 @@ Azure Active Directory ID 보호:
     ![플레이 북](./media/active-directory-identityprotection-playbook/201.png "Playbook")
     <br>
 
-## <a name="signin-risk"></a>로그인 위험
+## <a name="sign-in-risk"></a>로그인 위험
 **로그인 위험을 테스트하려면 다음 단계를 수행합니다.**
 
 1. 테넌트에 대한 전역 관리자 자격 증명을 사용하여 [https://portal.azure.com ](https://portal.azure.com) 에 로그인합니다.
@@ -126,13 +130,16 @@ Azure Active Directory ID 보호:
 9. **Save**를 클릭합니다.
 10. 이제 둘 다 **보통** 위험 이벤트이기 때문에 알 수 없는 위치 또는 익명 IP 위험 이벤트를 시뮬레이트하여 위험 기반 조건부 액세스를 테스트할 수 있습니다.
 
-<br>
-![플레이 북](./media/active-directory-identityprotection-playbook/200.png "Playbook")
-<br>
+
+![플레이 북](./media/active-directory-identityprotection-playbook/200.png "플레이 북")
+
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Active Directory ID 보호](active-directory-identityprotection.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 

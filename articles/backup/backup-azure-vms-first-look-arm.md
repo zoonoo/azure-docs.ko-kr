@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 11/10/2016
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: 3fe4d985c62b8476bd3b3f923fa17e7f364f9352
+ms.sourcegitcommit: d18cd2c117ced64e407e87bcc96da38b0351a341
+ms.openlocfilehash: 0b3409074e0b4929fdf1f5a6b915e3814facedf6
 
 
 ---
@@ -45,6 +45,37 @@ Premium Storage VM을 보호하는 방법에 대한 자세한 내용은 [Premium
 
 [!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
 
+보호하려는 VM 수를 기반으로 다양한 시작점에서 시작할 수 있습니다. 하나의 단일 작업으로 여러 개의 가상 컴퓨터를 백업하려면 Recovery Services 자격 증명 모음으로 이동하여 자격 증명 모음 대시보드에서 백업을 시작합니다. 백업할 VM이 하나이면 VM 관리 블레이드에서 바로 백업할 수 있습니다.
+
+## <a name="configure-backup-from-vm-management-blade"></a>VM 관리 블레이드에서 Backup 구성
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+2. 허브 메뉴에서 **추가 서비스**를 클릭하고 리소스 목록에서 **가상 컴퓨터**를 입력합니다.  가상 컴퓨터 목록이 표시됩니다. 가상 컴퓨터 목록에서 백업할 가상 컴퓨터를 선택합니다. 그러면 가상 컴퓨터 관리 블레이드가 열립니다.
+ ![VM 관리 블레이드](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
+
+3. VM 관리 블레이드에서 왼쪽의 설정 아래에 있는 "백업" 옵션을 클릭합니다.
+![VM 관리 블레이드의 백업 옵션](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
+
+4. 그러면 백업 사용 블레이드가 열립니다. 이 블레이드에는 두 가지 입력 사항이 있습니다. Recovery Services 자격 증명 모음 - VM 백업을 저장하는 데 사용되는 Azure Backup 리소스입니다. 백업 정책 – 백업 정책은 백업 일정 및 백업 복사본을 유지할 기간을 지정합니다. 이 블레이드에는 기본 옵션이 제공됩니다. 해당 옵션을 백업 요구 사항에 따라 사용자 지정할 수 있습니다.
+
+  ![백업 마법사 사용](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+
+5. Recovery Services 자격 증명 모음의 경우 기존 자격 증명 모음을 선택하거나 새 자격 증명 모음을 만들 수 있습니다. 새 자격 증명 모음 만드는 경우 가상 컴퓨터와 동일한 리소스 그룹에 생성되며 위치는 가상 컴퓨터와 동일합니다. 다른 값을 사용하여 Recovery Services 자격 증명 모음을 만들려면 3단계에서 백업 옵션을 클릭하기 전에 [Recovery Services 자격 증명 모음을 만들고](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) 해당 항목을 이 블레이드에서 선택합니다.
+
+6. 백업 정책 블레이드에서 자격 증명 모음에 적용할 백업 정책을 선택하고 **확인**을 클릭합니다.
+    ![백업 정책 선택](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
+
+    상세 정보에 기본 정책에 대한 자세한 내용이 나열됩니다. 정책을 만들려는 경우 드롭다운 메뉴에서 **새로 만들기** 를 선택합니다. 드롭다운 메뉴는 스냅숏을 생성하는 시간을 전환하는 옵션도 제공합니다. 백업 정책 정의에 대한 지침은 [백업 정책 정의](backup-azure-vms-first-look-arm.md#defining-a-backup-policy)를 참조하세요. **확인**을 클릭하면 백업 정책이 가상 컴퓨터와 연결됩니다.
+
+7. "백업 사용"을 클릭하여 가상 컴퓨터에서 Backup을 구성합니다. 그러면 배포가 트리거됩니다.
+![백업 사용 단추](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
+
+8. 알림을 통해 구성 진행률을 추적할 수 있습니다.
+![백업 사용 알림](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
+
+9. 백업 구성에 대한 배포가 완료된 후 VM 관리 블레이드에서 "백업" 옵션을 클릭하면 백업된 VM에 해당하는 백업 항목 블레이드로 이동됩니다.
+![VM 백업 항목 보기](./media/backup-azure-vms-first-look-arm/backup-item-view.png)
+
+## <a name="configure-backup-from-recovery-services-vault-view"></a>Recovery Services 자격 증명 모음 보기에서 Backup 구성
 높은 수준에서 볼 때 다음 단계를 완료해야 합니다.  
 
 1. VM에 대한 복구 서비스 자격 증명 모음을 만듭니다.
@@ -187,16 +218,16 @@ Premium Storage VM을 보호하는 방법에 대한 자세한 내용은 [Premium
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>가상 컴퓨터에 VM 에이전트 설치
-필요한 경우 이 정보가 제공됩니다. Azure VM 에이전트는 작업할 백업 확장을 위한 Azure 가상 컴퓨터에 설치되어야 합니다. 그러나 Azure 갤러리에서 VM을 만든 경우 VM 에이전트는 이미 가상 컴퓨터에 있습니다. 온-프레미스 데이터 센터에서 마이그레이션한 VM에는 VM 에이전트가 설치되어 있지 않습니다. 이러한 경우에 VM 에이전트를 설치해야 합니다. Azure VM을 백업하는 데 문제가 있는 경우 Azure VM 에이전트가 가상 컴퓨터에 올바르게 설치되었는지 확인합니다(아래 테이블 참조). 사용자 지정 VM을 만든 경우, 가상 컴퓨터를 프로비전하기 전에 [**VM 에이전트 설치** 확인란이 선택되어 있는지 확인](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md)해야 합니다.
+필요한 경우 이 정보가 제공됩니다. Azure VM 에이전트는 작업할 백업 확장을 위한 Azure 가상 컴퓨터에 설치되어야 합니다. 그러나 Azure 갤러리에서 VM을 만든 경우 VM 에이전트는 이미 가상 컴퓨터에 있습니다. 온-프레미스 데이터 센터에서 마이그레이션한 VM에는 VM 에이전트가 설치되어 있지 않습니다. 이러한 경우에 VM 에이전트를 설치해야 합니다. Azure VM을 백업하는 데 문제가 있는 경우 Azure VM 에이전트가 가상 컴퓨터에 올바르게 설치되었는지 확인합니다(아래 테이블 참조). 사용자 지정 VM을 만든 경우, 가상 컴퓨터를 프로비전하기 전에 [**VM 에이전트 설치** 확인란이 선택되어 있는지 확인](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)해야 합니다.
 
-[VM 에이전트](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) 및 [설치 방법](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md)에 대해 알아보세요.
+[VM 에이전트](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) 및 [설치 방법](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)에 대해 알아보세요.
 
 다음 테이블에서는 Windows 및 Linux VM용 VM 에이전트에 대한 추가 정보를 제공합니다.
 
 | **작업** | **Windows** | **Linux** |
 | --- | --- | --- |
 | VM 에이전트 설치 |<li>[에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다. <li>[VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 하여 에이전트가 설치되었다고 표시합니다. |<li> GitHub에서 최신 [Linux 에이전트](https://github.com/Azure/WALinuxAgent) 를 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다. <li> [VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 하여 에이전트가 설치되었다고 표시합니다. |
-| VM 에이전트 업데이트 |VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |[Linux VM 에이전트 업데이트 ](../virtual-machines/virtual-machines-linux-update-agent.md)의 지침을 따르세요. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
+| VM 에이전트 업데이트 |VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |[Linux VM 에이전트 업데이트 ](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
 | VM 에이전트 설치 유효성 검사 |<li>Azure VM에서 *C:\WindowsAzure\Packages* 폴더로 이동합니다. <li>WaAppAgent.exe 파일을 찾습니다.<li> 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. 제품 버전 필드가 2.6.1198.718 이상이어야 합니다. |해당 없음 |
 
 ### <a name="backup-extension"></a>백업 확장
@@ -210,11 +241,11 @@ Premium Storage VM을 보호하는 방법에 대한 자세한 내용은 [Premium
 ## <a name="pricing"></a>가격
 Azure VM 백업의 경우 보호된 인스턴스 모델에 따라 청구됩니다. 자세한 내용은 [백업 가격](https://azure.microsoft.com/pricing/details/backup/) 참조
 
-## <a name="questions"></a>질문이 있으십니까?
+## <a name="questions"></a>질문?
 질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

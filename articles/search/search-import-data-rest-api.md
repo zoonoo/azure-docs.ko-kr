@@ -13,32 +13,33 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 340287e4a3331eba441bce7feb957f27aca38b2b
-
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
 
 ---
+
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>REST API를 사용하여 Azure 검색에 데이터 업로드
 > [!div class="op_single_selector"]
+>
 > * [개요](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
-> * [REST (영문)](search-import-data-rest-api.md)
-> 
-> 
+> * [REST](search-import-data-rest-api.md)
+>
+>
 
-이 문서에서는 [Azure 검색 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 를 사용하여 Azure 검색 인덱스에 데이터를 가져오는 방법을 보여줍니다.
+이 문서에서는 [Azure 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/) 를 사용하여 Azure 검색 인덱스에 데이터를 가져오는 방법을 보여줍니다.
 
 이 연습을 시작하기 전에 [Azure 검색 인덱스를 만들어야](search-what-is-an-index.md)합니다.
 
 REST API를 사용하여 인덱스에 문서를 푸시하기 위해 인덱스의 URL 끝점에 HTTP 게시 요청을 발급합니다. HTTP 요청 본문의 본문은 문서의 추가, 수정 또는 삭제를 포함하는 JSON 개체입니다.
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Azure 검색 서비스의 관리 API 키 식별
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Azure 검색 서비스의 관리 API 키 식별
 REST API를 사용하여 서비스에 대한 HTTP 요청을 발급하는 경우 *각* API 요청은 프로비전한 검색 서비스에 생성된 API 키를 포함해야 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
-1. 서비스의 API 키를 찾으려면 [Azure 포털](https://portal.azure.com/)
+1. 서비스의 API 키를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인해야 합니다.
 2. Azure 검색 서비스의 블레이드로 이동합니다.
 3. "키" 아이콘을 클릭합니다.
 
@@ -54,7 +55,7 @@ REST API를 사용하는 경우 Azure 검색 인덱스의 끝점 URL에 대한 J
 
 "값" 배열의 각 JSON 개체는 인덱싱할 문서를 나타냅니다. 이러한 각 개체는 문서의 키를 포함하고 원하는 인덱싱 작업(업로드, 병합, 삭제 등)을 지정합니다. 아래에서 어떤 작업을 선택하는지에 따라 특정 필드는 각 문서에 포함되어야 합니다.
 
-| @search.action | 설명 | 각 문서에 대해 필요한 필드 | 참고 사항 |
+| @search.action | 설명 | 각 문서에 대해 필요한 필드 | 메모 |
 | --- | --- | --- | --- |
 | `upload` |`upload` 작업은 새 문서는 삽입하고 기존 문서는 업데이트/교체하는 "upsert"와 비슷합니다. |키, 더하기 정의하려는 기타 필드 |기존 문서를 업데이트/교체하는 경우 요청에 지정되지 않은 필드는 해당 필드를 `null`로 설정합니다. 필드가 이전에 null이 아닌 값으로 설정된 경우에 발생합니다. |
 | `merge` |기존 문서를 지정한 필드로 업데이트합니다. 인덱스에 문서가 없으면 병합이 실패합니다. |키, 더하기 정의하려는 기타 필드 |문서의 기존 필드는 병합에서 지정하는 필드로 바뀝니다. 여기에는 `Collection(Edm.String)`형식 필드가 포함됩니다. 예를 들어 값이 `["budget"]`인 `tags` 필드가 포함되어 있는 문서에서 `tags`에 대해 `["economy", "pool"]` 값과의 병합을 실행하면 `tags` 필드의 최종 값은 `["economy", "pool"]`이 됩니다. `["budget", "economy", "pool"]`이 아닙니다. |
@@ -65,9 +66,9 @@ REST API를 사용하는 경우 Azure 검색 인덱스의 끝점 URL에 대한 J
 인덱스 작업에 필요한 필드 값을 수집했다면 실제 HTTP 요청 및 JSON 요청 본문을 생성하여 데이터를 가져올 준비가 되었습니다.
 
 #### <a name="request-and-request-headers"></a>요청 및 요청 헤더
-URL에서 서비스 이름, 인덱스 이름(이 경우 "호텔") 뿐만 아니라 적절한 API 버전을 제공해야 합니다(이 문서를 게시할 때 현재 API 버전은 `2015-02-28` 임). `Content-Type` 및 `api-key` 요청 헤더를 정의해야 합니다. 후자의 경우 서비스의 관리 키 중 하나를 사용합니다.
+URL에서 서비스 이름, 인덱스 이름(이 경우 "호텔") 뿐만 아니라 적절한 API 버전을 제공해야 합니다(이 문서를 게시할 때 현재 API 버전은 `2016-09-01` 임). `Content-Type` 및 `api-key` 요청 헤더를 정의해야 합니다. 후자의 경우 서비스의 관리 키 중 하나를 사용합니다.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -160,8 +161,8 @@ URL에서 서비스 이름, 인덱스 이름(이 경우 "호텔") 뿐만 아니�
 
 > [!NOTE]
 > 대개는 검색 서비스에 대한 부하가 인덱싱 요청이 `503` 응답을 반환하기 시작하는 지점에 도달한 것을 의미합니다. 이 경우 다시 시도하기 전에 클라이언트 코드를 백오프하고 대기하는 것이 좋습니다. 이렇게 하면 시스템이 복구할 시간을 제공하여 이후 요청이 성공할 가능성이 높아집니다. 신속하게 요청을 다시 시도하면 이 상황만 연장됩니다.
-> 
-> 
+>
+>
 
 #### <a name="429"></a>429
 인덱스당 문서 수의 할당량이 초과된 경우 상태 코드 `429` 가 반환됩니다.
@@ -171,17 +172,16 @@ URL에서 서비스 이름, 인덱스 이름(이 경우 "호텔") 뿐만 아니�
 
 > [!NOTE]
 > 이 경우 다시 시도하기 전에 클라이언트 코드를 백오프하고 대기하는 것이 좋습니다. 이렇게 하면 시스템이 복구할 시간을 제공하여 이후 요청이 성공할 가능성이 높아집니다. 신속하게 요청을 다시 시도하면 이 상황만 연장됩니다.
-> 
-> 
+>
+>
 
-문서 동작 및 성공/오류 응답에 대한 자세한 내용은 [문서 추가, 업데이트 또는 삭제](https://msdn.microsoft.com/library/azure/dn798930.aspx)를 참조하세요. 오류가 발생한 경우 반환될 수 있는 기타 HTTP 상태 코드에 대한 자세한 내용은 [HTTP 상태 코드(Azure 검색)](https://msdn.microsoft.com/library/azure/dn798925.aspx)를 참조하세요.
+문서 동작 및 성공/오류 응답에 대한 자세한 내용은 [문서 추가, 업데이트 또는 삭제](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents)를 참조하세요. 오류가 발생한 경우 반환될 수 있는 기타 HTTP 상태 코드에 대한 자세한 내용은 [HTTP 상태 코드(Azure 검색)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes)를 참조하세요.
 
 ## <a name="next"></a>다음
 Azure 검색 인덱스를 채운 후에 문서를 검색하기 위해 쿼리를 발급하기 시작할 준비가 되었습니다. 세부 정보는 [Azure 검색 인덱스 쿼리](search-query-overview.md) 를 참조하세요.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

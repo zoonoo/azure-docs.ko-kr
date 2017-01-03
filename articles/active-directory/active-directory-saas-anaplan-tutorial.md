@@ -1,12 +1,12 @@
 ---
-title: '자습서: Anaplan과 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 Anaplan 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Anaplan과 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 Anaplan 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4a9c2914-6c8c-4a88-93e3-3753afb40e6b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 95369b2a0c1172e072aed33d075255fdcafe8a9c
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-anaplan"></a>자습서: Anaplan와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>자습서: Anaplan와 Azure Active Directory 통합
 이 자습서에서는 Anaplan와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 Anaplan를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -106,7 +110,7 @@ Anaplan에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
    
     ![Single Sign-On 구성](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_04.png)
    
-    a. **로그온 URL** 텍스트 상자에서  `https://sdp.anaplan.com/frontdoor/saml/<tenant name>` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 다음 패턴  `https://sdp.anaplan.com/frontdoor/saml/<tenant name>`을 사용하여 URL을 입력합니다.
    
     b. 페이지 맨 아래에 있는 **다음**
 
@@ -236,6 +240,6 @@ Anaplan에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO5-->
 
 

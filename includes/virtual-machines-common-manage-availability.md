@@ -9,6 +9,7 @@
 * [중복성을 위해 가용성 집합에서 여러 가상 컴퓨터 구성]
 * [각 응용 프로그램 계층을 별도의 가용성 집합으로 구성]
 * [가용성 집합과 부하 분산 장치 결합]
+* [각 가용성 집합에 여러 저장소 계정 사용]
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>중복성을 위해 가용성 집합에서 여러 가상 컴퓨터 구성
 응용 프로그램에 중복성을 제공하기 위해 여러 개의 가상 컴퓨터를 가용성 집합으로 그룹화하는 것이 좋습니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 컴퓨터를 사용할 수 있고 99.95% Azure SLA가 충족되도록 합니다. 자세한 내용은 [가상 컴퓨터에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 참조하세요.
@@ -38,14 +39,22 @@
 
 부하 분산 장치가 트래픽을 여러 가상 컴퓨터에 분산시키도록 구성되지 않은 경우에는 계획된 유지 관리 이벤트가 트래픽 처리 가상 컴퓨터에만 영향을 줌으로써 응용 프로그램 계층에 중단을 일으킬 수 있습니다. 같은 계층의 여러 가상 컴퓨터를 같은 부하 분산 장치와 가용성 집합 아래에 배치하면 언제든지 적어도 하나의 인스턴스에서는 트래픽을 계속 처리할 수 있습니다.
 
+## <a name="use-multiple-storage-accounts-for-each-availability-set"></a>각 가용성 집합에 여러 저장소 계정 사용
+VM 내의 VHD(가상 하드 디스크)에서 사용한 저장소 계정과 관련한 모범 사례는 다음과 같습니다. 각 디스크(VHD)는 Azure Storage 계정에 있는 페이지 Blob입니다. 가용성 집합 내에서 VM에 대한 고가용성을 제공하기 위해 저장소 계정에서 중복성 및 격리를 활용할 수 있는지 확인해야 합니다.
+
+1. **동일한 저장소 계정에서 VM과 모든 디스크(OS 및 데이터) 연결 유지**
+2. 저장소 계정에 더 많은 VHD를 추가하는 경우 **저장소 계정 [제한](../articles/storage/storage-scalability-targets.md)을 고려해야 합니다.**
+3. **가용성 집합의 각 VM마다 별도의 저장소 계정을 사용합니다.** 동일한 가용성 집합의 여러 VM은 동일한 저장소 계정을 공유하지 않아야 합니다. 위의 모범 사례를 따르면 여러 가용성 집합의 VM에 대해 저장소 계정을 공유할 수 있습니다.
+
 <!-- Link references -->
 [중복성을 위해 가용성 집합에서 여러 가상 컴퓨터 구성]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [각 응용 프로그램 계층을 별도의 가용성 집합으로 구성]: #configure-each-application-tier-into-separate-availability-sets
 [가용성 집합과 부하 분산 장치 결합]: #combine-a-load-balancer-with-availability-sets
-[가용성 집합에서 단일 인스턴스 가상 컴퓨터 방지]: #avoid-single-instance-virtual-machines-in-availability-sets
+[Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
+[각 가용성 집합에 여러 저장소 계정 사용]: #use-multiple-storage-accounts-for-each-availability-set
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

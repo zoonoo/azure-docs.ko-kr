@@ -122,12 +122,12 @@ Windows Server 가상 컴퓨터를 AAD-DS 관리되는 도메인에 가입하려
 * 시작 가이드에 지정된 대로 암호 동기화가 완료될 때까지 충분히 기다려야 합니다.
 
 ## <a name="related-content"></a>관련 콘텐츠
-* [Azure AD 도메인 서비스 - 시작 가이드](active-directory-ds-getting-started.md)
+* [Azure AD Domain Services - 시작 가이드](active-directory-ds-getting-started.md)
 * [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 07/22/2016
+ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
+ms.sourcegitcommit: 03b74607227aed68c6df01e80e4bb87e906ecf31
+ms.openlocfilehash: 48531201029bf09f30cb22852aaf5d3ad0b328fc
 
 
 ---
@@ -61,8 +61,8 @@ ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
 
 Visual Studio 2013을 사용하려는 경우 [Visual Studio 2013용 최신 Azure SDK를 다운로드](http://go.microsoft.com/fwlink/?LinkID=324322)할 수 있습니다. 일부 화면이 그림에서 다르게 보일 수 있습니다.
 
-## <a name="configure-a-new-web-project"></a>새 웹 프로젝트 구성
-다음 단계는 Visual Studio에서 웹 프로젝트를 만들고 Azure 앱 서비스에서 웹앱을 만드는 것입니다. 자습서의 이 섹션에서는 새 웹 프로젝트를 구성합니다. 
+## <a name="create-a-web-application"></a>웹 응용 프로그램 만들기
+다음 단계는 Visual Studio에서 웹 응용 프로그램 프로젝트를 만들고 Azure App Service에서 웹앱을 만드는 것입니다. 자습서의 이 섹션에서는 새 웹 프로젝트를 구성합니다. 
 
 1. Visual Studio 2015를 엽니다.
 2. **파일 > 새로 만들기 > 프로젝트**를 클릭합니다.
@@ -89,7 +89,7 @@ Visual Studio 2013을 사용하려는 경우 [Visual Studio 2013용 최신 Azure
     이러한 설정은 Visual Studio를 지정하여 웹 프로젝트용 Azure 웹앱을 만듭니다.
 10.  **확인**
 
-## <a name="configure-azure-resources-for-a-new-web-app"></a>새 웹앱에 대한 Azure 리소스 구성
+## <a name="create-the-azure-resources"></a>Azure 리소스 만들기
 이제 Visual Studio에 만들려는 Azure 리소스에 대해 지시할 수 있습니다.
 
 1. **App Service 만들기** 대화 상자에서 **계정 추가**를 클릭한 다음 Azure 구독을 관리하는 데 사용할 수 있는 계정의 ID와 암호를 사용하여 Azure에 로그인합니다.
@@ -128,14 +128,14 @@ Visual Studio 2013을 사용하려는 경우 [Visual Studio 2013용 최신 Azure
 8. **App Service 계획 구성** 대화 상자에서 **확인**을 클릭합니다.
 9. **App Service 만들기** 대화 상자에서 **만들기**를 클릭합니다.
 
-## <a name="visual-studio-creates-the-project-and-web-app"></a>Visual Studio는 프로젝트 및 웹앱을 만듭니다.
+## <a name="inspect-the-azure-resources-in-visual-studio"></a>Visual Studio에서 Azure 리소스 검사
 짧은 시간 내에, 일반적으로 1분 미만 동안 Visual Studio는 웹 프로젝트 및 웹앱을 만듭니다.  
 
 **솔루션 탐색기** 창에 새 프로젝트의 파일 및 폴더가 표시됩니다.
 
 ![솔루션 탐색기](./media/web-sites-dotnet-get-started/solutionexplorer.png)
 
-**Azure 앱 서비스 작업** 창에 웹앱이 만들어졌다고 표시됩니다.
+**Azure App Service 활동** 창에서는 Azure에서 App Service 리소스를 만들었음을 보여 줍니다. 여기에 있는 링크를 클릭하면 새 프로젝트를 즉시 게시할 수 있습니다. 그러나 나중에 이 자습서에서 언제든지 파일을 게시하는 방법을 보여 줍니다.
 
 ![Azure 앱 서비스 활동 창에서 만든 웹앱](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
@@ -143,8 +143,8 @@ Visual Studio 2013을 사용하려는 경우 [Visual Studio 2013용 최신 Azure
 
 ![클라우드 탐색기에서 만든 웹앱](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## <a name="deploy-the-web-project-to-the-azure-web-app"></a>Azure 웹앱에 웹 프로젝트 배포
-이 섹션에서는 웹앱에 웹 프로젝트를 배포합니다.
+## <a name="deploy-the-web-project-to-azure"></a>Azure에 웹 프로젝트 배포
+이 섹션에서는 Azure App Service에서 만든 웹앱 리소스에 웹 프로젝트를 배포합니다.
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
    
@@ -152,7 +152,10 @@ Visual Studio 2013을 사용하려는 경우 [Visual Studio 2013용 최신 Azure
    
     몇 초 후에 **웹 게시** 마법사가 나타납니다. 마법사에 웹 프로젝트를 새 웹앱으로 배포하기 위한 설정이 포함된 *프로필 게시* 가 열립니다.
    
-    게시 프로필은 배포하기 위한 사용자 이름 및 암호를 포함합니다.  이러한 자격 증명은 사용자를 위해 생성되며 입력할 필요가 없습니다. 암호는 `Properties\PublishProfiles` 폴더의 숨겨진 사용자별 파일에 암호화됩니다.
+    > [!TIP] 
+    > 게시 프로필은 배포하기 위한 사용자 이름 및 암호를 포함합니다.  이러한 자격 증명은 사용자를 위해 생성되며 입력할 필요가 없습니다. 암호는 `Properties\PublishProfiles` 폴더의 숨겨진 사용자별 파일에 암호화됩니다.
+    >
+    >
 2. **웹 게시** 마법사의 **연결** 탭에서 **다음**을 클릭합니다.
    
     ![웹 게시 마법사의 연결 탭에서 다음 클릭](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
@@ -219,6 +222,6 @@ Azure 앱 서비스에서 ASP.NET 웹앱이 실행 중인 경우 문제 해결�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

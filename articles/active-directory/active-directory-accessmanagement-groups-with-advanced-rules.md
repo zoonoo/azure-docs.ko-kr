@@ -1,20 +1,23 @@
-
 ---
-title: 특성을 사용하여 고급 규칙 만들기| Microsoft Docs
-description: 지원되는 식 규칙 연산자 및 매개 변수를 포함하는 그룹에 대한 고급 규칙 만들기
+title: "특성을 사용하여 고급 규칙 만들기| Microsoft Docs"
+description: "지원되는 식 규칙 연산자 및 매개 변수를 포함하는 그룹에 대한 고급 규칙 만들기"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 04813a42-d40a-48d6-ae96-15b7e5025884
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: c404c8708ec6d33f272733e438b8c3559fa40ce9
+ms.openlocfilehash: 07cf3e27f34c705367aa62650d2b17ed1ea3ec82
+
 
 ---
 # <a name="using-attributes-to-create-advanced-rules"></a>특성을 사용하여 고급 규칙 만들기
@@ -42,11 +45,18 @@ Azure 클래식 포털은 고급 규칙을 설정할 수 있는 기능을 제공
 
 지원되는 매개 변수 및 식 규칙 연산자의 전체 목록은 아래 섹션을 참조하세요.
 
+속성에는 올바른 개체 형식 접두어(user 또는 device)가 있어야 합니다.
+mail -ne null 규칙은 유효성 검사에 실패합니다.
+
+올바른 규칙은 다음과 같습니다. 
+
+user.mail-ne null
+
 고급 규칙 본문의 총 길이는 2048자를 초과할 수 없습니다.
 
 > [!NOTE]
-> 문자열 및 regex 연산은 대/소문자를 구분합니다. $null을 상수로 사용하여 Null 확인을 수행할 수도 있습니다(예: user.department -eq $null).
-> 따옴표(")를 포함하는 문자열은 ' 문자를 사용하여 이스케이프해야 합니다(예: user.department -eq \`"Sales").
+> 문자열 및 regex 연산은 대/소문자를 구분합니다. 따옴표(")를 포함하는 문자열은 ' 문자를 사용하여 이스케이프해야 합니다(예: user.department -eq \`"Sales").
+> 문자열 형식 값에 대해서만 따옴표를 사용하고, 영어 따옴표만 사용합니다.
 > 
 > 
 
@@ -63,6 +73,20 @@ Azure 클래식 포털은 고급 규칙을 설정할 수 있는 기능을 제공
 | 포함 |-contains |
 | 일치하지 않음 |-notMatch |
 | 일치 |-match |
+
+## <a name="operator-precedence"></a>연산자 우선 순위
+
+모든 연산자는 낮은 우선 순위에서 높은 우선 순위까지 나열되며(-any -all -or -not -nq -ne -startsWith -notStartsWith-contains -notContains -match -notMatch), 같은 줄의 연산자는 동등한 우선 순위를 가집니다.
+ 
+모든 연산자는 하이픈(-) 접두사를 사용하거나 사용하지 않을 수 있습니다.
+
+괄호는 항상 필요한 것이 아니지만, 우선 순위가 요구 사항을 충족하지 못할 경우 괄호를 추가하면 됩니다. 예를 들면 다음과 같습니다.
+
+   user.department –eq "Marketing" –and user.country –eq "US" 
+   
+이는 다음과 동등합니다. 
+
+   (user.department –eq "Marketing") –and (user.country –eq "US")
 
 ## <a name="query-error-remediation"></a>쿼리 오류 수정
 다음 표에서는 잠재적인 오류와 오류가 발생할 경우 이를 수정하는 방법을 나열합니다.
@@ -138,6 +162,12 @@ Azure 클래식 포털은 고급 규칙을 설정할 수 있는 기능을 제공
 | otherMails |임의의 문자열 값입니다. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## <a name="use-of-null-values"></a>Null 값 사용
+
+규칙에 null 값을 지정하려면 "null" 또는 $null을 사용하면 됩니다. 예제: 
+
+   user.mail -ne null은 user.mail –ne $null과 동등합니다.
+
 ## <a name="extension-attributes-and-custom-attributes"></a>확장 특성 및 사용자 지정 특성
 확장 특성 및 사용자 지정 특성은 동적 멤버 자격 규칙에서 지원됩니다.
 
@@ -153,8 +183,14 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 사용자 지정 특성 이름은 Graph Explorer를 사용하여 사용자의 특성을 쿼리하거나 특성 이름을 검색하여 디렉터리에서 찾을 수 있습니다.
 
+## <a name="support-for-multi-value-properties"></a>다중 값 속성 지원
+
+규칙에 다중 값 속성을 포함하려면 다음과 같이 "-any" 연산자를 사용합니다.
+
+  user.assignedPlans -any assignedPlan.service -startsWith "SCO"
+  
 ## <a name="direct-reports-rule"></a>직접 보고 규칙
-이제 사용자의 관리자 특성에 따라 그룹의 멤버를 채울 수 있습니다.
+사용자의 관리자 특성에 따라 그룹의 멤버를 채울 수 있습니다.
 
 **"관리자" 그룹으로 그룹을 구성하려면**
 
@@ -178,16 +214,16 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 | displayName |임의의 문자열 값입니다. |(device.displayName -eq "Rob Iphone”) |
 | deviceOSType |임의의 문자열 값입니다. |(device.deviceOSType -eq "IOS") |
 | deviceOSVersion |임의의 문자열 값입니다. |(device.OSVersion -eq "9.1") |
-| isDirSynced |true false null |(device.isDirSynced -eq "true") |
-| isManaged |true false null |(device.isManaged -eq "false") |
-| isCompliant |true false null |(device.isCompliant -eq "true") |
+| isDirSynced |true false null |(device.isDirSynced -eq true) |
+| isManaged |true false null |(device.isManaged -eq false) |
+| isCompliant |true false null |(device.isCompliant -eq true) |
 | deviceCategory |임의의 문자열 값입니다. |(device.deviceCategory -eq "") |
 | deviceManufacturer |임의의 문자열 값입니다. |(device.deviceManufacturer -eq "Microsoft") |
 | deviceModel |임의의 문자열 값입니다. |(device.deviceModel -eq "IPhone 7+") |
 | deviceOwnership |임의의 문자열 값입니다. |(device.deviceOwnership -eq "") |
 | domainName |임의의 문자열 값입니다. |(device.domainName -eq "contoso.com") |
 | enrollmentProfileName |임의의 문자열 값입니다. |(device.enrollmentProfileName -eq "") |
-| isRooted |true false null |(device.deviceOSType -eq "true") |
+| isRooted |true false null |(device.isRooted -eq true) |
 | managementType |임의의 문자열 값입니다. |(device.managementType -eq "") |
 | organizationalUnit |임의의 문자열 값입니다. |(device.organizationalUnit -eq "") |
 | deviceId |유효한 deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
@@ -206,6 +242,9 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 

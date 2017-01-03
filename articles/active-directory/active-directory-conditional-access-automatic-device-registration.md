@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/30/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d717f906bd4aad35cb46852baf84c4e088b953e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5c387c5355957fea0ccffe58e707fae3d2e77c34
 
 
 ---
@@ -100,6 +100,6 @@ Azure AD 장치 등록은 가장 광범위한 장치 기능을 제공합니다. 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

@@ -12,35 +12,35 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/08/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 7450400920517bed56f608fd74c62238f2fb9eab
+ms.sourcegitcommit: 3c8406efd9d716df56ed3ca10fc596684945c2f2
+ms.openlocfilehash: 3281b001aeab42aace951b5bdd5d4ec901de396f
 
 
 ---
-# <a name="tutorial-develop-usql-scripts-using-data-lake-tools-for-visual-studio"></a>자습서: Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발
+# <a name="tutorial-develop-u-sql-scripts-using-data-lake-tools-for-visual-studio"></a>자습서: Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Visual Studio용 데이터 레이크 도구를 설치하는 방법과 Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트를 작성하고 테스트하는 방법을 알아봅니다.
 
 U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 분석하기 위한 확장성이 탁월한 언어입니다. 자세한 내용은 [U-SQL 참조](http://go.microsoft.com/fwlink/p/?LinkId=691348)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
-* **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012. Enterprise(Ultimate/Premium), Professional, Community Edition이 지원됩니다. Express Edition은 지원되지 않습니다. Visual Studio "15"는 현재 지원되지 않으며 개발 중입니다.**
+## <a name="prerequisites"></a>선행 조건
+* **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012. Enterprise(Ultimate/Premium), Professional, Community Edition이 지원됩니다. Express Edition은 지원되지 않습니다. Visual Studio 2017은 현재 지원되지 않습니다.**
 * **Microsoft Azure SDK for .NET 버전 2.7.1 이상**.  [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
 * **[Visual Studio용 Data Lake 도구](http://aka.ms/adltoolsvs)**.
 
     Visual Studio용 Data Lake 도구가 설치되면 "Azure" 노드의 서버 탐색기에서 "Data Lake 분석" 노드가 표시됩니다(Ctrl+Alt+S를 눌러 서버 탐색기를 열 수 있음).
-* **[Azure Portal을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)의 다음 두 섹션을 살펴봅니다**.
 
-  * [Azure Data Lake Analytics 계정 만들기](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-  * [기본 데이터 레이크 저장소 계정에 SearchLog.tsv를 업로드하기](data-lake-analytics-get-started-portal.md#prepare-source-data).
+* **Data Lake Analytics 계정 및 예제 데이터** Data Lake Tools는 Data Lake Analytics 계정 만들기를 지원하지 않습니다. Azure Portal, Azure PowerShell, .NET SDK 또는 Azure CLI를 사용하여 계정을 만들 수 있습니다.
+사용자 편의를 위해 Data Lake Analytics 서비스를 만들고 원본 데이터 파일을 업로드하기 위한 PowerShell 스크립트는 [자습서 준비를 위한 Appx-A PowerShell 샘플](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial)에서 찾을 수 있습니다.
 
-    사용자 편의를 위해 데이터 레이크 분석 서비스를 만들고 원본 데이터 파일을 업로드하기 위한 PowerShell 샘플 스크립트는 [자습서 준비를 위한 Appx-A PowerShell 샘플](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial)에서 찾을 수 있습니다.
+    경우에 따라 계정을 만들고 수동으로 데이터를 업로드하기 위해 [Azure Portal을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)의 다음 두 섹션을 살펴볼 수 있습니다.
 
-    데이터 레이크 도구는 데이터 레이크 분석 계정 만들기를 지원하지 않습니다. 따라서 Azure Portal, Azure PowerShell, .NET SDK 또는 Azure CLI를 사용하여 해당 계정을 만들어야 합니다. 데이터 레이크 분석 작업을 실행하려면 일부 데이터가 필요합니다. 데이터 레이크 도구가 데이터 업로드를 지원하지만 이 자습서를 더 쉽게 수행하기 위해 해당 포털을 사용하여 샘플 데이터를 업로드합니다.
+    1. [Azure Data Lake Analytics 계정 만들기](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
+    2. [기본 데이터 레이크 저장소 계정에 SearchLog.tsv를 업로드하기](data-lake-analytics-get-started-portal.md#prepare-source-data).
 
 ## <a name="connect-to-azure"></a>Azure에 연결
 **데이터 레이크 분석에 연결하기**
@@ -72,7 +72,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 4. 파일을 업로드할 폴더로 이동합니다.
 5. 빈 공간을 마우스 오른쪽 단추를 클릭한 후 **업로드**를 클릭합니다.
 
-## <a name="develop-usql-scripts"></a>U-SQL 스크립트 개발
+## <a name="develop-u-sql-scripts"></a>U-SQL 스크립트 개발
 데이터 레이크 분석 작업은 U-SQL 언어로 작성됩니다. U-SQL에 대한 자세한 내용은 [U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](http://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
 
 **데이터 레이크 분석 작업 만들기 및 제출하기**
@@ -195,7 +195,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 ### <a name="heat-map"></a>열 지도
 Visual Studio용 데이터 레이크 도구는 진행률, 데이터 I/O, 실행 시간, 각 단계의 I/O 처리량을 나타내도록 사용자가 선택할 수 있는 색 오버레이를 작업 보기에 제공합니다. 이를 통해 사용자는 잠재적인 문제와 작업 속성의 분포를 직접적이고 직관적으로 파악할 수 있습니다. 표시할 데이터 원본을 드롭다운 목록에서 선택할 수 있습니다.  
 
-## <a name="run-usql-locally"></a>로컬에서 U-SQL 실행
+## <a name="run-u-sql-locally"></a>로컬에서 U-SQL 실행
 Visual Studio에서 U-SQL 로컬 실행 환경을 사용하면 다음과 같은 작업이 가능합니다.
 
 * C# 어셈블리와 함께 로컬에서 U-SQL 스크립트를 실행합니다.
@@ -225,7 +225,7 @@ Visual Studio에 *로컬* 계정이 표시되고 설치 관리자가 *C:\LocalRu
 
     Data Lake 서비스에서 실행되는 스크립트의 경우, 기본 저장소 계정이 루트 폴더로 사용되며 따라서 그 폴더가 검색됩니다.
 
-### <a name="test-usql-scripts-locally"></a>로컬에서 U-SQL 스크립트 테스트
+### <a name="test-u-sql-scripts-locally"></a>로컬에서 U-SQL 스크립트 테스트
 U-SQL 스크립트 개발에 대한 지침은 [U-SQL 스크립트 개발](#develop-and-test-u-sql-scripts)을 참조하세요. 로컬로 U-SQL 스크립트를 빌드하고 실행하려면 클러스터 드롭다운 목록에서 **(로컬)**을 선택한 다음 **제출**을 클릭합니다. 올바른 데이터가 참조되도록 해야 합니다. 절대 경로를 참조하거나 DataRoot 폴더 아래에 데이터를 둡니다.
 
 ![로컬에서 U-SQL Visual Studio 프로젝트 제출](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
@@ -255,17 +255,22 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
 1. C# 어셈블리 프로젝트를 만들고 빌드하여 출력 dll을 생성합니다.
 2. U-SQL 문을 사용하여 dll을 등록합니다.
 
-     CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+    ```
+    CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+    ```
+    
 3. C# 코드에 중단점을 설정합니다.
 4. **F5** 키를 눌러서 C# dll을 로컬에서 참조하는 스크립트를 디버그합니다.  
 
 ## <a name="see-also"></a>참고 항목
 다른 도구를 사용하여 데이터 레이크 분석을 시작하려면 다음을 참조하십시오.
 
-* [Azure Portal을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
+* [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
 * [Azure PowerShell을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-powershell.md)
 * [.NET SDK를 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-net-sdk.md)
 * [U-SQL 작업에서 C# 코드 디버그](data-lake-analytics-debug-u-sql-jobs.md)
+
+Visual Studio용 Azure Data Lake 도구에 대해 알아보려면 [Visual Studio 코드용 Azure Data Lake 도구 사용](data-lake-analytics-data-lake-tools-for-vscode.md)을 참조하세요.
 
 더 많은 개발 항목을 보려면:
 
@@ -274,7 +279,7 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
 * [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
 * [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-## <a name="appxa-powershell-sample-for-preparing-the-tutorial"></a>자습서 준비를 위한 Appx-A PowerShell 샘플
+## <a name="appx-a-powershell-sample-for-preparing-the-tutorial"></a>자습서 준비를 위한 Appx-A PowerShell 샘플
 다음 PowerShell 스크립트는 Azure Data Lake Analytics 계정 및 원본 데이터를 준비하여 [U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts)로 건너뛸 수 있습니다.
 
     #region - used for creating Azure service names
@@ -347,6 +352,6 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory 로그인 활동 보고서 API 참조 | Microsoft Docs
-description: Azure Active Directory 로그인 활동 보고서 API에 대한 참조
+title: "Azure Active Directory 로그인 활동 보고서 API 참조 | Microsoft Docs"
+description: "Azure Active Directory 로그인 활동 보고서 API에 대한 참조"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dce65678f9fc96d5802a7b705689cc63e6532c84
+
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Azure Active Directory 로그인 활동 보고서 API 참조
@@ -28,7 +32,7 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 로그인 �
 
 질문, 문제 또는 피드백은 [AAD Reporting 도움말](mailto:aadreportinghelp@microsoft.com)에 문의하세요.
 
-## <a name="who-can-access-the-api-data?"></a>API 데이터에 액세스할 수 있는 사용자는 누구인가요?
+## <a name="who-can-access-the-api-data"></a>API 데이터에 액세스할 수 있는 사용자는 누구인가요?
 * 보안 관리 또는 보안 판독기 역할의 사용자
 * 전역 관리자
 * API에 액세스하는 인증이 있는 모든 앱(전역 관리자의 사용 권한에 따라 앱 권한 부여를 설정할 수 있음).
@@ -94,7 +98,7 @@ Reporting API를 통해 이 보고서에 액세스하려면 다음이 있어야 
 
 특정 날짜 사용
 
-    $filter=signinDateTime+eq+2016-04-25T23:59:00Z  
+    $filter=signinDateTime+eq+2016-04-25T23:59:00Z    
 
 
 
@@ -177,6 +181,9 @@ loginStatus에는 0 - 성공, 1 - 오류라는 두 개의 옵션이 있습니다
 * 필터링된 로그인 활동에 대한 예제를 참조하시겠습니까? [Azure Active Directory 로그인 활동 보고서 API 샘플](active-directory-reporting-api-sign-in-activity-samples.md)을 확인하세요.
 * Azure AD Reporting API에 대해 자세히 살펴보시겠습니까? [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0612949c412cf23272bf62d3c0ea424046366b36
+ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
+ms.openlocfilehash: 3b7550b10339762882403a42f114d1b18da9e1ab
 
 
 ---
@@ -32,7 +32,7 @@ Microsoft Azure AD B2C는 Microsoft Office 365와 함께 사용할 수 없습니
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Azure AD B2C에서 로컬 계정은 무엇인가요? Azure AD의 회사 또는 학교 계정과 어떻게 다른가요?
 Azure AD 테넌트에서 테넌트의 모든 사용자(기존 Microsoft 계정을 가진 사용자 제외)는 형식 `<xyz>@<tenant domain>`의 메일 주소를 사용하여 로그인합니다. 여기서 `<tenant domain>`는 테넌트 또는 초기 `<...>.onmicrosoft.com` 도메인에서 확인된 도메인 중 하나입니다. 이 계정 유형은 회사 또는 학교 계정입니다.
 
-Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 메일 주소(예: joe@comcast.net,, bob@gmail.com,, sarah@contoso.com, 또는 jim@live.com).)를 사용하여 로그인하도록 합니다. 이 계정 유형은 로컬 계정입니다. 또한 현재 임의의 사용자 이름(일반 문자열)을 로컬 계정(예: joe, bob, sarah 또는 jim)으로 지원합니다. Azure AD B2C 서비스에서 이러한 두 로컬 계정 형식 중 하나를 선택할 수 있습니다.
+Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 메일 주소(예: joe@comcast.net,, bob@gmail.com,, sarah@contoso.com, 또는 jim@live.com))를 사용하여 로그인하도록 합니다. 이 계정 유형은 로컬 계정입니다. 또한 현재 임의의 사용자 이름(일반 문자열)을 로컬 계정(예: joe, bob, sarah 또는 jim)으로 지원합니다. Azure AD B2C 서비스에서 이러한 두 로컬 계정 형식 중 하나를 선택할 수 있습니다.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>지금 어떤 소셜 ID 공급자를 지원하나요? 나중에 어떤 공급자를 지원하려는 계획입니까?
 현재 Facebook, Google+, LinkedIn 및 Amazon을 지원합니다. 고객의 요구에 따라 다른 인기 있는 소셜 ID 공급자에 대한 지원을 추가합니다.
@@ -124,6 +124,6 @@ Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

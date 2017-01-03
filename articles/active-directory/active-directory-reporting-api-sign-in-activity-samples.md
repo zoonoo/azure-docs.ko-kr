@@ -91,6 +91,6 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 로그인 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

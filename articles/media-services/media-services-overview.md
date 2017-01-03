@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/12/2016
+ms.date: 12/14/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1a680f20bc9ceee8efd943cd71312372fe56a878
+ms.sourcegitcommit: 0d83c6e444d74ce7f95f796ec6c53abc43c37766
+ms.openlocfilehash: 7daf4bfa80fae2aee156af5cdb3588725aebd311
 
 
 ---
 # <a name="azure-media-services-overview-and-common-scenarios"></a>Azure Media Services 개요 및 일반적인 시나리오
+
 Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 관리 및 배달 응용 프로그램을 빌드할 수 있는 확장 가능한 클라우드 기반 플랫폼입니다. 미디어 서비스는 다양한 클라이언트(예: TV, PC 및 모바일 장치)로 주문형 및 라이브 스트리밍 배달을 위해 비디오 또는 오디오 콘텐츠를 안전하게 업로드, 저장, 인코딩 및 패키징할 수 있는 REST API를 기반으로 합니다.
 
 전체 미디어 서비스를 사용하여 종단 간 워크플로를 작성할 수 있습니다. 또한 워크플로의 일부에 타사 구성 요소를 사용하도록 선택할 수 있습니다. 예를 들어 타사 인코더를 사용하여 인코딩합니다. 그런 다음 미디어 서비스를 사용하여 업로드, 보호, 패키징 및 배달합니다.
@@ -28,17 +29,28 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 콘텐츠를 라이브로 스트리밍하고 주문 시 콘텐츠를 배달하도록 선택할 수 있습니다. 이 항목에서는 [라이브](media-services-overview.md#live_scenarios) 또는 [주문 시](media-services-overview.md#vod_scenarios) 콘텐츠를 배달하는 일반적인 시나리오를 보여줍니다. 이 항목은 관련 항목으로도 연결됩니다.
 
 ## <a name="sdks-and-tools"></a>SDK 및 도구
+
 미디어 서비스 솔루션을 빌드하려면 다음을 사용할 수 있습니다.
 
 * [미디어 서비스 REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 * 사용 가능한 클라이언트 SDK 중 하나:
-* [.NET용 Azure 미디어 서비스 SDK](https://github.com/Azure/azure-sdk-for-media-services),
-* [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java),
-* [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
-* [Node.js용 Azure 미디어 서비스](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Node.js SDK의 Microsoft가 아닌 타사 버전입니다. 커뮤니티에서 유지 관리하고 현재 AMS API를 100% 포함하지 않습니다).
+    * [.NET용 Azure 미디어 서비스 SDK](https://github.com/Azure/azure-sdk-for-media-services),
+    * [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java),
+    * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
+    * [Node.js용 Azure 미디어 서비스](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Node.js SDK의 Microsoft가 아닌 타사 버전입니다. 커뮤니티에서 유지 관리하고 현재 AMS API를 100% 포함하지 않습니다).
 * 기존 도구:
-* [Azure Portal](https://portal.azure.com/)
-* [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE(Azure 미디어 서비스 탐색기)는 Windows용 Winforms/C# 응용 프로그램임)
+    * [Azure Portal](https://portal.azure.com/)
+    * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE(Azure 미디어 서비스 탐색기)는 Windows용 Winforms/C# 응용 프로그램임)
+
+다음 이미지에서는 Media Services OData 모델에 대해 개발할 때 가장 일반적으로 사용되는 개체 중 일부를 보여 줍니다. 
+
+전체 크기로 보려면 이미지를 클릭합니다.  
+
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
+
+
+전체 모델은 [여기](https://media.windows.net/API/$metadata?api-version=2.14)서 볼 수 있습니다 .  
+
 
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 여기서 AMS 학습 경로를 볼 수 있습니다.
@@ -46,16 +58,17 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 * [AMS 라이브 스트리밍 워크플로](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 * [AMS 주문형 스트리밍 워크플로](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
+
 Azure 미디어 서비스 사용을 시작하려면 다음이 있어야 합니다.
 
-1. Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com)을 참조하십시오.
+1. Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com)을 참조하세요.
 2. Azure 미디어 서비스 계정. Azure 포털, .NET 또는 REST API를 사용하여 Azure 미디어 서비스 계정을 만듭니다. 자세한 내용은 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 3. (선택 사항) 개발 환경 설정. 개발 환경에 .NET 또는 REST API를 선택합니다. 자세한 내용은 [환경 설정](media-services-dotnet-how-to-use.md)을 참조하세요.
 
-프로그래밍 방식으로 자동으로 [연결](media-services-dotnet-connect-programmatically.md)하는 방법도 알아봅니다.
+    프로그래밍 방식으로 자동으로 [연결](media-services-dotnet-connect-programmatically.md)하는 방법도 알아봅니다.
 
-1. (권장) 하나 이상의 배율 단위 할당. 프로덕션 환경에서 응용 프로그램에 대한 하나 이상의 확장 단위를 할당하는 것이 좋습니다.   자세한 내용은 [스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)를 참조하세요.
+4. (권장) 하나 이상의 배율 단위 할당. 프로덕션 환경에서 응용 프로그램에 대한 하나 이상의 확장 단위를 할당하는 것이 좋습니다.   자세한 내용은 [스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)를 참조하세요.
 
 ## <a name="concepts-and-overview"></a>개념 및 개요
 Azure 미디어 서비스 개념은 [개념](media-services-concepts.md)을 참조하세요.
@@ -129,11 +142,11 @@ Azure 미디어 서비스의 모든 주요 구성 요소를 소개하는 사용 
 * (선택 사항) 스트림을 적응 비트 전송률 스트림으로 인코딩
 * 라이브 스트림 미리 보기
 * 나중에 스트리밍하기 위해 수집된 콘텐츠 기록 및 저장(주문형 비디오)
-* 일반적인 스트리밍 프로토콜(예: MPEG DASH, 부드러운, HLS, HDS)을 통해 고객에게 직접 또는 추가 배포를 위해 CDN(콘텐츠 배달 네트워크)에 콘텐츠 배달
+* 일반적인 스트리밍 프로토콜(예: MPEG DASH, 부드러운, HLS)을 통해 고객에게 직접 또는 추가 배포를 위해 CDN(Content Delivery Network)에 콘텐츠 배달.
 
 **Microsoft Azure Media Services**(AMS)에서는 라이브 스트리밍 콘텐츠를 수집, 인코딩, 미리 보기, 저장 및 배달하는 기능을 제공합니다.
 
-콘텐츠를 고객에게 배달할 때는 서로 다른 네트워크 조건에 따라 다양한 장치에 고화질 영상을 제공하는 것이 목표입니다. 품질 및 네트워크 상태를 관리하려면 라이브 인코더를 사용하여 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다.  여러 장치에서 스트리밍을 관리하려면 미디어 서비스 [동적 패키징](media-services-dynamic-packaging-overview.md) 을 사용하여 스트림을 여러 프로토콜에 동적으로 다시 패키징합니다. 미디어 서비스에서 지원하는 적응 비트 전송률 스트리밍 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 및 HDS(Adobe PrimeTime/Access 정식 사용자만 해당)입니다.
+콘텐츠를 고객에게 배달할 때는 서로 다른 네트워크 조건에 따라 다양한 장치에 고화질 영상을 제공하는 것이 목표입니다. 품질 및 네트워크 상태를 관리하려면 라이브 인코더를 사용하여 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다.  여러 장치에서 스트리밍을 관리하려면 미디어 서비스 [동적 패키징](media-services-dynamic-packaging-overview.md) 을 사용하여 스트림을 여러 프로토콜에 동적으로 다시 패키징합니다. Media Services에서 지원하는 적응 비트 전송률 스트리밍은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH입니다.
 
 Azure Media Services에서 **채널**, **프로그램** 및 **스트리밍 끝점**은 수집, 형식 지정, DVR, 보안, 확장성 및 중복성을 포함한 라이브 스트리밍 기능 전반을 처리합니다.
 
@@ -201,6 +214,6 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Microsoft Passport를 통해 암호 없이 ID 인증 | Microsoft Docs
-description: Microsoft Passport 및 Microsoft Passport 배포에 대한 추가 정보의 개요를 제공합니다.
+title: "Microsoft Passport를 통해 암호 없이 ID 인증 | Microsoft Docs"
+description: "Microsoft Passport 및 Microsoft Passport 배포에 대한 추가 정보의 개요를 제공합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: f907bb90-8776-46ca-9e12-279949af66ff
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: befad7c8b40792d93ddef44a8ce0c8deb4dfe8e4
+
 
 ---
 # <a name="authenticating-identities-without-passwords-through-microsoft-passport"></a>Microsoft Passport를 통해 암호 없이 ID 인증
@@ -67,6 +71,9 @@ Microsoft Passport는 조직과 소비자를 위한 보안 방법으로, 암호 
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 

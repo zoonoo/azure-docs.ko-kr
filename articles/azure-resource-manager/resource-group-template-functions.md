@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 11/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 971a154170c5deb08e4aa5f061a53d120e6dead6
+ms.sourcegitcommit: 33e6b9ba880f56d967b49d0b89e61d1b531e8376
+ms.openlocfilehash: 1d8cb6894399a7863392a7f11bde69d75d4685c3
 
 
 ---
@@ -39,14 +39,14 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 <a id="add" />
 
 ### <a name="add"></a>추가
-**add(operand1, operand2)**
+`add(operand1, operand2)`
 
 제공된 두 정수의 합을 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| operand1 |예 |추가할 첫 번째 정수입니다. |
-| operand2 |예 |추가할 두 번째 정수입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- | 
+|operand1 |예 |Integer |더할 첫 번째 숫자입니다. |
+|operand2 |예 |Integer |더할 두 번째 숫자입니다. |
 
 다음 예제에서는 두 개의 매개 변수를 추가합니다.
 
@@ -75,15 +75,15 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 <a id="copyindex" />
 
 ### <a name="copyindex"></a>copyIndex
-**copyIndex(offset)**
+`copyIndex(offset)`
 
-반복 루프의 현재 인덱스를 반환합니다. 
+반복 루프의 인덱스를 반환합니다. 
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| offset |아니요 |현재 반복 값에 추가할 양입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| offset |아니요 |Integer |0부터 시작하는 반복 값에 더할 숫자입니다. |
 
-이 함수는 항상 **copy** 개체에 사용됩니다. **copyIndex**를 사용하는 방법의 설명은 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
+이 함수는 항상 **copy** 개체에 사용됩니다. **offset** 값을 제공하지 않으면 현재 반복 값이 반환됩니다. 반복 값은 0부터 시작합니다. **copyIndex**를 사용하는 방법의 설명은 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 
 다음 예제에서는 복사 루프 및 이름에 포함되는 인덱스 값을 보여 줍니다. 
 
@@ -103,14 +103,14 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 <a id="div" />
 
 ### <a name="div"></a>div
-**div(operand1, operand2)**
+`div(operand1, operand2)`
 
 제공된 두 정수의 나누기를 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| operand1 |예 |나누어지는 정수입니다. |
-| operand2 |예 |나누는 데 사용되는 정수입니다. 0일 수 없습니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| operand1 |예 |Integer |나누어지는 수입니다. |
+| operand2 |예 |Integer |나누는 데 사용되는 정수입니다. 0일 수 없습니다. |
 
 다음 예제에서는 다른 매개 변수로 매개 변수 하나를 나눕니다.
 
@@ -139,13 +139,13 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 <a id="int" />
 
 ### <a name="int"></a>int
-**int(valueToConvert)**
+`int(valueToConvert)`
 
 지정된 값을 정수로 변환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| valueToConvert |예 |정수로 변환할 값입니다. 값 형식은 문자열 또는 정수일 수만 있습니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| valueToConvert |예 |문자열 또는 정수 |정수로 변환할 값입니다. |
 
 다음 예제는 사용자가 제공한 매개 변수 값을 정수로 변환합니다.
 
@@ -160,14 +160,14 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 <a id="mod" />
 
 ### <a name="mod"></a>mod
-**mod(operand1, operand2)**
+`mod(operand1, operand2)`
 
 제공된 두 정수를 사용하여 나누기한 나머지를 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| operand1 |예 |나누어지는 정수입니다. |
-| operand2 |예 |나누는 데 사용되는 정수는 0과 다를 수 있습니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| operand1 |예 |Integer |나누어지는 수입니다. |
+| operand2 |예 |Integer |나누는 데 사용되는 정수로, 0일 수 없습니다. |
 
 다음 예제에서는 다른 매개 변수로 매개 변수 하나를 나눈 나머지를 반환합니다.
 
@@ -196,14 +196,14 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 <a id="mul" />
 
 ### <a name="mul"></a>mul
-**mul(operand1, operand2)**
+`mul(operand1, operand2)`
 
 제공된 두 정수의 곱하기를 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| operand1 |예 |곱할 첫 번째 정수입니다. |
-| operand2 |예 |곱할 두 번째 정수입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| operand1 |예 |Integer |곱할 첫 번째 숫자입니다. |
+| operand2 |예 |Integer |곱할 두 번째 숫자입니다. |
 
 다음 예제에서는 다른 매개 변수로 매개 변수 하나를 곱합니다.
 
@@ -232,14 +232,14 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 <a id="sub" />
 
 ### <a name="sub"></a>sub
-**sub(operand1, operand2)**
+`sub(operand1, operand2)`
 
 제공된 두 정수의 빼기를 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| operand1 |예 |빼는 정수입니다. |
-| operand2 |예 |빼는 정수입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| operand1 |예 |Integer |빼는 피감수입니다. |
+| operand2 |예 |Integer |빼는 감수입니다. |
 
 다음 예제에서는 다른 매개 변수에서 매개 변수 하나를 뺍니다.
 
@@ -287,13 +287,13 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="base64" />
 
 ### <a name="base64"></a>base64
-**base64 (inputString)**
+`base64 (inputString)`
 
 입력 문자열의 base64 표현을 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| inputString |예 |base64 표현으로 반환할 문자열 값입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| inputString |예 |문자열 |base64 표현으로 반환할 값입니다. |
 
 다음 예에서는 base64 함수를 사용하는 방법을 보여 줍니다.
 
@@ -305,14 +305,14 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="concat" />
 
 ### <a name="concat---string"></a>concat - 문자열
-**concat(string1, string2, string3, ...)**
+`concat (string1, string2, string3, ...)`
 
 여러 문자열 값을 결합하고 연결된 문자열을 반환합니다. 
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| string1 |예 |연결할 문자열 값입니다. |
-| 추가 문자열 |아니요 |연결할 문자열 값입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| string1 |예 |문자열 |연결할 첫 번째 값입니다. |
+| 추가 문자열 |아니요 |String |연결할 추가 값(순서대로)입니다. |
 
 이 함수는 인수를 개수에 관계없이 사용할 수 있으며 매개 변수에 대한 문자열이나 배열 중 하나를 사용할 수 있습니다. 배열 연결의 예제는 [concat - 배열](#concatarray)을 참조하세요.
 
@@ -329,13 +329,13 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="lengthstring" />
 
 ### <a name="length---string"></a>length - 문자열
-**length(string)**
+`length(string)`
 
 문자열의 문자 수를 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| string |예 |문자 수를 구하기 위해 사용할 문자열 값입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| string |예 |문자열 |문자 수를 구하기 위해 사용할 값입니다. |
 
 배열을 사용하여 length를 사용하는 예제는 [length - 배열](#length)을 참조하세요.
 
@@ -352,15 +352,15 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="padleft" />
 
 ### <a name="padleft"></a>padLeft
-**padLeft(valueToPad, totalLength, paddingCharacter)**
+`padLeft(valueToPad, totalLength, paddingCharacter)`
 
 지정된 총 길이에 도달할 때까지 왼쪽에 문자를 추가하여 오른쪽 맞추어진 문자열을 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| valueToPad |예 |오른쪽에 맞추어진 문자열 또는 int입니다. |
-| totalLength |예 |반환된 문자열에서 문자의 총수입니다. |
-| paddingCharacter |아니요 |총 길이에 도달할 때까지 왼쪽 여백에 사용되는 문자입니다. 기본값은 공백입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| valueToPad |예 |문자열 또는 정수 |오른쪽으로 맞출 값입니다. |
+| totalLength |예 |Integer |반환된 문자열에서 문자의 총수입니다. |
+| paddingCharacter |아니요 |단일 문자 |총 길이에 도달할 때까지 왼쪽 여백에 사용되는 문자입니다. 기본값은 공백입니다. |
 
 다음 예제는 문자열이 10자에 도달할 때까지 0 문자를 추가하여 사용자가 제공한 매개 변수 값을 채우는 방법을 보여줍니다. 원래 매개 변수 값이 10자 보다 긴 경우 문자가 더 추가되지 않습니다.
 
@@ -374,15 +374,15 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="replace" />
 
 ### <a name="replace"></a>replace
-**replace(originalString, oldCharacter, newCharacter)**
+`replace(originalString, oldCharacter, newCharacter)`
 
 새 문자열을 다른 문자로 대체한 지정된 문자열에서 한 문자의 인스턴스로 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| originalString |예 |다른 문자로 대체하는 한 문자의 모든 인스턴스가 있는 문자열입니다. |
-| oldCharacter |예 |원래 문자열에서 제거할 문자입니다. |
-| newCharacter |예 |제거된 문자 대신 추가하는 문자입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| originalString |예 |String |다른 문자로 대체하는 한 문자의 모든 인스턴스가 있는 값입니다. |
+| oldCharacter |예 |String |원래 문자열에서 제거할 문자입니다. |
+| newCharacter |예 |String |제거된 문자 대신 추가하는 문자입니다. |
 
 다음 예제는 사용자가 제공한 문자열에서 모든 대시를 제거하는 방법을 보여줍니다.
 
@@ -396,14 +396,14 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="skipstring" />
 
 ### <a name="skip---string"></a>skip - 문자열
-**skip(originalValue, numberToSkip)**
+`skip(originalValue, numberToSkip)`
 
 문자열에 지정된 수 후 모든 문자로 구성된 문자열을 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| originalValue |예 |건너뛰는 데 사용할 문자열입니다. |
-| numberToSkip |예 |건너뛸 문자 수입니다. 이 값이 0 이하이면 문자열에 있는 문자가 반환됩니다. 문자열의 길이보다 크면 빈 문자열이 반환됩니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| originalValue |예 |문자열 |건너뛰는 데 사용할 문자열입니다. |
+| numberToSkip |예 |Integer |건너뛸 문자 수입니다. 이 값이 0 이하이면 문자열에 있는 문자가 반환됩니다. 문자열의 길이보다 크면 빈 문자열이 반환됩니다. |
 
 배열을 사용하여 skip을 사용하는 예제는 [skip - 배열](#skip)을 참조하세요.
 
@@ -436,16 +436,16 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="split" />
 
 ### <a name="split"></a>분할
-**split(inputString, delimiterString)**
+`split(inputString, delimiterString)`
 
-**split(inputString, delimiterArray)**
+`split(inputString, delimiterArray)`
 
 지정된 구분 기호로 구분되는 입력 문자열의 부분 문자열을 포함하는 문자열의 배열을 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| inputString |예 |분할할 문자열입니다. |
-| 구분 기호 |예 |사용할 구분 기호는 단일 문자열 또는 문자열의 배열일 수 있습니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| inputString |예 |문자열 |분할할 문자열입니다. |
+| 구분 기호 |예 |문자열 또는 문자열 배열 |문자열 분할에 사용할 구분 기호입니다. |
 
 다음 예제에서는 쉼표를 사용하여 입력 문자열을 분할합니다.
 
@@ -473,13 +473,13 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="string" />
 
 ### <a name="string"></a>string
-**string(valueToConvert)**
+`string(valueToConvert)`
 
 지정된 값을 문자열로 변환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| valueToConvert |예 |문자열로 변환할 값입니다. 개체 및 배열을 비롯하여 모든 값 형식을 변환할 수 있습니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| valueToConvert |예 | 모두 |문자열로 변환할 값입니다. 개체 및 배열을 비롯하여 모든 값 형식을 변환할 수 있습니다. |
 
 다음 예제는 사용자가 제공한 매개 변수 값을 문자열로 변환합니다.
 
@@ -509,15 +509,15 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="substring" />
 
 ### <a name="substring"></a>substring
-**substring(stringToParse, startIndex, length)**
+`substring(stringToParse, startIndex, length)`
 
 지정된 문자 위치에서 시작하고 지정한 개수의 문자를 포함하는 부분 문자열을 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| stringToParse |예 |부분 문자열을 추출할 원래 문자열입니다. |
-| startIndex |아니요 |부분 문자열의 0부터 시작하는 문자 위치입니다. |
-| length |아니요 |부분 문자열에 대한 문자 수입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| stringToParse |예 |String |부분 문자열을 추출할 원래 문자열입니다. |
+| startIndex |아니요 |Integer |부분 문자열의 0부터 시작하는 문자 위치입니다. |
+| length |아니요 |Integer |부분 문자열에 대한 문자 수입니다. |
 
 다음 예제에서는 매개 변수에서 처음 세 문자를 추출합니다.
 
@@ -531,14 +531,14 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="takestring" />
 
 ### <a name="take---string"></a>take - 문자열
-**take(originalValue, numberToTake)**
+`take(originalValue, numberToTake)`
 
 문자열의 시작부터 지정된 수의 문자로 문자열을 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| originalValue |예 |문자를 가져올 문자열입니다. |
-| numberToTake |예 |가져올 문자 수입니다. 이 값이 0 이하이면 빈 문자열이 반환됩니다. 지정된 문자열의 길이보다 크면 문자열의 모든 문자가 반환됩니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| originalValue |예 |문자열 |문자를 가져올 값입니다. |
+| numberToTake |예 |Integer |가져올 문자 수입니다. 이 값이 0 이하이면 빈 문자열이 반환됩니다. 지정된 문자열의 길이보다 크면 문자열의 모든 문자가 반환됩니다. |
 
 배열을 사용하여 take를 사용하는 예제는 [take - 배열](#take)을 참조하세요.
 
@@ -570,13 +570,13 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="tolower" />
 
 ### <a name="tolower"></a>toLower
-**toLower(stringToChange)**
+`toLower(stringToChange)`
 
 지정된 문자열을 소문자로 변환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| stringToChange |예 |소문자로 변환할 문자열입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| stringToChange |예 |문자열 |소문자로 변환할 값입니다. |
 
 다음 예제는 사용자가 제공한 매개 변수 값을 소문자로 변환합니다.
 
@@ -590,13 +590,13 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="toupper" />
 
 ### <a name="toupper"></a>toUpper
-**toUpper(stringToChange)**
+`toUpper(stringToChange)`
 
 지정된 문자열을 대문자로 변환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| stringToChange |예 |대문자로 변환할 문자열입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| stringToChange |예 |문자열 |대문자로 변환할 값입니다. |
 
 다음 예제는 사용자가 제공한 매개 변수 값을 대문자로 변환합니다.
 
@@ -610,13 +610,13 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="trim" />
 
 ### <a name="trim"></a>trim
-**trim(stringToTrim)**
+`trim (stringToTrim)`
 
 지정된 문자열에서 모든 선행 및 후행 공백 문자를 제거합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| stringToTrim |예 |잘라낼 문자열입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| stringToTrim |예 |String |자를 값입니다. |
 
 다음은 사용자가 입력한 매개 변수 값에서 공백 문자를 자르는 예입니다.
 
@@ -630,18 +630,18 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="uniquestring" />
 
 ### <a name="uniquestring"></a>uniqueString
-**uniqueString (baseString, ...)**
+`uniqueString (baseString, ...)`
 
 매개 변수로 제공된 값을 기반으로 결정 해시 문자열을 만듭니다. 
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| baseString |예 |고유한 문자열을 만들기 위해 해시 함수에서 사용되는 문자열입니다. |
-| 필요에 따라 추가하는 매개 변수 |아니요 |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| baseString |예 |String |고유한 문자열을 만들기 위해 해시 함수에서 사용되는 값입니다. |
+| 필요에 따라 추가하는 매개 변수 |아니요 |String |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
 
 이 함수는 리소스의 고유한 이름을 만들어야 할 때 유용합니다. 결과의 고유성 범위를 제한하는 매개 변수 값을 제공합니다. 구독, 리소스 그룹 또는 배포까지 해당 이름이 고유한지 여부를 지정할 수 있습니다. 
 
-반환된 값은 임의 문자열이 아닌 해시 함수의 결과입니다. 반환된 값은 13자입니다. 전역적으로 고유하지 않습니다. 의미있는 이름을 만들기 위해 해당 값과 명명 규칙의 접두사를 결합할 수도 있습니다. 다음 예제에서는 반환된 값의 형식을 보여 줍니다. 물론 실제 값은 제공된 매개 변수에 따라 달라집니다.
+반환된 값은 임의 문자열이 아닌 해시 함수의 결과입니다. 반환된 값은 13자입니다. 전역적으로 고유하지 않습니다. 의미있는 이름을 만들기 위해 해당 값과 명명 규칙의 접두사를 결합할 수도 있습니다. 다음 예제에서는 반환된 값의 형식을 보여 줍니다. 실제 값은 제공된 매개 변수에 따라 달라집니다.
 
     tcvhiyu5h2o5o
 
@@ -659,7 +659,7 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 
     "[uniqueString(resourceGroup().id, deployment().name)]"
 
-다음 예제에서는 리소스 그룹에 따라 저장소 계정의 고유한 이름을 만드는 방법을 보여 줍니다(이름이 동일한 방식으로 생성된 경우 이 리소스 그룹 내에서 고유하지 않음).
+다음 예제에서는 리소스 그룹에 따라 저장소 계정에 고유한 이름을 만드는 방법을 보여 줍니다. 리소스 그룹의 내부에서 같은 방식으로 생성된 경우 이름은 고유하지 않습니다.
 
     "resources": [{ 
         "name": "[concat('storage', uniqueString(resourceGroup().id))]", 
@@ -671,16 +671,16 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 <a id="uri" />
 
 ### <a name="uri"></a>uri
-**uri(baseUri, relativeUri)**
+`uri (baseUri, relativeUri)`
 
 baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| baseUri |예 |기본 uri 문자열입니다. |
-| relativeUri |예 |기본 uri 문자열에 추가할 상대 uri 문자열입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| baseUri |예 |String |기본 uri 문자열입니다. |
+| relativeUri |예 |문자열 |기본 uri 문자열에 추가할 상대 uri 문자열입니다. |
 
-**baseUri** 매개 변수에 대한 값은 특정 파일을 포함할 수 있지만 URI를 생성하는 경우 기본 경로만 사용됩니다. 예를 들어 baseUri 매개 변수로 **http://contoso.com/resources/azuredeploy.json**을 전달하면 기본 URI는 **http://contoso.com/resources/**가 됩니다.
+**baseUri** 매개 변수에 대한 값은 특정 파일을 포함할 수 있지만 URI를 생성하는 경우 기본 경로만 사용됩니다. 예를 들어 `http://contoso.com/resources/azuredeploy.json`을 baseUri 매개 변수로 전달하면 기본 URI는 `http://contoso.com/resources/`가 됩니다.
 
 다음 예제에서는 부모 템플릿의 값을 기반으로 중첩된 템플릿에 대한 링크를 생성하는 방법을 보여 줍니다.
 
@@ -699,14 +699,14 @@ Resource Manager는 배열 값 작업을 위한 여러 기능을 제공합니다
 <a id="concatarray" />
 
 ### <a name="concat---array"></a>concat - 배열
-**concat (array1, array2, array3, ...)**
+`concat (array1, array2, array3, ...)`
 
 여러 배열을 결합하고 연결된 배열을 반환합니다. 
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| array1 |예 |연결할 배열입니다. |
-| 추가 배열 |아니요 |연결할 배열입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| array1 |예 |배열 |연결할 첫 번째 배열입니다. |
+| 추가 배열 |아니요 |배열 |연결할 추가 배열(순서대로)입니다. |
 
 이 함수는 인수를 개수에 관계없이 사용할 수 있으며 매개 변수에 대한 문자열이나 배열 중 하나를 사용할 수 있습니다. 문자열 값 연결의 예제는 [concat - 문자열](#concat)을 참조하세요.
 
@@ -728,13 +728,13 @@ Resource Manager는 배열 값 작업을 위한 여러 기능을 제공합니다
 <a id="length" />
 
 ### <a name="length---array"></a>length - 배열
-**length(array)**
+`length(array)`
 
 배열 내의 요소 수를 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| array |예 |요소의 수를 가져오는 데 사용할 배열입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| array |예 |배열 |요소의 수를 가져오는 데 사용할 배열입니다. |
 
 배열과 함께 이 함수를 사용하면 리소스를 만들 때 반복 횟수를 지정할 수 있습니다. 다음 예제에서 매개 변수 **siteNames** 는 웹 사이트를 만들 때 사용할 이름 배열을 나타냅니다.
 
@@ -750,14 +750,14 @@ Resource Manager는 배열 값 작업을 위한 여러 기능을 제공합니다
 <a id="skip" />
 
 ### <a name="skip---array"></a>skip - 배열
-**skip(originalValue, numberToSkip)**
+`skip(originalValue, numberToSkip)`
 
 배열에서 지정된 수 후 모든 요소와 함께 배열을 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| originalValue |예 |건너뛰는 데 사용할 배열입니다. |
-| numberToSkip |예 |건너뛸 요소 수입니다. 이 값이 0 이하이면 배열에 있는 모든 요소가 반환됩니다. 배열의 길이보다 크면 빈 배열이 반환됩니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| originalValue |예 |배열 |건너뛰는 데 사용할 배열입니다. |
+| numberToSkip |예 |Integer |건너뛸 요소 수입니다. 이 값이 0 이하이면 배열에 있는 모든 요소가 반환됩니다. 배열의 길이보다 크면 빈 배열이 반환됩니다. |
 
 문자열을 사용하여 skip을 사용하는 예제는 [skip - 문자열](#skipstring)을 참조하세요.
 
@@ -790,14 +790,14 @@ Resource Manager는 배열 값 작업을 위한 여러 기능을 제공합니다
 <a id="take" />
 
 ### <a name="take---array"></a>take - 배열
-**take(originalValue, numberToTake)**
+`take(originalValue, numberToTake)`
 
 배열의 시작 부분부터 지정된 수의 요소와 함께 배열을 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| originalValue |예 |요소를 가져올 배열입니다. |
-| numberToTake |예 |가져올 요소 수입니다. 이 값이 0 이하이면 빈 배열이 반환됩니다. 지정된 배열의 길이보다 크면 배열의 모든 요소가 반환됩니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| originalValue |예 |배열 |요소를 가져올 배열입니다. |
+| numberToTake |예 |Integer |가져올 요소 수입니다. 이 값이 0 이하이면 빈 배열이 반환됩니다. 지정된 배열의 길이보다 크면 배열의 모든 요소가 반환됩니다. |
 
 문자열을 사용하여 take를 사용하는 예제는 [take - 문자열](#takestring)을 참조하세요.
 
@@ -838,8 +838,8 @@ Resource Manager는 템플릿의 섹션에서 값을 가져오고 배포와 관�
 
 <a id="deployment" />
 
-### <a name="deployment"></a>deployment
-**deployment()**
+### <a name="deployment"></a>배포
+`deployment()`
 
 현재 배포 작업에 대한 정보를 반환합니다.
 
@@ -896,13 +896,13 @@ Resource Manager는 템플릿의 섹션에서 값을 가져오고 배포와 관�
 <a id="parameters" />
 
 ### <a name="parameters"></a>매개 변수
-**parameters (parameterName)**
+`parameters (parameterName)`
 
 매개 변수 값을 반환합니다. 템플릿의 매개 변수 섹션에서 지정된 매개 변수 이름을 정의해야 합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| parameterName |예 |반환할 매개 변수의 이름입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| parameterName |예 |String |반환할 매개 변수의 이름입니다. |
 
 다음 예에서는 매개 변수 함수의 간소화된 사용을 보여 줍니다.
 
@@ -923,13 +923,13 @@ Resource Manager는 템플릿의 섹션에서 값을 가져오고 배포와 관�
 <a id="variables" />
 
 ### <a name="variables"></a>variables
-**variables (variableName)**
+`variables (variableName)`
 
 변수의 값을 반환합니다. 템플릿의 변수 섹션에서 지정된 변수 이름을 정의해야 합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| 변수 이름 |예 |반환할 변수의 이름입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| variableName |예 |String |반환할 변수의 이름입니다. |
 
 다음 예제는 변수 값을 사용합니다.
 
@@ -960,16 +960,16 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 <a id="list" />
 
 ### <a name="listkeys-and-listvalue"></a>listKeys 및 list{Value}
-**listKeys (resourceName 또는 resourceIdentifier, apiVersion)**
+`listKeys (resourceName or resourceIdentifier, apiVersion)`
 
-**list{Value} (resourceName 또는 resourceIdentifier, apiVersion)**
+`list{Value} (resourceName or resourceIdentifier, apiVersion)`
 
 list 작업을 지원하는 모든 리소스 형식에 대한 값을 반환합니다. 가장 일반적인 사용법은 **listKeys**입니다. 
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| resourceName 또는 resourceIdentifier |예 |리소스에 대한 고유 식별자. |
-| apiVersion |예 |리소스 런타임 상태의 API 버전입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| resourceName 또는 resourceIdentifier |예 |String |리소스에 대한 고유 식별자. |
+| apiVersion |예 |문자열 |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
 
 **list** 로 시작하는 작업은 템플릿에서 함수로 사용됩니다. 사용 가능한 작업은 **listKeys**뿐만 아니라 **list**, **listAdminKeys** 및 **listStatus**와 같은 작업도 포함합니다. 목록 작업이 있는 리소스 유형을 확인하려면 다음 PowerShell 명령을 사용합니다.
 
@@ -1010,14 +1010,14 @@ listKeys에서 반환된 개체는 다음 형식을 가집니다.
 <a id="providers" />
 
 ### <a name="providers"></a>providers
-**providers (providerNamespace, [resourceType])**
+`providers (providerNamespace, [resourceType])`
 
 리소스 공급자와 지원되는 리소스 유형에 대한 정보를 반환합니다. 리소스 유형을 제공하지 않는 경우 함수는 리소스 공급자에 대한 모든 지원되는 유형을 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| providerNamespace |예 |공급자의 네임스페이스입니다. |
-| resourceType |아니요 |지정된 네임스페이스 내의 리소스 유형입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| providerNamespace |예 |String |공급자의 네임스페이스입니다. |
+| resourceType |아니요 |String |지정된 네임스페이스 내의 리소스 유형입니다. |
 
 각 지원되는 유형이 다음 형식으로 반환됩니다. 배열 순서는 보장되지 않습니다.
 
@@ -1039,14 +1039,14 @@ listKeys에서 반환된 개체는 다음 형식을 가집니다.
 <a id="reference" />
 
 ### <a name="reference"></a>reference
-**reference (resourceName or resourceIdentifier, [apiVersion])**
+`reference (resourceName or resourceIdentifier, [apiVersion])`
 
 다른 리소스의 런타임 상태를 나타내는 개체를 반환합니다.
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| resourceName 또는 resourceIdentifier |예 |리소스의 이름 또는 고유 식별자입니다. |
-| apiVersion |아니요 |지정된 리소스의 API 버전입니다. 리소스가 동일한 템플릿 내에서 프로비전되지 않은 경우 이 매개 변수를 포함합니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| resourceName 또는 resourceIdentifier |예 |문자열 |리소스의 이름 또는 고유 식별자입니다. |
+| apiVersion |아니요 |문자열 |지정된 리소스의 API 버전입니다. 리소스가 동일한 템플릿 내에서 프로비전되지 않은 경우 이 매개 변수를 포함합니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
 
 **reference** 함수는 런타임 상태에서 값을 파생하므로 변수 섹션에서 사용할 수 없습니다. 템플릿의 출력 섹션에서 사용할 수 있습니다.
 
@@ -1093,7 +1093,7 @@ listKeys에서 반환된 개체는 다음 형식을 가집니다.
 <a id="resourcegroup" />
 
 ### <a name="resourcegroup"></a>resourceGroup
-**resourceGroup()**
+`resourceGroup()`
 
 현재 리소스 그룹을 나타내는 개체를 반환합니다. 
 
@@ -1125,17 +1125,17 @@ listKeys에서 반환된 개체는 다음 형식을 가집니다.
 <a id="resourceid" />
 
 ### <a name="resourceid"></a>resourceId
-**resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+`resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
 리소스의 고유 식별자를 반환합니다. 
 
-| 매개 변수 | 필수 | 설명 |
-|:---:|:---:|:--- |
-| subscriptionId |아니요 |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceGroupName |아니요 |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceType |예 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |리소스의 이름입니다. |
-| resourceName2 |아니요 |리소스가 중첩된 경우 다음 리소스 이름 세그먼트입니다. |
+| 매개 변수 | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| subscriptionId |아니요 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
+| resourceGroupName |아니요 |String |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
+| resourceType |예 |String |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |예 |String |리소스의 이름입니다. |
+| resourceName2 |아니요 |문자열 |리소스가 중첩된 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 이름이 모호하거나 동일한 템플릿 내에서 프로비전되지 않은 경우 이 함수를 사용합니다. 식별자는 다음 형식으로 반환됩니다.
 
@@ -1192,7 +1192,7 @@ listKeys에서 반환된 개체는 다음 형식을 가집니다.
 <a id="subscription" />
 
 ### <a name="subscription"></a>subscription
-**subscription()**
+`subscription()`
 
 구독에 대한 세부 정보를 다음 형식으로 반환합니다.
 
@@ -1221,6 +1221,6 @@ listKeys에서 반환된 개체는 다음 형식을 가집니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

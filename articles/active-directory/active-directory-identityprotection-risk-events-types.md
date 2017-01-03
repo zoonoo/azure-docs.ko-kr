@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory ID 보호에서 검색하는 위험 이벤트의 유형 | Microsoft Docs"
-description: "이 항목에서는 Azure Active Directory ID 보호에서 위험 이벤트의 사용 가능한 유형에 대한 자세한 개요를 제공합니다."
+title: "Azure Active Directory에서 검색하는 위험 이벤트 유형 | Microsoft Docs"
+description: "이 문서에서는 Azure Active Directory에서 사용 가능한 위험 이벤트 유형에 대한 자세한 개요를 제공합니다."
 services: active-directory
 keywords: "Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책"
 documentationcenter: 
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 11/30/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fd1fb445a78d12046d52cb27798eaa9d058629c3
+ms.sourcegitcommit: ffc64fc0469cd3588d6d13524411575b423ab4e5
+ms.openlocfilehash: dc04ebb3c205c01ed42c9d8bc3e0eb009881074a
 
 
 ---
-# <a name="types-of-risk-events-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호에서 검색한 위험 이벤트의 유형
-Azure Active Directory ID 보호에서 위험 이벤트는 다음과 같은 이벤트입니다.
+# <a name="types-of-risk-events-detected-by-azure-active-directory"></a>Azure Active Directory에서 검색하는 위험 이벤트 유형 
+Azure Active Directory에서 위험 이벤트는 다음과 같은 이벤트입니다.
 
 * 의심스러운 이벤트로 플래그가 지정된 이벤트
 * ID가 손상되었을 수 있다고 표시하는 이벤트 
@@ -30,7 +30,7 @@ Azure Active Directory ID 보호에서 위험 이벤트는 다음과 같은 이�
 이 항목에서는 위험 이벤트의 사용 가능한 유형에 대한 자세한 개요를 제공합니다.
 
 ## <a name="leaked-credentials"></a>유출된 자격 증명
-Microsoft 보안 연구원은  Dark 웹에 공개적으로 게시된 유출된 자격 증명을 찾습니다. 일반적으로 이러한 자격 증명은 일반 텍스트에 있습니다. Azure AD 자격 증명에 대해 확인하여 일치하는 경우 ID 보호에서 "유출된 자격 증명"으로 보고됩니다.
+Microsoft 보안 연구원은  Dark 웹에 공개적으로 게시된 유출된 자격 증명을 찾습니다. 일반적으로 이러한 자격 증명은 일반 텍스트에 있습니다. Azure AD 자격 증명과 비교하여 일치하는 경우 "유출된 자격 증명"으로 보고됩니다.
 
 사용자 이름 및 암호를 공격자가 사용할 수 있다고 명백히 표시하기 때문에 유출된 자격 증명 위험 이벤트는 "높은" 심각도 위험 이벤트로 분류됩니다.
 
@@ -67,7 +67,7 @@ Microsoft 보안 연구원은  Dark 웹에 공개적으로 게시된 유출된 �
 ## <a name="azure-ad-anomalous-activity-reports"></a>Azure AD 비정상 작업 보고서
 이러한 위험 이벤트 중 일부는 Azure 포털에서 Azure AD 비정상적인 작업 보고서를 통해 제공되었습니다. 아래 테이블에서는 다양한 위험 이벤트 유형 및 해당하는 **Azure AD 비정상적인 작업** 보고서를 나열합니다. Microsoft는 이 공간에 계속 투자하며 지속적으로 기존 위험 이벤트의 검색 정확도를 향상시키고 새 위험 이벤트 유형을 추가할 예정입니다. 
 
-| ID 보호 위험 이벤트 유형 | 해당하는 Azure AD 비정상적인 작업 보고서 |
+| 위험 이벤트 유형 | 해당하는 Azure AD 비정상적인 작업 보고서 |
 |:--- |:--- |
 | 유출된 자격 증명 |자격 증명이 손실된 사용자 |
 | 비정상적 위치로 불가능한 이동 |비정상적인 로그인 작업 |
@@ -77,7 +77,7 @@ Microsoft 보안 연구원은  Dark 웹에 공개적으로 게시된 유출된 �
 | 잘 모르는 위치에서 로그인 |- |
 | 잠금 이벤트 |- |
 
-다음의 Azure AD 비정상적인 작업 보고서는 Azure AD ID 보호에서 위험 이벤트로 포함되지 않으며 따라서 ID 보호를 통해 사용할 수 없습니다. 이러한 보고서는 Azure 포털에서 사용할 수 있지만 나중에 ID 보호에서 위험 이벤트에 의해 대체되는 경우 사용되지 않게 됩니다.
+다음 Azure AD 비정상 작업 보고서는 Azure AD에서 위험 이벤트로 포함되지 않으므로 Azure AD를 통해 사용할 수 없습니다. 이러한 보고서는 Azure Portal에서 계속 사용할 수 있지만 Azure AD에서 위험 이벤트로 대체되므로 향후 언젠가는 더 이상 사용되지 않을 것입니다.
 
 * 여러 번의 실패 후 로그인
 * 여러 지역에서의 로그인
@@ -88,6 +88,6 @@ Microsoft 보안 연구원은  Dark 웹에 공개적으로 게시된 유출된 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

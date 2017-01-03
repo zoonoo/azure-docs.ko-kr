@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1934fa46b38f36033c427a6ac061db94f4dc760b
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 724edc7894cabfb31f6e43a291f98ab60c0a9981
 
 
 ---
@@ -25,11 +25,11 @@ ms.openlocfilehash: 1934fa46b38f36033c427a6ac061db94f4dc760b
 > [!div class="op_single_selector"]
 > * [개요](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
-> * [REST (영문)](search-import-data-rest-api.md)
+> * [REST](search-import-data-rest-api.md)
 > 
 > 
 
-이 문서에서는 [Azure 검색 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) 를 사용하여 Azure 검색 인덱스에 데이터를 가져오는 방법을 보여줍니다.
+이 문서에서는 [Azure 검색 .NET SDK](https://aka.ms/search-sdk) 를 사용하여 Azure 검색 인덱스에 데이터를 가져오는 방법을 보여줍니다.
 
 이 연습을 시작하기 전에 [Azure 검색 인덱스를 만들어야](search-what-is-an-index.md)합니다. 이 문서에서는 [.NET SDK를 사용하여 Azure 검색 인덱스 만들기](search-create-index-dotnet.md#CreateSearchServiceClient)에서 보여준 것처럼 `SearchServiceClient` 개체를 이미 만들었다고 가정합니다.
 
@@ -45,11 +45,11 @@ ms.openlocfilehash: 1934fa46b38f36033c427a6ac061db94f4dc760b
 Azure 검색 .NET SDK를 사용하여 인덱스에 데이터를 가져오려면 `SearchIndexClient` 클래스의 인스턴스를 만들어야 합니다. 이 인스턴스를 직접 생성할 수 있지만 `Indexes.GetClient` 메서드를 호출하는 `SearchServiceClient` 인스턴스가 있는 경우 더 간단합니다. 예를 들어 다음은 `serviceClient`라는 `SearchServiceClient`에서 "호텔"이라는 인덱스에 `SearchIndexClient`를 가져오는 방법입니다.
 
 ```csharp
-SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
 > [!NOTE]
-> 일반적인 검색 응용 프로그램에서 인덱스 관리 및 채우기는 검색 쿼리와는 별도의 구성 요소에 의해 처리됩니다. `Indexes.GetClient`는 다른 `SearchCredentials`를 제공하는 문제를 피할 수 있으므로 인덱스를 생성하기에 편리한 방법입니다. 이는 새 `SearchIndexClient`에 `SearchServiceClient`을(를) 만드는 데 사용하는 관리 키를 눌러 수행됩니다. 그러나 쿼리를 실행하는 일부 응용 프로그램의 경우, `SearchIndexClient` 을(를) 직접 만들어 관리 키 대신에 쿼리 키에서 전달하는 것이 더 낫습니다. 이는 [최소 권한의 원칙](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 과 일치하고 응용 프로그램을 더욱 안전하게 하는 데 도움이 됩니다. 관리 키와 쿼리 키에 대한 자세한 내용은 [MSDN에서 Azure 검색 REST API 참조](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 찾을 수 있습니다.
+> 일반적인 검색 응용 프로그램에서 인덱스 관리 및 채우기는 검색 쿼리와는 별도의 구성 요소에 의해 처리됩니다. `Indexes.GetClient`는 다른 `SearchCredentials`를 제공하는 문제를 피할 수 있으므로 인덱스를 생성하기에 편리한 방법입니다. 이는 새 `SearchIndexClient`에 `SearchServiceClient`을(를) 만드는 데 사용하는 관리 키를 눌러 수행됩니다. 그러나 쿼리를 실행하는 일부 응용 프로그램의 경우, `SearchIndexClient` 을(를) 직접 만들어 관리 키 대신에 쿼리 키에서 전달하는 것이 더 낫습니다. 이는 [최소 권한의 원칙](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 과 일치하고 응용 프로그램을 더욱 안전하게 하는 데 도움이 됩니다. 관리 키와 쿼리 키에 대한 자세한 내용은 [Azure Search REST API 참조](https://docs.microsoft.com/rest/api/searchservice/)에서 찾을 수 있습니다.
 > 
 > 
 
@@ -58,7 +58,7 @@ SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ## <a name="ii-decide-which-indexing-action-to-use"></a>II. 사용할 인덱싱 동작 결정
 .NET SDK를 사용하여 데이터를 가져오려면 데이터를 `IndexBatch` 개체에 패키지로 만들어야 합니다. `IndexBatch`는 `IndexAction` 개체의 컬렉션을 캡슐화하며 각각은 Azure 검색이 해당 문서에 대해 수행할 작업(업로드, 병합, 삭제 등)을 알려주는 문서 및 속성을 포함합니다. 아래에서 어떤 작업을 선택하는지에 따라 특정 필드는 각 문서에 포함되어야 합니다.
 
-| 작업 | 설명 | 각 문서에 대해 필요한 필드 | 참고 사항 |
+| 조치 | 설명 | 각 문서에 대해 필요한 필드 | 메모 |
 | --- | --- | --- | --- |
 | `Upload` |`Upload` 작업은 새 문서는 삽입하고 기존 문서는 업데이트/교체하는 "upsert"와 비슷합니다. |키, 더하기 정의하려는 기타 필드 |기존 문서를 업데이트/교체하는 경우 요청에 지정되지 않은 필드는 해당 필드를 `null`로 설정합니다. 필드가 이전에 null이 아닌 값으로 설정된 경우에 발생합니다. |
 | `Merge` |기존 문서를 지정한 필드로 업데이트합니다. 인덱스에 문서가 없으면 병합이 실패합니다. |키, 더하기 정의하려는 기타 필드 |문서의 기존 필드는 병합에서 지정하는 필드로 바뀝니다. 여기에는 `DataType.Collection(DataType.String)`형식 필드가 포함됩니다. 예를 들어 값이 `["budget"]`인 `tags` 필드가 포함되어 있는 문서에서 `tags`에 대해 `["economy", "pool"]` 값과의 병합을 실행하면 `tags` 필드의 최종 값은 `["economy", "pool"]`이 됩니다. `["budget", "economy", "pool"]`이 아닙니다. |
@@ -165,29 +165,43 @@ Azure 검색.NET SDK가 어떻게 `Hotel` 와(과) 같은 사용자 정의 클�
 [SerializePropertyNamesAsCamelCase]
 public partial class Hotel
 {
+    [Key]
+    [IsFilterable]
     public string HotelId { get; set; }
 
+    [IsFilterable, IsSortable, IsFacetable]
     public double? BaseRate { get; set; }
 
+    [IsSearchable]
     public string Description { get; set; }
 
+    [IsSearchable]
+    [Analyzer(AnalyzerName.AsString.FrLucene)]
     [JsonProperty("description_fr")]
     public string DescriptionFr { get; set; }
 
+    [IsSearchable, IsFilterable, IsSortable]
     public string HotelName { get; set; }
 
+    [IsSearchable, IsFilterable, IsSortable, IsFacetable]
     public string Category { get; set; }
 
+    [IsSearchable, IsFilterable, IsFacetable]
     public string[] Tags { get; set; }
 
+    [IsFilterable, IsFacetable]
     public bool? ParkingIncluded { get; set; }
 
+    [IsFilterable, IsFacetable]
     public bool? SmokingAllowed { get; set; }
 
+    [IsFilterable, IsSortable, IsFacetable]
     public DateTimeOffset? LastRenovationDate { get; set; }
 
+    [IsFilterable, IsSortable, IsFacetable]
     public int? Rating { get; set; }
 
+    [IsFilterable, IsSortable]
     public GeographyPoint Location { get; set; }
 
     // ToString() method omitted for brevity...
@@ -197,20 +211,20 @@ public partial class Hotel
 먼저 주목할 것은 `Hotel`의 각 공용 속성이 인덱스 정의의 필드와 일치하지만 한 가지 중요한 차이가 있습니다. 각 필드의 이름은 소문자("카멜식 대/소문자")로 시작하지만, `Hotel`의 각 공용 속성 이름은 대문자 문자("파스칼식 대/소문자")로 시작합니다. 이것은 대상 스키마가 응용 프로그램 개발자의 제어 범위를 벗어난 데이터 바인딩을 수행하는 .NET 응용 프로그램의 일반적인 시나리오입니다. 카멜식 대/소문자 속성으로 이름을 지정하면 .NET 이름 지정 지침을 위반하지 않고 속성 이름을 자동으로 `[SerializePropertyNamesAsCamelCase]` 특성을 지닌 카멜식 대/소문자에 매핑하도록 SDK에 명령할 수 있습니다.
 
 > [!NOTE]
-> Azure 검색 .NET SDK는 [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) 라이브러리를 사용하여 사용자 지정 모델 개체를 JSON과 직렬화 및 deserialize합니다. 필요한 경우 직렬화를 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 검색 .NET SDK 버전 1.1로 업그레이드](search-dotnet-sdk-migration.md#WhatsNew)에서 찾을 수 있습니다. 한 가지 예는 위의 샘플 코드에 있는 `DescriptionFr` 속성의 `[JsonProperty]` 특성을 사용하는 것입니다.
+> Azure 검색 .NET SDK는 [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) 라이브러리를 사용하여 사용자 지정 모델 개체를 JSON과 직렬화 및 deserialize합니다. 필요한 경우 직렬화를 사용자 지정할 수 있습니다. 자세한 내용은 [JSON.NET으로 직렬화 사용자 지정](search-howto-dotnet-sdk.md#JsonDotNet)를 참조하세요. 한 가지 예는 위의 샘플 코드에 있는 `DescriptionFr` 속성의 `[JsonProperty]` 특성을 사용하는 것입니다.
 > 
 > 
 
-`Hotel` 클래스에 대해 두 번째로 중요한 부분은 공용 속성의 데이터 유형입니다. 이러한 속성의 .NET 유형은 인덱스 정의의 동등한 필드 유형에 매핑합니다. 예를 들어, `Category` 문자열 속성은 `DataType.String` 유형인 `category` 필드에 매핑됩니다. `bool?` 및 `DataType.Boolean`, `DateTimeOffset?` 및 `DataType.DateTimeOffset` 사이에는 유사한 유형 매핑이 있습니다. 유형 매핑에 대한 특정 규칙은 [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx)에 `Documents.Get` 메서드로 문서화됩니다.
+`Hotel` 클래스에 대해 두 번째로 중요한 부분은 공용 속성의 데이터 유형입니다. 이러한 속성의 .NET 유형은 인덱스 정의의 동등한 필드 유형에 매핑합니다. 예를 들어, `Category` 문자열 속성은 `DataType.String` 유형인 `category` 필드에 매핑됩니다. `bool?` 및 `DataType.Boolean`, `DateTimeOffset?` 및 `DataType.DateTimeOffset` 사이에는 유사한 유형 매핑이 있습니다. 유형 매핑에 대한 특정 규칙은 [Azure Search .NET SDK 참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_)에 `Documents.Get` 메서드로 문서화됩니다.
 
 고유한 클래스를 문서로 사용하는 이 기능은 양방향으로 작동합니다. 또한 [다음 문서](search-query-dotnet.md)에서 보여준 것처럼 검색 결과를 검색하고 SDK가 자동으로 사용자가 선택한 유형으로 deserialize하도록 할 수 있습니다.
 
 > [!NOTE]
-> Azure 검색.NET SDK는 필드 이름을 필드 값에 매핑하는 키/값인 `Document` 클래스를 사용하여 동적 유형의 문서도 지원합니다. 디자인 타임에서 인덱스 스키마를 알 수 없거나 특정 모델 클래스에 바인딩하기 불편한 시나리오에서 유용합니다. 문서를 처리하는 SDK의 모든 메서드에는 `Document` 클래스와 연동하는 오버로드와 제네릭 유형 매개 변수를 취하는 강력한 유형의 오버로드가 있습니다. 후자는 이 문서의 샘플 코드에서 사용됩니다. `Document` 클래스에 대한 자세한 내용은 [MSDN에서](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx)찾을 수 있습니다.
+> Azure 검색.NET SDK는 필드 이름을 필드 값에 매핑하는 키/값인 `Document` 클래스를 사용하여 동적 유형의 문서도 지원합니다. 디자인 타임에서 인덱스 스키마를 알 수 없거나 특정 모델 클래스에 바인딩하기 불편한 시나리오에서 유용합니다. 문서를 처리하는 SDK의 모든 메서드에는 `Document` 클래스와 연동하는 오버로드와 제네릭 유형 매개 변수를 취하는 강력한 유형의 오버로드가 있습니다. 후자는 이 문서의 샘플 코드에서 사용됩니다.
 > 
 > 
 
-**데이터 유형에 대한 중요한 정보**
+**Null 허용 데이터 형식을 사용해야 하는 이유**
 
 고유의 모델 클래스를 Azure 검색 인덱스에 매핑하도록 설계하는 경우 `bool` 및 `int` 등과 같은 값 유형의 속성을 Null이 허용되도록 선언하는 것이 좋습니다(예: `bool` 대신 `bool?`). Null이 허용되지 않는 속성을 사용하는 경우 인덱스의 문서가 해당 필드에 대해 Null 값을 포함하지 않도록 **보장** 해야 합니다. SDK와 Azure 검색 서비스 모두 이를 적용하는 데 활용할 수 없습니다.
 

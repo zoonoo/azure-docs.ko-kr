@@ -127,7 +127,7 @@ SAML 어설션을 구성하기 전에 ADP GlobalView 지원 팀에 문의하고 
    
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 2. 응용 프로그램에 대해 구성된 SSO를 얻으려면 ADP GlobalView 지원 팀에 문의하고 다음을 제공하십시오. 
    
    * 다운로드한 **인증서**
@@ -232,7 +232,7 @@ SAML 어설션을 구성하기 전에 ADP GlobalView 지원 팀에 문의하고 
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-a-adp-globalview-test-user"></a>ADP GlobalView 테스트 사용자 만들기
 이 섹션은 ADP GlobalView에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. ADP GlobalView 계정에 사용자를 추가하려면 ADP GlobalView 지원 팀에 문의하세요. 
@@ -291,6 +291,6 @@ SAML 어설션을 구성하기 전에 ADP GlobalView 지원 팀에 문의하고 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

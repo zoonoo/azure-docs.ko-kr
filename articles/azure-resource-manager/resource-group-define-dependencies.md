@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2016
+ms.date: 11/28/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 1499ddf06dda6740ccfe1e7b6832998bb33cb1c4
+ms.sourcegitcommit: 5f810a46db4deed9c31db4f7c072c48b0817ebc4
+ms.openlocfilehash: 35ce1f12a3de0a41d400cceebe6aefbadbe51528
 
 
 ---
 # <a name="defining-dependencies-in-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿에서 종속성 정의
 주어진 리소스에 대해 해당 리소스를 배포하기 전에 존재해야 하는 다른 리소스가 있을 수 있습니다. 예를 들어 SQL 데이터베이스를 배포하려면 SQL Server가 있어야 합니다. 하나의 리소스를 다른 리소스에 종속된 것으로 표시하여 이 관계를 정의합니다. 일반적으로 **dependsOn** 요소로 종속성을 정의하지만 **reference** 함수를 통해 정의할 수도 있습니다. 
 
-Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서에 따라 리소스를 배포합니다. 리소스가 서로 종속되어 있지 않은 경우 Resource Manager는 이를 병렬로 배포합니다.
+Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서에 따라 리소스를 배포합니다. 리소스가 서로 종속되어 있지 않은 경우 Resource Manager는 이를 병렬로 배포합니다. 동일한 템플릿에 배포되는 리소스에 대한 종속성만 정의하면 됩니다. 
 
 ## <a name="dependson"></a>dependsOn
 템플릿 내에서 dependsOn 요소를 사용하면 하나의 리소스를 하나 이상의 리소스에 종속된 것으로 정의할 수 있습니다. 값은 리소스 이름의 쉼표로 구분된 목록일 수 있습니다. 
@@ -40,13 +40,20 @@ Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서
       },
       "dependsOn": [
         "storageLoop",
-        "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+        "[variables('loadBalancerName')]",
+        "[variables('virtualNetworkName')]"
       ],
       ...
     }
 
-리소스와 copy 루프를 통해 만들어진 리소스 사이의 종속성을 정의하려면 dependsOn 요소를 루프의 이름으로 설정합니다. 예제는 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
+앞의 예에서 종속성은 **storageLoop**라는 복사 루프를 통해 생성되는 리소스에 포함됩니다. 예제는 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
+
+종속성을 정의할 때 모호성을 피하기 위해 리소스 공급자 네임스페이스 및 리소스 형식을 포함할 수 있습니다. 예를 들어 다른 리소스와 동일한 이름을 가질 수 있는 부하 분산 장치 및 가상 네트워크를 명확히 하려면 다음 형식을 사용합니다.
+
+    "dependsOn": [
+      "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
+      "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+    ] 
 
 dependsOn을 사용하여 리소스 간의 관계를 매핑하도록 할 수 있지만 배포의 성능에 영향을 줄 수 있으므로 해당 작업을 수행하는 이유를 이해하는 것이 중요합니다. 예를 들어, 리소스가 상호 연결되는 방식을 문서화하려면, dependsOn은 올바른 접근 방법이 아닙니다. 배포 후 dependsOn 요소에 어떤 리소스가 정의되었는지 쿼리할 수 없습니다. dependsOn을 사용하면 Resource Manager는 종속성이 있는 두 리소스를 병렬로 배포하지 않으므로 배포 시간에 잠재적으로 영향을 줍니다. 리소스 간의 관계를 문서화하려면 [리소스 연결](resource-group-link-resources.md)을 대신 사용합니다.
 
@@ -110,6 +117,6 @@ resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

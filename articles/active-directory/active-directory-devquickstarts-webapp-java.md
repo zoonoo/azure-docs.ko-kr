@@ -1,12 +1,12 @@
 ---
-title: Azure AD Java 시작 | Microsoft Docs
-description: 회사 또는 학교 계정을 사용하여 사용자가 로그인하는 Java 웹앱을 빌드하는 방법.
+title: "Azure AD Java 시작 | Microsoft 문서"
+description: "회사 또는 학교 계정을 사용하여 사용자가 로그인하는 Java 웹앱을 빌드하는 방법."
 services: active-directory
 documentationcenter: java
-author: brandwe
+author: xerners
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 2b92b605-9cd5-4b99-bcbb-66c026558119
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: java
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: brandwe
+translationtype: Human Translation
+ms.sourcegitcommit: 0175f4e83aace12d8e4607f2ad924893093c6734
+ms.openlocfilehash: a6bbdde19868449cf89a4ffe0c3c84a0f2235b0d
+
 
 ---
-# Azure AD를 사용하는 Java 웹앱 로그인 및 로그아웃
+# <a name="java-web-app-sign-in--sign-out-with-azure-ad"></a>Azure AD를 사용하는 Java 웹앱 로그인 및 로그아웃
 [!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃소싱하고 몇 개의 코드 줄만으로 단일 로그인 및 로그아웃을 제공할 수 있습니다. Java 웹앱에서는 Microsoft에서 구현한 커뮤니티 기반 ADAL4J를 사용하여 이 작업을 수행할 수 있습니다.
+Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃소싱하고 몇 개의 코드 줄만으로 단일 로그인 및 로그아웃을 제공할 수 있습니다.  Java 웹앱에서는 Microsoft에서 구현한 커뮤니티 기반 ADAL4J를 사용하여 이 작업을 수행할 수 있습니다.
 
   다음의 경우 ADAL4J를 사용합니다.
 
@@ -34,25 +38,24 @@ Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃
 3. ADAL4J 라이브러리를 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행
 4. 사용자에 대한 데이터를 출력합니다.
 
-시작하려면 [앱 기본 사항을 다운로드](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip)하거나 [완성된 샘플을 다운로드](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip)하세요. 응용 프로그램을 등록할 Azure AD 테넌트도 필요합니다. 테넌트가 아직 없는 경우 [가져오는 방법을 알아봅니다](active-directory-howto-tenant.md).
+시작하려면 [앱 기본 사항을 다운로드](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip)하거나 [완성된 샘플을 다운로드](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip)하세요.  응용 프로그램을 등록할 Azure AD 테넌트도 필요합니다.  테넌트가 아직 없는 경우 [가져오는 방법을 알아봅니다](active-directory-howto-tenant.md).
 
-## 1\. Azure AD에 응용 프로그램을 등록합니다.
+## <a name="1--register-an-application-with-azure-ad"></a>1.  Azure AD에 응용 프로그램을 등록합니다.
 앱에서 사용자를 인증할 수 있게 하려면 먼저 새 응용 프로그램을 테넌트에 등록해야 합니다.
 
-* Azure 관리 포털에 로그인합니다.
-* 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+* [Azure Portal](https://portal.azure.com)에 로그인합니다.
 * 응용 프로그램을 등록할 테넌트를 선택합니다.
-* **응용 프로그램** 탭을 클릭하고 아래쪽 서랍에서 추가를 클릭합니다.
+* 왼쪽 탐색 창에서 **Azure Active Directory**를 클릭합니다.
+* **앱 등록** 탭을 클릭하고 **추가**를 클릭합니다.
 * 프롬프트에 따라 새 **웹 응용 프로그램 및/또는 WebAPI**를 만듭니다.
-  * 응용 프로그램의 **이름**은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
-  * **로그온 URL**은 앱의 기본 URL입니다. 기본값은 `http://localhost:8080/adal4jsample/`입니다.
-  * **앱 ID URI**는 응용 프로그램의 고유 식별자입니다. 규칙은 `https://<tenant-domain>/<app-name>`(예: `http://localhost:8080/adal4jsample/`)을 사용하는 것입니다.
-* 등록이 끝나면 AAD는 앱에 고유한 클라이언트 식별자를 할당합니다. 이 값은 다음 섹션에서 필요하므로 구성 탭에서 복사해둡니다.
+  * 응용 프로그램의 **이름** 은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
+  * **로그온 URL** 은 앱의 기본 URL입니다.  기본값은 `http://localhost:8080/adal4jsample/`입니다.
+* 등록을 완료하면 AAD는 앱에 고유한 응용 프로그램 ID를 할당합니다.  이 값은 다음 섹션에서 필요하므로 응용 프로그램 페이지에서 복사해 둡니다.
 
-앱의 포털에서 응용 프로그램에 **응용 프로그램 암호**를 만든 후 복사해둡니다. 곧 필요합니다.
+앱 포털에서 응용 프로그램의 **설정** 페이지에서 **키**를 만들고 복사해 둡니다.  곧 필요합니다.
 
-## 2\. Maven을 사용하여 ADAL4J 라이브러리 및 필수 구성 요소를 사용하도록 앱을 설정합니다.
-여기서는 OpenID Connect 인증 프로토콜을 사용하도록 ADAL4J를 구성합니다. ADAL4J은 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
+## <a name="2-set-up-your-app-to-use-adal4j-library-and-prerequisities-using-maven"></a>2. Maven을 사용하여 ADAL4J 라이브러리 및 필수 구성 요소를 사용하도록 앱을 설정합니다.
+여기서는 OpenID Connect 인증 프로토콜을 사용하도록 ADAL4J를 구성합니다.  ADAL4J은 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
 * 프로젝트의 루트 디렉터리에서 `pom.xml`을 열거나 만들고 `// TODO: provide dependencies for Maven`를 찾아서 다음으로 바꿉니다.
 
@@ -167,10 +170,10 @@ Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃
 ```
 
 
-## 3\. Java 웹 응용 프로그램 파일 만들기(WEB-INF)
-여기서는 OpenID Connect 인증 프로토콜을 사용하도록 Java 웹앱을 구성합니다. ADAL4J 라이브러리는 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
+## <a name="3-create-the-java-web-application-files-web-inf"></a>3. Java 웹 응용 프로그램 파일 만들기(WEB-INF)
+여기서는 OpenID Connect 인증 프로토콜을 사용하도록 Java 웹앱을 구성합니다.  ADAL4J 라이브러리는 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
-* 먼저 `\webapp\WEB-INF`에 위치한 `web.xml` 파일을 열고 xml에 앱의 구성 값을 입력합니다.
+* 먼저 `\webapp\WEB-INF\`에 위치한 `web.xml` 파일을 열고 xml에 앱의 구성 값을 입력합니다.
 
 파일은 다음과 같아야 합니다.
 
@@ -178,7 +181,7 @@ Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃
 <?xml version="1.0"?>
 <web-app id="WebApp_ID" version="2.4"
     xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
     http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <display-name>Archetype Created Web Application</display-name>
     <context-param>
@@ -231,18 +234,18 @@ Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃
 ```
 
 
-    -    The `YOUR_CLIENT_ID` is the **Application Id** assigned to your app in the registration portal.
-    -    The `YOUR_CLIENT_SECRET` is the **Application Secret**  you created in the portal.
-    - The `YOUR_TENANT_NAME` is the **tenant name** of your app, e.g. contoso.onmicrosoft.com
+    -    `YOUR_CLIENT_ID` 는 등록 포털에서 앱에 할당된 **응용 프로그램 ID** 입니다.
+    -    `YOUR_CLIENT_SECRET`는 포털에서 만든 **응용 프로그램 비밀** 입니다.
+    - `YOUR_TENANT_NAME`은 앱의 **테넌트 이름**(예: contoso.onmicrosoft.com)입니다.
 
 나머지 구성 매개 변수는 단독 그대로 둡니다.
 
 > [!NOTE]
 > XML 파일에서 볼 수 있듯이 /secure URL을 방문할 때마다 `BasicFilter`를 사용하는 `mvc-dispatcher`이라는 JSP/Servlet 웹앱을 작성하고 있습니다. 나머지 동일한 내용에서 /secure를 보호된 콘텐츠가 거주하는 장소로 사용하고 Azure Active Directory에 인증을 강제하도록 작성합니다.
-> 
-> 
+>
+>
 
-* 다음으로 `\webapp\WEB-INF`에 위치한 `mvc-dispatcher-servlet.xml` 파일을 만들고 다음을 입력합니다.
+* 다음으로 `\webapp\WEB-INF\`에 위치한 `mvc-dispatcher-servlet.xml` 파일을 만들고 다음을 입력합니다.
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -251,7 +254,7 @@ Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
     <context:component-scan base-package="com.microsoft.aad.adal4jsample" />
@@ -271,14 +274,14 @@ Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃
 
 웹앱이 Spring 및 위치를 사용하여 아래에서 작성하는 .jsp 파일을 찾도록 합니다.
 
-## 4\. Java JSP 보기 파일 만들기(BasicFilter MVC용)
+## <a name="4-create-the-java-jsp-view-files-for-basicfilter-mvc"></a>4. Java JSP 보기 파일 만들기(BasicFilter MVC용)
 WEB-INF에서 웹앱을 설치를 절반만 완료합니다. 다음으로 구성에서 힌트를 준 웹앱을 실행하는 실제 Java 서버 페이지 파일을 만들어야 합니다.
 
 기억할지 모르겠지만, Java에는 xml 구성 파일에 .jsp 파일을 로드해야 하는 `/` 리소스 및 `BasicFilter`라는 필터를 통과해야 하는 `/secure` 리소스가 있다고 기록했습니다.
 
 해당 파일을 이제 만들어 보겠습니다.
 
-* 먼저 `\webapp`에 `index.jsp` 파일을 만들고 다음을 잘라내어 붙여넣습니다.
+* 먼저 `\webapp\`에 `index.jsp` 파일을 만들고 다음을 잘라내어 붙여넣습니다.
 
 ```jsp
 <html>
@@ -344,7 +347,7 @@ BasicFilter 서블릿이 `ADAJ4J` 라이브러리를 사용하여 읽고 실행�
 
 물론 Java 파일을 설정해야 서블릿이 작업을 수행할 수 있습니다.
 
-## 5\. 일부 Java 도우미 파일 만들기(BasicFilter MVC용)
+## <a name="5-create-some-java-helper-files-for-basicfilter-mvc"></a>5. 일부 Java 도우미 파일 만들기(BasicFilter MVC용)
 목표는 다음과 같은 Java 파일을 만드는 것입니다.
 
 1. 사용자의 로그인 및 로그아웃 허용
@@ -352,8 +355,8 @@ BasicFilter 서블릿이 `ADAJ4J` 라이브러리를 사용하여 읽고 실행�
 
 > [!NOTE]
 > 사용자에 대한 데이터를 가져오기 위해 Azure Active Directory에서 Graph API를 사용해야 합니다. Graph API는 개별 사용자를 포함하여 조직에 대한 데이터를 가져오는 데 사용할 수 있는 안전한 웹 서비스입니다. 데이터를 요청하는 사용자가 권한을 받고 토큰을 가져오게 된 사용자가(데스크톱의 탈옥 전화 또는 웹 브라우저 캐시에서) 사용자 또는 조직에 대한 중요한 세부 정보를 얻지 못하도록 하기 때문에 토큰에 중요한 데이터를 미리 채우는 것 보다 좋습니다.
-> 
-> 
+>
+>
 
 Java 파일을 작성하여 이 작업을 수행해 보겠습니다.
 
@@ -383,9 +386,9 @@ import org.json.JSONObject;
 /**
  * This class provides the methods to parse JSON Data from a JSON Formatted
  * String.
- * 
+ *
  * @author Azure Active Directory Contributor
- * 
+ *
  */
 public class JSONHelper {
 
@@ -398,7 +401,7 @@ public class JSONHelper {
     /**
      * This method parses an JSON Array out of a collection of JSON Objects
      * within a string.
-     * 
+     *
      * @param jSonData
      *            The JSON String that holds the collection.
      * @return An JSON Array that would contains all the collection object.
@@ -413,7 +416,7 @@ public class JSONHelper {
     /**
      * This method parses an JSON Object out of a collection of JSON Objects
      * within a string
-     * 
+     *
      * @param jsonObject
      * @return An JSON Object that would contains the DirectoryObject.
      * @throws Exception
@@ -426,7 +429,7 @@ public class JSONHelper {
 
     /**
      * This method parses the skip token from a json formatted string.
-     * 
+     *
      * @param jsonData
      *            The JSON Formatted String.
      * @return The skipToken.
@@ -470,7 +473,7 @@ public class JSONHelper {
     /**
      * This method would create a string consisting of a JSON document with all
      * the necessary elements set from the HttpServletRequest request.
-     * 
+     *
      * @param request
      *            The HttpServletRequest
      * @return the string containing the JSON document.
@@ -500,7 +503,7 @@ public class JSONHelper {
                         }
                     } else {
                         if (fieldName.equalsIgnoreCase("password")) {
-                            obj.put("passwordProfile", new JSONObject("{"password": "" + param + ""}"));
+                            obj.put("passwordProfile", new JSONObject("{\"password\": \"" + param + "\"}"));
                         } else {
                             obj.put(fieldName, param);
 
@@ -519,7 +522,7 @@ public class JSONHelper {
     }
 
     /**
-     * 
+     *
      * @param key
      * @param value
      * @return string format of this JSON obje
@@ -540,7 +543,7 @@ public class JSONHelper {
     /**
      * This is a generic method that copies the simple attribute values from an
      * argument jsonObject to an argument generic object.
-     * 
+     *
      * @param jsonObject
      *            The jsonObject from where the attributes are to be copied.
      * @param destObject
@@ -603,9 +606,9 @@ import org.json.JSONObject;
 
 /**
  * This is Helper class for all RestClient class.
- * 
+ *
  * @author Azure Active Directory Contributor
- * 
+ *
  */
 public class HttpClientHelper {
 
@@ -672,7 +675,7 @@ public class HttpClientHelper {
 
     /**
      * for bad response, whose responseCode is not 200 level
-     * 
+     *
      * @param responseCode
      * @param errorCode
      * @param errorMsg
@@ -690,7 +693,7 @@ public class HttpClientHelper {
 
     /**
      * for bad response, whose responseCode is not 200 level
-     * 
+     *
      * @param responseCode
      * @param errorCode
      * @param errorMsg
@@ -711,7 +714,7 @@ public class HttpClientHelper {
 
     /**
      * for good response
-     * 
+     *
      * @param responseCode
      * @param responseMsg
      * @return
@@ -740,8 +743,8 @@ public class HttpClientHelper {
 
 ```
 
-## 6\. Java Graph API 모델 파일 만들기(BasicFilter MVC용)
-앞서 설명한 대로 Graph API를 사용하여 로그인한 사용자에 대한 데이터를 가져옵니다. 쉽게 수행할 수 있도록 **디렉터리 개체**를 나타내는 파일 및 **사용자**를 나타내는 개별 파일 모두를 만들어서 Java의 OO 패턴을 사용할 수 있도록 합니다.
+## <a name="6-create-the-java-graph-api-model-files-for-basicfilter-mvc"></a>6. Java Graph API 모델 파일 만들기(BasicFilter MVC용)
+앞서 설명한 대로 Graph API를 사용하여 로그인한 사용자에 대한 데이터를 가져옵니다. 이 작업을 쉽게 수행하려면 Java의 OO 패턴을 사용할 수 있도록 **디렉터리 개체**를 나타내는 파일과 **사용자**를 나타내는 개별 파일을 모두 만들어야 합니다.
 
 1. DirectoryObject에 대한 기본 데이터를 저장하는 데 사용하는 `DirectoryObject.java`라는 파일을 만듭니다.(나중에 수행할 수 있는 다른 Graph 쿼리에 이 파일을 자유롭게 사용할 수 있음) 아래에서 잘라내고 붙여 넣을 수 있습니다.
 
@@ -760,7 +763,7 @@ public abstract class DirectoryObject {
     }
 
     /**
-     * 
+     *
      * @return
      */
     public abstract String getObjectId();
@@ -771,25 +774,25 @@ public abstract class DirectoryObject {
     public abstract void setObjectId(String objectId);
 
     /**
-     * 
+     *
      * @return
      */
     public abstract String getObjectType();
 
     /**
-     * 
+     *
      * @param objectType
      */
     public abstract void setObjectType(String objectType);
 
     /**
-     * 
+     *
      * @return
      */
     public abstract String getDisplayName();
 
     /**
-     * 
+     *
      * @param displayName
      */
     public abstract void setDisplayName(String displayName);
@@ -857,10 +860,10 @@ public class User extends DirectoryObject{
     // The directReports holds a list of directReports
     private ArrayList<User> directReports;
 
-    // The groups holds a list of group entity this user belongs to. 
+    // The groups holds a list of group entity this user belongs to.
     private ArrayList<Group> groups;
 
-    // The roles holds a list of role entity this user belongs to. 
+    // The roles holds a list of role entity this user belongs to.
     private ArrayList<Group> roles;
 
 
@@ -1306,7 +1309,7 @@ public class User extends DirectoryObject{
 //
 //    
 //    /**
-//     *  @return The objectId of this direct report entry. 
+//     *  @return The objectId of this direct report entry.
 //     */
 //    public String getObjectId() {
 //        return objectId;
@@ -1316,14 +1319,14 @@ public class User extends DirectoryObject{
 
 ```
 
-## 7\. 인증 모델/컨트롤러 파일을 만듭니다.(BasicFilter용)
+## <a name="7-create-the-authentication-modelcontroller-files-for-basicfilter"></a>7. 인증 모델/컨트롤러 파일을 만듭니다.(BasicFilter용)
 예, Java는 보다 자세한 정보지만 작업이 거의 완료되었습니다. 마지막으로 BasicFilter 서블릿을 작성하여 요청을 처리하기 전에 `ADAL4J` 라이브러리가 필요한 자세한 도우미를 작성하겠습니다.
 
-1. 로그인된 사용의 상태를 확인하는 데 사용하는 메서드를 제공하는 `AuthHelper.java`라는 파일을 만듭니다. 내용은 다음과 같습니다.
+1. 로그인된 사용의 상태를 확인하는 데 사용하는 메서드를 제공하는 `AuthHelper.java` 라는 파일을 만듭니다. 내용은 다음과 같습니다.
 
-* 사용자의 로그인 여부를 반환하는 `isAuthenticated()` 메서드
-* 토큰에 데이터가 있는지 여부를 알려주는 `containsAuthenticationData()`
-* 인증이 사용자에 대해 성공했는지 여부를 알려주는 `isAuthenticationSuccessful()`
+* `isAuthenticated()` 메서드
+* `containsAuthenticationData()` 
+* `isAuthenticationSuccessful()` 
 
 아래의 코드를 자르거나 붙여 넣습니다.
 
@@ -1470,10 +1473,10 @@ public class AadController {
 
 ```
 
-## 8\. BasicFilter 파일 만들기(BasicFilter MVC용)
+## <a name="8-create-the-basicfilter-file-for-basicfilter-mvc"></a>8. BasicFilter 파일 만들기(BasicFilter MVC용)
 마지막으로 보기에서 요청을 처리하도록 BasicFilter 파일을 만들 차례입니다.(JSP 파일)
 
-다음을 포함하는 `BasicFilter.java`라는 파일을 만듭니다.
+다음을 포함하는 `BasicFilter.java` 라는 파일을 만듭니다.
 
 ```Java
 
@@ -1715,7 +1718,7 @@ public class BasicFilter implements Filter {
 }
 ```
 
-이 서블릿은 `ADAL4J`이 응용 프로그램에서 실행할 것으로 예상하는 모든 메서드를 노출합니다. 다음 내용이 포함됩니다.
+이 서블릿은 `ADAL4J` 이 응용 프로그램에서 실행할 것으로 예상하는 모든 메서드를 노출합니다. 다음 내용이 포함됩니다.
 
 * `getAccessTokenFromClientCredentials()` - 암호에서 액세스 토큰 가져오기
 * `getAccessTokenFromRefreshToken()` - 새로 고침 토큰에서 액세스 토큰 가져오기
@@ -1723,7 +1726,7 @@ public class BasicFilter implements Filter {
 * `createSessionPrincipal()` -Graph API 액세스에 사용할 주체 만들기
 * `getRedirectUrl()` - 포털에 입력한 값과 비교하기 위해 redirectURL 가져오기
 
-## Tomcat에서 샘플 컴파일 및 실행
+## <a name="compile-and-run-the-sample-in-tomcat"></a>Tomcat에서 샘플 컴파일 및 실행
 루트 디렉터리로 다시 변경하고 다음 명령을 실행하여 `maven`을 사용하여 모은 샘플을 빌드합니다. 여기에는 종속성에 대해 작성한 `pom.xml` 파일이 사용됩니다.
 
 `$ mvn package`
@@ -1733,15 +1736,19 @@ public class BasicFilter implements Filter {
 `http://localhost:8080/adal4jsample/`
 
 > [!NOTE]
-> 최신 Tomcat 서버를 사용하여 WAR를 쉽게 배포할 수 있습니다. `http://localhost:8080/manager/`로 이동하여 '`adal4jsample.war` 파일을 업로드하는 지침에 따릅니다. 올바른 끝점을 사용하여 자동으로 배포합니다.
-> 
-> 
+> 최신 Tomcat 서버를 사용하여 WAR를 쉽게 배포할 수 있습니다. `http://localhost:8080/manager/`로 이동하여 'adal4jsample.war' 파일을 업로드하기 위한 지침을 따릅니다. 올바른 끝점을 사용하여 자동으로 배포합니다.
+>
+>
 
-## 다음 단계
-축하합니다. 이제 사용자를 인증하고 OAuth 2.0을 사용하여 Web API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있는 Java 응용 프로그램이 작성되었습니다. 아직 일부 사용자로 테넌트를 채우지 않은 경우 지금 할 수 있습니다.
+## <a name="next-steps"></a>다음 단계
+축하합니다. 이제 사용자를 인증하고 OAuth 2.0을 사용하여 Web API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있는 Java 응용 프로그램이 작성되었습니다.  아직 일부 사용자로 테넌트를 채우지 않은 경우 지금 할 수 있습니다.
 
 참조를 위해 완료된 샘플(사용자 구성 값 제외)이 [여기에 .zip으로 제공](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Dec16_HO5-->
+
+

@@ -14,8 +14,8 @@ ms.workload: identity
 ms.date: 09/29/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c1adfe732b88a6a48a3aa9ad3ca7785703667e3d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 19adbe15694a6413842b23c27851ce582bfd727e
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: c1adfe732b88a6a48a3aa9ad3ca7785703667e3d
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-bime-tutorial/IC775552.png "Scenario")
+![시나리오](./media/active-directory-saas-bime-tutorial/IC775552.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-bime"></a>Bime에 응용 프로그램 통합 사용
 이 섹션은 Bime에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -47,16 +47,16 @@ ms.openlocfilehash: c1adfe732b88a6a48a3aa9ad3ca7785703667e3d
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-   ![응용 프로그램](./media/active-directory-saas-bime-tutorial/IC700994.png "Applications")
+   ![응용 프로그램](./media/active-directory-saas-bime-tutorial/IC700994.png "응용 프로그램")
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-   ![응용 프로그램 추가](./media/active-directory-saas-bime-tutorial/IC749321.png "Add application")
+   ![응용 프로그램 추가](./media/active-directory-saas-bime-tutorial/IC749321.png "응용 프로그램 추가")
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-bime-tutorial/IC749322.png "Add an application from gallerry")
+   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-bime-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 6. **검색 상자**에 **Bime**를 입력합니다.
    
-   ![응용 프로그램 갤러리](./media/active-directory-saas-bime-tutorial/IC775553.png "Application Gallery")
+   ![응용 프로그램 갤러리](./media/active-directory-saas-bime-tutorial/IC775553.png "응용 프로그램 갤러리")
 7. 결과 창에서 **Bime**을 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
    ![Bime](./media/active-directory-saas-bime-tutorial/IC775554.png "Bime")
@@ -70,23 +70,23 @@ Bime에 대한 Single Sign-on을 구성하려면 인증서의 손도장(thumbpri
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **Bime** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-bime-tutorial/IC771709.png "Configure single sign-on")
+   ![Single Sign-On 구성](./media/active-directory-saas-bime-tutorial/IC771709.png "Single Sign-On 구성")
 2. **Bime에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-   ![Single Sign-on 구성](./media/active-directory-saas-bime-tutorial/IC775555.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-bime-tutorial/IC775555.png "Single Sign-On 구성")
 3. **앱 URL 구성** 페이지의 **Bime 로그인 URL** 텍스트 상자에 "*https://\<tenant-name\>.Bimeapp.com*" 패턴을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
    
-   ![앱 URL 구성](./media/active-directory-saas-bime-tutorial/IC775556.png "Configure App URL")
+   ![앱 URL 구성](./media/active-directory-saas-bime-tutorial/IC775556.png "앱 URL 구성")
 4. **Bime에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 **c:\\Bime.cer**에 로컬로 인증서 파일을 저장합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-bime-tutorial/IC775557.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-bime-tutorial/IC775557.png "Single Sign-On 구성")
 5. 다른 웹 브라우저 창에서 Bime 회사 사이트에 관리자로 로그인합니다.
 6. 도구 모음에서 **Admin**과 **계정**을 차례로 클릭합니다.
    
-   ![관리자](./media/active-directory-saas-bime-tutorial/IC775558.png "Admin")
+   ![관리자](./media/active-directory-saas-bime-tutorial/IC775558.png "관리자")
 7. 계정 구성 페이지에서 다음 단계를 수행합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-bime-tutorial/IC775559.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-bime-tutorial/IC775559.png "Single Sign-On 구성")
    
    1. **SAML 인증 사용**을 선택합니다.
    2. Azure 클래식 포털의 **Bime에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **원격 로그인 URL** 텍스트 상자에 붙여넣습니다.
@@ -99,7 +99,7 @@ Bime에 대한 Single Sign-on을 구성하려면 인증서의 손도장(thumbpri
    4. **Save**를 클릭합니다.
 8. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
-   ![Single Sign-on 구성](./media/active-directory-saas-bime-tutorial/IC775560.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-bime-tutorial/IC775560.png "Single Sign-On 구성")
    
    ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 
@@ -110,13 +110,13 @@ Bime의 경우 프로비전은 수동 작업입니다.
 1. **Bime** 테넌트에 로그인합니다.
 2. 도구 모음에서 **관리자**와 **사용자**를 차례로 클릭합니다.
    
-   ![관리자](./media/active-directory-saas-bime-tutorial/IC775561.png "Admin")
+   ![관리자](./media/active-directory-saas-bime-tutorial/IC775561.png "관리자")
 3. **사용자 목록**에서 **새 사용자 추가**("+")를 클릭합니다.
    
-   ![사용자](./media/active-directory-saas-bime-tutorial/IC775562.png "Users")
+   ![사용자](./media/active-directory-saas-bime-tutorial/IC775562.png "사용자")
 4. **사용자 세부 정보** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-   ![사용자 세부 정보](./media/active-directory-saas-bime-tutorial/IC775563.png "User Details")
+   ![사용자 세부 정보](./media/active-directory-saas-bime-tutorial/IC775563.png "사용자 세부 정보")
    
    1. 프로비전하려는 유효한 AAD 계정의 이름, 성, 로그인, 전자 메일을 입력합니다.
    2. 저장을 클릭합니다.
@@ -133,16 +133,16 @@ Bime의 경우 프로비전은 수동 작업입니다.
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **Bime** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-   ![사용자 할당](./media/active-directory-saas-bime-tutorial/IC775564.png "Assign users")
+   ![사용자 할당](./media/active-directory-saas-bime-tutorial/IC775564.png "사용자 할당")
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-   ![예](./media/active-directory-saas-bime-tutorial/IC767830.png "Yes")
+   ![예](./media/active-directory-saas-bime-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

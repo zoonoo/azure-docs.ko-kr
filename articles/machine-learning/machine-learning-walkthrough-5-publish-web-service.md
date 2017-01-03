@@ -1,12 +1,12 @@
 ---
-title: '5단계: Machine Learning 웹 서비스 배포 | Microsoft Docs'
-description: '예측 솔루션 개발 연습 5단계: Machine Learning Studio에서 예측 실험을 웹 서비스로 배포합니다.'
+title: "5단계: Machine Learning 웹 서비스 배포 | Microsoft Docs"
+description: "예측 솔루션 개발 연습 5단계: Machine Learning Studio에서 예측 실험을 웹 서비스로 배포합니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: c7e5bf29aacbcb11bfa1db01738d234ae64b46b2
+ms.openlocfilehash: 141586d880e6a8f069ec26b3279d9787c5e046b4
+
 
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>연습 5단계: Azure Machine Learning 웹 서비스 배포
@@ -172,13 +176,11 @@ Azure Machine Learning 웹 서비스 포털에서 테스트하는 경우 샘플 
 6. "기본" 끝점을 클릭합니다.
 
 여기에서 웹 서비스를 수행하는 방법을 모니터링하고 서비스에서 처리할 수 있는 동시 호출 수를 변경하여 성능을 조정하는 등의 작업을 수행할 수 있습니다.
-Azure Marketplace에 웹 서비스를 게시할 수도 있습니다.
 
 자세한 내용은 다음을 참조하세요.
 
 * [끝점 만들기](machine-learning-create-endpoint.md)
 * [웹 서비스 확장](machine-learning-scaling-webservice.md)
-* [Azure Marketplace에 Azure Machine Learning 웹 서비스 게시](machine-learning-publish-web-service-to-azure-marketplace.md)
 
 **Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리**
 
@@ -215,6 +217,7 @@ Azure Marketplace에 웹 서비스를 게시할 수도 있습니다.
 [project-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

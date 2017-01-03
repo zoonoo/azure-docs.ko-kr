@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 819b40302f158d1d6224878c164cf7ff71947887
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
 이 문서의 모든 단계는 가상 컴퓨터를 만드는 데 필요하며 단계를 수행하려면 약 30분 정도가 걸립니다. 명령 예제의 매개 변수 값을 사용자 환경에서 식별할 수 있는 이름으로 바꿉니다.
 
 ## <a name="step-1-install-azure-powershell"></a>1단계: Azure PowerShell 설치
-최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 ## <a name="step-2-create-a-resource-group"></a>2단계: 리소스 그룹 만들기
 모든 리소스가 리소스 그룹에 포함될 수 있도록 먼저 리소스 그룹을 만들어야 합니다.  
@@ -114,7 +114,7 @@ ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
     $myVm = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2"
     ```
    
-    가상 컴퓨터에 사용 가능한 크기 목록은 [Azure에서 가상 컴퓨터에 대한 크기](virtual-machines-windows-sizes.md) 를 참조하세요.
+    가상 컴퓨터에 사용 가능한 크기 목록은 [Azure에서 가상 컴퓨터에 대한 크기](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 참조하세요.
 3. VM의 운영 체제 설정을 구성합니다. 이 명령은 VM의 컴퓨터 이름, 운영 체제 유형 및 계정 자격 증명을 설정합니다.
    
     ```powershell
@@ -128,13 +128,13 @@ ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
         -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
     ```
    
-    사용할 이미지 선택에 대한 자세한 내용은 [Azure에서 Powershell 또는 CLI로 Windows 가상 컴퓨터 이미지 이동 및 선택](virtual-machines-windows-cli-ps-findimage.md)을 참조하세요.
+    사용할 이미지 선택에 대한 자세한 내용은 [Azure에서 Powershell 또는 CLI로 Windows 가상 컴퓨터 이미지 이동 및 선택](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 5. 만든 네트워크 인터페이스를 구성에 추가합니다.
    
     ```powershell
     $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
     ```
-6. VM 하드 디스크의 이름과 위치를 정의합니다. 가상 하드 디스크 파일은 컨테이너에 저장됩니다. 이 명령은 만든 저장소 계정에 있는 **vhds/WindowsVMosDisk.vhd**라는 컨테이너에 디스크를 만듭니다.
+6. VM 하드 디스크의 이름과 위치를 정의합니다. 가상 하드 디스크 파일은 컨테이너에 저장됩니다. 이 명령은 만든 저장소 계정에 있는 **vhds/myOsDisk1.vhd**라는 컨테이너에 디스크를 만듭니다.
    
     ```powershell
     $blobPath = "vhds/myOsDisk1.vhd"
@@ -143,7 +143,7 @@ ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
 7. VM 구성에 운영 체제 디스크 정보를 추가합니다. **$diskName** 값을 운영 체제 디스크 이름으로 바꿉니다. 변수를 만들고 구성에 디스크 정보를 추가합니다.
    
     ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
+    $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
     ```
 8. 마지막으로 가상 컴퓨터를 만듭니다.
    
@@ -153,12 +153,12 @@ ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
 
 ## <a name="next-steps"></a>다음 단계
 * 배포에 문제가 있는 경우 다음 단계로서 [Azure Portal을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)
-* [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 검토하여 자신이 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
-*  [Resource Manager 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md)
+* [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 검토하여 자신이 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
+*  [Resource Manager 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

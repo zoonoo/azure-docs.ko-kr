@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: eac9090101728718b1a71c03dd2afd171e696093
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3741616d5cd680e2430a1b1a62e66cbfe1cf49ee
 
 
 ---
@@ -133,7 +133,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
    
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 6. 응용 프로그램에 대해 SSO를 구성하려면 [help@andfrankly.com](emailTo:help@andfrankly.com)을 통해 &frankly 지원 팀에 문의하세요. 다운로드한 메타데이터 파일을 첨부하고 &frankly 팀에서 SSO를 설정할 수 있게 공유하세요.
 7. 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
    
@@ -245,6 +245,6 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

@@ -12,18 +12,17 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
-ms.author: ryanwi
+ms.date: 12/15/2016
+ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ae0fcc689d51479a92c506ea48ab8af2003acfe
+ms.sourcegitcommit: d9050347434a22fa79f5e751c676f77bf025d176
+ms.openlocfilehash: e2919b07b8fc6e9dff6823cb6995f52106612b8a
 
 
 ---
 # <a name="prepare-your-development-environment"></a>개발 환경 준비
 > [!div class="op_single_selector"]
-> -[ Windows](service-fabric-get-started.md)
-> 
+> * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
 > * [OSX](service-fabric-get-started-mac.md)
 > 
@@ -31,25 +30,50 @@ ms.openlocfilehash: 7ae0fcc689d51479a92c506ea48ab8af2003acfe
 
  개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램][1]을 빌드 및 실행하려면 런타임, SDK, 도구를 설치해야 합니다. 또한 SDK에 포함된 Windows PowerShell 스크립트의 실행을 사용하도록 설정해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 ### <a name="supported-operating-system-versions"></a>지원되는 운영 체제 버전
 개발을 위해 다음 운영 체제 버전이 지원됩니다.
 
-* Windows 7
+* 윈도우 7
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
-* Windows 10
+* Windows Server 2016
+* 윈도우 10
 
 > [!NOTE]
 > Windows 7은 기본적으로 Windows PowerShell 2.0만을 포함합니다. 서비스 패브릭 PowerShell cmdlet에는 PowerShell 3.0 이상이 필요합니다. Microsoft 다운로드 센터에서 [Windows PowerShell 5.0을 다운로드][powershell5-download]할 수 있습니다.
 > 
 > 
 
-## <a name="install-the-runtime-sdk-and-tools"></a>런타임, SDK 및 도구 설치
-웹 플랫폼 설치 관리자는 Service Fabric 개발에 대한 두 가지 구성을 제공합니다.
+## <a name="install-the-sdk-and-tools"></a>SDK 및 도구 설치
+### <a name="to-use-visual-studio-2017-rc"></a>Visual Studio 2017 RC 사용
+Service Fabric 도구는 Visual Studio 2017 RC의 Azure 개발 및 관리 워크로드의 일부입니다. 이 워크로드를 Visual Studio 설치의 일부로 사용하도록 설정해야 합니다.
+또한 웹 플랫폼 설치 관리자를 사용하여 Microsoft Azure Service Fabric SDK를 설치해야 합니다.
 
-* [Visual Studio 2015용 Service Fabric 런타임, SDK 및 도구 설치(Visual Studio 2015 업데이트 2 이상 필요)][full-bundle-vs2015]
-* [서비스 패브릭 런타임 및 SDK만 설치(Visual Studio 도구 없음)][core-sdk]
+* [Microsoft Azure Service Fabric SDK 설치][core-sdk]
+
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Visual Studio 2015 사용(Visual Studio 2015 업데이트 2 이상 필요)
+Visual Studio 2015의 경우 Service Fabric 도구는 웹 플랫폼 설치 관리자를 사용하여 SDK와 함께 설치됩니다.
+
+* [Microsoft Azure Service Fabric SDK 및 도구 설치][full-bundle-vs2015]
+
+### <a name="sdk-installation-only"></a>SDK 설치만
+SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
+* [Microsoft Azure Service Fabric SDK 설치][core-sdk]
+
+> [!WARNING]
+> 고객들이 이러한 시작 링크를 사용할 때 또는 이들 링크를 Chrome 브라우저에서 사용했을 때 설치하는 동안 오류를 보고했습니다. 이것들은 Web Platform Installer에서 알려진 문제로 처리 중에 있습니다.  해결 방법으로 다음을 시도해 보십시오.
+>- Internet Explorer 또는 Edge 브라우저에서 위의 링크를 시작하거나, 또는
+>- 시작 메뉴에서 Web Platform Installer를 시작하고, "Service Fabric"을 검색하여 SDK를 설치합니다.
+> 
+> 불편을 끼쳐드려 죄송합니다. 
+
+현재 버전은 다음과 같습니다.
+* Service Fabric SDK 2.4.145
+* Service Fabric 런타임 5.4.145
+* Visual Studio 2015 도구 1.4.41209
+
+지원되는 버전 목록은 [Service Fabric 지원](service-fabric-support.md)을 참조하세요.
 
 ## <a name="enable-powershell-script-execution"></a>PowerShell 스크립트 실행 활성화
 서비스 패브릭은 로컬 개발 클러스터를 만들고 Visual Studio에서 응용 프로그램을 배포하기 위해 Windows PowerShell 스크립트를 사용합니다. 기본적으로 Windows에서는 이러한 스크립트의 실행을 차단합니다. 따라서 이러한 스크립트를 사용하려면 PowerShell 실행 정책을 수정해야 합니다. 관리자로 PowerShell을 열고 다음 명령을 입력합니다.
@@ -67,16 +91,17 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 * [GitHub의 서비스 패브릭 코드 샘플 확인](https://aka.ms/servicefabricsamples)
 * [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 * [서비스 패브릭 학습 경로를 따라 플랫폼에 대한 광범위한 소개 가져오기](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+* [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Service Fabric 캠페인 페이지"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 링크"
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 링크"
-[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "핵심 SDK WebPI 링크"
+[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 링크"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

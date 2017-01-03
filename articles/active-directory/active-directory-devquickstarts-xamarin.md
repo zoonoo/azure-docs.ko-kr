@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 1865043ca9c9019b9813f11eb4a55f7f16d79287
-ms.openlocfilehash: 701e24d2613a4e650714ae3eaae0010425c20a63
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fa2be90fd438a0c6f476525d5c7e794fb5791b43
 
 
 ---
@@ -187,6 +187,6 @@ ADAL은 앱에 일반적인 ID 기능을 쉽게 통합할 수 있습니다. 또�
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO5-->
 
 

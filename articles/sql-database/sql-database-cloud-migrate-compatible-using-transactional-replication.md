@@ -1,22 +1,27 @@
 ---
-title: 트랜잭션 복제를 사용하여 SQL 데이터베이스로 마이그레이션 | Microsoft Docs
-description: Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 데이터베이스 가져오기, 트랜잭션 복제
+title: "트랜잭션 복제를 사용하여 SQL Database로 마이그레이션 | Microsoft Docs"
+description: "Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 데이터베이스 가져오기, 트랜잭션 복제"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: eebdd725-833d-4151-9b2b-a0303f39e30f
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 08/23/2016
+ms.date: 11/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
+ms.openlocfilehash: 891c10b2f8e560a3c97f93198c742f657a92e927
+
 
 ---
-# 트랜잭션 복제를 사용하여 Azure SQL Server 데이터베이스를 SQL 데이터베이스로 마이그레이션
+# <a name="migrate-sql-server-database-to-azure-sql-database-using-transactional-replication"></a>트랜잭션 복제를 사용하여 Azure SQL Server 데이터베이스를 SQL 데이터베이스로 마이그레이션
 > [!div class="op_single_selector"]
 > * [SSMS 마이그레이션 마법사](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
 > * [BACPAC 파일로 내보내기](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
@@ -27,8 +32,8 @@ ms.author: carlrab
 
 이 문서에서는 SQL Server 트랜잭션 복제를 사용하여 가동 중지 시간을 최소화하면서 호환되는 SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션하는 방법을 배웁니다.
 
-## 트랜잭션 복제 아키텍처 이해
-마이그레이션하는 동안 SQL Server 데이터베이스의 운영을 중지할 수 없는 경우 마이그레이션 솔루션으로 SQL Server 트랜잭션 복제를 사용할 수 있습니다. 이 솔루션을 사용하려면 마이그레이션할 온-프레미스 SQL Server 인스턴스에서 Azure SQL 데이터베이스를 구독자로 구성합니다. 온-프레미스 트랜잭션 복제 배포자는 새 트랜잭션이 계속 발생하는 동안 온-프레미스 데이터베이스의 데이터를 동기화합니다(게시자).
+## <a name="understanding-the-transactional-replication-architecture"></a>트랜잭션 복제 아키텍처 이해
+마이그레이션하는 동안 SQL Server 데이터베이스의 운영을 중지할 수 없는 경우 마이그레이션 솔루션으로 SQL Server 트랜잭션 복제를 사용할 수 있습니다. 이 솔루션을 사용하려면 마이그레이션할 온-프레미스 SQL Server 인스턴스에서 Azure SQL 데이터베이스를 구독자로 구성합니다. 온-프레미스 트랜잭션 복제 배포자는 새 트랜잭션이 계속 발생하는 동안 온-프레미스 데이터베이스의 데이터를 동기화합니다(게시자). 
 
 또한 트랜잭션 복제를 사용하여 온-프레미스 데이터베이스의 하위 집합을 마이그레이션할 수 있습니다. 사용자가 Azure SQL 데이터베이스로 복제하는 게시물을 복제되는 데이터베이스의 테이블 하위 집합으로 제한할 수 있습니다. 복제되는 각 테이블에 대해 데이터를 행의 하위 집합 및/또는 열의 하위 집합으로 제한할 수 있습니다.
 
@@ -36,10 +41,10 @@ ms.author: carlrab
 
  ![SeedCloudTR 다이어그램](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
-## 트랜잭션 복제 요구 사항
-트랜잭션 복제는 SQL Server 6.5부터 SQL Server에 내장 및 통합된 기술입니다. 대부분의 DBA가 경험한 적이 있는 성숙하고 검증된 기술입니다. 이제 [SQL Server 2016](https://www.microsoft.com/ko-KR/cloud-platform/sql-server)을 사용하여 Azure SQL 데이터베이스를 온-프레미스 게시의 [트랜잭션 복제 구독자](https://msdn.microsoft.com/library/mt589530.aspx)로 구성할 수 있습니다. Management Studio에서 설정하는 방법은 온-프레미스 서버에서 트랜잭션 복제 구독자를 설정하는 방법과 일치합니다. 이 시나리오는 게시자 및 배포자가 다음 SQL Server 버전 중 하나일 때 지원됩니다.
+## <a name="transactional-replication-requirements"></a>트랜잭션 복제 요구 사항
+트랜잭션 복제는 SQL Server 6.5부터 SQL Server에 내장 및 통합된 기술입니다. 대부분의 DBA가 경험한 적이 있는 성숙하고 검증된 기술입니다. 이제 [SQL Server 2016](https://www.microsoft.com/sql-server/sql-server-2016)을 사용하여 Azure SQL 데이터베이스를 온-프레미스 게시의 [트랜잭션 복제 구독자](https://msdn.microsoft.com/library/mt589530.aspx)로 구성할 수 있습니다. Management Studio에서 설정하는 방법은 온-프레미스 서버에서 트랜잭션 복제 구독자를 설정하는 방법과 일치합니다. 이 시나리오는 게시자 및 배포자가 다음 SQL Server 버전 중 하나일 때 지원됩니다.
 
-* SQL Server 2016 이상
+* SQL Server 2016 이상 
 * SQL Server 2014 SP1 CU3 이상
 * SQL Server 2014 RTM CU10 이상
 * SQL Server 2012 SP2 CU8 이상
@@ -50,15 +55,20 @@ ms.author: carlrab
 > 
 > 
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [SQL Server Management Studio 최신 버전](https://msdn.microsoft.com/library/mt238290.aspx)
 * [SSDT 최신 버전](https://msdn.microsoft.com/library/mt204009.aspx)
-* [SQL Server 2016](https://www.microsoft.com/ko-KR/cloud-platform/sql-server)
+* [SQL Server 2016 ](https://www.microsoft.com/sql-server/sql-server-2016)
 
-## 추가 리소스
+## <a name="additional-resources"></a>추가 리소스
 * [트랜잭션 복제자](https://msdn.microsoft.com/library/mt589530.aspx)
-* [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)
+* [SQL Database 기능](sql-database-features.md)
 * [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
 * [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

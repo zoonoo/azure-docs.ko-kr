@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ecac06a51bee157d88634a13c5749dc16f4b505a
+ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
+ms.openlocfilehash: 81cdadcd7200f20274c2851eda8677078b8b505c
 
 
 ---
-# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linuxbased-hadoop-in-hdinsight"></a>HBase 자습서: HDInsight에서 Linux 기반 Hadoop을 통해 Apache HBase 사용 시작
+# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linux-based-hadoop-in-hdinsight"></a>HBase 자습서: HDInsight에서 Linux 기반 Hadoop을 통해 Apache HBase 사용 시작
 [!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
 HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hive를 사용하여 테이블을 쿼리하는 방법에 대해 알아봅니다. 일반 HBase 정보는 [HDInsight HBase 개요][hdinsight-hbase-overview]를 참조하세요.
@@ -45,7 +45,7 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 
 1. Azure 포털에서 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 공용 Blob 컨테이너에 있습니다. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. **사용자 지정 배포** 블레이드에서 다음을 입력합니다.
    
    * **구독**: 클러스터를 만드는 데 사용할 Azure 구독을 선택합니다.
@@ -74,7 +74,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 HBase 셸을 사용하여
 
 BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시됩니다.
 
-![HDInsight HBase 빅 테이블 데이터][img-hbase-sample-data-bigtable]
+![HDInsight HBase BigTable 데이터][img-hbase-sample-data-bigtable]
 
 다음 절차를 완료한 후가 더 적절합니다.  
 
@@ -95,7 +95,7 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![hdinsight hadoop hbase 셸][img-hbase-shell]
+    ![HDInsight Hadoop HBase 셸][img-hbase-shell]
 4. 단일 행 가져오기
    
         get 'Contacts', '1000'
@@ -113,18 +113,18 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 
 샘플 데이터 파일은 공용 Blob 컨테이너, *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*로 업로드되었습니다.  데이터 파일 내용은 다음과 같습니다.
 
-    8396    Calvin Raji        230-555-0191    230-555-0191    5415 San Gabriel Dr.
-    16600    Karen Wu        646-555-0113    230-555-0192    9265 La Paz
-    4324    Karl Xie        508-555-0163    230-555-0193    4912 La Vuelta
-    16891    Jonn Jackson    674-555-0110    230-555-0194    40 Ellis St.
+    8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
+    16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
+    4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta
+    16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.
     3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive
-    3588    Osa Agbonile    592-555-0152    230-555-0196    1873 Lion Circle
-    10272    Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
-    4868    Jose Hayes        599-555-0171    230-555-0198    793 Crawford Street
-    4761    Caleb Alexander    670-555-0141    230-555-0199    4775 Kentucky Dr.
-    16443    Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
+    3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle
+    10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
+    4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street
+    4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
+    16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-텍스트 파일을 만들고 원하는 경우 고유한 저장소 계정에 파일을 업로드할 수 있습니다. 지침은 [HDInsight에서 Hadoop 작업에 대한 데이터 업로드][hdinsight-upload-data]를 참조하세요.
+텍스트 파일을 만들고 원하는 경우 고유한 저장소 계정에 파일을 업로드할 수 있습니다. 지침에 대해서는 [HDInsight에서 Hadoop 작업용 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 
 > [!NOTE]
 > 이 절차는 마지막 절차에서 만든 연락처 HBase 테이블을 사용합니다.
@@ -142,10 +142,18 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 ## <a name="use-hive-to-query-hbase"></a>Hive를 사용하여 HBase 쿼리
 Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다. 이 섹션에서는 HBase 테이블에 매핑되는 Hive 테이블을 만들고 이를 사용하여 HBase 테이블의 데이터를 쿼리합니다.
 
+> [!NOTE]
+> Hive 및 HBase가 동일한 VNet에서 서로 다른 클러스터에 있는 경우 Hive 셸을 호출하는 동안 zookeeper 쿼럼을 전달해야 합니다.
+>
+>       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
+>
+>
+
 1. **PuTTY**를 열고 클러스터에 연결합니다.  이전 절차의 지침을 참조하세요.
 2. Hive 셸을 엽니다.
    
        hive
+       
 3. 다음 HiveQL 스크립트를 실행하여 HBase 테이블에 매핑되는 Hive 테이블을 만듭니다. 이 문을 실행하기 전에 HBase 셸을 사용하여 이 자습서의 앞에서 참조한 샘플 테이블을 만들었는지 확인합니다.
    
         CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -221,53 +229,21 @@ HBase Rest에 대한 자세한 내용은 [Apache HBase 참조 가이드](https:/
 ## <a name="check-cluster-status"></a>클러스터 상태 확인
 HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 제공됩니다. 웹 UI를 사용하여 지역에 대한 정보 또는 통계를 요청할 수 있습니다.
 
-SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링하는 데 사용할 수도 있습니다. HDInsight 클러스터 헤드 노드에서 발생하는 경우 요청이 요청된 리소스에 라우팅됩니다. 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop로 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)을 참조하세요.
+**HBase 마스터 UI에 액세스하려면**
 
-**SSH 터널링 세션을 설정하려면**
+1. https://&lt;Clustername>.azurehdinsight.net에서 Ambari 웹 UI를 엽니다.
+2. 왼쪽 메뉴에서 **HBase**를 클릭합니다.
+3. 페이지 위쪽에서 **빠른 링크**를 클릭하고 활성 Zookeeper 노드 링크를 가리킨 다음 **HBase 마스터 UI**를 클릭합니다.  UI는 다른 브라우저 탭에서 열립니다.
 
-1. **PuTTY**를 엽니다.  
-2. 생성 과정에서 사용자 계정을 생성할 때 SSH 키를 제공한 경우 다음 단계를 수행하여 클러스터에 인증할 때 사용하려는 개인 키를 선택해야 합니다.
-   
-    **Category**에서 **Connection**, **SSH**를 차례로 확장하고 **Auth**를 선택합니다. 마지막으로 **Browse** 를 클릭하고 개인 키가 포함된 .ppk 파일을 선택합니다.
-3. **범주**에서 **섹션**을 클릭합니다.
-4. PuTTY 세션 화면에 대한 기본 옵션에서 다음 값을 입력합니다.
-   
-   * **호스트 이름**: 호스트 이름에서 HDInsight 서버의 SSH 주소(또는 IP 주소) 필드입니다. SSH 주소는 **-ssh.azurehdinsight.net**이 뒤에 오는 클러스터 이름입니다. 예를 들면 *mycluster-ssh.azurehdinsight.net*과 같습니다.
-   * **포트**: 22. 기본 헤드에 대한 ssh 포트는 22입니다.  
-5. 대화 상자의 왼쪽에 있는 **범주** 섹션에서 **연결**, **SSH**를 차례로 확장한 다음 **터널**을 클릭합니다.
-6. SSH 포트 전달을 제어하는 옵션 양식에 다음 정보를 제공합니다.
-   
-   * **Source port** - 전달하려는 클라이언트의 포트입니다. 예를 들면 9876과 같습니다.
-   * **Dynamic** - 동적 SOCKS 프록시 라우팅을 활성화합니다.
-7. **추가** 를 클릭하여 설정을 추가합니다.
-8. 대화 상자의 아래 쪽에서 **열기** 를 클릭하여 SSH 연결을 엽니다.
-9. 메시지가 표시되면 SSH 계정을 사용하여 서버에 로그인합니다. 이 SSH 세션을 설정하고 터널을 사용하도록 설정합니다.
+  ![HDInsight HBase HMaster UI](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-**Ambari를 사용하여 Zookeeper의 FQDN을 찾으려면**
+  HBase 마스터 UI에는 다음 섹션이 포함되어 있습니다.
 
-1. https://<ClusterName>.azurehdinsight.net/으로 이동합니다.
-2. 클러스터 사용자 계정 자격 증명을 두 번 입력합니다.
-3. 왼쪽된 메뉴에서 **Zookeeper**를 클릭합니다.
-4. 요약 목록에서 세 가지 **ZooKeeper 서버** 링크 중 하나를 클릭합니다.
-5. **호스트 이름**을 복사합니다. 예를 들어 zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net입니다.
-
-**클라이언트 프로그램(Firefox)을 구성하고 클러스터 상태를 확인하려면**
-
-1. Firefox를 엽니다.
-2. **열기 메뉴** 단추를 클릭합니다.
-3. **옵션**을 클릭합니다.
-4. **고급**을 클릭하고 **네트워크**를 클릭한 다음 **설정**을 클릭합니다.
-5. **수동 프록시 구성**을 선택합니다.
-6. 다음 값을 입력합니다.
-   
-   * **Socks 호스트**: localhost
-   * **포트**: Putty SSH 터널링에서 구성한 동일한 포트를 사용합니다.  예를 들면 9876과 같습니다.
-   * **SOCKS v5**: (선택됨)
-   * **원격 DNS**: (선택됨)
-7. **확인** 을 클릭하여 변경 내용을 저장합니다.
-8. ZooKeeper>:60010/master-status의 http://&lt;The FQDN으로 이동합니다.
-
-고가용성 클러스터에서 WebUI를 호스트하는 현재 활성 HBase 마스터 노드에 대한 링크를 찾을 수 있습니다.
+  - 지역 서버
+  - 백업 마스터
+  - 테이블
+  - 태스크
+  - 소프트웨어 특성
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 불일치를 방지하기 위해 클러스터를 삭제하기 전에 HBase 테이블을 사용하지 않도록 설정하는 것이 좋습니다.
@@ -279,7 +255,7 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 
 자세한 내용은 다음을 참조하세요.
 
-* [HDInsight HBase 개요][hdinsight-hbase-overview]: HBase는 비구조적/반구조적 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
+* [HDInsight HBase 개요][hdinsight-hbase-overview]: HBase는 대량의 비구조적/반구조적 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -310,6 +286,6 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

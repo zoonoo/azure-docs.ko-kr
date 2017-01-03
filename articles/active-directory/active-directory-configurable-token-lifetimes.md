@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/06/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f61d23fec6badb8dd53379d183b177e4c19e5711
+ms.sourcegitcommit: e8b484ec7eff26919d4fb3869baf9f358c2522cb
+ms.openlocfilehash: 6e5d96ff9754954eb745f14c8248609775bbf290
 
 
 ---
@@ -27,11 +27,11 @@ ms.openlocfilehash: f61d23fec6badb8dd53379d183b177e4c19e5711
 > 
 
 ## <a name="introduction"></a>소개
-관리자와 개발자는 이 기능을 사용하여 Azure AD에서 발급된 토큰의 수명을 지정할 수 있습니다. 테넌트의 모든 앱, 다중 테넌트 응용 프로그램 또는 테넌트의 특정 서비스 사용자에 대해 토큰 수명을 구성할 수 있습니다.
+관리자와 개발자는 이 기능을 사용하여 Azure AD에서 발급된 토큰의 수명을 지정할 수 있습니다. 토큰 수명은 조직의 모든 앱, 다중 테넌트(다중 조직) 응용 프로그램 또는 조직의 특정 서비스 주체에 대해 구성할 수 있습니다.
 
-Azure AD에서 정책 개체는 개별 응용 프로그램 또는 테넌트의 모든 응용 프로그램에 적용되는 규칙 집합을 나타냅니다.  각 유형의 정책에는 할당된 개체에 적용되는 속성 집합이 포함된 고유한 구조가 있습니다.
+Azure AD에서 정책 개체는 개별 응용 프로그램 또는 조직의 모든 응용 프로그램에 적용되는 규칙 집합을 나타냅니다.  각 유형의 정책에는 할당된 개체에 적용되는 속성 집합이 포함된 고유한 구조가 있습니다.
 
-정책을 테넌트에 대한 기본값으로 지정할 수 있습니다. 그러면 우선 순위가 더 높은 정책에 의해 재정의되지 않는 한 해당 테넌트 내에 있는 응용 프로그램에 정책이 적용됩니다. 특정 응용 프로그램에 정책을 할당할 수도 있습니다. 우선 순위는 정책 유형에 따라 다릅니다.
+정책은 조직의 기본값으로 지정할 수 있습니다. 따라서 이 정책은 더 높은 우선 순위의 정책으로 재정의되지 않는 한 해당 조직 내의 모든 응용 프로그램에 적용됩니다. 특정 응용 프로그램에 정책을 할당할 수도 있습니다. 우선 순위는 정책 유형에 따라 다릅니다.
 
 새로 고침 토큰, 액세스 토큰, 세션 토큰 및 ID 토큰에 대한 토큰 수명 정책을 구성할 수 있습니다.
 
@@ -82,12 +82,12 @@ SSO 세션 토큰에는 두 종류가 있습니다. 영구 세션 토큰은 브�
 | 새로 고침 최대 기간(비밀 클라이언트에 대해 발급됨) |새로 고침 토큰(비밀 클라이언트에 대해 발급됨) |Until-revoked |
 
 ### <a name="priority-and-evaluation-of-policies"></a>정책의 우선 순위 및 평가
-토큰 수명 정책을 만들어 특정 응용 프로그램, 테넌트 및 서비스 사용자에게 할당할 수 있습니다. 즉, 여러 정책을 특정 응용 프로그램에 적용할 수 있습니다. 적용되는 토큰 수명 정책은 다음 규칙을 따릅니다.
+토큰 수명 정책을 만들어 특정 응용 프로그램, 조직 및 서비스 주체에 할당할 수 있습니다. 즉, 여러 정책을 특정 응용 프로그램에 적용할 수 있습니다. 적용되는 토큰 수명 정책은 다음 규칙을 따릅니다.
 
 * 정책이 서비스 사용자에게 명시적으로 할당된 경우 해당 정책이 적용됩니다. 
-* 사용자에게 명시적으로 할당된 정책이 없는 경우 서비스 사용자의 상위 테넌트에 명시적으로 할당된 정책이 적용됩니다. 
-* 서비스 사용자 또는 테넌트에 명시적으로 할당된 정책이 없는 경우 응용 프로그램에 할당된 정책이 적용됩니다. 
-* 서비스 사용자, 테넌트 또는 응용 프로그램 개체에 할당된 정책이 없는 경우 기본값이 적용됩니다(위 표 참조).
+* 서비스 주체에 명시적으로 할당된 정책이 없는 경우 서비스 주체의 상위 조직에 명시적으로 할당된 정책이 적용됩니다. 
+* 서비스 주체 또는 조직에 명시적으로 할당된 정책이 없는 경우 응용 프로그램에 할당된 정책이 적용됩니다. 
+* 서비스 주체, 조직 또는 응용 프로그램 개체에 할당된 정책이 없는 경우 기본값이 적용됩니다(위 표 참조).
 
 Azure AD의 응용 프로그램 개체와 서비스 사용자 간 관계에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](active-directory-application-objects.md)를 참조하세요.
 
@@ -98,16 +98,16 @@ Azure AD의 응용 프로그램 개체와 서비스 사용자 간 관계에 대�
 > 
 > 사용자가 두 개의 웹 응용 프로그램(A와 B)에 액세스하려면 합니다. 
 > 
-> * 두 응용 프로그램 모두 동일한 상위 테넌트에 있습니다. 
-> * 세션 토큰 최대 기간이 8시간인 토큰 수명 정책 1은 상위 테넌트의 기본값으로 설정됩니다.
+> * 두 응용 프로그램은 모두 동일한 상위 조직에 있습니다. 
+> * 세션 토큰 최대 기간이 8시간인 토큰 수명 정책 1이 상위 조직의 기본값으로 설정됩니다.
 > * 웹 응용 프로그램 A는 어떤 정책에도 연결되지 않은 일반적인 용도의 웹 응용 프로그램입니다. 
 > * 웹 응용 프로그램 B는 매우 중요한 프로세스에 사용되며, 해당 서비스 사용자는 세션 토큰 처리 기간이 30분인 토큰 수명 정책 2에 연결됩니다.
 > 
 > 오후 12시에 사용자는 새 브라우저 세션을 열고 웹 응용 프로그램 A에 액세스하려고 합니다. 사용자는 Azure AD로 리디렉션되며 로그인하라는 메시지가 표시됩니다. 그러면 세션 토큰이 있는 쿠키가 브라우저에서 삭제됩니다. 사용자는 응용 프로그램에 액세스할 수 있는 ID 토큰으로 웹 응용 프로그램 A로 다시 리디렉션됩니다.
 > 
-> 오후 12시 15분에 사용자는 웹 응용 프로그램 B에 액세스하려고 합니다. 브라우저는 세션 쿠키를 검색하는 Azure AD로 리디렉션합니다. 웹 응용 프로그램 B의 서비스 사용자는 정책 2에 연결되지만 기본 정책 1이 적용되는 상위 테넌트의 일부이기도 합니다. 서비스 사용자에게 연결된 정책이 테넌트 기본 정책보다 우선 순위가 높기 때문에 정책 2가 적용됩니다. 세션 토큰은 지난 30분 이내에 처음 발급되었기 때문에 유효한 것으로 간주됩니다. 사용자는 액세스 권한을 부여하는 ID 토큰으로 웹 응용 프로그램 B로 리디렉션됩니다.
+> 오후 12시 15분에 사용자는 웹 응용 프로그램 B에 액세스하려고 합니다. 브라우저는 세션 쿠키를 검색하는 Azure AD로 리디렉션합니다. 웹 응용 프로그램 B의 서비스 주체는 정책 2에 연결되지만 기본 정책 1이 적용되는 상위 조직의 일부이기도 합니다. 서비스 주체에게 연결된 정책이 조직 기본 정책보다 우선 순위가 높기 때문에 정책 2가 적용됩니다. 세션 토큰은 지난 30분 이내에 처음 발급되었기 때문에 유효한 것으로 간주됩니다. 사용자는 액세스 권한을 부여하는 ID 토큰으로 웹 응용 프로그램 B로 리디렉션됩니다.
 > 
-> 오후 1시에 사용자는 웹 응용 프로그램 A를 탐색하려고 합니다. 사용자는 Azure AD로 리디렉션됩니다. 웹 응용 프로그램 A는 정책에 연결되지 않았지만 기본 정책 1이 적용되는 테넌트에 있기 때문에 이 정책이 적용됩니다. 세션 쿠키는 지난 8시간 이내에 처음 발급된 것으로 검색되며, 사용자는 인증할 필요가 없는 새 ID 토큰으로 웹 응용 프로그램 A로 자동으로 다시 리디렉션됩니다.
+> 오후 1시에 사용자는 웹 응용 프로그램 A를 탐색하려고 합니다. 사용자는 Azure AD로 리디렉션됩니다. 웹 응용 프로그램 A는 어떤 정책에도 연결되어 있지 않지만 기본 정책 1을 사용하는 조직에 있기 때문에 이 정책이 적용됩니다. 세션 쿠키는 지난 8시간 이내에 처음 발급된 것으로 검색되며, 사용자는 인증할 필요가 없는 새 ID 토큰으로 웹 응용 프로그램 A로 자동으로 다시 리디렉션됩니다.
 > 
 > 사용자는 웹 응용 프로그램 B에 즉시 액세스하려고 합니다. 사용자는 Azure AD로 리디렉션됩니다. 이전과 마찬가지로 정책 2가 적용됩니다. 토큰이 발급된지 30분이 넘은 경우 사용자에게 자격 증명을 다시 입력하라는 메시지가 표시되며, 새로운 세션 및 ID 토큰이 발급됩니다. 그런 다음 사용자는 웹 응용 프로그램 B에 액세스할 수 있습니다.
 > 
@@ -169,7 +169,7 @@ Azure AD의 응용 프로그램 개체와 서비스 사용자 간 관계에 대�
 최대 기간을 줄이면 사용자가 더 자주 인증해야 합니다. 단일 단계 인증은 다단계 인증보다 안전하지 않은 것으로 간주되므로 이 정책을 단일 단계 세션 토큰 최대 기간 정책보다 크거나 같은 값으로 설정하는 것이 좋습니다.
 
 ## <a name="sample-token-lifetime-policies"></a>샘플 토큰 수명 정책
-앱, 서비스 사용자 및 전체 테넌트에 대한 토큰 수명을 만들고 관리할 수 있다는 것은 Azure AD에서 가능한 모든 종류의 새로운 시나리오를 보여 줍니다.  새 규칙을 적용하는 데 도움이 되는 몇 가지 일반적인 정책 시나리오를 살펴보겠습니다.
+앱, 서비스 주체 및 전체 조직의 토큰 수명을 만들고 관리할 수 있다는 것은 Azure AD에서 가능한 모든 종류의 새로운 시나리오를 보여 줍니다.  새 규칙을 적용하는 데 도움이 되는 몇 가지 일반적인 정책 시나리오를 살펴보겠습니다.
 
 * 토큰 수명
 * 토큰 최대 비활성 시간
@@ -177,26 +177,26 @@ Azure AD의 응용 프로그램 개체와 서비스 사용자 간 관계에 대�
 
 다음을 비롯한 몇 가지 시나리오를 살펴보겠습니다.
 
-* 테넌트의 기본 정책 관리
+* 조직의 기본 정책 관리
 * 웹 로그인에 대한 정책 만들기
 * Web API를 호출하는 네이티브 앱에 대한 정책 만들기
 * 고급 정책 관리 
 
 ### <a name="prerequisites"></a>필수 조건
-샘플 시나리오에서는 앱, 서비스 사용자 및 전체 테넌트에 대한 정책을 만들고, 업데이트하고, 연결하고, 삭제합니다.  Azure AD를 처음 접하는 경우 이러한 샘플을 진행하기 전에 [이 문서](active-directory-howto-tenant.md)를 확인하는 것이 시작하는 데 도움이 됩니다.  
+샘플 시나리오에서는 앱, 서비스 주체 및 전체 조직에 대한 정책을 만들고, 업데이트하고, 연결하고, 삭제합니다.  Azure AD를 처음 접하는 경우 이러한 샘플을 진행하기 전에 [이 문서](active-directory-howto-tenant.md)를 확인하는 것이 시작하는 데 도움이 됩니다.  
 
 1. 시작하려면 최신 [Azure AD PowerShell Cmdlet 미리 보기](https://www.powershellgallery.com/packages/AzureADPreview)를 다운로드합니다. 
 2. Azure AD PowerShell Cmdlet을 다운로드한 후에는 Connect 명령을 실행하여 Azure AD 관리 계정에 로그인합니다. 새 세션을 시작할 때마다 이 작업을 수행해야 합니다.
    
      Connect-AzureAD -Confirm
-3. 다음 명령을 실행하여 테넌트에서 만든 모든 정책을 확인합니다.  이 명령은 다음 시나리오에서 대부분의 작업 후에 사용됩니다.  또한 정책의 **개체 ID**를 가져오는 데 도움이 됩니다. 
+3. 다음 명령을 실행하여 조직에서 만든 정책을 모두 확인합니다.  이 명령은 다음 시나리오에서 대부분의 작업 후에 사용됩니다.  또한 정책의 **개체 ID**를 가져오는 데 도움이 됩니다. 
    
      Get-AzureADPolicy
 
-### <a name="sample-managing-a-tenants-default-policy"></a>샘플: 테넌트의 기본 정책 관리
-이 샘플에서는 전체 테넌트에서 사용자의 로그인 횟수를 줄이는 정책을 만듭니다. 
+### <a name="sample-managing-a-organizations-default-policy"></a>샘플: 조직의 기본 정책 관리
+이 샘플에서는 사용자가 전체 조직에서 더 적은 빈도로 로그인할 수 있도록 하는 정책을 만듭니다. 
 
-이렇게 하려면 전체 테넌트에 적용되는 단일 단계 새로 고침 토큰에 대한 토큰 수명 정책을 만듭니다. 이 정책은 아직 설정된 정책이 없는 각 서비스 사용자 및 테넌트의 모든 응용 프로그램에 적용됩니다. 
+이렇게 하려면 전체 조직에 적용되는 단일 단계 새로 고침 토큰에 대한 토큰 수명 정책을 만듭니다. 이 정책은 조직의 모든 응용 프로그램과 아직 정책이 설정되지 않은 각 서비스 주체에 적용됩니다. 
 
 1. **토큰 수명 정책을 만듭니다.** 
 
@@ -212,7 +212,7 @@ Azure AD의 응용 프로그램 개체와 서비스 사용자 간 관계에 대�
 
 이제 다음 명령을 실행하여 이 정책을 만듭니다. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName TenantDefaultPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName OrganizationDefaultPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
 
 새 정책을 보고 해당 ObjectID를 가져오려면 다음 명령을 실행합니다.
 
@@ -221,7 +221,7 @@ Azure AD의 응용 프로그램 개체와 서비스 사용자 간 관계에 대�
 
 첫 번째 정책이 서비스에 필요한 것만큼 엄격하지 않다고 결정하여 단일 단계 새로 고침 토큰을 2일 후에 만료되도록 설정하기로 결정했습니다. 다음 명령을 실행합니다. 
 
-    Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName TenantDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
+    Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName OrganizationDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
 
 &nbsp;&nbsp;3. **완료되었습니다!** 
 
@@ -232,14 +232,14 @@ Azure AD의 응용 프로그램 개체와 서비스 사용자 간 관계에 대�
 
 웹 로그인에 대한 이 정책은 액세스/ID 토큰 수명 및 최대 단일 단계 세션 토큰 기간을 2시간으로 설정합니다.
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
 
 새 정책을 보고 해당 ObjectID를 가져오려면 다음 명령을 실행합니다.
 
     Get-AzureADPolicy
 &nbsp;&nbsp;2.    **서비스 사용자에게 정책을 할당합니다.**
 
-이 새 정책을 서비스 사용자와 연결합니다.  서비스 사용자의 **ObjectId**에 액세스하는 방법도 필요합니다. [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리하거나 [Graph 탐색기 도구](https://graphexplorer.cloudapp.net/)로 이동해 Azure AD 계정에 로그인하여 테넌트의 모든 서비스 사용자를 확인할 수 있습니다. 
+이 새 정책을 서비스 사용자와 연결합니다.  서비스 사용자의 **ObjectId**에 액세스하는 방법도 필요합니다. [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리하거나 [Graph 탐색기 도구](https://graphexplorer.cloudapp.net/)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다. 
 
 **ObjectId**가 있는 경우 다음 명령을 실행합니다.
 
@@ -249,18 +249,13 @@ Azure AD의 응용 프로그램 개체와 서비스 사용자 간 관계에 대�
  
 
 ### <a name="sample-creating-a-policy-for-native-apps-calling-a-web-api"></a>샘플: Web API를 호출하는 네이티브 앱에 대한 정책 만들기
-> [!NOTE]
-> 현재 정책을 응용 프로그램에 연결할 수 없습니다.  이 기능을 곧 사용할 수 있도록 개발하는 중입니다.  이 기능을 사용할 수 있게 되는 즉시 이 페이지는 업데이트될 예정입니다.
-> 
-> 
-
 이 샘플에서는 사용자가 인증해야 하는 횟수를 줄이고 다시 인증하지 않고도 비활성 상태로 있을 수 있는 기간을 늘리는 정책을 만듭니다. 이 정책은 Web API에 적용됩니다. 즉, 네이티브 앱에서 Web API를 리소스로 요청하는 경우 이 정책이 적용됩니다.
 
 1. **토큰 수명 정책을 만듭니다.** 
 
 이 명령은 Web API에 대한 엄격한 정책을 만듭니다. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
 
 새 정책을 보고 해당 ObjectID를 가져오려면 다음 명령을 실행합니다.
 
@@ -281,33 +276,33 @@ Azure AD의 응용 프로그램 개체와 서비스 사용자 간 관계에 대�
 
 1. **토큰 수명 정책을 만듭니다.**
 
-아주 간단합니다. 단일 단계 새로 고침 토큰 수명을 30일로 설정하는 테넌트 기본 정책을 만들었습니다. 
+아주 간단합니다. 단일 단계 새로 고침 토큰 수명을 30일로 설정하는 조직 기본 정책을 만들었습니다. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
 새 정책을 보고 해당 ObjectID를 가져오려면 다음 명령을 실행합니다.
 
     Get-AzureADPolicy
 
 &nbsp;&nbsp;2.    **서비스 사용자에게 정책을 할당합니다.**
 
-이제 전체 테넌트에 대한 정책이 생성되었습니다.  특정 서비스 사용자에 대해 이 30일 정책을 유지하되, 테넌트 기본 정책의 상한을 "until-revoked"로 변경하려는 경우를 가정해 봅니다. 
+이제 전체 조직에 대한 정책이 있습니다.  특정 서비스 주체에 대해 이 30일 정책을 유지하지만 조직 기본 정책을 "until-revoked"의 상한으로 변경하려고 한다고 가정해 보겠습니다. 
 
-먼저 이 새 정책을 서비스 사용자와 연결합니다.  서비스 사용자의 **ObjectId**에 액세스하는 방법도 필요합니다. [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리하거나 [Graph 탐색기 도구](https://graphexplorer.cloudapp.net/)로 이동해 Azure AD 계정에 로그인하여 테넌트의 모든 서비스 사용자를 확인할 수 있습니다. 
+먼저 이 새 정책을 서비스 사용자와 연결합니다.  서비스 사용자의 **ObjectId**에 액세스하는 방법도 필요합니다. [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리하거나 [Graph 탐색기 도구](https://graphexplorer.cloudapp.net/)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다. 
 
 **ObjectId**가 있는 경우 다음 명령을 실행합니다.
 
     Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
 
-&nbsp;&nbsp;3.    **다음 명령을 사용하여 IsTenantDefault 플래그를 false로 설정합니다.** 
+&nbsp;&nbsp;3.    **다음 명령을 사용하여 IsOrganizationDefault 플래그를 false로 설정합니다.** 
 
-    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsTenantDefault $false
-&nbsp;&nbsp;4.    **새 테넌트 기본 정책을 만듭니다.**
+    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsOrganizationDefault $false
+&nbsp;&nbsp;4.    **새 조직 기본 정책 만들기**
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsTenantDefault $true -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsOrganizationDefault $true -Type TokenLifetimePolicy
 
 &nbsp;&nbsp;5.     **완료되었습니다!** 
 
-이제 원래 정책을 서비스 사용자와 연결하고 새 정책을 테넌트 기본 정책으로 설정했습니다.  서비스 사용자에게 적용되는 정책이 테넌트 기본 정책보다 우선한다는 점을 기억해야 합니다. 
+이제 서비스 주체에 연결된 원래 정책과 조직 기본 정책으로 설정된 새 정책이 있습니다.  서비스 주체에 적용되는 정책은 조직 기본 정책보다 우선한다는 점을 기억해야 합니다. 
 
 ## <a name="cmdlet-reference"></a>Cmdlet 참조
 ### <a name="manage-policies"></a>정책 관리
@@ -316,13 +311,13 @@ Azure AD의 응용 프로그램 개체와 서비스 사용자 간 관계에 대�
 #### <a name="new-azureadpolicy"></a>New-AzureADPolicy
 새 정책을 만듭니다.
 
-    New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsTenantDefault <boolean> -Type <Policy Type> 
+    New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type> 
 
 | 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | -Definition |정책의 모든 규칙을 포함하는 문자열로 변환된 JSON의 배열입니다. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
 | -DisplayName |정책 이름의 문자열입니다. |-DisplayName MyTokenPolicy |
-| -IsTenantDefault |True이면 정책이 테넌트의 기본 정책으로 설정되고 False이면 아무 작업도 수행되지 않습니다. |-IsTenantDefault $true |
+| -IsOrganizationDefault |true이면 정책을 조직의 기본 정책으로 설정하고, false이면 아무 작업도 수행하지 않습니다. |-IsOrganizationDefault $true |
 | -Type |정책의 유형입니다. 토큰 수명의 경우 항상 "TokenLifetimePolicy"를 사용합니다. |-Type TokenLifetimePolicy |
 | -AlternativeIdentifier [선택 사항] |정책에 대한 대체 ID를 설정합니다. |-AlternativeIdentifier myAltId |
 
@@ -360,7 +355,7 @@ Azure AD의 응용 프로그램 개체와 서비스 사용자 간 관계에 대�
 | -ObjectId |가져오려는 정책의 개체 ID입니다. |-ObjectId &lt;정책의 ObjectID&gt; |
 | -DisplayName |정책 이름의 문자열입니다. |-DisplayName MyTokenPolicy |
 | -Definition [선택 사항] |정책의 모든 규칙을 포함하는 문자열로 변환된 JSON의 배열입니다. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -IsTenantDefault [선택 사항] |True이면 정책이 테넌트의 기본 정책으로 설정되고 False이면 아무 작업도 수행되지 않습니다. |-IsTenantDefault $true |
+| -IsOrganizationDefault [선택 사항] |true이면 정책을 조직의 기본 정책으로 설정하고, false이면 아무 작업도 수행하지 않습니다. |-IsOrganizationDefault $true |
 | -Type [선택 사항] |정책의 유형입니다. 토큰 수명의 경우 항상 "TokenLifetimePolicy"를 사용합니다. |-Type TokenLifetimePolicy |
 | -AlternativeIdentifier [선택 사항] |정책에 대한 대체 ID를 설정합니다. |-AlternativeIdentifier myAltId |
 
@@ -454,6 +449,6 @@ Azure AD의 응용 프로그램 개체와 서비스 사용자 간 관계에 대�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

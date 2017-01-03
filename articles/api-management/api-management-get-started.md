@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 587c7346bcb8e6549febd3904c8d0a9e46cbc50a
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
 
 
 ---
@@ -59,11 +59,11 @@ Azure API 관리를 통해 원하는 백 엔드를 사용하고 해당 백 엔�
 
 ## <a name="create-service-instance"> </a>API 관리 인스턴스 만들기
 > [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][Azure Free Trial]을 참조하세요
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][Azure Free Trial]을 참조하세요.
 > 
 > 
 
-API 관리 작업의 첫 번째 단계는 서비스 인스턴스를 만드는 것입니다. [Azure Portal][Azure Portal]에 로그인하고 **새로 만들기**, **웹 + 모바일**, **API Management**를 클릭합니다.
+API 관리 작업의 첫 번째 단계는 서비스 인스턴스를 만드는 것입니다. [Azure Portal][Azure Portal]에 로그인하고 **새로 만들기**, **웹 + 모바일**, **API Management**를 차례로 클릭합니다.
 
 ![API 관리 새 인스턴스][api-management-create-instance-menu]
 
@@ -71,10 +71,10 @@ API 관리 작업의 첫 번째 단계는 서비스 인스턴스를 만드는 �
 
 서비스 인스턴스에 대해 원하는 **구독**, **리소스 그룹** 및 **지역**을 선택합니다.
 
-**조직 이름**으로 **Contoso Ltd.** 를 입력하고 **관리자 메일** 필드에 메일 주소를 입력합니다.
+**조직 이름**으로  **Contoso Ltd.**를 입력하고 **관리자 메일** 필드에서 메일 주소를 입력합니다.
 
 > [!NOTE]
-> 이 전자 메일 주소는 API 관리 시스템에서 알림을 보내는 데 사용됩니다. 자세한 내용은 [Azure API Management에서 알림 및 메일 템플릿을 구성하는 방법][How to configure notifications and email templates in Azure API Management]을 참조하세요.
+> 이 전자 메일 주소는 API 관리 시스템에서 알림을 보내는 데 사용됩니다. 자세한 내용은 [Azure API Management에서 알림 및 전자 메일 템플릿을 구성하는 방법][How to configure notifications and email templates in Azure API Management]을 참조하세요.
 > 
 > 
 
@@ -83,7 +83,7 @@ API 관리 작업의 첫 번째 단계는 서비스 인스턴스를 만드는 �
 API 관리 서비스 인스턴스는 Developer, Standard, Premium의 세 가지 계층으로 제공됩니다.
 
 > [!NOTE]
-> 개발자 계층은 고가용성이 문제가 되지 않는 개발, 테스트 및 파일럿 API 프로그램용입니다. Standard 및 Premium 계층에서는 예약 단위 수를 확장하여 더 많은 트래픽을 처리할 수 있습니다. Standard 및 Premium 계층은 API 관리 서비스에 가장 많은 처리 능력과 성능을 제공합니다. 임의 계층을 사용하여 이 자습서를 완료할 수 있습니다. API Management 계층에 대한 자세한 내용은 [API Management 가격 책정][API Management pricing]을 참조하세요.
+> 개발자 계층은 고가용성이 문제가 되지 않는 개발, 테스트 및 파일럿 API 프로그램용입니다. Standard 및 Premium 계층에서는 예약 단위 수를 확장하여 더 많은 트래픽을 처리할 수 있습니다. Standard 및 Premium 계층은 API 관리 서비스에 가장 많은 처리 능력과 성능을 제공합니다. 임의 계층을 사용하여 이 자습서를 완료할 수 있습니다. API Management 계층에 대한 자세한 내용은 [API Management 가격][API Management pricing]을 참조하세요.
 > 
 > 
 
@@ -199,26 +199,26 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 ## <a name="next-steps"> </a>다음 단계
 * [비율 제한으로 API를 보호](api-management-howto-product-with-rules.md)하는 방법 알아보기.
 
-[Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
+[Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
-[API 관리 인스턴스 만들기]: #create-service-instance
-[API 만들기]: #create-api
-[작업 추가]: #add-operation
-[제품에 새 API 추가]: #add-api-to-product
-[API가 포함된 제품 구독]: #subscribe
+[Create an API Management instance]: #create-service-instance
+[Create an API]: #create-api
+[Add an operation]: #add-operation
+[Add the new API to a product]: #add-api-to-product
+[Subscribe to the product that contains the API]: #subscribe
 [Call an operation from the Developer Portal]: #call-operation
-[분석 보기]: #view-analytics
-[다음 단계]: #next-steps
+[View analytics]: #view-analytics
+[Next steps]: #next-steps
 
 
-[Azure API 관리에서 개발자 계정을 관리하는 방법]: api-management-howto-create-or-invite-developers.md
-[API 설정 구성]: api-management-howto-create-apis.md#configure-api-settings
-[Azure API 관리에서 알림 및 메일 템플릿을 구성하는 방법]: api-management-howto-configure-notifications.md
-[응답]: api-management-howto-add-operations.md#responses
-[제품을 만들고 게시하는 방법]: api-management-howto-add-products.md
-[API 관리 가격]: http://azure.microsoft.com/pricing/details/api-management/
+[How to manage developer accounts in Azure API Management]: api-management-howto-create-or-invite-developers.md
+[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[How to configure notifications and email templates in Azure API Management]: api-management-howto-configure-notifications.md
+[Responses]: api-management-howto-add-operations.md#responses
+[How create and publish a product]: api-management-howto-add-products.md
+[API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Azure 포털]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -257,6 +257,6 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

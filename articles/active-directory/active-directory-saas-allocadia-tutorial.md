@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/12/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d7307d4d1823f6422e62ebf2969c3d57bbe6f931
+ms.sourcegitcommit: 69473976eb0a9b6a0e9aa929581c0a7cf0c8d188
+ms.openlocfilehash: e9d59c593c3637d72611516fd8a6b03f3f5f917b
 
 
 ---
@@ -61,19 +61,25 @@ Allocadia의 Azure AD 통합을 구성하려면 갤러리의 Allocadia를 관리
 1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
    
     ![Active Directory][1]
+
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
     ![응용 프로그램][2]
+
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
     ![응용 프로그램][3]
+
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
     ![응용 프로그램][4]
+
 6. 검색 상자에 **Allocadia**를 입력합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_01.png)
+
 7. 결과 창에서 **Allocadia**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_06.png)
@@ -104,18 +110,18 @@ Allocadia 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니
 1. Azure 클래식 포털의 **Allocadia** 응용 프로그램 통합 페이지에 있는 상단 메뉴에서 **특성**을 클릭합니다.
    
     ![Single Sign-On 구성](./media/active-directory-saas-allocadia-tutorial/tutorial_general_80.png) 
+
 2. **SAML 토큰 특성** 대화 상자에서 아래 테이블의 각 행에 대해 다음 단계를 수행합니다.
    
-   | 특성 이름 | 특성 값 |
-   | --- | --- |
-   | firstname |user.givenname |
-   | lastname |user.surname |
-   | email |user.mail |
+    | 특성 이름 | 특성 값 |
+    | --- | --- |
+    | firstname |user.givenname |
+    | lastname |user.surname |
+    | email |user.mail |
 
     a. **사용자 특성 추가**를 클릭하여 **사용자 특성 추가** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-allocadia-tutorial/tutorial_general_81.png) 
-
 
     b. **특성 이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
@@ -127,9 +133,11 @@ Allocadia 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니
 1. 위쪽 메뉴에서 **빠른 시작**을 클릭합니다.
    
     ![Single Sign-on 구성](./media/active-directory-saas-allocadia-tutorial/tutorial_general_83.png)  
+
 2. **Allocadia에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
     ![Single Sign-on 구성](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_03.png) 
+
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
     ![Single Sign-On 구성](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_04.png) 
@@ -137,22 +145,26 @@ Allocadia 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니
     a. 식별자 상자에서 다음 패턴에 URL을 입력합니다. 테스트 환경에 **"https://na2standby.allocadia.com"**이라는 URL을 사용하고 프로덕션 환경에 **"https://na2.allocadia.com"**을 사용합니다.
    
     b. 회신 URL에서 다음 패턴에 URL을 입력합니다. 테스트 환경에 **"https://na2standby.allocadia.com/allocadia/saml/SSO"**라는 URL을 사용하고 프로덕션 환경에 **"https://na2.allocadia.com/allocadia/saml/SSO"**를 사용합니다.
+
 4. **Allocadia의 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
    
     ![Single Sign-On 구성](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_05.png) 
    
     a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
+
 5. 응용 프로그램에 구성한 SSO를 가져오려면 [Allocadia 지원](mailTo:support@allocadia.com) 팀에 문의하여 SSO를 구성하는데 도움을 받습니다. 전자 메일을 보내고 다운로드한 메타데이터 파일을 연결하여 Allocadia 쪽에서 SSO를 구성해야 합니다.
    
-   > [!NOTE]
-   > Allocadia 팀이 테스트 환경의 식별자 값을 **"https://na2standby.allocadia.com"**으로 설정하고 프로덕션 환경에 **"https://na2.allocadia.com"**을 사용해야 합니다.
-   > 
-   > 
+    > [!NOTE]
+    > Allocadia 팀이 테스트 환경의 식별자 값을 **"https://na2standby.allocadia.com"**으로 설정하고 프로덕션 환경에 **"https://na2.allocadia.com"**을 사용해야 합니다.
+    > 
+    > 
+
 6. 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
    
     ![Azure AD Single Sign-On][10]
+
 7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.  
    
     ![Azure AD Single Sign-On][11]
@@ -168,13 +180,17 @@ Allocadia 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니
 1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-allocadia-tutorial/create_aaduser_09.png) 
+
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+
 3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-allocadia-tutorial/create_aaduser_03.png) 
+
 4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-allocadia-tutorial/create_aaduser_04.png) 
+
 5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-allocadia-tutorial/create_aaduser_05.png) 
@@ -184,22 +200,25 @@ Allocadia 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
    
     c. **다음**을 클릭합니다.
+
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-allocadia-tutorial/create_aaduser_06.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-allocadia-tutorial/create_aaduser_06.png) 
    
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
    
-   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
+    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
    
-   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
    
-   d. **역할** 목록에서 **사용자**를 선택합니다.
+    d. **역할** 목록에서 **사용자**를 선택합니다.
    
-   e. **다음**을 클릭합니다.
+    e. **다음**을 클릭합니다.
+
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-allocadia-tutorial/create_aaduser_07.png) 
+
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-allocadia-tutorial/create_aaduser_08.png) 
@@ -226,13 +245,17 @@ Allocadia 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니
 1. 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
     ![사용자 할당][201] 
+
 2. 응용 프로그램 목록에서 **Allocadia**를 선택합니다.
    
     ![Single Sign-On 구성](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_50.png) 
+
 3. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
    
     ![사용자 할당][203] 
+
 4. 사용자 목록에서 **Britta Simon**을 선택합니다.
+
 5. 아래쪽 도구 모음에서 **할당**을 클릭합니다.
    
     ![사용자 할당][205]
@@ -265,6 +288,6 @@ Allocadia 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 
