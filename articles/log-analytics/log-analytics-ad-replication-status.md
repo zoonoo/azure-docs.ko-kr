@@ -4,7 +4,7 @@ description: "Active Directory 복제 상태 솔루션 팩은 정기적으로 �
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -45,15 +45,15 @@ OMS에 도메인 컨트롤러를 직접 연결하지 않으려면 도메인에�
 1. AD 복제 상태 솔루션을 사용하여 컴퓨터가 모니터링하려는 도메인의 구성원인지 확인합니다.
 2. 연결되어 있지 않으면 [OMS에 Windows 컴퓨터를 연결](log-analytics-windows-agents.md)하거나 [기존 Operations Manager 환경을 사용하여 OMS에 연결](log-analytics-om-agents.md)합니다.
 3. 해당 컴퓨터에서 다음 레지스트리 키를 설정합니다.
-   
+
    * 키: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
    * 값: **IsTarge**
    * 값 데이터: **true**
-   
+
    > [!NOTE]
    > 이러한 변경 내용은 Microsoft Monitoring Agent 서비스(HealthService.exe)를 다시 시작할 때까지 적용되지 않습니다.
-   > 
-   > 
+   >
+   >
 
 ## <a name="understanding-replication-errors"></a>복제 오류 이해
 AD 복제 상태 데이터를 OMS에 전송하면 현재 복제 오류 수를 나타내는 OMS 대시보드에 다음과 유사한 타일이 표시됩니다.  
@@ -97,8 +97,8 @@ AD 복제 상태 데이터를 OMS에 전송하면 현재 복제 오류 수를 �
 
 > [!NOTE]
 > 모든 삭제 표시 수명 백분율 계산은 Active Directory 포리스트에 대한 실제 삭제 표시 수명을 기준으로 하므로 삭제 표시 수명 값을 사용자 지정했더라도 해당 백분율이 정확하다는 것을 신뢰할 수 있습니다.
-> 
-> 
+>
+>
 
 ### <a name="ad-replication-status-details"></a>AD 복제 상태 세부 정보
 목록 중 하나에 있는 항목을 클릭하면 로그 검색을 사용한 추가 세부 정보가 표시됩니다. 결과는 해당 항목과 관련된 오류만 표시하도록 필터링됩니다. 예를 들어 **대상 서버 상태(ADDC02)**아래에 나열된 첫 번째 도메인 컨트롤러를 클릭하면 대상 서버로 나열된 해당 도메인 컨트롤러와 함께 오류를 보여 주는 필터링된 검색 결과가 표시됩니다.
@@ -150,7 +150,6 @@ OMS 또는 SCOM에 도메인 컨트롤러를 직접 연결하지 않으려면 [A
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 Active Directory 복제 상태 데이터를 봅니다.
-
 
 
 

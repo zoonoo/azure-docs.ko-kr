@@ -4,7 +4,7 @@ description: "Log Analytics의 용량 계획 솔루션을 사용하여 System Ce
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 57e7fbdaa393e078b62a6d6a0b181b67d532523d
@@ -27,8 +27,8 @@ Log Analytics의 용량 관리 솔루션을 사용하여 Hyper-V 서버의 용�
 
 > [!NOTE]
 > 용량 관리 솔루션은 작업 영역에 추가할 수 없습니다. 용량 관리 솔루션을 설치한 고객은 이 솔루션을 계속 사용할 수 있습니다.  
-> 
-> 
+>
+>
 
 대체 용량 및 성능 솔루션은 비공개 미리 보기 버전 상태입니다. 이 대체 솔루션은 원래 용량 관리 솔루션에서 문제가 발생한 고객 문제를 해결하기 위해 만들어졌습니다.
 
@@ -173,7 +173,6 @@ OMS를 사용하여 디스크 공간 사용률에 대한 과거 추세를 볼 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics에서 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 용량 관리 데이터를 볼 수 있습니다.
-
 
 
 

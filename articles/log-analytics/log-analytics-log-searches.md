@@ -4,7 +4,7 @@ description: "로그 검색을 사용하면 사용자 환경 내에서 여러 �
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -180,8 +180,8 @@ Type=Event EventLog="Operations Manager" EventID:[2100..2199]
 
 > [!NOTE]
 > 사용해야 하는 범위 구문은 콜론(:) field:value 구분이고 등호(=)는 *아닙니다* . 아래쪽과 위쪽의 범위 끝을 대괄호로 묶고 두 마침표(..)로 구분합니다.
-> 
-> 
+>
+>
 
 ## <a name="manipulate-search-results"></a>검색 결과 조작
 데이터를 검색할 때 검색 쿼리를 구체화하고 결과를 어느 정도 제어합니다. 결과를 검색할 때 이를 변환하는 명령을 적용할 수 있습니다.
@@ -574,7 +574,6 @@ Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval
 
 * [Log Analytics의 사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 로그 검색을 확장합니다.
 * Log Analytics에 제공되는 모든 검색 필드 및 패싯을 보려면 [Log Analytics log search reference](log-analytics-search-reference.md) (Log Analytics 로그 검색 참조)를 검토합니다.
-
 
 
 

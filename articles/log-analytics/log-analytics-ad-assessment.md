@@ -4,7 +4,7 @@ description: "Active Directory 평가 솔루션을 사용하여 일정한 간격
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -41,11 +41,11 @@ Active Directory 평가 솔루션을 사용하여 일정한 간격으로 서버 
 * 평가할 도메인의 구성원인 도메인 컨트롤러에 에이전트를 설치해야 합니다.
 * Active Directory 평가 솔루션을 사용하려면 OMS 에이전트가 있는 각 컴퓨터에 .NET Framework 4를 설치해야 합니다.
 * [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에 설명된 프로세스를 사용하여 OMS 작업 영역에 Active Directory 평가 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
-  
+
   > [!NOTE]
   > 솔루션을 추가하면 에이전트가 있는 서버에 AdvisorAssessment.exe 파일이 추가됩니다. 구성 데이터가 판독되고 처리를 위해 클라우드의 OMS 서비스로 전송됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다.
-  > 
-  > 
+  >
+  >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Active Directory 평가 데이터 수집 정보
 Active Directory 평가는 사용하도록 설정한 에이전트를 통해 WMI 데이터, 레지스트리 데이터 및 성능 데이터를 수집합니다.
@@ -99,11 +99,11 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>무시할 권장 사항을 식별하려면
 1. 작업 영역에 로그인하고 로그 검색을 엽니다. 다음 쿼리를 사용하여 사용자 환경의 컴퓨터에 대해 실패한 권장 사항을 나열합니다.
-   
+
    ```
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
-   
+
    로그 검색 쿼리를 보여 주는 스크린샷은 다음과 같습니다.![실패한 권장 사항](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 2. 무시할 권장 사항을 선택합니다. RecommendationId 값은 다음 절차에서 사용됩니다.
 
@@ -118,7 +118,7 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 예약된 다음 평가가 실행된 후(기본적으로 7일마다) 지정된 권장 사항이 평가 대시보드에 *무시됨* 으로 표시됩니다.
 
 1. 다음 로그 검색 쿼리를 사용하여 무시된 모든 권장 사항을 나열할 수 있습니다.
-   
+
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
@@ -170,7 +170,6 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics에서 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 AD 평가 데이터 및 권장 사항을 볼 수 있습니다.
-
 
 
 

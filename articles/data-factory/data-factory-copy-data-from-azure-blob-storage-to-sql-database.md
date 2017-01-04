@@ -57,13 +57,13 @@ ms.openlocfilehash: 98a93b683da1bfdc28be1f6e21174f814dd65220
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴의 **더 많은 서비스**를 클릭하고 **저장소 계정**을 선택합니다.
 
-    ![찾아보기 - 저장소 계정](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\browse-storage-accounts.png)
+    ![찾아보기 - 저장소 계정](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. **저장소 계정** 블레이드에서, 이 자습서에서 사용하려는 **Azure 저장소 계정**을 선택합니다.
 4. **설정** 아래에 있는 **액세스 키** 링크를 선택합니다.
 5. **저장소 계정 이름** 텍스트 상자 옆에 있는 **복사**(이미지) 단추를 클릭하고 텍스트 파일 등에 저장/붙여넣습니다.
 6. 이전 단계를 반복하여 복사하거나 **key1**을 적어둡니다.
 
-    ![저장소 액세스 키](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\storage-access-key.png)
+    ![저장소 액세스 키](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. **X**를 클릭하여 모든 블레이드를 닫습니다.
 
 ## <a name="collect-sql-server-database-user-names"></a>SQL server, 데이터베이스, 사용자 이름 수집

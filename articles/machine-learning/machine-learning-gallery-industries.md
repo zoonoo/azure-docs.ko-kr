@@ -40,9 +40,9 @@ ms.openlocfilehash: 3b14e3c9513d9e5ef022e3a2db0ab9e95598c0d7
 갤러리에서 산업별 리소스를 모두 보려면 **모두 보기**를 클릭합니다.
 이 페이지에서 갤러리에 있는 모든 리소스를 찾아보거나, 또는 페이지 왼쪽에서 필터 조건을 선택하고 맨 위에서 검색어를 입력하여 검색할 수 있습니다.
 
-![이 항목을 친구 들과 공유](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![이 항목을 친구 들과 공유](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![사용자 고유의 설명 추가](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![사용자 고유의 설명 추가](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
  갤러리에서 항목을 클릭하면 해당 항목의 자세한 내용을 포함하는 세부 정보 페이지가 열립니다.
 

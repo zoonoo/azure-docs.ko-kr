@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 190755d8a01395de8858996f0fc9832264723347
+ms.sourcegitcommit: 1865043ca9c9019b9813f11eb4a55f7f16d79287
+ms.openlocfilehash: 91865075d7a497f90c66ce15e1eb69b235284d07
 
 
 ---
@@ -181,6 +181,6 @@ ADAL은 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽게
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Nov16_HO5-->
 
 

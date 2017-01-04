@@ -4,7 +4,7 @@ description: "이 가이드는 Log Analytics 대시보드가 저장된 모든 �
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -83,7 +83,6 @@ OMS 포털에서 만든 모든 사용자 지정 대시보드는 OMS 모바일 �
 
 ## <a name="next-steps"></a>다음 단계
 * 알림을 생성하고 문제를 해결하기 위해 Log Analytics에서 [경고](log-analytics-alerts.md)를 만듭니다.
-
 
 
 
