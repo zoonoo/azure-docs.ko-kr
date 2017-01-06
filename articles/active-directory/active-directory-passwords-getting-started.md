@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 4e2508883998b1435d7c4f099bd6ef0e00bd885e
-ms.openlocfilehash: 4f9127ca06668884e6b6f5dbc81aad0a2b1ea9df
+ms.sourcegitcommit: e2e5c302d04a41386bfc98dd4e3f8546265dd9f3
+ms.openlocfilehash: e686952a7363e4758f8a3532b54cf5e7f05ce865
 
 
 ---
@@ -236,7 +236,7 @@ ms.openlocfilehash: 4f9127ca06668884e6b6f5dbc81aad0a2b1ea9df
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Windows PowerShell을 사용하여 암호 쓰기 저장을 사용하도록 설정하려면
 1. 사용자 **디렉터리 동기화 컴퓨터**에서 새 **관리자 권한 Windows PowerShell 창**을 엽니다.
 2. 모듈이 아직 로드되지 않은 경우, `import-module ADSync` 명령에 입력하여 현재 세션으로 Azure AD Connect cmdlet을 로드합니다.
-3. `$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`과 같이 `Get-ADSyncConnector` cmdlet을 실행하고 결과를 `$aadConnectorName`에 저장하여 시스템에서 Azure AD Connector의 목록을 가져옵니다.
+3. `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`과 같이 `Get-ADSyncConnector` cmdlet을 실행하고 결과를 `$aadConnectorName`에 저장하여 시스템에서 Azure AD Connector의 목록을 가져옵니다.
 4. 다음 cmdlet을 실행하여 현재 커넥터에 대한 쓰기 저장의 현재 상태를 가져오려면: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. 이 cmdlet을 실행하여 암호 쓰기 저장을 활성화합니다. `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -393,6 +393,6 @@ Azure AD Connect의 경우 도구 버전 1.0.8667.0 이상:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

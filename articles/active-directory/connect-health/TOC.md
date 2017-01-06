@@ -4,7 +4,7 @@
 # 시작하기
 ## [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
 ## [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
-## [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)
+## [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)
 
 # 방법
 ## [Azure AD Connect Health Agent 설치](active-directory-aadconnect-health-agent-install.md)
@@ -20,10 +20,10 @@
 ## [하이브리드 ID 디자인 가이드](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # 리소스
-##[Azure AD Connect FAQ](active-directory-aadconnect-health-faq.md)
+##[Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

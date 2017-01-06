@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -25,8 +25,6 @@ ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 > [!NOTE]
 > 다음 문서는 **Azure 클래식 포털**사용자에 대해 사용하도록 설정하는 방법에 대해 설명합니다. O365 사용자를 위해 Azure Multi-Factor Authentication을 설정하는 방법을 찾는 경우 [Office 365용 Multi-Factor Authentication 설정](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US)을 참조하세요.
-> 
-> 
 
 ![클라우드의 MFA](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
@@ -38,8 +36,6 @@ ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 > [!NOTE]
 > 라이선스는 Azure MFA, Azure AD Premium 또는 EMS(Enterprise Mobility Suite) 사용자가 사용할 수 있습니다.  MFA는 Azure AD Premium 및 EMS에 포함되어 있습니다. 라이선스가 충분한 경우 인증 공급자를 만들 필요가 없습니다.
-> 
-> 
 
 ## <a name="turn-on-two-step-verification-for-users"></a>사용자에 대한 2단계 확인을 설정합니다.
 사용자에 대한 2단계 확인을 요구하려면 사용자의 상태를 사용 안 함에서 사용으로 변경합니다.  사용자 상태에 대한 자세한 내용은 [Azure Multi-Factor Authentication의 사용자 상태](multi-factor-authentication-get-started-user-states.md)를 참조하세요.
@@ -75,13 +71,11 @@ ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 > [!IMPORTANT]
 > 사용 안 함 상태에서 강제 적용 상태로 직접 사용자를 이동하지 않는 것이 좋습니다. 사용자가 MFA 등록을 마치고 [앱 암호](multi-factor-authentication-whats-next.md#app-passwords)를 가져오지 못했기 때문에 비 브라우저 기반 앱은 작동을 중단합니다. 비 브라우저 기반 앱이 없고 앱 암호가 필요한 경우 사용 안 함 상태에서 사용 상태로 전환하는 것이 좋습니다. 그러면 사용자가 앱 암호를 등록하고 얻을 수 있습니다. 그런 다음 강제 적용 상태로 전환할 수 있습니다.
-> 
-> 
 
 PowerShell을 사용하면 많은 사용자에 대해 사용을 설정할 수 있습니다. 현재 Azure 포털에는 다수 사용 기능이 없으며 각 사용자를 개별적으로 선택해야 합니다. 사용자 수가 많은 경우 태스크에 많은 시간이 소요될 수 있습니다. 다음을 사용하는 PowerShell 스크립트를 만들어서 사용자 목록을 반복하여 사용 설정할 수 있습니다.
 
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
@@ -92,7 +86,7 @@ PowerShell을 사용하면 많은 사용자에 대해 사용을 설정할 수 �
     foreach ($user in $users)
     {
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta

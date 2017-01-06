@@ -161,7 +161,7 @@
 ## REST (영문)
 ### [Blob, 큐, 테이블 및 파일](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
 ### [리소스 공급자](/rest/api/storagerp)
-### [가져오기/내보내기](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [가져오기/내보내기](/rest/api/storageimportexport)
 
 # 관련 항목
 ## 클래식 포털
@@ -201,6 +201,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

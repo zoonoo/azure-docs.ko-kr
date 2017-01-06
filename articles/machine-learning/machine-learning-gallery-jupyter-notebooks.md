@@ -38,9 +38,9 @@ ms.openlocfilehash: a0d44e625d3898f014a9723ff005c00b3aaedcf1
 
  아무 노트북이나 클릭하여 노트북의 세부 정보 페이지를 열고 그것에 관한 자세한 내용을 읽습니다. 이 페이지에서 주석 섹션을 통해 주석을 달거나 피드백을 제공하거나 질문을 할 수 있습니다. LinkedIn 또는 Twitter의 공유 기능을 사용하여 친구나 동료와 그것을 공유할 수 있습니다. 페이지를 보도록 다른 사용자를 초대하기 위해 노트북의 링크를 메일로 보낼 수도 있습니다.
 
-![이 항목을 친구 들과 공유](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![이 항목을 친구 들과 공유](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![사용자 고유의 설명 추가](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![사용자 고유의 설명 추가](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="download"></a>다운로드
 갤러리에서 Machine Learning Studio 작업 영역으로 노트북 복사본을 다운로드할 수 있습니다.
@@ -52,7 +52,7 @@ ms.openlocfilehash: a0d44e625d3898f014a9723ff005c00b3aaedcf1
 2. **Studio에서 열기**를 클릭합니다.
 3. 사용할 지역과 작업 영역을 선택합니다.
    
-    ![갤러리에서 Jupyter 노트북 열기](media\\machine-learning-gallery-jupyter-notebooks\\open-notebook-from-gallery.png)
+    ![갤러리에서 Jupyter 노트북 열기](media/machine-learning-gallery-jupyter-notebooks/open-notebook-from-gallery.png)
 
 **Studio에서 열기**를 클릭하면, 노트북이 Machine Learning Studio 작업 영역으로 로드되어 열립니다.(Studio에 로그인되어 있지 않다면 작업 영역으로 노트북이 복사되기 전에 Microsoft 계정을 사용하여 로그인하라는 메시지가 표시됩니다.) Studio 홈 페이지 왼쪽에서 **노트북**을 클릭하면 나중에 노트북을 다시 찾을 수 있습니다.
 
@@ -63,7 +63,7 @@ Machine Learning Studio에서 작업하는 동안 동일한 갤러리 노트북�
 2. **노트북** 선택 – 갤러리의 노트북 목록이 표시되면 그 중에 선택하거나 검색 상자를 사용하여 특정 노트북을 찾을 수 있습니다.
 3. 마우스로 노트북을 가리키고 **노트북 열기**를 선택합니다.
    
-    ![Machine Learning Studio 내에서 갤러리 노트북 열기](media\\machine-learning-gallery-jupyter-notebooks\\open-notebook-from-studio.png)
+    ![Machine Learning Studio 내에서 갤러리 노트북 열기](media/machine-learning-gallery-jupyter-notebooks/open-notebook-from-studio.png)
 
 노트북 복사본이 다운로드되어 Machine Learning Studio의 Jupyter 노트북 섹션에 있는 작업 영역에 열립니다.
 Studio의 **노트북** 페이지에 다른 노트북과 함께 해당 노트북이 나열됩니다.([Studio 홈 페이지](https://studio.azureml.net/)의 왼쪽에서 **노트북**을 클릭합니다).

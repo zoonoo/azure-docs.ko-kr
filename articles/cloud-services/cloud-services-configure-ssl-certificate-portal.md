@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -25,13 +25,11 @@ ms.openlocfilehash: 5360387816cbbcd631114730fad8b7ce2c8c8aa6
 > * [Azure 포털](cloud-services-configure-ssl-certificate-portal.md)
 > * [Azure 클래식 포털](cloud-services-configure-ssl-certificate.md)
 > 
-> 
 
 SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터 보호에 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 웹 역할에 대해 HTTPS 끝점을 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 설명합니다.
 
 > [!NOTE]
 > 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 앱 서비스에 대해서는 [이 항목](../app-service-web/web-sites-configure-ssl-certificate.md)을 참조하세요.
-> 
 > 
 
 이 작업에서는 프로덕션 배포를 사용합니다. 스테이징 배포에 대한 정보는 이 항목의 끝에 제공됩니다.
@@ -61,27 +59,29 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 1. 개발 환경에서 서비스 정의 파일(CSDEF)을 열고 **WebRole** 섹션 내에 **Certificates** 섹션을 추가한 후 인증서(및 중간 인증서)에 대한 다음 정보를 포함합니다.
    
-       <WebRole name="CertificateTesting" vmsize="Small">
-       ...
-           <Certificates>
-               <Certificate name="SampleCertificate" 
-                            storeLocation="LocalMachine" 
-                            storeName="My"
-                            permissionLevel="limitedOrElevated" />
-               <!-- IMPORTANT! Unless your certificate is either
-               self-signed or signed directly by the CA root, you
-               must include all the intermediate certificates
-               here. You must list them here, even if they are
-               not bound to any endpoints. Failing to list any of
-               the intermediate certificates may cause hard-to-reproduce
-               interoperability problems on some clients.-->
-               <Certificate name="CAForSampleCertificate"
-                            storeLocation="LocalMachine"
-                            storeName="CA"
-                            permissionLevel="limitedOrElevated" />
-           </Certificates>
-       ...
-       </WebRole>
+   ```xml
+    <WebRole name="CertificateTesting" vmsize="Small">
+    ...
+        <Certificates>
+            <Certificate name="SampleCertificate" 
+                        storeLocation="LocalMachine" 
+                        storeName="My"
+                        permissionLevel="limitedOrElevated" />
+            <!-- IMPORTANT! Unless your certificate is either
+            self-signed or signed directly by the CA root, you
+            must include all the intermediate certificates
+            here. You must list them here, even if they are
+            not bound to any endpoints. Failing to list any of
+            the intermediate certificates may cause hard-to-reproduce
+            interoperability problems on some clients.-->
+            <Certificate name="CAForSampleCertificate"
+                        storeLocation="LocalMachine"
+                        storeName="CA"
+                        permissionLevel="limitedOrElevated" />
+        </Certificates>
+    ...
+    </WebRole>
+    ```
    
    **Certificates** 섹션에서는 인증서의 이름, 위치 및 인증서가 위치한 저장소의 이름을 정의합니다.
    
@@ -91,45 +91,53 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
    | --- | --- |
    | limitedOrElevated |**(기본값)** 모든 역할 프로세스는 개인 키에 액세스할 수 있습니다. |
    | elevated |승격된 프로세스만 개인 키에 액세스할 수 있습니다. |
+
 2. 서비스 정의 파일에서 **끝점** 섹션 내에 **InputEndpoint** 요소를 추가하여 HTTPS를 사용하도록 설정합니다.
    
-       <WebRole name="CertificateTesting" vmsize="Small">
-       ...
-           <Endpoints>
-               <InputEndpoint name="HttpsIn" protocol="https" port="443" 
-                   certificate="SampleCertificate" />
-           </Endpoints>
-       ...
-       </WebRole>
+   ```xml
+    <WebRole name="CertificateTesting" vmsize="Small">
+    ...
+        <Endpoints>
+            <InputEndpoint name="HttpsIn" protocol="https" port="443" 
+                certificate="SampleCertificate" />
+        </Endpoints>
+    ...
+    </WebRole>
+    ```
+
 3. 서비스 정의 파일에서 **Sites** 섹션 내에 **Binding** 요소를 추가합니다. 그러면 HTTPS 바인딩이 추가되어 끝점을 사이트에 매핑합니다.
    
-       <WebRole name="CertificateTesting" vmsize="Small">
-       ...
-           <Sites>
-               <Site name="Web">
-                   <Bindings>
-                       <Binding name="HttpsIn" endpointName="HttpsIn" />
-                   </Bindings>
-               </Site>
-           </Sites>
-       ...
-       </WebRole>
+   ```xml
+    <WebRole name="CertificateTesting" vmsize="Small">
+    ...
+        <Sites>
+            <Site name="Web">
+                <Bindings>
+                    <Binding name="HttpsIn" endpointName="HttpsIn" />
+                </Bindings>
+            </Site>
+        </Sites>
+    ...
+    </WebRole>
+    ```
    
    서비스 정의 파일에서 필요한 사항은 모두 변경했지만 인증서 정보를 서비스 구성 파일에 추가해야 합니다.
 4. 서비스 구성 파일(CSCFG), ServiceConfiguration.Cloud.cscfg에서 **Role** 섹션 내에 **Certificates** 섹션을 추가하여 아래에 표시된 샘플 지문 값을 인증서의 값으로 바꿉니다.
    
-       <Role name="Deployment">
-       ...
-           <Certificates>
-               <Certificate name="SampleCertificate" 
-                   thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
-                   thumbprintAlgorithm="sha1" />
-               <Certificate name="CAForSampleCertificate"
-                   thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
-                   thumbprintAlgorithm="sha1" />
-           </Certificates>
-       ...
-       </Role>
+   ```xml
+    <Role name="Deployment">
+    ...
+        <Certificates>
+            <Certificate name="SampleCertificate" 
+                thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
+                thumbprintAlgorithm="sha1" />
+            <Certificate name="CAForSampleCertificate"
+                thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
+                thumbprintAlgorithm="sha1" />
+        </Certificates>
+    ...
+    </Role>
+    ```
 
 위 예제에서는 지문 알고리즘에 **sha1** 을 사용합니다. 인증서의 지문 알고리즘에 적합한 값을 지정하세요.
 
@@ -141,9 +149,11 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 1. 포털에서 클라우드 서비스를 선택하고 **클라우드 서비스**를 선택합니다. (**모든 리소스** 섹션에 있음) 
    
     ![클라우드 서비스 게시](media/cloud-services-configure-ssl-certificate-portal/browse.png)
+
 2. **인증서**를 클릭합니다.
    
     ![인증서 아이콘 클릭](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
+
 3. **파일**, **암호**를 제공한 다음 **업로드**를 클릭합니다.
 
 ## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>4단계: HTTPS를 사용하여 역할 인스턴스에 연결
@@ -152,6 +162,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 1. **사이트 URL**을 클릭하여 웹 브라우저를 엽니다.
    
    ![사이트 URL 클릭](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
+
 2. 웹 브라우저에서 **http** 대신 **https**를 사용하도록 링크를 수정한 다음 페이지를 방문합니다.
    
    > [!NOTE]
@@ -166,14 +177,12 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
    > 
    > GUID 기반 URL과 같은 CN(일반 이름)으로 인증서를 만듭니다(예: **328187776e774ceda8fc57609d404462.cloudapp.net**). 스테이징된 클라우드 서비스에 인증서를 추가하려면 포털을 사용합니다. 그런 다음 인증서 정보를 CSDEF 및 CSCFG 파일에 추가하고 응용 프로그램을 다시 패키지하고 스테이징된 배포를 업데이트하여 새 패키지를 사용합니다.
    > 
-   > 
 
 ## <a name="next-steps"></a>다음 단계
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
-
 
 
 

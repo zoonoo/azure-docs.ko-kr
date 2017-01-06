@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 03b74607227aed68c6df01e80e4bb87e906ecf31
-ms.openlocfilehash: 48531201029bf09f30cb22852aaf5d3ad0b328fc
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
 
 
 ---
@@ -216,7 +216,7 @@ Azure 앱 서비스에서 ASP.NET 웹앱이 실행 중인 경우 문제 해결�
   * [Azure 웹 사이트에 HTTPS 사용](web-sites-configure-ssl-certificate.md)
 * 완료되면 웹앱 및 관련된 모든 Azure 리소스를 포함하는 리소스 그룹을 삭제합니다.
   
-    Azure 포털에서 리소스 그룹으로 작업하는 방법에 대한 자세한 내용은 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.   
+    Azure 포털에서 리소스 그룹으로 작업하는 방법에 대한 자세한 내용은 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../azure-resource-manager/resource-group-template-deploy-portal.md)를 참조하세요.   
 * 앱 서비스에서 ASP.NET 웹앱을 만드는 방법의 더 많은 예제는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 연결 [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)의 [Azure App Service에서 ASP.NET 웹앱 만들기 및 배포](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) 및 [Azure App Service에서 모바일 앱 만들기 및 배포](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service)를 참조하세요. HealthClinic.biz 데모에서 더 빠른 시작은 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
 
 

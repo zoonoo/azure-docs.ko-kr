@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
+ms.sourcegitcommit: bccec1e4078c38e1cc9205a36d3a5df579df35b6
+ms.openlocfilehash: d5ff397e947a7edc8310da59ff9fe8896829e35d
 
 
 ---
@@ -36,8 +36,9 @@ HDInsight의 Apache Storm은 Azure 환경에 통합된 관리되는 클러스터
   * 혼합 프로그래밍 언어 지원: Java를 사용하여 데이터를 읽은 다음 C를 사용하여 처리#
     
     > [!NOTE]
-    > C# 토폴로지는 Windows 기반 HDInsight 클러스터에서만 지원됩니다.
+    > Linux 기반 클러스터에 C# 토폴로지를 사용하려면 프로젝트에 사용되는 Microsoft.SCP.Net.SDK NuGet 패키지를 0.10.0.6 버전 이상으로 업데이트해야 합니다. 패키지 버전은 HDInsight에 설치된 Storm의 주 버전과도 일치해야 합니다. 예를 들어 HDInsight에서 Storm 버전 3.3 및 3.4는 Storm 버전 0.10.x를 사용하는 반면, HDInsight 3.5는 Storm 1.0.x를 사용합니다.
     > 
+    > Linux 기반 클러스터의 C# 토폴로지는 .NET 4.5를 사용해야 하며 Mono를 사용하여 HDInsight 클러스터에서 실행해야 합니다. 대부분의 항목이 작동하지만 호환성 문제는 [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/) 문서를 확인해야 합니다.
     > 
   * **Trident** Java 인터페이스를 사용하여 "정확히 한 번"의 메시지 처리, "트랜잭션" 데이터 저장소 지속성 및 일반 스트림 분석 작업 집합을 지원하는 Storm 토폴로지 만들기
 * 기본 제공 확장 및 축소 기능 포함: 실행 중인 Storm 토폴로지에 영향을 주지 않고 HDInsight 클러스터 확장
@@ -206,6 +207,6 @@ HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

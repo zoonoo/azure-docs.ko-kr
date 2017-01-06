@@ -3,7 +3,7 @@ title: "Data Factory에 대한 데이터 관리 게이트웨이 | Microsoft Docs
 description: "데이터 게이트웨이를 설정하여 온-프레미스와 클라우드 간에 데이터를 이동합니다. Azure Data Factory의 데이터 관리 게이트웨이를 사용하여 데이터를 이동합니다."
 services: data-factory
 documentationcenter: 
-author: linda33wj
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2016
-ms.author: jingwang
+ms.author: abnarain
 translationtype: Human Translation
 ms.sourcegitcommit: 1b2514e1e6f39bb3ce9d8a46f4af01835284cdcc
 ms.openlocfilehash: f0b3d45ea72ec3e7e0b19bc97ff9d8051067d1fa
@@ -21,7 +21,7 @@ ms.openlocfilehash: f0b3d45ea72ec3e7e0b19bc97ff9d8051067d1fa
 
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
-데이터 관리 게이트웨이는 클라우드 및 온-프레미스 데이터 저장소 간에 데이터를 복사하려면 온-프레미스 환경에 설치해야 하는 클라이언트 에이전트입니다. Data Factory에서 지원하는 온-프레미스 데이터 저장소는 [지원되는 데이터 소스](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 섹션에 나와 있습니다. 
+데이터 관리 게이트웨이는 클라우드 및 온-프레미스 데이터 저장소 간에 데이터를 복사하려면 온-프레미스 환경에 설치해야 하는 클라이언트 에이전트입니다. Data Factory에서 지원하는 온-프레미스 데이터 저장소는 [지원되는 데이터 소스](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 섹션에 나와 있습니다.
 
 > [!NOTE]
 > 현재 게이트웨이에서는 Data Factory의 복사 작업 및 저장 프로시저 작업만 지원합니다. 사용자 지정 활동에서 게이트웨이를 사용하여 온-프레미스 데이터 원본에 액세스할 수는 없습니다.

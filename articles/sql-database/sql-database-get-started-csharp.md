@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: csharp
@@ -17,20 +17,14 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 82b042fa17af4bc93989a4f12982530f44755280
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 32c18821ac9cf5516fba9762ca5bb834194dcdc9
 
 
 ---
-# <a name="try-sql-database-use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>SQL 데이터베이스 시도: C#을 사용하여 .NET용 SQL 데이터베이스 라이브러리로 SQL 데이터베이스 만들기
-> [!div class="op_single_selector"]
-> * [Azure 포털](sql-database-get-started.md)
-> * [C#](sql-database-get-started-csharp.md)
-> * [PowerShell](sql-database-get-started-powershell.md)
-> 
-> 
+# <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>C#을 사용하여 .NET용 SQL Database 라이브러리로 SQL 데이터베이스 만들기
 
-C#을 사용하여 [.NET용 Microsoft Azure SQL 관리 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)로 Azure SQL Database를 만드는 방법에 대해 알아봅니다. 이 문서에서는 SQL 및 C#으로 단일 데이터베이스를 만드는 방법을 설명합니다. 탄력적 데이터베이스 풀을 만들려면 [탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-csharp.md)를 참조하세요.
+C#을 사용하여 [.NET용 Microsoft Azure SQL 관리 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)로 Azure SQL Database를 만드는 방법에 대해 알아봅니다. 이 문서에서는 SQL 및 C#으로 단일 데이터베이스를 만드는 방법을 설명합니다. 탄력적 풀을 만들려면 [탄력적 풀 만들기](sql-database-elastic-pool-create-csharp.md)를 참조하세요.
 
 .NET용 Azure SQL Database 관리 라이브러리는 [Resource Manager 기반 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 기반 API를 제공합니다.
 
@@ -229,7 +223,7 @@ C#으로 SQL Database를 만들려면 [패키지 관리자 콘솔](http://docs.n
 
 
 ## <a name="create-a-service-principal-to-access-resources"></a>리소스에 액세스하는 서비스 주체 만들기
-다음 PowerShell 스크립트는 AD(Active Directory) 응용 프로그램 및 C# 앱을 인증해야 하는 서비스 주체를 만듭니다. 스크립트는 이전 C# 샘플에 필요한 값을 출력합니다. 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../resource-group-authenticate-service-principal.md)를 참조하세요.
+다음 PowerShell 스크립트는 AD(Active Directory) 응용 프로그램 및 C# 앱을 인증해야 하는 서비스 주체를 만듭니다. 스크립트는 이전 C# 샘플에 필요한 값을 출력합니다. 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md)를 참조하세요.
 
     # Sign in to Azure.
     Add-AzureRmAccount
@@ -293,6 +287,6 @@ C#으로 SQL Database를 만들려면 [패키지 관리자 콘솔](http://docs.n
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

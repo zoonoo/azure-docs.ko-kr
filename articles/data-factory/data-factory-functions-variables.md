@@ -48,10 +48,12 @@ ms.openlocfilehash: 370b2212be8d5f7a537b8fadbfa05355844dcb96
 
 다음 샘플에서는 JSON 파일에서 **sqlReaderQuery** 속성을 **Text.Format** 함수가 반환하는 값에 할당합니다. 또한 작업 실행 창의 시작 시간을 나타내는 **WindowStart**라는 시스템 변수도 사용합니다.
 
-    {
-        "Type": "SqlSource",
-        "sqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
-    }
+```JSON
+{
+    "Type": "SqlSource",
+    "sqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
+}
+```
 
 ### <a name="functions"></a>함수
 다음 표에서는 Azure Data Factory의 모든 함수를 보여 줍니다.
@@ -78,12 +80,15 @@ ms.openlocfilehash: 370b2212be8d5f7a537b8fadbfa05355844dcb96
 | 텍스트 |Format(X) |X: String 변수 |텍스트의 형식을 지정합니다. |
 
 #### <a name="textformat-example"></a>Text.Format 예
-    "defines": { 
-        "Year" : "$$Text.Format('{0:yyyy}',WindowStart)",
-        "Month" : "$$Text.Format('{0:MM}',WindowStart)",
-        "Day" : "$$Text.Format('{0:dd}',WindowStart)",
-        "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
-    }
+
+```JSON
+"defines": { 
+    "Year" : "$$Text.Format('{0:yyyy}',WindowStart)",
+    "Month" : "$$Text.Format('{0:MM}',WindowStart)",
+    "Day" : "$$Text.Format('{0:dd}',WindowStart)",
+    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
+}
+```
 
 사용할 수 있는 다른 서식 옵션을 설명하는 [사용자 지정 날짜 및 시간 형식 문자열](https://msdn.microsoft.com/library/8kb3ddd4.aspx) (예: yy 대 yyyy) 토픽을 참조하세요. 
 

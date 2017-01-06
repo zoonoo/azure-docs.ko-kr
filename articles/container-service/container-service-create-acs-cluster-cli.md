@@ -42,7 +42,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 ```azurecli
-az resource group create -n acsrg1 -l "westus"
+az group create -n acsrg1 -l "westus"
 ```
 
 ![이미지 리소스 그룹 만들기](media/container-service-create-acs-cluster-cli/rg-create.png)

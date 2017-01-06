@@ -1,6 +1,6 @@
 ---
-title: "PowerShell을 사용하여 새 탄력적 데이터베이스 풀 만들기 | Microsoft Docs"
-description: "PowerShell을 사용하여 여러 데이터베이스를 관리하도록 확장성 있는 탄력적 데이터베이스 풀을 만들어 Azure SQL 데이터베이스 리소스를 규모 확장하는 방법에 대해 알아봅니다."
+title: "PowerShell을 사용하여 새 탄력적 풀 만들기 | Microsoft Docs"
+description: "PowerShell을 사용하여 여러 데이터베이스를 관리하도록 확장성 있는 탄력적 풀을 만들어 Azure SQL Database 리소스를 규모 확장하는 방법에 대해 알아봅니다."
 services: sql-database
 documentationcenter: 
 author: srinia
@@ -8,28 +8,28 @@ manager: jhubbard
 editor: 
 ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
-ms.openlocfilehash: 19ea620789b31ee68d8e34acd161eeb820947b23
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: 679cdacc3782f667635a586df4cd77a9af7884d9
 
 
 ---
-# <a name="create-a-new-elastic-database-pool-with-powershell"></a>PowerShell을 사용하여 새 탄력적 데이터베이스 풀 만들기
+# <a name="create-a-new-elastic-pool-with-powershell"></a>PowerShell을 사용하여 새 탄력적 풀 만들기
 > [!div class="op_single_selector"]
-> * [Azure 포털](sql-database-elastic-pool-create-portal.md)
+> * [쉬운 테이블](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 >
 >
 
-PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md) 을 만드는 방법을 알아봅니다.
+PowerShell cmdlet을 사용하여 [탄력적 풀](sql-database-elastic-pool.md)을 만드는 방법을 알아봅니다.
 
 일반적인 오류 코드는 [SQL 데이터베이스 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제](sql-database-develop-error-messages.md)를 참조하세요.
 
@@ -41,18 +41,18 @@ PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-databas
 Azure PowerShell 1.0 이상을 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 ## <a name="create-a-new-pool"></a>새 풀 만들기
-[New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) cmdlet은 새 풀을 만듭니다. 풀, 최소 및 최대 Dtu당 eDTU 값은 서비스 계층 값(기본, 표준 또는 프리미엄)에 의해 제한됩니다. [탄력적 풀 및 탄력적 데이터베이스에 대한 eDTU 및 저장소 제한](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases)을 참조하세요.
+[New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) cmdlet은 새 풀을 만듭니다. 풀, 최소 및 최대 Dtu당 eDTU 값은 서비스 계층 값(기본, 표준 또는 프리미엄)에 의해 제한됩니다. [탄력적 풀 및 탄력적 데이터베이스에 대한 eDTU 및 저장소 제한](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools)을 참조하세요.
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
 ## <a name="create-a-new-elastic-database-in-a-pool"></a>풀에 새 탄력적 데이터베이스 만들기
-[New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 대상 풀로 설정합니다. 기존 데이터베이스를 풀으로 이동하려면 [데이터베이스를 탄력적 풀로 이동](sql-database-elastic-pool-manage-powershell.md#move-a-database-into-an-elastic-pool)을 참조하세요.
+[New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 대상 풀로 설정합니다. 기존 데이터베이스를 풀로 이동하려면 [데이터베이스를 탄력적 풀로 이동](sql-database-elastic-pool-manage-powershell.md#move-a-database-into-an-elastic-pool)을 참조하세요.
 
     New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ## <a name="create-a-pool-and-populate-it-with-multiple-new-databases"></a>풀을 만들고 여러 새 데이터베이스로 채웁니다.
-풀에 많은 수의 데이터베이스를 만드는 작업은 한 번에 단일 데이터베이스만을 만들 수 있는 포털 또는 PowerShell cmdlet을 사용하는 경우와 같은 시간이 걸릴 수 있습니다. 새 풀로 만들기를 자동화하하려면 [CreateOrUpdateElasticPoolAndPopulate ](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae)를 참조하세요.   
+풀에 많은 수의 데이터베이스를 만드는 작업은 한 번에 단일 데이터베이스만을 만들 수 있는 포털 또는 PowerShell cmdlet을 사용하는 경우와 같은 시간이 걸릴 수 있습니다. 새 풀로 만들기를 자동화하려면 [CreateOrUpdateElasticPoolAndPopulate ](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae)를 참조하세요.   
 
 ## <a name="example-create-a-pool-using-powershell"></a>예제: PowerShell을 사용하여 풀 만들기
 이 스크립트는 새 Azure 리소스 그룹 및 새 서버를 만듭니다. 대화 상자가 나타나면 (Azure 자격 증명 아닌) 새 서버에 대한 관리자 사용자 이름 및 암호를 제공합니다.
@@ -84,6 +84,6 @@ Azure PowerShell 1.0 이상을 실행해야 합니다. 자세한 내용은 [Azur
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
