@@ -173,8 +173,7 @@
 #### [마켓플레이스 FAQ](machine-learning-marketplace-faq.md)
 
 # 참조
-## [PowerShell](/azure/machine-learning/machine-learning-powershell-module)
-## [Machine Learning용 PowerShell 모듈](machine-learning-powershell-module.md)
+## [PowerShell](machine-learning-powershell-module.md)
 ## [알고리즘 및 모듈 참조](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST (영문)](/rest/api/machinelearning)
 
@@ -223,6 +222,6 @@
 ## [실시간 채팅에서 도움 받기](machine-learning-live-chat.md)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

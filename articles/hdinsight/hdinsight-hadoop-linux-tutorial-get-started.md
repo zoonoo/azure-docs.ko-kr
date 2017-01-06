@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 12/16/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: e37e9aa4419929e91664ec1d70c9610de33e3b45
-ms.openlocfilehash: 4ee5a7df3398924f7f40e7cd0467a08c55f299e8
+ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
+ms.openlocfilehash: 2863bfb48d0fed706fbd3c3f14dfb6a8d77eb9ea
 
 
 ---
@@ -42,7 +42,7 @@ HDInsight에서 Linux 기반 [Hadoop](http://hadoop.apache.org/) 클러스터를
 
 ## <a name="create-cluster"></a>클러스터 만들기
 
-Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 일부 작업을 실행한 다음 클러스터를 삭제합니다. 이 섹션에서는 [Azure Resource Manager 템플릿](../resource-group-template-deploy.md)을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터를 만듭니다. Resource Manager 템플릿은 완전히 사용자 지정할 수 있으므로 HDInsight와 같은 Azure 리소스를 쉽게 만들 수 있습니다. 이 자습서를 따라 하는 데 Resource Manager 템플릿 환경이 필요하지는 않습니다. 기타 클러스터 생성 방법 및 이 자습서에 사용된 속성에 대한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 페이지 상단에서 선택기를 사용하여 클러스터 만들기 옵션을 선택합니다.
+Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 일부 작업을 실행한 다음 클러스터를 삭제합니다. 이 섹션에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터를 만듭니다. Resource Manager 템플릿은 완전히 사용자 지정할 수 있으므로 HDInsight와 같은 Azure 리소스를 쉽게 만들 수 있습니다. 이 자습서를 따라 하는 데 Resource Manager 템플릿 환경이 필요하지는 않습니다. 기타 클러스터 생성 방법 및 이 자습서에 사용된 속성에 대한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 페이지 상단에서 선택기를 사용하여 클러스터 만들기 옵션을 선택합니다.
 
 이 자습서에서 사용된 Resource Manager 템플릿은 [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)에 있습니다. 
 
@@ -175,6 +175,6 @@ HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 �
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

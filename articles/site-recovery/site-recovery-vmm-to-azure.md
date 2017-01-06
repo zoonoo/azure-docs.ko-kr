@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
-ms.openlocfilehash: 3727972c544bb8c2724e9f38953882a7f2251a60
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 8de917236d1dcbfdf0c1232380879a33d9425291
 
 
 ---
@@ -115,13 +115,13 @@ Azure에서 다음 항목이 필요합니다.
 * 네트워크가 Recovery Services 자격 증명 모음과 같은 지역에 있어야 합니다.
 * 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [Resource Manager 모드](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 또는 [클래식 모드](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 Azure 네트워크를 설정합니다.
 * 시작하기 전에 네트워크를 설정하는 것이 좋습니다. 그렇지 않으면 Site Recovery를 배포하는 동안 설정해야 합니다.
-Site Recovery에 사용되는 Azure 네트워크는 동일하거나 다른 구독 내에서 [이동](../resource-group-move-resources.md)할 수 없습니다.
+Site Recovery에 사용되는 Azure 네트워크는 동일하거나 다른 구독 내에서 [이동](../azure-resource-manager/resource-group-move-resources.md)할 수 없습니다.
 
 ### <a name="set-up-an-azure-storage-account"></a>Azure 저장소 계정을 설정
 * Azure로 복제된 데이터를 저장하려면 표준 Azure 저장소 계정이 있어야 합니다. 계정은 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다.
 * 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [Resource Manager 모드](../storage/storage-create-storage-account.md) 또는 [클래식 모드](../storage/storage-create-storage-account-classic-portal.md)에서 계정을 설정합니다.
 * 시작하기 전에 계정을 설정하는 것이 좋습니다. 그렇지 않으면 Site Recovery를 배포하는 동안 설정해야 합니다.
-- Site Recovery에 사용되는 저장소 계정은 동일하거나 다른 구독 내에서 [이동](../resource-group-move-resources.md)할 수 없습니다.
+- Site Recovery에 사용되는 저장소 계정은 동일하거나 다른 구독 내에서 [이동](../azure-resource-manager/resource-group-move-resources.md)할 수 없습니다.
 
 ### <a name="prepare-the-vmm-server"></a>VMM 서버 준비
 * VMM 서버가 [필수 조건](#on-premises-prerequisites)을 준수하는지 확인합니다.
@@ -144,7 +144,7 @@ Site Recovery를 배포하는 동안 네트워크 매핑을 설정해야 합니�
 
     ![새 자격 증명 모음](./media/site-recovery-vmm-to-azure/new-vault3.png)
 3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 그 중에서 하나를 선택합니다.
-4. [리소스 그룹을 만들거나](../resource-group-template-deploy-portal.md)기존 그룹을 선택합니다. Azure 지역을 지정합니다. 이 지역에 컴퓨터가 복제됩니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하십시오.
+4. [리소스 그룹을 만들거나](../azure-resource-manager/resource-group-template-deploy-portal.md)기존 그룹을 선택합니다. Azure 지역을 지정합니다. 이 지역에 컴퓨터가 복제됩니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정** > **자격 증명 모음 만들기**를 차례로 클릭합니다.
 
     ![새 자격 증명 모음](./media/site-recovery-vmm-to-azure/new-vault-settings.png)
@@ -176,7 +176,7 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 자격 증명 모음
 1. **2단계: 인프라 준비** > **원본**을 클릭합니다.
 
     ![원본 설정](./media/site-recovery-vmm-to-azure/set-source1.png)
-2. **원본 준비**에서 **+VMM**을 클릭하여 VMM 서버를 추가합니다.
+2. **소스 준비**에서 **+VMM**을 클릭하여 VMM 서버를 추가합니다.
 
     ![원본 설정](./media/site-recovery-vmm-to-azure/set-source2.png)
 3. **서버 추가** 블레이드에서 **System Center VMM 서버**가 **서버 유형**에 표시되고 VMM 서버가 [필수 조건 및 URL 요구 사항](#on-premises-prerequisites)을 만족하는지 확인합니다.
@@ -337,7 +337,7 @@ Site Recovery는 원본 환경, 사이트 복구 구성 요소, 네트워킹 및
 * 복제된 데이터에 대한 일일 변경(이탈)률을 예측합니다. [Hyper-V 복제본용 Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057)를 사용하면 이 작업을 간편하게 수행할 수 있습니다.
 
 1. **다운로드**를 클릭하여 도구를 다운로드한 후 실행하세요. 도구와 함께 제공되는 [문서를 읽어보세요](site-recovery-capacity-planner.md).
-2. 작업을 마쳤으면 **Capacity Planner를 실행하셨습니까**?에서 **예**를 선택합니다.
+2. 작업을 마쳤으면 **Capacity Planner를 실행하셨습니까?**에서 **예**를 선택합니다.
 
    ![용량 계획](./media/site-recovery-vmm-to-azure/gs-capacity-planning.png)
 
@@ -509,6 +509,6 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

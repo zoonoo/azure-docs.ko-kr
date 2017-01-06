@@ -30,7 +30,7 @@
 ### [활동 로그 경고에 대한 웹후크 구성](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [활동 로그 보관](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
 ### [활동 로그를 Event Hubs로 스트림](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-### [리소스 관리자로 작업 감사](../resource-group-audit.md)
+### [리소스 관리자로 작업 감사](../azure-resource-manager/resource-group-audit.md)
 ## 진단 로그 관리
 ### [보관](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Event Hubs로 스트림](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
@@ -49,6 +49,6 @@
 ## [Azure CLI 2.0(미리보기) 샘플](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [지원 메트릭 목록](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

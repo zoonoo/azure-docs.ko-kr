@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: ac1c60e04b42e2804ef17ba35368dd28c1d748a4
 
 
 ---
@@ -43,7 +43,7 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 ## <a name="prerequisites"></a>필수 조건
 * [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
 * 컴퓨터에 [Curl](https://curl.haxx.se/dlwiz/) 을 설치합니다. REST 명령과 함께 Curl 도구를 사용하여 데이터 팩터리를 만듭니다. 
-* [이 문서](../resource-group-create-service-principal-portal.md) 의 지침에 따라 다음 작업을 수행합니다. 
+* [이 문서](../azure-resource-manager/resource-group-create-service-principal-portal.md) 의 지침에 따라 다음 작업을 수행합니다. 
   1. Azure Active Directory에서 **ADFCopyTutorialApp** 이라는 웹 응용 프로그램을 만듭니다.
   2. **클라이언트 ID** 및 **암호 키**를 가져옵니다. 
   3. **테넌트 ID**를 가져옵니다. 
@@ -578,6 +578,6 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 
