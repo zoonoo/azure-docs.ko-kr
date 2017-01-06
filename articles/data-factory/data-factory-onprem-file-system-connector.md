@@ -60,32 +60,36 @@ Data Factory는 데이터 관리 게이트웨이를 통해 온-프레미스 파�
 
 **온-프레미스 파일 서버 연결 서비스:**
 
-    {
-      "Name": "OnPremisesFileServerLinkedService",
-      "properties": {
-        "type": "OnPremisesFileServer",
-        "typeProperties": {
-          "host": "\\\\Contosogame-Asia.<region>.corp.<company>.com",
-          "userid": "Admin",
-          "password": "123456",
-          "gatewayName": "mygateway"
-        }
-      }
+```JSON
+{
+  "Name": "OnPremisesFileServerLinkedService",
+  "properties": {
+    "type": "OnPremisesFileServer",
+    "typeProperties": {
+      "host": "\\\\Contosogame-Asia.<region>.corp.<company>.com",
+      "userid": "Admin",
+      "password": "123456",
+      "gatewayName": "mygateway"
     }
+  }
+}
+```
 
 **userid** 및 **password** 속성을 사용하는 대신 **encryptedCredential** 속성을 사용하는 것이 좋습니다. 이 연결 서비스에 대한 자세한 내용은 [파일 서버 연결 서비스](#onpremisesfileserver-linked-service-properties)를 참조하세요.
 
 **Azure 저장소 연결 서비스:**
 
-    {
-      "name": "StorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "StorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
+  }
+}
+```
 
 **온-프레미스 파일 시스템 입력 데이터 집합:**
 
@@ -93,169 +97,175 @@ Data Factory는 데이터 관리 게이트웨이를 통해 온-프레미스 파�
 
 `"external": "true"`로 설정하면 데이터 집합이 Data Factory의 외부에 있고 Data Factory의 활동으로 생성되지 않는다고 Data Factory에 전달됩니다.
 
-    {
-      "name": "OnpremisesFileSystemInput",
-      "properties": {
-        "type": " FileShare",
-        "linkedServiceName": " OnPremisesFileServerLinkedService ",
-        "typeProperties": {
-          "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-          "fileName": "{Hour}.csv",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
-            }
-          ]
+```JSON
+{
+  "name": "OnpremisesFileSystemInput",
+  "properties": {
+    "type": " FileShare",
+    "linkedServiceName": " OnPremisesFileServerLinkedService ",
+    "typeProperties": {
+      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+      "fileName": "{Hour}.csv",
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
+          }
         },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
         },
-        "policy": {
-          "externalData": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
           }
         }
+      ]
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
       }
     }
+  }
+}
+```
 
 **Azure Blob 저장소 출력 데이터 집합:**
 
 데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회) Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간의 년, 월, 일 및 시 부분을 사용합니다.
 
-    {
-      "name": "AzureBlobOutput",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "mycontainer/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
-            }
-          ],
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "\t",
-            "rowDelimiter": "\n"
+```JSON
+{
+  "name": "AzureBlobOutput",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
           }
         },
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
+        },
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
+          }
         }
+      ],
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": "\t",
+        "rowDelimiter": "\n"
       }
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
+  }
+}
+```
 
 **복사 작업:**
 
 파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **FileSystemSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-        "start":"2015-06-01T18:00:00",
-        "end":"2015-06-01T19:00:00",
-        "description":"Pipeline for copy activity",
-        "activities":[  
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2015-06-01T18:00:00",
+    "end":"2015-06-01T19:00:00",
+    "description":"Pipeline for copy activity",
+    "activities":[  
+      {
+        "name": "OnpremisesFileSystemtoBlob",
+        "description": "copy activity",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "OnpremisesFileSystemtoBlob",
-            "description": "copy activity",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "OnpremisesFileSystemInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "AzureBlobOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "FileSystemSource"
-              },
-              "sink": {
-                "type": "BlobSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "OnpremisesFileSystemInput"
           }
-         ]
-       }
-    }
+        ],
+        "outputs": [
+          {
+            "name": "AzureBlobOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "FileSystemSource"
+          },
+          "sink": {
+            "type": "BlobSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+     ]
+   }
+}
+```
 
 ## <a name="sample-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>샘플: Azure SQL Database에서 온-프레미스 파일 시스템으로 데이터 복사
 다음 샘플은 다음과 같은 내용을 보여 줍니다.
@@ -270,30 +280,34 @@ Data Factory는 데이터 관리 게이트웨이를 통해 온-프레미스 파�
 
 **Azure SQL 연결 서비스:**
 
-    {
-      "name": "AzureSqlLinkedService",
-      "properties": {
-        "type": "AzureSqlDatabase",
-        "typeProperties": {
-          "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-      }
+```JSON
+{
+  "name": "AzureSqlLinkedService",
+  "properties": {
+    "type": "AzureSqlDatabase",
+    "typeProperties": {
+      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
     }
+  }
+}
+```
 
 **온-프레미스 파일 서버 연결 서비스:**
 
-    {
-      "Name": "OnPremisesFileServerLinkedService",
-      "properties": {
-        "type": "OnPremisesFileServer",
-        "typeProperties": {
-          "host": "\\\\Contosogame-Asia.<region>.corp.<company>.com",
-          "userid": "Admin",
-          "password": "123456",
-          "gatewayName": "mygateway"
-        }
-      }
+```JSON
+{
+  "Name": "OnPremisesFileServerLinkedService",
+  "properties": {
+    "type": "OnPremisesFileServer",
+    "typeProperties": {
+      "host": "\\\\Contosogame-Asia.<region>.corp.<company>.com",
+      "userid": "Admin",
+      "password": "123456",
+      "gatewayName": "mygateway"
     }
+  }
+}
+```
 
 **userid** 및 **password** 속성을 사용하는 대신 **encryptedCredential** 속성을 사용하는 것이 좋습니다. 이 연결 서비스에 대한 자세한 내용은 [파일 시스템 연결 서비스](#onpremisesfileserver-linked-service-properties)를 참조하세요.
 
@@ -303,139 +317,145 @@ Data Factory는 데이터 관리 게이트웨이를 통해 온-프레미스 파�
 
 ``“external”: ”true”``로 설정하면 데이터 집합이 Data Factory의 외부에 있고 Data Factory의 활동으로 생성되지 않는다고 Data Factory에 전달됩니다.
 
-    {
-      "name": "AzureSqlInput",
-      "properties": {
-        "type": "AzureSqlTable",
-        "linkedServiceName": "AzureSqlLinkedService",
-        "typeProperties": {
-          "tableName": "MyTable"
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "externalData": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3
-          }
-        }
+```JSON
+{
+  "name": "AzureSqlInput",
+  "properties": {
+    "type": "AzureSqlTable",
+    "linkedServiceName": "AzureSqlLinkedService",
+    "typeProperties": {
+      "tableName": "MyTable"
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
       }
     }
+  }
+}
+```
 
 **온-프레미스 파일 시스템 출력 데이터 집합:**
 
 데이터는 매시간 새 파일로 복사됩니다. Blob에 대한 folderPath 및 fileName은 조각의 시작 시간에 따라 결정됩니다.
 
-    {
-      "name": "OnpremisesFileSystemOutput",
-      "properties": {
-        "type": "FileShare",
-        "linkedServiceName": " OnPremisesFileServerLinkedService ",
-        "typeProperties": {
-          "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-          "fileName": "{Hour}.csv",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
-            }
-          ]
+```JSON
+{
+  "name": "OnpremisesFileSystemOutput",
+  "properties": {
+    "type": "FileShare",
+    "linkedServiceName": " OnPremisesFileServerLinkedService ",
+    "typeProperties": {
+      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+      "fileName": "{Hour}.csv",
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
+          }
         },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
         },
-        "policy": {
-          "externalData": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
           }
         }
+      ]
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
       }
     }
+  }
+}
+```
 
 **복사 작업을 포함한 파이프라인:**
 
 파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **SqlSource**로 설정되고 **sink** 형식은 **FileSystemSink**로 설정됩니다. **SqlReaderQuery** 속성에 지정된 SQL 쿼리는 복사할 과거 한 시간의 데이터를 선택합니다.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-        "start":"2015-06-01T18:00:00",
-        "end":"2015-06-01T20:00:00",
-        "description":"pipeline for copy activity",
-        "activities":[  
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2015-06-01T18:00:00",
+    "end":"2015-06-01T20:00:00",
+    "description":"pipeline for copy activity",
+    "activities":[  
+      {
+        "name": "AzureSQLtoOnPremisesFile",
+        "description": "copy activity",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "AzureSQLtoOnPremisesFile",
-            "description": "copy activity",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "AzureSQLInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "OnpremisesFileSystemOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "SqlSource",
-                "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
-              },
-              "sink": {
-                "type": "FileSystemSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 3,
-              "timeout": "01:00:00"
-            }
+            "name": "AzureSQLInput"
           }
-         ]
-       }
-    }
+        ],
+        "outputs": [
+          {
+            "name": "OnpremisesFileSystemOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "SqlSource",
+            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
+          },
+          "sink": {
+            "type": "FileSystemSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 3,
+          "timeout": "01:00:00"
+        }
+      }
+     ]
+   }
+}
+```
 
 ## <a name="on-premises-file-server-linked-service-properties"></a>온-프레미스 파일 서버 연결 서비스 속성
 온-프레미스 파일 서버 연결 서비스를 사용하면 Azure Data Factory에 온-프레미스 파일 시스템을 연결할 수 있습니다. 다음 표에서는 온-프레미스 파일 서버 연결 서비스에 지정된 JSON 요소에 대해 설명합니다.
@@ -469,32 +489,36 @@ Data Factory는 데이터 관리 게이트웨이를 통해 온-프레미스 파�
 
 **예제: 일반 텍스트에 사용자 이름 및 암호 사용**
 
-    {
-      "Name": "OnPremisesFileServerLinkedService",
-      "properties": {
-        "type": "OnPremisesFileServer",
-        "typeProperties": {
-          "host": "\\\\Contosogame-Asia",
-          "userid": "Admin",
-          "password": "123456",
-          "gatewayName": "mygateway"
-        }
-      }
+```JSON
+{
+  "Name": "OnPremisesFileServerLinkedService",
+  "properties": {
+    "type": "OnPremisesFileServer",
+    "typeProperties": {
+      "host": "\\\\Contosogame-Asia",
+      "userid": "Admin",
+      "password": "123456",
+      "gatewayName": "mygateway"
     }
+  }
+}
+```
 
 **예제: encryptedcredential 사용**
 
-    {
-      "Name": " OnPremisesFileServerLinkedService ",
-      "properties": {
-        "type": "OnPremisesFileServer",
-        "typeProperties": {
-          "host": "D:\\",
-          "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
-          "gatewayName": "mygateway"
-        }
-      }
+```JSON
+{
+  "Name": " OnPremisesFileServerLinkedService ",
+  "properties": {
+    "type": "OnPremisesFileServer",
+    "typeProperties": {
+      "host": "D:\\",
+      "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
+      "gatewayName": "mygateway"
     }
+  }
+}
+```
 
 ## <a name="on-premises-file-system-dataset-type-properties"></a>온-프레미스 파일 시스템 데이터 집합 형식 속성
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md)를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다.
@@ -521,24 +545,30 @@ typeProperties 섹션은 데이터 집합의 각 형식마다 다릅니다. 데�
 시계열 데이터 집합, 예약 및 조각에 대해 자세히 이해하려면 [데이터 집합 만들기](data-factory-create-datasets.md), [예약 및 실행](data-factory-scheduling-and-execution.md) 그리고 [파이프라인 만들기](data-factory-create-pipelines.md)를 참조하세요.
 
 #### <a name="sample-1"></a>샘플 1:
-    "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-    "partitionedBy":
-    [
-        { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
-    ],
+
+```JSON
+"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
+"partitionedBy":
+[
+    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
+],
+```
 
 이 예제에서 {Slice}는 Data Factory 시스템 변수인 SliceStart의 값(YYYYMMDDHH 형식)으로 대체됩니다. SliceStart는 조각의 시작 시간을 가리킵니다. folderPath는 각 조각에 따라 다릅니다. 예를 들어 wikidatagateway/wikisampledataout/2014100103 또는 wikidatagateway/wikisampledataout/2014100104입니다.
 
 #### <a name="sample-2"></a>샘플 2:
-    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-    "fileName": "{Hour}.csv",
-    "partitionedBy":
-     [
-        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
-        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
-        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
-    ],
+
+```JSON
+"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+"fileName": "{Hour}.csv",
+"partitionedBy":
+ [
+    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
+],
+```
 
 이 예제에서 SliceStart의 년, 월, 일 및 시는 folderPath 및 fileName 속성에서 사용하는 별도의 변수로 추출됩니다.
 

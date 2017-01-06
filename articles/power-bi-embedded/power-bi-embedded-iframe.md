@@ -44,11 +44,11 @@ Power BI Embedded는 Azure 서비스 중 하나입니다. Azure Portal을 사용
 
 Power BI Embedded의 각 작업 영역은 각 고객의 작업 영역(테넌트)이며, 각 작업 영역 컬렉션에 여러 작업 영역을 추가할 수 있습니다. 동일한 선택키가 각 작업 영역 컬렉션에서 사용됩니다. 실제로 작업 영역 컬렉션은 Power BI Embedded에 대한 보안 경계입니다.
 
-![](media\\power-bi-embedded-iframe\\create-workspace.png)
+![](media/power-bi-embedded-iframe/create-workspace.png)
 
 작업 영역 컬렉션을 다 만들면 Azure 포털에서 선택키를 복사합니다.
 
-![](media\\power-bi-embedded-iframe\\copy-access-key.png)
+![](media/power-bi-embedded-iframe/copy-access-key.png)
 
 > [!NOTE]
 > 또한 작업 영역 컬렉션을 프로비전하고 REST API를 통해 선택키를 가져올 수 있습니다. 자세한 내용은 [Power BI 리소스 공급자 API](https://msdn.microsoft.com/library/azure/mt712306.aspx)를 참조하세요.
@@ -60,7 +60,7 @@ Power BI Embedded의 각 작업 영역은 각 고객의 작업 영역(테넌트)
 이 작업의 경우 프로그래밍 또는 코드는 없습니다. Power BI Desktop만 사용합니다.
 이 문서에서 Power BI Desktop을 사용하는 자세한 방법을 다루지는 않습니다. 이에 대한 추가 도움말이 필요한 경우 [Power BI Desktop 시작](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)을 참조하세요. 예제에서는 [소매점 분석 샘플](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/)을 사용하게 됩니다.
 
-![](media\\power-bi-embedded-iframe\\power-bi-desktop-1.png)
+![](media/power-bi-embedded-iframe/power-bi-desktop-1.png)
 
 ## <a name="create-a-power-bi-workspace"></a>Power BI 작업 영역 만들기
 이제 프로비전 작업이 모두 완료되었으므로 REST API를 통해 작업 영역 컬렉션에서 고객의 작업 영역을 만들어 보겠습니다. 다음 HTTP POST 요청(REST)은 기존 작업 영역 컬렉션에 새 작업 영역을 만듭니다. 이 예제에서 작업 영역 컬렉션 이름은 **mypbiapp**입니다.
@@ -260,7 +260,7 @@ Content-Type: application/json; charset=utf-8
 
 따라서 웹 페이지에 보고서를 포함할 경우 선택키 **AppKey**대신 계산된 토큰을 사용해야 합니다. 응용 프로그램은 클레임 및 계산된 디지털 서명으로 구성된 OAuth JWT\(JSON Web Token)를 만들어야 합니다. 아래와 같이 이 OAuth JWT는 점으로 구분된 인코딩된 문자열 토큰입니다.
 
-![](media\\power-bi-embedded-iframe\\oauth-jwt.png)
+![](media/power-bi-embedded-iframe/oauth-jwt.png)
 
 먼저 나중에 서명되는 입력 값을 준비해야 합니다. 이 값은 다음 json의 base64 url 인코딩(rfc4648) 문자열이며, 점\(.) 문자로 구분됩니다. 나중에 보고서 ID를 가져오는 방법이 설명될 것입니다.
 
@@ -461,7 +461,7 @@ RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
 
 결과는 다음과 같습니다.
 
-![](media\\power-bi-embedded-iframe\\view-report.png)
+![](media/power-bi-embedded-iframe/view-report.png)
 
 이번에는 Power BI Embedded에 iframe의 보고서만 표시됩니다. 그렇지만 [Power BI 블로그]()를 잘 확인해 보세요. 향후 개선된 기능에서는 정보를 가져올 수 있을 뿐만 아니라 iframe으로 정보를 보낼 수 있도록 하는 새 클라이언트 쪽 API가 사용될 수 있을 것입니다. 기대해 보세요.
 

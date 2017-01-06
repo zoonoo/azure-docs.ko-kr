@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 40ae0d242968db83c4d4d04452fbfd93559af31e
+ms.sourcegitcommit: ccf25aab4d6454e27a57f9a18305ef752421896f
+ms.openlocfilehash: 6e4af8f21a3ec9613d9dc36ebceb710c0d8c9906
 
 
 ---
@@ -103,7 +103,7 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 가상 장치를 만들기 전에 Azure StorSimple 서비스에 대한 다음 업데이트를 확인합니다.
 
 * 가상 장치에 대해 호스트 서버가 될 VM에 대해 [액세스 제어 레코드](storsimple-manage-acrs.md) 를 추가합니다.
-* 가상 장치와 동일한 지역에 [저장소 계정](storsimple-manage-storage-accounts.md#add-a-storage-account) 을 사용합니다. 다른 영역의 저장소 계정으로 성능이 저하될 수 있습니다. 가상 장치에 표준 또는 프리미엄 저장소 계정을 사용할 수 있습니다. [표준 저장소 계정]((../storage/storage-create-storage-account.md) 또는 [Premium Storage 계정](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 만드는 방법에 대한 자세한 내용
+* 가상 장치와 동일한 지역에 [저장소 계정](storsimple-manage-storage-accounts.md#add-a-storage-account) 을 사용합니다. 다른 영역의 저장소 계정으로 성능이 저하될 수 있습니다. 가상 장치에 표준 또는 프리미엄 저장소 계정을 사용할 수 있습니다. 자세한 내용은 [표준 저장소 계정](../storage/storage-create-storage-account.md) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 만드는 방법을 참조하세요.
 * 데이터에 사용된 계정이 아닌 가상 장치 생성을 위해 다른 저장소 계정을 사용합니다. 동일한 저장소 계정을 사용하면 성능이 저하될 수 있습니다.
 
 시작하기 전에 다음 정보가 있는지 확인합니다.
@@ -259,6 +259,6 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

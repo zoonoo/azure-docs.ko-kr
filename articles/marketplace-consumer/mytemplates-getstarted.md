@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9bc7cc00e9aa9aab982f0b2f08f8befb7c02f46d
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
 
 
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Azure 포털에서 개인 템플릿을 사용하여 시작
-[Azure Resource Manager](../resource-group-authoring-templates.md) 템플릿은 배포를 정의하는 데 사용된 선언적 템플릿입니다. 솔루션에 대해 배포할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
+[Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) 템플릿은 배포를 정의하는 데 사용된 선언적 템플릿입니다. 솔루션에 대해 배포할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
 
 [Azure Portal](https://portal.azure.com)에서 [Azure Marketplace](https://azure.microsoft.com/marketplace/)의 확장으로 **Microsoft.Gallery** 리소스 공급자와 함께 새 **템플릿** 기능을 사용하여 사용자가 개인 라이브러리에서 개인 템플릿을 만들고 관리하며 배포하도록 할 수 있습니다.
 
@@ -35,16 +35,16 @@ ms.openlocfilehash: 9bc7cc00e9aa9aab982f0b2f08f8befb7c02f46d
 * **템플릿** 은 Resource Manager 템플릿 및 추가 메타데이터를 포함하는 캡슐화된 리소스입니다. 마켓플레이스에 있는 항목과 매우 비슷하게 작동합니다. 주요 차이점은 공용 마켓플레이스 항목이 아니라 비공개 항목이라는 점입니다.
 * **템플릿** 라이브러리는 자신의 배포를 사용자 지정해야 하는 사용자에 대해 제대로 작동합니다.
 * **템플릿** 은 Azure 내에서 간단한 리포지토리가 필요한 사용자에 대해 제대로 작동합니다.
-* 기존 Resource Manager 템플릿으로 시작합니다. [github](https://github.com/Azure/azure-quickstart-templates)에서 템플릿을 찾거나 기존 리소스 그룹에서 [템플릿을 내보냅니다](../resource-manager-export-template.md).
+* 기존 Resource Manager 템플릿으로 시작합니다. [github](https://github.com/Azure/azure-quickstart-templates)에서 템플릿을 찾거나 기존 리소스 그룹에서 [템플릿을 내보냅니다](../azure-resource-manager/resource-manager-export-template.md).
 * **템플릿** 은 템플릿을 게시하는 사용자와 연결됩니다. 게시자 이름은 읽기 액세스 권한이 있는 모든 사람에게 표시됩니다.
 * **템플릿** 은 Resource Manager 리소스이며 게시된 후에는 이름을 바꿀 수 없습니다.
 
 ## <a name="add-a-template-resource"></a>템플릿 리소스 추가
 Azure 포털에서 **템플릿** 리소스를 만드는 두 가지 방법이 있습니다.
 
-### <a name="method-1-create-a-new-template-resource-from-a-running-resource-group"></a>방법 1: 실행 중인 리소스 그룹에서 새 템플릿 리소스 만들기
+### <a name="method-1--create-a-new-template-resource-from-a-running-resource-group"></a>방법 1: 실행 중인 리소스 그룹에서 새 템플릿 리소스 만들기
 1. Azure 포털에서 기존 리소스 그룹으로 이동합니다. **설정**에서 **템플릿 내보내기**를 선택합니다.
-2. Resource Manager 템플릿을 내보낸 후는 **템플릿 저장** 단추를 사용하여 **템플릿** 리포지토리에 저장합니다. 템플릿 내보내기에 대한 전체 세부 정보는 [여기](../resource-manager-export-template.md)에서 확인하세요.
+2. Resource Manager 템플릿을 내보낸 후는 **템플릿 저장** 단추를 사용하여 **템플릿** 리포지토리에 저장합니다. 템플릿 내보내기에 대한 전체 세부 정보는 [여기](../azure-resource-manager/resource-manager-export-template.md)에서 확인하세요.
    <br /><br />
    ![리소스 그룹 내보내기](media/rg-export-portal1.PNG)  <br />
 3. **템플릿에 저장** 명령 단추를 선택합니다.
@@ -62,7 +62,7 @@ Azure 포털에서 **템플릿** 리소스를 만드는 두 가지 방법이 있
    > 
    > 
 
-### <a name="b-method-2-add-a-new-template-resource-from-browse"></a>B. 방법 2: 찾아보기에서 새 템플릿 리소스 추가
+### <a name="method-2--add-a-new-template-resource-from-browse"></a>방법 2: 찾아보기에서 새 템플릿 리소스 추가
 **찾아보기 > 템플릿**에서 +추가 명령 단추를 사용하여 처음부터 새 **템플릿**을 추가할 수도 있습니다. 이름, 설명 및 Resource Manager 템플릿 JSON을 제공해야 합니다.
 
 ![템플릿 추가](media/add-template-portal1.PNG)  <br />
@@ -129,13 +129,13 @@ Azure 포털에서 **템플릿** 리소스를 만드는 두 가지 방법이 있
 > 
 
 ## <a name="next-steps"></a>다음 단계
-* Resource Manager 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](../resource-group-authoring-templates.md)
-* Resource Manager 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](../resource-group-template-functions.md)
-* 템플릿 설계에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](../best-practices-resource-manager-design-templates.md)
+* Resource Manager 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
+* Resource Manager 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](../azure-resource-manager/resource-group-template-functions.md)
+* 템플릿 설계에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

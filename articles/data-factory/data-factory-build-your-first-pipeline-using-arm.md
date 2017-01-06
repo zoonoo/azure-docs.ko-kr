@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7269613c5f181b4b1ce931b335a88e501e345dac
-ms.openlocfilehash: d4db9515f213963722fc181cbf97dc78e7f1bb70
+ms.sourcegitcommit: 9990e3ae2a978f0024c17f445ea07eae8aef5197
+ms.openlocfilehash: 3f36162dd0826270a7e2a69e7d940ba5516ecef0
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: d4db9515f213963722fc181cbf97dc78e7f1bb70
 ## <a name="prerequisites"></a>필수 조건
 * [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
 * [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell의 최신 버전을 설치합니다.
-* Azure Resource Manager 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md) 을 참조하세요. 
+* Azure Resource Manager 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md) 을 참조하세요. 
 
 ## <a name="in-this-tutorial"></a>자습서 내용
 | 엔터티 | 설명 |
@@ -320,6 +320,7 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTu
     ```PowerShell
     New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
     ```
+
 ## <a name="monitor-pipeline"></a>파이프라인 모니터링
 1. [Azure Portal](https://portal.azure.com/)에 로그인한 후 **찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다.
      ![찾아보기->데이터 팩터리](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
@@ -618,6 +619,6 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

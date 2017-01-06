@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 09/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 32feb93bf6b6b77d0b14206802c776da3a8eac91
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
 
 
 ---
-# <a name="azure-ad-connect-in-microsoft-cloud-germany-public-preview"></a>Microsoft 클라우드 독일의 Azure AD Connect - 공개 미리 보기
+# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Microsoft 클라우드 독일의 Azure AD Connect - 공개 미리 보기
 ## <a name="introduction"></a>소개
 Azure AD Connect는 온-프레미스 Active Directory와 Azure Active Directory 간의 동기화를 제공합니다.
 현재 [Microsoft 클라우드 독일](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) 에 있는 대부분의 시나리오는 연산자에 의해 수행되어야 합니다. Microsoft 클라우드 독일을 사용할 경우 다음을 고려해야 합니다.
@@ -49,7 +49,7 @@ Azure Portal에 로그인하면 다음을 수행합니다.
 
 다음이 표시되어야 합니다.
 
-![Azure AD Connect 블레이드](media\\active-directory-aadconnect-germany\\germany1.png)
+![Azure AD Connect 블레이드](media/active-directory-aadconnect-germany/germany1.png)
 
 다음 테이블에서는 블레이드에 표시된 기능을 설명합니다.
 
@@ -68,6 +68,6 @@ Azure AD Connect를 설치하려면 [여기](active-directory-aadconnect.md#inst
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -38,18 +38,18 @@ ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
 
  아무 대회나 클릭하여 대회의 세부 정보 페이지를 열고 그것에 관한 자세한 내용을 읽습니다. 이 페이지에서 주석 섹션을 통해 주석을 달거나 피드백을 제공하거나 질문을 할 수 있습니다. LinkedIn 또는 Twitter의 공유 기능을 사용하여 친구나 동료와 그것을 공유할 수 있습니다. 페이지를 보도록 다른 사용자를 초대하기 위해 대회의 링크를 메일로 보낼 수도 있습니다.
 
-![이 항목을 친구 들과 공유](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![이 항목을 친구 들과 공유](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![사용자 고유의 설명 추가](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![사용자 고유의 설명 추가](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="enter-a-competition"></a>대회 참가
 대회가 진행 중이면 세부 정보 페이지의 상태가 **활성**입니다. 대회에 참가하기 위해 **대회 참가**를 클릭하면 필요한 리소스와 진행해야 하는 단계에 대한 지침이 제공됩니다.
 
-![대회가 완료됨](media\\machine-learning-gallery-competitions\\open-competition.png)
+![대회가 완료됨](media/machine-learning-gallery-competitions/open-competition.png)
 
 대회가 진행되고 있지 않다면 세부 정보 페이지의 상태가 **완료됨**이고 **대회 참가** 링크가 **마침**이라는 단어로 대체됩니다.
 
-![대회가 완료됨](media\\machine-learning-gallery-competitions\\completed-competition.png)
+![대회가 완료됨](media/machine-learning-gallery-competitions/completed-competition.png)
 
 **[갤러리로 이동 >>](http://gallery.cortanaintelligence.com)**
 

@@ -45,31 +45,34 @@ ms.openlocfilehash: 4adfd82a0dea0aa46607b3cc528c922cd46ab7d5
 
 **웹 연결된 서비스** 이 예제에서는 익명 인증으로 웹 연결된 서비스를 사용합니다. 사용할 수 있는 다른 유형의 인증은 [웹 연결된 서비스](#web-linked-service-properties) 섹션을 참조하세요.
 
+```JSON
+{
+    "name": "WebLinkedService",
+    "properties":
     {
-        "name": "WebLinkedService",
-        "properties":
+        "type": "Web",
+        "typeProperties":
         {
-            "type": "Web",
-            "typeProperties":
-            {
-                "authenticationType": "Anonymous",
-                "url" : "https://en.wikipedia.org/wiki/"
-            }
+            "authenticationType": "Anonymous",
+            "url" : "https://en.wikipedia.org/wiki/"
         }
     }
-
+}
+```
 
 **Azure 저장소 연결된 서비스**
 
-    {
-      "name": "AzureStorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
+  }
+}
+```
 
 **WebTable 입력 데이터 집합** **external**을 **true**로 설정하면 데이터 집합이 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실이 Data Factory 서비스에 전달됩니다.
 
@@ -78,47 +81,49 @@ ms.openlocfilehash: 4adfd82a0dea0aa46607b3cc528c922cd46ab7d5
 >
 >
 
-    {
-        "name": "WebTableInput",
-        "properties": {
-            "type": "WebTable",
-            "linkedServiceName": "WebLinkedService",
-            "typeProperties": {
-                "index": 1,
-                "path": "AFI's_100_Years...100_Movies"
-            },
-            "external": true,
-            "availability": {
-                "frequency": "Hour",
-                "interval":  1
-            }
+```JSON
+{
+    "name": "WebTableInput",
+    "properties": {
+        "type": "WebTable",
+        "linkedServiceName": "WebLinkedService",
+        "typeProperties": {
+            "index": 1,
+            "path": "AFI's_100_Years...100_Movies"
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval":  1
         }
     }
-
+}
+```
 
 
 **Azure Blob 출력 데이터 집합**
 
 데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회)
 
+```JSON
+{
+    "name": "AzureBlobOutput",
+    "properties":
     {
-        "name": "AzureBlobOutput",
-        "properties":
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties":
         {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties":
-            {
-                "folderPath": "adfgetstarted/Movies"
-            },
-            "availability":
-            {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "folderPath": "adfgetstarted/Movies"
+        },
+        "availability":
+        {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
+}
+```
 
 
 
@@ -128,50 +133,51 @@ ms.openlocfilehash: 4adfd82a0dea0aa46607b3cc528c922cd46ab7d5
 
 WebSource에서 지원하는 속성 목록은 [WebSource 형식 속성](#websource-copy-activity-type-properties)을 참조하세요.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-        "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
-        "description":"pipeline with copy activity",
-        "activities":[  
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2014-06-01T18:00:00",
+    "end":"2014-06-01T19:00:00",
+    "description":"pipeline with copy activity",
+    "activities":[  
+      {
+        "name": "WebTableToAzureBlob",
+        "description": "Copy from a Web table to an Azure blob",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "WebTableToAzureBlob",
-            "description": "Copy from a Web table to an Azure blob",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "WebTableInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "AzureBlobOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "WebSource"
-              },
-              "sink": {
-                "type": "BlobSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "WebTableInput"
           }
-          ]
-       }
-    }
-
+        ],
+        "outputs": [
+          {
+            "name": "AzureBlobOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "WebSource"
+          },
+          "sink": {
+            "type": "BlobSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+      ]
+   }
+}
+```
 
 ## <a name="web-linked-service-properties"></a>웹 연결된 서비스 속성
 다음 테이블은 웹 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
@@ -185,36 +191,40 @@ WebSource에서 지원하는 속성 목록은 [WebSource 형식 속성](#websour
 | password |기본 인증을 위한 암호입니다. |예(기본 인증의 경우) |
 
 ### <a name="using-anonymous-authentication"></a>익명 인증 사용
+
+```JSON
+{
+    "name": "web",
+    "properties":
     {
-        "name": "web",
-        "properties":
+        "type": "Web",
+        "typeProperties":
         {
-            "type": "Web",
-            "typeProperties":
-            {
-                "authenticationType": "Anonymous",
-                "url" : "https://en.wikipedia.org/wiki/"
-            }
+            "authenticationType": "Anonymous",
+            "url" : "https://en.wikipedia.org/wiki/"
         }
     }
-
+}
+```
 
 ### <a name="using-basic-authentication"></a>기본 인증 사용
+
+```JSON
+{
+    "name": "web",
+    "properties":
     {
-        "name": "web",
-        "properties":
+        "type": "Web",
+        "typeProperties":
         {
-            "type": "Web",
-            "typeProperties":
-            {
-                "authenticationType": "basic",
-                "url" : "http://myit.mycompany.com/",
-                "userName": "Administrator",
-                "password": "password"
-            }
+            "authenticationType": "basic",
+            "url" : "http://myit.mycompany.com/",
+            "userName": "Administrator",
+            "password": "password"
         }
     }
-
+}
+```
 
 ## <a name="webtable-dataset-properties"></a>WebTable 데이터 집합 속성
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
@@ -229,22 +239,24 @@ WebSource에서 지원하는 속성 목록은 [WebSource 형식 속성](#websour
 
 **예제:**
 
-    {
-        "name": "WebTableInput",
-        "properties": {
-            "type": "WebTable",
-            "linkedServiceName": "WebLinkedService",
-            "typeProperties": {
-                "index": 1,
-                "path": "AFI's_100_Years...100_Movies"
-            },
-            "external": true,
-            "availability": {
-                "frequency": "Hour",
-                "interval":  1
-            }
+```JSON
+{
+    "name": "WebTableInput",
+    "properties": {
+        "type": "WebTable",
+        "linkedServiceName": "WebLinkedService",
+        "typeProperties": {
+            "index": 1,
+            "path": "AFI's_100_Years...100_Movies"
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval":  1
         }
     }
+}
+```
 
 ## <a name="websource---copy-activity-type-properties"></a>WebSource - 복사 작업 형식 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.

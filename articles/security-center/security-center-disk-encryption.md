@@ -23,12 +23,12 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 # <a name="encrypt-an-azure-virtual-machine"></a>Azure 가상 컴퓨터 암호화
 암호화되지 않은 가상 컴퓨터가 있는 경우 Azure 보안 센터에서 알려줍니다. 이러한 경고는 심각도 높다고 표시되며 이러한 가상 컴퓨터를 암호화하도록 권장합니다.
 
-![디스크 암호화 권장 사항](./media/security-center-disk-encryption\\security-center-disk-encryption-fig1.png)
+![디스크 암호화 권장 사항](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
 > 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다.
-> 
-> 
+>
+>
 
 Azure 보안 센터에 의해 암호화가 필요하다고 식별된 Azure 가상 컴퓨터를 암호화하려면 다음 단계를 권장합니다.
 
@@ -43,8 +43,8 @@ Azure 보안 센터에 의해 암호화가 필요하다고 식별된 Azure 가�
 
 > [!NOTE]
 > Azure 가상 컴퓨터에 암호화를 구성하는 다른 방법을 자세히 알아보려면 [Windows 및 Linux Azure 가상 컴퓨터용 Azure 디스크 암호화](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)를 참조하세요.
-> 
-> 
+>
+>
 
 ## <a name="install-and-configure-azure-powershell"></a>Azure PowerShell 설치 및 구성
 Azure PowerShell 버전 1.2.1 이상이 컴퓨터에 설치되어야 합니다. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 문서는 Azure PowerShell로 작업할 컴퓨터를 프로비전하는 데 필요한 모든 단계를 포함합니다. 가장 간단한 방법은 해당 문서에 언급된 웹 PI 설치 접근 방식을 사용하는 것입니다. 이미 Azure PowerShell이 설치되었더라도 웹 PI 접근 방식을 사용하여 다시 설치하여 최신 버전의 Azure PowerShell을 사용합니다.
@@ -70,7 +70,7 @@ Azure 디스크 암호화 필수 구성 요소 구성 스크립트는 Azure 가�
 
 아래 그림과 유사하게 표시됩니다.
 
-![PowerShell ISE 창](./media/security-center-disk-encryption\\security-center-disk-encryption-fig2.png)
+![PowerShell ISE 창](./media/security-center-disk-encryption/security-center-disk-encryption-fig2.png)
 
 위쪽 창은 "스크립트 창"이라고 하고 아래쪽 창은 "콘솔"이라고 합니다. 이 문서의 뒷부분에서 이러한 용어를 사용합니다.
 
@@ -84,8 +84,8 @@ Azure 디스크 암호화 필수 구성 요소 스크립트는 스크립트를 �
 
 > [!NOTE]
 > Azure Active Directory 응용 프로그램을 만들어야 하는 이유에 대해 관심이 있다면 *Azure 키 자격 증명 모음 시작* 문서에서 [Azure Active Directory로 응용 프로그램 등록](../key-vault/key-vault-get-started.md)섹션을 참조하세요.
-> 
-> 
+>
+>
 
 다음 단계를 수행하여 Azure 가상 컴퓨터를 암호화합니다.
 
@@ -94,12 +94,12 @@ Azure 디스크 암호화 필수 구성 요소 스크립트는 스크립트를 �
 3. 스크립트를 실행할 수 있도록 컴퓨터에서 실행 정책을 설정합니다. 콘솔에서 **Set-ExecutionPolicy Unrestricted** 를 입력한 다음 ENTER 키를 누릅니다. 실행 정책에 대한 변경의 효과를 알리는 대화 상자가 나타나면 **모두 예** 또는 **예**를 클릭합니다(**모두 예**가 표시되면 해당 옵션을 선택하고 **모두 예**가 표시되지 않으면 **예**를 클릭).
 4. Azure 계정에 로그인합니다. 콘솔에서 **Login-AzureRmAccount**를 입력하고 **ENTER** 키를 누릅니다. 자격 증명을 입력할 수 있는 대화 상자가 표시됩니다.(가상 컴퓨터를 변경할 수 있는 권한이 있는지 확인하고 권한이 없는 경우 암호화할 수 없습니다. 확실하지 않은 경우 구독 소유자 또는 관리자에게 문의합니다.) **환경**, **계정**, **TenantId**, **SubscriptionId** 및 **CurrentStorageAccount**에 대한 정보가 표시됩니다. **SubscriptionId**를 메모장에 복사합니다. #6단계에서 이를 사용해야 합니다.
 5. 가상 컴퓨터가 속한 구독 및 해당 위치를 찾습니다. [https://portal.azure.com](ttps://portal.azure.com) 으로 이동하고 로그인합니다.  페이지의 왼쪽에서 **가상 컴퓨터**를 클릭합니다. 가상 컴퓨터의 목록 및 가상 컴퓨터가 속한 구독이 표시됩니다.
-   
-   ![가상 컴퓨터](./media/security-center-disk-encryption\\security-center-disk-encryption-fig3.png)
+
+   ![가상 컴퓨터](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. PowerShell ISE로 돌아갑니다. 스크립트를 실행할 구독 컨텍스트를 설정합니다. 콘솔에서 **Select-AzureRmSubscription –SubscriptionId <your_subscription_Id>**(실제 구독 ID로 **< your_subscription_Id >** 대체)를 선택하고 **ENTER** 키를 누릅니다. 환경, **계정**, **TenantId**, **SubscriptionId** 및 **CurrentStorageAccount**에 대한 정보가 표시됩니다.
 7. 이제 스크립트를 실행할 준비가 되었습니다. **스크립트 실행** 단추를 클릭하거나 키보드에서 **F5**를 누릅니다.
-   
-   ![PowerShell 스크립트 실행](./media/security-center-disk-encryption\\security-center-disk-encryption-fig4.png)
+
+   ![PowerShell 스크립트 실행](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
 8. 스크립트는 **resourceGroupName:**을 요청합니다 - 사용하려는 *리소스 그룹*의 이름을 입력하고 **ENTER** 키를 누릅니다. 이름이 없는 경우 사용할 이름을 입력합니다. 사용하려는 *리소스 그룹* 이 이미 있는 경우(가상 컴퓨터가 위치한 리소스 그룹 등) 기존 리소스 그룹의 이름을 입력합니다.
 9. 스크립트는 **keyVaultName:** 을 요청합니다 - 사용하려는 *키 자격 증명 모음* 의 이름을 입력하고 ENTER 키를 누릅니다. 이름이 없는 경우 사용할 이름을 입력합니다. 사용하려는 키 자격 증명 모음이 이미 있는 경우 기존 *키 자격 증명 모음*의 이름을 입력합니다.
 10. 스크립트는 **위치:**를 요청합니다 - 암호화하려는 VM이 있는 위치의 이름을 입력한 다음 **ENTER** 키를 누릅니다. 위치를 기억하지 못하는 경우 #5단계로 돌아갑니다.
@@ -110,7 +110,7 @@ Azure 디스크 암호화 필수 구성 요소 스크립트는 스크립트를 �
 
 스크립트의 출력이 아래 화면과 비슷해야 합니다.
 
-![PowerShell 출력](./media/security-center-disk-encryption\\security-center-disk-encryption-fig5.png)
+![PowerShell 출력](./media/security-center-disk-encryption/security-center-disk-encryption-fig5.png)
 
 ## <a name="encrypt-the-azure-virtual-machine"></a>Azure 가상 컴퓨터 암호화
 이제 가상 컴퓨터를 암호화할 준비가 되었습니다. 가상 컴퓨터가 주요 자격 증명 모음과 동일한 리소스 그룹에 있는 경우 암호화 단계 섹션으로 이동할 수 있습니다. 그러나 가상 컴퓨터가 사용자 키 자격 증명 모음과 동일한 리소스 그룹에 있지 않은 경우 PowerShell ISE의 콘솔에 다음을 입력해야 합니다.
@@ -124,7 +124,7 @@ Azure 디스크 암호화 필수 구성 요소 스크립트는 스크립트를 �
 
 **ENTER**키를 누릅니다. 가상 컴퓨터가 있는 리소스 그룹의 이름이 표시되어야 합니다. 예:
 
-![PowerShell 출력](./media/security-center-disk-encryption\\security-center-disk-encryption-fig6.png)
+![PowerShell 출력](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 
 ### <a name="encryption-steps"></a>암호화 단계
 먼저 암호화하려는 가상 컴퓨터의 이름을 PowerShell에 알려야 합니다. 콘솔에서 다음을 입력합니다.
@@ -139,7 +139,7 @@ Azure 디스크 암호화 필수 구성 요소 스크립트는 스크립트를 �
 
 **ENTER**키를 누릅니다. 암호화하려는 가상 컴퓨터의 이름이 표시되어야 합니다. 예:
 
-![PowerShell 출력](./media/security-center-disk-encryption\\security-center-disk-encryption-fig7.png)
+![PowerShell 출력](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
 두 가지 방법으로 가상 컴퓨터를 암호화하는 암호화 명령을 실행할 수 있습니다. 첫 번째 방법은 PowerShell ISE 콘솔에서 다음 명령을 입력하는 것입니다.
 
@@ -151,25 +151,25 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMNa
 
 두 번째 방법은 스크립트 창(PowerShell ISE의 위쪽 창)에서 클릭하고 스크립트의 아래쪽으로 스크롤하는 것입니다. 위에 나열된 명령을 강조 표시한 다음 마우스 오른쪽 단추로 클릭하고 **선택 항목 실행**을 클릭하거나 키보드에서 **F8**을 누릅니다.
 
-![PowerShell ISE](./media/security-center-disk-encryption\\security-center-disk-encryption-fig8.png)
+![PowerShell ISE](./media/security-center-disk-encryption/security-center-disk-encryption-fig8.png)
 
 사용한 방법에 관계없이 작업을 완료하기 위해 10-15분 정도 걸린다는 사실을 알리는 대화 상자가 표시됩니다. **예**를 클릭합니다.
 
 암호화 프로세스가 일어나는 동안 Azure 포털로 돌아가서 가상 컴퓨터의 상태를 확인합니다. 페이지의 왼쪽에서 **가상 컴퓨터**를 클릭한 다음 **가상 컴퓨터** 블레이드에서 암호화하고 있는 가상 컴퓨터의 이름을 클릭합니다. 표시된 블레이드에서 **상태**가 **업데이트 중**임을 알려줍니다. 암호화가 진행 중임을 보여줍니다.
 
-![VM에 대한 자세한 내용](./media/security-center-disk-encryption\\security-center-disk-encryption-fig9.png)
+![VM에 대한 자세한 내용](./media/security-center-disk-encryption/security-center-disk-encryption-fig9.png)
 
 PowerShell ISE로 돌아갑니다. 스크립트가 완료되면 아래 그림에 표시되는 사항을 확인합니다.
 
-![PowerShell 출력](./media/security-center-disk-encryption\\security-center-disk-encryption-fig10.png)
+![PowerShell 출력](./media/security-center-disk-encryption/security-center-disk-encryption-fig10.png)
 
 이제 가상 컴퓨터가 암호화되었음을 보여주기 위해 Azure 포털로 돌아가서 페이지의 왼쪽에 있는 **가상 컴퓨터** 를 클릭합니다. 암호화한 가상 컴퓨터의 이름을 클릭합니다. **설정** 블레이드에서 **디스크**를 클릭합니다.
 
-![설정 옵션](./media/security-center-disk-encryption\\security-center-disk-encryption-fig11.png)
+![설정 옵션](./media/security-center-disk-encryption/security-center-disk-encryption-fig11.png)
 
 **디스크** 블레이드에서 **암호화**가 **사용**되었음을 확인합니다.
 
-![디스크 속성](./media/security-center-disk-encryption\\security-center-disk-encryption-fig12.png)
+![디스크 속성](./media/security-center-disk-encryption/security-center-disk-encryption-fig12.png)
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure 가상 컴퓨터를 암호화하는 방법을 알아보았습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
@@ -178,7 +178,6 @@ PowerShell ISE로 돌아갑니다. 스크립트가 완료되면 아래 그림에
 * [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
 * [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
-
 
 
 

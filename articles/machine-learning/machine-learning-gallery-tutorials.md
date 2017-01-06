@@ -39,9 +39,9 @@ Machine Learning 기술 및 개념을 안내하거나 다양한 Machine Learning
  아무 자습서를 클릭하여 자습서의 세부 정보 페이지를 열고 그것에 관한 자세한 내용을 읽습니다.
 이 페이지에서 주석 섹션을 통해 주석을 달거나 피드백을 제공하거나 질문을 할 수 있습니다. LinkedIn 또는 Twitter의 공유 기능을 사용하여 친구나 동료와 그것을 공유할 수 있습니다. 페이지를 보도록 다른 사용자를 초대하기 위해 자습서의 링크를 메일로 보낼 수도 있습니다.
 
-![이 항목을 친구 들과 공유](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![이 항목을 친구 들과 공유](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![사용자 고유의 설명 추가](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![사용자 고유의 설명 추가](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="contribute"></a>기고
 다른 사용자가 문제를 해결하거나 개념을 배울 수 있도록 갤러리에 자습서를 기고할 수 있습니다.
@@ -52,16 +52,16 @@ Machine Learning 기술 및 개념을 안내하거나 다양한 Machine Learning
 * Microsoft 계정을 사용하여 갤러리에 로그인
 * 창 위쪽의 이미지를 클릭한 다음 이름을 클릭
   
-    ![계정 이름을 클릭](media\\machine-learning-gallery-tutorials\\click-account-name.png)
+    ![계정 이름을 클릭](media/machine-learning-gallery-tutorials/click-account-name.png)
 * **새 항목**을 클릭
   
-    !["새 항목"을 클릭](media\\machine-learning-gallery-collections\\click-new-item.png)
+    !["새 항목"을 클릭](media/machine-learning-gallery-collections/click-new-item.png)
 * **항목 유형**에 대한 **컬렉션**을 선택한 다음, 컬렉션 이름, 간략한 요약, 설명, 사용자가 컬렉션을 찾는데 도움이 되는 모든 태그 제공
   
-    ![새 컬렉션에 대한 정보를 입력](media\\machine-learning-gallery-tutorials\\create-tutorial-page-1.png)
+    ![새 컬렉션에 대한 정보를 입력](media/machine-learning-gallery-tutorials/create-tutorial-page-1.png)
 * **다음**을 클릭하여, 컬렉션과 함께 표시될 이미지 파일을 업로드 또는 기존 이미지를 선택하거나, 사용자가 컬렉션의 내용 및 목적을 파악하는 데 도움이 되는 뭔가를 선택함
   
-    ![새 컬렉션에 대한 정보를 입력](media\\machine-learning-gallery-tutorials\\create-tutorial-page-2.png)
+    ![새 컬렉션에 대한 정보를 입력](media/machine-learning-gallery-tutorials/create-tutorial-page-2.png)
 * **다음**을 클릭하여, 자습서가 **공용**(누구나 볼 수 있음) 또는 **비공개**(직접적인 링크가 있는 사람만 자습서를 볼 수 있음)인지 여부를 결정할 수 있음
   
   > [!IMPORTANT]
@@ -69,7 +69,7 @@ Machine Learning 기술 및 개념을 안내하거나 다양한 Machine Learning
   > 
   > 
   
-    ![공용 또는 비공개 선택](media\\machine-learning-gallery-tutorials\\create-tutorial-page-3.png)
+    ![공용 또는 비공개 선택](media/machine-learning-gallery-tutorials/create-tutorial-page-3.png)
 *  **만들기**
 
 자습서가 Cortana Intelligence Gallery의 일부가 되었습니다. **항목** 탭 아래 계정 페이지에 나타납니다.

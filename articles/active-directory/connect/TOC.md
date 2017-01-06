@@ -80,6 +80,7 @@
 
 
 # 관련 항목
+## [온-프레미스 ID 인프라 및 클라우드 동기화 서비스를 모니터링합니다.](../connect-health/active-directory-aadconnect-health.md)
 ## [하이브리드 ID 디자인 가이드](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 
@@ -88,6 +89,6 @@
 ##[DirSync 사용 중단](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

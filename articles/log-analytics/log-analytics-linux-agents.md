@@ -4,7 +4,7 @@ description: "Log Analytics를 사용하여 Linux 컴퓨터에서 생성되는 �
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: ab5b76d8-9ab5-406e-8768-76fb0632d830
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -87,8 +87,8 @@ Linux용 OMS 에이전트 패키지를 설치한 후에는 다음과 같은 시�
 
 > [!NOTE]
 > Syslog 메시지를 수집하려면 rsyslog 또는 syslog-ng가 필요합니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 rsyslog 디먼을 설치하고 sysklog를 대체하도록 구성해야 합니다.
-> 
-> 
+>
+>
 
 ## <a name="quick-install"></a>빠른 설치
 다음 명령을 실행하여 omsagent를 다운로드하고, 체크섬의 유효성을 검사한 다음 에이전트를 설치하고 등록합니다. 명령은 64비트용입니다. 작업 영역 ID 및 기본 키는 OMS 포털에서 **연결된 원본** 탭의 **설정**에 있습니다.
@@ -215,8 +215,8 @@ localhost에서 MySQL 서버의 기본 사용자 계정을 정의하려면 다�
 
 > [!NOTE]
 > 자격 증명 파일은 omsagent 계정이 읽을 수 있어야 합니다. omsgent로 mycimprovauth 명령을 실행하는 것이 좋습니다.
-> 
-> 
+>
+>
 
 ```
 sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
@@ -280,8 +280,8 @@ Syslog-ng: /etc/syslog-ng/syslog-ng.conf
 
 > [!NOTE]
 > Syslog 구성을 편집하는 경우, 변경 내용을 적용하려면 syslog 디먼을 다시 시작해야 합니다.
-> 
-> 
+>
+>
 
 OMS의 Linux 용 OMS 에이전트에 대한 기본 syslog 구성은 다음과 같습니다.
 
@@ -331,12 +331,12 @@ Nagios 또는 Zabbix를 사용하여 Linux 컴퓨터를 관리하는 경우라�
 Nagios 서버의 경고를 수집하려면, 다음 구성을 변경해야 합니다.
 
 1. **omsagent** 사용자에게 Nagios 로그 파일(예: /var/log/nagios/nagios.log/var/log/nagios/nagios.log)에 대한 읽기 권한을 부여합니다. nagios.log 파일이 **nagios** 그룹의 소유라는 가정 하에, **omsagent** 사용자를 **nagios** 그룹에 추가합니다.
-   
+
     ```
     sudo usermod –a -G nagios omsagent
     ```
 2. omsagent.conf 구성 파일 (/etc/opt/microsoft/omsagent/conf/omsagent.conf)을 수정합니다. 다음 항목이 포함되고 주석 처리되지 않도록 합니다.
-   
+
     ```
     <source>
     type tail
@@ -345,13 +345,13 @@ Nagios 서버의 경고를 수집하려면, 다음 구성을 변경해야 합니
     format none
     tag oms.nagios
     </source>
-   
+
     <filter oms.nagios>
     type filter_nagios_log
     </filter>
     ```
 3. omsagent 디먼을 다시 시작합니다.
-   
+
     ```
     sudo service omsagent restart
     ```
@@ -383,7 +383,7 @@ Type=Alert
 #### <a name="to-view-all-nagios-alerts-with-log-analytics"></a>Log Analytics에서 모든 Nagios 경고를 보려면
 1. Operations Management Suite 포털에서 **로그 검색** 타일을 클릭합니다.
 2. 쿼리 표시줄에 다음 검색 쿼리를 입력합니다.
-   
+
     ```
     Type=Alert SourceSystem=Nagios
     ```
@@ -394,7 +394,7 @@ Type=Alert
 ### <a name="to-view-all-zabbix-alerts-with-log-analytics"></a>Log Analytics에서 모든 Zabbix 경고를 보려면
 1. Operations Management Suite 포털에서 **로그 검색** 타일을 클릭합니다.
 2. 쿼리 표시줄에 다음 검색 쿼리를 입력합니다.
-   
+
     ```
     Type=Alert SourceSystem=Zabbix
     ```
@@ -407,14 +407,14 @@ Linux 용 OMS 에이전트는 System Center Operations Manager 에이전트와 �
 
 > [!NOTE]
 > Operations Manager로 관리되지 않는 컴퓨터에 Linux용 OMS 에이전트를 설치한 다음, 나중에 Operations Manager로 컴퓨터를 관리하려는 경우에는, 컴퓨터를 검색하기 전에 OMI 구성을 반드시 수정해야 합니다. **Operations Manager 에이전트가 Linux용 OMS 에이전트보다 먼저 설치되면 이 단계가 필요하지 않습니다.**
-> 
-> 
+>
+>
 
 ### <a name="to-enable-the-oms-agent-for-linux-to-communicate-with-operations-manager"></a>Linux용 OMS 에이전트가 Operations Manager와 통신하도록 설정하려면
 1. /etc/opt/omi/conf/omiserver.conf 파일을 편집합니다.
 2. **httpsport=** 로 시작되는 줄이 1270 포트를 지정하도록 합니다. 예: `httpsport=1270`
 3. OMI 서버를 다시 시작합니다.
-   
+
     ```
     service omiserver restart or systemctl restart omiserver
     ```
@@ -541,8 +541,8 @@ OMI 및 SCX 구성 요소(성능 메트릭 데이터를 제공하는) 로그의 
 
 > [!NOTE]
 > OMS 포털 구성을 사용하도록 설정한 경우 시스템에서 성능 카운터 및 syslog의 편집 구성 파일을 덮어씁니다. OMS 포털에서 구성을 비활성화하거나(전체 노드) 단일 노드의 경우 다음을 실행합니다.
-> 
-> 
+>
+>
 
 ```
 sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable
@@ -701,11 +701,11 @@ OMS 출력 플러그인을 사용하는 대신 데이터 항목을 `stdout`으�
 
 * Linux용 OMS 에이전트 구성 에이전트가 포털 구성 서비스와 통신할 수 없어 최신 구성이 적용되지 않는 경우가 있습니다.
 * `omsconfig` 에이전트에 다음이 적용되어 설치되었는지 확인합니다.
-  
+
   * `dpkg --list omsconfig` 또는 `rpm -qi omsconfig`
   * Linux용 OMS 에이전트 최신 버전이 설치되지 않은 경우 다시 설치합니다.
 * `omsconfig` 에이전트가 OMS 서비스와 통신할 수 있는지 확인합니다.
-  
+
   * `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'` 명령을 실행합니다.
     * 이 명령은 Syslog 설정, Linux 성능 카운터, 사용자 지정 로그 등 에이전트가 포털에서 검색하는 구성을 반환합니다.
     * 위 명령이 실패할 경우 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py` 명령을 실행합니다. 이 명령에서는 omsconfig 에이전트가 OMS 서비스와 통신하여 최신 구성을 검색합니다.
@@ -726,7 +726,7 @@ OMS 출력 플러그인을 사용하는 대신 데이터 항목을 `stdout`으�
 * OMS 포털의 **데이터** 탭의 **설정**에서 **내 Linux 서버에 다음 구성 적용 설정**이 선택되었는지 확인합니다.  
   ![구성 적용](./media/log-analytics-linux-agents/customloglinuxenabled.png)
 * `omsconfig` 에이전트가 OMS 서비스와 통신할 수 있는지 확인합니다.
-  
+
   * `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'` 명령을 실행합니다.
   * 이 명령은 Syslog 설정, Linux 성능 카운터, 사용자 지정 로그 등 에이전트가 포털에서 검색하는 구성을 반환합니다.
   * 위 명령이 실패할 경우 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py` 명령을 실행합니다. 이 명령에서는 omsconfig 에이전트가 OMS 서비스와 통신하여 최신 구성을 검색합니다.
@@ -782,7 +782,6 @@ Syslog 메시지를 수집하려면 rsyslog 또는 syslog-ng가 필요합니다.
 * [솔루션 갤러리에서 Log Analytics 솔루션을 추가](log-analytics-add-solutions.md) 하여 기능을 추가하고 데이터를 수집합니다.
 * [로그 검색](log-analytics-log-searches.md) 을 숙지하여 솔루션에서 수집한 자세한 정보를 확인합니다.
 * [대시보드](log-analytics-dashboards.md) 를 사용하여 자신만의 사용자 지정 검색을 저장하고 표시합니다.
-
 
 
 

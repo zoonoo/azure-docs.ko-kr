@@ -24,7 +24,7 @@ ms.openlocfilehash: a98185bf44af2271f5ded04c05d3134321db536a
 # <a name="row-level-security-with-power-bi-embedded"></a>Power BI Embedded를 사용하는 행 수준 보안
 보고서 또는 데이터 집합 내의 특정 데이터에 대한 사용자 액세스를 제한하는 데 RLS(행 수준 보안)를 사용하여 여러 다양한 사용자가 모두 서로 다른 데이터를 보면서 동일한 보고서를 사용할 수 있도록 합니다. 이제 Power BI Embedded에서 RLS로 구성된 데이터 집합을 지원합니다.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-flow-1.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-flow-1.png)
 
 RLS를 활용하기 위해서는 사용자, 역할 및 규칙이라는 세 가지 주요 개념을 이해하는 것이 중요합니다. 이러한 개념 각각에 대해 조금 더 자세히 살펴보겠습니다.
 
@@ -37,13 +37,13 @@ RLS를 활용하기 위해서는 사용자, 역할 및 규칙이라는 세 가�
 ### <a name="example"></a>예
 이 문서의 나머지 부분에서는 RLS를 작성하는 예를 제공한 후 포함된 응용 프로그램 내에서 이를 사용하는 것을 보여 줍니다. 이 예에서는 [소매 분석 샘플](http://go.microsoft.com/fwlink/?LinkID=780547) PBIX 파일을 사용합니다.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-scenario-2.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-scenario-2.png)
 
 소매 분석 샘플은 특정 소매 체인에 속하는 모든 상점에 대한 판매를 보여 줍니다. RLS가 없다면 어떤 지역 관리자가 로그인하여 보고서를 보든지 동일한 데이터를 보게 됩니다. 고위 경영진은 각 지역 관리자가 자신이 관리하는 상점에 대한 판매만 보도록 결정했으며 이를 위해 RLS를 사용할 수 있습니다.
 
 RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가 열리면 다이어그램 보기로 전환하여 스키마를 볼 수 있습니다.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-diagram-view-3.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-3.png)
 
 이 스키마로 알 수 있는 몇 가지 사항은 다음과 같습니다.
 
@@ -52,34 +52,34 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가
 * 관계선의 화살표는 테이블 간에 필터가 흐를 수 있는 방향을 나타냅니다. 예를 들어, 필터가 **Time[Date]**에 배치되면 현재 스키마에서 **Sales** 테이블의 값만 필터링합니다. 관계선에서 모든 화살표가 sales 테이블만 가리키므로 이 필터에 다른 테이블은 영향을 받지 않습니다.
 * **District** 테이블은 각 지역에 대한 관리자가 누구인지를 나타냅니다.
   
-  ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-district-table-4.png)
+  ![](media/power-bi-embedded-rls/pbi-embedded-rls-district-table-4.png)
 
 이 스키마에 따라 District 테이블의 **District Manager** 열에 필터를 적용하는 경우, 해당 필터가 보고서를 보는 사용자와 일치하는 경우 이 필터는 **Store** 및 **Sales** 테이블을 필터링하여 특정 지역 관리자에 대한 데이터만 보여 줍니다.
 
 방법을 알아보겠습니다.
 
 1. 모델링 탭에서 **역할 관리**를 클릭합니다.  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-modeling-tab-5.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-modeling-tab-5.png)
 2. **관리자**라는 새 역할을 만듭니다.  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-manager-role-6.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-manager-role-6.png)
 3. **District** 테이블에서 다음 DAX 식을 입력합니다. **[District Manager] = USERNAME()**  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-manager-role-7.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-manager-role-7.png)
 4. 규칙이 작동하는지 확인하려면 **모델링** 탭에서 **역할로 보기**를 클릭한 후 다음을 입력합니다.  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-view-as-roles-8.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-view-as-roles-8.png)
    
    이제 보고서는 **Andrew Ma**로 로그인한 것처럼 데이터를 보여 줍니다.
 
 여기서 수행한 방향으로 필터를 적용하면 **District**, **Store** 및 **Sales** 테이블의 모든 레코드가 필터링됩니다. 그러나 **Sales** 및 **Time**, **Sales** 및 **Item** 간의 관계에서 필터 방향으로 인해 **Item** 및 **Time** 테이블은 필터링되지 않습니다.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-diagram-view-9.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-9.png)
 
 이 요구 사항의 경우 문제가 되지 않지만 관리자가 판매 항목이 없는 항목을 보고 싶어하지 않는 경우 관계에 대해 양방향 교차 필터링을 설정할 수 있으며 보안 필터가 두 방향으로 흐를 수 있습니다. 이 작업은 다음과 같이 **Sales** 및 **Item** 간의 관계를 편집하여 수행할 수 있습니다.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-edit-relationship-10.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-edit-relationship-10.png)
 
 이제 필터는 Sales 테이블에서 **Item** 테이블로도 흐를 수 있습니다.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-diagram-view-11.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-11.png)
 
 **참고** 데이터에 대해 DirectQuery 모드를 사용 중인 경우 다음 두 옵션을 선택하여 양방향 교차 필터링을 활성화해야 합니다.
 
@@ -97,11 +97,11 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가
 
 전체 앱 토큰은 다음과 같이 표시됩니다.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-app-token-string-12.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-app-token-string-12.png)
 
 이제 종합해보면 누군가가 이 보고서를 보기 위해 응용 프로그램에 로그인하면 행 수준 보안에 정의된 대로 자신에게 보기가 허용된 데이터만 볼 수 있게 됩니다.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-dashboard-13.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-dashboard-13.png)
 
 ## <a name="see-also"></a>참고 항목
 [Power를 사용하는 RLS(행 수준 보안)](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)

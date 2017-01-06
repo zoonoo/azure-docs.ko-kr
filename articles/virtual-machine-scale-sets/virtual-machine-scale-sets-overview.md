@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 11/15/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d833b7aaab8680d555f6503ec27994134a2519d
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 4a2cd02f6f9b6ac51c32314ce892e572e569eb7c
 
 
 ---
@@ -34,7 +34,7 @@ VM 규모 집합에 대한 자세한 정보는 이러한 비디오를 살펴보�
 ## <a name="creating-and-managing-vm-scale-sets"></a>VM 규모 집합 만들기 및 관리
 *new*를 선택하고 검색 표시줄에 "scale"을 입력하여 [Azure 포털](https://portal.azure.com)에 VM 크기 집합을 만들 수 있습니다. 결과에 "가상 컴퓨터 규모 집합"이 표시됩니다. 여기에서 필수 필드를 입력하여 규모 집합을 사용자 지정하고 배포할 수 있습니다. 
 
-VM 규모 집합은 개별적인 Azure Resource Manager VM과 마찬가지로 JSON 템플릿 및 [REST API](https://msdn.microsoft.com/library/mt589023.aspx) 를 사용하여 정의하고 배포할 수도 있습니다. 따라서 모든 표준 Azure 리소스 관리자 배포 방법을 사용할 수 있습니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하세요.
+VM 규모 집합은 개별적인 Azure Resource Manager VM과 마찬가지로 JSON 템플릿 및 [REST API](https://msdn.microsoft.com/library/mt589023.aspx) 를 사용하여 정의하고 배포할 수도 있습니다. 따라서 모든 표준 Azure 리소스 관리자 배포 방법을 사용할 수 있습니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하세요.
 
 VM 규모 집합에 대한 예제 템플릿의 집합은 [여기](https://github.com/Azure/azure-quickstart-templates) Azure 빠른 시작 템플릿 GitHub 리포지토리에서 찾을 수 있습니다. (제목에서 *vmss*로 템플릿 찾기)
 
@@ -50,9 +50,9 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, *�
 자동으로 크기가 조정되는 규모 집합을 만드는 단계를 살펴보려면 [가상 컴퓨터 규모 집합에서 자동으로 컴퓨터 규모 조정](virtual-machine-scale-sets-windows-autoscale.md)
 
 ## <a name="monitoring-your-vm-scale-set"></a>VM 규모 집합 모니터링
-[Azure 포털](https://portal.azure.com) 은 규모 집합을 표시하고 기본 속성을 제공할 뿐 아니라 집합에 VM 목록을 표시합니다. 자세한 내용은 [Azure Resource Explorer](https://resources.azure.com) 를 사용하여 VM 규모 집합을 보는 것이 좋습니다. VM 규모 집합은 Microsoft.Compute의 리소스이므로 이 사이트에서 다음 링크를 확장하여 VM 규모 집합을 볼 수 있습니다.
+[Azure Portal](https://portal.azure.com)은 크기 집합을 나열하고 기본 속성 및 작업(리소스 사용량 그래프 및 세트 내 VM 나열 등)을 표시합니다. 자세한 내용은 [Azure Resource Explorer](https://resources.azure.com) 를 사용하여 VM 규모 집합을 보는 것이 좋습니다. VM 규모 집합은 Microsoft.Compute의 리소스이므로 이 사이트에서 다음 링크를 확장하여 VM 규모 집합을 볼 수 있습니다.
 
-    subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
+**구독 -> 사용자의 구독 -> resourceGroups -> 공급자 -> Microsoft.Compute -> virtualMachineScaleSets -> 사용자의 VM 크기 집합 -> 등**
 
 ## <a name="vm-scale-set-scenarios"></a>VM 규모 집합 시나리오
 이 섹션에서는 몇 가지 일반적인 VM 규모 집합 시나리오를 나열합니다. 높은 수준의 Azure 서비스(예: 배치, 서비스 패브릭, Azure 컨테이너 서비스)에서 이 시나리오를 사용할 예정입니다.
@@ -71,15 +71,15 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, *�
    RDP 및 Windows에서 동일한 작업을 수행하는 예제가 [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
 * **"jumpbox"를 사용하여 VM에 연결** - 동일한 VNET에 VM 규모 집합과 독립 실행형 VM을 만들면, 독립 실행형 VM과 VM 규모 집합 VM은 VNET/Subnet에 정의된 대로 내부 IP 주소를 사용하여 서로 연결할 수 있습니다. 공용 IP 주소를 만들어서 독립 실행형 VM에 할당하면 독립 실행형 VM에 RDP 또는 SSH를 사용할 수 있고 해당 컴퓨터에서 사용자의 VM 규모 집합 인스턴스로 연결할 수 있습니다. 본질적으로 간단한 VM 규모 집합이 기본 구성에 공용 IP 주소를 포함하는 간단한 독립 실행형 VM보다 더 안전하다는 것을 알 수 있습니다.
   
-   [이러한 방식의 예제에서 이 템플릿은 VM 규모 집합 기반 VM 클러스터를 관리하는 독립 실행형 마스터 VM으로 구성된 간단한 Mesos 클러스터를 만듭니다.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
+   예를 들어 이 템플릿은 독립형 VM을 통해 간단한 크기 집합을 배포합니다. [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox)
 * **VM 규모 집합 인스턴스에 부하 분산** - "라운드 로빈" 방식을 사용하여 VM 계산 클러스터에 작업을 전달하려면, 그에 맞게 Azure Load Balancer에 부하 분산 규칙을 구성합니다. 지정된 프로토콜, 간격, 요청 경로로 포트를 Ping하여 응용 프로그램이 실행되는지 확인하는 프로브를 정의할 수 있습니다. 또한 Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) 는 보다 복잡한 부하 분산 시나리오와 함께 규모 집합을 지원합니다.
   
-   [IIS 웹 서버를 실행하는 VM으로 구성되는 VM 규모 집합을 만들고 부하 분산 장치를 사용하여 각 VM이 수신하는 부하를 분산하는 예제가 있습니다. 또한 각 VM에서 특정 URL을 ping하는 HTTP 프로토콜을 사용합니다.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json)  (Microsoft.Network/loadBalancers 리소스 종류를 살펴보고 virtualMachineScaleSet의 networkProfile 및 extensionProfile을 살펴보세요.)
-* **VM 규모 집합을 PaaS 클러스터 관리자에서 계산 클러스터로 배포** - VM 규모 집합을 차세대 작업자 역할이라고 설명하기도 합니다. 이 설명이 타당하기는 하지만 규모 집합 기능을 PaaS v1 작업자 역할 기능과 혼동할 위험이 있습니다. VM 규모 집합은 플랫폼/런타임 독립적이고, 사용자 지정이 가능하며, Azure 리소스 관리자 IaaS로 통합되는 일반화된 계산 리소스를 제공한다는 점에서 진정한 “작업자 역할” 또는 작업자 리소스를 제공합니다.
+   이것은 Apache 웹 서버를 실행하는 VM Scale Set을 만들고 부하 분산 장치를 사용하여 각 VM이 수신하는 부하를 분산하는 예제입니다. [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl) (Microsoft.Network/loadBalancers 리소스 종류를 살펴보고 virtualMachineScaleSet의 networkProfile 및 extensionProfile을 살펴보세요.)
+* **VM 규모 집합을 PaaS 클러스터 관리자에서 계산 클러스터로 배포** - VM 규모 집합을 차세대 작업자 역할이라고 설명하기도 합니다. 이 설명이 타당하기는 하지만 크기 집합 기능을 PaaS v1 작업자 역할 기능과 혼동할 위험이 있습니다. VM 규모 집합은 플랫폼/런타임 독립적이고, 사용자 지정이 가능하며, Azure 리소스 관리자 IaaS로 통합되는 일반화된 계산 리소스를 제공한다는 점에서 진정한 “작업자 역할” 또는 작업자 리소스를 제공합니다.
   
    PaaS v1 작업자 역할은 플랫폼/런타임 지원(Windows 플랫폼 이미지에 대해서만)에 관해서는 제한되어 있지만 VIP 교환, 구성 가능한 업그레이드 설정, VM 규모 집합에 *아직* 제공되지 않는 또는 서비스 패브릭 같은 다른 높은 수준의 PaaS 서비스에 의해 제공될 예정인 런타임/앱 배포별 설정 같은 서비스를 포함합니다. 이것을 고려하여 VM 규모 집합을 PaaS를 지원하는 인프라의 하나로 주목할 수 있습니다. 즉, 서비스 패브릭 같은 PaaS 솔루션 또는 Mesos 같은 클러스터 관리자는 VM 규모 집합을 기반으로 확장성 있는 계산 계층으로 구축될 수 있습니다.
   
-   [이러한 방식의 예제에서 이 템플릿은 VM 규모 집합 기반 VM 클러스터를 관리하는 독립 실행형 마스터 VM으로 구성된 간단한 Mesos 클러스터를 만듭니다.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) 앞으로 출시할 [Azure 컨테이너 서비스](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) 버전은 VM 규모 집합을 기반으로 더 복잡하고/확정적인 버전의 시나리오를 배포할 예정입니다.
+   이러한 접근 방식의 예로, Azure Container Service는 컨테이너 오케스트레이터를 통해 크기 집합을 기반으로 클러스터를 배포합니다. [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos).
 
 ## <a name="vm-scale-set-performance-and-scale-guidance"></a>VM 규모 집합 성능 및 크기 조정 지침
 * 여러 개의 VM 규모 집합에 VM을 한번에 500개 이상 만들지 마세요.
@@ -100,7 +100,7 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, *�
 
 **Q.**  VM 규모 집합 내에서 데이터 디스크가 지원됩니까?
 
-**A.**  초기 릴리스에서는 지원되지 않습니다. 데이터 저장 옵션은 다음과 같습니다.
+**A.** 초기 릴리스에서는 지원되지 않습니다.(하지만 데이터 디스크를 미리 보기에서 현재 사용할 수 있습니다.) 데이터 저장 옵션은 다음과 같습니다.
 
 * Azure 파일(SMB 공유 드라이브)
 * OS 드라이브
@@ -148,6 +148,6 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, *�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

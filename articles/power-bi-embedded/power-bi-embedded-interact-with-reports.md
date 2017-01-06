@@ -16,8 +16,8 @@ ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 83d997577d3a5854eafd9906bd38d3e703c09f5e
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: 28eddb52c33d9883219f146480b110574f728f89
 
 
 ---
@@ -26,18 +26,18 @@ Power BI JavaScript API를 사용하면 응용 프로그램에 Power BI 보고�
 
 응용 프로그램의 일부로 호스팅되는 iframe을 사용하여 응용 프로그램에 Power BI 보고서를 포함합니다. iframe은 다음 이미지에 표시된 대로 응용 프로그램 및 보고서 간에 경계의 역할을 합니다. 
 
-![Javascript API가 포함되지 않은 Power BI Embedded iframe](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-1.png)
+![Javascript API가 포함되지 않은 Power BI Embedded iframe](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-1.png)
 
 iframe을 통해 포함 프로세스가 훨씬 쉬워지지만 JavaScript API 없이 보고서와 응용 프로그램은 서로 상호 작용할 수 없습니다. 상호 작용이 부족하면 보고서가 실제로 응용 프로그램의 일부가 아닌 것처럼 느낄 수 있습니다. 보고서와 응용 프로그램은 실제로 다음 이미지와 같이 서로 통신해야 합니다.
 
-![Javascript API가 포함된 Power BI Embedded iframe](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-2.png)
+![Javascript API가 포함된 Power BI Embedded iframe](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-2.png)
 
 Power BI JavaScript API를 사용하면 안전하게 iframe 경계를 통과할 수 있는 코드를 작성할 수 있습니다. 이를 통해 응용 프로그램은 프로그래밍 방식으로 보고서에서 작업을 수행하고 보고서 내에서 사용자가 만든 작업으로부터의 이벤트를 수신 대기할 수 있습니다.
 
 ## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>Power BI JavaScript API를 사용하여 할 수 있는 작업은 무엇인가요?
 JavaScript API를 통해 보고서를 관리하고 보고서의 페이지를 탐색하고 보고서를 필터링하고 포함 이벤트를 처리할 수 있습니다. 다음 다이어그램은 API의 구조를 보여 줍니다.
 
-![Power BI JavaScript API 다이어그램](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-3.png)
+![Power BI JavaScript API 다이어그램](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-3.png)
 
 ### <a name="manage-reports"></a>보고서 관리
 Javascript API를 통해 보고서 및 페이지 수준에서 동작을 관리할 수 있습니다.
@@ -139,6 +139,6 @@ Power BI JavaScript API에 대한 자세한 내용은 다음 링크를 확인하
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

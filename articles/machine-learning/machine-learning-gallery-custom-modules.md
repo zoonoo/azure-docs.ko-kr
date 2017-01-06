@@ -39,9 +39,9 @@ Cortana Intelligence 갤러리에는 Azure Machine Learning Studio의 역량을 
 ### <a name="comment-and-share"></a>주석 및 공유
  사용자 지정 모듈을 클릭하여 모듈의 세부 정보 페이지를 열면 모듈이 수행하는 작업과 사용 방법에 대한 내용을 볼 수 있습니다. 이 페이지에서 주석 섹션을 통해 주석을 달거나 피드백을 제공하거나 질문을 할 수 있습니다. LinkedIn 또는 Twitter의 공유 기능을 사용하여 친구나 동료와 그것을 공유할 수 있습니다. 페이지를 보도록 다른 사용자를 초대하기 위해 사용자 지정 모듈의 링크를 메일로 보낼 수도 있습니다.
 
-![이 항목을 친구 들과 공유](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![이 항목을 친구 들과 공유](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![사용자 고유의 설명 추가](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![사용자 고유의 설명 추가](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="download"></a>다운로드
 자신의 실험에 갤러리에 있는 모든 사용자 지정 모듈을 사용할 수 있습니다.
@@ -55,7 +55,7 @@ Cortana Intelligence 갤러리에는 Azure Machine Learning Studio의 역량을 
 1. 새 실험을 만들거나 기존 실험 열기
 2. 실험 캔버스 왼쪽의 모듈 팔레트에서 **사용자 지정**을 클릭하여 작업 영역의 사용자 지정 모듈 목록을 확장합니다.
    
-    ![Studio 팔레트의 사용자 지정 모듈 목록](media\\machine-learning-gallery-custom-modules\\custom-module-in-studio-palette.png)
+    ![Studio 팔레트의 사용자 지정 모듈 목록](media/machine-learning-gallery-custom-modules/custom-module-in-studio-palette.png)
 3. 가져온 모듈을 선택하고 실험으로 끌어옵니다.
 
 ### <a name="from-the-gallery"></a>갤러리에서
@@ -64,7 +64,7 @@ Cortana Intelligence 갤러리에는 Azure Machine Learning Studio의 역량을 
 1. 갤러리에서 모듈의 세부 정보 페이지를 엽니다.
 2. **Studio에서 열기**를 클릭합니다.
    
-    ![갤러리에서 사용자 지정 모듈 열기](media\\machine-learning-gallery-custom-modules\\open-custom-module-from-gallery.png)
+    ![갤러리에서 사용자 지정 모듈 열기](media/machine-learning-gallery-custom-modules/open-custom-module-from-gallery.png)
    
     각 사용자 지정 모듈은 모듈 사용법을 보여주는 샘플 실험을 포함합니다. **Studio에서 열기**를 클릭하면, 샘플 실험이 Machine Learning Studio 작업 영역으로 로드되어 열립니다.(Studio에 로그인되어 있지 않다면 작업 영역으로 실험이 복사되기 전에 Microsoft 계정을 사용하여 로그인하라는 메시지가 표시됩니다.)
 
@@ -77,7 +77,7 @@ Machine Learning Studio에서 작업하는 동안 갤러리에서 동일한 사�
 2. **모듈** 선택 – 갤러리 모듈 목록이 표시되면 그 중에 선택하거나 검색 상자를 사용하여 특정 모듈을 찾을 수 있습니다.
 3. 마우스로 모듈을 가리키고 **모듈 가져오기**를 선택합니다.(모듈에 대한 정보를 보려면 **View in Gallery**(갤러리에서 보기)를 선택합니다. 그러면 갤러리에서 모듈에 대한 세부 정보 페이지가 열립니다.)
    
-    ![Machine Learning Studio로 사용자 지정 모듈 가져오기](media\\machine-learning-gallery-custom-modules\\add-custom-module-in-studio.png)
+    ![Machine Learning Studio로 사용자 지정 모듈 가져오기](media/machine-learning-gallery-custom-modules/add-custom-module-in-studio.png)
 
 사용자 지정 모듈이 작업 영역으로 복사되고 다른 모든 기본 제공 또는 사용자 지정 Studio 모듈과 함께 모듈 팔레트에 배치됩니다. 이제 이 모듈을 작업 영역의 다른 모듈처럼 사용할 수 있습니다.
 

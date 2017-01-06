@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: cd5d47aa012b21a283e3d6482fe0afddcfa14033
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
 
 
 ---
@@ -39,7 +39,7 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 > 
 
 ## <a name="manage-server-level-firewall-rules-through-rest-api"></a>REST API를 통해 서버 수준 방화벽 규칙 관리
-1. 관리 인증된 REST API를 통해 방화벽 규칙 관리하기. 자세한 내용은 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](../resource-manager-api-authentication.md)를 참조하세요.
+1. 관리 인증된 REST API를 통해 방화벽 규칙 관리하기. 자세한 내용은 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](../azure-resource-manager/resource-manager-api-authentication.md)를 참조하세요.
 2. REST API를 사용하여 서버 수준 규칙을 생성, 업데이트, 삭제 할 수 있습니다.
    
     서버 수준 방화벽 규칙을 생성하거나 업데이트 하려면 다음을 사용하여 PUT 메서드를 실행합니다.
@@ -79,7 +79,7 @@ Transact-SQL을 사용하여 서버 수준 및 데이터베이스 수준 방화�
 데이터베이스를 탐색하는 방법을 이해하려면 [데이터베이스 및 로그인 보안 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
-* [데이터베이스 보안 설정](sql-database-security.md)
+* [데이터베이스 보안 설정](sql-database-security-overview.md)
 * [SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스 보안 센터](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
@@ -91,6 +91,6 @@ Transact-SQL을 사용하여 서버 수준 및 데이터베이스 수준 방화�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "C#으로 탄력적 데이터베이스 풀 만들기 | Microsoft Docs"
-description: "C# 데이터베이스 개발 기술을 사용하여 Azure SQL 데이터베이스에 확장성 있는 탄력적 데이터베이스 풀을 만들면 여러 데이터베이스에서 리소스를 공유할 수 있습니다."
+title: "C#으로 탄력적 풀 만들기 | Microsoft Docs"
+description: "C# 데이터베이스 개발 기술을 사용하여 Azure SQL Database에 확장성 있는 탄력적 풀을 만들면 여러 데이터베이스에서 리소스를 공유할 수 있습니다."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,28 +8,28 @@ manager: jhubbard
 editor: 
 ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0e670c1bbc6266d24e089ce460529661dbb99b8d
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 1d92c9a2dfae4a209ea95a33facd4b8e058fd866
 
 
 ---
-# <a name="create-an-elastic-database-pool-with-cx23"></a>C&#x23;을 사용한 탄력적 데이터베이스 풀 만들기
+# <a name="create-an-elastic-pool-with-cx23"></a>C&#x23;로 탄력적 풀 만들기
 > [!div class="op_single_selector"]
-> * [Azure 포털](sql-database-elastic-pool-create-portal.md)
+> * [쉬운 테이블](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 > 
 > 
 
-이 문서에서는 C#을 사용하여 [.NET용 Azure SQL Database 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)로 Azure SQL Elastic Database 풀을 만드는 방법을 설명합니다. 독립 실행형 SQL Database를 만들려면 [C#을 사용하여 .NET용 SQL Database 라이브러리로 SQL Database 만들기](sql-database-get-started-csharp.md)를 참조하세요.
+이 문서에서는 C#을 사용하여 [.NET용 Azure SQL Database 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)로 Azure SQL 탄력적 풀을 만드는 방법을 설명합니다. 독립 실행형 SQL Database를 만들려면 [C#을 사용하여 .NET용 SQL Database 라이브러리로 SQL Database 만들기](sql-database-get-started-csharp.md)를 참조하세요.
 
 .NET용 Azure SQL Database 라이브러리는 [Resource Manager 기반 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 기반 API를 제공합니다.
 
@@ -60,7 +60,7 @@ C#으로 SQL Database를 만들려면 [패키지 관리자 콘솔](http://docs.n
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool---c-example"></a>SQL Elastic Database 풀 만들기 - C# 예제
+## <a name="create-a-sql-elastic-pool---c-example"></a>SQL 탄력적 풀 만들기 - C# 예제
 다음 샘플은 리소스 그룹, 서버, 방화벽 규칙, 탄력적 풀 및 풀의 SQL Database를 만듭니다. `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` 변수를 가져오려면 [리소스에 액세스하는 서비스 주체 만들기](#create-a-service-principal-to-access-resources)를 참조하세요.
 
 **Program.cs** 콘텐츠를 다음으로 바꾸고 `{variables}`를 앱 값(`{}`을 포함하지 않음)으로 업데이트합니다.
@@ -260,7 +260,7 @@ namespace SqlElasticPoolConsoleApp
 
 
 ## <a name="create-a-service-principal-to-access-resources"></a>리소스에 액세스하는 서비스 주체 만들기
-다음 PowerShell 스크립트는 AD(Active Directory) 응용 프로그램 및 C# 앱을 인증해야 하는 서비스 주체를 만듭니다. 스크립트는 이전 C# 샘플에 필요한 값을 출력합니다. 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../resource-group-authenticate-service-principal.md)를 참조하세요.
+다음 PowerShell 스크립트는 AD(Active Directory) 응용 프로그램 및 C# 앱을 인증해야 하는 서비스 주체를 만듭니다. 스크립트는 이전 C# 샘플에 필요한 값을 출력합니다. 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md)를 참조하세요.
 
     # Sign in to Azure.
     Add-AzureRmAccount
@@ -315,6 +315,6 @@ namespace SqlElasticPoolConsoleApp
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

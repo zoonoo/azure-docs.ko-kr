@@ -4,15 +4,15 @@ description: "Log Analytics의 구성 변경 내용 추적 솔루션을 사용�
 services: operations-management-suite
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
-ms.service: operations-management-suite
+ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -90,7 +90,6 @@ ms.openlocfilehash: 56faeccbb25d2f0e3dbe6b104b5e9bc95a06ca36
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics에서 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
-
 
 
 

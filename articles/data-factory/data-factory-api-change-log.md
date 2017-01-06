@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 12/21/2016
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
@@ -163,17 +163,19 @@ ms.openlocfilehash: 01ef15db6e62443a2d34bae8bc133f21f4d874f0
 
 * **List** 메서드는 이제 페이징된 결과를 반환합니다. 응답에 비어 있지 않은 **NextLink** 속성이 포함된 경우 클라이언트 응용 프로그램은 모든 페이지가 반환될 때까지 다음 페이지를 계속 가져와야 합니다.  다음은 예제입니다.
 
-        PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
-        var pipelines = new List<Pipeline>(response.Pipelines);
+    ```csharp
+    PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
+    var pipelines = new List<Pipeline>(response.Pipelines);
 
-        string nextLink = response.NextLink;
-        while (string.IsNullOrEmpty(response.NextLink))
-        {
-            PipelineListResponse nextResponse = client.Pipelines.ListNext(nextLink);
-            pipelines.AddRange(nextResponse.Pipelines);
+    string nextLink = response.NextLink;
+    while (string.IsNullOrEmpty(response.NextLink))
+    {
+        PipelineListResponse nextResponse = client.Pipelines.ListNext(nextLink);
+        pipelines.AddRange(nextResponse.Pipelines);
 
-            nextLink = nextResponse.NextLink;
-        }
+        nextLink = nextResponse.NextLink;
+    }
+    ```
 * **List** 파이프라인 API는 전체 세부 정보 대신 파이프라인의 요약만 반환합니다. 예를 들어 파이프라인 요약의 작업에는 이름과 형식만 포함됩니다.
 
 ### <a name="feature-additions"></a>기능 추가 사항

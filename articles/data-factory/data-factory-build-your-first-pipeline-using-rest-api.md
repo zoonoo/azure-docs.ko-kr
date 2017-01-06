@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
-ms.openlocfilehash: fdfe28f9bf0ab38b19c1b7b7188f484e769558b0
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: 8b085c94078a8e6c4ded95c85443d14637025dc2
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: fdfe28f9bf0ab38b19c1b7b7188f484e769558b0
 ## <a name="prerequisites"></a>필수 조건
 * [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
 * 컴퓨터에 [Curl](https://curl.haxx.se/dlwiz/) 을 설치합니다. REST 명령과 함께 CURL 도구를 사용하여 데이터 팩터리를 만듭니다.
-* [이 문서](../resource-group-create-service-principal-portal.md) 의 지침에 따라 다음 작업을 수행합니다.
+* [이 문서](../azure-resource-manager/resource-group-create-service-principal-portal.md) 의 지침에 따라 다음 작업을 수행합니다.
   1. Azure Active Directory에서 **ADFGetStartedApp** 이라는 웹 응용 프로그램을 만듭니다.
   2. **클라이언트 ID** 및 **암호 키**를 가져옵니다.
   3. **테넌트 ID**를 가져옵니다.
@@ -487,6 +487,6 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "SQL Database 개발 개요 | Microsoft Docs"
+title: "SQL Database 응용 프로그램 개발 개요 | Microsoft 문서"
 description: "사용 가능한 연결 라이브러리 및 SQL 데이터베이스에 연결하는 응용 프로그램에 대한 모범 사례를 알아봅니다."
 services: sql-database
 documentationcenter: 
@@ -8,20 +8,25 @@ manager: jhubbard
 editor: genemi
 ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
 ms.service: sql-database
+ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: df13648c8a76b216f596df49dd3ef617d0b35ccc
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 18dc3cce7451d90b6b65b990b80c05e7f6decb56
 
 
 ---
-# <a name="sql-database-development-overview"></a>SQL 데이터베이스 개발 개요
+# <a name="sql-database-application-development-overview"></a>SQL Database 응용 프로그램 개발 개요
 이 문서는 Azure SQL 데이터베이스에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다.
+
+> [!TIP]
+> 서버 만들기, 서버 기반 방화벽 만들기, 서버 속성 보기, SQL Server Management Studio로 연결, master 데이터베이스 쿼리, 샘플 데이터베이스 및 빈 데이터베이스 만들기, 데이터베이스 속성 쿼리, SQL Server Management Studio로 샘플 데이터베이스 연결 및 쿼리를 수행하는 방법을 보여 주는 자습서에 대해서는 [시작 자습서](sql-database-get-started.md)를 참조하세요.
+>
 
 ## <a name="language-and-platform"></a>언어 및 플랫폼
 다양한 프로그래밍 언어 및 플랫폼에 대한 코드 샘플을 사용할 수 있습니다. 다음에서 코드 샘플에 대한 링크를 찾을 수 있습니다. 
@@ -36,7 +41,7 @@ Azure SQL 데이터베이스는 리소스 관리와 제한 적용이라는 서�
 ## <a name="security"></a>보안
 Azure SQL 데이터베이스는 액세스를 제한하고, 데이터를 보호하고, SQL 데이터베이스의 활동을 모니터링하는 리소스를 제공합니다.
 
-* 추가 정보: [SQL 데이터베이스 보안 설정](sql-database-security.md)
+* 추가 정보: [SQL 데이터베이스 보안 설정](sql-database-security-overview.md)
 
 ## <a name="authentication"></a>인증
 * Azure SQL 데이터베이스는 SQL Server 인증 사용자 및 로그인과 [Azure Active Directory 인증](sql-database-aad-authentication.md) 사용자 및 로그인을 둘 다 지원합니다.
@@ -72,6 +77,6 @@ SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 
