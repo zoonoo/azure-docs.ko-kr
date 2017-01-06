@@ -279,6 +279,7 @@ Azure Data Factory는 Azure 포털 및 Azure PowerShell을 통해 파이프라�
     ```powershell
     Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
     ```
+
 ## <a name="rerun-failures-in-a-pipeline"></a>파이프라인에서 실패한 항목 다시 실행
 ### <a name="using-azure-portal"></a>Azure 포털 사용
 파이프라인에서 실패에 대한 문제를 해결하고 디버그한 후에는 오류 조각으로 이동하고 명령 모음의 **실행** 단추를 클릭하여 실패한 항목을 다시 실행할 수 있습니다.

@@ -38,49 +38,51 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight �
 ## <a name="json-sample"></a>JSON 샘플
 HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(davinci.txt)와 함께 자동으로 채워집니다. 기본적으로 HDInsight 클러스터에 사용되는 컨테이너의 이름은 클러스터 자체의 이름입니다. 예를 들어, 클러스터 이름이 myhdicluster이면 연결된 BLOB 컨테이너의 이름은 myhdicluster가 됩니다. 
 
-    {
-        "name": "HadoopStreamingPipeline",
-        "properties": {
-            "description": "Hadoop Streaming Demo",
-            "activities": [
-                {
-                    "type": "HDInsightStreaming",
-                    "typeProperties": {
-                        "mapper": "cat.exe",
-                        "reducer": "wc.exe",
-                        "input": "wasb://<nameofthecluster>@spestore.blob.core.windows.net/example/data/gutenberg/davinci.txt",
-                        "output": "wasb://<nameofthecluster>@spestore.blob.core.windows.net/example/data/StreamingOutput/wc.txt",
-                        "filePaths": [
-                            "<nameofthecluster>/example/apps/wc.exe",
-                            "<nameofthecluster>/example/apps/cat.exe"
-                        ],
-                        "fileLinkedService": "StorageLinkedService",
-                        "getDebugInfo": "Failure"
-                    },
-                    "outputs": [
-                        {
-                            "name": "StreamingOutputDataset"
-                        }
+```JSON
+{
+    "name": "HadoopStreamingPipeline",
+    "properties": {
+        "description": "Hadoop Streaming Demo",
+        "activities": [
+            {
+                "type": "HDInsightStreaming",
+                "typeProperties": {
+                    "mapper": "cat.exe",
+                    "reducer": "wc.exe",
+                    "input": "wasb://<nameofthecluster>@spestore.blob.core.windows.net/example/data/gutenberg/davinci.txt",
+                    "output": "wasb://<nameofthecluster>@spestore.blob.core.windows.net/example/data/StreamingOutput/wc.txt",
+                    "filePaths": [
+                        "<nameofthecluster>/example/apps/wc.exe",
+                        "<nameofthecluster>/example/apps/cat.exe"
                     ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1,
-                        "executionPriorityOrder": "NewestFirst",
-                        "retry": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Day",
-                        "interval": 1
-                    },
-                    "name": "RunHadoopStreamingJob",
-                    "description": "Run a Hadoop streaming job",
-                    "linkedServiceName": "HDInsightLinkedService"
-                }
-            ],
-            "start": "2014-01-04T00:00:00Z",
-            "end": "2014-01-05T00:00:00Z"
-        }
+                    "fileLinkedService": "StorageLinkedService",
+                    "getDebugInfo": "Failure"
+                },
+                "outputs": [
+                    {
+                        "name": "StreamingOutputDataset"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 1
+                },
+                "scheduler": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "name": "RunHadoopStreamingJob",
+                "description": "Run a Hadoop streaming job",
+                "linkedServiceName": "HDInsightLinkedService"
+            }
+        ],
+        "start": "2014-01-04T00:00:00Z",
+        "end": "2014-01-05T00:00:00Z"
     }
+}
+```
 
 다음 사항에 유의하세요.
 
@@ -107,104 +109,111 @@ HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(
 #### <a name="azure-storage-linked-service"></a>Azure 저장소 연결된 서비스
 우선 Azure HDInsight 클러스터에서 사용되는 Azure 저장소를 Azure 데이터 팩터리에 연결하도록 연결된 서비스를 생성합니다. 다음 코드를 복사하여 붙여넣는 경우, 잊지 말고 계정 이름과 계정 키를 사용자의 Azure 저장소의 이름과 키로 바꿉니다. 
 
-    {
-        "name": "StorageLinkedService",
-        "properties": {
-            "type": "AzureStorage",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>"
-            }
+```JSON
+{
+    "name": "StorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>"
         }
     }
+}
+```
 
 #### <a name="azure-hdinsight-linked-service"></a>Azure HDInsight 연결된 서비스
 다음으로, Azure HDInsight 클러스터를 Azure 데이터 팩터리에 연결하도록 연결된 서비스를 만듭니다. 다음 코드를 복사하여 붙여넣는 경우, HDInsight 클러스터 이름을 사용자의 HDInsight 클러스터 이름으로 바꾸고 사용자 이름과 암호 값을 변경합니다. 
 
-    {
-        "name": "HDInsightLinkedService",
-        "properties": {
-            "type": "HDInsight",
-            "typeProperties": {
-                "clusterUri": "https://<HDInsight cluster name>.azurehdinsight.net",
-                "userName": "admin",
-                "password": "**********",
-                "linkedServiceName": "StorageLinkedService"
-            }
+```JSON
+{
+    "name": "HDInsightLinkedService",
+    "properties": {
+        "type": "HDInsight",
+        "typeProperties": {
+            "clusterUri": "https://<HDInsight cluster name>.azurehdinsight.net",
+            "userName": "admin",
+            "password": "**********",
+            "linkedServiceName": "StorageLinkedService"
         }
     }
+}
+```
 
 ### <a name="datasets"></a>데이터 집합
 #### <a name="output-dataset"></a>출력 데이터 집합
 이 예제의 파이프라인은 input을 포함하지 않습니다. HDInsight 스트리밍 작업에 대한 출력 데이터 집합을 지정합니다. 이 데이터 집합은 파이프라인 일정을 진행하는데 필요한 더미 데이터 집합입니다. 
 
-    {
-        "name": "StreamingOutputDataset",
-        "properties": {
-            "published": false,
-            "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
-            "typeProperties": {
-                "folderPath": "adftutorial/streamingdata/",
-                "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                },
+```JSON
+{
+    "name": "StreamingOutputDataset",
+    "properties": {
+        "published": false,
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+            "folderPath": "adftutorial/streamingdata/",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
             },
-            "availability": {
-                "frequency": "Day",
-                "interval": 1
-            }
+        },
+        "availability": {
+            "frequency": "Day",
+            "interval": 1
         }
     }
+}
+```
 
 ### <a name="pipeline"></a>파이프라인
 이 예제의 파이프라인은 **HDInsightStreaming**형식의 작업을 하나만 포함합니다. 
 
 HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(davinci.txt)와 함께 자동으로 채워집니다. 기본적으로 HDInsight 클러스터에 사용되는 컨테이너의 이름은 클러스터 자체의 이름입니다. 예를 들어, 클러스터 이름이 myhdicluster이면 연결된 BLOB 컨테이너의 이름은 myhdicluster가 됩니다.  
 
-    {
-        "name": "HadoopStreamingPipeline",
-        "properties": {
-            "description": "Hadoop Streaming Demo",
-            "activities": [
-                {
-                    "type": "HDInsightStreaming",
-                    "typeProperties": {
-                        "mapper": "cat.exe",
-                        "reducer": "wc.exe",
-                        "input": "wasb://<blobcontainer>@spestore.blob.core.windows.net/example/data/gutenberg/davinci.txt",
-                        "output": "wasb://<blobcontainer>@spestore.blob.core.windows.net/example/data/StreamingOutput/wc.txt",
-                        "filePaths": [
-                            "<blobcontainer>/example/apps/wc.exe",
-                            "<blobcontainer>/example/apps/cat.exe"
-                        ],
-                        "fileLinkedService": "StorageLinkedService"
-                    },
-                    "outputs": [
-                        {
-                            "name": "StreamingOutputDataset"
-                        }
+```JSON
+{
+    "name": "HadoopStreamingPipeline",
+    "properties": {
+        "description": "Hadoop Streaming Demo",
+        "activities": [
+            {
+                "type": "HDInsightStreaming",
+                "typeProperties": {
+                    "mapper": "cat.exe",
+                    "reducer": "wc.exe",
+                    "input": "wasb://<blobcontainer>@spestore.blob.core.windows.net/example/data/gutenberg/davinci.txt",
+                    "output": "wasb://<blobcontainer>@spestore.blob.core.windows.net/example/data/StreamingOutput/wc.txt",
+                    "filePaths": [
+                        "<blobcontainer>/example/apps/wc.exe",
+                        "<blobcontainer>/example/apps/cat.exe"
                     ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1,
-                        "executionPriorityOrder": "NewestFirst",
-                        "retry": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Day",
-                        "interval": 1
-                    },
-                    "name": "RunHadoopStreamingJob",
-                    "description": "Run a Hadoop streaming job",
-                    "linkedServiceName": "HDInsightLinkedService"
-                }
-            ],
-            "start": "2014-01-04T00:00:00Z",
-            "end": "2014-01-05T00:00:00Z"
-        }
+                    "fileLinkedService": "StorageLinkedService"
+                },
+                "outputs": [
+                    {
+                        "name": "StreamingOutputDataset"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 1
+                },
+                "scheduler": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "name": "RunHadoopStreamingJob",
+                "description": "Run a Hadoop streaming job",
+                "linkedServiceName": "HDInsightLinkedService"
+            }
+        ],
+        "start": "2017-01-03T00:00:00Z",
+        "end": "2017-01-04T00:00:00Z"
     }
-
+}
+```
 ## <a name="see-also"></a>참고 항목
 * [Hive 작업](data-factory-hive-activity.md)
 * [Pig 작업](data-factory-pig-activity.md)
