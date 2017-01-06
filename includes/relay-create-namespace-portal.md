@@ -25,7 +25,7 @@
 [connection-string]: ./media/relay-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[쉬운 테이블]: https://portal.azure.com
+[Azure 포털]: https://portal.azure.com
 
 
 <!--HONumber=Nov16_HO2-->
