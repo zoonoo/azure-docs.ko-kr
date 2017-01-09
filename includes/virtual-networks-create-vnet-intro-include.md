@@ -2,6 +2,6 @@ Azure 가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 나
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
