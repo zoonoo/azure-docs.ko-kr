@@ -16,6 +16,6 @@ UltraPerformance 게이트웨이 SKU는 이 테이블에 표시되지 않습니�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

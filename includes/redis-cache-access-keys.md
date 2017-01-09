@@ -14,6 +14,6 @@ Azure Redis Cache 인스턴스에 연결하려면 캐시 클라이언트에는 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

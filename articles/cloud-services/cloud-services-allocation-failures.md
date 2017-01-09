@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 1/6/2017
 ms.author: v-six
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -27,7 +27,7 @@ ms.openlocfilehash: c91a34eb34a73abe5c5ac2bb6aeb08c818a97856
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-### <a name="background-how-allocation-works"></a>배경 – 할당의 작동 원리
+### <a name="background--how-allocation-works"></a>배경 – 할당의 작동 원리
 Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. 여러 클러스터에서 새 클라우드 서비스 할당 요청을 시도합니다. 첫 번째 인스턴스가 클라우드 서비스(스테이징 또는 프로덕션)에 배포되면 해당 클라우드 서비스가 클러스터에 고정됩니다. 이후 클라우드 서비스에 대한 모든 추가 배포는 동일한 클러스터에서 발생합니다. 이 문서에서는 이것을 “클러스터에 고정된”이라고 하겠습니다. 아래 다이어그램 1은 여러 클러스터에 시도되는 정상적인 할당의 사례를 보여 줍니다. 다이어그램 2는 클라우드 서비스 CS_1이 호스트되는 클러스터 2에 고정된 할당의 사례를 보여 줍니다.
 
 ![할당 다이어그램](./media/cloud-services-allocation-failure/Allocation1.png)
@@ -53,25 +53,24 @@ Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. �
 
 ## <a name="solutions"></a>솔루션
 1. 새 클라우드 서비스에 다시 배포 - 이 솔루션은 플랫폼이 해당 영역의 모든 클러스터에서 선택할 수 있으므로 가장 성공률이 높습니다.
-   
+
    * 새 클라우드 서비스에 작업을 배포합니다.  
    * 새 클라우드 서비스로의 트래픽을 가리키도록 CNAME 또는 A 레코드를 업데이트합니다.
    * 제로(0) 트래픽이 이전 사이트로 이동하면 이전 클라우드 서비스를 삭제할 수 있습니다. 이 솔루션은 가동 중지 시간 없이 발생합니다.
 2. 프로덕션 및 스테이징 슬롯 삭제 - 이 솔루션은 기존 DNS 이름을 유지하지만 응용 프로그램 가동 중지 시간이 발생합니다.
-   
+
    * 기존 클라우드 서비스의 프로덕션 및 스테이징 슬롯을 삭제하여 클라우드 서비스를 비웁니다.
    * 기존 클라우드 서비스에서 새 배포를 만듭니다. 영역의 모든 클러스터에서 할당이 다시 시도됩니다. 클라우드 서비스가 선호도 그룹에 연결되지 않았는지 확인합니다.
 3. 예약된 IP - 이 솔루션은 기존 IP 주소를 유지하지만 응용 프로그램 가동 중지 시간이 발생합니다.  
-   
+
    * Powershell을 사용하여 기존 배포에 대한 ReservedIP 만들기
-     
+
      ```
      New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
      ```
    * 위의 #2에 따라 서비스의 CSCFG에 새 ReservedIP를 지정해야 합니다.
 4. 새 배포에 대한 선호도 그룹 제거 - 선호도 그룹은 더 이상 권장되지 않습니다. 위의 #1에 따라 새 클라우드 서비스를 배포합니다. 클라우드 서비스가 선호도 그룹에 없는지 확인합니다.
 5. 지역 가상 네트워크로 변환 - [선호도 그룹에서 지역 VNet(가상 네트워크)으로 마이그레이션하는 방법](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)을 참조하세요.
-
 
 
 

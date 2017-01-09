@@ -85,13 +85,9 @@ SMTP에는 다음 작업이 포함됩니다.
 
 | 속성 이름 | 표시 이름 | 설명 |
 | --- | --- | --- |
-| 받는 사람
- |받는 사람
- |recipient1@domain.com;recipient2@domain.com처럼 세미콜론(;)으로 구분된 전자 메일 주소를 지정합니다. |
+| 받는 사람 |받는 사람 |recipient1@domain.com;recipient2@domain.com처럼 세미콜론(;)으로 구분된 전자 메일 주소를 지정합니다. |
 | CC |cc |recipient1@domain.com;recipient2@domain.com처럼 세미콜론(;)으로 구분된 전자 메일 주소를 지정합니다. |
-| 제목
- |제목
- |전자 메일 제목 |
+| 제목 |제목 |전자 메일 제목 |
 | 본문 |body |전자 메일 본문 |
 | 원본 |원본 |낸 사람의 전자 메일 주소(예: sender@domain.com) |
 | IsHtml |Is Html |HTML로 전자 메일 보내기(true/false) |
