@@ -14,7 +14,7 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 
 
 네임스페이스를 만들려면
 
-1. [Azure 포털][Azure 포털]에 로그인합니다.
+1. [Azure Portal][Azure portal]에 로그인합니다.
 2. 포털의 왼쪽 탐색 창에서 **새로 만들기**, **엔터프라이즈 통합** 및 **Service Bus**를 차례로 클릭합니다.
 3. **네임스페이스 만들기** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
 4. 네임스페이스 이름을 사용할 수 있게 설정한 후 가격 책정 계층(기본, 표준 또는 프리미엄)을 선택합니다.
@@ -35,7 +35,7 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 
    
     ![connection-string][connection-string]
 
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
 [connection-info]: ./media/howto-service-bus-topics/connection-info.png
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
@@ -43,6 +43,6 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
