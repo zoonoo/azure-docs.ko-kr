@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -157,7 +157,6 @@ Azure RMS 도입 계획을 세울 때 다음 사항을 권장합니다.
 [데이터 분류](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) 및 파일 보호에 약한 조직은 데이터 유출에 좀 더 취약할 수 있습니다. 적절한 파일 보호 수단이 없는 조직은 비즈니스 통찰력을 얻고, 데이터 남용을 모니터링하고, 악의적인 파일 액세스를 방지할 수 없습니다.
 
 Azure RMS에 대한 자세한 내용은 [Azure Rights Management 시작](https://technet.microsoft.com/library/jj585016.aspx) 문서를 참조하세요.
-
 
 
 
