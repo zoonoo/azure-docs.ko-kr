@@ -1,10 +1,18 @@
 ## <a name="specifying-formats"></a>형식 지정
+Azure Data Factory는 다음과 같은 서식 유형을 지원합니다. 
+
+* [텍스트 형식](#specifying-textformat)
+* [JSON 형식](#specifying-jsonformat)
+* [Avro 형식](#specifying-avroformat)
+* [ORC 형식](#specifying-orcformat)
+* [Parquet 형식](#specifying-parquetformat)
+
 ### <a name="specifying-textformat"></a>TextFormat 지정
 형식이 **TextFormat**으로 설정된 경우 **형식** 섹션에서 다음과 같은 **선택적** 속성을 지정할 수 있습니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| columnDelimiter |파일의 열을 구분하는 데 사용되는 문자입니다. |문자는 하나만 사용할 수 있습니다. 기본값은 쉼표(',')입니다. |아니요 |
+| columnDelimiter |파일의 열을 구분하는 데 사용되는 문자입니다. |문자는 하나만 사용할 수 있습니다. 기본값은 쉼표(',')입니다. <br/><br/>유니코드 문자를 사용하려면 [유니코드 문자](https://en.wikipedia.org/wiki/List_of_Unicode_characters)를 참조하여 해당하는 코드를 가져옵니다. 예를 들어 데이터에 존재할 가능성이 없는 희귀한 인쇄 불가능 문자를 사용하는 방법을 고려할 수 있습니다. 제목 시작(SOH)을 나타내는 "\u0001"을 지정합니다. |아니요 |
 | rowDelimiter |파일의 행을 구분하는 데 사용되는 문자입니다. |문자는 하나만 사용할 수 있습니다. 기본값은 읽기의 경우 ["\r\n", "\r", "\n"] 중 하나이고 쓰기의 경우 "\r\n"입니다. |아니요 |
 | escapeChar |입력 파일 내용에서 열 구분 기호를 이스케이프 처리하는 데 사용되는 특수 문자입니다. <br/><br/>한 테이블에 대해 escapeChar 및 quoteChar을 둘 다 지정할 수는 없습니다. |문자는 하나만 사용할 수 있습니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 "Hello, world"와 같이 쉼표 문자를 포함하려는 경우에는 이스케이프 문자로 '$'를 정의하고 원본에서 "Hello$, world" 문자열을 사용하면 됩니다. |아니요 |
 | quoteChar |문자열 값을 인용하는 데 사용하는 문자입니다. 인용 문자 안의 열 및 행 구분 기호는 문자열 값의 일부분으로 처리됩니다. 이 속성은 입력 데이터 집합과 출력 데이터 집합에 모두 적용됩니다.<br/><br/>한 테이블에 대해 escapeChar 및 quoteChar을 둘 다 지정할 수는 없습니다. |문자는 하나만 사용할 수 있습니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 <Hello, world>와 같이 쉼표 문자를 포함하려는 경우에는 인용 문자로 "(큰따옴표)를 정의하고 원본에서 "Hello, world" 문자열을 사용하면 됩니다. |아니요 |
@@ -17,27 +25,30 @@
 #### <a name="textformat-example"></a>TextFormat 예제
 다음 예제는 TextFormat에 대한 서식 속성 중 일부를 보여줍니다.
 
-    "typeProperties":
+```json
+"typeProperties":
+{
+    "folderPath": "mycontainer/myfolder",
+    "fileName": "myblobname",
+    "format":
     {
-        "folderPath": "mycontainer/myfolder",
-        "fileName": "myblobname"
-        "format":
-        {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "rowDelimiter": ";",
-            "quoteChar": "\"",
-            "NullValue": "NaN"
-            "firstRowAsHeader": true,
-            "skipLineCount": 0,
-            "treatEmptyAsNull": true
-        }
-    },
+        "type": "TextFormat",
+        "columnDelimiter": ",",
+        "rowDelimiter": ";",
+        "quoteChar": "\"",
+        "NullValue": "NaN",
+        "firstRowAsHeader": true,
+        "skipLineCount": 0,
+        "treatEmptyAsNull": true
+    }
+},
+```
 
 quoteChar 대신 escapeChar를 사용하려면 quoteChar가 있는 해당 줄을 다음 escapeChar로 바꿉니다.
 
-    "escapeChar": "$",
-
+```json
+"escapeChar": "$",
+```
 
 
 ### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>FirstRowAsHeader 및 skipLineCount 사용 시나리오
@@ -48,14 +59,22 @@ quoteChar 대신 escapeChar를 사용하려면 quoteChar가 있는 해당 줄을
 ### <a name="specifying-avroformat"></a>AvroFormat 지정
 서식이 AvroFormat으로 설정된 경우 typeProperties 섹션 내의 서식 섹션에서 속성을 지정할 필요가 없습니다. 예제:
 
-    "format":
-    {
-        "type": "AvroFormat",
-    }
+```json
+"format":
+{
+    "type": "AvroFormat",
+}
+```
 
 Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자습서](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)를 참조하세요.
 
+다음 사항에 유의하세요.  
+
+* [복합 데이터 형식](http://avro.apache.org/docs/current/spec.html#schema_complex)은 지원되지 않습니다(레코드, 열거형, 배열, 맵, 공용 구조체 및 고정).
+
 ### <a name="specifying-jsonformat"></a>JsonFormat 지정
+DocumentDB에서/로 JSON 파일을 그대로 가져오려면/내보내려면 DocumentDB 커넥터의 [JSON 문서 가져오기/내보내기](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) 섹션에서 세부 정보를 참조하세요.
+
 형식이 **JsonFormat**으로 설정된 경우 **형식** 섹션에서 다음과 같은 **선택적** 속성을 지정할 수 있습니다.
 
 | 속성 | 설명 | 필수 |
@@ -69,25 +88,61 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 **단일 개체** 
 
-    {
-        "time": "2015-04-29T07:12:20.9100000Z",
-        "callingimsi": "466920403025604",
-        "callingnum1": "678948008",
-        "callingnum2": "567834760",
-        "switch1": "China",
-        "switch2": "Germany"
-    }
+```json
+{
+    "time": "2015-04-29T07:12:20.9100000Z",
+    "callingimsi": "466920403025604",
+    "callingnum1": "678948008",
+    "callingnum2": "567834760",
+    "switch1": "China",
+    "switch2": "Germany"
+}
+```
 
 **줄로 구분된 JSON** 
 
+```json
     {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
     {"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
     {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
     {"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"789037573","callingnum2":"789044691","switch1":"UK","switch2":"Australia"}
     {"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789044691","switch1":"US","switch2":"Australia"}
+```
 
 **연결된 JSON**
 
+```json
+{
+    "time": "2015-04-29T07:12:20.9100000Z",
+    "callingimsi": "466920403025604",
+    "callingnum1": "678948008",
+    "callingnum2": "567834760",
+    "switch1": "China",
+    "switch2": "Germany"
+}
+{
+    "time": "2015-04-29T07:13:21.0220000Z",
+    "callingimsi": "466922202613463",
+    "callingnum1": "123436380",
+    "callingnum2": "789037573",
+    "switch1": "US",
+    "switch2": "UK"
+}
+{
+    "time": "2015-04-29T07:13:21.4370000Z",
+    "callingimsi": "466923101048691",
+    "callingnum1": "678901578",
+    "callingnum2": "345626404",
+    "switch1": "Germany",
+    "switch2": "UK"
+}
+```
+
+#### <a name="arrayofobjects-file-pattern"></a>arrayOfObjects 파일 패턴
+각 파일에 개체 배열이 포함됩니다. 
+
+```json
+[
     {
         "time": "2015-04-29T07:12:20.9100000Z",
         "callingimsi": "466920403025604",
@@ -95,7 +150,7 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
         "callingnum2": "567834760",
         "switch1": "China",
         "switch2": "Germany"
-    }
+    },
     {
         "time": "2015-04-29T07:13:21.0220000Z",
         "callingimsi": "466922202613463",
@@ -103,7 +158,7 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
         "callingnum2": "789037573",
         "switch1": "US",
         "switch2": "UK"
-    }
+    },
     {
         "time": "2015-04-29T07:13:21.4370000Z",
         "callingimsi": "466923101048691",
@@ -111,83 +166,54 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
         "callingnum2": "345626404",
         "switch1": "Germany",
         "switch2": "UK"
+    },
+    {
+        "time": "2015-04-29T07:13:22.0960000Z",
+        "callingimsi": "466922202613463",
+        "callingnum1": "789037573",
+        "callingnum2": "789044691",
+        "switch1": "UK",
+        "switch2": "Australia"
+    },
+    {
+        "time": "2015-04-29T07:13:22.0960000Z",
+        "callingimsi": "466922202613463",
+        "callingnum1": "123436380",
+        "callingnum2": "789044691",
+        "switch1": "US",
+        "switch2": "Australia"
+    },
+    {
+        "time": "2015-04-29T07:13:24.2120000Z",
+        "callingimsi": "466922201102759",
+        "callingnum1": "345698602",
+        "callingnum2": "789097900",
+        "switch1": "UK",
+        "switch2": "Australia"
+    },
+    {
+        "time": "2015-04-29T07:13:25.6320000Z",
+        "callingimsi": "466923300236137",
+        "callingnum1": "567850552",
+        "callingnum2": "789086133",
+        "switch1": "China",
+        "switch2": "Germany"
     }
-
-
-#### <a name="arrayofobjects-file-pattern."></a>arrayOfObjects 파일 패턴
-각 파일에 개체 배열이 포함됩니다. 
-
-    [
-        {
-            "time": "2015-04-29T07:12:20.9100000Z",
-            "callingimsi": "466920403025604",
-            "callingnum1": "678948008",
-            "callingnum2": "567834760",
-            "switch1": "China",
-            "switch2": "Germany"
-        },
-        {
-            "time": "2015-04-29T07:13:21.0220000Z",
-            "callingimsi": "466922202613463",
-            "callingnum1": "123436380",
-            "callingnum2": "789037573",
-            "switch1": "US",
-            "switch2": "UK"
-        },
-        {
-            "time": "2015-04-29T07:13:21.4370000Z",
-            "callingimsi": "466923101048691",
-            "callingnum1": "678901578",
-            "callingnum2": "345626404",
-            "switch1": "Germany",
-            "switch2": "UK"
-        },
-        {
-            "time": "2015-04-29T07:13:22.0960000Z",
-            "callingimsi": "466922202613463",
-            "callingnum1": "789037573",
-            "callingnum2": "789044691",
-            "switch1": "UK",
-            "switch2": "Australia"
-        },
-        {
-            "time": "2015-04-29T07:13:22.0960000Z",
-            "callingimsi": "466922202613463",
-            "callingnum1": "123436380",
-            "callingnum2": "789044691",
-            "switch1": "US",
-            "switch2": "Australia"
-        },
-        {
-            "time": "2015-04-29T07:13:24.2120000Z",
-            "callingimsi": "466922201102759",
-            "callingnum1": "345698602",
-            "callingnum2": "789097900",
-            "switch1": "UK",
-            "switch2": "Australia"
-        },
-        {
-            "time": "2015-04-29T07:13:25.6320000Z",
-            "callingimsi": "466923300236137",
-            "callingnum1": "567850552",
-            "callingnum2": "789086133",
-            "switch1": "China",
-            "switch2": "Germany"
-        }
-    ]
-
+]
+```
 ### <a name="jsonformat-example"></a>JsonFormat 예제
 다음 내용을 포함하는 JSON 파일이 있고  
 
-    {
-        "Id": 1,
-        "Name": {
-            "First": "John",
-            "Last": "Doe"
-        },
-        "Tags": ["Data Factory”, "Azure"]
-    }
-
+```json
+{
+    "Id": 1,
+    "Name": {
+        "First": "John",
+        "Last": "Doe"
+    },
+    "Tags": ["Data Factory”, "Azure"]
+}
+```
 이 내용을 다음 형식으로 Azure SQL 테이블에 복사하려는 경우 
 
 | Id | Name.First | Name.Middle | Name.Last | 태그 |
@@ -196,27 +222,28 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 JsonFormat 형식의 입력 데이터 집합은 다음과 같이 정의됩니다(관련 부분만 있는 부분 정의).
 
-    "properties": {
-        "structure": [
-            {"name": "Id", "type": "Int"},
-            {"name": "Name.First", "type": "String"},
-            {"name": "Name.Middle", "type": "String"},
-            {"name": "Name.Last", "type": "String"},
-            {"name": "Tags", "type": "string"}
-        ],
-        "typeProperties":
+```json
+"properties": {
+    "structure": [
+        {"name": "Id", "type": "Int"},
+        {"name": "Name.First", "type": "String"},
+        {"name": "Name.Middle", "type": "String"},
+        {"name": "Name.Last", "type": "String"},
+        {"name": "Tags", "type": "string"}
+    ],
+    "typeProperties":
+    {
+        "folderPath": "mycontainer/myfolder",
+        "format":
         {
-            "folderPath": "mycontainer/myfolder",
-            "format":
-            {
-                "type": "JsonFormat",
-                "filePattern": "setOfObjects",
-                "encodingName": "UTF-8",
-                "nestingSeparator": "."
-            }
+            "type": "JsonFormat",
+            "filePattern": "setOfObjects",
+            "encodingName": "UTF-8",
+            "nestingSeparator": "."
         }
     }
-
+}
+```
 구조를 정의하지 않는 경우 복사 작업이 진행되면서 기본적으로 구조가 평면화된 후 모든 내용이 복사됩니다. 
 
 #### <a name="supported-json-structure"></a>지원되는 JSON 구조
@@ -231,10 +258,12 @@ JsonFormat 형식의 입력 데이터 집합은 다음과 같이 정의됩니다
 ### <a name="specifying-orcformat"></a>OrcFormat 지정
 서식이 OrcFormat으로 설정된 경우 typeProperties 섹션 내의 서식 섹션에서 속성을 지정할 필요가 없습니다. 예제:
 
-    "format":
-    {
-        "type": "OrcFormat"
-    }
+```json
+"format":
+{
+    "type": "OrcFormat"
+}
+```
 
 > [!IMPORTANT]
 > 온-프레미스 및 클라우드 데이터 저장소 간에 ORC 파일을 **있는 그대로** 복사하지 않는 경우에는 게이트웨이 컴퓨터에 JRE 8(Java Runtime Environment)을 설치해야 합니다. 64비트 게이트웨이에는 64비트 JRE가 필요하고 32비트 게이트웨이에는 32비트 JRE가 필요합니다. [여기서](http://go.microsoft.com/fwlink/?LinkId=808605)두 버전이 모두 제공됩니다. 적합한 버전을 선택하세요.
@@ -249,11 +278,12 @@ JsonFormat 형식의 입력 데이터 집합은 다음과 같이 정의됩니다
 ### <a name="specifying-parquetformat"></a>ParquetFormat 지정
 서식이 ParquetFormat으로 설정된 경우 typeProperties 섹션 내의 서식 섹션에서 속성을 지정할 필요가 없습니다. 예제:
 
-    "format":
-    {
-        "type": "ParquetFormat"
-    }
-
+```json
+"format":
+{
+    "type": "ParquetFormat"
+}
+```
 > [!IMPORTANT]
 > 온-프레미스 및 클라우드 데이터 저장소 간에 Parquet 파일을 **있는 그대로** 복사하지 않는 경우에는 게이트웨이 컴퓨터에 JRE 8(Java Runtime Environment)을 설치해야 합니다. 64비트 게이트웨이에는 64비트 JRE가 필요하고 32비트 게이트웨이에는 32비트 JRE가 필요합니다. [여기서](http://go.microsoft.com/fwlink/?LinkId=808605)두 버전이 모두 제공됩니다. 적합한 버전을 선택하세요.
 > 
@@ -264,6 +294,8 @@ JsonFormat 형식의 입력 데이터 집합은 다음과 같이 정의됩니다
 * 복합 데이터 형식(MAP, LIST)은 지원되지 않습니다.
 * Parquet 파일에는 압축 관련 옵션인 NONE, SNAPPY, GZIP 및 LZO가 포함되어 있습니다. Data Factory에서는 이러한 압축 형식으로 된 데이터를 ORC 파일에서 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 Parquet 파일에 쓸 때 Data Factory는 Parquet 서식에 대한 기본값인 SNAPPY를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 
