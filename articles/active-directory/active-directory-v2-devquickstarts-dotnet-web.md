@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
@@ -44,7 +44,7 @@ v2.0 끝점을 사용하면 개인 Microsoft 계정과 회사 또는 학교 계�
 * 앱에 대한 **웹** 플랫폼을 추가합니다.
 * 올바른 **리디렉션 URI**를 입력합니다. 리디렉션 URI는 인증 응답을 보내야 하는 Azure AD를 나타냅니다. 이 자습서에 대한 기본값은 `https://localhost:44326/`입니다.
 
-## <a name="install-configure-owin-authentication"></a>OWIN 인증 설치 및 구성
+## <a name="install--configure-owin-authentication"></a>OWIN 인증 설치 및 구성
 여기서는 OpenID Connect 인증 프로토콜을 사용하도록 OWIN 미들웨어를 구성합니다.  OWIN은 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
 * 먼저 프로젝트의 루트에서 `web.config` 파일을 열고 `<appSettings>` 섹션에 앱의 구성 값을 입력합니다.

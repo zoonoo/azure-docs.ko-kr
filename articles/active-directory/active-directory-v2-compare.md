@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
@@ -113,7 +113,7 @@ v2.0 끝점에는 앱에 대해 잘 알려진 새 권한( `offline_access` 범�
 
 OAuth 2.0, refresh_token 및 access_token에 대한 자세한 내용은[v2.0 프로토콜 참조](active-directory-v2-protocols.md)를 확인하세요.
 
-#### <a name="openid-profile-email"></a>OpenID, 프로필 및 전자 메일
+#### <a name="openid-profile--email"></a>OpenID, 프로필 및 전자 메일
 원래의 Azure Active Directory 서비스에서 가장 기본적인 OpenID Connect 로그인 흐름은 결과 id_token의 사용자에 대해 다양한 정보를 제공합니다.  id_token의 클레임에는 사용자의 이름, 기본 설정된 사용자 이름, 전자 메일 주소, 개체 ID 등이 있습니다.
 
 이제 `openid` 범위가 허용하는 앱의 액세스 정보를 제한할 것입니다.  ‘openid’ 범위는 앱이 사용자를 로그인시키고 해당 사용자에 대한 앱별 식별자만 수신할 수 있게 합니다.  앱에 있는 사용자의 개인 식별 정보(PII)를 가져오려면 앱은 사용자로부터 추가 권한을 요청해야 합니다.  이를 수행할 수 있는 두 가지의 새로운 범위, 즉 `email` 및 `profile` 범위를 도입할 것입니다.

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -20,7 +20,7 @@ ms.openlocfilehash: e98ec55dbe5ff0411af124b45bd7ef6177aa957e
 
 
 ---
-# <a name="sign-in-microsoft-account-azure-ad-users-in-a-single-app"></a>단일 앱에서 Microsoft 계정 및 Azure AD 사용자 로그인
+# <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>단일 앱에서 Microsoft 계정 및 Azure AD 사용자 로그인
 과거에 Microsoft 계정과 Azure Active Directory를 지원하려는 앱 개발자는 별도의 두 시스템을 통합해야 했습니다.  지금까지 Azure AD 시스템을 사용하여 두 가지 유형의 계정을 모두 사용하여 사용자가 로그인할 수 있게 해주는 새 인증 API 버전을 살펴보았습니다.  이 수렴된 인증 시스템을 **v2.0 끝점**이라고 합니다.  v2.0 끝점을 사용하면 간단한 통합을 사용하여 개인 및 작업/학교 계정으로 범위가 수 백만 명의 사용자인 대상에 도달할 수 있습니다.
 
 또한 v2.0 끝점을 사용하는 앱은 두 가지 계정 유형 중 하나 이상을 사용하여 [Microsoft Graph](https://graph.microsoft.io) 및 [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)에서 REST API를 사용할 수 있습니다.
@@ -59,6 +59,6 @@ ms.openlocfilehash: e98ec55dbe5ff0411af124b45bd7ef6177aa957e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 
