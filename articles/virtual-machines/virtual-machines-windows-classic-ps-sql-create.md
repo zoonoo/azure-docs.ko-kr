@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/07/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: d66ce0123f1e35d2da8f282c9dfec64243484a11
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: cb8041a06338d129d6444d9c7f4876ec19bbb572
 
 
 ---
@@ -25,13 +25,14 @@ ms.openlocfilehash: d66ce0123f1e35d2da8f282c9dfec64243484a11
 ## <a name="overview"></a>개요
 이 문서에서는 PowerShell cmdlet을 사용하여 Azure에서 SQL Server 가상 컴퓨터를 만드는 방법에 대한 단계를 제공합니다.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 이 항목의 Resource Manager 버전에 대해서는 [Azure PowerShell Resource Manager를 사용하여 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 ### <a name="install-and-configure-powershell"></a>PowerShell 설치 및 구성:
 1. Azure 계정이 없는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
-2. [최신 Azure PowerShell 명령을 다운로드하여 설치합니다](../powershell-install-configure.md).
+2. [최신 Azure PowerShell 명령을 다운로드하여 설치합니다](/powershell/azureps-cmdlets-docs).
 3. Windows PowerShell을 시작하고 **Add-AzureAccount** 명령을 사용하여 Azure 구독에 연결합니다.
    
         Add-AzureAccount
@@ -165,6 +166,6 @@ SQL Server 가상 컴퓨터를 특정 Azure 지역에 있는 클라우드 서비
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

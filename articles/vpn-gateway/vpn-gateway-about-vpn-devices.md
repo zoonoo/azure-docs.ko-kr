@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/01/2016
+ms.date: 12/12/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: d85451d84f605f8472da66574cfec3ba212884ea
-ms.openlocfilehash: f7ecd6b2e590122c4794cd0a81754da9398ba320
+ms.sourcegitcommit: bbaf89bca07fd2d4c4a12403d2daa8323f4d7be5
+ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
 
 
 ---
@@ -45,14 +45,14 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 
 | **공급업체** | **장치 패밀리** | **최소 OS 버전** | **정책 기반** | **경로 기반** |
 | --- | --- | --- | --- | --- |
-| Allied Telesis |AR 시리즈 VPN 라우터 |2.9.2 |서비스 예정 |호환되지 않음 |
+| Allied Telesis |AR 시리즈 VPN 라우터 |2.9.2 |곧 출시됩니다 |호환되지 않음 |
 | Barracuda Networks, Inc. |Barracuda NextGen 방화벽 F 시리즈 |정책 기반: 5.4.3<br>경로 기반: 6.2.0 |[구성 지침](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[구성 지침](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
 | Barracuda Networks, Inc. |Barracuda NextGen 방화벽 X 시리즈 |Barracuda Firewall 6.5 |[Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |호환되지 않음 |
 | Brocade |Vyatta 5400 vRouter |Virtual Router 6.6R3 GA |[구성 지침](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |호환되지 않음 |
 | Check Point |Security Gateway |R75.40<br>R75.40VS |[구성 지침](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[구성 지침](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco |ASA |8.3 |[Cisco 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |호환되지 않음 |
-| Cisco |ASR |정책 기반: IOS 15.1<br>경로 기반: IOS 15.2 |[Cisco 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Cisco 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |정책 기반: IOS 15.0<br>경로 기반*: IOS 15.1 |[Cisco 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Cisco 샘플*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| 시스코 |ASA |8.3 |[Cisco 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |호환되지 않음 |
+| 시스코 |ASR |정책 기반: IOS 15.1<br>경로 기반: IOS 15.2 |[Cisco 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Cisco 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
+| 시스코 |ISR |정책 기반: IOS 15.0<br>경로 기반*: IOS 15.1 |[Cisco 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Cisco 샘플*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 이상 |[통합 지침](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |호환되지 않음 |
 | Dell SonicWALL |TZ 시리즈, NSA 시리즈<br>SuperMassive 시리즈<br>E-클래스 NSA 시리즈 |SonicOS 5.8.x<br>[SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850)<br>[SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) |[SonicOS 6.2에 대한 구성 가이드](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9에 대한 구성 가이드](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[SonicOS 6.2에 대한 구성 가이드](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9에 대한 구성 가이드](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 |BIG-IP 시리즈 |12.0 |[구성 지침](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[구성 지침](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
@@ -66,7 +66,7 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 | 개방형 시스템 AG |핵심 업무 제어 보안 게이트웨이 |해당 없음 |[설치 가이드](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[설치 가이드](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(출시 예정) |호환되지 않음 |
 | Palo Alto Networks |PAN-OS를 실행하는 모든 장치 |PAN-OS<br>정책 기반: 6.1.5 이상<br>경로 기반: 7.0.5 이상 |[구성 지침](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[구성 지침](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| Watchguard |모두 |Fireware XTM<br> 정책 기반: v11.11.x<br>경로 기반: v11.12.x |[구성 지침](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[구성 지침](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
+| WatchGuard |모두 |Fireware XTM<br> 정책 기반: v11.11.x<br>경로 기반: v11.12.x |[구성 지침](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[구성 지침](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 (*) ISR 7200 시리즈 라우터는 정책 기반 VPN만을 지원합니다.
 
@@ -107,19 +107,19 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 | IKE 버전 |IKEv1 |IKEv2 |
 | Diffie-Hellman 그룹 |그룹 2(1024비트) |그룹 2(1024비트) |
 | 인증 방법 |미리 공유한 키 |미리 공유한 키 |
-| 암호화 알고리즘 |AES256 AES128 3DES |AES256 3DES |
+| 암호화 알고리즘 |AES256 AES128 3DES |AES256 (3DES) |
 | 해시 알고리즘 |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | 1단계 SA(보안 연결) 수명(시간) |28,800초 |10,800초 |
 
-### <a name="ike-phase-2-setup"></a>IKE 2단계 설치
+### <a name="ike-phase-2-setup"></a>IKE 2단계 설정
 | **속성** | **정책 기반** | **경로 기반 및 표준 또는 고성능 VPN Gateway** |
 | --- | --- | --- |
 | IKE 버전 |IKEv1 |IKEv2 |
 | 해시 알고리즘 |SHA1(SHA128) |SHA1(SHA128) |
 | 2단계 SA(보안 연결) 수명(시간) |3,600초 |3,600초 |
-| 2단계 SA(보안 연결) 수명(처리량) |102,400,000KB |- |
+| 2단계 SA(보안 연결) 수명(처리량) |102,400,000 KB |- |
 | IPsec SA 암호화 및 인증 제안(기본 설정 순서) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. 해당 없음 |*경로 기반 게이트웨이 IPsec SA(보안 연결) 제안*(아래) 참조 |
-| PFS(Perfect Forward Secrecy) |아니요 |아니요(*) |
+| PFS(Perfect Forward Secrecy) |아니오 |아니요(*) |
 | 작동하지 않는 피어 검색 |지원되지 않음 |지원됨 |
 
 (*)IKE 응답자인 Azure 게이트웨이는 PFS DH 그룹 1, 2, 5, 14, 24를 수용할 수 있습니다.
@@ -153,6 +153,6 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

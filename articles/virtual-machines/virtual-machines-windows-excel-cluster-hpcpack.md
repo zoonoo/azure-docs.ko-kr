@@ -16,8 +16,8 @@ ms.workload: big-compute
 ms.date: 08/25/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 1a8b813ce5f31f2ac26b7695560c35e98cc7d4e9
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 21ec1f15dc7055cdd3b281216abfbac8554abad0
 
 
 ---
@@ -86,7 +86,7 @@ HPC Pack IaaS 배포 스크립트는 HPC Pack 클러스터를 배포하는 다�
 
 **추가 필수 조건**
 
-* **Azure PowerShell** - [Azure PowerShell(버전 0.8.10 이상)을 설치 및 구성](../powershell-install-configure.md) 합니다.
+* **Azure PowerShell** - [Azure PowerShell(버전 0.8.10 이상)을 설치 및 구성](/powershell/azureps-cmdlets-docs) 합니다.
 * **HPC Pack IaaS 배포 스크립트** - [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=44949)에서 최신 버전의 스크립트를 다운로드하고 압축을 풉니다. `New-HPCIaaSCluster.ps1 –Version`을 실행하여 스크립트 버전을 확인합니다. 이 문서는 4.5.0 이상 버전의 스크립트를 기반으로 합니다.
 
 **구성 파일 만들기**
@@ -347,7 +347,7 @@ NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 �
 [template]: ./media/virtual-machines-windows-excel-cluster-hpcpack/template.png
 [parameters]: ./media/virtual-machines-windows-excel-cluster-hpcpack/parameters.png
 [create]: ./media/virtual-machines-windows-excel-cluster-hpcpack/create.png
-[연결]: ./media/virtual-machines-windows-excel-cluster-hpcpack/connect.png
+[connect]: ./media/virtual-machines-windows-excel-cluster-hpcpack/connect.png
 [cert]: ./media/virtual-machines-windows-excel-cluster-hpcpack/cert.png
 [addin]: ./media/virtual-machines-windows-excel-cluster-hpcpack/addin.png
 [macro]: ./media/virtual-machines-windows-excel-cluster-hpcpack/macro.png
@@ -358,6 +358,6 @@ NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

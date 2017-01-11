@@ -15,22 +15,22 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ec6bb243872b3d4794050f735122f587a299e978
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 7f22e8fb10f61cc0bb2e7d0a83449bf2e46a12d3
 
 
 ---
-# <a name="how-to-perform-live-streaming-with-onpremise-encoders-using-the-azure-portal"></a>Azure 포털을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법
+# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Azure 포털을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST (영문)](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 > 
 > 
 
 이 자습서에서는 Azure 포털을 사용하여 통과 배달을 위해 구성된 **채널** 을 만드는 단계를 안내합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
@@ -77,10 +77,10 @@ ms.openlocfilehash: ec6bb243872b3d4794050f735122f587a299e978
 ## <a name="to-view-notifications-and-errors"></a>알림 및 오류를 보려면
 Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 클릭합니다.
 
-![알림](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
+![공지](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
 
 ## <a name="configure-streaming-endpoints"></a>스트리밍 끝점 구성
-Media Services는 동적 패키징을 제공하며 이는 다중 비트 전송률 MP4를 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍 또는 HDS)으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 합니다. 동적 패키징에서는 단일 저장소 형식으로 파일을 저장하고 비용을 지불하기만 하면 됩니다. 그러면 Media Services가 클라이언트의 요청에 따라 적절한 응답을 빌드 및 제공합니다.
+Media Services는 동적 패키징을 제공하며 이는 다중 비트 전송률 MP4를 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 합니다. 동적 패키징에서는 단일 저장소 형식으로 파일을 저장하고 비용을 지불하기만 하면 됩니다. 그러면 Media Services가 클라이언트의 요청에 따라 적절한 응답을 빌드 및 제공합니다.
 
 동적 패키징을 이용하려면 콘텐츠를 배달할 계획인 스트리밍 끝점에 대한 스트리밍 단위를 하나 이상 가져와야 합니다.  
 
@@ -101,7 +101,7 @@ Media Services는 동적 패키징을 제공하며 이는 다중 비트 전송�
    > 
    > 
 
-## <a name="create-and-start-passthrough-channels-and-events"></a>통과 채널 및 이벤트 만들기 및 시작
+## <a name="create-and-start-pass-through-channels-and-events"></a>통과 채널 및 이벤트 만들기 및 시작
 채널은 라이브 스트림에서 세그먼트의 게시 및 저장소를 제어할 수 있는 이벤트/프로그램과 연결되어 있습니다. 채널은 이벤트를 관리합니다. 
 
 **보관 창** 길이를 설정하여 프로그램에 대해 기록된 콘텐츠를 유지할 시간을 지정할 수 있습니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다. 또한 보관 창 길이는 클라이언트가 현재 라이브 위치에서 이전 시간을 검색할 수 있는 최대 시간을 나타냅니다. 이벤트는 지정된 시간 동안 실행되지만 기간 길이보다 늦는 콘텐츠는 계속 삭제됩니다. 또한 이 속성의 값은 클라이언트 매니페스트가 증가할 수 있는 길이를 결정합니다.
@@ -142,17 +142,17 @@ Media Services는 동적 패키징을 제공하며 이는 다중 비트 전송�
 1. 이벤트를 추가하려는 채널을 선택합니다.
 2. **라이브 이벤트** 단추를 누릅니다.
 
-![이벤트](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+![행사](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
 
 ## <a name="get-ingest-urls"></a>수집 URL 가져오기
 채널을 만든 후 라이브 인코더에 제공할 수집 URL을 가져올 수 있습니다. 인코더는 이러한 URL을 사용하여 라이브 스트림을 입력합니다.
 
-![작성자](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+![생성일](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 ## <a name="watch-the-event"></a>이벤트 보기
 이벤트를 보려면 Azure 포털에서 **조사식** 을 클릭하거나 스트리밍 URL을 복사하고 선택한 플레이어를 사용합니다. 
 
-![작성자](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
+![생성일](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
 
 라이브 이벤트는 중지될 때 주문형 콘텐츠로 자동으로 변환합니다.
 
@@ -180,6 +180,6 @@ Media Services는 동적 패키징을 제공하며 이는 다중 비트 전송�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

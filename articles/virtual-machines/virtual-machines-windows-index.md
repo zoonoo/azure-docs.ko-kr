@@ -16,15 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 08/05/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: a8de2f783bfde7f30e633ae4998cefaf1535e74a
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 00d2c2cb2d5f65880f79603954ac23c7efa253a4
 
 
 ---
 # <a name="technical-articles-for-windows-vms-in-the-classic-deployment-model"></a>클래식 배포 모델의 Windows VM에 대한 기술 문서
 클래식 배포 모델에서 Windows 기반 Azure 가상 컴퓨터를 만들고 관리하는 데 필요한 모든 설명서를 찾아보세요.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 ## <a name="overview"></a>개요
 [가상 컴퓨터 정보](virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -38,7 +39,7 @@ ms.openlocfilehash: a8de2f783bfde7f30e633ae4998cefaf1535e74a
 ## <a name="environment-setup"></a>환경 설정
 [무료 계정](https://azure.microsoft.com/free/)
 
-[Azure PowerShell 설치](../powershell-install-configure.md)
+[Azure PowerShell 설치](/powershell/azureps-cmdlets-docs)
 
 [Azure CLI 설치](../xplat-cli-install.md)
 
@@ -169,6 +170,6 @@ ms.openlocfilehash: a8de2f783bfde7f30e633ae4998cefaf1535e74a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

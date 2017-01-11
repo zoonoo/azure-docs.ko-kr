@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 1641d4530df47c0bc0c57f78f8187c65bab8d0fd
+ms.sourcegitcommit: 9ad7bf23b10f16fb2d9e9bc946d8d4e840428558
+ms.openlocfilehash: 745dd9e8722348949e4e8872e89b471b1e72193d
 
 
 ---
@@ -126,7 +126,7 @@ $subnet = $vnet.subnets[0]
 
 다음 단계를 위해 $subnet 변수에 서브넷 개체를 할당합니다.
 
-## <a name="create-an-application-gateway-configuration-objec"></a>Application Gateway 구성 개체 만들기
+## <a name="create-an-application-gateway-configuration-object"></a>응용 프로그램 게이트웨이 구성 개체 만들기
 
 ### <a name="step-1"></a>1단계
 
@@ -285,6 +285,6 @@ ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

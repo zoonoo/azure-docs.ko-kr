@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 10/27/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: b9772ec5a8684b196ad1c7fa523acc3772d81854
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: d06a5c281b9390ae7d7f3a9ef18b27b62355a33f
 
 
 ---
@@ -29,7 +29,7 @@ Azure에서 여러 가상 NIC(네트워크 인터페이스)가 연결된 VM(가�
 > 
 
 ## <a name="create-core-resources"></a>코어 리소스 만들기
-먼저 [최신 Azure PowerShell을 설치 및 구성](../powershell-install-configure.md)했는지 확인합니다. Azure 계정에 로그인합니다.
+먼저 [최신 Azure PowerShell을 설치 및 구성](/powershell/azureps-cmdlets-docs)했는지 확인합니다. Azure 계정에 로그인합니다.
 
 ```powershell
 Login-AzureRmAccount
@@ -160,6 +160,6 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
