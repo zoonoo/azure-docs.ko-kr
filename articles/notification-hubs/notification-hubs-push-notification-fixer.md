@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 844c86a762d861f87422740c1d4d6d4f342ee728
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b0b067f02f02f722534238891f7412153635df80
 
 
 ---
@@ -230,7 +230,7 @@ Azure 알림 허브를 사용하면 일반 `SendNotification` API(예: .NET SDK�
 [템플릿 지침]: https://msdn.microsoft.com/library/dn530748.aspx 
 [APNS 지침]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [GCM 지침]: http://developer.android.com/google/gcm/adv.html
-[등록 내보내기/가져오기]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
 [ServiceBus 탐색기]: http://msdn.microsoft.com/library/dn530751.aspx
 [ServiceBus 탐색기 코드]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [VS 서버 탐색기 개요]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx 
@@ -243,6 +243,6 @@ Azure 알림 허브를 사용하면 일반 `SendNotification` API(예: .NET SDK�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

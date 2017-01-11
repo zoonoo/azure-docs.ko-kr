@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 275869b0b3b705943e1af1c21912acb96f39fe49
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 9b0912edc5adf804e7a3e6dcc6b440fc165d3673
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 275869b0b3b705943e1af1c21912acb96f39fe49
 PowerShell은 Azure CDN 프로필 및 끝점을 관리하는 매우 유연한 방법 중 하나를 제공합니다.  PowerShell을 대화형으로 또는 관리 작업을 자동화하는 스크립트를 작성하여 사용할 수 있습니다.  이 자습서에서는 PowerShell을 사용하여 Azure CDN 프로필 및 끝점의 관리를 달성할 수 있는 가장 일반적인 작업 몇 가지를 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
-PowerShell을 사용하여 Azure CDN 프로필 및 끝점을 관리하려면 Azure PowerShell 모듈이 설치되어 있어야 합니다.  Azure PowerShell을 설치하고 `Login-AzureRmAccount` cmdlet을 사용하여 Azure에 연결하는 방법을 알아보려면 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+PowerShell을 사용하여 Azure CDN 프로필 및 끝점을 관리하려면 Azure PowerShell 모듈이 설치되어 있어야 합니다.  Azure PowerShell을 설치하고 `Login-AzureRmAccount` cmdlet을 사용하여 Azure에 연결하는 방법을 알아보려면 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 > [!IMPORTANT]
 > `Login-AzureRmAccount`에 로그인해야 Azure PowerShell cmdlet을 실행할 수 있습니다.
@@ -248,6 +248,6 @@ CDN 기능에 대해 알아보려면 [CDN 개요](cdn-overview.md)를 참조하�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

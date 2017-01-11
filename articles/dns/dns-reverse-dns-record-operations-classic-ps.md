@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2016
 ms.author: smalone
 translationtype: Human Translation
-ms.sourcegitcommit: 7d640b2ffe600ce84e2ec867cd29930b26dab908
-ms.openlocfilehash: 1b5f6fa50a0a5a98d8eb5ecc7aeaa632e1183c38
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fe5c9cfe0edd769635301fdcb40fc1f71d430165
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 1b5f6fa50a0a5a98d8eb5ecc7aeaa632e1183c38
 [!INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
 
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)][Resource Manager 모델을 사용하여 이러한 단계를 수행](dns-reverse-dns-record-operations-ps.md)하는 방법을 알아봅니다.
+> [!IMPORTANT]
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행하는](dns-reverse-dns-record-operations-ps.md) 방법을 알아봅니다.
 
 ## <a name="validation-of-reverse-dns-records"></a>역방향 DNS 레코드의 유효성 검사
 타사에서 DNS 도메인에 매핑하는 역방향 DNS 레코드를 만들 수 없도록 하기 위해 Azure에서는 다음 중 하나에 해당하는 역방향 DNS 레코드만 만들도록 허용합니다.
@@ -66,6 +67,6 @@ ms.openlocfilehash: 1b5f6fa50a0a5a98d8eb5ecc7aeaa632e1183c38
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

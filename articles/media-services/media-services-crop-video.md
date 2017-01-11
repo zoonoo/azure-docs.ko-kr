@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: anilmur;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 770eaaba800ed9847a34d38813ebbda82014a697
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7b0d7469e9c3688092bf7f98962ede0e4d7ef951
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 770eaaba800ed9847a34d38813ebbda82014a697
 
 MES에서 자르기는 전처리 단계이므로 인코딩 사전 설정의 자르기 매개 변수를 원래 입력 비디오에 적용합니다. Encoding은 후속 단계이며 너비/높이 설정은 원본 비디오가 아닌 *전처리된* 비디오에 적용됩니다. 사전 설정을 지정할 경우 다음을 수행해야 합니다. (a) 원본 입력 비디오를 기반으로 자르기 매개 변수를 선택하고 (b) 자른 비디오를 기반으로 인코딩 설정을 선택합니다. 인코딩 설정이 자른 비디오와 일치하지 않는 경우 예상한 대로 출력되지 않습니다.
 
-[다음](media-services-advanced-encoding-with-mes.md#encoding_with_dotnet) 토픽은 MES로 인코딩 작업을 만드는 방법과 인코딩 작업에 대한 사용자 지정 사전 설정을 지정하는 방법을 보여 줍니다. 
+[다음](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) 토픽은 MES로 인코딩 작업을 만드는 방법과 인코딩 작업에 대한 사용자 지정 사전 설정을 지정하는 방법을 보여 줍니다. 
 
 ## <a name="creating-a-custom-preset"></a>사용자 지정 사전 설정 만들기
 다이어그램에 표시된 예:
@@ -145,7 +145,6 @@ AMS에서 제공하는 훌륭한 기능에 대해 자세히 알아보려면 Azur
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

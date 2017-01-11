@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/19/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: c387472d961fa42d1fc085c1c83d0095fb965f71
+ms.sourcegitcommit: 72ca562c53f813599f19069cfac7ef3ac1957968
+ms.openlocfilehash: 14cd1d8a9e278fa54168efb3c66cf6d693b57054
 
 
 ---
@@ -108,7 +108,7 @@ Resource Manager 템플릿에 대한 자세한 내용은 다음을 참조하세�
 
     PowerShell 스크립트는 클러스터 이름 및 저장소 계정 이름만 구성합니다.  리소스 관리자 템플릿에서 다른 값을 설정할 수 있습니다.
 
-자세한 내용은 [PowerShell로 배포](../resource-group-template-deploy.md#deploy-with-powershell)를 참조하세요.
+자세한 내용은 [PowerShell로 배포](../azure-resource-manager/resource-group-template-deploy.md#deploy)를 참조하세요.
 
 ## <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포
 다음 샘플에서는 Resource Manager 템플릿을 호출하여 클러스터 및 해당 종속 저장소 계정과 컨테이너를 만듭니다.
@@ -290,6 +290,6 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

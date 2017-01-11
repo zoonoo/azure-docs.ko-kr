@@ -1,12 +1,12 @@
 ---
-title: Azure Monitoring REST API 연습 | Microsoft Docs
-description: Azure Monitoring REST API에 대해 요청을 인증하고 Azure Monitoring REST API를 사용하는 방법
+title: "Azure Monitoring REST API 연습 | Microsoft Docs"
+description: "Azure Monitoring REST API에 대해 요청을 인증하고 Azure Monitoring REST API를 사용하는 방법"
 author: mcollier
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 565e6a88-3131-4a48-8b82-3effc9a3d5c6
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: mcollier
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9a1114fb61990cf2c590a28bce97ff4b7a425ae5
+
 
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
@@ -26,7 +30,7 @@ Azure Monitor API를 통해 사용 가능한 기본 메트릭 정의(CPU 시간,
 ## <a name="authenticating-azure-monitor-requests"></a>Azure Monitor 요청 인증
 첫 번째 단계는 요청을 인증하는 것입니다.
 
-Azure Monitor API에 대해 실행되는 모든 작업은 Azure Resource Manager 인증 모델을 사용합니다. 따라서 모든 요청은 Azure AD(Azure Active Directory)로 인증되어야 합니다. 클라이언트 응용 프로그램을 인증하는 한 가지 방법은 Azure AD 서비스 주체를 만들고 인증(JWT) 토큰을 검색하는 것입니다. 다음 예제 스크립트에서는 PowerShell을 통해 Azure AD 서비스 주체를 만드는 것을 보여 줍니다. 상세한 연습은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../resource-group-authenticate-service-principal.md#authenticate-service-principal-with-password—powershell)를 참조하세요. [Azure 포털을 통해 서비스 주체를 만들 수도](../resource-group-create-service-principal-portal.md)있습니다.
+Azure Monitor API에 대해 실행되는 모든 작업은 Azure Resource Manager 인증 모델을 사용합니다. 따라서 모든 요청은 Azure AD(Azure Active Directory)로 인증되어야 합니다. 클라이언트 응용 프로그램을 인증하는 한 가지 방법은 Azure AD 서비스 주체를 만들고 인증(JWT) 토큰을 검색하는 것입니다. 다음 예제 스크립트에서는 PowerShell을 통해 Azure AD 서비스 주체를 만드는 것을 보여 줍니다. 상세한 연습은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password)를 참조하세요. [Azure 포털을 통해 서비스 주체를 만들 수도](../resource-group-create-service-principal-portal.md)있습니다.
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -41,7 +45,7 @@ $pwd = "{service-principal-password}"
 
 # Create a new Azure AD application
 $azureAdApplication = New-AzureRmADApplication `
-                        -DisplayName "My Azure Insights" `
+                        -DisplayName "My Azure Monitor" `
                         -HomePage "https://localhost/azure-monitor" `
                         -IdentifierUris "https://localhost/azure-monitor" `
                         -Password $pwd
@@ -55,7 +59,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-Azure Monitor API를 쿼리하려면 클라이언트 응용 프로그램이 이전에 만든 서비스 주체를 인증에 사용해야 합니다. 다음 예제 PowerShell 스크립트에서는 JWT 인증 토큰을 가져오기 위해 [Active Directory 인증 라이브러리(ADAL)](../active-directory/active-directory-authentication-libraries.md) 을 사용하는 방법을 보여 줍니다. JWT 토큰은 Azure Insights API에 대한 요청에서 HTTP 권한 부여 매개 변수의 일부로 전달됩니다.
+Azure Monitor API를 쿼리하려면 클라이언트 응용 프로그램이 이전에 만든 서비스 주체를 인증에 사용해야 합니다. 다음 예제 PowerShell 스크립트에서는 JWT 인증 토큰을 가져오기 위해 [Active Directory 인증 라이브러리(ADAL)](../active-directory/active-directory-authentication-libraries.md) 을 사용하는 방법을 보여 줍니다. JWT 토큰은 Azure Monitor REST API에 대한 요청에서 HTTP 권한 부여 매개 변수의 일부로 전달됩니다.
 
 ```PowerShell
 $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -71,7 +75,7 @@ $cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.Cli
 
 $result = $AuthContext.AcquireToken("https://management.core.windows.net/", $cred)
 
-# Build an array of HTTP header values 
+# Build an array of HTTP header values
 $authHeader = @{
 'Content-Type'='application/json'
 'Accept'='application/json'
@@ -84,11 +88,11 @@ $authHeader = @{
 1. 리소스에 대한 메트릭 정의 나열
 2. 메트릭 값 검색 
 
-## <a name="retrieve-metric-definitions"></a>메트릭 정의 검색
+## <a name="retrieve-metric-definitions"></a>메트릭 정의 검색 
 > [!NOTE]
 > Azure Monitor REST API를 사용하여 메트릭 정의를 검색하려면 API 버전으로 "2016-03-01"을 사용합니다.
-> 
-> 
+>
+>
 
 ```PowerShell
 $apiVersion = "2016-03-01"
@@ -105,13 +109,13 @@ Azure Logic App의 경우 메트릭 정의가 다음 스크린샷과 유사하�
 
 자세한 내용은 [Azure Monitor REST API에서 리소스에 대한 메트릭 정의 나열](https://msdn.microsoft.com/library/azure/mt743621.aspx) 설명서를 참조하세요.
 
-## <a name="retrieve-metric-values"></a>메트릭 값 검색
+## <a name="retrieve-metric-values"></a>메트릭 값 검색 
 사용 가능한 메트릭 정의를 알고나면 관련 메트릭 값을 검색할 수 있습니다. 모든 필터링 요청(예: ‘CpuTime’ 및 ‘Requests’ 메트릭 데이터 포인트 요청)에서 메트릭 이름 ‘value’(‘localizedValue’ 아님)를 사용합니다. 필터를 지정하지 않은 경우 기본 메트릭이 반환됩니다.
 
 > [!NOTE]
 > Azure Monitor REST API를 사용하여 메트릭 값을 검색하려면 API 버전으로 "2016-06-01"을 사용합니다.
-> 
-> 
+>
+>
 
 **메서드**: GET
 
@@ -149,9 +153,9 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourc
 PowerShell 대신 아래와 같이 Windows 컴퓨터에서 [ARMClient](https://github.com/projectkudu/ARMClient) 를 사용할 수 있습니다. ARMClient는 자동으로 Azure AD 인증을 처리합니다(결과 JWT 토큰 포함). 다음 단계는 ARMClient를 사용하여 메트릭 데이터를 검색하는 방법을 개괄적으로 보여 줍니다.
 
 1. [Chocolatey](https://chocolatey.org/) 및 [ARMClient](https://github.com/projectkudu/ARMClient)를 설치합니다.
-2. 터미널 창에서 _armclient.exe login_을 입력합니다. 그러면 Azure에 로그인하라는 메시지가 표시됩니다.
-3. _armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01_을 입력합니다.
-4. _armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-06-01_을 입력합니다.
+2. 터미널 창에서 *armclient.exe login*을 입력합니다. 그러면 Azure에 로그인하라는 메시지가 표시됩니다.
+3. *armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01*을 입력합니다.
+4. *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-06-01*을 입력합니다.
 
 ![Alt "ARMClient를 사용한 Azure Monitoring REST API 작업"](./media/monitoring-rest-api-walkthrough/armclient_metricdefinitions.png)
 
@@ -195,7 +199,7 @@ Azure CLI를 사용하여 리소스 ID를 검색하려면 다음 스크린샷에
 ![Alt "PowerShell을 통해 구한 리소스 ID”](./media\\monitoring-rest-api-walkthrough\\resourceid_azurecli.png)
 
 ## <a name="retrieve-activity-log-data"></a>활동 로그 데이터 검색
-메트릭 정의 및 관련 값 작업 외에도, Azure 리소스와 관련한 다른 흥미로운 정보를 검색할 수도 있습니다. 예를 들어, [활동 로그](https://msdn.microsoft.com/library/azure/dn931934.aspx) 데이터를 쿼리할 수 있습니다. 다음 예제에서는 Azure Monitor REST API를 사용하여 Azure 구독에 대해 특정 날짜 범위의 활동 로그 데이터를 쿼리합니다. 
+메트릭 정의 및 관련 값 작업 외에도, Azure 리소스와 관련한 다른 흥미로운 정보를 검색할 수도 있습니다. 예를 들어, [활동 로그](https://msdn.microsoft.com/library/azure/dn931934.aspx) 데이터를 쿼리할 수 있습니다. 다음 예제에서는 Azure Monitor REST API를 사용하여 Azure 구독에 대해 특정 날짜 범위의 활동 로그 데이터를 쿼리합니다.
 
 ```PowerShell
 $apiVersion = "2014-04-01"
@@ -213,6 +217,8 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
 * [Microsoft Azure Monitor REST API 참조](https://msdn.microsoft.com/library/azure/dn931943.aspx)를 검토합니다.
 * [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx)를 검토합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO2-->
 
 

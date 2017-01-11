@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/03/2016
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6d079003674a3025a8ce8f39ab61d9ca544e132a
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: 4b05e12c2b30f1e8aa3efc7cd47cb79c4958dc1e
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 6d079003674a3025a8ce8f39ab61d9ca544e132a
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-beginning"></a>시작하기 전에
-이 구성에 필요한 Azure PowerShell cmdlet을 설치했는지 확인합니다(1.0.2 이상). Cmdlet을 설치하지 않은 경우 구성 단계를 시작하기 전에 설치해야 합니다. Azure PowerShell 설치에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+이 구성에 필요한 Azure PowerShell cmdlet을 설치했는지 확인합니다(1.0.2 이상). Cmdlet을 설치하지 않은 경우 구성 단계를 시작하기 전에 설치해야 합니다. Azure PowerShell 설치에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 [!INCLUDE [expressroute-gateway-classic-ps](../../includes/expressroute-gateway-classic-ps-include.md)]
 
@@ -45,6 +45,6 @@ VNet 게이트웨이를 만든 후 VNet을 Express 경로 회로에 연결할 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

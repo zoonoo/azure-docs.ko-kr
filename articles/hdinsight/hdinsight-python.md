@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ecd33fdad27cb5bb13931075f4c603f9bd479207
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 9dfc7107447a11c73fb14412c2d9ffba936564d7
 
 
 ---
@@ -239,7 +239,7 @@ SSH 사용에 대한 자세한 내용은 [Linux, Unix 또는 OS X의 HDInsight�
     이 작업이 완료되면 이전에 Jython을 사용하여 스크립트를 실행한 때와 같은 출력이 표시됩니다.
 
 ### <a name="powershell"></a>PowerShell
-이 단계에서는 Azure PowerShell을 사용합니다. 이 도구를 아직 개발 컴퓨터에 설치하여 구성하지 않은 경우 다음 단계를 사용하기 전에 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md) 을 참조하세요.
+이 단계에서는 Azure PowerShell을 사용합니다. 이 도구를 아직 개발 컴퓨터에 설치하여 구성하지 않은 경우 다음 단계를 사용하기 전에 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -465,6 +465,6 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

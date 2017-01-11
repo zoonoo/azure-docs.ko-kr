@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 7d06def30876877626ceca1dd8c362d0ce519856
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cad8626d920f51eba94da4a775c346488a2e17ec
 
 
 ---
@@ -131,7 +131,7 @@ Azure에는 사실상 두 개의 방화벽이 있습니다. 첫 번째 방화벽
 
 Azure는 역할 내에서 시작되는 프로세스에 대한 방화벽 규칙을 만듭니다. 예를 들어 서비스 또는 프로그램을 시작하면 Azure는 필요한 방화벽 규칙을 만들어 해당 서비스가 인터넷과 통신할 수 있도록 합니다. 그러나 사용자의 역할(예: COM + 서비스 또는 Windows 예약된 태스크) 외부 프로세스에 의해 시작되는 서비스를 만드는 경우 해당 서비스에 대한 액세스를 허용하는 방화벽 규칙을 수동으로 만들어야 합니다. 이러한 방화벽 규칙은 시작 작업을 사용하여 만들 수 있습니다.
 
-방화벽 규칙을 만드는 시작 작업은 [상승된][환경]executionContext**을 반환하는 경우 시작 작업이 실패합니다. 다음 시작 작업을 [ServiceDefinition.csdef] 파일에 추가합니다.
+방화벽 규칙을 만드는 시작 작업은 [상승된][태스크]  **executionContext**을 반환하는 경우 시작 작업이 실패합니다. 다음 시작 작업을 [ServiceDefinition.csdef] 파일에 추가합니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -472,7 +472,7 @@ EXIT %ERRORLEVEL%
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>시작 작업에 적절하게 executionContext 설정
 시작 작업에 대한 권한을 적절하게 설정합니다. 경우에 따라 역할이 일반 권한으로 실행되더라도 시작 작업을 상승된 권한으로 실행해야 합니다.
 
- [상승된][환경] 특성은 시작 작업의 권한 수준을 설정합니다. `executionContext="limited"`을 사용하는 것은 시작 태스크가 역할과 동일한 권한 수준을 갖는 것을 의미합니다. `executionContext="elevated"`을 사용하면 시작 태스크가 관리자 권한을 갖게 되므로 역할에 관리자 권한을 부여하지 않고 시작 태스크가 관리자 태스크를 수행하도록 하는 것을 의미합니다.
+ [상승된][태스크] 특성은 시작 작업의 권한 수준을 설정합니다. `executionContext="limited"`을 사용하는 것은 시작 태스크가 역할과 동일한 권한 수준을 갖는 것을 의미합니다. `executionContext="elevated"`을 사용하면 시작 태스크가 관리자 권한을 갖게 되므로 역할에 관리자 권한을 부여하지 않고 시작 태스크가 관리자 태스크를 수행하도록 하는 것을 의미합니다.
 
 상승된 권한이 필요한 시작 작업의 예로 **AppCmd.exe** 를 사용하여 IIS를 구성하는 시작 작업을 들 수 있습니다. **AppCmd.exe**는 `executionContext="elevated"`이(가) 필요합니다.
 
@@ -507,11 +507,11 @@ EXIT %ERRORLEVEL%
 [만들고 배포하세요](cloud-services-how-to-create-deploy-portal.md) .
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
-[ServiceDefinition.csdef
-[ServiceDefinition.csdef
-[런타임]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
+[태스크]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
+[Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [환경]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[변수
+[변수]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 [끝점]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
@@ -521,6 +521,6 @@ EXIT %ERRORLEVEL%
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

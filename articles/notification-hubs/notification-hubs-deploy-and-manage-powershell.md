@@ -1,12 +1,12 @@
 ---
-title: PowerShell을 사용하여 알림 허브 배포 및 관리
-description: 자동화를 위한 PowerShell을 사용하여 알림 허브를 만들고 관리하는 방법
+title: "PowerShell을 사용하여 알림 허브 배포 및 관리"
+description: "자동화를 위한 PowerShell을 사용하여 알림 허브를 만들고 관리하는 방법"
 services: notification-hubs
-documentationcenter: ''
+documentationcenter: 
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7c58f2c8-0399-42bc-9e1e-a7f073426451
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: powershell
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 4db058e4bd91dc287b14e887abc6c378c65c4a2b
+
 
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>PowerShell을 사용하여 알림 허브 배포 및 관리
@@ -34,7 +38,7 @@ ms.author: yuaxu
 * Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성]을 참조하세요.
 * PowerShell 스크립트, NuGet 패키지 및 .NET Framework 전반에 대한 지식
 
-## <a name="including-a-reference-to-the-.net-assembly-for-service-bus"></a>.NET 어셈블리에 서비스 버스에 대한 참조 포함
+## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>.NET 어셈블리에 서비스 버스에 대한 참조 포함
 Azure 알림 허브 관리는 아직 Azure PowerShell에서 PowerShell cmdlet에 포함되지 않습니다. 알림 허브를 프로비전하려면 [Microsoft Azure 알림 허브 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)에서 제공된 .NET 클라이언트를 사용할 수 있습니다.
 
 먼저 스크립트가 Visual Studio 프로젝트에서 NuGet 패키지로 설치되는 **Microsoft.Azure.NotificationHubs.dll** 어셈블리를 찾을 수 있는지 확인합니다. 유연한 작업을 위해 스크립트는 다음 단계를 수행합니다.
@@ -151,9 +155,9 @@ else
 * [Service Bus PowerShell 스크립트](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
 [구매 옵션]: http://azure.microsoft.com/pricing/purchase-options/
-[구성원 제안]: http://azure.microsoft.com/pricing/member-offers/
+[구성원 제공 항목]: http://azure.microsoft.com/pricing/member-offers/
 [무료 평가판]: http://azure.microsoft.com/pricing/free-trial/
-[Azure PowerShell 설치 및 구성]: ../powershell-install-configure.md
+[Azure PowerShell 설치 및 구성]: /powershell/azureps-cmdlets-docs
 [알림 허브용 .NET API]: https://msdn.microsoft.com/library/azure/mt414893.aspx
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
@@ -162,6 +166,6 @@ else
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,15 +16,14 @@ ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 28720bcedb4df66c2f7434f25ed251d4e116c415
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: c118f9ebb8da496ad33b6e24e80d16ccf6557928
 
 
 ---
 # <a name="about-images-for-windows-virtual-machines"></a>Windows 가상 컴퓨터에 대한 이미지 정보
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Resource Manager 모델의 이미지를 찾고 사용하는 방법에 대한 정보는 [여기](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델의 이미지를 찾고 사용하는 방법에 대한 정보는 [여기](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 [!INCLUDE [virtual-machines-common-classic-about-images](../../includes/virtual-machines-common-classic-about-images.md)]
 
@@ -46,6 +45,6 @@ Azure PowerShell 모듈을 사용하여 Azure 구독에 사용할 수 있는 이
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
