@@ -3,7 +3,7 @@ title: "Datadog를 사용하여 Azure Container Service 클러스터 모니터�
 description: "Datadog를 사용하여 Azure 컨테이너 서비스 클러스터를 모니터링합니다. DC/OS 웹 UI를 사용하여 Datadog 에이전트를 클러스터에 배포합니다."
 services: container-service
 documentationcenter: 
-author: rbitia
+author: sauryadas
 manager: timlt
 editor: 
 tags: acs, azure-container-service
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure
 ms.date: 07/28/2016
-ms.author: t-ribhat
+ms.author: saudas
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: eeb257e00f89948c9623ac05303d46209454a615

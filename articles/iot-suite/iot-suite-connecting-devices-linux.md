@@ -218,6 +218,7 @@ IoT Hub 직렬 변환기 클라이언트 라이브러리는 장치에서 IoT Hub
           config.iotHubName = hubName;
           config.iotHubSuffix = hubSuffix;
           config.protocol = AMQP_Protocol;
+          config.protocolGatewayHostName = NULL;
           iotHubClientHandle = IoTHubClient_Create(&config);
           if (iotHubClientHandle == NULL)
           {
@@ -383,7 +384,7 @@ int main(void)
     ```
     cmake_minimum_required(VERSION 2.8.11)
    
-    set(AZUREIOT_INC_FOLDER ".." "/usr/include/azureiot")
+    set(AZUREIOT_INC_FOLDER ".." "/usr/include/azureiot" "/usr/include/azureiot/inc")
    
     include_directories(${AZUREIOT_INC_FOLDER})
    
