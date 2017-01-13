@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 01/12/2017
 ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
@@ -194,7 +194,7 @@ ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
 
     1. FIPS 모드를 사용하도록 설정하려면 다음 cmdlet을 실행합니다.
 
-        `Enter-HcsFIPSMode`
+        `Enable-HcsFIPSMode`
     2. 암호화 유효성 검사에 적용되도록 FIPS 모드를 사용하도록 설정한 후 장치를 다시 부팅합니다.
 
        > [!NOTE]
