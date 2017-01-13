@@ -28,7 +28,7 @@ ms.openlocfilehash: 87a27dbe9042973dcfa7e9a5a438773d1bbab4d3
 
 ![에너지 수요 예측을 위한 Microsoft Cortana Intelligence 솔루션 템플릿 아키텍처 다이어그램][image]
 
-[이미지]: ./media/cortana-analytics-architecture-demand-forecasting-energy/ca-topologies-energy-forecasting.png
+[image]: ./media/cortana-analytics-architecture-demand-forecasting-energy/ca-topologies-energy-forecasting.png
 
 
 
