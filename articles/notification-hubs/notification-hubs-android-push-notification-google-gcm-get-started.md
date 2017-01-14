@@ -3,7 +3,7 @@ title: "Azure 알림 허브를 사용하여 Android에 푸시 알림 보내기 |
 description: "이 자습서에서 Azure 알림 허브를 사용하여 Android 장치로 푸시 알림을 보내는 방법을 알아봅니다."
 services: notification-hubs
 documentationcenter: android
-keywords: "푸시 알림,푸시알림,android 푸시 알림"
+keywords: "푸시 알림, 푸시 알림, Android 푸시 알림"
 author: ysxu
 manager: erikre
 editor: 
@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
+ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
+ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
 
 
 ---
@@ -63,10 +63,10 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 ### <a name="create-a-new-android-project"></a>새 Android 프로젝트 만들기
 1. Android Studio에서 새 Android Studio 프로젝트를 시작합니다.
    
-       ![Android Studio - new project][13]
-2. **휴대폰 및 태블릿** 폼 팩터와 지원할 **최소 SDK**를 선택합니다. 그런 후 **Next**를 클릭합니다.
+     ![Android Studio - 새 프로젝트][13]
+2. **휴대폰 및 태블릿** 폼 팩터와 지원할 **최소 SDK**를 선택합니다. 그런 후 **다음**을 클릭합니다.
    
-       ![Android Studio - project creation workflow][14]
+     ![Android Studio - 프로젝트 만들기 워크플로][14]
 3. **빈 활동**을 기본 활동으로 선택하고 **다음**, **마침**을 차례로 클릭합니다.
 
 ### <a name="add-google-play-services-to-the-project"></a>프로젝트에 Google Play Services 추가
@@ -660,10 +660,10 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 
 <!-- URLs. -->
-[모바일 서비스에서 푸시 알림 시작하기]: ../mobile-services-javascript-backend-android-get-started-push.md  
-[모바일 서비스 Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[라이브러리 프로젝트 참조]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Azure 클래식 포털]: https://manage.windowsazure.com/
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
+[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 [알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
@@ -671,6 +671,6 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
