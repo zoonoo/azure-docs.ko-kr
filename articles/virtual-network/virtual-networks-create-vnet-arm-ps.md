@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3d854b5073909f30a1bf59e0986c7f0f926ee21c
-ms.openlocfilehash: 2ce6f0d280609dc62063f87d2ab17256b3ff67c4
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 955fefc75880006beee54bb59871b325ed4a9e18
 
 
 ---
@@ -44,7 +44,7 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모�
 
 PowerShell 사용하여 가상 네트워크를 만들려면 다음 단계를 완료하세요.
 
-1. [Azure PowerShell 설치 및 구성](../powershell-install-configure.md) 문서에 나오는 단계에 따라 Azure PowerShell을 설치 및 구성합니다.
+1. [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 문서에 나오는 단계에 따라 Azure PowerShell을 설치 및 구성합니다.
 
 2. 필요에 따라 아래와 같이 새 리소스 그룹을 만듭니다. 이 시나리오의 경우 이름이 *TestRG*인 리소스 그룹을 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
@@ -182,6 +182,6 @@ PowerShell 사용하여 가상 네트워크를 만들려면 다음 단계를 완
 - 가상 네트워크에서 온-프레미스 네트워크 연결은 사이트 간 VPN(가상 사설망) 또는 ExpressRoute 회로를 사용합니다. 자세한 내용은 [사이트 간 VPN을 사용하여 VNet을 온-프레미스 네트워크에 연결](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) 및 [VNet을 ExpressRoute 회선에 연결](../expressroute/expressroute-howto-linkvnet-arm.md) 문서를 참조하세요.
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

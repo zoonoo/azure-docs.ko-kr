@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/12/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: a3643b9b6ae6c1750a7c7c900375fdf1dee06f8f
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 5b7c701cc7bd3c4ad586f2e7407fa45f102771d7
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: a3643b9b6ae6c1750a7c7c900375fdf1dee06f8f
 > 
 > 
 
-리소스에 액세스해야 하는 응용 프로그램이나 스크립트가 있는 경우 이 프로세스를 자체 자격 증명에 따라 실행하지 않으려고 할 수 있습니다. 응용 프로그램에 대해 원하는 다양한 권한을 보유할 수 있으며 책임이 변경된 경우 응용 프로그램에서 자격 증명을 더 이상 사용하지 않고 싶을 수 있습니다. 대신 인증 자격 증명 및 역할 할당을 포함하는 응용 프로그램에 대한 ID를 만듭니다. 앱을 실행할 때마다 이러한 자격 증명으로 자체적으로 인증합니다. 이 토픽에서는 [Azure PowerShell](../powershell-install-configure.md) 을 사용하여 응용 프로그램을 자체 자격 증명 및 ID로 실행하는 데 필요한 모든 항목을 설정하는 방법을 보여 줍니다.
+리소스에 액세스해야 하는 응용 프로그램이나 스크립트가 있는 경우 이 프로세스를 자체 자격 증명에 따라 실행하지 않으려고 할 수 있습니다. 응용 프로그램에 대해 원하는 다양한 권한을 보유할 수 있으며 책임이 변경된 경우 응용 프로그램에서 자격 증명을 더 이상 사용하지 않고 싶을 수 있습니다. 대신 인증 자격 증명 및 역할 할당을 포함하는 응용 프로그램에 대한 ID를 만듭니다. 앱을 실행할 때마다 이러한 자격 증명으로 자체적으로 인증합니다. 이 토픽에서는 [Azure PowerShell](/powershell/azureps-cmdlets-docs) 을 사용하여 응용 프로그램을 자체 자격 증명 및 ID로 실행하는 데 필요한 모든 항목을 설정하는 방법을 보여 줍니다.
 
 PowerShell을 사용하는 경우 AD 응용 프로그램을 인증하기 위한 다음 2가지 옵션이 있습니다.
 
@@ -274,6 +274,6 @@ Windows 10 또는 Windows Server 2016 Technical Preview에서 사용 가능한 P
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

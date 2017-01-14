@@ -1,12 +1,12 @@
 ---
-title: '자습서: Tidemark와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 Tidemark 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Tidemark와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 Tidemark 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 5cf80d4e-6e8b-48ec-81c8-27872af5e5d5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5b32c40c1887d6695c4ad1379ac14e0aa525bb43
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-tidemark"></a>자습서: Tidemark와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>자습서: Tidemark와 Azure Active Directory 통합
 이 자습서에서는 Tidemark와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 Tidemark를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -232,6 +236,6 @@ Tidemark에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

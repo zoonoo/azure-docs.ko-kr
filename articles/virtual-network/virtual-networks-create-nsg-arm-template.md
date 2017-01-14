@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 60343b409c734bcc9bb50d6216ff2295aede783b
-ms.openlocfilehash: 100fcf956425a9eed7bdbb495f8249f5d78fb9b1
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 5e5a0283fee79b9068784ad88017e96d3ab8e729
 
 
 ---
@@ -101,7 +101,7 @@ ms.openlocfilehash: 100fcf956425a9eed7bdbb495f8249f5d78fb9b1
 ## <a name="deploy-the-arm-template-by-using-powershell"></a>PowerShell을 사용하여 ARM 템플릿 배포
 PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다음 단계를 수행합니다.
 
-1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)의 지침을 따라 설치 및 구성을 합니다.
+1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)의 지침을 따라 설치 및 구성을 합니다.
 2. **`New-AzureRmResourceGroup`** cmdlet을 실행하고 템플릿을 사용하여 리소스 그룹을 만듭니다.
 
     ```powershell
@@ -191,6 +191,6 @@ Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

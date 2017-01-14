@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 07/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 382d0cf15dafca51571346dab1e9d55eb2d09d67
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9129eda8e4b3c3865878b8ceafb95a155ba02885
 
 
 ---
@@ -32,7 +32,7 @@ Azure 포털의 RBAC(역할 기반 액세스 제어) 및 Azure 리소스 관리 
 
 PowerShell을 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
 
-* Azure PowerShell 버전 0.8.8 이상. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+* Azure PowerShell 버전 0.8.8 이상. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 * Azure Resource Manager cmdlet. PowerShell에서 [Azure Resource Manager cmdlet](https://msdn.microsoft.com/library/mt125356.aspx) 을 설치합니다.
 
 ## <a name="list-roles"></a>역할 나열
@@ -216,6 +216,6 @@ Get-AzureRmRoleDefinition | FT Name, IsCustom
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

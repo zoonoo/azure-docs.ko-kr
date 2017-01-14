@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 154d2cd9b7f4ea51d3fd4c1995b67a25816b28a2
-ms.openlocfilehash: 587c39920ce658dc70034c15e3e847182a567559
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: bf4735cd0a56e7837a0dfd7d9bc8e50e09e5cf54
 
 
 ---
@@ -256,7 +256,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
     다음 섹션에서 Azure 환경에 연결 문자열을 설정할 때까지 웹앱을 사용할 수 없습니다. 이전에 선택한 웹앱 및 데이터베이스 만들기 옵션에 따라 오류 페이지나 홈페이지가 표시됩니다.
 
 ### <a name="configure-the-web-app-to-use-your-azure-sql-database-and-storage-account"></a>Azure SQL 데이터베이스 및 저장소 계정을 사용하도록 웹앱을 구성합니다.
-[연결 문자열과 같은 민감한 정보를 소스 코드 리포지토리에 저장된 파일에 두지 않는 방식](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)(영문)이 보안 모범 사례입니다. Azure에서 이 작업을 수행할 수 있습니다. 즉, Azure 환경에서 연결 문자열 및 기타 설정 값을 지정하면 앱이 Azure에서 실행될 때 ASP.NET 구성 API가 해당 값을 자동으로 선택합니다. **서버 탐색기**, Azure Portal, Windows PowerShell 또는 플랫폼 간 명령줄 인터페이스를 사용하여 Azure에서 이러한 값을 설정할 수 있습니다. 자세한 내용은 [응용 프로그램 문자열 및 연결 문자열 작동 방식](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조하세요.
+[연결 문자열과 같은 민감한 정보를 소스 코드 리포지토리에 저장된 파일에 두지 않는 방식](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)(영문)이 보안 모범 사례입니다. Azure에서 이 작업을 수행할 수 있습니다. 즉, Azure 환경에서 연결 문자열 및 기타 설정 값을 지정하면 앱이 Azure에서 실행될 때 ASP.NET 구성 API가 해당 값을 자동으로 선택합니다. **서버 탐색기**, Azure Portal, Windows PowerShell 또는 플랫폼 간 명령줄 인터페이스를 사용하여 Azure에서 이러한 값을 설정할 수 있습니다. 자세한 내용은 [응용 프로그램 문자열 및 연결 문자열 작동 방식](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조하세요.
 
 이 섹션에서는 **서버 탐색기** 를 사용하여 Azure에서 연결 문자열 값을 설정합니다.
 
@@ -343,7 +343,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
     이 프로젝트에는 프런트 엔드 및 백 엔드 둘 다에서 사용할 Entity Framework 컨텍스트와 데이터 모델이 포함됩니다. 또는 웹 프로젝트에서 EF 관련 클래스를 정의하고 WebJob 프로젝트에서 이 프로젝트를 참조할 수 있습니다. 하지만 WebJob 프로젝트에는 필요 없는 웹 어셈블리 참조가 포함됩니다.
 
 ### <a name="add-a-console-application-project-that-has-webjobs-deployment-enabled"></a>WebJob 배포가 설정된 콘솔 응용 프로그램 프로젝트 추가
-1. 웹 프로젝트(솔루션 또는 클래스 라이브러리 프로젝트 아님)를 마우스 오른쪽 단추로 클릭하고 추가New Azure WebJob Project(새 Azure WebJob 프로젝트)를 사용하는 간단한 다중 계층 ASP.NET MVC 5 응용 프로그램에 코드를 작성하는 방법을 보여줍니다.
+1. 웹 프로젝트(솔루션 또는 클래스 라이브러리 프로젝트 아님)를 마우스 오른쪽 단추로 클릭하고 **추가** > **New Azure WebJob Project(새 Azure WebJob 프로젝트)**를 사용하는 간단한 다중 계층 ASP.NET MVC 5 응용 프로그램에 코드를 작성하는 방법을 보여줍니다.
 
     ![New Azure WebJob Project(새 Azure WebJob 프로젝트) 프로젝트 메뉴 선택 항목](./media/websites-dotnet-webjobs-sdk-get-started/newawjp.png)
 2. **Azure WebJob 추가** 대화 상자에서 **프로젝트 이름**과 **WebJob 이름**으로 ContosoAdsWebJob을 입력합니다. **WebJob 실행 모드**를 **계속 실행**으로 설정합니다.
@@ -374,7 +374,7 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJob SDK 종속성 중 하
 ### <a name="set-project-references"></a>프로젝트 참조 설정
 웹 및 WebJob 프로젝트 둘 다에서 SQL 데이터베이스를 사용하므로 ContosoAdsCommon 프로젝트에 대한 참조가 필요합니다.
 
-1. ContosoAdsWeb 프로젝트에서 ContosoAdsCommon 프로젝트에 대한 참조를 설정합니다. ContosoAdsWeb 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 추가참조를 사용하는 간단한 다중 계층 ASP.NET MVC 5 응용 프로그램에 코드를 작성하는 방법을 보여줍니다. **참조 관리자** 대화 상자에서 **솔루션** > **프로젝트** > **ContosoAdsCommon**을 차례로 선택한 후 **확인**을 클릭합니다.
+1. ContosoAdsWeb 프로젝트에서 ContosoAdsCommon 프로젝트에 대한 참조를 설정합니다. ContosoAdsWeb 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **참조**를 사용하는 간단한 다중 계층 ASP.NET MVC 5 응용 프로그램에 코드를 작성하는 방법을 보여줍니다. **참조 관리자** 대화 상자에서 **솔루션** > **프로젝트** > **ContosoAdsCommon**을 차례로 선택한 후 **확인**을 클릭합니다.
 2. ContosoAdsWebJob 프로젝트에서 ContosAdsCommon 프로젝트에 대한 참조를 설정합니다.
 
     WebJob 프로젝트는 이미지를 사용하고 연결 문자열에 액세스하기 위해 참조가 필요합니다.
@@ -383,7 +383,7 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJob SDK 종속성 중 하
 ### <a name="add-code-and-configuration-files"></a>코드 및 구성 파일 추가
 이 자습서에 [스캐폴딩을 사용하여 MVC 컨트롤러 및 보기를 만드는 방법](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문), [SQL Server 데이터베이스를 사용하는 Entity Framework 코드를 작성하는 방법](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)(영문) 또는 [ASP.NET 4.5의 비동기 프로그래밍에 대한 기본 사항](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async)(영문)은 나와 있지 않습니다. 이 작업을 수행하려면 다운로드한 솔루션에서 새 솔루션으로 코드 및 구성 파일을 복사합니다. 이 작업을 수행한 후에는 다음 섹션에서 코드의 핵심 부분에 대한 설명을 확인할 수 있습니다.
 
-프로젝트나 폴더에 파일을 추가하려면 프로젝트나 폴더를 마우스 오른쪽 단추로 클릭하고 추가기존 항목를 사용하는 간단한 다중 계층 ASP.NET MVC 5 응용 프로그램에 코드를 작성하는 방법을 보여줍니다. 원하는 파일을 선택하고 **추가**를 클릭합니다. 기존 파일을 바꿀지 여부를 묻는 메시지가 나타나면 **예**를 클릭합니다.
+프로젝트나 폴더에 파일을 추가하려면 프로젝트나 폴더를 마우스 오른쪽 단추로 클릭하고 **추가** > **기존 항목**를 사용하는 간단한 다중 계층 ASP.NET MVC 5 응용 프로그램에 코드를 작성하는 방법을 보여줍니다. 원하는 파일을 선택하고 **추가**를 클릭합니다. 기존 파일을 바꿀지 여부를 묻는 메시지가 나타나면 **예**를 클릭합니다.
 
 1. ContosoAdsCommon 프로젝트에서 *Class1.cs* 파일을 삭제하고 그 자리에 다운로드한 프로젝트의 다음 파일을 추가합니다.
 
@@ -727,6 +727,6 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -14,15 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
-ms.author: v-ahsab
+ms.author: asabbour
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: a10524fe9025d83bb033e9cbab864795dffbd8d2
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: ace15c99b53b786de9924a6dbe2c8a86645709e9
 
 
 ---
 # <a name="mariadb-mysql-cluster---azure-tutorial"></a>MariaDB(MySQL) 클러스터 - Azure 자습서
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 > [!NOTE]
 > Azure 마켓플레이스에 MariaDB 엔터프라이즈 클러스터가 출시되었습니다.  이 새로운 서비스는 ARM에 MariaDB Galera 클러스터를 자동 배포합니다. https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/에서 새 제품을 사용해야 합니다. 
@@ -328,23 +329,23 @@ Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다.
 [Linux에서 MySQL을 클러스터링하는 다른 방법](virtual-machines-linux-classic-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 및 [Azure Linux VM에서 MySQL 성능 최적화 및 테스트](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)를 살펴보는 것이 좋습니다.
 
 <!--Anchors-->
-[아키텍처 개요]: #architecture-overview
-[템플릿 만들기]: #creating-the-template
-[클러스터 만들기]: #creating-the-cluster
-[클러스터 부하 분산]: #load-balancing-the-cluster
-[클러스터 유효성 검사]: #validating-the-cluster
-[다음 단계]: #next-steps
+[Architecture overview]: #architecture-overview
+[Creating the template]: #creating-the-template
+[Creating the cluster]: #creating-the-cluster
+[Load balancing the cluster]: #load-balancing-the-cluster
+[Validating the cluster]: #validating-the-cluster
+[Next steps]: #next-steps
 
 <!--Image references-->
 
 <!--Link references-->
 [Galera]: http://galeracluster.com/products/
-[Galera]: https://mariadb.org/en/about/
+[MariaDBs]: https://mariadb.org/en/about/
 [인증에 사용할 SSH 키를 만들고]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [Azure CLI 도구의 문제 #1268]:https://github.com/Azure/azure-xplat-cli/issues/1268
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

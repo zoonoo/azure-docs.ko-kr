@@ -1,22 +1,25 @@
 ---
-title: 범위 지정 필터를 사용한 특성 기반 앱 프로비전 | Microsoft Docs
-description: 개체가 비즈니스 요구 사항을 충족하지 못하는 경우 프로비전하는 자동화된 사용자를 지원하는 앱의 개체가 실제로 프로비전되지 않도록 하기 위한 지정 범위 필터 사용 방법을 알아봅니다.
+title: "범위 지정 필터를 사용한 특성 기반 앱 프로비전 | Microsoft Docs"
+description: "개체가 비즈니스 요구 사항을 충족하지 못하는 경우 프로비전하는 자동화된 사용자를 지원하는 앱의 개체가 실제로 프로비전되지 않도록 하기 위한 지정 범위 필터 사용 방법을 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 01/10/2017
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4b95782793956470fd147a98c17759a1a1a3a0de
+
 
 ---
-# <a name="attributebased-app-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 앱 프로비전
+# <a name="attribute-based-app-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 앱 프로비전
 이 섹션의 목적은 범위 지정 필터를 사용하여 어떤 사용자를 응용 프로그램에 프로비전할지 결정하는 특성 기반 규칙을 정의하는 방법을 설명합니다.
 
 ## <a name="clauses-and-scope-groups"></a>절 및 범위 그룹
@@ -63,6 +66,6 @@ ms.author: markusvi
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

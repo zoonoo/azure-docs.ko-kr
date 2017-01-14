@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 536cb4cd7975283dd61c8c4f2fe1a707a735504e
-ms.openlocfilehash: 7e05ab9c6ba1d23399d2ded63eb9b413c422f7bc
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 67f2f420eecc89a9ffce2fb9ba4781a8fcb0d03b
 
 
 ---
@@ -116,7 +116,7 @@ ms.openlocfilehash: 7e05ab9c6ba1d23399d2ded63eb9b413c422f7bc
 
 PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 단계를 수행합니다.
 
-1. Azure PowerShell을 사용한 적이 없는 경우 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 문서에 나오는 단계를 완료합니다.
+1. Azure PowerShell을 사용한 적이 없는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 문서에 나오는 단계를 완료합니다.
 2. 필요한 경우 PowerShell 콘솔에서 `New-AzureRmResourceGroup` cmdlet을 실행하여 새 리소스 그룹을 만듭니다. 리소스 그룹을 이미 만든 경우 3단계로 이동합니다.
 
     ```powershell
@@ -207,6 +207,6 @@ Azure CLI를 사용하여 템플릿을 배포하려면 다음 단계를 완료�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

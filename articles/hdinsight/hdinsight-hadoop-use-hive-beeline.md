@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/10/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 685d77363c451fbc28c39a34241dc34f796f7a77
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 88194bdffaf2ec39723c735a9721fcb17d316178
 
 
 ---
@@ -247,6 +247,6 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
