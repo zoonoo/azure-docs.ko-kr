@@ -28,7 +28,7 @@ ms.openlocfilehash: 7d122d04dfd9cb1f565e86b60f2180f9534588c9
 다음은 몇 가지 고려해야 할 사항입니다.
 
 * 각 VM에 얼마나 많은 코어가 있고 각 코어를 로드하고 있나요?
-  위의 Azure 빠른 시작 템플릿 예제에는 단일 코어를 로드하는 do_work.php 스크립트가 있습니다. Standard_A1 또는 D1과 같은 단일 코어 VM 크기보다 큰 VM을 사용하는 경우 이 부하를 여러 번 실행해야 합니다.  [Azure에서 Windows 가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  위의 Azure 빠른 시작 템플릿 예제에는 단일 코어를 로드하는 do_work.php 스크립트가 있습니다. Standard_A1 또는 D1과 같은 단일 코어 VM 크기보다 큰 VM을 사용하는 경우 이 부하를 여러 번 실행해야 합니다. [Azure에서 Windows 가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * VM 규모 집합에 얼마나 많은 VM이 있고 각각에서 작업을 수행하고 있나요?
   
     크기 조정 이벤트는 자동 크기 조정 규칙에서 내부 정의된 시간 동안 규모 집합에 있는 **모든** VM에 대해서 평균 CPU가 임계값을 초과했을 경우에만 수행됩니다.
@@ -79,9 +79,9 @@ ms.openlocfilehash: 7d122d04dfd9cb1f565e86b60f2180f9534588c9
     
     이러한 단계를 수행한 후 여전히 자동 크기 조정 문제가 발생하는 경우 [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp)의 포럼 또는 [스택 오버플로](http://stackoverflow.com/questions/tagged/azure)를 확인하거나 지원을 요청할 수 있습니다. 템플릿 및 성능 데이터 보기를 공유하도록 준비합니다.
 
-[감사]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
-[탐색기]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
-[테이블]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png
+[audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
+[explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
+[tables]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png
 
 
 
