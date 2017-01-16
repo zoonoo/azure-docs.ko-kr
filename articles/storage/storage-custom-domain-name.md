@@ -3,8 +3,8 @@ title: "Blob 저장소 끝점에 대한 도메인 이름 구성 | Microsoft Docs
 description: "Azure 클래식 포털에서 Azure 저장소 계정에 대해 사용자 지정 사용자 도메인을 Blob 저장소 끝점에 매핑하는 방법을 알아봅니다."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e81c98e0da32e0ac432a1a4bae0fb771e35cff7
+ms.sourcegitcommit: fe4b9c356e5f7d56cb7e1fa62344095353d0b699
+ms.openlocfilehash: 65ecd654cf6f1558a8f9ad6d6718ae5396fb52d0
 
 
 ---
@@ -26,8 +26,8 @@ Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용
 
 > [!IMPORTANT]
 > Azure Storage는 아직 사용자 지정 도메인으로 HTTPS를 지원하지 않습니다. 이 기능에 관심을 가진 고객을 위해 향후 릴리스에서 사용할 수 있도록 할 예정입니다.
-> 
-> 
+>
+>
 
 저장소 계정의 Blob 끝점으로 사용자 지정 도메인을 가리키는 방법은 두 가지입니다. 가장 간단한 방법은 사용자 지정 도메인 및 하위 도메인을 Blob 끝점에 매핑하는 CNAME 레코드를 만드는 것입니다. CNAME 레코드는 원본 도메인을 대상 도메인에 매핑하는 DNS 기능입니다. 이 경우에 원본 도메인은 사용자 지정 도메인 및 하위 도메인이며, 하위 도메인은 항상 필요합니다. 대상 도메인은 Blob 서비스 끝점입니다.
 
@@ -59,8 +59,8 @@ Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용
 7. 새 CNAME 레코드를 만들어 **www** 또는 **photos**와 같은 하위 도메인 별칭을 지정합니다. 그런 다음 Blob service 끝점인 호스트 이름을 **mystorageaccount.blob.core.windows.net** 형식으로 지정합니다. 여기에서 **mystorageaccount**는 저장소 계정의 이름입니다. 사용할 호스트 이름은 **사용자 지정 도메인 관리** 대화 상자의 텍스트 상자에 자동으로 입력됩니다.
 8. CNAME 레코드를 만든 후 **사용자 지정 도메인 관리** 대화 상자로 돌아와 **사용자 지정 도메인 이름** 필드에 하위 도메인을 포함하여 사용자 지정 도메인의 이름을 입력합니다. 예를 들어 도메인이 **contoso.com**이고 하위 도메인이 **www**인 경우 **www.contoso.com**을 입력합니다. 하위 도메인이 **photos**인 경우에는 **photos.contoso.com**을 입력합니다. 하위 도메인은 필수입니다.
 9. **등록** 버튼을 클릭하여 사용자 지정 도메인을 등록합니다.
-   
-    등록이 올바르게 완료되면 **사용자 지정 도메인이 활성화되었습니다.**라는 메시지가 표시됩니다. 이제 적절한 사용 권한이 있는 사용자는 사용자 지정 도메인의 Blob 데이터를 볼 수 있습니다.
+
+등록이 올바르게 완료되면 **사용자 지정 도메인이 활성화되었습니다.**라는 메시지가 표시됩니다. 이제 적절한 사용 권한이 있는 사용자는 사용자 지정 도메인의 Blob 데이터를 볼 수 있습니다.
 
 ## <a name="register-a-custom-domain-for-your-storage-account-using-the-intermediary-asverify-subdomain"></a>중간 asverify 하위 도메인을 사용하여 저장소 계정의 사용자 지정 도메인 등록
 사용자 지정 도메인이 가동 중지 시간이 없어야 하는 SLA가 있는 응용 프로그램을 현재 지원하고 있는 경우 이 절차에 따라 사용자 지정 도메인을 등록하세요. asverify.&lt;subdomain&gt;.&lt;customdomain&gt;에서 asverify.&lt;storageaccount&gt;.blob.core.windows.net을 가리키는 CNAME을 만들어 Azure에 도메인을 미리 등록할 수 있습니다. 그런 다음 &lt;subdomain&gt;.&lt;customdomain&gt;에서 &lt;storageaccount&gt;.blob.core.windows.net을 가리키는 두 번째 CNAME을 만들 수 있습니다. 그러면 사용자 지정 도메인에 대한 지점 트래픽이 Blob 끝점으로 직접 보내집니다.
@@ -77,7 +77,7 @@ asverify 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인
 8. CNAME 레코드를 만든 후에 **사용자 지정 도메인 관리** 대화 상자로 돌아와 사용자 지정 도메인의 이름을 **사용자 지정 도메인 이름** 필드에 입력합니다. 예를 들어 도메인이 **contoso.com**이고 하위 도메인이 **www**인 경우 **www.contoso.com**을 입력합니다. 하위 도메인이 **photos**인 경우에는 **photos.contoso.com**을 입력합니다. 하위 도메인은 필수입니다.
 9. **고급: 'asverify' 하위 도메인을 사용하여 내 사용자 지정 도메인을 미리 등록합니다.**확인란을 클릭합니다.
 10. **등록** 버튼을 클릭하여 사용자 지정 도메인을 미리 등록합니다.
-    
+
     미리 등록이 올바르게 완료되면 **사용자 지정 도메인이 활성화되었습니다.**라는 메시지가 표시됩니다.
 11. 이제 사용자 지정 도메인이 Azure에서 확인되었지만 도메인에 대한 트래픽은 아직 저장소 계정으로 라우팅되지 않습니다. 프로세스를 완료하려면 DNS 등록 기관의 웹 사이트로 돌아가 하위 도메인을 Blob 서비스 끝점에 매핑한 CNAME 레코드를 하나 더 만듭니다. 예를 들어 하위 도메인을 **www** 또는 **photos**로 지정하고 호스트 이름을 **mystorageaccount.blob.core.windows.net**으로 지정합니다. 여기에서 **mystorageaccount**는 저장소 계정의 이름입니다. 이 단계에서 사용자 지정 도메인 등록이 완료됩니다.
 12. 마지막으로 **asverify**를 사용하여 만든 CNAME 레코드는 중간 단계로만 필요하므로 삭제할 수 있습니다.
@@ -87,20 +87,20 @@ asverify 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인
 ## <a name="verify-that-the-custom-domain-references-your-blob-service-endpoint"></a>사용자 지정 도메인에서 Blob 서비스 끝점을 참조하는지 확인
 사용자 지정 도메인이 Blob 서비스 끝점에 실제로 매핑되었는지 확인하려면 저장소 계정 내의 공용 컨테이너에 Blob을 만듭니다. 그런 다음 웹 브라우저에서 다음 형식의 URI를 사용하여 Blob에 액세스합니다.
 
-* http://<*subdomain.customdomain*>/<*mycontainer*>/<*myblob*>
+    http://<*subdomain.customdomain*>/<*mycontainer*>/<*myblob*>
 
 예를 들어 다음 URI를 사용하여 **myforms** 컨테이너의 Blob에 매핑하는 **photos.contoso.com** 사용자 지정 하위 도메인을 통해 웹 양식에 액세스할 수 있습니다.
 
-* http://photos.contoso.com/myforms/applicationform.htm
+    http://photos.contoso.com/myforms/applicationform.htm
 
 ## <a name="unregister-a-custom-domain-from-your-storage-account"></a>저장소 계정에서 사용자 지정 도메인 등록 취소
-사용자 지정 도메인의 등록을 취소하려면 다음 단계를 따르세요. 
+사용자 지정 도메인의 등록을 취소하려면 다음 단계를 따르세요.
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다. 
-2. 탐색 창에서 **저장소**를 클릭합니다. 
-3. **저장소** 페이지에서 저장소 계정의 이름을 클릭하여 대시보드를 표시합니다. 
-4. 리본 메뉴에서 **도메인 관리**를 클릭합니다. 
-5. **사용자 지정 도메인 관리** 대화 상자에서 **등록 취소**를 클릭합니다. 
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
+2. 탐색 창에서 **저장소**를 클릭합니다.
+3. **저장소** 페이지에서 저장소 계정의 이름을 클릭하여 대시보드를 표시합니다.
+4. 리본 메뉴에서 **도메인 관리**를 클릭합니다.
+5. **사용자 지정 도메인 관리** 대화 상자에서 **등록 취소**를 클릭합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 * [사용자 지정 도메인을 CDN(콘텐츠 배달 네트워크) 끝점에 매핑하는 방법](../cdn/cdn-map-content-to-custom-domain.md)
@@ -108,6 +108,6 @@ asverify 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

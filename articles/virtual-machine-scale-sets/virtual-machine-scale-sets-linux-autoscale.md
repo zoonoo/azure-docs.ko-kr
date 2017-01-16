@@ -3,7 +3,7 @@ title: "Linux 가상 컴퓨터 크기 집합 자동 크기 조정 | Microsoft Do
 description: "Azure CLI를 사용하여 Linux 가상 컴퓨터 크기 집합 자동 크기 조정 설정"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
-ms.author: davidmu
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 744be588b3ff731fb983d3eddb50056e8bba0e4f
+ms.sourcegitcommit: 655bb950ad21ab2df0e88db52b8f54b89d35f871
+ms.openlocfilehash: d095814e32b7354419d454d0d7bd3df772b6f01e
 
 
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>가상 컴퓨터 크기 집합에서 Linux 컴퓨터 자동 확장
 가상 컴퓨터 크기 집합은 동일한 가상 컴퓨터를 집합으로 쉽게 배포하고 관리할 수 있습니다. 규모 집합은 대규모 응용 프로그램에 대한 높은 확장성과 사용자 지정 가능한 계산 계층을 제공하고 Windows 플랫폼 이미지, Linux 플랫폼 이미지, 사용자 지정 이미지 및 확장을 지원합니다. 자세한 내용은 [가상 컴퓨터 크기 집합 개요](virtual-machine-scale-sets-overview.md)를 참조하십시오.
 
-이 자습서에서는 Ubuntu Linux의 최신 버전을 사용하여 Linux 가상 컴퓨터의 크기 집합을 만드는 방법을 보여 줍니다. 또한 이 자습서는 집합의 컴퓨터 수를 자동으로 조정하는 방법도 설명합니다. Azure Resource Manager 템플릿을 작성하고 Azure CLI를 통해 배포하여 크기 집합을 만들고 크기 조정을 설정합니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하세요. 크기 집합의 자동 확장에 대한 자세한 내용은 [자동 크기 조정 및 가상 컴퓨터 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)을 참조하세요.
+이 자습서에서는 Ubuntu Linux의 최신 버전을 사용하여 Linux 가상 컴퓨터의 크기 집합을 만드는 방법을 보여 줍니다. 또한 이 자습서는 집합의 컴퓨터 수를 자동으로 조정하는 방법도 설명합니다. Azure Resource Manager 템플릿을 작성하고 Azure CLI를 통해 배포하여 크기 집합을 만들고 크기 조정을 설정합니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하세요. 크기 집합의 자동 확장에 대한 자세한 내용은 [자동 크기 조정 및 가상 컴퓨터 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)을 참조하세요.
 
 이 자습서에서는 다음 리소스 및 확장을 배포합니다.
 
@@ -38,7 +38,7 @@ ms.openlocfilehash: 744be588b3ff731fb983d3eddb50056e8bba0e4f
 * Microsoft.Insights.VMDiagnosticsSettings
 * Microsoft.Insights/autoscaleSettings
 
-Resource Manager 리소스에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../resource-manager-deployment-model.md)를 참조하세요.
+Resource Manager 리소스에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
 
 이 자습서의 단계를 시작하기 전에 [Azure CLI를 설치합니다](../xplat-cli-install.md).
 
@@ -513,6 +513,6 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

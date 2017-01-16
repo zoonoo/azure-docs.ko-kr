@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: d07d1c838d99d0de0c5b62aaf42330b447df102c
-ms.openlocfilehash: eeb75df30811a83ecd1285ec7a38929c65995edc
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: 9d6d4ca99d5733f4e586ccba44307d8f5ffa09e8
 
 
 ---
@@ -246,7 +246,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 이제 장치가 케이블로 전원, 네트워크 액세스 및 직렬 장치에 연결되었습니다. 다음 단계는 소프트웨어를 구성하고 장치를 배포하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
-[온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough.md)하는 방법에 대해 알아봅니다.
+[온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough-u2.md)하는 방법에 대해 알아봅니다.
 
 
 

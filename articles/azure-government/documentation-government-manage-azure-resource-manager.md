@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/10/2016
-ms.author: brendalee
+ms.author: brendal
 translationtype: Human Translation
-ms.sourcegitcommit: 4febeb038f1007e1e20981d120debe4db1d7731a
-ms.openlocfilehash: dd511273e8ce3b9dd98b3d26534a9ddb7aee8ebf
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 89aa44df74effec7da2eb008faf8f01dda0d27ca
 
 
 ---
 # <a name="azure-resource-manager"></a>Azure 리소스 관리자
-Resource Manager 공급자, API 버전 및 스키마에 대한 자세한 내용은 [여기](../resource-manager-supported-services.md)를 참조하세요. 다음 표에서는 Azure Government의 Resource Manager를 통해 지원되는 서비스를 나열합니다.
+Resource Manager 공급자, API 버전 및 스키마에 대한 자세한 내용은 [여기](../azure-resource-manager/resource-manager-supported-services.md)를 참조하세요. 다음 표에서는 Azure Government의 Resource Manager를 통해 지원되는 서비스를 나열합니다.
 
 ## <a name="compute"></a>Compute
 | 부여 | 리소스 관리자 사용 |
@@ -45,7 +45,7 @@ Resource Manager 공급자, API 버전 및 스키마에 대한 자세한 내용�
 | 가상 네트워크 |yes |
 | VPN 게이트웨이 |yes |
 
-## <a name="data-storage"></a>데이터 및 저장소
+## <a name="data--storage"></a>데이터 및 저장소
 | 부여 | 리소스 관리자 사용 |
 | --- | --- |
 | DocumentDB |아니요 |
@@ -56,7 +56,7 @@ Resource Manager 공급자, API 버전 및 스키마에 대한 자세한 내용�
 | SQL Data Warehouse |yes |
 | StorSimple |아니요 |
 
-## <a name="web-mobile"></a>웹 및 모바일
+## <a name="web--mobile"></a>웹 및 모바일
 | 부여 | 리소스 관리자 사용 |
 | --- | --- |
 | API Apps |yes |
@@ -89,7 +89,7 @@ Resource Manager 공급자, API 버전 및 스키마에 대한 자세한 내용�
 | IoTHubs |아니요 |
 | Notification Hubs |아니요 |
 
-## <a name="media-cdn"></a>미디어 및 CDN
+## <a name="media--cdn"></a>미디어 및 CDN
 | 부여 | 리소스 관리자 사용 |
 | --- | --- |
 | CDN |아니요 |
@@ -114,7 +114,7 @@ Resource Manager 공급자, API 버전 및 스키마에 대한 자세한 내용�
 | 부여 | 리소스 관리자 사용 |
 | --- | --- |
 | Automation |예 |
-| Key Vault |yes |
+| 키 자격 증명 모음 |yes |
 | Operational Insights |예 |
 | 스케줄러 |예 |
 | 보안(미리 보기) |아니요 |
@@ -131,6 +131,6 @@ Resource Manager 공급자, API 버전 및 스키마에 대한 자세한 내용�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 
