@@ -3,7 +3,7 @@ title: "Windows에서 Azure 파일 저장소 시작 | Microsoft Docs"
 description: "Azure 파일 저장소를 사용하여 클라우드에 파일 데이터를 저장하고 Azure 가상 컴퓨터(VM) 또는 Windows를 실행하는 온-프레미스 응용 프로그램에서 클라우드 파일 공유를 탑재합니다."
 services: storage
 documentationcenter: .net
-author: mine-msft
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
@@ -12,8 +12,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/18/2016
-ms.author: minet
+/ms.date: 1/18/2017
+ms.author: renash
 translationtype: Human Translation
 ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
 ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
@@ -667,6 +667,7 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 * [Azure 파일 저장소의 내면(영문)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+
 
 
 <!--HONumber=Dec16_HO1-->

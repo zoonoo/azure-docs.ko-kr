@@ -42,7 +42,7 @@ ms.openlocfilehash: 4b95782793956470fd147a98c17759a1a1a3a0de
 
 즉, 범위 그룹이 함께 OR 처리되고 있으며 절들은 함께 AND 처리됨으로써 그 안에 있다고 생각할 수 있습니다. 예를 들어 다음의 지정 범위 필터를 고려해 보십시오.
 
-![범위 지정 그룹 이름][2]  
+![범위 지정 그룹 이름][3]  
 
 범위 지정 필터에 따라 사용자는 프로비전을 하기 위해 다음 조건을 충족해야 합니다.
 
@@ -62,7 +62,7 @@ ms.openlocfilehash: 4b95782793956470fd147a98c17759a1a1a3a0de
 <!--Image references-->
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
-[3]: ./active-directory-saas-scoping-filters/ic782813.png
+[3]: ./media/active-directory-saas-scoping-filters/ic782813.png
 
 
 
