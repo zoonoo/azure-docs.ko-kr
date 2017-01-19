@@ -1,25 +1,29 @@
 ---
-title: 스케줄러 PowerShell Cmdlet 참조
-description: 스케줄러 PowerShell Cmdlet 참조
+title: "스케줄러 PowerShell Cmdlet 참조"
+description: "스케줄러 PowerShell Cmdlet 참조"
 services: scheduler
 documentationcenter: .NET
-author: krisragh
-manager: dwrede
-editor: ''
-
+author: derek1ee
+manager: kevinlam1
+editor: 
+ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: krisragh
+ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 26eb1469bc508ef518103a955fa0fbc6db2be46d
+
 
 ---
-# 스케줄러 PowerShell Cmdlet 참조
+# <a name="scheduler-powershell-cmdlets-reference"></a>스케줄러 PowerShell Cmdlet 참조
 다음 표에서는 Azure 스케줄러의 주요 cmdlet을 설명하고 참조 페이지에 연결합니다.
 
-Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. 
 
 [Azure Resource Manager cmdlet](https://msdn.microsoft.com/library/mt125356\(v=azure.200\).aspx)에 대한 자세한 내용은 [Azure Resource Manager로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 
@@ -43,7 +47,7 @@ Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShe
 | [Set-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490137\(v=azure.200\).aspx) |Service Bus 토픽 작업을 수정합니다. |
 | [Set-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490128\(v=azure.200\).aspx) |Storage 큐 작업을 수정합니다. |
 
-자세한 내용을 보려면, 다음 중 원하는 cmdlet을 실행하세요.
+자세한 내용을 보려면, 다음 중 원하는 cmdlet을 실행하세요. 
 
 ```
 Get-Help <cmdlet name> -Detailed
@@ -55,7 +59,7 @@ Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
  [스케줄러란?](scheduler-intro.md)
 
  [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
@@ -72,4 +76,9 @@ Get-Help <cmdlet name> -Full
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

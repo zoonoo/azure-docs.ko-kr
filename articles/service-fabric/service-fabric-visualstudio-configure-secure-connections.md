@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/08/2015
-ms.author: cawaMS
+ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d0009e23a9eb3a87628c8b4b70ba1d00f8a4fa2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a02d3840555df0d9c16d179023b3bc763274701a
 
 
 ---
@@ -41,7 +41,7 @@ Visual Studio에서 Service Fabric 프로젝트를 게시하는 경우 **Service
 1. 대상 클러스터에서 신뢰하는 클라이언트 인증서 중 하나에 액세스할 수 있는지 확인합니다. 인증서는 일반적으로 개인 정보 교환(.pfx) 파일로 공유됩니다. 클라이언트에 액세스를 허용하도록 서버를 구성하는 방법은 [Azure 포털에서 서비스 패브릭 클러스터 설정](service-fabric-cluster-creation-via-portal.md) 을 참조하세요.
 2. 신뢰할 수 있는 인증서를 설치합니다. 이를 위해 .pfx 파일을 두 번 클릭하거나 PowerShell 스크립트 Import-PfxCertificate를 사용하여 인증서를 가져옵니다. 인증서를 **Cert:\LocalMachine\My**에 설치합니다. 인증서를 가져오는 동안 모든 기본 설정을 수락할 수 있습니다.
 3. 프로젝트의 바로 가기 메뉴에서 **게시...** 명령을 선택하여 **Azure 응용 프로그램 게시** 대화 상자를 연 다음 대상 클러스터를 선택합니다. 도구가 자동으로 연결을 확인한 다음 게시 프로필에 보안 연결 매개 변수를 저장합니다.
-4. [선택 사항]: You can edit the publish profile to specify a secure cluster connection.
+4. [Optional]: You can edit the publish profile to specify a secure cluster connection.
    
    게시 프로필 XML 파일을 수동으로 편집하여 인증서 정보를 지정하므로 인증서 저장소 이름, 저장소 위치 및 인증서 지문을 적어 두어야 합니다. 인증서 저장소 이름 및 저장소 위치에 이러한 값을 제공해야 합니다. 자세한 내용은 [방법: 인증서의 지문 검색](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx)을 참조하세요.
    
@@ -53,7 +53,7 @@ Visual Studio에서 Service Fabric 프로젝트를 게시하는 경우 **Service
    
    다음은 x509 인증서 기반 보안 클러스터에 연결하기 위한 예제입니다.
    
-   ```
+   ```xml
    <ClusterConnectionParameters
    ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000"
    X509Credential="true"
@@ -74,6 +74,6 @@ Visual Studio에서 Service Fabric 프로젝트를 게시하는 경우 **Service
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/09/2016
+ms.date: 01/05/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 04acc5a82e658c216e25b96ecbfa42c88177506f
+ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
+ms.openlocfilehash: 6670076d14f1f3f3991dd004d488f69fb1c44cb6
 
 
 ---
@@ -83,7 +83,7 @@ Resource Manager 템플릿을 사용하여 클러스터를 설정하는 경우 *
 ![inboundNatPools][InboundNatPools]
 
 ### <a name="after-cluster-deployment"></a>클러스터 배포 후에
-조금 더 복잡하고 VM이 재활용될 수 있습니다. 이제 Azure PowerShell을 사용하여 새 값을 설정해야 합니다. 컴퓨터에 Azure PowerShell 1.0 이상이 설치되어 있는지 확인합니다. 이전에 수행한 적이 없는 경우 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)
+조금 더 복잡하고 VM이 재활용될 수 있습니다. 이제 Azure PowerShell을 사용하여 새 값을 설정해야 합니다. 컴퓨터에 Azure PowerShell 1.0 이상이 설치되어 있는지 확인합니다. 이전에 수행한 적이 없는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)
 
 Azure 계정에 로그인합니다. Powershell이 어떤 이유로 인해 실패하면 Azure PowerShell이 올바르게 설치되었는지 확인해야 합니다.
 
@@ -114,7 +114,7 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 
 <!--Image references-->
 [NodeTypes]: ./media/service-fabric-cluster-nodetypes/NodeTypes.png
-[리소스]: ./media/service-fabric-cluster-nodetypes/Resources.png
+[Resources]: ./media/service-fabric-cluster-nodetypes/Resources.png
 [InboundNatPools]: ./media/service-fabric-cluster-nodetypes/InboundNatPools.png
 [LBBlade]: ./media/service-fabric-cluster-nodetypes/LBBlade.png
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
@@ -122,6 +122,6 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

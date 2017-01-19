@@ -3,7 +3,7 @@ title: "Windows 가상 컴퓨터 크기 집합 자동 크기 조정 | Microsoft 
 description: "Azure PowerShell을 사용하여 Windows 가상 컴퓨터 크기 집합 자동 크기 조정 설정"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
-ms.author: davidmu
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: da6a16f3c76f1029332c764227795852e6902941
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 0e57cba090fa51c2d0d77fd363d560ee0419f92c
 
 
 ---
 # <a name="automatically-scale-machines-in-a-virtual-machine-scale-set"></a>가상 컴퓨터 크기 집합에서 자동으로 컴퓨터 크기 조정
 가상 컴퓨터 크기 집합은 동일한 가상 컴퓨터를 집합으로 쉽게 배포하고 관리할 수 있습니다. 규모 집합은 대규모 응용 프로그램에 대한 높은 확장성과 사용자 지정 가능한 계산 계층을 제공하고 Windows 플랫폼 이미지, Linux 플랫폼 이미지, 사용자 지정 이미지 및 확장을 지원합니다. 규모 집합에 대한 자세한 내용은 [가상 컴퓨터 규모 집합](virtual-machine-scale-sets-overview.md)을 참조하세요.
 
-이 자습서에서는 Windows 가상 컴퓨터의 가상 컴퓨터 크기 집합을 만들고 집합의 컴퓨터 규모를 자동 조정하는 방법을 보여 줍니다. Azure Resource Manager 템플릿을 작성하고 Azure PowerShell을 통해 배포하여 크기 집합을 만들고 크기 조정을 설정합니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하세요. 크기 집합의 자동 확장에 대한 자세한 내용은 [자동 크기 조정 및 가상 컴퓨터 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)을 참조하세요.
+이 자습서에서는 Windows 가상 컴퓨터의 가상 컴퓨터 크기 집합을 만들고 집합의 컴퓨터 규모를 자동 조정하는 방법을 보여 줍니다. Azure Resource Manager 템플릿을 작성하고 Azure PowerShell을 통해 배포하여 크기 집합을 만들고 크기 조정을 설정합니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하세요. 크기 집합의 자동 확장에 대한 자세한 내용은 [자동 크기 조정 및 가상 컴퓨터 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)을 참조하세요.
 
 이 문서에서는 다음 리소스 및 확장을 배포합니다.
 
@@ -38,10 +38,10 @@ ms.openlocfilehash: da6a16f3c76f1029332c764227795852e6902941
 * Microsoft.Insights.VMDiagnosticsSettings
 * Microsoft.Insights/autoscaleSettings
 
-Resource Manager 리소스에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../resource-manager-deployment-model.md)를 참조하세요.
+Resource Manager 리소스에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
 
 ## <a name="step-1-install-azure-powershell"></a>1단계: Azure PowerShell 설치
-최신 버전의 Azure PowerShell 설치, 구독 선택, Azure 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 을 참조하세요.
+최신 버전의 Azure PowerShell 설치, 구독 선택, Azure 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 
 ## <a name="step-2-create-a-resource-group-and-a-storage-account"></a>2단계: 리소스 그룹 및 저장소 계정 만들기
 1. **리소스 그룹 만들기** – 모든 리소스는 리소스 그룹에 배포되어야 합니다. [vmsstestrg1](https://msdn.microsoft.com/library/mt603739.aspx) 이라는 리소스 그룹을 만들려면 **New-AzureRmResourceGroup**을 사용합니다.
@@ -517,6 +517,6 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

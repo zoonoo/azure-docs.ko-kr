@@ -16,17 +16,16 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f32ad29c105c3713b8e3138914f8fc1a781cd75
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 954e971878f8ece5d67247e65f11ff9242f9f621
 
 
 ---
 # <a name="how-to-set-up-tomcat7-on-a-linux-virtual-machine-with-microsoft-azure"></a>Microsoft Azure를 사용하여 Linux 가상 컴퓨터에 Tomcat7을 설치하는 방법
 Apache Tomcat(또는 간단히 Tomcat, 이전에는 Jakarta Tomcat이라고도 함)은 ASF(Apache Software Foundation)에서 개발한 오픈 소스 웹 서버 및 서블릿 컨테이너입니다. Tomcat은 Sun Microsystems의 Java Servlet 및 JSP(JavaServer Pages) 사양을 구현하며, Java 코드를 실행할 순수 Java HTTP 웹 서버 환경을 제공합니다. 가장 단순한 구성의 경우 Tomcat은 단일 운영 체제 프로세스로 실행됩니다. 이 프로세스에서는 JVM(Java Virtual Machine)을 실행합니다. 브라우저에서 Tomcat으로 전송되는 모든 HTTP 요청은 Tomcat 프로세스에서 별도의 스레드로 처리됩니다.  
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Open JDK 및 Tomcat에서 Ubuntu를 배포하는 Resource Manager 템플릿은 [여기](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/)를 참조하세요.
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Open JDK 및 Tomcat에서 Ubuntu를 배포하는 Resource Manager 템플릿은 [여기](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/)를 참조하세요.
 
 이 가이드에서는 Linux 이미지에 tomcat7을 설치하여 Microsoft Azure에서 배포합니다.  
 
@@ -128,9 +127,8 @@ tomcat이 수신 대기하는 기본 포트 번호는 TCP 포트 8080입니다. 
 ### <a name="java-runtime-environment"></a>Java Runtime Environment
 Tomcat은 Java로 작성되었습니다. 두 가지 종류의 JDK(Java Development Kit)(OpenJDK와 Oracle JDK)가 있으므로 원하는 종류를 선택할 수 있습니다.  
 
-> AZURE.NOTE: 두 JDK는 Java API의 클래스에 대한 거의 동일한 코드를 제공하지만 가상 컴퓨터에 대한 코드는 실제로 다릅니다. 라이브러리의 경우 OpenJDK는 개방형 라이브러리를 사용하는 반면, Oracle은 폐쇄형 라이브러리를 사용합니다. 그러나 Oracle JDK는 클래스가 더 많고 일부 수정된 버그가 있으며, Oracle JDK는 OpenJDK보다 더 안정적입니다.
-> 
-> 
+> [!NOTE] 
+> 두 JDK는 Java API의 클래스에 대한 거의 동일한 코드를 제공하지만 가상 컴퓨터에 대한 코드는 실제로 다릅니다. 라이브러리의 경우 OpenJDK는 개방형 라이브러리를 사용하는 반면, Oracle은 폐쇄형 라이브러리를 사용합니다. 그러나 Oracle JDK는 클래스가 더 많고 일부 수정된 버그가 있으며, Oracle JDK는 OpenJDK보다 더 안정적입니다.
 
 다음 명령은 서로 다른 JDK를 다운로드합니다.  
 
@@ -211,9 +209,8 @@ tomcat 서비스를 다시 시작하려면：
 다음은 예제입니다.  
 ![][17]  
 
-> AZURE.NOTE: 관리 사용자 이름에 대한 강력한 암호를 만듭니다.  
-> 
-> 
+> [!NOTE] 
+> 관리 사용자 이름에 대한 강력한 암호를 만듭니다.  
 
 이 파일을 수정한 후 다음 명령을 사용하여 tomcat7 서비스를 다시 시작해야 변경 내용이 적용됩니다.  
 
@@ -313,6 +310,6 @@ tomcat 서비스를 다시 시작하려면：
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

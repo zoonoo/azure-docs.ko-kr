@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: f6403718f106b5021ea5b41e0e91a11bd92d4830
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1136b0e378cec14a9c899b61ec1dd21ff6720ba5
 
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>PowerShell을 사용하여 DNS 영역을 관리하는 방법
@@ -24,7 +24,7 @@ ms.openlocfilehash: f6403718f106b5021ea5b41e0e91a11bd92d4830
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 > * [PowerShell](dns-operations-dnszones.md)
 
-이 문서에서는 PowerShell을 사용하여 DNS 영역을 관리하는 방법을 보여줍니다. 이 단계를 사용하려면, 최신 버전(1.0 이상)의 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 을 참조하세요.
+이 문서에서는 PowerShell을 사용하여 DNS 영역을 관리하는 방법을 보여줍니다. 이 단계를 사용하려면, 최신 버전(1.0 이상)의 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 
 ## <a name="create-a-new-dns-zone"></a>새 DNS 영역 만들기
 
@@ -108,6 +108,6 @@ DNS 영역을 만든 후에는 [레코드 집합 및 레코드](dns-getstarted-c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

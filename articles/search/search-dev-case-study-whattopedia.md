@@ -14,8 +14,8 @@ ms.workload: search
 ms.date: 08/29/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 378ed0fdffcfab016af371ae47a99bd126895993
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4a5d12603b2a7364cf8271fb0ae98715bf4e7078
 
 
 ---
@@ -390,12 +390,12 @@ Azure 검색만 놀라움을 선사한 것이 아니었습니다. 우리는 WebJ
 
 
 <!--Anchors-->
-[부제목 1]: #subheading-1
-[부제목 2]: #subheading-2
-[부제목 3]: #subheading-3
-[부제목 4]: #subheading-4
-[부제목 5]: #subheading-5
-[다음 단계]: #next-steps
+[Subheading 1]: #subheading-1
+[Subheading 2]: #subheading-2
+[Subheading 3]: #subheading-3
+[Subheading 4]: #subheading-4
+[Subheading 5]: #subheading-5
+[Next steps]: #next-steps
 
 <!--Image references-->
 [6]: ./media/search-dev-case-study-whattopedia/lightbulb.png
@@ -405,13 +405,13 @@ Azure 검색만 놀라움을 선사한 것이 아니었습니다. 우리는 WebJ
 
 
 <!--Link references-->
-[다른 azure.microsoft.com 설명서 항목에 대한 링크 1]: ../virtual-machines-windows-hero-tutorial.md
-[다른 azure.microsoft.com 설명서 항목에 대한 링크 2]: ../web-sites-custom-domain-name.md
-[다른 azure.microsoft.com 설명서 항목에 대한 링크 3]: ../storage-whatis-account.md
+[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-hero-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

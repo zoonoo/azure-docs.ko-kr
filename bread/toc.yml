@@ -14,7 +14,7 @@
         topicHref: /azure/active-directory/connect-health/
       - name: "개발"
         tocHref: /azure/active-directory/develop/
-        topicHref: azure/active-directory/develop/
+        topicHref: /azure/active-directory/develop/
       - name: "Privileged Identity Management"
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
@@ -66,7 +66,7 @@
     topicHref: /azure/azure-functions/functions-overview
   - name: "정부"
     tocHref: /azure/azure-government/
-    topicHref: /azure/azure-government/documentation-government-overview
+    topicHref: /azure/azure-government-overview
   - name: "포털"
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/azure-portal-overview
