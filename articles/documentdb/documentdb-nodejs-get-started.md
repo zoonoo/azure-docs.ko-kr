@@ -1,7 +1,7 @@
 ---
 title: "DocumentDB용 NoSQL Node.js 자습서 | Microsoft Docs"
 description: "DocumentDB Node.js SDK를 사용하여 NoSQL 데이터베이스 및 콘솔 응용 프로그램을 만드는 NoSQL Node.js 자습서입니다. DocumentDB는 JSON에 대한 NoSQL 데이터베이스입니다."
-keywords: "node.js 자습서, 노드 데이터베이스"
+keywords: "Node.js 자습서, 노드 데이터베이스"
 services: documentdb
 documentationcenter: node.js
 author: AndrewHoh
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: hero-article
-ms.date: 12/16/2016
+ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a1cd22bb4d5719493e32071879f1dc601901941f
-ms.openlocfilehash: 481e5d664ae4ae029135e06350e8c053eb6832c1
+ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
+ms.openlocfilehash: 08f4cd48ea41d66203e296415181d5da14327854
 
 
 ---
@@ -25,8 +25,10 @@ ms.openlocfilehash: 481e5d664ae4ae029135e06350e8c053eb6832c1
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [Node.JS](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
+>  
 > 
 
 Azure DocumentDB Node.js SDK용 Node.js 자습서를 시작합니다. 이 자습서를 따라 하면 DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
@@ -624,12 +626,10 @@ npm을 통해 **documentdb** 모듈을 설치합니다. 다음 명령을 사용�
 * [DocumentDB 설명서](https://azure.microsoft.com/documentation/services/documentdb/)페이지의 개발 섹션에서 프로그래밍 모델에 대해 자세히 알아봅니다.
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
-
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 
