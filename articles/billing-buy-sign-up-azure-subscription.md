@@ -4,7 +4,7 @@ description: "구입 및 Azure 구독에 등록하는 방법을 설명합니다.
 services: 
 documentationcenter: 
 author: genlin
-manager: mbaldwin
+manager: adpick
 editor: 
 tags: billing,top-support-issue
 ms.assetid: 71fc2b94-4da1-460c-9aa9-3cfe29cda035
