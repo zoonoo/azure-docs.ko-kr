@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: juliako;cenkdin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3fb58dc98d7e9b943116760a401a4118df3e7424
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 07239a392438afd9807ce69fba657c27e853a219
 
 
 ---
@@ -38,10 +38,10 @@ ms.openlocfilehash: 3fb58dc98d7e9b943116760a401a4118df3e7424
 ## <a name="types-used-to-create-filters"></a>필터 생성에 사용되는 형식
 필터를 생성할 때는 다음 형식이 사용됩니다. 
 
-* **IStreamingFilter**.  이 형식은 다음 REST API [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
-* **IStreamingAssetFilter**. 이 형식은 다음 REST API [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
-* **PresentationTimeRange**. 이 형식은 다음 REST API [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
-* **FilterTrackSelectStatement** 및 **IFilterTrackPropertyCondition**. 이 형식은 다음 REST API [FilterTrackSelect 및 FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
+* **IStreamingFilter**.  이 형식은 다음 REST API [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
+* **IStreamingAssetFilter**. 이 형식은 다음 REST API [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
+* **PresentationTimeRange**. 이 형식은 다음 REST API [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
+* **FilterTrackSelectStatement** 및 **IFilterTrackPropertyCondition**. 이 형식은 다음 REST API [FilterTrackSelect 및 FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 ## <a name="createupdatereaddelete-global-filters"></a>전역 필터 생성/업데이트/읽기/삭제
 다음 코드에서는 .NET을 사용하여 자산 필더를 생성, 업데이트, 읽기 및 삭제하는 방법을 보여줍니다.
@@ -125,11 +125,6 @@ ms.openlocfilehash: 3fb58dc98d7e9b943116760a401a4118df3e7424
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
 
-**HDS**
-
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
-
-
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -142,6 +137,6 @@ ms.openlocfilehash: 3fb58dc98d7e9b943116760a401a4118df3e7424
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

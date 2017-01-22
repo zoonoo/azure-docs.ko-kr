@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 01/04/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9029b6a0fc97525ff8a462a725a256b3997e44f1
+ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
+ms.openlocfilehash: 25fef9472f023c37538cfc2f5f7c37c0bfca746e
 
 
 ---
@@ -34,21 +34,23 @@ ms.openlocfilehash: 9029b6a0fc97525ff8a462a725a256b3997e44f1
 1. 보안 센터 대시보드에서 **보안 경고** 타일을 봅니다.
    
     ![보안 센터의 보안 경고 타일](./media/security-center-incident/security-center-incident-fig1.png)
+
 2. 이 타일을 클릭하여 확장하고 보안 인시던트가 감지되면 아래에 표시된 대로 보안 경고 그래프에 표시됩니다.
    
-   ![보안 인시던트](./media/security-center-incident/security-center-incident-fig2.png)
+    ![보안 인시던트](./media/security-center-incident/security-center-incident-fig2.png)
+
 3. 보안 인시던트 설명에 다른 경고와 다른 아이콘이 지정되어 있습니다. 클릭하여 이 인시던트에 대한 자세한 세부 정보를 봅니다.
    
-   ![보안 인시던트](./media/security-center-incident/security-center-incident-fig3.png)
-4. 이 보안 인시던트에 대한 자세한 내용을 확인할 수 있는 **인스턴트** 블레이드에는 인시던트의 전체 설명, 심각도(이 경우 높음), 인시던트의 현재 상태(이 경우 아직 *활성화*된 상태로, 이는 사용자가 *해제* 조치를 취하지 않았음을 의미하며, **보안 경고** 블레이드의 인스턴트를 마우스 오른쪽 단추로 클릭하여 수행할 수 있음), 공격을 받은 리소스(이 경우에 *VM1*), 인스턴트에 대한 해결 조치를 포함되어 있으며, 아래쪽 창에는 이 인시던트에 포함된 경고가 있습니다. 각 경고에 대한 자세한 정보를 가져오는 경우 클릭하면 아래와 같이 다른 블레이드가 열립니다.
+    ![보안 인시던트](./media/security-center-incident/security-center-incident-fig3.png)
+
+4. 이 보안 인시던트에 대한 자세한 내용을 확인할 수 있는 **인시던트** 블레이드에는 인시던트의 전체 설명, 심각도(이 경우 높음), 인시던트의 현재 상태(이 경우 아직 *활성화*된 상태로, 이는 사용자가 해제 조치를 취하지 않았음을 의미하며, **보안 경고** 블레이드의 인시던트를 마우스 오른쪽 단추로 클릭하여 수행할 수 있음), 공격을 받은 리소스(이 경우에 *VM1*), 인시던트에 대한 해결 조치를 포함되어 있으며, 아래쪽 창에는 이 인시던트에 포함된 경고가 있습니다. 각 경고에 대한 자세한 정보를 가져오는 경우 클릭하면 아래와 같이 다른 블레이드가 열립니다.
    
-   ![보안 인시던트](./media/security-center-incident/security-center-incident-fig4.png)
+    ![보안 인시던트](./media/security-center-incident/security-center-incident-fig4.png)
 
 이 블레이드의 정보는 경고에 따라 달라 집니다. 이러한 경고를 관리하는 방법에 대한 자세한 내용은 [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) 을 참고하세요. 이 기능에 대한 몇 가지 중요한 고려 사항은 다음과 같습니다.
 
 * 새 필터를 사용하면 인시던트만, 경고만 또는 둘 다 보기를 사용자 지정할 수 있습니다. 
 * 인시던트가 있는 경우 동일한 경고가 인시던트의 일부로 존재할 뿐만 아니라 독립 실행형 경고로 표시될 수 있습니다. 
-* 인시던트를 닫으면 관련된 경고를 해제하지 않습니다.
 
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 보안 센터에서 보안 인시던트 기능을 사용하는 방법을 살펴보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
@@ -63,6 +65,6 @@ ms.openlocfilehash: 9029b6a0fc97525ff8a462a725a256b3997e44f1
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

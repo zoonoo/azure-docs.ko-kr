@@ -1,3 +1,4 @@
+
 ---
 title: "Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화 | Microsoft Docs"
 description: "Windows 장치의 엔터프라이즈 상태 로밍 설정에 대해 자주 묻는 질문과 대답입니다. 엔터프라이즈 상태 로밍은 사용자의 모든 Windows 장치에 통합된 환경을 제공하고 새 장치 구성에 드는 시간을 줄여 줍니다."
@@ -16,8 +17,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b7cc0fda8ee2acb417052b501afb0e6e3d0a199
+ms.sourcegitcommit: 0628dafc9cc4cb05e678f741d913e00116013459
+ms.openlocfilehash: 435f801b254a6c423a6ec3e96037ade62e14af29
 
 
 ---
@@ -74,10 +75,10 @@ Azure AD 전역 관리자는 Azure 클래식 포털에서 엔터프라이즈 상
 * [설정 및 데이터 로밍 FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [설정 동기화에 대한 그룹 정책 및 MDM 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Windows 10 로밍 설정 참조](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [문제 해결](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 10/20/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: 87ad160e23659dbae8d949346ad0f6c5fa20d188
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: f5865e07df4e1f253079ac1c8b257e2525da5ef3
 
 ---
 
@@ -23,7 +23,7 @@ ms.openlocfilehash: 87ad160e23659dbae8d949346ad0f6c5fa20d188
 
 DNS 영역 및 레코드는 중요한 리소스입니다. DNS 영역 또는 단일 DNS 레코드만 삭제해도 전체 서비스 중단이 발생할 수 있습니다.  따라서 중요 DNS 영역 및 레코드가 무단 또는 실수로 변경되지 않도록 보호하는 것이 중요합니다.
 
-이 문서는 Azure DNS를 통해 DNS 영역 및 레코드를 이러한 변경으로부터 보호하는 방식에 대해 설명합니다.  Azure Resource Manager에서 제공하는 두 가지 강력한 보안 기능, 즉, [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)와 [리소스 잠금](../resource-group-lock-resources.md)을 적용합니다.
+이 문서는 Azure DNS를 통해 DNS 영역 및 레코드를 이러한 변경으로부터 보호하는 방식에 대해 설명합니다.  Azure Resource Manager에서 제공하는 두 가지 강력한 보안 기능, 즉, [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)와 [리소스 잠금](../azure-resource-manager/resource-group-lock-resources.md)을 적용합니다.
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
@@ -161,7 +161,7 @@ azure role create -inputfile <file path>
 
 ## <a name="resource-locks"></a>리소스 잠금
 
-RBAC 외에도 Azure Resource Manager는 리소스를 '잠그는' 기능과 같은 다른 유형의 보안 관리 기능을 지원합니다. 특정 사용자와 그룹의 작업을 관리할 수 있는 RBAC 규칙의 경우 리소스 잠금이 리소스에 적용되며 모든 사용자와 역할에 대해 유효합니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](../resource-group-lock-resources.md)를 참조하세요.
+RBAC 외에도 Azure Resource Manager는 리소스를 '잠그는' 기능과 같은 다른 유형의 보안 관리 기능을 지원합니다. 특정 사용자와 그룹의 작업을 관리할 수 있는 RBAC 규칙의 경우 리소스 잠금이 리소스에 적용되며 모든 사용자와 역할에 대해 유효합니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](../azure-resource-manager/resource-group-lock-resources.md)를 참조하세요.
 
 리소스 잠금은 **DoNotDelete** 및 **ReadOnly**의 두 가지 유형이 있습니다. 이러한 잠금은 DNS 영역 또는 개별 레코드 집합에 적용할 수 있습니다.  다음 섹션에서는 몇 가지 일반적인 시나리오와 리소스 잠금을 사용하여 지원하는 방법에 대해 설명합니다.
 
@@ -220,12 +220,12 @@ DNS 영역 보호에 대한 심층적 방어 접근 방식으로서 리소스 �
 ## <a name="next-steps"></a>다음 단계
 
 * RBAC를 사용하는 방법은 [Azure Portal에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
-* 리소스 잠금에 대한 자세한 내용은[ Azure Resource Manager를 사용하여 리소스 잠그기](../resource-group-lock-resources.md)를 참조하세요.
+* 리소스 잠금에 대한 자세한 내용은[ Azure Resource Manager를 사용하여 리소스 잠그기](../azure-resource-manager/resource-group-lock-resources.md)를 참조하세요.
 * Azure 리소스 보호에 대한 자세한 내용은 [Azure Resource Manager의 보안 고려 사항](../best-practices-resource-manager-security.md)을 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

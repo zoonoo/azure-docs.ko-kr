@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ec3384dd68a28117cc00de20e4c08ad0ccd67bad
-ms.openlocfilehash: a7516a98cbe25f9ed458131083a18899d3d50004
+ms.sourcegitcommit: b9fda8b5f4ffa6679cc8ca9696a4c51084c80645
+ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
 
 
 ---
@@ -80,7 +80,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
      > * [HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
      > * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-3. __위에 명시된 사용 약관에 동의함__**확인**을 선택한 다음 __대시보드에 고정__을 선택합니다.
+3. __위에 명시된 사용 약관에 동의함__을 선택하고 **확인**을 클릭한 다음 __대시보드에 고정__을 선택합니다.
 
 6. **구매**를 클릭합니다. 템플릿 배포에 배포 제출 중이라는 제목의 새 타일이 표시됩니다. 클러스터를 만들려면 20분 정도가 걸립니다.
 
@@ -216,6 +216,6 @@ Java 기반 토폴로지를 개발하는 데 익숙하고 기존 토폴로지를
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

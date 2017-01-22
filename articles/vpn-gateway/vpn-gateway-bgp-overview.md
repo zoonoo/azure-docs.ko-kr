@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/16/2016
+ms.date: 01/12/2017
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 5f270d383750dc6308f01807e04469e3873d70f9
-ms.openlocfilehash: 6d2a72831726f59ff79a7f4c1ff0e258275bfe4f
+ms.sourcegitcommit: 5961c73c3f147ab6b3eca4e9d920003df1ca2c82
+ms.openlocfilehash: 298eab8ad562cfb32edf8609ac29052dc403f406
 
 
 ---
@@ -34,12 +34,7 @@ BGP에는 다음과 같이 몇 가지 장점과 새로운 기능이 있습니다
 ### <a name="support-automatic-and-flexible-prefix-updates"></a>자동 및 유연한 접두사 업데이트 지원
 BGP를 사용하면 IPsec S2S VPN 터널을 경유하는 특정 BGP 피어에 최소한의 접두어만 선언하면 됩니다. 온-프레미스 VPN 장치의 BGP 피어 IP 주소에 있는 호스트 접두어(/32)처럼 짧을 수 있습니다. Azure 가상 네트워크에 액세스를 허용하기 위해 Azure에 제시할 온-프레미스 네트워크 접두어를 제어할 수 있습니다.
 
-또한 대형 비공개 IP 주소 공간(예: 10.0.0.0/8)과 같은 일부 VNet 주소 접두어를 포함하는 더 큰 접두어를 제시할 수도 있습니다. 그렇지만 접두어는 VNet의 어떤 접두어와도 같을 수 없습니다. VNet 접두어와 동일한 경로는 거부됩니다.
-
-> [!IMPORTANT]
-> 현재 Azure VPN Gateway에 대한 기본 경로(0.0.0.0/0) 광고는 차단됩니다. 이 기능이 활성화되면 추가 업데이트가 제공됩니다.
-> 
-> 
+또한 대형 비공개 IP 주소 공간(예: 10.0.0.0/8)과 같은 일부 VNet 주소 접두어를 포함하는 더 큰 접두어를 제시할 수도 있습니다. 그렇지만 접두어는 VNet의 어떤 접두어와도 같을 수 없습니다. VNet 접두어와 동일한 경로는 거부됩니다. 
 
 ### <a name="support-multiple-tunnels-between-a-vnet-and-an-on-premises-site-with-automatic-failover-based-on-bgp"></a>BGP를 기준으로 자동 장애 조치가 있는 VNet과 온-프레미스 사이트 간 여러 터널 지원
 동일한 위치에서 온-프레미스 VPN 장치와 Azure VNet 간에 여러 연결을 수립할 수 있습니다. 이 기능은 활성-활성 구성의 두 네트워크 간에 여러 터널(경로)을 제공합니다. 한 터널의 연결이 끊기면 BGP를 통해 해당 경로가 제거되고 트래픽이 자동으로 다른 터널로 전달됩니다.
@@ -64,6 +59,6 @@ BGP는 직접 또는 간접 연결 여부에 관계없이 서로 다른 네트�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

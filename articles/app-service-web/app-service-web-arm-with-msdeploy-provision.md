@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c748f4f65ec4a2ba32bca97648fb7ccdbb8d749
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: f836bffd0610224b5cb69f4f6836dbc55e0721a3
 
 
 ---
 # <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>MSDeploy, 사용자 지정 호스트 이름 및 SSL 인증서를 사용하여 웹앱 배포
 이 가이드에서는 Azure 웹앱에 대한 종단 간 배포 만들기, MSDeploy 활용과 사용자 지정 호스트 이름 및 SSL 인증서를 ARM 템플릿에 추가하는 작업에 대해 설명합니다.
 
-템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하십시오.
+템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하십시오.
 
 ### <a name="create-sample-application"></a>응용 프로그램 예제 만들기
 ASP.NET 웹 응용 프로그램을 배포하겠습니다. 첫 번째 단계는 간단한 웹 응용 프로그램을 만드는 것입니다. 또는 기존 웹 응용 프로그램을 선택할 수 있습니다. 이 경우 이 단계를 건너뛸 수 있습니다.
@@ -200,6 +200,6 @@ ARM 배포 템플릿에 매개 변수로 이를 전달할 수 있습니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

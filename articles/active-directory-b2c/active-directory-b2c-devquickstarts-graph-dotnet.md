@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 271e2bd40fb605dc6be229bea8fb479effae4298
+ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
+ms.openlocfilehash: a932b617d57184ef714bf18f1e1e23599db52487
 
 
 ---
@@ -26,7 +26,7 @@ Azure Active Directory(Azure AD) B2C 테넌트는 매우 큰 경향이 있습니
 B2C 테넌트의 경우 Graph API와 통신하는 두 가지 기본 모드가 있습니다.
 
 * 대화형인 한 번 실행 작업의 경우 태스크를 수행할 때 B2C 테넌트에서 관리자 계정으로 작동해야 합니다. 이 모드에서는 관리자가 Graph API에 대한 호출을 수행할 수 있기 전에 해당 관리자가 자격 증명으로 로그인해야 합니다.
-* 자동화된 연속 작업의 경우 필요한 권한을 제공하는 일종의 서비스 계정을 사용하여 관리 작업을 수행해야 합니다. Azure AD에서 응용 프로그램을 등록하고 Azure AD에 인증하여 이 작업을 수행할 수 있습니다. **OAuth 2.0 클라이언트 자격 증명 부여** 를 사용하는 [응용 프로그램 ID](../active-directory/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)를 사용하여 수행합니다. 이 경우에 응용 프로그램은 사용자로서가 아닌 자체로서 Graph API를 호출합니다.
+* 자동화된 연속 작업의 경우 필요한 권한을 제공하는 일종의 서비스 계정을 사용하여 관리 작업을 수행해야 합니다. Azure AD에서 응용 프로그램을 등록하고 Azure AD에 인증하여 이 작업을 수행할 수 있습니다. **OAuth 2.0 클라이언트 자격 증명 부여** 를 사용하는 [응용 프로그램 ID](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)를 사용하여 수행합니다. 이 경우에 응용 프로그램은 사용자로서가 아닌 자체로서 Graph API를 호출합니다.
 
 이 기사에서는 자동화된 사용 사례를 수행하는 방법을 설명합니다. 이를 보여주려면 사용자 만들기, 읽기, 업데이트 및 삭제(CRUD) 작업을 수행하는 .NET 4.5 `B2CGraphClient`을 작성합니다. 클라이언트에는 다양한 메서드를 호출할 수 있도록 하는 Windows CLI(명령줄 인터페이스)가 있습니다. 그러나 코드를 비대화형이고 자동화된 방식으로 동작하도록 기록합니다.
 
@@ -364,6 +364,6 @@ B2C 테넌트의 Graph API를 사용하여 수행하려는 작업에 대한 질�
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

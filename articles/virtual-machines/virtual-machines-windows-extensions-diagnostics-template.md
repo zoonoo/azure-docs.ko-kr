@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 1eb9355b8cdb500224809ab0bd32885358983c23
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: b84b4c0bd31d2e0bebafa2053a725e5e78bc3c9f
 
 
 ---
@@ -166,11 +166,11 @@ MetricAggregation의 *PT1H* 및 *PT1M* 값은 1분간의 집계와 1시간의 �
 ## <a name="next-steps"></a>다음 단계
 * 진단 확장을 포함하는 Windows 가상 컴퓨터의 샘플 템플릿은 [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * [Azure PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Azure 명령줄](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 Resource Manager 템플릿 배포
-*  [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
+* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

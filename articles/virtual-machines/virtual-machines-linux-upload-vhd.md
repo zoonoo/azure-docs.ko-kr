@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 125833947af591d4f8995d803b5ee922679f6c8e
+ms.sourcegitcommit: 9f944edcafb55634c9338bc8dd518a5f032f56e0
+ms.openlocfilehash: edab3b3058a2e28ce74e62434b85b1643f267493
 
 
 ---
@@ -220,7 +220,7 @@ Azure Resource Manager 템플릿은 구축하려는 환경을 정의하는 JSON 
           }
 ```
 
-[사용자 지정 이미지에서 VM을 만드는 데 이 기존 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)을 사용할 수 있거나 [고유한 Azure Resource Manager 템플릿 만들기](../resource-group-authoring-templates.md)에 관해 알아봅니다. 
+[사용자 지정 이미지에서 VM을 만드는 데 이 기존 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)을 사용할 수 있거나 [고유한 Azure Resource Manager 템플릿 만들기](../azure-resource-manager/resource-group-authoring-templates.md)에 관해 알아봅니다. 
 
 템플릿을 구성했다면 `azure group deployment create` 명령을 사용하여 VM을 만듭니다. `--template-uri` 매개 변수를 사용하여 JSON 템플릿의 URI를 지정합니다.
 
@@ -243,6 +243,6 @@ azure group deployment create --resource-group myResourceGroup
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4ba6ce876df3ec426e02e10eda062b67d0d42c4e
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: efe0eeb6c9389545f51f22bbf0a2d6389939c375
 
 
 ---
@@ -66,7 +66,7 @@ Log Analytics에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있�
 ![보기 삭제](media/log-analytics-view-designer/edit-menu-delete.png)
 
 ### <a name="export-an-existing-view"></a>기존 보기 내보내기
-보기는 다른 작업 영역으로 가져오거나 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)에서 사용할 수 있는 JSON 파일에 내보낼 수 있습니다.  기존 보기를 내보려면 기본 OMS 대시보드에서 해당 타일을 클릭하여 해당 보기를 엽니다.  그런 다음 **내보내기** 단추를 클릭하여 브라우저의 다운로드 폴더에 파일을 만듭니다.  파일 이름은 보기 이름과 *omsview* 확장명으로 구성됩니다.
+보기는 다른 작업 영역으로 가져오거나 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)에서 사용할 수 있는 JSON 파일에 내보낼 수 있습니다.  기존 보기를 내보려면 기본 OMS 대시보드에서 해당 타일을 클릭하여 해당 보기를 엽니다.  그런 다음 **내보내기** 단추를 클릭하여 브라우저의 다운로드 폴더에 파일을 만듭니다.  파일 이름은 보기 이름과 *omsview* 확장명으로 구성됩니다.
 
 ![보기 내보내기](media/log-analytics-view-designer/edit-menu-export.png)
 
@@ -99,6 +99,6 @@ Log Analytics에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

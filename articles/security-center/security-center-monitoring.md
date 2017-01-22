@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: aac0354a8fbfb73bab3e7b5da7d9aefa69c9eb16
-ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
+ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
+ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
 
 ![리소스 보안 상태 타일](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
-보안 센터에서 보안 업데이트가 누락된 VM 또는 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 속하지 않은 서브넷과 같이 조치가 필요한 취약점을 확인한 경우 이 타일에서 해당 보안 상태를 나열합니다.
+보안 센터에서 보안 업데이트가 누락된 VM 또는 [네트워크 보안 그룹](/virtual-network/virtual-networks-nsg.md)에 속하지 않은 서브넷과 같이 조치가 필요한 취약점을 확인한 경우 이 타일에서 해당 보안 상태를 나열합니다.
 
 ### <a name="monitor-virtual-machines"></a>가상 컴퓨터 모니터링
 **리소스 보안 상태** 타일에서 **가상 컴퓨터**를 클릭하면 아래와 같은 **가상 컴퓨터** 블레이드가 열리면서 보안 센터에서 모니터링하고 있는 VM 목록 전체, 등록 및 방지 단계에 대한 자세한 내용을 보여 줍니다.
@@ -162,22 +162,22 @@ ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
 * 주황색: 보통 우선 순위이며 가능한 한 빨리 해결해야 합니다.
 * 녹색(마지막): 정상 상태
 
-이 토폴로지 보기에서 첫 번째 수준에는 [가상 네트워크](../virtual-network/virtual-networks-overview.md), [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-site-to-site-create.md) 및 [가상 네트워크(클래식)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)가 있습니다. 두 번째 수준에는 서브넷이 있고, 세 번째 수준에는 해당 서브넷에 속하는 VM이 있습니다. 오른쪽 열에는 아래 예와 같이 해당 리소스의 NSG 현재 상태가 있습니다.
+이 토폴로지 보기에서 첫 번째 수준에는 [가상 네트워크](../virtual-network/virtual-networks-overview.md), [가상 네트워크 게이트웨이](/vpn-gateway/vpn-gateway-site-to-site-create.md) 및 [가상 네트워크(클래식)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md)가 있습니다. 두 번째 수준에는 서브넷이 있고, 세 번째 수준에는 해당 서브넷에 속하는 VM이 있습니다. 오른쪽 열에는 아래 예와 같이 해당 리소스의 NSG 현재 상태가 있습니다.
 
 ![네트워킹 토폴로지 섹션의 네트워크 보안 그룹 상태](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
 이 블레이드의 아래 부분에는 위에서 설명한 것과 비슷한 해당 VM에 대한 권장 사항이 있습니다. 권장 사항을 클릭하여 필요한 보안 제어 또는 구성을 자세히 알아보거나 적용할 수 있습니다.
 
 ### <a name="monitor-data"></a>데이터 모니터링
-**리소스 보안 상태** 타일에서 **데이터**를 클릭하면 **SQL** 블레이드가 열려 감사, 활성화되지 않은 투명한 데이터 암호화와 같은 문제에 대한 권장 사항을 보여 줍니다. 또한 데이터베이스의 일반 성능 상태에 대한 [권장 사항](security-center-sql-service-recommendations.md)이 있습니다.
+**리소스 보안 상태** 타일에서 **데이터**를 클릭할 때 SQL 및 저장소에 대한 권장 사항이 포함된 **데이터 리소스** 블레이드가 열립니다. 또한 데이터베이스의 일반 성능 상태에 대한 [권장 사항](security-center-sql-service-recommendations.md)이 있습니다. 저장소 암호화에 대한 자세한 내용은 Azure Security Center에서 Azure Storage 계정에 대한 암호화 사용을 참고하세요.
 
-![SQL 리소스 상태](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
+![데이터 리소스](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
-권장 사항을 클릭하고 추가 조치에 대한 자세한 정보를 가져오면 문제를 해결할 수 있습니다. 아래 예에서는 **데이터베이스 감사 활성화되지 않음** 권장 사항의 확장을 보여 줍니다.
+**SQL 권장 사항**에서 권장 사항을 클릭하고 추가 조치에 대한 자세한 정보를 가져오면 문제를 해결할 수 있습니다. 다음 예에서는 **SQL Database에서 데이터베이스 감사 및 위협 감지** 권장 사항의 확장을 보여 줍니다.
 
-![SQL 권장 사항에 대한 세부 정보](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
+![SQL 권장 사항에 대한 세부 정보](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-**SQL Database에 감사 활성화** 블레이드에는 다음과 같은 정보가 있습니다.
+**SQL Database에서 감사 및 위협 감지 활성화** 블레이드에는 다음과 같은 정보가 있습니다.
 
 * SQL 데이터베이스의 목록
 * 데이터베이스가 위치한 서버
@@ -185,13 +185,14 @@ ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
 * 현재 상태
 * 문제의 심각도
 
-권장 사항을 처리하기 위하여 데이터베이스를 클릭하면 아래와 같이 **감사 및 위협 감지** 블레이드가 열립니다.
+권장 사항을 처리하기 위하여 데이터베이스를 클릭하면 다음 화면과 같이 **감사 및 위협 감지** 블레이드가 열립니다.
 
 ![감사 및 위협 감지 블레이드](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 감사를 활성화하려면 **감사** 옵션에서 **켜기**를 선택합니다.
 
 ### <a name="monitor-applications"></a>응용 프로그램 모니터링
+
 [노출된 웹 포트(80 및 443 TCP 포트)가 있는 VM(Azure Resource Manager를 통해 만듦)](../azure-resource-manager/resource-manager-deployment-model.md)에 있는 응용 프로그램이 Azure 워크로드에 있는 경우 보안 센터에서는 해당 응용 프로그램을 모니터링하여 잠재적 보안 문제를 파악하고 수정 조치를 권장할 수 있습니다. **응용 프로그램** 타일을 클릭하면 아래와 같이 **응용 프로그램** 블레이드가 열리고 **응용 프로그램 권장 사항** 섹션에 일련의 권장 사항을 보여 줍니다. 또한 호스트/가상 IP 별 응용 프로그램 분석 결과도 보여 줍니다.
 
 ![응용프로그램 보안 상태](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
@@ -216,6 +217,6 @@ ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

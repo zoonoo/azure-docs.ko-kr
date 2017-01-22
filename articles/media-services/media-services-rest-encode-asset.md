@@ -1,6 +1,6 @@
 ---
 title: "Media Encoder Standard를 사용하여 자산을 인코드하는 방법 | Docs Azure"
-description: "Media Encoder Standard를 사용하여 Media Services에서 미디어 콘텐츠를 인코드하는 방법에 대해 알아봅니다. REST API를 사용하는 코드 샘플입니다."
+description: "Media Encoder Standard를 사용하여 미디어 서비스에서 미디어 콘텐츠를 인코드하는 방법에 대해 알아봅니다. REST API를 사용하는 코드 샘플입니다."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2ff29cb1cf243e273d44a55dc2fba842c554f360
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 6a0fcc28a3eadaba6bb28d23ab1f4632bea60652
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 2ff29cb1cf243e273d44a55dc2fba842c554f360
 * 작업 엔터티에 대한 작업 탐색 속성 또는 
 * OData 배치 처리를 통해 작업을 인라인으로 정의할 수 있습니다.
 
-항상 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 원하는 형식으로 집합을 변환하는 것이 좋습니다. 동적 패키징을 이용하려면 먼저 콘텐츠를 배달할 계획인 스트리밍 끝점에 대한 주문형 스트리밍 단위를 하나 이상 가져와야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
+항상 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 원하는 형식으로 집합을 변환하는 것이 좋습니다.
 
 출력 자산이 암호화된 저장소인 경우 자산 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조하세요.
 
@@ -63,8 +63,15 @@ ms.openlocfilehash: 2ff29cb1cf243e273d44a55dc2fba842c554f360
 
 요청:
 
-POST https://media.windows.net/API/Jobs HTTP/1.1 Content-Type: application/json;odata=verbose Accept: application/json;odata=verbose DataServiceVersion: 3.0 MaxDataServiceVersion: 3.0 x-ms-version: 2.11 Authorization: Bearer <token value>
-    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 Host: media.windows.net
+    POST https://media.windows.net/API/Jobs HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.11
+    Authorization: Bearer <token value>
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+    Host: media.windows.net
 
     {"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Multiple Bitrate 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
 
@@ -266,6 +273,6 @@ POST https://media.windows.net/API/Jobs HTTP/1.1 Content-Type: application/json;
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -3,7 +3,7 @@ title: "Azure DocumentDB에서 데이터 모델링 | Microsoft Docs"
 description: "DocumentDB, NoSQL 문서 데이터베이스에 대한 데이터 모델링에 대해 알아봅니다."
 keywords: "데이터 모델링"
 services: documentdb
-author: kiratp
+author: arramac
 manager: jhubbard
 editor: mimig1
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2016
-ms.author: kipandya
+ms.date: 01/03/2016
+ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba0dbc287964aa700cbded834e4b5da09144efe8
+ms.sourcegitcommit: 09f42bae67f794f12c7c37cd25c25f4c991fe893
+ms.openlocfilehash: 93d0d7276e4ff426e87bdc3dadd736de8d6525fb
 
 
 ---
@@ -119,11 +119,6 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
     }
 
 이 코드 조각은 일반적인 블로그 또는 CMS 시스템을 모델링할 때 나타날 수 있는 포함된 주석이 있는 포스트 엔터티를 나타낼 수 있습니다. 이 예제에서의 문제는 주석 배열이 **바인딩되지 않음**으로써, 단일 포스트가 가질 수 있는 주석 수에 대한 제한(실질적인)이 없다는 것입니다. 이러한 상황은 문서 크기가 상당히 크게 증가할 수 있기 때문에 문제가 됩니다.
-
-> [!TIP]
-> DocumentDB의 문서는 최대 크기를 포함합니다. 이에 대한 자세한 내용은 [DocumentDB 제한](documentdb-limits.md)을 참조하십시오.
-> 
-> 
 
 문서 크기가 증가함에 따라 확장 시 유선 상의 데이터 전송 기능과 문서 읽기 및 업데이트 기능이 영향을 받습니다.
 
@@ -409,6 +404,6 @@ Azure DocumentDB의 인덱스 튜닝에 대한 자세한 내용은 [인덱싱 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

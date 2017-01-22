@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: ee70cb290f8da874ff378ded97430acd3a0fc1cd
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 01a554815a48cf1b81037eaa2f55bc4f07838721
 
 
 ---
@@ -167,7 +167,7 @@ Windows, OS X 또는 Linux 컴퓨터에 CLI를 [설치했으며](../xplat-cli-in
     azure group create "TestApp1-Pre-Production" "Central US"
 
 ### <a name="powershell"></a>PowerShell
-[Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 문서에 자세히 설명한 대로 Windows 컴퓨터에 Azure PowerShell 1.01 이상을 설치하고 [Azure AD 계정](../active-directory/active-directory-how-subscriptions-associated-directory.md)(회사 또는 학교 계정)을 구독에 연결했는지 확인합니다. PowerShell 명령 프롬프트에서 개발 환경에 대한 리소스 그룹을 만들려면 아래 명령을 입력합니다.
+[Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 문서에 자세히 설명한 대로 Windows 컴퓨터에 Azure PowerShell 1.01 이상을 설치하고 [Azure AD 계정](../active-directory/active-directory-how-subscriptions-associated-directory.md)(회사 또는 학교 계정)을 구독에 연결했는지 확인합니다. PowerShell 명령 프롬프트에서 개발 환경에 대한 리소스 그룹을 만들려면 아래 명령을 입력합니다.
 
     New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
@@ -236,7 +236,7 @@ CLI 명령줄에서 [path]를 이전 단계에서 저장한 파일에 대한 경
     data:    requestedServiceObjectiveName  String        S0
     info:    group deployment create command OKx
 
-명령이 성공하지 못하면, 모든 오류 메시지를 해결하고 다시 시도하십시오.  일반적인 문제는 Azure 리소스 명명 제약 조건을 준수하지 않는 매개 변수 값을 사용하는 것입니다. 다른 문제 해결 팁은 [Azure에서 리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-cli.md) 문서에서 찾을 수 있습니다.
+명령이 성공하지 못하면, 모든 오류 메시지를 해결하고 다시 시도하십시오.  일반적인 문제는 Azure 리소스 명명 제약 조건을 준수하지 않는 매개 변수 값을 사용하는 것입니다. 다른 문제 해결 팁은 [Azure에서 리소스 그룹 배포 문제 해결](resource-manager-common-deployment-errors.md) 문서에서 찾을 수 있습니다.
 
 CLI 명령줄에서 [path]를 이전 단계에서 저장한 파일에 대한 경로로 바꾸고 아래 명령을 입력하여 리소스를 테스트 환경에 대해 만든 리소스 그룹에 배포합니다.
 
@@ -279,7 +279,7 @@ Azure PowerShell(버전 1.01 이상) 명령 프롬프트에서 [path]를 이전 
 
     Outputs           :
 
-  명령이 성공하지 못하면, 모든 오류 메시지를 해결하고 다시 시도하십시오.  일반적인 문제는 Azure 리소스 명명 제약 조건을 준수하지 않는 매개 변수 값을 사용하는 것입니다. 다른 문제 해결 팁은 [Azure에서 리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-powershell.md) 문서에서 찾을 수 있습니다.
+  명령이 성공하지 못하면, 모든 오류 메시지를 해결하고 다시 시도하십시오.  일반적인 문제는 Azure 리소스 명명 제약 조건을 준수하지 않는 매개 변수 값을 사용하는 것입니다. 다른 문제 해결 팁은 [Azure에서 리소스 그룹 배포 문제 해결](resource-manager-common-deployment-errors.md) 문서에서 찾을 수 있습니다.
 
   PowerShell 명령프롬프트에서 [path]를 이전 단계에서 저장한 파일에 대한 경로로 바꾸고 아래 명령을 입력하여 리소스를 테스트 환경에 대해 만든 리소스 그룹에 배포합니다.
 
@@ -365,6 +365,6 @@ Azure PowerShell(버전 1.01 이상) 명령 프롬프트에서 아래 명령을 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

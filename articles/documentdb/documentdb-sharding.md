@@ -2,7 +2,7 @@
 title: "SDK로 클라이언트 쪽 파티션을 구현하는 방법 | Microsoft Docs"
 description: "Azure DocumentDB SDK를 사용하여 데이터를 분할하고 여러 컬렉션 간에 요청을 라우팅하는 방법을 알아봅니다."
 services: documentdb
-author: arramac
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 documentationcenter: 
@@ -13,10 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.author: arramac
+ms.author: mimig
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c31763a9676ec45e493cdecc76997db8fe64c38a
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 5e7aa2ead3e9c5d55f7f4c372638c0ee9c485b98
+
 
 
 ---
@@ -145,7 +148,7 @@ foreach (UserProfile activeUser in query)
 예, DocumentDB에서 [서버 쪽 분할](documentdb-partition-data.md)을 지원합니다. DocumentDB는 또한 보다 고급 사용 사례로 클라이언트 쪽 분할 해결 프로그램을 통해 클라이언트 쪽 분할을 지원합니다.
 
 **서버 쪽 및 클라이언트 쪽 분할을 언제 사용해야 하나요?**
- 대부분의 사용 사례에서는 분할 데이터 및 라우팅 요청의 관리 작업을 처리하므로 서버 쪽 분할을 사용하는 것이 좋습니다. 그러나 범위 분할이 필요하거나 파티션 키의 서로 다른 값 간에 성능 격리를 위해 특수화된 사용 사례가 있는 경우 클라이언트 쪽 분할이 최선의 방법일 수 있습니다.
+대부분의 사용 사례에서는 분할 데이터 및 라우팅 요청의 관리 작업을 처리하므로 서버 쪽 분할을 사용하는 것이 좋습니다. 그러나 범위 분할이 필요하거나 파티션 키의 서로 다른 값 간에 성능 격리를 위해 특수화된 사용 사례가 있는 경우 클라이언트 쪽 분할이 최선의 방법일 수 있습니다.
 
 **내 파티션 구성표에 컬렉션을 추가하거나 제거하려면 어떻게 해야 하나요?**
 
@@ -165,12 +168,11 @@ foreach (UserProfile activeUser in query)
 * [Github의 분할 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
 * [MSDN의 DocumentDB .NET SDK 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)
-* [DocumentDB 제한](documentdb-limits.md)
 * [성능 팁에 대한 DocumentDB 블로그](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

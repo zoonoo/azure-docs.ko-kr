@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 448a1728b94c695d719acafdf4ef9e1d577414db
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: ee3e7103bd647c2d8651ec912fbb764a342781e2
 
 
 ---
@@ -112,7 +112,7 @@ Azure는 여러 오류를 검색하고 처리하지만 응용 프로그램별로
 
 [개요: SQL 데이터베이스의 클라우드 무중단 업무 방식 및 데이터베이스 재해 복구](../sql-database/sql-database-business-continuity.md)
 
-[Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)
 
 [Failsafe: 복원력 있는 클라우드 아키텍처 지침](https://channel9.msdn.com/Series/FailSafe)
 
@@ -124,6 +124,6 @@ Azure는 여러 오류를 검색하고 처리하지만 응용 프로그램별로
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

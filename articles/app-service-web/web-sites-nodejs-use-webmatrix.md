@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a551edf6aeaa77798173709deaf78e1a46431ad7
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: fc5ec9d446ea2133fb78de08443fcac75de35ded
 
 
 ---
@@ -97,8 +97,8 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 ## <a name="whats-changed"></a>변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-[WebMatrix 웹 사이트]: http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398
-[Azure용 WebMatrix(영문)]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
+[WebMatrix WebSite]: http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398
+[WebMatrix for Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
 
 [webmatrix-node-completed]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-complete.png
 [webmatrix-templates]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-templates.png
@@ -117,6 +117,6 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

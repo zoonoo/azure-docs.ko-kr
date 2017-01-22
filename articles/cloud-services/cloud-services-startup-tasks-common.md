@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cad8626d920f51eba94da4a775c346488a2e17ec
+ms.sourcegitcommit: 3219df0e45d516ea332725b3e1955026cc1db231
+ms.openlocfilehash: 88fb93b8f3e196121b635d5ce7a21bf8f8c46be5
 
 
 ---
@@ -27,7 +27,6 @@ ms.openlocfilehash: cad8626d920f51eba94da4a775c346488a2e17ec
 
 > [!NOTE]
 > 시작 작업은 가상 컴퓨터에 적용되지 않으며 클라우드 서비스 웹 및 작업자 역할에만 적용됩니다.
-> 
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>역할이 시작되기 전에 환경 변수를 정의합니다.
@@ -387,7 +386,7 @@ Visual Studio는 배치 파일을 통해 단계에 디버거를 제공하지 않
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
-xml을 단순화하기 위해 로깅과 함께 모든 시작 태스크를 호출하는 래퍼 *cmd* 파일을 만들고 동일한 환경 변수를 공유하는 각 하위 태스크를 확인할 수 있습니다. 다음과 같은 상황이 발생할 수 있습니다. 
+xml을 단순화하기 위해 로깅과 함께 모든 시작 태스크를 호출하는 래퍼 *cmd* 파일을 만들고 동일한 환경 변수를 공유하는 각 하위 태스크를 확인할 수 있습니다.
 
 각 시작 태스크의 끝에 `>> "%TEMP%\StartupLog.txt" 2>&1`을 사용하지 않으려 할 수 있습니다. 사용자에 대한 로깅을 처리하는 래퍼를 만들어서 태스크 로깅을 적용할 수 있습니다. 이 래퍼는 실행하려는 실제 배치 파일을 호출합니다. 대상 배치 파일의 모든 출력은 *Startuplog.txt* 파일로 리디렉션됩니다.
 
@@ -472,7 +471,7 @@ EXIT %ERRORLEVEL%
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>시작 작업에 적절하게 executionContext 설정
 시작 작업에 대한 권한을 적절하게 설정합니다. 경우에 따라 역할이 일반 권한으로 실행되더라도 시작 작업을 상승된 권한으로 실행해야 합니다.
 
- [상승된][태스크] 특성은 시작 작업의 권한 수준을 설정합니다. `executionContext="limited"`을 사용하는 것은 시작 태스크가 역할과 동일한 권한 수준을 갖는 것을 의미합니다. `executionContext="elevated"`을 사용하면 시작 태스크가 관리자 권한을 갖게 되므로 역할에 관리자 권한을 부여하지 않고 시작 태스크가 관리자 태스크를 수행하도록 하는 것을 의미합니다.
+[상승된][태스크] 특성은 시작 작업의 권한 수준을 설정합니다. `executionContext="limited"`을 사용하는 것은 시작 태스크가 역할과 동일한 권한 수준을 갖는 것을 의미합니다. `executionContext="elevated"`을 사용하면 시작 태스크가 관리자 권한을 갖게 되므로 역할에 관리자 권한을 부여하지 않고 시작 태스크가 관리자 태스크를 수행하도록 하는 것을 의미합니다.
 
 상승된 권한이 필요한 시작 작업의 예로 **AppCmd.exe** 를 사용하여 IIS를 구성하는 시작 작업을 들 수 있습니다. **AppCmd.exe**는 `executionContext="elevated"`이(가) 필요합니다.
 
@@ -521,6 +520,6 @@ EXIT %ERRORLEVEL%
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

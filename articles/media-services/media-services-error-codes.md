@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3ee46dc265669d3520677b474181c9c7c720644c
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: eae360dd3e627a82986cef32ef39860f60ffe51f
 
 
 ---
@@ -33,13 +33,13 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
   > .NET 또는 Java SDK를 사용하여 Media Services에 연결하는 경우, Media Services에 대해 작업을 수행하려고 할 때마다 API 버전이 지정됩니다.
   > 
   > 
-* 정의되지 않은 속성이 지정되었습니다. 속성 이름이 오류 메시지에 있습니다. 지정된 엔터티의 구성 요소인 속성 만이 지정될 수 있습니다. 엔터티 및 해당 속성의 목록은 [Azure Media Services REST API 참조](http://msdn.microsoft.com/library/azure/hh973617.aspx)를 참조하세요.
+* 정의되지 않은 속성이 지정되었습니다. 속성 이름이 오류 메시지에 있습니다. 지정된 엔터티의 구성 요소인 속성 만이 지정될 수 있습니다. 엔터티 및 해당 속성의 목록은 [Azure Media Services REST API 참조](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)를 참조하세요.
 * 잘못된 속성 값이 지정되었습니다. 속성 이름이 오류 메시지에 있습니다. 유효한 속성 유형 및 해당 값에 대한 이전 링크를 참조하세요.
 * 필수 속성 값이 누락되었습니다.
 * 지정된 URL 일부에 잘못된 값을 들어 있습니다.
 * WriteOnce 속성을 업데이트하려는 시도가 있었습니다.
 * 지정되지 않았거나 확인할 수 없는 기본 AssetFile을 사용해 입력 자신이 있는 작업을 만들려는 시도가 있었습니다.
-* SAS Locator를 업데이트하려는 시도가 있었습니다. SAS Locator는 생성 또는 삭제만 될 수 있습니다. 스트리밍 로케이터는 업데이트될 수 있습니다. 자세한 내용은 [Locators](http://msdn.microsoft.com/library/azure/hh974308.aspx)를 참조하세요.
+* SAS Locator를 업데이트하려는 시도가 있었습니다. SAS Locator는 생성 또는 삭제만 될 수 있습니다. 스트리밍 로케이터는 업데이트될 수 있습니다. 자세한 내용은 [Locators](https://docs.microsoft.com/rest/api/media/operations/locator)를 참조하세요.
 * 지원되지 않는 작업 또는 쿼리가 제출되었습니다.
 
 ## <a name="401-unauthorized"></a>401 권한 없음
@@ -127,6 +127,6 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

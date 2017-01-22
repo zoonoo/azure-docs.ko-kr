@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: ahgyger
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 72ec470c5539ad2e239836aa91d7afe43341b19a
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: e0a06c070159a87932cda4b31d9363e54c008a35
 
 
 ---
@@ -139,7 +139,7 @@ Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |
 작업 영역이 프로비전되면 [Azure 기계 학습에 대한 PowerShell 모듈](http://aka.ms/amlps)을 사용하여 많은 Azure 기계 학습 스튜디오 작업을 자동화할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)에 대해 자세히 알아봅니다. 
+* [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다. 
 * [Azure 빠른 시작 템플릿 리포지토리](https://github.com/Azure/azure-quickstart-templates)를 살펴봅니다. 
 * [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39)에 대한 이 동영상을 시청합니다. 
 
@@ -152,6 +152,6 @@ Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

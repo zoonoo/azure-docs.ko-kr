@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 5939119e2b42b13acaf08678cae11b99d45fdf51
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 547a2c0ab49c0b79d85bab1bd3abd800c9288ccf
 
 
 ---
@@ -101,7 +101,7 @@ Resource Manager 템플릿을 사용하여 VNet 피어링을 만들려면 다음
    | UseRemoteGateways |피어링한 VNet 게이트웨이를 사용합니다. 피어링 VNet에는 게이트웨이가 구성되어 있어야 하고 AllowGatewayTransit을 선택해야 합니다. 구성된 게이트웨이가 있는 경우 이 옵션을 사용할 수 없습니다. |아니요 |
    
     VNet 피어링의 링크 각각에는 위의 속성 집합이 있습니다. 예를 들어, AllowVirtualNetworkAccess를 VNet 피어링 링크 VNet2-VNet1에 대해 True로 설정하고 다른 방향의 VNet 피어링 링크에 대해 False로 설정할 수 있습니다.
-4. 템플릿 파일을 배포하려면 New-AzureRmResourceGroupDeployment cmdlet을 실행하여 배포를 만들고 업데이트할 수 있습니다. Resource Manager 템플릿을 사용하는 방법에 대한 자세한 내용은 이 [문서](../resource-group-template-deploy.md)를 참조하세요.
+4. 템플릿 파일을 배포하려면 New-AzureRmResourceGroupDeployment cmdlet을 실행하여 배포를 만들고 업데이트할 수 있습니다. Resource Manager 템플릿을 사용하는 방법에 대한 자세한 내용은 이 [문서](../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요.
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName <resource group name> -TemplateFile <template file path> -DeploymentDebugLogLevel all
    
@@ -382,6 +382,6 @@ Resource Manager 템플릿을 사용하여 VNet 피어링을 만들려면 다음
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

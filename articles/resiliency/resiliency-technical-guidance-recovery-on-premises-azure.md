@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 2890efbfec90ef0e8e205a801c6e9cf6166985f0
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: c3a6df9f91af5227526e06fe7e9ebb3006bd6948
 
 
 ---
@@ -69,7 +69,7 @@ AlwaysOn 가용성 그룹, 데이터베이스 미러링, 로그 전달, Azure Bl
 
 ![하이브리드 클라우드 아키텍처의 Azure Blob 저장소에 SQL 서버 백업](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-6.png)
 
-자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server의 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Azure 가상 컴퓨터에서 SQL Server 백업 및 복원](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server의 고가용성 및 재해 복구](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) 및 [Azure 가상 컴퓨터에서 SQL Server 백업 및 복원](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md)을 참조하세요.
 
 ## <a name="checklists-for-on-premises-recovery-in-microsoft-azure"></a>Microsoft Azure에서 온-프레미스 복구를 위한 검사 목록
 ### <a name="networking"></a>네트워킹
@@ -99,6 +99,6 @@ AlwaysOn 가용성 그룹, 데이터베이스 미러링, 로그 전달, Azure Bl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

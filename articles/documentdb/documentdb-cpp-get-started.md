@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: hero-article
-ms.date: 11/02/2016
+ms.date: 12/25/2016
 ms.author: aasthan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 31368661906bc8ca0f8ac1d3329bb053d41a94d7
+ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
+ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
 
 
 ---
@@ -24,10 +24,12 @@ ms.openlocfilehash: 31368661906bc8ca0f8ac1d3329bb053d41a94d7
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [Node.JS](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
+>  
 > 
-> 
+ 
 
 C++용 Azure DocumentDB 인증 SDK에 대한 C++ 자습서를 시작합니다. 이 자습서를 따라 하면 C++ 데이터베이스를 포함하여 DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 만들어집니다.
 
@@ -286,13 +288,11 @@ deletedocument 함수 뒤에 다음 코드 조각(함수 정리)을 복사하고
 * [DocumentDB 설명서](https://azure.microsoft.com/documentation/services/documentdb/)페이지의 개발 섹션에서 프로그래밍 모델에 대해 자세히 알아봅니다.
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
 
 
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

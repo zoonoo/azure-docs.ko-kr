@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3e22b8173e7b0a470c5c45ed6027a717b90aca23
+ms.sourcegitcommit: 0dee2c3b92adc4098a51014dd7379aa3d53c1627
+ms.openlocfilehash: 2978fee770b70378dfbffcbd97e57a6b82d2e2fa
 
 
 ---
@@ -55,11 +55,11 @@ Windows 컴퓨터의 명령 프롬프트에서 작업하는 경우 선언할 때
 [!INCLUDE [virtual-machines-common-move-vm](../../includes/virtual-machines-common-move-vm.md)]
 
 ## <a name="next-steps"></a>다음 단계
-리소스 그룹 및 구독 간의 다양한 유형의 리소스를 이동할 수 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../resource-group-move-resources.md)을 참조하세요.    
+리소스 그룹 및 구독 간의 다양한 유형의 리소스를 이동할 수 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요.    
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d78bad26df7a9e428481e23ba4316953dfd4401c
+ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
+ms.openlocfilehash: fe295cb9b79593f7fd4635d142ec86d1c6897192
 
 
 ---
@@ -45,7 +45,7 @@ Azure Active Directory를 사용하기 위해 응용 프로그램을 등록해�
       - 위임된 권한(모든 사용자). 예: Azure AD, 로그인 및 프로필 읽기
 
 > [!NOTE]
-> 기본적으로 모든 멤버는 응용 프로그램을 등록할 수 있습니다. 특정 멤버에 응용 프로그램 등록에 대한 사용 권한을 제한하는 방법을 알아보려면 [Azure AD에 응용 프로그램을 추가하는 방법](active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)을 참조하세요.
+> 기본적으로 모든 멤버는 응용 프로그램을 등록할 수 있습니다. 특정 멤버에 응용 프로그램 등록에 대한 사용 권한을 제한하는 방법을 알아보려면 [Azure AD에 응용 프로그램을 추가하는 방법](develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)을 참조하세요.
 > 
 > 
 
@@ -84,6 +84,6 @@ Azure에서 동의 및 동의 환경에 대한 자세한 내용은 [Azure Active
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 8eea2b930c9182f43cb1f1e416652ce8378d70b0
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 876b6a81c5fba7cd9567f913860dd5bdc2391c15
 
 
 ---
@@ -35,8 +35,8 @@ Azure 저장소 큐를 사용하는 미디어 서비스 응용 프로그램을 �
 
 * 큐 서비스는 선입 선출(FIFO) 순차적 전달을 보장하지 않습니다. 자세한 내용은 [Azure 큐 및 Azure 서비스 버스 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하세요.
 * Azure 저장소 큐는 푸시 서비스가 아닙니다. 큐를 폴링해야 합니다.
-* 개수에 관계 없이 큐를 사용할 수 있습니다. 자세한 내용은 [큐 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179363.aspx)를 참조하세요.
-* Azure 저장소 큐에는 일부 제한 사항이 있으며 [Azure 큐 및 Azure 서비스 버스 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx)문서에서 설명합니다.
+* 개수에 관계 없이 큐를 사용할 수 있습니다. 자세한 내용은 [큐 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API)를 참조하세요.
+* Azure 저장소 큐에는 일부 제한 사항이 있으며 [Azure 큐 및 Azure 서비스 버스 큐 비교 및 대조](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)문서에서 설명합니다.
 
 ### <a name="code-example"></a>코드 예제
 이 섹션의 코드는 다음 작업을 수행합니다.
@@ -354,6 +354,6 @@ Azure 저장소 큐를 사용하는 미디어 서비스 응용 프로그램을 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

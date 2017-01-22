@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: ff2e3c27f9fc02ebe30380798be00211113208e3
-ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
+ms.sourcegitcommit: 206b958b4c266b9977a9beb8ffb6a0576f068a9a
+ms.openlocfilehash: cc4fbb67baf14f4a104a5de6dbf11ad195a42d15
 
 
 ---
@@ -31,10 +31,11 @@ ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
  Linux 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램](service-fabric-application-model.md) 을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core용 선택적 SDK를 설치할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
+
 ### <a name="supported-operating-system-versions"></a>지원되는 운영 체제 버전
 개발을 위해 다음 운영 체제 버전이 지원됩니다.
 
-* Ubuntu 16.04(Xenial Xerus)
+* Ubuntu 16.04("Xenial Xerus")
 
 ## <a name="update-your-apt-sources"></a>APT 원본 업데이트
 apt-get을 통해 SDK 및 관련된 런타임 패키지를 설치하려면 먼저 APT 원본을 업데이트해야 합니다.
@@ -72,7 +73,7 @@ apt-get을 통해 SDK 및 관련된 런타임 패키지를 설치하려면 먼�
 
 
 ## <a name="set-up-the-azure-cross-platform-cli"></a>Azure 플랫폼 간 CLI 설정
-[Azure 플랫폼 간 CLI][azure-xplat-cli-github]는 클러스터 및 응용 프로그램을 비롯하여 Service Fabric 엔터티와 상호 작용하기 위한 명령을 포함합니다. 아래의 지침을 계속 진행하기 전에 Node.js에 기반하여 [노드를 설치했는지 확인][install-node]합니다.
+[Azure 플랫폼 간 CLI][azure-xplat-cli-github]는 클러스터 및 응용 프로그램을 비롯하여 Service Fabric 엔터티와 상호 작용하기 위한 명령을 포함합니다. 다음 지침을 계속 진행하기 전에 Node.js에 기반하여 [노드를 설치했는지 확인][install-node]합니다.
 
 1. 개발 컴퓨터에 GitHub 리포지토리를 복제합니다.
    
@@ -110,7 +111,13 @@ apt-get을 통해 SDK 및 관련된 런타임 패키지를 설치하려면 먼�
    
     ![Linux의 Service Fabric Explorer][sfx-linux]
 
-이 시점에서 게스트 컨테이너 또는 게스트 실행 파일에 따라 미리 빌드된 Service Fabric 응용 프로그램 패키지 또는 새 응용 프로그램 패키지를 배포할 수 있습니다. Java 또는 .NET Core SDK를 사용하여 새 서비스를 빌드하려면 다음 선택 설정 단계를 수행합니다.
+이 시점에서 게스트 컨테이너 또는 게스트 실행 파일에 따라 미리 빌드된 Service Fabric 응용 프로그램 패키지 또는 새 응용 프로그램 패키지를 배포할 수 있습니다. Java 또는 .NET Core SDK를 사용하여 새 서비스를 빌드하려면 후속 선택에서 제공되는 옵션 설정 단계를 수행합니다.
+
+
+> [!NOTE]
+> 독립 실행형 클러스터는 Linux에서 지원되지 않습니다 미리 보기에서는 one box 및 Azure Linux 다중 컴퓨터 클러스터만 지원됩니다.
+> 
+> 
 
 ## <a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a>Java SDK 및 Eclipse Neon 플러그 인 설치(선택 사항)
 Java SDK에서는 Java를 사용하여 Service Fabric 서비스를 빌드하는 데 필요한 라이브러리 및 템플릿을 제공합니다.
@@ -142,28 +149,32 @@ Neon Eclipse IDE 내에서 Service Fabric용 Eclipse 플러그 인을 설치할 
 
 1. .NET Core SDK 패키지를 설치합니다.
    
-    ```bash
-    sudo apt-get install servicefabricsdkcsharp
-    ```
+   ```bash
+   sudo apt-get install servicefabricsdkcsharp
+   ```
+
 2. SDK 설치 스크립트를 실행합니다.
    
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
-    ```
+   ```bash
+   sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
+   ```
+
 ## <a name="updating-the-sdk-and-runtime"></a>SDK 및 런타임 업데이트
 
 최신 버전 SDK 및 런타임으로 업데이트하려면 다음 단계를 실행합니다(업데이트하거나 설치하려는 목록에서 SDK 제거).
 
-    ```bash
-    sudo apt-get update
-    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
-    ```
+   ```bash
+   sudo apt-get update
+   sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+   ```
 
 CLI를 업데이트하는 경우 CLI를 복제한 디렉터리로 이동하고 업데이트할 `git pull`을 실행합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * [Linux에서 첫 번째 Java 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-java.md)
+* [Linux에서 첫 번째 CSharp 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [OSX에서 개발 환경 준비](service-fabric-get-started-mac.md)
+* [Azure CLI를 사용하여 Service Fabric 응용 프로그램 관리](service-fabric-azure-cli.md)
 
 <!-- Links -->
 
@@ -178,6 +189,6 @@ CLI를 업데이트하는 경우 CLI를 복제한 디렉터리로 이동하고 �
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -9,6 +9,7 @@ editor:
 tags: 
 ms.assetid: b43e43bb-6660-49e6-b069-abde97eb5770
 ms.service: sql-database
+ms.custom: development
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7943d1c385ea2dd7a38eff31b068fba9650ee7c7
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 321b1630680f8bd4271f863b2cbe39be1a00cb89
 
 
 ---
@@ -25,9 +26,9 @@ ms.openlocfilehash: 7943d1c385ea2dd7a38eff31b068fba9650ee7c7
 코드에서 SQL Database를 만들고 관리하여 Azure 리소스가 생성된 구독의 Azure Active Directory(AAD) 도메인에 앱을 등록해야 합니다.
 
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>응용 프로그램에서 리소스에 액세스하는 서비스 주체 만들기
-최신 [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx)을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+최신 [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx)을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
-다음 PowerShell 스크립트는 AD(Active Directory) 응용 프로그램 및 C# 앱을 인증해야 하는 서비스 주체를 만듭니다. 스크립트는 이전 C# 샘플에 필요한 값을 출력합니다. 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../resource-group-authenticate-service-principal.md)를 참조하세요.
+다음 PowerShell 스크립트는 AD(Active Directory) 응용 프로그램 및 C# 앱을 인증해야 하는 서비스 주체를 만듭니다. 스크립트는 이전 C# 샘플에 필요한 값을 출력합니다. 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md)를 참조하세요.
 
     # Sign in to Azure.
     Add-AzureRmAccount
@@ -77,6 +78,6 @@ ms.openlocfilehash: 7943d1c385ea2dd7a38eff31b068fba9650ee7c7
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

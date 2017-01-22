@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: c404c8708ec6d33f272733e438b8c3559fa40ce9
-ms.openlocfilehash: 07cf3e27f34c705367aa62650d2b17ed1ea3ec82
+ms.sourcegitcommit: d83372fbce5f49d7cd038a15bd271e9d8a463b7b
+ms.openlocfilehash: f1cff67f31da87d6361603f0216a68c55686db0e
 
 
 ---
@@ -24,6 +24,15 @@ ms.openlocfilehash: 07cf3e27f34c705367aa62650d2b17ed1ea3ec82
 Azure 클래식 포털은 고급 규칙을 설정할 수 있는 기능을 제공하여 Azure Active Directory(Azure AD) 그룹에 대해 보다 복잡한 특성 기반 동적 멤버 자격을 사용할 수 있도록 합니다.  
 
 사용자의 특성이 변경될 때 사용자의 특성 변경 내용이 그룹 추가 또는 제거를 트리거할지를 확인하기 위해 시스템은 디렉터리에서 모든 동적 그룹 규칙을 평가합니다. 사용자가 그룹에 대한 규칙을 만족하면 해당 그룹에 대한 구성원으로 추가됩니다. 구성원인 그룹의 규칙을 더 이상 만족하지 않는 경우 해당 그룹의 구성원에서 제거됩니다.
+
+> [!NOTE]
+> 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다. 중첩 그룹 구성원은 현재 응용 프로그램에 대한 그룹 기반 할당에서 지원되지 않습니다.
+> 
+> 그룹의 동적 멤버 자격에는 할당될 Azure AD Premium 라이선스가 필요합니다.
+> 
+> * 그룹의 규칙을 관리하는 관리자
+> * 그룹의 모든 멤버
+> 
 
 ## <a name="to-create-the-advanced-rule"></a>고급 규칙을 만들려면
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **Active Directory**를 선택한 다음 조직의 디렉터리를 엽니다.
@@ -245,6 +254,6 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 
