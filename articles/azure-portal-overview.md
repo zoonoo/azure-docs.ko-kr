@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7383380ee07f9ee52858038bd4d623be4689a31a
+ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
+ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
 
 
 ---
@@ -59,16 +59,6 @@ Azure에는 수천 개의 항목을 한 곳에서 만들 수 있는 마켓플레
 5. 사용자 및 역할을 선택합니다.
 
 ![리소스 관리][ManageResource]
-
-## <a name="how-to-customize-a-resource-blade"></a>리소스 블레이드를 사용자 지정하는 방법
-Azure에서는 리소스의 블레이드를 미리 구성하지만 이러한 블레이드의 타일은 사용자가 제어합니다.  사용자 지정 모드로 이동하여 타일을 손쉽게 추가, 제거, 크기 조정 또는 다시 정렬할 수 있습니다. 블레이드를 사용자 지정하려면 다음 작업을 수행합니다.
-
-1. 리소스를 찾습니다.
-2. ‘…’를 클릭합니다. 사용자 지정할 블레이드의 맨 위에 있는 '...'를 클릭합니다.
-3. ‘파트 추가’를 클릭합니다.
-4. 파트를 끌어서 놓기 시작합니다.  
-
-![블레이드 사용자 지정][CustomizeBlades]
 
 ## <a name="how-to-get-help"></a>도움말을 보는 방법
 문제가 발생한 경우 걱정하지 않아도 됩니다.  포털에는 올바른 지침을 제공할 수 있는 도움말 및 지원 페이지가 있습니다.  [지원 계획](https://azure.microsoft.com/support/plans/)에 따라 포털에서 직접 지원 티켓을 만들 수도 있습니다.  지원 티켓을 만든 후에는 포털 내에서 티켓의 수명 주기를 관리할 수 있습니다. 도움말 및 지원 페이지를 보려면 찾아보기 -> 도움말 + 지원으로 이동합니다.  

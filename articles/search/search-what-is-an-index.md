@@ -10,11 +10,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3f2a2b6c82c6c931261036ae1fba733b46a074dc
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
 
 
 ---
@@ -23,7 +23,7 @@ ms.openlocfilehash: 3f2a2b6c82c6c931261036ae1fba733b46a074dc
 > * [개요](search-what-is-an-index.md)
 > * [포털](search-create-index-portal.md)
 > * [.NET](search-create-index-dotnet.md)
-> * [REST (영문)](search-create-index-rest-api.md)
+> * [REST](search-create-index-rest-api.md)
 > 
 > 
 
@@ -36,7 +36,7 @@ ms.openlocfilehash: 3f2a2b6c82c6c931261036ae1fba733b46a074dc
 스키마를 정의할 때 인덱스에서 각 필드의 이름, 형식 및 특성을 지정해야 합니다. 필드 형식은 해당 필드에 저장된 데이터를 분류합니다. 특성은 개별 필드에 설정되어 필드를 사용하는 방법을 지정합니다. 다음 표에서는 지정할 수 있는 형식 및 특성을 열거합니다.
 
 ### <a name="field-types"></a>필드 형식
-| 형식 | 설명 |
+| 메시지를 입력한 다음 | 설명 |
 | --- | --- |
 | *Edm.String* |전체 텍스트 검색을 위해 선택적으로 토큰화할 수 있는 텍스트입니다(단어 분리, 형태소 분석 등). |
 | *Collection(Edm.String)* |전체 텍스트 검색을 위해 선택적으로 토큰화할 수 있는 문자열 목록입니다. 컬렉션에 있는 항목 수에 이론적인 상한은 없지만 페이로드 크기의 16MB 상한이 컬렉션에 적용됩니다. |
@@ -47,7 +47,7 @@ ms.openlocfilehash: 3f2a2b6c82c6c931261036ae1fba733b46a074dc
 | *Edm.DateTimeOffset* |날짜 시간 값을 OData V4 형식으로 표현합니다(예: `yyyy-MM-ddTHH:mm:ss.fffZ` 또는 `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |전 세계의 지리적 위치를 나타내는 지점입니다. |
 
-Azure 검색의 [지원되는 데이터 형식에 대한 자세한 내용은 MSDN에서](https://msdn.microsoft.com/library/azure/dn798938.aspx)확인할 수 있습니다.
+Azure Search의 [지원되는 데이터 형식에 대한 자세한 내용은 여기서](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) 확인할 수 있습니다.
 
 ### <a name="field-attributes"></a>필드 특성
 | 특성 | 설명 |
@@ -59,16 +59,16 @@ Azure 검색의 [지원되는 데이터 형식에 대한 자세한 내용은 MSD
 | *패싯 가능* |사용자 자기 주도형 필터링을 위해 필드를 [패싯 탐색](search-faceted-navigation.md) 구조에 사용할 수 있습니다. 일반적으로 여러 문서(예를 들어 단일 브랜드 또는 서비스 범주에 속하는 여러 문서)를 그룹화하는 데 사용할 수 있는 반복되는 값을 포함한 필드는 패싯으로 가장 적합합니다. |
 | *검색 가능* |전체 텍스트 검색 가능 필드로 표시합니다. |
 
-Azure 검색의 [인덱스 특성에 대한 자세한 내용은 MSDN에서](https://msdn.microsoft.com/library/azure/dn798941.aspx)확인할 수 있습니다.
+Azure Search의 [인덱스 특성은 여기서](https://docs.microsoft.com/rest/api/searchservice/Create-Index) 확인할 수 있습니다.
 
 ## <a name="guidance-for-defining-an-index-schema"></a>인덱스 스키마를 정의하기 위한 지침
-인덱스를 설계할 때 계획 단계에서 각 의사 결정에 대해 신중하게 생각합니다. 인덱스를 각 필드로 디자인하는 경우 검색 사용자 환경 및 비즈니스 요구를 [적절한 특성](https://msdn.microsoft.com/library/azure/dn798941.aspx)으로 할당해야 한다는 점을 염두에 두는 것이 중요합니다. 배포된 후 인덱스를 변경하려면 데이터를 다시 작성하고 다시 로드해야 합니다.
+인덱스를 설계할 때 계획 단계에서 각 의사 결정에 대해 신중하게 생각합니다. 인덱스를 각 필드로 디자인하는 경우 검색 사용자 환경 및 비즈니스 요구를 [적절한 특성](https://docs.microsoft.com/rest/api/searchservice/Create-Index)으로 할당해야 한다는 점을 염두에 두는 것이 중요합니다. 배포된 후 인덱스를 변경하려면 데이터를 다시 작성하고 다시 로드해야 합니다.
 
 데이터 저장소 요구 사항이 시간이 지남에 따라 변하는 경우 파티션을 추가하거나 제거하여 용량을 늘리거나 줄일 수 있습니다. 자세한 내용은 [Azure에서 검색 서비스 관리](search-manage.md) 또는 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
