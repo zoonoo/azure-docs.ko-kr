@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/24/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 61985bf2e112fe7b0a46ece07fd56eb14ccc3d45
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d06ec1c7a643c92fd11b532abc26fb1597d969f5
 
 
 ---
@@ -34,11 +34,11 @@ ms.openlocfilehash: 61985bf2e112fe7b0a46ece07fd56eb14ccc3d45
 ## <a name="aad-roles"></a>AAD 역할
 AAD 역할은 권한 프로비전 미리 구성된 솔루션을 제어하고 미리 구성된 솔루션의 사용자를 관리합니다.
 
-AAD의 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당][lnk-aad-admin]에서 찾아볼 수 있지만, 이 문서는 미리 구성된 솔루션에 사용되는 **전역 관리자** 및 **도메인 사용자/회원** 역할에 주로 중점을 둔 문서입니다.
+AAD의 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당][lnk-aad-admin]에서 찾아볼 수 있지만, 이 문서는 미리 구성된 솔루션에 사용되는 **전역 관리자** 및 **도메인 사용자/회원**에 주로 중점을 둔 문서입니다.
 
 **전역 관리자:** AAD 테넌트에는 여러 명의 전역 관리자가 있을 수 있습니다. AAD 테넌트를 만들 때, 만드는 사람은 기본적으로 해당 테넌트의 전역 관리자입니다. 전역 관리자는 미리 구성된 솔루션을 프로비전할 수 있으며 자신의 AAD 테넌트 내부 응용 프로그램에 대해 **관리자** 역할이 할당됩니다. 하지만, 동일한 AAD 테넌트의 다른 사용자가 응용 프로그램을 만들 경우, 전역 사용자에게 부여되는 기본 역할은 **IMPLICIT READ ONLY**(암시적 읽기 전용)입니다. 전역 관리자는 [Azure 클래식 포털][lnk-classic-portal]을 사용하여 응용 프로그램에 대한 역할을 할당할 수 있습니다.
 
-**도메인 사용자/회원:** AAD 테넌트에는 여러 명의 도메인 사용자/회원이 있을 수 있습니다. 도메인 사용자는 [azureiotsuite.com][lnk-azureiotsuite] 사이트를 통해 미리 구성된 솔루션을 프로비전할 수 있습니다. 자신이 프로비전하는 응용 프로그램에 대해 부여되는 기본 역할은 **관리자**입니다. [azure-iot-remote-monitoring][lnk-rm-github-repo] 또는 [azure-iot-predictive-maintenance][lnk-pm-github-repo] 리포지토리의 build.cmd 스크립트를 사용하여 응용 프로그램을 만들 수 있지만, 역할을 할당할 권한이 없기 때문에 이들에게 부여되는 기본 역할은 **IMPLICIT READONLY**(암시적 읽기 전용)입니다. 동일한 AAD 테넌트의 다른 사용자가 응용 프로그램을 만들 경우, 이들에게는 해당 응용 프로그램에 대해 기본적으로 **IMPLICIT READONLY** (암시적 읽기 전용) 역할이 할당됩니다. 이들에게는 응용 프로그램에 대해 역할을 할당할 권한이 없기 때문에, 응용 프로그램을 프로비전했더라도 응용 프로그램에 대해 사용자를 추가하거나 사용자에 대한 역할을 추가할 수 없습니다.
+**도메인 사용자/회원:** AAD 테넌트에는 여러 명의 도메인 사용자/회원이 있을 수 있습니다. 도메인 사용자는 [azureiotsuite.com][lnk-azureiotsuite] 사이트를 통해 미리 구성된 솔루션을 프로비전할 수 있습니다. 자신이 프로비전하는 응용 프로그램에 대해 부여되는 기본 역할은 **관리자**입니다. [azure-iot-remote-monitoring][lnk-rm-github-repo] 또는 [azure-iot-predictive-maintenance][lnk-pm-github-repo] 리포지토리의 build.cmd 스크립트를 사용하여 응용 프로그램을 만들 수 있지만, 역할을 할당할 권한이 없기 때문에 이들에게 부여되는 기본 권한은 **IMPLICIT READONLY**(암시적 읽기 전용)입니다. 동일한 AAD 테넌트의 다른 사용자가 응용 프로그램을 만들 경우, 이들에게는 해당 응용 프로그램에 대해 기본적으로 **IMPLICIT READONLY** (암시적 읽기 전용) 역할이 할당됩니다. 이들에게는 응용 프로그램에 대해 역할을 할당할 권한이 없기 때문에, 응용 프로그램을 프로비전했더라도 응용 프로그램에 대해 사용자를 추가하거나 사용자에 대한 역할을 추가할 수 없습니다.
 
 **게스트 사용자/게스트:** AAD 테넌트에는 여러 명의 게스트 사용자/게스트가 있을 수 있습니다. 게스트 사용자는 AAD 테넌트 내에서 제한된 권한 집합을 갖습니다. 결과적으로 게스트 사용자는 AAD 테넌트 내에서 미리 구성된 솔루션을 프로비전할 수 없습니다.
 
@@ -131,6 +131,6 @@ IoT Suite에 대해 계속 알아보려면 [미리 구성된 솔루션을 사용
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

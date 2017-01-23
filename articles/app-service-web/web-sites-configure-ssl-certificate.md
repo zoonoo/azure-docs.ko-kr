@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 48696644e3a6c5fc2d84538c9c247d080cd7c6f4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cb8d77588bbac30a67dab9a20e0e81d2537c977f
 
 
 ---
@@ -91,7 +91,7 @@ CA는 다양한 가격의 여러 SSL 인증서 유형을 제공하므로 먼저 
         KeyLength = 2048              ; Required minimum is 2048
         KeySpec = 1
         KeyUsage = 0xA0
-        MachineKeySet = True
+        MachineKeySet = FALSE
         ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
         ProviderType = 12
         HashAlgorithm = SHA256
@@ -430,7 +430,7 @@ CA는 다양한 가격의 여러 SSL 인증서 유형을 제공하므로 먼저 
 2. 페이지의 왼쪽에서 **앱 서비스** 옵션을 클릭합니다.
 3. 이 인증서를 할당하려는 앱의 이름을 클릭합니다. 
 4. **설정**에서 **SSL 인증서**를 클릭합니다.
-5.  **인증서 업로드**
+5. **인증서 업로드**
 6. [1단계](#bkmk_getcert) 에서 내보낸 .pfx 파일을 선택하고 이전에 만든 암호를 지정합니다. 
    그런 후 **업로드** 를 클릭하여 인증서를 업로드합니다. 이제 업로드된 인증서가 **SSL 인증서** 블레이드에 다시 표시됩니다.
 7. **ssl 바인딩** 섹션에서 **바인딩 추가**를 클릭합니다.
@@ -449,7 +449,7 @@ CA는 다양한 가격의 여러 SSL 인증서 유형을 제공하므로 먼저 
 
 * [A 레코드를 사용하여 사용자 지정 도메인을 Azure 앱에 매핑](web-sites-custom-domain-name.md#a) 하고 **IP 기반 SSL** 바인딩을 추가했습니다. 이 시나리오에서는 다음 단계에 따라 전용 IP 주소를 가리키도록 기존 A 레코드를 다시 매핑해야 합니다.
   
-  1. IP 기반 SSL 바인딩을 구성하면 앱에 전용 IP 주소가 할당됩니다. **호스트 이름** 섹션.바로 위에 있는 앱 설정 아래 **사용자 지정 도메인** 페이지에서 이 IP 주소를 확인할 수 있습니다.  **외부 IP 주소**
+  1. IP 기반 SSL 바인딩을 구성하면 앱에 전용 IP 주소가 할당됩니다. **호스트 이름** 섹션.바로 위에 있는 앱 설정 아래 **사용자 지정 도메인** 페이지에서 이 IP 주소를 확인할 수 있습니다. **외부 IP 주소**
      
       ![가상 IP 주소](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
   2. [사용자 지정 도메인 이름에 대한 A 레코드를 이 새 IP 주소에 다시 매핑합니다](web-sites-custom-domain-name.md#a).
@@ -519,7 +519,7 @@ IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](h
 
 ## <a name="more-resources"></a>추가 리소스
 * [Microsoft Azure 보안 센터](/support/trust-center/security/)
-* [Azure 웹 사이트에서 잠금 해제된 구성 옵션](/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
+* [Azure 웹 사이트에서 잠금 해제된 구성 옵션](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
 * [진단 로깅 사용](web-sites-enable-diagnostic-log.md)
 * [Azure 앱 서비스에서 웹앱 구성](web-sites-configure.md)
 * [Azure 관리 포털](https://manage.windowsazure.com)
@@ -557,6 +557,6 @@ IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](h
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

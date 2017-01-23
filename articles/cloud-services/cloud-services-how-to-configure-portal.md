@@ -1,6 +1,6 @@
 ---
 title: "클라우드 서비스를 구성하는 방법(포털) | Microsoft Docs"
-description: "Azure에서 클라우드 서비스를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다. 이 예제는 Azure 포털을 사용합니다."
+description: "Azure에서 Cloud Services를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다. 이 예제는 Azure Portal을 사용합니다."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -12,29 +12,29 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 12/07/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a8d681490c174d73361633a9e0e63208eea993e6
+ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
+ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
 
 
 ---
-# <a name="how-to-configure-cloud-services"></a>클라우드 서비스를 구성하는 방법
+# <a name="how-to-configure-cloud-services"></a>Cloud Services를 구성하는 방법
 > [!div class="op_single_selector"]
-> * [Azure 포털](cloud-services-how-to-configure-portal.md)
+> * [Azure Portal](cloud-services-how-to-configure-portal.md)
 > * [Azure 클래식 포털](cloud-services-how-to-configure.md)
 > 
 > 
 
-Azure 포털에서 클라우드 서비스에 가장 일반적으로 사용되는 설정을 구성할 수 있습니다. 또는 구성 파일을 직접 업데이트하려는 경우 업데이트할 서비스 구성 파일을 다운로드한 후 업데이트된 파일을 업로드하고 구성 변경 내용으로 클라우드 서비스를 업데이트합니다. 어느 방법이든 모든 역할 인스턴스에 구성 업데이트를 적용합니다.
+Azure Portal에서 클라우드 서비스에 가장 일반적으로 사용되는 설정을 구성할 수 있습니다. 또는 구성 파일을 직접 업데이트하려는 경우 업데이트할 서비스 구성 파일을 다운로드한 후 업데이트된 파일을 업로드하고 구성 변경 내용으로 클라우드 서비스를 업데이트합니다. 어느 방법이든 모든 역할 인스턴스에 구성 업데이트를 적용합니다.
 
 클라우드 서비스 역할의 인스턴스 또는 이에 대한 원격 데스크톱을 관리할 수도 있습니다.
 
-Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 구성 업데이트 중 99.95%의 서비스 가용성을 보장할 수 있습니다. 이에 따라, 가상 컴퓨터 하나는 클라이언트 요청을 처리하고 다른 하나는 업데이트를 진행할 수 있습니다. 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
+Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 구성 업데이트 중 99.95%의 서비스 가용성을 보장할 수 있습니다. 이에 따라, 가상 컴퓨터 하나는 클라이언트 요청을 처리하고 다른 하나는 업데이트를 진행할 수 있습니다. 자세한 내용은 [Service Level Agreements(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/)를 참조하세요.
 
-## <a name="change-a-cloud-service"></a>클라우드 서비스 변경하기
-[Azure 포털](https://portal.azure.com/)을 연 후 클라우드 서비스로 이동합니다. 여기에서 여러 항목을 관리할 수 있습니다. 
+## <a name="change-a-cloud-service"></a>클라우드 서비스 변경
+[Azure Portal](https://portal.azure.com/)을 연 후 클라우드 서비스로 이동합니다. 여기에서 여러 항목을 관리할 수 있습니다. 
 
 ![설정 페이지](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
@@ -43,7 +43,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 ![Azure 클라우드 서비스 설정 블레이드](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
 > [!NOTE]
-> 클라우드 서비스에 사용되는 운영 체제는 **Azure 포털**을 사용하여 변경할 수 없으며, [Azure 클래식 포털](http://manage.windowsazure.com/)을 통해서만 이 설정을 변경할 수 있습니다. 이 내용은 [여기](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file)에 자세히 설명되어 있습니다.
+> 클라우드 서비스에 사용되는 운영 체제는 **Azure Portal**을 사용하여 변경할 수 없으며, [Azure 클래식 포털](http://manage.windowsazure.com/)을 통해서만 이 설정을 변경할 수 있습니다. 이 내용은 [여기](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file)에 자세히 설명되어 있습니다.
 > 
 > 
 
@@ -70,7 +70,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 여기에서 타일에 사용되는 차트를 사용자 지정하거나 경고 규칙을 추가할 수 있습니다.
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>다시 부팅, 이미지로 다시 설치 또는 원격 데스크톱
-지금은 **Azure 포털**을 사용하여 원격 데스크톱을 구성할 수 없습니다. 그러나 [Azure 클래식 포털](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) 또는 [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)를 통해 설정할 수 있습니다. 
+지금은 **Azure Portal**을 사용하여 원격 데스크톱을 구성할 수 없습니다. 그러나 [Azure 클래식 포털](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) 또는 [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)를 통해 설정할 수 있습니다. 
 
 먼저 클라우드 서비스 인스턴스를 클릭합니다.
 
@@ -95,17 +95,17 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 4. 서비스 구성 파일을 업데이트한 후 구성 업데이트를 업로드하고 적용합니다.
    
     ![업로드](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png) 
-5. .Cscfg 파일을 선택하고 **확인**을 클릭합니다.
+5. .cscfg 파일을 선택하고 **확인**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
-* [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)구성
+* [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성합니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

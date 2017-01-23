@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/19/2016
 ms.author: lemai
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3cef3af0662ae12c301c6bca76bae05a61ce67e1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8771556954be77543b0eaa21b7201f93ffa0ed70
 
 
 ---
@@ -49,7 +49,7 @@ StartPartitionDataLossAsync()를 호출하여 서비스 패브릭 서비스 파�
 ## <a name="details-of-running-a-command"></a>명령 실행의 세부 정보
 명령을 시작하려면 예상되는 인수를 사용하여 Start API를 호출합니다.  모든 Start API에는 operationId라는 GUID 인수가 있습니다.  operationId 인수는 이 명령의 진행률을 추적하는 데 사용되므로 추적해야 합니다.  그런 후 명령의 진행률을 추적하기 위해 "GetProgress" API에 전달해야 합니다.  operationId는 고유해야 합니다.
 
-Start API를 성공적으로 호출하면 반환된 진행 중인 개체의 State 속성이 Completed가 될 때까지 GetProgress API가 반복해서 호출됩니다.  모든 [FabricTransientException’s][fte] 및 OperationCanceledException’s이 다시 시도됩니다.
+Start API를 성공적으로 호출하면 반환된 진행 중인 개체의 State 속성이 Completed가 될 때까지 GetProgress API가 반복해서 호출됩니다.  모든 [FabricTransientException][fte] 및 OperationCanceledException이 다시 시도됩니다.
 이 명령이 최종 상태(Completed, Faulted 또는 Cancelled)에 도달하면 반환된 진행 중인 개체의 Result 속성은 추가 정보를 제공합니다.  상태가 Completed이면 Result.SelectedPartition.PartitionId는 선택한 파티션 ID를 포함합니다.  Result.Exception은 null이 됩니다.  상태가 Faulted인 경우 Result.Exception에는 오류 주입 및 분석 서비스 기능에서 해당 명령이 실패한 이유가 포함됩니다.  Result.SelectedPartition.PartitionId는 선택한 파티션 ID가 됩니다.  상황에 따라 파티션을 선택할 만큼 명령이 충분히 진행되지 않았을 수 있습니다.  그런 경우에 PartitionId는 0이 됩니다.  상태가 Cancelled인 경우 Result.Exception은 null이 됩니다.  Faulted 사례와 같이, Result.SelectedPartition.PartitionId는 선택된 파티션 ID를 가지고 있지만 명령이 그럴 수 있을 정도로 충분히 진행되지 않은 경우 0이 됩니다.  아래 샘플을 참조하세요.
 
 아래 샘플 코드에서는 명령을 시작한 후 진행 상태를 확인하고 특정 파티션에서 데이터 손실을 일으키는 방법을 보여 줍니다.
@@ -237,6 +237,6 @@ Start API를 성공적으로 호출하면 반환된 진행 중인 개체의 Stat
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

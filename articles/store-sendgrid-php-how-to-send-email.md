@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 15d830e418e08c388039d9ee6b9af212bfdf310e
+ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
+ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 15d830e418e08c388039d9ee6b9af212bfdf310e
 **전자 메일 작성**, **전자 메일 보내기**, **첨부 파일 추가** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 ## <a name="what-is-the-sendgrid-email-service"></a>SendGrid 전자 메일 서비스 정의
-SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 신뢰할 만한 [트랜잭션 전자 메일 배달], 확장성 및 실시간 분석을 제공하는 [클라우드 기반 전자 메일 서비스]입니다. 일반적인 SendGrid 사용 시나리오는 다음과 같습니다.
+SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 신뢰할 만한 [트랜잭션 전자 메일 발송], 확장성 및 실시간 분석을 제공하는 [클라우드 기반 전자 메일 서비스]입니다. 일반적인 SendGrid 사용 시나리오는 다음과 같습니다.
 
 * 고객에게 확인 메일 자동으로 보내기
 * 월간 전자 전단 및 판촉 행사를 고객에게 보내기 위한 분산 목록 관리
@@ -34,7 +34,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 * 고객 문의 전달
 * 응용 프로그램의 전자 메일 알림
 
-자세한 내용은 [https://sendgrid.com][https://sendgrid.com](영문)을 참조하세요.
+자세한 내용은 [https://sendgrid.com][https://sendgrid.com]을 참조하세요.
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid 계정 만들기
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -54,9 +54,9 @@ SendGrid SMTP API를 사용하여 메일을 보내려면 PHP 응용 프로그램
       * Create the body of the message (a plain-text and an HTML version).
       * $text is your plain-text email
       * $html is your html version of the email
-      * If the reciever is able to view html emails then only the html
+      * If the receiver is able to view html emails then only the html
       * email will be displayed
-      */ 
+      */
      $text = "Hi!\nHow are you?\n";
      $html = "<html>
            <head></head>
@@ -95,7 +95,7 @@ SendGrid SMTP API를 사용하여 메일을 보내려면 PHP 응용 프로그램
      $message->setTo($to);
      $message->addPart($text, 'text/plain');
 
-     // send message 
+     // send message
      if ($recipients = $swift->send($message, $failures))
      {
          // This will let us know how many users received this message
@@ -108,14 +108,14 @@ SendGrid SMTP API를 사용하여 메일을 보내려면 PHP 응용 프로그램
          print_r($failures);
      }
 
-### <a name="web-api"></a>Web API
-PHP의 [curl 함수][curl 함수]를 사용하여 SendGrid 웹 API를 사용하여 전자 메일을 보냅니다.
+### <a name="web-api"></a>웹 API
+PHP의 [curl 함수][curl function] 를 사용하여 SendGrid 웹 API를 사용하여 전자 메일을 보냅니다.
 
     <?php
 
      $url = 'https://api.sendgrid.com/';
      $user = 'USERNAME';
-     $pass = 'PASSWORD'; 
+     $pass = 'PASSWORD';
 
      $params = array(
           'api_user' => $user,
@@ -205,7 +205,7 @@ SMTP API를 사용하여 첨부 파일을 보내는 프로세스에는 Swift Mai
      $message->addPart($text, 'text/plain');
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName("file_name"));
 
-     // send message 
+     // send message
      if ($recipients = $swift->send($message, $failures))
      {
           // This will let us know how many users received this message
@@ -224,7 +224,7 @@ SMTP API를 사용하여 첨부 파일을 보내는 프로세스에는 Swift Mai
 
 이 코드 줄은 <span class="auto-style2">Swift\_Message</span> 개체에서 첨부 메서드를 호출하고 <span class="auto-style2">Swift\_Attachment</span> 클래스의 정적 <span class="auto-style2">fromPath</span> 메서드를 사용하여 파일을 가져와서 메시지에 첨부합니다.
 
-### <a name="web-api"></a>Web API
+### <a name="web-api"></a>웹 API
 웹 API를 사용한 첨부 파일 보내기는 웹 API를 사용하여 메일 보내기와 매우 유사합니다. 그러나 다음 예제에서 매개 변수 배열은 이 요소를 포함해야 합니다.
 
     'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
@@ -280,7 +280,7 @@ SendGrid는 '필터' 사용을 통해 추가 메일 기능을 제공합니다. �
 
 필터는 filters 속성을 사용하여 메시지에 적용할 수 있습니다. 각 필터는 필터별 설정을 포함하는 해시에 의해 지정됩니다. 다음 예제에서는 바닥글 필터를 사용하도록 설정하고 메일 메시지의 맨 아래에 추가할 텍스트 메시지를 지정합니다.
 이 예제의 경우 [sendgrid-php 라이브러리]를 사용합니다.
-라이브러리를 설치하려면 [Composer] 를 사용합니다.
+라이브러리를 설치하려면 [Composer]를 사용합니다.
 
     php composer.phar require sendgrid/sendgrid 2.1.1
 
@@ -311,7 +311,7 @@ SendGrid는 '필터' 사용을 통해 추가 메일 기능을 제공합니다. �
      // Specify that this is an initial contact message
      $email->addCategory("initial");
 
-     // You can optionally setup individual filters here, in this example, we have 
+     // You can optionally setup individual filters here, in this example, we have
      // enabled the footer filter
      $email->addFilter('footer', 'enable', 1);
      $email->addFilter('footer', "text/plain", "Thank you for your business");
@@ -320,16 +320,16 @@ SendGrid는 '필터' 사용을 통해 추가 메일 기능을 제공합니다. �
      // The subject of your email
      $subject = 'Example SendGrid Email';
 
-     // Where is this message coming from. For example, this message can be from 
+     // Where is this message coming from. For example, this message can be from
      // support@yourcompany.com, info@yourcompany.com
      $from = 'someone@example.com';
 
-     // If you do not specify a sender list above, you can specifiy the user here. If 
+     // If you do not specify a sender list above, you can specifiy the user here. If
      // a sender list IS specified above, this email address becomes irrelevant.
      $to = 'john@contoso.com';
 
-     # Create the body of the message (a plain-text and an HTML version). 
-     # text is your plain-text email 
+     # Create the body of the message (a plain-text and an HTML version).
+     # text is your plain-text email
      # html is your html version of the email
      # if the receiver is able to view html emails then only the html
      # email will be displayed
@@ -344,7 +344,7 @@ SendGrid는 '필터' 사용을 통해 추가 메일 기능을 제공합니다. �
      Fred";
 
      $html = "
-     <html> 
+     <html>
      <head></head>
      <body>
      <p>Hello -name-,<br>
@@ -386,21 +386,21 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
 * SendGrid PHP 라이브러리: <https://github.com/sendgrid/sendgrid-php>
 * Azure 고객을 위한 SendGrid 특가 제공: <https://sendgrid.com/windowsazure.html>
 
-자세한 내용은 [PHP 개발자 센터](/develop/php/)도 참조하세요.
+자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
 [https://sendgrid.com]: https://sendgrid.com
 [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
-[특가 제공]: https://www.sendgrid.com/windowsazure.html
-[Azure용 PHP 응용 프로그램 패키징 및 배포]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
+[special offer]: https://www.sendgrid.com/windowsazure.html
+[Packaging and Deploying PHP Applications for Azure]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
 [http://swiftmailer.org/download]: http://swiftmailer.org/download
-[curl 함수]: http://php.net/curl
+[curl function]: http://php.net/curl
 [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/email-solutions
-[트랜잭션 전자 메일 배달]: https://sendgrid.com/transactional-email
+[트랜잭션 전자 메일 발송]: https://sendgrid.com/transactional-email
 [sendgrid-php 라이브러리]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
 [Composer]: https://getcomposer.org/download/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

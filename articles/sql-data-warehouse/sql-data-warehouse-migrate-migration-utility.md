@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 560bcd1acb0fa06d7800da9670686a43fbb7111b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 61adb7ae8fddc3cf423ee4558308eb9ded11fea3
 
 
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>데이터 웨어하우스 마이그레이션 유틸리티(미리 보기)
 > [!div class="op_single_selector"]
-> * [마이그레이션 유틸리티 다운로드][마이그레이션 유틸리티 다운로드]
+> * [마이그레이션 유틸리티 다운로드][Download Migration Utility]
 > 
 > 
 
@@ -41,7 +41,7 @@ ms.openlocfilehash: 560bcd1acb0fa06d7800da9670686a43fbb7111b
 인증한 후 도구는 연결된 서버에 있는 데이터베이스 목록을 보여 줍니다. 마이그레이션할 데이터베이스를 선택한 후 '마이그레이션 선택됨'을 클릭하여 마이그레이션을 시작할 수 있습니다.
 
 ## <a name="migration-report"></a>마이그레이션 보고서
-도구에서 '데이터베이스 호환성 검사'를 선택하면 마이그레이션하려는 데이터베이스에서 모든 개체 비호환성을 요약하는 보고서가 생성됩니다. SQL Data Warehouse에 없는 SQL Server 기능에 대한 광범위한 목록은 [마이그레이션 설명서][마이그레이션 설명서]에서 확인할 수 있습니다. 보고서가 생성되면 Excel에서 보고서를 저장하고 열 수 있습니다.
+도구에서 '데이터베이스 호환성 검사'를 선택하면 마이그레이션하려는 데이터베이스에서 모든 개체 비호환성을 요약하는 보고서가 생성됩니다. SQL Data Warehouse에 없는 SQL Server 기능에 대한 광범위한 목록은 [마이그레이션 설명서][migration documentation]에서 확인할 수 있습니다. 보고서가 생성되면 Excel에서 보고서를 저장하고 열 수 있습니다.
 
 마이그레이션 스키마를 생성할 때는 '개체'로 식별되는 대부분의 문제가 해당 데이터의 즉각적인 마이그레이션을 허용하기 위해 조정됩니다. 해당 스키마가 적용되기 전에 추가로 조정되지 않도록 변경 내용을 검토하십시오.
 
@@ -56,19 +56,19 @@ ms.openlocfilehash: 560bcd1acb0fa06d7800da9670686a43fbb7111b
 위의 매개 변수를 입력한 후 마이그레이션 실행을 클릭하기만 하면 두 패키지 집합이 지정된 위치에 생성됩니다. 마이그레이션 소스에서 플랫 파일로 데이터를 내보내려면 파일 내보내기를 실행하고 데이터를 SQL 데이터 웨어하우스로 가져오려면 파일 가져오기를 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
-일부 데이터를 마이그레이션했으니 [개발][개발] 방법을 알아보겠습니다.
+일부 데이터를 마이그레이션했으니 [개발][develop] 방법을 알아보겠습니다.
 
 <!--Image references-->
 
 <!--Article references-->
-[마이그레이션 설명서]: sql-data-warehouse-overview-migrate.md
-[개발]: sql-data-warehouse-overview-develop.md
+[migration documentation]: sql-data-warehouse-overview-migrate.md
+[develop]: sql-data-warehouse-overview-develop.md
 
 <!--Other Web references--> 
-[마이그레이션 유틸리티 다운로드]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
+[Download Migration Utility]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

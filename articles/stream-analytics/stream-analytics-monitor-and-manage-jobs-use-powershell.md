@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9616197bd2b1587290b3beb14cb883e2dba8fb4e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 69a976f1f019cb89780d00c6bc730fae30e92378
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 9616197bd2b1587290b3beb14cb883e2dba8fb4e
 기본 Stream Analytics 작업을 실행하는 Azure PowerShell cmdlet 및 PowerShell 스크립팅을 사용하여 Stream Analytics 리소스를 모니터링 및 관리하는 방법을 알아봅니다.
 
 ## <a name="prerequisites-for-running-azure-powershell-cmdlets-for-stream-analytics"></a>Stream Analytics에 Azure PowerShell cmdlet을 실행하기 위한 필수 조건
-* 구독에서 Azure 리소스 그룹을 만듭니다. 다음은 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.  
+* 구독에서 Azure 리소스 그룹을 만듭니다. 다음은 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)을 참조하세요.  
 
 Azure PowerShell 0.9.8:  
 
@@ -64,9 +64,9 @@ Azure PowerShell 1.0.
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Stream Analytics용 Azure PowerShell cmdlet
 다음 Azure PowerShell cmdlet은 Azure Stream Analytics 작업을 모니터링하고 관리하는 데 사용할 수 있습니다. Azure PowerShell에는 여러 버전이 있습니다. 
-**나열된 예제에서 첫 번째 명령은 Azure PowerShell 0.9.8에 적용되고, 두 번째 명령은 Azure PowerShell 1.0에 적용됩니다.**  Azure PowerShell 1.0 명령에는 항상 "AzureRM"이 있습니다.
+**나열된 예제에서 첫 번째 명령은 Azure PowerShell 0.9.8에 적용되고, 두 번째 명령은 Azure PowerShell 1.0에 적용됩니다.** Azure PowerShell 1.0 명령에는 항상 "AzureRM"이 있습니다.
 
-### <a name="get-azurestreamanalyticsjob-get-azurermstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzureRMStreamAnalyticsJob
+### <a name="get-azurestreamanalyticsjob--get-azurermstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzureRMStreamAnalyticsJob
 Azure 구독 또는 지정한 리소스 그룹에 정의된 모든 Stream Analytics 작업을 나열하거나 리소스 그룹 내의 특정 작업에 대한 작업 정보를 가져옵니다.
 
 **예 1**
@@ -105,7 +105,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 리소스 그룹 StreamAnalytics-Default-Central-US의 Stream Analytics 작업 StreamingJob에 대한 정보를 반환합니다.
 
-### <a name="get-azurestreamanalyticsinput-get-azurermstreamanalyticsinput"></a>Get-AzureStreamAnalyticsInput | Get-AzureRMStreamAnalyticsInput
+### <a name="get-azurestreamanalyticsinput--get-azurermstreamanalyticsinput"></a>Get-AzureStreamAnalyticsInput | Get-AzureRMStreamAnalyticsInput
 지정한 Stream Analytics 작업에 정의된 모든 입력을 나열하거나 특정 입력에 대한 정보를 가져옵니다.
 
 **예 1**
@@ -132,7 +132,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 StreamingJob 작업에 정의된 EntryStream이라는 입력에 대한 정보를 반환합니다.
 
-### <a name="get-azurestreamanalyticsoutput-get-azurermstreamanalyticsoutput"></a>Get-AzureStreamAnalyticsOutput | Get-AzureRMStreamAnalyticsOutput
+### <a name="get-azurestreamanalyticsoutput--get-azurermstreamanalyticsoutput"></a>Get-AzureStreamAnalyticsOutput | Get-AzureRMStreamAnalyticsOutput
 지정한 Stream Analytics 작업에 정의된 모든 출력을 나열하거나 특정 출력에 대한 정보를 가져옵니다.
 
 **예 1**
@@ -159,7 +159,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 StreamingJob 작업에 정의된 Output이라는 출력에 대한 정보를 반환합니다.
 
-### <a name="get-azurestreamanalyticsquota-get-azurermstreamanalyticsquota"></a>Get-AzureStreamAnalyticsQuota | Get-AzureRMStreamAnalyticsQuota
+### <a name="get-azurestreamanalyticsquota--get-azurermstreamanalyticsquota"></a>Get-AzureStreamAnalyticsQuota | Get-AzureRMStreamAnalyticsQuota
 지정한 지역의 스트리밍 단위 할당량에 대한 정보를 가져옵니다.
 
 **예 1**
@@ -174,7 +174,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 미국 중부 지역의 스트리밍 단위 할당량 및 사용에 대한 정보를 반환합니다.
 
-### <a name="get-azurestreamanalyticstransformation-getazurermstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | GetAzureRMStreamAnalyticsTransformation
+### <a name="get-azurestreamanalyticstransformation--getazurermstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | GetAzureRMStreamAnalyticsTransformation
 Stream Analytics 작업에 정의된 특정 변환에 대한 정보를 가져옵니다.
 
 **예 1**
@@ -189,7 +189,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 StreamingJob 작업에 정의된 StreamingJob이라는 변환에 대한 정보를 반환합니다.
 
-### <a name="new-azurestreamanalyticsinput-new-azurermstreamanalyticsinput"></a>New-AzureStreamAnalyticsInput | New-AzureRMStreamAnalyticsInput
+### <a name="new-azurestreamanalyticsinput--new-azurermstreamanalyticsinput"></a>New-AzureStreamAnalyticsInput | New-AzureRMStreamAnalyticsInput
 Stream Analytics 작업 내에서 새 입력을 만들거나 지정한 기존 입력을 업데이트합니다.
 
 .json 파일 또는 명령줄에서 입력의 이름을 지정할 수 있습니다. 둘 다 지정하는 경우 명령줄의 이름이 파일에 있는 이름과 동일해야 합니다.
@@ -198,7 +198,7 @@ Stream Analytics 작업 내에서 새 입력을 만들거나 지정한 기존 �
 
 –Force 매개 변수와 기존 입력 이름을 지정하면 확인 없이 입력이 대체됩니다.
 
-JSON 파일 구조 및 내용에 대한 자세한 내용은 [Stream Analytics 관리 REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [입력 만들기(Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-input]을 참조하세요.
+JSON 파일 구조 및 내용에 대한 자세한 내용은 [Stream Analytics 관리 REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [입력 만들기(Azure 스트림 분석)][msdn-rest-api-create-stream-analytics-input]을 참조하세요.
 
 **예 1**
 
@@ -236,7 +236,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 EntryStream이라는 기존 입력 소스의 정의를 파일에 있는 정의로 바꿉니다.
 
-### <a name="new-azurestreamanalyticsjob-new-azurermstreamanalyticsjob"></a>New-AzureStreamAnalyticsJob | New-AzureRMStreamAnalyticsJob
+### <a name="new-azurestreamanalyticsjob--new-azurermstreamanalyticsjob"></a>New-AzureStreamAnalyticsJob | New-AzureRMStreamAnalyticsJob
 Microsoft Azure에 새 Stream Analytics 작업을 만들거나 지정한 기존 작업의 정의를 업데이트합니다.
 
 .json 파일 또는 명령줄에서 작업의 이름을 지정할 수 있습니다. 둘 다 지정하는 경우 명령줄의 이름이 파일에 있는 이름과 동일해야 합니다.
@@ -245,7 +245,7 @@ Microsoft Azure에 새 Stream Analytics 작업을 만들거나 지정한 기존 
 
 –Force 매개 변수와 기존 작업 이름을 지정하면 확인 없이 작업 정의가 대체됩니다.
 
-JSON 파일 구조 및 내용에 대한 자세한 내용은 [Stream Analytics 관리 REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [Stream Analytics 작업 만들기][msdn-rest-api-create-stream-analytics-job]을 참조하세요.
+JSON 파일 구조 및 내용에 대한 자세한 내용은 [Stream Analytics 관리 REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [스트림 분석 작업 만들기][msdn-rest-api-create-stream-analytics-job] 섹션을 참조하세요.
 
 **예 1**
 
@@ -271,7 +271,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 StreamingJob에 대한 작업 정의를 바꿉니다.
 
-### <a name="new-azurestreamanalyticsoutput-new-azurermstreamanalyticsoutput"></a>New-AzureStreamAnalyticsOutput | New-AzureRMStreamAnalyticsOutput
+### <a name="new-azurestreamanalyticsoutput--new-azurermstreamanalyticsoutput"></a>New-AzureStreamAnalyticsOutput | New-AzureRMStreamAnalyticsOutput
 Stream Analytics 작업 내에서 새 출력을 만들거나 기존 출력을 업데이트합니다.  
 
 .json 파일 또는 명령줄에서 출력의 이름을 지정할 수 있습니다. 둘 다 지정하는 경우 명령줄의 이름이 파일에 있는 이름과 동일해야 합니다.
@@ -280,7 +280,7 @@ Stream Analytics 작업 내에서 새 출력을 만들거나 기존 출력을 �
 
 –Force 매개 변수와 기존 출력 이름을 지정하면 확인 없이 출력이 대체됩니다.
 
-JSON 파일 구조 및 내용에 대한 자세한 내용은 [Stream Analytics 관리 REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [출력 만들기(Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output]을 참조하세요.
+JSON 파일 구조 및 내용에 대한 자세한 내용은 [Stream Analytics 관리 REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [출력 만들기(Azure 스트림 분석)][msdn-rest-api-create-stream-analytics-output]을 참조하세요.
 
 **예 1**
 
@@ -306,7 +306,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 StreamingJob 작업에서 "output"의 정의를 바꿉니다.
 
-### <a name="new-azurestreamanalyticstransformation-new-azurermstreamanalyticstransformation"></a>New-AzureStreamAnalyticsTransformation | New-AzureRMStreamAnalyticsTransformation
+### <a name="new-azurestreamanalyticstransformation--new-azurermstreamanalyticstransformation"></a>New-AzureStreamAnalyticsTransformation | New-AzureRMStreamAnalyticsTransformation
 Stream Analytics 작업 내에서 새 변환을 만들거나 기존 변환을 업데이트합니다.
 
 .json 파일 또는 명령줄에서 변환의 이름을 지정할 수 있습니다. 둘 다 지정하는 경우 명령줄의 이름이 파일에 있는 이름과 동일해야 합니다.
@@ -315,7 +315,7 @@ Stream Analytics 작업 내에서 새 변환을 만들거나 기존 변환을 �
 
 –Force 매개 변수와 기존 변환 이름을 지정하면 확인 없이 변환이 대체됩니다.
 
-JSON 파일 구조 및 내용에 대한 자세한 내용은 [Stream Analytics 관리 REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [변환 만들기(Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation]을 참조하세요.
+JSON 파일 구조 및 내용에 대한 자세한 내용은 [Stream Analytics 관리 REST API 참조 라이브러리][stream.analytics.rest.api.reference]의 [변환 만들기(Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation]를 참조하세요.
 
 **예 1**
 
@@ -341,7 +341,7 @@ Azure PowerShell 1.0.
 
  이 PowerShell 명령은 StreamingJob 작업에서 StreamingJobTransform의 정의를 바꿉니다.
 
-### <a name="remove-azurestreamanalyticsinput-remove-azurermstreamanalyticsinput"></a>Remove-AzureStreamAnalyticsInput | Remove-AzureRMStreamAnalyticsInput
+### <a name="remove-azurestreamanalyticsinput--remove-azurermstreamanalyticsinput"></a>Remove-AzureStreamAnalyticsInput | Remove-AzureRMStreamAnalyticsInput
 Microsoft Azure의 Stream Analytics 작업에서 특정 입력을 비동기적으로 삭제합니다.  
 –Force 매개 변수를 지정하면 확인 없이 입력이 삭제됩니다.
 
@@ -357,7 +357,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 StreamingJob 작업에서 EventStream 입력을 제거합니다.  
 
-### <a name="remove-azurestreamanalyticsjob-remove-azurermstreamanalyticsjob"></a>Remove-AzureStreamAnalyticsJob | Remove-AzureRMStreamAnalyticsJob
+### <a name="remove-azurestreamanalyticsjob--remove-azurermstreamanalyticsjob"></a>Remove-AzureStreamAnalyticsJob | Remove-AzureRMStreamAnalyticsJob
 Microsoft Azure에서 특정 Stream Analytics 작업을 비동기적으로 삭제합니다.  
 –Force 매개 변수를 지정하면 확인 없이 작업이 삭제됩니다.
 
@@ -373,7 +373,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 StreamingJob 작업을 제거합니다.  
 
-### <a name="remove-azurestreamanalyticsoutput-remove-azurermstreamanalyticsoutput"></a>Remove-AzureStreamAnalyticsOutput | Remove-AzureRMStreamAnalyticsOutput
+### <a name="remove-azurestreamanalyticsoutput--remove-azurermstreamanalyticsoutput"></a>Remove-AzureStreamAnalyticsOutput | Remove-AzureRMStreamAnalyticsOutput
 Microsoft Azure의 Stream Analytics 작업에서 특정 출력을 비동기적으로 삭제합니다.  
 –Force 매개 변수를 지정하면 확인 없이 출력이 삭제됩니다.
 
@@ -389,7 +389,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 StreamingJob 작업에서 Output 출력을 제거합니다.  
 
-### <a name="start-azurestreamanalyticsjob-start-azurermstreamanalyticsjob"></a>Start-AzureStreamAnalyticsJob | Start-AzureRMStreamAnalyticsJob
+### <a name="start-azurestreamanalyticsjob--start-azurermstreamanalyticsjob"></a>Start-AzureStreamAnalyticsJob | Start-AzureRMStreamAnalyticsJob
 Microsoft Azure에 Stream Analytics 작업을 비동기적으로 배포하고 시작합니다.
 
 **예 1**
@@ -404,7 +404,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 사용자 지정 출력 시작 시간이 2012년 12월 12일 12:12:12 UTC로 설정되어 StreamingJob 작업을 시작합니다.
 
-### <a name="stop-azurestreamanalyticsjob-stop-azurermstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
+### <a name="stop-azurestreamanalyticsjob--stop-azurermstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
 Microsoft Azure에서 실행 중인 Stream Analytics 작업을 비동기적으로 중지하고 사용하던 리소스를 할당 취소합니다. 작업 정의와 메타데이터는 작업을 편집하고 다시 시작할 수 있도록 Azure 포털과 관리 API를 통해 구독 내에서 계속 사용할 수 있습니다. 중지됨 상태의 작업에 대해서는 요금이 부과되지 않습니다.
 
 **예 1**
@@ -419,7 +419,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 StreamingJob 작업을 중단합니다.  
 
-### <a name="test-azurestreamanalyticsinput-test-azurermstreamanalyticsinput"></a>Test-AzureStreamAnalyticsInput | Test-AzureRMStreamAnalyticsInput
+### <a name="test-azurestreamanalyticsinput--test-azurermstreamanalyticsinput"></a>Test-AzureStreamAnalyticsInput | Test-AzureRMStreamAnalyticsInput
 Stream Analytics이 지정한 입력에 연결할 수 있는지 테스트합니다.
 
 **예 1**
@@ -434,7 +434,7 @@ Azure PowerShell 1.0.
 
 이 PowerShell 명령은 StreamingJob에서 EntryStream 입력의 연결 상태를 테스트합니다.  
 
-### <a name="test-azurestreamanalyticsoutput-test-azurermstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzureRMStreamAnalyticsOutput
+### <a name="test-azurestreamanalyticsoutput--test-azurermstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzureRMStreamAnalyticsOutput
 Stream Analytics이 지정한 출력에 연결할 수 있는지 테스트합니다.
 
 **예 1**
@@ -455,8 +455,8 @@ Azure PowerShell 1.0.
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-get-started.md)
-* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [msdn-switch-azuremode]: http://msdn.microsoft.com/library/dn722470.aspx
@@ -476,6 +476,6 @@ Azure PowerShell 1.0.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

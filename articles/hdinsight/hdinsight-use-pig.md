@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 09/14/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7ac66acf154cde7f5241666c4c5dab0c482a0ab1
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: 6e8239199edb40813081094b4efa680346685b42
 
 
 ---
@@ -104,7 +104,7 @@ SSIS(SQL Server Integration Services)를 사용하여 Pig 작업을 실행할 �
 * [Azure HDInsight Pig 작업][pigtask]
 * [Azure 구독 연결 관리자][connectionmanager]
 
-[여기][ssispack]서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
+[여기][ssispack]에서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
 
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
 Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살펴보았으므로 이제 다음 링크를 사용하여 Azure HDInsight로 작업하는 다른 방법을 알아봅니다.
@@ -113,11 +113,11 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 * [HDInsight에서 Hive 사용][hdinsight-use-hive]
 * [HDInsight에서 Sqoop 사용](hdinsight-use-sqoop.md)
 * [HDInsight에서 Oozie 사용](hdinsight-use-oozie.md)
-* [HDInsight에서 MapReduce 사용][hdinsight-use-mapreduce]
+* [HDInsight에서 MapReduce 작업 사용][hdinsight-use-mapreduce]
 
-[확인]: ./media/hdinsight-use-pig/hdi.checkmark.png
+[check]: ./media/hdinsight-use-pig/hdi.checkmark.png
 
-[apachepig 홈]: http://pig.apache.org/
+[apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
 [pigtask]: http://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
@@ -135,7 +135,7 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md#mapreduce-sdk
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
@@ -146,6 +146,6 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

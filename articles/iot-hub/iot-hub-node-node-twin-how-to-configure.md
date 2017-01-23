@@ -1,6 +1,6 @@
 ---
-title: "장치 쌍 속성 사용 | Microsoft Docs"
-description: "이 자습서는 장치 쌍 속성을 사용하는 방법을 보여줍니다."
+title: "Azure IoT Hub 장치 쌍 속성(노드) 사용 | Microsoft Docs"
+description: "Azure IoT Hub 장치 쌍을 사용하여 장치를 구성하는 방법입니다. Node.js용 Azure IoT SDK를 사용하여 시뮬레이션된 장치 앱을 구현하고 장치 쌍으로 장치 구성을 수정하는 서비스 앱을 구현합니다."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 400eab43a417980abe9df5fa75ee9f9e43b296d0
-ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 397dffe8ec93ced9196bce8fcc12a058c6876bd4
 
 
 ---
-# <a name="tutorial-use-desired-properties-to-configure-devices"></a>자습서: desired 속성을 사용하여 장치 구성
+# <a name="use-desired-properties-to-configure-devices-node"></a>desired 속성을 사용하여 장치 구성(Node)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-이 자습서의 끝 부분에 다음 두 개의 Node.js 콘솔 응용 프로그램이 제공됩니다.
+이 자습서의 끝 부분에 다음 두 개의 Node.js 콘솔 앱이 제공됩니다.
 
 * **SimulateDeviceConfiguration.js** - 원하는 구성 업데이트를 기다리고 시뮬레이션된 구성 업데이트 프로세스의 상태를 보고하는 시뮬레이션된 장치 앱.
-* **SetDesiredConfigurationAndQuery.js** - 백 엔드에서 실행되도록 의도된, 장치에 원하는 구성을 설정하고 구성 업데이트 프로세스를 쿼리하는 Node.js 앱.
+* **SetDesiredConfigurationAndQuery.js** - 장치에 원하는 구성을 설정하고 구성 업데이트 프로세스를 쿼리하는 Node.js 백 엔드 앱.
 
 > [!NOTE]
-> [Azure IoT SDK][lnk-hub-sdks] 문서는 장치 및 백 엔드 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 대한 정보를 제공합니다.
+> [Azure IoT SDK][lnk-hub-sdks] 문서는 장치 및 백 엔드 앱을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 대한 정보를 제공합니다.
 > 
 > 
 
@@ -38,7 +38,7 @@ ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
 * Node.js 버전 0.10.x 이상
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
-[장치 쌍 시작][lnk-twin-tutorial] 자습서를 진행했다면 IoT Hub 및 **myDeviceId**라는 장치 ID가 이미 있으니, [시뮬레이션된 장치 앱 만들기][lnk-how-to-configure-createapp] 섹션으로 건너뛸 수 있습니다.
+[장치 쌍 시작][lnk-twin-tutorial] 자습서를 수행했으면 이미 IoT Hub 및 **myDeviceId**라는 장치 ID가 있으므로 [시뮬레이션된 장치 앱 만들기][lnk-how-to-configure-createapp] 섹션으로 건너뛸 수 있습니다.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -58,7 +58,7 @@ ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. 텍스트 편집기를 사용하여 **simulatedeviceconfiguration** 폴더에 새 **SimulateDeviceConfiguration.js** 파일을 만듭니다.
-4. 다음 코드를 **SimulateDeviceConfiguration.js** 파일에 추가하고 **myDeviceId** 장치 ID를 만들 때 복사한 연결 문자열을 사용해 **{장치 연결 문자열}** 자리 표시자를 대체합니다.
+4. 다음 코드를 **SimulateDeviceConfiguration.js** 파일에 추가하고 **myDeviceId** 장치 ID를 만들 때 복사한 장치 연결 문자열을 사용해 **{장치 연결 문자열}** 자리 표시자를 대체합니다.
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -92,7 +92,7 @@ ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
             }
         });
    
-    **Client** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드는 **Client** 개체를 초기화한 다음 **myDeviceId**에 대한 장치 쌍을 검색하고, desired 속성에 업데이트에 대한 처리기를 연결합니다. 처리기는 configId를 비교하여 실제 구성 변경 요청이 있는지 확인한 후 구성 변경을 시작하는 메서드를 호출합니다.
+    **Client** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **Client** 개체를 초기화한 후 **myDeviceId**에 대한 장치 쌍을 검색하고, desired 속성에서 업데이트를 위한 처리기를 연결합니다. 처리기는 configId를 비교하여 실제 구성 변경 요청이 있는지 확인한 후 구성 변경을 시작하는 메서드를 호출합니다.
    
     이전 코드에서는 간단히 하기 위해 초기 구성에 대한 하드 코드된 기본값을 사용합니다. 실제 앱은 아마도 로컬 저장소로부터 그 구성을 로드할 것입니다.
    
@@ -141,7 +141,7 @@ ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
             });
         };
    
-    **initConfigChange** 메서드는 구성 업데이트 요청으로 로컬 장치 쌍 개체에서 reported 속성을 업데이트하고 상태를 **Pending**으로 설정한 다음 서비스에서 장치 쌍을 업데이트합니다. 성공적으로 장치 쌍을 업데이트한 후, **completeConfigChange**의 실행 중에 종료되는 장기 실행 프로세스를 시뮬레이션합니다. 이 메서드는 상태를 **Success**로 설정하고 **pendingConfig** 개체를 삭제하여 로컬 장치 쌍의 reported 속성을 업데이트합니다. 그런 다음 서비스에서 장치 쌍을 업데이트합니다.
+    **initConfigChange** 메서드는 구성 업데이트 요청으로 로컬 장치 쌍 개체에서 reported 속성을 업데이트하고 상태를 **Pending**으로 설정한 다음 서비스에서 장치 쌍을 업데이트합니다. 성공적으로 장치 쌍을 업데이트한 후 **completeConfigChange** 실행 중에 종료되는 장기 실행 프로세스를 시뮬레이션합니다. 이 메서드는 상태를 **Success**로 설정하고 **pendingConfig** 개체를 삭제하여 로컬 장치 쌍의 reported 속성을 업데이트합니다. 그런 다음 서비스에서 장치 쌍을 업데이트합니다.
    
     대역폭을 절약하기 위해 보고된 속성은 문서 전체를 교체하는 대신에 수정할 속성(위의 코드에서 **patch**라고 명명됨)만 지정하여 업데이트합니다.
    
@@ -169,12 +169,12 @@ ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
     npm install azure-iothub node-uuid --save
     ```
 3. 텍스트 편집기를 사용하여 **addtagsandqueryapp** 폴더에 새 **SetDesiredAndQuery.js** 파일을 만듭니다.
-4. 다음 코드를 **SetDesiredAndQuery.js** 파일에 추가하고 허브를 만들 때 복사한 연결 문자열을 사용해 **{서비스 연결 문자열}** 자리 표시자를 대체합니다.
+4. 다음 코드를 **SetDesiredAndQuery.js** 파일에 추가하고 허브를 만들 때 복사한 IoT Hub 연결 문자열을 사용해 **{IoT Hub 연결 문자열}** 자리 표시자를 대체합니다.
    
         'use strict';
         var iothub = require('azure-iothub');
         var uuid = require('node-uuid');
-        var connectionString = '{service connection string}';
+        var connectionString = '{iot hub connection string}';
         var registry = iothub.Registry.fromConnectionString(connectionString);
    
         registry.getTwin('myDeviceId', function(err, twin){
@@ -241,18 +241,18 @@ ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
     24시간이 아니라 5분이란 새로운 액티브 보내기 빈도 사용해 보고된 구성이 **Success**에서 **Pending**으로 그리고 다시 **Success**로 변경 표시되어야 합니다.
    
    > [!IMPORTANT]
-   > 장치 보고서 작업 및 쿼리 결과 사이에 최대 1분간 지연됩니다. 이는 쿼리 인프라를 매우 높은 규모에서 작업하도록 하기 위해서입니다. 단일 장치 쌍의 일관된 뷰를 검색하려면 **Registry** 클래스에 **getDeviceTwin** 메서드를 사용합니다.
+   > 장치 보고서 작업 및 쿼리 결과 사이에 최대 1분간 지연됩니다. 이는 쿼리 인프라를 매우 높은 규모에서 작업하도록 하기 위해서입니다. 단일 장치 쌍의 일관된 보기를 검색하려면 **Registry** 클래스의 **getDeviceTwin** 메서드를 사용합니다.
    > 
    > 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 백 엔드 응용 프로그램에서 원하는 구성을 *desired 속성*으로 설정하고 시뮬레이션된 장치 앱을 작성하여 그 변경을 감지하고 장치 쌍에 그 상태를 *reported 속성*으로 보고하는 다단계 업데이트 프로세스를 시뮬레이션합니다.
+이 자습서에서는 백 엔드 앱에서 원하는 구성을 *desired 속성*으로 설정하고 시뮬레이션된 장치 앱을 작성하여 그 변경을 감지하고 장치 쌍에 그 상태를 *reported 속성*으로 보고하는 다단계 업데이트 프로세스를 시뮬레이트합니다.
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 
 * [IoT Hub 시작][lnk-iothub-getstarted] 자습서를 참조하여 장치에서 원격 분석을 보냅니다.
-* [작업 예약 및 브로드캐스트][lnk-schedule-jobs] 자습서를 참조하여 대규모 장비 집합에 작업을 예약하거나 실행합니다.
-* [직접 메서드 사용][lnk-methods-tutorial] 자습서를 참조하여 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 장치를 제어합니다.
+* [jobs 예약 및 브로드캐스트][lnk-schedule-jobs] 자습서를 참조하여 대규모 장비 집합에 대한 작업을 예약하거나 수행합니다.
+* [직접 메서드 사용][lnk-methods-tutorial] 자습서를 참조하여 대화형으로(예: 사용자 제어 앱에서 팬 작동) 장치를 제어합니다.
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
@@ -265,7 +265,7 @@ ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-schedule-jobs]: iot-hub-node-node-schedule-jobs.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
@@ -278,6 +278,6 @@ ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

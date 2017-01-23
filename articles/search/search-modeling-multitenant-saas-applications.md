@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0063c689d4259d15c6aa2c8ca037a512644419fd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
 
 
 ---
@@ -125,6 +125,11 @@ Azure 검색에서 다중 테넌트 시나리오를 모델링하기 위한 위�
 
 이 방법을 사용하면 별도의 사용자 계정, 별도의 사용 권한 수준 및 완전 별도의 응용 프로그램 기능을 얻을 수 있습니다.
 
+> [!NOTE]
+> 위에서 설명한 방법을 사용하여 여러 테넌트를 제공하는 단일 인덱스를 구성하면 검색 결과의 관련성에 영향을 미칩니다. 검색 관련성 점수는 테넌트 수준 범위가 아닌 인덱스 수준 범위에서 계산되므로, 모든 테넌트의 데이터는 용어 빈도 등의 관련성 점수의 기본 통계에 포함됩니다.
+> 
+> 
+
 ## <a name="next-steps"></a>다음 단계
 Azure Search는 대부분의 응용 프로그램에 적합한 방법입니다. [이 서비스의 강력한 기능을 자세히 읽어 보세요](http://aka.ms/whatisazsearch). 다중 테넌트 응용 프로그램에 대한 다양한 디자인 패턴을 평가할 때 [다양한 가격 책정 계층](https://azure.microsoft.com/pricing/details/search/) 및 해당 [서비스 제한](search-limits-quotas-capacity.md)을 고려하여 모든 규모의 응용 프로그램 워크로드 및 아키텍처에 가장 잘 맞게 Azure Search를 조정할 수 있습니다.
 
@@ -133,6 +138,6 @@ Azure Search 및 다중 테넌트 시나리오에 대한 질문은 azuresearch_c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

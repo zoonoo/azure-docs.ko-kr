@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 10/22/2016
-ms.author: msfussell;mikhegn
+ms.author: mfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a3766215c00da9d055a1efb4b534f7522f9ded25
+ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
+ms.openlocfilehash: 70d13fd05aeedc9aa6e9f87a9a0223a2e20ef88b
 
 
 ---
@@ -114,7 +114,7 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
 ### <a name="add-the-applications-code-and-configuration-files"></a>응용 프로그램의 코드 및 구성 파일 추가
 디렉터리 구조를 만든 후에 응용 프로그램의 코드 및 구성 파일을 코드 및 구성 디렉터리 아래에 추가할 수 있습니다. 코드 또는 구성 디렉터리 아래에 하위 디렉터리 또는 추가 디렉터리를 만들 수도 있습니다.
 
-서비스 패브릭은 응용 프로그램 루트 디렉터리의 내용에 대한 xcopy를 수행하므로 두 상위 디렉터리인 code 및 settings를 만들지 않고도 사용할 수 있는 미리 정의된 구조가 없습니다. 하지만 원한다면 다른 이름을 선택할 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
+Service Fabric은 응용 프로그램 루트 디렉터리의 내용에 대한 `xcopy`를 수행하므로 두 상위 디렉터리인 code 및 settings를 만들지 않고도 사용할 수 있는 미리 정의된 구조가 없습니다. 하지만 원한다면 다른 이름을 선택할 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
 
 > [!NOTE]
 > 응용 프로그램이 필요한 모든 파일 및 종속성을 포함했는지 확인합니다. Service Fabric은 응용 프로그램의 서비스를 배포할 클러스터의 모든 노드에서 응용 프로그램 패키지의 콘텐츠를 복사합니다. 패키지에는 응용 프로그램 실행에 필요한 모든 코드가 있어야 합니다. 종속성이 이미 설치되어 있다고 가정하지 마세요.
@@ -320,6 +320,16 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 
 ![로그 위치](./media/service-fabric-deploy-existing-app/loglocation.png)
 
+## <a name="creating-a-guest-executable-using-yeoman-for-service-fabric-on-linux"></a>Linux에서 Service Fabric용 Yeoman를 사용하여 게스트 실행 파일 만들기
+
+Linux에서 실행되는 게스트를 만들고 배포하는 절차는 csharp 또는 java 응용 프로그램 배포와 동일합니다. 
+
+1. 터미널에서 `yo azuresfguest`을 입력합니다.
+2. 응용 프로그램의 이름을 지정합니다.
+3. 첫 번째 서비스의 형식을 선택하고 이름을 지정합니다. 게스트 실행 파일에 대한 **게스트 이진**(및 컨테이너에 대한 **게스트 컨테이너**)를 선택하고, 호출되어야 하는 매개 변수와 실행 파일의 경로를 포함한 세부 정보를 제공합니다.
+
+Yeoman는 설치 및 제거 스크립트와 함께 해당 응용 프로그램과 매니페스트 파일로 응용 프로그램 패키지를 작성합니다.
+
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 게스트 실행 파일을 패키징하고 서비스 패브릭에 배포하는 방법을 배웠습니다. 관련 정보 및 작업에 대해 다음 문서를 참조하세요.
 
@@ -330,6 +340,6 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
