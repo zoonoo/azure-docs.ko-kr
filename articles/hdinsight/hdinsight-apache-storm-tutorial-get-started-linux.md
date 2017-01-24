@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b9fda8b5f4ffa6679cc8ca9696a4c51084c80645
-ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 856043148b3fc28594850ae27bedd57d48292582
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
 
 Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시간 계산 시스템입니다. Azure HDInsight의 Storm을 사용하여 실시간 데이터 분석을 수행하는 클라우드 기반 Storm 클러스터를 만들 수 있습니다.
 
-> [!NOTE]
-> 이 문서의 단계는 Linux 기반 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Linux 기반 Storm을 만드는 단계에 대해서는 [Apache Storm 자습서: HDInsight에서 빅 데이터 분석을 사용하여 Storm Starter 샘플 시작](hdinsight-apache-storm-tutorial-get-started.md)
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -216,6 +216,6 @@ Java 기반 토폴로지를 개발하는 데 익숙하고 기존 토폴로지를
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
