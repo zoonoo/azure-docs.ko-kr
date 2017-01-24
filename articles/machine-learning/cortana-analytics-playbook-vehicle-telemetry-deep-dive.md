@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
+ms.sourcegitcommit: 94fba9a2aeaebc460a513928ab76ee63c0da7cc8
+ms.openlocfilehash: 12f16b8cd7d7a4101d423aff737498251d8a5d26
 
 
 ---
@@ -35,9 +35,9 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
 
 차량 텔레매틱스 시뮬레이터가 이 솔루션의 일부로 포함되어 있습니다. 이 기능은 지정된 시기에 차량 상태 및 운전 패턴에 해당하는 신호를 내보냅니다. 요구 사항에 따라 사용자 지정할 [차량 텔레매틱스 시뮬레이터 Visual Studio 솔루션](http://go.microsoft.com/fwlink/?LinkId=717075) 을 다운로드하려면 **차량 텔레매틱스 시뮬레이터** 를 클릭하세요. 차량 카탈로그는 모델 매핑에 대한 VIN이 있는 참조 데이터 집합이 들어 있습니다.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telematics-simulator.png)
+![차량 텔레매틱스 시뮬레이터](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
 
-*그림 2 – 차량 텔레매틱스 시뮬레이터*
+*그림 1 – 차량 텔레매틱스 시뮬레이터*
 
 다음 스키마를 포함하는 JSON 형식 데이터 집합입니다.
 
@@ -98,8 +98,8 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
 | ……. | |
 
 ### <a name="to-generate-simulated-data"></a>시뮬레이션된 데이터 생성
-1. 데이터 시뮬레이터 패키지를 다운로드하려면 차량 텔레매틱스 시뮬레이터 노드의 오른쪽 위에 있는 화살표를 클릭합니다. 파일을 저장하고 컴퓨터에 로컬로 추출합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *그림 3 - 차량 원격 분석 솔루션 청사진*
-2. 로컬 컴퓨터에서 차량 텔레매틱스 시뮬레이터 패키지를 추출한 폴더로 이동합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png) *그림 4 – 차량 텔레매틱스 시뮬레이터 폴더*
+1. 데이터 시뮬레이터 패키지를 다운로드하려면 차량 텔레매틱스 시뮬레이터 노드의 오른쪽 위에 있는 화살표를 클릭합니다. 파일을 저장하고 컴퓨터에 로컬로 추출합니다. ![차량 원격 분석 솔루션 청사진](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telemetry-blueprint.png) *그림 2 - 차량 원격 분석 솔루션 청사진*
+2. 로컬 컴퓨터에서 차량 텔레매틱스 시뮬레이터 패키지를 추출한 폴더로 이동합니다. ![차량 텔레매틱스 시뮬레이터 폴더](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telematics-simulator-folder.png) *그림 3 - 차량 텔레매틱스 시뮬레이터 폴더*
 3. 응용 프로그램 **CarEventGenerator.exe**를 실행합니다.
 
 ### <a name="references"></a>참조
@@ -115,13 +115,13 @@ Azure Event Hubs, Stream Analytics 및 Data Factory의 조합을 활용하여 �
 ### <a name="real-time-analysis"></a>실시간 분석
 차량 텔레매틱스 시뮬레이터에서 생성된 이벤트는 이벤트 허브 SDK를 사용하여 이벤트 허브에 게시됩니다. Stream Analytics 작업은 이벤트 허브에서 이러한 이벤트를 수집하고 실시간으로 데이터를 처리하여 차량 상태를 분석합니다. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig5-vehicle-telematics-event-hub-dashboard.png) 
+![이벤트 허브 대시보드](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-event-hub-dashboard.png) 
 
-*그림 5 - 이벤트 허브 대시보드*
+*그림 4 - 이벤트 허브 대시보드*
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig6-vehicle-telematics-stream-analytics-job-processing-data.png) 
+![데이터를 처리 중인 Stream Analytics 작업](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig5-vehicle-telematics-stream-analytics-job-processing-data.png) 
 
-*그림 6 - 데이터를 처리 중인 스트림 분석 작업*
+*그림 5 - 데이터를 처리 중인 Stream Analytics 작업*
 
 Stream Analytics 작업
 
@@ -131,28 +131,28 @@ Stream Analytics 작업
 
 다음 Stream Analytics 쿼리는 Azure Blob Storage로 데이터를 유지하는 데 사용됩니다. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-stream-analytics-job-query-for-data-ingestion.png) 
+![데이터 수집을 위한 Stream Analytics 작업 쿼리](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig6-vehicle-telematics-stream-analytics-job-query-for-data-ingestion.png) 
 
-*그림 7 - 데이터 수집을 위한 스트림 분석 작업 쿼리*
+*그림 6 - 데이터 수집을 위한 Stream Analytics 작업 쿼리*
 
 ### <a name="batch-analysis"></a>일괄 분석
 또한 더욱 충분한 일괄 분석을 위해 시뮬레이션된 차량 신호와 진단 데이터 집합의 추가 볼륨을 생성합니다. 이 작업은 일괄 처리에 적합한 대표 데이터 볼륨을 보장하는 데 필요합니다. 이 작업을 위해 1년 분량의 시뮬레이션된 차량 신호 및 진단 데이터 집합을 생성하기 위해 Azure Data Factory 워크플로에서 "PrepareSampleDataPipeline"이라는 파이프라인을 사용합니다. 요구 사항에 따라 사용자 지정할 데이터 팩터리 사용자 지정 DotNet Activity Visual Studio 솔루션을 다운로드하려면 [데이터 팩터리 사용자 지정 작업](http://go.microsoft.com/fwlink/?LinkId=717077) 을 클릭하세요. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
+![일괄 처리 워크플로를 위한 샘플 데이터 준비](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
 
-*그림 8 - 일괄 처리 워크플로를 위한 샘플 데이터 준비*
+*그림 7 - 일괄 처리 워크플로를 위한 샘플 데이터 준비*
 
 다음과 같이 파이프라인은 사용자 지정 ADF .Net Activity로 구성됩니다.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig9-vehicle-telematics-prepare-sample-data-pipeline.png) 
+![PrepareSampleDataPipeline 작업](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-pipeline.png) 
 
-*그림 9 - PrepareSampleDataPipeline*
+*그림 8 - PrepareSampleDataPipeline*
 
 파이프라인이 성공적으로 실행되고 "RawCarEventsTable" 데이터 집합이 "Ready"로 표시되면 1년 분량의 시뮬레이션된 차량 신호 및 진단 데이터가 생성됩니다. 다음 폴더와 "connectedcar" 컨테이너 아래 저장소 계정에 생성된 파일을 볼 수 있습니다.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-prepare-sample-data-pipeline-output.png) 
+![PrepareSampleDataPipeline 출력](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig9-vehicle-telematics-prepare-sample-data-pipeline-output.png) 
 
-*그림 10 - PrepareSampleDataPipeline 출력*
+*그림 9 - PrepareSampleDataPipeline 출력*
 
 ### <a name="references"></a>참조
 [스트림 수집을 위한 Azure 이벤트 허브 SDK](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
@@ -165,28 +165,28 @@ Stream Analytics 작업
 ## <a name="partition-the-dataset"></a>데이터 집합 분할
 반구조화된 원시 차량 신호 및 진단 데이터 집합은 데이터 준비 단계에서 연/월 형식으로 분할됩니다. 이렇게 분할하면 첫 번째 계정이 가득 찰 때 한 BLOB 계정에서 다른 계정으로 장애 조치할 수 있도록 함으로써 보다 효율적인 쿼리 및 확장성 있는 장기 저장이 가능합니다. 
 
-> [!NOTE]
-> 솔루션의 이 단계는 일괄 처리에만 적용됩니다.
-> 
-> 
+>[!NOTE] 
+>솔루션의 이 단계는 일괄 처리에만 적용됩니다.
 
 입력 및 출력 데이터 데이터 관리:
 
 * **출력 데이터** ( *PartitionedCarEventsTable*로 레이블 지정)는 고객의 "Data Lake"에 기초적이고 "가장 원시적인" 데이터 형식으로 장기간 보관됩니다. 
 * 이 파이프라인에 대한 **입력 데이터**는 일반적으로 무시됩니다. 출력 데이터가 입력에 대해 완전한 충실도를 포함하며 이후에 사용할 수 있도록 잘 저장(분할)되기 때문입니다.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-workflow.png)
+![자동차 이벤트 분할 워크플로](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-partition-car-events-workflow.png)
 
-*그림 11 - 자동차 이벤트 분할 워크플로*
+*그림 10 - 자동차 이벤트 분할 워크플로*
 
 원시 데이터는 “PartitionCarEventsPipeline”에서 하이브 HDInsight 작업을 사용하여 분할됩니다. 1단계에서 생성한 1년 분량의 샘플 데이터가 연/월로 분할됩니다. 파티션은 1년 동안 각 월(총 12개 파티션)에 해당하는 차량 신호 및 진단 데이터를 생성하는 데 사용됩니다. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partition-car-events-pipeline.png)
+![PartitionCarEventsPipeline 작업](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-pipeline.png)
 
-*그림 12 - PartitionCarEventsPipeline*
+*그림 11 - PartitionCarEventsPipeline*
+
+***PartitionConnectedCarEvents 하이브 스크립트***
 
 "partitioncarevents.hql"이라는 다음의 Hive 스크립트는 분할에 사용되며 다운로드한 zip의 "\demo\src\connectedcar\scripts" 폴더에 있습니다. 
-
+    
     SET hive.exec.dynamic.partition=true;
     SET hive.exec.dynamic.partition.mode = nonstrict;
     set hive.cli.print.header=true;
@@ -322,13 +322,11 @@ Stream Analytics 작업
         MonthNo
     FROM Stage_RawCarEvents WHERE YearNo = ${hiveconf:Year} AND MonthNo = ${hiveconf:Month};
 
-*그림 13 - PartitionConnectedCarEvents 하이브 스크립트*
-
 파이프라인이 성공적으로 실행되면 "connectedcar" 컨테이너 아래 저장소 계정에 다음 파티션이 생성된 것을 확인할 수 있습니다.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-partitioned-output.png)
+![분할된 출력](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partitioned-output.png)
 
-*그림 14 - 분할된 출력*
+*그림 12 - 분할된 출력*
 
 이제 데이터가 최적화되고 더욱 관리가 용이하며 추가 처리가 가능하여 일괄 처리에 대한 폭넓은 이해가 가능합니다. 
 
@@ -371,9 +369,9 @@ PCA(주성분 분석)는 기능 선택, 분류 및 이상 감지에 적용할 �
 ### <a name="real-time-analysis"></a>실시간 분석
 다음 Stream Analytics SQL 쿼리는 차량 속도, 연료 수준, 엔진 온도, 주행 기록계 판독값, 타이어 압력, 엔진 오일 수준 등과 같은 중요한 모든 차량 매개 변수의 평균을 가져오는 데 사용됩니다. 이 평균은 이상을 감지하고, 경고를 생성하며, 특정 지역에서 작동되는 차량의 전반적인 상태를 파악한 다음 이를 인구 통계에 상호 연결하는 데 사용됩니다. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig15-vehicle-telematics-stream-analytics-query-for-real-time-processing.png)
+![실시간 처리를 위한 Stream Analytics 쿼리](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig13-vehicle-telematics-stream-analytics-query-for-real-time-processing.png)
 
-그림 15 - 실시간 처리를 위한 스트림 분석 쿼리
+*그림 13 - 실시간 처리를 위한 Stream Analytics 쿼리*
 
 모든 평균은 3초의 TumblingWindow를 통해 계산됩니다. 이 경우 중복되지 않는 연속적인 시간 간격이 필요하므로 TubmlingWindow를 사용합니다. 
 
@@ -383,11 +381,11 @@ Azure Stream Analytics에서 모든 “창 작업” 기능에 대한 자세한 
 
 응용 프로그램은 실시간으로 기계 학습 모델을 운영할 솔루션의 일부로 포함됩니다. "RealTimeDashboardApp"이라는 응용 프로그램이 솔루션 배포의 일부로 만들어지고 구성됩니다. 이 응용 프로그램은 다음을 수행합니다.
 
-1. Stream Analytics가 패턴의 이벤트를 계속해서 게시하는 Event Hub 인스턴스를 수신합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*그림 16 - 출력 이벤트 허브 인스턴스에 데이터를 게시하는 Stream Analytics 쿼리* 
+1. Stream Analytics가 패턴의 이벤트를 계속해서 게시하는 Event Hub 인스턴스를 수신합니다. ![데이터를 게시하기 위한 Stream Analytics 쿼리](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-stream-analytics-query-for-publishing.png) *그림 14 - 데이터를 출력 이벤트 허브 인스턴스에 게시하기 위한 Stream Analytics 쿼리* 
 2. 이 응용 프로그램이 수신하는 모든 이벤트에 대해 다음을 수행합니다. 
    
    * 기계 학습 요청-응답 점수 매기기(RRS) 끝점을 사용하여 데이터를 처리합니다. RRS 끝점이 배포의 일부로 자동으로 게시됩니다.
-   * RRS 출력이 푸시 API를 사용하여 PowerBI 데이터 집합에 게시됩니다.
+   * RRS 출력이 푸시 API를 사용하여 Power BI 데이터 집합에 게시됩니다.
 
 이 패턴은 LOB(기간 업무) 응용 프로그램을 경고, 알림 및 메시징의 시나리오를 위한 실시간 분석 흐름과 통합할 시나리오에도 적용할 수 있습니다.
 
@@ -395,19 +393,18 @@ Azure Stream Analytics에서 모든 “창 작업” 기능에 대한 자세한 
 
 **실시간 대시보드 응용 프로그램을 실행하려면**
 
-1. 다이어그램 보기에서 PowerBI 노드를 클릭하고 속성 창에서 “실시간 대시보드 응용 프로그램 다운로드” 링크를 클릭합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *그림 17 - PowerBI 대시보드 설정 지침*
-2. 로컬에 압축을 풀고 저장합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *그림 18 - RealtimeDashboardApp 폴더*
+1. 다이어그램 보기에서 Power BI 노드를 클릭하고 속성 창에서 "실시간 대시보드 응용 프로그램 다운로드" 링크를 클릭합니다. ![Power BI 대시보드 설정 지침](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig15-vehicle-telematics-powerbi-dashboard-setup.png) *그림 15 - Power BI 대시보드 설정 지침*
+2. 로컬로 추출 및 저장 ![RealtimeDashboardApp 폴더](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *그림 16 - RealtimeDashboardApp 폴더*  
 3. 'RealtimeDashboardApp.exe' 응용 프로그램을 실행합니다.
-4. 유효한 Power BI 자격 증명을 제공하고 로그인한 후 동의를 클릭합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+4. 유효한 Power BI 자격 증명을 제공하고 로그인한 후 동의를 클릭합니다. ![Power BI에 실시간 대시보드 앱 로그인](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Power BI에 실시간 대시보드 앱 로그인 완료](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
-*그림 19 - RealtimeDashboardApp: PowerBI에 로그인*
+*그림 17 - RealtimeDashboardApp: Power BI에 로그인*
 
-> [!NOTE]
-> PowerBI 데이터 집합을 플러시하려는 경우 RealtimeDashboardApp을 “flushdata” 매개 변수와 함께 실행합니다. 
-> 
-> 
+>[!NOTE] 
+>Power BI 데이터 집합을 플러시하려는 경우 RealtimeDashboardApp을 “flushdata” 매개 변수와 함께 실행합니다. 
 
     RealtimeDashboardApp.exe -flushdata
+
 
 ### <a name="batch-analysis"></a>일괄 분석
 목표는 Contoso Motors가 Azure 계산 기능으로 빅 데이터를 활용하여 주행 패턴, 사용 동작 및 차량 상태를 폭넓게 이해하는 방법을 보여 주는 것입니다. 이를 통해 다음이 가능합니다.
@@ -427,8 +424,11 @@ Azure Stream Analytics에서 모든 “창 작업” 기능에 대한 자세한 
 
 분할된 차량 신호 및 진단 데이터가 Hive를 사용하여 "AggresiveDrivingPatternPipeline"이라는 파이프라인에서 처리되어 공격적인 주행 패턴을 나타내는 모델, 위치, 차량 및 주행 상태 등의 매개 변수를 결정합니다.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig20-vehicle-telematics-aggressive-driving-pattern.png) 
-*그림 20 – 공격적인 주행 패턴 워크플로*
+![적극적인 구동 패턴 워크플로](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-aggressive-driving-pattern.png) 
+ *그림 18 - 적극적인 구동 패턴 워크플로*
+
+
+***공격적인 주행 패턴 하이브 쿼리***
 
 공격적인 주행 조건 패턴을 분석하는 데 사용된 "aggresivedriving.hql"이라는 하이브 스크립트는 다운로드한 zip의 "\demo\src\connectedcar\scripts" 폴더에 있습니다. 
 
@@ -489,23 +489,24 @@ Azure Stream Analytics에서 모든 “창 작업” 기능에 대한 자세한 
     from PartitionedCarEvents
     where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND brake_pedal_status = '1' AND speed >= '50'
 
-*그림 21 – 공격적인 주행 패턴 하이브 쿼리*
 
 차량의 트랜스미션 기어 위치, 브레이크 페달 상태 및 속도의 조합을 사용하여 고속에서 브레이크 패턴에 따라 난폭하고 공격적인 주행 동작을 감지합니다. 
 
 파이프라인이 성공적으로 실행되면 "connectedcar" 컨테이너 아래 저장소 계정에 다음 파티션이 생성된 것을 확인할 수 있습니다.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aggressive-driving-pattern-output.png) 
+![AggressiveDrivingPatternPipeline 출력](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-aggressive-driving-pattern-output.png) 
 
-*그림 22 - AggressiveDrivingPatternPipeline 출력*
+*그림 19 - AggressiveDrivingPatternPipeline 출력*
 
 **연료 효율이 좋은 주행 패턴**
 
 분할된 차량 신호 및 진단 데이터가 'FuelEfficientDrivingPatternPipeline'이라는 파이프라인에서 처리됩니다. Hive를 사용하여 연료 효율이 좋은 주행 패턴을 나타내는 모델, 위치, 차량, 주행 상태 및 기타 속성을 결정합니다.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-fuel-efficient-driving-pattern.png) 
+![연료 효율이 좋은 주행 패턴](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-fuel-efficient-driving-pattern.png) 
 
-*그림 23 - 연료 효율이 좋은 주행 패턴 워크플로*
+*그림 20 - 연료 효율이 좋은 주행 패턴 워크플로*
+
+***연료 효율이 좋은 주행 패턴 하이브 쿼리***
 
 공격적인 주행 조건 패턴을 분석하는 데 사용된 "fuelefficientdriving.hql"이라는 하이브 스크립트는 다운로드한 zip의 "\demo\src\connectedcar\scripts" 폴더에 있습니다. 
 
@@ -567,35 +568,35 @@ Azure Stream Analytics에서 모든 “창 작업” 기능에 대한 자세한 
     where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND parking_brake_status = '0' AND brake_pedal_status = '0' AND speed <= '60' AND accelerator_pedal_position >= '50'
 
 
-*그림 24 - 연료 효율이 좋은 주행 패턴 하이브 쿼리*
-
 차량의 트랜스미션 기어 위치, 브레이크 페달 상태, 속도 및 가속 페달 위치의 조합을 사용하여 가속, 브레이크 및 속도 패턴에 따라 연료 효율이 좋은 주행 동작을 감지합니다. 
 
 파이프라인이 성공적으로 실행되면 "connectedcar" 컨테이너 아래 저장소 계정에 다음 파티션이 생성된 것을 확인할 수 있습니다.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-fuel-efficient-driving-pattern-output.png) 
+![FuelEfficientDrivingPatternPipeline 출력](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig20-vehicle-telematics-fuel-efficient-driving-pattern-output.png) 
 
-*그림 25 - FuelEfficientDrivingPatternPipeline 출력*
+*그림 21 - FuelEfficientDrivingPatternPipeline 출력*
 
 **회수 예측**
 
 기계 학습 실험은 솔루션 배포의 일부인 웹 서비스로 프로비전 및 게시됩니다. 일괄 처리 점수 매기기 끝점이 이 워크플로에 활용되고 데이터 팩터리 연결된 서비스로 등록되며 데이터 팩터리 일괄 점수 매기기 활동을 사용하여 조작 가능해집니다.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig26-vehicle-telematics-machine-learning-endpoint.png) 
+![Machine Learning 끝점](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig21-vehicle-telematics-machine-learning-endpoint.png) 
 
-*그림 26 - 데이터 팩터리의 연결된 서비스로 등록된 기계 학습 끝점*
+*그림 22 - Data Factory의 연결된 서비스로 등록된 Machine Learning 끝점*
 
 등록된 연결된 서비스가 DetectAnomalyPipeline에 사용되며 이상 감지 모델을 사용하여 데이터 점수를 매깁니다. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig27-vehicle-telematics-aml-batch-scoring.png) 
+![Data Factory에서 Machine Learning 일괄 처리 점수 매기기 활동](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aml-batch-scoring.png) 
 
-*그림 27 – 데이터 팩터리에서 Azure 기계 학습 일괄 점수 매기기 활동* 
+*그림 23 – Data Factory에서 Azure Machine Learning 일괄 처리 점수 매기기 활동* 
 
 일괄 점수 매기기 웹 서비스로 조작이 가능하도록 이 파이프라인에서 데이터 준비를 위해 수행된 몇 가지 단계가 있습니다. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-pipeline-predicting-recalls.png) 
+![회수가 필요한 차량을 예측하기 위한 DetectAnomalyPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-pipeline-predicting-recalls.png) 
 
-*그림 28 - 회수가 필요한 차량을 예측하기 위한 DetectAnomalyPipeline* 
+*그림 24 - 회수가 필요한 차량을 예측하기 위한 DetectAnomalyPipeline* 
+
+***변칙 검색 Hive 쿼리***
 
 점수 매기기가 완료되면 모델에 의해 확률 점수 0.60 이상으로 이상(anomalies)으로 분류된 데이터를 HDInsight 작업을 사용하여 처리 및 집계합니다.
 
@@ -659,47 +660,48 @@ Azure Stream Analytics에서 모든 “창 작업” 기능에 대한 자세한 
 
 파이프라인이 성공적으로 실행되면 "connectedcar" 컨테이너 아래 저장소 계정에 다음 파티션이 생성된 것을 확인할 수 있습니다.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-detect-anamoly-pipeline-output.png) 
+![DetectAnomalyPipeline 출력](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig24-vehicle-telematics-detect-anamoly-pipeline-output.png) 
 
-*그림 30 – DetectAnomalyPipeline 출력*
+*그림 25 – DetectAnomalyPipeline 출력*
 
 ## <a name="publish"></a>게시
+
 ### <a name="real-time-analysis"></a>실시간 분석
-스트림 분석 작업에 있는 쿼리 중 하나가 이벤트를 출력 이벤트 허브 인스턴스에 게시합니다. 
+Stream Analytics 작업에 있는 쿼리 중 하나가 이벤트를 출력 이벤트 허브 인스턴스에 게시합니다. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig31-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
+![출력 이벤트 허브 인스턴스에 게시하는 Stream Analytics 작업](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
 
-*그림 31 - 출력 이벤트 인스턴스에 게시하는 스트림 분석 작업*
+*그림 26 - 출력 이벤트 허브 인스턴스에 게시하는 Stream Analytics 작업*
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig32-vehicle-telematics-stream-analytics-query-publish-output-event-hub.png)
+![출력 이벤트 허브 인스턴스에 게시하는 Stream Analytics 쿼리](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig26-vehicle-telematics-stream-analytics-query-publish-output-event-hub.png)
 
-*그림 32 - 출력 이벤트 인스턴스에 게시하는 스트림 분석 쿼리*
+*그림 27 - 출력 이벤트 허브 인스턴스에 게시하는 Stream Analytics 쿼리*
 
-이 이벤트 스트림은 솔루션에 포함된 RealTimeDashboardApp이 사용합니다. 이 응용 프로그램은 실시간 점수 매기기를 위한 기계 학습 요청-응답 웹 서비스를 활용하여 사용을 위해 결과 데이터를 PowerBI 데이터 집합에 게시합니다. 
+이 이벤트 스트림은 솔루션에 포함된 RealTimeDashboardApp이 사용합니다. 이 응용 프로그램은 실시간 점수 매기기를 위한 Machine Learning 요청-응답 웹 서비스를 활용하여 사용을 위해 결과 데이터를 Power BI 데이터 집합에 게시합니다. 
 
 ### <a name="batch-analysis"></a>일괄 분석
 일괄 및 실시간 처리의 결과가 사용을 위해 Azure SQL 데이터베이스 테이블에 게시됩니다. Azure SQL Server, 데이터베이스 및 테이블이 설치 스크립트의 일부로 자동으로 만들어집니다. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig33-vehicle-telematics-batch-processing-results-copy-to-data-mart.png)
+![데이터 마트로 일괄 처리 결과 복사 워크플로](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig27-vehicle-telematics-batch-processing-results-copy-to-data-mart.png)
 
-*그림 33 - 데이터 마트로 일괄 처리 결과 복사 워크플로*
+*그림 28 - 데이터 마트로 일괄 처리 결과 복사 워크플로*
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig34-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
+![데이터 마트로 게시하는 Stream Analytics 작업](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
 
-*그림 34 - 데이터 마트로 게시하는 스트림 분석 작업*
+*그림 29 - 데이터 마트로 게시하는 Stream Analytics 작업*
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig35-vehicle-telematics-data-mart-setting-in-stream-analytics-job.png)
+![Stream Analytics 작업에서 데이터 마트 설정](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig29-vehicle-telematics-data-mart-setting-in-stream-analytics-job.png)
 
-*그림 35 - 스트림 분석 작업에서 데이터 마트 설정*
+*그림 30 - Stream Analytics 작업에서 데이터 마트 설정*
 
 ## <a name="consume"></a>사용
 Power BI는 실시간 데이터 및 예측 분석 시각화를 위해 이 솔루션을 다양한 대시보드에 제공합니다. 
 
-PowerBI 보고서 및 대시보드 설정에 관한 자세한 지침을 보려면 여기를 클릭하세요. 최종 대시보드는 다음과 유사하게 표시됩니다.
+Power BI 보고서 및 대시보드 설정에 관한 자세한 지침을 보려면 여기를 클릭하세요. 최종 대시보드는 다음과 유사하게 표시됩니다.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig36-vehicle-telematics-powerbi-dashboard.png)
+![Power BI 대시보드](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-powerbi-dashboard.png)
 
-*그림 36 - PowerBI 대시보드*
+*그림 31 - Power BI 대시보드*
 
 ## <a name="summary"></a>요약
 이 문서는 차량 원격 분석 솔루션에 대한 자세한 드릴다운을 포함됩니다. 예측 및 동작과 함께 실시간 및 일괄 분석을 위한 람다 아키텍처 패턴을 설명합니다. 이 패턴은 실행 부하 과다 경로(실시간) 및 콜드 경로(일괄 처리) 분석이 필요한 다양한 사용 사례에 적용됩니다. 
@@ -707,6 +709,6 @@ PowerBI 보고서 및 대시보드 설정에 관한 자세한 지침을 보려�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

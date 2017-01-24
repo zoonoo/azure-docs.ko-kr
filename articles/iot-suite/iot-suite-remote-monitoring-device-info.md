@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2016
+ms.date: 12/15/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 9138fc1da6c45e2aa874e3e26c4a65ceb248d8f1
-ms.openlocfilehash: 325e25412e80d005a87b49e6971703cd74551c5e
+ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
+ms.openlocfilehash: 8aac22bed0b16c97faabf1e15c9fc9f40c34ca67
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 325e25412e80d005a87b49e6971703cd74551c5e
 * 솔루션이 장치 메타데이터를 관리하는 방법입니다.
 
 ## <a name="context"></a>Context
-미리 구성된 원격 모니터링 솔루션은 [Azure IoT Hub][lnk-iot-hub]를 사용하여 장치가 클라우드로 데이터를 보낼 수 있도록 합니다. IoT Hub는 [장치 ID 레지스트리][lnk-identity-registry]를 포함하여 IoT Hub에 대한 액세스를 제어합니다. IoT Hub 장치 ID 레지스트리는 장치 정보 메타데이터를 저장하는 원격 모니터링 솔루션에 특정된 *장치 레지스트리* 와 분리되어 있습니다. 원격 모니터링 솔루션은 [DocumentDB][lnk-docdb] 데이터베이스를 사용하여 장치 정보 메타데이터를 저장하는 장치 레지스트리를 구현합니다. [Microsoft Azure IoT 참조 아키텍처][lnk-ref-arch]는 일반적인 IoT 솔루션에서 장치 레지스트리의 역할을 설명합니다.
+미리 구성된 원격 모니터링 솔루션은 [Azure IoT Hub][lnk-iot-hub]를 사용하여 장치가 클라우드로 데이터를 보낼 수 있도록 합니다. IoT Hub는 [장치 ID 레지스트리][lnk-identity-registry]를 포함하여 IoT Hub에 액세스하도록 제어합니다. IoT Hub 장치 ID 레지스트리는 장치 정보 메타데이터를 저장하는 원격 모니터링 솔루션에 특정된 *장치 레지스트리* 와 분리되어 있습니다. 원격 모니터링 솔루션은 [DocumentDB][lnk-docdb] 데이터베이스를 사용하여 장치 정보 메타데이터를 저장하는 해당 장치 레지스트리를 구현합니다. [Microsoft Azure IoT 참조 아키텍처][lnk-ref-arch]는 일반적인 IoT 솔루션의 장치 레지스트리 역할을 설명합니다.
 
 > [!NOTE]
 > 미리 구성된 원격 모니터링 솔루션은 장치 레지스트리와 동기화된 장치 ID 레지스트리를 유지합니다. 둘 다 동일한 장치 ID를 사용하여 IoT Hub에 연결된 각 장치를 고유하게 식별합니다.
@@ -95,7 +95,7 @@ ms.openlocfilehash: 325e25412e80d005a87b49e6971703cd74551c5e
 ![장치 제거][img-device-remove]
 
 ## <a name="device-information-message-processing"></a>장치 정보 메시지 처리
-장치에서 보낸 장치 정보 메시지는 원격 분석 메시지와 구별됩니다. 장치 정보 메시지는 장치 속성, 장치가 응답할 수 있는 명령 및 명령 기록과 같은 정보를 포함합니다. IoT Hub 자체에는 장치 정보 메시지에 포함된 메타데이터의 정보가 없으며 장치-클라우드 메시지를 처리하는 것과 동일한 방식으로 메시지를 처리합니다. 원격 모니터링 솔루션에서 [Azure Stream Analytics][lnk-stream-analytics](ASA) 작업이 IoT Hub의 메시지를 읽습니다. **DeviceInfo** Stream Analytics 작업은 **"ObjectType": "DeviceInfo"**를 포함하는 메시지를 필터링하고 웹 작업에서 실행되는 **EventProcessorHost** 호스트 인스턴스에 전달합니다. **EventProcessorHost** 인스턴스의 논리는 장치 ID를 사용하여 특정 장치에 대한 DocumentDB 레코드를 찾고 레코드를 업데이트합니다. 이제 장치 레지스트리 레코드는 장치 속성, 명령 및 명령 기록 등의 정보를 포함합니다.
+장치에서 보낸 장치 정보 메시지는 원격 분석 메시지와 구별됩니다. 장치 정보 메시지는 장치 속성, 장치가 응답할 수 있는 명령 및 명령 기록과 같은 정보를 포함합니다. IoT Hub 자체에는 장치 정보 메시지에 포함된 메타데이터의 정보가 없으며 장치-클라우드 메시지를 처리하는 것과 동일한 방식으로 메시지를 처리합니다. 원격 모니터링 솔루션에서 [Azure 스트림 분석][lnk-stream-analytics](ASA) 작업은 IoT Hub의 메시지를 읽습니다. **DeviceInfo** Stream Analytics 작업은 **"ObjectType": "DeviceInfo"**를 포함하는 메시지를 필터링하고 웹 작업에서 실행되는 **EventProcessorHost** 호스트 인스턴스에 전달합니다. **EventProcessorHost** 인스턴스의 논리는 장치 ID를 사용하여 특정 장치에 대한 DocumentDB 레코드를 찾고 레코드를 업데이트합니다. 이제 장치 레지스트리 레코드는 장치 속성, 명령 및 명령 기록 등의 정보를 포함합니다.
 
 > [!NOTE]
 > 장치 정보 메시지는 표준 장치-클라우드 메시지입니다. 솔루션은 ASA 쿼리를 사용하여 장치 정보 메시지와 원격 분석 메시지를 구분합니다.
@@ -248,7 +248,7 @@ ms.openlocfilehash: 325e25412e80d005a87b49e6971703cd74551c5e
 }
 ```
 
-다음은 장치에서 장치 정보 메타데이터를 업데이트하도록 전송한 JSON **DeviceInfo** 메시지를 보여 줍니다.
+다음 예제는 장치에서 장치 정보 메타데이터를 업데이트하도록 전송한 JSON **DeviceInfo** 메시지를 보여 줍니다.
 
 ```
 { "ObjectType":"DeviceInfo",
@@ -288,6 +288,6 @@ ms.openlocfilehash: 325e25412e80d005a87b49e6971703cd74551c5e
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

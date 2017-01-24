@@ -1,79 +1,83 @@
 ---
-title: Reset a local Windows password when Azure guest agent is not installed | Microsoft Docs
-description: How to reset the password of a local Windows user account when the Azure guest agent is not installed or functioning on a VM
+title: "Azure 에이전트 없이 로컬 Windows 암호 재설정 | Microsoft Docs"
+description: "Azure 게스트 에이전트가 설치되어 있지 않거나 VM에서 작동하지 않는 경우 로컬 Windows 사용자 계정의 암호를 재설정하는 방법"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: iainfoulds
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/05/2016
+ms.date: 12/20/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 370bcf5189c855185f11277518e0cbd5377993ab
+ms.openlocfilehash: 74b1282bf205bc38f13c51c5e05f55987d0cd12e
+
 
 ---
-# <a name="how-to-reset-local-windows-password-for-azure-vm"></a>How to reset local Windows password for Azure VM
-You can reset the local Windows password of a VM in Azure using the [Azure portal or Azure PowerShell](virtual-machines-windows-reset-rdp.md) provided the Azure guest agent is installed. This method is the primary way to reset a password for an Azure VM. If you encounter issues with the Azure guest agent not responding, or failing to install after uploading a custom image, you can manually reset a Windows password. This article details how to reset a local account password by attaching the source OS virtual disk to another VM. 
+# <a name="how-to-reset-local-windows-password-for-azure-vm"></a>Azure VM의 로컬 Windows 암호를 재설정하는 방법
+Azure 게스트 에이전트 설치가 제공되는 [Azure Portal 또는 Azure PowerShell](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 Azure에서 VM의 로컬 Windows 암호를 재설정할 수 있습니다. 이 방법은 Azure VM의 암호를 재설정하는 기본 방법입니다. Azure 게스트 에이전트가 응답하지 않거나 사용자 지정 이미지를 업로드한 후 설치에 실패하는 문제가 발생하는 경우 Windows 암호를 수동으로 재설정할 수 있습니다. 이 문서에는 다른 VM에 원본 OS 가상 디스크를 연결하여 로컬 계정 암호를 재설정하는 방법을 자세히 설명합니다. 
 
 > [!WARNING]
-> Only use this process as a last resort. Always try to reset a password using the [Azure portal or Azure PowerShell](virtual-machines-windows-reset-rdp.md) first.
+> 이 프로세스는 마지막 수단으로만 사용합니다. 항상 [Azure Portal 또는 Azure PowerShell](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 먼저 사용하여 암호를 재설정하도록 시도합니다.
 > 
 > 
 
-## <a name="overview-of-the-process"></a>Overview of the process
-The core steps for performing a local password reset for a Windows VM in Azure when there is no access to the Azure guest agent is as follows:
+## <a name="overview-of-the-process"></a>프로세스의 개요
+Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Windows VM에 대한 로컬 암호 재설정을 수행하기 위한 핵심 단계는 다음과 같습니다.
 
-* Delete the source VM. The virtual disks are retained.
-* Attach the source VM's OS disk to another VM within your Azure subscription. This VM is referred to as the troubleshooting VM.
-* Using the troubleshooting VM, create some config files on the source VM's OS disk.
-* Detach the VM's OS disk from the troubleshooting VM.
-* Use a Resource Manager template to create a VM, using the original virtual disk.
-* When the new VM boots, the config files you create update the password of the required user.
+* 원본 VM을 삭제합니다. 가상 디스크는 유지됩니다.
+* Azure 구독 내에서 다른 VM에 원본 VM의 OS 디스크를 연결합니다. 이 VM은 문제 해결 VM이라고 합니다.
+* 문제 해결 VM을 사용하여 원본 VM의 OS 디스크에 일부 구성 파일을 만듭니다.
+* 문제 해결 VM에서 VM의 OS 디스크를 분리합니다.
+* Resource Manager 템플릿을 사용하여 기존 가상 디스크를 사용하는 VM을 만듭니다.
+* 새 VM이 부팅하면 만든 구성 파일은 필요한 사용자의 암호를 업데이트합니다.
 
-## <a name="detailed-steps"></a>Detailed steps
-Always try to reset a password using the [Azure portal or Azure PowerShell](virtual-machines-windows-reset-rdp.md) before trying the following steps. Make sure you have a backup of your VM before you start. 
+## <a name="detailed-steps"></a>자세한 단계
+다음 단계를 시도하기 전에 항상 [Azure Portal 또는 Azure PowerShell](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 암호를 재설정하도록 시도합니다. 시작하기 전에 VM을 백업했는지 확인합니다. 
 
-1. Delete the affected VM in Azure portal. Deleting the VM only deletes the metadata, the reference of the VM within Azure. The virtual disks are retained when the VM is deleted:
+1. Azure Portal에서 영향을 받는 VM을 삭제합니다. VM을 삭제하면 Azure 내에서 메타데이터, VM의 참조만 삭제됩니다. 가상 디스크는 VM이 삭제될 때 유지됩니다.
    
-   * Select the VM in the Azure portal, click *Delete*:
+   * Azure Portal에서 VM을 선택하고 *삭제*를 클릭합니다.
      
-     ![Delete existing VM](./media/virtual-machines-windows-reset-local-password-without-guest-agent/delete_vm.png)
-2. Attach the source VM’s OS disk to the troubleshooting VM. The troubleshooting VM must be in the same region as the source VM's OS disk (such as `West US`):
+     ![기존 VM 삭제](./media/virtual-machines-windows-reset-local-password-without-guest-agent/delete_vm.png)
+2. 문제 해결 VM에 원본 VM의 OS 디스크를 연결합니다. 문제 해결 VM은 원본 VM의 OS 디스크와 동일한 지역에 있어야 합니다(예: `West US`).
    
-   * Select the troubleshooting VM in the Azure portal. Click *Disks* | *Attach existing*:
+   * Azure Portal에서 문제 해결 VM을 선택합니다. *디스크* | *기존 연결*을 클릭합니다.
      
-     ![Attach existing disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_attach_existing.png)
+     ![기존 디스크 연결](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_attach_existing.png)
      
-     Select *VHD File* and then select the storage account that contains your source VM:
+     *VHD 파일*을 선택한 다음 원본 VM을 포함하는 저장소 계정을 선택합니다.
      
-     ![Select storage account](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_storageaccount.PNG)
+     ![저장소 계정 선택](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_storageaccount.PNG)
      
-     Select the source container. The source container is typically *vhds*:
+     원본 컨테이너를 선택합니다. 원본 컨테이너는 일반적으로 *vhds*입니다.
      
-     ![Select storage container](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_container.png)
+     ![저장소 컨테이너 선택](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_container.png)
      
-     Select the OS vhd to attach. Click *Select* to complete the process:
+     연결할 OS vhd를 선택합니다. *선택*을 클릭하여 프로세스를 완료합니다.
      
-     ![Select source virtual disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_source_vhd.png)
-3. Connect to the troubleshooting VM using Remote Desktop and ensure the source VM's OS disk is visible:
+     ![원본 가상 디스크 선택](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_source_vhd.png)
+3. 원격 데스크톱을 사용하여 문제 해결 VM에 연결하고 원본 VM의 OS 디스크가 표시되는지 확인합니다.
    
-   * Select the troubleshooting VM in the Azure portal and click *Connect*.
-   * Open the RDP file that downloads. Enter the username and password of the troubleshooting VM.
-   * In File Explorer, look for the data disk you attached. If the source VM’s VHD is the only data disk attached to the troubleshooting VM, it should be the F: drive:
+   * Azure Portal에서 문제 해결 VM을 선택하고 *연결*을 클릭합니다.
+   * 다운로드하는 RDP 파일을 엽니다. 문제 해결 VM의 사용자 이름 및 암호를 입력합니다.
+   * 파일 탐색기에서 연결한 데이터 디스크를 찾습니다. 원본 VM의 VHD가 문제 해결 VM에 연결된 유일한 데이터 디스크인 경우 F: 드라이브여야 합니다.
      
-     ![View attached data disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/troubleshooting_vm_fileexplorer.png)
-4. Create `gpt.ini` in `\Windows\System32\GroupPolicy` on the source VM’s drive (if gpt.ini exists, rename to gpt.ini.bak):
+     ![연결된 데이터 디스크 보기](./media/virtual-machines-windows-reset-local-password-without-guest-agent/troubleshooting_vm_fileexplorer.png)
+4. 원본 VM 드라이브의 `\Windows\System32\GroupPolicy`에서 `gpt.ini`를 만듭니다.(gpt.ini가 있는 경우 gpt.ini.bak으로 이름을 변경합니다.)
    
    > [!WARNING]
-   > Make sure that you do not accidentally create the following files in C:\Windows, the OS drive for the troubleshooting VM. Create the following files in the OS drive for your source VM that is attached as a data disk.
+   > C:\Windows(문제 해결 VM에 대한 OS 드라이브)에 다음 파일을 실수로 만들지 않도록 합니다. 데이터 디스크로 연결된 원본 VM의 OS 드라이브에 다음 파일을 만듭니다.
    > 
    > 
    
-   * Add the following lines into the `gpt.ini` file you created:
+   * 만든 `gpt.ini` 파일에 다음 줄을 추가합니다.
      
      ```
      [General]
@@ -82,10 +86,10 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
      Version=1
      ```
      
-     ![Create gpt.ini](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_gpt_ini.png)
-5. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
+     ![gpt.ini 만들기](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_gpt_ini.png)
+5. `\Windows\System32\GroupPolicy\Machine\Scripts`에 `scripts.ini`를 만듭니다. 숨겨진 폴더가 표시되어 있는지 확인합니다. 필요한 경우 `Machine` 또는 `Scripts` 폴더를 만듭니다.
    
-   * Add the following lines the `scripts.ini` file you created:
+   * 만든 `scripts.ini` 파일에 다음 줄을 추가합니다.
      
      ```
      [Startup]
@@ -93,52 +97,55 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
      0Parameters=
      ```
      
-     ![Create scripts.ini](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_scripts_ini.png)
-6. Create `FixAzureVM.cmd` in `\Windows\System32` with the following contents, replacing `<username>` and `<newpassword>` with your own values:
+     ![scripts.ini 만들기](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_scripts_ini.png)
+6. 다음 내용으로 `<username>` 및 `<newpassword>`를 고유한 값으로 교체하여 `\Windows\System32`에 `FixAzureVM.cmd`를 만듭니다.
    
     ```
     NET USER <username> <newpassword>
     ```
    
-    ![Create FixAzureVM.cmd](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_fixazure_cmd.png)
+    ![FixAzureVM.cmd 만들기](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_fixazure_cmd.png)
    
-    You must meet the configured password complexity requirements for your VM when defining the new password.
-7. In Azure portal, detach the disk from the troubleshooting VM:
+    새 암호를 정의하는 경우 VM에 대해 구성된 암호 복잡성 요구 사항을 충족해야 합니다.
+7. Azure Portal에서 문제 해결 VM에서 디스크를 분리합니다.
    
-   * Select the troubleshooting VM in the Azure portal, click *Disks*.
-   * Select the data disk attached in step 2, click *Detach*:
+   * Azure Portal에서 문제 해결 VM을 선택하고 *디스크*를 클릭합니다.
+   * 2단계에서 연결된 데이터 디스크를 선택하고 *분리*를 클릭합니다.
      
-     ![Detach disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/detach_disk.png)
-8. Before you create a VM, obtain the URI to your source OS disk:
+     ![디스크 분리](./media/virtual-machines-windows-reset-local-password-without-guest-agent/detach_disk.png)
+8. VM을 만들기 전에 원본 OS 디스크에 URI를 가져옵니다.
    
-   * Select the storage account in the Azure portal, click *Blobs*.
-   * Select the container. The source container is typically *vhds*:
+   * Azure Portal에서 저장소 계정을 선택하고 *Blob*을 클릭합니다.
+   * 컨테이너를 선택합니다. 원본 컨테이너는 일반적으로 *vhds*입니다.
      
-     ![Select storage account blob](./media/virtual-machines-windows-reset-local-password-without-guest-agent/select_storage_details.png)
+     ![저장소 계정 Blob 선택](./media/virtual-machines-windows-reset-local-password-without-guest-agent/select_storage_details.png)
      
-     Select your source VM OS VHD and click the *Copy* button next to the *URL* name:
+     원본 VM OS VHD를 선택하고 *URL* 이름 옆의 *복사* 단추를 클릭합니다.
      
-     ![Copy disk URI](./media/virtual-machines-windows-reset-local-password-without-guest-agent/copy_source_vhd_uri.png)
-9. Create a VM from the source VM’s OS disk:
+     ![디스크 URI 복사](./media/virtual-machines-windows-reset-local-password-without-guest-agent/copy_source_vhd_uri.png)
+9. 원본 VM의 OS 디스크에서 VM을 만듭니다.
    
-   * Use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) to create a VM from a specialized VHD. Click the `Deploy to Azure` button to open the Azure portal with the templated details populated for you.
-   * If you want to retain all the previous settings for the VM, select *Edit template* to provide your existing VNet, subnet, network adapter, or public IP.
-   * In the `OSDISKVHDURI` parameter text box, paste the URI of your source VHD obtain in the preceding step:
+   * [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd)을 사용하여 전문화된 VHD에서 VM을 만듭니다. `Deploy to Azure` 단추를 클릭하여 템플릿 세부 정보로 채워진 Azure Portal을 엽니다.
+   * VM에 대한 모든 이전 설정을 유지하려는 경우 *템플릿 편집*을 선택하여 기존 VNet, 서브넷, 네트워크 어댑터 또는 공용 IP를 제공합니다.
+   * `OSDISKVHDURI` 매개 변수 입력란에 이전 단계에서 가져온 원본 VHD의 URI를 붙여 넣습니다.
      
-     ![Create a VM from template](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_new_vm_from_template.png)
-10. After the new VM is running, connect to the VM using Remote Desktop with the new password you specified in the `FixAzureVM.cmd` script.
-11. From your remote session to the new VM, remove the following files to clean up the environment:
+     ![템플릿에서 VM 만들기](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_new_vm_from_template.png)
+10. 새 VM을 실행한 후 `FixAzureVM.cmd` 스크립트에서 지정한 새 암호로 원격 데스크톱을 사용하여 VM에 연결합니다.
+11. 새 VM에 대한 원격 세션에서 다음 파일을 제거하여 환경을 정리합니다.
     
-    * From %windir%\System32
-      * remove FixAzureVM.cmd
-    * From %windir%\System32\GroupPolicy\Machine\
-      * remove scripts.ini
-    * From %windir%\System32\GroupPolicy
-      * remove gpt.ini (if gpt.ini existed before, and you renamed it to gpt.ini.bak, rename the .bak file back to gpt.ini)
+    * %windir%\System32에서
+      * FixAzureVM.cmd 제거
+    * %windir%\System32\GroupPolicy\Machine\에서
+      * scripts.ini 제거
+    * %windir%\System32\GroupPolicy에서
+      * gpt.ini 제거(이전에 gpt.ini가 있었고 gpt.ini.bak으로 이름을 변경한 경우 .bak 파일을 gpt.ini로 다시 이름 변경)
 
-## <a name="next-steps"></a>Next steps
-If you still cannot connect using Remote Desktop, see the [RDP troubleshooting guide](virtual-machines-windows-troubleshoot-rdp-connection.md). The [detailed RDP troubleshooting guide](virtual-machines-windows-detailed-troubleshoot-rdp.md) looks at troubleshooting methods rather than specific steps. You can also [open an Azure support request](https://azure.microsoft.com/support/options/) for hands-on assistance.
+## <a name="next-steps"></a>다음 단계
+원격 데스크톱을 사용하여 계속 연결할 수 없는 경우 [RDP 문제 해결 가이드](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. [자세한 RDP 문제 해결 가이드](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)는 특정 단계보다 문제 해결 방법을 살펴봅니다. 직접적인 도움을 위해 [Azure 지원 요청](https://azure.microsoft.com/support/options/)을 개설할 수도 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO3-->
 
 

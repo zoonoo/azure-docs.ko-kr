@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9dea1f48904a0d505f95636f178b24f8a6e174a7
+ms.sourcegitcommit: 2e8cdbbd7f97c5095a151d0ef228cfdeb671345a
+ms.openlocfilehash: 1f5eb285e061b1e221e1d68f894bbd9dd0a50b32
 
 
 ---
@@ -663,7 +663,7 @@ iOS 프로젝트에 플랫폼 특정 코드를 추가합니다.
   
       + `IFileSyncHandler.ProcessFileSynchronizationAction` 은 파일 동기화 흐름의 일부로 호출됩니다. 파일 참조 및 FileSynchronizationAction 열거형 값이 제공되므로 응용 프로그램이 해당 이벤트를 처리해야 하는 방법을 결정할 수 있습니다(예: 생성되거나 업데이트될 때 파일을 자동으로 다운로드, 해당 파일이 서버에서 삭제될 때 로컬 장치에서 파일 삭제).
 * `MobileServiceFile`은 `IMobileServiceTable` 또는 `IMobileServiceSyncTable`을 사용하여 각각 온라인 또는 오프라인 모드에서 사용될 수 있습니다. 오프라인 시나리오에서 업로드는 앱이 `PushFileChangesAsync`를 호출할 때 발생합니다. 이로 인해 오프라인 작업 큐를 처리할 수 있습니다. 각 파일 작업의 경우 Azure 모바일 클라이언트 SDK는 `IFileSyncHandler` 인스턴스에서 `GetDataSource` 메서드를 호출하여 업로드할 파일 콘텐츠를 검색합니다.
-* 항목의 파일을 검색하기 위해 ``GetFilesAsync` method on the  `IMobileServiceTable<T>` or IMobileServiceSyncTable<T>` 인스턴스를 호출합니다. 이 메서드는 제공된 데이터 항목과 연결된 파일의 목록을 반환합니다. (참고: 해당 작업은 *로컬* 작업이며 마지막으로 동기화되는 경우 개체의 상태를 기준으로 파일을 반환합니다. 서버에서 업데이트된 파일 목록을 얻으려면 동기화 작업을 먼저 시작해야 합니다.)
+* 항목의 파일을 검색하기 위해 `IMobileServiceTable<T>` 또는 `IMobileServiceSyncTable<T>`의 `GetFilesAsync` 메서드 인스턴스를 호출합니다. 이 메서드는 제공된 데이터 항목과 연결된 파일의 목록을 반환합니다. (참고: 해당 작업은 *로컬* 작업이며 마지막으로 동기화되는 경우 개체의 상태를 기준으로 파일을 반환합니다. 서버에서 업데이트된 파일 목록을 얻으려면 동기화 작업을 먼저 시작해야 합니다.)
   
         IEnumerable<MobileServiceFile> files = await myTable.GetFilesAsync(myItem);
 * 파일 동기화 기능은 클라이언트가 푸시 또는 끌어오기 작업의 일부로 받은 레코드를 검색하기 위해 로컬 저장소에서 레코드 변경 알림을 사용합니다. `StoreTrackingOptions` 매개 변수를 사용하는 동기화 컨텍스트에 대해 로컬 및 서버 알림을 설정하여 수행합니다. 
@@ -691,6 +691,6 @@ iOS 프로젝트에 플랫폼 특정 코드를 추가합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
