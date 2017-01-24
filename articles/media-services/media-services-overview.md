@@ -12,16 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/14/2016
+ms.date: 12/11/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 0d83c6e444d74ce7f95f796ec6c53abc43c37766
-ms.openlocfilehash: 7daf4bfa80fae2aee156af5cdb3588725aebd311
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: 698b834ffa82f2a1ab171fb5efc13a2fe916b4ec
 
 
 ---
 # <a name="azure-media-services-overview-and-common-scenarios"></a>Azure Media Services 개요 및 일반적인 시나리오
-
 Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 관리 및 배달 응용 프로그램을 빌드할 수 있는 확장 가능한 클라우드 기반 플랫폼입니다. 미디어 서비스는 다양한 클라이언트(예: TV, PC 및 모바일 장치)로 주문형 및 라이브 스트리밍 배달을 위해 비디오 또는 오디오 콘텐츠를 안전하게 업로드, 저장, 인코딩 및 패키징할 수 있는 REST API를 기반으로 합니다.
 
 전체 미디어 서비스를 사용하여 종단 간 워크플로를 작성할 수 있습니다. 또한 워크플로의 일부에 타사 구성 요소를 사용하도록 선택할 수 있습니다. 예를 들어 타사 인코더를 사용하여 인코딩합니다. 그런 다음 미디어 서비스를 사용하여 업로드, 보호, 패키징 및 배달합니다.
@@ -29,27 +28,17 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 콘텐츠를 라이브로 스트리밍하고 주문 시 콘텐츠를 배달하도록 선택할 수 있습니다. 이 항목에서는 [라이브](media-services-overview.md#live_scenarios) 또는 [주문 시](media-services-overview.md#vod_scenarios) 콘텐츠를 배달하는 일반적인 시나리오를 보여줍니다. 이 항목은 관련 항목으로도 연결됩니다.
 
 ## <a name="sdks-and-tools"></a>SDK 및 도구
-
 미디어 서비스 솔루션을 빌드하려면 다음을 사용할 수 있습니다.
 
 * [미디어 서비스 REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 * 사용 가능한 클라이언트 SDK 중 하나:
-    * [.NET용 Azure 미디어 서비스 SDK](https://github.com/Azure/azure-sdk-for-media-services),
-    * [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java),
-    * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
-    * [Node.js용 Azure 미디어 서비스](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Node.js SDK의 Microsoft가 아닌 타사 버전입니다. 커뮤니티에서 유지 관리하고 현재 AMS API를 100% 포함하지 않습니다).
+* [.NET용 Azure 미디어 서비스 SDK](https://github.com/Azure/azure-sdk-for-media-services),
+* [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java),
+* [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
+* [Node.js용 Azure 미디어 서비스](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Node.js SDK의 Microsoft가 아닌 타사 버전입니다. 커뮤니티에서 유지 관리하고 현재 AMS API를 100% 포함하지 않습니다).
 * 기존 도구:
-    * [Azure Portal](https://portal.azure.com/)
-    * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE(Azure 미디어 서비스 탐색기)는 Windows용 Winforms/C# 응용 프로그램임)
-
-다음 이미지에서는 Media Services OData 모델에 대해 개발할 때 가장 일반적으로 사용되는 개체 중 일부를 보여 줍니다.
-
-전체 크기로 보려면 이미지를 클릭합니다.  
-
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
-
-전체 모델은 [여기](https://media.windows.net/API/$metadata?api-version=2.14)서 볼 수 있습니다 .  
-
+* [Azure Portal](https://portal.azure.com/)
+* [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE(Azure 미디어 서비스 탐색기)는 Windows용 Winforms/C# 응용 프로그램임)
 
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 여기서 AMS 학습 경로를 볼 수 있습니다.
@@ -75,22 +64,22 @@ Azure 미디어 서비스 개념은 [개념](media-services-concepts.md)을 참�
 Azure 미디어 서비스의 모든 주요 구성 요소를 소개하는 사용 방법 시리즈는 [Azure 미디어 서비스 단계별 자습서](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series)를 참조하세요. 이 시리즈에는 개념에 대한 훌륭한 개요가 포함되어 있으며 AMSE 도구를 사용하여 AMS 작업을 보여 줍니다. AMSE 도구는 Windows 도구입니다. 이 도구는 [.NET용 AMS SDK](https://github.com/Azure/azure-sdk-for-media-services), [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java) 또는 [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)를 사용하여 프로그래밍 방식으로 수행할 수 있는 대부분의 작업을 지원합니다.
 
 ## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Azure 미디어 서비스를 사용하여 주문형 미디어 제공: 일반적인 시나리오 및 작업
-이 섹션에서는 일반적인 시나리오를 설명하고 관련 항목에 대한 링크를 제공합니다. 다음 다이어그램에서는 주문 시 콘텐츠 배달과 관련된 미디어 서비스 플랫폼의 주요 부분을 보여 줍니다.
+이 섹션에서는 일반적인 시나리오를 설명하고 관련 항목에 대한 링크를 제공합니다. 다음 다이어그램에서는 주문 시 콘텐츠 배달과 관련된 미디어 서비스 플랫폼의 주요 부분을 보여 줍니다. 
 
 ![VoD 워크플로](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>저장소에서 콘텐츠 보호 및 암호화하지 않고 스트리밍 미디어 배달(암호화되지 않음)
 1. 자산에 고품질 mezzanine 파일을 업로드합니다.
-
+   
     업로드하는 동안 및 저장소에 있는 동안 콘텐츠를 보호하기 위해 자산에 저장소 암호화 옵션을 적용하는 것이 좋습니다.
-2. 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다.
-
+2. 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다. 
+   
     그대로 있는 콘텐츠를 보호하기 위해 출력 자산에 저장소 암호화 옵션을 적용하는 것이 좋습니다.
-3. 자산 배달 정책(동적 패키징에서 사용)을 구성합니다.
-
-    자산이 암호화된 저장소인 경우 자산 배달 정책을 구성해야 **합니다** .
+3. 자산 배달 정책(동적 패키징에서 사용)을 구성합니다. 
+   
+    자산이 암호화된 저장소인 경우 자산 배달 정책을 구성해야 **합니다** . 
 4. 주문형 로케이터를 만들어 자산을 게시합니다.
-
+   
     콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
 5. 게시된 콘텐츠를 스트리밍합니다.
 
@@ -103,28 +92,28 @@ Azure 미디어 서비스의 모든 주요 구성 요소를 소개하는 사용 
 4. 콘텐츠 키 인증 정책을 구성합니다.
 5. 자산 배달 정책(동적 패키징 및 동적 암호화에서 사용)을 구성합니다.
 6. 주문형 로케이터를 만들어 자산을 게시합니다.
-7. 게시된 콘텐츠를 스트리밍합니다.
+7. 게시된 콘텐츠를 스트리밍합니다. 
 
 ### <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>미디어 분석을 사용하여 비디오에 대한 실질적인 통찰력 얻기
 미디어 분석은 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음입니다. 자세한 내용은 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)를 참조하세요.
 
 1. 자산에 고품질 mezzanine 파일을 업로드합니다.
 2. 다음 미디어 분석 서비스 중 하나를 사용하여 비디오를 처리합니다.
-
+   
    * **인덱서** – [Azure 미디어 인덱서 2를 통해 비디오 처리](media-services-process-content-with-indexer2.md)
    * **Hyperlapse** – [미디어 파일 및 Azure 미디어 Hyperlapse](media-services-hyperlapse-content.md)
    * **동작 감지** – [Azure 미디어 분석을 위한 동작 감지](media-services-motion-detection.md)
    * **얼굴 감지 및 표정** – [Azure 미디어 분석을 위한 얼굴 및 표정 감지](media-services-face-and-emotion-detection.md)
    * **비디오 요약 만들기** – [Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기](media-services-video-summarization.md)
-3. 미디어 분석 미디어 프로세서는 MP4 파일 또는 JSON 파일을 생성합니다. 미디어 프로세서가 MP4 파일을 생성한 경우 파일을 점진적으로 다운로드할 수 있습니다. 미디어 프로세서가 JSON 파일을 생성한 경우 Azure Blob 저장소에서 해당 파일을 다운로드할 수 있습니다.
+3. 미디어 분석 미디어 프로세서는 MP4 파일 또는 JSON 파일을 생성합니다. 미디어 프로세서가 MP4 파일을 생성한 경우 파일을 점진적으로 다운로드할 수 있습니다. 미디어 프로세서가 JSON 파일을 생성한 경우 Azure Blob 저장소에서 해당 파일을 다운로드할 수 있습니다. 
 
 ### <a name="deliver-progressive-download"></a>점진적 다운로드 제공
 1. 자산에 고품질 mezzanine 파일을 업로드합니다.
 2. 하나의 MP4 파일로 인코딩합니다.
 3. 주문형 또는 SAS 로케이터를 만들어 자산을 게시합니다.
-
+   
     주문형 로케이터를 사용하는 경우, 점진적으로 콘텐츠를 다운로드하려는 스트리밍 끝점에 하나 이상의 스트리밍 예약 단위가 있어야 합니다.
-
+   
     SAS 로케이터를 사용하는 경우 콘텐츠는 Azure blob 저장소에서 다운로드됩니다. 이 경우 스트리밍 예약 단위가 필요 없습니다.
 4. 콘텐츠를 점진적으로 다운로드합니다.
 
@@ -155,8 +144,8 @@ Azure Media Services에서 **채널**, **프로그램** 및 **스트리밍 끝�
 
 > [!NOTE]
 > 통과 방법을 사용하면 긴 기간 동안 여러 이벤트를 수행하고 온-프레미스 인코더에 이미 투자한 경우 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다. [가격 책정](https://azure.microsoft.com/pricing/details/media-services/) 세부 정보를 참조하세요.
->
->
+> 
+> 
 
 * 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 RTP(MPEG-TS), RTMP 또는 부드러운 스트리밍(조각화된 MP4) 형식의 하나로 미디어 서비스를 통해 라이브 인코딩을 수행할 수 있는 채널에 전송합니다. 그러면 채널은 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. 요청된 경우 미디어 서비스는 고객에게 스트림을 배달합니다.
 
@@ -212,6 +201,7 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Dec16_HO2-->
 
 

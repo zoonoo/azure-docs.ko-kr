@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 40b1c0870bca02fd6d948dfc1f67ba5c76c698aa
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: facd5c50cb65bc1f656c0b5adf1e81087644934a
 
 
 ---
@@ -45,7 +45,7 @@ ms.openlocfilehash: 40b1c0870bca02fd6d948dfc1f67ba5c76c698aa
 Azure 알림 허브는 모바일 장치에 푸시 알림을 보내는 사용하기 쉽고 확장성 있는 다중 플랫폼 인프라를 제공합니다. 서비스 인프라에 대한 세부 정보는 [Azure 알림 허브](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx) 페이지를 참조하세요.
 
 ## <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
-이 자습서의 첫 번째 단계는 새로운 빈 Node.js 응용 프로그램을 만드는 것입니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][nodejswebsite], [Node.js 클라우드 서비스][Node.js 클라우드 서비스](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트]를 참조하세요.
+이 자습서의 첫 번째 단계는 새로운 빈 Node.js 응용 프로그램을 만드는 것입니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][nodejswebsite], Windows PowerShell을 사용한 [Node.js 클라우드 서비스][Node.js Cloud Service] 또는 [WebMatrix를 사용하는 웹 사이트]를 참조하세요.
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>알림 허브를 사용하도록 응용 프로그램 구성
 Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통신하는 일련의 기본 제공 도우미 라이브러리가 포함되어 있는 Node.js [Azure 패키지](https://www.npmjs.com/package/azure)를 다운로드하여 사용해야 합니다.
@@ -80,7 +80,7 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
 ![Azure 포털 - 알림 허브](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> [Azure PowerShell](../powershell-install-configure.md)에서 제공하는 **Get-AzureSbNamespace** cmdlet 또는 [Azure CLI(Azure 명령줄 인터페이스)](../xplat-cli-install.md)로 **azure sb namespace show** 명령을 사용하여 연결 문자열을 검색할 수도 있습니다.
+> [Azure PowerShell](/powershell/azureps-cmdlets-docs)에서 제공하는 **Get-AzureSbNamespace** cmdlet 또는 [Azure CLI(Azure 명령줄 인터페이스)](../xplat-cli-install.md)로 **azure sb namespace show** 명령을 사용하여 연결 문자열을 검색할 수도 있습니다.
 > 
 > 
 
@@ -182,22 +182,22 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
 * 추가 샘플 및 구현 세부 정보는 GitHub에서 [Node용 Azure SDK] 리포지토리를 방문합니다.
 
 [Node용 Azure SDK]: https://github.com/WindowsAzure/azure-sdk-for-node
-[다음 단계]: #nextsteps
-[Service Bus 토픽 및 구독 정의]: #what-are-service-bus-topics
-[서비스 네임스페이스 만들기]: #create-a-service-namespace
-[네임스페이스에 대한 기본 관리 자격 증명 얻기]: #obtain-default-credentials
-[Node.js 응용 프로그램 만들기]: #Create_a_Nodejs_Application
-[Service Bus를 사용하도록 응용 프로그램 구성]: #Configure_Your_Application_to_Use_Service_Bus
-[방법: 토픽 만들기]: #How_to_Create_a_Topic
-[방법: 구독 만들기]: #How_to_Create_Subscriptions
-[방법: 토픽에 메시지를 보내기]: #How_to_Send_Messages_to_a_Topic
-[방법: 구독에서 메시지 받기]: #How_to_Receive_Messages_from_a_Subscription
-[방법: 응용 프로그램 작동 중단 및 읽을 수 없는 메시지 처리]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
-[방법: 토픽 및 구독 삭제]: #How_to_Delete_Topics_and_Subscriptions
+[Next Steps]: #nextsteps
+[What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
+[Create a Service Namespace]: #create-a-service-namespace
+[Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
+[Create a Node.js Application]: #Create_a_Nodejs_Application
+[Configure Your Application to Use Service Bus]: #Configure_Your_Application_to_Use_Service_Bus
+[How to: Create a Topic]: #How_to_Create_a_Topic
+[How to: Create Subscriptions]: #How_to_Create_Subscriptions
+[How to: Send Messages to a Topic]: #How_to_Send_Messages_to_a_Topic
+[How to: Receive Messages from a Subscription]: #How_to_Receive_Messages_from_a_Subscription
+[How to: Handle Application Crashes and Unreadable Messages]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
+[How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
 [1]: #Next_Steps
-[토픽 개념]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-[Azure 클래식 포털]: http://manage.windowsazure.com
-[이미지]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
+[Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
+[Azure Classic Portal]: http://manage.windowsazure.com
+[image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
 [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
 [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
@@ -206,15 +206,15 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
 [Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
 [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
 [WebMatrix를 사용하는 웹 사이트]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-[Node.js 클라우드 서비스]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[이전 관리 포털]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
+[Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
 [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
-[저장소를 포함한 Node.js 클라우드 서비스]: /develop/nodejs/tutorials/web-app-with-storage/
-[저장소를 포함한 Node.js 웹 응용 프로그램]: /develop/nodejs/tutorials/web-site-with-storage/
+[Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
+[Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 [connectionstring]: https://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

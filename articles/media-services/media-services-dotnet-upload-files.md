@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 98c7e7e4d14a52787ef76d17c38a08d8f11a21e2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 82e28b06fad6e4461c399e4f878bef8ecfd28247
 
 
 ---
@@ -305,13 +305,13 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>다음 단계
-이제 Media Services에 자산을 업로드했으므로 [미디어 프로세서를 가져오는 방법][미디어 프로세서를 가져오는 방법] 항목으로 이동하세요.
+이제 Media Services에 자산을 업로드했으므로 [미디어 프로세서를 가져오는 방법][How to Get a Media Processor] 항목으로 이동하세요.
 
-[미디어 프로세서를 가져오는 방법]: media-services-get-media-processor.md
-
-
+[How to Get a Media Processor]: media-services-get-media-processor.md
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Dec16_HO2-->
 
 

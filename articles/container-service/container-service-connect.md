@@ -17,13 +17,17 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
-ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
+ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
+ms.openlocfilehash: 5296586b9266f432042f847f4dff9e6ff62ebc8b
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Azure 컨테이너 서비스 클러스터에 연결
-Azure Container Service에 의해 배포되는 DC/OS 및 Docker Swarm 클러스터는 REST 끝점을 노출합니다.  Kubernetes의 경우 이 끝점은 안전하게 인터넷에 노출되고 인터넷에 연결된 모든 컴퓨터에서 직접 액세스할 수 있습니다. DC/OS 및 Docker Swarm의 경우 안전하게 REST 끝점에 연결하기 위해 SSH 터널을 만들어야 합니다. 아래에서는 이러한 연결 각각에 대해 설명합니다.
+Azure Container Service에서 배포하는 DC/OS, Kubernetes 및 Docker Swarm 클러스터는 REST 끝점을 공개합니다.  Kubernetes의 경우 이 끝점은 안전하게 인터넷에 노출되고 인터넷에 연결된 모든 컴퓨터에서 직접 액세스할 수 있습니다. DC/OS 및 Docker Swarm의 경우 안전하게 REST 끝점에 연결하기 위해 SSH 터널을 만들어야 합니다. 아래에서는 이러한 연결 각각에 대해 설명합니다.
+
+> [!NOTE]
+> Azure Container Service의 Kubernetes 지원은 현재 미리 보기로 제공됩니다.
+>
 
 ## <a name="connecting-to-a-kubernetes-cluster"></a>Kubernetes 클러스터에 연결
 Kubernetes 클러스터에 연결하려면 `kubectl` 명령줄 도구를 설치해야 합니다.  이 도구를 설치하는 가장 쉬운 방법은 Azure 2.0 `az` 명령줄 도구를 사용하는 것입니다.
@@ -172,6 +176,6 @@ DC/OS 또는 Swarm으로 컨테이너를 배포 및 관리합니다.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

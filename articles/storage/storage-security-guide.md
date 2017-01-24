@@ -4,7 +4,7 @@ description: "RBAC, 저장소 서비스 암호화, 클라이언트 쪽 암호화
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f674c34cfbfd5c107258d7acd33583947cd61d6
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: c5e6c3a63a7dbe0a598136a32990f65f7ee077d9
 
 
 ---
@@ -55,7 +55,7 @@ Azure 저장소는 여러 개발자가 보안 응용 프로그램을 빌드하�
 이 가이드는 저장소 계정을 만들기 위한 권장 방법인 리소스 관리자 모델을 중점적으로 설명합니다. 전체 구독에 대한 액세스를 허용하지 않고 Resource Manager 저장소 계정을 사용하면 RBAC(역할 기반 액세스 제어)를 사용하여 관리 평면에 대해 보다 명확히 한정된 수준으로 액세스를 제어할 수 있습니다.
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)를 사용하여 저장소 계정의 보안을 유지하는 방법
-RBAC의 기능과 사용 방법에 대해 살펴보겠습니다. 각 Azure 구독에는 Azure Active Directory가 있습니다. 해당 디렉터리의 사용자, 그룹 및 응용 프로그램에 리소스 관리자 배포 모델을 사용하는 Azure 구독에서 리소스를 관리할 수 있는 권한을 부여할 수 있습니다. 이것을 RBAC(역할 기반 액세스 제어)라고 합니다. 이 액세스를 관리하기 위해 [Azure Portal](https://portal.azure.com/), [Azure CLI 도구](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) 또는 [Azure Storage Resource Provider REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx)를 사용할 수 있습니다.
+RBAC의 기능과 사용 방법에 대해 살펴보겠습니다. 각 Azure 구독에는 Azure Active Directory가 있습니다. 해당 디렉터리의 사용자, 그룹 및 응용 프로그램에 리소스 관리자 배포 모델을 사용하는 Azure 구독에서 리소스를 관리할 수 있는 권한을 부여할 수 있습니다. 이것을 RBAC(역할 기반 액세스 제어)라고 합니다. 이 액세스를 관리하기 위해 [Azure Portal](https://portal.azure.com/), [Azure CLI 도구](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Azure Storage Resource Provider REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx)를 사용할 수 있습니다.
 
 리소스 관리자 모델에서는 Azure Active Directory를 사용하여 리소스 그룹에 저장소 계정을 추가하고 해당 특정 저장소 계정의 관리 평면에 대한 액세스를 제어합니다. 예를 들어 특정 사용자에게는 저장소 계정 키에 액세스할 수 있는 기능을 제공하고 다른 사용자에게는 저장소 계정에 대한 정보는 볼 수 있지만 저장소 계정 키에는 액세스하지 못하게 할 수 있습니다.
 
@@ -89,7 +89,7 @@ RBAC를 사용하여 Azure 저장소 계정 관리 작업에 액세스하는 작
 * [RBAC: 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)
   
   이 문서에서는 RBAC에서 사용할 수 있는 기본 제공 역할의 모든 사항을 자세히 설명합니다.
-* [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)
+* [리소스 관리자 배포 및 클래식 배포 이해](../azure-resource-manager/resource-manager-deployment-model.md)
   
   이 문서에서는 리소스 관리자 배포 및 기존 배포 모델에 대해 설명하고 리소스 관리자를 사용할 때와 리소스 그룹을 사용할 때의 이점에 대해서도 설명합니다. Resource Manager 모델에서 Azure 계산, 네트워크 및 저장소 공급자가 작동하는 방식에 대해 설명합니다.
 * [REST API를 사용하여 역할 기반 액세스 제어 관리](../active-directory/role-based-access-control-manage-access-rest.md)
@@ -259,7 +259,7 @@ SAS가 손상되었거나, 회사 보안 또는 규정 준수 요구 때문에 �
   * [SAS 시작 자습서(영문)](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
 
 ## <a name="encryption-in-transit"></a>전송 중 암호화
-### <a name="transport-level-encryption-using-https"></a>전송 수준 암호화 - HTTPS 사용
+### <a name="transport-level-encryption--using-https"></a>전송 수준 암호화 - HTTPS 사용
 Azure 저장소 데이터의 보안을 유지하기 위해 수행해야 하는 또 다른 단계는 클라이언트와 Azure 저장소 간에 데이터를 암호화하는 것입니다. 첫 번째 권장 지침은 항상 [HTTPS](https://en.wikipedia.org/wiki/HTTPS) 프로토콜을 사용하여 공용 인터넷에서의 통신 보안을 유지하는 것입니다.
 
 REST API를 호출하거나 저장소의 개체를 액세스할 때는 항상 HTTPS를 사용해야 합니다. 또한 Azure 저장소 개체에 대한 액세스를 위임하는 데 사용할 수 있는 **공유 액세스 서명**에는 공유 액세스 서명을 사용할 때 HTTPS 프로토콜만 사용할 수 있도록 지정하여 SAS 토큰이 있는 링크를 보내는 누구든지 적절한 프로토콜을 사용할 수 있도록 하는 옵션이 포함되어 있습니다.
@@ -527,6 +527,6 @@ CORS 및 이를 사용하도록 설정하는 방법에 대한 자세한 내용�
   이 문서에서는 이전 Windows 컴퓨터에서 FIPS 모드를 사용하는 경우에 대해 설명합니다.
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

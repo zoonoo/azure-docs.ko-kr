@@ -466,7 +466,7 @@ Azure 캐시에 출력 캐시 공급자를 사용하는 방법에 대한 자세�
 
 [QuickCreate]: ./media/cache-dotnet-how-to-use-service/CacheServiceQuickCreate.png
 
-[끝점]: ./media/cache-dotnet-how-to-use-service/CacheServiceEndpoint.png
+[Endpoint]: ./media/cache-dotnet-how-to-use-service/CacheServiceEndpoint.png
 
 [AccessKeys]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageAccessKeys.png
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Multi-Factor Authentication 서버 시작하기"
+title: "Azure Multi-Factor Authentication 서버 시작하기 | Microsoft Docs"
 description: "Azure MFA 서버 시작 방법을 설명하는 Azure 다단계 인증 페이지입니다."
 services: multi-factor-authentication
 keywords: "인증 서버, Azure Multi Factor Authentication 앱 활성화 페이지, 인증 서버 다운로드"
@@ -13,23 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/29/2016
+ms.date: 01/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2e2d680a0f54830f6086a4d6ac98f4a550f4ee46
-ms.openlocfilehash: 66726c39c09ed867beb999f9589dfef3f7cf65bb
+ms.sourcegitcommit: 0fec7a18e098891374b3b0d7313a72918b630918
+ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
 
 ---
 
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
 <center>![MFA 온-프레미스](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-온-프레미스 Multi-Factor Authentication를 사용할지 여부를 결정했으므로 다음으로 진행합니다. 이 페이지에서는 서버를 새롭게 설치하고 이를 온-프레미스 Active Directory를 사용하여 설정하는 것을 다룹니다. 이미 설치된 PhoneFactor 서버가 있고 업그레이드할 방법을 찾는 경우 [Azure Multi-Factor 서버로 업그레이드하기](multi-factor-authentication-get-started-server-upgrade.md)를 참조하거나 웹 서비스만을 설치하는 정보를 찾는 경우 [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스 배포하기](multi-factor-authentication-get-started-server-webservice.md)를 참조하십시오.
+온-프레미스 Multi-Factor Authentication 서버를 사용할지 여부를 결정했으므로 다음으로 진행합니다. 이 페이지에서는 서버를 새롭게 설치하고 이를 온-프레미스 Active Directory를 사용하여 설정하는 것을 다룹니다. 이미 설치된 PhoneFactor 서버가 있고 업그레이드할 방법을 찾는 경우 [Azure Multi-Factor 서버로 업그레이드하기](multi-factor-authentication-get-started-server-upgrade.md)를 참조하거나 웹 서비스만을 설치하는 정보를 찾는 경우 [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스 배포하기](multi-factor-authentication-get-started-server-webservice.md)를 참조하십시오.
 
 ## <a name="download-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버 다운로드
-Azure Multi-factor Authentication 서버를 다운로드할 수 있는 두 가지 다른 방식이 있습니다. 두 방식 모두 Azure 포털을 통해 수행할 수 있습니다. 첫 번째는 Multi-Factor Auth 공급자를 직접 관리하여 수행합니다. 두 번째는 서비스 설정을 통해 수행합니다. 두 번째 옵션은 Multi-Factor Auth 공급자 또는 Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 필요합니다.
+Azure Multi-factor Authentication 서버를 다운로드할 수 있는 두 가지 다른 방식이 있습니다. 두 방식 모두 Azure 포털을 통해 수행할 수 있습니다. 첫 번째는 Multi-Factor Auth 공급자를 직접 관리하여 수행합니다. 두 번째는 서비스 설정을 통해 수행합니다. 두 번째 옵션은 Multi-Factor Auth 공급자나 Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 필요합니다.
 
-### <a name="to-download-the-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Azure 클래식 포털에서 Azure Multi-Factor Authentication 서버를 다운로드하려면
+> [!Important]
+> 이러한 두 옵션은 비슷해 보이지만 어떤 옵션을 사용할지 알아야 합니다. 사용자에게 MFA와 함께 제공되는 라이선스가 있는 경우 서버 다운로드를 시작하기 위해 Multi-Factor Auth 공급자를 만들지 마십시오. 대신 서비스 설정 페이지에서 서버를 다운로드하는 옵션 2를 사용합니다. 
+
+### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>옵션 1: Azure 클래식 포털에서 Azure Multi-Factor Authentication 서버 다운로드
+
+Multi-Factor Auth 공급자가 있는 경우 활성화된 사용자나 인증 단위별로 MFA에 대한 요금을 지불하기 때문에 이 다운로드 옵션을 사용합니다. 
 
 1. 관리자 권한으로 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. 왼쪽 창에서 **Active Directory**를 선택합니다.
@@ -41,7 +46,10 @@ Azure Multi-factor Authentication 서버를 다운로드할 수 있는 두 가�
    ![다운로드](./media/multi-factor-authentication-get-started-server/download4.png)
 7. 다운로드 파일을 저장합니다.
 
-### <a name="to-download-the-azure-multi-factor-authentication-server-from-the-service-settings"></a>서비스 설정에서 Azure Multi-Factor Authentication 서버를 다운로드하려면
+### <a name="option-2-download-azure-multi-factor-authentication-server-from-the-service-settings"></a>옵션 2: 서비스 설정에서 Azure Multi-Factor Authentication 서버 다운로드
+
+Enterprise Mobility Suite, Azure AD Premium 또는 Enterprise Cloud Suite 라이선스가 있는 경우 이 다운로드 옵션을 사용합니다. 
+
 1. 관리자 권한으로 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. 왼쪽 창에서 **Active Directory**를 선택합니다.
 3. Azure AD 인스턴스를 두 번 클릭합니다.
@@ -140,8 +148,8 @@ MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용�
 
 위의 필드 외에도 인증 결과(성공/거부) 및 모든 거부 사유는 인증 데이터와 함께 저장되어 인증/사용 보고서를 통해 사용할 수 있습니다.
 
-## <a name="advanced-azure-multi-factor-authentication-server-configurations"></a>고급 Azure Multi-Factor Authentication 서버 구성
-고급 설정 및 구성 정보에 대한 추가 정보는 아래 테이블을 참조합니다.
+## <a name="next-steps"></a>다음 단계
+고급 설정 및 구성 정보에 대한 추가 정보는 다음 테이블에 있는 링크를 사용하세요.
 
 | 메서드 | 설명 |
 |:--- |:--- |
@@ -158,6 +166,6 @@ MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

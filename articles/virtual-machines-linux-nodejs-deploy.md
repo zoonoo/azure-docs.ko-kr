@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/02/2016
 ms.author: stephpr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 044007fc099007ea64d958fb6c15a6ed29eccdcc
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 0de0314902805a2bdb37ce3c6f79ec221f3aed31
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: 044007fc099007ea64d958fb6c15a6ed29eccdcc
 > 
 > 현재 GitHub 계정이 없는 경우 [여기서](https://github.com/join)등록할 수 있습니다.
 > 
-> [Microsoft Azure](https://azure.microsoft.com/) 계정이 없으면 [여기서](https://azure.microsoft.com/pricing/free-trial/) 무료 평가판에 등록할 수 있습니다. 이렇게 하면 계정이 없는 경우 [Microsoft 계정](http://account.microsoft.com) 에 대한 등록 프로세스를 안내합니다. 또는 Visual Studio 구독자인 경우 [MSDN 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
+> [Microsoft Azure](https://azure.microsoft.com/) 계정이 없으면 [여기서](https://azure.microsoft.com/pricing/free-trial/) 무료 평가판에 등록할 수 있습니다. 이렇게 하면 계정이 없는 경우 [Microsoft 계정](http://account.microsoft.com) 에 대한 등록 프로세스를 안내합니다. 또는 Visual Studio 구독자인 경우 [MSDN 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 > 
 > 개발 컴퓨터에 Git가 없으며 Macintosh 또는 Windows 컴퓨터를 사용하는 경우 Git를 [여기](http://www.git-scm.com)에서 설치합니다. Linux를 사용하는 경우 `sudo apt-get install git`와 같은 가장 적합한 메커니즘을 사용하여 Git를 설치합니다.
 > 
@@ -261,6 +261,6 @@ Azure에서 Node.js 응용 프로그램을 개발하는 방법에 대한 자세�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

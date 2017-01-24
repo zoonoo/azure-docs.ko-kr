@@ -3,7 +3,7 @@ title: "Sysdig를 사용하여 Azure Container Service 클러스터 모니터링
 description: "Sysdig을 사용하여 Azure 컨테이너 서비스 클러스터를 모니터링합니다."
 services: container-service
 documentationcenter: 
-author: rbitia
+author: sauryadas
 manager: timlt
 editor: 
 tags: acs, azure-container-service
@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2016
-ms.author: t-ribhat
+ms.author: saudas
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 6df2b6ee0064a2baa79a154641f097b11cb55059

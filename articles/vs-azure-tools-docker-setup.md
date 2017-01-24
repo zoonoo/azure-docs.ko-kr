@@ -1,12 +1,12 @@
 ---
-title: VirtualBox 및 Docker 호스트 구성 | Microsoft Docs
-description: Docker 컴퓨터 및 VirtualBox를 사용하여 기본 Docker 인스턴스를 구성하는 단계별 지침입니다.
+title: "VirtualBox 및 Docker 호스트 구성 | Microsoft Docs"
+description: "Docker 컴퓨터 및 VirtualBox를 사용하여 기본 Docker 인스턴스를 구성하는 단계별 지침입니다."
 services: azure-container-service
 documentationcenter: na
 author: mlearned
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 0b1335a2-7720-42a8-8260-4e06fc00c9f6
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
@@ -14,18 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e9465afb560a73d74f853c19094b3ee75b8c470c
+
 
 ---
-# VirtualBox 및 Docker 호스트 구성
-## 개요
+# <a name="configure-a-docker-host-with-virtualbox"></a>VirtualBox 및 Docker 호스트 구성
+## <a name="overview"></a>개요
 이 문서에서는 Docker 컴퓨터 및 VirtualBox를 사용하여 기본 Docker 인스턴스를 구성하는 과정을 안내합니다. [Windows 베타용 Docker](http://beta.docker.com/)를 사용하는 경우 이 구성은 필요하지 않습니다.
 
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 다음과 같은 도구를 설치해야 합니다.
 
 * [Docker 도구 상자](https://www.docker.com/products/overview#/docker_toolbox)
 
-## Windows PowerShell과 함께 Docker 클라이언트 구성
+## <a name="configuring-the-docker-client-with-windows-powershell"></a>Windows PowerShell과 함께 Docker 클라이언트 구성
 Docker 클라이언트를 구성하려면 단순히 Windows PowerShell을 열고 다음 단계를 수행합니다.
 
 1. 기본 docker 호스트 인스턴스를 만듭니다.
@@ -54,11 +58,16 @@ Docker 클라이언트를 구성하려면 단순히 Windows PowerShell을 열고
     ![docker ps output][1]
 
 > [!NOTE]
-> 개발 컴퓨터를 다시 부팅할 때마다 로컬 Docker 호스트를 다시 시작해야 합니다. 이렇게 하려면 명령 프롬프트에서 다음 명령을 실행합니다. `docker-machine start default`
+> 개발 컴퓨터를 다시 부팅할 때마다 로컬 Docker 호스트를 다시 시작해야 합니다.
+> 이렇게 하려면 명령 프롬프트에서 다음 명령을 실행합니다. `docker-machine start default`
 > 
 > 
 
 [0]: ./media/vs-azure-tools-docker-setup/docker-machine-ls.png
 [1]: ./media/vs-azure-tools-docker-setup/docker-ps.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2016
+ms.date: 01/05/2017
 ms.author: seanmck;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2766c64f4ffdcaf8e583493060116a244e89f3d
+ms.sourcegitcommit: 60d440c75d6352d5e65e0158e439df9db2315ecd
+ms.openlocfilehash: 70c393f1185844bb26ff1f89cb69cb06b51fc155
 
 
 ---
@@ -40,7 +40,7 @@ Visual Studio에서 **F5** 키를 눌러도 응용 프로그램이 배포되고 
 #### <a name="to-set-the-application-debug-mode-property"></a>응용 프로그램 디버그 모드 속성을 설정하려면
 1. 응용 프로그램 프로젝트의 바로 가기 메뉴에서 **속성**을 선택하거나 **F4** 키를 누릅니다.
 2. **속성** 창에서 **응용 프로그램 디버그 모드** 속성을 설정합니다.
-   
+
     ![응용 프로그램 디버그 모드 속성 설정][debugmodeproperty]
 
 사용 가능한 **응용 프로그램 디버그 모드** 옵션은 다음과 같습니다.
@@ -55,8 +55,8 @@ Visual Studio에서 **F5** 키를 눌러도 응용 프로그램이 배포되고 
 
 > [!NOTE]
 > Visual Studio용 서비스 패브릭 도구 1.1 버전 이전에는 이 속성이 없습니다. 1.1 버전 이전에는 **시작 시 데이터 보존** 속성을 사용하여 동일한 동작을 얻을 수 있습니다. "응용 프로그램 유지" 옵션은 Visual Studio용 서비스 패브릭 도구 버전 1.2에 도입되었습니다.
-> 
-> 
+>
+>
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>서비스 패브릭 응용 프로그램에 서비스 추가
 응용 프로그램에 새 서비스를 추가하여 기능을 확장할 수 있습니다.  응용 프로그램 패키지에 서비스가 포함되도록 하려면 **새 패브릭 서비스...** 메뉴 항목을 통해 서비스를 추가합니다.
@@ -81,8 +81,8 @@ Visual Studio에서 **F5** 키를 눌러도 응용 프로그램이 배포되고 
 
 > [!TIP]
 > 다양한 클러스터 관리 기능은 [Service Fabric Explorer로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)를 참조하세요.
-> 
-> 
+>
+>
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
@@ -102,6 +102,6 @@ Visual Studio에서 **F5** 키를 눌러도 응용 프로그램이 배포되고 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

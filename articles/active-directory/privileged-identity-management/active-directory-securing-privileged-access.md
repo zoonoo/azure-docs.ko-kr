@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/26/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1150f7eaba41e42c94ed7297bd7603dc506a97a9
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0e6c3c516b5d4271c5201d0734e22a83876dd3fa
 
 
 ---
@@ -36,7 +36,7 @@ Azure Active Directory를 사용하여 Azure, Office 365 또는 다른 Microsoft
 
 Azure Multi-Factor Authentication의 작동 원리 개요는 다음 비디오를 참조하세요.
 
-> [! 비디오 https://channel9.msdn.com/Blogs/Windows-Azure/Windows-Azure-Multi-Factor-Authentication/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Windows-Azure-Multi-Factor-Authentication/player]
 > 
 > 
 
@@ -75,6 +75,6 @@ Azure Multi-Factor Authentication의 작동 원리 개요는 다음 비디오를
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

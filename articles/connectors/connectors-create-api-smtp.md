@@ -92,9 +92,7 @@ SMTP에는 다음 작업이 포함됩니다.
 | 원본 |원본 |낸 사람의 전자 메일 주소(예: sender@domain.com) |
 | IsHtml |Is Html |HTML로 전자 메일 보내기(true/false) |
 | Bcc |bcc |recipient1@domain.com;recipient2@domain.com처럼 세미콜론(;)으로 구분된 전자 메일 주소를 지정합니다. |
-| 중요도
- |중요도
- |전자 메일의 중요도(높음, 보통, 낮음) |
+| 중요도 |중요도 |전자 메일의 중요도(높음, 보통, 낮음) |
 | ContentData |첨부 파일 콘텐츠 데이터 |콘텐츠 데이터(스트림의 경우 base64 인코딩 및 문자열의 경우 있는 그대로) |
 | ContentType |첨부 파일 콘텐츠 형식 |콘텐츠 형식 |
 | ContentTransferEncoding |첨부 파일 콘텐츠 전송 인코딩 |콘텐츠 전송 인코딩(base64 또는 없음) |

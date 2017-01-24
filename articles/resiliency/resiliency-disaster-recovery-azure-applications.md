@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 416ec840c60bf7446e37aeda241fc2646f83a52f
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: d0ea8137dcdd72cf09806006bdca4c24d6f1c1de
 
 
 ---
@@ -152,7 +152,7 @@ Azure 저장소의 경우 고유한 사용자 지정 백업 프로세스를 개�
 이전 예제에서 잠재적인 구현은 중간 큐를 사용할 수 있습니다. 주 지역 및 보조 지역에서 최종 저장소 대상에 데이터를 처리하는 작업자 역할의 변경 내용을 적용할 수 있습니다. 이는 간단한 작업이 아니며 복제 코드에 대한 전체 지침은 이 문서에서 다루지 않습니다. 중요한 점은 보조 지역으로 데이터를 복제하는 방법에 많은 시간을 들이고 테스트해야 한다는 것입니다. 추가 처리 및 테스트 작업은 장애 조치 및 복구 프로세스가 가능한 데이터 불일치 또는 중복된 트랜잭션을 올바르게 처리하도록 도울 수 있습니다.
 
 > [!NOTE]
-> 이 문서는 대부분 PaaS(platform as a service)에 중점을 둡니다. 그러나 하이브리드 응용 프로그램에 대한 추가적인 복제 및 가용성 옵션은 Azure 가상 컴퓨터를 사용합니다. 이러한 하이브리드 응용 프로그램은 IaaS(Infrastructure as a Service)를 사용하여 Azure의 가상 컴퓨터에서 SQL Server를 호스트합니다. 따라서 AlwaysOn 가용성 그룹 또는 로그 전달과 같은 SQL Server의 기존 가용성 방식을 사용할 수 있습니다. AlwaysOn과 같은 일부 기법은 온-프레미스 SQL Server 인스턴스와 Azure 가상 컴퓨터 간에서만 작동합니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+> 이 문서는 대부분 PaaS(platform as a service)에 중점을 둡니다. 그러나 하이브리드 응용 프로그램에 대한 추가적인 복제 및 가용성 옵션은 Azure 가상 컴퓨터를 사용합니다. 이러한 하이브리드 응용 프로그램은 IaaS(Infrastructure as a Service)를 사용하여 Azure의 가상 컴퓨터에서 SQL Server를 호스트합니다. 따라서 AlwaysOn 가용성 그룹 또는 로그 전달과 같은 SQL Server의 기존 가용성 방식을 사용할 수 있습니다. AlwaysOn과 같은 일부 기법은 온-프레미스 SQL Server 인스턴스와 Azure 가상 컴퓨터 간에서만 작동합니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
 > 
 > 
 
@@ -246,7 +246,7 @@ Azure 저장소의 경우 고유한 사용자 지정 백업 프로세스를 개�
 
 이러한 하이브리드 아키텍처에는 몇 가지 문제가 있습니다. 첫째, 이 문서에서는 대부분 PaaS 아키텍처 패턴을 설명했습니다. Azure에서 일반적인 PaaS 응용 프로그램은 역할, 클라우드 서비스 및 트래픽 관리자와 같은 Azure 관련 구성을 사용합니다. 이러한 유형의 PaaS 응용 프로그램에 대한 온-프레미스 솔루션을 만들려면 상당히 상이한 아키텍처가 필요합니다. 관리 또는 비용 측면에서 바람직한 방법이 아닐 수 있습니다.
 
-그러나 재해 복구를 위한 하이브리드 솔루션은 단순히 클라우드로 이동한 기존 아키텍처에 비해 문제가 적습니다. IaaS를 사용하는 아키텍처도 마찬가지입니다. IaaS 응용 프로그램은 직접적으로 온-프레미스와 해당하는 클라우드에서 가상 컴퓨터를 사용합니다. 가상 네트워크를 사용하여 온-프레미스 네트워크 리소스가 있는 클라우드에서 컴퓨터에 연결할 수도 있습니다. PaaS 전용 응용 프로그램에서 사용할 수 없는 여러 가지 가능성이 열립니다. 예를 들어 SQL Server AlwaysOn 가용성 그룹 및 데이터베이스 미러링과 같은 재해 복구 솔루션의 장점은 얻을 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+그러나 재해 복구를 위한 하이브리드 솔루션은 단순히 클라우드로 이동한 기존 아키텍처에 비해 문제가 적습니다. IaaS를 사용하는 아키텍처도 마찬가지입니다. IaaS 응용 프로그램은 직접적으로 온-프레미스와 해당하는 클라우드에서 가상 컴퓨터를 사용합니다. 가상 네트워크를 사용하여 온-프레미스 네트워크 리소스가 있는 클라우드에서 컴퓨터에 연결할 수도 있습니다. PaaS 전용 응용 프로그램에서 사용할 수 없는 여러 가지 가능성이 열립니다. 예를 들어 SQL Server AlwaysOn 가용성 그룹 및 데이터베이스 미러링과 같은 재해 복구 솔루션의 장점은 얻을 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
 
 또한 IaaS 솔루션은 온-프레미스 응용 프로그램에 대한 보다 쉬운 경로를 제공하여 Azure를 장애 조치 옵션으로 사용합니다. 기존 온-프레미스 지역에서 완벽하게 작동하는 응용 프로그램을 가질 수 있습니다. 그러나 장애 조치를 위해 지리적으로 분산된 지역을 유지할 리소스가 부족한 경우 어떻게 해야 하나요? 가상 컴퓨터 및 가상 네트워크를 사용하여 Azure에서 실행 중인 응용 프로그램을 가져올 수 있습니다. 이 경우에 클라우드로 데이터를 동기화하는 프로세스를 정의합니다. 그러면 Azure 배포가 장애 조치에 사용할 보조 지역이 됩니다. 주 지역은 온-프레미스 응용 프로그램을 유지합니다. IaaS 아키텍처와 기능에 대한 자세한 내용은 [가상 컴퓨터 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
 
@@ -288,6 +288,6 @@ DR을 여러 플랫폼에 분할하기로 결정한 경우 솔루션의 설계�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

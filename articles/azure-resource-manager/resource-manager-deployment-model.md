@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
@@ -58,21 +58,27 @@ Azure에서는 원래 클래식 배포 모델만 제공했습니다. 이 모델�
 
 어떤 경우에는 Resource Manager 명령으로 클래식 배포를 통해 만들어지는 리소스에 대한 정보를 검색하거나, 클래식 리소스를 다른 리소스 그룹으로 이동하는 것과 같은 관리 작업을 수행할 수 있습니다. 하지만 이 경우 해당 형식이 Resource Manager 작업을 지원한다는 느낌을 주어서는 안됩니다. 예를 들어 클래식 배포로 만든 가상 컴퓨터가 포함된 리소스 그룹이 있다고 가정합니다. 다음 Resource Manager PowerShell 명령을 실행하는 경우
 
-    Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+```powershell
+Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+```
 
 다음 예제에서는 가상 컴퓨터를 반환합니다.
 
-    Name              : ExampleClassicVM
-    ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
-    ResourceName      : ExampleClassicVM
-    ResourceType      : Microsoft.ClassicCompute/virtualMachines
-    ResourceGroupName : ExampleGroup
-    Location          : westus
-    SubscriptionId    : {guid}
+```powershell
+Name              : ExampleClassicVM
+ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
+ResourceName      : ExampleClassicVM
+ResourceType      : Microsoft.ClassicCompute/virtualMachines
+ResourceGroupName : ExampleGroup
+Location          : westus
+SubscriptionId    : {guid}
+```
 
 그러나 Resource Manager cmdlet **Get-AzureRmVM** 만 Resource Manager를 통해 배포된 가상 컴퓨터를 반환합니다. 다음 명령은 클래식 배포를 통해 만든 가상 컴퓨터를 반환하지 않습니다.
 
-    Get-AzureRmVM -ResourceGroupName ExampleGroup
+```powershell
+Get-AzureRmVM -ResourceGroupName ExampleGroup
+```
 
 리소스 관리자를 통해 만든 리소스만이 태그를 지원합니다. 클래식 리소스에 태그를 적용할 수 없습니다.
 
@@ -87,13 +93,19 @@ Azure에서는 원래 클래식 배포 모델만 제공했습니다. 이 모델�
   
      ![리소스 관리자 배포](./media/resource-manager-deployment-model/select-resource-manager.png)
 * Azure PowerShell cmdlet의 Resource Manager 버전으로 생성되었습니다. 이러한 명령에는 *Verb-AzureRmNoun* 형식이 있습니다.
-  
-        New-AzureRmResourceGroupDeployment
+
+  ```powershell
+  New-AzureRmResourceGroupDeployment
+  ```
+
 * REST 작업을 위한 [Azure Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) 를 통해 생성되었습니다.
 * **arm** 모드에서 실행되는 Azure CLI 명령을 통해 생성되었습니다.
   
-        azure config mode arm
-        azure group deployment create 
+  ```azurecli
+  azure config mode arm
+  azure group deployment create
+  ```
+
 * 리소스 종류는 이름에 **(클래식)** 을 포함하지 않습니다. 아래 이미지에서는 형식을 **Storage account**으로 표시합니다.
   
     ![웹앱](./media/resource-manager-deployment-model/resource-manager-type.png)
@@ -111,13 +123,19 @@ Azure에서는 원래 클래식 배포 모델만 제공했습니다. 이 모델�
   
      ![클래식 배포](./media/resource-manager-deployment-model/select-classic.png)
 * Azure PowerShell cmdlet의 서비스 관리 버전을 통해 생성되었습니다. 이러한 명령 이름에는 *Verb-AzureNoun* 형식이 있습니다.
-  
-        New-AzureVM 
+
+  ```powershell
+  New-AzureVM
+  ```
+
 * REST 작업을 위한 [서비스 관리 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) 를 통해 생성되었습니다.
 * **asm** 모드에서 실행되는 Azure CLI 명령을 통해 생성되었습니다.
-  
-        azure config mode asm
-        azure vm create 
+
+  ```azurecli
+  azure config mode asm
+  azure vm create
+  ```
+   
 * 리소스 종류는 이름에 **(클래식)** 을 포함합니다. 아래 이미지에서는 형식을 **Storage account (classic)**으로 표시합니다.
   
     ![클래식 유형](./media/resource-manager-deployment-model/classic-type.png)

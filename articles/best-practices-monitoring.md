@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 8d149069c95b5b68904ab6a5a47b1fa6215da23d
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 0eb72af5c0f904655fc4a0d8fd44d6e481c73645
 
 
 ---
@@ -703,13 +703,13 @@ Azure 응용 프로그램 및 서비스의 경우 Azure 진단을 사용하면 �
 * [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](cloud-services/cloud-services-dotnet-diagnostics.md)
 * [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 및 [HDInsight](https://azure.microsoft.com/services/hdinsight/)
 * [서비스 버스 큐를 사용하는 방법](service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
-* [Azure 가상 컴퓨터의 SQL Server Business Intelligence](virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Azure 가상 컴퓨터의 SQL Server Business Intelligence](virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi.md)
 * [경고 알림 받기](monitoring-and-diagnostics/insights-receive-alert-notifications.md) 및 [서비스 상태 추적](monitoring-and-diagnostics/insights-service-health.md)
 * [Application Insights](application-insights/app-insights-overview.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

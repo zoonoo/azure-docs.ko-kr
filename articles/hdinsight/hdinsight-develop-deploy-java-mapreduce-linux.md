@@ -1,34 +1,38 @@
 ---
-title: Linux 기반 HDInsight용 Java MapReduce 프로그램 개발 | Microsoft Docs
-description: Linux 기반 HDInsight에서 Java MapReduce 프로그램을 개발하여 Linux 기반 HDInsight로 배포하는 방법에 대해 알아봅니다.
+title: "Linux 기반 HDInsight용 Java MapReduce 프로그램 개발 | Microsoft 문서"
+description: "Linux 기반 HDInsight에서 Java MapReduce 프로그램을 개발하여 Linux 기반 HDInsight로 배포하는 방법에 대해 알아봅니다."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: Blackmist
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
-
+ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 01/17/2017
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: a63cedc57b863d03f65b99d4c2490d5e8aec25b5
+
 
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight-linux"></a>HDInsight Linux의 Hadoop용 Java MapReduce 프로그램 개발
 이 문서에서는 Apache Maven을 사용하여 MapReduce 응용 프로그램을 만든 다음 HDInsight 클러스터의 Linux 기반 Hadoop에서 배포하고 실행하는 과정을 안내합니다.
 
-## <a name="<a-name="prerequisites"></a>prerequisites"></a><a name="prerequisites"></a>필수 조건
+## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * [JDK Java](http://www.oracle.com/technetwork/java/javase/downloads/) 7 이상(또는 OpenJDK와 같은 이와 동등한 프로그램)
 * [Apache Maven](http://maven.apache.org/)
 * **Azure 구독**
 * **Azure CLI**
-  
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ## <a name="configure-environment-variables"></a>환경 변수 구성
 Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다. 하지만 변수가 존재하며 시스템에 대한 올바른 값을 포함하는지 확인해야 합니다.
@@ -62,15 +66,15 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
           <scope>provided</scope>
         </dependency>
         <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-mapreduce-client-common</artifactId>
-          <version>2.5.1</version>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-common</artifactId>
+            <version>2.5.1</version>
           <scope>provided</scope>
         </dependency>
         <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-common</artifactId>
-          <version>2.5.1</version>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>2.5.1</version>
           <scope>provided</scope>
         </dependency>
    
@@ -80,26 +84,26 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 2. **pom.xml** 파일에 다음을 추가합니다. 이 코드는 파일의 `<project>...</project>` 태그 내에 있어야 합니다. 예를 들어`</dependencies>`과 `</project>` 사이에 있어야 합니다.
    
         <build>
-          <plugins>
+            <plugins>
             <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-shade-plugin</artifactId>
-              <version>2.3</version>
-              <configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
                 <transformers>
-                  <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+                    <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
                   </transformer>
                 </transformers>
-              </configuration>
-              <executions>
+                </configuration>
+                <executions>
                 <execution>
-                  <phase>package</phase>
-                    <goals>
+                    <phase>package</phase>
+                      <goals>
                       <goal>shade</goal>
-                    </goals>
+                      </goals>
                 </execution>
-              </executions>
-            </plugin>
+                </executions>
+              </plugin>
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-compiler-plugin</artifactId>
@@ -108,7 +112,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
                <target>1.7</target>
               </configuration>
             </plugin>
-          </plugins>
+            </plugins>
         </build>
    
     첫 번째 플러그 인은 응용 프로그램에 필요한 종속성을 포함하는 uberjar(fatjar이라고도 함)을 빌드하는 데 사용되는 [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/)을 구성합니다. 또한 일부 시스템에서 문제를 일으킬 수 있는 jar 패키지 내 라이선스 중복을 방지합니다.
@@ -117,7 +121,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 3. **pom.xml** 파일을 저장합니다.
 
 ## <a name="create-the-mapreduce-application"></a>MapReduce 응용 프로그램 만들기
-1. **wordcountjava/src/main/java/org/apache/hadoop/examples** 디렉터리로 이동하여 **App.java** 파일의 이름을 __WordCount.java__로 바꿉니다.
+1. **wordcountjava/src/main/java/org/apache/hadoop/examples** 디렉터리로 이동하여 **App.java** 파일의 이름을 **WordCount.java**로 바꿉니다.
 2. 텍스트 편집기에서 **WordCount.java** 파일을 열고 내용을 다음으로 바꿉니다.
    
         package org.apache.hadoop.examples;
@@ -199,14 +203,14 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
         mvn clean package
    
     이 코드는 이전 빌드 아티팩트를 정리하고, 아직 설치되지 않은 모든 종속성을 다운로드한 후 응용 프로그램을 빌드 및 패키지화합니다.
-3. 명령이 완료되면 **wordcountjava/target** 디렉터리에 __wordcountjava-1.0-SNAPSHOT.jar__라는 파일이 포함됩니다.
+3. 명령이 완료되면 **wordcountjava/target** 디렉터리에 **wordcountjava-1.0-SNAPSHOT.jar**라는 파일이 포함됩니다.
    
    > [!NOTE]
    > **wordcountjava-1.0-SNAPSHOT.jar** 파일은 는 WordCount 작업뿐만 아니라 런타임에 작업에서 필요로 하는 종속성을 포함하는 uberjar입니다.
    > 
    > 
 
-## <a name="<a-id="upload"></a>upload-the-jar"></a><a id="upload"></a>jar 업로드
+## <a name="a-iduploadaupload-the-jar"></a><a id="upload"></a>jar 업로드
 다음 명령을 사용하여 HDInsight 헤드 노드에 jar 파일을 업로드합니다.
 
     scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
@@ -220,7 +224,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 > 
 > 
 
-## <a name="<a-name="run"></a>run-the-mapreduce-job"></a><a name="run"></a>MapReduce 작업 실행
+## <a name="a-namerunarun-the-mapreduce-job"></a><a name="run"></a>MapReduce 작업 실행
 1. 다음 문서에 설명된 대로 SSH를 사용하여 HDInsight에 연결합니다.
    
    * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -229,7 +233,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
    
         yarn jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/wordcountout
    
-    이 명령은 WordCount MapReduce 응용 프로그램을 사용하여 davinci.txt 파일에서 단어 수를 계산하고 결과를 __wasbs:///example/data/wordcountout__에 저장합니다. 입력 파일과 출력 모두 클러스터의 기본 저장소에 저장됩니다.
+    이 명령은 WordCount MapReduce 응용 프로그램을 사용하여 davinci.txt 파일에서 단어 수를 계산하고 결과를 **wasbs:///example/data/wordcountout**에 저장합니다. 입력 파일과 출력 모두 클러스터의 기본 저장소에 저장됩니다.
 3. 작업이 완료되면 다음을 사용하여 결과를 확인합니다.
    
         hdfs dfs -cat wasbs:///example/data/wordcountout/*
@@ -240,7 +244,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
         zelus   1
         zenith  2
 
-## <a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>다음 단계
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
 이 문서에서는 Java MapReduce 작업을 개발하는 방법에 대해 알아보았습니다. HDInsight로 작업하는 다른 방법은 다음 문서를 참조하세요.
 
 * [HDInsight에서 Hive 사용][hdinsight-use-hive]
@@ -268,6 +272,6 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 05e9e10d9a37f90b679175a3ed9d78ed05d9e447
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: cab40991e5b0628f422b9eb91130d8135c1434f1
 
 
 ---
@@ -121,7 +121,7 @@ Azure Resource Manager로 응용 프로그램의 배포 및 구성을 정의하�
 
 Resource Manager 템플릿의 일부로 Log Analytics 에이전트를 포함하면 각 가상 컴퓨터를 사전 구성하여 Log Analytics 작업 영역에 보고하게 할 수 있습니다.
 
-리소스 관리자 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
+리소스 관리자 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
 
 다음은 Microsoft Monitoring Agent 확장이 설치된 Windows 기반 가상 컴퓨터를 배포하는 데 사용되는 Resource Manager 템플릿 예제입니다. 이 템플릿은 일반 가상 컴퓨터 템플릿에 다음이 추가된 것입니다.
 
@@ -161,7 +161,7 @@ Resource Manager 템플릿의 일부로 Log Analytics 에이전트를 포함하�
     "workspaceName": {
       "type": "string",
       "metadata": {
-         "description": "OMD workspace name"
+         "description": "OMS workspace name"
       }
     },
     "windowsOSVersion": {
@@ -404,6 +404,6 @@ Azure에 없는 컴퓨터의 경우, 다음 문서에 설명된 방법을 사용
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

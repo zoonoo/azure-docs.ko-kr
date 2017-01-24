@@ -24,7 +24,7 @@ ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
 Azure Mobile Engagement는 데이터 기반 통찰력을 앱 사용, 실시간 사용자 분석에 제공하고 컨텍스트 인식 푸시 알림 및 앱 내 메시징을 가능하게 하는 SaaS(Software-as-a-Service) 사용자 참여 플랫폼입니다.
 
 ### <a name="overview-video"></a>개요 동영상
-> [!동영상 https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Mobile-Engagement-Overview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Mobile-Engagement-Overview/player]
 > 
 > 
 
@@ -41,7 +41,7 @@ Mobile Engagement는 앱 내 메시징 기능을 제공하고 Google의 GCM, App
 ## <a name="open-apis-and-ease-of-integration"></a>개방형 API 및 간편한 통합
 편리한 통합을 위해 API 및 SDK을 제공하기 때문에, 기존 CRM, CMS 또는 기타 백엔드 시스템의 데이터를 활용할 수 있습니다. 따라서 고객 대상을 더 향상하고 투자를 보호할 수 있습니다.
 
-## <a name="data-protection-privacy-across-the-globe"></a>전 세계에서 데이터 보호 및 프라이버시
+## <a name="data-protection--privacy-across-the-globe"></a>전 세계에서 데이터 보호 및 프라이버시
 Microsoft는 오랫동안 개인 정보 보호를 위해 노력해 왔으며 개인 정보 보호는 Microsoft 제품 및 서비스 수명 주기의 필수 요소입니다. 우리는 투명한 개인 정보 관행을 통해 고객에게 중요한 개인 정보 선택권을 제공하고, 우리가 저장하는 데이터를 책임감 있게 관리하고 있습니다. 모든 Azure 서비스와 마찬가지로 Mobile Engagement에서는 고객의 재산에서 파생된 정보를 공유하거나 판매하지 않습니다. Mobile Engagement는 전 세계적으로 제공되며, 지역 또는 국가별 데이터 프라이버시 법률을 따를 수 있습니다.
 
 ### <a name="next-steps"></a>다음 단계:

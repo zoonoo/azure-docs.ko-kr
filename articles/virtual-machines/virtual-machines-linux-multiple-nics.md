@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 10/27/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: b2cd533ab24feb3ce521db5f8406576f86e460d9
+ms.sourcegitcommit: d4fa4187b25dcbb7cf3b75cb9186b5d245c89227
+ms.openlocfilehash: 12da49e49782869153dcecbf6e4ca0ec24fa5960
 
 
 ---
@@ -145,7 +145,7 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 }
 ```
 
-[*복사*를 사용하여 여러 인스턴스 만들기](../resource-group-create-multiple.md)에 대해 자세히 읽어보세요. 
+[*복사*를 사용하여 여러 인스턴스 만들기](../azure-resource-manager/resource-group-create-multiple.md)에 대해 자세히 읽어보세요. 
 
 `copyIndex()`를 사용하여 리소스 이름에 번호를 추가할 수도 있습니다. 이와 같이 `myNic1`, `myNic2` 등을 만들 수 있습니다. 다음은 인덱스 값을 추가하는 예를 보여 줍니다.
 
@@ -163,6 +163,6 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

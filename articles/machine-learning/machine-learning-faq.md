@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/26/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fd0e8f5bd41fcf105571f76aab2f192c2f6dd21d
+ms.sourcegitcommit: c5479dd817e8929ff5e9129d4643d49758e7ab16
+ms.openlocfilehash: 82d4d74a14ec31453f0d3eb9a18140c3569f806c
 
 
 ---
@@ -289,9 +289,6 @@ Machine Learning Studio는 워크플로를 실행할 때 사용자가 제공한 
 
 저장소 계정 액세스 키를 변경한 경우에는, Azure 클래식 포털을 사용하여 작업 영역에서 액세스 키를 다시 동기화합니다.  
 
-## <a name="azure-marketplace"></a>Azure 마켓플레이스
-[기계 학습 마켓플레이스에서 앱 게시 및 사용에 대한 FAQ](machine-learning-marketplace-faq.md)를 참조하세요.
-
 ## <a name="support-and-training"></a>지원 및 교육
 **Azure 기계 학습에 대한 교육은 어디에서 받을 수 있나요?**
 
@@ -545,6 +542,6 @@ Machine Learning 서비스는 다중 테넌트 서비스이고, 백 엔드에서
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

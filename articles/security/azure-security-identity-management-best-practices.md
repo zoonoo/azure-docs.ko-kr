@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 354648461adf77ccf753cf24721ab7dd82b34d3c
-ms.openlocfilehash: 0af729f798a88aa299becd474fff69ad36436521
+ms.sourcegitcommit: 3451bdde3be60df0f1e1ed977f23db65d39f535f
+ms.openlocfilehash: eb4f55ab1f463d3351c74d9996eb8611281abe41
 
 
 ---
@@ -65,8 +65,8 @@ SSO를 사용하여 사용자가 Azure AD에서 조직 계정을 기반으로 �
 
 > [!NOTE]
 > SSO를 사용한다는 결정은 온-프레미스 디렉터리를 클라우드 디렉터리와 통합하는 방법에 영향을 줍니다. 디렉터리 동기화는 [동일한 로그온 환경](../active-directory/active-directory-aadconnect.md)만 제공하므로 SSO를 원하는 경우 페더레이션을 사용해야 합니다.
-> 
-> 
+>
+>
 
 사용자 및 응용 프로그램에 대해 SSO를 적용하지 않는 조직은 사용자가 여러 개의 암호를 갖게 되어 암호를 다시 사용하거나 취약한 암호를 사용할 가능성이 급증하는 상황에 더 많이 노출됩니다.
 
@@ -109,14 +109,14 @@ Azure RBAC에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](
 
 > [!NOTE]
 > 이는 RBAC와 다르며 실제로 RBAC를 활용하여 해당 리소스를 만들 권한을 가지고 있는 사용자를 인증합니다.
-> 
-> 
+>
+>
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)를 활용하여 조직이 해당 비용 센터가 연결될 때에만 작업을 허용하고 그렇지 않으면 요청을 거부하도록 할 시나리오에 대한 사용자 지정 정책을 만들 수도 있습니다.
 
 리소스를 만드는 방법을제어하지 않는 조직은 사용자가 필요 이상으로 많은 리소스를 만들어 서비스를 남용할 수 있는 상황에 직면할 가능성이 더 높습니다. 리소스 만들기 프로세스의 강화는 멀티 테넌트 시나리오를 보호하기 위한 중요한 단계입니다.
 
-Azure Resource Manager를 사용하여 정책 만들기에 대한 자세한 내용은 [정책을 사용하여 리소스 관리 및 액세스 제어](../resource-manager-policy.md) 문서를 참조하세요.
+Azure Resource Manager를 사용하여 정책 만들기에 대한 자세한 내용은 [정책을 사용하여 리소스 관리 및 액세스 제어](../azure-resource-manager/resource-manager-policy.md) 문서를 참조하세요.
 
 ## <a name="guide-developers-to-leverage-identity-capabilities-for-saas-apps"></a>SaaS 앱에 ID 기능을 활용하도록 개발자 안내
 사용자 ID는 사용자가 온-프레미스 또는 클라우드 디렉터리와 통합할 수 있는 [SaaS 앱](https://azure.microsoft.com/marketplace/active-directory/all/)에 액세스하는 많은 시나리오에 활용됩니다. 무엇보다도 개발자가 [SDL(Microsoft Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx)과 같은 안전한 방법을 사용하여 이러한 앱을 개발하는 것이 좋습니다. Azure AD는 Identity-as-a-service를 제공하며 [OAuth 2.0](http://oauth.net/2/) 및 [OpenID Connect](http://openid.net/connect/) 등의 업계 표준 프로토콜뿐만 아니라 신속하게 여러 플랫폼용 오픈 소스 라이브러리를 지원하여 개발자의 인증 작업을 간소화합니다.
@@ -139,7 +139,6 @@ Azure ID 보호에 대한 자세한 내용은 [Azure Active Directory ID 보호]
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

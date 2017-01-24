@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2016
+ms.date: 1/10/2017
 ms.author: jimpark;trinadhk;markgal
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -45,7 +45,7 @@ Azure 백업 및 System Center Data Protection Manager 고객은 다음을 수�
 
 이 정책에 지정된 "보존 지점"의 총 수는 90(일별 지점) + 40(10년 동안 각 분기별) = 130입니다.
 
-## <a name="example-putting-both-together"></a>예 - 두 가지를 결합
+## <a name="example--putting-both-together"></a>예 - 두 가지를 결합
 ![샘플 화면](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **일 단위 보존 정책**: 매일 수행된 백업이 7일 동안 저장됩니다.
@@ -64,8 +64,8 @@ Azure 백업 및 System Center Data Protection Manager 고객은 다음을 수�
 
 > [!NOTE]
 > Azure 백업은 복구 지점 개수에 대한 제한이 없습니다.
-> 
-> 
+>
+>
 
 ## <a name="advanced-configuration"></a>고급 구성
 앞의 화면에서 **수정** 을 클릭하면 보존 일정을 더 유연하게 지정할 수 있습니다.
@@ -77,7 +77,6 @@ Azure 백업에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure 백업 소개](backup-introduction-to-azure-backup.md)
 * [Azure 백업 시도](backup-try-azure-backup-in-10-mins.md)
-
 
 
 

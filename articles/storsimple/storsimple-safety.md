@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2016
+ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7ab38d9fb438a5629e0a9c2388a2ce296ab7ba03
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: 4dca50c6a0e6809876357edee8c6475796984c70
 
 
 ---
@@ -112,7 +112,7 @@ ms.openlocfilehash: 7ab38d9fb438a5629e0a9c2388a2ce296ab7ba03
 
 부상, 감전 또는 사망 가능성을 줄이려면:
 
-* PCM에서 커버를 제거하지 마십시오. 내부 감전 위험이 있습니다. PCM을 반환하고 교체하려면 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.
+* PCM에서 커버를 제거하지 마십시오. 내부 감전 위험이 있습니다. PCM을 반환하고 교체하려면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
 ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**
 

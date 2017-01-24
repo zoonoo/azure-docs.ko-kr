@@ -15,16 +15,20 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ede330870f451bd1e0ed6805fa937e74438fd644
+ms.sourcegitcommit: bd85b9eae0e1cb281116748edcad6643b1ec537f
+ms.openlocfilehash: 6ad20a246fce996e6a11ce6fa4715c0d734c4323
 
 
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>SQL 데이터 웨어하우스에 대한 지원 티켓을 만드는 방법
-SQL 데이터 웨어하우스에 어떤 문제가 있는 경우 엔지니어링 팀이 도움을 줄 수 있도록 지원 티켓을 만드세요.
+SQL Data Warehouse에 문제가 발생한 경우 엔지니어링 팀이 도움을 줄 수 있도록 지원 티켓을 만드세요.
+
+> [!NOTE] 
+> 2016/12/20을 기준으로 Azure Portal의 리소스 상태 검사는 정확하지 않습니다. 이 문제를 해결하기 위한 작업이 활발히 진행되고 있습니다. 
+
 
 ## <a name="create-a-support-ticket"></a>지원 티켓 만들기
-1. [Azure 포털][Azure 포털]을 엽니다.
+1. [Azure Portal][Azure portal]을 엽니다.
 2. 홈 화면에서 **도움말 + 지원** 타일을 클릭합니다.
    
     ![도움말 + 지원](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -47,13 +51,13 @@ SQL 데이터 웨어하우스에 어떤 문제가 있는 경우 엔지니어링 
 6. 리소스로 **SQL 데이터 웨어하우스** 를 선택합니다.
    
     ![리소스](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
-7. [Azure 지원 계획][Azure 지원 계획]을 선택합니다.
+7. [Azure 지원 계획][Azure support plan]을 선택합니다.
    
    * **대금 청구, 할당량 및 구독 관리** 지원은 모든 지원 수준에서 제공됩니다.
-   * **고장 수리** 지원은 [개발자][개발자], [표준][표준], [전문가 지원][전문가 지원] 또는 [프리미어][프리미어] 지원을 통해 제공됩니다. 고장 수리 문제는 고객이 Azure를 사용하는 동안 고객에게 발생한 문제 중 Microsoft로 인해 문제가 발생했다는 합리적인 이유가 존재하는 문제를 의미합니다.
-   * **개발자 멘토링** 및 **자문 서비스**는 [전문가 지원][전문가 지원] 및 [프리미어][프리미어] 지원 수준에서 제공됩니다. 
+   * **고장 수리** 지원은 [개발자][Developer], [표준][Standard], [전문가 지원][Professional Direct] 또는 [프리미어][Premier] 지원을 통해 제공됩니다. 고장 수리 문제는 고객이 Azure를 사용하는 동안 고객에게 발생한 문제 중 Microsoft로 인해 문제가 발생했다는 합리적인 이유가 존재하는 문제를 의미합니다.
+   * **개발자 멘토링** 및 **자문 서비스**는 [전문가 지원][Professional Direct] 및 [프리미어][Premier] 지원 수준에서 제공됩니다. 
      
-     프리미어 지원 계획이 있는 경우 [Microsoft Premier online portal][Microsoft Premier online portal]에서 SQL Data Warehouse 관련 문제를 보고할 수도 있습니다.  범위, 응답 시간, 가격 책정 등을 포함한 다양한 지원 계획에 대한 자세한 정보는 [Azure 지원 계획][Azure 지원 계획]을 참조하세요.  Azure 지원에 대한 질문과 대답은 [Azure 지원 FAQ][Azure 지원 FAQ]를 참조하세요.  
+     프리미어 지원 계획이 있는 경우 [Microsoft 프리미어 온라인 포털][Microsoft Premier online portal]에서 SQL Data Warehouse 관련 문제를 보고할 수도 있습니다.  범위, 응답 시간, 가격 책정 등을 포함한 다양한 지원 계획에 대한 자세한 정보는 [Azure 지원 계획][Azure support plan]을 참조하세요.  Azure 지원에 대한 질문과 대답은 [Azure 지원 FAQ][Azure support FAQs]를 참조하세요.  
      
      ![지원 계획](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
 8. **문제 유형** 및 **범주**를 선택합니다.
@@ -73,7 +77,7 @@ SQL 데이터 웨어하우스에 어떤 문제가 있는 경우 엔지니어링 
 ![상태 확인](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
 ## <a name="other-resources"></a>기타 리소스
-또한 [Stack Overflow][Stack Overflow] 또는 [Azure SQL Data Warehouse MSDN 포럼][Azure SQL Data Warehouse MSDN 포럼]에서 SQL Data Warehouse 커뮤니티에 연결할 수 있습니다.
+또한 [Stack Overflow][Stack Overflow] 또는 [Azure SQL Data Warehouse MSDN 포럼][Azure SQL Data Warehouse MSDN forum]에서 SQL Data Warehouse 커뮤니티에 연결할 수 있습니다.
 
 <!--Image references--> 
 
@@ -83,20 +87,20 @@ SQL 데이터 웨어하우스에 어떤 문제가 있는 경우 엔지니어링 
 <!--MSDN references--> 
 
 <!--Other web references--> 
-[Azure 포털]: https://portal.azure.com/
-[Azure 지원 계획]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
-[개발자]: https://azure.microsoft.com/support/plans/developer/  
+[Azure portal]: https://portal.azure.com/
+[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
+[Developer]: https://azure.microsoft.com/support/plans/developer/  
 [Standard]: https://azure.microsoft.com/support/plans/standard/  
-[전문가 지원]: https://azure.microsoft.com/support/plans/prodirect/  
-[프리미어]: https://azure.microsoft.com/support/plans/premier/  
-[Azure 지원 FAQ]: https://azure.microsoft.com/support/faq/
+[Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/  
+[Premier]: https://azure.microsoft.com/support/plans/premier/  
+[Azure support FAQs]: https://azure.microsoft.com/support/faq/
 [Microsoft Premier online portal]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
-[Azure SQL 데이터 웨어하우스 MSDN 포럼]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+[Azure SQL Data Warehouse MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

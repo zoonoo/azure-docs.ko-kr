@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 7ee42899d1f50d562a8e776c840f0cbde12b13fe
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 09c4c9d43d6e29872ed6484b27334c8e9aa428b5
 
 
 ---
@@ -43,9 +43,10 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 >
 
 ## <a name="requirements-and-considerations"></a>요구 사항 및 고려 사항
+
 * AMS를 사용하여 FairPlay로 암호화된 HLS를 제공하고 FairPlay 라이선스를 배달하려면 다음이 필요합니다.
 
-  * Azure 계정. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
+  * Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
   * 미디어 서비스 계정. Media Services 계정을 만들려면 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
   * [Apple Development Program](https://developer.apple.com/)에 등록합니다.
   * Apple에서는 [배포 패키지](https://developer.apple.com/contact/fps/)를 얻으려면 콘텐츠 소유자를 요구합니다. Azure 미디어 서비스로 KSM(키 보안 모듈)을 이미 구현했고 최종 FPS 패키지를 요청하고 있음을 요청에 명시하세요. 최종 FPS 패키지에는 FairPlay를 구성하는 데 사용할 인증서를 생성하고 ASK를 가져오기 위한 지침이 포함됩니다.
@@ -162,8 +163,7 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점에 하나 이상의 스트리밍 단위를 구성합니다. 자세한 내용은 [스트리밍 끝점 구성](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal)을 참조하세요.
-6. Program.cs 파일에 있는 코드를 이 섹션에 나와 있는 코드로 덮어씁니다.
+7. Program.cs 파일에 있는 코드를 이 섹션에 나와 있는 코드로 덮어씁니다.
 
         using System;
         using System.Collections.Generic;
@@ -566,6 +566,6 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

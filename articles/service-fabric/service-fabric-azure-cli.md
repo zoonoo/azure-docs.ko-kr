@@ -1,12 +1,12 @@
 ---
-title: CLI를 사용하여 Service Fabric 클러스터와 상호 작용 | Microsoft Docs
-description: Azure CLI를 사용하여 Service Fabric 클러스터와 상호 작용하는 방법
+title: "CLI를 사용하여 Service Fabric 클러스터와 상호 작용 | Microsoft Docs"
+description: "Azure CLI를 사용하여 Service Fabric 클러스터와 상호 작용하는 방법"
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: c3ec8ff3-3b78-420c-a7ea-0c5e443fb10e
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/24/2016
 ms.author: subramar
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: caf6dd414bd8f8180c90835dd9744dcd98f7709c
+
 
 ---
 # <a name="using-the-azure-cli-to-interact-with-a-service-fabric-cluster"></a>Azure CLI를 사용하여 Service Fabric 클러스터와 상호 작용
@@ -77,7 +81,8 @@ PublicIPorFQDN 태그를 실제 IP 또는 FQDN으로 적절하게 바꿉니다. 
 
 PowerShell 또는 CLI를 사용하여 Azure 포털을 통해 만든 Linux Service Fabric 클러스터와 상호 작용할 수 있습니다. 
 
-**주의:** 이러한 클러스터는 안전하지 않으므로 클러스터 매니페스트에서 공용 IP 주소를 추가하여 one-box를 열 수 있습니다.
+> [!WARNING]
+> 이러한 클러스터는 안전하지 않으므로 클러스터 매니페스트에서 공용 IP 주소를 추가하여 one-box를 열 수 있습니다.
 
 ## <a name="using-the-azure-cli-to-connect-to-a-service-fabric-cluster"></a>Azure CLI를 사용하여 Service Fabric 클러스터에 연결
 다음 Azure CLI 명령은 보안 클러스터에 연결하는 방법을 설명합니다. 인증서 세부 정보는 클러스터 노드의 인증서와 일치해야 합니다.
@@ -145,6 +150,24 @@ azure servicefabric application create [applicationName] [applicationTypeName] [
 
 SFX를 사용하여 응용 프로그램 업그레이드를 모니터링할 수 있습니다. 몇 분 후 응용 프로그램이 업데이트됩니다.  업데이트된 앱에서 오류를 시도해보고 서비스 패브릭의 자동 롤백 기능을 확인해볼 수도 있습니다.
 
+## <a name="converting-from-pfx-to-pem-and-vice-versa"></a>PEM에서 PFX로 또는 그 반대로 변환
+
+다른 환경에 있을 수 있는 보안 클러스터에 액세스하여 로컬 컴퓨터(Windows 또는 Linux)에 인증서를 설치해야 할 수 있습니다. 예를 들어 Windows 컴퓨터에서 보안된 Linux 클러스터를 액세스하거나 그 반대로 액세스하는 동안, 인증서를 PFX에서 PEM으로 또는 그 반대로 변환해야 할 수 있습니다. 
+
+PEM 파일에서 PFX 파일로 변환하려면 다음 명령을 사용합니다.
+
+```bash
+openssl pkcs12 -export -out certificate.pfx -inkey mycert.pem -in mycert.pem -certfile mycert.pem
+```
+
+PFX 파일에서 PEM 파일로 변환하려면 다음 명령을 사용합니다.
+
+```bash
+openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
+```
+
+자세한 내용은 [OpenSSL 설명서](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html)를 참조하세요.
+
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="copying-of-the-application-package-does-not-succeed"></a>응용 프로그램 패키지 복사 실패
 `openssh` 가 설치되어 있는지 확인합니다. 기본적으로 Ubuntu Desktop에는 설치되어 있지 않습니다. 다음 명령을 사용하여 설치합니다.
@@ -172,9 +195,14 @@ SFX를 사용하여 응용 프로그램 업그레이드를 모니터링할 수 �
 ```
 ssh 인증을 위한 키 사용(암호 아님)이 아직 지원되지 않으므로(플랫폼에서는 패키지를 복사하는 데 ssh를 사용하므로) 대신 암호 인증을 사용합니다.
 
+
+
 ## <a name="next-steps"></a>다음 단계
 개발 환경을 설정하고 Service Fabric 응용 프로그램을 Linux 클러스터에 배포합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

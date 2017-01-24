@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87f6d18ddc97921b62cbf111738044f24a0a940b
+ms.sourcegitcommit: 2549c876ee35d6a7fa425d43e2f86d24131ca791
+ms.openlocfilehash: 3d999d9e27844bc0164cc3572522b9ec022118a1
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 87f6d18ddc97921b62cbf111738044f24a0a940b
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-create-account.md)
 > * [PowerShell](media-services-manage-with-powershell.md)
-> * [REST (영문)](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/media/mediaservice)
 > 
 > [!NOTE]
 > Azure 미디어 서비스 계정을 만들려면 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
@@ -466,6 +466,6 @@ Accept Wildcard Characters?   false
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

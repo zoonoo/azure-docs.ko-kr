@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 10/27/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: b9772ec5a8684b196ad1c7fa523acc3772d81854
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: 46156a3331585b47761432c13462dffeb0b7eeb5
 
 
 ---
@@ -29,7 +29,7 @@ Azure에서 여러 가상 NIC(네트워크 인터페이스)가 연결된 VM(가�
 > 
 
 ## <a name="create-core-resources"></a>코어 리소스 만들기
-먼저 [최신 Azure PowerShell을 설치 및 구성](../powershell-install-configure.md)했는지 확인합니다. Azure 계정에 로그인합니다.
+먼저 [최신 Azure PowerShell을 설치 및 구성](/powershell/azureps-cmdlets-docs)했는지 확인합니다. Azure 계정에 로그인합니다.
 
 ```powershell
 Login-AzureRmAccount
@@ -142,7 +142,7 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 }
 ```
 
-[*복사*를 사용하여 여러 인스턴스 만들기](../resource-group-create-multiple.md)에 대해 자세히 읽어보세요. 
+[*복사*를 사용하여 여러 인스턴스 만들기](../azure-resource-manager/resource-group-create-multiple.md)에 대해 자세히 읽어보세요. 
 
 `copyIndex()`를 사용하여 리소스 이름에 번호를 추가할 수도 있습니다. 이와 같이 `myNic1`, `MyNic2` 등을 만들 수 있습니다. 다음은 인덱스 값을 추가하는 예를 보여 줍니다.
 
@@ -160,6 +160,6 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

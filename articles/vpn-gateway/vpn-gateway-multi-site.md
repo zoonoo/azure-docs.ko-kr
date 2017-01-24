@@ -1,13 +1,13 @@
 ---
-title: VPN 게이트웨이 및 PowerShell을 사용하여 가상 네트워크를 여러 사이트에 연결 | Microsoft Docs
-description: 이 문서에서는 클래식 배포 모델에서 VPN 게이트웨이를 사용하여 여러 로컬 온-프레미스 사이트를 가상 네트워크에 연결하는 과정을 설명합니다.
+title: "VPN Gateway 및 PowerShell을 사용하여 가상 네트워크를 여러 사이트에 연결 | Microsoft Docs"
+description: "이 문서에서는 클래식 배포 모델에서 VPN 게이트웨이를 사용하여 여러 로컬 온-프레미스 사이트를 가상 네트워크에 연결하는 과정을 설명합니다."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: b043df6e-f1e8-4a4d-8467-c06079e2c093
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2016
 ms.author: yushwang
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3d6f2d2bc7bd55d7f7d609e66826e3a3722c8f32
+
 
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
@@ -43,7 +47,7 @@ ms.author: yushwang
 ![다중 사이트 다이어그램](./media/vpn-gateway-multi-site/multisite.png "multi-site")
 
 ## <a name="points-to-consider"></a>고려할 항목
-**가상 네트워크 변경을 위해 Azure 클래식 포털을 사용할 수 없습니다.**  이 릴리스에서는, Azure 클래식 포털을 사용하는 대신 네트워크 구성 파일을 변경해야 합니다. Azure 클래식 포털에서 변경한 경우, 사용자의 다중 사이트 참조 설정을 덮어씁니다. 
+**가상 네트워크 변경을 위해 Azure 클래식 포털을 사용할 수 없습니다.** 이 릴리스에서는, Azure 클래식 포털을 사용하는 대신 네트워크 구성 파일을 변경해야 합니다. Azure 클래식 포털에서 변경한 경우, 사용자의 다중 사이트 참조 설정을 덮어씁니다. 
 
 따라서 다중 사이트 절차를 완료할 때까지는 네트워크 구성 파일을 사용하는 데 익숙해져야 합니다. 그러나 네트워크 구성을 여러 사용자가 사용하는 경우에는 이 제한에 대해 모든 사람이 알 수 있도록 해야 합니다. Azure 클래식 포털을 아예 사용할 수 없다는 뜻은 아닙니다. 이 특정 가상 네트워크에 대한 구성 변경을 제외한 모든 작업에 관리 포털을 사용할 수 있습니다.
 
@@ -53,28 +57,28 @@ ms.author: yushwang
 * Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * 각 온-프레미스 위치에서 호환되는 VPN 하드웨어. 사용하려는 장치가 호환 가능한 것인지 확인하려면 [가상 네트워크 연결을 위한 VPN 장치 정보](vpn-gateway-about-vpn-devices.md) 를 참조하세요.
 * 각 VPN 장치에 대한 외부 연결 공용 IPv4 IP 주소. IP 주소는 NAT 뒤에 배치할 수 없습니다. 이는 필수 요구 사항입니다.
-* 최신 버전의 Azure PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 을 참조하세요.
+* 최신 버전의 Azure PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 * VPN 하드웨어 구성에 능숙한 사용자. Azure 클래식 포털에서 자동으로 생성된 VPN 스크립트를 사용하여 VPN 장치를 구성할 수 없습니다. 따라서 사용자가 VPN 장치 구성 방법에 대해 매우 잘 알고 있거나 이와 관련된 지식이 있는 사람과 작업해야 합니다.
 * 가상 네트워크에 사용할 IP 주소 범위(아직 만들지 않은 경우). 
 * 연결할 각 로컬 네트워크 사이트에 대한 IP 주소 범위. 연결하려는 각 로컬 네트워크 사이트의 IP 주소 범위가 겹치지 않도록 해야 합니다. 그렇지 않은 경우, Azure 클래식 포털 또는 REST API는 업로드 중인 구성을 거절합니다. 
   
     예를 들어 두 로컬 네트워크 사이트에 IP 주소 범위 10.2.3.0/24가 모두 포함되어 있고 대상 주소가 10.2.3.3인 패키지가 있는 경우, 주소 범위가 겹치기 때문에 Azure는 어떤 사이트에 패키지를 전송할지 알지 못하게 됩니다. 라우팅 문제를 방지하기 위해 Azure에서는 범위가 겹치는 구성 파일의 업로드를 허용하지 않습니다.
 
-## <a name="1.-create-a-site-to-site-vpn"></a>1. 사이트 간 VPN 만들기
+## <a name="1-create-a-site-to-site-vpn"></a>1. 사이트 간 VPN 만들기
 동적 라우팅 게이트웨이를 사용한 사이트 간 VPN이 이미 있으면 좋습니다. [가상 네트워크 구성 설정 내보내기](#export)로 진행할 수 있습니다. 아직 만들지 않은 경우는 아래 작업을 수행합니다.
 
-### <a name="if-you-already-have-a-site-to-site-virtual-network,-but-it-has-a-static-(policy-based)-routing-gateway:"></a>사이트 간 가상 네트워크가 이미 있지만 정적(정책 기반) 라우팅 게이트웨이가 있는 경우:
+### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>사이트 간 가상 네트워크가 이미 있지만 정적(정책 기반) 라우팅 게이트웨이가 있는 경우:
 1. 게이트웨이 유형을 동적 라우팅으로 변경합니다. 다중 사이트 VPN에는 동적(경로 기반이라고도 함) 라우팅 게이트웨이가 필요합니다. 게이트웨이 유형을 변경하려면 먼저 기존 게이트웨이를 삭제한 다음 새로 만들어야 합니다. 자세한 내용은 [게이트웨이의 VPN 라우팅 유형을 변경하는 방법](vpn-gateway-configure-vpn-gateway-mp.md#how-to-change-the-vpn-routing-type-for-your-gateway)을 참조하세요.  
 2. 새 게이트웨이를 구성하고 VPN 터널을 만듭니다. 자세한 내용은 [Azure 클래식 포털에서 VPN 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요. 먼저, 게이트웨이 유형을 동적 라우팅으로 변경합니다. 
 
-### <a name="if-you-don't-have-a-site-to-site-virtual-network:"></a>사이트 간 가상 네트워크 사이트가 없는 경우:
+### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>사이트 간 가상 네트워크 사이트가 없는 경우:
 1. [Azure 클래식 포털에서 사이트 간 VPN 연결을 사용하여 가상 네트워크 만들기](vpn-gateway-site-to-site-create.md)를 참조하여 사이트 간 가상 네트워크를 만듭니다.  
 2. [VPN 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하여 동적 라우팅 게이트웨이를 구성하십시오. 사용 중인 게이트웨이 유형에 맞는 **동적 라우팅** 을 선택해야 합니다.
 
-## <a name="<a-name="export"></a>2.-export-the-network-configuration-file"></a><a name="export"></a>2. 네트워크 구성 파일을 내보내기
+## <a name="a-nameexporta2-export-the-network-configuration-file"></a><a name="export"></a>2. 네트워크 구성 파일을 내보내기
 네트워크 구성 파일을 내보냅니다. 내보내는 파일은 새로 다중 사이트 설정을 구성하는 데 사용됩니다. 파일을 내보내는 방법에 대한 지침은 이 문서의 [Azure 포털에서 네트워크 구성 파일을 사용하여 VNet을 만드는 방법](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal)섹션을 참조하세요. 
 
-## <a name="3.-open-the-network-configuration-file"></a>3. 네트워크 구성 파일 열기
+## <a name="3-open-the-network-configuration-file"></a>3. 네트워크 구성 파일 열기
 마지막 단계에서 다운로드한 네트워크 구성 파일을 엽니다. 원하는 xml 편집기를 사용합니다. 파일은 다음과 유사하게 나타납니다.
 
         <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
@@ -124,7 +128,7 @@ ms.author: yushwang
           </VirtualNetworkConfiguration>
         </NetworkConfiguration>
 
-## <a name="4.-add-multiple-site-references"></a>4. 여러 사이트 참조 추가
+## <a name="4-add-multiple-site-references"></a>4. 여러 사이트 참조 추가
 사이트 참조 정보를 추가 또는 제거하면 ConnectionsToLocalNetwork/LocalNetworkSiteRef의 구성이 변경됩니다. 새 로컬 사이트 참조를 추가하면 Azure에서 새 터널을 만듭니다. 아래 예제에서 네트워크 구성은 단일 사이트 연결용입니다. 모두 변경했으면 파일을 저장합니다.
 
         <Gateway>
@@ -142,11 +146,11 @@ ms.author: yushwang
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-## <a name="5.-import-the-network-configuration-file"></a>5. 네트워크 구성 파일 가져오기
+## <a name="5-import-the-network-configuration-file"></a>5. 네트워크 구성 파일 가져오기
 네트워크 구성 파일을 가져옵니다. 변경 내용과 함께 이 파일을 가져오면 새 터널이 추가됩니다. 터널은 이전에 만든 동적 게이트웨이를 사용합니다. 파일을 가져오는 방법에 대한 지침은 이 문서의 [Azure 포털에서 네트워크 구성 파일을 사용하여 VNet을 만드는 방법](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal)섹션을 참조하세요. 
 
-## <a name="6.-download-keys"></a>6. 키 다운로드
-새 터널을 추가한 후 PowerShell cmdlet `Get-AzureVNetGatewayKey` 을 사용하여 각 터널의 IPsec/IKE 사전 공유 키를 가져옵니다.
+## <a name="6-download-keys"></a>6. 키 다운로드
+새 터널을 추가한 후 PowerShell cmdlet `Get-AzureVNetGatewayKey`을 사용하여 각 터널의 IPsec/IKE 사전 공유 키를 가져옵니다.
 
 예:
 
@@ -156,8 +160,8 @@ ms.author: yushwang
 
 원하는 경우 *가상 네트워크 게이트웨이 공유 키 가져오기* REST API를 사용하여 사전 공유 키를 가져올 수도 있습니다.
 
-## <a name="7.-verify-your-connections"></a>7. 연결 확인
-다중 사이트 터널 상태를 확인합니다. 각 터널에 대한 키를 다운로드한 후 연결을 확인할 수 있습니다. 아래 예제에 나온 것처럼 `Get-AzureVnetConnection` 을 사용하여 가상 네트워크 터널 목록을 가져옵니다. VNet1이 VNet의 이름입니다.
+## <a name="7-verify-your-connections"></a>7. 연결 확인
+다중 사이트 터널 상태를 확인합니다. 각 터널에 대한 키를 다운로드한 후 연결을 확인할 수 있습니다. 아래 예제에 나온 것처럼 `Get-AzureVnetConnection`을 사용하여 가상 네트워크 터널 목록을 가져옵니다. VNet1이 VNet의 이름입니다.
 
     Get-AzureVnetConnection -VNetName VNET1
 
@@ -188,6 +192,9 @@ ms.author: yushwang
 ## <a name="next-steps"></a>다음 단계
 VPN 게이트웨이에 대한 자세한 내용은 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

@@ -7,6 +7,7 @@ manager: jhubbard
 author: ddove
 ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d6fc4d314adf02e9c6d5a72b3b7d58db3c2f5731
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 00497f64feea692cf0f289991d1b905f39e1c880
 
 
 ---
@@ -55,7 +56,7 @@ ms.openlocfilehash: d6fc4d314adf02e9c6d5a72b3b7d58db3c2f5731
 
 데이터베이스당 여러 테넌트가 있는 경우 분할된 데이터베이스에 shardlet을 할당하면 일부 분할된 데이터베이스에서 용량 병목 현상이 발생할 수 있습니다. 이렇게 하려면 shardlet을 다시 할당하거나 사용량이 적은 shardlet을 새로운 또는 활용도가 적은 분할된 데이터베이스로 이동합니다. 
 
-## <a name="concepts-key-features"></a>개념 및 주요 기능
+## <a name="concepts--key-features"></a>개념 및 주요 기능
 **고객 호스트 서비스**
 
 분할-병합은 고객 호스트 서비스로 제공됩니다. Microsoft Azure 구독에서 서비스를 배포하고 호스트해야 합니다. NuGet에서 다운로드하는 패키지에는 특정 배포에 대한 정보를 완료하기 위한 구성 템플릿이 있습니다. 자세한 내용은 [분할-병합 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md) 를 참조하세요. 서비스가 Azure 구독에서 실행되므로 서비스의 대부분 보안 측면을 제어하고 구성할 수 있습니다. 기본 템플릿에는 SSL, 인증서 기반 클라이언트 인증, 저장된 자격 증명에 대한 암호화, DoS 보호 및 IP 제한 사항을 구성할 수 있는 옵션이 있습니다. [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)문서에서 보안 측면에 대한 자세한 내용을 확인할 수 있습니다.
@@ -200,7 +201,7 @@ ms.openlocfilehash: d6fc4d314adf02e9c6d5a72b3b7d58db3c2f5731
 
 업그레이드하기 위해 분할-병합용 새 메타데이터 데이터베이스를 프로비전할 필요는 없습니다. 새 버전은 기존 메타데이터 데이터베이스를 새 버전으로 자동으로 업그레이드합니다. 
 
-## <a name="best-practices-troubleshooting"></a>모범 사례, 문제 해결:
+## <a name="best-practices--troubleshooting"></a>모범 사례, 문제 해결:
 * 테스트 테넌트를 정의하고 여러 분할된 데이터베이스에 분산되어 있는 테스트 테넌트에서 가장 중요한 분할/병합/이동 작업을 연습해 볼 수 있습니다. 이렇게 하면 모든 메타데이터가 분할된 데이터베이스 맵에서 올바르게 정의되어 있으며 작업이 제약 조건 또는 외래 키를 위반하지 않는지 확인할 수 있습니다.
 * 데이터 크기 관련 문제가 발생하지 않도록 테스트 테넌트 데이터 크기를 가장 큰 테넌트의 최대 데이터 크기보다 크게 유지해야 합니다. 단일 테넌트를 이동하는 데 걸리는 시간에 대한 상한을 평가하는 데에도 도움이 됩니다. 
 * 스키마 삭제를 허용 하는지 확인합니다. 분할/병합 서비스에는 데이터를 대상으로 복사한 후 원본 분할된 데이터베이스에서 데이터를 제거하는 기능이 필요합니다. 예를 들어 **삭제 트리거** 로 인해 서비스가 원본의 데이터를 삭제하지 못하여 작업이 실패할 수 있습니다.
@@ -218,6 +219,6 @@ ms.openlocfilehash: d6fc4d314adf02e9c6d5a72b3b7d58db3c2f5731
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

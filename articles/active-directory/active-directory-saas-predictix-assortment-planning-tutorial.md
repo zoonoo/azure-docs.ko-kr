@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8e31757037c2040235d55ae8e653fe2995d1b7af
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8fefaf3c371a2eb0fb83c59122a7419cff99e79
 
 
 ---
@@ -119,7 +119,7 @@ Predictix Assortment Planning에서 Microsoft Azure AD Single Sign-On을 구성�
    
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 5. 응용 프로그램에 대해 구성된 SSO를 얻으려면 Predictix Assortment Planning 지원 팀에 문의하고 다음을 제공하세요.
    
     • 다운로드한 인증서
@@ -235,6 +235,6 @@ Predictix Assortment Planning에서 Microsoft Azure AD Single Sign-On을 구성�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -4,7 +4,7 @@ description: "Azure 자동화 DSC(필요한 상태 구성)에서 가장 일반�
 services: automation
 documentationcenter: na
 author: eslesar
-manager: dongill
+manager: carmonm
 editor: tysonn
 ms.assetid: a3816593-70a3-403b-9a43-d5555fd2cee2
 ms.service: automation

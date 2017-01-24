@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
-ms.openlocfilehash: 90c83d286047bcfa7563d75e380559154ca36f5b
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: ab33a7610b8e7bbf64e9f1bfde3753f95956a82f
 
 
 ---
@@ -34,9 +34,9 @@ OMS의 관리 솔루션에는 특정 관리 시나리오를 지원하는 여러 
 예를 들어 [일정](../automation/automation-schedules.md) 및 [보기](../log-analytics/log-analytics-view-designer.md)를 사용하여 Log Analytics 리포지토리에 데이터를 수집하고 수집된 데이터의 다양한 시각화를 제공하는 [Azure Automation runbook](../automation/automation-intro.md)이 관리 솔루션에 포함될 수 있습니다.  똑같은 일정이 다른 솔루션에서 사용될 수 있습니다.  개발자는 관리 솔루션 작성자로서 세 리소스를 모두 정의하지만 솔루션이 제거되면 runbook과 보기가 자동으로 제거되도록 지정해야 합니다.    또한 일정을 정의하지만 다른 솔루션에서 여전히 똑같은 일정을 사용하는 경우를 대비하여 솔루션이 제거되어도 일정이 계속 작동하도록 지정해야 합니다.
 
 ## <a name="management-solution-files"></a>관리 솔루션 파일
-관리 솔루션은 [리소스 관리 템플릿](../resource-manager-template-walkthrough.md)으로 구현됩니다.  관리 솔루션을 작성하는 방법에서 주요 작업은 [템플릿 작성](../resource-group-authoring-templates.md)입니다.  이 문서에서는 솔루션에 사용되는 템플릿의 고유한 세부 정보와 일반적인 솔루션 리소스를 정의하는 방법을 설명합니다.
+관리 솔루션은 [리소스 관리 템플릿](../azure-resource-manager/resource-manager-template-walkthrough.md)으로 구현됩니다.  관리 솔루션을 작성하는 방법에서 주요 작업은 [템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)입니다.  이 문서에서는 솔루션에 사용되는 템플릿의 고유한 세부 정보와 일반적인 솔루션 리소스를 정의하는 방법을 설명합니다.
 
-관리 솔루션 파일의 기본 구조는 다음과 같은 [리소스 관리자 템플릿](../resource-group-authoring-templates.md#template-format)과 같습니다.  이어지는 각 섹션에서는 솔루션의 최상위 수준 요소와 그 콘텐츠에 대해 설명합니다.  
+관리 솔루션 파일의 기본 구조는 다음과 같은 [리소스 관리자 템플릿](../azure-resource-manager/resource-group-authoring-templates.md#template-format)과 같습니다.  이어지는 각 섹션에서는 솔루션의 최상위 수준 요소와 그 콘텐츠에 대해 설명합니다.  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -48,7 +48,7 @@ OMS의 관리 솔루션에는 특정 관리 시나리오를 지원하는 여러 
     }
 
 ## <a name="parameters"></a>parameters
-[매개 변수](../resource-group-authoring-templates.md#parameters)는 사용자가 관리 솔루션을 설치할 때 사용자에게 요구할 값입니다.  모든 솔루션에 포함될 표준 매개 변수가 있고, 특정 솔루션에 필요한 다른 매개 변수를 추가할 수 있습니다.  사용자가 솔루션을 설치할 때 매개 변수 값을 제공하는 방법은 솔루션 설치 방법과 특정 매개 변수에 따라 다릅니다.
+[매개 변수](../azure-resource-manager/resource-group-authoring-templates.md#parameters)는 사용자가 관리 솔루션을 설치할 때 사용자에게 요구할 값입니다.  모든 솔루션에 포함될 표준 매개 변수가 있고, 특정 솔루션에 필요한 다른 매개 변수를 추가할 수 있습니다.  사용자가 솔루션을 설치할 때 매개 변수 값을 제공하는 방법은 솔루션 설치 방법과 특정 매개 변수에 따라 다릅니다.
 
 사용자가 [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) 또는 [Azure 빠른 시작 템플릿](operations-management-suite-solutions.md#finding-and-installing-management-solutions)을 통해 관리 솔루션을 설치할 경우에는 [OMS 작업 영역 및 Automation 계정](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account)을 선택하라는 메시지가 표시됩니다.  이러한 템플릿은 각 표준 매개 변수의 값을 채우는 데 사용됩니다.  사용자에게는 표준 매개 변수의 값을 직접 제공하라는 메시지가 표시되지 않고 추가 매개 변수의 값을 제공하라는 메시지가 표시됩니다.
 
@@ -181,7 +181,7 @@ OMS의 관리 솔루션에는 특정 관리 시나리오를 지원하는 여러 
     ]
 
 ### <a name="dependencies"></a>종속성
-**dependsOn** 요소는 다른 리소스에 대한 [종속성](../resource-group-define-dependencies.md)을 지정합니다.  솔루션이 설치될 때 모든 리소스의 종속성이 만들어진 후에야 리소스가 만들어지지 않습니다.  예를 들어 솔루션이 [작업 리소스](operations-management-suite-solutions-resources-automation.md#automation-jobs)를 사용하여 설치될 경우 솔루션에서 [Runbook을 시작](operations-management-suite-solutions-resources-automation.md#runbooks)할 수 있습니다.  작업이 만들어지기 전에 runbook이 만들어지도록 작업 리소스는 runbook 리소스에 종속됩니다.
+**dependsOn** 요소는 다른 리소스에 대한 [종속성](../azure-resource-manager/resource-group-define-dependencies.md)을 지정합니다.  솔루션이 설치될 때 모든 리소스의 종속성이 만들어진 후에야 리소스가 만들어지지 않습니다.  예를 들어 솔루션이 [작업 리소스](operations-management-suite-solutions-resources-automation.md#automation-jobs)를 사용하여 설치될 경우 솔루션에서 [Runbook을 시작](operations-management-suite-solutions-resources-automation.md#runbooks)할 수 있습니다.  작업이 만들어지기 전에 runbook이 만들어지도록 작업 리소스는 runbook 리소스에 종속됩니다.
 
 ### <a name="oms-workspace-and-automation-account"></a>OMS 작업 영역 및 Automation 계정
 관리 솔루션은 뷰를 포함하는 [OMS 작업 영역](../log-analytics/log-analytics-manage-access.md)과 Runbook 및 관련 리소스를 포함하는 [Automation 계정](../automation/automation-security-overview.md#automation-account-overview)이 필요합니다.  이러한 항목은 솔루션의 리소스가 만들어지기 전에 제공되어야 하며 솔루션 자체에 정의될 수 없습니다.  사용자는 솔루션을 배포할 때 [작업 영역과 계정을 지정](operations-management-suite-solutions.md#oms-workspace-and-automation-account)하지만, 작성자는 다음 사항을 고려해야 합니다.
@@ -228,7 +228,7 @@ OMS의 관리 솔루션에는 특정 관리 시나리오를 지원하는 여러 
 
 
 ### <a name="dependencies"></a>종속성
-솔루션이 만들어지기 전에 솔루션 리소스가 있어야 하므로 솔루션 리소스는 솔루션의 모든 다른 리소스에 대해 [종속성](../resource-group-define-dependencies.md)을 가져야 합니다.  **dependsOn** 요소에서 각 리소스의 항목을 추가하면 됩니다.
+솔루션이 만들어지기 전에 솔루션 리소스가 있어야 하므로 솔루션 리소스는 솔루션의 모든 다른 리소스에 대해 [종속성](../azure-resource-manager/resource-group-define-dependencies.md)을 가져야 합니다.  **dependsOn** 요소에서 각 리소스의 항목을 추가하면 됩니다.
 
 ### <a name="properties"></a>속성
 솔루션 리소스는 테이블의 속성을 가집니다.  여기에는 솔루션 설치 후 리소스 관리 방식을 정의하는 솔루션에서 참조 및 포함하는 리소스가 포함됩니다.  솔루션의 각 리소스는 **referencedResources** 또는 **containedResources** 속성에 나열되어야 합니다.
@@ -258,16 +258,16 @@ OMS의 관리 솔루션에는 특정 관리 시나리오를 지원하는 여러 
 * [Automation 리소스](operations-management-suite-solutions-resources-automation.md)
 
 ## <a name="testing-a-management-solution"></a>관리 솔루션 테스트
-관리 솔루션을 배포하기 전에 [Test-AzureRmResourceGroupDeployment](../resource-group-template-deploy.md#deploy-with-powershell)를 사용하여 테스트하는 것이 좋습니다.  솔루션을 배포하기 전에 솔루션 파일의 유효성을 검사하고 문제를 식별할 수 있습니다.
+관리 솔루션을 배포하기 전에 [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy)를 사용하여 테스트하는 것이 좋습니다.  솔루션을 배포하기 전에 솔루션 파일의 유효성을 검사하고 문제를 식별할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
+* [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
 * [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates)에서 다양한 Resource Manager 템플릿 샘플을 검색합니다.
 * [관리 솔루션에 보기를 추가](operations-management-suite-solutions-resources-views.md)하는 방법을 자세히 살펴봅니다.
 * [관리 솔루션에 Automation 리소스를 추가](operations-management-suite-solutions-resources-automation.md)하는 방법을 자세히 살펴봅니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

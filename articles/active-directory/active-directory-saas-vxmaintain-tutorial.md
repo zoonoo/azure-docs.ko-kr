@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9937ede727d50cf4bc72ef65c513de9ba0a6a513
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e2d2f6edc8e17ee4e3eff852e6a2608dac7e16a7
 
 
 ---
@@ -174,7 +174,7 @@ vxMaintain에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-an-vxmaintain-test-user"></a>vxMaintain 테스트 사용자 만들기
 이 섹션에서는 vxMaintain에서 Britta Simon이라는 사용자를 만듭니다. Verisae의 고객 담당자에 문의하세요. vxMaintain 플랫폼에서 사용자를 추가하도록 도와줄 것입니다.
@@ -229,6 +229,6 @@ vxMaintain에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

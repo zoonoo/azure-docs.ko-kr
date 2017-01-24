@@ -5,25 +5,25 @@ services: active-directory
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5c387c5355957fea0ccffe58e707fae3d2e77c34
+ms.sourcegitcommit: b621a1716b731c99f9ad54d2e29006fb7bddadbb
+ms.openlocfilehash: 8fb880a03548540059ad896925adb57577d1aed2
 
 
 ---
 # <a name="automatic-device-registration-with-azure-active-directory-for-windows-domain-joined-devices"></a>Windows 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록
 IT 관리자는 도메인 가입 Windows 장치를 Azure AD(Azure Active Directory)에 자동으로 등록하도록 선택할 수 있습니다. 이 기능은 AD FS에서 온-프레미스로 관리하는 Office365 응용 프로그램에 대한 장치 기반 조건부 액세스 정책을 구성한 경우에 유용할 수 있습니다. [Azure Active Directory 장치 등록 개요](active-directory-conditional-access-device-registration-overview.md)를 읽으면 장치 등록 시나리오에 대해 자세히 알아볼 수 있습니다.
 
-> AZURE.NOTE 장치 자동 등록을 설정하는 방법에 대한 최신 지침은 [Azure Active Directory를 사용하여 Windows 도메인 가입 장치의 자동 등록을 설정하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
+> [!NOTE]
+>  장치 자동 등록을 설정하는 방법에 대한 최신 지침은 [Azure Active Directory를 사용하여 Windows 도메인 가입 장치의 자동 등록을 설정하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
 > 
 > 
 
@@ -31,7 +31,6 @@ Azure Active Directory 자동 장치 등록은 Active Directory 도메인에 가
 
 도메인 가입 Windows 장치를 Azure AD에 등록하는 작업을 시작하려면 아래 필수 조건을 따르세요. 필수 조건을 완료한 후 도메인 가입 Windows 장치에 대해 자동 장치 등록을 구성합니다.
 
-## <a name="prerequisites-for-automatic-device-registration-of-domain-joined-windows-devices-with-azure-active-directory"></a>Windows 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록을 위한 필수 조건
 ## <a name="deploy-ad-fs-and-connect-to-azure-active-directory-using-azure-active-directory-connect"></a>Azure Active Directory Connect를 사용하여 AD FS 배포 및 Azure Active Directory에 연결
 1. Azure Active Directory Connect를 사용하여 Windows Server 2012 R2와 함께 AD FS(Active Directory Federation Services)를 배포하고 Azure Active Directory와의 페더레이션 관계를 설정합니다.
 2. Azure Active Directory 신뢰 당사자 트러스트 클레임 규칙을 추가로 구성합니다.
@@ -100,6 +99,6 @@ Azure AD 장치 등록은 가장 광범위한 장치 기능을 제공합니다. 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

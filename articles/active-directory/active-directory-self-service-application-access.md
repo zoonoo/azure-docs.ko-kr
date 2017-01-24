@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory를 사용하는 셀프 서비스 응용 프로그램 액세스 및 위임된 관리 | Microsoft Docs
-description: 이 문서는 Azure Active Directory를 사용하는 셀프 서비스 응용 프로그램 액세스 및 위임된 관리를 사용하는 방법을 설명합니다.
+title: "Azure Active Directory를 사용하는 셀프 서비스 응용 프로그램 액세스 및 위임된 관리 | Microsoft Docs"
+description: "이 문서는 Azure Active Directory를 사용하는 셀프 서비스 응용 프로그램 액세스 및 위임된 관리를 사용하는 방법을 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 448a7fe8-a162-475e-9ba2-2e3ab59302bc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 57093159c0b9c63b6e2dc0971e3aea645a33aa55
+
 
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Azure Active Directory를 사용하는 셀프 서비스 응용 프로그램 액세스 및 위임된 관리
@@ -21,7 +25,7 @@ ms.author: asmalser
 
 셀프 서비스 응용 프로그램 액세스는 디렉터리 관리자가 다음을 수행할 수 있도록 하는 [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/)의 기능입니다.
 
-* [Azure AD 액세스 패널](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
+*  [Azure AD 액세스 패널](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 * 액세스를 요청할 수 있는 응용 프로그램 사용자 설정
 * 사용자가 응용 프로그램에 대한 액세스를 자체 할당할 수 있도록 승인이 필요한지 여부 설정
 * 각 응용 프로그램에 대한 요청을 승인하고 액세스를 관리해야 하는 사용자 설정
@@ -83,7 +87,7 @@ ms.author: asmalser
 ### <a name="manage-users"></a>사용자 관리
 **사용자 관리** 타일을 사용하면 승인자가 직접 응용 프로그램에 액세스할 수 있는 사용자를 업데이트하거나 제거할 수 있습니다. 
 
-### <a name="configure-password-sso-credentials-(if-applicable)"></a>암호 SSO 자격 증명 구성(적용 가능한 경우)
+### <a name="configure-password-sso-credentials-if-applicable"></a>암호 SSO 자격 증명 구성(적용 가능한 경우)
 **구성** 타일은 응용 프로그램이 암호 기반 Single Sign-On을 사용하는 IT 관리자에 의해 구성되는 경우에만 표시되고 관리자는 앞에서 설명한 대로 암호 SSO 자격 증명을 설정하는 기능을 승인자에게 부여합니다. 선택하면 자격 증명이 사용자를 할당하도록 전파하는 방법에 대한 몇 가지 옵션을 통해 승인자를 표시합니다.
 
 ![][3]
@@ -102,6 +106,6 @@ ms.author: asmalser
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

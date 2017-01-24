@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: chmatsk;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f839784aaef511c60ec1c3eea0b64bfdd5f67a4f
+ms.sourcegitcommit: 10c7051c9b1218081d95cb10403006bfd95126ba
+ms.openlocfilehash: 2ac1c2cce7a9e045990894b0bbaa045df3d48954
 
 
 ---
 # <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Visual Studio Code에서 Azure Resource Manager 템플릿으로 작업
-Azure Resource Manager 템플릿은 리소스 및 관련 종속성을 설명하는 JSON 파일입니다. 이러한 파일 크거나 복잡할 수 있으므로 도구 지원이 중요합니다. Visual Studio Code는 새롭고 간단한 오픈 소스 크로스 플랫폼 코드 편집기입니다. [새 확장](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)을 통해 Resource Manager 템플릿을 만들고 편집하도록 지원합니다. VS Code는 어디서나 실행할 수 있고 Resource Manager 템플릿을 배포하려는 경우가 아니면 인터넷 액세스가 필요하지 않습니다.
+Azure Resource Manager 템플릿은 리소스 및 관련 종속성을 설명하는 JSON 파일입니다. 이러한 파일 크거나 복잡할 수 있으므로 도구 지원이 중요합니다. Visual Studio Code는 새롭고 간단한 오픈 소스 크로스 플랫폼 코드 편집기입니다. [새 확장](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)을 통해 Resource Manager 템플릿을 만들고 편집하도록 지원합니다. VS Code는 어디서나 실행할 수 있으며 Azure 구독에 Resource Manager 템플릿을 배포하려는 경우에만 인터넷 액세스가 필요합니다.
 
 VS Code가 아직 설치되지 않은 경우 [https://code.visualstudio.com/](https://code.visualstudio.com/)에서 설치할 수 있습니다.
 
@@ -42,7 +42,7 @@ VS Code에서 JSON 템플릿을 사용하려면 확장을 설치해야 합니다
 
 1. [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) 리포지토리에서 파일의 내용을 클립보드에 복사합니다.
 2. VS Code 시작 
-3. VS 코드에서 **파일** -> **기본 설정** -> **사용자 코드 조각** -> **JSON**을 탐색하거나 **기본 설정: 코드 조각**을 선택하기 위해 **F1**을 선택하고 **기본 설정**을 입력하여 JSON 코드 조각 파일을 열 수 있습니다.
+3. VS Code에서는 **파일** -> **기본 설정** -> **사용자 코드 조각** -> **JSON**으로 이동하여 JSON 코드 조각 파일을 열 수 있습니다. 또는 **기본 설정: 코드 조각**을 선택하기 위해 **F1**을 선택하고 **기본 설정**을 입력합니다.
    
     ![기본 설정 코드 조각](./media/resource-manager-vs-code/preferences-snippets.png)
    
@@ -61,19 +61,19 @@ VS Code에서 JSON 템플릿을 사용하려면 확장을 설치해야 합니다
 1. 리소스 그룹에서 템플릿을 내보낸 경우 VS Code에서 추출된 파일을 엽니다.
    
     ![파일 표시](./media/resource-manager-vs-code/show-files.png)
-2. 몇 가지 추가 리소스를 편집하고 추가할 수 있도록 template.json 파일을 엽니다. **"resources": [** 다음에 enter 키를 눌러서 새 줄을 시작합니다. **arm**을 입력하는 경우 옵션 목록이 제공됩니다. 이러한 옵션은 설치한 템플릿 코드 조각입니다. 다음과 같이 표시되어야 합니다. 
+2. 몇 가지 추가 리소스를 편집하고 추가할 수 있도록 template.json 파일을 엽니다. `"resources": [` 다음에 enter 키를 눌러서 새 줄을 시작합니다. **arm**을 입력하는 경우 옵션 목록이 제공됩니다. 이러한 옵션은 설치한 템플릿 코드 조각입니다. 
    
     ![코드 조각 표시](./media/resource-manager-vs-code/type-snippets.png)
-3. 원하는 코드 조각을 선택합니다. 이 문서의 경우 **arm-ip** 를 선택하여 새 공용 IP 주소를 만듭니다. 새로 만든 리소스의 닫는 괄호("}") 다음에 쉼표를 추가하여 템플릿 구문이 유효하도록 합니다.
+3. 원하는 코드 조각을 선택합니다. 이 문서의 경우 **arm-ip** 를 선택하여 새 공용 IP 주소를 만듭니다. 새로 만든 리소스의 닫는 괄호 `}` 다음에 쉼표를 추가하여 템플릿 구문이 유효하도록 합니다.
    
      ![쉼표 추가](./media/resource-manager-vs-code/add-comma.png)
-4. VS Code에는 기본 제공 IntelliSense가 있습니다. 템플릿을 편집할 때 VS Code에서는 사용할 수 있는 값을 제안합니다. 예를 들어 변수 섹션을 템플릿에 추가하려면 **""**(두 개의 큰따옴표)를 추가하고 따옴표 사이에 **Ctrl+스페이스바**를 선택합니다. **변수**를 비롯한 옵션이 나타납니다.
+4. VS Code에는 기본 제공 IntelliSense가 있습니다. 템플릿을 편집할 때 VS Code에서는 사용할 수 있는 값을 제안합니다. 예를 들어 변수 섹션을 템플릿에 추가하려면 `""`(두 개의 큰따옴표)를 추가하고 따옴표 사이에 **Ctrl+스페이스바**를 선택합니다. **변수**를 비롯한 옵션이 나타납니다.
    
     ![변수 추가](./media/resource-manager-vs-code/add-variables.png)
-5. IntelliSense에서는 사용 가능한 값 또는 함수를 제안할 수도 있습니다. 매개 변수 값을 속성으로 설정하려면 **"[]"** 및 **Ctrl+스페이스바**를 사용하여 식을 만듭니다. 함수 이름을 입력하기 시작할 수 있습니다. 원하는 함수를 발견하면 **탭** 을 선택합니다.
+5. IntelliSense에서는 사용 가능한 값 또는 함수를 제안할 수도 있습니다. 매개 변수 값을 속성으로 설정하려면 `"[]"` 및 **Ctrl+스페이스바**를 사용하여 식을 만듭니다. 함수 이름을 입력하기 시작할 수 있습니다. 원하는 함수를 발견하면 **탭** 을 선택합니다.
    
     ![매개 변수 추가](./media/resource-manager-vs-code/select-parameters.png)
-6. 함수 내에서 **Ctrl+스페이스바** 를 다시 선택하여 템플릿 내에서 사용할 수 있는 매개 변수 목록을 참조합니다.
+6. 템플릿 내에서 사용할 수 있는 매개 변수 목록을 확인하려면 함수 내에서 **Ctrl+스페이스바**를 다시 선택합니다.
    
     ![매개 변수 추가](./media/resource-manager-vs-code/select-avail-parameters.png)
 7. 템플릿에 스키마 유효성 검사 문제가 있는 경우 편집기에 친숙한 물결선이 표시됩니다. **Ctrl+Shift+M** 을 입력하거나 왼쪽 아래 상태 표시줄에서 문자를 선택하여 오류 및 경고 목록을 볼 수 있습니다.
@@ -85,35 +85,51 @@ VS Code에서 JSON 템플릿을 사용하려면 확장을 설치해야 합니다
     ![오류 메시지](./media/resource-manager-vs-code/unrecognized-function.png)
 
 ## <a name="deploy-your-new-resources"></a>새 리소스 배포
-템플릿이 준비되면 다음 지침을 따라 새 리소스를 배포할 수 있습니다. 
+템플릿이 준비되면 다음 지침에 따라 새 리소스를 배포할 수 있습니다. 
 
 ### <a name="windows"></a>Windows
 1. PowerShell 명령 프롬프트 열기 
 2. 로그인하려면 다음을 입력합니다. 
    
-        Login-AzureRmAccount 
+  ```powershell
+  Login-AzureRmAccount
+  ```
+
 3. 구독이 여러 개인 경우 사용할 구독 목록을 가져옵니다.
-   
-        Get-AzureRmSubscription
+
+  ```powershell 
+  Get-AzureRmSubscription
+  ```
    
     그리고 사용할 구독을 선택합니다.
-   
-        Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+  ```
+
 4. parameters.json 파일에서 매개 변수 업데이트
 5. Azure에서 템플릿을 배포하려면 Deploy.ps1 실행
 
 ### <a name="osxlinux"></a>OSX/Linux
 1. 터미널 창 열기 
 2. 로그인하려면 다음을 입력합니다.
-   
-        azure login 
+
+  ```azurecli
+  azure login
+  ```
+
 3. 구독이 여러 개인 경우 사용할 올바른 구독을 선택합니다.
-   
-        azure account set <subscriptionNameOrId> 
+
+  ```azurecli
+  azure account set <subscriptionNameOrId> 
+  ```
+
 4. parameters.json 파일에서 매개 변수를 업데이트합니다.
 5. 템플릿을 배포하려면 다음을 실행합니다.
-   
-        azure group deployment create -f <PathToTemplate> 
+
+  ```azurecli 
+  azure group deployment create -f <PathToTemplate>
+  ``` 
 
 ## <a name="next-steps"></a>다음 단계
 * 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
@@ -123,6 +139,6 @@ VS Code에서 JSON 템플릿을 사용하려면 확장을 설치해야 합니다
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

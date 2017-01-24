@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/20/2016
-ms.author: brendalee
+ms.author: brendal
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 77bc39ea6bcb2114df92f964ff2e2f106d1ef776
+ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
+ms.openlocfilehash: 1b325a849cc3d7f97a1b2b3f4612e2cbc72ad06b
 
 
 ---
@@ -249,12 +249,12 @@ Azure 빠른 시작 템플릿 GitHub 리포지토리로 이동하고 아래 솔�
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[다른 azure.microsoft.com 설명서 항목에 대한 링크 1]: virtual-machines/virtual-machines-windows-hero-tutorial.md
-[다른 azure.microsoft.com 설명서 항목에 대한 링크 2]: app-service-web/web-sites-custom-domain-name.md
-[다른 azure.microsoft.com 설명서 항목에 대한 링크 3]: storage-whatis-account.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 843f0862f9e4d8dc1d40e110710e48ad66716168
-ms.openlocfilehash: d714907184ccdde8d912ff8cf4240b8c6d2c45e5
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: afb6662e1b4af6cf66fd3c8e7b155b5b6bea85ff
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: d714907184ccdde8d912ff8cf4240b8c6d2c45e5
 > Azure 자동화의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 자동화 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure 자동화에 저장됩니다. 이 키는 마스터 인증서로 암호화되어 Azure 자동화에 저장됩니다. 자동화 계정에 대한 키는 보안 자산을 저장하기 전에 마스터 인증서를 사용하여 암호가 해독된 후 자산을 암호화하는 데 사용됩니다.  
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell cmdlet
-다음 표의 cmdlet은 Windows PowerShell을 사용하여 자동화 자격 증명 자산을 만들고 관리하는 데 사용됩니다.  자동화 runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](../powershell-install-configure.md) 의 일부로 전송됩니다.
+다음 표의 cmdlet은 Windows PowerShell을 사용하여 자동화 자격 증명 자산을 만들고 관리하는 데 사용됩니다.  자동화 runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](/powershell/azureps-cmdlets-docs) 의 일부로 전송됩니다.
 
 | Cmdlet | 설명 |
 |:--- |:--- |
@@ -104,6 +104,6 @@ Azure 자동화에서 DSC 구성은 **Get-AutomationPSCredential**을 사용하�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

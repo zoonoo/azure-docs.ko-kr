@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/09/2017
 ms.author: onewth
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -209,8 +209,7 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
         "Errors":[]
     }
 
----
-
+- - -
 ### <a name="getlanguagebatch"></a>GetLanguageBatch
 
 아래의 POST 호출에서는 두 텍스트 입력에 대한 언어 검색을 요청하고 있습니다.
@@ -249,14 +248,14 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
        }],
        "Errors": []
     }
----
 
+- - -
 ## <a name="topic-detection-apis"></a>토픽 검색 API
 새로 발표된 API이며 제출된 텍스트 레코드 목록에 대해 검색된 상위 토픽을 반환합니다. 토픽은 핵심 문구로 식별되며 하나 이상의 관련 단어를 가질 수 있습니다. 이 API는 제출된 텍스트 레코드당 하나의 트랜잭션을 사용합니다.
 
 이 API는 제출되는 텍스트 레코드 수가 100개 이상 필요하지만 수백 개에서 수천 개의 레코드에서 토픽을 검색할 수 있습니다.
 
-### <a name="topics-submit-job"></a>토픽 - 작업 제출
+### <a name="topics--submit-job"></a>토픽 - 작업 제출
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection
@@ -287,7 +286,7 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
 
 토픽으로 반환할 수 없는 한 단어 또는 여러 단어 문구의 목록입니다. 매우 일반적인 토픽을 필터링하는 데 사용할 수 있습니다. 예를 들어 호텔 리뷰에 대한 데이터 집합에서 "호텔" 및 "호스텔"은 합리적인 중지 문구가 될 수 있습니다.  
 
-### <a name="topics-poll-for-job-results"></a>토픽 - 작업 결과에 대한 설문 조사
+### <a name="topics--poll-for-job-results"></a>토픽 - 작업 결과에 대한 설문 조사
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult

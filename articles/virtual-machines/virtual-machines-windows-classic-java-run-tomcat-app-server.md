@@ -13,18 +13,17 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e6fd09bb3a750d8d537abb12a386f46be0c60794
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 75388bba3084099fcea8d9ec1f3a2c1e909e914f
 
 
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 가상 컴퓨터에서 Java 응용 프로그램 서버를 실행하는 방법
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Java 8 및 Tomcat에서 웹앱을 배포하는 Resource Manager 템플릿은 [여기](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/)를 참조하세요.
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Java 8 및 Tomcat에서 웹앱을 배포하는 Resource Manager 템플릿은 [여기](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/)를 참조하세요.
 
 Azure에서 가상 컴퓨터를 사용하여 서버 기능을 제공할 수 있습니다. 한 예로, Java 응용 프로그램 서버(예: Apache Tomcat)를 호스트하도록 Azure에서 실행되는 가상 컴퓨터를 구성할 수 있습니다. 이 가이드를 완료하고 나면 Azure에서 실행되는 가상 컴퓨터를 만들고 Java 응용 프로그램 서버에서 실행하도록 구성하는 방법을 이해할 수 있게 됩니다.
 
@@ -60,7 +59,7 @@ Azure에서 가상 컴퓨터를 사용하여 서버 기능을 제공할 수 있�
    3. 지역, 선호도 그룹 또는 가상 네트워크를 지정합니다. 이 자습서에서는 지역(예: **미국 서부**)을 지정합니다.
    4. **저장소 계정** 상자에서 **자동으로 생성된 저장소 계정 사용**을 선택합니다.
    5. **가용성 집합**에서 **(없음)**을 선택합니다.
-   6. **Next**를 클릭합니다.
+   6. **다음**을 클릭합니다.
 7. 마지막 **가상 컴퓨터 구성** 대화 상자에서 다음을 수행합니다.
    1. 기본 끝점 항목을 그대로 사용합니다.
    2. **완료**를 클릭합니다.
@@ -156,6 +155,6 @@ Java 응용 프로그램에 포함할 수 있는 다른 서비스(예: Azure 저
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 458140eb9491950a8cbd04a2702da5d7ac637129
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 9d6132e1a01be489b8e8e28a0219cf8a0b50b318
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 458140eb9491950a8cbd04a2702da5d7ac637129
 이 부록 설명서는 [Mobile Engagement REST API를 사용한 인증](mobile-engagement-api-authentication.md)을 설명합니다. 먼저 읽고 상황을 파악하도록 합니다. Azure 포털을 사용하여 Mobile Engagement REST API에 대한 인증을 설정하기 위해 일회성 설치 프로세스를 수행하는 대체 방법을 설명합니다. 
 
 > [!NOTE]
-> 아래 지침은 [Active Directory 가이드](../resource-group-create-service-principal-portal.md) 를 기반으로 하며 Mobile Engagement API에 대한 인증을 위해 필요한 항목을 사용자 지정합니다. 따라서 아래 단계를 자세히 이해하려면 참조합니다. 
+> 아래 지침은 [Active Directory 가이드](../azure-resource-manager/resource-group-create-service-principal-portal.md) 를 기반으로 하며 Mobile Engagement API에 대한 인증을 위해 필요한 항목을 사용자 지정합니다. 따라서 아래 단계를 자세히 이해하려면 참조합니다. 
 > 
 > 
 
@@ -46,7 +46,7 @@ ms.openlocfilehash: 458140eb9491950a8cbd04a2702da5d7ac637129
 5. **추가**를 클릭합니다. 
    
      ![응용 프로그램 추가][4]
-6.  **내 조직에서 개발 중인 응용 프로그램 추가**
+6. **내 조직에서 개발 중인 응용 프로그램 추가**
    
      ![새 응용 프로그램][5]
 7. 응용 프로그램의 이름을 입력하고 응용 프로그램의 유형을 **웹 응용 프로그램 및/또는 웹 API** 로 선택하고 다음 단추를 클릭합니다.
@@ -94,10 +94,10 @@ ms.openlocfilehash: 458140eb9491950a8cbd04a2702da5d7ac637129
 20. 설정 블레이드에서 **사용자**를 클릭하고 **추가**를 클릭하여 사용자를 추가합니다. 
     
     ![][17]
-21.  **역할 선택**
+21. **역할 선택**
     
     ![][18]
-22.  **소유자**
+22. **소유자**
     
     ![][19]
 23. 검색 상자에서 응용 프로그램 **AD\_APP\_NAME**의 이름을 검색합니다. 여기에 기본적으로 표시되지 않습니다. 찾게 되면 선택하고 블레이드 맨 아래에서 **선택** 을 클릭합니다. 
@@ -137,6 +137,6 @@ ms.openlocfilehash: 458140eb9491950a8cbd04a2702da5d7ac637129
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

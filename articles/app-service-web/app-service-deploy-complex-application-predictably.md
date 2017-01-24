@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cb840bf9432fb03bb35db3fa082abde1f035d5eb
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 37a10d284afa6b9ee2aa65e7ec015c3c364f551d
 
 
 ---
@@ -41,12 +41,12 @@ ms.openlocfilehash: cb840bf9432fb03bb35db3fa082abde1f035d5eb
 ### <a name="azure-resource-manager-templates-json"></a>Azure 리소스 관리자 템플릿(JSON)
 예를 들어, Azure 앱 서비스에서 웹 앱을 만들 때마다 Azure 리소스 관리자는 구성 요소 리소스와 함께 전체 리소스 그룹을 만들기 위해 JSON 템플릿을 사용합니다. [확장 가능한 WordPress](/marketplace/partners/wordpress/scalablewordpress/) 앱과 같이 [Azure Marketplace](/marketplace)에서 복잡한 템플릿은 MySQL 데이터베이스, 저장소 계정, App Service 계획, 웹 앱 자체, 경고 규칙, 앱 설정, 자동 크기 조정 설정 및 기타를 포함할 수 있으며 PowerShell을 통해 이러한 모든 템플릿을 사용할 수 있습니다. 이러한 템플릿을 다운로드하고 사용는하 방법에 대한 정보는 [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하십시오..
 
-Azure 리소스 관리자 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)
+Azure 리소스 관리자 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Visual Studio용 Azure SDK 2.6
 최신 SDK는 JSON 편집기에서 리소스 관리자 템플릿 지원에 향상된 기능을 포함합니다. 이것을 사용하여 신속하게 리소스 그룹 템플릿을 처음부터 만들고, 수정을 위한 기존 JSON 템플릿(예: 다운로드한 갤러리 템플릿)을 열고, 매개 변수 파일을 채우고, Azure 리소스 그룹 솔루션에서 직접 리소스 그룹을 배포할 수 있습니다.
 
-자세한 내용은 [Visual Studio용 Azure SDK 2.6](/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/)을 참조하세요.
+자세한 내용은 [Visual Studio용 Azure SDK 2.6](https://azure.microsoft.com/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/)을 참조하세요.
 
 ### <a name="azure-powershell-080-or-later"></a>Azure PowerShell 0.8.0 또는 이후
 Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리소스 관리자 모듈을 포함합니다. 이 새 모듈을 사용하면 리소스 그룹의 배포를 스크립트할 수 있습니다.
@@ -57,7 +57,7 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
 이 [미리 보기 도구](https://resources.azure.com)를 사용하면 구독 및 개별 리소스에서 모든 리소스 그룹의 JSON 정의를 탐색할 수 있습니다. 도구에서 리소스의 JSON 정의를 편집하고 리소스의 전체 계층을 삭제하며 새 리소스를 만들 수 있습니다.  이 도구에서 현재 사용 가능한 정보는 리소스, 올바른 값 등 특정 형식에 대해 설정해야 하는 속성을 보여주기 때문에 템플릿 작성에 매우 유용합니다. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹을 만들 수도 있고, 그런 다음 리소스 그룹을 템플릿화할 수 있도록 탐색기 도구에서 JSON 정의를 검사합니다.
 
 ### <a name="deploy-to-azure-button"></a>Azure 단추에 배포
-소스 제어용 GitHub를 사용하는 경우 [Azure 단추에 배포](/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) 를 README.MD에 배치하여 턴키 배포 UI를 Azure에 사용합니다. 간단한 웹 앱에 이렇게 하는 동안 azuredeploy.json 파일을 리포지토리 루트에 배치하여 전체 리소스 그룹을 배포하도록 이를 확장할 수 있습니다. 리소스 그룹을 만들려면 Azure 단추에 배포하 여 리소스 그룹 템플릿을 포함하는 이 JSON 파일을 사용합니다. 예를 들어 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 샘플을 참조하여 이 자습서에서 사용합니다.
+소스 제어용 GitHub를 사용하는 경우 [Azure 단추에 배포](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) 를 README.MD에 배치하여 턴키 배포 UI를 Azure에 사용합니다. 간단한 웹 앱에 이렇게 하는 동안 azuredeploy.json 파일을 리포지토리 루트에 배치하여 전체 리소스 그룹을 배포하도록 이를 확장할 수 있습니다. 리소스 그룹을 만들려면 Azure 단추에 배포하 여 리소스 그룹 템플릿을 포함하는 이 JSON 파일을 사용합니다. 예를 들어 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 샘플을 참조하여 이 자습서에서 사용합니다.
 
 ## <a name="get-the-sample-resource-group-template"></a>샘플 리소스 그룹 템플릿 가져오기
 이제 바로 살펴보겠습니다.
@@ -129,7 +129,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 * 데이터베이스 및 방화벽 규칙이 정의된 `“resources”: […]` 내부의 중첩된 리소스가 루트 수준의 SQLServer 리소스의 리소스 ID를 지정 하는 `dependsOn` 요소입니다. 이는 Azure 리소스 관리자에게 다음과 같은 사실을 알려줍니다. "이 리소스를 만들기 전에 다른 리소스가 이미 존재해야 합니다. 그 다른 리소스가 템플릿에 정의된 경우 그 하나를 먼저 만듭니다".
   
   > [!NOTE]
-  > `resourceId()` 함수를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿 함수](../resource-group-template-functions.md)를 참조하세요.
+  > `resourceId()` 함수를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿 함수](../azure-resource-manager/resource-group-template-functions.md)를 참조하세요.
   > 
   > 
 * `dependsOn` 요소의 효과로 Azure 리소스 관리자가 어떤 리소스를 동시에 만들 수 있고 어떤 리소스를 순차적으로 만들어야 하는지 알 수 있습니다. 
@@ -221,7 +221,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 11. `location` 및 `isEnabled` 속성을 찾아 아래와 같이 설정합니다. 다른 3 개의 경고(자주색 전구)에 대해 동일한 작업을 수행합니다.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
-12. 배포할 준비가 되었습니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **배포** > **배포**을 참조하십시오..
+12. 배포할 준비가 되었습니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **배포** > **New 배포ment**을 참조하십시오..
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. 아직 수행하지 않은 경우 Azure 계정에 로그인합니다.
@@ -265,16 +265,16 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 <a name="resources"></a>
 
 ## <a name="more-resources"></a>추가 리소스
-* [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)
-* [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
-* [Azure 리소스 관리자 템플릿 함수](../resource-group-template-functions.md)
-* [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](../resource-group-template-deploy.md)
-* [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
-* [Azure에서 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)
+* [Azure 리소스 관리자 템플릿 언어](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure 리소스 관리자 템플릿 함수](../azure-resource-manager/resource-group-template-functions.md)
+* [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](../azure-resource-manager/resource-group-template-deploy.md)
+* [Azure 리소스 관리자로 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Azure에서 리소스 그룹 배포 문제 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

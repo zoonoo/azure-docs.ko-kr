@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/19/2016
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae6d85a3b6efddff1bd1df7b9b022d91b8de634e
+ms.sourcegitcommit: 4e5568bfcc3d488ef07203b7d3ad95f44354cabc
+ms.openlocfilehash: f35a42154e5d14e798a787a3ecd100ab72512b96
 
 
 ---
@@ -24,6 +24,10 @@ ms.openlocfilehash: ae6d85a3b6efddff1bd1df7b9b022d91b8de634e
 서비스 패브릭에서 서비스는 일반적으로 여러 VM에 배포된 서비스 패브릭 클러스터의 임의 위치에서 실행됩니다. 서비스 소유자에 의해 한 위치에서 다른 위치로 이동하거나 서비스 패브릭에 의해 자동으로 이동할 수 있습니다. 서비스는 특정 컴퓨터 또는 주소에 정적으로 연결되지 않습니다.
 
 서비스 패브릭 응용 프로그램은 일반적으로 여러 가지 서비스로 구성되며, 각 서비스는 전문적인 작업을 수행합니다. 이러한 서비스는 웹 응용 프로그램의 다양한 부분을 렌더링하는 것과 같이 서로 통신하여 완전한 기능을 형성할 수 있습니다. 서비스에 연결되어 통신하는 클라이언트 응용 프로그램도 있습니다. 이 문서에서는 서비스 패브릭에서 서비스와 통신 및 서비스 간 통신을 설정하는 방법을 설명합니다.
+
+이 Microsoft Virtual Academy 비디오는 서비스 통신에 대해서도 설명합니다.<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=iYFCk76yC_6706218965">  
+<img src="./media/service-fabric-connect-and-communicate-with-services/CommunicationVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="bring-your-own-protocol"></a>사용자 고유의 프로토콜 가져오기
 서비스 패브릭을 통해 서비스의 수명 주기를 관리할 수 있지만 서비스가 무엇을 수행할지를 결정하지는 않습니다. 이는 통신을 포함합니다. 서비스 패브릭에서 서비스가 열리면 원하는 모든 프로토콜 또는 통신 스택을 사용하여 들어오는 요청에 대한 끝점을 설정할 수 있는 서비스 기회입니다. 서비스는 URI와 같은 모든 주소 지정 스키마를 사용하는 기본 **IP:포트** 주소에 대한 수신 대기 상태입니다. 여러 서비스 인스턴스 또는 복제본은 다른 포트를 사용해야 하는 경우나 Windows에서 http.sys 커널 드라이버와 같은 포트 공유 메커니즘을 사용하는 경우에 호스트 프로세스를 공유할 수 있습니다. 두 경우 모두, 호스트 프로세스의 각 서비스 인스턴스 또는 복제본에 고유한 주소 지정이 가능해야 합니다.
@@ -135,6 +139,6 @@ Reliable Services 프레임워크에서는 미리 작성된 여러 통신 옵션
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 93e806457de136d773de2c8121b91491c0cf3de1
-ms.openlocfilehash: f25daf68920c6fe54e739104233173b14bc27f84
+ms.sourcegitcommit: 8ecda7d59b3631b07e807ee018017c75b963dac5
+ms.openlocfilehash: 8eaca4e52363e577c015d9d183f200abedbf4d43
 
 
 ---
@@ -379,25 +379,19 @@ NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 
 ### <a name="dissociate-an-nsg-from-a-nic"></a>NIC에서 NSG 분리
 **NSG-FrontEnd** NSG를 **TestNICWeb1** NIC에서 분리하려면 다음 단계를 완료합니다.
 
-1. 다음 명령을 실행하여 기존 NSG를 검색하고 변수에 저장합니다.
-
-    ```powershell
-    $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
-    ```
-
-2. 다음 명령을 실행하여 기존 NIC를 검색하고 변수에 저장합니다.
+1. 다음 명령을 실행하여 기존 NIC를 검색하고 변수에 저장합니다.
 
     ```powershell
     $nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG -Name TestNICWeb1
     ```
 
-3. **NIC** 변수의 **NetworkSecurityGroup** 속성을 다음 명령을 실행하여 **$null** 변수의 값으로 설정합니다.
+2. **NIC** 변수의 **NetworkSecurityGroup** 속성을 다음 명령을 실행하여 **$null** 변수의 값으로 설정합니다.
 
     ```powershell
     $nic.NetworkSecurityGroup = $null
     ```
 
-4. NIC에 대한 변경 사항을 저장하려면 다음 명령을 실행합니다.
+3. NIC에 대한 변경 사항을 저장하려면 다음 명령을 실행합니다.
 
     ```powershell
     Set-AzureRmNetworkInterface -NetworkInterface $nic
@@ -523,6 +517,6 @@ NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

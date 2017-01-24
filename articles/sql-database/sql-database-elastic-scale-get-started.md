@@ -8,6 +8,7 @@ author: ddove
 editor: CarlRabeler
 ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a42f6ed3bce42cbd5841f241c2f735b87252cb3f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e54d6ac95446f10270d786af87342bbd1ac46504
 
 
 ---
@@ -88,10 +89,10 @@ ms.openlocfilehash: a42f6ed3bce42cbd5841f241c2f735b87252cb3f
 * 성능 측정을 위한: [분할된 맵 관리자에 대한 성능 카운터](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->
-[탄력적인 확장 샘플 응용 프로그램]: #The-Elastic-Scale-Sample-Application
+[The Elastic Scale Sample Application]: #The-Elastic-Scale-Sample-Application
 [Download and Run the Sample App]: #Download-and-Run-the-Sample-App
-[비용]: #Cost
-[다음 단계]: #next-steps
+[Cost]: #Cost
+[Next steps]: #next-steps
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-get-started/newProject.png
@@ -102,6 +103,6 @@ ms.openlocfilehash: a42f6ed3bce42cbd5841f241c2f735b87252cb3f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

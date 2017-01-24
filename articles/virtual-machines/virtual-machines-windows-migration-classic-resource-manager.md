@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 525e40a424afdf6ec7486bff249b11439a8cf740
+ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
+ms.openlocfilehash: 8eb70339785ca15131b5ce8debd6a232a8a693b9
 
 
 ---
@@ -189,7 +189,7 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 
 **가까운 미래에 마이그레이션할 계획이 없는 경우 내 VM은 어떻게 됩니까?**
 
-Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없으며 보다 편리한 마이그레이션을 위해 Resource Manager 배포 모델에서 사용할 수 있는 고급 기능을 고려하고 있습니다. Resource Manager의 IaaS로 구현된 [몇 가지 개선 사항](../resource-manager-deployment-model.md)을 살펴볼 것을 권장합니다.
+Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없으며 보다 편리한 마이그레이션을 위해 Resource Manager 배포 모델에서 사용할 수 있는 고급 기능을 고려하고 있습니다. Resource Manager의 IaaS로 구현된 [몇 가지 개선 사항](../azure-resource-manager/resource-manager-deployment-model.md)을 살펴볼 것을 권장합니다.
 
 **이 마이그레이션 계획으로 기존 도구는 어떻게 되나요?**
 
@@ -250,6 +250,6 @@ VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

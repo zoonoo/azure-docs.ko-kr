@@ -160,7 +160,8 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
    
             externalMediaBlobContainer.CreateIfNotExists();
    
-            // Upload files to the blob container.  
+            // Upload files to the block blob container. 
+            // Page blobs are not supported by Azure Media Services. 
             DirectoryInfo uploadDirectory = new DirectoryInfo(localPath);
             foreach (var file in uploadDirectory.EnumerateFiles())
             {

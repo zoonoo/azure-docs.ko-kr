@@ -11,20 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2016
+ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: d3478ef704c0029f69cca141bd3fa0b3ac54de15
+ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
+ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>웹 사이트의 가용성 및 응답성 모니터링
-웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터하도록 웹 테스트를 설정할 수 있습니다. [Visual Studio Application Insights](app-insights-overview.md) 는 전 세계에서 정기적으로 보내 응용 프로그램에 웹 요청을 보냅니다. 응용 프로그램이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.
+웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터하도록 웹 테스트를 설정할 수 있습니다. [Azure Application Insights](app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 응용 프로그램에 웹 요청을 보냅니다. 응용 프로그램이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.
 
 ![웹 테스트의 예](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-공용 인터넷에서 액세스 가능한 모든 HTTP 또는 HTTPS 끝점에 대해 웹 테스트를 설정할 수 있습니다.
+공용 인터넷에서 액세스 가능한 모든 HTTP 또는 HTTPS 끝점에 대해 웹 테스트를 설정할 수 있습니다. 테스트하는 웹 사이트에 아무것도 추가하지 않아도 됩니다. 자신의 사이트가 아니어도 됩니다. 종속되어 있는 REST API 서비스를 테스트할 수 있습니다.
 
 웹 테스트에는 두 가지 유형이 있습니다:
 
@@ -34,7 +34,7 @@ ms.openlocfilehash: d3478ef704c0029f69cca141bd3fa0b3ac54de15
 응용 프로그램 리소스당 최대 10개의 웹 테스트를 만들 수 있습니다.
 
 ## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. 테스트 보고서에 대한 리소스 만들기
-이 응용 프로그램에 대한 [Application Insights 리소스][시작을 이미 설정]했고 동일한 위치에서 가용성 보고서를 확인하려는 경우 이 단계를 건너뜁니다.
+이 응용 프로그램에 대한 [Application Insights 리소스를 이미 설정][start]했고 동일한 위치에서 가용성 보고서를 확인하려는 경우 이 단계를 건너뜁니다.
 
 [Microsoft Azure](http://azure.com)에 등록하고 [Azure 포털](https://portal.azure.com)로 이동한 후 Application Insights 리소스를 만듭니다.
 
@@ -58,7 +58,7 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 
     **HTTP 응답**: 성공으로 계산되어 반환된 상태 코드입니다. 200은 일반적인 웹 페이지의 반환을 나타내는 코드입니다.
 
-    "Welcome!"과 같은 **콘텐츠 일치** 문자열. 이 문자열이 모든 응답에 나타나는지 테스트합니다. 와일드카드 없는 일반 문자열이어야 합니다. 페이지 내용이 변경되면 업데이트해야 할 수 있습니다.
+    "Welcome!"과 같은 **콘텐츠 일치** 문자열. 정확한 대/소문자 구분 일치가 모든 응답에서 발생하는지 테스트합니다. 와일드카드 없는 일반 문자열이어야 합니다. 페이지 내용이 변경되면 업데이트해야 할 수 있습니다.
 * **경고** 는 기본적으로 5분 동안 세 곳에서 오류가 발생하는 경우 사용자에게 전송됩니다. 한 곳에서 발생한 오류는 사이트의 문제가 아니라 네트워크에 문제가 있을 가능성이 높습니다. 그러나 다소 민감하게 작동하도록 임계값을 변경할 수 있으며 메일이 보내지는 주소도 변경할 수 있습니다.
 
     경고가 발생하면 호출되는 [웹후크](../monitoring-and-diagnostics/insights-webhooks-alerts.md)를 설정할 수 있습니다. 그러나 현재 쿼리 매개 변수는 속성으로 전달되지 않습니다.
@@ -102,8 +102,20 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 
 *정상으로 보이지만 실패로 보고되었습니까?*  모든 이미지, 스크립트, 스타일 시트 및 페이지에 의해 로드된 다른 파일을 확인합니다. 그 중 하나라도 실패하면, 기본 html 페이지가 확인을 로드하는 경우에도 테스트는 실패로 보고됩니다.
 
-## <a name="multistep-web-tests"></a>다중 단계 웹 테스트
+### <a name="open-the-server-request-and-exceptions"></a>서버 요청 및 예외 열기
+
+특정 테스트의 세부 속성에서 요청 및 예외와 같은 기타 이벤트에 대한 서버 쪽 보고서를 열 수 있습니다.
+
+![웹 테스트 실행 결과](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
+
+관련 항목이 표시되지 않으면 [샘플링](app-insights-sampling.md)이 진행 중이기 때문일 수 있습니다.
+
+## <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
 URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 예를 들어 판매 웹 사이트를 모니터링하는 경우 장바구니에 항목을 제대로 추가할 수 있는지 테스트할 수 있습니다.
+
+> [!NOTE] 
+> 다단계 웹 테스트에 대한 요금이 청구됩니다. [가격 체계](http://azure.microsoft.com/pricing/details/application-insights/).
+> 
 
 다단계 테스트를 만들려면 Visual Studio를 사용하여 시나리오를 기록한 다음 Application Insights에 기록을 업로드합니다. Application Insights는 지정된 간격에 따라 시나리오를 재생하고 응답을 확인합니다.
 
@@ -153,7 +165,7 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
 웹 테스트를 .webtest 파일에 완전히 포함해야 합니다. 코딩된 함수는 테스트에 사용할 수 없습니다.
 
-### <a name="plugging-time-and-random-numbers-into-your-multistep-test"></a>다단계 테스트에 시간 및 난수 연결
+### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>다단계 테스트에 시간 및 난수 연결
 외부 피드에서 주식과 같이 시간에 따라 변하는 데이터를 가져오는 도구를 테스트한다고 가정합니다. 웹 테스트를 기록할 때 특정 시간을 사용해야 하지만 테스트 매개 변수로 StartTime 및 EndTime을 설정할 수 있습니다.
 
 ![매개 변수를 가진 웹 테스트입니다.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -176,7 +188,7 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
 이제 테스트를 포털에 업로드합니다. 테스트의 모든 실행에 동적 값을 사용합니다.
 
-## <a name="dealing-with-signin"></a>로그인 처리
+## <a name="dealing-with-sign-in"></a>로그인 처리
 사용자가 앱에 로그인하면 로그인 뒤에 페이지를 테스트할 수 있도록 로그인을 시뮬레이션하기 위한 여러 옵션이 있습니다. 앱에서 제공하는 보안의 형식에 따라 사용하는 방법이 달라집니다.
 
 모든 경우에 테스트하기 위해 응용 프로그램에 계정을 만들어야 합니다. 웹 테스트가 실제 사용자에 영향을 줄 가능성이 발생하지 않도록 가능하면 이 테스트 계정의 사용 권한을 제한합니다.
@@ -230,10 +242,10 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 * [PowerShell 스크립트를 사용하여 웹 테스트를 자동으로 설정](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) 합니다.
 * 경고가 발생하면 호출되는 [웹후크](../monitoring-and-diagnostics/insights-webhooks-alerts.md)를 설정합니다.
 
-## <a name="questions-problems"></a>질문이 있으십니까? 문제가 있습니까?
+## <a name="questions-problems"></a>질문? 문제가 있습니까?
 * *웹 테스트에서 코드를 호출할 수 있나요?*
 
-    아니요. 테스트 단계는 .webtest 파일에 포함되어야 합니다. 또한 다른 웹 테스트를 호출하거나 루프를 사용할 수 없습니다. 그러나 몇 가지 유용한 플러그 인이 있습니다.
+    안 됩니다. 테스트 단계는 .webtest 파일에 포함되어야 합니다. 또한 다른 웹 테스트를 호출하거나 루프를 사용할 수 없습니다. 그러나 몇 가지 유용한 플러그 인이 있습니다.
 * *HTTPS가 지원됩니까?*
 
     TLS 1.1 및 TLS 1.2를 지원합니다.
@@ -267,7 +279,7 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 >
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>다음 단계
-[진단 로그 검색][진단]
+[진단 로그 검색][diagnostic]
 
 [문제 해결][qna]
 
@@ -275,13 +287,13 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
 <!--Link references-->
 
-[azure 가용성]: ../insights-create-web-tests.md
+[azure-availability]: ../insights-create-web-tests.md
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
-[시작]: app-insights-overview.md
+[start]: app-insights-overview.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

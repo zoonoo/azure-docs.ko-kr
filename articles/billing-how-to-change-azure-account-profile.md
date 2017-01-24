@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/29/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1081ffe3aebbef101e83cf557877540b7d36bfd0
+ms.sourcegitcommit: d77d6ca5b5880be66e07cda28399640e1e57d598
+ms.openlocfilehash: 80d150f5a4ad1a79c529aa2ccfe7e441809a6d11
 
 
 ---
@@ -30,16 +30,16 @@ Azure에서 중요한 메일이 누락되었나요? 프로필에서 다른 연�
 
 > [!NOTE]
 > 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 하여 문제를 신속하게 해결하세요.
-> 
-> 
+>
+>
 
 ## <a name="important-information-about-your-profile-email-address"></a>프로필 메일 주소에 대한 중요 한 정보
 계정 관리자 프로필의 메일 주소는 Microsoft에서 구독에 대한 중요한 대금 청구 관련 업데이트를 알리는 데 사용됩니다. 정기적으로 확인하는 연락처 메일 주소를 지정하는 것이 좋습니다.
 
 ## <a name="how-to-change-your-profile-information"></a>프로필 정보를 변경하는 방법
-1. [Azure 계정 센터](https://account.windowsazure.com/) 에 계정 관리자로 로그인하여 **프로필**을 클릭합니다. 또는 https://account.windowsazure.com/Profile로 이동합니다.
+1. [Azure 계정 센터](https://account.windowsazure.com/) 에 계정 관리자로 로그인하여 **프로필**을 클릭합니다. 
 2. **세부 정보 편집** 단추를 클릭하고 **프로필** 정보를 업데이트합니다.
-   
+
    ![프로필](./media/billing-how-to-change-azure-account-profile/profile.png)
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
@@ -60,12 +60,11 @@ Azure에서 중요한 메일이 누락되었나요? 프로필에서 다른 연�
 
 > [!NOTE]
 > 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 하여 문제를 신속하게 해결하세요.
-> 
-> 
+>
+>
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

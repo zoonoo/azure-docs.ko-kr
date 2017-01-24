@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 01/05/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 32afda1861c2c558f8bb9ffedf897cd8d1df0b5c
+ms.sourcegitcommit: aec8fd057bd31fc933d19996567437b2a897623b
+ms.openlocfilehash: 889c9a53e3ce454ee9ac9fc0f24b2ff8244e87c6
 
 
 ---
@@ -54,7 +54,7 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
 이 섹션에서는 다음 단계를 수행하여 Azure 포털에서 새 Azure 자동화 계정을 만듭니다.  이 작업은 실행 및 클래식 실행 계정을 만드는 것입니다.  
 
 > [!NOTE]
-> 이 단계를 수행하는 사용자는 *반드시* 구독 관리자 역할의 멤버이자 사용자에 대한 구독에 액세스를 부여하는 구독의 공동 관리자여야 합니다.  사용자는 또한 해당 구독 기본 Active Directory에 사용자로서 추가되어야 합니다. 그러나 계정이 권한 있는 역할에 할당될 필요는 없습니다.
+> 이 단계를 수행하는 사용자는 서비스 관리자 역할의 멤버이거나 사용자의 구독에 대한 액세스 권한을 부여하는 구독의 공동 관리자여야 합니다. 사용자는 또한 해당 구독 기본 Active Directory에 사용자로서 추가되어야 합니다. 그러나 계정이 권한 있는 역할에 할당될 필요는 없습니다. 구독의 Active Directory 멤버가 아닌 사용자는 구독의 공동 관리자 역할에 추가되기 전에 Active Directory에 게스트로 추가되며,  **Automation 계정 추가** 블레이드에서 "만들 수 있는 권한이 없습니다..."라는 경고 메시지가 표시됩니다. 공동 관리자 역할에 처음 추가된 사용자는 구독 Active Directory에서 제거한 다음 다시 추가하여 Active Directory의 완전한 사용자로 만들 수 있습니다. 이 상황은 Azure Portal의 **Azure Active Directory** 창에서 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택하여 확인할 수 있습니다.  사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.  
 > 
 > 
 
@@ -63,7 +63,7 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
 3. 자동화 계정 블레이드에서 **추가**를 클릭합니다.<br>![자동화 계정 추가](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
    
    > [!NOTE]
-   > **Automation 계정 추가** 블레이드에 다음 경고가 표시되는 경우, 계정이 구독 관리자 역할의 구성원이자 구독의 공동 관리자가 아니기 때문입니다.<br>![자동화 계정 경고 추가](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
+   > 계정이 구독 관리자 역할의 멤버이자 구독의 공동 관리자가 아니기 때문에 **Automation 계정 추가** 블레이드에서 다음과 같은 경고 메시지가 표시됩니다.<br>![자동화 계정 경고 추가](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
    > 
    > 
 4. **자동화 계정 추가** 블레이드의 **이름** 상자에 새 자동화 계정에 대한 이름을 입력합니다.
@@ -394,6 +394,6 @@ Runbook으로 클래식 리소스를 관리하는 클래식 실행 계정을 사
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

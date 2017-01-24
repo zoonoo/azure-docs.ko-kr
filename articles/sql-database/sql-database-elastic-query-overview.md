@@ -7,6 +7,7 @@ manager: jhubbard
 author: torsteng
 ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,8 +15,8 @@ ms.topic: article
 ms.date: 04/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b86649db4afb6208212647c4858fe25ed2398170
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 06d1d0e4b72a50c093aaa1337b518a9f11ffbaa0
 
 
 ---
@@ -67,7 +68,7 @@ ms.openlocfilehash: b86649db4afb6208212647c4858fe25ed2398170
 > 
 
 ## <a name="elastic-database-query-topologies"></a>탄력적 데이터베이스 쿼리 토폴로지
-### <a name="topology-1-vertical-partitioning-cross-database-queries"></a>토폴로지 1: 수직 분할 – 데이터베이스 간 쿼리
+### <a name="topology-1-vertical-partitioning--cross-database-queries"></a>토폴로지 1: 수직 분할 – 데이터베이스 간 쿼리
 코딩을 시작하려면 [데이터베이스 간 쿼리 시작(수직 분할)](sql-database-elastic-query-getting-started-vertical.md)을 참조하세요.
 
 탄력적 쿼리를 사용하여 한 SQLDB 데이터베이스에 있는 데이터를 타 SQLDB 데이터베이스에서 사용할 수 있게 할 수 있습니다. 이렇게 하면 한 데이터베이스의 쿼리가 다른 원격 SQLDB 데이터베이스의 테이블을 참조할 수 있습니다. 우선 각각의 원격 데이터베이스에 대해 외부 데이터 원본을 정의합니다. 외부 데이터 원본은 원격 데이터베이스에 위치한 테이블에 대한 액세스를 부여하려는 로컬 데이터베이스에서 정의합니다. 원격 데이터베이스 변경은 필요하지 않습니다. 서로 다른 데이터베이스가 각기 다른 스키마를 갖는 일반 세로 분할 시나리오에서는 탄력적 쿼리를 사용하여 데이터 참조 액세스, 데이터베이스 간 쿼리 등의 일반적인 사용 사례를 구현할 수 있습니다.
@@ -84,7 +85,7 @@ ms.openlocfilehash: b86649db4afb6208212647c4858fe25ed2398170
 
 ![ 수직 분할 - 탄력적 쿼리를 사용하여 여러 데이터베이스 쿼리][4]
 
-### <a name="topology-2-horizontal-partitioning-sharding"></a>토폴로지 2: 행 분할(분할)
+### <a name="topology-2-horizontal-partitioning--sharding"></a>토폴로지 2: 행 분할(분할)
 탄력적 쿼리를 사용하여 분할, 즉 행 분할된 데이터 계층에서 보고 작업을 수행하려면 [탄력적 데이터베이스 분할 맵](sql-database-elastic-scale-shard-map-management.md) 이 데이터 계층의 데이터베이스를 나타내야 합니다. 일반적으로 이 시나리오에서는 하나의 분할 된 데이터베이스 맵은 시나리오에서 사용 되고 보고 쿼리에 대한 진입점으로 탄력적 쿼리 기능을 사용하여 전용된 데이터베이스 역할을 합니다. 이 전용 데이터베이스만 분할 맵 액세스가 필요합니다. 그림 4에서는 이 토폴로지와 탄력적 쿼리 데이터베이스 및 분할 맵 사용하여 해당 구성을 보여줍니다. 데이터 계층의 데이터베이스는 아무 Azure SQL 데이터베이스 버전이나 가능합니다. 탄력적 데이터베이스 클라이언트 라이브러리 및 분할 맵 만들기에 대한 자세한 내용은 [분할 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하세요.
 
 **그림 4** 행 분할 - 탄력적 쿼리를 사용하여 분할된 데이터 계층에 대해 보고
@@ -173,6 +174,6 @@ DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

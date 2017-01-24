@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: c41251040d7b2ac96376a9a3a0c58f7263ff37e2
+ms.sourcegitcommit: 9f944edcafb55634c9338bc8dd518a5f032f56e0
+ms.openlocfilehash: e714a7e941b25dfb0926934a3dff387363f306d8
 
 
 ---
@@ -243,7 +243,7 @@ Music Store 샘플 템플릿에서 인스턴스 수를 사용하는 매개 변�
 
 `copyIndex` 함수는 Music Store 샘플 템플릿에서 여러 번 사용됩니다. `copyIndex` 를 활용하는 리소스 및 함수에는 네트워크 인터페이스, 부하 분산 장치 규칙 등, 가상 컴퓨터의 단일 인스턴스에 국한되는 항목이 포함되며, 모두가 함수에 따라 좌우됩니다. 
 
-copy 함수에 대한 자세한 내용은 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](../resource-group-create-multiple.md)를 참조하세요.
+copy 함수에 대한 자세한 내용은 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](../azure-resource-manager/resource-group-create-multiple.md)를 참조하세요.
 
 ## <a name="next-step"></a>다음 단계
 <hr>
@@ -253,6 +253,6 @@ copy 함수에 대한 자세한 내용은 [Azure Resource Manager에서 리소�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
-ms.author: narayanannamalai;annahar
+ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ae62a2e657e3b20e258b5afaa1d03b6825e8019
-ms.openlocfilehash: e40af1e363f7add88ead6e552290926abe4db328
+ms.sourcegitcommit: ed7c37ee5482b3ec91489b7aba9b5a9d5df5c97e
+ms.openlocfilehash: 06130f18bad86dbbe009548ac95ac0e6c4953db2
 
 
 ---
@@ -82,8 +82,7 @@ VNet 피어링의 링크 각각에는 위의 속성 집합이 있습니다. 포�
 4. 액세스 추가 블레이드에서 역할 선택을 클릭하고 네트워크 참가자를 선택하며 사용자 추가를 클릭하고 사용자B 로그인 이름을 입력한 다음 확인을 클릭합니다.
    
     ![RBAC](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
-   
-    이는 요구 사항이 아니며 요청이 일치하면 사용자가 해당하는 Vnet에 대한 피어링 요청을 개별적으로 요구하는 경우에도 피어링을 설정할 수 있습니다. 다른 VNet의 권한 있는 사용자를 로컬 VNet의 사용자로 추가하면 포털에서 설치하기가 수월해집니다.
+
 5. 그런 다음 구독B에 대한 권한 있는 사용자인 사용자B로 Azure 포털에 로그인합니다. 위의 단계를 수행하여 사용자A를 네트워크 참가자로 추가합니다.
    
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
@@ -138,6 +137,6 @@ VNet 피어링의 링크 각각에는 위의 속성 집합이 있습니다. 포�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

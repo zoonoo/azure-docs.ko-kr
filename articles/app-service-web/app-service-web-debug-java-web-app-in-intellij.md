@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/22/2016
 ms.author: asirveda;robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 804edd8cd0e9648e6a61ef39a2a71dc2b8a239c6
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 50db8f7d1d514d076af453a34ca3a147e357e905
 
 
 ---
@@ -45,7 +45,7 @@ ms.openlocfilehash: 804edd8cd0e9648e6a61ef39a2a71dc2b8a239c6
 3. **실행/디버깅 구성** 대화 상자가 열리면 다음을 수행합니다. 
    
    1. **Azure 웹앱**을 선택합니다.
-   2.  **+** 를 클릭하여 새 구성을 추가합니다.
+   2. **+** 를 클릭하여 새 구성을 추가합니다.
    3. 구성에 **이름** 을 제공합니다.
    4. Azure 도구 키트가 제안하는 나머지 기본값을 적용한 다음 **확인**을 클릭합니다.
       
@@ -77,7 +77,7 @@ Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조�
 
 <!-- URL List -->
 
-[Azure 앱 서비스]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [IntelliJ용 Azure 도구 키트]: ../azure-toolkit-for-intellij.md
 [IntelliJ용 Azure 도구 키트 설치]: ../azure-toolkit-for-intellij-installation.md
 [IntelliJ에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web-intellij-create-hello-world-web-app.md
@@ -97,6 +97,6 @@ Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

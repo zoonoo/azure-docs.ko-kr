@@ -3,7 +3,7 @@ title: "자동 크기 조정 및 가상 컴퓨터 크기 집합 | Microsoft Docs
 description: "진단 및 자동 크기 조정 리소스를 사용하여 규모 집합의 가상 컴퓨터를 자동적으로 크기 조정하는 방법을 알아봅니다."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: davidmu
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: ff6a29db5450a78840f27cb69abc726a147406a1
-ms.openlocfilehash: fec4155c2c54e47f92ff93aff662b59e775a02c9
+ms.sourcegitcommit: 090374b057a62251e40ccc41f60f61e84e08a03f
+ms.openlocfilehash: ff137ead5e3490a129b36c959040d3571bff7669
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: fec4155c2c54e47f92ff93aff662b59e775a02c9
 Azure Resource Manager 템플릿, Azure PowerShell, Azure CLI 또는 Azure Portal을 사용하여 크기 집합에 자동 크기 조정을 설정합니다.
 
 ## <a name="set-up-scaling-by-using-resource-manager-templates"></a>리소스 관리자 템플릿을 사용하여 크기 조정 설정
-각 응용 프로그램의 리소스를 개별적으로 배포하고 관리하는 대신, 모든 리소스를 하나의 조정된 작업으로 배포하는 템플릿을 사용합니다. 템플릿에서 응용 프로그램 리소스를 정의하고 다양한 환경에 대한 배포 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. 자세한 내용은 [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)을 살펴보세요.
+각 응용 프로그램의 리소스를 개별적으로 배포하고 관리하는 대신, 모든 리소스를 하나의 조정된 작업으로 배포하는 템플릿을 사용합니다. 템플릿에서 응용 프로그램 리소스를 정의하고 다양한 환경에 대한 배포 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. 자세한 내용은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)을 살펴보세요.
 
 템플릿에서 용량 요소를 지정합니다.
 
@@ -224,6 +224,6 @@ Azure Portal을 사용하여 자동 크기 조정을 설정하는 예제를 보�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

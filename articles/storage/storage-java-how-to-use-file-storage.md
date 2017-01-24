@@ -23,7 +23,7 @@ ms.openlocfilehash: 60d4bcafa51a6eedea06901a0557d13b4e85ec7a
 # <a name="how-to-use-file-storage-from-java"></a>Java에서 파일 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="overview"></a>개요
 이 가이드에서는 Microsoft Azure 파일 저장소 서비스에 대한 기본 작업을 수행하는 방법에 대해 알아봅니다. Java로 작성된 샘플을 통해 공유 및 디렉터리 만들기, 파일 업로드, 목록 작성 및 삭제 방법을 배웁니다. Microsoft Azure 파일 저장소 서비스를 처음 접하는 경우에는 다음 섹션에 있는 개념들을 살펴보면 샘플에 대한 이해를 높이는 데 매우 유용할 것입니다.

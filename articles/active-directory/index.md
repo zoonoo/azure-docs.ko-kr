@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
-description: "디렉터리를 동기화하고 Single Sign-On을 활성화하는 방법에 대해 알아봅니다. 설명서에서는 전체 ID 관리 기능을 통합하는 방법을 보여 줍니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 5a478ce5c06cd875ec4ed5ff2bed4d0cd98fac53
-ms.openlocfilehash: 500c764b124ac811432212bab50f83dc6f6b86ee
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 72d219c4150ddbfd59231f9131bf3502897f0ab4
 
 ---
 
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 설명서
 
-Azure AD(Azure Active Directory)를 사용하여 디렉터리를 동기화하고 Single Sign-On을 활성화하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Multi-Factor Authentication, 장치 등록, 역할 기반 액세스 제어 및 보안 모니터링과 경고를 포함하여 ID 관리 기능을 통합하는 방법을 보여 줍니다.
+Azure Active Directory Premium은 수천 개의 클라우드 앱에 Single Sign-On(SaaS)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공하는 식별 및 액세스 관리 클라우드 솔루션입니다. Azure Active Directory는 Enterprise Mobility 및 공동 작업을 사용하고 장치 상태, 사용자 위치 및 위험 수준에 따라 Multi-Factor Authentication(MFA), 보안 보고서, 감사, 경고 및 적응 조건부 액세스 정책을 통해 고급 ID 보호 기능을 제공합니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -139,6 +138,6 @@ Active Directory 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

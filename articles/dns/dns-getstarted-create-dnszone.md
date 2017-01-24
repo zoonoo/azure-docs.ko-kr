@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: 9f162115f2f080bd498085d5cb92b34452132ad8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 23b7eef53e6fb7bc17c33e54f20d7369cfce52e8
 
 ---
 
@@ -60,7 +60,7 @@ Azure DNS PowerShell은 옵션 `-Tag` 매개 변수를 사용하여 지정된 �
 구성을 시작하기 전에 다음 항목이 있는지 확인합니다.
 
 * Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
-* 최신 버전(1.0 이상)의 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 을 참조하세요.
+* 최신 버전(1.0 이상)의 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 
 ## <a name="step-1---sign-in"></a>1단계 - 로그인
 
@@ -102,7 +102,7 @@ Azure DNS 서비스는 Microsoft.Network 리소스 공급자에 의해 관리됩
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-## <a name="step-4---create-a-dns-zone"></a>4단계 - DNS 영역 만들기
+## <a name="step-4----create-a-dns-zone"></a>4단계 - DNS 영역 만들기
 
 DNS 영역은 `New-AzureRmDnsZone` cmdlet을 사용하여 생성됩니다. 태그를 사용하거나 사용하지 않고 DNS 영역을 만드는 예제가 아래에 있습니다. 태그에 대한 자세한 내용은 이 문서의 [태그](#tags) 섹션을 참조하세요.
 
@@ -187,6 +187,6 @@ DNS 영역을 만든 후에는 [레코드 집합 및 레코드](dns-getstarted-c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

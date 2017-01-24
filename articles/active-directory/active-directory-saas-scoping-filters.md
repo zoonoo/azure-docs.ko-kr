@@ -1,22 +1,25 @@
 ---
-title: 범위 지정 필터를 사용한 특성 기반 앱 프로비전 | Microsoft Docs
-description: 개체가 비즈니스 요구 사항을 충족하지 못하는 경우 프로비전하는 자동화된 사용자를 지원하는 앱의 개체가 실제로 프로비전되지 않도록 하기 위한 지정 범위 필터 사용 방법을 알아봅니다.
+title: "범위 지정 필터를 사용한 특성 기반 앱 프로비전 | Microsoft Docs"
+description: "개체가 비즈니스 요구 사항을 충족하지 못하는 경우 프로비전하는 자동화된 사용자를 지원하는 앱의 개체가 실제로 프로비전되지 않도록 하기 위한 지정 범위 필터 사용 방법을 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 01/10/2017
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4b95782793956470fd147a98c17759a1a1a3a0de
+
 
 ---
-# <a name="attributebased-app-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 앱 프로비전
+# <a name="attribute-based-app-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 앱 프로비전
 이 섹션의 목적은 범위 지정 필터를 사용하여 어떤 사용자를 응용 프로그램에 프로비전할지 결정하는 특성 기반 규칙을 정의하는 방법을 설명합니다.
 
 ## <a name="clauses-and-scope-groups"></a>절 및 범위 그룹
@@ -39,7 +42,7 @@ ms.author: markusvi
 
 즉, 범위 그룹이 함께 OR 처리되고 있으며 절들은 함께 AND 처리됨으로써 그 안에 있다고 생각할 수 있습니다. 예를 들어 다음의 지정 범위 필터를 고려해 보십시오.
 
-![범위 지정 그룹 이름][2]  
+![범위 지정 그룹 이름][3]  
 
 범위 지정 필터에 따라 사용자는 프로비전을 하기 위해 다음 조건을 충족해야 합니다.
 
@@ -59,10 +62,10 @@ ms.author: markusvi
 <!--Image references-->
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
-[3]: ./active-directory-saas-scoping-filters/ic782813.png
+[3]: ./media/active-directory-saas-scoping-filters/ic782813.png
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

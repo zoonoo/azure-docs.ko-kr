@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2016
-ms.author: bwren
+ms.author: magoedte;bwren
+redirect_url: https://docs.microsoft.com/azure/automation/automation-solution-vm-management
+redirect_document_id: FALSE
 translationtype: Human Translation
 ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
 ms.openlocfilehash: ba67183cf0518bee102579a8ab16a9be92ed7b73
 
-
 ---
+
 # <a name="azure-automation-scenario---starting-and-stopping-virtual-machines"></a>Azure 자동화 시나리오 - 가상 컴퓨터 시작 및 중지
 Azure 자동화 시나리오는 기존 가상 컴퓨터를 시작하고 중지하는 Runbook을 포함합니다.  다음과 같은 경우에 이 시나리오를 사용할 수 있습니다.  
 

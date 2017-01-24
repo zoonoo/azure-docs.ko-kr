@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -43,7 +43,6 @@ Azure 호스티드 응용 프로그램을 펜 테스트할 준비가 되면, 우
 여러분이 수행할 수 없는 한가지 유형의 테스트는 모든 종류의 [서비스 거부 (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) 공격입니다. 이는 DoS 공격 자체를 시작하거나, 모든 종류의 DoS 공격을 결정, 시연 또는 시뮬레이션할 수도 있는 관련 테스트를 수행하는 것을 포함합니다.
 
 Microsoft Azure에서 호스팅된 응용 프로그램의 펜 테스트를 시작할 준비가 되셨습니까? 그렇다면, [침투 테스트 개요](https://security-forms.azure.com/penetration-testing/terms) 페이지를 참조하고 (페이지 맨 아래에 있는 테스트 요청 만들기 버튼을 클릭합니다. 또한 펜 테스트 조건에 대한 더 많은 정보와 Azure 또는 다른 모든 Microsoft 서비스와 관련된 보안 결함을 보고할 수 방법에 대한 유용한 링크도 있습니다.
-
 
 
 

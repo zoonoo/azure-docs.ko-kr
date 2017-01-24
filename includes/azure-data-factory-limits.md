@@ -6,9 +6,9 @@
 | 데이터 팩터리 내의 파이프라인  |2500 |[지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 데이터 팩터리 내의 데이터 집합 |5000 |[지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 데이터 집합당 동시 조각 |10 |10 |
-| 파이프라인 개체에 대한 개체당 바이트<sup>1</sup> |200KB |2000KB |
+| 파이프라인 개체에 대한 개체당 바이트<sup>1</sup> |200KB |200KB |
 | 데이터 집합 및 연결된 서비스 개체에 대한 개체당 바이트 <sup>1</sup> |100KB |2000KB |
-| 구독 내부의 HDInsight 주문형 클러스터 코어<sup>2</sup> |48 |[지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| 구독 내부의 HDInsight 주문형 클러스터 코어<sup>2</sup> |60 |[지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 클라우드 데이터 이동 단위 <sup>3</sup> |8 |[지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 파이프라인 활동 실행에 대한 재시도 횟수 |1000 |MaxInt(32비트) |
 
@@ -29,6 +29,6 @@ Azure Resource Manager에는 API 호출 제한이 있습니다. [Azure 리소스
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

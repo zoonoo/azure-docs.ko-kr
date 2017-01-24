@@ -138,6 +138,9 @@
 ##### [StorSimple Snapshot Manager에서 MMC 작업 사용](storsimple-snapshot-manager-mmc-menu.md)
 
 ### 솔루션 빌드
+#### [Veeam를 사용하는 StorSimple](storsimple-configure-backup-target-veeam.md)
+#### [Veritas Backup Exec를 사용하는 StorSimple](storsimple-configure-backup-target-using-backup-exec.md)
+#### [Veritas NetBackup를 사용하는 StorSimple](storsimple-configure-backuptarget-netbackup.md)
 #### [Azure에 자동화 파일 서버 DR](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Express 경로를 사용하는 StorSimple](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [VMware를 사용하는 StorSimple](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
@@ -217,6 +220,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

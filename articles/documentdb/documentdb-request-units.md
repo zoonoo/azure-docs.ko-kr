@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 39b4ccba7ad3ba6734dd23548db3c506c8095759
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 8b2d13dd16f629fbb2108856cd1e1b2954ece8bf
 
 
 ---
@@ -224,7 +224,6 @@ DocumentDB 서비스의 모든 응답은 요청에 사용된 요청 단위가 �
 Azure DocumentDB 데이터베이스의 예약된 처리량에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
 
 * [DocumentDB 가격 책정](https://azure.microsoft.com/pricing/details/documentdb/)
-* [DocumentDB 용량 관리](documentdb-manage.md) 
 * [DocumentDB에서 데이터 모델링](documentdb-modeling-data.md)
 * [DocumentDB 성능 수준](documentdb-partition-data.md)
 
@@ -240,6 +239,6 @@ DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

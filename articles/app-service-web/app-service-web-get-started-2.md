@@ -11,17 +11,17 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 310bf3656db6ae6e0a8d3c1cc13442e2aa4e7752
+ms.sourcegitcommit: b2c501b6e048d569ebf43b8f40d6b08f687ab624
+ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
 
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>첫 번째 웹앱에 기능 추가
-[5분 안에 Azure에 웹앱 배포](app-service-web-get-started.md)에서 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 샘플 웹앱을 배포합니다. 이 문서에서는 개발한 웹앱에 몇 가지 중요한 기능을 신속하게 추가합니다. 잠시 후에 다음을 수행합니다.
+[5분 안에 Azure에 웹앱 배포](app-service-web-get-started-cli-nodejs.md)에서 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 샘플 웹앱을 배포합니다. 이 문서에서는 개발한 웹앱에 몇 가지 중요한 기능을 신속하게 추가합니다. 잠시 후에 다음을 수행합니다.
 
 * 사용자에게 인증 적용
 * 자동으로 앱 크기 조정
@@ -149,7 +149,7 @@ ms.openlocfilehash: 310bf3656db6ae6e0a8d3c1cc13442e2aa4e7752
 * [온-프레미스 리소스에 액세스](web-sites-hybrid-connection-get-started.md) - 기존 온-프레미스 데이터베이스 또는 CRM 시스템에 액세스합니다.
 * [앱 백업](web-sites-backup.md) - 백업을 설정하고 웹앱에 복원합니다. 예기치 않은 오류에 준비하고 해당 오류에서 복구합니다.
 * [진단 로그 사용](web-sites-enable-diagnostic-log.md) - Azure 또는 응용 프로그램 추적에서 IIS 로그를 읽습니다. 스트림에서 읽고 다운로드하거나 턴키 분석을 위해 [Application Insights](../application-insights/app-insights-overview.md) 로 가져옵니다.
-* [취약점에 대한 앱 스캔](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
+* [취약성에 대한 앱 스캔](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
   [Tinfoil Security](https://www.tinfoilsecurity.com/)에서 제공하는 서비스를 사용하여 최신 위협에 대해 웹앱을 스캔합니다.
 * [백그라운드 작업 실행](../azure-functions/functions-overview.md) - 데이터 처리, 보고 등의 작업을 실행합니다.
 * [앱 서비스 작동 방법 알아보기](../app-service/app-service-how-works-readme.md)
@@ -157,6 +157,6 @@ ms.openlocfilehash: 310bf3656db6ae6e0a8d3c1cc13442e2aa4e7752
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

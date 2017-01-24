@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 15f0183d8ada59227a412788f1d53a9db0e712c8
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 0062dc90d8e1a823e17183e96a91a9f224e8cf48
 
 
 ---
@@ -97,7 +97,7 @@ Azure SQL 데이터베이스는 지역 복원 및 활성 지역 복제와 같은
 [활성 지역 복제](../sql-database/sql-database-geo-replication-overview.md) 는 모든 데이터베이스 계층에서 사용할 수 있습니다. 이 기능은 지역 복원이 제공하는 것보다 더 까다로운 복구 요구 사항이 있는 응용 프로그램을 위해 설계되었습니다. 활성 지역 복제를 사용하여 서로 다른 지역의 서버에 최대 4개의 읽기 가능한 보조 복제본을 만들 수 있습니다. 보조 복제본으로 장애 조치를 시작할 수 있습니다. 또한 활성 지역 복제는 응용 프로그램 업그레이드 또는 재배치 시나리오뿐 아니라 읽기 전용 작업에 대한 부하 분산을 지원하는 데에도 사용할 수 있습니다. 자세한 내용은 [지역에서 복제 구성](../sql-database/sql-database-geo-replication-portal.md) 및 [보조 데이터베이스로 장애 조치(failover)](../sql-database/sql-database-geo-replication-failover-portal.md)를 참조하세요. 가동 중단 없는 응용 프로그램 및 응용 프로그램 업그레이드를 설계하고 구현하는 방법에 대한 자세한 내용은 [SQL Database에서 활성 지역 복제를 사용하여 클라우드 재해 복구를 위한 응용 프로그램 설계](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) 및 [SQL Database에서 활성 지역 복제를 사용하여 클라우드 재해 복구를 위한 응용 프로그램 설계](../sql-database/sql-database-manage-application-rolling-upgrade.md)를 참조하세요.
 
 ### <a name="sql-server-on-virtual-machines"></a>가상 컴퓨터의 SQL Server
-Azure 가상 컴퓨터에서 실행 중에 SQL Server 2012(또는 이상)에 대한 복구 및 고가용성에 다양한 옵션을 사용할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+Azure 가상 컴퓨터에서 실행 중에 SQL Server 2012(또는 이상)에 대한 복구 및 고가용성에 다양한 옵션을 사용할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
 
 ## <a name="other-azure-platform-services"></a>다른 Azure 플랫폼 서비스
 여러 Azure 지역에서 클라우드 서비스를 실행하려고 시도할 경우 종속성 각각에 대한 영향을 고려해야 합니다. 다음 섹션에서 서비스 관련 지침에서는 대체 Azure 데이터 센터에서 동일한 Azure 서비스를 사용해야 한다고 가정합니다. 여기에서는 구성 및 데이터 복제 작업을 모두 포함합니다.
@@ -188,6 +188,6 @@ Azure 미디어 서비스에는 인코딩 및 스트리밍을 위한 다른 복�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

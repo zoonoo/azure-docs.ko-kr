@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: f6208195fb998d5cb3ca00fa684f814971083cad
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 626db03a7b858d060b01332a67f0b491066a6625
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: f6208195fb998d5cb3ca00fa684f814971083cad
 * 웹 알림: 사용자가 웹 뷰를 확인하도록 하는 알림입니다.
 
 ### <a name="see-also"></a>참고 항목
-* [도달률 - 방법 - 알림][링크 3] 
+* [도달률 - 방법 - 알림][Link 3] 
 
 ### <a name="about-web-view-announcements"></a>웹 뷰 알림 정보
 여기서 입력하는 JavaScript 코드 또는 HTML 코드에서 나타나는 "{deviceid}" 패턴은 자동으로 알림을 표시하는 장치의 식별자로 바뀝니다. 따라서 백오피스에서 호스트되는 외부 웹 서비스에서 Azure Mobile Engagement 장치 식별자를 쉽게 검색할 수 있습니다.
@@ -110,7 +110,7 @@ URL에서 나타나는 각 {deviceid} 패턴은 자동으로 작업을 수행하
 알림의 제목, 내용 및 단추 텍스트를 입력합니다. 사용자가 이 캠페인에 응답한 방법과 관련한 도달률 피드백을 기반으로 하여 이후 캠페인의 대상을 지정할 수 있습니다. 이 캠페인에 대한 피드백(푸시만, 회신, 작업, 종료)에 따라 대상을 지정할 수 있습니다.
 
 ### <a name="see-also"></a>참고 항목
-* [UI 설명서 - 도달률 - 새 푸시 기준][링크 28]
+* [UI 설명서 - 도달률 - 새 푸시 기준][Link 28]
 
 ## <a name="content-of-polls"></a>설문 조사의 내용
 ![도달률 콘텐츠2][31] 
@@ -119,7 +119,7 @@ URL에서 나타나는 각 {deviceid} 패턴은 자동으로 작업을 수행하
 사용자가 이 캠페인에 응답한 방법과 관련한 도달률 피드백을 기반으로 하여 이후 캠페인의 대상을 지정할 수 있습니다. 이 캠페인에 대한 응답 방법(푸시만, 회신, 작업, 종료)에 따라 대상을 지정할 수 있습니다. 설문 조사 대답 피드백을 기준으로 대상을 지정할 수도 있습니다. 이 경우 질문과 대답 선택 항목이 기준으로 사용됩니다.
 
 ### <a name="see-also"></a>참고 항목
-* [UI 설명서 - 도달률 - 새 푸시 기준][링크 28]
+* [UI 설명서 - 도달률 - 새 푸시 기준][Link 28]
 
 ## <a name="content-of-data-pushes"></a>데이터 푸시의 내용
 ![도달률 콘텐츠3][32] 
@@ -135,7 +135,7 @@ URL에서 나타나는 각 {deviceid} 패턴은 자동으로 작업을 수행하
 * 사용자가 이 캠페인에 응답한 방법과 관련한 도달률 피드백을 기반으로 하여 이후 캠페인의 대상을 지정할 수 있습니다. 이 캠페인에 대한 응답 방법(푸시만, 회신, 작업, 종료)에 따라 대상을 지정할 수 있습니다.
 
 ### <a name="see-also"></a>참고 항목
-* [UI 설명서 - 도달률 - 새 푸시 기준][링크 28]
+* [UI 설명서 - 도달률 - 새 푸시 기준][Link 28]
 
 ## <a name="content-of-tiles-windows-phone-only"></a>타일의 내용(Windows Phone 전용)
 ![도달률 콘텐츠4][33]
@@ -145,7 +145,7 @@ URL에서 나타나는 각 {deviceid} 패턴은 자동으로 작업을 수행하
 타일 푸시는 Windows Phone용 네이티브 푸시의 MPNS(Microsoft 푸시 알림 서비스) 버전입니다. 타일 푸시 유형은 유일하게 응답이 없는 푸시 유형이므로 타일 푸시 캠페인의 결과를 기준으로 이후 캠페인의 대상을 지정할 수는 없습니다. 
 
 ### <a name="see-also"></a>참고 항목
-* [API 설명서 - 도달률 API - 네이티브 푸시][링크 4]
+* [API 설명서 - 도달률 API - 네이티브 푸시][Link 4]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -208,39 +208,39 @@ URL에서 나타나는 각 {deviceid} 패턴은 자동으로 작업을 수행하
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[링크 1]: mobile-engagement-user-interface.md
-[링크 2]: mobile-engagement-troubleshooting-guide.md
-[링크 3]: mobile-engagement-how-tos.md
-[링크 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[링크 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[링크 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[링크 7]: https://account.windowsazure.com/PreviewFeatures
-[링크 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[링크 9]: http://azure.microsoft.com/services/mobile-engagement/
-[링크 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[링크 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[링크 12]: mobile-engagement-user-interface-navigation.md
-[링크 13]: mobile-engagement-user-interface-home.md
-[링크 14]: mobile-engagement-user-interface-my-account.md
-[링크 15]: mobile-engagement-user-interface-analytics.md
-[링크 16]: mobile-engagement-user-interface-monitor.md
-[링크 17]: mobile-engagement-user-interface-reach.md
-[링크 18]: mobile-engagement-user-interface-segments.md
-[링크 19]: mobile-engagement-user-interface-dashboard.md
-[링크 20]: mobile-engagement-user-interface-settings.md
-[링크 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[링크 22]: mobile-engagement-troubleshooting-guide-apis.md
-[링크 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[링크 24]: mobile-engagement-troubleshooting-guide-service.md
-[링크 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[링크 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[링크 27]: mobile-engagement-user-interface-reach-campaign.md
-[링크 28]: mobile-engagement-user-interface-reach-criterion.md
-[링크 29]: mobile-engagement-user-interface-reach-content.md
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-user-interface-reach-campaign.md
+[Link 28]: mobile-engagement-user-interface-reach-criterion.md
+[Link 29]: mobile-engagement-user-interface-reach-content.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

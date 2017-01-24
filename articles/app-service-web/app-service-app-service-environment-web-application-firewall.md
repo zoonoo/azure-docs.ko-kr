@@ -100,7 +100,7 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 > 
 
 <!-- IMAGES -->
-[아키텍처]: ./media/app-service-app-service-environment-web-application-firewall/Architecture.png
+[Architecture]: ./media/app-service-app-service-environment-web-application-firewall/Architecture.png
 [ConfigureEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureEndpoint.png
 [AddManagementEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/AddManagementEndpoint.png
 [ManagementAddServices]: ./media/app-service-app-service-environment-web-application-firewall/ManagementAddServices.png

@@ -3,8 +3,8 @@ title: "무료 Azure 구독을 종량제로 업그레이드 | Microsoft Docs"
 description: "무료 구독을 종량제로 업그레이드하기 위한 프로세스와 요구 사항을 설명합니다."
 services: 
 documentationcenter: 
-author: jlian
-manager: mbaldwin
+author: adpick
+manager: adpick
 editor: 
 tags: billing
 ms.assetid: 0b4ac8f3-3df0-478a-8a07-b18b40f0cf5f

@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 12/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 570e32d6c5b8f2f247ab9f6cc41caa574400011f
-ms.openlocfilehash: 5682f3fc02633558556461070f8deb52fff38e17
+ms.sourcegitcommit: 68a4ed7aad946dda644a0f085c48fd33f453e018
+ms.openlocfilehash: 15d5cb803332133c8015a8ba23ca5751b8abc29a
 
 
 ---
@@ -100,7 +100,7 @@ Write-Host "Restoring database '$databaseName' to its state at:"(Get-Date $resto
 
 $restoredDb = Restore-AzureRmSqlDatabase -FromPointInTimeBackup -PointInTime $restorePointInTime -ResourceGroupName $resourceGroupName `
  -ServerName $serverName -TargetDatabaseName $newRestoredDatabaseName -Edition $newDatabaseEdition -ServiceObjectiveName $newDatabaseServiceLevel `
- –ResourceId $databaseToRestore.ResourceID
+ -ResourceId $databaseToRestore.ResourceID
 
 $restoredDb
 ```
@@ -111,6 +111,11 @@ $restoredDb
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Azure Recovery Services 자격 증명 모음에 자동화된 백업의 장기 보존 구성 
 
 자습서의 이 섹션에서는 서비스 계층에 대한 보존 기간보다 긴 기간(최대 10년) 동안 [자동화된 백업을 보존하는 Azure Recovery Services 자격 증명 모음을 구성](sql-database-long-term-retention.md)합니다. 
+
+
+> [!TIP]
+> 장기 보존 백업을 삭제하려면 [장기 보존 백업 삭제](sql-database-long-term-retention-delete.md)를 참조하세요.
+
 
 ### <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
 
@@ -138,7 +143,7 @@ Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedu
 ```
 # Set your server to use the vault to for long-term backup retention 
 
-Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName –ResourceId $vault.Id
+Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName -ResourceId $vault.Id
 ```
 
 ### <a name="create-a-retention-policy"></a>보존 정책 만들기
@@ -163,7 +168,7 @@ $retentionPolicyName = "my2YearRetentionPolicy"
 Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 
 # Create the new policy
-$policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name $retentionPolicyName –WorkloadType AzureSQLDatabase -retentionPolicy $retentionPolicy
+$policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name $retentionPolicyName -WorkloadType AzureSQLDatabase -retentionPolicy $retentionPolicy
 $policy
 ```
 
@@ -174,7 +179,7 @@ $policy
 ```
 # Enable long-term retention for a specific SQL database
 $policyState = "enabled"
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName $resourceGroupName –ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
+Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
 ```
 
 > [!IMPORTANT]
@@ -196,7 +201,7 @@ $databaseNeedingRestore = $databaseName
 Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 
 # the following commands find the container associated with the server 'myserver' under resource group 'myresourcegroup'
-$container = Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName $vault.Name
+$container = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL -FriendlyName $vault.Name
 
 # Get the long-term retention metadata associated with a specific database
 $item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQLDatabase -Name $databaseNeedingRestore
@@ -293,7 +298,7 @@ Write-Host "Restoring database '$databaseName' to its state at:"(Get-Date $resto
 
 $restoredDb = Restore-AzureRmSqlDatabase -FromPointInTimeBackup -PointInTime $restorePointInTime -ResourceGroupName $resourceGroupName `
  -ServerName $serverName -TargetDatabaseName $newRestoredDatabaseName -Edition $newDatabaseEdition -ServiceObjectiveName $newDatabaseServiceLevel `
- –ResourceId $databaseToRestore.ResourceID
+ -ResourceId $databaseToRestore.ResourceID
 
 $restoredDb
 
@@ -313,7 +318,7 @@ $vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -Resou
 Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant -Vault $vault
 $vault
 
-Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName –ResourceId $vault.Id
+Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName -ResourceId $vault.Id
 
 # Retrieve the default retention policy for the AzureSQLDatabase workload type
 ##############################################################################
@@ -330,11 +335,11 @@ $retentionPolicyName = $myRetentionPolicyName
 Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 
 # Create the new policy
-$policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name $retentionPolicyName –WorkloadType AzureSQLDatabase -retentionPolicy $retentionPolicy
+$policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name $retentionPolicyName -WorkloadType AzureSQLDatabase -retentionPolicy $retentionPolicy
 $policy
 
 $policyState = "enabled"
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName $resourceGroupName –ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
+Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
 
 
 $databaseNeedingRestore = $myDatabaseToRestoreFromLTR
@@ -343,7 +348,7 @@ $databaseNeedingRestore = $myDatabaseToRestoreFromLTR
 Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 
 # Get the container associated with your vault
-$container = Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName $vault.Name
+$container = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL -FriendlyName $vault.Name
 
 # Get the long-term retention metadata associated with a specific database
 $item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQLDatabase -Name $databaseNeedingRestore
@@ -370,11 +375,11 @@ $restoredDbFromLtr
 
 ## <a name="next-steps"></a>다음 단계
 
-- 서비스에서 생성된 자동 백업에 대해 알아보려면 [자동 백업](https://azure.microsoft.com/en-us/documentation/articles/)(sql-database-automated-backups.MD) 참조
+- 서비스에서 생성된 자동 백업에 대해 알아보려면 [자동 백업](sql-database-automated-backups.md) 참조
 - 장기 백업 보존에 대해 알아보려면 [장기 백업 보존](sql-database-long-term-retention.md) 참조
 - 백업에서 복원에 대해 알아보려면 [백업에서 복원](sql-database-recovery-using-backups.md) 참조
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

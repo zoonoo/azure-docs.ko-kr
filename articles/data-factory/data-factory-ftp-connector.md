@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 01/22/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
@@ -258,7 +258,7 @@ FTP 서버에서 데이터를 복사하는 파이프라인을 만드는 가장 �
 ```
 
 ### <a name="using-port-enablessl-enableservercertificatevalidation"></a>포트, enableSsl, enableServerCertificateValidation 사용
- 
+
 ```JSON
 {
     "name": "FTPLinkedService",
@@ -278,7 +278,7 @@ FTP 서버에서 데이터를 복사하는 파이프라인을 만드는 가장 �
 ```
 
 ### <a name="using-encryptedcredential-for-authentication-and-gateway"></a>인증 및 게이트웨이에 encryptedCredential 사용
-    
+
 ```JSON
 {
     "name": "FTPLinkedService",

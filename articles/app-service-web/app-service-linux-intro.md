@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 44980a015f74110442f8684479ab0c911f605e8d
-ms.openlocfilehash: e2f1024f428647c05fb0faced70e779acbd86489
+ms.sourcegitcommit: a3df293a056f4b06281bf8b80717529286d528b8
+ms.openlocfilehash: 48f26113d129ebfa613f1b8f2a372d0e7286aea1
 
 
 ---
@@ -66,19 +66,16 @@ Linux의 웹앱은 전용 App Service 계획에서만 지원되며 무료 또는
 
 Linux의 웹앱은 동일한 지역에 비 Linux 웹앱을 포함하지 않는 리소스 그룹에서 만들어야 합니다.
 
-재활용되는 웹앱이 겹치는 경우가 적으므로 웹앱을 다시 시작할 때 약간의 가동 중지 시간이 발생할 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 Linux에서 App Service를 시작하려면 다음 링크를 참조하세요. [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
 
 * [Linux의 App Service에서 웹앱 만들기](app-service-linux-how-to-create-a-web-app.md)
 * [Linux에서 App Service에 대한 사용자 지정 Docker 이미지를 사용하는 방법](app-service-linux-using-custom-docker-image.md)
 * [Linux의 웹앱에 있는 Node.js용 PM2 구성 사용](app-service-linux-using-nodejs-pm2.md)
-* [Linux의 Azure App Service 웹앱에서 .NET Core 사용](app-service-linux-intro.md)
+* [Linux의 Azure App Service 웹앱에서 .NET Core 사용](app-service-linux-using-dotnetcore.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

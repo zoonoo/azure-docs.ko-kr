@@ -49,6 +49,6 @@
 ## [Azure CLI 2.0(미리보기) 샘플](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [지원 메트릭 목록](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

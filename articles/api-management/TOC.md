@@ -42,7 +42,6 @@
 
 # 참조
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell(클래식)](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST (영문)](/rest/api/apimanagement/)
 ## [REST(원본)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
 
@@ -67,6 +66,6 @@
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

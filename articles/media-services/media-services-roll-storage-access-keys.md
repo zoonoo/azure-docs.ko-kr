@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
-ms.author: milangada;cenkdin;juliako
+ms.author: milanga;cenkdin;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: a979519dc617f40e6f090a412d17aa7778cbcf69
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 8321f677d344109e35da3d8ba1109d8bece70db1
 
 
 ---
@@ -37,13 +37,13 @@ ms.openlocfilehash: a979519dc617f40e6f090a412d17aa7778cbcf69
 ## <a name="step-1-regenerate-secondary-storage-access-key"></a>1단계: 보조 저장소 액세스 키 다시 생성
 보조 저장소 키 다시 생성을 시작합니다. 기본적으로 보조 키는 미디어 서비스에서 사용됩니다.  저장소 키를 롤링하는 방법에 대한 자세한 내용은 [방법: 저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)을 참조하세요.
 
-## <a name="a-idstep2astep-2-update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>2단계: Media Services를 업데이트하여 새 보조 저장소 키 사용
+## <a name="a-idstep2astep-2--update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>2단계: Media Services를 업데이트하여 새 보조 저장소 키 사용
 미디어 서비스를 업데이트하여 보조 저장소 액세스 키를 사용합니다. 다음 두 가지 방법 중 하나를 사용하여 미디어 서비스와 다시 생성된 저장소 키를 동기화할 수 있습니다.
 
 * Azure Portal 사용: 이름 및 키 값을 찾으려면 Azure Portal로 이동하여 계정을 선택합니다. 설정 창이 오른쪽에 나타납니다. 설정 창에서 키를 선택합니다. 미디어 서비스와 동기화하려는 저장소 키에 따라 기본 키 동기화 또는 보조 키 동기화 단추를 선택합니다. 이 경우에는 보조 키를 사용합니다.
 * 미디어 서비스 관리 REST API를 사용합니다.
 
-다음 코드 예시는 Media Services와 지정된 저장소 키를 동기화하기 위해 https://endpoint/*subscriptionId*/services/mediaservices/Accounts/*accountName*/StorageAccounts/*storageAccountName*/Key 요청을 생성하는 방법을 보여 줍니다. 이 경우에는 보조 저장소 키 값이 사용됩니다. 자세한 내용은 [방법: 미디어 서비스 관리 REST API 사용](http://msdn.microsoft.com/library/azure/dn167656.aspx)을 참조하세요.
+다음 코드 예시는 Media Services와 지정된 저장소 키를 동기화하기 위해 https://endpoint/*subscriptionId*/services/mediaservices/Accounts/*accountName*/StorageAccounts/*storageAccountName*/Key 요청을 생성하는 방법을 보여 줍니다. 이 경우에는 보조 저장소 키 값이 사용됩니다. 자세한 내용은 [방법: 미디어 서비스 관리 REST API 사용](https://docs.microsoft.com/rest/api/media/management/how-to-use-media-services-management-rest-api)을 참조하세요.
 
     public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
     {
@@ -103,13 +103,25 @@ SAS 로케이터를 업데이트하거나 다시 만들 때마다 URL이 변경�
 
 아래 .NET 예제에서는 동일한 ID로 로케이터를 다시 만드는 방법을 보여줍니다.
 
-private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator) { // 기존 로케이터의 속성을 저장합니다.
-var asset = locator.Asset; var accessPolicy = locator.AccessPolicy; var locatorId = locator.Id; var startDate = locator.StartTime; var locatorType = locator.Type; var locatorName = locator.Name;
+    private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+    {
+    // Save properties of existing locator.
+    var asset = locator.Asset;
+    var accessPolicy = locator.AccessPolicy;
+    var locatorId = locator.Id;
+    var startDate = locator.StartTime;
+    var locatorType = locator.Type;
+    var locatorName = locator.Name;
 
-// 오래된 로케이터를 삭제합니다.
-locator.Delete();
+    // Delete old locator.
+    locator.Delete();
 
-if (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.Format( "Cannot recreate locator Id={0} because its locator expiration time is in the past", locator.Id)); }
+    if (locator.ExpirationDateTime <= DateTime.UtcNow)
+        {
+            throw new Exception(String.Format(
+                "Cannot recreate locator Id={0} because its locator expiration time is in the past",
+                locator.Id));
+        }
 
         // Create new locator using saved properties.
         var newLocator = context.Locators.CreateLocator(
@@ -126,7 +138,7 @@ if (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.
     }
 
 
-## <a name="step-5-regenerate-primary-storage-access-key"></a>5단계: 기본 저장소 액세스 키 다시 생성
+## <a name="step-5-regenerate--primary-storage-access-key"></a>5단계: 기본 저장소 액세스 키 다시 생성
 기본 저장소 액세스 키를 다시 생성합니다. 저장소 키를 롤링하는 방법에 대한 자세한 내용은 [방법: 저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)을 참조하세요.
 
 ## <a name="step-6-update-media-services-to-use-the-new-primary-storage-key"></a>6단계: 미디어 서비스를 업데이트하여 새 기본 저장소 키 사용
@@ -153,6 +165,6 @@ if (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

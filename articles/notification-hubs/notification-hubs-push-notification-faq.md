@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3f79e68adc5cac151de6bb60188ca72772d94c21
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7f76f8786bf08e4aacc63758260202fe7e1a832f
 
 
 ---
 # <a name="push-notifications-with-azure-notification-hubs---frequently-asked-questions"></a>Azure 알림 허브로 푸시 알림 - 질문과 대답
 ## <a name="general"></a>일반
-### <a name="1-what-is-the-price-model-for-notification-hubs"></a>1.    알림 허브의 가격 책정 모델은 무엇인가요?
+### <a name="1----what-is-the-price-model-for-notification-hubs"></a>1.    알림 허브의 가격 책정 모델은 무엇인가요?
 알림 허브는 다음 세 가지 계층으로 제공됩니다.
 
 * **무료** - 한 달 구독 당 최대 1백만 개의 푸시를 가져옵니다.
@@ -41,7 +41,7 @@ ms.openlocfilehash: 3f79e68adc5cac151de6bb60188ca72772d94c21
 * *예약된 푸시* - 푸시 알림을 예약할 수 있으며 이는 이후에 큐에 대기되고 전송됩니다.
 * *대량 가져오기* - 등록을 대량으로 가져올 수 있습니다.
 
-### <a name="2-what-is-the-notification-hubs-sla"></a>2.    알림 허브 SLA란?
+### <a name="2----what-is-the-notification-hubs-sla"></a>2.    알림 허브 SLA란?
 **기본** 및 **표준** Notification Hubs계층의 경우에 올바르게 구성된 응용 프로그램은 지원되는 계층 내에 배포된 알림 허브와 관련된 푸시 알림을 보내거나 등록 관리 작업을 수행할 수 있다고 99.9% 이상의 성공률로 보장합니다. SLA에 대해 자세히 알아보려면 [알림 허브 SLA] 페이지를 방문하세요.
 
 > [!NOTE]
@@ -49,7 +49,7 @@ ms.openlocfilehash: 3f79e68adc5cac151de6bb60188ca72772d94c21
 > 
 > 
 
-### <a name="3-which-customers-are-using-notification-hubs"></a>3.    어떤 고객이 알림 허브를 사용하나요?
+### <a name="3----which-customers-are-using-notification-hubs"></a>3.    어떤 고객이 알림 허브를 사용하나요?
 많은 고객들이 알림 허브를 사용하고 있으며, 그 중 일부 주요 고객이 아래에 나와 있습니다.
 
 * 2014년 소치 동계 올림픽 – 수 백 개의 관심 그룹에서 300만 대 이상의 장치를 사용하여 1억 5천만 개의 알림을 2주 동안 디스패치했습니다. [사례 연구 - 소치]
@@ -64,27 +64,27 @@ ms.openlocfilehash: 3f79e68adc5cac151de6bb60188ca72772d94c21
 
 ![](./media/notification-hubs-faq/notification-hubs-classic-portal-scale.png)
 
-## <a name="design-development"></a>디자인 및 개발
-### <a name="1-which-server-side-platforms-do-you-support"></a>1.    어떤 서버 쪽 플랫폼을 지원하나요?
+## <a name="design--development"></a>디자인 및 개발
+### <a name="1----which-server-side-platforms-do-you-support"></a>1.    어떤 서버 쪽 플랫폼을 지원하나요?
 .NET, Java, PHP, Python, Node.js용 SDK와 [전체 샘플] 이 제공되므로 이러한 모든 플랫폼을 사용하여 알림 허브와 통신하도록 앱 백 엔드를 설정할 수 있습니다. 알림 허브 API는 REST 인터페이스에 기반하므로 추가 종속성을 추가하지 않으려는 경우 대신 직접 통신하는 것을 선택할 수 있습니다. 자세한 내용은 [NH - REST API] 페이지에서 찾을 수 있습니다.
 
-### <a name="2-which-client-platforms-do-you-support"></a>2.    어떤 클라이언트 플랫폼이 지원되나요?
+### <a name="2----which-client-platforms-do-you-support"></a>2.    어떤 클라이언트 플랫폼이 지원되나요?
 [Apple iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows 유니버설](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China(Baidu 제공)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) & [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome 앱](notification-hubs-chrome-push-notifications-get-started.md) 및 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari) 플랫폼 등으로 푸시 알림을 보낼 수 있습니다. 이러한 플랫폼에서 푸시 알림을 보내는것을 방지하기 위한 자습서를 시작하는 전체 목록은 [NH - 시작된 자습서] 페이지를 방문하세요.
 
-### <a name="3-do-you-support-smsemailweb-notifications"></a>3.    문자 메시지/전자 메일/웹 알림이 지원되나요?
+### <a name="3----do-you-support-smsemailweb-notifications"></a>3.    문자 메시지/전자 메일/웹 알림이 지원되나요?
 알림 허브는 기본적으로 위에 나열된 플랫폼을 사용하여 모바일 앱에 알림을 보내는 데 사용됩니다. 따라서 전자 메일이나 문자 메시지 알림을 보내는 기능은 제공되지 않습니다. 그러나 [Azure Mobile Apps]를 사용하여 네이티브 푸시 알림을 보내도록 이러한 기능을 제공하는 타사 플랫폼을 Notification Hubs와 통합할 수 있습니다.
 
 또한 알림 허브는 브라우저 내 푸시 알림 배달 서비스를 기본적으로 제공하지 않습니다. 고객은 지원되는 서버 쪽 플랫폼에서 SignalR을 사용하여 이를 구현하도록 선택할 수 있습니다. Chrome 샌드박스에서 브라우저 앱에 알림을 보내는 방법을 찾으려는 경우 [Chrome 앱 자습서]를 확인합니다.
 
-### <a name="4-what-is-the-relation-between-azure-mobile-apps-and-azure-notification-hubs-and-when-do-i-use-what"></a>4.    Azure 모바일 앱과 Azure 알림 허브 간에는 어떤 관련성이 있으며 이 두 항목은 각각 어떤 경우에 사용해야 하나요?
+### <a name="4----what-is-the-relation-between-azure-mobile-apps-and-azure-notification-hubs-and-when-do-i-use-what"></a>4.    Azure 모바일 앱과 Azure 알림 허브 간에는 어떤 관련성이 있으며 이 두 항목은 각각 어떤 경우에 사용해야 하나요?
 기존 모바일 앱 백 엔드가 있으며 푸시 알림을 보내는 기능만 추가하려는 경우 Azure 알림 허브를 사용할 수 있습니다니다. 모바일 앱 백 엔드를 처음부터 설정하려면 Azure 모바일 앱을 사용하는 것이 좋습니다. Azure 모바일 앱은 모바일 앱 백 엔드에서 푸시 알림을 쉽게 보낼 수 있도록 알림 허브를 자동으로 프로비전합니다. Azure 모바일 앱의 가격 책정에는 알림 허브의 기본 요금이 포함되며, 푸시 사용량이 기본으로 포함된 푸시를 초과하는 경우에만 요금을 지불하면 됩니다. 비용에 대한 자세한 정보는 [앱 서비스 가격 책정] 페이지에서 제공됩니다.
 
-### <a name="5-how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>5.    알림 허브를 통해 푸시 알림을 보낼 경우 얼마나 많은 장치를 지원할 수 있나요?
+### <a name="5----how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>5.    알림 허브를 통해 푸시 알림을 보낼 경우 얼마나 많은 장치를 지원할 수 있나요?
 지원되는 장치 수에 대한 내용은 [알림 허브 가격 책정] 페이지를 참조합니다.
 
 특정 시나리오의 경우 천 만 개 이상의 등록된 장치에 대한 지원이 필요한 경우 [문의처](https://azure.microsoft.com/overview/contact-us/) 직접 수 문의하고 솔루션을 확장하도록 합니다.
 
-### <a name="6-how-many-push-notifications-can-i-send-out"></a>6.    보낼 수 있는 푸시 알림 수는 몇 개인가요?
+### <a name="6----how-many-push-notifications-can-i-send-out"></a>6.    보낼 수 있는 푸시 알림 수는 몇 개인가요?
 선택한 계층에 따라 Azure는 시스템에서 전송되는 알림 수에 따라 알림 허브가 자동으로 확장합니다.
 
 > [!NOTE]
@@ -94,7 +94,7 @@ ms.openlocfilehash: 3f79e68adc5cac151de6bb60188ca72772d94c21
 
 기존 고객들은 알림 허브를 사용하여 매일 수백만 건의 푸시 알림을 보내고 있습니다. Azure 알림 허브를 사용하는 한 푸시 알림 도달률의 크기를 조정하기 위해 특별한 작업을 수행할 필요가 없습니다.
 
-### <a name="7-how-long-does-it-take-for-sent-push-notifications-to-reach-my-device"></a>7.    푸시 알림이 장치에 도달하는 데 시간이 얼마나 걸리나요?
+### <a name="7----how-long-does-it-take-for-sent-push-notifications-to-reach-my-device"></a>7.    푸시 알림이 장치에 도달하는 데 시간이 얼마나 걸리나요?
 수신 부하가 비교적 일정하며 기본적으로 수신량이 급증하지 않는 일반적인 사용 시나리오에서 Azure 알림 허브는 분당 **1백만 건 이상의 푸시 알림 전송** 을 처리할 수 있습니다. 이 속도는 태그 수, 들어오는 보내기의 특성 및 기타 외부 요인에 따라 달라질 수 있습니다.
 
 예상된 배달 시간 동안 서비스는 플랫폼당 대상 수를 계산한 다음 등록된 태그/태그 식을 기준으로 개별 푸시 알림 배달 서비스에 메시지를 라우팅할 수 있습니다. 그러면 PNS(푸시 알림 서비스)가 알림을 장치로 전송합니다.
@@ -106,10 +106,10 @@ PNS는 알림 배달에 대한 SLA를 보장하지 않습니다. 그러나 일�
 > 
 > 
 
-### <a name="8-is-there-any-latency-guarantee"></a>8.    대기 시간 보장이 있나요?
+### <a name="8----is-there-any-latency-guarantee"></a>8.    대기 시간 보장이 있나요?
 푸시 알림은 외부 플랫폼별 푸시 알림 서비스를 통해 배달되는 특성이 있으므로 대기 시간이 보장되지 않습니다. 대부분의 푸시 알림은 보통 몇 분 이내에 배달됩니다.
 
-### <a name="9-what-are-the-considerations-i-need-to-take-into-account-when-designing-a-solution-with-namespaces-and-notification-hubs"></a>9.    네임스페이스와 알림 허브를 사용하는 솔루션을 디자인할 때 고려해야 하는 사항은 무엇인가요?
+### <a name="9----what-are-the-considerations-i-need-to-take-into-account-when-designing-a-solution-with-namespaces-and-notification-hubs"></a>9.    네임스페이스와 알림 허브를 사용하는 솔루션을 디자인할 때 고려해야 하는 사항은 무엇인가요?
 #### <a name="mobile-appenvironment"></a>모바일 앱/환경
 * 환경당 모바일 앱마다 알림 허브가 하나씩 있어야 합니다.
 * 다중 테넌트 시나리오에서는 각 테넌트에 별도의 허브가 있어야 합니다.
@@ -137,13 +137,13 @@ Apple, Google 등의 플랫폼 개발자 포털에 모바일 앱을 등록하면
 > 
 > 
 
-### <a name="10-should-i-do-registrations-from-the-app-backend-or-directly-through-client-devices"></a>10.    등록은 앱 백 엔드에서 하나요? 아니면 클라이언트 장치를 통해 직접 하나요?
+### <a name="10----should-i-do-registrations-from-the-app-backend-or-directly-through-client-devices"></a>10.    등록은 앱 백 엔드에서 하나요? 아니면 클라이언트 장치를 통해 직접 하나요?
 등록 작성 전에 클라이언트 인증을 거쳐야 하거나 특정 앱 논리에 따라 앱 백 엔드에서 태그를 만들어야 하는 경우 앱 백 엔드에서 등록하는 것이 유용합니다. 자세한 내용은 [백 엔드 등록 지침] 및 [백 엔드 등록 지침 - 2] 페이지에서 자세히 알아볼 수 있습니다.
 
-### <a name="11-what-is-the-push-notification-delivery-security-model"></a>11.    푸시 알림 배달 보안 모델이란?
+### <a name="11----what-is-the-push-notification-delivery-security-model"></a>11.    푸시 알림 배달 보안 모델이란?
 Azure Notification Hubs에서는 [SAS(공유 액세스 서명)](../storage/storage-dotnet-shared-access-signature-part-1.md) 기반 보안 모델을 사용합니다. 루트 네임스페이스 수준 또는 상세한 알림 허브 수준에서 SAS 토큰을 사용할 수 있습니다. 메시지 보내기 권한, 알림 수신 대기 권한 등의 여러 권한 부여 규칙을 사용하여 이러한 SAS 토큰을 설정할 수 있습니다. 자세한 내용은 [NH 보안 모델] 문서에 있습니다.
 
-### <a name="12-how-should-i-handle-sensitive-payload-in-the-push-notifications"></a>12.    푸시 알림의 중요한 페이로드를 어떻게 처리해야 하나요?
+### <a name="12----how-should-i-handle-sensitive-payload-in-the-push-notifications"></a>12.    푸시 알림의 중요한 페이로드를 어떻게 처리해야 하나요?
 모든 알림은 플랫폼의 PNS(푸시 알림 서비스)를 통해 대상 장치로 배달됩니다. 보낸 사람이 Azure 알림 허브로 보내는 알림은 알림 허브에서 처리된 다음 개별 PNS로 전달됩니다.
 
 보낸 사람으로부터 Azure 알림 허브를 거쳐 PNS로 가는 모든 연결에서는 HTTPS를 사용합니다.
@@ -156,7 +156,7 @@ Azure Notification Hubs에서는 [SAS(공유 액세스 서명)](../storage/stora
 그러나 기밀 페이로드를 보내는 경우 보안 푸시 패턴을 사용하는 것이 좋습니다. 이 패턴에서는 보낸 사람이 기밀 페이로드를 포함하지 않고 메시지 식별자가 들어 있는 'ping' 알림을 장치로 전송하며 장치의 앱이 해당 페이로드를 수신한 경우 안전한 API를 직접 호출하여 메시지 세부 정보를 가져올 수 있습니다. 위에서 설명한 패턴을 구현하는 방법에 대한 가이드는 [NH - 안전한 푸시 자습서] 페이지에서 제공됩니다.
 
 ## <a name="operations"></a>작업
-### <a name="1-what-is-the-disaster-recovery-dr-story"></a>1.    DR(재해 복구)은 어떻게 진행되나요?
+### <a name="1----what-is-the-disaster-recovery-dr-story"></a>1.    DR(재해 복구)은 어떻게 진행되나요?
 끝에서 알림 허브 이름, 연결 문자열 및 기타 중요한 정보에 대한 메타데이터 재해 복구를 제공합니다. DR 시나리오가 트리거되면 등록 데이터는 손실될 알림 허브 인프라의 **유일한 세그먼트** 입니다. 솔루션을 구현하여 이 데이터를 새 허브 사후 복구에 다시 채워야 합니다.
 
 * *1단계* - 다른 데이터 센터에서 보조 알림 허브를 만듭니다. DR 이벤트 발생 시에 보조 알림 허브를 즉시 만들 수도 있고 처음부터 만들어 둘 수도 있습니다. 알림 허브 프로비전은 몇 초 단위인 비교적 빠른 프로세스이므로 선택하는 옵션으로 큰 차이가 나지 않습니다. 그러나 보조 알림 허브를 처음에 만들면 DR 이벤트가 관리 기능에 영향을 주지 않으므로 미리 만들어 두는 옵션을 선택하는 것이 좋습니다.
@@ -179,14 +179,14 @@ Azure Notification Hubs에서는 [SAS(공유 액세스 서명)](../storage/stora
 
 단점은 앱을 열어 두지 않은 장치가 알림을 받을 때 시간 간격이 있다는 점입니다.
 
-### <a name="2-is-there-any-audit-log-capability"></a>2.    감사 로그 기능이 있나요?
+### <a name="2----is-there-any-audit-log-capability"></a>2.    감사 로그 기능이 있나요?
 모든 알림 허브 관리 작업은 [Azure 클래식 포털]에 표시되는 작업 로그에 기록됩니다.
 
-## <a name="monitoring-troubleshooting"></a>모니터링 및 문제 해결
-### <a name="1-what-troubleshooting-capabilities-are-available"></a>1.    어떤 문제 해결 기능이 제공되나요?
+## <a name="monitoring--troubleshooting"></a>모니터링 및 문제 해결
+### <a name="1----what-troubleshooting-capabilities-are-available"></a>1.    어떤 문제 해결 기능이 제공되나요?
 Azure 알림 허브에서는 일반적인 문제 해결을 수행할 수 있는 여러 기능을 제공하며, 특히 알림 삭제와 관련한 가장 일반적인 시나리오에서 사용 가능한 기능을 제공합니다. 자세한 내용은 [NH - 문제 해결] 백서를 참조하세요.
 
-### <a name="2-what-telemetry-features-are-available"></a>2.    어떤 원격 분석 기능이 제공되나요?
+### <a name="2----what-telemetry-features-are-available"></a>2.    어떤 원격 분석 기능이 제공되나요?
 Azure 알림 허브에서는 [Azure 클래식 포털]의 원격 분석 데이터를 확인할 수 있습니다. 사용 가능한 메트릭에 대한 자세한 내용은 [NH - 메트릭] 페이지에서 제공됩니다.
 
 > [!NOTE]
@@ -207,7 +207,7 @@ Azure 알림 허브에서는 [Azure 클래식 포털]의 원격 분석 데이터
 [NH - REST API]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [NH - 시작된 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Chrome 앱 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
-[Mobile Services 가격]: http://azure.microsoft.com/pricing/details/mobile-services/
+[Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
 [백 엔드 등록 지침]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [백 엔드 등록 지침 - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [NH 보안 모델]: https://msdn.microsoft.com/library/azure/dn495373.aspx
@@ -223,6 +223,6 @@ Azure 알림 허브에서는 [Azure 클래식 포털]의 원격 분석 데이터
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

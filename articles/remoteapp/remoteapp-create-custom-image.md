@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 550d46d4e280af2423a494857ffb808e6dffca37
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e28f4004e3cafcfa09309ff0143c83af5fa5493a
 
 
 ---
@@ -55,7 +55,7 @@ Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요�
 * [등록](https://azure.microsoft.com/services/remoteapp/) 합니다.
 * RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다. 자세한 내용은 [RemoteApp에 대해 Azure Active Directory 구성](remoteapp-ad.md) 을 참조하세요.
 * 온-프레미스 네트워크에 대한 정보 수집: IP 주소 정보 및 VPN 장치 세부 정보입니다.
-* [Azure PowerShell](../powershell-install-configure.md) 모듈을 설치합니다.
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs) 모듈을 설치합니다.
 * 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 이 정보는 사용자의 Microsoft 계정 정보나 Active Directory 작업 계정 정보가 될 수 있습니다.
 
 ## <a name="create-a-template-image"></a>템플릿 이미지 만들기
@@ -146,6 +146,6 @@ Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

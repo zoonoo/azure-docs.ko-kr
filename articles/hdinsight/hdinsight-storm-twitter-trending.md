@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -22,14 +22,14 @@ ms.openlocfilehash: 53c18f6bb294c42456a0a4cd3c2a83812e9b13d0
 
 ---
 # <a name="determine-twitter-trending-topics-with-apache-storm-on-hdinsight"></a>HDInsight에서 Apache Storm을 사용하여 Twitter 추세 항목 확인
+
 Trident를 사용하여 Twitter에서 추세 항목(해시 태그)을 확인하는 Storm 토폴로지를 만드는 방법에 대해 알아봅니다.
 
 Trident는 조인, 집계, 그룹화, 함수 및 필터와 같은 도구를 제공하는 높은 수준의 추상화입니다. 또한 Trident는 상태 저장, 증분 처리를 수행하기 위한 기본 요소를 추가합니다. 이 예제에서는 사용자 지정 spout, 함수 및 trident에서 제공하는 여러 기본 제공 함수를 사용하여 토폴로지를 구축하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > 이 예제는 주로 Juan Alonso의 [Trident Storm](https://github.com/jalonsoramos/trident-storm) 예제를 기반으로 합니다.
-> 
-> 
+
 
 ## <a name="requirements"></a>요구 사항
 * <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java 및 JDK 1.7</a>
@@ -49,8 +49,7 @@ Trident는 조인, 집계, 그룹화, 함수 및 필터와 같은 도구를 제�
 
 > [!NOTE]
 > 이는 토폴로지의 단순화된 보기입니다. 구성 요소의 여러 인스턴스가 클러스터 내의 노드 간에 배포됩니다.
-> 
-> 
+
 
 토폴로지를 구현하는 Trident 코드는 다음과 같습니다.
 

@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/22/2016
+ms.date: 12/06/2016
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3885733b67933f331f65760474649fba18adce12
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 140bee520dd8de0d9303a7d80e10cae407c8b10d
 
 
 ---
@@ -30,7 +30,7 @@ Azure에서 클러스터 만들기는 리소스 모델 템플릿 또는 Azure Po
 다음 운영 체제를 실행하는 VM에서 클러스터를 만들 수 있습니다.
 
 * Windows Server 2012 R2
-* Windows Server 2016(일반 공급으로 발표된 후)
+* Windows Server 2016 
 * Linux Ubuntu 16.04(공개 미리 보기 상태) 
 
 ## <a name="create-service-fabric-standalone-clusters-on-premise-or-with-any-cloud-provider"></a>온-프레미스에서 또는 클라우드 공급자를 사용하여 Service Fabric 독립 실행형 클러스터 만들기
@@ -53,7 +53,7 @@ Windows Server에서 독립 실행형 Service Fabric 클러스터 설치에 자�
 다음 운영 체제를 실행하는 컴퓨터 또는 VM에서 클러스터를 만들 수 있습니다.
 
 * Windows Server 2012 R2
-* Windows Server 2016(일반 공급으로 발표된 후)
+* Windows Server 2016 
 * Linux(서비스 예정)
 
 ## <a name="advantages-of-service-fabric-clusters-on-azure-over-standalone-service-fabric-clusters-created-on-premises"></a>온-프레미스에서 만든 독립 실행형 서비스 패브릭 클러스터와 비교한 Azure 서비스 패브릭 클러스터의 장점
@@ -67,13 +67,14 @@ Azure에서 서비스 패브릭 클러스터를 실행하면 온-프레미스 �
 * **자동 크기 조정:** Azure의 클러스터는 가상 컴퓨터 크기 조정 집합으로 인해 자동 크기 조정 기능이 기본적으로 제공됩니다. 온-프레미스 및 다른 클라우드 환경에서는 사용자 고유 자동 크기 조정 기능을 빌드하거나 서비스 패브릭에서 클러스터 크기 조정을 위해 제공하는 API를 사용하여 수동으로 조정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Windows Server를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Windows Server용 서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
 
-Linux를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Linux의 서비스 패브릭](service-fabric-linux-overview.md)
+* Windows Server를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Windows Server용 서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
+* Linux를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Linux의 서비스 패브릭](service-fabric-linux-overview.md)
+* [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

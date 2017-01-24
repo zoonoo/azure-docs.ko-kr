@@ -15,8 +15,8 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcd220da143b518bf28cc1169ab68d20256c07ba
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 4f2b61e7c97beb7556bffca89c3608aaee831ddc
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: dcd220da143b518bf28cc1169ab68d20256c07ba
 
 ## <a name="configure-azure-cmdlets-to-use-your-subscription"></a>구독을 사용하도록 Azure cmdlet 구성
 - - -
-Azure 구독에 대해 cmdlet을 사용할 수 있도록 [이 가이드](../powershell-install-configure.md) 를 따릅니다.
+Azure 구독에 대해 cmdlet을 사용할 수 있도록 [이 가이드](/powershell/azureps-cmdlets-docs) 를 따릅니다.
 
 다음 단계를 사용하여 빠르게 시작할 수 있습니다.
 
@@ -118,6 +118,6 @@ RemoteApp 템플릿 이미지 cmdlet:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

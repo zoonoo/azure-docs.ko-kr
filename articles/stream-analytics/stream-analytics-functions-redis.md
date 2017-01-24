@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/26/2016
 ms.author: ryancraw
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 26808d4d73e5b6256b56dd3c5d5ae5d075eaac5a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e792f8c8b1ffddbd534b1660421e4cc89a63d35a
 
 
 ---
@@ -34,16 +34,16 @@ ASA에 대한 [실시간 사기 감지][fraud-detection] 연습 완료
 위 그림에 나와 있는 것처럼 Stream Analytic을 사용하여 스트리밍 입력 데이터를 쿼리하고 출력으로 전송할 수 있습니다. 출력에 따라, Azure Functions에서 일부 형식의 이벤트를 트리거할 수 있습니다. 
 
 이 블로그에서는 이 파이프라인의 Azure Functions 부분을 좀 더 중점적으로 살펴보고 사기성 데이터를 캐시에 저장하는 이벤트 트리거에 대해서도 구체적으로 설명합니다.
-[실시간 사기 감지][fraud-detection] 자습서를 완료하면 입력(이벤트 허브), 쿼리 및 출력(Blob 저장소)이 구성되어 실행되고 있을 것입니다. 이 블로그에서는 대신 Service Bus Queue를 사용하여 출력을 변경합니다. 그런 다음 이 큐에 Azure Function을 연결합니다. 
+[실시간 사기 감지][fraud-detection] 자습서를 완료하면 입력(이벤트 허브), 쿼리 및 출력(Blob Storage)이 구성되어 실행되고 있을 것입니다. 이 블로그에서는 대신 Service Bus Queue를 사용하여 출력을 변경합니다. 그런 다음 이 큐에 Azure Function을 연결합니다. 
 
 ## <a name="create-and-connect-a-service-bus-queue-output"></a>Service Bus Queue 출력 만들기 및 연결
-Service Bus Queue를 만들려면 [Service Bus Queue 시작][servicebus-getstarted]의 .NET 섹션 1~2단계를 수행합니다.
+Service Bus 큐를 만들려면 [Service Bus 큐 시작][servicebus-getstarted]의 .NET 섹션 1~2단계를 수행합니다.
 이제 이전 사기 감지 연습에서 만든 Stream Analytic 작업에 큐를 연결해 보겠습니다.
 
 1. Azure Portal에서 작업의 **출력** 블레이드로 이동한 후 페이지 맨 위의 **추가**를 선택합니다.
    
     ![출력 추가](./media/stream-analytics-functions-redis/adding-outputs.png)
-2. **Service Bus Queue**로 **싱크**를 선택하고 화면의 지시를 따릅니다. [Service Bus Queue 시작][servicebus-getstarted]에서 만든 Service Bus Queue의 네임스페이스를 선택해야 합니다. 작업이 완료되었으면 “오른쪽” 단추를 클릭합니다.
+2. **Service Bus Queue**로 **싱크**를 선택하고 화면의 지시를 따릅니다. [Service Bus 큐 시작][servicebus-getstarted]에서 만든 Service Bus 큐의 네임스페이스를 선택해야 합니다. 작업이 완료되었으면 “오른쪽” 단추를 클릭합니다.
 3. 다음 값을 지정합니다.
    
    * **이벤트 직렬 변환기 형식**: JSON
@@ -69,19 +69,19 @@ Service Bus Queue를 만들려면 [Service Bus Queue 시작][servicebus-getstart
     ```
 
 ## <a name="create-an-azure-redis-cache"></a>Azure Redis Cache 만들기
-***캐시 클라이언트 구성*** 섹션이 나올 때까지 [Azure Redis Cache를 사용하는 방법][use-rediscache]의 .NET 섹션을 따라 Azure Redis Cache를 만듭니다.
+***캐시 클라이언트 구성***이라는 섹션까지 [Azure Redis Cache를 사용하는 방법][use-rediscache]의 .NET 섹션을 따라 Azure Redis Cache를 만듭니다.
 완료되면 새 Redis Cache가 생성됩니다. **모든 설정** 아래에서 **액세스 키**를 선택하고 ***기본 연결 문자열***을 적어둡니다.
 
 ![아키텍처 스크린샷](./media/stream-analytics-functions-redis/redis-cache-keys.png)
 
 ## <a name="create-an-azure-function"></a>Azure Function 만들기
-[첫 번째 Azure Function 만들기][functions-getstarted] 자습서에 따라 Azure Functions를 시작합니다. 사용하려는 Azure 함수가 이미 있는 경우 [Redis Cache에 쓰기](#Writing-to-Redis-Cache)
+[첫 번째 Azure 함수 만들기][functions-getstarted] 자습서에 따라 Azure Functions를 시작합니다. 사용하려는 Azure 함수가 이미 있는 경우 [Redis Cache에 쓰기](#Writing-to-Redis-Cache)
 
 1. 포털의 왼쪽 탐색 모음에서 App Service를 선택하고 Azure 함수 앱 이름을 클릭하여 함수의 앱 웹 사이트로 이동합니다.
     ![앱 서비스 함수 목록 스크린샷](./media/stream-analytics-functions-redis/app-services-function-list.png)
 2. **새 함수 > ServiceBusQueueTrigger – C#**을 클릭합니다. 다음 필드에 대해 다음 지침을 따릅니다.
    
-   * **큐 이름**: [Service Bus Queue 시작][servicebus-getstarted]에서 큐를 만들 때 입력한 이름과 같습니다(서비스 버스 이름은 아님). Stream Analytic 출력에 연결된 큐를 사용해야 합니다.
+   * **큐 이름**: [Service Bus 큐 시작][servicebus-getstarted]에서 큐를 만들 때 입력한 이름과 같습니다(Service Bus 이름은 아님). Stream Analytic 출력에 연결된 큐를 사용해야 합니다.
    * **Service Bus 연결**: **연결 문자열 추가**를 선택합니다. 연결 문자열을 찾으려면 클래식 포털로 이동한 후 화면 아래쪽에 있는 **Service Bus**, 만든 서비스 버스 및 **연결 정보**를 차례로 선택합니다. 이 페이지의 주 화면에 계속 있는지 확인합니다. 연결 문자열을 복사한 후 붙여 넣습니다. 연결 이름은 원하는 대로 입력해도 됩니다.
      
        ![서비스 버스 연결 스크린샷](./media/stream-analytics-functions-redis/servicebus-connection.png)
@@ -207,6 +207,6 @@ Microsoft Azure를 처음 사용하는 경우 [무료 Azure 평가판 계정](ht
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
