@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e1075e73a67130453701842f3b328484a327f5ec
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4c6dac8b1c5968995de12e678434e158045d5cc6
 
 
 ---
@@ -48,7 +48,7 @@ ms.openlocfilehash: e1075e73a67130453701842f3b328484a327f5ec
 ![2클래스 향상된 의사 결정 트리, 매개 변수 범위](./media/machine-learning-algorithm-parameters-optimize/fig3.png)
 
 ## <a name="define-cross-validation-folds"></a>교차 유효성 검사 접기 정의
-[파티션 및 샘플][partition-and-sample] 모듈을 사용하여 데이터에 접기를 할당할 수 있습니다. 모듈에 대한 다음 샘플 구성에는 다섯 번 접기를 정의하고 샘플 인스턴스에 접기 수를 임의로 할당합니다.
+[파티션 및 샘플][partition-and-sample] 모듈을 사용하여 데이터에 접기 수를 임의로 할당할 수 있습니다. 모듈에 대한 다음 샘플 구성에는 다섯 번 접기를 정의하고 샘플 인스턴스에 접기 수를 임의로 할당합니다.
 
 ![파티션 및 샘플](./media/machine-learning-algorithm-parameters-optimize/fig4.png)
 
@@ -58,7 +58,7 @@ ms.openlocfilehash: e1075e73a67130453701842f3b328484a327f5ec
 ![매개 변수 비우기](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
 ## <a name="train-evaluate-and-compare"></a>학습, 평가 및 비교
-동일한 [모델 조정 하이퍼 매개 변수][tune-model-hyperparameters] 모듈이 매개 변수 집합에 해당하는 모든 모델을 학습하고, 여러 메트릭을 평가한 다음, 선택한 메트릭을 기반으로 최상의 학습된 모델을 만듭니다. 이 모듈에는 다음 두 개의 필수 입력이 있습니다.
+동일한 [Tune Model Hyperparameters][tune-model-hyperparameters] 모듈이 매개 변수 집합에 해당하는 모든 모델을 학습하고, 여러 메트릭을 평가한 다음, 선택한 메트릭을 기반으로 최상의 학습된 모델을 만듭니다. 이 모듈에는 다음 두 개의 필수 입력이 있습니다.
 
 * 미숙한 학습자
 * 데이터 집합
@@ -79,6 +79,6 @@ ms.openlocfilehash: e1075e73a67130453701842f3b328484a327f5ec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

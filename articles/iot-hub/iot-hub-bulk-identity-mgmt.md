@@ -1,6 +1,6 @@
 ---
-title: "IoT Hub 장치 ID 가져오기 및 내보내기 | Microsoft 문서"
-description: "IoT Hub 장치 id의 대량 관리를 위한 개념 및.NET 코드 조각"
+title: "Azure IoT Hub 장치 ID 가져오기 및 내보내기 | Microsoft Docs"
+description: "Azure IoT 서비스 SDK를 사용하여 ID 레지스트리에 대한 대량 작업을 수행하고 장치 ID를 가져오기 및 내보내기를 수행하는 방법입니다. 가져오기 작업을 사용하여 대량으로 장치 ID를 생성, 업데이트 및 삭제할 수 있습니다."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 10/05/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 7c50b4bd32d32ec33f35c2484a3c86e944830725
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: baadc7d9adfdb110c5814e51747c64f8086234e5
 
 
 ---
-# <a name="bulk-management-of-iot-hub-device-identities"></a>IoT Hub 장치 ID의 대량 관리
+# <a name="manage-your-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 장치 ID를 관리합니다.
 각 IoT Hub에는 서비스의 장치별 리소스(예: 진행 중인 클라우드-장치 메시지를 포함하는 큐)를 만드는 데 사용할 수 있는 ID 레지스트리가 있습니다. 또한 ID 레지스트리를 통해 장치 지향 끝점에 대한 액세스를 제어할 수 있습니다. 이 문서에서는 ID 레지스트리에서 장치 ID를 대량으로 가져오고 내보내는 방법에 대해 설명합니다.
 
 가져오기 및 내보내기 작업은 사용자가 IoT Hub에 대해 대량 서비스 작업을 실행할 수 있는 *작업* 상황에서 이루어집니다.
@@ -30,7 +30,7 @@ ms.openlocfilehash: 7c50b4bd32d32ec33f35c2484a3c86e944830725
 ## <a name="what-are-jobs"></a>작업은 무엇입니까?
 ID 레지스트리 작업은 다음 작업을 수행할 때 **작업** 시스템을 사용합니다.
 
-* 표준 런타임 작업에 비해 실행 시간이 깁니다. 또는
+* 표준 런타임 작업에 비해 잠재적으로 실행 시간이 깁니다. 또는
 * 사용자에게 많은 양의 데이터를 반환합니다.
 
 이러한 경우 단일 API 호출을 기다리거나 작업 결과가 있을 때 차단하는 대신에 작업은 해당 IoT Hub에 대한 **작업**을 만듭니다. 그런 다음 즉시 **JobProperties** 개체를 반환합니다.
@@ -342,12 +342,12 @@ static string GetContainerSasUri(CloudBlobContainer container)
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 IoT Hub의 ID 레지스트리에 대한 대량 작업을 수행하는 방법을 살펴보았습니다. Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
-* [사용 현황 메트릭][lnk-metrics]
+* [IoT Hub 메트릭][lnk-metrics]
 * [작업 모니터링][lnk-monitor]
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [개발자 가이드][lnk-devguide]
+* [IoT Hub 개발자 가이드][lnk-devguide]
 * [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
 
 [lnk-metrics]: iot-hub-metrics.md
@@ -358,6 +358,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

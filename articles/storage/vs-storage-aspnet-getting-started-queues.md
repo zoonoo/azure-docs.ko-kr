@@ -1,146 +1,224 @@
 ---
-title: 큐 저장소 및 Visual Studio 연결 서비스 시작(ASP.NET) | Microsoft Docs
-description: Visual Studio 연결 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio ASP.NET 프로젝트에서 Azure 큐 저장소 사용을 시작하는 방법입니다.
+title: "Azure Queue Storage 및 Visual Studio 연결 서비스 시작(ASP.NET) | Microsoft Docs"
+description: "Visual Studio 연결 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio ASP.NET 프로젝트에서 Azure Queue Storage 사용을 시작하는 방법입니다."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 12/02/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: f58c2b522f81dc2dc86f0d2c6bc4872504cf7377
+ms.openlocfilehash: 70875287e79aaf49e1b8802cf2953cd5381b97f4
+
 
 ---
-# Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작
+# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Azure Queue Storage 및 Visual Studio 연결 서비스 시작(ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## 개요
-이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 ASP.NET 프로젝트에서 Azure 저장소 계정을 만들거나 참조한 후 Visual Studio에서 Azure 큐 저장소를 사용하는 방법을 설명합니다.
+## <a name="overview"></a>개요
 
-저장소 계정에서 Azure 큐를 만들고 액세스하는 방법을 살펴보겠습니다. 또한 큐 메시지 추가, 수정, 읽기 및 제거와 같은 기본 큐 작업을 수행하는 방법을 보여 드립니다. 샘플은 C# 코드로 작성되었으며 [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)을 사용합니다. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](http://www.asp.net)을 참조하세요.
+Azure 큐 저장소는 HTTP 또는 HTTPS를 통해 액세스할 수 있는 다량의 구조화되지 않은 데이터를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 제한 없는 수의 메시지가 포함될 수 있습니다.
 
-Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다.
+이 문서에서는 Azure Queue Storage 엔터티를 프로그래밍 방식으로 관리하여 Azure 큐 만들기, 큐 메시지 추가, 수정, 읽기 및 제거와 같은 일반적인 작업을 수행하는 방법을 설명합니다.
 
-## 코드에서 큐 액세스
-ASP.NET 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세스하는 C# 소스 파일에 다음 항목을 포함해야 합니다.
+> [!NOTE]
+> 
+> 이 문서의 코드 섹션에서는 연결 서비스를 사용하여 Azure Storage 계정에 이미 연결되어 있다고 가정합니다. 연결 서비스는 Visual Studio 솔루션 탐색기를 열고, 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **추가->연결 서비스** 옵션을 선택하여 구성됩니다. 여기에서 대화 상자 지침에 따라 원하는 Azure Storage 계정에 연결합니다.      
 
-1. C# 파일 맨 위의 네임스페이스 선언에 이러한 **using** 문이 포함되어 있는지 확인합니다.
+## <a name="create-a-queue"></a>큐 만들기
+
+다음 단계에서는 프로그래밍 방식으로 큐를 만드는 방법을 보여 줍니다. ASP.NET MVC 앱에서 이 코드를 실행하면 컨트롤러로 전환됩니다.
+
+1. 다음 *using* 지시문을 추가합니다.
    
-        using Microsoft.Framework.Configuration;
+        using Microsoft.Azure;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Queue;
-2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
-   
+
+2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. (*<storage-account-name>*을 액세스하려는 Azure Storage 계정의 이름으로 변경합니다.)
+
          CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
-3. 저장소 계정의 큐 개체를 참조하려면 **CloudQueueClient** 개체를 가져옵니다.
-   
-        // Create the CloudQueueClient object for this storage account.
+
+3. 큐 서비스 클라이언트를 나타내는 **CloudQueueClient** 개체를 나타냅니다.
+
         CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-4. 특정 큐를 참조하려면 **CloudQueue** 개체를 가져옵니다.
+
+4. 원하는 큐 이름에 대한 참조를 나타내는 **CloudQueue** 개체를 가져옵니다. (*<queue-name>*을 만들려는 큐의 이름으로 변경합니다.)
+
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+
+5. 큐가 아직 없으면 **CloudQueue.CreateIfNotExists** 메서드를 호출하여 만듭니다. 
+
+        queue.CreateIfNotExists();
+
+
+## <a name="add-a-message-to-a-queue"></a>큐에 메시지 추가
+
+다음 단계에서는 프로그래밍 방식으로 큐에 메시지를 추가하는 방법을 보여 줍니다. ASP.NET MVC 앱에서 이 코드를 실행하면 컨트롤러로 전환됩니다.
+
+1. 다음 *using* 지시문을 추가합니다.
    
-        // Get a reference to a queue named "messageQueue"
-        CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
 
-**참고** 다음 샘플의 코드 앞에 위의 코드를 모두 사용합니다.
+2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. (*<storage-account-name>*을 액세스하려는 Azure Storage 계정의 이름으로 변경합니다.)
 
-## 코드에서 큐 만들기
-코드에서 Azure 큐를 만들려면 위의 코드에 **CreateIfNotExists** 호출을 추가하면 됩니다.
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    // Create the messageQueue if it does not exist
-    messageQueue.CreateIfNotExists();
+3. 큐 서비스 클라이언트를 나타내는 **CloudQueueClient** 개체를 나타냅니다.
 
-## 큐에 메시지 추가
-기존 큐에 메시지를 삽입하려면 새 **CloudQueueMessage** 개체를 만든 다음 **AddMessage** 메서드를 호출합니다.
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-**CloudQueueMessage** 개체는 문자열(UTF-8 형식) 또는 바이트 배열에서 만들 수 있습니다.
+4. 원하는 큐 이름에 대한 참조를 나타내는 **CloudQueue** 개체를 가져옵니다. (*<queue-name>*을 메시지를 추가하려는 큐의 이름으로 변경합니다.)
 
-다음은 'Hello, World' 메시지를 삽입하는 예입니다.
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
 
-    // Create a message and add it to the queue.
-    CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-    messageQueue.AddMessage(message);
+5. 큐에 추가할 메시지를 나타내는 **CloudQueueMessage** 개체를 만듭니다. **CloudQueueMessage** 개체는 문자열(UTF-8 형식) 또는 바이트 배열에서 만들 수 있습니다. (*<queue-message>*를 추가하려는 메시지로 변경합니다.)
 
-## 큐의 메시지 읽기
-큐에서 메시지를 제거하지 않고도 PeekMessage() 메서드를 호출하여 큐의 맨 앞에서 원하는 메시지를 볼 수 있습니다.
+        CloudQueueMessage message = new CloudQueueMessage(<queue-message>);
 
-    // Peek at the next message
-    CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
+6. **CloudQueue.AddMessage** 메서드를 호출하여 큐에 메시지를 추가합니다.
 
-## 큐의 메시지 읽기 및 제거
-이 코드에서는 2단계를 거쳐 큐에서 메시지를 제거할 수 있습니다.
+        queue.AddMessage(message);
 
-1. GetMessage()를 호출하여 큐에서 다음 메시지를 가져옵니다. GetMessage()에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다.
-2. 큐에서 메시지 제거를 완료하려면 **DeleteMessage**를 호출합니다.
+## <a name="read-a-message-from-a-queue-without-removing-it"></a>메시지를 제거하지 않고 큐에서 읽기
 
-메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 다음 코드에서는 메시지가 처리된 직후에 **DeleteMessage**를 호출합니다.
+다음 단계에서는 대기 중인 메시지를 프로그래밍 방식으로 미리 확인하는 방법을 설명합니다(첫 번째 메시지를 제거하지 않고 읽음). ASP.NET MVC 앱에서 이 코드를 실행하면 컨트롤러로 전환됩니다. 
 
-    // Get the next message in the queue.
-    CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
+1. 다음 *using* 지시문을 추가합니다.
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
 
-    // Process the message in less than 30 seconds
+2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. (*<storage-account-name>*을 액세스하려는 Azure Storage 계정의 이름으로 변경합니다.)
 
-    // Then delete the message.
-    await messageQueue.DeleteMessage(retrievedMessage);
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
+3. 큐 서비스 클라이언트를 나타내는 **CloudQueueClient** 개체를 나타냅니다.
 
-## 큐에서 메시지를 제거하는 추가 옵션 사용
-큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다. 먼저, 메시지의 배치(최대 32개)를 가져올 수 있습니다. 두 번째로, 표시하지 않는 제한 시간을 더 길거나 더 짧게 설정하여 코드에서 각 메시지를 완전히 처리하는 시간을 늘리거나 줄일 수 있습니다. 다음 코드 예제는 **GetMessages** 메서드를 사용하여 한 번 호출에 20개의 메시지를 가져옵니다. 그런 다음에 **foreach** 루프를 사용하여 각 메시지를 처리합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다. 5분은 모든 메시지에 대해 동시에 시작되므로, **GetMessages**에 대한 호출 이후로 5분이 지나고 나면 삭제되지 않은 모든 메시지가 다시 표시됩니다.
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+4. 큐에 대한 참조를 나타내는 **CloudQueue** 개체를 가져옵니다. (*<queue-name>*을 메시지를 읽어올 큐의 이름으로 변경합니다.)
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
 
-    foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes(5)))
-    {
-        // Process all messages in less than 5 minutes, deleting each message after processing.
+5. **CloudQueue.PeekMessage** 메서드를 호출하여 큐에서 메시지를 제거하지 않고도 큐의 맨 앞에서 메시지를 읽습니다.
+
+        CloudQueueMessage message = queue.PeekMessage();
+
+6. **CloudQueueMessage.AsBytes** 또는 **CloudQueueMessage.AsString** 속성을 사용하여 **CloudQueueMessage** 개체의 값에 액세스합니다.
+
+        string messageAsString = message.AsString;
+        byte[] messageAsBytes = message.AsBytes;
+
+## <a name="read-and-remove-a-message-from-a-queue"></a>큐에서 메시지 읽기 및 제거
+
+다음 단계에서는 프로그래밍 방식으로 대기된 메시지를 읽은 후 삭제하는 방법을 보여 줍니다. ASP.NET MVC 앱에서 이 코드를 실행하면 컨트롤러로 전환됩니다. 
+
+1. 다음 *using* 지시문을 추가합니다.
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
+
+2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. (*<storage-account-name>*을 액세스하려는 Azure Storage 계정의 이름으로 변경합니다.)
+
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+
+3. 큐 서비스 클라이언트를 나타내는 **CloudQueueClient** 개체를 나타냅니다.
+
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+
+4. 큐에 대한 참조를 나타내는 **CloudQueue** 개체를 가져옵니다. (*<queue-name>*을 메시지를 읽어올 큐의 이름으로 변경합니다.)
+
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+
+5. **CloudQueue.GetMessage** 메서드를 호출하여 큐의 첫 번째 메시지를 읽습니다. **CloudQueue.GetMessage** 메서드는 메시지를 읽는 다른 코드에 해당 메시지가 30초(기본값) 동안 보이지 않도록 하여 사용자가 메시지를 처리하는 동안 다른 코드가 메시지를 수정하거나 삭제할 수 없게 합니다. 메시지가 보이지 않는 기간을 변경하려면 **CloudQueue.GetMessage** 메서드에 전달되는 **visibilityTimeout** 매개 변수를 수정합니다.
+
+        // This message will be invisible to other code for 30 seconds.
+        CloudQueueMessage message = queue.GetMessage();     
+
+6. **CloudQueueMessage.Delete** 메서드를 호출하여 큐에서 메시지를 삭제합니다.
+
         queue.DeleteMessage(message);
-    }
 
-## 큐 길이 가져오기
-큐에 있는 메시지의 추정된 개수를 가져올 수 있습니다. **FetchAttributes** 메서드는 메시지 수를 포함하여 큐 특성을 검색하도록 큐 서비스에 요청합니다. **ApproximateMethodCount** 속성은 큐 서비스를 호출하지 않고도 **FetchAttributes** 메서드를 통해 검색된 마지막 값을 반환합니다.
+## <a name="get-the-queue-length"></a>큐 길이 가져오기
 
-    // Fetch the queue attributes.
-    messageQueue.FetchAttributes();
+다음 단계에서는 프로그래밍 방식으로 큐 길이(메시지 수)를 가져오는 방법을 보여 줍니다. ASP.NET MVC 앱에서 이 코드를 실행하면 컨트롤러로 전환됩니다. 
 
-    // Retrieve the cached approximate message count.
-    int? cachedMessageCount = messageQueue.ApproximateMessageCount;
+1. 다음 *using* 지시문을 추가합니다.
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
 
-    // Display number of messages.
-    Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
+2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. (*<storage-account-name>*을 액세스하려는 Azure Storage 계정의 이름으로 변경합니다.)
 
-## 일반적인 큐 API와 함께 Async-Await 패턴 사용
-이 예제에서는 일반적인 큐 API와 함께 Async- Await 패턴을 사용하는 방법을 보여 줍니다. 샘플은 지정된 각 메서드의 비동기 버전을 호출합니다. 이것은 각 메서드의 Async 사후 수정에서 확인할 수 있습니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 Async- Await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 응용 프로그램의 전반적인 응답성을 향상시킵니다. .NET에서 Async-Await 패턴의 사용에 대한 자세한 내용은 [Async 및 Await(C# 및 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요.
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    // Create a message to put in the queue
-    CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
+3. 큐 서비스 클라이언트를 나타내는 **CloudQueueClient** 개체를 나타냅니다.
 
-    // Async enqueue the message
-    await messageQueue.AddMessageAsync(cloudQueueMessage);
-    Console.WriteLine("Message added");
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Async dequeue the message
-    CloudQueueMessage retrievedMessage = await messageQueue.GetMessageAsync();
-    Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
+4. 큐에 대한 참조를 나타내는 **CloudQueue** 개체를 가져옵니다. (*<queue-name>*을 길이를 쿼리 중인 큐의 이름으로 변경합니다.)
 
-    // Async delete the message
-    await messageQueue.DeleteMessageAsync(retrievedMessage);
-    Console.WriteLine("Deleted message");
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
 
-## 큐 삭제
-큐 및 해당 큐의 모든 메시지를 삭제하려면 큐 개체의 **Delete** 메서드를 호출합니다.
+5. **CloudQueue.FetchAttributes** 메서드를 호출하여 큐의 특성(길이 포함)을 검색합니다. 
 
-    // Delete the queue.
-    messageQueue.Delete();
+        queue.FetchAttributes();
 
-## 다음 단계
+6. **CloudQueue.ApproximateMessageCount** 속성에 액세스하여 큐의 길이를 가져옵니다.
+ 
+        int? nMessages = queue.ApproximateMessageCount;
+
+## <a name="delete-a-queue"></a>큐 삭제
+다음 단계에서는 프로그래밍 방식으로 큐를 삭제하는 방법을 보여 줍니다. 
+
+1. 다음 *using* 지시문을 추가합니다.
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
+
+2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. (*<storage-account-name>*을 액세스하려는 Azure Storage 계정의 이름으로 변경합니다.)
+
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+
+3. 큐 서비스 클라이언트를 나타내는 **CloudQueueClient** 개체를 나타냅니다.
+
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+
+4. 큐에 대한 참조를 나타내는 **CloudQueue** 개체를 가져옵니다. (*<queue-name>*을 길이를 쿼리 중인 큐의 이름으로 변경합니다.)
+
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+
+5. **CloudQueue.Delete** 메서드를 호출하여 **CloudQueue** 개체로 나타내는 큐를 삭제합니다.
+
+        messageQueue.Delete();
+
+## <a name="next-steps"></a>다음 단계
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

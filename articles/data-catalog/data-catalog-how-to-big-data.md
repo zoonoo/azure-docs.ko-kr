@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -67,7 +67,6 @@ ms.openlocfilehash: 8cf7ea7ca69753c12469dff9dc352d616c276ddd
 
 ## <a name="summary"></a>요약
 데이터 소스를 **Azure 데이터 카탈로그**에 등록하면 보다 쉽게 검색하고 이해할 수 있습니다. 논리 데이터 집합을 나타내는 빅 데이터 파일 및 디렉터리를 등록하고 주석을 추가하면, 사용자는 필요한 빅 데이터 소스를 찾아 사용할 수 있습니다.
-
 
 
 

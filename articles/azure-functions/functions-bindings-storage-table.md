@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 768de7b221474f9143ba8e960581893229dca051
+ms.sourcegitcommit: 963a15ce1218ea7b3244e58377b9624680f5930b
+ms.openlocfilehash: e41e72957846dbcdab15960b67caab80882e49e1
 
 
 ---
@@ -47,7 +47,7 @@ Azure Storage 테이블 입력 바인딩을 사용하면 함수의 저장소 테
 {
     "name": "<Name of input parameter in function signature>",
     "type": "table",
-    "direction": "in"
+    "direction": "in",
     "tableName": "<Name of Storage table>",
     "partitionKey": "<PartitionKey of table entity to read - see below>",
     "rowKey": "<RowKey of table entity to read - see below>",
@@ -59,8 +59,8 @@ Azure Storage 테이블 입력 바인딩을 사용하면 함수의 저장소 테
 
 다음 사항에 유의하세요. 
 
-* `partitionKey` 및 `rowKey`를 함께 사용하여 단일 엔터티를 읽습니다. 이러한 속성은 선택적입니다.
-* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성]()을 참조하세요. 
+* `partitionKey` 및 `rowKey`를 함께 사용하여 단일 엔터티를 읽습니다. 이러한 속성은 선택적입니다. 
+* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 또한 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md#application-settings)할 수도 있습니다.  
 
 <a name="inputusage"></a>
 
@@ -167,7 +167,7 @@ Azure Storage 테이블 출력 바인딩을 사용하면 엔터티를 함수의 
 {
     "name": "<Name of input parameter in function signature>",
     "type": "table",
-    "direction": "out"
+    "direction": "out",
     "tableName": "<Name of Storage table>",
     "partitionKey": "<PartitionKey of table entity to write - see below>",
     "rowKey": "<RowKey of table entity to write - see below>",
@@ -178,7 +178,7 @@ Azure Storage 테이블 출력 바인딩을 사용하면 엔터티를 함수의 
 다음 사항에 유의하세요. 
 
 * `partitionKey` 및 `rowKey`를 함께 사용하여 단일 엔터티를 씁니다. 이러한 속성은 선택적입니다. 또한 함수 코드에 엔터티 개체를 만들 때 `PartitionKey` 및 `RowKey`를 지정할 수 있습니다.
-* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성]()을 참조하세요. 
+* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 또한 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md#application-settings)할 수도 있습니다. 
 
 <a name="outputusage"></a>
 
@@ -342,6 +342,6 @@ public class Person : TableEntity
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

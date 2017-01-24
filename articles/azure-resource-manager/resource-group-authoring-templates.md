@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 12/01/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5f810a46db4deed9c31db4f7c072c48b0817ebc4
-ms.openlocfilehash: 091947c26bb0fa348f4de2f16c21c82affcefbd3
+ms.sourcegitcommit: a3a1fc856dc4fb39e3d3b765e943662799c75398
+ms.openlocfilehash: 62b51e2c6235011019d0ad837fe58388cf85e8d0
 
 
 ---
@@ -32,17 +32,19 @@ JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수
 ## <a name="template-format"></a>템플릿 형식
 가장 간단한 구조의 템플릿에 포함되는 요소는 다음과 같습니다.
 
-    {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "",
-       "parameters": {  },
-       "variables": {  },
-       "resources": [  ],
-       "outputs": {  }
-    }
+```json
+{
+   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "",
+   "parameters": {  },
+   "variables": {  },
+   "resources": [  ],
+   "outputs": {  }
+}
+```
 
 | 요소 이름 | 필수 | 설명 |
-|:---:|:---:|:--- |
+|:--- |:--- |:--- |
 | $schema |예 |템플릿 언어의 버전을 설명하는 JSON 스키마 파일의 위치입니다. 위 예제에서 보여 주는 URL을 사용합니다. |
 | contentVersion |예 |템플릿의 버전입니다(예: 1.0.0.0). 이 요소에 값을 제공할 수 있습니다. 템플릿을 사용하여 리소스를 배포할 때 이 값을 사용하면 정확한 템플릿이 사용되도록 할 수 있습니다. |
 | 매개 변수 |아니요 |배포를 실행하여 리소스 배포를 사용자 지정할 때 제공되는 값입니다. |
@@ -59,11 +61,13 @@ JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수
 
 다음 예제에서는 값을 생성할 때 여러 함수를 사용하는 방법을 보여 줍니다.
 
-    "variables": {
-       "location": "[resourceGroup().location]",
-       "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
-       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
-    }
+```json
+"variables": {
+   "location": "[resourceGroup().location]",
+   "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+   "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+}
+```
 
 템플릿 함수의 전체 목록을 보려면 [Azure 리소스 관리자 템플릿 함수](resource-group-template-functions.md)를 참조하세요. 
 
@@ -74,23 +78,25 @@ JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수
 
 다음과 같은 구조를 사용하여 매개 변수를 정의합니다.
 
-    "parameters": {
-       "<parameter-name>" : {
-         "type" : "<type-of-parameter-value>",
-         "defaultValue": "<default-value-of-parameter>",
-         "allowedValues": [ "<array-of-allowed-values>" ],
-         "minValue": <minimum-value-for-int>,
-         "maxValue": <maximum-value-for-int>,
-         "minLength": <minimum-length-for-string-or-array>,
-         "maxLength": <maximum-length-for-string-or-array-parameters>,
-         "metadata": {
-             "description": "<description-of-the parameter>" 
-         }
-       }
-    }
+```json
+"parameters": {
+   "<parameter-name>" : {
+     "type" : "<type-of-parameter-value>",
+     "defaultValue": "<default-value-of-parameter>",
+     "allowedValues": [ "<array-of-allowed-values>" ],
+     "minValue": <minimum-value-for-int>,
+     "maxValue": <maximum-value-for-int>,
+     "minLength": <minimum-length-for-string-or-array>,
+     "maxLength": <maximum-length-for-string-or-array-parameters>,
+     "metadata": {
+         "description": "<description-of-the parameter>" 
+     }
+   }
+}
+```
 
 | 요소 이름 | 필수 | 설명 |
-|:---:|:---:|:--- |
+|:--- |:--- |:--- |
 | parameterName |예 |매개 변수의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
 | type |예 |매개 변수 값의 유형입니다. 아래의 허용되는 유형 목록을 참조하세요. |
 | defaultValue |아니요 |매개 변수 값을 제공하지 않는 경우 매개 변수의 기본값입니다. |
@@ -116,45 +122,50 @@ JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수
 템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 매개 변수 이름을 지정하는 경우 해당 매개 변수의 값으로 **FromTemplate** 접미사를 제공하라는 메시지가 표시됩니다. 예를 들어 [New-AzureRmResourceGroupDeployment][deployment2cmdlet] cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**으로 명명된 매개 변수가 템플릿에 포함되는 경우 값으로 **ResourceGroupNameFromTemplate**을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
 
 > [!NOTE]
-> 모든 암호와 키, 기타 비밀은 **secureString** 유형을 사용해야 합니다. 리소스 배포 후에는 secureString 형식의 템플릿 매개 변수를 읽을 수 없습니다. 
+> 모든 암호와 키, 기타 비밀은 **secureString** 유형을 사용해야 합니다. JSON 개체에 중요한 데이터를 전달하는 경우 **secureObject** 유형을 사용합니다. 리소스 배포 후에는 secureString 또는 secureObject 형식의 템플릿 매개 변수를 읽을 수 없습니다. 
 > 
-> 
+> 예를 들어 배포 기록의 다음 항목은 secureString 및 secureObject가 아닌 문자열과 개체에 대한 값을 보여줍니다.
+>
+> ![배포 값 표시](./media/resource-group-authoring-templates/show-parameters.png)  
+>
 
 다음 예제에서는 매개 변수를 정의하는 방법을 보여줍니다.
 
-    "parameters": {
-      "siteName": {
-        "type": "string",
-        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
-      },
-      "hostingPlanName": {
-        "type": "string",
-        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
-      },
-      "skuName": {
-        "type": "string",
-        "defaultValue": "F1",
-        "allowedValues": [
-          "F1",
-          "D1",
-          "B1",
-          "B2",
-          "B3",
-          "S1",
-          "S2",
-          "S3",
-          "P1",
-          "P2",
-          "P3",
-          "P4"
-        ]
-      },
-      "skuCapacity": {
-        "type": "int",
-        "defaultValue": 1,
-        "minValue": 1
-      }
-    }
+```json
+"parameters": {
+  "siteName": {
+    "type": "string",
+    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
+  },
+  "hostingPlanName": {
+    "type": "string",
+    "defaultValue": "[concat(parameters('siteName'),'-plan')]"
+  },
+  "skuName": {
+    "type": "string",
+    "defaultValue": "F1",
+    "allowedValues": [
+      "F1",
+      "D1",
+      "B1",
+      "B2",
+      "B3",
+      "S1",
+      "S2",
+      "S3",
+      "P1",
+      "P2",
+      "P3",
+      "P4"
+    ]
+  },
+  "skuCapacity": {
+    "type": "int",
+    "defaultValue": 1,
+    "minValue": 1
+  }
+}
+```
 
 배포 중에 매개 변수 값을 입력하는 방법은 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요. 
 
@@ -163,75 +174,83 @@ JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수
 
 다음과 같은 구조를 사용하여 변수를 정의합니다.
 
-    "variables": {
-       "<variable-name>": "<variable-value>",
-       "<variable-name>": { 
-           <variable-complex-type-value> 
-       }
-    }
+```json
+"variables": {
+   "<variable-name>": "<variable-value>",
+   "<variable-name>": { 
+       <variable-complex-type-value> 
+   }
+}
+```
 
 다음 예제에서는 두 매개 변수 값에서 생성된 변수를 정의하는 방법을 보여줍니다.
 
-     "variables": {
-       "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
-    }
+```json
+"variables": {
+    "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
+}
+```
 
 다음 예제에서는 복합 JSON 유형인 변수와 다른 변수에서 생성된 변수를 보여줍니다.
 
-    "parameters": {
-       "environmentName": {
-         "type": "string",
-         "allowedValues": [
-           "test",
-           "prod"
-         ]
-       }
-    },
-    "variables": {
-       "environmentSettings": {
-         "test": {
-           "instancesSize": "Small",
-           "instancesCount": 1
-         },
-         "prod": {
-           "instancesSize": "Large",
-           "instancesCount": 4
-         }
-       },
-       "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
-       "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
-       "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
-    }
+```json
+"parameters": {
+   "environmentName": {
+     "type": "string",
+     "allowedValues": [
+       "test",
+       "prod"
+     ]
+   }
+},
+"variables": {
+   "environmentSettings": {
+     "test": {
+       "instancesSize": "Small",
+       "instancesCount": 1
+     },
+     "prod": {
+       "instancesSize": "Large",
+       "instancesCount": 4
+     }
+   },
+   "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
+   "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
+   "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
+}
+```
 
 ## <a name="resources"></a>리소스
 리소스 섹션에서 배포되거나 업데이트되는 리소스를 정의합니다. 여기서는 올바른 값을 제공하기 위해 배포하는 유형을 이해해야 하기 때문에 템플릿이 더 복잡해질 수 있습니다. 
 
 다음과 같은 구조를 사용하여 리소스를 정의합니다.
 
-    "resources": [
-       {
-         "apiVersion": "<api-version-of-resource>",
-         "type": "<resource-provider-namespace/resource-type-name>",
-         "name": "<name-of-the-resource>",
-         "location": "<location-of-resource>",
-         "tags": "<name-value-pairs-for-resource-tagging>",
-         "comments": "<your-reference-notes>",
-         "dependsOn": [
-           "<array-of-related-resource-names>"
-         ],
-         "properties": "<settings-for-the-resource>",
-         "copy": {
-           "name": "<name-of-copy-loop>",
-           "count": "<number-of-iterations>"
-         }
-         "resources": [
-           "<array-of-child-resources>"
-         ]
-       }
-    ]
+```json
+"resources": [
+   {
+     "apiVersion": "<api-version-of-resource>",
+     "type": "<resource-provider-namespace/resource-type-name>",
+     "name": "<name-of-the-resource>",
+     "location": "<location-of-resource>",
+     "tags": "<name-value-pairs-for-resource-tagging>",
+     "comments": "<your-reference-notes>",
+     "dependsOn": [
+       "<array-of-related-resource-names>"
+     ],
+     "properties": "<settings-for-the-resource>",
+     "copy": {
+       "name": "<name-of-copy-loop>",
+       "count": "<number-of-iterations>"
+     }
+     "resources": [
+       "<array-of-child-resources>"
+     ]
+   }
+]
+```
 
 | 요소 이름 | 필수 | 설명 |
-|:---:|:---:|:--- |
+|:--- |:--- |:--- |
 | apiVersion |예 |리소스를 만들 때 사용하는 REST API의 버전입니다. |
 | type |예 |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 형식을 조합한 값입니다(예: **Microsoft.Storage/storageAccounts**). |
 | name |예 |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 또한 리소스 이름을 외부에 노출하는 Azure 서비스는 다른 ID를 스푸핑하려는 시도가 아님을 확인하기 위해 이름의 유효성을 확인합니다. [리소스 이름 검사](https://msdn.microsoft.com/library/azure/mt219035.aspx)를 참조하세요. |
@@ -247,19 +266,27 @@ JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수
 
 **PowerShell**에서 모든 리소스 공급자를 가져오려면 다음과 같이 사용합니다.
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 반환된 목록에서 관심 있는 리소스 공급자를 찾습니다. 리소스 공급자의 리소스 형식(예: Storage)을 가져오려면 다음과 같이 사용합니다.
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes
+```
 
 리소스 형식의 API 버전(예: 저장소 계정)을 가져오려면 다음과 같이 사용합니다.
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).ApiVersions
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).ApiVersions
+```
 
 리소스 형식의 지원되는 위치를 가져오려면 다음과 같이 사용합니다.
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).Locations
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).Locations
+```
 
 **Azure CLI**에서 모든 리소스 공급자를 가져오려면 다음과 같이 사용합니다.
 
@@ -277,111 +304,117 @@ JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수
 
 리소스 섹션에는 배포할 리소스의 배열이 포함되어 있습니다. 각 리소스 내에서 자식 리소스의 배열도 정의할 수 있습니다. 따라서 리소스 섹션에는 다음과 같은 구조가 있을 수 있습니다.
 
-    "resources": [
-       {
-           "name": "resourceA",
-       },
-       {
-           "name": "resourceB",
-           "resources": [
-               {
-                   "name": "firstChildResourceB",
-               },
-               {   
-                   "name": "secondChildResourceB",
-               }
-           ]
-       },
-       {
-           "name": "resourceC",
-       }
-    ]
-
+```json
+"resources": [
+   {
+       "name": "resourceA",
+   },
+   {
+       "name": "resourceB",
+       "resources": [
+           {
+               "name": "firstChildResourceB",
+           },
+           {   
+               "name": "secondChildResourceB",
+           }
+       ]
+   },
+   {
+       "name": "resourceC",
+   }
+]
+```      
 
 다음 예제에서는 **Extensions** 자식 리소스를 포함한 **Microsoft.Web/serverfarms** 리소스 및 **Microsoft.Web/sites** 리소스를 보여 줍니다. 서버 팜이 존재해야 사이트를 배포할 수 있기 때부터 해당 사이트는 서버 팜에 대한 종속으로 표시됩니다. **Extensions** 리소스는 사이트의 자식입니다.
 
+```json
+"resources": [
+  {
+    "apiVersion": "2015-08-01",
+    "name": "[parameters('hostingPlanName')]",
+    "type": "Microsoft.Web/serverfarms",
+    "location": "[resourceGroup().location]",
+    "tags": {
+      "displayName": "HostingPlan"
+    },
+    "sku": {
+      "name": "[parameters('skuName')]",
+      "capacity": "[parameters('skuCapacity')]"
+    },
+    "properties": {
+      "name": "[parameters('hostingPlanName')]",
+      "numberOfWorkers": 1
+    }
+  },
+  {
+    "apiVersion": "2015-08-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[parameters('siteName')]",
+    "location": "[resourceGroup().location]",
+    "tags": {
+      "environment": "test",
+      "team": "Web"
+    },
+    "dependsOn": [
+      "[concat(parameters('hostingPlanName'))]"
+    ],
+    "properties": {
+      "name": "[parameters('siteName')]",
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+    },
     "resources": [
       {
         "apiVersion": "2015-08-01",
-        "name": "[parameters('hostingPlanName')]",
-        "type": "Microsoft.Web/serverfarms",
-        "location": "[resourceGroup().location]",
-        "tags": {
-          "displayName": "HostingPlan"
-        },
-        "sku": {
-          "name": "[parameters('skuName')]",
-          "capacity": "[parameters('skuCapacity')]"
-        },
-        "properties": {
-          "name": "[parameters('hostingPlanName')]",
-          "numberOfWorkers": 1
-        }
-      },
-      {
-        "apiVersion": "2015-08-01",
-        "type": "Microsoft.Web/sites",
-        "name": "[parameters('siteName')]",
-        "location": "[resourceGroup().location]",
-        "tags": {
-          "environment": "test",
-          "team": "Web"
-        },
+        "type": "extensions",
+        "name": "MSDeploy",
         "dependsOn": [
-          "[concat(parameters('hostingPlanName'))]"
+          "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
         ],
         "properties": {
-          "name": "[parameters('siteName')]",
-          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-        },
-        "resources": [
-          {
-            "apiVersion": "2015-08-01",
-            "type": "extensions",
-            "name": "MSDeploy",
-            "dependsOn": [
-              "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
-            ],
-            "properties": {
-              "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
-              "dbType": "None",
-              "connectionString": "",
-              "setParameters": {
-                "Application Path": "[parameters('siteName')]"
-              }
-            }
+          "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
+          "dbType": "None",
+          "connectionString": "",
+          "setParameters": {
+            "Application Path": "[parameters('siteName')]"
           }
-        ]
+        }
       }
     ]
-
+  }
+]
+```
 
 ## <a name="outputs"></a>outputs
 Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 들어, 배포된 리소스에 액세스하기 위한 URI를 반환할 수 있습니다.
 
 다음 예제에서는 출력 정의의 구조를 보여줍니다.
 
-    "outputs": {
-       "<outputName>" : {
-         "type" : "<type-of-output-value>",
-         "value": "<output-value-expression>"
-       }
-    }
+```json
+"outputs": {
+   "<outputName>" : {
+     "type" : "<type-of-output-value>",
+     "value": "<output-value-expression>"
+   }
+}
+```
 
 | 요소 이름 | 필수 | 설명 |
-|:---:|:---:|:--- |
+|:--- |:--- |:--- |
 | outputName |예 |출력 값의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
 | type |예 |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. |
 | value |예 |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. |
 
 다음 예제에서는 Outputs 섹션에서 반환되는 값을 보여줍니다.
 
-    "outputs": {
-       "siteUri" : {
-         "type" : "string",
-         "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-       }
-    }
+```json
+"outputs": {
+   "siteUri" : {
+     "type" : "string",
+     "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+   }
+}
+```
 
 출력 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿에서 상태 공유](best-practices-resource-manager-state.md)를 참조하세요.
 
@@ -395,6 +428,6 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

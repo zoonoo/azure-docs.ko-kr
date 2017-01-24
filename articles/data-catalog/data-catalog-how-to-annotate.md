@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -55,8 +55,8 @@ ms.openlocfilehash: ba15ebc176ada48943fb6afa5f9c723e3d906099
 
 > [!NOTE]
 > 데이터 카탈로그 데이터 원본 등록 도구를 사용하여 데이터 자산을 등록하는 경우 태그 및 전문가를 제공할 수도 있습니다.
-> 
-> 
+>
+>
 
 여러 테이블 및 뷰를 선택하는 경우 선택된 모든 데이터 자산과 공통된 열만 데이터 카탈로그 포털에 표시됩니다. 이를 통해 사용자에게 선택한 모든 자산에 대해 동일한 이름을 가진 모든 열에 대한 태그 및 설명을 제공할 수 있습니다.
 
@@ -68,7 +68,6 @@ ms.openlocfilehash: ba15ebc176ada48943fb6afa5f9c723e3d906099
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Catalog 시작](data-catalog-get-started.md) 자습서.
-
 
 
 

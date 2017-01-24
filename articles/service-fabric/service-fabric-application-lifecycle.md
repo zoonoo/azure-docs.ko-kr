@@ -12,16 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2016
+ms.date: 11/15/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 9b2744f3f76a7253928a4248f6915eee0e7f8e9a
-ms.openlocfilehash: ba8d22f564a2736600054576a554cbc2037a1302
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 87a303fc04b2a528928eed5ce8f65a19700e0bc0
 
 
 ---
 # <a name="service-fabric-application-lifecycle"></a>서비스 패브릭 응용 프로그램 수명 주기
 다른 플랫폼과 마찬가지로, Azure 서비스 패브릭 기반의 응용 프로그램은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. 서비스 패브릭은 개발부터 배포, 일상적인 관리, 유지 관리 및 최종적인 서비스 해제에 이르기까지 클라우드 응용 프로그램의 전체 응용 프로그램 수명 주기 관리에 대해 최고 수준의 지원을 제공합니다. 여러 역할이 응용 프로그램 수명 주기에 독립적으로 참가할 수 있는 서비스 모델이 제공됩니다. 이 문서에서는 서비스 패브릭 응용 프로그램 수명 주기의 모든 단계에서 여러 역할이 사용하는 방법 및 API에 대한 개요를 제공합니다.
+
+다음 Microsoft Virtual Academy 비디오에서는 응용 프로그램 수명 주기를 관리하는 방법을 설명합니다.<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
+<img src="./media/service-fabric-application-lifecycle/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
+</a></center>
 
 ## <a name="service-model-roles"></a>서비스 모델 역할
 서비스 모델은 다음과 같습니다.
@@ -98,6 +102,6 @@ ms.openlocfilehash: ba8d22f564a2736600054576a554cbc2037a1302
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

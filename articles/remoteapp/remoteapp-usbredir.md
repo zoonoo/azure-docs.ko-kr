@@ -3,7 +3,7 @@ title: "Azure RemoteApp에서 USB 장치를 리디렉션하려면 어떻게 합�
 description: "Azure RemoteApp에서 USB 장치에 대해 리디렉션을 사용하는 방법을 알아봅니다."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 ms.assetid: 191d98af-2f5a-4307-9042-aae0e4049f9f
 ms.service: remoteapp
@@ -11,11 +11,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 62d7b8dba97aae33e077a501bb8da653bbdd127b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 937ebbbb7daf573d072697ee09ab7f6557d0184f
 
 
 ---
@@ -73,7 +73,7 @@ Azure RemoteApp은 원격 데스크톱 서비스에 대해 사용할 수 있는 
 2. 원격 데스크톱 연결을 열고 **옵션 표시**를 클릭합니다.
 3. **다른 이름으로 저장** 을 클릭하여 현재 연결 설정을 RDP 파일에 저장합니다.  
     ![설정을 RDP 파일로 저장](./media/remoteapp-usbredir/ra-saveasrdp.png)
-4. 파일 이름과 위치, 예를 들어 “MyConnection.rdp” 및 “This PC\Documents”를 선택하고 파일을 저장합니다.
+4. 파일 이름과 위치, 예를 들어 MyConnection.rdp 및 This PC\Documents를 선택하고 파일을 저장합니다.
 5. 텍스트 편집기를 사용하여 MyConnection.rdp 파일을 열고 리디렉션할 장치의 인스턴스 ID를 찾습니다.
 
 이제 다음 Cmdlet에서 인스턴스 ID를 사용합니다.
@@ -88,6 +88,6 @@ Azure RemoteApp은 원격 데스크톱 서비스에 대해 사용할 수 있는 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,7 +12,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 19/01/2017
 ms.author: rajanaki
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -130,7 +130,8 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>3단계: 복구 서비스 자격 증명 모음 설정
-1. 다음 명령을 실행하여 자격 증명 모음 컨텍스트를 설정합니다.
+
+다음 명령을 실행하여 자격 증명 모음 컨텍스트를 설정합니다.
    
        Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
@@ -163,7 +164,8 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
        $encryptionFilePath = "C:\temp\".\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
 
 ## <a name="step-5-create-an-azure-storage-account"></a>5단계: Azure 저장소 계정 만들기
-1. Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증명 모음과 동일한 지역에 지역에서 복제가 활성화된 계정을 만듭니다.
+
+Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증명 모음과 동일한 지역에 지역에서 복제가 활성화된 계정을 만듭니다.
    
         $StorageAccountName = "teststorageacc1"    #StorageAccountname
         $StorageAccountGeo  = "Southeast Asia"     
