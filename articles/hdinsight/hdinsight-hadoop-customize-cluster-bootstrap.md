@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: 37114071cb9c3da187e8d96d7a49680ee828832a
 
 
 ---
@@ -130,8 +130,8 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 ![hdinsight hadoop 사용자 지정 클러스터 부트스트랩 azure resource manager 템플릿](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>참고 항목
-* [HDInsight에서 Hadoop 클러스터 만들기][hdinsight-provision-cluster]에서는 다른 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침을 제공합니다.
-* [HDInsight용 스크립트 동작 스크립트 개발][hdinsight-write-script]
+* [HDInsight의 Hadoop 클러스터 만들기][hdinsight-provision-cluster]에서는 다른 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침을 제공합니다.
+* [HDInsight용 스크립트 작업 스크립트 개발][hdinsight-write-script]
 * [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]
 * [HDInsight 클러스터에서 R 설치 및 사용][hdinsight-install-r]
 * [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)
@@ -141,7 +141,7 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-provision-clusters.md
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
@@ -258,6 +258,6 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

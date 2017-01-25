@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c6cd93277aaf5abecefa842904e14c561f659205
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a5f4a164d7d0bfd3b574e94bb3d4a46cb91548df
 
 
 ---
@@ -118,7 +118,7 @@ Condeco에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
    
     a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 2. 응용 프로그램에 SSO를 구성하려면 supportna@condecosoftware.com 을 통해 Condeco 지원팀에 문의하고 다운로드한 메타데이터 파일을 메일에 첨부합니다.
 3. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
    
@@ -175,7 +175,7 @@ Condeco에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-a-condeco-test-user"></a>Condeco 테스트 사용자 만들기
 이 섹션은 Condeco에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Condeco는 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정합니다.
@@ -236,6 +236,6 @@ Condeco에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 12/09/2016
 ms.author: gokuma;weig;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 211012d7c1a4ec3ad8f281bc758d2f91f452dc67
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1072ab3d7c8cc472258925baaa2ef82cdfb17eed
 
 
 ---
@@ -90,7 +90,7 @@ Notebook에 액세스한 다음에는 데이터를 탐색하고, 모델을 구�
 Azure 기계 학습에서 모델을 운영하면 클라이언트가 입력 매개 변수를 전달하고 그에 대한 출력으로 모델로부터 예측을 수신하는 REST 호출을 만들 수 있도록 웹 서비스가 노출됩니다.   
 
 > [!NOTE]
-> 아직 AzureML에 가입하지 않은 경우 [AzureML 스튜디오](https://studio.azureml.net/) 홈 페이지에서 "시작"을 클릭하여 무료 작업 영역 또는 표준 작업 영역을 얻을 수 있습니다.   
+> 아직 Azure Machine Learning에 등록하지 않은 경우 [Azure Machine Learning Studio](https://studio.azureml.net/) 홈페이지에서 "시작"을 클릭하여 무료 작업 영역 또는 표준 작업 영역을 얻을 수 있습니다.   
 > 
 > 
 
@@ -143,9 +143,9 @@ Azure 기계 학습에 python 모델을 배포하는 데 사용되는 메서드�
 Azure Machine Learning에서 모델을 설정, 작성, 게시하고 웹 서비스로 사용하는 데 활용할 수 있는 절차와 코드 조각은 다음과 같습니다.
 
 #### <a name="setup"></a>설정
-1. Revolution R Enterprise 8.0 IDE 또는 R IDE에 ```install.packages("AzureML")``` 를 입력하여 Azure 기계 학습 R 패키지를 설치합니다.
-2. [여기](https://cran.r-project.org/bin/windows/Rtools/)에서 RTools를 다운로드합니다. AzureML로 R 패키지를 운영하기 위해 경로(및 명명된 zip.exe)에 zip 유틸리티가 필요합니다.
-3. 홈 디렉터리 아래의 ```.azureml``` 이라는 디렉터리 아래에서 settings.json 파일을 만들고 Azure ML 작업 영역에서 매개 변수를 입력합니다.
+1. Revolution R Enterprise 8.0 IDE 또는 R IDE에 ```install.packages("AzureML")``` 를 입력하여 Machine Learning R 패키지를 설치합니다.
+2. [여기](https://cran.r-project.org/bin/windows/Rtools/)에서 RTools를 다운로드합니다. Machine Learning으로 R 패키지를 운영하기 위해 경로(및 명명된 zip.exe)에 zip 유틸리티가 필요합니다.
+3. 홈 디렉터리 아래의 ```.azureml```이라는 디렉터리 아래에서 settings.json 파일을 만들고 Azure Machine Learning 작업 영역에서 매개 변수를 입력합니다.
 
 settings.json 파일 구조:
 
@@ -155,7 +155,7 @@ settings.json 파일 구조:
     }}
 
 
-#### <a name="build-a-model-in-r-and-publish-it-in-azure-ml"></a>R에서 모델을 구축하고 Azure ML에 게시
+#### <a name="build-a-model-in-r-and-publish-it-in-azure-machine-learning"></a>R에서 모델을 구축하고 Azure Machine Learning에 게시
     library(AzureML)
     ws <- workspace(config="~/.azureml/settings.json")
 
@@ -172,7 +172,7 @@ settings.json 파일 구조:
 
     ep <- publishWebService(ws, fun = sleepyPredict, name="sleepy lm", inputSchema = sleepstudy, data.frame=TRUE)
 
-#### <a name="consume-the-model-deployed-in-azure-ml"></a>Azure ML에 배포된 모델 사용
+#### <a name="consume-the-model-deployed-in-azure-machine-learning"></a>Azure Machine Learning에 배포된 모델 사용
 클라이언트 응용 프로그램의 모델을 사용하기 위해 Azure 기계 학습 라이브러리를 사용하여 끝점을 확인하는 `services` API 호출을 통해 게시된 웹 서비스를 이름으로 조회합니다. 그런 다음 `consume` 함수를 호출하여 예측할 데이터 프레임을 전달합니다.
 다음 코드는 모델을 Azure 기계 학습 웹 서비스로 게시하는 데 사용됩니다.
 
@@ -295,10 +295,10 @@ Azure 명령을 실행하여 AzCopy Blob을 복사하면 잠시 후 Azure 저장
 
 Azure 저장소 탐색기를 사용하여 VM의 로컬 파일에서 데이터를 업로드할 수도 있습니다.
 
-* 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다.![](./media/machine-learning-data-science-vm-do-ten-things/storage-accounts.png)
-* **파일** 상자 오른쪽의 **...**을 클릭하고 파일 시스템에서 업로드할 파일을 하나 이상 선택한 후에 **업로드**를 클릭하여 파일 업로드를 시작합니다.![](./media/machine-learning-data-science-vm-do-ten-things/upload-files-to-blob.png)
+* 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다.![저장소 탐색기에서 업로드](./media/machine-learning-data-science-vm-do-ten-things/storage-accounts.png)
+* **파일** 상자 오른쪽의 **...**을 클릭하고 파일 시스템에서 업로드할 파일을 하나 이상 선택한 후에 **업로드**를 클릭하여 파일 업로드를 시작합니다.![Blob에 파일 업로드](./media/machine-learning-data-science-vm-do-ten-things/upload-files-to-blob.png)
 
-**Azure Blob에서 데이터 읽기: AML 판독기 모듈**
+**Azure Blob에서 데이터 읽기: Machine Learning 판독기 모듈**
 
 Azure Machine Learning Studio에서 **데이터 가져오기 모듈** 을 사용하여 Blob에서 데이터를 읽을 수 있습니다.
 
@@ -377,11 +377,11 @@ Azure Machine Learning Studio에서 **데이터 가져오기 모듈** 을 사용
 
 데이터가 Azure Blob 저장소에 상주하는 경우 U SQL 쿼리를 사용하여 Azure 저장소 Blob에서 직접 데이터를 읽을 수 있습니다. U-SQL 쿼리를 작성하기 전에 Blob 저장소 계정이 Azure Data Lake에 연결되었는지 확인합니다. **Azure Portal**로 이동하여 Azure Data Lake Analytics 대시보드를 찾은 다음 **데이터 원본 추가**를 클릭하고 저장소 유형을 **Azure Storage**로 선택한 후에 Azure Storage 계정 이름 및 키를 연결합니다. 그러면 저장소 계정에 저장된 데이터를 참조할 수 있습니다.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
+![저장소 계정 및 키 입력](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 Visual Studio에서 Blob 저장소의 데이터를 읽고, 데이터를 조작하고, 기능을 엔지니어링하고, Azure Data Lake 또는 Azure Blob 저장소에 결과 데이터를 출력할 수 있습니다. Blob Storage의 데이터를 참조할 때는 **wasb://**를 사용하고, Azure Data Lake의 데이터를 참조할 때는 **swbhdfs://**를 사용합니다.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Read_Blob_v2.PNG)
+![데이터 프레임](./media/machine-learning-data-science-vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 Visual Studio에서 다음 U-SQL 쿼리를 사용할 수 있습니다.
 
@@ -427,7 +427,7 @@ Visual Studio에서 다음 U-SQL 쿼리를 사용할 수 있습니다.
 
 서버에 쿼리가 제출되면 작업 상태를 표시하는 다이어그램이 표시됩니다.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Job_Status.PNG)
+![작업 상태 다이어그램](./media/machine-learning-data-science-vm-do-ten-things/USQL_Job_Status.PNG)
 
 **Data Lake의 데이터 쿼리: U SQL**
 
@@ -435,11 +435,11 @@ Azure Data Lake에 데이터 집합이 수집되면 [U-SQL 언어](../data-lake-
 
 서버에 쿼리가 제출되면 잠시 후 **Azure Data Lake 탐색기**에서 tripdata_summary.CSV 파일이 표시되며, 이 파일을 마우스 오른쪽 단추로 클릭하여 데이터를 미리 볼 수 있습니다.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/USQL_create_summary.png)
+![Azure Data Lake Explorer의 파일](./media/machine-learning-data-science-vm-do-ten-things/USQL_create_summary.png)
 
 파일 정보를 보려면:
 
-![](./media/machine-learning-data-science-vm-do-ten-things/USQL_tripdata_summary.png)
+![파일 요약](./media/machine-learning-data-science-vm-do-ten-things/USQL_tripdata_summary.png)
 
 ### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터
 Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase 및 Storm 서비스입니다. 데이터 과학 가상 컴퓨터에서 Azure HDInsight 클러스터를 쉽게 사용할 수 있습니다.
@@ -448,25 +448,25 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 * [Azure 포털](https://portal.azure.com)에서 고유한 Azure Blob 저장소 계정을 만듭니다. 이 저장소 계정은 HDInsight 클러스터에 대한 데이터를 저장하는 데 사용됩니다.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
+![Azure Blob Storage 계정 만들기](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
-*  [Azure 포털](machine-learning-data-science-customize-hadoop-cluster.md)
+* [Azure 포털](machine-learning-data-science-customize-hadoop-cluster.md)
   
   * HDInsight 클러스터를 만들 때 만든 저장소 계정을 HDInsight 클러스터와 연결해야 합니다. 이 저장소 계정은 클러스터 내에서 처리할 수 있는 데이터에 액세스하는 데 사용됩니다.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_v4.PNG)
+![HDInsight 클러스터로 만든 저장소 계정에 연결](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_v4.PNG)
 
 * 클러스터의 헤드 노드에 대한 **원격 액세스**를 활성화해야 합니다. 여기에서 지정한 원격 액세스 자격 증명(클러스터에 대해 지정한 자격 증명과 다름)을 기억해야 합니다. 아래에서 필요합니다.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
+![원격 액세스 사용](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
-* Azure ML 작업 영역을 만듭니다. 기계 학습 실험이 이 ML 작업 영역에 저장됩니다. 아래 스크린샷에 표시된 것과 같이 포털에서 강조 표시된 옵션을 선택합니다.
+* Azure Machine Learning 작업 영역을 만듭니다. Machine Learning 실험이 이 Machine Learning 작업 영역에 저장됩니다. 아래 스크린샷에 표시된 것과 같이 포털에서 강조 표시된 옵션을 선택합니다.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space.PNG)
+![Azure 기계 학습 작업 영역 만들기](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space.PNG)
 
-* 그런 다음 Azure ML 작업 영역에 대한 매개 변수를 입력합니다.
+* 그런 다음 작업 영역에 대한 매개 변수를 입력합니다.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space_step2_v2.PNG)
+![Machine Learning 작업 영역 매개 변수 입력](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space_step2_v2.PNG)
 
 * IPython Notebook을 사용하여 데이터를 업로드합니다. 먼저 필요한 패키지를 가져오고 자격 증명에 연결하고 저장소 계정에 db를 만든 다음 HDI 클러스터에 데이터를 로드합니다.
 
@@ -577,7 +577,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
     pd.read_sql(queryString,connection)
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
+![기존 테이블 보기](./media/machine-learning-data-science-vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
 
 각 월의 레코드 수와 trip 테이블에서 팁을 받은 여정과 팁을 받지 않은 여정의 빈도를 살펴보겠습니다.
 
@@ -594,7 +594,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
     df['trip_count'].plot(kind='bar')
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Exploration_Number_Records_by_Month_v3.PNG)
+![월별 레코드 수에 대한 도표](./media/machine-learning-data-science-vm-do-ten-things/Exploration_Number_Records_by_Month_v3.PNG)
 
     queryString = """
         SELECT tipped, COUNT(*) AS tip_freq
@@ -613,7 +613,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
     df['trip_count'].plot(kind='bar')
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
+![팁 빈도 도표](./media/machine-learning-data-science-vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
 
 또한 승차 위치와 하차 위치 사이의 거리를 계산한 다음 주행 거리와 비교할 수 있습니다.
 
@@ -636,7 +636,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
     results.head(5)
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
+![승차 및 하차 테이블](./media/machine-learning-data-science-vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
 
     results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
                        'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
@@ -645,9 +645,9 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
     plt.scatter(df['direct_distance'], df['trip_distance'])
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)
+![주행 거리에 대한 승차/하차 거리 도표](./media/machine-learning-data-science-vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)
 
-이제 모델링을 위한 다운샘플링(1%) 데이터 집합을 준비하겠습니다. 이 데이터를 AML 판독기 모듈에 사용할 수 있습니다.
+이제 모델링을 위한 다운샘플링(1%) 데이터 집합을 준비하겠습니다. Machine Learning 판독기 모듈에서 이 데이터를 사용할 수 있습니다.
 
         queryString = """
         create  table if not exists nyctaxi_downsampled_dataset_testNEW (
@@ -780,19 +780,19 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
     pd.read_sql(queryString,connection)
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
+![데이터 테이블](./media/machine-learning-data-science-vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
-**AML을 사용하여 HDI에서 데이터 읽기: 판독기 모듈**
+**Machine Learning을 사용하여 HDI에서 데이터 읽기: 판독기 모듈**
 
-AML 스튜디오의 **판독기** 모듈을 사용하여 Hadoop 클러스터의 데이터베이스에 액세스할 수도 있습니다. HDI 클러스터의 자격 증명과 Azure 저장소 계정을 연결하면 HDI 클러스터의 데이터베이스를 사용하여 기계 학습 모델을 빌드할 수 있습니다.
+Machine Learning Studio의 **판독기** 모듈을 사용하여 Hadoop 클러스터의 데이터베이스에 액세스할 수도 있습니다. HDI 클러스터의 자격 증명과 Azure 저장소 계정을 연결하면 HDI 클러스터의 데이터베이스를 사용하여 기계 학습 모델을 빌드할 수 있습니다.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/AML_Reader_Hive.PNG)
+![판독기 모듈 속성](./media/machine-learning-data-science-vm-do-ten-things/AML_Reader_Hive.PNG)
 
 그러면 채점된 데이터 집합을 볼 수 있습니다.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/AML_Model_Results.PNG)
+![채점된 데이터 집합 보기](./media/machine-learning-data-science-vm-do-ten-things/AML_Model_Results.PNG)
 
-### <a name="azure-sql-data-warehouse-databases"></a>Azure SQL 데이터 웨어하우스 및 데이터베이스
+### <a name="azure-sql-data-warehouse--databases"></a>Azure SQL 데이터 웨어하우스 및 데이터베이스
 Azure SQL 데이터 웨어하우스는 엔터프라이즈급 SQL Server 환경의 서비스로 탄력적인 데이터 웨어하우스입니다.
 
 이 [문서](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)에 제공된 지침에 따라 Azure SQL Data Warehouse를 프로비전할 수 있습니다. Azure SQL Data Warehouse를 프로비전하면 이 [연습](machine-learning-data-science-process-sqldw-walkthrough.md) 을 사용하여 SQL Data Warehouse 내의 데이터를 사용해 데이터 업로드, 탐색 및 모델링을 수행할 수 있습니다.
@@ -803,7 +803,7 @@ Azure DocumentDB는 클라우드의 NoSQL 데이터베이스입니다. JSON과 �
 DSVM에서 DocumentDB에 액세스하려면 다음과 같은 필수 조건 단계를 수행해야 합니다.
 
 1. DocumentDB Python SDK를 설치합니다(명령 프롬프트에서 ```pip install pydocumentdb``` 실행).
-2.  [Azure 포털](https://portal.azure.com)
+2. [Azure 포털](https://portal.azure.com)
 3. [여기](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) 서 "DocumentDB 마이그레이션 도구"를 다운로드하여 원하는 디렉터리에 추출합니다.
 4. 마이그레이션 도구(DocumentDB 마이그레이션 도구를 설치한 디렉터리 dtui.exe)에서 다음 명령 매개 변수를 사용하여 [공개 Blob](https://cahandson.blob.core.windows.net/samples/volcano.json) 에 저장된 JSON 데이터(화산 데이터)를 DocumentDB로 가져옵니다. 아래의 원본 및 대상 위치 매개 변수를 입력합니다.
    
@@ -816,13 +816,13 @@ DSVM에서 DocumentDB에 액세스하려면 다음과 같은 필수 조건 단�
 
 1. Power BI Desktop을 열고 "Get Data"를 수행합니다. URL을 https://cahandson.blob.core.windows.net/samples/volcano.json으로 지정합니다.
 2. 목록으로 가져온 JSON 레코드가 보일 것입니다.
-3. PowerBI가 동일한 항목을 작업할 수 있도록 목록을 테이블로 변환합니다.
+3. Power BI가 동일한 항목을 작업할 수 있도록 목록을 테이블로 변환합니다.
 4. 확장 아이콘(열 오른쪽에 "왼쪽 화살표와 오른쪽 화살표" 아이콘이 있는 아이콘)을 클릭하여 열을 확장합니다.
 5. 위치가 "레코드" 필드인 것을 볼 수 있습니다. 레코드를 확장하고 좌표만 선택합니다. 좌표는 목록 열입니다.
 6. 목록 좌표 열을 쉼표로 구분된 LatLong 열로 변환하는 새 열을 추가하고 ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})```수식을 사용하여 좌표 목록 필드의 두 요소를 연결합니다.
 7. 마지막으로 ```Elevation``` 열을 10진수로 변환하고 **닫기** 및 **적용**을 선택합니다.
 
-위의 단계 대신 위의 단계를 스크립팅하는 다음 코드를 PowerBI 고급 편집기에 붙여 넣어서 데이터 변환을 쿼리 언어로 작성할 수 있습니다.
+위의 단계 대신 위의 단계를 스크립팅하는 다음 코드를 Power BI 고급 편집기에 붙여넣어서 데이터 변환을 쿼리 언어로 작성할 수 있습니다.
 
     let
         Source = Json.Document(Web.Contents("https://cahandson.blob.core.windows.net/samples/volcano.json")),
@@ -838,7 +838,7 @@ DSVM에서 DocumentDB에 액세스하려면 다음과 같은 필수 조건 단�
 
 이제 Power BI 데이터 모델에 데이터가 있습니다. Power BI Desktop이 아래와 같이 보일 것입니다.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
+![Power BI 데스크톱](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
 
 데이터 모델을 사용하여 보고서를 작성하고 시각화할 수 있습니다. 이 [Power BI 문서](../documentdb/documentdb-powerbi-visualize.md#build-the-reports) 의 단계에 따라 보고서를 작성할 수 있습니다. 최종 결과는 다음과 같이 표시되는 보고서입니다.
 
@@ -856,7 +856,7 @@ DSVM에서 DocumentDB에 액세스하려면 다음과 같은 필수 조건 단�
 
 마찬가지로, 필요한 VM 처리 용량이 감소할 경우(예: 주요 워크로드를 Hadoop 또는 Spark 클러스터로 이동) [Azure 포털](https://portal.azure.com) 에서 VM 인스턴스 설정으로 이동하여 클러스터 규모를 축소할 수 있습니다. 다음은 스크린샷입니다.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/VMScaling.PNG)
+![VM 인스턴스 설정](./media/machine-learning-data-science-vm-do-ten-things/VMScaling.PNG)
 
 ## <a name="10-install-additional-tools-on-your-virtual-machine"></a>10. 가상 컴퓨터에 추가 도구 설치
 Microsoft에서는 다양한 일반 데이터 분석 요구 사항을 해결할 수 있으며 환경을 하나씩 설치 및 구성하는 대신 한꺼번에 처리하여 시간을 절약하고 사용하는 리소스에 대한 요금을 지불하여 비용을 절감하는 다양한 도구를 패키지로 제공해 드리고 있습니다.
@@ -869,6 +869,6 @@ Microsoft에서는 다양한 일반 데이터 분석 요구 사항을 해결할 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

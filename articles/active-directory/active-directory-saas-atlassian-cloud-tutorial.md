@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 01/11/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 61a73b69fe88263910b854ac34a8cd7aa472b0c2
-ms.openlocfilehash: f244b0c9ae81cedbad35f02043fbeedc6f964dd0
+ms.sourcegitcommit: 6d53de158a44116058ab8241d5182414f8f306fb
+ms.openlocfilehash: 243e81ecd1e1648bfd6b2ca6e6268ea1a18d2036
 
 
 ---
@@ -123,7 +123,7 @@ Atlassian Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     ![Single Sign-On 구성](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_04.png) 
 
-    a. **로그인 URL** 텍스트 상자에서 `https://<company name>.predictix.com/sso/request` 패턴으로 사용자가 Atlassian Cloud 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다.
+    a. **로그인 URL** 텍스트 상자에서 `https://<instancename>.atlassian.net` 패턴으로 사용자가 Atlassian Cloud 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다.
     
     b. **식별자** 텍스트 상자에서 `https://id.atlassian.com/login` 패턴으로 URL을 입력합니다.
 
@@ -335,6 +335,6 @@ Atlassian Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -4,7 +4,7 @@ description: "경험으로 해당 제품에 Azure 청구 API를 통합하여 Mic
 services: 
 documentationcenter: 
 author: BryanLa
-manager: mbaldwin
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: f1397397-7e92-4c20-9862-ab6b93afefb7

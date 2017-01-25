@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ede557e1678aa6c24f50bd120552345dcd00cdc3
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: d6bf108a4d03855171d2b9c5552c57f8ee6f1f9b
 
 
 ---
@@ -65,7 +65,7 @@ OMS 포털의 솔루션 갤러리로부터 Microsoft에서 제공하는 관리 �
 7. **구매**를 클릭하여 솔루션을 설치합니다.
 
 ### <a name="deploy-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 배포
-커뮤니티에서 가져오거나 사용자가 [직접 만든](#creating-a-solution) 솔루션은 Resource Manager 템플릿으로 구현되며, [템플릿 배포](../resource-group-template-deploy-portal.md)를 위한 표준 방법을 사용할 수 있습니다.  솔루션을 설치하기 전에 [OMS 작업 영역 및 자동화 계정](#oms-workspace-and-automation-account)을 만들어 연결해야 합니다.
+커뮤니티에서 가져오거나 사용자가 [직접 만든](#creating-a-solution) 솔루션은 Resource Manager 템플릿으로 구현되며, [템플릿 배포](../azure-resource-manager/resource-group-template-deploy-portal.md)를 위한 표준 방법을 사용할 수 있습니다.  솔루션을 설치하기 전에 [OMS 작업 영역 및 자동화 계정](#oms-workspace-and-automation-account)을 만들어 연결해야 합니다.
 
 ## <a name="oms-workspace-and-automation-account"></a>OMS 작업 영역 및 자동화 계정
 대부분의 관리 솔루션은 뷰를 포함하는 [OMS 작업 영역](../log-analytics/log-analytics-manage-access.md)과 Runbook 및 관련 리소스를 포함하는 [자동화 계정](../automation/automation-security-overview.md#automation-account-overview)이 필요합니다. 작업 영역 및 계정은 다음 요구 사항을 충족해야 합니다.
@@ -116,6 +116,6 @@ OMS 포털을 사용하면 현재 작업 영역에 설치된 Microsoft 솔루션
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

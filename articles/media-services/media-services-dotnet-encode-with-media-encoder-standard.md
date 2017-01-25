@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6031391dddc9f5c283974bd22ad22d60d0697a4d
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 775578cb4e89f561449eea10b21a300f20646424
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 6031391dddc9f5c283974bd22ad22d60d0697a4d
 
 이 항목에서는 .NET을 사용하여 MES(미디어 인코더 표준)로 자산을 인코딩하는 방법을 설명합니다. 미디어 인코더 표준은 [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.
 
-항상 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 원하는 형식으로 집합을 변환하는 것이 좋습니다. 동적 패키징을 이용하려면 먼저 콘텐츠를 배달할 계획인 스트리밍 끝점에 대한 주문형 스트리밍 단위를 하나 이상 가져와야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
+항상 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 원하는 형식으로 집합을 변환하는 것이 좋습니다. 
 
 출력 자산이 암호화된 저장소인 경우 자산 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)을 참조하세요.
 
@@ -43,9 +43,9 @@ ms.openlocfilehash: 6031391dddc9f5c283974bd22ad22d60d0697a4d
 ### <a name="input-and-output-metadata"></a>입력 및 출력 메타데이터
 MES를 사용하여 입력 자산을 인코딩하는 경우 인코딩 작업이 성공적으로 완료되면 출력 자산을 얻게 됩니다. 출력 자산에는 사용하는 인코딩 기본 설정에 따라 비디오, 오디오, 미리 보기, 매니페스트 등이 포함됩니다.
 
-출력 자산에는 입력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름 형식은 다음과 같습니다. <asset_id>_metadata.xml(예: 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml). 여기서 <asset_id>는 입력 자산의 AssetId 값입니다. 이 입력 메타데이터 XML의 스키마는 [여기](http://msdn.microsoft.com/library/azure/dn783120.aspx)서 설명됩니다.
+출력 자산에는 입력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름 형식은 다음과 같습니다. <asset_id>_metadata.xml(예: 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml). 여기서 <asset_id>는 입력 자산의 AssetId 값입니다. 이 입력 메타데이터 XML의 스키마는 [여기](media-services-input-metadata-schema.md)서 설명됩니다.
 
-출력 자산에는 출력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름은 <source_file_name>_manifest.xml 형식입니다(예: BigBuckBunny_manifest.xml). 이 출력 메타데이터 XML의 스키마는 [여기](http://msdn.microsoft.com/library/azure/dn783217.aspx)에 설명됩니다.
+출력 자산에는 출력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름은 <source_file_name>_manifest.xml 형식입니다(예: BigBuckBunny_manifest.xml). 이 출력 메타데이터 XML의 스키마는 [여기](media-services-output-metadata-schema.md)에 설명됩니다.
 
 두 메타데이터 파일 중 하나를 검사하려는 경우 SAS 로케이터를 만들고 로컬 컴퓨터에 파일을 다운로드할 수 있습니다. SAS 로케이터를 만들고 미디어 서비스 .NET SDK 확장을 사용하여 파일을 다운로드하는 방법에 대한 예제를 찾을 수 있습니다.
 
@@ -150,6 +150,6 @@ MES를 사용하여 입력 자산을 인코딩하는 경우 인코딩 작업이 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

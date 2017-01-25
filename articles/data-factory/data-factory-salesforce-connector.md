@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 12/20/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
+ms.sourcegitcommit: ff7ab2560e544beb8110af9f78074aa184227885
+ms.openlocfilehash: cc74dd3400018a09433b83cd62b8d893fe118f04
 
 
 ---
@@ -26,10 +26,10 @@ ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
 현재 Azure Data Factory는 Salesforce에서 [지원되는 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 데이터를 이동하도록 지원하며 다른 데이터 저장소에서 Salesforce로 데이터를 이동하도록 지원하지 않습니다.
 
 ## <a name="supported-versions"></a>지원되는 버전
-이 커넥터는 Salesforce Developer Edition, Professional Edition, Enterprise Edition 또는 Unlimited Edition을 지원합니다.
+이 커넥터는 Salesforce Developer Edition, Professional Edition, Enterprise Edition 또는 Unlimited Edition을 지원합니다. 그리고 Salesforce 프로덕션, 샌드박스 및 사용자 지정 도메인에서 복사를 지원합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* API 권한을 사용하도록 설정해야 합니다.  [권한 집합에 따라 Salesforce에서 API 액세스를 사용하도록 설정하는 방법](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
+* API 권한을 사용하도록 설정해야 합니다. [권한 집합에 따라 Salesforce에서 API 액세스를 사용하도록 설정하는 방법](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * Salesforce에서 온-프레미스 데이터 저장소로 데이터를 복사하려면 온-프레미스 환경에 데이터 관리 게이트웨이 2.0이 설치되어 있어야 합니다.
 
 ## <a name="salesforce-request-limits"></a>Salesforce 요청 제한
@@ -45,8 +45,8 @@ Salesforce의 데이터를 지원되는 싱크 데이터 저장소 중 하나에
 
 시나리오를 구현하도록 만들어야 하는 데이터 팩터리 아티팩트는 다음과 같습니다. 목록 다음에 나오는 섹션에서는 이러한 단계에 대한 세부 정보를 제공합니다.
 
-*  [Salesforce](#salesforce-linked-service-properties)
-*  [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service)
+* [Salesforce](#salesforce-linked-service-properties)
+* [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service)
 * [RelationalTable](#salesforce-dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
 * [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 * [RelationalSource](#relationalsource-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
@@ -192,7 +192,6 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 > [!IMPORTANT]
 > 모든 사용자 지정 개체에 대해 API 이름에 "__c" 부분이 필요합니다.
 >
->
 
 ![Data Factory - Salesforce 연결 - API 이름](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
@@ -202,6 +201,7 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **Salesforce**로 설정되어야 합니다. |예 |
+| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> -기본값은 "https://login.salesforce.com"입니다. <br> -샌드박스에서 데이터를 복사하려면 "https://test.salesforce.com"를 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 "https://[domain].my.salesforce.com"를 지정합니다. |아니요 |
 | username |사용자 계정의 사용자 이름을 지정합니다. |예 |
 | password |사용자 계정으로 password를 지정합니다. |예 |
 | securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. 보안 토큰을 재설정하거나 가져오는 방법에 대한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 를 참조하세요. 일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. |예 |
@@ -290,6 +290,6 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

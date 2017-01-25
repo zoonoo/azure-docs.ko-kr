@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2016
+ms.date: 01/12/2017
 ms.author: oanapl
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5e940cd05a5e3d368f42cf3457f0a4b12e86440a
+ms.sourcegitcommit: d20b8d5848d1a11326c60d998099571a4ab8056e
+ms.openlocfilehash: 0306b8c38a7dd86dff56f6cc7bb9eab7e0428762
 
 
 ---
@@ -365,7 +365,7 @@ HealthEvents          :
 복제본 열기가 구성된 기간(기본: 30분)보다 오래 걸릴 경우 **System.RA**는 경고를 보고합니다. API가 서비스 가용성에 영향을 주는 경우 보고서가 훨씬 더 빠르게 발행됩니다.(구성 가능한 간격, 기본 30초) 측정된 시간에는 복제기 열기 및 서비스 열기에 소요된 시간이 포함됩니다. 열기가 완료되면 속성이 확인으로 변경됩니다.
 
 * **SourceId**: System.RA
-* Property에 상태 이벤트를 보여 줍니다. ReplicaOpenStatus
+* **Property**에 상태 이벤트를 보여 줍니다. **ReplicaOpenStatus**
 * **다음 단계**: 성능 상태가 정상이 아닌 경우 복제본의 열기가 예상보다 오래 걸린 이유를 확인합니다.
 
 ### <a name="slow-service-api-call"></a>느린 서비스 API 호출
@@ -685,6 +685,6 @@ HealthEvents          :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

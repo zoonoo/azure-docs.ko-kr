@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 04/18/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: f7b0c3acea5bef6017230df82c57ab7a6ebccd80
-ms.openlocfilehash: 19e5ef3d18deb4bf49699df6449d1cafab92ff53
+ms.sourcegitcommit: 783390791f27a9bf8ea400403a8b0f866f8c5cee
+ms.openlocfilehash: 0f1ae486340270cac5cfdb5d44485d05cb996388
 
 
 ---
@@ -53,10 +53,10 @@ Azure 인증서(자체 서명 인증서 만들기를 비롯한)에 대한 자세
     ![설정](./media/azure-api-management-certs/upload-dialog.png)
 
 ## <a name="next-steps"></a>다음 단계
-이제 구독과 연관된 관리 인증서가 있으므로(로컬에서 일치하는 인증서를 설치한 후에) [서비스 관리 REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx) 에 프로그래밍 방식으로 연결할 수 있고 구독과 연관된 다양한 Azure 리소스를 자동화할 수 있습니다.
+이제 구독과 연관된 관리 인증서가 있으므로(로컬에서 일치하는 인증서를 설치한 후에) [서비스 관리 REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx)에 프로그래밍 방식으로 연결할 수 있고 구독과 연관된 다양한 Azure 리소스를 자동화할 수 있습니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

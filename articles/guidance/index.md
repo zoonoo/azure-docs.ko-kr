@@ -157,6 +157,6 @@ Microsoft 패턴 및 작업 방식 팀은 Azure 고객 자문 팀에 속해 있�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

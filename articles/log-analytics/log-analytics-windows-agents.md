@@ -4,7 +4,7 @@ description: "이 문서는 사용자 지정 버전의 MMA(Microsoft Monitoring 
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 932f7b8c-485c-40c1-98e3-7d4c560876d2
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6836cd4c1f9fe53691ae8330b25e497da4c2e0d5
-ms.openlocfilehash: 161bb18579db7a4615cbc62c539e8b6286a424ac
+ms.sourcegitcommit: ca573f743325b29d43c4b1a0c3bc7001a54fcfae
+ms.openlocfilehash: f7d740c164df5fe2341a3a0dc3ca0149aed68386
 
 
 ---
@@ -97,6 +97,12 @@ $mma.ReloadConfiguration()
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Azure 자동화에서 DSC를 사용하여 에이전트 설치
 
+다음 스크립트 예제를 사용하여 Azure Automation에 DSC를 사용하여 에이전트를 설치합니다. 예제는 64비트 에이전트를 설치하고 `URI` 값으로 식별됩니다. 또한 URI 값을 바꿔 32비트 버전을 사용할 수 있습니다. 두 버전에 대한 URL
+
+- Windows 64 bit agent - https://go.microsoft.com/fwlink/?LinkId=828603
+- Windows 32 bit agent - https://go.microsoft.com/fwlink/?LinkId=828604
+
+
 >[!NOTE]
 이 절차 및 스크립트 예제는 기존 에이전트를 업그레이드하지 않습니다.
 
@@ -125,7 +131,7 @@ Configuration MMAgent
         }
 
         xRemoteFile OIPackage {
-            Uri = "http://download.microsoft.com/download/0/C/0/0C072D6E-F418-4AD4-BCB2-A362624F400A/MMASetup-AMD64.exe"
+            Uri = "https://go.microsoft.com/fwlink/?LinkId=828603"
             DestinationPath = $OIPackageLocalPath
         }
 
@@ -138,11 +144,37 @@ Configuration MMAgent
             DependsOn = "[xRemoteFile]OIPackage"
         }
     }
-}  
+}
 
 
 ```
 
+### <a name="get-the-latest-productid-value"></a>최신 ProductId 값 가져오기
+
+MMAgent.ps1 스크립트에 있는 `ProductId value`은 각 에이전트 버전에 대해 고유합니다. 각 에이전트의 업데이트된 버전이 게시되면, ProductId 값이 변경됩니다. 따라서 나중에 ProductId가 변경되면 간단한 스크립트를 사용하여 에이전트 버전을 찾을 수 있습니다. 테스트 서버에 최신 에이전트 버전을 설치한 후에 다음 스크립트를 사용하여 설치된 ProductId 값을 가져올 수 있습니다. 최신 ProductId 값을 사용하면 MMAgent.ps1 스크립트에서 값을 업데이트할 수 있습니다.
+
+```
+$InstalledApplications  = Get-ChildItem hklm:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+
+
+foreach ($Application in $InstalledApplications)
+
+{
+
+     $Key = Get-ItemProperty $Application.PSPath
+
+     if ($Key.DisplayName -eq "Microsoft Monitoring Agent")
+
+     {
+
+        $Key.DisplayName
+
+        Write-Output ("Product ID is: " + $Key.PSChildName.Substring(1,$Key.PSChildName.Length -2))
+
+     }
+
+}  
+```
 
 ## <a name="configure-an-agent-manually-or-add-additional-workspaces"></a>에이전트를 수동으로 구성하거나 추가 작업 영역 추가
 에이전트를 설치하고 구성하지 않은 경우 또는 에이전트가 여러 작업 영역에 보고하도록 하려는 경우 다음 정보를 참조하여 사용하도록 설정하거나 다시 구성할 수 있습니다. 에이전트를 구성한 후, 에이전트 서비스로 등록하고 필요한 구성 정보와 솔루션 정보를 포함하는 관리 팩을 가져옵니다.
@@ -197,6 +229,6 @@ IT 인프라에서 Operations Manager를 사용할 경우 Operations Manager 에
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

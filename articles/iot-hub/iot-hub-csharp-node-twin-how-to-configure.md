@@ -1,6 +1,6 @@
 ---
-title: "장치 쌍 속성 사용 | Microsoft 문서"
-description: "이 자습서는 장치 쌍 속성을 사용하는 방법을 보여 줍니다."
+title: "Azure IoT Hub 장치 쌍 속성 사용(.NET/노드) | Microsoft Docs"
+description: "Azure IoT Hub 장치 쌍을 사용하여 장치를 구성하는 방법입니다. Node.js용 Azure IoT 장치 SDK를 사용하여 시뮬레이션된 장치 앱을 구현하고 .NET용 Azure IoT 서비스 SDK를 사용하여 장치 쌍을 사용하여 장치 구성을 수정하는 서비스 앱을 구현합니다."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 34e59b5ef344b48b57418d5cdb6e84b06ee07c43
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
 
 
 ---
-# <a name="tutorial-use-desired-properties-to-configure-devices"></a>자습서: desired 속성을 사용하여 장치 구성
+# <a name="use-desired-properties-to-configure-devices"></a>desired 속성을 사용하여 장치 구성
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-이 자습서의 끝 부분에 다음 두 개의 Node.js 콘솔 응용 프로그램이 제공됩니다.
+이 자습서의 끝 부분에 다음 두 개의 Node.js 콘솔 앱이 제공됩니다.
 
 * **SimulateDeviceConfiguration.js** - 원하는 구성 업데이트를 기다리고 시뮬레이션된 구성 업데이트 프로세스의 상태를 보고하는 시뮬레이션된 장치 앱.
-* **SetDesiredConfigurationAndQuery** - 백 엔드에서 실행되도록 의도된, 장치에 원하는 구성을 설정하고 구성 업데이트 프로세스를 쿼리하는 .NET 콘솔 앱.
+* **SetDesiredConfigurationAndQuery**, 장치에 원하는 구성을 설정하고 구성 업데이트 프로세스를 쿼리하는 Node.js 백 엔드 앱입니다.
 
 > [!NOTE]
-> [Azure IoT SDK][lnk-hub-sdks] 문서는 장치 및 백 엔드 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 대한 정보를 제공합니다.
+> [Azure IoT SDK][lnk-hub-sdks] 문서는 장치 및 백 엔드 앱을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 대한 정보를 제공합니다.
 > 
 > 
 
@@ -59,7 +59,7 @@ ms.openlocfilehash: 34e59b5ef344b48b57418d5cdb6e84b06ee07c43
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. 텍스트 편집기를 사용하여 **simulatedeviceconfiguration** 폴더에 새 **SimulateDeviceConfiguration.js** 파일을 만듭니다.
-4. 다음 코드를 **SimulateDeviceConfiguration.js** 파일에 추가하고 **myDeviceId** 장치 ID를 만들 때 복사한 연결 문자열을 사용해 **{장치 연결 문자열}** 자리 표시자를 대체합니다.
+4. 다음 코드를 **SimulateDeviceConfiguration.js** 파일에 추가하고 **myDeviceId** 장치 ID를 만들 때 복사한 장치 연결 문자열을 사용해 **{장치 연결 문자열}** 자리 표시자를 대체합니다.
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -142,7 +142,7 @@ ms.openlocfilehash: 34e59b5ef344b48b57418d5cdb6e84b06ee07c43
             });
         };
    
-    **initConfigChange** 메서드는 구성 업데이트 요청으로 로컬 장치 쌍 개체에서 reported 속성을 업데이트하고, 상태를 **Pending**으로 설정한 다음 서비스에서 장치 쌍을 업데이트합니다. 성공적으로 장치 쌍을 업데이트한 후 **completeConfigChange** 실행 중에 종료되는 장기 실행 프로세스를 시뮬레이션합니다. 이 메서드는 로컬 reported 속성을 업데이트하여 상태를 **Success**로 설정하고 **pendingConfig** 개체를 제거합니다. 그런 다음 서비스에서 장치 쌍을 업데이트합니다.
+    **initConfigChange** 메서드는 구성 업데이트 요청으로 로컬 장치 쌍 개체에서 reported 속성을 업데이트하고 상태를 **Pending**으로 설정한 다음 서비스에서 장치 쌍을 업데이트합니다. 성공적으로 장치 쌍을 업데이트한 후 **completeConfigChange** 실행 중에 종료되는 장기 실행 프로세스를 시뮬레이션합니다. 이 메서드는 로컬 reported 속성을 업데이트하여 상태를 **Success**로 설정하고 **pendingConfig** 개체를 제거합니다. 그런 다음 서비스에서 장치 쌍을 업데이트합니다.
    
     대역폭을 절약하기 위해 보고된 속성은 문서 전체를 교체하는 대신에 수정할 속성(위의 코드에서 **patch**라고 명명됨)만 지정하여 업데이트합니다.
    
@@ -162,8 +162,8 @@ ms.openlocfilehash: 34e59b5ef344b48b57418d5cdb6e84b06ee07c43
 1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 이름을 **SetDesiredConfigurationAndQuery**로 지정합니다.
    
     ![새 Visual C# Windows 클래식 데스크톱 프로젝트][img-createapp]
-2. 솔루션 탐색기에서 **SetDesiredConfigurationAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **Nuget 패키지 관리**를 클릭합니다.
-3. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices**를 검색한 다음 **설치**를 선택하여 **Microsoft.Azure.Devices** 패키지를 설치하고 사용 약관에 동의합니다. 이 프로시저에서는 [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] NuGet 패키지 및 해당 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
+2. 솔루션 Explorer에서 **SetDesiredConfigurationAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
+3. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices**를 검색한 다음 **설치**를 선택하여 **Microsoft.Azure.Devices** 패키지를 설치하고 사용 약관에 동의합니다. 이 프로시저에서는 [Azure IoT 서비스 SDK][lnk-nuget-service-sdk] NuGet 패키지 및 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
    
     ![NuGet 패키지 관리자 창][img-servicenuget]
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
@@ -171,7 +171,7 @@ ms.openlocfilehash: 34e59b5ef344b48b57418d5cdb6e84b06ee07c43
         using Microsoft.Azure.Devices;
         using System.Threading;
         using Newtonsoft.Json;
-5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 만든 IoT Hub의 연결 문자열로 대체합니다.
+5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 만든 허브의 IoT Hub 연결 문자열로 대체합니다.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
@@ -230,7 +230,7 @@ ms.openlocfilehash: 34e59b5ef344b48b57418d5cdb6e84b06ee07c43
    > 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 백 엔드에서 원하는 구성을 *desired 속성*으로 설정하고, 해당 변경 사항을 감지하고 reported 속성을 통해 상태를 보고하는 다단계 업데이트 프로세스를 시뮬레이션하는 장치 앱을 작성했습니다.
+이 자습서에서는 솔루션 백 엔드에서 원하는 구성을 *desired 속성*으로 설정하고, 해당 변경 사항을 감지하고 reported 속성을 통해 상태를 보고하는 다단계 업데이트 프로세스를 시뮬레이션하는 장치 앱을 작성했습니다.
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 
@@ -254,7 +254,7 @@ ms.openlocfilehash: 34e59b5ef344b48b57418d5cdb6e84b06ee07c43
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-schedule-jobs]: iot-hub-node-node-schedule-jobs.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
@@ -267,6 +267,6 @@ ms.openlocfilehash: 34e59b5ef344b48b57418d5cdb6e84b06ee07c43
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

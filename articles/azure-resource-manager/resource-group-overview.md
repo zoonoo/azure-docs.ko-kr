@@ -319,7 +319,7 @@ SDK에서 생성된 코드의 어떤 측면을 개선하려면, SDK를 만드는
 
 이 개요에 대한 비디오 데모는 다음과 같습니다.
 
->[!비디오 https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Azure-Resource-Manager-Overview/player]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Azure-Resource-Manager-Overview/player]
 
 
 [powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources

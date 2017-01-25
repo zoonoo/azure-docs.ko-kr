@@ -12,24 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: arramac
+ms.date: 12/13/2016
+ms.author: mimig
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: db87e15ceb12238dd7b402cd04cfd36c62e3cab7
+ms.sourcegitcommit: d2728682d4fada23d884d0a6b7e2cf4cda38aa33
+ms.openlocfilehash: 32e8fb12e2b80260f7b4c5c6cf4b1b07ec766aca
 
 
 ---
 # <a name="default-quotas-for-documentdb"></a>DocumentDB에 대한 기본 할당량
-다음 테이블에서는 Azure DocumentDB 데이터베이스 리소스의 기본 할당량에 대해 설명합니다. 
 
-[!INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
-
-별표(*)가 표시된 할당량은 [Azure 지원부에 문의하여 조정할 수 있습니다](documentdb-increase-limits.md). 할당량 증가를 완료하는 데는 필수 정보를 받은 후에 최대 24시간이 걸릴 수 있습니다. 
+DocumentDB는 응용 프로그램의 요구에 따라 처리량과 저장소 크기를 조정하여 처리할 수 있는 뛰어난 확장성의 데이터베이스입니다. DocumentDB가 제공하는 규모에 대한 궁금한 사항은 askdocdb@microsoft.com에 전자 메일을 보내 주십시오.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

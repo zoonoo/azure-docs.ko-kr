@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/29/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1ba2e051f4f14db10a83d6aaf90fc6355cef586a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c8ca9d1ac59b0470a87e22731494adbc359b3420
 
 
 ---
@@ -96,7 +96,7 @@ People에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 1. Azure 클래식 포털의 **People** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    [Single Sign-on 구성][6] 
+    [Single Sign-On 구성][6] 
 2. **People에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
     ![Single Sign-On 구성](./media/active-directory-saas-people-tutorial/tutorial_people_03.png) 
@@ -243,6 +243,6 @@ People에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

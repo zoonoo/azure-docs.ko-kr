@@ -1,13 +1,13 @@
 ---
-title: HDInsight에서 WebHCat 오류를 해결하고 이해합니다.
-description: HDInsight의 WebHCat에서 반환된 일반 오류 및 문제를 해결하는 방법에 대해 알아봅니다.
+title: "HDInsight에서 WebHCat 오류를 해결하고 이해합니다."
+description: "HDInsight의 WebHCat에서 반환된 일반 오류 및 문제를 해결하는 방법에 대해 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 1b3d94b1-207d-4550-aece-21dc45485549
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6b50b1c0522db3efe3bb5a10fd978dfaa41e2987
+
 
 ---
-# <a name="understand-and-resolve-errors-received-from-webhcat-(templeton,)-on-hdinsight"></a>HDInsightdml WebHCat(Templeton,)에서 받은 오류 이해 및 해결
+# <a name="understand-and-resolve-errors-received-from-webhcat-templeton-on-hdinsight"></a>HDInsightdml WebHCat(Templeton,)에서 받은 오류 이해 및 해결
 WebHCat(이전의 Templeton)을 사용하여 HDInsight를 사용하는 경우 오류가 발생할 수 있습니다. 이 문서는 일반적인 오류 – 발생 이유 및 해결을 수행할 수 있는 지침을 제공합니다.
 
-## <a name="what-is-webhcat?"></a>WebHCat이란?
+## <a name="what-is-webhcat"></a>WebHCat이란?
 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)은 [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog)용 REST API, Hadoop용 테이블 및 저장소 관리 계층입니다. WebHCat은 HDInsight 클러스터에서 기본적으로 활성화되어있으며 다양한 도구에서 사용되어 클러스터에 로그인하지 않고 작업을 제출하고, 작업 상태 등을 가져옵니다.
 
 ## <a name="modifying-configuration"></a>구성 수정
@@ -55,7 +59,7 @@ WebHCat(이전의 Templeton)을 사용하여 HDInsight를 사용하는 경우 �
 | --- | --- |
 | 클러스터에 대한 기본 및 보조 헤드 노드 간 장애 조치 중에 발생합니다. |2분을 기다린 후 작업을 다시 시도합니다. |
 
-## <a name="bad-request-content:-could-not-find-job"></a>잘못된 요청 콘텐츠: 작업을 찾을 수 없습니다.
+## <a name="bad-request-content-could-not-find-job"></a>잘못된 요청 콘텐츠: 작업을 찾을 수 없습니다.
 **HTTP 상태 코드**: 400
 
 | 원인 | 해결 방법 |
@@ -82,6 +86,6 @@ WebHCat(이전의 Templeton)을 사용하여 HDInsight를 사용하는 경우 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

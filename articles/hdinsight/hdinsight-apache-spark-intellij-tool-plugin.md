@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/09/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53346b6f9e7b5a172ecc343883f55409d5ca8057
+ms.sourcegitcommit: 70fbc8f973a341f818cb5958931a199021b7dc46
+ms.openlocfilehash: 4e63cb94d9bd39f0621eb0dc07c60335a91324d8
 
 
 ---
@@ -71,11 +71,13 @@ IntelliJ용 HDInsight 도구는 IntelliJ용 Azure 도구 키트의 일부로 사
 2. 다음 창에서 프로젝트 세부 정보를 제공합니다.
    
    * 프로젝트 이름과 프로젝트 위치를 제공합니다.
-   * **프로젝트 SDK**의 경우 7보다 높은 Java 버전을 제공해야 합니다.
-   * **Scala SDK**의 경우 **만들기**, **다운로드**를 차례로 클릭한 다음 사용할 Scala 버전을 선택합니다. **2.11.x 버전은 사용하지 마세요**. 이 샘플에서는 버전 **2.10.6**을 사용합니다.
-     
-       ![Spark Scala 응용 프로그램 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
-   * **Spark SDK**의 경우 [여기](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)서 SDK를 다운로드하여 사용합니다. 이 메시지를 무시하고 [Spark Maven 리포지토리](http://mvnrepository.com/search?q=spark)를 대신 사용할 수도 있지만 Spark 응용 프로그램을 개발하려면 올바른 Maven 리포지토리가 설치되어 있어야 합니다. (예를 들어 Spark 스트리밍을 사용하는 경우 Spark 스트리밍 부분이 설치되어 있는지 확인해야 합니다. 또한 Scala 2.10으로 표시된 리포지토리를 사용하고 있는지 확인해야 합니다. Scala 2.11로 표시된 리포지토리는 사용하지 마세요.)
+   * **Project SDK**의 경우, Spark 1.6 클러스터에 대해서는 Java 1.7 이상이며 Spark 2.0 클러스터에 대해서는 Java 1.8입니다.
+   * **Scala SDK**의 경우 **만들기**, **다운로드**를 차례로 클릭한 다음 사용할 Scala 버전을 선택합니다.
+   * * Spark 2.0 클러스터에 작업을 제출하려는 경우 **JDK 1.8 및 Scala 2.11.x**를 선택합니다.
+   * * Spark 1.6 클러스터에 작업을 제출하려는 경우 **JDK 1.7 이상 및 Scala 2.10.x**를 선택합니다.
+
+        ![](./media/hdinsight-apache-spark-intellij-tool-plugin/show-scala2.11.x-select.png)
+   * **Spark SDK**의 경우, [여기](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)에서 SDK를 다운로드하여 사용합니다(spark-assembly-2.0.0-hadoop2.7.0-SNAPSHOT.jar은 Spark 2.0 클러스터용이며 spark-assembly-x.jar은 Spark 1.6 클러스터용임). 이 메시지를 무시하고 [Spark Maven 리포지토리](http://mvnrepository.com/search?q=spark)를 대신 사용할 수도 있지만 Spark 응용 프로그램을 개발하려면 올바른 Maven 리포지토리가 설치되어 있어야 합니다. (예를 들어 Spark 스트리밍을 사용하는 경우 Spark 스트리밍 부분이 설치되어 있는지 확인해야 합니다. 또한 Spark 1.6 클러스터에 대해 Scala 2.10으로 표시된 리포지토리를 사용하고 있고 Spark 2.0 클러스터에 대해 Scala 2.11로 표시된 리포지토리를 사용하는지 확인합니다.)
      
        ![Spark Scala 응용 프로그램 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
    * **마침**을 클릭합니다.
@@ -87,7 +89,7 @@ IntelliJ용 HDInsight 도구는 IntelliJ용 Azure 도구 키트의 일부로 사
        ![JAR 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin/default-artifact.png)
       
       위의 그림에서 강조 표시된 **+** 아이콘을 클릭하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
-4. **프로젝트 구조** 대화 상자에서 **프로젝트**를 클릭합니다. **프로젝트 SDK**가 1.8로 설정되어 있으면 **프로젝트 언어 수준**이 **7 - 다이아몬드, ARM, 다중 캐치 등**으로 설정되어 있는지 확인합니다.
+4. **프로젝트 구조** 대화 상자에서 **프로젝트**를 클릭합니다. **프로젝트 SDK**가 1.8로 설정되어 있으면 **프로젝트 언어 수준**이 **7 - 다이아몬드, ARM, 다중 캐치 등**으로 설정되어 있는지 확인합니다(Spark 2.0 클러스터의 경우 선택사항임).
    
     ![프로젝트 언어 수준 설정](./media/hdinsight-apache-spark-intellij-tool-plugin/set-project-language-level.png)
 5. 응용 프로그램 소스 코드 적용
@@ -180,10 +182,10 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
    
    * 프로젝트 이름과 프로젝트 위치를 제공합니다.
    * **프로젝트 SDK**의 경우 7보다 높은 Java 버전을 제공해야 합니다.
-   * **Scala SDK**의 경우 **만들기**, **다운로드**를 차례로 클릭한 다음 사용할 Scala 버전을 선택합니다. **2.11.x 버전은 사용하지 마세요**. 이 샘플에서는 버전 **2.10.6**을 사용합니다.
+   * **Scala SDK**의 경우 **만들기**, **다운로드**를 차례로 클릭한 다음 사용할 Scala 버전을 선택합니다.**Spark 2.0에 대해서는 Scala 2.11.x이며 Spark 1.6에 대해서는 Scala 2.10.x입니다**.
      
        ![Spark Scala 응용 프로그램 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
-   * **Spark SDK**의 경우 [여기](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)서 SDK를 다운로드하여 사용합니다. 이 메시지를 무시하고 [Spark Maven 리포지토리](http://mvnrepository.com/search?q=spark)를 대신 사용할 수도 있지만 Spark 응용 프로그램을 개발하려면 올바른 Maven 리포지토리가 설치되어 있어야 합니다. (예를 들어 Spark 스트리밍을 사용하는 경우 Spark 스트리밍 부분이 설치되어 있는지 확인해야 합니다. 또한 Scala 2.10으로 표시된 리포지토리를 사용하고 있는지 확인해야 합니다. Scala 2.11로 표시된 리포지토리는 사용하지 마세요.)
+   * **Spark SDK**의 경우 [여기](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)서 SDK를 다운로드하여 사용합니다. 이 메시지를 무시하고 [Spark Maven 리포지토리](http://mvnrepository.com/search?q=spark)를 대신 사용할 수도 있지만 Spark 응용 프로그램을 개발하려면 올바른 Maven 리포지토리가 설치되어 있어야 합니다. (예를 들어 Spark 스트리밍을 사용하는 경우 Spark 스트리밍 부분이 설치되어 있는지 확인해야 합니다. 또한 Spark 1.6 클러스터에 대해 Scala 2.10으로 표시된 리포지토리를 사용하고 있고 Spark 2.0 클러스터에 대해 Scala 2.11로 표시된 리포지토리를 사용하는지 확인합니다.)
      
        ![Spark Scala 응용 프로그램 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-create-project.png)
    * **Finish**를 클릭합니다.
@@ -231,7 +233,7 @@ Spark에는 471MB 이상이 필요하므로 힙 크기가 충분히 크지 않�
 
 ![Spark 응용 프로그램 로컬 실행 결과](./media/hdinsight-apache-spark-intellij-tool-plugin/change-heap-size.png)
 
-## <a name="feedback-known-issues"></a>사용자 의견 및 알려진 문제
+## <a name="feedback--known-issues"></a>사용자 의견 및 알려진 문제
 현재 직접 Spark 출력 보기는 지원되지 않으며 준비 중입니다.
 
 제안 또는 피드백이 있거나 이 도구를 사용할 때 문제가 발생하는 경우 microsoft.com의 hdivstool로 메일을 보내 주시기 바랍니다.
@@ -265,6 +267,6 @@ Spark에는 471MB 이상이 필요하므로 힙 크기가 충분히 크지 않�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,21 +15,19 @@ ms.topic: article
 ms.date: 08/18/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 83f2818873e2716193004bf1cc2b9da4da360f17
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 14419f36a9404202d6238d5825fb1ae77d46038a
 
 
 ---
 # <a name="using-azure-powershell-with-azure-resource-manager"></a>Azure 리소스 관리자로 Azure PowerShell 사용
 > [!div class="op_single_selector"]
-> * [포털](resource-group-portal.md) 
+> * [포털](resource-group-portal.md)
 > * [Azure CLI](xplat-cli-azure-resource-manager.md)
 > * [Azure PowerShell](powershell-azure-resource-manager.md)
 > * [REST API](resource-manager-rest-api.md)
-> 
-> 
 
-Azure Resource Manager는 Azure 리소스 수명 주기 컨트롤에 대한 현대적 접근법을 구현합니다. 개별 리소스를 만들어서 관리하는 대신 블로그, 사진 갤러리, SharePoint 포털, wiki 등의 전체 솔루션을 생각해 보십시오. 템플릿(솔루션의 선언적 표현)을 사용하여 해당 솔루션을 지원하는 데 필요한 모든 리소스가 포함된 리소스 그룹을 만듭니다. 그런 다음 해당 리소스 그룹을 논리 단위로 배포하고 관리합니다. 
+Azure Resource Manager는 Azure 리소스 수명 주기 컨트롤에 대한 현대적 접근법을 구현합니다. 개별 리소스를 만들어서 관리하는 대신 블로그, 사진 갤러리, SharePoint 포털, wiki 등의 전체 솔루션을 생각해 보십시오. 템플릿(솔루션의 선언적 표현)을 사용하여 해당 솔루션을 지원하는 데 필요한 모든 리소스가 포함된 리소스 그룹을 만듭니다. 그런 다음 해당 리소스 그룹을 논리 단위로 배포하고 관리합니다.
 
 이 자습서에서는 Azure 리소스 관리자에서 Azure PowerShell을 사용하는 방법에 대해 알아봅니다. 솔루션을 배포하고 해당 솔루션을 사용하는 과정을 안내합니다. Azure PowerShell 및 Resource Manager 템플릿을 사용하여 배포할 것입니다.
 
@@ -38,14 +36,14 @@ Azure Resource Manager는 Azure 리소스 수명 주기 컨트롤에 대한 현�
 * 방화벽 규칙 - 웹 앱을 데이터베이스에 연결하도록 허용
 * 앱 서비스 계획 - 웹 앱의 기능과 비용 정의
 * 웹 사이트, 웹 앱 실행
-* 웹 구성 - 연결 문자열을 데이터베이스에 저장 
+* 웹 구성 - 연결 문자열을 데이터베이스에 저장
 * 경고 규칙 - 성능 및 오류 모니터링
 * App Insights - 자동 크기 조정 설정
 
-Azure PowerShell을 가져오려면 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+Azure PowerShell을 가져오려면 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 ## <a name="get-help-for-cmdlets"></a>Cmdlet에 대한 도움말 보기
-이 설명서에 나오는 cmdlet에 대한 자세한 도움말을 보려면 Get-Help cmdlet을 사용합니다. 
+이 설명서에 나오는 cmdlet에 대한 자세한 도움말을 보려면 Get-Help cmdlet을 사용합니다.
 
     Get-Help <cmdlet-name> -Detailed
 
@@ -53,7 +51,7 @@ Azure PowerShell을 가져오려면 [Azure PowerShell 설치 및 구성 방법](
 
     Get-Help Get-AzureRmResource -Detailed
 
-리소스 모듈의 Cmdlet 목록을 도움말 개요와 함께 가져오려면 다음을 입력합니다. 
+리소스 모듈의 Cmdlet 목록을 도움말 개요와 함께 가져오려면 다음을 입력합니다.
 
     Get-Command -Module AzureRM.Resources | Get-Help | Format-Table Name, Synopsis
 
@@ -78,21 +76,21 @@ Azure 계정에 로그인하려면 **Add-AzureRmAccount** Cmdlet을 사용합니
 
     Add-AzureRmAccount
 
-Cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다. 
+Cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다.
 
-계정 설정은 만료되므로 자주 새로 고쳐야 합니다. 계정 설정을 새로 고치려면 **Add-AzureRmAccount** 를 다시 실행합니다. 
+계정 설정은 만료되므로 자주 새로 고쳐야 합니다. 계정 설정을 새로 고치려면 **Add-AzureRmAccount** 를 다시 실행합니다.
 
 > [!NOTE]
-> Resource Manager 모듈을 사용하려면 Add-AzureRmAccount가 필요합니다. 게시 설정 파일로는 충분하지 않습니다.     
-> 
-> 
+> Resource Manager 모듈을 사용하려면 Add-AzureRmAccount가 필요합니다. 게시 설정 파일로는 충분하지 않습니다.
+>
+>
 
 여러 구독이 있는 경우 **Set-AzureRmContext** Cmdlet을 사용하여 배포에 사용할 구독 ID를 입력합니다.
 
     Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-구독에 리소스를 배포하려면 리소스를 포함하는 리소스 그룹을 만들어야 합니다. 
+구독에 리소스를 배포하려면 리소스를 포함하는 리소스 그룹을 만들어야 합니다.
 
 리소스 그룹을 만들려면 **New-AzureRmResourceGroup** Cmdlet을 사용합니다.
 
@@ -115,9 +113,10 @@ Cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로
 
 리소스 그룹이 있고 템플릿이 있으므로 이제 템플릿에 정의된 인프라를 리소스 그룹에 배포할 준비가 되었습니다. **New-AzureRmResourceGroupDeployment** Cmdlet을 사용하여 리소스를 배포합니다. 템플릿에서 여러 기본값을 지정하고 사용자는 그 값을 그대로 사용하면 되므로 이러한 매개 변수의 값을 지정할 필요가 없습니다. 기본 구문은 다음과 같습니다.
 
-    New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -administratorLogin exampleadmin -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
+    New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -administratorLogin exampleadmin -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
-리소스 그룹 및 템플릿 위치를 지정합니다. 템플릿이 로컬 파일인 경우 **-TemplateFile** 매개 변수를 사용하여 템플릿 경로를 지정합니다. **-Mode** 매개 변수를 **Incremental** 또는 **Complete**로 설정할 수 있습니다. 기본적으로 Resource Manager는 배포하는 동안 증분 업데이트를 수행하므로 **Incremental**을 원하는 경우 **-Mode**를 설정하지 않아도 됩니다. 이러한 배포 모드 간의 차이점을 이해하려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요. 
+리소스 그룹 및 템플릿 위치를 지정합니다. 템플릿이 로컬 파일인 경우 **-TemplateFile** 매개 변수를 사용하여 템플릿 경로를 지정합니다. **-Mode** 매개 변수를 **Incremental** 또는 **Complete**로 설정할 수 있습니다. 기본적으로 Resource Manager는 배포하는 동안 증분 업데이트를 수행하므로 **Incremental**을 원하는 경우 **-Mode**를 설정하지 않아도 됩니다.
+이러한 배포 모드 간의 차이점을 이해하려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
 ### <a name="dynamic-template-parameters"></a>동적 템플릿 매개 변수
 PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌러 Cmdlet에 사용할 수 있는 매개 변수를 순환시켜 볼 수 있습니다. 이 기능은 템플릿에 정의하는 매개 변수에 대해서도 작동합니다. 템플릿 이름을 입력하자마자 Cmdlet이 템플릿을 인출하고 분석한 다음 템플릿 매개 변수를 명령에 동적으로 추가합니다. 따라서 템플릿 매개 변수 값을 매우 쉽게 지정할 수 있습니다.
@@ -162,42 +161,40 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
 
     DeploymentDebugLogLevel :
 
-단 몇 개의 단계를 수행하여 복잡한 웹 사이트에 필요한 리소스를 만들어 배포했습니다. 
+단 몇 개의 단계를 수행하여 복잡한 웹 사이트에 필요한 리소스를 만들어 배포했습니다.
 
 ### <a name="log-debug-information"></a>로그 디버그 정보
 템플릿을 배포할 때, **New-AzureRmResourceGroupDeployment**가 실행 중인 동안 **-DeploymentDebugLogLevel** 매개 변수를 지정하여 요청 및 응답에 대한 추가 정보를 기록할 수 있습니다. 이 정보는 배포 오류를 해결하는 데 도움이 될 수 있습니다. 기본값은 요청 또는 응답 콘텐츠를 기록하지 않는다는 의미의 **없음** 입니다. 요청, 응답 또는 둘 모두의 콘텐츠를 기록하도록 지정할 수 있습니다.  배포 문제 해결 및 로깅 디버그 정보에 대한 자세한 내용은 [Azure PowerShell을 사용하여 리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-powershell.md)을 참조하세요. 다음은 배포에 대한 요청 콘텐츠 및 응답 콘텐츠를 기록하는 예입니다.
 
-    New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -DeploymentDebugLogLevel All -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
+    New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -DeploymentDebugLogLevel All -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 > [!NOTE]
-> DeploymentDebugLogLevel 매개 변수를 설정할 때, 배포하는 동안 전달할 정보 유형을 신중히 고려하세요. 요청 또는 응답에 대한 정보를 로깅하게 되면 배포 작업을 통해 검색되는 중요한 데이터가 노출될 가능성이 있기 때문입니다. 
-> 
-> 
+> DeploymentDebugLogLevel 매개 변수를 설정할 때, 배포하는 동안 전달할 정보 유형을 신중히 고려하세요. 요청 또는 응답에 대한 정보를 로깅하게 되면 배포 작업을 통해 검색되는 중요한 데이터가 노출될 가능성이 있기 때문입니다.
 
 ## <a name="get-information-about-your-resource-groups"></a>리소스 그룹에 대한 정보 가져오기
 리소스 그룹을 만든 후 리소스 관리자 모듈에서 Cmdlet을 사용하여 리소스 그룹을 관리할 수 있습니다.
 
 * 구독에서 리소스 그룹을 가져오려면 **Get-AzureRmResourceGroup** Cmdlet를 사용합니다.
-  
+
         Get-AzureRmResourceGroup -ResourceGroupName TestRG1
-  
+
     그러면 다음 정보가 반환됩니다.
-  
+
         ResourceGroupName : TestRG1
         Location          : westus
         ProvisioningState : Succeeded
         Tags              :
         ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG
-  
+
         ...
-  
+
     리소스 그룹 이름을 지정하지 않으면 cmdlet이 구독의 모든 리소스 그룹을 반환합니다.
 * 리소스 그룹에서 리소스를 가져오려면 **Find-AzureRmResource** cmdlet와 **ResourceGroupNameContains** 매개 변수를 사용합니다. 매개 변수를 사용하지 않고 Find-AzureRmResource를 입력하면 Azure 구독에서 모든 리소스를 가져옵니다.
-  
+
         Find-AzureRmResource -ResourceGroupNameContains TestRG1
-  
+
      다음과 같은 형식의 리소스 목록이 반환됩니다.
-  
+
         Name              : sqlservers5wdai7p2k2g4
         ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/sqlservers5wdai7p2k2g4
         ResourceName      : sqlservers5wdai7p2k2g4
@@ -209,9 +206,9 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
         Tags              : {System.Collections.Hashtable}
         ...
 * 태그를 사용하여 구독의 리소스를 논리적으로 구성하고, **Find-AzureRmResource** 및 **Find-AzureRmResourceGroup** Cmdlet으로 리소스를 검색할 수 있습니다.
-  
+
         Find-AzureRmResource -TagName displayName -TagValue Website
-  
+
         Name              : webSites5wdai7p2k2g4
         ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/webSites5wdai7p2k2g4
         ResourceName      : webSites5wdai7p2k2g4
@@ -219,7 +216,7 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
         ResourceGroupName : TestRG1
         Location          : westus
         SubscriptionId    : {guid}
-  
+
       There is much more you can do with tags. For more information, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
 
 ## <a name="add-to-a-resource-group"></a>리소스 그룹 추가
@@ -242,8 +239,7 @@ PowerShell을 통해 리소스 그룹의 현재 상태를 나타내는 템플릿
 
 > [!NOTE]
 > 템플릿 내보내기 기능은 미리 보기 버전이며, 템플릿 내보내기를 지원하지 않는 리소스 유형도 있습니다. 템플릿 내보내기를 시도할 때 일부 리소스를 내보내지 못했다는 오류가 표시될 수 있습니다. 필요한 경우 템플릿을 다운로드한 후 템플릿에서 이러한 리소스를 수동으로 정의할 수 있습니다.
-> 
-> 
+
 
 ### <a name="export-template-from-resource-group"></a>리소스 그룹에서 템플릿 내보내기
 리소스 그룹에 대한 템플릿을 보려면 **Export-AzureRmResourceGroup** Cmdlet을 실행합니다.
@@ -257,16 +253,16 @@ PowerShell을 통해 리소스 그룹의 현재 상태를 나타내는 템플릿
 
 ## <a name="delete-resources-or-resource-group"></a>리소스 또는 리소스 그룹 삭제
 * 리소스 그룹에서 리소스를 삭제하려면 **Remove-AzureRmResource** cmdlet를 사용합니다. 이 cmdlet은 리소스를 삭제하지만 리소스 그룹은 삭제하지 않습니다.
-  
+
     이 명령은 TestRG1 리소스 그룹에서 TestSite 웹 사이트를 제거합니다.
-  
+
         Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
 * 리소스 그룹을 삭제하려면 **Remove-AzureRmResourceGroup** cmdlet를 사용합니다. 이 cmdlet은 리소스 그룹과 해당 리소스를 삭제합니다.
-  
+
         Remove-AzureRmResourceGroup -Name TestRG1
-  
+
     삭제를 확인하라는 메시지가 표시됩니다.
-  
+
         Confirm
         Are you sure you want to remove resource group 'TestRG1'
         [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
@@ -325,7 +321,7 @@ PowerShell을 통해 리소스 그룹의 현재 상태를 나타내는 템플릿
 
     #******************************************************************************
     # Script body
-    # Execution begins here 
+    # Execution begins here
     #******************************************************************************
     $ErrorActionPreference = "Stop"
 
@@ -370,6 +366,6 @@ PowerShell을 통해 리소스 그룹의 현재 상태를 나타내는 템플릿
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

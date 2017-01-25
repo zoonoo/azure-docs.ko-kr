@@ -1,12 +1,12 @@
 ---
-title: Azure Service Fabric 클러스터 업그레이드 | Microsoft Docs
-description: 클러스터 업데이트 모드 설정, 인증서 업그레이드, 응용 프로그램 포트 추가, OS 패치 수행 등을 포함하는 Service Fabric 클러스터를 실행하는 Service Fabric 코드 및/또는 구성을 업그레이드합니다. 업그레이드를 수행할 때 예상할 수 있는 것은 무엇입니까?
+title: "Azure Service Fabric 클러스터 업그레이드 | Microsoft Docs"
+description: "클러스터 업데이트 모드 설정, 인증서 업그레이드, 응용 프로그램 포트 추가, OS 패치 수행 등을 포함하는 Service Fabric 클러스터를 실행하는 Service Fabric 코드 및/또는 구성을 업그레이드합니다. 업그레이드를 수행할 때 예상할 수 있는 것은 무엇입니까?"
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2016
 ms.author: chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: 0231c3148d03ffef0a518a68bb79398462da2605
+ms.openlocfilehash: 89721efbb9f05871716ca1b16ad0d54eaf1ffd62
+
 
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터 업그레이드
@@ -44,7 +48,7 @@ Microsoft에서 새로운 버전을 릴리스하거나 클러스터에 대해 �
 
 라이브 클러스터인 경우 관리 환경을 사용하여 클러스터를 자동 또는 수동으로 설정할 수 있습니다. 
 
-#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal."></a>포털을 통해 수동 모드로 설정된 클러스터에서 새 버전으로 업그레이드
+#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>포털을 통해 수동 모드로 설정된 클러스터에서 새 버전으로 업그레이드
 새 버전으로 업그레이드하려면 드롭다운 목록에서 사용 가능한 버전을 선택하고 저장하기만 하면 됩니다. 패브릭 업그레이드는 자동으로 시작됩니다. 클러스터 상태 정책(노드 상태 및 클러스터에서 실행 중인 모든 응용 프로그램의 상태 조합)은 업그레이드의 기간을 준수합니다.
 
 클러스터 상태 정책이 충족되지 않는 경우 업그레이드가 롤백됩니다. 이 문서를 아래로 스크롤하여 사용자 지정 상태 정책을 설정하는 방법에 대해 자세히 알아보세요. 
@@ -58,7 +62,7 @@ Microsoft에서 새로운 버전을 릴리스하거나 클러스터에 대해 �
 
 ![ARMUpgradeMode][ARMUpgradeMode]
 
-#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template."></a>Resource Manager 템플릿을 통해 수동 모드로 설정된 클러스터에서 새 버전으로 업그레이드
+#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Resource Manager 템플릿을 통해 수동 모드로 설정된 클러스터에서 새 버전으로 업그레이드
 클러스터가 수동 모드인 경우 새 버전으로 업그레이드하려면 "clusterCodeVersion"을 지원되는 버전으로 변경하고 배포합니다. 템플릿의 배포 시 패브릭 업그레이드는 자동으로 시작됩니다. 클러스터 상태 정책(노드 상태 및 클러스터에서 실행 중인 모든 응용 프로그램의 상태 조합)은 업그레이드의 기간을 준수합니다.
 
 클러스터 상태 정책이 충족되지 않는 경우 업그레이드가 롤백됩니다. 이 문서를 아래로 스크롤하여 사용자 지정 상태 정책을 설정하는 방법에 대해 자세히 알아보세요. 
@@ -71,7 +75,9 @@ Microsoft에서 새로운 버전을 릴리스하거나 클러스터에 대해 �
 "supportExpiryUtc"는 지정된 릴리스가 만료되거나 이미 만료되었음을 알려 줍니다. 최신 릴리스는 유효한 날짜를 포함하지 않으며 "9999-12-31T23:59:59.9999999" 값을 포함합니다. 이는 만료 날짜가 아직 설정되지 않음을 의미합니다.
 
 ```REST
-GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/clusterVersions?api-version= 2016-09-01
+GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
+
+Example: https://management.azure.com/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/eastus/clusterVersions?api-version=2016-09-01
 
 Output:
 {
@@ -115,7 +121,7 @@ Output:
 ## <a name="fabric-upgrade-behavior-when-the-cluster-upgrade-mode-is-automatic"></a>클러스터 업그레이드 모드가 자동인 경우 패브릭 업그레이드 동작
 Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성을 유지 관리합니다. 필요한 기준으로 소프트웨어에 자동 모니터링된 업그레이드를 수행합니다. 이러한 업그레이드는 코드, 구성 또는 둘 모두가 될 수 있습니다. 응용 프로그램이 이러한 업그레이드로 인해 영향이 없거나 최소한의 영향이 있는지 확인하기 위해 다음 단계로 업그레이드를 수행합니다.
 
-### <a name="phase-1:-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>1단계: 모든 클러스터 상태 정책을 사용하여 업그레이드 수행
+### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>1단계: 모든 클러스터 상태 정책을 사용하여 업그레이드 수행
 이 단계 동안 업그레이드는 한 번에 하나의 업그레이드 도메인을 진행하고 클러스터에서 실행 중이던 응용 프로그램은 가동 중지 시간 없이 계속 실행합니다. 클러스터 상태 정책(노드 상태 및 클러스터에서 실행 중인 모든 응용 프로그램의 상태 조합)은 업그레이드의 기간을 준수합니다.
 
 클러스터 상태 정책이 충족되지 않는 경우 업그레이드가 롤백됩니다. 그런 다음 구독 소유자에게 전자 메일이 전송됩니다. 전자 메일에는 다음 정보가 포함되어 있습니다.
@@ -128,7 +134,7 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 
 클러스터 상태 정책이 충족하는 경우 업그레이드가 성공한 것으로 간주하고 완료로 표시됩니다. 이는 초기 업그레이드 또는 이 단계의 업그레이드 다시 실행 중 발생할 수 있습니다. 성공적 실행에 대한 전자 메일 확인은 없습니다. 너무 많은 전자 메일을 전송하지 않도록 하며 전자 메일 수신은 정상에 대한 예외로 보여야 합니다. 클러스터 업그레이드가 응용 프로그램 가용성에 영향을 주지 않고 성공되기를 예상합니다.
 
-### <a name="phase-2:-an-upgrade-is-performed-by-using-default-health-policies-only"></a>2단계: 기본 상태 정책만을 사용하여 업그레이드 수행
+### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>2단계: 기본 상태 정책만을 사용하여 업그레이드 수행
 이 단계의 상태 정책은 업그레이드 시작 시 정상 상태가 업그레이드 프로세스의 기간 동안 동일하게 유지되는 응용 프로그램의 수 방식으로 설정됩니다. 1단계와 마찬가지로 2단계 업그레이드는 한 번에 하나의 업그레이드 도메인을 진행하고 클러스터에서 실행 중이던 응용 프로그램은 가동 중지 시간 없이 계속 실행합니다. 클러스터 상태 정책(노드 상태 및 클러스터에서 실행 중인 모든 응용 프로그램의 상태 조합)은 업그레이드의 기간을 준수합니다.
 
 적용되는 클러스터 상태 정책이 충족되지 않는 경우 업그레이드가 롤백됩니다. 그런 다음 구독 소유자에게 전자 메일이 전송됩니다. 전자 메일에는 다음 정보가 포함되어 있습니다.
@@ -141,7 +147,7 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 
 클러스터 상태 정책이 충족하는 경우 업그레이드가 성공한 것으로 간주하고 완료로 표시됩니다. 이는 초기 업그레이드 또는 이 단계의 업그레이드 다시 실행 중 발생할 수 있습니다. 성공적 실행에 대한 전자 메일 확인은 없습니다.
 
-### <a name="phase-3:-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>3단계: 까다로운 상태 정책을 사용하여 업그레이드 수행
+### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>3단계: 까다로운 상태 정책을 사용하여 업그레이드 수행
 이 단계의 이러한 상태 정책은 응용 프로그램의 상태보다 업그레이드 완료에 맞춰집니다. 이 단계에서 매우 적은 클러스터 업그레이드가 끝납니다. 클러스터가 이 단계에 도달하는 경우 응용 프로그램이 비정상이 되고/되거나 가용성이 손실될 수 있습니다.
 
 다른 두 단계와 마찬가지로 3단계 업그레이드는 한 번에 하나의 업그레이드 도메인을 진행합니다.
@@ -205,9 +211,9 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 클러스터의 가상 컴퓨터의 OS 이미지를 업그레이드해야 하는 경우 한 번에 하나의 VM에 이 작업을 수행하고 이 업그레이드에 대한 책임을 져야 합니다. 현재 자동화 기능은 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
-* [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
-* [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+*  [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
+*  [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
+*  [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
@@ -219,6 +225,7 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 [Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Dec16_HO1-->
 
 

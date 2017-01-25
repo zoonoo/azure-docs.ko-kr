@@ -8,15 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016
-ms.author: carlrab
+ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 717d84bbfbc51912bca7c2d279a6a0603ea97107
-ms.openlocfilehash: 10dcc43035169ec399dfe93835c2d872a518170a
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
 
 
 ---
@@ -24,9 +25,9 @@ ms.openlocfilehash: 10dcc43035169ec399dfe93835c2d872a518170a
 이 항목에서는 Azure SQL Database 논리적 서버 및 데이터베이스에 대한 개요를 제공하며 나열된 각 기능에 대한 링크가 포함된 기능 지원 매트릭스를 포함합니다. 
 
 ## <a name="what-is-an-azure-sql-database-logical-server"></a>Azure SQL Database 논리 서버란?
-Azure SQL Database 논리 서버는 여러 데이터베이스에 대한 중앙 관리 지점의 역할을 합니다. SQL Database에서 서버는 온-프레미스 환경에서 친숙한 SQL Server 인스턴스와 구별되는 논리적 구문입니다. 특히, SQL Database 서비스는 해당 논리 서버와 관련하여 데이터베이스의 위치를 보증하지는 않으며 인스턴스 수준의 액세스 또는 기능을 노출하지 않습니다. Azure SQL 논리 서버에 대한 자세한 정보는 [논리 서버](sql-database-server-overview.md)를 참조하세요. 
+Azure SQL Database 논리 서버는 여러 데이터베이스에 대한 중앙 관리 지점의 역할을 합니다. SQL Database에서 서버는 온-프레미스 환경에서 친숙한 SQL Server 인스턴스와 구별되는 논리적 구문입니다. 특히, SQL Database 서비스는 해당 논리 서버와 관련하여 데이터베이스의 위치르 보증하지는 않으며 인스턴스 수준의 액세스 또는 기능을 노출하지 않습니다. Azure SQL 논리 서버에 대한 자세한 정보는 [논리 서버](sql-database-server-overview.md)를 참조하세요. 
 
-## <a name="what-is-azure-sql-database"></a>Azure SQL Database 정의
+## <a name="what-is-an-azure-sql-database"></a>Azure SQL Database란?
 Azure SQL Database의 데이터베이스는 각각 로컬 서버와 연결됩니다. 데이터베이스는 다음과 같을 수 있습니다.
 
 - [고유한 리소스 집합](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus)(DTU)이 있는 단일 데이터베이스
@@ -68,7 +69,7 @@ V12에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 
 | 변경 내용 추적 | [지원됨](https://msdn.microsoft.com/library/bb933875.aspx) | [지원됨](https://msdn.microsoft.com/library/bb933875.aspx) |
 | Collation 문 | [지원됨](https://msdn.microsoft.com/library/ff848763.aspx) | [지원됨](https://msdn.microsoft.com/library/ff848763.aspx) |
 | Columnstore 인덱스 | [지원됨](https://msdn.microsoft.com/library/gg492088.aspx) | [Premium Edition만 해당](https://msdn.microsoft.com/library/gg492088.aspx) |
-| CLR(Common Language Runtime) | [지원됨](https://msdn.microsoft.com/library/ms131102.aspx) | [지원됨](https://msdn.microsoft.com/library/ms131102.aspx) |
+| CLR(Common Language Runtime) | [지원됨](https://msdn.microsoft.com/library/ms131102.aspx) | 지원되지 않음 |
 | 포함된 데이터베이스 | [지원됨](https://msdn.microsoft.com/library/ff929071.aspx) | 기본 제공 |
 | 포함된 사용자 | [지원됨](https://msdn.microsoft.com/library/ff929188.aspx) | [지원됨](sql-database-manage-logins.md#non-administrator-users) |
 | 흐름 제어 언어 키워드 | [지원됨](https://msdn.microsoft.com/library/ms174290.aspx) | [지원됨](https://msdn.microsoft.com/library/ms174290.aspx) |
@@ -89,7 +90,7 @@ V12에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 
 | DML 문 | [지원됨](https://msdn.microsoft.com/library/ff848766.aspx) | [대부분](https://msdn.microsoft.com/library/ff848766.aspx) |
 | DML 트리거 | [지원됨](https://msdn.microsoft.com/library/ms178110.aspx) | [지원됨](https://msdn.microsoft.com/library/ms178110.aspx) |
 | Dmv | [모두](https://msdn.microsoft.com/library/ms188754.aspx) | [일부](https://msdn.microsoft.com/library/ms188754.aspx) |
-| 탄력적 데이터베이스 풀 | 지원되지 않음 | [지원됨](sql-database-elastic-pool.md) |
+| 탄력적 풀 | 지원되지 않음 | [지원됨](sql-database-elastic-pool.md) |
 | 탄력적 작업 | 지원되지 않음 - [SQL Server 에이전트](https://msdn.microsoft.com/library/ms189237.aspx) 참조 | [지원됨](sql-database-elastic-jobs-getting-started.md) | 
 | 탄력적 쿼리 | 지원되지 않음 - [데이터베이스 간 쿼리](https://msdn.microsoft.com/library/dn584627.aspx) 참조 | [지원됨](sql-database-elastic-query-overview.md) |
 | 이벤트 알림 | [지원됨](https://msdn.microsoft.com/library/ms186376.aspx) | [지원됨](sql-database-insights-alerts-portal.md) |
@@ -122,7 +123,7 @@ V12에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 
 | 보안 문 | [지원됨](https://msdn.microsoft.com/library/ff848791.aspx) | [일부](https://msdn.microsoft.com/library/ff848791.aspx) |
 | 의미 체계 검색 | [지원됨](https://msdn.microsoft.com/library/gg492075.aspx) | 지원되지 않음 |
 | 시퀀스 번호 | [지원됨](https://msdn.microsoft.com/library/ff878058.aspx) | [지원됨](https://msdn.microsoft.com/library/ff878058.aspx) |
-| Service Broker | [지원됨](https://msdn.microsoft.com/library/bb522893.aspx) | [데이터베이스 내부만 해당](https://msdn.microsoft.com/library/bb522893.aspx) |
+| Service Broker | [지원됨](https://msdn.microsoft.com/library/bb522893.aspx) | 지원되지 않음 |
 | 서버 구성 옵션 | [지원됨](https://msdn.microsoft.com/library/ms189631.aspx) | 지원되지 않음 - [데이터베이스 구성 옵션](https://msdn.microsoft.com/library/mt629158.aspx) 참조 |
 | Set 문 | [지원됨](https://msdn.microsoft.com/library/ms190356.aspx) | [대부분](https://msdn.microsoft.com/library/ms190356.aspx) 
 | 공간 | [지원됨](https://msdn.microsoft.com/library/bb933790.aspx) | [지원됨](https://msdn.microsoft.com/library/bb933790.aspx) |
@@ -131,7 +132,7 @@ V12에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 
 | SQL Server 통합 서비스(SSIS) | [지원됨](https://msdn.microsoft.com/library/ms141026.aspx) | 지원되지 않음 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 참조 |
 | SQL Server PowerShell | [지원됨](https://msdn.microsoft.com/library/hh245198.aspx) | [지원됨](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server Profiler | [지원됨](https://msdn.microsoft.com/library/ms181091.aspx) | 지원되지 않음 - [확장 이벤트](https://msdn.microsoft.com/library/ms181091.aspx) 참조 |
-| SQL Server 복제 | [지원됨](https://msdn.microsoft.com/library/ms151198.aspx) | [트랜잭션 복제 구독자만 해당](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| SQL Server 복제 | [지원됨](https://msdn.microsoft.com/library/ms151198.aspx) | [트랜잭션 및 스냅숏 복제 구독자만 해당](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
 | SQL Server Reporting Services(SSRS) | [지원됨](https://msdn.microsoft.com/library/ms159106.aspx) | 지원되지 않음 |
 | 저장 프로시저 | [지원됨](https://msdn.microsoft.com/library/ms190782.aspx) | [지원됨](https://msdn.microsoft.com/library/ms190782.aspx) |
 | 시스템 저장 함수 | [지원됨](https://msdn.microsoft.com/library/ff848780.aspx) | [일부](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -155,11 +156,11 @@ V12에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 
 - Azure SQL Database 개요는 [SQL Database 개요](sql-database-overview.md)를 참조하세요.
 - Transact-SQL 지원 및 차이점에 대한 정보는 [Azure SQL Database Transact-SQL의 차이점](sql-database-transact-sql-information.md)을 참조하세요.
 - **서비스 계층**에 따른 특정 리소스 할당량 및 제한 사항에 대한 정보입니다. 서비스 계층에 대한 개요는 [SQL 데이터베이스 서비스 계층](sql-database-service-tiers.md)을 참조하세요.
-- 보안 관련 지침은 [Azure SQL 데이터베이스 보안 지침 및 제한 사항](sql-database-security-guidelines.md)을 참조하세요.
+- 보안 개요에 대해서는 [Azure SQL Database 보안 개요](sql-database-security-overview.md)를 참조하세요.
 - 드라이버 가용성 및 SQL 데이터베이스 지원에 대한 내용은 [SQL 데이터베이스 및 SQL Server의 연결 라이브러리](sql-database-libraries.md)를 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO4-->
 
 

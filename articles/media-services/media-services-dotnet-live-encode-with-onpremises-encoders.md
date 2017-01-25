@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/31/2016
-ms.author: cenkd;juliako
+ms.date: 01/05/2017
+ms.author: cenkdin;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 46cd4171b4d88aa68386b80471f1e7d05539cdd4
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: b00dcddf38885b002822b9e92010bdf2c5938cc4
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 46cd4171b4d88aa68386b80471f1e7d05539cdd4
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST (영문)](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -58,6 +58,9 @@ ms.openlocfilehash: 46cd4171b4d88aa68386b80471f1e7d05539cdd4
 * 모든 스트리밍 끝점에 대한 로케이터 가져오기
 * 리소스 종료
 
+>[!NOTE]
+>콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태에 있는지 확인합니다. 
+    
 라이브 인코더 구성 방법에 대한 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)를 참조하세요.
 
     using System;
@@ -397,6 +400,6 @@ ms.openlocfilehash: 46cd4171b4d88aa68386b80471f1e7d05539cdd4
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 392f15955362607187abf402dee076e328c11bd3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5a5ad526513c7adf9b8274acec7d89fe375f43fc
 
 
 ---
@@ -48,7 +48,7 @@ RemoteApp을 사용하는 경우 기본적으로 다음과 같은 리디렉션�
 * USB 리디렉션: 원격 세션 내에서 로컬 컴퓨터에 연결된 USB 장치를 사용할 수 있습니다.
 
 ## <a name="change-your-redirection-settings-in-remoteapp"></a>RemoteApp에서 리디렉션 설정 변경
-SDK와 함께 Microsoft Azure PowerShell을 사용하여 컬렉션에 대한 장치 리디렉션 설정을 변경할 수 있습니다. 새 PowerShell과 SDK를 설치한 후 먼저 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)에 설명된 대로 구독을 관리하도록 구성합니다.
+SDK와 함께 Microsoft Azure PowerShell을 사용하여 컬렉션에 대한 장치 리디렉션 설정을 변경할 수 있습니다. 새 PowerShell과 SDK를 설치한 후 먼저 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)에 설명된 대로 구독을 관리하도록 구성합니다.
 
 그런 후에 다음과 비슷한 명령을 사용하여 사용자 지정 RDP 속성을 설정합니다.
 
@@ -119,6 +119,6 @@ RemoteApp에 연결하는 컴퓨터에서 USB 리디렉션을 사용하려는 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

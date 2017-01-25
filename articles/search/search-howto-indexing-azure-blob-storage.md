@@ -12,16 +12,16 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/24/2016
+ms.date: 11/30/2016
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 2b62ddb83b35194b9fcd23c60773085a9551b172
-ms.openlocfilehash: 041b47ed2aba11d45ed6ae02dadb73916046dd78
+ms.sourcegitcommit: 976470e7b28a355cbfa4c5c8d380744eb1366787
+ms.openlocfilehash: f8711ba45339be7ffbeac1ab28823df43db23046
 
 ---
 
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure 검색으로 Azure Blob 저장소에서 문서 인덱싱
-이 문서에서는 Azure 검색을 사용하여 Azure Blob 저장소에 저장된 문서(예: PDF, Office 파일 및 다양한 기타 일반적인 형식)를 인덱싱하는 방법을 보여줍니다. 새로운 Azure 검색 Blob 인덱서로 이 과정을 신속하게 원활하게 수행할 수 있습니다.
+이 문서에서는 Azure 검색을 사용하여 Azure Blob 저장소에 저장된 문서(예: PDF, Office 파일 및 다양한 기타 일반적인 형식)를 인덱싱하는 방법을 보여줍니다. 먼저, blob 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다. 
 
 ## <a name="supported-document-formats"></a>지원되는 문서 형식
 BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 수 있습니다.
@@ -45,17 +45,15 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 다음을 사용하여 Azure Blob Storage 인덱서를 설정할 수 있습니다.
 
 * [쉬운 테이블](https://ms.portal.azure.com)
-* Azure Search [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx)
-* Azure Search .NET SDK [버전 2.0 미리 보기](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx)
+* Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
+* Azure Search [.NET SDK](https://aka.ms/search-sdk)
 
 > [!NOTE]
 > 일부 기능(예: 필드 매핑)은 포털에서 아직 사용할 수 없으며 프로그래밍 방식으로 사용해야 합니다.
 >
 >
 
-이 문서에서는 REST API를 사용하여 인덱서를 설정합니다. 우선 데이터 소스를 만든 다음 인덱스를 만들고 마지막으로 인덱서를 구성합니다.
-
-그런 다음 Blob 인덱서가 Blob을 구문 분석하는 방식, 인덱싱할 Blob을 선택하는 방식, 지원되지 않는 콘텐츠 형식의 Blob을 처리하는 방식 및 사용 가능한 구성 설정에 대한 자세한 내용을 설명합니다. 
+여기에서는 REST API를 사용하여 흐름을 설명합니다. 
 
 ### <a name="step-1-create-a-data-source"></a>1단계: 데이터 소스 만들기
 데이터 원본은 인덱싱할 데이터, 데이터에 액세스하는 데 필요한 자격 증명 및 데이터 변경 내용(예: 수정되거나 삭제된 행)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다. 데이터 원본을 동일한 검색 서비스의 여러 인덱서에서 사용할 수 있습니다.
@@ -67,7 +65,7 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 * **credentials**는 저장소 계정 연결 문자열을 `credentials.connectionString` 매개 변수로 제공합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다. 이를 위해 원하는 저장소 계정 블레이드 > **설정** > **키**로 이동하고 "기본 연결 문자열" 또는 "보조 연결 문자열" 값을 사용합니다.
 * **container**는 저장소 계정에 있는 컨테이너를 지정합니다. 기본적으로 컨테이너 내의 모든 BLOB은 검색 가능합니다. 특정 가상 디렉터리의 BLOB만 인덱싱하려면 선택 사항인 **query** 매개 변수를 사용하여 해당 디렉터리를 지정할 수 있습니다,
 
-다음 예제에서는 데이터 원본 정의을 설명합니다.
+데이터 원본을 만드는 방법:
 
     POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -80,12 +78,12 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
     }   
 
-데이터 원본 만들기 API에 대한 자세한 내용은 [데이터 원본 만들기](https://msdn.microsoft.com/library/azure/dn946876.aspx)를 참조하세요.
+데이터 원본 만들기 API에 대한 자세한 내용은 [데이터 원본 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source)를 참조하세요.
 
 ### <a name="step-2-create-an-index"></a>2단계: 인덱스 만들기
-인덱스는 문서의 필드, 특성 및 검색 경험을 형성하는 기타 항목을 지정합니다.  
+인덱스는 문서의 필드, 특성 및 검색 경험을 형성하는 기타 항목을 지정합니다.
 
-BLOB 인덱싱에 대해 인덱스에 BLOB을 저장하기 위한 검색 가능한 `content` 필드가 있는지 확인합니다.
+다음은 검색 가능한`content` 필드가 있는 인덱스를 만들어 blob에서 추출된 텍스트를 저장하는 방법입니다.   
 
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
@@ -99,10 +97,12 @@ BLOB 인덱싱에 대해 인덱스에 BLOB을 저장하기 위한 검색 가능�
           ]
     }
 
-인덱스 만들기 API에 대한 자세한 내용은 [Create Index](https://msdn.microsoft.com/library/dn798941.aspx)
+인덱스 만들기에 자세한 내용은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.
 
 ### <a name="step-3-create-an-indexer"></a>3단계: 인덱서 만들기
-인덱서는 데이터 새로 고침을 자동화할 수 있게 데이터 원본을 대상 검색 인덱스에 연결하고 일정 정보를 제공합니다. 인덱스 및 데이터 원본이 만들어지면 데이터 원본 및 대상 인덱스를 참조하는 인덱서를 만드는 것은 비교적 간단합니다. 예:
+인덱서는 데이터 원본을 대상 검색 인덱스와 연결하고 데이터 새로 고침을 자동화하는 일정을 제공합니다. 
+
+인덱스와 데이터 원본이 만들어지면 인덱서를 만들 준비가 된 것입니다.
 
     POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
@@ -117,7 +117,7 @@ BLOB 인덱싱에 대해 인덱스에 BLOB을 저장하기 위한 검색 가능�
 
 이 인덱서는 2시간 간격으로 실행됩니다(일정 간격이 "PT2H"로 설정됨). 인덱서를 30분 간격으로 실행하려면 간격을 "PT30M"으로 설정합니다. 지원되는 가장 짧은 간격은 5분입니다. 일정은 선택 사항입니다. 생략하는 경우 인덱서는 만들어질 때 한 번만 실행됩니다. 그러나 언제든지 필요할 때 인덱서를 실행할 수 있습니다.   
 
-인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](https://msdn.microsoft.com/library/azure/dn946899.aspx)를 확인하세요.
+인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 확인하세요.
 
 ## <a name="how-azure-search-indexes-blobs"></a>Azure Search가 BLOB을 인덱싱하는 방식
 
@@ -147,13 +147,14 @@ BLOB 인덱싱에 대해 인덱스에 BLOB을 저장하기 위한 검색 가능�
 >
 >
 
-### <a name="picking-the-document-key-field-and-dealing-with-different-field-names"></a>문서 키 필드 선택 및 다른 필드 이름 처리
+<a name="DocumentKeys"></a>
+### <a name="defining-document-keys-and-field-mappings"></a>문서 키 및 필드 매핑 정의
 Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모든 검색 인덱스는 Edm.String 형식의 키 필드를 정확히 하나만 포함해야 합니다. 인덱스에 추가할 각 문서에는 키 필드가 필요합니다(이 필드는 실제로 유일한 필수 필드임).  
 
 어떤 추출된 필드를 인덱스에 대한 키 필드에 매핑할지 신중하게 고려해야 합니다. 후보는 다음과 같습니다.
 
 * **metadata\_storage\_name** - 편리한 후보일 수 있으나 1) 다른 폴더에 같은 이름을 가진 BLOB를 포함할 수 있으므로 이름이 고유하지 않을 수 있으며 2) 이름에 대시와 같은 문서 키로 유효하지 않은 문자가 포함될 수 있습니다. `base64Encode` [필드 매핑 함수](search-indexer-field-mappings.md#base64EncodeFunction)를 사용하여 유효하지 않은 문자를 처리할 수 있습니다. 이렇게 하면 Lookup과 같은 API 호출에 전달할 때 문서 키를 인코딩해야 합니다. 예를 들어 .NET에서 이러한 용도로 [UrlTokenEncode 메서드](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx)를 사용할 수 있습니다.
-* **metadata\_storage\_path** - 전체 경로를 사용하여 고유성을 보장할 수 있지만 해당 경로에 [문서 키로 유효하지 않은](https://msdn.microsoft.com/library/azure/dn857353.aspx) `/` 문자가 분명히 포함됩니다.  위와 같이 `base64Encode` [함수](search-indexer-field-mappings.md#base64EncodeFunction)를 사용하여 키를 인코딩하는 옵션이 제공됩니다.
+* **metadata\_storage\_path** - 전체 경로를 사용하여 고유성을 보장할 수 있지만 해당 경로에 [문서 키로 유효하지 않은](https://docs.microsoft.com/rest/api/searchservice/naming-rules) `/` 문자가 분명히 포함됩니다.  위와 같이 `base64Encode` [함수](search-indexer-field-mappings.md#base64EncodeFunction)를 사용하여 키를 인코딩하는 옵션이 제공됩니다.
 * 위의 옵션이 작동하지 않는 경우 BLOB에 사용자 지정 메타데이터 속성을 추가할 수 있습니다. 그러나 이 옵션에는 해당 메타데이터 속성을 모든 BLOB에 추가하는 BLOB 업로드 프로세스가 필요합니다. 키는 필수 속성이므로 해당 속성이 없는 모든 BLOB는 인덱싱에 실패합니다.
 
 > [!IMPORTANT]
@@ -344,6 +345,6 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

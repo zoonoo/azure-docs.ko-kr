@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7ea1ec9bddff60d91bdd47d7d9e5312563386ae4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6972550d74965fa6a7c69a5903b3287d5d219851
 
 
 ---
@@ -40,7 +40,7 @@ A: Media Services는 Azure CDN와의 통합을 지원합니다. 자세한 내용
 
 Q: Azure 미디어 서비스는 저장된 이미지를 지원하나요?
 
-A: JPEG 또는 PNG 이미지를 저장하기 위해 찾으려는 경우 Azure Blob 저장소에 유지해야 합니다. 비디오 또는 오디오 자산와 연결된 상태를 유지하려는 경우가 아니면 미디어 서비스 계정에 넣어도 이점은 없습니다. 또는 비디오 인코더에서 오버레이로 이미지를 사용해야 하는 경우입니다. 미디어 인코더 표준은 비디오 위에 이미지 겹치기를 지원하며 지원되는 입력 형식으로 JPEG 및 PNG를 나열합니다. 자세한 내용은 [오버레이 만들기](media-services-custom-mes-presets-with-dotnet.md#overlay)를 참조하세요.
+A: JPEG 또는 PNG 이미지를 저장하기 위해 찾으려는 경우 Azure Blob 저장소에 유지해야 합니다. 비디오 또는 오디오 자산와 연결된 상태를 유지하려는 경우가 아니면 미디어 서비스 계정에 넣어도 이점은 없습니다. 또는 비디오 인코더에서 오버레이로 이미지를 사용해야 하는 경우입니다. 미디어 인코더 표준은 비디오 위에 이미지 겹치기를 지원하며 지원되는 입력 형식으로 JPEG 및 PNG를 나열합니다. 자세한 내용은 [오버레이 만들기](media-services-advanced-encoding-with-mes.md#overlay)를 참조하세요.
 
 Q: 미디어 서비스 계정 간에 자산을 복사하려면 어떻게 해야 하나요?
 
@@ -52,7 +52,7 @@ A: Media Services에서는 스트리밍 콘텐츠의 URL을 작성할 때 IAsset
 
 Q: REST를 사용하여 연결하려면 어떻게 해야 하나요?
 
-A: https://media.windows.net에 성공적으로 연결되면 다른 Media Services URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect-programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다. 
+A: https://media.windows.net에 성공적으로 연결되면 다른 Media Services URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect-programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다.
 
 Q: 인코딩 프로세스 중에 비디오를 회전하려면 어떻게 해야 하나요?
 
@@ -82,7 +82,6 @@ A: [미디어 인코더 표준](media-services-dotnet-encode-with-media-encoder-
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

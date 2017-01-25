@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bd378c8dedd3d2bfed540be0fa009f751bcc5d1c
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: dc5b6f194a7e34d5061b9fa2e4a6123f54f6c14a
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: bd378c8dedd3d2bfed540be0fa009f751bcc5d1c
 
 ![대시보드 만들기](./media/azure-portal-dashboards/new-dashboard.png)
 
-이 작업은 새 비어 있는 개인 대시보드를 만들고 대시보드의 이름을 지정하고 타일을 추가하거나 다시 정렬할 수 있는 사용자 지정 모드를 설정합니다.  이 모드에서는 축소 가능한 타일 갤러리가 왼쪽 탐색 메뉴보다 우선합니다.  타일 갤러리를 사용하면 다양한 방법으로 Azure 리소스에 대한 타일을 찾을 수 있습니다. [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups), 리소스 형식, [태그](../resource-group-using-tags.md) 또는 이름별로 리소스의 이름을 검색하여 찾을 수 있습니다.  
+이 작업은 새 비어 있는 개인 대시보드를 만들고 대시보드의 이름을 지정하고 타일을 추가하거나 다시 정렬할 수 있는 사용자 지정 모드를 설정합니다.  이 모드에서는 축소 가능한 타일 갤러리가 왼쪽 탐색 메뉴보다 우선합니다.  타일 갤러리를 사용하면 다양한 방법으로 Azure 리소스에 대한 타일을 찾을 수 있습니다. [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups), 리소스 형식, [태그](../azure-resource-manager/resource-group-using-tags.md) 또는 이름별로 리소스의 이름을 검색하여 찾을 수 있습니다.  
 
 ![대시보드 사용자 지정](./media/azure-portal-dashboards/customize-dashboard.png)
 
@@ -97,12 +97,12 @@ Azure 구독을 보유하고 구독의 **소유자**, **참여자** 또는 **읽
 ![액세스 제어 관리](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 리소스를 관리하려면 [포털을 통한 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
-* 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure Portal을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
+* 리소스를 관리하려면 [포털을 통한 Azure 리소스 관리](../azure-resource-manager/resource-group-portal.md)를 참조하세요.
+* 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure Portal을 사용하여 리소스 배포](../azure-resource-manager/resource-group-template-deploy-portal.md)를 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

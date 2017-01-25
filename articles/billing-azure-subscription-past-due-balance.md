@@ -4,7 +4,7 @@ description: "Azure 구독에 미지불금액이 있는 경우 결제 방법에 
 services: 
 documentationcenter: 
 author: genlin
-manager: mbaldwin
+manager: narmstr
 editor: 
 tags: billing
 ms.assetid: d0b88c92-fb9d-4d12-931b-c26104ad63e9

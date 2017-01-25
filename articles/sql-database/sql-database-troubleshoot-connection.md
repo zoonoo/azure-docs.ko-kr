@@ -4,7 +4,7 @@ description: "응용 프로그램이 SQL Database에 연결할 때 현재 서버
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: 
 keywords: "현재 서버의 데이터베이스를 사용할 수 없습니다, SQL Database에 연결하세요 | Microsoft Azure"
 ms.assetid: f61999ac-d46b-448a-8830-3b04978d84ec
@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f

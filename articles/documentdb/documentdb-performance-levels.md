@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 12/13/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: c2bdd3adc9f22005dbaca971472bdc65fead1a76
-ms.openlocfilehash: a6e415f6b8f2203209c1cfe3de37193fe18ce2b4
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 237a92713ee8dca72a09550c47519189f2fd23cc
 
 
 ---
@@ -37,7 +37,7 @@ DocumentDB는 아래 테이블에 보이는 대로 **사용자 정의** 성능 �
 
 |성능 형식|세부 정보|처리량|저장소|버전|API|
 |----------------|-------|----------|-------|-------|----|
-|사용자 정의 성능|사용자는 처리량을 초당 100RU/s 단위로 설정합니다.|무제한. <br><br>기본값: 초당 400~250,000개 요청 단위(요청 시 더 높아질 수 있음)|무제한. <br><br>기본값: 250G(요청 시 더 높아질 수 있음)|V2|API 2015-12-16 이상|
+|사용자 정의 성능|사용자는 처리량을 초당 100RU/s 단위로 설정합니다.|Unlimited|Unlimited|V2|API 2015-12-16 이상|
 |미리 정의된 성능|예약 저장소 10GB<br><br>S1 = 250RU/s<br>S2 = 1000RU/s<br>S3 = 2500RU/s|초당 2,500RU|10 GB|V1|모두|
 
 처리량은 컬렉션당 보유되며 해당 컬렉션에서 단독으로 사용할 수 있습니다. 처리량은 [요청 단위(RU)](documentdb-request-units.md)로 측정되며 다양한 DocumentDB 데이터베이스 작업을 수행하는 데 필요한 리소스의 양을 식별합니다.
@@ -169,7 +169,6 @@ S1, S2 또는 S3에서 표준으로 컬렉션을 변경하면 S1, S2 또는 S3�
 Azure DocumentDB에서 가격 책정 및 데이터 관리에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
 
 * [DocumentDB 가격 책정](https://azure.microsoft.com/pricing/details/documentdb/)
-* [DocumentDB 용량 관리](documentdb-manage.md)
 * [DocumentDB에서 데이터 모델링](documentdb-modeling-data.md)
 * [DocumentDB에서 데이터 분할](documentdb-partition-data.md)
 * [요청 단위](http://go.microsoft.com/fwlink/?LinkId=735027)
@@ -183,6 +182,6 @@ DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

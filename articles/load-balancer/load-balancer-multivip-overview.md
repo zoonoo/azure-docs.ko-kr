@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 08/11/2016
 ms.author: chkuhtz
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 0cedf46bd0b8c352c8a8d87407ed7fbbc58e3b46
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: e9ffa674363b250a5e286c6e34200fa2b3323173
 
 ---
 
@@ -65,8 +65,8 @@ DIP는 인바운드 흐름의 대상입니다. 백 엔드 풀에서 각 VM은 DI
 
 | 규칙 | 맵 프론트 엔드 | 백 엔드 풀에 |
 | --- | --- | --- |
-| 1 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
+| 1 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 Azure Load Balancer에서 전체 매핑은 이제 다음과 같습니다.
 
@@ -113,8 +113,8 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 VIP 전반
 
 | 규칙 | 맵 프론트 엔드 | 백 엔드 풀에 |
 | --- | --- | --- |
-| 1 |![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 (VM1 및 VM2에서) |
-| 2 |![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 (VM1 및 VM2에서) |
+| 1 |![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 (VM1 및 VM2에서) |
+| 2 |![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 (VM1 및 VM2에서) |
 
 다음 표는 부하 분산 장치에서의 전체 매핑을 보여 줍니다.
 
@@ -127,7 +127,7 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 VIP 전반
 
 이 예는 대상 포트를 변경하지 않는지 확인합니다. 비록 부동 IP 시나리오이지만 Azure Load Balancer는 또한 백 엔드 대상 포트를 다시 작성하여 프런트 엔드 대상 포트와 다르도록 규칙을 정의하는 것을 지원합니다.
 
-부동 IP 규칙 유형은 여러 부하 분산 장치 구성 패턴의 기초입니다. 현재 사용할 수 있는 한 가지 예로 [Multiple Listeners를 사용한 SQL AlwaysOn](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 구성을 들 수 있습니다. 앞으로 이러한 시나리오 더욱 자세히 설명할 것입니다.
+부동 IP 규칙 유형은 여러 부하 분산 장치 구성 패턴의 기초입니다. 현재 사용할 수 있는 한 가지 예로 [Multiple Listeners를 사용한 SQL AlwaysOn](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) 구성을 들 수 있습니다. 앞으로 이러한 시나리오 더욱 자세히 설명할 것입니다.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -138,6 +138,6 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 VIP 전반
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

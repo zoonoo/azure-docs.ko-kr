@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 81398cf3cc134ccd451a7173613c595f61cd2c23
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 0fcb0e2d8feea3c72688aace6d53edca728dd48b
 
 
 ---
@@ -283,7 +283,7 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 [App Service Web Apps]: http://go.microsoft.com/fwlink/?LinkId=529714
 [웹 앱 가격 책정 페이지]: http://go.microsoft.com/fwlink/?LinkId=511643
 [Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
-[Azure CLI 설치 및 구성]: ../xplat-cli-install.md
+[Install and Configure the Azure CLI]: ../xplat-cli-install.md
 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Node.js 개발자 센터]: /develop/nodejs/
 [App Service 체험]: http://go.microsoft.com/fwlink/?LinkId=523751
@@ -302,6 +302,6 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -21,7 +21,7 @@ ms.openlocfilehash: ab22e0369781f9f9afb9b3df9e7fdd54660a959d
 
 
 ---
-# <a name="how-to-migrate-logic-apps-to-schema-version-20150801preview"></a>스키마 버전 2015-08-01-미리 보기에 논리 앱을 마이그레이션하는 방법
+# <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>스키마 버전 2015-08-01-미리 보기에 논리 앱을 마이그레이션하는 방법
 기존 논리 앱을 새 스키마로 이동하려면 다음을 수행합니다.  
 
 1. Azure 포털에서 논리 앱을 엽니다.  
@@ -44,8 +44,8 @@ ms.openlocfilehash: ab22e0369781f9f9afb9b3df9e7fdd54660a959d
 * [논리 앱을 수동으로 마이그레이션하는 방법을 알아봅니다.](../app-service-logic/app-service-logic-schema-2015-08-01.md)
 
 <!--Icon references-->
-[1단계]: ./media/connectors-schema-migration/migrateschema1.png
-[2단계]: ./media/connectors-schema-migration/migrateschema2.png
+[step1]: ./media/connectors-schema-migration/migrateschema1.png
+[step2]: ./media/connectors-schema-migration/migrateschema2.png
 
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/03/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: e04763fa711eed4c699f2bc3f20834849dfe52e0
+ms.sourcegitcommit: 4f67c67639eaf33bb1f2aa236164e98030f5b555
+ms.openlocfilehash: c76471f4c0f4e1b751d623f691578d354008d863
 
 
 ---
@@ -126,9 +126,7 @@ Express 경로는 전송 라우터로 구성할 수 없습니다. 전송 라우�
 
 지정학적 지역, 연관된 Azure 지역 및 해당 Express 경로 피어링 위치의 세부 목록은 [Express 경로 파트너와 피어링 위치](expressroute-locations.md) 페이지를 참조합니다.
 
-지정학적 지역 마다 하나 이상의 Express 경로 회로를 구입할 수 있습니다. 여러 연결이 있으면 지리적 중복으로 인해 고가용성에 상당한 이점을 제공합니다. Express 경로 회로가 여러 개 있는 경우 공용 피어링 및 Microsoft 경로 피어링의 Microsoft에서 보급된 동일한 접두사 집합을 받게 됩니다. 즉, 네트워크에서 Microsoft까지 여러 경로가 있습니다. 잠재적으로 네트워크 내에서 최적이 아닌 라우팅이 결정될 수 있습니다. 결과적으로 다른 서비스에 최적이 아닌 연결 환경이 발생할 수도 있습니다. 
-
-Microsoft는 공용 피어링 및 Microsoft 피어링을 통해 접두사가 호스팅된 지역을 나타내는 적절한 BGP 커뮤니티 값으로 보급된 접두사를 태그합니다. 적절한 라우팅을 결정하는 커뮤니티 값에 의존하여 [고객에게 최적의 라우팅](expressroute-optimize-routing.md)을 제공할 수 있습니다.
+지정학적 지역 마다 하나 이상의 Express 경로 회로를 구입할 수 있습니다. 여러 연결이 있으면 지리적 중복으로 인해 고가용성에 상당한 이점을 제공합니다. Express 경로 회로가 여러 개 있는 경우 공용 피어링 및 Microsoft 경로 피어링의 Microsoft에서 보급된 동일한 접두사 집합을 받게 됩니다. 즉, 네트워크에서 Microsoft까지 여러 경로가 있습니다. 잠재적으로 네트워크 내에서 최적이 아닌 라우팅이 결정될 수 있습니다. 결과적으로 다른 서비스에 최적이 아닌 연결 환경이 발생할 수도 있습니다. 적절한 라우팅을 결정하는 커뮤니티 값에 의존하여 [사용자에게 최적의 라우팅](expressroute-optimize-routing.md)을 제공할 수 있습니다.
 
 | **Microsoft Azure 지역** | **BGP 커뮤니티 값** |
 | --- | --- |
@@ -214,6 +212,6 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

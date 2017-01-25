@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/05/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 00d2c2cb2d5f65880f79603954ac23c7efa253a4
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: bc303bb08366f5bcf86b2ae84db5751ea620d05c
 
 
 ---
@@ -87,10 +87,6 @@ ms.openlocfilehash: 00d2c2cb2d5f65880f79603954ac23c7efa253a4
 
 [클래식 Windows 가상 컴퓨터용 사용자 지정 스크립트 확장](virtual-machines-windows-classic-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업](virtual-machines-windows-classic-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-
-[Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치](virtual-machines-windows-classic-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-
 [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
 ## <a name="configure"></a>구성
@@ -144,7 +140,7 @@ ms.openlocfilehash: 00d2c2cb2d5f65880f79603954ac23c7efa253a4
 
 [SAP](virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[SQL Server](./windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -170,6 +166,6 @@ ms.openlocfilehash: 00d2c2cb2d5f65880f79603954ac23c7efa253a4
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

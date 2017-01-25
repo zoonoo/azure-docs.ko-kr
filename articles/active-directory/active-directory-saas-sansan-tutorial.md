@@ -1,12 +1,12 @@
 ---
-title: '자습서: SanSan과 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 SanSan 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: SanSan과 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 SanSan 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a21fb8c22b5c429fc768e128162836275ff18bf1
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-sansan"></a>자습서: SanSan과 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>자습서: SanSan과 Azure Active Directory 통합
 이 자습서에서는 Azure AD(Azure Active Directory)와 SanSan을 통합하는 방법에 대해 알아봅니다.
 
 SanSan을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -113,11 +117,11 @@ SanSan에서 Microsoft Azure AD Single Sign-On을 구성하고 테스트하려�
 
     b. **식별자** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. 
 
-      | Environment             | URL |
-      | :--                     | :-- |
-      | PC 웹                  | `https://ap.sansan.com/v/saml2/<company name>`|
-      | 네이티브 모바일 앱       | `https://internal.api.sansan.com/saml2/<company name>` |
-      | 모바일 브라우저 설정 | `https://ap.sansan.com/s/saml2/<company name>` |
+    | Environment             | URL |
+    | :--                     | :-- |
+    | PC 웹                  | `https://ap.sansan.com/v/saml2/<company name>`|
+    | 네이티브 모바일 앱       | `https://internal.api.sansan.com/saml2/<company name>` |
+    | 모바일 브라우저 설정 | `https://ap.sansan.com/s/saml2/<company name>` |
 
 
     c. **다음**을 클릭합니다.
@@ -259,6 +263,6 @@ SanSan에서 Microsoft Azure AD Single Sign-On을 구성하고 테스트하려�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

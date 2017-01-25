@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: b0046511f1a56cd72423bbbcfb5bf1e17e60ce5b
-ms.openlocfilehash: 15147a201fa053e72a840294ade4ccb6197c78ac
+ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
+ms.openlocfilehash: d06c924f384a2684b5a91c202039c581796c1091
 
 ---
 
@@ -42,7 +42,7 @@ Azure Resource Manager를 사용하면 선언적 템플릿을 통해 응용 프�
 
 템플릿은 가상 컴퓨터, 가상 네트워크, 가용성 집합, NIC(네트워크 인터페이스), 저장소 계정, 부하 분산 장치, 네트워크 보안 그룹 및 공용 IP에 대한 정의를 포함할 수 있습니다. 템플릿을 사용하면 복잡한 응용 프로그램에 필요한 모든 항목을 만들 수 있습니다. 버전 제어 및 공동 작업을 위해 템플릿 파일을 콘텐츠 관리 시스템에 체크 인할 수 있습니다.
 
-[템플릿에 대한 자세한 정보](../resource-manager-template-walkthrough.md)
+[템플릿에 대한 자세한 정보](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
 [네트워크 리소스에 대한 자세한 정보](../virtual-network/resource-groups-networking.md)
 
@@ -71,6 +71,6 @@ Azure Resource Manager cmdlet, 명령줄 도구 및 REST API 시작
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

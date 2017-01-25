@@ -4,7 +4,7 @@ description: "Azure에 등록하려고 할 때 내 신용 카드 또는 직불 �
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: mbaldwin
+manager: adpick
 editor: 
 tags: billing,top-support-issue
 keywords: "신용 카드 거부, 직불 카드 거부, 신용 카드가 거부됨, 신용 카드가 인식되지 않음"

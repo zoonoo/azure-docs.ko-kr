@@ -1,6 +1,6 @@
 ---
-title: "개발자 가이드 - 파일 업로드 | Microsoft 문서"
-description: "Azure IoT Hub 개발자 가이드 - 장치에서 IoT Hub로 파일 업로드"
+title: "Azure IoT Hub 파일 업로드 이해 | Microsoft Docs"
+description: "개발자 가이드 - IoT Hub의 파일 업로드 기능을 사용하여 장치에서 Azure Storage blob 컨테이너로 파일 업로드를 관리합니다."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 69c541a7884d84d1b72c95225e2ad53f666d73af
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: a2da505166f429b2f6a9823f64499a848d6e0153
 
 
 ---
-# <a name="upload-files-from-a-device"></a>장치에서 파일 업로드
+# <a name="file-uploads-with-iot-hub"></a>IoT Hub로 파일 업로드
 ## <a name="overview"></a>개요
 [IoT Hub 끝점][lnk-endpoints] 문서에서 설명한 대로 장치는 장치 지향 끝점(**/devices/{deviceId}/files**)을 통해 알림을 전송하여 파일 업로드를 시작할 수 있습니다.  장치가 IoT Hub에 완료된 업로드를 알리면 IoT Hub는 메시지로 서비스 연결 끝점을 통해 받을 수 있는 파일 업로드 알림을 생성합니다(**/messages/servicebound/filenotifications**).
 
@@ -127,16 +127,16 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 끝점을 가집니�
 | **fileNotifications.maxDeliveryCount** |파일 업로드 알림 큐에 대한 최대 배달 횟수입니다. |1에서 100까지입니다. 기본값은 100입니다. |
 
 ## <a name="additional-reference-material"></a>추가 참조 자료
-개발자 가이드의 다른 참조 자료:
+이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
 * [IoT Hub 끝점][lnk-endpoints] - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 끝점에 대해 설명합니다.
 * [제한 및 할당량][lnk-quotas] - IoT Hub 서비스에 적용되는 할당량과 서비스를 사용할 때 예상되는 제한 동작에 대해 설명합니다.
-* [Azure IoT 장치 및 서비스 SDK][lnk-sdks] - IoT Hub와 상호 작용하는 장치 및 서비스 응용 프로그램을 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열하고 있습니다.
+* [Azure IoT 장치 및 서비스 SDK][lnk-sdks] - IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용하는 다양한 언어 SDK를 나열합니다.
 * [장치 쌍 및 작업을 위한 IoT Hub 쿼리 언어][lnk-query] - IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어에 대해 설명합니다.
 * [IoT Hub MQTT 지원][lnk-devguide-mqtt] - MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
-IoT Hub를 사용하여 장치에서 파일을 업로드하는 방법에 대해 알아봤으니 다음과 같은 개발자 가이드 항목을 살펴보세요.
+IoT Hub를 사용하여 장치에서 파일을 업로드하는 방법에 대해 알아봤으니 다음 IoT Hub 개발자 가이드 항목을 살펴보세요.
 
 * [IoT Hub에서 장치 ID 관리][lnk-devguide-identities]
 * [IoT Hub에 대한 액세스 제어][lnk-devguide-security]
@@ -171,6 +171,6 @@ IoT Hub를 사용하여 장치에서 파일을 업로드하는 방법에 대해 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

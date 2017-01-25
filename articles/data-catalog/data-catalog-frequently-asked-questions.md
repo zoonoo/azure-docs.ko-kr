@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -77,15 +77,15 @@ Azure 데이터 카탈로그에 데이터를 등록하려면 Azure 데이터 카
 
 > [!IMPORTANT]
 > Azure Data Catalog를 사용한 데이터 자산 등록은 클라우드에 데이터를 옮기거나 복사하지 않습니다. 데이터 원본에서 자산을 등록하면 자산의 메타데이터가 Azure로 복사되지만 해당 데이터는 기존 데이터 원본 위치에 유지됩니다. 이 규칙에서 유일한 예외는 자산 등록 시 사용자가 미리 보기 레코드 또는 데이터 프로필을 업로드하기로 선택하는 경우입니다. 미리 보기를 포함하는 경우 최대 20개의 레코드가 각 자산에서 복사되며 Azure Data Catalog에 스냅숏으로 저장됩니다. 데이터 프로필을 포함하는 경우 집계 정보(예: 테이블 크기, 열당 백분율 null 값, 열에 대한 최소, 최대 및 평균 값)를 계산하고 카탈로그에 저장된 메타 데이터에 포함됩니다.
-> 
-> 
+>
+>
 
 <br/>
 
 > [!NOTE]
 > 최우선 **Description** 속성이 있는 SQL Server Analysis Services와 같은 데이터 원본의 경우, Azure Data Catalog 게시 응용 프로그램이 해당 속성 값을 추출합니다. 최우선 **Description** 속성이 없는 SQL Server 관계형 데이터베이스의 경우, Azure Data Catalog 게시 응용 프로그램이 개체 및 열에 대한 ms_description 확장 속성에서 해당 값을 추출합니다. 자세한 내용은 TechNet [데이터베이스 개체의 확장 속성 사용](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)을 참조하세요.
-> 
-> 
+>
+>
 
 ## <a name="q-how-long-should-it-take-for-newly-registered-assets-to-appear-in-azure-data-catalog"></a>질문: 새로 등록된 자산이 Azure 데이터 카탈로그에 나타나려면 얼마나 걸리나요?
 Azure Data Catalog를 사용하여 자산을 등록하면 Azure Data Catalog 포털에 나타나기까지 5~10초 정도 걸릴 수 있습니다.
@@ -116,7 +116,7 @@ Azure Data Catalog Registration Tool을 실행하는 사용자는 원본에서 �
 ## <a name="q-will-azure-data-catalog-be-made-available-for-on-premises-deployment-as-well"></a>질문: Azure 데이터 카탈로그는 온-프레미스 배포에도 사용할 수 있나요?
 Azure Data Catalog는 하이브리드 데이터 원본 검색 솔루션을 제공하는 클라우드 및 온-프레미스 데이터 원본과도 작업할 수 있는 클라우드 서비스입니다. 현재 온-프레미스를 실행하는 Azure Data Catalog 서비스 버전에 대한 계획은 없습니다.
 
-## <a name="q-can-we-extract-more-richer-metadata-from-the-data-sources-we-register"></a>질문: 등록하는 데이터 원본에서 더 많은/풍부한 메타데이터를 추출할 수 있나요?
+## <a name="q-can-we-extract-more--richer-metadata-from-the-data-sources-we-register"></a>질문: 등록하는 데이터 원본에서 더 많은/풍부한 메타데이터를 추출할 수 있나요?
 Azure Data Catalog의 기능을 확장하는 작업을 활발히 진행 중입니다. 등록하는 동안 데이터 원본에서 추출을 확인하려는 추가 메타데이터가 있는 경우, [Azure Data Catalog 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)에서 이를 제안하시기 바랍니다. 또는 이미 제안되어 있는 경우 투표하시기 바랍니다. 향후 타사에서 확장성 API를 통해 새 데이터 원본 형식을 추가할 수 있도록 허용할 예정입니다.
 
 ## <a name="q-how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>질문: 등록된 데이터 자산의 표시 여부를 제한하여 특정인만 검색하도록 하려면 어떻게 하나요?
@@ -125,9 +125,8 @@ Azure Data Catalog의 기능을 확장하는 작업을 활발히 진행 중입�
 ## <a name="q-how-do-i-update-the-registration-for-a-data-asset-to-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>질문: 데이터 원본의 변경 사항이 카탈로그에 반영되도록 데이터 자산 등록을 업데이트하려면 어떻게 하나요?
 대답: 카탈로그에 이미 등록된 데이터 자산에 대한 메타데이터를 업데이트하려면 단순히 해당 자산을 포함하는 데이터 원본을 다시 등록하면 됩니다. 테이블이나 뷰에서 추가 또는 제거되는 열과 같이 데이터 원본의 변경 사항은 카탈로그에서 업데이트되지만, 사용자가 제공한 주석은 유지됩니다.
 
-## <a name="q-my-question-isnt-answered-here-what-should-i-do"></a>질문: 내 질문에 대답이 없습니다. 어떻게 하나요?
+## <a name="q-my-question-isnt-answered-here--what-should-i-do"></a>질문: 내 질문에 대답이 없습니다. 어떻게 하나요?
 [Azure 데이터 카탈로그 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)을 참조하세요. 게시된 질문을 여기에서 찾을 수 있습니다.
-
 
 
 

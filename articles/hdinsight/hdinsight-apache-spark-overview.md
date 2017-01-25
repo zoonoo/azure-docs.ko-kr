@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/25/2016
+ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8131002ba48a85b5116f13aa72d713526b56ac0a
-ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
+ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
+ms.openlocfilehash: fe40bc372a63735b0130bcbb115c312fa2e45fa6
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
 
 HDInsight에서 Spark 클러스터를 만들 때는 설치 및 구성된 Spark로 Azure 계산 리소스를 만듭니다. HDInsight에서 Spark 클러스터를 약 10분만에 만들 수 있습니다. 처리되는 데이터는 Azure Blob 저장소에 저장됩니다. [HDInsight에서 Azure Blob Storage 사용][hdinsight-storage]을 참조하세요.
 
-![Azure HDInsight에서 Apache Spark](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark on Azure HDInsight")
+![Azure HDInsight의 Apache Spark](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark on Azure HDInsight")
 
 **Azure HDInsight에서 Apache Spark를 시작하나요?** [빠른 시작: HDInsight Linux에서 Spark 클러스터 만들기 및 Jupyter를 사용하여 샘플 응용 프로그램 실행](hdinsight-apache-spark-jupyter-spark-sql.md).을 참조하세요.
 
@@ -43,7 +43,7 @@ Azure HDInsight는 완전히 관리되는 Spark 서비스를 제공합니다. HD
 | 클러스터 만들기 편의성 |Azure 관리 포털, Azure PowerShell 또는 HDInsight .NET SDK를 사용하여 몇 분만에 HDInsight에서 새 Spark 클러스터를 만들 수 있습니다.  [HDInsight에서 Spark 클러스터 시작](hdinsight-apache-spark-jupyter-spark-sql.md) |
 | 사용 편의성 |HDInsight 클러스터의 Spark에는 미리 구성된 Jupyter Notebook이 포함되어 있으며 대화형 데이터 처리 및 시각화에 사용할 수 있습니다. Jupyter Notebook에 대한 URL은 https://CLUSTERNAME.azurehdinsight.net/jupyter입니다. **CLUSTERNAME**을 Spark HDInsight 클러스터의 이름으로 바꿉니다. |
 | REST API |HDInsight의 Spark에는 실행 중인 작업을 원격으로 제출 및 모니터링하는 REST-API 기반 Spark 작업 서버, [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)가 포함되어 있습니다. |
-| Azure Data Lake 저장소에 대한 지원 |추가 저장소로 Azure Data Lake 저장소를 사용하도록 HDInsight에서 Spark를 구성할 수 있습니다. Data Lake 저장소에 대한 자세한 내용은 [Azure Data Lake 저장소 개요](../data-lake-store/data-lake-store-overview.md)를 참조하세요. |
+| Azure Data Lake 저장소에 대한 지원 |HDInsight 3.5 클러스터만으로 기본 저장소뿐만 아니라 추가 저장소로 Azure Data Lake Store를 사용하도록 HDInsight에서 Spark를 구성할 수 있습니다. Data Lake 저장소에 대한 자세한 내용은 [Azure Data Lake 저장소 개요](../data-lake-store/data-lake-store-overview.md)를 참조하세요. |
 | Azure 서비스와의 통합 |HDInsight에서 Spark는 Azure 이벤트 허브에 대한 커넥터와 함께 제공됩니다. 고객은 [Kafka](http://kafka.apache.org/)외에, 이미 Spark에서 제공하는 이벤트 허브를 사용하여 스트리밍 응용 프로그램을 빌드할 수 있습니다. |
 | R 서버에 대한 지원 |Spark 클러스터와 약속된 속도로 분산된 R 계산을 실행하도록 HDInsight Spark 클러스터에서 R 서버를 설정할 수 있습니다. 자세한 내용은 [HDInsight에서 R 서버 사용 시작](hdinsight-hadoop-r-server-get-started.md)을 참조하세요. |
 | IntelliJ IDEA와의 통합 |IntelliJ용 HDInsight 플러그 인을 사용하여 응용 프로그램을 만들고 HDInsight Spark 클러스터에 제출할 수 있습니다. 자세한 내용은 [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 HDInsight Spark Linux 클러스터용 Spark Scala 응용 프로그램 만들기](hdinsight-apache-spark-intellij-tool-plugin.md)를 참조하세요. |
@@ -115,6 +115,6 @@ HDInsight Linux에서 Spark 클러스터를 만드는 작업부터 시작합니�
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

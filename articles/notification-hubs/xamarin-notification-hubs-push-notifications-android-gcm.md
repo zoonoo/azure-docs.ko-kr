@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5137e0f33497dfe7ee815bb4bc30929364f6df72
+ms.sourcegitcommit: cafe4f2d9ae9a79fd2e27b8734bda43bb774eeb2
+ms.openlocfilehash: e0ef1b006a2b202c08a71caaff4ef4d763d50d0a
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 5137e0f33497dfe7ee815bb4bc30929364f6df72
 
 ## <a name="overview"></a>개요
 이 자습서에서는 Azure 알림 허브를 사용하여 Xamarin.Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다.
-GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs app][GitHub] 샘플에서 확인할 수 있습니다.
+GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 사용할 수 있습니다.
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다.
 
@@ -68,10 +68,11 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.
 ### <a name="create-a-new-project"></a>새 프로젝트 만들기
 1. Xamarin Studio에서 **새 솔루션**, **Android 앱**, **다음**을 차례로 클릭합니다.
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+
 2. **앱 이름**과 **식별자**를 입력합니다. 지원하려는 **대상 플랫폼**, **다음**, **만들기**를 차례로 클릭합니다.
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
 
     그러면 새 Android 프로젝트가 만들어집니다.
 
@@ -84,7 +85,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.
    > 
    > 
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
 2. 또는 **최소 Android 버전** 을 다른 API 수준으로 설정합니다.
 3. **대상 Android 버전** 을 대상으로 지정할 다른 API 버전으로 설정합니다(API 수준 8 이상이어야 함).
 
@@ -343,10 +344,10 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 1. **Tools**에서 **Open Android Emulator Manager**를 클릭하고 해당 장치를 선택한 후 **Edit**를 클릭합니다.
    
-       ![][18]
+      ![][18]
 2. **대상**에서 **Google API**를 선택하고 **확인**을 클릭합니다.
    
-       ![][19]
+      ![][19]
 3. 위쪽 도구 모음에서 **Run**을 클릭하고 앱을 선택합니다. 에뮬레이터가 시작되고 앱이 실행됩니다.
    
    앱이 GCM에서 *registrationId* 를 검색하고 알림 허브에 등록됩니다.
@@ -360,7 +361,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 알림을 보내기 위해 검토할 수 있는 다른 자습서 목록은 다음과 같습니다.
 
-* ASP.NET: [알림 허브를 사용하여 사용자에게 푸시 알림 보내기]를 참조하세요.
+* ASP.NET: [알림 허브를 사용하여 사용자에게 알림 푸시]를 참조하세요.
 * Azure 알림 허브 Java SDK: Java에서 알림을 보내는 방법은 [Java에서 알림 허브를 사용하는 방법](notification-hubs-java-push-notification-tutorial.md) 을 참조하세요. 이는 Eclipse for Android Development에서 테스트되었습니다.
 * PHP: [PHP에서 알림 허브를 사용하는 방법](notification-hubs-php-push-notification-tutorial.md)을 참조하세요.
 
@@ -371,7 +372,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 1. 새 Visual C# 콘솔 응용 프로그램을 만듭니다.
    
-       ![][20]
+      ![][20]
 2. Visual Studio에서 **도구**를 클릭하고 **NuGet 패키지 관리자**를 클릭한 다음 **패키지 관리자 콘솔**을 클릭합니다.
    
     그러면 Visual Studio에 패키지 관리자 콘솔이 표시됩니다.
@@ -398,17 +399,17 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
          Console.ReadLine();
 7. F5 키를 눌러 앱을 실행합니다. 그러면 앱에서 알림을 받게 됩니다.
    
-       ![][21]
+      ![][21]
 
 #### <a name="optional-send-notifications-by-using-a-mobile-service"></a>(선택 사항) 모바일 서비스를 사용하여 알림 보내기
 1. [모바일 서비스 시작]을 수행합니다.
 2. [Azure 클래식 포털]에 로그인하고 모바일 서비스를 선택합니다.
 3. 맨 위에 있는 **스케줄러** 탭을 선택합니다.
    
-       ![][22]
+      ![][22]
 4. 새 예약된 작업을 만들고 이름을 삽입한 후 **요청 시**를 선택합니다.
    
-       ![][23]
+      ![][23]
 5. 작업이 만들어졌으면 작업 이름을 클릭합니다. 그런 다음 위쪽 막대에서 **스크립트** 탭을 클릭합니다.
 6. 스케줄러 함수 내에 다음 스크립트를 삽입합니다. 자리 표시자를 알림 허브 이름과 앞에서 얻은 *DefaultFullSharedAccessSignature* 의 연결 문자열로 바꿔야 합니다. **저장**을 클릭합니다.
    
@@ -432,12 +433,12 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 이 간단한 예제에서는 모든 Android 장치로 알림을 브로드캐스트합니다. 특정 사용자를 대상으로 하려면 [알림 허브를 사용하여 사용자에게 알림 푸시](영문) 자습서를 참조하세요. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문)를 참조하세요. 알림 허브 사용 방법에 대해 자세히 알아보려면 [알림 허브 지침] 및 [Android용 알림 허브 방법]을 참조하세요.
 
 <!-- Anchors. -->
-[Google Cloud Messaging 사용]: #register
+[Enable Google Cloud Messaging]: #register
 [Configure your Notification Hub]: #configure-hub
-[알림 허브에 앱 연결]: #connecting-app
-[에뮬레이터를 사용하여 앱 실행]: #run-app
-[백 엔드에서 알림 보내기]: #send
-[다음 단계]:#next-steps
+[Connecting your app to the Notification Hub]: #connecting-app
+[Run your app with the emulator]: #run-app
+[Send notifications from your back-end]: #send
+[Next steps]:#next-steps
 
 <!-- Images. -->
 
@@ -458,27 +459,27 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 
 <!-- URLs. -->
-[앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Mobile Services 시작]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
-[JavaScript 및 HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[모바일 서비스 시작]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [Azure 클래식 포털]: https://manage.windowsazure.com/
-[wns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 [Android용 알림 허브 방법]: http://msdn.microsoft.com/library/dn282661.aspx
 
-[알림 허브를 사용하여 사용자에게 푸시 알림 보내기]: /manage/services/notification-hubs/notify-users-aspnet
+[알림 허브를 사용하여 사용자에게 알림 푸시]: /manage/services/notification-hubs/notify-users-aspnet
 [알림 허브를 사용하여 뉴스 속보 보내기]: /manage/services/notification-hubs/breaking-news-dotnet
-[GCMClient 구성 요소 페이지]: http://components.xamarin.com/view/GCMClient
-[Xamarin.NotificationHub GitHub 페이지]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
+[GCMClient Component page]: http://components.xamarin.com/view/GCMClient
+[Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Google Cloud Messaging 클라이언트 구성 요소]: http://components.xamarin.com/view/GCMClient/
 [Azure 메시징 구성 요소]: http://components.xamarin.com/view/azure-messaging
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

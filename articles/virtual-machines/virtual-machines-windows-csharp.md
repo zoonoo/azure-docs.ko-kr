@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 10/06/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 57faf185f88a56cf1b5b871a4a2d7ab6c8ca3dd6
+ms.sourcegitcommit: 37ab64cb40def50342eb31c240aa301e9d751055
+ms.openlocfilehash: 6fa33715484a4bb371148410b43c5ac606744160
 
 
 ---
-# <a name="deploy-azure-resources-using-c"></a>C를 사용하여 Azure 리소스 배포
+# <a name="deploy-azure-resources-using-c"></a>C를 사용하여 Azure 리소스 배포# #
 이 문서에서는 C#을 사용하여 Azure 리소스를 만드는 방법을 보여 줍니다.
 
 먼저 다음 작업을 완료했는지 확인해야 합니다.
 
-*  [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
+* [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 * [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855) 설치 확인
-*  [인증 토큰](../resource-group-authenticate-service-principal.md)
+* [인증 토큰](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 이러한 단계를 수행하려면 약 30분이 걸립니다.
 
@@ -456,26 +456,28 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 1. 리소스 그룹을 삭제하려면 Program 클래스에 다음 메서드를 추가합니다.
    
-     public static async void DeleteResourceGroupAsync(
-   
-       TokenCredentials credential,
-       string groupName,
-       string subscriptionId)
-     {
-   
-       Console.WriteLine("Deleting resource group...");
-       var resourceManagementClient = new ResourceManagementClient(credential)
-         { SubscriptionId = subscriptionId };
-       await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-     }
+   ```
+   public static async void DeleteResourceGroupAsync(
+     TokenCredentials credential,
+     string groupName,
+     string subscriptionId)
+   {
+     Console.WriteLine("Deleting resource group...");
+     var resourceManagementClient = new ResourceManagementClient(credential)
+       { SubscriptionId = subscriptionId };
+     await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+   }
+   ```
+
 2. 이전에 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
    
-     DeleteResourceGroupAsync(
-   
-       credential,
-       groupName,
-       subscriptionId);
-     Console.ReadLine();
+   ```   
+   DeleteResourceGroupAsync(
+     credential,
+     groupName,
+     subscriptionId);
+   Console.ReadLine();
+   ```
 
 ## <a name="step-5-run-the-console-application"></a>5단계: 콘솔 응용 프로그램 실행
 1. 콘솔 응용 프로그램을 실행하려면, Visual Studio에서 **시작** 을 클릭한 다음 구독에 사용되는 동일한 사용자 이름 및 암호를 사용하여 Azure AD에 로그인합니다.
@@ -493,6 +495,6 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

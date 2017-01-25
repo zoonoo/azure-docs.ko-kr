@@ -15,20 +15,20 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fb76a6b58a88b2c80958c867f02a0f43d3b0fe25
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b2b99ec031ea26b4ab19e7327da035788661a0a8
 
 
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 테이블에 대한 통계 관리
 > [!div class="op_single_selector"]
-> * [개요][개요]
-> * [데이터 형식][데이터 형식]
-> * [배포][배포]
-> * [Index][Index]
-> * [파티션][파티션]
-> * [통계][통계]
-> * [임시][임시]
+> * [개요][Overview]
+> * [데이터 형식][Data Types]
+> * [배포][Distribute]
+> * [인덱스][Index]
+> * [파티션][Partition]
+> * [통계][Statistics]
+> * [임시][Temporary]
 > 
 > 
 
@@ -95,7 +95,7 @@ WHERE
 
 예를 들어, 일반적으로 데이터 웨어하우스의 날짜 열은 자주 통계 업데이트가 필요합니다. 새 행이 데이터 웨어하우스에 로드될 때마다 새 부하 날짜나 트랜잭션 날짜가 추가됩니다. 데이터 분포를 변경하며 통계는 최신 상태가 아닙니다.  반대로, 고객 테이블의 성별 열에 대한 통계는 업데이트할 필요가 없습니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다. 그러나 데이터 웨어하우스가 한 가지 성별만을 포함하고 새 요구 사항의 결과가 여러 성별인 경우, 성별 열에서 통계를 업데이트해야 합니다.
 
-자세한 설명은 MSDN에서 [통계][통계]를 참조하세요.
+자세한 설명은 MSDN에서 [통계][Statistics]를 참조하세요.
 
 ## <a name="implementing-statistics-management"></a>통계 관리 구현
 데이터 로딩 프로세스를 확장하여 로드 끝에 통계가 업데이트되는지 확인하는 것이 좋습니다. 데이터 로드는 테이블이 값의 크기 및/또는 배포를 자주 변경하는 경우입니다. 따라서 일부 관리 프로세스를 구현할 수 있는 논리 위치입니다.
@@ -113,7 +113,7 @@ WHERE
 > 
 > 
 
-자세한 설명은 MSDN에서 [카디널리티 예측][카디널리티 예측]을 참조하세요.
+자세한 설명은 MSDN에서 [카디널리티 예측][Cardinality Estimation]을 참조하세요.
 
 ## <a name="examples-create-statistics"></a>예제: 통계 작성
 이 예제는 통계를 만들기 위한 다양한 옵션을 사용하는 방법을 보여줍니다. 각 열에 대해 사용하는 옵션은 데이터의 특징 및 열이 쿼리에서 사용되는 방법에 따라 다릅니다.
@@ -350,9 +350,9 @@ UPDATE STATISTICS dbo.table1;
 > 
 > 
 
- `UPDATE STATISTICS` 절차 구현의 경우, [임시 테이블][임시] 문서를 참조하세요. 구현 방법은 위의 `CREATE STATISTICS` 절차와 약간 다르지만 최종 결과는 동일합니다.
+`UPDATE STATISTICS` 절차 구현의 경우, [임시 테이블][Temporary] 문서를 참조하세요. 구현 방법은 위의 `CREATE STATISTICS` 절차와 약간 다르지만 최종 결과는 동일합니다.
 
-전체 구문의 경우, MSDN에서 [통계 업데이트][통계 업데이트]를 참조하세요.
+전체 구문의 경우, MSDN에서 [통계 업데이트][Update Statistics]를 참조하세요.
 
 ## <a name="statistics-metadata"></a>통계 메타데이터
 통계에 대한 정보를 찾는 데 사용할 수 있는 여러 시스템 뷰 및 함수가 있습니다. 예를 들어, 통계가 마지막으로 작성되거나 업데이트되는 시기를 알 수 있는 stats-date 함수를 사용하여 통계 개체가 최신이 아닌지 알 수 있습니다.
@@ -464,25 +464,25 @@ DBCC SHOW_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우�
 7. 사용자 지정 오류 2767이 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 MSDN에서 [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS]를 참조하세요.  자세히 알아보려면 [테이블 개요][개요], [테이블 데이터 형식][데이터 형식], [테이블 배포][배포], [테이블 인덱싱][Index], [테이블 분할][파티션] 및 [임시 테이블][임시]에 대한 문서를 참조하세요.  모범 사례에 대해 자세히 알아보려면 [SQL 데이터 웨어하우스 모범 사례][SQL 데이터 웨어하우스 모범 사례]를 참조하세요.  
+자세한 내용은 MSDN에서 [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS]를 참조하세요.  자세히 알아보려면 [테이블 개요][Overview], [테이블 데이터 유형][Data Types], [테이블 배포][Distribute], [테이블 인덱싱][Index], [테이블 분할][Partition] 및 [임시 테이블][Temporary]에 대한 문서를 참조하세요.  모범 사례에 대한 자세한 내용은 [SQL Data Warehouse 모범 사례][SQL Data Warehouse Best Practices]를 참조하세요.  
 
 <!--Image references-->
 
 <!--Article references-->
-[개요]: ./sql-data-warehouse-tables-overview.md
-[데이터 형식]: ./sql-data-warehouse-tables-data-types.md
-[배포]: ./sql-data-warehouse-tables-distribute.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
-[파티션]: ./sql-data-warehouse-tables-partition.md
-[통계]: ./sql-data-warehouse-tables-statistics.md
-[임시]: ./sql-data-warehouse-tables-temporary.md
-[SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->  
-[카디널리티 예측]: https://msdn.microsoft.com/library/dn600374.aspx
+[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
 [CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
 [DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[통계]: https://msdn.microsoft.com/library/ms190397.aspx
+[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
 [STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
 [sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
 [sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
@@ -497,6 +497,6 @@ DBCC SHOW_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

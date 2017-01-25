@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: bc36f38c0089940e8f4f53a0abb13d9bb756eb1e
+ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
+ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
 
 
 ---
@@ -104,11 +104,10 @@ Sentence #2 Explains what users will learn and the benefit.
 
 * [Azure Portal 및 SQL Server Management Studio를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작](sql-database-get-started.md) 또는 이 자습서의 [PowerShell 버전](sql-database-get-started-powershell.md)을 완료했습니다. 계속하기 전에 이 필수 자습서를 완료하거나 이 자습서의 [PowerShell 버전](sql-database-get-started-powershell.md) 끝에서 PowerShell 스크립트를 실행하지 않은 경우
 
-<!------------------
+
 > [!TIP]
-> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
->
--------------------->
+> [PowerShell](sql-database-get-started-backup-recovery-powershell.md)을 사용하여 시작 자습서에서 이와 동일한 작업을 수행할 수 있습니다.
+
 
 ## <a name="sign-in-by-using-your-existing-account"></a>기존 계정을 사용하여 로그인
 [기존 구독](https://account.windowsazure.com/Home/Index)을 사용하고 이러한 다음 단계를 수행하여 Azure Portal에 연결합니다.
@@ -179,6 +178,11 @@ Sentence #2 Explains what users will learn and the benefit.
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Azure Recovery Services 자격 증명 모음에 자동화된 백업의 장기 보존 구성 
 
 자습서의 이 섹션에서는 서비스 계층에 대한 보존 기간보다 긴 기간 동안 [자동화된 백업을 보존하는 Azure Recovery Services 자격 증명 모음을 구성](sql-database-long-term-retention.md)합니다. 
+
+
+> [!TIP]
+> 백업을 삭제하려면 [장기 보존 백업 삭제](sql-database-long-term-retention-delete.md)를 참조하세요.
+
 
 1. 서버에 대한 **SQL Server** 블레이드, **sqldbtutorialserver**를 엽니다.
 
@@ -299,12 +303,12 @@ Sentence #2 Explains what users will learn and the benefit.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 서비스에서 생성된 자동 백업에 대해 알아보려면 [자동 백업](: https://azure.microsoft.com/en-us/documentation/articles/)(sql-database-automated-backups.MD) 참조
+- 서비스에서 생성된 자동 백업에 대해 알아보려면 [자동 백업](sql-database-automated-backups.md) 참조
 - 장기 백업 보존에 대해 알아보려면 [장기 백업 보존](sql-database-long-term-retention.md) 참조
 - 백업에서 복원에 대해 알아보려면 [백업에서 복원](sql-database-recovery-using-backups.md) 참조
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

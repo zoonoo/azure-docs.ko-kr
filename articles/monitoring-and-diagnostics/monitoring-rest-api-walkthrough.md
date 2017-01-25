@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: mcollier
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9a1114fb61990cf2c590a28bce97ff4b7a425ae5
+ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
+ms.openlocfilehash: 6d66a8fa6eac5bc0ecdddc12b67697045556bf46
 
 
 ---
@@ -30,7 +30,7 @@ Azure Monitor API를 통해 사용 가능한 기본 메트릭 정의(CPU 시간,
 ## <a name="authenticating-azure-monitor-requests"></a>Azure Monitor 요청 인증
 첫 번째 단계는 요청을 인증하는 것입니다.
 
-Azure Monitor API에 대해 실행되는 모든 작업은 Azure Resource Manager 인증 모델을 사용합니다. 따라서 모든 요청은 Azure AD(Azure Active Directory)로 인증되어야 합니다. 클라이언트 응용 프로그램을 인증하는 한 가지 방법은 Azure AD 서비스 주체를 만들고 인증(JWT) 토큰을 검색하는 것입니다. 다음 예제 스크립트에서는 PowerShell을 통해 Azure AD 서비스 주체를 만드는 것을 보여 줍니다. 상세한 연습은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password)를 참조하세요. [Azure 포털을 통해 서비스 주체를 만들 수도](../resource-group-create-service-principal-portal.md)있습니다.
+Azure Monitor API에 대해 실행되는 모든 작업은 Azure Resource Manager 인증 모델을 사용합니다. 따라서 모든 요청은 Azure AD(Azure Active Directory)로 인증되어야 합니다. 클라이언트 응용 프로그램을 인증하는 한 가지 방법은 Azure AD 서비스 주체를 만들고 인증(JWT) 토큰을 검색하는 것입니다. 다음 예제 스크립트에서는 PowerShell을 통해 Azure AD 서비스 주체를 만드는 것을 보여 줍니다. 상세한 연습은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password)를 참조하세요. [Azure 포털을 통해 서비스 주체를 만들 수도](../azure-resource-manager/resource-group-create-service-principal-portal.md)있습니다.
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -191,12 +191,12 @@ Azure 포털에서 리소스 ID를 가져올 수도 있습니다. 이렇게 하�
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell cmdlet을 사용해서 리소스 ID를 검색할 수도 있습니다. 예를 들어, Azure Web App의 리소스 ID를 가져오려면 다음 스크린샷에서처럼 Get-AzureRmWebApp cmdlet을 실행합니다.
 
-![Alt "PowerShell을 통해 구한 리소스 ID”](./media\\monitoring-rest-api-walkthrough\\resourceid_powershell.png)
+![Alt "PowerShell을 통해 구한 리소스 ID”](./media/monitoring-rest-api-walkthrough/resourceid_powershell.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 Azure CLI를 사용하여 리소스 ID를 검색하려면 다음 스크린샷에서처럼 '--json 옵션을 지정하여 'azure webapp show' 명령을 실행합니다.
 
-![Alt "PowerShell을 통해 구한 리소스 ID”](./media\\monitoring-rest-api-walkthrough\\resourceid_azurecli.png)
+![Alt "PowerShell을 통해 구한 리소스 ID”](./media/monitoring-rest-api-walkthrough/resourceid_azurecli.png)
 
 ## <a name="retrieve-activity-log-data"></a>활동 로그 데이터 검색
 메트릭 정의 및 관련 값 작업 외에도, Azure 리소스와 관련한 다른 흥미로운 정보를 검색할 수도 있습니다. 예를 들어, [활동 로그](https://msdn.microsoft.com/library/azure/dn931934.aspx) 데이터를 쿼리할 수 있습니다. 다음 예제에서는 Azure Monitor REST API를 사용하여 Azure 구독에 대해 특정 날짜 범위의 활동 로그 데이터를 쿼리합니다.
@@ -219,6 +219,6 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

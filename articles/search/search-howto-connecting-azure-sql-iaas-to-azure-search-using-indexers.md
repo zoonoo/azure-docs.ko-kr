@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.date: 09/26/2016
 ms.author: jackma
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: cfd53c8240244ffbcf34380acb25657fcc8c9562
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 2150735fbf1e1438feeef70f0ea92ed041d0cd24
 
 
 ---
@@ -50,8 +50,8 @@ Azure Search에는 공용 인터넷 연결을 통한 모든 인덱서 요청에 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>VM에서 SQL Server 연결을 구성합니다.
 Azure Search에 필요한 암호화된 연결을 설정한 후 Azure VM에서 SQL Server에 고유한 추가 구성 단계가 있습니다. 아직 수행하지 않은 경우 다음 단계로 이 문서 중 하나를 사용하여 구성을 완료합니다.
 
-* **Resource Manager** VM인 경우 [Azure에서 Resource Manager를 사용하여 SQL Server 가상 컴퓨터에 연결](../virtual-machines/virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. 
-* **클래식** VM인 경우 [Azure 클래식에서 SQL Server 가상 컴퓨터에 연결](../virtual-machines/virtual-machines-windows-classic-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+* **Resource Manager** VM인 경우 [Azure에서 Resource Manager를 사용하여 SQL Server 가상 컴퓨터에 연결](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md)을 참조하세요. 
+* **클래식** VM인 경우 [Azure 클래식에서 SQL Server 가상 컴퓨터에 연결](../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md)을 참조하세요.
 
 특히 "인터넷을 통한 연결"의 각 문서에서 해당 섹션을 검토하세요.
 
@@ -91,6 +91,6 @@ Azure 포털을 사용하여 인덱서를 만드는 경우, 생성 중에 Azure 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

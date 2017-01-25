@@ -4,7 +4,7 @@ description: "Azure 청구 및 구독 문제에 대한 지원 티켓을 만드�
 services: 
 documentationcenter: 
 author: genlin
-manager: mbaldwin
+manager: narmstr
 editor: 
 tags: billing
 ms.assetid: 4d379f1b-e4bf-4495-b4b4-c8a7b3b60462

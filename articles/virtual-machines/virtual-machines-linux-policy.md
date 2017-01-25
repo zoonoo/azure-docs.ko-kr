@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: f06747c35f12802f54b44774dff7f92280ba0dc9
-ms.openlocfilehash: b1c66c14fbf5b0361831bb987df3dc01131abc88
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 71036b1aa9915750992d9d671af6b1023def41c3
 
 
 ---
@@ -82,7 +82,7 @@ Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 
 ```
 
 #### <a name="virtual-machine-property-fields"></a>가상 컴퓨터 속성 필드
-아래 표에서 정책 정의의 필드로 사용할 수 있는 가상 컴퓨터 속성에 대해 설명합니다. 정책 필드에 대한 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](../resource-manager-policy.md#fields)를 참조하세요.
+아래 표에서 정책 정의의 필드로 사용할 수 있는 가상 컴퓨터 속성에 대해 설명합니다. 정책 필드에 대한 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](../azure-resource-manager/resource-manager-policy.md#conditions)를 참조하세요.
 
 | 필드 이름 | 설명 |
 | --- | --- |
@@ -92,13 +92,13 @@ Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 
 | imageVersion |선택한 SKU에 대한 이미지 버전 지정 |
 
 ## <a name="create-the-policy"></a>정책 만들기
-정책은 REST API를 직접 사용하거나 PowerShell cmdlet을 사용하여 쉽게 만들 수 있습니다. [정책 만들기 및 할당](../resource-manager-policy.md#create-and-assign-a-policy)에 대해 읽어볼 수 있습니다.
+정책은 REST API를 직접 사용하거나 PowerShell cmdlet을 사용하여 쉽게 만들 수 있습니다. [정책 만들기 및 할당](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)에 대해 읽어볼 수 있습니다.
 
 ## <a name="apply-the-policy"></a>정책 적용
-정책을 만든 후 정의된 범위에 적용해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수도 있습니다. [정책 만들기 및 할당](../resource-manager-policy.md#create-and-assign-a-policy)에 대해 읽어볼 수 있습니다.
+정책을 만든 후 정의된 범위에 적용해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수도 있습니다. [정책 만들기 및 할당](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)에 대해 읽어볼 수 있습니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

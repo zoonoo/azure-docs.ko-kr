@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/27/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ebd86b236e5f49d9139732f8922f9929081677cc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e25348cc1aa0ae284f0fcda7f11bdbe42ba1fa0a
 
 
 ---
@@ -124,8 +124,8 @@ A 레코드를 사용하여 Azure 앱의 IP 주소에 매핑하려면 실제로 
     <td><a href="#vip">1단계의 IP 주소</a></td>
   </tr>
   <tr>
-    <td>*.contoso.com(와일드 카드)</td>
-    <td>*</td>
+    <td>\*.contoso.com(와일드카드)</td>
+    <td>\*</td>
     <td><a href="#vip">1단계의 IP 주소</a></td>
   </tr>
 </table>
@@ -149,8 +149,8 @@ A 레코드를 사용하여 Azure 앱의 IP 주소에 매핑하려면 실제로 
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
-    <td>*.contoso.com(와일드 카드)</td>
-    <td>*</td>
+    <td>\*.contoso.com(와일드카드)</td>
+    <td>\*</td>
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
@@ -180,8 +180,8 @@ Azure 앱의 기본 도메인 이름에 매핑하는 데 CNAME 레코드를 사�
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
-    <td>*.contoso.com(와일드 카드)</td>
-    <td>*</td>
+    <td>\*.contoso.com(와일드카드)</td>
+    <td>\*</td>
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
@@ -207,50 +207,44 @@ Azure 포털의 **사용자 지정 도메인** 블레이드로 돌아가( [1단�
 7. 유효성 검사가 성공하면 **호스트 이름 추가** 단추가 활성화되며 호스트 이름을 할당할 수 있게 됩니다. 
 8. Azure에서 새 사용자 지정 도메인 이름 구성을 완료한 경우 브라우저에서 사용자 지정 도메인 이름으로 이동합니다. 브라우저에 Azure 앱이 열리면 사용자 지정 도메인 이름이 올바르게 구성된 것입니다.
 
-> [!NOTE]
-> DNS 레코드를 이미 사용하고(활성 도메인 서비스 트래픽 시나리오) 도메인 확인을 위해 여기에 웹앱을 우선적으로 바인딩해야 하는 경우 다음 테이블에서 표시된 예제처럼 TXT 레코드를 만들면 됩니다. 추가 TXT 레코드는 &lt;*subdomain*>.&lt;*rootdomain*>에서 &lt;*appname*>.azurewebsites.net으로 매핑하는 규칙을 사용합니다. 
-> 
-> <table cellspacing="0" border="1">
-> 
-> <tr>
-> 
-> <th>FQDN 예</th>
-> 
-> <th>TXT 호스트</th>
-> 
-> <th>TXT 값</th>
-> </tr>
-> 
-> <tr>
-> 
-> <td>contoso.com(루트)</td>
-> 
-> <td>awverify.contoso.com</td>
-> 
-> <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-> </tr>
-> 
-> <tr>
-> 
-> <td>www.contoso.com(하위)</td>
-> 
-> <td>awverify.www.contoso.com</td>
-> 
-> <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-> </tr>
-> 
-> <tr>
-> 
-> <td>*.contoso.com(하위)</td>
-> 
-> <td>awverify.*.contoso.com</td>
-> 
-> <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-> </tr>
-> </table>
-> 이 DNS 레코드를 만들면 Azure Portal로 돌아가서 웹앱에 사용자 지정 도메인 이름을 추가합니다.
-> 
-> 
+## <a name="migrate-an-active-domain-with-no-downtime"></a>가동 중지 시간 없이 활성 도메인 마이그레이션 
+
+라이브 사이트와 도메인 이름을 App Service로 마이그레이션할 때 해당 도메인 이름이 이미 라이브 트래픽을 제공하고 있으면 마이그레이션 프로세스 도중 DNS 확인에서 가동 중지 시간을 원하지 않습니다. 이 경우 도메인 확인을 위해 Azure 앱에 도메인 이름을 먼저 바인딩해야 합니다. 이렇게 하려면 다음 수정된 단계를 수행하세요.
+
+1. 첫째, 다음 단계를 수행하여 DNS 레지스트리를 사용해서 확인 TXT 레코드를 만듭니다. [2단계. DNS 레코드 만들기](#createdns).
+추가 TXT 레코드는 &lt;*subdomain*>.&lt;*rootdomain*>에서 &lt;*appname*>.azurewebsites.net으로 매핑하는 규칙을 사용합니다.
+예는 다음 표를 참조하세요.  
+ 
+    <table cellspacing="0" border="1">
+    <tr>
+    <th>FQDN 예</th>
+    <th>TXT 호스트</th>
+    <th>TXT 값</th>
+    </tr>
+    <tr>
+    <td>contoso.com(루트)</td>
+    <td>awverify.contoso.com</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+    </tr>
+    <tr>
+    <td>www.contoso.com(하위)</td>
+    <td>awverify.www.contoso.com</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+    </tr>
+    <tr>
+    <td>\*.contoso.com(와일드카드)</td>
+    <td>awverify.\*.contoso.com</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+    </tr>
+    </table>
+
+2. 그런 후 다음 단계를 사용하여 Azure 앱에 사용자 지정 도메인 이름을 추가합니다. [3단계. 앱에 대해 사용자 지정 도메인 이름 사용](#enable)
+
+    이제 Azure 앱에서 사용자 지정 도메인이 활성화되었습니다. 이제 남은 작업은 도메인 등록 기관을 통해 DNS 레코드를 업데이트하는 것입니다.
+
+3. 마지막으로, 다음에 표시된 대로 Azure 앱을 가리키도록 도메인의 DNS 레코드를 업데이트합니다. [2단계. DNS 레코드 만들기](#createdns). 
+
+    사용자 트래픽은 DNS가 전파된 후 바로 Azure 앱에 리디렉션되어야 합니다.
 
 <a name="verify"></a>
 
@@ -281,6 +275,6 @@ Azure 포털의 **사용자 지정 도메인** 블레이드로 돌아가( [1단�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

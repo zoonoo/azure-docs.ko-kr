@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 04833ac3adae6ed7dd8c1c61c2ca5b63ea97660b
+ms.sourcegitcommit: d4fa4187b25dcbb7cf3b75cb9186b5d245c89227
+ms.openlocfilehash: fe07622d3a3e60c6d3520b6983195b410c3edc6a
 
 
 ---
@@ -109,14 +109,14 @@ Azure Linux 에이전트(waagent)를 설치하여 NIC이 여러 개만 아니라
    azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
 
    ```
-JSON 템플릿 파일에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md) 및 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
+JSON 템플릿 파일에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md) 및 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 
 CLI 및 Azure Resource Manager에 대한 자세한 내용은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)을 참조하세요.
 
 ## <a name="sap-license-and-hardware-key"></a>SAP 라이선스 및 하드웨어 키
 공식적인 SAP-Azure 인증을 위해, SAP 라이선스에 사용되는 SAP 하드웨어 키 계산을 위한 새로운 메커니즘이 도입되었습니다. 이것을 이용하려면 SAP 커널이 적용되어야 합니다. 이전 Linux용 SAP 커널 버전에는 이 코드 변경이 포함되어 있지 않습니다. 따라서 특정한 상황(예: Azure VM 크기 조정)에서 SAP 하드웨어 키가 변경되고 SAP 라이선스가 더 이상 유효하지 않을 수 있습니다. 이 문제는 최신 SAP Linux 커널에서 해결되었습니다. 자세한 내용은 SAP 참고 1928533을 참조하세요.
 
-## <a name="suse-sapconf-package-tuned-adm"></a>SUSE sapconf 패키지 / tuned-adm
+## <a name="suse-sapconf-package--tuned-adm"></a>SUSE sapconf 패키지 / tuned-adm
 SUSE는 일련의 SAP 관련 설정을 관리하는 "sapconf"라는 패키지를 제공합니다. 이 패키지의 용도 및 설치하고 사용하는 방법에 대한 자세한 내용은 [sapconf를 사용하여 SAP 시스템을 실행하는 SUSE Linux Enterprise Server 준비](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) 및 [sapconf 정의 또는 SAP 시스템을 실행하기 위한 SUSE Linux Enterprise Server를 준비하는 방법](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems)을 참조하세요.
 
 그동안 sapconf - tuned-adm을 대체하는 새로운 도구가 있습니다. 이 도구에 대한 자세한 내용은 아래의 두 링크를 참조하세요.
@@ -159,6 +159,6 @@ Gnome 데스크톱을 사용하여 SAP GUI, 브라우저 및 SAP 관리 콘솔�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

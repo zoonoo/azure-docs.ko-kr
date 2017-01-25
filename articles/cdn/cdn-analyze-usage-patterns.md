@@ -3,7 +3,7 @@ title: "Azure CDN 사용 패턴 분석 | Microsoft Docs"
 description: "다음과 같은 보고서를 사용하여 CDN 사용 패턴을 볼 수 있습니다. 대역폭, 전송되는 데이터, 적중 횟수, 캐시 상태, 캐시 적중률, 전송되는 IPv4/IPv6 데이터"
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 5a0d9018-8bdb-48ff-84df-23648ebcf763
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ec6a021e087d9218856370e8bf067359de54bdb9

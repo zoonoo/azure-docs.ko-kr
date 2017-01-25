@@ -2,7 +2,7 @@
 title: "Azure Portal에서 수동 또는 자동 크기 조정으로 인스턴스 수 조정 | Microsoft 문서"
 description: "Azure에서 서비스 크기를 조정하는 방법을 알아봅니다."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0f49f7b9a1db2498d6a78031496a2d3c51888d8b
-ms.openlocfilehash: 926b0e9b75e84ecfef48d1c27524a8e33ef8c3fd
+ms.sourcegitcommit: 5ea043ce3bcd0f500fd765f13764ea3ee83e1ba9
+ms.openlocfilehash: 83c3592014c73c0cf36d371d2752bc76b7c8a4e8
 
 
 ---
@@ -79,7 +79,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 
 설정하려면 [Azure App Service에서 앱 모니터링](web-sites-monitor.md)을 참조하세요.
 
-또한, 끝점 모니터링의 비디오에 대해서는 [Azure 웹 사이트 가동 및 끝 점 모니터링 - 스테판 스차코우(Stefan Schackow)](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/) 를 참조하세요.
+또한, 끝점 모니터링의 비디오에 대해서는 [Azure 웹 사이트 가동 및 끝 점 모니터링 - 스테판 스차코우(Stefan Schackow)](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) 를 참조하세요.
 
 #### <a name="application-performance-monitoring-using-extensions"></a>확장을 사용하여 응용 프로그램 성능 모니터링
 응용 프로그램 성능을 *사이트 확장*을 활용하여 모니터링 할 수도 있습니다.
@@ -113,7 +113,7 @@ New Relic을 사용하려면 [Azure에서 New Relic 응용 프로그램 성능 �
 #### <a name="use-remote-profiling"></a>원격 프로파일링 사용하기
 Azure 앱 서비스에서 웹앱, API 앱 그리고 WebJob을 원격으로 프로파일할 수 있습니다. 프로세스가 예상보다 느리게 실행되거나, HTTP 요청 대기시간이 평상시 보다 높고 프로세스의 CPU 사용량 또한 높은 경우, 원격으로 프로세스를 프로파일할 수 있으며, 프로세스 활동과 코드 hot path를 분석하기 위해 CPU 샘플링 호출 스택을 가져옵니다.
 
-자세한 내용은 [Azure 앱 서비스에서 원격 프로파일링 지원](/blog/remote-profiling-support-in-azure-app-service)을 참조하세요.
+자세한 내용은 [Azure 앱 서비스에서 원격 프로파일링 지원](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service)을 참조하세요.
 
 #### <a name="use-the-azure-app-service-support-portal"></a>Azure 앱 서비스 지원 포털 사용
 웹앱은 HTTP 로그, 이벤트 로그, 프로세스 덤프 등등을 확인하여 사용자의 웹앱과 연관된 문제 해결 기능을 제공합니다. **http://&lt;your app name>.scm.azurewebsites.net/Support**에서 지원 포털을 사용하여 모든 정보에 액세스할 수 있습니다.
@@ -130,7 +130,7 @@ Azure 앱 서비스 지원 포털은 일반적인 문제 해결 시나리오의 
 
 데이터를 다운로드할 경우 기본적으로 D:\home\data\DaaS folder에 저장됩니다.
 
-Azure 앱 서비스 지원 포털에 대한 자세한 내용은 [Azure 웹 사이트의 지원 사이트 확장에 대한 새 업데이트](/blog/new-updates-to-support-site-extension-for-azure-websites)를 참조하세요.
+Azure 앱 서비스 지원 포털에 대한 자세한 내용은 [Azure 웹 사이트의 지원 사이트 확장에 대한 새 업데이트](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites)를 참조하세요.
 
 #### <a name="use-the-kudu-debug-console"></a>Kudu 디버그 콘솔 사용
 웹앱은 사용자 환경에 대한 정보를 얻을 수 있는 JSON 끝점과 비슷한 디버깅, 탐색, 파일 업로드할 수 있는 디버그 콘솔과 함께 제공됩니다. 이 콘솔은 *Kudu 콘솔* 또는 사용자 웹앱에서는 *SCM 대시보드*라고 합니다.
@@ -146,7 +146,7 @@ Kudu가 제공하는 것은 다음과 같습니다.
 
 Kudu의 또 다른 유용한 기능은 응용 프로그램에 첫 번째 예외가 발생할 경우, 메모리 덤프를 만들기 위해 Kudu와 SysInternal 도구 Procdump를 사용할 수 있습니다. 메모리 덤프는 프로세스의 스냅숏이며 웹앱의 더욱 복잡한 문제를 해결하는 데 많은 도움을 줍니다.
 
-Kudu에서 사용 가능한 기능에 대한 자세한 내용은 [사용자가 꼭 알아야 할 Azure 웹 사이트 팀 서비스 도구](/blog/windows-azure-websites-online-tools-you-should-know-about/)를 참조하세요.
+Kudu에서 사용 가능한 기능에 대한 자세한 내용은 [사용자가 꼭 알아야 할 Azure 웹 사이트 팀 서비스 도구](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)를 참조하세요.
 
 <a name="mitigate" />
 
@@ -163,7 +163,7 @@ Azure App Service에서 성능과 처리량의 증가를 위해 사용자가 실
 #### <a name="use-autoheal"></a>AutoHeal를 사용
 AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 기반 제한 또는 요청을 실행하는데 필요한 시간)에 따라 앱에 대한 작업자 프로세스를 재활용 합니다. 대부분의 경우에는 프로세스를 재활용하는 방법이 문제를 해결하는 가장 빠른 방법입니다. Azure 포털 내에서 직접 웹앱을 재시작할 수도 있지만, AutoHeal은 자동으로 재시작을 수행하게 해줍니다. 몇 개의 트리거를 웹앱의 root web.config에 추가하기만 하면 됩니다. 이 설정은 사용자의 응용 프로그램이 .Net이 아니라도 같은 방식으로 작동됩니다.
 
-자세한 내용은 [Auto-Healing Azure 웹 사이트](/blog/auto-healing-windows-azure-web-sites/)를 참조하세요.
+자세한 내용은 [Auto-Healing Azure 웹 사이트](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)를 참조하세요.
 
 #### <a name="restart-the-web-app"></a>웹앱 재시작
 이 방법은 일회성 문제를 해결하는 가장 간단한 방법입니다. [Azure 포털](https://portal.azure.com/)또는 웹앱의 블레이드에서 앱을 멈추거나 재시작 하는 옵션을 사용할 수 있습니다.
@@ -174,6 +174,6 @@ AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

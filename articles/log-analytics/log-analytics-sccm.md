@@ -4,7 +4,7 @@ description: "이 문서는 구성 관리자를 Log Analytics에 연결하고 �
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: 240db424645778c0fcd0f8abd17411e58bd95ab9
+ms.sourcegitcommit: 820a9463c0e58054cf70324b680c5af8fdcacade
+ms.openlocfilehash: 18479c3680aa46113e59d25b6e034830f78a1859
 
 
 ---
@@ -25,7 +25,7 @@ System Center Configuration Manager를 OMS의 Log Analytics에 연결하여 장�
 
 OMS에 구성 관리자를 연결하는 데 많은 단계가 필요하므로 여기서는 전체 프로세르를 간단히 요약하겠습니다.
 
-1. Azure Management Portal에서 구성 관리자를 웹 응용 프로그램 및/또는 Web API 앱으로 등록하고 Azure Active Directory에서 등록할 때 사용한 클라이언트 ID와 클라이언트 비밀 키가 있는지 확인합니다. 이 단계를 수행하는 방법은 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../resource-group-create-service-principal-portal.md)를 참조하세요.
+1. Azure Management Portal에서 구성 관리자를 웹 응용 프로그램 및/또는 Web API 앱으로 등록하고 Azure Active Directory에서 등록할 때 사용한 클라이언트 ID와 클라이언트 비밀 키가 있는지 확인합니다. 이 단계를 수행하는 방법은 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)를 참조하세요.
 2. Azure Management Portal에서 [구성 관리자(등록된 웹앱)에 OMS에 대한 액세스 권한을 제공](#provide-configuration-manager-with-permissions-to-oms)합니다.
 3. 구성 관리자에서 [DMS 연결 추가 마법사를 사용하여 연결을 추가](#add-an-oms-connection-to-configuration-manager)합니다.
 4. 구성 관리자에서 암호 또는 클라이언트 비밀 키가 만료되거나 분실된 경우 [연결 속성을 업데이트](#update-oms-connection-properties)할 수 있습니다.
@@ -51,7 +51,7 @@ OMS에 구성 관리자를 연결하는 데 많은 단계가 필요하므로 여
    * **OMS 작업 영역**
    * **구독**
    * **리소스 그룹**
-   * **위치**
+   * **위치**:
    * **가격 책정 계층**  
      ![OMS 블레이드](./media/log-analytics-sccm/sccm-azure02.png)  
 
@@ -132,6 +132,6 @@ OMS에 구성 관리자를 연결한 후에는 컬렉션을 추가 또는 제거
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

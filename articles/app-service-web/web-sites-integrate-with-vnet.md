@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 08/11/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6ae3e0789893b08bfe100d6eb4457a6ad5082e40
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1184277f90dce4215de2add8b48c022e013d191d
 
 
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure 가상 네트워크에 앱 통합
-이 문서는 Azure 앱 서비스 가상 네트워크 통합 미리 보기 기능을 설명하고 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 앱에 해당 기능을 설정하는 방법을 보여줍니다.  Azure 가상 네트워크(VNET)는 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있도록 하는 기능입니다.  이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다.  Azure 가상 네트워크에 대해 자세히 알아보려면 [Azure 가상 네트워크 개요][VNETOverview]부터 참조하세요.  
+이 문서는 Azure 앱 서비스 가상 네트워크 통합 미리 보기 기능을 설명하고 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 앱에 해당 기능을 설정하는 방법을 보여줍니다.  Azure 가상 네트워크(VNET)는 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있도록 하는 기능입니다.  이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다.  Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요][VNETOverview]부터 참조하세요.  
 
 Azure 앱 서비스에는 두 가지 형태가 있습니다.  
 
 1. 요금제 전체를 지원하는 다중 테넌트 시스템
 2. VNET에 배포되는 ASE(앱 서비스 환경) 프리미엄 기능  
 
-이 문서는 앱 서비스 환경이 아니라 VNET 통합 과정에 대해 설명합니다.  ASE 기능에 대해 자세히 알아보려면 [App Service Environment 소개][ASEintro]의 정보부터 살펴봅니다.
+이 문서는 앱 서비스 환경이 아니라 VNET 통합 과정에 대해 설명합니다.  ASE 기능에 대해 자세히 알아보려면 [App Service 환경 소개][ASEintro]의 정보부터 살펴봅니다.
 
 VNET 통합은 가상 네트워크의 리소스에 대한 액세스를 웹앱에 부여하지만, 가상 네트워크로부터 웹앱에 대한 개인 액세스는 허용하지 않습니다.  개인 사이트 액세스는 ILB(내부 부하 분산 장치)로 ASE가 구성된 상태에서만 사용할 수 있습니다.  ILB ASE 사용에 대한 자세한 내용을 보려면 [ILB ASE 만들기 및 사용][ILBASE] 문서부터 살펴봅니다. 
 
@@ -62,7 +62,7 @@ VNET 통합이 지원하지 않는 사항에는 다음과 같은 내용이 포�
 * 기본적으로 통합하는 앱은 VNET에 정의된 경로를 기반으로 트래픽을 VNET에 라우팅합니다.  
 
 ## <a name="enabling-vnet-integration"></a>VNET 통합 사용
-이 문서는 VNET 통합에 대한 Azure 포털 사용에 주로 초점을 둡니다.  PowerShell을 사용하여 앱과의 VNET 통합을 활성화하려면, 다음 지침을 따릅니다. [PowerShell을 사용하여 가상 네트워크에 앱 연결][IntPowershell]
+이 문서는 VNET 통합에 대한 Azure 포털 사용에 주로 초점을 둡니다.  PowerShell을 사용하여 앱과의 VNET 통합을 활성화하려면, 다음 지침을 따릅니다. [PowerShell을 사용하여 앱을 가상 네트워크에 연결합니다][IntPowershell].
 
 앱을 새 가상 네트워크나 기존 가상 네트워크에 연결할 수 있습니다.  VNET 생성 외에도 통합의 일환으로 네트워크를 새로 만든 경우, 동적 라우팅 게이트웨이가 미리 구성되고 지점과 사이트 간 VPN을 사용하도록 설정됩니다.  
 
@@ -89,12 +89,12 @@ VNET 통합 UI를 사용하여 사용자의 VNET 목록에서 항목을 선택�
 통합을 사용하도록 설정하려면 통합하려는 VNET을 클릭합니다.  VNET을 선택한 후에는 변경 내용이 적용되도록 앱이 자동으로 다시 시작됩니다.  
 
 ##### <a name="enable-point-to-site-in-a-classic-vnet"></a>클래식 VNET에서 Point to Site(지점과 사이트 간) 활성화
-VNET에 게이트웨이가 없거나 Point to Site(지점과 사이트 간)가 활성화되어 있지 않은 경우에는 먼저 이러한 항목을 설정해야 합니다.  클래식 VNET에 대해 활성화하려면 [Azure Portal][AzurePortal]로 이동하여 가상 네트워크(클래식) 목록을 표시합니다.  여기에서 통합하려는 네트워크를 클릭하고 Essentials(필수) 아래에 VPN Connections(VPN 연결)이라는 큰 상자를 클릭합니다.  여기에서 지점과 사이트 간 VPN을 만들 수 있고 게이트웨이도 만들 수 있습니다.  지점과 사이트 간 및 게이트웨이를 만드는 환경을 모두 거치고 나면, 준비가 되기까지 약 30분이 남게 됩니다.  
+VNET에 게이트웨이가 없거나 Point to Site(지점과 사이트 간)가 활성화되어 있지 않은 경우에는 먼저 이러한 항목을 설정해야 합니다.  클래식 VNET에 대해 활성화하려면 [Azure Portal][AzurePortal]로 이동하여 Virtual Network(클래식) 목록을 표시합니다.  여기에서 통합하려는 네트워크를 클릭하고 Essentials(필수) 아래에 VPN Connections(VPN 연결)이라는 큰 상자를 클릭합니다.  여기에서 지점과 사이트 간 VPN을 만들 수 있고 게이트웨이도 만들 수 있습니다.  지점과 사이트 간 및 게이트웨이를 만드는 환경을 모두 거치고 나면, 준비가 되기까지 약 30분이 남게 됩니다.  
 
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Resource Manager VNET에서 Point to Site(지점과 사이트 간) 활성화
-게이트웨이 및 Point to Site(지점과 사이트 간)를 사용하여 Resource Manager VNET을 구성하려면 여기에 설명된 대로 PowerShell을 사용하여 [PowerShell을 사용하여 가상 네트워크에 대해 Point to Site(지점과 사이트 간) 연결을 구성][V2VNETP2S]해야 합니다.  이 기능을 수행하는 UI는 아직 제공되지 않습니다. 
+게이트웨이 및 Point to Site(지점과 사이트 간)를 사용하여 Resource Manager VNET을 구성하려면 여기에 설명된 대로 PowerShell을 사용하여 [PowerShell을 사용하여 Virtual Network에 대해 Point to Site(지점과 사이트 간) 연결을 구성][V2VNETP2S]해야 합니다.  이 기능을 수행하는 UI는 아직 제공되지 않습니다. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>미리 구성된 VNET 만들기
 게이트웨이 및 Point to Site(지점과 사이트 간)를 통해 구성되는 새 VNET을 만들려는 경우 앱 서비스 네트워킹 UI의 기능을 사용하면 됩니다. 단, 이 기능은 Resource Manager VNET에만 해당됩니다.  클래식 게이트웨이 및 Point to Site(지점과 사이트 간)를 사용하여 클래식 VNET을 만들려면 네트워킹 사용자 인터페이스를 통해 이 작업을 수동으로 진행해야 합니다. 
@@ -191,11 +191,11 @@ VNET 통합 기능을 사용하는 경우 가격의 미묘한 차이에 대해 �
 * 데이터 전송 비용
 * VPN 게이트웨이 비용
 
-앱이 이 기능을 사용할 수 있으려면 표준 또는 프리미엄 앱 서비스 계획에 속해야 합니다.  해당 비용에 대한 자세한 정보는 [앱 서비스 가격][ASPricing]을 참조하세요. 
+앱이 이 기능을 사용할 수 있으려면 표준 또는 프리미엄 앱 서비스 계획에 속해야 합니다.  해당 비용에 대한 자세한 정보는 [App Service 가격][ASPricing]을 참조하세요. 
 
 지점과 사이트 간 VPN이 처리되는 방식 때문에, VNET이 동일한 데이터 센터에 있더라도 VNET 통합 연결을 통과하는 아웃바운드 데이터에 대해 요금이 부과됩니다.  부과되는 요금이 무엇인지 보려면 [데이터 전송 가격 정보][DataPricing]를 참조하세요.  
 
-마지막 항목은 VNET 게이트웨이 비용입니다.  사이트 간 VPN과 같은 다른 이유로 게이트웨이가 필요하지 않다면 VNET 통합 기능을 지원하기 위한 게이트웨이 비용을 지불하는 것입니다.  해당 비용에 대한 자세한 정보는 [VPN Gateway 가격 책정][VNETPricing]을 참조하세요.  
+마지막 항목은 VNET 게이트웨이 비용입니다.  사이트 간 VPN과 같은 다른 이유로 게이트웨이가 필요하지 않다면 VNET 통합 기능을 지원하기 위한 게이트웨이 비용을 지불하는 것입니다.  해당 비용에 대한 자세한 정보는 [VPN 게이트웨이 가격][VNETPricing]을 참조하세요.  
 
 ## <a name="troubleshooting"></a>문제 해결
 기능을 설정하기 쉽다고 해서 환경에 문제가 없는 것은 아닙니다.  원하는 끝점에 액세스하다가 문제가 발생하는 경우, 앱 콘솔에서 연결을 테스트하는 데 사용할 수 있는 유틸리티가 있습니다.  두 가지 콘솔 환경을 사용할 수 있습니다.  하나는 Kudu 콘솔이고 다른 하나는 Azure 포털에서 사용할 수 있는 콘솔입니다.  앱에서 Kudu 콘솔로 이동하려면 도구-> Kudu로 이동합니다.  이것은 [sitename].scm.azurewebsites.net으로 이동하는 것과 마찬가지입니다.  해당 페이지가 열리면 Debug 콘솔 탭으로 이동합니다.  Azure 포털에 호스트되는 콘솔로 이동하려면 앱에서 도구 -> 콘솔로 이동합니다.  
@@ -302,6 +302,6 @@ VNET에 호스트되는 리소스에 액세스할 수 있도록 하는 기능은
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

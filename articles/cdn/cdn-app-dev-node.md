@@ -3,7 +3,7 @@ title: "Node.js용 Azure CDN SDK 시작하기 | Microsoft Docs"
 description: "Node.js 응용 프로그램을 작성하여 Azure CDN을 관리하는 방법에 대해 알아봅니다."
 services: cdn
 documentationcenter: nodejs
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: c4bb6a61-de3d-4f0c-9dca-202554c43dfa
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d87daad7e550c8989acc075292b17002c424411e

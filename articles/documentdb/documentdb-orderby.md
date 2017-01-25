@@ -2,7 +2,7 @@
 title: "Order By를 사용하여 DocumentDB 데이터 정렬 | Microsoft Docs"
 description: "LINQ 및 SQL의 DocumentDB 쿼리에서 ORDER BY를 사용하는 방법 및 ORDER BY 쿼리에 대한 인덱싱 정책을 지정하는 방법에 대해 알아봅니다."
 services: documentdb
-author: arramac
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 documentationcenter: 
@@ -13,7 +13,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: arramac
+ms.author: mimig
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 150dcb72f3e7295e1910506b85c06bb7023dcc7c

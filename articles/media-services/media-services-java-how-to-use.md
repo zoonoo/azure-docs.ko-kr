@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 12/20/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97af28a2f225fa7f5db2086687c38c64e03ebc8f
+ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
+ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
 
 
 ---
@@ -24,14 +24,14 @@ ms.openlocfilehash: 97af28a2f225fa7f5db2086687c38c64e03ebc8f
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 ## <a name="setting-up-an-azure-account-for-media-services"></a>미디어 서비스용 Azure 계정 설정
-미디어 서비스 계정을 설정하려면 Azure 클래식 포털을 사용하세요. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 토픽을 참조하세요. Azure 클래식 포털에서 계정을 만들면 미디어 서비스 개발을 위해 컴퓨터를 설정할 준비가 됩니다.
+Media Services 계정을 설정하려면 Azure Portal을 사용하세요. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 토픽을 참조하세요. Azure Portal에서 계정을 만들면 Media Services 개발을 위해 컴퓨터를 설정할 준비가 됩니다.
 
 ## <a name="setting-up-for-media-services-development"></a>미디어 서비스 개발을 위한 설정
 이 섹션에는 Media Services SDK for Java를 사용하는 미디어 서비스 개발에 대한 일반적인 필수 조건이 들어 있습니다.
 
 ### <a name="prerequisites"></a>필수 조건
 * 신규 또는 기존 Azure 구독의 미디어 서비스 계정. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 토픽을 참조하세요.
-* [Azure Java 개발자 센터][Azure Java 개발자 센터](영문)에서 설치할 수 있는 Java용 Azure 라이브러리
+* [Azure Java 개발자 센터][Azure Java Developer Center]에서 설치할 수 있는 Java용 Azure 라이브러리입니다.
 
 ## <a name="how-to-use-media-services-with-java"></a>방법: Java에서 미디어 서비스 사용
 다음 코드에서는 자산을 만들고, 미디어 파일을 자산에 업로드하고, 자산 변환 태스크를 포함하는 작업을 실행하고, 동영상을 스트리밍하기 위해 로케이터를 만드는 방법을 보여 줍니다.
@@ -260,16 +260,16 @@ ms.openlocfilehash: 97af28a2f225fa7f5db2086687c38c64e03ebc8f
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="additional-resources"></a>추가 리소스
-미디어 서비스 Javadoc 설명서는 [Java용 Azure 라이브러리 설명서][Java용 Azure 라이브러리 설명서](영문)를 참조하세요.
+Media Services Javadoc 설명서는 [Java용 Azure 라이브러리 설명서][Azure Libraries for Java documentation]를 참조하세요.
 
 <!-- URLs. -->
 
-[Azure Java 개발자 센터]: http://azure.microsoft.com/develop/java/
-[Java용 Azure 라이브러리 설명서]: http://dl.windowsazure.com/javadoc/
-[Media Services 클라이언트 개발]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
+[Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
+[Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
+[Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -62,7 +62,7 @@ Azure 서비스 패브릭 응용 프로그램은 서비스의 컬렉션입니다
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
 
-[이미지]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
+[image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
 
 
 

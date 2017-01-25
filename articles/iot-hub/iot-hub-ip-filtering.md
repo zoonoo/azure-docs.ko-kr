@@ -1,6 +1,6 @@
 ---
-title: "IoT Hub - IP 필터 | Microsoft Docs"
-description: "이 자습서는 Azure IoT Hub에 대해 특정 IP 주소를 블랙리스트 또는 허용 목록에 올리는 방법을 보여줍니다."
+title: "Azure IoT Hub IP 필터 | Microsoft Docs"
+description: "특정 IP 주소에서 Azure IoT hub로 연결을 차단하도록 IP 필터링을 사용하는 방법입니다. 개별 또는 IP 주소 범위에서 연결을 차단할 수 있습니다."
 services: iot-hub
 documentationcenter: 
 author: BeatriceOltean
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 01/05/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 457d0d97601e18de2a19b83be100954d01f9bbf8
-ms.openlocfilehash: 86622918a136da4c478c8d47a677a67e46eb093b
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 784454c3bc0500ac0896177e843b3c194341cdd1
 
 
 ---
 
-# <a name="ip-filter"></a>IP 필터
+# <a name="use-ip-filters"></a>IP 필터 사용
 
 보안은 Azure IoT Hub를 기반으로 하는 모든 IoT 솔루션의 중요한 측면입니다. 보안 구성의 일환으로 특정 IP 주소를 블랙리스트 또는 허용 목록에 올려야 하는 경우가 있습니다. _IP 필터_ 기능을 사용하면 특정 IPv4 주소에서 들어오는 트래픽을 거부하거나 수락하는 규칙을 구성할 수 있습니다.
 
@@ -34,7 +34,7 @@ ms.openlocfilehash: 86622918a136da4c478c8d47a677a67e46eb093b
 
 ## <a name="how-filter-rules-are-applied"></a>필터 규칙이 적용되는 방식
 
-IP 필터 규칙은 IoT Hub 서비스 수준에 적용됩니다. 따라서 IP 필터 규칙은 지원되는 모든 프로토콜을 사용하는 장치 및 백 엔드 응용 프로그램의 모든 연결에 적용됩니다.
+IP 필터 규칙은 IoT Hub 서비스 수준에 적용됩니다. 따라서 IP 필터 규칙은 지원되는 모든 프로토콜을 사용하는 장치 및 백 엔드 앱의 모든 연결에 적용됩니다.
 
 IoT Hub의 거부 IP 규칙에 일치하는 IP 주소에서 오는 모든 연결 시도는 권한 없음 401 상태 코드 및 설명을 수신합니다. 응답 메시지는 IP 규칙을 언급하지 않습니다.
 
@@ -96,13 +96,13 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 <!-- Links -->
 
-[IoT Hub 개발자 가이드]: iot-hub-devguide.md
+[IoT Hub developer guide]: iot-hub-devguide.md
 [Azure ExpressRoute]:  https://azure.microsoft.com/en-us/documentation/articles/expressroute-faqs/#supported-services
 
 [lnk-monitor]: iot-hub-operations-monitoring.md
 [lnk-metrics]: iot-hub-metrics.md
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -124,8 +124,8 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 ## <a name="summary"></a>요약
 이 문서에서 간단한 수직 규모 조정 예제를 살펴보았습니다. 자동화 계정, Runbook, Webhook, 경고 등 이러한 구성 요소를 사용하여 다양한 이벤트를 사용자 지정 작업 집합과 연결할 수 있습니다.
 
-[Runbook]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
-[갤러리]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
+[runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
+[gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
 
 
 

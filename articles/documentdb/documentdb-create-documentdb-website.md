@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 12/08/2016
 ms.author: hawong
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea624ffc9a33fe89aea065de8c96efd79d6c2b9a
+ms.sourcegitcommit: 08b101f42558280d8ffa690829570257d8d6deca
+ms.openlocfilehash: 6f519ac78d28fac69171b083f18d783cf1d9b24a
 
 
 ---
@@ -73,6 +73,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
       
       ![템플릿 배포 UI의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만들도록 이름을 제공하며 리소스 그룹에 대한 위치를 선택합니다.
+
     ![템플릿 배포 UI의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
 6. **약관 검토**, **구매**를 클릭한 다음 **만들기**를 클릭하여 배포를 시작합니다.  **대시보드에 고정** 을 선택하여 결과 배포를 Azure 포털 홈 페이지에서 쉽게 볼 수 있도록 합니다.
    ![템플릿 배포 UI의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
@@ -113,6 +114,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
       
       ![템플릿 배포 UI의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만들도록 이름을 제공하며 리소스 그룹에 대한 위치를 선택합니다.
+
     ![템플릿 배포 UI의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
 6. **약관 검토**, **구매**를 클릭한 다음 **만들기**를 클릭하여 배포를 시작합니다.  **대시보드에 고정** 을 선택하여 결과 배포를 Azure 포털 홈 페이지에서 쉽게 볼 수 있도록 합니다.
    ![템플릿 배포 UI의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
@@ -121,6 +123,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 8. 리소스 목록에서 웹앱 리소스를 클릭한 다음 **응용 프로그램 설정**
     ![리소스 그룹의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment9.png)을 클릭합니다.  
 9. 응용 프로그램 설정이 DocumentDB 끝점 및 각 DocumentDB 마스터 키에 대해 어떻게 제시되어 있는지 확인합니다.
+
     ![응용 프로그램 설정의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment10.png)  
 10. 자유롭게 Azure 포털을 계속 탐색하거나 DocumentDB [샘플](http://go.microsoft.com/fwlink/?LinkID=402386) 중 하나에 따라 고유한 DocumentDB 응용 프로그램을 만듭니다.
 
@@ -145,6 +148,6 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

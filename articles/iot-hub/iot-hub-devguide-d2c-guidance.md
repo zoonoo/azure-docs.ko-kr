@@ -1,6 +1,6 @@
 ---
-title: "Azure IoT Hub 장치-클라우드 통신 지침 | Microsoft 문서"
-description: "Azure IoT Hub 개발자 가이드 - 장치-클라우드 메시지, reported 속성 또는 파일 업로드를 사용하는 경우에 대한 지침입니다."
+title: "Azure IoT Hub 장치-클라우드 옵션 | Microsoft Docs"
+description: "개발자 가이드 - 장치-클라우드 메시지, reported 속성 또는 클라우드-장치 통신을 위한 파일 업로드를 사용하는 경우에 대한 지침입니다."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 53f14e6fe115ed5f96d25b9ec5ab04abe23712d5
-ms.openlocfilehash: 6d5608cd86e3f042a7d63bd4e43e75a06141dfab
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 8c3479e29b55eacc30842ffdfee23b4a00a13126
 
 
 ---
 # <a name="device-to-cloud-communications-guidance"></a>장치-클라우드 통신 지침
-장치 앱에서 백 엔드로 정보를 전송할 때 IoT Hub은 다음 세 가지 옵션을 공개합니다.
+장치 앱에서 솔루션 백 엔드로 정보를 전송할 때 IoT Hub은 다음 세 가지 옵션을 공개합니다.
 
 * [장치-클라우드(D2C) 메시지][lnk-d2c] - 시계열 원격 분석 및 경고의 경우
 * [reported 속성][lnk-twins] - 장기 실행 워크플로의 사용 가능한 기능, 조건 및 상태와 같은 장치 상태 정보를 보고하는 경우(예: 구성 및 소프트웨어 업데이트)
@@ -38,7 +38,7 @@ ms.openlocfilehash: 6d5608cd86e3f042a7d63bd4e43e75a06141dfab
 | 프로토콜 | 모든 프로토콜에서 사용할 수 있습니다. | 현재 MQTT를 사용할 때만 사용할 수 있습니다. | 프로토콜을 사용할 때 사용할 수 있지만 장치에 HTTP가 필요합니다. |
 
 > [!NOTE]
-> 응용 프로그램이 원격 분석 시계열 또는 경고로 정보를 보내고 장치 쌍에서 사용할 수 있게 할 수도 있습니다. 이러한 경우 장치 앱은 D2C 메시지를 보내고 속성 변경을 보고하거나 백 엔드에서 메시지를 수신할 때 장치 쌍의 tags에 정보를 저장할 수 있습니다. D2C 메시지는 장치 쌍 업데이트보다 훨씬 높은 처리량을 허용하므로 때로는 모든 D2C 메시지에 대해 장치 쌍을 업데이트하지 않는 것이 바람직합니다.
+> 응용 프로그램이 원격 분석 시계열 또는 경고로 정보를 보내고 장치 쌍에서 사용할 수 있게 할 수도 있습니다. 이러한 경우 장치 앱은 D2C 메시지를 보내고 속성 변경을 보고하거나 솔루션 백 엔드에서 메시지를 수신할 때 장치 쌍의 태그에 정보를 저장할 수 있습니다. D2C 메시지는 장치 쌍 업데이트보다 훨씬 높은 처리량을 허용하므로 때로는 모든 D2C 메시지에 대해 장치 쌍을 업데이트하지 않는 것이 바람직합니다.
 > 
 > 
 
@@ -50,6 +50,6 @@ ms.openlocfilehash: 6d5608cd86e3f042a7d63bd4e43e75a06141dfab
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8892d5c7bd45c1c1f4c8cad0f3baaafc7cc583be
+ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
+ms.openlocfilehash: 34cacff4e8b13fa9d91387ca8762439908ed01fd
 
 
 ---
@@ -25,7 +25,7 @@ Azure Active Directory 응용 프로그램 프록시는 비즈니스 응용 프�
 
 ![최종 사용자, Azure Active Directory 및 게시된 응용 프로그램 간의 관계](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
-이러한 응용 프로그램을 게시하는 방법은 모든 인증을 처리하고 다양한 클라이언트 환경을 지원하는 Azure AD 인증 라이브러리를 사용하는 것이 좋습니다. 응용 프로그램 프록시는 [Web API 시나리오에 대한 네이티브 응용 프로그램](active-directory-authentication-scenarios.md#native-application-to-web-api)에 맞습니다. 이 작업을 수행하는 프로세스는 다음과 같습니다.
+이러한 응용 프로그램을 게시하는 방법은 모든 인증을 처리하고 다양한 클라이언트 환경을 지원하는 Azure AD 인증 라이브러리를 사용하는 것이 좋습니다. 응용 프로그램 프록시는 [Web API 시나리오에 대한 네이티브 응용 프로그램](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)에 맞습니다. 이 작업을 수행하는 프로세스는 다음과 같습니다.
 
 ## <a name="step-1-publish-your-application"></a>1단계: 응용 프로그램 게시
 다른 응용 프로그램과 마찬가지로 프록시 응용 프로그램을 게시하고 사용자를 할당하며 프리미엄 또는 기본 라이선스를 제공합니다. 자세한 내용은 [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)를 참조하세요.
@@ -74,7 +74,7 @@ Active Directory 인증 라이브러리(ADAL)의 인증 컨텍스트에서 네�
 
 ![새 네이티브 응용 프로그램 구성 페이지 스크린샷](./media/active-directory-application-proxy-native-client/new_native_app.png)
 
-네이티브 응용 프로그램 흐름에 대한 자세한 내용은 [Web API에 대한 네이티브 응용 프로그램](active-directory-authentication-scenarios.md#native-application-to-web-api)을 참조하세요.
+네이티브 응용 프로그램 흐름에 대한 자세한 내용은 [Web API에 대한 네이티브 응용 프로그램](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 * [고유한 도메인 이름을 사용하여 응용 프로그램 게시](active-directory-application-proxy-custom-domains.md)
@@ -87,6 +87,6 @@ Active Directory 인증 라이브러리(ADAL)의 인증 컨텍스트에서 네�
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 
