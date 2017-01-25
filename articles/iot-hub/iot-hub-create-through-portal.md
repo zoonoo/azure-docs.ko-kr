@@ -1,6 +1,6 @@
 ---
 title: "Azure Portal을 사용하여 IoT Hub 만들기 | Microsoft 문서"
-description: "Azure 포털을 통해 Azure IoT Hub를 만들고 관리하는 방법 개요"
+description: "Azure Portal을 통해 Azure IoT Hub를 만들고 관리하고 삭제하는 방법입니다. 가격 책정 계층, 보안, 배율 및 메시징 구성에 대한 정보가 포함됩니다."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 53f14e6fe115ed5f96d25b9ec5ab04abe23712d5
-ms.openlocfilehash: ee072749e080264b4fa2b6cd0305071ed33b665e
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: f91f694dc8660cc55a9aa02bb4941083441d8acf
 
 
 ---
@@ -39,7 +39,7 @@ IoT Hub를 찾을 수 있는 다양한 위치가 있습니다.
 * Marketplace를 통해 IoT hub 만들기: **만들기**를 클릭하면 **+ 새로 만들기** 환경에 대한 이전 블레이드와 동일한 블레이드가 열립니다. 다음 섹션에서는 IoT Hub를 만드는 방법에 포함되는 여러 단계를 나열합니다.
 
 ### <a name="choose-the-name-of-the-iot-hub"></a>IoT Hub 이름 선택
-IoT Hub를 만들려면 IoT Hub의 이름을 지정해야 합니다. 이 이름은 IoT Hubs에서 고유해야 합니다. 백 엔드에서 허브의 중복이 허용되지 않으므로 허브의 이름을 가능한 고유하게 지정하는 것이 좋습니다.
+IoT Hub를 만들려면 IoT Hub의 이름을 지정해야 합니다. 이 이름은 IoT Hubs에서 고유해야 합니다. 솔루션 백 엔드에서 허브의 중복이 허용되지 않으므로 허브의 이름을 가능한 고유하게 지정하는 것이 좋습니다.
 
 ### <a name="choose-the-pricing-tier"></a>가격 책정 계층 선택
 **무료**, **표준 1**, **표준 2**, **표준 S3**라는 네 개의 계층 중에서 선택할 수 있습니다. 무료 계층에서는 IoT Hub에 500개 장치만 연결할 수 있으며 하루에 8,000개 메시지까지 허용합니다.
@@ -133,12 +133,12 @@ IoT Hub 블레이드에서 IoT Hub를 만든 후에 기존 IoT Hub의 설정을 
 Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
 * [IoT 장치 대량 관리][lnk-bulk]
-* [사용 현황 메트릭][lnk-metrics]
+* [IoT Hub 메트릭][lnk-metrics]
 * [작업 모니터링][lnk-monitor]
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [개발자 가이드][lnk-devguide]
+* [IoT Hub 개발자 가이드][lnk-devguide]
 * [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
 * [처음부터 IoT 솔루션 보안 유지][lnk-securing]
 
@@ -159,6 +159,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

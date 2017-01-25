@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 3fdb050d1d6746313b2dffb089d56b71908335d2
-ms.openlocfilehash: 585e493b2642b3ba798977528f7564674a44d738
+ms.sourcegitcommit: 2fb91689d6fbce5d90aba32b0acd65bcb4bd709d
+ms.openlocfilehash: c852187847b69627d2f27c25fbe2ee8d8d1cf49d
 
 
 ---
 # <a name="manage-features-and-data-volume-in-application-insights"></a>Application Insights에서 기능 및 데이터 볼륨 관리
 
 
-[Azure Application Insights][시작]의 가격 책정은 응용 프로그램당 데이터 볼륨을 기반으로 합니다. 월별 원격 분석 데이터 사용 요금은 무료이므로 개발 중일 때나 작은 앱을 사용할 때의 적은 사용량은 무료일 수 있습니다.
+[Azure Application Insights][start]의 가격 책정은 응용 프로그램당 데이터 볼륨을 기반으로 합니다. 월별 원격 분석 데이터 사용 요금은 무료이므로 개발 중일 때나 작은 앱을 사용할 때의 적은 사용량은 무료일 수 있습니다.
 
 각 Application Insights 리소스는 별도의 서비스로 요금이 부과되고 Azure 구독에 대한 청구서에 추가됩니다.
 
@@ -107,6 +107,32 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 
 보존된 각 레코드에서 `itemCount`은 나타내는 원래 레코드 수를 나타내며 1 + 이전에 삭제된 레코드의 수와 같습니다. 
 
+## <a name="which-pricing-plan-should-i-choose"></a>어떤 가격 책정 계획을 선택해야 하나요?
+
+엔터프라이즈 계획에서 제공하는 고급 기능이 필요하지 않는 한 기본 계획이 보다 간단하면서도 좀 더 비용 효율적입니다. 월별 앱당 무료 데이터 할당량을 받은 다음 앱에서 보낸 원격 분석의 추가 GB당 요금이 부과됩니다. 
+
+## <a name="nodes-in-the-enterprise-plan"></a>엔터프라이즈 계획에서의 노드
+
+엔터프라이즈 가격 책정 계획을 선택하면 요금의 일부는 Application Insights로 데이터를 전송하는 노드 수로 계산됩니다.
+
+노드는 응용 프로그램을 호스트하는 서버입니다. 가상 컴퓨터, Platform-as-a-Service 인스턴스 또는 물리적 컴퓨터일 수 있습니다. 
+
+노드 수에는 디버깅 중에 응용 프로그램을 실행하는 개발자 워크스테이션이 포함되지 않습니다. 브라우저 또는 모바일 장치에서 실행되는 클라이언트 앱은 포함되지 않습니다.
+
+노드는 매 시간마다 계산됩니다. 노드 가격은 월별로 명시되지만 실제로 가격은 시간당으로 부과되므로 한 달에 몇 시간 동안 원격 분석을 보내는 노드에 대해서는 요금이 적게 듭니다.
+
+많거나 적은 서버 인스턴스를 사용하는 다양한 부하에 따라 응용 프로그램의 크기가 조정되는 경우에는 Application Insights 엔터프라이즈 계획 요금도 마찬가지로 확장 및 축소됩니다.
+
+노드는 앱 간에 공유할 수 있습니다. 예를 들어 두 개의 VM에서 실행 중인 세 개의 응용 프로그램이 있고 이러한 응용 프로그램에 대한 Application Insights 리소스가 동일한 구독 및 엔터프라이즈 계획인 경우에는 이 구독에서의 노드 수는 2입니다.
+
+일별 노드당 데이터 허용량 200MB는 동일한 구독의 노드 간에 풀링됩니다. 엔터프라이즈 계획에서 앱을 호스트하는 두 개의 노드가 있고 하루에 16시간 및 20시간 동안 데이터를 전송하는 경우에는 해당 날짜의 데이터 허용량은 ((16+20)/24)*200 MB = 300MB입니다. 그 날 늦게 엔터프라이즈 계획의 앱에서 300MB를 초과하여 데이터를 전송한 경우에는 초과한 GB당 요금이 부과됩니다.
+
+엔터프라이즈 계획 허용량은 기본 계획을 선택한 응용 프로그램과는 공유되지 않습니다.
+
+## <a name="transition-from-the-old-pricing-tiers"></a>이전 가격 책정 계층에서 전환
+
+기존 응용 프로그램은 2017년 2월까지 이전 가격 책정 계층을 계속해서 사용할 수 있습니다. 2017년 2월 이후 대부분의 응용 프로그램은 자동으로 기본 계획으로 이동됩니다. 연속 내보내기 또는 OMS Log Analytics용 커넥터를 사용하는 응용 프로그램은 엔터프라이즈 계획으로 이동됩니다.
+
 
 ## <a name="limits-summary"></a>제한 요약
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
@@ -119,12 +145,12 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[시작]: app-insights-overview.md
+[start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
