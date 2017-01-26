@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/12/2017
+ms.date: 01/18/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 25dbeb2c011d4f2b833140d86690d546bfb6825e
-ms.openlocfilehash: 74805f654249d4499a4d36af1016801737ffb76a
+ms.sourcegitcommit: dcee5436a7bb377f37d6db2701c2e5df2e41944f
+ms.openlocfilehash: 1b162e57ee1e7a4e953d1b7593ce45669ff3cca8
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Express 경로 파트너 및 피어링 위치
@@ -153,8 +153,8 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **아시아** |Avanade Inc., OneAs1a |
 | **오스트레일리아** | IT Consultancy |
 | **유럽** |Avanade Inc., Dotnet Solutions , MSG Services, Nelite |
-| **US** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
-
+| **북아메리카** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
+| **남미** |Avanade Inc. |
 ## <a name="next-steps"></a>다음 단계
 * Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 * 모든 필수 조건이 충족되었는지 확인합니다. [Express 경로 필수 조건](expressroute-prerequisites.md)을 참조하세요.
@@ -164,6 +164,6 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

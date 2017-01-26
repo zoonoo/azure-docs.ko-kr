@@ -18,8 +18,8 @@ ms.workload: data-management
 ms.date: 01/17/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 8ff9c07fbc6e3d2a44414b485bd0f32b68b5d494
-ms.openlocfilehash: 127303bce70801ab93992273fd8f86d6f3c41605
+ms.sourcegitcommit: 435fca81cda845200467fbc0d6ed4d41de41aaf6
+ms.openlocfilehash: 324fd91b415a4744cb472bbd8a8b795a8fbb8080
 
 
 ---
@@ -73,7 +73,7 @@ Azure SQL 서버를 만들 때 **서버 관리자 로그인**을 지정해야 �
 SQL Database는 앞에서 설명한 서버 수준 관리 역할 외에도 데이터베이스를 만들거나 로그인을 관리하는 권한을 부여하는 사용자 계정을 추가할 수 있도록 제한된 두 가지 관리 역할을 master 데이터베이스에 제공합니다.
 
 ### <a name="database-creators"></a>데이터베이스 작성자
-이러한 관리 역할 중 하나는 **dbmanager** 역할입니다. 이 역할의 멤버는 새 데이터베이스를 만들 수 있습니다. 이 역할을 사용하려면 `master` 데이터베이스에 사용자를 만든 다음 해당 사용자를 **dbmanager** 데이터베이스 역할에 추가합니다. 사용자는 포함된 데이터베이스 사용자이거나 master 데이터베이스에서 SQL Server 로그인을 기반으로 한 사용자일 수 있습니다.
+이러한 관리 역할 중 하나는 **dbmanager** 역할입니다. 이 역할의 멤버는 새 데이터베이스를 만들 수 있습니다. 이 역할을 사용하려면 `master` 데이터베이스에 사용자를 만든 다음 해당 사용자를 **dbmanager** 데이터베이스 역할에 추가합니다. 데이터베이스를 만들려면 사용자는 마스터 데이터베이스의 SQL Server 로그인을 기반으로 한 사용자이거나 Azure Active Directory 사용자를 기반으로 한 포함된 데이터베이스 사용자여야 합니다.
 
 1. 관리자 계정을 사용하여 master 데이터베이스에 연결합니다.
 2. 선택적 단계: [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 문을 사용하여 SQL Server 인증 로그인을 만듭니다. 샘플 문:
@@ -189,7 +189,7 @@ SQL Database에서 로그인 및 사용자를 관리하는 경우 다음 사항�
 - 보기 및 저장 프로시저에 대한 자세한 내용은 [보기 및 저장 프로시저 만들기](https://msdn.microsoft.com/library/ms365311.aspx)를 참조하세요.
 - 데이터베이스 개체에 대한 액세스 권한 부여에 대한 자세한 내용은 [데이터베이스 개체에 대한 액세스 권한 부여](https://msdn.microsoft.com/library/ms365327.aspx)를 참조하세요.
 - SQL Server를 사용하는 방법을 보여 주는 자습서는 [SQL Database 자습서: SQL Server 인증, 로그인 및 사용자 계정, 데이터베이스 역할, 사용 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
-- Azure Active Directory를 사용하는 방법을 보여 주는 자습서는 [SQL Database 자습서: AAD 인증, 로그인 및 사용자 계정, 데이터베이스 역할, 사용 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-aad-authentication-get-started.md)을 참조하세요.
+- Azure Active Directory 인증을 사용하는 방법을 보여 주는 자습서는 [SQL Database 자습서: AAD 인증, 로그인/사용자 계정, 데이터베이스 역할, 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-aad-authentication-get-started.md)을 참조하세요.
 
 
 

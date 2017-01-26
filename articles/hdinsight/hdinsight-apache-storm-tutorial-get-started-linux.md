@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 856043148b3fc28594850ae27bedd57d48292582
+ms.sourcegitcommit: 7ade85d98c41bddddb61fe75d212b351ff62eef0
+ms.openlocfilehash: 1e24cebace0e6b7de7ae318f06d6430b3caa342a
 
 
 ---
@@ -125,7 +125,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 1. https://CLUSTERNAME.azurehdinsight.net/stormui에서 웹 브라우저를 엽니다. 여기서 **CLUSTERNAME**은 클러스터의 이름입니다. Storm UI가 열립니다.
     
     > [!NOTE]
-    > 사용자 이름 및 암호를 제공하도록 요청을 받으면  클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및암호를 입력합니다.
+    > 사용자 이름 및 암호를 제공하도록 요청을 받으면 클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및 암호를 입력합니다.
 
 2. **토폴로지 요약**의 **이름** 열에서 **wordcount** 항목을 선택합니다. 그러면 토폴로지에 대한 자세한 정보가 표시됩니다.
     

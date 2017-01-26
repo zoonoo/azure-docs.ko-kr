@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 12/21/2016
 ms.author: elbutter
 translationtype: Human Translation
-ms.sourcegitcommit: 5bb75bf36892c737568b8129b30bb30b02d01bf2
-ms.openlocfilehash: 1227903652a944d9d144917922fe36a4f149f820
+ms.sourcegitcommit: fe9de0ffad3fe5d4acbf3caf2f08101f6a13daaf
+ms.openlocfilehash: 12f500c01671799612b0d1988e0d07bbfda600da
 
 
 ---
@@ -120,7 +120,7 @@ SQL Data Warehouse에 연결하려면 [필수 조건]에서 만든 SQL Server(�
 
 ### <a name="creating-a-user-of-a-larger-resource-class"></a>더 큰 리소스 클래스의 사용자 만들기
 
-1. 서버의 **master** 데이터베이스에 새 쿼리를 만듭니다.
+1. 서버의 **master** 데이터베이스에 쿼리
 
     ![master에서의 새 쿼리](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
 
@@ -133,7 +133,7 @@ SQL Data Warehouse에 연결하려면 [필수 조건]에서 만든 SQL Server(�
     CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
     ```
 
-3. 서버 로그인에 기반한 새 데이터베이스 사용자 만들기
+3. SQL DataWarehouse 데이터베이스를 쿼리하여 서버 로그인에 기반한 새 데이터베이스 사용자 만들기 
     ```sql
     CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
     ```
@@ -148,7 +148,7 @@ SQL Data Warehouse에 연결하려면 [필수 조건]에서 만든 SQL Server(�
 
 5. **xlargerc** 리소스 클래스 역할에 데이터베이스 사용자를 추가합니다
     ```sql
-    EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
+    EXEC sp_addrolemember 'xlargerc', 'LoadingUser';
     ```
 
 6. 새 자격 증명으로 데이터베이스에 로그인합니다.
@@ -159,9 +159,11 @@ SQL Data Warehouse에 연결하려면 [필수 조건]에서 만든 SQL Server(�
 ## <a name="loading-data"></a>데이터 로드
 
 ### <a name="defining-external-data"></a>외부 데이터 정의
-1. 외부 데이터 원본을 정의합니다.
+1. 마스터 키를 만들고 외부 데이터 원본을 정의합니다.
 
     ```sql
+    CREATE MASTER KEY;
+
     CREATE EXTERNAL DATA SOURCE NYTPublic
     WITH
     (
@@ -569,9 +571,9 @@ SQL Data Warehouse에 연결하려면 [필수 조건]에서 만든 SQL Server(�
     on tr.DateID = dt.DateID
     ```
 
-    예상할 수 있듯이, 특히 이와 같은 조인 시나리오에서 노드 간에 데이터를 섞으면 쿼리가 훨씬 더 오래 걸립니다.
+    예상할 수 있듯이, 특히 이 쿼리와 같은 조인 시나리오에서 노드 간에 데이터를 섞으면 쿼리가 훨씬 더 오래 걸립니다.
 
-2. 다음을 실행하여 조인하는 열에 대한 통계를 만들 때 어떻게 다른지 알아보겠습니다.
+2. 다음을 실행하여 조인하는 열에 대한 통계를 만들 때 이 쿼리와 어떻게 다른지 알아보겠습니다.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -626,6 +628,6 @@ SQL Data Warehouse에 연결하려면 [필수 조건]에서 만든 SQL Server(�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/12/2017
+ms.date: 01/18/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 25dbeb2c011d4f2b833140d86690d546bfb6825e
-ms.openlocfilehash: 45288c24630a4931da9f89196236ab910de735ac
+ms.sourcegitcommit: dcee5436a7bb377f37d6db2701c2e5df2e41944f
+ms.openlocfilehash: e7a511efdf89d299ba309b9a812092411a55c08d
 
 
 ---
@@ -175,15 +175,15 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 | **시스템 통합 업체** | **대륙** |
 | --- | --- |
-| **[Avanade Inc.](http://www.avanade.com/)** |아시아, 유럽, 미국 |
-| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |유럽 |
-| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |US |
+| **[Avanade Inc.](http://www.avanade.com/)** | 아시아, 유럽, 북아메리카, 남미 |
+| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** | 유럽 |
+| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | 북아메리카 |
 | **[IT Consultancy](http://itconsult.com.au/microsoft-expressroute)** | 오스트레일리아 |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | 유럽(독일) |
-| **[Nelite](http://nelite.com/)** |유럽 |
-| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |아시아 |
-| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |US |
-| **[Project Leadership](http://www.projectleadership.net/azure)** |US |
+| **[Nelite](http://nelite.com/)** | 유럽 |
+| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | 아시아 |
+| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | 북아메리카 |
+| **[Project Leadership](http://www.projectleadership.net/azure)** | 북아메리카 |
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -195,6 +195,6 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
