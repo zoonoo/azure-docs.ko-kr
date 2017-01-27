@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
 
 ---
 
@@ -36,10 +36,10 @@ ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
 
 REST API를 사용하여 인덱스에 문서를 푸시하기 위해 인덱스의 URL 끝점에 HTTP 게시 요청을 발급합니다. HTTP 요청 본문의 본문은 문서의 추가, 수정 또는 삭제를 포함하는 JSON 개체입니다.
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Azure 검색 서비스의 관리 API 키 식별
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure 검색 서비스의 관리 API 키 식별
 REST API를 사용하여 서비스에 대한 HTTP 요청을 발급하는 경우 *각* API 요청은 프로비전한 검색 서비스에 생성된 API 키를 포함해야 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
-1. 서비스의 API 키를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인해야 합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인하면 서비스의 API 키를 찾을 수 있습니다.
 2. Azure 검색 서비스의 블레이드로 이동합니다.
 3. "키" 아이콘을 클릭합니다.
 
@@ -50,7 +50,7 @@ REST API를 사용하여 서비스에 대한 HTTP 요청을 발급하는 경우 
 
 인덱스에 데이터를 가져오기 위해 기본 또는 보조 관리 키를 사용할 수 있습니다.
 
-## <a name="ii-decide-which-indexing-action-to-use"></a>II. 사용할 인덱싱 동작 결정
+## <a name="decide-which-indexing-action-to-use"></a>사용할 인덱싱 동작 결정
 REST API를 사용하는 경우 Azure 검색 인덱스의 끝점 URL에 대한 JSON 요청 본문을 사용하여 HTTP POST 요청을 발급합니다. HTTP 요청 본문의 JSON 개체는 인덱스, 업데이트 또는 삭제에 추가하려는 문서를 나타내는 JSON 개체를 포함하는 "값"이라는 단일 JSON 배열을 포함합니다.
 
 "값" 배열의 각 JSON 개체는 인덱싱할 문서를 나타냅니다. 이러한 각 개체는 문서의 키를 포함하고 원하는 인덱싱 작업(업로드, 병합, 삭제 등)을 지정합니다. 아래에서 어떤 작업을 선택하는지에 따라 특정 필드는 각 문서에 포함되어야 합니다.
@@ -62,7 +62,7 @@ REST API를 사용하는 경우 Azure 검색 인덱스의 끝점 URL에 대한 J
 | `mergeOrUpload` |이 작업은 지정된 키를 포함하는 문서가 인덱스에 이미 있는 경우 `merge`와 비슷하게 작동합니다. 문서가 없는 경우 새 문서가 있는 `upload` 와 비슷하게 작동합니다. |키, 더하기 정의하려는 기타 필드 |- |
 | `delete` |삭제 시에는 지정된 문서를 인덱스에서 제거합니다. |키만 |키 필드 외의 지정한 모든 필드는 무시됩니다. 문서에서 개별 필드를 제거하려는 경우 대신 `merge` 를 사용하고 필드를 명시적으로 Null로 설정합니다. |
 
-## <a name="iii-construct-your-http-request-and-request-body"></a>III. HTTP 요청 및 요청 본문 생성
+## <a name="construct-your-http-request-and-request-body"></a>HTTP 요청 및 요청 본문 생성
 인덱스 작업에 필요한 필드 값을 수집했다면 실제 HTTP 요청 및 JSON 요청 본문을 생성하여 데이터를 가져올 준비가 되었습니다.
 
 #### <a name="request-and-request-headers"></a>요청 및 요청 헤더
@@ -126,7 +126,7 @@ URL에서 서비스 이름, 인덱스 이름(이 경우 "호텔") 뿐만 아니�
 
 또한 단일 인덱싱 요청에서 1000개의 문서(또는 16MB)까지 포함할 수 있습니다.
 
-## <a name="iv-understand-your-http-response-code"></a>IV. HTTP 응답 코드 이해
+## <a name="understand-your-http-response-code"></a>HTTP 응답 코드 이해
 #### <a name="200"></a>200
 성공적인 인덱싱 요청을 제출한 후에 `200 OK`라는 상태 코드로 HTTP 응답을 받게됩니다. HTTP 응답의 JSON 본문은 다음과 같습니다.
 
@@ -177,11 +177,11 @@ URL에서 서비스 이름, 인덱스 이름(이 경우 "호텔") 뿐만 아니�
 
 문서 동작 및 성공/오류 응답에 대한 자세한 내용은 [문서 추가, 업데이트 또는 삭제](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents)를 참조하세요. 오류가 발생한 경우 반환될 수 있는 기타 HTTP 상태 코드에 대한 자세한 내용은 [HTTP 상태 코드(Azure 검색)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes)를 참조하세요.
 
-## <a name="next"></a>다음
+## <a name="next-steps"></a>다음 단계
 Azure 검색 인덱스를 채운 후에 문서를 검색하기 위해 쿼리를 발급하기 시작할 준비가 되었습니다. 세부 정보는 [Azure 검색 인덱스 쿼리](search-query-overview.md) 를 참조하세요.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/14/2016
+ms.date: 01/11/2017
 ms.author: carlrab; janeng
 translationtype: Human Translation
-ms.sourcegitcommit: a40319d3e53c07a94bc34714ca7393c2747fb50c
-ms.openlocfilehash: 340656b896763914c2f6d37c72ce1d5323d1411e
+ms.sourcegitcommit: 0a00aff343bfd31c956f6cbc831e89cc1cc84b23
+ms.openlocfilehash: 95ae4bd67b7d08755035e7b5559ca9648d45bdaa
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>SQL 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 것 이해
-[Azure SQL Database](sql-database-technical-overview.md)는 여러 성능 수준 즉, **기본**, **표준**, **프리미엄** 등의 3가지 서비스 계층을 제공하여 여러 워크로드를 다룹니다. 더 높은 성능 수준은 더욱 높은 처리량을 제공하도록 설계된 증가된 리소스를 제공합니다. 가동 중지 시간 없이 [서비스 계층 및 성능 수준을 동적으로](sql-database-scale-up.md) 변경할 수 있습니다. 기본, 표준 및 프리미엄 서비스 계층은 모두 가동 시간 SLA가 99.99%이고 유연한 비즈니스 연속성 옵션, 보안 기능 및 시간당 대금 청구 기능을 제공합니다. 
+[Azure SQL Database](sql-database-technical-overview.md)는 여러 성능 수준 즉, **기본**, **표준**, **프리미엄** 등의&3;가지 서비스 계층을 제공하여 여러 워크로드를 다룹니다. 더 높은 성능 수준은 더욱 높은 처리량을 제공하도록 설계된 증가된 리소스를 제공합니다. 가동 중지 시간 없이 [서비스 계층 및 성능 수준을 동적으로](sql-database-scale-up.md) 변경할 수 있습니다. 기본, 표준 및 프리미엄 서비스 계층은 모두 가동 시간 SLA가 99.99%이고 유연한 비즈니스 연속성 옵션, 보안 기능 및 시간당 대금 청구 기능을 제공합니다. 
 
 선택한 [성능 수준](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels)에서 전용 리소스를 사용하여 단일 데이터베이스를 만들 수 있습니다. 또 데이터베이스 간에서 리소스를 공유하는 [탄력적 풀](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus)에서 여러 데이터베이스를 관리할 수도 있습니다. 단일 데이터베이스에 사용할 수 있는 리소스는 DTU(데이터베이스 트랜잭션 단위)의 측면에서 표현되고 탄력적 풀에 사용할 수 있는 리소스는 탄력적인 DTU(eDTU)의 측면에서 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU란?](sql-database-what-is-a-dtu.md)을 참조하세요. 
 
@@ -41,7 +41,7 @@ ms.openlocfilehash: 340656b896763914c2f6d37c72ce1d5323d1411e
 먼저 단일 데이터베이스를 실행할지 또는 리소스를 공유하는 데이터베이스를 그룹화할지 결정합니다. [탄력적 풀 고려 사항](sql-database-elastic-pool-guidance.md)을 검토합니다. 서비스 계층을 결정하려면 필요한 최소 데이터베이스 기능을 결정하고 시작합니다.
 
 * 개별 데이터베이스의 최대 데이터베이스 크기(고성능 수준에서 기본 2GB, 표준 250GB 및 프리미엄 500GB-1TB)
-* 탄력적 풀의 경우 최대 총 저장소(기본 117GB, 표준 1200 및 프리미엄 750)
+* 탄력적 풀의 경우 최대 총 저장소(기본 117GB, 표준 1200GB 및 프리미엄 750GB)
 * 풀당 데이터베이스 수(기본 400, 표준 400 및 프리미엄 50)
 * 데이터베이스 백업 보존 기간(기본 7일, 표준 및 프리미엄 35일)
 
@@ -49,8 +49,7 @@ ms.openlocfilehash: 340656b896763914c2f6d37c72ce1d5323d1411e
 
 처음 성능 수준을 선택한 이후 [개별 데이터베이스](sql-database-scale-up.md) 또는 사용자의 [탄력적 풀](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool)을 실제 환경에 따라 동적으로 확장 또는 축소할 수 있습니다. 마이그레이션 시나리오의 경우 [DTU 계산기](http://dtucalculator.azurewebsites.net/)를 사용하여 필요한 DTU의 수를 대략적으로 예상할 수도 있습니다. 
 
->
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>단일 데이터베이스 서비스 계층 및 성능 수준
@@ -70,9 +69,10 @@ ms.openlocfilehash: 340656b896763914c2f6d37c72ce1d5323d1411e
 
 다음 표에서는 풀 서비스 계층의 특성을 설명합니다.
 
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
 또한 풀 내의 각 데이터베이스는 해당 계층에 대한 단일 데이터베이스 특성을 준수합니다. 예를 들어 Basic 풀의 최대 세션 수 한계는 풀당 4800 ~ 28800개이지만, Basic 풀 내 개별 데이터베이스의 데이터베이스 세션 한계는 300개입니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -83,6 +83,6 @@ ms.openlocfilehash: 340656b896763914c2f6d37c72ce1d5323d1411e
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

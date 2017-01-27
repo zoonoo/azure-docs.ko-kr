@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
+ms.sourcegitcommit: 88405a9e67eb748acc9564022283004b5ebfcf48
+ms.openlocfilehash: 63210a5539d1e5e5b7d1f5a60048d507e53038a5
 
 
 ---
@@ -114,13 +114,13 @@ ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. 새 [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 이 PHP 자습서에서는 실제로 무엇인지 알 필요가 없습니다.
+3. 새 [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 이 node.js 자습서에서는 실제로 무엇인지 알 필요가 없습니다.
 
         az group create --location "<location>" --name my-nodejs-app-group
 
-    `<location>`에 사용할 수 있는 값을 확인하려면 `az appservice list-locations` CLI 명령을 사용합니다.
+    `<location>`에 사용할 수 있는 가능한 값을 보려면 `az appservice list-locations` CLI 명령을 사용합니다.
 
-3. 새로운 "무료" [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)을 만듭니다. 이 PHP 자습서에서는 이 계획에서 웹앱에 대한 요금이 부과되지 않습니다.
+3. 새로운 "무료" [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)을 만듭니다. 이 node.js 자습서에서는 이 계획에서 웹앱에 대한 요금이 부과되지 않습니다.
 
         az appservice plan create --name my-nodejs-appservice-plan --resource-group my-nodejs-app-group --sku FREE
 
@@ -303,6 +303,6 @@ Node-Inspector를 사용하려면 다음 단계를 수행하세요.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

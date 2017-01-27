@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: bd85b9eae0e1cb281116748edcad6643b1ec537f
-ms.openlocfilehash: 6ad20a246fce996e6a11ce6fa4715c0d734c4323
+ms.sourcegitcommit: 889776269aa3d722115ea0632b7c3db2775924eb
+ms.openlocfilehash: cc3bc8a0463842ba11b9cdcc996319e2d811ce8a
 
 
 ---
@@ -60,7 +60,7 @@ SQL Data Warehouse에 문제가 발생한 경우 엔지니어링 팀이 도움�
      프리미어 지원 계획이 있는 경우 [Microsoft 프리미어 온라인 포털][Microsoft Premier online portal]에서 SQL Data Warehouse 관련 문제를 보고할 수도 있습니다.  범위, 응답 시간, 가격 책정 등을 포함한 다양한 지원 계획에 대한 자세한 정보는 [Azure 지원 계획][Azure support plan]을 참조하세요.  Azure 지원에 대한 질문과 대답은 [Azure 지원 FAQ][Azure support FAQs]를 참조하세요.  
      
      ![지원 계획](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-8. **문제 유형** 및 **범주**를 선택합니다.
+8. **문제 유형** 및 **범주**를 선택합니다. 이 예제에서는 문제 유형으로 '도구'를, 범주로 '클라이언트 도구'를 선택했습니다. 
    
     ![문제 유형 범주](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
 9. 문제를 설명하고 비즈니스에 미치는 영향 수준을 선택합니다.
@@ -101,6 +101,6 @@ SQL Data Warehouse에 문제가 발생한 경우 엔지니어링 팀이 도움�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

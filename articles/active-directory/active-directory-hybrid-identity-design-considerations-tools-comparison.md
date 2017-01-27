@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2fb248f3e71b248ce0b5ae02ebeff291bbd28dce
+ms.sourcegitcommit: facdbff229eaf5ee20d98214c62c8b2b46acc0fd
+ms.openlocfilehash: 80617b203bf5efa4cd6bed590ea937b2e68db9e1
 
 
 ---
@@ -57,7 +57,7 @@ PP = 공개 미리 보기 상태
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | 장치의 쓰기 저장 |● | |● | | |
 | 특성 쓰기 저장(Exchange 하이브리드 배포) |● |● |● |● |● |
-| 사용자 및 그룹 개체의 쓰기 저장 |● | | | | |
+| 그룹 개체의 쓰기 저장 |● | | | | |
 | 암호의 쓰기 저장(SSPR(셀프 서비스 암호 재설정) 및 암호 변경에서) |● |● | | | |
 
 ## <a name="authentication-feature-support"></a>인증 기능 지원
@@ -95,6 +95,6 @@ PP = 공개 미리 보기 상태
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
