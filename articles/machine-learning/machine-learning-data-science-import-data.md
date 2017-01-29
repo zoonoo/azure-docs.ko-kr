@@ -13,31 +13,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3d9cceb28de1cfd43a2d2de79de3a59517908ec9
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: a35bc89044ebe8ea8e4a0e4a883c30fb8e8d879a
 
 
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>다양한 데이터 원본에서 Azure 기계 학습 스튜디오로 학습 데이터를 가져오기
 다음을 수행하면 기계 학습 스튜디오에 사용자 고유의 데이터를 사용하여 예측 분석 솔루션을 개발 및 학습할 수 있습니다. 
 
-* 미리 하드 드라이브의 **로컬 파일** 에서 데이터를 업로드하여 사용자의 작업 영역에 데이터 집합 모듈을 만듭니다.  
+* 미리 하드 드라이브의 **로컬 파일** 에서 데이터를 업로드하여 사용자의 작업 영역에 데이터 집합 모듈을 만듭니다.
 * [데이터 가져오기][import-data] 모듈을 사용하여 실험을 실행하는 동안 여러 **온라인 데이터 원본** 중 하나에서 데이터에 액세스합니다. 
-* **데이터 집합**으로 저장된 또 다른 Azure 기계 학습 실험에서 나온 데이터를 사용합니다. 
+* **데이터 집합**으로 저장된 또 다른 Azure 기계 학습 실험에서 나온 데이터를 사용합니다.
+* 온-프레미스 **SQL Server 데이터베이스**에서 데이터 사용합니다.
+
+이러한 각 옵션을 아래 메뉴의 항목 중 하나에서 설명합니다. 이 항목에서는 기계 학습 스튜디오에서 사용하기 위해 이러한 여러 데이터 원본에서 데이터를 가져오는 방법을 보여 줍니다. 
 
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-이러한 각 옵션을 위 메뉴의 항목 중 하나에서 설명합니다. 이 항목에서는 기계 학습 스튜디오에서 사용하기 위해 이러한 여러 데이터 원본에서 데이터를 가져오는 방법을 보여 줍니다. 
-
 > [!NOTE]
-> 기계 학습 스튜디오에는 이 용도로 사용할 수 있는 샘플 데이터 집합이 많이 있습니다. 이에 대한 자세한 내용은 ( [Azure 기계 학습 스튜디오의 샘플 데이터 집합 사용](machine-learning-use-sample-datasets.md)을 참조하세요.
+> 기계 학습 스튜디오에는 학습 데이터로 사용할 수 있는 샘플 데이터 집합이 많이 있습니다. 이에 대한 자세한 내용은 ( [Azure 기계 학습 스튜디오의 샘플 데이터 집합 사용](machine-learning-use-sample-datasets.md)을 참조하세요.
 > 
 > 
 
-또한 이 소개 항목에서는 기계 학습 스튜디오에 사용할 준비가 완료된 데이터를 가져오는 방법을 보여 주고 지원되는 데이터 형식과 데이터 유형을 설명합니다. 
+또한 이 소개 항목에서는 기계 학습 스튜디오에 사용할 준비가 완료된 데이터를 가져오는 방법을 보여 주고 지원되는 데이터 형식과 데이터 유형을 다룹니다. 
 
 > [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 > 
@@ -50,7 +51,7 @@ ms.openlocfilehash: 3d9cceb28de1cfd43a2d2de79de3a59517908ec9
 
 그러나 기계 학습 스튜디오에는 실험에서 데이터를 조작할 수 있는 모듈도 있습니다. 사용할 기계 학습 알고리즘에 따라 누락된 값 및 스파스 데이터와 같은 데이터 구조 문제 해결 방법을 결정해야 하며, 이때 도움을 줄 수 있는 모듈이 있습니다. 모듈 팔레트의 **데이터 변환** 섹션에서 이러한 함수를 수행하는 모듈을 찾습니다.
 
-실험을 수행하는 동안 언제든지 출력 포트를 마우스 오른쪽 단추로 클릭하여 모듈에서 생성한 데이터를 보거나 다운로드할 수 있습니다. 모듈에 따라 서로 다른 다운로드 옵션을 사용할 수 있습니다. 또는 기계 학습 스튜디오의 웹 브라우저에서 데이터를 볼 수도 있습니다.
+실험을 수행하는 동안 언제든지 출력 포트를 클릭하여 모듈에서 생성한 데이터를 보거나 다운로드할 수 있습니다. 모듈에 따라 서로 다른 다운로드 옵션을 사용할 수 있습니다. 또는 기계 학습 스튜디오의 웹 브라우저에서 데이터를 시각화할 수도 있습니다.
 
 ## <a name="data-formats-and-data-types-supported"></a>지원되는 데이터 형식 및 데이터 유형
 데이터를 가져오는 데 사용하는 메커니즘과 데이터의 출처에 따라 실험에 여러 데이터 형식을 가져올 수 있습니다.
@@ -97,6 +98,6 @@ Machine Learning 스튜디오에서는 ***데이터 테이블***이라는 내부
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

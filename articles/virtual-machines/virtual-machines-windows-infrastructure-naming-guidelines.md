@@ -1,5 +1,5 @@
 ---
-title: "인프라 명명 지침 | Microsoft Docs"
+title: "Azure 인프라 명명 지침 | Microsoft Docs"
 description: "Azure 인프라 서비스에서 이름을 지정하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0ad6e170a52d29cb85ec6de57a39f08b30c25b03
+ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
+ms.openlocfilehash: 1f456fc982f185e1c68aca91650f73e2d1bb5947
 
 
 ---
-# <a name="infrastructure-naming-guidelines"></a>인프라 명명 지침
+# <a name="azure-infrastructure-naming-guidelines"></a>Azure 인프라 명명 지침
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 작업 환경 전반에 걸쳐 논리적이며 쉽게 식별할 수 있는 리소스 집합을 작성할 수 있도록 다양한 Azure 리소스 전체에 명명 규칙을 적용하는 방식을 중점적으로 설명합니다.
@@ -45,7 +45,7 @@ Azure에서 항목을 만들기 전에 좋은 명명 규칙이 구현되어 있�
 사전에 명명 규칙 집합을 합의합니다. 규칙 집합에 영향을 미치는 명명 규칙과 관련한 고려 사항이 있습니다.
 
 ## <a name="affixes"></a>접사
-명명 규칙을 정의하려는 경우 다음 중 어떤 접사를 사용할지를 결정해야 합니다.
+명명 규칙을 정의하려는 경우에는 접사의 위치를 결정해야 합니다.
 
 * 이름(접두사)의 시작 부분
 * 이름(접미사)의 끝 부분
@@ -107,6 +107,6 @@ Azure VM 이름은 기본 운영 체제 컴퓨터 이름과 동일하게 지정�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

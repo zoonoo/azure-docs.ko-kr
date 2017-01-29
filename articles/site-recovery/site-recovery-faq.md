@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 06be4297bd805a77c2901296071bfa344d076c82
+ms.sourcegitcommit: 1832e584c599384948e7174b377552703ce8bbcd
+ms.openlocfilehash: 11a03d932fc70164640c30acb9808c08e3354de8
 
 
 ---
@@ -86,6 +86,13 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 온-프레미스 사이트 간에 가상 컴퓨터와 물리적 서버를 복제할 때 전송 중 암호화가 지원됩니다. Azure에 복제되는 가상 컴퓨터와 물리적 서버의 경우 전송 중 암호화 및 정지된 암호화(Azure 내)가 모두 지원됩니다.
 
 ## <a name="replication"></a>복제
+
+### <a name="can-i-replicate-over-a-site-to-site-vpn-to-azure"></a>사이트 간 VPN을 통해 Azure에 복제할 수 있습니까?
+Azure Site Recovery는 공용 끝점을 통해 Azure Storage 계정에 데이터를 복제합니다. 따라서 복제는 사이트 간 VPN을 통하지 않습니다. Azure Virtual Network로 사이트 간 VPN을 만들 수 있으며 이는 ASR 복제 영향을 주지 않습니다. 
+
+### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>ExpressRoute를 사용하여 가상 컴퓨터를 Azure로 복제할 수 있습니까?
+예, ExpressRoute를 사용하여 가상 컴퓨터를 Azure로 복제할 수 있습니다. Azure Site Recovery는 공용 끝점을 통해 Azure Storage 계정에 데이터를 복제합니다. [공용 피어링](../expressroute/expressroute-circuit-peerings.md#public-peering)을 설치해야 ASR 복제에 대한 ExpressRoute를 사용할 수 있습니다. 가상 컴퓨터가 Azure Virtual Network에 장애 조치 된 후 Azure Virtual Network로 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#private-peering) 설정을 사용하여 액세스할 수 있습니다. 
+
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Azure에 가상 컴퓨터를 복제하기 위한 필수 조건은 무엇입니까?
 Azure로 복제하려는 가상 컴퓨터가 [Azure 요구 사항](site-recovery-best-practices.md#azure-virtual-machine-requirements)을 충족해야 합니다.
 
@@ -186,11 +193,11 @@ Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 �
 예, Hyper-V 가상 컴퓨터를 Azure에 복제하거나 서비스 공급자 사이트 간에 복제할 수 있습니다.  서비스 공급자 사이트 간에 복제할 경우 Azure Runbook 통합을 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-*  [Site Recovery 개요](site-recovery-overview.md)
+* [Site Recovery 개요](site-recovery-overview.md)
 * 알아봅니다 [Site Recovery 아키텍처](site-recovery-components.md)  
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

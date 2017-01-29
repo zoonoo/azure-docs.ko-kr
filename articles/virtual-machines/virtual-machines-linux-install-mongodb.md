@@ -1,5 +1,5 @@
 ---
-title: "Linux VM에 MongoDB 설치 | Microsoft Docs"
+title: "Azure에서 Linux VM에 MongoDB 설치 | Microsoft Docs"
 description: "리소스 관리자 배포 모델을 사용하여 Azure에서 Linux 가상 컴퓨터에 MongoDB를 설치하고 구성하는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: bec9f1fb0797b0c073dde9e65ab6bbffe8e3b5c2
+ms.sourcegitcommit: 370bcf5189c855185f11277518e0cbd5377993ab
+ms.openlocfilehash: fd323a828ee879d6093e2473accbea883f861420
 
 
 ---
@@ -35,10 +35,10 @@ ms.openlocfilehash: bec9f1fb0797b0c073dde9e65ab6bbffe8e3b5c2
 * Azure CLI는 `azure config mode arm`을 사용하여 Azure Resource Manager 모드에 *있어야 합니다*.
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>VM에서 MongoDB 수동 설치 및 구성
-MongoDB는 Red Hat/CentOS, SUSE, Ubuntu 및 Debian을 포함하는 Linux 배포판에 대한 [설치 지침을 제공](https://docs.mongodb.com/manual/administration/install-on-linux/)합니다. 다음 예제는 `.ssh/azure_id_rsa.pub`에 저장된 SSH 키를 사용하여 `CoreOS` VM을 만듭니다. 저장소 계정 이름, DNS 이름, 관리자 자격 증명을 묻는 프롬프트에 답변합니다.
+MongoDB는 Red Hat/CentOS, SUSE, Ubuntu 및 Debian을 포함하는 Linux 배포판에 대한 [설치 지침을 제공](https://docs.mongodb.com/manual/administration/install-on-linux/)합니다. 다음 예제는 `~/.ssh/id_rsa.pub`에 저장된 SSH 키를 사용하여 `CentOS` VM을 만듭니다. 저장소 계정 이름, DNS 이름, 관리자 자격 증명을 묻는 프롬프트에 답변합니다.
 
 ```azurecli
-azure vm quick-create --ssh-publickey-file .ssh/azure_id_rsa.pub --image-urn CentOS
+azure vm quick-create --ssh-publickey-file ~/.ssh/id_rsa.pub --image-urn CentOS
 ```
 
 앞의 VM 생성 단계 끝에 표시된 공용 IP 주소를 사용하여 VM에 로그인합니다.
@@ -127,7 +127,7 @@ azure group create --name myResourceGroup --location WestUS \
 배포가 완료되면 VM에 SSH를 수행합니다. 다음 예제와 같이 `azure vm show` 명령을 사용하여 VM의 IP 주소를 불러옵니다.
 
 ```azurecli
-azure vm show --resource-group myResourceGroup --name myVM
+azure vm show --resource-group myResourceGroup --name myLinuxVM
 ```
 
 출력의 끝 쪽에 `Public IP address`가 표시됩니다. VM의 IP 주소를 사용하여 VM에 SSH를 수행합니다.
@@ -186,6 +186,6 @@ Azure Resource Manager 템플릿은 사용자 지정 스크립트 확장을 사�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
