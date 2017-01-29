@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: e3e07066d5fc8fd9ceb45cb4b397e7a1e2869c38
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 6df92e3c43a9e7ae2e13f21b05cbb94088c46516
 
 
 ---
@@ -128,13 +128,13 @@ Azure의 고가용성 솔루션을 구현하는 경우 Azure의 가용성 집합
 ### <a name="azure-only-high-availability-solutions"></a>Azure 전용: 고가용성 솔루션
 AlwaysOn 가용성 그룹 또는 데이터베이스 미러링을 사용하여 Azure에서 SQL Server 데이터베이스를 위한 고가용성 솔루션을 구현할 수 있습니다.
 
-다음 다이어그램에서는 Azure 가상 컴퓨터에서 실행되는 AlwaysOn 가용성 그룹의 아키텍처를 보여 줍니다. 이 다이어그램은 [Azure 가상 컴퓨터에서 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)라는 제목의 심층 문서에서 가져왔습니다.
+다음 다이어그램에서는 Azure 가상 컴퓨터에서 실행되는 AlwaysOn 가용성 그룹의 아키텍처를 보여 줍니다. 이 다이어그램은 [Azure 가상 컴퓨터에서 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)라는 제목의 심층 문서에서 가져왔습니다.
 
 ![Microsoft Azure의 AlwaysOn 가용성 그룹](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-1.png)
 
 Azure 포털에서 AlwaysOn 템플릿을 사용하여 Azure VM에 AlwaysOn 가용성 그룹 배포 종단 간을 자동으로 프로비전할 수 있습니다. 자세한 내용은 [Microsoft Azure 포털 갤러리의 SQL Server AlwaysOn 제품](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/)을 참조하세요.
 
-다음 다이어그램은 Azure 가상 컴퓨터에서 데이터베이스 미러링의 사용법을 보여 줍니다. [Azure 가상 컴퓨터에서 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)심층 항목에서 가져왔습니다.
+다음 다이어그램은 Azure 가상 컴퓨터에서 데이터베이스 미러링의 사용법을 보여 줍니다. [Azure 가상 컴퓨터에서 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)심층 항목에서 가져왔습니다.
 
 ![Microsoft Azure의 데이터베이스 미러링](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-2.png)
 
@@ -197,6 +197,6 @@ Azure HDInsight와 연결된 데이터는 기본적으로 Azure Blob 저장소�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

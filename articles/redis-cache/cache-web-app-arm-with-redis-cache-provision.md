@@ -12,18 +12,18 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4c8982461142223f0b339fa542b0bfb6b4ce68a8
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: 20af9a9bfa1086d13a770e4cd7cd8c58a8060b0b
 
 
 ---
 # <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>템플릿을 사용하여 Redis Cache가 포함된 웹앱 만들기
 이 항목에서는 Redis Cache가 포함된 Azure 웹앱을 배포하는 Azure 리소스 관리자 템플릿을 만드는 방법을 배웁니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
-템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하십시오.
+템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하십시오.
 
 전체 템플릿은 [Redis Cache 템플릿이 포함된 웹앱](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json)을 참조하세요.
 
@@ -43,7 +43,7 @@ ms.openlocfilehash: 4c8982461142223f0b339fa542b0bfb6b4ce68a8
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## <a name="variables-for-names"></a>이름에 대한 변수
-이 템플릿은 리소스 이름을 생성하기 위해 변수를 사용합니다. [uniqueString](../resource-group-template-functions.md#uniquestring) 함수를 사용하여 리소스 그룹 ID에 기반한 값을 생성합니다.
+이 템플릿은 리소스 이름을 생성하기 위해 변수를 사용합니다. [uniqueString](../azure-resource-manager/resource-group-template-functions.md#uniquestring) 함수를 사용하여 리소스 그룹 ID에 기반한 값을 생성합니다.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -58,7 +58,7 @@ ms.openlocfilehash: 4c8982461142223f0b339fa542b0bfb6b4ce68a8
 ### <a name="redis-cache"></a>Redis 캐시
 웹앱과 함께 사용되는 Azure Redics Cache를 만듭니다. 캐시 이름은 **cacheName** 변수에 지정됩니다.
 
-템플릿은 리소스 그룹과 동일한 위치에 캐시를 만듭니다. 
+템플릿은 리소스 그룹과 동일한 위치에 캐시를 만듭니다.
 
     {
       "name": "[variables('cacheName')]",
@@ -128,8 +128,6 @@ ms.openlocfilehash: 4c8982461142223f0b339fa542b0bfb6b4ce68a8
 
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 
