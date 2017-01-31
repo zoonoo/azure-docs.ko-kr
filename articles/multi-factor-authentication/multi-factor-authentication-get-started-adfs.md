@@ -1,5 +1,5 @@
 ---
-title: "Azure MFA 및 AD FS | Microsoft Docs"
+title: "2단계 검증 및 AD FS - Azure MFA | Microsoft Docs"
 description: "Azure MFA 및 AD FS 시작 방법을 설명하는 Azure Multi-Factor Authentication 페이지입니다."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcf67cfd5f4d44188f119ca40b227b32c684e1f7
+ms.sourcegitcommit: 00ee90b6d264c1aee4b488cd1c2a5447809a1e3c
+ms.openlocfilehash: 0981be75b9caffb29b10c70ce528209984986ce2
 
 
 ---
-# <a name="getting-started-with-azure-multifactor-authentication-and-active-directory-federation-services"></a>Azure Multi-Factor Authentication 및 Active Directory Federation Services 시작
+# <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Azure Multi-Factor Authentication 및 Active Directory Federation Services 시작
 <center>![클라우드](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 조직에서 AD FS를 사용하여 온-프레미스 Active Directory를 Azure Active Directory에 페더레이션한 경우 Azure Multi-Factor Authentication 사용을 위한 두 가지 옵션이 있습니다.
@@ -40,7 +40,7 @@ ms.openlocfilehash: dcf67cfd5f4d44188f119ca40b227b32c684e1f7
 * 앱 암호는 클라우드 인증을 사용하여 확인되므로 페더레이션을 바이패스합니다. 앱 암호를 설정할 때 페더레이션이 능동적으로 사용됩니다.
 * 앱 암호를 사용할 경우 온-프레미스 클라이언트 액세스 제어 설정은 적용되지 않습니다.
 * 앱 암호에 대한 온-프레미스 인증 로깅 기능이 손실됩니다.
-* 계정 사용 안 함/삭제 설정은 디렉터리 동기화 동안 최대 3시간이 걸리며 클라우드 ID에서 앱 암호의 사용 안 함/삭제가 지연됩니다.
+* 계정 사용 안 함/삭제 설정은 디렉터리 동기화 동안 최대&3;시간이 걸리며 클라우드 ID에서 앱 암호의 사용 안 함/삭제가 지연됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Multi-Factor Authentication 또는 AD FS를 통한 Azure Multi-factor Authentication 서버 설정 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
@@ -51,7 +51,6 @@ Azure Multi-Factor Authentication 또는 AD FS를 통한 Azure Multi-factor Auth
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure 릴레이란? | Microsoft Docs"
+title: "Azure 릴레이 정의 및 사용 이유 개요 | Microsoft Docs"
 description: "Azure 릴레이 개요"
 services: service-bus-relay
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: babanisa,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 14a5c029eef714134079b960109e58d821d0a609
-ms.openlocfilehash: 34b54d54b20d9aec69486c5ef98c97beee21bd94
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 1b9423c22ff6e003a6236e01118b600a2c746db4
 
 
 ---
@@ -66,6 +66,6 @@ WCF 릴레이는 전체 .NET Framework(NETFX) 및 WCF를 위해 작동합니다.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

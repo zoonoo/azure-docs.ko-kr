@@ -1,10 +1,10 @@
 ---
-title: "ExpressRoute 소개 | Microsoft Docs"
-description: "이 페이지는 Express 경로 연결의 작동 방식을 포함하여 Express 경로 서비스에 대한 개요를 제공합니다."
+title: "ExpressRoute 개요: 전용 개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장 | Microsoft Docs"
+description: "이 ExpressRoute 기술 개요에서는 전용 개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장하기 위해 ExpressRoute 연결이 작동하는 방식에 대해 설명합니다."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 01/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 57b95d5018fa197096992f7cd255a54501875dea
+ms.sourcegitcommit: c47ff077a1a3193559e98278bc930101bed26ba0
+ms.openlocfilehash: 96e2205a57f3abb44559eb417965409a9e1e1d13
 
 
 ---
 # <a name="expressroute-technical-overview"></a>Express 경로 기술 개요
 Microsoft Azure Express 경로를 사용하면 연결 공급자에서 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용하면 Microsoft Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정하거나, 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다. Express 경로 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 Express 경로 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
-![](./media/expressroute-introduction/expressroute-basic.png)
+![](./media/expressroute-introduction/expressroute-connection-overview-diagram.png)
 
 **주요 이점은 다음과 같습니다.**
 
@@ -51,7 +51,7 @@ Microsoft 클라우드로 WAN을 통합할 수 있습니다. IPVPN 공급자(일
 
 연결 공급자는 하나 이상의 연결 모델을 제공할 수 있습니다. 연결 공급자로 작업하여 사용자에게 적합한 다양한 모델을 선택할 수 있습니다.
 
-![](./media/expressroute-introduction/expressroute-connectivitymodels.png)
+![](./media/expressroute-introduction/expressroute-connectivity-models-diagram.png)
 
 ## <a name="expressroute-features"></a>Express 경로 기능
 Express 경로는 다음 기능 및 특성을 지원합니다. 
@@ -125,6 +125,6 @@ Microsoft는 특별한 지리학적 지역 및 고객 세그먼트에 격리된 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

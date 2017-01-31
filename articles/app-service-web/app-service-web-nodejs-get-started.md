@@ -1,5 +1,5 @@
 ---
-title: "Azure App Service에서 Node.js 웹앱 시작 | Microsoft 문서"
+title: "Azure App Service에 대한 Node.js 웹앱 개발 | Microsoft Docs"
 description: "Azure 앱 서비스에서 웹앱에 Node.js 응용 프로그램을 배포하는 방법을 알아봅니다."
 services: app-service\web
 documentationcenter: nodejs
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 88405a9e67eb748acc9564022283004b5ebfcf48
-ms.openlocfilehash: 63210a5539d1e5e5b7d1f5a60048d507e53038a5
+ms.sourcegitcommit: 763e956004f460f2f6d0fa7325a6f6b5fca3fd5a
+ms.openlocfilehash: ab16eb45f86f81af719fcd0a4b65f19576f01f01
 
 
 ---
-# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Azure 앱 서비스에서 Node.js 웹앱 시작
+# <a name="develop-nodejs-web-apps-for-azure-app-service"></a>Azure App Service에 대한 Node.js 웹앱 개발
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 이 자습서에서는 간단한 [Node.js] 응용 프로그램을 만들고 cmd.exe 또는 bash와 같은 명령줄 환경에서 [Azure App Service]에 배포하는 방법을 보여 줍니다. 이 자습서의 지침은 Node.js를 실행할 수 있는 모든 운영 체제를 따를 수 있습니다.
@@ -45,7 +45,7 @@ ms.openlocfilehash: 63210a5539d1e5e5b7d1f5a60048d507e53038a5
 * Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록]하거나 [Visual Studio 구독자 혜택을 활성화]할 수 있습니다.
 
 > [!NOTE]
-> Azure 계정 없이 [App Service를 체험](http://go.microsoft.com/fwlink/?LinkId=523751)할 수 있습니다. 시작 앱을 만들고 최대 한 시간 동안 해당 앱을 사용하여 재생합니다. -- 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정 없이 [App Service를 체험](https://azure.microsoft.com/try/app-service/)할 수 있습니다. 시작 앱을 만들고 최대 한 시간 동안 해당 앱을 사용하여 재생합니다. -- 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -303,6 +303,6 @@ Node-Inspector를 사용하려면 다음 단계를 수행하세요.
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

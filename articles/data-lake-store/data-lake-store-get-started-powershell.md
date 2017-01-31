@@ -1,5 +1,5 @@
 ---
-title: "Data Lake Store 시작 | Microsoft Docs"
+title: "PowerShell을 사용하여 Azure Data Lake Store 시작 | Microsoft Docs"
 description: "Azure PowerShell을 사용하여 데이터 레이크 저장소 계정을 만들고 기본 작업을 수행합니다."
 services: data-lake-store
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a86fd04a7ec0cffabe42d30132b97777c752bbde
-ms.openlocfilehash: e37b698436c067faa20b0e589078927d5955934a
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: ebe8724d73769eb55e40b8af2056880a5a4007ce
 
 
 ---
@@ -205,6 +205,6 @@ Data Lake Store와 함께 PowerShell을 사용하는 동안 최상의 성능을 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

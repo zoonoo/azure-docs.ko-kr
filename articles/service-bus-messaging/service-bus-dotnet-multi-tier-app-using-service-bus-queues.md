@@ -1,5 +1,5 @@
 ---
-title: "Azure Service Bus 큐를 사용하는 .NET 다중 계층 응용 프로그램 | Microsoft Docs"
+title: "Azure Service Bus를 사용하는 .NET 다중 계층 응용 프로그램 | Microsoft Docs"
 description: "Azure에서 서비스 버스 큐를 사용하여 계층 간에 통신하는 다중 계층 응용 프로그램을 개발하는 데 도움이 되는 .NET 자습서입니다."
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9849b15115de5b17a50e0f46781c8aa16a53d297
-ms.openlocfilehash: c68125afe8979c595ae0f6e78fa90f6a365c435f
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 17805b49359ed063f44d9b7dacf1e1052649dc61
 
 
 ---
@@ -397,6 +397,6 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

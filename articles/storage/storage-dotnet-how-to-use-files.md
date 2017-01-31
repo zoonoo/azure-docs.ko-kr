@@ -15,15 +15,15 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
+ms.sourcegitcommit: aba595f3eab2835cffb7b2678a72515b983f4cec
+ms.openlocfilehash: 7637a700ef718162f3042c53e469424cdcd218de
 
 
 ---
 # <a name="get-started-with-azure-file-storage-on-windows"></a>Windows에서 Azure 파일 저장소 시작
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
@@ -645,6 +645,9 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 15. **Azure File Storage 오류를 어떻게 해결합니까?**
     
     종단 간 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-file-connection-problems.md)를 참조할 수 있습니다.               
+16. ** FileSystemWatcher를 사용하여 Azure File Service 공유에서 파일 및 디렉터리의 만들기/수정/삭제와 같은 이벤트를 수신 대기할 수 있나요?
+
+아니요. Azure 웹 작업 SDK를 사용할 수 있습니다. 트리거되거나 트리거되지 않은 고유한 바인딩을 작성하고 파일 저장소에서 이벤트를 수신 대기할 수 있습니다. [새 트리거 및 바인더를 작성하기 위한 지침](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)에서 시작하기 위한 세부 정보를 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.
@@ -670,6 +673,6 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

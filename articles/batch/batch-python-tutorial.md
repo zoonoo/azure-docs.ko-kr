@@ -1,5 +1,5 @@
 ---
-title: "자습서 - Azure 배치 Python 클라이언트 시작 | Microsoft 문서"
+title: "자습서 - Python용 Azure Batch 클라이언트 라이브러리 사용 | Microsoft Docs"
 description: "Azure 배치의 기본 개념과 간단한 시나리오를 통해 배치 서비스를 개발하는 방법을 알아봅니다."
 services: batch
 documentationcenter: python
@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/30/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 3c1efaa277c6fba7965d6fe10cc5991cb02281d7
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 155c535c66788d807c47a3eaae50c94ab6b94164
 
 
 ---
@@ -109,7 +109,7 @@ Python 자습서 [코드 샘플][github_article_samples]은 GitHub의 [azure-bat
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** 각 태스크는 Azure Storage에서 입력 데이터를 다운로드한 다음 실행을 시작합니다.<br/>
 [**6단계.**](#step-6-monitor-tasks) 태스크를 모니터링합니다.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** 태스크가 완료되면 출력 데이터를 Azure Storage에 업로드합니다.<br/>
-[**7단계.**](#step-7-download-task-output)  저장소에서 태스크 출력을 다운로드합니다.
+[**7단계.**](#step-7-download-task-output) 저장소에서 태스크 출력을 다운로드합니다.
 
 언급한 바와 같이, 모든 Batch 솔루션이 정확히 이러한 단계를 수행하는 것은 아니며, 훨씬 더 많은 단계를 포함할 수 있지만 이 샘플은 배치 솔루션에서 찾을 수 있는 일반적인 프로세스를 보여 줍니다.
 
@@ -708,6 +708,6 @@ Press ENTER to exit...
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

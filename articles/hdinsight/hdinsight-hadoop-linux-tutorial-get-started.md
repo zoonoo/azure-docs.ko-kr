@@ -1,6 +1,6 @@
 ---
-title: "Linux 자습서: Hadoop 및 Hive로 시작 | Microsoft Docs"
-description: "HDInsight에서 Hadoop을 사용하여 시작하려면 이 Linux 자습서를 수행합니다. Linux 클러스터를 프로비전하고 Hive를 사용하여 데이터를 쿼리하는 방법에 알아봅니다."
+title: "Hadoop 자습서: HDInsight에서 Hadoop 및 Hive로 시작 | Microsoft Docs"
+description: "HDInsight에서 Hadoop을 사용하여 시작하려면 이 자습서를 수행합니다. Linux 클러스터를 만들고 Hive를 사용하여 데이터를 쿼리하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,36 +13,31 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/16/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: 2863bfb48d0fed706fbd3c3f14dfb6a8d77eb9ea
+ms.sourcegitcommit: e026008afcdb86fa80c80cb13c7ff4d94027d6ee
+ms.openlocfilehash: a86350fcdbcf3312d3b1d0dd7c895d9402609245
 
 
 ---
-# <a name="hadoop-tutorial-get-started-using-linux-based-hadoop-in-hdinsight"></a>Hadoop 자습서: HDInsight에서 Linux 기반 Hadoop 사용 시작
-> [!div class="op_single_selector"]
-> * [Linux 기반](hdinsight-hadoop-linux-tutorial-get-started.md)
-> * [Windows 기반](hdinsight-hadoop-tutorial-get-started-windows.md)
-> 
-> 
+# <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop 자습서: HDInsight에서 Hadoop 사용 시작
 
-HDInsight에서 Linux 기반 [Hadoop](http://hadoop.apache.org/) 클러스터를 만들고, HDInsight에서 Hive 작업을 실행하는 방법을 알아봅니다. [Apache Hive](https://hive.apache.org/) 는 Hadoop 에코시스템에서 가장 인기 있는 구성 요소입니다. 현재 HDInsight는 [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [대화형 Hive(미리 보기)](hdinsight-hadoop-use-interactive-hive.md) 및 [R server](hdinsight-hadoop-r-server-overview.md)와 같은 6가지 유형의 클러스터가 제공됩니다.  각 클러스터 유형은 서로 다른 구성 요소 집합을 지원합니다. 6가지 클러스터 유형 모두 Hive를 지원합니다. HDInsight에서 지원되는 구성 요소 목록은 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능](hdinsight-component-versioning.md)  
+HDInsight에서 [Hadoop](http://hadoop.apache.org/) 클러스터를 만들고, HDInsight에서 Hive 작업을 실행하는 방법을 알아봅니다. [Apache Hive](https://hive.apache.org/) 는 Hadoop 에코시스템에서 가장 인기 있는 구성 요소입니다. 현재 HDInsight는 [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [대화형 Hive(미리 보기)](hdinsight-hadoop-use-interactive-hive.md) 및 [R server](hdinsight-hadoop-r-server-overview.md)와 같은&6;가지 유형의 클러스터가 제공됩니다.  각 클러스터 유형은 서로 다른 구성 요소 집합을 지원합니다. 6가지 클러스터 유형 모두 Hive를 지원합니다. HDInsight에서 지원되는 구성 요소 목록은 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-* **Azure 구독**: 1개월 무료 평가판 계정을 만들려면 [azure.microsoft.com/free](https://azure.microsoft.com/free)로 이동합니다.
+* **Azure 구독**:&1;개월 무료 평가판 계정을 만들려면 [azure.microsoft.com/free](https://azure.microsoft.com/free)로 이동합니다.
 
 ### <a name="access-control-requirements"></a>액세스 제어 요구 사항
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-cluster"></a>클러스터 만들기
 
-Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 일부 작업을 실행한 다음 클러스터를 삭제합니다. 이 섹션에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터를 만듭니다. Resource Manager 템플릿은 완전히 사용자 지정할 수 있으므로 HDInsight와 같은 Azure 리소스를 쉽게 만들 수 있습니다. 이 자습서를 따라 하는 데 Resource Manager 템플릿 환경이 필요하지는 않습니다. 기타 클러스터 생성 방법 및 이 자습서에 사용된 속성에 대한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 페이지 상단에서 선택기를 사용하여 클러스터 만들기 옵션을 선택합니다.
+Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 일부 작업을 실행한 다음 클러스터를 삭제합니다. 이 섹션에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 HDInsight에서 Hadoop 클러스터를 만듭니다. Resource Manager 템플릿은 완전히 사용자 지정할 수 있으므로 HDInsight와 같은 Azure 리소스를 쉽게 만들 수 있습니다. 이 자습서를 따라 하는 데 Resource Manager 템플릿 환경이 필요하지는 않습니다. 기타 클러스터 생성 방법 및 이 자습서에 사용된 속성에 대한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 페이지 상단에서 선택기를 사용하여 클러스터 만들기 옵션을 선택합니다.
 
 이 자습서에서 사용된 Resource Manager 템플릿은 [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)에 있습니다. 
 
@@ -57,7 +52,7 @@ Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 
     * **리소스 그룹**: 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. 
     * **위치**: 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. 
     * **클러스터 유형**: 이 자습서에서는 **hadoop**을 선택합니다.
-    * **클러스터 이름**: 만들려는 Hadoop 클러스터의 이름을 입력합니다.
+    * **클러스터 이름**: Hadoop 클러스터의 이름을 입력합니다.
     * **클러스터 로그인 이름 및 암호**: 기본 로그인 이름은 **admin**입니다.
     * **SSH 사용자 이름 및 암호**: 기본 사용자 이름은 **sshuser**입니다.  이름은 변경할 수 있습니다. 
      
@@ -68,7 +63,9 @@ Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 
     * **OS 유형**: Linux
     * **작업자 노드 수**: 2
 
-     각 클러스터에는 Azure Blob 저장소 계정 종속성이 있습니다. 이 저장소 계정을 일반적으로 기본 저장소 계정이라고 합니다. HDInsight 클러스터와 해당 기본 저장소 계정은 같은 Azure 지역에 있어야 합니다. 클러스터를 삭제해도 저장소 계정은 삭제되지 않습니다. 템플릿에서 기본 저장소 계정 이름은 클러스터 이름에 "store"가 추가되는 형태로 정의됩니다. 
+     각 클러스터에는 Azure Blob 저장소 계정 종속성이 있습니다. 이 저장소 계정을 일반적으로 기본 저장소 계정이라고 합니다. HDInsight 클러스터와 해당 기본 저장소 계정은 같은 Azure 지역에 있어야 합니다. 클러스터를 삭제해도 저장소 계정은 삭제되지 않습니다. 
+     
+     이러한 속성에 대한 자세한 설명은 [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 3. **위에 명시된 사용 약관에 동의함** 및 **대시보드에 고정**을 선택한 다음 **구매**를 클릭합니다. 포털 대시보드에 **템플릿 배포 배포 중**이라는 제목의 새 타일이 표시됩니다. 클러스터를 만들려면 20분 정도가 걸립니다. 클러스터가 생성되면 타일의 캡션이 지정한 리소스 그룹 이름으로 변경됩니다. 포털의 새 블레이드에서 리소스 그룹이 자동으로 열립니다. 클러스터와 기본 저장소 목록을 모두 확인할 수 있습니다.
    
@@ -86,7 +83,7 @@ Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 
 2. 이전 섹션에서 지정한 Hadoop 사용자 이름 및 암호를 입력합니다. 기본 사용자 이름은 **admin**입니다.
 3. 다음 스크린샷에 표시된 것처럼 **Hive 뷰** 를 엽니다.
    
-    ![Ambari 뷰 선택](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png) 등 4가지 유형의 클러스터가 제공됩니다.
+    ![Ambari 뷰 선택](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png)등&amp;4;가지 유형의 클러스터가 제공됩니다.
 4. 페이지의 **쿼리 편집기** 섹션에서 다음 HiveQL 문을 워크시트에 붙여넣습니다.
    
         SHOW TABLES;
@@ -99,7 +96,7 @@ Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 
    
     쿼리가 완료되면 **쿼리 프로세스 결과** 섹션에 작업 결과가 표시됩니다. **hivesampletable**이라는 테이블이 한 개 표시됩니다. 이 샘플 Hive 테이블은 모든 HDInsight 클러스터와 함께 제공됩니다.
    
-    ![HDInsight 하이브 뷰](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png) 등 4가지 유형의 클러스터가 제공됩니다.
+    ![HDInsight 하이브 뷰](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png)등&amp;4;가지 유형의 클러스터가 제공됩니다.
 6. 4단계 및 5단계를 반복하여 다음 쿼리를 실행합니다.
    
         SELECT * FROM hivesampletable;
@@ -153,28 +150,16 @@ HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 �
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-provision]: hdinsight-provision-linux-clusters.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-[powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-open]: /powershell/azureps-cmdlets-docs#Install
-
-[img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.png
-[img-hdi-dashboard-query-select]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.png
-[img-hdi-dashboard-query-select-result]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.result.png
-[img-hdi-dashboard-query-select-result-output]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.result.output.png
-[img-hdi-dashboard-query-browse-output]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.browse.output.png
-[image-hdi-clusterstatus]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.ClusterStatus.png
-[image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
-[image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

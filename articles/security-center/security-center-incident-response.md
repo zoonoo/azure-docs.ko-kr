@@ -1,5 +1,5 @@
 ---
-title: "사고 대응에 Azure Security Center 사용 | Microsoft Docs"
+title: "Azure Security Center에서 보안 인시던트에 대한 대응 | Microsoft Docs"
 description: "이 문서에서는 사고 대응 시나리오에서 Azure Security Center를 사용하는 방법을 설명합니다."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 01/23/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 31311194c051a1fd7c889a956e06e88ca83a74db
+ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
+ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
 
 
 ---
@@ -52,7 +52,7 @@ Contoso는 최근에 일부 가상 컴퓨터 기반 LOB(기간 업무) 워크로
 
 Judy는 보안 운영 업무를 담당하고 있습니다. 그녀의 책임은 다음과 같습니다.
 
-* 보안 위협에 대한 24시간 항시 모니터링 및 대응
+* 보안 위협에 대한&24;시간 항시 모니터링 및 대응
 * 클라우드 워크로드 소유자, 또는 필요한 경우 보안 분석가로 에스컬레이션
 
 Sam은 보안 분석가이며 다음과 같은 업무를 담당합니다.
@@ -78,13 +78,13 @@ Judy는 Azure 포털에 로그인했으며 Security Center 콘솔을 사용하�
 
 1. **보안 경고** 타일을 클릭하고 **보안 경고** 블레이드에 액세스합니다.
     ![보안 경고 블레이드](./media/security-center-incident-response/security-center-incident-response-fig4.png)
-   
+
    > [!NOTE]
    > 이 시나리오의 목적상 Judy는 위 그림에서 보여 있듯이 악의적인 SQL 작업 경고에 대한 평가를 수행합니다.
-   > 
-   > 
+   >
+   >
 2. **악성 SQL 작업** 경고를 클릭한 다음 **악성 SQL 작업**:  ![사고 정보](./media/security-center-incident-response/security-center-incident-response-fig5.png) 블레이드에서 공격받은 리소스를 검토합니다.
-   
+
     이 블레이드에서 Judy는 공격받은 리소스와 관련하여 공격이 발생한 빈도 및 감지된 시기를 기록할 수 있습니다.
 3. **공격받은 리소스** 를 클릭하여 이 공격에 대한 자세한 정보를 얻을 수 있습니다.
 
@@ -103,7 +103,6 @@ Sam은 Judy에게서 상황을 접수한 다음 Security Center에서 제안하�
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

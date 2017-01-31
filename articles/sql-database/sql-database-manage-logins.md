@@ -1,5 +1,5 @@
 ---
-title: "SQL Database 인증 및 권한 부여 | Microsoft Docs"
+title: "Azure SQL 로그인 및 사용자 | Microsoft Docs"
 description: "SQL 데이터베이스 보안 관리, 특히 서버 수준 보안 주체 계정을 통해 데이터베이스 액세스 및 로그인 보안을 관리하는 방법에 대해 알아봅니다."
 keywords: "sql 데이터베이스 보안,데이터베이스 보안 관리,로그인 보안,데이터베이스 보안,데이터베이스 액세스"
 services: sql-database
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/17/2017
+ms.date: 01/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 435fca81cda845200467fbc0d6ed4d41de41aaf6
-ms.openlocfilehash: 324fd91b415a4744cb472bbd8a8b795a8fbb8080
+ms.sourcegitcommit: f59bae58b946647fd74354dc465b399651f8ec12
+ms.openlocfilehash: 3e2874716d673af0d2627501b46d0e4a29e6ebf1
 
 
 ---
@@ -193,6 +193,6 @@ SQL Database에서 로그인 및 사용자를 관리하는 경우 다음 사항�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

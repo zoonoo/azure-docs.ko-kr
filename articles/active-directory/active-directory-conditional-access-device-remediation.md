@@ -6,18 +6,17 @@ keywords: "장치 기반 조건부 액세스, 장치 등록, 장치 등록 사�
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fd2076f22c6048fda83d6da3b069e2805afb453f
+ms.sourcegitcommit: fbabf6f2e1e588ba509c4da84ab1700b1b5d4f87
+ms.openlocfilehash: ad9f9a8c5b370ffa916b9089ef3ce523fe0266c7
 
 
 ---
@@ -48,7 +47,7 @@ Azure Active Directory(Azure AD) 액세스 문제를 해결하려면, 장치 플
 ### <a name="device-is-not-registered"></a>장치가 등록되지 않았습니다
 장치가 Azure AD로 등록되지 않고 응용 프로그램이 장치 기반 정책으로 보호되는 경우 다음과 같은 오류 메시지 중 하나를 표시하는 페이지가 나타날 수 있습니다.
 
-![등록되지 않은 장치에 대한 "여기에서 가져올 수 없습니다" 메시지](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
+![등록되지 않은 장치에 대한 "여기에서 가져올 수 없습니다" 메시지](./media/active-directory-conditional-access-device-remediation/01.png "시나리오")
 
 장치가 조직에서 Active Directory로 도메인에 가입된 경우 다음을 시도하세요.
 
@@ -122,7 +121,7 @@ Azure AD Join을 실행하려면 장치가 실행되는 플랫폼에 대해 다�
 
 다음과 같은 오류 페이지가 표시됩니다.
 
-![지원되지 않은 브라우저에 대한 "여기에서 가져올 수 없습니다" 메시지](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
+![지원되지 않은 브라우저에 대한 "여기에서 가져올 수 없습니다" 메시지](./media/active-directory-conditional-access-device-remediation/02.png "시나리오")
 
 유일하게 수정된 부분은 응용 프로그램이 장치 플랫폼에 지원하는 브라우저를 사용하는 것입니다.
 
@@ -132,6 +131,6 @@ Azure AD Join을 실행하려면 장치가 실행되는 플랫폼에 대해 다�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

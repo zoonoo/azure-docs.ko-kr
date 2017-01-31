@@ -1,10 +1,10 @@
 ---
-title: "VPN 게이트웨이 및 PowerShell을 사용하여 Azure VNet 연결 | Microsoft Docs"
+title: "다른 VNet에 Azure 가상 네트워크 연결: PowerShell | Microsoft Docs"
 description: "이 문서에서는 Azure 리소스 관리자 및 PowerShell을 사용하여 가상 네트워크를 함께 연결하는 과정을 안내합니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
 
 
 ---
-# <a name="configure-a-vnet-to-vnet-connection-for-resource-manager-using-powershell"></a>PowerShell을 사용하여 Resource Manager의 VNet 간 연결 구성
+# <a name="configure-a-vnet-to-vnet-connection-using-powershell"></a>PowerShell을 사용하여 VNet 간 연결 구성
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -36,7 +36,7 @@ ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
 ### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>VNet 간 연결 배포 모델 및 메서드
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
-아래 표에서는 현재 사용할 수 있는 배포 모델 및 VNet 간 구성을 위한 메서드를 보여 줍니다. 구성 단계를 포함한 문서를 사용할 수 있는 경우 아래 표에서 관련 링크를 직접 제공합니다.
+아래 표에서는 현재 사용할 수 있는 배포 모델 및 VNet 간 구성을 위한 메서드를 보여 줍니다. 구성 단계를 포함한 문서를 사용할 수 있는 경우 아래 표에서 관련 링크를 직접 제공합니다. 
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -60,7 +60,7 @@ ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
   
   * 같은 지역 내에서 분리 또는 관리 요구 사항 때문에 여러 가상 네트워크가 함께 연결된 다중 계층 응용 프로그램을 설정할 수 있습니다.
 
-### <a name="vnet-to-vnet-faq"></a>VNet-VNet FAQ
+### <a name="vnet-to-vnet-considerations"></a>VNet 간 고려 사항
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="which-set-of-steps-should-i-use"></a>어느 단계 집합을 사용해야 합니까?
@@ -94,8 +94,8 @@ ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
 * 게이트웨이 이름: VNet1GW
 * 공용 IP: VNet1GWIP
 * VpnType: 경로 기반
-* 연결(1 대 4): VNet1 대 VNet4
-* 연결(1 대 5): VNet1 대 VNet5
+* 연결(1 대&4;): VNet1 대 VNet4
+* 연결(1 대&5;): VNet1 대 VNet5
 * 연결 유형: VNet 간
 
 **TestVNet4에 대한 값:**
@@ -182,7 +182,7 @@ ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
         -Subnet $subnet1 -PublicIpAddress $gwpip1
 8. TestVNet1에 대한 게이트웨이 만들기
    
-    이 단계에서는 TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. VNet-VNet 구성에는 RouteBased VpnType이 필요합니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면 45분 이상).
+    이 단계에서는 TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. VNet-VNet 구성에는 RouteBased VpnType이 필요합니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면&45;분 이상).
    
         New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
         -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
@@ -434,6 +434,6 @@ TestVNet1 구성이 끝나면 TestVNet4를 만듭니다. 아래 단계에 따라
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

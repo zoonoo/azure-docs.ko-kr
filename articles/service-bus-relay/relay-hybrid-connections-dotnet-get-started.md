@@ -1,22 +1,22 @@
 ---
-title: "릴레이 하이브리드 연결 시작 | Microsoft Docs"
+title: ".NET에서 Azure 릴레이 하이브리드 연결 시작 | Microsoft Docs"
 description: "하이브리드 연결에 대한 C# 콘솔 응용 프로그램을 작성하는 방법"
-services: service-bus
+services: service-bus-relay
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
 editor: 
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/28/2016
-ms.author: jotaub
+ms.author: jotaub,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 92d7935596ab1dede6dc1d613cb635c32d52e3ab
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: a645d742c1e6d80e86ac29d78d78422b5b47a286
 
 
 ---
@@ -74,6 +74,6 @@ ms.openlocfilehash: 92d7935596ab1dede6dc1d613cb635c32d52e3ab
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

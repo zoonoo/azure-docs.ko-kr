@@ -1,10 +1,10 @@
 ---
-title: "리소스 관리자 배포 모델 및 Azure 포털을 사용하여 VNets에 연결 | Microsoft Docs"
+title: "다른 VNet에 Azure 가상 네트워크 연결: 포털 | Microsoft Docs"
 description: "리소스 관리자 및 Azure 포털을 사용하여 Vnet 간의 VPN 게이트웨이 연결을 만듭니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7dbfcbc27d7a071027055bc52d96e423c37abd2d
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
 
 
 ---
-# <a name="configure-a-vnettovnet-connection-using-the-azure-portal"></a>Azure 포털에서 VNet-VNet 연결 구성
+# <a name="configure-a-vnet-to-vnet-connection-using-the-azure-portal"></a>Azure 포털에서 VNet-VNet 연결 구성
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -35,17 +35,18 @@ Azure 포털을 사용하여 가상 네트워크에 연결할 때 Vnet이 동일
 
 ![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-### <a name="deployment-models-and-methods-for-vnettovnet-connections"></a>VNet 간 연결 배포 모델 및 메서드
+### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>VNet 간 연결 배포 모델 및 메서드
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 아래 표에서는 현재 사용할 수 있는 배포 모델 및 VNet 간 구성을 위한 메서드를 보여 줍니다. 구성 단계를 포함한 문서를 사용할 수 있는 경우 아래 표에서 관련 링크를 직접 제공합니다.
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### <a name="vnet-peering"></a>VNet 피어링
+**VNet 피어링**
+
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
-## <a name="about-vnettovnet-connections"></a>VNet 간 연결 정보
+## <a name="about-vnet-to-vnet-connections"></a>VNet 간 연결 정보
 가상 네트워크를 다른 가상 네트워크에 연결(VNet-VNet)하는 것은 VNet을 온-프레미스 사이트 위치에 연결하는 것과 유사합니다. 두 연결 유형 모두 Azure VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공합니다. 연결한 VNet은 서로 다른 지역이나 서로 다른 구독에 있을 수 있습니다.
 
 VNet 간 통신을 다중 사이트 구성과 통합할 수도 있습니다. 이렇게 하면 다음 다이어그램에 표시된 것처럼 프레미스 간 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
@@ -63,7 +64,7 @@ VNet 간 통신을 다중 사이트 구성과 통합할 수도 있습니다. 이
   
   * 같은 지역 내에서 분리 또는 관리 요구 사항 때문에 여러 가상 네트워크가 함께 연결된 다중 계층 응용 프로그램을 설정할 수 있습니다.
 
-VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 간 FAQ](#faq) 를 참조하세요.
+VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 간 고려 사항](#faq)을 참조하세요.
 
 ### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>예제 설정
 연습으로 이러한 단계를 사용하는 경우 샘플 구성 값을 사용할 수 있습니다. 예제에서는 각 VNet에 대한 여러 주소 공간을 사용합니다. 그러나 VNet 간 구성에는 여러 개의 주소 공간이 필요하지 않습니다.
@@ -122,6 +123,7 @@ VNet이 이미 있는 경우 설정이 VPN 게이트웨이 설계와 호환되�
 
 ## <a name="a-namesubnetsa2-add-additional-address-space-and-create-subnets"></a><a name="subnets"></a>2. 다른 주소 공간 추가 및 서브넷 만들기
 VNet이 만들어지면 여기에 다른 주소 공간을 추가하고 서브넷을 만들 수 있습니다.
+
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="a-namegatewaysubneta3-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>3. 게이트웨이 서브넷 만들기
@@ -181,23 +183,22 @@ TestVNet1를 구성한 후 TestVNet4 TestVNet4의 값을 대체하고 이전 단
 
 연결을 보고 상태를 확인합니다. 연결이 설정되면 상태 값으로 **Succeeded** 및 **Connected**가 표시됩니다.
 
-![Succeeded](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Succeeded")
+![성공](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Succeeded")
 
 연결에 대한 자세한 내용을 보려면 개별적으로 각 연결을 두 번 클릭하면 됩니다.
 
 ![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
-## <a name="a-namefaqavnettovnet-faq"></a><a name="faq"></a>VNet 간 FAQ
+## <a name="a-namefaqavnet-to-vnet-considerations"></a><a name="faq"></a>VNet 간 고려 사항
 VNet 간 연결에 대한 자세한 내용은 FAQ 세부 정보를 봅니다.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
-연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md) 를 참조하세요.
+연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [가상 컴퓨터](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) 설명서를 참조하세요.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

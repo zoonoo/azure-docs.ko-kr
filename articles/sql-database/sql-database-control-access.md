@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Database 액세스 제어 | Microsoft Docs"
-description: "Microsoft Azure SQL Database에 대한 액세스를 제어하는 방법에 대해 알아봅니다."
+title: "Azure SQL Database에 액세스 권한 부여 | Microsoft Docs"
+description: "Microsoft Azure SQL Database에 대한 액세스 권한을 부여하는 방법에 대해 알아봅니다."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/18/2016
-ms.author: rickbyh
+ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 356cc4c6d8e25d36880e4b12bf471326e61990c3
-ms.openlocfilehash: f12ed9d76e7c6db5e14ed3c00d7d4087dbd4069c
+ms.sourcegitcommit: 6fca50ad2a9d875a87c9b7713e7f0f6641db1d26
+ms.openlocfilehash: 563a26512e58d1c9905647c26ef780b2729cb459
 
 
 ---
@@ -27,8 +27,6 @@ SQL Database는 보안을 제공하기 위해 IP 주소로 연결을 제한하�
 
 > [!IMPORTANT]
 > SQL Database 보안 기능에 대한 개요는 [SQL 보안 개요](sql-database-security-overview.md)를 참조하세요. SQL Server 인증을 사용하는 방법을 보여 주는 자습서는 [SQL Database 자습서: SQL Server 인증, 로그인/사용자 계정, 데이터베이스 역할, 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요. Azure Active Directory 인증을 사용하는 방법을 보여 주는 자습서는 [SQL Database 자습서: AAD 인증, 로그인/사용자 계정, 데이터베이스 역할, 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-aad-authentication-get-started.md)을 참조하세요.
-
->
 
 ## <a name="firewall-and-firewall-rules"></a>방화벽 및 방화벽 규칙
 Microsoft Azure SQL 데이터베이스는 Azure 및 기타 인터넷 기반 응용 프로그램의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다. 자세한 내용은 [Azure SQL Database 방화벽 규칙 개요](sql-database-firewall-configure.md)를 참조하세요.
@@ -48,7 +46,7 @@ SQL 데이터베이스는 두 가지 인증 유형을 지원합니다.
 
 사용자 계정을 마스터 데이터베이스에서 만들고 서버의 모든 데이터베이스에 대한 사용 권한을 부여할 수 있습니다. 또는 데이터베이스 자체(포함된 사용자라고 함)에서 만들 수 있습니다. 로그인 만들기 및 관리에 대한 자세한 내용은 [로그인 관리](sql-database-manage-logins.md)를 참조하세요. 이동성 및 확장성을 강화하려면 포함된 데이터베이스 사용자를 사용합니다. 포함된 사용자에 대한 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx), [사용자 만들기(Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) 및 [포함된 데이터베이스](https://technet.microsoft.com/library/ff929071.aspx)를 참조하세요.
 
-가장 좋은 방법은 응용 프로그램이 다른 계정을 사용하여 인증하는 것입니다. 이 방법을 사용하면 응용 프로그램에 부여되는 사용 권한을 제한하여 응용 프로그램 코드가 SQL 삽입 공격에 취약한 경우 악의적인 활동의 위험을 줄일 수 있습니다. 응용 프로그램을 통해 데이터베이스에 직접 인증할 수 있는 [포함된 데이터베이스 사용자](https://msdn.microsoft.com/library/ff929188)를 만드는 것이 좋습니다. 서버 관리자 로그인으로 사용자 데이터베이스에 연결되어 있는 동안 다음 T-SQL을 실행하여 SQL 인증을 사용하는 포함된 데이터베이스 사용자를 만들 수 있습니다.
+가장 좋은 방법은 응용 프로그램이 다른 계정을 사용하여 인증하는 것입니다. 이 방법을 사용하면 응용 프로그램에 부여되는 사용 권한을 제한하여 응용 프로그램 코드가 SQL 삽입 공격에 취약한 경우 악의적인 활동의 위험을 줄일 수 있습니다. 응용 프로그램을 통해 데이터베이스에 직접 인증할 수 있는 [포함된 데이터베이스 사용자](https://msdn.microsoft.com/library/ff929188)를 만드는 것이 좋습니다. 
 
 ## <a name="authorization"></a>권한 부여
 
@@ -65,7 +63,7 @@ SQL 데이터베이스는 두 가지 인증 유형을 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 모든 SQL Database 보안 기능에 대한 개요는 [SQL 보안 개요](sql-database-security-overview.md)를 참조하세요.
+- SQL Database 보안 기능에 대한 개요는 [SQL 보안 개요](sql-database-security-overview.md)를 참조하세요.
 - 방화벽 규칙에 대해 자세히 알아보려면 [Azure SQL Database 방화벽](sql-database-firewall-configure.md)을 참조하세요.
 - 사용자와 로그인에 대해 알아보려면 [로그인 관리](sql-database-manage-logins.md)를 참조하세요. 
 - SQL Database에서 데이터 보호 기능을 사용하는 방법에 대한 설명은 [데이터 보호 및 보안](sql-database-protect-data.md)을 참조하세요.
@@ -75,6 +73,6 @@ SQL 데이터베이스는 두 가지 인증 유형을 지원합니다.
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

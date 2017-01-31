@@ -1,5 +1,5 @@
 ---
-title: "플랫폼 간 명령줄을 사용하여 Data Lake Store 시작 | Microsoft Docs"
+title: "명령줄 인터페이스를 사용하여 Azure Data Lake Store 시작 | Microsoft Docs"
 description: "Azure 플랫폼 간 명령줄을 사용하여 데이터 레이크 저장소 계정을 만들고 기본 작업을 수행합니다."
 services: data-lake-store
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4b2449f00e298385579c4d7b229ceea18dcc598
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: f4b31e03f454f889b4e0be807697c06e32f484c8
 
 
 ---
@@ -29,8 +29,9 @@ ms.openlocfilehash: b4b2449f00e298385579c4d7b229ceea18dcc598
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.JS](data-lake-store-manage-use-nodejs.md)
-> 
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
+>
 
 Azure 명령줄 인터페이스를 사용하여 Azure 데이터 레이크 저장소 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. Data Lake Store에 대한 자세한 내용은 [Data Lake Store 개요](data-lake-store-overview.md)를 참조하세요.
 
@@ -176,6 +177,6 @@ Azure 데이터 레이크 저장소 계정에서 폴더를 만들어 데이터�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

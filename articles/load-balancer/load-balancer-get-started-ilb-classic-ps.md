@@ -1,10 +1,10 @@
 ---
-title: "클래식 배포 모델에서 PowerShell을 사용하여 내부 부하 분산 장치 만들기 | Microsoft Docs"
+title: "Azure 내부 부하 분산 장치 만들기 - PowerShell 클래식 | Microsoft Docs"
 description: "클래식 배포 모델에서 PowerShell을 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 3be93168-3787-45a5-a194-9124fe386493
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2016
-ms.author: sewhee
+ms.date: 01/23/2017
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
-ms.openlocfilehash: 7268ab93a131096f8ae18bff6a1550b59cb18a2b
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: f701fb3564c62cf8088cc4362a10c5e2c2301ae6
 
 ---
 
@@ -31,7 +31,7 @@ ms.openlocfilehash: 7268ab93a131096f8ae18bff6a1550b59cb18a2b
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행하는](load-balancer-get-started-ilb-arm-ps.md) 방법을 알아봅니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행하는](load-balancer-get-started-ilb-arm-ps.md) 방법을 알아봅니다.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -116,7 +116,7 @@ Get-AzureInternalLoadBalancer 명령 표시에서 IP 주소를 확인하고 필�
 * 두 기존 데이터베이스 서버 이름은 DB1, DB2입니다.
 * 웹 계층의 웹 서버는 개인 IP 주소를 사용하여 데이터베이스 계층의 데이터베이스 서버에 연결합니다. 다른 옵션은 가상 네트워크에 자체 DNS를 사용하고 내부 부하 분산 장치 집합에 A 레코드를 수동으로 등록하는 것입니다.
 
-다음 명령은 **ILBset** 라는 새 내부 부하 분산 인스턴스를 구성하고 2개의 데이터베이스 서버에 해당하는 가상 컴퓨터에 끝점을 추가합니다.
+다음 명령은 **ILBset** 라는 새 내부 부하 분산 인스턴스를 구성하고&2;개의 데이터베이스 서버에 해당하는 가상 컴퓨터에 끝점을 추가합니다.
 
 ```powershell
 $svc="mytestcloud"
@@ -193,6 +193,6 @@ Get-Help Remove-AzureInternalLoadBalancer -full
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

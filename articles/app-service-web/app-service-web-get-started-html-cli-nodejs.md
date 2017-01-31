@@ -1,5 +1,5 @@
 ---
-title: "5분 내에 Azure에 첫 번째 웹앱 배포 | Microsoft Docs"
+title: "5분 내에 Azure에 첫 번째 HTML 웹앱 배포 | Microsoft Docs"
 description: "샘플 앱을 배포하여 App Service에서 웹앱을 실행하는 작업이 얼마나 쉬운지 알아봅니다. 실제 개발을 신속하게 수행하기 시작하고 즉시 결과를 봅니다."
 services: app-service\web
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: 4e2d846ef3ce6e78d5789c7b8e1b8228617837b6
+ms.sourcegitcommit: 5e532c130910e292d8b742353dfe7e24f1bf865e
+ms.openlocfilehash: 37c364ab2a3948acd20b016639887a46ee18c470
 
 
 ---
-# <a name="deploy-your-first-web-app-to-azure-in-five-minutes"></a>5분 내에 Azure에 첫 번째 웹앱 배포
+# <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes"></a>5분 내에 Azure에 첫 번째 HTML 웹앱 배포
 
 > [!div class="op_single_selector"]
 > * [첫 번째 HTML 사이트](app-service-web-get-started-html-cli-nodejs.md)
@@ -57,7 +57,7 @@ App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/le
 * Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 
 > [!NOTE]
-> Azure 계정 없이 [App Service를 체험](http://go.microsoft.com/fwlink/?LinkId=523751)할 수 있습니다. 시작 앱을 만들고 최대 한 시간 동안 해당 앱을 사용하여 재생합니다. -- 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정 없이 [App Service를 체험](https://azure.microsoft.com/try/app-service/)할 수 있습니다. 시작 앱을 만들고 최대 한 시간 동안 해당 앱을 사용하여 재생합니다. -- 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -135,6 +135,6 @@ Azure에서 라이브로 실행 중인 앱을 보려면 리포지토리의 디�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

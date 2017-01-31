@@ -1,5 +1,5 @@
 ---
-title: "Apache Storm 자습서: HDInsight에서 Linux 기반 Storm 시작 | Microsoft Docs"
+title: "Azure HDInsight에서 Apache Storm 시작 | Microsoft Docs"
 description: "Linux 기반 HDInsight에서 Apache Storm 및 Storm Starter 샘플을 사용한 빅 데이터 분석을 시작합니다. Storm을 사용하여 실시간으로 데이터를 처리하는 방법을 알아봅니다."
 keywords: "apache storm, apache storm 자습서, 빅 데이터 분석, storm 시작"
 services: hdinsight
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7ade85d98c41bddddb61fe75d212b351ff62eef0
-ms.openlocfilehash: 1e24cebace0e6b7de7ae318f06d6430b3caa342a
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9b38cd0aa542c0fd73b73edefce230e5a463e608
 
 
 ---
@@ -216,6 +216,6 @@ Java 기반 토폴로지를 개발하는 데 익숙하고 기존 토폴로지를
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure 배치 서비스 기본 사항 | Microsoft 문서"
+title: "Azure Batch 서비스 개요 | Microsoft Docs"
 description: "대규모 병렬 및 HPC 워크로드의 경우 Azure 배치 서비스를 사용하는 방법에 대해 알아봅니다."
 services: batch
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/19/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 6f05aa3f06c8ec86d58cafd406c2752ddb2eecc1
-ms.openlocfilehash: f3429fff9362451e687435e0c5e779feda564e46
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 3a01764b6a0e777e947cf8648606cdd568d118ff
 
 
 ---
@@ -159,6 +159,6 @@ Azure 배치를 통한 병렬 워크로드 처리는 일반적으로 [배치 API
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

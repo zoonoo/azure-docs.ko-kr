@@ -12,14 +12,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/18/2017
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcee5436a7bb377f37d6db2701c2e5df2e41944f
-ms.openlocfilehash: 1b162e57ee1e7a4e953d1b7593ce45669ff3cca8
+ms.sourcegitcommit: f8392c4a930be10b159bcd950cdd893e55ea7af2
+ms.openlocfilehash: 740799ce9acd4cc0aa9d440033a41a22f2658609
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Express 경로 파트너 및 피어링 위치
+
+> [!div class="op_single_selector"]
+> * [공급자별 위치](expressroute-locations.md)
+> * [위치별 공급자](expressroute-locations-providers.md)
+
+
 이 문서의 표에서는 Express 경로 연결 공급자, Express 경로 지역 범위, Express 경로를 통해 지원되는 Microsoft 클라우드 서비스 및 Express 경로 SI(시스템 통합업체)에 대한 정보를 제공합니다.
 
 ## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>Express 경로 연결 공급자
@@ -34,14 +40,14 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 | **지역** | **Azure 지역** | **Express 경로 위치** |
 | --- | --- | --- |
-| **북아메리카** |미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 댈러스, 라스베이거스, 로스앤젤레스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC, 몬트리올+, 퀘벡 시티+, 토론토 |
+| **북아메리카** |미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 댈러스, 라스베이거스, 로스앤젤레스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC, 몬트리올, 퀘벡 시티+, 토론토 |
 | **남미** |브라질 남부 |상파울루 |
 | **유럽** |북유럽, 서유럽, 영국 서부, 영국 남부 |암스테르담, 더블린, 런던, 뉴포트(웨일스), 파리 |
 | **아시아** |동아시아, 동남 아시아 |홍콩 특별행정구, 싱가포르 |
 | **일본** |일본 서부, 일본 동부 |오사카, 도쿄 |
 | **오스트레일리아** |오스트레일리아 남동부, 오스트레일리아 동부 |멜버른, 시드니 |
 | **인도** |인도 서부, 인도 중부, 인도 남부 |첸나이, 뭄바이 |
-| **대한민국** | 한국 중부, 한국 남부 | 부산, 서울 |
+| **대한민국** |한국 중부, 한국 남부 |부산+, 서울+ |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>국내 클라우드에 대한 지역 및 지리적 경계
 아래 표에서는 국가별 클라우드의 지역 및 지정학적 경계에 대한 정보를 제공합니다.
@@ -55,17 +61,16 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 지정학적 지역에 걸친 연결은 표준 Express 경로 SKU에서 지원되지 않습니다. 전역 연결을 지원하려면 Express 경로 프리미엄 추가 기능을 사용하도록 설정해야 합니다. 국가별 클라우드 환경에 대한 연결은 지원되지 않습니다. 이러한 요구가 발생할 경우 연결 공급자와 함께 작업할 수 있습니다.
 
 ## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>연결 공급자 위치
-> [!div class="op_single_selector"]
-> * [공급자별 위치](expressroute-locations.md#locations)
-> * [위치별 공급자](expressroute-locations-providers.md#locations)
-> 
-> 
+
+다음 테이블에서는 각 위치에 대한 연결 위치 및 서비스 공급자를 보여 줍니다. 서비스를 제공할 수 있는 서비스 공급자 및 위치를 보려면 [서비스 공급자별 위치](expressroute-locations.md#locations)를 참조하세요. 
+
 
 ### <a name="production-azure"></a>프로덕션 Azure
 | **위치** | **서비스 공급자** |
 | --- | --- |
 | **암스테르담** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **애틀랜타** |Equinix |
+| **부산** |Sejong Telecom+ |
 | **첸나이** |SIFY, Tata Communications |
 | **시카코** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
 | **댈러스** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
@@ -83,6 +88,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **파리** |Interxion, Equinix+ |
 | **상파울루** |Equinix, Telefonica |
 | **시애틀** |Equinix, Level 3 Communications, Megaport |
+| **서울** |KINX+, Sejong Telecom+ |
 | **실리콘밸리** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **싱가포르** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **시드니** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
@@ -164,6 +170,6 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
