@@ -16,12 +16,15 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: bac1b01a40b3e7bed2edaf1f694daf0ab70de68c
-ms.openlocfilehash: 26353f84e22aec1964f520edc60d036c2ab57c28
+ms.sourcegitcommit: 701c54bac16cbf208fd655fd72f2d4acfc0ba891
+ms.openlocfilehash: 89856f6509d0d2e2e472a61db70b9b04dc1ac7b7
 
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>데이터 가져오기 모듈을 사용하여 다양한 온라인 데이터 원본에서 Azure 기계 학습 스튜디오로 데이터 가져오기
+
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+
 이 문서에서는 다양한 원본에서 온라인 데이터를 가져오는 기능에 대한 지원 및 이러한 원본의 데이터를 Azure 기계 학습 실험으로 이동하는 데 필요한 정보를 설명합니다.
 
 > [!NOTE]
@@ -31,10 +34,8 @@ ms.openlocfilehash: 26353f84e22aec1964f520edc60d036c2ab57c28
 
 <!-- -->
 
-[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
-
 ## <a name="introduction"></a>소개
-Azure Machine Learning Studio 내에서 [데이터 가져오기][import-data] 모듈을 사용하여 실험을 실행하는 동안 여러 온라인 데이터 원본 중 하나의 데이터에 액세스할 수 있습니다.
+Azure 기계 학습 스튜디오 내에서 [데이터 가져오기][import-data] 모듈을 사용하여 실험을 실행하는 동안 여러 온라인 데이터 원본 중 하나의 데이터에 액세스할 수 있습니다.
 
 * HTTP을 사용하는 웹 URL
 * HiveQL을 사용하는 Hadoop
@@ -82,6 +83,6 @@ Azure 기계 학습 **데이터 가져오기** 모듈은 다음과 같은 데이
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

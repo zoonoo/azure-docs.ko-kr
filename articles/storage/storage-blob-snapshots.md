@@ -3,8 +3,8 @@ title: "Blob의 읽기 전용 스냅숏 만들기 | Microsoft Docs"
 description: "지정된 시점에서 Blob 데이터를 백업하는 Blob의 스냅숏을 만드는 방법을 알아봅니다. 용량 요금을 최소화하기 위해 스냅숏의 청구 방법 및 사용 방법을 파악합니다."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: tamram
+ms.date: 12/07/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 664f03a8492178daf342b659595f035b7cccec5a
+ms.sourcegitcommit: cedc76bc46137a5d53fd76c0fdb6ff2db79566a4
+ms.openlocfilehash: 05e999d62d3ffdde708c9898807e79fabcff992e
 
 
 ---
@@ -24,12 +24,12 @@ ms.openlocfilehash: 664f03a8492178daf342b659595f035b7cccec5a
 ## <a name="overview"></a>개요
 스냅숏은 특정 시점에 생성된 Blob의 읽기 전용 버전입니다. 스냅숏은 blob를 백업하는데 유용 합니다. 스냅숏을 만든 후에 읽기, 복사 또는 삭제할 수 있지만 수정할 수 없습니다.
 
-Blob URI에 스냅숏이 만들어진 시점의 시간을 나타내는 Blob URI에 추가된 **DateTime** 값이 있다는 점을 제외하고 Blob의 스냅숏은 해당 Blob와 동일합니다. 예를 들어 페이지 Blob URI가 `http://storagesample.core.blob.windows.net/mydrives/myvhd`이면 스냅숏 URI는 `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`과 유사합니다. 
+Blob URI에 스냅숏이 만들어진 시점의 시간을 나타내는 Blob URI에 추가된 **DateTime** 값이 있다는 점을 제외하고 Blob의 스냅숏은 해당 Blob와 동일합니다. 예를 들어 페이지 Blob URI가 `http://storagesample.core.blob.windows.net/mydrives/myvhd`이면 스냅숏 URI는 `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`과 유사합니다.
 
 > [!NOTE]
 > 모든 스냅숏은 기본 Blob의 URI를 공유합니다. 기본 Blob와 스냅숏의 유일한 차이는 추가된 **DateTime** 값입니다.
-> 
-> 
+>
+>
 
 Blob 하나에 여러 스냅숏이 있을 수 있습니다. 스냅숏을 명시적으로 삭제하기 전까지 유지됩니다. 스냅숏은 해당 기본 Blob보다 수명이 길 수 없습니다. 기본 Blob와 연결된 스냅숏을 열거하여 현재 스냅숏을 추적할 수 있습니다.
 
@@ -98,7 +98,6 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 * 프리미엄 저장소 계정의 페이지 Blob당 최대 스냅숏 수는 100개입니다. 해당 제한을 초과하면 스냅숏 Blob 작업에서 오류 코드 409(**SnapshotCountExceeded**)가 반환됩니다.
 * 프리미엄 저장소 계정의 페이지 Blob 스냅숏은 10분마다 한 번 생성할 수 있습니다. 해당 속도를 초과하면 스냅숏 Blob 작업에서 오류 코드 409(**SnaphotOperationRateExceeded**)가 반환됩니다.
-* Blob 가져오기를 호출하여 프리미엄 저장소 계정에서 페이지 Blob의 스냅숏을 읽을 수는 없습니다. 프리미엄 저장소 계정에서 스냅숏에 대해 Blob 가져오기를 호출하면 오류 코드 400(**InvalidOperation**)이 반환됩니다. 그러나 프리미엄 저장소 계정에서 스냅숏에 대해 Blob 속성 가져오기 및 Blob 메타데이터 가져오기를 호출할 수 있습니다.
 * 스냅숏을 읽으려는 경우 Blob 복사 작업을 사용하여 계정의 다른 페이지 Blob에 스냅숏을 복사할 수 있습니다. 이때 복사 작업의 대상 Blob에는 기존 스냅숏이 없어야 합니다. 대상 Blob에 스냅숏이 있으면 Blob 복사 작업에서 오류 코드 409(**SnapshotsPresent**)가 반환됩니다.
 
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>스냅숏에 대한 절대 URI 반환
@@ -137,11 +136,11 @@ Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 �
 
 > [!NOTE]
 > 모범 사례에 따르면 추가 비용을 방지하기 위해 스냅숏을 철저하게 관리해야 합니다. 즉, 다음과 같은 방식으로 스냅숏을 관리하는 것이 좋습니다.
-> 
+>
 > * 응용 프로그램 디자인상 스냅숏을 유지해야 하는 경우가 아니면, Blob을 업데이트할 때마다 같은 데이터로 업데이트하더라도 해당 Blob에 연결된 스냅숏을 삭제한 후에 다시 만듭니다. Blob의 스냅숏을 삭제한 후에 다시 만들면 Blob와 스냅숏이 달라지지 않습니다.
 > * Blob의 스냅숏을 유지하는 경우에는 **UploadFile**, **UploadText**, **UploadStream** 또는 **UploadByteArray**를 호출하여 Blob을 업데이트하지 않습니다. 이러한 메서드는 Blob의 모든 블록을 바꾸어 기본 Blob 및 스냅숏이 심각하게 달라집니다. 대신 **PutBlock** 및 **PutBlockList** 메서드를 사용하여 가능한 최소 블록 수만 업데이트합니다.
-> 
-> 
+>
+>
 
 ### <a name="snapshot-billing-scenarios"></a>스냅숏 청구 시나리오
 다음 시나리오에서는 블록 Blob와 해당 스냅숏에 대해 비용이 청구되는 방법을 보여 줍니다.
@@ -163,11 +162,11 @@ Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 �
 ![Azure 저장소 리소스](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
 ## <a name="next-steps"></a>다음 단계
-Blob 저장소를 사용하는 추가 예제는 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다. 
+Blob 저장소를 사용하는 추가 예제는 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
