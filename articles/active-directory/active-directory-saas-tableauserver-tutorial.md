@@ -162,7 +162,7 @@ Tableau Server 응용 프로그램은 특정 형식의 SAML 어설션이 필요�
 
     c. Azure 클래식 포털에서 다운로드한 페더레이션 메타데이터 파일을 찾은 다음 **SAML Idp 메타데이터 파일**에 업로드합니다.
 
-    d. Tableau Server 반환 URL - Tableau Server 사용자가 액세스하는 URL(예: http://tableau_server)입니다. Http://localhost를 사용하지 않는 것이 좋습니다. 후행 슬래시가 있는 URL(예: http://tableau_server/)은 지원되지 않습니다. **Tableau Server 반환 URL**을 복사하여 3단계에 표시된 대로 Azure AD **로그온 URL** 텍스트 상자에 붙여 넣습니다.
+    d. Tableau Server 반환 URL - Tableau Server 사용자가 액세스하는 URL예: http://tableau_server 입니다. http://localhost 를 사용하지 않는 것이 좋습니다. 후행 슬래시가 있는 URL(예: http://tableau_server/)은 지원되지 않습니다. **Tableau Server 반환 URL**을 복사하여 3단계에 표시된 대로 Azure AD **로그온 URL** 텍스트 상자에 붙여 넣습니다.
 
     e. SAML 엔터티 ID - 엔터티 ID는 IdP에 대한 Tableau Server 설치를 고유하게 식별합니다. 원하는 경우 여기에 Tableau Server URL을 다시 입력할 수 있지만 반드시 Tableau Server URL을 입력해야 하는 것은 아닙니다. **SAML 엔터티 ID**를 복사하여 3단계에 표시된 대로 Azure AD **식별자** 텍스트 상자에 붙여 넣습니다.
 
