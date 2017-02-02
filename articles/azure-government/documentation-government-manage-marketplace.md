@@ -1,20 +1,19 @@
 ---
 title: "Azure Government 마켓플레이스 | Microsoft 문서"
 description: "이 설명서에서는 Azure Government의 응용 프로그램 개발에 대한 기능 및 지침을 비교합니다."
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: VybavaRamadoss
 manager: asimm
-editor: 
 ms.assetid: b4ffa6c1-30c9-4aef-8938-10326e9f7d1e
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/20/2016
-ms.author: zakramer;vybavar
+ms.date: 11/14/2016
+ms.author: vybavar
 translationtype: Human Translation
 ms.sourcegitcommit: ed6b53a04e5eae593dbcc08d4aa5410f1e2fe3ab
 ms.openlocfilehash: bbb2f3e928124a4da238ad887461d35f69771436

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/07/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1c29cfc0a5b6361a7f526c37d5421ee4be3fe2c1
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
 > [!NOTE]
 > 이 자습서에 포함된 정보는 다음 비디오에서 제공됩니다.
 > 
-> [PTVS 2.1: MySQL을 사용하는 Django 앱][비디오]
+> [PTVS 2.1: MySQL을 사용하는 Django 앱][video]
 > 
 > 
 
@@ -47,7 +47,7 @@ Bottle, Flask 및 Django 웹 프레임워크, Azure 테이블 저장소, MySQL �
 <!-- This note should not render as part of the the previous include. -->
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드 및 약정은 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드 및 약정은 필요하지 않습니다.
 > 
 > 
 
@@ -175,10 +175,10 @@ Python Tools for Visual Studio, Django 및 MySQL에 대해 자세히 알아보�
 [클라우드 서비스 프로젝트]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Django 설명서]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
-[비디오]: http://youtu.be/oKCApIrS0Lo
+[video]: http://youtu.be/oKCApIrS0Lo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

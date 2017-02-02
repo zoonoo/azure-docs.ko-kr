@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4b827760c2095ace72831ed579b9c309b4d8991b
+ms.sourcegitcommit: 5c4b5e09ac5e336504be32533ad011aad102af75
+ms.openlocfilehash: fdc0d76741d5078978e1bfeadd156e84cac3a48a
 
 
 ---
@@ -31,6 +31,19 @@ ms.openlocfilehash: 4b827760c2095ace72831ed579b9c309b4d8991b
 | 테이블, 열 *및 데이터* 를 보고서의 데이터 집합으로 가져오거나 복사합니다. 기본 데이터에서 발생한 변경 내용을 보려면 현재 데이터 집합을 다시 새로 고치거나 가져오거나 완료해야 합니다. |*테이블 및 열* 만 보고서의 데이터 집합으로 가져오거나 복사합니다. 항상 최신 데이터가 표시됩니다. |
 
 Power BI Embedded를 사용하면 클라우드 데이터 원본에서 DirectQuery를 사용할 수 있지만, 현재 온-프레미스 데이터 원본에서는 사용할 수 없습니다.
+
+> [!NOTE]
+> 현재 온-프레미스 데이터 게이트웨이는 Power BI embedded와 지원되지 않습니다. 즉, DirectQuery를 온-프레미스 데이터 원본과 사용할 수 없습니다.
+
+## <a name="supported-data-sources"></a>지원되는 데이터 원본
+
+**DirectQuery**
+* Azure SQL 데이터베이스
+* Azure SQL 데이터 웨어하우스
+
+**가져오기**
+
+Power BI Desktop 내에서 모든 사용 가능한 데이터 원본을 사용하여 가져올 수 있습니다. Power BI Embedded 내의 데이터는 새로 고칠 수 **없습니다**. Power BI embedded에 대한 PBIX 파일에 변경 내용을 업로드해야 합니다. 이는 사용 가능한 게이트웨이가 없기 때문입니다. 
 
 ## <a name="benefits-of-using-directquery"></a>DirectQuery 사용할 경우의 이점
 **DirectQuery**를 사용할 경우 다음 두 가지 주요 이점이 있습니다.
@@ -56,9 +69,11 @@ Power BI Embedded를 사용하면 클라우드 데이터 원본에서 DirectQuer
 * [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO3-->
 
 

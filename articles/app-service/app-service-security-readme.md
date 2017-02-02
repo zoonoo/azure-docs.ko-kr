@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/16/2015
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4c9f70e87b6020afbb7411ff20f4fc5e2459fa0b
+ms.sourcegitcommit: 115505a2819a3e4c65353ac53676004ed288ce39
+ms.openlocfilehash: 7d26d52ad04bd4158a1450ae0f49fc7c1f8a04e8
 
 
 ---
@@ -30,6 +30,6 @@ Azure 앱 서비스는 Azure 클라우드 서비스 및 가상 컴퓨터에서 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

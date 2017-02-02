@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/20/2016
+ms.date: 01/19/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 115668dae46557f6d6caefc9e7c1178768e7e775
+ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
+ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
 
 
 ---
@@ -117,7 +117,7 @@ Adventure Works 샘플 데이터베이스를 설치하려면 다음을 수행합
 이 연습에서는 등록 도구를 사용하여 Adventure Works 데이터베이스의 데이터 자산을 카탈로그에 등록합니다. 등록은 데이터 원본 및 포함된 자산에서 이름, 유형 및 위치와 같은 주요 구조적 메타데이터를 추출하고 카탈로그에 메타데이터를 복사하는 과정입니다. 데이터 원본 및 데이터 자산은 있는 위치에 유지되지만 메타데이터는 보다 쉽게 검색 및 이해할 수 있도록 카탈로그를 통해 사용됩니다.
 
 ### <a name="register-a-data-source"></a>데이터 원본 등록
-1. [Azure Data Catalog 홈 페이지](https://azuredatacatalog.com) 로 이동하고 **데이터 게시**를 클릭합니다.
+1. [Azure Data Catalog 홈 페이지](http://azuredatacatalog.com) 로 이동하고 **데이터 게시**를 클릭합니다.
    
    ![Azure Data Catalog - 데이터 게시 단추](media/data-catalog-get-started/data-catalog-publish-data.png)
 2. **응용 프로그램 시작** 을 클릭하여 컴퓨터에서 등록 도구를 다운로드, 설치 및 실행합니다.
@@ -253,9 +253,9 @@ Azure Data Catalog에서 검색은 검색 및 필터링이라는 두 가지 기�
 
 이 페이지에서 다음을 수행할 수도 있습니다.
 
-* 데이터 자산에 대한 전문가를 추가합니다.  **추가** in the **추가** 를 클릭합니다.
-* 데이터 집합 수준에 태그를 추가합니다.  **추가** in the **추가** 를 클릭합니다. 태그는 사용자 태그 또는 용어집 태그일 수 있습니다. Data Catalog의 표준 버전에는 카탈로그 관리자가 중앙 비즈니스 분류를 정의하는 데 도움이 되는 비즈니스 용어집이 포함되어 있습니다. 그런 다음 카탈로그 사용자는 용어집 용어를 사용하여 데이터 자산에 주석을 추가할 수 있습니다. 자세한 내용은 [관리 태그 지정을 위해 비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)
-* 열 수준에 태그를 추가합니다.  **추가** under **추가** 를 클릭합니다.
+* 데이터 자산에 대한 전문가를 추가합니다. **추가** in the **추가** 를 클릭합니다.
+* 데이터 집합 수준에 태그를 추가합니다. **추가** in the **추가** 를 클릭합니다. 태그는 사용자 태그 또는 용어집 태그일 수 있습니다. Data Catalog의 표준 버전에는 카탈로그 관리자가 중앙 비즈니스 분류를 정의하는 데 도움이 되는 비즈니스 용어집이 포함되어 있습니다. 그런 다음 카탈로그 사용자는 용어집 용어를 사용하여 데이터 자산에 주석을 추가할 수 있습니다. 자세한 내용은 [관리 태그 지정을 위해 비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)
+* 열 수준에 태그를 추가합니다. **추가** under **추가** 를 클릭합니다.
 * 열 수준에 설명을 추가합니다. 열에 **설명** 을 입력합니다. 데이터 원본에서 추출된 설명 메타데이터를 볼 수도 있습니다.
 * 사용자에게 데이터 자산에 대한 액세스를 요청하는 방법을 보여주는 **액세스 요청** 정보를 추가합니다.
   
@@ -366,6 +366,6 @@ Azure Data Catalog에서 개별 자산을 삭제하거나 여러 자산을 삭�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

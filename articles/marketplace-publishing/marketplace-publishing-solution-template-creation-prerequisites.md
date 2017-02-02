@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/28/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47d2b871ea8f169a04250c7d00c996bd27516600
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 40f0e2b1b1b6144b2f9aa5814a4408b4964ede97
 
 
 ---
@@ -26,8 +26,8 @@ ms.openlocfilehash: 47d2b871ea8f169a04250c7d00c996bd27516600
 ## <a name="developing-building-blocks"></a>구성 요소 개발
 게시 포털에서 솔루션 템플릿을 사용하여 계속 진행하기 전에 솔루션의 빌딩 블록을 결정해야 합니다. 다음은 프로세스에 도움이 되는 문서에 대한 일부 링크입니다.
 
-1. [Azure 리소스 관리자 템플릿 설계의 모범 사례](../best-practices-resource-manager-design-templates.md)
-2. [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
+1. [Azure 리소스 관리자 템플릿 설계의 모범 사례](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
+2. [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
 3. Azure 빠른 시작 템플릿
    * [https://azure.microsoft.com/en-us/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
    * [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
@@ -39,6 +39,6 @@ ms.openlocfilehash: 47d2b871ea8f169a04250c7d00c996bd27516600
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

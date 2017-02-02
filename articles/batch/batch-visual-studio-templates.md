@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/07/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3907de9630fec99b1d28c750bfbfdf6f646bf194
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 84e7e6ddf03172e646c55e7e3bf45a32feb15b06
 
 
 ---
@@ -59,7 +59,7 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
     
     * Azure 배치 작업 관리자(작업 분할자 포함)
     * Azure 배치 태스크 프로세서
-  * Visual Studio의 온라인 갤러리에서 템플릿을 다운로드합니다. [Microsoft Azure 배치 프로젝트 템플릿][vs_gallery_templates]
+  * Visual Studio의 온라인 갤러리에서 템플릿을 다운로드합니다. [Microsoft Azure Batch 프로젝트 템플릿][vs_gallery_templates]
 * [응용 프로그램 패키지](batch-application-packages.md) 기능을 사용하여 작업 관리자 및 태스크 프로세서를 Batch 계산 노드에 배포할 계획인 경우 저장소 계정을 배치 계정에 연결해야 합니다.
 
 ## <a name="preparation"></a>준비
@@ -154,7 +154,7 @@ public IEnumerable<CloudTask> Split()
 ```
 
 > [!NOTE]
-> `Split()` 메서드에서 주석이 지정된 섹션은 작업을 서로 다른 태스크로 분리하는 논리를 추가하여 수정하려는 작업 관리자 템플릿 코드의 유일한 섹션입니다. 템플릿의 다른 섹션을 수정하려는 경우 배치가 작동하는 방식을 파악하고 몇 가지 [배치 코드 샘플][github_samples]을 사용해 보세요.
+> `Split()` 메서드에서 주석이 지정된 섹션은 작업을 서로 다른 태스크로 분리하는 논리를 추가하여 수정하려는 작업 관리자 템플릿 코드의 유일한 섹션입니다. 템플릿의 다른 섹션을 수정하려는 경우 Batch가 작동하는 방식을 파악하고 몇 가지 [Batch 코드 샘플][github_samples]을 사용해 보세요.
 > 
 > 
 
@@ -434,10 +434,10 @@ parameters.json이라는 리소스 파일을 찾고 있는 경우 이를 매개 
 
 ## <a name="next-steps"></a>다음 단계
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>작업 유지 및 Azure Storage에 태스크 출력
-배치 솔루션 개발 시 다른 유용한 도구는 [Azure 배치 파일 규칙][nuget_package]입니다. 배치 .NET 응용 프로그램에서 .NET 클래스 라이브러리(현재 미리 보기 상태)를 사용하면 Azure Storage 간에 태스크 출력을 쉽게 저장하고 검색할 수 있습니다. [Azure 배치 작업 및 태스크 출력 보관](batch-task-output.md) 에는 라이브러리 및 사용법에 대한 자세한 내용이 포함되어 있습니다.
+Batch 솔루션 개발 시 다른 유용한 도구는 [Azure Batch 파일 규칙][nuget_package]입니다. 배치 .NET 응용 프로그램에서 .NET 클래스 라이브러리(현재 미리 보기 상태)를 사용하면 Azure Storage 간에 태스크 출력을 쉽게 저장하고 검색할 수 있습니다. [Azure 배치 작업 및 태스크 출력 보관](batch-task-output.md) 에는 라이브러리 및 사용법에 대한 자세한 내용이 포함되어 있습니다.
 
 ### <a name="batch-forum"></a>배치 포럼
-MSDN의 [Azure 배치 포럼][forum]은 배치를 설명하고 서비스에 대해 질문하는 데 많은 도움이 됩니다. 유용한 "고정" 게시물을 참조하고 배치 솔루션을 빌드하는 동안 질문이 생기면 즉시 게시합니다.
+MSDN의 [Azure 배치 포럼][forum]은 Batch를 설명하고 서비스에 대한 질문을 하는 데 많은 도움이 됩니다. 유용한 "고정" 게시물을 참조하고 배치 솔루션을 빌드하는 동안 질문이 생기면 즉시 게시합니다.
 
 [forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
@@ -454,6 +454,6 @@ MSDN의 [Azure 배치 포럼][forum]은 배치를 설명하고 서비스에 대�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

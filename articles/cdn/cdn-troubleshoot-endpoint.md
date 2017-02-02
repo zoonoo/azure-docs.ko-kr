@@ -3,7 +3,7 @@ title: "404 상태를 반환하는 Azure CDN 끝점 문제 해결 | Microsoft Do
 description: "Azure CDN 끝점에서 404 응답 코드 문제를 해결합니다."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: b588a1eb-ab69-4fc7-ae4d-157c3e46f4a8
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 53fdf1fe661167b468ef602634528e4d4173f606

@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1d22ea894852608bbe3e698b3e365df257dcc0b0
+ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
+ms.openlocfilehash: 09ec6d1aae5dc893e92b7c4ca1c30a251d02443d
 
 
 ---
@@ -39,7 +39,7 @@ Azure 앱 서비스 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 �
 * 저장소 공유 변경으로 인해 다시 시작되는 앱이 더 적습니다.
 
 ## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>로컬 캐시가 앱 서비스 동작을 변경하는 방식
-* 로컬 캐시는 웹앱의 /site 및 /siteextensions 폴더의 복사본입니다. 웹앱 시작 시 로컬 VM 인스턴스에서 만들어집니다. 웹앱당 로컬 캐시의 크기는 기본적으로 300MB로 제한되지만 최대 1GB로 증가될 수 있습니다.
+* 로컬 캐시는 웹앱의 /site 및 /siteextensions 폴더의 복사본입니다. 웹앱 시작 시 로컬 VM 인스턴스에서 만들어집니다. 웹앱당 로컬 캐시의 크기는 기본적으로 300MB로 제한되지만 최대 2GB로 증가될 수 있습니다.
 * 로컬 캐시는 읽기/쓰기가 가능합니다. 그러나 웹앱이 가상 컴퓨터를 이동하거나 다시 시작된 경우 모든 수정 내용이 삭제됩니다. 중요 업무용 데이터를 콘텐츠 저장소에 저장하는 앱에 로컬 캐시를 사용해서는 안 됩니다.
 * 웹앱은 현재와 마찬가지로 로그 파일 및 진단 데이터를 계속 기록할 수 있습니다. 그러나 로그 파일 및 데이터는 VM에 로컬로 저장됩니다. 그런 다음 공유 콘텐츠 저장소에 주기적으로 복사됩니다. 공유 콘텐츠 저장소로의 복사는 최상의 시나리오를 전제로 하기 때문에 VM 인스턴스의 갑작스러운 작동 중단으로 인해 나중 쓰기가 손실될 수 있습니다.
 * 로컬 캐시를 사용하는 웹앱의 경우 LogFiles 및 Data 폴더의 폴더 구조가 변경되었습니다. 이제 저장소 "LogFiles" 및 "Data" 폴더에 "고유 식별자" + 타임스탬프 명명 패턴을 따르는 하위 폴더가 있습니다. 각 하위 폴더는 웹앱을 실행 중이거나 실행한 VM 인스턴스에 해당합니다.  
@@ -83,7 +83,7 @@ Azure 앱 서비스 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 �
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>로컬 캐시에서 크기 설정 변경
-기본적으로 로컬 캐시 크기는 **300MB**입니다. 여기에는 Site 폴더, 콘텐츠 저장소에서 복사된 SiteExtensions 폴더, 로컬로 만든 모든 로그 및 데이터 폴더가 포함됩니다. 이 한도를 늘리려면 앱 설정 `WEBSITE_LOCAL_CACHE_SIZEINMB`를 사용합니다. 웹앱당 최대 **1GB** (1000MB)로 늘릴 수 있습니다.
+기본적으로 로컬 캐시 크기는 **300MB**입니다. 여기에는 Site 폴더, 콘텐츠 저장소에서 복사된 SiteExtensions 폴더, 로컬로 만든 모든 로그 및 데이터 폴더가 포함됩니다. 이 한도를 늘리려면 앱 설정 `WEBSITE_LOCAL_CACHE_SIZEINMB`를 사용합니다. 웹앱당 최대 **2GB** (2000MB)로 늘릴 수 있습니다.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>앱 서비스 로컬 캐시 사용에 대한 모범 사례
 로컬 캐시는 [스테이징 환경](../app-service-web/web-sites-staged-publishing.md) 기능과 함께 사용하는 것이 좋습니다.
@@ -91,12 +91,12 @@ Azure 앱 서비스 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 �
 * 값이 `Always`인 *고정* 앱 설정 `WEBSITE_LOCAL_CACHE_OPTION`을 **프로덕션** 슬롯에 추가합니다. `WEBSITE_LOCAL_CACHE_SIZEINMB`를 사용하는 경우 이것도 프로덕션 슬롯에 고정 설정으로 추가합니다.
 * **스테이징** 슬롯을 만들고 사용자의 스테이징 슬롯에 게시합니다. 스테이징 슬롯은 프로덕션 슬롯에 대한 로컬 캐시의 이점을 활용하지만 일반적으로 스테이징 중 원활한 빌드-배포-테스트 수명 주기를 지원하기 위해 로컬 캐시를 사용하지는 않습니다.
 * 스테이징 슬롯에 대해 사이트를 테스트합니다.  
-* 준비가 되면 스테이징 슬롯과 프로덕션 슬롯 간의 [교환 작업](../app-service-web/web-sites-staged-publishing.md#to-swap-deployment-slots) 을 실행합니다.  
+* 준비가 되면 스테이징 슬롯과 프로덕션 슬롯 간의 [교환 작업](../app-service-web/web-sites-staged-publishing.md#Swap) 을 실행합니다.  
 * 고정 설정은 이름 순이며, 슬롯에 고정됩니다. 스테이징 슬롯이 프로덕션으로 교환되면 로컬 캐시 앱 설정을 상속합니다. 새로 교환된 프로덕션 슬롯은 몇 분 후 로컬 캐시에 대해 실행되며, 교환 후 슬롯 준비의 일부로 준비됩니다. 따라서 슬롯 교환이 완료되면 프로덕션 슬롯이 로컬 캐시에 대해 실행됩니다.
 
 ## <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-web-app"></a>내 웹앱에 로컬 캐시가 적용되는지 어떻게 알 수 있나요?
-웹앱에 높은 성능의 안정적인 콘텐츠 저장소가 필요하지만 콘텐츠 저장소를 사용하여 런타임에 중요한 데이터를 기록하지 않고 총 크기가 1GB 미만인 경우에는 적용할 수 있습니다. /site 및 /siteextensions 폴더의 총 크기를 확인하려면 사이트 확장 "Azure 웹앱 디스크 사용량"을 사용하면 됩니다.  
+웹앱에 높은 성능의 안정적인 콘텐츠 저장소가 필요하지만 콘텐츠 저장소를 사용하여 런타임에 중요한 데이터를 기록하지 않고 총 크기가 2GB 미만인 경우에는 적용할 수 있습니다. /site 및 /siteextensions 폴더의 총 크기를 확인하려면 사이트 확장 "Azure 웹앱 디스크 사용량"을 사용하면 됩니다.  
 
 ### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache"></a>사이트가 로컬 캐시를 사용하도록 전환되었는지 어떻게 알 수 있나요?
 스테이징 환경에서 로컬 캐시 기능을 사용하는 경우 로컬 캐시가 준비될 때까지 교환 작업이 완료되지 않습니다. 사이트가 로컬 캐시에 대해 실행되고 있는지 알아보려면 작업자 프로세스 환경 변수 `WEBSITE_LOCALCACHE_READY`를 확인하세요. [작업자 프로세스 환경 변수](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) 페이지의 지침을 사용하여 여러 인스턴스에서 작업자 프로세스 환경 변수에 액세스할 수 있습니다.  
@@ -112,7 +112,6 @@ Azure 앱 서비스 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 �
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

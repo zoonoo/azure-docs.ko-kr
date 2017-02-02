@@ -1,26 +1,37 @@
 ---
-title: Machine Learning Management PowerShell cmdlet을 사용하여 New Web 서비스를 다시 학습 | Microsoft Docs
-description: Machine Learning Management PowerShell cmdlet를 사용하여 Azure 기계 학습에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
+title: "Machine Learning 관리 PowerShell cmdlet을 사용하여 새로운 앱 서비스 다시 학습 | Microsoft Docs"
+description: "Machine Learning Management PowerShell cmdlet를 사용하여 Azure Machine Learning에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondlaghaeian
-editor: ''
-
+editor: 
+ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/13/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 066ff1d2c8255c895fbfcb0ad8c0b1fef298f8c7
+ms.openlocfilehash: d0decc1da1444254c319e7c2e1bbe4f567ef386e
+
 
 ---
 # <a name="retrain-a-new-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Machine Learning Management PowerShell cmdlet을 사용하여 New Web 서비스를 다시 학습
-New Web 서비스를 다시 교육하는 경우 새로 학습된 모델을 참조하여 예측 웹 서비스 정의를 업데이트합니다.  
+새 웹 서비스를 다시 교육하는 경우 새로 학습된 모델을 참조하여 예측 웹 서비스 정의를 업데이트합니다.  
 
 ## <a name="prerequisites"></a>필수 조건
-학습 실험 및 예측 실험을 프로그래밍 방식으로 Machine Learning 모델 재학습에서 보듯이 설정해야 합니다. 학습 및 예측 실험 만들기에 대한 자세한 내용은 [프로그래밍 방식으로 Machine Learning 모델 재학습](machine-learning-retrain-models-programmatically.md)을 참조하세요.
+학습 실험 및 예측 실험을 [프로그래밍 방식으로 Machine Learning 모델 재학습](machine-learning-retrain-models-programmatically.md)에서 보듯이 설정해야 합니다. 
+
+> [!IMPORTANT]
+> 예측 실험을 Azure Resource Manager(신규) 기반 Machine Learning 웹 서비스로 배포해야 합니다. 
+> 
+> 
+
+웹 서비스 배포에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
 
 이 프로세스는 Azure Machine Learning Cmdlets 설치가 필요합니다. Machine Learning cmdlet 설치에 관한 정보는 MSDN의 [Azure Machine Learning Cmdlets](https://msdn.microsoft.com/library/azure/mt767952.aspx) 참조를 참조하세요.
 
@@ -65,8 +76,8 @@ New Web 서비스를 다시 교육하는 경우 새로 학습된 모델을 참�
 
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
-## <a name="update-the-reference-to-the-ilearner-blob-in-the-json."></a>JSON에서 ilearner blob에 대한 참조를 업데이트합니다.
-자산에서 [학습된 모델]을 찾아, ilearner Blob의 URI와 함께 *locationInfo* 노드의 *uri* 값을 업데이트합니다. URI는 BES 재학습 호출의 출력에서 *BaseLocation* 및 *RelativeLocation*을 조합하여 만듭니다.
+## <a name="update-the-reference-to-the-ilearner-blob-in-the-json"></a>JSON에서 ilearner blob에 대한 참조를 업데이트합니다.
+자산에서 [학습된 모델]을 찾아, ilearner Blob의 URI와 함께 *locationInfo* 노드의 *uri* 값을 업데이트합니다. URI는 BES 재학습 호출의 출력에서 *BaseLocation* 및 *RelativeLocation*을 조합하여 만듭니다. 이렇게 새로 학습된 모델을 참조하는 경로를 업데이트합니다.
 
      "asset3": {
         "name": "Retrain Samp.le [trained model]",
@@ -82,13 +93,13 @@ New Web 서비스를 다시 교육하는 경우 새로 학습된 모델을 참�
       },
 
 ## <a name="import-the-json-into-a-web-service-definition"></a>JSON을 웹 서비스 정의로 가져오기
-수정된 JSON 파일을 예측 실험을 업데이트하는 데 사용할 수 있는 웹 서비스 정의로 변환하려면 [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) cmdlet을 사용해야 합니다.
+수정된 JSON 파일을 웹 서비스 정의를 업데이트하는 데 사용할 수 있는 웹 서비스 정의로 변환하려면 [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) cmdlet을 사용해야 합니다.
 
     $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 
 ## <a name="update-the-web-service-with-new-web-service-definition"></a>웹 서비스를 새 웹 서비스 정의로 업데이트합니다.
-마지막으로, [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) cmdlet를 사용하여 예측 실험을 업데이트합니다.
+마지막으로, [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) cmdlet를 사용하여 웹 서비스 정의를 업데이트합니다.
 
     Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'  -ServiceUpdates $wsd
 
@@ -98,6 +109,9 @@ Machine Learning PowerShell Management cmdlet을 사용하여 다음과 같은 �
 * 새 데이터를 사용하는 주기적 모델 재학습.
 * 자신의 데이터를 사용하여 모델을 다시 학습할 수 있도록 하는 것을 목표로 고객에게 모델 배포.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO3-->
 
 

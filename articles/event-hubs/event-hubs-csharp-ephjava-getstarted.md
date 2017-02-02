@@ -1,5 +1,5 @@
 ---
-title: "C#로 작성된 Event Hubs 시작 | Microsoft Docs"
+title: "Azure Event Hubs를 사용하여 C#으로 이벤트 보내기, Java로 수신 | Microsoft Docs"
 description: "이 자습서에 따라 Azure 이벤트 허브를 사용하여 C로 이벤트를 보내고 EventProcessorHost를 통해 Java로 이벤트를 받을 수 있습니다."
 services: event-hubs
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: c9aa7cebab12eafe71476ee45ef578d3201e69e5
-ms.openlocfilehash: e7c38aa5a778d5e8a653e753e5794d7c7da31dc1
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: b58ae52cfb825fe9fe782e2f1bac4a067bdba469
 
 
 ---
@@ -67,6 +67,6 @@ ms.openlocfilehash: e7c38aa5a778d5e8a653e753e5794d7c7da31dc1
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

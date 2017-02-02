@@ -1,10 +1,10 @@
 ---
-title: "가상 네트워크 VPN 게이트웨이 FAQ | Microsoft Docs"
-description: "VPN 게이트웨이 FAQ. Microsoft Azure 가상 네트워크 프레미스 간 연결, 하이브리드 구성 연결 및 VPN 게이트웨이에 대한 FAQ"
+title: Azure VPN Gateway FAQ | Microsoft Docs
+description: "VPN 게이트웨이 FAQ. Microsoft Azure Virtual Network 프레미스 간 연결, 하이브리드 구성 연결 및 VPN Gateway에 대한 FAQ입니다."
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: cherylmc
+manager: timlt
 editor: 
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2016
-ms.author: yushwang
+ms.date: 01/10/2017
+ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e7d0fa43001268fc4747bbf40d3dc209aa037a67
+ms.sourcegitcommit: fa909503d13805bec32698e039ad24424d5fa8e9
+ms.openlocfilehash: 964b0f781891bce671172e2cf27557624e8ddbd4
 
 
 ---
@@ -102,7 +102,7 @@ Express 경로 연결은 인터넷을 통한 일반 연결보다 안정적이고
 자동 다시 연결과 DDNS는 현재 지점 및 사이트 간 VPN에서 지원되지 않습니다.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>동일한 가상 네트워크에 대해 사이트 간 구성과 지점 및 사이트 간 구성을 함께 사용할 수 있습니까?
-예. 게이트웨이에 경로 기반 VPN 유형이 있는 경우 이 솔루션이 모두 작동합니다. 클래식 배포 모델의 경우 동적 게이트웨이가 필요합니다. 고정 라우팅 VPN 게이트웨이 또는 VpnType PolicyBased를 사용하는 게이트웨이에 지점 및 사이트 간을 지원하지 않습니다.
+예. 게이트웨이에 경로 기반 VPN 유형이 있는 경우 이 솔루션이 모두 작동합니다. 클래식 배포 모델의 경우 동적 게이트웨이가 필요합니다. 고정 라우팅 VPN 게이트웨이 또는 `-VpnType PolicyBased` cmdlet을 사용하는 게이트웨이의 지점 및 사이트 간 연결은 지원하지 않습니다.
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>지점 및 사이트 간 클라이언트를 여러 가상 네트워크에 동시에 연결하도록 구성할 수 있습니까?
 예, 구성할 수 있습니다. 하지만 가상 네트워크에서는 겹치는 IP 접두사를 사용할 수 없으며, 지점 및 사이트 간 주소 공간은 가상 네트워크 간에 겹쳐질 수 없습니다.
@@ -129,7 +129,7 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 ### <a name="can-i-use-other-authentication-options"></a>다른 인증 옵션을 사용할 수 있습니까?
 인증에는 PSK(미리 공유한 키)를 사용하도록 제한됩니다.
 
-### <a name="what-is-the-gateway-subnet-and-why-is-it-needed"></a>"게이트웨이 서브넷"은 무엇이고 왜 필요합니까?
+### <a name="what-is-the-gatewaysubnet-and-why-is-it-needed"></a>"GatewaySubnet"은 무엇이며 왜 필요합니까?
 프레미스 간 연결을 사용하도록 설정하기 위해 게이트웨이 서비스를 설정했습니다.
 
 VNet에 대한 게이트웨이 서브넷을 만들어서 VPN 게이트웨이를 구성해야 합니다. 모든 게이트웨이 서브넷이 제대로 작동하려면 이름을 GatewaySubnet으로 지정해야 합니다. 게이트웨이 서브넷에 다른 이름을 지정하지 않습니다. 게이트웨이 서브넷에 VM 또는 다른 항목을 배포하지 않습니다.
@@ -140,7 +140,14 @@ VNet에 대한 게이트웨이 서브넷을 만들어서 VPN 게이트웨이를 
 아니요.
 
 ### <a name="how-do-i-specify-which-traffic-goes-through-the-vpn-gateway"></a>VPN 게이트웨이를 통해 전송되는 트래픽을 지정하려면 어떻게 해야 합니까?
-Azure 클래식 포털을 사용하는 경우 로컬 네트워크 아래의 네트워크 페이지에서 가상 네트워크에 대해 게이트웨이를 통해 전송할 각 범위를 추가합니다.
+
+####<a name="resource-manager-deployment-model"></a>리소스 관리자 배포 모델
+* PowerShell: "AddressPrefix"를 사용하여 로컬 네트워크 게이트웨이에 대한 트래픽을 지정합니다.
+* Azure Portal: [로컬 네트워크 게이트웨이 > 구성> 주소 공간]으로 이동합니다.
+
+####<a name="classic-deployment-model"></a>클래식 배포 모델
+* Azure Portal: [클래식 가상 네트워크> VPN 연결> 사이트 간 VPN 연결> 로컬 사이트 이름> 로컬 사이트> 클라이언트 주소 공간]으로 이동합니다. 
+* 클래식 포털: [로컬 네트워크] 아래의 [네트워크] 페이지에서 가상 네트워크용 게이트웨이를 통해 전송할 각 범위를 추가합니다. 
 
 ### <a name="can-i-configure-forced-tunneling"></a>강제 터널링을 구성할 수 있습니까?
 예. [강제 터널링 구성](vpn-gateway-about-forced-tunneling.md)을 참조하세요.
@@ -167,7 +174,7 @@ VPN 게이트웨이는 기본적으로 고객 개인 네트워크에 연결하�
 예, IPsec/IKE 암호화로 보호됩니다.
 
 ### <a name="does-vnet-to-vnet-traffic-travel-over-the-azure-backbone"></a>VNet-VNet 트래픽이 Azure 백본에서 이동됩니까?
-예.
+예, 이 트래픽은 Azure 백본을 트래버스하며, 인터넷을 통해 이동하지는 않습니다.
 
 ### <a name="how-many-on-premises-sites-and-virtual-networks-can-one-virtual-network-connect-to"></a>하나의 가상 네트워크에 연결할 수 있는 온-프레미스 사이트 및 가상 네트워크 수는 어떻게 됩니까?
 최대 기본 및 표준 동적 라우팅 게이트웨이의 경우 총 10개, 고성능 VPN 게이트웨이의 경우 총 30개까지 연결할 수 있습니다.
@@ -176,7 +183,7 @@ VPN 게이트웨이는 기본적으로 고객 개인 네트워크에 연결하�
 예, 여러 온-프레미스 사이트 및 기타 가상 네트워크에 연결하는 VPN 게이트웨이에서 지정 및 사이트 간(P2S) VPN을 사용할 수 있습니다.
 
 ### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>다중 사이트 VPN을 사용하여 내 가상 네트워크와 온-프레미스 사이트 간에 여러 터널을 구성할 수 있습니까?
-아니요, Azure 가상 네트워크와 온-프레미스 사이트 간에 중복 터널은 지원되지 않습니다.
+예, 하지만 두 터널의 BGP를 동일한 위치로 구성해야 합니다.
 
 ### <a name="can-there-be-overlapping-address-spaces-among-the-connected-virtual-networks-and-on-premises-local-sites"></a>연결된 가상 네트워크와 온-프레미스 로컬 사이트 사이에 주소 공간이 겹칠 수 있습니까?
 아니요. 주소 공간이 겹치면 네트워크 구성 파일 업로드 또는 "가상 네트워크 만들기"가 실패합니다.
@@ -185,10 +192,12 @@ VPN 게이트웨이는 기본적으로 고객 개인 네트워크에 연결하�
 아니요, 지점 및 사이트 간 VPN을 포함하여 모든 VPN 터널은 동일한 Azure VPN 게이트웨이 및 사용 가능한 대역폭을 공유합니다.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Azure VPN 게이트웨이를 사용하여 온-프레미스 사이트 간에 또는 다른 가상 네트워크에 트래픽을 전송할 수 있습니까?
-**클래식 배포 모델**<br>
- Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 사용할 수 있지만 네트워크 구성 파일에서 정적으로 정의된 주소 공간의 영향을 받습니다. BGP는 클래식 배포 모델을 사용하는 Azure 가상 네트워크 및 VPN 게이트웨이에서 아직 지원되지 않습니다. BGP를 사용하지 않고 전송 주소 공간을 수동으로 정의하면 오류가 발생하기 쉬우므로 사용하지 않는 것이 좋습니다.<br>
-**리소스 관리자 배포 모델**<br>
-Resource Manager 배포 모델을 사용하는 경우 자세한 내용은 [BGP](#bgp) 섹션을 참조하세요.
+
+####<a name="resource-manager-deployment-model"></a>리소스 관리자 배포 모델
+예. 자세한 내용은 [BGP](#bgp) 섹션을 참조하세요.
+
+####<a name="classic-deployment-model"></a>클래식 배포 모델
+Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 사용할 수 있지만 네트워크 구성 파일에서 정적으로 정의된 주소 공간의 영향을 받습니다. BGP는 클래식 배포 모델을 사용하는 Azure 가상 네트워크 및 VPN 게이트웨이에서 아직 지원되지 않습니다. BGP를 사용하지 않고 전송 주소 공간을 수동으로 정의하면 오류가 발생하기 쉬우므로 사용하지 않는 것이 좋습니다.<br>
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Azure는 동일한 가상 네트워크의 모든 VPN 연결에 대해 동일한 IPsec/IKE 미리 공유한 키를 생성합니까?
 아니요, 기본적으로 Azure는 VPN 연결마다 다른 미리 공유한 키를 생성합니다. 하지만 VPN 게이트웨이 키 생성 REST API 또는 PowerShell cmdlet을 사용하여 원하는 키 값을 설정할 수 있습니다. 키는 1 ~ 128자 사이의 영숫자 문자열이어야 합니다.
@@ -216,6 +225,6 @@ Resource Manager 배포 모델을 사용하는 경우 자세한 내용은 [BGP](
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

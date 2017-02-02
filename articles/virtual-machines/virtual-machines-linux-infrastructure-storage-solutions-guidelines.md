@@ -1,5 +1,5 @@
 ---
-title: "저장소 솔루션 지침 | Microsoft Docs"
+title: "Azure Storage 솔루션 지침 | Microsoft Docs"
 description: "Azure 인프라 서비스에서 저장소 솔루션을 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: ad01dd5585eab70404d476e234b8d2dcee93f2a9
+ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
+ms.openlocfilehash: 8b4ee1634981a449d9968f9156df10a9d40baae9
 
 
 ---
-# <a name="storage-infrastructure-guidelines"></a>저장소 인프라 지침
+# <a name="azure-storage-infrastructure-guidelines"></a>Azure Storage 인프라 지침
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 최적의 VM(가상 컴퓨터) 성능을 위한 저장소 요구 사항 및 디자인 고려 사항을 이해하는 데 주안점을 둡니다.
@@ -61,7 +61,7 @@ Azure는 운영 체제 디스크, 임시 디스크를 및 0개 이상의 선택�
 
 Azure Storage 배포를 디자인할 때는 확장성이 어느 정도 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md#storage-limits)을 참조하세요. [Azure Storage 확장성 및 성능 목표](../storage/storage-scalability-targets.md)도 참조하세요.
 
-응용 프로그램 저장소의 경우 문서, 이미지, 백업, 구성 데이터, 로그 등의 구조화되지 않은 개체 데이터를 Blob Storage를 사용하여  저장할 수 있습니다. 응용 프로그램이 VM에 연결된 가상 디스크에 쓰는 대신, Azure Blob 저장소에 직접 쓸 수 있습니다. Blob Storage는 가용성 요구와 비용 제약에 따라 [핫 및 콜드 저장소 계층](../storage/storage-blob-storage-tiers.md) 옵션도 제공합니다.
+응용 프로그램 저장소의 경우 문서, 이미지, 백업, 구성 데이터, 로그 등의 구조화되지 않은 개체 데이터를 저장할 수 있습니다. Blob Storage를 사용합니다. 응용 프로그램이 VM에 연결된 가상 디스크에 쓰는 대신, Azure Blob 저장소에 직접 쓸 수 있습니다. Blob Storage는 가용성 요구와 비용 제약에 따라 [핫 및 콜드 저장소 계층](../storage/storage-blob-storage-tiers.md) 옵션도 제공합니다.
 
 ## <a name="striped-disks"></a>스트라이프 디스크
 데이터 디스크의 스트라이프는 대부분의 경우에 1023GB보다 큰 디스크를 만들 수 있을 뿐만 아니라 단일 볼륨에 대한 저장소를 지원하기 위해 여러 Blob을 허용하여 성능을 강화합니다. 스트라이프에서는 단일 논리적 디스크에서 데이터를 읽고 쓰는 데 필요한 I/O가 병렬로 진행됩니다.
@@ -88,6 +88,6 @@ Azure Storage 환경을 디자인할 때 배포하는 VM 수가 증가할 경우
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

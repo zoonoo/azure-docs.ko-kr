@@ -1,5 +1,5 @@
 ---
-title: "Windows 가상 컴퓨터 지침 | Microsoft Docs"
+title: "Azure 가상 컴퓨터 지침 | Microsoft Docs"
 description: "Azure에서 Windows 가상 컴퓨터를 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 923f2128eef294a4d5f14638f4be622618ed812d
+ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
+ms.openlocfilehash: 513edca959a3a9a8d6a8bf7d7620da9ad8a7d879
 
 
 ---
-# <a name="virtual-machines-guidelines"></a>가상 컴퓨터 지침
+# <a name="azure-virtual-machines-guidelines-for-windows"></a>Windows용 Azure 가상 컴퓨터 지침
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 Azure 환경 내에서 VM(가상 컴퓨터)을 만들고 관리하는 데 필요한 계획 단계를 이해하는 데 주안점을 둡니다.
@@ -41,7 +41,7 @@ ms.openlocfilehash: 923f2128eef294a4d5f14638f4be622618ed812d
 * Azure PowerShell, 웹 포털 또는 Resource Manager 템플릿을 사용하여 VM을 만듭니다.
 
 ## <a name="virtual-machines"></a>가상 컴퓨터
-Azure 환경 내의 주요 구성 요소 중 하나가 VM일 것입니다. 여기서 응용 프로그램, 데이터베이스, 인증, 서비스 등을 실행합니다.
+Azure 환경 내의 주요 구성 리소스 중 하나가 VM일 것입니다. 이 리소스에서 응용 프로그램, 데이터베이스, 인증, 서비스 등을 실행합니다.
 
 성능 및 비용 측면에서 환경 규모를 올바르게 조정하려면 [다양한 VM 크기](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 이해하는 것이 중요합니다. VM에 충분한 CPU 코어 또는 메모리가 없으면 디자인 및 개발 품질과 관계없이 응용 프로그램의 성능이 저하됩니다. 인프라의 각 구성 요소에 사용할 VM 크기를 결정할 때는 각 VM 시리즈에 대해 제안된 워크로드를 먼저 검토해야 합니다. 배포 후에 [VM의 크기를 변경](https://azure.microsoft.com/blog/resize-virtual-machines/) 할 수 있습니다.
 
@@ -59,6 +59,6 @@ VM과 같은 구성 요소는 손쉬운 관리 및 유지 관리를 위해 [Azur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

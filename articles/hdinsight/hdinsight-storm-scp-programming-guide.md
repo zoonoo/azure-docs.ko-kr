@@ -1,13 +1,12 @@
-
 ---
-title: SCP.NET programming guide | Microsoft Docs
-description: Learn how to use SCP.NET to create .NET-based Storm topologies for use with Storm on HDInsight.
+title: "SCP.NET 프로그래밍 가이드 | Microsoft Docs"
+description: "HDInsight의 Storm 사용을 위해 SCP.NET을 사용하여 .NET 기반 Storm 토폴로지를 만드는 방법에 대해 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: raviperi
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 34192ed0-b1d1-4cf7-a3d4-5466301cf307
 ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: article
@@ -15,38 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: raviperi
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 6410ea44861c59841d945390de326a805ee4b8e1
+
 
 ---
-# <a name="scp-programming-guide"></a>SCP programming guide
-SCP is a platform to build real time, reliable, consistent and high performance data processing application. It is built on top of [Apache Storm](http://storm.incubator.apache.org/) -- a stream processing system designed by the OSS communities. Storm is designed by Nathan Marz and open sourced by Twitter. It leverages [Apache ZooKeeper](http://zookeeper.apache.org/), another Apache project to enable highly reliable distributed coordination and state management. 
+# <a name="scp-programming-guide"></a>SCP 프로그래밍 가이드
+SCP는 안정적이며 일관성 있는 실시간 고성능 데이터 처리 응용 프로그램을 빌드하기 위한 플랫폼입니다. 이 플랫폼은 OSS 커뮤니티에서 디자인한 스트림 처리 시스템인 [Apache Storm](http://storm.incubator.apache.org/)을 기반으로 구축되었습니다. Nathan Marz가 디자인한 Storm은 Twitter에서 오픈 소스 방식으로 제공되며, 매우 안정적인 분산 방식 조정과 상태 관리를 수행하는 데 사용할 수 있는 또 다른 Apache 프로젝트인 [Apache ZooKeeper](http://zookeeper.apache.org/)를 활용합니다. 
 
-Not only the SCP project ported Storm on Windows but also the project added extensions and customization for the Windows ecosystem. The extensions include .NET developer experience, and libraries, the customization includes Windows-based deployment. 
+SCP 프로젝트를 통해 Windows에서 Storm을 포팅할 수 있을 뿐 아니라 Windows 에코시스템용 확장 및 사용자 지정도 추가할 수 있습니다. 이 확장에는 .NET 개발자 환경과 라이브러리가 포함되고 사용자 지정에는 Windows 기반 배포가 포함됩니다. 
 
-The extension and customization is done in such a way that we do not need to fork the OSS projects and we could leverage derived ecosystems built on top of Storm.
+확장과 사용자 지정은 OSS 프로젝트를 분기하지 않아도 되는 방식으로 수행되며, Storm을 기반으로 구축된 파생 에코시스템을 활용할 수 있습니다.
 
-## <a name="processing-model"></a>Processing model
-The data in SCP is modeled as continuous streams of tuples. Typically the tuples flow into some queue first, then picked up, and transformed by business logic hosted inside a Storm topology, finally the output could be piped as tuples to another SCP system, or be committed to stores like distributed file system or databases like SQL Server.
+## <a name="processing-model"></a>처리 모델
+SCP의 데이터는 튜플의 연속 스트림으로 모델링됩니다. 일반적으로 튜플은 먼저 큐로 이동한 다음 Storm 토폴로지 내에서 호스트되는 비즈니스 논리에 의해 선택 및 변환됩니다. 그리고 마지막으로 출력을 다른 SCP 시스템에 튜플로 파이프하거나, SQL Server 등의 데이터베이스 또는 분산 파일 시스템에서와 같이 저장소에 커밋할 수 있습니다.
 
-![A diagram of a queue feeding data to processing, which feeds a data store](media/hdinsight-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
+![데이터 저장소를 피드하는 데이터 피드에서 처리로의 큐 다이어그램](media/hdinsight-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
 
-In Storm, an application topology defines a graph of computation. Each node in a topology contains processing logic, and links between nodes indicate data flow. The nodes to inject input data into the topology are called Spouts, which can be used to sequence the data. The input data could reside in file logs, transactional database, system performance counter etc. The nodes with both input and output data flows are called Bolts, which do the actual data filtering and selections and aggregation.
+Storm에서는 응용 프로그램 토폴로지에 따라 계산 그래프가 정의됩니다. 토폴로지의 각 노드에는 처리 논리가 포함되며 노드 간의 링크는 데이터 흐름을 나타냅니다. 토폴로지에 입력 데이터를 삽입하는 노드인 Spout는 데이터 순서를 지정하는 데 사용할 수 있습니다. 입력 데이터는 파일 로그, 트랜잭션 데이터베이스, 시스템 성능 카운터 등에 있을 수 있습니다. 입력 및 출력 데이터 흐름을 포함하는 노드는 실제 데이터 필터링과 선택 및 집계를 하는 Bolt라고 합니다.
 
-SCP supports best efforts, at-least-once and exactly-once data processing. In a distributed streaming processing application, various errors may happen during data processing, such as network outage, machine failure, or user code error etc. At-least-once processing ensures all data will be processed at least once by replaying automatically the same data when error happens. At-least-once processing is simple and reliable and suits well in many applications. However, when the application requires exact counting, for example, at-least-once processing is insufficient since the same data could potentially be played in the application topology. In that case, exactly-once processing is designed to make sure the result is correct even when the data may be replayed and processed multiple times.
+SCP는 최상의 노력, 최소한 한 번 및 정확히 한 번 방식의 데이터 처리를 지원합니다. 분산된 스트리밍 처리 응용 프로그램에서 네트워크 중단, 컴퓨터 오류 또는 사용자 코드 오류 등과 같은 데이터 처리 중 다양한 오류가 발생할 수 있습니다. 최소한 한 번 방식의 처리는 오류 발생 시 동일한 데이터를 자동으로 재생하여 모든 데이터를 한 번 이상 처리되도록 합니다. 최소한 한 번 방식의 처리는 간단하고 안정적이며 대부분의 응용 프로그램에 적합합니다. 그러나 응용 프로그램에서 정확한 계산을 수행해야 하는 등의 경우에는 응용 프로그램 토폴로지에서 같은 데이터가 재생될 가능성이 있으므로 최소한 한 번 방식의 처리로는 부족합니다. 이러한 경우에는 데이터가 여러 번 재생 및 처리되어도 올바른 결과를 계산하는 정확히 한 번 방식의 처리 방식을 사용해야 합니다.
 
-SCP enables .NET developers to develop real time data process applications while leverage the Java Virtual Machine (JVM) based Storm under the cover. The .NET and JVM communicate via TCP local socket. Basically each Spout/Bolt is a .Net/Java process pair, where the user logic runs in .Net process as a plugin.
+.NET 개발자는 SCP를 통해 JVM(Java Virtual Machine) 기반 Storm을 백그라운드에서 활용하면서 실시간 데이터 프로세스 응용 프로그램을 개발할 수 있습니다. .NET과 JVM은 TCP 로컬 소켓을 통해 통신합니다. 기본적으로 각 Spout/Bolt는 .NET/Java 프로세스 쌍이며 사용자 논리는 .NET 프로세스에서 플러그 인으로 실행됩니다.
 
-To build a data processing application on top of SCP, several steps are needed:
+SCP를 기반으로 데이터 처리 응용 프로그램을 빌드하려면 몇 가지 단계를 수행해야 합니다.
 
-* Design and implement the Spouts to pull in data from queue.
-* Design and implement Bolts to process the input data, and save data to external stores such as Database.
-* Design the topology, then submit and run the topology. The topology defines vertexes and the data flows between the vertexes. SCP will take the topology specification and deploy it on a Storm cluster, where each vertex runs on one logical node. The failover and scaling will be taken care of by the Storm task scheduler.
+* 큐에서 데이터를 끌어오도록 Spout를 디자인 및 구현합니다.
+* 입력 데이터를 처리한 다음 데이터베이스 등의 외부 저장소에 데이터를 저장하도록 Bolt를 디자인 및 구현합니다.
+* 토폴로지를 디자인한 다음 제출하고 실행합니다. 토폴로지는 꼭짓점 및 꼭짓점 간의 데이터 흐름을 정의합니다. SCP는 토폴로지 사양을 가져온 다음 Storm 클러스터에 배포합니다. 이 클러스터의 각 논리 노드에서 개별 꼭짓점이 실행됩니다. Storm 작업 스케줄러가 장애 조치(failover) 및 확장을 처리합니다.
 
-This document will use some simple examples to walk through how to build data processing application with SCP.
+이 문서에서는 몇 가지 간단한 예를 통해 SCP를 사용하여 데이터 처리 응용 프로그램을 빌드하는 방법을 안내합니다.
 
-## <a name="scp-plugin-interface"></a>SCP Plugin Interface
-SCP plugins (or applications) are standalone EXEs that can both run inside Visual Studio during the development phase, and be plugged into the Storm pipeline after deployment in production. Writing the SCP plugin is just the same as writing any other standard Windows console applications. SCP.NET platform declares some interface for spout/bolt, and the user plugin code should implement these interfaces. The main purpose of this design is that the user can focus on their own business logics, and leaving other things to be handled by SCP.NET platform.
+## <a name="scp-plugin-interface"></a>SCP 플러그 인 인터페이스
+SCP 플러그 인(응용 프로그램)은 개발 단계 중에 Visual Studio 내에서도 독립적으로 실행할 수 있고 프로덕션 환경에 배포한 후에 Storm 파이프라인에 연결할 수도 있습니다. SCP 플러그 인 작성 방법은 다른 표준 Windows 콘솔 응용 프로그램 작성 방법과 같습니다. SCP.NET 플랫폼에서는 Spout/Bolt용 인터페이스를 선언하며, 사용자 플러그 인 코드는 이러한 인터페이스를 구현해야 합니다. 이러한 디자인은 기본적으로 사용자가 자신의 비즈니스 논리를 실행하는 데 주력하고 나머지 작업은 SCP.NET 플랫폼이 처리하도록 하기 위한 것입니다.
 
-The user plugin code should implement one of the followings interfaces, depends on whether the topology is transactional or non-transactional, and whether the component is spout or bolt.
+토폴로지의 유형(트랜잭션/비트랜잭션) 및 구성 요소의 유형(Spout/Bolt)에 따라 사용자 플러그 인 코드는 다음 인터페이스 중 하나를 구현해야 합니다.
 
 * ISCPSpout
 * ISCPBolt
@@ -54,14 +57,14 @@ The user plugin code should implement one of the followings interfaces, depends 
 * ISCPBatchBolt
 
 ### <a name="iscpplugin"></a>ISCPPlugin
-ISCPPlugin is the common interface for all kinds of plugins. Currently, it is a dummy interface.
+ISCPPlugin은 모든 종류의 플러그 인에 공통적으로 적용되는 인터페이스로, 현재는 더미 인터페이스입니다.
 
     public interface ISCPPlugin 
     {
     }
 
 ### <a name="iscpspout"></a>ISCPSpout
-ISCPSpout is the interface for non-transactional spout.
+ISCPSpout는 비트랜잭션 Spout용 인터페이스입니다.
 
      public interface ISCPSpout : ISCPPlugin                    
      {
@@ -70,28 +73,28 @@ ISCPSpout is the interface for non-transactional spout.
          void Fail(long seqId, Dictionary<string, Object> parms);  
      }
 
-When `NextTuple()` is called, the C\# user code can emit one or more tuples. If there is nothing to emit, this method should return without emitting anything. It should be noted that `NextTuple()`, `Ack()`, and `Fail()` are all called in a tight loop in a single thread in C\# process. When there are no tuples to emit, it is courteous to have NextTuple sleep for a short amount of time (such as 10 milliseconds) so as not to waste too much CPU.
+`NextTuple()`가 호출되면 C\# 사용자 코드가 하나 이상의 튜플을 내보낼 수 있습니다. 내보낼 튜플이 없으면 아무 항목도 내보내지 않고 이 메서드가 반환되어야 합니다. `NextTuple()`, `Ack()` 및 `Fail()`은 모두 C\# 프로세스 내 단일 스레드의 조밀한 루프에서 호출됩니다. 내보낼 튜플이 없으면 CPU를 너무 많이 낭비하지 않도록 10밀리초 등의 짧은 시간 동안 NextTuple을 유휴 상태로 유지하는 것이 좋습니다.
 
-`Ack()` and `Fail()` will be called only when ack mechanism is enabled in spec file. The `seqId` is used to identify the tuple which is acked or failed. So if ack is enabled in non-transactional topology, the following emit function should be used in Spout:
+`Ack()` 및 `Fail()`은(는) 사양 파일에서 승인 메커니즘이 사용하도록 설정되어 있어야 호출됩니다. `seqId` 은(는) 승인되거나 실패한 튜플을 식별하는 데 사용됩니다. 따라서 비트랜잭션 토폴로지에서 승인이 사용하도록 설정되어 있으면 Spout에서 다음의 내보내기 함수를 사용해야 합니다.
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
-If ack is not supported in non-transactional topology, the `Ack()` and `Fail()` can be left as empty function.
+비트랜잭션 토폴로지에서 승인이 지원되지 않으면 `Ack()` 및 `Fail()`은(는) 빈 함수로 유지될 수 있습니다.
 
-The `parms` input parameters in these functions are just empty Dictionary, they are reserved for future use.
+이러한 함수의 `parms` 입력 매개 변수는 빈 사전이며 나중에 사용하도록 예약됩니다.
 
 ### <a name="iscpbolt"></a>ISCPBolt
-ISCPBolt is the interface for non-transactional bolt.
+ISCPBolt는 비트랜잭션 Bolt용 인터페이스입니다.
 
     public interface ISCPBolt : ISCPPlugin 
     {
     void Execute(SCPTuple tuple);           
     }
 
-When new tuple is available, the `Execute()` function will be called to process it.
+새 튜플을 사용할 수 있으면 `Execute()` 함수가 호출되어 해당 튜플을 처리합니다.
 
 ### <a name="iscptxspout"></a>ISCPTxSpout
-ISCPTxSpout is the interface for transactional spout.
+ISCPTxSpout는 트랜잭션 Spout용 인터페이스입니다.
 
     public interface ISCPTxSpout : ISCPPlugin
     {
@@ -100,16 +103,16 @@ ISCPTxSpout is the interface for transactional spout.
         void Fail(long seqId, Dictionary<string, Object> parms);        
     }
 
-Just like their non-transactional counter-part, `NextTx()`, `Ack()`, and `Fail()` are all called in a tight loop in a single thread in C\# process. When there are no data to emit, it is courteous to have `NextTx` sleep for a short amount of time (10 milliseconds) so as not to waste too much CPU.
+해당하는 비트랜잭션 함수와 마찬가지로 `NextTx()`, `Ack()` 및 `Fail()`은 모두 C\# 프로세스 내 단일 스레드의 조밀한 루프에서 호출됩니다. 내보낼 데이터가 없으면 CPU를 너무 많이 낭비하지 않도록 10밀리초 등의 짧은 시간 동안 `NextTx` 을(를) 유휴 상태로 유지하는 것이 좋습니다.
 
-`NextTx()` is called to start a new transaction, the out parameter `seqId` is used to identify the transaction, which is also used in `Ack()` and `Fail()`. In `NextTx()`, user can emit data to Java side. The data will be stored in ZooKeeper to support replay. Because the capacity of ZooKeeper is very limited, user should only emit metadata, not bulk data in transactional spout.
+`NextTx()`을(를) 호출하여 새 트랜잭션을 시작하고 출력 매개 변수 `seqId`을(를) 사용하여 트랜잭션을 식별하며 `Ack()` 및 `Fail()`에서도 사용됩니다. 사용자는 `NextTx()`에서 Java 쪽으로 데이터를 내보낼 수 있습니다. 재생을 지원하기 위해 데이터는 ZooKeeper에 저장됩니다. ZooKeeper의 용량은 매우 제한되어 있으므로 사용자는 트랜잭션 Spout에서 데이터를 대량으로 내보내서는 안 되며 메타데이터만 내보내야 합니다.
 
-Storm will replay a transaction automatically if it fails, so `Fail()` should not be called in normal case. But if SCP can check the metadata emitted by transactional spout, it can call `Fail()` when the metadata is invalid.
+Storm에서는 트랜잭션이 실패하면 자동으로 재생하므로 일반적인 경우에는 `Fail()` 을(를) 호출하면 안 됩니다. 그러나 SCP는 트랜잭션 Spout에서 내보낸 메타데이터를 확인할 수 있으면 메타데이터가 잘못된 경우 `Fail()` 을(를) 호출할 수 있습니다.
 
-The `parms` input parameters in these functions are just empty Dictionary, they are reserved for future use.
+이러한 함수의 `parms` 입력 매개 변수는 빈 사전이며 나중에 사용하도록 예약됩니다.
 
 ### <a name="iscpbatchbolt"></a>ISCPBatchBolt
-ISCPBatchBolt is the interface for transactional bolt.
+ISCPBatchBolt는 트랜잭션 Bolt용 인터페이스입니다.
 
     public interface ISCPBatchBolt : ISCPPlugin           
     {
@@ -117,25 +120,25 @@ ISCPBatchBolt is the interface for transactional bolt.
         void FinishBatch(Dictionary<string, Object> parms);  
     }
 
-`Execute()` is called when there is new tuple arriving at the bolt. `FinishBatch()` is called when this transaction is ended. The `parms` input parameter is reserved for future use.
+`Execute()` 이(가) 호출됩니다. `FinishBatch()` 이(가) 호출됩니다. `parms` 입력 매개 변수는 나중에 사용하도록 예약됩니다.
 
-For transactional topology, there is an important concept – `StormTxAttempt`. It has two fields, `TxId` and `AttemptId`. `TxId` is used to identify a specific transaction, and for a given transaction, there may be multiple attempt if the transaction fails and is replayed. SCP.NET will new a different ISCPBatchBolt object to process each `StormTxAttempt`, just like what Storm do in Java side. The purpose of this design is to support parallel transactions processing. User should keep it in mind that if transaction attempt is finished, the corresponding ISCPBatchBolt object will be destroyed and garbage collected.
+트랜잭션 토폴로지에는 `StormTxAttempt`(이)라는 중요한 개념이 있습니다. 두 필드 `TxId` 및 `AttemptId`가 있습니다. `TxId`는 특정 트랜잭션을 식별하는 데 사용됩니다. 지정된 트랜잭션이 실패하여 재생되는 경우에는 해당 트랜잭션을 여러 번 시도할 수 있습니다. SCP.NET은 Java 쪽에서 Storm이 수행하는 것처럼 다른 ISCPBatchBolt 개체를 새로 생성하여 각 `StormTxAttempt`을(를) 처리합니다. 이 디자인을 통해 병렬 트랜잭션 처리가 지원됩니다. 사용자는 트랜잭션 시도가 완료되면 해당하는 ISCPBatchBolt 개체는 삭제되며 가비지 수집된다는 점을 기억해야 합니다.
 
-## <a name="object-model"></a>Object Model
-SCP.NET also provides a simple set of key objects for developers to program with. They are **Context**, **StateStore**, and **SCPRuntime**. They will be discussed in the rest part of this section.
+## <a name="object-model"></a>개체 모델
+SCP.NET에서는 개발자가 프로그래밍에 사용할 수 있는 주요 개체의 간단한 집합도 제공합니다. 이러한 개체는 **Context**, **StateStore** 및 **SCPRuntime**입니다. 이 섹션의 나머지 부분에서 각 개체에 대해 설명합니다.
 
 ### <a name="context"></a>Context
-Context provides a running environment to the application. Each ISCPPlugin instance (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) has a corresponding Context instance. The functionality provided by Context can be divided into two parts: (1) the static part which is available in the whole C\# process, (2) the dynamic part which is only available for the specific Context instance.
+Context는 응용 프로그램에 실행 환경을 제공합니다. 각 ISCPPlugin 인스턴스(ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt)에는 해당하는 Context 인스턴스가 있습니다. Context에서 제공하는 기능은 두 부분, 즉 (1) 전체 C\# 프로세스에서 사용할 수 있는 정적 부분과 (2) 특정 Context 인스턴스에서만 사용할 수 있는 동적 부분으로 구분할 수 있습니다.
 
-### <a name="static-part"></a>Static Part
+### <a name="static-part"></a>정적 부분
     public static ILogger Logger = null;
     public static SCPPluginType pluginType;                      
     public static Config Config { get; set; }                    
     public static TopologyContext TopologyContext { get; set; }  
 
-`Logger` is provided for log purpose.
+`Logger` 은(는) 기록용으로 제공됩니다.
 
-`pluginType` is used to indicate the plugin type of the C\# process. If the C\# process is run in local test mode (without Java), the plugin type is `SCP_NET_LOCAL`.
+`pluginType`은 C\# 프로세스의 플러그 인 유형을 나타내는 데 사용됩니다. C\# 프로세스를 Java 없이 로컬 테스트 모드에서 실행하는 경우 플러그 인 유형은 `SCP_NET_LOCAL`입니다.
 
     public enum SCPPluginType 
     {
@@ -146,12 +149,12 @@ Context provides a running environment to the application. Each ISCPPlugin insta
         SCP_NET_BATCH_BOLT = 4  
     }
 
-`Config` is provided to get configuration parameters from Java side. The parameters are passed from Java side when C\# plugin is initialized. The `Config` parameters are divided into two parts: `stormConf` and `pluginConf`.
+`Config` 은(는) Java 쪽에서 구성 매개 변수를 가져오기 위한 용도로 제공됩니다. C\# 플러그 인을 초기화할 때 Java 쪽에서 매개 변수가 전달됩니다. `Config` 매개 변수는 `stormConf` 및 `pluginConf`의 두 부분으로 나뉩니다.
 
     public Dictionary<string, Object> stormConf { get; set; }  
     public Dictionary<string, Object> pluginConf { get; set; }  
 
-`stormConf` is parameters defined by Storm and `pluginConf` is the parameters defined by SCP. For example:
+`stormConf`은(는) Storm에서 정의하는 매개 변수이고 `pluginConf`은(는) SCP에서 정의하는 매개 변수입니다. 예:
 
     public class Constants
     {
@@ -165,7 +168,7 @@ Context provides a running environment to the application. Each ISCPPlugin insta
         public static readonly String STORM_ZOOKEEPER_PORT = "storm.zookeeper.port";                 
     }
 
-`TopologyContext` is provided to get the topology context, it is most useful for components with multiple parallelism. Here is an example:
+`TopologyContext` 은(는) 토폴로지 컨텍스트를 가져오기 위한 용도로 제공되며 여러 병렬 처리를 수행하는 구성 요소에 가장 유용합니다. 다음은 예제입니다.
 
     //demo how to get TopologyContext info
     if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)                      
@@ -181,8 +184,8 @@ Context provides a running environment to the application. Each ISCPPlugin insta
         Context.Logger.Info("taskNum: {0}", componentTasks.Count);                    
     }
 
-### <a name="dynamic-part"></a>Dynamic Part
-The following interfaces are pertinent to a certain Context instance. The Context instance is created by SCP.NET platform and passed to the user code:
+### <a name="dynamic-part"></a>동적 부분
+아래에는 특정 Context 인스턴스와 관련된 인터페이스가 나와 있습니다. Context 인스턴스는 SCP.NET 플랫폼에서 작성되어 사용자 코드로 전달됩니다.
 
     // Declare the Output and Input Stream Schemas
 
@@ -194,23 +197,23 @@ The following interfaces are pertinent to a certain Context instance. The Contex
     // Emit tuple to the specific stream.
     public abstract void Emit(string streamId, List<object> values);  
 
-For non-transactional spout supporting ack, the following method is provided:
+승인을 지원하는 비트랜잭션 Spout의 경우에는 다음 메서드가 제공됩니다.
 
     // for non-transactional Spout which supports ack
     public abstract void Emit(string streamId, List<object> values, long seqId);  
 
-For non-transactional bolt supporting ack, it should explicitly `Ack()` or `Fail()` the tuple it received. And when emitting new tuple, it must also specify the anchors of the new tuple. The following methods are provided.
+승인을 지원하는 비트랜잭션 Bolt는 수신한 튜플에 대해 명시적으로 `Ack()` 또는 `Fail()`을(를) 실행해야 합니다. 그리고 새 튜플을 내보낼 때는 새 튜플의 앵커도 지정해야 합니다. 다음과 같은 메서드가 제공됩니다.
 
     public abstract void Emit(string streamId, IEnumerable<SCPTuple> anchors, List<object> values); 
     public abstract void Ack(SCPTuple tuple);
     public abstract void Fail(SCPTuple tuple);
 
 ### <a name="statestore"></a>StateStore
-`StateStore` provides metadata services, monotonic sequence generation, and wait-free coordination. Higher-level distributed concurrency abstractions can be built on `StateStore`, including distributed locks, distributed queues, barriers, and transaction services.
+`StateStore` 은(는) 메타데이터 서비스, 단조 시퀀스 생성 및 비대기 조정 기능을 제공합니다. `StateStore`을(를) 기반으로 하여 분산 잠금, 분산 큐, 장벽 및 트랜잭션 서비스를 비롯한 높은 수준의 분산형 동시성 추상화를 작성할 수 있습니다.
 
-SCP applications may use the `State` object to persist some information in ZooKeeper, especially for transactional topology. Doing so, if transactional spout crashes and restart, it can retrieve the necessary information from ZooKeeper and restart the pipeline.
+SCP 응용 프로그램은 `State` 개체를 사용하여 ZooKeeper에 일부 정보를 영구 보존할 수 있습니다(특히 트랜잭션 토폴로지의 경우). 따라서 트랜잭션 Spout 작동이 중단되어 다시 시작되는 경우 응용 프로그램이 ZooKeeper에서 필요한 정보를 검색하여 파이프라인을 다시 시작할 수 있습니다.
 
-The `StateStore` object mainly has these methods:
+`StateStore` 개체는 기본적으로 다음 메서드를 포함합니다.
 
     /// <summary>
     /// Static method to retrieve a state store of the given path and connStr 
@@ -265,7 +268,7 @@ The `StateStore` object mainly has these methods:
     /// <typeparam name="T">stateId, id of the State</typeparam>
     public State GetState(long stateId)
 
-The `State` object mainly has these methods:
+`State` 개체는 기본적으로 다음 메서드를 포함합니다.
 
     /// <summary>
     /// Set the status of the state object to commit 
@@ -291,26 +294,26 @@ The `State` object mainly has these methods:
     /// <returns>State Attribute</returns>               
     public T GetAttribute<T>(string key);                    
 
-For the `Commit()` method, when simpleMode is set to true, it will simply delete the corresponding ZNode in ZooKeeper. Otherwise, it will delete the current ZNode, and adding a new node in the COMMITTED\_PATH.
+`Commit()` 메서드의 경우 simpleMode를 true로 설정하면 ZooKeeper에서 해당 ZNode만 삭제합니다. 그렇지 않은 경우에는 현재 ZNode를 삭제하고 COMMITTED\_PATH에 새 노드를 추가합니다.
 
 ### <a name="scpruntime"></a>SCPRuntime
-SCPRuntime provides the following two methods.
+SCPRuntime은 다음의 두 메서드를 제공합니다.
 
     public static void Initialize();
 
     public static void LaunchPlugin(newSCPPlugin createDelegate);  
 
-`Initialize()` is used to initialize the SCP runtime environment. In this method, the C\# process will connect to the Java side, and gets configuration parameters and topology context.
+`Initialize()` 은(는) SCP 런타임 환경을 초기화하는 데 사용됩니다. 이 메서드에서 C\# 프로세스는 Java 쪽에 연결되며 구성 매개 변수와 토폴로지 컨텍스트를 가져옵니다.
 
-`LaunchPlugin()` is used to kick off the message processing loop. In this loop, the C\# plugin will receive messages form Java side (including tuples and control signals), and then process the messages, perhaps calling the interface method provide by the user code. The input parameter for method `LaunchPlugin()` is a delegate that can return an object that implement ISCPSpout/IScpBolt/ISCPTxSpout/ISCPBatchBolt interface.
+`LaunchPlugin()`은(는) 메시지 처리 루프를 시작하는 데 사용됩니다. 이 루프에서 C\# 플러그 인은 Java 쪽에서 메시지(튜플과 제어 신호 포함)를 받은 다음 처리합니다. 이때 사용자 코드에서 제공하는 인터페이스 메서드를 호출할 수 있습니다. `LaunchPlugin()` 메서드의 입력 매개 변수는 ISCPSpout/IScpBolt/ISCPTxSpout/ISCPBatchBolt 인터페이스를 구현하는 개체를 반환할 수 있는 대리자입니다.
 
     public delegate ISCPPlugin newSCPPlugin(Context ctx, Dictionary\<string, Object\> parms); 
 
-For ISCPBatchBolt, we can get `StormTxAttempt` from `parms`, and use it to judge whether it is a replayed attempt. This is usually done at the commit bolt, and it is demonstrated in the `HelloWorldTx` example.
+ISCPBatchBolt의 경우 `parms`에서 `StormTxAttempt`을(를) 가져와 해당 시도가 재생된 시도인지를 판단하는 데 사용할 수 있습니다. 이 작업은 일반적으로 커밋 Bolt에서 수행됩니다. `HelloWorldTx` 예제에서 해당 작업을 확인할 수 있습니다.
 
-Generally speaking, the SCP plugins may run in two modes here:
+일반적으로 여기서 SCP 플러그 인은 두 가지 모드로 실행될 수 있습니다.
 
-1. Local Test Mode: In this mode, the SCP plugins (the C\# user code) run inside Visual Studio during the development phase. `LocalContext` can be used in this mode, which provides method to serialize the emitted tuples to local files, and read them back to memory.
+1. 로컬 테스트 모드: 이 모드에서 SCP 플러그 인(C\# 사용자 코드)은 개발 단계 중에 Visual Studio 내에서 실행됩니다. `LocalContext` 을(를) 사용할 수 있습니다.
    
         public interface ILocalContext
         {
@@ -318,9 +321,9 @@ Generally speaking, the SCP plugins may run in two modes here:
             void WriteMsgQueueToFile(string filepath, bool append = false);  
             void ReadFromFileToMsgQueue(string filepath);                    
         }
-2. Regular Mode: In this mode, the SCP plugins are launched by storm java process.
+2. 일반 모드: 이 모드에서는 Storm Java 프로세스를 통해 SCP 플러그 인을 시작합니다.
    
-    Here is an example of launching SCP plugin:
+    SCP 플러그 인을 시작하는 예는 다음과 같습니다.
    
         namespace Scp.App.HelloWorld
         {
@@ -346,59 +349,59 @@ Generally speaking, the SCP plugins may run in two modes here:
         }
         }
 
-## <a name="topology-specification-language"></a>Topology Specification Language
-SCP Topology Specification is a domain specific language for describing and configuring SCP topologies. It is based on Storm’s Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) and is extended by SCP.
+## <a name="topology-specification-language"></a>토폴로지 사양 언어
+SCP 토폴로지 사양은 SCP 토폴로지를 설명하고 구성하기 위한 도메인별 언어로, Storm의 Clojure DSL(<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>)을 기반으로 하며 SCP에 의해 확장됩니다.
 
-Topology specifications can be submitted directly to storm cluster for execution via the ***runspec*** command.
+***runspec*** 명령을 통해 토폴로지 사양을 실행용으로 Storm 클러스터에 직접 제출할 수 있습니다.
 
-SCP.NET has add follow functions to define the Transactional Topology:
+SCP.NET에는 트랜잭션 토폴로지를 정의하는 다음 함수가 추가되었습니다.
 
-| **New Functions** | **Parameters** | **Description** |
+| **새 함수** | **매개 변수** | **설명** |
 | --- | --- | --- |
-| **tx-topolopy** |topology-name<br />spout-map<br />bolt-map |Define a transactional topology with the topology name, &nbsp;spouts definition map and the bolts definition map |
-| **scp-tx-spout** |exec-name<br />args<br />fields |Define a transactional spout. It will run the application with ***exec-name*** using ***args***.<br /><br />The ***fields*** is the Output Fields for spout |
-| **scp-tx-batch-bolt** |exec-name<br />args<br />fields |Define a transactional Batch Bolt. It will run the application with ***exec-name*** using ***args.***<br /><br />The Fields is the Output Fields for bolt. |
-| **scp-tx-commit-bolt** |exec-name<br />args<br />fields |Define a transactional Committer Bolt. It will run the application with ***exec-name*** using ***args***.<br /><br />The ***fields*** is the Output Fields for bolt |
-| **nontx-topolopy** |topology-name<br />spout-map<br />bolt-map |Define a nontransactional topology with the topology name,&nbsp; spouts definition map and the bolts definition map |
-| **scp-spout** |exec-name<br />args<br />fields<br />parameters |Define a nontransactional spout. It will run the application with ***exec-name*** using ***args***.<br /><br />The ***fields*** is the Output Fields for spout<br /><br />The ***parameters*** is optional, using it to specify some parameters such as "nontransactional.ack.enabled". |
-| **scp-bolt** |exec-name<br />args<br />fields<br />parameters |Define a nontransactional Bolt. It will run the application with ***exec-name*** using ***args***.<br /><br />The ***fields*** is the Output Fields for bolt<br /><br />The ***parameters*** is optional, using it to specify some parameters such as "nontransactional.ack.enabled". |
+| **tx-topolopy** |topology-name<br />spout-map<br />bolt-map |토폴로지 이름, &nbsp;Spout 정의 맵 및 Bolt 정의 맵으로 트랜잭션 토폴로지를 정의합니다. |
+| **scp-tx-spout** |exec-name<br />args<br />fields |트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Spout의 출력 필드입니다. |
+| **scp-tx-batch-bolt** |exec-name<br />args<br />fields |트랜잭션 Batch Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />Fields는 Bolt의 출력 필드입니다. |
+| **scp-tx-commit-bolt** |exec-name<br />args<br />fields |트랜잭션 Committer Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Bolt의 출력 필드입니다. |
+| **nontx-topolopy** |topology-name<br />spout-map<br />bolt-map |토폴로지 이름, &nbsp; Spout 정의 맵 및 Bolt 정의 맵으로 비트랜잭션 토폴로지를 정의합니다. |
+| **scp-spout** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Spout의 출력 필드입니다.<br /><br />***parameters*** 는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
+| **scp-bolt** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Bolt의 출력 필드입니다.<br /><br />***parameters*** 는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
 
-SCP.NET has follow keys words defined:
+SCP.NET에서는 다음 키워드가 정의됩니다.
 
-| **Key Words** | **Description** |
+| **키워드** | **설명** |
 | --- | --- |
-| **:name** |Define the Topology Name |
-| **:topology** |Define the Topology using the above functions and build in ones. |
-| **:p** |Define the parallelism hint for each spout or bolt. |
-| **:config** |Define configure parameter or update the existing ones |
-| **:schema** |Define the Schema of Stream. |
+| **:name** |토폴로지 이름을 정의합니다. |
+| **:topology** |위의 함수와 기본 제공 함수를 사용하여 토폴로지를 정의합니다. |
+| **:p** |각 Spout 또는 Bolt에 대해 병렬 처리 힌트를 정의합니다. |
+| **:config** |구성 매개 변수를 정의하거나 기존 매개 변수를 업데이트합니다. |
+| **:schema** |스트림의 스키마를 정의합니다. |
 
-And frequently-used parameters:
+그 외에 자주 사용되는 매개 변수는 다음과 같습니다.
 
-| **Parameter** | **Description** |
+| **매개 변수** | **설명** |
 | --- | --- |
-| **"plugin.name"** |exe file name of the C# plugin |
-| **"plugin.args"** |plugin args |
-| **"output.schema"** |Output schema |
-| **"nontransactional.ack.enabled"** |Whether ack is enabled for nontransactional topology |
+| **"plugin.name"** |C# 플러그 인의 exe 파일 이름입니다. |
+| **"plugin.args"** |플러그 인 인수입니다. |
+| **"output.schema"** |출력 스키마입니다. |
+| **"nontransactional.ack.enabled"** |비트랜잭션 토폴로지에 대해 승인이 사용하도록 설정되는지 여부입니다. |
 
-The runspec command will be deployed together with the bits, the usage is like:
+runspec 명령은 비트와 함께 배포되며 사용 방법은 다음과 같습니다.
 
     .\bin\runSpec.cmd
     usage: runSpec [spec-file target-dir [resource-dir] [-cp classpath]]
     ex: runSpec examples\HelloWorld\HelloWorld.spec specs examples\HelloWorld\Target
 
-The ***resource-dir*** parameter is optional, you need to specify it when you want to plug a C\# application, and this directory will contain the application, the dependencies and configurations.
+***resource-dir*** 매개 변수는 선택 사항입니다. C\# 응용 프로그램을 연결하려는 경우 이 매개 변수를 지정해야 합니다. 이 디렉터리에는 응용 프로그램, 종속성 및 구성이 포함됩니다.
 
-The ***classpath*** parameter is also optional. It is used to specify the Java classpath if the spec file contains Java Spout or Bolt.
+***classpath*** 매개 변수도 선택 사항으로, 사양 파일에 Java Spout 또는 Bolt가 포함되는 경우 Java 클래스 경로를 지정하는 데 사용됩니다.
 
-## <a name="miscellaneous-features"></a>Miscellaneous Features
-### <a name="input-and-output-schema-declaration"></a>Input and Output Schema Declaration
-The user can emit tuple in C\# process, the platform needs to serialize the tuple into byte[], transfer to Java side, and Storm will transfer this tuple to the targets. Meanwhile in downstream component, the C\# process will receive tuple back from java side, and convert it to the original types by platform, all these operations are hidden by the Platform.
+## <a name="miscellaneous-features"></a>기타 기능
+### <a name="input-and-output-schema-declaration"></a>입력 및 출력 스키마 선언
+사용자는 C\# 프로세스에서 튜플을 내보낼 수 있습니다. 플랫폼은 해당 튜플을 byte로 직렬화하고 Java 쪽으로 전송해야 하며, 그러면 Storm에서 이 튜플을 대상으로 전송합니다. 그와 동시에 C\# 프로세스는 다운스트림 구성 요소에서 Java 쪽으로부터 튜플을 다시 받아 플랫폼별 원래 형식으로 변환합니다. 이러한 모든 작업은 플랫폼에 의해 숨겨집니다.
 
-To support the serialization and deserialization, user code needs to declare the schema of the inputs and outputs.
+직렬화와 역직렬화를 지원하려면 사용자 코드가 입력과 출력의 스키마를 선언해야 합니다.
 
-The input/output stream schema is defined as a dictionary, the key is the StreamId and the value is the Types of the columns. The component can have multi-streams declared.
+입력/출력 스트림 스키마는 사전으로 정의되며 키는 StreamId이고 값은 열의 Types입니다. 구성 요소에서 여러 스트림을 선언할 수 있습니다.
 
     public class ComponentStreamSchema
     {
@@ -412,16 +415,16 @@ The input/output stream schema is defined as a dictionary, the key is the Stream
     }
 
 
-In Context object, we have the following API added:
+Context 개체에는 다음 API가 추가되었습니다.
 
     public void DeclareComponentSchema(ComponentStreamSchema schema)
 
-User code must make sure the tuples emitted obey the schema defined for that stream, or the system will throw a runtime exception.
+사용자 코드는 내보낸 튜플이 해당 스트림에 대해 정의된 스키마를 따르는지 확인해야 합니다. 그렇지 않으면 시스템에서 런타임 예외를 throw합니다.
 
-### <a name="multi-stream-support"></a>Multi-Stream Support
-SCP supports user code to emit or receive from multiple distinct streams at the same time. The support reflects in the Context object as the Emit method takes an optional stream ID parameter.
+### <a name="multi-stream-support"></a>여러 스트림 지원
+SCP는 사용자 코드가 여러 고유 스트림에서 동시에 내보내기 또는 수신을 수행할 수 있도록 지원합니다. Emit 메서드가 선택적 스트림 ID 매개 변수를 가져올 때 Context 개체에서 이 지원이 반영됩니다.
 
-Two methods in the SCP.NET Context object have been added. They are used to emit Tuple or Tuples to specify StreamId. The StreamId is a string and it needs to be consistent in both C\# and the Topology Definition Spec.
+SCP.NET Context 개체에는 두 개의 메서드가 추가되었습니다. 이러한 메서드는 StreamId를 지정하기 위해 하나 이상의 튜플을 내보내는 데 사용됩니다. StreamId는 C\#과 토폴로지 정의 사양에서 일치해야 하는 문자열입니다.
 
         /* Emit tuple to the specific stream. */
         public abstract void Emit(string streamId, List<object> values);
@@ -429,12 +432,12 @@ Two methods in the SCP.NET Context object have been added. They are used to emit
         /* for non-transactional Spout only */
         public abstract void Emit(string streamId, List<object> values, long seqId);
 
-The emitting to a non-existing stream will cause runtime exceptions.
+존재하지 않는 스트림으로 내보내기를 수행하는 경우 런타임 예외가 발생합니다.
 
-### <a name="fields-grouping"></a>Fields Grouping
-The build-in Fields Grouping in Strom is not working properly in SCP.NET. On the Java Proxy side, all the fields data types are actually byte[], and the fields grouping uses the byte[] object hash code to perform the grouping. The byte[] object hash code is the address of this object in memory. So the grouping will be wrong for two byte[] objects that share the same content but not the same address.
+### <a name="fields-grouping"></a>필드 그룹화
+Strom의 기본 제공 필드 그룹화는 SCP.NET에서 제대로 작동하지 않습니다. Java 프록시 쪽에서는 모든 필드 데이터 형식은 실제로 byte[]이고 필드 그룹화는 byte[] 개체 해시 코드를 사용하여 그룹화를 수행합니다. byte[] 개체 해시 코드는 메모리에서 이 개체의 주소입니다. 따라서 같은 콘텐츠를 공유하지만 주소는 다른 두 byte[] 개체의 경우 그룹화가 올바르게 적용되지 않습니다.
 
-SCP.NET adds a customized grouping method, and it will use the content of the byte[] to do the grouping. In **SPEC** file, the syntax is like:
+SCP.NET에는 사용자 지정된 그룹화 메서드가 추가되었습니다. 이 메서드는 byte[]의 콘텐츠를 사용하여 그룹화를 수행합니다. **SPEC** 파일의 구문은 다음과 같습니다.
 
     (bolt-spec
         {
@@ -444,39 +447,39 @@ SCP.NET adds a customized grouping method, and it will use the content of the by
     )
 
 
-Here,
+여기서 각 부분의 의미는 다음과 같습니다.
 
-1. "scp-field-group" means "Customized field grouping implemented by SCP".
-2. ":tx" or ":non-tx" means if it’s transactional topology. We need this information since the starting index is different in tx vs. non-tx topologies.
-3. [0,1] means a hashset of field Ids, starting from 0.
+1. "scp-field-group"은 "SCP에서 구현하는 사용자 지정된 필드 그룹화"를 의미합니다.
+2. ":tx" 또는 ":non-tx"는 트랜잭션 토폴로지인지 여부를 의미합니다. 트랜잭션 토폴로지와 비트랜잭션 토폴로지에서는 시작 인덱스가 서로 다르기 때문에 이 정보가 필요합니다.
+3. [0,1]은 0부터 시작하는 필드 ID의 해시 집합을 의미합니다.
 
-### <a name="hybrid-topology"></a>Hybrid topology
-The native Storm is written in Java. And SCP.Net has enhanced it to enable our customs to write C\# code to handle their business logic. But we also support hybrid topologies, which contains not only C\# spouts/bolts, but also Java Spout/Bolts.
+### <a name="hybrid-topology"></a>하이브리드 토폴로지
+원시 Storm은 Java로 작성됩니다. SCP.Net은 고객이 비즈니스 논리를 처리하도록 C\# 코드를 작성할 수 있도록 향상되었습니다. 그러나 C\# Spout/Bolt뿐 아니라 Java Spout/Bolt도 포함하는 하이브리드 토폴로지도 지원됩니다.
 
-### <a name="specify-java-spout/bolt-in-spec-file"></a>Specify Java Spout/Bolt in spec file
-In spec file, "scp-spout" and "scp-bolt" can also be used to specify Java Spouts and Bolts, here is an example:
+### <a name="specify-java-spoutbolt-in-spec-file"></a>사양 파일에서 Java Spout/Bolt 지정
+사양 파일에서 "scp-spout" 및 "scp-bolt"를 사용하여 Java Spout 및 Bolt를 지정할 수도 있습니다. 해당 예제는 다음과 같습니다.
 
     (spout-spec 
       (microsoft.scp.example.HybridTopology.Generator.)           
       :p 1)
 
-Here `microsoft.scp.example.HybridTopology.Generator` is the name of the Java Spout class.
+여기에서 `microsoft.scp.example.HybridTopology.Generator`은(는) Java Spout 클래스의 이름입니다.
 
-### <a name="specify-java-classpath-in-runspec-command"></a>Specify Java Classpath in runSpec Command
-If you want to submit topology containing Java Spouts or Bolts, you need to first compile the Java Spouts or Bolts and get the Jar files. Then you should specify the java classpath that contains the Jar files when submitting topology. Here is an example:
+### <a name="specify-java-classpath-in-runspec-command"></a>runSpec 명령에서 Java 클래스 경로 지정
+Java Spout 또는 Bolt를 포함하는 토폴로지를 제출하려면 먼저 Java Spout 또는 Bolt를 컴파일한 다음 Jar 파일을 가져와야 합니다. 그런 후에 토폴로지를 제출할 때 Jar 파일을 포함하는 Java 클래스 경로를 지정해야 합니다. 다음은 예제입니다.
 
     bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
 
-Here **examples\\HybridTopology\\java\\target\\** is the folder containing the Java Spout/Bolt Jar file.
+여기서 **examples\\HybridTopology\\java\\target\\**은 Java Spout/Bolt Jar 파일을 포함하는 폴더입니다.
 
-### <a name="serialization-and-deserialization-between-java-and-c\#"></a>Serialization and Deserialization between Java and C\
-Our SCP component includes Java side and C\# side. In order to interact with native Java Spouts/Bolts, Serialization/Deserialization must be carried out between Java side and C\# side, as illustrated in the following graph.
+### <a name="serialization-and-deserialization-between-java-and-c"></a>Java와 C\ 간의 직렬화 및 역직렬화
+SCP 구성 요소는 Java 쪽과 C\# 쪽을 포함합니다. 네이티브 Java Spout/Bolt와 상호 작용을 하기 위해 다음 그래프에서 볼 수 있듯이 Java 쪽과 C\# 쪽 사이에서 직렬화/역직렬화를 수행해야 합니다.
 
-![diagram of java component sending to SCP component sending to Java component](media/hdinsight-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
+![Java 구성 요소로 전송하는 SCP 구성 요소로 전송하는 java 구성 요소의 다이어그램](media/hdinsight-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
 
-1. **Serialization in Java side and Deserialization in C\# side**
+1. **Java 쪽의 직렬화 및 C\# 쪽의 역직렬화**
    
-   First we provide default implementation for serialization in Java side and deserialization in C\# side. The serialization method in Java side can be specified in SPEC file:
+   먼저 Java 쪽의 직렬화와 C\# 쪽의 역직렬화를 위한 기본 구현이 제공됩니다. Java 쪽의 직렬화 메서드는 SPEC 파일에서 지정할 수 있습니다.
    
        (scp-bolt
            {
@@ -486,58 +489,65 @@ Our SCP component includes Java side and C\# side. In order to interact with nat
                "customized.java.serializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer"]
            })
    
-   The deserialization method in C\# side should be specified in C\# user code:
+   C\# 쪽의 역직렬화 메서드는 C\# 사용자 코드에서 지정해야 합니다.
    
        Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
        inputSchema.Add("default", new List<Type>() { typeof(Person) });
        this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
        this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());            
    
-   This default implementation should handle most cases if the data type is not too complex. For certain cases, either because the user data type is too complex, or because the performance of our default implementation does not meet the user's requirement, user can plug-in their own implementation.
+   데이터 형식이 너무 복잡하지 않으면 이 기본 구현에서 대부분의 경우를 처리할 수 있습니다. 사용자 데이터 형식이 너무 복잡하거나 기본 구현의 성능이 사용자 요구 사항을 충족하지 않는 등의 특정 경우에는 사용자가 고유한 구현을 연결할 수 있습니다.
    
-   The serialize interface in java side is defined as:
+   Java 쪽의 직렬화 인터페이스는 다음과 같이 정의됩니다.
    
        public interface ICustomizedInteropJavaSerializer {
            public void prepare(String[] args);
            public List<ByteBuffer> serialize(List<Object> objectList);
        }
    
-   The deserialize interface in C\# side is defined as:
+   C\# 쪽의 역직렬화 인터페이스는 다음과 같이 정의됩니다.
    
-   public interface ICustomizedInteropCSharpDeserializer
+   공용 인터페이스 ICustomizedInteropCSharpDeserializer
    
        public interface ICustomizedInteropCSharpDeserializer
        {
            List<Object> Deserialize(List<byte[]> dataList, List<Type> targetTypes);
        }
-2. **Serialization in C\# side and Deserialization in Java side side**
+2. **C\# 쪽의 직렬화 및 Java 쪽의 역직렬화**
    
-   The serialization method in C\# side should be specified in C\# user code:
+   C\# 쪽의 직렬화 메서드는 C\# 사용자 코드에서 지정해야 합니다.
    
        this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer()); 
    
-   The Deserialization method in Java side should be specified in SPEC file:
+   Java 쪽의 역직렬화 메서드는 SPEC 파일에서 지정해야 합니다.
    
-     (scp-spout     {       "plugin.name" "HybridTopology.exe"       "plugin.args" ["generator"]       "output.schema" {"default" ["person"]}       "customized.java.deserializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" "microsoft.scp.example.HybridTopology.Person"]     })
+     (scp-spout
    
-   Here "microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" is the name of Deserializer, and "microsoft.scp.example.HybridTopology.Person" is the target class the data is deserialized to.
+       {
+         "plugin.name" "HybridTopology.exe"
+         "plugin.args" ["generator"]
+         "output.schema" {"default" ["person"]}
+         "customized.java.deserializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" "microsoft.scp.example.HybridTopology.Person"]
+       })
    
-   User can also plug-in their own implementation of C\# serializer and Java Deserializer. This is the interface for C\# serializer:
+   여기에서 "microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer"는 역직렬화의 이름이며 "microsoft.scp.example.HybridTopology.Person"는 데이터가 역직렬화되는 대상 클래스입니다.
+   
+   사용자는 또한 C\# 직렬화 및 Java 역직렬화의 자체 구현을 플러그 인 할 수 있습니다. 다음은 C\# 직렬화에 대한 인터페이스입니다.
    
        public interface ICustomizedInteropCSharpSerializer
        {
            List<byte[]> Serialize(List<object> dataList);
        }
    
-   This is the interface for Java Deserializer:
+   다음은 Java 역직렬화에 대한 인터페이스입니다.
    
        public interface ICustomizedInteropJavaDeserializer {
            public void prepare(String[] targetClassNames);
            public List<Object> Deserialize(List<ByteBuffer> dataList);
        }
 
-## <a name="scp-host-mode"></a>SCP Host Mode
-In this mode, user can compile their codes to DLL, and use SCPHost.exe provided by SCP to submit topology. The spec file looks like this:
+## <a name="scp-host-mode"></a>SCP 호스트 모드
+이 모드에서 사용자는 코드를 DLL로 컴파일한 다음 SCP에서 제공하는 SCPHost.exe를 사용하여 토폴로지를 제출할 수 있습니다. 사양 파일은 다음과 같이 표시됩니다.
 
     (scp-spout
       {
@@ -546,19 +556,19 @@ In this mode, user can compile their codes to DLL, and use SCPHost.exe provided 
         "output.schema" {"default" ["sentence"]}
       })
 
-Here, `plugin.name` is specified as `SCPHost.exe` provided by SCP SDK. SCPHost.exe which accepts exactly three parameters:
+여기에서 `plugin.name`은(는) SCP SDK에서 제공된 `SCPHost.exe`(으)로 지정됩니다. SCPHost.exe는 정확히 3개의 매개 변수를 허용합니다.
 
-1. The first one is the DLL name, which is `"HelloWorld.dll"` in this example.
-2. The second one is the Class name, which is `"Scp.App.HelloWorld.Generator"` in this example.
-3. The third one is the name of a public static method, which can be invoked to get an instance of ISCPPlugin.
+1. 첫 번째 매개 변수는 DLL 이름으로, 이 예에서는 `"HelloWorld.dll"` 입니다.
+2. 두 번째 매개 변수는 Class 이름으로, 이 예에서는 `"Scp.App.HelloWorld.Generator"` 입니다.
+3. 세 번째 매개 변수는 공용 정적 메서드의 이름으로, ISCPPlugin 인스턴스를 가져오기 위해 호출할 수 있습니다.
 
-In host mode, user code is compiled as DLL, and is invoked by SCP platform. So SCP platform can get full control of the whole processing logic. So we recommend our customers to submit topology in SCP host mode since it can simplify the development experience and bring us more flexibility and better backward compatibility for later release as well.
+호스트 모드에서 사용자 코드는 DLL로 컴파일되며 SCP 플랫폼에 의해 호출됩니다. 따라서 SCP 플랫폼은 전체 처리 논리를 완전하게 제어할 수 있습니다. 따라서 고객은 SCP 호스트 모드에서 토폴로지를 제출하는 것이 좋습니다. 이렇게 하면 개발 환경을 간소화할 수 있으며 Microsoft가 향후 릴리스에서 유동성을 높이고 이전 버전과의 호환성을 보다 효율적으로 지원할 수 있습니다.
 
-## <a name="scp-programming-examples"></a>SCP Programming Examples
+## <a name="scp-programming-examples"></a>SCP 프로그래밍 예제
 ### <a name="helloworld"></a>HelloWorld
-**HelloWorld** is a very simple example to show a taste of SCP.Net. It uses a non-transactional topology, with a spout called **generator**, and two bolts called **splitter** and **counter**. The spout **generator** will randomly generate some sentences, and emit these sentences to **splitter**. The bolt **splitter** will split the sentences to words and emit these words to **counter** bolt. The bolt "counter" uses a dictionary to record the occurrence number of each word.
+**HelloWorld** 는 SCP.Net의 사용법을 확인할 수 있는 매우 간단한 예제입니다. 여기에는 **generator**라는 Spout와 **splitter** 및 **counter**라는 Bolt 2개가 포함된 비트랜잭션 토폴로지가 사용됩니다. **generator** Spout는 일부 문장을 임의로 생성하여 **splitter**로 내보냅니다. **splitter** Bolt는 이러한 문장을 단어로 분할한 다음 **counter** Bolt로 단어를 내보냅니다. "counter" Bolt는 사전을 사용하여 각 단어가 나오는 횟수를 기록합니다.
 
-There are two spec files, **HelloWorld.spec** and **HelloWorld\_EnableAck.spec** for this example. In the C\# code, it can find out whether ack is enabled by getting the pluginConf from Java side.
+이 예제에는 **HelloWorld.spec** 및 **HelloWorld\_EnableAck.spec**의 두 가지 사양 파일이 있습니다. C\# 코드는 Java 쪽에서 pluginConf를 가져와 승인이 사용되는지 여부를 확인할 수 있습니다.
 
     /* demo how to get pluginConf info */
     if (Context.Config.pluginConf.ContainsKey(Constants.NONTRANSACTIONAL_ENABLE_ACK))
@@ -567,7 +577,7 @@ There are two spec files, **HelloWorld.spec** and **HelloWorld\_EnableAck.spec**
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-In the spout, if ack is enabled, a dictionary is used to cache the tuples that have not been acked. If Fail() is called, the failed tuple will be replayed:
+승인이 사용되는 경우 Spout에서 사전을 사용하여 승인되지 않은 튜플을 캐시합니다. Fail()을 호출하면 오류가 발생한 튜플이 재생됩니다.
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {
@@ -588,15 +598,15 @@ In the spout, if ack is enabled, a dictionary is used to cache the tuples that h
     }
 
 ### <a name="helloworldtx"></a>HelloWorldTx
-The **HelloWorldTx** example demonstrates how to implement transactional topology. It have one spout called **generator**, a batch bolts called **partial-count**, and a commit bolt called **count-sum**. There are also three pre-created txt files: **DataSource0.txt**, **DataSource1.txt** and **DataSource2.txt**.
+**HelloWorldTx** 예제에서는 트랜잭션 토폴로지 구현 방법을 보여 줍니다. 이 예제에는 **generator** Spout, **partial-count** Batch Bolt 및 **count-sum** Commit Bolt가 있습니다. 또한 미리 작성된 txt 파일 **DataSource0.txt**, **DataSource1.txt** 및 **DataSource2.txt**의 세 개가 있습니다.
 
-In each transaction, the spout **generator** will randomly choose two files from the pre-created three files, and emit the two file names to the **partial-count** bolt. The bolt **partial-count** will first get the file name from the received tuple, then open the file and count the number of words in this file, and finally emit the word number to the **count-sum** bolt. The **count-sum** bolt will summarize the total count.
+각 트랜잭션에서 **generator** Spout는 미리 작성된 3개 파일 중 2개를 임의로 선택하여 이 두 파일 이름을 **partial-count** Bolt로 내보냅니다. 그러면 **partial-count** Batch Bolt는 먼저 수신된 튜플에서 파일 이름을 가져온 다음 파일을 열고 해당 파일의 단어 수를 계산합니다. 그리고 마지막으로 단어 수를 **count-sum** Bolt로 내보냅니다. **count-sum** Bolt는 총 단어 개수의 요약을 표시합니다.
 
-To achieve **exactly once** semantics, the commit bolt **count-sum** need to judge whether it is a replayed transaction. In this example, it has a static member variable:
+**정확히 한 번** 의미 체계를 적용하려면 Commit Bolt **count-sum**은 해당 트랜잭션이 재생된 트랜잭션인지 여부를 판단해야 합니다. 이 예제에서는 "count-sum"에 정적 멤버 변수가 있습니다.
 
     public static long lastCommittedTxId = -1; 
 
-When an ISCPBatchBolt instance is created, it will get the `txAttempt` from input parameters:
+ISCPBatchBolt 인스턴스를 만들면 입력 매개 변수에서 `txAttempt`을(를) 가져옵니다.
 
     public static CountSum Get(Context ctx, Dictionary<string, Object> parms)
     {
@@ -612,7 +622,7 @@ When an ISCPBatchBolt instance is created, it will get the `txAttempt` from inpu
         }
     }
 
-When `FinishBatch()` is called, the `lastCommittedTxId` will be update if it is not a replayed transaction.
+`FinishBatch()`을(를) 호출하면 `lastCommittedTxId`이(가) 업데이트됩니다(재생된 트랜잭션이 아닌 경우).
 
     public void FinishBatch(Dictionary<string, Object> parms)
     {
@@ -630,22 +640,25 @@ When `FinishBatch()` is called, the `lastCommittedTxId` will be update if it is 
 
 
 ### <a name="hybridtopology"></a>HybridTopology
-This topology contains a Java Spout and a C\# Bolt. It uses the default serialization and deserialization implementation provided by SCP platform. Please ref the **HybridTopology.spec** in **examples\\HybridTopology** folder for the spec file details, and **SubmitTopology.bat** for how to specify Java classpath.
+이 토폴로지는 Java Spout와 C\# Bolt를 포함하며, SCP 플랫폼에서 제공하는 기본 직렬화 및 역직렬화 구현을 사용합니다. 사양 파일 세부 정보는 **examples\\HybridTopology** 폴더의 **HybridTopology.spec**을 참조하고 Java 클래스 경로를 지정하는 방법은 **SubmitTopology.bat**를 참조하세요.
 
 ### <a name="scphostdemo"></a>SCPHostDemo
-This example is the same as HelloWorld in essence. The only difference is that the user code is compiled as DLL and the topology is submitted by using SCPHost.exe. Please ref the section "SCP Host Mode" for more detailed explanation.
+이 예제는 기본적으로 HelloWorld와 같습니다. 차이점은 사용자 코드가 DLL로 컴파일되며 토폴로지가 SCPHost.exe를 사용하여 제출된다는 것뿐입니다. 자세한 설명은 "SCP 호스트 모드" 섹션을 참조하세요.
 
-## <a name="next-steps"></a>Next Steps
-For examples of Storm topologies created using SCP, see the following:
+## <a name="next-steps"></a>다음 단계
+SCP를 사용하여 만든 Storm 토폴로지 예제는 다음을 참조하세요.
 
-* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
-* [Process events from Azure Event Hubs with Storm on HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md)
-* [Create multiple data streams in a C# Storm topology](hdinsight-storm-twitter-trending.md)
-* [Use Power Bi to visualize data from a Storm topology](hdinsight-storm-power-bi-topology.md)
-* [Process vehicle sensor data from Event Hubs using Storm on HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
-* [Extract, Transform, and Load (ETL) from Azure Event Hubs to HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
-* [Correlate events using Storm and HBase on HDInsight](hdinsight-storm-correlation-topology.md)
+* [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리](hdinsight-storm-develop-csharp-event-hub-topology.md)
+* [C# Storm 토폴로지에서 여러 데이터 스트림 만들기](hdinsight-storm-twitter-trending.md)
+* [Power BI를 사용하여 Storm 토폴로지에서 데이터 시각화](hdinsight-storm-power-bi-topology.md)
+* [HDInsight의 Storm을 사용하여 이벤트 허브에서 차량 센서 데이터 처리](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
+* [Azure 이벤트 허브에서 HBase로 ETL(추출, 변환 및 로드)](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
+* [HDInsight에서 Storm 및 HBase를 사용하여 이벤트의 상관 관계 지정](hdinsight-storm-correlation-topology.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

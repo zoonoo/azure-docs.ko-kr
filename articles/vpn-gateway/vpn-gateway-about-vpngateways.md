@@ -1,10 +1,10 @@
 ---
-title: "VPN 게이트웨이 정보 | Microsoft Docs"
-description: "Azure 가상 네트워크용 VPN 게이트웨이 연결에 대해 알아봅니다."
+title: "VPN Gateway 개요: Azure 가상 네트워크에 대한 크로스-프레미스 VPN 연결 만들기 | Microsoft Docs"
+description: "이 VPN Gateway 개요에서는 VPN 연결을 사용하여 인터넷을 통해 Azure 가상 네트워크에 연결하는 방법에 대해 설명합니다. 기본 연결 구성의 다이어그램이 포함됩니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
@@ -13,22 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
-ms.openlocfilehash: f74d531006a2c2cc4b12aac846c20c30317cc013
+ms.sourcegitcommit: c47ff077a1a3193559e98278bc930101bed26ba0
+ms.openlocfilehash: e9f34fd4607fa52dec44f27a723ca506cb6cd584
 
 
 ---
 # <a name="about-vpn-gateway"></a>VPN 게이트웨이 정보
-가상 네트워크 게이트웨이는 Azure 가상 네트워크와 온-프레미스 위치 및 Azure 내의 가상 네트워크 간(VNet 간)에 네트워크 트래픽을 보내는 데 사용됩니다. VPN Gateway를 구성할 때 가상 네트워크 게이트웨이 및 가상 네트워크 게이트웨이 연결을 만들고 구성해야 합니다.
+Azure 가상 네트워크와 온-프레미스 위치 간에 네트워크 트래픽을 보내려는 경우 가상 네트워크 게이트웨이를 만들어야 합니다. VPN Gateway는 공용 연결을 통해 암호화된 트래픽을 전송하는 가상 네트워크 게이트웨이의 유형입니다. 또한 가상 네트워크 게이트웨이 사용하여 Microsoft 네트워크를 통해 Azure 가상 네트워크 간에 트래픽을 보낼 수 있습니다.
 
-Resource Manager 배포 모델에서 가상 네트워크 게이트웨이 리소스를 만들 때 몇 가지 설정을 지정합니다. 필요한 설정 중 하나는 '-GatewayType'입니다. 가상 네트워크 게이트웨이 유형은 VPN 및 Express 경로 등 두 가지입니다. 
+가상 네트워크 게이트웨이를 만들 때 몇 가지 설정을 지정합니다. 필요한 설정 중 하나는 '-GatewayType'입니다. 각각의 가상 네트워크에는 게이트웨이 유형당 하나의 가상 네트워크 게이트웨이가 있을 수 있습니다. 예를 들어 '-GatewayType ExpressRoute'를 사용하는 하나의 가상 네트워크 게이트웨이와 '-GatewayType Vpn'을 사용하는 하나의 가상 네트워크 게이트웨이가 있을 수 있습니다. 이 문서에서는 주로 VPN Gateway에 대해 다룹니다. 
 
-네트워크 트래픽을 전용 개인 연결에 전송하면 'Express 경로' 게이트웨이 유형을 사용합니다. 이를 Express 경로 게이트웨이라고도 합니다. 네트워크 트래픽을 공용 연결을 통해 암호화하여 전송하면 'VPN' 게이트웨이 유형을 사용합니다. 이를 VPN Gateway라고도 합니다. 사이트 간, 지점 및 사이트 간, VNet 간 연결은 모두 VPN Gateway를 사용합니다.
-
-각각의 가상 네트워크에는 게이트웨이 유형당 하나의 가상 네트워크 게이트웨이가 있을 수 있습니다. 예를 들어 -GatewayType ExpressRoute를 사용하는 하나의 가상 네트워크 게이트웨이와 -GatewayType Vpn을 사용하는 하나의 가상 네트워크 게이트웨이가 있을 수 있습니다. 이 문서에서는 주로 VPN Gateway에 대해 다룹니다. Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
+네트워크 트래픽을 공용 연결을 통해 암호화하여 전송하면 'VPN' 게이트웨이 유형을 사용합니다. 이를 VPN Gateway라고도 합니다. 사이트 간, 지점 및 사이트 간, VNet 간 연결은 모두 VPN Gateway를 사용합니다. 네트워크 트래픽을 전용 개인 연결에 전송하면 'Express 경로' 게이트웨이 유형을 사용합니다. 이를 Express 경로 게이트웨이라고도 합니다. Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
 
 ## <a name="pricing"></a>가격
 [!INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
@@ -58,12 +56,12 @@ VPN Gateway 연결은 특정 설정으로 구성된 여러 리소스에 따라 �
 ### <a name="site-to-site"></a>사이트 간
 S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통한 연결입니다. 이 연결 유형은 할당된 공용 IP 주소를 가지고 NAT 다음에 위치하지 않는 온-프레미스에 있는 VPN 장치를 필요로 합니다. S2S 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.   
 
-![S2S 연결](./media/vpn-gateway-about-vpngateways/demos2s.png "site-to-site")
+![Azure VPN Gateway 사이트 간 연결 예제](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 
 ### <a name="multi-site"></a>다중 사이트
 VNet과 여러 온-프레미스 네트워크 간의 VPN Gateway 연결을 만들고 구성할 수 있습니다. 여러 연결을 사용하는 경우 경로 기반 VPN 유형(클래식 VNet에 대한 동적 게이트웨이)을 사용해야 합니다. VNet이 하나의 VPN Gateway만 사용할 수 있으므로 게이트웨이를 통한 모든 연결은 사용 가능한 대역폭을 공유합니다. 이는 "다중 사이트" 연결이라고 합니다.
 
-![다중 사이트 연결](./media/vpn-gateway-about-vpngateways/demomulti.png "multi-site")
+![Azure VPN Gateway 다중 사이트 연결 예제](./media/vpn-gateway-about-vpngateways/vpngateway-multisite-connection-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>사이트 간 및 다중 사이트의 배포 모델 및 메서드
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
@@ -77,7 +75,7 @@ VNet과 여러 온-프레미스 네트워크 간의 VPN Gateway 연결을 만들
 * 동일하거나 다른 구독에 위치 
 * 동일하거나 다른 배포 모델
 
-![VNet 간 연결](./media/vpn-gateway-about-vpngateways/demov2v.png "vnet-to-vnet")
+![Azure VPN Gateway VNet 간 연결 예제](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)
 
 #### <a name="connections-between-deployment-models"></a>배포 모델 간의 연결
 Azure에는 현재 클래식 및 Resource Manager 등 두 개의 배포 모델이 있습니다. 일정 기간 동안 Azure를 사용한 경우 Azure VM 및 인스턴스 역할이 클래식 VNet에서 실행되고 있을 것입니다. 이후의 VM 및 역할 인스턴스는 Resource Manager에서 만들 VNet에서 실행되고 있을 것입니다. VNet 간의 연결을 만들어 어떤 VNet의 리소스가 다른 리소스와 서로 직접 통신하도록 할 수 있습니다.
@@ -91,7 +89,7 @@ Azure에는 현재 클래식 및 Resource Manager 등 두 개의 배포 모델�
 ## <a name="point-to-site"></a>지점 및 사이트 간
 지점 및 사이트 간(P2S) VPN Gateway 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. P2S는 SSTP를 통한 VPN 연결입니다(보안 소켓 터널링 프로토콜). P2S 연결을 작동하는 데는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다. 클라이언트 컴퓨터부터 시작하여 VPN 연결을 설정합니다. 이 솔루션은 집 또는 회의와 같은 원격 위치에서 VNet에 연결하려는 경우 또는 몇 명의 클라이언트만 VNet에 연결해야 하는 경우에 유용합니다. P2S 연결은 동일한 VPN Gateway를 통해 S2S 연결과 함께 사용할 수 있으며 두 연결 모두에 대한 구성 요구 사항을 모두 호환하도록 지원합니다.
 
-![지점 및 사이트 간 연결](./media/vpn-gateway-about-vpngateways/demop2s.png "point-to-site")
+![Azure VPN Gateway 지점 및 사이트 연결 예제](./media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-point-to-site"></a>지점 및 사이트에 대한 배포 모델 및 메서드
 [!INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
@@ -106,7 +104,7 @@ Express 경로는 공용 인터넷을 사용하지 않고 WAN에서 Azure를 비
 
 사이트 간 VPN을 Express 경로에 대한 보안 장애 조치(failover) 경로로 구성하거나 사이트 간 VPN을 사용하여 사용자 네트워크의 일부가 아니지만 Express 경로를 통해 연결된 사이트에 연결할 수 있습니다. 여기에는 동일한 가상 네트워크에 대한 두 개의 가상 네트워크 게이트웨이가 필요합니다. 하나는 -GatewayType Vpn을 사용하고 다른 하나는 -GatewayType Express 경로를 사용합니다.
 
-![공존 연결](./media/vpn-gateway-about-vpngateways/demoer.png "expressroute-site2site")
+![ExpressRoute 및 VPN Gateway 공존 연결 예제](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>S2S 및 Express 경로에 대한 배포 모델 및 메서드
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
@@ -117,6 +115,6 @@ VPN Gateway 구성을 계획합니다. [VPN Gateway 계획 및 디자인](vpn-ga
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

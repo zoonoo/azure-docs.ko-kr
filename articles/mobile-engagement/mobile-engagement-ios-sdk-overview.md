@@ -12,18 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/13/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8bfadc110b8b2e0de470185ec9d84343125c960d
+ms.sourcegitcommit: c8bb1161e874a3adda4a71ee889ca833db881e20
+ms.openlocfilehash: cd70b0b5656bef08a8be1c1a67754b203cceb905
 
 
 ---
 # <a name="ios-sdk-for-azure-mobile-engagement"></a>Azure Mobile Engagement용 iOS SDK
 이 문서에서는 iOS 앱에 Azure Mobile Engagement를 통합하는 방법에 대한 모든 세부 사항을 확인할 수 있습니다. 먼저 통합을 연습해 보려면 [15분 자습서](mobile-engagement-ios-get-started.md)의 단계를 진행하세요
 
- [SDK 콘텐츠](mobile-engagement-ios-sdk-content.md)
+[SDK 콘텐츠](mobile-engagement-ios-sdk-content.md)
 
 ## <a name="integration-procedures"></a>통합 절차
 1. 시작: [iOS 앱에서 Mobile Engagement를 통합하는 방법](mobile-engagement-ios-integrate-engagement.md)
@@ -31,9 +31,8 @@ ms.openlocfilehash: 8bfadc110b8b2e0de470185ec9d84343125c960d
 3. 태그 계획 구현: [iOS 앱에서 고급 Mobile Engagement API 태깅을 사용하는 방법](mobile-engagement-ios-use-engagement-api.md)
 
 ## <a name="release-notes"></a>릴리스 정보
-### <a name="400-09122016"></a>4.0.0(09/12/2016)
-* iOS 10 장치에서 알림이 작동하지 않는 문제를 해결했습니다.
-* XCode 7은 더 이상 사용되지 않습니다.
+### <a name="401-12132016"></a>4.0.1 (12/13/2016)
+* 백그라운드에서 로그 전달을 개선하였습니다.
 
 이전 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-ios-release-notes.md)
 
@@ -108,12 +107,15 @@ XCode 8은 앱 푸시 기능을 다시 설정할 수 있습니다. 선택한 대
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
-#### <a name="if-you-already-have-your-own-unusernotificationcenterdelegate-implementation"></a>사용자 고유의 UNUserNotificationCenterDelegate 구현이 이미 있는 경우
-SDK에는 자체적으로 UNUserNotificationCenterDelegate 프로토콜이 구현되어 있습니다. 이 프로토콜은 iOS 10 이상에서 실행되는 장치의 Engagement 알림 수명 주기를 모니터링하기 위해 SDK에서 사용됩니다. SDK에서 대리자를 검색하는 경우 응용 프로그램당 UNUserNotificationCenter 대리자가 하나만 있기 때문에 자체 구현을 사용하지 않습니다. 즉, 자체 대리자에 Engagement 논리를 추가해야 합니다.
+#### <a name="resolve-unusernotificationcenter-delegate-conflicts"></a>UNUserNotificationCenter 대리자 충돌 해결
+
+*응용 프로그램이나 타사 라이브러리 중 하나에서 `UNUserNotificationCenterDelegate`를 구현하지 않으면 이 부분을 건너뛸 수 있습니다.*
+
+`UNUserNotificationCenter` 대리자는 iOS 10 이상에서 실행되는 장치의 Engagement 알림 수명 주기를 모니터링하기 위해 SDK에서 사용됩니다. SDK에는 `UNUserNotificationCenterDelegate` 프로토콜의 자체 구현이 있지만 응용 프로그램당 `UNUserNotificationCenter` 위임자가 하나만 있을 수 있습니다. `UNUserNotificationCenter` 개체에 추가된 다른 모든 대리자는 Engagement 대리인과 충돌합니다. SDK가 사용자 또는 다른 타사 대리자를 발견하는 경우 충돌을 해결할 기회를 주기 위해 자체 구현을 사용하지 않습니다. 충돌을 해결하기 위해 사용자 고유의 대리자에게 Engagement 논리를 추가해야 합니다.
 
 이 작업은 다음 두 가지 방법으로 수행할 수 있습니다.
 
-SDK에 대리자 호출 전달
+제안 1, SDK에 대리자 호출 전달
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -140,7 +142,7 @@ SDK에 대리자 호출 전달
     }
     @end
 
-또는 `AEUserNotificationHandler` 클래스에서 상속
+또는 제안 2, `AEUserNotificationHandler` 클래스에서 상속
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -168,12 +170,20 @@ SDK에 대리자 호출 전달
 
 > [!NOTE]
 > 해당 `userInfo` 사전을 에이전트 `isEngagementPushPayload:` 클래스 메서드에 전달하여 알림이 Engagement에서 온 것인지를 확인할 수 있습니다.
-> 
-> 
+
+응용 프로그램 대리자의 `application:willFinishLaunchingWithOptions:` 또는 `application:didFinishLaunchingWithOptions:` 메서드 내에서 `UNUserNotificationCenter` 개체의 대리자가 현재 대리자로 설정되어 있는지 확인합니다.
+예를 들어, 위의 제안 1을 구현하는 경우:
+
+      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        // Any other code
+  
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+        return YES;
+      }
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

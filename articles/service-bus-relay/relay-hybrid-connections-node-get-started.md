@@ -1,5 +1,5 @@
 ---
-title: "릴레이 하이브리드 연결 시작 | Microsoft Docs"
+title: "Node에서 Azure 릴레이 하이브리드 연결 시작 | Microsoft Docs"
 description: "하이브리드 연결에 대한 Node 콘솔 응용 프로그램을 작성하는 방법"
 services: service-bus-relay
 documentationcenter: node
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: jotaub,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: e26b6005116c7aacdf42afea6ea39e100a9d8080
-ms.openlocfilehash: 218082e4cedba2c11871d47bcfb7b92688d97f04
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: bee101d19cb5f5fc790b53295069b4d4db247366
 
 
 ---
@@ -75,6 +75,6 @@ ms.openlocfilehash: 218082e4cedba2c11871d47bcfb7b92688d97f04
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

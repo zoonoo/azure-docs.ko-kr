@@ -1,6 +1,6 @@
 ---
-title: "IoT Hub Gateway SDK 시작 | Microsoft Docs"
-description: "Azure IoT Gateway SDK를 사용할 때 이해해야 하는 주요 개념을 보여 주는 Windows용 Azure IoT Gateway SDK 연습입니다."
+title: "Azure IoT Gateway SDK 시작(Windows) | Microsoft Docs"
+description: "Windows 컴퓨터에 게이트웨이를 빌드하는 방법 및 모듈과 JSON 구성 파일 등 Azure IoT 게이트웨이 SDK의 주요 개념에 대해 알아봅니다."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 2d8b98fbd5345edd5dc6891df12f05eccd8e7ca8
-ms.openlocfilehash: 6f2fe4fd3442d97955519348416b35fe6f9075d1
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 3493afbebf2a75a190d344ac1e66b00b9ddfd582
 
 
 ---
-# <a name="azure-iot-gateway-sdk---get-started-using-windows"></a>Azure IoT Gateway SDK - Windows를 사용하여 시작
+# <a name="get-started-with-the-azure-iot-gateway-sdk-windows"></a>Azure IoT Gateway SDK 시작(Windows)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>샘플을 빌드하는 방법
@@ -86,6 +86,6 @@ ms.openlocfilehash: 6f2fe4fd3442d97955519348416b35fe6f9075d1
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

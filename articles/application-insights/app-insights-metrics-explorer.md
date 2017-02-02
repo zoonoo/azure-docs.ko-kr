@@ -11,26 +11,24 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 040556d42f246ab2876cc5bab031036ec78e13bc
+ms.sourcegitcommit: 6c644b124ad8c994170152006ff61c11e363e7ab
+ms.openlocfilehash: 951aac469ab7bca90014a8af115448833152bb6a
 
 
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Application Insights에서 메트릭 탐색
-[Application Insights][시작]의 메트릭은 응용 프로그램의 원격 분석에서 전송된 측정된 값 및 이벤트 수입니다. 성능 문제를 감지하고 응용 프로그램 사용 방식의 추세를 볼 수 있습니다. 다양한 표준 메트릭이 있으며 사용자 고유의 사용자 지정 메트릭 및 이벤트를 만들 수도 있습니다.
+[Application Insights][start]의 메트릭은 응용 프로그램의 원격 분석에서 전송된 측정된 값 및 이벤트 수입니다. 성능 문제를 감지하고 응용 프로그램 사용 방식의 추세를 볼 수 있습니다. 다양한 표준 메트릭이 있으며 사용자 고유의 사용자 지정 메트릭 및 이벤트를 만들 수도 있습니다.
 
 메트릭 및 이벤트 수는 합계, 평균 또는 개수 등의 집계된 값에 대한 차트에 표시됩니다.
 
-샘플 차트는 다음과 같습니다.
+다음은 차트의 샘플 집합입니다.
 
-![Azure 포털에서 응용 프로그램의 개요 블레이드 열기](./media/app-insights-metrics-explorer/01-overview.png)
+![](./media/app-insights-metrics-explorer/01-overview.png)
 
-일부 차트는 다음과 같이 구분됩니다. 어떤 지점에서든 차트의 전체 높이는 표시되는 메트릭의 합계입니다. 기본적으로 범례는 가장 큰 수량을 표시합니다.
-
-점선은 1주 전에 메트릭 값을 보여줍니다.
+Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대부분의 경우 사용자 지정할 수 있으며 블레이드에 차트를 더 추가할 수 있습니다. 개요 블레이드에서 "서버 응답" 같은 제목이 있는 더 자세한 차트를 클릭하거나 **메트릭 탐색기**를 클릭하여 사용자 지정 차트를 만들 수 있는 새 블레이드를 엽니다.
 
 ## <a name="time-range"></a>시간 범위
 모든 블레이드의 차트 또는 표에서 다루는 시간 범위를 변경할 수 있습니다.
@@ -62,33 +60,6 @@ ms.openlocfilehash: 040556d42f246ab2876cc5bab031036ec78e13bc
 
 세분성은 선택한 시간 범위에 따라 사용 가능합니다. 명시적 세분성은 시간 범위에 대한 "자동" 세분성의 대안입니다.
 
-## <a name="metrics-explorer"></a>메트릭 탐색기
-개요 블레이드에서 차트를 클릭하여 보다 자세한 관련 차트 및 표 집합을 볼 수 있습니다. 이러한 차트 및 표를 편집하여 관심이 있는 세부 정보에 초점을 맞출 수 있습니다.
-
-또는 개요 블레이드의 헤드에 있는 메트릭 탐색기 단추를 클릭하기만 하면 됩니다.
-
-예를들어, 웹 앱의 실패한 요청 차트를 클릭합니다.
-
-![개요 블레이드에서 차트 클릭](./media/app-insights-metrics-explorer/14-trix.png)
-
-## <a name="what-do-the-figures-mean"></a>수치는 무엇을 의미하나요?
-기본적으로 옆쪽의 범례는 차트의 기간에 걸쳐 집계된 값을 일반적으로 보여 줍니다. 차트 위로 마우스를 가져가면 해당 지점의 값이 표시됩니다.
-
-차트에서 각 데이터 요소는 이전 샘플링 간격 또는 "세분성"으로 받은 데이터 값의 집계입니다. 세분성은 블레이드 위쪽에 표시되며 차트의 전체적인 시간 간격에 따라 달라집니다.
-
-메트릭은 다른 방법으로 집계할 수 있습니다.
-
-* **합계** 는 샘플링 간격 또는 차트의 기간 동안 받은 모든 데이터 요소의 값을 더합니다.
-* **평균** 은 합계를 간격을 통해 받은 데이터 요소 수로 나눕니다.
-* **고유** 개수는 사용자 및 계정의 수를 세는 데 사용됩니다. 그림에서는 샘플링 간격 또는 차트의 기간 동안 해당 시간에 표시된 서로 다른 사용자의 수를 보여 줍니다.
-
-집계 방법을 변경할 수 있습니다.
-
-![차트를 선택한 다음 집계를 선택합니다.](./media/app-insights-metrics-explorer/05-aggregation.png)
-
-각 메트릭에 대한 기본 방법은 새 차트를 만들거나 모든 메트릭을 선택 취소할 때 표시됩니다.
-
-![모든 메트릭의 선택을 취소하여 기본값 표시](./media/app-insights-metrics-explorer/06-total.png)
 
 ## <a name="editing-charts-and-grids"></a>차트 및 표 편집
 블레이드에 새 차트를 추가하려면:
@@ -101,7 +72,7 @@ ms.openlocfilehash: 040556d42f246ab2876cc5bab031036ec78e13bc
 
 함께 표시할 수 있는 조합에 관한 제한이 있지만 차트에 하나 이상의 메트릭을 표시할 수 있습니다. 한 메트릭을 선택하면 일부 다른 메트릭을 사용할 수 없습니다.
 
-[사용자 지정 메트릭][추적]을 앱으로 코딩하는 경우(TrackMetric 및 TrackEvent 호출) 여기에 나열됩니다.
+[사용자 지정 메트릭][track]을 앱으로 코딩한 경우(TrackMetric 및 TrackEvent 호출) 여기에 나열됩니다.
 
 ## <a name="segment-your-data"></a>데이터 분할
 메트릭을 속성별로 분할할 수 있습니다. 예를 들어 서로 다른 운영 체제를 사용하는 클라이언트에서 페이지 보기를 비교하려는 경우가 여기에 해당합니다.
@@ -115,11 +86,35 @@ ms.openlocfilehash: 040556d42f246ab2876cc5bab031036ec78e13bc
 >
 >
 
-[사용자 지정 메트릭][추적]을 앱에 코딩하고 속성 값을 포함하는 경우 목록에서 속성을 선택할 수 있게 됩니다.
+[사용자 지정 메트릭][track]을 앱으로 코딩하고 속성 값을 포함하는 경우 목록에서 속성을 선택할 수 있게 됩니다.
 
 데이터를 분할하기에 차트가 너무 작나요? 높이 조정:
 
 ![슬라이더 조정](./media/app-insights-metrics-explorer/18-height.png)
+
+## <a name="aggregation-types"></a>집계 형식
+기본적으로 옆쪽의 범례는 차트의 기간에 걸쳐 집계된 값을 일반적으로 보여 줍니다. 차트 위로 마우스를 가져가면 해당 지점의 값이 표시됩니다.
+
+차트에서 각 데이터 요소는 이전 샘플링 간격 또는 "세분성"으로 받은 데이터 값의 집계입니다. 세분성은 블레이드 위쪽에 표시되며 차트의 전체적인 시간 간격에 따라 달라집니다.
+
+메트릭은 다른 방법으로 집계할 수 있습니다.
+
+* **개수**는 샘플링 간격에서 받은 이벤트 개수입니다. 요청과 같은 이벤트에 사용됩니다. 차트 높이의 편차는 이벤트가 발생하는 비율의 변동을 나타냅니다. 그러나 샘플링 간격을 변경하면 숫자 값이 변경됩니다.
+* **합계** 는 샘플링 간격 또는 차트의 기간 동안 받은 모든 데이터 요소의 값을 더합니다.
+* **평균** 은 합계를 간격을 통해 받은 데이터 요소 수로 나눕니다.
+* **고유** 개수는 사용자 및 계정의 수를 세는 데 사용됩니다. 그림에서는 샘플링 간격 또는 차트의 기간 동안 해당 시간에 표시된 서로 다른 사용자의 수를 보여 줍니다.
+* **%** - 각 집계의 백분율 버전은 세그먼트 차트에서만 사용됩니다. 합계는 항상 최대 100%이며, 차트에는 합계의 여러 구성 요소의 상대적 기여도가 표시됩니다.
+
+    ![백분율 집계](./media/app-insights-metrics-explorer/percentage-aggregation.png)
+
+### <a name="change-the-aggregation-type"></a>집계 형식 변경
+
+![차트를 편집한 다음 집계를 선택합니다.](./media/app-insights-metrics-explorer/05-aggregation.png)
+
+각 메트릭에 대한 기본 방법은 새 차트를 만들거나 모든 메트릭을 선택 취소할 때 표시됩니다.
+
+![모든 메트릭의 선택을 취소하여 기본값 표시](./media/app-insights-metrics-explorer/06-total.png)
+
 
 ## <a name="filter-your-data"></a>데이터 필터링
 속성 값의 선택한 집합에 대한 메트릭 보기:
@@ -186,7 +181,7 @@ ms.openlocfilehash: 040556d42f246ab2876cc5bab031036ec78e13bc
 
 ![메트릭 탐색기에서 경고 규칙, 경고 추가 선택](./media/app-insights-metrics-explorer/appinsights-413setMetricAlert.png)
 
-[경고에 대해 자세히 알아봅니다][alerts].
+[경고에 대해 알아봅니다][alerts].
 
 ## <a name="export-to-excel"></a>Excel로 내보내기
 메트릭 탐색기에 표시된 메트릭 데이터를 Excel 파일로 내보낼 수 있습니다. 내보낸 데이터에는 포털에서 볼 수 있는 모든 차트와 테이블의 데이터가 포함되어 있습니다.
@@ -224,11 +219,11 @@ ms.openlocfilehash: 040556d42f246ab2876cc5bab031036ec78e13bc
 <!--Link references-->
 
 [alerts]: app-insights-alerts.md
-[시작]: app-insights-overview.md
-[추적]: app-insights-api-custom-events-metrics.md
+[start]: app-insights-overview.md
+[track]: app-insights-api-custom-events-metrics.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

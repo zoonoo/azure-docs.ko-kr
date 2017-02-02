@@ -1,10 +1,10 @@
 ---
-title: "Resource Manager 배포 모델을 사용하여 가상 네트워크에 지점 및 사이트 간 VPN Gateway 연결 구성 | Microsoft Docs"
+title: "지점 및 사이트 간을 사용하여 Azure 가상 네트워크에 연결: PowerShell | Microsoft Docs"
 description: "지점 및 사이트 간 VPN Gateway 연결을 만들어 Azure Virtual Network에 안전하게 연결합니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
+ms.date: 01/19/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 41bba6660c52d4aa7d10d846ad65e1f6aa5e582c
+ms.sourcegitcommit: a1f4cf97371d1ce17d68a58c9f62b6a92a0f8210
+ms.openlocfilehash: 4b190ad3e4f08a3a935bd46c05e6f7daf506aad8
 
 
 ---
@@ -59,7 +59,7 @@ ms.openlocfilehash: 41bba6660c52d4aa7d10d846ad65e1f6aa5e582c
 * **서브넷 이름: GatewaySubnet**<br>서브넷 이름 *GatewaySubnet*은 VPN Gateway가 작동하기 위한 필수 항목입니다.
   * **서브넷 주소 범위: 192.168.200.0/24** 
 * **VPN 클라이언트 주소 풀: 172.16.201.0/24**<br>이 지점 및 사이트 간 연결을 사용하여 VNet에 연결되는 VPN 클라이언트는 VPN 클라이언트 주소 풀에서 IP 주소를 받습니다.
-* **구독:** 구독이 2개 이상 있는 경우 올바른 구독을 사용 중인지 확인합니다.
+* **구독:** 구독이&2;개 이상 있는 경우 올바른 구독을 사용 중인지 확인합니다.
 * **리소스 그룹: TestRG**
 * **위치: 미국 동부**
 * **DNS 서버: 이름 확인에 사용할 DNS 서버의 IP 주소**.
@@ -126,31 +126,31 @@ ms.openlocfilehash: 41bba6660c52d4aa7d10d846ad65e1f6aa5e582c
 ## <a name="a-namecertificatesapart-3---certificates"></a><a name="Certificates"></a>3부 - 인증서
 인증서는 지점 및 사이트 간 VPN에 대한 VPN 클라이언트를 인증하기 위해 Azure에 의해 사용됩니다. 엔터프라이즈 인증서 솔루션에 의해 생성된 루트 인증서 또는 자체 서명된 루트 인증서에서 Base-64로 인코딩된 X.509 .cer 파일로 공용 인증서 데이터(개인 키 아님)를 내보냅니다. 그런 다음 루트 인증서에서 Azure로 공용 인증서 데이터를 가져옵니다. 또한 클라이언트에 대한 루트 인증서에서 클라이언트 인증서를 생성해야 합니다. P2S 연결을 사용하여 가상 네트워크에 연결하려는 각 클라이언트에 루트 인증서에서 생성된 클라이언트 인증서가 설치되어 있어야 합니다.
 
-### <a name="a-namecera1-obtain-the-cer-file-for-the-root-certificate"></a><a name="cer"></a>1. 루트 인증서용 .cer 파일 가져오기
+### <a name="a-namecerastep-1---obtain-the-cer-file-for-the-root-certificate"></a><a name="cer"></a>1단계 - 루트 인증서용 .cer 파일 가져오기
 사용할 루트 인증서에 대한 공용 인증서 데이터를 가져와야 합니다.
 
 * 엔터프라이즈 인증서 시스템을 사용하는 경우, 사용하려는 루트 인증서용 .cer 파일을 가져옵니다. 
-* 엔터프라이즈 인증서 솔루션을 사용하지 않는 경우 자체 서명된 루트 인증서를 생성해야 합니다. Windows 10 단계는 [지점 및 사이트 간 구성에 대한 자체 서명된 루트 인증서로 작업](vpn-gateway-certificates-point-to-site.md)을 참조할 수 있습니다.
+* 엔터프라이즈 인증서 솔루션을 사용하지 않는 경우 자체 서명된 루트 인증서를 생성해야 합니다. P2S를 사용하기 위해 자체 서명된 인증서를 만드는 권장 방법은 makecert입니다. PowerShell을 사용하여 자체 서명된 인증서를 만들 수 있지만, PowerShell을 사용하여 생성된 인증서는 P2S 연결에 필요한 필드를 포함하지 않습니다. Windows 10 단계는 [지점 및 사이트 간 구성에 대한 자체 서명된 루트 인증서로 작업](vpn-gateway-certificates-point-to-site.md)을 참조할 수 있습니다.
 
 1. 인증서에서 .cer 파일을 가져오려면 **certmgr.msc**를 열고 루트 인증서를 찾습니다. 자체 서명된 루트 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**을 클릭한 후 **내보내기**를 클릭합니다. 이렇게 하면 **인증서 내보내기 마법사**가 열립니다.
 2. 마법사에서 **다음**을 클릭하고 **아니요, 개인 키를 내보내지 않습니다.**를 선택한 후 **다음**을 클릭합니다.
-3. **내보내기 파일 형식** 페이지에서 **Base 64로 인코딩된 X.509(.CER)**를 선택합니다. 그런 후 **다음**을 클릭합니다. 
+3. **내보내기 파일 형식** 페이지에서 **Base&64;로 인코딩된 X.509(.CER)**를 선택합니다. 그런 후 **다음**을 클릭합니다. 
 4. **내보낼 파일**에서 인증서를 내보낼 위치를 **찾아보기**합니다. **파일 이름**에는 인증서 파일의 이름을 입력합니다. 그런 후 **Next**를 클릭합니다.
 5. **마침** 을 클릭하여 인증서를 내보냅니다.
 
-### <a name="a-namegeneratea2-generate-the-client-certificate"></a><a name="generate"></a>2. 클라이언트 인증서 생성
+### <a name="a-namegenerateastep-2---generate-the-client-certificate"></a><a name="generate"></a>2단계 - 클라이언트 인증서 생성
 그 다음 클라이언트 인증서를 생성합니다. 연결할 각 클라이언트의 고유한 인증서를 생성할 수도 있고 여러 클라이언트에서 동일한 인증서를 사용할 수도 있습니다. 고유한 클라이언트 인증서를 생성하면 필요할 경우 단일 인증서를 해지할 수 있는 장점이 있습니다. 그렇지 않은 경우 즉, 모든 구성원이 동일한 클라이언트 인증서를 사용하고 한 클라이언트에 대한 인증서를 해지해야 하는 경우, 인증서를 사용하는 모든 클라이언트에 대해 새 인증서를 생성하고 설치해야 합니다. 클라이언트 인증서는 이 연습 뒷부분에서 각 클라이언트 컴퓨터에 설치됩니다.
 
 * 엔터프라이즈 인증서 솔루션을 사용하는 경우, NetBIOS '도메인\사용자 이름' 형식이 아닌 일반 이름 값 형식 'name@yourdomain.com',으로 클라이언트 인증서를 생성합니다. 
 * 자체 서명된 인증서를 사용하는 경우 [지점 및 사이트 간 구성에 대한 자체 서명된 루트 인증서로 작업](vpn-gateway-certificates-point-to-site.md) 을 참조하여 클라이언트 인증서를 생성합니다.
 
-### <a name="a-nameexportclientcerta3-export-the-client-certificate"></a><a name="exportclientcert"></a>3. 클라이언트 인증서 내보내기
+### <a name="a-nameexportclientcertastep-3---export-the-client-certificate"></a><a name="exportclientcert"></a>3단계 - 클라이언트 인증서 내보내기
 인증하려면 클라이언트 인증서가 필요합니다. 클라이언트 인증서를 생성한 후 내보냅니다. 내보내는 클라이언트 인증서는 각 클라이언트 컴퓨터에 나중에 설치됩니다.
 
 1. 클라이언트 인증서를 내보내려면 *certmgr.msc*를 사용할 수 있습니다. 내보낼 클라이언트 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**을 클릭한 다음 **내보내기**를 클릭합니다.
 2. 개인 키로 클라이언트 인증서를 내보냅니다. 이는 *.pfx* 파일입니다. 이 인증서에 대해 설정한 암호(키)를 기억 하거나 기록해야 합니다.
 
-### <a name="a-nameuploada4-upload-the-root-certificate-cer-file"></a><a name="upload"></a>4. 루트 인증서 .cer 파일 업로드
+### <a name="a-nameuploadastep-4---upload-the-root-certificate-cer-file"></a><a name="upload"></a>4단계 - 루트 인증서 .cer 파일 업로드
 인증서 이름에 대한 변수를 선언하고 변수를 고유한 값으로 바꿉니다.
 
         $P2SRootCertName = "Mycertificatename.cer"
@@ -294,6 +294,6 @@ Azure에서 신뢰할 수 있는 루트 인증서를 제거할 수 있습니다.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

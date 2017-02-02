@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics란? | Microsoft Docs"
+title: "OMS(Operations Management Suite)의 Log Analytics란? | Microsoft Docs"
 description: "Log Analytics는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성된 운영 데이터를 수집 및 분석하도록 도와주는 OMS(Operations Management Suite)의 서비스입니다.  이 문서에서는 Log Analytics의 여러 구성 요소에 대한 간략한 개요 및 자세한 내용에 대한 링크를 제공합니다."
 services: log-analytics
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: bf1455cf3975b925d114acc3e1d4cba55f2a17a9
-ms.openlocfilehash: 3e7e42e2ac2deedf936ffc4d246553f72ee4dcd3
+ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
+ms.openlocfilehash: dcf61991fcbf989c905aa7c18e73df19afa89c36
 
 
 ---
@@ -73,6 +73,6 @@ Log Analytics 외부 데이터를 분석하기 위해 OMS 리포지토리에서 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -2,7 +2,7 @@
 위 예제에서는 앱을 시작할 때마다 ID 공급자와 모바일 서비스 모두에 연결합니다. 대신, 권한 부여 토큰을 캐시하여 이를 먼저 사용할 수 있습니다.
 
 * iOS 클라이언트에서 인증 토큰을 암호화하고 저장할 때는 iOS Keychain을 사용하는 것이 좋습니다. [SSKeychain](https://github.com/soffes/sskeychain) -- iOS 키 집합에 대한 간단한 래퍼를 사용합니다. SSKeychain 페이지의 지시에 따라 프로젝트에 추가합니다. **모듈 사용** 설정이 프로젝트의 **빌드 설정**(**Apple LLVM - 언어 - 모듈** 섹션)에서 사용하도록 설정되었는지 확인합니다.
-* **QSTodoListViewController.m**을 열고 다음 코드를 추가합니다.
+* **QSTodoListViewController.m** 을 열고 다음 코드를 추가합니다.
 
 ```
         - (void) saveAuthInfo {
@@ -33,4 +33,7 @@
                 [self loadAuthInfo];
 ```
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

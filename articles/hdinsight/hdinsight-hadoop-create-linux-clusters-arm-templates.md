@@ -16,15 +16,15 @@ ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 3d3996a8b36a17a0040d50da07e6fc2a1c088dda
+ms.sourcegitcommit: 756369d219c34e5530edc91de0dc74cbf88c02c5
+ms.openlocfilehash: 78276ecfbeb339721c76af40428a452681c3407d
 
 
 ---
 # <a name="create-linux-based-hadoop-clusters-in-hdinsight-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-ARM(Azure 리소스 관리자) 템플릿을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다. 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](../resource-group-template-deploy.md)를 참조하세요. 다른 클러스터 만들기 도구 및 기능은 이 페이지 맨 위에 있는 탭 선택을 클릭하거나 [클러스터 생성 방법](hdinsight-provision-clusters.md#cluster-creation-methods)을 참조하세요.
+ARM(Azure 리소스 관리자) 템플릿을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다. 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요. 다른 클러스터 만들기 도구 및 기능은 이 페이지 맨 위에 있는 탭 선택을 클릭하거나 [클러스터 생성 방법](hdinsight-provision-clusters.md#cluster-creation-methods)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -34,7 +34,7 @@ ARM(Azure 리소스 관리자) 템플릿을 사용하여 HDInsight 클러스터�
 * [Azure 구독](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure PowerShell 및/또는 Azure CLI
 
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ### <a name="access-control-requirements"></a>액세스 제어 요구 사항
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -46,8 +46,8 @@ HDInsight 클러스터 및 종속 Azure Storage 계정을 만들기 위한 Resou
 
 Resource Manager 템플릿에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
-* [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](../resource-group-template-deploy.md)
+* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](../azure-resource-manager/resource-group-template-deploy.md)
 
 특정 요소에 대한 JSON 스키마를 찾으려면 다음 절차를 따를 수 있습니다.
 
@@ -119,7 +119,7 @@ Resource Manager 템플릿에 대한 자세한 내용은 다음을 참조하세�
 
     PowerShell 스크립트는 클러스터 이름만 구성합니다. 저장소 계정 이름이 템플릿에 하드코드되어 있습니다. 클러스터 사용자 암호(기본 사용자 이름: *admin*) 및 SSH 사용자 암호(기본 SSH 사용자 이름: *sshuser*)를 입력하라는 메시지가 표시됩니다.  
 
-자세한 내용은 [PowerShell로 배포](../resource-group-template-deploy.md#deploy-with-powershell)를 참조하세요.
+자세한 내용은 [PowerShell로 배포](../azure-resource-manager/resource-group-template-deploy.md#deploy)를 참조하세요.
 
 ## <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포
 다음 샘플에서는 Resource Manager 템플릿을 호출하여 클러스터 및 해당 종속 저장소 계정과 컨테이너를 만듭니다.
@@ -134,12 +134,12 @@ Resource Manager 템플릿에 대한 자세한 내용은 다음을 참조하세�
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "c:\Tutorials\HDInsightARM\create-linux-based-hadoop-cluster-in-hdinsight.json" --parameters '{\"clusterName\":{\"value\":\"hdi1229\"},\"clusterLoginPassword\":{\"value\":\"Pass@word1\"},\"sshPassword\":{\"value\":\"Pass@word1\"}}'
 
 ## <a name="deploy-with-rest-api"></a>REST API를 사용하여 배포
-[REST API를 사용하여 배포](../resource-group-template-deploy-rest.md)를 참조하세요.
+[REST API를 사용하여 배포](../azure-resource-manager/resource-group-template-deploy-rest.md)를 참조하세요.
 
 ## <a name="deploy-with-visual-studio"></a>Visual Studio를 사용하여 배포
 Visual Studio를 사용하여 리소스 그룹 프로젝트를 만들고 사용자 인터페이스를 통해 Azure에 배포할 수 있습니다. 프로젝트에 포함할 리소스 유형을 선택하면 해당 리소스가 리소스 관리자 템플릿에 자동으로 추가됩니다. 또한 프로젝트에서는 템플릿을 배포할 수 있는 PowerShell 스크립트를 제공합니다.
 
-Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개는 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
+Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개는 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 HDInsight 클러스터를 만드는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
@@ -147,8 +147,8 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
 * .NET 클라이언트 라이브러리를 통한 리소스 배포의 예제를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 * 응용 프로그램 배포에 대한 자세한 예제는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](../app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 * 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](../solution-dev-test-environments.md)을 참조하세요.
-* Azure Resource Manager 템플릿 섹션에 대한 자세한 내용은 [템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
-* Azure Resource Manager 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](../resource-group-template-functions.md)를 참조하세요.
+* Azure Resource Manager 템플릿 섹션에 대한 자세한 내용은 [템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
+* Azure Resource Manager 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](../azure-resource-manager/resource-group-template-functions.md)를 참조하세요.
 
 ## <a name="appx-a-resource-manager-template"></a>부록 A: Resource Manager 템플릿
 다음 Azure 리소스 관리자 템플릿은 종속 Azure 저장소 계정을 사용하여 Linux 기반 Hadoop 클러스터를 만듭니다.
@@ -359,6 +359,6 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,10 +1,10 @@
 ---
 title: "Microsoft Azure Logic Apps에서 사용하는 Microsoft 관리 커넥터 목록 | Microsoft Docs"
-description: "Azure 앱 서비스에서 Logic Apps를 빌드하는 데 사용할 수 있는 Microsoft 관리 커넥터의 전체 목록 가져오기"
+description: "논리 앱을 빌드하는 데 사용할 수 있는 Microsoft 관리 커넥터의 전체 목록 가져오기"
 services: logic-apps
 documentationcenter: 
-author: MSFTMAN
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
@@ -13,11 +13,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/07/2016
-ms.author: deonhe
+ms.date: 01/25/2017
+ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 73369c2aed062bb3fe1ec37c4650d1f86b0afb68
-ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: b6216b75094822707cffd945ff78c9fc5c7245c4
 
 
 ---
@@ -38,14 +38,15 @@ ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 |[![API 아이콘][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API 아이콘][HTTP-Requesticon]<br/>**HTTP<br/>요청**][HTTP-Requestdoc]|[![API 아이콘][HTTP-Responseicon]<br/>**HTTP<br/>응답**][HTTP-Responsedoc]|[![API 아이콘][Informixicon]<br/>**Informix**][Informixdoc]|
 |![API 아이콘][Insightlyicon]<br/>**Insightly**|![API 아이콘][Instagramicon]<br/>**Instagram**|![API 아이콘][Instapapericon]<br/>**Instapaper**|![API 아이콘][JIRAicon]<br/>**JIRA**|
 |[![API 아이콘][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API 아이콘][Mandrillicon]<br/>**Mandrill**|[![API 아이콘][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API 아이콘][Nested-Logic-Appicon]<br/>**중첩된<br/>Logic App**][Nested-Logic-Appdoc]|
-[![API 아이콘][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API 아이콘][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>사용자**|[![API 아이콘][Office-365-Videoicon]<br/>**Office 365<br/>비디오**][office365-videodoc]|[![API 아이콘][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API 아이콘][OneDrive-for-Businessicon]<br/>**비즈니스용<br/>OneDrive**][OneDrive-for-Businessdoc]|
-[![API 아이콘][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API 아이콘][PagerDutyicon]<br/>**PagerDuty**|![API 아이콘][Pinteresticon]<br/>**Pinterest**|[![API 아이콘][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
-[![API 아이콘][Queryicon]<br/>**쿼리**][Querydoc]|[![API 아이콘][Recurrenceicon]<br/>**되풀이**][Recurrencedoc]|![API 아이콘][Redmineicon]<br/>**Redmine**|[![API 아이콘][RSSicon]<br/>**RSS**][RSSdoc]|
-[![API 아이콘][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API 아이콘][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API 아이콘][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API 아이콘][SFTPicon]<br/>**SFTP**][SFTPdoc]|
-[![API 아이콘][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API 아이콘][Slackicon]<br/>**Slack**][Slackdoc]|![API 아이콘][Smartsheeticon]<br/>**Smartsheet**|[![API 아이콘][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API 아이콘][SparkPosticon]<br/>**SparkPost**|[![API 아이콘][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
-|![API 아이콘][Todoisticon]<br/>**Todoist**|[![API 아이콘][Trelloicon]<br/>**Trello**][Trellodoc]|[![API 아이콘][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API 아이콘][Twittericon]<br/>**Twitter**][Twitterdoc]|
-|![API 아이콘][Vimeoicon]<br/>**Vimeo**|![API 아이콘][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API 아이콘][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API 아이콘][WordPressicon]<br/>**WordPress**|
-|[![API 아이콘][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API 아이콘][Yammericon]<br/>**Yammer**][Yammerdoc]|![API 아이콘][YouTubeicon]<br/>**YouTube**|[![API 아이콘][FileSystemIcon]<br/>**파일 시스템**][FileSystemdoc]
+|[![API 아이콘][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API 아이콘][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>사용자**|[![API 아이콘][Office-365-Videoicon]<br/>**Office 365<br/>비디오**][office365-videodoc]|[![API 아이콘][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API 아이콘][OneDrive-for-Businessicon]<br/>**비즈니스용<br/>OneDrive**][OneDrive-for-Businessdoc]|
+|[![API 아이콘][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API 아이콘][PagerDutyicon]<br/>**PagerDuty**|![API 아이콘][Pinteresticon]<br/>**Pinterest**|[![API 아이콘][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
+|[![API 아이콘][Queryicon]<br/>**쿼리**][Querydoc]|[![API 아이콘][Recurrenceicon]<br/>**되풀이**][Recurrencedoc]|![API 아이콘][Redmineicon]<br/>**Redmine**|[![API 아이콘][RSSicon]<br/>**RSS**][RSSdoc]|
+|[![API 아이콘][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API 아이콘][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API 아이콘][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API 아이콘][SFTPicon]<br/>**SFTP**][SFTPdoc]|
+|[![API 아이콘][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API 아이콘][Slackicon]<br/>**Slack**][Slackdoc]|![API 아이콘][Smartsheeticon]<br/>**Smartsheet**|[![API 아이콘][SMTPicon]<br/>**SMTP**][SMTPdoc]
+|![API 아이콘][SparkPosticon]<br/>**SparkPost**|[![API 아이콘][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|![API 아이콘][Todoisticon]<br/>**Todoist**|[![API 아이콘][Trelloicon]<br/>**Trello**][Trellodoc]|
+|[![API 아이콘][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API 아이콘][Twittericon]<br/>**Twitter**][Twitterdoc]|![API 아이콘][Vimeoicon]<br/>**Vimeo**|![API 아이콘][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|
+|[![API 아이콘][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API 아이콘][WordPressicon]<br/>**WordPress**|[![API 아이콘][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API 아이콘][Yammericon]<br/>**Yammer**][Yammerdoc]|
+|![API 아이콘][YouTubeicon]<br/>**YouTube**|[![API 아이콘][FileSystemIcon]<br/>**파일 시스템**][FileSystemdoc]|
 
 ### <a name="integration-account-connectors"></a>통합 계정 커넥터 
 
@@ -65,7 +66,7 @@ ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 
 | 엔터프라이즈<br/>커넥터 |  |
 | --- | --- |
-|![API 아이콘][MQicon]<br/>**MQ**|![API 아이콘][SAPicon]<br/>**SAP**|
+|![API 아이콘][MQicon]<br/>**MQ**|![API 아이콘][SAPicon]<br/>**SAP**<br/>[sapconnector]|
 
 
 
@@ -82,9 +83,9 @@ ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 커넥터를 앱의 내부에서 작업으로 사용할 수도 있습니다. 작업은 앱의 실행에 사용될 수 있는 데이터를 조회하는 데 유용합니다. 예를 들어 주문을 처리할 때 SQL 데이터베이스에서 고객 데이터를 조회해야 할 수 있습니다. 또는 대상 테이블에서 데이터를 작성, 업데이트 또는 삭제해야 할 수 있습니다. 커넥터가 제공하는 작업을 사용하여 이를 수행할 수 있습니다. 작업은 Swagger 메타데이터에 정의된 작업에 매핑됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [이제 논리 앱 빌드](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-* [사용자 지정 커넥터 만들기](../app-service-logic/app-service-logic-create-api-app.md)
-* [논리 앱 모니터링](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
+* [이제 논리 앱 빌드](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [사용자 지정 커넥터 만들기](../logic-apps/logic-apps-create-api-app.md)
+* [논리 앱 모니터링](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
 [azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Blob 컨테이너에서 파일을 관리하는 Azure Blob에 연결합니다."
@@ -120,18 +121,18 @@ ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 [twitterdoc]: ./connectors-create-api-twitter.md "Twitter에 연결하여 타임 라인을 가져오고 트윗에 게시합니다."
 [wunderlistdoc]: ./connectors-create-api-wunderlist.md "업무를 동기화 상태로 유지합니다."
 [yammerdoc]: ./connectors-create-api-yammer.md "Yammer에 연결하여 메시지를 게시하고 새 메시지를 받습니다."
-[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "엔터프라이즈 통합 AS2에 대해 알아봅니다."
-[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "엔터프라이즈 통합 X12에 대해 알아봅니다."
-[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "엔터프라이즈 통합 XML 유효성 검사에 대해 알아봅니다."
-[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 변환에 대해 알아봅니다."
-[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "엔터프라이즈 통합 AS2 디코딩에 대해 알아봅니다."
-[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "엔터프라이즈 통합 AS2 인코딩에 대해 알아봅니다."
-[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "엔터프라이즈 통합 X12 디코딩에 대해 알아봅니다."
-[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "엔터프라이즈 통합 X12 인코딩에 대해 알아봅니다."
-[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "엔터프라이즈 통합 EDIFACT 디코딩에 대해 알아봅니다."
-[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "엔터프라이즈 통합 EDIFACT 인코딩에 대해 알아봅니다."
+[as2doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "엔터프라이즈 통합 AS2에 대해 알아봅니다."
+[x12doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "엔터프라이즈 통합 X12에 대해 알아봅니다."
+[flatfiledoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
+[flatfiledecodedoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
+[xmlvalidatedoc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "엔터프라이즈 통합 XML 유효성 검사에 대해 알아봅니다."
+[xmltransformdoc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "엔터프라이즈 통합 변환에 대해 알아봅니다."
+[as2decode]: ..//logic-apps/logic-apps-enterprise-integration-as2-decode.md "엔터프라이즈 통합 AS2 디코딩에 대해 알아봅니다."
+[as2encode]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "엔터프라이즈 통합 AS2 인코딩에 대해 알아봅니다."
+[X12decode]: ..//logic-apps/logic-apps-enterprise-integration-X12-decode.md "엔터프라이즈 통합 X12 디코딩에 대해 알아봅니다."
+[X12encode]: ..//logic-apps/logic-apps-enterprise-integration-X12-encode.md "엔터프라이즈 통합 X12 인코딩에 대해 알아봅니다."
+[EDIFACTdecode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "엔터프라이즈 통합 EDIFACT 디코딩에 대해 알아봅니다."
+[EDIFACTencode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "엔터프라이즈 통합 EDIFACT 인코딩에 대해 알아봅니다."
 [httpdoc]: ./connectors-native-http.md "HTTP를 호출하는 HTTP 커넥터."
 [http-requestdoc]: ./connectors-native-reqres.md "요청 및 응답 작업."
 [http-responsedoc]: ./connectors-native-reqres.md "요청 및 응답 작업."
@@ -139,9 +140,9 @@ ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 [http-swaggerdoc]: ./connectors-native-http-swagger.md "HTTP를 호출하는 HTTP + Swagger 커넥터."
 [querydoc]: ./connectors-native-query.md "작업을 쿼리하여 배열을 선택하고 필터링합니다."
 [webhookdoc]: ./connectors-native-webhook.md "Webhook 작업 및 논리 앱에 대한 트리거."
-[azure-functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Azure Functions와 논리 앱을 통합합니다."
-[api/web-appdoc]: ../app-service-logic/app-service-logic-custom-hosted-api.md "App Service API Apps과 논리 앱을 통합합니다."
-[nested-logic-appdoc]: ../app-service-logic/app-service-logic-http-endpoint.md "중첩된 워크플로와 논리 앱을 통합합니다."
+[azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Azure Functions와 논리 앱을 통합합니다."
+[api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "App Service API Apps과 논리 앱을 통합합니다."
+[nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "중첩된 워크플로와 논리 앱을 통합합니다."
 [recurrencedoc]:  ./connectors-native-recurrence.md "논리 앱에 대한 되풀이 트리거."
 [google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Google Sheets에 연결하고 시트를 수정할 수 있습니다."
 [google-tasksdoc]: ./connectors-create-api-googletasks.md "Google 작업에 연결하고 작업을 관리할 수 있습니다."
@@ -150,7 +151,8 @@ ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 [mandrilldoc]: ./connectors-create-api-mandrill.md "Mandrill에 연결하고 통신에 사용할 수 있습니다."
 [youtubedoc]: ./connectors-create-api-youtube.md "YouTube에 연결하고 비디오 및 채널과 상호 작용할 수 있습니다."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "SparkPost에 연결하고 통신에 사용할 수 있습니다."
-[filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "파일 시스템 커넥터를 사용하여 온-프레미스 파일 시스템과 통신합니다."
+[filesystemdoc]: ..//logic-apps/logic-apps-using-file-connector.md "파일 시스템 커넥터를 사용하여 온-프레미스 파일 시스템과 통신합니다."
+[sapconnector]: ..//logic-apps/logic-apps-using-sap-connector.md "SAP 커넥터에 대해 알아보기"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -248,6 +250,6 @@ ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

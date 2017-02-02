@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fe034613c537ce0940f7220e4695727bdc2277c2
+ms.sourcegitcommit: 7b1b50f71158e62da6b8ceb741a5b8cf9795e3a4
+ms.openlocfilehash: 8e171d56bb67c971337fa383014988074ec828b1
 
 
 ---
@@ -219,7 +219,7 @@ namespace WorkerRole1
 ## <a name="network-traffic-rules-to-control-role-communication"></a>역할 통신을 제어하는 네트워크 트래픽 규칙
 내부 끝점을 정의한 후에 역할 인스턴스가 서로 통신할 수 있는 방법을 제어하는 네트워크 트래픽 규칙(만든 끝점에 기반)을 추가할 수 있습니다. 다음 다이어그램은 역할 통신을 제어하기 위한 몇 가지 일반적인 시나리오를 보여줍니다.
 
-![네트워크 트래픽 규칙 시나리오](./media/cloud-services-enable-communication-role-instances/scenarios.png "Network Traffic Rules Scenarios")
+![네트워크 트래픽 규칙 시나리오](./media/cloud-services-enable-communication-role-instances/scenarios.png "네트워크 트래픽 규칙 시나리오")
 
 다음 코드 예제는 이전 다이어그램에 표시된 역할에 대한 역할 정의를 보여줍니다. 각 역할 정의는 정의된 내부 끝점을 적어도 하나 이상 포함합니다.
 
@@ -375,6 +375,6 @@ namespace WorkerRole1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

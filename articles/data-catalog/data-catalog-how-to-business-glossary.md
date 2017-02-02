@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -38,8 +38,8 @@ Azure Data Catalog는 데이터 원본 검색을 위한 기능을 제공하여 �
 
 > [!NOTE]
 > 이 문서에서 설명한 기능은 Azure Data Catalog의 표준 버전에서만 사용할 수 있습니다. 무료 버전에는 관리 태그 지정 또는 비즈니스 용어집 기능이 제공되지 않습니다.
-> 
-> 
+>
+>
 
 ## <a name="glossary-availability-and-privileges"></a>용어집 가용성 및 권한
 *비즈니스 용어집은 Azure Data Catalog 표준 버전에서 사용할 수 있습니다. Data Catalog의 무료 버전에는 용어집이 포함되지 않습니다.*
@@ -74,8 +74,8 @@ Azure Data Catalog는 데이터 원본 검색을 위한 기능을 제공하여 �
 
 > [!NOTE]
 > 사용자 태그는 데이터 카탈로그 무료 버전에서 유일하게 지원되는 태그 유형입니다.
-> 
-> 
+>
+>
 
 ### <a name="hover-behavior-on-tags"></a>태그 가리키기 동작
 데이터 카탈로그 포털에서, 두 가지 유형의 태그가 서로 다른 가리키기 동작을 통해 시각적으로 구분됩니다. 사용자 태그를 가리키면 태그 텍스트와 태그를 추가한 사용자(한 명 또는 여러 명)가 표시됩니다. 용어집 태그를 가리키면, 용어에 대한 정의와 링크(비즈니스 용어집을 열어서 용어에 대한 전체 정의를 표시하는)가 표시됩니다.
@@ -88,7 +88,6 @@ Azure Data Catalog의 비즈니스 용어집과 여기에서 사용할 수 있�
 
 ## <a name="see-also"></a>참고 항목
 * [비즈니스 용어집 작업에 대한 REST API 설명서](https://msdn.microsoft.com/library/mt708855.aspx)
-
 
 
 

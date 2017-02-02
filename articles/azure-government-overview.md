@@ -1,19 +1,18 @@
 ---
 title: "Azure Government 개요 | Microsoft Docs"
 description: "이 문서에서는 연방, 주 및 지방 정부 기관과 그 파트너에 적용되는 규정 준수를 지원하는 데 사용되는 Azure Government 클라우드 기능과 신뢰할 수 있는 디자인 및 보안에 대한 개요를 제공합니다. "
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: c579ece3-a46c-4cdc-b650-453fd36b211a
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/18/2016
+ms.date: 11/14/2016
 ms.author: ryansoc
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb

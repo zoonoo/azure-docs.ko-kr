@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2016
+ms.date: 12/01/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4917f58f9e179b6adca0886e7d278055e5c3d281
-ms.openlocfilehash: 4218b8e066d8323444695aca3c970f4f21fadea4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b27f818d5f91fe1272017cf6b7e859bc1673fe92
 
 
 ---
@@ -52,7 +52,7 @@ ms.openlocfilehash: 4218b8e066d8323444695aca3c970f4f21fadea4
 ## <a name="describe-a-service"></a>서비스 설명
 서비스 매니페스트는 서비스 유형 및 버전을 선언적으로 정의합니다. 서비스 유형, 상태 속성, 부하 분산 메트릭, 서비스 바이너리, 구성 파일 등의 서비스 메타데이터를 지정합니다.  다시 말해서 하나 이상의 서비스 유형을 지원하는 서비스 패키지를 구성하는 코드, 구성 및 데이터 패키지를 설명합니다. 다음은 서비스 매니페스트의 간단한 예입니다.
 
-~~~
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ServiceManifest Name="MyServiceManifest" Version="SvcManifestVersion1" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Description>An example service manifest</Description>
@@ -74,7 +74,7 @@ ms.openlocfilehash: 4218b8e066d8323444695aca3c970f4f21fadea4
   <ConfigPackage Name="MyConfig" Version="ConfigVersion1" />
   <DataPackage Name="MyData" Version="DataVersion1" />
 </ServiceManifest>
-~~~
+```
 
 **버전** 특성은 구조화되지 않은 문자열이며 시스템에서 구문 분석하지 않습니다. 업그레이드에 대한 각 구성 요소의 버전을 지정하는 데 사용됩니다.
 
@@ -86,14 +86,14 @@ ms.openlocfilehash: 4218b8e066d8323444695aca3c970f4f21fadea4
 
 **ConfigPackage**는 **Name** 특성을 통해 이름이 지정되고 *Settings.xml* 파일을 포함하는 폴더를 선언합니다. 이 파일은 런타임에 프로세스에서 다시 읽을 수 있는 사용자 정의 키-값 쌍 설정의 섹션을 포함합니다. 업그레이드하는 동안 **ConfigPackage** **버전**만 변경되면 실행 중인 프로세스가 다시 시작되지 않습니다. 대신, 콜백에서는 구성 설정이 변경되어 동적으로 다시 로드할 수 있음을 프로세스에 알립니다. 다음은 *Settings.xml* 파일의 예입니다.
 
-~~~
+```xml
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MyConfigurationSecion">
     <Parameter Name="MySettingA" Value="Example1" />
     <Parameter Name="MySettingB" Value="Example2" />
   </Section>
 </Settings>
-~~~
+```
 
 > [!NOTE]
 > 서비스 매니페스트는 여러 코드, 구성 및 데이터 패키지를 포함할 수 있습니다. 이들 항목에 대해 각각 독립적으로 버전을 지정할 수 있습니다.
@@ -115,7 +115,7 @@ For more information about other features supported by service manifests, refer 
 
 따라서 응용 프로그램 매니페스트는 응용 프로그램 수준에서 요소를 설명하고 응용 프로그램 유형을 구성하는 하나 이상의 서비스 매니페스트를 참조합니다. 다음은 응용 프로그램 매니페스트의 간단한 예입니다.
 
-~~~
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ApplicationManifest
       ApplicationTypeName="MyApplicationType"
@@ -134,7 +134,7 @@ For more information about other features supported by service manifests, refer 
      </Service>
   </DefaultServices>
 </ApplicationManifest>
-~~~
+```
 
 서비스 매니페스트와 마찬가지로 **Version** 특성은 구조화되지 않은 문자열이며 시스템에서 구문을 분석하지 않습니다. 또한 업그레이드에 대한 각 구성 요소의 버전을 지정하는 데 사용됩니다.
 
@@ -161,7 +161,7 @@ For more information about other features supported by application manifests, re
 ### <a name="package-layout"></a>패키지 레이아웃
 서비스 패브릭 클러스터에 배포할 수 있도록 응용 프로그램 매니페스트, 서비스 매니페스트 및 기타 필요한 패키지 파일을 특정 레이아웃으로 구성해야 합니다. 이 문서에 예로 제공된 매니페스트를 다음 디렉터리 구조로 구성해야 합니다.
 
-~~~
+```
 PS D:\temp> tree /f .\MyApplicationType
 
 D:\TEMP\MYAPPLICATIONTYPE
@@ -178,7 +178,7 @@ D:\TEMP\MYAPPLICATIONTYPE
     │
     └───MyData
             init.dat
-~~~
+```
 
 폴더는 각 해당 요소의 **Name** 특성과 일치하도록 이름이 지정됩니다. 예를 들어 서비스 매니페스트에 이름이 각각 **MyCodeA**와 **MyCodeB**인 코드 패키지가 두 개 있으면 이와 동일한 이름의 폴더 두 개에 각 코드 패키지에 필요한 바이너리가 포함됩니다.
 
@@ -200,16 +200,16 @@ Visual Studio 2015를 사용하여 응용 프로그램을 만드는 경우 패�
 ### <a name="test-the-package"></a>패키지 테스트
 **Test-ServiceFabricApplicationPackage** 명령을 사용하여 PowerShell을 통해 로컬에서 패키지 구조를 확인할 수 있습니다. 이 명령은 매니페스트 구문 해석 문제를 확인하고 모든 참조의 유효성을 검사합니다. 이 명령은 패키지에 포함된 디렉터리와 파일의 구조적인 정확성만을 검사합니다. 필요한 파일이 모두 있는 지만 확인하고 그 이상은 코드 또는 데이터 패키지 콘텐츠를 검사하지 않습니다.
 
-~~~
+```
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
 False
 Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
 FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
-~~~
+```
 
 이 오류는 서비스 매니페스트 *SetupEntryPoint* 에서 참조되는 **MySetup.bat** 파일이 코드 패키지에 없다는 뜻입니다. 누락된 파일이 추가되면, 응용 프로그램 검사가 통과됩니다.
 
-~~~
+```
 PS D:\temp> tree /f .\MyApplicationType
 
 D:\TEMP\MYAPPLICATIONTYPE
@@ -231,7 +231,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
 True
 PS D:\temp>
-~~~
+```
 
 응용 프로그램이 올바르게 패키징되고 확인 절차를 통과하면 배포 준비가 완료된 것입니다.
 
@@ -255,6 +255,6 @@ PS D:\temp>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

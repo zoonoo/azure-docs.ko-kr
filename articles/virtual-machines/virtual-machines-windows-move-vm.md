@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fdf26c779c73c67f8abc7770415787fd90397e05
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: 2464b54f70dc38b79a883b08664f4f165ec4c2d3
 
 
 ---
@@ -61,11 +61,11 @@ VM을 이동하려면 여러 리소스를 이동해야 합니다. 지금 막 각
 지정한 리소스를 이동할 것인지 묻는 메시지가 나타납니다. **Y** 를 입력하여 리소스를 이동할 것인지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-리소스 그룹 및 구독 간의 다양한 유형의 리소스를 이동할 수 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../resource-group-move-resources.md)을 참조하세요.    
+리소스 그룹 및 구독 간의 다양한 유형의 리소스를 이동할 수 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요.    
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "SQL 데이터베이스 서버 수준 방화벽 규칙 구성 | Microsoft Docs"
-description: "Azure SQL 서버에 액세스하는 IP 주소에 방화벽을 구성하는 방법을 알아봅니다."
+title: "Azure Portal: Azure SQL Database 서버 수준 방화벽 규칙 | Microsoft Docs"
+description: "Azure Portal을 사용하여 Azure SQL 서버에 액세스하는 IP 주소에 대한 서버 수준 방화벽 규칙을 구성하는 방법에 대해 알아봅니다."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
+ms.sourcegitcommit: 70fdb8e0dceb75bcbfca05d89bc3e093952d6a05
+ms.openlocfilehash: 31f40c802c7330984365645e2960c7ec32da7a59
 
 
 ---
@@ -51,7 +51,7 @@ ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
 ## <a name="next-steps"></a>다음 단계
 
 - 시작 자습서에 대해서는 [SQL Database 자습서: 서버, 서버 수준 방화벽 규칙, 샘플 데이터베이스, 데이터베이스 수준 방화벽 규칙 및 SQL Server 연결 만들기](sql-database-get-started.md)를 참조하세요.
-- 보안 자습서를 시작하려면 [보안 시작](sql-database-get-started-security.md)을 참조하세요.
+- 보안 자습서를 시작하려면 [보안 시작](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
 - 오픈 소스 또는 타사 응용 프로그램에서 Azure SQL 데이터베이스에 연결하는 방법에 대한 도움말은 [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하세요.
 - 데이터베이스에 연결할 수 있는 추가 사용자를 만드는 방법을 이해하려면 [SQL 데이터베이스 인증 및 권한 부여: 액세스 부여](https://msdn.microsoft.com/library/azure/ee336235.aspx)를 참조하세요.
 
@@ -64,6 +64,6 @@ ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "C용 Azure IoT 장치 SDK – IoTHubClient | Microsoft Docs"
-description: "C용 Azure IoT 장치 SDK에서 IoTHubClient 라이브러리 사용에 대한 자세한 정보"
+description: "C용 Azure IoT 장치 SDK에서 IoTHubClient 라이브러리를 사용하여 IoT Hub와 통신하는 장치 앱을 만드는 방법입니다."
 services: iot-hub
 documentationcenter: 
 author: olivierbloch
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 4ab5a1a25b009cef3cf85bdb773e7b3ecd119b89
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 878d4da2e8283e19d4320c0cbb9c1b9d83210c98
 
 
 ---
-# <a name="microsoft-azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C용 Microsoft Azure IoT 장치 SDK – IoTHubClient에 대한 자세한 정보
-이 시리즈의 [첫 번째 문서](iot-hub-device-sdk-c-intro.md)에서는 **C용 Microsoft Azure IoT 장치 SDK**에 대해 소개했습니다. 첫 번째 문서에서 SDK에 두 아키텍처 계층이 있다는 것을 설명했습니다. 맨 하단은 IoT Hub와의 통신을 직접 관리하는 **IoTHubClient** 라이브러리입니다. 직렬화 서비스를 제공하기 위해 위쪽에 구축되는 **serializer** 라이브러리도 있습니다. 이 문서에서는 **IoTHubClient** 라이브러리에 대한 추가 세부 정보를 제공합니다.
+# <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C용 Azure IoT 장치 SDK – IoTHubClient에 대한 자세한 정보
+이 시리즈의 [첫 번째 문서](iot-hub-device-sdk-c-intro.md)에서는 **C용 Azure IoT 장치 SDK**에 대해 소개했습니다. 첫 번째 문서에서 SDK에 두 아키텍처 계층이 있다는 것을 설명했습니다. 맨 하단은 IoT Hub와의 통신을 직접 관리하는 **IoTHubClient** 라이브러리입니다. 직렬화 서비스를 제공하기 위해 위쪽에 구축되는 **serializer** 라이브러리도 있습니다. 이 문서에서는 **IoTHubClient** 라이브러리에 대한 추가 세부 정보를 제공합니다.
 
 이전 문서에서는 **IoTHubClient** 라이브러리를 사용하여 이벤트를 IoT Hub로 전송하고 메시지를 수신하는 방법을 설명했습니다. 이 문서에서는 *하위 수준 API* 를 소개하여 데이터를 전송 및 수신하는 **시간**을 보다 정확하게 관리하는 방법에 대한 설명으로 논의를 확대합니다. 또한 **IoTHubClient** 라이브러리의 속성 처리 기능을 사용하여 이벤트에 속성을 첨부하고 메시지에서 검색하는 방법도 설명합니다. 마지막으로 IoT Hub에서 수신한 메시지를 처리하는 다양한 방법에 대한 추가 설명을 제공합니다.
 
@@ -225,7 +225,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle;
 iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, AMQP_Protocol);
 ```
 
-**IoTHubClient\_CreateFromConnectionString** 인수는 IoT Hub와 통신하는 데 사용할 프로토콜을 나타내는 장치 및 매개 변수의 연결 문자열입니다. 연결 문자열은 다음과 같은 형식입니다.
+**IoTHubClient\_CreateFromConnectionString** 인수는 IoT Hub와 통신하는 데 사용할 프로토콜을 나타내는 장치 연결 문자열 및 매개 변수입니다. 장치 연결 문자열은 다음과 같은 형식입니다.
 
 ```
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
@@ -233,7 +233,7 @@ HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSK
 
 이 문자열에는 IoT Hub 이름, IoT Hub 접미사, 장치 ID 및 공유 액세스 키의 네 가지 정보가 있습니다. Azure 포털에서 IoT Hub 인스턴스를 만들 때 IoT Hub의 정규화된 도메인 이름(FQDN)을 가져옵니다. 여기서 IoT Hub 이름(FQDN의 첫 번째 부분) 및 IoT Hub 접미사(FQDN의 나머지 부분)가 제공됩니다. 장치를 IoT Hub에 등록할 때 장치 ID 및 공유 액세스 키를 가져옵니다([이전 문서](iot-hub-device-sdk-c-intro.md)에서 설명).
 
-**IoTHubClient\_CreateFromConnectionString**은 라이브러리를 초기화하는 한 가지 방법을 제공합니다. 원하는 경우 연결 문자열 대신 개별 매개 변수를 사용하여 새 **IOTHUB\_CLIENT\_HANDLE**을 만들 수 있습니다. 다음 코드로 이 작업을 수행합니다.
+**IoTHubClient\_CreateFromConnectionString**은 라이브러리를 초기화하는 한 가지 방법을 제공합니다. 원하는 경우 장치 연결 문자열 대신 개별 매개 변수를 사용하여 새 **IOTHUB\_CLIENT\_HANDLE**을 만들 수 있습니다. 다음 코드로 이 작업을 수행합니다.
 
 ```
 IOTHUB_CLIENT_CONFIG iotHubClientConfig;
@@ -247,7 +247,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_LL_Create(&iotHubClientCo
 
 **IoTHubClient\_CreateFromConnectionString**과 동일하게 수행됩니다.
 
-보다 구체적인 초기화 메서드보다 **IoTHubClient\_CreateFromConnectionString**을 사용하려는 것이 분명해보일 수 있습니다. 하지만 장치를 IoT Hub에 등록할 때 연결 문자열이 아닌, 장치 ID 및 장치 키를 얻게 되는 것을 유의해야 합니다. [이전 문서](iot-hub-device-sdk-c-intro.md)에서 소개한 **장치 관리자** SDK 도구는 **Azure IoT 서비스 SDK**의 라이브러리를 사용하여 장치 ID, 장치 키 및 IoT Hub 호스트 이름에서 연결 문자열을 만듭니다. 따라서 **IoTHubClient\_LL\_Create**를 호출하면 연결 문자열을 생성하는 단계가 필요 없으므로 더 적합할 수 있습니다. 어떤 것이든 편한 방법을 사용하세요.
+보다 구체적인 초기화 메서드보다 **IoTHubClient\_CreateFromConnectionString**을 사용하려는 것이 분명해보일 수 있습니다. 하지만 장치를 IoT Hub에 등록할 때 연결 문자열이 아닌, 장치 ID 및 장치 키를 얻게 되는 것을 유의해야 합니다. [이전 문서](iot-hub-device-sdk-c-intro.md)에서 소개한 *장치 Explorer* SDK 도구는 **Azure IoT 서비스 SDK**의 라이브러리를 사용하여 장치 ID, 장치 키 및 IoT Hub 호스트 이름에서 장치 연결 문자열을 만듭니다. 따라서 **IoTHubClient\_LL\_Create**를 호출하면 연결 문자열을 생성하는 단계가 필요 없으므로 더 적합할 수 있습니다. 어떤 것이든 편한 방법을 사용하세요.
 
 ## <a name="configuration-options"></a>구성 옵션
 지금까지 **IoTHubClient** 라이브러리가 작동하는 방법에 대해 설명한 모든 내용은 기본 동작에 대한 것입니다. 하지만 라이브러리가 작동하는 방식을 변경하도록 설정 가능한 몇 가지 옵션이 있습니다. 이 작업은 **IoTHubClient\_LL\_SetOption** API를 활용하여 수행합니다. 다음 예를 살펴보세요.
@@ -279,6 +279,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2204034d9a39f9773a6e12ca5ed9504939a6ebf6
+ms.sourcegitcommit: f57b400dc20dc08221c0a8a770fd78f5885f634c
+ms.openlocfilehash: 0beb98220f043dc7c66cc494c3de00e0993798a6
 
 
 ---
@@ -52,16 +52,6 @@ Azure 표준 SLA로 Power BI Embedded를 사용 가능합니다. 자세한 내�
 ## <a name="how-is-this-service-priced"></a>이 서비스의 가격은 어떻게 책정되나요?
 가격 책정 정보의 경우 [Power BI Embedded 가격](http://go.microsoft.com/fwlink/?LinkId=760527) 을 참조하세요.
 
-## <a name="what-is-a-render-and-how-is-it-billed"></a>렌더란 무엇이며 어떻게 청구되나요?
-> [!NOTE]
-> Power BI Embedded 미리 보기 중에 렌더링당 할인된 가격이 제공되었으며, 사용자 피드백 때문에 세션당 가격을 위해 가격이 할인될 예정입니다. 2016년 9월 1일부터 렌더링당 가격이 세션당 가격으로 전환됩니다.
-> 
-> 
-
-렌더는 서비스에 대한 쿼리로 나타나는, 최종 사용자에게 표시되는 시각적 요소입니다. 예를 들어 사용자가 시각적 개체 4개가 포함된 보고서를 본다면 렌더는 4개가 됩니다. 사용자가 보고서를 새로 고치고 서비스에 더 많은 쿼리가 전송되면 렌더는 4개 이상이 됩니다. 서비스 소유자는 정적 데이터 시나리오에서 비용 표시를 제한하고 비용을 최소화하기 위해 최종 사용자가 유료 렌더가 되는 새 쿼리를 추진할 수 있는 범위를 제어할 수 있습니다.
-
-렌더는 1,000개 렌더당 청구됩니다. 1,000개 미만의 렌더는 비례하여 청구됩니다. 고객은 매월 1,000개의 무료 렌더를 받습니다. 볼륨 라이선싱 계약을 통해 구입하는 고객은 Microsoft 파트너 또는 판매자에게 가격 정보를 문의해야 합니다.
-
 ## <a name="what-is-a-report-session-and-how-is-it-billed"></a>보고서 세션이란 무엇이며 어떻게 청구되나요?
 세션이란 최종 사용자와 Power BI Embedded 보고서 간의 상호 작용 집합입니다. Power BI Embedded 보고서가 사용자에게 표시될 때마다 세션이 시작되고 구독 소유자에게 비용이 청구됩니다. 세션 요금은 보고서의 시각적 요소 수나 보고서 콘텐츠를 새로 고치는 빈도와 상관없이 정액으로 청구됩니다. 사용자가 보고서를 닫을 때 또는 세션이 1시간 후 시간 초과된 경우 세션이 종료됩니다.
 
@@ -85,7 +75,7 @@ Power BI Embedded 서비스는 명시적인 최종 사용자 인증 대신 인�
 앱이 서비스에 요청된 보고서를 렌더링하라고 지시하는 앱 토큰을 만들어 보냅니다. 이 디자인에서는 앱이 사용자 인증 및 권한 부여에 Azure AD를 사용할 수는 있지만 그럴 필요가 없습니다. 앱 토큰에 대한 자세한 내용은 [여기](power-bi-embedded-app-token-flow.md)에서 확인할 수 있습니다. 또한 Power BI Embedded에는 고급 보안 필터링 시나리오를 위한 RLS(행 수준 보안) 기능이 도입되었습니다.
 
 ## <a name="what-data-sources-are-currently-supported-with-power-bi-embedded"></a>Power BI Embedded로 현재 지원되는 데이터 원본은 무엇인가요?
-직접 쿼리를 통해 기본 자격 증명을 사용하는 클라우드 데이터 원본에 대한 액세스를 지원할 예정입니다. 즉, Azure SQL DB 및 Azure SQL DW와 같은 원본을 현재 지원하고 있습니다. 몇 달 이내에 다른 데이터 원본 및 액세스 유형에 대한 지원도 추가됩니다. Power BI 개발자 포럼 [https://dev.powerbi.com](https://dev.powerbi.com/)에서 새로 지원되는 데이터 원본을 발표할 예정입니다.
+직접 쿼리를 통해 기본 자격 증명을 사용하는 클라우드 데이터 원본에 대한 액세스를 지원할 예정입니다. 즉, Azure SQL DB 및 Azure SQL DW와 같은 원본을 현재 지원하고 있습니다. 몇 달 이내에 다른 데이터 원본 및 액세스 유형에 대한 지원도 추가됩니다. 자세한 내용은 [데이터 원본에 연결](power-bi-embedded-connect-datasource.md)을 참조하세요.
 
 ## <a name="how-does-the-tenancy-model-work-for-power-bi-embedded"></a>Power BI Embedded에 대한 테넌트 모델은 어떻게 작동하나요?
 Power BI Embedded 모델에는 Azure AD 테넌트의 고객이 있어야 한다는 요구 사항이 없습니다. 고객에 대한 Azure AD를 요구하도록 선택하거나 선택하지 않을 수 있습니다. 결과적으로 응용 프로그램의 아키텍처 및 인프라는 Power BI Embedded에 필요한 테넌트 모델을 결정하는 것입니다.
@@ -102,9 +92,11 @@ Power BI Embedded 모델에는 Azure AD 테넌트의 고객이 있어야 한다�
 * [Microsoft Power BI Embedded란](power-bi-embedded-what-is-power-bi-embedded.md)
 * [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
 
+궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO3-->
 
 
