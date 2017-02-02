@@ -15,8 +15,8 @@ ms.workload: required
 ms.date: 10/04/2016
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fcc939fc1a70e179f714e73bc5757ed750974f17
+ms.sourcegitcommit: dbc03f9951a5a76da98f4e3097c16cf373aaf146
+ms.openlocfilehash: b3fc83b83655f270be6bad08a99a99503aa14042
 
 
 ---
@@ -58,7 +58,7 @@ Azure 부하 분산 장치에서 개별 서비스의 포트를 구성 하는 대
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&Timeout=<timeout_in_seconds>
 ```
 
-* **http(s):** 역방향 프록시를HTTP 또는 HTTPS 트래픽을 허용하도록 구성할 수 있습니다. HTTPS 트래픽의 경우 SSL 종료는 역방향 프록시에서 발생합니다. 클러스터에서 역방향 프록시에 의해 서비스에 전달되는 요청은 http 상에서 이루어집니다.
+* **http(s):** 역방향 프록시를HTTP 또는 HTTPS 트래픽을 허용하도록 구성할 수 있습니다. HTTPS 트래픽의 경우 SSL 종료는 역방향 프록시에서 발생합니다. 클러스터에서 역방향 프록시에 의해 서비스에 전달되는 요청은 http 상에서 이루어집니다. **HTTPS Services는 현재 Linux에서 지원되지 않습니다.**
 * **클러스터 FQDN | 내부 IP:** 외부 클라이언트의 경우, 역방향 프록시를 구성하여 클러스터 도메인을 통해 연결할 수 있습니다(예: mycluster.eastus.cloudapp.azure.com). 기본적으로 역방향 프록시는 모든 노드에서 실행되기 때문에, 내부 트래픽에 대해 localhost 또는 모든 내부 노드 IP(예: 10.0.0.1)에서 연결할 수 있습니다.
 * **포트:** 역방향 프록시에 대해 지정된 포트입니다. 예: 19008.
 * **ServiceInstanceName:** "fabric:/" 체계 없이 연결하려고 하는 서비스의 정규화된 배포된 서비스 인스턴스 이름입니다. 예를 들어 서비스 *fabric:/myapp/myservice/*에 연결하려면 *myapp/myservice*를 사용합니다.
@@ -129,7 +129,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 ## <a name="setup-and-configuration"></a>설정 및 구성
 [Azure Resource Manager 템플릿](service-fabric-cluster-creation-via-arm.md)을 통해 클러스터에 대해 Service Fabric 역방향 프록시를 사용하도록 설정할 수 있습니다.
 
-배포하려는 클러스터에 대한 템플릿이 있으면(샘플 템플릿이 있거나 사용자 지정 리소스 관리자 템플릿을 만들어) 다음 단계에 따라 템플릿에서 역방향 프록시를 사용하도록 설정할 수 있습니다.
+배포하려는 클러스터에 대한 템플릿이 있으면(샘플 템플릿이 있거나 사용자 지정 Resource Manager 템플릿을 만들어) 다음 단계에 따라 템플릿에서 역방향 프록시를 사용하도록 설정할 수 있습니다.
 
 1. 템플릿의 [매개 변수 섹션](../resource-group-authoring-templates.md) 에서 역방향 프록시에 대한 포트를 정의합니다.
    
@@ -142,7 +142,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
         }
     },
     ```
-2.  **클러스터** [리소스 형식 섹션](../resource-group-authoring-templates.md)
+2. **클러스터** [리소스 형식 섹션](../resource-group-authoring-templates.md)
    
     '2016-09-01' 이전의 apiVersion's의 경우 포트는 ***httpApplicationGatewayEndpointPort***라는 매개 변수 이름으로 식별됩니다.
    
@@ -287,6 +287,6 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

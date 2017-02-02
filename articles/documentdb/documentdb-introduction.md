@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23a6be60d7bf8fa47589fffb5132a09994d33d4c
+ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
+ms.openlocfilehash: 18f2c1876fab914073c8aea67f67724f281a65aa
 
 
 ---
@@ -44,9 +44,9 @@ Azure DocumentDB는 다음과 같은 주요 기능 및 이점을 제공합니다
 * **튜닝 가능한 일관성 수준:** 잘 정의된 네 가지 일관성 수준에서 선택하여 일관성과 성능 간의 최적 절충을 실현합니다. 쿼리 및 읽기 작업에 대해 DocumentDB는 강력, 제한된 부실, 세션, 최종 등의 네 가지 일관성 수준을 제공합니다. 이러한 잘 정의된 세부적인 일관성 수준을 통해 일관성, 가용성 및 대기 시간 간에 타당한 절충을 수행할 수 있습니다. [일관성 수준을 사용하여 DocumentDB에서 가용성 및 성능 최대화](documentdb-consistency-levels.md)에서 자세히 알아보세요.
 * **완전히 관리:** 데이터베이스 및 컴퓨터 리소스를 관리할 필요가 없습니다. 완전히 관리되는 Microsoft Azure 서비스의 경우 가상 컴퓨터를 관리하거나 소프트웨어를 배포 및 구성하거나 크기 조정을 관리하거나 복잡한 데이터 계층 업그레이드를 처리할 필요가 없습니다. 모든 데이터베이스가 자동으로 백업되고 지역적 실패로부터 보호됩니다. 필요 시 쉽게 DocumentDB 계정을 추가하고 용량을 프로비전할 수 있으므로 데이터베이스 작동 및 관리 대신 응용 프로그램에 집중할 수 있습니다. 
 * **의도적인 개방성:** 기존 기술과 도구를 사용하여 신속하게 시작합니다. DocumentDB에 대한 프로그래밍은 단순하고 사용하기 쉬우며 새 도구를 채택하거나 JSON 또는 JavaScript에 대한 사용자 지정 확장을 준수할 필요가 없습니다. 단순한 RESTful HTTP 인터페이스를 통해 CRUD, 쿼리 및 JavaScript 처리를 비롯한 모든 데이터베이스 기능에 액세스할 수 있습니다. DocumentDB는 기존 형식, 언어 및 표준을 수용하며 이를 바탕으로 중요한 데이터베이스 기능을 제공합니다.
-* **자동 인덱싱:** DocumentDB는 기본적으로 데이터베이스에 있는 모든 문서를 [자동으로 인덱스](documentdb-indexing.md)하며 스키마 또는 보조 인덱스 생성을 예상하거나 요구하지 않습니다. 모든 항목을 인덱스하지 않으시겠습니까? 걱정하지 마세요. [JSON 파일에서 경로를 옵트아웃](documentdb-indexing-policies.md)할 수 있습니다.
+* **자동 인덱싱:** DocumentDB는 기본적으로 데이터베이스에 있는 모든 문서를 자동으로 인덱싱하고 스키마 또는 보조 인덱스 생성을 예상하거나 요구하지 않습니다. 모든 항목을 인덱스하지 않으시겠습니까? 걱정하지 마세요. [JSON 파일에서 경로를 옵트아웃](documentdb-indexing-policies.md)할 수 있습니다.
 
-## <a name="a-namedatamanagementahow-does-documentdb-manage-data"></a><a name="data-management"></a>DocumentDB에서 어떻게 데이터를 관리하나요?
+## <a name="a-namedata-managementahow-does-documentdb-manage-data"></a><a name="data-management"></a>DocumentDB에서 어떻게 데이터를 관리하나요?
 Azure DocumentDB는 잘 정의된 데이터베이스 리소스를 통해 JSON 데이터를 관리합니다. 이러한 리소스는 고가용성을 위해 복제되며 논리적 URI로 고유한 주소 지정이 가능합니다. DocumentDB는 모든 리소스에 대해 단순한 HTTP 기반 RESTful 프로그래밍 모델을 제공합니다. 
 
 DocumentDB 데이터베이스 계정은 Azure DocumentDB에 대한 액세스 권한을 제공하는 고유 네임스페이스입니다. 데이터베이스 계정을 만들려면 먼저 다양한 Azure 서비스에 액세스할 수 있는 Azure 구독이 있어야 합니다. 
@@ -71,6 +71,8 @@ Azure DocumentDB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어�
 | 해당 없음 |[서버 쪽 JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/) |
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python 라이브러리](http://azure.github.io/azure-documentdb-python/) |
 
+[Azure DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md)를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 응용 프로그램을 테스트할 수 있습니다. DocumentDB 에뮬레이터에서 응용 프로그램이 작동하는 방식에 만족하는 경우 Azure DocumentDB 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
+
 기본적인 만들기, 읽기, 업데이트 및 삭제 작업 외에도 DocumentDB는 JSON 문서 검색을 위한 풍부한 SQL 쿼리 인터페이스 및 JavaScript 응용 프로그램 논리의 트랜잭션 실행에 대한 서버 쪽 지원을 제공합니다. 쿼리 및 스크립트 실행 인터페이스는 모든 플랫폼 라이브러리 및 REST API를 통해 사용할 수 있습니다. 
 
 ### <a name="sql-query"></a>SQL 쿼리
@@ -92,6 +94,7 @@ Azure 계정이 없나요? 다음을 수행할 수 있습니다.
 
 * [Azure 무료 평가판](https://azure.microsoft.com/free/)에 등록하면 30일간 ₩240,000으로 모든 Azure 서비스를 사용해 볼 수 있습니다. 
 * MSDN 구독이 있는 경우 모든 Azure 서비스에 사용할 수 있는 [월별 ₩180,000의 무료 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) 에 대한 자격이 주어집니다. 
+* 응용 프로그램을 로컬로 개발하려면 [Azure DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md)를 다운로드합니다.
 
 자세히 배울 준비가 되면 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/) 를 방문하여 사용 가능한 모든 학습 리소스를 살펴보세요. 
 
@@ -100,6 +103,6 @@ Azure 계정이 없나요? 다음을 수행할 수 있습니다.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

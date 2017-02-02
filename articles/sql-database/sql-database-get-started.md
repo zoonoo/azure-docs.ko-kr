@@ -1,6 +1,6 @@
 ---
-title: "SQL Database 자습서: 서버, 서버 수준 방화벽 규칙, 샘플 데이터베이스, 데이터베이스 수준 방화벽 규칙 및 SQL Server Management Studio 연결 만들기 | Microsoft 문서"
-description: "SQL Database 논리 서버, 서버 방화벽 규칙, SQL Database 및 샘플 데이터를 설정하는 방법을 알아봅니다. 또한 클라이언트 도구를 사용하여 연결하고 사용자를 구성하며 데이터베이스 방화벽 규칙을 설정하는 방법을 알아봅니다."
+title: "Azure Portal: Azure SQL Database 시작 | Microsoft Docs"
+description: "Azure Portal을 사용하여 SQL Database 논리 서버, 서버 수준 방화벽 규칙 및 데이터베이스를 만드는 방법에 대해 알아봅니다. SQL Server Management Studio를 사용하여 데이터베이스를 쿼리하는 방법을 알아봅니다."
 keywords: "SQL 데이터베이스 자습서, SQL 데이터베이스 만들기"
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
 
 ---
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-the-azure-portal-and-sql-server-management-studio"></a>Azure Portal 및 SQL Server Management Studio를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작
+# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>SQL Database 자습서: Azure Portal 및 SQL Server Management Studio를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작
 
 이 시작 자습서에서는 다음을 수행하기 위해 Azure Portal을 사용하는 방법에 대해 알아봅니다.
 
@@ -30,7 +30,7 @@ ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
 * Azure SQL 논리 서버 만들기
 * Azure SQL 논리 서버 속성 보기
 * 서버 수준 방화벽 규칙 만들기
-* Adventure Works LT 샘플 데이터베이스를 독립 실행형 데이터베이스로 만들기
+* Adventure Works LT 샘플 데이터베이스를 단일 데이터베이스로 만들기
 * Azure에서 Adventure Works LT 샘플 데이터베이스 속성 보기
 
 또한 이 자습서에서는 다음을 수행하기 위해 최신 버전의 SQL Server Management Studio를 사용합니다.
@@ -44,17 +44,22 @@ ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
 
 **예상 시간**: 이 자습서의 경우 약 30분 소요됩니다(이미 필수 조건을 충족한다고 가정).
 
+> [!TIP]
+> [C#](sql-database-get-started-csharp.md) 또는 [PowerShell](sql-database-get-started-powershell.md)을 사용하여 시작 자습서에서 이와 동일한 작업을 수행 할 수 있습니다.
+>
+
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/free-trial/?WT.mc_id=A261C142F) 또는 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다. 
 
 * 구독 소유자 또는 참가자 역할의 구성원인 계정을 사용하여 Azure Portal에 연결할 수 있어야 합니다. RBAC(역할 기반 액세스 제어)에 대한 자세한 내용은 [Azure Portal에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
 
-> [!TIP]
-> [C#](sql-database-get-started-csharp.md) 또는 [PowerShell](sql-database-get-started-powershell.md)을 사용하여 시작 자습서에서 이와 동일한 작업을 수행 할 수 있습니다.
->
+> [!NOTE]
+> 이 자습서에서는 [SQL Database 서버 개요](sql-database-server-overview.md), [SQL Database 개요](sql-database-overview.md) 및 [Azure SQL Database 방화벽 규칙 개요](sql-database-firewall-configure.md) 학습 항목의 콘텐츠를 학습할 수 있습니다.
+>  
 
-### <a name="sign-in-by-using-your-existing-account"></a>기존 계정을 사용하여 로그인
+
+### <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Azure 계정을 사용하여 Azure Portal에 로그인합니다.
 [기존 구독](https://account.windowsazure.com/Home/Index)을 사용하고 이러한 다음 단계를 수행하여 Azure Portal에 연결합니다.
 
 1. 선택한 브라우저를 열고 [Azure Portal](https://portal.azure.com/)에 연결합니다.
@@ -103,7 +108,7 @@ ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
     ![서버 위치](./media/sql-database-get-started/server-location.png)
     
     > [!TIP]
-    > **Azure 서비스의 서버 액세스 허용** 확인란은 이 블레이드에서 변경할 수 없습니다. [서버 방화벽] 블레이드에서 이 설정을 변경할 수 있습니다. 자세한 내용은 [보안 시작](sql-database-get-started-security.md)을 참조하세요.
+    > **Azure 서비스의 서버 액세스 허용** 확인란은 이 블레이드에서 변경할 수 없습니다. [서버 방화벽] 블레이드에서 이 설정을 변경할 수 있습니다. 자세한 내용은 [보안 시작](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
     >
     
 9. **만들기**를 클릭합니다.
@@ -183,7 +188,7 @@ ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
     ![master 데이터베이스 시스템 개체를 쿼리합니다.](./media/sql-database-get-started/query-master-database-system-objects.png)
 
     > [!NOTE]
-    > SQL 보안을 탐색하려면 [SQL 보안 시작](sql-database-get-started-security.md)을 참조하세요.
+    > SQL 보안을 탐색하려면 [SQL 보안 시작](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
     >
 
 ## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Adventure Works LT 샘플을 사용하여 Azure Portal에서 새 데이터베이스 만들기
@@ -208,7 +213,7 @@ ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
     ![서버 자격 증명](./media/sql-database-get-started/server-credentials.png)
 
     > [!NOTE]
-    > 서버에 데이터베이스를 추가할 때 데이터베이스를 독립 실행형 데이터베이스(기본값)로 또는 탄력적 풀에 추가할 수 있습니다. 탄력적 풀에 대한 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
+    > 서버에 데이터베이스를 추가할 때 데이터베이스를 단일 데이터베이스(기본값)로 또는 탄력적 풀에 추가할 수 있습니다. 탄력적 풀에 대한 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
     >
 
 7. [가격 책정] 계층에서 가격 책정 계층을 **기본**으로 변경합니다. 나중에 원하는 경우 가격 책정 계층을 높일 수 있지만 여기서는 학습 목적으로 최저 비용 계층을 사용하는 것이 좋습니다.
@@ -284,14 +289,14 @@ ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
     ![개체 탐색기의 새 빈 데이터베이스](./media/sql-database-get-started/new-blank-database-object-explorer.png)
 
 > [!TIP]
-> 사용하지 않는 데이터베이스를 삭제하여 일부 학습 비용을 절약할 수 있습니다. 기본 버전의 데이터베이스인 경우 7일 이내에 복원할 수 있습니다. 그러나 서버는 삭제하지 마세요. 서버를 삭제하면 서버 또는 이 서버의 삭제된 데이터베이스를 복구할 수 없기 때문입니다.
+> 사용하지 않는 데이터베이스를 삭제하여 일부 학습 비용을 절약할 수 있습니다. 기본 버전의 데이터베이스인 경우&7;일 이내에 복원할 수 있습니다. 그러나 서버는 삭제하지 마세요. 서버를 삭제하면 서버 또는 이 서버의 삭제된 데이터베이스를 복구할 수 없기 때문입니다.
 >
 
 
 ## <a name="next-steps"></a>다음 단계
 이제 이 자습서를 완료했으므로 여기서 학습한 내용을 빌드하기 위해 탐색할 수 있는 추가 자습서가 다음과 같이 다양하게 준비되어 있습니다. 
 
-* Azure SQL Database 보안을 탐색하려면 [보안 시작](sql-database-get-started-security.md)을 참조하세요.
+* Azure SQL Database 보안을 탐색하려면 [보안 시작](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
 * Excel을 알고 있는 경우 [Azure에서 Excel로 SQL Database에 연결](sql-database-connect-excel.md)하는 방법에 대해 알아보세요.
 * 코딩을 시작할 준비가 되었다면 [SQL Database 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md)에서 프로그래밍 언어를 선택합니다.
 * 온-프레미스 SQL Server 데이터베이스를 Azure로 이동하려면 [SQL Database로 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
@@ -299,11 +304,13 @@ ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
 * 테이블 및 다른 개체를 만들려면 [테이블 만들기](https://msdn.microsoft.com/library/ms365315.aspx)에서 "테이블을 만들려면" 항목을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
-[SQL Database 정의](sql-database-technical-overview.md)
+
+- 기술적 개요는 [SQL Database 정의](sql-database-technical-overview.md)를 참조하세요.
+- 가격 정보는 [Azure SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

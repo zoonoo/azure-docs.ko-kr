@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a67f2e77d3bc7da35a03b68d7f32fd3a2a42bfcd
-ms.openlocfilehash: 8ae64aa0cfe3774cfa288cc3eea18b1b2f56ad90
+ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
+ms.openlocfilehash: fb34986d947175ae4b4212e5bd0a1e90836ed170
 
 
 ---
-# <a name="move-data-to-and-from-azure-blob-storage-using-python"></a>Python을 사용하여 Azure Blob 저장소의 데이터 이동
+# <a name="move-data-to-and-from-azure-blob-storage-using-python"></a>Python을 사용하여 Azure Blob Storage 간 데이터 이동
 이 항목에서는 Python API를 사용하여 blob를 나열, 업로드 및 다운로드하는 방법을 설명합니다. Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있습니다.
 
 * 컨테이너 만들기
@@ -131,6 +131,6 @@ Python API 사용에 대한 자세한 내용은 [Python에서 Blob 저장소 서
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

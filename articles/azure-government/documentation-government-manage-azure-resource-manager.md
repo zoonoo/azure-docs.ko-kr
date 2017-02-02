@@ -1,19 +1,18 @@
 ---
 title: "Azure Government Resource Manager | Microsoft 문서"
 description: "이 설명서에서는 Azure Government의 응용 프로그램 개발에 대한 기능 및 지침을 비교합니다."
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: brendalee
 manager: zakramer
-editor: 
 ms.assetid: f270ebe4-dbbb-4e3d-8eba-efe1ca038988
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/10/2016
+ms.date: 11/14/2016
 ms.author: brendal
 translationtype: Human Translation
 ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2

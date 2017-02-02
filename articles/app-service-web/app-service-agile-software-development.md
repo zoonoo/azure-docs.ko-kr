@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c8ebad8e615e3bcc47d06ad3f77ad2752394f7e4
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 727891d92c047abe405415ea544db6f77a0db9f9
 
 
 ---
@@ -70,8 +70,8 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 > [!NOTE]
 > 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
 > 
-> * [Azure 계정을 무료로 개설](/pricing/free-trial/) 할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다.
-> * [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/) 할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> * [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/) 할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다.
+> * [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) 할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 > 
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
@@ -263,12 +263,12 @@ Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채
 * [Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-deploy-complex-application-predictably.md)
 * [Agile 개발 연습에서: 현대화 개발 주기의 팁과 트릭](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 * [리소스 관리자 템플릿을 사용하여 Azure 웹앱의 고급 배포 전략](http://channel9.msdn.com/Events/Build/2015/2-620)
-* [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
+* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint-JSON 유효성 검사기](http://jsonlint.com/)
 * [ARMClient – 사이트로 GitHub 게시를 설정](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 * [Git 분기-기본 분기 및 병합](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [David Ebbo의 블로그](http://blog.davidebbo.com/)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Azure 플랫폼간 명령줄 도구](../xplat-cli-install.md)
 * [Azure AD에서 사용자 만들기 또는 편집](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 * [프로젝트 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
@@ -276,6 +276,6 @@ Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

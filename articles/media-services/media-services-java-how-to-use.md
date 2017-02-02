@@ -1,6 +1,6 @@
 ---
 title: "Java를 사용한 주문형 콘텐츠 제공 시작 | Microsoft Docs"
-description: "Azure 미디어 서비스를 사용하여 리소스 인코딩, 암호화, 스트리밍 등의 일반적인 작업을 수행하는 방법에 대해 설명합니다."
+description: "이 자습서에서는 Java를 사용하는 AMS(Azure Media Services) 응용 프로그램으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다."
 services: media-services
 documentationcenter: java
 author: juliako
@@ -12,28 +12,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 12/20/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
-ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 55ecdb72c85276cbc8bb5c9ce67978e648ebddb1
 
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Java를 사용한 주문형 콘텐츠 제공 시작
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-## <a name="setting-up-an-azure-account-for-media-services"></a>미디어 서비스용 Azure 계정 설정
-Media Services 계정을 설정하려면 Azure Portal을 사용하세요. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 토픽을 참조하세요. Azure Portal에서 계정을 만들면 Media Services 개발을 위해 컴퓨터를 설정할 준비가 됩니다.
+이 자습서에서는 Java를 사용하는 AMS(Azure Media Services) 응용 프로그램으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 
-## <a name="setting-up-for-media-services-development"></a>미디어 서비스 개발을 위한 설정
-이 섹션에는 Media Services SDK for Java를 사용하는 미디어 서비스 개발에 대한 일반적인 필수 조건이 들어 있습니다.
+## <a name="prerequisites"></a>필수 조건
 
-### <a name="prerequisites"></a>필수 조건
-* 신규 또는 기존 Azure 구독의 미디어 서비스 계정. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 토픽을 참조하세요.
+자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
+
+* Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
+* 미디어 서비스 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * [Azure Java 개발자 센터][Azure Java Developer Center]에서 설치할 수 있는 Java용 Azure 라이브러리입니다.
 
 ## <a name="how-to-use-media-services-with-java"></a>방법: Java에서 미디어 서비스 사용
+
+>[!NOTE]
+>AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
+
 다음 코드에서는 자산을 만들고, 미디어 파일을 자산에 업로드하고, 자산 변환 태스크를 포함하는 작업을 실행하고, 동영상을 스트리밍하기 위해 로케이터를 만드는 방법을 보여 줍니다.
 
 이 코드를 사용하려면 미디어 서비스 계정을 설정해야 합니다. 계정 설정에 대한 자세한 내용은 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
@@ -270,6 +274,6 @@ Media Services Javadoc 설명서는 [Java용 Azure 라이브러리 설명서][Az
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

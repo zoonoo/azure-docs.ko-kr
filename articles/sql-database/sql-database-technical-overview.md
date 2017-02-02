@@ -1,5 +1,5 @@
 ---
-title: "SQL 데이터베이스 정의 SQL Database 소개 | Microsoft Docs"
+title: "Azure SQL Database 서비스란? | Microsoft Docs"
 description: 'Get an introduction to SQL Database: technical details and capabilities of Microsoft''s relational database management system (RDBMS) in the cloud.'
 keywords: "sql 소개, sql 소개, sql 데이터베이스란"
 services: sql-database
@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 12/20/2016
 ms.author: shkurhek;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 262583a2a11c41cf7acb55599041692137165e8f
+ms.sourcegitcommit: 7a7e9ab9e01f3775061c0b4aee6c558a15aaff44
+ms.openlocfilehash: b3e8f5a6c5a2304bbe8b567fa0d25f27e6a917d7
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>SQL 데이터베이스 정의 SQL 데이터베이스 소개
@@ -26,7 +26,7 @@ SQL Database는 시장을 선도하는 Microsoft SQL Server 엔진을 기반으�
 
 이 문서에서는 세부 정보를 찾는 링크를 통해 성능, 확장성 및 관리 효율성과 관련된 SQL 데이터베이스의 핵심 개념과 기능을 소개합니다. 실습 자습서로 이동할 준비가 되면 [첫 번째 SQL Database 만들기](sql-database-get-started.md) 또는 [탄력적 풀 만들기](sql-database-elastic-pool-create-portal.md)로 이동합니다. 짧은 비디오 데모를 보려면 다음 비디오를 시청해 보세요.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
 > 
 > 
 
@@ -62,6 +62,6 @@ SQL 데이터베이스에 대한 소개를 읽고 질문 "SQL 데이터베이스
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

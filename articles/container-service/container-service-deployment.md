@@ -1,5 +1,5 @@
 ---
-title: "Azure Container Service 클러스터 배포 | Microsoft 문서"
+title: "Azure에서 Docker 컨테이너 클러스터 배포 | Microsoft Docs"
 description: "Azure 포털, Azure CLI 또는 PowerShell을 사용하여 Azure 컨테이너 서비스 클러스터를 배포합니다."
 services: container-service
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 12/20/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: dc7ce9f0524567b861a40940f02cd07e0b7b22bf
-ms.openlocfilehash: 52331c92a4e3e254c044c9cba85a937b6ba95011
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 047e939df8ba61245644793bb156315cfb32f042
 
 
 ---
@@ -69,7 +69,7 @@ Azure 컨테이너 서비스는 인기 있는 오픈 소스 컨테이너 클러�
 7. **Azure Container Service** 설정 블레이드에서 다음 정보를 입력합니다.
 
     * **마스터 수**: 클러스터의 마스터 수입니다. Kubernetes를 선택하는 경우 마스터의 수는 1이라는 기본값으로 설정됩니다
-    * **에이전트 수**: Docker Swarm 및 Kubernetes의 경우, 에이전트 크기 집합의 초기 에이전트 수입니다. DC/OS의 경우, 사설 규모 집합의 초기 에이전트 수입니다. 또한, 사전에 지정된 수의 에이전트를 포함하는 공개 규모 집합이 생성됩니다. 이 공개 규모 집합의 에이전트 수는 클러스터에 생성된 마스터의 수를(1개의 마스터에 대한 공개 에이전트 1개, 3 또는 5개의 마스터에 대한 공개 에이전트 2개)를 결정합니다.
+    * **에이전트 수**: Docker Swarm 및 Kubernetes의 경우, 에이전트 크기 집합의 초기 에이전트 수입니다. DC/OS의 경우, 사설 규모 집합의 초기 에이전트 수입니다. 또한, 사전에 지정된 수의 에이전트를 포함하는 공개 규모 집합이 생성됩니다. 이 공개 규모 집합의 에이전트 수는 클러스터에 생성된 마스터의 수를(1개의 마스터에 대한 공개 에이전트&1;개,&3; 또는&5;개의 마스터에 대한 공개 에이전트&2;개)를 결정합니다.
     * **에이전트 가상 컴퓨터 크기**: 에이전트 가상 컴퓨터의 크기입니다.
     * **DNS 접두사**: 서비스의 정규화된 도메인 이름의 주요 부분에 접두사로 사용될 세계적으로 고유 이름입니다.
 
@@ -199,6 +199,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

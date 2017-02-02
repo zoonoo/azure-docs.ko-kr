@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/15/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 4a2cd02f6f9b6ac51c32314ce892e572e569eb7c
+ms.sourcegitcommit: 078eed417b925263712d0be74b27d5802b091ca5
+ms.openlocfilehash: d8aea5b46e4ef48bf253194df603c772631a787d
 
 
 ---
@@ -45,7 +45,7 @@ VM 규모 집합에 대한 예제 템플릿의 집합은 [여기](https://github
 ## <a name="scaling-a-vm-scale-set-out-and-in"></a>VM 규모 집합 확장 및 축소
 VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, *용량* 속성만 변경하고 템플릿을 다시 배포합니다. Azure 자동 크기 조정에서 지원되지 않는 사용자 지정 크기 조정(custom scale) 이벤트를 정의하려는 경우 이러한 단순성을 통해 사용자 지정 크기 조정 계층을 쉽게 작성할 수 있습니다.
 
-용량을 변경하기 위해서 템플릿을 다시 배포하는 경우 SKU와 업데이트된 용량만 포함하는 훨씬 더 작은 템플릿을 정의할 수 있습니다.  [여기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)
+용량을 변경하기 위해서 템플릿을 다시 배포하는 경우 SKU와 업데이트된 용량만 포함하는 훨씬 더 작은 템플릿을 정의할 수 있습니다. [여기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)
 
 자동으로 크기가 조정되는 규모 집합을 만드는 단계를 살펴보려면 [가상 컴퓨터 규모 집합에서 자동으로 컴퓨터 규모 조정](virtual-machine-scale-sets-windows-autoscale.md)
 
@@ -90,15 +90,15 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, *�
 * 만들 수 있는 VM 개수는 배포하려는 지역의 코어 할당량에 따라 제한됩니다. 클라우드 서비스 또는 IaaS v1에 사용할 코어 한도가 높더라도, 계산 할당량 한도를 높이려면 고객 지원팀에 문의해야 합니다. 할당량을 쿼리하려면 Azure CLI 명령 `azure vm list-usage` 및 PowerShell 명령 `Get-AzureRmVMUsage`를 실행합니다. PowerShell 1.0 이전 버전을 사용하는 경우에는 `Get-AzureVMUsage`를 사용합니다.
 
 ## <a name="vm-scale-set-frequently-asked-questions"></a>VM 규모 집합 질문과 대답
-**Q.**  VM 규모 집합에 포함할 수 있는 VM의 수는 몇 개입니까?
+**Q.** VM 규모 집합에 포함할 수 있는 VM의 수는 몇 개입니까?
 
-**A.**  여러 저장소 계정으로 배포될 수 있는 플랫폼 이미지를 사용하는 경우 100개입니다. 현재 사용자 지정 이미지는 단일 저장소 계정으로 제한되어 있으므로 최대 40개까지( *overprovision* 속성을 "false"로 설정한 경우, 기본값은 20) 사용할 수 있습니다.
+**A.** 여러 저장소 계정으로 배포될 수 있는 플랫폼 이미지를 사용하는 경우&amp;100;개입니다. 현재 사용자 지정 이미지는 단일 저장소 계정으로 제한되어 있으므로 최대 40개까지( *overprovision* 속성을 "false"로 설정한 경우, 기본값은 20) 사용할 수 있습니다.
 
 **Q.** VM 규모 집합에 존재하는 다른 리소스 제한 사항은 무엇입니까?
 
-**A.**  10분 동안 지역당 다수의 규모 집합에 VM을 500개 이하로 생성하도록 제한됩니다. 기존 [Azure 구독 서비스 제한/](../azure-subscription-service-limits.md) 을 적용합니다.
+**A.** 10분 동안 지역당 다수의 규모 집합에 VM을 500개 이하로 생성하도록 제한됩니다. 기존 [Azure 구독 서비스 제한](../azure-subscription-service-limits.md)을 적용합니다.
 
-**Q.**  VM 규모 집합 내에서 데이터 디스크가 지원됩니까?
+**Q.** VM 규모 집합 내에서 데이터 디스크가 지원됩니까?
 
 **A.** 초기 릴리스에서는 지원되지 않습니다.(하지만 데이터 디스크를 미리 보기에서 현재 사용할 수 있습니다.) 데이터 저장 옵션은 다음과 같습니다.
 
@@ -108,13 +108,13 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, *�
 * Azure 데이터 서비스(예: Azure 테이블, Azure Blob)
 * 외부 데이터 서비스(예: 원격 DB)
 
-**Q.**  VM 규모 집합을 지원하는 Azure 지역은 어디인가요?
+**Q.** VM 규모 집합을 지원하는 Azure 지역은 어디인가요?
 
-**A.**  Azure 리소스 관리자를 지원하는 지역은 VM 규모 집합을 지원합니다.
+**A.** 모든 지역에서 VM Scale Sets을 지원합니다.
 
-**Q.**  사용자 지정 이미지를 사용하여 VM 규모 집합을 어떻게 만드나요?
+**Q.** 사용자 지정 이미지를 사용하여 VM 규모 집합을 어떻게 만드나요?
 
-**A.** vhdContainers 속성을 비워둡니다. 아래 예제를 참조하세요.
+**A.** vhdContainers 속성은 비워두거나 생략하고 다음과 같이 이미지 속성의 URI를 제공합니다.
 
     "storageProfile": {
         "osDisk": {
@@ -129,25 +129,25 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, *�
     },
 
 
-**Q.**  VM 규모 집합 용량을 20에서 15로 줄이면, 어떤 VM이 제거되나요?
+**Q.** VM 규모 집합 용량을 20에서 15로 줄이면, 어떤 VM이 제거되나요?
 
-**A.**  가용성을 최대화하기 위해 업그레이드 도메인과 오류 도메인 간에 균등하도록 가상 컴퓨터가 규모 집합에서 제거 됩니다. ID가 가장 높은 VM이 먼저 제거됩니다.
+**A.** 가용성을 최대화하기 위해 업그레이드 도메인과 오류 도메인 간에 균등하도록 가상 컴퓨터가 규모 집합에서 제거 됩니다. ID가 가장 높은 VM이 먼저 제거됩니다.
 
-**Q.**  그런 다음 용량을 15에서 18로 늘리면 어떻게 되나요?
+**Q.** 그런 다음 용량을 15에서 18로 늘리면 어떻게 되나요?
 
 **A.** 용량을 18로 늘리면 3개의 새로운 VM 생성됩니다. VM 인스턴스 ID가 이전의 가장 큰 값(예: 20, 21, 22)에서 증가될 때마다 VM은 FD와 UD에서 균형이 조정됩니다.
 
-**Q.**  VM 규모 집합에서 여러 확장을 사용하는 경우, 실행 순서를 강제로 적용할 수 있습니까?
+**Q.** VM 규모 집합에서 여러 확장을 사용하는 경우, 실행 순서를 강제로 적용할 수 있습니까?
 
 **A.** 직접적으로는 불가능하지만 customScript 확장의 경우 다른 확장이 완료될 때까지 사용자의 스크립트를 대기시킬 수 있습니다([예: 확장 로그 모니터링](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). 확장 시퀀싱에 대한 추가 지침은 블로그 게시물 [Azure VM 크기 집합의 확장 시퀀싱](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)에서 찾을 수 있습니다.
 
-**Q.**  VM 규모 집합은 Azure 가용성 집합과 작업이 가능합니까?
+**Q.** VM 규모 집합은 Azure 가용성 집합과 작업이 가능합니까?
 
-**A.**  예. VM 규모 집합은 FD 5개와 UD 5개를 포함하는 암시적인 가용성 집합입니다. virtualMachineProfile에 대해 아무것도 구성할 필요가 없습니다. 앞으로 출시되는 릴리스에서 VM 규모 집합이 여러 테넌트로 확장될 가능성이 있지만 현재 규모 집합은 단일 가용성 집합입니다.
-
-
+**A.** 예. VM 규모 집합은 FD 5개와 UD 5개를 포함하는 암시적인 가용성 집합입니다. virtualMachineProfile에 대해 아무것도 구성할 필요가 없습니다. 앞으로 출시되는 릴리스에서 VM 규모 집합이 여러 테넌트로 확장될 가능성이 있지만 현재 규모 집합은 단일 가용성 집합입니다.
 
 
-<!--HONumber=Dec16_HO4-->
+
+
+<!--HONumber=Jan17_HO4-->
 
 

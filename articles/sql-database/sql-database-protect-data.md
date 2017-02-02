@@ -116,12 +116,12 @@ SQL 데이터베이스 위협 탐지는 감사를 기반으로 추가 보안 계
 ## <a name="compliance"></a>규정 준수
 위의 기능 및 응용 프로그램이 다양한 보안 규정 준수 요구 사항을 충족하도록 도울 수 있는 기능 외에도 Azure SQL 데이터베이스는 정기적인 감사에 참여하고 여러 규정 준수 표준에 대해 인증받았습니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL Database 규정 준수 인증서](https://azure.microsoft.com/support/trust-center/services/) 목록을 찾을 수 있습니다.
 
+
 ## <a name="next-steps"></a>다음 단계
 
 - 모든 SQL Database 보안 기능에 대한 개요는 [SQL 보안 개요](sql-database-security-overview.md)를 참조하세요.
 - SQL Database에서 액세스 제어 기능을 사용하는 방법에 대한 설명은 [액세스 제어](sql-database-control-access.md)를 참조하세요.
 - 사전 모니터링에 대한 설명은 [SQL Database 감사 시작](sql-database-auditing-get-started.md) 및 [SQL Database 위협 검색 시작](sql-database-threat-detection-get-started.md)을 참조하세요.
-
 
 
 

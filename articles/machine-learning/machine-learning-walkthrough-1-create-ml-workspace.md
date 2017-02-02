@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/16/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4a2d71016eee5dfee1085be0380d79ba4a4f8d8f
+ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
+ms.openlocfilehash: 116dbf0ee30497d82c984b10e61ae02301e820a4
 
 
 ---
@@ -35,17 +35,25 @@ ms.openlocfilehash: 4a2d71016eee5dfee1085be0380d79ba4a4f8d8f
 
 기계 학습 스튜디오를 사용하려면 Microsoft Azure 기계 학습 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.  
 
-## <a name="to-create-a-workspace"></a>작업 영역을 만들려면
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. Azure 서비스 패널에서 **Machine Learning**을 클릭합니다.  
-   ![작업 영역 만들기][1]
-3. **기계 학습 작업 영역 만들기**를 클릭합니다.
-4. **빠른 생성** 페이지에서 작업 영역 정보를 입력하고 **ML 작업 영역 만들기**를 클릭합니다.
+<!--
+## To create a workspace
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
+2. In the  Azure services panel, click **MACHINE LEARNING**.  
+   ![Create workspace][1]
+3. Click **CREATE AN ML WORKSPACE**.
+4. On the **QUICK CREATE** page, enter your workspace information and then click **CREATE AN ML WORKSPACE**.
+-->
 
-기계 학습 작업 영역이 만들어진 후에는 Azure 클래식 포털의 **기계 학습** 페이지에 나열됩니다. 작업 영역을 만드는 방법에 대한 자세한 내용은 [Azure 기계 학습 작업 영역 만들기](machine-learning-create-workspace.md)를 참조하세요.
+Azure 구독에 대한 관리자는 작업 영역을 만들고 소유자 또는 참가자로 추가해야 합니다. 자세한 내용은 [Azure Machine Learning 작업 영역 만들기 및 공유](machine-learning-create-workspace.md)를 참조하세요.
+
+작업 영역을 만든 후 기계 학습 스튜디오([https://studio.azureml.net](https://studio.azureml.net))를 엽니다. 이것이 유일한 작업 영역인 경우 Studio에서 자동으로 열립니다. 그렇지 않으면 창의 오른쪽 위 모서리에 있는 도구 모음에서 작업 영역을 선택할 수 있습니다.
+
+![Studio에서 작업 영역 선택][2]
 
 > [!TIP]
-> 작업 영역에 다른 사용자를 초대하여 작업 중인 실험을 공유할 수 있습니다. 기계 학습 스튜디오의 **SETTINGS** 페이지에서 이 작업을 할 수 있습니다. 각 사용자에 대한 Microsoft 계정 또는 조직 계정만 있으면 됩니다.
+> 작업 영역의 소유자인 경우 나중에 작업 영역에 다른 사용자를 초대하여 작업 중인 실험을 공유할 수 있습니다. 기계 학습 스튜디오의 **SETTINGS** 페이지에서 이 작업을 할 수 있습니다. 각 사용자에 대한 Microsoft 계정 또는 조직 계정만 있으면 됩니다.
+> 
+> **설정** 페이지에서 **사용자**를 클릭한 다음 창의 아래쪽에 있는 **더 많은 사용자 초대**를 클릭합니다.
 > 
 > 
 
@@ -53,9 +61,10 @@ ms.openlocfilehash: 4a2d71016eee5dfee1085be0380d79ba4a4f8d8f
 **다음: [기존 데이터 업로드](machine-learning-walkthrough-2-upload-data.md)**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
+[2]: ./media/machine-learning-walkthrough-1-create-ml-workspace/open-workspace.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 12/14/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 3b7bbd63a0bd87ee45a387bc0612541f0d82208b
-ms.openlocfilehash: 73f7235686435300d18fe518c08adbd6c3904f39
+ms.sourcegitcommit: a344a3a05c2a27e6b6500a6560c7fbb2096c9bfc
+ms.openlocfilehash: 0303145ba0ce611242f218cdf6a2274e9e393fb4
 
 
 ---
@@ -60,14 +60,14 @@ Linux 기반 HDInsight 클러스터에 빈 에지 노드를 추가하는 방법�
 에지 노드를 만든 후 SSH를 사용하여 에지 노드에 연결할 수 있고 HDInsight에서 Hadoop 클러스터에 액세스하는 클라이언트 도구를 실행할 수 있습니다.
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>기존 클러스터에 에지 노드 추가
-이 섹션에서는 Resource Manager 템플릿을 사용하여 기존 HDInsight 클러스터에 에지 노드를 추가합니다.  Resource Manager 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-with-edge-node/)에서 찾을 수 있습니다. Resource Manager 템플릿은 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh에있는 스크립트 동작 스크립트를 호출합니다. 스크립트는 어떤 작업도 수행하지 않습니다.  이는 Resource Manager 템플릿에서 스크립트 호출 작업을 보여 주기 위한 것입니다.
+이 섹션에서는 Resource Manager 템플릿을 사용하여 기존 HDInsight 클러스터에 에지 노드를 추가합니다.  Resource Manager 템플릿은 [GitHub](https://github.com/hdinsight/Iaas-Applications/tree/master/EmptyNode)에서 찾을 수 있습니다. Resource Manager 템플릿은 https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh에 있는 스크립트 동작 스크립트를 호출합니다. 스크립트는 어떤 작업도 수행하지 않습니다.  이는 Resource Manager 템플릿에서 스크립트 호출 작업을 보여 주기 위한 것입니다.
 
 **기존 클러스터에 빈 에지 노드를 추가하려면**
 
 1. 아직 없는 경우 HDInsight 클러스터를 만듭니다.  [Hadoop 자습서: HDInsight에서 Linux 기반 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 2. Azure에 로그인하여 Azure Portal에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FEmptyNode%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. 다음 속성을 구성합니다.
    
    * **구독**: 이 클러스터를 만드는 데 사용되는 Azure 구독을 선택합니다.
@@ -86,7 +86,7 @@ Linux 기반 HDInsight 클러스터에 빈 에지 노드를 추가하는 방법�
 1. 아직 없는 경우 HDInsight 클러스터를 만듭니다.  [Hadoop 자습서: HDInsight에서 Linux 기반 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 2. Azure에 로그인하여 Azure Portal에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. 다음 속성을 구성합니다.
    
    * **구독**: 이 클러스터를 만드는 데 사용되는 Azure 구독을 선택합니다.
@@ -103,7 +103,7 @@ Linux 기반 HDInsight 클러스터에 빈 에지 노드를 추가하는 방법�
 4. **위에 명시된 사용 약관에 동의함**을 선택한 다음 **구매**를 클릭하여 에지 노드가 있는 클러스터를 만듭니다.
 
 ## <a name="access-an-edge-node"></a>에지 노드 액세스
-에지 노드 ssh 끝점은 <EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22입니다.  예: new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22
+에지 노드 ssh 끝점은 &lt;EdgeNodeName>.&lt;ClusterName>-ssh.azurehdinsight.net:22입니다.  예: new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22
 
 에지 노드는 Azure Portal에서 응용 프로그램으로 나타납니다.  포털은 SSH를 사용하여 에지 노드에 액세스하는 정보를 제공합니다.
 
@@ -148,6 +148,6 @@ Azure Portal에서 에지 노드를 삭제할 수 있습니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

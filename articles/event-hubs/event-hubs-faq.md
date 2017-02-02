@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/01/2016
+ms.date: 12/07/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eb8a1f5b46ed5bfbdc61789ffc48a79927d9c19d
+ms.sourcegitcommit: a584086e459c5446a814bbca3e50ac343fa9201e
+ms.openlocfilehash: f7b3974bf789df8c87254cc4186d8c7c85282aaa
 
 
 ---
@@ -71,16 +71,8 @@ ms.openlocfilehash: eb8a1f5b46ed5bfbdc61789ffc48a79927d9c19d
 이벤트 허브 표준 계층은 이벤트 허브 기본 및 일부 경쟁 시스템에서 제공할 수 있는 것보다 많은 기능을 제공합니다. 이러한 기능에는 24시간 이상 보존 기간, 단일 AMQP 연결을 사용하여 1초 미만의 대기 시간으로 여러 장치에 명령을 보내고 이러한 장치에서 이벤트 허브로 원격 분석을 보낼 수 기능이 포함됩니다. 기능 목록은 [이벤트 허브 가격 정보](https://azure.microsoft.com/pricing/details/event-hubs/)를 참조하세요.
 
 ## <a name="geographic-availability"></a>지리적 가용성
-이벤트 허브는 다음 지역에서 제공됩니다.
 
-| 지역 | 영역 |
-| --- | --- |
-| 미국 |미국 중부, 미국 동부, 미국 동부 2, 미국 중남부, 미국 서부 |
-| 유럽 |북유럽, 서유럽 |
-| 아시아 태평양 |동아시아, 동남 아시아 |
-| 일본 |일본 동부, 일본 서부 |
-| 브라질 |브라질 남부 |
-| 오스트레일리아 |오스트레일리아 동부, 오스트레일리아 남동부 |
+Azure 이벤트 허브는 지원되는 모든 Azure 지역에서 사용할 수 있습니다. 목록은 [Azure 지역][]를 참조하세요.  
 
 ## <a name="support-and-sla"></a>지원 및 SLA
 이벤트 허브에 대한 기술 지원은 [커뮤니티 포럼](https://social.msdn.microsoft.com/forums/azure/home)을 통해 사용할 수 있습니다. 청구 및 구독 관리 지원은 무료로 제공됩니다.
@@ -90,14 +82,15 @@ SLA에 대한 자세한 내용에 대해 알아보려면 [서비스 수준 계�
 ## <a name="next-steps"></a>다음 단계
 이벤트 허브에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Event Hubs 개요][이벤트 허브 개요]
-* 전체 [Event Hubs를 사용하는 샘플 응용 프로그램][이벤트 허브를 사용하는 전체 샘플 응용 프로그램].
+* [이벤트 허브 개요][Event Hubs overview]
+* [Event Hubs를 사용하는 응용 프로그램 예제][sample application that uses Event Hubs] 전체.
 
-[이벤트 허브 개요]: event-hubs-overview.md
-[이벤트 허브를 사용하는 전체 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Azure 지역]: https://azure.microsoft.com/regions/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

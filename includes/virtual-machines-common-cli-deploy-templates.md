@@ -36,7 +36,7 @@ Azure 구독은 아직 없지만 MSDN 구독은 있는 경우 [MSDN 구독자 �
 이제 `azure login`를 입력하여 [Azure 계정에 대화식으로 로그인](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login)하고 Azure 계정의 대화식 로그인 환경에 대한 메시지를 따릅니다. 
 
 > [!NOTE]
-> 회사 또는 학교 ID가 있고 2단계 인증이 활성화되지 않은 경우에는 대화형 세션 *없이* 로그인하도록 회사 또는 학교 ID와 함께 `azure login -u`를 사용할 **수도** 있습니다. 회사 또는 학교 ID가 없는 경우, 같은 방식으로 로그인하려면 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 있습니다.
+> 회사 또는 학교 ID가 있고&2;단계 인증이 활성화되지 않은 경우에는 대화형 세션 *없이* 로그인하도록 회사 또는 학교 ID와 함께 `azure login -u`를 사용할 **수도** 있습니다. 회사 또는 학교 ID가 없는 경우, 같은 방식으로 로그인하려면 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 있습니다.
 >
 >
 
@@ -1169,7 +1169,7 @@ info:    group delete command OK
 ```
 
 ## <a name="a-idshow-the-log-for-a-resource-group-deploymentatask-show-the-log-for-a-resource-group-deployment"></a><a id="show-the-log-for-a-resource-group-deployment"></a>작업: 리소스 그룹 배포에 대한 로그 표시
-템플릿을 만들거나 사용할 때 일반적인 작업입니다. 그룹에 대한 배포 로그를 표시하려면 `azure group log show <groupname>`을 호출합니다. 그러면 특정 작업이 수행되거나 수행되지 않은 이유를 이해하는 데 유용한 많은 정보가 표시됩니다. (배포 문제 해결에 대한 자세한 내용 및 문제에 대한 기타 정보는 [Azure에서 리소스 그룹 배포 문제 해결](../articles/resource-manager-troubleshoot-deployments-cli.md)을 참조하세요.)
+템플릿을 만들거나 사용할 때 일반적인 작업입니다. 그룹에 대한 배포 로그를 표시하려면 `azure group log show <groupname>`을 호출합니다. 그러면 특정 작업이 수행되거나 수행되지 않은 이유를 이해하는 데 유용한 많은 정보가 표시됩니다. (배포 문제 해결에 대한 자세한 내용 및 문제에 대한 기타 정보는 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md)을 참조하세요.)
 
 예를 들어 특정 오류를 대상으로 지정하려면 **jq** 와 같은 도구를 사용하여 해결해야 하는 개별 오류와 같은 항목을 좀더 정확하게 쿼리할 수 있습니다. 다음 예제에서는 **jq**를 사용하여 **lbgroup**에 대한 배포 로그를 구문 분석하고 오류를 찾습니다.
 
@@ -1302,6 +1302,6 @@ azure vm disk attach <resource-group> <vm-name> [vhd-url]
 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: jimpark; markgal;genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 87387e4f182214fa0c34a6a1358c6cc2648be906
+ms.sourcegitcommit: 5cd91d74ea09e4fc77437a310f39b769983bd123
+ms.openlocfilehash: 005d6b220135302a85495d0840e545c13feb0705
 
 
 ---
@@ -65,7 +65,8 @@ IaaS(서비스 제공 인프라) VM용 Microsoft Azure Backup이 실패하는 �
 ### <a name="solution"></a>해결 방법
 Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 일반적인 지침으로 이 문제를 해결하는 첫 번째 단계는 다음과 같습니다.
 
-1. [최신 Azure VM 에이전트를 설치합니다](https://github.com/Azure/WALinuxAgent).
+1. [Linux VM 에이전트 업데이트](../virtual-machines/virtual-machines-linux-update-agent.md)의 지침을 따르세요.
+배포 리포지토리를 사용할 때만 에이전트를 업데이트할 것을 **강력히 권장**합니다. github에서 에이전트 코드를 직접 다운로드한 후 업데이트하는 것은 바람직하지 않습니다. 최신 에이전트를 배포할 수 없는 경우 배포 지원에 문의하여 최신 에이전트를 설치하는 방법에 대한 지침을 얻으세요. github 리포지토리에서 최신 [Microsoft Azure Linux 에이전트](https://github.com/Azure/WALinuxAgent/releases) 정보를 확인할 수 있습니다. 
 2. VM에 Azure 에이전트가 실행 중인지 확인합니다. 이렇게 하려면 ```ps -e``` 명령을 실행합니다.
    
     이 프로세스가 실행되고 있지 않으면 다음 명령을 사용하여 다시 시작합니다.
@@ -133,6 +134,6 @@ The following conditions can cause snapshot task failure:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

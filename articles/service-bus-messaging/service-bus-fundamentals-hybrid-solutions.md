@@ -1,22 +1,22 @@
 ---
-title: Azure Service Bus | Microsoft Docs
+title: "Azure Service Bus 기본 사항 개요 | Microsoft Docs"
 description: "서비스 버스를 사용하여 Azure 응용 프로그램을 다른 소프트웨어에 연결에 대해 소개합니다."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/31/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c8d8549db680b0189fa94064b930d4f91ff2472b
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
 
 
 ---
@@ -51,19 +51,19 @@ ms.openlocfilehash: c8d8549db680b0189fa94064b930d4f91ff2472b
 
 **그림 2: 서비스 버스 큐는 단방향 비동기 큐를 제공합니다.**
 
-프로세스는 간단합니다. 센서가 메시지를 서비스 버스 큐로 보내면 수신기가 나중에 해당 메시지를 확인합니다. 그림 2에서 보여준 대로 각 큐에는 하나의 수신기만 있거나 여러 응용 프로그램은 동일한 큐에서 읽을 수 있습니다. 후자에서는 하나의 수신기에서 각 메시지를 읽습니다. 멀티캐스트 서비스의 경우 대신 주제를 사용해야 합니다.
+프로세스는 간단합니다. 센서가 메시지를 서비스 버스 큐로 보내면 수신기가 나중에 해당 메시지를 확인합니다. 그림&2;에서 보여준 대로 각 큐에는 하나의 수신기만 있거나 여러 응용 프로그램은 동일한 큐에서 읽을 수 있습니다. 후자에서는 하나의 수신기에서 각 메시지를 읽습니다. 멀티캐스트 서비스의 경우 대신 주제를 사용해야 합니다.
 
-각 메시지는 각각 키/값 쌍인 속성 집합과 이진 메시지 본문의 두 부분으로 이루어져 있습니다. 메시지가 사용되는 방법은 응용 프로그램에서 수행하려는 작업에 따라 달라집니다. 예를 들어 최근 판매에 대한 메시지를 보내는 응용 프로그램은 *Seller="Ava"* 및 *Amount=10000* 속성을 포함할 수 있습니다. 메시지 본문은 서명된 판매 계약의 스캔 이미지를 포함하거나, 이러한 이미지가 없는 경우 비어 있을 수 있습니다.
+각 메시지는 각각 키/값 쌍인 속성 집합과 메시지 페이로드의 두 부분으로 이루어져 있습니다. 페이로드는 이진, 텍스트 또는 XML일 수 있습니다. 메시지가 사용되는 방법은 응용 프로그램에서 수행하려는 작업에 따라 달라집니다. 예를 들어 최근 판매에 대한 메시지를 보내는 응용 프로그램은 *Seller="Ava"* 및 *Amount=10000* 속성을 포함할 수 있습니다. 메시지 본문은 서명된 판매 계약의 스캔 이미지를 포함하거나, 이러한 이미지가 없는 경우 비어 있을 수 있습니다.
 
-수신기는 두 가지 방법으로 서비스 버스 큐에서 메시지를 읽을 수 있습니다. 첫 번째 옵션은 *ReceiveAndDelete*라고 하며, 큐에서 메시지를 제거하고 즉시 삭제합니다. 이 옵션은 간단하지만 수신기에서 메시지 처리를 마치기 전에 크래시가 발생할 경우 메시지가 손실됩니다. 큐에서 제거되었기 때문에 다른 수신기가 메시지에 액세스할 수 없습니다. 
+수신기는 두 가지 방법으로 서비스 버스 큐에서 메시지를 읽을 수 있습니다. 첫 번째 옵션은 *[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*라고 하며, 큐에서 메시지를 제거하고 즉시 삭제합니다. 이 옵션은 간단하지만 수신기에서 메시지 처리를 마치기 전에 크래시가 발생할 경우 메시지가 손실됩니다. 큐에서 제거되었기 때문에 다른 수신기가 메시지에 액세스할 수 없습니다. 
 
-두 번째 옵션은 *PeekLock*이라고 하며, 이 문제를 해결하는 데 도움이 됩니다. **ReceiveAndDelete**와 마찬가지로 **PeekLock**을 통한 읽기 시에도 큐에서 메시지가 제거됩니다. 그러나 메시지를 삭제하지 않습니다. 대신, 메시지를 잠가서 다른 수신기에 표시되지 않도록 하고 다음 세 가지 이벤트 중 하나를 기다립니다.
+두 번째 옵션은 *[PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*이라고 하며, 이 문제를 해결하는 데 도움이 됩니다. **ReceiveAndDelete**와 마찬가지로 **PeekLock**을 통한 읽기 시에도 큐에서 메시지가 제거됩니다. 그러나 메시지를 삭제하지 않습니다. 대신, 메시지를 잠가서 다른 수신기에 표시되지 않도록 하고 다음 세 가지 이벤트 중 하나를 기다립니다.
 
-* 수신기가 메시지 처리에 성공하고 **Complete**를 호출하면 큐가 메시지를 삭제합니다. 
-* 수신기가 메시지를 처리할 수 없다고 결정하고 **Abandon**을 호출하면 큐가 메시지에서 잠금을 제거하고 다른 수신기가 사용할 수 있게 합니다.
+* 수신기에서 메시지를 성공적으로 처리하면 **[Complete()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)**를 호출하고 큐에서 메시지를 삭제합니다. 
+* 수신기에서 메시지를 성공적으로 처리할 수 없다고 결정하면 **[Abandon()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon)**을 호출합니다. 큐가 메시지에서 잠금을 제거하고 다른 수신기가 사용할 수 있게 합니다.
 * 수신기가 구성 가능한 기간(기본적으로 60초) 내에 둘 다 호출하지 않으면 큐가 수신기에서 실패했다고 가정합니다. 이 경우 수신기가 **Abandon**을 호출한 것처럼 동작하고 다른 수신기가 메시지를 사용할 수 있게 합니다.
 
-여기서 발생할 수 있는 문제는 동일한 메시지가 두 개의 수신기에 두 번 배달될 수 있다는 것입니다. 서비스 버스 큐를 사용하는 응용 프로그램은 이 문제에 대비해야 합니다. 중복 검색이 용이하도록 각 메시지에는 고유한 **MessageID** 속성이 있습니다. 기본적으로 이 속성은 큐에서 메시지를 읽는 횟수에 관계없이 동일하게 유지됩니다. 
+여기서 발생할 수 있는 문제는 동일한 메시지가 두 개의 수신기에 두 번 배달될 수 있다는 것입니다. 서비스 버스 큐를 사용하는 응용 프로그램은 이 문제에 대비해야 합니다. 중복 검색을 쉽게 수행할 수 있도록 각 메시지에는 고유한 **[MessageID](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId)** 속성이 있습니다. 이 속성은 기본적으로 큐에서 메시지를 읽는 횟수에 관계없이 동일하게 유지됩니다. 
 
 큐는 다양한 상황에서 유용합니다. 큐를 사용하면 응용 프로그램이 동시에 실행되지 않는 경우에도 서로 통신할 수 있으므로 일괄 처리 및 모바일 응용 프로그램에서 특히 유용합니다. 여러 수신기가 있는 큐는 전송된 메시지가 이러한 수신기에 분산되므로 자동 부하 분산 기능도 제공합니다.
 
@@ -80,7 +80,7 @@ ms.openlocfilehash: c8d8549db680b0189fa94064b930d4f91ff2472b
 * 구독자 2는 *Seller="Ruby"* 속성과 값이 100,000보다 큰 *Amount* 속성이 포함된 메시지를 받습니다. Ruby는 판매 관리자이므로 자신의 매출과 판매자에 관계없이 모든 대규모 매출을 보려고 합니다.
 * 구독자 3은 해당 필터를 *True*로 설정합니다. 이렇게 하면 모든 메시지를 받습니다. 이 응용 프로그램이 감사 내역을 유지 관리하므로 모든 메시지를 확인해야 하는 경우를 예로 들 수 있습니다.
 
-큐와 마찬가지로 토픽 구독자는 **ReceiveAndDelete** 또는 **PeekLock**을 사용하여 메시지를 읽을 수 있습니다. 그러나 큐와 달리 토픽으로 전송된 단일 메시지를 여러 구독에서 받을 수 있습니다. 흔히 *게시 및 구독*(*게시/구독*)이라고 불리는 이 접근 방법은 여러 응용 프로그램이 동일한 메시지에 관련된 경우에 유용합니다. 올바른 필터를 정의하면 각 구독자가 확인해야 하는 메시지 스트림 부분만 볼 수 있습니다.
+큐와 마찬가지로 토픽 구독자는 [**ReceiveAndDelete** 또는 **PeekLock**](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)을 사용하여 메시지를 읽을 수 있습니다. 그러나 큐와 달리 토픽으로 전송된 단일 메시지를 여러 구독에서 받을 수 있습니다. 흔히 *게시 및 구독*(*게시/구독*)이라고 불리는 이 접근 방법은 여러 응용 프로그램이 동일한 메시지에 관련된 경우에 유용합니다. 올바른 필터를 정의하면 각 구독자가 확인해야 하는 메시지 스트림 부분만 볼 수 있습니다.
 
 ## <a name="relays"></a>릴레이
 큐와 토픽은 둘 다 브로커를 통해 단방향 비동기 통신을 제공합니다. 트래픽이 한 방향으로만 진행되며, 보낸 사람과 받는 사람 간에 직접 연결이 없습니다. 그러나 이런 방식을 원하지 않는 경우 어떻게 해야 할까요? 응용 프로그램이 메시지 보내기와 받기를 모두 수행해야 하거나 메시지 저장을 위한 브로커가 필요하지 않도록 응용 프로그램 간에 직접 링크를 설정하려는 등의 이러한 시나리오를 처리하기 위해 서비스 버스는 그림 4와 같은 *릴레이*를 제공합니다.
@@ -109,7 +109,7 @@ Azure 서비스 버스 릴레이는 도움이 됩니다. 릴레이를 통해 양
 
 * [Service Bus 큐](service-bus-dotnet-get-started-with-queues.md)를 사용하는 방법
 * [Service Bus 토픽](service-bus-dotnet-how-to-use-topics-subscriptions.md)을 사용하는 방법
-*  [서비스 버스 릴레이](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
+* [서비스 버스 릴레이](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
 * [서비스 버스 샘플](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
@@ -119,6 +119,6 @@ Azure 서비스 버스 릴레이는 도움이 됩니다. 릴레이를 통해 양
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

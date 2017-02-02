@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a0f4c9c5942ee75b9ca4f3924198e8a8ad8ccc7
+ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
+ms.openlocfilehash: 2d4898694c69b5eb0194747982fa8bfbfea1f6f8
 
 
 ---
@@ -77,7 +77,7 @@ DocumentDB에서 샘플 데이터를 사용하여 이 워크플로를 시도해 
 4. 필드 수준에서 언어 분석기를 지정 하려는 경우 **분석기** 탭을 클릭합니다. 언어 분석기만이 이번에 지정될 수 있습니다. 사용자 지정 분석기 또는 키워드, 패턴, 등과 같은 비언어 분석기를 사용하려면 코드가 필요합니다.
    
    * **검색 가능** 을 클릭하여 필드에서 전체 텍스트 검색을 지정하고 분석기 드롭 다운 목록을 사용하도록 설정합니다.
-   * 원하는 분석기를 선택합니다. 자세한 내용은 [여러 언어의 문서에 대한 인덱스 만들기](search-language-support.md) 를 참조하세요.
+   * 원하는 분석기를 선택합니다. 자세한 내용은 [여러 언어의 문서에 대한 인덱스 만들기](search-language-support.md)를 참조하세요.
 5. **확인기** 를 클릭하여 선택한 필드에 미리 입력 쿼리 제안을 사용할 수 있도록 합니다.
 
 ## <a name="import-your-data"></a>데이터 가져오기
@@ -93,7 +93,13 @@ Azure 검색에서 인덱스에 대한 구조적 업데이트를 위해서는 �
 
 다시 빌드가 필요하지 않는 편집에는 새 필드 추가, 점수 매기기 프로필 변경, 확인기 변경 또는 언어 분석기 변경이 포함됩니다. 자세한 내용은 [인덱스 업데이트](https://msdn.microsoft.com/library/azure/dn800964.aspx) 를 참조하세요.
 
-## <a name="next-step"></a>다음 단계
+## <a name="query-an-index-using-search-explorer"></a>검색 탐색기를 사용하여 인덱스 쿼리
+
+포털에는 **검색 탐색기**가 있으므로 코드를 작성하지 않고도 인덱스를 쿼리할 수 있습니다. 모든 인덱스에서 [검색 탐색기]를 사용할 수 있습니다.
+
+검색 환경은 [간단한 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 및 기본 [searchMode 쿼리 매개 변수(https://docs.microsoft.com/rest/api/searchservice/search-documents)와 같은 기본 설정을 기반으로 합니다. 결과는 JSON으로 반환되므로 전체 문서를 검사할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
 인덱서에 대해 자세히 알아보려면 다음 링크를 검토합니다.
 
 * [Azure SQL Database 인덱싱](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
@@ -107,6 +113,6 @@ Azure 검색에서 인덱스에 대한 구조적 업데이트를 위해서는 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0890076fb1f80489ec9ec75dddb8cbd4cfaa44f3
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: af9e0b7c0f7077b8d4e20ccafdc1fb4e1eb58505
 
 
 ---
@@ -44,7 +44,7 @@ Azure PowerShell 버전 0.9x를 설치한 경우 최신 버전을 설치하기 �
 이전 버전을 제거하려면 제어판에서 프로그램 및 기능을 실행합니다. 
 
 ## <a name="create-clusters"></a>클러스터 만들기
- [Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+[Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 
 ## <a name="list-clusters"></a>클러스터 나열
 현재 구독의 클러스터를 모두 나열하려면 다음 명령을 사용합니다.
@@ -104,10 +104,10 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
     
     다음은 CLI 명령을 사용하여 Storm 토폴로지 균형을 다시 조정하는 방법의 예입니다.
     
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>"mytopology" 토폴로지에는 5명 작업자, 
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>"blue-spout" spout에는 3명 실행자, 
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>"yellow-bolt" bolt에는 10명 실행자를 사용하는 프로세스로 재구성합니다.
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 Azure PowerShell을 사용하여 Hadoop 클러스터 크기를 변경하려면 클라이언트 컴퓨터에서 다음 명령을 실행합니다.
 
@@ -198,9 +198,9 @@ Resource Manager 모드에서 각 HDInsight 클러스터는 Azure 리소스 그�
 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-* [HDInsight cmdlet 참조 설명서][hdinsight-powershell-reference]
+* [HDInsight Cmdlet 참조 설명서][hdinsight-powershell-reference]
 * [Azure Portal을 사용하여 HDInsight 관리][hdinsight-admin-portal]
-* [명령줄 인터페이스를 사용하여 HDInsight 클러스터 관리][hdinsight-admin-cli]
+* [명령줄 인터페이스를 사용하여 HDInsight 관리][hdinsight-admin-cli]
 * [HDInsight 클러스터 만들기][hdinsight-provision]
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
 * [프로그래밍 방식으로 Hadoop 작업 제출][hdinsight-submit-jobs]
@@ -225,12 +225,12 @@ Resource Manager 모드에서 각 HDInsight 클러스터는 Azure 리소스 그�
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

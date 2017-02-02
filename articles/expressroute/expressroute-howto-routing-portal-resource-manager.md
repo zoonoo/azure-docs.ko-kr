@@ -10,22 +10,25 @@ tags: azure-resource-manager
 ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
 ms.service: expressroute
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1d78bdb6cbb9870298b050207fd1fa9c5e71d674
+ms.sourcegitcommit: ec5e547b88bedd50f451997616c7d72b0b1b4bd4
+ms.openlocfilehash: 879207512b7c61d48dcd25342ab88121258ba853
 
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Express 경로 회로의 라우팅 만들기 및 수정
 > [!div class="op_single_selector"]
-> [Azure Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
-> [PowerShell - 클래식](expressroute-howto-routing-classic.md)
+> * [Resource Manager- Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
+> * [클래식- PowerShell](expressroute-howto-routing-classic.md)
+> * [비디오 - 개인 피어링](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [비디오 - 공용 피어링](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [비디오 - Microsoft 피어링](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > 
 > 
 
@@ -190,6 +193,6 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

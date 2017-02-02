@@ -1,6 +1,6 @@
 ---
 title: "Azure Portal을 사용하여 파일 업로드 구성 | Microsoft Docs"
-description: "Azure Portal을 사용하여 파일 업로드를 구성하는 방법 개요"
+description: "Azure Portal을 사용하여 연결된 장치에서 파일 로드를 사용하도록 IoT Hub를 구성하는 방법입니다. 대상 Azure Storage 계정 구성에 대한 정보가 포함됩니다."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/05/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e3ac3e8cee2724b76f51423d1a6757382cca04f0
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: aadbee1388e2c2aafaf0a5c50d2af195284d2bec
 
 
 ---
-# <a name="configure-file-uploads-using-the-azure-portal"></a>Azure Portal을 사용하여 파일 업로드 구성
+# <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 파일 업로드 구성
 ## <a name="file-upload"></a>파일 업로드
-[file upload functionality in IoT Hub에서 파일 업로드 기능][lnk-upload]을 사용하려면 먼저 Azure Storage 계정을 허브에 연결해야 합니다. **파일 업로드** 설정을 선택하여 수정하려는 IoT hub에 대한 파일 업로드 속성 목록을 표시합니다.
+[IoT Hub에서 파일 업로드 기능][lnk-upload]을 사용하려면 먼저 Azure Storage 계정을 허브에 연결해야 합니다. **파일 업로드** 설정을 선택하여 수정하려는 IoT hub에 대한 파일 업로드 속성 목록을 표시합니다.
 
 ![][13]
 
@@ -41,17 +41,17 @@ ms.openlocfilehash: e3ac3e8cee2724b76f51423d1a6757382cca04f0
 ![][15]
 
 ## <a name="next-steps"></a>다음 단계
-IoT Hub의 파일 업로드 기능에 대한 자세한 내용은 개발자 가이드의 [장치에서 파일 업로드][lnk-upload]를 참조하세요.
+IoT Hub의 파일 업로드 기능에 대한 자세한 내용은 IoT Hub 개발자 가이드의 [장치에서 파일 업로드][lnk-upload]를 참조하세요.
 
 Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
 * [IoT 장치 대량 관리][lnk-bulk]
-* [사용 현황 메트릭][lnk-metrics]
+* [IoT Hub 메트릭][lnk-metrics]
 * [작업 모니터링][lnk-monitor]
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [개발자 가이드][lnk-devguide]
+* [IoT Hub 개발자 가이드][lnk-devguide]
 * [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
 * [처음부터 IoT 솔루션 보안 유지][lnk-securing]
 
@@ -71,6 +71,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

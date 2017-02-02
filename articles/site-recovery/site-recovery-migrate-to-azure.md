@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 20aecf6df4af0b89fb6cafbd2047facdb345bae5
-ms.openlocfilehash: 8f658cb80a43e0eb21585ea851251b1339ab546b
+ms.sourcegitcommit: f82634af931a1e9a9646c5631ebd0e5923a0adcc
+ms.openlocfilehash: cbb6de4587871c40c9d4e97c9fb2a88eab4945a6
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 8f658cb80a43e0eb21585ea851251b1339ab546b
 
 조직에서는 계획된 중단 또는 불의의 중지 시간에 앱, 워크로드 및 데이터를 실행 중이고 가용 상태로 유지하고 가능한 신속히 정상적인 작업 상태로 복귀하기 위한 BCDR 전략이 필요합니다. BCDR 전략은 재해가 발생했을 때 비즈니스 데이터를 안전하고 복구 가능하게 유지하고 워크로드를 지속적으로 가용 상태로 유지해야 합니다.
 
-Site Recovery는 온-프레미스 물리적 서버와 가상 컴퓨터를 클라우드(Azure) 또는 보조 데이터 센터에 복제하는 작업을 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여하는 Azure 서비스입니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다.  [사이트 복구란?](site-recovery-overview.md)
+Site Recovery는 온-프레미스 물리적 서버와 가상 컴퓨터를 클라우드(Azure) 또는 보조 데이터 센터에 복제하는 작업을 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여하는 Azure 서비스입니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다. [사이트 복구란?](site-recovery-overview.md)
 
 이 문서에서는 [Azure Portal](https://portal.azure.com)의 배포에 대해 설명합니다. [Azure 클래식 포털](https://manage.windowsazure.com/)은 기존 Site Recovery 자격 증명을 유지하는 데 사용할 수 있지만 새 자격 증명 모음을 만들 수는 없습니다.
 
@@ -47,7 +47,7 @@ Site Recovery는 온-프레미스 물리적 서버와 가상 컴퓨터를 클라
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>온-프레미스 VM 및 물리적 서버를 마이그레이션합니다.
 
-온-프레미스 Hyper-V VM, VMware VM 및 물리적 서버를 마이그레이션하려면 정기 복제에 사용되는 동일한 단계를 수행합니다. Recovery Services 자격 증명 모음을 설정하고 마이그레이션할 대상에 따라 필수 관리 서버를 구성하며 자격 증명 모음에 추가하고 복제 설정을 지정합니다. 마이그레이션하려는 컴퓨터에 복제를 사용하도록 설정하고 빠른 테스트 장애 조치를 실행하여 모두 예상대로 작동하는지 확인합니다.
+온-프레미스 Hyper-V VM, VMware VM 및 물리적 서버를 마이그레이션하려면 정기 복제에 사용되는 것과 거의 동일한 단계를 수행합니다. Recovery Services 자격 증명 모음을 설정하고 마이그레이션할 대상에 따라 필수 관리 서버를 구성하며 자격 증명 모음에 추가하고 복제 설정을 지정합니다. 마이그레이션하려는 컴퓨터에 복제를 사용하도록 설정하고 빠른 테스트 장애 조치를 실행하여 모두 예상대로 작동하는지 확인합니다.
 
 복제 환경이 제대로 작동하는지 확인한 후에 시나리오의 [지원 기능](site-recovery-failover.md#failover-and-failback)에 따라 계획되거나 계획되지 않은 장애 조치를 사용합니다. 마이그레이션의 경우 장애 조치를 커밋하거나 항목을 삭제할 필요가 없습니다. 대신 마이그레이션할 각 컴퓨터에 대해 **마이그레이션 완료** 옵션을 선택합니다. **마이그레이션 완료** 작업은 마이그레이션 프로세스를 마치고 가상 컴퓨터에 대한 복제를 제거하며 컴퓨터에 대한 Site Recovery 청구를 중지합니다.
 
@@ -73,6 +73,6 @@ Azure VM에 AWS 인스턴스 마이그레이션할 수 있습니다. 이 시나�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

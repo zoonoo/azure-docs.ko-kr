@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: 88d5148806e58d61b7b64327e07809eea5126211
 
 
 ---
@@ -34,10 +34,10 @@ ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
 
 이 문서의 모든 샘플 코드는 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](http://aka.ms/search-dotnet-howto)를 참조하세요.
 
-## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Azure 검색 서비스의 쿼리 API 키 식별
+## <a name="identify-your-azure-search-services-query-api-key"></a>Azure 검색 서비스의 쿼리 API 키 식별
 Azure 검색 인덱스를 만들었으므로 .NET SDK를 사용하여 쿼리를 발급할 준비가 되었습니다. 먼저 프로비전한 검색 서비스에 대해 생성된 쿼리 API 키 중 하나가 있어야 합니다. .NET SDK는 서비스에 대한 모든 요청에 대해 이 API 키를 전송합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
-1. 서비스의 API 키를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인해야 합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인하면 서비스의 API 키를 찾을 수 있습니다.
 2. Azure 검색 서비스의 블레이드로 이동합니다.
 3. "키" 아이콘을 클릭합니다.
 
@@ -48,7 +48,7 @@ Azure 검색 인덱스를 만들었으므로 .NET SDK를 사용하여 쿼리를 
 
 인덱스를 쿼리하기 위해 쿼리 키 중 하나를 사용할 수 있습니다. 또한 쿼리에 관리 키를 사용할 수 있지만 [최소 권한의 원칙](https://en.wikipedia.org/wiki/Principle_of_least_privilege)에 따라 응용 프로그램 코드에 쿼리 키를 사용해야 합니다.
 
-## <a name="ii-create-an-instance-of-the-searchindexclient-class"></a>II. SearchIndexClient 클래스의 인스턴스 만들기
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>SearchIndexClient 클래스의 인스턴스 만들기
 Azure 검색 .NET SDK로 쿼리를 발급하려면 `SearchIndexClient` 클래스의 인스턴스를 만들어야 합니다. 이 클래스에는 몇 가지 생성자가 있습니다. 그 중에 하나는 검색 서비스 이름, 인덱스 이름 및 `SearchCredentials` 개체를 매개 변수로 사용합니다. `SearchCredentials` 는 API 키를 래핑합니다.
 
 아래 코드에서는 응용 프로그램의 구성 파일(`app.config` 또는 `web.config`)에 저장된 검색 서비스 이름 및 API 키에 대한 값을 사용하여 ([.NET SDK를 사용하여 Azure 검색 인덱스 만들기](search-create-index-dotnet.md)에서 만든) "호텔" 인덱스에 새로운 `SearchIndexClient`을 만듭니다.
@@ -62,7 +62,7 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 
 `SearchIndexClient`에는 `Documents` 속성이 있습니다. 이 속성은 Azure 검색 인덱스를 쿼리하는 데 필요한 모든 메서드를 제공합니다.
 
-## <a name="iii-query-your-index"></a>III. 인덱스 쿼리
+## <a name="query-your-index"></a>인덱스 쿼리
 .NET SDK로 검색하는 작업은 `SearchIndexClient`에서 `Documents.Search` 메서드를 호출하는 것 만큼 간단합니다. 이 메서드는 쿼리를 구체화하는 데 사용할 수 있는 `SearchParameters` 개체와 함께 검색 텍스트를 비롯한 몇 가지 매개 변수를 사용합니다.
 
 #### <a name="types-of-queries"></a>쿼리 유형
@@ -127,7 +127,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-## <a name="iv-handle-search-results"></a>IV. 검색 결과 처리
+## <a name="handle-search-results"></a>검색 결과 처리
 `Documents.Search` 메서드는 쿼리의 결과를 포함하는 `DocumentSearchResult` 개체를 반환합니다. 이전 섹션의 예제에서는 콘솔에 검색 결과 출력하기 위해 `WriteDocuments` 이라는 메서드를 사용했습니다.
 
 ```csharp
@@ -169,6 +169,6 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

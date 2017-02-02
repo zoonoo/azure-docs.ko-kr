@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;mausher;kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff2d30fcf53028754fc5e1a4b6b52323855a48b4
+ms.sourcegitcommit: 6241eb0e7ea091dffcb0ae770f8d89f24a19eb67
+ms.openlocfilehash: ff2f688d42924edb1596cb2db474a58748f2b44c
 
 
 ---
@@ -25,7 +25,7 @@ Azure SQL 데이터 웨어하우스는 거대한 양의 관계형 및 비관계�
 
 SQL 데이터 웨어하우스:
 
-* SQL Server 관계형 데이터베이스를 Azure 클라우드 규모 확장 기능을 결합합니다. 계산을 초 단위로 증가, 감소, 일시 중지 또는 다시 시작할 수 있습니다. 필요할 때 CPU 규모를 확장하고 사용량이 감소하는 시간 동안 사용량을 축소할 수 있습니다.
+* SQL Server 관계형 데이터베이스를 Azure 클라우드 규모 확장 기능을 결합합니다. 계산을 분, 초 단위로 증가, 감소, 일시 중지 또는 다시 시작할 수 있습니다. 필요할 때 CPU 규모를 확장하고 사용량이 감소하는 시간 동안 사용량을 축소할 수 있습니다.
 * Azure 플랫폼을 활용합니다. 자동 백업으로 인해 배포가 용이하며 원활한 유지 관리가 가능하고 완전한 내결함성을 갖추게 됩니다.
 * SQL Server 에코시스템을 보완합니다. 친숙한 SQL Server T-SQL(Transact-SQL) 및 도구와 함께 개발할 수 있습니다.
 
@@ -96,21 +96,21 @@ SQL 데이터 웨어하우스는 SQL Server 관계형 데이터베이스 엔진�
 
 * SQL 데이터 웨어하우스는 많은 연산에 T-SQL 구문을 사용합니다. 또한 저장 프로시저, 사용자 정의 함수, 테이블 파티션, 인덱스, 데이터 정렬을 비롯한 기존의 SQL 구문을 폭넓게 지원합니다.
 * SQL 데이터 웨어하우스에는 클러스터형 **Columnstore** 인덱스, PolyBase 통합, 데이터 감사(위협 평가와 함께 완성되는)를 비롯한 새로운 SQL Server 기능이 많이 포함되어 있습니다.
-* 데이터 웨어하우스 작업에 덜 일반적이거나 SQL Server에 새로운 특정 T-SQL 언어 요소는 현재 사용할 수 없습니다. 자세한 내용은 [마이그레이션 설명서][마이그레이션 설명서]를 참조하세요.
+* 데이터 웨어하우스 작업에 덜 일반적이거나 SQL Server에 새로운 특정 T-SQL 언어 요소는 현재 사용할 수 없습니다. 자세한 내용은 [마이그레이션 설명서][Migration documentation]를 참조하세요.
 
 SQL Server, SQL 데이터 웨어하우스, SQL 데이터베이스 및 분석 플랫폼 시스템 간의 TRANSACT-SQL 및 기능 공통성을 통해 데이터 요구 사항에 맞는 솔루션을 개발할 수 있습니다. 성능, 보안, 규모 요구 사항을 고려하여 데이터를 보관할 곳을 결정한 후에 필요에 따라 다른 시스템 간에 데이터를 전송할 수 있습니다.
 
 ## <a name="data-protection"></a>데이터 보호
-SQL 데이터 웨어하우스는 Azure 프리미엄 로컬 중복 저장소에 모든 데이터를 저장합니다. 데이터의 여러 동기 복사본은 지역화된 오류 발생 시 투명 한 데이터 보호를 보장하기 위해 로컬 데이터 센터에 유지됩니다. 또한 SQL 데이터 웨어하우스는 Azure 저장소 스냅숏을 사용하여 일정한 간격으로 자동으로 (일시 중지 해제된) 활성 데이터베이스를 백업합니다. 작업을 백업 및 복원하는 방법에 대해 자세히 알아보려면 [백업 및 복원 개요][백업 및 복원 개요]를 참조하세요.
+SQL 데이터 웨어하우스는 Azure 프리미엄 로컬 중복 저장소에 모든 데이터를 저장합니다. 데이터의 여러 동기 복사본은 지역화된 오류 발생 시 투명 한 데이터 보호를 보장하기 위해 로컬 데이터 센터에 유지됩니다. 또한 SQL 데이터 웨어하우스는 Azure 저장소 스냅숏을 사용하여 일정한 간격으로 자동으로 (일시 중지 해제된) 활성 데이터베이스를 백업합니다. 작업을 백업하고 복원하는 방법에 대해 자세히 알아보려면 [백업 및 복원 개요][Backup and restore overview]를 참조하세요.
 
 ## <a name="integrated-with-microsoft-tools"></a>Microsoft 도구와 통합
 SQL 데이터 웨어하우스는 SQL Server 사용자가 잘 알고 있는 다양한 도구를 통합합니다. 내용은 다음과 같습니다.
 
 **기존 SQL Server 도구:** SQL 데이터 웨어하우스는 SQL Server Analysis Services, Integration Services 및 Reporting Services와 완전히 통합됩니다.
 
-**클라우드 기반 도구:** SQL 데이터 웨어하우스는 데이터 팩터리, 스트림 분석, 기계 학습 및 Power BI를 포함하여 Azure의 수많은 신규 도구와 함께 사용될 수 있습니다. 자세한 전체 목록은 [통합된 도구 개요][통합된 도구 개요]를 참조하세요.
+**클라우드 기반 도구:** SQL 데이터 웨어하우스는 데이터 팩터리, 스트림 분석, 기계 학습 및 Power BI를 포함하여 Azure의 수많은 신규 도구와 함께 사용될 수 있습니다. 자세한 전체 목록은 [통합된 도구 개요][Integrated tools overview]를 참조하세요.
 
-**타사 도구:** 다수의 타사 도구 공급자들이 자사의 도구와 SQL 데이터 웨어하우스의 통합을 보증하였습니다. 파트너의 전체 목록은 [SQL Data Warehouse 솔루션 파트너][SQL Data Warehouse 솔루션 파트너]를 참조하세요.
+**타사 도구:** 다수의 타사 도구 공급자들이 자사의 도구와 SQL 데이터 웨어하우스의 통합을 보증하였습니다. 전체 목록은 [SQL Data Warehouse 솔루션 파트너][SQL Data Warehouse solution partners](영문)를 참조하세요.
 
 ## <a name="hybrid-data-sources-scenarios"></a>하이브리드 데이터 원본 시나리오
 SQL Data Warehouse를 PolyBase와 함께 사용하면 비관계형 및 온-프레미스 데이터 원본으로 고급 하이브리드 시나리오를 설정할 수 있게 되고, 에코시스템에 데이터를 이동할 수 있는 전례 없는 역량을 가질 수 있습니다.
@@ -122,10 +122,10 @@ Polybase는 친숙한 T-SQL 명령을 사용하여 다양한 원본에서 데이
 * PolyBase는 HDInsight 클러스터에 대한 저장소로도 사용되고 있는 Blob Storage에 액세스하는 데 사용할 수 있습니다. 그러면 관계형 및 비관계형 도구와 동일한 데이터에 액세스할 수 있습니다.
 
 ## <a name="sla"></a>SLA
-SQL Data Warehouse는 Microsoft 온라인 서비스 SLA의 일부로 제품 수준 SLA(서비스 수준 계약)를 제공합니다. 자세한 내용은 [SQL Data Warehouse용 SLA][SQL Data Warehouse용 SLA]를 방문하세요. 다른 모든 제품에 대한 SLA 정보에 대해서는 [서비스 수준 계약] Azure 페이지를 방문하거나 [볼륨 라이선스][볼륨 라이선스] 페이지에서 다운로드할 수 있습니다. 
+SQL Data Warehouse는 Microsoft 온라인 서비스 SLA의 일부로 제품 수준 SLA(서비스 수준 계약)를 제공합니다. 자세한 내용은 [SQL Data Warehouse에 대한 SLA][SLA for SQL Data Warehouse]를 방문하세요. 다른 모든 제품에 대한 SLA 정보에 대해서는 [서비스 수준 계약] Azure 페이지를 방문하거나 [볼륨 라이선스][Volume Licensing](영문) 페이지에서 다운로드할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-SQL Data Warehouse에 대한 내용을 파악했으므로 [SQL Data Warehouse 만들기][SQL Data Warehouse 만들기] 및 [샘플 데이터 로드][샘플 데이터 로드]에 대해 신속히 알아봅니다. Azure을 처음 접하는 경우 새 용어를 발견하면 [Azure 용어집][Azure 용어집]을 유용하게 사용할 수 있습니다. 또는 그 밖의 SQL 데이터 웨어하우스 리소스를 살펴봅니다.  
+SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 [SQL Data Warehouse 만들기][create a SQL Data Warehouse] 및 [샘플 데이터 로드][load sample data]에 대해 신속히 알아봅니다. Azure를 처음 사용하는 경우 새 용어를 발견하면 [Azure 용어집][Azure glossary]을 유용하게 사용할 수 있습니다. 또는 그 밖의 SQL 데이터 웨어하우스 리소스를 살펴봅니다.  
 
 * [고객 성공 사례]
 * [블로그]
@@ -142,13 +142,13 @@ SQL Data Warehouse에 대한 내용을 파악했으므로 [SQL Data Warehouse �
 
 <!--Article references-->
 [지원 티켓 만들기]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[샘플 데이터 로드]: ./sql-data-warehouse-load-sample-databases.md
-[SQL Data Warehouse 만들기]: ./sql-data-warehouse-get-started-provision.md
-[마이그레이션 설명서]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse 솔루션 파트너]: ./sql-data-warehouse-partner-business-intelligence.md
-[통합된 도구 개요]: ./sql-data-warehouse-overview-integrate.md
-[백업 및 복원 개요]: ./sql-data-warehouse-restore-database-overview.md
-[Azure 용어집]: ../azure-glossary-cloud-terminology.md
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
+[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
@@ -161,12 +161,12 @@ SQL Data Warehouse에 대한 내용을 파악했으므로 [SQL Data Warehouse �
 [Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SQL Data Warehouse용 SLA]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
-[볼륨 라이선스]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
+[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [서비스 수준 계약]: https://azure.microsoft.com/en-us/support/legal/sla/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

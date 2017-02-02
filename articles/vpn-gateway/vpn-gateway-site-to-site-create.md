@@ -1,10 +1,10 @@
 ---
-title: "Azure 클래식 포털을 사용하여 사이트 간 VPN 게이트웨이 연결로 가상 네트워크 만들기 | Microsoft Docs"
+title: "크로스-프레미스 사이트 간 Azure VPN 연결 구성: 클래식 포털 | Microsoft Docs"
 description: "클래식 배포 모델을 사용하여 프레미스 간 구성과 하이브리드 구성에 대해 사이트 간 S2S VPN 게이트웨이 연결로 VNet를 만듭니다."
 services: vpn-gateway
 documentationcenter: 
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 024ecb29-64de-4ff1-84f1-1a45a8595f0b
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cc377f80fa6b9df41081b13a51ff15482b2ba8bc
+ms.sourcegitcommit: 0258e1093926e6239650a8b1ecbb7c7a778616c6
+ms.openlocfilehash: 9c92ab15d3fd320bdac69444d40f72d56482103e
 
 
 ---
-# <a name="create-a-vnet-with-a-sitetosite-connection-using-the-azure-classic-portal"></a>Azure 클래식 포털을 사용하여 사이트 간 연결로 VNet 만들기
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>클래식 포털을 사용하여 사이트 간 연결로 VNet 만들기
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -33,7 +33,7 @@ ms.openlocfilehash: cc377f80fa6b9df41081b13a51ff15482b2ba8bc
 
 ![사이트 간 다이어그램](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
 
-### <a name="deployment-models-and-methods-for-sitetosite-connections"></a>사이트 간 연결에 대한 배포 모델 및 메서드
+### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>사이트 간 연결에 대한 배포 모델 및 메서드
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 아래 표에서는 현재 사용할 수 있는 배포 모델 및 사이트 간 구성을 위한 메서드를 보여 줍니다. 구성 단계를 포함한 문서를 사용할 수 있는 경우 아래 표에서 관련 링크를 직접 제공합니다.
@@ -48,7 +48,7 @@ Vnet끼리 서로 연결하려는 경우 [클래식 배포 모델에 대한 VNet
 
 * 호환되는 VPN 장치 및 구성할 수 있는 사람. [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 장치를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
 * VPN 장치에 대한 외부 연결 공용 IP 주소. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
-* Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+* Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 
 ## <a name="a-namecreatevnetacreate-your-virtual-network"></a><a name="CreateVNet"></a>가상 네트워크 만들기
 1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
@@ -68,7 +68,7 @@ Vnet끼리 서로 연결하려는 경우 [클래식 배포 모델에 대한 VNet
 * **사이트 간 VPN 구성**: **사이트 간 VPN 구성** 확인란을 선택합니다.
 * **로컬 네트워크**: 로컬 네트워크는 실제 온-프레미스 위치를 나타냅니다. 이전에 만든 로컬 네트워크를 선택하거나 새 로컬 네트워크를 만들 수 있습니다. 하지만 이전에 만든 로컬 네트워크를 사용하려면 **로컬 네트워크** 구성 페이지로 이동하여 이 연결에 사용 중인 VPN 장치의 VPN 장치 IP 주소(공용 IPv4 주소)가 정확한지 확인합니다.
 
-## <a name="a-nameconnectivityasitetosite-connectivity-page"></a><a name="Connectivity"></a>사이트 간 연결 페이지
+## <a name="a-nameconnectivityasite-to-site-connectivity-page"></a><a name="Connectivity"></a>사이트 간 연결 페이지
 새 로컬 네트워크를 만들 경우 **사이트 간 연결** 페이지가 표시됩니다. 이전에 만든 로컬 네트워크를 사용하려는 경우 이 페이지가 마법사에 나타나지 않고 다음 섹션으로 이동할 수 있습니다.
 
 다음 정보를 입력하고 다음 화살표를 클릭합니다.
@@ -97,11 +97,11 @@ Vnet끼리 서로 연결하려는 경우 [클래식 배포 모델에 대한 VNet
 보안 사이트 간 연결을 만들기 위해 가상 네트워크 게이트웨이를 구성합니다. [Azure 클래식 포털에서 가상 네트워크 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/) 설명서를 참조하세요.
+ 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

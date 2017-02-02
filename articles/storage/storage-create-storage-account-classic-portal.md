@@ -1,6 +1,6 @@
 ---
 title: "Azure 클래식 포털에서 저장소 계정을 만들거나, 관리하거나, 삭제하는 방법 | Microsoft Docs"
-description: "Azure 포털에서 새 저장소 계정을 만들고 계정 액세스 키를 관리하거나 저장소 계정을 삭제합니다. 표준 및 프리미엄 저장소 계정에 대해 알아봅니다."
+description: "Azure Portal에서 새 저장소 계정을 만들고 계정 선택키를 관리하거나 저장소 계정을 삭제합니다. 표준 및 프리미엄 저장소 계정에 대해 알아봅니다."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 879e199f0c712a46b89a686d6a3dd8dd877821e4
+ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
+ms.openlocfilehash: 599d509d00e8366a5095cac7503b11cf818e6a34
 
 
 ---
@@ -175,6 +175,6 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

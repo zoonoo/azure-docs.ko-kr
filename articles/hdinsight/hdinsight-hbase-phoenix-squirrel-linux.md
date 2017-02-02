@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 88b59176d219622fe28289c015d004fe675be0eb
+ms.sourcegitcommit: 58212ae80ef2b930661e739aeb4779c6f9bd1bec
+ms.openlocfilehash: ceb33327ec2ced7c1ffad89696e64538c7fd4a5d
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 88b59176d219622fe28289c015d004fe675be0eb
 HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/) 를 사용하는 방법 및 SQLLine을 사용하는 방법을 알아봅니다. Phoenix에 대한 자세한 내용은 [15분 이내의 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)를 참조하세요. Phoenix 문법은 [피닉스 문법](http://phoenix.apache.org/language/index.html)을 참조하세요.
 
 > [!NOTE]
-> HDInsight의 Phoenix 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
+> HDInsight의 Phoenix 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능](hdinsight-component-versioning.md)을 참조하세요.
 >
 >
 
@@ -70,15 +70,14 @@ HBase 클러스터에 연결할 때 Zookeeper 중 하나에 연결해야 합니�
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 HDInsight에서 Apache Phoenix를 사용하는 방법에 대해 알아보았습니다.  자세한 내용은 다음을 참조하세요.
 
-* [HDInsight HBase 개요][hdinsight-hbase-overview]: HBase는 비구조적/반구조적 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
-* [Azure Virtual Network에서 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]: 가상 네트워크 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 가상 네트워크에 HBase 클러스터를 배포할 수 있습니다.
-* [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md): 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다.
-* [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment]: HDInsight의 Hadoop 클러스터에서 HBase를 사용하여 빅데이터에 대한 실시간 [데이터 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)을 수행하는 방법에 대해 알아봅니다.
+* [HDInsight HBase 개요][hdinsight-hbase-overview]: HBase는 대량의 비구조적/반구조적 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
+* [Azure Virtual Network에서 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]: Virtual Network 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 Virtual Network에 HBase 클러스터를 배포할 수 있습니다.
+* [HDInsight에서 HBase 복제 구성](hdinsight-hbase-replication.md): 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다.
+* [HDInsight에서 HBase를 사용하여 Twitter 감정][hbase-twitter-sentiment]: HDInsight의 Hadoop 클러스터에서 HBase를 사용하여 빅 데이터에 대한 실시간 [감정 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)을 수행하는 방법에 대해 알아봅니다.
 
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
-[hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
@@ -95,6 +94,6 @@ HBase 클러스터에 연결할 때 Zookeeper 중 하나에 연결해야 합니�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Data Lake Store Java SDK를 사용하여 응용 프로그램 개발 | Microsoft Docs"
-description: "Azure Data Lake 저장소 Java SDK를 사용하여 응용 프로그램 개발"
+title: "Azure Data Lake Store에서 Java SDK를 사용하여 응용 프로그램 개발 | Microsoft Docs"
+description: "Azure Data Lake Store Java SDK를 사용하여 Data Lake Store 계정을 만들고 Data Lake Store에서 기본 작업을 수행합니다."
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 255e8def5179e544a4fb919774f3b18148566898
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 0d8c4b4af9672ca40da44b19938604f668390569
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 255e8def5179e544a4fb919774f3b18148566898
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.JS](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Azure Data Lake Store Java SDK를 사용하여 폴더 만들기, 데이터 파일 업로드 및 다운로드 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. Data Lake에 대한 자세한 내용은 [Azure Data Lake Store](data-lake-store-overview.md)를 참조하세요.
@@ -63,7 +64,7 @@ Azure Active Directory는 토큰을 검색할 뿐만 아니라 다른 옵션을 
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.0.4-SNAPSHOT</version>
+            <version>2.1.1</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>
@@ -148,6 +149,6 @@ Data Lake Store SDK를 사용하여 앞에서 만든 Active Directory 웹 응용
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

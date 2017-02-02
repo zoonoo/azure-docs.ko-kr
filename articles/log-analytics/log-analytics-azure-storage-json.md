@@ -4,7 +4,7 @@ description: "Log Analytics는 JSON 형식의 Blob Storage에 Azure 진단 로�
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: adf2f366-ea98-4250-ae66-6d2cfce5b4f9
 ms.service: log-analytics
@@ -12,21 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 08274c03dd1ebb7533efde4c01744ed5293fb4dd
+ms.sourcegitcommit: d0b98fe9c3ec685e95b5a8cf96afe1fb72c659f2
+ms.openlocfilehash: 76dfc064d4c50f291e48ce35435229da1323a520
 
 
 ---
 # <a name="analyze-azure-diagnostic-logs-using-log-analytics"></a>Log Analytics를 사용하여 Azure 진단 로그 분석 
 Log Analytics는 JSON 형식의 Blob Storage에 [Azure 진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)를 기록하는 다음 Azure 서비스에 대해 로그를 읽을 수 있습니다.
 
-* 자동화(Preview)
 * 키 자격 증명 모음(Preview)
 * 응용 프로그램 게이트웨이(Preview)
 * 네트워크 보안 그룹(Preview)
+
+> [!NOTE]
+> 로그를 수집하는 이 방법은 더 이상 사용되지 않습니다. 위의 서비스에 대한 로그 수집은 [Log Analytics에 직접 Azure 진단](log-analytics-azure-storage.md)을 사용합니다. Key Vault 분석 및 Azure 네트워크 분석 관리 솔루션이 Azure 진단에서 직접 수집된 로그를 지원하도록 업데이트되면 이 설명서는 삭제됩니다.
+>
+>
 
 다음 섹션에서는 PowerShell을 사용하여 다음 작업을 수행하는 과정을 안내합니다.
 
@@ -56,7 +60,7 @@ Log Analytics에서 이러한 리소스에 대한 데이터를 수집하려면 A
 # format is similar to "/subscriptions/ec11ca60-ab12-345e-678d-0ea07bbae25c/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
 $storageAccountId = ""
 
-$supportedResourceTypes = ("Microsoft.Automation/AutomationAccounts", "Microsoft.KeyVault/Vaults", "Microsoft.Network/NetworkSecurityGroups", "Microsoft.Network/ApplicationGateways")
+$supportedResourceTypes = ("Microsoft.KeyVault/Vaults", "Microsoft.Network/NetworkSecurityGroups", "Microsoft.Network/ApplicationGateways")
 
 # update location to match your storage account location
 $resources = Get-AzureRmResource | where { $_.ResourceType -in $supportedResourceTypes -and $_.Location -eq "westus" }
@@ -77,7 +81,7 @@ Log Analytics 구성을 지원하기 위해 다음 두 개의 cmdlet을 내보�
 
 ### <a name="pre-requisites"></a>필수 구성 요소
 1. 버전 1.0.8 이상의 Operational Insights cmdlet이 있는 Azure PowerShell
-   * [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)
+   * [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)
    * 사용 중인 cmdlet 버전(`Import-Module AzureRM.OperationalInsights -MinimumVersion 1.0.8 `)을 확인합니다. 
 2. 모니터링할 Azure 리소스에 대해 진단 로깅이 구성됩니다. 진단을 사용하도록 설정하는 방법은 `Set-AzureRmDiagnosticSetting`을 사용하거나 [Log Analytics를 사용하여 Azure Storage 계정에서 데이터 수집](log-analytics-azure-storage.md)을 참조하세요.
 3. [Log Analytics](https://portal.azure.com/#create/Microsoft.LogAnalyticsOMS) 작업 영역  
@@ -119,8 +123,8 @@ OMS에 대한 자세한 내용은 [Log Analytics PowerShell Cmdlet](https://msdn
 
 > [!NOTE]
 > 리소스와 작업 영역이 다른 Azure 구독에 있는 경우 필요에 따라 `Select-AzureRmSubscription -SubscriptionId <Subscription the resource is in>`을 사용하여 구독 사이를 전환합니다.
-> 
-> 
+>
+>
 
 ```
 # Connect to Azure
@@ -152,8 +156,8 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.Res
 
 > [!NOTE]
 > 이 구성은 Azure Portal에서 표시되지 않습니다. `Get-AzureRmOperationalInsightsStorageInsight` cmdlet을 사용하여 구성을 확인할 수 있습니다.  
-> 
-> 
+>
+>
 
 ## <a name="stopping-log-analytics-from-collecting-azure-diagnostic-logs"></a>Log Analytics의 Azure 진단 로그 수집 중지
 리소스에 대해 Log Analytics 구성을 삭제하려면 `Remove-AzureRmOperationalInsightsStorageInsight` cmdlet를 사용합니다.
@@ -239,7 +243,6 @@ Get-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $logAnalyticsWor
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

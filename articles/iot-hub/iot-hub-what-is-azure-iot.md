@@ -1,5 +1,5 @@
 ---
-title: "사물 인터넷에 대한 Azure 솔루션 | Microsoft Docs"
+title: "사물 인터넷을 위한 Azure 솔루션(IoT Suite) | Microsoft Docs"
 description: "샘플 IoT 솔루션 아키텍처의 개요 및 장치에 연결된 방법, Azure IoT Hub 서비스, Azure IoT 장치 SDK, Azure IoT 서비스 SDK 및 기타 Azure 서비스입니다."
 services: iot-hub
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 36e4afb54485c12b39349124e241a2d74617702c
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
 
 
 ---
@@ -49,6 +49,6 @@ Azure IoT Hub를 사용하여 표준 기반 장치 관리를 통해 원격으로
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

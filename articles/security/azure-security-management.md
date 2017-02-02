@@ -1,10 +1,10 @@
 ---
-title: "Azure의 보안 관리 | Microsoft Docs"
+title: "Azure에서 원격 관리 보안 강화 | Microsoft Docs"
 description: "이 문서에서는 클라우드 서비스, Virtual Machines 및 사용자 지정 응용 프로그램 등 Microsoft Azure 환경을 관리하면서 원격 관리 보안을 향상하는 단계를 설명합니다."
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: StevenPo
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b1f757678c9a88bd834482d67bf098279c463bfb
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: bf4f0b64d1230395bf5dacc467d09debecdef559
 
 
 ---
@@ -201,7 +201,7 @@ Microsoft의 Azure 작업 내에서, Azure의 프로덕션 시스템에 액세�
 
 중앙 집중화된 소프트웨어 업데이트와 함께 그룹 정책을 통해 시스템 강화가 적용됩니다. 감사 및 분석을 위해 이벤트 로그(예: 보안 및 AppLocker)는 관리 워크스테이션에서 수집되며 중앙 위치에 저장됩니다.
 
-또한 2단계 인증을 필요로 하는 Microsoft의 네트워크의 전용 점프 상자는 Azure의 프로덕션 네트워크에 연결하는 데 사용됩니다.
+또한&2;단계 인증을 필요로 하는 Microsoft의 네트워크의 전용 점프 상자는 Azure의 프로덕션 네트워크에 연결하는 데 사용됩니다.
 
 ## <a name="azure-security-checklist"></a>Azure 보안 검사 목록
 관리자가 강화된 워크스테이션에서 수행할 수 있는 작업의 수를 최소화하면 개발 및 관리 환경의 공격 노출 영역을 최소화하는 데 도움이 됩니다. 다음과 같은 기술을 사용하여 강화된 워크스테이션을 보호할 수 있습니다.
@@ -235,6 +235,6 @@ Azure 클라우드 서비스, 가상 컴퓨터 및 응용 프로그램을 관리
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

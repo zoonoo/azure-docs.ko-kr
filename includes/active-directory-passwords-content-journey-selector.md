@@ -1,14 +1,18 @@
 > [!div class="op_single_selector"]
-> * [What is it](../articles/active-directory/active-directory-passwords.md)
-> * [How it works](../articles/active-directory/active-directory-passwords-how-it-works.md)
-> * [Getting started](../articles/active-directory/active-directory-passwords-getting-started.md)
-> * [Customize](../articles/active-directory/active-directory-passwords-customize.md)
-> * [Best practices](../articles/active-directory/active-directory-passwords-best-practices.md)
-> * [Get insights](../articles/active-directory/active-directory-passwords-get-insights.md)
+> * [무엇인가요](../articles/active-directory/active-directory-passwords.md)
+> * [작동 방법](../articles/active-directory/active-directory-passwords-how-it-works.md)
+> * [시작](../articles/active-directory/active-directory-passwords-getting-started.md)
+> * [사용자 지정](../articles/active-directory/active-directory-passwords-customize.md)
+> * [모범 사례](../articles/active-directory/active-directory-passwords-best-practices.md)
+> * [정보 활용](../articles/active-directory/active-directory-passwords-get-insights.md)
 > * [FAQ](../articles/active-directory/active-directory-passwords-faq.md)
-> * [Troubleshooting](../articles/active-directory/active-directory-passwords-troubleshoot.md)
-> * [Learn more](../articles/active-directory/active-directory-passwords-learn-more.md)
+> * [문제 해결](../articles/active-directory/active-directory-passwords-troubleshoot.md)
+> * [자세히 알아보기](../articles/active-directory/active-directory-passwords-learn-more.md)
 > 
 > 
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

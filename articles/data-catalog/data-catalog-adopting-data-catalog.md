@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Catalog 도입 | Microsoft 문서"
+title: "Azure Data Catalog 채택을 위한 접근 방식 및 프로세스 | Microsoft Docs"
 description: "이 문서에서는 비전 정의, 주요 비즈니스 사용 사례 식별, 파일럿 프로젝트 선택을 비롯한 Azure Data Catalog 도입을 고려하는 조직에 대한 접근 방식 및 프로세스를 제공합니다."
 services: data-catalog
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/11/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6299c6eaab1e62281e23d2dd43c14fbb9769a316
+ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
+ms.openlocfilehash: 646a7611f5680a4c08e9a5f5ff4e2a3e5631276f
 
 
 ---
-# <a name="adopting-azure-data-catalog"></a>Azure 데이터 카탈로그 도입
+# <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Azure Data Catalog 채택을 위한 접근 방식 및 프로세스
 이 문서는 조직에서 **Azure Data Catalog** 도입을 시작하는 데 도움이 됩니다. **Azure Data Catalog**를 성공적으로 도입하려면 사용자의 비전 정의, 조직 내의 주요 업무 사용 사례 식별, 파일럿 프로젝트 선택 등 세 가지 주요 항목에 초점을 맞춥니다.
 
 ## <a name="introducing-the-azure-data-catalog"></a>Azure 데이터 카탈로그 소개
@@ -102,8 +102,8 @@ ms.openlocfilehash: 6299c6eaab1e62281e23d2dd43c14fbb9769a316
 
 **Azure Data Catalog**가 해결하는 비즈니스 문제 중 하나는 **데이터 생산자**를 **데이터 소비자**에 연결하는 것입니다. 기업 데이터 원본에 관한 정보의 중앙 저장소 역할을 함으로써 이 작업을 수행합니다. David는 데이터 카탈로그를 사용하여 Adventure Works 및 SQL Server 데이터 원본을 등록합니다. 이 데이터 원본을 검색하는 사용자의 크라우드소싱을 사용 하면 자신이 검색한 데이터를 사용할 뿐만 아니라 데이터에 관한 자신의 의견을 공유할 수 있습니다. 예를 들어 Nancy는 카탈로그를 검색하여 데이터 원본을 검색하며 데이터에 관한 자신의 전문화된 지식을 공유합니다.  이제 조직의 다른 사람은 단순히 데이터 카탈로그를 검색하여 공유되는 지식에서 이익을 얻습니다.
 
-* 데이터 원본의 등록에 대해 더 자세히 알려면 [데이터 원본을 등록](data-catalog-get-started.md#exercise-2-registering-data-sources)을 참조하세요.
-* 데이터 원본의 검색에 대해 더 자세히 알려면 [데이터 원본을 등록](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)을 참조하세요.
+* 데이터 원본의 등록에 대해 더 자세히 알려면 [데이터 원본을 등록](data-catalog-get-started.md)을 참조하세요.
+* 데이터 원본의 검색에 대해 더 자세히 알려면 [데이터 원본을 등록](data-catalog-get-started.md)을 참조하세요.
 
 ### <a name="start-small-and-focused"></a>작고 집중된 시작
 대부분의 엔터프라이즈 파일럿 프로젝트에서는 비즈니스 사용자가 데이터 카탈로그의 가치를 빨리 알 수 있도록 높은 가치의 데이터 원본을 사용하여 카탈로그를 시드해야 합니다. IT는 파일럿 팀이 관심을 가질 수 있는 일반적인 데이터 원본을 식별하기에 좋은 시작점입니다. SQL Server와 같은 지원되는 데이터 원본에 대해서는 **Azure 데이터 카탈로그** 데이터 원본 등록 도구를 사용하는 것이 좋습니다. 데이터 원본 등록 도구를 사용하면 SQL Server 및 Oracle 데이터베이스를 비롯한 광범위한 데이터 원본과 함께 SQL Server Reporting Services 보고서를 등록할 수 있습니다. 현재 데이터 원본의 전체 목록은 [Azure 데이터 카탈로그 지원 데이터 원본](data-catalog-dsr.md)을 참조하세요.
@@ -123,8 +123,8 @@ Nancy와 그녀의 팀이 높은 가치의 데이터 원본을 쉽게 찾을 수
 
 > [!NOTE]
 > 우리는 **Azure 데이터 카탈로그** API를 사용하여 Excel 통합 문서를 데이터 카탈로그에 마이그레이션하는 샘플 도구를 작성했습니다. Data Catalog API 및 샘플 도구에 대해 더 자세히 알려면 [임시 통합 문서 코드 샘플을 다운로드](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)하고 [Azure Data Catalog REST API](https://msdn.microsoft.com/library/azure/mt267593.aspx) 문서를 확인할 수 있습니다.
-> 
-> 
+>
+>
 
 파일럿 프로젝트가 시행된 후 데이터 카탈로그 도입 계획을 실행해야 합니다.
 
@@ -142,9 +142,9 @@ Nancy와 그녀의 팀이 높은 가치의 데이터 원본을 쉽게 찾을 수
 파일럿 팀이 데이터 카탈로그 사용으로 직접 이동하기 전에 파일럿 프로젝트의 기대치에 대해 논하는 킥오프 미팅을 예약하고 초기 교육을 제공합니다.
 
 ### <a name="set-expectations"></a>기대치 설정
-예외 및 목표 설정은 사용자가 특정 결과물에 집중하는 데 도움이 됩니다. 프로젝트를 추적하기 위해 정기적인(파일럿의 범위 및 기간에 따라 아마도 일일 또는 주간) 과제를 할당합니다. 데이터 카탈로그의 매우 중요한 기능 중 하나는 비즈니스 사용자가 전사적 데이터에 대한 지식으로부터 이익을 얻을 수 있는 데이터 자산의 크라우드소싱입니다. 우수한 과제 할당은 각 파일럿 팀 구성원이 자신이 사용한 데이터 원본을 적어도 한 개 등록하거나 주석을 추가하는 것입니다. [데이터 원본 등록](data-catalog-get-started.md#exercise-2-registering-data-sources) 및 [데이터 원본에 주석을 추가하는 방법](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)을 참조하세요.
+예외 및 목표 설정은 사용자가 특정 결과물에 집중하는 데 도움이 됩니다. 프로젝트를 추적하기 위해 정기적인(파일럿의 범위 및 기간에 따라 아마도 일일 또는 주간) 과제를 할당합니다. 데이터 카탈로그의 매우 중요한 기능 중 하나는 비즈니스 사용자가 전사적 데이터에 대한 지식으로부터 이익을 얻을 수 있는 데이터 자산의 크라우드소싱입니다. 우수한 과제 할당은 각 파일럿 팀 구성원이 자신이 사용한 데이터 원본을 적어도 한 개 등록하거나 주석을 추가하는 것입니다. [데이터 원본 등록](data-catalog-get-started.md) 및 [데이터 원본에 주석을 추가하는 방법](data-catalog-get-started.md)을 참조하세요.
 
-일부 주석을 검토하기 위해 정기적인 일정에 관하여 팀과 협의합니다. 데이터 원본에 관한 좋은 주석은 중앙 위치에서 의미 있는 데이터 원본 통찰력을 제공하므로 성공적인 데이터 원본 도입의 핵심적인 부분입니다. 좋은 주석이 없으면 데이터 원본에 관한 지식이 기업 전체에 걸쳐 분산된 채로 남아 있습니다. [데이터 원본에 주석을 추가하는 방법](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)을 참조하세요.
+일부 주석을 검토하기 위해 정기적인 일정에 관하여 팀과 협의합니다. 데이터 원본에 관한 좋은 주석은 중앙 위치에서 의미 있는 데이터 원본 통찰력을 제공하므로 성공적인 데이터 원본 도입의 핵심적인 부분입니다. 좋은 주석이 없으면 데이터 원본에 관한 지식이 기업 전체에 걸쳐 분산된 채로 남아 있습니다. [데이터 원본에 주석을 추가하는 방법](data-catalog-get-started.md)을 참조하세요.
 
 물론 프로젝트의 궁극적인 테스트는 사용자가 사용해야 할 데이터 원본을 검색하고 이해할 수 있는지 여부입니다. 파일럿 사용자는 카탈로그를 일상적으로 테스트하여 자신의 일상 작업에 사용하는 데이터 원본이 유용한지 확인하는 것입니다. 필요한 데이터 원본이 없거나 적절한 주석이 추가되지 않은 경우 이는 추가적인 데이터 원본을 등록하거나 추가 주석을 제공하는 알림 역할을 해야 합니다. 이 사례는 파일럿에 가치를 더할 뿐만 아니라 파일럿이 완료된 후에 다른 팀에 인계할 효율적인 방법을 구축하게 됩니다.
 
@@ -162,14 +162,13 @@ Nancy와 그녀의 팀이 높은 가치의 데이터 원본을 쉽게 찾을 수
 * [Azure 데이터 카탈로그 제품 페이지](https://azure.microsoft.com/services/data-catalog/)
 * [Azure 데이터 카탈로그 문서](https://azure.microsoft.com/documentation/services/data-catalog/)
 * [Azure 데이터 카탈로그 일반적인 시나리오](data-catalog-common-scenarios.md)
-* [데이터 원본 등록](data-catalog-get-started.md#exercise-2-registering-data-sources)
-* [데이터 원본 검색](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
-* [데이터 원본에 주석 추가](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-* [메타데이터 크라우드소싱](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
+* [데이터 원본 등록](data-catalog-get-started.md)
+* [데이터 원본 검색](data-catalog-get-started.md)
+* [데이터 원본에 주석 추가](data-catalog-get-started.md)
+* [메타데이터 크라우드소싱](data-catalog-get-started.md)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

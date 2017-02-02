@@ -12,11 +12,11 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: 550ca15e68c2bb6bf1958e5a24417a3efa9532d0
+ms.sourcegitcommit: f1955e3e1618c6228bfa5439ca66155148ff1cb3
+ms.openlocfilehash: 3eb3ea76fa577dfcc360e209a645b45e0cb4ab34
 
 
 ---
@@ -34,6 +34,11 @@ ms.openlocfilehash: 550ca15e68c2bb6bf1958e5a24417a3efa9532d0
 현재 일부 서비스에서만 포털이나 리소스 관리자를 지원합니다. 이러한 서비스의 경우 [클래식 포털](https://manage.windowsazure.com)을 사용해야 합니다. 각 서비스의 상태는 [Azure 포털 가용성 차트](https://azure.microsoft.com/features/azure-portal/availability/)를 참조하세요.
 
 ## <a name="manage-resource-groups"></a>리소스 그룹 관리
+
+리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 리소스 그룹에는 솔루션에 대한 모든 리소스 또는 그룹으로 관리하려는 해당 리소스만 포함될 수 있습니다. 사용자의 조직에 가장 적합한 내용에 따라 리소스 그룹에 리소스를 어떻게 할당할지 결정합니다. 일반적으로 쉽게 배포, 업데이트하고 그룹으로 삭제할 수 있도록 동일한 리소스 그룹에 대해 동일한 수명 주기를 공유하는 리소스를 추가합니다. 
+
+리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 따라서 리소스 그룹의 위치를 지정하면 메타데이터가 저장된 위치를 지정하게 됩니다. 규정 준수 때문에 특정 지역에 데이터가 저장되는지 확인해야 합니다.
+
 1. 구독에서 모든 리소스 그룹을 보려면 **리소스 그룹**을 참조하세요.
    
     ![리소스 그룹 찾아보기](./media/resource-group-portal/browse-groups.png)
@@ -128,7 +133,7 @@ ms.openlocfilehash: 550ca15e68c2bb6bf1958e5a24417a3efa9532d0
 ![그룹 삭제](./media/resource-group-portal/delete-group.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 감사 로그를 보려면 [Resource Manager로 작업 감사](resource-group-audit.md)를 참조하세요.
+* 활동 로그를 보려면 [리소스 관리자로 작업 감사](resource-group-audit.md)를 참조하세요.
 * 배포 오류를 해결하려면 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
 * 포털을 통해 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](resource-group-template-deploy-portal.md)를 참조하세요.
 * 리소스에 대한 액세스를 관리하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)를 참조하세요.
@@ -137,6 +142,6 @@ ms.openlocfilehash: 550ca15e68c2bb6bf1958e5a24417a3efa9532d0
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

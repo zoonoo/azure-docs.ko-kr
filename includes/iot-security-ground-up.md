@@ -28,7 +28,7 @@ Microsoft Azure IoT Suite는 모든 Microsoft 소프트웨어의 안전한 개�
 
 Azure IoT Suite에 기본 제공되는 보안 및 개인 정보 기능을 가장 잘 전달하기 위해 Azure IoT Suite를 세 가지 주요 보안 영역으로 세분화했습니다. 
 
-![Azure IoT Suite](media/iot-security-ground-up/securing-iot-ground-up-fig2.png)
+![Azure IoT Suite](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### <a name="secure-device-provisioning-and-authentication"></a>보안 장치를 프로비전 및 인증
 Azure IoT Suite는 각 장치에 대해 IoT 인프라에서 작업 중인 장치와 통신하는 데 사용할 수 있는 고유한 ID 키를 제공하여 현장에 없는 동안 장치를 보안 설정합니다. 이 프로세스는 빠르고 쉽게 설정합니다. 사용자가 선택한 장치 ID로 생성된 키는 장치와 Azure IoT Hub 간의 모든 통신에 사용되는 토큰의 기초를 구성합니다.

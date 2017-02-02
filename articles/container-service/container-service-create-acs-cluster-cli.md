@@ -1,5 +1,5 @@
 ---
-title: "CLI를 사용하여 Azure Container Service 클러스터 배포 | Microsoft Docs"
+title: "Docker 컨테이너 클러스터 배포 - Azure CLI | Microsoft Docs"
 description: "Azure CLI 2.0 미리 보기를 사용하여 Azure Container Service 클러스터 배포"
 services: container-service
 documentationcenter: 
@@ -11,14 +11,14 @@ keywords:
 ms.assetid: 8da267e8-2aeb-4c24-9a7a-65bdca3a82d6
 ms.service: container-service
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2016
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 855f0fe77bd55f6ec0dacad4bc28603ac1c6979c
-ms.openlocfilehash: c4a513686433e802f27f78de60e8b7fca21b4634
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 991e91fe7699840fe126e22fc55c9f28ea150a8c
 
 
 ---
@@ -65,7 +65,7 @@ az acs create -h
 컨테이너 서비스의 이름, 이전 단계에서 만든 리소스 그룹 및 고유한 DNS 이름은 필수입니다. 해당 스위치를 사용하여 덮어쓰지 않는 한, 다른 입력은 기본값으로 설정됩니다(도움말을 포함하는 다음 화면 스냅숏 참조).
 ![이미지 ACS create 도움말](media/container-service-create-acs-cluster-cli/acs-command-usage-help.png)
 
-*기본값을 사용하여 ACS create를 빠르게 진행합니다. SSH 키가 없으면 두 번째 명령을 사용합니다. 이 두 번째 create 명령과 --generate-ssh-keys 스위치를 사용하면 하나 만들어집니다.*
+*기본값을 사용하여 ACS create를 빠르게 진행합니다. SSH 키가 없으면 두 번째 명령을 사용합니다. 이 두 번째 create 명령과 --generate-ssh-keys 스위치를 사용하면 ACS 하나가 만들어집니다.*
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
@@ -75,7 +75,7 @@ az acs create -n acs-cluster -g acsrg1 -d applink789
 az acs create -n acs-cluster -g acsrg1 -d applink789 --generate-ssh-keys
 ```
 
-*dns-prefix(-d 스위치)가 고유한지 확인하세요. 오류가 발생하는 경우 고유 문자열을 사용해서 다시 시도하세요.*
+*dns-prefix (-d 스위치)가 고유한지 확인합니다. 오류가 발생하면 고유 문자열을 사용하여 다시 시도합니다.*
 
 앞의 명령을 입력한 후 클러스터가 만들어질 때까지 10분 정도 기다립니다.
 
@@ -108,7 +108,7 @@ az acs show -g acsrg1 -n acs-cluster --output list
 
 
 ## <a name="scale-the-acs-cluster"></a>ACS 클러스터 크기 조정
-*확장 및 축소 모두 허용됩니다. 매개 변수 new-agent-count는 ACS 클러스터의 새 에이전트 수입니다.*
+*확장 및 축소가 모두 허용됩니다. new-agent-count 매개 변수는 ACS 클러스터의 새 에이전트 수입니다.*
 
 ```azurecli
 az acs scale -g acsrg1 -n acs-cluster --new-agent-count 4
@@ -120,10 +120,10 @@ az acs scale -g acsrg1 -n acs-cluster --new-agent-count 4
 ```azurecli
 az acs delete -g acsrg1 -n acs-cluster 
 ```
-*이 delete 명령을 실행해도 컨테이너 서비스를 만드는 동안 생성된 모든 리소스(네트워크 및 저장소)가 삭제되는 것은 아닙니다. 모든 리소스를 삭제하려면 리소스 그룹당 단일 ACS 클러스터를 만든 후 acs 클러스터가 더 이상 필요하지 않을 때 리소스 그룹이 저절로 삭제되도록 하여 모든 관련 리소스가 삭제되고 요금이 부과되지 않도록 하는 것이 좋습니다.*
+*이 delete 명령은 컨테이너 서비스를 만드는 동안 만들어진 모든 리소스(네트워크 및 저장소)를 삭제하는 것이 아닙니다. 모든 리소스를 삭제하려면 리소스 그룹당 단일 ACS 클러스터를 만든 다음 acs cluster가 더 이상 필요하지 않을 때 리소스 그룹 자체를 삭제하도록 하여 관련된 모든 리소스가 삭제되고 요금이 부과되지 않도록 하는 것이 좋습니다.*
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

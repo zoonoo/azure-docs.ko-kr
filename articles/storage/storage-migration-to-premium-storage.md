@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/21/2016
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: ad39a17ae7aa6d7a1e2de0acee7259821e481728
+ms.sourcegitcommit: 7611f7940b076ba18b3966b0bc9a63fe53b55592
+ms.openlocfilehash: 0ebec265fe2ac2d53dbe3afcb660dddbe7b050ea
 
 
 ---
@@ -44,7 +44,7 @@ VM을 다른 플랫폼에서 Azure Premium Storage로 마이그레이션할 수�
 
 ### <a name="prerequisites"></a>필수 조건
 * Azure 구독이 필요합니다. 구독이 없다면, 한 달의 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 구독하거나 [Azure 가격 책정](https://azure.microsoft.com/pricing/)을 방문하여 추가 옵션을 참고합니다.
-* PowerShell cmdlet을 실행하려면 Microsoft Azure PowerShell 모듈이 필요합니다. 설치 지점 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 을 참조하세요.
+* PowerShell cmdlet을 실행하려면 Microsoft Azure PowerShell 모듈이 필요합니다. 설치 지점 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 * Premium Storage에서 실행되는 Azure VM을 사용하려는 경우 Premium Storage 지원 VM을 사용해야 합니다. Premium Storage 지원 VM에서 표준 저장소 디스크와 Premium Storage 디스크를 모두 사용할 수 있습니다. 프리미엄 저장소 디스크를 나중에 더 많은 VM 형식으로 사용할 수 있습니다. 사용 가능한 Azure VM 디스크 유형 및 크기에 대한 자세한 내용은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [클라우드 서비스 크기](../cloud-services/cloud-services-sizes-specs.md)를 참조하세요.
 
 ### <a name="considerations"></a>고려 사항
@@ -62,7 +62,7 @@ VM에서 사용할 수 있는 디스크에는 세 종류가 있으며 각 종류
 | 디스크당 IOPS |500 |2300 |5000 |
 | 디스크당 처리량 |초당 100MB |초당 150MB |초당 200MB |
 
-사용자 워크로드에 따라 추가 데이터 디스크가 VM에 필요한 경우를 결정합니다. VM에 여러 영구 데이터 디스크를 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑 할 수 있습니다. (디스크 스트라이프란 무엇인지 [여기서](storage-premium-storage-performance.md#disk-striping) 확인하세요.) [저장소 공간][4]을 사용하여 Premium Storage 데이터 디스크를 스트라이프하는 경우 사용되는 각 디스크에 대해 하나의 열로 구성해야 합니다. 그렇지 않으면 디스크에 트래픽이 고르게 분배되지 않아 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. Linux VM의 경우 *mdadm* 유틸리티를 사용하여 동일한 작업을 수행할 수 있습니다. 자세한 내용은 [Linux에서 소프트웨어 RAID 구성](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서를 참조하세요.
+사용자 워크로드에 따라 추가 데이터 디스크가 VM에 필요한 경우를 결정합니다. VM에 여러 영구 데이터 디스크를 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑 할 수 있습니다. (디스크 스트라이프란 무엇인지 [여기서](storage-premium-storage-performance.md#disk-striping) 확인하세요.) [저장소 공간][4]을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 사용되는 각 디스크에 대해 하나의 열로 구성해야 합니다. 그렇지 않으면 디스크에 트래픽이 고르게 분배되지 않아 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. Linux VM의 경우 *mdadm* 유틸리티를 사용하여 동일한 작업을 수행할 수 있습니다. 자세한 내용은 [Linux에서 소프트웨어 RAID 구성](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서를 참조하세요.
 
 #### <a name="storage-account-scalability-targets"></a>저장소 계정의 확장성 목표
 Premium Storage 계정에는 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md) 이외에 다음 확장성 목표가 있습니다. 응용 프로그램의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우, 여러 저장소 계정을 사용하도록 응용 프로그램을 빌드하고 데이터를 이러한 저장소 계정에 분할합니다.
@@ -165,7 +165,7 @@ VHD를 유지 관리하기 위한 저장소 계정을 만듭니다. VHD를 저�
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>옵션 1: AzCopy를 사용하여 VHD 복사(비동기 복사)
 AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습니다. 소요되는 시간은 VHD의 크기에 따라 다를 수 있습니다. 이 옵션을 사용하는 경우 저장소 계정 송/수신 제한을 확인해야 합니다. 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md) 를 참조하세요.
 
-1.  [최신 버전의 AzCopy](http://aka.ms/downloadazcopy)
+1. [최신 버전의 AzCopy](http://aka.ms/downloadazcopy)
 2. Azure PowerShell을 열고 AzCopy를 설치한 폴더로 이동합니다.
 3. "원본"에서 "대상"으로 VHD 파일을 복사하려면 다음 명령을 사용합니다.
 
@@ -259,7 +259,7 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>옵션 2: AzCopy를 사용하여 .vhd 파일 업로드
 AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습니다. 소요되는 시간은 VHD의 크기에 따라 다를 수 있습니다. 이 옵션을 사용하는 경우 저장소 계정 송/수신 제한을 확인해야 합니다. 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md) 를 참조하세요.
 
-1.  [최신 버전의 AzCopy](http://aka.ms/downloadazcopy)
+1. [최신 버전의 AzCopy](http://aka.ms/downloadazcopy)
 2. Azure PowerShell을 열고 AzCopy를 설치한 폴더로 이동합니다.
 3. "원본"에서 "대상"으로 VHD 파일을 복사하려면 다음 명령을 사용합니다.
 
@@ -313,7 +313,7 @@ VHD를 원하는 저장소 계정에 업로드 또는 복사한 후에는 이 �
 응용 프로그램의 가동 중지 시간을 준비합니다. 원활한 마이그레이션 작업을 수행하려면 현재 시스템에서 모든 처리를 중지해야 합니다. 그런 다음 새 플랫폼으로 마이그레이션할 수 있는 일관된 상태로 가져올 수 있습니다. 가동 중지 시간은 디스크에서 마이그레이션할 데이터 양에 따라 달라집니다.
 
 > [!NOTE]
-> 특수한 VHD 디스크에서 Azure Resource Manager VM을 만드는 경우 기존 디스크를 사용하여 Resource Manager VM을 배포하는 데 사용되는 [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd)을 참조하세요.
+> 특수한 VHD 디스크에서 Azure Resource Manager VM을 만드는 경우 기존 디스크를 사용하여 Resource Manager VM을 배포하는 데 사용되는 [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd)을 참조하세요.
 >
 >
 
@@ -764,7 +764,7 @@ Azure Storage 및 Azure 가상 컴퓨터에 대한 자세한 내용을 보려면
 
 * [Azure 저장소](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure 가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage.md)
+* [프리미엄 저장소: Azure 가상 컴퓨터 워크로드를 위한 고성능 저장소](storage-premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
@@ -773,6 +773,6 @@ Azure Storage 및 Azure 가상 컴퓨터에 대한 자세한 내용을 보려면
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: a13152d5322b81f722f59a524f6c8ca495659b75
-ms.openlocfilehash: 1166f88cc10cd53dc53ee6830ef15b3efde6ad23
+ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
+ms.openlocfilehash: a45e069f18a07bca314210f074455fda68e552c4
 
 
 ---
@@ -28,7 +28,7 @@ HDInsight에서 Sqoop을 사용하여 HDInsight 클러스터와 Azure SQL 데이
 
 비구조적 및 반구조적 데이터(예: 로그 및 파일)를 처리하기 위해 당연히 Hadoop을 선택하지만 관계형 데이터베이스에 저장된 구조적 데이터를 처리해야 할 경우도 있습니다.
 
-[Sqoop][sqoop-user-guide-1.4.4]는 Hadoop 클러스터와 관계형 데이터베이스 간 데이터 전송을 위해 설계된 도구입니다. 이 도구를 사용하면 SQL Server, MySQL, Oracle 등의 RDBMS(관계형 데이터베이스 관리 시스템)에서 HDFS(Hadoop Distributed File System)로 데이터를 가져오고, MapReduce 또는 Hive로 Hadoop의 데이터를 변환한 후 데이터를 RDBMS로 다시 내보낼 수 있습니다. 이 자습서에서는 관계형 데이터베이스에 SQL Server 데이터베이스를 사용합니다.
+[Sqoop][sqoop-user-guide-1.4.4]은 Hadoop 클러스터와 관계형 데이터베이스 간 데이터 전송을 위해 설계된 도구입니다. 이 도구를 사용하면 SQL Server, MySQL, Oracle 등의 RDBMS(관계형 데이터베이스 관리 시스템)에서 HDFS(Hadoop Distributed File System)로 데이터를 가져오고, MapReduce 또는 Hive로 Hadoop의 데이터를 변환한 후 데이터를 RDBMS로 다시 내보낼 수 있습니다. 이 자습서에서는 관계형 데이터베이스에 SQL Server 데이터베이스를 사용합니다.
 
 HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
 
@@ -62,16 +62,16 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
     /tutorials/usesqoop/importeddata
 
 ## <a name="create-cluster-and-sql-database"></a>클러스터 및 SQL 데이터베이스 만들기
-이 섹션에서는 Azure Portal 및 Azure Resource Manager 템플릿을 사용하는 자습서를 실행하기 위해 클러스터 및 SQL Database 스키마를 만드는 방법을 보여 줍니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)에서 찾을 수 있습니다. Resource Manager 템플릿은 SQL 데이터베이스에 테이블 스키마를 배포하는 bacpac 패키지를 호출합니다.  bacpac 패키지는 공용 Blob 컨테이너 https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac에 있습니다. Bacpac 파일에 대한 개인 컨테이너를 사용하려는 경우 템플릿에 다음 값을 사용합니다.
+이 섹션에서는 Azure Portal 및 Azure Resource Manager 템플릿을 사용하는 자습서를 실행하기 위해 클러스터 및 SQL Database 스키마를 만드는 방법을 보여 줍니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)에서 찾을 수 있습니다. Resource Manager 템플릿은 SQL Database에 테이블 스키마를 배포하는 bacpac 패키지를 호출합니다.  bacpac 패키지는 공용 Blob 컨테이너 https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac에 있습니다. Bacpac 파일에 대한 개인 컨테이너를 사용하려는 경우 템플릿에 다음 값을 사용합니다.
    
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",
 
 Azure PowerShell을 사용하여 클러스터 및 SQL Database를 만들려면 [부록 A](#appendix-a---a-powershell-sample)를 참조하세요.
 
-1. Azure 포털에서 Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다.         
+1. Azure Portal에서 Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다.         
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
 
 2. 다음과 같은 속성을 입력합니다.
@@ -106,10 +106,10 @@ Azure PowerShell을 사용하여 클러스터 및 SQL Database를 만들려면 [
 
 기존 Azure SQL 데이터베이스 또는 Microsoft SQL Server를 사용하기로 선택하는 경우
 
-* **Azure SQL 데이터베이스**: 워크스테이션에서 액세스할 수 있도록 Azure SQL 데이터베이스 서버의 방화벽 규칙을 구성해야 합니다. Azure SQL 데이터베이스 만들기 및 방화벽 구성에 대한 자세한 내용은 [Azure SQL 데이터베이스 사용 시작][sqldatabase-get-started]을 참조하세요. 
+* **Azure SQL 데이터베이스**: 워크스테이션에서 액세스할 수 있도록 Azure SQL 데이터베이스 서버의 방화벽 규칙을 구성해야 합니다. Azure SQL Database 만들기 및 방화벽 구성에 대한 자세한 내용은 [Azure SQL Database 사용 시작][sqldatabase-get-started]을 참조하세요. 
   
   > [!NOTE]
-  > 기본적으로 Azure SQL 데이터베이스는 Azure HDInsight 같은 Azure 서비스로부터의 연결을 허용합니다. 이 방화벽 설정을 사용하지 않도록 설정한 경우 Azure 포털에서 사용하도록 설정해야 합니다. Azure SQL 데이터베이스 만들기 및 방화벽 규칙 구성에 대한 지침은 [SQL Database 만들기 및 구성][sqldatabase-create-configue]을 참조하세요.
+  > 기본적으로 Azure SQL 데이터베이스는 Azure HDInsight 같은 Azure 서비스로부터의 연결을 허용합니다. 이 방화벽 설정을 사용하지 않도록 설정한 경우 Azure 포털에서 사용하도록 설정해야 합니다. Azure SQL Database 만들기 및 방화벽 규칙 구성에 대한 지침은 [SQL Database 만들기 및 구성][sqldatabase-create-configue]을 참조하세요.
   > 
   > 
 * **SQL Server**: HDInsight 클러스터가 SQL Server와 같은 Azure의 가상 네트워크에 있으면 이 문서의 단계를 사용하여 SQL Server 데이터베이스에 대해 데이터 가져오기 및 내보내기를 수행할 수 있습니다.
@@ -154,7 +154,7 @@ HDInsight는 다양한 메서드를 사용하여 Sqoop 작업을 실행할 수 �
 * [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight와 함께 Oozie 사용][hdinsight-use-oozie]: Oozie 워크플로에서 Sqoop 작업을 사용합니다.
-* [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-data]: Hive를 사용하여 비행 지연 데이터를 분석한 후 Sqoop을 사용하여 데이터를 Azure SQL 데이터베이스로 내보냅니다.
+* [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-data]: Hive를 사용하여 비행 지연 데이터를 분석한 후 Sqoop을 사용하여 데이터를 Azure SQL Database로 내보냅니다.
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]: HDInsight/Azure Blob Storage에 데이터를 업로드하는 다른 방법을 찾습니다.
 
 ## <a name="appendix-a---a-powershell-sample"></a>부록 A - PowerShell 샘플
@@ -627,13 +627,13 @@ PowerShell 샘플은 다음 단계를 수행합니다.
 [sqldatabase-create-configue]: ../sql-database/sql-database-get-started.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

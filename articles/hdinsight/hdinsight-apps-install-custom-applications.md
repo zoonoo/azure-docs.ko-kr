@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 Hadoop 응용 프로그램 설치 | Microsoft Docs"
+title: "Azure HDInsight에 사용자 지정 Hadoop 응용 프로그램 설치 | Microsoft Docs"
 description: "HDInsight 응용 프로그램에서 HDInsight 응용 프로그램을 설치하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -16,13 +16,16 @@ ms.workload: big-data
 ms.date: 09/14/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 02fbf7609ca2f2fac5105e347fcfc9aa5b794eb2
+ms.sourcegitcommit: eec0106ac43796b2a8a05e89d36cbb51fc222f5d
+ms.openlocfilehash: 9c90d46afd5aa8c1daa12c72e59e518bc42f3d0b
 
 
 ---
-# <a name="install-custom-hdinsight-applications"></a>사용자 지정 HDInsight 응용 프로그램 설치
-HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 응용 프로그램입니다.  Microsoft, ISV(독립 소프트웨어 공급 업체) 또는 사용자가 직접 이러한 응용 프로그램을 개발할 수 있습니다. 이 문서에서는 HDInsight의 Azure 포털에 게시되지 않은 HDInsight 응용 프로그램을 설치하는 방법을 알아봅니다. 설치할 응용 프로그램은 [Hue](http://gethue.com/)입니다. 
+# <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 사용자 지정 Hadoop 응용 프로그램 설치
+
+이 문서에서는 Azure Portal에 게시되지 않은 Hadoop 응용 프로그램을 Azure HDInsight에 설치하는 방법에 대해 알아봅니다. 이 문서에서 설치할 응용 프로그램은 [Hue](http://gethue.com/)입니다.
+
+HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 응용 프로그램입니다.  Microsoft, ISV(독립 소프트웨어 공급 업체) 또는 사용자가 직접 이러한 응용 프로그램을 개발할 수 있습니다.  
 
 다른 관련 문서:
 
@@ -48,7 +51,7 @@ HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용�
 
 1. Azure에 로그인하여 Azure 포털에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
     이 단추는 Azure 포털에서 Resource Manager 템플릿을 엽니다.  Resource Manager 템플릿은 [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue)에 있습니다.  이 Resource Manager 템플릿을 작성하는 방법을 알아보려면 [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx)를 참조하세요.
 2. **매개 변수** 블레이드에서 다음을 입력합니다.
@@ -63,7 +66,7 @@ HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용�
 
 1. Azure에 로그인하여 Azure 포털에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
     이 단추는 Azure 포털에서 Resource Manager 템플릿을 엽니다.  Resource Manager 템플릿은 [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json)에 있습니다.  이 Resource Manager 템플릿을 작성하는 방법을 알아보려면 [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx)를 참조하세요.
 2. 지시를 따라서 클러스터를 만들고 Hue를 설치합니다. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
@@ -133,6 +136,6 @@ Azure CLI를 사용하여 클러스터 또는 리소스 그룹을 삭제할 수 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 
