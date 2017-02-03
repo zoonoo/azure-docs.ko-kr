@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: b1cded7214406821600f9e3d5a6b84a277fcc07a
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 78336671467db146ca4a2c54c2b422cd1dce2865
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: b1cded7214406821600f9e3d5a6b84a277fcc07a
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>빠른 명령
-네트워크 보안 그룹 및 ACL 규칙을 만들려면 [최신 버전의 Azure PowerShell을 설치](../powershell-install-configure.md)해야 합니다. [Azure 포털을 사용하여 수행할 수도 있습니다](virtual-machines-windows-nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+네트워크 보안 그룹 및 ACL 규칙을 만들려면 [최신 버전의 Azure PowerShell을 설치](/powershell/azureps-cmdlets-docs)해야 합니다. [Azure 포털을 사용하여 수행할 수도 있습니다](virtual-machines-windows-nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Azure 계정에 로그인합니다.
 
@@ -91,6 +91,6 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

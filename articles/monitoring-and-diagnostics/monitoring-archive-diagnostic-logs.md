@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 08/26/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 551074551f1a3ed21b5bc014c3affab9e5be1c1c
+ms.sourcegitcommit: 3e82377c36da1563931bc0301daa4534e6f82377
+ms.openlocfilehash: e3413236445f3f6034a228dc93624d3fdc9b87ad
 
 
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure 진단 로그 보관
-이 문서에서는 Azure 포털, PowerShell Cmdlet, CLI 또는 REST API를 사용하여 저장소 계정에서 [Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md) 를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 옵션 보존 정책으로 진단 로그를 유지하려는 경우에 유용합니다.
+이 문서에서는 Azure 포털, PowerShell Cmdlet, CLI 또는 REST API를 사용하여 저장소 계정에서 [Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md) 를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 옵션 보존 정책으로 진단 로그를 유지하려는 경우에 유용합니다. 설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 저장소 계정은 로그를 내보내는 리소스와 동일한 구독을 가지고 있지 않아도 됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 시작하기 전에 진단 로그를 보관하려면 [저장소 계정을 만들](../storage/storage-create-storage-account.md#create-a-storage-account) 어야 합니다. 모니터링 데이터에 대한 액세스를 보다 잘 제어할 수 있도록 다른 비 모니터링 데이터가 저장된 기존 저장소 계정을 사용하지 않는 것이 좋습니다. 그러나 저장소 계정에 대한 활동 로그 및 진단 메트릭을 보관하는 경우 중앙 위치에서 모든 모니터링 데이터를 유지하도록 진단 로그에 대해 해당 저장소 계정을 사용하는 것이 합리적일 수 있습니다. 사용하는 저장소 계정은 Blob 저장소 계정이 아닌 범용 저장소 계정이어야 합니다.
 
 ## <a name="diagnostic-settings"></a>진단 설정
-다음 방법 중 하나를 사용하여 진단 로그를 보관하려면 특정 리소스에 대한 **진단 설정** 을 설정합니다. 리소스에 대한 진단 설정은 저장되거나 스트리밍되는 로그 및 출력(저장소 계정 및/또는 이벤트 허브)의 범주를 정의합니다. 또한 저장소 계정에 저장되는 각 로그 범주의 이벤트에 대한 보존 정책(보존할 일 수)을 정의합니다. 보존 정책이 0으로 설정된 경우 해당 로그 범주에 대한 이벤트는 무기한으로(즉, 영원히) 저장됩니다. 그렇지 않은 경우 보존 정책은 1에서 2147483647 사이의 숫자일 수 있습니다. [진단 설정에 대한 자세한 내용은 여기에서 확인할 수 있습니다](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+다음 방법 중 하나를 사용하여 진단 로그를 보관하려면 특정 리소스에 대한 **진단 설정** 을 설정합니다. 리소스에 대한 진단 설정은 저장되거나 스트리밍되는 로그 및 출력(저장소 계정 및/또는 이벤트 허브)의 범주를 정의합니다. 또한 저장소 계정에 저장되는 각 로그 범주의 이벤트에 대한 보존 정책(보존할 일 수)을 정의합니다. 보존 정책이&0;으로 설정된 경우 해당 로그 범주에 대한 이벤트는 무기한으로(즉, 영원히) 저장됩니다. 그렇지 않은 경우 보존 정책은 1에서 2147483647 사이의 숫자일 수 있습니다. [진단 설정에 대한 자세한 내용은 여기에서 확인할 수 있습니다](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
 
 ## <a name="archive-diagnostic-logs-using-the-portal"></a>포털을 사용하여 진단 로그 보관
 1. 포털에서 진단 로그의 보관을 활성화하려는 리소스에 대한 리소스 블레이드를 클릭합니다.
@@ -55,7 +55,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | RetentionEnabled |아니요 |이 리소스에 대한 보존 정책 활성화 여부를 나타내는 부울입니다. |
 | RetentionInDays |아니요 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한 저장합니다. |
 
-## <a name="archive-the-activity-log-via-the-cross-platform-cli"></a>플랫폼 간 CLI를 통해 작업 로그를 보관합니다.
+## <a name="archive-diagnostic-logs-via-the-cross-platform-cli"></a>플랫폼 간 CLI를 통해 진단 로그 보관
 ```
 azure insights diagnostic set --resourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg --storageId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage –categories networksecuritygroupevent,networksecuritygrouprulecounter --enabled true
 ```
@@ -137,6 +137,6 @@ PT1H.json 파일 내에서 각 이벤트는 이 형식에 따라 "레코드" 배
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

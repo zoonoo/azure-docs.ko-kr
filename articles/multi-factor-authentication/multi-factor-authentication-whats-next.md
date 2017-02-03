@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d904de6370c1c6bd5116471465ec63fd8999a7ee
+ms.sourcegitcommit: e4ef793b2c1bc0026581fa4b414300721678d7d3
+ms.openlocfilehash: ecf2afc7a6e35b99a110e2e259e005e2164ebb27
 
 
 ---
@@ -157,7 +157,7 @@ MFA 서비스 설정 페이지를 통해 MFA 관리 포털에 액세스하려면
 <center>![클라우드](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## <a name="trusted-ips"></a>신뢰할 수 있는 IP
-신뢰할 수 있는 IP는 관리 또는 페더레이션된 테넌트의 관리자가 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해 Multi-Factor Authentication을 바이패스할 수 있도록 하는 Multi-Factor Authentication의 기능입니다. 기능은 Azure AD Premium, Enterprise Mobility Suite 또는 Azure Multi-Factor Authentication 라이선스가 있는 Azure AD 테넌트에서 사용할 수 있습니다.
+신뢰할 수 있는 IP는 관리 또는 페더레이션된 테넌트의 관리자가 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해 Multi-Factor Authentication을 바이패스할 수 있도록 하는 Multi-Factor Authentication의 기능입니다. 이 기능은 Azure Multi-Factor Authentication의 정식 버전에서 사용할 수 있습니다. (Azure Multi-Factor Authentication의 정식 버전을 가져오는 방법에 대 한 자세한 내용은 [Azure Multi-Factor Authentication을 가져오는 방법](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication)을 참조하세요.)
 
 | Azure AD 테넌트의 유형 | 사용 가능한 신뢰할 수 있는 IP 옵션 |
 |:--- |:--- |
@@ -222,7 +222,7 @@ Office 2010 또는 이전 및 Apple 메일과 같은 일부 앱에서 Multi-fact
 Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스(AD DS)로 페더레이션을 지원합니다. 조직이 Azure AD를 사용하여 페더레이션되고(SSO) Azure Multi-Factor Authentication을 사용하려는 경우 앱 암호를 사용할 때 인식해야 하는 중요한 정보가 다음에 있습니다. 이는 페더레이션된 고객(SSO)에게만 적용됩니다.
 
 * Azure AD로 앱 암호를 확인하므로 페더레이션을 바이패스합니다. 앱 암호를 설정할 때 페더레이션이 능동적으로 사용됩니다.
-* 페더레이션된 사용자의 경우 수동 흐름과 달리 ID 공급자(IdP)로 이동하지 않습니다. 암호는 조직 ID에 저장됩니다. 사용자가 회사를 떠나는 경우 해당 정보는 실시간으로 DirSync를 사용하는 조직 ID에 유입되어야 합니다. 계정 사용 안 함/삭제 설정은 동기화에 최대 3시간이 걸리며 Azure AD에서 앱 암호의 사용 안 함/삭제가 지연됩니다.
+* 페더레이션된 사용자의 경우 수동 흐름과 달리 ID 공급자(IdP)로 이동하지 않습니다. 암호는 조직 ID에 저장됩니다. 사용자가 회사를 떠나는 경우 해당 정보는 실시간으로 DirSync를 사용하는 조직 ID에 유입되어야 합니다. 계정 사용 안 함/삭제 설정은 동기화에 최대&3;시간이 걸리며 Azure AD에서 앱 암호의 사용 안 함/삭제가 지연됩니다.
 * 앱 암호를 사용할 경우 온-프레미스 클라이언트 액세스 제어 설정은 적용되지 않습니다.
 * 온-프레미스 인증 로깅 / 감사 기능은 앱 암호에 사용할 수 없습니다
 * 추가 최종 사용자 교육이 Microsoft Lync 2013 클라이언트에 필요합니다. 필요한 단계에 대해 전자 메일의 암호를 앱 암호로 변경하는 방법을 참조하십시오.
@@ -268,7 +268,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 3. 왼쪽에서 추가 보안 확인을 선택합니다.
 4. 오른쪽의 **Update my phone numbers used for account security(계정 보안에 사용되는 전화 번호 업데이트)**
 5. 검사 페이지 위쪽에서 앱 암호를 선택합니다.
-6.  **만들기**
+6. **만들기**
 7. 앱 암호의 이름을 입력하고 **다음**
 8. 앱 암호를 클립보드에 복사하고 앱에 붙여 넣습니다.
 
@@ -280,7 +280,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 1. Azure 클래식 포털에 로그인합니다.
 2. 위쪽에서 사용자 이름을 마우스 오른쪽 단추로 클릭하고 추가 보안 확인을 선택합니다.
 3. 검사 페이지 위쪽에서 앱 암호를 선택합니다.
-4.  **만들기**
+4. **만들기**
 5. 앱 암호의 이름을 입력하고 **다음**
 6. 앱 암호를 클립보드에 복사하고 앱에 붙여 넣습니다.
 
@@ -292,7 +292,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 2. 위쪽에서 프로필을 선택합니다.
 3. 사용자 이름을 클릭하고 추가 보안 확인을 선택합니다.
 4. 검사 페이지 위쪽에서 앱 암호를 선택합니다.
-5.  **만들기**
+5. **만들기**
 6. 앱 암호의 이름을 입력하고 **다음**
 7. 앱 암호를 클립보드에 복사하고 앱에 붙여 넣습니다.
 
@@ -349,6 +349,6 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
