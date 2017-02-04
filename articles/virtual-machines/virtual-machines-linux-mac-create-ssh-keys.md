@@ -1,6 +1,6 @@
 ---
-title: "Linux VM용 SSH 키 쌍 만들기 | Microsoft 문서"
-description: "Linux VM을 위한 SSH 공개 및 개인 키 쌍을 안전하게 만듭니다."
+title: "Linux VM에 대한 SSH 공용 및 개인 키 쌍 만들기 | Microsoft 문서"
+description: "Linux VM에 대한 SSH 공용 및 개인 키 쌍을 만듭니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2016
+ms.date: 12/12/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: a920041c323e69cc3c41f08eb156732f04cdd021
-ms.openlocfilehash: 312f15ec56c1e227a65469bd5a5f013424a37c7b
+ms.sourcegitcommit: 330637f5b69ad95aef149d9fbde16f2151cde837
+ms.openlocfilehash: 5c515dbe8e3030abf079e5ff47884fb04b9048ba
 
 
 ---
@@ -30,15 +30,28 @@ ms.openlocfilehash: 312f15ec56c1e227a65469bd5a5f013424a37c7b
 
 Bash 셸에서 다음 명령을 실행하여 사용자가 선택한 예제로 바꿉니다.
 
-SSH 키는 기본적으로 `~/.ssh` 디렉터리에 보관됩니다.  `~/.ssh` 디렉터리가 없는 경우 적절한 권한이 있는 사용자가 `ssh-keygen` 명령으로 해당 디렉터리를 만듭니다.  `-N` CLI 플래그는 SSH 개인 키를 암호화하기 위한 암호이며 사용자 암호가 *아닙니다*.
+SSH 키는 기본적으로 `.ssh` 디렉터리에 보관됩니다.  
 
 ```bash
-ssh-keygen \
--t rsa \
--b 2048 \
--C "ahmet@myserver" \
--f ~/.ssh/id_rsa \
--N mypassword
+cd ~/.ssh/
+```
+
+`~/.ssh` 디렉터리가 없는 경우 적절한 권한이 있는 사용자가 `ssh-keygen` 명령으로 해당 디렉터리를 만듭니다.
+
+```bash
+ssh-keygen -t rsa -b 2048 -C "ahmet@myserver"
+```
+
+`~/.ssh/` 디렉터리에 저장될 개인 키 파일의 이름을 입력합니다.
+
+```bash
+~/.ssh/id_rsa
+```
+
+id_rsa에 대한 암호를 다음과 같이 입력합니다.
+
+```bash
+correct horse battery staple
 ```
 
 이제는 `~/.ssh` 디렉터리에 `id_rsa` 및 `id_rsa.pub` SSH 키 쌍이 있습니다.
@@ -47,19 +60,14 @@ ssh-keygen \
 ls -al ~/.ssh
 ```
 
-다음과 같이 `ssh-agent`이 실행 중인지 확인합니다.
-
-```bash
-eval "$(ssh-agent -s)"
-```
-
 새로 만든 키를 `ssh-agent`에 추가합니다.
 
 ```bash
+eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 ```
 
-VM을 이미 만든 경우 다음을 사용하여 Linux VM에 새 SSH 공개 키를 설치할 수 있습니다.
+Linux VM에 SSH 공개 키를 복사합니다.
 
 ```bash
 ssh-copy-id -i ~/.ssh/id_rsa.pub ahmet@myserver
@@ -73,71 +81,54 @@ Last login: Tue April 12 07:07:09 2016 from 66.215.22.201
 $
 ```
 
-SSH 개인 키 암호 또는 VM에 대한 로그인 암호를 묻는 메시지가 표시되지 않으면 SSH가 성공적으로 구성되었습니다.
+SSH 개인 키 암호 또는 VM에 대한 로그인 암호를 묻는 메시지가 표시되지 않는다면 SSH가 성공적으로 구성되었습니다.
 
 ## <a name="detailed-walkthrough"></a>자세한 연습
 
 SSH 공개 키와 개인 키를 사용하는 것이 Linux 서버에 로그인하는 가장 쉬운 방법입니다. [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_cryptography) 는 암호보다 더 안전하게 Azure의 Linux 또는 BSD VM에 로그인하는 방법을 제공하며 무차별 암호 대입을 훨씬 더 쉽게 수행할 수 있습니다.
 
-다른 사람과 공개 키를 공유할 수 있지만 사용자(또는 로컬 보안 인프라)만이 개인 키를 소유합니다.  SSH 개인 키에는 해당 키를 보호할 [매우 안전한 암호](https://www.xkcd.com/936/)(출처: [xkcd.com](https://xkcd.com))가 있어야 합니다.  이 암호는 개인 SSH 키에 액세스하기 위한 것으로 사용자 계정 암호가 **아닙니다** .  SSH 키에 암호를 추가하면 128비트 AES를 사용하여 개인 키를 암호화하므로 암호가 없는 개인 키는 해독하는 데 쓸모가 없습니다.  공격자가 개인 키를 훔치고 해당 키에 암호가 없는 경우 해당 개인 키를 사용하여 해당하는 공개 키가 있는 서버에 로그인할 수 있습니다.  개인 키가 암호로 보호된 경우 공격자가 사용할 수 없어 Azure에서 인프라에 대해 보안 계층을 추가로 제공합니다.
+다른 사람과 공개 키를 공유할 수 있지만 사용자(또는 로컬 보안 인프라)만이 개인 키를 소유합니다.  SSH 개인 키에는 해당 키를 보호할 [매우 안전한 암호](https://www.xkcd.com/936/)(원본:[xkcd.com](https://xkcd.com))가 있어야 합니다.  이 암호는 개인 SSH 키에 액세스하기 위한 것으로 사용자 계정 암호가 **아닙니다** .  SSH 키에 암호를 추가하면 잠금 해제하는 데 암호가 없으면 개인 키를 사용할 수 없도록 개인 키를 암호화합니다.  공격자가 개인 키를 훔치고 해당 키에 암호가 없는 경우 해당 개인 키를 사용하여 해당하는 공개 키가 있는 서버에 로그인할 수 있습니다.  개인 키가 암호로 보호된 경우 공격자가 사용할 수 없어 Azure에서 인프라에 대해 보안 계층을 추가로 제공합니다.
 
-이 문서에서는 Resource Manager에 대한 배포에 권장하는 *ssh-rsa* 서식 키 파일을 만듭니다.  클래식 및 Resource Manager 배포를 위해 *ssh-rsa* 키가 [포털](https://portal.azure.com)에 필요합니다.
+이 문서에서는 Resource Manager에 대한 배포에 권장하는 *ssh-rsa* 서식 키 파일을 만듭니다.  *ssh-rsa* 키는 클래식 및 Resource Manager 배포에 대한 [포털](https://portal.azure.com) 에 필요합니다.
 
 ## <a name="disable-ssh-passwords-by-using-ssh-keys"></a>SSH 키를 사용하여 SSH 암호 비활성화
 
-Azure는 최소한 2048비트, ssh rsa 형식 공개 및 개인 키 서식이 필요합니다. 키를 만들려면 일련의 사항을 질문한 다음 개인 키와 일치하는 공개 키를 작성하는 `ssh-keygen`을 사용합니다. Azure VM을 만드는 경우 공개 키는 `~/.ssh/authorized_keys`에 복사됩니다.  `~/.ssh/authorized_keys` 에서 SSH 키는 SSH 로그인 연결에 대한 해당 개인 키를 일치하도록 클라이언트의 문제를 해결하는 데 사용됩니다.  인증을 위해 SSH 키를 사용하도록 Azure Linux VM이 만들어지면 Azure는 SSH 키만 허용하고 암호 로그인은 허용하지 않도록 SSHD 서버를 구성합니다.  따라서 SSH 키를 사용하여 Azure Linux VM을 만들면 VM 배포 보안을 유지하고 sshd_config 구성 파일에서 암호를 사용하지 않도록 설정하는 일반 사후 배포 구성 단계를 줄일 수 있습니다.
+Azure는 최소한 2048비트, ssh rsa 형식 공개 및 개인 키 서식이 필요합니다. 키를 만들려면 일련의 사항을 질문한 다음 개인 키와 일치하는 공개 키를 작성하는 `ssh-keygen`을 사용합니다. Azure VM을 만드는 경우 공개 키는 `~/.ssh/authorized_keys`에 복사됩니다.  `~/.ssh/authorized_keys` 에서 SSH 키는 SSH 로그인 연결에 대한 해당 개인 키를 일치하도록 클라이언트의 문제를 해결하는 데 사용됩니다.  인증을 위해 SSH 키를 사용하도록 Azure Linux VM이 만들어지면 Azure는 SSH 키만 허용하고 암호 로그인은 허용하지 않도록 SSHD 서버를 구성합니다.  따라서 SSH 키를 사용하여 Azure Linux VM을 만들려면 기본 보안 VM을 배포하고 `sshd_config` 구성 파일에 암호를 사용하지 않도록 설정하는 일반적인 게시 배포 구성 단계를 저장합니다.
 
 ## <a name="using-ssh-keygen"></a>ssh-keygen 사용
 
 이 명령은 2048비트 RSA를 사용하여 암호 보안된(암호화된) SSH 키 쌍을 만들고 쉽게 식별할 수 있도록 주석 처리됩니다.  
 
-SSH 키는 기본적으로 `~/.ssh` 디렉터리에 보관됩니다.  `~/.ssh` 디렉터리가 없는 경우 적절한 권한이 있는 사용자가 `ssh-keygen` 명령으로 해당 디렉터리를 만듭니다.
+모든 ssh 키를 디렉터리에서 생성하도록 해당 디렉터리로 변경하여 시작합니다.
 
 ```bash
-ssh-keygen \
--t rsa \
--b 2048 \
--C "ahmet@myserver" \
--f ~/.ssh/id_rsa \
--N mypassword
+cd ~/.ssh
+```
+
+`~/.ssh` 디렉터리가 없는 경우 적절한 권한이 있는 사용자가 `ssh-keygen` 명령으로 해당 디렉터리를 만듭니다.
+
+```bash
+ssh-keygen -t rsa -b 2048 -C "myusername@myserver"
 ```
 
 *설명된 명령*
 
 `ssh-keygen` = 키를 만드는 데 사용한 프로그램
 
-`-t rsa` = 만드는 키의 형식은 RSA 형식 [wikipedia](https://en.wikipedia.org/wiki/RSA_(cryptosystem)
+`-t rsa` = 작성하는 키의 유형인 [RSA 형식](https://en.wikipedia.org/wiki/RSA_(cryptosystem)
 
 `-b 2048` = 키의 비트
 
 `-C "myusername@myserver"` = 쉽게 식별할 수 있도록 공개 키 파일의 끝에 추가된 주석  일반적으로 전자 메일은 주석으로 사용되지만 인프라에 가장 적합한 것을 사용할 수 있습니다.
 
-## <a name="classic-portal-and-x509-certs"></a>클래식 포털 및 X.509 인증서
+### <a name="using-pem-keys"></a>PEM 키 사용
 
-Azure [클래식 포털](https://manage.windowsazure.com/)을 사용하는 경우 SSH 키에 X.509 인증서가 필요합니다.  다른 형식의 SSH 공개 키는 허용되지 않으며 *X.509 인증서여야 합니다*.
+클래식 배포 모델(Azure 클래식 포털 또는 Azure 서비스 관리 CLI `asm`)을 사용하는 경우 PEM 서식 SSH 키를 사용하여 Linux VM에 액세스해야 할 수도 있습니다.  기존 SSH 공개 키 및 기존 x509 인증서에서 PEM 키를 만드는 방법은 다음과 같습니다.
 
-기존 SSH-RSA 개인 키에서 X.509 인증서를 만들려면 다음을 수행합니다.
-
-```bash
-openssl req -x509 \
--key ~/.ssh/id_rsa \
--nodes \
--days 365 \
--newkey rsa:2048 \
--out ~/.ssh/id_rsa.pem
-```
-
-## <a name="classic-deploy-using-asm"></a>`asm`을 사용하여 클래식 배포
-
-클래식 배포 모델(`asm` Azure 서비스 관리 CLI)을 사용하는 경우 pem 컨테이너에서 SSH-RSA 공개 키 또는 RFC4716 형식 키를 사용할 수 있습니다.  SSH-RSA 공개 키는 이 문서의 앞부분에서 `ssh-keygen`을 사용하여 작성한 키입니다.
-
-기존 SSH 공개 키에서 RFC4716 형식 키를 만들려면 다음을 수행합니다.
+기존 SSH 공개 키에서 PEM 서식 키를 만들려면:
 
 ```bash
-ssh-keygen \
--f ~/.ssh/id_rsa.pub \
--e \
--m RFC4716 > ~/.ssh/id_ssh2.pem
+ssh-keygen -f ~/.ssh/id_rsa.pub -e > ~/.ssh/id_ssh2.pem
 ```
 
 ## <a name="example-of-ssh-keygen"></a>ssh-keygen 예제
@@ -152,7 +143,7 @@ Your identification has been saved in id_rsa.
 Your public key has been saved in id_rsa.pub.
 The key fingerprint is:
 14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 ahmet@myserver
-The keys randomart image is:
+The key's randomart image is:
 +--[ RSA 2048]----+
 |        o o. .   |
 |      E. = .o    |
@@ -168,17 +159,16 @@ The keys randomart image is:
 
 저장된 키 파일:
 
-`Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): ~/.ssh/id_rsa`
+`Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): id_rsa`
 
-이 문서에 대한 키 쌍 이름.  **id_rsa**라는 키 쌍을 기본값으로 가지고 일부 도구는 **id_rsa** 개인 키 파일 이름을 예상하므로 하나 있는 것이 좋습니다. 디렉터리 `~/.ssh/` 은 SSH 키 쌍 및 SSH 구성 파일에 대한 기본 위치입니다.  전체 경로를 지정하지 않으면 `ssh-keygen`에서 `~/.ssh` 기본 디렉터리가 아니라 현재 작업 디렉터리에 키를 만듭니다.
-
-`~/.ssh` 디렉터리의 목록입니다.
+이 문서에 대한 키 쌍 이름.  **id_rsa**라는 키 쌍을 기본값으로 가지고 일부 도구는 **id_rsa** 개인 키 파일 이름을 예상하므로 하나 있는 것이 좋습니다. 디렉터리 `~/.ssh/` 은 SSH 키 쌍 및 SSH 구성 파일에 대한 기본 위치입니다.
 
 ```bash
 ls -al ~/.ssh
 -rw------- 1 ahmet staff  1675 Aug 25 18:04 id_rsa
 -rw-r--r-- 1 ahmet staff   410 Aug 25 18:04 rsa.pub
 ```
+`~/.ssh` 디렉터리의 목록입니다. `ssh-keygen`가 올바른 소유권 및 파일 모드를 나타내고 설정하지 않는 경우 `~/.ssh` 디렉터리를 만듭니다.
 
 키 암호:
 
@@ -190,7 +180,7 @@ ls -al ~/.ssh
 
 모든 SSH 로그인으로 개인 키 파일 암호를 입력하지 않으려면 `ssh-agent` 을 사용하여 개인 키 파일 암호를 캐시합니다. Mac을 사용하는 경우 `ssh-agent`를 호출할 때 OSX 키 집합은 개인 키 암호를 안전하게 저장합니다.
 
-ssh-agent와 ssh-add를 확인하고 사용하여 전달 구를 대화형으로 사용할 필요가 없도록 SSH 시스템에 키 파일을 알려줍니다.
+먼저 `ssh-agent`이 실행 중인지 확인합니다.
 
 ```bash
 eval "$(ssh-agent -s)"
@@ -203,13 +193,6 @@ ssh-add ~/.ssh/id_rsa
 ```
 
 개인 키 암호는 이제 `ssh-agent`에 저장됩니다.
-
-## <a name="using-ssh-copy-id-to-install-the-new-key"></a>`ssh-copy-id`를 사용하여 새 키 설치
-VM을 이미 만든 경우 다음을 사용하여 Linux VM에 새 SSH 공개 키를 설치할 수 있습니다.
-
-```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub ahmet@myserver
-```
 
 ## <a name="create-and-configure-an-ssh-config-file"></a>SSH 구성 파일 만들기 및 구성
 
@@ -285,6 +268,6 @@ ssh fedora22
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
