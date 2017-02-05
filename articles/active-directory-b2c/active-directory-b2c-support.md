@@ -1,22 +1,26 @@
 ---
-title: 'Azure Active Directory B2C: 지원 | Microsoft Docs'
-description: Azure Active Directory B2C에 대 한 지원 요청을 제출하는 방법
+title: "Azure Active Directory B2C: 지원 | Microsoft Docs"
+description: "Azure Active Directory B2C에 대 한 지원 요청을 제출하는 방법"
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: swkrish
-manager: msmbaldwin
+manager: mbaldwin
 editor: bryanla
-
+ms.assetid: 51922008-6fbd-487c-b2c7-a5db57d154b4
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
+translationtype: Human Translation
+ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
+ms.openlocfilehash: 24a1e13b7865d25d56cb5a6f44ba3c9c097174a7
+
 
 ---
-# Azure Active Directory B2C: 파일 지원 요청
+# <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: 파일 지원 요청
 다음 단계를 사용하여 Azure 포털에서 Azure AD(Azure Active Directory) B2C에 대한 지원 요청을 제출할 수 있습니다.
 
 1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -34,7 +38,7 @@ ms.author: swkrish
    * **문제점 유형**은 **기술**입니다.
    * 적합한 **구독**을 선택합니다.
    * **서비스**는 **Active Directory**입니다.
-   * 적합한 **지원 계획**을 선택합니다. 아직 선택하지 않은 경우 [여기](https://azure.microsoft.com/ko-KR/support/plans/)에서 하나를 등록할 수 있습니다.
+   * 적합한 **지원 계획**을 선택합니다. 아직 선택하지 않은 경우 [여기](https://azure.microsoft.com/en-us/support/plans/)에서 하나를 등록할 수 있습니다.
      
      ![지원 - 기본 사항](./media/active-directory-b2c-support/support-basics.png)
 6. **문제** 블레이드에서 이러한 세부 정보를 사용하고 **다음**을 클릭합니다.
@@ -52,14 +56,19 @@ ms.author: swkrish
     ![지원 - 연락처](./media/active-directory-b2c-support/support-contact.png)
 8. 지원 요청을 제출한 후에 시작 보드에서 **도움말 + 지원** 및 **지원 요청 관리**를 차례로 클릭하여 모니터링할 수 있습니다.
 
-## 알려진 문제: B2C 테넌트의 컨텍스트에서 지원 요청 제출하기
+## <a name="known-issue-filing-a-support-request-in-the-context-of-a-b2c-tenant"></a>알려진 문제: B2C 테넌트의 컨텍스트에서 지원 요청 제출하기
 위에서 설명한 2단계를 누락하고 B2C 테넌트의 컨텍스트에서 지원 요청을 만들려면 다음과 같은 오류가 표시됩니다.
 
 > [!IMPORTANT]
-> B2C 테넌트에서 새 Azure 구독에 등록하려 하지 마세요.
+> B2C 테넌트에서 새 Azure 구독에 등록하려 하지 마세요.  
 > 
 > 
 
 ![지원 - 구독이 없음](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Dec16_HO5-->
+
+

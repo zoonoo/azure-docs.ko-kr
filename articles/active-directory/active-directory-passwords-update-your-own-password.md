@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1a8a0a9f69438bfe93515d702fe4a8e593e0f1ab
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1535ce0e68b710feed6c7c063a7e0570535fe3dc
 
 
 ---
@@ -238,9 +238,9 @@ Office 365에서 회사 또는 학교 계정 암호를 변경하려면 아래 �
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
-* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다.
+* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다
 * [**FAQ**](active-directory-passwords-faq.md) -자주 묻는 질문에 답변합니다.
-* [**문제 해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스의 문제를 해결하는 방법에 대해 알아봅니다.
+* [**문제해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스와의 문제를 해결하는 방법에 대해 알아봅니다.
 * [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
 
 [001]: ./media/active-directory-passwords-update-your-own-password/001.jpg "Image_001.jpg"
@@ -261,6 +261,6 @@ Office 365에서 회사 또는 학교 계정 암호를 변경하려면 아래 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 
