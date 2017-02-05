@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: abac11a9e88918db3e5f051350a668185e04a184
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 9e874689e15fa1cd289a01c7781e3c9d1ad7ac67
 
 
 ---
@@ -26,9 +26,8 @@ ms.openlocfilehash: abac11a9e88918db3e5f051350a668185e04a184
 
 VM의 크기를 조정하는 기능을 고려할 때, 가상 컴퓨터 크기 조정에 사용할 수 있는 크기의 범위를 제어하는 두 가지 개념이 있습니다. 첫 번째 개념은 VM이 배포된 지역입니다. 지역에 사용할 수 있는 VM 크기 목록은 Azure 지역 웹 페이지의 서비스 탭 아래에 있습니다. 두 번째 개념은 현재 VM을 호스팅하는 실제 하드웨어입니다. VM을 호스팅하는 물리적 서버는 일반적인 실제 하드웨어의 클러스터에서 함께 그룹화됩니다. VM 크기를 변경하는 방법은 현재 VM을 호스팅하는 하드웨어 클러스터에서 원하는 새 VM 크기를 지원하는지 여부에 따라 다릅니다.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-[Resource Manager 배포 모델에서 만든 VM의 크기를 조정](virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다.
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 배포 모델에서 만든 VM의 크기를 조정](virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다.
 
 ## <a name="add-your-account"></a>사용자 계정 추가
 클래식 Azure 리소스와 함께 작동하도록 Azure PowerShell을 구성해야 합니다. 클래식 리소스를 관리하도록 Azure PowerShell을 구성하려면 다음 단계를 수행 합니다.
@@ -73,6 +72,6 @@ VM을 호스팅하는 하드웨어 클러스터에서 사용할 수 없는 크�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

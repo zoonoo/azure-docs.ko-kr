@@ -40,7 +40,7 @@ Azure RemoteApp 구독에는 다음 세 개의 템플릿 이미지가 포함되�
 
 각 이미지에 포함된 항목에 대한 내용도 읽어보세요.
 
-## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2("바닐라 이미지")
+## <a name="windows-server-2012-r2--the-vanilla-image"></a>Windows Server 2012 R2("바닐라 이미지")
 이 이미지는 Microsoft Windows Server 2012 R2 Datacenter 운영 체제를 기반으로 하며 Azure RemoteApp 템플릿 이미지에 대한 요구 사항을 충족하기 위해 다음 역할과 기능이 설치되어 있습니다.
 
 * .NET Framework 4.5, 3.5.1, 3.5
