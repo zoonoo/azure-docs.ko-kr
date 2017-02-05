@@ -1,12 +1,12 @@
 ---
-title: 리소스 관리자 아키텍처 | Microsoft Docs
-description: 서비스 패브릭 클러스터 리소스 관리자의 아키텍처 개요
+title: "Resource Manager 아키텍처 | Microsoft Docs"
+description: "서비스 패브릭 클러스터 리소스 관리자의 아키텍처 개요"
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 6c4421f9-834b-450c-939f-1cb4ff456b9b
 ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/19/2016
 ms.author: masnider
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3ec8800b947c227d4d1087283b0964ce22eca4df
+
 
 ---
-# 클러스터 리소스 관리자 아키텍처 개요
+# <a name="cluster-resource-manager-architecture-overview"></a>클러스터 리소스 관리자 아키텍처 개요
 클러스터의 리소스를 관리하려면 서비스 패브릭 클러스터 Resource Manager에게 일부 정보가 있어야 합니다. 현재 존재하는 서비스와 서비스를 소비하는 리소스의 현재(또는 기본) 양을 알아야 합니다. 클러스터에서 노드의 실제 용량과 클러스터에서 특정 노드의 전체 용량과 나머지 용량에 대해 사용할 수 있는 리소스 양을 알아야 합니다. 주어진 서비스의 리소스 소모량은 지남에 따라 변할 수 있으며, 서비스는 일반적으로 여러 리소스를 관리한다는 사실도 다루어야 합니다. 다른 많은 서비스 중에, 메모리 및 디스크 소비량과 같은 메트릭으로 측정 및 보고되는 물리적 리소스와, "WorkQueueDepth" 또는 "TotalRequests" 등과 같은 논리적 메트릭(더 일반적임)으로 측정되는 서비스도 있을 수 있습니다. 이러한 논리적 메트릭 및 실제 메트릭은 모두 다양한 형식의 여러 서비스에서 사용되거나 몇 가지 서비스에서만 한정적으로 사용될 수도 있습니다.
 
-## 기타 고려 사항
+## <a name="other-considerations"></a>기타 고려 사항
 클러스터의 소유자와 연산자는 종종 서비스 작성자와 다를 수 있거나 같은 사람이 다른 모자를 쓸 수 있습니다. 가령 어떤 리소스가 필요한지와 여러 구성 요소가 이상적으로 배포되는 방식에 대해 다소 알고 있지만, 수행해야 할 다른 작업이 있고 다른 도구가 필요한 프로덕션 환경에서 해당 서비스에 대한 라이브 사이트 문제를 처리하는 사람으로서 서비스를 개발하는 경우입니다. 또한 클러스터나 서비스가 정적으로 구성되지 않으면, 클러스터의 노드 수가 증가 및 감소할 수 있고, 다양한 크기의 노드가 이동될 수 있으며, 즉석에서 서비스를 생성, 제거할 수 있고 원하는 리소스 할당을 변경할 수 있습니다. 업그레이드 또는 기타 관리 작업은 클러스터에서 실행될 수 있으며, 또 언제든지 작업이 실패할 수도 있습니다.
 
-## 클러스터 리소스 관리자 구성 요소 및 데이터 흐름
+## <a name="cluster-resource-manager-components-and-data-flow"></a>클러스터 리소스 관리자 구성 요소 및 데이터 흐름
 클러스터 Resource Manager는 전체 클러스터뿐만 아니라 이러한 클러스터를 구성하는 개별 서비스, 상태 비저장 인스턴스 또는 상태 저장 복제본의 요구 사항을 비롯한 많은 사항을 파악해야 합니다. 이를 수행하기 위해, 개별 노드에서 로컬 리소스 사용 정보를 집계하기 위해 실행되는 클러스터 Resource Manager 에이전트와 서비스 및 클러스터에 대한 모든 정보를 집계하고 현재 구성에 따라 반응하는 중앙 집중식 내결함성 클러스터 Resource Manager 서비스가 있습니다. 클러스터 Resource Manager 서비스(및 다른 모든 시스템 서비스)에 대한 내결함성은 서비스에 사용하는 정확히 동일한 메커니즘(즉, 보통 7개에 해당하는 클러스터의 일부 복제본 할당량에 서비스의 상태를 복제함)을 통해 구현됩니다.
 
 ![리소스 분산 아키텍처][Image1]
@@ -33,10 +37,14 @@ ms.author: masnider
 
 ![리소스 분산 아키텍처][Image2]
 
-## 다음 단계
-* 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)하는 이 문서를 확인하세요.
+## <a name="next-steps"></a>다음 단계
+* 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
-[Image2]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png
+[Image1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
+[Image2]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

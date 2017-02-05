@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 2d8caf829d59262ab4802745e61fe6745376001a
+ms.sourcegitcommit: e64f972759173965d389b694ada23720d1182bb8
+ms.openlocfilehash: 92a6c849f5b28581fcac3713e9756dc06d7a251b
 
 
 ---
@@ -210,8 +210,37 @@ zypper install mdadm
     커널 매개 변수를 올바르게 편집하는 방법에 대해서는 배포 설명서를 참조하십시오. 예를 들어 CentOS, Oracle Linux, SLES 11 등 많은 배포에서 이 매개 변수를 "`/boot/grub/menu.lst`" 파일에 수동으로 추가할 수 있습니다.  Ubuntu에서는 "/etc/default/grub"의 `GRUB_CMDLINE_LINUX_DEFAULT` 변수에 이 매개 변수를 추가할 수 있습니다.
 
 
+## <a name="trimunmap-support"></a>TRIM/UNMAP 지원
+일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이러한 작업은 Azure에 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 알리는 데 표준 저장소에서 주로 유용합니다. 큰 파일을 만들고 삭제하는 경우 페이지를 삭제하여 비용을 절감할 수 있습니다.
+
+> [!NOTE]
+> 배열에 대한 청크 크기가 기본값(512KB)보다 작은 값으로 설정된 경우, RAID는 취소 명령을 실행하지 않을 수 있습니다. 호스트에서의 unmap 세분성도 512KB이기 때문입니다. mdadm의 `--chunk=` 매개 변수를 통해 배열의 청크 크기를 수정하는 경우, TRIM/매핑 해제 요청이 커널에서 무시될 수 있습니다.
+
+Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
+
+- `/etc/fstab`에 `discard` 탑재 옵션을 사용합니다. 예:
+
+    ```bash
+    UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2
+    ```
+
+- 일부 경우 `discard` 옵션에는 성능이 저하 될 수 있습니다. 또는 `fstrim` 명령을 명령줄에서 수동으로 실행하거나, 또는 정기적으로 실행하기 위해 crontab에 추가할 수 있습니다.
+
+    **Ubuntu**
+
+    ```bash
+    # sudo apt-get install util-linux
+    # sudo fstrim /data
+    ```
+
+    **RHEL/CentOS**
+    ```bash
+    # sudo yum install util-linux
+    # sudo fstrim /data
+    ```
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO1-->
 
 

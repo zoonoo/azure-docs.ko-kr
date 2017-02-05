@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: bf92cdc3f6adf1bfaffbcae4e8a0257d0682e33d
-ms.openlocfilehash: 0bb3e5f74cb6d013a2b14b4e4c81f0936f90004a
+ms.sourcegitcommit: 482e0d8084d84f9a3170180c2e5414ca77364da8
+ms.openlocfilehash: 6fb458d47173b4922f085e8b1e6339cabefc7da6
 
 
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-azure-cli"></a>Azure CLI를 사용하여 가상 컴퓨터에 여러 IP 주소 할당
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](virtual-network-multiple-ip-addresses-portal.md)
+> * [포털](virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 > * [CLI](virtual-network-multiple-ip-addresses-cli.md)
 
@@ -57,7 +57,7 @@ NIC를 만들 때 IP 구성이 NIC에 연결되고 VM을 만들 때 NIC가 VM에
 
 1. [Azure CLI 설치 및 구성](../xplat-cli-install.md) 문서에 나오는 단계에 따라 Azure CLI를 설치 및 구성하고 Azure 계정에 로그인합니다.
 
-2. 구독 ID 및 사용 목적을 적은 전자 메일을 [여러 IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e)로 보내어 미리 보기를 등록합니다. 다음 경우에 나머지 단계를 완료하려 하지 마세요.
+2. 구독 ID 및 사용 목적을 적은 전자 메일을 [여러 IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e)로 보내어 미리 보기를 등록합니다. 다음 작업이 끝나기 전까지 나머지 단계를 완료하려 하지 마세요.
     - 미리 보기에 적용되었음을 알리는 전자 메일을 받을 때까지
     - 수신 메일의 지침을 따르기 전에
 3. [가상 네트워크 및 서브넷](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet)을 만들고 이어서[리소스 그룹을 만듭니다](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations). 이 문서에 개략적으로 설명된 정확한 시나리오에 따라 ``` --address-prefixes ``` 및 ```--address-prefix``` 필드를 다음으로 변경합니다.
@@ -70,7 +70,6 @@ NIC를 만들 때 IP 구성이 NIC에 연결되고 VM을 만들 때 NIC가 VM에
     >위의 참조 문서는 리소스를 만들기 위한 위치로 유럽 서부를 사용하지만 이 문서는 미국 중서부를 사용합니다. 위치를 적절히 변경합니다.
 
 4. VM에 [저장소 계정을 만듭니다](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account).
-
 
 5. NIC에 할당하려는 NIC 및 IP 구성을 만듭니다. 필요에 따라 구성을 추가, 제거 또는 변경할 수 있습니다. 다음 구성은 시나리오에 설명되어 있습니다.
 
@@ -115,9 +114,7 @@ NIC를 만들 때 IP 구성이 NIC에 연결되고 VM을 만들 때 NIC가 VM에
 6. [Linux VM 만들기](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms) 문서입니다. 이 시나리오에서는 필요하지 않은 ```  --availset-name myAvailabilitySet \ ``` 속성을 반드시 제거합니다. 시나리오에 따라 적절한 위치를 사용합니다. 
 
     >[!WARNING] 
-    > 선택한 위치에서 해당 VM 크기가 지원되지 않는 경우 VM 문서 만들기의 6단계는 실패합니다. 예를 들어 미국 중서부의 VM의 전체 목록을 가져오려면 다음 명령을 실행합니다. 이 위치 이름은 시나리오에 따라 변경할 수 있습니다.
-    > 
-    >       azure vm sizes --location westcentralus
+    > 선택한 위치에서 해당 VM 크기가 지원되지 않는 경우 VM 문서 만들기의 6단계는 실패합니다. 예를 들어 미국 서부 중앙의 VM 전체 목록을 가져오려면 다음 명령을 실행합니다. `azure vm sizes --location westcentralus` 이 위치 이름은 사용자 시나리오에 따라 변경될 수 있습니다.
 
     예를 들어 VM 크기를 표준 DS2 v2로 변경하려면 단순히 다음 속성 ```  --vm-size Standard_DS3_v2```을 6단계에서 ``` azure vm create ``` 명령에 추가합니다.
 
@@ -126,144 +123,7 @@ NIC를 만들 때 IP 구성이 NIC에 연결되고 VM을 만들 때 NIC가 VM에
     ```azurecli
     azure network nic show --resource-group myResourceGroup --name myNic1
     ```
-
-## <a name="a-nameosconfigaadd-ip-addresses-to-a-vm-operating-system"></a><a name="OsConfig"></a>VM 운영 체제에 IP 주소 추가
-
-여러 개인 IP 주소를 사용하여 만든 VM에 연결 및 로그인합니다. VM에 추가한 모든 개인 IP 주소(기본 포함)를 수동으로 추가해야 합니다. VM 운영 체제에 대한 다음 단계를 완료합니다.
-
-### <a name="windows"></a>Windows
-
-1. 명령 프롬프트에서 *ipconfig /all*을 입력합니다.  *기본* 개인 IP 주소(DHCP를 통한)만 표시됩니다.
-2. 명령 프롬프트 창에 *ncpa.cpl*을 입력하여 **네트워크 연결** 창을 엽니다.
-3. **로컬 영역 연결**에 대한 속성을 엽니다.
-4. IPv4(인터넷 프로토콜 버전 4)를 두 번 클릭합니다.
-5. **다음 IP 주소 사용**을 선택하고 다음 값을 입력합니다.
-
-    * **IP 주소**: *기본* 개인 IP 주소를 입력합니다.
-    * **서브넷 마스크**: 서브넷을 기준으로 설정됩니다. 예를 들어 서브넷이 /24이면 서브넷 마스크는 255.255.255.0입니다.
-    * **기본 게이트웨이**: 서브넷의 첫 번째 IP 주소입니다. 서브넷이 10.0.0.0/24이면 게이트웨이 IP 주소는 10.0.0.1입니다.
-    * **다음 DNS 서버 주소 사용** 을 클릭하고 다음 값을 입력합니다.
-        * **기본 설정 DNS 서버**: 자체 DNS 서버를 사용하지 않는 경우 168.63.129.16을 입력합니다.  자체 DNS 서버를 사용하는 경우 서버의 IP 주소를 입력합니다.
-    * **고급** 단추를 클릭하고 추가 IP 주소를 추가합니다. 8단계에 나열된 각 보조 개인 IP 주소를 기본 IP 주소에 대해 지정된 것과 동일한 서브넷을 갖는 NIC에 추가합니다.
-    * **확인**을 클릭하여 TCP/IP 설정을 닫은 다음 **확인**을 다시 클릭하여 어댑터 설정을 닫습니다. RDP 연결이 다시 설정됩니다.
-6. 명령 프롬프트에서 *ipconfig /all*을 입력합니다. 추가한 모든 IP 주소가 표시되고 DHCP는 해제됩니다.
-    
-### <a name="linux-ubuntu"></a>Linux(Ubuntu)
-
-1. 터미널 창을 엽니다.
-2. 루트 사용자인지 확인합니다. 그렇지 않으면 다음 명령을 입력합니다.
-
-    ```bash
-    sudo -i
-    ```
-
-3. 네트워크 인터페이스(‘eth0’이라고 가정)의 구성 파일을 업데이트합니다.
-
-    * dhcp에 대한 기존 줄 항목을 유지합니다. 기본 IP 주소가 이전에 구성된 대로 유지됩니다.
-    * 다음 명령을 사용하여 추가 정적 IP 주소에 대한 구성을 추가합니다.
-
-        ```bash
-        cd /etc/network/interfaces.d/
-        ls
-        ```
-
-    .cfg 파일이 표시됩니다.
-4. vi *filename*을(를) 실행하여 파일을 엽니다.
-
-    파일 끝에 다음 줄이 있어야 합니다.
-
-    ```bash
-    auto eth0
-    iface eth0 inet dhcp
-    ```
-
-5. 이 파일에 있는 줄 뒤에 다음 줄을 추가합니다.
-
-    ```bash
-    iface eth0 inet static
-    address <your private IP address here>
-    ```
-
-6. 다음 명령을 실행하여 파일을 저장합니다.
-
-    ```bash
-    :wq
-    ```
-
-7. 다음 명령을 사용하여 네트워크 인터페이스를 다시 설정합니다.
-
-    ```bash
-    sudo ifdown eth0 && sudo ifup eth0
-    ```
-
-    > [!IMPORTANT]
-    > 원격 연결을 사용하는 경우 같은 줄에서 ifdown 및 ifup을 둘 다 실행합니다.
-    >
-
-8. 다음 명령을 사용하여 네트워크 인터페이스에 IP 주소가 추가되는지 확인합니다.
-
-    ```bash
-    Ip addr list eth0
-    ```
-
-    목록의 일부로 추가한 IP 주소가 표시되어야 합니다.
-    
-### <a name="linux-redhat-centos-and-others"></a>Linux(Redhat, CentOS 및 기타)
-
-1. 터미널 창을 엽니다.
-2. 루트 사용자인지 확인합니다. 그렇지 않으면 다음 명령을 입력합니다.
-
-    ```bash
-    sudo -i
-    ```
-
-3. 암호를 입력하고 화면 지시를 따릅니다. 루트 사용자인 경우 다음 명령을 사용하여 네트워크 스크립트 폴더로 이동합니다.
-
-    ```bash
-    cd /etc/sysconfig/network-scripts
-    ```
-
-4. 다음 명령을 사용하여 관련 ifcfg 파일을 나열합니다.
-
-    ```bash
-    ls ifcfg-*
-    ```
-
-    *ifcfg-eth0* 이 파일 중 하나로 표시되어야 합니다.
-
-5. 다음 명령을 사용하여 *ifcfg-eth0* 파일을 복사하고 *ifcfg-eth0:0*이라고 이름을 지정합니다.
-
-    ```bash
-    cp ifcfg-eth0 ifcfg-eth0:0
-    ```
-
-6. 다음 명령을 사용하여 *ifcfg-eth0:0* 파일을 편집합니다.
-
-    ```bash
-    vi ifcfg-eth1
-    ```
-
-7. 다음 명령을 사용하여 이 파일에서 장치 이름을 적절히 변경합니다(이 경우 *eth0:0* ).
-
-    ```bash
-    DEVICE=eth0:0
-    ```
-
-8. IP 주소를 반영하도록 *IPADDR = YourPrivateIPAddress* 줄을 변경합니다.
-9. 다음 명령을 실행하여 파일을 저장합니다.
-
-    ```bash
-    :wq
-    ```
-
-10. 다음 명령을 실행하여 네트워크 서비스를 다시 시작하고 변경이 성공적으로 수행되었는지 확인합니다.
-
-    ```bash
-    /etc/init.d/network restart
-    Ipconfig
-    ```
-
-    반환된 목록에서 추가한 IP 주소 *eth0:0*이 표시되어야 합니다.
+8. 이 문서의 [VM 운영 체제에 IP 주소 추가](#os-config) 섹션에 나오는 사용자 운영 체제별 단계를 완료하여 개인 IP 주소를 VM 운영 체제에 추가합니다.
 
 ## <a name="a-nameaddaadd-ip-addresses-to-a-vm"></a><a name="add"></a>VM에 IP 주소 추가
 
@@ -271,10 +131,9 @@ NIC를 만들 때 IP 구성이 NIC에 연결되고 VM을 만들 때 NIC가 VM에
 
 1. Azure CLI를 열고 단일 CLI 세션 내에서 이 섹션의 나머지 단계를 완료합니다. 아직 Azure CLI를 설치 및 구성하지 않은 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 문서에 나오는 단계를 완료하고 Azure 계정에 로그인합니다.
 
-2. 구독 ID 및 사용 목적을 적은 전자 메일을 [여러 IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e)로 보내어 미리 보기를 등록합니다. 다음 경우에 나머지 단계를 완료하려 하지 마세요.
+2. 구독 ID 및 사용 목적을 적은 전자 메일을 [여러 IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e)로 보내어 미리 보기를 등록합니다. 다음 작업이 끝나기 전까지 나머지 단계를 완료하려 하지 마세요.
     - 미리 보기에 적용되었음을 알리는 전자 메일을 받을 때까지
     - 수신 메일의 지침을 따르기 전에
-
 
 3. 요구 사항에 따라 다음 섹션 중 하나의 단계를 완료합니다.
 
@@ -336,7 +195,6 @@ NIC를 만들 때 IP 구성이 NIC에 연결되고 VM을 만들 때 NIC가 VM에
     azure network nic ip-config set --resource-group myResourceGroup --nic-name myNic1 --name IPConfig-3 --public-ip-name myPublicIP3
     ```
 
-
 7. NIC에 할당된 개인 IP 주소 및 공용 IP 주소 리소스를 보려면 다음 명령을 입력합니다.
 
     ```azurecli
@@ -350,9 +208,11 @@ NIC를 만들 때 IP 구성이 NIC에 연결되고 VM을 만들 때 NIC가 VM에
         IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
         IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet  myPublicIP3
      
-9. 이 문서의 [VM 운영 체제에 IP 주소 추가](#OsConfig) 섹션에 나오는 지침에 따라 NIC에 추가한 IP 주소를 VM 운영 체제에 추가합니다.
+9. 이 문서의 [VM 운영 체제에 IP 주소 추가](#os-config) 섹션에 나오는 지침에 따라 NIC에 추가한 개인 IP 주소를 VM 운영 체제에 추가합니다. 운영 체제에 공용 IP 주소를 추가하지 마십시오.
+
+[!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 11/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: e7ec8715087abaf5c96a6327d4bcde0ad3fd547a
+ms.sourcegitcommit: 3549272a74ebf7b5e37a70dbb8d7ce3b539c8103
+ms.openlocfilehash: f0b955193f2e698a22a1989ffeb7f7dc23028e18
 
 
 ---
@@ -25,14 +25,45 @@ ms.openlocfilehash: e7ec8715087abaf5c96a6327d4bcde0ad3fd547a
 이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Windows 가상 컴퓨터에 연결하는 방법을 보여 줍니다. 또한 [Azure 포털에서 Linux VM에 데이터 디스크를 연결](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 수도 있습니다. 이 작업을 수행 하기 전에 다음 팁을 검토하세요.
 
 * 가상 컴퓨터의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+* 프리미엄 저장소를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 컴퓨터가 필요합니다. 이 가상 컴퓨터를 사용하여 프리미엄 및 표준 저장소 계정에서 모두 디스크를 사용할 수 있습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 * 새 디스크의 경우 Azure가 디스크를 연결할 때 생성하므로 먼저 생성하지 않아도 됩니다.
 * 기존 디스크의 경우 Azure 저장소 계정에서 .vhd 파일을 사용할 수 있어야 합니다. 다른 가상 컴퓨터에 연결되지 않은 경우 이미 있는 .vhd 파일을 사용하거나 고유의 .vhd 파일을 저장소 계정에 업로드할 수 있습니다.
 
 또한 [Powershell을 사용하여 데이터 디스크를 연결](virtual-machines-windows-ps-manage.md#add-a-data-disk-to-a-virtual-machine)할 수 있습니다.
 
-[!INCLUDE [virtual-machines-common-attach-disk-portal](../../includes/virtual-machines-common-attach-disk-portal.md)]
 
-## <a name="a-idinitializeinwsahow-to-initialize-a-new-data-disk-in-windows-server"></a><a id="initializeinWS"></a>방법: Windows Server에서 새 데이터 디스크 초기화
+## <a name="find-the-virtual-machine"></a>가상 컴퓨터 찾기
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+2. 허브 메뉴에서 **가상 컴퓨터**를 클릭합니다.
+3. 목록에서 가상 컴퓨터를 선택합니다.
+4. 가상 컴퓨터 블레이드의 **Essentials**에서 **디스크**를 클릭합니다.
+   
+    ![디스크 설정 열기](./media/virtual-machines-windows-attach-disk-portal/find-disk-settings.png)
+
+[새 디스크](#option-1-attach-a-new-disk) 또는 [기존 디스크](#option-2-attach-an-existing-disk)를 연결하려면 다음 지침에 따라 계속합니다.
+
+## <a name="option-1-attach-a-new-disk"></a>옵션 1: 새 디스크 연결
+1. **디스크** 블레이드에서 **새 연결**을 클릭합니다.
+2. 기본 설정을 검토하고 필요에 따라 업데이트한 다음 **확인**을 클릭합니다.
+   
+   ![디스크 설정 검토](./media/virtual-machines-windows-attach-disk-portal/attach-new.png)
+3. Azure가 디스크를 만들고 가상 컴퓨터에 연결하면 가상 컴퓨터의 디스크 설정의 **데이터 디스크**아래에 새 디스크가 나열됩니다.
+
+## <a name="option-2-attach-an-existing-disk"></a>옵션 2: 기존 디스크 연결
+1. **디스크** 블레이드에서 **기존 연결**을 클릭합니다.
+2. **기존 디스크 연결**에서 **VHD 파일**을 클릭합니다.
+   
+   ![기존 디스크 연결](./media/virtual-machines-windows-attach-disk-portal/attach-existing.png)
+3. **저장소 계정**에서 계정 및 .vhd 파일을 보관하는 컨테이너를 선택합니다.
+   
+   ![VHD 위치 찾기](./media/virtual-machines-windows-attach-disk-portal/find-storage-container.png)
+4. .vhd 파일을 업로드합니다.
+5. **기존 디스크 연결**에서 방금 선택한 파일이 **VHD 파일** 아래에 나열됩니다. **확인**을 클릭합니다.
+6. Azure가 디스크를 가상 컴퓨터에 연결한 후 가상 컴퓨터의 디스크 설정의 **데이터 디스크**아래에 해당 디스크가 나열됩니다.
+
+
+
+## <a name="initialize-a-new-data-disk"></a>새 데이터 디스크 초기화
 1. 가상 컴퓨터에 연결합니다. 지침은 [Windows를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 2. 가상 컴퓨터에 로그온한 후 **Server Manager**를 엽니다. 왼쪽 창에서 **파일 및 저장소 서비스**를 선택합니다.
    
@@ -49,12 +80,28 @@ ms.openlocfilehash: e7ec8715087abaf5c96a6327d4bcde0ad3fd547a
 > 
 > 
 
+
+## <a name="use-trim-with-standard-storage"></a>표준 저장소와 TRIM 사용
+
+표준 저장소(HDD)를 사용하는 경우 TRIM을 사용하도록 설정해야 합니다. TRIM은 디스크에서 사용되지 않는 블록을 삭제하므로 실제로 사용 중인 저장소에 대해 청구됩니다. 큰 파일을 만들고 삭제하는 경우 비용을 절감할 수 있습니다. 
+
+TRIM 설정을 확인하도록 이 명령을 실행할 수 있습니다. Windows VM에서 명령 프롬프트를 열어 다음을 입력합니다.
+
+```
+fsutil behavior query DisableDeleteNotify
+```
+
+명령이 0을 반환하는 경우 TRIM이 올바르게 활성화됩니다. 1을 반환하는 경우, 다음 명령을 실행하여 TRIM을 사용하도록 설정합니다.
+```
+fsutil behavior set DisableDeleteNotify 0
+```
+
 ## <a name="next-steps"></a>다음 단계
 응용 프로그램이 데이터를 저장하는 데 D: 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)할 수 있습니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

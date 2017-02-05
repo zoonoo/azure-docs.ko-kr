@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a4230f1dc65e0b5bb5c4904a1c2780f0c3c907f1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a8c557ea07cbccb913bc47c510f6759dd832c861
 
 
 ---
@@ -47,15 +47,15 @@ SSIS(SQL Server Integration Services)는 SQL 데이터 웨어하우스에 연결
 
 1. ADO NET 대상을 사용하여 SQL 데이터 웨어하우스에 연결합니다. 이 자습서는 구성 옵션이 가장 적은 ADO NET 대상을 사용합니다.
 2. OLE DB 대상을 사용하여 SQL 데이터 웨어하우스에 연결합니다. 이 옵션은 ADO NET 대상보다 약간 뛰어난 성능을 제공할 수 있습니다.
-3. Azure Blob 업로드 작업을 사용하여 Azure Blob 저장소의 데이터를 준비합니다. 그런 다음 SSIS 실행 SQL 작업을 사용하여 SQL 데이터 웨어하우스로 데이터를 로드하는 Polybase 스크립트를 실행합니다. 이 옵션은 여기에 나열된 세 가지 옵션에 대해 최고의 성능을 제공합니다. Azure Blob 업로드 작업을 가져오려면 [Azure용 Microsoft SQL Server 2016 Integration Services 기능 팩][Azure용 Microsoft SQL Server 2016 Integration Services 기능 팩]을 다운로드합니다. Polybase에 대한 자세한 내용은 [PolyBase 가이드][PolyBase 가이드]를 참조하세요.
+3. Azure Blob 업로드 작업을 사용하여 Azure Blob 저장소의 데이터를 준비합니다. 그런 다음 SSIS 실행 SQL 작업을 사용하여 SQL 데이터 웨어하우스로 데이터를 로드하는 Polybase 스크립트를 실행합니다. 이 옵션은 여기에 나열된 세 가지 옵션에 대해 최고의 성능을 제공합니다. Azure Blob 업로드 작업을 가져오려면 [Azure용 Microsoft SQL Server 2016 Integration Services 기능 팩][Microsoft SQL Server 2016 Integration Services Feature Pack for Azure]을 다운로드해야 합니다. Polybase에 대한 자세한 내용은 [PolyBase 가이드][PolyBase Guide]를 참조하세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
 
-1. **SSIS(SQL Server Integration Services)**. SSIS는 SQL Server의 구성 요소이며 평가판 버전 또는 라이선스 버전의 SQL Server가 필요합니다. 평가판 버전의 SQL Server 2016 Preview를 다운로드하려면 [SQL Server 평가][SQL Server 평가]를 참조하세요.
+1. **SSIS(SQL Server Integration Services)**. SSIS는 SQL Server의 구성 요소이며 평가판 버전 또는 라이선스 버전의 SQL Server가 필요합니다. 평가판 버전의 SQL Server 2016 Preview를 다운로드하려면 [SQL Server 평가][SQL Server Evaluations]를 참조하세요.
 2. **Visual Studio**. 무료 Visual Studio 2015 Community Edition을 다운로드하려면 [Visual Studio Community][Visual Studio Community]를 참조하세요.
-3. **Visual Studio용 SSDT(SQL Server Data Tools)**. Visual Studio 2015용 SQL Server Data Tools를 다운로드하려면 [SSDT(SQL Server Data Tools) 다운로드][SSDT(SQL Server Data Tools) 다운로드]를 참조하세요.
-4. **예제 데이터**. 이 자습서는 SQL 데이터 웨어하우스에 로드할 원본 데이터로 AdventureWorks 예제 데이터베이스의 SQL Server에 저장된 예제 데이터를 사용합니다. AdventureWorks 예제 데이터베이스를 다운로드하려면 [AdventureWorks 2014 예제 데이터베이스][AdventureWorks 2014 예제 데이터베이스]를 참조하세요.
+3. **Visual Studio용 SSDT(SQL Server Data Tools)**. Visual Studio 2015용 SQL Server Data Tools를 다운로드하려면 [SSDT(SQL Server Data Tools) 다운로드][Download SQL Server Data Tools (SSDT)]를 참조하세요.
+4. **예제 데이터**. 이 자습서는 SQL 데이터 웨어하우스에 로드할 원본 데이터로 AdventureWorks 예제 데이터베이스의 SQL Server에 저장된 예제 데이터를 사용합니다. AdventureWorks 예제 데이터베이스를 다운로드하려면 [AdventureWorks 2014 예제 데이터베이스][AdventureWorks 2014 Sample Databases]를 참조하세요.
 5. **SQL 데이터 웨어하우스 데이터베이스 및 사용 권한**. 이 자습서는 SQL 데이터 웨어하우스 인스턴스로 연결한 다음 여기로 데이터를 로드합니다. 테이블을 만들고 데이터를 로드할 수 있는 권한이 있어야 합니다.
 6. **방화벽 규칙**. SQL 데이터 웨어하우스로 데이터를 로드하기 전에 로컬 컴퓨터의 IP 주소를 사용하여 SQL 데이터 웨어하우스에 방화벽 규칙을 만들어야 합니다.
 
@@ -144,7 +144,7 @@ Visual Studio가 열리고 새 SSIS(Integration Services) 프로젝트가 생성
    
    1. 대상 테이블의 이름을 **SalesOrderDetail**로 변경합니다.
    2. **rowguid** 열을 제거합니다. SQL 데이터 웨어하우스에는 **uniqueidentifier** 데이터 형식이 지원되지 않습니다.
-   3. **LineTotal** 열의 데이터 형식을 **money**로 변경합니다. SQL 데이터 웨어하우스에는 **decimal** 데이터 형식이 지원되지 않습니다. 지원되는 데이터 형식에 대한 자세한 내용은 [테이블 만들기(Azure SQL 데이터 웨어하우스, 병렬 데이터 웨어하우스)][테이블 만들기(Azure SQL 데이터 웨어하우스, 병렬 데이터 웨어하우스)]를 참조하세요.
+   3. **LineTotal** 열의 데이터 형식을 **money**로 변경합니다. SQL 데이터 웨어하우스에는 **decimal** 데이터 형식이 지원되지 않습니다. 지원되는 데이터 형식에 대한 자세한 내용은 [테이블 만들기(Azure SQL Data Warehouse, 병렬 데이터 웨어하우스)][CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)]를 참조하세요.
       
        ![][12b]
    4. **확인**을 클릭하여 테이블을 만들고 **ADO.NET 대상 편집기**로 돌아갑니다.
@@ -167,9 +167,9 @@ Visual Studio가 열리고 새 SSIS(Integration Services) 프로젝트가 생성
 축하합니다. SQL Server Integration Services를 사용하여 Azure SQL 데이터 웨어하우스로 데이터를 성공적으로 로드했습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* SSIS 데이터 흐름에 대해 자세히 알아보세요. [데이터 흐름][데이터 흐름]에서 시작할 수 있습니다.
-* 디자인 환경에서 바로 패키지를 디버그하고 문제를 해결하는 방법에 대해 알아보세요. [패키지 개발용 문제 해결 도구][패키지 개발용 문제 해결 도구]에서 시작할 수 있습니다.
-* SSIS 프로젝트와 패키지를 Integration Services 서버 또는 다른 저장소 위치에 배포하는 방법에 대해 알아보세요. [프로젝트 및 패키지 배포][프로젝트 및 패키지 배포]에서 시작할 수 있습니다.
+* SSIS 데이터 흐름에 대해 자세히 알아보세요. [데이터 흐름][Data Flow]에서 시작할 수 있습니다.
+* 디자인 환경에서 바로 패키지를 디버그하고 문제를 해결하는 방법에 대해 알아보세요. [패키지 개발용 문제 해결 도구][Troubleshooting Tools for Package Development]에서 시작할 수 있습니다.
+* SSIS 프로젝트와 패키지를 Integration Services 서버 또는 다른 저장소 위치에 배포하는 방법에 대해 알아보세요. [프로젝트 및 패키지 배포][Deployment of Projects and Packages]에서 시작할 수 있습니다.
 
 <!-- Image references -->
 [01]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-designer-01.png
@@ -192,21 +192,21 @@ Visual Studio가 열리고 새 SSIS(Integration Services) 프로젝트가 생성
 <!-- Article references -->
 
 <!-- MSDN references -->
-[PolyBase 가이드]: https://msdn.microsoft.com/library/mt143171.aspx
-[SSDT(SQL Server Data Tools) 다운로드]: https://msdn.microsoft.com/library/mt204009.aspx
-[테이블 만들기(Azure SQL 데이터 웨어하우스, 병렬 데이터 웨어하우스)]: https://msdn.microsoft.com/library/mt203953.aspx
-[데이터 흐름]: https://msdn.microsoft.com/library/ms140080.aspx
-[패키지 개발용 문제 해결 도구]: https://msdn.microsoft.com/library/ms137625.aspx
-[프로젝트 및 패키지 배포]: https://msdn.microsoft.com/library/hh213290.aspx
+[PolyBase Guide]: https://msdn.microsoft.com/library/mt143171.aspx
+[Download SQL Server Data Tools (SSDT)]: https://msdn.microsoft.com/library/mt204009.aspx
+[CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
+[Data Flow]: https://msdn.microsoft.com/library/ms140080.aspx
+[Troubleshooting Tools for Package Development]: https://msdn.microsoft.com/library/ms137625.aspx
+[Deployment of Projects and Packages]: https://msdn.microsoft.com/library/hh213290.aspx
 
 <!--Other Web references-->
-[Azure용 Microsoft SQL Server 2016 Integration Services 기능 팩]: http://go.microsoft.com/fwlink/?LinkID=626967
-[SQL Server 평가]: https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016
+[Microsoft SQL Server 2016 Integration Services Feature Pack for Azure]: http://go.microsoft.com/fwlink/?LinkID=626967
+[SQL Server Evaluations]: https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016
 [Visual Studio Community]: https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx
-[AdventureWorks 2014 예제 데이터베이스]: https://msftdbprodsamples.codeplex.com/releases/view/125550
+[AdventureWorks 2014 Sample Databases]: https://msftdbprodsamples.codeplex.com/releases/view/125550
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

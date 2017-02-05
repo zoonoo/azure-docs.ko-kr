@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5bff2c32eae9abbf7fce92d407c8a7bc12b683b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0123a322e9dcbdf82dd79bfd4eec7a189cfbe3b5
 
 
 ---
@@ -517,11 +517,11 @@ ContentKey는 HTTP POST 요청을 전송하여 하나 이상의 자산에 연결
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-[미디어 프로세서를 가져오는 방법]: media-services-get-media-processor.md
+[How to Get a Media Processor]: media-services-get-media-processor.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/14/2016
+ms.date: 11/21/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: de2c52f8db5445e3e2eee62f673109f6d38cffa0
-ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dd3e982ba908e542ce0b536699e37e2bc95e6706
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
 >
 >기계 학습이 처음이라면 비디오 시리즈 [초보자를 위한 데이터 과학](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)이 시작에 좋은 출발점이 될 수 있습니다. 이 비디오 시리즈는 일상적인 언어 및 개념을 사용하여 기계 학습을 잘 소개하고 있습니다.
 >
->기계 학습에 익숙하지만 Machine Learning Studio에 대한 일반 상세 정보와 이러한 정보가 포함된 기계 학습 알고리즘을 찾고 있는 경우 다음과 같은 몇 가지 유용한 자료를 참고하세요.
+>기계 학습에 대해 알고는 있지만 Machine Learning Studio에 대한 보다 일반적인 정보와 이러한 정보가 포함된 기계 학습 알고리즘을 찾고 있는 경우 다음과 같은 몇 가지 유용한 자료를 참고하세요.
 >
 - [기계 학습 스튜디오란 무엇인가요?](machine-learning-what-is-ml-studio.md) - Studio의 차원 높은 개요입니다.
 - [알고리즘 예제가 포함된 기계 학습 기본 사항](machine-learning-basics-infographic-with-algorithm-examples.md) - 이 인포그래픽은 Machine Learning Studio에 포함된 기계 학습 알고리즘의 다양한 유형에 대해 자세히 알아보고자 할 경우에 유용합니다.
@@ -95,9 +95,7 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
 
 1. Machine Learning Studio 창의 아래쪽에서 **+새로 만들기**를 클릭하여 새 실험을 만들고 **실험**을 선택한 다음, **빈 실험**을 선택합니다.
 
-2. 실험은 캔버스의 위쪽에서 볼 수 있는 기본 이름이 지정됩니다. 이 텍스트를 선택하고 **자동차 가격 예측**과 같이 의미 있는 것으로 이름을 바꿉니다. 이름은 고유할 필요가 없습니다.
-
-    ![실험 이름 바꾸기][rename-experiment]
+2. 실험은 캔버스의 위쪽에서 볼 수 있는 기본 이름이 지정됩니다. 이 텍스트를 선택하고 **자동차 가격 예측**과 같이 의미 있는 것으로 이름을 바꿉니다.
 
 2. 실험 캔버스 왼쪽에는 데이터 집합과 모듈의 팔레트가 있습니다. 이 팔레트 맨 위에 있는 검색 상자에 **automobile**을 입력하여 레이블이 **Automobile price data (Raw)**인 데이터 집합을 찾습니다. 실험 캔버스에 데이터 집합을 끌어 놓습니다.
 
@@ -113,7 +111,7 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
 
 > [!TIP]
 > 데이터 집합 및 모듈에는 쪽의 입력 포트, 아래쪽의 출력을 작은 원으로 나타내는 입력 및 출력 포트가 있습니다.
-실험을 통해 데이터 흐름을 만들려면 한 모듈의 출력 포트를 다른 모듈의 입력 포트에 연결합니다.
+실험을 통해 데이터의 흐름을 만들려면 이러한 포트를 함께 연결합니다.
 언제든지 데이터 흐름에서 해당 지점에서 데이터가 어떻게 보이는지 알아보려면 데이터 집합 또는 모듈의 출력 포트를 클릭할 수 있습니다.
 
 이 샘플 데이터 집합에서 자동차의 각 인스턴스가 행으로 나타나고 각 자동차와 연결된 변수는 열로 표시됩니다. 특정 자동차에 대한 변수를 지정하여 맨 오른쪽 열(열 26, "price")에서 가격을 예측하려고 합니다.
@@ -171,7 +169,7 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
     <br/>
     ***“누락된 데이터 정리” 모듈의 경우 정리 모드를 “전체 행 제거”로 설정***
 
-4. 페이지 아래쪽의 **실행**을 클릭하여 실험을 실행합니다.
+4. 실험 캔버스 아래에서 **RUN** 을 클릭하여 실험을 실행합니다.
 
     실험이 실행 완료되면 모든 모듈에 성공적으로 완료되었음을 나타내는 녹색 확인 표시가 표시됩니다. 오른쪽 위 모서리에서 **Finished running** 상태도 확인됩니다.
 
@@ -328,7 +326,7 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
 단일 실험에서는 여러 모델을 비교하는 방법의 예제에서 [회귀 비교](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) [Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com)를 참조합니다.
 
     > [!TIP]
-    > 실험 반복을 복사하려면 페이지 아래쪽의 **다른 이름으로 저장** 단추를 사용합니다. 페이지 아래쪽의 **실행 기록 보기**를 클릭하여 실험의 모든 반복을 볼 수 있습니다. 자세한 내용은 [Azure Machine Learning 스튜디오에서 실험 반복 관리][runhistory]를 참조하세요.
+    > 실험 반복의 복사본을 만들려면 실험 캔버스 아래에 있는 **다른 이름으로 저장** 단추를 사용하세요. 캔버스 아래에서 **VIEW RUN HISTORY** 를 클릭하여 실험의 모든 반복을 볼 수 있습니다. 자세한 내용은 [Azure Machine Learning 스튜디오에서 실험 반복 관리][runhistory]를 참조하세요.
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
@@ -342,7 +340,6 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/machine-learning-create-experiment/sign-in-to-studio.png
-[rename-experiment]: ./media/machine-learning-create-experiment/rename-experiment.png
 [visualize-auto-data]:./media/machine-learning-create-experiment/visualize-auto-data.png
 [select-visualize]: ./media/machine-learning-create-experiment/select-visualize.png
 [showing-excluded-column]:./media/machine-learning-create-experiment/showing-excluded-column.png
@@ -380,6 +377,6 @@ Machine Learning Studio에는 사용할 수 있고 다양한 원본에서 데이
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,15 +15,15 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f30cfab50407e31ccad61888d7de40e4f0fcba24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 30dcbe33b359afc3f118effce07f6574bb35d5d5
 
 
 ---
 # <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용
-Azure 기계 학습은 SQL 데이터 웨어하우스의 데이터에 대해 예측 모델을 만드는 데 사용할 수 있는 완전한 관리 예측 분석 서비스로, 사용할 준비가 된 웹 서비스로 게시할 수 있습니다. [Azure에서 Machine Learning 소개][Azure에서 Machine Learning 소개]를 읽어 예측 분석의 기본 사항 및 기계 학습에 대해 알 수 있습니다.  그런 다음 [실험 만들기 자습서][실험 만들기 자습서]를 사용하여 기계 학습 모델을.만들고, 훈련하고, 점수를 매기고 테스트하는 방법에 대해 알 수 있습니다.
+Azure 기계 학습은 SQL 데이터 웨어하우스의 데이터에 대해 예측 모델을 만드는 데 사용할 수 있는 완전한 관리 예측 분석 서비스로, 사용할 준비가 된 웹 서비스로 게시할 수 있습니다. [Azure에서 기계 학습 소개][Introduction to Machine Learning on Azure]를 읽어 예측 분석의 기본 사항 및 기계 학습에 대해 알 수 있습니다.  그런 다음 [실험 만들기 자습서][Create experiment tutorial]를 사용하여 기계 학습 모델을.만들고, 훈련하고, 점수를 매기고 테스트하는 방법에 대해 알 수 있습니다.
 
-이 문서에서는 [Azure 기계 학습 스튜디오][Azure 기계 학습 스튜디오]를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
+이 문서에서는 [Azure 기계 학습 스튜디오][Azure Machine Learning Studio]를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
 
 * 데이터베이스에서 데이터를 읽어, 예측 모델을 만들고 훈련하고 점수 매기기
 * 데이터베이스에 데이터 쓰기
@@ -42,7 +42,7 @@ AdventureWorksDW 데이터베이스의 Product 테이블에서 데이터를 읽�
 판독기 모듈을 선택하고 속성 창을 완성합니다.
 
 1. Azure SQL 데이터베이스를 데이터 원본으로 선택합니다.
-2. 데이터베이스 서버 이름: 서버 이름을 입력합니다. [Azure Portal][Azure Portal]을 사용하여 찾을 수 있습니다.
+2. 데이터베이스 서버 이름: 서버 이름을 입력합니다. [Azure Portal][Azure portal]을 사용하여 찾을 수 있습니다.
 
 ![][server_name]
 
@@ -78,7 +78,7 @@ FROM dbo.DimProduct;
 
 ![][model]
 
-기계 학습 모델을.만들고, 훈련하고, 점수를 매기고 테스트하는 방법에 대해 알아보려면 [실험 만들기 자습서][실험 만들기 자습서]를 사용합니다.
+기계 학습 모델을.만들고, 훈련하고, 점수를 매기고 테스트하는 방법에 대해 알려면 [실험 만들기 자습서][Create experiment tutorial]를 사용합니다.
 
 ## <a name="write-data-to-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스에 데이터 쓰기
 결과 집합을 AdventureWorksDW 데이터베이스의 ProductPriceForecast 테이블에 기록합니다.
@@ -92,7 +92,7 @@ FROM dbo.DimProduct;
 기록기 모듈을 선택하고 속성 창을 완성합니다.
 
 1. Azure SQL 데이터베이스를 데이터 대상으로 선택합니다.
-2. 데이터베이스 서버 이름: 서버 이름을 입력합니다. [Azure Portal][Azure Portal]을 사용하여 찾을 수 있습니다.
+2. 데이터베이스 서버 이름: 서버 이름을 입력합니다. [Azure Portal][Azure portal]을 사용하여 찾을 수 있습니다.
 3. 데이터베이스 이름: 방금 지정한 서버에서 데이터베이스의 이름을 입력합니다.
 4. 서버 사용자 계정 이름: 데이터베이스에 대한 쓰기 권한이 있는 계정의 사용자 이름을 입력합니다.
 5. 서버 사용자 계정 암호: 지정된 사용자 계정에 대한 암호를 제공합니다.
@@ -109,7 +109,7 @@ FROM dbo.DimProduct;
 2. 실험이 완료되면 모든 모듈에 성공적으로 완료되었음을 나타내는 녹색 확인 표시가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][SQL 데이터 웨어하우스 개발 개요]를 참조하세요.
+더 많은 개발 팁은 [SQL Data Warehouse 개발 개요][SQL Data Warehouse development overview]를 참조하세요.
 
 <!--Image references-->
 
@@ -123,20 +123,20 @@ FROM dbo.DimProduct;
 
 <!--Article references-->
 
-[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
-[실험 만들기 자습서]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Create experiment tutorial]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
 [Introduction to machine learning on Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[Azure 기계 학습 스튜디오]: https://studio.azureml.net/Home
-[Azure Portal]: https://portal.azure.com/
+[Azure Machine Learning Studio]: https://studio.azureml.net/Home
+[Azure portal]: https://portal.azure.com/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-[Azure Machine Learning 설명서]: http://azure.microsoft.com/documentation/services/machine-learning/
+[Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

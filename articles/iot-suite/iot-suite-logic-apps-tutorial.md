@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 12f8fa60fd5da8dcb7ce8f429f6bc47595a0f9d6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a010e0dff76390020b74ada6d6144e411e304268
 
 
 ---
@@ -97,7 +97,7 @@ ms.openlocfilehash: 12f8fa60fd5da8dcb7ce8f429f6bc47595a0f9d6
 13. **요청** 트리거를 클릭하고 **이 URL에 대한 Http 게시** 값을 복사합니다. 이 URL은 자습서의 뒷부분에서 필요합니다.
 
 > [!NOTE]
-> Logic Apps을 사용하면 Office 365의 작업을 비롯하여 [다양한 유형의 작업][lnk-logic-apps-actions]을 실행할 수 있습니다. 
+> 논리 앱을 사용하면 Office 365의 작업을 비롯하여 [다양한 유형의 작업][lnk-logic-apps-actions]을 실행할 수 있습니다. 
 > 
 > 
 
@@ -172,6 +172,6 @@ ms.openlocfilehash: 12f8fa60fd5da8dcb7ce8f429f6bc47595a0f9d6
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

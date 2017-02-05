@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: garye;krishnan
 translationtype: Human Translation
-ms.sourcegitcommit: 08e02c8e7bf031e42c574e457b70f3db45375096
-ms.openlocfilehash: b505c79f3a4df9717da021dc70b9f77452636f85
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 60bd35262c0aa017b42b303dd8244054743a4635
 
 
 ---
@@ -80,19 +80,19 @@ Azure 기계 학습에서 온-프레미스 SQL Server 데이터베이스에 액�
 2. 왼쪽에서 **설정** 블레이드를 클릭하고 위쪽의 **데이터 게이트웨이** 탭을 클릭합니다.
 3. 화면 아래쪽에 있는 **새 데이터 게이트웨이** 를 클릭합니다.
 
-    ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
+    ![새 데이터 게이트웨이](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
 4. **새 데이터 게이트웨이** 대화 상자에서 **게이트웨이 이름**을 입력하고 필요에 따라 **설명**을 추가합니다. 오른쪽 아래에 있는 화살표를 클릭하여 구성의 다음 단계로 이동합니다.
 
-    ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
+    ![게이트웨이 이름 및 설명 입력](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
 5. 데이터 게이트웨이 다운로드 및 등록 대화 상자에서 게이트웨이 등록 키를 클립보드에 복사합니다.
 
-    ![](media/machine-learning-use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
+    ![다운로드 및 데이터 게이트웨이 등록](media/machine-learning-use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
 6. <span id="note-1" class="anchor"></span>Microsoft 데이터 관리 게이트웨이를 아직 다운로드해서 설치하지 않은 경우 **데이터 관리 게이트웨이 다운로드**를 클릭합니다. 이렇게 하면 필요한 게이트웨이 버전을 선택하고 다운로드한 후 설치할 수 있는 Microsoft 다운로드 센터로 이동하게 됩니다. [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../data-factory/data-factory-move-data-between-onprem-and-cloud.md)문서의 시작 섹션에서 설치 필수 구성 요소, 설치 단계 및 문제 해결 팁에 대한 자세한 정보를 찾을 수 있습니다.
 7. 게이트웨이가 설치되면 데이터 관리 게이트웨이 구성 관리자가 열리고 **게이트웨이 등록** 대화 상자가 표시됩니다. 클립보드에 복사한 **게이트웨이 등록 키**를 붙여 넣고 **등록**을 클릭합니다.
 8. 게이트웨이가 이미 설치된 경우 데이터 관리 게이트웨이 구성 관리자를 실행하고 **키 변경**을 클릭한 후 클립보드에 복사한  **게이트웨이 등록 키**를 붙여 넣은 후 **확인**을 클릭합니다.
 9. 설치가 완료되면 Microsoft 데이터 관리 게이트웨이 구성 관리자에 대한 **게이트웨이 등록** 대화 상자가 표시됩니다. 위에서 클립보드에 복사한 게이트웨이 등록 키를 붙여 넣고 **등록**을 클릭합니다.
 
-    ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
+    ![게이트웨이 등록](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
 10. Microsoft 데이터 관리 게이트웨이 구성 관리자의 **홈** 탭에서 다음 값에 설정되면 게이트웨이 구성이 완료된 것입니다.
 
     * **게이트웨이 이름** 및 **인스턴스 이름**이 게이트웨이의 이름으로 설정됩니다.
@@ -100,20 +100,20 @@ Azure 기계 학습에서 온-프레미스 SQL Server 데이터베이스에 액�
     * **상태**가 **시작됨**으로 설정됩니다.
     * 맨 아래 상태 표시줄에 녹색 확인 표시가 있는 **데이터 관리 게이트웨이 클라우드 서비스에 연결됨**이 표시됩니다.
 
-      ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
+      ![데이터 관리 게이트웨이 관리자](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
 
       또한 등록이 완료되면 Azure 기계 학습 스튜디오가 업데이트됩니다.
 
-    ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\gateway-registered.png)
+    ![게이트웨이 등록 성공](media/machine-learning-use-data-from-an-on-premises-sql-server/gateway-registered.png)
 11. **데이터 게이트웨이 다운로드 및 등록** 대화 상자에서 확인 표시를 클릭하여 설정을 완료합니다. **설정** 페이지에 게이트웨이 상태가 "온라인"으로 표시됩니다. 오른쪽 창에서 상태 및 기타 유용한 정보를 찾을 수 있습니다.
 
-    ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\gateway-status.png)
+    ![게이트웨이 설정](media/machine-learning-use-data-from-an-on-premises-sql-server/gateway-status.png)
 12. Microsoft 데이터 관리 게이트웨이 구성 관리자에서 **인증서** 탭으로 전환합니다. 이 탭에 지정된 인증서는 포털에서 지정한 온-프레미스 데이터 저장소에 대한 자격 증명을 암호화/해독하는 데 사용됩니다. 이것이 생성된 기본 인증서입니다. 이 인증서를 인증서 관리 시스템에서 백업하는 자체 인증서로 변경하는 것이 좋습니다. **변경** 을 클릭하여 그 대신 사용자 고유의 인증서를 사용합니다.
 
-    ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\data-gateway-configuration-manager-certificate.png)
+    ![게이트웨이 인증서 변경](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-certificate.png)
 13. (선택 사항) 게이트웨이와 관련된 문제를 해결하기 위해 자세한 정보 표시 로깅을 사용하도록 설정하려면 Microsoft 데이터 관리 게이트웨이 구성 관리자에서 **진단** 탭으로 전환하고 **문제 해결용 자세한 정보 표시 로깅 사용** 옵션을 선택합니다. 로깅 정보는 **응용 프로그램 및 서비스 로그s** -&gt; **데이터 관리 게이트웨이** 노드 아래의 Windows 이벤트 뷰어에서 찾을 수 있습니다. 또한 **진단** 탭을 사용하여 게이트웨이를 사용하여 온-프레미스 데이터 원본에 대한 연결을 테스트할 수도 있습니다.
 
-    ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\data-gateway-configuration-manager-verbose-logging.png)
+    ![자세한 로깅 정보 표시 사용](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
 
 Azure 기계 학습의 게이트웨이 설정 프로세스를 마쳤습니다.
 이제 온-프레미스 데이터를 사용할 준비가 되었습니다.
@@ -127,19 +127,19 @@ Azure 기계 학습의 게이트웨이 설정 프로세스를 마쳤습니다.
 2. **데이터 가져오기** 모듈을 찾아 실험 캔버스로 끌어 놓습니다.
 3. 캔버스 아래에서 **다른 이름으로 저장** 을 클릭합니다. 실험 이름으로 "Azure 기계 학습 온-프레미스 SQL Server 자습서"를 입력하고 작업 영역을 선택한 후 **확인** 표시를 클릭합니다.
 
-   ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\experiment-save-as.png)
+   ![실험을 새 이름으로 저장](media/machine-learning-use-data-from-an-on-premises-sql-server/experiment-save-as.png)
 4. **데이터 가져오기** 모듈을 클릭하여 선택하고 캔버스 오른쪽에 있는 **속성** 창의 **데이터 원본** 드롭다운 목록에서 "온-프레미스 SQL Database"를 선택합니다.
 5. 설치하여 등록한 **데이터 게이트웨이** 를 선택합니다. "(새 데이터 게이트웨이 추가...)"를 선택하여 다른 게이트웨이를 설정할 수 있습니다.
 
-   ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\import-data-select-on-premises-data-source.png)
+   ![데이터 가져오기 모듈에 대해 데이터 게이트웨이 선택](media/machine-learning-use-data-from-an-on-premises-sql-server/import-data-select-on-premises-data-source.png)
 6. SQL **Database 서버 이름** 및 **Database 이름**과 실행하려는 SQL **Database 쿼리**를 입력합니다.
 7. **사용자 이름 및 암호** 아래에서 **값 입력**을 클릭하고 데이터베이스 자격 증명을 입력합니다. 온-프레미스 SQL Server가 구성된 방식에 따라 Windows 통합 인증 또는 SQL Server 인증을 사용할 수 있습니다.
 
-   ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\database-credentials.png)
+   ![데이터베이스 자격 증명 입력](media/machine-learning-use-data-from-an-on-premises-sql-server/database-credentials.png)
 
    "값 필요" 메시지가 녹색 확인 표시가 있는 "값 설정"으로 변경됩니다. 데이터베이스 정보 또는 암호를 변경하지 않는 한, 자격 증명은 한 번만 입력하면 됩니다. Azure 기계 학습은 사용자가 게이트웨이 설치할 때 지정한 인증서를 사용하여 클라우드에서 자격 증명을 암호화합니다. Azure는 암호화되지 않은 온-프레미스 자격 증명을 절대 저장하지 않습니다.
 
-   ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\import-data-properties-entered.png)
+   ![데이터 모듈 속성 가져오기](media/machine-learning-use-data-from-an-on-premises-sql-server/import-data-properties-entered.png)
 8. **실행** 을 클릭하여 실험을 실행합니다.
 
 실험 실행이 완료되면 **데이터 가져오기** 모듈의 출력 포트를 클릭하고 **시각화**를 선택하여 데이터베이스에서 가져온 데이터를 시각화할 수 있습니다.
@@ -148,6 +148,6 @@ Azure 기계 학습의 게이트웨이 설정 프로세스를 마쳤습니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

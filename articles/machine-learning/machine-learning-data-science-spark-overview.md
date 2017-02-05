@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 10/07/2016
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: ca799d03076175d6a7193c0e58b349a6cb61693b
-ms.openlocfilehash: 35f07fba1421af1db9c8b6190737c3c220a911e1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 091a753c8a183975c7aa340fa2f089adf4fe5574
 
 
 
 ---
-# <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a> Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요
+# <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요
 [!INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
 이 항목 모음에서는 HDInsight Spark를 사용하여 데이터 수집, 기능 엔지니어링, 모델링 및 모델 평가와 같은 일반적인 데이터 과학 작업을 완료하는 방법을 보여 줍니다. 사용되는 데이터는 2013 NYC Taxi Trip 및 요금 데이터 집합의 샘플입니다. 작성된 모델은 로지스틱 및 선형 회귀, 임의 포리스트 및 그라데이션 향상된 트리를 포함합니다. 또한 이 항목은 이러한 모델을 Azure Blob Storage(WASB)에 저장하고 예측 성능의 점수를 매기며 평가하는 방법도 보여 줍니다. 고급 항목에서는 교차 유효성 검사 및 하이퍼 매개 변수 스위핑을 사용하여 모델을 학습할 수 있는 방법을 다룹니다. 이 개요 항목에서는 제공된 세 가지 연습의 단계를 완료하는 데 필요한 Spark 클러스터를 설정하는 방법도 설명합니다. 
@@ -37,7 +37,7 @@ ms.openlocfilehash: 35f07fba1421af1db9c8b6190737c3c220a911e1
 
 2. 이 연습을 완료하는 데는 HDInsight 3.4 Spark 1.6 클러스터가 필요합니다. 만드는 방법은 [시작: Azure HDInsight에서 Apache Spark 만들기](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요. 클러스터 유형 및 버전은 **클러스터 유형 선택** 메뉴에서 지정됩니다. 
 
-![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
+![클러스터 구성](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
 <!-- -->
 
@@ -107,11 +107,11 @@ NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Spark 클러스터의 Jupyter Notebook에서 코드 실행
 Azure 포털에서 Jupyter Notebook을 시작할 수 있습니다. 대시보드에서 Spark 클러스터를 찾아 클릭하여 클러스터에 대한 관리 페이지로 들어갑니다. Spark 클러스터와 연결된 Notebook을 열려면 **Cluster 대시보드** -> **Jupyter Notebook**을 클릭합니다.
 
-![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
+![클러스터 대시보드](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
 ***https://CLUSTERNAME.azurehdinsight.net/jupyter***로 이동하여 Jupyter Notebook에 액세스할 수도 있습니다. 이 URL의 CLUSTERNAME 부분을 사용자 고유의 클러스터 이름으로 바꿉니다. Notebook에 액세스하려면 관리자 계정에 대한 암호가 필요합니다.
 
-![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
+![Jupyter 노트북 찾아보기](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
 PySpark를 선택하여 PySpark API를 사용하는 미리 패키지된 Notebook에 대한 몇 가지 예가 들어 있는 디렉터리를 표시합니다. 이 Spark 항목 모음에 대한 코드 샘플이 포함된 Notebook은 [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)에서 사용할 수 있습니다.
 
@@ -154,6 +154,6 @@ Notebook을 Github에서 Spark 클러스터의 Jupyter Notebook 서버에 직접
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
