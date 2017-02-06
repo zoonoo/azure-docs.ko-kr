@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/16/2016
+ms.date: 01/10/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: ce9474f2926a856673efbab5103a308d31001343
@@ -120,7 +120,7 @@ Android 5.0(Lollipop) 이상의 특정 Exchange ActiveSync 응용 프로그램�
 1. 관리자 권한으로 Windows PowerShell을 시작합니다. 
 2. Azure AD 모듈을 설치합니다. 버전 [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) 이상을 설치해야 합니다.  
    
-        Install-Module -Name AzureADPreview –RequiredVersion 2.0.0.33 
+        Install-Module -Name AzureAD –RequiredVersion 2.0.0.33 
 3. 대상 테넌트에 연결합니다. 
    
         Connect-AzureAD 
