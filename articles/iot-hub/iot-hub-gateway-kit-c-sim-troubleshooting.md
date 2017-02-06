@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 게이트웨이 문제 해결 | Microsoft Docs"
+title: "Azure IoT Gateway 문제 해결 | Microsoft Docs"
 description: "Intel NUC 게이트웨이 문제 해결 페이지"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 44b61dbdad51e3d6b5505477c97de75c8fc5a1a4
-ms.openlocfilehash: ade52e99fd054ac79106742fc9a65769f6ff9893
+ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
+ms.openlocfilehash: 1c747085e47e997f549eff36a9f8d96cb243e228
 
 
 ---
@@ -31,7 +31,7 @@ SensorTag 연결 문제를 해결하려면 [SensorTag 앱](http://processors.wik
 
 ### <a name="have-an-issue-with-intel-nuc"></a>Intel NUC에 문제가 있음
 
-부팅 문제를 해결하려면 [Intel NUC의 부팅 문제 없음 문제 해결](http://www.intel.com/content/www/us/en/support/boards-and-kits/000005845.html)을 참조하세요.
+부팅 문제를 해결하려면 [문제 해결 Intel® NUC 제품에서 부트되지 않는 문제](http://www.intel.com/content/www/us/en/support/boards-and-kits/000005845.html)를 참조하세요.
 
 운영 체제 문제를 해결하려면 [Intel NUC의 운영 체제 문제 해결](http://www.intel.com/content/www/us/en/support/boards-and-kits/000006018.html)을 참조하세요.
 
@@ -76,7 +76,7 @@ gulp run --debug
 ### <a name="configure-visual-studio-code-to-connect-to-the-remote-device"></a>원격 장치에 연결하도록 Visual Studio Code 구성
 
 1. 왼쪽의 **디버그** 창을 엽니다.
-2. 녹색 **디버깅 시작**(F5) 단추를 클릭합니다. Visual Studio 코드가 `launch.json` 파일을 엽니다.
+2. 녹색 **디버깅 시작**(F5) 단추를 클릭합니다. Visual Studio Code에 `launch.json` 파일이 열립니다.
 3. 다음 내용이 포함된 `launch.json` 파일을 업데이트합니다. `[device hostname or IP address]`를 실제 장치 IP 주소 또는 호스트 이름으로 바꿉니다.
 
    ``` json
@@ -140,7 +140,7 @@ Azure CLI를 사용하여 Azure IoT Hub 프로비저닝을 완료했고 IoT Hub�
 
 ### <a name="device-explorer"></a>장치 탐색기
 
-[장치 탐색기](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md)는 Windows 로컬 컴퓨터에서 실행되며 Azure의 IoT Hub에 연결합니다. 다음과 같은 [IoT Hub 끝점](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/)과 통신합니다.
+[장치 탐색기](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer)는 Windows 로컬 컴퓨터에서 실행되며 Azure의 IoT Hub에 연결합니다. 다음과 같은 [IoT Hub 끝점](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/)과 통신합니다.
 
 - 장치 ID 관리: IoT Hub에 등록된 장치를 프로비전하고 관리합니다.
 - 장치-클라우드 받기: 장치에서 IoT Hub로 보내는 메시지를 모니터링할 수 있습니다.
@@ -150,7 +150,7 @@ Azure CLI를 사용하여 Azure IoT Hub 프로비저닝을 완료했고 IoT Hub�
 
 ### <a name="iothub-explorer"></a>iothub-explorer
 
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md)는 장치 클라이언트를 관리하기 위한 샘플 다중 플랫폼 CLI 도구입니다. 이 도구를 사용하여 ID 레지스트리에서 장치를 관리하고, 장치-클라우드 메시지를 모니터링하고, 클라우드-장치 명령을 보낼 수 있습니다.
+[iothub-explorer](https://github.com/Azure/iothub-explorer)는 장치 클라이언트를 관리하기 위한 샘플 다중 플랫폼 CLI 도구입니다. 이 도구를 사용하여 ID 레지스트리에서 장치를 관리하고, 장치-클라우드 메시지를 모니터링하고, 클라우드-장치 명령을 보낼 수 있습니다.
 
 iothub-explorer 도구의 최신(시험판) 버전을 설치하려면 다음 명령을 실행합니다.
 
@@ -174,6 +174,6 @@ iothub-explorer help
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

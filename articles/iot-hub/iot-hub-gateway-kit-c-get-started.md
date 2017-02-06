@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: bda9854b5ed05eaaf71f4cbd98b51e3634c66450
+ms.sourcegitcommit: ab8f4f7bbb823cc56783a0cb39bb22157c74087f
+ms.openlocfilehash: fb45ef6239827ea2860b707b2bb5016ea680ad17
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: bda9854b5ed05eaaf71f4cbd98b51e3634c66450
 ***
 
 ## <a name="lesson-1-configure-your-nuc"></a>단원 1: NUC 구성
-![단원 1 종단간 다이어그램](media/iot-hub-gateway-kit-lessons/e2e-lesson1.png)
+![단원&1; 종단간 다이어그램](media/iot-hub-gateway-kit-lessons/e2e-lesson1.png)
 
 이 단원에서는 키트에 Intel NUC(Next Unit of Computing)를 Azure IoT Gateway로 설정하고 NUC에 Azure IoT Gateway SDK 패키지를 설치한 다음 샘플 앱을 실행하여 게이트웨이 기능을 확인합니다.
 
@@ -44,7 +44,7 @@ ms.openlocfilehash: bda9854b5ed05eaaf71f4cbd98b51e3634c66450
 [Intel NUC를 IoT Gateway로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)으로 이동
 
 ## <a name="lesson-2-create-your-iot-hub"></a>단원 2: IoT Hub 만들기
-![단원 2 종단간 다이어그램](media/iot-hub-gateway-kit-lessons/e2e-lesson2.png)
+![단원&2; 종단간 다이어그램](media/iot-hub-gateway-kit-lessons/e2e-lesson2.png)
 
 이 단원에서는 호스트 컴퓨터에 도구 및 소프트웨어를 설치합니다. 그런 다음 무료 Azure 계정을 만들고, Azure IoT Hub를 프로비전하며, IoT Hub에서 첫 번째 장치를 만듭니다.
 
@@ -106,9 +106,9 @@ Azure Resource Manager 템플릿을 사용하여 Azure 함수 앱 및 Azure Stor
 단원을 진행하는 동안 문제가 발생하면 [문제 해결](iot-hub-gateway-kit-c-troubleshooting.md) 문서에서 솔루션을 찾습니다.
 
 ## <a name="explore-more"></a>자세히 살펴보기
-자세한 내용은 [Intel IoT Gateway Kit 개발자 영역](https://software.intel.com/en-us/iot/hardware/gateways/dev-kit)을 참조하세요.
+자세한 내용은 [Intel IoT Gateway Kit 개발자 영역](http://software.intel.com/iot/microsoft-azure)을 참조하세요.
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

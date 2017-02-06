@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/09/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fc01f4dd55e1f933243bc23424b54767870374d1
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: b9c2308a85fb9a65e6e18b8c3b4373876c8d1f25
 
 
 ---
@@ -39,13 +39,15 @@ Azure 포털, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 * [**PowerBI 콘텐츠 팩**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 PowerBI에서 분석합니다.
 * [타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 **Event Hub**](monitoring-stream-activity-logs-event-hubs.md)로 스트림합니다.
 
+설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 저장소 계정 또는 이벤트 허브 네임스페이스는 로그를 내보내는 구독과 동일한 구독을 가지고 있지 않아도 됩니다.
+
 ## <a name="export-the-activity-log-with-log-profiles"></a>로그 프로필과 함께 활동 로그 내보내기
 **로그 프로필** 은 활동 로그를 내보내는 방식을 제어합니다. 로그 프로필을 사용하여 다음을 구성할 수 있습니다.
 
 * 활동 로그를 보낼 위치(저장소 계정 또는 이벤트 허브)
 * 보낼 이벤트 범주(쓰기, 삭제, 작업)
 * 내보낼 하위 지역(위치)
-* 저장소 계정에 활동 로그를 보존할 기간 - 0일의 보존 기간은 로그를 영원히 보관하는 것을 의미합니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다. 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 Event Hubs 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
+* 저장소 계정에 활동 로그를 보존할 기간 -&0;일의 보존 기간은 로그를 영원히 보관하는 것을 의미합니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다. 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 Event Hubs 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다. 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
 
 이러한 설정은 포털의 활동 로그 블레이드에서 "내보내기" 옵션을 통해 구성할 수 있습니다. [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlet 또는 CLI를 사용하여 프로그래밍 방식으로 구성할 수도 있습니다. 하나의 구독에는 하나의 로그 프로필만 포함할 수 있습니다.
 
@@ -216,7 +218,7 @@ azure insights logprofile delete --name my_log_profile
 | eventDataId |이벤트의 고유 식별자입니다. |
 | eventSource |이 이벤트를 생성한 Azure 서비스 또는 인프라의 이름입니다. |
 | httpRequest |Http 요청을 설명하는 Blob입니다. 일반적으로 "clientRequestId", "clientIpAddress" 및 "method"(PUT 등의 HTTP 메서드) 포함. |
-|  최소 수준 |이벤트의 수준입니다. 다음 값 중 하나: “Critical”, “Error”, “Warning”, “Informational” 및 “Verbose” |
+| 최소 수준 |이벤트의 수준입니다. 다음 값 중 하나: “Critical”, “Error”, “Warning”, “Informational” 및 “Verbose” |
 | resourceGroupName |영향을 받는 리소스의 리소스 그룹 이름입니다. |
 | resourceProviderName |영향을 받는 리소스의 리소스 공급자 이름입니다. |
 | resourceUri |영향을 받는 리소스의 리소스 ID입니다. |
@@ -231,12 +233,12 @@ azure insights logprofile delete --name my_log_profile
 | nextLink |결과가 여러 응답으로 세분화되는 경우 다음 결과 집합을 가져올 연속 토큰입니다. 일반적으로 200개가 넘는 레코드가 있는 경우 필요합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-* [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](../resource-group-audit.md)
+* [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](../azure-resource-manager/resource-group-audit.md)
 * [Azure 활동 로그를 이벤트 허브로 스트림](monitoring-stream-activity-logs-event-hubs.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 
