@@ -146,7 +146,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 * [고유한 암호를 업데이트하는 방법](active-directory-passwords-update-your-own-password.md)
 
-#### <a name="connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect(온-프레미스 디렉터리를 Azure Active Directory로 확장하는 동기화 엔진)
+#### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect(온-프레미스 디렉터리를 Azure Active Directory로 확장하는 동기화 엔진)
 **유형:** 일반 기능
 
 **가용성:**
@@ -273,7 +273,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 * [Azure Multi-Factor Authentication 정의](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="a-namemim-cal-mim-serveramim-cal-mim-server"></a><a name="mim-cal-mim-server"></a>MIM CAL + MIM 서버
+#### <a name="a-namemim-cal-mim-serveramim-cal--mim-server"></a><a name="mim-cal-mim-server"></a>MIM CAL + MIM 서버
 Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라이선스(모든 버전)와 함께 부여됩니다. Microsoft Identity Manager는 Windows Server 운영 체제에서 실행되기 때문에 서버가 Windows Server의 유효하고 라이선스가 부여된 복사본을 실행하는 한 Microsoft Identity Manager를 해당 서버에 설치하고 사용할 수 있습니다. Microsoft Identity Manager 서버에는 별도의 다른 라이선스가 필요하지 않습니다.
 
 **유형:** Premium 기능
@@ -333,7 +333,7 @@ Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라�
 |:---:|:---:|:---:|:---:|
 | &nbsp; | &nbsp; | ![확인][12] | &nbsp; |
 
-## <a name="azure-active-directory-join-windows-10-only-related-features"></a>Azure Active Directory 조인 – Windows 10 전용 관련 기능
+## <a name="azure-active-directory-join--windows-10-only--related-features"></a>Azure Active Directory 조인 – Windows 10 전용 관련 기능
 #### <a name="join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery"></a>장치를 Azure AD, 데스크톱 SSO, Azure AD용 Microsoft Passport, 관리자 BitLocker 복구에 조인
 **유형:** Azure Active Directory 조인 – Windows 10 전용 관련 기능
 

@@ -1,6 +1,6 @@
 ---
-title: "개발자 가이드 - 용어집 | Microsoft Docs"
-description: "IoT Hub와 관련된 일반적인 용어집"
+title: "Azure IoT Hub 용어 | Microsoft Docs"
+description: "개발자 가이드 - Azure IoT Hub와 관련된 일반적인 용어집"
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: d4bf4e03321255385dbb15d7559ea94f191183b5
+ms.sourcegitcommit: 1f795dd5b3d99731b2e683085d889ed7943d6281
+ms.openlocfilehash: 3661ad7374fd91cf7bbc485b8ce0805b78518899
 
 
 ---
@@ -42,7 +42,7 @@ ms.openlocfilehash: d4bf4e03321255385dbb15d7559ea94f191183b5
 [Microsoft Azure Portal](https://portal.azure.com)은 Azure 리소스를 프로비전 및 관리할 수 있는 중앙 위치입니다. _블레이드_를 사용하여 해당 콘텐츠를 구성합니다. 일부 IoT Hub 자습서에서는 [Azure 클래식 포털](https://manage.windowsazure.com)을 사용할지 묻는 메시지가 표시될 수 있습니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](../powershell-install-configure.md)은 Windows PowerShell로 Azure를 관리하는 데 사용할 수 있는 cmdlet 컬렉션입니다. cmdlet을 사용하여 Azure 플랫폼을 통해 제공되는 솔루션과 서비스를 만들고 테스트, 배포 및 관리할 수 있습니다.
+[Azure PowerShell](/powershell/azureps-cmdlets-docs)은 Windows PowerShell로 Azure를 관리하는 데 사용할 수 있는 cmdlet 컬렉션입니다. cmdlet을 사용하여 Azure 플랫폼을 통해 제공되는 솔루션과 서비스를 만들고 테스트, 배포 및 관리할 수 있습니다.
 
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
@@ -63,7 +63,9 @@ ms.openlocfilehash: d4bf4e03321255385dbb15d7559ea94f191183b5
 IoT Hub에서 연결된 장치로 전송되는 메시지를 참조하세요. 대개 이러한 메시지는 장치에 작업을 수행하도록 하는 명령입니다. 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
 
 ## <a name="connection-string"></a>연결 문자열
-앱 코드에서 연결 문자열을 사용하여 끝점에 연결하는 데 필요한 정보를 캡슐화할 수 있습니다. 일반적으로 연결 문자열에는 끝점의 주소와 보안 정보가 포함되지만 연결 문자열의 형식은 서비스 간에 다양합니다.
+앱 코드에서 연결 문자열을 사용하여 끝점에 연결하는 데 필요한 정보를 캡슐화할 수 있습니다. 일반적으로 연결 문자열에는 끝점의 주소와 보안 정보가 포함되지만 연결 문자열의 형식은 서비스 간에 다양합니다. IoT Hub 서비스와 연관된 연결 문자열에는 다음 두 종류가 있습니다.
+- *장치 연결 문자열*은 IoT hub의 장치 연결 끝점에 연결하는 장치를 사용하도록 설정합니다.
+- *IoT Hub 연결 문자열*은 IoT hub의 서비스 연결 끝점에 연결하는 백 엔드 앱을 사용하도록 설정합니다.
 
 ## <a name="custom-gateway"></a>사용자 지정 게이트웨이
 게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 장치의 연결이 가능합니다. [Azure IoT Gateway SDK](#azure-iot-gateway-sdk)를 사용하여 메시지 및 사용자 지정 프로토콜 변환을 처리하는 사용자 지정 논리를 구현하는 사용자 지정 게이트웨이를 빌드할 수 있습니다.
@@ -147,13 +149,13 @@ IoT Hub에 전송된 [장치-클라우드](#device-to-cloud) 메시지를 읽으
 [ID 레지스트리](iot-hub-devguide-identity-registry.md)는 IoT Hub에 연결이 허용된 개별 장치에 대한 정보를 저장하는 IoT Hub의 기본 제공 구성 요소입니다.
 
 ## <a name="interactive-message"></a>대화형 메시지
-대화형 메시지는 응용 프로그램 백 엔드에서 즉각적인 작업을 트리거하는 [클라우드-장치](#cloud-to-device) 메시지입니다. 예를 들어 장치는 CRM 시스템에 자동으로 로깅되는 실패에 대한 경보를 보낼 수 있습니다.
+대화형 메시지는 솔루션 백 엔드에서 즉각적인 작업을 트리거하는 [클라우드-장치](#cloud-to-device) 메시지입니다. 예를 들어 장치는 CRM 시스템에 자동으로 로깅되는 실패에 대한 경보를 보낼 수 있습니다.
 
 ## <a name="iot-hub"></a>IoT 허브
 IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 Azure 서비스입니다. 자세한 내용은 [Azure IoT Hub란?](iot-hub-what-is-iot-hub.md)을 참조하세요. [Azure 구독](#subscription)을 사용하여 IoT 메시징 워크로드를 처리하는 IoT Hub를 만들 수 있습니다.
 
 ## <a name="iot-hub-metrics"></a>IoT Hub 메트릭
-[IoT Hub 메트릭](iot-hub-metrics.md)은 [Azure 구독](#subscription)의 IoT Hub 상태에 대한 데이터를 제공합니다. 메트릭을 통해 서비스와 연결된 장치의 전반적인 상태를 평가할 수 있습니다. 메트릭을 통해 Azure 지원 센터에 문의할 필요 없이 IoT Hub의 상황을 파악하고 근본 원인을 조사할 수 있습니다.
+[IoT Hub 메트릭](iot-hub-metrics.md)은 [Azure 구독](#subscription)의 IoT Hub 상태에 대한 데이터를 제공합니다. IoT Hub 메트릭을 통해 서비스와 연결된 장치의 전반적인 상태를 평가할 수 있습니다. IoT Hub 메트릭을 통해 Azure 지원 센터에 문의할 필요 없이 IoT Hub의 상황을 파악하고 근본 원인을 조사할 수 있습니다.
 
 ## <a name="iot-hub-query-language"></a>IoT Hub 쿼리 언어
 [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)는 SQL과 유사한 언어로, [작업](#job) 및 장치 쌍을 쿼리할 수 있습니다.
@@ -224,8 +226,8 @@ Azure 구독에서는 청구가 이루어집니다. 생성한 각 Azure 서비�
 ## <a name="system-properties"></a>시스템 속성
 [장치 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 시스템 속성은 읽기 전용이며 마지막 작업 시간 및 연결 상태와 같은 장치 사용에 대한 정보를 포함합니다.
 
-## <a name="tags"></a>태그
-[장치 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 태그는 JSON 문서 형식으로 응용 프로그램 백 엔드에 의해 저장 및 검색되는 장치 메타데이터입니다. 태그는 장치 앱에 표시되지 않습니다.
+## <a name="tags"></a>태그들
+[장치 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 태그는 JSON 문서 형식으로 솔루션 백 엔드에 의해 저장 및 검색되는 장치 메타데이터입니다. 태그는 장치 앱에 표시되지 않습니다.
 
 ## <a name="telemetry"></a>원격 분석
 장치는 풍속 또는 온도와 같은 원격 분석 데이터를 수집하고 [데이터 요소 메시지](#data-point-messages)를 사용하여 IoT Hub에 원격 분석을 보냅니다.
@@ -237,6 +239,6 @@ Azure 구독에서는 청구가 이루어집니다. 생성한 각 Azure 서비�
 장치는 X.509 인증서를 사용하여 [IoT Hub](#iot-hub)와 인증을 수행할 수 있습니다. [SAS 토큰](#shared-access-signature)을 사용하는 대신 X.509 인증서를 사용합니다.
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 
