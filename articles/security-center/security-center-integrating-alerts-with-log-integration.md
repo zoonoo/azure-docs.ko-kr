@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2016
+ms.date: 12/09/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: f6436e7682c6fd9fdfb1c787a6040f5aa67ac8fa
-ms.openlocfilehash: 1d4506b59ebf13c1bdb7cebcc035a0230d79062d
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 32d26fa811f1b5b34981e40d20e6c941d5f08477
 
 
 ---
@@ -28,7 +28,7 @@ Azure 로그 통합은 HP ArcSight, Splunk, IBM QRadar 등과 함께 작동합�
 ## <a name="what-logs-can-i-integrate"></a>어떤 로그와 통합할 수 있나요?
 Azure에서는 모든 서비스에 대해 광범위한 로깅을 생성합니다. 이러한 로그는 다음과 같이 분류됩니다.
 
-* **컨트롤/관리 로그** - Azure Resource Manager CREATE, UPDATE 및 DELETE 작업에 대한 가시성을 제공합니다.
+* **컨트롤/관리 로그**- Azure Resource Manager CREATE, UPDATE 및 DELETE 작업에 대한 가시성을 제공합니다.
 * **데이터 평면 로그** - Azure 리소스를 사용할 때 발생하는 이벤트에 대한 가시성을 제공합니다. 예는 Windows 이벤트 로그이며 가상 컴퓨터의 보안 및 응용 프로그램 로그입니다.
 
 현재 Azure 로그 통합에서는 다음에 대한 통합을 지원합니다.
@@ -66,7 +66,7 @@ Azure 로그 통합 서비스는 서비스가 설치된 컴퓨터에서 원격 �
 3. **azlog authorize <SubscriptionID>** 명령을 실행하여 2단계에서 만든 서비스 주체에 구독에 대한 읽기 관리자 액세스를 할당합니다. **SubscriptionID**를 지정하지 않으면 서비스 주체에 액세스 권한이 있는 모든 구독에 대한 읽기 관리자 역할이 할당됩니다.
 
    > [!NOTE]
-   > **createazureid** 명령 직후 **authorize** 명령을 실행하면 Azure AD 계정이 생성되는 시간과 계정이 사용 가능해지는 시간 간에 약간의 대기 시간이 있으므로 경고가 표시될 수 있습니다. **createazureid** 명령을 실행한 후 **authorize** 명령을 실행하기 위해 약 10초 대기한 경우 이러한 경고가 표시되지 않습니다.
+   > **createazureid** 명령을 실행한 직후 **authorize** 명령을 실행하면 경고가 표시될 수 있습니다. Azure AD 계정이 생성되는 시점과 계정이 사용 가능하게 되는 시점 사이에 약간의 대기 시간에 있습니다. **createazureid** 명령을 실행하고 약 10초 대기한 후 **authorize** 명령을 실행하면 이러한 경고가 표시되지 않습니다.
    >
    >
 4. 다음 폴더에서 감사 로그 JSON 파일이 있는지 확인하세요.
@@ -84,7 +84,7 @@ Azure 로그 통합에 대한 질문이 있으면 [AzSIEMteam@microsoft.com](mai
 ## <a name="next-steps"></a>다음 단계
 Azure 감사 로그 및 속성 정의에 대해 자세히 알아보려면 다음을 참조하세요.
 
-* [리소스 관리자로 작업 감사](../resource-group-audit.md)
+* [리소스 관리자로 작업 감사](../azure-resource-manager/resource-group-audit.md)
 * [구독에서 관리 이벤트 나열](https://msdn.microsoft.com/library/azure/dn931934.aspx) - 감사 로그 이벤트를 검색합니다.
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
@@ -95,6 +95,6 @@ Azure 감사 로그 및 속성 정의에 대해 자세히 알아보려면 다음
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

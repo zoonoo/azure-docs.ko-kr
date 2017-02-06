@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: sngun; v-reagie
 translationtype: Human Translation
-ms.sourcegitcommit: 15a8ff89ae7a7d335c9d8584aaef0b21f092566f
-ms.openlocfilehash: f86942e399385efbb8c9cb6f250a8668fe260602
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: f5db3c68122185eabb2168d9be582c3e0b17f9ff
 
 
 ---
@@ -61,7 +61,7 @@ ms.openlocfilehash: f86942e399385efbb8c9cb6f250a8668fe260602
 
 **오류 원인:** Azure 계정에서 Multi-Factor Authentication을 사용하면 Azure Active Directory 사용자를 사용하여 Azure에 인증할 수 없습니다.  그 대신 인증서 또는 서비스 주체를 사용하여 Azure에 인증해야 합니다.
 
-**문제 해결 팁:** Azure 서비스 관리 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../resource-group-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../resource-group-authenticate-service-principal.md)을 참조하세요.
+**문제 해결 팁:** Azure 서비스 관리 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../azure-resource-manager/resource-group-authenticate-service-principal.md)을 참조하세요.
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Runbook을 사용할 때 발생하는 일반적인 오류
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>시나리오: 역직렬화된 개체로 인해 Runbook 실패
@@ -175,6 +175,6 @@ ms.openlocfilehash: f86942e399385efbb8c9cb6f250a8668fe260602
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

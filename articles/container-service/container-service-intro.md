@@ -11,14 +11,14 @@ keywords: "Docker, 컨테이너, 마이크로 서비스, Mesos, Azure"
 ms.assetid: 52da4163-1182-4b2e-be00-4951e5c1da16
 ms.service: container-service
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 12/20/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 3edc4bf663244805fc184d9598621b3fbca72d5d
-ms.openlocfilehash: 430f895a783cbbe6b7454ccd24c2dd8d99f6228b
+ms.sourcegitcommit: f8a2b63c381ceafb23b31697916796066ea549f9
+ms.openlocfilehash: d5652134cc2c660395cfb83a1a2727acf306f5e9
 
 
 ---
@@ -28,6 +28,10 @@ Azure 컨테이너 서비스를 사용하면 컨테이너화된 응용 프로그
 ![Azure 컨테이너 서비스는 Azure의 여러 호스트에서 컨테이너화된 응용 프로그램을 관리하는 방법을 제공합니다.](./media/acs-intro/acs-cluster-new.png)
 
 Azure 컨테이너 서비스는 Docker 컨테이너 형식을 활용하여 응용 프로그램 컨테이너가 완전히 이식 가능한지 확인합니다. 또한 Marathon 및 DC/OS, Docker Swarm 또는 Kubernetes 중에서 선택하여 이러한 응용 프로그램을 수천 또는 수만 개의 컨테이너로 확장할 수 있습니다.
+
+>[!NOTE]
+> Azure Container Service의 Kubernetes 지원은 현재 미리 보기로 제공됩니다.
+>
 
 Azure 컨테이너 서비스를 사용하면 오케스트레이션 계층의 이식성을 포함하여 응용 프로그램 이식성을 유지하면서 Azure의 엔터프라이즈급 기능을 활용할 수 있습니다.
 
@@ -93,7 +97,7 @@ Kubernetes는 자동화된 컨테이너 배포, 컨테이너화된 응용 프로
 
 
 
-## <a name="videos"></a>비디오
+## <a name="videos"></a>동영상
 Azure Container Service 시작(101):  
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Container-Service-101/player]
@@ -109,6 +113,6 @@ Azure Container Service를 사용하여 응용 프로그램 빌드(빌드 2016)
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

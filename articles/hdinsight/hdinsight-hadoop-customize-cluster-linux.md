@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/14/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 170f61a210bef470aa79dc75ebd096be9d847f70
-ms.openlocfilehash: 47d107441b0c0adfc9551545d524ea87ba1968c6
+ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
+ms.openlocfilehash: a7febd4af48a28daace9f267c8ddd1440cbedabf
 
 
 ---
@@ -66,7 +66,7 @@ HDInsight는 클러스터를 사용자 지정하는 사용자 지정 스크립�
 
     * HDInsight 클러스터에 대한 기본 또는 추가 저장소 계정인 **Blob 저장소 계정**. HDInsight는 클러스터를 만드는 동안 이러한 두 유형을 저장소 계정 모두에 대해 액세스 권한을 부여받으므로 public이 아닌 스크립트 작업을 사용할 수 있게 됩니다.
 
-    * https://review.docs.microsoft.com/en-us/azure/service-bus/?branch=master(예: Azure Blob, GitHub, OneDrive, Dropbox 등)
+    * Azure Blob, GitHub, OneDrive, Dropbox 등과 같은 https://docs.microsoft.com/en-us/azure/service-bus/입니다.
 
         Blob 컨테이너(공개적으로 읽을 수 있음)에 저장된 스크립트의 URI 예를 보려면 [예제 스크립트 작업 스크립트](#example-script-action-scripts) 섹션을 참조하세요.
 
@@ -154,12 +154,12 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
 
 | 이름 | 스크립트 |
 | --- | --- |
-| **Azure Storage 계정 추가** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh. [실행 중인 클러스터에 스크립트 작업 적용](#apply-a-script-action-to-a-running-cluster)을 참조하세요. |
+| **Azure Storage 계정 추가** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh. [HDInsight 클러스터에 추가 저장소 추가](hdinsight-hadoop-add-storage.md)를 참조하세요. |
 | **Hue 설치** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)을 참조하세요. |
 | **R 설치** |https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. [HDInsight 클러스터에서 R 설치 및 사용](hdinsight-hadoop-r-scripts-linux.md)을 참조하세요. |
 | **Solr 설치** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. [HDInsight 클러스터에서 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)을 참조하세요. |
 | **Giraph 설치** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)을 참조하세요. |
-| **Hive 라이브러리 사전 로드** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh.  [HDInsight 클러스터에서 Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md) |
+| **Hive 라이브러리 사전 로드** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. [HDInsight 클러스터에서 Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md) |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>클러스터를 만드는 동안 스크립트 작업 사용
 
@@ -191,9 +191,9 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
 
 #### <a name="before-you-begin"></a>시작하기 전에
 
-* HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
-* 템플릿을 만드는 방법에 대한 지침은 [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
-* 이전에 리소스 관리자에서 Azure PowerShell을 사용하지 않은 경우 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+* HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)을 참조하세요.
+* 템플릿을 만드는 방법에 대한 지침은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
+* 이전에 리소스 관리자에서 Azure PowerShell을 사용하지 않은 경우 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md)을 참조하세요.
 
 #### <a name="create-clusters-using-script-action"></a>스크립트 작업을 사용하여 클러스터 만들기
 
@@ -401,7 +401,7 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>클러스터를 만드는 동안 Azure PowerShell에서 스크립트 작업 사용
 
-이 섹션에서는 스크립트 작업을 통해 스크립트를 호출하여 클러스터를 사용자 지정하는 [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
+이 섹션에서는 스크립트 작업을 통해 스크립트를 호출하여 클러스터를 사용자 지정하는 [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 다음 단계를 수행합니다.
 
@@ -509,7 +509,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Azure PowerShell에서 실행 중인 클러스터에 스크립트 작업 적용
 
-계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
+계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 1. Azure PowerShell 콘솔을 열고 다음 정보를 사용하여 Azure 구독에 로그인한 후 일부 PowerShell 변수를 선언합니다.
 
@@ -755,11 +755,12 @@ Ambari 웹 UI를 사용하여 스크립트 작업에서 기록한 정보를 볼 
 * [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
 * [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)
 * [HDInsight 클러스터에 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)
+* [HDInsight 클러스터에 추가 저장소 추가](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

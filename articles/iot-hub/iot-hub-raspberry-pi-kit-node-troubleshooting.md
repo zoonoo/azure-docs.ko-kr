@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: c0ddd7e68accf28ee65ba70ea992acd413da6f5b
-ms.openlocfilehash: 6a617da5135a362a0d6a0670c55242d64b1bdd85
+ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
+ms.openlocfilehash: cd29c24c7c1a1bf3bc03543ffd7f0e9e33537edf
 
 
 ---
@@ -121,7 +121,7 @@ pip를 설치하는 경우 이전 패키지가 **su** 권한으로 설치되어 
 Azure CLI를 사용하여 Azure IoT Hub 프로비저닝을 완료했고 IoT Hub에 연결하는 장치를 관리할 도구가 필요하다면 다음 도구를 사용해 보세요.
 
 ### <a name="device-explorer"></a>장치 탐색기
-[장치 Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) 도구는 Windows 로컬 컴퓨터에서 실행되며 Azure의 IoT Hub에 연결합니다. 다음과 같은 [IoT Hub 끝점](iot-hub-devguide.md)과 통신합니다.
+[장치 Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) 도구는 Windows 로컬 컴퓨터에서 실행되며 Azure의 IoT Hub에 연결합니다. 다음과 같은 [IoT Hub 끝점](iot-hub-devguide.md)과 통신합니다.
 
 * *장치 ID 관리*: IoT Hub에 등록된 장치를 프로비전하고 관리합니다.
 * *장치-클라우드 받기*: 장치에서 IoT Hub로 보내는 메시지를 모니터링할 수 있습니다.
@@ -130,7 +130,7 @@ Azure CLI를 사용하여 Azure IoT Hub 프로비저닝을 완료했고 IoT Hub�
 모든 기능을 사용하도록 이 도구에서 IoT Hub 연결 문자열을 구성합니다.
 
 ### <a name="iothub-explorer"></a>iothub-explorer
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md)는 장치를 관리하기 위한 샘플 다중 플랫폼 CLI 도구입니다. 이 도구를 사용하여 ID 레지스트리에서 장치를 관리하고, 장치-클라우드 메시지를 모니터링하고, 클라우드-장치 메시지를 보낼 수 있습니다.
+[iothub-explorer](https://github.com/Azure/iothub-explorer)는 장치를 관리하기 위한 샘플 다중 플랫폼 CLI 도구입니다. 이 도구를 사용하여 ID 레지스트리에서 장치를 관리하고, 장치-클라우드 메시지를 모니터링하고, 클라우드-장치 메시지를 보낼 수 있습니다.
 
 iothub-explorer 도구의 최신(시험판) 버전을 설치하려면 명령줄 환경에서 다음 명령을 실행합니다.
 
@@ -153,6 +153,6 @@ iothub-explorer help
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 
