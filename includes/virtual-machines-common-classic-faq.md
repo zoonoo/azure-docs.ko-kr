@@ -48,7 +48,7 @@ Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX�
 
 가상 컴퓨터를 만들 때, 사용자가 원하는 가상 컴퓨터가 소속될 네트워크를 지정해야 합니다. 가상 네트워크에 기존 가상 컴퓨터를 가입할 수 없습니다. 그러나 기본 가상 컴퓨터에서 가상 하드 디스크(VHD)를 분리한 후, 사용자가 원하는 네트워킹 구성으로 새로운 가상 컴퓨터를 만들어서 이 문제를 해결할 수 있습니다.
 
-## <a name="how-can-i-access-my-virtual-machine"></a>나의 가상 컴퓨터에 액세스 하려면 어떻게 해야 합니까?
+## <a name="how-can-i-access--my-virtual-machine"></a>나의 가상 컴퓨터에 액세스 하려면 어떻게 해야 합니까?
 Linux VM에 대한 SSH(Secure Shell) 또는 Windows VM에 대한 원격 데스크톱 연결을 사용하여 가상 컴퓨터에 로그온 하기 위해서는 원격 연결을 구축해야 합니다. 자세한 내용은 다음을 참조하세요.
 
 * [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.  
