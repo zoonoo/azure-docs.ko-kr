@@ -160,6 +160,6 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

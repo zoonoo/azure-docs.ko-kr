@@ -58,6 +58,6 @@ Service Bus 아키텍처의 개요를 읽었으므로 자세한 내용은 다음
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 
