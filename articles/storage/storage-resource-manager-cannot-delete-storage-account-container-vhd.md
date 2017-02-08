@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/07/2017
 ms.author: genli
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -56,13 +56,13 @@ Resource Manager 배포의 저장소 계정을 삭제하려고 할 때 다음 �
 ### <a name="step-1-identify-the-problem-vhd-and-the-associated-vm"></a>1단계: 문제 VHD 및 연결된 VM 식별
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **허브** 메뉴에서 **모든 리소스**를 선택합니다. 삭제하려는 저장소 계정으로 이동한 다음 **Blobs** > **vhds**를 선택합니다.
-   
+
     ![저장소 계정 및 "vhds" 컨테이너가 강조 표시된 포털의 스크린샷](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
 3. 컨테이너에서 각 VHD의 속성을 확인합니다. **임대됨** 상태의 VHD를 찾습니다. 그런 다음 VHD를 사용 중인 VM을 결정합니다. 일반적으로 VHD의 이름을 확인하여 VHD를 유지하는 VM를 결정할 수 있습니다.
-   
+
    * OS 디스크는 일반적으로 VMNameYYYYMMDDHHMMSS.vhd 명명 규칙을 따릅니다.
    * 데이터 디스크는 일반적으로 VMName-YYYYMMDD-HHMMSS.vhd 명명 규칙을 따릅니다.
-     
+
      ![VM 이름, "잠겨 있음" 임대 상태와 "임대됨" 임대 상태가 강조 표시된 포털에서 컨테이너 정보의 스크린샷](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/locatevm.png)
 
 ### <a name="step-2-remove-the-lease-from-the-vhd"></a>2단계: VHD에서 임대 제거
@@ -96,7 +96,6 @@ VHD를 사용 중인 VM(데이터 디스크에 대한)에서 VHD를 분리하려
 ## <a name="next-steps"></a>다음 단계
 * [저장소 계정 삭제](storage-create-storage-account.md#delete-a-storage-account)
 * [Microsoft Azure(PowerShell)에서 Blob 저장소의 임대 잠금을 해제하는 방법](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
-
 
 
 
