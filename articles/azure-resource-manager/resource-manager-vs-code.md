@@ -32,7 +32,7 @@ VS Code에서 JSON 템플릿을 사용하려면 확장을 설치해야 합니다
 2. 빠른 열기 열기(Ctrl+P) 
 3. 다음 명령을 실행합니다. 
    
-        ext install azurerm-vscode-tools
+        ext install msazurermtools.azurerm-vscode-tools
 4. 확장을 사용할 수 있다는 메시지가 나타나면 VS Code를 다시 시작합니다. 
    
    작업을 완료했습니다!
