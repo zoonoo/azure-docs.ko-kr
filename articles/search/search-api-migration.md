@@ -15,14 +15,17 @@ ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 165ab7363efaf90eaab41098f71e2f1b846c346e
-ms.openlocfilehash: 5ac292729d236bd539e71ba431283ca417ea3980
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
 
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Azure Search 서비스 REST API 버전 2016-09-01로 업그레이드
 [Azure Search 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)의 2015-02-28 또는 2015-02-28-Preview 버전을 사용하는 경우 이 문서를 통해 일반적으로 다음 API 버전인 2016-09-01을 사용하기 위해 응용 프로그램을 업그레이드할 수 있습니다.
 
 REST API의 2016-09-01 버전에는 이전 버전에서 변경된 몇 가가지 포함되어 있습니다. 이는 대부분 이전 버전과 호환되기 때문에 이전에 사용하던 버전에 따라 간단히 코드를 변경할 수 있습니다. 새 API 버전을 사용하는 코드를 변경하는 방법에 대한 지침은 [업그레이드 단계](#UpgradeSteps) 를 참조하세요.
+
+> [!NOTE]
+> Azure Search 서비스 인스턴스는 최신 버전을 포함한 여러 REST API 버전을 지원합니다. 더 이상 최신 버전이 아닌 버전을 계속 사용할 수는 있지만 코드를 마이그레이션하여 최신 버전을 사용하는 것이 좋습니다.
 
 <a name="WhatsNew"></a>
 
@@ -67,6 +70,6 @@ Azure 검색을 이용해 주셔서 감사합니다!
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 
