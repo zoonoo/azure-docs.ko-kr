@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/05/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 7ae3af29a21611a4c6e7c8630d8fcea4f2baaf0b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0dafae2cf2c3972fc09ffc67f76f6757bcc641fa
 
 
 ---
@@ -114,20 +114,21 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 
 데이터 팩터리 서비스에서 만든 주문형 클러스터를 사용하는 경우 데이터 팩터리 서비스가 사용자를 대신해서 등록할 수 있도록 HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정합니다. 주문형 연결된 서비스에 대한 JSON 정의에서, 다음 JSON 조각과 같이 **additionalLinkedServiceNames** 속성을 사용하여 대체 저장소 계정을 지정합니다.
 
+```JSON
+{
+    "name": "MyHDInsightOnDemandLinkedService",
+    "properties":
     {
-        "name": "MyHDInsightOnDemandLinkedService",
-        "properties":
-        {
-            "type": "HDInsightOnDemandLinkedService",
-            "typeProperties": {
-                "clusterSize": 1,
-                "timeToLive": "00:01:00",
-                "linkedServiceName": "LinkedService-SampleData",
-                "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ]
-            }
+        "type": "HDInsightOnDemandLinkedService",
+        "typeProperties": {
+            "clusterSize": 1,
+            "timeToLive": "00:01:00",
+            "linkedServiceName": "LinkedService-SampleData",
+            "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ]
         }
     }
-
+}
+```
 위의 예제에서 otherLinkedServiceName1 및 otherLinkedServiceName2는 HDInsight 클러스터가 대체 저장소 계정에 액세스하는 데 필요한 자격 증명이 해당 정의에 포함된 연결된 서비스를 나타냅니다.
 
 ## <a name="slices---faq"></a>조각 - FAQ
@@ -148,13 +149,14 @@ dataset4(데이터 팩터리 1의 파이프라인 2에 의해 생성)를 사용�
 ### <a name="how-to-run-a-slice-at-another-time-than-midnight-when-the-slice-is-being-produced-daily"></a>조각이 매일 생성될 때 자정 이외의 다른 시간에 조각을 실행하는 방법은 무엇인가요?
 **offset** 속성을 사용하여 조각을 생성할 시간을 지정합니다. 이 속성에 대한 자세한 내용은 [데이터 집합 가용성](data-factory-create-datasets.md#Availability) 섹션을 참조하세요. 간단한 예제는 다음과 같습니다.
 
-    "availability":
-    {
-        "frequency": "Day",
-        "interval": 1,
-        "offset": "06:00:00"
-    }
-
+```json
+"availability":
+{
+    "frequency": "Day",
+    "interval": 1,
+    "offset": "06:00:00"
+}
+```
 기본값인 자정 대신 **오전 6시**에 시작하는 일별 조각입니다.     
 
 ### <a name="how-can-i-rerun-a-slice"></a>어떻게 조각을 다시 실행할 수 있나요?
@@ -164,8 +166,9 @@ dataset4(데이터 팩터리 1의 파이프라인 2에 의해 생성)를 사용�
 * Azure 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행**을 클릭합니다.
 * 조각의 상태를 **Waiting**으로 설정하여 **Set-AzureRmDataFactorySliceStatus** cmdlet을 실행합니다.   
 
-        Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
-
+    ```PowerShell
+    Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
+    ```
 cmdlet에 대한 자세한 내용은 [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status]를 참조하세요.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>조각을 처리하는 데 얼마나 오래 걸렸나요?
@@ -186,12 +189,12 @@ Azure 포털에서 다음을 수행할 수도 있습니다.
 모든 실행을 즉시 중지하려면 파이프라인을 삭제하고 다시 만들어야 합니다. 파이프라인을 삭제하도록 선택하는 경우 파이프라인에서 사용되는 테이블 및 연결된 서비스를 삭제할 필요는 없습니다.
 
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
-[msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
-[msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
+[msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
+[msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
+[adf-powershell-reference]: /powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/mt603522.aspx
+[set-azure-datafactory-slice-status]: /powershell/resourcemanager/azurerm.datafactories/v2.3.0/set-azurermdatafactoryslicestatus
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
@@ -200,6 +203,6 @@ Azure 포털에서 다음을 수행할 수도 있습니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

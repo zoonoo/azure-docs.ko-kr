@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory Domain Services 개요 | Microsoft Docs
-description: Azure Active Directory Azure Active Directory Domain Services 개요
+title: "Azure Active Directory Domain Services 개요 | Microsoft Docs"
+description: "Azure Active Directory Azure Active Directory Domain Services 개요"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c70e80c413d0637f956c43686df29b8073daaa3b
+
 
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD Domain Services
@@ -79,6 +83,9 @@ Azure AD 도메인 서비스를 사용하여 다음과 같은 이점을 누릴 �
 * **호환 가능** – Azure AD 도메인 서비스는 Windows Server Active Directory의 입증된 엔터프라이즈 등급 인프라에서 빌드되었습니다. 따라서 응용 프로그램은 Windows Server Active Directory 기능과 높은 수준으로 호환될 수 있습니다. Windows Server AD에서 사용할 수 있는 모든 기능을 현재 Azure AD 도메인 서비스에서 사용할 수 있습니다. 그러나 사용할 수 있는 기능은 온-프레미스 인프라에 의존하는 해당 Windows Server AD 기능과 호환 가능합니다. LDAP, Kerberos, NTLM, 그룹 정책 및 도메인 가입 기능은 다양한 Windows Server 릴리스에 대해 테스트되고 구체화되는 완성도 높은 제품을 구성합니다.
 * **비용 효율적** – Azure AD 도메인 서비스를 사용하면 기존의 디렉터리 인식 응용 프로그램을 지원하기 위해 ID 인프라를 관리와 연관된 인프라 및 관리 부담을 방지할 수 있습니다. 이러한 응용 프로그램을 Azure 인프라 서비스로 이동할 수 있으며 운영 비용 절감의 이점을 얻을 수 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 

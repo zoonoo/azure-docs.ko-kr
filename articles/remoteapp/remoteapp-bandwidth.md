@@ -1,24 +1,27 @@
-
 ---
-title: Azure RemoteApp 네트워크 대역폭 사용량 예측 | Microsoft Docs
-description: Azure RemoteApp 컬렉션 및 앱에 대한 네트워크 대역폭 요구 사항을 알아봅니다.
+title: "Azure RemoteApp 네트워크 대역폭 사용량 예측 | Microsoft Docs"
+description: "Azure RemoteApp 컬렉션 및 앱에 대한 네트워크 대역폭 요구 사항을 알아봅니다."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 3127f4c7-f532-46c3-ba9b-649f647abec1
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
+ms.openlocfilehash: 045410664ec70c846abbf32a36dcc8f70ac471be
+
 
 ---
-# Azure RemoteApp 네트워크 대역폭 사용량 예측
+# <a name="estimate-azure-remoteapp-network-bandwidth-usage"></a>Azure RemoteApp 네트워크 대역폭 사용량 예측
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -31,14 +34,19 @@ Azure RemoteApp은 RDP(원격 데스크톱 프로토콜)를 사용하여 Azure �
 고려할 요소, 기준선 권장 사항, 예측에 포함되지 않은 항목 등의 자세한 내용은 다음 문서를 확인하세요.
 
 * [네트워크 대역폭과 환경 품질을 함께 작동하는 방식은 무엇인가요?](remoteapp-bandwidthexperience.md)
-* [몇 가지 일반적인 시나리오로 네트워크 대역폭 사용량 테스트](remoteapp-bandwidthtests.md)
+* [몇 가지 일반적 시나리오로 네트워크 대역폭 사용량 테스트](remoteapp-bandwidthtests.md)
 * [테스트할 시간 또는 능력이 없는 경우의 빠른 지침](remoteapp-bandwidthguidelines.md)
 
-## 포함하지 않은 항목
+## <a name="what-are-we-not-including"></a>포함하지 않은 항목
 제안된 테스트와 전반적인(그리고 일반적인) 권장 사항을 고려할 때 여기에 포함되지 않은 몇 가지 요소가 있다는 점을 알아야 합니다. 예를 들어 업로드 대역폭과 다운로드 대역폭의 비대칭 특성으로 인한 사용자 환경의 복잡성입니다. 대부분의 Wi-Fi 네트워크의 비대칭 특성은 성능과 사용자 환경 인식에 추가적으로 영향을 줍니다. 대화형 시나리오의 경우 다운스트림 트래픽이 업스트림보다 우선 순위가 낮을 수 있으므로 손실되는 비디오 및 오디오 프레임 수가 증가할 수 있습니다. 따라서 스트리밍 환경에 대한 사용자 인식이 영향을 받을 수 있습니다. 직접 실험을 통해 특정 사용 사례 및 네트워크에 적합한지 확인할 수 있습니다.
 
 장치 리디렉션에 대해 다루지만 저장소, 프린터, 스캐너, 웹 카메라 및 기타 USB 장치와 같은 연결된 장치로 인한 네트워크 트래픽의 대역폭 영향은 고려하지 않았습니다. 이러한 장치는 일반적으로 대역폭 수요를 일시적으로 급증시키며 작업이 완료되면 효과가 사라집니다. 그러나 자주 수행되는 경우 대역폭 수요가 상당히 증가할 수 있습니다.
 
 동일한 네트워크에서 하나의 사용자가 다른 사용자에게 미칠 수 있는 영향도 고려하지 않았습니다. 예를 들어 하나의 사용자가 100MB/s 네트워크에서 4K 비디오를 사용하는 경우 같은 네트워크의 다른 사용자가 이와 동일한 작업을 수행하는 데 상당한 영향을 받을 수 있습니다. 시스템 성능에 대한 일반적이거나 포괄적인 접근 방식을 제공하기 위해 동시 사용의 영향을 확인하는 것이 점점 어려워지고 있습니다. 현재로서는 기본 프로토콜 기술이 사용 가능한 네트워크 대역폭 사용을 최적화하지만 이 기술에는 제한 사항이 있습니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

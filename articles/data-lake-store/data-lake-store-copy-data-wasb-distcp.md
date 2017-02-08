@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/28/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: dcab09385c6a664186d124ce3e042cc1fac82bd6
+ms.sourcegitcommit: f1c8c5b9bfa14b817efb635cf812242afaa70e35
+ms.openlocfilehash: d0475ff29da03d2c4a12e72e458175d03ce608fd
 
 
 ---
@@ -33,7 +33,7 @@ Data Lake Store 계정에 액세스할 수 있는 HDInsight 클러스터를 만�
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure 구독을 사용하도록 설정합니다** . [지침](data-lake-store-get-started-portal.md)을 참조하세요.
+* **Azure 데이터 레이크 저장소 계정**. 만드는 방법에 대한 지침은 [Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
 * **Azure HDInsight 클러스터** 입니다. [Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
 
 ## <a name="do-you-learn-fast-with-videos"></a>비디오로 빠르게 배우시겠습니까?
@@ -44,7 +44,7 @@ HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 �
 
 1. Windows 클러스터가 있으면 데이터 레이크 저장소 계정에 액세스할 수 있는 HDInsight 클러스터에 원격으로 연결합니다. 지침은 [RDP를 사용하여 클러스터에 연결](../hdinsight/hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)을 참조하세요. 클러스터 바탕 화면에서 Hadoop 명령줄을 엽니다.
 
-    Linux 클러스터가 있는 경우 SSH를 사용하여 클러스터에 연결합니다. [Linux 기반 HDInsight 클러스터에 연결](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)을 참조하세요. SSH 프롬프트에서 명령을 실행합니다.
+    Linux 클러스터가 있는 경우 SSH를 사용하여 클러스터에 연결합니다. [Linux 기반 HDInsight 클러스터에 연결](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect)을 참조하세요. SSH 프롬프트에서 명령을 실행합니다.
 2. Azure 저장소 Blob(WASB)에 액세스할 수 있는지 여부를 확인합니다. 다음 명령을 실행합니다.
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
@@ -66,6 +66,52 @@ HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 �
 
     이렇게 하면 Data Lake Store 계정에 있는 **/myfolder**의 콘텐츠를 WASB의 **/example/data/gutenberg/** 폴더에 복사합니다.
 
+## <a name="performance-considerations-while-using-distcp"></a>DistCp 사용에 대한 성능 고려 사항
+
+DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사본 수를 설정하는 것이 Data Lake Store에서 최적화할 가장 중요한 매개 변수입니다. 이것은 명령줄에서 매퍼 수(‘m’) 매개 변수를 설정하여 제어합니다. 이 매개 변수는 데이터를 복사하는 데 사용되는 최대 매퍼 수를 지정합니다. 기본값은 20입니다.
+
+**예제**
+
+    hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder -m 100
+
+### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>사용할 매퍼 수는 어떻게 확인하나요?
+
+다음은 사용할 수 있는 몇 가지 지침입니다.
+
+* **1단계: 전체 YARN 메모리 확인** - 첫 번째 단계는 DistCp 작업을 실행하는 클러스터에서 사용할 수 있는 YARN 메모리를 확인하는 것입니다. 이 정보는 클러스터와 연결된 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동한 후 Configs 탭에서 YARN 메모리를 확인합니다. 전체 YARN 메모리를 알려면 노드당 YARN 메모리와 클러스터에 있는 노드 수를 곱합니다.
+
+* **2단계: 매퍼 수 계산** - **m** 값은 전체 YARN 메모리를 YARN 컨테이너 크기로 나눈 몫과 같습니다. YARN 컨테이너 크기 정보도 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동한 후 Configs 탭을 확인합니다. 이 창에 YARN 컨테이너 크기가 표시됩니다. 매퍼 수(**m**)를 구하는 수식은 다음과 같습니다.
+
+        m = (number of nodes * YARN memory for each node) / YARN container size
+
+**예제**
+
+클러스터에 4개의 D14v2 노드가 있고 10개의 다른 폴더에서 10TB의 데이터를 전송하려고 한다고 가정해보겠습니다. 각 폴더에는 다양한 크기의 데이터가 포함되고 각 폴더 내의 파일 크기는 다릅니다.
+
+* 전체 YARN 메모리 - Ambari 포털에서 D14 노드 1개의 YARN 메모리가 96GB임을 확인할 수 있습니다. 따라서 4노드 클러스터의 전체 YARN 메모리는 다음과 같습니다. 
+
+        YARN memory = 4 * 96GB = 384GB
+
+* 매퍼 수 - Ambari 포털에서 D14 클러스터 노드 1개에 대한 YARN 컨테이너 크기는 3072임을 확인할 수 있습니다. 따라서 매퍼 수는 다음과 같습니다.
+
+        m = (4 nodes * 96GB) / 3072MB = 128 mappers
+
+다른 응용 프로그램에서 메모리를 사용하고 있으면 DistCp에 대한 클러스터 YARN 메모리 중에서 일부만 사용하도록 선택할 수 있습니다.
+
+### <a name="copying-large-datasets"></a>큰 데이터 집합 복사
+
+이동해야 하는 데이터 집합의 크기가 매우 큰 경우(예: 1TB 초과) 또는 많은 다른 폴더가 포함된 경우 여러 DistCp 작업을 사용하는 것을 고려해야 합니다. 성능이 좋아지지는 않을 수 있지만 작업이 분산되므로 한 작업이 실패해도 전체 작업이 아닌 해당 특정 작업만 다시 시작하면 됩니다.
+
+### <a name="limitations"></a>제한 사항
+
+* DistCp는 성능을 최적화하기 위해 크기가 서로 비슷한 매퍼를 만들려고 합니다. 매퍼 수를 늘린다고 항상 성능이 증가하는 것은 아닐 수 있습니다.
+
+* DistCp는 파일당 하나의 매퍼로 제한됩니다. 따라서 파일 개수보다 매퍼가 더 많지 않아야 합니다. DistCp는 파일에 하나의 매퍼를 할당하므로 큰 파일을 복사하는 데 사용할 수 있는 동시성 크기가 제한됩니다.
+
+* 적은 수의 큰 파일이 있는 경우 이러한 파일을 256MB 파일 청크로 나누면 동시성이 높아질 수 있습니다. 
+ 
+* Azure Blob Storage 계정에서 복사하는 경우 Blob Storage 쪽에서 복사 작업이 제한될 수도 있습니다. 이로 인해 복사 작업의 성능이 저하됩니다. Azure Blob Storage의 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한](../azure-subscription-service-limits.md)에서 Azure Storage 제한을 참조하세요.
+
 ## <a name="see-also"></a>참고 항목
 * [Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
 * [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
@@ -74,6 +120,6 @@ HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

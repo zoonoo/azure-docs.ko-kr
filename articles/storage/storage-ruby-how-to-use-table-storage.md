@@ -3,8 +3,8 @@ title: "Ruby에서 Azure 테이블 저장소를 사용하는 방법 | Microsoft 
 description: "Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다."
 services: storage
 documentationcenter: ruby
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: c05d8d244f22998113b0fa9c7508ecc287bdbd64
-ms.openlocfilehash: d43160bf1fa7dd08bb6c3fd5e2d0f3111134239b
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: e1df2fcf4478ef7f58c5686e85abd6ae94b5a2d3
 
 
 ---
@@ -62,15 +62,15 @@ Azure 포털의 클래식 또는 Resource Manager 저장소 계정에서 이러�
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 사용하려는 저장소 계정으로 이동합니다.
 3. 오른쪽의 설정 블레이드에서 **액세스 키**를 클릭합니다.
-4. 나타나는 액세스 키 블레이드에 액세스 키 1 및 액세스 키 2가 표시되어 있습니다. 이 둘 중 하나를 사용할 수 있습니다. 
-5. 복사 아이콘을 클릭하여 키를 클립보드에 복사합니다. 
+4. 나타나는 액세스 키 블레이드에 액세스 키 1 및 액세스 키 2가 표시되어 있습니다. 이 둘 중 하나를 사용할 수 있습니다.
+5. 복사 아이콘을 클릭하여 키를 클립보드에 복사합니다.
 
 클래식 Azure 포털의 클래식 저장소 계정에서 이러한 값을 가져오려면
 
-1. [클래식 Azure 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. 사용하려는 저장소 계정으로 이동합니다.
 3. 탐색 창 아래쪽에서 **액세스 키 관리** 를 클릭합니다.
-4. 팝업 대화 상자에 저장소 계정 이름, 기본 액세스 키 및 보조 액세스 키가 표시됩니다. 액세스 키의 경우 기본 액세스 키 또는 보조 액세스 키를 사용할 수 있습니다. 
+4. 팝업 대화 상자에 저장소 계정 이름, 기본 액세스 키 및 보조 액세스 키가 표시됩니다. 액세스 키의 경우 기본 액세스 키 또는 보조 액세스 키를 사용할 수 있습니다.
 5. 복사 아이콘을 클릭하여 키를 클립보드에 복사합니다.
 
 ## <a name="create-a-table"></a>테이블 만들기
@@ -143,8 +143,8 @@ result, token = azure_table_service.query_entities("testtable", query)
 
 > [!NOTE]
 > 단일 쿼리에서 반환할 결과 집합이 너무 크면 후속 페이지를 가져오는 데 사용할 수 있는 연속 토큰이 반환됩니다.
-> 
-> 
+>
+>
 
 ## <a name="query-a-subset-of-entity-properties"></a>엔터티 속성 하위 집합 쿼리
 테이블 쿼리에서는 엔터티에서 일부 속성만 검색할 수 있습니다. "프로젝션"이라고 하는 이 기술은 대역폭을 줄이며 특히 큰 엔터티에 대한 쿼리 성능을 향상시킬 수 있습니다. select 절을 사용하고 가져올 속성의 이름을 클라이언트에 전달합니다.
@@ -178,6 +178,6 @@ azure_table_service.delete_table("testtable")
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

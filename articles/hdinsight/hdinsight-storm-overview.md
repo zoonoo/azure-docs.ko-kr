@@ -236,6 +236,6 @@ HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

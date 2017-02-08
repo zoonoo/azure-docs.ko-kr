@@ -1,6 +1,6 @@
 ---
-title: "IoT 보안 모범 사례 | Microsoft Docs"
-description: "IoT 인프라 보호에 대한 보안 모범 사례"
+title: "Azure IoT 보안 모범 사례 | Microsoft Docs"
+description: "IoT 인프라 보안 유지를 위한 IoT 보안 모범 사례 솔루션 개발자, 솔루션 배포자 및 솔루션 연산자에 대한 권장 사항을 포함합니다."
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3cb4764b6c824790bf5864d2446435168db4d708
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: b5c3257f6e2134a3e7e7eb9b4a12b95ebb70535e
 
 
 ---
@@ -39,6 +39,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

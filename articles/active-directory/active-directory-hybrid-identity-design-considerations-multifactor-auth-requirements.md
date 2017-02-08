@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory 하이브리드 ID 디자인 고려 사항 - Multi-Factor Authentication 요구 사항 확인
-description: 조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 응용 프로그램에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 응용 프로그램에 대한 액세스가 허용됩니다.
-documentationcenter: ''
+title: "Azure Active Directory 하이브리드 ID 디자인 고려 사항 - Multi-Factor Authentication 요구 사항 확인"
+description: "조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 응용 프로그램에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 응용 프로그램에 대한 액세스가 허용됩니다."
+documentationcenter: 
 services: active-directory
 author: femila
 manager: billmath
-editor: ''
-
+editor: 
+ms.assetid: 9c59fda9-47d0-4c7e-b3e7-3575c29beabe
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,10 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4491d7385b9cfc2105e83f0e1099b68cde75feec
+
 
 ---
-# 하이브리드 ID 솔루션에 대한 다단계 인증 요구 사항 확인
-모바일 시대에서는 사용자가 모든 장치에서 클라우드에 있는 데이터 및 응용 프로그램에 액세스하므로 정보 보호가 가장 중요한 일이 되었습니다. 보안 위반에 관한 뉴스 헤드라인이 매일 바뀌고 있습니다. 보안 위반을 완벽하게 방지하는 대책은 없지만, 다단계 인증을 통해 보안 위반을 방지하는 보안을 강화할 수 있습니다. 다단계 인증에 대한 조직 요구 사항을 평가하고 시작하세요. 즉 조직에서 보호하려고 하는 대상이 무엇인지 확인하세요. 이 평가는 조직의 사용자가 다단계 인증을 설정하고 사용할 수 있도록 하는 기술 요구 사항을 정의하기 위해 중요합니다.
+# <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 다단계 인증 요구 사항 확인
+모바일 시대에서는 사용자가 모든 장치에서 클라우드에 있는 데이터 및 응용 프로그램에 액세스하므로 정보 보호가 가장 중요한 일이 되었습니다.  보안 위반에 관한 뉴스 헤드라인이 매일 바뀌고 있습니다.  보안 위반을 완벽하게 방지하는 대책은 없지만, 다단계 인증을 통해 보안 위반을 방지하는 보안을 강화할 수 있습니다.
+다단계 인증에 대한 조직 요구 사항을 평가하고 시작하세요. 즉 조직에서 보호하려고 하는 대상이 무엇인지 확인하세요.  이 평가는 조직의 사용자가 다단계 인증을 설정하고 사용할 수 있도록 하는 기술 요구 사항을 정의하기 위해 중요합니다.
 
 > [!NOTE]
 > MFA 및 그 기능에 대해 잘 모르는 경우 이 섹션을 계속하기 전에 [Azure Multi-Factor Authentication이란?](../multi-factor-authentication/multi-factor-authentication.md) 문서를 읽어보는 것이 좋습니다.
@@ -26,7 +31,7 @@ ms.author: billmath
 
 다음 질문에 답변하세요.
 
-* 회사가 Microsoft 앱을 보호하려고 하나요?
+* 회사가 Microsoft 앱을 보호하려고 하나요? 
 * 이러한 앱은 어떻게 게시되나요?
 * 회사에서 직원들이 온-프레미스 앱에 액세스할 수 있도록 원격 액세스를 제공하나요?
 
@@ -39,7 +44,7 @@ ms.author: billmath
 이러한 요구 사항을 이해했다면 다단계 인증에 대한 사용자의 요구 사항을 평가하는 것도 중요합니다. 이 평가는 다단계 인증을 롤아웃하기 위한 요구 사항을 정의하므로 중요합니다. 다음 질문에 답변하세요.
 
 * 사용자가 다단계 인증에 대해 잘 알고 있나요?
-* 일부 사용자는 추가 인증을 제공해야 하나요?
+* 일부 사용자는 추가 인증을 제공해야 하나요?  
   * 그렇다면 외부 네트워크에서 액세스하거나 특정 응용 프로그램에서 액세스하거나 기타 조건에서 액세스하는 경우는 언제인가요?
 * 사용자가 다단계 인증 설정 및 구현 방법에 대한 교육을 받아야 하나요?
 * 회사에서 사용자가 다단계 인증을 사용할 수 있도록 하려는 주요 시나리오는 무엇인가요?
@@ -51,10 +56,15 @@ ms.author: billmath
 * 회사가 이러한 응용 프로그램에 대해 자격이 있는 모든 사용자에 대해 MFA를 사용하도록 설정해야 하나요, 아니면 관리자에 대해서만 MFA를 사용하도록 설정해야 하나요?
 * MFA를 항상 사용하도록 설정해야 하나요, 아니면 사용자가 회사 네트워크 외부에서 로그인하는 경우에만 사용하도록 설정해야 하나요?
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 [하이브리드 ID 채택 전략 정의](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
-## 참고 항목
-[설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
+## <a name="see-also"></a>참고 항목
+[디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Dec16_HO5-->
+
+

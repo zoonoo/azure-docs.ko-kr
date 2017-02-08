@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a67f2e77d3bc7da35a03b68d7f32fd3a2a42bfcd
-ms.openlocfilehash: 1caf56d1d86d885673f4b40725777f302984dc1f
+ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
+ms.openlocfilehash: 1acc98f9688ced2e1cf177a881b28ce98c0bff9e
 
 
 ---
-# <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>AzCopy를 사용하여 Azure Blob 저장소의 데이터 이동
+# <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>AzCopy를 사용하여 Azure Blob Storage 간 데이터 이동
 AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 데이터 업로드, 다운로드 및 복사를 수행하도록 디자인된 명령줄 유틸리티입니다.
 
 AzCopy 설치 지침 및 Azure 플랫폼에서 사용하는 방법에 대한 추가 정보는 [AzCopy 명령줄 유틸리티 시작](../storage/storage-use-azcopy.md)을 참조하세요.
@@ -92,6 +92,6 @@ Azure 컨테이너 간 Blob을 전송하려면 다음 명령을 사용합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

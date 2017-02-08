@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/21/2016
 ms.author: v-jeana; hascipio; v-dabosl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3849aa88b5314d36a98d3caf5f3307e656e1a931
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
 
 
 ---
@@ -101,7 +101,7 @@ ms.openlocfilehash: 3849aa88b5314d36a98d3caf5f3307e656e1a931
 4. 추가 또는 제거할 공동 관리자의 메일 주소를 추가합니다.
 5. **저장**을 선택합니다.
 
-## <a name="next-steps-other-support-queries"></a>다음 단계: 기타 지원 쿼리
+## <a name="next-steps--other-support-queries"></a>다음 단계: 기타 지원 쿼리
 다음과 같은 문제는 [https://portal.azure.com](https://portal.azure.com)에서 문제를 기록하세요.
 
 * 대금 청구 오류를 보고하려면 어떻게 해야 하나요?
@@ -124,6 +124,6 @@ ms.openlocfilehash: 3849aa88b5314d36a98d3caf5f3307e656e1a931
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

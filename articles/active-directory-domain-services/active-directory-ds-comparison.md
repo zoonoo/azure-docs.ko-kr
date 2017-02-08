@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Domain Services: DIY 도메인 컨트롤러와 Azure AD Domain Services 비교 | Microsoft Docs'
-description: DIY 도메인 컨트롤러와 Azure Active Directory Domain Services 비교
+title: "Azure AD Domain Services: DIY 도메인 컨트롤러와 Azure AD Domain Services 비교 | Microsoft Docs"
+description: "DIY 도메인 컨트롤러와 Azure Active Directory Domain Services 비교"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 67575bbbb7d99ffeef3cb5dab74f4a68065bacc1
+
 
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Azure AD Domain Services가 사용 사례에 적합한지 결정하는 방법
@@ -87,7 +91,7 @@ Azure AD Domain Services를 구성하여 인터넷을 포함하여 관리되는 
 #### <a name="geo-dispersed-deployments"></a>지역 분산된 배포
 Azure AD Domain Services 관리되는 도메인은 Azure의 단일 가상 네트워크에서 사용할 수 있습니다. 도메인 컨트롤러를 전 세계 여러 Azure 지역에서 사용할 수 있어야 하는 시나리오의 경우 Azure IaaS VM에서 도메인 컨트롤러를 설정하는 것이 적절한 대안이 될 수 있습니다.
 
-## <a name="'do-it-yourself'-(diy)-ad-deployment-options"></a>DIY('직접') AD 배포 옵션
+## <a name="do-it-yourself-diy-ad-deployment-options"></a>DIY('직접') AD 배포 옵션
 Windows Server AD 설치에서 제공되는 기능 중 일부가 필요한 배포 사용 사례가 있을 수 있습니다. 이러한 경우에는 다음 DIY(직접) 옵션 중 하나를 고려해 보세요.
 
 * **독립 실행형 클라우드 도메인:** 도메인 컨트롤러로 구성된 Azure 가상 컴퓨터를 사용하여 독립 실행형 '클라우드 도메인'을 설정할 수 있습니다. 이 인프라는 온-프레미스 AD 환경과 통합되지 않습니다. 이 옵션에서는 다른 '클라우드 자격 증명' 집합이 로그인하거나 클라우드에서 VM을 관리해야 합니다.
@@ -106,6 +110,9 @@ Windows Server AD 설치에서 제공되는 기능 중 일부가 필요한 배�
 * [배포 시나리오 - Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 

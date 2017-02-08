@@ -123,7 +123,7 @@ Azure Portal은 검색 로그 파일을 포함하는 기본 Data Lake Store 계�
     U-SQL에 대한 자세한 내용은 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](http://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
 
 1. 위쪽에서 **작업 제출** 을 클릭합니다.   
-2. 작업 상태가 **Succeeded**로 바뀔 때까지 기다립니다. 작업을 완료하는 데 1분 정도 걸릴 수 있습니다.
+2. 작업 상태가 **Succeeded**로 바뀔 때까지 기다립니다. 작업을 완료하는 데&1;분 정도 걸릴 수 있습니다.
 
     작업이 실패한 경우 [Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)을 참조하세요.
 3. 블레이드의 아래쪽에서 **출력** 탭을 클릭하고 **SearchLog-from-Data-Lake.csv**를 클릭합니다. 출력 파일에 대한 미리 보기, 다운로드, 이름 변경, 삭제가 가능합니다.

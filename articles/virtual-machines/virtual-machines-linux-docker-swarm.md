@@ -16,15 +16,14 @@ ms.workload: infrastructure
 ms.date: 01/04/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 5cf20d5cccba235984b74a780ba63b0b69f7a20a
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 834bb8a60c3dcb2d0b50809ffb0e4780579b2cda
 
 
 ---
 # <a name="how-to-use-docker-with-swarm"></a>Docker 및 swarm을 사용하는 방법
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Docker Swarm를 배포하는 Resource Manager 템플릿은 [여기](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/)를 참조하세요.
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Docker Swarm를 배포하는 Resource Manager 템플릿은 [여기](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/)를 참조하세요.
 
 이 항목에서는 Azure에서 swarm 관리 클러스터를 만드는 데 [docker](https://www.docker.com/)와 [swarm](https://github.com/docker/swarm)을 사용하는 매우 간단한 방법을 보여 줍니다. 여기서는 Azure에서 가상 컴퓨터 4대를 만드는데, 그 중 하나는 swarm 관리자로 사용되고 나머지 3대는 Docker 호스트 클러스터에 포함됩니다. 작업을 완료한 후에는 swarm을 사용하여 클러스터를 확인한 다음 클러스터에서 Docker 사용을 시작할 수 있습니다. 또한 이 항목의 Azure CLI 호출은 서비스 관리(asm) 모드를 사용합니다. 
 
@@ -146,6 +145,6 @@ swarm에서 직접 코드를 실행해 보세요. 관련 지침은 [https://gith
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

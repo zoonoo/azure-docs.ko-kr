@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: 75c2b2a467a03b51519cad530bf3d03ed32c4300
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d5110a33e13802fd6e5e0f075c7d3ddd521a1ef9
 
 
 ---
@@ -120,7 +120,7 @@ UI의 도달률 섹션을 사용하면 복합 수식을 통해 푸시 알림을 
 콘텐츠 섹션을 사용하면 알림, 설문 조사, 데이터 푸시, 타일(Windows Phone 전용)의 콘텐츠를 수정할 수 있습니다. 푸시 캠페인의 콘텐츠 설정은 캠페인의 유형에 따라 다릅니다. 
 
 ### <a name="see-also"></a>참고 항목
-* [UI 설명서 - 도달률 - 푸시 콘텐츠][링크 29]
+* [UI 설명서 - 도달률 - 푸시 콘텐츠][Link 29]
 
 ![도달률 캠페인5][24]
 
@@ -136,7 +136,7 @@ UI의 도달률 섹션을 사용하면 복합 수식을 통해 푸시 알림을 
   대상을 정의한 후에는 시뮬레이트 단추를 사용하여 해당 푸시를 수신할 사용자의 수를 확인할 수 있습니다. 그러면 이 대상을 통해 대상으로 지정될 수 있는 알려진 사용자 수가 계산됩니다. 이 결과는 무작위 사용자 샘플을 기준으로 한 예상치입니다. 응용 프로그램을 제거한 사용자도 이 대상에 포함되기는 하지만 이러한 사용자에게는 푸시가 배달되지 않습니다.
 
 ### <a name="see-also"></a>참고 항목
-* [UI 설명서 - 도달률 - 새 푸시 기준][링크 28]
+* [UI 설명서 - 도달률 - 새 푸시 기준][Link 28]
 
 ![도달률 캠페인6][25]
 
@@ -158,7 +158,7 @@ UI의 도달률 섹션을 사용하면 복합 수식을 통해 푸시 알림을 
 > 종료 날짜가 없는 캠페인은 푸시를 로컬로 캐시할 수 있으므로 캠페인을 수동으로 종료한 후에도 푸시가 표시될 수 있습니다. 이 동작을 방지하려면이 캠페인에 대해 구체적인 종료 시간을 설정합니다.
 
 ### <a name="see-also"></a>참고 항목
-* [도달률 - 방법 - 예약][링크 3] 
+* [도달률 - 방법 - 예약][Link 3] 
 
 ![도달률 캠페인8][27]
 
@@ -172,7 +172,7 @@ UI의 도달률 섹션을 사용하면 복합 수식을 통해 푸시 알림을 
 > 푸시를 "테스트"하는 단추를 사용할 때는 서버 쪽 데이터가 기록되지 않으며 실제 푸시 캠페인에 대해서만 데이터기 기록됩니다.
 
 ### <a name="see-also"></a>참고 항목
-* [UI 설명서 - 내 계정][링크 14]
+* [UI 설명서 - 내 계정][Link 14]
 
 ![도달률 캠페인9][28]
 
@@ -237,39 +237,39 @@ UI의 도달률 섹션을 사용하면 복합 수식을 통해 푸시 알림을 
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[링크 1]: mobile-engagement-user-interface.md
-[링크 2]: mobile-engagement-troubleshooting-guide.md
-[링크 3]: mobile-engagement-how-tos.md
-[링크 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[링크 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[링크 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[링크 7]: https://account.windowsazure.com/PreviewFeatures
-[링크 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[링크 9]: http://azure.microsoft.com/services/mobile-engagement/
-[링크 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[링크 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[링크 12]: mobile-engagement-user-interface-navigation.md
-[링크 13]: mobile-engagement-user-interface-home.md
-[링크 14]: mobile-engagement-user-interface-my-account.md
-[링크 15]: mobile-engagement-user-interface-analytics.md
-[링크 16]: mobile-engagement-user-interface-monitor.md
-[링크 17]: mobile-engagement-user-interface-reach.md
-[링크 18]: mobile-engagement-user-interface-segments.md
-[링크 19]: mobile-engagement-user-interface-dashboard.md
-[링크 20]: mobile-engagement-user-interface-settings.md
-[링크 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[링크 22]: mobile-engagement-troubleshooting-guide-apis.md
-[링크 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[링크 24]: mobile-engagement-troubleshooting-guide-service.md
-[링크 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[링크 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[링크 27]: mobile-engagement-user-interface-reach-campaign.md
-[링크 28]: mobile-engagement-user-interface-reach-criterion.md
-[링크 29]: mobile-engagement-user-interface-reach-content.md
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-user-interface-reach-campaign.md
+[Link 28]: mobile-engagement-user-interface-reach-criterion.md
+[Link 29]: mobile-engagement-user-interface-reach-content.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

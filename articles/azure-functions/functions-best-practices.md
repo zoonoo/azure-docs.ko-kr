@@ -26,7 +26,7 @@ ms.openlocfilehash: 04a5e190a69b1a1a4d0fe6c49c16ddb15593ba38
 
 ##<a name="overview"></a>개요
 
-이 문서에서는 함수 앱 구현을 고려하는 사용자를 위해 여러 모범 사례를 모았습니다. Azure 함수 앱이 Azure App Service라는 것을 염두에 두어야 합니다. 그래야 이러한 모범 사례가 적용됩니다.  
+이 문서에서는 함수 앱 구현을 고려하는 사용자를 위해 여러 모범 사례를 모았습니다. Azure 함수 앱이 Azure App Service라는 것을 염두에 두어야 합니다. 그래야 이러한 모범 사례가 적용됩니다.
 
 
 ## <a name="avoid-large-long-running-functions"></a>큰 장기 실행 함수를 방지

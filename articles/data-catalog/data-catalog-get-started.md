@@ -366,6 +366,6 @@ Azure Data Catalog에서 개별 자산을 삭제하거나 여러 자산을 삭�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

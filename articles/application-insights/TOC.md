@@ -128,7 +128,7 @@
 
 # 참조
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
-## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [Java](/java/api/com.microsoft.applicationinsights)
 ## [REST (영문)](https://dev.applicationinsights.io/)
 
 # 리소스
@@ -153,6 +153,6 @@
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

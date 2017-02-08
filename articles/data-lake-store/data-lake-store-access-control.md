@@ -342,6 +342,6 @@ ACL의 항목은 Azure AD의 사용자에 해당하는 GUID로 저장됩니다. 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

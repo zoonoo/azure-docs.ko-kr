@@ -20,7 +20,7 @@ ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
 
 
 ---
-# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Azure Active Directory에 새 사용자 또는 Microsoft 계정이 있는 사용자 추가
+# <a name="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory"></a>Azure Active Directory에 새 사용자 또는 Microsoft 계정이 있는 사용자 추가
 사용자를 추가하여 디렉터리를 채웁니다. 이 문서에서는 조직 내에서 새 사용자를 추가하는 방법 및 Microsoft 계정이 있는 사용자를 추가하는 방법을 설명합니다. Azure Active Directory의 다른 디렉터리의 사용자 추가 또는 파트너 회사의 사용자 추가에 대한 자세한 내용은 [Azure Active Directory의 다른 디렉터리 또는 파트너 회사의 사용자 추가](active-directory-create-users-external.md)를 참조하세요. 기본적으로 추가된 사용자에게는 관리자 권한이 없지만 언제든 역할을 할당할 수 있습니다.
 
 ## <a name="add-a-user"></a>사용자 추가

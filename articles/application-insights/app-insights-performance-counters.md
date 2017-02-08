@@ -62,7 +62,7 @@ Application Insights 상태 모니터가 아직 서버 컴퓨터에 설치되지
    * 상태 모니터를 사용하여 런타임 시 웹앱을 계측한 경우 IIS에서 앱의 루트 디렉터리에 있는 ApplicationInsights.config를 찾습니다. 각 서버 인스턴스에서 해당 ApplicationInsights.config를 업데이트합니다.
 3. 다음과 같이 성능 수집기 지시문을 편집합니다.
    
-   ```XML
+```XML
    
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
       <Counters>
@@ -84,17 +84,23 @@ Application Insights 상태 모니터가 아직 서버 컴퓨터에 설치되지
 ### <a name="collecting-performance-counters-in-code"></a>코드에서 성능 카운터 수집
 시스템 성능 카운터를 수집하고 Application Insights에 보내려면 다음과 같은 코드 조각을 사용할 수 있습니다.
 
+
+``` C#
+
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+```
 
 또는 만든 사용자 지정 메트릭과 동일한 작업을 수행할 수 있습니다.
 
+``` C#
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(photo)\# Items Sold", "Photo sales"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+```
 
 ## <a name="performance-counters-in-analytics"></a>분석에서의 성능 카운터
 [분석](app-insights-analytics.md)에서 성능 카운터 보고서를 검색하고 표시할 수 있습니다.

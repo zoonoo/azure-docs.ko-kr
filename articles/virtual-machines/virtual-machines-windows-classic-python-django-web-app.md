@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/04/2015
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 6da2d82a2441f880ef3c1a27ea2778fa77c6d28d
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: bd3e269815628411ff51d0274eb8ba36f04e6fcb
 
 
 ---
@@ -30,15 +30,14 @@ ms.openlocfilehash: 6da2d82a2441f880ef3c1a27ea2778fa77c6d28d
 
 <br>
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Django를 배포하는 Resource Manager 템플릿은 [여기](https://azure.microsoft.com/documentation/templates/django-app/)를 참조하세요.
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Django를 배포하는 리소스 관리자 템플릿은 [여기](https://azure.microsoft.com/documentation/templates/django-app/)를 참조하세요.
 
 이 자습서에서는 Microsoft Azure에서 Windows Server 가상 컴퓨터를 사용하여 Django 기반 웹 사이트를 호스트하는 방법을 설명합니다. 이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 Django 기반 응용 프로그램을 실행할 수 있게 됩니다.
 
 다음 방법에 대해 알아봅니다.
 
-* Django를 호스트하도록 Azure 가상 컴퓨터 설정. 이 자습서에서는 Windows Server에서 설정하는 방법을 설명하지만 Azure에서 호스트되는 Linux VM에서도 같은 작업을 수행할 수 있습니다.
+* Django를 호스트하도록 Azure 가상 컴퓨터를 설정합니다. 이 자습서에서는 Windows Server에서 설정하는 방법을 설명하지만 Azure에서 호스트되는 Linux VM에서도 같은 작업을 수행할 수 있습니다.
 * Windows에서 새 Django 응용 프로그램 만들기
 
 이 자습서의 지침에 따라 간단한 Hello World 웹 응용 프로그램을 빌드할 수 있습니다. 응용 프로그램은 Azure 가상 컴퓨터에서 호스트됩니다.
@@ -171,12 +170,12 @@ Django를 배포하는 Resource Manager 템플릿은 [여기](https://azure.micr
 
 [port80]: ./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-port80.png
 
-[웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
+[Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,33 +12,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/13/2016
+ms.date: 11/17/2016
 ms.author: georgem
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 5c40b318be2503fe2ec05e9f2a5a09c46b88a0dc
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: df86e73814ceb0c5137c654bce84c8d42ae41820
 
 
 ---
 # <a name="azure-hybrid-use-benefit-for-windows-server"></a>Windows Server에 대한 Azure 하이브리드 사용 혜택
-Software Assurance와 함께 Windows Server를 사용하는 고객의 경우, 온-프레미스 Windows Server 라이선스를 Azure로 가져올 수 있으며 Azure에서 절감된 비용으로 Windows Server VM을 실행할 수 있습니다. Azure 하이브리드 사용 혜택을 사용하면 기본 계산 요금으로 Azure에서 Windows Server VM을 실행할 수 있습니다. 자세한 내용은 [Azure 하이브리드 사용 혜택 라이선싱 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요. 이 문서에서는 이 라이선싱 혜택을 사용하기 위해 Azure에서 Windows Server VM을 배포하는 방법을 설명합니다.
+Software Assurance와 함께 Windows Server를 사용하는 고객의 경우, 온-프레미스 Windows Server 라이선스를 Azure로 가져올 수 있으며 Azure에서 절감된 비용으로 Windows Server VM을 실행할 수 있습니다. Azure 하이브리드 사용 혜택을 사용하면 기본 계산 요금으로 Azure에서 Windows Server VM(Virtual Machines)을 실행할 수 있습니다. 자세한 내용은 [Azure 하이브리드 사용 혜택 라이선싱 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요. 이 문서에서는 이 라이선싱 혜택을 사용하기 위해 Azure에서 Windows Server VM을 배포하는 방법을 설명합니다.
 
-> [!NOTE]
-> Azure 하이브리드 사용 혜택을 사용하는 Windows Server VM을 배포하는 데 Azure 마켓플레이스 이미지를 사용할 수 없습니다. 기본 계산 요금을 할인 받을 수 있도록 VM을 올바르게 등록하려면 PowerShell 또는 리소스 관리자 템플릿을 사용하여 VM을 배포해야 합니다.
->
->
 
-## <a name="pre-requisites"></a>필수 구성 요소
-Azure에서 Windows Server VM에 대한 Azure 하이브리드 사용 혜택을 사용하려면 몇 가지 필수 조건이 있습니다.
+## <a name="ways-to-use-azure-hybrid-use-benefit"></a>Azure 하이브리드 사용 혜택을 사용하는 방법
+Azure 하이브리드 사용 혜택을 사용하여 Windows VM을 배포하는 몇 가지 다른 방법이 있습니다.
 
-* Azure PowerShell 모듈이 설치되어 있어야 합니다.
-* Windows Server VHD를 Azure 저장소에 업로드해야 합니다.
+1. 기업계약 구독이 있는 경우 Azure 하이브리드 사용 혜택으로 미리 구성되어 있는 [특정 Marketplace 이미지에서 VM을 배포](#deploy-a-vm-using-the-azure-marketplace)할 수 있습니다.
+2. 기업계약이 없는 경우 [사용자 지정 VM을 업로드](#upload-a-windows-server-vhd)하거나 [Resource Manager 템플릿](#deploy-a-vm-via-resource-manager) 또는 [Azure PowerShell을 사용하여 배포](#detailed-powershell-deployment-walkthrough)할 수 있습니다.
 
-### <a name="install-azure-powershell"></a>Azure PowerShell 설치
-먼저 [최신 Azure PowerShell을 설치 및 구성](../powershell-install-configure.md)했는지 확인합니다. Resource Manager 템플릿을 사용하여 VM을 배포하려는 경우에도 Windows Server VHD를 업로드하려면 Azure PowerShell을 설치해야 합니다(다음 단계 참조).
+## <a name="deploy-a-vm-using-the-azure-marketplace"></a>Azure Marketplace를 사용하여 VM 배포
+[기업계약 구독](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx)을 사용하는 고객은 Azure 하이브리드 사용 혜택으로 미리 구성된 Marketplace에서 이미지를 사용할 수 있습니다. 이러한 이미지는 Azure Portal, Resource Manager 템플릿 또는 Azure PowerShell 등에서 직접 배포할 수 있습니다. Marketplace의 이미지는 다음과 같이 `[HUB]` 이름으로 표시됩니다.
 
-### <a name="upload-a-windows-server-vhd"></a>Windows Server VHD 업로드
-Azure에서 Windows Server VM을 배포하려면 먼저 기본 Windows Server 빌드를 포함하는 VHD를 만들어야 합니다. 이 VHD는 Azure에 업로드하기 전에 Sysprep을 통해 적절하게 준비되어야 합니다. 자세한 내용은 [VHD 요구 사항 및 Sysprep 프로세스](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요. Sysprep를 실행하기 전에 VM을 백업합니다. VHD를 준비했으면 다음과 같이 `Add-AzureRmVhd` cmdlet을 사용하여 Azure 저장소 계정에 VHD를 업로드합니다.
+![Azure Marketplace에서 Azure 하이브리드 사용 혜택 이미지](./media/virtual-machines-windows-hybrid-use-benefit/ahub-images-portal.png)
+
+Azure Portal에서 직접 이러한 이미지를 배포할 수 있습니다. Resource Manager 템플릿 및 Azure PowerShell에서 사용하려면 다음과 같은 이미지 목록을 봅니다.
+
+```powershell
+Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
+    -Offer "WindowsServer-HUB"
+```
+
+기업계약 구독이 없는 경우 계속해서 사용자 지정 VM을 업로드하고 Azure 하이브리드 사용 혜택으로 배포하는 방법에 대한 지침을 읽습니다.
+
+
+## <a name="upload-a-windows-server-vhd"></a>Windows Server VHD 업로드
+Azure에서 Windows Server VM을 배포하려면 먼저 기본 Windows Server 빌드를 포함하는 VHD를 만들어야 합니다. 이 VHD는 Azure에 업로드하기 전에 Sysprep을 통해 적절하게 준비되어야 합니다. 자세한 내용은 [VHD 요구 사항 및 Sysprep 프로세스](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요. Sysprep를 실행하기 전에 VM을 백업합니다. 
+
+먼저 [최신 Azure PowerShell을 설치 및 구성](/powershell/azureps-cmdlets-docs)했는지 확인합니다. VHD를 준비했으면 다음과 같이 `Add-AzureRmVhd` cmdlet을 사용하여 Azure 저장소 계정에 VHD를 업로드합니다.
 
 ```powershell
 Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -52,22 +62,9 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 
 자세한 내용은 [Azure에 VHD 업로드 프로세스](virtual-machines-windows-upload-image.md#upload-the-vhd-to-your-storage-account)를 참조하세요.
 
-> [!TIP]
-> 이 문서에서는 Windows Server VM을 배포하는 방법을 중점적으로 설명합니다. 같은 방식으로 Windows 클라이언트 VM도 배포할 수 있습니다. 다음 예제에서 `Server`를 `Client`로 적절하게 바꿉니다.
->
->
 
-## <a name="deploy-a-vm-via-powershell-quick-start"></a>PowerShell 빠른 시작을 통해 VM 배포
-PowerShell을 통해 Windows Server VM을 배포할 때는 `-LicenseType`에 대한 추가 매개 변수가 있습니다. Azure에 VHD를 업로드하고 나면 다음과 같이 `New-AzureRmVM` 을 사용하여 새 VM을 만들고 라이선싱 형식을 지정합니다.
-
-```powershell
-New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Server"
-```
-
-아래에서 [PowerShell을 통해 Azure에서 VM을 배포하는 보다 자세한 연습을 확인](virtual-machines-windows-hybrid-use-benefit-licensing.md#detailed-powershell-walkthrough)하거나, [Resource Manager 및 PowerShell을 사용하여 Windows VM 만들기](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 수행하는 다른 단계에 대해 보다 자세히 설명하는 더 자세한 지침을 확인하세요.
-
-## <a name="deploy-a-vm-via-resource-manager"></a>리소스 관리자를 통해 VM 배포
-Resource Manager 템플릿 내에서 `licenseType` 에 대한 추가 매개 변수를 지정할 수 있습니다. [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있습니다. Azure에 VHD를 업로드하고 나면 Resource Manager 템플릿을 편집하여 계산 공급자의 일부로 라이선스 유형을 포함하고 정상적으로 템플릿을 배포합니다.
+## <a name="deploy-an-uploaded-vm-via-resource-manager"></a>Resource Manager를 통해 업로드된 VM 배포
+Resource Manager 템플릿 내에서 `licenseType` 에 대한 추가 매개 변수를 지정할 수 있습니다. [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있습니다. Azure에 VHD를 업로드하고 나면 Resource Manager 템플릿을 편집하여 계산 공급자의 일부로 라이선스 유형을 포함하고 정상적으로 템플릿을 배포합니다.
 
 ```json
 "properties": {  
@@ -77,6 +74,17 @@ Resource Manager 템플릿 내에서 `licenseType` 에 대한 추가 매개 변�
    },
 ```
 
+
+## <a name="deploy-an-uploaded-vm-via-powershell-quickstart"></a>PowerShell 빠른 시작을 통해 업로드된 VM 배포
+PowerShell을 통해 Windows Server VM을 배포할 때는 `-LicenseType`에 대한 추가 매개 변수가 있습니다. Azure에 VHD를 업로드하고 나면 다음과 같이 `New-AzureRmVM`을 사용하여 VM을 만들고 라이선싱 형식을 지정합니다.
+
+```powershell
+New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Server"
+```
+
+아래에서 [PowerShell을 통해 Azure에서 VM을 배포하는 보다 자세한 연습을 확인](virtual-machines-windows-hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough)하거나, [Resource Manager 및 PowerShell을 사용하여 Windows VM 만들기](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 수행하는 다른 단계에 대해 보다 자세히 설명하는 더 자세한 지침을 확인하세요.
+
+
 ## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>VM이 라이선싱 혜택을 사용하고 있는지 확인
 PowerShell 또는 Resource Manager 배포 메서드를 통해 VM을 배포한 후 다음과 같이 `Get-AzureRmVM` 을 사용하여 라이선스 형식을 확인합니다.
 
@@ -84,7 +92,7 @@ PowerShell 또는 Resource Manager 배포 메서드를 통해 VM을 배포한 �
 Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
-다음과 유사하게 출력됩니다.
+다음 예제와 유사하게 출력됩니다.
 
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
@@ -92,7 +100,7 @@ Location                 : westus
 LicenseType              : Windows_Server
 ```
 
-이는 Azure 갤러리에서 바로 배포된 VM과 같이 Azure 하이브리드 사용 혜택 라이선싱 없이 배포된 다음 VM과는 대조됩니다.
+이 출력은 Azure 갤러리에서 바로 배포된 VM과 같이 Azure 하이브리드 사용 혜택 라이선싱 없이 배포된 다음 VM과는 대조됩니다.
 
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
@@ -100,7 +108,7 @@ Location                 : westus
 LicenseType              :
 ```
 
-## <a name="detailed-powershell-walkthrough"></a>자세한 PowerShell 연습
+## <a name="detailed-powershell-deployment-walkthrough"></a>자세한 PowerShell 배포 연습
 다음 자세한 PowerShell 단계는 VM의 전체 배포를 보여 줍니다. [Resource Manager 및 PowerShell을 사용하여 Windows VM 만들기](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 만든 실제 cmdlet 및 다른 구성 요소에 대해 자세한 컨텍스트를 읽어볼 수 있습니다. 단계별로 리소스 그룹, 저장소 계정 및 가상 네트워킹을 만든 다음 VM을 정의하고 마지막으로 VM을 만듭니다.
 
 먼저 안전하게 자격 증명을 얻고, 위치를 설정하고, 리소스 그룹 이름을 지정합니다.
@@ -182,6 +190,6 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

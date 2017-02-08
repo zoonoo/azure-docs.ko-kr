@@ -12,7 +12,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 02/07/2017
 ms.author: genli
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -55,8 +55,8 @@ Windows에서는 이러한 병목 상태를 검색할 수 있는 [성능 모니�
 
 > [!NOTE]
 > 인프라가 가능한 원인으로 격리되면 더 나은 성능을 위해 주기적으로 디스크의 조각 모음을 수행하는 것이 좋습니다.
-> 
-> 
+>
+>
 
 <a id="cause2"></a>
 
@@ -87,7 +87,6 @@ VM에서 백업 에이전트를 실행하는 경우 실제 컴퓨터에서 실�
 
 * **UI에 데이터 전송 진행률이 표시됨**. 데이터가 여전히 전송 중입니다. 네트워크 대역폭 또는 데이터 크기로 인해 지연이 발생할 수 있습니다.
 * **UI에 데이터 전송 진행률이 표시되지 않음**. C:\Microsoft Azure Recovery Services Agent\Temp에 있는 로그를 열고 로그에서 FileProvider::EndData 항목을 확인합니다. 이 항목은 데이터 전송이 완료되었으며 카탈로그 작업이 진행 중임을 나타냅니다. 백업 작업을 취소하지 말고, 대신 카탈로그 작업가 끝날 때까지 좀 더 기다리세요. 문제가 지속되면 [Azure 지원](https://portal.azure.com/#create/Microsoft.Support)에 문의하세요.
-
 
 
 

@@ -3,7 +3,7 @@ title: "보안 경고를 구성하는 방법 | Microsoft Docs"
 description: "Azure Privileged Identity Management 확장에 대한 보안 경고를 구성하는 방법 배우기"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 4e0c911a-36c6-42a0-8f79-a01c03d2d04f
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/02/2016
-ms.author: kgremban
+ms.date: 02/03/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: dd8987a05c71643b49e0ac9e3c8ae43d47743225
@@ -59,7 +59,6 @@ PIM은 서로 다른 두 조건이 충족되고, 그 두 조건을 모두 구성
 
 * **일 수**: 사용자가 역할을 활성화하지 않고 지낼 수 있는 일 수를 0 과 100 사이에서 지정합니다.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

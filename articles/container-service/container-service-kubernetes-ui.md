@@ -8,7 +8,7 @@ manager: timlt
 editor: 
 tags: acs, azure-container-service, kubernetes
 keywords: 
-ms.assetid: what-goes-here?
+ms.assetid: 
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 translationtype: Human Translation
-ms.sourcegitcommit: ba0848c14344f137a7032a0098d2c1e07e387960
-ms.openlocfilehash: 6ede8e11361c9df2a83c71d97cf47e2306d25371
+ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
+ms.openlocfilehash: 9ae6e606bf215d9f53f725899b8ac7c466b781f1
 
 
 ---
@@ -27,6 +27,10 @@ ms.openlocfilehash: 6ede8e11361c9df2a83c71d97cf47e2306d25371
 
 ## <a name="prerequisites"></a>필수 조건
 이 연습에서는 [Azure Container Service를 사용하여 Kubernetes 클러스터를 만들었다고](container-service-kubernetes-walkthrough.md) 가정합니다.
+
+> [!NOTE]
+> Azure Container Service의 Kubernetes 지원은 현재 미리 보기로 제공됩니다.
+>
 
 또한 Azure CLI 및 kubectl 도구가 설치되어 있다고 가정합니다.
 
@@ -67,11 +71,11 @@ Kubernetes 웹 UI의 오른쪽 위에 있는 창에 '만들기' 단추를 표시
 ![Kubernetes 만들기 UI](media/k8s/create.png)
 
 응용 프로그램 만들기를 시작할 수 있는 대화 상자가 열립니다.
-이름 `hello-nginx`를 지정합니다. Docker의 [`nginx` 컨테이너](https://hub.docker.com/_/nginx/)를 사용하고 이 웹 서비스의 3개 복제본을 배포합니다.
+이름 `hello-nginx`를 지정합니다. Docker의 [`nginx` 컨테이너](https://hub.docker.com/_/nginx/)를 사용하고 이 웹 서비스의&3;개 복제본을 배포합니다.
 
 ![Kubernetes 포드 만들기 대화 상자](media/k8s/nginx.png)
 
-계속해서 '외부' Kubernetes 서비스를 만들어 트래픽 부하를 3개 복제본으로 분산합니다.  '외부'를 선택하고 포트 80을 입력합니다.
+계속해서 '외부' Kubernetes 서비스를 만들어 트래픽 부하를&3;개 복제본으로 분산합니다.  '외부'를 선택하고 포트 80을 입력합니다.
 
 ![Kubernetes 서비스 만들기 대화 상자](media/k8s/service.png)
 
@@ -125,7 +129,7 @@ UI에서 개체를 보는 것 외에, Kubernetes API 개체를 편집하고 업�
 
 `spec.replicas` 필드를 '2'로 편집하고 '업데이트'를 누릅니다.
 
-이렇게 하면 포드 중 하나가 삭제되어 삭제할 복제본 수가 2가 됩니다.
+이렇게 하면 포드 중 하나가 삭제되어 삭제할 복제본 수가&2;가 됩니다.
 
  
 

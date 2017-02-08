@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: f6e7cf0e9e2055df5f8a9fcf9ea49330a91be656
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: add307420b9e16a60b0e57b0ba08188b2509978e
 
 
 ---
@@ -28,7 +28,7 @@ Microsoft Translator에 연결하여 텍스트 번역, 언어 검색 등의 작�
 * Microsoft Translator에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
 * 텍스트 번역, 언어 검색 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 Dropbox에서 새 파일을 만든 경우 Microsoft Translator를 사용하여 파일의 텍스트를 다른 언어로 번역할 수 있습니다.
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+논리 앱에 작업을 추가하려면 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="triggers-and-actions"></a>트리거 및 작업
 Microsoft Translator에는 다음 작업이 포함됩니다. 트리거는 없습니다.
@@ -125,7 +125,7 @@ Microsoft Translator에서 지원되는 모든 언어를 검색합니다.
 | 이름 |string |no |
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 [API 목록](apis-list.md)으로 돌아갑니다.
 
@@ -135,6 +135,6 @@ Microsoft Translator에서 지원되는 모든 언어를 검색합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

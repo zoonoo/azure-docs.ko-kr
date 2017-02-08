@@ -1,27 +1,31 @@
 ---
-title: Azure Active Directory 감사 보고서 이벤트 | Microsoft Docs
-description: Azure Active Directory에서 확인하고 다운로드할 수 있는 감사된 이벤트
+title: "Azure Active Directory 감사 보고서 이벤트 | Microsoft Docs"
+description: "Azure Active Directory에서 확인하고 다운로드할 수 있는 감사된 이벤트"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 307eedf7-05bc-448d-a84d-bead5a4c5770
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2016
+ms.date: 12/14/2016
 ms.author: dhanyahk
+translationtype: Human Translation
+ms.sourcegitcommit: 6950072b8970dfc1b80674efe0be6cb7496fd5ce
+ms.openlocfilehash: 2dda60160bbcaa729bc8e5cec4f47efc10d120cf
+
 
 ---
-# Azure Active Directory 감사 보고서 이벤트
+# <a name="azure-active-directory-audit-report-events"></a>Azure Active Directory 감사 보고서 이벤트
 *이 설명서는 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)의 일부입니다.*
 
-Azure Active Directory 감사 보고서를 통해 고객은 자신의 Azure Active Directory에서 발생한 권한 있는 작업을 식별할 수 있습니다. 권한 있는 작업에는 권한 상승 변경(예: 역할 만들기 또는 암호 재설정), 정책 구성 변경(예: 암호 정책) 또는 디렉터리 구성 변경(예: 도메인 페더레이션 설정 변경)이 포함됩니다. 보고서는 이벤트 이름의 감사 레코드, 작업을 수행한 행위자, 변경으로 인한 영향을 받은 대상 리소스, 날짜 및 시간(UTC)을 제공합니다. 고객은 [감사 로그 보기](active-directory-reporting-azure-portal.md)에서 설명한 대로 [Azure 포털](https://portal.azure.com/)을 통해 Azure Active Directory의 감사 이벤트 목록을 검색할 수 있습니다.
+Azure Active Directory 감사 보고서를 통해 고객은 자신의 Azure Active Directory에서 발생한 권한 있는 작업을 식별할 수 있습니다. 권한 있는 작업에는 권한 상승 변경(예: 역할 만들기 또는 암호 재설정), 정책 구성 변경(예: 암호 정책) 또는 디렉터리 구성 변경(예: 도메인 페더레이션 설정 변경)이 포함됩니다. 보고서는 이벤트 이름의 감사 레코드, 작업을 수행한 행위자, 변경으로 인한 영향을 받은 대상 리소스, 날짜 및 시간(UTC)을 제공합니다. 고객은 [감사 로그 보기](active-directory-reporting-azure-portal.md)에서 설명한 대로 [Azure Portal](https://portal.azure.com/)을 통해 Azure Active Directory의 감사 이벤트 목록을 검색할 수 있습니다.
 
-## 감사 보고서 이벤트 목록
+## <a name="list-of-audit-report-events"></a>감사 보고서 이벤트 목록
 <!--- audit event descriptions should be in the past tense --->
 
 | 이벤트 | 이벤트 설명 |
@@ -33,17 +37,15 @@ Azure Active Directory 감사 보고서를 통해 고객은 자신의 Azure Acti
 | 사용자 암호 재설정 |디렉터리의 사용자에 대한 암호를 다시 설정합니다. |
 | 사용자 암호 변경 |디렉터리에 있는 사용자의 암호를 변경합니다. |
 | 사용자 라이선스 변경 |디렉터리의 사용자에게 할당된 라이선스를 변경합니다. 업데이트된 라이선스를 보려면 아래의 [사용자 업데이트](#update-user-attributes) 속성을 살펴보세요. |
-| 사용자 업데이트 |디렉터리의 사용자를 업데이트합니다. 업데이트할 수 있는 특성은 [아래에서 참조](#update-user-attributes)합니다. |
+| 사용자 업데이트 |디렉터리의 사용자를 업데이트합니다. [아래에서 참조](#update-user-attributes) 합니다. |
 | 사용자 암호 강제 변경 설정 |로그인 시 사용자가 강제로 암호를 변경하도록 하는 속성을 설정합니다. |
 | 사용자 자격 증명 업데이트 |사용자 암호 변경 |
 | **그룹 이벤트** | |
 | 그룹 추가 |디렉터리에 그룹 생성됨. |
-| 그룹 업데이트 |디렉터리에 그룹 업데이트됨. 업데이트된 그룹 속성을 보려면 아래 섹션의 [그룹 속성 감사됨](#update-group-attributes)을 참조하세요. |
+| 그룹 업데이트 |디렉터리에 그룹 업데이트됨. 업데이트된 그룹 속성을 보려면 아래 섹션의 [그룹 속성 감사됨](#update-group-attributes) 을 참조하세요. |
 | 그룹 삭제 |디렉터리에서 그룹 삭제됨. |
-| 그룹에 멤버 추가 |디렉터리에서 그룹에 멤버 추가됨. |
-| 그룹에서 멤버 제거 |디렉터리의 그룹에서 멤버 제거됨. |
 | CreateGroupSettings |생성된 그룹 설정 |
-| UpdateGroupSettings |그룹 설정을 업데이트했습니다. 업데이트된 그룹 설정을 보려면 아래 섹션의 [그룹 속성 감사됨](#update-group-attributes)을 참조하세요. |
+| UpdateGroupSettings |그룹 설정을 업데이트했습니다. 업데이트된 그룹 설정을 보려면 아래 섹션의 [그룹 속성 감사됨](#update-group-attributes) 을 참조하세요. |
 | DeleteGroupSettings |삭제된 그룹 설정 |
 | SetGroupLicense |그룹 라이선스를 설정합니다. |
 | SetGroupManagedBy |사용자에서 관리될 그룹 설정 |
@@ -56,29 +58,14 @@ Azure Active Directory 감사 보고서를 통해 고객은 자신의 Azure Acti
 | 서비스 주체 제거 |디렉터리에서 서비스 주체를 제거합니다. |
 | 서비스 주체 자격 증명 추가 |서비스 주체에 자격 증명을 추가합니다. |
 | 서비스 주체 자격 증명 제거 |서비스 주체에서 자격 증명을 제거합니다. |
-| 위임 항목 추가 |디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity)를 만들었습니다. |
-| 위임 항목 설정 |디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity)를 업데이트했습니다. |
-| 위임 항목 제거 |디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity)를 삭제했습니다. |
-| **역할 이벤트** | |
-| 역할에 역할 멤버 추가 |디렉터리 역할에 사용자를 추가합니다. |
-| 역할에서 역할 멤버 제거 |디렉터리 역할에서 사용자를 제거합니다. |
-| 회사 연락처 정보 설정 |회사 수준 연락처 기본 설정을 지정합니다. 여기에는 Microsoft 온라인 서비스에 대한 기술 관련 알림 및 마케팅을 위한 메일 주소가 포함됩니다. |
-| 위임 항목 추가 |디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity)를 만들었습니다. |
-| 위임 항목 설정 |디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity)를 업데이트했습니다. |
-| 위임 항목 제거 |디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity)를 삭제했습니다. |
-| AddSevicePrincipalOwner |서비스 주체에 소유자를 추가했습니다. |
-| RemoveSevicePrincipalOwner |서비스 주체에서 소유자를 제거했습니다. |
-| AddApplication |응용 프로그램을 추가합니다. |
-| UpdateApplication |응용 프로그램을 업데이트합니다. 업데이트된 앱 설정을 보려면 아래 섹션의 [응용 프로그램 속성 감사됨](#update-application-attributes)을 참조하세요. |
-| DeleteApplication |응용 프로그램을 삭제합니다. |
-| RestoreApplication |응용 프로그램을 복원합니다. |
-| AddApplicationOwner |응용 프로그램에 소유자를 추가합니다. |
-| RemoveApplicationOwner |응용 프로그램에서 소유자를 제거합니다. |
+| 위임 항목 추가 |디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) 를 만들었습니다. |
+| 위임 항목 설정 |디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) 를 업데이트했습니다. |
+| 위임 항목 제거 |디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) 를 삭제했습니다. |
 | **역할 이벤트** | |
 | 역할에 역할 멤버 추가 |디렉터리 역할에 사용자를 추가합니다. |
 | 역할에서 역할 멤버 제거 |디렉터리 역할에서 사용자를 제거합니다. |
 | AddRoleDefinition |역할 정의를 추가했습니다. |
-| UpdateRoleDefinition |역할 정의를 업데이트했습니다. 업데이트된 역할 설정을 보려면 아래 섹션의 [역할 정의 속성 감사됨](#update-role-definition-attributes)을 참조하세요. |
+| UpdateRoleDefinition |역할 정의를 업데이트했습니다. 업데이트된 역할 설정을 보려면 아래 섹션의 [역할 정의 속성 감사됨](#update-role-definition-attributes) 을 참조하세요. |
 | DeleteRoleDefinition |역할 정의를 삭제했습니다. |
 | AddRoleAssignmentToRoleDefinition |역할 정의에 역할 할당을 추가했습니다. |
 | RemoveRoleAssignmentFromRoleDefinition |역할 정의에서 역할 할당을 제거했습니다. |
@@ -88,10 +75,10 @@ Azure Active Directory 감사 보고서를 통해 고객은 자신의 Azure Acti
 | RemoveRoleScopedMemberFromRole |역할에서 범위가 지정된 멤버를 제거했습니다. |
 | **장치 이벤트(모든 새 이벤트)** | |
 | AddDevice |장치를 추가했습니다. |
-| UpdateDevice |장치를 업데이트했습니다. 업데이트된 장치 속성을 보려면 아래 섹션의 [장치 속성 감사됨](#update-device-attributes)을 참조하세요. |
+| UpdateDevice |장치를 업데이트했습니다. 업데이트된 장치 속성을 보려면 아래 섹션의 [장치 속성 감사됨](#update-device-attributes) 을 참조하세요. |
 | DeleteDevice |장치를 삭제했습니다. |
 | AddDeviceConfiguration |장치 구성을 추가했습니다. |
-| UpdateDeviceConfiguration |장치 구성을 업데이트했습니다. 업데이트된 장치 구성 속성을 보려면 아래 섹션의 [장치 구성 속성 감사됨](#update-device-configuration-attributes)을 참조하세요. |
+| UpdateDeviceConfiguration |장치 구성을 업데이트했습니다. 업데이트된 장치 구성 속성을 보려면 아래 섹션의 [장치 구성 속성 감사됨](#update-device-configuration-attributes) 을 참조하세요. |
 | DeleteDeviceConfiguration |장치 구성을 삭제했습니다. |
 | AddRegisteredOwner |장치에 등록된 소유자를 추가했습니다. |
 | AddRegisteredUsers |장치에 등록된 사용자를 추가했습니다. |
@@ -109,7 +96,7 @@ Azure Active Directory 감사 보고서를 통해 고객은 자신의 Azure Acti
 | 바이럴 사용자 만들기입니다. |사용자는 초대 상환에 의해 Azure AD의 기존 테넌트에서 만들어졌습니다. |
 | **관리 장치(모든 새 이벤트)** | |
 | AddAdministrativeUnit |관리 장치를 추가합니다. |
-| UpdateAdministrativeUnit |관리 장치를 업데이트합니다. 업데이트된 관리 장치 속성을 보려면 아래 섹션의 [관리 장치 속성 감사됨](#update-administrative-unit-attributes)을 참조하세요. |
+| UpdateAdministrativeUnit |관리 장치를 업데이트합니다. 업데이트된 관리 장치 속성을 보려면 아래 섹션의 [관리 장치 속성 감사됨](#update-administrative-unit-attributes) 을 참조하세요. |
 | DeleteAdministrativeUnit |관리 장치를 삭제합니다. |
 | AddMemberToAdministrativeUnit |관리 장치에 멤버를 추가합니다. |
 | RemoveMemberFromAdministrativeUnit |관리 장치에서 멤버를 제거합니다. |
@@ -119,7 +106,7 @@ Azure Active Directory 감사 보고서를 통해 고객은 자신의 Azure Acti
 | DemotePartner |파트너를 강등합니다. |
 | 회사에 도메인 추가 |디렉터리에 도메인을 추가합니다. |
 | 회사에서 도메인 제거 |디렉터리에서 도메인을 제거합니다. |
-| 도메인 업데이트 |디렉터리에서 도메인을 업데이트합니다. 업데이트된 도메인 속성을 보려면 아래 섹션의 [도메인 속성 감사됨](#update-domain-attributes)을 참조하세요. |
+| 도메인 업데이트 |디렉터리에서 도메인을 업데이트합니다. 업데이트된 도메인 속성을 보려면 아래 섹션의 [도메인 속성 감사됨](#update-domain-attributes) 을 참조하세요. |
 | 도메인 인증 설정 |회사의 기본 도메인 설정을 변경합니다. |
 | 회사 연락처 정보 설정 |회사 수준 연락처 기본 설정을 지정합니다. 여기에는 Microsoft 온라인 서비스에 대한 기술 관련 알림 및 마케팅을 위한 메일 주소가 포함됩니다. |
 | 도메인에 페더레이션 설정 지정 |도메인의 페더레이션 설정을 업데이트합니다. |
@@ -136,7 +123,7 @@ Azure Active Directory 감사 보고서를 통해 고객은 자신의 Azure Acti
 | SetDirectoryFeatureOnTenant |테넌트에 디렉터리 기능을 설정합니다. |
 | SetTenantLicenseProperties |테넌트 라이선스 속성을 설정합니다. |
 | CreateCompanySettings |회사 설정 만들기 |
-| UpdateCompanySettings |회사 설정을 업데이트합니다. 업데이트된 회사 속성을 보려면 아래 섹션의 [회사 속성 감사됨](#update-company-attributes)을 참조하세요. |
+| UpdateCompanySettings |회사 설정을 업데이트합니다. 업데이트된 회사 속성을 보려면 아래 섹션의 [회사 속성 감사됨](#update-company-attributes) 을 참조하세요. |
 | DeleteCompanySettings |회사 설정 삭제 |
 | SetAccidentalDeletionThreshold |실수로 인한 삭제 임계값을 설정합니다. |
 | SetRightsManagementProperties |권한 관리 속성을 설정합니다. |
@@ -152,12 +139,12 @@ Azure Active Directory 감사 보고서를 통해 고객은 자신의 Azure Acti
 | RemoveDefaultPolicyServicePrincipal |서비스 주체에서 정책을 제거합니다. |
 | RemovePolicyCredentials |정책 자격 증명을 제거합니다. |
 
-## 감사 보고서 보존
+## <a name="audit-report-retention"></a>감사 보고서 보존
 Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다. 보고서에 보존하는 방법에 대한 자세한 내용은 [Azure Active Directory 보고서 보존 정책](active-directory-reporting-retention.md)을 참조하세요.
 
-더 긴 보존 기간 동안 감사 이벤트를 저장하려는 고객은 Reporting API를 사용하여 별도의 데이터 저장소에 정기적으로 감사 이벤트를 저장할 수 있습니다. 자세한 내용은 [Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
+더 긴 보존 기간 동안 감사 이벤트를 저장하려는 고객은 Reporting API를 사용하여 별도의 데이터 저장소에 정기적으로 감사 이벤트를 저장할 수 있습니다. 자세한 내용은 [Reporting API 시작](active-directory-reporting-api-getting-started.md) 을 참조하세요.
 
-## 각 감사 이벤트에 포함된 속성
+## <a name="properties-included-with-each-audit-event"></a>각 감사 이벤트에 포함된 속성
 | 속성 | 설명 |
 | --- | --- |
 | 날짜 및 시간 |감사 이벤트가 발생한 날짜 및 시간 |
@@ -165,7 +152,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다. 보고�
 | 작업 |수행된 작업 |
 | 대상 |작업이 수행된 사용자 또는 서비스 주체 |
 
-## "업데이트 사용자" 특성
+## <a name="update-user-attributes"></a>"업데이트 사용자" 특성
 "사용자 업데이트" 감사 이벤트에는 업데이트된 사용자 특성에 대한 추가 정보가 포함됩니다. 특성마다 이전 값과 새 값이 모두 포함됩니다.
 
 | 특성 | 설명 |
@@ -188,7 +175,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다. 보고�
 | InviteReplyUrl |초대 수락 시 회신할 url의 목록입니다. |
 | InviteResources |사용자가 초대된 리소스의 목록입니다. |
 | LastDirSyncTime |권한이 있는 (고객, 온-프레미스) 디렉터리의 동기화로 인해 개체가 업데이트된 마지막 시간입니다. |
-| MSExchRemoteRecipientType |MSO 받는 사람 형식에 매핑합니다. 받는 사람 형식은 [MSO 받는 사람 형식] https://msdn.microsoft.com/library/microsoft.office.interop.outlook.recipient.type.aspx을(를) 참조하세요. |
+| MSExchRemoteRecipientType |MSO 받는 사람 형식에 매핑합니다. 받는 사람 유형은 MSO 받는 사람 유형(https://msdn.microsoft.com/library/microsoft.office.interop.outlook.recipient.type.aspx)을 참조하세요. |
 | PreferredDataLocation |사용자, 그룹, 연락처, 공용 폴더 또는 장치의 데이터에 대한 기본 설정된 위치입니다. |
 | ProxyAddresses |외부 메일 시스템에서 Exchange Server 받는 사람 개체가 인식되는 주소입니다. |
 | StsRefreshTokensValidFrom |새로 고침 토큰 해지 정보를 전달합니다. 이 시간 전에 발급된 STS 새로 고침 토큰은 만료된 것으로 간주됩니다. |
@@ -197,7 +184,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다. 보고�
 | UserStateChangedOn |UserState에 마지막으로 변경된 타임스탬프입니다. 수명 주기 워크플로를 트리거하는 데 사용됩니다. |
 | UserType |사용자의 유형입니다. 멤버(0), 게스트(1), 바이럴(2)입니다. |
 
-## "그룹 업데이트" 특성
+## <a name="update-group-attributes"></a>"그룹 업데이트" 특성
 | 특성 | 설명 |
 | --- | --- |
 | 분류 |통합 그룹(HBI, MBI 등)에 대한 분류입니다. |
@@ -219,7 +206,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다. 보고�
 | SecurityEnabled |그룹의 멤버 자격이 권한 부여 결정에 영향을 줄 수 있는지 여부를 나타냅니다. |
 | WellKnownObject |미리 정의된 집합 중 하나로 지정하여 디렉터리 개체를 표시합니다. |
 
-## "장치 업데이트" 특성
+## <a name="update-device-attributes"></a>"장치 업데이트" 특성
 | 특성 | 설명 |
 | --- | --- |
 | AccountEnabled |보안 주체가 인증할 수 있는지 여부를 나타냅니다. |
@@ -240,13 +227,13 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다. 보고�
 | IsManaged |이 특성은 클라우드 MDM에서 관리되는 장치를 나타내는 데 사용됩니다. |
 | LastDirSyncTime |권한이 있는 (고객, 온-프레미스) 디렉터리의 동기화로 인해 개체가 업데이트된 마지막 시간입니다. |
 
-## "장치 구성 업데이트" 특성
+## <a name="update-device-configuration-attributes"></a>"장치 구성 업데이트" 특성
 | 특성 | 설명 |
 | --- | --- |
 | MaximumRegistrationInactivityPeriod |제거를 위한 것으로 간주되기 전에 장치가 비활성화될 수 있는 최대 일 수입니다. |
 | RegistrationQuota |단일 사용자에 대해 허용되는 장치 등록 수를 제한하는 데 사용되는 정책입니다. |
 
-## "서비스 주체 구성 업데이트" 특성
+## <a name="update-service-principal-configuration-attributes"></a>"서비스 주체 구성 업데이트" 특성
 | 특성 | 설명 |
 | --- | --- |
 | AccountEnabled |보안 주체가 인증할 수 있는지 여부를 나타냅니다. |
@@ -254,12 +241,12 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다. 보고�
 | DisplayName |개체에 대한 표시 이름 |
 | ServicePrincipalName |이름이 응용 프로그램 클래스 값을 지정하고 기관이 서비스 주체에 대한 식별자를 지정하는 하나 이상의 호스트 이름[:포트] 또는 “이름"을 포함하는 “이름/기관"을 포함하는 서비스 주체 이름입니다. |
 
-## "앱 업데이트" 특성
+## <a name="update-app-attributes"></a>"앱 업데이트" 특성
 | 특성 | 설명 |
 | --- | --- |
 | AppAddress |서비스 주체에 할당된 주소(리디렉션 URL)의 집합입니다. |
 | AppId |앱의 응용 프로그램 ID |
-| AppIdentifierUri |응용 프로그램을 식별하는 응용 프로그램 URI입니다. 일반적으로 응용 프로그램 액세스 URL입니다. |
+| AppIdentifierUri |응용 프로그램을 식별하는 응용 프로그램 URI입니다.  일반적으로 응용 프로그램 액세스 URL입니다. |
 | AppLogoUrl |CDN에 저장된 응용 프로그램 로고 이미지에 대한 url입니다. |
 | AvailableToOtherTenants |응용 프로그램이 다중 테넌트 응용 프로그램(예: 다른 테넌트에서 사용할 수 있음)이면 True입니다. |
 | DisplayName |응용 프로그램 이름에 대한 표시 이름 |
@@ -272,7 +259,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다. 보고�
 | WebApp |True인 경우 이 응용 프로그램이 웹앱임을 나타냅니다. |
 | WwwHomepage |기본 웹 페이지입니다. |
 
-## "역할 업데이트" 특성
+## <a name="update-role-attributes"></a>"역할 업데이트" 특성
 | 특성 | 설명 |
 | --- | --- |
 | AppAddress |서비스 주체에 할당된 주소(리디렉션 URL)의 집합입니다. |
@@ -288,20 +275,20 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다. 보고�
 | ValidationError |해결할 개체 관리자 작업에서 속성 또는 링크와 관련된 일시적이지 않은 서비스 특정 오류를 설명하는 페더레이션된 서비스에 의해 게시된 정보입니다. |
 | WellKnownObject |미리 정의된 집합 중 하나로 지정하여 디렉터리 개체를 표시합니다. |
 
-## "역할 정의 업데이트" 특성
+## <a name="update-role-definition-attributes"></a>"역할 정의 업데이트" 특성
 | 특성 | 설명 |
 | --- | --- |
 | AssignableScopes |이 RoleDefinition을 보안 주체에 할당하는 경우 참조될 수 있는 권한 부여 범위의 컬렉션입니다. |
 | DisplayName |개체에 대한 표시 이름 |
 | GrantedPermissions |이 RoleDefinition에 의해 부여된 권한입니다. |
 
-## “관리 장치 업데이트” 특성
+## <a name="update-administrative-unit-attributes"></a>“관리 장치 업데이트” 특성
 | 특성 | 설명 |
 | --- | --- |
 | 설명 |이 속성은 관리 장치의 설명을 변경할 때 업데이트됩니다. |
 | DisplayName |이 속성은 관리 장치의 이름을 변경할 때 업데이트됩니다. |
 
-## "회사 업데이트" 특성
+## <a name="update-company-attributes"></a>"회사 업데이트" 특성
 | 특성 | 설명 |
 | --- | --- |
 | AllowedDataLocation |회사의 사용자가 프로비전되도록 허용되는 위치입니다. |
@@ -326,7 +313,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다. 보고�
 | TenantType |테넌트의 형식입니다. 이 값이 지정되지 않은 경우 테넌트는 Company입니다. 그렇지 않은 경우 가능한 값은 MicrosoftSupport (0), SyndicatePartner (1), BreadthPartner (2) BreadthPartnerDelegatedAdmin (3) ResellerPartnerDelegatedAdmin (4) ValueAddedResellerPartnerDelegatedAdmin (5)입니다. |
 | VerifiedDomain |DNS 도메인 이름 집합은 회사에 바인딩됩니다. |
 
-## "도메인 업데이트" 특성
+## <a name="update-domain-attributes"></a>"도메인 업데이트" 특성
 | 특성 | 설명 |
 | --- | --- |
 | Capabilities |있는 경우 도메인의 기능을 설명하는 비트 플래그입니다. |
@@ -337,6 +324,11 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다. 보고�
 | PasswordNotificationWindowDays |사용자에게 알리는 암호가 만료되기 전의 일 수입니다. |
 | PasswordValidityPeriodDays |암호를 변경해야 하기 전에 유효한 일 수입니다. |
 
-감사 레코드는 많은 규정 준수 규칙의 필수 컨트롤입니다. Azure Active Directory 감사 보고서를 사용하여 규정 준수 규칙을 충족하려는 고객은 보고서 세부 정보를 설명하는 데 도움이 되도록 내보낸 고객 감사 보고서의 복사본과 함께 이 도움말 항목의 복사본을 제출하는 것이 좋습니다. Azure에서 현재 충족하는 규정 준수 규칙을 알려고 하는 감사자는 직접 Microsoft Azure 보안 센터의 [규정 준수 페이지](https://azure.microsoft.com/support/trust-center/compliance/)로 안내하세요.
+감사 레코드는 많은 규정 준수 규칙의 필수 컨트롤입니다. Azure Active Directory 감사 보고서를 사용하여 규정 준수 규칙을 충족하려는 고객은 보고서 세부 정보를 설명하는 데 도움이 되도록 내보낸 고객 감사 보고서의 복사본과 함께 이 도움말 항목의 복사본을 제출하는 것이 좋습니다. Azure에서 현재 충족하는 규정 준수 규칙을 알려고 하는 감사자는 직접 Microsoft Azure 보안 센터의 [규정 준수 페이지](https://azure.microsoft.com/support/trust-center/compliance/) 로 안내하세요.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Dec16_HO5-->
+
+

@@ -3,7 +3,7 @@ title: "Machine Learning 알고리즘 선택 방법 | Microsoft Docs"
 description: "클러스터링, 분류 또는 회귀 실험에서 감독 및 자율 학습에 대한 Azure 기계 학습 알고리즘을 선택하는 방법입니다."
 services: machine-learning
 documentationcenter: 
-author: brohrer
+author: garyericson
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/09/2016
-ms.author: brohrer;garye
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 216152123e4a5c17ec93775adff9fd4c1eb18654
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f2593e5ddebdc3a44559f16739dc9a13881afcb2
 
 
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법
-"어떤 Machine Learning 알고리즘을 사용해야 하나요?"라는 질문에 대한 대답은  항상 "상황마다 다릅니다."입니다. 데이터의 크기, 품질 및 특성에 따라 다릅니다. 대답으로 수행할 작업에 따라 다릅니다. 수학 알고리즘을 사용 중인 컴퓨터를 위한 명령어로 변환하는 방법에 따라 다릅니다. 시간이 얼마나 있는지에 따라 다릅니다. 아무리 숙련된 과학자라고 해도 대부분의 과학자는 직접 시도해보기 전에는 어떤 알고리즘이 최적으로 수행된다고 단언할 수 없습니다.
+"어떤 기계 학습 알고리즘을 사용해야 하나요?"라는 질문에 대한 대답은 항상 "상황마다 다릅니다."입니다. 데이터의 크기, 품질 및 특성에 따라 다릅니다. 대답으로 수행할 작업에 따라 다릅니다. 수학 알고리즘을 사용 중인 컴퓨터를 위한 명령어로 변환하는 방법에 따라 다릅니다. 시간이 얼마나 있는지에 따라 다릅니다. 아무리 숙련된 과학자라고 해도 대부분의 과학자는 직접 시도해보기 전에는 어떤 알고리즘이 최적으로 수행된다고 단언할 수 없습니다.
 
 ## <a name="the-machine-learning-algorithm-cheat-sheet"></a>기계 학습 알고리즘 치트 시트
 **Microsoft Azure 기계 학습 알고리즘 치트 시트** 를 사용하면 알고리즘의 Microsoft Azure 기계 학습 라이브러리에서 예측 분석 솔루션에 대해 올바른 기계 학습 알고리즘을 선택할 수 있습니다.
@@ -56,7 +56,7 @@ ms.openlocfilehash: 216152123e4a5c17ec93775adff9fd4c1eb18654
 이는 널리 사용되고 유용한 기계 학습 유형입니다. 한 가지 예외를 제외하고, Azure 기계 학습의 모든 모듈은 감독 학습 알고리즘입니다. Azure 기계 학습 내에서는 분류, 회귀 및 이상 감지의 여러 특정 유형의 감독 학습이 표시됩니다.
 
 * **분류**. 범주를 예측하는 데 데이터를 사용하는 감독 학습을 분류라고도 합니다. '고양이' 또는 '개' 그림으로 이미지를 할당하는 경우가 해당합니다. 선택 항목이 두 가지뿐인 경우 **2클래스** 또는 **이항 분류**라고 합니다. NCAA March Madness(미국 대학농구 토너먼트전) 대회의 승자를 예측하는 경우처럼 더 많은 범주가 있는 경우 이 문제를 **다중 클래스 분류**라고 합니다.
-* **회귀**. 주가와 같은 값을 예측하는 경우 감독 학습을 회귀라고 합니다.
+* **회귀** 주가와 같은 값을 예측하는 경우 감독 학습을 회귀라고 합니다.
 * **이상 감지**. 단순히 비정상적인 데이터 요소를 식별하는 것이 목표인 경우도 있습니다. 예를 들어 이상 금융 거래 감지에서 매우 비정상적인 신용 카드 지출 패턴이 의심 대상입니다. 가능한 변형 형태는 너무 많지만 학습 예제는 극히 적으므로 사기성 활동의 형태를 학습하기는 쉽지 않습니다. 이상 감지를 수행하는 방법은 단순히 정상적인 활동의 형태(사기성이 없는 과거 트랜잭션 사용)를 학습하고 여기에서 크게 벗어나는 활동을 식별하는 것입니다.
 
 ### <a name="unsupervised"></a>자율
@@ -234,6 +234,6 @@ Microsoft Research의 John Langford가 시작하여 진행한 VW는 스톡 카 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Azure 마켓플레이스 사용량 기준 보고서 및 판매자 통찰력 보고 이해 | Microsoft Docs
-description: Azure 마켓플레이스의 판매자는 판매자 통찰력 보고서라고도 하는 사용량 기준 보고서를 이해해야 합니다.
+title: "Azure Marketplace 사용량 기준 보고서 및 판매자 통찰력 보고 이해 | Microsoft Docs"
+description: "Azure 마켓플레이스의 판매자는 판매자 통찰력 보고서라고도 하는 사용량 기준 보고서를 이해해야 합니다."
 services: Azure Marketplace
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: f1ffde66-98f0-4c3e-ad94-fee1f97cae03
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2016
-ms.author: v-jeana; hascipio
+ms.date: 10/03/2016
+ms.author: v-jeana; hascipio; v-dabosl
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 408394e529c262c0a47aae680c8f6ea1bc8eb7c6
+
 
 ---
 # <a name="understand-your-seller-insights-report"></a>판매자 통찰력 보고서 이해
@@ -26,7 +30,7 @@ ms.author: v-jeana; hascipio
 * **환영 메일:** 새 게시자인 경우 판매자 통찰력 월별 보고서 수신을 시작한다는 내용의 환영 메일을 받게 됩니다.
 * **월별 판매 보고서:** 사용량이 있는 경우 보고서 및 암호에 액세스하는 방법에 대한 지침이 포함된 두 번째 메일을 받게 됩니다.
   
-  * 사용량이 발생하는 VM 또는 사용량 기준 청구 개발자 서비스 SKU가 있는 경우 월간 보고서에 주문, 사용량, 시장 및 비BYOL(사용자 라이선스 필요) 제품에 대한 고객 세부 정보 등이 표시됩니다.
+  * 사용량이 발생하는 VM 또는 사용량 기준 청구 개발자 서비스 SKU가 있는 경우 월간 보고서에 주문, 사용량, 시장 및 제품에 대한 고객 세부 정보 등이 표시됩니다.
   * 보고서는 고객의 데이터를 보호하기 위해 사용자와 Microsoft만 알고 있는 암호로 잠겨 있습니다.
   * Microsoft는 해당 월에 제품에 대한 사용량이 발생하지 않은 경우 보고서를 전송하지 않습니다.
 
@@ -113,6 +117,6 @@ URL에서 게시자 ID를 찾습니다.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -7,6 +7,7 @@ manager: jhubbard
 author: ddove
 ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
 ms.service: sql-database
+ms.custom: elastic
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 92a986e9a5ff736408d1221143d38b117eab437f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4b40c4655efc029f7e16653302b606a96c0260a9
 
 
 ---
@@ -31,7 +32,7 @@ ms.openlocfilehash: 92a986e9a5ff736408d1221143d38b117eab437f
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. 무료 평가판에 대한 내용은 [무료 1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * 탄력적 데이터베이스 도구로 만든 데이터 집합. [탄력적 데이터베이스 도구 시작하기](sql-database-elastic-scale-get-started.md)를 참조하세요.
-* Azure PowerShell. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+* Azure PowerShell. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 * **탄력적 데이터베이스 작업** PowerShell 패키지: [Installing 탄력적 데이터베이스 작업](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Azure 구독 선택
@@ -651,6 +652,6 @@ DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.micro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

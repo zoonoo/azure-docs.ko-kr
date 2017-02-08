@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/02/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 70a4c5ee79a5c74d63d461371f70b49a23d5cf25
+ms.sourcegitcommit: 1116ae1c699f59b7f75f25bed105a53b508801b2
+ms.openlocfilehash: f3fd30791d9110ec0a72e9ec9e51b5e762020fe7
 
 
 ---
@@ -91,7 +91,7 @@ SAS 토큰의 [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servi
 구성을 설명하고 SAS 권한 부여를 사용하는 서비스 버스 응용 프로그램의 작업 샘플 전체는 [서비스 버스를 사용하여 공유 액세스 서명 인증](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8)을 참조하세요. 서비스 버스 구독을 보호하기 위해 네임스페이스 또는 항목에 구성된 SAS 권한 부여 규칙의 사용 방법을 설명하는 관련된 샘플은 [서비스 버스 구독으로 공유 액세스 서명(SAS) 사용](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c)에서 사용 가능합니다..
 
 ## <a name="access-shared-access-authorization-rules-on-a-namespace"></a>네임스페이스에 대한 공유 액세스 권한 부여 규칙 액세스
-서비스 버스 네임스페이스 루트에 대한 작업은 인증서 인증이 필요합니다. Azure 구독에 대한 관리 인증서를 업로드해야 합니다. 관리 인증서를 업로드하려면 [설정][설정]의 왼쪽 창에서 **설정**을 클릭합니다. Azure 관리 인증서에 대한 자세한 내용은 [Azure 인증서 개요](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates)를 참조하세요.
+서비스 버스 네임스페이스 루트에 대한 작업은 인증서 인증이 필요합니다. Azure 구독에 대한 관리 인증서를 업로드해야 합니다. 관리 인증서를 업로드하려면 [Azure 클래식 포털][Azure classic portal]의 왼쪽 창에서 **설정**을 클릭합니다. Azure 관리 인증서에 대한 자세한 내용은 [Azure 인증서 개요](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates)를 참조하세요.
 
 서비스 버스 네임스페이스에 대한 공유 액세스 권한 부여 규칙에 액세스하기 위한 끝점은 다음과 같습니다.
 
@@ -208,7 +208,7 @@ sendClient.Send(helloMessage);
 | 큐 만들기 |관리 |네임스페이스 주소 |
 | 큐 삭제 |관리 |유효한 큐 주소 |
 | 큐 열거 |관리 |/$Resources/Queues |
-| 큐 설명 가져오기 |관리 또는 보내기 |유효한 큐 주소 |
+| 큐 설명 가져오기 |관리 |유효한 큐 주소 |
 | 큐에서 권한 부여 규칙 구성 |관리 |유효한 큐 주소 |
 | 큐로 보내기 |보내기 |유효한 큐 주소 |
 | 큐에서 메시지 받기 |수신 대기 |유효한 큐 주소 |
@@ -221,14 +221,14 @@ sendClient.Send(helloMessage);
 | 토픽 만들기 |관리 |네임스페이스 주소 |
 | 항목 삭제 |관리 |유효한 항목 주소 |
 | 항목 열거 |관리 |/$Resources/Topics |
-| 항목 설명 가져오기 |관리 또는 보내기 |유효한 항목 주소 |
+| 항목 설명 가져오기 |관리 |유효한 항목 주소 |
 | 항목에서 권한 부여 규칙 구성 |관리 |유효한 항목 주소 |
 | 항목으로 보내기 |보내기 |유효한 항목 주소 |
 | **구독** | | |
 | 구독 만들기 |관리 |네임스페이스 주소 |
 | 구독 삭제 |관리 |../myTopic/Subscriptions/mySubscription |
 | 구독 열거 |관리 |../myTopic/Subscriptions |
-| 구독 설명 가져오기 |관리 또는 수신 |../myTopic/Subscriptions/mySubscription |
+| 구독 설명 가져오기 |관리 |../myTopic/Subscriptions/mySubscription |
 | 메시지 보기-잠금 모드에서 메시지를 받은 후에 중단 또는 완료 |수신 대기 |../myTopic/Subscriptions/mySubscription |
 | 나중에 검색에 대한 메시지 연기 |수신 대기 |../myTopic/Subscriptions/mySubscription |
 | 메시지 효력 상실 |수신 대기 |../myTopic/Subscriptions/mySubscription |
@@ -238,21 +238,16 @@ sendClient.Send(helloMessage);
 | 규칙 만들기 |관리 |../myTopic/Subscriptions/mySubscription |
 | 규칙 삭제 |관리 |../myTopic/Subscriptions/mySubscription |
 | 규칙 열거 |관리 또는 수신 |../myTopic/Subscriptions/mySubscription/Rules |
-| **알림 허브** | | |
-| 알림 허브 만들기 |관리 |네임스페이스 주소 |
-| 활성 장치에 등록 만들기 또는 업데이트 |수신 또는 관리 |../notificationHub/tags/{tag}/registrations |
-| PNS 정보 업데이트 |수신 또는 관리 |../notificationHub/tags/{tag}/registrations/updatepnshandle |
-| 알림 허브 보내기 |보내기 |../notificationHub/messages |
 
 ## <a name="next-steps"></a>다음 단계
 서비스 버스에서 SAS에 대한 높은 수준의 개요는 [공유 액세스 서명](service-bus-sas-overview.md)을 참조하세요.
 
 서비스 버스 인증에 대한 자세한 백그라운드는 [서비스 버스 인증 및 권한 부여](service-bus-authentication-and-authorization.md) 를 참조하세요.
 
-[설정]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

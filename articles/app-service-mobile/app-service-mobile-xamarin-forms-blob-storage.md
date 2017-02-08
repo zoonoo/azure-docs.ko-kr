@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2e8cdbbd7f97c5095a151d0ef228cfdeb671345a
-ms.openlocfilehash: 1f5eb285e061b1e221e1d68f894bbd9dd0a50b32
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c8568846837f404eee0293be284c70bd27f06380
 
 
 ---
@@ -37,7 +37,7 @@ Azure 모바일 앱 클라이언트 및 서버 SDK는 /tables 끝점에 대해 C
 * 다른 필수 조건을 나열하는 [Xamarin.Forms 앱 만들기] 자습서를 완료합니다. 이 문서에서는 해당 자습서에서 완성된 앱을 사용합니다.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 체험](https://tryappservice.azure.com/?appServiceName=mobile)으로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 모바일 앱을 즉시 만들 수 있습니다.
+> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 체험](https://azure.microsoft.com/try/app-service/mobile/)으로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 모바일 앱을 즉시 만들 수 있습니다.
 > 
 > 
 
@@ -691,6 +691,6 @@ iOS 프로젝트에 플랫폼 특정 코드를 추가합니다.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

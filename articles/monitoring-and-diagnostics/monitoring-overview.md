@@ -1,28 +1,31 @@
 ---
-title: "Microsoft Azure의 모니터링 개요 | Microsoft Docs"
-description: "경고, 웹후크, 자동 크기 조정 등을 포함하여 Microsoft Azure에서 모니터링 및 진단의 상위 수준 개요."
+title: "Azure 모니터링 개요 | Microsoft Docs"
+description: "경고, 웹후크, 자동 크기 조정 등을 포함하여 Microsoft Azure에서 Azure Monitor의 상위 수준 개요입니다."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
 ms.service: monitoring-and-diagnostics
-l: 
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 12/05/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4a9e92330081bcf56b7e3755597f76d3530a823d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2f8ff117966b11e7415abaa5e7a0735742d7ef99
 
 
 ---
+
 # <a name="overview-of-monitoring-in-microsoft-azure"></a>Microsoft Azure의 모니터링 개요
 이 문서에서는 Azure 리소스 모니터링의 개념적 개요를 제공합니다. 특정 유형의 리소스 정보에 대한 포인터를 제공합니다.  비 Azure 관점에서의 응용 프로그램 모니터링에 대한 개략적인 정보는 [모니터링 및 진단 지침](../best-practices-monitoring.md)을 참조하세요.
+
+Azure 모니터의 동영상 연습에서 제공됩니다.  
+[Microsoft Azure 모니터링 및 진단을 탐색합니다](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). Azure 모니터를 사용할 수 있는 시나리오를 설명하는 추가 비디오는 [Microsoft Azure 모니터링 및 진단 탐색](https://channel9.msdn.com/events/Ignite/2016/BRK2234)에 있습니다.  
 
 클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 통해 응용 프로그램 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
 
@@ -145,7 +148,6 @@ Azure에는 운영 체제 미설치 인프라부터 응용 프로그램 원격 �
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

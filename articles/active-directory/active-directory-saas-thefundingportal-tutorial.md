@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ba7486f76710095a35d602805876cae0cde8694e
+ms.sourcegitcommit: 82e5a947d48f8a289deb2f6e85bbb47990a9fcd7
+ms.openlocfilehash: 76d52c52489cb3cc85223066fb5821b1b9915b96
 
 
 ---
@@ -128,7 +128,7 @@ The Funding Portal 응용 프로그램은 SAML 어셜선이 "externalId1"이라�
    
     ![Single Sign-On 구성](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_07.png)
 
-    a. 로그인 URL 텍스트 상자에서 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.regenteducation.net/`
+    a. **로그인 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.regenteducation.net/`
 
     b. **다음**을 클릭합니다.
 
@@ -171,17 +171,18 @@ The Funding Portal 응용 프로그램은 SAML 어셜선이 "externalId1"이라�
     c. **다음**을 클릭합니다.
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_06.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_06.png) 
    
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
    
-   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
+    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
    
-   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
    
-   d. **역할** 목록에서 **사용자**를 선택합니다.
+    d. **역할** 목록에서 **사용자**를 선택합니다.
    
-   e. **다음**을 클릭합니다.
+    e. **다음**을 클릭합니다.
+
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_07.png) 
@@ -249,6 +250,6 @@ The Funding Portal 응용 프로그램은 SAML 어셜선이 "externalId1"이라�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
