@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea48cceb265a90138d9618b3e4ab94aef60ad2d4
+ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
+ms.openlocfilehash: 5b6c396d89816bb2804cc63beb860f4628333cb7
 
 
 ---
@@ -27,12 +27,12 @@ Microsoft Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 �
 ## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
-* Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][구매 옵션], [구성원 제안][구성원 제안] 또는 [무료 평가판][무료 평가판]을 참조하세요.
-* Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요.
+* Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][Purchase Options], [구성원 제공 항목][Member Offers] 또는 [무료 평가판][Free Trial]을 참조하세요.
+* Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성][Install and configure Azure PowerShell]을 참조하세요.
 * PowerShell 스크립트, NuGet 패키지 및 .NET Framework 전반에 대한 지식
 
 ## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>.NET 어셈블리에 서비스 버스에 대한 참조 포함
-서비스 버스를 관리하는 데 사용할 수 있는 PowerShell cmdlet은 제한되어 있습니다. 기존 cmdlet을 통해 표시되지 않은 엔터티를 프로비전하려면 [서비스 버스 NuGet 패키지][서비스 버스 NuGet 패키지]에서 Service Bus용 .NET 클라이언트를 사용할 수 있습니다.
+서비스 버스를 관리하는 데 사용할 수 있는 PowerShell cmdlet은 제한되어 있습니다. 기존 cmdlet을 통해 표시되지 않은 엔터티를 프로비전하려면 [Service Bus NuGet 패키지][Service Bus NuGet package]에서 Service Bus용 .NET 클라이언트를 사용할 수 있습니다.
 
 먼저 스크립트가 NuGet 패키지와 함께 설치되는 **Microsoft.ServiceBus.dll** 어셈블리를 찾을 수 있는지 확인합니다. 유연한 작업을 위해 스크립트는 다음 단계를 수행합니다.
 
@@ -113,7 +113,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 ```
 
 ## <a name="provisioning-other-service-bus-entities"></a>다른 서비스 버스 엔터티 프로비전
-큐, 토픽, Event Hubs와 같은 다른 엔터티를 프로비전하려는 경우 [서비스 버스용 .NET API][서비스 버스용 .NET API]를 사용합니다. 이 문서에서는 이벤트 허브에 대해서만 중점적으로 설명하지만 다른 엔터티에 대해 수행하는 단계도 비슷합니다. 뿐만 아니라 다른 엔터티를 비롯한 보다 자세한 예제도 이 문서 끝부분에 참조용으로 나와 있습니다.
+큐, 토픽, 이벤트 허브와 같은 다른 엔터티를 프로비전하려는 경우 [Service Bus용 .NET API][.NET API for Service Bus]를 사용합니다. 이 문서에서는 이벤트 허브에 대해서만 중점적으로 설명하지만 다른 엔터티에 대해 수행하는 단계도 비슷합니다. 뿐만 아니라 다른 엔터티를 비롯한 보다 자세한 예제도 이 문서 끝부분에 참조용으로 나와 있습니다.
 
 이 스크립트 부분에서는 로컬 변수를 4개 더 만듭니다. 이러한 변수는 `EventHubDescription` 개체를 인스턴스화하는 데 사용됩니다. 스크립트는 다음 작업을 수행합니다.
 
@@ -180,19 +180,19 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 * [Service Bus PowerShell 스크립트](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Link references-->
-[구매 옵션]: http://azure.microsoft.com/pricing/purchase-options/
-[구성원 제안]: http://azure.microsoft.com/pricing/member-offers/
-[무료 평가판]: http://azure.microsoft.com/pricing/free-trial/
-[Azure PowerShell 설치 및 구성]: ../powershell-install-configure.md
-[서비스 버스 NuGet 패키지]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
+[Purchase Options]: http://azure.microsoft.com/pricing/purchase-options/
+[Member Offers]: http://azure.microsoft.com/pricing/member-offers/
+[Free Trial]: http://azure.microsoft.com/pricing/free-trial/
+[Install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Service Bus NuGet package]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[서비스 버스용 .NET API]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
+[.NET API for Service Bus]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

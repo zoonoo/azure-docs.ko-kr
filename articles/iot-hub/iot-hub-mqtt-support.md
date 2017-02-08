@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/24/2016
 ms.author: kdotchko
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 97317edb8f97360281a0bfcc6d8c11f70b204897
+ms.sourcegitcommit: 0fc92fd63118dd1b3c9bad5cf7d5d8397bc3a0b6
+ms.openlocfilehash: 2f952b85a99300d0a52a59f639675d6f02fafe08
 
 
 ---
@@ -53,9 +53,9 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 장치가 장치 SDK를 사용할 수 없는 경우라도 MQTT 프로토콜을 사용하는 공용 장치 끝점에 연결할 수 있습니다. **CONNECT** 패킷에서 장치는 다음 값을 사용해야 합니다.
 
 * **ClientId** 필드에 **deviceId**를 사용합니다.
-* **Username** 필드에 `{iothubhostname}/{device_id}`를 사용합니다. 여기서 {iothubhostname}는 IoT Hub의 전체 CName입니다.
+* **Username** 필드에 `{iothubhostname}/{device_id}/api-version=2016-11-14`를 사용합니다. 여기서 {iothubhostname}는 IoT Hub의 전체 CName입니다.
 
-    예를 들어, IoT Hub의 이름이 **contoso.azure devices.net**이고 장치의 이름이 **MyDevice01**이면 전체 **Username** 필드에 `contoso.azure-devices.net/MyDevice01`이 포함되어야 합니다.
+    예를 들어, IoT Hub의 이름이 **contoso.azure devices.net**이고 장치의 이름이 **MyDevice01**이면 전체 **Username** 필드에 `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`이 포함되어야 합니다.
 * **암호** 필드에는 SAS 토큰을 사용합니다. SAS 토큰의 형식은 HTTP 및 AMQP 프로토콜에 대해 동일합니다.<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
 
     SAS 토큰을 생성하는 방법에 대한 자세한 내용은 [IoT Hub 보안 토큰 사용][lnk-sas-tokens]의 장치 섹션을 참조하세요.
@@ -67,9 +67,9 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
   3. **SASTokenForm**의 **DeviceID** 드롭다운에서 장치를 선택합니다. **TTL**을 설정합니다.
   4. **생성** 을 클릭하여 토큰을 만듭니다.
 
-     생성되는 SAS 토큰은 이 구조를 갖습니다. `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fMyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
+     생성되는 SAS 토큰은 이 구조를 갖습니다. `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
 
-     이 토큰에서 MQTT를 사용하여 연결할 때 **암호** 필드에서와 같이 사용하는 부분은 다음과 같습니다. `SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802g%3d&se=1456481802`
+     이 토큰에서 MQTT를 사용하여 연결할 때 **암호** 필드에서와 같이 사용하는 부분은 다음과 같습니다. `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
 
 MQTT 연결 및 분리 패킷의 경우, IoT Hub는 연결 문제 해결에 도움이 될 수 있는 추가 정보와 함께 **작업 모니터링** 채널의 이벤트를 발행합니다.
 
@@ -168,7 +168,9 @@ JSON 문서의 각 구성원은 장치 쌍의 문서에 있는 해당 구성원�
 
 속성 업데이트의 경우 `null` 값은 JSON 개체 구성원이 삭제되고 있음을 의미합니다.
 
-> [AZURE.IMPORTANT] IoT Hub는 장치가 연결된 경우에만 변경 알림을 생성하여 desired 속성이 IoT Hub와 장치 앱 간에 동기화 상태를 유지하기 위해 [장치 다시 연결 흐름][lnk-devguide-twin-reconnection]이 수행되도록 합니다.
+
+> [!IMPORTANT] 
+> IoT Hub는 장치가 연결된 경우에만 변경 알림을 생성하여 desired 속성이 IoT Hub와 장치 앱 간에 동기화 상태를 유지하기 위해 [장치 다시 연결 흐름][lnk-devguide-twin-reconnection]이 수행되도록 합니다.
 
 자세한 내용은 [장치 쌍 개발자 가이드][lnk-devguide-twin]를 참조하세요.
 
@@ -200,15 +202,15 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 * [IoT Hub 개발자 가이드][lnk-devguide]
 * [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
 
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-mqtt-org]: http://mqtt.org/
 [lnk-mqtt-docs]: http://mqtt.org/documentation
-[lnk-sample-node]: https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/samples/simple_sample_device.js
-[lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
-[lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
-[lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
-[lnk-sample-python]: https://github.com/Azure/azure-iot-sdks/tree/master/python/device/samples
-[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
+[lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
+[lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/tree/master/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
+[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt
+[lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
+[lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
+[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
 [lnk-sas-tokens]: iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
 [lnk-mqtt-devguide]: iot-hub-devguide-messaging.md#notes-on-mqtt-support
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
@@ -228,6 +230,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-devguide-twin]: iot-hub-devguide-device-twins.md
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO2-->
 
 

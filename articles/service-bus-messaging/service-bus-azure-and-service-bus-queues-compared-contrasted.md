@@ -15,8 +15,8 @@ ms.workload: tbd
 ms.date: 09/23/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0740427b1cd990fb94e82f1f045cc9e7f11468cd
+ms.sourcegitcommit: a925285f94fc7b1a53e605f19bb8c1ff81ce6718
+ms.openlocfilehash: c9088b2472a6e72367666391a322068c1fdf662e
 
 
 ---
@@ -130,7 +130,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 * 메시지를 큐에서 제거할 때 Azure 큐에 포함된 “포이즌” 메시지를 찾기 위해 응용 프로그램은 메시지의 **[DequeueCount](https://msdn.microsoft.com/library/azure/dd179474.aspx)** 속성을 검사합니다. **DequeueCount**가 지정된 임계값을 초과하는 경우, 응용 프로그램은 해당 메시지를 응용 프로그램에서 정의한 “배달 못 한 편지” 큐로 이동시킵니다.
 * Azure 큐의 경우 큐에 대해 실행되는 모든 트랜잭션의 상세 로그와 더불어 집계된 메트릭을 입수할 수 있습니다. 이 옵션은 모두 디버깅과 응용 프로그램이 Azure 큐를 어떻게 사용하는지 이해하는 데 유용합니다. 이는 또한 응용 프로그램의 성능을 튜닝하고 큐 사용 비용을 절감하는 데에도 유용합니다.
 * 서비스 버스에서 지원하는 “메시지 세션” 개념을 활용하면 특정 논리 그룹에 속한 메시지를 지정된 수신자와 연결하고, 해당 수신자가 메시지와 각각의 수신자 사이에 세션과 유사한 선호도를 만들 수 있습니다. 메시지에서 [SessionID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) 속성을 설정하면 Service Bus의 이 고급 기능을 사용할 수 있습니다. 수신자가 특정 세션 ID를 수신 대기하고 지정된 세션 식별자를 공유하는 메시지를 수신할 수 있습니다.
-* Service Bus 큐에서 지원하는 중복 검색 기능은 [MessageID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 속성의 값을 기준으로 큐 또는 토픽으로 발송된 중복 메시지를 자동으로 제거합니다.
+* Service Bus 큐에서 지원하는 중복 검색 기능은 [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 속성의 값을 기준으로 큐 또는 토픽으로 발송된 중복 메시지를 자동으로 제거합니다.
 
 ## <a name="capacity-and-quotas"></a>용량 및 할당량
 이 섹션에서는 적용할 수 있는 [용량과 할당량](service-bus-quotas.md)의 관점에서 Azure Queues와 Service Bus 큐를 비교합니다.
@@ -145,11 +145,11 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 
 ### <a name="additional-information"></a>추가 정보
 * 서비스 버스의 경우 큐 크기 제한이 강제 적용됩니다. 최대 큐 크기는 큐 생성 시에 지정되며, 1GB ~ 80GB 사이의 값이 될 수 있습니다. 큐 생성 시에 설정된 큐 크기 값에 도달하면, 추가로 수신되는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. Service Bus의 할당량에 대한 자세한 내용은 [Service Bus 할당량](service-bus-quotas.md)을 참조하세요.
-* 서비스 버스 큐는 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용하는 경우(기본값) 서비스 버스는 사용자가 지정한 각 GB마다 16개의 파티션을 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 * 16) = 80GB가 됩니다. [Azure 포털][Azure 포털]에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
+* 서비스 버스 큐는 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용하는 경우(기본값) 서비스 버스는 사용자가 지정한 각 GB마다 16개의 파티션을 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 * 16) = 80GB가 됩니다. [Azure Portal][Azure portal]에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
 * Azure Queues의 경우 메시지 콘텐츠가 XML-safe가 아니라면 **Base64**로 인코딩되어야 합니다. 메시지를 **Base64**로 인코딩하면 사용자 페이로드가 64KB가 아니라 최대 48KB가 될 수 있습니다.
 * 서비스 버스 큐의 경우 큐에 저장된 각 메시지가 헤더와 본문의 두 부분으로 구성됩니다. 메시지의 총 크기는 서비스 계층에서 지원하는 최대 메시지 크기를 초과할 수 없습니다.
 * 클라이언트가 TCP 프로토콜을 통해 서비스 버스와 통신할 때, 단일 서비스 버스 큐에 대한 최대 동시 연결 수가 100으로 제한됩니다. 이 숫자는 보낸 사람과 받는 사람 사이에 공유됩니다. 이 할당량에 도달하면 후속 추가 연결 요청이 거부되며 호출 코드에서 예외를 수신합니다. REST 기반 API를 사용하여 큐에 연결하는 클라이언트에게는 이 제한이 적용되지 않습니다.
-* 단일 서비스 버스 네임스페이스에 10,000개 이상의 큐가 필요할 경우, Azure 지원 팀에 문의하여 확장을 요청할 수 있습니다. 또한 Service Bus에서 큐를 10,000개 이상으로 확장하려면 [Azure 포털][Azure 포털]을 사용하여 추가 네임스페이스를 만들어야 합니다.
+* 단일 서비스 버스 네임스페이스에 10,000개 이상의 큐가 필요할 경우, Azure 지원 팀에 문의하여 확장을 요청할 수 있습니다. 또한 Service Bus에서 큐를 10,000개 이상으로 확장하려면 [Azure Portall][Azure portal]을 사용하여 추가 네임스페이스를 만들어야 합니다.
 
 ## <a name="management-and-operations"></a>관리 및 운영
 이 섹션에서는 Azure 큐와 서비스 버스 큐에서 제공하는 관리 기능을 비교합니다.
@@ -226,11 +226,11 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 * [Azure에서 Queuing Service 사용하기](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 * [Azure Storage 대금 청구 - 대역폭, 트랜잭션, 용량의 이해](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
-[Azure 포털]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

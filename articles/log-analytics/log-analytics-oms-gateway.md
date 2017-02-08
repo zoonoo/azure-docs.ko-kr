@@ -4,7 +4,7 @@ description: "OMS 서비스가 인터넷에 연결되어 있지 않을 때 OMS �
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dc6cdf1630407d1c4439d89aca5a8254bb806eba
-ms.openlocfilehash: 41382ba85fee1c3f5b1570748cd3d5b0641b9593
+ms.sourcegitcommit: a3d79c2df96c21d1af77c8ea1f53a2cc4e28343e
+ms.openlocfilehash: 30b1a9144e06db92ba12030dfe37a83e79d62857
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 41382ba85fee1c3f5b1570748cd3d5b0641b9593
 
 각각의 개별적인 에이전트가 OMS에 데이터를 직접 보내면서 인터넷에 직접 연결하는 대신에 모든 에이전트 데이터가 인터넷에 연결되어 있는 단일 컴퓨터를 통해 전송됩니다. 바로 이 컴퓨터에 게이트웨이를 설치하여 사용합니다. 이 시나리오에서는 데이터를 수집하려는 컴퓨터에 에이전트를 설치할 수 있습니다. 게이트웨이는 에이전트에서 OMS로 데이터를 직접 전송합니다. 게이트웨이는 전송되는 어떠한 데이터도 분석하지 않습니다.
 
-OMS 게이트웨이를 모니터링하고 게이트웨이가 설치되어 있는 서버의 성능 또는 이벤트 데이터를 분석하려면 게이트웨이가 설치되어 있는 컴퓨터에 OMS 에이전트를 설치해야 합니다.
+게이트웨이가 설치된 컴퓨터에서 OMS 에이전트를 설치해야 합니다. 이렇게 하면 OMS 게이트웨이를 모니터링하고 설치된 서버에 대한 성능 또는 이벤트 데이터를 분석할 수 있습니다. 또한 에이전트는 OMS 게이트웨이가 통신해야 하는 서비스 끝점을 식별하도록 도와줍니다.
 
 게이트웨이가 OMS에 데이터를 업로드하려면 인터넷에 연결되어 있어야 합니다. 각 에이전트는 게이트웨이와 데이터를 자동으로 송수신할 수 있도록 게이트웨이에 네트워크로 연결되어 있어야 합니다. 최상의 결과를 위해 도메인 컨트롤러 역할을 하는 컴퓨터에 게이트웨이를 설치하지 마십시오.
 
@@ -41,26 +41,72 @@ OMS 게이트웨이를 모니터링하고 게이트웨이가 설치되어 있는
 
 ![Operations Manager 다이어그램](./media/log-analytics-oms-gateway/scom-mgt-server.png)
 
+## <a name="language-availability"></a>사용 가능한 언어
+
+OMS 게이트웨이는 다음 언어로 제공됩니다.
+
+- 중국어 (간체)
+- 중국어 (번체)
+- 체코어
+- 네덜란드어
+- 영어
+- 프랑스어
+- 독일어
+- 헝가리어
+- 이탈리아어
+- 일본어
+- 한국어
+- 폴란드어
+- 포르투갈어(브라질)
+- 포르투갈어(포르투갈)
+- 러시아어
+- 스페인어 (국제)
+
+## <a name="download-the-oms-gateway"></a>OMS 게이트웨이 다운로드
+
+OMS 게이트웨이 설치 파일을 가져오는 방법은 세 가지가 있습니다.
+
+### <a name="microsoft-download-center"></a>Microsoft 다운로드 센터
+
+- [Microsoft 다운로드 센터](http://download.microsoft.com/download/2/5/C/25CF992A-0347-4765-BD7D-D45D5B27F92C/OMS%20Gateway.msi)에서 최신 버전의 OMS 게이트웨이를 다운로드합니다.
+
+### <a name="oms-portal"></a>OMS 포털
+
+1.  OMS 작업 영역에 로그인 합니다.
+2.  **설정** > **소스 연결** > **Windows 서버**를 선택합니다.
+3.  **OMS Gateway 다운로드**를 클릭합니다.
+
+
+### <a name="azure-portal"></a>Azure 포털
+
+1. [Azure Portal](https://portal.azure.com) 로 이동하여 로그인하고 서비스 목록을 찾아본 후 **Log Analytics**를 선택합니다.
+2. 작업 영역을 선택합니다.
+3. **일반**의 작업 영역 블레이드에서 **빠른 시작**을 클릭합니다.
+4. **작업 영역에 연결하는 데이터 원본 선택**에서 **컴퓨터**를 클릭합니다.
+4. **직접 에이전트** 블레이드에서 **OMS 게이트웨이 다운로드**를 클릭합니다.  
+    ![OMS Gateway 다운로드](./media/log-analytics-oms-gateway/download-gateway.png)
+
+
 ## <a name="install-the-oms-gateway"></a>OMS 게이트웨이 설치
 이 게이트웨이를 설치하면 전에 설치했던 이전 버전의 게이트웨이를(Log Analytics 전달자) 대체하게 됩니다.
 
 필수 조건: .Net Framework 4.5, Windows Server 2012 R2 SP1 이상
 
-1. [Microsoft 다운로드 센터](http://download.microsoft.com/download/2/5/C/25CF992A-0347-4765-BD7D-D45D5B27F92C/OMS%20Gateway.msi)에서 최신 버전의 OMS 게이트웨이를 다운로드합니다.
-2. 설치를 시작하려면 **OMS Gateway.msi**를 두 번 클릭합니다.
-3. 시작 페이지에서 **다음**을 클릭합니다.  
+
+1. 설치를 시작하려면 **OMS Gateway.msi**를 두 번 클릭합니다.
+2. 시작 페이지에서 **다음**을 클릭합니다.  
     ![게이트웨이 설치 마법사](./media/log-analytics-oms-gateway/gateway-wizard01.png)
-4. 사용권 계약 페이지에서 **동의함**을 선택하여 EULA에 동의하고 **다음**을 클릭합니다.
-5. 포트 및 프록시 주소 페이지에서:
+3. 사용권 계약 페이지에서 **동의함**을 선택하여 EULA에 동의하고 **다음**을 클릭합니다.
+4. 포트 및 프록시 주소 페이지에서:
    1. 게이트웨이에 사용될 TCP 포트 번호를 입력합니다. 설치 프로그램이 Windows 방화벽에서 이 포트 번호를 엽니다. 기본값은 8080입니다.
       유효한 포트 번호 범위는 1 ~ 65535입니다. 입력한 내용이 이 범위를 벗어나면 오류 메시지가 표시됩니다.
    2. 선택적으로, 게이트웨이가 설치되어 있는 서버에서 프록시를 사용해야 하는 경우에는 게이트웨이 연결이 필요한 프록시 주소를 입력합니다. 예: `http://myorgname.corp.contoso.com:80`. 만약 비워두면 게이트웨이는 인터넷에 직접 연결을 시도합니다. 그렇지 않은 경우 게이트웨이는 프록시에 연결합니다. 프록시 서버에 인증이 필요한 경우 사용자 이름과 암호를 입력합니다.
        ![게이트웨이 마법사 프록시 구성](./media/log-analytics-oms-gateway/gateway-wizard02.png)  
-   3.  **다음**
-6. Microsoft 업데이트를 사용하도록 설정되어있지 않으면 Microsoft Updates를 사용하도록 설정을 선택할 수 있는 Microsoft Update 페이지가 표시됩니다. 선택한 후에 **다음**을 클릭합니다. 그렇지 않은 경우 다음 단계를 계속 진행합니다.
-7. 대상 폴더 페이지에서 기본 폴더 **%ProgramFiles%\OMS Gateway**를 유지하거나 게이트웨이를 설치할 위치를 입력하고 **다음**을 클릭합니다.
-8. 설치 준비 완료 페이지에서 **설치**를 클릭합니다. 사용자 계정 컨트롤이 표시되고 설치 권한을 요청할 수 있습니다. 그런 경우에는 **예**를 클릭합니다.
-9. 설치가 완료된 후에 **마침**을 클릭합니다. services.msc 스냅인을 열어서 서비스 목록에 **OMS 게이트웨이**가 표시되는 것을 확인하여 서비스가 실행 중인 것을 확인할 수 있습니다.  
+   3. **다음**
+5. Microsoft 업데이트를 사용하도록 설정되어있지 않으면 Microsoft Updates를 사용하도록 설정을 선택할 수 있는 Microsoft Update 페이지가 표시됩니다. 선택한 후에 **다음**을 클릭합니다. 그렇지 않은 경우 다음 단계를 계속 진행합니다.
+6. 대상 폴더 페이지에서 기본 폴더 **%ProgramFiles%\OMS Gateway**를 유지하거나 게이트웨이를 설치할 위치를 입력하고 **다음**을 클릭합니다.
+7. 설치 준비 완료 페이지에서 **설치**를 클릭합니다. 사용자 계정 컨트롤이 표시되고 설치 권한을 요청할 수 있습니다. 그런 경우에는 **예**를 클릭합니다.
+8. 설치가 완료된 후에 **마침**을 클릭합니다. services.msc 스냅인을 열어서 서비스 목록에 **OMS 게이트웨이**가 표시되는 것을 확인하여 서비스가 실행 중인 것을 확인할 수 있습니다.  
     ![서비스 – OMS 게이트웨이](./media/log-analytics-oms-gateway/gateway-service.png)
 
 ## <a name="install-an-agent-on-devices"></a>장치에 에이전트 설치
@@ -184,7 +230,7 @@ cmdlet은 OMS 게이트웨이 구성 설정을 업데이트하는 데 필요한 
 | `Get-OMSGatewayAllowedClientCertificate` | |현재 허용된 클라이언트 인증서 주체 가져오기(로컬에서 구성되어 허용된 주체만, 자동으로 다운로드되어 허용된 주체는 포함하지 않음) |`Get-OMSGatewayAllowedClientCertificate` |
 
 ## <a name="troubleshoot"></a>문제 해결
-OMS 에이전트를 게이트웨이가 설치되어 있는 컴퓨터에 설치하는 것이 좋습니다. 그럼 다음 에이전트를 사용하여 게이트웨이에 의해 기록된 이벤트를 수집할 수 있습니다.
+OMS 에이전트를 게이트웨이가 설치되어 있는 컴퓨터에 설치해야 합니다. 그럼 다음 에이전트를 사용하여 게이트웨이에 의해 기록된 이벤트를 수집할 수 있습니다.
 
 ![이벤트 뷰어 – OMS 게이트웨이 로그](./media/log-analytics-oms-gateway/event-viewer.png)
 
@@ -234,6 +280,6 @@ Azure Portal에 로그인되어 있으면 OMS 게이트웨이 또는 다른 Azur
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

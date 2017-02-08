@@ -1,6 +1,6 @@
 ---
-title: "처음부터 IoT 솔루션 보안 유지 | Microsoft Docs"
-description: "이 문서에서는 Microsoft Azure IoT Suite의 기본 제공 보안 기능에 대해 설명합니다."
+title: "처음부터Azure IoT 솔루션 보안 유지 | Microsoft Docs"
+description: "Microsoft Azure IoT Hub 및 Suite의 기본 제공 보안 기능을 사용하는 방법입니다."
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 896cec2befa3f8f681ecb4e14687300a90b5fc24
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: a4452dee2beec650f84dff4083e91684fe61d8b6
 
 
 ---
@@ -41,6 +41,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

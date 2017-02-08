@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c1faabdf07f7cc7692ef7600d1c21d6685f72ca
+ms.sourcegitcommit: 4b12d221b057161013aa3401e343ec41e4637f7c
+ms.openlocfilehash: ae77871a30e0768f6848056223cacf55b064bf1a
 
 
 ---
@@ -27,7 +27,9 @@ ms.openlocfilehash: 5c1faabdf07f7cc7692ef7600d1c21d6685f72ca
 > 
 > 
 
-Azure 서비스 패브릭 응용 프로그램에는 코드를 실행하는 하나 이상의 서비스가 포함되어 있습니다. 이 가이드에서는 [Reliable Services](service-fabric-reliable-services-introduction.md)를 사용하여 상태 비저장 및 상태 저장 서비스 패브릭 응용 프로그램을 만드는 방법을 보여 줍니다.
+Azure 서비스 패브릭 응용 프로그램에는 코드를 실행하는 하나 이상의 서비스가 포함되어 있습니다. 이 가이드에서는 [Reliable Services](service-fabric-reliable-services-introduction.md)를 사용하여 상태 비저장 및 상태 저장 서비스 패브릭 응용 프로그램을 만드는 방법을 보여 줍니다.  이 Microsoft Virtual Academy 비디오는 상태 비저장 신뢰할 수 있는 서비스를 만드는 방법을 보여줍니다.<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
+<img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="basic-concepts"></a>기본 개념
 Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 됩니다.
@@ -229,6 +231,6 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

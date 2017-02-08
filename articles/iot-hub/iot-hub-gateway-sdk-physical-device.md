@@ -1,6 +1,6 @@
 ---
-title: "물리적 장치에서 IoT Gateway SDK 사용 | Microsoft Docs"
-description: "Texas Instruments SensorTag 장치를 사용하여 Raspberry Pi 3에서 실행되는 게이트웨이를 통해 IoT Hub로 데이터를 전송하는 Azure IoT Gateway SDK 연습"
+title: "물리적 장치에서 Azure IoT Gateway SDK 사용 | Microsoft Docs"
+description: "Texas Instruments SensorTag 장치를 사용하여 Raspberry Pi 3에서 실행되는 게이트웨이를 통해 IoT Hub로 데이터를 전송하는 방법입니다. 이 게이트웨이는 Azure IoT 게이트웨이 SDK를 사용하여 빌드됩니다."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 9c8ab5b54644c3fa7999e7250825fba5d8532082
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 05c82a87e839a0a95e7050092d6f6867e76fb316
 
 
 ---
-# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-physical-device-using-linux"></a>Azure IoT Gateway SDK – Linux를 사용하는 물리적 장치에서 장치-클라우드 메시지 보내기
+# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-physical-device-linux"></a>Azure IoT Gateway SDK를 사용하여 물리적 장치(Linux)에서 장치-클라우드 메시지 보내기
 이 [Bluetooth 저에너지 샘플][lnk-ble-samplecode] 연습에서는 [Azure IoT Gateway SDK][lnk-sdk]를 사용하여 물리적 장치에 IoT Hub로 장치-클라우드 원격 분석을 전달하는 방법과 IoT Hub에서 물리적 장치로 명령을 라우팅하는 방법을 보여 줍니다.
 
 이 연습에서는 다음 내용을 다룹니다.
@@ -218,7 +218,7 @@ BLE 샘플을 실행하려면 다음 3가지 작업을 완료해야 합니다.
 
 ### <a name="configure-two-sample-devices-in-your-iot-hub"></a>IoT Hub에서 두 개의 샘플 장치 구성
 * Azure 구독에서 [IoT hub를 만듭니다][lnk-create-hub]. 이 연습을 완료하려면 허브 이름이 필요합니다. 계정이 없는 경우 몇 분 만에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
-* **SensorTag_01**이라는 장치 하나를 IoT hub에 추가하고 해당 ID와 장치 키를 적어둡니다. [장치 탐색기 또는 iothub-explorer][lnk-explorer-tools] 도구를 사용하여 이전 단계에서 만든 IoT Hub에 장치를 추가하고 해당 키를 검색할 수 있습니다. 게이트웨이를 구성할 때 이 장치를 SensorTag 장치에 매핑합니다.
+* **SensorTag_01**이라는 장치 하나를 IoT hub에 추가하고 해당 ID와 장치 키를 적어둡니다. [장치 Explorer 또는 iothub-explorer][lnk-explorer-tools] 도구를 사용하여 이전 단계에서 만든 IoT Hub에 장치를 추가하고 해당 키를 검색할 수 있습니다. 게이트웨이를 구성할 때 이 장치를 SensorTag 장치에 매핑합니다.
 
 ### <a name="build-the-azure-iot-gateway-sdk-on-your-raspberry-pi-3"></a>Raspberry Pi 3에서 Azure IoT Gateway SDK 빌드
 
@@ -239,7 +239,7 @@ git submodule update --init --recursive
 Raspberry Pi 3에 IoT Gateway SDK 저장소의 전체 복사본이 있는 경우 다음 명령을 사용하여 SDK가 포함된 폴더에서 빌드할 수 있습니다.
 
 ```
-./tools/build.sh --skip-unittests --skip-e2e-tests
+./tools/build.sh --skip-unittests
 ```
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Raspberry Pi 3에서 BLE 샘플 구성 및 실행
@@ -426,10 +426,10 @@ SensorTag 장치의 MAC 주소와 IoT Hub에 추가된 **SensorTag_01** 장치�
 
 샘플을 실행하기 전에 SensorTag 장치에 있는 작은 단추를 눌러 검색을 가능하게 만들어야 할 수 있습니다.
 
-샘플을 실행할 경우 [장치 탐색기 또는 iothub-explorer][lnk-explorer-tools] 도구를 사용하여 SensorTag 장치에서 게이트웨이가 전달하는 메시지를 모니터링할 수 있습니다.
+샘플을 실행할 경우 [장치 Explorer 또는 iothub-explorer][lnk-explorer-tools] 도구를 사용하여 SensorTag 장치에서 게이트웨이가 전달하는 메시지를 모니터링할 수 있습니다.
 
 ## <a name="send-cloud-to-device-messages"></a>클라우드-장치 메시지 보내기
-또한 BLE 모듈은 Azure IoT Hub에서 장치로 지침을 보내도록 지원합니다. [Azure IoT Hub 장치 탐색기](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) 또는 [IoT Hub Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer)를 사용하여 BLE 게이트웨이 모듈이 BLE 장치에 전달하는 JSON 메시지를 보낼 수 있습니다.
+또한 BLE 모듈은 Azure IoT Hub에서 장치로 지침을 보내도록 지원합니다. [장치 Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) 또는 [iothub-explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) 도구를 사용하여 BLE 게이트웨이 모듈이 BLE 장치에 전달하는 JSON 메시지를 보낼 수 있습니다.
 Texas Instruments SensorTag 장치를 사용하는 경우 IoT Hub에서 명령을 보내서 빨간색 LED, 녹색 LED 또는 버저를 켤 수 있습니다. 이렇게 하면 먼저 다음 두 가지 JSON 메시지를 순서대로 보냅니다. 그런 다음 원하는 명령을 보내서 표시등 또는 버저를 켭니다.
 
 1 모든 LED 및 버저 다시 설정(끄기)
@@ -485,7 +485,7 @@ IoT Gateway SDK와 코드 예제 실험에 대해 더욱 심도 있게 이해하
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [개발자 가이드][lnk-devguide]
+* [IoT Hub 개발자 가이드][lnk-devguide]
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/ble_gateway
@@ -501,6 +501,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

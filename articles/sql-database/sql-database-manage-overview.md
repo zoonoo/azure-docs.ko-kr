@@ -12,12 +12,12 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/24/2016
+ms.topic: get-started-article
+ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5adb83a7b8e19ca78dd4d837b497e1ceb4444f86
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 915292a191da82af9e24e89460d46dc61a062b18
 
 
 ---
@@ -37,15 +37,15 @@ SSMS(SQL Server Management Studio) 및 SSDT(SQL Server Data Tools)는 클라우�
 >  
 
 ## <a name="powershell"></a>PowerShell
-PowerShell을 사용하여 데이터베이스 및 Elastic Database 풀을 관리하고 Azure 리소스 배포를 자동화할 수 있습니다. 많은 수의 데이터베이스를 관리하고 프로덕션 환경에서 배포와 리소스 변경을 자동화해야 하는 분들에게는 이 도구를 추천합니다.
+PowerShell을 사용하여 데이터베이스 및 탄력적 풀을 관리하고 Azure 리소스 배포를 자동화할 수 있습니다. 많은 수의 데이터베이스를 관리하고 프로덕션 환경에서 배포와 리소스 변경을 자동화해야 하는 분들에게는 이 도구를 추천합니다.
 
 자세한 내용은 [PowerShell을 사용하여 SQL Database 관리](sql-database-manage-powershell.md)를 참조하세요.
 
 ## <a name="elastic-database-tools"></a>탄력적 데이터베이스 도구
 탄력적 데이터베이스 도구를 사용하여 다음과 같은 작업을 수행합니다. 
 
-*  [탄력적 작업](sql-database-elastic-jobs-overview.md)
-*  [분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md)
+* [탄력적 작업](sql-database-elastic-jobs-overview.md)
+* [분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md)
 * [탄력적인 확장 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 사용하여 단일 테넌트 모델 또는 다중 테넌트 모델에서 데이터베이스 관리
 
 ## <a name="additional-resources"></a>추가 리소스
@@ -56,6 +56,6 @@ PowerShell을 사용하여 데이터베이스 및 Elastic Database 풀을 관리
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

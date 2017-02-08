@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 95068f046c57bd65b5258771a272e70124f3dd12
+ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
+ms.openlocfilehash: 41bef0e62c86e5cc3c27d02702a1b330fc76c915
 
 
 ---
@@ -26,8 +26,8 @@ Microsoft Azure PowerShell은 Azure 서비스의 배포와 관리를 제어하�
 ## <a name="prerequisites"></a>필수 조건
 이 작업을 수행하려면 다음이 필요합니다.
 
-* Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][구매 옵션], [구성원 제안][구성원 제안] 또는 [무료 계정][무료 계정]을 참조하세요.
-* Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성][Azure PowerShell 설치 및 구성]을 참조하세요.
+* Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][purchase options], [구성원 제공 항목][member offers] 또는 [무료 계정][free account]을 참조하세요.
+* Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성][Install and configure Azure PowerShell]을 참조하세요.
 * PowerShell 스크립트, NuGet 패키지 및 .NET Framework 전반에 대한 지식
 
 ## <a name="include-a-reference-to-the-net-assembly-for-service-bus"></a>서비스 버스에 대한 .NET 어셈블리의 참조 포함
@@ -113,7 +113,7 @@ Service Bus 네임스페이스를 사용할 때는 .NET SDK 대신 [Get-AzureSBN
     ```
 
 ## <a name="provisioning-other-service-bus-entities"></a>다른 서비스 버스 엔터티 프로비전
-큐, 토픽, Event Hubs와 같은 다른 엔터티를 프로비전하려는 경우 [Service Bus용 .NET API][Service Bus용 .NET API]를 사용할 수 있습니다. 다른 엔터티를 비롯한 더 자세한 예제도 이 문서 끝부분에 참조용으로 나와 있습니다.
+큐, 토픽, Event Hubs와 같은 다른 엔터티를 프로비전하려는 경우 [Service Bus용 .NET API][.NET API for Service Bus]를 사용할 수 있습니다. 다른 엔터티를 비롯한 더 자세한 예제도 이 문서 끝부분에 참조용으로 나와 있습니다.
 
 ### <a name="create-an-event-hub"></a>이벤트 허브 만들기
 이 스크립트 부분에서는 로컬 변수를 4개 더 만듭니다. 이러한 변수는 `EventHubDescription` 개체를 인스턴스화하는 데 사용됩니다. 이 스크립트는 다음을 수행합니다.
@@ -259,18 +259,18 @@ Service Bus 네임스페이스를 사용할 때는 .NET SDK 대신 [Get-AzureSBN
 
 <!--Anchors-->
 
-[구매 옵션]: http://azure.microsoft.com/pricing/purchase-options/
-[구성원 제안]: http://azure.microsoft.com/pricing/member-offers/
-[무료 계정]: http://azure.microsoft.com/pricing/free-trial/
+[purchase options]: http://azure.microsoft.com/pricing/purchase-options/
+[member offers]: http://azure.microsoft.com/pricing/member-offers/
+[free account]: http://azure.microsoft.com/pricing/free-trial/
 [Service Bus NuGet 패키지]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[Service Bus용 .NET API]: https://msdn.microsoft.com/en-us/library/azure/mt419900.aspx
-[Azure PowerShell 설치 및 구성]: ../powershell-install-configure.md
+[.NET API for Service Bus]: https://msdn.microsoft.com/en-us/library/azure/mt419900.aspx
+[Install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2016
+ms.date: 12/09/2016
 ms.author: bradsev;hangzh;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3307418f3bcbf1e13b47ffb4d37024f90bdd2c2e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
 
 
 ---
@@ -77,7 +77,7 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
   * **컨테이너 이름** (데이터를 저장하려는 Azure Blob 저장소)
 
 **Azure SQL DW 인스턴스를 프로비전합니다.**
- [SQL 데이터 웨어하우스 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) 의 설명서에 따라 SQL 데이터 웨어하우스 인스턴스를 프로비전합니다. 이후 단계에서 사용되는 다음 SQL 데이터 웨어하우스 자격 증명에 표기하도록 합니다.
+[SQL 데이터 웨어하우스 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) 의 설명서에 따라 SQL 데이터 웨어하우스 인스턴스를 프로비전합니다. 이후 단계에서 사용되는 다음 SQL 데이터 웨어하우스 자격 증명에 표기하도록 합니다.
 
 * **서버 이름**: <server Name>.database.windows.net
 * **SQLDW(데이터베이스) 이름**
@@ -542,7 +542,7 @@ SQL 쿼리에서 기능을 생성하는 이 함수를 호출하는 예는 다음
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>모델 구축에 사용할 데이터를 준비합니다.
-다음 쿼리는 **nyctaxi\_trip** 및 **nyctaxi\_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성하며, 조인된 전체 데이터 집합에서 샘플을 추출합니다. 샘플링은 승차 시간에 따라 여정의 하위 집합을 검색하여 수행됩니다.  Azure의 SQL Database 인스턴스에서 데이터를 직접 수집하기 위해 이 쿼리를 복사한 다음 [Azure Machine Learning 스튜디오](https://studio.azureml.net) [데이터 가져오기][import-data] 모듈에 직접 붙여넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
+다음 쿼리는 **nyctaxi\_trip** 및 **nyctaxi\_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성하며, 조인된 전체 데이터 집합에서 샘플을 추출합니다. 샘플링은 승차 시간에 따라 여정의 하위 집합을 검색하여 수행됩니다.  Azure의 SQL Database 인스턴스에서 데이터를 직접 수집하기 위해 이 쿼리를 복사한 다음 [Azure 기계 학습 스튜디오](https://studio.azureml.net) [데이터 가져오기][import-data] 모듈에 직접 붙여넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -561,8 +561,8 @@ SQL 쿼리에서 기능을 생성하는 이 함수를 호출하는 예는 다음
 
 Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 있습니다.  
 
-1. 데이터를 추출 및 샘플링할 최종 SQL 쿼리를 저장하고 Azure Machine Learning의 [데이터 가져오기][import-data] 모듈에 쿼리를 직접 복사하여 붙여 넣습니다. 또는
-2. 모델을 빌드하는 데 사용할 샘플링 및 엔지니어링된 데이터를 새 SQL DW 테이블에 유지하고 Azure Machine Learning의 [데이터 가져오기][import-data] 모듈에서 새 테이블을 사용합니다. 이전 단계에서 PowerShell 스크립트가 이를 수행했습니다. 데이터 가져오기 모듈의 이 테이블에서 직접 읽을 수 있습니다.
+1. 데이터를 추출 및 샘플링할 최종 SQL 쿼리를 저장하고 Azure 기계 학습의 [데이터 가져오기][import-data] 모듈에 쿼리를 직접 복사하여 붙여 넣습니다. 또는
+2. 모델을 빌드하는 데 사용할 샘플링 및 엔지니어링된 데이터를 새 SQL DW 테이블에 유지하고 Azure 기계 학습의 [데이터 가져오기][import-data] 모듈에서 새 테이블을 사용합니다. 이전 단계에서 PowerShell 스크립트가 이를 수행했습니다. 데이터 가져오기 모듈의 이 테이블에서 직접 읽을 수 있습니다.
 
 ## <a name="a-nameipnbadata-exploration-and-feature-engineering-in-ipython-notebook"></a><a name="ipnb"></a>IPython Notebook에서 데이터 탐색 및 기능 엔지니어링
 이 섹션에서는 Python과 SQL 쿼리를 모두 사용하여 이전에 만든 SQL DW에 대해 데이터 탐색 및 기능 생성을 수행합니다. **SQLDW_Explorations.ipynb**라는 샘플 IPython Notebook 및 Python 스크립트 파일 **SQLDW_Explorations_Scripts.py**는 로컬 디렉터리에 다운로드되었습니다. 또한 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW)에서 사용할 수 있습니다. 이 두 파일은 Python 스크립트에서 동일합니다. IPython Notebook 서버가 없는 경우 Python 스크립트 파일이 제공됩니다. 이 두 샘플 Python 파일은 **Python 2.7**에서 디자인됩니다.
@@ -923,6 +923,6 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

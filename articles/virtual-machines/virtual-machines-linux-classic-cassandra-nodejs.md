@@ -13,18 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: hanuk;robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 57c4eb16fbb0e3038c1a5988a8ae9b04a56f99cb
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: cc20606655321826f24ffeab80920a8a4caaf50d
 
 
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-[Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) 및 [CentOS의 Spark 클러스터 및 Cassandra](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/)는 Resource Manager 템플릿을 참조하세요.
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) 및 [CentOS의 Spark 클러스터 및 Cassandra](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/)는 Resource Manager 템플릿을 참조하세요.
 
 ## <a name="overview"></a>개요
 Microsoft Azure는 운영 체제, 응용 프로그램 서버, 메시징 미들웨어뿐 아니라 상용 및 오픈 소스 모델의 SQL 및 NoSQL 데이터베이스를 포함하는 Microsoft 및 타사 소프트웨어를 실행하는 개방형 클라우드 플랫폼입니다. Azure를 비롯한 공용 클라우드에 복원 서비스를 빌드하려면 응용 프로그램 서버 및 저장소 계층 둘 다의 신중한 계획과 세밀한 아키텍처가 필요합니다. Cassandra의 분산 저장소 아키텍처는 클러스터 오류에 대한 내결함성이 있는 고가용성 시스템 빌드에 도움이 됩니다. Cassandra는 cassandra.apache.org에서 Apache Software Foundation에 의해 유지 관리되는 클라우드 규모의 NoSQL 데이터베이스입니다. Cassandra는 Java로 작성되었으므로 Windows 및 Linux 플랫폼에서 모두 실행됩니다.
@@ -689,6 +688,6 @@ Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

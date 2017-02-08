@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 289f6e91458a1a4799941ccea46f7ee6d1a296c4
+ms.sourcegitcommit: 86711ba89442c3569b570bbf3ea2d1661a469011
+ms.openlocfilehash: 34be29749075b9953950ffd64d2526430307d33e
 
 
 ---
@@ -148,7 +148,9 @@ Azure Active Directory 사용자 및 보안 그룹 만들기에 대한 자세한
 3. **사용자** 블레이드에서 **추가**를 클릭합니다.
 4. 역할을 선택하고 사용자를 추가한 후 **확인**을 클릭합니다.
 
-**참고: 이 사용자 또는 보안 그룹이 작업을 제출해야 하는 경우에는 Data Lake Store에 대한 권한이 부여되어야 합니다. 자세한 내용은 [Data Lake Store에 저장된 데이터 보호](../data-lake-store/data-lake-store-secure-data.md)를 참조하세요.**
+>[!NOTE]
+>이 사용자 또는 보안 그룹이 작업을 제출해야 하는 경우에는 Data Lake Store에 대한 권한이 부여되어야 합니다. 자세한 내용은 [Data Lake Store에 저장된 데이터 보호](../data-lake-store/data-lake-store-secure-data.md)를 참조하세요.
+>
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -248,6 +250,6 @@ Azure Active Directory 사용자 및 보안 그룹 만들기에 대한 자세한
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

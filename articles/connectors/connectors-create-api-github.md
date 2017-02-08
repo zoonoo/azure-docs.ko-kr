@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e6468b7e9cde47ca4caf9be14d0ad780a431e6f2
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 6f336db8c8719b99420b353dca82e36a0d837769
 
 
 ---
@@ -29,7 +29,7 @@ GitHub은 서비스를 호스팅하는 웹 기반 Git 리포지토리입니다. 
 > 
 > 
 
-이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="triggers-and-actions"></a>트리거 및 작업
 GitHub 커넥터를 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다. 
@@ -89,7 +89,7 @@ GitHub로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 �
 | 400 |잘못된 요청 |
 | 401 |권한 없음 |
 | 403 |사용할 수 없음 |
-| 404 | 찾을 수 없음 |
+| 404 |찾을 수 없음 |
 | 500 |내부 서버 오류. 알 수 없는 오류 발생 |
 | 기본값 |작업이 실패했습니다. |
 
@@ -107,7 +107,7 @@ GitHub로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 �
 | 400 |잘못된 요청 |
 | 401 |권한 없음 |
 | 403 |사용할 수 없음 |
-| 404 | 찾을 수 없음 |
+| 404 |찾을 수 없음 |
 | 500 |내부 서버 오류. 알 수 없는 오류 발생 |
 | 기본값 |작업이 실패했습니다. |
 
@@ -125,7 +125,7 @@ GitHub로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 �
 | 400 |잘못된 요청 |
 | 401 |권한 없음 |
 | 403 |사용할 수 없음 |
-| 404 | 찾을 수 없음 |
+| 404 |찾을 수 없음 |
 | 500 |내부 서버 오류. 알 수 없는 오류 발생 |
 | 기본값 |작업이 실패했습니다. |
 
@@ -143,7 +143,7 @@ GitHub로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 �
 | 400 |잘못된 요청 |
 | 401 |권한 없음 |
 | 403 |사용할 수 없음 |
-| 404 | 찾을 수 없음 |
+| 404 |찾을 수 없음 |
 | 500 |내부 서버 오류. 알 수 없는 오류 발생 |
 | 기본값 |작업이 실패했습니다. |
 
@@ -167,11 +167,11 @@ GitHub로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 �
 | repository_url |string |아니요 |
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Azure 주요 자격 증명 모음에 대해 HSM 보호된 키를 생성하고 전송하는 방법 | Microsoft Docs
-description: 이 문서를 통해 Azure 주요 자격 증명 모음에서 사용할 고유의 HSM 보호 키를 생성하고 전송하는 데 필요한 계획을 세울 수 있습니다.
+title: "Azure Key Vault에 HSM 보호 키를 생성하고 전송하는 방법 | Microsoft Docs"
+description: "이 문서를 통해 Azure 주요 자격 증명 모음에서 사용할 고유의 HSM 보호 키를 생성하고 전송하는 데 필요한 계획을 세울 수 있습니다."
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: cabailey
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: cabailey
+ms.date: 11/30/2016
+ms.author: ambapat
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3de8751c58870fceee2575608982a5b36eca7478
+
 
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure 주요 자격 증명 모음에 대해 HSM 보호된 키를 생성하고 전송하는 방법
@@ -45,7 +49,7 @@ Thales e-Security는 금융 서비스, 첨단 기술, 제조, 정부 및 기술 
 
 Microsoft는 Thales과의 협력을 통해 HSM을 최첨단 상태로 향상시켰습니다. 이렇게 향상된 기능을 통해 사용자는 자신의 키에 대한 제어를 포기하지 않으면서 호스트된 서비스의 일반적인 이점을 누릴 수 있습니다. Microsoft에서 이러한 향상된 기능을 사용하여 HSM을 관리해 주므로 이 부분에 신경 쓰지 않아도 된다는 것이 특별한 장점입니다. 클라우드 서비스로써 Azure 주요 자격 증명 모음은 급박한 요청에도 크기 확장이 가능하기 때문에 조직의 급증하는 사용량을 맞출 수 있습니다. 그와 동시에 키는 Microsoft의 HSM 내에서 보호됩니다. 키를 생성하고 Microsoft의 HSM에 전송하기 때문에 키의 수명 주기 동안 사용자가 키에 대한 제어를 유지할 수 있습니다.
 
-## <a name="implementing-bring-your-own-key-(byok)-for-azure-key-vault"></a>Azure 주요 자격 증명 모음에 대한 BYOK(Bring Your Own Key) 구현
+## <a name="implementing-bring-your-own-key-byok-for-azure-key-vault"></a>Azure 주요 자격 증명 모음에 대한 BYOK(Bring Your Own Key) 구현
 고유의 HSM 보호된 키를 생성한 다음 Azure 주요 자격 증명 모음으로 전송하는 경우(BYOK(Bring Your Own Key) 시나리오) 다음 내용 및 절차를 사용합니다.
 
 ## <a name="prerequisites-for-byok"></a>BYOK에 대한 필수 조건
@@ -54,7 +58,7 @@ Azure 주요 자격 증명 모음에 대해 BYOK(Bring Your Own Key)를 위한 �
 | 요구 사항 | 자세한 정보 |
 | --- | --- |
 | Azure 구독 |Azure Key Vault를 만들려면 Azure 구독이 필요합니다([무료 평가판 가입](https://azure.microsoft.com/pricing/free-trial/)). |
-| HSM을 지원하는 Azure 주요 자격 증명 모음 |Azure 주요 자격 증명 모음에 대한 서비스 계층 및 기능에 대한 자세한 내용은 [Azure 주요 자격 증명 모음 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/) 웹 사이트를 참조하세요. |
+| HSM 보호 키를 지원하는 Azure Key Vault 프리미엄 서비스 계층 |Azure 주요 자격 증명 모음에 대한 서비스 계층 및 기능에 대한 자세한 내용은 [Azure 주요 자격 증명 모음 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/) 웹 사이트를 참조하세요. |
 | Thales HSM, 스마트 카드 및 지원 소프트웨어 |Thales 하드웨어 보안 모듈에 대한 액세스 권한 및 Thales HSM의 기본 작동 지식이 있어야 합니다. 호환되는 모델 목록을 보거나, HSM이 없는 경우 구매하려면 [Thales 하드웨어 보안 모듈](https://www.thales-esecurity.com/msrms/buy) 을 참조하세요. |
 | 다음 하드웨어 및 소프트웨어:<ol><li>Windows 운영 체제 Windows 7 이상 및 Thales nShield 소프트웨어 버전 11.50 이상이 설치된 오프라인 x64 워크스테이션.<br/><br/>이 워크스테이션에서 Windows 7을 실행하는 경우 [Microsoft.NET Framework 4.5를 설치](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe)해야 합니다.</li><li>인터넷에 연결되어 있으며 Windows 운영 체제 Windows 7 이상이 설치된 워크스테이션</li><li>여유 공간이 16MB 이상인 USB 드라이브 또는 기타 휴대용 저장 장치 </li></ol> |보안상의 이유로 첫 번째 워크스테이션은 네트워크에 연결하지 않는 것이 좋습니다. 그러나 이 권고는 프로그램 방식으로 강제 적용되지는 않습니다.<br/><br/>이후의 지침에서는 이 워크스테이션을 분리된 워크스테이션이라 합니다.</p></blockquote><br/>또한 테넌트 키가 프로덕션 네트워크용인 경우 별도의 두 번째 워크스테이션을 사용하여 도구 집합을 다운로드하고 테넌트 키를 업로드하는 것이 좋습니다. 그러나 테스트 목적인 경우에는 첫 번째와 동일한 워크스테이션을 사용할 수 있습니다.<br/><br/>이후의 지침에서는 이 두 번째 워크스테이션을 인터넷에 연결된 워크스테이션이라 합니다.</p></blockquote><br/> |
 
@@ -67,15 +71,15 @@ Azure 주요 자격 증명 모음에 대해 BYOK(Bring Your Own Key)를 위한 �
 * [4단계: 전송할 키 준비](#step-4-prepare-your-key-for-transfer)
 * [5단계: Azure 주요 자격 증명 모음에 키 전송](#step-5-transfer-your-key-to-azure-key-vault)
 
-## <a name="step-1:-prepare-your-internet-connected-workstation"></a>1단계: 인터넷에 연결된 워크스테이션 준비
+## <a name="step-1-prepare-your-internet-connected-workstation"></a>1단계: 인터넷에 연결된 워크스테이션 준비
 이 첫 번째 단계는 인터넷에 연결된 워크스테이션에서 다음 절차를 수행합니다.
 
-### <a name="step-1.1:-install-azure-powershell"></a>1.1단계: Azure PowerShell 설치
+### <a name="step-11-install-azure-powershell"></a>1.1단계: Azure PowerShell 설치
 인터넷에 연결된 워크스테이션에서 Azure 주요 자격 증명 모음을 관리하기 위해 cmdlet이 포함된 Azure PowerShell 모듈을 다운로드하고 설치합니다. 이를 위해 0.8.13 이상 버전이 필요합니다.
 
-설치 지침은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+설치 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
-### <a name="step-1.2:-get-your-azure-subscription-id"></a>1.2단계: Azure 구독 ID 얻기
+### <a name="step-12-get-your-azure-subscription-id"></a>1.2단계: Azure 구독 ID 얻기
 Azure PowerShell 세션을 시작하고 다음 명령을 사용하여 Azure 계정에 로그인합니다.
 
         Add-AzureAccount
@@ -86,80 +90,88 @@ Azure PowerShell 세션을 시작하고 다음 명령을 사용하여 Azure 계�
 
 Azure PowerShell 창을 닫지 마세요.
 
-### <a name="step-1.3:-download-the-byok-toolset-for-azure-key-vault"></a>1.3단계: Azure 주요 자격 증명 모음에 대한 BYOK 도구 집합 다운로드
+### <a name="step-13-download-the-byok-toolset-for-azure-key-vault"></a>1.3단계: Azure 주요 자격 증명 모음에 대한 BYOK 도구 집합 다운로드
 Microsoft 다운로드 센터로 이동하여 해당 지리적 지역 또는 Azure 인스턴스에 대한 [Azure 주요 자격 증명 모음 BYOK 도구 집합을 다운로드](http://www.microsoft.com/download/details.aspx?id=45345) 합니다. 다음 정보를 사용하여 패키지 이름을 식별하고 해당 SHA-256 패키지 해시를 다운로드합니다.
 
 - - -
-**북아메리카:**
+**미국:**
 
 KeyVault-BYOK-Tools-UnitedStates.zip
 
-305F44A78FEB750D1D478F6A0C345B097CD5551003302FA465C73D9497AB4A03
+760EE9BD6445C87CFF0E8B032577118704B3BEAA045AA55977C10EF68BC67E2B
 
 - - -
 **유럽:**
 
 KeyVault-BYOK-Tools-Europe.zip
 
-C73BB0628B91471CA7F9ADFCE247561C6016A5103EF1A315D49C3EA23AFC0B9C
+7A64B94225F59B847C5C27C2200BAD7D16C901E1687767EDBBB8B09BB285011D
 
 - - -
 **아시아:**
 
 KeyVault-BYOK-Tools-AsiaPacific.zip
 
-BE9A84B6C76661929F9FDAD627005D892B3B8F9F19F351220BB4F9C356694192
+813DC94B23079CF7A5CEA71D5B444E86B292F463C53EE47AED25D4F7CD58E7D8
 
 - - -
 **라틴 아메리카:**
 
 KeyVault-BYOK-Tools-LatinAmerica.zip
 
-9E8EE11972DECE8F05CD898AF64C070C375B387CED716FDCB788544AE27D3D23
+3F29069E3500F95C0E156F4B8914E1DC60C20FB64B464306A299EA5145D755C0
 
 - - -
 **일본:**
 
 KeyVault-BYOK-Tools-Japan.zip
 
-E6B88C111D972A02ABA3325F8969C4E36FD7565C467E9D7107635E3DDA11A8B2
+453FFEA2F8F410720B68B8BAC4CF79135A7F37F4E491FF840BE9E69E88A98C90
 
 - - -
 **오스트레일리아:**
 
 KeyVault-BYOK-Tools-Australia.zip
 
-7660D7A675506737857B14F527232BE51DC269746590A4E5AB7D50EDD220675D
+4AD893396E86F2D2A71682876A6A8EA59E3C7895BEAD2F7E7C8516682582C34B
 
 - - -
 [**Azure Government:**](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
-53801A3043B0F8B4A50E8DC01A935C2BFE61F94EE027445B65C52C1ACC2B5E80
+3AAE1A96B9D15B899B8126CFC0380719EB54FDF2EA94489B43FAD21ECC745F64
 
 - - -
 **캐나다:**
 
 KeyVault-BYOK-Tools-Canada.zip
 
-A42D9407B490E97693F8A5FA6B60DC1B06B1D1516EDAE7C9A71AA13E12CF1345
+30B87A0BA8208F6B7241C30C794FED1C370D7445ACA179685816E4E156CD2AF7
 
 - - -
 **독일:**
 
 KeyVault-BYOK-Tools-Germany.zip
 
-4795DA855E027B2CA8A2FF1E7AE6F03F772836C7255AFC68E576410BDD28B48E
+5E3E4AA54715E4F93C3C145035B18275B7C6815A06D7ABB212E7FADBF2929261
 
 - - -
 **인도:**
 
 KeyVault-BYOK-Tools-India.zip
 
-26853511EB767A33CF6CD880E78588E9BBE04E619B17FBC77A6B00A5111E800C
+136733A6C6A71D75571BB80819B3D55A9B83CCAD5C996C686BC5682A3F369BF7
 
 - - -
+**영국:**
+
+KeyVault-BYOK-Tools-UnitedKingdom.zip
+
+ED331A6F1D34A402317D3F27D5396046AF0E5C2D44B5D10CCCE293472942D268
+
+- - -
+
 다운로드한 BYOK 도구 집합의 무결성을 확인하려면 Azure PowerShell 세션에서 [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) cmdlet을 사용합니다.
 
     Get-FileHash KeyVault-BYOK-Tools-*.zip
@@ -174,10 +186,10 @@ KeyVault-BYOK-Tools-India.zip
 
 USB 드라이브 또는 기타 휴대용 저장소에 패키지를 복사합니다.
 
-## <a name="step-2:-prepare-your-disconnected-workstation"></a>2단계: 연결이 끊어진 워크스테이션 준비
+## <a name="step-2-prepare-your-disconnected-workstation"></a>2단계: 연결이 끊어진 워크스테이션 준비
 이 두 번째 단계에서는 네트워크(인터넷 또는 내부 네트워크)에 연결되지 않은 워크스테이션에서 다음 절차를 수행합니다.
 
-### <a name="step-2.1:-prepare-the-disconnected-workstation-with-thales-hsm"></a>2.1단계: Thales HSM이 있는 연결이 끊어진 워크스테이션 준비
+### <a name="step-21-prepare-the-disconnected-workstation-with-thales-hsm"></a>2.1단계: Thales HSM이 있는 연결이 끊어진 워크스테이션 준비
 Windows 컴퓨터에 nCipher(Thales) 지원 소프트웨어를 설치한 다음 Thales HSM을 해당 컴퓨터에 연결합니다.
 
 Thales 도구가 해당 경로 (**%nfast_home%\bin** 및 **%nfast_home%\python\bin**)에 있는지 확인합니다. 예를 들어 다음을 입력합니다.
@@ -186,17 +198,17 @@ Thales 도구가 해당 경로 (**%nfast_home%\bin** 및 **%nfast_home%\python\b
 
 자세한 내용은 Thales HSM에 포함된 사용자 가이드를 참조하세요.
 
-### <a name="step-2.2:-install-the-byok-toolset-on-the-disconnected-workstation"></a>2.2단계: 연결이 끊어진 워크스테이션에 BYOK 도구 집합 설치
+### <a name="step-22-install-the-byok-toolset-on-the-disconnected-workstation"></a>2.2단계: 연결이 끊어진 워크스테이션에 BYOK 도구 집합 설치
 USB 드라이브 또는 기타 휴대용 저장소에서 BYOK 도구 집합 패키지를 복사한 후 다음을 수행합니다.
 
 1. 다운로드한 패키지에서 임의 폴더로 파일을 추출합니다.
 2. 해당 폴더에서 vcredist_x64.exe를 실행합니다.
 3. 지침에 따라 Visual Studio 2013용 Visual C++ 런타임 구성 요소를 설치합니다.
 
-## <a name="step-3:-generate-your-key"></a>3단계: 키 생성
+## <a name="step-3-generate-your-key"></a>3단계: 키 생성
 이 3단계에서는 연결이 끊어진 워크스테이션에서 다음 절차를 수행합니다.
 
-### <a name="step-3.1:-create-a-security-world"></a>3.1단계: 보안 영역 만들기
+### <a name="step-31-create-a-security-world"></a>3.1단계: 보안 영역 만들기
 명령 프롬프트를 시작하고 Thales의 새 영역 프로그램을 실행합니다.
 
     new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
@@ -207,7 +219,7 @@ USB 드라이브 또는 기타 휴대용 저장소에서 BYOK 도구 집합 패�
 
 * 영역 파일을 백업합니다. 영역 파일, 관리자 카드, 해당 핀을 보호하고 한 사람이 둘 이상의 카드에 액세스 권한을 가지지 않도록 합니다.
 
-### <a name="step-3.2:-validate-the-downloaded-package"></a>3.2단계: 다운로드한 패키지의 유효성 검사
+### <a name="step-32-validate-the-downloaded-package"></a>3.2단계: 다운로드한 패키지의 유효성 검사
 이 단계는 선택 사항이지만 다음 사항을 확인할 수 있으므로 권장됩니다.
 
 * 도구 집합에 포함된 키 교환 키가 정품 Thales HSM에서 생성되었습니다.
@@ -225,34 +237,34 @@ USB 드라이브 또는 기타 휴대용 저장소에서 BYOK 도구 집합 패�
    
    * 북아메리카:
      
-           python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
+         python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
    * 유럽:
      
-           python verifykeypackage.py -k BYOK-KEK-pkg-EU-1 -w BYOK-SecurityWorld-pkg-EU-1
+         python verifykeypackage.py -k BYOK-KEK-pkg-EU-1 -w BYOK-SecurityWorld-pkg-EU-1
    * 아시아:
      
-           python verifykeypackage.py -k BYOK-KEK-pkg-AP-1 -w BYOK-SecurityWorld-pkg-AP-1
+         python verifykeypackage.py -k BYOK-KEK-pkg-AP-1 -w BYOK-SecurityWorld-pkg-AP-1
    * 라틴 아메리카:
      
-           python verifykeypackage.py -k BYOK-KEK-pkg-LATAM-1 -w BYOK-SecurityWorld-pkg-LATAM-1
+         python verifykeypackage.py -k BYOK-KEK-pkg-LATAM-1 -w BYOK-SecurityWorld-pkg-LATAM-1
    * 일본:
      
-           python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
+         python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
    * 오스트레일리아:
      
-           python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
+         python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
    * [Azure Government](https://azure.microsoft.com/features/gov/)(Azure의 미국 정부 인스턴스 사용):
      
-           python verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
+         python verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
    * 캐나다:
      
-           python verifykeypackage.py -k BYOK-KEK-pkg-CANADA-1 -w BYOK-SecurityWorld-pkg-CANADA-1
+         python verifykeypackage.py -k BYOK-KEK-pkg-CANADA-1 -w BYOK-SecurityWorld-pkg-CANADA-1
    * 독일:
      
-           python verifykeypackage.py -k BYOK-KEK-pkg-GERMANY-1 -w BYOK-SecurityWorld-pkg-GERMANY-1
+         python verifykeypackage.py -k BYOK-KEK-pkg-GERMANY-1 -w BYOK-SecurityWorld-pkg-GERMANY-1
    * 인도:
      
-           python verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
+         python verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
      > [!TIP]
      > Thales 소프트웨어에는 %NFAST_HOME%\python\bin에 python이 포함되어 있습니다. 
      > 
@@ -263,7 +275,7 @@ USB 드라이브 또는 기타 휴대용 저장소에서 BYOK 도구 집합 패�
 
 이제 새 키를 만들 준비가 되었습니다.
 
-### <a name="step-3.3:-create-a-new-key"></a>3.3단계: 새 키 만들기
+### <a name="step-33-create-a-new-key"></a>3.3단계: 새 키 만들기
 Thales **generatekey** 프로그램을 사용하여 키를 생성합니다.
 
 다음 명령을 실행하여 키를 생성합니다.
@@ -287,10 +299,10 @@ Thales **generatekey** 프로그램을 사용하여 키를 생성합니다.
 
 이제 Azure 주요 자격 증명 모음에 키를 전송할 준비가 되었습니다.
 
-## <a name="step-4:-prepare-your-key-for-transfer"></a>4단계: 전송할 키 준비
+## <a name="step-4-prepare-your-key-for-transfer"></a>4단계: 전송할 키 준비
 이 4단계에서는 연결이 끊어진 워크스테이션에서 다음 절차를 수행합니다.
 
-### <a name="step-4.1:-create-a-copy-of-your-key-with-reduced-permissions"></a>4.1단계: 축소된 권한을 가진 키의 복사본을 만듭니다.
+### <a name="step-41-create-a-copy-of-your-key-with-reduced-permissions"></a>4.1단계: 축소된 권한을 가진 키의 복사본을 만듭니다.
 키에 대한 권한을 축소하려면 명령 프롬프트에서 해당 지리적 지역 또는 Azure 인스턴스에 따라 다음 중 하나를 실행합니다.
 
 * 북아메리카:
@@ -330,7 +342,7 @@ Thales **generatekey** 프로그램을 사용하여 키를 생성합니다.
 
 명령이 완료되면 **Result: SUCCESS**가 표시되고 축소된 권한을 가진 키 복사본이 key_xferacId_<contosokey>라는 파일에 저장됩니다.
 
-### <a name="step-4.2:-inspect-the-new-copy-of-the-key"></a>4.2단계: 키의 새 복사본 검사
+### <a name="step-42-inspect-the-new-copy-of-the-key"></a>4.2단계: 키의 새 복사본 검사
 필요에 따라 Thales 유틸리티를 실행하여 새 키에 최소한의 권한이 있는지 확인합니다.
 
 * aclprint.py:
@@ -341,7 +353,7 @@ Thales **generatekey** 프로그램을 사용하여 키를 생성합니다.
         "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
   이러한 명령을 실행할 때 contosokey를 [키 생성](#step-3-generate-your-key) 단계의 **3.3단계: 새 키 만들기** 에서 지정한 값과 동일한 값으로 바꿉니다.
 
-### <a name="step-4.3:-encrypt-your-key-by-using-microsoft’s-key-exchange-key"></a>4.3단계: Microsoft의 키 교환 키를 사용하여 키 암호화
+### <a name="step-43-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>4.3단계: Microsoft의 키 교환 키를 사용하여 키 암호화
 지리적 지역 또는 Azure의 인스턴스에 따라 다음 명령 중 하나를 실행합니다.
 
 * 북아메리카:
@@ -383,11 +395,11 @@ Thales **generatekey** 프로그램을 사용하여 키를 생성합니다.
 
 이 작업이 성공적으로 완료되면 **Result: SUCCESS**가 표시되고 현재 폴더에 TransferPackage-*ContosoFirstHSMkey*.byok라는 이름의 새 파일이 생성됩니다.
 
-### <a name="step-4.4:-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>4.4단계: 인터넷에 연결된 워크스테이션에 키 전송 패키지 복사
+### <a name="step-44-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>4.4단계: 인터넷에 연결된 워크스테이션에 키 전송 패키지 복사
 USB 드라이브 또는 기타 휴대용 저장소를 사용하여 인터넷에 연결된 워크스테이션에 이전 단계의 출력 파일(KeyTransferPackage-ContosoFirstHSMkey.byok)을 복사합니다.
 
-## <a name="step-5:-transfer-your-key-to-azure-key-vault"></a>5단계: Azure 주요 자격 증명 모음에 키 전송
-이 마지막 단계에서는 인터넷에 연결된 워크스테이션에서 [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx).aspx) cmdlet을 사용하여 연결이 끊어진 워크스테이션에서 Azure Key Vault HSM으로 복사한 키 전송 패키지를 업로드합니다.
+## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>5단계: Azure 주요 자격 증명 모음에 키 전송
+이 마지막 단계에서는 인터넷에 연결된 워크스테이션에서 [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx) cmdlet을 사용하여 연결이 끊어진 워크스테이션에서 Azure Key Vault HSM으로 복사한 키 전송 패키지를 업로드합니다.
 
     Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
@@ -396,6 +408,9 @@ USB 드라이브 또는 기타 휴대용 저장소를 사용하여 인터넷에 
 ## <a name="next-steps"></a>다음 단계
 이제 주요 자격 증명 모음에서 이 HSM 보호된 키를 사용할 수 있습니다. 자세한 내용은 **Azure 주요 자격 증명 모음 시작** 자습서에서 [HSM(하드웨어 보안 모듈)을 사용하려는 경우](key-vault-get-started.md) 를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

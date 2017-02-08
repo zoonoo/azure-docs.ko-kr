@@ -1,3 +1,0 @@
-12가지 건물 형태에 따라 시뮬레이트된 에너지 프로필의 컬렉션입니다. 건물은 창호 면적, 창호 면적 분포, 방향 같은 8개의 특징으로 구분된다는 점에서 다릅니다.<p> </p><b>사용:</b> 회귀 또는 분류를 사용하여 두 가지 실제 값 응답의 하나를 기반으로 에너지 효율 등급을 예측합니다. 다중 클래스 분류에 대해서는 가장 가까운 정수로 응답 변수를 반올림합니다. <p> </p><b>관련 조사:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
-
-<!---HONumber=Oct15_HO3-->

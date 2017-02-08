@@ -3,7 +3,7 @@ title: "역할 활성화 설정을 관리하는 방법 | Microsoft Docs"
 description: "Azure Active Directory Privileged Identity Management 확장을 사용하여 권한 있는 ID에 대한 기본 설정을 변경하는 방법을 알아봅니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: f6cbcb6a-8a89-4077-afd8-06c94a64f4aa
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/30/2016
-ms.author: kgremban
+ms.date: 02/03/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 5108b83d3291d3b934a402a0a7978c68bda0cf1b

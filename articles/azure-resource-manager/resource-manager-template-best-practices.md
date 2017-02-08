@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 049436b35346c355509398f7bb105dc1511eb8f7
+ms.sourcegitcommit: 311eeee882e64bc9fb2e7c1ecb4706de351e7753
+ms.openlocfilehash: c774a249d37c489ad53665ad6432122c8fdd1c32
 
 
 ---
@@ -52,8 +52,6 @@ ms.openlocfilehash: 049436b35346c355509398f7bb105dc1511eb8f7
     "variables": {
         "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
     }
-
-uniqueString 접두사가 있는 저장소 계정은 동일한 랙에서 클러스터되지 않습니다.
 
 ### <a name="resource-names-for-identification"></a>식별을 위한 리소스 이름
 이름을 지정하려고 하지만 고유성을 보장할 필요는 없는 리소스 유형의 경우 해당 컨텍스트 및 리소스 유형을 식별하는 이름을 제공하면 됩니다. 리소스 이름 목록에서 리소스를 인식하는 데 도움이 되는 설명이 포함된 이름을 제공합니다. 배포 동안 리소스 이름을 변경해야 할 경우 이름에 대해 다음 매개 변수를 사용합니다.
@@ -352,6 +350,6 @@ uniqueString 접두사가 있는 저장소 계정은 동일한 랙에서 클러�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

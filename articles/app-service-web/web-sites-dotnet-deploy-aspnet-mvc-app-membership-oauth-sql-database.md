@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3aaddd0b8ff500e3417a0ae7dd21207be45ade64
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: f0bffc2a77ef5f91c6c637e8ab247b559fb59d5c
 
 
 ---
@@ -46,7 +46,7 @@ ms.openlocfilehash: 3aaddd0b8ff500e3417a0ae7dd21207be45ade64
 > 
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 Visual Studio 구독자 혜택](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)을 [활성화하거나 [무료 평가판을 등록](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
+이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. [계정이 없는 경우 Visual Studio 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)을 활성화하거나 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 
 개발 환경 설정을 설정하려면 [Visual Studio 2013 업데이트 5](http://go.microsoft.com/fwlink/?LinkId=390521) 이상 및 최신 버전의 [.NET용 Azure SDK](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)를 설치해야 합니다. 이 문서는 Visual Studio 업데이트 4 및 SDK 2.8.1에 대해 작성되었습니다. Visual Studio 2015는 설치된 최신 [.NET용 Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) 와 동일한 지침으로 작동하지만 일부 화면이 그림과 다르게 표시됩니다.
 
@@ -603,10 +603,10 @@ Entity Framework를 사용하는 방법에 대한 고급 자습서는 [EF 및 MV
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- bookmarks -->
-[OAuth 공급자 추가]: #addOauth
-[멤버 자격 API 사용]:#mbrDB
-[데이터 배포 스크립트 작성]:#ppd
-[멤버 자격 데이터베이스 업데이트]:#ppd2
+[Add an OAuth Provider]: #addOauth
+[Using the Membership API]:#mbrDB
+[Create a Data Deployment Script]:#ppd
+[Update the Membership Database]:#ppd2
 
 [setupwindowsazureenv]: #bkmk_setupwindowsazure
 [createapplication]: #bkmk_createmvc4app
@@ -655,14 +655,14 @@ Entity Framework를 사용하는 방법에 대한 고급 자습서는 [EF 및 MV
 [addcode009]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/dntutmobile-migrations-package-manager-console.png
 
 
-[Azure 웹앱의 ASP.NET에 대한 중요 정보]: #aspnetwindowsazureinfo
-[다음 단계]: #nextsteps
+[Important information about ASP.NET in Azure web apps]: #aspnetwindowsazureinfo
+[Next steps]: #nextsteps
 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

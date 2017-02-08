@@ -1,12 +1,12 @@
 ---
-title: Gateway SDK를 사용하여 장치 시뮬레이션 | Microsoft Docs
-description: Azure IoT Hub Gateway SDK를 사용하여 시뮬레이션된 장치에서 원격 분석을 보내는 방법을 보여 주는 Windows용 Azure IoT Hub Gateway SDK 연습입니다.
+title: "Azure IoT Gateway SDK로 장치 시뮬레이션(Windows) | Microsoft Docs"
+description: "Azure IoT 게이트웨이 SDK를 사용하여 게이트웨이 통해 원격 분석을 IoT hub에 전송하는 시뮬레이션된 장치를 만드는 방법입니다."
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: chipalost
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 6a2aeda0-696a-4732-90e1-595d2e2fadc6
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: article
@@ -14,17 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2016
 ms.author: andbuc
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 432fa33d0b7340e075270f4959217978e89b8c69
+
 
 ---
-# <a name="iot-gateway-sdk-beta-send-devicetocloud-messages-with-a-simulated-device-using-windows"></a>IoT Gateway SDK(베타) – Windows를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기
+# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Azure IoT Gateway SDK를 사용하여 시뮬레이션된 장치로 장치-클라우드 메시지 보내기(Windows)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>샘플 빌드 및 실행
 시작하기 전에 다음을 수행해야 합니다.
 
-* Windows에서 SDK를 사용할 수 있도록 [개발 환경 설정][lnk-setupdevbox]
-* Azure 구독에서 [IoT Hub를 만듭니다][lnk-create-hub]. 이 연습을 완료하려면 허브 이름이 필요합니다. Azure 구독이 아직 없는 경우 [무료 계정][lnk-free-trial]을 얻을 수 있습니다.
-* IoT Hub에 장치 두 개를 추가하고 해당 ID와 장치 키를 적어 둡니다. [장치 탐색기 또는 iothub-explorer][lnk-explorer-tools] 도구를 사용하여 이전 단계에서 만든 IoT Hub에 장치를 추가하고 해당 키를 검색할 수 있습니다.
+* Windows에서 SDK를 사용할 수 있도록 [개발 환경을 설정][lnk-setupdevbox]합니다.
+* Azure 구독에서 [IoT Hub를 만듭니다][lnk-create-hub]. 이 연습을 완료하려면 허브 이름이 필요합니다. 계정이 없는 경우 몇 분 만에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
+* IoT Hub에 장치 두 개를 추가하고 해당 ID와 장치 키를 적어 둡니다. [장치 Explorer 또는 iothub-explorer][lnk-explorer-tools] 도구를 사용하여 이전 단계에서 만든 IoT Hub에 장치를 추가하고 해당 키를 검색할 수 있습니다.
 
 샘플을 빌드하려면
 
@@ -40,70 +44,90 @@ ms.author: andbuc
 * **mapping** 모듈은 시뮬레이션된 장치의 MAC 주소를 IoT Hub 장치 ID에 매핑합니다. **deviceId** 값이 IoT Hub에 추가한 두 장치의 ID와 일치하는지, 그리고 **deviceKey** 값에 두 장치의 키가 포함되어 있는지 확인합니다.
 * **BLE1** 및 **BLE2** 모듈은 시뮬레이션된 장치입니다. 해당 MAC 주소가 **mapping** 모듈의 MAC 주소와 어떻게 일치되는지 확인합니다.
 * **Logger** 모듈은 게이트웨이 활동을 파일에 로깅합니다.
-* 아래에 표시된 **module path** 값은 Gateway SDK 리포지토리를 **C:** 드라이브의 루트에 복제한 것으로 가정합니다. 다른 위치에 다운로드한 경우 해당 위치에 맞게 **module path** 값을 조정해야 합니다.
+* 아래에 표시된 **module path** 값은 IoT Gateway SDK 리포지토리를 **C:** 드라이브의 루트에 복제한 것으로 가정합니다. 다른 위치에 다운로드한 경우 해당 위치에 맞게 **module path** 값을 조정해야 합니다.
 * JSON 파일의 맨 아래에 있는 **링크** 배열은 **BLE1** 및 **BLE2** 모듈을 **매핑** 모듈에 연결하고 **매핑** 모듈을 **IoTHub** 모듈에 연결합니다. 또한 **로거** 모듈이 모든 메시지를 기록하는지 확인합니다.
 
 ```
 {
     "modules" :
-    [ 
-        {
-            "module name" : "IoTHub",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\iothub\\Debug\\iothub_hl.dll",
-            "args" : 
-            {
-                "IoTHubName" : "{Your IoT hub name}",
-                "IoTHubSuffix" : "azure-devices.net",
-                "Transport": "HTTP"
-            }
+    [
+      {
+        "name": "IotHub",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\iothub\\Debug\\iothub.dll"
+          }
+          },
+          "args": {
+            "IoTHubName": "<<insert here IoTHubName>>",
+            "IoTHubSuffix": "<<insert here IoTHubSuffix>>",
+            "Transport": "HTTP"
+          }
         },
-        {
-            "module name" : "mapping",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\identitymap\\Debug\\identity_map_hl.dll",
-            "args" : 
-            [
-                {
-                    "macAddress" : "01-01-01-01-01-01",
-                    "deviceId"   : "{Device ID 1}",
-                    "deviceKey"  : "{Device key 1}"
-                },
-                {
-                    "macAddress" : "02-02-02-02-02-02",
-                    "deviceId"   : "{Device ID 2}",
-                    "deviceKey"  : "{Device key 2}"
-                }
-            ]
-        },
-        {
-            "module name":"BLE1",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\simulated_device\\Debug\\simulated_device_hl.dll",
-            "args":
+      {
+        "name": "mapping",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\identitymap\\Debug\\identity_map.dll"
+          }
+          },
+          "args": [
             {
-                "macAddress" : "01-01-01-01-01-01"
-            }
-        },
-        {
-            "module name":"BLE2",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\simulated_device\\Debug\\simulated_device_hl.dll",
-            "args":
+              "macAddress": "01:01:01:01:01:01",
+              "deviceId": "<<insert here deviceId>>",
+              "deviceKey": "<<insert here deviceKey>>"
+            },
             {
-                "macAddress" : "02-02-02-02-02-02"
+              "macAddress": "02:02:02:02:02:02",
+              "deviceId": "<<insert here deviceId>>",
+              "deviceKey": "<<insert here deviceKey>>"
             }
+          ]
         },
-        {
-            "module name":"Logger",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\logger\\Debug\\logger_hl.dll",
-            "args":
-            {
-                "filename":"C:\\azure-iot-gateway-sdk\\deviceCloudUploadGatewaylog.log"
-            }
+      {
+        "name": "BLE1",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\simulated_device\\Debug\\simulated_device.dll"
+          }
+          },
+          "args": {
+            "macAddress": "01:01:01:01:01:01"
+          }
+        },
+      {
+        "name": "BLE2",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\simulated_device\\Debug\\simulated_device.dll"
+          }
+          },
+          "args": {
+            "macAddress": "02:02:02:02:02:02"
+          }
+        },
+      {
+        "name": "Logger",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\logger\\Debug\\logger.dll"
+          }
+        },
+        "args": {
+          "filename": "deviceCloudUploadGatewaylog.log"
         }
+      }
     ],
     "links" : [
         { "source" : "*", "sink" : "Logger" },
         { "source" : "BLE1", "sink" : "mapping" },
         { "source" : "BLE2", "sink" : "mapping" },
-        { "source" : "mapping", "sink" : "IoTHub" }
+        { "source" : "mapping", "sink" : "IotHub" }
     ]
 }
 ```
@@ -118,17 +142,17 @@ ms.author: andbuc
     ```
     build\samples\simulated_device_cloud_upload\Debug\simulated_device_cloud_upload_sample.exe samples\simulated_device_cloud_upload\src\simulated_device_cloud_upload_win.json
     ```
-3. [장치 탐색기 또는 iothub-explorer][lnk-explorer-tools] 도구를 사용하여 IoT Hub가 게이트웨이에서 수신하는 메시지를 모니터링할 수 있습니다.
+3. [장치 Explorer 또는 iothub-explorer][lnk-explorer-tools] 도구를 사용하여 IoT Hub가 게이트웨이에서 수신하는 메시지를 모니터링할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-게이트웨이 SDK와 코드 예제 실험에 대해 더욱 심도 있게 이해하고 싶다면 다음 개발자 자습서 및 리소스를 참고하세요.
+IoT Gateway SDK와 코드 예제 실험에 대해 더욱 심도 있게 이해하고 싶다면 다음 개발자 자습서 및 리소스를 참고하세요.
 
-* [Gateway SDK를 사용하여 실제 장치에서 장치-클라우드 메시지 보내기][lnk-physical-device]
-* [Azure IoT 게이트웨이 SDK][lnk-gateway-sdk]
+* [IoT Gateway SDK를 사용하여 물리적 장치에서 장치-클라우드 메시지 보내기][lnk-physical-device]
+* [Azure IoT Gateway SDK][lnk-gateway-sdk]
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [개발자 가이드][lnk-devguide]
+* [IoT Hub 개발자 가이드][lnk-devguide]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -142,6 +166,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-create-hub]: iot-hub-create-through-portal.md 
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Dec16_HO2-->
 
 

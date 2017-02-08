@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/14/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 182b4378cfd876d3700a1f0028a681ce936be03c
-ms.openlocfilehash: 1425628c6e0c544b5b84a4f828bfaef3073fddee
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: 607786ef52e9f2a7c49e3d47e2d4cf590912710b
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: 1425628c6e0c544b5b84a4f828bfaef3073fddee
 Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. Azure Resource Manager 템플릿 작성에 대한 자세한 내용과 템플릿 형식에 대한 논의는 [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
 
 > [!NOTE]
-> 이 문서의 예제에서는 Azure Resource Manager를 사용하여 서비스 버스 네임스페이스와 메시징 엔터티(큐)를 만드는 방법을 보여 줍니다. 다른 템플릿 예제는 [Azure 빠른 시작 템플릿 갤러리][Azure 빠른 시작 템플릿 갤러리]를 방문하고 "Service Bus"를 검색하세요.
-> 
-> 
+> 이 문서의 예제에서는 Azure Resource Manager를 사용하여 서비스 버스 네임스페이스와 메시징 엔터티(큐)를 만드는 방법을 보여 줍니다. 다른 템플릿 예제는 [Azure 빠른 시작 템플릿 갤러리][Azure Quickstart Templates gallery]를 방문하고 "Service Bus"를 검색하세요.
+>
+>
 
 ## <a name="service-bus-and-event-hubs-resource-manager-templates"></a>서비스 버스 및 이벤트 허브 리소스 관리자 템플릿
 이러한 Service Bus Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다. 각각에 대한 자세한 내용은 GitHub의 템플릿에 대한 링크가 포함된 다음 링크를 클릭하세요.
@@ -50,10 +50,10 @@ Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 �
 6. 원하는 경우 배포 모드를 설정합니다.
 7. 템플릿을 배포합니다.
 
-Azure Resource Manager 배포 템플릿에 대한 모든 내용은 [Azure Resource Manager 템플릿으로 리소스 배포][Azure Resource Manager 템플릿으로 리소스 배포]를 참조하세요.
+Azure Resource Manager 배포 템플릿에 대한 모든 내용은 [Azure Resource Manager 템플릿으로 리소스 배포][Deploy resources with Azure Resource Manager templates]를 참조하세요.
 
 ### <a name="install-powershell"></a>PowerShell 설치 
-[Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)의 지침에 따라 Azure PowerShell을 설치합니다.
+[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)의 지침에 따라 Azure PowerShell을 설치합니다.
 
 ### <a name="create-a-template"></a>템플릿 만들기
 GitHub에서 [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) 템플릿을 복제 또는 복사합니다.
@@ -145,7 +145,7 @@ GitHub에서 [201-servicebus-create-queue](https://github.com/Azure/azure-quicks
 }
 ```
 
-자세한 내용은 [매개 변수 파일](../resource-group-template-deploy.md#parameter-precedence) 항목을 참조하세요.
+자세한 내용은 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#parameter-precedence) 항목을 참조하세요.
 
 ### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Azure에 로그인하고 Azure 구독 설정
 PowerShell 프롬프트에서 다음 명령을 실행합니다.
@@ -191,7 +191,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 ```
 
 ### <a name="create-the-deployment"></a>배포 만들기
-새 배포를 만들려면 `New-AzureRmResourceGroupDeployment` 명령을 실행하고 메시지가 표시되면 필요한 매개 변수를 입력합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름 및 템플릿 파일의 경로 또는 URL이 포함됩니다. **Mode** 매개 변수가 지정되지 않은 경우 기본값 **Incremental**이 사용됩니다. 자세한 내용은 [증분 및 전체 배포](../resource-group-template-deploy.md#incremental-and-complete-deployments)를 참조하세요.
+새 배포를 만들려면 `New-AzureRmResourceGroupDeployment` 명령을 실행하고 메시지가 표시되면 필요한 매개 변수를 입력합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름 및 템플릿 파일의 경로 또는 URL이 포함됩니다. **Mode** 매개 변수가 지정되지 않은 경우 기본값 **Incremental**이 사용됩니다. 자세한 내용은 [증분 및 전체 배포](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments)를 참조하세요.
 
 다음 명령은 PowerShell 창에서 세 매개 변수의 입력을 요청합니다.
 
@@ -211,7 +211,7 @@ New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyD
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-[전체](../resource-group-template-deploy.md#incremental-and-complete-deployments) 배포를 실행하려면 **Mode** 매개 변수를 **Complete**로 설정합니다.
+[전체](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) 배포를 실행하려면 **Mode** 매개 변수를 **Complete**로 설정합니다.
 
 ```
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -239,16 +239,16 @@ Parameters        :
 ## <a name="next-steps"></a>다음 단계
 이제 Azure Resource Manager 템플릿 배포를 위한 기본 워크플로와 명령이 표시됩니다. 자세한 내용은 다음 링크를 방문하세요.
 
-* [Azure Resource Manager 개요][Azure Resource Manager 개요]
-* [Azure Resource Manager 템플릿으로 리소스 배포][Azure Resource Manager 템플릿으로 리소스 배포]
+* [Azure Resource Manager 개요][Azure Resource Manager overview]
+* [Azure Resource Manager 템플릿으로 리소스 배포][Deploy resources with Azure Resource Manager templates]
 * [템플릿 작성](../resource-group-authoring-templates.md)
 
-[Azure Resource Manager 개요]: ../azure-resource-manager/resource-group-overview.md
-[Azure Resource Manager 템플릿으로 리소스 배포]: ../resource-group-template-deploy.md
-[Azure 빠른 시작 템플릿 갤러리]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
+[Deploy resources with Azure Resource Manager templates]: ../resource-group-template-deploy.md
+[Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

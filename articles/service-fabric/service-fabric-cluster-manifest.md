@@ -3,7 +3,7 @@ title: "독립 실행형 클러스터 구성 | Microsoft Docs"
 description: "이 문서에서는 독립 실행형 또는 개인 Service Fabric 클러스터를 구성하는 방법을 설명합니다."
 services: service-fabric
 documentationcenter: .net
-author: dsk-2015
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
-ms.author: dkshir
+ms.date: 12/12/2016
+ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b19d1ed96cf8e294cb105fa62f8623b28e3cc7fc
+ms.sourcegitcommit: 4fb6ef56d694aff967840ab26b75b66a2e799cc1
+ms.openlocfilehash: 977de9160be63a91b5926daa45528e5ee205e448
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: b19d1ed96cf8e294cb105fa62f8623b28e3cc7fc
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2015-01-01-alpha",
+    "apiVersion": "2016-09-26",
 
 Service Fabric 클러스터를 **name** 변수에 할당하여 이름 지정할 수 있습니다. **clusterConfigurationVersion**은 클러스터의 버전 번호이며, Service Fabric 클러스터를 업그레이드할 때마다 증가해야 합니다. 그러나 **apiVersion**은 기본값으로 그대로 두어야 합니다.
 
@@ -132,6 +132,7 @@ ClusterConfig.JSON의 **properties** 섹션은 다음과 같이 클러스터를 
         "leaseDriverEndpointPort": "19002"
         "serviceConnectionEndpointPort": "19003",
         "httpGatewayEndpointPort": "19080",
+        "reverseProxyEndpointPort": "19081",
         "applicationPorts": {
             "startPort": "20575",
             "endPort": "20605"
@@ -171,11 +172,11 @@ ClusterConfig.JSON의 **properties** 섹션은 다음과 같이 클러스터를 
 OS가 아닌 드라이브를 사용하면 OS 충돌 시에도 더 큰 안정성을 제공하므로 이러한 드라이브를 FabricDataRoot 및 FabricLogRoot로 사용하는 것이 좋습니다. 데이터 루트만 사용자 지정하는 경우 로그 루트가 데이터 루트에서 한 수준 아래에 배치됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-독립 실행형 클러스터 설치에 따라 완전한 ClusterConfig.JSON 파일을 구성한 경우 [온-프레미스 또는 클라우드에서 Azure Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md) 문서에 따라 클러스터를 배포한 다음 [Service Fabric Explorer로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)를 계속 진행할 수 있습니다.
+독립 실행형 클러스터 설치에 따라 완전한 ClusterConfig.JSON 파일을 구성한 경우 [독립 실행형 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md) 문서에 따라 클러스터를 배포한 다음 [Service Fabric Explorer로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)를 계속 진행할 수 있습니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/04/2017
 ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
@@ -34,7 +34,7 @@ SQL Server를 실행하는 서버에서 [부록 A](#appendix-a)에 있는 SQL �
 
 1. 서버에서 ODBC 관리 유틸리티를 시작합니다.  
    ![ODBC](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc.png)
-2. **파일 DSN**탭을 선택합니다. **추가...**를 클릭합니다.
+2. **파일 DSN**탭을 선택합니다. **추가...**를 클릭합니다.  
    ![ODBC1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc1.png)
 3. Windows에서 제공하지 않는 드라이버가 원활하게 작동하므로 이를 선택하고 **다음>**을 클릭합니다.  
    ![ODBC2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc2.png)
@@ -87,7 +87,7 @@ SQL Server를 실행하는 서버에서 [부록 A](#appendix-a)에 있는 SQL �
    ![Runprofile2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile2.png)
 3. **OBJECT=User**파티션을 선택합니다.  
    ![Runprofile3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile3.png)
-4. **테이블**을 선택하고 **[USERS]**를 입력합니다. 다중값 개체 유형 섹션까지 아래로 스크롤하여 다음 그림과 같이 데이터를 입력합니다. **마침** 을 선택하여 단계를 저장합니다.
+4. **테이블**을 선택하고 **[USERS]**를 입력합니다. 다중값 개체 유형 섹션까지 아래로 스크롤하여 다음 그림과 같이 데이터를 입력합니다. **마침** 을 선택하여 단계를 저장합니다.  
    ![Runprofile4a](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4a.png)  
    ![Runprofile4b](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4b.png)  
 5. **새 단계**를 선택합니다. 이번에는 **OBJECT=Group**을 선택합니다. 마지막 페이지에서 다음 그림과 같이 구성을 사용합니다. **마침**을 클릭합니다.  

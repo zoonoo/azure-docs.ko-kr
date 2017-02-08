@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/22/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 00f4ddd7173affb9e557e8c993c9f7432a3152cd
 
 
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정 자동 활성화
-이 문서에서는 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md) 을 사용하여 리소스 생성 시 리소스에서 진단 설정을 구성하는 방법을 보여 줍니다. 그러면 이벤트 허브로 진단 로그 및 메트릭의 스트리밍을 자동으로 시작하거나, 리소스 생성 시 Log Analytics에 보낼 수 있습니다.
+이 문서에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md) 을 사용하여 리소스 생성 시 리소스에서 진단 설정을 구성하는 방법을 보여 줍니다. 그러면 이벤트 허브로 진단 로그 및 메트릭의 스트리밍을 자동으로 시작하거나, 리소스 생성 시 Log Analytics에 보낼 수 있습니다.
 
 Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방법은 리소스 형식에 따라 다릅니다.
 
@@ -33,7 +33,7 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
 기본적인 단계는 다음과 같습니다.
 
 1. 리소스를 만들고 진단을 활성화하는 방법을 설명하는 JSON 파일로 템플릿을 만듭니다.
-2. [배포 방법을 사용하여 템플릿을 배포합니다](../resource-group-template-deploy.md).
+2. [배포 방법을 사용하여 템플릿을 배포합니다](../azure-resource-manager/resource-group-template-deploy.md).
 
 다음은 비-계산 및 계산 리소스에 대해 생성해야 하는 템플릿 JSON 파일의 예입니다.
 
@@ -86,13 +86,23 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
                 "enabled": false
               }
             }
+          ],
+          "metrics": [
+            {
+              "timeGrain": "PT1M",
+              "enabled": true,
+              "retentionPolicy": {
+                "enabled": false,
+                "days": 0
+              }
+            }
           ]
         }
       }
     ]
     ```
 
-진단 설정에 대한 속성 Blob는 [이 문서에 설명된 형식](https://msdn.microsoft.com/library/azure/dn931931.aspx)을 따릅니다.
+진단 설정에 대한 속성 Blob는 [이 문서에 설명된 형식](https://msdn.microsoft.com/library/azure/dn931931.aspx)을 따릅니다. `metrics` 속성을 추가하면 리소스 메트릭을 이러한 동일한 출력으로 보낼 수도 있습니다.
 
 다음은 네트워크 보안 그룹을 만들고 이벤트 허브로 스트리밍 및 저장소 계정에 저장을 설정하는 전체 예제입니다.
 
@@ -166,6 +176,16 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
                   "enabled": false
                 }
               }
+            ],
+            "metrics": [
+              {
+                "timeGrain": "PT1M",
+                "enabled": true,
+                "retentionPolicy": {
+                  "enabled": false,
+                  "days": 0
+                }
+              }
             ]
           }
         }
@@ -198,6 +218,6 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

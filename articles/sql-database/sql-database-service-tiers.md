@@ -4,7 +4,7 @@ description: "SQL Database 서비스 계층을 비교합니다."
 keywords: "데이터베이스 옵션, 데이터베이스 성능"
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: janeng
 manager: jhubbard
 editor: 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/11/2017
-ms.author: carlrab; janeng
+ms.author: janeng
 translationtype: Human Translation
 ms.sourcegitcommit: a909265ce7e6cc5915bb6cd999a887b9798e5b0b
 ms.openlocfilehash: 5d37d2b31a04baa14b456b96de70e2299a933b8e

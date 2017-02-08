@@ -102,6 +102,6 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

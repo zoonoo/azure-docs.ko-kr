@@ -17,13 +17,13 @@ ms.devlang: na
 ms.date: 09/06/2016
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 9baff59be09c168b31ec78ccdb58c4b8b26de274
+ms.sourcegitcommit: 17ddda372f3a232be62e565b700bb1be967fb8e3
+ms.openlocfilehash: 5e9fb48fdf0da9a1c75f4d08ab7d97976859340c
 
 
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM에 디스크 추가
-이 문서에는 유지 관리 또는 크기 조정으로 인해 VM이 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여 줍니다. 디스크를 추가하려면 Resource Manager 모드(`azure config mode arm`)로 구성된 [Azure CLI](../xplat-cli-install.md)가 필요합니다.  
+이 문서에는 유지 관리 또는 크기 조정으로 인해 VM이 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여 줍니다. 디스크를 추가하려면 리소스 관리자 모드(`azure config mode arm`)로 구성된 [Azure CLI](../xplat-cli-install.md)가 필요합니다.  
 
 ## <a name="quick-commands"></a>빠른 명령
 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에 `50`GB 디스크를 연결합니다.
@@ -33,7 +33,7 @@ azure vm disk attach-new myResourceGroup myVM 50
 ```
 
 ## <a name="attach-a-disk"></a>디스크 연결
-새 디스크 연결이 빠릅니다. `azure vm disk attach-new myResourceGroup myVM sizeInGB` 를 입력하여 VM에 대한 새 GB 디스크를 만들어 연결합니다. 저장소 계정을 명시적으로 식별하지 않는 경우 만드는 모든 디스크가 OS 디스크가 있는 동일한 저장소 계정에 배치됩니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에 `50`GB 디스크를 연결합니다.
+새 디스크 연결이 빠릅니다. `azure vm disk attach-new myResourceGroup myVM sizeInGB`를 입력하여 VM에 대한 새 GB 디스크를 만들어 연결합니다. 저장소 계정을 명시적으로 식별하지 않는 경우 만드는 모든 디스크가 OS 디스크가 있는 동일한 저장소 계정에 배치됩니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에 `50`GB 디스크를 연결합니다.
 
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
@@ -97,7 +97,7 @@ applicable law.
 ops@myVM:~$
 ```
 
-VM에 연결했으므로 디스크를 연결할 준비가 되었습니다.  먼저 `dmesg | grep SCSI` 를 사용하여 디스크를 찾습니다(새 디스크를 찾는 데 사용하는 방법은 다를 수 있습니다). 이 경우, 다음과 유사하게 표시됩니다.
+VM에 연결했으므로 디스크를 연결할 준비가 되었습니다.  먼저 `dmesg | grep SCSI`를 사용하여 디스크를 찾습니다(새 디스크를 찾는 데 사용하는 방법은 다를 수 있습니다). 이 경우, 다음과 유사하게 표시됩니다.
 
 ```bash
 dmesg | grep SCSI
@@ -141,7 +141,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-프롬프트에서 `p` 를 입력하여 파티션을 만듭니다.
+프롬프트에서 `p`를 입력하여 파티션을 만듭니다.
 
 ```bash
 Command (m for help): p
@@ -265,7 +265,7 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* 또는 `fstrim` 명령을 명령줄에서 수동으로 실행하거나, 또는 정기적으로 실행하기 위해 crontab에 추가할 수 있습니다.
+* 일부 경우 `discard` 옵션에는 성능이 저하 될 수 있습니다. 또는 `fstrim` 명령을 명령줄에서 수동으로 실행하거나, 또는 정기적으로 실행하기 위해 crontab에 추가할 수 있습니다.
   
     **Ubuntu**
   
@@ -287,11 +287,11 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 ## <a name="next-steps"></a>다음 단계
 * 해당 정보를 [fstab](http://en.wikipedia.org/wiki/Fstab) 파일에 쓰지 않았는데 다시 부팅하면 새 디스크를 VM에 사용할 수 없게 됩니다.
 * Linux VM을 올바르게 구성했는지 확인하려면 [Linux 컴퓨터 성능 최적화](virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 권장 사항을 검토합니다.
-* 디스크를 추가하여 저장소 용량을 확장하고 추가 성능이 필요할 경우 [RAID를 구성](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 합니다.
+* 디스크를 추가하여 저장소 용량을 확장하고 추가 성능이 필요할 경우 [RAID를 구성](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)합니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

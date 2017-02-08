@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/13/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 090f653da4825d7953dde27740d219bf40a4bd97
+ms.sourcegitcommit: c8bb1161e874a3adda4a71ee889ca833db881e20
+ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
 
 
 ---
@@ -90,7 +90,7 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 이 기능을 사용하도록 설정하려면 Apple 푸시 알림을 받도록 응용 프로그램을 준비하고 응용 프로그램 대리자를 수정해야 합니다.
 
 ### <a name="prepare-your-application-for-apple-push-notifications"></a>Apple 푸시 알림을 받도록 응용 프로그램 준비
- [Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+[Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
 ### <a name="add-the-necessary-client-code"></a>필요한 클라이언트 코드 추가
 *이때 응용 프로그램에는 Engagement 프런트 엔드에는 등록된 Apple 푸시 인증서가 포함되어 있어야 합니다.*
@@ -133,7 +133,7 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
     }
 
 > [!NOTE]
-> 위의 메서드는 iOS 7에서에서 도입되었습니다. iOS 7 이전 버전을 대상으로 하는 경우 응용 프로그램 대리자에서 메서드 `application:didReceiveRemoteNotification:`를 구현하고 `handler` 인수 대신에 nil을 전달하여 EngagementAgent에서 `applicationDidReceiveRemoteNotification`를 호출해야 합니다.
+> 위의 메서드는 iOS 7에서에서 도입되었습니다. iOS&7; 이전 버전을 대상으로 하는 경우 응용 프로그램 대리자에서 메서드 `application:didReceiveRemoteNotification:`를 구현하고 `handler` 인수 대신에 nil을 전달하여 EngagementAgent에서 `applicationDidReceiveRemoteNotification`를 호출해야 합니다.
 > 
 > 
 
@@ -182,12 +182,15 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
         [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
     }
 
-### <a name="if-you-have-your-own-unusernotificationcenterdelegate-implementation"></a>사용자 고유의 UNUserNotificationCenterDelegate 구현이 있는 경우
-SDK에도 자체적으로 UNUserNotificationCenterDelegate 프로토콜이 구현되어 있습니다. 이 프로토콜은 iOS 10 이상에서 실행되는 장치의 Engagement 알림 수명 주기를 모니터링하기 위해 SDK에서 사용됩니다. SDK에서 대리자를 검색하는 경우 응용 프로그램당 UNUserNotificationCenter 대리자가 하나만 있기 때문에 자체 구현을 사용하지 않습니다. 즉, 자체 대리자에 Engagement 논리를 추가해야 합니다.
+### <a name="resolve-unusernotificationcenter-delegate-conflicts"></a>UNUserNotificationCenter 대리자 충돌 해결
+
+*응용 프로그램이나 타사 라이브러리 중 하나에서 `UNUserNotificationCenterDelegate`를 구현하지 않으면 이 부분을 건너뛸 수 있습니다.*
+
+`UNUserNotificationCenter` 대리자는 iOS 10 이상에서 실행되는 장치의 Engagement 알림 수명 주기를 모니터링하기 위해 SDK에서 사용됩니다. SDK에는 `UNUserNotificationCenterDelegate` 프로토콜의 자체 구현이 있지만 응용 프로그램당 `UNUserNotificationCenter` 위임자가 하나만 있을 수 있습니다. `UNUserNotificationCenter` 개체에 추가된 다른 모든 대리자는 Engagement 대리인과 충돌합니다. SDK가 사용자 또는 다른 타사 대리자를 발견하는 경우 충돌을 해결할 기회를 주기 위해 자체 구현을 사용하지 않습니다. 충돌을 해결하기 위해 사용자 고유의 대리자에게 Engagement 논리를 추가해야 합니다.
 
 이 작업은 다음 두 가지 방법으로 수행할 수 있습니다.
 
-SDK에 대리자 호출 전달
+제안 1, SDK에 대리자 호출 전달
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -214,7 +217,7 @@ SDK에 대리자 호출 전달
     }
     @end
 
-또는 `AEUserNotificationHandler` 클래스에서 상속
+또는 제안 2, `AEUserNotificationHandler` 클래스에서 상속
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -242,8 +245,16 @@ SDK에 대리자 호출 전달
 
 > [!NOTE]
 > 해당 `userInfo` 사전을 에이전트 `isEngagementPushPayload:` 클래스 메서드에 전달하여 알림이 Engagement에서 온 것인지를 확인할 수 있습니다.
-> 
-> 
+
+응용 프로그램 대리자의 `application:willFinishLaunchingWithOptions:` 또는 `application:didFinishLaunchingWithOptions:` 메서드 내에서 `UNUserNotificationCenter` 개체의 대리자가 현재 대리자로 설정되어 있는지 확인합니다.
+예를 들어 위의 제안 1을 구현하는 경우:
+
+      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        // Any other code
+  
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+        return YES;
+      }
 
 ## <a name="how-to-customize-campaigns"></a>캠페인을 사용자 지정하는 방법
 ### <a name="notifications"></a>알림
@@ -335,7 +346,7 @@ SDK에 대리자 호출 전달
 
 1. 인터페이스 작성기를 사용하여 알림 뷰 추가
    
-   *  *인터페이스 작성기*
+   * *인터페이스 작성기*
    * 알림을 표시할 320x60(iPad의 경우 768x60) 크기의 `UIView` 을(를) 배치합니다.
    * 이 뷰의 태그 값 설정: **36822491**
 2. 프로그래밍 방식으로 알림 뷰를 추가합니다. 이렇게 하려면 뷰가 초기화된 후 다음 코드만 추가하면 됩니다.
@@ -504,6 +515,6 @@ SDK에 대리자 호출 전달
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 01/24/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
-ms.openlocfilehash: 05a9466ba2a2d4a495d2e9a4f3ca4c9d08ddcadb
+ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
+ms.openlocfilehash: 92195f4479f429f0911d9e2ca7be29c1aef7785e
 
 
 ---
@@ -49,7 +49,7 @@ Amazon S3에서 데이터를 복사하는 파이프라인을 만드는 가장 �
 * [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 * [FileSystemSource](#copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
-샘플은 1시간마다 웹 테이블의 데이터를 Amazon S3으로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
+샘플은&1;시간마다 웹 테이블의 데이터를 Amazon S3으로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
 **Amazon S3 연결된 서비스**
 
@@ -238,8 +238,9 @@ Amazon S3에서 데이터를 복사하는 파이프라인을 만드는 가장 �
 | key |S3 개체 키입니다. |string |아니요 |
 | 접두사 |S3 개체 키에 대한 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. 키가 비어 있을 때에만 적용됩니다. |string |아니요 |
 | 버전 |S3 버전 관리를 사용하도록 설정되면 S3 개체의 버전입니다. |string |아니요 |
-| format |**TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 세부 정보는 [TextFormat 지정](#specifying-textformat), [AvroFormat 지정](#specifying-avroformat), [JsonFormat 지정](#specifying-jsonformat), [OrcFormat 지정](#specifying-orcformat) 및 [ParquetFormat 지정](#specifying-parquetformat) 섹션을 참조하세요. 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뛸 수 있습니다. |아니요 | |
-| 압축 |데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate** 및 **BZip2**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 현재 **AvroFormat** 또는 **OrcFormat** 형식인 데이터에 대한 압축 설정은 지원되지 않습니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. |아니요 | |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](#specifying-textformat), [Json 형식](#specifying-jsonformat), [Avro 형식](#specifying-avroformat), [Orc 형식](#specifying-orcformat) 및 [Parquet 형식](#specifying-parquetformat) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 | |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [압축 지정](#specifying-compression) 섹션을 참조하세요. |아니요 | |
+
 
 > [!NOTE]
 > bucketName + 키는 S3 개체의 위치를 지정합니다. 여기서 버킷은 S3 개체에 대한 루트 컨테이너이며 키는 S3 개체의 전체 경로입니다.
@@ -342,6 +343,6 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

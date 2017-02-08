@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ed3d5ddbbdff9ec568f513d15ecb1ea28ba8855
+ms.sourcegitcommit: 045e40bccad59586987c0a18253dafff2f955a93
+ms.openlocfilehash: 7cc5c4a1e688253c507b38253e95c4248a342052
 
 
 ---
 # <a name="extend-your-experiment-with-r"></a>R을 사용하여 실험 확장
-[R 스크립트 실행][execute-r-script] 모듈을 사용하여 R 언어를 통해 ML Studio의 기능을 확장할 수 있습니다.
+[R 스크립트 실행][execute-r-script] 모듈을 사용하여 R 언어를 통해 기계 학습 스튜디오의 기능을 확장할 수 있습니다.
 
 이 모듈에서는 여러 입력 데이터 집합을 허용하고 출력으로 단일 데이터 집합을 생성합니다. [R 스크립트 실행][execute-r-script] 모듈의 **R 스크립트** 매개 변수에 R 스크립트를 입력할 수 있습니다.
 
@@ -40,14 +40,14 @@ ms.openlocfilehash: 7ed3d5ddbbdff9ec568f513d15ecb1ea28ba8855
 [R 스크립트 실행][execute-r-script] 모듈의 출력 포트에 패키지의 목록을 전송합니다.
 패키지 목록을 보려면 [CSV로 변환][convert-to-csv]과 같은 변환 모듈을 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력에 연결하고, 실험을 실행한 다음, 변환 모듈의 출력을 클릭하고 **다운로드**를 선택합니다. 
 
-![](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
+!["CSV로 변환" 모듈의 출력 다운로드](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
 
 <!--
 For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
 -->
 
 ## <a name="importing-packages"></a>패키지 가져오기
-[R 스크립트 실행][execute-r-script] 모듈 및 압축된 패키지 아카이브에서 다음 명령을 사용하여 스테이징된 ML Studio 리포지토리에서 아직 설치되지 않은 패키지도 가져올 수 있습니다.
+[R 스크립트 실행][execute-r-script] 모듈 및 압축된 패키지 아카이브에서 다음 명령을 사용하여 스테이징된 기계 학습 스튜디오 리포지토리에서 아직 설치되지 않은 패키지도 가져올 수 있습니다.
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)
     success <- library("my_favorite_package", lib.loc = ".", logical.return = TRUE, verbose = TRUE)
@@ -514,6 +514,6 @@ To get the complete list of packages that are currently available, see the secti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

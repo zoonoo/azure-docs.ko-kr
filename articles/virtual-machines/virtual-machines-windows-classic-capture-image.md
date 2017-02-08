@@ -16,15 +16,14 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 760c713d9729ba81fbac52f1eff80f956e82d83f
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 6b68d41daeea780d70b5ce1389d05f1f4fdf65ea
 
 
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 Azure Windows 가상 컴퓨터의 이미지를 캡처합니다.
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Resource Manager 모델 정보에 대해서는 [Azure에서 실행되는 복사본 Windows VM 만들기](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델 정보에 대해서는 [Azure에서 실행되는 복사본 Windows VM 만들기](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 이 문서에서는 Windows가 실행되는 Azure 가상 컴퓨터를 캡처하여 다른 가상 컴퓨터를 만들 때 이미지로 사용하는 방법을 소개합니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결되는 모든 데이터 디스크가 포함됩니다. 네트워킹 구성은 포함되지 않으므로, 이미지를 사용하는 다른 가상 컴퓨터를 만들 때 구성해야 합니다.
 
@@ -45,12 +44,12 @@ Azure에서는 이미지를 **내 이미지**아래에 저장합니다. 사용�
 Azure 가상 컴퓨터의 이미지를 캡처하기 전에 대상 가상 컴퓨터를 백업하는 것이 좋습니다. Azure 백업을 사용하여 Azure 가상 컴퓨터를 백업할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터 백업](../backup/backup-azure-vms.md)을 참조하세요. 다른 솔루션은 인증된 파트너에서 사용할 수 있습니다. 무엇이 현재 사용 가능한지 알아보려면, Azure 마켓플레이스를 검색합니다.
 
 ## <a name="capture-the-virtual-machine"></a>가상 컴퓨터 캡처
-1. [Azure 클래식 포털](http://manage.windowsazure.com)에서, 가상 컴퓨터를 **연결** 합니다. 자세한 내용은 [Windows Server를 실행하는 가상 컴퓨터에 로그인하는 방법][Windows Server를 실행하는 가상 컴퓨터에 로그인하는 방법]을 참조하세요.
+1. [Azure 클래식 포털](http://manage.windowsazure.com)에서, 가상 컴퓨터를 **연결** 합니다. 지침은 [Windows Server를 실행하여 가상 컴퓨터에 로그인하는 방법][How to sign in to a virtual machine running Windows Server]을 참조하세요.
 2. 관리자로 명령 프롬프트 창을 엽니다.
 3. 디렉터리를 `%windir%\system32\sysprep`로 변경한 후 sysprep.exe를 실행합니다.
 4. **시스템 준비 도구** 대화 상자가 나타납니다. 다음을 수행합니다.
    
-   * **시스템 정리 작업**에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화**를 선택했는지 확인합니다. Sysprep 사용에 대한 자세한 내용은 [Sysprep 사용 방법: 소개][Sysprep 사용 방법: 소개]를 참조하세요.
+   * **시스템 정리 작업**에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화**를 선택했는지 확인합니다. Sysprep 사용에 대한 자세한 내용은 [Sysprep 사용 방법: 소개][How to Use Sysprep: An Introduction]를 참조하세요.
    * **종료 옵션**에서 **종료**를 선택합니다.
    * **확인**을 클릭합니다.
    
@@ -71,18 +70,18 @@ Azure 가상 컴퓨터의 이미지를 캡처하기 전에 대상 가상 컴퓨�
 ## <a name="next-steps"></a>다음 단계
 이제 이미지를 사용하여 가상 컴퓨터를 만들 수 있습니다. 이렇게 하려면 **갤러리에서** 메뉴 항목을 사용하여 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택합니다. 지침에 대해서는 [이미지에서 가상 컴퓨터 만들기](virtual-machines-windows-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 
-[Windows Server를 실행하는 가상 컴퓨터에 로그인하는 방법]: virtual-machines-windows-classic-connect-logon.md
-[Sysprep 사용 방법: 소개]: http://technet.microsoft.com/library/bb457073.aspx
-[Sysprep.exe 실행]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
-[Sysprep.exe 옵션 입력]: ./media/virtual-machines-windows-classic-capture-image/SysprepGeneral.png
-[가상 컴퓨터가 중지됨]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
-[가상 컴퓨터의 이미지 캡처]: ./media/virtual-machines-windows-classic-capture-image/CaptureVM.png
-[이미지 이름 입력]: ./media/virtual-machines-capture-image-windows-server/Capture.png
-[이미지 캡처 성공]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
-[캡처한 이미지 사용]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
+[How to sign in to a virtual machine running Windows Server]: virtual-machines-windows-classic-connect-logon.md
+[How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx
+[Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
+[Enter Sysprep.exe options]: ./media/virtual-machines-windows-classic-capture-image/SysprepGeneral.png
+[The virtual machine is stopped]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
+[Capture an image of the virtual machine]: ./media/virtual-machines-windows-classic-capture-image/CaptureVM.png
+[Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
+[Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
+[Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,15 +16,14 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 391411a8ab5d6ebb46710f290ecf5c12e28aa151
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 6fe3bd55b23432a8fddb1ffeeed33bc113b8bd73
 
 
 ---
 # <a name="deploy-a-lamp-app-using-the-azure-customscript-extension-for-linux"></a>Linux용 Azure CustomScript 확장을 사용하여 LAMP 앱 배포
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Resource Manager 모델을 사용하여 LAMP 스택을 배포하는 방법에 대한 정보는 [여기](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델을 사용하여 LAMP 스택을 배포하는 방법에 대한 정보는 [여기](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 Linux용 Microsoft Azure CustomScript 확장을 사용하면 Python 및 Bash와 같은 VM에서 지원하는 모든 스크립팅 언어로 작성된 임의 코드를 실행하여 VM(가상 컴퓨터)을 사용자 지정할 수 있습니다. 이렇게 하면 매우 유동적으로 응용 프로그램을 여러 컴퓨터에 자동으로 배포할 수 있습니다.
 
@@ -110,6 +109,6 @@ Azure CLI, Linux 및 CustomScript 확장을 위한 일부 추가 리소스는 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

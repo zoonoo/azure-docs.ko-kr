@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: b-hoedid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 115d35bd56918ad8e93a9032cbff6e84a7b70e0c
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 5f3e1f264d126ab5b1fdda312f8e4f47d0b114e7
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 115d35bd56918ad8e93a9032cbff6e84a7b70e0c
 
 여러 해 동안 BizTalk Server로 작업하면서 [WCF LOB 어댑터](https://msdn.microsoft.com/library/bb798128.aspx)를 사용할 때 매우 일반적인 시나리오입니다. 따라서 DocumentDB에서 새롭거나 수정된 문서에 대해 이 기능을 복제할 수 있는지 알아보기로 했습니다.
 
-이 문서에서는 [트리거](documentdb-programming.md#trigger) 및 [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)을 포함하는 변경 알림 솔루션의 구성 요소에 대한 개요를 제공합니다. 중요한 코드 조각이 인라인으로 제공되며 전체 솔루션은 [GitHub](https://github.com/HEDIDIN/DocDbNotifications)에서 사용할 수 있습니다.
+이 문서에서는 [트리거](documentdb-programming.md#trigger) 및 [논리 앱](../logic-apps/logic-apps-what-are-logic-apps.md)을 포함하는 변경 알림 솔루션의 구성 요소에 대한 개요를 제공합니다. 중요한 코드 조각이 인라인으로 제공되며 전체 솔루션은 [GitHub](https://github.com/HEDIDIN/DocDbNotifications)에서 사용할 수 있습니다.
 
 ## <a name="use-case"></a>사용 사례
 다음 스토리는 이 문서에 대한 사용 사례입니다.
@@ -41,7 +41,7 @@ IT 부서에서는 쉽고 제공할 수 있다고 답했습니다. 또한 문서
 이 응용 프로그램을 만들기 위해 IT 부서는 이를 먼저 모델링하기로 결정했습니다.  BPMN(Business Process Model and Notation) 사용 시 좋은 점은 기술자와 비기술자 모두 쉽게 이해할 수 있다는 점입니다. 이 전체 알림 프로세스는 비즈니스 프로세스로 간주됩니다. 
 
 ## <a name="high-level-view-of-notification-process"></a>알림 프로세스의 상위 수준 보기
-1. 타이머 트리거가 있는 논리 앱에서 시작합니다. 트리거는 기본적으로 1시간 마다 실행됩니다.
+1. 타이머 트리거가 있는 논리 앱에서 시작합니다. 트리거는 기본적으로&1;시간 마다 실행됩니다.
 2. 그런 다음 논리 앱에 HTTP POST를 수행합니다.
 3. 논리 앱이 모든 작업을 수행합니다.
 
@@ -54,7 +54,7 @@ IT 부서에서는 쉽고 제공할 수 있다고 답했습니다. 또한 문서
 
 단계는 다음과 같습니다.
 
-1. API 앱에서 현재 UTC DateTime을 가져와야 합니다.  기본값은 1시간 이전입니다.
+1. API 앱에서 현재 UTC DateTime을 가져와야 합니다.  기본값은&1;시간 이전입니다.
 2. UTC DateTime을 Unix Timestamp 형식으로 변환합니다. DocumentDB에서 타임스탬프에 대한 기본 형식입니다.
 3. DocumentDB 쿼리를 수행하는 API 앱에 값을 게시(POST)합니다. 값은 쿼리에 사용됩니다.
    
@@ -77,7 +77,7 @@ IT 부서에서는 쉽고 제공할 수 있다고 답했습니다. 또한 문서
 이제 워크플로를 파악했으므로 이를 구현하는 방법을 살펴보겠습니다.
 
 ### <a name="lets-start-with-the-main-logic-app"></a>기본 논리 앱부터 시작해 보겠습니다
-논리 앱에 대해 잘 모르는 경우 [Azure Marketplace](https://portal.azure.com/)에서 사용할 수 있으며 [논리 앱이란 무엇인가요?](../app-service-logic/app-service-logic-what-are-logic-apps.md)에서 자세히 알아볼 수 있습니다.
+논리 앱에 대해 잘 모르는 경우 [Azure Marketplace](https://portal.azure.com/)에서 사용할 수 있으며 [논리 앱이란 무엇인가요?](../logic-apps/logic-apps-what-are-logic-apps.md)에서 자세히 알아볼 수 있습니다.
 
 새 논리 앱을 만들 때 **어떻게 시작하시겠습니까?**
 
@@ -887,7 +887,7 @@ emailBody는 쿼리에서 반환된 문서 수("0" 이상일 수 있음)와 "레
 
 ```
 
-트리거는 24시간 되풀이에 대해 설정됩니다. 작업은 기본 논리 앱에 대한 콜백 URL을 사용하는 HTTP POST입니다. 본문에는 JSON 스키마에 지정된 매개 변수가 포함됩니다. 
+트리거는&24;시간 되풀이에 대해 설정됩니다. 작업은 기본 논리 앱에 대한 콜백 URL을 사용하는 HTTP POST입니다. 본문에는 JSON 스키마에 지정된 매개 변수가 포함됩니다. 
 
 #### <a name="operations"></a>작업
 ##### <a name="request"></a>요청
@@ -1133,6 +1133,6 @@ DocumentDB에 대해 자세히 알아보려면 [학습 경로](https://azure.mic
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

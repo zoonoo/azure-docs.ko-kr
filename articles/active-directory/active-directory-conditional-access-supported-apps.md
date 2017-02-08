@@ -72,18 +72,18 @@ Exchange에서는 중요한 두 가지 범주의 프로토콜을 제공합니다
 다음 세 가지 규칙을 Microsoft Office 365 ID 플랫폼의 AD FS 신뢰 당사자 트러스트에 적용하면 Exchange ActiveSync 트래픽과 브라우저 및 최신 인증 트래픽에 액세스할 수 있습니다. 레거시 앱은 익스트라넷에서 차단됩니다.
 
 ##### <a name="rule-1"></a>규칙 1
-    @RuleName = “Allow all intranet traffic”
+    @RuleName = "Allow all intranet traffic"
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 ##### <a name="rule-2"></a>규칙 2
-    @RuleName = “Allow Exchange ActiveSync ”
+    @RuleName = "Allow Exchange ActiveSync"
     c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 ##### <a name="rule-3"></a>규칙 3
-    @RuleName = “Allow extranet browser and browser dialog traffic”
-    c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
+    @RuleName = "Allow extranet browser and browser dialog traffic"
+    c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
@@ -91,21 +91,21 @@ Exchange에서는 중요한 두 가지 범주의 프로토콜을 제공합니다
 다음 세 가지 규칙을 Microsoft Office 365 ID 플랫폼의 AD FS 신뢰 당사자 트러스트에 적용하면 Exchange ActiveSync 트래픽과 브라우저 및 최신 인증 트래픽에 액세스할 수 있습니다. 레거시 앱은 모든 위치에서 차단됩니다.
 
 ##### <a name="rule-1"></a>규칙 1
-    @RuleName = “Allow all intranet traffic only for browser and modern authentication clients”
+    @RuleName = "Allow all intranet traffic only for browser and modern authentication clients"
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
 ##### <a name="rule-2"></a>규칙 2
-    @RuleName = “Allow Exchange ActiveSync”
+    @RuleName = "Allow Exchange ActiveSync"
     c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
 ##### <a name="rule-3"></a>규칙 3
-    @RuleName = “Allow extranet browser and browser dialog traffic”
-    c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
+    @RuleName = "Allow extranet browser and browser dialog traffic"
+    c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
