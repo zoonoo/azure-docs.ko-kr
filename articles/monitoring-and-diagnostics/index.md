@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "모니터링 및 진단 서비스를 사용하여 성능을 추적하고 보안을 유지 관리하며 추세를 파악하는 방법에 대해 알아봅니다. API 참조, 모범 사례 등입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 23978b98ce1ffab18f4fb843ca8904062bf4253e
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: e59d88dbd538aad3e21a31fd721361cd9ffd4919
 
 ---
 
 # <a name="monitoring-and-diagnostics-documentation"></a>모니터링 및 진단 설명서
 
-모니터링 및 진단은 확장성과 안정성이 뛰어난 마이크로 서비스를 간편하게 패키지, 배포 및 관리하게 해주며, 클라우드 응용 프로그램 개발 및 관리에서 중요한 문제를 해결하는 분산 시스템 플랫폼입니다.  모니터링 및 진단은 엔터프라이즈급 계층&1; 클라우드 규모의 응용 프로그램을 빌드 및 관리하기 위한 차세대 미들웨어 플랫폼을 나타냅니다.
+Azure 모니터링 및 진단 서비스를 사용하여 성능을 추적하고 보안을 유지 관리하며 추세를 파악하는 방법에 대해 알아봅니다. 자습서, API 참조, 모범 사례 및 기타 설명서를 통해 모니터링 및 진단의 사용법과 확장성 및 안정성이 뛰어난 솔루션을 계획하고 배포하는 방법을 이해할 수 있습니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -145,15 +146,10 @@ ms.openlocfilehash: 23978b98ce1ffab18f4fb843ca8904062bf4253e
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
-        <div class="img"></div>
-        <div class="text">
-모니터링 및 진단 설명서 다운로드 </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

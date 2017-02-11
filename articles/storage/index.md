@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "클라우드에서 Azure Storage - Blob, 테이블, 큐, 파일 및 Virtual Machine 디스크 저장소를 사용하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: df6bc6a92950efeed61db2f2ef7fd5f65189e0fa
-ms.openlocfilehash: 130a9a105ac7ff50fbc3b5baefd080f272e77d0b
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
 
 ---
 
@@ -113,7 +113,7 @@ ms.openlocfilehash: 130a9a105ac7ff50fbc3b5baefd080f272e77d0b
                         <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: 데이터 이동</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: Blob, 큐, 테이블 및 파일</a></p>
                         <p><a href="/java/api/">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-node">Node.JS</a></p>
                         <p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p>
                         <p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p>
                         <p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p>
@@ -130,9 +130,9 @@ ms.openlocfilehash: 130a9a105ac7ff50fbc3b5baefd080f272e77d0b
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p><a href="/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference">Blob, 큐, 테이블 및 파일</a></p>
-                        <p><a href="/rest/api/storagerp">REST: 리소스 공급자</a></p>
-                        <p><a href="/rest/api/storageimportexport">REST: 가져오기/내보내기</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Blob, 큐, 테이블 및 파일</a></p>
+                        <p><a href="/rest/api/storagerp">리소스 공급자</a></p>
+                        <p><a href="/rest/api/storageimportexport">가져오기/내보내기</a></p>
                    </div>
                 </div>
             </div>
@@ -140,16 +140,10 @@ ms.openlocfilehash: 130a9a105ac7ff50fbc3b5baefd080f272e77d0b
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
-        <div class="img"></div>
-        <div class="text">
-Storage 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO1-->
+
+<!--HONumber=Jan17_HO3-->
 
 

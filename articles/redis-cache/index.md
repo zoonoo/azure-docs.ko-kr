@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "응용 프로그램이 데이터에 빠르게 액세스할 수 있도록 하는 보안 데이터 캐시 및 메시징 broker인 Azure Redis Cache를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 4cd50960b30990f3220788e6613a2815d8e28612
-ms.openlocfilehash: 026c452cd784da14a901cab8e5aecaafda448418
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 328084918199e162ad0cfa9ac67737a66fa4d021
 
 ---
 #<a name="redis-cache-documentation"></a>Redis Cache 설명서
 
-Azure Redis Cache는 인기 있는 오픈 소스 Redis Cache를 기반으로 하며, Microsoft에서 관리하여 Azure에 있는 모든 응용 프로그램에서 액세스할 수 있는 안전한 전용 Redis Cache에 대한 액세스를 제공합니다. Azure Redis Cache를 통해 높은 처리량과 일관되고 대기 시간이 짧은 데이터 액세스로 빠르고 확장 가능한 Azure 응용 프로그램을 실행할 수 있습니다.
+응용 프로그램의 데이터에 대한 많은 처리량을 짧은 대기 시간 동안 처리할 수 있도록 하는 보안 데이터 캐시 및 메시징 broker인 Azure Redis Cache를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Azure에 있는 응용 프로그램의 Redis Cache를 사용하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -183,16 +184,10 @@ Azure Redis Cache는 인기 있는 오픈 소스 Redis Cache를 기반으로 하
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">
-        <div class="img"></div>
-        <div class="text">
-Redis Cache 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

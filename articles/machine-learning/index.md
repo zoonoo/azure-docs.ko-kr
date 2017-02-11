@@ -1,13 +1,17 @@
 ---
 layout: LandingPage
+description: "응용 프로그램에서 예측 분석을 사용하는 데이터 과학자 및 개발자를 위한 클라우드 서비스인 Machine Learning에 대한 설명서, 비디오 및 예제 모델입니다."
+author: garyericson
+ms.date: 01/18/2017
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: d8c4cf777402393667a521dcff780e839d02e734
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3247e45c44f63c529c84de5dd31eadc5a9552952
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Azure Machine Learning 설명서
 
-Azure Machine Learning은 예측 분석을 모델링 하는 도구를 제공할 뿐 아니라 예측 모델을 사용할 준비가 된 웹 서비스로 배포하는 데 사용할 수 있는 완전한 관리 서비스도 제공합니다.
+데이터 과학자와 개발자가 Machine Learning을 사용하여 응용 프로그램에 예측 분석을 포함하는 방법에 대해 알아봅니다. 자습서, 비디오 및 예제 모델에서는 Machine Learning 모델을 빌드하고 배포하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -94,8 +98,8 @@ Azure Machine Learning은 예측 분석을 모델링 하는 도구를 제공할 
                 <div class="card">
                     <div class="cardText">
                         <h3>명령줄</h3>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell</a></p>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">Machine Learning용 PowerShell 모듈</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell(신규)</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell(클래식)</a></p>
                     </div>
                 </div>
             </div>
@@ -127,16 +131,10 @@ Azure Machine Learning은 예측 분석을 모델링 하는 도구를 제공할 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">
-        <div class="img"></div>
-        <div class="text">
-Machine Learning 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

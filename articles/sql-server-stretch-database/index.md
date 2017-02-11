@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "SQL Server Stretch Database를 사용하여 쿼리 또는 응용 프로그램을 변경하지 않고 콜드 데이터를 Azure로 안전하게 마이그레이션하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: abbb8f04239f633fad5c90cfec8b0037a8e6ae3d
-ms.openlocfilehash: 5febfd07ef0a976b8213e5c71e8e88db2bc108e2
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3dad35a38c753988615a4c1f2b439de9f95baf0e
 
 ---
 #<a name="sql-server-stretch-database-documentation"></a>SQL Server Stretch Database 설명서
@@ -88,16 +88,10 @@ SQL Server Stretch Database는 콜드 데이터를 Azure 클라우드로 투명�
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-server-stretch-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-SQL Server Stretch Database 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

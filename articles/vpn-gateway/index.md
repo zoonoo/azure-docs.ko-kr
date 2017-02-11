@@ -1,13 +1,26 @@
 ---
+title: "VPN Gateway 설명서 - 자습서 및 API 참조 | Microsoft Docs"
+description: "클라우드 가상 네트워크와 온-프레미스 또는 클라우드 VNet간에 트래픽을 관리하도록 VPN(가상 사설망) Gateway를 구성하는 방법에 대해 알아봅니다."
+services: vpn-gateway
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: vpn-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: ff8e5a68ada52f93c1f50e73a1a7857273d7f9c3
+ms.sourcegitcommit: 2e7486833ae23cdfed037aa1afb930997586a158
+ms.openlocfilehash: e3179c060380c07dde9058597b0d77861d14d848
+
 
 ---
-#<a name="vpn-gateway-documentation"></a>VPN Gateway 설명서
+# <a name="vpn-gateway-documentation"></a>VPN Gateway 설명서
 
-Azure VPN Gateway는 Azure Virtual Network와 온-프레미스 위치 및 Azure 내 가상 네트워크 간(VNet 간)에 네트워크 트래픽을 보내는 데 사용되는 VPN(가상 사설망) 게이트웨이입니다.  
+개인 가상 네트워크 게이트웨이인 VPN Gateway를 구성하는 방법에 대해 알아봅니다. 설명서에서는 Azure 가상 네트워크와 온-프레미스 위치 또는 다른 Azure VNet(가상 네트워크) 간에 네트워크 트래픽을 보내는 방법을 설명합니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -152,16 +165,10 @@ Azure VPN Gateway는 Azure Virtual Network와 온-프레미스 위치 및 Azure 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/vpn-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-Azure VPN Gateway 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

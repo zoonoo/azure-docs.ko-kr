@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Service Fabric 미들웨어 플랫폼을 사용하여 클라우드 규모의 응용 프로그램에 대한 마이크로 서비스를 패키징하고 배포하는 방법에 대해 알아봅니다. 자습서, API 참조 및 코드 샘플입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 6d6459646a269212364822ef6797b5850c2b0c2a
-ms.openlocfilehash: 0598e5ea3dc95853a21a56326241a82854477cbe
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: d9b4e3b3df6760b15e151c5eab37c9f534784de8
 
 ---
 #<a name="service-fabric-documentation"></a>Service Fabric 설명서
 
-Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 또한 서비스 패브릭은 클라우드 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. 
+Service Fabric을 사용하여 확장성 및 안정성이 뛰어난 마이크로 서비스를 패키징, 배포 및 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 및 코드 샘플에서는 이 미들웨어 플랫폼을 사용하여 클라우드 규모 응용 프로그램을 빌드하고 관리하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -148,16 +149,10 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 </ul>   
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-fabric.pdf">
-        <div class="img"></div>
-        <div class="text">
-Service Fabric 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

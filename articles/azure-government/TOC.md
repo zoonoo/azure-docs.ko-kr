@@ -18,6 +18,9 @@
 ### [리소스 관리자](documentation-government-manage-azure-resource-manager.md)
 ### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [구독](documentation-government-manage-subscriptions.md)
+## 배포
+### 웹 + 모바일
+#### [App Services](documentation-government-howto-deploy-webandmobile.md)
 
 # 참조
 ## [서비스](documentation-government-services.md)
@@ -32,8 +35,10 @@
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/)
 ## [평가판](https://azuregov.microsoft.com/trial/azuregovtrial)
+## [블로그](https://blogs.msdn.microsoft.com/azuregov/)
+## [Azure Government 웹 사이트](https://azure.microsoft.com/overview/clouds/government/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
