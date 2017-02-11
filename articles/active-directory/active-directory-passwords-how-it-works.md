@@ -131,6 +131,6 @@ Azure AD Connect에 대한 자세한 내용은 [시작: Azure AD Connect](active
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 02/01/2017
 ms.author: v-jeana; hascipio; v-dabosl
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -29,7 +29,7 @@ ms.openlocfilehash: 408394e529c262c0a47aae680c8f6ea1bc8eb7c6
 
 * **환영 메일:** 새 게시자인 경우 판매자 통찰력 월별 보고서 수신을 시작한다는 내용의 환영 메일을 받게 됩니다.
 * **월별 판매 보고서:** 사용량이 있는 경우 보고서 및 암호에 액세스하는 방법에 대한 지침이 포함된 두 번째 메일을 받게 됩니다.
-  
+
   * 사용량이 발생하는 VM 또는 사용량 기준 청구 개발자 서비스 SKU가 있는 경우 월간 보고서에 주문, 사용량, 시장 및 제품에 대한 고객 세부 정보 등이 표시됩니다.
   * 보고서는 고객의 데이터를 보호하기 위해 사용자와 Microsoft만 알고 있는 암호로 잠겨 있습니다.
   * Microsoft는 해당 월에 제품에 대한 사용량이 발생하지 않은 경우 보고서를 전송하지 않습니다.

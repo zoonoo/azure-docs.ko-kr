@@ -87,6 +87,6 @@ Azure MFA(Multi-Factor Authentication)에는 여러 가지 버전이 있기 때�
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

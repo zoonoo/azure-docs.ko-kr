@@ -273,6 +273,6 @@ Batch CLI는 Batch 서비스에서 지원하는 세 개의 절을 모두 지원�
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

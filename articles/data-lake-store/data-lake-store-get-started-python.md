@@ -245,6 +245,6 @@ Azure Resource Group을 만들려면 다음 코드 조각을 사용합니다.
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -249,6 +249,6 @@ Yonyx Interactive Guides에서 Azure AD Single Sign-On을 구성하고 테스트
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

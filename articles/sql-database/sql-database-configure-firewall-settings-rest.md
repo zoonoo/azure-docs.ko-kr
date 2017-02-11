@@ -91,6 +91,6 @@ Transact-SQL을 사용하여 서버 수준 및 데이터베이스 수준 방화�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
@@ -26,16 +26,16 @@ Azure 포털은 고급 규칙을 설정할 수 있는 기능을 제공하여 Azu
 ## <a name="to-create-the-advanced-rule"></a>고급 규칙을 만들려면
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 2. **더 많은 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음 **Enter**를 선택합니다.
-   
+
    ![사용자 관리 열기](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
 3. **사용자 및 그룹** 블레이드에서 **모든 그룹**을 선택합니다.
-   
+
    ![그룹 블레이드 열기](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
 4. **사용자 및 그룹 - 모든 그룹** 블레이드에서 **추가** 명령을 선택합니다.
-   
+
    ![새 그룹 추가](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
 5. **그룹** 블레이드에서 새 그룹에 대한 이름 및 설명을 입력합니다. 사용자 또는 장치에 대한 규칙을 만들지 여부에 따라 **동적 사용자** 또는 **동적 장치** 중에서 **멤버 자격 유형**을 선택한 다음 **동적 쿼리 추가**를 선택합니다. 장치 규칙에 사용되는 특성은 [특성을 사용하여 장치 개체에 대한 규칙 만들기](#using-attributes-to-create-rules-for-device-objects)를 참조하세요.
-   
+
    ![동적 멤버 자격 규칙 추가](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
 6. **동적 멤버 자격 규칙** 블레이드에서 **동적 멤버 자격 고급 규칙 추가** 상자에 규칙을 입력하고 Enter를 누른 다음 블레이드 맨 아래의 **만들기**를 선택합니다.
 7.  **만들기** on the **그룹** 를 선택하여 그룹을 만듭니다.
@@ -61,8 +61,8 @@ Azure 포털은 고급 규칙을 설정할 수 있는 기능을 제공하여 Azu
 > [!NOTE]
 > 문자열 및 regex 연산은 대/소문자를 구분합니다. $null을 상수로 사용하여 Null 확인을 수행할 수도 있습니다(예: user.department -eq $null).
 > 따옴표(")를 포함하는 문자열은 ' 문자를 사용하여 이스케이프해야 합니다(예: user.department -eq \`"Sales").
-> 
-> 
+>
+>
 
 ## <a name="supported-expression-rule-operators"></a>지원되는 식 규칙 연산자
 다음 표에는 지원되는 모든 식 규칙 연산자와 고급 규칙 본문에 사용할 수 있는 해당 구문이 나와 있습니다.
@@ -174,11 +174,11 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 1. [고급 규칙을 만들려면](#to-create-the-advanced-rule)의 1~5단계에 따르고 **동적 사용자**의 **멤버 자격 유형**을 선택합니다.
 2. **동적 멤버 자격 규칙** 블레이드에서 다음 구문을 사용하여 규칙을 입력합니다.
-   
+
     *Direct Reports for {obectID_of_manager}*에 대한 직접 보고. 직접 보고에 대해 유효한 규칙의 예는 다음과 같습니다.
-   
+
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-   
+
     여기서 "62e19b97-8b3d-4d4a-a106-4ce66896a863"은 관리자의 objectID입니다. 개체 ID는 관리자인 사용자의 사용자 페이지의 **프로필 탭** 에 있는 Azure AD에서 찾을 수 있습니다.
 3. 이 규칙을 저장하면 규칙을 만족하는 모든 사용자가 그룹의 구성원으로 가입됩니다. 그룹을 처음 채울 때는 몇 분 정도 걸릴 수 있습니다.
 
@@ -202,7 +202,6 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 * [그룹의 설정 관리](active-directory-groups-settings-azure-portal.md)
 * [그룹의 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
 * [그룹의 사용자에 대한 동적 규칙 관리](active-directory-groups-dynamic-membership-azure-portal.md)
-
 
 
 

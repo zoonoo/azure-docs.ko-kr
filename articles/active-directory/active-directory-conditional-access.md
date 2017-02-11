@@ -99,6 +99,6 @@ Azure AD에서 장치 기반 인증 기관 정책을 구성하는 방법에 대�
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

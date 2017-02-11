@@ -202,6 +202,6 @@ NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -321,6 +321,6 @@ CSDL의 예는 다음과 같습니다. (아래의 예제 CSDL을 복사하여 XM
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 
