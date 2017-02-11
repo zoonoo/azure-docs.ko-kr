@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "HDInsight의 Hadoop을 알아보세요. 설명서에서는 Hadoop, Spark, HBase, R-Server를 사용하여 빅 데이터를 처리하고 분석하며 정보를 얻는 방법을 보여 줍니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 28b6ebfae16a5c2e119fc4f1af0dcee6a348d47f
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: d78d12c6844e88da8b5d8b7cd99a38d6f4d36774
 
 ---
 #<a name="azure-hdinsight-documentation"></a>Azure HDInsight 설명서
 
-Azure HDInsight는 클라우드에서 제공되는 Apache Hadoop 배포입니다.  Azure HDInsight를 사용하면 HDP(Hortonworks Data Platform) 배포의 Hadoop 구성 요소를 클라우드에서 사용할 수 있고 안정성 및 가용성을 가진 관리되는 클러스터를 배포하고 프로비전할 수 있습니다.  Azure HDInsight는 Apache Hadoop, Spark, HBase 및 Storm에 대한 클러스터 구성을 제공합니다.  스크립트 동작으로 사용자 지정 클러스터를 사용할 수 있습니다.  
+HDInsight의 클라우드에서 Hadoop을 사용하여 스트리밍 또는 기록 데이터를 분석하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 Hadoop 에코 시스템의 Hadoop, Spark, HBase, Storm 및 다른 기술을 사용하여 클러스터를 만들고 빅 데이터를 처리 및 분석하며 솔루션을 개발하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -166,16 +167,10 @@ Azure HDInsight는 클라우드에서 제공되는 Apache Hadoop 배포입니다
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/hdinsight.pdf">
-        <div class="img"></div>
-        <div class="text">
-HDInsight 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

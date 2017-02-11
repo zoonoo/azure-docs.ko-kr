@@ -1,22 +1,26 @@
 ---
 title: Azure Active Directory B2C | Microsoft Docs
-description: OpenID Connect 인증 프로토콜의 Azure Active Directory 구현을 사용하여 웹 응용 프로그램을 빌드합니다.
+description: "OpenID Connect 인증 프로토콜의 Azure Active Directory 구현을 사용하여 웹 응용 프로그램을 빌드합니다."
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: c371aaab-813a-4317-97df-b62e2f53d865
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2016
+ms.date: 01/07/2017
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 51061199e4929406c3ac77a26e2f972686236bd4
+
 
 ---
-# <a name="azure-active-directory-b2c:-oauth-2.0-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0 인증 코드 흐름
+# <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0 인증 코드 흐름
 OAuth 2.0 인증 코드 권한은 장치에 설치된 앱에서 사용하여 Web API와 같은 보호된 리소스에 대한 액세스 권한을 얻을 수 있습니다. OAuth 2.0의 Azure AD(Azure Active Directory) B2C 구현을 사용하여 모바일 및 데스크톱 앱에 등록, 로그인 및 기타 ID 관리 작업을 추가할 수 있습니다. 이 가이드는 언어에 상관없이 적용됩니다. 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
 
 <!-- TODO: Need link to libraries -->
@@ -30,7 +34,7 @@ Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으�
 아래 예제 HTTP 요청은 샘플 B2C 디렉터리, **fabrikamb2c.onmicrosoft.com**뿐만 아니라 샘플 응용 프로그램 및 정책을 사용합니다. 이러한 값을 사용하여 직접 요청을 시도하거나 고유의 작업으로 바꿀 수 있습니다.
 [사용자 고유의 B2C 디렉터리, 응용 프로그램 및 정책을 가져오는](#use-your-own-b2c-directory)방법을 알아봅니다.
 
-## <a name="1.-get-an-authorization-code"></a>1. 권한 부여 코드 가져오기
+## <a name="1-get-an-authorization-code"></a>1. 권한 부여 코드 가져오기
 인증 코드 흐름은 클라이언트가 사용자를 `/authorize` 끝점으로 보내는 것으로 시작됩니다. 사용자가 실제로 조치를 취하는 흐름의 대화형 부분입니다. 이 요청에서 클라이언트는 `p` 매개 변수를 실행하기 위해 `scope` 매개 변수 및 정책에서 사용자로부터 가져와야 할 사용 권한을 나타냅니다. 각각 다른 정책을 사용하여 세 가지 예제가 아래에 제공됩니다.(가독성을 위해 구분선이 있음)
 
 #### <a name="use-a-sign-in-policy"></a>로그인 정책 사용
@@ -112,7 +116,7 @@ error=access_denied
 | error_description |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 | state |전체 설명은 이 섹션의 첫 번째 표를 참조하세요. 요청에 state 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 앱에서 요청 및 응답의 상태 값이 동일한지 확인해야 합니다. |
 
-## <a name="2.-get-a-token"></a>2. 토큰 가져오기
+## <a name="2-get-a-token"></a>2. 토큰 가져오기
 authorization_code를 획득하였으므로 이제 `POST` 요청을 `/token` 끝점으로 보내 를 원하는 리소스에 대한 토큰을 `code`으로 교환할 수 있습니다. Azure AD B2C에서 토큰을 요청할 수 있는 리소스는 앱 자체의 백 엔드 Web API입니다. 자신에게 토큰을 요청하는 데 사용된 규칙은 앱의 클라이언트 ID를 범위로 사용하는 것입니다.
 
 ```
@@ -168,7 +172,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | error |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | error_description |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
-## <a name="3.-use-the-token"></a>3. 토큰 사용
+## <a name="3-use-the-token"></a>3. 토큰 사용
 `access_token`을 성공적으로 획득했으므로 이제 `Authorization` 헤더에 포함하여 백 엔드 Web API에 대한 요청에 토큰을 사용할 수 있습니다.
 
 ```
@@ -177,7 +181,7 @@ Host: https://mytaskwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## <a name="4.-refresh-the-token"></a>4. 토큰 새로 고침
+## <a name="4-refresh-the-token"></a>4. 토큰 새로 고침
 액세스 토큰 및 ID 토큰은 수명이 짧습니다. 리소스에 계속 액세스하려면 만료된 후 새로 고쳐야 합니다. 이렇게 하려면 다른 `POST` 요청을 `/token` 끝점에 제출하면 됩니다. 여기에서는 `code` 대신 `refresh_token`을 제공합니다.
 
 ```
@@ -239,6 +243,9 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 * [응용 프로그램을 만들어](active-directory-b2c-app-registration.md) 응용 프로그램 ID 및 redirect_uri를 얻을 수 있습니다. 앱에서 **네이티브 클라이언트** 를 포함하려 합니다.
 * [정책을 만들어](active-directory-b2c-reference-policies.md) 정책 이름을 얻습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

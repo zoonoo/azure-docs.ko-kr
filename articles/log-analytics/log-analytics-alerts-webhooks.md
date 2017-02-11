@@ -1,12 +1,12 @@
 ---
-title: Log Analytics 경고 웹후크 샘플
-description: Log Analytics 경고에 응답하여 실행할 수 있는 작업 중 하나는 단일 HTTP 요청을 통해 외부 프로세스를 호출할 수 있는 *웹후크*입니다. 이 문서에서는 Slack을 사용하여 Log Analytics 경고에 웹후크 작업을 만드는 예제를 연습합니다.
+title: "Log Analytics 경고 웹후크 샘플"
+description: "Log Analytics 경고에 응답하여 실행할 수 있는 작업 중 하나는 단일 HTTP 요청을 통해 외부 프로세스를 호출할 수 있는 *웹후크*입니다. 이 문서에서는 Slack을 사용하여 Log Analytics 경고에 웹후크 작업을 만드는 예제를 연습합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 13c39f0f-fd3c-472d-8324-ddf7538be45e
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 001f8abfc5862aeb1914f6e93b68cadeed42eba0
+
 
 ---
 # <a name="webhooks-in-log-analytics-alerts"></a>Log Analytics 경고의 웹후크
@@ -108,6 +112,9 @@ Slack을 사용하여 인바운드 메시지를 광범위하게 사용자 지정
 * 다른 작업을 포함하여 [Log Analytics의 경고](log-analytics-alerts.md) 에 관하여 자세히 알아봅니다.
 * [Azure 자동화의 Runbook을 만들](../automation/automation-webhooks.md) 수 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

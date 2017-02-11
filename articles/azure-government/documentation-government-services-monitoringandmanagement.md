@@ -16,12 +16,12 @@ ms.workload: azure-government
 ms.date: 10/31/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 722c53f819126791073575da04eded2ec5465764
-ms.openlocfilehash: 9d4ba4eff1c9768a11c18cbf531b252d767bc9f2
+ms.sourcegitcommit: 3e460dd2aaf51ef2ba9840513d236ce313320c80
+ms.openlocfilehash: 39a87bdbef7c532f9e50f1e71e9c12797bc9a33c
 
 
 ---
-# <a name="azure-government-monitoring-management"></a>Azure Government 모니터링 및 관리
+# <a name="azure-government-monitoring--management"></a>Azure Government 모니터링 및 관리
 이 문서에서는 Azure Government 환경의 모니터링 및 관리 서비스 변형과 고려 사항을 개략적으로 설명합니다.
 
 ## <a name="automation"></a>자동화
@@ -44,6 +44,37 @@ Backup은 일반적으로 Azure Government에서 사용할 수 있습니다.
 
 * Azure Resource Manager 자격 증명 모음
 * Azure Portal을 사용하여 관리(Azure 클래식 포털에서는 지원)
+
+Azure Government에서 백업의 URL은 서로 다릅니다.
+
+## <a name="site-recovery"></a>사이트 복구
+Site Recovery(ASR)는 일반적으로 Azure Government에서 사용할 수 있습니다.
+
+자세한 내용은 [Site Recovery 공개 문서](../site-recovery/site-recovery-overview.md)를 참조하세요.
+
+### <a name="variations"></a>변형
+현재 Azure Government에서 사용할 수 없는 Site Recovery 기능은 다음과 같습니다.
+
+* Azure Resource Manager 사이트 복구 자격 증명 모음
+
+| 사이트 복구 | 클래식 | 리소스 관리자 | 
+| --- | --- | --- |
+| VMware/물리적  | GA | 계획 |
+| Hyper-V | GA | 계획 |
+| 사이트-사이트 | GA | 계획 |
+
+참고: 테이블은 버지니아 및 아이오와에 적용됩니다. 
+
+Azure Government에서 ASR에 대한 다음 URL은 서로 다릅니다.
+
+| Azure 공용 | Azure Government | 참고 사항 |
+| --- | --- | --- |
+| *.hypervrecoverymanager.windowsazure.com | *. hypervrecoverymanager.windowsazure.us | Site Recovery 서비스 액세스 |
+| *. *.backup.windowsazure.com  | *.backup.windowsazure.us | 보호 서비스 액세스 |
+| *.blob.core.windows.net | *.blob.core.usgovcloudapi.net | VM 스냅숏 저장 |
+| http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | MySQL 다운로드 |
+
+
 
 ## <a name="log-analytics"></a>Log Analytics
 Log Analytics는 일반적으로 Azure Government에서 사용할 수 있습니다.
@@ -111,6 +142,6 @@ Site Recovery는 일반적으로 Azure Government에서 사용할 수 있습니�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

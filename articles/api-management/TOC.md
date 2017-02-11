@@ -39,16 +39,32 @@
 ### [사용자 계정 관리](api-management-howto-create-or-invite-developers.md)
 ### [자동화를 사용하여 관리](automation-manage-api-management.md)
 ### [Git를 사용하여 구성](api-management-configuration-repository-git.md)
-
 # 참조
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST (영문)](/rest/api/apimanagement/)
-## [REST(원본)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
-
-
+## [REST(원본)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
+## [정책](api-management-policies.md)
+### 정책 참조
+#### [액세스 제한 정책](api-management-access-restriction-policies.md)
+#### [고급 정책](api-management-advanced-policies.md)
+#### [인증 정책](api-management-authentication-policies.md)
+#### [캐싱 정책](api-management-caching-policies.md)
+#### [도메인 간 정책](api-management-cross-domain-policies.md)
+#### [변환 정책](api-management-transformation-policies.md)
+### [오류 처리](api-management-error-handling-policies.md)
+### [정책 식](api-management-policy-expressions.md)
+## [템플릿](api-management-developer-portal-templates-reference.md)
+### 템플릿 참조
+#### [API](api-management-api-templates.md)
+#### [제품](api-management-product-templates.md)
+#### [응용 프로그램](api-management-application-templates.md)
+#### [문제](api-management-issue-templates.md)
+#### [사용자 프로필](api-management-user-profile-templates.md)
+#### [페이지](api-management-page-templates.md)
+### [데이터 모델 참조](api-management-template-data-model-reference.md)
+### [페이지 컨트롤](api-management-page-controls.md)
+### [템플릿 리소스](api-management-template-resources.md)
 # 리소스
-## [정책](https://msdn.microsoft.com/library/azure/dn894081)
-## [템플릿](https://msdn.microsoft.com/library/azure/mt697540)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/api-management/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-api-management)

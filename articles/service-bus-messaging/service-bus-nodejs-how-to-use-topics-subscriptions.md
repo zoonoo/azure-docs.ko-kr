@@ -1,19 +1,23 @@
 ---
-title: Node.js와 함께 Service Bus 토픽을 사용하는 방법 | Microsoft Docs
-description: Node.js app에서 Azure의 Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다.
-services: service-bus
+title: "Node.js와 함께 Service Bus 토픽을 사용하는 방법 | Microsoft Docs"
+description: "Node.js app에서 Azure의 Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다."
+services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: d956c392a209522dd6535297316f9ed695207b00
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Service Bus 토픽 및 구독을 사용하는 방법
@@ -23,16 +27,16 @@ ms.author: sethm
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-## <a name="create-a-node.js-application"></a>Node.js 응용 프로그램 만들기
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포], Windows PowerShell을 사용하는 [Node.js 클라우드 서비스][Node.js 클라우드 서비스] 또는 WebMatrix를 사용하는 웹 사이트를 참조하세요.
+## <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
+빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포], [Node.js 클라우드 서비스][Node.js 클라우드 서비스](Windows PowerShell 사용) 또는 WebMatrix를 사용하는 웹 사이트를 참조하세요.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>서비스 버스를 사용하도록 응용 프로그램 구성
 서비스 버스를 사용하려면 Node.js Azure 패키지를 다운로드합니다. 이 패키지에는 서비스 버스 REST 서비스와 통신하는 라이브러리 집합이 포함되어 있습니다.
 
-### <a name="use-node-package-manager-(npm)-to-obtain-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 가져오기
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 가져오기
 1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash** (Unix)과 같은 명령줄 인터페이스를 사용하여 샘플 응용 프로그램을 만든 폴더로 이동합니다.
 2. 명령 창에 **npm install azure**를 입력합니다. 그러면 다음과 같이 출력됩니다.
-   
+
    ```
        azure@0.7.5 node_modules\azure
    ├── dateformat@1.0.2-1.2.3
@@ -120,10 +124,10 @@ Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **Exponen
 
 > [!NOTE]
 > 구독은 영구적이며, 구독 자체 또는 구독과 연결된 토픽이 삭제될 때까지 계속 유지됩니다. 응용 프로그램에 구독을 만들기 위한 논리가 포함된 경우, **getSubscription** 메서드를 사용하여 구독이 이미 존재하는지를 먼저 확인해야 합니다.
-> 
-> 
+>
+>
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
 **MatchAll** 필터는 새 구독을 만들 때 필터를 지정하지 않은 경우 사용되는 기본 필터입니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 'AllMessages'라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
 
 ```
@@ -143,8 +147,8 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 
 > [!NOTE]
 > 기본 필터는 모든 새로운 구독에 자동으로 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 **MatchAll**이 사용자가 지정하는 기타 필터를 재정의합니다. **ServiceBusService** 개체의 **deleteRule** 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
-> 
-> 
+>
+>
 
 다음 예제에서는 사용자 지정 **messagenumber** 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**를 사용하여 `HighMessages`(이)라는 구독을 만듭니다.
 
@@ -158,8 +162,8 @@ serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error)
 var rule={
     deleteDefault: function(){
         serviceBusService.deleteRule('MyTopic',
-            'HighMessages', 
-            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
+            'HighMessages',
+            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME,
             rule.handleError);
     },
     create: function(){
@@ -167,10 +171,10 @@ var rule={
             sqlExpressionFilter: 'messagenumber > 3'
         };
         rule.deleteDefault();
-        serviceBusService.createRule('MyTopic', 
-            'HighMessages', 
-            'HighMessageFilter', 
-            ruleOptions, 
+        serviceBusService.createRule('MyTopic',
+            'HighMessages',
+            'HighMessageFilter',
+            ruleOptions,
             rule.handleError);
     },
     handleError: function(error){
@@ -193,8 +197,8 @@ serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
 var rule={
     deleteDefault: function(){
         serviceBusService.deleteRule('MyTopic',
-            'LowMessages', 
-            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
+            'LowMessages',
+            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME,
             rule.handleError);
     },
     create: function(){
@@ -202,10 +206,10 @@ var rule={
             sqlExpressionFilter: 'messagenumber <= 3'
         };
         rule.deleteDefault();
-        serviceBusService.createRule('MyTopic', 
-            'LowMessages', 
-            'LowMessageFilter', 
-            ruleOptions, 
+        serviceBusService.createRule('MyTopic',
+            'LowMessages',
+            'LowMessageFilter',
+            ruleOptions,
             rule.handleError);
     },
     handleError: function(error){
@@ -305,8 +309,8 @@ serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeek
 ## <a name="next-steps"></a>다음 단계
 이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.
 
-* [큐, 토픽 및 구독][]을 참조하세요.
-* [SqlFilter][SqlFilter]에 대한 API 참조
+* [큐, 토믹 및 구독][큐, 토믹 및 구독]을 참조하세요.
+* [SqlFilter][SqlFilter]에 대한 API 참조.
 * GitHub에서 [Node용 Azure SDK][Node용 Azure SDK] 리포지토리를 방문하세요.
 
 [Node용 Azure SDK]: https://github.com/Azure/azure-sdk-for-node
@@ -317,11 +321,10 @@ serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeek
 [Node.js 클라우드 서비스]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
 [저장소를 포함한 Node.js 클라우드 서비스]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[저장소를 포함한 Node.js 웹 응용 프로그램]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[저장소를 포함한 Node.js 웹 응용 프로그램]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
 
 
 
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

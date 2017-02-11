@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 11/14/2016
+ms.date: 12/08/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 810b4b14964feec6243a93978702eab779f4af8f
-ms.openlocfilehash: e07f149901a307386b4cf901fe6ab486b84764d0
+ms.sourcegitcommit: 50d9550cde6fde4b3c312b19d68f280d31cb5ab0
+ms.openlocfilehash: bd9ed92dcbf4c1bd692e1bebbeab59b51285e28d
 
 
 ---
@@ -51,11 +51,27 @@ HPC 팩 클러스터에 Azure "버스트" 노드를 배포하거나 Azure VM에 
         cd $env:CCP_HOME\bin
 
         Login-AzureRmAccount
+    ```
+        
+    계정이 둘 이상의 Azure Active Directory 테넌트 또는 Azure 구독에 포함된 경우 다음 명령을 실행해 올바른 테넌트 및 구독을 선택할 수 있습니다.
+  
+    ```powershell
+        Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
+    ```     
+       
+    현재 선택된 테넌트와 구독을 보려면 다음 명령을 실행합니다.
+    
+    ```powershell
+        Get-AzureRMContext
+    ```
 
+  4. 다음 스크립트를 실행합니다.
+
+    ```powershell
         .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -CertificateThumbprint "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" -TenantId xxxxxxxx-xxxxx-xxxxx-xxxxx-xxxxxxxxxxxx
     ```
 
-  여기서,
+    여기서,
 
     **DisplayName** - Azure 활성 응용 프로그램 표시 이름입니다. 응용 프로그램이 없는 경우 Azure Active Directory에서 만들어집니다.
 
@@ -65,7 +81,7 @@ HPC 팩 클러스터에 Azure "버스트" 노드를 배포하거나 Azure VM에 
 
     **CertificateThumbprint** -1단계에서 헤드 노드에 설치한 인증서의 지문입니다.
 
-    **TenantId** - Azure Active Directory의 테넌트 ID입니다.
+    **TenantId** - Azure Active Directory의 테넌트 ID입니다. Azure Active Directory 포털 **속성** 페이지에서 테넌트 ID를 가져올 수 있습니다.
 
     **ConfigARMAutoGrowShrinkCert.ps1**에 대한 자세한 내용은 `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`을 실행합니다.
 
@@ -241,6 +257,6 @@ AzureAutoGrowShrink.ps1 -UseLastConfigurations [-ArgFile <String>] [-LogFilePref
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

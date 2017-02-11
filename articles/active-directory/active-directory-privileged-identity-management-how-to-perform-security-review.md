@@ -3,7 +3,7 @@ title: "액세스 검토를 수행하는 방법 | Microsoft Docs"
 description: "Azure Privileged Identity Management 응용 프로그램을 사용하여 검토를 수행하는 방법을 알아봅니다."
 services: active-directory
 documentationcenter: 
-author: billmath
+author: kgremban
 manager: femila
 editor: 
 ms.assetid: 49ee2feb-7d2e-4acf-82c1-40ff23062862
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/03/2017
-ms.author: billmath
+ms.date: 09/16/2016
+ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 5b5dabe301fae4000112aa467a22cc5c37b9b592

@@ -29,7 +29,7 @@ ms.openlocfilehash: d4378398e666fe5ae2c7c55b377ae74880b857de
 ## <a name="setup"></a>설정
 이 문서에서는 Barracuda WAF의 다중 부하 분산 인스턴스 뒤의 앱 서비스 환경을 구성하여 WAF의 트래픽만이 앱 서비스 환경에 도달할 수 있게 하고 DMZ로부터는 접근할 수 없습니다. Azure 트래픽 관리자를 Azure 데이터 센터와 지역 간의 작업 부하를 위해 Barracuda WAF 앞에 놓겠습니다. 설치 프로그램의 높은 수준의 다이어그램은 아래와 비슷합니다.
 
-![아키텍처][Architecture] 
+![Architecture][Architecture] 
 
 > 참고: [App Service 환경에 대한 ILB 지원](app-service-environment-with-internal-load-balancer.md)의 도입으로 DMZ에서 ASE에 액세스할 수 없고 개인 네트워크에만 사용할 수 있도록 구성할 수 있습니다. 
 > 
@@ -63,7 +63,7 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 
 ![관리 로그인 페이지][ManagementLoginPage]
 
-로그인 하면 아래 그림 안의 1처럼 대시보드를 참조해야 WAF 보호에 관한 기본 통계를 표시합니다.
+로그인 하면 아래 그림 안의&1;처럼 대시보드를 참조해야 WAF 보호에 관한 기본 통계를 표시합니다.
 
 ![관리 대시보드][ManagementDashboard]
 

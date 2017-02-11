@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "간단한 로그인 프로세스를 제공하는 검증 메서드의 범위에서 Multi-Factor Authentication을 배포하는 방법에 대해 알아봅니다. 자습서, SDK, 등입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: defa12cb202ce4861a479ac40782248cd50039d3
-ms.openlocfilehash: 2db76cf5af88cc103b0109eb8ead4d63cbae0a0e
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 6ff0e1c42ad151c56500596d99f63bae200368ed
 
 ---
 # <a name="multi-factor-authentication-documentation"></a>Multi-Factor Authentication 설명서
 
-Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션입니다. Azure MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 응용 프로그램에 대한 액세스를 보호하는 데 도움이 됩니다. 전화 통화, 문자 메시지 또는 모바일 앱 확인과 같은 다양한 확인 방법을 통해 강력한 인증을 전달합니다.
+2단계 ID 검증 시스템인 Azure Multi-Factor Authentication을 배포하고 관리하는 방법에 대해 알아봅니다. 자습서, SDK 및 기타 설명서에서는 간단한 로그인 프로세스를 제공하는 동시에 검증 메서드의 범위에서 강력한 인증을 제공하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -104,15 +105,10 @@ Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션�
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/multi-factor-authentication.pdf">
-        <div class="img"></div>
-        <div class="text">
-Multi-Factor Authentication 설명서 다운로드 </div>
-    </a>
-</div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

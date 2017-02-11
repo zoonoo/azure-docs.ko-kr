@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/11/2016
 ms.author: juliako;mingfeiy
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1735370b7365a1b865f816a6e6120bd53237f126
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: a1a292716a501adbc048ef68b9f567865ef991b2
 
 
 ---
@@ -39,9 +39,9 @@ ms.openlocfilehash: 1735370b7365a1b865f816a6e6120bd53237f126
 
 저장소에서 암호화된 자산을 배달하려는 경우 자산의 배달 정책을 구성해야 합니다. 자산을 스트리밍하기 전에 스트리밍 서버가 저장소 암호화를 제거하고 지정된 배달 정책을 사용하여 콘텐츠를 스트리밍합니다. 예를 들어 표준 AES 봉투 암호화 키로 암호화된 자산을 배달하려면 정책 유형을 **DynamicEnvelopeEncryption**으로 설정해야 합니다. 저장소 암호화를 제거하고 암호화되지 않은 자산을 스트리밍하려면 정책 유형을 **NoDynamicEncryption**으로 설정하세요. 이러한 정책 유형을 구성 하는 방법을 보여주는 예제입니다.
 
-사용자가 자산 배달 정책을 구성하는 방법에 따라 다음 스트리밍 프로토콜을 동적으로 패키지하고, 동적으로 암호화하고 스트림할 수 있습니다(부드러운 스트리밍, HLS, MPEG DASH 및 HDS 스트림).
+사용자가 자산 배달 정책을 구성하는 방법에 따라 다음 스트리밍 프로토콜을 동적으로 패키지하고, 동적으로 암호화하고 스트림할 수 있습니다(부드러운 스트리밍, HLS 및 MPEG DASH 스트림).
 
-다음 목록에서는 부드러운 스트리밍, HLS, DASH, HDS 등의 프로토콜을 스트리밍할 때 사용하는 형식을 보여 줍니다.
+다음 목록에서는 부드러운 스트리밍, HLS 및 DASH 등의 프로토콜을 스트리밍할 때 사용하는 형식을 보여 줍니다.
 
 부드러운 스트리밍:
 
@@ -55,11 +55,6 @@ MPEG DASH
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-HDS
-
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
-
-자산을 게시하고 스트리밍 URL을 작성하는 방법은 [스트리밍 URL 작성](media-services-deliver-streaming-content.md)을 참조하세요.
 
 ## <a name="considerations"></a>고려 사항
 * 자산에 대한 주문형(스트리밍) 로케이터가 있는 동안 해당 자산과 연결된 AssetDeliveryPolicy를 삭제할 수 없습니다. 정책을 삭제하기 전에 자산에서 정책을 제거하는 것이 좋습니다.
@@ -68,36 +63,50 @@ HDS
 * 기존 스트리밍 로케이터를 사용하는 자산이 있는 경우 해당 자산에 새 정책을 연결할 수 없습니다. 자산에서 기존 정책의 연결을 해제하거나 자산과 연결된 배달 정책을 업데이트할 수 있습니다.  먼저 스트리밍 로케이터를 제거하고, 정책을 조정한 다음, 스트리밍 로케이터를 다시 만들어야 합니다.  스트리밍 로케이터를 다시 만들 때 동일한 locatorId를 사용할 수 있지만 원본 또는 다운스트림 CDN이 콘텐츠를 캐시할 수 있으므로 클라이언트에 문제가 발생하지 않는지 확인해야 합니다.
 
 ## <a name="clear-asset-delivery-policy"></a>자산 배달 정책 지우기
+
 다음 **ConfigureClearAssetDeliveryPolicy** 메서드는 동적 암호화를 적용하지 않고 MPEG DASH, HLS 및 부드러운 스트리밍 프로토콜 중 하나에서 스트림을 배달하도록 지정합니다. 이 정책을 저장소에서 암호화된 자산에 적용할 수 있습니다.
 
 AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy를 정의할 때 사용되는 형식](#types) 섹션을 참조하세요.
 
-static public void ConfigureClearAssetDeliveryPolicy(IAsset asset) { IAssetDeliveryPolicy policy = _context.AssetDeliveryPolicies.Create("Clear Policy", AssetDeliveryPolicyType.NoDynamicEncryption, AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
-
-asset.DeliveryPolicies.Add(policy); }
+    static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
+    {
+        IAssetDeliveryPolicy policy =
+        _context.AssetDeliveryPolicies.Create("Clear Policy",
+        AssetDeliveryPolicyType.NoDynamicEncryption,
+        AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
+        
+        asset.DeliveryPolicies.Add(policy);
+    }
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 자산 배달 정책
+
 다음 **CreateAssetDeliveryPolicy** 메서드는 부드러운 스트리밍 프로토콜에 동적 일반 암호화(**DynamicCommonEncryption**)를 적용하도록 구성된 **AssetDeliveryPolicy**를 만듭니다(스트리밍에서 다른 프로토콜은 차단됨). 이 메서드는 두 매개 변수, 즉 **Asset**(배달 정책을 적용하려는 자산) 및 **IContentKey**(**CommonEncryption** 유형의 콘텐츠 키, 자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md#common_contentkey) 참조)를 사용합니다.
 
 AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy를 정의할 때 사용되는 형식](#types) 섹션을 참조하세요.
 
-static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key) { Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-
-Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration = new Dictionary<AssetDeliveryPolicyConfigurationKey, string> { {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()}, };
-
-        var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
-                "AssetDeliveryPolicy",
-            AssetDeliveryPolicyType.DynamicCommonEncryption,
-            AssetDeliveryProtocol.SmoothStreaming,
-            assetDeliveryPolicyConfiguration);
-
-        // Add AssetDelivery Policy to the asset
-        asset.DeliveryPolicies.Add(assetDeliveryPolicy);
-
-        Console.WriteLine();
-        Console.WriteLine("Adding Asset Delivery Policy: " +
-            assetDeliveryPolicy.AssetDeliveryPolicyType);
-    }
+    static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+    {
+        Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+        
+        Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+            {
+                {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+            };
+    
+            var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+                    "AssetDeliveryPolicy",
+                AssetDeliveryPolicyType.DynamicCommonEncryption,
+                AssetDeliveryProtocol.SmoothStreaming,
+                assetDeliveryPolicyConfiguration);
+    
+            // Add AssetDelivery Policy to the asset
+            asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+    
+            Console.WriteLine();
+            Console.WriteLine("Adding Asset Delivery Policy: " +
+                assetDeliveryPolicy.AssetDeliveryPolicyType);
+     }
 
 Azure 미디어 서비스를 사용하면 Widevine 암호화를 추가할 수 있습니다. 다음 예제에서는 PlayReady 및 Widevine이 자산 배달 정책에 추가되는 과정을 보여 줍니다.
 
@@ -214,11 +223,6 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
         /// Apple HTTP Live Streaming protocol.
         /// </summary>
         HLS = 0x4,
-
-        /// <summary>
-        /// Adobe HTTP Dynamic Streaming (HDS)
-        /// </summary>
-        Hds = 0x8,
 
         /// <summary>
         /// Include all protocols.
@@ -344,6 +348,6 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

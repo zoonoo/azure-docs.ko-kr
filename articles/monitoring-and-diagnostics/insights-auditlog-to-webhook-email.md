@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 12/08/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9285673f77cc598d881712ef125040e103059f87
+ms.sourcegitcommit: 3c240e5f8eac50f4151a5a72bea690241597fc01
+ms.openlocfilehash: 0b912bc130ab5de3236a0e3f1f60087624b089a0
 
 
 ---
-# <a name="configure-a-webhook-on-an-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 webhook 구성
+# <a name="configure-a-webhook-on-an-azure-activity-log-alert"></a>Azure 활동 로그 경고에 대한 웹후크 구성
 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 원하는 수의 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다. 이 문서에서는 Azure 활동 로그 경고에 웹후크를 설정하는 방법과 웹후크에 나타나는 HTTP POST의 페이로드에 대해 설명합니다. 한편 Azure 메트릭 경고에 대한 설정과 스키마에 대해서는 [이 페이지를 대신 참조하세요](insights-webhooks-alerts.md). 또한 활성화될 때 전자 메일을 보내도록 활동 로그 경고를 설정할 수도 있습니다.
 
 > [!NOTE]
-> 이 기능은 다양한 품질과 성능을 기대하면서 현재 공개되어 있습니다.
+> 이 기능은 현재 미리 보기이며 나중에 제거될 예정입니다.
 > 
 > 
 
@@ -127,6 +127,6 @@ POST 작업에는 모든 활동 로그 기반 경고에 대해 다음과 같은 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

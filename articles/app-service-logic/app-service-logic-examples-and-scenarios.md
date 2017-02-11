@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 72e6b97415a0edf18c2ffcc654575dbfcd916c40
+ms.sourcegitcommit: 4fde1a22ac76306e79a68a37e110828da9a2ef13
+ms.openlocfilehash: 3cf2d8b19dd5785317a382dc429feda02d8a2f20
 
 
 ---
@@ -49,9 +49,9 @@ ms.openlocfilehash: 72e6b97415a0edf18c2ffcc654575dbfcd916c40
 * [논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)
 
 ## <a name="content-types-conversions-and-transformations"></a>콘텐츠 형식, 변환 및 변형
-논리 앱 [워크플로 정의 언어](http://aka.ms/logicappsdocs) 에는 여러 다른 콘텐츠 형식을 변환하고 사용할 수 있도록 하는 많은 함수가 포함되어 있습니다.  또한 엔진은 워크플로를 통해 데이터가 흐를 때 콘텐츠 형식을 보존하기 위해 할 수 있는 모든 작업을 수행합니다.
+논리 앱 [워크플로 정의 언어](http://aka.ms/logicappsdocs) 에는 여러 다른 콘텐츠 형식을 변환하고 사용할 수 있도록 하는 많은 함수가 포함되어 있습니다. 또한, 엔진은 워크플로를 통해 데이터가 흐를 때 콘텐츠 형식을 보존하기 위해 할 수 있는 모든 작업을 수행합니다.
 
-* [콘텐츠 형식 처리](app-service-logic-content-type.md) (예: application/json, application/xml 및 일반/텍스트)
+* [콘텐츠 형식 처리](app-service-logic-content-type.md) (예: application/json, application/xml 및 텍스트/일반)
 * [워크플로 정의 작성](app-service-logic-author-definitions.md)
 * [워크플로 정의 언어 참조](http://aka.ms/logicappsdocs)
 
@@ -74,6 +74,6 @@ ms.openlocfilehash: 72e6b97415a0edf18c2ffcc654575dbfcd916c40
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

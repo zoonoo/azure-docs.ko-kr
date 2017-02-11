@@ -8,11 +8,8 @@
 ### [IoT Hub 시작(.NET)](iot-hub-csharp-csharp-getstarted.md)
 ### [IoT Hub 시작(Java)](iot-hub-java-java-getstarted.md)
 ### [IoT Hub 시작(Node)](iot-hub-node-node-getstarted.md)
-## IoT 장치 SDK 시작
-### [C용 Azure IoT 장치 SDK 소개](iot-hub-device-sdk-c-intro.md)
-### [C용 IoT 장치 SDK: IoTHubClient에 대한 자세한 정보](iot-hub-device-sdk-c-iothubclient.md)
-### [C용 IoT 장치 SDK: 직렬 변환기에 대한 자세한 정보](iot-hub-device-sdk-c-serializer.md)
-## Raspberry Pi로 시작하기
+
+## Raspberry Pi 시작(Node)
 ### [Raspberry Pi 3 시작하기](iot-hub-raspberry-pi-kit-node-get-started.md)
 ### 단원 1: 장치 구성
 #### [장치 구성](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
@@ -33,10 +30,123 @@
 #### [예제 응용 프로그램을 실행하여 메시지 수신](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
 #### [선택 사항: LED 동작 변경](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 ### [문제 해결](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
+
+## Raspberry Pi 시작(C)
+### [Raspberry Pi 3 시작하기](iot-hub-raspberry-pi-kit-c-get-started.md)
+### 단원 1: 장치 구성
+#### [장치 구성](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
+#### [도구 얻기(Windows 7 이상)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
+#### [도구 얻기(Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md)
+#### [도구 얻기(macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md)
+#### [깜박임 응용 프로그램 만들기 및 배포](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
+### 단원 2: IoT hub 만들기
+#### [Azure 도구 얻기(Windows 7 이상)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
+#### [Azure 도구 얻기(Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
+#### [Azure 도구 얻기(macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
+#### [IoT Hub 만들기 및 Raspberry Pi 등록](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
+### 단원 3: 장치-클라우드 메시지 보내기
+#### [Azure 함수 앱 및 저장소 계정 만들기](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md)
+#### [예제 응용 프로그램을 실행하여 메시지 전송](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
+#### [저장소에 유지되는 메시지 읽기](iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md)
+### 단원 4: 클라우드-장치 메시지 보내기
+#### [예제 응용 프로그램을 실행하여 메시지 수신](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)
+#### [선택 사항: LED 동작 변경](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)
+### [문제 해결](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
+
+## Intel Edison 시작(Node)
+### [Intel Edison 시작](iot-hub-intel-edison-kit-node-get-started.md)
+### 단원 1: 장치 구성
+#### [장치 구성](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
+#### [도구 얻기(Windows 7 이상)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
+#### [도구 얻기(Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-ubuntu.md)
+#### [도구 얻기(macOS 10.10)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md)
+#### [깜박임 응용 프로그램 만들기 및 배포](iot-hub-intel-edison-kit-node-lesson1-deploy-blink-app.md)
+### 단원 2: IoT hub 만들기
+#### [Azure 도구 얻기(Windows 7 이상)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md)
+#### [Azure 도구 얻기(Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-ubuntu.md)
+#### [Azure 도구 얻기(macOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
+#### [IoT Hub 만들기 및 Raspberry Pi 등록](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
+### 단원 3: 장치-클라우드 메시지 보내기
+#### [Azure 함수 앱 및 저장소 계정 만들기](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
+#### [예제 응용 프로그램을 실행하여 메시지 전송](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
+#### [저장소에 유지되는 메시지 읽기](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
+### 단원 4: 클라우드-장치 메시지 보내기
+#### [예제 응용 프로그램을 실행하여 메시지 수신](iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md)
+#### [선택 사항: LED 동작 변경](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
+### [문제 해결](iot-hub-intel-edison-kit-node-troubleshooting.md)
+
+## Intel Edison 시작(C)
+### [Intel Edison 시작](iot-hub-intel-edison-kit-c-get-started.md)
+### 단원 1: 장치 구성
+#### [장치 구성](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
+#### [도구 얻기(Windows 7 이상)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
+#### [도구 얻기(Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md)
+#### [도구 얻기(macOS 10.10)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md)
+#### [깜박임 응용 프로그램 만들기 및 배포](iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app.md)
+### 단원 2: IoT hub 만들기
+#### [Azure 도구 얻기(Windows 7 이상)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md)
+#### [Azure 도구 얻기(Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md)
+#### [Azure 도구 얻기(macOS 10.10)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md)
+#### [IoT Hub 만들기 및 Raspberry Pi 등록](iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md)
+### 단원 3: 장치-클라우드 메시지 보내기
+#### [Azure 함수 앱 및 저장소 계정 만들기](iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md)
+#### [예제 응용 프로그램을 실행하여 메시지 전송](iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md)
+#### [저장소에 유지되는 메시지 읽기](iot-hub-intel-edison-kit-c-lesson3-read-table-storage.md)
+### 단원 4: 클라우드-장치 메시지 보내기
+#### [예제 응용 프로그램을 실행하여 메시지 수신](iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md)
+#### [선택 사항: LED 동작 변경](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
+### [문제 해결](iot-hub-intel-edison-kit-c-troubleshooting.md)
+
 ## [Gateway SDK 시작(Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Gateway SDK 시작(Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
+## IoT Gateway Starter Kit 시작
+### 시뮬레이션된 장치
 
+#### [시뮬레이트된 장치 시작](iot-hub-gateway-kit-c-sim-get-started.md)
+#### 단원 1: NUC 구성
+##### [Intel NUC를 IoT 게이트웨이로 설정](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+
+#### 단원 2: IoT Hub 만들기
+##### [도구 얻기(Windows 7 이상)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
+##### [도구 얻기(Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
+##### [도구 얻기(macOS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
+##### [IoT Hub 만들기 및 장치 등록](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
+
+#### 단원 3: 시뮬레이트된 장치에서 메시지 받기
+##### [BLE 샘플 앱 구성 및 실행](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
+##### [IoT Hub에서 메시지 읽기](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
+
+#### 단원 4: Azure 테이블 저장소로 메시지 저장
+##### [Azure 함수 앱 및 Azure Storage 계정 만들기](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
+##### [Azure 테이블 저장소에 유지되는 메시지 읽기](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
+
+#### [문제 해결](iot-hub-gateway-kit-c-sim-troubleshooting.md)
+
+### SensorTag 장치
+#### [SensorTag 장치 시작](iot-hub-gateway-kit-c-get-started.md)
+#### 단원 1: NUC 구성
+##### [Intel NUC를 IoT 게이트웨이로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+
+#### 단원 2: IoT Hub 만들기
+##### [도구 얻기(Windows 7 이상)](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+##### [도구 얻기(Ubuntu 16.04)](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
+##### [도구 얻기(macOS 10.10)](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
+##### [IoT Hub 만들기 및 장치 등록](iot-hub-gateway-kit-c-lesson2-register-device.md)
+
+#### 단원 3: 시뮬레이트된 장치에서 메시지 받기
+##### [BLE 샘플 앱 구성 및 실행](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
+##### [IoT Hub에서 메시지 읽기](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
+
+#### 단원 4: Azure 테이블 저장소로 메시지 저장
+##### [Azure 함수 앱 및 Azure Storage 계정 만들기](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
+##### [Azure 테이블 저장소에 유지되는 메시지 읽기](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
+
+##### [문제 해결](iot-hub-gateway-kit-c-troubleshooting.md)
+## IoT 장치 SDK 시작
+### [C용 Azure IoT 장치 SDK 소개](iot-hub-device-sdk-c-intro.md)
+### [C용 IoT 장치 SDK: IoTHubClient에 대한 자세한 정보](iot-hub-device-sdk-c-iothubclient.md)
+### [C용 IoT 장치 SDK: 직렬 변환기에 대한 자세한 정보](iot-hub-device-sdk-c-serializer.md)
 # 방법
 ## [장치-클라우드 메시지 처리 자습서(.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [장치-클라우드 메시지 처리 자습서(Java)](iot-hub-java-java-process-d2c.md)
@@ -130,6 +240,6 @@
 ## [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

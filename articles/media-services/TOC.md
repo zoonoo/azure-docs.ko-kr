@@ -24,7 +24,9 @@
 ### 프로그래밍 방식으로 연결
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST (영문)](media-services-rest-connect-programmatically.md)
-### [포털에서 스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)
+### [스트리밍 끝점 관리](media-services-streaming-endpoints-overview.md)
+#### [포털](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### [방법: 저장소 액세스 키 롤링 후 Media Services 업데이트](media-services-roll-storage-access-keys.md)
 ### [할당량 및 제한 사항](media-services-quotas-and-limitations.md)
 
@@ -92,6 +94,9 @@
 
 ## [스트림 라이브](media-services-manage-channels-overview.md)
 ### [온-프레미스 인코더](media-services-live-streaming-with-onprem-encoders.md)
+#### [포털](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [클라우드 인코더를 사용한 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)
 ### 클라우드 인코더 자습서
 #### [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -207,6 +212,6 @@
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

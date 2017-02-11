@@ -1,0 +1,79 @@
+---
+title: "내보내기 작업에 대한 드라이브 사용량 미리 보기 | Microsoft Docs"
+description: "Azure Import-Export 서비스에서 내보내기 작업을 위해 선택한 Blob의 목록을 미리 보는 방법을 알아봅니다."
+author: renashahmsft
+manager: aungoo
+editor: tysonn
+services: storage
+documentationcenter: 
+ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/25/2015
+ms.author: renash
+translationtype: Human Translation
+ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
+ms.openlocfilehash: d8ea4cb51c9609b8fa9ed5ee50762f981da68e20
+
+
+---
+
+# <a name="previewing-drive-usage-for-an-export-job"></a>내보내기 작업에 대한 드라이브 사용량 미리 보기
+내보내기 작업을 만들기 전에 내보낼 Blob 집합을 선택해야 합니다. Microsoft Azure Import/Export 서비스를 사용하면 Blob 경로 또는 Blob 접두사 목록을 사용하여 선택한 Blob을 나타낼 수 있습니다.  
+  
+ 그런 다음 보내야 하는 드라이브 수를 결정해야 합니다. Microsoft Azure Import/Export 도구는 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob에 대한 드라이브 사용량을 미리 볼 수 있는 `PreviewExport` 명령을 제공합니다. 다음 매개 변수를 지정할 수 있습니다.  
+  
+|명령줄 옵션|설명|  
+|--------------------------|-----------------|  
+|**/logdir:**<LogDirectory\>|선택 사항입니다. 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 로그 디렉터리를 지정하지 않는 경우 현재 디렉터리가 로그 디렉터리로 사용됩니다.|  
+|**/sn:**<StorageAccountName\>|필수입니다. 내보내기 작업에 대한 저장소 계정의 이름입니다.|  
+|**/sk:**<StorageAccountKey\>|컨테이너 SAS가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에 대한 저장소 계정의 계정 키입니다.|  
+|**/csas:**<ContainerSas\>|저장소 계정 키가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에서 내보낼 Blob을 나열하기 위한 컨테이너 SAS입니다.|  
+|**/ExportBlobListFile:**<ExportBlobListFile\>|필수입니다. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록이 포함된 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageservices/importexport/Put-Job) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|  
+|**/DriveSize:**<DriveSize\>|필수입니다. 내보내기 작업에 사용할 드라이브의 크기는 *예를 들어* 500GB, 1.5TB입니다.|  
+  
+다음 예제에서는 `PreviewExport` 명령을 보여 줍니다.  
+  
+```  
+WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
+```  
+  
+내보내기 Blob 목록 파일에는 다음과 같이 Blob 이름과 Blob 접두사가 포함될 수 있습니다.  
+  
+```xml 
+<?xml version="1.0" encoding="utf-8"?>  
+<BlobList>  
+<BlobPath>pictures/animals/koala.jpg</BlobPath>  
+<BlobPathPrefix>/vhds/</BlobPathPrefix>  
+<BlobPathPrefix>/movies/</BlobPathPrefix>  
+</BlobList>  
+```
+
+Azure Import/Export 도구는 내보낼 모든 Blob을 나열하고 필요한 오버헤드를 고려하여 지정된 크기의 드라이브에 패키지하는 방법을 계산한 다음 Blob 및 드라이브 사용 정보를 보유하는 데 필요한 드라이브 수를 추정합니다.  
+  
+다음은 정보 로그가 생략된 출력의 예입니다.  
+  
+```  
+Number of unique blob paths/prefixes:   3  
+Number of duplicate blob paths/prefixes:        0  
+Number of nonexistent blob paths/prefixes:      1  
+  
+Drive size:     500.00 GB  
+Number of blobs that can be exported:   6  
+Number of blobs that cannot be exported:        2  
+Number of drives needed:        3  
+        Drive #1:       blobs = 1, occupied space = 454.74 GB  
+        Drive #2:       blobs = 3, occupied space = 441.37 GB  
+        Drive #3:       blobs = 2, occupied space = 131.28 GB    
+```  
+  
+## <a name="see-also"></a>참고 항목  
+[Azure Import-Export 도구 참조](storage-import-export-tool-how-to-v1.md)
+
+
+<!--HONumber=Dec16_HO2-->
+
+

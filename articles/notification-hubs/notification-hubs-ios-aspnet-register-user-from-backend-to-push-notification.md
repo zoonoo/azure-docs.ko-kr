@@ -1,12 +1,12 @@
 ---
-title: Register the current user for push notifications by using Web API | Microsoft Docs
-description: Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by ASP.NET Web API.
+title: "Web API를 사용하여 푸시 알림에 현재 사용자 등록 | Microsoft Docs"
+description: "ASP.NET Web API에서 등록을 수행할 때 Azure 알림 허브를 사용하여 iOS 앱에서 푸시 알림 등록을 요청하는 방법에 대해 알아봅니다."
 services: notification-hubs
 documentationcenter: ios
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4e3772cf-20db-4b9f-bb74-886adfaaa65d
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -14,47 +14,51 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
+
 
 ---
-# <a name="register-the-current-user-for-push-notifications-by-using-asp.net"></a>Register the current user for push notifications by using ASP.NET
+# <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
 > [!div class="op_single_selector"]
 > * [iOS](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 > 
 > 
 
-## <a name="overview"></a>Overview
-This topic shows you how to request push notification registration with Azure Notification Hubs when registration is performed by ASP.NET Web API. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].
+## <a name="overview"></a>개요
+이 항목에서는 ASP.NET Web API에서 등록을 수행할 때 Azure 알림 허브를 통해 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [알림 허브를 통해 사용자에게 알림]자습서를 확장합니다. 이미 해당 자습서의 필수 단계를 완료하여 인증된 모바일 서비스를 만든 상태여야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림]을 참조하세요.
 
-## <a name="update-your-app"></a>Update your app
-1. In your MainStoryboard_iPhone.storyboard, add the following components from the object library:
+## <a name="update-your-app"></a>앱 업데이트
+1. MainStoryboard_iPhone.storyboard의 개체 라이브러리에서 다음 구성 요소를 추가합니다.
    
-   * **Label**: "Push to User with Notification Hubs"
-   * **Label**: "InstallationId"
-   * **Label**: "User"
-   * **Text Field**: "User"
-   * **Label**: "Password"
-   * **Text Field**: "Password"
-   * **Button**: "Login"
+   * **레이블**: "Push to User with Notification Hubs"
+   * **레이블**: "InstallationId"
+   * **레이블**: "User"
+   * **텍스트 필드**: "User"
+   * **레이블**: "Password"
+   * **텍스트 필드**: "Password"
+   * **단추**: "Login"
      
-     At this point, your storyboard looks like the following:
+     이때 스토리보드가 다음과 같이 표시됩니다.
      
-     ![][0]
-2. In the assistant editor, create outlets for all the switched controls and call them, connect the text fields with the View Controller (delegate), and create an **Action** for the **login** button.
+      ![][0]
+2. 단말기 편집기에서 모든 전환된 컨트롤에 대한 콘센트를 만든 다음 호출하고, 텍스트 필드를 뷰 컨트롤러(대리자)에 연결하고, **로그인** 단추에 대한 **동작**을 만듭니다.
    
-    ![][1]
+       ![][1]
    
-    Your BreakingNewsViewController.h file should now contain the following code:
+       Your BreakingNewsViewController.h file should now contain the following code:
    
         @property (weak, nonatomic) IBOutlet UILabel *installationId;
         @property (weak, nonatomic) IBOutlet UITextField *User;
         @property (weak, nonatomic) IBOutlet UITextField *Password;
    
         - (IBAction)login:(id)sender;
-3. Create a class named **DeviceInfo**, and copy the following code into the interface section of the file DeviceInfo.h:
+3. **DeviceInfo**라는 클래스를 만들고 다음 코드를 DeviceInfo.h 파일의 인터페이스 섹션에 복사합니다.
    
         @property (readonly, nonatomic) NSString* installationId;
         @property (nonatomic) NSData* deviceToken;
-4. Copy the following code in the implementation section of the DeviceInfo.m file:
+4. 다음 코드를 DeviceInfo.m 파일의 구현 섹션에 복사합니다.
    
             @synthesize installationId = _installationId;
    
@@ -85,38 +89,32 @@ This topic shows you how to request push notification registration with Azure No
                                       ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
                 return hexToken;
             }
-5. In PushToUserAppDelegate.h, add the following property singleton:
+5. PushToUserAppDelegate.h에서 다음 속성 단일 항목을 추가합니다.
    
         @property (strong, nonatomic) DeviceInfo* deviceInfo;
-6. In the **didFinishLaunchingWithOptions** method in PushToUserAppDelegate.m, add the following code:
+6. PushToUserAppDelegate.m의 **didFinishLaunchingWithOptions** 메서드에 다음 코드를 추가합니다.
    
         self.deviceInfo = [[DeviceInfo alloc] init];
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
    
-    The first line initializes the **DeviceInfo** singleton. The second line starts the registration for push notifications, which is already present is you have already completed the [Get Started with Notification Hubs] tutorial.
-7. In PushToUserAppDelegate.m, implement the method **didRegisterForRemoteNotificationsWithDeviceToken** in your AppDelegate and add the following code:
+    첫 번째 행은 **DeviceInfo** 단일 항목을 초기화합니다. 두 번째 행은 푸시 알림 등록을 시작합니다. 이미 언급한 것처럼 [Notification Hubs 시작] 자습서를 이미 완료했습니다.
+7. PushToUserAppDelegate.m의 AppDelegate에서 **didRegisterForRemoteNotificationsWithDeviceToken** 메서드를 구현하고 다음 코드를 추가합니다.
    
         self.deviceInfo.deviceToken = deviceToken;
    
-    This sets the device token for the request.
+    이 코드는 요청에 대한 장치 토큰을 설정합니다.
    
    > [!NOTE]
-   > At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the [Get Started with Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/) tutorial, you must comment-out or remove that call.
+   > 이때 이 메서드에 다른 코드가 있어서는 안 됩니다. **알림 허브 시작** 자습서를 완료할 때 추가된 [registerNativeWithDeviceToken](/manage/services/notification-hubs/get-started-notification-hubs-ios/) 메서드에 대한 호출이 이미 있는 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.
    > 
    > 
-8. In the PushToUserAppDelegate.m file, add the following handler method:
+8. PushToUserAppDelegate.m 파일에서 다음 처리기 메서드를 추가합니다.
    
-       - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-           NSLog(@"%@", userInfo);
-           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-                                 [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
-                                 @"OK" otherButtonTitles:nil, nil];
-           [alert show];
-       }
+   * (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:                         [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:                         @"OK" otherButtonTitles:nil, nil];   [alert show]; }
    
-    This method displays an alert in the UI when your app receives notifications while it is running.
-9. Open the PushToUserViewController.m file, and return the keyboard in the following implementation:
+   이 메서드는 앱이 실행되고 있는 동안 알림을 받으면 UI에 경고를 표시합니다.
+9. PushToUserViewController.m 파일을 열고 다음 구현에 키보드를 반환합니다.
    
         - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
             if (theTextField == self.User || theTextField == self.Password) {
@@ -124,15 +122,15 @@ This topic shows you how to request push notification registration with Azure No
             }
             return YES;
         }
-10. In the **viewDidLoad** method in the PushToUserViewController.m file, initialize the installationId label as follows:
+10. PushToUserViewController.m 파일의 **viewDidLoad** 메서드에서 다음과 같이 installationId 레이블을 초기화합니다.
     
          DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
          Self.installationId.text = deviceInfo.installationId;
-11. Add the following properties in interface in PushToUserViewController.m:
+11. PushToUserViewController.m의 인터페이스에 다음 속성을 추가합니다.
     
         @property (readonly) NSOperationQueue* downloadQueue;
         - (NSString*)base64forData:(NSData*)theData;
-12. Then, add the following implementation:
+12. 그 후에 다음 구현을 추가합니다.
     
             - (NSOperationQueue *)downloadQueue {
                 if (!_downloadQueue) {
@@ -175,7 +173,7 @@ This topic shows you how to request push notification registration with Azure No
     
                 return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
             }
-13. Copy the following code into the **login** handler method created by XCode:
+13. XCode로 만든 **login** 처리기 메서드에 다음 코드를 복사합니다.
     
             DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
     
@@ -208,9 +206,9 @@ This topic shows you how to request push notification registration with Azure No
                 }
             }];
     
-    This method gets both an installation ID and channel for push notifications and sends it, along with the device type, to the authenticated Web API method that creates a registration in Notification Hubs. This Web API was defined in [Notify users with Notification Hubs].
+    이 메서드는 푸시 알림에 대한 설치 ID와 채널을 모두 가져온 다음, 알림 허브에서 등록을 만드는 인증된 웹 API 메서드에 장치 유형과 함께 보냅니다. 이 웹 API는 [알림 허브를 통해 사용자에게 알림]에서 정의했습니다.
 
-Now that the client app has been updated, return to the [Notify users with Notification Hubs] and update the mobile service to send notifications by using Notification Hubs.
+클라이언트 앱이 업데이트되었으므로 [알림 허브를 통해 사용자에게 알림] 으로 돌아가서 알림 허브를 사용하여 알림을 보내도록 모바일 서비스를 업데이트합니다.
 
 <!-- Anchors. -->
 
@@ -219,12 +217,12 @@ Now that the client app has been updated, return to the [Notify users with Notif
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
+[알림 허브를 통해 사용자에게 알림]: /manage/services/notification-hubs/notify-users-aspnet
 
-[Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Notification Hubs 시작]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

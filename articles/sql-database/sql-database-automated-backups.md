@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 11/02/2016
 ms.author: sashan;carlrab;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: a5b69625272b96fc9e42b9b7e57b5401351d8d6e
-ms.openlocfilehash: 9e58a144be039db609ad1400246ef2de05c1b84d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: f6bb6e1c81cafe5f0e5c43c99ab15a0483742868
 
 
 ---
@@ -42,15 +42,15 @@ The Feature Topic is a one-pager (ok, sometimes longer) that explains a capabili
 It is a "learning" topic, not an action topic.
 
 DO explain this:
-    • Definition of the feature terminology.  i.e., What is a database backup?
-    • Characteristics and capabilities of the feature. (How the feature works)
-    • Common uses with links to overview topics that recommend when to use the feature.
-    • Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
-    • Next Steps with links to related overviews, features, and tasks.
+    � Definition of the feature terminology.  i.e., What is a database backup?
+    � Characteristics and capabilities of the feature. (How the feature works)
+    � Common uses with links to overview topics that recommend when to use the feature.
+    � Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
+    � Next Steps with links to related overviews, features, and tasks.
 
 DON'T explain this:
-    • How to steps for using the feature (Tasks)
-    • How to solve business problems that incorporate the feature (Overviews)
+    � How to steps for using the feature (Tasks)
+    � How to solve business problems that incorporate the feature (Overviews)
 
 GUIDELINES for the H1 
 
@@ -58,7 +58,7 @@ GUIDELINES for the H1
 
     To help people understand this is a learning topic and not an action topic, start the title with "Learn about ... "
 
-    Heading must use an industry standard term. If your feature is a proprietary name like "Elastic database pools", use a synonym. For example:    "Learn about elastic database pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
+    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example:    "Learn about elastic pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
 
 GUIDELINES for introduction
 
@@ -118,6 +118,10 @@ SQL Database는 SQL Server 기술을 사용하여 [전체](https://msdn.microsof
 * Azure Recovery Services 자격 증명 모음에 저장된 특정 백업에서 데이터베이스를 복원합니다. 그러면 이전 버전의 데이터베이스를 복원하여 규정 준수 요청을 충족하고 이전 버전의 응용 프로그램을 실행할 수 있습니다. [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 * 복원을 수행하려면 [백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 
+> [!TIP]
+> 자습서는 [데이터 보호 및 복구를 위한 백업 및 복원 시작](sql-database-get-started-backup-recovery.md)을 참조하세요.
+>
+
 <!----------------- 
     Explains first component of the backup feature
 ------------------>
@@ -168,7 +172,11 @@ SQL Database는 추가 비용 없이 최대 프로비전된 데이터베이스 �
 ## <a name="how-to-extend-the-backup-retention-period"></a>백업 보존 기간을 확장하는 방법
 응용 프로그램에 더 긴 기간 동안 백업을 사용할 수 있어야 하는 경우 개별 데이터베이스(LTR 정책)에 대해 장기 백업 보존 정책을 구성하여 기본 제공 보존 기간을 연장할 수 있습니다. 기본 제공 보존 기간은 35일에서 최대 10년까지 연장할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
-Azure Portal 또는 API를 사용하여 LTR 정책을 데이터베이스에 추가했으면 매주 전체 데이터베이스 백업이 사용자 고유의 Azure Backup Service Vault로 자동으로 복사됩니다. TDE를 사용하여 암호화된 데이터베이스는 미사용 시 자동으로 암호화됩니다.  Services Vault는 타임 스탬프 또는 LTR 정책에 따라 만료된 백업을 자동으로 삭제합니다.  따라서 백업 일정을 관리할 필요가 없으며 이전 파일의 정리를 걱정할 필요가 없습니다. 복원 API는 자격 증명 모음이 SQL Database와 동일한 구독 내에만 있다면 자격 증명 모음에 저장된 백업을 지원합니다. 포털 또는 PowerShell을 사용하여 이러한 백업에 액세스할 수 있습니다.
+Azure Portal 또는 API를 사용하여 LTR 정책을 데이터베이스에 추가했으면 매주 전체 데이터베이스 백업이 사용자 고유의 Azure Backup Service Vault로 자동으로 복사됩니다. TDE를 사용하여 암호화된 데이터베이스는 미사용 시 자동으로 암호화됩니다.  Services Vault는 타임 스탬프 또는 LTR 정책에 따라 만료된 백업을 자동으로 삭제합니다.  따라서 백업 일정을 관리할 필요가 없으며 이전 파일의 정리를 걱정할 필요가 없습니다. 복원 API는 자격 증명 모음이 SQL Database와 동일한 구독 내에만 있다면 자격 증명 모음에 저장된 백업을 지원합니다. Azure 포털 또는 PowerShell을 사용하여 이러한 백업에 액세스할 수 있습니다.
+
+> [!TIP]
+> 자습서는 [데이터 보호 및 복구를 위한 백업 및 복원 시작](sql-database-get-started-backup-recovery.md)을 참조하세요.
+>
 
 <!-------------------
 OPTIONAL section
@@ -214,11 +222,14 @@ GUIDELINES for Next Steps
 --------------------->
 
 ## <a name="next-steps"></a>다음 단계
-데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다.. 다른 Azure SQL Database 비즈니스 연속성 솔루션에 대해 알아보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
+
+- 데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다.. 다른 Azure SQL Database 비즈니스 연속성 솔루션에 대해 알아보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
+- 특정 시점으로 복원하려면 [특정 시점으로 데이터베이스 복원](sql-database-point-in-time-restore.md)을 참조하세요.
+- 데이터베이스의 서비스에서 생성된 백업에서 가장 오래된 복원 지점을 보려면 [가장 오래된 복원 지점 보기](sql-database-view-oldest-restore-point.md)를 참조하세요.
+- Azure Recovery Services 자격 증명 모음에 자동화된 백업의 장기 보존을 구성하려면 [장기 백업 보존 구성](sql-database-configure-long-term-retention.md)을 참조하세요.
 
 
 
-
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

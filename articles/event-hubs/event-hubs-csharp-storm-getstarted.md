@@ -1,12 +1,12 @@
 ---
-title: Apache Storm과 함께 C#에서 이벤트 허브 시작 | Microsoft Docs
-description: 이 자습서에 따라 Azure 이벤트 허브를 사용하여 C#으로 이벤트를 보내고 Apache Storm 클러스터에서 이벤트를 받을 수 있습니다.
+title: "Apache Storm과 함께 C#에서 Event Hubs 시작 | Microsoft Docs"
+description: "이 자습서에 따라 Azure 이벤트 허브를 사용하여 C#으로 이벤트를 보내고 Apache Storm 클러스터에서 이벤트를 받을 수 있습니다."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f64cb2bd-2e38-4c78-8d0d-9af14c000d9f
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26d0363d72147f1b72b77652ba9b638bfa260970
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>이벤트 허브 시작
@@ -49,8 +53,8 @@ ms.author: jotaub;sethm
 ## <a name="next-steps"></a>다음 단계
 이제 이벤트 허브를 만들고 데이터를 보내고 받는 작업 중인 응용 프로그램을 구축했으므로 다음 시나리오로 진행할 수 있습니다.
 
-* [이벤트 허브를 사용하는 샘플 응용 프로그램][이벤트 허브를 사용하는 샘플 응용 프로그램]전체.
-* [이벤트 허브를 사용하는 이벤트 처리 확장][이벤트 허브를 사용하는 이벤트 처리 확장] 샘플
+* 전체 [Event Hubs를 사용하는 샘플 응용 프로그램][이벤트 허브를 사용하는 샘플 응용 프로그램].
+* [Event Hubs를 사용하는 이벤트 처리 확장][이벤트 허브를 사용하는 이벤트 처리 확장] 샘플.
 
 <!-- Images. -->
 [22]: ./media/event-hubs-csharp-storm-getstarted/receive-storm1.png
@@ -63,6 +67,6 @@ ms.author: jotaub;sethm
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

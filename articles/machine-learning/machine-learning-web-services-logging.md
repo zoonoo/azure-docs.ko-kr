@@ -1,19 +1,23 @@
 ---
-title: 기계 학습 웹 서비스에 대한 로깅 | Microsoft Docs
-description: 기계 학습 웹 서비스에 대해 로깅을 사용하도록 설정하는 방법을 알아봅니다. 로깅은 API 문제를 해결하는 데 도움이 되는 추가 정보를 제공합니다.
+title: "Machine Learning 웹 서비스에 대한 로깅 | Microsoft Docs"
+description: "기계 학습 웹 서비스에 대해 로깅을 사용하도록 설정하는 방법을 알아봅니다. 로깅은 API 문제를 해결하는 데 도움이 되는 추가 정보를 제공합니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: raymondlaghaeian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2016
+ms.date: 01/12/2017
 ms.author: raymondl;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f307a26bfbb55b395f4073f4368432ae69b867ae
+
 
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>기계 학습 웹 서비스에 대해 로깅 사용
@@ -60,6 +64,9 @@ Azure Storage 계정을 '탐색'하는 데 사용할 수 있는 여러 도구 �
 * score/requests  
 * score/init  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 12/13/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 764270f66a512efe5341361925845f671ea2b815
+ms.sourcegitcommit: 1761ee404e355d41170a5684a1a0ca6d2629f1e3
+ms.openlocfilehash: 5b6819a583f5161854be0f71bbc5164afd57d6f9
 
 
 ---
@@ -79,7 +79,7 @@ Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버
 
 **현재 구성 요소 버전 정보 가져오기**
 
-HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 대한 향후 업데이트에서 변경될 수 있습니다. 사용 가능한 구성 요소를 알아보고 사용 중인 버전을 확인하는 방법은 클러스터에서 Ambari REST API를 사용하는 것입니다. 또한 **GetComponentInformation** 명령을 사용하여 서비스 구성 요소에 대한 정보를 검색할 수도 있습니다. 자세한 내용은 [Ambari 설명서](영문)[ambari-docs]를 참조하세요. 이 정보를 가져오는 다른 방법은 원격 데스크톱을 사용하여 클러스터에 로그인하고 "C:\apps\dist\" 디렉터리의 콘텐츠를 직접 검토하는 것입니다.
+HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 대한 향후 업데이트에서 변경될 수 있습니다. 사용 가능한 구성 요소를 알아보고 사용 중인 버전을 확인하는 방법은 클러스터에서 Ambari REST API를 사용하는 것입니다. 또한 **GetComponentInformation** 명령을 사용하여 서비스 구성 요소에 대한 정보를 검색할 수도 있습니다. 자세한 내용은 [Ambari 설명서][ambari-docs]를 참조하세요. 이 정보를 가져오는 다른 방법은 원격 데스크톱을 사용하여 클러스터에 로그인하고 "C:\apps\dist\" 디렉터리의 콘텐츠를 직접 검토하는 것입니다.
 
 **릴리스 정보**
 
@@ -102,7 +102,8 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 
 | HDI 2.1 |HDP 1.3 |Windows Server 2012R2 |예 |2013/10/28 |아니요 |2014/05/12 |2015/05/31 |
 | HDI 1.6 |HDP 1.1 | |아니요 |2013/10/28 |아니요 |2014/04/26 |2015/05/31 |
 
-**기본이 아닌 클러스터의 배포**
+##<a name="hdi-version-32-and-33-nearing-deprecation-date"></a>HDI 버전 3.2 및 3.3(곧 사용 중단됨)
+HDI 3.2 클러스터에 대한 지원은 2016년 3월 1일 만료되었으며 2017년 4월 1일부터는 사용되지 않습니다. HDI 3.3 클러스터에 대한 지원은 2016년 6월 27일 만료되었으며 2017년 7월 31일부터는 사용되지 않습니다. HDI 3.2 또는 HDI 3.3 클러스터가 있는 경우에는 최신 버전인 HDI 3.5로 클러스터를 업그레이드하세요. 
 
 ### <a name="the-service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 클러스터 버전의 서비스 수준 계약
 SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고객 지원에서 HDInsight 클러스터 버전을 지원하는 기간을 나타냅니다. HDInsight 클러스터는 해당 버전의 **지원 만료 날짜** 가 현재 날짜를 지난 경우 지원 기간을 넘긴 것입니다. 지원되는 HDInsight 클러스터 버전 목록은 위의 표에서 찾아볼 수 있습니다. 새로운 X+1 버전이 사용 가능해질 경우 지정된 HDInsight 버전의 지원 만료 날짜는 다음 수식 중 후자로 계산됩니다.  
@@ -117,19 +118,30 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 > 
 > 
 
+##<a name="hdinsight-deprecation-on-windows"></a>Windows에서 HDInsight 사용 중단
+HDI 버전 3.4부터는 Linux OS에서만 HDInsight를 릴리스했습니다. Apache Ranger, HDInsight 응용 프로그램, Azure Data Lake Store(기본 FS) 등 일부 HDInsight 제품은 Linux에만 사용할 수 있습니다. 다음과 같이 고객을 위한 여러 혜택이 있습니다.
+
+* HDInsight 서비스를 통해 오픈 소스의 빅 데이터 기술을 시장에 보다 신속하게 제공할 수 있습니다.
+* 지원을 위한 큰 커뮤니티와 에코 시스템이 있습니다.
+* 오픈 소스 커뮤니티에서 Hadoop 및 최신 빅 데이터 기술을 위한 개발이 활발하게 이루어지고 있습니다. 
+* HDInsight 서비스는 빅 데이터 오픈 소스 기술에 더욱 집중할 수 있습니다. 
+
+오픈 소스 빅 데이터 기술의 계속적인 투자를 위해 향후 HDInsight 릴리스는 Linux OS에서만 사용할 수 있습니다. Windows OS에 대한 향후 HDInsight 릴리스가 더 이상 없습니다. Windows에서 마지막 HDInsight 릴리스는 HDI 3.3입니다. HDI 3.3에 대한 지원은 2016년 6월 27일 만료되었으며 2017년 7월 31일부터는 사용되지 않습니다. Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션하려면 [여기](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux)를 참조하세요.
+
+
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>HDInsight 버전과 관련된 Hortonworks 릴리스 정보
 * HDInsight 클러스터 버전 3.4에서는 [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html)를 기반으로 하는 Hadoop 배포를 사용합니다. 이는 포털을 사용할 때 만든 **기본** Hadoop 클러스터입니다.
 * HDInsight 클러스터 버전 3.3에서는 [Hortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html)(영문)를 기반으로 하는 Hadoop 배포를 사용합니다.
   
   * Apache Storm 릴리스 정보는 [여기](https://storm.apache.org/2015/11/05/storm0100-released.html)에 사용할 수 있습니다.
   * Apache Hive 릴리스 정보는 [여기](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843)에 사용할 수 있습니다.
-* HDInsight 클러스터 버전 3.2에서는 [Hortonworks Data Platform 2.2][hdp-2-2](영문)를 기반으로 하는 Hadoop 배포를 사용합니다.  
+* HDInsight 클러스터 버전 3.2에서는 [Hortonworks Data Platform 2.2][hdp-2-2]를 기반으로 하는 Hadoop 배포를 사용합니다.  
   
   * 특정 Apache 구성 요소에 대한 릴리스 정보 - [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
 * HDInsight 클러스터 버전 3.1은 [Hortonworks Data Platform 2.1.7][hdp-2-1-7]을 기반으로 하는 Hadoop 배포를 사용합니다. 2014년 11월 7일 이전에 만들어진 HDInsight 3.1 클러스터는 [Hortonworks Data Platform 2.1.1][hdp-2-1-1]에 기반합니다.
-* HDInsight 클러스터 버전 3.0에서는 [Hortonworks Data Platform 2.0][hdp-2-0-8](영문)을 기반으로 하는 Hadoop 배포를 사용합니다.
-* HDInsight 클러스터 버전 2.1에서는 [Hortonworks Data Platform 1.3][hdp-1-3-0](영문)을 기반으로 하는 Hadoop 배포를 사용합니다.
-* HDInsight 클러스터 버전 1.6에서는 [Hortonworks Data Platform 1.1][hdp-1-1-0](영문)을 기반으로 하는 Hadoop 배포를 사용합니다.
+* HDInsight 클러스터 버전 3.0에서는 [Hortonworks Data Platform 2.0][hdp-2-0-8]을 기반으로 하는 Hadoop 배포를 사용합니다.
+* HDInsight 클러스터 버전 2.1에서는 [Hortonworks Data Platform 1.3][hdp-1-3-0]을 기반으로 하는 Hadoop 배포를 사용합니다.
+* HDInsight 클러스터 버전 1.6에서는 [Hortonworks Data Platform 1.1][hdp-1-1-0]을 기반으로 하는 Hadoop 배포를 사용합니다.
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
@@ -155,6 +167,6 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

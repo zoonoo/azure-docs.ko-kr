@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5b7f1533aca3b5391252e4195e2edeb6443827fd
+ms.sourcegitcommit: e1f9c62765e414e194330419f26c2b7437da21b3
+ms.openlocfilehash: 79cfe90bb883b5cadf707272d31a990c8886dbe4
 
 
 ---
@@ -63,7 +63,7 @@ Visual Studio에서 앱을 계측하지 않은 경우에도 이 방법을 사용
 웹 페이지 각각에 Application Insights JavaScript 코드 조각을 추가하여 클라이언트 브라우저에서 원격 분석을 가져올 수 있습니다.
 
 1. Azure에서 앱에 대한 Application Insights 리소스를 엽니다.
-2. 시작, 클라이언트 쪽 모니터를 열고 코드 조각을 복사합니다.
+2. 시작, 클라이언트 쪽 응용 프로그램 모니터링 및 진단을 열고 조각을 복사합니다.
 3. 각 웹 페이지의 헤더에 표시되도록 붙여 넣습니다. 일반적으로 마스터 레이아웃 페이지에 붙여 넣는 방식으로 작업할 수 있습니다.
 
 ![Azure에서 확장](./media/app-insights-asp-net-more/100.png)
@@ -133,6 +133,6 @@ MS 빌드 프로세스에서 `buildinfo.config` 가 생성되도록 합니다. .
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,20 +1,24 @@
 ---
-title: 작업 공간에서 Windows 10 장치 사용 | Microsoft Docs
-description: 사용자 및 IT를 위한 기능의 스냅숏을 제공하며 Windows 10을 사용하여 엔터프라이즈에서 장치를 프로비전 및 사용하는 다양한 방법을 비교합니다.
+title: "작업 공간에서 Windows 10 장치 사용 | Microsoft Docs"
+description: "사용자 및 IT를 위한 기능의 스냅숏을 제공하며 Windows 10을 사용하여 엔터프라이즈에서 장치를 프로비전 및 사용하는 다양한 방법을 비교합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 94ccc8fd-b17b-4fda-8d56-9d87aa37a9f9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 10/17/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 388ca47c7ec21723906125227ed8250e03606e17
+
 
 ---
 # <a name="using-windows-10-devices-in-your-workplace"></a>작업 공간에서 Windows 10 장치 사용
@@ -32,7 +36,7 @@ Windows 10은 조직을 위한 세 가지 모델을 제공하여 사용자가 �
 | --- | --- | --- | --- |
 | 회사 또는 학교 계정을 위한 Windows 장치 로그인 |예 |예 |아니요 |
 | Office 365 및 Azure AD 앱에 대한 사용자 SSO(Single-Sign-On). SSO는 조직 리소스에 액세스하기 위해 한 번만 로그인하는 기능입니다. |예 |예 |예 |
-| Kerberos/NTLM 앱에 대한 사용자 SSO |예 |제한 |예, VPN 을 통해 |
+| Kerberos/NTLM 앱에 대한 사용자 SSO |예 |제한 |예, VPN을 통해 |
 | Microsoft Passport 및 Windows Hello를 사용하는 회사 또는 학교 계정에 대한 강력한 권한 부여 및 손쉬운 로그인 |예 |예 |예 |
 | 회사 또는 학교 계정을 사용한 엔터프라이즈 Windows 저장소에 액세스(Microsoft 계정 없음) |예 |예 |예 |
 | 회사 또는 학교 계정을 사용하여 장치 간 사용자 설정을 로밍하는 엔터프라이즈 규정 준수 |예 |예 |예 |
@@ -71,7 +75,7 @@ Azure AD 조인은 Windows 10의 환경을 프로비전하는 새로운 셀프 �
 
 Azure AD 조인에 대한 자세한 내용은 [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-overview.md)을 참조하세요.
 
-## <a name="when-to-use-domain-join-(or-keep-using-it)"></a>도메인 가입을 사용하는 경우(또는 계속 사용)
+## <a name="when-to-use-domain-join-or-keep-using-it"></a>도메인 가입을 사용하는 경우(또는 계속 사용)
 지난 15년 동안 많은 조직에서는 작업 장치를 연결하는 데 도메인 가입을 사용했습니다. 사용자는 Active Directory 회사 또는 학교 계정으로 자신의 장치에 로그인할 수 있습니다. 도메인 가입을 통해도 IT로 이러한 장치를 완벽하게 중앙에서 관리할 수 있습니다. 조직에서는 일반적으로 장치를 프로비전하는 이미징 메서드에 의존하고 이를 관리하는 데 SCCM(System Center Configuration Manager) 또는 GP(그룹 정책)를 사용합니다.
 
 **다음의 이유로 인해 엔터프라이즈에서 도메인 가입(또는 계속 사용)을 사용합니다**.
@@ -117,9 +121,9 @@ Azure AD 조인하는 방법에 대한 자세한 내용은 [Windows 10 환경에
 * 일부 장치에 대한 액세스를 제한하려는 경우 "도메인 가입된" 장치에 대한 액세스를 허용하는 정책
 * Technical Preview용 System Center Configuration Manager 버전 1509 - 호환 장치를 필요로 하는 규칙을 사용하도록 설정 (TechNet 설명서 및 블로그 게시물 참조).
 
-Windows 10에서 도메인 가입에 대 한 자세한 내용은 <link-to-DJ-in-Win10-deployment-guide>을(를) 참조하세요.
+Windows 10에서 도메인 가입에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)을 참조하세요.
 
-## <a name="requirements-for-using-byod-and-"add-a-work-or-school-account""></a>BYOD 및 "회사 또는 학교 계정 추가" 사용을 위한 요구 사항
+## <a name="requirements-for-using-byod-and-add-a-work-or-school-account"></a>BYOD 및 "회사 또는 학교 계정 추가" 사용을 위한 요구 사항
 회사 또는 학교 계정에 "BYOD(Bring Your Own Device)"를 사용하도록 설정하려면 다음이 필요합니다.
 
 * Azure AD 구독
@@ -141,18 +145,19 @@ PKI를 사용하는 대안으로 다음을 수행하여 키 기반 Microsoft Pas
 Windows 10에서 Microsoft Passport 및 Windows Hello에 대한 자세한 내용은 <link-to-MS-Passport-and-Windows-Hello-document>을(를) 참조하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
-### <a name="which-partner-mobile-device-management-products-integrate-with-azure-ad?"></a>Azure AD와 통합되는 파트너 모바일 장치 관리 제품은 무엇인가요?
+### <a name="which-partner-mobile-device-management-products-integrate-with-azure-ad"></a>Azure AD와 통합되는 파트너 모바일 장치 관리 제품은 무엇인가요?
 다음 공급 업체 제품은 통합된 등록 및 Windows 10에서 조건부 액세스의 경우 Azure AD와 통합됩니다.
 
 * AirWatch by VMware
 * Citrix Xenmobile
 * Lightspeed Mobile Manager
 * SOTI 온-프레미스 모바일 장치 관리
+* MobileIron
 
-### <a name="what-about-workplace-join-in-windows-10?"></a>Windows 10에서 작업 공간 가입은 어떠나요?
+### <a name="what-about-workplace-join-in-windows-10"></a>Windows 10에서 작업 공간 가입은 어떠나요?
 Windows 8.1에서 작업 공간 가입은 BYOD를 활성화하는 데 사용되었습니다. Windows 10에서 BYOD는 이 문서의 앞부분에서 설명한 대로 "회사 또는 학교 계정 추가"를 통해 활성화됩니다. Azure AD와 해당 모바일 장치 관리를 통합하지 않는 조직의 경우 사용자는 **설정** > **계정** > **액세스 작업**을 통해 수동으로 관리에 장치를 등록할 수 있습니다.
 
-### <a name="can-users-connect-their-microsoft-account-to-their-domain-account-in-windows-10?"></a>사용자가 Windows 10의 해당 도메인 계정에 해당 Microsoft 계정을 연결할 수 있나요?
+### <a name="can-users-connect-their-microsoft-account-to-their-domain-account-in-windows-10"></a>사용자가 Windows 10의 해당 도메인 계정에 해당 Microsoft 계정을 연결할 수 있나요?
 10 Windows에서는 안됩니다. Windows 8.1에서 도메인에 가입된 장치의 사용자는 해당 Microsoft 계정(예: Hotmail, Live, Outlook, Xbox 등)을 해당 도메인 계정에 "연결"하여 Live 서비스에 대한 SSO, Windows 스토어의 사용 및 장치 간에 사용자 설정 로밍과 같은 특정 환경을 사용하도록 설정합니다. Windows 10에서 Microsoft 계정 "연결" 기능은 사용이 중지되었습니다. 사용자는 하나 이상의 Microsoft 계정을 추가 계정으로 추가하여 SSO를 Windows 스토어와 같은 소비자 서비스에 사용하도록 설정합니다. **설정** > **계정** > **계정**에서 수행됩니다.
 
 연결된 해당 Microsoft 계정을 보유했던 Windows 8.1 도메인 가입 장치에서 업그레이드 중인 사용자는 자동으로 해당 연결된 Microsoft 계정을 사용하는 추가 계정 목록에 추가합니다.
@@ -164,6 +169,9 @@ Windows 8.1에서 작업 공간 가입은 BYOD를 활성화하는 데 사용되�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

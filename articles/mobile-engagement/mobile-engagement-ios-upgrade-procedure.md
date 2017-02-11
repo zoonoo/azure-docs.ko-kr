@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/13/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea5025cf031afb2a6d13356059d090c2d63f1665
+ms.sourcegitcommit: c4b5b8bc05365ddc63b0d7a6a3c63eaee31af957
+ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
 
 
 ---
@@ -89,12 +89,15 @@ XCode 8은 앱 푸시 기능을 다시 설정할 수 있습니다. 선택한 대
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
-### <a name="if-you-already-have-your-own-unusernotificationcenterdelegate-implementation"></a>사용자 고유의 UNUserNotificationCenterDelegate 구현이 이미 있는 경우
-SDK에도 자체적으로 UNUserNotificationCenterDelegate 프로토콜이 구현되어 있습니다. 이 프로토콜은 iOS 10 이상에서 실행되는 장치의 Engagement 알림 수명 주기를 모니터링하기 위해 SDK에서 사용됩니다. SDK에서 대리자를 검색하는 경우 응용 프로그램당 UNUserNotificationCenter 대리자가 하나만 있기 때문에 자체 구현을 사용하지 않습니다. 즉, 자체 대리자에 Engagement 논리를 추가해야 합니다.
+### <a name="resolve-unusernotificationcenter-delegate-conflicts"></a>UNUserNotificationCenter 대리자 충돌 해결
+
+*응용 프로그램이나 타사 라이브러리 중 하나에서 `UNUserNotificationCenterDelegate`를 구현하지 않으면 이 부분을 건너뛸 수 있습니다.*
+
+`UNUserNotificationCenter` 대리자는 iOS 10 이상에서 실행되는 장치의 Engagement 알림 수명 주기를 모니터링하기 위해 SDK에서 사용됩니다. SDK에는 `UNUserNotificationCenterDelegate` 프로토콜의 자체 구현이 있지만 응용 프로그램당 `UNUserNotificationCenter` 위임자가 하나만 있을 수 있습니다. `UNUserNotificationCenter` 개체에 추가된 다른 모든 대리자는 Engagement 대리인과 충돌합니다. SDK가 사용자 또는 다른 타사 대리자를 발견하는 경우 충돌을 해결할 기회를 주기 위해 자체 구현을 사용하지 않습니다. 충돌을 해결하기 위해 사용자 고유의 대리자에게 Engagement 논리를 추가해야 합니다.
 
 이 작업은 다음 두 가지 방법으로 수행할 수 있습니다.
 
-SDK에 대리자 호출 전달
+제안 1, SDK에 대리자 호출 전달
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -121,7 +124,7 @@ SDK에 대리자 호출 전달
     }
     @end
 
-또는 `AEUserNotificationHandler` 클래스에서 상속
+또는 제안 2, `AEUserNotificationHandler` 클래스에서 상속
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -149,8 +152,16 @@ SDK에 대리자 호출 전달
 
 > [!NOTE]
 > 해당 `userInfo` 사전을 에이전트 `isEngagementPushPayload:` 클래스 메서드에 전달하여 알림이 Engagement에서 온 것인지를 확인할 수 있습니다.
-> 
-> 
+
+응용 프로그램 대리자의 `application:willFinishLaunchingWithOptions:` 또는 `application:didFinishLaunchingWithOptions:` 메서드 내에서 `UNUserNotificationCenter` 개체의 대리자가 현재 대리자로 설정되어 있는지 확인합니다.
+예를 들어, 위의 제안 1을 구현하는 경우:
+
+      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        // Any other code
+  
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+        return YES;
+      }
 
 ## <a name="from-200-to-300"></a>2.0.0에서 3.0.0으로
 iOS 4.X에 대한 지원을 삭제했습니다. 이 버전부터 응용 프로그램의 배포 대상은 iOS 6 이상이어야 합니다.
@@ -207,6 +218,6 @@ SmartAd 추적이 SDK에서 제거되었으므로 `AETrackModule` 클래스의 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

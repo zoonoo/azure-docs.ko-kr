@@ -1,13 +1,13 @@
 ---
-title: Azure AD 조인에 대한 사용 시나리오와 배포 고려 사항 | Microsoft Docs
-description: 관리자가 최종 사용자(직원, 학생, 다른 사용자)를 위해 Azure AD 조인을 설정하는 방법을 설명합니다. 또한 Azure AD 조인을 사용하는 데 대한 다양한 실제 시나리오에 대해서 설명합니다.
+title: "Azure AD 조인에 대한 사용 시나리오와 배포 고려 사항 | Microsoft Docs"
+description: "관리자가 최종 사용자(직원, 학생, 다른 사용자)를 위해 Azure AD 조인을 설정하는 방법을 설명합니다. 또한 Azure AD 조인을 사용하는 데 대한 다양한 실제 시나리오에 대해서 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,20 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3ba238e246c7a41f6489a2b3ac4e1c749267290d
+
 
 ---
 # <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>Azure AD 연결에 대한 사용 시나리오와 배포 고려 사항
 ## <a name="usage-scenarios-for-azure-ad-join"></a>Azure AD 연결에 대한 사용 시나리오
-### <a name="scenario-1:-businesses-largely-in-the-cloud"></a>시나리오 1: 클라우드에서 주로 업무 처리
+### <a name="scenario-1-businesses-largely-in-the-cloud"></a>시나리오 1: 클라우드에서 주로 업무 처리
 Azure Active Directory 연결(Azure AD 연결)은 현재 클라우드에서 업무용 ID를 작동 및 관리하거나 곧 클라우드로 전환하려는 경우에 유용할 수 있습니다. Azure AD에서 만든 계정을 사용하여 Windows 10에 로그인할 수 있습니다. 사용자는 [FRX(첫 실행 경험) 프로세스](active-directory-azureadjoin-user-frx.md)를 사용하거나 [설정 메뉴](active-directory-azureadjoin-user-upgrade.md)에서 Azure AD에 연결하여 Azure AD에 컴퓨터를 연결할 수 있습니다.  또한 사용자는 브라우저나 Office 응용 프로그램에서 SSO(Single-Sign-On)를 사용하여 Office 365와 같은 클라우드 리소스에 편리하게 액세스할 수 있습니다.
 
-### <a name="scenario-2:-educational-institutions"></a>시나리오 2: 교육 기관
+### <a name="scenario-2-educational-institutions"></a>시나리오 2: 교육 기관
 교육 기관에는 일반적으로 두 가지 사용자 유형인 교직원 및 학생이 있습니다. 교직원은 조직에서 장기 멤버로 간주됩니다. 교직원에 대한 온-프레미스 계정을 만드는 것이 바람직합니다. 하지만 학생은 조직의 단기 멤버이며 Azure AD에서 자신의 계정을 관리할 수 있습니다. 즉, 디렉터리 규모를 온-프레미스로 저장하는 대신 클라우드에 푸시할 수 있습니다. 또한 학생들은 자신의 Azure AD 계정으로 Windows에 로그인하고 Office 응용 프로그램에서 Office 365 리소스에 액세스할 수 있습니다.
 
-### <a name="scenario-3:-retail-businesses"></a>시나리오 3: 소매 기업
+### <a name="scenario-3-retail-businesses"></a>시나리오 3: 소매 기업
 소매 기업에는 비정규직 근로자가 있고 장기 직원이 있습니다. 일반적으로 장기적인 정규직 직원에 대해서는 온-프레미스 계정을 만든 후 도메인에 연결된 컴퓨터를 사용합니다. 하지만 비정규직 근로자는 조직의 단기 멤버이므로 사용자 라이선스를 보다 쉽게 이동할 수 있도록 이들의 계정을 관리하는 것이 좋습니다. Office 365 라이선스를 사용하여 클라우드에 이러한 사용자의 계정을 만들면 이러한 사용자는 Azure AD 계정을 사용하여 Windows 및 Office 응용 프로그램에 로그인할 수 있으며 사용자가 조직을 떠난 후에 해당 라이선스의 이동을 보다 쉽게 관리할 수 있습니다.
 
-### <a name="scenario-4:-additional-scenarios"></a>시나리오 4: 시나리오
+### <a name="scenario-4-additional-scenarios"></a>시나리오 4: 시나리오
 위에서 설명한 이점 외에도, 사용자의 장치를 Azure AD에 연결하여 간소화된 연결 환경, 효율적인 장치 관리, 자동 모바일 장치 관리 등록 및 Azure AD/온-프레미스 리소스에 대한 Single Sign-On 등에 따른 많은 이점을 얻을 수 있습니다.  
 
 ## <a name="deployment-considerations-for-azure-ad-join"></a>Azure AD 연결에 대한 배포 고려 사항
@@ -78,6 +82,9 @@ Azure Active Directory 연결(Azure AD 연결)은 현재 클라우드에서 업�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

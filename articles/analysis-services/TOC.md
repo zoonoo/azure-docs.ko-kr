@@ -4,20 +4,21 @@
 ##[서버 만들기](analysis-services-create-server.md)
 
 # 방법 
-## [배포](analysis-services-deploy.md)
-## 관리
-###[서버에 연결](analysis-services-connect.md)
-###[서버 관리](analysis-services-manage.md)
-## 통합
-###[온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)
+##[서버에 배포](analysis-services-deploy.md)
+##[클라이언트에서 연결](analysis-services-connect.md)
+##[서버 관리](analysis-services-manage.md)
+##[사용자 관리](analysis-services-manage-users.md)
+##[온-프레미스 데이터 게이트웨이 통합](analysis-services-gateway.md)
 
 # 참조
-##[PowerShell](/powershell/resourcemanager)
-##[REST (영문)](/rest/api/analysisservices/)
+##[PowerShell](analysis-services-powershell.md)
+##[REST (영문)](/rest/api/analysisservices)
 
-# 관련 항목
+# 리소스
 ##[데이터 원본 연결](analysis-services-datasource.md)
+##[데이터 공급자](analysis-services-data-providers.md) 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Jan17_HO4-->
 
 

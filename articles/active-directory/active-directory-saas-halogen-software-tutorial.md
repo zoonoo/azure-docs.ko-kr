@@ -1,12 +1,12 @@
 ---
-title: '자습서: Halogen Software와 Azure Active Directory 통합'
-description: Azure Active Directory 및 Halogen Software 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Halogen Software와 Azure Active Directory 통합"
+description: "Azure Active Directory 및 Halogen Software 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2ca2298d-9a0c-4f14-925c-fa23f2659d28
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 21d31eb33a838d42b4ba8f4191b89e6094206f6e
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-halogen-software"></a>자습서: Halogen Software와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>자습서: Halogen Software와 Azure Active Directory 통합
 이 자습서에서는 Halogen Software와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 Halogen Software를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다. 
@@ -63,7 +67,7 @@ Halogen Software의 Azure AD 통합을 구성하려면 갤러리의 Halogen Soft
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
     ![응용 프로그램][2]
-4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다. 
+4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.    
    
     ![응용 프로그램][3]
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
@@ -185,7 +189,7 @@ Halogen Software에서 Azure AD Single Sign-on을 구성하고 테스트하려�
     ![Azure AD Connect의 정의][106]   
    
     a. **새 암호**값을 적어둡니다.
-    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
+    b. 페이지 맨 아래에 있는 완료을 참조하세요.   
 
 ### <a name="creating-a-halogen-software-test-user"></a>Halogen Software 테스트 사용자 만들기
 이 섹션의 목적은 Halogen Software에서 Britta Simon이라는 사용자를 만드는 것입니다.
@@ -276,6 +280,7 @@ Halogen Software에서 Azure AD Single Sign-on을 구성하고 테스트하려�
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

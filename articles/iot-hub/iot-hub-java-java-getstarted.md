@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 01/05/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
+ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
+ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
 
 * **create-device-identity**는 장치 ID 및 시뮬레이션된 보안 키를 만들어 시뮬레이션된 장치 앱에 연결합니다.
 * **read-d2c-messages**는 시뮬레이션된 장치 앱에서 보낸 원격 분석을 표시합니다.
-* **simulated-device**는 앞에서 만든 장치 ID로 IoT Hub에 연결하고 AMQP 프로토콜을 사용하여 매초마다 원격 분석 메시지를 보냅니다.
+* **simulated-device**는 앞에서 만든 장치 ID로 IoT Hub에 연결하고 MQTT 프로토콜을 사용하여 매초마다 원격 분석 메시지를 보냅니다.
 
 > [!NOTE]
 > [Azure IoT SDKs][lnk-hub-sdks] 문서는 장치와 솔루션 백 엔드에서 실행하기 위해 두 앱을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보를 제공합니다.
@@ -42,11 +42,11 @@ ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-마지막 단계로 **기본 키** 값을 적어둔 다음 **메시징**을 클릭합니다. **메시징** 블레이드에서 **Event Hub 호환 이름** 및 **Event Hub 호환 끝점**을 기록해 둡니다. **read-d2c-messages** 앱을 만들 때 이러한 값이 필요합니다.
+마지막 단계로 **기본 키** 값을 적어둡니다. 그런 다음 **끝점** 및 **이벤트** 기본 제공 끝점을 클릭합니다. **속성** 블레이드에서 **Event Hub 호환 이름** 및 **Event Hub 호환 끝점** 주소를 기록해 둡니다. **read-d2c-messages** 앱을 만들 때 이러한 값이 필요합니다.
 
 ![Azure Portal IoT Hub 메시징 블레이드][6]
 
-이제 IoT Hub를 만들었고 이 자습서를 완료하는 데 필요한 IoT Hub 호스트 이름, IoT Hub 연결 문자열, IoT Hub 기본 키, Event Hub 호환 이름 및 Event Hub 호환 끝점이 있습니다.
+IoT Hub를 만들었습니다. 이 자습서를 완료하는 데 필요한 IoT Hub 호스트 이름, IoT Hub 연결 문자열, IoT Hub 기본 키, Event Hub 호환 이름 및 Event Hub 호환 끝점이 있습니다.
 
 ## <a name="create-a-device-identity"></a>장치 ID 만들기
 이 섹션에서는 IoT Hub의 ID 레지스트리에서 장치 ID를 만드는 Java 콘솔 앱을 작성합니다. ID 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 **ID 레지스트리** 섹션을 참조하세요. 이 콘솔 앱을 실행하면 장치-클라우드 메시지를 IoT Hub로 보낼 때 장치가 자체적으로 ID를 식별하는 데 사용할 수 있는 고유한 장치 ID와 키를 생성합니다.
@@ -205,7 +205,7 @@ ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
                       receivedEvent.getSystemProperties().getOffset(), 
                       receivedEvent.getSystemProperties().getSequenceNumber(), 
                       receivedEvent.getSystemProperties().getEnqueuedTime()));
-                    System.out.println(String.format("| Device ID: %s", receivedEvent.getProperties().get("iothub-connection-device-id")));
+                    System.out.println(String.format("| Device ID: %s", receivedEvent.getSystemProperties().get("iothub-connection-device-id")));
                     System.out.println(String.format("| Message Payload: %s", new String(receivedEvent.getBody(),
                       Charset.defaultCharset())));
                     batchSize++;
@@ -313,12 +313,12 @@ ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
    
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
    
-    이 샘플 앱은 **DeviceClient** 개체를 인스턴스화할 때 **프로토콜** 변수를 사용합니다. HTTP 또는 AMQP 프로토콜을 사용하여 IoT Hub와 통신할 수 있습니다.
+    이 샘플 앱은 **DeviceClient** 개체를 인스턴스화할 때 **프로토콜** 변수를 사용합니다. MQTT, AMQP 또는 HTTP 프로토콜을 사용하여 IoT Hub와 통신할 수 있습니다.
 8. 다음의 중첩된 **TelemetryDataPoint** 클래스를 **App** 클래스 안에 추가하여 장치가 IoT Hub에 전송한 원격 분석 데이터를 지정합니다.
    
     ```
@@ -440,7 +440,7 @@ ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure Portal에서 새 IoT Hub를 구성한 다음, IoT Hub의 ID 레지스트리에서 장치 ID를 만들었습니다. 장치-클라우드 메시지를 IoT Hub로 보내기 위해 시뮬레이션된 장치 앱을 사용하는 이 장치 ID를 사용했습니다. IoT Hub에서 받은 메시지를 표시하는 앱도 만들었습니다. 
 
-IoT Hub을 계속 시작하고 다른 IoT 시나리오를 탐색하려면 다음을 참조하세요.
+계속해서 IoT Hub을 시작하고 다른 IoT 시나리오를 탐색하려면 다음을 참조하세요.
 
 * [장치 연결][lnk-connect-device]
 * [장치 관리 시작][lnk-device-management]
@@ -461,7 +461,7 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
@@ -474,6 +474,6 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

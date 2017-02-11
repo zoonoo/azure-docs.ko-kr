@@ -1,22 +1,26 @@
 ---
-title: 이벤트에 대해 IIS와 Table Storage에 Blob Storage 사용 | Microsoft Docs
-description: Log Analytics는 Table Storage에 진단을 쓰는 Azure 서비스 또는 Blob Storage에 기록된 IIS 로그에 대해 로그를 읽을 수 있습니다.
+title: "이벤트에 대해 IIS와 Table Storage에 Blob Storage 사용 | Microsoft Docs"
+description: "Log Analytics는 Table Storage에 진단을 쓰는 Azure 서비스 또는 Blob Storage에 기록된 IIS 로그에 대해 로그를 읽을 수 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 950b6de5b579cac1a2b10db299e6f7bcfd8c7b04
+
 
 ---
-# <a name="using-blob-storage-for-iis-and-table-storage-for-events"></a>이벤트에 대해 IIS와 Table Storage에 Blob Storage 사용
+# <a name="using-blob-storage-for-iis-and-table-storage-for-events"></a>이벤트에 대해 IIS와 Table Storage에 Blob Storage 사용 
 Log Analytics는 Table Storage에 진단을 쓰는 다음 서비스에 대한 로그나 Blob Storage에 기록된 IIS 로그를 읽을 수 있습니다.
 
 * Service Fabric 클러스터(미리 보기)
@@ -25,7 +29,7 @@ Log Analytics는 Table Storage에 진단을 쓰는 다음 서비스에 대한 �
 
 Log Analytics에서 이러한 리소스에 대한 데이터를 수집하려면 Azure 진단을 사용하도록 설정되어 있어야 합니다.
 
-진단이 활성화되면 Azure Portal이나 PowerShell을 사용하여 Log Analytics가 로그를 수집하게 구성할 수 있습니다.
+진단이 사용하도록 설정되어 있으면 Azure Portal 또는 PowerShell을 사용하여 로그를 수집하도록 Log Analytics를 구성할 수 있습니다.
 
 Azure 진단은 Azure에서 실행 중인 작업자 역할, 웹 역할 또는 가상 컴퓨터에서 진단 데이터를 수집하는 데 사용할 수 있는 Azure 확장입니다. 데이터는 Azure Storage 계정에 저장되며 이후 Log Analytics를 통해 수집될 수 있습니다.
 
@@ -43,22 +47,22 @@ Log Analytics가 이러한 Azure Diagnostics 로그를 수집하려면 로그가
 
 > [!NOTE]
 > Azure 웹사이트에서 IIS 로그는 현재 지원되지 않습니다.
-> 
-> 
+>
+>
 
-가상 컴퓨터의 경우, 가상 컴퓨터로의 [Microsoft 모니터링 에이전트](http://go.microsoft.com/fwlink/?LinkId=517269) 설치 옵션도 있어 추가로 insights를 사용할 수 있습니다. IIS 로그 및 이벤트 로그 분석 외에도 구성 변경 내용 추적, SQL 평가를 포함한 추가 분석을 수행하고 평가를 업데이트할 수도 있습니다.
+가상 컴퓨터의 경우 [Log Analytics 에이전트](log-analytics-azure-vm-extension.md)를 가상 컴퓨터에 설치하여 추가 정보를 얻을 수 있습니다. IIS 로그 및 이벤트 로그를 분석할 수 있을 뿐만 아니라 구성 변경 추적, SQL 평가, 업데이트 평가 등 추가 분석을 수행할 수 있습니다.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>이벤트 로그 및 IIS 로그 컬렉션에 대한 Azure 진단을 가상 컴퓨터에서 사용
-다음 절차에 따라 Microsoft Azure 관리 포털을 사용하여 이벤트 로그와 IIS 로그 컬렉션에 대한 가상 컴퓨터에서 Azure 진단을 사용하도록 설정합니다.
+다음 절차를 사용하여 Microsoft Azure Portal에서 이벤트 로그 및 IIS 로그를 수집할 수 있도록 가상 컴퓨터에서 Azure 진단을 사용하도록 설정합니다.
 
-### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-management-portal"></a>Azure 관리 포털을 사용하여 가상 컴퓨터에서 Azure 진단을 사용하도록 설정하려면
+### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Azure Portal을 통해 가상 컴퓨터에서 Azure 진단을 사용하도록 설정하려면
 1. 가상 컴퓨터를 만들 때 VM 에이전트를 설치합니다. 가상 컴퓨터가 이미 있는 경우 VM 에이전트가 이미 설치되어 있는지 확인합니다.
-   
-   * Azure Management Portal에서 가상 컴퓨터로 이동하여 **선택적 구성**을 선택한 다음 **진단**을 선택하고 **상태**를 **켬**으로 설정합니다.
-     
-     완료되면 VM은 자동으로 Azure 진단 확장을 설치하고 진단 데이터 수집을 담당하는 확장 기능을 실행합니다.
+
+   * Azure Portal에서 가상 컴퓨터로 이동하여 **옵션 구성**, **진단**을 차례로 선택한 다음 **상태**를 **설정**으로 설정합니다.
+
+     완료되면 VM에서 Azure 진단 확장이 설치 및 실행됩니다. 이 확장은 진단 데이터를 수집합니다.
 2. 모니터링을 설정하고 기존 VM에 대한 이벤트 로깅을 구성합니다. VM 수준에서 진단을 설정할 수 있습니다. 진단을 사용하도록 설정한 다음 이벤트 로깅을 구성하려면 다음 단계를 수행합니다.
-   
+
    1. VM을 선택합니다.
    2. **모니터링**을 클릭합니다.
    3. **진단**을 클릭합니다.
@@ -69,7 +73,7 @@ Log Analytics가 이러한 Azure Diagnostics 로그를 수집하려면 로그가
 Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보다 정확하게 지정할 수 있습니다. [테이블 저장소에 기록된 Azure Diagnostics 또는 Blob에 기록된 IIS 로그를 사용하여 데이터 수집](log-analytics-azure-storage-json.md)을 참조하세요.
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>IIS 로그 및 이벤트 컬렉션에 대한 웹 역할에서 Azure 진단 사용
-[클라우드 서비스에서 진단 기능을 사용하는 방법](../cloud-services/cloud-services-dotnet-diagnostics.md)을 참조하십시오. 해당 토픽에서 기본 정보를 사용하고 여기에 설명된 단계를 사용자 지정하여 Log Analytics에서 사용할 수 있습니다.
+Azure 진단을 사용하도록 설정하는 일반적인 단계는 [클라우드 서비스에서 진단을 사용하도록 설정하는 방법](../cloud-services/cloud-services-dotnet-diagnostics.md)을 참조하세요. 아래 지침에서는 Log Analytics에서 사용하기 위해 이 정보를 사용자 지정합니다.
 
 Azure 진단을 사용하는 경우:
 
@@ -111,7 +115,7 @@ Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPer
     </ConfigurationSettings>
 ```
 
-**AccountName** 및 **AccountKey** 값은 Azure Management Portal에서 저장소 계정 대시보드의 액세스 키 관리 아래에 있습니다. 연결 문자열에 대한 프로토콜은 **https**여야 합니다.
+**AccountName** 및 **AccountKey** 값은 Azure Portal 저장소 계정 대시보드의 액세스 키 관리 아래에 있습니다. 연결 문자열에 대한 프로토콜은 **https**여야 합니다.
 
 업데이트된 진단 구성이 클라우드 서비스에 적용되고 Azure Storage에 진단을 기록한 후에는 Log Analytics를 구성할 준비가 완료됩니다.
 
@@ -127,29 +131,31 @@ Azure Portal에서 Log Analytics 작업 공간으로 이동하여 다음 작업�
 1. *저장소 계정 로그*를 클릭합니다.
 2. 작업 *추가*를 클릭합니다.
 3. 진단 로그를 포함하는 저장소 계정을 선택합니다.
-   * 이 항목은 클래식 저장소 계정이거나 Azure Resource Manager 저장소 계정이 될 수 있습니다.
+   * 이 계정은 클래식 저장소 계정 또는 Azure Resource Manager 저장소 계정일 수 있습니다.
 4. 로그를 수집할 대상 데이터 형식을 선택합니다.
-   * 이 항목은 IIS 로그, 이벤트, Syslog(Linux), ETW 로그, Service Fabric 이벤트 중 하나입니다.
-5. 원본의 값은 날짜 형식을 기준으로 자동으로 채워지며 변경할 수 없습니다.
+   * 선택 항목은 IIS 로그, 이벤트, Syslog(Linux), ETW 로그 및 Service Fabric 이벤트입니다.
+5. 원본 값은 데이터 형식에 따라 자동으로 채워지며 변경할 수 없습니다.
 6. 확인을 클릭하여 구성을 저장합니다.
 
 Log Analytics가 수집할 다른 저장소 계정과 데이터 형식에 대해 2-6단계를 반복합니다.
 
-약 30분 후 Log Analytics의 저장소 계정에서 데이터를 볼 수 있습니다. 구성이 적용된 후에 저장소에 기록된 데이터만 볼 수 있습니다. Log Analytics는 저장소 계정의 기존 데이터를 읽지 않습니다.
+약 30분 후에 Log Analytics의 저장소 계정에서 데이터를 볼 수 있습니다. 구성이 적용된 후에 저장소에 기록된 데이터만 볼 수 있습니다. Log Analytics는 저장소 계정의 기존 데이터를 읽지 않습니다.
 
 > [!NOTE]
 > 포털은 원본이 저장소 계정에 있는지 또는 새 데이터를 쓰는 중인지 확인하지 않습니다.
-> 
-> 
+>
+>
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>PowerShell을 사용하여 이벤트 로그 및 IIS 로그 컬렉션에 대한 Azure 진단을 가상 컴퓨터에서 사용하도록 설정
-Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보다 정확하게 지정할 수 있습니다.
-자세한 내용은 [Azure 가상 컴퓨터에서 진단 사용](../virtual-machines-dotnet-diagnostics.md) 을 참조하세요.
+[Azure 진단을 인덱싱하도록 Log Analytics 구성](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) 단계를 사용하여 PowerShell을 통해 Table Storage에 기록된 Azure 진단을 읽을 수 있습니다.
 
-다음 PowerShell 스크립트를 사용하여 에이전트를 사용하고 업데이트할 수 있습니다.
+Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보다 정확하게 지정할 수 있습니다.
+자세한 내용은 [Azure 가상 컴퓨터에서 진단 사용](../virtual-machines-dotnet-diagnostics.md)을 참조하세요.
+
+다음 PowerShell 스크립트를 사용하여 Azure 진단을 사용하도록 설정하고 업데이트할 수 있습니다.
 또한 사용자 지정 로깅 구성을 사용하여 이 스크립트를 사용할 수 있습니다.
-스크립트를 수정하여 저장소 계정, 서비스 이름 및 가상 컴퓨터 이름을 설정해야 합니다.
-클래식 가상 컴퓨터에 대한 cmdlet을 사용하는 스크립트입니다.
+스크립트를 수정하여 저장소 계정, 서비스 이름 및 가상 컴퓨터 이름을 설정합니다.
+스크립트는 클래식 가상 컴퓨터에 대한 cmdlet을 사용합니다.
 
 다음 스크립트 샘플을 검토하고 복사하며 필요에 따라 수정하고, 샘플을 PowerShell 스크립트 파일로 저장한 다음 스크립트를 실행합니다.
 
@@ -184,11 +190,14 @@ Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보�
     (Get-AzureVM -ServiceName $service_name -Name $vm_name) | Set-AzureVMExtension -ExtensionName $wad_extension_name -Publisher $wad_publisher -PublicConfiguration $wad_public_config -PrivateConfiguration $wad_private_config -Version $wad_version | Update-AzureVM
 ```
 
+
 ## <a name="next-steps"></a>다음 단계
 * [Blob Storage에서 JSON 파일을 사용](log-analytics-azure-storage-json.md)하여 JSON 형식의 Blob Storage에 진단을 기록한 Azure 서비스에서 로그를 읽습니다.
 * [솔루션을 사용하도록 설정](log-analytics-add-solutions.md) 하여 데이터에 대한 정보를 제공합니다.
 * [검색 쿼리를 사용](log-analytics-log-searches.md) 하여 데이터를 분석합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

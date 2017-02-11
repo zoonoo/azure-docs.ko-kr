@@ -1,5 +1,5 @@
 ---
-title: "5분 내에 Azure에 첫 번째 Java 웹앱 배포 | Microsoft Docs"
+title: "5분 내 Azure에 첫 번째 Java 웹앱 배포(CLI 2.0 미리 보기) | Microsoft Docs"
 description: "샘플 앱을 배포하여 App Service에서 웹앱을 실행하는 작업이 얼마나 쉬운지 알아봅니다. 실제 개발을 신속하게 수행하기 시작하고 즉시 결과를 봅니다."
 services: app-service\web
 documentationcenter: 
@@ -12,15 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 90c1099f7970fc490ca01f2d815679f967c46187
+ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
+ms.openlocfilehash: e15a67ee0568c52f5fb81110b0ad6d2c53ec8fae
 
 
 ---
-# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>5분 내에 Azure에 첫 번째 Java 웹앱 배포
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>5분 내 Azure에 첫 번째 Java 웹앱 배포(CLI 2.0 미리 보기)
+
+> [!div class="op_single_selector"]
+> * [첫 번째 HTML 사이트](app-service-web-get-started-html-cli-nodejs.md)
+> * [첫 번째 .NET 앱](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [첫 번째 PHP 앱](app-service-web-get-started-php-cli-nodejs.md)
+> * [첫 번째 Node.js 앱](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [첫 번째 Python 앱](app-service-web-get-started-python-cli-nodejs.md)
+> * [첫 번째 Java 앱](app-service-web-get-started-java.md)
+> 
+> 
+
 이 자습서를 통해 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 간단한 Java 웹앱을 배포합니다.
 App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/learning-paths/appservice-mobileapps/) 및 [API 앱](../app-service-api/app-service-api-apps-why-best-platform.md)을 만들 수 있습니다.
 
@@ -73,7 +84,7 @@ App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/le
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 2. **Java 버전**에서 **Java 8**을 선택하고 **저장**을 클릭합니다.
    
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+    ![](./media/app-service-web-get-started-languages/set-java.png)
    
     **웹앱 설정을 업데이트 했습니다** 알림을 가져올 때, http://*&lt;appname>*. azurewebsites.net로 이동하여 작업에서 기본 JSP 서블릿을 봅니다.
 3. 웹앱 블레이드로 돌아가 **배포 자격 증명** 까지 아래로 스크롤하거나 해당 옵션을 검색한 다음 클릭합니다.
@@ -120,6 +131,6 @@ App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/le
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

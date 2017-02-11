@@ -3,8 +3,8 @@ layout: LandingPage
 +toc_rel: breadcrumb.json
 description: "클라우드에서 가상 네트워크를 사용하는 방법에 대해 알아봅니다. 설명서에서는 VNet을 배포하고 사용하여 리소스를 시작하고 온-프레미스 네트워크와 통합하는 방법을 보여 줍니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 9a76fe5c0b518cdd95be71e0c3cf928f0ff93668
-ms.openlocfilehash: 7e2c2db7000b2ea0a4fe698e47e775cc2a7db4dd
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
 
 ---
 # <a name="virtual-network-documentation"></a>Virtual Network 설명서
@@ -149,13 +149,7 @@ ms.openlocfilehash: 7e2c2db7000b2ea0a4fe698e47e775cc2a7db4dd
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-network.pdf">
-        <div class="img"></div>
-        <div class="text">
-Virtual Network 설명서 다운로드 </div>
-    </a>
-</div>
+
 
 
 

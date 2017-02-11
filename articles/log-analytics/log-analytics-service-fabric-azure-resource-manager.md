@@ -1,12 +1,12 @@
 ---
-title: Log Analytics에서 Service Fabric 솔루션을 사용하여 사용자 환경 최적화 | Microsoft Docs
-description: Service Fabric 솔루션을 사용하여 Service Fabric 응용 프로그램, 마이크로 서비스, 노드 및 클러스터의 위험과 상태를 평가할 수 있습니다.
+title: "Log Analytics에서 Service Fabric 솔루션을 사용하여 사용자 환경 최적화 | Microsoft Docs"
+description: "Service Fabric 솔루션을 사용하여 Service Fabric 응용 프로그램, 마이크로 서비스, 노드 및 클러스터의 위험과 상태를 평가할 수 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: niniikhena
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 9c91aacb-c48e-466c-b792-261f25940c0c
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
+
 
 ---
 # <a name="service-fabric-solution-in-log-analytics"></a>Log Analytics의 서비스 패브릭 데이터 솔루션
@@ -33,7 +37,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 2. Service Fabric 클러스터의 보안과 같은 다른 OMS 솔루션을 사용하기 위해 호스트에서 성능 카운터를 수집해야 할 경우 ***VM 확장이 설치된 OMS 작업 영역에 연결된 Service Fabric 클러스터 배포***의 단계를 따릅니다.
 3. Service Fabric 클러스터를 이미 배포했고 Log Analytics에 연결하려는 경우 ***기존 저장소 계정을 Log Analytics에 추가***의 단계를 따릅니다.
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace."></a>Log Analytics 작업 영역에 연결된 Service Fabric 클러스터를 배포합니다.
+## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Log Analytics 작업 영역에 연결된 Service Fabric 클러스터를 배포합니다.
 이 템플릿은 다음을 수행합니다.
 
 1. Log Analytics 작업 영역에 이미 연결된 Azure Service Fabric 클러스터를 배포합니다. 템플릿을 배포하는 동안 새 작업 영역을 만들 수 있는 옵션이 제공되거나 기존의 Log Analytics 작업 영역의 이름을 입력합니다.
@@ -50,7 +54,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 
 ![서비스 패브릭](./media/log-analytics-service-fabric/4.png)
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed."></a>VM 확장이 설치된 OMS 작업 영역에 연결된 Service Fabric 클러스터를 배포합니다.
+## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed"></a>VM 확장이 설치된 OMS 작업 영역에 연결된 Service Fabric 클러스터를 배포합니다.
 이 템플릿은 다음을 수행합니다.
 
 1. Log Analytics 작업 영역에 이미 연결된 Azure Service Fabric 클러스터를 배포합니다. 새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다.
@@ -146,6 +150,9 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 Service Fabric 이벤트 데이터를 볼 수 있습니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -14,14 +14,18 @@
 ### [DC/OS 공용 액세스 사용](container-service-enable-public-access.md)
 ### [DC/OS의 부하 분산 컨테이너](container-service-load-balancing.md)
 ### [DC/OS의 앱/사용자별 Orchestrator](container-service-application-specific-marathon.md)
-### [OMS(DC/OS) 모니터](container-service-monitoring-oms.md)
-### [Datadog로 모니터링(DC/OS)](container-service-monitoring.md)
-### [Sysdig로 모니터링(DC/OS)](container-service-monitoring-sysdig.md)
-### [Dynatrace로 모니터링(DC/OS)](container-service-monitoring-dynatrace.md)
+### [OMS로 모니터링](container-service-monitoring-oms.md)
+### [Datadog로 모니터링](container-service-monitoring.md)
+### [Sysdig로 모니터링](container-service-monitoring-sysdig.md)
+### [Dynatrace로 모니터링](container-service-monitoring-dynatrace.md)
 ## Kubernetes를 사용하여 관리
 ### [Kubernetes 시작](container-service-kubernetes-walkthrough.md)
+### [서비스 주체](container-service-kubernetes-service-principal.md)
 ### [Kubernetes 웹 UI와 상호 작용](container-service-kubernetes-ui.md)
-## [Docker Swarm을 사용하여 관리](container-service-docker-swarm.md)
+### [OMS로 모니터링](container-service-kubernetes-oms.md)
+### [Datadog로 모니터링](container-service-kubernetes-datadog.md)
+### [Sysdig로 모니터링](container-service-kubernetes-sysdig.md)
+## Docker Swarm을 사용하여 관리
 ### [Docker 및 Docker Compose](container-service-docker-swarm.md)
 ### [Docker Swarm 연속 통합](container-service-docker-swarm-setup-ci-cd.md)
 # 참조
@@ -34,6 +38,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

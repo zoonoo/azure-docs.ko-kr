@@ -4,6 +4,7 @@
 ## [FAQ](service-bus-faq.md)
 
 # 시작
+## [다중 계층 Service Bus 응용 프로그램 빌드](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ## [네임스페이스 만들기](service-bus-create-namespace-portal.md)
 ## 큐 사용
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
@@ -75,6 +76,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

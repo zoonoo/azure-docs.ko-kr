@@ -16,6 +16,7 @@
 ## [저장소 계정을 만드는](azure-stack-provision-storage-account.md)
 ## [CLI로 연결](azure-stack-connect-cli.md)
 ## [PowerShell로 연결](azure-stack-connect-powershell.md)
+## [Visual Studio 설치](azure-stack-install-visual-studio.md)
 ## [질문과 대답](azure-stack-faq.md)
 
 # 테넌트에 서비스 제공
@@ -28,6 +29,7 @@
 # 템플릿 사용
 ## [템플릿 개요](azure-stack-arm-templates.md)
 ## [템플릿 개발](azure-stack-develop-templates.md)
+## [템플릿 확인](azure-stack-validate-templates.md)
 ## [포털을 사용하여 템플릿 배포](azure-stack-deploy-template-portal.md)
 ## [PowerShell을 사용하여 템플릿 배포](azure-stack-deploy-template-powershell.md)
 ## [Visual Studio를 사용하여 템플릿 배포](azure-stack-deploy-template-visual-studio.md)
@@ -86,6 +88,6 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: .NET을 사용하여 Azure Media Services 콘텐츠 게시
-description: 스트리밍 URL을 작성하는 데 사용되는 로케이터를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다.
+title: ".NET을 사용하여 Azure Media Services 콘텐츠 게시"
+description: "스트리밍 URL을 작성하는 데 사용되는 로케이터를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다."
 author: juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: c53b1f83-4cb1-4b09-840f-9c145b7d6f8d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f566b8f75d26e3d786ce3396dd133478af38da76
+
 
 ---
-# .NET을 사용하여 Azure Media Services 콘텐츠 게시
+# <a name="publish-azure-media-services-content-using-net"></a>.NET을 사용하여 Azure Media Services 콘텐츠 게시
 > [!div class="op_single_selector"]
 > * [REST (영문)](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -24,30 +28,30 @@ ms.author: juliako
 > 
 > 
 
-## 개요
-적응 비트 전송률 MP4 집합은 주문형 스트리밍 로케이터를 만들고 스트리밍 URL을 작성하여 스트리밍할 수 있습니다. [자산 인코딩](media-services-encode-asset.md) 항목에서는 적응 비트 전송률 MP4 집합으로 인코딩하는 방법을 설명합니다.
+## <a name="overview"></a>개요
+적응 비트 전송률 MP4 집합은 주문형 스트리밍 로케이터를 만들고 스트리밍 URL을 작성하여 스트리밍할 수 있습니다. [자산 인코딩](media-services-encode-asset.md) 항목에서는 적응 비트 전송률 MP4 집합으로 인코딩하는 방법을 설명합니다. 
 
 > [!NOTE]
-> 콘텐츠가 암호화되어 있는 경우 [이 항목](media-services-dotnet-configure-asset-delivery-policy.md)에서 설명하는 대로 자산 배달 정책을 구성한 후에 로케이터를 만듭니다.
+> 콘텐츠가 암호화되어 있는 경우 [이 항목](media-services-dotnet-configure-asset-delivery-policy.md) 에서 설명하는 대로 자산 배달 정책을 구성한 후에 로케이터를 만듭니다. 
 > 
 > 
 
-주문형 스트리밍 로케이터는 점진적으로 다운로드할 수 있는 MP4 파일을 가리키는 URL을 작성하는 데 사용할 수도 있습니다.
+주문형 스트리밍 로케이터는 점진적으로 다운로드할 수 있는 MP4 파일을 가리키는 URL을 작성하는 데 사용할 수도 있습니다.  
 
-이 항목에서는 자산을 게시하고 부드러운 MPEG DASH 및 HLS 스트리밍 URL을 작성하기 위해 OnDemand 스트리밍 로케이터를 만드는 방법을 설명합니다. 또한 점진적 다운로드 URL을 작성하는 핫을 보여 줍니다.
+이 항목에서는 자산을 게시하고 부드러운 MPEG DASH 및 HLS 스트리밍 URL을 작성하기 위해 OnDemand 스트리밍 로케이터를 만드는 방법을 설명합니다. 또한 점진적 다운로드 URL을 작성하는 핫을 보여 줍니다. 
 
-## 주문형 스트리밍 로케이터 만들기
+## <a name="create-an-ondemand-streaming-locator"></a>주문형 스트리밍 로케이터 만들기
 주문형 스트리밍 로케이터를 만들고 URL을 가져오려면 다음을 수행해야 합니다.
 
 1. 콘텐츠가 암호화되어 있는 경우 액세스 정책을 정의합니다.
 2. 주문형 스트리밍 로케이터를 만듭니다.
-3. 스트리밍하려는 경우 자산의 스트리밍 매니페스트 파일(.ism)을 가져옵니다.
+3. 스트리밍하려는 경우 자산의 스트리밍 매니페스트 파일(.ism)을 가져옵니다. 
    
-   점진적으로 다운로드하려는 경우 자산의 MP4 파일의 이름을 가져옵니다.
-4. 매니페스트 파일 또는 MP4 파일에 URL을 작성합니다.
+   점진적으로 다운로드하려는 경우 자산의 MP4 파일의 이름을 가져옵니다.  
+4. 매니페스트 파일 또는 MP4 파일에 URL을 작성합니다. 
 
-### Media Services .NET SDK 사용
-스트리밍 URL 작성
+### <a name="use-media-services-net-sdk"></a>Media Services .NET SDK 사용
+스트리밍 URL 작성 
 
     private static void BuildStreamingURLs(IAsset asset)
     {
@@ -97,11 +101,11 @@ ms.author: juliako
 
 
 > [!NOTE]
-> SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다.
+> SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다. 
 > 
 > 
 
-점진적 다운로드 URL 작성
+점진적 다운로드 URL 작성 
 
     private static void BuildProgressiveDownloadURLs(IAsset asset)
     {
@@ -140,7 +144,7 @@ ms.author: juliako
 
     . . . 
 
-### Media Services .NET SDK Extensions 사용
+### <a name="use-media-services-net-sdk-extensions"></a>Media Services .NET SDK Extensions 사용
 다음 코드는 로케이터를 만들고 적응 스트리밍에 대한 부드러운 스트리밍, HLS 및 MPEG-DASH URL을 생성하는 .NET SDK 확장 메서드를 호출합니다.
 
     // Create a loctor.
@@ -160,13 +164,19 @@ ms.author: juliako
     Console.WriteLine(mpegDashUri);
 
 
-## 미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## 피드백 제공
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## 참고 항목
-[자산 다운로드](media-services-deliver-asset-download.md) [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)
+## <a name="see-also"></a>참고 항목
+[자산 다운로드](media-services-deliver-asset-download.md)
+[자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

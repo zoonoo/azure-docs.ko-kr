@@ -1,12 +1,12 @@
 ---
-title: Azure 백업 - PowerShell을 사용하여 DPM에 대한 백업 배포 및 관리 | Microsoft Docs
-description: PowerShell을 사용하여 DPM(Data Protection Manager)에 대해 Azure 백업을 배포 및 관리하는 방법을 알아봅니다.
+title: "Azure 백업 - PowerShell을 사용하여 DPM에 대한 백업 배포 및 관리 | Microsoft Docs"
+description: "PowerShell을 사용하여 DPM(Data Protection Manager)에 대해 Azure 백업을 배포 및 관리하는 방법을 알아봅니다."
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: Nkolli1
 manager: shreeshd
-editor: ''
-
+editor: 
+ms.assetid: bcbcef79-9d33-4e84-a558-9866614f2cae
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark; trinadhk; anuragm; markgal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 245172873a1ae3418fd33ccf98a26054208b620a
+
 
 ---
-# <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-(dpm)-servers-using-powershell"></a>PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
+# <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
 > [!div class="op_single_selector"]
 > * [ARM](backup-dpm-automation.md)
 > * [클래식](backup-dpm-automation-classic.md)
@@ -299,7 +303,7 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
-### <a name="changing-the-size-of-dpm-replica-&-recovery-point-volume"></a>DPM 복제본 및 복구 지점 볼륨 크기 변경
+### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>DPM 복제본 및 복구 지점 볼륨 크기 변경
 또한 아래의 예제와 같이 [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) cmdlet을 사용하여 섀도 복사본 볼륨뿐만 아니라 DPM 복제본 볼륨의 크기를 변경할 수 있습니다. Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>보호 그룹에 변경 내용 커밋
@@ -311,8 +315,8 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ## <a name="view-the-backup-points"></a>백업 시점 보기
 [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) cmdlet을 사용하여 데이터 원본에 대한 모든 복구 지점 목록을 가져올 수 있습니다. 이 예제에서는 다음을 수행합니다.
 
-* ```$PG```
-* ```$PG[0]```
+*  ```$PG```
+*  ```$PG[0]```
 * 데이터 원본에 대한 모든 복구 지점을 가져옵니다.
 
 ```
@@ -345,6 +349,9 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 ## <a name="next-steps"></a>다음 단계
 * DPM에 대한 Azure 백업에 대한 자세한 정보는 [DPM 백업 소개](backup-azure-dpm-introduction.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

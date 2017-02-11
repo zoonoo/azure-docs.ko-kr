@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "클라우드에서 Azure Storage - Blob, 테이블, 큐, 파일 및 Virtual Machine 디스크 저장소를 사용하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3cd1ef210c363fc280cefca3c0697eb66da85a1d
-ms.openlocfilehash: 426166d22b721d45853f3f578d39e14966c57c50
+ms.sourcegitcommit: df6bc6a92950efeed61db2f2ef7fd5f65189e0fa
+ms.openlocfilehash: 130a9a105ac7ff50fbc3b5baefd080f272e77d0b
 
 ---
 
@@ -130,8 +130,9 @@ ms.openlocfilehash: 426166d22b721d45853f3f578d39e14966c57c50
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p><a href="/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference">REST: 가져오기/내보내기</a></p>
+                        <p><a href="/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference">Blob, 큐, 테이블 및 파일</a></p>
                         <p><a href="/rest/api/storagerp">REST: 리소스 공급자</a></p>
+                        <p><a href="/rest/api/storageimportexport">REST: 가져오기/내보내기</a></p>
                    </div>
                 </div>
             </div>
@@ -149,6 +150,6 @@ Storage 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

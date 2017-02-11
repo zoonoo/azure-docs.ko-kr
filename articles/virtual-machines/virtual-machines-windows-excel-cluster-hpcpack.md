@@ -192,7 +192,7 @@ HPC Pack 배포 스크립트가 일정 시간 동안 실행됩니다. 스크립�
 ### <a name="excel-activation"></a>Excel 활성화
 프로덕션 작업에 대해 ComputeNodeWithExcel VM 이미지를 사용하는 경우 컴퓨터 노드에서 Excel을 정품 인증하려면 유효한 Microsoft Office 라이선스 키를 제공해야 합니다. 이렇게 하지 않으면 평가 버전의 Excel은 30일 후에 만료되며 Excel 통합 문서 실행이 실패하고 COMException(0x800AC472)이 발생합니다. 
 
-Excel의 평가 기간은 30일 연장할 수 있습니다. 이렇게 하려면 헤드 노드에 로그온한 다음 HPC 클러스터 관리자를 통해 모든 Excel 컴퓨터 노드에서 `%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe`를 실행합니다. 평가 기간은 2회까지 연장할 수 있습니다. 그 후에는 유효한 Office 라이선스 키를 제공해야 합니다.
+Excel의 평가 기간은 30일 연장할 수 있습니다. 이렇게 하려면 헤드 노드에 로그온한 다음 HPC 클러스터 관리자를 통해 모든 Excel 컴퓨터 노드에서 `%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe`를 실행합니다. 평가 기간은&2;회까지 연장할 수 있습니다. 그 후에는 유효한 Office 라이선스 키를 제공해야 합니다.
 
 VM 이미지에 설치되어 있는 Office Professional Plus 2013은 GVLK(일반 볼륨 라이선스 키)를 사용하는 볼륨 버전입니다. KMS(키 관리 서비스)/AD-BA(Active Directory 기반 정품 인증) 또는 MAK(복수 정품 인증 키)를 통해 이 버전을 정품 인증할 수 있습니다. 
 

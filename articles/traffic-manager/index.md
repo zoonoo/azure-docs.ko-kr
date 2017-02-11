@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "응용 프로그램 성능을 최적화하기 위해 들어오는 트래픽을 관리하는 방법에 대해 알아봅니다. 설명서에서는 Azure 또는 외부 서비스 끝점에 트래픽을 분산하는 방법을 보여 줍니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3123dc992bb821e79edceef01d2654aaff2468c1
-ms.openlocfilehash: a10c68140066de5be6690f30c89f4f6f2fad0825
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: a915eb8aca8a547036a13f3cc2128d205e83fdf2
 
 ---
 #<a name="traffic-manager-documentation"></a>Traffic Manager 설명서
@@ -120,13 +120,7 @@ ms.openlocfilehash: a10c68140066de5be6690f30c89f4f6f2fad0825
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
-        <div class="img"></div>
-        <div class="text">
-Traffic Manager 설명서 다운로드 </div>
-    </a>
-</div>
+
 
 
 

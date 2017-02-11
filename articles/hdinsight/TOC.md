@@ -61,10 +61,13 @@
 ### [HVAC 성능 예측](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [식품 검사 결과 예측](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [웹 사이트 로그 분석](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+### [Zeppelin Notebook 사용](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter Notebook 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-### [Jupyter 노트북용 패키지](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [셀 매직을 사용하는 Jupyter에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [스크립트 동작을 사용하는 Jupyter에서 외부 패키지 사용](hdinsight-apache-spark-python-package-installation.md)
 ### [로컬 Jupyter Notebook 사용](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Livy를 사용하는 원격 작업](hdinsight-apache-spark-livy-rest-interface.md)
+### [Eclipse를 사용하여 앱 개발](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [IntelliJ를 사용하여 앱 개발](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [IntelliJ를 사용하여 원격으로 디버깅](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [리소스 관리](hdinsight-apache-spark-resource-manager.md)
@@ -156,6 +159,7 @@
 #### [Azure CLI 사용](hdinsight-administer-use-command-line.md)
 ### [Ambari 웹 UI를 사용하여 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
 #### [Ambari REST API 사용](hdinsight-hadoop-manage-ambari-rest-api.md)
+### [저장소 계정 추가](hdinsight-hadoop-add-storage.md)
 ### [Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)
 ### [Sqoop으로 데이터 가져오기 및 내보내기](hdinsight-use-sqoop.md)
 #### [SSH를 사용하여 연결](hdinsight-use-sqoop-mac-linux.md)
@@ -224,6 +228,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

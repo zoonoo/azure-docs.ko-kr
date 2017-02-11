@@ -1,14 +1,26 @@
 ---
 layout: LandingPage
 toc_rel: breadcrumb.json
+description: "Windows 또는 Linux 가상 컴퓨터를 만들기, 배포 및 관리하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
+title: "Azure Virtual Machines 설명서 | Microsoft Docs"
+services: virtual-machines
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines-windows
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: c086dc37b8665017de0dbbad9c7ac82931932a72
-ms.openlocfilehash: 57994a1476186696b81b05e0ce7ae645337d35b2
+ms.sourcegitcommit: 0b803da9d1cfefababd18b48fd39efc9895331bf
+ms.openlocfilehash: 2cbeaebcd79944511bbd2532b533acf1b98bef06
 
 ---
-#<a name="virtual-machines-documentation"></a>Virtual Machines 설명서
+# <a name="virtual-machines-documentation"></a>Virtual Machines 설명서
 
-Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어를 구입 및 유지 관리하지 않고도 가상화의 유연성을 제공합니다. 하지만 가상 컴퓨터도 여전히 가상 컴퓨터에서 실행하는 소프트웨어를 구성, 패치 및 유지 관리하는 등의 유지 관리가 필요합니다.
+Azure 가상 컴퓨터를 만드는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Windows 및 Linux 가상 컴퓨터뿐만 아니라 복잡한 VM 템플릿을 만들고 배포하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -49,16 +61,10 @@ Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어�
     </li>    
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines.pdf">
-        <div class="img"></div>
-        <div class="text">
-Virtual Machine 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

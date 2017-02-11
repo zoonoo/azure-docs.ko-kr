@@ -1,13 +1,13 @@
 ---
-title: 논리 앱에서 되풀이 트리거 추가 | Microsoft Docs
-description: 되풀이 트리거 개요 및 Azure 논리 앱으로 사용하는 방법
-services: ''
-documentationcenter: ''
+title: "논리 앱에서 되풀이 트리거 추가 | Microsoft Docs"
+description: "되풀이 트리거 개요 및 Azure 논리 앱으로 사용하는 방법"
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d85eb09283bc464e78bf84401eeb0ff366ef5773
+
 
 ---
-# 되풀이 트리거 시작
+# <a name="get-started-with-the-recurrence-trigger"></a>되풀이 트리거 시작
 되풀이 트리거를 사용하여 클라우드에서 강력한 워크플로를 만들 수 있습니다.
 
 예를 들어 다음을 수행할 수 있습니다.
@@ -27,7 +31,7 @@ ms.author: jehollan
 
 논리 앱에서 되풀이 트리거 사용을 시작하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
-## 되풀이 트리거 사용
+## <a name="use-a-recurrence-trigger"></a>되풀이 트리거 사용
 트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요](connectors-overview.md).
 
 논리 앱에서 되풀이 트리거를 설정하는 방법의 예제 시퀀스는 다음과 같습니다.
@@ -39,10 +43,11 @@ ms.author: jehollan
 
 ![HTTP 트리거](./media/connectors-native-recurrence/using-trigger.png)
 
-## 트리거 세부 정보
+## <a name="trigger-details"></a>트리거 세부 정보
 되풀이 트리거에는 구성할 수 있는 다음과 같은 속성이 있습니다.
 
-지정된 시간 간격 후 논리 앱을 실행합니다. A*는 필수 필드 임을 의미합니다.
+지정된 시간 간격 후 논리 앱을 실행합니다.
+A*는 필수 필드 임을 의미합니다.
 
 | 표시 이름 | 속성 이름 | 설명 |
 | --- | --- | --- |
@@ -53,7 +58,12 @@ ms.author: jehollan
 
 <br>
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -45,9 +45,9 @@
 ### [비대칭 라우팅](expressroute-asymmetric-routing.md)
 
 ## 문제 해결
+### [ExpressRoute 연결 확인](expressroute-troubleshooting-expressroute-overview.md)
 ### [ARP 테이블 받기](expressroute-troubleshooting-arp-resource-manager.md)
 ### [ARP 테이블(클래식) 받기](expressroute-troubleshooting-arp-classic.md)
-
 
 # 참조
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
@@ -80,6 +80,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

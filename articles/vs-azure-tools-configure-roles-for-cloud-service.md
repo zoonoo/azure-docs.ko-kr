@@ -1,22 +1,26 @@
 ---
-title: Visual Studio에서 Azure 클라우드 서비스에 대한 역할 구성 | Microsoft Docs
-description: Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할을 설정 및 구성하는 방법에 대해 알아봅니다.
+title: "Visual Studio에서 Azure 클라우드 서비스에 대한 역할 구성 | Microsoft Docs"
+description: "Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할을 설정 및 구성하는 방법에 대해 알아봅니다."
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: d397ef87-64e5-401a-aad5-7f83f1022e16
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f5078530c8beeea6a534b34fa6b319bd56178660
+
 
 ---
-# Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할 구성
+# <a name="configure-the-roles-for-an-azure-cloud-service-with-visual-studio"></a>Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할 구성
 Azure 클라우드 서비스에는 하나 이상의 작업자 또는 웹 역할이 포함될 수 있습니다. 각 역할에 대해 해당 역할 설정 방법을 정의하고 해당 역할의 실행 방법을 구성해야 합니다. 클라우드 서비스의 역할에 대한 자세한 내용은 [Azure 클라우드 서비스 소개](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services)를 참조하세요. 클라우드 서비스에 대한 정보는 다음 파일에 저장됩니다.
 
 * **ServiceDefinition.csdef**
@@ -33,12 +37,12 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
 * ServiceConfiguration.Cloud.cscfg
 * ServiceConfiguration.Local.cscfg
 
-## Azure 클라우드 서비스 구성
+## <a name="configure-an-azure-cloud-service"></a>Azure 클라우드 서비스 구성
 다음 그림에 표시된 것처럼 Visual Studio의 솔루션 탐색기에서 Azure 클라우드 서비스를 구성할 수 있습니다.
 
 ![클라우드 서비스 구성](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
 
-### Azure 클라우드 서비스를 구성하려면
+### <a name="to-configure-an-azure-cloud-service"></a>Azure 클라우드 서비스를 구성하려면
 1. **솔루션 탐색기**에서 Azure 프로젝트에 각 역할을 구성하려면, Azure 프로젝트에서 역할에 대한 바로 가기 메뉴를 열고 **속성**을 선택합니다.
    
     역할의 이름이 있는 페이지가 Visual Studio 편집기에 표시됩니다. 페이지에 **구성** 탭에 대한 필드가 표시됩니다.
@@ -53,10 +57,10 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
    
     이제 탭을 선택하여 해당 보기에 활성화된 모든 속성을 업데이트할 수 있습니다.
 
-## 역할 인스턴스 수 변경
-클라우드 서비스의 성능을 개선하기 위해 실행 중인 역할의 인스턴스 수를 사용자 수 또는 특정 역할에 대해 예상되는 부하에 따라 변경할 수 있습니다. Azure에서 클라우드 서비스를 실행하는 경우 별도의 가상 컴퓨터가 역할의 각 인스턴스에 대해 생성됩니다. 이 클라우드 서비스의 배포에 대한 대금 청구에 영향을 줍니다. 대금 청구에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](billing-understand-your-bill.md)를 참조하세요.
+## <a name="change-the-number-of-role-instances"></a>역할 인스턴스 수 변경
+클라우드 서비스의 성능을 개선하기 위해 실행 중인 역할의 인스턴스 수를 사용자 수 또는 특정 역할에 대해 예상되는 부하에 따라 변경할 수 있습니다. Azure에서 클라우드 서비스를 실행하는 경우 별도의 가상 컴퓨터가 역할의 각 인스턴스에 대해 생성됩니다. 이 클라우드 서비스의 배포에 대한 대금 청구에 영향을 줍니다. 대금 청구에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](billing/billing-understand-your-bill.md)를 참조하세요.
 
-### 역할에 대한 인스턴스 수를 변경하려면
+### <a name="to-change-the-number-of-instances-for-a-role"></a>역할에 대한 인스턴스 수를 변경하려면
 1. **구성** 탭을 선택합니다.
 2. **서비스 구성** 목록에서 업데이트할 서비스 구성을 선택합니다.
    
@@ -72,8 +76,8 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
    > 
 4. 도구 모음에서 **저장** 단추를 선택하여 이러한 변경 내용을 서비스 구성 파일에 저장합니다.
 
-## 저장소 계정에 대한 연결 문자열 관리
-서비스 구성에 대한 연결 문자열을 추가, 제거 또는 수정할 수 있습니다. 다양한 서비스 구성에 대해 서로 다른 연결 문자열이 필요할 수 있습니다. 예를 들어, `UseDevelopmentStorage=true` 값이 있는 로컬 서비스 구성에 대해 로컬 연결 문자열이 필요할 수 있습니다. 또한 Azure에서 저장소 계정을 사용하는 클라우드 서비스 구성을 구성하려고 할 수도 있습니다.
+## <a name="manage-connection-strings-for-storage-accounts"></a>저장소 계정에 대한 연결 문자열 관리
+서비스 구성에 대한 연결 문자열을 추가, 제거 또는 수정할 수 있습니다. 다양한 서비스 구성에 대해 서로 다른 연결 문자열이 필요할 수 있습니다. 예를 들어, `UseDevelopmentStorage=true`값이 있는 로컬 서비스 구성에 대해 로컬 연결 문자열이 필요할 수 있습니다. 또한 Azure에서 저장소 계정을 사용하는 클라우드 서비스 구성을 구성하려고 할 수도 있습니다.
 
 > [!WARNING]
 > 저장소 계정 연결 문자열에 대해 Azure 저장소 계정 키 정보를 입력하면 이 정보가 서비스 구성 파일에 로컬로 저장됩니다. 그러나 현재는 이 정보가 암호화된 텍스트로 저장되지 않습니다.
@@ -82,7 +86,7 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
 
 각 서비스 구성에 대해 서로 다른 값을 사용하면 클라우드 서비스에서 서로 다른 연결 문자열을 사용하거나 클라우드 서비스에서 Azure로 게시할 때 코드를 수정하지 않아도 됩니다. 코드에서 연결 문자열에 동일한 이름을 사용할 수 있으며 클라우드 서비스를 빌드할 때 선택한 서비스 구성 또는 게시하는 시기에 따라 값은 달라집니다.
 
-### 저장소 계정에 대한 연결 문자열을 관리하려면
+### <a name="to-manage-connection-strings-for-storage-accounts"></a>저장소 계정에 대한 연결 문자열을 관리하려면
 1. **설정** 탭을 선택합니다.
 2. **서비스 구성** 목록에서 업데이트할 서비스 구성을 선택합니다.
    
@@ -94,19 +98,19 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
 4. **이름** 텍스트 상자에 연결 문자열에 사용할 이름을 입력합니다.
 5. **형식** 드롭다운 목록에서 **연결 문자열**을 선택합니다.
 6. 연결 문자열에 대한 값을 변경하려면 줄임표(...) 단추를 선택합니다. **저장소 연결 문자열 만들기** 대화 상자가 나타납니다.
-7. 로컬 저장소 계정 에뮬레이터를 사용하려면 **Microsoft Azure 저장소 에뮬레이터** 옵션 단추를 선택한 후 **확인** 단추를 선택합니다.
+7. 로컬 저장소 계정 에뮬레이터를 사용하려면 **Microsoft Azure Storage 에뮬레이터** 옵션 단추를 선택한 후 **확인** 단추를 선택합니다.
 8. Azure에서 저장소 계정을 사용하려면 **구독** 옵션 단추를 선택하고 원하는 저장소 계정을 선택합니다.
 9. 사용자 지정 자격 증명을 사용하려면 **수동으로 입력한 자격 증명** 옵션 단추를 선택합니다. 저장소 계정 이름과 기본 또는 보조 키를 입력합니다. 저장소 계정을 만드는 방법 및 **저장소 연결 문자열 만들기** 대화 상자에 저장소 계정에 대한 세부 정보를 입력하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)를 참조하세요.
 10. 연결 문자열을 삭제하려면 연결 문자열을 선택하고 **설정 제거** 단추를 선택합니다.
 11. 도구 모음에서 **저장** 아이콘을 선택하여 이러한 변경 내용을 서비스 구성 파일에 저장합니다.
-12. 서비스 구성 파일에서 연결 문자열에 액세스하려면 구성 설정의 값을 가져와야 합니다. 다음 코드에서는 사용자가 Azure 클라우드 서비스에 대한 웹 역할의 Default.aspx 페이지에서 **Button1**을 선택한 경우 BLOB 저장소를 만드는 위치와 서비스 구성 파일에서 연결 문자열 `MyConnectionString`을 사용하여 업로드된 데이터의 예를 보여줍니다. Default.aspx.cs에 다음 using 문을 추가합니다.
+12. 서비스 구성 파일에서 연결 문자열에 액세스하려면 구성 설정의 값을 가져와야 합니다. 다음 코드에서는 사용자가 Azure 클라우드 서비스에 대한 웹 역할의 Default.aspx 페이지에서 **Button1**을 선택한 경우 Blob Storage를 만드는 위치와 서비스 구성 파일에서 연결 문자열 `MyConnectionString`을 사용하여 업로드된 데이터의 예를 보여줍니다. Default.aspx.cs에 다음 using 문을 추가합니다.
     
      ```
      using Microsoft.WindowsAzure;
      using Microsoft.WindowsAzure.Storage;
      using Microsoft.WindowsAzure.ServiceRuntime;
      ```
-13. 디자인 보기에서 Default.aspx.cs를 열고 도구 상자에서 단추를 추가합니다. `Button1_Click` 메서드에 다음 코드를 추가합니다. 이 코드는 `GetConfigurationSettingValue`를 사용하여 연결 문자열에 대한 서비스 구성 파일에서 값을 가져옵니다. 그러면 연결 문자열 `MyConnectionString`에서 참조되는 저장소 계정에 BLOB가 생성되고 마지막으로 프로그램에서 BLOB에 텍스트를 추가합니다.
+13. 디자인 보기에서 Default.aspx.cs를 열고 도구 상자에서 단추를 추가합니다. `Button1_Click` 메서드에 다음 코드를 추가합니다. 이 코드는 `GetConfigurationSettingValue` 를 사용하여 연결 문자열에 대한 서비스 구성 파일에서 값을 가져옵니다. 그러면 연결 문자열 `MyConnectionString` 에서 참조되는 저장소 계정에 BLOB가 생성되고 마지막으로 프로그램에서 BLOB에 텍스트를 추가합니다.
     
      ```
      protected void Button1_Click(object sender, EventArgs e)
@@ -124,14 +128,14 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
      }
      ```
 
-## Azure 클라우드 서비스에서 사용할 사용자 지정 설정 추가
+## <a name="add-custom-settings-to-use-in-your-azure-cloud-service"></a>Azure 클라우드 서비스에서 사용할 사용자 지정 설정 추가
 서비스 구성 파일의 사용자 지정 설정을 통해 특정 서비스 구성에 대한 문자열의 이름 및 값을 추가할 수 있습니다. 설정 값을 읽고 이 값을 코드에서 논리를 제어하는 데 사용하여 클라우드 서비스에서 기능을 구성하는 데 이 설정을 사용하도록 선택할 수 있습니다. 서비스 패키지를 다시 빌드하지 않고 클라우드 서비스가 실행 중인 경우에도 이러한 서비스 구성 값을 변경할 수 있습니다. 설정이 변경될 때 코드에서 알림을 확인할 수 있습니다. [RoleEnvironment.Changing 이벤트](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx)를 참조하세요.
 
 서비스 구성에 대한 사용자 지정 설정을 추가, 제거 또는 수정할 수 있습니다. 다양한 서비스 구성에 대해 이러한 문자열에 서로 다른 값이 필요할 수 있습니다.
 
 각 서비스 구성에 대해 서로 다른 값을 사용하면 클라우드 서비스에서 서로 다른 문자열을 사용하거나 클라우드 서비스에서 Azure로 게시할 때 코드를 수정하지 않아도 됩니다. 코드에서 문자열에 동일한 이름을 사용할 수 있으며 클라우드 서비스를 빌드할 때 선택한 서비스 구성 또는 게시하는 시기에 따라 값은 달라집니다.
 
-### Azure 클라우드 서비스에서 사용할 사용자 지정 설정을 추가하려면
+### <a name="to-add-custom-settings-to-use-in-your-azure-cloud-service"></a>Azure 클라우드 서비스에서 사용할 사용자 지정 설정을 추가하려면
 1. **설정** 탭을 선택합니다.
 2. **서비스 구성** 목록에서 업데이트할 서비스 구성을 선택합니다.
    
@@ -164,12 +168,12 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
      }
      ```
 
-## 각 역할 인스턴스에 대한 로컬 저장소 관리
-각 역할 인스턴스에 대한 로컬 파일 시스템 저장소를 추가할 수 있습니다. 다른 역할에서 액세스할 필요가 없는 곳에 로컬 데이터를 저장할 수 있습니다. 테이블, BLOB 또는 SQL 데이터베이스 저장소에 저장할 필요가 없는 모든 데이터를 여기에 저장할 수 있습니다. 예를 들어, 이 로컬 저장소를 사용하여 다시 사용해야 하는 데이터를 캐시할 수 있습니다. 이 저장된 데이터는 역할의 다른 인스턴스에서 액세스할 수 없습니다.
+## <a name="manage-local-storage-for-each-role-instance"></a>각 역할 인스턴스에 대한 로컬 저장소 관리
+각 역할 인스턴스에 대한 로컬 파일 시스템 저장소를 추가할 수 있습니다. 다른 역할에서 액세스할 필요가 없는 곳에 로컬 데이터를 저장할 수 있습니다. 테이블, BLOB 또는 SQL 데이터베이스 저장소에 저장할 필요가 없는 모든 데이터를 여기에 저장할 수 있습니다. 예를 들어, 이 로컬 저장소를 사용하여 다시 사용해야 하는 데이터를 캐시할 수 있습니다. 이 저장된 데이터는 역할의 다른 인스턴스에서 액세스할 수 없습니다. 
 
 로컬 저장소 설정은 모든 서비스 구성에 적용됩니다. 모든 서비스 구성에 대한 로컬 저장소만 추가, 제거 또는 수정할 수 있습니다.
 
-### 각 역할 인스턴스에 대한 로컬 저장소를 관리하려면
+### <a name="to-manage-local-storage-for-each-role-instance"></a>각 역할 인스턴스에 대한 로컬 저장소를 관리하려면
 1. **로컬 저장소** 탭을 선택합니다.
 2. **서비스 구성** 목록에서 **모든 구성**을 선택합니다.
 3. 로컬 저장소 항목을 추가하려면 **로컬 저장소 추가** 단추를 선택합니다. 새 항목이 목록에 추가됩니다.
@@ -179,7 +183,7 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
 7. 기존 로컬 저장소 항목을 편집하려면 업데이트해야 하는 행을 선택합니다. 그런 다음 이전 단계에서 설명한 것처럼 필드를 편집할 수 있습니다.
 8. 로컬 저장소 항목을 삭제하려면 목록에서 저장소 항목을 선택하고 **로컬 저장소 제거** 단추를 선택합니다.
 9. 서비스 구성 파일에 이러한 변경 내용을 저장하려면 도구 모음에서 **저장** 아이콘을 선택합니다.
-10. 서비스 구성 파일에 추가된 로컬 저장소에 액세스하려면 로컬 리소스 구성 설정의 값을 가져와야 합니다. 다음 코드 줄을 사용하여 이 값에 액세스하고 **MyStorageTest.txt**라는 파일을 만들어 이 파일에 테스트 데이터 줄을 기록합니다. 이 코드를 이전 절차에 사용된 `Button_Click` 메서드에 추가할 수 있습니다.
+10. 서비스 구성 파일에 추가된 로컬 저장소에 액세스하려면 로컬 리소스 구성 설정의 값을 가져와야 합니다. 다음 코드 줄을 사용하여 이 값에 액세스하고 **MyStorageTest.txt** 라는 파일을 만들어 이 파일에 테스트 데이터 줄을 기록합니다. 이 코드를 이전 절차에 사용된 `Button_Click` 메서드에 추가할 수 있습니다.
 11. 다음 using 문이 Default.aspx.cs에 추가되었는지 확인해야 합니다.
     
      ```
@@ -213,7 +217,7 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
        파일이 검색 결과에 표시됩니다.
     6. 파일의 내용을 보려면 파일에 대한 바로 가기 메뉴를 열고 **열기**를 선택합니다.
 
-## 클라우드 서비스 진단 수집
+## <a name="collect-cloud-service-diagnostics"></a>클라우드 서비스 진단 수집
 Azure 클라우드 서비스에 대한 진단 데이터를 수집할 수 있습니다. 이 데이터는 저장소 계정에 추가됩니다. 다양한 서비스 구성에 대해 서로 다른 연결 문자열이 필요할 수 있습니다. 예를 들어, UseDevelopmentStorage=true 값을 포함하는 로컬 서비스 구성에 대해 로컬 저장소 계정이 필요할 수 있습니다. 또한 Azure에서 저장소 계정을 사용하는 클라우드 서비스 구성을 구성하려고 할 수도 있습니다. Azure 진단에 대한 자세한 내용은 Azure 진단을 사용하여 로깅 데이터 수집을 참조하세요.
 
 > [!NOTE]
@@ -221,7 +225,7 @@ Azure 클라우드 서비스에 대한 진단 데이터를 수집할 수 있습�
 > 
 > 
 
-### 클라우드 서비스 진단을 수집하려면
+### <a name="to-collect-cloud-service-diagnostics"></a>클라우드 서비스 진단을 수집하려면
 1. **구성** 탭을 선택합니다.
 2. **서비스 구성** 목록에서 업데이트할 서비스 구성을 선택하거나 **모든 구성**을 선택합니다.
    
@@ -240,7 +244,7 @@ Azure 클라우드 서비스에 대한 진단 데이터를 수집할 수 있습�
     저장소 계정을 만드는 방법 및 **저장소 연결 문자열 만들기** 대화 상자에 저장소 계정에 대한 세부 정보를 입력하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)를 참조하세요.
 8. **계정 이름**에서 사용할 저장소 계정을 선택합니다.
    
-    저장소 계정 자격 증명을 수동으로 입력하는 경우 **계정 키**에 기본 키를 복사하거나 입력합니다. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 이 키를 복사할 수 있습니다. 이 키를 복사하려면 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)의 **저장소 계정** 보기에서 다음 단계를 따릅니다.
+    저장소 계정 자격 증명을 수동으로 입력하는 경우 **계정 키**에 기본 키를 복사하거나 입력합니다. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 이 키를 복사할 수 있습니다. 이 키를 복사하려면 **Azure 클래식 포털** 의 [저장소 계정](http://go.microsoft.com/fwlink/?LinkID=213885)보기에서 다음 단계를 따릅니다.
    
    1. 클라우드 서비스에 사용할 저장소 계정을 선택합니다.
    2. 화면 아래쪽에 있는 **액세스 키 관리** 단추를 선택합니다. **액세스 키 관리** 대화 상자가 나타납니다.
@@ -248,18 +252,18 @@ Azure 클라우드 서비스에 대한 진단 데이터를 수집할 수 있습�
 9. Azure에 클라우드 서비스를 게시할 때 진단(및 캐싱)을 위한 연결 문자열로 사용자가 제공한 저장소 계정을 사용하려면 **Azure에 게시할 때 Azure 저장소 계정 자격 증명을 사용하여 진단 및 캐싱을 위한 개발 저장소 연결 문자열 업데이트** 확인란을 선택합니다.
 10. 도구 모음에서 **저장** 단추를 선택하여 이러한 변경 내용을 서비스 구성 파일에 저장합니다.
 
-## 각 역할에 사용되는 가상 컴퓨터의 크기를 변경합니다.
+## <a name="change-the-size-of-the-virtual-machine-used-for-each-role"></a>각 역할에 사용되는 가상 컴퓨터의 크기를 변경합니다.
 각 역할에 대한 가상 컴퓨터 크기를 설정할 수 있습니다. 모든 서비스 구성에 대한 이 크기만 설정할 수 있습니다. 작은 컴퓨터 크기를 선택하는 경우 적은 CPU 코어, 메모리 및 로컬 디스크 저장소가 할당됩니다. 할당된 대역폭도 작아집니다. 이러한 크기 및 할당된 리소스에 대한 자세한 내용은 [클라우드 서비스에 적합한 크기](cloud-services/cloud-services-sizes-specs.md)를 참조하세요.
 
-Azure에서 각 가상 컴퓨터에 필요한 리소스는 Azure에서 클라우드 서비스를 실행하는 비용에 영향을 줍니다. Azure 대금 청구에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](billing-understand-your-bill.md)를 참조하세요.
+Azure에서 각 가상 컴퓨터에 필요한 리소스는 Azure에서 클라우드 서비스를 실행하는 비용에 영향을 줍니다. Azure 대금 청구에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](billing/billing-understand-your-bill.md)를 참조하세요.
 
-### 가상 컴퓨터의 크기를 변경하려면
+### <a name="to-change-the-size-of-the-virtual-machine"></a>가상 컴퓨터의 크기를 변경하려면
 1. **구성** 탭을 선택합니다.
 2. **서비스 구성** 목록에서 **모든 구성**을 선택합니다.
 3. 이 역할에 대한 가상 컴퓨터 크기를 선택하려면 **VM 크기** 목록에서 적절한 크기를 선택합니다.
 4. 도구 모음에서 **저장** 단추를 선택하여 이러한 변경 내용을 서비스 구성 파일에 저장합니다.
 
-## 사용자 역할에 대한 인증서 및 끝점 관리
+## <a name="manage-endpoints-and-certificates-for-your-roles"></a>사용자 역할에 대한 인증서 및 끝점 관리
 프로토콜, 포트 번호, HTTPS인 경우 SSL 인증서 정보를 지정하여 네트워킹 끝점을 구성합니다. 2012년 6월 이전의 릴리스는 HTTP, HTTPS 및 TCP를 지원합니다. 2012년 6월 릴리스는 이러한 프로토콜과 UDP를 지원합니다. 계산 에뮬레이터에서 입력 끝점에는 UDP를 사용할 수 없습니다. 내부 끝점에만 해당 프로토콜을 사용할 수 있습니다.
 
 Azure 클라우드 서비스의 보안을 향상시키기 위해 HTTPS 프로토콜을 사용하는 끝점을 만들 수 있습니다. 예를 들어, 고객이 구매 주문을 위해 클라우드 서비스를 사용하는 경우 SSL을 사용하여 해당 정보가 안전한지 확인해야 합니다.
@@ -280,7 +284,7 @@ HTTPS 끝점을 추가하는 경우 SSL 인증서를 사용해야 합니다. 이
 
 서비스 구성과 연결되는 모든 관리 인증서는 Azure에서 클라우드 서비스가 실행될 때만 적용됩니다. 클라우드 서비스가 로컬 개발 환경에서 실행되는 경우 Azure 계산 에뮬레이터가 관리하는 표준 인증서를 사용합니다.
 
-### 역할에 인증서를 추가하려면
+### <a name="to-add-a-certificate-to-a-role"></a>역할에 인증서를 추가하려면
 1. **인증서** 탭을 선택합니다.
 2. **서비스 구성** 목록에서 **모든 구성**을 선택합니다.
    
@@ -302,7 +306,7 @@ HTTPS 끝점을 추가하는 경우 SSL 인증서를 사용해야 합니다. 이
 9. 인증서를 삭제하려면 인증서를 선택하고 **인증서 제거** 단추를 선택합니다.
 10. 도구 모음에서 **저장** 아이콘을 선택하여 이러한 변경 내용을 서비스 구성 파일에 저장합니다.
 
-### 역할에 대한 끝점을 관리하려면
+### <a name="to-manage-endpoints-for-a-role"></a>역할에 대한 끝점을 관리하려면
 1. **끝점** 탭을 선택합니다.
 2. **서비스 구성** 목록에서 **모든 구성**을 선택합니다.
 3. 끝점을 추가하려면 **끝점 추가** 단추를 선택합니다. 새 항목이 목록에 추가됩니다.
@@ -319,7 +323,12 @@ HTTPS 끝점을 추가하는 경우 SSL 인증서를 사용해야 합니다. 이
    > 
 10. 도구 모음에서 **저장** 단추를 선택하여 이러한 변경 내용을 서비스 구성 파일에 저장합니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 [Azure 프로젝트 구성](vs-azure-tools-configuring-an-azure-project.md)을 읽고 Visual Studio에서 Azure 프로젝트에 대해 자세히 알아봅니다. [스키마 참조](https://msdn.microsoft.com/library/azure/dd179398)를 읽고 클라우드 서비스 스키마에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

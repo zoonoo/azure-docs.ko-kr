@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Lake Aanlytics 작업에 U-SQL 창 함수 사용 | Microsoft 문서"
+title: "Azure Data Lake Anlytics 작업에 U-SQL 창 함수 사용 | Microsoft Docs"
 description: "U-SQL 창 함수를 사용하는 방법에 대해 알아봅니다. "
 services: data-lake-analytics
 documentationcenter: 
@@ -11,19 +11,19 @@ ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/16/2016
+ms.workload: big-data`
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 22aafaa80d8d7a5d7e57819acadc6c7985bf2c93
-ms.openlocfilehash: fde657c6c59852a07fd8f565572732f7a25d9e55
+ms.sourcegitcommit: 5137ccfd2c809fe17cc7fdf06941ebd797288d81
+ms.openlocfilehash: 7afbd2de08b5702371ef7dc8676fcd8d75d5e7fd
 
 
 ---
 # <a name="using-u-sql-window-functions-for-azure-data-lake-analytics-jobs"></a>Azure 데이터 레이크 분석 작업에 U-SQL 창 함수 사용
 창 함수는 2003년에 ISO/ANSI SQL 표준에 도입되었습니다. U-SQL은 ANSI SQL 표준에 의해 정의된 창 함수의 하위 집합을 채택합니다.
 
-창 함수는 *windows*라고 하는 행 집합 내에서 계산을 수행하는데 사용합니다. Windows는 OVER 절에서 정의됩니다. 창 함수는 매우 효율적으로 주요 시나리오의 일부를 해결합니다.
+창 함수는 *windows*라고 하는 행 집합 내에서 계산을 수행하는데 사용합니다. Windows는 OVER 절에 의해 정의됩니다. 창 함수는 매우 효율적으로 주요 시나리오의 일부를 해결합니다.
 
 이 학습 가이드는 두 가지 샘플 데이터 집합을 사용하여 창 함수를 적용할 수 있는 샘플 시나리오를 안내합니다. 자세한 내용은 [U-SQL 참조](http://go.microsoft.com/fwlink/p/?LinkId=691348)를 참조하세요.
 
@@ -31,7 +31,7 @@ ms.openlocfilehash: fde657c6c59852a07fd8f565572732f7a25d9e55
 
 * [보고 집계 함수](#reporting-aggregation-functions)(예: SUM 또는 AVG)
 * [순위 함수](#ranking-functions)(예: DENSE_RANK, ROW_NUMBER, NTILE, RANK)
-* [분석 함수](#analytic-functions)(예: 누적 분포, 백분위수 또는 셀프 조인을 사용하지 않고 동일한 결과 집합에 포함된 이전 행의 데이터에 액세스)
+* [분석 함수](#analytic-functions)(예: 누적 분포 또는 백분위수, 셀프 조인을 사용하지 않고 동일한 결과 집합에 포함된 이전 행의 데이터에 액세스)
 
 **필수 조건:**
 
@@ -70,7 +70,7 @@ ms.openlocfilehash: fde657c6c59852a07fd8f565572732f7a25d9e55
         AS T(Query,Latency,Vertical);
     ```
 
-    실제로 데이터는 데이터 파일에 저장되는 경우가 많습니다. 다음 코드를 사용하여 탭으로 구분된 파일의 내부에 있는 데이터에 액세스합니다. 
+    실제로 데이터는 일반적으로 파일에 저장됩니다. 다음 코드를 사용하여 탭으로 구분된 파일의 데이터에 액세스합니다. 
   
     ```
     @querylog = 
@@ -120,7 +120,7 @@ ms.openlocfilehash: fde657c6c59852a07fd8f565572732f7a25d9e55
 
 자습서에서 샘플을 테스트하는 경우 행 집합 정의를 포함해야 합니다. U-SQL에서는 사용되는 행 집합만 정의해야 합니다. 일부 샘플에는 행 집합이 하나만 필요합니다.
 
-결과 행 집합을 데이터 파일에 출력하려면 다음 문을 추가해야 합니다.
+결과 행 집합을 데이터 파일에 출력하려면 다음 문을 추가합니다.
 
     OUTPUT @result TO "/wfresult.csv" 
         USING Outputters.Csv();
@@ -175,10 +175,10 @@ SalaryByDept 열의 합계는 $165000이고 이것은 마지막 스크립트의 
 이 두 가지 경우 모두 출력 행의 수가 입력 행보다 적습니다.
 
 * GROUP BY를 사용하지 않으면 집계는 모든 행을 하나의 행으로 축소합니다. 
-* GROUP BY를 사용하면 N개의 출력 행이 있으며, 여기서 N은 데이터에 표시되는 고유 값의 수입니다. 이 경우 출력되는 행은 4개입니다.
+* GROUP BY를 사용하면 N개의 출력 행이 있으며, 여기서 N은 데이터에 표시되는 고유 값의 수입니다.  이 경우 출력되는 행은&4;개입니다.
 
 ### <a name="use-a-window-function"></a>창 함수 사용
-다음 샘플에서 OVER 절은 비어 있습니다. 이것은 "window"에 모든 행이 포함되도록 정의합니다. 이 예에서 SUM은 뒤에 나오는 OVER 절에 적용됩니다.
+다음 샘플에서 OVER 절은 비어 있습니다. 따라서 창에 모든 행이 포함됩니다. 이 예에서 SUM은 뒤에 나오는 OVER 절에 적용됩니다.
 
 이 쿼리는 “모든 행의 특정 창에 대한 급여의 합계”로 읽을 수 있습니다.
 
@@ -316,10 +316,10 @@ GROUP BY와 달리 입력 행의 수만큼 출력 행이 있습니다.
 | 8 |Ava |Marketing |400 |15000 |10000 |
 | 9 |Ethan |Marketing |400 |10000 |10000 |
 
-MIN을 MAX와 바꾸고 시도해 봅니다.
+각 부서의 가장 높은 급여를 보려면 MIN을 MAX로 바꾸고 쿼리를 다시 실행합니다.
 
 ## <a name="ranking-functions"></a>순위 함수
-순위 함수는 PARTITION BY 및 OVER 절로 정의된 각 파티션에 각 행에 대한 순위 값(long)을 반환합니다. 순위의 순서는 OVER 절의 ORDER BY로 제어됩니다.
+순위 함수는 PARTITION BY 및 OVER 절로 정의된 각 파티션에 각 행에 대한 순위 값(LONG)을 반환합니다. 순위의 순서는 OVER 절의 ORDER BY로 제어됩니다.
 
 다음과 같은 순위 함수가 지원됩니다.
 
@@ -336,10 +336,10 @@ MIN을 MAX와 바꾸고 시도해 봅니다.
             [ORDER BY <identifier, > …[n] [ASC|DESC]] 
     ) AS <alias>
 
-* ORDER BY 절은 순위 함수에서 선택 사항입니다. ORDER BY를 지정하면 순위의 순서를 결정합니다. ORDER BY를 지정하지 않으면 U-SQL이 레코드 읽는 순서를 기반으로 값을 할당합니다. 따라서 행 번호의 값이 비결정적인 상태가 되며, 이 경우 rank 또는 dense rank에 order by 절이 지정되지 않습니다.
+* ORDER BY 절은 순위 함수에서 선택 사항입니다. ORDER BY를 지정하지 않으면 U-SQL은 레코드를 읽은 순서에 따라 값을 할당하므로 결과적으로 ROW_NUMBER, RANK, DENSE_RANK에 대해 명확하지 않은 값이 지정됩니다.
 * NTILE은 양의 정수를 구하는 식을 필요로 합니다. 이 숫자는 각 파티션을 나누는 그룹의 수를 지정합니다. 이 식별자는 NTILE 순위 함수에만 사용됩니다. 
 
-OVER 절에 대한 자세한 내용은 [U-SQL 참조]()를 참조하세요.
+OVER 절에 대한 자세한 내용은 [U-SQL 참조](http://go.microsoft.com/fwlink/p/?LinkId=691348)를 참조하세요.
 
 ROW_NUMBER, RANK, DENSE_RANK 모두 창에 행 번호를 할당합니다. 이 함수들을 따로 다루기 보다는 동일한 입력에 대해 함수들이 어떻게 대응하는지 보는 것이 직관적으로 인식하기 좋습니다.
 
@@ -353,7 +353,7 @@ ROW_NUMBER, RANK, DENSE_RANK 모두 창에 행 번호를 할당합니다. 이 �
 
 OVER 절은 동일합니다. 결과:
 
-| 쿼리 | Latency:int | Vertical | RowNumber | RANK | DenseRank |
+| 쿼리 | Latency: INT | Vertical | RowNumber | RANK | DenseRank |
 | --- | --- | --- | --- | --- | --- |
 | Banana |300 |이미지 |1 |1 |1 |
 | Cherry |300 |이미지 |2 |1 |1 |
@@ -371,33 +371,33 @@ OVER 절은 동일합니다. 결과:
 ![U-SQL 창 함수 ROW_NUMBER](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-row-number-result.png)
 
 ### <a name="rank"></a>RANK
-ROW_NUMBER()와 달리, RANK()는 창의 ORDER BY 절에 지정된 Latency 값을 고려합니다.
+ROW_NUMBER()와 달리, RANK()는 창의 ORDER BY 절에 지정된 Latency 값을 사용합니다.
 
-RANK는 Latency에 대한 앞쪽의 두 개 값이 동일하기 때문에 (1,1,3)으로 시작됩니다. Latency 값이 500으로 이동했기 때문에 다음 값은 3입니다. 여기에 대한 요점은 중복된 값이 동일한 순위에 주어졌지만 RANK 번호는 다음 ROW_NUMBER 값으로 “건너뛴다”는 것입니다. 웹 Vertical의 시퀀스(2,2,4)에서 이러한 패턴이 반복되는 것을 볼 수 있습니다.
+RANK는 Latency에 대한 앞쪽의 두 개 값이 동일하기 때문에 (1, 1, 3)으로 시작됩니다. Latency 값이 500으로 이동했기 때문에 다음 값은 3입니다. 여기에 대한 요점은 중복된 값이 동일한 순위에 주어졌지만 RANK 번호는 다음 ROW_NUMBER 값으로 건너뛴다는 것입니다. 웹 Vertical의 시퀀스(2, 2, 4)에서 이러한 패턴이 반복되는 것을 볼 수 있습니다.
 
 ![U-SQL 창 함수 RANK](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-rank-result.png)
 
 ### <a name="denserank"></a>DENSE_RANK
-DENSE_RANK는 다음 ROW_NUMBER로 “건너뛰지” 않는다는 것만 제외하면 RANK와 동일합니다. 대신 시퀀스의 다음 번호로 이동합니다. 샘플에서 (1,1,2) 및 (2,2,3) 시퀀스를 참고합니다.
+DENSE_RANK는 다음 ROW_NUMBER로 건너뛴다는 점을 제외하고 RANK와 같습니다. DENSE_RANK는 시퀀스의 다음 숫자로 이동합니다. 샘플에서 (1, 1, 2) 및 (2, 2, 3) 시퀀스를 참고합니다.
 
 ![U-SQL 창 함수 DENSE_RANK](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-dense-rank-result.png)
 
 ### <a name="remarks"></a>설명
-* ORDER BY가 지정되지 않으면 순위 함수에 순서가 지정되지 않은 채로 행 집합에 적용됩니다. 그러면 순위 함수가 비결정적인 동작으로 적용됩니다.
-* 다음 조건이 참이 아니면 ROW_NUMBER를 사용하여 쿼리에 의해 반환되는 행이 각 실행과 정확히 같은 순서로 정렬된다는 보장이 없습니다.
+* ORDER BY를 지정하지 않으면 순위 함수가 순서 없이 행 집합에 적용되므로 비결정적 동작이 나타납니다.
+* ROW_NUMBER를 사용하여 쿼리에 의해 반환되는 행이 각 실행과 정확히 같은 순서로 정렬되도록 하려면 다음 조건이 참이어야 합니다.
   
   * 분할된 열의 값은 고유합니다.
   * ORDER BY 열의 값은 고유합니다.
   * 분할 열과 ORDER BY 열 값의 조합은 고유합니다.
 
 ### <a name="ntile"></a>NTILE
-NTILE은 지정된 수의 그룹으로 정렬된 파티션에 행을 배포합니다. 그룹에는 1부터 번호가 지정됩니다. 
+NTILE은 지정된 수의 그룹으로 정렬된 파티션에 행을 배포합니다. 그룹에는&1;부터 번호가 지정됩니다. 
 
-다음 예는 각 파티션(Vertical)의 행 집합을 쿼리 대기 시간 순으로 4개 그룹으로 분할하고 각 행에 대한 그룹 번호를 반환합니다. 
+다음 예는 각 파티션(Vertical)의 행 집합을 쿼리 대기 시간 순으로&4;개 그룹으로 분할하고 각 행에 대한 그룹 번호를 반환합니다. 
 
-이미지 Vertical에는 행이 3개 있고 따라서 그룹이 3개 있습니다. 
+Image vertical에는&3;개의 행이 있으므로 그룹이&3;개입니다. 
 
-웹 Vertical에는 행이 6개 있고, 2개의 추가 행이 앞쪽 2개 그룹에 배포되었습니다. 때문에 그룹 1과 그룹 2에 행이 2개 있고, 그룹 3과 그룹 4에는 1개만 있습니다.  
+Web vertical에는&6;개의 행이 있습니다.  2개의 추가 행이 처음&2;개 그룹으로 분산됩니다. 이때문에 그룹 1과 그룹 2에 행이 2개 있고, 그룹 3과 그룹 4에는 1개만 있습니다.  
 
     @result =
         SELECT 
@@ -430,7 +430,7 @@ NTILE은 매개 변수 ("numgroups")를 사용합니다. Numgroups는 각 파티
 * 102개의 행은 4개 그룹[ 26, 26, 25, 25 ]으로 나뉩니다.
 
 ### <a name="top-n-records-per-partition-via-rank-denserank-or-rownumber"></a>RANK, DENSE_RANK 또는 ROW_NUMBER를 통한 파티션 당 상위 N개 레코드
-많은 사용자가 그룹 당 최대 행 n개를 선택하기를 바랍니다. 기존의 GROUP BY로는 이것이 불가능합니다. 
+많은 사용자가 그룹당 상위 n개 행만 선택하려고 하지만 기존 GROUP BY로는 이 작업이 가능하지 않습니다. 
 
 순위 함수 섹션의 시작 부분에 다음 예가 있습니다. 각 파티션에 대해 상위 N개 레코드를 표시하지 않습니다.
 
@@ -457,7 +457,7 @@ NTILE은 매개 변수 ("numgroups")를 사용합니다. Numgroups는 각 파티
 | Durian |500 |웹 |6 |5 |6 |
 
 ### <a name="top-n-with-dense-rank"></a>DENSE RANK를 통한 상위 N개
-다음 예는 각 창 파티션에서 행의 연속적인 순위 번호에 간격을 두지 않고 각 그룹에서 상위 3개 레코드를 반환합니다.
+다음 예는 각 파티션에서 행의 연속적인 순위 번호에 간격을 두지 않고 각 그룹에서 상위&3;개 레코드를 반환합니다.
 
     @result =
     SELECT 
@@ -529,7 +529,7 @@ NTILE은 매개 변수 ("numgroups")를 사용합니다. Numgroups는 각 파티
 | Papaya |200 |웹 |3 |
 
 ### <a name="assign-globally-unique-row-number"></a>전역적으로 고유한 행 번호 할당
-각 행에 전역적으로 고유한 번호를 할당하는 것이 유용합니다. 이 작업은 순위 함수를 사용하면 쉽습니다(리듀서를 사용하는 것보다 효율적입니다).
+각 행에 전역적으로 고유한 번호를 할당하는 것이 유용합니다. 리듀서를 사용하는 것보다 순위 함수를 사용하는 것이 더 쉽고 좀 더 효율적입니다.
 
     @result =
         SELECT 
@@ -549,9 +549,9 @@ NTILE은 매개 변수 ("numgroups")를 사용합니다. Numgroups는 각 파티
 * PERCENTILE_DISC
 
 ### <a name="cumedist"></a>CUME_DIST
-CUME_DIST는 값 그룹에 지정된 값의 상대적인 위치를 계산합니다. 동일한 Vertical에 포함된 현재 쿼리와 대기 시간이 같거나 작은 쿼리의 백분율을 계산합니다. R 행에 대해 오름차순 정렬을 가정하고, R의 CUME_DIST는 R의 값보다 작거나 같은 값을 포함하는 행의 수를 쿼리 결과 집합 또는 파티션에서 계산된 행의 수로 나눈 값입니다. CUME_DIST는 0 < x <= 1 범위에 속하는 숫자를 반환합니다.
+CUME_DIST는 값 그룹에 지정된 값의 상대적인 위치를 계산합니다. 동일한 Vertical에 포함된 현재 쿼리와 대기 시간이 같거나 작은 쿼리의 백분율을 계산합니다. 오름차순 정렬을 가정하는 R 행에 대한 CUME_DIST는 R의 값보다 작거나 같은 값을 포함하는 행의 수를 파티션에서 계산된 행의 수로 나눈 값입니다. CUME_DIST는 0 < x <= 1 범위에 속하는 숫자를 반환합니다.
 
-** 구문**
+**구문:**
 
     CUME_DIST() 
         OVER (
@@ -581,7 +581,7 @@ CUME_DIST는 값 그룹에 지정된 값의 상대적인 위치를 계산합니�
 | Papaya |200 |웹 |0.5 |
 | Apple |100 |웹 |0.166666666666667 |
 
-파티션에 행이 6개 있고 파티션 키는 “Web”(4번째 행 이하)입니다.
+파티션에 행이&6;개 있고 파티션 키는 “Web”(4번째 행 이하)입니다.
 
 * 값이 500보다 작거나 같은 행이 6개 있고, 따라서 CUME_DIST는 6/6=1과 같습니다.
 * 값이 400보다 작거나 같은 행이 5개 있고, 따라서 CUME_DIST는 5/6=0.83과 같습니다.
@@ -593,15 +593,15 @@ CUME_DIST는 값 그룹에 지정된 값의 상대적인 위치를 계산합니�
 
 * 동등한 값은 항상 같은 누적 분포 값으로 평가됩니다.
 * NULL 값은 최저 가능한 값으로 처리됩니다.
-* CUME_DIST를 계산하려면 ORDER BY 절을 지정해야 합니다.
+* ORDER BY 절은 CUME_DIST를 계산하는 데 필요합니다.
 * CUME_DIST는 PERCENT_RANK 함수와 유사합니다.
 
-참고: ORDER BY 절은 SELECT 문 다음에 OUTPUT이 오지 않으면 허용되지 않습니다. OUTPUT 문에 포함된 ORDER BY 절은 결과로 생기는 행 집합의 표시 순서를 결정합니다.
+참고: SELECT 문 다음에 OUTPUT이 오지 않으면 ORDER BY 절은 허용되지 않습니다.
 
 ### <a name="percentrank"></a>PERCENT_RANK
 PERCENT_RANK는 행 그룹 내에서 행의 상대적인 순위를 계산합니다. PERCENT_RANK는 행 집합 또는 파티션에 포함된 값의 상대적인 위치를 계산하는데 사용됩니다. PERCENT_RANK에 의해 반환되는 값의 범위는 0보다 크고 1보다 작거나 같습니다. CUME_DIST와 달리 PERCENT_RANK의 첫 번째 행은 항상 0입니다.
 
-** 구문**
+**구문:**
 
     PERCENT_RANK() 
         OVER (
@@ -613,7 +613,7 @@ PERCENT_RANK는 행 그룹 내에서 행의 상대적인 순위를 계산합니�
 
 * 모든 집합의 첫 번째 행에는 PERCENT_RANK가 0입니다.
 * NULL 값은 최저 가능한 값으로 처리됩니다.
-* PERCENT_RANK를 계산하려면 ORDER BY 절을 지정해야 합니다.
+* PERCENT_RANK는 ORDER BY 절이 있어야 합니다.
 * CUME_DIST는 PERCENT_RANK 함수와 유사합니다. 
 
 다음 예는 Vertical 내 각 쿼리에 대한 대기 시간 백분위수 계산에 PERCENT_RANK 함수를 사용합니다. 
@@ -630,7 +630,7 @@ PERCENT_RANK 함수에 의해 반환되는 값은 Vertical에 포함된 쿼리�
 
 결과:
 
-| 쿼리 | Latency:int | Vertical | PercentRank |
+| 쿼리 | Latency: INT | Vertical | PercentRank |
 | --- | --- | --- | --- |
 | Banana |300 |이미지 |0 |
 | Cherry |300 |이미지 |0 |
@@ -642,10 +642,10 @@ PERCENT_RANK 함수에 의해 반환되는 값은 Vertical에 포함된 쿼리�
 | Cherry |400 |웹 |0.8 |
 | Durian |500 |웹 |1 |
 
-### <a name="percentilecont-percentiledisc"></a>PERCENTILE_CONT 및 PERCENTILE_DISC
+### <a name="percentilecont--percentiledisc"></a>PERCENTILE_CONT 및 PERCENTILE_DISC
 두 함수는 열 값의 연속적인 또는 비연속적인 분포를 기반으로 백분위수를 계산합니다.
 
-**구문**
+**구문:**
 
     [PERCENTILE_CONT | PERCENTILE_DISC] ( numeric_literal ) 
         WITHIN GROUP ( ORDER BY <identifier> [ ASC | DESC ] )
@@ -653,7 +653,7 @@ PERCENT_RANK 함수에 의해 반환되는 값은 Vertical에 포함된 쿼리�
 
 **numeric_literal** - 계산할 백분위수입니다. 이 값은 0.0과 1.0 사이여야 합니다.
 
-WITHIN GROUP ( ORDER BY <identifier> [ ASC | DESC ]) - 백분위수를 정렬하고 계산하는 숫자 값 목록을 나타냅니다. 열 식별자 하나만 허용됩니다. 이 식은 숫자 형식만 계산해야 합니다. 다른 데이터 형식은 허용되지 않습니다. 기본 정렬 순서는 오름차순입니다.
+WITHIN GROUP (ORDER BY <identifier> [ ASC | DESC ]) - 백분위수를 정렬하고 계산하는 숫자 값 목록을 나타냅니다. 열 식별자 하나만 허용됩니다. 이 식은 숫자 형식만 계산해야 합니다. 다른 데이터 형식은 허용되지 않습니다. 기본 정렬 순서는 오름차순입니다.
 
 OVER ([ PARTITION BY <identifier>…[n] ] ) – 입력 행 집합을 백분율 함수가 적용되는 파티션 키 마다 나뉘도록 파티션으로 나눕니다. 자세한 내용은 이 문서의 순위 섹션을 참고하십시오.
 참고: 데이터 집합의 모든 null 값은 무시됩니다.
@@ -679,7 +679,7 @@ OVER ([ PARTITION BY <identifier>…[n] ] ) – 입력 행 집합을 백분율 �
 
 결과:
 
-| 쿼리 | Latency:int | Vertical | PercentileCont50 | PercentilDisc50 |
+| 쿼리 | Latency: INT | Vertical | PercentileCont50 | PercentilDisc50 |
 | --- | --- | --- | --- | --- |
 | Banana |300 |이미지 |300 |300 |
 | Cherry |300 |이미지 |300 |300 |
@@ -703,13 +703,13 @@ PERCENTILE_DISC는 값을 보정하지 않으며 따라서 웹에 대한 중간�
 * [Azure 데이터 레이크 분석 대화형 자습서 사용](data-lake-analytics-use-interactive-tutorials.md)
 * [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
 * [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
-* [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
-* [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-powershell.md)
-* [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)
+* [Azure PowerShell을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-powershell.md)
+* [Azure 포털을 사용하여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

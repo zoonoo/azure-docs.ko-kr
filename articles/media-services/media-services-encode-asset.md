@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dc153e837a20f475c0e0b03ac698f9f84a045364
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: ea3d67f7e73f9e1fb716e9c5cdd4873b0b7dddd4
 
 
 ---
@@ -27,7 +27,7 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 미디어 서비스로 시작하는 경우 코덱과 파일 형식 간의 차이점을 이해하는 것은 중요합니다.
 코덱은 압축/압축 해제 알고리즘을 구현하는 소프트웨어이고 파일 형식은 압축된 비디오를 보관하는 컨테이너입니다.
 
-미디어 서비스는 적응 비트 전송률 MP4 또는 부드러운 스트리밍 인코딩 콘텐츠를 미디어 서비스에서 지원되는 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍, HDS)으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다.
+미디어 서비스는 적응 비트 전송률 MP4 또는 부드러운 스트리밍 인코딩 콘텐츠를 미디어 서비스에서 지원되는 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다.
 
 [동적 패키징](media-services-dynamic-packaging-overview.md)을 이용하려면 다음을 수행해야 합니다.
 
@@ -59,13 +59,13 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 인코더 출력 메타데이터는 [여기](http://msdn.microsoft.com/library/azure/dn783217.aspx)에서 설명합니다.
 
 ### <a name="generate-thumbnails"></a>미리 보기 생성
-자세한 내용은 [미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법](media-services-custom-mes-presets-with-dotnet.md#thumbnails)을 참조하세요.
+자세한 내용은 [미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법](media-services-advanced-encoding-with-mes.md#thumbnails)을 참조하세요.
 
 ### <a name="trim-videos-clipping"></a>비디오 자르기(클리핑)
-자세한 내용은 [미디어 인코더 표준을 사용하여 비디오를 자르는 방법](media-services-custom-mes-presets-with-dotnet.md#trim_video)을 참조하세요.
+자세한 내용은 [미디어 인코더 표준을 사용하여 비디오를 자르는 방법](media-services-advanced-encoding-with-mes.md#trim_video)을 참조하세요.
 
 ### <a name="create-overlays"></a>오버레이 만들기
-자세한 내용은 [미디어 인코더 표준을 사용하여 오버레이를 만드는 방법](media-services-custom-mes-presets-with-dotnet.md#overlay)을 참조하세요.
+자세한 내용은 [미디어 인코더 표준을 사용하여 오버레이를 만드는 방법](media-services-advanced-encoding-with-mes.md#overlay)을 참조하세요.
 
 ### <a name="see-also"></a>참고 항목
 [미디어 서비스 블로그](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
@@ -80,121 +80,8 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 [Azure 미디어 서비스의 프리미엄 인코딩 사용 방법](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
 ### <a name="known-issues"></a>알려진 문제
-입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다. 
+입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다.
 
-## <a name="a-idcompareencodersacompare-encoders"></a><a id="compare_encoders"></a>인코더 비교
-### <a name="a-idbillingabilling-meter-used-by-each-encoder"></a><a id="billing"></a>각 인코더에서 사용되는 요금 청구 기준
-| 미디어 프로세서 이름 | 적용 가능한 가격 | 참고 사항 |
-| --- | --- | --- |
-| **미디어 인코더 표준** |인코더 |인코딩 작업은 출력 자산의 크기(기가바이트 단위)에 따라 [here][1](ENCODER 열 아래)에 지정된 비율로 청구됩니다. |
-| **Media Encoder Premium 워크플로** |프리미엄 인코더 |인코딩 작업은 출력 자산의 크기(기가바이트 단위)에 따라 [here][1](PREMIUM ENCODER 열 아래)에 지정된 비율로 청구됩니다. |
-
-이 섹션에서는 **Media Encoder Standard** 및 **Media Encoder Premium Workflow**의 인코딩 기능을 비교합니다.
-
-### <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
-| 입력 컨테이너/파일 형식 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
-| --- | --- | --- |
-| Adobe® Flash® F4V |예 |예 |
-| MXF/SMPTE 377M |예 |예 |
-| GXF |예 |예 |
-| MPEG-2 전송 스트림 |예 |예 |
-| MPEG-2 프로그램 스트림 |예 |예 |
-| MPEG-4/MP4 |예 |예 |
-| Windows Media/ASF |예 |예 |
-| AVI(압축되지 않은 8비트/10비트) |예 |예 |
-| 3GPP/3GPP2 |예 |아니요 |
-| 부드러운 스트리밍 파일 형식(PIFF 1.3) |예 |아니요 |
-| [DVR-MS(Microsoft Digital Video Recording)](https://msdn.microsoft.com/library/windows/desktop/dd692984) |예 |아니요 |
-| Matroska/WebM |예 |아니요 |
-| QuickTime(.mov) |예 |아니요 |
-
-### <a name="input-video-codecs"></a>입력 비디오 코덱
-| 입력 비디오 코덱 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
-| --- | --- | --- |
-| AVC 8비트/10비트, 최대 4:2:2, AVCIntra 포함 |8비트 4:2:0 및 4:2:2 |예 |
-| Avid DNxHD(MXF) |예 |예 |
-| DVCPro/DVCProHD(MXF) |예 |예 |
-| JPEG2000 |예 |예 |
-| MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |최대 422 프로필 |예 |
-| MPEG-1 |예 |예 |
-| Windows Media 비디오/VC-1 |예 |예 |
-| Canopus HQ/HQX |아니요 |아니요 |
-| Mpeg-4 2부 |예 |아니요 |
-| [Theora](https://en.wikipedia.org/wiki/Theora) |예 |아니요 |
-| Apple ProRes 422 |예 |아니요 |
-| Apple ProRes 422 LT |예 |아니요 |
-| Apple ProRes 422 HQ |예 |아니요 |
-| Apple ProRes Proxy |예 |아니요 |
-| Apple ProRes 4444 |예 |아니요 |
-| Apple ProRes 4444 XQ |예 |아니요 |
-
-### <a name="input-audio-codecs"></a>입력 오디오 코덱
-| 입력 오디오 코덱 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
-| --- | --- | --- |
-| AES(SMPTE 331M 및 302M, AES3-2003) |아니요 |예 |
-| Dolby® E |아니요 |예 |
-| Dolby® Digital(AC3) |아니요 |예 |
-| Dolby® Digital Plus(E-AC3) |아니요 |예 |
-| AAC(AAC-LC, AAC-HE 및 AAC-HEv2, 최대 5.1) |예 |예 |
-| MPEG Layer 2 |예 |예 |
-| MP3(MPEG-1 Audio Layer 3) |예 |예 |
-| Windows Media 오디오 |예 |예 |
-| WAV/PCM |예 |예 |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |예 |아니요 |
-| [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |예 |아니요 |
-| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |예 |아니요 |
-
-### <a name="output-containerfile-formats"></a>출력 컨테이너/파일 형식
-| 출력 컨테이너/파일 형식 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
-| --- | --- | --- |
-| Adobe® Flash® F4V |아니요 |예 |
-| MXF(OP1a, XDCAM 및 AS02) |아니요 |예 |
-| DPP(AS11 포함) |아니요 |예 |
-| GXF |아니요 |예 |
-| MPEG-4/MP4 |예 |예 |
-| MPEG-TS |예 |예 |
-| Windows Media/ASF |아니요 |예 |
-| AVI(압축되지 않은 8비트/10비트) |아니요 |예 |
-| 부드러운 스트리밍 파일 형식(PIFF 1.3) |아니요 |예 |
-
-### <a name="output-video-codecs"></a>출력 비디오 코덱
-| 출력 비디오 코덱 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
-| --- | --- | --- |
-| AVC(H.264, 8비트, 최대 High Profile, 수준 5.2, 4K Ultra HD, AVC Intra) |8비트 4:2:0만 |예 |
-| Avid DNxHD(MXF) |아니요 |예 |
-| MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |아니요 |예 |
-| MPEG-1 |아니요 |예 |
-| Windows Media 비디오/VC-1 |아니요 |예 |
-| JPEG 축소판 그림 만들기 |아니요 |예 |
-
-### <a name="output-audio-codecs"></a>출력 오디오 코덱
-| 출력 오디오 코덱 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
-| --- | --- | --- |
-| AES(SMPTE 331M 및 302M, AES3-2003) |아니요 |예 |
-| Dolby® Digital(AC3) |아니요 |예 |
-| Dolby® Digital Plus(E-AC3) 최대 7.1 |아니요 |예 |
-| AAC(AAC-LC, AAC-HE 및 AAC-HEv2, 최대 5.1) |예 |예 |
-| MPEG Layer 2 |아니요 |예 |
-| MP3(MPEG-1 Audio Layer 3) |아니요 |예 |
-| Windows Media 오디오 |아니요 |예 |
-
-## <a name="error-codes"></a>오류 코드
-다음 표에서는 인코딩 작업을 실행하는 동안 오류가 발생한 경우 반환될 수 있는 오류 코드를 나열합니다.  .NET 코드에서 오류 세부 정보를 가져오려면 [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) 클래스를 사용합니다. REST 코드에서 오류 세부 정보를 가져오려면 [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST API를 사용합니다.
-
-| ErrorDetail.Code | 가능한 오류 원인 |
-| --- | --- |
-| 알 수 없음 |작업을 실행하는 동안 알 수 없는 오류입니다. |
-| ErrorDownloadingInputAssetMalformedContent |잘못된 파일 이름, 길이가 0인 파일, 잘못된 형식 등 입력 자산을 다운로드하는 동안 발생하는 오류를 포함하는 오류 범주입니다. |
-| ErrorDownloadingInputAssetServiceFailure |다운로드하는 동안 발생하는 네트워크 또는 저장소 오류 등 서비스 쪽의 문제를 포함하는 오류 범주입니다. |
-| ErrorParsingConfiguration |구성이 잘못된 시스템 기본 설정이거나 잘못된 XML이 포함된 경우 등 작업 <see cref="MediaTask.PrivateData"/>(구성)가 잘못된 경우의 오류 범주입니다. |
-| ErrorExecutingTaskMalformedContent |입력 미디어 파일 내의 문제로 인해 실패가 발생한 작업을 실행하는 동안 발생하는 오류 범주입니다. |
-| ErrorExecutingTaskUnsupportedFormat |미디어 프로세서가 지정한 미디어 형식이 지원되지 않는 파일을 처리할 수 없거나 구성과 일치하지 않는 경우의 오류 범주입니다. 예를 들어 비디오만 사용할 수 있는 자산에서 오디오 전용 출력을 생성하려고 하는 경우 |
-| ErrorProcessingTask |콘텐츠와 관련되지 않은 작업을 처리하는 동안 미디어 프로세서에서 발생하는 기타 오류 범주입니다. |
-| ErrorUploadingOutputAsset |출력 자산을 업로드할 때 발생하는 오류를 포함하는 오류 범주입니다. |
-| ErrorCancelingTask |작업을 취소하려고 할 때 발생하는 오류를 포함하는 오류 범주입니다. |
-| TransientError |일시적인 문제를 포함하는 오류 범주(예:  Azure Storage의 임시 네트워킹 문제)입니다. |
-
-**미디어 서비스** 팀에 도움을 요청하려면 [지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 엽니다.
 
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -211,6 +98,6 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

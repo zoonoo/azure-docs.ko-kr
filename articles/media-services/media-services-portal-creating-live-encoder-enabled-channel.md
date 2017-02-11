@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 1b0f5d61753df5860c4cc934ea2aad5175a41e16
 
 
 ---
@@ -54,9 +54,7 @@ ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
    
     이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
 5. 이벤트/프로그램을 만듭니다(자산도 만들어짐). 
-6. 이벤트를 게시합니다(연결된 자산에 대한 주문형 로케이터가 만들어짐).  
-   
-    콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
+6. 이벤트를 게시합니다(연결된 자산에 대한 주문형 로케이터가 만들어짐).    
 7. 스트리밍 및 보관을 시작할 준비가 되었으면 이벤트를 시작합니다.
 8. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
 9. 이벤트 스트리밍 및 보관을 중지할 때마다 이벤트를 중지합니다.
@@ -65,43 +63,20 @@ ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
 ## <a name="in-this-tutorial"></a>자습서 내용
 이 자습서에서는 Azure 포털을 사용하여 다음 작업을 수행합니다. 
 
-1. 스트리밍 끝점을 구성합니다.
-2. 라이브 인코딩을 수행할 수 있는 채널 만들기
-3. 라이브 인코더에 제공하기 위해 수집 URL 가져오기. 라이브 인코더는 이 URL을 사용하여 스트림을 채널에 수집합니다. 차 내리지 않습니다.
-4. 이벤트/프로그램(및 자산)을 만듭니다.
-5. 자산을 게시하고 스트리밍 URL 가져오기  
-6. 콘텐츠 재생 
-7. 정리
+1. 라이브 인코딩을 수행할 수 있는 채널 만들기
+2. 라이브 인코더에 제공하기 위해 수집 URL 가져오기. 라이브 인코더는 이 URL을 사용하여 스트림을 채널에 수집합니다.
+3. 이벤트/프로그램(및 자산)을 만듭니다.
+4. 자산을 게시하고 스트리밍 URL을 가져옵니다.  
+5. 콘텐츠를 재생합니다.
+6. 정리합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 
   자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * 미디어 서비스 계정. Media Services 계정을 만들려면 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 * 단일 비트 전송률 라이브 스트림을 보낼 수 있는 웹캠 및 인코더.
-
-## <a name="configure-streaming-endpoints"></a>스트리밍 끝점 구성
-Media Services는 다중 비트 전송률 MP4를 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다. 동적 패키징에서는 단일 저장소 형식으로 파일을 저장하고 비용을 지불하기만 하면 됩니다. 그러면 미디어 서비스가 클라이언트의 요청에 따라 적절한 응답을 빌드 및 제공합니다.
-
-동적 패키징을 이용하려면 콘텐츠를 배달할 계획인 스트리밍 끝점에 대한 스트리밍 단위를 하나 이상 가져와야 합니다.  
-
-스트리밍 예약 단위의 수를 만들고 변경하려면 다음을 수행합니다.
-
-1. [Azure Portal](https://portal.azure.com/)에 로그인하고 AMS 계정을 선택합니다.
-2. **설정** 창에서 **스트리밍 끝점**을 클릭합니다. 
-3. 기본 스트리밍 끝점을 클릭합니다. 
-   
-    **기본 스트리밍 끝점 세부 정보** 창이 나타납니다.
-4. 스트리밍 단위 수를 지정하려면 **스트리밍 단위** 슬라이더를 밉니다.
-   
-    ![스트리밍 단위](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
-5. **저장** 단추를 클릭하여 변경 내용을 저장합니다.
-   
-   > [!NOTE]
-   > 새 단위를 할당하는 작업은 완료하는 데 최대 20분까지 소요될 수 있습니다.
-   > 
-   > 
 
 ## <a name="create-a-channel"></a>채널 만들기
 1. [Azure Portal](https://portal.azure.com/)에서 Media Services를 선택한 후 Media Services 계정 이름을 클릭합니다.
@@ -172,6 +147,9 @@ Media Services는 다중 비트 전송률 MP4를 스트리밍 형식(MPEG DASH, 
 ### <a name="createstartstop-events"></a>이벤트 만들기/시작/중지
 채널로 들어오는 스트림이 있으면 자산, 프로그램 및 스트리밍 로케이터를 만들어 스트리밍 이벤트를 시작할 수 있습니다. 이렇게 하면 스트림이 보관되고 스트리밍 끝점을 통해 시청자가 스트림을 사용할 수 있게 됩니다. 
 
+>[!NOTE]
+>AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
+
 이벤트를 시작하는 방법에는 다음 두 가지가 있습니다. 
 
 1. **채널** 페이지에서 **라이브 이벤트**를 눌러 새 이벤트를 추가합니다.
@@ -216,7 +194,7 @@ Media Services는 다중 비트 전송률 MP4를 스트리밍 형식(MPEG DASH, 
 
 ## <a name="considerations"></a>고려 사항
 * 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 오랜 시간 채널을 실행해야 하는 경우 amslived@microsoft.com으로 문의하세요.
-* 콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
+* 콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태에 있는지 확인합니다.
 
 ## <a name="next-step"></a>다음 단계
 미디어 서비스 학습 경로를 검토합니다.
@@ -229,6 +207,6 @@ Media Services는 다중 비트 전송률 MP4를 스트리밍 형식(MPEG DASH, 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,192 +1,101 @@
 ---
-title: Cortana Intelligence 갤러리 | Microsoft Docs
-description: Cortana Intelligence 갤러리의 분석 솔루션 등 공유 및 검색 다른 사용자로부터 배우고 커뮤니티에 직접 제공합니다.
+title: "Cortana Intelligence 갤러리 | Microsoft Docs"
+description: "Cortana Intelligence 갤러리의 분석 리소스 등 공유 및 검색 다른 사용자로부터 배우고 커뮤니티에 직접 제공합니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: cf518538-6046-4657-a7cb-a0bc487c67e6
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db1ccf3a2dfecb7b30e38a614a1f5454c2a012ca
+
 
 ---
-# Cortana Intelligence 갤러리의 솔루션 공유 및 검색
-Cortana Intelligence 갤러리는 제품의 Cortana Intelligence Suite 집합을 사용하여 작성된 솔루션 검색 및 공유를 위한 커뮤니티 기반 사이트입니다. 다른 사용자를 통해 학습하고 고유한 솔루션 개발을 시작하거나 고유한 작업을 고급 분석 커뮤니티에 기여하려는 사용자를 대상으로 합니다.
+# <a name="share-and-discover-resources-in-the-cortana-intelligence-gallery"></a>Cortana Intelligence 갤러리의 리소스 공유 및 검색
+[!INCLUDE [gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
-**[갤러리로 이동 >>](http://gallery.cortanaintelligence.com)**
+<!-- separating these 2 includes -->
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## 갤러리에는 어떤 응용 프로그램이 있습니까?
+## <a name="what-can-i-find-in-the-gallery"></a>갤러리에는 어떤 응용 프로그램이 있습니까?
 Cortana Intelligence Gallery에는 쟈체 분석 솔루션을 개발하는 데 사용할 수 있는 다양한 리소스가 있습니다.
 
-* **[실험](https://gallery.cortanaintelligence.com/experiments)** -갤러리에는 Azure 기계 학습 스튜디오에서 개발된 매우 다양한 실험이 들어 있습니다. 이러한 실험은 특정한 기계 학습 기법을 보여주는 빠른 개념 증명 실험에서 복잡한 기계 학습 문제에 대한 완전히 개발된 솔루션에 이르기까지 다양합니다.
-* **[Jupyter 노트북](https://gallery.cortanaintelligence.com/notebooks)** -Jupyter 노트북은 하나의 단일 대화형 캔버스에 코드, 데이터 시각화 및 문서를 포함합니다. 갤러리의 노트북은 자습서는 물론 고급 기계 학습 기술 및 솔루션에 대한 설명을 제공합니다.
-* **[기계 학습 API](https://gallery.cortanaintelligence.com/machineLearningAPIs)** - Azure 기계 학습에서 개발된 솔루션은 다른 사용자가 REST API 집합을 통해 분석 모델에 액세스할 수 있도록 웹 서비스로 실행될 수 있습니다. 제품 권장 엔진 또는 클라우드 기반 얼굴 및 음성 인식 등과 같은 이러한 다양한 솔루션을 갤러리에서 사용할 수 있습니다.
-* **[솔루션 템플릿을](https://gallery.cortanaintelligence.com/solutionTemplates)** - 솔루션 템플릿은 산업 관련 문제에 대한 완벽한 종단간 솔루션을 빠르게 빌드하도록 시작 지점을 제공합니다. 이러한 템플릿에는 자신의 솔루션을 빌드하기 시작하는 데 필요한 광범위한 설명서와 모든 도구가 들어 있습니다.
-* **[자습서](https://gallery.cortanaintelligence.com/tutorials)** - 기계 학습 기술 및 개념을 안내하거나 다양한 기계 학습 문제를 해결하기 위한 고급 방법을 설명하는 다양한 자습서가 있습니다.
+* **[실험](machine-learning-gallery-experiments.md)** - 갤러리에는 Azure Machine Learning Studio에서 개발된 매우 다양한 실험이 들어 있습니다. 이러한 실험은 특정한 기계 학습 기법을 보여주는 빠른 개념 증명 실험에서 복잡한 기계 학습 문제에 대한 완전히 개발된 솔루션에 이르기까지 다양합니다.
+* **[Jupyter 노트북](machine-learning-gallery-jupyter-notebooks.md)** - Jupyter 노트북은 하나의 단일 대화형 캔버스에 코드, 데이터 시각화 및 문서를 포함합니다.
+  갤러리의 노트북은 자습서는 물론 고급 기계 학습 기술 및 솔루션에 대한 설명을 제공합니다.
+
+<!--
+- **[Machine Learning APIs](https://machine-learning-gallery-apis.md)** - An experiment developed in Azure Machine Learning can be launched as a web service so that the analytics model can be accessed by others through a set of REST APIs. A variety of these APIs are available in the Gallery, such as a product recommendation engine or cloud-based face and speech recognition.
+-->
+
+* **[솔루션](machine-learning-gallery-solutions.md)** - 미리 구성된 솔루션, 참조 아키텍처, 디자인 패턴을 통해 Cortana Intelligence 솔루션을 신속하게 구축합니다. 포함된 지침을 사용하여 또는 전문 파트너와 함께 자신만의 솔루션을 만들 수 있습니다.
+* **[자습서](machine-learning-gallery-tutorials.md)** - Machine Learning 기술 및 개념을 안내하거나 다양한 Machine Learning 문제를 해결하기 위한 고급 방법을 설명하는 다양한 자습서가 있습니다.
 
 이러한 기본 갤러리 리소스는 몇 가지 다른 방식으로 논리적으로 그룹화될 수 있습니다.
 
-* **[컬렉션](https://gallery.cortanaintelligence.com/collections)** - 컬렉션을 사용하면 특정한 솔루션 또는 개념을 다루는 실험, API 및 기타 갤러리 항목을 그룹화할 수 있습니다.
-* **[산업별 솔루션](https://gallery.cortanaintelligence.com/industries)** - 갤러리의 산업 섹션은 소매, 제조, 금융, 의료 등과 같은 산업에 관련된 다양한 리소스를 제공합니다.
+* **[컬렉션](machine-learning-gallery-collections.md)** - 컬렉션을 사용하면 특정한 솔루션 또는 개념을 다루는 실험, API 및 기타 갤러리 항목을 그룹화할 수 있습니다.
+* **[산업](machine-learning-gallery-industries.md)** - 갤러리의 산업 섹션은 소매, 제조, 금융, 의료 등과 같은 산업에 관련된 다양한 리소스를 제공합니다.
 
-마지막으로, **[대회](https://gallery.cortanaintelligence.com/competitions)**는 Cortana Intelligence Suite을 사용하여 복잡한 문제를 해결하기 위해 데이터 과학자 커뮤니티와 경쟁할 멋진 기회를 제공합니다.
+마지막으로, **[대회](machine-learning-gallery-competitions.md)**는 Cortana Intelligence Suite을 사용하여 복잡한 문제를 해결하기 위해 데이터 과학자 커뮤니티와 경쟁할 멋진 기회를 제공합니다.
 
-## 어떻게 하면 갤러리를 사용할 수 있습니까?
-누구나 갤러리에서 솔루션을 탐색 및 검색할 수 있고 다른 사람들에게 배울 수 있습니다. Microsoft 계정을 사용하여 로그인할 경우 또한 자신의 기계 학습 스튜디오 작업 영역으로 실험을 다운로드할 수도 있고, 갤러리에 자신의 솔루션을 기여할 수 있습니다.
+![Cortana Intelligence 갤러리 홈 페이지](media/machine-learning-gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
-### 검색 및 배우기
-Microsoft 및 고급 분석 커뮤니티에서 제공된 다양한 종류의 솔루션을 검색 및 탐색합니다. 이를 사용하여 사용자 고유의 데이터 분석 문제를 해결하기 위한 기본적인 사항을 얻습니다.
+## <a name="discover-and-learn"></a>검색 및 배우기
+누구나 갤러리에서 Microsoft 및 고급 분석 커뮤니티에서 제공된 다양한 종류의 리소스를 찾아보고 검색할 수 있습니다.
+이를 사용하여 사용자 고유의 데이터 분석 문제를 해결하기 위한 기본적인 사항을 얻고 자세한 정보를 확인할 수 있습니다.
+또한 Machine Learning Studio 작업 영역에 실험 및 Jupyter 노트북을 다운로드할 수 있습니다.
 
-갤러리에서 최근에 게시된 인기 있는 솔루션을 쉽게 찾거나 이름, 태그, 알고리즘 및 기타 특성별로 검색할 수 있습니다. 타일에서 작성자 이름을 클릭하여 특정 작성자의 기고 내용을 볼 수 있습니다.
+갤러리에서 최근에 게시된 인기 있는 리소스를 쉽게 찾거나 이름, 태그, 알고리즘 및 기타 특성별로 검색할 수 있습니다.
+갤러리 헤더에서 **모두 찾아보기** 를 클릭한 다음 페이지 왼쪽에서 상세 검색을 선택하여 맨 위에 있는 검색어를 입력합니다.
 
-갤러리 헤더에서 **모두 찾아보기**를 클릭한 다음 페이지 왼쪽에서 상세 검색을 선택하여 맨 위에 있는 검색어를 입력합니다.
+타일에서 작성자 이름을 클릭하여 특정 작성자의 기고 내용을 볼 수 있습니다.
 
-각 솔루션 페이지의 주석 섹션을 통해 주석을 달거나 피드백을 제공하거나 질문을 할 수 있습니다. LinkedIn 또는 Twitter의 공유 기능을 사용하여 친구나 동료와 관심 있는 솔루션을 공유할 수 있습니다. 페이지를 보도록 다른 사용자를 초대하기 위해 이러한 솔루션의 링크를 메일로 보낼 수도 있습니다.
+![작성자의 기고 내용 보기](media/machine-learning-gallery-how-to-use-contribute-publish/view-by-author.png)
 
-### 실험 다운로드
-Cortana Intelligence 갤러리에서 한 번의 클릭으로 예측 분석 실험을 기계 학습 스튜디오 작업 영역에 쉽게 복사하고 사용자 용도에 맞게 설정하여 곧바로 사용할 수 있습니다. 검색하는 중에 아직 로그인하지 않은 경우, 실험을 작업 영역에 복사하기 전에 Microsoft 계정을 사용하여 로그인하도록 메시지가 표시됩니다.
+각 리소스 페이지의 주석 섹션을 통해 주석을 달거나 피드백을 제공하거나 질문을 할 수 있습니다.
+LinkedIn 또는 Twitter의 공유 기능을 사용하여 친구나 동료와 관심 있는 리소스를 공유할 수 있습니다.
+페이지를 보도록 다른 사용자를 초대하기 위해 이러한 리소스의 링크를 메일로 보낼 수도 있습니다.
 
-### 실험 및 컬렉션 기여
-로그인할 때 갤러리 커뮤니티의 구성원이 됩니다. 이를 통해 사용자는 자신만의 고유한 실험 및 컬렉션을 기여하여 다른 사용자가 솔루션을 활용하도록 할 수 있습니다.
+![이 항목을 친구들과 공유](media/machine-learning-gallery-how-to-use-contribute-publish/comment-and-share.png)
 
-양질의 갤러리 기여를 만드는 방법에 대한 자세한 내용 및 팁은 아래 섹션인 [품질 설명서 및 게시에 대한 제안](#suggestions-for-publishing-and-for-quality-documentation)을 참조하세요.
+## <a name="contribute-to-the-gallery"></a>갤러리에 기고
+로그인할 때 갤러리 커뮤니티의 구성원이 됩니다. 구성원이 되면 자신이 발견한 솔루션을 다른 사용자가 활용할 수 있도록 자신의 갤러리 항목을 기고할 수 있습니다.
 
-#### 실험 기여
-*실험*은 데이터와 다양한 분석 모듈을 연결하여 예측 분석 모델을 생성할 수 있는 기계 학습 스튜디오의 캔버스입니다. 다른 아이디어를 시도, 평가판 실행을 수행하고 마지막으로 Azure에 웹 서비스로 모델을 게시할 수 있습니다. 간단한 실험을 만드는 예는 [기계 학습 자습서: Azure 기계 학습 스튜디오에서 첫 번째 실험 만들기](machine-learning-create-experiment.md)를 참조하세요. 예측 분석 솔루션을 만드는 자세한 연습 과정은 [연습: Azure 기계 학습의 신용 위험 평가에 대한 예측 분석 솔루션 개발](machine-learning-walkthrough-develop-predictive-solution.md)을 참조하세요.
+다른 사용자가 갤러리에서 기고 내용을 찾으면 해당 기고 내용의 보기 및 다운로드 횟수를 확인할 수 있습니다.
 
-실험을 Cortana Intelligence 갤러리에 제공하려면 다음 단계를 수행합니다.
+![이 항목을 친구들과 공유](media/machine-learning-gallery-how-to-use-contribute-publish/view-and-download-counts.png)
 
-* Microsoft 계정을 사용하여 기계 학습 스튜디오에 로그인
-* 실험을 만들고 실행
-* 갤러리에 실험을 게시할 준비가 되면 실험 캔버스 아래에서 **갤러리에 게시**를 클릭합니다.
+또한 사용자는 주석을 추가하고 자신의 기고 내용을 데이터 과학 커뮤니티의 다른 구성원과 공유할 수 있습니다.
+Disqus와 같은 토론 도구에 로그인하여 기고 내용의 주석에 대한 알림을 받을 수 있습니다.
 
-실험 기고에 관한 세부 정보 및 팁은 아래 섹션의 [Azure 기계 학습 실험을 게시하기 위한 프로세스](#process-for-publishing-azure-ml-experiments)를 참조하세요,
+![사용자 주석 따르기](media/machine-learning-gallery-how-to-use-contribute-publish/follow-comments.png)
 
-#### 컬렉션 기고
-*컬렉션* 은 나중에 참조, 사용 또는 공유하기 위해 그룹화한 Cortana Intelligence 갤러리의 관련 항목 목록입니다. 컬렉션은 고유한 항목 또는 커뮤니티에서 제공된 항목을 포함할 수 있습니다.
+다음 항목을 갤러리에 기고할 수 있습니다. 자세한 내용을 보려면 다음 링크를 따르세요.
 
-예를 들어 컬렉션을 사용하여 특정 주제에 대한 항목을 그룹화하거나 복잡한 문제를 해결하는 여러 단계의 실험을 그룹화할 수 있습니다. Microsoft에서 제공한 초기 컬렉션은 온라인 부정 행위 검색, 텍스트 분류, 소매 예측 및 예측 유지 관리와 같은 실제 문제를 해결하기 위한 여러 단계의 기계 학습 실험 템플릿으로 구성되어 있습니다.
+* **[컬렉션](machine-learning-gallery-collections.md#contribute)**
+* **[실험](machine-learning-gallery-experiments.md#contribute)**
+* **[자습서](machine-learning-gallery-tutorials.md#contribute)**
 
-컬렉션을 만들고 Cortana Intelligence 갤러리에 제공하려면 다음 단계를 수행합니다.
-
-* Microsoft 계정을 사용하여 갤러리에 로그인
-* 창 위쪽의 이미지를 클릭하고 이름을 클릭
-* **새 컬렉션** 클릭
-* 컬렉션 이름, 간략한 요약, 설명, 사용자가 컬렉션을 찾는데 도움이 되는 모든 태그 제공
-* 컬렉션을 식별하는 이미지 추가
-* **만들기**를 클릭합니다.
-
-컬렉션이 Cortana Intelligence 갤러리의 일부가 되었습니다.
-
-컬렉션을 열고 **편집**을 클릭한 다음 **항목 추가**를 클릭하여 컬렉션에 항목을 추가할 수 있습니다. 또는 갤러리를 통해 탐색하는 동안 포함하려는 항목을 찾은 경우 항목을 열고 **컬렉션에 추가**를 클릭하고 추가하려는 컬렉션을 지정합니다.
-
-컬렉션을 열고 **편집**을 클릭하여 컬렉션의 요약, 설명 또는 태그를 변경할 수 있습니다. 컬렉션을 편집하는 동안 항목 옆의 화살표 단추를 사용하여 목록에서 이동하여 컬렉션의 항목 순서를 변경할 수 있습니다. 항목의 오른쪽 위 모서리를 클릭하고 **메모 추가/편집**을 선택하여 컬렉션의 항목에 메모를 추가할 수 있습니다.
-
-<!--
-![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
--->
-
-## 품질 설명서 및 게시에 대한 제안
-* 독자가 이미 데이터 과학 경험이 있다고 가정한다 하더라도 평이한 언어를 사용하고 가능하면 상세히 설명하는 것이 여전히 유용합니다.
-* Cortana Intelligence Suite이 비교적 새로운 것임을 고려할 때 모든 독자가 이에 대해 잘 알고 있지 않으므로 독자가 여러분의 작품을 탐색할 수 있게 충분한 정보와 단계별 설명을 제공해야 합니다.
-* 실험 그래프 또는 데이터 스크린 샷을 포함하는 시각 자료는 독자가 콘텐츠를 올바르게 해석하고 사용하도록 하는 데 매우 유용할 수 있습니다. 설명서에 이미지를 포함하는 방법에 대한 자세한 내용은 [이 컬렉션](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1)을 참조하세요.
-* 데이터 집합이 실험의 일부이고 판독기 모듈을 통해 가져올 수 없는 경우 실험의 일부이며 갤러리에 게시됩니다. 따라서 게시하는 데이터 집합에 누구나 공유하고 다운로드할 수 있는 적절한 라이선스 조건이 있는지 확인해야 합니다. 갤러리 기여에 관한 자세한 내용은 Azure [사용 약관](https://azure.microsoft.com/support/legal/website-terms-of-use/)에 나옵니다.
-
-## Azure 기계 학습 실험을 게시하기 위한 프로세스
-갤러리에 게시할 준비가 되었다면 아래의 5 단계를 수행합니다.
-
-1. 제목 및 태그 필드를 작성합니다. 예를 들어, "이진 분류: Twitter 감성 분석"과 같이 제목 및 태그가 사용된 기술이나 해결된 실제 문제를 강조하는 설명적인 표현이 되도록 합니다. ![게시할 때 제목과 태그 필드 작성하기](media/machine-learning-gallery-how-to-use-contribute-publish/experiment-description.png)
-2. 콘텐츠가 다루는 내용을 요약하여 작성합니다. 해결된 문제와 해결 방법을 간략하게 설명합니다.
-3. 자세한 설명 상자를 사용하여 실험의 다른 부분을 단계적으로 작성해 나갑니다. 여기에 포함할 몇 가지 유용한 주제는 다음과 같습니다.
-   
-   * 실험 그래프 스크린샷.
-   * 데이터 원본 및 설명.
-   * 데이터 처리.
-   * 기능 엔지니어링.
-   * 모델 설명.
-   * 결과 및 모델 성능 평가.
-     
-     필요에 따라 서식에 Markdown을 사용할 수 있습니다. 게시했을 때 어떻게 보이는지 확인하려면 미리 보기 아이콘을 클릭합니다. 이 컬렉션의 예제는 어떤 정보를 포함하며 어떻게 정보를 구성할지에 대해 보여줍니다.
-     
-     > [!TIP]
-     > Markdown 편집을 위해 제공된 상자 및 미리 보기 상자는 매우 작습니다. Markdown 편집기에서 설명서를 작성하여 완성된 문서를 텍스트 상자에 붙여 넣는 것이 좋습니다. 실험을 게시한 후 Markdown의 표준 웹 기반 도구를 사용하여 편집 및 미리 보기를 통해 필요한 조정 및 수정을 할 수 있습니다.
-     > 
-     > 
-4. 갤러리 항목에 대한 미리보기 이미지를 업로드합니다. 이 이미지는 항목 페이지 위쪽에 표시되면 갤러리를 탐색할 경우 항목 타일에 표시됩니다. 컴퓨터에서 이미지를 선택하거나 기존 이미지에서 선택할 수 있습니다.
-5. 콘텐츠를 공개적으로 게시할지 또는 링크를 가진 사람에게만 액세스를 허용할지 선택합니다.
-   
-   > [!TIP]
-   > 설명서를 공개하기 전에 제대로 보이는지 확인하고자 한다면 먼저 목록에 없음으로 게시한 다음 항목 페이지에서 공용으로 전환할 수 있습니다.
-   > 
-   > 
-
-그게 다입니다– 모두 완료되었습니다.
-
-이제 갤러리에서 실험을 볼 수 있으며 다른 사용자와 링크를 공유할 수 있습니다. 공개적으로 게시한 경우 실험이 갤러리에서 찾아보기 및 검색 결과에 표시됩니다. 또한 로그인할 때마다 항목 페이지에서 해당 설명서를 편집할 수 있습니다.
-
-> [!TIP]
-> 게시한 실험을 변경하려면 Azure 기계 학습 스튜디오에서 실험으로 돌아가 변경한 다음 다시 게시합니다. 기본적으로 게시된 기존 콘텐츠를 업데이트하며 새로 콘텐츠를 만들지 않을 것입니다.
-> 
-> 
-
-## 사용자의 의견을 듣고 싶습니다!
-사용자가 주도하는 사용자를 위한 갤러리를 원합니다. 오른쪽에 있는 웃는 얼굴을 사용하여 갤러리가 마음에 드는지 아니면 싫어하는지 알려주세요.
+## <a name="we-want-to-hear-from-you"></a>사용자의 의견을 듣고 싶습니다!
+사용자가 주도하는 사용자를 위한 갤러리를 원합니다. 오른쪽에 있는 웃는 얼굴을 사용하여 갤러리가 마음에 드는지 아니면 싫어하는지 알려주세요.  
 
 ![사용자 의견](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
 
-## 질문과 대답
-**갤러리에 제출한 실험의 워크플로를 변경하고 싶습니다. 어떻게 하면 될까요?**
-
-현재로서는 이미 갤러리에 게시한 실험의 워크플로 업데이트를 지원하지 않습니다. 갤러리에 새 실험으로 변경사항을 게시하고 이전 실험은 제거할 수 있습니다. 갤러리에 이미 게시된 실험에 대한 워크플로에 업데이트를 게시할 수 있도록 적극적으로 작업하고 있습니다.
-
-**태그나 설명만 편집해야 하는 경우에도 새 실험을 게시해야 하나요?**
-
-다시 게시하는 과정을 수행하지 않고 이미 기고한 실험에 대해 편집할 수 있는 유형은 다음과 같습니다.
-
-* 실험 이름
-* 요약 텍스트
-* 설명 텍스트
-* 태그
-* 이미지
-
-이러한 필드를 편집하려면 편집하려는 특정 실험을 클릭합니다(Microsoft 계정으로 로그인하도록 함). 그러면 편집 또는 삭제 옵션이 표시되는 실험 세부 정보 페이지가 열립니다. **편집**을 클릭하면 위의 필드를 모두 편집할 수 있습니다.
-
-** 갤러리에 방금 실험을 게시했습니다. 내 이름과 함께 프로필 사진이 표시되지 않습니다.**
-
-@outlook, @msn, @live 또는 @hotmail 이외의 계정을 사용하고 계실 가능성이 있습니다. 그런 경우 Microsoft 계정 구성 설정의 프로필 사진이 아니라 자리 표시자 이미지가 표시됩니다. Microsoft 계정을 사용하여 실험을 다시 제출하면 이 문제가 해결될 수 있습니다.
-
-**Microsoft 계정 구성 설정에서 프로필 사진을 업데이트했습니다. 기존 실험 기고에 이 새 프로필 사진이 반영되지 않는 이유는 무엇인가요?**
-
-모든 실험에 최신 프로필 변경(프로필 사진, 이름 또는 성)을 적용하려는 경우, 이전 실험을 갤러리에 다시 제출해야 합니다. 이때, 이전 프로필 설정이 적용된 이전 사본을 삭제해야 합니다.
-
-**실험의 이미지를 제출하거나 편집할 때 이미지 요구 사항은 무엇인가요?**
-
-실험과 함께 제출할 이미지는 기고한 실험 타일을 만드는 데 사용합니다. 이미지의 크기는 500Kb 미만이고 가로 세로 비율은 3:2인 것이 좋습니다. 해상도는 960 x 640이 좋습니다.
-
-**실험에서 사용한 데이터 집합은 어떻게 되나요? 데이터 집합도 갤러리에 게시되나요?**
-
-데이터 집합이 실험의 일부이고 판독기 모듈을 통해 가져올 수 없는 경우 실험의 일부이며 실험과 함께 갤러리에 게시됩니다. 따라서 실험과 함께 게시하는 데이터 집합에 누구나 공유하고 다운로드할 수 있는 적절한 라이선스 조건이 있는지 확인해야 합니다.
-
-**데이터 가져오기 모듈을 사용하여 HDInsight 또는 SQL에서 데이터를 끌어오는 실험이 있습니다. 여기에서 제 자격 증명을 사용하여 데이터를 검색합니다. 제 자격 증명이 공유되지 않고 이러한 실험을 게시할 수 있는 방법은 무엇인가요?**
-
-현재로서는 자격 증명을 사용하는 실험은 게시할 수 없습니다.
-
-**태그를 구분하는 방법은 무엇인가요?**
-
-탭을 사용하여 태그를 구분할 수 있습니다.
-
-**일부 실험에 렌더링 기능이 많은 풍부한 설명이 있습니다. 그러나 설명을 제공하려고 하면 설명이 일반 텍스트로 표시됩니다.**
-
-풍부한 설명 렌더링은 모든 갤러리 사용자가 사용할 수 없습니다. markdown 렌더링 지원을 통해 이 기능을 사용할 수 있도록 적극적으로 작업하고 있습니다.
-
 **[갤러리로 이동 >>](http://gallery.cortanaintelligence.com)**
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

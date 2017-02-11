@@ -156,7 +156,7 @@ catch(ServiceException $e){
 
 테이블 속성 및 유형에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해][table-data-model]를 참조하십시오.
 
-**TableRestProxy** 클래스는 엔터티 삽입을 위해 **insertOrMergeEntity** 및 **insertOrReplaceEntity**라는 2개의 대체 메서드를 제공합니다. 이러한 메서드를 사용하려면 새 **Entity** 를 만들어 두 메서드 중 하나에 매개 변수로 전달합니다. 각 메서드는 엔터티가 없을 경우 해당 엔터티를 삽입합니다. 엔터티가 이미 있을 경우, **insertOrMergeEntity**는 속성이 이미 있으면 속성 값을 업데이트하고 속성이 없으면 새 속성을 추가하지만 **insertOrReplaceEntity**는 기존 엔터티를 완전히 바꿉니다. 다음 예제에서는 **insertOrMergeEntity**를 사용하는 방법을 보여 줍니다. `PartitionKey`"tasksSeattle”과 `RowKey`"1"인 엔터티가 아직 없으면 이 엔터티가 삽입됩니다. 그러나 위의 예제와 같이 엔터티가 이미 삽입되어 있으면 `DueDate` 속성이 업데이트되고 `Status` 속성이 추가됩니다. `Description`및`Location` 속성도 업데이트되지만 실질적으로 변경하지 않은 상태로 유지하는 값으로 업데이트됩니다. 이 2개의 속성이 예제와 같이 추가되지는 않지만 대상 엔터티에 이미 있는 경우, 두 속성의 기존 값은 변경되지 않습니다.
+**TableRestProxy** 클래스는 엔터티 삽입을 위해 **insertOrMergeEntity** 및 **insertOrReplaceEntity**라는&2;개의 대체 메서드를 제공합니다. 이러한 메서드를 사용하려면 새 **Entity** 를 만들어 두 메서드 중 하나에 매개 변수로 전달합니다. 각 메서드는 엔터티가 없을 경우 해당 엔터티를 삽입합니다. 엔터티가 이미 있을 경우, **insertOrMergeEntity**는 속성이 이미 있으면 속성 값을 업데이트하고 속성이 없으면 새 속성을 추가하지만 **insertOrReplaceEntity**는 기존 엔터티를 완전히 바꿉니다. 다음 예제에서는 **insertOrMergeEntity**를 사용하는 방법을 보여 줍니다. `PartitionKey`"tasksSeattle”과 `RowKey`"1"인 엔터티가 아직 없으면 이 엔터티가 삽입됩니다. 그러나 위의 예제와 같이 엔터티가 이미 삽입되어 있으면 `DueDate` 속성이 업데이트되고 `Status` 속성이 추가됩니다. `Description`및`Location` 속성도 업데이트되지만 실질적으로 변경하지 않은 상태로 유지하는 값으로 업데이트됩니다. 이&2;개의 속성이 예제와 같이 추가되지는 않지만 대상 엔터티에 이미 있는 경우, 두 속성의 기존 값은 변경되지 않습니다.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -333,7 +333,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="update-an-entity"></a>엔터티 업데이트
-엔터티에 대해 **Entity->setProperty** 및 **Entity->addProperty** 메서드를 사용하고 **TableRestProxy->updateEntity**를 호출하면 기존 엔터티를 업데이트할 수 있습니다. 다음 예제에서는 엔터티를 검색한 후, 속성 1개를 수정하고 다른 속성을 제거하고 새 속성을 추가합니다. 참고로, 속성을 제거할 때는 속성 값을 **null**로 설정하면 됩니다.
+엔터티에 대해 **Entity->setProperty** 및 **Entity->addProperty** 메서드를 사용하고 **TableRestProxy->updateEntity**를 호출하면 기존 엔터티를 업데이트할 수 있습니다. 다음 예제에서는 엔터티를 검색한 후, 속성&1;개를 수정하고 다른 속성을 제거하고 새 속성을 추가합니다. 참고로, 속성을 제거할 때는 속성 값을 **null**로 설정하면 됩니다.
 
 ```php
 require_once 'vendor/autoload.php';

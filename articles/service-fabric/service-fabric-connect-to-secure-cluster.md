@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4ba0f864dc28beebb80567d3fac7f12cc42df677
-ms.openlocfilehash: 09557bd9c83318b2bdff8ecdefedc141eb7f80db
+ms.sourcegitcommit: 65775053918e12ef8881f417dacc0a63f080d093
+ms.openlocfilehash: 6de98012e768abc7f8450e97648444a74474b5e9
 
 
 ---
 # <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
-클라이언트가 Service Fabric 클러스터 노드에 연결하는 경우 클라이언트는 인증서 보안 또는 Azure Active Directory(AAD)를 사용하여 인증을 받고 보안 통신이 설정될 수 있습니다. 이 인증을 통해 권한이 있는 사용자만 클러스터 및 배포된 응용 프로그램에 액세스할 수 있으며 관리 작업을 수행할 수 있습니다.  인증서 또는 AAD 보안은 클러스터가 만들어지기 전에 클러스터에서 설정되어 있어야 합니다.  클러스터 보안 시나리오에 대한 자세한 내용은 [보안 클러스터](service-fabric-cluster-security.md)를 참조하세요. 인증서로 보호되는 클러스터에 연결하는 경우 클러스터에 연결할 컴퓨터에서 [클라이언트 인증서를 설정](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert)하세요.
+클라이언트가 Service Fabric 클러스터 노드에 연결하는 경우 클라이언트는 인증서 보안 또는 Azure Active Directory(AAD)를 사용하여 인증을 받고 보안 통신이 설정될 수 있습니다. 이 인증을 통해 권한이 있는 사용자만 클러스터 및 배포된 응용 프로그램에 액세스할 수 있으며 관리 작업을 수행할 수 있습니다.  인증서 또는 AAD 보안은 클러스터가 만들어지기 전에 클러스터에서 설정되어 있어야 합니다.  클러스터 보안 시나리오에 대한 자세한 내용은 [보안 클러스터](service-fabric-cluster-security.md)를 참조하세요. 인증서로 보호되는 클러스터에 연결하는 경우 클러스터에 연결할 컴퓨터에서 [클라이언트 인증서를 설정](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert)하세요. 
 
 <a id="connectsecureclustercli"></a> 
 
@@ -56,7 +56,7 @@ azure servicefabric cluster connect --connection-endpoint https://ip:19080 --cli
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
 ```
 
-연결 후에는 클러스터와 상호 작용하기 위해 다른 CLI 명령을 실행할 수 있습니다. 
+연결 후에는 클러스터와 상호 작용하기 위해 [다른 CLI 명령을 실행](service-fabric-azure-cli.md)할 수 있습니다. 
 
 <a id="connectsecurecluster"></a>
 
@@ -111,7 +111,7 @@ Service Fabric SDK는 클러스터 관리를 위해 [FabricClient](https://msdn.
 
 ### <a name="connect-to-an-unsecure-cluster"></a>비보안 클러스터에 연결
 
-원격 비보안 클러스터에 연결하려면 FabricClient 인스턴스를 만들고 클러스터를 제공하면 됩니다.
+원격 비보안 클러스터에 연결하려면 FabricClient 인스턴스를 만들고 클러스터를 제공합니다.
 
 ```csharp
 FabricClient fabricClient = new FabricClient("clustername.westus.cloudapp.azure.com:19000");
@@ -330,6 +330,6 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

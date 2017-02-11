@@ -1,9 +1,20 @@
 ---
 layout: LandingPage
 description: "사용자가 선택한 Linux 배포를 사용하여 가상 컴퓨터를 만드는 방법에 대해 알아봅니다. 설명서에서는 VM 템플릿을 만드는 여러 가지 방법을 보여 줍니다."
+title: "Linux용 Azure Virtual Machines 설명서, 자습서 및 API 참조 | Microsoft Docs"
+services: virtual-machines-linux
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines-linux
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: eabfc16b3714006f74cdaec68efb46f651ee1b97
-ms.openlocfilehash: 4ae49635b13d564a4bf03ea12e233c1b18985cce
+ms.sourcegitcommit: 9bb4fb611c4f936317460040c4fbeff1a01f2c5c
+ms.openlocfilehash: 2728b18011e712d9f23f7645f8c83b053b3cf381
 
 ---
 # <a name="linux-virtual-machine-documentation"></a>Linux Virtual Machine 설명서
@@ -110,7 +121,7 @@ ms.openlocfilehash: 4ae49635b13d564a4bf03ea12e233c1b18985cce
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
                         <p><a href="/java/api">Java</a></p>
-                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.js</a></p>
+                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.JS</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>
@@ -131,16 +142,10 @@ ms.openlocfilehash: 4ae49635b13d564a4bf03ea12e233c1b18985cce
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
-        <div class="img"></div>
-        <div class="text">
-Linux Virtual Machine 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: Log Analytics 로그 검색의 컴퓨터 그룹 | Microsoft Docs
-description: Log Analytics의 컴퓨터 그룹을 사용하여 로그 검색 범위를 특정 컴퓨터 집합으로 한정할 수 있습니다.  이 문서에서는 컴퓨터 그룹을 만드는 데 사용할 수 있는 몇 가지 방법과 로그 검색에서의 사용 방법을 설명합니다.
+title: "Log Analytics 로그 검색의 컴퓨터 그룹 | Microsoft Docs"
+description: "Log Analytics의 컴퓨터 그룹을 사용하여 로그 검색 범위를 특정 컴퓨터 집합으로 한정할 수 있습니다.  이 문서에서는 컴퓨터 그룹을 만드는 데 사용할 수 있는 몇 가지 방법과 로그 검색에서의 사용 방법을 설명합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6c0affd0f5ea600f979cfcc87e2435658c8dab14
+
 
 ---
-# <a name="computer-groups-in-log-analytics-log-searches"></a>Log Analytics 로그 검색의 컴퓨터 그룹
+# <a name="computer-groups-in-log-analytics-log-searches"></a>Log Analytics 로그 검색의 컴퓨터 그룹 
 Log Analytics의 컴퓨터 그룹을 사용하여 [로그 검색](log-analytics-log-searches.md) 범위를 특정 컴퓨터 집합으로 한정할 수 있습니다.  각 그룹에는 사용자가 정의를 사용하거나 여러 원본에서 그룹을 가져와 컴퓨터가 채워집니다.  그룹이 로그 검색에 포함된 경우 결과는 그룹의 컴퓨터에 일치하는 레코드로 한정됩니다.
 
 ## <a name="creating-a-computer-group"></a>컴퓨터 그룹 만들기
@@ -103,6 +107,9 @@ Active Directory 또는 WSUS로 만든 각각의 컴퓨터 그룹 멤버 자격�
 ## <a name="next-steps"></a>다음 단계
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

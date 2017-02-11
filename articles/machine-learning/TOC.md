@@ -128,7 +128,6 @@
 #### [웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)
 #### [외부 데이터 사용](machine-learning-web-services-that-use-import-export-modules.md)
 #### [다중 지역 배포](machine-learning-how-to-deploy-to-multiple-regions.md)
-#### [마켓플레이스에 게시](machine-learning-publish-web-service-to-azure-marketplace.md)
 #### [웹 서비스 매개 변수 사용](machine-learning-web-service-parameters.md)
 #### [로깅 사용](machine-learning-web-services-logging.md)
 ### 웹 서비스 관리
@@ -157,23 +156,10 @@
 #### [1TB로 Hadoop 사용](machine-learning-data-science-process-hive-criteo-walkthrough.md)
 #### [SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
 #### [SQL Data Warehouse 사용](machine-learning-data-science-process-sqldw-walkthrough.md)
-### 웹 서비스 예제
-#### [R을 사용하는 예제](machine-learning-r-csharp-web-service-examples.md)
-#### [이진 분류자](machine-learning-r-csharp-binary-classifier.md)
-#### [클러스터 모델](machine-learning-r-csharp-cluster-model.md)
-#### [다변량 선형 회귀](machine-learning-r-csharp-multivariate-linear-regression.md)
-#### [예측 - 지수 평활법](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
-#### [예측 - ETS + STL](machine-learning-r-csharp-retail-demand-forecasting.md)
-#### [예측 - ARIMA](machine-learning-r-csharp-arima.md)
-#### [생존 분석](machine-learning-r-csharp-survival-analysis.md)
-#### [어휘집 기반 감정 분석](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
-#### [비율 차이 테스트](machine-learning-r-csharp-difference-in-two-proportions.md)
-#### [정규 분포 제품군](machine-learning-r-csharp-normal-distribution.md)
-#### [이항 분포 패키지](machine-learning-r-csharp-binomial-distribution.md)
-#### [마켓플레이스 FAQ](machine-learning-marketplace-faq.md)
 
 # 참조
-## [PowerShell](machine-learning-powershell-module.md)
+## [PowerShell 모듈(신규)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [PowerShell 모듈(클래식)](machine-learning-powershell-module.md)
 ## [알고리즘 및 모듈 참조](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST (영문)](/rest/api/machinelearning)
 
@@ -192,7 +178,7 @@
 ### [사용자 지정 모듈](machine-learning-gallery-custom-modules.md)
 ## Cortana 분석
 ### API
-#### [이상 감지](machine-learning-apps-anomaly-detection.md)
+#### [이상 감지](machine-learning-apps-anomaly-detection-api.md)
 #### [텍스트 분석](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 #### 추천
@@ -222,6 +208,6 @@
 ## [실시간 채팅에서 도움 받기](machine-learning-live-chat.md)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

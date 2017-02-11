@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 11/28/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c0b974707eadf7d2c3d624c04a4ec94e35c92cbe
+ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
+ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
 
 
 ---
@@ -30,7 +30,9 @@ ms.openlocfilehash: c0b974707eadf7d2c3d624c04a4ec94e35c92cbe
 * **사용자 지정 원격 분석 및 로깅 플랫폼 빌드** – 사용자 지정 빌드 원격 분석 플랫폼이 이미 있거나 플랫폼 빌드에 대해 생각하고 있는 경우 이벤트 허브의 확장성 높은 게시-구독 특성을 통해 활동 로그를 유연하게 수집할 수 있습니다. [글로벌 확장 원격 분석 플랫폼에 이벤트 허브 사용에 대해서는 여기 Dan Rosanova의 가이드를 참조하세요.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-the-activity-log"></a>활동 로그의 스트리밍 사용
-프로그래밍 방식이나 포털을 통해 활동 로그의 스트리밍을 사용하도록 설정할 수 있습니다. 어떤 방법으로든 Service Bus 네임스페이스와 네임스페이스에 대한 공유 액세스 정책을 선택하면 처음으로 새로운 활동 로그 이벤트가 발생하면 이 네임스페이스에 Event Hub가 생성됩니다. Service Bus 네임스페이스가 없는 경우 먼저 만들어야 합니다. 이전에 활동 로그 이벤트를 이 Service Bus 네임스페이스로 스트리밍한 경우 이전에 만든 Event Hub를 다시 사용합니다. 공유 액세스 정책은 스트리밍 메커니즘에서 보유하는 권한을 정의합니다. 현재, 이벤트 허브로 스트리밍하려면 **관리**, **읽기** 및 **보내기** 사용 권한이 필요합니다. 클래식 포털에서 서비스 버스 네임스페이스에 대한 "구성" 탭 아래에서 서비스 버스 네임스페이스 공유 액세스 정책을 만들거나 수정할 수 있습니다. 스트리밍을 포함할 활동 로그 로그 프로필을 업데이트하려면 변경하는 사용자에게 Service Bus 권한 부여 규칙에 대한 ListKey 권한이 있어야 합니다.
+프로그래밍 방식이나 포털을 통해 활동 로그의 스트리밍을 사용하도록 설정할 수 있습니다. 어떤 방법으로든 Service Bus 네임스페이스와 네임스페이스에 대한 공유 액세스 정책을 선택하면 처음으로 새로운 활동 로그 이벤트가 발생하면 이 네임스페이스에 Event Hub가 생성됩니다. Service Bus 네임스페이스가 없는 경우 먼저 만들어야 합니다. 이전에 활동 로그 이벤트를 이 Service Bus 네임스페이스로 스트리밍한 경우 이전에 만든 Event Hub를 다시 사용합니다. 공유 액세스 정책은 스트리밍 메커니즘에서 보유하는 권한을 정의합니다. 현재, 이벤트 허브로 스트리밍하려면 **관리**, **보내기** 및 **수신** 권한이 필요합니다. 클래식 포털에서 서비스 버스 네임스페이스에 대한 "구성" 탭 아래에서 서비스 버스 네임스페이스 공유 액세스 정책을 만들거나 수정할 수 있습니다. 스트리밍을 포함할 활동 로그 로그 프로필을 업데이트하려면 변경하는 사용자에게 Service Bus 권한 부여 규칙에 대한 ListKey 권한이 있어야 합니다.
+
+설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 서비스 버스 또는 이벤트 허브 네임스페이스는 로그를 내보내는 구독과 동일한 구독을 가지고 있지 않아도 됩니다.
 
 ### <a name="via-azure-portal"></a>Azure 포털을 통해
 1. 포털 왼쪽에 있는 메뉴를 사용하여 **활동 로그** 블레이드로 이동합니다.
@@ -81,6 +83,6 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

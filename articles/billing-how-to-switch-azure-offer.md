@@ -4,7 +4,7 @@ description: "Azure 구독을 변경하고 구독 관리 포털을 사용하여 
 services: 
 documentationcenter: 
 author: genlin
-manager: mbaldwin
+manager: jlian
 editor: 
 tags: billing,top-support-issue
 ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 12/6/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c7fdfb6e915269d171f1a9fa1a397faefd8b8a99
+ms.sourcegitcommit: c18614f1c096eb76c6a28a9038dab079e04cd4db
+ms.openlocfilehash: 91ad4b1a661e110f7ce8f0ca4cfc7697d86f6c58
 
 
 ---
@@ -91,9 +91,8 @@ ms.openlocfilehash: c7fdfb6e915269d171f1a9fa1a397faefd8b8a99
 ## <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>종량제에서 [클라우드 솔루션 공급자](https://partner.microsoft.com/Solutions/cloud-reseller-overview)(CSP) 또는 [기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)(EA)으로 마이그레이션할 수 있나요?
 현재는 계정 센터에서 CSP 또는 EA로 제품 전환을 지원하지 않습니다. 기존 구독을 EA로 전환하려면 등록 관리자에게 계정을 EA에 추가하도록 요청해야 합니다. 그러면 초대 메일을 받게 됩니다. 지침에 따라 초대를 수락하면 구독이 기업 계약으로 자동으로 전환됩니다. CSP에 마이그레이션하려면 [CSP에 Azure 구독 마이그레이션](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/)을 참조하세요.
 
-## <a name="next-steps"></a>다음 단계
-* 구독에 대한 [관리자 역할을 관리](billing-add-change-azure-subscription-administrator.md) 하는 방법을 알아보세요.
-*  [사용 현황 데이터 및 송장을 다운로드](billing-download-azure-invoice-daily-usage-date.md)
+## <a name="can-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription"></a>내 Azure 구독에 대한 데이터 및 서비스를 새 구독으로 마이그레이션할 수 있나요?
+예. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](./azure-resource-manager/resource-group-move-resources.md)을 참조하세요.
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
@@ -101,6 +100,6 @@ ms.openlocfilehash: c7fdfb6e915269d171f1a9fa1a397faefd8b8a99
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

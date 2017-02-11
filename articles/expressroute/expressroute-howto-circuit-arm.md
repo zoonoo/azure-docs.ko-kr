@@ -1,13 +1,13 @@
 ---
-title: 리소스 관리자 및 PowerShell을 사용하여 Express 경로 회로 만들기 및 수정 | Microsoft Docs
-description: 이 문서에서는 Express 경로 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제하는 방법을 설명합니다.
+title: "Resource Manager 및 PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정 | Microsoft 문서"
+description: "이 문서에서는 Express 경로 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제하는 방법을 설명합니다."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: f997182e-9b25-4a7a-b079-b004221dadcc
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: a68481073ea07b4c7775da6682e1753b32f0793c
+
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Express 경로 회로 만들기 및 수정
 > [!div class="op_single_selector"]
-> [Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-> [PowerShell - 클래식](expressroute-howto-circuit-classic.md)
+> * [Azure 포털 - 리소스 관리자](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
+> * [PowerShell - 클래식](expressroute-howto-circuit-classic.md)
 > 
 > 
 
@@ -36,7 +40,7 @@ ms.author: ganesr
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Express 경로 회로 만들기 및 프로비전
-### <a name="1.-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure 계정에 로그인하고 구독을 선택합니다.
+### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure 계정에 로그인하고 구독을 선택합니다.
 구성을 시작하려면, Azure 계정에 로그인합니다. PowerShell에 대한 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
     Login-AzureRmAccount
@@ -49,7 +53,7 @@ Express 경로 회로를 만들려는 구독을 선택합니다.
 
     Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
-### <a name="2.-get-the-list-of-supported-providers,-locations,-and-bandwidths"></a>2. 지원되는 공급자, 위치 및 대역폭 목록을 가져옵니다.
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. 지원되는 공급자, 위치 및 대역폭 목록을 가져옵니다.
 Express 경로 회로를 만들기 전에 지원되는 연결 공급자, 위치 및 대역폭 옵션 목록이 필요합니다.
 
 PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` 은(는) 이후 단계에서 사용할 이 정보를 반환합니다.
@@ -64,7 +68,7 @@ PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` 은(는) 이후 단�
 
 이제 Express 경로 회로를 만들 준비가 되었습니다.   
 
-### <a name="3.-create-an-expressroute-circuit"></a>3. Express 경로 회로 만들기
+### <a name="3-create-an-expressroute-circuit"></a>3. Express 경로 회로 만들기
 아직 리소스 그룹이 없는 경우 Express 경로 회로를 만들기 전에 먼저 리소스 그룹을 만들어야 합니다. 다음 명령을 실행하여 수행할 수 있습니다.
 
     New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
@@ -89,7 +93,7 @@ PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` 은(는) 이후 단�
     get-help New-AzureRmExpressRouteCircuit -detailed
 
 
-### <a name="4.-list-all-expressroute-circuits"></a>4. 모든 Express 경로 회로 나열
+### <a name="4-list-all-expressroute-circuits"></a>4. 모든 Express 경로 회로 나열
 만들어 놓은 모든 Express 경로 회로 목록을 가져오려면 `Get-AzureRmExpressRouteCircuit` 명령을 실행합니다.
 
     Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -106,7 +110,7 @@ PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` 은(는) 이후 단�
                                          "Name": "Standard_MeteredData",
                                          "Tier": "Standard",
                                          "Family": "MeteredData"
-                                       }
+                                          }
     CircuitProvisioningState          : Enabled
     ServiceProviderProvisioningState  : NotProvisioned
     ServiceProviderNotes              :
@@ -135,7 +139,7 @@ PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` 은(는) 이후 단�
                                          "Name": "Standard_MeteredData",
                                          "Tier": "Standard",
                                          "Family": "MeteredData"
-                                       }
+                                          }
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : NotProvisioned
     ServiceProviderNotes             :
@@ -143,7 +147,7 @@ PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` 은(는) 이후 단�
                                          "ServiceProviderName": "Equinix",
                                          "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
-                                       }
+                                          }
     ServiceKey                       : **************************************
     Peerings                         : []
 
@@ -152,7 +156,7 @@ PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` 은(는) 이후 단�
 
     get-help Get-AzureRmExpressRouteCircuit -detailed
 
-### <a name="5.-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. 프로비전을 위해 연결 공급자에 서비스 키 보내기
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. 프로비전을 위해 연결 공급자에 서비스 키 보내기
 *ServiceProviderProvisioningState* 는 서비스 공급자 측의 현재 프로비전 상태에 대한 정보를 제공합니다. 상태는 Microsoft 측의 상태를 제공합니다. 회로 프로비전 상태에 대한 자세한 내용은 [워크플로](expressroute-workflows.md#expressroute-circuit-provisioning-states) 문서를 참조하세요.
 
 새 Express 경로 회로를 만들면 회로는 다음 상태가 됩니다.
@@ -172,7 +176,7 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
     ServiceProviderProvisioningState : Provisioned
     CircuitProvisioningState         : Enabled
 
-### <a name="6.-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. 회로 키의 상태를 주기적으로 확인
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. 회로 키의 상태를 주기적으로 확인
 회로 키의 상태를 확인하면 공급자가 회로를 사용하도록 설정한 시점을 알 수 있습니다. 회로가 구성된 후에는 *ServiceProviderProvisioningState*가 아래 예에서처럼 *Provisioned*로 표시됩니다.
 
     Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -198,11 +202,11 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
                                          "ServiceProviderName": "Equinix",
                                          "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
-                                    }
+                                       }
     ServiceKey                       : **************************************
     Peerings                         : []
 
-### <a name="7.-create-your-routing-configuration"></a>7. 라우팅 구성 만들기
+### <a name="7-create-your-routing-configuration"></a>7. 라우팅 구성 만들기
 회로 피어링을 만들고 수정하는 단계별 지침은 [Express 경로 회로 라우팅 구성](expressroute-howto-routing-arm.md) 문서를 참조하세요.
 
 > [!IMPORTANT]
@@ -210,7 +214,7 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 > 
 > 
 
-### <a name="8.-link-a-virtual-network-to-an-expressroute-circuit"></a>8. 가상 네트워크를 Express 경로 회로에 연결합니다.
+### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. 가상 네트워크를 Express 경로 회로에 연결합니다.
 그 다음 가상 네트워크를 Express 경로 회로에 연결합니다. Resource Manager 배포 모델을 작업하는 경우에는 [Express 경로 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-arm.md) 문서를 사용할 수 있습니다.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Express 경로 회로의 상태 가져오기
@@ -236,10 +240,10 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
-                                         "BandwidthInMbps": 200
-                                       }
+                                            "ServiceProviderName": "Equinix",
+                                            "PeeringLocation": "Silicon Valley",
+                                            "BandwidthInMbps": 200
+                                          }
     ServiceKey                       : **************************************
     Peerings                         : []
 
@@ -259,9 +263,9 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
     ProvisioningState                : Succeeded
     Sku                              : {
                                          "Name": "Standard_MeteredData",
-                                         "Tier": "Standard",
-                                         "Family": "MeteredData"
-                                       }
+                                            "Tier": "Standard",
+                                            "Family": "MeteredData"
+                                          }
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
@@ -269,7 +273,7 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
                                          "ServiceProviderName": "Equinix",
                                          "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
-                                       }
+                                          }
     ServiceKey                       : **************************************
     Peerings                         : []
 
@@ -279,7 +283,7 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
     get-help get-azurededicatedcircuit -detailed
 
 
-## <a name="<a-name="modify"></a>modifying-an-expressroute-circuit"></a><a name="modify"></a>Express 경로 회로 수정
+## <a name="a-namemodifyamodifying-an-expressroute-circuit"></a><a name="modify"></a>Express 경로 회로 수정
 연결에 미치는 영향 없이 Express 경로 회로의 특정 속성을 수정할 수 있습니다.
 
 가동 중지 시간 없이 다음을 수행할 수 있습니다.
@@ -377,6 +381,9 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 * [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)
 * [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "SQL Server Stretch Database를 사용하여 쿼리 또는 응용 프로그램을 변경하지 않고 콜드 데이터를 Azure로 안전하게 마이그레이션하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: d237f5116f81d0977a96a325ee66f2e7c3ee5c41
-ms.openlocfilehash: bf45461eafbb010d99b61f2f67a763e25f374b30
+ms.sourcegitcommit: abbb8f04239f633fad5c90cfec8b0037a8e6ae3d
+ms.openlocfilehash: 5febfd07ef0a976b8213e5c71e8e88db2bc108e2
 
 ---
 #<a name="sql-server-stretch-database-documentation"></a>SQL Server Stretch Database 설명서
 
-SQL Server Stretch Database는 콜드 데이터를 투명하고 안전하게 Microsoft Azure 클라우드로 마이그레이션합니다. SQL Server Stretch Database는 정기적으로 사용하지 않는 데이터에 대해 비용 효율적인 가용성을 제공하고, 쿼리 또는 응용 프로그램을 변경할 필요가 없으며, 마이그레이션 중에도 데이터의 보안을 유지합니다. Stretch Database는 일반적으로 적은 수의 테이블에 저장되는 대량의 사용 빈도가 적은 데이터를 포함하는 트랜잭션 데이터베이스를 대상으로 합니다.
+SQL Server Stretch Database는 콜드 데이터를 Azure 클라우드로 투명하고 안전하게 마이그레이션하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서는 기존 쿼리 또는 응용 프로그램을 변경하지 않고도 자주 사용하지 않는 데이터가 있는 데이터베이스의 비용 효율적인 가용성을 설정하는 데 유용합니다.
+
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -96,6 +98,6 @@ SQL Server Stretch Database 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO4-->
 
 

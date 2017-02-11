@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory와 팩 클러스터 | Microsoft Docs"
+title: "Azure Active Directory와 HPC 팩 클러스터 | Microsoft Docs"
 description: "Azure에서 HPC 팩 2016 클러스터를 Azure Active Directory와 통합하는 방법 알아보기"
 services: virtual-machines-windows
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.workload: big-compute
 ms.date: 11/14/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 7e7dc6b6d58da556dfa07d5d21b3e70483d36ef9
-ms.openlocfilehash: a335f00079178f8b855459c315164271c64087f6
+ms.sourcegitcommit: bdc23f0e54c8bd30f3c082e9038d005d3595d429
+ms.openlocfilehash: dd789f76a0fee69aabc894c33b4682253f7c617d
 
 
 ---
@@ -37,7 +37,7 @@ Azure Active Directory(Azure AD)는 클라우드 솔루션에 대한 SSO(Single 
 
 HPC 팩 클러스터를 Azure AD와 통합하면 다음 목표를 달성할 수 있습니다.
 
-* HPC 팩 클러스터에서 기존 Active Directory 도메인 컨트롤러를 제거합니다. 배포 프로세스 속도를 높일 수 있을 뿐만 아니라 비즈니스에 필요 없는 경우 클러스터의 유지 관리 비용을 줄일 수 있습니다.
+* HPC 팩 클러스터에서 기존 Active Directory 도메인 컨트롤러를 제거합니다. 배포 프로세스 속도를 높일 수 있고 비즈니스에 필요 없는 경우 클러스터의 유지 관리 비용을 줄일 수 있습니다.
 * Azure AD에서 가져온 다음 혜택을 활용합니다.
     *   SSO(Single sign-on) 
     *   Azure에서 HPC 팩 클러스터에 대한 로컬 AD ID 사용 
@@ -99,7 +99,7 @@ HPC 팩 클러스터를 Azure AD와 통합하면 다음 목표를 달성할 수 
         }
     ],
     ```
-7. 파일을 저장합니다. 포털에서 **매니페스트 관리** > **매니페스트 업로드**를 클릭합니다. 그런 다음 편집된 매니페스트를 업로드할 수 있습니다.
+7. 파일을 저장합니다. 그 다음 포털에서 **매니페스트 관리** > **매니페스트 업로드**를 클릭합니다. 그런 다음 편집된 매니페스트를 업로드할 수 있습니다.
 8. **사용자**를 클릭하고 사용자를 선택한 다음 **할당**을 클릭합니다. 사용자에게 사용 가능한 역할(HpcUsers 또는 HpcAdminMirror) 중 하나를 할당합니다. 디렉터리에 추가 사용자가 있으면 이 단계를 반복합니다. 클러스터 사용자에 대한 배경 정보는 [클러스터 사용자 관리](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx)를 참조하세요.
 
    > [!NOTE] 
@@ -184,7 +184,10 @@ $SecurePassword = "<password>" | ConvertTo-SecureString -AsPlainText -Force
 Set-HpcTokenCache -UserName <AADUsername> -Password $SecurePassword -scheduler https://<Azure load balancer DNS name> 
 ```
 
-### <a name="set-the-credentials-for-submitting-jobs-using-the-azure-ad-account"></a>Azure AD 계정을 사용하여 작업을 제출하는 자격 증명 설정
+### <a name="set-the-credentials-for-submitting-jobs-using-the-azure-ad-account"></a>Azure AD 계정을 사용하여 작업을 제출하는 자격 증명 설정 
+
+때때로 HPC 클러스터 사용자(도메인에 가입된 HPC 클러스터의 경우 도메인 사용자로 실행, 도메인에 가입되지 않은 HPC 클러스터의 경우 헤드 노드에서 로컬 사용자로 실행) 실행하고자 할 수 있습니다.
+
 1. 다음 명령을 실행하여 자격 증명을 설정합니다.
 
     ```powershell
@@ -210,12 +213,26 @@ Set-HpcTokenCache -UserName <AADUsername> -Password $SecurePassword -scheduler h
 
     Submit-HpcJob -Job $job -Scheduler https://<Azure load balancer DNS name> -Credential $emptycreds
     ```
+    
+   `–Credential`이 `Submit-HpcJob`으로 지정되지 않으면 작업 또는 태스크는 Azure AD 계정으로 로컬 매핑된 사용자에서 실행됩니다. HPC 클러스터는 태스크를 실행하는 Azure AD 계정과 동일한 이름을 가진 로컬 사용자를 만듭니다.
+    
+3. Azure AD 계정에 대해 확장된 데이터를 설정합니다. Azure AD 계정을 사용하여 Linux 노드에서 MPI 작업을 실행하는 경우에 유용합니다.
 
-    `–Credential`이 `Submit-HpcJob`으로 지정되지 않으면 작업/태스크는 Azure AD 계정으로 로컬 매핑된 사용자에서 실행됩니다. HPC 클러스터는 태스크를 실행하는 Azure AD 계정과 동일한 이름을 가진 로컬 사용자를 만듭니다.
+   * Azure AD 계정 자체에 대해 확장된 데이터를 설정합니다.
+
+      ```powershell
+      Set-HpcJobCredential -Scheduler https://<Azure load balancer DNS name> -ExtendedData <data> -AadUser
+      ```
+      
+   * 확장된 데이터를 설정하고 HPC 클러스터 사용자로 실행합니다.
+   
+      ```powershell
+      Set-HpcJobCredential -Credential $mycreds -Scheduler https://<Azure load balancer DNS name> -ExtendedData <data>
+      ```
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

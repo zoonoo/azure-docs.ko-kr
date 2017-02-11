@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
+ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
    
     샘플 API는 두 개의 끝점을 제공합니다. `/contacts`에 대한 Get 요청은 이름 및 전자 메일 주소의 목록을 JSON 형식으로 반환하며 `/contacts/{id}`는 선택된 연락처만 반환합니다.
 
-## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Swagger 메타데이터 기반 Node.js 코드 스캐폴드(자동 생성)
+## <a name="scaffold-auto-generate-nodejs-code-based-on-swagger-metadata"></a>Swagger 메타데이터 기반 Node.js 코드 스캐폴드(자동 생성)
 [Swagger](http://swagger.io/) 는 RESTful API에 대해 설명하는 메타데이터의 파일 형식입니다. Azure 앱 서비스는 [기본적으로 Swagger 메타데이터를 지원](app-service-api-metadata.md)합니다. 자습서의 이 섹션에서는 Swagger 메타데이터를 먼저 만들고 API에 대한 서버 코드에 스캐폴딩(자동 생성)하는 데 사용할 API 개발 워크플로를 모델링합니다. 
 
 > [!NOTE]
@@ -131,7 +131,7 @@ ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
         app.use(bodyParser.json());
    
         app.use(swaggerize({
-            api: path.resolve('./config/api.json'), // third change
+            api: path.resolve('./config/swagger.json'), // third change
             handlers: path.resolve('./handlers'),
             docspath: '/swagger' // fourth change
         }));
@@ -275,6 +275,6 @@ Azure 앱 서비스에서 Git 리포지토리에 커밋을 푸시하여 API 앱�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

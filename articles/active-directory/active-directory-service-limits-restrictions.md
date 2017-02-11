@@ -1,19 +1,23 @@
 ---
-title: Azure Active Directory 서비스 제한 사항
-description: Azure Active Directory 서비스의 사용 제약 및 기타 서비스 제한입니다.
+title: "Azure Active Directory 서비스 제한 사항"
+description: "Azure Active Directory 서비스의 사용 제약 및 기타 서비스 제한입니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e4166a30-eb45-43b8-a466-6254b664fd1a
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 02/09/2017
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
+ms.openlocfilehash: ed2f15550626dc030733214564f7c9fa6da38d1c
+
 
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Azure AD 서비스 제한 및 제한 사항
@@ -21,10 +25,12 @@ ms.author: curtand
 
 [!INCLUDE [AAD-service-limits](../../includes/active-directory-service-limits-include.md)]
 
-## <a name="what's-next"></a>다음 단계
+## <a name="whats-next"></a>다음 단계
 * [조직으로 Azure에 등록](sign-up-organization.md)
 * [Azure 구독과 Azure AD의 연관 관계](active-directory-how-subscriptions-associated-directory.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

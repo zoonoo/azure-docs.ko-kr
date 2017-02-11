@@ -15,24 +15,24 @@ ms.workload: data-services
 ms.date: 07/12/2016
 ms.author: jrj;barbkess;sonyama
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 01eb26ff4528faabdbc7b4d482190148b52f67d4
+ms.sourcegitcommit: f1a24e4ee10593514f44d83ad5e9a46047dafdee
+ms.openlocfilehash: f132af2966e2ac59e77dc0fa8113eb83089c68dd
 
 
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 테이블 인덱싱
 > [!div class="op_single_selector"]
-> * [개요][개요]
-> * [데이터 형식][데이터 형식]
-> * [배포][배포]
-> * [Index][Index]
-> * [파티션][파티션]
-> * [통계][통계]
-> * [임시][임시]
+> * [개요][Overview]
+> * [데이터 형식][Data Types]
+> * [배포][Distribute]
+> * [인덱스][Index]
+> * [파티션][Partition]
+> * [통계][Statistics]
+> * [임시][Temporary]
 > 
 > 
 
-SQL Data Warehouse는 [clustered columnstore indexes][clustered columnstore indexes], [클러스터형 인덱스 및 비클러스터형 인덱스][클러스터형 인덱스 및 비클러스터형 인덱스]를 비롯한 몇 가지 인덱싱 옵션을 제공합니다.  또한 [힙][힙]이라고도 하는 비인덱스 옵션도 제공합니다.  이 문서에서는 인덱스를 최대한 활용하는 방법에 대한 팁과 각 인덱스 유형의 이점을 설명합니다. SQL Data Warehouse에서 테이블을 만드는 방법에 대한 자세한 내용을 보려면 [테이블 구문 만들기][테이블 구문 만들기]를 참조하세요.
+SQL Data Warehouse는 [클러스터형 columnstore 인덱스][clustered columnstore indexes], [클러스터형 인덱스 및 비클러스터형 인덱스][clustered indexes and nonclustered indexes]를 비롯한 몇 가지 인덱싱 옵션을 제공합니다.  또한 [힙][heap]이라고도 하는 비인덱스 옵션도 제공합니다.  이 문서에서는 인덱스를 최대한 활용하는 방법에 대한 팁과 각 인덱스 유형의 이점을 설명합니다. SQL Data Warehouse에서 테이블을 만드는 방법에 대한 자세한 내용을 보려면 [테이블 구문 만들기][create table syntax] 를 참조하세요.
 
 ## <a name="clustered-columnstore-indexes"></a>클러스터형 columnstore 인덱스
 기본적으로 SQL 데이터 웨어하우스는 테이블에 대해 인덱스 옵션이 지정되지 않은 경우 클러스터형 columnstore 인덱스를 만듭니다. 클러스터형 columnstore 테이블은 가장 높은 수준의 데이터 압축 뿐만 아니라 전반적으로 최적의 쿼리 성능을 제공합니다.  클러스터형 columnstore 테이블은 일반적으로 클러스터형 인덱스 또는 힙 테이블보다 나은 성능을 제공하며 대형 테이블에 적합합니다.  이러한 이유로, 클러스터형 columnstore는 테이블 인덱싱 방법을 잘 모를 경우에 시작하기 가장 좋습니다.  
@@ -57,7 +57,7 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 * 1억개 미만의 행이 있는 작은 테이블.  힙 테이블을 고려합니다.
 
 ## <a name="heap-tables"></a>힙 테이블
-SQL 데이터 웨어하우스에서 일시적으로 데이터를 방문하는 경우 힙 테이블을 사용하면 전체 프로세스가 더 빨라지는 것을 알 수 있습니다.  즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  변환을 추가로 실행하기 전에 준비하기 위해서만 데이터를 방문하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빨라집니다. 또한 데이터를 [임시 테이블][임시] 에 로드하면 테이블을 영구 저장소에 로드할 때보다 훨씬 빠르게 로드됩니다.  
+SQL 데이터 웨어하우스에서 일시적으로 데이터를 방문하는 경우 힙 테이블을 사용하면 전체 프로세스가 더 빨라지는 것을 알 수 있습니다.  즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  변환을 추가로 실행하기 전에 준비하기 위해서만 데이터를 방문하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빨라집니다. 또한 데이터를 [임시 테이블][Temporary]에 로드하면 테이블을 영구 저장소에 로드할 때보다 훨씬 빠르게 로드됩니다.  
 
 1억개 행 미만을 포함하는 작은 조회 테이블의 경우 힙 테이블을 사용하는 것이 더 나은 경우도 많습니다.  클러스터 columnstore 테이블은 행이 1억개가 넘을 경우 최적의 압축을 얻기 시작합니다.
 
@@ -93,11 +93,6 @@ WITH ( CLUSTERED INDEX (id) );
 ```SQL
 CREATE INDEX zipCodeIndex ON t1 (zipCode);
 ```
-
-> [!NOTE]
-> 비클러스터형 인덱스는 기본적으로 CREATE INDEX가 사용될 때 만들어집니다. 또한 비클러스터형 인덱스는 행 저장소 테이블(HEAP 또는 CLUSTERED INDEX)에서만 허용됩니다. 현재 CLUSTERED COLUMNSTORE INDEX 위에 있는 클러스터형 인덱스는 허용되지 않습니다.
-> 
-> 
 
 ## <a name="optimizing-clustered-columnstore-indexes"></a>클러스터형 columnstore 인덱스 최적화
 클러스터형 columnstore 테이블은 데이터가 세그먼트로 구성됩니다.  columnstore 테이블에 대해 최적의 쿼리 성능을 구현하려면 높은 세그먼트 품질을 유지하는 것이 중요합니다.  세그먼트 품질은 압축된 행 그룹에 있는 행의 수로 측정할 수 있습니다.  세그먼트 품질은 압축된 행 그룹마다 100,000개 이상의 행이 있을 때 가장 최적 상태가 되며, 행 그룹당 행 수가 행 그룹이 포함할 수 있는 최대 수인 1,048,576개일 때 성능이 향상됩니다.
@@ -171,7 +166,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 | [COMPRESSED_rowgroup_rows_AVG] |평균 행 수가 행 그룹의 최대 행 수보다 훨씬 적은 경우에는 CTAS 또는 ALTER INDEX REBUILD를 사용하여 데이터를 다시 압축하는 옵션을 고려해야 합니다. |
 | [COMPRESSED_rowgroup_count] |columnstore 형식인 행 그룹의 수. 테이블에 비해 이 숫자가 매우 높으면 columnstore 밀도가 낮다는 뜻입니다. |
 | [COMPRESSED_rowgroup_rows_DELETED] |행이 columnstore 형식으로 논리적으로 삭제됩니다. 테이블 크기에 비해 이 숫자가 더 높으면 행이 실제로 제거되도록 파티션을 다시 만들거나 인덱스를 다시 작성하는 옵션을 고려해 보아야 합니다. |
-| [COMPRESSED_rowgroup_rows_MIN] |이 열을 AVG 및 MAX 열과 함께 사용하여 columnstore의 행 그룹에 대한 값 범위를 이해할 수 있습니다. 이 숫자가 로드 임계값(파티션 정렬 분산당 102,400)보다 낮으면 데이터 로드에서 최적화를 사용할 수 있습니다. |
+| [COMPRESSED_rowgroup_rows_MIN] |이 열을 AVG 및 MAX 열과 함께 사용하여 columnstore의 행 그룹에 대한 값 범위를 이해할 수 있습니다. 이 숫자가 로드 임계값(파티션 정렬 분산당&102;,400)보다 낮으면 데이터 로드에서 최적화를 사용할 수 있습니다. |
 | [COMPRESSED_rowgroup_rows_MAX] |위와 동일합니다. |
 | [OPEN_rowgroup_count] |열려 있는 행 그룹은 정상입니다. 테이블 분산당(60) 행 그룹이 하나 열려 있다고 예상하는 것이 합리적일 것입니다. 이 숫자가 과도하게 높으면 여러 파티션에 데이터를 로드한다는 뜻입니다. 이 숫자가 적절하게 유지되도록 분할 전략을 확인하세요. |
 | [OPEN_rowgroup_rows] |각 행 그룹은 최대 1,048,576개 행을 포함할 수 있습니다. 이 값을 사용하여 현재 열려 있는 행 그룹이 얼마나 찼는지 확인할 수 있습니다. |
@@ -221,7 +216,7 @@ SQL 데이터 웨어하우스로 유입되는 작은 부하는 지속적인 부�
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>1단계: 적합한 리소스 클래스를 사용하는 사용자 식별 또는 만들기
 세그먼트 품질을 즉시 개선하는 한 가지 빠른 방법은 인덱스를 다시 작성하는 것입니다.  위의 보기에서 반환된 SQL은 인덱스를 다시 작성하는 데 사용할 수 있는 ALTER INDEX REBUILD 문을 반환합니다.  인덱스를 다시 작성하는 경우 인덱스를 다시 작성할 세션에 충분한 메모리를 할당해야 합니다.  이렇게 하려면 이 테이블의 인덱스를 다시 작성하기 위한 권한이 있는 사용자의 리소스 클래스를 권장되는 최소 수로 늘립니다.  데이터베이스 소유자의 리소스 클래스를 변경할 수 없으므로, 시스템에서 사용자를 만들지 않은 경우 먼저 이 작업을 수행해야 합니다.  권장되는 최소값은 DW300 이하를 사용하는 경우는 xlargerc, DW400 ~ DW600을 사용하는 경우는 largerc, DW1000 이상을 사용하는 경우는 mediumrc입니다.
 
-다음은 사용자의 리소스 클래스를 늘려 사용자에게 더 많은 메모리를 할당하는 방법의 예입니다.  리소스 클래스에 대한 자세한 내용과 새 사용자를 만드는 방법은 [동시성 및 워크로드 관리][동시성] 문서에 나와 있습니다.
+다음은 사용자의 리소스 클래스를 늘려 사용자에게 더 많은 메모리를 할당하는 방법의 예입니다.  리소스 클래스에 대한 자세한 내용과 새 사용자를 만드는 방법은 [동시성 및 워크로드 관리][Concurrency] 문서에 나와 있습니다.
 
 ```sql
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
@@ -252,13 +247,13 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-SQL 데이터 웨어하우스에서 인덱스를 다시 작성하는 작업은 오프라인 작업입니다.  인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 [Columnstore 인덱스 조각 모음][Columnstore 인덱스 조각 모음] 및 구문 항목 [ALTER INDEX][ALTER INDEX]의 ALTER INDEX REBUILD 섹션을 참조하세요.
+SQL 데이터 웨어하우스에서 인덱스를 다시 작성하는 작업은 오프라인 작업입니다.  인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 [Columnstore 인덱스 조각 모음][Columnstore Indexes Defragmentation] 및 구문 항목 [ALTER INDEX][ALTER INDEX]의 ALTER INDEX REBUILD 섹션을 참조하세요.
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>3단계: 클러스터형 columnstore 세그먼트 품질이 향상되었는지 확인
 세그먼트 품질이 저하된 테이블을 식별하는 쿼리를 다시 실행하고 세그먼트 품질이 향상되었는지 확인합니다.  세그먼트 품질이 개선되지 않은 경우 테이블의 행이 아주 넓은 것일 수 있습니다.  인덱스를 다시 작성할 때 더 높은 리소스 클래스 또는 DWU를 사용하는 것이 좋습니다.
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>CTAS 및 파티션 전환을 사용하여 인덱스 다시 빌드
-이 예제에서는 [CTAS][CTAS]와 파티션 전환을 사용하여 테이블 파티션을 다시 빌드합니다. 
+이 예제에서는 [CTAS][CTAS] 와 파티션 전환을 사용하여 테이블 파티션을 다시 빌드합니다. 
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS
@@ -298,37 +293,37 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
 ```
 
-`CTAS`를 사용하여 파티션을 다시 만드는 방법에 대한 자세한 내용은 [파티션][파티션] 문서를 참조하세요.
+`CTAS`를 사용하여 파티션을 다시 만드는 방법에 대한 자세한 내용은 [파티션][Partition] 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-자세히 알아보려면 [테이블 개요][개요], [테이블 데이터 형식][데이터 형식], [테이블 배포][배포], [테이블 분할][파티션], [테이블 통계 유지 관리][통계] 및 [임시 테이블][임시]에 대한 문서를 참조하세요.  모범 사례에 대해 자세히 알아보려면 [SQL 데이터 웨어하우스 모범 사례][SQL 데이터 웨어하우스 모범 사례]를 참조하세요.
+자세히 알아보려면 [테이블 개요][Overview], [테이블 데이터 형식][Data Types], [테이블 배포][Distribute],  [테이블 분할][Partition], [테이블 통계 유지 관리][Statistics] 및 [임시 테이블][Temporary]에 대한 문서를 참조하세요.  모범 사례에 대한 자세한 내용은 [SQL Data Warehouse 모범 사례][SQL Data Warehouse Best Practices]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[개요]: ./sql-data-warehouse-tables-overview.md
-[데이터 형식]: ./sql-data-warehouse-tables-data-types.md
-[배포]: ./sql-data-warehouse-tables-distribute.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
-[파티션]: ./sql-data-warehouse-tables-partition.md
-[통계]: ./sql-data-warehouse-tables-statistics.md
-[임시]: ./sql-data-warehouse-tables-temporary.md
-[동시성]: ./sql-data-warehouse-develop-concurrency.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
-[SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 [ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
-[힙]: https://msdn.microsoft.com/library/hh213609.aspx
-[클러스터형 인덱스 및 비클러스터형 인덱스]: https://msdn.microsoft.com/library/ms190457.aspx
-[테이블 구문 만들기]: https://msdn.microsoft.com/library/mt203953.aspx
-[Columnstore 인덱스 조각 모음]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
+[heap]: https://msdn.microsoft.com/library/hh213609.aspx
+[clustered indexes and nonclustered indexes]: https://msdn.microsoft.com/library/ms190457.aspx
+[create table syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+[Columnstore Indexes Defragmentation]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
 [clustered columnstore indexes]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

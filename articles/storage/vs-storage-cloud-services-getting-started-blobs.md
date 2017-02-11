@@ -1,26 +1,30 @@
 ---
-title: Blob 저장소 및 Visual Studio 연결된 서비스 시작(클라우드 서비스) | Microsoft Docs
-description: Visual Studio 연결된 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio 클라우드 서비스 프로젝트에서 Azure Blob 저장소 사용을 시작하는 방법입니다.
+title: "Blob 저장소 및 Visual Studio 연결된 서비스 시작(클라우드 서비스) | Microsoft Docs"
+description: "Visual Studio 연결된 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio 클라우드 서비스 프로젝트에서 Azure Blob 저장소 사용을 시작하는 방법입니다."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 1144a958-f75a-4466-bb21-320b7ae8f304
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2016
+ms.date: 12/02/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5e508e97f65ecd2d5ba0686b1e089246a9436dff
+
 
 ---
-# Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)
+# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## 개요
-이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 Visual Studio 클라우드 서비스 프로젝트에서 Azure 저장소 계정을 만들거나 참조한 후 Azure Blob 저장소를 시작하는 방법을 설명합니다. Blob 컨테이너에 액세스하고 만드는 방법과 Blob 업로드, 나열 및 다운로드와 같은 일반적인 작업을 수행하는 방법을 살펴보겠습니다. 샘플은 C#으로 작성되었으며 [.NET용 Microsoft Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn261237.aspx)를 사용합니다.
+## <a name="overview"></a>개요
+이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 Visual Studio 클라우드 서비스 프로젝트에서 Azure 저장소 계정을 만들거나 참조한 후 Azure Blob 저장소를 시작하는 방법을 설명합니다. Blob 컨테이너에 액세스하고 만드는 방법과 Blob 업로드, 나열 및 다운로드와 같은 일반적인 작업을 수행하는 방법을 살펴보겠습니다. 샘플은 C\#으로 작성되었으며 [.NET용 Microsoft Azure Storage 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn261237.aspx)를 사용합니다.
 
 Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액세스할 수 있는 다량의 구조화되지 않은 데이터를 저장하기 위한 서비스입니다. 단일 Blob은 임의의 크기일 수 있습니다. Blob은 이미지, 오디오 및 비디오 파일, 원시 데이터, 문서 파일 등일 수 있습니다.
 
@@ -31,7 +35,7 @@ Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 �
 * Azure 클라우드 서비스에 대한 일반적인 내용은 [클라우드 서비스 설명서](https://azure.microsoft.com/documentation/services/cloud-services/)를 참조하세요.
 * ASP.NET 응용 프로그램을 프로그래밍하는 방법에 대한 자세한 내용은 [ASP.NET](http://www.asp.net)을 참조하세요.
 
-## 코드에서 Blob 컨테이너에 액세스하기
+## <a name="access-blob-containers-in-code"></a>코드에서 Blob 컨테이너에 액세스하기
 클라우드 서비스 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하려면 다음 항목(아직 없는 경우)을 추가해야 합니다.
 
 1. 프로그래밍 방식으로 Azure 저장소에 액세스하려는 C# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
@@ -59,9 +63,9 @@ Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 �
 > 
 > 
 
-## 코드에서 컨테이너 만들기
+## <a name="create-a-container-in-code"></a>코드에서 컨테이너 만들기
 > [!NOTE]
-> ASP.NET의 Azure 저장소에 대한 호출을 수행하는 일부 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요. 다음 예제의 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
+> ASP.NET의 Azure 저장소에 대한 호출을 수행하는 일부 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx) 을 참조하세요. 다음 예제의 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
 > 
 > 
 
@@ -81,7 +85,7 @@ Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 �
 
 인터넷상의 누구든지 공용 컨테이너의 Blob을 볼 수 있지만 해당 액세스 키가 있는 경우에만 수정하거나 삭제할 수 있습니다.
 
-## 컨테이너에 Blob 업로드
+## <a name="upload-a-blob-into-a-container"></a>컨테이너에 Blob 업로드
 Azure 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대부분의 경우 블록 Blob을 사용하는 것이 좋습니다.
 
 블록 Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 다음 이 참조를 사용하여 블록 Blob 참조를 가져옵니다. Blob 참조가 있는 경우 **UploadFromStream** 메서드를 호출하여 데이터 스트림을 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다. 다음 예제에서는 컨테이너에 Blob을 업로드하는 방법을 보여 주며, 컨테이너가 이미 만들어져 있다고 가정합니다.
@@ -95,7 +99,7 @@ Azure 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대부분�
         blockBlob.UploadFromStream(fileStream);
     }
 
-## 컨테이너의 Blob 나열
+## <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 컨테이너의 Blob을 나열하려면 먼저 컨테이너 참조를 가져옵니다. 컨테이너의 **ListBlobs** 메서드를 사용하여 컨테이너 내의 Blob 및/또는 디렉터리를 검색할 수 있습니다. 반환된 **IListBlobItem**에 대한 풍부한 속성 및 메서드 집합에 액세스하려면 **CloudBlockBlob**, **CloudPageBlob** 또는 **CloudBlobDirectory** 개체로 캐스트해야 합니다. 형식을 알 수 없는 경우 형식 검사를 사용하여 캐스트할 형식을 확인할 수 있습니다. 다음 코드에서는 **photos** 컨테이너에 있는 각 항목의 URI를 검색하고 출력하는 방법을 보여 줍니다.
 
     // Loop over items within the container and output the length and URI.
@@ -141,7 +145,7 @@ Azure 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대부분�
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-선택적으로, **ListBlobs** 메서드의 **UseFlatBlobListing** 매개 변수를 **true**로 설정할 수 있습니다. 이 경우 디렉터리에 관계없이 모든 Blob이 **CloudBlockBlob**으로 반환됩니다. 다음은 **ListBlobs** 호출입니다.
+선택적으로, **ListBlobs** 메서드의 **UseFlatBlobListing** 매개 변수를 **true**로 설정할 수 있습니다. 이 경우 디렉터리에 관계없이 모든 Blob이 **CloudBlockBlob**으로 반환됩니다. 다음은 **ListBlobs**호출입니다.
 
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -162,7 +166,7 @@ Azure 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대부분�
 
 자세한 내용은 [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx)를 참조하세요.
 
-## Blob 다운로드
+## <a name="download-blobs"></a>Blob 다운로드
 Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 **DownloadToStream** 메서드를 호출합니다. 다음 예제에서는 **DownloadToStream** 메서드를 사용하여 Blob 콘텐츠를 스트림 개체로 전송한 다음 이 개체를 로컬 파일에 저장할 수 있습니다.
 
     // Get a reference to a blob named "photo1.jpg".
@@ -186,7 +190,7 @@ Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 **DownloadT
         text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
     }
 
-## Blob 삭제
+## <a name="delete-blobs"></a>Blob 삭제
 Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서드를 호출합니다.
 
     // Get a reference to a blob named "myblob.txt".
@@ -196,7 +200,7 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
     blockBlob.Delete();
 
 
-## 여러 페이지에서 비동기식으로 Blob 나열
+## <a name="list-blobs-in-pages-asynchronously"></a>여러 페이지에서 비동기식으로 Blob 나열
 많은 수의 Blob을 나열하거나 한 번의 나열 작업에서 반환되는 결과 수를 제어하려는 경우에는 여러 결과 페이지에 Blob을 나열할 수 있습니다. 이 예제에서는 여러 페이지에서 비동기식으로 결과를 반환하는 방법을 보여 주므로 큰 결과 집합이 반환되도록 기다리는 동안 실행이 차단되지 않습니다.
 
 이 예제에서는 플랫 Blob 나열을 보여 주지만 **ListBlobsSegmentedAsync** 메서드의 **useFlatBlobListing** 매개 변수를 **false**로 설정하여 계층적 나열을 수행할 수도 있습니다.
@@ -232,7 +236,12 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
         while (continuationToken != null);
     }
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 [!INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

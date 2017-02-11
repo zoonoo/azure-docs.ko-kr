@@ -1,12 +1,12 @@
 ---
-title: Log Analytics의 Azure Networking Analytics 솔루션 | Microsoft Docs
-description: Log Analytics의 Azure Networking Analytics 솔루션을 사용하여 Azure 네트워크 보안 그룹 로그와 Azure Application Gateway 로그를 검토할 수 있습니다.
+title: "Log Analytics의 Azure Networking Analytics 솔루션 | Microsoft Docs"
+description: "Log Analytics의 Azure Networking Analytics 솔루션을 사용하여 Azure 네트워크 보안 그룹 로그와 Azure Application Gateway 로그를 검토할 수 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eed3bd763edb94d7bea28b4039c03afa7359fee1
+
 
 ---
-# <a name="azure-networking-analytics-(preview)-solution-in-log-analytics"></a>Log Analytics의 Azure Networking Analytics 솔루션(Preview)
+# <a name="azure-networking-analytics-preview-solution-in-log-analytics"></a>Log Analytics의 Azure Networking Analytics 솔루션(Preview) 
 > [!NOTE]
 > [Preview 솔루션](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features)입니다.
 > 
@@ -45,7 +49,7 @@ Application Gateway에는 다음 로그가 지원됩니다.
 2. [Blob Storage의 JSON 파일](log-analytics-azure-storage-json.md)에서 설명한 프로세스를 사용하여 Blob Storage에서 로그를 읽도록 Log Analytics를 구성합니다.
 3. [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명한 프로세스를 사용하여 Azure Networking Analytics 솔루션을 사용하도록 설정합니다.  
 
-특정 리소스 형식에 대해 진단 로깅을 사용하도록 설정하지 않은 경우 해당 리소스에 대한 대시보드 블레이드가 비어 있습니다.
+특정 리소스 형식에 대해 진단 로깅을 사용하도록 설정하지 않은 경우 해당 리소스에 대한 대시보드 블레이드는 비어 있습니다.
 
 ## <a name="review-azure-networking-analytics-data-collection-details"></a>Azure Networking Analytics 데이터 수집 상세 정보 검토
 Azure Networking Analytics 솔루션은 Azure Application Gateway 및 네트워크 보안 그룹에 대해 Azure Blob Storage로부터 진단 로그를 수집합니다.
@@ -96,6 +100,9 @@ Azure Networking Analytics 솔루션은 Azure Application Gateway 및 네트워�
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 Azure Networking Analytics 데이터를 확인합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

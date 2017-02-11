@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect: 포트 | Microsoft Docs'
-description: 이 페이지는 Azure AD Connect에 대해 열려야 하는 포트에 대한 기술 참조 페이지입니다.
+title: "Azure AD Connect: 포트 | Microsoft Docs"
+description: "이 페이지는 Azure AD Connect에 대해 열려야 하는 포트에 대한 기술 참조 페이지입니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bc48cac1f7e361df7f80f1dbf5a438484d4137c9
+
 
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>포트 및 프로토콜이 필요한 하이브리드 ID
@@ -43,7 +47,7 @@ ms.author: billmath
 
 방화벽에서 열어야 하는 URL 및 IP 주소의 목록은 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)를 참조하세요.
 
-## <a name="table-3---azure-ad-connect-and-federation-servers/wap"></a>테이블 3 - Azure AD Connect 및 페더레이션 서버/WAP
+## <a name="table-3---azure-ad-connect-and-federation-serverswap"></a>테이블 3 - Azure AD Connect 및 페더레이션 서버/WAP
 이 테이블은 Azure AD Connect 서버 및 페더레이션 서버/WAP 서버 간의 통신에 필요한 포트와 프로토콜에 대해 설명합니다.  
 
 | 프로토콜 | 포트 | 설명 |
@@ -67,10 +71,10 @@ ms.author: billmath
 | HTTPS |443(TCP/UDP) |장치 인증에 사용합니다. |
 | TCP |49443(TCP) |인증서 인증에 사용합니다. |
 
-## <a name="table-6a-&-6b---azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>테이블 6a & 6b - (AD FS/동기화)와 Azure AD에 대한 Azure AD Connect Health 에이전트
+## <a name="table-6a--6b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>테이블 6a & 6b - (AD FS/동기화)와 Azure AD에 대한 Azure AD Connect Health 에이전트
 다음 테이블은 Azure AD Connect Health 에이전트와 Azure AD 간의 통신에 필요한 끝점, 포트 및 프로토콜에 대해 설명합니다.
 
-### <a name="table-6a---ports-and-protocols-for-azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>테이블 6a - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 포트 및 프로토콜
+### <a name="table-6a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>테이블 6a - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 포트 및 프로토콜
 이 테이블은 Azure AD Connect Health 에이전트 및 Azure AD 간의 통신에 필요한 다음 아웃바운드 포트와 프로토콜에 대해 설명합니다.  
 
 | 프로토콜 | 포트 | 설명 |
@@ -78,9 +82,12 @@ ms.author: billmath
 | HTTPS |443(TCP/UDP) |아웃바운드 |
 | Azure 서비스 버스 |5671(TCP/UDP) |아웃바운드 |
 
-### <a name="6b---endpoints-for-azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>6b - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 끝점
+### <a name="6b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>6b - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 끝점
 끝점의 목록에 대한 자세한 내용은 [Azure AD Connect Health 에이전트에 대한 요구 사항 섹션](active-directory-aadconnect-health-agent-install.md#requirements)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

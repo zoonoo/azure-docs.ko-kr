@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "앱의 네트워크 성능에 부하 분산 장치를 사용하는 방법에 대해 알아봅니다. 크로스-프레미스 가상 네트워크에서 가상 컴퓨터 및 클라우드 리소스의 트래픽을 관리합니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 4c909a151ec60d62ae472e24617b28fc71342eae
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 53a3e534f9c93c73ef6d28696c5a9d6430a7a258
 
 ---
 #<a name="load-balancer-documentation"></a>부하 분산 장치 설명서
 
-Azure Load Balancer는 응용 프로그램에 고가용성 및 네트워크 성능을 제공합니다.  부하 분산 장치는 가상 컴퓨터에 들어오는 인터넷 트래픽, 클라우드 리소스 간 트래픽, 프레미스 간 가상 네트워크의 트래픽 또는 외부 트래픽을 특정 가상 컴퓨터로 부하 분산하도록 구성할 수 있습니다.
+부하 분산 장치를 사용하여 응용 프로그램에 고가용성 및 네트워크 성능을 제공하는 방법에 대해 알아봅니다. 설명서에서는 가상 컴퓨터 및 클라우드 리소스 간 및 크로스-프레미스 가상 네트워크에서 트래픽의 부하를 분산하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,95 +87,55 @@ Azure Load Balancer는 응용 프로그램에 고가용성 및 네트워크 성�
 
 ---
 
-## <a name="reference"></a>참조
-
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Load Balancer PowerShell 참조</p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
+                        <p><a href="/cli/azure/network/lb">Azure CLI 2.0(미리 보기)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/cli/azure/network/lb">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Load Balancer Azure CLI</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET API 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java API 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>언어</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.JS</a></p>
+                        <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers">Ruby</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations#azure.mgmt.network.operations.LoadBalancersOperations">Python</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p>부하 분산 장치 REST API</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">REST API 참조</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
-        <div class="img"></div>
-        <div class="text">
-부하 분산 장치 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

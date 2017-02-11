@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 12/12/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 3098845eb6cf39eff7cb7b0c26c9e715c1688142
-ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
+ms.sourcegitcommit: e2e59da29897a40f0fe538d6fe8063ae5edbaccd
+ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 
 
 ---
@@ -47,18 +47,22 @@ ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
 
 다음 오류 코드는 이 항목에 설명되어 있습니다.
 
-* [InvalidTemplate](#invalidtemplate)
-* [NotFound 및 ResourceNotFound](#notfound-and-resourcenotfound)
-* [ParentResourceNotFound](#parentresourcenotfound)
-* [StorageAccountAlreadyExists 및 StorageAccountAlreadyTaken](#storageaccountalreadyexists-and-storageaccountalreadytaken)
 * [AccountNameInvalid](#accountnameinvalid)
-* [BadRequest](#badrequest)
-* [NoRegisteredProviderFound](#noregisteredproviderfound)
-* [QuotaExceeded 및 OperationNotAllowed](#quotaexceeded-and-operationnotallowed)
-* [InvalidContentLink](#invalidcontentlink)
-* [RequestDisallowedByPolicy](#requestdisallowedbypolicy)
 * [권한 부여 실패](#authorization-failed)
+* [BadRequest](#badrequest)
+* [InvalidContentLink](#invalidcontentlink)
+* [InvalidTemplate](#invalidtemplate)
+* [MissingSubscriptionRegistration](#noregisteredproviderfound)
+* [NotFound](#notfound)
+* [NoRegisteredProviderFound](#noregisteredproviderfound)
+* [OperationNotAllowed](#quotaexceeded)
+* [ParentResourceNotFound](#parentresourcenotfound)
+* [QuotaExceeded](#quotaexceeded)
+* [RequestDisallowedByPolicy](#requestdisallowedbypolicy)
+* [ResourceNotFound](#notfound)
 * [SkuNotAvailable](#skunotavailable)
+* [StorageAccountAlreadyExists](#storagenamenotunique)
+* [StorageAccountAlreadyTaken](#storagenamenotunique)
 
 ### <a name="invalidtemplate"></a>InvalidTemplate
 이 오류로 인해 별도의 몇 가지 유형의 오류가 발생할 수 있습니다.
@@ -70,7 +74,7 @@ ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
        Code=InvalidTemplate
        Message=Deployment template validation failed
 
-   이 오류는 템플릿 식이 복잡할 수 있기 때문에 쉽게 발생합니다. 예를 들어 저장소 계정에 대한 다음 이름 할당에는 대괄호 집합 1개, 함수 3개, 괄호 집합 3개, 작은 따옴표 집합 1개, 속성 1개가 포함됩니다.
+   이 오류는 템플릿 식이 복잡할 수 있기 때문에 쉽게 발생합니다. 예를 들어 저장소 계정에 대한 다음 이름 할당에는 대괄호 집합&1;개, 함수&3;개, 괄호 집합&3;개, 작은 따옴표 집합&1;개, 속성&1;개가 포함됩니다.
 
        "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 
@@ -86,7 +90,7 @@ ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
        Message=Deployment template validation failed: 'The template resource {resource-name}'
        for type {resource-type} has incorrect segment lengths.
 
-   루트 수준 리소스에는 리소스 형식에 포함된 세그먼트보다 이름에 포함된 세그먼트가 1개 더 적어야 합니다. 각 세그먼트는 슬래시로 구분됩니다. 다음 예제에서는 2개 세그먼트가 형식에 있고 1개 세그먼트가 이름에 있으므로 **유효한 이름**입니다.
+   루트 수준 리소스에는 리소스 형식에 포함된 세그먼트보다 이름에 포함된 세그먼트가&1;개 더 적어야 합니다. 각 세그먼트는 슬래시로 구분됩니다. 다음 예제에서는&2;개 세그먼트가 형식에 있고&1;개 세그먼트가 이름에 있으므로 **유효한 이름**입니다.
 
        {
          "type": "Microsoft.Web/serverfarms",
@@ -119,7 +123,7 @@ ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
            }
        ]
 
-   리소스 공급자 간에 적용되는 Resource Manager 형식에서 세그먼트를 제대로 갖추는 것이 까다로울 수 있습니다. 예를 들어 웹 사이트에 리소스 잠금을 적용하려면 4개 세그먼트가 있는 형식이 필요합니다. 따라서 이름에는 다음과 같이 3개 세그먼트가 있습니다.
+   리소스 공급자 간에 적용되는 Resource Manager 형식에서 세그먼트를 제대로 갖추는 것이 까다로울 수 있습니다. 예를 들어 웹 사이트에 리소스 잠금을 적용하려면&4;개 세그먼트가 있는 형식이 필요합니다. 따라서 이름에는 다음과 같이&3;개 세그먼트가 있습니다.
 
        {
            "type": "Microsoft.Web/sites/providers/locks",
@@ -142,6 +146,7 @@ ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
 
    템플릿에 허용되는 값을 다시 한 번 확인하고 배포 시 값 하나를 제공합니다.
 
+<a id="notfound" />
 ### <a name="notfound-and-resourcenotfound"></a>NotFound 및 ResourceNotFound
 해석할 수 없는 리소스 이름이 포함된 템플릿인 경우 다음과 비슷한 오류 메시지가 표시됩니다.
 
@@ -195,6 +200,7 @@ ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
         "[variables('databaseServerName')]"
     ]
 
+<a id="storagenamenotunique" />
 ### <a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a>torageAccountAlreadyExists 및 StorageAccountAlreadyTaken
 저장소 계정에 대해서는 Azure에서 고유한 리소스 이름을 제공해야 합니다. 고유한 이름을 제공하지 않으면 다음과 같은 오류 메시지가 표시됩니다.
 
@@ -215,20 +221,38 @@ ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
 
 속성에 대해 잘못된 값을 제공하면 BadRequest 상태가 발생할 수 있습니다. 예를 들어 저장소 계정에 대해 잘못된 SKU 값을 제공하는 경우 배포가 실패합니다. 
 
-### <a name="noregisteredproviderfound"></a>NoRegisteredProviderFound
+<a id="noregisteredproviderfound" />
+### <a name="noregisteredproviderfound-and-missingsubscriptionregistration"></a>NoRegisteredProviderFound 및 MissingSubscriptionRegistration
 리소스를 배포할 때 다음 오류 코드 및 메시지가 나타날 수 있습니다.
 
     Code: NoRegisteredProviderFound
     Message: No registered resource provider found for location {ocation}
     and API version {api-version} for type {resource-type}.
 
-세 가지 이유 중 하나로 이 오류가 나타납니다.
+또는 다음과 유사한 메시지가 나타날 수 있습니다.
 
-1. 해당 리소스 종류에 대해 위치가 지원되지 않습니다.
+    Code: MissingSubscriptionRegistration
+    Message: The subscription is not registered to use namespace {resource-provider-namespace}
+
+세 가지 이유 중 하나로 이러한 오류가 나타납니다.
+
+1. 리소스 공급자가 구독에 대해 등록되지 않았습니다.
 2. 해당 리소스 종류에 대해 API 버전이 지원되지 않습니다.
-3. 리소스 공급자가 구독에 대해 등록되지 않았습니다.
+3. 해당 리소스 종류에 대해 위치가 지원되지 않습니다.
 
 오류 메시지는 지원되는 위치 및 API 버전에 대해 제안을 제공해야 합니다. 템플릿을 제안된 값 중 하나로 변경할 수 있습니다. 대부분의 공급자는 Azure 포털이나 사용 중인 명령줄 인터페이스에 의해 자동으로 등록되지만, 그렇지 않은 경우도 있습니다. 특정 리소스 공급자를 전에 사용하지 않은 경우 해당 공급자를 등록해야 합니다. PowerShell 또는 Azure CLI를 통해 리소스 공급자에 대해 자세히 확인할 수 있습니다.
+
+**포털**
+
+등록 상태를 볼 수 있으며 포털을 통해 리소스 공급자 네임스페이스를 등록할 수 있습니다.
+
+1. 구독의 경우 **리소스 공급자**를 선택합니다.
+
+   ![리소스 공급자 선택](./media/resource-manager-common-deployment-errors/select-resource-provider.png)
+
+2. 리소스 공급자의 목록을 확인하고 필요한 경우 **등록** 링크를 선택하여 배포하려는 유형의 리소스 공급자를 등록합니다.
+
+   ![리소스 공급자 나열](./media/resource-manager-common-deployment-errors/list-resource-providers.png)
 
 **PowerShell**
 
@@ -262,6 +286,7 @@ ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
 
     azure provider show -n Microsoft.Compute --json > compute.json
 
+<a id="quotaexceeded" />
 ### <a name="quotaexceeded-and-operationnotallowed"></a>QuotaExceeded 및 OperationNotAllowed
 또한 배포가 리소스 그룹, 구독, 계정 및 기타 범위당 할당량을 초과할 경우 문제가 발생할 수 있습니다. 예를 들어 지역에 대한 코어 수를 제한하도록 구독을 구성할 수 있습니다. 허용량보다 많은 코어가 있는 가상 컴퓨터를 배포하려는 경우 할당량을 초과했다는 오류 메시지가 표시됩니다.
 전체 할당량 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
@@ -279,7 +304,7 @@ ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
     data:    Cores  Count  0             4
     info:    vm list-usage command OK
 
-미국 서부 지역의 코어를 5개 이상 만드는 템플릿을 배포하는 경우에 다음과 같은 배포 오류 메시지가 표시됩니다.
+미국 서부 지역의 코어를&5;개 이상 만드는 템플릿을 배포하는 경우에 다음과 같은 배포 오류 메시지가 표시됩니다.
 
     Code=OperationNotAllowed
     Message=Operation results in exceeding quota limits of Core.
@@ -433,6 +458,28 @@ Message: The requested tier for resource '<resource>' is currently not available
 
 또는 종속성을 잘못 설정하는 것과 관련되었다고 생각되는 배포 오류가 발생한다고 가정해보세요. 간소화된 템플릿을 분리하여 템플릿을 테스트합니다. 먼저 단일 리소스(예: SQL Server)를 배포하는 템플릿을 만듭니다. 리소스가 올바르게 정의된 것이 확실하면 종속되는 리소스(예: SQL Database)를 추가합니다. 이러한 두 리소스가 올바르게 정의되어 있으면 다른 종속 리소스(예: 감사 정책)를 추가합니다. 각 테스트 배포 사이에 리소스 그룹을 삭제하여 종속성을 적절히 테스트합니다. 
 
+### <a name="check-deployment-sequence"></a>배포 시퀀스 확인
+
+대부분의 배포 오류는 예상치 않은 시퀀스로 리소스가 배포될 때 발생합니다. 이러한 오류는 종속성이 올바르게 설정되지 않은 경우 발생합니다. 한 리소스가 다른 리소스에 대한 값을 사용하려고 하는데 다른 리소스가 아직 존재하지 않습니다. 배포 작업의 순서를 보려면 다음을 수행합니다.
+
+1. 리소스 그룹에 대한 배포 기록을 선택합니다.
+
+   ![배포 기록 선택](./media/resource-manager-common-deployment-errors/select-deployment.png)
+
+2. 기록에서 배포를 선택하고 **이벤트**를 선택합니다.
+
+   ![배포 이벤트 선택](./media/resource-manager-common-deployment-errors/select-deployment-events.png)
+
+3. 각 리소스에 대한 이벤트의 시퀀스를 검사합니다. 각 작업의 상태에 주의합니다. 예를 들어 다음 이미지는 병렬로 배포된&3;개의 저장소 계정을 보여 줍니다. 3개의 저장소 계정이 동시에 시작되었다는 것을 볼 수 있습니다.
+
+   ![병렬 배포](./media/resource-manager-common-deployment-errors/deployment-events-parallel.png)
+
+   다음 이미지는 동시에 배포되지 않은&3;개의 저장소 계정을 보여 줍니다. 두 번째 저장소 계정은 첫 번째 저장소 계정에 종속된 것으로 표시되고 세 번째 저장소 계정은 두 번째 저장소 계정에 종속됩니다. 따라서 다음 저장소 계정이 시작되기 전에 첫 번째 저장소 계정이 시작, 승인, 완료됩니다.
+
+   ![순차 배포](./media/resource-manager-common-deployment-errors/deployment-events-sequence.png)
+
+배포 이벤트에서 한 리소스가 예상보다 빨리 시작했는지 확인합니다. 그런 경우 이 리소스에 대한 종속성을 확인합니다.
+
 ## <a name="troubleshooting-other-services"></a>기타 서비스 문제 해결
 이전 배포 오류 코드로 문제를 해결하는 데 도움이 되지 않는 경우 오류가 발생 한 특정 Azure 서비스에 대한 좀 더 자세한 문제 해결 지침을 검색할 수 있습니다.
 
@@ -455,7 +502,6 @@ Message: The requested tier for resource '<resource>' is currently not available
 | --- | --- |
 | 자동화 |[Azure 자동화의 일반 오류에 대한 문제 해결 팁](../automation/automation-troubleshooting-automation-errors.md) |
 | Azure 스택 |[Microsoft Azure 스택 문제 해결](../azure-stack/azure-stack-troubleshooting.md) |
-| Azure 스택 |[Web Apps 및 Azure Stack](../azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) |
 | 데이터 팩터리 |[데이터 팩터리 문제 해결](../data-factory/data-factory-troubleshoot.md) |
 | 서비스 패브릭 |[Azure 서비스 패브릭에서 서비스 배포 시 일반적인 문제 해결](../service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
 | 사이트 복구 |[가상 컴퓨터 및 물리적 서버를 위한 보호 모니터링 및 문제 해결](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
@@ -470,6 +516,6 @@ Message: The requested tier for resource '<resource>' is currently not available
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

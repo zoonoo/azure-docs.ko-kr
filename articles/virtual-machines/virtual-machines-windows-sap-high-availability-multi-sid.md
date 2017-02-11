@@ -343,7 +343,7 @@ ms.openlocfilehash: 214a5c7952891e23d551edf44742f213eb67e49d
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
 
-Microsoft는 9월에 [Azure Internal Load Balancers를 사용하여 여러 가상 IP 주소][load-balancer-multivip-overview]를 관리할 수 있도록 하는 기능도 출시했습니다. Azure External Load Balancers를 사용하는 기능이 이미 존재합니다.
+Microsoft는&9;월에 [Azure Internal Load Balancers를 사용하여 여러 가상 IP 주소][load-balancer-multivip-overview]를 관리할 수 있도록 하는 기능도 출시했습니다. Azure External Load Balancers를 사용하는 기능이 이미 존재합니다.
 
 SAP 배포의 경우 기본 [Windows Virtual Machines에서 SAP NetWeaver 고가용성 가이드][sap-ha-guide]에 설명된 대로 SAP의 ASCS/SCS에 대한 Windows 클러스터 구성을 만드는 데 Azure ILB를 사용합니다.
 

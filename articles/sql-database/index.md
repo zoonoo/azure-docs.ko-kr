@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "클라우드에서 DaaS(database-as-a-service)인 SQL Database에 대해 알아봅니다. 자습서, 비디오 및 기타 설명서에서는 관계형 데이터베이스를 설정, 연결 및 관리하는 방법을 보여 줍니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 07cbe71fc9330724dd8b92c5321d4fca9ecde512
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2dfb79cc8f2aa2e2ca63b905666f519e083aa69d
 
 ---
 
 # <a name="sql-database-documentation"></a>SQL Database 설명서
 
-Azure SQL Database는 Microsoft SQL Server 엔진을 기반으로 한 업무 수행에 중요한 기능을 제공하는 클라우드 환경의 관계형 데이터베이스 서비스입니다. 최소한의 관리로 예측 가능한 성능, 가동 중지 시간이 없는 확장성, 비즈니스 연속성, 데이터 보호 기능을 제공합니다. SQL Database는 SQL Server 엔진을 기반으로 하여 기존 SQL Server 도구, 라이브러리 및 API를 지원하므로 클라우드로 더 쉽게 전환 및 확장할 수 있습니다.
+클라우드에서 Microsoft SQL Server 엔진에 빌드된 관계형 DaaS(database-as-a-service)인 SQL Database를 사용하는 방법을 알아봅니다. 자습서, 비디오 및 기타 설명서에서는 SQL Database를 설정, 연결 및 관리하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -128,7 +129,7 @@ Azure SQL Database는 Microsoft SQL Server 엔진을 기반으로 한 업무 수
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.JS</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p>
                         <p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p>
@@ -152,16 +153,10 @@ Azure SQL Database는 Microsoft SQL Server 엔진을 기반으로 한 업무 수
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-SQL Database 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

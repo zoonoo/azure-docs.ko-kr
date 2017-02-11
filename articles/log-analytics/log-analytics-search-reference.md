@@ -1,19 +1,23 @@
 ---
-title: Log Analytics 검색 참조 | Microsoft Docs
-description: Log Analytics 검색 참조는 검색 언어에 대해 설명하며 데이터를 검색하고 검색 결과를 좁히기 위한 식을 필터링할 때 사용할 수 있는 일반 쿼리 구문 옵션을 제공합니다.
+title: "Log Analytics 검색 참조 | Microsoft Docs"
+description: "Log Analytics 검색 참조는 검색 언어에 대해 설명하며 데이터를 검색하고 검색 결과를 좁히기 위한 식을 필터링할 때 사용할 수 있는 일반 쿼리 구문 옵션을 제공합니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: 402615a2-bed0-4831-ba69-53be49059718
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: b7c13d4b4e205fda1e5ba44fbf5eb50a96601d2e
+ms.openlocfilehash: 113dd20f1a5ac42eb7155d693f66053adea57078
+
 
 ---
 # <a name="log-analytics-search-reference"></a>Log Analytics 검색 참조
@@ -41,8 +45,8 @@ system
 
 > [!NOTE]
 > 모든 필드가 이러한 방식으로 인덱싱되지 않지만 가장 일반적으로 텍스트 필드(예: 설명 및 이름)는 일반적으로 그렇습니다.
-> 
-> 
+>
+>
 
 ```
 system error
@@ -58,8 +62,8 @@ system error | sort ManagementGroupName, TimeGenerated desc | top 10
 
 > [!IMPORTANT]
 > 모든 필드 이름과 문자열 및 텍스트 필드에 대한 값은 대/소문자를 구분합니다.
-> 
-> 
+>
+>
 
 ## <a name="filter-expression"></a>필터 식
 다음 하위 섹션에서 필터 식을 설명합니다.
@@ -94,7 +98,7 @@ Type:Perf 0.5
 HTTP 500
 ```
 
-### <a name="date/time"></a>날짜/시간
+### <a name="datetime"></a>날짜/시간
 시스템에서 데이터의 모든 부분에 원래 날짜와 레코드의 시간을 나타내는 *TimeGenerated* 속성이 있습니다. 또한 일부 데이터 형식에 더 많은 날짜/시간 필드가 있을 수 있습니다.(예를 들어 *LastModified*)
 
 Log Analytics에서 타임라인 차트/시간 선택기는 *TimeGenerated* 필드를 기준으로 시간별 (현재 실행되는 쿼리에 따라) 결과 분포를 보여 줍니다. 날짜/시간 필드는 쿼리에 사용할 수 있는 특정 문자열 형식이 있어서 특정 기간에 쿼리를 제한합니다. 또한 상대적 시간 간격을 참조하도록 구문을 사용할 수 있습니다.(예를 들어 "3일 전 및 2시간 전")
@@ -140,7 +144,7 @@ TimeGenerated:2013-10-01T12:20
 
 이러한 예제는 상대 및 절대 날짜에 사용할 구성 요소입니다. 다음 세 하위 섹션에서 상대 날짜 범위를 사용 하는 예제를 고급 필터에서 사용하는 방법에 대해 설명합니다.
 
-### <a name="date/time-math"></a>날짜/시간 수학
+### <a name="datetime-math"></a>날짜/시간 수학
 간단한 날짜/시간 계산을 사용하여 날짜/시간 수학 연산자로 날짜/시간 값을 오프셋 또는 반올림합니다.
 
 구문
@@ -249,6 +253,29 @@ TimeGenerated:[NOW..NOW+1DAY]
 SampleValue:[0..2]
 ```
 
+### <a name="regular-expressions"></a>정규식
+Regex 키워드를 사용하여 정규식을 포함한 필드에 대한 검색 조건을 지정할 수 있습니다.
+
+**구문**
+
+```
+field:Regex("Regular Expression")
+```
+
+```
+field=Regex("Regular Expression")
+```
+
+**예제**
+
+```
+Computer=Regex("C.*")
+```
+
+```
+Computer=Regex("^C.*")
+```
+
 ### <a name="logical-operators"></a>논리 연산자
 쿼리 언어는 논리 연산자(*AND*, *OR*, *NOT*)와 각각의 C-스타일 별칭(*&&*, *||*, *!*)을 지원합니다. 이러한 연산자를 그룹화하려면 괄호를 사용할 수 있습니다.
 
@@ -283,16 +310,16 @@ Type=Event Computer=*SQL*
 
 > [!NOTE]
 > 와일드 카드는 현재 따옴표 안에서 사용할 수 없습니다. Message=`"*This text*"`는 사용된 (\*)를 리터럴 (\*) 문자로 간주합니다.
-> 
+>
 > ## <a name="commands"></a>명령
-> 
+>
 
 명령은 쿼리에 의해 반환된 결과에 적용됩니다. 파이프 문자(|)를 사용하여 검색된 결과에 명령을 적용합니다. 여러 명령은 세로줄 문자로 구분해야 합니다.
 
 > [!NOTE]
 > 명령 이름은 필드 이름 및 데이터와는 달리 대문자 또는 소문자로 작성할 수 있습니다.
-> 
-> 
+>
+>
 
 ### <a name="sort"></a>정렬
 구문
@@ -301,7 +328,7 @@ Type=Event Computer=*SQL*
 
 특정 필드에 의한 결과를 정렬합니다. asc/desc 접두사는 선택 사항입니다. 생략된 경우에는 *asc* 정렬 순서를 가정합니다. 쿼리가 *정렬* 명령을 명시적으로 사용하지 않는 경우 정렬 **TimeGenerated** desc는 기본 동작이고 가장 최근의 결과를 항상 먼저 반환합니다.
 
-### <a name="top/limit"></a>위쪽/제한
+### <a name="toplimit"></a>위쪽/제한
 구문
 
     top number
@@ -340,7 +367,7 @@ Type=Event Computer=*SQL*
 
     Type:Alert errors detected | select Name, Severity
 
- *이름* and *심각도*에서 데이터와 유사한 범주를 dill-into하는 검색 및 패싯을 반환하는 필드에 대해 알 수 있습니다.
+이름 and 심각도에서 데이터와 유사한 범주를 dill-into하는 검색 및 패싯을 반환하는 필드에 대해 알 수 있습니다.
 
 ### <a name="measure"></a>측정값
 *측정값* 명령은 통계 함수를 원시 검색 결과에 적용하는 데 사용됩니다. 이 명령은 데이터에서 *group-by* 보기를 가져오는 데 매우 유용합니다. *measure* 명령을 사용하는 경우 Log Analytics 검색은 집계된 결과가 포함된 테이블을 표시합니다.
@@ -359,7 +386,7 @@ Type=Event Computer=*SQL*
 | 측정 통계 함수 | 설명 |
 | --- | --- |
 | *aggregateFunction* |집계 함수의 이름(대소문자 구분). 다음 집계 함수가 지원됩니다. OUNT MAX MIN SUM AVG STDDEV COUNTDISTINCT PERCENTILE## 또는 PCT##(##은 1 ~ 99 사이의 숫자) |
-| *aggregatedField* |집계되고 있는 필드. 이 필드는 COUNT 집계 함수에 대해 선택적이지만 SUM, MAX, MIN, AVG STDDEV, PERCENTILE## 또는 PCT##(##은 1 ~ 99 사이의 숫자)의 기존 숫자 필드여야 합니다. |
+| *aggregatedField* |집계되고 있는 필드. 이 필드는 COUNT 집계 함수에 대해 선택적이지만 SUM, MAX, MIN, AVG STDDEV, PERCENTILE## 또는 PCT##(##은 1 ~ 99 사이의 숫자)의 기존 숫자 필드여야 합니다. 또한 aggregatedField는 Extend 지원 함수 중 하나일 수도 있습니다. |
 | *fieldAlias* |(선택 사항) 계산된 집계 값의 별칭. 지정하지 않을 경우 필드 이름은 AggregatedValue가 됩니다. |
 | *groupField* |결과 집합을 그룹화하는 기준이 되는 필드의 이름 |
 | *간격* |**nnnNAME** 형식의 시간 간격. 여기서 nnn은 양의 정수입니다. **NAME**은 간격 이름입니다. 지원되는 간격 이름은(대소문자 구분) MILLISECOND[S] SECOND[S] MINUTE[S] HOUR[S] DAY[S] MONTH[S] YEAR[S]입니다. |
@@ -528,6 +555,16 @@ Type:Perf CounterName=”% Processor Time”  | measure min(CounterValue) as MIN
 
 컴퓨터별로 % Processor Time을 그룹화하고 인스턴스 이름을 기준으로 그룹화한 다음 1시간당 최소값, 평균, 75백분위수, 최대값을 반환합니다
 
+**예제 20**
+
+```
+Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | measure max(product(CounterValue,60)) as MaxDWPerMin by InstanceName Interval 1HOUR
+```
+
+*설명*
+
+컴퓨터의 모든 디스크에 대한 분당 최대 디스크 쓰기 수를 계산합니다.
+
 ### <a name="where"></a>Where
 구문
 
@@ -573,12 +610,12 @@ Type=Event Computer IN {Type:Update Classification="Security Updates"  UpdateSta
 
 **예제**
 
-    Type=Event | sort TimeGenerated DESC | Dedup EventID
+    Type=Event | Dedup EventID | sort TimeGenerated DESC
 
-위 예제는 EventID당 하나의 이벤트를 반환합니다(TimeGenerated에서 DESC를 사용한 이후 최근 이벤트)
+위 예제는 EventID당 하나의 이벤트를 반환합니다(TimeGenerated에서 DESC를 사용하는 이후 최근 이벤트).
 
 ### <a name="extend"></a>Extend
-**설명** 쿼리에 런타임 필드를 만들 수 있습니다.
+**설명** 쿼리에 런타임 필드를 만들 수 있습니다. 또한 집계를 수행하려는 경우 Extend 뒤에 measure 명령을 사용할 수 있습니다.
 
 **예 1**
 
@@ -599,8 +636,15 @@ SQL 평가 권장 사항에 대해 가중 평균 권장 점수를 표시합니�
 
 ```
 Type=Perf CounterName="% Processor Time" | EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION
-Tag Perf Counter Values less than 50% las LOW and others as HIGH
 ```
+50% 미만이 성능 카운터 값을 LOW로 태깅하고 나머지는 HIGH로 태깅합니다.
+
+**예제 5**
+
+```
+Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | Extend product(CounterValue,60) as DWPerMin| measure max(DWPerMin) by InstanceName Interval 1HOUR
+```
+컴퓨터의 모든 디스크에 대한 분당 최대 디스크 쓰기 수를 계산합니다.
 
 **지원되는 함수**
 
@@ -744,13 +788,13 @@ Tag Perf Counter Values less than 50% las LOW and others as HIGH
 | ConfigChangeType |ConfigurationChange |변경의 유형(WindowsServices / 소프트웨어 / 등) |
 | ChangeCategory |ConfigurationChange |변경의 범주(수정 / 추가 / 제거됨) |
 | SoftwareType |ConfigurationChange |소프트웨어의 종류 (업데이트 / 응용 프로그램) |
-| SoftwareName |ConfigurationChange |소프트웨어의 이름(소프트웨어 변경에 적용) |
-| 게시자 |ConfigurationChange |소프트웨어를 게시하는 공급 업체(소프트웨어 변경에 적용) |
+| SoftwareName |ConfigurationChange |소프트웨어의 이름(소프트웨어 변경에 적용)  |
+| 게시자 |ConfigurationChange |소프트웨어를 게시하는 공급 업체(소프트웨어 변경에 적용)  |
 | SvcChangeType |ConfigurationChange |Windows 서비스에 적용된 변경의 유형(상태 / StartupType / 경로 / ServiceAccount) - Windows 서비스 변경 사항에만 적용 |
 | SvcDisplayName |ConfigurationChange |변경된 서비스의 표시 이름입니다 |
 | SvcName |ConfigurationChange |변경된 서비스의 이름 |
 | SvcState |ConfigurationChange |서비스의 새 (현재) 상태입니다. |
-| SvcPreviousState |ConfigurationChange |이전에 알려진 서비스의 상태(서비스 상태를 변경하는 경우에 해당) |
+| SvcPreviousState |ConfigurationChange |이전에 알려진 서비스의 상태(서비스 상태를 변경하는 경우에 해당)  |
 | SvcStartupType |ConfigurationChange |서비스 시작 유형 |
 | SvcPreviousStartupType |ConfigurationChange |이전 서비스 시작 유형(서비스 시작 유형을 변경하는 경우에 해당) |
 | SvcAccount |ConfigurationChange |서비스 계정 |
@@ -767,6 +811,8 @@ Tag Perf Counter Values less than 50% las LOW and others as HIGH
 * [로그 검색](log-analytics-log-searches.md) 을 숙지하여 솔루션에서 수집한 자세한 정보를 확인합니다.
 * [Log Analytics의 사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 로그 검색을 확장합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO2-->
 
 

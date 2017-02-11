@@ -1,12 +1,12 @@
 ---
-title: Azure Data Lake 저장소 간 데이터 이동 | Microsoft Docs
-description: Azure 데이터 팩터리를 사용하여 Azure 데이터 레이크 저장소 간 데이터를 이동하는 방법에 대해 알아봅니다.
+title: "Azure Data Lake 저장소 간 데이터 이동 | Microsoft Docs"
+description: "Azure 데이터 팩터리를 사용하여 Azure 데이터 레이크 저장소 간 데이터를 이동하는 방법에 대해 알아봅니다."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 25b1ff3c-b2fd-48e5-b759-bb2112122e30
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 701d82971b7da92fb0946cbfc7f708ad32501ef3
+ms.openlocfilehash: b3957c93a0b536b67f81d7e7be52d918a8e82ead
+
 
 ---
 # <a name="move-data-to-and-from-azure-data-lake-store-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure 데이터 레이크 저장소 간 데이터 이동
@@ -21,17 +25,17 @@ ms.author: jingwang
 
 > [!NOTE]
 > Azure Data Lake Store 간에 데이터를 이동하려면 복사 작업을 사용하여 파이프라인을 만들기 전에 Azure Data Lake Store 계정을 만듭니다. Azure Data Lake Store에 대해 알아보려면 [Azure Data Lake Store 시작](../data-lake-store/data-lake-store-get-started-portal.md)을 참조하세요.
-> 
+>
 > Data Factory, 연결된 서비스, 데이터 집합 및 파이프라인 만들기를 위한 자세한 단계는 [첫 파이프라인 빌드하기 자습서](data-factory-build-your-first-pipeline.md)를 검토하세요. Data Factory 편집기, Visual Studio 또는 Azure PowerShell에서 JSON 조각을 사용하여 Data Factory 엔터티를 만듭니다.
-> 
-> 
+>
+>
 
 ## <a name="copy-data-wizard"></a>데이터 복사 마법사
-Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 
+Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Data Lake Store 및 Azure Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 임의의 원본에서 **여기** 에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores) 데이터를 복사할 수 있습니다.  
+다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Data Lake Store 및 Azure Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 임의의 원본에서 지원되는 싱크로 **직접** 데이터를 복사할 수 있습니다. 자세한 내용은 [복사 작업을 사용하여 데이터 이동](data-factory-data-movement-activities.md)에서 "지원되는 데이터 저장소 및 형식" 섹션을 참조하세요.  
 
-## <a name="sample:-copy-data-from-azure-blob-to-azure-data-lake-store"></a>샘플: Azure Blob에서 Azure 데이터 레이크 저장소로 데이터 복사
+## <a name="sample-copy-data-from-azure-blob-to-azure-data-lake-store"></a>샘플: Azure Blob에서 Azure 데이터 레이크 저장소로 데이터 복사
 다음 샘플은 다음과 같은 내용을 보여 줍니다.
 
 1. [AzureStorage](#azure-storage-linked-service-properties) 형식의 연결된 서비스
@@ -74,16 +78,16 @@ Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드
 1. 명령 모음에서 **새 데이터 저장소**를 클릭하고 **Azure Data Lake Store**를 선택합니다.
 2. JSON 편집기에서 **dataLakeStoreUri** 속성에 Data Lake의 URI를 입력합니다.
 3. 명령 모음에서 **권한 부여** 단추를 클릭합니다. 팝업 창이 표시됩니다.
-   
+
     ![권한 부여 단추](./media/data-factory-azure-data-lake-connector/authorize-button.png)
 4. 이제 자격 증명을 사용하여 로그인하면 JSON의 **authorization** 속성에 값이 할당됩니다.
 5. (선택 사항) JSON에서 **accountName**, **subscriptionID** 및 **resourceGroupName**과 같은 선택적 매개 변수의 값을 지정하거나 이러한 속성을 JSON에서 삭제합니다.
 6. 명령 모음에서 **배포** 를 클릭하여 연결된 서비스를 배포합니다.
 
 > [!IMPORTANT]
-> **권한 부여** 단추를 사용하여 생성된 권한 부여 코드는 잠시 후 만료됩니다. **토큰이 만료**되면 **권한 부여** 단추를 사용하여 **다시 인증**하고 연결된 서비스를 다시 배포합니다. 자세한 내용은 [Azure Data Lake Store 연결된 서비스](#azure-data-lake-store-linked-service-properties) 섹션을 참조하세요. 
-> 
-> 
+> **권한 부여** 단추를 사용하여 생성된 권한 부여 코드는 잠시 후 만료됩니다. **토큰이 만료**되면 **권한 부여** 단추를 사용하여 **다시 인증**하고 연결된 서비스를 다시 배포합니다. 자세한 내용은 [Azure Data Lake Store 연결된 서비스](#azure-data-lake-store-linked-service-properties) 섹션을 참조하세요.
+>
+>
 
 **Azure Blob 입력 데이터 집합:**
 
@@ -153,17 +157,17 @@ Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드
 
     {
         "name": "AzureDataLakeStoreOutput",
-        "properties": {
+          "properties": {
             "type": "AzureDataLakeStore",
             "linkedServiceName": "AzureDataLakeStoreLinkedService",
             "typeProperties": {
                 "folderPath": "datalake/output/"
             },
             "availability": {
-                "frequency": "Hour",
-                "interval": 1
+                  "frequency": "Hour",
+                  "interval": 1
             }
-        }
+          }
     }
 
 
@@ -181,46 +185,46 @@ Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드
             "description":"pipeline with copy activity",
             "activities":
             [  
-                {
+                  {
                     "name": "AzureBlobtoDataLake",
                     "description": "Copy Activity",
                     "type": "Copy",
                     "inputs": [
-                    {
+                      {
                         "name": "AzureBlobInput"
-                    }
+                      }
                     ],
                     "outputs": [
-                    {
+                      {
                         "name": "AzureDataLakeStoreOutput"
-                    }
+                      }
                     ],
                     "typeProperties": {
                         "source": {
                             "type": "BlobSource",
                             "treatEmptyAsNull": true,
                             "blobColumnSeparators": ","
-                        },
-                        "sink": {
+                          },
+                          "sink": {
                             "type": "AzureDataLakeStoreSink"
-                        }
+                          }
                     },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
+                       "scheduler": {
+                          "frequency": "Hour",
+                          "interval": 1
                     },
                     "policy": {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "OldestFirst",
-                        "retry": 0,
-                        "timeout": "01:00:00"
+                          "concurrency": 1,
+                          "executionPriorityOrder": "OldestFirst",
+                          "retry": 0,
+                          "timeout": "01:00:00"
                     }
-                }
+                  }
             ]
         }
     }
 
-## <a name="sample:-copy-data-from-azure-data-lake-store-to-azure-blob"></a>샘플: Azure 데이터 레이크 저장소에서 Azure Blob로 데이터 복사
+## <a name="sample-copy-data-from-azure-data-lake-store-to-azure-blob"></a>샘플: Azure 데이터 레이크 저장소에서 Azure Blob로 데이터 복사
 다음 샘플은 다음과 같은 내용을 보여 줍니다.
 
 1. [AzureDataLakeStore](#azure-data-lake-linked-service-properties) 형식의 연결된 서비스입니다.
@@ -247,8 +251,8 @@ Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드
 
 > [!NOTE]
 > authorization URL을 가져오려면 이전 샘플의 단계를 참조하세요.  
-> 
-> 
+>
+>
 
 **Azure 저장소 연결된 서비스:**
 
@@ -268,7 +272,7 @@ Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드
 
     {
         "name": "AzureDataLakeStoreInput",
-        "properties":
+          "properties":
         {
             "type": "AzureDataLakeStore",
             "linkedServiceName": "AzureDataLakeStoreLinkedService",
@@ -284,16 +288,16 @@ Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드
             "external": true,
             "availability": {
                 "frequency": "Hour",
-                "interval": 1
+                  "interval": 1
             },
             "policy": {
-                "externalData": {
+                  "externalData": {
                     "retryInterval": "00:01:00",
                     "retryTimeout": "00:10:00",
                     "maximumRetry": 3
-                }
+                  }
             }
-        }
+          }
     }
 
 **Azure Blob 출력 데이터 집합:**
@@ -365,7 +369,7 @@ Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드
             "end":"2014-06-01T19:00:00",
             "description":"pipeline for copy activity",
             "activities":[  
-                {
+                  {
                     "name": "AzureDakeLaketoBlob",
                     "description": "copy activity",
                     "type": "Copy",
@@ -382,22 +386,22 @@ Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드
                     "typeProperties": {
                         "source": {
                             "type": "AzureDataLakeStoreSource",
-                        },
-                        "sink": {
+                          },
+                          "sink": {
                             "type": "BlobSink"
-                        }
+                          }
                     },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
+                       "scheduler": {
+                          "frequency": "Hour",
+                          "interval": 1
                     },
                     "policy": {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "OldestFirst",
-                        "retry": 0,
-                        "timeout": "01:00:00"
+                          "concurrency": 1,
+                          "executionPriorityOrder": "OldestFirst",
+                          "retry": 0,
+                          "timeout": "01:00:00"
                     }
-                }
+                  }
              ]
         }
     }
@@ -424,7 +428,7 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 | Azure Active Directory (@hotmail.com, @live.com, 등에서 관리되지 않는 사용자 계정 |12시간 |
 | AAD(Azure Active Directory)에서 관리되는 사용자 계정 |마지막 조각이 실행된 후 14일 <br/><br/>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일 |
 
-토큰 만료 시간 전에 암호를 변경하면, 토큰이 즉시 만료되고 이 섹션에 나와 있는 오류가 표시됩니다. 
+토큰 만료 시간 전에 암호를 변경하면, 토큰이 즉시 만료되고 이 섹션에 나와 있는 오류가 표시됩니다.
 
 이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **권한 부여** 속성의 값을 생성할 수도 있습니다.
 
@@ -452,7 +456,7 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
         }
     }
 
-코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. 코드에 사용된 WindowsFormsWebAuthenticationDialog 클래스에 대한 **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll**의 **2.9.10826.1824** 버전에 대한 참조를 추가합니다. 
+코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. 코드에 사용된 WindowsFormsWebAuthenticationDialog 클래스에 대한 **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll**의 **2.9.10826.1824** 버전에 대한 참조를 추가합니다.
 
 ## <a name="azure-data-lake-dataset-type-properties"></a>Azure 데이터 레이크 데이터 집합 형식 속성
 데이터 집합 정의에 사용할 수 있는 JSON 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
@@ -503,39 +507,39 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 
     {  
         "name": "AzureDatalakeStoreDataSet",  
-        "properties": {  
+          "properties": {  
             "availability": {  
                 "frequency": "Day",  
-                "interval": 1  
+                  "interval": 1  
             },  
             "type": "AzureDatalakeStore",  
             "linkedServiceName": "DataLakeStoreLinkedService",  
             "typeProperties": {  
                 "fileName": "pagecounts.csv.gz",  
-                "folderPath": "compression/file/",  
-                "compression": {  
+                  "folderPath": "compression/file/",  
+                  "compression": {  
                     "type": "GZip",  
                     "level": "Optimal"  
-                }  
+                  }  
             }  
-        }  
+          }  
     }  
 
 **압축** 섹션에는 두 가지 속성이 있습니다.  
 
 * **유형:** **GZIP**, **Deflate** 또는 **BZIP2**가 될 수 있는 압축 코덱입니다.  
-* **수준:** **최적** 또는 **가장 빠름**이 될 수 있는 압축 비율입니다. 
-  
-  * **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다. 
-  * **최적**: 작업이 완료되는데 시간이 오래 걸리더라도 압축 작업이 최적으로 압축되어야 합니다. 
-    
-    자세한 내용은 [압축 수준](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) 항목을 참조하세요. 
+* **수준:** **최적** 또는 **가장 빠름**이 될 수 있는 압축 비율입니다.
+
+  * **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.
+  * **최적**: 작업이 완료되는데 시간이 오래 걸리더라도 압축 작업이 최적으로 압축되어야 합니다.
+
+    자세한 내용은 [압축 수준](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) 항목을 참조하세요.
 
 이 샘플 데이터 집합이 복사 작업의 출력으로 사용된다고 가정해 보겠습니다. 복사 작업은 최적의 비율을 사용하여 GZIP 코덱으로 출력 데이터를 압축한 다음 압축된 데이터를 pagecounts.csv.gz라는 이름의 파일로 Azure Data Lake Store에 작성합니다.   
 
-입력 데이터 집합 JSON에서 압축 속성을 지정하는 경우 파이프라인은 원본에서 압축된 데이터를 읽습니다. 출력 데이터 집합 JSON에서 속성을 지정하는 경우 복사 작업은 대상에 압축된 데이터를 쓸 수 있습니다. 다음은 몇 가지 샘플 시나리오입니다. 
+입력 데이터 집합 JSON에서 압축 속성을 지정하는 경우 파이프라인은 원본에서 압축된 데이터를 읽습니다. 출력 데이터 집합 JSON에서 속성을 지정하는 경우 복사 작업은 대상에 압축된 데이터를 쓸 수 있습니다. 다음은 몇 가지 샘플 시나리오입니다.
 
-* Azure 데이터 레이크 저장소에서 GZIP 압축 데이터를 읽고 압축을 풀고 Azure SQL 데이터베이스에 결과 데이터를 작성합니다. 이 경우 압축 JSON 속성으로 입력 Azure 데이터 레이크 저장소 데이터 집합을 정의합니다. 
+* Azure 데이터 레이크 저장소에서 GZIP 압축 데이터를 읽고 압축을 풀고 Azure SQL 데이터베이스에 결과 데이터를 작성합니다. 이 경우 압축 JSON 속성으로 입력 Azure 데이터 레이크 저장소 데이터 집합을 정의합니다.
 * 온-프레미스 파일 시스템에서 일반 텍스트 파일에서 데이터를 읽고 GZip 형식을 사용하여 압축하고 Azure 데이터 레이크 저장소에 압축된 데이터를 작성합니다. 이 경우 압축 JSON 속성으로 출력 Azure 데이터 레이크 데이터 집합을 정의합니다.  
 * Azure 데이터 레이크 저장소에서 GZIP 압축 데이터를 읽고 압축을 풀고 BZIP2를 사용하여 압축하고 Azure 데이터 레이크 저장소에 결과 데이터를 작성합니다. 입력 및 출력 데이터 집합에 대해 압축 형식 설정을 GZIP 및 BZIP2로 각각 설정합니다.   
 
@@ -565,6 +569,8 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

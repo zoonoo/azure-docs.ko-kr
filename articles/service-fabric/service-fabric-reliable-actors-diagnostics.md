@@ -1,12 +1,12 @@
 ---
-title: 행위자 진단 및 모니터링 | Microsoft Docs
-description: 이 문서에서는 서비스 패브릭 Reliable Actors 런타임에서 내보낸 이벤트 및 성능 카운터를 포함하여 패브릭 행위자 런타임에 있는 진단 및 성능 모니터링 기능을 설명합니다.
+title: "행위자 진단 및 모니터링 | Microsoft Docs"
+description: "이 문서에서는 서비스 패브릭 Reliable Actors 런타임에서 내보낸 이벤트 및 성능 카운터를 포함하여 패브릭 행위자 런타임에 있는 진단 및 성능 모니터링 기능을 설명합니다."
 services: service-fabric
 documentationcenter: .net
 author: abhishekram
 manager: timlt
 editor: vturecek
-
+ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,27 +14,31 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/05/2016
 ms.author: abhisram
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: c9f62c97dfa4941feaee5960497ba6d727e1e2b3
+
 
 ---
-# Reliable Actors에 대한 진단 및 성능 모니터링
+# <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Reliable Actors에 대한 진단 및 성능 모니터링
 Reliable Actors 런타임에서는 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트 및 [성능 카운터](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)를 내보냅니다. 이러한 정보는 런타임이 어떻게 작동하고 있는지 파악하여 문제를 해결하고 성능을 모니터링하는 데 도움이 됩니다.
 
-## EventSource 이벤트
+## <a name="eventsource-events"></a>EventSource 이벤트
 Reliable Actors 런타임의 EventSource 공급자 이름은 "Microsoft-ServiceFabric-Actors"입니다. 이 이벤트 원본의 이벤트는 행위자 응용 프로그램이 [Visual Studio에서 디버깅](service-fabric-debugging-your-application.md)될 때 [진단 이벤트](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) 창에 표시됩니다.
 
 EventSource 이벤트를 수집하거나 보는 데 도움이 되는 도구 및 기술의 예에는 [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md), [의미 중심 로깅](https://msdn.microsoft.com/library/dn774980.aspx) 및 [Microsoft TraceEvent 라이브러리](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)가 있습니다.
 
-### 키워드
+### <a name="keywords"></a>키워드
 신뢰할 수 있는 행위자 EventSource에 속하는 모든 이벤트는 하나 이상의 키워드와 연결되어 있습니다. 이를 통해 수집된 이벤트를 필터링할 수 있습니다. 다음과 같은 키워드 비트가 정의되어 있습니다.
 
 | Bit | 설명 |
 | --- | --- |
 | 0x1 |패브릭 행위자 런타임의 작업을 요약하는 중요한 이벤트의 집합. |
-| 0x2 |행위자 메서드 호출을 설명하는 이벤트의 집합. 자세한 내용은 [행위자에 대한 소개 항목](service-fabric-reliable-actors-introduction.md#actors)을 참조하세요. |
+| 0x2 |행위자 메서드 호출을 설명하는 이벤트의 집합. 자세한 내용은 [행위자에 대한 소개 항목](service-fabric-reliable-actors-introduction.md)을 참조하세요. |
 | 0x4 |행위자 상태와 관련된 이벤트의 집합. 자세한 내용은 [행위자 상태 관리](service-fabric-reliable-actors-state-management.md)에 대한 항목을 참조하세요. |
 | 0x8 |행위자의 턴 기반 동시성과 관련된 이벤트의 집합. 자세한 내용은 [동시성](service-fabric-reliable-actors-introduction.md#concurrency)에 대한 항목을 참조하세요. |
 
-## 성능 카운터
+## <a name="performance-counters"></a>성능 카운터
 신뢰할 수 있는 행위자 런타임은 다음과 같은 성능 카운터 범주를 정의합니다.
 
 | Category | 설명 |
@@ -44,13 +48,13 @@ EventSource 이벤트를 수집하거나 보는 데 도움이 되는 도구 및 
 
 위의 각 범주마다 하나 이상의 카운터가 있습니다.
 
-Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능 모니터](https://technet.microsoft.com/library/cc749249.aspx) 응용 프로그램을 사용하면 성능 카운터 데이터를 수집하고 볼 수 있습니다. [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md)은 성능 카운터 데이터를 수집하여 Azure 테이블에 업로드하기 위한 또 다른 옵션입니다.
+Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능 모니터](https://technet.microsoft.com/library/cc749249.aspx) 응용 프로그램을 사용하면 성능 카운터 데이터를 수집하고 볼 수 있습니다. [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md) 은 성능 카운터 데이터를 수집하여 Azure 테이블에 업로드하기 위한 또 다른 옵션입니다.
 
-### 성능 카운터 인스턴스 이름
+### <a name="performance-counter-instance-names"></a>성능 카운터 인스턴스 이름
 많은 수의 행위자 서비스 또는 행위자 서비스 파티션이 있는 클러스터에는 행위자 성능 카운터 인스턴스 수가 많습니다. 성능 카운터 인스턴스 이름은 성능 카운터 인스턴스가 연결된 특정 [파티션](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) 및 행위자 메서드(있는 경우)를 식별하는 데 도움이 될 수 있습니다.
 
-#### 서비스 패브릭 행위자 범주
-`Service Fabric Actor` 범주의 경우 카운터 인스턴스 이름이 다음과 같은 형식으로 표시됩니다.
+#### <a name="service-fabric-actor-category"></a>서비스 패브릭 행위자 범주
+`Service Fabric Actor`범주의 경우 카운터 인스턴스 이름이 다음과 같은 형식으로 표시됩니다.
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
@@ -64,8 +68,8 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 위의 예에서 `2740af29-78aa-44bc-a20b-7e60fb783264`는 서비스 패브릭 파티션 ID의 문자열 표현이고 `635650083799324046`은 런타임의 내부 용도에 맞게 생성되는 64비트 ID입니다.
 
-#### 서비스 패브릭 행위자 메서드 범주
-`Service Fabric Actor Method` 범주의 경우 카운터 인스턴스 이름이 다음과 같은 형식으로 표시됩니다.
+#### <a name="service-fabric-actor-method-category"></a>서비스 패브릭 행위자 메서드 범주
+`Service Fabric Actor Method`범주의 경우 카운터 인스턴스 이름이 다음과 같은 형식으로 표시됩니다.
 
 `MethodName_ActorsRuntimeMethodId_ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
@@ -83,9 +87,9 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 위의 예에서 `ivoicemailboxactor.leavemessageasync`는 메서드 이름, `2`는 런타임의 내부 용도에 맞게 생성된 32비트 ID, `89383d32-e57e-4a9b-a6ad-57c6792aa521`은 서비스 패브릭 파티션 ID의 문자열 표현, `635650083804480486`은 런타임의 내부 용도에 맞게 생성된 64비트 ID입니다.
 
-## 이벤트 및 성능 카운터 목록
-### 행위자 메서드 이벤트 및 성능 카운터
-Reliable Actors 런타임에서는 다음과 같은 [행위자 메서드](service-fabric-reliable-actors-introduction.md#actors) 관련 이벤트를 내보냅니다.
+## <a name="list-of-events-and-performance-counters"></a>이벤트 및 성능 카운터 목록
+### <a name="actor-method-events-and-performance-counters"></a>행위자 메서드 이벤트 및 성능 카운터
+Reliable Actors 런타임에서는 다음과 같은 [행위자 메서드](service-fabric-reliable-actors-introduction.md)관련 이벤트를 내보냅니다.
 
 | 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -101,8 +105,8 @@ Reliable Actors 런타임에서는 다음과 같은 [행위자 메서드](servic
 | 서비스 패브릭 행위자 메서드 |호출당 평균 시간(밀리초) |행위자 서비스 메서드를 실행하는 데 걸린 시간(밀리초) |
 | 서비스 패브릭 행위자 메서드 |초당 발생한 예외 수 |초당 행위자 서비스 메서드에서 예외가 발생한 횟수 |
 
-### 동시 이벤트 및 성능 카운터
-Reliable Actors 런타임에서는 다음과 같은 [동시성](service-fabric-reliable-actors-introduction.md#concurrency) 관련 이벤트를 내보냅니다.
+### <a name="concurrency-events-and-performance-counters"></a>동시 이벤트 및 성능 카운터
+Reliable Actors 런타임에서는 다음과 같은 [동시성](service-fabric-reliable-actors-introduction.md#concurrency)관련 이벤트를 내보냅니다.
 
 | 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -112,12 +116,12 @@ Reliable Actors 런타임에서는 다음과 같은 [동시성](service-fabric-r
 
 | 범주 이름 | 카운터 이름 | 설명 |
 | --- | --- | --- |
-| 서비스 패브릭 행위자 |행위자 잠금을 기다리는 행위자 호출 수 |턴 기반 동시성을 적용하는 행위자별 잠금을 획득하기 위해 대기 중인 보류된 행위자 호출 수. |
+| 서비스 패브릭 행위자 |# 행위자 잠금을 기다리는 행위자 호출 수 |턴 기반 동시성을 적용하는 행위자별 잠금을 획득하기 위해 대기 중인 보류된 행위자 호출 수. |
 | 서비스 패브릭 행위자 |잠금 대기당 평균 시간(밀리초) |턴 기반 동시성을 적용하는 행위자별 잠금을 획득하기 위해 소요된 시간(밀리초). |
 | 서비스 패브릭 행위자 |평균 밀리초 행위자 잠금 보유됨 |행위자별 잠금이 보유되는 시간(밀리초) |
 
-### 행위자 상태 관리 이벤트 및 성능 카운터
-Reliable Actors 런타임에서는 다음과 같은 [행위자 상태 관리](service-fabric-reliable-actors-state-management.md) 관련 이벤트를 내보냅니다.
+### <a name="actor-state-management-events-and-performance-counters"></a>행위자 상태 관리 이벤트 및 성능 카운터
+Reliable Actors 런타임에서는 다음과 같은 [행위자 상태 관리](service-fabric-reliable-actors-state-management.md)관련 이벤트를 내보냅니다.
 
 | 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -131,16 +135,16 @@ Reliable Actors 런타임에서는 다음과 같은 [행위자 상태 관리](se
 | 서비스 패브릭 행위자 |상태 저장 작업당 평균 시간(밀리초) |행위자 상태를 저장하는 데 걸린 시간(밀리초) |
 | 서비스 패브릭 행위자 |로드 상태 작업당 평균 시간(밀리초) |행위자 상태를 로드하는 데 걸린 시간(밀리초) |
 
-### 행위자 복제본 관련 이벤트
-Reliable Actors 런타임에서는 다음과 같은 [행위자 복제본](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors) 관련 이벤트를 내보냅니다.
+### <a name="events-related-to-actor-replicas"></a>행위자 복제본 관련 이벤트
+Reliable Actors 런타임에서는 다음과 같은 [행위자 복제본](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)관련 이벤트를 내보냅니다.
 
 | 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
 | --- | --- | --- | --- | --- |
 | ReplicaChangeRoleToPrimary |1 |정보 제공 |0x1 |행위자 복제본이 주 복제본 역할로 변경되었습니다. 따라서 이 파티션에 대한 행위자가 이 복제본 내부에 만들어집니다. |
 | ReplicaChangeRoleFromPrimary |2 |정보 제공 |0x1 |행위자 복제본이 주 복제본 이외의 역할로 변경되었습니다. 따라서 이 파티션에 대한 행위자를 이 복제본 내부에서 더 이상 만들 수 없습니다. 이 복제본 내에 이미 만들어진 행위자로 새 요청이 전달되지 않습니다. 모든 진행 중인 요청이 완료된 후 해당 행위자는 소멸됩니다. |
 
-### 행위자 활성화 및 비활성화 이벤트와 성능 카운터
-Reliable Actors 런타임에서는 다음과 같은 [행위자 활성화 및 비활성화](service-fabric-reliable-actors-lifecycle.md) 관련 이벤트를 내보냅니다.
+### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>행위자 활성화 및 비활성화 이벤트와 성능 카운터
+Reliable Actors 런타임에서는 다음과 같은 [행위자 활성화 및 비활성화](service-fabric-reliable-actors-lifecycle.md)관련 이벤트를 내보냅니다.
 
 | 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -153,19 +157,23 @@ Reliable Actors 런타임은 행위자 활성화 및 비활성화와 관련하�
 | --- | --- | --- |
 | 서비스 패브릭 행위자 |평균 OnActivateAsync(밀리초) |OnActivateAsync 메서드를 실행하는 데 걸린 시간(밀리초) |
 
-### 행위자 요청 처리 성능 카운터
+### <a name="actor-request-processing-performance-counters"></a>행위자 요청 처리 성능 카운터
 클라이언트가 행위자 프록시 개체를 통해 메서드를 호출하면 요청 메시지가 네트워크를 통해 행위자 서비스에 전송됩니다. 서비스는 요청 메시지를 처리하고 응답을 다시 클라이언트로 보냅니다. Reliable Actors 런타임은 행위자 요청 처리와 관련하여 다음과 같은 성능 카운터를 게시합니다.
 
 | 범주 이름 | 카운터 이름 | 설명 |
 | --- | --- | --- |
-| 서비스 패브릭 행위자 |미해결 요청 수 |서비스에서 처리 중인 요청 수 |
+| 서비스 패브릭 행위자 |# 미해결 요청 수 |서비스에서 처리 중인 요청 수 |
 | 서비스 패브릭 행위자 |요청당 평균 시간(밀리초) |서비스에서 요청을 처리하는 데 걸린 시간(밀리초) |
 | 서비스 패브릭 행위자 |요청 deserialization에 걸린 평균 시간(밀리초) |서비스에서 수신될 때 행위자 요청 메시지를 deserialize하는 데 걸린 시간(밀리초) |
 | 서비스 패브릭 행위자 |요청 serialization에 걸린 평균 시간(밀리초) |응답이 클라이언트로 전송되기 전에 서비스에서 행위자 응답 메시지를 serialize하는 데 걸린 시간(밀리초) |
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법](service-fabric-reliable-actors-platform.md)
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [샘플 코드](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

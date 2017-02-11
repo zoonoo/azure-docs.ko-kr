@@ -1,12 +1,12 @@
 ---
-title: DMZ 예제 – NSG를 사용하여 간단한 DMZ 빌드| Microsoft Docs
-description: NSG(네트워크 보안 그룹)를 사용하여 DMZ 빌드
+title: "DMZ 예제 – NSG를 사용하여 간단한 DMZ 빌드| Microsoft Docs"
+description: "NSG(네트워크 보안 그룹)를 사용하여 DMZ 빌드"
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-
+editor: 
+ms.assetid: f8622b1d-c07d-4ea6-b41c-4ae98d998fff
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 683adb57d22934f3a4785ded24a0d956c4f1d0dc
+
 
 ---
-# 예 1 – NSG를 사용하여 간단한 DMZ 빌드
+# <a name="example-1--build-a-simple-dmz-with-nsgs"></a>예 1 – NSG를 사용하여 간단한 DMZ 빌드
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
 
-이 예에서는 4개의 Windows Server 및 네트워크 보안 그룹이 포함된 간단한 DMZ가 만들어집니다. 또한 각 단계를 자세히 이해할 수 있도록 각각의 관련 명령에 대해 안내합니다. 트래픽 시나리오 섹션에서는 DMZ에서 방어 계층을 진행하는 방법에 대한 심층적인 단계별 설명도 제공합니다. 마지막으로, 참조 섹션에서는 다양한 시나리오를 사용하여 테스트 및 실험하기 위한 환경을 구축하는 전체 코드와 지침을 제공합니다.
+이 예에서는 4개의 Windows Server 및 네트워크 보안 그룹이 포함된 간단한 DMZ가 만들어집니다. 또한 각 단계를 자세히 이해할 수 있도록 각각의 관련 명령에 대해 안내합니다. 트래픽 시나리오 섹션에서는 DMZ에서 방어 계층을 진행하는 방법에 대한 심층적인 단계별 설명도 제공합니다. 마지막으로, 참조 섹션에서는 다양한 시나리오를 사용하여 테스트 및 실험하기 위한 환경을 구축하는 전체 코드와 지침을 제공합니다. 
 
 ![NSG와 인바운드 DMZ][1]
 
-## 환경 설명
+## <a name="environment-description"></a>환경 설명
 이 예에서는 다음을 포함하는 구독이 있습니다.
 
 * 두 클라우드 서비스: "FrontEnd001" 및 "BackEnd001"
@@ -33,7 +37,7 @@ ms.author: jonor;sivae
 * 응용 프로그램 백 엔드 서버("AppVM01", "AppVM02")를 나타내는 두 Windows 서버
 * DNS 서버("DNS01")를 나타내는 Windows Server
 
-아래 참조 섹션에는 위에서 설명한 대부분의 환경을 빌드할 PowerShell 스크립트가 나와 있습니다. VM 및 가상 네트워크 구축은 예제 스크립트로 수행하지만 이 문서에서는 자세히 설명하지 않습니다.
+아래 참조 섹션에는 위에서 설명한 대부분의 환경을 빌드할 PowerShell 스크립트가 나와 있습니다. VM 및 가상 네트워크 구축은 예제 스크립트로 수행하지만 이 문서에서는 자세히 설명하지 않습니다. 
 
 환경을 구축하려면
 
@@ -47,8 +51,8 @@ ms.author: jonor;sivae
 
 다음 섹션에서는 네트워크 보안 그룹을 설명하고 PowerShell 스크립트의 핵심 줄을 살펴보는 방법으로 이 예제의 작동 방식을 자세히 설명합니다.
 
-## 네트워크 보안 그룹(NSG)
-이 예에서는 NSG 그룹을 빌드한 후 6개의 규칙과 함께 로드합니다.
+## <a name="network-security-groups-nsg"></a>네트워크 보안 그룹(NSG)
+이 예에서는 NSG 그룹을 빌드한 후 6개의 규칙과 함께 로드합니다. 
 
 > [!TIP]
 > 일반적으로 특정 "허용" 규칙을 먼저 만든 후 보다 일반적인 "거부" 규칙을 만들어야 합니다. 할당된 우선순위에 따라 먼저 평가할 규칙이 결정됩니다. 특정 규칙에 적용할 트래픽이 발견되면 규칙을 더 이상 평가하지 않습니다. NSG 규칙은 인바운드 또는 아웃바운드 방향으로 적용할 수 있습니다(서브넷 관점에서).
@@ -88,7 +92,7 @@ ms.author: jonor;sivae
              -DestinationAddressPrefix $VMIP[4] `
              -DestinationPortRange '53' `
              -Protocol *
-3. 이 규칙은 RDP 트래픽이 인터넷에서 VNET의 서브넷에 있는 모든 서버의 RDP 포트로 흐르도록 허용합니다. 이 규칙은 "VIRTUAL\_NETWORK" 및 "INTERNET"이라는 두 가지 특별한 주소 접두사 형식을 사용합니다. 이렇게 하면 주소 접두사로 더 큰 범주의 주소를 간편하게 지정할 수 있습니다.
+3. 이 규칙은 RDP 트래픽이 인터넷에서 VNET의 서브넷에 있는 모든 서버의 RDP 포트로 흐르도록 허용합니다. 이 규칙은 "VIRTUAL_NETWORK" 및 "INTERNET"이라는 두 가지 특별한 주소 접두사 형식을 사용합니다. 이렇게 하면 주소 접두사로 더 큰 범주의 주소를 간편하게 지정할 수 있습니다.
    
      Get-AzureNetworkSecurityGroup -Name $NSGName | `
    
@@ -116,9 +120,8 @@ ms.author: jonor;sivae
          -Type Inbound -Priority 130 -Action Allow `
      -SourceAddressPrefix $VMIP[1] -SourcePortRange '*' `
      -DestinationAddressPrefix $VMIP[2] `
-     -DestinationPortRange '*' `
-     -Protocol *
-6. 이 규칙은 네트워크 상의 모든 서버에 인터넷에서 트래픽을 거부합니다. 우선순위 110 및 120의 규칙을 조합하면 방화벽에 대한 인바운드 인터넷 트래픽 및 다른 서버에 대한 RDP 포트만 허용하고 다른 모든 항목은 차단합니다.
+     -DestinationPortRange '*' `   -Protocol *
+6. 이 규칙은 네트워크 상의 모든 서버에 인터넷에서 트래픽을 거부합니다. 우선순위 110 및 120의 규칙을 조합하면 방화벽에 대한 인바운드 인터넷 트래픽 및 다른 서버에 대한 RDP 포트만 허용하고 다른 모든 항목은 차단합니다. 
    
      Get-AzureNetworkSecurityGroup -Name $NSGName | `
    
@@ -141,8 +144,8 @@ ms.author: jonor;sivae
          -DestinationPortRange '*' `
          -Protocol * 
 
-## 트래픽 시나리오
-#### (*허용*) 웹 - 웹 서버
+## <a name="traffic-scenarios"></a>트래픽 시나리오
+#### <a name="allowed-web-to-web-server"></a>(*허용*) 웹 - 웹 서버
 1. 인터넷 사용자가 FrontEnd001.CloudApp.Net에서 HTTP 페이지를 요청합니다(인터넷 연결 클라우드 서비스).
 2. 클라우드 서비스는 포트 80에서 열린 끝점을 통해 IIS01(웹 서버)로 트래픽을 전달합니다.
 3. 프런트엔드 서브넷은 인바운드 규칙 처리를 시작합니다.
@@ -166,7 +169,7 @@ ms.author: jonor;sivae
 12. IIS 서버는 SQL 응답을 수신하고 HTTP 응답을 완료하여 요청자에게 보냅니다.
 13. 응답이 허용되는 프런트엔드 서브넷에 아웃바운드 규칙이 없으므로 인터넷 사용자는 요청된 웹 페이지를 수신합니다.
 
-#### (*허용*) RDP - 백 엔드
+#### <a name="allowed-rdp-to-backend"></a>(*허용*) RDP - 백 엔드
 1. 인터넷의 서버 관리자는 BackEnd001.CloudApp.Net:xxxxx에서 AppVM01에 대해 RDP 세션을 요청합니다.여기서 xxxxx는 RDP에 대해 AppVM01로 임의로 할당된 포트 번호입니다(할당된 포트는 Azure 포털 또는 PowerShell을 통해 확인할 수 있음).
 2. 백 엔드 서브넷이 인바운드 규칙 처리를 시작합니다.
    1. NSG 규칙 1(DNS)이 적용되지 않고 다음 규칙으로 이동합니다.
@@ -175,7 +178,7 @@ ms.author: jonor;sivae
 4. RDP 세션이 사용하도록 설정됩니다.
 5. AppVM01에서 사용자 이름 암호를 묻습니다.
 
-#### (*허용*) DNS 서버에서 웹 서버 DNS 조회
+#### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(*허용*) DNS 서버에서 웹 서버 DNS 조회
 1. 웹 서버인 IIS01은 www.data.gov에서 데이터 피드를 요구하지만 주소를 확인해야 합니다.
 2. VNet에 대한 네트워크 구성에서 DNS01(백 엔드 서브넷에서 10.0.2.4)을 주 DNS 서버로 나열하는 경우 IIS01은 DNS01로 DNS 요청을 보냅니다.
 3. 프런트엔드 서브넷에 아웃바운드 규칙이 없고 트래픽이 허용됩니다.
@@ -188,11 +191,11 @@ ms.author: jonor;sivae
 9. DNS 서버는 응답을 캐시하고 IIS01에 대한 초기 요청에 다시 응답합니다.
 10. 백 엔드 서브넷에 아웃바운드 규칙이 없고 트래픽이 허용됩니다.
 11. 프런트엔드 서브넷은 인바운드 규칙 처리를 시작합니다.
-    1. 백 엔드 서브넷에서 프런트 엔드 서브넷으로 인바운드 트래픽에 적용되는 NSG 규칙이 없으므로 NSG 규칙이 적용되지 않습니다.
+    1. 백 엔드 서브넷에서 프런트엔드 서브넷으로 인바운드 트래픽에 적용되는 NSG 규칙이 없으므로 NSG 규칙이 적용되지 않습니다.
     2. 서브넷 간의 트래픽을 허용하는 기본 시스템 규칙에서 이 트래픽을 허용하므로 트래픽이 허용됩니다.
 12. IIS01은 DNS01에서 응답을 수신합니다.
 
-#### (*허용*) AppVM01에서 웹 서버가 파일 액세스
+#### <a name="allowed-web-server-access-file-on-appvm01"></a>(*허용*) AppVM01에서 웹 서버가 파일 액세스
 1. IIS01은 AppVM01에서 파일을 요청합니다.
 2. 프런트엔드 서브넷에 아웃바운드 규칙이 없고 트래픽이 허용됩니다.
 3. 백 엔드 서브넷이 인바운드 규칙 처리를 시작합니다.
@@ -207,17 +210,17 @@ ms.author: jonor;sivae
    2. 서브넷 간의 트래픽을 허용하는 기본 시스템 규칙이 이 트래픽을 허용하므로 트래픽이 허용됩니다.
 7. IIS 서버가 파일을 수신합니다.
 
-#### (*거부*) 웹 - 백 엔드 서버
+#### <a name="denied-web-to-backend-server"></a>(*거부*) 웹 - 백 엔드 서버
 1. 인터넷 사용자가 BackEnd001.CloudApp.Net 서비스를 통해 AppVM01에서 파일에 액세스하려고 합니다.
 2. 파일 공유를 위해 열린 끝점이 없으므로 클라우드 서비스를 전달하지 않고 서버에 도달하지 않습니다.
 3. 어떤 이유로 끝점이 열린 경우 NSG 규칙 5(인터넷에서 VNet으로)가 이 트래픽을 차단합니다.
 
-#### (*거부*) DNS 서버에서 웹 DNS 조회
+#### <a name="denied-web-dns-lookup-on-dns-server"></a>(*거부*) DNS 서버에서 웹 DNS 조회
 1. 인터넷 사용자가 BackEnd001.CloudApp.Net 서비스를 통해 DNS01에서 내부 DNS 레코드를 조회하려고 합니다.
 2. DNS를 위해 열린 끝점이 없으므로 클라우드 서비스를 전달하지 않고 서버에 도달하지 않습니다.
 3. 어떤 이유로 끝점이 열린 경우 NSG 규칙 5(인터넷에서 VNet으로)가 이 트래픽을 차단합니다(참고: 규칙 1(DNS)은 두 가지 이유로 적용되지 않습니다. 첫째, 원본 주소가 인터넷입니다. 이 규칙은 로컬 VNet에만 원본으로 적용됩니다. 또한 이는 허용 규칙이므로 트래픽을 거부하지 않습니다.)
 
-#### (*거부*) 방화벽을 통해 웹에서 SQL 액세스
+#### <a name="denied-web-to-sql-access-through-firewall"></a>(*거부*) 방화벽을 통해 웹에서 SQL 액세스
 1. 인터넷 사용자가 FrontEnd001.CloudApp.Net에서 SQL 데이터를 요청합니다(인터넷 연결 클라우드 서비스).
 2. SQL을 위해 열린 끝점이 없으므로 클라우드 서비스를 전달하지 않고 방화벽에 도달하지 않습니다.
 3. 어떤 이유로 끝점이 열린 경우 프런트엔드 서브넷이 인바운드 규칙 처리를 시작합니다.
@@ -227,16 +230,17 @@ ms.author: jonor;sivae
 4. 트래픽이 IIS01의 내부 IP 주소를 호출합니다(10.0.1.5).
 5. IIS01이 포트 1433에서 수신 대기하지 않으므로 요청에 대한 응답이 없습니다.
 
-## 결론
+## <a name="conclusion"></a>결론
 이 방법은 백 엔드 서브넷을 인바운드 트래픽과 격리하는 비교적 간단하고 직접적인 방법입니다.
 
 네트워크 보안 경계에 대한 더 많은 예와 개요는 [여기][HOME]에서 찾을 수 있습니다.
 
-## 참조
-### 기본 스크립트 및 네트워크 구성
-PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트워크 구성을 "NetworkConf1.xml"이라는 파일에 저장합니다. 필요에 따라 사용자 정의 변수를 수정합니다. 스크립트를 실행한 다음 위의 예제 1 섹션에 포함된 방화벽 규칙 설정 지침을 따릅니다.
+## <a name="references"></a>참조
+### <a name="main-script-and-network-config"></a>기본 스크립트 및 네트워크 구성
+PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트워크 구성을 "NetworkConf1.xml"이라는 파일에 저장합니다.
+필요에 따라 사용자 정의 변수를 수정합니다. 스크립트를 실행한 다음 위의 예제 1 섹션에 포함된 방화벽 규칙 설정 지침을 따릅니다.
 
-#### 전체 스크립트
+#### <a name="full-script"></a>전체 스크립트
 이 스크립트는 사용자 정의 변수를 기반으로 합니다.
 
 1. Azure 구독에 연결
@@ -511,7 +515,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
       Write-Host
 
 
-#### 네트워크 구성 파일
+#### <a name="network-config-file"></a>네트워크 구성 파일
 업데이트된 위치로 이 xml 파일을 저장하고 이 파일에 대한 링크를 위의 스크립트에 있는 $NetworkConfigFile 변수에 추가합니다.
 
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
@@ -544,7 +548,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
 
-#### 샘플 응용 프로그램 스크립트
+#### <a name="sample-application-scripts"></a>샘플 응용 프로그램 스크립트
 이에 대한 샘플 응용 프로그램 및 기타 DMZ 예제를 설치하는 방법은 다음 링크를 통해 제공됩니다. [샘플 응용 프로그램 스크립트][SampleApp]
 
 <!--Image References-->
@@ -554,4 +558,9 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

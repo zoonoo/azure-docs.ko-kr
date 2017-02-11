@@ -1,12 +1,12 @@
 ---
-title: '자습서: Promapp과 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 Promapp 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Promapp과 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 Promapp 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 418d0601-6e7a-4997-a683-73fa30a2cfb5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dece2cd1c8645c0a2d19177d433dbfe5d6e3f6cd
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-promapp"></a>자습서: Promapp과 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-promapp"></a>자습서: Promapp과 Azure Active Directory 통합
 이 자습서에서는 Promapp과 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.  
 Promapp을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다. 
 
@@ -255,6 +259,6 @@ Promapp 응용 프로그램은 적시에 프로비전을 지원합니다.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

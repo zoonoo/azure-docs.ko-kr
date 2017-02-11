@@ -1,21 +1,21 @@
 ---
-title: "Application Insights에서 Java 추적 로그 탐색"
+title: "Azure Application Insights에서 Java 추적 로그 탐색 | Microsoft Docs"
 description: "Application Insights에서 검색 Log4J 또는 Logback 추적 검색"
 services: application-insights
 documentationcenter: java
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: fc0a9e2f-3beb-4f47-a9fe-3f86cd29d97a
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 12/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 1f16fb273261892bdcb8780c3ef1954d00951c5a
+ms.sourcegitcommit: 086091bb3be6659436ec8e371acbe4b8e86bfacb
+ms.openlocfilehash: 3ef5f6240d7e4704118b86fb0cfee8cf502859ff
 
 
 ---
@@ -39,6 +39,8 @@ HTTP 요청을 추적하지 않으려는 경우 .xml 구성 파일의 대부분�
 
 *Logback*
 
+```XML
+
     <dependencies>
        <dependency>
           <groupId>com.microsoft.azure</groupId>
@@ -46,8 +48,11 @@ HTTP 요청을 추적하지 않으려는 경우 .xml 구성 파일의 대부분�
           <version>[1.0,)</version>
        </dependency>
     </dependencies>
+```
 
 *Log4J v2.0*
+
+```XML
 
     <dependencies>
        <dependency>
@@ -56,8 +61,11 @@ HTTP 요청을 추적하지 않으려는 경우 .xml 구성 파일의 대부분�
           <version>[1.0,)</version>
        </dependency>
     </dependencies>
+```
 
 *Log4J v1.2*
+
+```XML
 
     <dependencies>
        <dependency>
@@ -66,6 +74,7 @@ HTTP 요청을 추적하지 않으려는 경우 .xml 구성 파일의 대부분�
           <version>[1.0,)</version>
        </dependency>
     </dependencies>
+```
 
 #### <a name="if-youre-using-gradle"></a>Gradle을 사용하는 경우...
 빌드에 Gradle을 사용하도록 프로젝트가 이미 설정된 경우 다음 줄 중 하나를 build.gradle 파일의 `dependencies` 그룹에 추가합니다.
@@ -74,15 +83,22 @@ HTTP 요청을 추적하지 않으려는 경우 .xml 구성 파일의 대부분�
 
 **Logback**
 
+```
+
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '1.0.+'
+```
 
 **Log4J v2.0**
 
+```
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '1.0.+'
+```
 
 **Log4J v1.2**
 
+```
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '1.0.+'
+```
 
 #### <a name="otherwise-"></a>기타...
 적합한 어펜더를 다운로드 및 추출한 다음 적합한 라이브러리를 프로젝트에 추가합니다.
@@ -98,15 +114,19 @@ HTTP 요청을 추적하지 않으려는 경우 .xml 구성 파일의 대부분�
 
 *Logback*
 
+```XML
+
     <appender name="aiAppender" 
       class="com.microsoft.applicationinsights.logback.ApplicationInsightsAppender">
     </appender>
     <root level="trace">
       <appender-ref ref="aiAppender" />
     </root>
-
+```
 
 *Log4J v2.0*
+
+```XML
 
     <Configuration packages="com.microsoft.applicationinsights.Log4j">
       <Appenders>
@@ -118,9 +138,11 @@ HTTP 요청을 추적하지 않으려는 경우 .xml 구성 파일의 대부분�
         </Root>
       </Loggers>
     </Configuration>
-
+```
 
 *Log4J v1.2*
+
+```XML
 
     <appender name="aiAppender" 
          class="com.microsoft.applicationinsights.log4j.v1_2.ApplicationInsightsAppender">
@@ -129,6 +151,7 @@ HTTP 요청을 추적하지 않으려는 경우 .xml 구성 파일의 대부분�
       <priority value ="trace" />
       <appender-ref ref="aiAppender" />
     </root>
+```
 
 Application Insights 어펜더는 루트 로거만이 아니라 구성된 모든 로거에 의해 참조될 수 있습니다(위의 코드 샘플에 표시).
 
@@ -149,6 +172,6 @@ Application Insights 어펜더는 루트 로거만이 아니라 구성된 모든
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
