@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 08/23/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4fe8a9dfd00ef85382733dcb2488c62ab651bc56
+ms.sourcegitcommit: 5c585b988cc1989288e1e5953d1bdab6b5281707
+ms.openlocfilehash: aa8b95bd92d6bed60ba20ffd28e53d26930d7a31
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 4fe8a9dfd00ef85382733dcb2488c62ab651bc56
 현재는 논리 앱에 Excel 커넥터가 없습니다. 
 
 ## <a name="to-use-excel-data"></a>Excel 데이터를 사용하려면
-Excel 데이터를 저장소 폴더(예: [OneDrive](connectors-create-api-onedrive.md))에 쉼표로 구분된 값(CSV)으로 저장할 수 있습니다. 또한 이 CSV 파일을 [플랫 파일 커넥터](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md)와 함께 사용할 수도 있습니다.
+Excel 데이터를 저장소 폴더(예: [OneDrive](connectors-create-api-onedrive.md))에 쉼표로 구분된 값(CSV)으로 저장할 수 있습니다. 또한 이 CSV 파일을 [플랫 파일 커넥터](../logic-apps/logic-apps-enterprise-integration-flatfile.md)와 함께 사용할 수도 있습니다.
 
 <!---
 
@@ -212,13 +212,13 @@ Applies to version: 1.0.
 
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)  
 
 
 -->
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

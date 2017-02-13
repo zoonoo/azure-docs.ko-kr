@@ -1,5 +1,5 @@
 ---
-title: ".NET 다중 계층 응용 프로그램 | Microsoft Docs"
+title: "Azure Service Bus를 사용하는 .NET 다중 계층 응용 프로그램 | Microsoft Docs"
 description: "Azure에서 서비스 버스 큐를 사용하여 계층 간에 통신하는 다중 계층 응용 프로그램을 개발하는 데 도움이 되는 .NET 자습서입니다."
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/01/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 17805b49359ed063f44d9b7dacf1e1052649dc61
 
 
 ---
@@ -33,7 +33,7 @@ Visual Studio 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Micr
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-이 자습서에서는 Azure 클라우드 서비스에서 다중 계층 응용 프로그램을 빌드하고 실행합니다. 프런트 엔드는 ASP.NET MVC 웹 역할이고 백 엔드는 서비스 버스 큐를 사용하는 작업자 역할입니다. 클라우드 서비스가 아닌 Azure 웹 사이트에 배포되는 웹 프로젝트와 동일한 다중 계층 응용 프로그램(프런트 엔드 포함)을 만들 수 있습니다. Azure 웹 사이트 프런트 엔드를 다르게 수행하는 방법에 대한 지침은 [다음 단계](#nextsteps) 섹션을 참조하세요. [.NET 온-프레미스/클라우드 하이브리드 응용 프로그램](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) 자습서를 시도해 볼 수 있습니다.
+이 자습서에서는 Azure 클라우드 서비스에서 다중 계층 응용 프로그램을 빌드하고 실행합니다. 프런트 엔드는 ASP.NET MVC 웹 역할이고 백 엔드는 Service Bus 큐를 사용하는 작업자 역할입니다. 클라우드 서비스가 아닌 Azure 웹 사이트에 배포되는 웹 프로젝트와 동일한 다중 계층 응용 프로그램(프런트 엔드 포함)을 만들 수 있습니다. Azure 웹 사이트 프런트 엔드를 다르게 수행하는 방법에 대한 지침은 [다음 단계](#nextsteps) 섹션을 참조하세요. [.NET 온-프레미스/클라우드 하이브리드 응용 프로그램](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) 자습서를 시도해 볼 수 있습니다.
 
 다음 스크린샷에서는 완성된 응용 프로그램을 보여 줍니다.
 
@@ -61,8 +61,8 @@ Visual Studio 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Micr
 ## <a name="set-up-the-development-environment"></a>개발 환경 설정
 Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개발 환경을 설정해야 합니다.
 
-1. [도구 및 SDK 가져오기][도구 및 SDK 가져오기]에 .NET용 Azure SDK를 설치합니다.
-2. 사용하고 있는 Visual Studio 버전에 대한 **SDK 설치**를 클릭합니다. 이 자습서의 단계에서는 Visual Studio 2015를 사용합니다.
+1. [도구 및 SDK 가져오기](https://azure.microsoft.com/downloads/)에서 .NET용 Azure SDK를 설치합니다.
+2. **.NET** 열에서 사용 중인 Visual Studio 버전을 클릭합니다. 이 자습서의 단계에서는 Visual Studio 2015를 사용합니다.
 3. 설치 관리자를 실행할지 또는 저장할지를 묻는 메시지가 표시되면 **실행**을 클릭합니다.
 4. **웹 플랫폼 설치 관리자**에서 **설치**를 클릭하여 설치를 계속합니다.
 5. 설치가 완료되면 앱을 개발하기 시작하는 데 필요한 내용이 모두 준비된 것입니다. SDK에는 Visual Studio에서 Azure 응용 프로그램을 쉽게 개발할 수 있는 도구가 포함되어 있습니다. Visual Studio가 설치되어 있지 않으면 SDK에서 무료로 제공되는 Visual Studio Express도 설치합니다.
@@ -109,7 +109,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 
 1. Visual Studio의 OnlineOrder.cs 파일에서 기존 네임스페이스 정의를 다음 코드로 바꿉니다.
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Models
    {
        public class OnlineOrder
@@ -121,14 +121,14 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
    ```
 2. **솔루션 탐색기**에서 **Controllers\HomeController.cs**를 두 번 클릭합니다. 파일 맨 위에 다음 **using** 문을 추가하여 Service Bus뿐만 아니라 방금 만든 모델에 대한 네임스페이스를 포함합니다.
    
-   ```
+   ```csharp
    using FrontendWebRole.Models;
    using Microsoft.ServiceBus.Messaging;
    using Microsoft.ServiceBus;
    ```
 3. 또한 Visual Studio의 HomeController.cs 파일에서 기존 네임스페이스 정의를 다음 코드로 바꿉니다. 이 코드에는 큐에 대한 항목 제출을 처리하는 메서드가 포함되어 있습니다.
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Controllers
    {
        public class HomeController : Controller
@@ -193,7 +193,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
     ![][28]
 11. 마지막으로 큐에 대한 일부 정보를 포함하도록 제출 페이지를 수정합니다. **솔루션 탐색기**에서 **Views\Home\Submit.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. `<h2>Submit</h2>` 뒤에 다음 줄을 추가합니다. 이제 `ViewBag.MessageCount`은(는) 비어 있습니다. 나중에 채웁니다.
     
-    ```
+    ```html
     <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
     ```
 12. 이제 UI를 구현했습니다. **F5** 키를 눌러 응용 프로그램을 실행하고 예상대로 나타나는지 확인할 수 있습니다.
@@ -207,7 +207,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 2. 클래스 이름을 **QueueConnector.cs**로 지정합니다. **추가**를 클릭하여 클래스를 만듭니다.
 3. 이제 연결 정보를 캡슐화하고 서비스 버스 큐에 대한 연결을 초기화하는 코드를 추가합니다. QueueConnector.cs의 전체 내용을 다음 코드로 바꾸고 `your Service Bus namespace`(네임스페이스 이름) 및 `yourKey`의 값을 입력합니다. 이는 Azure Portal에서 이전에 가져온 **기본 키**입니다.
    
-   ```
+   ```csharp
    using System;
    using System.Collections.Generic;
    using System.Linq;
@@ -269,13 +269,13 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 4. 이제 **Initialize** 메서드가 호출되는지 확인합니다. **솔루션 탐색기**에서 **Global.asax\Global.asax.cs**를 두 번 클릭합니다.
 5. 다음 코드 줄을 **Application_Start** 메서드의 끝에 추가합니다.
    
-   ```
+   ```csharp
    FrontendWebRole.QueueConnector.Initialize();
    ```
 6. 끝으로, 앞에서 만든 웹 코드를 업데이트하여 항목을 큐에 제출합니다. **솔루션 탐색기**에서 **Controllers\HomeController.cs**를 두 번 클릭합니다.
 7. 다음과 같이 `Submit()` 메서드(매개 변수를 사용하지 않는 오버로드)를 업데이트하여 큐에 대한 메시지 수를 가져옵니다.
    
-   ```
+   ```csharp
    public ActionResult Submit()
    {
        // Get a NamespaceManager which allows you to perform management and
@@ -291,7 +291,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
    ```
 8. 다음과 같이 `Submit(OnlineOrder order)` 메서드(하나의 매개 변수를 사용하는 오버로드)를 업데이트하여 큐에 주문 정보를 제출합니다.
    
-   ```
+   ```csharp
    public ActionResult Submit(OnlineOrder order)
    {
        if (ModelState.IsValid)
@@ -334,18 +334,18 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 10. **FrontendWebRole\Models**의 하위 폴더로 이동하고 **OnlineOrder.cs**를 두 번 클릭하여 이 프로젝트에 추가합니다.
 11. **WorkerRole.cs**에서 다음 코드와 같이 **QueueName** 변수 값을 `"ProcessingQueue"`에서 `"OrdersQueue"`(으)로 변경합니다.
     
-    ```
+    ```csharp
     // The name of your queue.
     const string QueueName = "OrdersQueue";
     ```
 12. WorkerRole.cs 파일 맨 위에 다음 using 문을 추가합니다.
     
-    ```
+    ```csharp
     using FrontendWebRole.Models;
     ```
 13. `Run()` 함수의 `OnMessage()` 호출 내에서 `try` 절의 내용을 다음 코드로 바꿉니다.
     
-    ```
+    ```csharp
     Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
     // View the message as an OnlineOrder.
     OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
@@ -362,8 +362,8 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 서비스 버스에 대한 자세한 내용은 다음 리소스를 참조하십시오.  
 
 * [Azure Service Bus][sbmsdn]  
-* [Service Bus 서비스 페이지][sbwacom]  
-* [Service Bus 큐 사용 방법][sbwacomqhowto]  
+* [Service Bus 서비스 페이지][sbacom]  
+* [Service Bus 큐를 사용하는 방법][sbacomqhowto]  
 
 다중 계층 시나리오에 대한 자세한 내용은 다음을 참조하세요.  
 
@@ -372,19 +372,6 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-[도구 및 SDK 가져오기]: http://go.microsoft.com/fwlink/?LinkId=271920
-
-
-[GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
-[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
-[NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
-
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-
-[EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
-
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
 [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
 [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -404,12 +391,12 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
 [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
-[sbwacom]: /documentation/services/service-bus/  
-[sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
+[sbacom]: https://azure.microsoft.com/services/service-bus/  
+[sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

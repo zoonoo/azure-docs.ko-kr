@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect 동기화: 기술 개념 | Microsoft Docs'
-description: Azure AD Connect 동기화의 기술 개념에 대해 설명합니다.
+title: "Azure AD Connect 동기화: 기술 개념 | Microsoft Docs"
+description: "Azure AD Connect 동기화의 기술 개념에 대해 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markusvi;andkjell
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 74b7aae21ec81f891c73461989e641a2d7a042e8
+
 
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync: 기술 개념
@@ -89,6 +93,6 @@ ID가 서로 연결되어 있고 가져오기 흐름 매핑을 통해 기관이 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

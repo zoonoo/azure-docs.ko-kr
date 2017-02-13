@@ -73,16 +73,18 @@ nslookup, dig, [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com
 
 Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 않은 경우 [DNS 쿼리를 영역에 대한 이름 서버 중 하나로 직접 보내](dns-getstarted-create-dnszone.md#test-name-servers)야 합니다. 아래 명령을 사용자 레코드 영역의 올바른 값으로 대체해야 합니다.
 
-    nslookup
-    > set type=A
-    > server ns1-01.azure-dns.com
-    > www.contoso.com
+```
+nslookup
+> set type=A
+> server ns1-01.azure-dns.com
+> www.contoso.com
 
-    Server:  ns1-01.azure-dns.com
-    Address:  40.90.4.1
+Server:  ns1-01.azure-dns.com
+Address:  40.90.4.1
 
-    Name:    www.contoso.com
-    Address:  1.2.3.4
+Name:    www.contoso.com
+Address:  1.2.3.4
+```
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -95,6 +97,6 @@ Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 �
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

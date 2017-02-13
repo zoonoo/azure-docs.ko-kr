@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 07/01/2016
 ms.author: clemensv;jotaub;hillaryc;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 946384b5986ee56f16f5b3fe3be07d09f9837076
+ms.sourcegitcommit: 3cd9b1e94bde10b4da8fcb91c39abdcc2591d5ba
+ms.openlocfilehash: a93eb9a3afa0ceaa42b42b4274f2164da2d7faa8
 
 
 ---
@@ -48,7 +48,7 @@ AMQP 1.0 프로토콜은 확장할 수 있도록 설계되었으며 기능을 �
 ## <a name="basic-amqp-scenarios"></a>기본 AMQP 시나리오
 이 섹션에서는 연결, 세션 및 링크의 생성과 큐, 토픽 및 구독 같은 Service Bus 엔터티와의 메시지 송수신 등, Azure Service Bus에서 AMQP 1.0를 사용하는 기본적인 방법을 설명합니다.
 
-AMQP 작동 방식을 알기 위한 가장 신뢰할 수 있는 소스는 AMQP 1.0 사양이지만, 이 사양은 구현을 정확히 안내하기 위해 작성되었으며 프로토콜 학습용은 아닙니다. 이 섹션에서는 서비스 버스가 AMQP 1.0을 사용하는 방법을 설명하는 데 필요한 다양한 용어를 중점적으로 소개합니다. AMQP를 좀 더 포괄적으로 소개하고 AMQP 1.0을 광범위하게 논의하려는 경우 [이 비디오 교육 과정][이 비디오 교육 과정]을 검토할 수 있습니다.
+AMQP 작동 방식을 알기 위한 가장 신뢰할 수 있는 소스는 AMQP 1.0 사양이지만, 이 사양은 구현을 정확히 안내하기 위해 작성되었으며 프로토콜 학습용은 아닙니다. 이 섹션에서는 서비스 버스가 AMQP 1.0을 사용하는 방법을 설명하는 데 필요한 다양한 용어를 중점적으로 소개합니다. AMQP를 좀 더 포괄적으로 소개하고 AMQP 1.0을 광범위하게 논의하려는 경우 [이 비디오 과정][this video course]을 검토할 수 있습니다.
 
 ### <a name="connections-and-sessions"></a>연결 및 세션
 ![][1]
@@ -218,7 +218,7 @@ API 수준의 "수신" 호출은 클라이언트가 Service Bus로 보내는 *�
 이 섹션에서는 현재 AMQP의 OASIS 기술 위원회에서 개발 중인 AMQP의 확장 초안에 기반하는 Azure 서비스 버스의 고급 기능을 설명합니다. Azure 서비스 버스는 이러한 초안의 최신 상태를 구현하고 해당 초안이 표준 상태에 도달될 때 도입된 변경 내용을 채택하게 됩니다.
 
 > [!NOTE]
-> 서비스 버스 메시징 고급 작업은 요청/응답 패턴을 통해 지원됩니다. 이러한 작업의 세부 정보는 [Service Bus의 AMQP 1.0: 요청/응답 기반 작업](https://msdn.microsoft.com/library/azure/mt727956.aspx) 문서에 설명되어 있습니다.
+> Service Bus 메시징 고급 작업은 요청/응답 패턴을 통해 지원됩니다. 이러한 작업의 세부 정보는 [Service Bus의 AMQP 1.0: 요청/응답 기반 작업](https://msdn.microsoft.com/library/azure/mt727956.aspx) 문서에 설명되어 있습니다.
 > 
 > 
 
@@ -301,7 +301,7 @@ AMQP에 대한 자세한 내용은 다음 링크를 참조하세요.
 * [Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]
 * [Windows Server용 Service Bus의 AMQP]
 
-[이 비디오 교육 과정]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
+[this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp/amqp1.png
 [2]: ./media/service-bus-amqp/amqp2.png
 [3]: ./media/service-bus-amqp/amqp3.png
@@ -313,6 +313,6 @@ AMQP에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -45,7 +45,7 @@ FileCloud와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.
@@ -122,7 +122,7 @@ FileCloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
     b. **식별자** 텍스트 상자에 `https://<subdomain>.filecloudhosted.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`를 입력합니다.
    
-    c.  **다음**
+    c. **다음**
    
     > [!NOTE]
     > 실제 로그온 URL 및 식별자로 해당 값을 업데이트해야 합니다. 이러한 값을 얻으려면 <mailto:support@codelathe.com>으로 FileCloud 지원 팀에 문의합니다.

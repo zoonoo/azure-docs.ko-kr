@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 06/24/2015
 ms.author: hbai
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 1c45d0ad8431b5cfff7859817fe57c3168f2dc7f
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 8e69e791128710e640cba0c9edfbbadc0ea70ef5
 
 
 ---
@@ -32,7 +32,7 @@ ms.openlocfilehash: 1c45d0ad8431b5cfff7859817fe57c3168f2dc7f
 
 * 활성 Azure 구독. 없는 경우 [azure.com](https://azure.microsoft.com/)에서 무료 평가판을 얻을 수 있습니다.
 * Azure 리소스 그룹을 사용할 회사 또는 학교 ID. 개인 계정이 있고 Microsoft ID로 로그인하는 경우 [개인 계정에서 회사 ID를 만들어야](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)합니다.
-* 클라이언트 운영 체제에 따라 [Azure PowerShell](../powershell-install-configure.md) 또는 [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli-install.md)
+* 클라이언트 운영 체제에 따라 [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli-install.md)
 * [OpenSSL](https://www.openssl.org/). OpenSSL은 필요한 인증서를 생성하는 데 사용됩니다.
 * [Git Bash](https://git-scm.com/)와 같은 Git 클라이언트
 * 샘플 응용 프로그램을 테스트하려면 DNS 서버도 필요합니다. 모든 DNS 서버 또는 와일드 카드 A 레코드를 지원하는 서비스를 사용할 수 있습니다.
@@ -57,7 +57,7 @@ ms.openlocfilehash: 1c45d0ad8431b5cfff7859817fe57c3168f2dc7f
    
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
    <br />
-    각 CoreOS 클러스터에 이 무료 서비스의 고유한 토큰이 있어야 합니다. 자세한 내용은 [CoreOS 설명서](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) 를 참조하세요.
+   각 CoreOS 클러스터에 이 무료 서비스의 고유한 토큰이 있어야 합니다. 자세한 내용은 [CoreOS 설명서](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) 를 참조하세요.
 6. **cloud-config.yaml** 파일을 수정하여 기존 **검색** 토큰을 새 토큰으로 바꿉니다.
    
         #cloud-config
@@ -254,6 +254,6 @@ Deis 클러스터를 제어하려면 **deisctl** 이 필요합니다. deisctl은
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

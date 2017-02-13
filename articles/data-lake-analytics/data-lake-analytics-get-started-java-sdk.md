@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 7ab51f4834f3112d4f3379acbaa16a386276cdb8
+ms.sourcegitcommit: bbfe4dc74b9743b89ea6a7a99f5fa17672f3c706
+ms.openlocfilehash: 94db8988acacd93518e96a81e177882852379fb0
 
 
 ---
@@ -44,7 +44,9 @@ Azure Data Lake 분석 Java SDK를 사용하여 Azure Data Lake 계정을 만들
 2. 화면의 왼쪽에 있는 프로젝트를 마우스 오른쪽 단추로 클릭하고 **프레임워크 지원 추가**를 클릭합니다. **Maven**을 선택하고 **확인**을 클릭합니다.
 3. 새로 만든 **"pom.xml"** 파일을 열고 **\</version>** 태그 및 **\</project>** 태그 사이에 다음 텍스트의 코드 조각을 추가합니다.
 
-    참고: 이 단계는 Azure Data Lake 분석 SDK를 Maven에서 사용할 수 있을 때까지 일시적입니다. SDK를 Maven에서 제공하면 이 문서가 업데이트됩니다. 이 SDK에 대한 모든 이후 업데이트는 Maven을 통해 사용할 수 있습니다.
+    >[!NOTE]
+    >이 단계는 Azure Data Lake Analytics SDK를 Maven에서 사용할 수 있을 때까지 일시적입니다. SDK를 Maven에서 제공하면 이 문서가 업데이트됩니다. 이 SDK에 대한 모든 이후 업데이트는 Maven을 통해 사용할 수 있습니다.
+    >
 
         <repositories>
             <repository>
@@ -351,6 +353,6 @@ Azure Data Lake 분석 Java SDK를 사용하여 Azure Data Lake 계정을 만들
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

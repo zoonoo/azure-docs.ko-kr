@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -232,7 +232,7 @@ Tez의 Hive 작업을 위한 작업 실행 보기는 Hive 작업에 대한 정�
 ## <a name="run-pig-scripts"></a>Pig 스크립트 실행
 Visual Studio용 Data Lake 도구는 Pig 스크립트를 만들어 HDInsight 클러스터에 제출하도록 지원합니다. 템플릿에서 Pig 프로젝트를 만들고 HDInsight 클러스터에 스크립트를 제출할 수 있습니다.
 
-## <a name="feedbacks-known-issues"></a>피드백 및 알려진 문제
+## <a name="feedbacks--known-issues"></a>피드백 및 알려진 문제
 * 현재 HiveServer2 결과는 일반 텍스트 버전으로 표시되며, 이것은 바람직하지 않습니다. 이 문제를 해결하기 위해 개발 중에 있습니다.
 * 결과가 NULL 값으로 시작되는 경우, 현재는 결과가 표시되지 않습니다. 이 문제는 해결되었습니다. 이 문제로 인해 어려움이 있으면, 전자 메일을 보내거나 지원 팀에 문의해 주시기 바랍니다.
 * Visual Studio에서 만든 HQL 스크립트는 사용자의 로컬 지역 설정에 따라 인코딩됩니다. 사용자가 스크립트를 클러스터에 이진으로 업로드하는 경우 올바르게 실행되지 않을 수 있습니다.

@@ -1,23 +1,27 @@
 ---
-title: LOB 응용 프로그램 테스트 환경 | Microsoft Docs
-description: IT 전문가 또는 개발 테스트용 하이브리드 클라우드에 웹 기반 LOB(기간 업무) 응용 프로그램을 설치하는 방법에 대해 알아봅니다.
+title: "LOB 응용 프로그램 테스트 환경 | Microsoft Docs"
+description: "IT 전문가 또는 개발 테스트용 하이브리드 클라우드에 웹 기반 LOB(기간 업무) 응용 프로그램을 설치하는 방법에 대해 알아봅니다."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: JoeDavies-MSFT
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 92d2d8ce-60ed-4512-95e5-a7fe3b0ca00b
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 09/30/2016
 ms.author: josephd
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: c90b3ca27877babb5b1f82aa810d0197417f7e70
+
 
 ---
-# 테스트용 하이브리드 클라우드에 웹 기반 LOB 응용 프로그램 설치
+# <a name="set-up-a-web-based-lob-application-in-a-hybrid-cloud-for-testing"></a>테스트용 하이브리드 클라우드에 웹 기반 LOB 응용 프로그램 설치
 이 항목에서는 Microsoft Azure에서 호스트되는 웹 기반 LOB(기간 업무) 응용 프로그램을 테스트하기 위한 시뮬레이션된 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
@@ -42,16 +46,16 @@ ms.author: josephd
 
 이 워크로드에는 Azure 구독이 필요합니다. MSDN 또는 Visual Studio 구독이 있는 경우에는 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
-Azure에서 호스트되는 프로덕션 LOB 응용 프로그램의 예는 [Microsoft 소프트웨어 아키텍처 다이어그램 및 청사진](http://msdn.microsoft.com/dn630664)에서 **LOB(기간 업무) 응용 프로그램** 아키텍처 청사진을 참조하세요.
+Azure에서 호스트되는 프로덕션 LOB 응용 프로그램의 예는 **Microsoft 소프트웨어 아키텍처 다이어그램 및 청사진** 에서 [LOB(기간 업무) 응용 프로그램](http://msdn.microsoft.com/dn630664)아키텍처 청사진을 참조하세요.
 
-## 1단계: 시뮬레이션된 하이브리드 클라우드 환경 설정
-[시뮬레이션된 하이브리드 클라우드 테스트 환경](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md)을 만듭니다. 이 테스트 환경에는 APP1 서버가 Corpnet 서브넷에 있을 필요가 없으므로 지금은 종료할 수 있습니다.
+## <a name="phase-1-set-up-the-simulated-hybrid-cloud-environment"></a>1단계: 시뮬레이션된 하이브리드 클라우드 환경 설정
+[시뮬레이션된 하이브리드 클라우드 테스트 환경](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 만듭니다. 이 테스트 환경에는 APP1 서버가 Corpnet 서브넷에 있을 필요가 없으므로 지금은 종료할 수 있습니다.
 
 다음은 현재 구성입니다.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph1.png)
 
-## 2단계: SQL Server 컴퓨터(SQL1) 구성
+## <a name="phase-2-configure-the-sql-server-computer-sql1"></a>2단계: SQL Server 컴퓨터(SQL1) 구성
 Azure 포털에서 DC2 컴퓨터(필요한 경우)를 시작합니다.
 
 그런 다음 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 SQL1용 가상 컴퓨터를 만듭니다. 이러한 명령을 실행하기 전에 변수 값을 작성하고 < and > 문자를 제거합니다.
@@ -112,25 +116,25 @@ SQL1의 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합�
     Add-Computer -DomainName corp.contoso.com
     Restart-Computer
 
-**Add-Computer** 명령에 대한 도메인 계정 자격 증명을 제공하라는 메시지가 표시되면 CORP\\User1 계정을 사용합니다.
+**Add-Computer** 명령에 대한 도메인 계정 자격 증명을 제공하라는 메시지가 표시되면 CORP\User1 계정을 사용합니다.
 
-다시 시작한 후 Azure 포털을 사용하여 *SQL1의 로컬 관리자 계정으로* SQL1에 연결합니다.
+다시 시작한 후 Azure 포털을 사용하여 *SQL1의 로컬 관리자 계정으로*SQL1에 연결합니다.
 
 그런 다음 새 데이터베이스 및 사용자 계정 권한에 F: 드라이브를 사용하도록 SQL Server 2014를 구성합니다.
 
 1. 시작 화면에서 **SQL Server 관리**를 입력하고 **SQL Server 2014 Management Studio**를 클릭합니다.
 2. **서버에 연결**에서 **연결**을 클릭합니다.
-3. 개체 탐색기 트리 창에서 **SQL1**을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
+3. 개체 탐색기 트리 창에서 **SQL1**을 지정한 다음 **속성**을 참조하세요.
 4. **서버 속성** 창에서 **데이터베이스 설정**을 클릭합니다.
-5. **데이터베이스 기본 위치**를 찾아서 다음 값을 설정합니다.
-   * **데이터**에 경로 **f:\\Data**를 입력합니다.
-   * **로그**에 경로 **f:\\Log**를 입력합니다.
-   * **백업**에 경로 **f:\\Backup**을 입력합니다.
+5. **데이터베이스 기본 위치** 를 찾아서 다음 값을 설정합니다. 
+   * **데이터**에 경로 **f:\Data**를 입력합니다.
+   * **로그**에 경로 **f:\Log**를 입력합니다.
+   * **백업**에 경로 **f:\Backup**을 입력합니다.
    * 참고: 새 데이터베이스에서만 이러한 위치를 사용합니다.
-6. **확인**을 클릭하여 창을 닫습니다.
+6. **확인** 을 클릭하여 창을 닫습니다.
 7. **개체 탐색기** 트리 창에서 **보안**을 엽니다.
 8. **로그인**을 마우스 오른쪽 단추로 클릭하고 **새 로그인**을 클릭합니다.
-9. **로그인 이름**에 **CORP\\User1**을 입력합니다.
+9. **로그인 이름**에 **CORP\User1**을 입력합니다.
 10. **서버 역할** 페이지에서 **sysadmin**을 클릭한 다음 **확인**을 클릭합니다.
 11. Microsoft SQL Server Management Studio를 닫습니다.
 
@@ -138,7 +142,7 @@ SQL1의 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합�
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph2.png)
 
-## 3단계: LOB 서버(LOB1) 구성
+## <a name="phase-3-configure-the-lob-server-lob1"></a>3단계: LOB 서버(LOB1) 구성
 먼저 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 LOB1용 가상 컴퓨터를 만듭니다.
 
     $rgName="<your resource group name>"
@@ -173,9 +177,9 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
     Add-Computer -DomainName corp.contoso.com
     Restart-Computer
 
-**Add-Computer** 명령에 대한 도메인 계정 자격 증명을 제공하라는 메시지가 표시되면 CORP\\User1 계정을 사용합니다.
+**Add-Computer** 명령에 대한 도메인 계정 자격 증명을 제공하라는 메시지가 표시되면 CORP\User1 계정을 사용합니다.
 
-다시 시작한 후 Azure 포털을 사용하여 CORP\\User1 계정 및 암호로 LOB1에 연결합니다.
+다시 시작한 후 Azure 포털을 사용하여 CORP\User1 계정 및 암호로 LOB1에 연결합니다.
 
 그런 다음 IIS에 대해 LOB1을 구성하고 CLIENT1의 액세스를 테스트합니다.
 
@@ -190,7 +194,7 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 9. **역할 서비스 선택** 페이지에서 LOB 응용 프로그램을 테스트하는 데 필요한 서비스의 확인란을 선택하거나 선택 취소하고 **다음**을 클릭합니다.
 10. **설치 선택 확인** 페이지에서 **설치**를 클릭합니다.
 11. 구성 요소 설치가 완료될 때까지 기다렸다가 **닫기**를 클릭합니다.
-12. Azure 포털에서 CORP\\User1 계정 자격 증명으로 CLIENT1 컴퓨터에 연결한 다음 Internet Explorer를 시작합니다.
+12. Azure 포털에서 CORP\User1 계정 자격 증명으로 CLIENT1 컴퓨터에 연결한 다음 Internet Explorer를 시작합니다.
 13. 주소 표시줄에 **http://lob1/**을 입력하고 Enter 키를 누릅니다. 기본 IIS 8 웹 페이지가 표시됩니다.
 
 다음은 현재 구성입니다.
@@ -199,7 +203,12 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 
 이제 이 환경은 LOB1의 웹 기반 응용 프로그램을 배포하고 Corpnet 서브넷의 CLIENT1에서 기능을 테스트할 준비가 완료되었습니다.
 
-## 다음 단계
-* [Azure 포털](virtual-machines-windows-hero-tutorial.md)을 사용하여 새 가상 컴퓨터를 추가합니다.
+## <a name="next-step"></a>다음 단계
+* [Azure Portal](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 새 가상 컴퓨터를 추가합니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

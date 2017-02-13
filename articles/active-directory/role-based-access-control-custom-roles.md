@@ -1,12 +1,12 @@
 ---
-title: Azure RBAC에서 사용자 지정 역할 | Microsoft Docs
-description: Azure 구독에 보다 정확한 ID 관리를 위해 Azure 역할 기반 액세스 제어로 사용자 지정 역할을 정의하는 방법에 대해 알아봅니다.
+title: "Azure RBAC에서 사용자 지정 역할 | Microsoft Docs"
+description: "Azure 구독에 보다 정확한 ID 관리를 위해 Azure 역할 기반 액세스 제어로 사용자 지정 역할을 정의하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: kgremban
-editor: ''
-
+editor: 
+ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/25/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b5ffc0f9d337c776f2702aa95d991d1b57829f3b
+
 
 ---
-# Azure RBAC에서 사용자 지정 역할
-특정 액세스 요구를 충족하는 기본 제공 역할이 없는 경우 Azure 역할 기반 액세스 제어(RBAC)에서 사용자 지정 역할을 만듭니다. [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure 명령줄 인터페이스(CLI)](role-based-access-control-manage-access-azure-cli.md) 및 [REST API](role-based-access-control-manage-access-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 사용자 지정 역할을 사용자, 그룹 및 응용 프로그램에 구독, 리소스 그룹 및 리소스 범위에서 할당할 수 있습니다. 사용자 지정 역할은 Azure AD 테넌트에 저장되며 해당 구독에 대한 Azure AD 디렉터리로 해당 테넌트를 사용하는 모든 구독 전반에서 공유할 수 있습니다.
+# <a name="custom-roles-in-azure-rbac"></a>Azure RBAC에서 사용자 지정 역할
+특정 액세스 요구를 충족하는 기본 제공 역할이 없는 경우 Azure 역할 기반 액세스 제어(RBAC)에서 사용자 지정 역할을 만듭니다. [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure 명령줄 인터페이스](role-based-access-control-manage-access-azure-cli.md)(CLI) 및 [REST API](role-based-access-control-manage-access-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 사용자 지정 역할을 사용자, 그룹 및 응용 프로그램에 구독, 리소스 그룹 및 리소스 범위에서 할당할 수 있습니다. 사용자 지정 역할은 Azure AD 테넌트에 저장되며 해당 구독에 대한 Azure AD 디렉터리로 해당 테넌트를 사용하는 모든 구독 전반에서 공유할 수 있습니다.
 
 다음은 가상 컴퓨터의 모니터링 및 재시작을 위한 사용자 지정 역할에 관한 예제입니다.
 
@@ -49,12 +53,12 @@ ms.author: kgremban
   ]
 }
 ```
-## 작업
-사용자 지정 역할의 **Actions** 속성은 해당 역할에 액세스 권한이 부여되는 Azure 작업을 지정합니다. Azure 리소스 공급자의 보안 개체 작업을 식별하는 작업 문자열 모음입니다. 와일드카드(*)를 포함하는 작업 문자열은 작업 문자열과 일치하는 모든 작업에 대한 액세스 권한을 부여합니다. 예:
+## <a name="actions"></a>작업
+사용자 지정 역할의 **Actions** 속성은 해당 역할에 액세스 권한이 부여되는 Azure 작업을 지정합니다. Azure 리소스 공급자의 보안 개체 작업을 식별하는 작업 문자열 모음입니다. 와일드카드(\*)를 포함하는 작업 문자열은 작업 문자열과 일치하는 모든 작업에 대한 액세스 권한을 부여합니다. 예:
 
-* `*/read`는 모든 Azure 리소스 공급자의 모든 리소스 종류에 대한 읽기 작업의 액세스 권한을 부여합니다.
-* `Microsoft.Network/*/read`는 Azure의 Microsoft.Network 리소스 공급자에서 모든 리소스 종류에 대한 읽기 작업의 액세스 권한을 부여합니다.
-* `Microsoft.Compute/virtualMachines/*`는 가상 컴퓨터 및 해당 하위 리소스 종류의 모든 작업에 대한 액세스 권한을 부여합니다.
+* `*/read` 는 모든 Azure 리소스 공급자의 모든 리소스 종류에 대한 읽기 작업의 액세스 권한을 부여합니다.
+* `Microsoft.Network/*/read` 는 Azure의 Microsoft.Network 리소스 공급자에서 모든 리소스 종류에 대한 읽기 작업의 액세스 권한을 부여합니다.
+* `Microsoft.Compute/virtualMachines/*` 는 가상 컴퓨터 및 해당 하위 리소스 종류의 모든 작업에 대한 액세스 권한을 부여합니다.
 * `Microsoft.Web/sites/restart/Action`은 웹 사이트를 다시 시작하기 위한 액세스 권한을 부여합니다.
 
 `Get-AzureRmProviderOperation`(PowerShell) 또는 `azure provider operations show`(Azure CLI)를 사용하여 Azure 리소스 공급자에 대한 작업을 나열합니다. 이러한 명령을 사용하여 작업 문자열이 올바른지 확인하고 와일드카드 작업 문자열을 확장할 수 있습니다.
@@ -73,17 +77,17 @@ azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js
 azure provider operations show "Microsoft.Network/*"
 ```
 
-![Azure CLI 스크린샷 - azure 공급자 작업 표시 "Microsoft.Compute/virtualMachines/*/action"](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
+![Azure CLI 스크린샷 - azure 공급자 작업 표시 "Microsoft.Compute/virtualMachines/\*/action" ](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
 
-## NotActions
+## <a name="notactions"></a>NotActions
 허용하려는 작업 집합을 제한된 작업을 제외하여 보다 쉽게 정의하는 경우 **NotActions** 속성을 사용합니다. 사용자 지정 역할로 부여되는 액세스 권한은 **Actions** 작업에서 **NotActions** 작업을 빼서 계산합니다.
 
 > [!NOTE]
-> 사용자에게 **NotActions**에서 작업을 제외하는 역할이 할당되고 동일한 작업에 대한 액세스 권한을 부여하는 두 번째 역할이 할당된 경우 사용자는 해당 작업을 수행할 수 있습니다. **NotActions**는 거부 규칙이 아니며 특정 작업을 제외해야 할 경우 허용된 작업 집합을 만드는 편리한 방법일 뿐입니다.
+> 사용자에게 **NotActions**에서 작업을 제외하는 역할이 할당되고 동일한 작업에 대한 액세스 권한을 부여하는 두 번째 역할이 할당된 경우 사용자는 해당 작업을 수행할 수 있습니다. **NotActions** 는 거부 규칙이 아니며 특정 작업을 제외해야 할 경우 허용된 작업 집합을 만드는 편리한 방법일 뿐입니다.
 > 
 > 
 
-## AssignableScopes
+## <a name="assignablescopes"></a>AssignableScopes
 사용자 지정 역할의 **AssignableScopes** 속성은 사용자 지정 역할을 할당할 수 있는 범위(구독, 리소스 그룹 또는 리소스)를 지정합니다. 역할이 필요한 구독 또는 리소스 그룹에만 사용자 지정 역할을 할당할 수 있도록 하고 그 외의 구독 또는 리소스 그룹에 대해서는 사용자 환경을 보다 깔끔하게 유지할 수 있습니다.
 
 유효한 할당 가능한 범위의 예는 다음과 같습니다.
@@ -97,14 +101,18 @@ azure provider operations show "Microsoft.Network/*"
 > 
 > 
 
-## 사용자 지정 역할 액세스 제어
+## <a name="custom-roles-access-control"></a>사용자 지정 역할 액세스 제어
 사용자 지정 역할의 **AssignableScopes** 속성으로 해당 역할을 보고 수정하며 삭제할 수 있는 사용자를 제어합니다.
 
-* 사용자 지정 역할을 만들 수 있는 사람 구독, 리소스 그룹 및 리소스의 소유자(및 사용자 액세스 관리자)는 해당 범위에 사용할 사용자 지정 역할을 만들 수 있습니다. 역할을 만드는 사용자는 역할의 모든 **AssignableScopes**에서 `Microsoft.Authorization/roleDefinition/write` 작업을 수행할 수 있어야 합니다.
-* 사용자 지정 역할을 수정할 수 있는 사람 구독, 리소스 그룹 및 리소스의 소유자(및 사용자 액세스 관리자)는 해당 범위에 사용자 지정 역할을 수정할 수 있습니다. 사용자는 사용자 지정 역할의 모든 **AssignableScopes**에서 `Microsoft.Authorization/roleDefinition/write` 작업을 수행해야 할 수 있습니다.
-* 사용자 지정 역할을 볼 수 있는 사용자는 누구인가요? Azure RBAC에서 모든 기본 제공 역할은 할당 가능한 역할을 볼 수 있습니다. 범위에서 `Microsoft.Authorization/roleDefinition/read` 작업을 수행할 수 있는 사용자는 해당 범위에서 할당 가능한 RBAC 역할을 볼 수 있습니다.
+* 사용자 지정 역할을 만들 수 있는 사람
+    구독, 리소스 그룹 및 리소스의 소유자(및 사용자 액세스 관리자)는 해당 범위에 사용할 사용자 지정 역할을 만들 수 있습니다.
+    역할을 만드는 사용자는 역할의 모든 **AssignableScopes**에서 `Microsoft.Authorization/roleDefinition/write` 작업을 수행할 수 있어야 합니다.
+* 사용자 지정 역할을 수정할 수 있는 사람
+    구독, 리소스 그룹 및 리소스의 소유자(및 사용자 액세스 관리자)는 해당 범위에 사용자 지정 역할을 수정할 수 있습니다. 사용자는 사용자 지정 역할의 모든 **AssignableScopes**에서 `Microsoft.Authorization/roleDefinition/write` 작업을 수행해야 할 수 있습니다.
+* 사용자 지정 역할을 볼 수 있는 사용자는 누구인가요?
+    Azure RBAC에서 모든 기본 제공 역할은 할당 가능한 역할을 볼 수 있습니다. 범위에서 `Microsoft.Authorization/roleDefinition/read` 작업을 수행할 수 있는 사용자는 해당 범위에서 할당 가능한 RBAC 역할을 볼 수 있습니다.
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 * [역할 기반 액세스 제어](role-based-access-control-configure.md): Azure 포털에서 RBAC를 통해 시작합니다.
 * 다음을 사용하여 액세스를 관리하는 방법에 대해 알아봅니다.
   * [PowerShell](role-based-access-control-manage-access-powershell.md)
@@ -112,4 +120,9 @@ azure provider operations show "Microsoft.Network/*"
   * [REST API](role-based-access-control-manage-access-rest.md)
 * [기본 제공 역할](role-based-access-built-in-roles.md): RBAC에서 표준이 되는 역할에 대한 세부 정보를 봅니다.
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

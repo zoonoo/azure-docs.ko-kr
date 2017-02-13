@@ -1,12 +1,12 @@
 ---
-title: Azure Mobile Engagement 데모 앱 | Microsoft Docs
-description: Azure Mobile Engagement 데모 앱 다운로드 위치, 사용 방법, 사용 시 이점에 대해 설명합니다
+title: "Azure Mobile Engagement 데모 앱 | Microsoft Docs"
+description: "Azure Mobile Engagement 데모 앱 다운로드 위치, 사용 방법, 사용 시 이점에 대해 설명합니다"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: f624d5aa-254b-4ad0-96a3-f00e6c3a2c97
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8381edb569e19a85c1259f7791b477cfa6e51ea3
+
 
 ---
-# Azure Mobile Engagement 데모 앱
+# <a name="azure-mobile-engagement-demo-app"></a>Azure Mobile Engagement 데모 앱
 유용한 리소스를 찾고 Mobile Engagement에 대한 자세한 정보를 알아보는데 도움이 되도록 **iOS**, **Android** 및 **Windows** 플랫폼용 Azure Mobile Engagement 데모 앱을 게시했습니다.
 
 앱을 통해 다음 작업이 가능합니다.
@@ -30,12 +34,12 @@ ms.author: piyushjo
   * 설문 조사 구현
   * 자동 푸시 데이터 및 푸시 시나리오 구현   
 
-## 앱 설치
+## <a name="app-installation"></a>앱 설치
 이 앱은 다음과 같은 앱 스토어에서 이용할 수 있습니다.
 
 * **Windows 유니버설 데모 앱**:
   
-  * [Windows 앱 스토어](https://www.microsoft.com/ko-KR/store/apps/azure-mobile-engagement/9nblggh4qmh2)에서 앱을 다운로드합니다.
+  * [Windows 앱 스토어](https://www.microsoft.com/en-us/store/apps/azure-mobile-engagement/9nblggh4qmh2)에서 앱을 다운로드합니다.
   * 이 앱은 Windows 10 유니버설 앱으로 개발되었습니다. 소스 코드는 [GitHub](https://github.com/Azure/azure-mobile-engagement-app-windows)에서 사용할 수 있습니다.
 * **iOS 데모 앱**:
   
@@ -48,9 +52,10 @@ ms.author: piyushjo
 
 ![Windows 유니버설 데모 앱][1]
 
-![iOS 데모 앱][2] ![Android 데모 앱][3]
+![iOS 데모 앱][2]
+![Android 데모 앱][3]
 
-## 사용 현황
+## <a name="usage"></a>사용 현황
 이 앱은 다음과 같은 방법으로 사용할 수 있습니다.
 
 **위에 제공된 응용 프로그램 스토어 링크를 통해 장치에 앱을 다운로드합니다.**
@@ -61,17 +66,18 @@ ms.author: piyushjo
 > 
 
 * 장치에 앱을 설치한 후 왼쪽 메뉴의 링크를 통해 Mobile Engagement에 대한 모든 유용한 리소스를 찾을 수 있습니다.
-* 최신 제품 업데이트에 대한 알림을 항상 받아볼 수 있도록 [서비스의 RSS 피드](https://aka.ms/azmerssfeed)를 이 응용 프로그램에 추가했습니다.
+* 최신 제품 업데이트에 대한 알림을 항상 받아볼 수 있도록 [서비스의 RSS 피드](https://aka.ms/azmerssfeed) 를 이 응용 프로그램에 추가했습니다.
 * 또한 샘플 알림 시나리오를 통해 Mobile Engagement에서 각 플랫폼에 대해 지원하는 알림 유형을 경험할 수 있습니다. 이러한 알림을 로컬에서 경험할 수 있습니다. 즉 화면의 단추를 클릭하여 Mobile Engagement 플랫폼에서 알림을 전송하는 경우와 동일한 알림 환경을 보여 줄 수 있습니다.
 
 ![Windows용 앱 메뉴][4]
 
-![iOS용 앱 메뉴][5] ![Android용 앱 메뉴][6]
+![iOS용 앱 메뉴][5]
+![Android용 앱 메뉴][6]
 
 **위에 제공된 GitHub 링크에서 소스 코드를 다운로드합니다.**
 
 * 소스 코드를 다운로드한 후 각 개발 환경에서 엽니다(iOS용 XCode, Android용 Android Studio, Windows용 Visual Studio).
-* 그런 다음 이 앱을 해당 Mobile Engagement 백 엔드 인스턴스에 연결할 수 있도록 [기본 SDK 통합 단계](mobile-engagement-windows-store-dotnet-get-started.md)를 따릅니다.
+* 그런 다음 이 앱을 해당 Mobile Engagement 백 엔드 인스턴스에 연결할 수 있도록 [기본 SDK 통합 단계](mobile-engagement-windows-store-dotnet-get-started.md) 를 따릅니다.
   * 앱에서 연결 문자열을 구성해야 합니다.
   * 또한 앱에 대한 푸시 알림 플랫폼을 구성해야 합니다.
 * 앱 자체가 Mobile Engagement에서 계측되는 것을 확인할 수 있습니다. 따라서 백 엔드에 연결한 다음 앱을 열면 **모니터** 탭에 사용자 세션, 활동, 이벤트 등이 표시됩니다.
@@ -81,11 +87,12 @@ ms.author: piyushjo
     
     ![Windows의 장치 ID][7]
     
-    ![iOS의 장치 ID][8] ![Android의 장치 ID][9]
+    ![iOS의 장치 ID][8]
+    ![Android의 장치 ID][9]
 
-## 데모 앱의 주요 기능
+## <a name="key-features-of-the-demo-app"></a>데모 앱의 주요 기능
 * 위에서 설명한 것처럼 이 앱에는 Mobile Engagement에 대한 모든 주요 리소스가 있습니다. 왼쪽 메뉴의 링크를 통해 이동할 수 있습니다.
-* 각 플랫폼에 대한 앱 알림을 경험할 수 있습니다. 이러한 알림은 알림을 클릭하면 응용 프로그램의 네이티브 화면이 간단히 열리는 **알림만**(**딥 링크** 사용) 또는 알림이 클릭될 때 표시되는 Mobile Engagement 백 엔드에서 추가 HTML 콘텐츠를 전달할 수 있는 **웹 알림**으로 전달할 수 있습니다.
+* 각 플랫폼에 대한 앱 알림을 경험할 수 있습니다. 이러한 알림은 알림을 클릭하면 응용 프로그램의 네이티브 화면이 간단히 열리는 **알림 전용**(**딥 링크** 사용) 또는 알림이 클릭될 때 표시되는 Mobile Engagement 백 엔드에서 추가 HTML 콘텐츠를 전달할 수 있는 **웹 알림**으로 전달할 수 있습니다.
   
     ![앱 알림][29]
 * iOS에서 앱 또는 시스템 푸시 알림을 확인하려면 앱을 닫아야 합니다. *피드백* 및 *공유*에 대해 이 앱 알림에 추가한 것과 같이 **실행 단추** 추가 화면이 구현되므로 사용자가 알림 자체에서 바로 작업을 할 수 있습니다.
@@ -94,14 +101,14 @@ ms.author: piyushjo
 * Android에서 지원되는 옵션은 알림에 여러 줄 텍스트(**큰 텍스트**) 또는 알림 이미지(**큰 그림**)를 추가하거나 **실행 단추**(iOS에서 지원)를 추가하는 것입니다.
   
     ![Android의 앱 알림][12] ![Android의 앱 알림 표시][15]
-* Windows 10에서 알림이 PC에 표시되는 방법을 볼 수 있습니다. 이 알림은 Windows 10 **알림 센터**에도 표시됩니다. 현재 Windows SDK에서는 **실행 단추**를 추가할 수 없습니다.
+* Windows 10에서 알림이 PC에 표시되는 방법을 볼 수 있습니다. 이 알림은 Windows 10 **알림 센터**에도 표시됩니다. 현재 Windows SDK에서는 **실행 단추** 를 추가할 수 없습니다.
   
     ![Windows의 앱 알림][10] ![Windows의 앱 표시][13]
-* 각 플랫폼의 기본 "앱 내" 알림을 경험할 수 있습니다. **알림** 창이 먼저 표시되는 2단계 환경입니다. 이 창을 클릭하면 다음 스크린샷과 같은 전체 화면 **알림**이 열립니다. 이 알림의 내용은 Mobile Engagement 백 엔드 인스턴스의 내용입니다. SDK에는 두 가지 알림에 대한 템플릿이 있습니다. 이 템플릿은 이 데모 앱과 같이 로고와 색을 추가하여 쉽게 사용자 지정할 수 있습니다.
+* 각 플랫폼의 기본 "앱 내" 알림을 경험할 수 있습니다. **알림** 창이 먼저 표시되는 2단계 환경입니다. 이 창을 클릭하면 다음 스크린샷과 같은 전체 화면 **알림**이 열립니다. 이 알림의 내용은 Mobile Engagement 백 엔드 인스턴스의 내용입니다. SDK에는 두 가지 알림에 대한 템플릿이 있습니다. 이 템플릿은 이 데모 앱과 같이 로고와 색을 추가하여 쉽게 사용자 지정할 수 있습니다.  
   
     ![Windows의 앱 내 알림][16]
   
-    ![iOS의 앱 내 알림][17] ![Android의 앱 내 알림][18]
+    ![iOS의 앱 내 알림][17]  ![Android의 앱 내 알림][18]
   
     **iOS**, **Android**
 * Mobile Engagement의 **범주** 기능을 사용하여 이 기본 환경을 사용자 지정할 수도 있습니다. 이 데모 앱에서는 알림 환경을 변경하는 두 가지 일반적인 방법에 대해 알아보았습니다. 범주 기능은 아직 Windows SDK에서 지원되지 않습니다.
@@ -110,13 +117,13 @@ ms.author: piyushjo
   
     ![앱 내 알림 - 중간 범주][30]
   
-    ![iOS의 중간 범주][21] ![Android의 중간 범주][22]
+    ![iOS의 중간 범주][21]     ![Android의 중간 범주][22]
   
     **팝업 알림:**
   
     ![앱 내 알림 - 팝업 범주][31]
   
-    ![iOS의 팝업 알림][19] ![Android의 팝업 알림][20]
+    ![iOS의 팝업 알림][19]    ![Android의 팝업 알림][20]
 
 **iOS**, **Android**
 
@@ -126,7 +133,7 @@ ms.author: piyushjo
   
     ![Windows의 설문 조사][26]
   
-    ![iOS의 설문 조사][27] ![Android의 설문 조사][28]
+    ![iOS의 설문 조사][27]   ![Android의 설문 조사][28]
 
 **iOS**, **Android**
 
@@ -136,12 +143,12 @@ ms.author: piyushjo
   
     ![Windows의 데이터 푸시 알림][23]
   
-    ![iOS의 데이터 푸시 알림][24] ![Android의 데이터 푸시 알림][25]
+    ![iOS의 데이터 푸시 알림][24]  ![Android의 데이터 푸시 알림][25]
 
 **iOS**, **Android**
 
 > [!NOTE]
-> 샘플 알림 화면에서 **Mobile Engagement 플랫폼에서 이러한 알림을 전송하는 방법에 대한 지침은 여기를 클릭하십시오.**를 클릭하여 이러한 알림에 대한 자세한 단계별 지침을 볼 수 있습니다.
+> 샘플 알림 화면에서 **Mobile Engagement 플랫폼에서 이러한 알림을 전송하는 방법에 대한 지침은 여기를 클릭하십시오.** 를 클릭하여 이러한 알림에 대한 자세한 단계별 지침을 볼 수 있습니다.
 > 
 > 
 
@@ -179,4 +186,8 @@ ms.author: piyushjo
 [32]: ./media/mobile-engagement-demo-apps/notification-poll.png
 [33]: ./media/mobile-engagement-demo-apps/notification-data-push.png
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

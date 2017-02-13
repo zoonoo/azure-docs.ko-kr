@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "SQL Data Warehouse를 사용하여 방대한 병렬 처리와 SQL Server를 결합하는 방법에 대해 알아봅니다. 설명서에서는 데이터를 로드, 분석, 관리 및 내보내는 방법을 보여 줍니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 6c949e62406f2d9029c00e87dfc3ca5530a5497f
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 66f83d1e36ecafdfb3337ae03b22ba48d3ccb1b4
 
 ---
 
 # <a name="sql-data-warehouse-documentation"></a>SQL Data Warehouse 설명서
 
-Azure SQL Data Warehouse는 SQL Server 관계형 데이터베이스와 Azure 클라우드 규모 확장 기능을 결합합니다.  대규모 병렬 처리(MPP) 아키텍처를 기반으로 하는 SQL 데이터 웨어하우스는 엔터프라이즈 워크로드를 처리할 수 있습니다.
+방대한 병렬 처리와 SQL Server 관계형 데이터베이스를 결합하는 SQL Data Warehouse를 사용하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 웨어하우스에 데이터를 로드한 다음 분석, 관리 및 내보내는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -54,7 +55,8 @@ Azure SQL Data Warehouse는 SQL Server 관계형 데이터베이스와 Azure 클
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
+
+<img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -75,7 +77,8 @@ Azure SQL Data Warehouse는 SQL Server 관계형 데이터베이스와 Azure 클
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="Command-Line</h3>
+                    <div class="cardText">
+                        <h3>명령줄</h3>
                         <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">PowerShell cmdlet</a></p>
                     </div>
                 </div>
@@ -99,16 +102,10 @@ Azure SQL Data Warehouse는 SQL Server 관계형 데이터베이스와 Azure 클
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-data-warehouse.pdf">
-        <div class="img"></div>
-        <div class="text">
-SQL Data Warehouse 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

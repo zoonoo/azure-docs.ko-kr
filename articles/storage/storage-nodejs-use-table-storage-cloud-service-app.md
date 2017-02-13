@@ -3,8 +3,8 @@ title: "테이블 저장소를 사용하는 웹앱(Node.js) | Microsoft Docs"
 description: "Azure 저장소 서비스 및 Azure 모듈을 추가해 Express를 사용하여 웹 앱 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다."
 services: cloud-services, storage
 documentationcenter: nodejs
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: e90959a2-4cb2-4b19-9bfb-aede15b18b1c
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: robmcm
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ff0f72aca6b19d4e8e8dd04a2e05de025110b278
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 5d7ee2f529b5127ee60ec8b4f5acaa49e75ddf39
 
 
 ---
@@ -43,57 +43,67 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 
 > [!NOTE]
 > 저장소 자격 증명은 응용 프로그램이 Azure에 배포될 경우에만 사용됩니다. 에뮬레이터에서 실행 중이면 응용 프로그램은 저장소 에뮬레이터를 사용합니다.
-> 
-> 
+>
+>
 
 다음 단계에 따라 저장소 계정 자격 증명을 가져와 web.config 설정에 추가합니다.
 
 1. 설정이 열려 있지 않은 경우 **모든 프로그램, Azure**를 확장하고 **Azure PowerShell**을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 선택하여 **시작** 메뉴에서 Azure PowerShell을 시작합니다.
 2. 응용 프로그램이 포함된 폴더로 디렉터리를 변경합니다. 예를 들어 C:\\node\\tasklist\\WebRole1로 변경합니다.
 3. Azure Powershell 창에서 다음 cmdlet을 입력하여 저장소 계정 정보를 가져옵니다.
-   
-       PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
-   
+
+    ```powershell
+    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
+    ```
+
    이는 호스티드 서비스와 연결된 저장소 계정 및 계정 키 목록을 가져옵니다.
-   
+
    > [!NOTE]
    > 서비스를 배포할 때 Azure SDK가 저장소 계정을 만들기 때문에 저장소 계정은 이전 가이드에서 응용 프로그램을 배포해서 이미 있어야 합니다.
-   > 
-   > 
+   >
+   >
 4. 응용 프로그램이 Azure에 배포될 때 사용하는 환경 설정이 포함된 **ServiceDefinition.csdef** 파일을 엽니다.
-   
-       PS C:\node\tasklist> notepad ServiceDefinition.csdef
+
+    ```powershell
+    PS C:\node\tasklist> notepad ServiceDefinition.csdef
+    ```
+
 5. **Environment** 요소 아래에 다음 블록을 삽입하고 {STORAGE ACCOUNT} 및 {STORAGE ACCESS KEY}를 배포에 사용할 저장소 계정의 계정 이름 및 기본 키로 대체합니다.
-   
-       <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
-       <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
-   
+
+  <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
+  <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
+
    ![web.cloud.config 파일 콘텐츠](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
+
 6. 파일을 저장하고 메모장을 닫습니다.
 
 ### <a name="install-additional-modules"></a>추가 모듈 설치
 1. 다음 명령을 사용하여 [azure], [node-uuid], [nconf] 및 [async] 모듈을 로컬에 설치하고 해당 모듈의 항목을 **package.json** 파일에 저장합니다.
-   
-        PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
-   
-    이 명령의 출력은 다음과 유사합니다.
-   
-        node-uuid@1.4.1 node_modules\node-uuid
-   
-        nconf@0.6.9 node_modules\nconf
-        ├── ini@1.1.0
-        ├── async@0.2.9
-        └── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.8)
-   
-        azure-storage@0.1.0 node_modules\azure-storage
-        ├── extend@1.2.1
-        ├── xmlbuilder@0.4.3
-        ├── mime@1.2.11
-        ├── underscore@1.4.4
-        ├── validator@3.1.0
-        ├── node-uuid@1.4.1
-        ├── xml2js@0.2.7 (sax@0.5.2)
-        └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+
+  ```powershell
+  PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
+  ```
+
+  이 명령의 출력은 다음과 유사합니다.
+
+  ```
+  node-uuid@1.4.1 node_modules\node-uuid
+
+  nconf@0.6.9 node_modules\nconf
+  ├── ini@1.1.0
+  ├── async@0.2.9
+  └── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.8)
+
+  azure-storage@0.1.0 node_modules\azure-storage
+  ├── extend@1.2.1
+  ├── xmlbuilder@0.4.3
+  ├── mime@1.2.11
+  ├── underscore@1.4.4
+  ├── validator@3.1.0
+  ├── node-uuid@1.4.1
+  ├── xml2js@0.2.7 (sax@0.5.2)
+  └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+  ```
 
 ## <a name="using-the-table-service-in-a-node-application"></a>node 응용 프로그램에서 테이블 서비스 사용
 이 섹션에서는 작업에 대한 모델을 포함하는 **task.js** 파일을 추가하여 **express** 명령으로 만들어진 기본 응용 프로그램을 확장합니다. 또한 기존 **app.js**를 수정하고 모델을 사용하는 새 **tasklist.js** 파일을 만듭니다.
@@ -102,198 +112,224 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 1. **WebRole1** 디렉터리에서 **models**라는 새로운 디렉터리를 만듭니다.
 2. **models** 디렉터리에서 **task.js**라는 새 파일을 만듭니다. 이 파일에는 응용 프로그램에서 만든 작업 모델이 포함됩니다.
 3. **task.js** 파일의 시작 부분에 필수 라이브러리를 참조하는 다음 코드를 추가합니다.
-   
-        var azure = require('azure-storage');
-          var uuid = require('node-uuid');
-        var entityGen = azure.TableUtilities.entityGenerator;
+
+    ```nodejs
+    var azure = require('azure-storage');
+    var uuid = require('node-uuid');
+    var entityGen = azure.TableUtilities.entityGenerator;
+    ```
+
 4. 그런 다음, Task 개체를 정의하고 내보내는 코드를 추가합니다. 이 개체가 테이블에 연결하는 작업을 수행합니다.
-   
-          module.exports = Task;
-   
-        function Task(storageClient, tableName, partitionKey) {
-          this.storageClient = storageClient;
-          this.tableName = tableName;
-          this.partitionKey = partitionKey;
-          this.storageClient.createTableIfNotExists(tableName, function tableCreated(error) {
-            if(error) {
-              throw error;
-            }
-          });
-        };
-5. 이제 다음 코드를 추가하여 Task 개체에서 추가 메서드를 정의합니다. 이 메서드가 테이블에 저장된 데이터에 대한 조작을 허용합니다.
-   
-        Task.prototype = {
-          find: function(query, callback) {
-            self = this;
-            self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
-              if(error) {
-                callback(error);
-              } else {
-                callback(null, result.entries);
-              }
-            });
-          },
-   
-          addItem: function(item, callback) {
-            self = this;
-            // use entityGenerator to set types
-            // NOTE: RowKey must be a string type, even though
-            // it contains a GUID in this example.
-            var itemDescriptor = {
-              PartitionKey: entityGen.String(self.partitionKey),
-              RowKey: entityGen.String(uuid()),
-              name: entityGen.String(item.name),
-              category: entityGen.String(item.category),
-              completed: entityGen.Boolean(false)
-            };
-   
-            self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
-              if(error){  
-                callback(error);
-              }
-              callback(null);
-            });
-          },
-   
-          updateItem: function(rKey, callback) {
-            self = this;
-            self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
-              if(error) {
-                callback(error);
-              }
-              entity.completed._ = true;
-              self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
-                if(error) {
-                  callback(error);
-                }
-                callback(null);
-              });
-            });
-          }
+
+    ```nodejs
+    module.exports = Task;
+
+    function Task(storageClient, tableName, partitionKey) {
+      this.storageClient = storageClient;
+      this.tableName = tableName;
+      this.partitionKey = partitionKey;
+      this.storageClient.createTableIfNotExists(tableName, function tableCreated(error) {
+        if(error) {
+          throw error;
         }
+      });
+    };
+    ```
+
+5. 이제 다음 코드를 추가하여 Task 개체에서 추가 메서드를 정의합니다. 이 메서드가 테이블에 저장된 데이터에 대한 조작을 허용합니다.
+
+    ```nodejs
+    Task.prototype = {
+      find: function(query, callback) {
+        self = this;
+        self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+          if(error) {
+            callback(error);
+          } else {
+            callback(null, result.entries);
+          }
+        });
+      },
+
+      addItem: function(item, callback) {
+        self = this;
+        // use entityGenerator to set types
+        // NOTE: RowKey must be a string type, even though
+        // it contains a GUID in this example.
+        var itemDescriptor = {
+          PartitionKey: entityGen.String(self.partitionKey),
+          RowKey: entityGen.String(uuid()),
+          name: entityGen.String(item.name),
+          category: entityGen.String(item.category),
+          completed: entityGen.Boolean(false)
+        };
+
+        self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
+          if(error){
+            callback(error);
+          }
+          callback(null);
+        });
+      },
+
+      updateItem: function(rKey, callback) {
+        self = this;
+        self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
+          if(error) {
+            callback(error);
+          }
+          entity.completed._ = true;
+          self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+            if(error) {
+              callback(error);
+            }
+            callback(null);
+          });
+        });
+      }
+    }
+    ```
+
 6. **task.js** 파일을 저장하고 닫습니다.
 
 ### <a name="create-the-controller"></a>컨트롤러 만들기
 1. **WebRole1/routes** 디렉터리에서 **tasklist.js**라는 새 파일을 만들고 텍스트 편집기에서 엽니다.
 2. 아래 코드를 **tasklist.js**에 추가합니다. 이 코드는 **tasklist.js**에 사용되는 azure 및 async 모듈을 로드합니다. 또한 **TaskList** 함수를 정의합니다. 이 함수에 앞서 정의한 **Task** 개체의 인스턴스가 전달됩니다.
-   
-        var azure = require('azure-storage');
-        var async = require('async');
-   
-        module.exports = TaskList;
-   
-        function TaskList(task) {
-          this.task = task;
-        }
+
+    ```nodejs
+    var azure = require('azure-storage');
+    var async = require('async');
+
+    module.exports = TaskList;
+
+    function TaskList(task) {
+      this.task = task;
+    }
+    ```
+
 3. **showTasks**, **addTask** 및 **completeTasks**에 사용된 메서드를 추가하여 **tasklist.js** 파일에 계속 추가합니다.
-   
-        TaskList.prototype = {
-          showTasks: function(req, res) {
-            self = this;
-            var query = azure.TableQuery()
-              .where('completed eq ?', false);
-            self.task.find(query, function itemsFound(error, items) {
-              res.render('index',{title: 'My ToDo List ', tasks: items});
-            });
-          },
-   
-          addTask: function(req,res) {
-            var self = this      
-            var item = req.body.item;
-            self.task.addItem(item, function itemAdded(error) {
-              if(error) {
-                throw error;
-              }
-              res.redirect('/');
-            });
-          },
-   
-          completeTask: function(req,res) {
-            var self = this;
-            var completedTasks = Object.keys(req.body);
-            async.forEach(completedTasks, function taskIterator(completedTask, callback) {
-              self.task.updateItem(completedTask, function itemsUpdated(error) {
-                if(error){
-                  callback(error);
-                } else {
-                  callback(null);
-                }
-              });
-            }, function goHome(error){
-              if(error) {
-                throw error;
-              } else {
-               res.redirect('/');
-              }
-            });
+
+    ```nodejs
+    TaskList.prototype = {
+      showTasks: function(req, res) {
+        self = this;
+        var query = azure.TableQuery()
+          .where('completed eq ?', false);
+        self.task.find(query, function itemsFound(error, items) {
+          res.render('index',{title: 'My ToDo List ', tasks: items});
+        });
+      },
+
+      addTask: function(req,res) {
+        var self = this
+        var item = req.body.item;
+        self.task.addItem(item, function itemAdded(error) {
+          if(error) {
+            throw error;
           }
-        }
+          res.redirect('/');
+        });
+      },
+
+      completeTask: function(req,res) {
+        var self = this;
+        var completedTasks = Object.keys(req.body);
+        async.forEach(completedTasks, function taskIterator(completedTask, callback) {
+          self.task.updateItem(completedTask, function itemsUpdated(error) {
+            if(error){
+              callback(error);
+            } else {
+              callback(null);
+            }
+          });
+        }, function goHome(error){
+          if(error) {
+            throw error;
+          } else {
+            res.redirect('/');
+          }
+        });
+      }
+    }
+    ```
+
 4. **tasklist.js** 파일을 저장합니다.
 
 ### <a name="modify-appjs"></a>app.js 수정
-1. **WebRole1** 디렉터리에 있는 **app.js** 파일을 텍스트 편집기에서 엽니다. 
+1. **WebRole1** 디렉터리에 있는 **app.js** 파일을 텍스트 편집기에서 엽니다.
 2. 파일 시작 부분에 다음을 추가하여 azure 모듈을 로드하고 테이블 이름과 파티션 키를 설정합니다.
-   
-        var azure = require('azure-storage');
-        var tableName = 'tasks';
-        var partitionKey = 'hometasks';
+
+    ```nodejs
+    var azure = require('azure-storage');
+    var tableName = 'tasks';
+    var partitionKey = 'hometasks';
+    ```
+
 3. app.js 파일에서 다음 줄이 보일 때까지 아래로 스크롤합니다.
-   
-        app.use('/', routes);
-        app.use('/users', users);
-   
+
+    ```nodejs
+    app.use('/', routes);
+    app.use('/users', users);
+    ```
+
     위의 줄을 아래의 코드로 바꿉니다. 이 코드는 저장소 계정에 대한 연결을 사용하여 <strong>Task</strong>의 인스턴스를 초기화합니다. 이 인스턴스는 <strong>TaskList</strong>로 전달되어 테이블 서비스와의 통신에 사용됩니다.
-   
-        var TaskList = require('./routes/tasklist');
-        var Task = require('./models/task');
-        var task = new Task(azure.createTableService(), tableName, partitionKey);
-        var taskList = new TaskList(task);
-   
-        app.get('/', taskList.showTasks.bind(taskList));
-        app.post('/addtask', taskList.addTask.bind(taskList));
-        app.post('/completetask', taskList.completeTask.bind(taskList));
+
+    ```nodejs
+    var TaskList = require('./routes/tasklist');
+    var Task = require('./models/task');
+    var task = new Task(azure.createTableService(), tableName, partitionKey);
+    var taskList = new TaskList(task);
+
+    app.get('/', taskList.showTasks.bind(taskList));
+    app.post('/addtask', taskList.addTask.bind(taskList));
+    app.post('/completetask', taskList.completeTask.bind(taskList));
+    ```
+
 4. **app.js** 파일을 저장합니다.
 
 ### <a name="modify-the-index-view"></a>인덱스 보기 수정
 1. 디렉터리를 **views** 디렉터리로 변경하고 **index.jade** 파일을 텍스트 편집기에서 엽니다.
 2. **index.jade** 파일 내용을 아래 코드로 바꿉니다. 이렇게 하면 기존 작업을 표시하는 데 사용되는 보기와 새 작업을 추가하고 기존 작업을 완료로 표시하는 데 사용되는 양식이 정의됩니다.
-   
-        extends layout
-   
-        block content
-          h1= title
-          br
-   
-          form(action="/completetask", method="post")
-            table.table.table-striped.table-bordered
+
+    ```
+    extends layout
+
+    block content
+      h1= title
+      br
+
+      form(action="/completetask", method="post")
+        table.table.table-striped.table-bordered
+          tr
+            td Name
+            td Category
+            td Date
+            td Complete
+          if tasks != []
+            tr
+              td
+          else
+            each task in tasks
               tr
-                td Name
-                td Category
-                td Date
-                td Complete
-              if tasks != []
-                tr
-                  td 
-              else
-                each task in tasks
-                  tr
-                    td #{task.name._}
-                    td #{task.category._}
-                    - var day   = task.Timestamp._.getDate();
-                    - var month = task.Timestamp._.getMonth() + 1;
-                    - var year  = task.Timestamp._.getFullYear();
-                    td #{month + "/" + day + "/" + year}
-                    td
-                      input(type="checkbox", name="#{task.RowKey._}", value="#{!task.completed._}", checked=task.completed._)
-            button.btn(type="submit") Update tasks
-          hr
-          form.well(action="/addtask", method="post")
-            label Item Name: 
-            input(name="item[name]", type="textbox")
-            label Item Category: 
-            input(name="item[category]", type="textbox")
-            br
-            button.btn(type="submit") Add item
+                td #{task.name._}
+                td #{task.category._}
+                - var day   = task.Timestamp._.getDate();
+                - var month = task.Timestamp._.getMonth() + 1;
+                - var year  = task.Timestamp._.getFullYear();
+                td #{month + "/" + day + "/" + year}
+                td
+                  input(type="checkbox", name="#{task.RowKey._}", value="#{!task.completed._}", checked=task.completed._)
+        button.btn(type="submit") Update tasks
+      hr
+      form.well(action="/addtask", method="post")
+        label Item Name:
+        input(name="item[name]", type="textbox")
+        label Item Category:
+        input(name="item[category]", type="textbox")
+        br
+        button.btn(type="submit") Add item
+    ```
+
 3. **index.jade** 파일을 저장하고 닫습니다.
 
 ### <a name="modify-the-global-layout"></a>전역 레이아웃 수정
@@ -301,24 +337,17 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 
 1. [Twitter Bootstrap](http://getbootstrap.com/)용 파일을 다운로드하여 추출합니다. **bootstrap\\dist\\css** 폴더의 **bootstrap.min.css** 파일을 tasklist 응용 프로그램의 **public\\stylesheets** 디렉터리에 복사합니다.
 2. **views** 폴더에 있는 **layout.jade**를 텍스트 편집기에서 열어 내용을 다음으로 바꿉니다.
-   
-        doctype html
-        html
-          head
-            title= title
-            link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-            link(rel='stylesheet', href='/stylesheets/style.css')
-          body.app
-            nav.navbar.navbar-default
-              div.navbar-header
-                a.navbar-brand(href='/') My Tasks
-            block content
+
+    doctype html  html    head      title= title      link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')      link(rel='stylesheet', href='/stylesheets/style.css')    body.app      nav.navbar.navbar-default        div.navbar-header          a.navbar-brand(href='/') My Tasks      block content
+
 3. **layout.jade** 파일을 저장합니다.
 
 ### <a name="running-the-application-in-the-emulator"></a>에뮬레이터에서 응용 프로그램 실행
 에뮬레이터에서 응용 프로그램을 시작하려면 다음 명령을 사용합니다.
 
-    PS C:\node\tasklist\WebRole1> start-azureemulator -launch
+```powershell
+PS C:\node\tasklist\WebRole1> start-azureemulator -launch
+```
 
 브라우저가 열리며 다음 페이지를 표시합니다.
 
@@ -329,24 +358,28 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 ## <a name="publishing-the-application-to-azure"></a>Azure에 응용 프로그램 게시
 Windows PowerShell 창에서 다음 cmdlet을 호출하여 호스티드 서비스를 Azure에 다시 배포합니다.
 
-    PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
+```powershell
+PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
+```
 
 **myuniquename**을 이 응용 프로그램의 고유한 이름으로 바꿉니다. **datacentername**을 **West US**와 같은 Azure 데이터 센터 이름으로 바꿉니다.
 
 배포가 완료된 후 다음과 유사한 응답이 표시됩니다.
 
-    PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
-    WARNING: Publishing tasklist to Microsoft Azure. This may take several minutes...
-    WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
-    WARNING: 2:18:42 PM - Verifying storage account 'tasklist'...
-    WARNING: 2:18:43 PM - Preparing deployment for tasklist with Subscription ID: 65a1016d-0f67-45d2-b838-b8f373d6d52e...
-    WARNING: 2:19:01 PM - Connecting...
-    WARNING: 2:19:02 PM - Uploading Package to storage service larrystore...
-    WARNING: 2:19:40 PM - Upgrading...
-    WARNING: 2:22:48 PM - Created Deployment ID: b7134ab29b1249ff84ada2bd157f296a.
-    WARNING: 2:22:48 PM - Initializing...
-    WARNING: 2:22:49 PM - Instance WebRole1_IN_0 of role WebRole1 is ready.
-    WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.net/.
+```
+  PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
+  WARNING: Publishing tasklist to Microsoft Azure. This may take several minutes...
+  WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
+  WARNING: 2:18:42 PM - Verifying storage account 'tasklist'...
+  WARNING: 2:18:43 PM - Preparing deployment for tasklist with Subscription ID: 65a1016d-0f67-45d2-b838-b8f373d6d52e...
+  WARNING: 2:19:01 PM - Connecting...
+  WARNING: 2:19:02 PM - Uploading Package to storage service larrystore...
+  WARNING: 2:19:40 PM - Upgrading...
+  WARNING: 2:22:48 PM - Created Deployment ID: b7134ab29b1249ff84ada2bd157f296a.
+  WARNING: 2:22:48 PM - Initializing...
+  WARNING: 2:22:49 PM - Instance WebRole1_IN_0 of role WebRole1 is ready.
+  WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.net/.
+```
 
 앞서와 같이, **-launch** 옵션을 지정했으므로 브라우저가 열리며 게시가 완료될 때 Azure에서 실행 중인 응용 프로그램이 표시됩니다.
 
@@ -361,16 +394,21 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
 다음 단계에 따라 응용 프로그램을 중지 및 제거할 수 있습니다.
 
 1. Windows PowerShell 창에서, 이전 섹션에서 만든 서비스 배포를 다음 cmdlet을 사용하여 중지합니다.
-   
-       PS C:\node\tasklist\WebRole1> Stop-AzureService
-   
+
+    ```powershell
+    PS C:\node\tasklist\WebRole1> Stop-AzureService
+    ```
+
    서비스를 중지하려면 몇 분 정도 걸릴 수 있습니다. 서비스가 중지되면 서비스가 중지되었다는 메시지가 표시됩니다.
+
 2. 서비스를 삭제하려면 다음 cmdlet을 호출합니다.
-   
-       PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
-   
+
+    ```powershell
+    PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
+    ```
+
    메시지가 표시되면 **Y** 를 입력하여 서비스를 삭제합니다.
-   
+
    서비스를 삭제하려면 몇 분 정도 걸릴 수 있습니다. 서비스가 삭제되면 서비스가 삭제되었다는 메시지가 표시됩니다.
 
 [Express를 사용하는 Node.js 웹 응용 프로그램]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
@@ -381,6 +419,6 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

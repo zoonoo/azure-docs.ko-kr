@@ -3,7 +3,7 @@ title: "가상 컴퓨터 크기 집합의 VM 관리 | Microsoft Docs"
 description: "Azure PowerShell을 사용하여 가상 컴퓨터 크기 집합의 가상 컴퓨터를 관리합니다."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
-ms.author: davidmu
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 812d5c977ace7176e81e3e875daaf8e643c95a46
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 96560927bd9dd93c9313be7392e0cea427a50980
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 812d5c977ace7176e81e3e875daaf8e643c95a46
 
 크기 집합의 가상 컴퓨터 관리와 관련된 대부분의 작업을 수행할 경우에는 관리하려는 컴퓨터의 인스턴스 ID를 알아야 합니다. [Azure 리소스 탐색기](https://resources.azure.com) 를 사용하여 크기 집합에 있는 가상 컴퓨터의 인스턴스 ID를 찾을 수 있습니다. 리소스 탐색기를 사용하여 마친 작업의 상태를 확인할 수도 있습니다.
 
-최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 ## <a name="display-information-about-a-scale-set"></a>크기 집합에 대한 정보 표시
 크기 집합에 대한 일반 정보를 가져올 수 있습니다(인스턴스 보기라고도 함). 또는 크기 집합의 리소스에 대한 정보와 같이 더 구체적인 정보를 가져올 수 있습니다.
@@ -207,13 +207,15 @@ ms.openlocfilehash: 812d5c977ace7176e81e3e875daaf8e643c95a46
 ## <a name="change-the-capacity-of-a-scale-set"></a>크기 집합의 용량 변경
 집합 용량을 변경하여 가상 컴퓨터를 추가 또는 제거할 수 있습니다. 변경할 크기 집합을 가져오고 원하는 용량을 설정한 후 크기 집합을 새 용량으로 업데이트합니다. 이러한 명령에서 따옴표로 묶인 값을 리소스 그룹 및 크기 집합 이름으로 바꿉니다.
 
-  $vmss = Get-AzureRmVmss -ResourceGroupName "리소스 그룹 이름" -VMScaleSetName "크기 집합 이름" $vmss.sku.capacity = 5 Update-AzureRmVmss -ResourceGroupName "리소스 그룹 이름" -Name "scale set name" -VirtualMachineScaleSet $vmss 
+    $vmss = Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+    $vmss.sku.capacity = 5
+    Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
 
 크기 집합에서 가상 컴퓨터를 제거하는 경우 가장 높은 ID를 가진 가상 컴퓨터가 먼저 제거됩니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

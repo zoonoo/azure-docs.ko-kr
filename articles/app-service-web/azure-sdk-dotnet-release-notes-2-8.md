@@ -1,13 +1,12 @@
-
 ---
-title: Azure SDK for .NET 2.8 릴리스 정보
-description: Azure SDK for .NET 2.8 릴리스 정보
+title: "Azure SDK for .NET 2.8 릴리스 정보"
+description: "Azure SDK for .NET 2.8 릴리스 정보"
 services: app-service\web
 documentationcenter: .net
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: de7207ff-ba4f-4008-9141-8742fcaa3254
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -15,21 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/17/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 81772fb5801ec620d1c1996509a275e4bb29fb12
+
 
 ---
-# <a name="azure-sdk-for-.net-2.8,-2.8.1-and-2.8.2"></a>Azure SDK for .NET 2.8, 2.8.1, 2.8.2
+# <a name="azure-sdk-for-net-28-281-and-282"></a>Azure SDK for .NET 2.8, 2.8.1, 2.8.2
 ## <a name="overview"></a>개요
 이 문서에는 Azure SDK for .NET 2.8, 2.8.1, 2.8.2 릴리스에 대한 알려진 문제와 주요 변경 내용을 포함하는 릴리스 정보가 포함되어 있습니다. 
 
 이 릴리스의 새로운 기능 및 업데이트에 대한 전체 목록은 [Visual Studio 2013 및 Visual Studio 2015용 Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/) 알림을 참조하세요. 
 
-## <a name="azure-sdk-for-.net-2.8"></a>Azure SDK for .NET 2.8
-### <a name="download-azure-sdk-for-.net-2.8"></a>Azure SDK for .NET 2.8 다운로드
+## <a name="azure-sdk-for-net-28"></a>Azure SDK for .NET 2.8
+### <a name="download-azure-sdk-for-net-28"></a>Azure SDK for .NET 2.8 다운로드
 [Visual Studio 2015용 Azure SDK for .NET 2.8](http://go.microsoft.com/fwlink/?LinkId=699285) 
 
 [Visual Studio 2013용 Azure SDK for .NET 2.8](http://go.microsoft.com/fwlink/?LinkId=699287)
 
-### <a name=".net-4.5.2-support"></a>.NET 4.5.2 지원
+### <a name="net-452-support"></a>.NET 4.5.2 지원
 #### <a name="known-issues"></a>알려진 문제
 Azure .NET SDK 2.8을 사용하여 .NET 4.5.2 클라우드 서비스 패키지를 만들 수 있습니다. 그러나 .NET 4.5.2 프레임워크는 기본 게스트 OS 이미지에 설치되지 않습니다(게스트 OS 2016년 1월 버전까지). 그전에는 .NET 4.5.2 프레임워크를 별도 게스트 OS 릴리스 버전(2015년 11월-02)을 통해 사용할 수 있습니다. 이미지가 릴리스되는 시기를 추적하려면 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](../cloud-services/cloud-services-guestos-update-matrix.md) 페이지를 참조하세요.  2015년 11월-02 이미지가 릴리스되면 클라우드 서비스 구성 파일(.cscfg)을 업데이트하여 해당 이미지를 사용하도록 선택할 수 있습니다. 서비스 구성 파일에서 ServiceConfiguration 요소의 osVersion 특성을 문자열 "WA-GUEST-OS-4.26_201511-02"로 설정합니다. 이 이미지를 사용하도록 선택한 경우 더 이상 게스트 OS에 대한 자동 업데이트를 받지 않습니다. 자동 업데이트를 받으려면 osVersion이 “*”로 설정되어 있어야 하며 .NET 4.5.2는 2016년 1월 자동 업데이트를 통해서만 사용할 수 있습니다.
 
@@ -61,13 +64,13 @@ SDK 2.8을 사용하려면 Azure PowerShell cmdlet 버전 1.0이 필요합니다
 
 자세한 내용은 [Visual Studio 2013 및 Visual Studio 2015용 Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)을 참조하세요. 
 
-## <a name="azure-sdk-for-.net-2.8.1"></a>Azure SDK for .NET 2.8.1
+## <a name="azure-sdk-for-net-281"></a>Azure SDK for .NET 2.8.1
 ### <a name="known-issues-for-visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 및 Visual Studio 2015에 대해 알려진 문제
 1. 트리거된 WebJob이 슬롯에 게시되면 오류가 표시되면서 예약이 설정되지 않지만 WebJob을 Azure에 푸시합니다. 예약된 작업이 필요한 고객은 Azure 포털을 사용하여 WebJob에 대해 예약을 설정할 수 있습니다. 
 2. Python 고객에게 디버거 문제가 발생할 수 있습니다. 서비스 팀은 이 문제에 대한 픽스를 내놓고 있지만 고객이 영향을 받는 경우 포럼 또는 공지 블로그나 릴리스 정보 의견 섹션을 통해 Microsoft에 알려 주세요. 
 3. 특정 지역(예: 인도 남부)의 고객에게 앱 서비스 프로비저닝 오류가 발생합니다. 이는 포털과 일치하며 이 문제가 발생하는 고객은 Azure 포털을 사용하여 이러한 지역에 게시하기 위해 액세스를 요청할 수 있습니다. Azure 포털을 사용하여 이러한 지역에 대한 액세스를 요청하면 프로비저닝이 작동합니다. 
 
-## <a name="azure-sdk-for-.net-2.8.2"></a>Azure SDK for .NET 2.8.2
+## <a name="azure-sdk-for-net-282"></a>Azure SDK for .NET 2.8.2
 2.8.2 도구를 설치한 후 고객에게 다음과 같은 문제가 발생할 수 있습니다.         
 
 * Internet Explorer를 설치하지 않고 Windows 10을 사용하는 경우 "Internet Explorer를 찾을 수 없습니다"라는 오류가 발생할 수 있습니다.
@@ -85,6 +88,9 @@ SDK 2.8을 사용하려면 Azure PowerShell cmdlet 버전 1.0이 필요합니다
 
 [.NET 및 API용 Azure SDK에 대한 지원 및 사용 중지 정보](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

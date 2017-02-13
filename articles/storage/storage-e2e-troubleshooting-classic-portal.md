@@ -4,18 +4,18 @@ description: "Azure 저장소 분석, AzCopy 및 Microsoft Message Analyzer를 �
 services: storage
 documentationcenter: dotnet
 author: robinsh
-manager: carmonm
+manager: timlt
 ms.assetid: 6b23cba5-0d53-439e-870b-de8e406107d8
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: f2032f3a4fa559b9772ee63d39d66408b3f92175
-ms.openlocfilehash: 5a07c355259c61cfde9f2c1e5f056a0b7f794861
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 82f0e5b9d0bfca1921367a2fd91259eeb4254285
 
 
 ---
@@ -103,7 +103,7 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 
 **PowerShell을 통해**
 
-Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 1. 다음과 같이 [Add-azureaccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) cmdlet을 사용하여 PowerShell 창에 Azure 사용자 계정을 추가합니다.
    
@@ -383,6 +383,6 @@ Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내
 * [Microsoft Message Analyzer 운영 가이드](http://technet.microsoft.com/library/jj649776.aspx)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

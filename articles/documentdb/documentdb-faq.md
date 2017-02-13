@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 248a205b0cca42642014069269e20a52af52b7bf
+ms.sourcegitcommit: 8f3e6b271f3ca5973a00f2a5a9e11dafeb9637aa
+ms.openlocfilehash: ed520532e7a035baa0283f829ec13540194d136e
 
 
 ---
@@ -52,10 +52,10 @@ DocumentDB의 처리량 측정값은 [요청 단위](documentdb-request-units.md
 예, DocumentDB는 HIPAA 규정을 준수합니다. HIPAA는 개별적으로 식별할 수 있는 상태 정보의 사용, 공개 및 보호에 대한 요구 사항을 설정합니다. 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA)를 참조하세요.
 
 ### <a name="what-are-the-storage-limits-of-documentdb"></a>DocumentDB의 저장소 한도는 어느 정도인가요?
-하나의 컬렉션이 DocumentDB에 저장할 수 있는 총 데이터 양에 대한 한도는 없습니다. 250GB가 넘는 데이터를 단일 컬렉션 내에 저장하려면 [지원에 문의](documentdb-increase-limits.md)하여 계정 할당량을 늘려 달라고 요청하세요.
+하나의 컬렉션이 DocumentDB에 저장할 수 있는 총 데이터 양에 대한 한도는 없습니다.
 
 ### <a name="what-are-the-throughput-limits-of-documentdb"></a>DocumentDB의 처리량 한도는 어느 정도인가요?
-충분히 많은 파티션 키 간에 워크로드가 균등하게 분산될 수 있는 경우 하나의 컬렉션이 DocumentDB에 저장할 수 있는 총 데이터 양에 대한 한도는 없습니다. 컬렉션 또는 계정당 250,000요청 단위/초가 넘는 성능이 필요한 경우 [지원에 문의](documentdb-increase-limits.md) 하여 계정 할당량을 늘려 달라고 요청하세요.
+충분히 많은 파티션 키 간에 워크로드가 균등하게 분산될 수 있는 경우 하나의 컬렉션이 DocumentDB에 저장할 수 있는 총 데이터 양에 대한 한도는 없습니다.
 
 ### <a name="how-much-does-microsoft-azure-documentdb-cost"></a>Microsoft Azure DocumentDB 비용은 얼마인가요?
 자세한 내용은 [DocumentDB 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/documentdb/) 페이지를 참조하세요. DocumentDB 사용 요금은 사용 중인 컬렉션 수, 컬렉션이 온라인이었던 시간, 소비된 저장소 및 각 컬렉션의 프로비전된 처리량에 따라 결정됩니다.
@@ -124,6 +124,6 @@ DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

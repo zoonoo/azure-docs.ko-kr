@@ -1,5 +1,5 @@
 ---
-title: "Azure 배치 CLI 시작 | Microsoft 문서"
+title: "배치용 Azure CLI 시작 | Microsoft Docs"
 description: "Azure CLI에서 Azure Batch 서비스 리소스를 관리하기 위한 Batch 명령에 대한 간단한 소개를 봅니다."
 services: batch
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: cb1f049597d53263f0f92fe1192b285c09d78eeb
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: a2efffa5e250e02fec1a1834c9256ffef79b9be3
 
 
 ---
@@ -112,10 +112,10 @@ Usage:
 지정된 배치 계정에 대한 지정된 계정 키를 다시 생성합니다.
 
 ## <a name="create-and-modify-batch-resources"></a>배치 리소스 만들기 및 수정
-Azure CLI를 사용하여 풀, 계산 노드, 작업 및 태스크 같은 Batch 리소스를 만들고 읽고 업데이트하며 삭제(CRUD)할 수 있습니다. 이러한 CRUD 작업에는 배치 계정 이름, 선택키 및 끝점이 필요합니다. 이러한 항목을 `-a`, `-k`, 및 `-u` 옵션으로 지정하거나 (자동으로 채워진 경우) CLI에서 자동으로 사용하는 [환경 변수](#credential-environment-variables)를 설정할 수 있습니다.
+Azure CLI를 사용하여 풀, 계산 노드, 작업 및 태스크 같은 Batch 리소스를 만들고 읽고 업데이트하며 삭제(CRUD)할 수 있습니다. 이러한 CRUD 작업에는 배치 계정 이름, 선택키 및 끝점이 필요합니다. 이러한 항목을 `-a`, `-k` 및 `-u` 옵션으로 지정하거나 (자동으로 채워진 경우) CLI에서 자동으로 사용하는 [환경 변수](#credential-environment-variables)를 설정할 수 있습니다.
 
 ### <a name="credential-environment-variables"></a>자격 증명 환경 변수
-실행한 모든 명령에 대한 명령줄에 `-a`, `-k` 및 `-u` 옵션을 지정하는 대신 `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY` 및 `AZURE_BATCH_ENDPOINT` 환경 변수를 설정할 수 있습니다. `-a`, `-k`, 및 `-u` 옵션을 생략할 수 있도록 Batch CLI가 이러한 변수를 사용합니다(설정한 경우). 이 문서의 나머지 부분에서는 이러한 환경 변수를 사용한다고 가정합니다.
+실행한 모든 명령에 대한 명령줄에 `-a`, `-k` 및 `-u` 옵션을 지정하는 대신 `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY` 및 `AZURE_BATCH_ENDPOINT` 환경 변수를 설정할 수 있습니다. `-a`, `-k` 및 `-u` 옵션을 생략할 수 있도록 Batch CLI가 이러한 변수를 사용합니다(설정한 경우). 이 문서의 나머지 부분에서는 이러한 환경 변수를 사용한다고 가정합니다.
 
 > [!TIP]
 > `azure batch account keys list`을 사용하여 키를 나열하고 `azure batch account show`를 사용하여 계정의 끝점을 표시합니다.
@@ -273,6 +273,6 @@ Batch CLI는 Batch 서비스에서 지원하는 세 개의 절을 모두 지원�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,24 +1,27 @@
-
 ---
-title: Azure RemoteApp의 VNET에 대한 크기 정보 | Microsoft Docs
-description: VNET에서 실행 중인 Azure RemoteApp의 IP 주소 요구 사항에 대해 알아봅니다.
+title: "Azure RemoteApp의 VNET에 대한 크기 정보 | Microsoft Docs"
+description: "VNET에서 실행 중인 Azure RemoteApp의 IP 주소 요구 사항에 대해 알아봅니다."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: b6e1c4ba-0236-42b2-bced-69353bf211be
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 0639e19423adc842a708982997852fb8d10df779
+
 
 ---
-# Azure RemoteApp의 VNET에 대한 크기 정보
+# <a name="sizing-information-for-a-vnet-in-azure-remoteapp"></a>Azure RemoteApp의 VNET에 대한 크기 정보
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -31,4 +34,9 @@ VNET(가상 네트워크)에서 Azure RemoteApp을 사용할 경우 RemoteApp에
 * [개인 VNET에서 Azure VNET으로 마이그레이션](remoteapp-migratevnet.md)
 * [Azure RemoteApp과 함께 사용하기 위해 Azure VNET의 유효성을 검사](remoteapp-vnet.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

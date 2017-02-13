@@ -1,12 +1,12 @@
 ---
-title: '자습서: YouEarnedIt과 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory 및 YouEarnedIt 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: YouEarnedIt과 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory 및 YouEarnedIt 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 3011d44d-dfcf-4061-888f-cff90fbc8150
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0965d6b12e556be60e25a8880432572ee3dceae7
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-youearnedit"></a>자습서: Azure Active Directory와 YouEarnedIt 통합
+# <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>자습서: Azure Active Directory와 YouEarnedIt 통합
 이 자습서에서는 Azure AD(Azure Active Directory)와 YouEarnedIt을 통합하는 방법에 대해 알아봅니다.
 
 YouEarnedIt을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -235,6 +239,6 @@ YouEarnedIt에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

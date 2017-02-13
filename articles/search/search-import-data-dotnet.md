@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 724edc7894cabfb31f6e43a291f98ab60c0a9981
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: 724edc7894cabfb31f6e43a291f98ab60c0a9981
 2. 추가, 수정 또는 삭제하려는 문서를 포함하는 `IndexBatch`을 만듭니다.
 3. `SearchIndexClient`의 `Documents.Index` 메서드를 호출하여 검색 인덱스에 `IndexBatch`를 전송합니다.
 
-## <a name="i-create-an-instance-of-the-searchindexclient-class"></a>I. SearchIndexClient 클래스의 인스턴스 만들기
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>SearchIndexClient 클래스의 인스턴스 만들기
 Azure 검색 .NET SDK를 사용하여 인덱스에 데이터를 가져오려면 `SearchIndexClient` 클래스의 인스턴스를 만들어야 합니다. 이 인스턴스를 직접 생성할 수 있지만 `Indexes.GetClient` 메서드를 호출하는 `SearchServiceClient` 인스턴스가 있는 경우 더 간단합니다. 예를 들어 다음은 `serviceClient`라는 `SearchServiceClient`에서 "호텔"이라는 인덱스에 `SearchIndexClient`를 가져오는 방법입니다.
 
 ```csharp
@@ -55,7 +55,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 `SearchIndexClient`에는 `Documents` 속성이 있습니다. 이 속성은 인덱스에서 문서를 추가, 수정, 삭제 또는 쿼리해야 하는 모든 메서드를 제공합니다.
 
-## <a name="ii-decide-which-indexing-action-to-use"></a>II. 사용할 인덱싱 동작 결정
+## <a name="decide-which-indexing-action-to-use"></a>사용할 인덱싱 동작 결정
 .NET SDK를 사용하여 데이터를 가져오려면 데이터를 `IndexBatch` 개체에 패키지로 만들어야 합니다. `IndexBatch`는 `IndexAction` 개체의 컬렉션을 캡슐화하며 각각은 Azure 검색이 해당 문서에 대해 수행할 작업(업로드, 병합, 삭제 등)을 알려주는 문서 및 속성을 포함합니다. 아래에서 어떤 작업을 선택하는지에 따라 특정 필드는 각 문서에 포함되어야 합니다.
 
 | 조치 | 설명 | 각 문서에 대해 필요한 필드 | 메모 |
@@ -67,7 +67,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 다음 섹션에서 보여준 것처럼 다양한 정적 메서드인 `IndexBatch` 및 `IndexAction` 클래스와 함께 사용하려는 동작을 지정할 수 있습니다.
 
-## <a name="iii-construct-your-indexbatch"></a>III. IndexBatch 생성
+## <a name="construct-your-indexbatch"></a>IndexBatch 생성
 이제 문서에서 수행되는 작업을 알고 나면 `IndexBatch`를 생성할 준비가 되었습니다. 아래 예제에서는 몇 가지 다른 작업으로 배치를 만드는 방법을 보여줍니다. 이 예제에서는 "호텔" 인덱스에 있는 문서에 매핑되는 `Hotel` 이라는 사용자 지정 클래스를 사용합니다.
 
 ```csharp
@@ -130,7 +130,7 @@ var batch = IndexBatch.New(actions);
 > 
 > 
 
-## <a name="iv-import-data-to-the-index"></a>IV. 인덱스에 데이터 가져오기
+## <a name="import-data-to-the-index"></a>인덱스에 데이터 가져오기
 `IndexBatch` 개체를 초기화했다면 `SearchIndexClient` 개체에서 `Documents.Index`를 호출하여 인덱스로 보낼 수 있습니다. 다음 예제에서는 수행해야 하는 몇 가지 추가 단계 뿐만 아니라 `Index`를 호출하는 방법을 보여줍니다.
 
 ```csharp
@@ -152,9 +152,9 @@ Console.WriteLine("Waiting for documents to be indexed...\n");
 Thread.Sleep(2000);
 ```
 
-`Index` 메서드에 대한 호출과 관련된 `try`/`catch`를 참고합니다. catch 블록은 인덱싱에 대한 중요한 오류 사례를 다룹니다. Azure 검색 서비스가 일괄 처리에서 문서 일부를 인덱싱하는데 실패하는 경우 `Documents.Index`에 의해 `IndexBatchException`이(가) 발생합니다. 이는 부하가 높은 상태에서 서비스되는 동안에 문서를 인덱싱하는 경우 발생할 수 있습니다. **이 경우 코드에서 명시적으로 처리하는 것이 좋습니다.**  실패한 문서 인덱싱을 잠시 후 다시 시도하거나, 샘플에서 하던 것처럼 기록하여 계속하거나, 응용 프로그램의 데이터 일관성 요구 사항에 따라 다른 작업을 수행할 수 있습니다.
+`Index` 메서드에 대한 호출과 관련된 `try`/`catch`를 참고합니다. catch 블록은 인덱싱에 대한 중요한 오류 사례를 다룹니다. Azure 검색 서비스가 일괄 처리에서 문서 일부를 인덱싱하는데 실패하는 경우 `Documents.Index`에 의해 `IndexBatchException`이(가) 발생합니다. 이는 부하가 높은 상태에서 서비스되는 동안에 문서를 인덱싱하는 경우 발생할 수 있습니다. **이 경우 코드에서 명시적으로 처리하는 것이 좋습니다.** 실패한 문서 인덱싱을 잠시 후 다시 시도하거나, 샘플에서 하던 것처럼 기록하여 계속하거나, 응용 프로그램의 데이터 일관성 요구 사항에 따라 다른 작업을 수행할 수 있습니다.
 
-마지막으로 2초 동안 위의 예에서 코드가 지연됩니다. Azure 검색 서비스에서 인덱싱이 비동기적으로 발생하기 때문에, 샘플 응용 프로그램은 문서 검색을 위해 잠시 기다려야 합니다. 이와 같이 데모, 테스트, 샘플 응용 프로그램에서는 일반적으로 지연만 필요합니다.
+마지막으로&2;초 동안 위의 예에서 코드가 지연됩니다. Azure 검색 서비스에서 인덱싱이 비동기적으로 발생하기 때문에, 샘플 응용 프로그램은 문서 검색을 위해 잠시 기다려야 합니다. 이와 같이 데모, 테스트, 샘플 응용 프로그램에서는 일반적으로 지연만 필요합니다.
 
 <a name="HotelClass"></a>
 
@@ -234,12 +234,12 @@ public partial class Hotel
 
 이러한 이유로 모델 클래스에는 Null을 허용하는 형식을 사용하는 것이 가장 좋습니다.
 
-## <a name="next"></a>다음
+## <a name="next-steps"></a>다음 단계
 Azure 검색 인덱스를 채운 후에 문서를 검색하기 위해 쿼리를 발급하기 시작할 준비가 되었습니다. 세부 정보는 [Azure 검색 인덱스 쿼리](search-query-overview.md) 를 참조하세요.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Event Hubs를 사용하여 광범위한 플랫폼에 있는 연결된 IoT 장치 및 응용 프로그램에서 초당 수백만 개의 이벤트를 수집하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: bedc8c16671de6071383659697ecd932e14cf3ba
-ms.openlocfilehash: 3d404f115c9a21c7ea62fb485a2129bca9de5c6c
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 29d6165596d3e98264285b6471c8f54b66aa2c3a
 
 ---
 #<a name="event-hubs-documentation"></a>Event Hubs 설명서
@@ -116,13 +116,7 @@ Event Hubs를 사용하여 연결된 IoT 장치 및 응용 프로그램에서 �
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-Event Hubs 설명서 다운로드 </div>
-    </a>
-</div>
+
 
 
 

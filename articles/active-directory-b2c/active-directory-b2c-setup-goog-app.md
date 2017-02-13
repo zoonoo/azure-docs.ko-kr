@@ -62,6 +62,6 @@ Azure AD(Azure Active Directory) B2C에서 Google+를 ID 공급자로 사용하�
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -8,12 +8,12 @@ manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/07/2016
+ms.workload: iaas-sql-server
+ms.date: 02/02/2017
 ms.author: jroth
 translationtype: Human Translation
 ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450

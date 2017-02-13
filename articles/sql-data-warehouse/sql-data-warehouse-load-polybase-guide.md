@@ -189,7 +189,7 @@ SQL Data Warehouse에 데이터를 이동하는 방법에 대한 자세한 내�
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 [외부 데이터 원본 만들기(Transact-SQL)]: https://msdn.microsoft.com/library/dn935022.aspx
-[외부 파일 만들기 형식(Transact-SQL)]: https://msdn.microsoft.com/library/dn935026).aspx [외부 테이블 만들기(Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspxx
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026).aspx [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspxx
 
 [외부 데이터 원본 삭제(Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
 [외부 파일 형식 삭제(Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx

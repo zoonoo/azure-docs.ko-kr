@@ -62,7 +62,7 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < 및 > 문자
     Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 > [!IMPORTANT]
-> 해당 클라우드 서비스의 마지막 VM인 경우 이 매개 변수를 사용하여 클라우드 서비스의 VIP(가상 IP)를 유지합니다. <br><br>  StayProvisioned 매개 변수를 사용하는 경우 VM에 대한 요금이 청구됩니다.
+> 해당 클라우드 서비스의 마지막 VM인 경우 이 매개 변수를 사용하여 클라우드 서비스의 VIP(가상 IP)를 유지합니다. <br><br> StayProvisioned 매개 변수를 사용하는 경우 VM에 대한 요금이 청구됩니다.
 > 
 > 
 

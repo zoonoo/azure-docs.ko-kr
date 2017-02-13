@@ -1,5 +1,5 @@
 ---
-title: "HDInsight의 Apache Spark 개요 | Microsoft Docs"
+title: "Azure HDInsight의 Apache Spark 개요 | Microsoft Docs"
 description: "HDInsight에서 Apache Spark의 도입 및 응용 프로그램에서 HDInsight의 Spark를 사용하는 시나리오"
 services: hdinsight
 documentationcenter: 
@@ -16,22 +16,23 @@ ms.topic: get-started-article
 ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
-ms.openlocfilehash: fe40bc372a63735b0130bcbb115c312fa2e45fa6
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 2cb69f253e1a6d01b412775bbfc37de3423bde0b
 
 
 ---
-# <a name="overview-apache-spark-on-hdinsight-linux"></a>개요: HDInsight Linux에서 Apache Spark
-<a href="http://spark.apache.org/" target="_blank">Apache Spark</a>는 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다. 또한 Spark는 Azure Blob 저장소(WASB)와 호환되므로 Azure에 저장된 기존 데이터를 Spark를 통해 쉽게 처리할 수 있습니다.
+# <a name="overview-apache-spark-on-hdinsight"></a>개요: HDInsight의 Apache Spark
 
-HDInsight에서 Spark 클러스터를 만들 때는 설치 및 구성된 Spark로 Azure 계산 리소스를 만듭니다. HDInsight에서 Spark 클러스터를 약 10분만에 만들 수 있습니다. 처리되는 데이터는 Azure Blob 저장소에 저장됩니다. [HDInsight에서 Azure Blob Storage 사용][hdinsight-storage]을 참조하세요.
+<a href="http://spark.apache.org/" target="_blank">Apache Spark</a>는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다. 또한 Spark는 Azure Blob 저장소(WASB)와 호환되므로 Azure에 저장된 기존 데이터를 Spark를 통해 쉽게 처리할 수 있습니다.
+
+HDInsight에서 Spark 클러스터를 만들 때는 설치 및 구성된 Spark로 Azure 계산 리소스를 만듭니다. HDInsight에서 Spark 클러스터를 약&10;분만에 만들 수 있습니다. 처리되는 데이터는 Azure Blob 저장소에 저장됩니다. [HDInsight에서 Azure Blob Storage 사용][hdinsight-storage]을 참조하세요.
 
 ![Azure HDInsight의 Apache Spark](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark on Azure HDInsight")
 
-**Azure HDInsight에서 Apache Spark를 시작하나요?** [빠른 시작: HDInsight Linux에서 Spark 클러스터 만들기 및 Jupyter를 사용하여 샘플 응용 프로그램 실행](hdinsight-apache-spark-jupyter-spark-sql.md).을 참조하세요.
+**Azure HDInsight에서 Apache Spark를 시작하나요?** [빠른 시작: HDInsight에서 Spark 클러스터 만들기 및 Jupyter를 사용하여 샘플 응용 프로그램 실행](hdinsight-apache-spark-jupyter-spark-sql.md)을 참조하세요.
 
 > [!NOTE]
-> 현재 릴리스의 알려진 문제 및 제한 목록은 [Azure HDInsight에서 Apache Spark의 알려진 문제(Linux)](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
+> 현재 릴리스의 알려진 문제 및 제한 목록은 [Azure HDInsight에서 알려진 Apache Spark 문제](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 > 
 > 
 
@@ -40,7 +41,7 @@ Azure HDInsight는 완전히 관리되는 Spark 서비스를 제공합니다. HD
 
 | 기능 | 설명 |
 | --- | --- |
-| 클러스터 만들기 편의성 |Azure 관리 포털, Azure PowerShell 또는 HDInsight .NET SDK를 사용하여 몇 분만에 HDInsight에서 새 Spark 클러스터를 만들 수 있습니다.  [HDInsight에서 Spark 클러스터 시작](hdinsight-apache-spark-jupyter-spark-sql.md) |
+| 클러스터 만들기 편의성 |Azure 관리 포털, Azure PowerShell 또는 HDInsight .NET SDK를 사용하여 몇 분만에 HDInsight에서 새 Spark 클러스터를 만들 수 있습니다. [HDInsight에서 Spark 클러스터 시작](hdinsight-apache-spark-jupyter-spark-sql.md) |
 | 사용 편의성 |HDInsight 클러스터의 Spark에는 미리 구성된 Jupyter Notebook이 포함되어 있으며 대화형 데이터 처리 및 시각화에 사용할 수 있습니다. Jupyter Notebook에 대한 URL은 https://CLUSTERNAME.azurehdinsight.net/jupyter입니다. **CLUSTERNAME**을 Spark HDInsight 클러스터의 이름으로 바꿉니다. |
 | REST API |HDInsight의 Spark에는 실행 중인 작업을 원격으로 제출 및 모니터링하는 REST-API 기반 Spark 작업 서버, [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)가 포함되어 있습니다. |
 | Azure Data Lake 저장소에 대한 지원 |HDInsight 3.5 클러스터만으로 기본 저장소뿐만 아니라 추가 저장소로 Azure Data Lake Store를 사용하도록 HDInsight에서 Spark를 구성할 수 있습니다. Data Lake 저장소에 대한 자세한 내용은 [Azure Data Lake 저장소 개요](../data-lake-store/data-lake-store-overview.md)를 참조하세요. |
@@ -115,6 +116,6 @@ HDInsight Linux에서 Spark 클러스터를 만드는 작업부터 시작합니�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

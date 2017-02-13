@@ -259,6 +259,6 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf8e6564e861a8753b6bfa45fc7fdd9d72fd2ba8
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 0ab1dcc8ccc621f5dabfffffb17fd1822f78eb1c
 
 
 ---
@@ -30,10 +30,10 @@ ms.openlocfilehash: bf8e6564e861a8753b6bfa45fc7fdd9d72fd2ba8
 크기 조정 설정을 적용하는 데 몇 초밖에 걸리지 않으며 [앱 서비스 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)의 모든 앱에 영향을 줍니다.
 코드를 변경하거나 응용 프로그램을 다시 배포할 필요가 없습니다.
 
-개별 앱 서비스 계획의 가격 책정 및 기능에 대한 자세한 내용은 [앱 서비스 가격 정보](/pricing/details/web-sites/)를 참조하세요.  
+개별 앱 서비스 계획의 가격 책정 및 기능에 대한 자세한 내용은 [앱 서비스 가격 정보](https://azure.microsoft.com/pricing/details/web-sites/)를 참조하세요.  
 
 > [!NOTE]
-> **무료** 계층에서 앱 서비스 계획을 전환하기 전에 먼저 Azure 구독에 대한 [지출 한도](/pricing/spending-limits/) 를 제거해야 합니다. Microsoft Azure App Service 구독 옵션을 보거나 변경하려면 [Microsoft Azure 구독][azuresubscriptions]을 참조하세요.
+> **무료** 계층에서 앱 서비스 계획을 전환하기 전에 먼저 Azure 구독에 대한 [지출 한도](https://azure.microsoft.com/pricing/spending-limits/) 를 제거해야 합니다. Microsoft Azure App Service 구독 옵션을 보거나 변경하려면 [Microsoft Azure 구독][azuresubscriptions]을 참조하세요.
 > 
 > 
 
@@ -86,7 +86,7 @@ ms.openlocfilehash: bf8e6564e861a8753b6bfa45fc7fdd9d72fd2ba8
 <a name="OtherFeatures"></a>
 
 ## <a name="learn-about-other-features"></a>다른 기능에 대해 알아보기
-* 개발자를 비롯하여 모든 사용자에게 유용한 가격 및 기능을 포함하여 앱 서비스 계획의 나머지 모든 기능에 대한 자세한 내용은 [앱 서비스 가격 정보](/pricing/details/web-sites/)를 참조하세요.
+* 개발자를 비롯하여 모든 사용자에게 유용한 가격 및 기능을 포함하여 앱 서비스 계획의 나머지 모든 기능에 대한 자세한 내용은 [앱 서비스 가격 정보](https://azure.microsoft.com/pricing/details/web-sites/)를 참조하세요.
 
 > [!NOTE]
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정은 없습니다.
@@ -96,22 +96,22 @@ ms.openlocfilehash: bf8e6564e861a8753b6bfa45fc7fdd9d72fd2ba8
 <a name="Next Steps"></a>
 
 ## <a name="next-steps"></a>다음 단계
-* Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/)을 참조하세요.
+* Azure에 등록하려면 [Microsoft Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * 가격 책정, 지원 및 SLA에 대한 자세한 내용은 다음 링크를 방문하세요.
   
-    [데이터 전송 가격 정보](/pricing/details/data-transfers/)
+    [데이터 전송 가격 정보](https://azure.microsoft.com/pricing/details/data-transfers/)
   
-    [Microsoft Azure 지원 계획](/support/plans/)
+    [Microsoft Azure 지원 계획](https://azure.microsoft.com/support/plans/)
   
-    [서비스 수준 계약](/support/legal/sla/)
+    [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)
   
-    [SQL 데이터베이스 가격 정보](/pricing/details/sql-database/)
+    [SQL 데이터베이스 가격 정보](https://azure.microsoft.com/pricing/details/sql-database/)
   
     [Microsoft Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기][vmsizes]
   
-    [앱 서비스 가격 정보](/pricing/details/app-service/)
+    [앱 서비스 가격 정보](https://azure.microsoft.com/pricing/details/app-service/)
   
-    [앱 서비스 가격 정보 - SSL 연결](/pricing/details/web-sites/#ssl-connections)
+    [앱 서비스 가격 정보 - SSL 연결](https://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
 * 확장성 있고 복원력이 뛰어난 아키텍처 빌드를 포함하여 Azure 앱 서비스 모범 사례에 대한 자세한 내용은 [모범 사례: Azure 앱 서비스 웹앱](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)을 참조하세요.
 * 앱 서비스 앱 크기 조정에 대한 비디오는 다음 리소스를 참조하세요.
   
@@ -143,6 +143,6 @@ ms.openlocfilehash: bf8e6564e861a8753b6bfa45fc7fdd9d72fd2ba8
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

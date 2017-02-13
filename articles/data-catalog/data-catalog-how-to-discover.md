@@ -1,20 +1,24 @@
 ---
-title: 데이터 원본을 검색하는 방법 | Microsoft Docs
-description: 검색 및 필터링을 포함하는 Azure 데이터 카탈로그 및 Azure 데이터 카탈로그 포털의 적중 항목 강조 표시 기능을 사용하여 등록된 데이터 자산을 검색하는 방법을 강조 표시한 방법 문서
+title: "데이터 원본을 검색하는 방법 | Microsoft Docs"
+description: "검색 및 필터링을 포함하는 Azure 데이터 카탈로그 및 Azure 데이터 카탈로그 포털의 적중 항목 강조 표시 기능을 사용하여 등록된 데이터 자산을 검색하는 방법을 강조 표시한 방법 문서"
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: f72ae3a3-6573-4710-89a7-f13555e1968c
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0c90aff38ebe33e8c26f9e46db7e61786ea9a7dd
+
 
 ---
 # <a name="how-to-discover-data-sources"></a>데이터 원본을 검색하는 방법
@@ -48,8 +52,8 @@ ms.author: maroche
 
 > [!NOTE]
 > 사용자는 **Azure 데이터 카탈로그** 포털의 “강조 표시" 스위치를 사용하여 원하는 경우 적중 항목 강조 표시를 해제할 수 있습니다.
-> 
-> 
+>
+>
 
 검색 결과를 볼 때 적중 항목 강조 표시가 활성화되어 있더라도 데이터 자산이 포함된 이유가 항상 명확하지는 않을 수도 있습니다. 모든 속성은 기본적으로 검색되므로 열 수준 속성과 일치로 인해 데이터 자산이 반환될 수 있습니다. 또한 여러 사용자가 자신의 태그 및 설명을 사용하여 등록된 데이터 자산에 주석을 지정할 수 있으므로 모든 메타데이터는 검색 결과 목록에 표시되지 않을 수도 있습니다.
 
@@ -63,6 +67,8 @@ ms.author: maroche
 ## <a name="see-also"></a>참고 항목
 * [Azure 데이터 카탈로그 시작](data-catalog-get-started.md) 자습서.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

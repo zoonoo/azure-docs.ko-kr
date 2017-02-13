@@ -1,5 +1,5 @@
 ---
-title: "리소스 관리자에서 템플릿을 사용하여 내부 부하 분산 장치 만들기 | Microsoft Docs"
+title: "내부 부하 분산 장치 만들기 - Azure 템플릿 | Microsoft Docs"
 description: "리소스 관리자에서 템플릿을 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 03fdb734fee778ac5dbee4fb8417cb68c5267173
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: da1a0bb7982b02daa89144c3f5c3f257f14c06c9
 
 ---
 
@@ -85,6 +85,6 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

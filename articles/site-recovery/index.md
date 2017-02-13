@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "복제본을 배포하고 관리하여 물리적 서버 및 가상 컴퓨터에 대한 클라우드 재해 복구 및 비즈니스 연속성을 설정하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 13d77644673b86be22bf7be40f77d6ebfb1f8baa
-ms.openlocfilehash: d815422edd036711525d8c2f1eea0348295416d5
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: b8fe2704e7c68c1fe815d204d424f28fcbdfe75c
 
 ---
 # <a name="site-recovery-documentation"></a>Site Recovery 설명서
@@ -80,13 +80,7 @@ ms.openlocfilehash: d815422edd036711525d8c2f1eea0348295416d5
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
-        <div class="img"></div>
-        <div class="text">
-Site Recovery 설명서 다운로드 </div>
-    </a>
-</div>
+
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Visual Studio에서 서비스 패브릭 응용 프로그램 처음 만들기 | Microsoft Docs"
+title: "첫 번째 Azure 마이크로 서비스 만들기 | Microsoft Docs"
 description: "Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 만들기, 배포 및 디버깅"
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
-ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 23699d8d44ccd101519920e5f20e9b13cd15cc38
 
 
 ---
@@ -61,7 +61,7 @@ ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
    
     ![상태 저장 서비스를 사용하여 응용 프로그램 만들기를 수행하는 솔루션 탐색기][3]
    
-    응용 프로그램 프로젝트는 코드를 직접 포함하지 않습니다. 대신 서비스 프로젝트의 집합을 참조합니다. 추가로 3가지 다른 형식을 포함합니다.
+    응용 프로그램 프로젝트는 코드를 직접 포함하지 않습니다. 대신 서비스 프로젝트의 집합을 참조합니다. 추가로&3;가지 다른 형식을 포함합니다.
    
    * **게시 프로필**: 다양한 환경에 대한 도구 기본 설정을 관리하는 데 사용됩니다.
    * **스크립트**: 응용 프로그램을 배포/업그레이드하기 위한 PowerShell 스크립트를 포함합니다. Visual Studio는 스크립트 숨은 기능을 사용합니다. 명령줄에서 직접 스크립트를 호출할 수도 있습니다.
@@ -91,7 +91,7 @@ ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
    
     ![진단 이벤트 뷰어 세부 정보][6]
    
-    로컬 클러스터는 단일 컴퓨터에서 호스트되는 다섯 개의 노드를 포함합니다. 노드는 노드가 서로 다른 컴퓨터에 있는 5 노드 클러스터를 모방합니다. 컴퓨터의 손실을 시뮬레이션하는 동시에 Visual Studio 디버거를 실행하기 위해 로컬 클러스터의 노드 중 하나를 확인합니다.
+    로컬 클러스터는 단일 컴퓨터에서 호스트되는 다섯 개의 노드를 포함합니다. 노드는 노드가 서로 다른 컴퓨터에 있는&5; 노드 클러스터를 모방합니다. 컴퓨터의 손실을 시뮬레이션하는 동시에 Visual Studio 디버거를 실행하기 위해 로컬 클러스터의 노드 중 하나를 확인합니다.
    
    > [!NOTE]
    > 프로젝트 템플릿에서 내보내는 응용 프로그램 진단 이벤트는 포함된 `ServiceEventSource` 클래스를 사용합니다. 자세한 내용은 [로컬로 서비스를 모니터링 및 진단하는 방법](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)을 참조하세요.
@@ -116,7 +116,7 @@ ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
     ![장애 조치 후 진단 이벤트 뷰어][diagnostic-events-viewer-detail-post-failover]
 
 ## <a name="switch-cluster-mode"></a>클러스터 모드 전환
-기본적으로 로컬 개발 클러스터는 5개 노드 클러스터로 실행되도록 구성되며, 이렇게 하면 여러 노드에 배포된 서비스를 디버깅하는 데 유용합니다. 그러나 응용 프로그램을 5개 노드 개발 클러스터로 배포하는 데에는 시간이 걸릴 수 있습니다. 5개의 노드에서 앱을 실행하지 않고도 코드 변경 내용을 신속하게 반복하려는 경우 개발 클러스터를 1개의 노드 모드로 전환할 수 있습니다. 하나의 노드가 있는 클러스터에서 코드를 실행하려면 시스템 트레이에서 로컬 클러스터 관리자를 마우스 오른쪽 단추로 클릭하고 **클러스터 모드 전환 -> 1개의 노드**를 선택합니다.  
+기본적으로 로컬 개발 클러스터는&5;개 노드 클러스터로 실행되도록 구성되며, 이렇게 하면 여러 노드에 배포된 서비스를 디버깅하는 데 유용합니다. 그러나 응용 프로그램을&5;개 노드 개발 클러스터로 배포하는 데에는 시간이 걸릴 수 있습니다. 5개의 노드에서 앱을 실행하지 않고도 코드 변경 내용을 신속하게 반복하려는 경우 개발 클러스터를&1;개의 노드 모드로 전환할 수 있습니다. 하나의 노드가 있는 클러스터에서 코드를 실행하려면 시스템 트레이에서 로컬 클러스터 관리자를 마우스 오른쪽 단추로 클릭하고 **클러스터 모드 전환 -> 1개의 노드**를 선택합니다.  
 
 ![클러스터 모드 전환][switch-cluster-mode]
 
@@ -131,6 +131,7 @@ ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
 ## <a name="next-steps"></a>다음 단계
 * [Azure에서 클러스터](service-fabric-cluster-creation-via-portal.md)를 만들거나 [Windows에서 독립 실행형 클러스터](service-fabric-cluster-creation-for-windows-server.md)를 만드는 방법을 알아봅니다.
 * [Reliable Services](service-fabric-reliable-services-quick-start.md) 또는 [Reliable Actors](service-fabric-reliable-actors-get-started.md) 프로그래밍 모델을 사용하여 서비스를 만들어 봅니다.
+* [게스트 실행 파일](service-fabric-deploy-existing-app.md)로 [Windows 컨테이너](service-fabric-deploy-container.md) 또는 기존 앱을 배포해 보세요.
 * [웹 서비스 프런트 엔드](service-fabric-add-a-web-frontend.md)를 사용하여 인터넷에 서비스를 노출하는 방법을 알아봅니다.
 * [실습 교육](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) 을 안내하고 상태 비저장 서비스를 만들고 모니터링 및 상태 보고서를 구성하고 응용 프로그램 업그레이드를 수행합니다.
 * [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
@@ -152,6 +153,6 @@ ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

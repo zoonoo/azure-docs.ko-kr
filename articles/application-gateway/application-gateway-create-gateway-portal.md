@@ -4,7 +4,7 @@ description: "포털을 사용하여 응용 프로그램 게이트웨이를 만�
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 54dffe95-d802-4f86-9e2e-293f49bd1e06
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 919b0b945f463bdf840faa6b244e1ba0c12c7cc3
-ms.openlocfilehash: dedb4064f7c42f4e2f8d55c623168a7faf9a3d27
+ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
+ms.openlocfilehash: f7036e8e629e78c5346688556a5aa5794bde3955
 
 
 ---
@@ -29,10 +29,8 @@ ms.openlocfilehash: dedb4064f7c42f4e2f8d55c623168a7faf9a3d27
 > * [Azure 클래식 PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
-> 
-> 
 
-Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램 게이트웨이는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC(Application Delivery Controller)를 제공합니다. 지원되는 기능의 전체 목록을 찾으려면 [Application Gateway 개요](application-gateway-introduction.md)
+Azure 응용 프로그램 게이트웨이는 계층&7; 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램 게이트웨이는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC(Application Delivery Controller)를 제공합니다. 지원되는 기능의 전체 목록을 찾으려면 [Application Gateway 개요](application-gateway-introduction.md)
 
 ## <a name="scenario"></a>시나리오
 
@@ -71,7 +69,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 기본 설정에 필요한 정보는 다음과 같습니다.
 
 * **이름** - 응용 프로그램 게이트웨이의 이름입니다.
-* **계층** - 응용 프로그램 게이트웨이의 계층입니다. **WAF** 및 **표준**의 두 개의 계층을 사용할 수 있습니다. WAF에는 웹 응용 프로그램 방화벽 기능이 있습니다.
+* **계층** - 이 설정은 Application Gateway의 계층입니다. **WAF** 및 **표준**의 두 개의 계층을 사용할 수 있습니다. WAF에는 웹 응용 프로그램 방화벽 기능이 있습니다.
 * **SKU 크기** - 이 설정은 응용 프로그램 게이트웨이의 크기입니다. 사용 가능한 옵션은 (**소량**, **중간** 및 **대량**)입니다. WAF 계층을 선택할 때 소량은 사용할 수 없습니다.
 * **인스턴스 수** - 인스턴스 수입니다. 이 값은 2에서 10 사이의 숫자여야 합니다.
 * **리소스 그룹** - Application Gateway를 유지할 리소스 그룹입니다. 기존 리소스 그룹 또는 새 리소스 그룹일 수 있습니다.
@@ -94,7 +92,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 ### <a name="step-4"></a>4단계
 
- **가상 네트워크 선택** 블레이드에서 **새로 만들기**
+**가상 네트워크 선택** 블레이드에서 **새로 만들기**
 
 이 시나리오에는 설명되어 있지 않지만 여기서 기존 Virtual Network를 선택할 수도 있습니다.  기존 가상 네트워크를 사용하는 경우 해당 가상 네트워크에 사용할 빈 서브넷 또는 Application Gateway 리소스의 서브넷이 필요합니다.
 
@@ -112,7 +110,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 ### <a name="step-7"></a>7단계
 
-**공용 IP 주소 선택**을 클릭합니다. 기존 공용 IP 주소를 사용할 수 있는 경우 이 시점에서 선택될 수 있지만 이 시나리오에서는 새 공용 IP 주소를 만듭니다.  **Create new**
+**공용 IP 주소 선택**을 클릭합니다. 기존 공용 IP 주소를 사용할 수 있는 경우 이 시점에서 선택될 수 있지만 이 시나리오에서는 새 공용 IP 주소를 만듭니다. **Create new**
 
 ![공용 IP 주소 선택 블레이드][6]
 
@@ -153,7 +151,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 Application Gateway가 만들어지면 부하 분산을 위해 응용 프로그램을 호스트하는 시스템을 여전히 Application Gateway에 추가해야 합니다. 이러한 서버의 IP 주소 또는 FQDN 값은 백 엔드 주소 풀에 추가됩니다.
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
 만든 Application Gateway를 클릭하고 **백 엔드 풀**을 클릭한 후 현재 백 엔드 풀을 선택합니다.
 
@@ -165,15 +163,15 @@ Application Gateway가 만들어지면 부하 분산을 위해 응용 프로그�
 
 ![Application Gateway 백 엔드 풀에 값을 추가합니다.][12]
 
-이렇게 하면 값이 백 엔드 풀에 저장됩니다. Application Gateway가 업데이트된 후 Application Gateway로 들어가는 트래픽은 이 단계에서 추가한 백 엔드 주소로 라우팅됩니다.
+이 작업은 값을 백 엔드 풀에 저장합니다. Application Gateway가 업데이트된 후 Application Gateway로 들어가는 트래픽은 이 단계에서 추가한 백 엔드 주소로 라우팅됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 시나리오는 기본 응용 프로그램 게이트웨이를 만듭니다. 다음 단계에서는 설정을 수정하고, 게이트웨이의 규칙을 조정하여 Application Gateway를 구성합니다. 이러한 단계는 다음 문서에서 확인할 수 있습니다.
 
- [사용자 지정 상태 프로브 만들기](application-gateway-create-probe-portal.md)
+[사용자 지정 상태 프로브 만들기](application-gateway-create-probe-portal.md)
 
- [SSL 오프로드 구성](application-gateway-ssl-portal.md)
+[SSL 오프로드 구성](application-gateway-ssl-portal.md)
 
 응용 프로그램 게이트웨이의 기능인 [웹 응용 프로그램 방화벽](application-gateway-webapplicationfirewall-overview.md)을 사용하여 웹 사이트를 보호하는 방법을 알아봅니다.
 
@@ -194,6 +192,6 @@ Application Gateway가 만들어지면 부하 분산을 위해 응용 프로그�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure 가상 네트워크 연결을 위한 사이트 간 VPN 게이트웨이 연결에 대한 VPN 장치 정보 | Microsoft Docs"
-description: "이 문서에서는 S2S VPN Gateway 연결에 대한 VPN 장치 및 IPsec 매개 변수를 설명하고 구성 지침과 샘플에 대한 링크를 포함합니다."
+title: "크로스-프레미스 Azure 연결에 대한 VPN 장치 정보 | Microsoft Docs"
+description: "이 문서에서는 S2S VPN 게이트웨이 크로스-프레미스 연결에 대한 VPN 장치 및 IPsec 매개 변수에 대해 설명합니다. 구성 지침과 샘플에 대한 링크를 제공합니다."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bbaf89bca07fd2d4c4a12403d2daa8323f4d7be5
-ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
+ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
+ms.openlocfilehash: b8e65f6c314457b76bd062ea09bda53099fb79d9
 
 
 ---
 # <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN 게이트웨이 연결에 대한 VPN 장치 정보
-S2S(사이트 간) VPN 연결을 구성하려면 VPN 장치가 필요합니다. 온-프레미스 네트워크와 가상 네트워크 간의 보안 연결을 만들려고 할 때마다 또는 하이브리드 솔루션을 만드는 데 사이트 간 연결을 사용할 수 있습니다. 이 문서에서는 호환 VPN 장치 및 구성 매개 변수를 설명합니다.
+VPN Gateway를 사용하여 S2S(사이트 간) 크로스-프레미스 VPN 연결을 구성하려면 VPN 장치가 필요합니다. 온-프레미스 네트워크와 가상 네트워크 간의 보안 연결을 만들려고 할 때마다 또는 하이브리드 솔루션을 만드는 데 사이트 간 연결을 사용할 수 있습니다. 이 문서에서는 호환 VPN 장치 및 구성 매개 변수를 설명합니다.
 
 > [!NOTE]
 > 사이트 간 연결을 구성할 때 VPN 장치에 공용 IPv4 IP 주소가 필요합니다.                                                                                                                                                                               
@@ -115,7 +115,7 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 | **속성** | **정책 기반** | **경로 기반 및 표준 또는 고성능 VPN Gateway** |
 | --- | --- | --- |
 | IKE 버전 |IKEv1 |IKEv2 |
-| 해시 알고리즘 |SHA1(SHA128) |SHA1(SHA128) |
+| 해시 알고리즘 |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | 2단계 SA(보안 연결) 수명(시간) |3,600초 |3,600초 |
 | 2단계 SA(보안 연결) 수명(처리량) |102,400,000 KB |- |
 | IPsec SA 암호화 및 인증 제안(기본 설정 순서) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. 해당 없음 |*경로 기반 게이트웨이 IPsec SA(보안 연결) 제안*(아래) 참조 |
@@ -153,6 +153,6 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

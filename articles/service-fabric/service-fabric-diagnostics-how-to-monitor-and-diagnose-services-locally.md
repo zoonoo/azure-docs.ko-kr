@@ -1,12 +1,12 @@
 ---
-title: Azure 서비스 패브릭으로 작성된 서비스를 로컬에서 모니터링 및 진단 | Microsoft Docs
-description: 로컬 개발 컴퓨터에서 Microsoft Azure 서비스 패브릭을 사용하여 작성된 서비스를 모니터링하고 진단하는 방법에 대해 알아보세요.
+title: "Azure Service Fabric으로 작성된 서비스를 로컬에서 모니터링 및 진단 | Microsoft Docs"
+description: "로컬 개발 컴퓨터에서 Microsoft Azure 서비스 패브릭을 사용하여 작성된 서비스를 모니터링하고 진단하는 방법에 대해 알아보세요."
 services: service-fabric
 documentationcenter: .net
 author: ms-toddabel
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2016
 ms.author: toddabel
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 57e281b5e3a86b2a7bc78d47163b0475898869f0
+
 
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스
@@ -46,7 +50,7 @@ ms.author: toddabel
 
 **서비스 템플릿**(상태 비저장 또는 상태 저장)에서 만들어진 프로젝트의 경우 `RunAsync` 구현을 검색하기만 하면 됩니다.
 
-1. `ServiceEventSource.Current.ServiceMessage` in the `RunAsync` 호출은 응용 프로그램 코드에서 사용자 지정 ETW 추적의 예를 보여 줍니다.
+1.  `ServiceEventSource.Current.ServiceMessage` in the `RunAsync` 호출은 응용 프로그램 코드에서 사용자 지정 ETW 추적의 예를 보여 줍니다.
 2. **ServiceEventSource.cs`ServiceEventSource.ServiceMessage` 파일을 보면 성능상의 이유로 빈도가 높은 이벤트에 사용해야 하는 ** 메서드에서 오버로드를 확인할 수 있습니다.
 
 **행위자 템플릿** (상태 비저장 또는 상태 저장)에서 만들어진 프로젝트의 경우:
@@ -63,6 +67,9 @@ ms.author: toddabel
 * [Azure 진단을 사용하여 로그를 수집하는 방법](service-fabric-diagnostics-how-to-setup-wad.md)
 * [서비스 패브릭 응용 프로그램 추적 저장소와 같은 ElasticSearch 사용](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

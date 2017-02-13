@@ -1,5 +1,5 @@
 ---
-title: "Azure 데이터 카탈로그란? | Microsoft 문서"
+title: "Azure Data Catalog 소개 | Microsoft Docs"
 description: "이 문서는 해당 기능 및 다룰 문제를 포함하여 Microsoft Azure Data Catalog의 개요를 제공합니다. Azure 데이터 카탈로그는 분석가부터 데이터 과학자, 개발자에 이르는 모든 사용자가 데이터 원본을 등록, 검색, 이해, 사용할 수 있는 기능을 제공합니다."
 services: data-catalog
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f047b81511efb0b9852dd343ed995bb153344c39
+ms.sourcegitcommit: cd3184059a0970bb7c9b59803cf37125abbbd879
+ms.openlocfilehash: 19d4c3990c88f82f60cd253ffdcbd2005d00ad79
 
 
 ---
@@ -75,7 +75,6 @@ Azure Data Catalog는 조직이 기존 투자에서 더 많은 가치를 얻을 
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

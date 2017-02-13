@@ -115,7 +115,7 @@ SAML 어설션을 구성하기 전에 ADP eTime 지원 팀에 문의하고 테�
 
     a. **회신 URL** 텍스트 상자에서 `https://<server name>.adp.com/affwebservices/public/saml2assertionconsumer` 패턴을 사용하여 사용자가 ADP eTime 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 1. **ADP eTime에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
    
@@ -123,7 +123,7 @@ SAML 어설션을 구성하기 전에 ADP eTime 지원 팀에 문의하고 테�
    
     a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 2. 응용 프로그램에 대해 구성된 SSO를 가져오려면 ADP eTime 지원 팀에 다운로드한 메타데이터 파일을 첨부하여 메일로 보냅니다. 그러면 SSO 통합에 대해 구성할 수 있습니다.
    
    > [!NOTE]
@@ -226,7 +226,7 @@ SAML 어설션을 구성하기 전에 ADP eTime 지원 팀에 문의하고 테�
    
     a. **새 암호**값을 적어둡니다.
    
-    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
+    b. **완료**를 클릭합니다.   
 
 ### <a name="creating-a-adp-etime-test-user"></a>ADP eTime 테스트 사용자 만들기
 이 섹션은 ADP eTime에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. ADP eTime 계정에 사용자를 추가하려면 ADP eTime 지원 팀에 문의하세요. 

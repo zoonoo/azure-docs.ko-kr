@@ -1,19 +1,23 @@
 ---
-title: Azure Active Directory 감사 API 참조 | Microsoft Docs
-description: Azure Active Directory 감사 API를 시작하는 방법
+title: "Azure Active Directory 감사 API 참조 | Microsoft Docs"
+description: "Azure Active Directory 감사 API를 시작하는 방법"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
+ms.date: 11/16/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: b1de516d907826d3e6ede0783649f6101b381852
+ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
+
 
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory 감사 API 참조
@@ -28,7 +32,7 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
 
 질문, 문제 또는 피드백은 [AAD Reporting 도움말](mailto:aadreportinghelp@microsoft.com)에 문의하세요.
 
-## <a name="who-can-access-the-data?"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
+## <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 * 보안 관리 또는 보안 판독기 역할의 사용자
 * 전역 관리자
 * API에 액세스하는 인증이 있는 모든 앱(전역 관리자의 사용 권한에 따라 앱 권한 부여를 설정할 수 있음).
@@ -86,7 +90,7 @@ Azure AD 감사 API에서 (OData 페이지 매김을 사용하여) 반환되는 
 
 **예제**:
 
-    $filter=tdomain + 'activities/audit?api-version=beta&`$filter=eventTime gt ' + $7daysago    
+    $filter=tdomain + 'activities/audit?api-version=beta&`$filter=activityDate gt ' + $7daysago    
 
 **참고**:
 
@@ -98,7 +102,7 @@ datetime는 UTC 형식이어야 합니다.
 
 **예제**:
 
-    $filter=activityType eq 'User'  
+    $filter=activityType eq 'User'    
 
 **참고**:
 
@@ -110,26 +114,26 @@ datetime는 UTC 형식이어야 합니다.
 
 **예제**:
 
-    $filter=activity eq 'Add application' or contains(activity, 'Application') or startsWith(activity, 'Add')   
+    $filter=activity eq 'Add application' or contains(activity, 'Application') or startsWith(activity, 'Add')    
 
 **참고**:
 
 대/소문자 구분
 
 - - -
-### <a name="actor/name"></a>행위자/이름
+### <a name="actorname"></a>행위자/이름
 **연산자 지원**: eq, contains, startsWith
 
 **예제**:
 
-    $filter=actor/name eq 'test' or contains(actor/name, 'test') or startswith(actor/name, 'test')  
+    $filter=actor/name eq 'test' or contains(actor/name, 'test') or startswith(actor/name, 'test')    
 
 **참고**:
 
 대/소문자 구분하지 않음
 
 - - -
-### <a name="actor/objectid"></a>행위자/objectid
+### <a name="actorobjectid"></a>행위자/objectid
 **지원되는 연산자**: eq
 
 **예제**:
@@ -137,24 +141,24 @@ datetime는 UTC 형식이어야 합니다.
     $filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'    
 
 - - -
-### <a name="target/name"></a>대상/이름
+### <a name="targetname"></a>대상/이름
 **연산자 지원**: eq, contains, startsWith
 
 **예제**:
 
-    $filter=targets/any(t: t/name eq 'some name')   
+    $filter=targets/any(t: t/name eq 'some name')    
 
 **참고**:
 
 대/소문자 구분하지 않음
 
 - - -
-### <a name="target/upn"></a>대상/upn
+### <a name="targetupn"></a>대상/upn
 **연산자 지원**: eq, startsWith
 
 **예제**:
 
-    $filter=targets/any(t: startswith(t/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity/userPrincipalName,'abc')) 
+    $filter=targets/any(t: startswith(t/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity/userPrincipalName,'abc'))    
 
 **참고**:
 
@@ -162,7 +166,7 @@ datetime는 UTC 형식이어야 합니다.
 * Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity를 쿼리할 때 전체 네임스페이스를 추가해야 합니다.
 
 - - -
-### <a name="target/objectid"></a>대상/objectid
+### <a name="targetobjectid"></a>대상/objectid
 **지원되는 연산자**: eq
 
 **예제**:
@@ -170,12 +174,12 @@ datetime는 UTC 형식이어야 합니다.
     $filter=targets/any(t: t/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba')    
 
 - - -
-### <a name="actor/upn"></a>행위자/upn
+### <a name="actorupn"></a>행위자/upn
 **연산자 지원**: eq, startsWith
 
 **예제**:
 
-    $filter=startswith(actor/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity/userPrincipalName,'abc')  
+    $filter=startswith(actor/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity/userPrincipalName,'abc')    
 
 **참고**:
 
@@ -187,6 +191,9 @@ datetime는 UTC 형식이어야 합니다.
 * 필터링된 시스템 활동에 대한 예제를 참조하시겠습니까? [Azure Active Directory 감사 API 샘플](active-directory-reporting-api-audit-samples.md)을 확인하세요.
 * Azure AD Reporting API에 대해 자세히 살펴보시겠습니까? [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 

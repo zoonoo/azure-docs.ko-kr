@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 15b22d577343667c9232b3394cf64bc307ccd777
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 64427583dba57716c23e1a01df820a263c5e7298
 
 
 ---
-# <a name="use-u-sql-catalog"></a>U-SQL 카탈로그 사용
+# <a name="use-azure-data-lake-analytics-u-sql-catalog"></a>Azure Data Lake Analytics(U-SQL) 카탈로그 사용
 U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터 및 코드를 구성하는 데 사용됩니다. 카탈로그를 사용하면 가능한 가장 높은 성능으로 Azure 데이터 레이크의 데이터를 사용할 수 있습니다.
 
 각 Azure 데이터 레이크 분석 계정에는 U-SQL 카탈로그가 하나만 연결되어 있습니다. U-SQL 카탈로그는 삭제할 수 없습니다. 현재 데이터 레이크 저장소 계정 간에 U-SQL 카탈로그를 공유할 수 없습니다.
@@ -51,39 +51,39 @@ Visual Studio용 데이터 레이크 도구를 사용하여 카탈로그를 관�
 
     - 새 데이터베이스를 추가하려면 **데이터베이스**를 마우스 오른쪽 단추로 클릭한 다음 **데이터베이스 만들기**를 클릭합니다.
     - 새 어셈블리를 추가하려면 **어셈블리**를 마우스 오른쪽 단추로 클릭하고 **어셈블리 등록**을 클릭합니다.
-    - 새 스키마를 추가하려면 **스키마**를 마우스 오른쪽 단추로 클릭한 다음 "스키마** 만들기”를 클릭합니다.
-    - 새 테이블을 추가하려면 **테이블**을 마우스 오른쪽 단추로 클릭한 다음 "테이블** 만들기”를 클릭합니다.
-    - 새 테이블 반환 함수를 추가하려면 [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-develop-user-defined-operators.md)을 참조하세요.
+    - 새 스키마를 추가하려면 **스키마**를 마우스 오른쪽 단추로 클릭한 다음 **스키마 만들기**를 클릭합니다.
+    - 새 테이블을 추가하려면 **테이블**을 마우스 오른쪽 단추로 클릭한 다음 **테이블 만들기**를 클릭합니다.
+    - 새 테이블 반환 함수를 추가하려면 [Data Lake Analytics 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-develop-user-defined-operators.md)을 참조하세요.
 
 
 ![U-SQL Visual Studio 카탈로그 찾아보기](./media/data-lake-analytics-use-u-sql-catalog/data-lake-analytics-browse-catalogs.png)
 
 ## <a name="see-also"></a>참고 항목
-* 시작
+* 시작하기
   
-  * [Azure Portal을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
-  * [Azure PowerShell을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-powershell.md)
-  * [Azure .NET SDK를 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-net-sdk.md)
+  * [Azure 포털을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
+  * [Azure PowerShell을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-powershell.md)
+  * [Azure .NET SDK를 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-net-sdk.md)
   * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
-  * [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
+  * [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
 * U-SQL 및 개발
   
   * [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
-  * [Azure 데이터 레이크 분석 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)
-  * [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+  * [Azure Data Lake Analytics 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)
+  * [Data Lake Analytics 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 * 관리
   
   * [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)
-  * [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-powershell.md)
+  * [Azure PowerShell을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-powershell.md)
   * [Azure 포털을 사용하여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 * 종단간 자습서
   
-  * [Azure 데이터 레이크 분석 대화형 자습서 사용](data-lake-analytics-use-interactive-tutorials.md)
+  * [Azure Data Lake Analytics 대화형 자습서 사용](data-lake-analytics-use-interactive-tutorials.md)
   * [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

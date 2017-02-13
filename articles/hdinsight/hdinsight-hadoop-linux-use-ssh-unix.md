@@ -1,6 +1,6 @@
 ---
-title: "Linux, Unix 또는 OS X에서 Linux 기반 Hadoop과 SSH 키 사용 | Microsoft Docs"
-description: " SSH(보안 셸)를 사용하여 Linux 기반 HDInsight에 액세스할 수 있습니다. 이 문서에서는 Linux, Unix 또는 OS X 클라이언트에서 HDInsight와 함께 SSH를 사용하는 방법을 설명합니다."
+title: "Windows, Linux, Unix 또는 OS X에서 HDInsight(Hadoop)과 함께 SSH 사용 | Microsoft Docs"
+description: " SSH(보안 셸)를 사용하여 HDInsight에 액세스할 수 있습니다. 이 문서에서는 Windows, Linux, Unix 또는 OS X 클라이언트에서 HDInsight와 함께 SSH를 사용하는 방법을 설명합니다.."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,21 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 72ca562c53f813599f19069cfac7ef3ac1957968
-ms.openlocfilehash: f64cca8823a74c1c0f52e5d9112836661dc51d8e
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
 
 
 ---
-# <a name="use-ssh-with-linux-based-hadoop-on-hdinsight-from-linux-unix-or-os-x"></a>Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.
+# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Windows, Linux, Unix 또는 OS X에서 HDInsight(Hadoop)과 함께 SSH 사용
 
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
->
->
+> * [PuTTY(Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH(Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [SSH(보안 셸)](https://en.wikipedia.org/wiki/Secure_Shell)를 사용하여 Linux 기반 HDInsight 클러스터에 로그인하고 명령줄 인터페이스로 명령을 실행할 수 있습니다. 이 문서에서는 SSH에 대한 기본 정보와, HDInsight에서 SSH를 사용하기 위한 특정 정보를 제공합니다.
 
@@ -233,6 +231,6 @@ SSH 터널 만들기 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

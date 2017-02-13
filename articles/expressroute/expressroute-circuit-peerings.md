@@ -1,12 +1,12 @@
 ---
-title: Express 경로 회로 및 라우팅 도메인 | Microsoft Docs
-description: 이 페이지는 Express 경로 회로 및 라우팅 도메인에 대한 개요를 제공합니다.
+title: "ExpressRoute 회로 및 라우팅 도메인 | Microsoft 문서"
+description: "이 페이지는 Express 경로 회로 및 라우팅 도메인에 대한 개요를 제공합니다."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bd3b8761c0390d9b1f55423ec3fde0301cf8a20b
+
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Express 경로 회로 및 라우팅 도메인
@@ -30,7 +34,7 @@ Express 경로 회로에는 Azure 공용, Azure 개인 및 Microsoft 등, 최대
 
 각 회로는 고정 대역폭(50Mbps, 100Mbps, 200Mbps, 500Mbps, 1Gbps, 10Gbps)이며 연결 공급자 및 피어링 위치에 매핑됩니다. 선택한 대역폭은 회로에 대해 모든 피어링에서 공유됩니다. 
 
-### <a name="quotas,-limits,-and-limitations"></a>할당량, 제한 및 제약 조건
+### <a name="quotas-limits-and-limitations"></a>할당량, 제한 및 제약 조건
 모든 Express 경로 회로에는 기본 할당량 및 제한이 적용됩니다. 할당량에 대한 최신 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md) 페이지를 참조하세요.
 
 ## <a name="expressroute-routing-domains"></a>Express 경로 라우팅 도메인
@@ -82,6 +86,9 @@ Microsoft 피어링을 통해 다른 모든 Microsoft 온라인 서비스(예: O
   * [라우팅(회로 피어링) 구성](expressroute-howto-routing-classic.md)
   * [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: " Azure 포털을 사용하여 Azure 미디어 서비스 계정 만들기 | Microsoft Docs"
+title: " Azure Portal을 사용하여 Azure Media Services 계정 만들기 | Microsoft Docs"
 description: "이 자습서에서는 Azure 포털을 사용하여 Azure 미디어 서비스 계정을 만드는 단계를 안내합니다."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 312231f395f19fde98431c24b71ce7cec3061eaf
-ms.openlocfilehash: 4a1d5d706cbfb5c42a36fd03033aa361ef3d4d11
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 01c1297a6b107f91d8e6e73f17d76499d67849de
 
 
 ---
@@ -54,10 +54,10 @@ Azure 포털을 통해 AMS(Azure 미디어 서비스) 계정을 신속하게 만
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **+새로 만들기** > **웹 + 모바일** > **Media Services**를 클릭합니다.
    
-    ![미디어 서비스 만들기](./media/media-services-portal-vod-get-started/media-services-new1.png)
+    ![미디어 서비스 만들기](./media/media-services-create-account/media-services-new1.png)
 3. **미디어 서비스 계정 만들기** 에 필요한 값을 입력합니다.
    
-    ![미디어 서비스 만들기](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    ![미디어 서비스 만들기](./media/media-services-create-account/media-services-new3.png)
    
    1. **계정 이름**에 새 AMS 계정의 이름을 입력합니다. 미디어 서비스 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다.
    2. 구독에서 액세스할 수 있는 다양한 Azure 구독 중에서 선택합니다.
@@ -69,9 +69,12 @@ Azure 포털을 통해 AMS(Azure 미디어 서비스) 계정을 신속하게 만
    6. 계정 배포 진행 상태를 보려면 **대시보드에 고정** 을 선택합니다.
 4. 양식 맨 아래에 있는 **만들기** 를 클릭합니다.
    
-    계정이 만들어지면 상태가 **실행 중**으로 변경됩니다. 
+    계정이 성공적으로 만들어지면 개요 페이지가 로드됩니다. 스트리밍 끝점 테이블에서 계정은 **중지됨** 상태에서 기본 스트리밍 끝점을 가집니다. 
+
+    >[!NOTE]
+    >AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
    
-    ![미디어 서비스 설정](./media/media-services-portal-vod-get-started/media-services-settings.png)
+    ![미디어 서비스 설정](./media/media-services-create-account/media-services-settings.png)
    
     AMS 계정을 관리(예: 비디오 업로드, 자산 인코딩, 작업 진행 상태 모니터링)하려면 **설정** 창을 사용합니다.
 
@@ -86,7 +89,7 @@ Azure 포털을 통해 AMS(Azure 미디어 서비스) 계정을 신속하게 만
     **키 관리** 창에 계정 이름과 기본 및 보조 키가 표시됩니다. 
 3. 복사 단추를 클릭하여 값을 복사합니다.
    
-    ![미디어 서비스 키](./media/media-services-portal-vod-get-started/media-services-keys.png)
+    ![미디어 서비스 키](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>다음 단계
 이제 AMS 계정에 파일을 업로드할 수 있습니다. 자세한 내용은 [파일 업로드](media-services-portal-upload-files.md)를 참조하세요.
@@ -100,6 +103,6 @@ Azure 포털을 통해 AMS(Azure 미디어 서비스) 계정을 신속하게 만
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: " Azure 포털을 사용한 주문형 콘텐츠 제공 시작 | Microsoft Docs"
+title: " Azure Portal을 사용한 주문형 콘텐츠 제공 시작 | Microsoft Docss"
 description: "이 자습서에서는 Azure 포털을 사용한 Azure 미디어 서비스(AMS) 응용 프로그램으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 70071f8d1b70d062aec1ea4fd35b8acb3512bab6
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: 70071f8d1b70d062aec1ea4fd35b8acb3512bab6
 이 자습서에는 다음 작업이 포함되어 있습니다.
 
 1. Azure 미디어 서비스 계정을 만듭니다.
-2. 스트리밍 끝점을 구성합니다.
+2. 스트리밍 끝점을 시작합니다.
 3. 비디오 파일을 업로드합니다.
 4. 원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다.
 5. 자산을 게시하고, 스트리밍 기능을 사용하고, URL을 점진적으로 다운로드합니다.  
@@ -60,7 +60,7 @@ ms.openlocfilehash: 70071f8d1b70d062aec1ea4fd35b8acb3512bab6
    6. 계정 배포 진행 상태를 보려면 **대시보드에 고정** 을 선택합니다.
 4. 양식 맨 아래에 있는 **만들기** 를 클릭합니다.
    
-    계정이 만들어지면 상태가 **실행 중**으로 변경됩니다. 
+    계정이 성공적으로 만들어지면 개요 페이지가 로드됩니다. 스트리밍 끝점 테이블에서 계정은 **중지됨** 상태에서 기본 스트리밍 끝점을 가집니다. 콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태에 있어야 합니다. 
    
     ![미디어 서비스 설정](./media/media-services-portal-vod-get-started/media-services-settings.png)
    
@@ -79,33 +79,22 @@ ms.openlocfilehash: 70071f8d1b70d062aec1ea4fd35b8acb3512bab6
    
     ![미디어 서비스 키](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## <a name="configure-streaming-endpoints"></a>스트리밍 끝점 구성
-Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나는 클라이언트에 적응 비트 전송률 스트리밍을 통해 비디오를 제공하는 것입니다. Media Services에서 지원하는 적응 비트 전송률 스트리밍은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG-DASH입니다.
+## <a name="start-streaming-endpoints"></a>스트리밍 끝점 시작 
 
-Media Services는 적응 비트 전송률 MP4 인코딩 콘텐츠를 Media Services에서 적시에 지원되는 각 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)의 다시 패키징된 버전을 저장하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다.
+Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 적응 비트 전송률 스트리밍을 통해 비디오를 제공하는 것입니다. Media Services는 적응 비트 전송률 MP4 인코딩 콘텐츠를 Media Services에서 적시에 지원되는 각 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)의 사전 패키징된 버전을 저장하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다.
 
-동적 패키징을 이용하려면 다음을 수행해야 합니다.
+>[!NOTE]
+>AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
 
-* mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다(인코딩 단계는 이 자습서의 뒷부분에서 설명).  
-* 콘텐츠를 배달하는 출발점이 될 *스트리밍 끝점* 에 하나 이상의 스트리밍 단위를 만듭니다. 아래 단계는 스트리밍 단위의 수를 변경하는 방법을 보여 줍니다.
+스트리밍 끝점을 시작하려면 다음을 수행합니다.
 
-동적 패키징에서는 단일 저장소 형식으로 파일을 저장하고 비용을 지불하기만 하면 됩니다. 그러면 미디어 서비스가 클라이언트의 요청에 따라 적절한 응답을 빌드 및 제공합니다.
-
-스트리밍 예약 단위의 수를 만들고 변경하려면 다음을 수행합니다.
-
-1. **설정** 창에서 **스트리밍 끝점**을 클릭합니다. 
+1. 설정 창에서 스트리밍 끝점을 클릭합니다. 
 2. 기본 스트리밍 끝점을 클릭합니다. 
-   
-    **기본 스트리밍 끝점 세부 정보** 창이 나타납니다.
-3. 스트리밍 단위 수를 지정하려면 **스트리밍 단위** 슬라이더를 밉니다.
-   
-    ![스트리밍 단위](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. **저장** 단추를 클릭하여 변경 내용을 저장합니다.
-   
-   > [!NOTE]
-   > 새 단위를 할당하는 작업은 완료하는 데 최대 20분까지 소요될 수 있습니다.
-   > 
-   > 
+
+    기본 스트리밍 끝점 세부 정보 창이 나타납니다.
+
+3. 시작 아이콘을 클릭합니다.
+4. 저장 단추를 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="upload-files"></a>파일 업로드
 Azure 미디어 서비스를 사용하여 비디오를 스트림하려면 원본 비디오를 업로드하고 다중 비트 전송률로 인코딩하고 결과를 게시해야 합니다. 첫 번째 단계는 이 섹션에서 다룹니다. 
@@ -132,10 +121,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 Media Services는 다중 비트 전송률 MP4를 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다. 동적 패키징에서는 단일 저장소 형식으로 파일을 저장하고 비용을 지불하기만 하면 됩니다. 그러면 미디어 서비스가 클라이언트의 요청에 따라 적절한 응답을 빌드 및 제공합니다.
 
-동적 패키징을 이용하려면 다음을 수행해야 합니다.
-
-* 원본 파일을 다중 비트 전송률 MP4 파일 집합으로 인코딩합니다(인코딩 단계는 이 섹션의 뒷부분에서 설명).
-* 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점에 하나 이상의 스트리밍 단위를 구성합니다. 자세한 내용은 [스트리밍 끝점 구성](media-services-portal-vod-get-started.md#configure-streaming-endpoints)을 참조하세요. 
+동적 패키징을 활용하려면 원본 파일을 다중 비트 전송률 MP4 파일 집합으로 인코딩해야 합니다(인코딩 단계는 이 섹션의 뒷부분에서 설명).
 
 ### <a name="to-use-the-portal-to-encode"></a>인코딩하는 데 포털을 사용하려면
 이 섹션에서는 미디어 인코더 표준을 사용하여 콘텐츠를 인코딩할 수 있는 단계를 설명합니다.
@@ -221,6 +207,6 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

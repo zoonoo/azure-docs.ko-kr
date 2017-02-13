@@ -28,6 +28,7 @@
 ### [포털](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [개발 및 테스트 환경](solution-dev-test-environments.md)
+### [Visual Studio Team Services와의 지속적인 통합](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## 관리
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
@@ -41,7 +42,7 @@
 ### [PowerShell에서 서비스 주체 만들기](resource-group-authenticate-service-principal.md)
 ### [Azure CLI에서 서비스 주체 만들기](resource-group-authenticate-service-principal-cli.md)
 ### [포털에서 서비스 주체 만들기](resource-group-create-service-principal-portal.md)
-### [구독에 대한 앱 액세스 권한](resource-manager-api-authentication.md)
+### [구독에 액세스하는 인증 API](resource-manager-api-authentication.md)
 ### [관리 정책 설정](resource-manager-policy.md)
 ### [리소스 잠금](resource-group-lock-resources.md)
 ### [보안 고려 사항](best-practices-resource-manager-security.md)
@@ -69,6 +70,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -17,8 +17,9 @@
 ### [네트워크 매핑(VMM)](site-recovery-network-mapping.md)
 ### [온-프레미스 사이트 간 저장소 매핑](site-recovery-storage-mapping.md)
 ## 복제
-### [VMWare VM 및 서버에서 Azure로](site-recovery-vmware-to-azure.md)
-### [VMware VM 및 서버에서 보조 사이트로](site-recovery-vmware-to-vmware.md)
+### [VMware VM 및 물리적 서버에서 Azure로](site-recovery-vmware-to-azure.md)
+### [VMware VM 및 물리적 서버에서 보조 사이트로](site-recovery-vmware-to-vmware.md)
+### [CSP 프로그램을 사용하여 다중 테넌트를 지원하는 VMware VM에서 Azure로](site-recovery-multi-tenant-support-vmware-using-csp.md)
 ### [Hyper-V VM에서 Azure로(VMM 사용)](site-recovery-vmm-to-azure.md)
 ### [Hyper-V VM에서 Azure로(VMM 없음)](site-recovery-hyper-v-site-to-azure.md)
 ### [Hyper-V VM에서 보조 사이트로](site-recovery-vmm-to-vmm.md)
@@ -64,6 +65,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

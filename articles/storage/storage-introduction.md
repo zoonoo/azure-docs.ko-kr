@@ -1,10 +1,10 @@
 ---
-title: "저장소 소개 | Microsoft Docs"
+title: "Azure Storage 소개 | Microsoft Docs"
 description: "클라우드의 Azure 저장소, Microsoft 온라인 데이터 저장소에 대한 개요 응용 프로그램에서 사용 가능한 최상의 클라우드 저장소 솔루션을 사용하는 방법을 알아봅니다."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 01/23/2017
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ac0044da9cf804dabd9d71e3380782120728a55a
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: 52982a24b7e252c7c14256128e372675d5aa0ba7
 
 
 ---
@@ -50,7 +50,7 @@ Azure 저장소는 편리한 개발을 위해 다양한 운영 체제 집합(Win
 Azure 프리미엄 저장소는 Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 작업을 지원하는 짧은 대기 시간의 고성능 디스크를 제공합니다. Azure 프리미엄 저장소를 사용하면 여러 영구 데이터 디스크를 가상 컴퓨터에 연결하여 성능 요구 사항을 충족하도록 구성할 수 있습니다. 각 데이터 디스크는 Azure 프리미엄 저장소에서 SSD 디스크의 지원을 받으며 최대 I/O 성능을 제공합니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage.md) 를 참조하세요.
 
 ## <a name="introducing-the-azure-storage-services"></a>Azure 저장소 서비스 소개
-Azure 저장소 서비스는 Blob 저장소, 테이블 저장소, 큐 저장소 및 파일 저장소 등의 4가지 서비스를 제공합니다.
+Azure 저장소 서비스는 Blob 저장소, 테이블 저장소, 큐 저장소 및 파일 저장소 등의&4;가지 서비스를 제공합니다.
 
 * Blob 저장소는 구조화되지 않은 개체 데이터를 저장합니다. Blob은 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램 등 모든 종류의 텍스트 또는 이진 데이터일 수 있습니다. Blob 저장소를 개체 저장소라고도 합니다.
 * 테이블 저장소는 구조화된 데이터 집합을 저장합니다. 테이블 저장소는 신속한 개발과 대량 데이터에 대한 빠른 액세스를 가능하게 하는 NoSQL 키-특성 데이터 저장소입니다.
@@ -75,7 +75,7 @@ Azure 저장소 계정은 Azure 저장소의 서비스에 대한 액세스 권�
 * 클라우드 응용 프로그램의 구성 데이터
 * 로그 및 기타 대규모 데이터 집합과 같은 빅 데이터
 
-모든 Blob은 컨테이너로 구성됩니다. 컨테이너를 통해 유용하게 개체 그룹에 보안 정책을 할당할 수도 있습니다. 저장소 계정에 포함할 수 있는 컨테이너 수에는 제한이 없으며, 컨테이너에 포함할 수 있는 Blob의 수에는 저장소 계정의 최대 500TB 용량 한도까지 제한이 없습니다.  
+모든 Blob은 컨테이너로 구성됩니다. 컨테이너를 통해 유용하게 개체 그룹에 보안 정책을 할당할 수도 있습니다. 저장소 계정에 포함할 수 있는 컨테이너 수에는 제한이 없으며, 컨테이너에 포함할 수 있는 Blob의 수에는 저장소 계정의 최대 500TB 용량 한도까지 제한이 없습니다.
 
 Blob 저장소에는 블록 Blob, 추가 Blob 및 페이지 Blob(디스크)의 세 가지 Blob 유형이 있습니다.
 
@@ -113,7 +113,7 @@ Azure 파일 저장소는 클라우드 기반 SMB 파일 공유를 제공하므�
 ## <a name="access-to-blob-table-queue-and-file-resources"></a>Blob, 테이블, 큐 및 파일 리소스 액세스
 기본적으로 저장소 계정 소유자만 저장소 계정의 리소스에 액세스할 수 있습니다. 데이터 보안을 위해 계정의 리소스에 대해 이루어지는 모든 요청은 인증을 받아야 합니다. 인증에는 공유 키 모델이 사용됩니다. 익명 인증을 지원하도록 Blob을 구성할 수도 있습니다.
 
-생성 시 저장소 계정에 인증을 위해 사용되는 2개의 개인 선택키가 할당됩니다. 2개의 키는 일반 보안 키 관리 방법의 일환으로 키를 정기적으로 다시 생성할 때 응용 프로그램을 계속 사용할 수 있도록 합니다.
+생성 시 저장소 계정에 인증을 위해 사용되는&2;개의 개인 선택키가 할당됩니다. 2개의 키는 일반 보안 키 관리 방법의 일환으로 키를 정기적으로 다시 생성할 때 응용 프로그램을 계속 사용할 수 있도록 합니다.
 
 저장소 리소스에 대한 제어된 액세스를 사용자에게 허용할 필요가 없는 경우 공유 액세스 서명을 만들 수 있습니다. SAS(공유 액세스 서명)는 저장소 리소스에 대해 위임된 액세스를 허용하는 URL에 추가할 수 있는 토큰입니다. 토큰을 소유한 사람은 토큰 유효 기간 동안 토큰이 가리키는 리소스에 토큰이 지정하는 권한으로 액세스할 수 있습니다. 버전 2015-04-05부터 Azure 저장소는 두 가지 공유 액세스 서명(서비스 SAS, 계정 SAS)을 지원합니다.
 
@@ -128,32 +128,32 @@ Azure 파일 저장소는 클라우드 기반 SMB 파일 공유를 제공하므�
 ## <a name="replication-for-durability-and-high-availability"></a>내구성 및 고가용성을 위한 복제
 Microsoft Azure 저장소 계정 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. 복제는 선택한 복제 옵션에 따라 동일한 데이터 센터 내 또는 보조 데이터 센터에 데이터를 복사합니다. 일시적인 하드웨어 오류가 발생할 경우에 대비하여 복제를 통해 데이터를 보호하고 응용 프로그램 가동 시간을 유지합니다. 보조 데이터 센터에 데이터를 복제하면 기본 위치에서 발생하는 치명적인 오류로부터 데이터를 보호할 수도 있습니다.
 
-복제를 사용하면 저장소 계정은 오류 상황에서도 [저장소용 SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/storage/)를 충족하게 됩니다. Azure Storage의 내구성 및 가용성 보장에 대한 정보는 SLA를 확인하세요. 
+복제를 사용하면 저장소 계정은 오류 상황에서도 [저장소용 SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/storage/)를 충족하게 됩니다. Azure Storage의 내구성 및 가용성 보장에 대한 정보는 SLA를 확인하세요.
 
-저장소 계정을 만들 때 다음 복제 옵션 중 하나를 선택할 수 있습니다.  
+저장소 계정을 만들 때 다음 복제 옵션 중 하나를 선택할 수 있습니다.
 
-* **LRS(로컬 중복 저장소)**  로컬 중복 저장소는 데이터의 복제본 3개를 유지 관리합니다. LRS는 단일 지역의 단일 데이터 센터 내에서 3번 복제됩니다. LRS는 단일 데이터 센터의 오류가 아닌 일반적인 하드웨어 오류로부터 데이터를 보호합니다.  
-  
+* **LRS(로컬 중복 저장소)** 로컬 중복 저장소는 데이터의 복제본&amp;3;개를 유지 관리합니다. LRS는 단일 지역의 단일 데이터 센터 내에서&3;번 복제됩니다. LRS는 단일 데이터 센터의 오류가 아닌 일반적인 하드웨어 오류로부터 데이터를 보호합니다.
+
     LRS는 할인가로 제공됩니다. 최대의 영속성을 위해서는 아래에 설명된 대로 지역 중복 저장소를 사용하는 것이 좋습니다.
-* **ZRS(영역 중복 저장소)**  영역 중복 저장소는 데이터의 복제본 3개를 유지 관리합니다. ZRS는 단일 지역 내에서 또는 2개 지역에 걸쳐 2 - 3개 시설에 걸쳐 3번 복제되며 LRS보다 높은 영속성을 제공합니다. ZRS는 데이터가 단일 지역 내에서 영속되는지 확인합니다.  
-  
-    ZRS는 LRS보다 높은 수준의 영속성을 제공하지만 최대의 영속성을 위해서는 아래에 설명된 대로 지역 중복 저장소를 사용하는 것이 좋습니다.  
-  
+* **ZRS(영역 중복 저장소)** 영역 중복 저장소는 데이터의 복제본&amp;3;개를 유지 관리합니다. ZRS는 단일 지역 내에서 또는&2;개 지역에 걸쳐&2; -&3;개 시설에 걸쳐&3;번 복제되며 LRS보다 높은 영속성을 제공합니다. ZRS는 데이터가 단일 지역 내에서 영속되는지 확인합니다.
+
+    ZRS는 LRS보다 높은 수준의 영속성을 제공하지만 최대의 영속성을 위해서는 아래에 설명된 대로 지역 중복 저장소를 사용하는 것이 좋습니다.
+
   > [!NOTE]
   > ZRS는 현재 블록 BLOB에만 사용할 수 있으며, 2014-02-14 이상 버전에서만 지원됩니다.
-  > 
+  >
   > 저장소 계정을 만들고 ZRS를 선택하면 다른 복제 유형으로 또는 그 반대로 변환할 수 없습니다.
-  > 
-  > 
-* **GRS(지역 중복 저장소)**. GRS는 데이터의 복사본을 6개 유지 관리합니다. GRS를 사용하면 데이터가 기본 영역에서 3번 복제되고 기본 지역으로부터 수백 킬로미터 떨어진 보조 지역에도 3번 복제되며, 최고 수준의 영속성을 제공합니다. 기본 지역의 오류 발생 시 Azure 저장소는 보조 지역으로 장애 조치(Failover)됩니다. GRS는 데이터가 두 개의 별도 지역에서 영속되도록 합니다.
-  
+  >
+  >
+* **GRS(지역 중복 저장소)** GRS는 데이터의 복사본을&6;개 유지 관리합니다. GRS를 사용하면 데이터가 기본 영역에서&3;번 복제되고 기본 지역으로부터 수백 킬로미터 떨어진 보조 지역에도&3;번 복제되며, 최고 수준의 영속성을 제공합니다. 기본 지역의 오류 발생 시 Azure 저장소는 보조 지역으로 장애 조치(Failover)됩니다. GRS는 데이터가 두 개의 별도 지역에서 영속되도록 합니다.
+
     지역별 기본 및 보조 쌍에 대한 정보는 [Azure 영역](https://azure.microsoft.com/regions/)을 참조하세요.
-* **RA-GRS(읽기 액세스 지역 중복 저장소)**. 읽기 액세스 지역 중복 저장소 복제에서는 데이터를 보조 지역 위치에 복제하고 보조 위치에 있는 데이터에 대한 읽기 액세스도 제공합니다. 읽기 액세스 지역 중복 저장소에서는 기본 또는 보조 위치 중 하나가 사용 불가능하게 되는 경우 나머지 사용 가능한 기본 또는 보조 위치에서 데이터에 액세스할 수 있습니다. 읽기 액세스 지역 중복 저장소는 기본적으로 저장소를 만들 때 지정되는 저장소 계정에 대한 기본 옵션입니다. 
-  
+* **RA-GRS(읽기 액세스 지역 중복 저장소)** 읽기 액세스 지역 중복 저장소 복제에서는 데이터를 보조 지역 위치에 복제하고 보조 위치에 있는 데이터에 대한 읽기 액세스도 제공합니다. 읽기 액세스 지역 중복 저장소에서는 기본 또는 보조 위치 중 하나가 사용 불가능하게 되는 경우 나머지 사용 가능한 기본 또는 보조 위치에서 데이터에 액세스할 수 있습니다. 읽기 액세스 지역 중복 저장소는 기본적으로 저장소를 만들 때 지정되는 저장소 계정에 대한 기본 옵션입니다.
+
   > [!IMPORTANT]
-  > 계정을 만들 때 ZRS를 지정하지 않았다면 저장소 계정을 만든 후에 데이터가 복제되는 방법을 변경할 수 있습니다. 그러나 LRS에서 GRS 또는 RA-GRS로 전환하면 추가적으로 1회 데이터 전송 비용이 발생할 수 있습니다.
-  > 
-  > 
+  > 계정을 만들 때 ZRS를 지정하지 않았다면 저장소 계정을 만든 후에 데이터가 복제되는 방법을 변경할 수 있습니다. 그러나 LRS에서 GRS 또는 RA-GRS로 전환하면 추가적으로&1;회 데이터 전송 비용이 발생할 수 있습니다.
+  >
+  >
 
 저장소 복제 옵션에 대한 자세한 내용은 [Azure 저장소 복제](storage-redundancy.md) 를 참조하세요.
 
@@ -196,7 +196,7 @@ Azure 저장소 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 �
 * [.NET용 저장소 데이터 이동 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### <a name="tools-and-utilities"></a>도구 및 유틸리티
-* [Azure 저장소 탐색기](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Azure Storage-Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure 저장소 클라이언트 도구](storage-explorers.md)
 * [Azure SDK 및 도구](https://azure.microsoft.com/tools/)
 * [Azure 저장소 에뮬레이터](http://www.microsoft.com/download/details.aspx?id=43709)
@@ -206,11 +206,11 @@ Azure 저장소 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 �
 ## <a name="next-steps"></a>다음 단계
 Azure 저장소에 대한 자세한 내용은 다음 리소스를 살펴보세요.
 
-### <a name="documentation"></a>설명서
+### <a name="documentation"></a>문서화
 * [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
 ### <a name="for-administrators"></a>관리자용
-* [Azure 저장소와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)
+* [Azure Storage와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)
 * [Azure 저장소에서 Azure CLI 사용](storage-azure-cli.md)
 
 ### <a name="for-net-developers"></a>.NET 개발자
@@ -252,6 +252,6 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 살펴보세�
 * [5분 만에 Azure 저장소 시작](storage-getting-started-guide.md)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

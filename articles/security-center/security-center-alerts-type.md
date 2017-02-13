@@ -4,7 +4,7 @@ description: "이 문서를 통해 Azure Security Center에서 사용할 수 있
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -25,8 +25,8 @@ ms.openlocfilehash: bdd7d3d6e532efe7c3ed8225dd29a895725f2ff9
 
 > [!NOTE]
 > 고급 감지를 사용하도록 설정하려면 Azure 보안 센터 표준으로 업그레이드합니다. 무료 90일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-policies.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/) 를 참조하세요.
-> 
-> 
+>
+>
 
 ## <a name="what-type-of-alerts-are-available"></a>어떤 유형의 경고를 사용할 수 있습니까?
 Azure Security Center는 사이버 kill 체인의 모든 단계에 맞는 다양한 경고를 제공합니다. 아래 그림에서는 이러한 단계 중 일부와 관련된 다양한 경고의 몇 가지 예를 제공합니다.
@@ -65,8 +65,8 @@ Azure Security Center는 동작 분석을 사용하여 가상 컴퓨터 이벤�
 
 > [!NOTE]
 > 보안 센터 감지 기능이 작동하는 방법에 대한 자세한 내용은 [Azure 보안 센터 감지 기능](security-center-detection-capabilities.md)을 참고하세요.
-> 
-> 
+>
+>
 
 ### <a name="crash-analysis"></a>충돌 분석
 크래시 덤프 메모리 분석은 기존 보안 솔루션을 피할 수 있는 정교한 맬웨어를 감지하는 데 사용되는 방법입니다. 다양한 형식의 맬웨어는 디스크에 작성하지 않거나 디스크에 작성된 소프트웨어 구성 요소를 암호화하여 바이러스 백신 제품에서 탐지되지 않으려 합니다. 따라서 맬웨어는 기존 맬웨어 방지 방법을 사용하여 감지하기 어렵게 됩니다. 그러나 이러한 맬웨어가 작동하기 위해서는 메모리에 추적을 남겨야 하므로 메모리 분석을 사용하여 맬웨어를 감지할 수 있습니다.
@@ -88,7 +88,7 @@ Shellcode는 맬웨어가 소프트웨어 취약점을 악용한 후에 실행�
 
 이러한 유형의 경고 예제는 다음과 같습니다.
 
-![Shellcode 경고](./media/security-center-alerts-type/security-center-alerts-type-fig2.png) 
+![Shellcode 경고](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
 ### <a name="module-hijacking-discovered"></a>모듈 하이재킹 검색
 Windows는 DLL(동적 링크 라이브러리)에 따라 소프트웨어가 일반적인 Windows 시스템 기능을 활용할 수 있도록 합니다. DLL 하이재킹은 맬웨어가 DLL 로드 순서를 변경시켜 악의적인 페이로드를 임의 코드를 실행할 수 있는 메모리에 로드할 때 발생합니다. 크래시 덤프 분석이 비슷한 이름의 모듈을 서로 다른 두 경로에서 로드한다는 것을 감지하면 이 경고가 발생하며 로드된 경로 중 하나는 Windows 시스템 이진 위치에서 비롯됩니다.
@@ -104,7 +104,7 @@ Windows는 DLL(동적 링크 라이브러리)에 따라 소프트웨어가 일�
 
 이러한 유형의 경고 예제는 다음과 같습니다.
 
-![모듈 하이재킹 경고](./media/security-center-alerts-type/security-center-alerts-type-fig3.png) 
+![모듈 하이재킹 경고](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
 ### <a name="masquerading-windows-module-detected"></a>위장 Windows 모듈 감지
 맬웨어는 시스템 관리자로부터 악성 소프트웨어의 특성을 "섞고" 가리기 위해 Windows 시스템 이진 파일(예: SVCHOST.EXE) 또는 모듈(예: NTDLL.DLL)의 일반적인 이름을 사용할 수 있습니다. 이 경고는 크래시 덤프 파일이 Windows 시스템 모듈 이름을 사용하는 모듈을 포함하지만 Windows 모듈의 일반적인 다른 조건을 만족하지 않는다는 점을 크래시 덤프 분석에서 감지했음을 나타냅니다. 위장 모듈의 온 디스크 복사본에 대해 분석하면 모듈의 합법적인 또는 악의적인 특성에 대한 자세한 정보를 제공할 수 있습니다. 분석은 다음을 포함할 수 있습니다.
@@ -123,7 +123,7 @@ Windows는 DLL(동적 링크 라이브러리)에 따라 소프트웨어가 일�
 
 이러한 유형의 경고 예제는 다음과 같습니다.
 
-![가상 Windows 경고](./media/security-center-alerts-type/security-center-alerts-type-fig4.png) 
+![가상 Windows 경고](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
 ### <a name="modified-system-binary-discovered"></a>수정된 시스템 이진 파일 검색
 맬웨어는 은밀하게 데이터에 액세스하거나 손상된 시스템 상에 몰래 지속되기 위해 핵심 시스템 이진 파일을 수정할 수 있습니다. 이 경고는 핵심 Windows OS 이진 파일이 메모리나 디스크에서 수정된 것을 크래시 덤프 분석에서 감지했음을 나타냅니다.
@@ -136,7 +136,7 @@ Windows는 DLL(동적 링크 라이브러리)에 따라 소프트웨어가 일�
 
 이러한 유형의 경고 예제는 다음과 같습니다.
 
-![시스템 이진 경고](./media/security-center-alerts-type/security-center-alerts-type-fig5.png) 
+![시스템 이진 경고](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### <a name="suspicious-process-executed"></a>의심스러운 프로세스 실행
 Security Center는 대상 가상 컴퓨터에서 실행되는 의심스러운 프로세스를 식별하고 경고를 트리거합니다. 감지는 특정 이름이 아닌 해당 매개 변수를 찾습니다. 따라서 공격자가 실행 파일의 이름을 다시 지정하더라도 Security Center에서 감지할 수 있습니다.
@@ -158,7 +158,7 @@ Security Center 네트워크 위협 감지는 Azure IPFIX(인터넷 프로토콜
 ### <a name="suspicious-outgoing-traffic-detected"></a>의심스러운 나가는 트래픽 감지
 다른 유형의 시스템과 거의 동일한 방법으로 네트워크 장치를 검색하고 프로파일링할 수 있습니다. 공격자는 일반적으로 포트 검색/포트 비우기를 시작합니다. 아래 예제에서는 외부 리소스에 대한 SSH 무차별 암호 대입(brute force) 또는 포트 비우기 공격을 수행할 수 있는 VM에서 의심스러운 SSH 트래픽이 발견됩니다.
 
-![의심스러운 나가는 트래픽 경고](./media/security-center-alerts-type/security-center-alerts-type-fig8.png) 
+![의심스러운 나가는 트래픽 경고](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
 이 경고는 이 공격을 시작하는 데 사용된 리소스, 손상된 컴퓨터, 감지 시간, 프로토콜 및 사용된 포트를 식별할 수 있는 정보를 제공합니다. 이 블레이드는 이 문제를 완화하기 위해 사용할 수 있는 수정 단계 목록도 제공합니다.
 
@@ -169,7 +169,10 @@ Azure 보안 센터는 많은 경우 명령 및 제어 센터에서 Microsoft �
 
 이 경고는 이 공격을 시작하는 데 사용된 리소스, 공격을 받는 리소스, 공격 대상 IP, 공격자 IP 및 감지 시간을 식별할 수 있는 정보를 제공합니다.
 
-[AZURE.NOTE] 라이브 IP 주소는 개인 정보 보호 목적을 위해 이 스크린샷에서 제거되었습니다.
+> [!NOTE]
+> 라이브 IP 주소는 개인 정보 보호 목적을 위해 이 스크린샷에서 제거되었습니다.
+>
+>
 
 ### <a name="possible-outgoing-denial-of-service-attack-detected"></a>가능한 발신 서비스 거부 공격 감지
 하나의 가상 컴퓨터에서 시작된 비정상적인 네트워크 트래픽으로 인해 Security Center에서 잠재적 서비스 거부 유형의 공격을 트리거할 수 있습니다.
@@ -184,8 +187,8 @@ Security Center 리소스 분석은 [Azure SQL DB 위협 요소 탐지](../sql-d
 ### <a name="potential-sql-injection"></a>잠재적인 SQL 삽입
 SQL 삽입은 구문 분석 및 실행을 위해 나중에 SQL Server의 인스턴스로 전달된 문자열에 악성 코드를 삽입한 공격입니다. SQL Server가 수신하는 모든 구문상 유효한 쿼리를 실행하기 때문에 SQL 문을 생성하는 모든 프로시저에 삽입 취약성이 있는지 검토해야 합니다. SQL 위협 요소 탐지는 기계 학습, 동작 분석 및 이상 탐지를 사용하여 Azure SQL Databases에서 발생할 수 있는 의심스러운 이벤트를 확인합니다. 예:
 
-* 이전 직원이 데이터베이스 액세스 시도 
-* SQL 삽입 공격 
+* 이전 직원이 데이터베이스 액세스 시도
+* SQL 삽입 공격
 * 집에 있는 사용자로부터 프로덕션 데이터베이스에 대한 비정상적인 액세스
 
 ![잠재적인 SQL 삽입 경고](./media/security-center-alerts-type/security-center-alerts-type-fig11.png)
@@ -210,7 +213,6 @@ SQL 삽입 공격에 발생할 수 있는 취약점을 나타낼 수 있는 데�
 * [Azure 보안 센터 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
 * [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답 찾기
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-
 
 
 

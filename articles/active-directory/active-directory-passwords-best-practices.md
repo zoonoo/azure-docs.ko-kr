@@ -59,7 +59,7 @@ ms.openlocfilehash: 59f4cd3de4524a5ed51b7ef434b7b21c151dd2e0
 * [Azure 관리 포털](https://manage.windowsazure.com) 또는 [Office 365 관리자 포털](https://portal.microsoftonline.com)에서 사용자를 편집합니다.
 * Azure AD Sync를 사용하여 온-프레미스 Active Directory 도메인에서 Azure AD로 사용자 속성을 동기화합니다.
 * [여기의 단계에 따라](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users)Windows PowerShell을 사용하여 사용자 속성을 편집합니다.
-* [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+*  [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
 * [**사용자가 로그인 시 등록하도록 요구하시겠습니까?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) 구성 옵션을 **예**로 설정하여 사용자가 로그인할 때 암호 재설정을 위해 등록하도록 요구합니다.
 
 시스템이 작동하기 위해 사용자가 암호를 등록할 필요는 없습니다.  예를 들어 기존 휴대폰 번호 또는 사무실 전화 번호가 로컬 디렉터리에 있는 경우 Azure AD에서 동기화할 수 있으며 자동으로 암호 재설정을 사용합니다.

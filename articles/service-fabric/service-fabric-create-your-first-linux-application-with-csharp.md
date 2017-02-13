@@ -1,5 +1,5 @@
 ---
-title: "C#을 사용하여 Linux에서 Service Fabric 응용 프로그램 처음 만들기 | Microsoft Docs"
+title: "C#을 사용하여 Linux에서 첫 번째 Azure 마이크로 서비스 만들기 | Microsoft Docs"
 description: "C를 사용하여 Service Fabric 응용 프로그램 만들기 및 배포#"
 services: service-fabric
 documentationcenter: csharp
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
-ms.openlocfilehash: e3632d89501c1c25b76e9160f0ad82f2b76327d7
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: c810f3e86ba582943e88f3085f6d9cff2496031c
 
 
 ---
@@ -102,6 +102,6 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

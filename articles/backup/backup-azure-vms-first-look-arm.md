@@ -59,7 +59,7 @@ Premium Storage VM을 보호하는 방법에 대한 자세한 내용은 [Premium
 
   ![백업 마법사 사용](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-5. Recovery Services 자격 증명 모음의 경우 기존 자격 증명 모음을 선택하거나 새 자격 증명 모음을 만들 수 있습니다. 새 자격 증명 모음 만드는 경우 가상 컴퓨터와 동일한 리소스 그룹에 생성되며 위치는 가상 컴퓨터와 동일합니다. 다른 값을 사용하여 Recovery Services 자격 증명 모음을 만들려면 3단계에서 백업 옵션을 클릭하기 전에 [Recovery Services 자격 증명 모음을 만들고](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) 해당 항목을 이 블레이드에서 선택합니다.
+5. Recovery Services 자격 증명 모음의 경우 기존 자격 증명 모음을 선택하거나 새 자격 증명 모음을 만들 수 있습니다. 새 자격 증명 모음 만드는 경우 가상 컴퓨터와 동일한 리소스 그룹에 생성되며 위치는 가상 컴퓨터와 동일합니다. 다른 값을 사용하여 Recovery Services 자격 증명 모음을 만들려면&3;단계에서 백업 옵션을 클릭하기 전에 [Recovery Services 자격 증명 모음을 만들고](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) 해당 항목을 이 블레이드에서 선택합니다.
 
 6. 백업 정책 블레이드에서 자격 증명 모음에 적용할 백업 정책을 선택하고 **확인**을 클릭합니다.
     ![백업 정책 선택](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)

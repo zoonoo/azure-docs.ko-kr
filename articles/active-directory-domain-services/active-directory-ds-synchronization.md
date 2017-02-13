@@ -1,79 +1,128 @@
 ---
-title: 'Azure Active Directory Domain Services: Synchronization in managed domains | Microsoft Docs'
-description: Understand synchronization in an Azure Active Directory Domain Services managed domain
+title: "Azure Active Directory Domain Services: 관리되는 도메인에서의 동기화 | Microsoft Docs"
+description: "Azure Active Directory Domain Services 관리되는 도메인에서의 동기화를 이해합니다."
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 11/02/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6b89917f71701cccd6e78c036b78b136c19e9c2c
+
 
 ---
-# <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Synchronization in an Azure AD Domain Services managed domain
-The following diagram illustrates how synchronization works in Azure AD Domain Services managed domains.
+# <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에서 동기화
+다음 다이어그램에서는 Azure AD 도메인 서비스 관리되는 도메인에서 동기화가 작동하는 방식을 보여 줍니다.
 
-![Synchronization topology in Azure AD Domain Services](./media/active-directory-domain-services-design-guide/sync-topology.png)
+![Azure AD Domain Services의 동기화 토폴로지](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
-## <a name="synchronization-from-your-on-premises-directory-to-your-azure-ad-tenant"></a>Synchronization from your on-premises directory to your Azure AD tenant
-Azure AD Connect sync is used to synchronize user accounts, group memberships, and credential hashes to your Azure AD tenant. Attributes of user accounts such as the UPN and on-premises SID (security identifier) are synchronized. If you use Azure AD Domain Services, legacy credential hashes required for NTLM and Kerberos authentication are also synchronized to your Azure AD tenant.
+## <a name="synchronization-from-your-on-premises-directory-to-your-azure-ad-tenant"></a>온-프레미스 디렉터리에서 Azure AD 테넌트로 동기화
+Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자격 증명 해시를 Azure AD 테넌트에 동기화하는 데 사용됩니다. UPN 및 온-프레미스 SID(보안 식별자)와 같은 사용자 계정의 특성이 동기화됩니다. Azure AD Domain Services를 사용하는 경우 NTLM 및 Kerberos 인증에 필요한 기존 자격 증명 해시도 Azure AD 테넌트에 동기화됩니다.
 
-If you configure write-back, changes occurring in your Azure AD directory are synchronized back to your on-premises Active Directory. For example, if you change your password using Azure AD's self-service password change features, the changed password is updated in your on-premises AD domain.
+쓰기 저장을 구성한 경우 Azure AD 디렉터리에서 발생한 변경 내용이 온-프레미스 Active Directory에 다시 동기화됩니다. 예를 들어 Azure AD의 셀프 서비스 암호 변경 기능을 사용하여 암호를 변경한 경우 변경된 암호가 온-프레미스 AD 도메인에서 업데이트됩니다.
 
 > [!NOTE]
-> Always use the latest version of Azure AD Connect to ensure you have fixes for all known bugs.
+> 모든 알려진 버그에 대한 수정 프로그램을 유지할 수 있도록 항상 최신 버전의 Azure AD Connect를 사용합니다.
 > 
 > 
 
-## <a name="synchronization-from-your-azure-ad-tenant-to-your-managed-domain"></a>Synchronization from your Azure AD tenant to your managed domain
-User accounts, group memberships, and credential hashes are synchronized from your Azure AD tenant to your Azure AD Domain Services managed domain. This synchronization process is automatic. You do not need to configure, monitor, or manage this synchronization process. The synchronization process is also one-way/unidirectional in nature. Your managed domain is largely read-only except for any custom OUs you create. Therefore, you cannot make changes to user attributes, user passwords, or group memberships within the managed domain. As a result, there is no reverse synchronization of changes from your managed domain back to your Azure AD tenant.
+## <a name="synchronization-from-your-azure-ad-tenant-to-your-managed-domain"></a>Azure AD 테넌트에서 관리되는 도메인으로 동기화
+사용자 계정, 그룹 구성원 자격 및 자격 증명 해시는 Azure AD 테넌트에서 Azure AD Domain Services 관리되는 도메인으로 동기화됩니다. 이 동기화 프로세스는 자동입니다. 이 동기화 프로세스는 구성, 모니터링 또는 관리할 필요가 없습니다. 또한 동기화 프로세스는 본질적으로 단방향입니다. 관리되는 도메인은 사용자가 만든 사용자 지정 OU를 제외하고는 대부분 읽기 전용입니다. 따라서 관리되는 도메인 내에서는 사용자 특성, 사용자 암호 또는 그룹 구성원 자격을 변경할 수 없습니다. 그렇기 때문에 관리되는 도메인에서 Azure AD 테넌트로 변경 내용의 역방향 동기화는 없습니다.
 
-## <a name="synchronization-from-a-multi-forest-on-premises-environment"></a>Synchronization from a multi-forest on-premises environment
-Many organizations have a fairly complex on-premises identity infrastructure consisting of multiple account forests. Azure AD Connect supports synchronizing users, groups, and credential hashes from multi-forest environments to your Azure AD tenant.
+## <a name="synchronization-from-a-multi-forest-on-premises-environment"></a>다중 포리스트 온-프레미스 환경에서의 동기화
+많은 조직에는 여러 계정 포리스트로 구성된 매우 복잡한 온-프레미스 ID 인프라가 있습니다. Azure AD Connect는 다중 포리스트 환경에서 Azure AD 테넌트로의 사용자, 그룹 및 자격 증명 해시 동기화를 지원합니다.
 
-In contrast, your Azure AD tenant is a much simpler and flat namespace. To enable users to reliably access applications secured by Azure AD, resolve UPN conflicts across user accounts in different forests. Your Azure AD Domain Services managed domain bears close resemblance to your Azure AD tenant. Therefore, you see a flat OU structure in your managed domain. All users and groups are stored within the 'AADDC Users' container, regardless of the on-premises domain or forest from which they were synced in. You may have configured a hierarchical OU structure on-premises. However, your managed domain still has a simple flat OU structure.
+반면, Azure AD 테넌트는 훨씬 간단한 단일 구조 네임스페이스입니다. 사용자가 Azure AD에서 보호되는 응용 프로그램에 안정적으로 액세스할 수 있도록 하려면 서로 다른 포리스트의 사용자 계정 간에 발생하는 UPN 충돌을 해결해야 합니다. Azure AD 도메인 서비스 관리되는 도메인은 Azure AD 테넌트와 매우 유사합니다. 따라서 관리되는 도메인의 OU 구조는 단일 구조입니다. 모든 사용자 및 그룹이 동기화된 온-프레미스 도메인 또는 포리스트에 관계없이 'AADDC 사용자' 컨테이너 내에 저장됩니다. 사용자가 온-프레미스에 계층형 OU 구조를 구성했을 수도 있지만 이 경우에도 관리되는 도메인은 단순한 단일 OU 구조를 유지합니다.
 
-## <a name="exclusions---what-isn't-synchronized-to-your-managed-domain"></a>Exclusions - what isn't synchronized to your managed domain
-The following objects or attributes are not synchronized to your Azure AD tenant or to your managed domain:
+## <a name="exclusions---what-isnt-synchronized-to-your-managed-domain"></a>예외 - 관리되는 도메인에 동기화되지 않는 항목
+다음 개체 또는 특성은 Azure AD 테넌트나 관리되는 도메인에 동기화되지 않습니다.
 
-* **Excluded attributes:** You may choose to exclude certain attributes from synchronizing to your Azure AD tenant from your on-premises domain using Azure AD Connect. These excluded attributes are not available in your managed domain.
-* **Group Policies:** Group Policies configured in your on-premises domain are not synchronized to your managed domain.
-* **SYSVOL share:** Similarly, the contents of the SYSVOL share on your on-premises domain are not synchronized to your managed domain.
-* **Computer objects:** Computer objects for computers joined to your on-premises domain are not synchronized to your managed domain. These computers do not have a trust relationship with your managed domain and belong to your on-premises domain only. In your managed domain, you find computer objects only for computers you have explicitly domain-joined to the managed domain.
-* **SidHistory attributes for users and groups:** The primary user and primary group SIDs from your on-premises domain are synchronized to your managed domain. However, existing SidHistory attributes for users and groups are not synchronized from your on-premises domain to your managed domain.
-* **Organization Units (OU) structures:** Organizational Units defined in your on-premises domain do not synchronize to your managed domain. There are two built-in OUs in your managed domain. By default, your managed domain has a flat OU structure. You may however choose to [create a custom OU in your managed domain](active-directory-ds-admin-guide-create-ou.md).
+* **제외된 특성:** Azure AD Connect를 사용하여 온-프레미스 도메인에서 Azure AD 테넌트로의 동기화에서 특정 특성을 제외할 수 있습니다. 이러한 제외된 특성은 관리되는 도메인에서 사용할 수 없습니다.
+* **그룹 정책:** 온-프레미스 도메인에 구성된 그룹 정책은 관리되는 도메인에 동기화되지 않습니다.
+* **SYSVOL 공유:** 마찬가지로 온-프레미스 도메인의 SYSVOL 공유 내용은 관리되는 도메인에 동기화되지 않습니다.
+* **컴퓨터 개체:** 온-프레미스 도메인에 가입된 컴퓨터에 대한 컴퓨터 개체는 관리되는 도메인에 동기화되지 않습니다. 이러한 컴퓨터는 관리되는 도메인과 트러스트 관계가 없으며 온-프레미스 도메인에만 속합니다. 관리되는 도메인에서는 관리되는 도메인에 명시적으로 가입한 컴퓨터에 대한 컴퓨터 개체만 찾을 수 있습니다.
+* **사용자 및 그룹에 대한 SidHistory 특성:** 온-프레미스 도메인의 기본 사용자 및 기본 그룹 SID는 관리되는 도메인에 동기화됩니다. 그러나 사용자 및 그룹에 대한 기존 SidHistory 특성은 온-프레미스 도메인에서 관리되는 도메인으로 동기화되지 않습니다.
+* **OU(조직 구성 단위) 구조:** 온-프레미스 도메인에 정의된 조직 구성 단위는 관리되는 도메인에 동기화되지 않습니다. 관리되는 도메인에는 두 개의 기본 제공 OU가 있습니다. 기본적으로 관리되는 도메인은 단일 OU 구조를 가집니다. 그러나 [관리되는 도메인에서 사용자 지정 OU를 만들](active-directory-ds-admin-guide-create-ou.md) 수 있습니다.
 
-## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>How specific attributes are synchronized to your managed domain
-The following table lists some common attributes and describes how they are synchronized to your managed domain.
+## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>관리되는 도메인에 특정 특성이 동기화되는 방식
+다음 표에는 몇 가지 공통 특성이 나열되어 있으며 이러한 특성이 관리되는 도메인에 동기화되는 방식이 설명되어 있습니다.
 
-| Attribute in your managed domain | Source | Notes |
+| 관리되는 도메인의 특성 | 원본 | 참고 사항 |
 |:--- |:--- |:--- |
-| UPN |User's UPN attribute in your Azure AD tenant |The UPN attribute from your Azure AD tenant is synchronized as is to your managed domain. Therefore, the most reliable way to sign in to your managed domain is using your UPN. |
-| SAMAccountName |User's mailNickname attribute in your Azure AD tenant or auto-generated |The SAMAccountName attribute is sourced from the mailNickname attribute in your Azure AD tenant. If multiple user accounts have the same mailNickname attribute, the SAMAccountName is auto-generated. If the user's mailNickname or UPN prefix is longer than 20 characters, the SAMAccountName is auto-generated to satisfy the 20 character limit on SAMAccountName attributes. |
-| Passwords |User's password from your Azure AD tenant |Credential hashes required for NTLM or Kerberos authentication (also called supplemental credentials) are synchronized from your Azure AD tenant. If your Azure AD tenant is a synced tenant, these credentials are sourced from your on-premises domain. |
-| Primary user/group SID |Auto-generated |The primary SID for user/group accounts is auto-generated in your managed domain. This attribute does not match the primary user/group SID of the object in your on-premises AD domain. This mismatch is because the managed domain has a different SID namespace than your on-premises domain. |
-| SID history for users and groups |On-premises primary user and group SID |The SidHistory attribute for users and groups in your managed domain is set to match the corresponding primary user or group SID in your on-premises domain. This feature helps make lift-and-shift of on-premises applications to the managed domain easier, since you do not need to re-ACL resources. |
+| UPN |Azure AD 테넌트의 사용자 UPN 특성 |Azure AD 테넌트의 UPN 특성은 있는 그대로 관리되는 도메인에 동기화됩니다. 따라서 관리되는 도메인에 로그인하는 가장 안정적인 방법은 UPN을 사용하는 것입니다. |
+| SAMAccountName |Azure AD 테넌트에서 사용되거나 자동 생성된 사용자의 mailNickname |SAMAccountName 특성은 Azure AD 테넌트의 mailNickname 특성에서 제공됩니다. 여러 사용자 계정에 동일한 mailNickname 특성이 있으면 SAMAccountName이 자동으로 생성됩니다. 사용자의 mailNickname 또는 UPN 접두사가 20자 보다 긴 경우에는 SAMAccountName 특성에 대한 20자 제한을 충족하기 위해 SAMAccountName이 자동으로 생성됩니다. |
+| 암호 |Azure AD 테넌트의 사용자 암호 |Kerberos 인증에 필요한 자격 증명 해시(보조 자격 증명이라고도 함)는 Azure AD 테넌트에서 동기화됩니다. Azure AD 테넌트가 동기화된 테넌트인 경우 이러한 자격 증명은 온-프레미스 도메인에서 제공됩니다. |
+| 기본 사용자/그룹 SID |자동 생성 |사용자/그룹 계정에 대한 기본 SID는 관리되는 도메인에서 자동으로 생성됩니다. 이 특성은 온-프레미스 AD 도메인에 있는 개체의 기본 사용자/그룹 SID와 일치하지 않습니다. 이 불일치는 관리되는 도메인에 온-프레미스 도메인과 다른 SID 네임스페이스가 있기 때문입니다. |
+| 사용자 및 그룹에 대한 SID 기록 |온-프레미스 기본 사용자 및 그룹 SID |관리되는 도메인의 사용자 및 그룹에 대한 SidHistory 특성은 온-프레미스 도메인의 해당 기본 사용자 또는 그룹 SID와 일치하도록 설정됩니다. 이 기능을 사용하면 리소스 ACL을 다시 만들 필요가 없으므로 온-프레미스 응용 프로그램을 관리되는 도메인으로 보다 쉽게 이동할 수 있습니다. |
 
 > [!NOTE]
-> **Sign in to the managed domain using the UPN format:** The SAMAccountName attribute may be auto-generated for some user accounts in your managed domain. If multiple users have the same mailNickname attribute or users have overly long UPN prefixes, the SAMAccountName for these users may be auto-generated. Therefore, the SAMAccountName format (for example, 'CONTOSO100\joeuser') is not always a reliable way to sign in to the domain. Users' auto-generated SAMAccountName may differ from their UPN prefix. Use the UPN format (for example, 'joeuser@contoso100.com') to sign in to the managed domain reliably.
+> **UPN 형식을 사용하여 관리되는 도메인에 로그인:** 관리되는 도메인의 일부 사용자 계정에 대해 SAMAccountName 특성이 자동으로 생성될 수 있습니다. 여러 사용자가 동일한 mailNickname 특성을 사용하거나 사용자의 UPN 접두사가 너무 긴 경우 이러한 사용자에 대한 SAMAccountName이 자동으로 생성될 수 있습니다. 따라서 SAMAccountName 형식(예: 'CONTOSO100\joeuser')은 도메인에 로그인하는 안정적인 방법이 아닐 수 있습니다. 자동 생성된 사용자의 SAMAccountName은 UPN 접두사와 다를 수 있습니다. 관리되는 도메인에 안정적으로 로그인하려면 UPN 형식(예: 'joeuser@contoso100.com')을 사용하세요.
 > 
 > 
 
-## <a name="objects-that-are-not-synchronized-to-your-azure-ad-tenant-from-your-managed-domain"></a>Objects that are not synchronized to your Azure AD tenant from your managed domain
-As described in a preceding section of this article, there is no synchronization from your managed domain back to your Azure AD tenant. You may choose to [create a custom Organizational Unit (OU)](active-directory-ds-admin-guide-create-ou.md) in your managed domain. Further, you can create other OUs, users, groups, or service accounts within these custom OUs. None of the objects created within custom OUs are synchronized back to your Azure AD tenant. These objects are available for use only within your managed domain. Therefore, these objects are not visible using Azure AD PowerShell cmdlets, Azure AD Graph API or using the Azure AD management UI.
+### <a name="attribute-mapping-for-user-accounts"></a>사용자 계정에 대한 특성 매핑
+다음 표에서는 Azure AD 테넌트의 사용자 개체에 대한 특정 특성이 관리되는 도메인의 해당 특성에 동기화되는 방식을 보여 줍니다.
 
-## <a name="related-content"></a>Related Content
-* [Features - Azure AD Domain Services](active-directory-ds-features.md)
-* [Deployment scenarios - Azure AD Domain Services](active-directory-ds-scenarios.md)
-* [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md)
-* [Get started with Azure AD Domain Services](active-directory-ds-getting-started.md)
+| Azure AD 테넌트의 사용자 특성 | 관리되는 도메인의 사용자 특성 |
+|:--- |:--- |
+| accountEnabled |userAccountControl(ACCOUNT_DISABLED 비트를 설정하거나 지움) |
+| city |l |
+| country |co |
+| department |department |
+| displayName |displayName |
+| facsimileTelephoneNumber |facsimileTelephoneNumber |
+| givenName |givenName |
+| jobTitle |title |
+| mail |mail |
+| mailNickname |msDS-AzureADMailNickname |
+| mailNickname |SAMAccountName(자동 생성되는 경우도 있음) |
+| mobile |mobile |
+| objectId |msDS-AzureADObjectId |
+| onPremiseSecurityIdentifier |sidHistory |
+| passwordPolicies |userAccountControl(DONT_EXPIRE_PASSWORD 비트를 설정하거나 지움) |
+| physicalDeliveryOfficeName |physicalDeliveryOfficeName |
+| postalCode |postalCode |
+| preferredLanguage |preferredLanguage |
+| state |st |
+| streetAddress |streetAddress |
+| surname |sn |
+| telephoneNumber |telephoneNumber |
+| userPrincipalName |userPrincipalName |
 
-<!--HONumber=Oct16_HO2-->
+### <a name="attribute-mapping-for-groups"></a>그룹에 대한 특성 매핑
+다음 표에서는 Azure AD 테넌트의 그룹 개체에 대한 특정 특성이 관리되는 도메인의 해당 특성에 동기화되는 방식을 보여 줍니다.
+
+| Azure AD 테넌트의 그룹 특성 | 관리되는 도메인의 그룹 특성 |
+|:--- |:--- |
+| displayName |displayName |
+| displayName |SAMAccountName(자동 생성되는 경우도 있음) |
+| mail |mail |
+| mailNickname |msDS-AzureADMailNickname |
+| objectId |msDS-AzureADObjectId |
+| onPremiseSecurityIdentifier |sidHistory |
+| securityEnabled |groupType |
+
+## <a name="objects-that-are-not-synchronized-to-your-azure-ad-tenant-from-your-managed-domain"></a>관리되는 도메인에서 Azure AD 테넌트로 동기화되지 않는 개체
+이 문서의 이전 섹션에서 설명한 대로, 관리되는 도메인에서 Azure AD 테넌트로 다시 동기화되지는 않습니다. [관리되는 도메인에서 사용자 지정 OU(조직 구성 단위)를 만들](active-directory-ds-admin-guide-create-ou.md) 수 있습니다. 또한 이러한 사용자 지정 OU 내에서 다른 OU, 사용자, 그룹 또는 서비스 계정을 만들 수 있습니다. 사용자 지정 OU 내에서 만든 개체는 Azure AD 테넌트에 다시 동기화되지 않습니다. 이러한 개체는 관리되는 도메인 내에서만 사용할 수 있습니다. 따라서 Azure AD PowerShell cmdlet, Azure AD Graph API 또는 Azure AD 관리 UI를 사용하여 이러한 개체를 볼 수 없습니다.
+
+## <a name="related-content"></a>관련 콘텐츠
+* [기능 - Azure AD Domain Services](active-directory-ds-features.md)
+* [배포 시나리오 - Azure AD Domain Services](active-directory-ds-scenarios.md)
+* [Azure AD 도메인 서비스에 대한 네트워킹 고려 사항](active-directory-ds-networking.md)
+* [Azure AD 도메인 서비스 시작](active-directory-ds-getting-started.md)
+
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

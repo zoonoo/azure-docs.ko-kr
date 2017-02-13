@@ -10,7 +10,7 @@
 ## [Log Analytics FAQ](log-analytics-faq.md)
 
 # 방법
-## 통합
+## 데이터 수집
 ### 연결된 소스
 #### [Windows 에이전트](log-analytics-windows-agents.md)
 #### [Linux 에이전트](log-analytics-linux-agents.md)
@@ -27,11 +27,15 @@
 #### [IIS 로그](log-analytics-data-sources-iis-logs.md)
 #### [사용자 지정 로그](log-analytics-data-sources-custom-logs.md)
 #### [사용자 지정 필드](log-analytics-custom-fields.md)
-## 개발
+## 쿼리 데이터
 ### [로그 검색 개요](log-analytics-log-searches.md)
 ### [Search 참조](log-analytics-search-reference.md)
 ### [컴퓨터 그룹](log-analytics-computer-groups.md)
 ### [경고](log-analytics-alerts.md)
+## 데이터 분석
+### [대시보드](log-analytics-dashboards.md)
+### [뷰 디자이너](log-analytics-view-designer.md)
+### [Power BI](log-analytics-powerbi.md)
 ### 솔루션
 #### [솔루션 개요](log-analytics-add-solutions.md)
 #### [AD 평가](log-analytics-ad-assessment.md)
@@ -52,11 +56,7 @@
 #### [VMware](log-analytics-vmware.md)
 #### [실시간 데이터](log-analytics-wire-data.md)
 #### [SCOM 평가](log-analytics-scom-assessment.md)
-## 분석
-### [대시보드](log-analytics-dashboards.md)
-### [뷰 디자이너](log-analytics-view-designer.md)
-### [Power BI](log-analytics-powerbi.md)
-## 자동화
+## 개발
 ### [데이터 수집기 API](log-analytics-data-collector-api.md)
 ### [PowerShell cmdlet](log-analytics-powershell-workspace-configuration.md)
 ### [Log Search API](log-analytics-log-search-api.md)

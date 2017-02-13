@@ -1,12 +1,12 @@
 ---
-title: 'Azure Active Directory Domain Services: 관리 가이드 | Microsoft Docs'
-description: Azure AD 도메인 서비스 관리되는 도메인에 OU(조직 구성 단위) 만들기
+title: "Azure Active Directory Domain Services: 관리 가이드 | Microsoft Docs"
+description: "Azure AD 도메인 서비스 관리되는 도메인에 OU(조직 구성 단위) 만들기"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0707a8efd91d646bf7c417f881ccb9ebb6f2a470
+
 
 ---
-# <a name="create-an-organizational-unit-(ou)-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에 OU(조직 구성 단위) 만들기
+# <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에 OU(조직 구성 단위) 만들기
 Azure AD 도메인 서비스 관리되는 도메인에는 'AADDC 컴퓨터'와 'AADDC 사용자'라는 두 개의 기본 제공 컨테이너가 각각 있습니다. 'AADDC 컴퓨터' 컨테이너에는 관리되는 도메인에 가입된 모든 컴퓨터에 대한 컴퓨터 개체가 있습니다. 'AADDC 사용자' 컨테이너는 Azure AD 테넌트의 사용자 및 그룹을 포함합니다. 경우에 따라 워크로드를 배포하기 위해 관리되는 도메인에 서비스 계정을 만들어야 할 수 있습니다. 이 용도로 관리되는 도메인에 사용자 지정 OU(조직 구성 단위)를 만들고 해당 OU 내에 서비스 계정을 만들 수 있습니다. 이 문서에서는 관리되는 도메인에 OU를 만드는 방법을 보여 줍니다.
 
 ## <a name="install-ad-administration-tools-on-a-domain-joined-virtual-machine-for-remote-administration"></a>도메인 가입된 가상 컴퓨터에 원격 관리를 위한 AD 관리 도구 설치
@@ -50,7 +54,7 @@ Azure AD 도메인 서비스 관리되는 도메인을 AD PowerShell 또는 ADAC
    
     ![ADAC - 만든 OU](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
-## <a name="permissions/security-for-newly-created-ous"></a>새로 만든 OU에 대한 사용 권한/보안
+## <a name="permissionssecurity-for-newly-created-ous"></a>새로 만든 OU에 대한 사용 권한/보안
 기본적으로 사용자 지정 OU를 만든 사용자('AAD DC 관리자' 그룹의 구성원)는 OU에 대해 관리자 권한(모든 권한)이 부여됩니다. 사용자는 계속해서 원하는 대로 다른 사용자에게 또는 'AAD DC 관리자' 그룹에 권한을 부여할 수 있습니다. 다음 스크린샷에서 볼 수 있듯이 새 'MyCustomOU' 조직 구성 단위를 만든 사용자 'bob@domainservicespreview.onmicrosoft.com'은(는) OU에 대해 모든 권한이 부여됩니다.
 
  ![ADAC - 새 OU 보안](./media/active-directory-domain-services-admin-guide/create-ou-permissions.png)
@@ -68,6 +72,9 @@ Azure AD 도메인 서비스 관리되는 도메인을 AD PowerShell 또는 ADAC
 * [Active Directory 관리 센터: 시작](https://technet.microsoft.com/library/dd560651.aspx)
 * [서비스 계정 단계별 가이드](https://technet.microsoft.com/library/dd548356.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Resource Manager에서 Azure 포털을 사용하여 내부 부하 분산 장치 만들기 시작 | Microsoft Docs"
+title: "내부 부하 분산 장치 만들기 - Azure Portal | Microsoft Docs"
 description: "Azure 포털을 사용하여 Resource Manager에서 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 1ac14fb9-8d14-4892-bfe6-8bc74c48ae2c
@@ -13,26 +13,31 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
-ms.author: sewhee
+ms.date: 01/23/2017
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 616fa3b45f8b6f7f799eeacfb1f609a1031d24f5
-
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
 
 ---
+
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Azure Portal에서 내부 부하 분산 장치 만들기
-[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+
+> [!div class="op_single_selector"]
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [템플릿](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-[클래식 배포 모델](load-balancer-get-started-ilb-classic-ps.md).
+> [!NOTE]
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 Resource Manager 배포 모델 사용을 설명하며 Microsoft에서는 대부분의 새로운 배포에 대해 [클래식 배포 모델](load-balancer-get-started-ilb-classic-ps.md) 대신 이 모델을 사용하도록 권장합니다.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## <a name="get-started-creating-an-internal-load-balancer-using-azure-portal"></a>Azure 포털을 사용하여 내부 부하 분산 장치 만들기 시작
+
 Azure Portal에서 내부 부하 분산 장치를 만들려면 다음 단계를 수행합니다.
 
 1. 브라우저를 열고 [Azure Portal](http://portal.azure.com)로 이동하여 Azure 계정으로 로그인합니다.
@@ -40,32 +45,33 @@ Azure Portal에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 3. **부하 분산 장치 만들기** 블레이드에서 부하 분산 장치의 **이름**을 입력합니다.
 4. **구성표**에서 **내부**를 클릭합니다.
 5. **가상 네트워크**를 클릭한 다음 부하 분산 장치를 만들 가상 네트워크를 선택합니다.
-   
+
    > [!NOTE]
    > 사용하려는 가상 네트워크가 보이지 않으면 부하 분산 장치에 대해 사용 중인 **위치** 를 확인하고 적절하게 변경합니다.
-   > 
-   > 
+
 6. **서브넷**을 클릭한 다음 부하 분산 장치를 만들 서브넷을 선택합니다.
 7. **IP 주소 할당**에서 부하 분산 장치의 IP 주소를 고정으로 할 것인지 유동으로 할 것인지에 따라 **동적** 또는 **고정**을 클릭합니다.
-   
+
    > [!NOTE]
    > 고정 IP 주소를 사용하도록 선택하는 경우 부하 분산 장치에 대한 주소를 제공해야 합니다.
-   > 
-   > 
+
 8. **리소스 그룹**에서 부하 분산 장치에 대한 새 리소스 그룹의 이름을 지정하거나 **기존 항목 선택**을 클릭하여 기존 리소스 그룹을 선택합니다.
 9. **만들기**를 클릭합니다.
 
 ## <a name="configure-load-balancing-rules"></a>부하 분산 규칙 구성
+
 부하 분산 장치를 만든 후 구성을 위해 부하 분산 장치 리소스로 이동합니다.
 백 엔드 주소 풀 및 프로브를 먼저 구성한 후 부하 분산 규칙을 구성합니다.
 
-### <a name="step-1-configure-a-backend-pool"></a>1단계: 백 엔드 풀 구성
+### <a name="step-1-configure-a-back-end-pool"></a>1단계: 백 엔드 풀 구성
+
 1. Azure Portal에서 **찾아보기** > **부하 분산 장치**를 클릭한 다음 위에서 만든 부하 분산 장치를 클릭합니다.
 2. **설정** 블레이드에서 **백 엔드 풀**을 클릭합니다.
 3. **백 엔드 주소 풀** 블레이드에서 **추가**를 클릭합니다.
 4. **백 엔드 풀 추가** 블레이드에서 백 엔드 풀에 대한 **이름**을 입력한 후 **확인**을 클릭합니다.
 
 ### <a name="step-2-configure-a-probe"></a>2단계: 프로브 구성
+
 1. Azure Portal에서 **찾아보기** > **부하 분산 장치**를 클릭한 다음 위에서 만든 부하 분산 장치를 클릭합니다.
 2. **설정** 블레이드에서 **프로브**를 클릭합니다.
 3. **프로브** 블레이드에서 **추가**를 클릭합니다.
@@ -78,6 +84,7 @@ Azure Portal에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 10. **확인** 을 클릭하여 프로브를 만듭니다.
 
 ### <a name="step-3-configure-load-balancing-rules"></a>3단계: 부하 분산 규칙 구성
+
 1. Azure Portal에서 **찾아보기** > **부하 분산 장치**를 클릭한 다음 위에서 만든 부하 분산 장치를 클릭합니다.
 2. **설정** 블레이드에서 **부하 분산 규칙**을 클릭합니다.
 3. **부하 분산 규칙** 블레이드에서 **추가**를 클릭합니다.
@@ -92,6 +99,7 @@ Azure Portal에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 12. **확인**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
@@ -99,6 +107,6 @@ Azure Portal에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,43 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 12/11/2016
 ms.author: willzhan;kilroyh;yanmf;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: a4f363fcd05e8596f445ce7d40638c5e27c896e6
+ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
+ms.openlocfilehash: 1ea286a04c84d031fcefa8dc771cbdef9d8a9b72
 
 
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>다중 DRM 및 액세스 제어가 포함된 CENC: Azure 및 Azure 미디어 서비스에서 참조 디자인 및 구현
-## <a name="key-words"></a>키워드
-Azure Active Directory, Azure 미디어 서비스, Azure 미디어 플레이어, 동적 암호화, 라이선스 배달, PlayReady, Widevine, FairPlay, CENC(일반적인 암호화), 다중 DRM, Axinom, DASH, EME, MSE, JWT(JSON 웹 토큰), 클레임, 최신 브라우저, 키 롤오버, 대칭 키, 비대칭 키, OpenID Connect, X509 인증서.
-
-## <a name="in-this-article"></a>이 문서에서는 다음을 수행합니다.
-이 문서에서 다루는 토픽은 다음과 같습니다.
-
-* [소개](media-services-cenc-with-multidrm-access-control.md#introduction)
-  * [이 문서의 개요](media-services-cenc-with-multidrm-access-control.md#overview-of-this-article)
-* [참조 디자인](media-services-cenc-with-multidrm-access-control.md#a-reference-design)
-* [디자인을 구현 기술에 매핑](media-services-cenc-with-multidrm-access-control.md#mapping-design-to-technology-for-implementation)
-* [구현](media-services-cenc-with-multidrm-access-control.md#implementation)
-  * [구현 절차](media-services-cenc-with-multidrm-access-control.md#implementation-procedures)
-  * [구현에 대해 몇 가지 알려진 문제](media-services-cenc-with-multidrm-access-control.md#some-gotchas-in-implementation)
-* [구현에 대한 추가 토픽](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
-  * [HTTP 또는 HTTPS](media-services-cenc-with-multidrm-access-control.md#http-or-https)
-  * [Azure Active Directory 서명 키 롤오버](media-services-cenc-with-multidrm-access-control.md#azure-active-directory-signing-key-rollover)
-  * [액세스 토큰 위치](media-services-cenc-with-multidrm-access-control.md#where-is-the-access-token)
-  * [라이브 스트리밍의 경우는 어떨까요?](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
-  * [Azure 미디어 서비스 외부에서 라이선스 서버는 어떨까요?](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
-  * [사용자 지정 STS를 사용하려면 어떻게 하나요?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
-* [완료된 시스템 및 테스트](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
-  * [사용자 로그인](media-services-cenc-with-multidrm-access-control.md#user-login)
-  * [PlayReady에 암호화된 미디어 확장 사용](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensions-for-playready)
-  * [Widevine에 EME 사용](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
-  * [자격이 없는 사용자](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
-  * [사용자 지정 보안 토큰 서비스 실행](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
-* [요약](media-services-cenc-with-multidrm-access-control.md#summary)
-
+ 
 ## <a name="introduction"></a>소개
 잘 알다시피 OTT 또는 온라인 스트리밍 솔루션을 위한 DRM 하위 시스템을 디자인하고 구축하는 것은 복잡한 작업입니다. 일반적으로 운영자/온라인 비디오 공급자는 이러한 부분을 전문화된 DRM 서비스 공급자에게 아웃소싱합니다. 이 문서의 목표는 OTT 또는 온라인 스트리밍 솔루션에서 종단 간 DRM 하위 시스템의 참조 디자인 및 구현을 제공하는 것입니다.
 
@@ -75,7 +48,7 @@ Microsoft는 몇몇 주요 기업들과 더불어 DASH 및 CENC의 적극적인 
 
 1. Microsoft PlayReady
 2. Google Widevine
-3. Apple FairPlay(Azure 미디어 서비스에서 아직 지원되지 않음)
+3. Apple FairPlay 
 
 다음 표에서는 각 DRM에서 기본 플랫폼/기본 앱 및 지원되는 브라우저를 요약합니다.
 
@@ -85,7 +58,7 @@ Microsoft는 몇몇 주요 기업들과 더불어 DASH 및 CENC의 적극적인 
 | **Windows 10 장치(Windows PC, Windows 태블릿, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>UWP |DASH(HLS의 경우 PlayReady는 지원되지 않음)<br/><br/>DASH, 부드러운 스트리밍(HLS의 경우 PlayReady는 지원되지 않음) |
 | **Android 장치(전화, 태블릿, TV)** |Widevine |크롬/EME |DASH |
 | **iOS(iPhone, iPad), OS X 클라이언트 및 Apple TV** |FairPlay |Safari 8+/EME |HLS |
-| **플러그 인: Adobe Primetime** |Primetime 액세스 |브라우저 플러그 인 |HLS, HDS |
+
 
 각 DRM에 대한 배포의 현재 상태를 고려하면 서비스는 일반적으로 가장 좋은 방법으로 모든 유형의 끝점을 해결하도록 2 또는 3DRM을 구현해야 합니다.
 
@@ -323,15 +296,15 @@ AAD가 JWT 토큰을 생성한 후, 플레이어가 확인을 위해 JWT 토큰�
 키는 언제든지 롤오버될 수 있으므로 페더레이션 메타데이터 문서에는 사용 가능한 공개 키가 항상 두 개 이상 있습니다. Azure 미디어 서비스 라이선스 배달에서는 하나의 키가 곧 롤오버되고 다른 키가 대체되는 방식으로 문서에 지정된 키를 사용할 수 있습니다.
 
 ### <a name="where-is-the-access-token"></a>액세스 토큰 위치
-웹앱에서 [OAuth 2.0 클라이언트 자격 증명 권한을 사용한 응용 프로그램 ID](../active-directory/active-directory-authentication-scenarios.md#web-application-to-web-api)로 API 앱을 호출하는 방식을 살펴보면 인증 흐름은 다음과 같습니다.
+웹앱에서 [OAuth 2.0 클라이언트 자격 증명 권한을 사용한 응용 프로그램 ID](../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api)로 API 앱을 호출하는 방식을 살펴보면 인증 흐름은 다음과 같습니다.
 
-1. 사용자가 웹 응용 프로그램에서 Azure AD에 로그인합니다( [웹 브라우저-웹 응용 프로그램](../active-directory/active-directory-authentication-scenarios.md#web-browser-to-web-application)참조).
+1. 사용자가 웹 응용 프로그램에서 Azure AD에 로그인합니다( [웹 브라우저-웹 응용 프로그램](../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application)참조).
 2. Azure AD 권한 부여 끝점은 사용자 에이전트를 인증 코드와 함께 클라이언트 응용 프로그램으로 리디렉션합니다. 사용자 에이전트는 인증 코드를 클라이언트 응용 프로그램의 리디렉션 URI로 반환합니다.
 3. 웹 응용 프로그램이 웹 API에 인증하고 원하는 리소스를 검색할 수 있도록 액세스 토큰을 획득해야 합니다. Azure AD의 토큰 끝점에 요청하여 자격 증명, 클라이언트 ID, 웹 API의 응용 프로그램 ID URI를 제공합니다. 사용자가 동의했음을 증명하는 인증 코드를 표시합니다.
 4. Azure AD가 응용 프로그램을 인증하고 웹 API를 호출하는 데 사용되는 JWT 액세스 토큰을 반환합니다.
 5. HTTPS를 통해 웹 응용 프로그램이 반환된 JWT 액세스 토큰을 사용해서 웹 API에 대한 요청의 권한 부여 헤더에 “전달자”를 지정한 JWT 문자열을 추가합니다. 그러면 웹 API에서 JWT 토큰의 유효성을 검사하여 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
 
-이 "응용 프로그램 ID" 흐름에서 웹 API는 웹 응용 프로그램이 해당 사용자를 인증했음을 신뢰합니다. 이런 이유로, 이 패턴을 신뢰할 수 있는 하위 시스템이라고 합니다. [이 페이지의 다이어그램](http://msdn.microsoft.com/library/azure/dn645542.aspx/) 은 인증 코드 부여 흐름이 어떻게 작동하는지를 설명합니다.
+이 "응용 프로그램 ID" 흐름에서 웹 API는 웹 응용 프로그램이 해당 사용자를 인증했음을 신뢰합니다. 이런 이유로, 이 패턴을 신뢰할 수 있는 하위 시스템이라고 합니다. [이 페이지의 다이어그램](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) 은 인증 코드 부여 흐름이 어떻게 작동하는지를 설명합니다.
 
 토큰 제한으로 라이선스 획득 시 동일한 신뢰할 수 있는 하위 시스템 패턴을 따릅니다. Azure 미디어 서비스의 라이선스 배달 서비스가 웹 API 리소스이고 웹 응용 프로그램이 액세스해야 하는 "백 엔드 리소스"입니다. 그렇다면 액세스 토큰은 어디에 있을까요?
 
@@ -420,7 +393,7 @@ Azure AD는 Microsoft 계정(MSA) 도메인을 신뢰하므로 다음 도메인�
 
 ![사용자 지정 Azure AD 테넌트 도메인 계정](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
-**스마트 카드를 사용한 Microsoft 도메인 계정**: 이 경우 Microsoft 회사 IT에서 2단계 인증으로 사용자 지정한 로그인 페이지가 표시됩니다.
+**스마트 카드를 사용한 Microsoft 도메인 계정**: 이 경우 Microsoft 회사 IT에서&2;단계 인증으로 사용자 지정한 로그인 페이지가 표시됩니다.
 
 ![사용자 지정 Azure AD 테넌트 도메인 계정](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
@@ -482,12 +455,9 @@ X509 인증서를 통해 비대칭 키를 사용하는 경우(Microsoft 최신 �
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-### <a name="acknowledgments"></a>승인
-William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
+ 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

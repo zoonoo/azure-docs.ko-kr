@@ -13,16 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/08/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 8c295a4207e9d12eb0cb978205a75d536d6a55e7
+ms.sourcegitcommit: 5a9b3e94faee1db7c38b9f60045637640d820208
+ms.openlocfilehash: b11d9d67234c85af8f9fcb9992864ef9e1662a79
 
 
 ---
 # <a name="import-data-to-documentdb-with-the-database-migration-tool"></a>데이터베이스 마이그레이션 도구로 DocumentDB에 데이터 가져오기
 이 문서는 공식 공개 소스 DocumentDB 데이터 마이그레이션 도구를 사용하여 JSON 파일, CSV 파일, SQL, MongoDB, Azure 테이블 저장소, Amazon DynamoDB 및 DocumentDB 컬렉션을 포함한 다양한 소스에서 데이터를 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)로 가져오는 방법을 보여 줍니다.
+
+MongoDB에 대한 지원을 포함하는 DocumentDB 계정에 데이터를 가져오는 경우 [MongoDB에 대한 프로토콜 지원을 포함하는 DocumentDB에 데이터 마이그레이션](documentdb-mongodb-migrate.md)의 지침을 수행합니다.
 
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.  
 
@@ -78,6 +80,12 @@ JSON 파일을 가져오는 몇 가지 명령줄 샘플은 다음과 같습니�
     dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionThroughput:2500
 
 ## <a name="a-idmongodbaimport-from-mongodb"></a><a id="MongoDB"></a>MongoDB에서 가져오기
+
+> [!IMPORTANT]
+> MongoDB에 대한 지원을 포함한 DocumentDB 계정을 가져오는 경우 다음 [지침](documentdb-mongodb-migrate.md)을 수행합니다.
+> 
+> 
+
 MongoDB 원본 가져오기 옵션을 사용하면 개별 MongoDB 컬렉션에서 가져오고 필요에 따라 쿼리를 사용하여 문서를 필터링하거나 프로젝션을 사용하여 문서 구조를 수정할 수 있습니다.  
 
 ![MongoDB 원본 옵션의 스크린샷 - documentdb vs mongodb](./media/documentdb-import-data/mongodbsource.png)
@@ -91,7 +99,7 @@ MongoDB 원본 가져오기 옵션을 사용하면 개별 MongoDB 컬렉션에�
 > 
 > 
 
-데이터를 가져올 컬렉션의 이름을 입력합니다. 필요에 따라 쿼리(예: {pop: {$gt: 5000}}) 및/또는 프로젝션(예: {loc:0})에 대한 파일을 제공하여 가져올 데이터를 필터링하고 형식을 지정할 수 있습니다.
+데이터를 가져올 컬렉션의 이름을 입력합니다. 필요에 따라 쿼리(예: {pop: {$gt:&5000;}}) 및/또는 프로젝션(예: {loc:0})에 대한 파일을 제공하여 가져올 데이터를 필터링하고 형식을 지정할 수 있습니다.
 
 MongoDB에서 가져오는 몇 가지 명령줄 샘플은 다음과 같습니다.
 
@@ -102,6 +110,12 @@ MongoDB에서 가져오는 몇 가지 명령줄 샘플은 다음과 같습니다
     dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionThroughput:2500
 
 ## <a name="a-idmongodbexportaimport-mongodb-export-files"></a><a id="MongoDBExport"></a>MongoDB 내보내기 파일 가져오기
+
+> [!IMPORTANT]
+> MongoDB에 대한 지원을 포함한 DocumentDB 계정을 가져오는 경우 다음 [지침](documentdb-mongodb-migrate.md)을 수행합니다.
+> 
+> 
+
 MongoDB 내보내기 JSON 파일 원본 가져오기 옵션을 사용하면 mongoexport 유틸리티에서 생성된 JSON 파일을 하나 이상 가져올 수 있습니다.  
 
 ![MongoDB 내보내기 원본 옵션의 스크린샷 - documentdb vs mongodb](./media/documentdb-import-data/mongodbexportsource.png)
@@ -340,7 +354,7 @@ DocumentDB 연결 문자열의 형식은 다음과 같습니다.
 
  ![DocumentDB 대량 삽입 저장 프로시저 옵션의 스크린샷](./media/documentdb-import-data/bulkinsertsp.png)
 
-또한 SQL Server 또는 MongoDB 등에서 날짜 형식을 가져오는 경우 다음 3개의 가져오기 옵션 중에서 선택할 수 있습니다.
+또한 SQL Server 또는 MongoDB 등에서 날짜 형식을 가져오는 경우 다음&3;개의 가져오기 옵션 중에서 선택할 수 있습니다.
 
  ![DocumentDB 날짜 시간 가져오기 옵션의 스크린샷](./media/documentdb-import-data/datetimeoptions.png)
 
@@ -400,7 +414,7 @@ DocumentDB 연결 문자열의 형식은 다음과 같습니다.
 
 필요에 따라 가져오는 동안 DocumentDB 문서 ID 속성으로 사용할 가져오기 원본의 필드를 지정할 수 있습니다(문서에 이 속성이 없는 경우 가져오기 도구에서 GUID를 ID 속성 값으로 생성함).
 
-가져오는 동안 사용할 수 있는 다양한 고급 옵션이 있습니다. 먼저, SQL Server 또는 MongoDB 등에서 날짜 형식을 가져오는 경우 다음 3개의 가져오기 옵션 중에서 선택할 수 있습니다.
+가져오는 동안 사용할 수 있는 다양한 고급 옵션이 있습니다. 먼저, SQL Server 또는 MongoDB 등에서 날짜 형식을 가져오는 경우 다음&3;개의 가져오기 옵션 중에서 선택할 수 있습니다.
 
  ![DocumentDB 날짜 시간 가져오기 옵션의 스크린샷](./media/documentdb-import-data/datetimeoptions.png)
 
@@ -512,6 +526,6 @@ DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

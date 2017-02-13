@@ -1,19 +1,23 @@
 ---
-title: Azure Active Directory Reporting 감사 API 샘플 | Microsoft Docs
-description: Azure Active Directory Reporting API를 시작하는 방법
+title: "Azure Active Directory Reporting 감사 API 샘플 | Microsoft Docs"
+description: "Azure Active Directory Reporting API를 시작하는 방법"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/28/2016
+ms.date: 01/10/2017
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 665b613db31b15b6f6d2826a0795be6275c832ca
+ms.openlocfilehash: 8216fa7ab092b2d0225d075d933fa56fbab56f40
+
 
 ---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Azure Active Directory Reporting 감사 API 샘플
@@ -27,6 +31,7 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
 * [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md) 을 참조하세요.
 
 질문, 문제 또는 피드백은 [AAD Reporting 도움말](mailto:aadreportinghelp@microsoft.com)에 문의하세요.
+
 
 ## <a name="prerequisites"></a>필수 조건
 이 항목에서 샘플을 사용하기 전에 [Azure AD Reporting API에 액세스하기 위한 필수 구성 요소](active-directory-reporting-api-prerequisites.md)를 완료해야 합니다.  
@@ -54,7 +59,7 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-        $url = 'https://graph.windows.net/' + $tenantdomain + 'activities/audit?api-version=beta&`$filter=eventTime gt ' + $7daysago
+        $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&`$filter=activityDate gt ' + $7daysago
 
         # loop through each query page (1 through n)
         Do{
@@ -105,7 +110,7 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
 
     YESTERDAY=$(date --date='1 day ago' +'%Y-%m-%d')
 
-    URL="https://graph.windows.net/$TENANT_DOMAIN/activities/audit?api-version=beta&$filter=eventTime%20gt%20$YESTERDAY"
+    URL="https://graph.windows.net/$TENANT_DOMAIN/activities/audit?api-version=beta&$filter=activityDate%20gt%20$YESTERDAY"
 
 
     REPORT=$(curl -s --header "Authorization: $TOKEN_TYPE $ACCESS_TOKEN" $URL)
@@ -145,7 +150,7 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
     yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
     header_params = {'Authorization': token_type + ' ' + access_token}
-    request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=eventTime%20gt%20' + yesterday   
+    request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=activityDate%20gt%20' + yesterday   
     response = requests.get(request_string, headers = header_params)
 
     if response.status_code is 200:
@@ -162,6 +167,9 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
 * Azure Active Directory Reporting API를 사용하는 전체적인 개요를 확인하려는 경우 [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
 * Azure Active Directory Reporting에 대한 자세한 내용을 알아보려면 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)를 참조하세요.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 

@@ -1,144 +1,273 @@
 ---
-title: '자습서: RunMyProcess와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory에서 RunMyProcess를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다.
+title: "자습서: RunMyProcess와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory 및 RunMyProcess 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
+documentationcenter: 
 author: jeevansd
-documentationcenter: na
 manager: femila
-
+editor: 
+ms.assetid: d31f7395-048b-4a61-9505-5acf9fc68d9b
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 09/26/2016
+ms.date: 10/21/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 223a0abfcd1ae2997e4d2facfd065cf8dc721668
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-runmyprocess"></a>자습서: RunMyProcess와 Azure Active Directory 통합
-이 자습서는 Azure 및 RunMyProcess의 통합을 보여 주기 위한 것입니다.  
-이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+# <a name="tutorial-azure-active-directory-integration-with-runmyprocess"></a>자습서: RunMyProcess와 Azure Active Directory 통합
+이 자습서에서는 RunMyProcess와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
-* 유효한 Azure 구독
-* RunMyProcess 테넌트
+RunMyProcess를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-이 자습서를 완료한 후 RunMyProcess에 할당한 Azure AD 사용자가 RunMyProcess 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
+* RunMyProcess에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
+* 사용자가 해당 Azure AD 계정으로 RunMyProcess에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
+* 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
-이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
-1. RunMyProcess에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
-3. 사용자 프로비전 구성
-4. 사용자 할당
+## <a name="prerequisites"></a>필수 조건
+RunMyProcess와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-![시나리오](./media/active-directory-saas-runmyprocess-tutorial/IC789614.png "Scenario")
+* Azure AD 구독
+* RunMyProcess Single Sign-on이 설정된 구독
 
-## <a name="enabling-the-application-integration-for-runmyprocess"></a>RunMyProcess에 응용 프로그램 통합 사용
-이 섹션은 RunMyProcess에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
+> [!NOTE]
+> 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> 
+> 
 
-### <a name="to-enable-the-application-integration-for-runmyprocess,-perform-the-following-steps:"></a>RunMyProcess에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
-1. Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
+
+* 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+
+## <a name="scenario-description"></a>시나리오 설명
+이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.
+
+이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+
+1. 갤러리에서 RunMyProcess 추가
+2. Azure AD Single Sign-on 구성 및 테스트
+
+## <a name="adding-runmyprocess-from-the-gallery"></a>갤러리에서 RunMyProcess 추가
+RunMyProcess의 Azure AD 통합을 구성하려면 갤러리의 RunMyProcess를 관리되는 SaaS 앱 목록에 추가해야 합니다.
+
+**갤러리에서 RunMyProcess를 추가하려면 다음 단계를 수행합니다.**
+
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
-   ![Active Directory](./media/active-directory-saas-runmyprocess-tutorial/IC700993.png "Active Directory")
+    ![Active Directory][1]
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-   ![응용 프로그램](./media/active-directory-saas-runmyprocess-tutorial/IC700994.png "Applications")
-4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.
+    ![응용 프로그램][2]
+4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-   ![응용 프로그램 추가](./media/active-directory-saas-runmyprocess-tutorial/IC749321.png "Add application")
+    ![응용 프로그램][3]
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-runmyprocess-tutorial/IC749322.png "Add an application from gallerry")
-6. **검색 상자**에 **RunMyProcess**를 입력합니다.
+    ![응용 프로그램][4]
+6. 검색 상자에 **RunMyProcess**를 입력합니다.
    
-   ![응용 프로그램 갤러리](./media/active-directory-saas-runmyprocess-tutorial/IC789615.png "Application Gallery")
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_01.png)
 7. 결과 창에서 **RunMyProcess**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
-   ![RunMyProcess](./media/active-directory-saas-runmyprocess-tutorial/IC789616.png "RunMyProcess")
-   
-   ## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_0001.png)
 
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 RunMyProcess에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
-이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다.  
-이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
+이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 RunMyProcess에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
-1. Azure 클래식 포털의 **RunMyProcess** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
-   
-   ![Single Sign-on 구성](./media/active-directory-saas-runmyprocess-tutorial/IC789617.png "Configure Single Sign-On")
-2. **RunMyProcess에 대한 사용자 로그온 방법** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
-   
-   ![Single Sign-On 구성](./media/active-directory-saas-runmyprocess-tutorial/IC789622.png "Configure Single Sign-On")
-3. **앱 URL 구성** 페이지의 **RunMyProcess Sign-on URL** 텍스트 상자에 다음 패턴 “*http://company.runmyprocess.com*”을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
-   
-   ![앱 URL 구성](./media/active-directory-saas-runmyprocess-tutorial/IC789623.png "Configure App URL")
-4. **RunMyProcess에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
-   
-   ![Single Sign-on 구성](./media/active-directory-saas-runmyprocess-tutorial/IC789624.png "Configure Single Sign-On")
-5. 다른 웹 브라우저 창에서 RunMyProcess 회사 사이트에 관리자로 로그인합니다.
-6. **계정 \> 구성**으로 이동합니다.
-   
-   ![계정](./media/active-directory-saas-runmyprocess-tutorial/IC789625.png "Account")
-7. **인증 방법** 탭을 클릭합니다.
-8. **인증 방법** 섹션에서 다음 단계를 수행합니다.
-   
-   ![SSO](./media/active-directory-saas-runmyprocess-tutorial/IC789626.png "SSO")
-   
-   1. **메서드**로 **Samlv2를 사용한 SSO**를 선택합니다.
-   2. Azure 클래식 포털의 **RunMyProcess에서 Single Sign-On 구성** 대화 상자 페이지에서 **SAML SSO URL** 값을 복사한 다음 **SSO 리디렉션** 텍스트 상자에 붙여넣습니다.
-   3. Azure 클래식 포털의 **RunMyProcess에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **로그아웃 리디렉션** 텍스트 상자에 붙여넣습니다.
-   4. **이름 ID 형식** 텍스트 상자에 **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**를 입력합니다.
-   5. 다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.  
-      
-      > [!TIP]
-      > 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)
-      > 
-      > 
-   6. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **인증서** 텍스트 상자에 붙여넣습니다.
-   7. **저장**을 클릭합니다.
-9. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
-   
-   ![Single Sign-on 구성](./media/active-directory-saas-runmyprocess-tutorial/IC789627.png "Configure Single Sign-On")
-   
-   ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 RunMyProcess 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 RunMyProcess의 관련 사용자 간에 연결이 형성되어야 합니다.
 
-Azure AD 사용자가 RunMyProcess에 로그인할 수 있도록 하려면 RunMyProcess로 프로비전되어야 합니다.  
-RunMyProcess의 경우 프로비전은 수동 작업입니다.
+이 연결 관계는 Azure AD의 **사용자 이름** 값을 RunMyProcess의 **Username** 값으로 할당하여 설정합니다.
 
-### <a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
-1. **RunMyProcess** 회사 사이트에 관리자 권한으로 로그인합니다.
-2. **계정 \> 사용자**로 이동한 다음 **새로운 사용자**를 클릭합니다.
+RunMyProcess에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+
+1. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+3. **[RunMyProcess 테스트 사용자 만들기](#creating-a-runmyprocess-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 RunMyProcess에 만듭니다.
+4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
+이 섹션에서는 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 RunMyProcess 응용 프로그램에서 Single Sign-On을 구성합니다.
+
+**RunMyProcess에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
+
+1. 클래식 포털의 **RunMyProcess** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-   ![새 사용자](./media/active-directory-saas-runmyprocess-tutorial/IC789631.png "New User")
+    ![Single Sign-On 구성][6] 
+2. **RunMyProcess에 대한 사용자 로그온 방법** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+   
+    ![Single Sign-on 구성](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_03.png) 
+3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
+   
+    ![Single Sign-On 구성](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_04.png) 
+   
+    a. **로그온 URL** 텍스트 상자에서 `https://live.runmyprocess.com/live/<tenant id>` 패턴을 사용하여 URL을 입력합니다.
+   
+    b. click **다음**
+   
+   > [!NOTE]
+   > 실제 로그온 URL로 해당 값을 업데이트해야 합니다. 이 값을 가져오려면 <mailto:support@runmyprocess.com>을 통해 RunMyProcess 지원 팀에 문의합니다.
+   > 
+   > 
+4. **RunMyProcess에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 컴퓨터에 파일을 저장합니다.
+   
+    ![Single Sign-On 구성](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_05.png)
+5. 다른 웹 브라우저 창에서 RunMyProcess 테넌트에 관리자로 로그인합니다.
+6. 왼쪽 탐색 패널에서 **계정**을 클릭하고 **구성**을 선택합니다.
+   
+    ![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_001.png)
+7. **인증 방법** 섹션으로 이동하고 아래 단계를 수행합니다.
+   
+    ![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_002.png)
+   
+    a. **메서드**로 **Samlv2를 사용한 SSO**를 선택합니다.
+   
+    b. **SSOL 리디렉션** 텍스트 상자에 Azure AD 응용 프로그램 구성 마법사의 **SAML SSO URL** 값을 저장합니다.
+   
+    c. **로그아웃 리디렉션** 텍스트 상자에 Azure AD 응용 프로그램 구성 마법사의 **Single Sign-Out 서비스 URL** 값을 입력합니다.
+   
+    d. **이름 ID 형식** 텍스트 상자에 Azure AD 응용 프로그램 구성 마법사의 **이름 식별자 형식** 값을 저장합니다.
+   
+    e. 다운로드한 인증서 파일의 내용을 복사한 다음 **인증서** 텍스트 상자에 붙여 넣습니다. 
+   
+    f. **저장** 아이콘을 클릭합니다.
+8. 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
+   
+    ![Azure AD Single Sign-On][10]
+9. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.  
+   
+    ![Azure AD Single Sign-On][11]
+
+### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+이 섹션의 목적은 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
+
+![Azure AD 사용자 만들기][20]
+
+**Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
+
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+   
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_01.png) 
+2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다.
+   
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_02.png) 
+4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다.
+   
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_03.png) 
+5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서  ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_04.png) 단계를 수행합니다. 
+   
+    a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
+   
+    b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
+   
+    c. **다음**을 클릭합니다.
+6. **사용자 프로필** 대화 상자 페이지에서 ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_05.png) 단계를 수행합니다. 
+   
+   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+   
+   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
+   
+   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+   
+   d. **역할** 목록에서 **사용자**를 선택합니다.
+   
+   e. **다음**을 클릭합니다.
+7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
+   
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_06.png) 
+8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.
+   
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_07.png) 
+   
+    a. **새 암호**값을 적어둡니다.
+   
+    b. **완료**를 클릭합니다.   
+
+### <a name="creating-a-runmyprocess-test-user"></a>RunMyProcess 테스트 사용자 만들기
+Azure AD 사용자가 RunMyProcess에 로그인할 수 있도록 하려면 RunMyProcess로 프로비전되어야 합니다. RunMyProcess의 경우 프로비전은 수동 작업입니다.
+
+#### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
+1. RunMyProcess 회사 사이트에 관리자 권한으로 로그인합니다.
+2. 왼쪽 탐색 패널에서 **계정**을 클릭하고 **사용자**를 선택한 다음 **새 사용자**를 클릭합니다.
+   
+   ![새 사용자](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_003.png "New User")
 3. **사용자 설정** 섹션에서 다음 단계를 수행합니다.
    
-   ![프로필](./media/active-directory-saas-runmyprocess-tutorial/IC789632.png "Profile")
+   ![프로필](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_004.png "Profile")
    
-   1. 관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **이름** 및 **전자 메일**을 입력합니다.
-   2. **IDE 언어**, **언어** 및 **프로필**을 선택합니다.
-   3. **나에게 계정 만들기 메일 보내기**를 선택합니다.
-   4. **Save**를 클릭합니다.
-
-> [!NOTE]
-> RunMyProcess에서 제공하는 다른 RunMyProcess 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정를 프로비전합니다.
-> 
-> 
-
-## <a name="assigning-users"></a>사용자 할당
-구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
-
-### <a name="to-assign-users-to-runmyprocess,-perform-the-following-steps:"></a>RunMyProcess에 사용자를 할당하려면 다음 단계를 수행합니다.
-1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
-2. **RunMyProcess** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+   a. 관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **이름** 및 **전자 메일**을 입력합니다.
    
-   ![사용자 할당](./media/active-directory-saas-runmyprocess-tutorial/IC789633.png "Assign Users")
-3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
+   b. **IDE 언어**, **언어** 및 **프로필**을 선택합니다.
    
-   ![예](./media/active-directory-saas-runmyprocess-tutorial/IC767830.png "Yes")
+   c. **나에게 계정 만들기 메일 보내기**를 선택합니다.
+   
+   d. **Save**를 클릭합니다.
+   
+   > [!NOTE]
+   > RunMyProcess에서 제공하는 다른 RunMyProcess 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정을 프로비전합니다.
+   > 
+   > 
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+이 섹션은 Britta Simon에게 RunMyProcess에 대한 액세스 권한을 부여하여 Azure Single Sign-On을 사용할 수 있도록 하기 위한 것입니다.
 
-<!--HONumber=Oct16_HO2-->
+![사용자 할당][200] 
+
+**Britta Simon을 RunMyProcess에 할당하려면 다음 단계를 수행합니다.**
+
+1. 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
+   
+    ![사용자 할당][201] 
+2. 응용 프로그램 목록에서 **RunMyProcess**를 선택합니다.
+   
+    ![Single Sign-on 구성](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_50.png) 
+3. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
+   
+    ![사용자 할당][203]
+4. 사용자 목록에서 **Britta Simon**을 선택합니다.
+5. 아래쪽 도구 모음에서 **할당**을 클릭합니다.
+   
+    ![사용자 할당][205]
+
+### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
+이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.
+
+액세스 패널에서 RunMyProcess 타일을 클릭하면 RunMyProcess 응용 프로그램에 자동으로 로그온됩니다.
+
+## <a name="additional-resources"></a>추가 리소스
+* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_04.png
+
+[6]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_05.png
+[10]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_06.png
+[11]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_07.png
+[20]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_201.png
+[203]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_203.png
+[204]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_204.png
+[205]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_205.png
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

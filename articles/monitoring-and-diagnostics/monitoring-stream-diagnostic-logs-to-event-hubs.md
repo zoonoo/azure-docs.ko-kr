@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 12/09/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4ff5fb57cba6dea1bee9d2e2d25f6fcf8354ce79
+ms.sourcegitcommit: c9063fcc59d83cb2a6a159cf3a69234417138a5c
+ms.openlocfilehash: 5cadc3ea77ba13d40876c7bc11d2aa1d6abe6b87
 
 
 ---
@@ -54,6 +54,8 @@ CROSS APPLY GetArrayElements(e.records) AS records
 > 
 > 
 
+설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 서비스 버스 또는 이벤트 허브 네임스페이스는 로그를 내보내는 리소스와 동일한 구독을 가지고 있지 않아도 됩니다.
+
 ### <a name="via-powershell-cmdlets"></a>PowerShell Cmdlet을 통해
 [Azure PowerShell Cmdlet](insights-powershell-samples.md)을 통해 스트리밍을 사용하도록 설정하려면 다음 매개 변수와 함께 `Set-AzureRmDiagnosticSetting` cmdlet을 사용하면 됩니다.
 
@@ -77,7 +79,7 @@ Azure 포털을 통해 스트리밍을 사용하도록 설정하려면 리소스
 
 ![포털에서 이벤트 허브로 내보내기](./media/monitoring-stream-diagnostic-logs-to-event-hubs/portal-export.png)
 
-구성하려면 기존 서비스 버스 네임스페이스를 선택합니다. 선택한 네임스페이스는 이벤트 허브가 생성(진단 로그를 처음으로 스트리밍하는 경우)되거나 스트림(해당 로그 범주를 이 네임스페이스로 스트리밍하는 리소스가 이미 있는 경우)되는 위치이며 정책은 스트리밍 메커니즘이 포함하는 사용 권한을 정의합니다. 현재, 이벤트 허브로 스트리밍하려면 관리, 읽기 및 보내기 사용 권한이 필요합니다. 클래식 포털에서 서비스 버스 네임스페이스에 대한 "구성" 탭 아래에서 서비스 버스 네임스페이스 공유 액세스 정책을 만들거나 수정할 수 있습니다. 이러한 진단 설정 중 하나를 업데이트하려면 클라이언트에 서비스 버스 권한 부여 규칙에 대한 ListKey 권한이 있어야 합니다.
+구성하려면 기존 서비스 버스 네임스페이스를 선택합니다. 선택한 네임스페이스는 이벤트 허브가 생성(진단 로그를 처음으로 스트리밍하는 경우)되거나 스트림(해당 로그 범주를 이 네임스페이스로 스트리밍하는 리소스가 이미 있는 경우)되는 위치이며 정책은 스트리밍 메커니즘이 포함하는 사용 권한을 정의합니다. 현재, 이벤트 허브로 스트리밍하려면 관리, 보내기 및 수신 권한이 필요합니다. 클래식 포털에서 서비스 버스 네임스페이스에 대한 "구성" 탭 아래에서 서비스 버스 네임스페이스 공유 액세스 정책을 만들거나 수정할 수 있습니다. 이러한 진단 설정 중 하나를 업데이트하려면 클라이언트에 서비스 버스 권한 부여 규칙에 대한 ListKey 권한이 있어야 합니다.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>이벤트 허브에서 로그 데이터를 사용하려면 어떻게 하나요?
 다음은 이벤트 허브의 샘플 출력 데이터입니다.
@@ -155,6 +157,9 @@ Azure 포털을 통해 스트리밍을 사용하도록 설정하려면 리소스
 
 이벤트 허브로 스트리밍을 지원하는 모든 리소스 공급자의 목록을 [여기](monitoring-overview-of-diagnostic-logs.md)에서 볼 수 있습니다.
 
+## <a name="stream-data-from-compute-resources"></a>계산 리소스의 스트림 데이터
+Windows Azure 진단 에이전트를 사용하여 계산 리소스에서 진단 로그를 스트리밍할 수도 있습니다. 설정하는 방법은 [이 문서를 참조](../event-hubs/event-hubs-streaming-azure-diags-data.md)하세요.
+
 ## <a name="next-steps"></a>다음 단계
 * [Azure 진단 로그에 대해 자세히 알아보기](monitoring-overview-of-diagnostic-logs.md)
 * [이벤트 허브 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
@@ -162,6 +167,6 @@ Azure 포털을 통해 스트리밍을 사용하도록 설정하려면 리소스
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

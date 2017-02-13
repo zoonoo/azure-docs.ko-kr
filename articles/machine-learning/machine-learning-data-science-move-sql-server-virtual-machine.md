@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: aa794e073bd6c4965a8f2918eab7a4669fc39171
-ms.openlocfilehash: 4b7246f4780b1485985e54b4eb2ae1f3d022a3f1
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 7ce5ba3c1a844104b4c14c73e05843becd69eb5f
 
 
 ---
@@ -171,7 +171,7 @@ SSIS는 두 가지 스튜디오 환경에서 사용할 수 있습니다. 자세�
 아래는 각 방법에 대한 설명입니다.
 
 ### <a name="deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard"></a>Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사
-**Microsoft Azure VM에 SQL Server 데이터베이스 배포 마법사** 는 온-프레미스 SQL Server 인스턴스에서 Azure VM의 SQL Server로 데이터를 이동하는 간단한 권장 방법입니다. 자세한 단계 및 다른 대안에 대한 설명은 [Azure VM의 SQL Server로 데이터베이스 마이그레이션](../virtual-machines/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+**Microsoft Azure VM에 SQL Server 데이터베이스 배포 마법사** 는 온-프레미스 SQL Server 인스턴스에서 Azure VM의 SQL Server로 데이터를 이동하는 간단한 권장 방법입니다. 자세한 단계 및 다른 대안에 대한 설명은 [Azure VM의 SQL Server로 데이터베이스 마이그레이션](../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md)을 참조하세요.
 
 ### <a name="a-nameexport-flat-fileaexport-to-flat-file"></a><a name="export-flat-file"></a>플랫 파일로 내보내기
 [데이터의 대량 가져오기 및 내보내기(SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) 토픽에 설명된 대로 온-프레미스 SQL Server에서 데이터를 대량으로 내보내는 데 다양한 방법을 사용할 수 있습니다. 이 문서에서는 그 방법 중 하나로 BCP(대량 복사 프로그램)에 대해 설명합니다. 데이터를 플랫 파일로 내보낸 후에는 대량 삽입을 사용하여 다른 SQL Server로 데이터를 가져올 수 있습니다.
@@ -207,15 +207,15 @@ SQL Server는 다음을 지원합니다.
 ![SQL Server 가져오기 도구][1]
 
 ## <a name="resources"></a>리소스
-[Azure VM에서 SQL Server로 데이터베이스 마이그레이션](../virtual-machines/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Azure VM에서 SQL Server로 데이터베이스 마이그레이션](../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md)
 
-[Azure Virtual Machines의 SQL Server 개요](../virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Azure Virtual Machines의 SQL Server 개요](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

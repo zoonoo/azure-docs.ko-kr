@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 8cdbc6e5fccfce56b6c33720e3d442821d26fbd4
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 4e1c3e8fa45f4ef4ee7df7e6bc9ea4aa4fe1b1aa
 
 
 ---
@@ -53,7 +53,7 @@ PHP 개발자로서 Azure에 즐겨 찾는 PHP 프레임워크를 가져올 수 
 * Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 
 > [!NOTE]
-> 작업에서 웹앱을 확인합니다. [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751) 에서는 신용 카드와 약정 없이 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
+> 작업에서 웹앱을 확인합니다. [앱 서비스 체험](https://azure.microsoft.com/try/app-service/) 에서는 신용 카드와 약정 없이 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
 > 
 > 
 
@@ -254,6 +254,6 @@ Azure에 웹앱을 성공적으로 배포했지만 Azure 웹앱으로 이동한 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

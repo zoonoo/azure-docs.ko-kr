@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: 6e8239199edb40813081094b4efa680346685b42
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 8b924f29594a9f0c8c161661b216a12ff65b42a9
 
 
 ---
@@ -98,6 +98,9 @@ HDInsight는 다양한 메서드를 사용하여 Pig Latin 작업을 실행할 �
 | [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux 또는or Windows |Windows |
 | [원격 데스크톱](hdinsight-hadoop-use-pig-remote-desktop.md) |✔ |✔ |Windows |Windows |
 
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 ## <a name="running-pig-jobs-on-azure-hdinsight-using-on-premises-sql-server-integration-services"></a>온-프레미스 SQL Server Integration Services를 사용하여 Azure HDInsight에서 Pig 작업 실행
 SSIS(SQL Server Integration Services)를 사용하여 Pig 작업을 실행할 수도 있습니다. Azure Feature Pack for SSIS는 HDInsight에서 Pig 작업을 하는 다음 구성 요소를 제공합니다.
 
@@ -115,8 +118,6 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 * [HDInsight에서 Oozie 사용](hdinsight-use-oozie.md)
 * [HDInsight에서 MapReduce 작업 사용][hdinsight-use-mapreduce]
 
-[check]: ./media/hdinsight-use-pig/hdi.checkmark.png
-
 [apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
@@ -124,9 +125,9 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 [connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
 [ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
-[hdinsight-storage]: hdinsight-use-blob-storage.md
+
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -139,13 +140,12 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
-[image-hdi-log4j-sample]: ./media/hdinsight-use-pig/HDI.wholesamplefile.png
+
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
-[image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
-[image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

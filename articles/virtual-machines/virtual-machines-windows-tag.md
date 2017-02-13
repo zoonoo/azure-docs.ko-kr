@@ -1,13 +1,13 @@
 ---
-title: VM에 태그를 지정하는 방법 | Microsoft Docs
-description: 리소스 관리자 배포 모델을 사용하여 Azure에서 만든 Windows 가상 컴퓨터에 태그를 지정하는 방법을 알아봅니다.
+title: "VM에 태그를 지정하는 방법 | Microsoft Docs"
+description: "리소스 관리자 배포 모델을 사용하여 Azure에서 만든 Windows 가상 컴퓨터에 태그를 지정하는 방법을 알아봅니다."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: mmccrory
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 56d17f45-e4a7-4d84-8022-b40334ae49d2
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 97efb86f31f75d2214e4169d88b792ab189354ed
+
 
 ---
-# Azure에서 Windows 가상 컴퓨터에 태그를 지정하는 방법
-이 문서에서는 리소스 관리자 배포 모델을 통해 Azure의 Windows 가상 컴퓨터에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 15개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 리소스 관리자 배포 모델을 통해 만든 리소스에 대해서만 지원됩니다. Linux 가상 컴퓨터에 태그를 지정하려는 경우 [Azure에서 Linux 가상 컴퓨터에 태그를 지정하는 방법](virtual-machines-linux-tag.md)을 참조하세요.
+# <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Azure에서 Windows 가상 컴퓨터에 태그를 지정하는 방법
+이 문서에서는 리소스 관리자 배포 모델을 통해 Azure의 Windows 가상 컴퓨터에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 15개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 리소스 관리자 배포 모델을 통해 만든 리소스에 대해서만 지원됩니다. Linux 가상 컴퓨터에 태그를 지정하려는 경우 [Azure에서 Linux 가상 컴퓨터에 태그를 지정하는 방법](virtual-machines-linux-tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
 [!INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
-## PowerShell을 사용한 태그 지정
+## <a name="tagging-with-powershell"></a>PowerShell을 사용한 태그 지정
 PowerShell을 통해 태그를 만들고 추가 및 삭제하려면 먼저 [Azure Resource Manager를 사용하여 PowerShell 환경][Azure Resource Manager를 사용하여 PowerShell 환경]을 설정해야 합니다. 설정을 완료한 후 계산, 네트워크 및 저장소 리소스를 만들 때 또는 PowerShell을 통해 리소스를 만든 후에 태그를 배치할 수 있습니다. 이 문서에서는 가상 컴퓨터에 배치된 태그 보기/편집을 중점적으로 살펴봅니다.
 
 먼저 `Get-AzureRmVM` cmdlet을 통해 가상 컴퓨터로 이동합니다.
@@ -59,7 +63,7 @@ PowerShell을 통해 태그를 추가하려는 경우 `Set-AzureRmResource` 명�
         Value        Production
         Name        Environment
 
-세 번째 명령은 *$tags* 변수에 태그를 더 추가합니다. **+=**을 사용하여 *$tags* 목록에 새로운 키/값 쌍을 추가합니다.
+세 번째 명령은 *$tags* 변수에 태그를 더 추가합니다.  **+=** 을 사용하여 *$tags* 목록에 새로운 키/값 쌍을 추가합니다.
 
         PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 
@@ -84,19 +88,23 @@ PowerShell을 통해 태그를 추가하려는 경우 `Set-AzureRmResource` 명�
         Value        MyLocation
         Name        Location
 
-PowerShell을 통해 태그를 지정하는 방법에 대한 자세한 내용은 [Azure 리소스 Cmdlet][Azure 리소스 Cmdlet]를 참조하세요.
+PowerShell을 통해 태그를 지정하는 방법에 대한 자세한 내용은 [Azure 리소스 Cmdlet][Azure 리소스 Cmdlet]을 참조하세요.
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * Azure 리소스에 태그를 지정하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요][Azure Resource Manager 개요] 및 [태그를 사용하여 Azure 리소스 구성][태그를 사용하여 Azure 리소스 구성]을 참조하세요.
-* 태그로 Azure 리소스의 사용을 관리하는 방법은 [Azure 청구서 이해][Azure 청구서 이해] 및 [Microsoft Azure 리소스 소비에 대한 정보 얻기][Microsoft Azure 리소스 소비에 대한 정보 얻기]를 참조하세요.
+* 태그로 Azure 리소스의 사용을 관리하는 방법은 [Azure 청구서 이해][Azure 청구서 이해] 및 [Microsoft Azure 리소스 소비에 대한 정보 얻기][Microsoft Azure 리소스 소비에 대한 통찰력 얻기]를 참조하세요.
 
 [Azure Resource Manager를 사용하여 PowerShell 환경]: ../powershell-azure-resource-manager.md
 [Azure 리소스 Cmdlet]: https://msdn.microsoft.com/library/azure/dn757692.aspx
-[Azure Resource Manager 개요]: ../resource-group-overview.md
+[Azure Resource Manager 개요]: ../azure-resource-manager/resource-group-overview.md
 [태그를 사용하여 Azure 리소스 구성]: ../resource-group-using-tags.md
-[Azure 청구서 이해]: ../billing-understand-your-bill.md
-[Microsoft Azure 리소스 소비에 대한 정보 얻기]: ../billing-usage-rate-card-overview.md
+[Azure 청구서 이해]: ../billing/billing-understand-your-bill.md
+[Microsoft Azure 리소스 소비에 대한 통찰력 얻기]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

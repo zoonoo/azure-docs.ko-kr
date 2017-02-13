@@ -11,14 +11,14 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: ce30d47075636d3b64215d50b81acc09e7ed72f1
-ms.openlocfilehash: d74be42963206c82218bc82ea1bf12e5c0cdb0f3
+ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
+ms.openlocfilehash: 412c3f9c34e399ecdffd939b5b72e687a847b8e1
 
 
 ---
@@ -31,9 +31,9 @@ SQL DB 탄력적 풀은 매우 다양하고 예측할 수 없는 사용 패턴�
 >
 
 ## <a name="how-it-works"></a>작동 방법
-일반적인 SaaS 응용 프로그램 패턴은 단일 테넌트 데이터베이스 모델이므로 각 고객에게 자체 데이터베이스가 제공됩니다. 각 고객(데이터베이스)에는 메모리, IO 및 CPU에 대한 예측할 수 없는 리소스 요구 사항이 있습니다. 이러한 요구의 최대치와 최저치를 사용하여 리소스를 효율적이면서 효과적으로 할당하는 방법은 무엇입니까? 일반적으로 두 가지 옵션, 즉 (1) 최대 사용량에 따른 리소스 오버프로비전과 과다 지불 또는 (2) 최대 사용 기간 동안 성능 및 고객 만족은 저하되지만 비용을 절감하는 언더프로비전이 있었습니다. 탄력적 풀은 데이터베이스가 필요한 성능 리소스를 필요할 때 얻도록 하여 이 문제를 해결합니다. 예측 가능한 예산 내에서 간단한 리소스 할당 메커니즘을 제공합니다. 탄력적 풀을 사용하여 SaaS 응용 프로그램에 대한 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL 데이터베이스와 다중 테넌트 SaaS 응용 프로그램에 대한 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
+일반적인 SaaS 응용 프로그램 패턴은 단일 테넌트 데이터베이스 모델이므로 각 고객에게 자체 데이터베이스가 제공됩니다. 각 고객(데이터베이스)에는 메모리, IO 및 CPU에 대한 예측할 수 없는 리소스 요구 사항이 있습니다. 이러한 요구의 최대치와 최저치를 사용하여 리소스를 효율적이면서 효과적으로 할당하는 방법은 무엇입니까? 일반적으로 두 가지 옵션, 즉 (1) 최대 사용량에 따른 리소스 오버프로비전과 과다 지불 또는 (2) 최대 사용 기간 동안 성능 및 고객 만족은 저하되지만 비용을 절감하는 언더프로비전이 있었습니다. 탄력적 풀은 데이터베이스가 필요한 성능 리소스를 필요할 때 얻도록 하여 이 문제를 해결합니다. 예측 가능한 예산 내에서 간단한 리소스 할당 메커니즘을 제공합니다. 탄력적 풀을 사용한 SaaS 응용 프로그램의 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
 SQL Database에서 리소스 수요를 처리하는 데이터베이스의 기능에 대한 상대 측정값은 단일 데이터베이스에 대한 DTU(데이터베이스 트랜잭션 단위) 및 탄력적 풀의 데이터베이스에 대한 eDTU(탄력적 DTU)로 표시됩니다. DTU 및 eDTU에 대한 자세한 내용은 [SQL 데이터베이스 소개](sql-database-technical-overview.md)를 참조하세요.
@@ -57,7 +57,7 @@ SQL Database에서 리소스 수요를 처리하는 데이터베이스의 기능
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
-탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다.  SQL 데이터베이스 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이 0이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.
+탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다.  SQL 데이터베이스 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이&0;이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.
 
 ## <a name="elastic-pool-properties"></a>탄력적 풀 속성
 
@@ -90,10 +90,10 @@ SQL Database에서 리소스 수요를 처리하는 데이터베이스의 기능
 풀링된 데이터베이스는 일반적으로 단일 데이터베이스에서 사용할 수 있는 동일한 [비즈니스 연속성 기능](sql-database-business-continuity.md)을 지원합니다.
 
 ### <a name="point-in-time-restore"></a>특정 시점 복원
-특정 시점 복원은 자동 데이터베이스 백업을 사용하여 풀에 있는 데이터베이스를 특정 시점으로 복원합니다.  [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore)
+특정 시점 복원은 자동 데이터베이스 백업을 사용하여 풀에 있는 데이터베이스를 특정 시점으로 복원합니다. [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ### <a name="geo-restore"></a>지역 복원
-지역 복원은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다.  [Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치](sql-database-disaster-recovery.md)
+지역 복원은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. [Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치](sql-database-disaster-recovery.md)
 
 ### <a name="active-geo-replication"></a>활성 지역 복제
 지역 복원에서 제공할 수 있는 것보다 까다로운 복구 요구 사항이 있는 응용 프로그램에 대해서는 [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) 또는 [Transact-SQL](sql-database-geo-replication-transact-sql.md)을 사용하여 활성 지역 복제를 구성합니다.
@@ -106,6 +106,6 @@ SQL Database에서 리소스 수요를 처리하는 데이터베이스의 기능
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

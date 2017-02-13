@@ -1,12 +1,12 @@
 ---
-title: '자습서: Bynder와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 Bynder 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Bynder와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 Bynder 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4fb0ab26-b3b9-420a-8072-a0be80ea021e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 01ce02974d18d56421f161126e3541ac7d4997fa
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-bynder"></a>자습서: Bynder와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-bynder"></a>자습서: Bynder와 Azure Active Directory 통합
 이 자습서에서는 Bynder와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 Bynder를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -113,7 +117,7 @@ Bynder에서 Microsoft Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Single Sign-On 구성](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_10.png)
 
-    a. **로그온 URL** 텍스트 상자에서  `https://<company name>.getbynder.com/login/` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 다음 패턴  `https://<company name>.getbynder.com/login/`을 사용하여 URL을 입력합니다.
 
     b. 페이지 맨 아래에 있는 **다음**
 
@@ -244,6 +248,6 @@ Bynder에서 Microsoft Azure AD Single Sign-On을 구성하고 테스트하려�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

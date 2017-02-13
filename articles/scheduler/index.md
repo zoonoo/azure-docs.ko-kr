@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "스케줄러를 사용하여 응용 프로그램 작업 반복 및 일상적인 유지 관리와 같은 작업을 예약하고 호출하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 7ab6ecc4f1193245e9778d8a92bb2a5591edfff5
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 008c96351a252737178c9e45e92de3f0106a2a2b
 
 ---
 # <a name="scheduler-documentation"></a>Scheduler 설명서
 
-Azure Scheduler를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다.  그런 다음 해당 작업을 예약하고 자동으로 실행합니다.  그러면 Scheduler에서 작업 실행 결과 기록을 볼 수 있도록 유지 관리합니다.
+스케줄러를 사용하여 클라우드에서 반복 작업을 예약하고 자동으로 호출하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 응용 프로그램 반복 작업 및 일상적인 유지 관리와 같은 작업을 예약하고 모니터링하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Azure Scheduler를 사용하면 클라우드에서 실행할 작업을 선언적
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=scheduler">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=scheduler">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -68,62 +69,38 @@ Azure Scheduler를 사용하면 클라우드에서 실행할 작업을 선언적
 
 ---
 
-## <a name="reference"></a>참조
-
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure Scheduler PowerShell Cmdlet</p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Scheduler 관리되는 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/scheduler/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p>Scheduler REST API</p>
+                        <p><a href="/rest/api/scheduler">REST API 참조</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scheduler 설명서 다운로드 </div>
-    </a>
-</div>
+</ul>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO3-->
 
 

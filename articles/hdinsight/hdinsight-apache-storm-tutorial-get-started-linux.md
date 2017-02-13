@@ -1,5 +1,5 @@
 ---
-title: "Apache Storm 자습서: HDInsight에서 Linux 기반 Storm 시작 | Microsoft Docs"
+title: "Azure HDInsight에서 Apache Storm 시작 | Microsoft Docs"
 description: "Linux 기반 HDInsight에서 Apache Storm 및 Storm Starter 샘플을 사용한 빅 데이터 분석을 시작합니다. Storm을 사용하여 실시간으로 데이터를 처리하는 방법을 알아봅니다."
 keywords: "apache storm, apache storm 자습서, 빅 데이터 분석, storm 시작"
 services: hdinsight
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 856043148b3fc28594850ae27bedd57d48292582
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9b38cd0aa542c0fd73b73edefce230e5a463e608
 
 
 ---
@@ -125,7 +125,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 1. https://CLUSTERNAME.azurehdinsight.net/stormui에서 웹 브라우저를 엽니다. 여기서 **CLUSTERNAME**은 클러스터의 이름입니다. Storm UI가 열립니다.
     
     > [!NOTE]
-    > 사용자 이름 및 암호를 제공하도록 요청을 받으면  클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및암호를 입력합니다.
+    > 사용자 이름 및 암호를 제공하도록 요청을 받으면 클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및 암호를 입력합니다.
 
 2. **토폴로지 요약**의 **이름** 열에서 **wordcount** 항목을 선택합니다. 그러면 토폴로지에 대한 자세한 정보가 표시됩니다.
     
@@ -216,6 +216,6 @@ Java 기반 토폴로지를 개발하는 데 익숙하고 기존 토폴로지를
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

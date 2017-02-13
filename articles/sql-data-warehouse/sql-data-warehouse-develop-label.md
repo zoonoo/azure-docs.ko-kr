@@ -1,22 +1,26 @@
 ---
-title: SQL 데이터 웨어하우스 | Microsoft Docs
-description: 솔루션 개발을 위해 Azure SQL 데이터 웨어하우스에서 레이블을 사용하여 쿼리를 계측하기 위한 팁.
+title: "SQL Data Warehouse에서 레이블을 사용하여 쿼리 계측 | Microsoft Docs"
+description: "솔루션 개발을 위해 Azure SQL 데이터 웨어하우스에서 레이블을 사용하여 쿼리를 계측하기 위한 팁."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 44988de8-04c1-4fed-92be-e1935661a4e8
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5c72cd2c80d9fcee3d9340c23a629451c54c9156
+
 
 ---
-# SQL 데이터 웨어하우스에서 레이블을 사용하여 쿼리 계측
+# <a name="use-labels-to-instrument-queries-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스에서 레이블을 사용하여 쿼리 계측
 SQL 데이터 웨어하우스는 쿼리 레이블이라는 개념을 지원합니다. 좀더 깊이 들어가기 전에 한 예를 살펴보겠습니다.
 
 ```sql
@@ -44,7 +48,7 @@ WHERE   r.[label] = 'My Query Label'
 > 
 > 
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 더 많은 개발 팁은 [개발 개요][개발 개요]를 참조하세요.
 
 <!--Image references-->
@@ -56,4 +60,8 @@ WHERE   r.[label] = 'My Query Label'
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

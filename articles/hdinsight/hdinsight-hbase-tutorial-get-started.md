@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/21/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: da4d723e343b47187fd6fef3b7a6eab649ef8a41
+ms.sourcegitcommit: 501c44ff8db2b825b58d98b9b89219ec9fff8b7c
+ms.openlocfilehash: 6384d7b0f4851ce4d1612857203e7c3c1381d6fc
 
 
 ---
@@ -139,7 +139,7 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
     4761    Caleb Alexander    670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443    Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-텍스트 파일을 만들고 원하는 경우 고유한 저장소 계정에 파일을 업로드할 수 있습니다. 지침은 [HDInsight에서 Hadoop 작업에 대한 데이터 업로드][hdinsight-upload-data]를 참조하세요.
+텍스트 파일을 만들고 원하는 경우 고유한 저장소 계정에 파일을 업로드할 수 있습니다. 지침에 대해서는 [HDInsight에서 Hadoop 작업용 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 
 > [!NOTE]
 > 이 절차는 마지막 절차에서 만든 연락처 HBase 테이블을 사용합니다.
@@ -292,11 +292,11 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 
 자세한 내용은 다음을 참조하세요.
 
-* [HDInsight HBase 개요][hdinsight-hbase-overview].
+* [HDInsight HBase 개요][hdinsight-hbase-overview]
   HBase는 구조화되지 않은/반구조화된 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
-* [Azure Virtual Network에 HBase 클러스터 만들기][hdinsight-hbase-provision-vnet].
+* [Azure Virtual Network에 HBase 클러스터 만들기][hdinsight-hbase-provision-vnet]
   가상 네트워크 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 가상 네트워크에 HBase 클러스터를 배포할 수 있습니다.
-* [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md). 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다.
+* [HDInsight에서 HBase 복제 구성](hdinsight-hbase-replication.md). 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다.
 * [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment]
   HDInsight의 Hadoop 클러스터에서 HBase를 사용하여 빅 데이터에 대한 실시간 [데이터 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)을 수행하는 방법을 알아봅니다.
 
@@ -329,6 +329,6 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

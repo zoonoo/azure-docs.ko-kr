@@ -1,12 +1,12 @@
 ---
-title: 특성 매핑 사용자 지정 | Microsoft Docs
-description: Azure Active Directory의 Saas 앱에 대한 어떤 특성 매핑이 있고 어떻게 비즈니스 요구 사항에 맞게 수정하는지를 알아봅니다.
+title: "특성 매핑 사용자 지정 | Microsoft Docs"
+description: "Azure Active Directory의 Saas 앱에 대한 어떤 특성 매핑이 있고 어떻게 비즈니스 요구 사항에 맞게 수정하는지를 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 549e0b8c-87ce-4c9b-b487-b7bf0155dc77
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markusvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f555547fb3e30b1a68387232de60395b615bfa19
+
 
 ---
 # <a name="customizing-attribute-mappings"></a>특성 매핑 사용자 지정
@@ -54,7 +58,8 @@ SaaS 응용 프로그램에서 올바르게 작동하기 위해 요구되는 특
 
 * **직접** – 대상 특성이 Azure AD에서 연결된 개체의 특성 값으로 채워집니다.
 * **상수** – 대상 특성이 지정된 특정 문자열로 채워집니다.
-* **식** - 대상 특성이 스크립트 방식의 식의 결과에 따라 채워집니다. 자세한 내용은 [Azure Active Directory의 특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)을 참조하세요.
+* **식** - 대상 특성이 스크립트 방식의 식의 결과에 따라 채워집니다. 
+  자세한 내용은 [Azure Active Directory의 특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)을 참조하세요.
 * **None** - 대상 특성이 수정되지 않고 남아있습니다. 그러나 대상 특성이 비어 있으면 지정된 기본 값으로 채워집니다.
 
 이 네 가지 기본 특성 맵 형식 외에도 사용자 지정 특성 매핑은 **기본** 값 할당의 개념을 지원합니다. 기본 값 할당은 Azure AD에나 대상 개체에 값이 없을 경우 대상 특성이 값으로 채워지는지 확인해줍니다.
@@ -78,6 +83,6 @@ Microsoft Azure AD는 동기화 프로세스의 매우 효과적인 구현을 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

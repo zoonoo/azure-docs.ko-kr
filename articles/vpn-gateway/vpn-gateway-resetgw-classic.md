@@ -1,13 +1,13 @@
 ---
-title: Azure VPN 게이트웨이 재설정 | Microsoft Docs
-description: 이 문서에서는 Azure VPN 게이트웨이를 재설정하는 과정을 안내합니다. 이 문서는 클래식 및 Resource Manager 배포 모델의 VPN Gateway에 모두 적용됩니다.
+title: "Azure VPN Gateway 재설정 | Microsoft Docs"
+description: "이 문서에서는 Azure VPN 게이트웨이를 재설정하는 과정을 안내합니다. 이 문서는 클래식 및 Resource Manager 배포 모델의 VPN Gateway에 모두 적용됩니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 97ee3599f2eded9800dbb441af7299547c502397
+
 
 ---
 # <a name="reset-an-azure-vpn-gateway-using-powershell"></a>PowerShell을 사용하여 Azure VPN 게이트웨이 재설정
@@ -63,6 +67,9 @@ Azure VPN Gateway를 재설정하기 위한 PowerShell cmdlet은 `Reset-AzureVNe
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [PowerShell 서비스 관리 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt617104.aspx) 및 [PowerShell Resource Manager cmdlet 참조](http://go.microsoft.com/fwlink/?LinkId=828732)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

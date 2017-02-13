@@ -1,5 +1,5 @@
 ---
-title: "C#로 작성된 Event Hubs 시작 | Microsoft Docs"
+title: "Azure Event Hubs를 사용하여 C#으로 이벤트 보내기, C#으로 수신 | Microsoft Docs"
 description: "이 자습서에 따라 EventProcessorHost를 통해 C#과 함께 Azure Event Hubs를 사용할 수 있습니다."
 services: event-hubs
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/07/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 015dbab81f807cd05d1fedb97f5fc62a012f2084
-ms.openlocfilehash: 54aaf68864fc83501b860ecc3daef1c0216c0140
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 8cafecb6930786be21d8a81645f664ff4a903e29
 
 
 ---
@@ -86,6 +86,6 @@ ms.openlocfilehash: 54aaf68864fc83501b860ecc3daef1c0216c0140
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

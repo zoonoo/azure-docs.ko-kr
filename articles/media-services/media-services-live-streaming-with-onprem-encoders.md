@@ -1,6 +1,6 @@
 ---
 title: "다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 통한 라이브 스트리밍 | Microsoft 문서"
-description: "이 항목에서는 온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널을 설정하는 방법에 대해 설명합니다. 적응 스트리밍 프로토콜인 HLS, 부드러운 스트림, MPEG DASH, HDS 중 하나를 사용하여 스트림을 하나 이상의 스트리밍 끝점을 통해 클라이언트 재생 응용 프로그램에 배달할 수 있습니다."
+description: "이 항목에서는 온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널을 설정하는 방법에 대해 설명합니다. 적응 스트리밍 프로토콜인 HLS, 부드러운 스트림, MPEG DASH 중 하나를 사용하여 스트림을 하나 이상의 스트리밍 끝점을 통해 클라이언트 재생 응용 프로그램에 배달할 수 있습니다."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: cenkdin;juliako
+ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: e41af7a8d2c5c0a0e8813aedb7aa86b58abcf873
+ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
+ms.openlocfilehash: d3a3204ee7690d501722031dea3f35bf55bfec00
 
 
 ---
@@ -253,6 +253,6 @@ KeyFrameInterval 및 FragmentsPerSegment 둘 다 명시적으로 설정하는 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

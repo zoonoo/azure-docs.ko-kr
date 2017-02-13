@@ -1,13 +1,13 @@
 ---
-title: 경로 문제 해결 - PowerShell | Microsoft Docs
-description: Azure PowerShell을 사용하여 Azure Resource Manager 배포 모델에서 경로 문제를 해결하는 방법에 알아봅니다.
+title: "경로 문제 해결 - PowerShell | Microsoft Docs"
+description: "Azure PowerShell을 사용하여 Azure Resource Manager 배포 모델에서 경로 문제를 해결하는 방법에 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: bf7dc5e7-9399-460e-8e0d-8992dbed98a6
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b568a9bea9679a9edeb708a5f7fcc6d68854574f
+
 
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Azure PowerShell을 사용하여 경로 문제 해결
@@ -53,7 +57,7 @@ VM에 적용되는 집계 경로를 확인하려면 다음 단계를 완료합�
 ### <a name="view-effective-routes-for-a-network-interface"></a>네트워크 인터페이스에 대한 유효 경로 보기
 네트워크 인터페이스에 적용되는 집계 경로를 확인하려면 다음 단계를 완료합니다.
 
-1. Azure PowerShell 세션을 시작하고 Azure에 로그인합니다. Azure PowerShell에 친숙하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 문서를 읽어보세요.
+1. Azure PowerShell 세션을 시작하고 Azure에 로그인합니다. Azure PowerShell에 친숙하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 문서를 읽어보세요.
 2. 다음 명령은 을 입력하여 리소스 그룹 *RG1*의 네트워크 인터페이스 *VM1-NIC1*에 적용되는 모든 경로를 반환합니다.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -132,6 +136,9 @@ VM에 적용되는 집계 경로를 확인하려면 다음 단계를 완료합�
   * 몇 초 동안 기다린 후 새로 설정된 피어링 링크가 있으면 다시 시도합니다. 경우에 따라 서브넷에 있는 모든 네트워크 인터페이스로 경로를 전파하는 데 시간이 더 오래 걸립니다.
   * NSG(네트워크 보안 그룹) 규칙이 트래픽 흐름에 영향을 미칠 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 문제 해결](virtual-network-nsg-troubleshoot-powershell.md) 문서를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

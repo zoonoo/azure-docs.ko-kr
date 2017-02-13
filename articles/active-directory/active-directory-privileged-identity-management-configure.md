@@ -3,7 +3,7 @@ title: Azure AD Privileged Identity Management | Microsoft Docs
 description: "Azure AD Privileged Identity Management가 무엇이고 클라우드 보안을 개선하기 위한 PIM 사용 방법을 설명하는 항목입니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
-ms.author: kgremban
+ms.date: 02/03/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 71eb6a2fecbd76c9715b9a556a7ffd31b5b4950e
 ms.openlocfilehash: 6b788b3120565895e908bdfc4c9267e715bc5bec
@@ -25,8 +25,6 @@ Azure Active Directory(AD) Privileged Identity Management를 사용하여 조직
 
 > [!NOTE]
 > Privileged Identity Management는 Azure Active Directory의 Premium P2 버전에만 사용할 수 있습니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
->
->
 
 조직에서는 악의적인 사용자가 해당 액세스 권한을 갖게 될 가능성을 줄일 수 있기 때문에 보안 정보 또는 리소스에 액세스하는 사용자 수를 최소화하려고 합니다. 하지만, 사용자는 여전히 Azure, Office 365 또는 SaaS 앱에서 권한 있는 작업을 수행해야 합니다. 조직은 사용자에게 Azure AD에서 권한 있는 액세스를 제공하며 사용자가 자신의 관리자 권한을 가지고 무엇을 하는지 모니터링하지 않습니다. Azure AD Privileged Identity Management는 이 위험을 해결하는 데 도움이 됩니다.  
 
@@ -53,8 +51,6 @@ Azure AD Privileged Identity Management는 다음을 포함하여 기본 제공�
 
 > [!NOTE]
 > 디렉터리에 대해 Azure AD Privileged Identity Management를 사용하려면 Microsoft 계정(예: @outlook.com),이 아닌 조직 계정(예: @yourdomain.com),의 전역 관리자여야 합니다.
->
->
 
 1. 해당 디렉터리의 전역 관리자로 [Azure 포털](https://portal.azure.com/) 에 로그인합니다.
 2. 조직에 둘 이상의 디렉터리가 있는 경우 Azure 포털의 오른쪽 위에서 사용자 이름을 선택합니다. Azure AD Privileged Identity Management를 사용할 디렉터리를 선택합니다.

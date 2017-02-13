@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: aa5199af3fabd535e929161018db0fd5fe47e474
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4f12fdf6732d44903fb1e971f05d0233d7aff08e
 
 
 ---
@@ -26,8 +26,8 @@ ms.openlocfilehash: aa5199af3fabd535e929161018db0fd5fe47e474
 > * [Azure 포털](active-directory-groups-create-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-> 
-> 
+>
+>
 
 다음 문서에서는 Azure AD(Azure Active Directory)에서 PowerShell을 사용하여 그룹을 관리하는 방법의 예제를 제공합니다.  또한 Azure AD PowerShell 미리 보기 모듈을 사용하여 설정하는 방법에 대한 정보를 제공합니다. 먼저 [Azure AD PowerShell 모듈을 다운로드](http://go.microsoft.com/fwlink/p/?LinkId=828627)해야 합니다.
 
@@ -232,7 +232,6 @@ Azure AD PowerShell cmdlet은 OData 쿼리 표준을 구현합니다. 자세한 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

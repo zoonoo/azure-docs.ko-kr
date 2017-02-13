@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/12/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dabe7d9796ab24a257ea904bc5d978cb71d7e149
-ms.openlocfilehash: 1733edf961c2ce1297fc148d3a844ce141f5d7c2
+ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
+ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
 
 
 ---
@@ -88,21 +88,29 @@ Azure Resource Manager가 처음이라면 익숙하지 않은 용어가 있을 �
 
 다음 PowerShell cmdlet을 사용하여 모든 리소스 공급자를 검색합니다.
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 또는 Azure CLI로 다음 명령을 사용하여 모든 리소스 공급자를 검색합니다.
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 사용해야 하는 리소스 공급자의 반환된 목록을 살펴볼 수 있습니다.
 
 리소스 공급자에 대한 세부 정보를 가져오려면 명령에 공급자 네임스페이스를 추가합니다. 이 명령은 리소스 공급자에 지원되는 리소스 유형 및 지원되는 위치와 각 리소스 유형에 대한 API 버전을 반환합니다. 다음 PowerShell cmdlet은 Microsoft.Compute에 대한 세부 정보를 가져옵니다.
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```
 
 또는 Azure CLI로 다음 명령을 사용하여 Microsoft.Compute에 지원되는 리소스 유형, 위치 및 API 버전을 검색합니다.
 
-    azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```azurecli
+azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```
 
 자세한 내용은 [Resource Manager 공급자, 지역, API 버전 및 스키마](resource-manager-supported-services.md)를 참조하세요.
 
@@ -113,51 +121,55 @@ Resource Manager로 Azure 솔루션의 인프라 및 구성을 정의하는 템�
 
 리소스 관리자는 다른 요청과 같이 템플릿을 처리합니다([일관적인 관리 계층](#consistent-management-layer)에 대한 이미지 참조). 템플릿을 구문 분석하고 해당 구문을 적절한 리소스 공급자에 대한 REST API 작업으로 변환합니다. 예를 들어 리소스 관리자가 다음 리소스 정의로 템플릿을 받는 경우:
 
-    "resources": [
-      {
-        "apiVersion": "2016-01-01",
-        "type": "Microsoft.Storage/storageAccounts",
-        "name": "mystorageaccount",
-        "location": "westus",
-        "sku": {
-          "name": "Standard_LRS"
-        },
-        "kind": "Storage",
-        "properties": {
-        }
-      }
-      ]
+```json
+"resources": [
+  {
+    "apiVersion": "2016-01-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "mystorageaccount",
+    "location": "westus",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "properties": {
+    }
+  }
+]
+```
 
 Microsoft.Storage 리소스 공급자에게 전송되는 다음 REST API 작업으로 정의를 변환합니다.
 
-    PUT
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
-    REQUEST BODY
-    {
-      "location": "westus",
-      "properties": {
-      }
-      "sku": {
-        "name": "Standard_LRS"
-      },   
-      "kind": "Storage"
-    }
+```HTTP
+PUT
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+REQUEST BODY
+{
+  "location": "westus",
+  "properties": {
+  }
+  "sku": {
+    "name": "Standard_LRS"
+  },   
+  "kind": "Storage"
+}
+```
 
-템플릿 및 리소스 그룹을 정의하는 방법은 사용자 및 솔루션을 관리하려는 방법에 전적으로 달려 있습니다. 예를 들어 단일 템플릿을 통해 3계층 응용 프로그램을 단일 리소스 그룹에 배포할 수 있습니다.
+템플릿 및 리소스 그룹을 정의하는 방법은 사용자 및 솔루션을 관리하려는 방법에 전적으로 달려 있습니다. 예를 들어 단일 템플릿을 통해&3;계층 응용 프로그램을 단일 리소스 그룹에 배포할 수 있습니다.
 
 ![3계층 템플릿](./media/resource-group-overview/3-tier-template.png)
 
-그러나 단일 템플릿에서 전체 인프라를 정의할 필요가 없습니다. 대부분 배포 요구 사항을 대상, 목적에 특정 템플릿 집합으로 나누는 것이 좋습니다. 서로 다른 솔루션에 이러한 템플릿을 쉽게 다시 사용할 수 있습니다. 특정 솔루션을 배포하려면 모든 필수 템플릿에 연결하는 마스터 템플릿을 만듭니다. 다음 이미지는 세 개의 중첩된 템플릿을 포함하는 부모 템플릿을 통해 3계층 솔루션을 배포하는 방법을 보여 줍니다.
+그러나 단일 템플릿에서 전체 인프라를 정의할 필요가 없습니다. 대부분 배포 요구 사항을 대상, 목적에 특정 템플릿 집합으로 나누는 것이 좋습니다. 서로 다른 솔루션에 이러한 템플릿을 쉽게 다시 사용할 수 있습니다. 특정 솔루션을 배포하려면 모든 필수 템플릿에 연결하는 마스터 템플릿을 만듭니다. 다음 이미지는 세 개의 중첩된 템플릿을 포함하는 부모 템플릿을 통해&3;계층 솔루션을 배포하는 방법을 보여 줍니다.
 
 ![중첩된 계층 템플릿](./media/resource-group-overview/nested-tiers-template.png)
 
-계층이 별도 수명 주기를 갖도록 계획하는 경우 3계층을 별도 리소스 그룹에 배포할 수 있습니다. 리소스는 다른 리소스 그룹의 리소스에 계속해서 연결될 수 있습니다.
+계층이 별도 수명 주기를 갖도록 계획하는 경우&3;계층을 별도 리소스 그룹에 배포할 수 있습니다. 리소스는 다른 리소스 그룹의 리소스에 계속해서 연결될 수 있습니다.
 
 ![계층 템플릿](./media/resource-group-overview/tier-templates.png)
 
 템플릿 설계에 대한 더 많은 제안은 [Azure Resource Manager 템플릿 설계의 패턴](best-practices-resource-manager-design-templates.md)을 참조하세요. 중첩된 템플릿에 대한 자세한 내용은 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
 
-배포 자동화에 대한 4가지 시리즈는 [Azure 가상 컴퓨터에 대한 응용 프로그램 배포 자동화](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 이 시리즈에서는 응용 프로그램 아키텍처, 액세스 및 보안, 가용성 및 규모, 응용 프로그램 배포에 대해 다룹니다.
+배포 자동화에 대한&4;가지 시리즈는 [Azure 가상 컴퓨터에 대한 응용 프로그램 배포 자동화](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 이 시리즈에서는 응용 프로그램 아키텍처, 액세스 및 보안, 가용성 및 규모, 응용 프로그램 배포에 대해 다룹니다.
 
 리소스가 올바른 순서로 생성되도록 Azure Resource Manager가 종속성을 분석합니다. 한 리소스가 다른 리소스(예: 디스크에 대한 저장소 계정을 필요로 하는 가상 컴퓨터)의 값에 의존하는 경우 종속성을 설정합니다. 자세한 정보는 [Azure 리소스 관리자 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요.
 
@@ -181,26 +193,32 @@ Microsoft.Storage 리소스 공급자에게 전송되는 다음 REST API 작업�
 
 다음 예제에서는 가상 컴퓨터에 적용된 태그를 보여 줍니다.
 
-    "resources": [    
-      {
-        "type": "Microsoft.Compute/virtualMachines",
-        "apiVersion": "2015-06-15",
-        "name": "SimpleWindowsVM",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "costCenter": "Finance"
-        },
-        ...
-      }
-    ]
+```json
+"resources": [    
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2015-06-15",
+    "name": "SimpleWindowsVM",
+    "location": "[resourceGroup().location]",
+    "tags": {
+        "costCenter": "Finance"
+    },
+    ...
+  }
+]
+```
 
 태그 값을 사용하는 모든 리소스를 검색하려면 다음 PowerShell cmdlet을 사용합니다.
 
-    Find-AzureRmResource -TagName costCenter -TagValue Finance
+```powershell
+Find-AzureRmResource -TagName costCenter -TagValue Finance
+```
 
 또는 다음 Azure CLI 명령을 사용합니다.
 
-    azure resource list -t costCenter=Finance --json
+```azurecli
+azure resource list -t costCenter=Finance --json
+```
 
 Azure Portal을 통해 태그가 지정된 리소스를 볼 수도 있습니다.
 
@@ -216,7 +234,7 @@ Azure Portal을 통해 태그가 지정된 리소스를 볼 수도 있습니다.
 
 미리 정의된 플랫폼 및 리소스 특정 역할에 사용자를 추가할 수 있습니다. 예를 들어 사용자가 리소스를 변경하지 않고 보도록 허용하는 읽기 권한자를 호출하는 미리 정의된 역할의 장점을 활용할 수 있습니다. 이 유형의 액세스를 필요로 하는 조직의 사용자를 읽기 권한자 역할에 추가하고 구독, 리소스 그룹 또는 리소스에 역할을 적용합니다.
 
-Azure는 다음 4개의 플랫폼 역할을 제공합니다.
+Azure는 다음&4;개의 플랫폼 역할을 제공합니다.
 
 1. 소유자는 액세스를 제외한 모든 것을 관리할 수 있음
 2. 참여자는 액세스를 제외한 모든 것을 관리할 수 있음
@@ -242,7 +260,7 @@ Azure는 몇 가지 리소스 특정 역할도 제공합니다. 몇 가지 일�
 또한 사용자가 삭제 및 수정하는 것을 방지하기 위해 명시적으로 중요한 리소스를 잠글 수 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
 ## <a name="activity-logs"></a>활동 로그
-Resource Manager는 리소스를 만들거나 수정 또는 삭제하는 모든 작업을 기록합니다. 활동 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다. 로그를 보려면 리소스 그룹에 대한 **설정** 블레이드에서 **활동 로그**를 선택합니다. 작업을 시작한 사용자를 포함하여 여러 다른 값으로 로그를 필터링할 수 있습니다. 활동 로그를 사용하는 데 대한 내용은 [Resource Manager를 사용하는 감사 작업](resource-group-audit.md)을 참조하세요.
+Resource Manager는 리소스를 만들거나 수정 또는 삭제하는 모든 작업을 기록합니다. 활동 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다. 로그를 보려면 리소스 그룹에 대한 **설정** 블레이드에서 **활동 로그**를 선택합니다. 작업을 시작한 사용자를 포함하여 여러 다른 값으로 로그를 필터링할 수 있습니다. 활동 로그 작업에 대한 내용은 [Azure 리소스 관리를 위한 활동 로그 보기](resource-group-audit.md)를 참조하세요.
 
 ## <a name="customized-policies"></a>사용자 지정된 정책
 리소스 관리자를 사용하면 리소스를 관리하기 위해 사용자 지정된 정책을 만들 수 있습니다. 만든 정책의 유형에는 다양한 시나리오가 포함될 수 있습니다. 리소스에 대한 명명 규칙을 적용하거나 배포할 수 있는 리소스의 형식 및 인스턴스를 제한하거나 리소스 종류를 호스트할 수 있는 지역을 제한할 수 있습니다. 부서별로 청구를 구성하기 위해 리소스에 대한 태그 값이 필요할 수 있습니다. 구독에서 비용을 절감하고 일관성을 유지하는 데 도움이 되는 정책을 만들 수 있습니다. 
@@ -251,17 +269,19 @@ JSON을 사용하여 정책을 정의하고 구독 전체 또는 리소스 그�
 
 다음 예제에서는 모든 리소스에 costCenter 태그가 포함되는지를 지정하여 태그 일관성을 보장하는 정책을 보여 줍니다.
 
-    {
-      "if": {
-        "not" : {
-          "field" : "tags",
-          "containsKey" : "costCenter"
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
+```json
+{
+  "if": {
+    "not" : {
+      "field" : "tags",
+      "containsKey" : "costCenter"
     }
+  },
+  "then" : {
+    "effect" : "deny"
+  }
+}
+```
 
 더 다양한 유형의 정책을 만들 수 있습니다. 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](resource-manager-policy.md)를 참조하세요.
 
@@ -326,6 +346,6 @@ SDK에서 생성된 코드의 어떤 측면을 개선하려면, SDK를 만드는
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

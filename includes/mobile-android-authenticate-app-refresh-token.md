@@ -1,6 +1,6 @@
-단순한 사례에서는 토큰 캐시가 작동하지만 토큰이 만료되거나 취소될 경우 어떻게 해야 할까요? 앱이 실행되지 않을 때 토큰이 만료될 수 있습니다. 이 경우 토큰 캐시가 유효하지 않습니다. 앱이 실제로 실행되는 동안 토큰이 만료될 수도 있습니다. 결과는 HTTP 상태 코드 401 "인증되지 않음"입니다.
+단순한 사례에서는 토큰 캐시가 작동하지만 토큰이 만료되거나 취소될 경우 어떻게 해야 할까요? 앱이 실행되지 않을 때 토큰이 만료될 수 있습니다. 이 경우 토큰 캐시가 유효하지 않습니다. 앱이 실제로 실행되는 동안 토큰이 만료될 수도 있습니다. 결과는 HTTP 상태 코드 401 "인증되지 않음"입니다. 
 
-만료된 토큰을 검색하고 새로 고칠 수 있어야 합니다. 이 작업을 위해 [Android 클라이언트 라이브러리](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html)의 [ServiceFilter](http://dl.windowsazure.com/androiddocs/)를 사용합니다.
+만료된 토큰을 검색하고 새로 고칠 수 있어야 합니다. 이렇게 하려면 [Android 클라이언트 라이브러리](http://dl.windowsazure.com/androiddocs/)의 [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html)를 사용합니다.
 
 이 섹션에서는 HTTP 상태 코드 401 응답을 검색하고 토큰 및 토큰 캐시 새로 고침을 트리거할 ServiceFilter를 정의합니다. 또한 이 ServiceFilter는 인증 중 다른 아웃바운드 요청을 차단하여 해당 요청이 새로 고친 토큰을 사용할 수 있도록 합니다.
 
@@ -10,7 +10,7 @@
         import java.util.concurrent.ExecutionException;
    
         import com.microsoft.windowsazure.mobileservices.MobileServiceException;
-2. 다음 멤버를 `ToDoActivity` 클래스에 추가합니다.
+2. 다음 멤버를 `ToDoActivity` 클래스에 추가합니다. 
    
         public boolean bAuthenticating = false;
         public final Object mAuthenticationLock = new Object();
@@ -45,7 +45,7 @@
    
             return detected;
         }
-4. ToDoActivity.java 파일의 ToDoActivity 클래스에 다음 메서드를 추가합니다. 이 메서드는 대기를 트리거한 다음 인증이 완료되면 아웃바운드 요청의 토큰을 업데이트합니다.
+4. ToDoActivity.java 파일의 ToDoActivity 클래스에 다음 메서드를 추가합니다. 이 메서드는 대기를 트리거한 다음 인증이 완료되면 아웃바운드 요청의 토큰을 업데이트합니다. 
 
         /**
          * Waits for authentication to complete then adds or updates the token 
@@ -193,7 +193,7 @@
             }
         }
 
-    이 서비스 필터는 각 응답에서 HTTP 상태 코드 401 "인증되지 않음"을 확인합니다. 401이 발견되면 새 토큰을 가져오기 위한 새 로그인 요청이 UI 스레드에 설정됩니다. 로그인이 완료될 때까지 또는 시도가 다섯 번 실패할 때까지 다른 호출은 차단됩니다. 새 토큰을 가져오면 401을 트리거한 요청이 새 토큰으로 다시 시도되며 차단된 모든 호출이 새 토큰으로 다시 시도됩니다.
+    이 서비스 필터는 각 응답에서 HTTP 상태 코드 401 "인증되지 않음"을 확인합니다. 401이 발견되면 새 토큰을 가져오기 위한 새 로그인 요청이 UI 스레드에 설정됩니다. 로그인이 완료될 때까지 또는 시도가 다섯 번 실패할 때까지 다른 호출은 차단됩니다. 새 토큰을 가져오면 401을 트리거한 요청이 새 토큰으로 다시 시도되며 차단된 모든 호출이 새 토큰으로 다시 시도됩니다. 
 
 1. ToDoActivity.java 파일에서 ToDoActivity 클래스 내의 새 `ProgressFilter` 클래스에 이 코드를 추가합니다.
    
@@ -272,6 +272,11 @@
             }
         }
 
-       이 코드에서는 `ProgressFilter` 외에도 `RefreshTokenCacheFilter`이(가) 사용됩니다. 또한 `onCreate` 중 토큰 캐시를 로드하려고 합니다. 따라서 `false`이(가) `authenticate` 메서드에 전달됩니다.
+       In this code, `RefreshTokenCacheFilter` is used in addition to `ProgressFilter`. Also during `onCreate` we want to load the token cache. So `false` is passed in to the `authenticate` method.
 
-<!---HONumber=AcomDC_1210_2015-->
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

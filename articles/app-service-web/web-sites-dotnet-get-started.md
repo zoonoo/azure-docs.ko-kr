@@ -1,5 +1,5 @@
 ---
-title: "Visual Studio를 사용하여 Azure App Service에 ASP.NET 앱 배포 | Microsoft Docs"
+title: "Visual Studio를 사용하여 Azure에 ASP.NET 앱 배포 | Microsoft Docs"
 description: "Visual Studio를 사용하여 Azure 앱 서비스에서 새 웹 앱에 ASP.NET을 배포하는 방법에 대해 알아봅니다."
 services: app-service\web
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
+ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
+ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
 
 
 ---
@@ -47,7 +47,7 @@ ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
 * 이 자습서에서는 사용자가 ASP.NET MVC 및 Visual Studio로 작업을 수행했다고 가정합니다. 소개가 필요한 경우 [ASP.NET MVC 5 시작](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)을 참조하세요.
 * Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) 또는 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다. 
   
-    Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 앱을 만들 수 있습니다.
+    Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](https://azure.microsoft.com/try/app-service/)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 앱을 만들 수 있습니다.
 
 ## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>개발 환경 설정
 이 자습서는 [Azure SDK for .NET](../dotnet-sdk.md) 2.9 이상이 설치된 Visual Studio 2015용으로 작성되었습니다. 
@@ -55,7 +55,7 @@ ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
 * [Visual Studio 2015용 최신 Azure SDK를 다운로드합니다](http://go.microsoft.com/fwlink/?linkid=518003). SDK에서는 Visual Studio 2015를 아직 설치하지 않은 경우 설치합니다.
   
   > [!NOTE]
-  > 사용자 컴퓨터에 SDK 종속성이 얼마나 있었는지에 따라 SDK를 설치하는 시간이 몇 분에서 30분 또는 그 이상이 될 수 있습니다.
+  > 사용자 컴퓨터에 SDK 종속성이 얼마나 있었는지에 따라 SDK를 설치하는 시간이 몇 분에서&30;분 또는 그 이상이 될 수 있습니다.
   > 
   > 
 
@@ -87,7 +87,7 @@ Visual Studio 2013을 사용하려는 경우 [Visual Studio 2013용 최신 Azure
     ![새 ASP.NET 프로젝트 대화 상자](./media/web-sites-dotnet-get-started/GS13newaspnetprojdb.png)
    
     이러한 설정은 Visual Studio를 지정하여 웹 프로젝트용 Azure 웹앱을 만듭니다.
-10.  **확인**
+10. **확인**
 
 ## <a name="create-the-azure-resources"></a>Azure 리소스 만들기
 이제 Visual Studio에 만들려는 Azure 리소스에 대해 지시할 수 있습니다.
@@ -129,7 +129,7 @@ Visual Studio 2013을 사용하려는 경우 [Visual Studio 2013용 최신 Azure
 9. **App Service 만들기** 대화 상자에서 **만들기**를 클릭합니다.
 
 ## <a name="inspect-the-azure-resources-in-visual-studio"></a>Visual Studio에서 Azure 리소스 검사
-짧은 시간 내에, 일반적으로 1분 미만 동안 Visual Studio는 웹 프로젝트 및 웹앱을 만듭니다.  
+짧은 시간 내에, 일반적으로&1;분 미만 동안 Visual Studio는 웹 프로젝트 및 웹앱을 만듭니다.  
 
 **솔루션 탐색기** 창에 새 프로젝트의 파일 및 폴더가 표시됩니다.
 
@@ -170,7 +170,7 @@ Visual Studio 2013을 사용하려는 경우 [Visual Studio 2013용 최신 Azure
    
    ![웹 게시 마법사의 미리 보기 탭](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
    
-   **게시**를 클릭하면 Visual Studio에서 Azure 서버로 파일을 복사하는 프로세스를 시작합니다. 1분 또는 2분이 걸릴 수 있습니다.
+   **게시**를 클릭하면 Visual Studio에서 Azure 서버로 파일을 복사하는 프로세스를 시작합니다. 1분 또는&2;분이 걸릴 수 있습니다.
    
    **출력** 및 **Azure App Service Activity** 창에 수행된 배포 작업이 표시되고 성공적인 배포 완료가 보고됩니다.
    
@@ -222,6 +222,6 @@ Azure 앱 서비스에서 ASP.NET 웹앱이 실행 중인 경우 문제 해결�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

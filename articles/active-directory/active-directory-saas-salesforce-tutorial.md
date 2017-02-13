@@ -1,22 +1,26 @@
 ---
-title: '자습서: Salesforce와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory에서 Salesforce를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다.
+title: "자습서: Salesforce와 Azure Active Directory 통합 | Microsoft 문서"
+description: "Azure Active Directory에서 Salesforce를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2016
-ms.author: asmalser-msft
+ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
+ms.openlocfilehash: 27857431abd965fd4f65c61874f9ecfc1730a7e6
+
 
 ---
-# <a name="tutorial:-how-to-integrate-salesforce-with-azure-active-directory"></a>자습서: Azure Active Directory와 Salesforce를 통합하는 방법
+# <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory 통합
 이 자습서에서는 Salesforce 환경을 Azure Active Directory에 연결하는 방법을 보여줍니다. Single Sign-On을 Salesforce에 구성하는 방법, 자동화된 사용자 프로비저닝을 사용하도록 설정하는 방법 및 사용자에게 Salesforce에 대한 액세스 권한을 할당하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -35,19 +39,19 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 ## <a name="video-tutorials"></a>비디오 자습서
 아래 비디오를 사용하여 이 자습서를 따를 수 있습니다.
 
-**비디오 자습서 1부: Single Sign-on을 사용하도록 설정하는 방법**
+**비디오 자습서&1;부: Single Sign-on을 사용하도록 설정하는 방법**
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Integrating-Salesforce-with-Azure-AD-How-to-enable-Single-Sign-On-12/player]
 > 
 > 
 
-**비디오 자습서 2부: 사용자 프로비저닝을 자동화하는 방법**
+**비디오 자습서&2;부: 사용자 프로비저닝을 자동화하는 방법**
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Integrating-Salesforce-with-Azure-AD-How-to-automate-User-Provisioning-22/player]
 > 
 > 
 
-## <a name="step-1:-add-salesforce-to-your-directory"></a>1단계: 디렉터리에 Salesforce 추가
+## <a name="step-1-add-salesforce-to-your-directory"></a>1단계: 디렉터리에 Salesforce 추가
 1. [Azure 클래식 포털](https://manage.windowsazure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
     ![왼쪽 탐색 창에서 Active Directory를 선택합니다.][0]
@@ -68,7 +72,7 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
    
     ![Azure AD의 Salesforce 빠른 시작 페이지][5]
 
-## <a name="step-2:-enable-single-sign-on"></a>2단계: Single Sign-On 사용
+## <a name="step-2-enable-single-sign-on"></a>2단계: Single Sign-On 사용
 1. Single Sign-On을 구성하려면 Salesforce 환경에 대한 사용자 지정 도메인을 설정하고 배포해야 합니다. 그러한 방법에 대한 지침은 [도메인 이름 설정](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_setup.htm&language=en_US)을 참조하세요.
 2. Azure AD의 Salesforce 빠른 시작 페이지에서 **Single Sign-On 구성** 단추를 클릭합니다.
    
@@ -146,7 +150,7 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
     ![전자 메일 주소를 입력합니다.][19]
 17. **완료** 를 클릭하여 대화 상자를 닫습니다. 구성을 테스트하려면 [Salesforce에 사용자 할당](#step-4-assign-users-to-salesforce)섹션을 참조하세요.
 
-## <a name="step-3:-enable-automated-user-provisioning"></a>3단계: 자동화된 사용자 프로비저닝 사용
+## <a name="step-3-enable-automated-user-provisioning"></a>3단계: 자동화된 사용자 프로비저닝 사용
 1. Salesforce의 Azure AD 빠른 시작 페이지에서 **사용자 프로비저닝 구성** 단추를 클릭합니다.
    
     ![사용자 프로비저닝 구성 단추 클릭][20]
@@ -175,7 +179,7 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
    
     ![알림을 받을 전자 메일 주소 입력][26]
 
-## <a name="step-4:-assign-users-to-salesforce"></a>4단계: Salesforce에 사용자 할당
+## <a name="step-4-assign-users-to-salesforce"></a>4단계: Salesforce에 사용자 할당
 1. 구성을 테스트하려면 디렉터리에 새 테스트 계정을 만들어 시작합니다.
 2. Salesforce 빠른 시작 페이지에서 **사용자 할당** 단추를 클릭합니다.
    
@@ -184,10 +188,10 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
    
    * 자동화된 사용자 프로비저닝 사용하지 않도록 설정하면 다음을 확인하는 메시지가 표시됩니다.
      
-        ![Confirm the assignment.][28]
+        ![할당을 확인합니다.][28]
    * 자동화된 사용자 프로비저닝 사용하도록 설정하면 사용자가 갖고 있어야 하는 Salesforce 프로파일 유형을 정의하라는 메시지가 표시됩니다. 잠시 후에 새로 프로비저닝된 사용자가 Salesforce 환경에 표시됩니다.
      
-        ![Confirm the assignment.][29]
+        ![할당을 확인합니다.][29]
      
      > [!IMPORTANT]
      > Salesforce **개발자** 환경으로 프로비전하는 경우 각 프로필에 매우 제한된 수의 라이선스만 사용할 수 있습니다. 따라서 4,999개 라이선스를 사용할 수 있는 **Chatter Free User** 프로필로 사용자를 프로비전하는 것이 좋습니다.
@@ -232,6 +236,6 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

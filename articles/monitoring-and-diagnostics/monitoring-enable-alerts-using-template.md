@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 2/2/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4788235f470fafb043f72dfb44dbe96ebb595df9
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
 
 
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
-이 문서에서는 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md) 을 사용하여 Azure 메트릭 경고를 구성하는 방법을 설명합니다. 이를 통해 만든 리소스에 대한 경고를 자동으로 설정하여 모든 리소스가 정확하게 모니터링되도록 할 수 있습니다.
+이 문서에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md) 을 사용하여 Azure 메트릭 경고를 구성하는 방법을 설명합니다. 이를 통해 만든 리소스에 대한 경고를 자동으로 설정하여 모든 리소스가 정확하게 모니터링되도록 할 수 있습니다.
 
 기본적인 단계는 다음과 같습니다.
 
 1. 경고를 만드는 방법을 설명하는 JSON 파일로 템플릿을 만듭니다.
-2. [배포 방법을 사용하여 템플릿을 배포합니다](../resource-group-template-deploy.md).
+2. [배포 방법을 사용하여 템플릿을 배포합니다](../azure-resource-manager/resource-group-template-deploy.md).
 
 아래에서는 먼저 경고만을 위한 Resource Manager 템플릿을 만들고 이후 다른 리소스를 만드는 동안 경고에 대한 템플릿을 만드는 방법을 설명합니다.
 
@@ -153,9 +153,9 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
                     "dataSource": {
                         "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
                         "resourceUri": "[parameters('resourceId')]",
-                        "metricName": "[parameters('metricName')]",
-                        "operator": "[parameters('operator')]"
+                        "metricName": "[parameters('metricName')]"
                     },
+                    "operator": "[parameters('operator')]",
                     "threshold": "[parameters('threshold')]",
                     "windowSize": "[parameters('windowSize')]",
                     "timeAggregation": "[parameters('aggregation')]"
@@ -375,9 +375,9 @@ Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경�
                     "dataSource": {
                         "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
                         "resourceUri": "[variables('vmID')]",
-                        "metricName": "[variables('metricName')]",
-                        "operator": "[variables('operator')]"
+                        "metricName": "[variables('metricName')]"
                     },
+                    "operator": "[parameters('operator')]",
                     "threshold": "[variables('threshold')]",
                     "windowSize": "[variables('windowSize')]",
                     "timeAggregation": "[variables('aggregation')]"
@@ -407,6 +407,6 @@ Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

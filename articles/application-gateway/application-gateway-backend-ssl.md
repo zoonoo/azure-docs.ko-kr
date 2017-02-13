@@ -44,7 +44,7 @@ Application Gateway는 알려진 백 엔드 인스턴스, 즉 Application Gatewa
 
 1. SSL 2.0 및 3.0은 모든 Application Gateway에 대해 기본적으로 비활성화됩니다. 전혀 구성할 수 없습니다.
 2. SSL 정책 정의를 사용하여 다음 세 가지 프로토콜 **TLSv1\_0**, **TLSv1\_1**, **TLSv1\_2** 중에서 원하는 것을 비활성화할 수 있습니다.
-3. SSL 정책을 하나도 정의하지 않으면 3개(TLSv1\_0, TLSv1\_1, TLSv1_2) 모두 활성화됩니다.
+3. SSL 정책을 하나도 정의하지 않으면&3;개(TLSv1\_0, TLSv1\_1, TLSv1_2) 모두 활성화됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

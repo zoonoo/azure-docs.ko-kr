@@ -60,7 +60,7 @@ ms.openlocfilehash: 9ace0a47e8b804840ffda3f906bf3fb8584932cf
 
 ## <a name="create-a-windows-vm-with-accelerated-networking"></a>가속 네트워킹을 사용하여 Windows VM 만들기
 1. 미리 보기를 등록하려면 구독 ID 및 사용 목적을 적은 전자 메일을 [가속 네트워킹 구독](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) 으로 보냅니다. 미리 보기에 적용되었음을 알리는 전자 메일을 받을 때까지 나머지 단계를 완료하지 마세요.
-2. Azure Portal(http://portal.azure.com)에 로그인합니다.
+2. Azure Portal http://portal.azure.com 에 로그인합니다.
 3. 다음 옵션을 선택해 [Windows VM 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 문서에 나오는 단계를 완료하여 VM을 만듭니다.
    
    * 이 문서의 제한 사항 섹션에 실린 운영 체제를 선택합니다.

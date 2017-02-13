@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -27,8 +27,8 @@ Azure 마켓플레이스에서 배포된 VM에 VM 에이전트가 기본적으�
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
 1. **권장 사항 블레이드**에서 **VM 에이전트 활성화**를 선택합니다.

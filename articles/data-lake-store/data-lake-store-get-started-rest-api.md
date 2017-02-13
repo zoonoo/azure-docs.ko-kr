@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 33574b0c1f023a8a5f83b1bf06f0523623891757
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.JS](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 이 문서에서는 WebHDFS REST API 및 Data Lake 저장소 REST API를 사용하여 Azure Data Lake 저장소에 대한 계정 관리 및 파일 시스템 작업을 수행하는 방법을 알아봅니다. Azure Data Lake 저장소는 계정 관리 작업을 위해 자체 REST API를 제공합니다. 그러나 Data Lake 저장소는 HDFS 및 Hadoop 에코시스템과 호환되기 때문에 파일 시스템 작업에 WebHDFS REST API를 사용하도록 지원합니다.
@@ -47,7 +48,7 @@ ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증하려면 어떻게 해야 하나요?
 Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있습니다.
 
-### <a name="enduser-authentication-interactive"></a>최종 사용자 인증(대화형)
+### <a name="end-user-authentication-interactive"></a>최종 사용자 인증(대화형)
 이 시나리오에서 응용 프로그램은 로그인하라는 메시지를 표시하고 모든 작업은 사용자의 컨텍스트에서 수행됩니다. 대화형 인증을 위한 다음 단계를 수행합니다.
 
 1. 응용 프로그램을 통해 다음 URL로 사용자를 리디렉션합니다.
@@ -88,7 +89,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 
 대화형 사용자 인증에 대한 자세한 내용은 [인증 코드 부여 흐름](https://msdn.microsoft.com/library/azure/dn645542.aspx)을 참조하세요.
 
-### <a name="servicetoservice-authentication-noninteractive"></a>서비스 간 인증(비대화형)
+### <a name="service-to-service-authentication-non-interactive"></a>서비스 간 인증(비대화형)
 이 시나리오에서 응용 프로그램은 고유한 자격 증명을 제공하여 작업을 수행합니다. 이를 위해 다음과 같은 POST 요청을 실행해야 합니다. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -164,7 +165,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 ## <a name="upload-data-into-a-data-lake-store-account"></a>Data Lake 저장소 계정에 데이터 업로드
 이 작업은 [여기](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
-WebHDFS REST API를 사용하여 데이터를 업로드하는 작업은 아래에 설명된 대로 2단계 프로세스입니다.
+WebHDFS REST API를 사용하여 데이터를 업로드하는 작업은 아래에 설명된 대로&2;단계 프로세스입니다.
 
 1. 업로드할 파일 데이터를 보내지 않고 HTTP PUT 요청을 제출합니다. 다음 명령에서 **\<yourstorename>**을 Data Lake Store 이름으로 바꿉니다.
    
@@ -195,7 +196,7 @@ WebHDFS REST API를 사용하여 데이터를 업로드하는 작업은 아래�
 ## <a name="read-data-from-a-data-lake-store-account"></a>Data Lake 저장소 계정에서 데이터 읽기
 이 작업은 [여기](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
-Data Lake 저장소 계정에서 데이터를 읽는 작업은 2단계 프로세스입니다.
+Data Lake 저장소 계정에서 데이터를 읽는 작업은&2;단계 프로세스입니다.
 
 * 먼저 끝점 `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`에 대해 GET 요청을 제출합니다. 다음 GET 요청을 제출할 위치가 반환됩니다.
 * 그러면 끝점 `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`에 대해 GET 요청을 제출합니다. 파일 내용이 표시됩니다.
@@ -263,6 +264,6 @@ Data Lake 저장소 계정을 삭제하려면 다음 cURL 명령을 사용합니
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

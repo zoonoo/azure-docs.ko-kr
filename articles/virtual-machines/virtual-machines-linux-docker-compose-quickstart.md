@@ -1,6 +1,6 @@
 ---
-title: "가상 컴퓨터에서 Docker 및 Compose | Microsoft Docs"
-description: "Azure의 Linux 가상 컴퓨터에서 Compose 및 Docker 작업을 간략히 소개"
+title: "Azure에서 Linux VM에 대한 Docker Compose 사용 | Microsoft Docs"
+description: "Azure의 Linux 가상 컴퓨터에서 Docker 및 Compose를 사용하는 방법"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -13,23 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 6433922d1acfad4e84f57a51d6ebb5b6fdea31b1
+ms.sourcegitcommit: 3295120664e409440641818b13dd1abab6f2f72f
+ms.openlocfilehash: 06ad7f9267f24ee1f2fe417ad4aa0bf1096832d6
 
 
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-on-an-azure-virtual-machine"></a>Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작
-Docker 및 [Compose](http://github.com/docker/compose) 를 사용하여 Azure의 Linux 가상 컴퓨터에서 복잡한 응용 프로그램을 정의 및 실행하는 방법을 시작합니다. Compose를 사용하면 간단한 텍스트 파일을 사용하여 여러 Docker 컨테이너로 구성된 응용 프로그램을 정의할 수 있습니다. 그런 다음 정의된 환경을 배포하도록 모든 작업을 수행하는 단일 명령으로 응용 프로그램을 스핀업합니다. 
-
-그 예로, 이 문서에서는 Ubuntu VM의 백 엔드 MariaDB SQL Database로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만 Compose를 사용하여 좀더 복잡한 응용 프로그램을 설정할 수도 있습니다.
+[Compose](http://github.com/docker/compose)를 사용하면 간단한 텍스트 파일을 사용하여 여러 Docker 컨테이너로 구성된 응용 프로그램을 정의할 수 있습니다. 그런 다음 정의된 환경을 배포하도록 모든 작업을 수행하는 단일 명령으로 응용 프로그램을 스핀업합니다. 그 예로, 이 문서에서는 Ubuntu VM의 백 엔드 MariaDB SQL Database로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만 Compose를 사용하여 좀더 복잡한 응용 프로그램을 설정할 수도 있습니다.
 
 ## <a name="step-1-set-up-a-linux-vm-as-a-docker-host"></a>1단계: Docker 호스트로 Linux VM 설정
 다양한 Azure 절차와 Azure Markeplace에서 사용 가능한 이미지 또는 Resource Manager 템플릿을 사용하여 Linux VM을 만들고 Docker 호스트로 설정할 수 있습니다. 예를 들어 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)을 사용하여 Azure Docker VM 확장으로 Ubuntu VM을 빠르게 만들려면 [Docker VM 확장을 사용하여 환경 배포](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
 
-Docker VM 확장을 사용하면 VM이 자동으로 Docker 호스트로 설정되고 Compose는 이미 설치되어 있습니다. 해당 문서의 예제에서는 Resource Manager 모드에서 [Mac, Linux 및 Windows에 대한 Azure 명령줄 인터페이스](../xplat-cli-install.md) (Azure CLI)를 사용하여 VM을 만드는 방법을 보여 줍니다.
+Docker VM 확장을 사용하면 VM이 자동으로 Docker 호스트로 설정되고 Compose는 이미 설치되어 있습니다. 해당 문서의 예제는 리소스 관리자 모드에서 [Azure CLI 1.0](../xplat-cli-install.md)를 사용하여 VM을 만드는 방법을 보여줍니다.
 
 이전 문서의 기본 명령은 `West US` 지역에 `myResourceGroup`이라는 리소스 그룹을 만들고 설치된 Azure Docker VM 확장을 통해 VM을 배포합니다.
 
@@ -37,6 +35,14 @@ Docker VM 확장을 사용하면 VM이 자동으로 Docker 호스트로 설정�
 azure group create --name myResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
+
+Azure CLI는 몇 초 후에 프롬프트를 다시 표시하지만, Docker 호스트가 아직 생성 및 구성되고 있습니다. 배포를 완료하려면 몇 분 정도 소요됩니다. `azure vm show` 명령을 사용하여 Docker 호스트 상태에 대한 자세한 정보를 볼 수 있습니다. 다음 예제는 `myResourceGroup`이라는 리소스 그룹에서 `myDockerVM`(템플릿의 기본 이름입니다. 이 이름을 변경하지 마세요.)이라는 VM의 상태를 확인합니다. 앞의 단계에서 만든 리소스 그룹의 이름을 입력합니다.+
+
+```azurecli
+azure vm show --resource-group myResourceGroup --name myDockerVM
+```
+
+출력의 위쪽에 VM의 `ProvisioningState` 가 표시됩니다. 출력에 `Succeeded`가 표시되면 배포가 완료된 것이며 VM에 대해 SSH를 실행할 수 있습니다.
 
 ## <a name="step-2-verify-that-compose-is-installed"></a>2 단계: Compose 설치 여부 확인
 배포가 완료되면 배포 중 입력한 DNS 이름을 사용하여 새 Docker 호스트에 SSH를 연결합니다. `azure vm show -g myDockerResourceGroup -n myDockerVM`을 사용하여 DNS 이름을 비롯한 VM의 세부 정보를 볼 수 있습니다.
@@ -51,8 +57,7 @@ docker-compose --version
 
 > [!TIP]
 > 다른 방법을 사용하여 Docker 호스트를 만들었고 Compose를 직접 설치할 필요가 있다면 [Compose 설명서](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md)를 참조하세요.
-> 
-> 
+
 
 ## <a name="step-3-create-a-docker-composeyml-configuration-file"></a>3단계: docker-compose.yml 구성 파일 만들기
 그 다음, `docker-compose.yml` 파일을 만드는데, 이 파일은 VM에서 실행할 Docker 컨테이너를 정의하기 위한 텍스트 구성 파일입니다. 파일은 각 컨테이너에서 실행되는 이미지(또는 Dockerfile에서 빌드일 수 있음), 필요한 환경 변수 및 종속성, 포트, 컨테이너 간 링크를 지정합니다. yml 파일 구문에 대한 세부 정보는 [Compose 파일 참조](http://docs.docker.com/compose/yml/)를 참조하세요.
@@ -90,7 +95,6 @@ db:
 
 ```bash
 docker-compose up -d
-
 ```
 
 이 명령은 `docker-compose.yml`에서 지정된 Docker 컨테이너를 시작합니다. 이 단계를 완료하려면 1~2분 정도 걸립니다. 다음 예제와 유사한 출력이 표시됩니다.
@@ -103,8 +107,7 @@ Creating wordpress_wordpress_1...
 
 > [!NOTE]
 > 백그라운드에서 계속 실행되도록 **-d** 옵션을 시작에서 사용해야 합니다.
-> 
-> 
+
 
 컨테이너가 동작하는지 확인하려면 `docker-compose ps`를 입력합니다. 다음과 유사한 결과가 표시됩니다.
 
@@ -134,6 +137,6 @@ ess_1              apache2-for ...                       /tcp
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

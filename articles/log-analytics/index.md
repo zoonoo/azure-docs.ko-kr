@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Log Analytics를 사용하여 실제 위치에 관계 없이 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성된 데이터를 수집하고 분석하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: edbf9890b63219e7d87256be3600a1d41c87e295
-ms.openlocfilehash: 31726ed708006d504eea1e948561c108d39622f2
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: ffb5ebc79807a81e53c2bca3fa5672a11e777663
 
 ---
 
@@ -86,13 +86,7 @@ Operations Management Suite에서 Log Analytics를 사용하여 클라우드 및
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/log-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Log Analytics 설명서 다운로드 </div>
-    </a>
-</div>
+
 
 
 

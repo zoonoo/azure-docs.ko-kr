@@ -1,9 +1,9 @@
 ---
-title: "독립 실행형 클러스터 보안 | Microsoft Docs"
+title: "인증서를 사용하여 Windows에서 클러스터 보호 | Microsoft Docs"
 description: "이 문서에서는 클라이언트와 클러스터 사이 뿐만 아니라 독립 실행형 클러스터 또는 개인 클러스터 내에서 통신을 보호하는 방법을 설명합니다."
 services: service-fabric
 documentationcenter: .net
-author: dsk-2015
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/08/2016
-ms.author: dkshir
+ms.date: 12/12/2016
+ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 885b5102d19df786ae6f1f380e3f791033041838
+ms.sourcegitcommit: 4fb6ef56d694aff967840ab26b75b66a2e799cc1
+ms.openlocfilehash: 48fd90c7ffb6748642ed02804117ff92cb060016
 
 
 ---
@@ -43,26 +43,33 @@ ms.openlocfilehash: 885b5102d19df786ae6f1f380e3f791033041838
                 "ThumbprintSecondary": "[Thumbprint]",
                 "X509StoreName": "My"
             },
-            "ClientCertificateThumbprints": [{
-                "CertificateThumbprint": "[Thumbprint]",
-                "IsAdmin": false
-            }, {
-                "CertificateThumbprint": "[Thumbprint]",
-                "IsAdmin": true
-            }],
-            "ClientCertificateCommonNames": [{
-                "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint" : "[Thumbprint]",
-                "IsAdmin": true
-            }]
-            "HttpApplicationGatewayCertificate":{
+            "ClientCertificateThumbprints": [
+                {
+                    "CertificateThumbprint": "[Thumbprint]",
+                    "IsAdmin": false
+                }, 
+                {
+                    "CertificateThumbprint": "[Thumbprint]",
+                    "IsAdmin": true
+                }
+            ],
+            "ClientCertificateCommonNames": [
+                {
+                    "CertificateCommonName": "[CertificateCommonName]",
+                    "CertificateIssuerThumbprint" : "[Thumbprint]",
+                    "IsAdmin": true
+                }
+            ]
+            "ReverseProxyCertificate":{
                 "Thumbprint": "[Thumbprint]",
+                "ThumbprintSecondary": "[Thumbprint]",
                 "X509StoreName": "My"
             }
         }
     }
 
-이 섹션에서는 독립 실행형 Windows 클러스터를 보호하기 위한 인증서를 설명합니다. 인증서 기반 보안을 활성화하려면 **ClusterCredentialType** 및 **ServerCredentialType** 값을 *X509*로 설정합니다.
+이 섹션에서는 독립 실행형 Windows 클러스터를 보호하기 위한 인증서를 설명합니다. 클러스터 인증서를 지정하는 경우 **ClusterCredentialType** 값을 _ **X509**_로 설정합니다. 외부 연결에 대한 서버 인증서를 지정하려면 **ServerCredentialType**을 _**X509**_로 설정합니다. 필수는 아니지만 적절히 보안된 클러스터에 대해 이 두 인증서를 모두 사용하는 것이 좋습니다. 이러한 값을 *X509*로 설정하면 해당 인증서를 지정해야 합니다. 그러지 않으면 Service Fabric이 예외를 throw합니다. 일부 시나리오에서는 _ClientCertificateThumbprints_ 또는 _ReverseProxyCertificate_만 지정하려고 할 수 있습니다. 이러한 시나리오에서는 _ClusterCredentialType_ 또는 _ServerCredentialType_을 _X509_로 설정할 필요가 없습니다.
+
 
 > [!NOTE]
 > [지문](https://en.wikipedia.org/wiki/Public_key_fingerprint) 은 인증서의 기본 ID입니다. [인증서의 지문을 검색하는 방법](https://msdn.microsoft.com/library/ms734695.aspx) 을 참고하여 만든 인증서의 지문을 확인합니다.
@@ -77,7 +84,7 @@ ms.openlocfilehash: 885b5102d19df786ae6f1f380e3f791033041838
 | ServerCertificate |이 인증서가 클러스터에 연결하려고 시도할 때 클라이언트에 표시됩니다. 편의상 *ClusterCertificate* 및 *ServerCertificate*에 동일한 인증서를 사용하도록 선택할 수 있습니다. 업그레이드에 두 개의 다른 서버 인증서, 기본 및 보조 인증서를 사용할 수 있습니다. **지문** 섹션에서 기본 인증서의 지문 및 **ThumbprintSecondary** 변수에서 보조 인증서의 지문을 설정합니다. |
 | ClientCertificateThumbprints |인증된 클라이언트에 설치하려는 인증서의 집합입니다. 클러스터에 대한 액세스를 허용하려는 컴퓨터에 다양한 클라이언트 인증서가 설치되었을 수도 있습니다. **CertificateThumbprint** 변수에서 각 인증서의 지문을 설정합니다. **IsAdmin** 을 *true*로 설정한 경우 이 인증서가 설치된 클라이언트는 클러스터에서 관리자 관리 작업을 수행할 수 있습니다. **IsAdmin** 이 *false*로 설정된 경우 이 인증서가 있는 클라이언트는 사용자 액세스 권한(일반적으로 읽기 전용)에 대해 허용되는 작업을 수행할 수만 있습니다. 역할에 대한 자세한 내용은 [RBAC(역할 기반 액세스 제어)](service-fabric-cluster-security.md#role-based-access-control-rbac) |
 | ClientCertificateCommonNames |**CertificateCommonName**에 대한 첫 번째 클라이언트 인증서의 일반 이름을 설정합니다. **CertificateIssuerThumbprint** 는 이 인증서의 발급자 지문입니다. [인증서 사용](https://msdn.microsoft.com/library/ms731899.aspx) 을 참고하여 일반 이름 및 발급자에 대해 자세히 알아 봅니다. |
-| HttpApplicationGatewayCertificate |이것은 Http Application Gateway를 보호하려는 경우 지정될 수 있는 선택적인 인증서입니다. 이 인증서를 사용하는 경우 reverseProxyEndpointPort가 nodeTypes로 설정되어야 합니다. |
+| ReverseProxyCertificate |이는 [역방향 프록시](service-fabric-reverseproxy.md)를 보호하려는 경우 지정될 수 있는 선택적인 인증서입니다. 이 인증서를 사용하는 경우 reverseProxyEndpointPort가 nodeTypes로 설정되어야 합니다. |
 
 다음은 클러스터, 서버 및 클라이언트 인증서가 제공된 예제 클러스터 구성입니다.
 
@@ -94,16 +101,16 @@ ms.openlocfilehash: 885b5102d19df786ae6f1f380e3f791033041838
         "faultDomain": "fd:/dc1/r0",
         "upgradeDomain": "UD0"
     }, {
-      "nodeName": "vm1",
-              "metadata": "Replace the localhost with valid IP address or FQDN",
+        "nodeName": "vm1",
+        "metadata": "Replace the localhost with valid IP address or FQDN",
         "iPAddress": "10.7.0.4",
         "nodeTypeRef": "NodeType0",
         "faultDomain": "fd:/dc1/r1",
         "upgradeDomain": "UD1"
     }, {
         "nodeName": "vm2",
-      "iPAddress": "10.7.0.6",
-              "metadata": "Replace the localhost with valid IP address or FQDN",
+        "iPAddress": "10.7.0.6",
+        "metadata": "Replace the localhost with valid IP address or FQDN",
         "nodeTypeRef": "NodeType0",
         "faultDomain": "fd:/dc1/r2",
         "upgradeDomain": "UD2"
@@ -142,7 +149,9 @@ ms.openlocfilehash: 885b5102d19df786ae6f1f380e3f791033041838
         "nodeTypes": [{
             "name": "NodeType0",
             "clientConnectionEndpointPort": "19000",
-            "clusterConnectionEndpoint": "19001",
+            "clusterConnectionEndpointPort": "19001",
+            "leaseDriverEndpointPort": "19002",
+            "serviceConnectionEndpointPort": "19003",
             "httpGatewayEndpointPort": "19080",
             "applicationPorts": {
                 "startPort": "20001",
@@ -177,9 +186,9 @@ ms.openlocfilehash: 885b5102d19df786ae6f1f380e3f791033041838
 테스트 목적으로 사용하는 클러스터의 경우 자체 서명된 인증서를 사용하도록 선택할 수 있습니다.
 
 ## <a name="optional-create-a-self-signed-certificate"></a>선택 사항: 자체 서명된 인증서 만들기
-제대로 보호할 수 있는 자체 서명된 인증서를 만드는 한 가지 방법은 *C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure* 디렉터리의 Service Fabric SDK 폴더에 있는 *CertSetup.ps1* 스크립트를 사용하는 것입니다. 이 파일을 편집하고 이를 사용하여 적절한 이름으로 인증서를 만듭니다.
+제대로 보호할 수 있는 자체 서명된 인증서를 만드는 한 가지 방법은 *C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure* 디렉터리의 Service Fabric SDK 폴더에 있는 *CertSetup.ps1* 스크립트를 사용하는 것입니다. 이 파일을 편집하여 인증서의 기본 이름을 변경합니다(값 *CN = ServiceFabricDevClusterCert* 검색). 이 스크립트를 `.\CertSetup.ps1 -Install`로 실행합니다.
 
-이제 암호로 보호된 PFX 파일에 인증서를 내보냅니다. 먼저 인증서의 지문을 가져와야 합니다. certmgr.exe 응용 프로그램을 실행합니다. **로컬 컴퓨터/개인** 폴더로 이동하고 방금 만든 인증서를 찾습니다. 인증서를 두 번 클릭하여 열고 *세부 정보* 탭을 선택하고 *지문* 필드로 스크롤합니다. 공백을 제거하여 아래 PowerShell 명령에 지문 값을 복사합니다.  *$pswd* 값을 적절한 보안 암호로 변경하여 보호하고 PowerShell을 실행합니다.
+이제 암호로 보호된 PFX 파일에 인증서를 내보냅니다. 먼저 인증서의 지문을 가져옵니다. *시작* 메뉴에서 *컴퓨터 인증서 관리*를 실행합니다. **로컬 컴퓨터/개인** 폴더로 이동하고 방금 만든 인증서를 찾습니다. 인증서를 두 번 클릭하여 열고 *세부 정보* 탭을 선택하고 *지문* 필드로 스크롤합니다. 공백을 제거한 후 아래 PowerShell 명령에 지문 값을 복사합니다.  `String` 값을 적절한 보안 암호로 변경하여 보호하고 PowerShell에서 다음을 실행합니다.
 
 ```   
 $pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
@@ -206,7 +215,7 @@ Write-Host $cert.ToString($true)
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-3. 다음으로 네트워크 서비스 계정에서 실행되는 서비스 패브릭 프로세스가 다음 스크립트를 실행하여 사용할 수 있도록 이 인증서에 액세스 제어를 설정해야 합니다. 서비스 계정에 대해 인증서의 지문 및 "NETWORK SERVICE"를 제공합니다. certmgr.exe 도구를 사용하고 인증서의 개인 키 관리를 확인하여 인증서의 ACL이 올바른지 확인할 수 있습니다.
+3. 이제 네트워크 서비스 계정에서 실행되는 Service Fabric 프로세스가 다음 스크립트를 실행하여 사용할 수 있도록 이 인증서에 액세스 제어를 설정해야 합니다. 서비스 계정에 대해 인증서의 지문 및 "NETWORK SERVICE"를 제공합니다. *시작* > *컴퓨터 인증서 관리*에서 인증서를 열고 *모든 작업* > *개인 키 관리*를 보고 인증서의 ACL이 올바른지 확인할 수 있습니다.
    
     ```
     param
@@ -249,25 +258,23 @@ Write-Host $cert.ToString($true)
 **ClusterConfig.X509.MultiMachine.json** 파일의 **보안** 섹션을 구성한 후에 [클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md#createcluster) 섹션을 진행하여 노드를 구성하고 독립 실행형 클러스터를 만들 수 있습니다. 클러스터를 만드는 동안 **ClusterConfig.X509.MultiMachine.json** 파일을 사용하도록 합니다. 예를 들어, 명령은 다음과 같을 수 있습니다.
 
 ```
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -AcceptEULA $true
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
 보안 독립 실행형 Windows 클러스터를 성공적으로 실행하고 여기에 연결할 인증된 클라이언트를 설정했다면 [PowerShell을 사용하여 보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md#connectsecurecluster) 섹션을 따라 연결합니다. 예:
 
 ```
-Connect-ServiceFabricCluster -ConnectionEndpoint 10.7.0.4:19000 -KeepAliveIntervalInSec 10 -X509Credential -ServerCertThumbprint 057b9544a6f2733e0c8d3a60013a58948213f551 -FindType FindByThumbprint -FindValue 057b9544a6f2733e0c8d3a60013a58948213f551 -StoreLocation CurrentUser -StoreName My
+$ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }
+Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-클러스터의 컴퓨터 중 하나에 로그온한 경우 로컬로 설치된 인증서가 이미 있기 때문에 간단히 Powershell 명령을 실행하여 클러스터에 연결하고 노드 목록을 표시할 수 있습니다.
+그런 다음 다른 PowerShell 명령을 실행하면 이 클러스터에 대해 작업할 수 있습니다. 예를 들어 `Get-ServiceFabricNode`은 이 보안 클러스터의 노드 목록을 보여 줍니다.
+
+
+클러스터를 제거하려면 Service Fabric 패키지를 다운로드한 클러스터의 노드에 연결하고 명령줄을 열고 패키지 폴더로 이동합니다. 이제 다음 명령을 실행합니다.
 
 ```
-Connect-ServiceFabricCluster
-Get-ServiceFabricNode
-```
-클러스터를 제거하려면 다음 명령을 호출합니다.
-
-```
-.\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json   -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
+.\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
 > [!NOTE]
@@ -278,6 +285,6 @@ Get-ServiceFabricNode
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

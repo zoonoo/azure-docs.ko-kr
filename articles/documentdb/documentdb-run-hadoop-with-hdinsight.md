@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 09/20/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: f480b8155c7bee797f1fed0f80200eec500e95a2
-ms.openlocfilehash: 43620fed5713f76fcc6e1cebb11c97624eada676
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 35eb6b7c8a2aa3ddfb1723eebdb92dc47a49f65a
 
 
 ---
 # <a name="a-namedocumentdb-hdinsightarun-a-hadoop-job-using-documentdb-and-hdinsight"></a><a name="DocumentDB-HDInsight"></a>DocumentDB 및 HDInsight를 사용하여 Hadoop 작업 실행
-이 자습서에서는 DocumentDB의 Hadoop 커넥터를 사용해서 Azure HDInsight에서 [Apache Hive][apache-hive], [Apache Pig][apache-pig] 및 [Apache Hadoop][apache-hadoop] MapReduce 작업을 실행하는 방법을 보여 줍니다. DocumentDB의 Hadoop 커넥터를 사용하면 DocumentDB가 Hive, Pig 및 MapReduce 작업에 대한 소스 및 싱크로 모두 작동할 수 있습니다. 이 자습서에서는 DocumentDB가 Hadoop 작업에 대한 데이터 원본 및 대상으로 모두 사용됩니다.
+이 자습서에서는 DocumentDB의 Hadoop 커넥터를 사용하여 Azure HDInsight에서 [Apache Hive][apache-hive], [Apache Pig][apache-pig] 및 [Apache Hadoop][apache-hadoop] MapReduce 작업을 실행하는 방법을 설명합니다. DocumentDB의 Hadoop 커넥터를 사용하면 DocumentDB가 Hive, Pig 및 MapReduce 작업에 대한 소스 및 싱크로 모두 작동할 수 있습니다. 이 자습서에서는 DocumentDB가 Hadoop 작업에 대한 데이터 원본 및 대상으로 모두 사용됩니다.
 
 이 자습서를 완료하고 나면 다음을 알게 됩니다.
 
@@ -37,11 +37,11 @@ ms.openlocfilehash: 43620fed5713f76fcc6e1cebb11c97624eada676
 그런 다음 이 자습서로 돌아와서 DocumentDB 데이터에 대해 분석 작업을 실행하는 방법을 자세히 살펴보세요.
 
 > [!TIP]
-> 이 자습서에서는 사용자가 이전에 Apache Hadoop, Hive 및/또는 Pig를 사용한 경험이 있다고 가정합니다. Apache Hadoop, Hive 및 Pig를 처음 사용하는 경우 [Apache Hadoop 설명서][apache-hadoop-doc]를 참조하는 것이 좋습니다. 또한 이 자습서에서는 이전에 DocumentDB를 사용해본 경험이 있으며 DocumentDB 계정이 있다고 가정합니다. DocumentDB를 처음 사용하거나 DocumentDB 계정이 없으면 [시작하기][getting-started] 페이지를 참조하세요.
+> 이 자습서에서는 사용자가 이전에 Apache Hadoop, Hive 및/또는 Pig를 사용한 경험이 있다고 가정합니다. Apache Hadoop, Hive 및 Pig를 처음 사용하는 경우 [Apache Hadoop 설명서][apache-hadoop-doc]를 참조하는 것이 좋습니다. 또한 이 자습서에서는 이전에 DocumentDB를 사용해본 경험이 있으며 DocumentDB 계정이 있다고 가정합니다. DocumentDB를 처음 사용하거나 DocumentDB 계정이 없는 경우 [시작][getting-started] 페이지를 참조하세요.
 >
 >
 
-자습서를 완료할 시간이 없고 Hive, Pig 및 MapReduce에 대한 전체 샘플 PowerShell 스크립트를 가져오려는 경우 [여기][documentdb-hdinsight-samples]에서 얻을 수 있습니다. 이 다운로드에는 또한 해당 샘플에 대한 hql, pig 및 java 파일이 포함되어 있습니다.
+자습서를 완료할 시간이 없고 Hive, Pig 및 MapReduce에 대한 전체 샘플 PowerShell 스크립트를 가져오려는 경우 [여기][documentdb-hdinsight-samples]에서 가져오세요. 이 다운로드에는 또한 해당 샘플에 대한 hql, pig 및 java 파일이 포함되어 있습니다.
 
 ## <a name="a-namenewestversionanewest-version"></a><a name="NewestVersion"></a>최신 버전
 <table border='1'>
@@ -50,7 +50,7 @@ ms.openlocfilehash: 43620fed5713f76fcc6e1cebb11c97624eada676
     <tr><th>스크립트 URI</th>
         <td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
     <tr><th>수정한 날짜</th>
-        <td>2016년 4월 26일</td></tr>
+        <td>2016년&4;월&26;일</td></tr>
     <tr><th>지원되는 HDInsight 버전</th>
         <td>3.1, 3.2</td></tr>
     <tr><th>변경 로그</th>
@@ -63,10 +63,10 @@ ms.openlocfilehash: 43620fed5713f76fcc6e1cebb11c97624eada676
 이 자습서의 지침을 따르기 전에 다음이 있는지 확인하세요.
 
 * DocumentDB 계정, 데이터베이스 및 내부 문서가 포함된 컬렉션. 자세한 내용은 [DocumentDB 시작][getting-started]을 참조하세요. [DocumentDB 가져오기 도구][documentdb-import-data]를 사용하여 DocumentDB 계정으로 샘플 데이터를 가져옵니다.
-* 처리량. HDInsight에서의 읽기 및 쓰기는 해당 컬렉션에 할당된 요청 단위로 계산됩니다. 자세한 내용은 [프로비전된 처리량, 요청 단위 및 데이터베이스 작업][documentdb-manage-throughput]을 참조하세요.
-* 각 출력 컬렉션 내의 추가 저장 프로시저 용량. 저장 프로시저는 결과 문서를 전송하는 데 사용됩니다. 자세한 내용은 [컬렉션 및 프로비전된 처리량][documentdb-manage-document-storage]을 참조하세요.
-* Hive, Pig 또는 MapReduce 작업의 결과 문서 용량. 자세한 내용은 [DocumentDB 용량 및 성능 관리][documentdb-manage-collections]를 참조하세요.
-* [*선택 사항*] 추가 컬렉션의 용량입니다. 자세한 내용은 [프로비전된 문서 저장소 및 인덱스 오버헤드][documentdb-manage-document-storage]를 참조하세요.
+* 처리량. HDInsight에서의 읽기 및 쓰기는 해당 컬렉션에 할당된 요청 단위로 계산됩니다.
+* 각 출력 컬렉션 내의 추가 저장 프로시저 용량. 저장 프로시저는 결과 문서를 전송하는 데 사용됩니다.
+* Hive, Pig 또는 MapReduce 작업의 결과 문서 용량.
+* [*선택 사항*] 추가 컬렉션의 용량입니다.
 
 > [!WARNING]
 > 작업 중 새 컬렉션이 생성되지 않도록 하려면 결과를 stdout으로 출력하거나, 출력을 WASB 컨테이너로 출력하거나, 기존 컬렉션을 지정할 수 있습니다. 기존 컬렉션을 지정하는 경우에는 새 문서가 컬렉션 내에 만들어지고 기존 문서는 *id*에서 충돌이 있는 경우에만 영향을 받습니다. **커넥터는 id가 충돌하는 기존 문서를 자동으로 덮어씁니다**. 이 기능은 upsert 옵션을 false로 설정해서 해제할 수 있습니다. upsert가 false이고 충돌이 발생하면 Hadoop 작업이 실패하고 id 충돌 오류가 보고됩니다.
@@ -74,7 +74,7 @@ ms.openlocfilehash: 43620fed5713f76fcc6e1cebb11c97624eada676
 >
 
 ## <a name="a-nameprovisionhdinsightastep-1-create-a-new-hdinsight-cluster"></a><a name="ProvisionHDInsight"></a>1단계: 새 HDInsight 클러스터 만들기
-이 자습서에서는 Azure Portal의 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정합니다. 이 자습서에서는 Azure Portal을 사용하여 HDInsight 클러스터를 만듭니다. PowerShell cmdlet 또는 HDInsight .NET SDK 사용에 대한 지침은 [스크립트 작업을 사용해서 HDInsight 클러스터 사용자 지정][hdinsight-custom-provision] 문서를 참조하세요.
+이 자습서에서는 Azure Portal의 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정합니다. 이 자습서에서는 Azure Portal을 사용하여 HDInsight 클러스터를 만듭니다. PowerShell cmdlet 또는 HDInsight .NET SDK 사용 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-custom-provision] 문서를 참조하세요.
 
 1. [Azure Portal][azure-portal]에 로그인합니다.
 2. 왼쪽 탐색의 맨 위에 있는 **+ 새로 만들기**를 클릭하고 새 블레이드의 맨 위 검색 표시줄에서 **HDInsight**를 검색합니다.
@@ -140,7 +140,7 @@ ms.openlocfilehash: 43620fed5713f76fcc6e1cebb11c97624eada676
 12. 이제 **대시보드에 고정**을 선택하여 배포를 추적하고 **만들기**를 클릭합니다.
 
 ## <a name="a-nameinstallcmdletsastep-2-install-and-configure-azure-powershell"></a><a name="InstallCmdlets"></a>2단계: Azure PowerShell 설치 및 구성
-1. Azure PowerShell을 설치합니다. 지침은 [여기][powershell-install-configure]에 있습니다.
+1. Azure PowerShell을 설치합니다. 자세한 내용은 [여기][powershell-install-configure]에서 확인할 수 있습니다.
 
    > [!NOTE]
    > 또는 Hive 쿼리만 해당하는 경우 HDInsight의 온라인 Hive 편집기를 사용할 수 있습니다. 이렇게 하려면 [Azure Portal][azure-portal]에 로그인하고 왼쪽 창에서 **HDInsight**를 클릭하여 HDInsight 클러스터 목록을 확인합니다. Hive 쿼리를 실행하려는 클러스터를 클릭한 후 **쿼리 콘솔**을 클릭합니다.
@@ -392,17 +392,17 @@ ms.openlocfilehash: 43620fed5713f76fcc6e1cebb11c97624eada676
 ## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>다음 단계
 축하합니다. 지금까지 Azure DocumentDB 및 HDInsight를 사용해서 처음으로 Hive, Pig 및 MapReduce 작업을 실행했습니다.
 
-Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [GitHub][documentdb-github]에서 기여할 수 있습니다.
+Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [GitHub][documentdb-github]에서 참여할 수 있습니다.
 
 자세한 내용은 다음 문서를 참조하세요.
 
 * [Documentdb로 Java 응용 프로그램 개발][documentdb-java-application]
-* [HDInsight에서 Hadoop용 Java MapReduce 프로그램 개발][hdinsight-develop-deploy-java-mapreduce]
+* [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발][hdinsight-develop-deploy-java-mapreduce]
 * [휴대폰 사용을 분석하기 위해 HDInsight에서 Hive와 함께 Hadoop 사용 시작][hdinsight-get-started]
-* [HDInsight에서 MapReduce 사용][hdinsight-use-mapreduce]
+* [HDInsight와 함께 MapReduce 사용][hdinsight-use-mapreduce]
 * [HDInsight에서 Hive 사용][hdinsight-use-hive]
 * [HDInsight에서 Pig 사용][hdinsight-use-pig]
-* [스크립트 작업을 사용해서 HDInsight 클러스터 사용자 지정][hdinsight-hadoop-customize-cluster]
+* [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-hadoop-customize-cluster]
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-hadoop-doc]: http://hadoop.apache.org/docs/current/
@@ -416,9 +416,6 @@ Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [Gi
 [documentdb-hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [documentdb-github]: https://github.com/Azure/azure-documentdb-hadoop
 [documentdb-java-application]: documentdb-java-application.md
-[documentdb-manage-collections]: documentdb-manage.md#database-collections
-[documentdb-manage-document-storage]: documentdb-manage.md#provisioned-document-storage-and-index-overhead
-[documentdb-manage-throughput]: documentdb-manage.md#request-units-and-database-operations
 [documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md
@@ -435,10 +432,10 @@ Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [Gi
 [image-mapreduce-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/mapreducequeryresults.PNG
 [image-pig-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/pigqueryresults.PNG
 
-[powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

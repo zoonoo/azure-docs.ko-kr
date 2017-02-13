@@ -1,13 +1,26 @@
 ---
+title: "VPN Gateway 설명서 - 자습서 및 API 참조 | Microsoft Docs"
+description: "클라우드 가상 네트워크와 온-프레미스 또는 클라우드 VNet간에 트래픽을 관리하도록 VPN(가상 사설망) Gateway를 구성하는 방법에 대해 알아봅니다."
+services: vpn-gateway
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: vpn-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 844a2bb0bc702cf8e81684267677db8a8803208f
+ms.sourcegitcommit: 2e7486833ae23cdfed037aa1afb930997586a158
+ms.openlocfilehash: e3179c060380c07dde9058597b0d77861d14d848
+
 
 ---
-#<a name="vpn-gateway-documentation"></a>VPN Gateway 설명서
+# <a name="vpn-gateway-documentation"></a>VPN Gateway 설명서
 
-Azure VPN Gateway는 Azure Virtual Network와 온-프레미스 위치 및 Azure 내 가상 네트워크 간(VNet 간)에 네트워크 트래픽을 보내는 데 사용되는 VPN(가상 사설망) 게이트웨이입니다.  
+개인 가상 네트워크 게이트웨이인 VPN Gateway를 구성하는 방법에 대해 알아봅니다. 설명서에서는 Azure 가상 네트워크와 온-프레미스 위치 또는 다른 Azure VNet(가상 네트워크) 간에 네트워크 트래픽을 보내는 방법을 설명합니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -122,91 +135,40 @@ Azure VPN Gateway는 Azure Virtual Network와 온-프레미스 위치 및 Azure 
  
 ---
 
-## <a name="reference"></a>참조
-
+<h2>참조</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell 참조</p>
+                        <h3>명령줄</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell(리소스 관리자)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell(클래식)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/network/vpn-gateway">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure CLI를 사용한 VPN Gateway</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET 관리되는 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java SDK 참조</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163859">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p>VPN Gateway REST API</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST(리소스 관리자)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST(클래식)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/vpn-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-Azure VPN Gateway 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: '자습서: Pluralsight와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 Pluralsight 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: "자습서: Pluralsight와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 Pluralsight 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6b71ba7f928871768851357bcb4bce1fbf4fed3
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-pluralsight"></a>자습서: Pluralsight와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>자습서: Pluralsight와 Azure Active Directory 통합
 이 자습서에서는 Pluralsight와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
 
 Pluralsight를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
@@ -120,13 +124,13 @@ Pluralsight 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
    
     a. **사용자 특성 추가**를 클릭하여 **사용자 특성 추가** 대화 상자를 엽니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-pluralsight-tutorial/tutorial_general_82.png) 
+    ![Single Sign-On 구성](./media/active-directory-saas-pluralsight-tutorial/tutorial_general_82.png) 
 
     b. **특성 이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
     c. **특성 값** 목록에서 해당 행에 표시된 특성 값을 선택합니다.
 
-    d. **완료**를 클릭합니다.  
+    d. **완료**를 클릭합니다.    
 
 
 
@@ -274,6 +278,6 @@ Pluralsight 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 12/05/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 120e7819535dca314ae9bc8cc266ec8771516735
+ms.sourcegitcommit: a5bd3866f3150b1c787e5f3700bdbd0b74fbaf42
+ms.openlocfilehash: 666a8031a262aef72fc8c3e73647f81d79b1c916
 
 
 ---
@@ -52,20 +52,20 @@ Microsoft Azure 기계 학습에는 강력한 기계 학습 및 데이터 조작
 ## <a name="a-idmlstudioainteract-with-r-language-in-machine-learning-studio"></a><a id="mlstudio"></a>기계 학습 스튜디오에서 R 언어와 상호 작용
 이 섹션에서는 기계 학습 스튜디오 환경에서 R 프로그래밍 언어와 상호 작용하는 방법에 대한 일부 기본적인 과정을 안내합니다. R 언어는 Azure 기계 학습 환경에서 사용자 지정된 분석 및 데이터 조작 모듈을 만드는 강력한 도구를 제공합니다.
 
-작은 규모로 R 코드를 개발, 테스트 및 디버그하기 위해 RStudio를 사용합니다. 그런 다음 이 코드를 잘라내고 Machine Learning Studio에서 [R 스크립트 실행][execute-r-script] 모듈에 붙여넣어 실행할 준비를 합니다.  
+작은 규모로 R 코드를 개발, 테스트 및 디버그하기 위해 RStudio를 사용합니다. 그런 다음 이 코드를 잘라서 Machine Learning Studio에서 [R 스크립트 실행][execute-r-script] 모듈에 붙여넣어 실행할 준비를 합니다.  
 
 ### <a name="the-execute-r-script-module"></a>R 스크립트 실행 모듈
-Machine Learning Studio에서 R 스크립트는 [R 스크립트 실행][execute-r-script] 모듈 내에서 실행됩니다. 그림 1에서는 Machine Learning Studio에서의 [R 스크립트 실행 모듈][execute-r-script]의 예를 보여 줍니다.
+Machine Learning Studio에서 R 스크립트는 [R 스크립트 실행][execute-r-script] 모듈 내에서 실행됩니다. 그림 1에서는 Machine Learning Studio에서의 [R 스크립트 실행 모듈][execute-r-script] 예를 보여 줍니다.
 
  ![R 프로그래밍 언어: R 스크립트 실행 모듈이 기계 학습 스튜디오에서 선택됩니다.][1]
 
 *그림 1. 선택된 R 스크립트 실행 모듈을 보여 주는 기계 학습 스튜디오 환경*
 
-그림 1을 참고하여 [R 스크립트 실행][execute-r-script] 모듈 작업을 위한 몇 가지 주요한 Machine Learning Studio 환경을 살펴보겠습니다.
+그림 1을 참조하여 [R 스크립트 실행][execute-r-script] 모듈 작업을 위한 몇 가지 주요한 Machine Learning Studio 환경을 살펴보겠습니다.
 
 * 가운데 창에 실험에 사용된 모듈이 표시됩니다.
 * 오른쪽 창의 윗 부분은 R 스크립트를 보고 편집하는 창입니다.  
-* 오른쪽 창의 아래 부분에는 [R 스크립트 실행][execute-r-script]의 일부 속성이 나와 있습니다. 이 창에서 적절한 지점을 클릭하여 오류 및 출력 로그를 볼 수 있습니다.
+* 오른쪽 창의 아래 부분에서는 [R 스크립트 실행][execute-r-script]의 일부 속성을 보여 줍니다. 이 창에서 적절한 지점을 클릭하여 오류 및 출력 로그를 볼 수 있습니다.
 
 물론 이 문서의 나머지 부분에서 [R 스크립트 실행][execute-r-script]에 대해 더 자세히 설명합니다.
 
@@ -84,7 +84,7 @@ R 예외 처리를 보다 완벽하게 수행하려면 [부록 B - 추가 정보
 
 R 코드 및 Azure 기계 학습 플랫폼에서의 실행 출력은 주로 output.log에서 찾을 수 있습니다. 일부 추가 정보는 error.log에 표시됩니다.  
 
-R 코드를 실행하는 동안 기계 학습 스튜디오에서 오류가 발생하면 제일 먼저 error.log를 살펴봐야 합니다. error.log에는 오류 메시지를 이해하고 수정하는 데 도움이 되는 유용한 오류 메시지가 포함될 수 있습니다. error.log를 보려면 오류가 포함된 [R 스크립트 실행][execute-r-script]의 **속성 창**에서 **오류 로그 보기**를 클릭합니다.
+R 코드를 실행하는 동안 기계 학습 스튜디오에서 오류가 발생하면 제일 먼저 error.log를 살펴봐야 합니다. error.log에는 오류 메시지를 이해하고 수정하는 데 도움이 되는 유용한 오류 메시지가 포함될 수 있습니다. error.log를 보려면 오류가 포함된 [R 스크립트 실행][execute-r-script]의 **속성 창**에서 **오류 로그 보기**를 클릭하세요.
 
 예를 들어 [R 스크립트 실행][execute-r-script] 모듈에서 다음 R 코드를 정의되지 않은 변수 y와 함께 실행했습니다.
 
@@ -97,7 +97,7 @@ R 코드를 실행하는 동안 기계 학습 스튜디오에서 오류가 발�
 
 *그림 2. 오류 메시지 팝업*
 
-R 오류 메시지를 보려면 output.log에서 살펴봐야 할 것 같습니다. [R 스크립트 실행][execute-r-script]을 클릭한 다음 오른쪽 **속성 창**에서 **output.log 보기** 항목을 클릭합니다. 새 브라우저 창이 열리고 다음이 표시됩니다.
+R 오류 메시지를 보려면 output.log에서 살펴봐야 할 것 같습니다. [R 스크립트 실행][execute-r-script]을 클릭한 다음 **속성 창** 오른쪽에서 **output.log 보기** 항목을 클릭하세요. 새 브라우저 창이 열리고 다음이 표시됩니다.
 
     [Critical]     Error: Error 0063: The following error occurred during evaluation of R script:
     ---------- Start of error message from R ----------
@@ -239,7 +239,7 @@ Dataset1 입력을 사용하여 사각형의 데이터 테이블을 R 코드에 
 
     cadairydata <- maml.mapInputPort(1)
 
-**실행** 단추를 클릭하여 실험을 실행하세요. 실행이 끝나면 [R 스크립트 실행][execute-r-script] 모듈을 클릭한 후 속성 창에서 **출력 로그 보기**를 클릭합니다. Output.log 파일의 내용을 보여 주는 새 페이지가 브라우저에 표시됩니다. 아래로 스크롤하면 다음과 같이 표시됩니다.
+**실행** 단추를 클릭하여 실험을 실행하세요. 실행이 끝나면 [R 스크립트 실행][execute-r-script] 모듈을 클릭한 후 속성 창에서 **출력 로그 보기**를 클릭하세요. Output.log 파일의 내용을 보여 주는 새 페이지가 브라우저에 표시됩니다. 아래로 스크롤하면 다음과 같이 표시됩니다.
 
     [ModuleOutput] InputDataStructure
     [ModuleOutput]
@@ -277,7 +277,7 @@ Dataset1 입력을 사용하여 사각형의 데이터 테이블을 R 코드에 
 결과는 거의 예상대로 dataframe에 228번의 관찰과 9개의 열이 나왔습니다. 각 열의 열 이름, R 데이터 형식, 샘플을 볼 수 있습니다.
 
 > [!NOTE]
-> 이와 동일한 인쇄된 출력은 [R 스크립트 실행][execute-r-script] 모듈의 R 장치 출력에서 편리하게 사용할 수 있습니다. 다음 섹션에서 [R 실행 모듈Script][execute-r-script]의 출력을 설명합니다.  
+> 이와 동일한 인쇄된 출력은 [R 스크립트 실행][execute-r-script] 모듈의 R 장치 출력에서 편리하게 사용할 수 있습니다. 다음 섹션에서 [R 실행 모듈][execute-r-script]의 출력을 설명합니다.  
 > 
 > 
 
@@ -286,7 +286,7 @@ Dataset2 입력의 동작은 Dataset1과 동일합니다. 이 입력을 사용�
 
 ### <a name="execute-r-script-outputs"></a>R 스크립트 실행 출력
 #### <a name="output-a-dataframe"></a>데이터 프레임 출력
-`maml.mapOutputPort()` 함수를 사용하여 결과 데이터 집합 1 포트를 통해 R 데이터 프레임의 내용을 사각형 테이블처럼 출력할 수 있습니다. 간단한 이 R 스크립트에서는 다음 줄을 통해 이를 수행할 수 있습니다.
+`maml.mapOutputPort()` 함수를 사용하여 결과 데이터 집합&1; 포트를 통해 R 데이터 프레임의 내용을 사각형 테이블처럼 출력할 수 있습니다. 간단한 이 R 스크립트에서는 다음 줄을 통해 이를 수행할 수 있습니다.
 
     maml.mapOutputPort('cadairydata')
 
@@ -338,7 +338,7 @@ R은 동적으로 입력되는 언어이므로 필요에 따라 데이터 형식
 
 우리가 이전 섹션에서 입력한 열의 데이터 유형을 보면 모든 열의 형식은 문자 형식인 'Month'라고 지정된 열을 제외하고는 모두 숫자 형식입니다. 이 형식을 요소로 변환하고 결과를 테스트해보겠습니다.  
 
-산점도 행렬을 만든 줄을 삭제하고 'Month' 열을 요소로 변환하는 줄을 추가했습니다. 이 실험에서 R 코드를 잘라내어 [R 스크립트 실행][execute-r-script] 모듈의 코드 창에 붙여넣기만 하겠습니다. Zip 파일을 업데이트하고 Azure 기계 학습 스튜디오에 업로드할 수도 있으나 몇 단계를 거쳐야 합니다.  
+산점도 행렬을 만든 줄을 삭제하고 'Month' 열을 요소로 변환하는 줄을 추가했습니다. 이 실험에서 R 코드를 잘라 [R 스크립트 실행][execute-r-script] 모듈의 코드 창에 붙여넣기만 하겠습니다. Zip 파일을 업데이트하고 Azure 기계 학습 스튜디오에 업로드할 수도 있으나 몇 단계를 거쳐야 합니다.  
 
     ## Only one of the following two lines should be used
     ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
@@ -560,7 +560,7 @@ R 데이터 프레임은 강력한 필터링 기능을 지원합니다. 행이�
 R에서 방어적 프로그래밍이 익숙하지 않으면 이 코드가 모두 약간 부담스러울 수 있습니다. 주요 단계를 안내합니다.
 
 1. 네 개 메시지의 벡터가 정의됩니다. 이러한 메시지는 이 코드에서 발생할 수 있는 일부 오류 및 예외에 대한 정보를 전달하는 데 사용됩니다.
-2. 각각의 경우에 대해 NA 값을 반환합니다. 부작용이 더 적을 수 있는 다른 가능성이 많습니다. 예를 들어 0의 벡터나 원래 입력 벡터를 반환할 수 있습니다.
+2. 각각의 경우에 대해 NA 값을 반환합니다. 부작용이 더 적을 수 있는 다른 가능성이 많습니다. 예를 들어&0;의 벡터나 원래 입력 벡터를 반환할 수 있습니다.
 3. 함수에 대한 인수를 확인합니다. 오류가 감지되는 경우에는 기본값이 반환되며 `warning()` 함수가 메시지를 생성합니다. `stop()`은 실행을 종료하므로 방지하려는 경우에는 `warning()`을 사용합니다. 이 코드의 경우 함수 접근 방법으로 작성하면 복잡하고 난해해 보이므로 프로시저 방식으로 작성하였습니다.
 4. 예외가 발생해 프로세스를 갑자기 중단하지 않도록 로그 계산이 `tryCatch()` 로 래핑됩니다. `tryCatch()`가 없으면 R 함수에 의해 발생한 대부분의 오류는 중지 작업을 수행하는 중지 신호가 됩니다.
 
@@ -594,7 +594,7 @@ R에서 방어적 프로그래밍이 익숙하지 않으면 이 코드가 모두
 
 변환된 값을 볼 수 있습니다. 이제 우유 생산이 다른 모든 유제품 생산을 훨씬 초과합니다. 현재 로그 눈금으로 보고 있다는 사실을 상기하세요.
 
-이 시점에서 데이터가 정리되며 모델링할 준비가 됩니다. [R 스크립트 실행][execute-r-script] 모듈의 Result Dataset 출력에 대한 시각화된 요약을 보면 'Month' 열이 바로 우리가 원하는 12개의 고유값을 가진 'Categorical'이라는 것을 알 수 있습니다.
+이 시점에서 데이터가 정리되며 모델링할 준비가 됩니다. [R 스크립트 실행][execute-r-script] 모듈의 Result Dataset 출력에 대한 시각화된 요약을 보면 'Month' 열이 원하는 12개의 고유값을 가진 'Categorical'이라는 것을 알 수 있습니다.
 
 ## <a name="a-idtimeseriesatime-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>시계열 개체 및 상관관계 분석
 이 섹션에서는 몇 가지 기본 R 시계열 개체를 살펴보고 일부 변수 간의 상관관계를 분석합니다. 여기서는 여러 지연 상황에서 쌍별 상관관계 정보를 포함하는 데이터 프레임을 출력하는 것이 목표입니다.
@@ -608,7 +608,7 @@ POSIXct 시계열 클래스가 일반적으로 사용되며 비교적 간단합�
 <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ### <a name="time-series-object-example"></a>시계열 개체 예
-예제로 시작해 보겠습니다. **새** [R 스크립트 실행][execute-r-script] 모듈을 실험에 끌어다 놓습니다. 기존 [R 스크립트 실행][execute-r-script] 모듈의 Result Dataset1 출력 포트를 새 [R 스크립트 실행][execute-r-script] 모듈의 Dataset1 입력 포트에 연결합니다.
+예제로 시작해 보겠습니다. **새** [R 스크립트 실행][execute-r-script] 모듈을 실험에 끌어다 놓습니다. 기존 [R 스크립트 실행][execute-r-script] 모듈의 Result Dataset1 출력 포트를 새 [R 스크립트 실행][execute-r-script] 모듈의 Dataset1 입력 포트에 연결하세요.
 
 첫 번째 예제에서와 마찬가지로 예제를 진행하는 동안 어떤 부분에서는 각 단계에서 추가된 R 코드 줄만 표시하겠습니다.  
 
@@ -748,7 +748,7 @@ POSIXct 시계열 클래스가 일반적으로 사용되며 비교적 간단합�
 
 `ts.detrend()` 함수에서는 꽤 많은 일이 일어납니다. 이 코드의 대부분은 인수와 관련된 잠재적인 문제를 확인하거나 계산하는 동안 생길 수 있는 예외를 처리합니다. 이 코드의 몇 줄만이 실제로 계산을 수행합니다.
 
-방어적 프로그램의 예는 [값 변환](#valuetransformations)에서 이미 설명했습니다. 두 계산 블록이 모두 `tryCatch()`로 래핑됩니다. 일부 오류의 경우는 원래 입력 벡터를 반환하고 그 밖의 경우에는 0의 벡터를 반환합니다.  
+방어적 프로그램의 예는 [값 변환](#valuetransformations)에서 이미 설명했습니다. 두 계산 블록이 모두 `tryCatch()`로 래핑됩니다. 일부 오류의 경우는 원래 입력 벡터를 반환하고 그 밖의 경우에는&0;의 벡터를 반환합니다.  
 
 비추세화에 사용된 선형 회귀는 시계열 회귀입니다. 예측 변수는 시계열 개체입니다.  
 
@@ -1017,7 +1017,7 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
 
 보기가 더 낫습니다. 모든 항이 중요합니다. 하지만 2e-16 값은 기본값이며 너무 심각하게 실행해서는 안 됩니다.  
 
-온전성 테스트로서 추세선이 표시된 캘리포니아 유제품 생산 데이터의 시계열 도표를 만듭니다. 모델을 생성하고 도표를 만들도록 다음 코드를 Azure Machine Learning [R 스크립트 실행][execute-r-script] 모듈(RStudio 아님)에 추가했습니다. 그림 23은 그 결과입니다.
+온전성 테스트로서 추세선이 표시된 캘리포니아 유제품 생산 데이터의 시계열 도표를 만듭니다. 모델을 만들어 도표를 만들도록 다음 코드를 Azure Machine Learning [R 스크립트 실행][execute-r-script] 모듈(RStudio 아님)에 추가했습니다. 그림 23은 그 결과입니다.
 
     milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
 
@@ -1074,7 +1074,7 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
 
 모델에 절편항이 없고 12개의 중요한 월 요소가 있음을 알 수 있습니다. 이것이 바로 원했던 결과입니다.
 
-계절 모델이 얼마나 잘 작동하는지 확인하기 위해 캘리포니아 유제품 생산 데이터의 다른 시계열 도표를 만들어 보겠습니다. 모델을 생성하고 도표를 만들도록 다음 코드를 Azure Machine Learning [R 스크립트 실행][execute-r-script]에 추가했습니다.
+계절 모델이 얼마나 잘 작동하는지 확인하기 위해 캘리포니아 유제품 생산 데이터의 다른 시계열 도표를 만들어 보겠습니다. 모델을 만들어 도표를 만들도록 다음 코드를 Azure Machine Learning [R 스크립트 실행][execute-r-script]에 추가했습니다.
 
     milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
 
@@ -1284,6 +1284,6 @@ R 시계열 패키지 카탈로그는 CRAN Task View for time series analysis(ht
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

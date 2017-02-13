@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f2e5bbd2516c0f697084a802d6963c3d1023914
+ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
+ms.openlocfilehash: 6187106a9aa98107d89e65fe4c7a0e8a27befa87
 
 
 ---
@@ -31,7 +31,11 @@ HDInsight는 데이터 저장소로 Azure 저장소 Blob를 사용합니다. HDI
   
   * Visual Studio는 버전 2013 또는 2015여야 합니다.
   * Python은 버전 2.7 이상이어야 합니다.
-* Linux 기반 HDInsight 클러스터 또는 [Azure PowerShell][PowerShell] - 기존 Linux 기반 클러스터가 있는 경우 Ambari를 사용하여 클러스터에 공유 액세스 서명을 추가할 수 있습니다. 그렇지 않으면 Azure PowerShell을 사용하여 새 클러스터를 만들고 클러스터를 만들 때 공유 액세스 서명을 추가합니다.
+* Linux 기반 HDInsight 클러스터 또는 [Azure PowerShell][powershell] - 기존 Linux 기반 클러스터가 있는 경우 Ambari를 사용하여 클러스터에 공유 액세스 서명을 추가할 수 있습니다. 그렇지 않으면 Azure PowerShell을 사용하여 새 클러스터를 만들고 클러스터를 만들 때 공유 액세스 서명을 추가합니다.
+
+    > [!IMPORTANT]
+    > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 * [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)의 예제 파일입니다. 이 리포지토리는 다음을 포함합니다.
   
   * HDInsight에 사용할 저장소 컨테이너, 저장된 정책 및 SAS를 만들 수 있는 Visual Studio 프로젝트
@@ -127,7 +131,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
     예를 들어 `'mycluster'` 를 만들려는 클러스터의 이름으로 변경합니다. SAS 값은 저장소 계정 및 SAS 토큰을 만들 때 이전 단계에서 사용한 값과 일치해야 합니다.
    
     값을 변경한 후 파일을 저장합니다.
-2. 새 Azure PowerShell 프롬프트를 엽니다. Azure PowerShell에 익숙하지 않거나 설치되지 않은 경우 [Azure PowerShell 설치 및 구성][PowerShell]을 참조하세요.
+2. 새 Azure PowerShell 프롬프트를 엽니다. Azure PowerShell에 익숙하지 않거나 설치되지 않은 경우 [Azure PowerShell 설치 및 구성][powershell]을 참조하세요.
 3. 프롬프트에서 다음 명령을 사용하여 Azure 구독에 대해 인증합니다.
    
         Login-AzureRmAccount
@@ -147,9 +151,9 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
    > HTTP/s 또는 SSH 사용자 이름 및 암호를 묻는 메시지가 나타나면 다음 조건을 충족하는 암호를 제공해야 합니다.
    > 
    > * 길이가 10자 이상이어야 함
-   > * 숫자를 1개 이상 포함해야 함
-   > * 영숫자가 아닌 문자를 1개 이상 포함해야 함
-   > * 대문자 또는 소문자를 1개 이상 포함해야 함
+   > * 숫자를&1;개 이상 포함해야 함
+   > * 영숫자가 아닌 문자를&1;개 이상 포함해야 함
+   > * 대문자 또는 소문자를&1;개 이상 포함해야 함
    > 
    > 
 
@@ -238,9 +242,9 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 **해결 방법**: 다음 조건을 충족하는 암호를 사용합니다.
 
 * 길이가 10자 이상이어야 함
-* 숫자를 1개 이상 포함해야 함
-* 영숫자가 아닌 문자를 1개 이상 포함해야 함
-* 대문자 또는 소문자를 1개 이상 포함해야 함
+* 숫자를&1;개 이상 포함해야 함
+* 영숫자가 아닌 문자를&1;개 이상 포함해야 함
+* 대문자 또는 소문자를&1;개 이상 포함해야 함
 
 ## <a name="next-steps"></a>다음 단계
 이제 HDInsight 클러스터에 액세스가 제한된 저장소를 추가하는 방법을 배웠으므로 클러스터에서 데이터에 대해 작업하는 다른 방법에 알아보겠습니다.
@@ -249,10 +253,10 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-[PowerShell]: ../powershell-install-configure.md
+[powershell]: /powershell/azureps-cmdlets-docs
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c9f062f1cc855a47bb75668e99330e98bb2395b2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b7a74df9bfcf75b00af5aaf21e9f74610712ab47
 
 
 ---
@@ -32,7 +32,7 @@ ms.openlocfilehash: c9f062f1cc855a47bb75668e99330e98bb2395b2
 * Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다.
 * Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat, GlassFish, JBoss Application Server, Jetty 또는 IBM® WebSphere® Application Server Liberty Core)
 * Azure 구독은 <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있습니다.
-* Eclipse용 Azure 도구 키트 자세한 내용은 [Eclipse용 Azure 도구 키트 설치][Eclipse용 Azure 도구 키트 설치]를 참조하세요.
+* Eclipse용 Azure 도구 키트 자세한 내용은 [Eclipse용 Azure 도구 키트 설치][Installing the Azure Toolkit for Eclipse]를 참조하세요.
 
 ## <a name="to-create-a-hello-world-application"></a>Hello World 응용 프로그램을 만들려면
 먼저 java 프로젝트를 만듭니다.
@@ -74,13 +74,13 @@ Java 웹 응용 프로그램을 테스트할 준비가 되는 즉시 다음 바�
    5. **대상 OS**의 경우 배포에 사용하려는 운영 체제의 버전을 선택합니다.
    6. **대상 환경**의 경우 자습서의 목적에 따라 **스테이징**을 선택합니다. (프로덕션 사이트에 배포할 준비가 되면 **프로덕션**에 이를 변경합니다.)
    7. 선택 사항: 새 배포가 자동으로 이전 배포를 덮어쓰도록 하려면 **이전 배포 덮어쓰기**가 선택되어야 합니다. 이 옵션을 사용하면 동일한 위치에 게시할 때 "409 충돌" 문제가 발생하지 않습니다.
-       **Azure에 게시** 대화 상자는 **원격 액세스**에 대한 섹션을 포함합니다. 기본적으로 원격 액세스가 설정되지 않으며 이 예에서도 사용하지 않습니다. 원격 액세스를 설정하려면 사용자 이름 및 암호를 입력하여 원격으로 로그인할 때 사용합니다. 원격 액세스에 대한 자세한 내용은 [Eclipse에서 Azure 배포에 대한 원격 액세스를 사용하도록 설정][Eclipse에서 Azure 배포에 대한 원격 액세스를 사용하도록 설정]을 참조하세요.
+       **Azure에 게시** 대화 상자는 **원격 액세스**에 대한 섹션을 포함합니다. 기본적으로 원격 액세스가 설정되지 않으며 이 예에서도 사용하지 않습니다. 원격 액세스를 설정하려면 사용자 이름 및 암호를 입력하여 원격으로 로그인할 때 사용합니다. 원격 액세스에 대한 자세한 내용은 [Eclipse에서 Azure 배포에 원격 액세스 사용][Enabling Remote Access for Azure Deployments in Eclipse]을 참조하세요.
        **Azure에 게시** 대화 상자는 다음과 유사하게 표시됩니다.  ![][ic719488]
 5. **게시** 를 클릭하여 스테이징 환경에 게시합니다.
     전체 빌드를 수행하라는 메시지가 나타나면 **예**를 클릭합니다. 첫 번째 작성에 몇 분 정도 걸릴 수 있습니다.
     **Azure 활동 로그** 는 Eclipse가 탭된 뷰 섹션에 표시됩니다.
     ![][ic719489]
-    **콘솔** 보기와 같이 이 로그를 사용하여 배포의 진행 상황을 볼 수 있습니다. [Azure 관리 포털][Azure 관리 포털]에 로그인하거나 **클라우드 서비스** 섹션을 사용해서도 상태를 모니터링할 수 있습니다.
+    **콘솔** 보기와 같이 이 로그를 사용하여 배포의 진행 상황을 볼 수 있습니다. [Azure 관리 포털][Azure Management Portal]에 로그인하거나 **Cloud Services** 섹션을 사용해서도 상태를 모니터링할 수 있습니다.
 6. 배포가 성공적으로 배포될 때 **Azure 활동 로그**는 **게시됨** 상태를 나타냅니다. 다음 그림에 표시된 것처럼 **게시**를 클릭하고 브라우저가 배포의 인스턴스를 엽니다.
     ![][ic719490]
 
@@ -111,11 +111,11 @@ Java 웹 응용 프로그램을 테스트할 준비가 되는 즉시 다음 바�
 기존 Azure 배포 프로젝트의 JDK, 응용 프로그램 서버 또는 응용 프로그램 목록을 변경하려면 :
 
 1. 프로젝트 탐색기에서 프로젝트 노드 확장(예: **MyHelloWorld_onAzure**)
-2.  **WorkerRole1**
+2. **WorkerRole1**
 3. 상황에 맞는 메뉴에서 **Azure** 하위 메뉴 확장
-4.  **서버 구성**
+4. **서버 구성**
 
-위에 표시된 대로 기존 Azure 배포 프로젝트를 편집하거나 처음부터 새로 만들지에 관계 없이 서버 구성 단계를 시작하면 JDK, 서버 및 응용 프로그램 구성 요소를 구성할 수 있는 동일한 형식의 대화 상자가 표시됩니다. 해당 대화 상자에서 JDK인 응용 프로그램 서버를 변경하거나 배포에서는 응용 프로그램을 제거하는 등 설정을 변경하는 방법을 자세히 알아보려면 [서버 구성 속성][서버 구성 속성] 문서를 참조하세요.
+위에 표시된 대로 기존 Azure 배포 프로젝트를 편집하거나 처음부터 새로 만들지에 관계 없이 서버 구성 단계를 시작하면 JDK, 서버 및 응용 프로그램 구성 요소를 구성할 수 있는 동일한 형식의 대화 상자가 표시됩니다. 해당 대화 상자에서 JDK인 응용 프로그램 서버를 변경하거나 배포에서는 응용 프로그램을 제거하는 등 설정을 변경하는 방법을 자세히 알아보려면 [서버 구성 속성][Server configuration properties] 문서를 참조하세요.
 
 ## <a name="windows-only-to-deploy-your-application-to-the-compute-emulator"></a>Windows에만 해당: 계산 에뮬레이터에 응용 프로그램을 배포하려면
 > [!NOTE]
@@ -155,24 +155,24 @@ Eclipse용 Azure 도구 모음 내에서 배포를 삭제하려면 Eclipse의 �
 (배포를 삭제하기 위해 도구 키트를 사용하는 대신 Azure 관리 포털의 **클라우드 서비스** 섹션을 사용할 수 있습니다. 배포로 이동하고 선택한 다음 **삭제** 단추를 클릭합니다. 배포를 중지한 다음 삭제합니다. 배포를 중지하지만 삭제하지 않으려는 경우 **삭제** 단추 대신 **중지**를 클릭하지만 위에서 언급한 대로 배포를 삭제하지 않으면 중지된 경우에도 배포에 청구 가능한 요금이 계속 발생합니다.)
 
 ## <a name="see-also"></a>참고 항목
-[Eclipse용 Azure 도구 키트][Eclipse용 Azure 도구 키트]
+[Eclipse용 Azure 도구 키트][Azure Toolkit for Eclipse]
 
-[Eclipse용 Azure 도구 키트 설치][Eclipse용 Azure 도구 키트 설치] 
+[Eclipse용 Azure 도구 키트 설치][Installing the Azure Toolkit for Eclipse] 
 
-[Eclipse용 Azure 도구 키트의 새로운 기능][Eclipse용 Azure 도구 키트의 새로운 기능]
+[Eclipse용 Azure 도구 키트의 새로운 기능][What's New in the Azure Toolkit for Eclipse]
 
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java 개발자 센터]를 참조하세요.
+Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java Developer Center]를 참조하세요.
 
 <!-- URL List -->
 
-[Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure 관리 포털]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Azure 역할 속성]: http://go.microsoft.com/fwlink/?LinkID=699525
-[Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Eclipse에서 Azure 배포에 대한 원격 액세스를 사용하도록 설정]: http://go.microsoft.com/fwlink/?LinkID=699538
-[Eclipse용 Azure 도구 키트 설치]: http://go.microsoft.com/fwlink/?LinkId=699546
-[서버 구성 속성]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
-[Eclipse용 Azure 도구 키트의 새로운 기능]: http://go.microsoft.com/fwlink/?LinkID=699552
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Enabling Remote Access for Azure Deployments in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699538
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Server configuration properties]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
+[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 
@@ -197,6 +197,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

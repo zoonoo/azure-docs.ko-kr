@@ -1,26 +1,30 @@
 ---
-title: R을 사용하여 작성한 기계 학습 웹 서비스 예제 | Microsoft Docs
-description: R 코드와 기계 학습을 사용하여 만든 후 Azure 마켓플레이스에 게시한 유용한 웹 서비스 예제 집합을 찾아보세요.
-keywords: csharp, r 코드, 웹 서비스 예제
+title: "R을 사용하여 작성한 Machine Learning 웹 서비스 예제 | Microsoft Docs"
+description: "R 코드와 기계 학습을 사용하여 만든 후 Azure 마켓플레이스에 게시한 유용한 웹 서비스 예제 집합을 찾아보세요."
+keywords: "csharp, r 코드, 웹 서비스 예제"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: jaymathe
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 97d66cb7-6a84-4ae9-8095-0b5f5ba82d7f
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 11/21/2016
 ms.author: jaymathe
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0c3e94cf69d55de9c31a48de35e86a1ae9149a63
+
 
 ---
-# Azure 기계 학습의 R 코드를 사용하고 Microsoft Azure 마켓플레이스에 게시된 웹 서비스 예제
-이 문서에는 Azure 기계 학습을 사용하여 만든 다음 Azure 마켓플레이스에 게시된 예제 웹 서비스가 나와 있습니다. 각 웹 서비스 예제에는 서비스를 테스트하고 사용자가 비슷한 서비스를 직접 만들 수 있는 방법을 설명하는 샘플 데이터 집합이 포함된 광범위한 문서가 첨부되어 있습니다.
+# <a name="web-services-examples-using-r-code-on-azure-machine-learning-and-published-to-microsoft-azure-marketplace"></a>Azure 기계 학습의 R 코드를 사용하고 Microsoft Azure 마켓플레이스에 게시된 웹 서비스 예제
+이 문서에는 Azure 기계 학습을 사용하여 만든 다음 Azure 마켓플레이스에 게시된 예제 웹 서비스가 나와 있습니다. 각 웹 서비스 예제에는 서비스를 테스트하고 사용자가 비슷한 서비스를 직접 만들 수 있는 방법을 설명하는 샘플 데이터 집합이 포함된 광범위한 문서가 첨부되어 있습니다. 
 
-Azure 기계 학습 스튜디오에서 사용자는 R 코드를 작성한 후 몇 번의 클릭만으로 전 세계의 응용 프로그램과 장치에서 사용될 수 있는 웹 서비스로 게시할 수 있습니다.
+Azure 기계 학습 스튜디오에서 사용자는 R 코드를 작성한 후 몇 번의 클릭만으로 전 세계의 응용 프로그램과 장치에서 사용될 수 있는 웹 서비스로 게시할 수 있습니다. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -32,7 +36,7 @@ Azure 기계 학습 스튜디오에서 사용자는 R 코드를 작성한 후 �
 
 다음과 같은 시나리오를 고려해 보세요.
 
-## 시나리오 1: 일반 모델
+## <a name="scenario-1-generic-model"></a>시나리오 1: 일반 모델
 사용자는 시계열 데이터의 기본 예측 또는 고급 분석을 통한 사용자 지정으로 작성된 R 메서드와 같이 새 사용자의 데이터에 적용할 수 있는 일반 모델을 사용하여 작업합니다. 이 사용자는 다른 사용자가 해당 데이터와 함께 소비하도록 모델을 웹 서비스로 게시합니다.
 
 * [이진 분류자](machine-learning-r-csharp-binary-classifier.md)
@@ -43,22 +47,22 @@ Azure 기계 학습 스튜디오에서 사용자는 R 코드를 작성한 후 �
 * [예측 - ARIMA(자동 회귀 통합 이동 평균)](machine-learning-r-csharp-arima.md)
 * [생존 분석](machine-learning-r-csharp-survival-analysis.md)
 
-## 시나리오 2: 학습된 모델 – 특정 데이터
+## <a name="scenario-2-trained-model--specific-data"></a>시나리오 2: 학습된 모델 – 특정 데이터
 사용자의 성격 유형을 예측하기 위한 k-means 알고리즘을 통해 클러스터된 성격 질문서의 큰 샘플 또는 생존 분석 R 패키지를 통해 개인의 위암에 대한 위험을 예측하는 데 사용할 수 있는 건강 설문 데이터와 같이 R 코드를 통해 유용한 예측을 제공하는 데이터가 사용자에게 있습니다. 사용자는 새 사용자의 결과를 예측하는 웹 서비스를 통해 데이터를 게시합니다.
 
-## 시나리오 3: 학습된 모델 – 일반 데이터
+## <a name="scenario-3-trained-model--generic-data"></a>시나리오 3: 학습된 모델 – 일반 데이터
 일반적으로 웹 서비스를 작성한 후 다양한 유형의 사용 사례와 시나리오에서 적용할 수 있는 일반 데이터(예: 텍스트 모음)가 사용자에게 있습니다.
 
 * [어휘집 기반 감정 분석](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
 
-## 시나리오 4: 고급 계산기
+## <a name="scenario-4-advanced-calculator"></a>시나리오 4: 고급 계산기
 사용자는 고급 계산 또는 시뮬레이션을 제공하므로 학습된 모델이 필요하지 않고 모델을 사용자 데이터에 맞출 필요가 없습니다.
 
 * [비율 차이 테스트](machine-learning-r-csharp-difference-in-two-proportions.md)
 * [정규 분포 제품군](machine-learning-r-csharp-normal-distribution.md)
 * [이항 분포 패키지](machine-learning-r-csharp-binomial-distribution.md)
 
-## FAQ
+## <a name="faq"></a>FAQ
 웹 서비스 사용 또는 마켓플레이스 게시 방법과 관련한 질문과 대답은 [여기](machine-learning-marketplace-faq.md)를 참조하세요.
 
 [1]: ./media/machine-learning-r-csharp-web-service-examples/machine-learning-r-code-options-for-using-and-sharing-cloud.png
@@ -66,4 +70,8 @@ Azure 기계 학습 스튜디오에서 사용자는 R 코드를 작성한 후 �
 
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

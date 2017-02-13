@@ -1,30 +1,34 @@
 ---
-title: Azure SQL 데이터 웨어하우스용 PowerShell cmdlet
-description: 데이터베이스를 일시 중지하고 다시 시작하는 방법을 포함하여 Azure SQL 데이터 웨어하우스용 PowerShell cmdlet을 확인합니다.
+title: "Azure SQL 데이터 웨어하우스용 PowerShell cmdlet"
+description: "데이터베이스를 일시 중지하고 다시 시작하는 방법을 포함하여 Azure SQL 데이터 웨어하우스용 PowerShell cmdlet을 확인합니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: 6f0d5772-f05f-4cc8-9749-4adb153dfd50
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/16/2016
-ms.author: sonyama;barbkess;mausher
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e993e8c0cb7b7143f9e7be5bd413f42742666fa8
+
 
 ---
-# SQL 데이터 웨어하우스용 PowerShell cmdlet 및 REST API
-많은 SQL 데이터 웨어하우스 관리 작업을 Azure PowerShell cmdlet 또는 REST API를 사용하여 관리할 수 있습니다. 다음은 PowerShell 명령을 사용하여 SQL 데이터 웨어하우스의 일반적인 작업을 자동화하는 방법에 대한 몇 가지 예제입니다. 유용한 REST 예제는 [REST를 사용하여 확장성 관리][REST를 사용하여 확장성 관리] 문서를 참조하세요.
+# <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>SQL 데이터 웨어하우스용 PowerShell cmdlet 및 REST API
+많은 SQL 데이터 웨어하우스 관리 작업을 Azure PowerShell cmdlet 또는 REST API를 사용하여 관리할 수 있습니다.  다음은 PowerShell 명령을 사용하여 SQL 데이터 웨어하우스의 일반적인 작업을 자동화하는 방법에 대한 몇 가지 예제입니다.  유용한 REST 예제는 [REST를 사용하여 확장성 관리][REST를 사용하여 확장성 관리] 문서를 참조하세요.
 
 > [!NOTE]
-> SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0.3 이상을 설치해야 합니다. **Get-Module -ListAvailable -Name Azure**를 실행하여 버전을 확인할 수 있습니다. 최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][Microsoft 웹 플랫폼 설치 관리자]를 통해 설치할 수 있습니다. 최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][Azure PowerShell 설치 및 구성 방법]을 참조하세요.
+> SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0.3 이상을 설치해야 합니다.  **Get-Module -ListAvailable -Name Azure**를 실행하여 버전을 확인할 수 있습니다.  최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][Microsoft 웹 플랫폼 설치 관리자]를 통해 설치할 수 있습니다.  최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][Azure PowerShell 설치 및 구성 방법]을 참조하세요.
 > 
 > 
 
-## Azure PowerShell Cmdlet 시작
+## <a name="get-started-with-azure-powershell-cmdlets"></a>Azure PowerShell Cmdlet 시작
 1. Windows PowerShell을 엽니다.
 2. PowerShell 프롬프트에서 다음 명령을 실행하여 Azure Resource Manager에 로그인하고 구독을 선택합니다.
    
@@ -34,13 +38,13 @@ ms.author: sonyama;barbkess;mausher
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```
 
-## SQL 데이터 웨어하우스 일시 중지 예제
-"Server01."라는 서버에서 호스트하는 "Database02"라는 데이터베이스를 일시 중지합니다. 서버는 "ResourceGroup1."이라는 Azure 리소스 그룹 내에 있습니다.
+## <a name="pause-sql-data-warehouse-example"></a>SQL 데이터 웨어하우스 일시 중지 예제
+"Server01."라는 서버에서 호스트하는 "Database02"라는 데이터베이스를 일시 중지합니다.  서버는 "ResourceGroup1."이라는 Azure 리소스 그룹 내에 있습니다.
 
 ```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
-변형인 이 예제에서는 검색된 개체를 [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]에 파이프합니다. 그 결과로 데이터베이스가 일시 중지됩니다. 마지막 명령은 결과를 보여 줍니다.
+변형인 이 예제에서는 검색된 개체를 [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]에 파이프합니다.  그 결과로 데이터베이스가 일시 중지됩니다. 마지막 명령은 결과를 보여 줍니다.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -48,7 +52,7 @@ $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-## SQL 데이터 웨어하우스 시작 예제
+## <a name="start-sql-data-warehouse-example"></a>SQL 데이터 웨어하우스 시작 예제
 "Server01."이라는 서버에서 호스트하는 "Database02"라는 데이터베이스의 작동을 다시 시작합니다. 서버는 "ResourceGroup1."이라는 리소스 그룹 내에 있습니다.
 
 ```Powershell
@@ -67,7 +71,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 > 
 > 
 
-## 자주 사용되는 PowerShell cmdlet
+## <a name="frequently-used-powershell-cmdlets"></a>자주 사용되는 PowerShell cmdlet
 다음 PowerShell cmdlet은 Azure SQL 데이터 웨어하우스에서 자주 사용됩니다.
 
 * [Get AzureRmSqlDatabase][Get AzureRmSqlDatabase]
@@ -81,18 +85,18 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 * [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]
 * [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 더 많은 PowerShell 예제는 다음을 참조하세요.
 
 * [Powershell을 사용하여 SQL 데이터 웨어하우스 만들기][Powershell을 사용하여 SQL 데이터 웨어하우스 만들기]
 * [데이터베이스 복원][데이터베이스 복원]
 
-PowerShell로 자동화할 수 있는 모든 작업 목록은 [Azure SQL 데이터베이스 Cmdlet][Azure SQL 데이터베이스 Cmdlet]을 참조하세요. REST로 자동화할 수 있는 작업 목록은 [Azure SQL 데이터베이스에 대한 작업][Azure SQL 데이터베이스에 대한 작업]을 참조하세요.
+PowerShell로 자동화할 수 있는 모든 작업 목록은 [Azure SQL 데이터베이스 Cmdlet][Azure SQL 데이터베이스 Cmdlet]을 참조하세요.  REST로 자동화할 수 있는 작업 목록은 [Azure SQL 데이터베이스에 대한 작업][Azure SQL 데이터베이스에 대한 작업]을 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[Azure PowerShell 설치 및 구성 방법]: ./powershell-install-configure.md
+[Azure PowerShell 설치 및 구성 방법]: ../powershell-install-configure.md
 [Powershell을 사용하여 SQL 데이터 웨어하우스 만들기]: ./sql-data-warehouse-get-started-provision-powershell.md
 [데이터베이스 복원]: ./sql-data-warehouse-restore-database-powershell.md
 [REST를 사용하여 확장성 관리]: ./sql-data-warehouse-manage-compute-rest-api.md
@@ -115,4 +119,8 @@ PowerShell로 자동화할 수 있는 모든 작업 목록은 [Azure SQL 데이�
 <!--Other Web references-->
 [Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

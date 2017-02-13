@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "App Service Web Apps을 사용하여 웹 사이트 및 웹 응용 프로그램을 빌드하고 호스트하는 방법에 대해 알아봅니다. 자습서, 비디오, API 참조 등입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: d6fc4fe4f47571cbb8114b3de5ed9bc9466123fe
+ms.sourcegitcommit: 74579a5e96c26f130c0c1cc59e8cf4d6975ea89d
+ms.openlocfilehash: e5bb9e8ea35411f159ddf342fe0fda0ba1759fb5
 
 ---
 # <a name="azure-web-apps-documentation"></a>Azure Web Apps 설명서
 
-App Service Web Apps는 웹 사이트와 웹 응용 프로그램 호스팅을 위해 최적화된 완전히 관리되는 계산 플랫폼입니다. Azure가 앱의 실행 및 크기 조정을 위해 인프라를 관리하는 동안 Microsoft Azure의 이 PaaS(Platform-as-a-Service)를 통해 비즈니스 논리에 집중할 수 있습니다.
+App Service Web Apps을 사용하여 웹 사이트 및 웹 응용 프로그램을 빌드하고 호스트하는 방법에 대해 알아봅니다. 자습서, 비디오, API 참조 및 기타 설명서에서는 완벽하게 관리되는 계산 플랫폼을 개발하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -65,7 +66,7 @@ App Service Web Apps는 웹 사이트와 웹 응용 프로그램 호스팅을 �
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -83,7 +84,7 @@ App Service Web Apps는 웹 사이트와 웹 응용 프로그램 호스팅을 �
         </a>
     </li> 
      <li>
-        <a href="/azure/app-service-web/web-sites-java-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-java">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -101,7 +102,7 @@ App Service Web Apps는 웹 사이트와 웹 응용 프로그램 호스팅을 �
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/app-service-web-nodejs-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -119,7 +120,7 @@ App Service Web Apps는 웹 사이트와 웹 응용 프로그램 호스팅을 �
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-python-ptvs-django-mysql">
+        <a href="/azure/app-service-web/app-service-web-get-started-python">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -138,7 +139,7 @@ App Service Web Apps는 웹 사이트와 웹 응용 프로그램 호스팅을 �
     </li>
    
      <li>
-        <a href="/azure/app-service-web/app-service-web-php-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-php">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -219,16 +220,10 @@ App Service Web Apps는 웹 사이트와 웹 응용 프로그램 호스팅을 �
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-web.pdf">
-        <div class="img"></div>
-        <div class="text">
-Web Apps 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

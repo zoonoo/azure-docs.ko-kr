@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 28499d1778db75fa164afe20ae1adc6736f7bb93
+ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
+ms.openlocfilehash: 6b0ef7ea076c835a19d6b67aa3b51c975ba21644
 
 
 ---
@@ -35,29 +35,29 @@ ms.openlocfilehash: 28499d1778db75fa164afe20ae1adc6736f7bb93
 * Windows 10, Window 8 또는 Windows 7을 실행하는 클라이언트 컴퓨터
 
 ## <a name="a-idconnectaconnect-with-remote-desktop"></a><a id="connect"></a>원격 데스크톱을 사용하여 연결
-HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)의 지침에 따라 연결합니다.
+HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)의 지침에 따라 연결합니다.
 
 ## <a name="a-idpigause-the-pig-command"></a><a id="pig"></a>Pig 명령 사용
 1. 원격 데스크톱 연결이 설정되면 바탕 화면의 아이콘을 사용하여 **Hadoop 명령줄** 을 시작합니다.
 2. 다음을 사용하여 Pig 명령을 시작합니다.
-   
+
         %pig_home%\bin\pig
-   
+
     `grunt>` 프롬프트가 나타납니다.
 3. 다음 문을 입력합니다.
-   
+
         LOGS = LOAD 'wasbs:///example/data/sample.log';
-   
+
     이 명령은 sample.log 파일의 내용을 LOGS 파일에 로드합니다. 다음 명령을 사용하여 파일의 내용을 볼 수 있습니다.
-   
+
         DUMP LOGS;
 4. 각 레코드에서 로깅 수준만 추출하는 정규식을 적용하여 데이터를 변환합니다.
-   
+
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-   
+
     **DUMP** 를 사용하여 변환 후 데이터를 볼 수 있습니다. 이 예제의 경우 `DUMP LEVELS;`입니다.
 5. 다음 문을 사용하여 변환 적용을 계속합니다. `DUMP`를 사용하여 각 단계 후의 변환 결과를 확인합니다.
-   
+
     <table>
     <tr>
     <th>문</th><th>기능</th>
@@ -76,15 +76,15 @@ HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정�
     </tr>
     </table>
 6. `STORE` 문을 사용하여 변환 결과를 저장할 수도 있습니다. 예를 들어 다음 명령은 클러스터의 기본 저장소 컨테이너에 있는 **/example/data/pigout** 디렉터리에 `RESULT`를 저장합니다.
-   
+
         STORE RESULT into 'wasbs:///example/data/pigout'
-   
+
    > [!NOTE]
    > 데이터는 지정된 디렉터리에 **part-nnnnn**이라는 파일로 저장됩니다. 해당 디렉터리가 이미 존재하는 경우 오류 메시지가 발생합니다.
-   > 
-   > 
+   >
+   >
 7. 성가신 프롬프트를 종료하려면 다음 문을 입력합니다.
-   
+
         QUIT;
 
 ### <a name="pig-latin-batch-files"></a>Pig Latin 배치 파일
@@ -92,7 +92,7 @@ Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있
 
 1. 성가신 프롬프트를 종료한 후 **메모장**을 열고 **%PIG_HOME%** 디렉터리에 **pigbatch.pig**라는 새 파일을 만듭니다.
 2. 다음 줄을 **pigbatch.pig** 파일에 입력하거나 붙여 넣은 다음 저장합니다.
-   
+
         LOGS = LOAD 'wasbs:///example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
         FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
@@ -101,11 +101,11 @@ Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있
         RESULT = order FREQUENCIES by COUNT desc;
         DUMP RESULT;
 3. pig 명령을 사용하여 **pigbatch.pig** 파일을 실행하려면 다음을 사용합니다.
-   
+
         pig %PIG_HOME%\pigbatch.pig
-   
+
     일괄 처리 작업이 완료되면 다음과 같은 출력이 표시되며, 이 출력은 이전 단계에서 `DUMP RESULT;` 를 사용했을 때와 같습니다.
-   
+
         (TRACE,816)
         (DEBUG,434)
         (INFO,96)
@@ -128,7 +128,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

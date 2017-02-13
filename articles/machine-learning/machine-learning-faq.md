@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning FAQ | Microsoft Docs
+title: "Azure Machine Learning FAQ(질문과 대답) | Microsoft Docs"
 description: "Azure 기계 학습 소개: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ."
 keywords: "기계 학습 소개, 예측 모델링, 기계 학습이란 무엇인가요"
 services: machine-learning
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/26/2016
+ms.date: 01/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: c5479dd817e8929ff5e9129d4643d49758e7ab16
-ms.openlocfilehash: 82d4d74a14ec31453f0d3eb9a18140c3569f806c
+ms.sourcegitcommit: 0813611f581a68efb8f09a1e041cfbe429bf0c5c
+ms.openlocfilehash: fd03dbfa0ba71e166e8201daf284363a179693ee
 
 
 ---
@@ -61,8 +61,8 @@ Azure 기계 학습에는 다음 두 가지 유형의 서비스가 있습니다.
 
 REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법이 있습니다. 예를 들어, 웹 서비스를 배포할 때 생성된 샘플 코드를 사용하여 C#, R 또는 Python에서 응용 프로그램을 작성할 수 있습니다.
 
-샘플 코드는 Azure Machine Learning 웹 서비스 포털에서 웹 서비스의 사용 페이지, 
-Machine Learning Studio의 웹 서비스 대시보드에서 API 도움말 페이지에 사용 가능합니다.
+샘플 코드는 Azure Machine Learning 웹 서비스 포털의 웹 서비스에 있는 사용 페이지, 
+Machine Learning Studio의 웹 서비스 대시보드에 있는 API 도움말 페이지에서 사용 가능합니다.
 
 또는 만든 샘플 Microsoft Excel 통합 문서를 사용할 수 있습니다(Studio의 웹 서비스 대시보드에서도 사용 가능).
 
@@ -147,7 +147,7 @@ Machine Learning Studio는 Microsoft Research에서 개발된 확장 가능한 �
 아니요. 그러나 Machine Learning Studio에서 각 알고리즘의 결과를 비교하여 문제에 적합한 알고리즘을 확인할 수 있는 몇 가지 방법이 있습니다.
 
 **제공된 알고리즘에서 적합한 알고리즘 하나를 선택하는 데 대한 지침이 있나요?**
- [알고리즘을 선택하는 방법](machine-learning-algorithm-choice.md)를 참조하세요.
+[알고리즘을 선택하는 방법](machine-learning-algorithm-choice.md)를 참조하세요.
 
 **제공되는 알고리즘은 R 또는 Python으로 작성되었나요?**
 
@@ -204,7 +204,7 @@ API 다시 학습을 사용합니다. 자세한 내용은 [프로그래밍 방�
 
 **모든 웹 서비스에 예상되는 기준 대기 시간이 있나요?**
 
- [Azure 구독 제한](../azure-subscription-service-limits.md)
+[Azure 구독 제한](../azure-subscription-service-limits.md)
 
 ### <a name="use"></a>사용
 **어떤 경우에 내 예측 모델을 일괄 처리 실행 서비스로 실행하고 어떤 경우에 요청-응답 웹 서비스를 실행하나요?**
@@ -452,7 +452,7 @@ BES 워크로드도 같은 방식으로 청구되지만 API 트랜잭션 비용�
 
 ### <a name="azure-ml-classic-web-services"></a>Azure 기계 학습 기존 웹 서비스
 **종량제를 계속 사용할 수 있나요?**
- 예, 기존 웹 서비스는 Azure 기계 학습에서 계속 사용할 수 있습니다.  
+예, 기존 웹 서비스는 Azure 기계 학습에서 계속 사용할 수 있습니다.  
 
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Azure 기계 학습 무료 및 표준 계층
 **Azure 기계 학습 무료 계층에는 무엇이 포함되나요?**
@@ -542,6 +542,6 @@ Machine Learning 서비스는 다중 테넌트 서비스이고, 백 엔드에서
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

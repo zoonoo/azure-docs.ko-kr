@@ -1,5 +1,5 @@
 ---
-title: "Python을 사용하여 Azure Data Lake Store 시작 | Microsoft Docs"
+title: "Python SDK를 사용하여 Azure Data Lake Store 시작 | Microsoft Docs"
 description: "Python SDK로 Data Lake Store 계정 및 파일 시스템을 사용하는 방법을 알아봅니다."
 services: data-lake-store
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/29/2016
+ms.date: 01/10/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f29f36effd858f164f7b6fee8e5dab18211528b3
-ms.openlocfilehash: 6f724576badb7cf3625a139c416860b7e43ed036
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 8a3f3d8bfe670f2a4d1a4642b2380764aa6daeb4
 
 
 ---
@@ -47,7 +47,7 @@ Azure용 Python SDK 및 Azure Data Lake Store를 사용하여 폴더 만들기, 
 
 ## <a name="install-the-modules"></a>모듈 설치
 
-Python을 사용한 Data Lake Store 작업을 위해서는 3가지 모듈을 설치해야 합니다.
+Python을 사용한 Data Lake Store 작업을 위해서는&3;가지 모듈을 설치해야 합니다.
 
 * `azure-mgmt-resource` 모듈. Active Directory 등 Azure 모듈을 포함합니다...
 * `azure-mgmt-datalake-store` 모듈. Azure Data Lake Store 계정 관리 작업이 포함됩니다. 이 모듈에 대한 자세한 내용은 [Azure Data Lake Store 관리 모듈 참조](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)를 참조하세요.
@@ -74,12 +74,19 @@ pip install azure-datalake-store
     ## Use this only for Azure AD end-user authentication
     from azure.common.credentials import UserPassCredentials
 
+    ## Use this only for Azure AD multi-factor authentication
+    from msrestazure.azure_active_directory import AADTokenCredentials
+
     ## Required for Azure Data Lake Store account management
-    from azure.mgmt.datalake.store.account import DataLakeStoreAccountManagementClient
-    from azure.mgmt.datalake.store.account.models import DataLakeStoreAccount
+    from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+    from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
     ## Required for Azure Data Lake Store filesystem management
     from azure.datalake.store import core, lib, multithread
+
+    # Common Azure imports
+    from azure.mgmt.resource.resources import ResourceManagementClient
+    from azure.mgmt.resource.resources.models import ResourceGroup
 
     ## Use these as needed for your application
     import logging, getpass, pprint, uuid, time
@@ -88,6 +95,14 @@ pip install azure-datalake-store
 3. mysample.py의 변경 내용을 저장합니다.
 
 ## <a name="authentication"></a>인증
+
+이 섹션에서는 Azure AD로 인증하는 다양한 방법에 대해 설명합니다. 제공되는 옵션은 다음과 같습니다.
+
+* 최종 사용자 인증
+* 서비스 간 인증
+* Multi-Factor Authentication
+
+계정 관리와 파일 시스템 관리 모듈 모두에 대해 이러한 인증 옵션을 사용해야 합니다.
 
 ### <a name="end-user-authentication-for-account-management"></a>계정 관리를 위한 최종 사용자 인증
 
@@ -121,6 +136,29 @@ pip install azure-datalake-store
 
     token = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE')
 
+### <a name="multi-factor-authentication-for-account-management"></a>계정 관리를 위한 Multi-Factor Authentication
+
+이를 사용하여 계정 관리 작업(Data Lake Store 계정 만들기/삭제 등)을 위해 Azure AD에 인증합니다. 다음 코드 조각은 Multi-Factor Authentication을 사용하여 응용 프로그램을 인증하는 데 사용할 수 있습니다. 기존 Azure AD "Web App" 응용 프로그램과 함께 사용합니다.
+
+    authority_host_url = "https://login.microsoftonline.com"
+    tenant = "FILL-IN-HERE"
+    authority_url = authority_host_url + '/' + tenant
+    client_id = 'FILL-IN-HERE'
+    redirect = 'urn:ietf:wg:oauth:2.0:oob'
+    RESOURCE = 'https://management.core.windows.net/'
+    
+    context = adal.AuthenticationContext(authority_url)
+    code = context.acquire_user_code(RESOURCE, client_id)
+    print(code['message'])
+    mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
+    credentials = AADTokenCredentials(mgmt_token, client_id)
+
+### <a name="multi-factor-authentication-for-filesystem-management"></a>파일 시스템 관리를 위한 Multi-Factor Authentication
+
+이를 사용하여 파일 시스템 작업(폴더 만들기, 파일 업로드 등)을 위해 Azure AD에 인증합니다. 다음 코드 조각은 Multi-Factor Authentication을 사용하여 응용 프로그램을 인증하는 데 사용할 수 있습니다. 기존 Azure AD "Web App" 응용 프로그램과 함께 사용합니다.
+
+    token = lib.auth(tenant_id='FILL-IN-HERE')
+
 ## <a name="create-an-azure-resource-group"></a>Azure 리소스 그룹 만들기
 
 Azure Resource Group을 만들려면 다음 코드 조각을 사용합니다.
@@ -137,7 +175,7 @@ Azure Resource Group을 만들려면 다음 코드 조각을 사용합니다.
     )
     
     ## Create an Azure Resource Group
-    armGroupResult = resourceClient.resource_groups.create_or_update(
+    resourceClient.resource_groups.create_or_update(
         resourceGroup,
         ResourceGroup(
             location=location
@@ -207,6 +245,6 @@ Azure Resource Group을 만들려면 다음 코드 조각을 사용합니다.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure 모바일 앱을 사용하여 Android 앱에 푸시 알림 추가"
-description: "Azure 모바일 앱을 사용하여 Android 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
+title: "Mobile Apps를 사용하여 Android 앱에 푸시 알림 추가 | Microsoft Docs"
+description: "Mobile Apps를 사용하여 Android 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
 services: app-service\mobile
 documentationcenter: android
 manager: erikre
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ac50b4986d6abd6f3a4af660560f4252b8c99fdb
+ms.sourcegitcommit: ef43d1df2a64d85f256b28cd7db5a4f4356a7ec0
+ms.openlocfilehash: 055f55966de1e5c1bb41a6e0bf1c0da1758a3ed0
 
 
 ---
@@ -32,9 +32,9 @@ ms.openlocfilehash: ac50b4986d6abd6f3a4af660560f4252b8c99fdb
 다음이 필요합니다.
 
 * 프로젝트의 백 엔드에 따른 IDE
-  
+
   * 이 앱에 Node.js 백 엔드가 있는 경우 [Android Studio](https://developer.android.com/sdk/index.html)
-  * 이 앱에 .Net 백 엔드가 있는 경우 [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) 이상
+  * 이 앱에 Microsoft .Net 백 엔드가 있는 경우 [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) 이상
 * Firebase Cloud Messaging의 경우 Android 2.3 이상, Google Repository 개정 27 이상 및 Google Play Services 9.0.2 이상
 * [Android 빠른 시작]을 완료합니다.
 
@@ -69,7 +69,14 @@ ms.openlocfilehash: ac50b4986d6abd6f3a4af660560f4252b8c99fdb
 ## <a name="test-the-app-against-the-published-mobile-service"></a>게시된 모바일 서비스에 대해 앱 테스트
 USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에서 가상 장치를 사용하여 앱을 테스트할 수 있습니다.
 
-## <a name="more"></a>추가
+## <a name="next-steps"></a>다음 단계
+이 자습서를 완료했으므로 다음 자습서 중 하나를 계속하는 것을 고려해보세요.
+
+* [Android 앱에 인증 추가](app-service-mobile-android-get-started-users.md).
+  지원되는 ID 공급자를 사용하여 Android의 할 일 모음 빠른 시작 프로젝트에 인증을 추가하는 방법을 알아봅니다.
+* [Android 앱에 대해 오프라인 동기화를 사용합니다](app-service-mobile-android-get-started-offline-data.md).
+  Mobile Apps 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱&mdash;데이터 보기, 추가 또는 수정&mdash;과 같은 상호 작용을 수행할 수 있습니다.
+
 <!-- URLs -->
 [Android 빠른 시작]: app-service-mobile-android-get-started.md
 
@@ -77,6 +84,6 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

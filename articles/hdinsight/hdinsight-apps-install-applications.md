@@ -1,6 +1,6 @@
 ---
-title: "HDInsight에서 Hadoop 응용 프로그램 설치 | Microsoft Docs"
-description: "HDInsight 응용 프로그램에서 HDInsight 응용 프로그램을 설치하는 방법을 알아봅니다."
+title: "Azure HDInsight에 타사 Hadoop 응용 프로그램 설치 | Microsoft Docs"
+description: "Azure HDInsight에 타사 Hadoop 응용 프로그램을 설치하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,25 +13,26 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b53d8c78817e94ec30bd7cb3becf0c7d4accbd23
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: a6097a28e0d13b7fe86e044713050823535b7f71
 
 
 ---
-# <a name="install-hdinsight-applications"></a>HDInsight 응용 프로그램 설치
-HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 응용 프로그램입니다. Microsoft, ISV(독립 소프트웨어 공급 업체) 또는 사용자가 직접 이러한 응용 프로그램을 개발할 수 있습니다. 이 문서에서는 게시된 응용 프로그램을 설치하는 방법을 알아봅니다. 사용자 고유의 응용 프로그램을 설치하는 방법은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요. 
+# <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Hadoop 응용 프로그램 설치
 
-현재 하나의 게시된 응용 프로그램이 있습니다.
+이 문서에서는 Azure HDInsight에 이미 게시된 타사 Hadoop 응용 프로그램을 설치하는 방법에 대해 알아봅니다. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+
+HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 응용 프로그램입니다. Microsoft, ISV(독립 소프트웨어 공급 업체) 또는 사용자가 직접 이러한 응용 프로그램을 개발할 수 있습니다.  
+
+현재 세 개의 게시된 응용 프로그램이 있습니다.
 
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) 에서는 분석가에게 빅 데이터의 결과를 검색, 분석 및 시각화하는 대화형 방법을 제공합니다. 새 관계를 검색하고 필요한 답변을 신속하게 가져오도록 쉽게 추가 데이터 원본을 끌어옵니다.
+* **HDnsight용 Streamsets Data Collector**는 모든 기능을 갖춘 IDE(통합 개발 환경)로서 이를 통해 사용자 지정 코드를 작성할 필요 없이 스트림을 맞추고 데이터를 일괄 처리하는 수집 파이프라인 간에 디자인, 테스트, 배포 및 관리하고 다양한 스트림 내 변환을 수행할 수 있습니다. 
+* **HDInsight용 Cask CDAP 3.5**는 데이터 응용 프로그램 및 Data Lake에 대한 프로덕션 시간을 80%까지 줄일 수 있는 첫 번째 빅 데이터용 통합 플랫폼을 제공합니다. 이 응용 프로그램은 표준 HBase 3.4 클러스터만을 지원합니다.
 
-> [!NOTE]
-> Datameer는 현재 Azure HDInsight 버전 3.2 클러스터에서만 지원됩니다.
-> 
-> 
 
 이 문서에서 제공하는 지침은 Azure Portal을 사용합니다. 또한 포털에서 Azure Resource Manager 템플릿을 내보내거나 공급 업체에서 Resource Manager 템플릿의 복사본을 가져오고 Azure PowerShell 및 Azure CLI를 사용하여 템플릿을 배포할 수 있습니다.  [Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
@@ -45,8 +46,8 @@ HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용�
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **HDInsight 클러스터** 를 클릭합니다.  표시되지 않으면 **찾아보기**를 클릭한 다음 **HDInsight 클러스터**를 클릭합니다.
-3. HDInsight 클러스터를 클릭합니다.  HDInsight 클러스터가 없는 경우 만듭니다.  see [클러스터 만들기](hdinsight-hadoop-linux-tutorial-get-started를 참조하세요.md#create-cluster)를 참조하세요.
-4. **설정** 블레이드에서 **일반** 범주에 있는 **응용 프로그램**을 클릭합니다. **설치된 앱** 블레이드에서는 설치된 모든 응용 프로그램을 나열합니다. 
+3. HDInsight 클러스터를 클릭합니다.  HDInsight 클러스터가 없는 경우 만듭니다.  see [클러스터 만들기](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요.
+4. **구성** 범주에서 **응용 프로그램**을 클릭합니다. 설치된 응용 프로그램이 있는 경우 목록이 표시됩니다.
    
     ![HDInsight 응용 프로그램 포털 메뉴](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. 블레이드 메뉴에서 **추가** 를 클릭합니다. 
@@ -120,6 +121,6 @@ HTTP 끝점 자격 증명은 HDInsight 클러스터에 대해 구성한 HTTP 사
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

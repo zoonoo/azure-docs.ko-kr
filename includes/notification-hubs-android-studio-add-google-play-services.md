@@ -3,7 +3,7 @@
    
     이후 단계에서 사용할 수 있도록 SDK 경로를 기록해 둡니다. 
    
-       ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
 3. 앱 디렉터리에서 **build.gradle** 파일을 엽니다.
    
     ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)

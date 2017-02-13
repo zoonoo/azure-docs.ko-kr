@@ -1,5 +1,5 @@
 ---
-title: "Azure 배치 PowerShell 시작 | Microsoft 문서"
+title: "Azure Batch용 PowerShell 시작 | Microsoft Docs"
 description: "Azure 배치 서비스를 관리하는 데 사용되는 Azure PowerShell cmdlet에 대해 간략히 알아보세요."
 services: batch
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1ea51f4053ba0d4e08628d29eca7cb7c82a26d61
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 9bd1c2a1f273d2487e4ce9063c286896cc414e42
 
 
 ---
@@ -240,6 +240,6 @@ OData 필터의 대안은 **ID** 매개 변수를 사용하는 것입니다. ID�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

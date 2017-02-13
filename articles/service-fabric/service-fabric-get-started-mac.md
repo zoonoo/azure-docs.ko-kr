@@ -65,8 +65,8 @@ Service Fabric은 OS X에서 고유하게 실행되지 않습니다. 로컬 Serv
   
    이 단계에서는 미리 구성된 VM 이미지를 다운로드하고 로컬로 부팅한 다음 로컬 Service Fabric 클러스터를 설정합니다. 배포를 완료하려면 몇 분 정도가 걸립니다. 설치가 성공적으로 완료되면 출력에 클러스터가 시작되었음을 나타내는 메시지가 표시됩니다.
    
-
     ![다음 VM 프로비전을 시작하는 클러스터 설치][cluster-setup-script]
+    
 5. http://192.168.50.50:19080/Explorer에서 Service Fabric Explorer로 이동하여 클러스터가 올바르게 설정되었는지 테스트합니다(기본 개인 네트워크 IP를 유지한다고 가정함).
 
     ![호스트 Mac에서 본 Service Fabric Explorer][sfx-mac]

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2016
-ms.author: carlrab;sashan
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 9e331f3536bfde96d15ff5bb3a21683f67b25da2
-ms.openlocfilehash: d726a886717826368693cda6ca4141c136ea236d
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: d04eb659bcf4df53c5f44c1a4b01763844476267
 
 
 ---
@@ -38,7 +38,7 @@ SQL 데이터베이스는 자동화된 백업 및 선택적 데이터베이스 �
 | 활성 지역 복제 |ERT < 30초, RPO < 5초 |ERT < 30초, RPO < 5초 |ERT < 30초, RPO < 5초 |
 
 ### <a name="use-database-backups-to-recover-a-database"></a>데이터베이스 백업을 사용하여 데이터베이스 복구
-SQL 데이터베이스는 데이터 손실로부터 비즈니스를 보호하기 위해 매주 전체 데이터베이스 백업과 매시간 차등 데이터베이스 백업, 그리고 5분 간격으로 트랜잭션 로그 백업을 모두 자동으로 수행합니다. 이러한 백업은 표준 및 프리미엄 서비스 계층의 데이터베이스에 대해서는 35일 동안, 기본 서비스 계층의 데이터베이스에 대해서는 7일 동안 지역 중복 저장소에 저장됩니다. 서비스 계층에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요. 서비스 계층에 대한 보존 기간이 비즈니스 요구 사항에 맞지 않으면 [서비스 계층을 변경](sql-database-scale-up.md)하여 보존 기간을 늘릴 수 있습니다. 데이터 센터 가동 중단으로부터 보호하기 위해 전체 및 차등 데이터베이스 백업도 [쌍을 이루는 데이터 센터](../best-practices-availability-paired-regions.md)로 복제됩니다. 자세한 내용은 [자동 데이터베이스 백업](sql-database-automated-backups.md)을 참조하세요.
+SQL 데이터베이스는 데이터 손실로부터 비즈니스를 보호하기 위해 매주 전체 데이터베이스 백업과 매시간 차등 데이터베이스 백업, 그리고&5;분 간격으로 트랜잭션 로그 백업을 모두 자동으로 수행합니다. 이러한 백업은 표준 및 프리미엄 서비스 계층의 데이터베이스에 대해서는 35일 동안, 기본 서비스 계층의 데이터베이스에 대해서는 7일 동안 지역 중복 저장소에 저장됩니다. 서비스 계층에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요. 서비스 계층에 대한 보존 기간이 비즈니스 요구 사항에 맞지 않으면 [서비스 계층을 변경](sql-database-scale-up.md)하여 보존 기간을 늘릴 수 있습니다. 데이터 센터 가동 중단으로부터 보호하기 위해 전체 및 차등 데이터베이스 백업도 [쌍을 이루는 데이터 센터](../best-practices-availability-paired-regions.md)로 복제됩니다. 자세한 내용은 [자동 데이터베이스 백업](sql-database-automated-backups.md)을 참조하세요.
 
 기본 보존 기간이 응용 프로그램에 대해 충분하지 않을 경우에 데이터베이스에 대한 장기 보존 정책을 구성하여 확장할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요. 
 
@@ -53,13 +53,13 @@ SQL 데이터베이스는 데이터 손실로부터 비즈니스를 보호하기
 
 * 중요 업무용으로 간주되지 않습니다.
 * 연계된 SLA가 없으므로 24시간 이상의 가동 중지가 발생해도 재무적 책임이 없습니다.
-* 데이터 변경(시간당 낮은 트랜잭션) 속도가 느리고, 최대 1시간의 데이터 변경 내용 손실은 비교적 허용 가능한 데이터 손실에 해당합니다. 
+* 데이터 변경(시간당 낮은 트랜잭션) 속도가 느리고, 최대&1;시간의 데이터 변경 내용 손실은 비교적 허용 가능한 데이터 손실에 해당합니다. 
 * 비용에 민감합니다. 
 
 빠른 복구가 필요한 경우 [활성 지역 복제](sql-database-geo-replication-overview.md) (다음에 설명)를 사용합니다. 35일이 지난 데이터를 복구해야 할 경우 Azure Blob 저장소 또는 원하는 다른 위치에 저장된 BACPAC 파일(데이터베이스 스키마 및 관련 데이터를 포함하는 압축된 파일)에 정기적으로 데이터베이스를 보관하는 것이 좋습니다. 트랜잭션이 일관된 데이터베이스 보관 파일을 만드는 방법에 대한 자세한 내용은 [데이터베이스 복사본 만들기](sql-database-copy.md) 및 [데이터베이스 복사본 내보내기](sql-database-export.md)를 참조하세요. 
 
 ### <a name="use-active-geo-replication-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>활성 지역 복제를 사용하여 복구 시간을 줄이고 복구와 연결된 데이터 손실 제한
-업무 중단이 발생할 경우 데이터베이스 복구를 위해 데이터베이스 백업을 사용하는 것 외에도 [활성 지역 복제](sql-database-geo-replication-overview.md) 를 사용하여 선택한 지역에서 최대 4개의 읽기 가능한 보조 데이터베이스가 유지되도록 데이터베이스를 구성할 수 있습니다. 이러한 보조 데이터베이스는 비동기 복제 메커니즘을 사용하여 주 데이터베이스와 동기화된 상태를 유지합니다. 이 기능은 데이터 센터 가동 중단 또는 응용 프로그램 업그레이드 기간에 업무 중단을 방지하기 위해 사용됩니다. 지리적으로 분산된 사용자에게 읽기 전용 쿼리에 대한 향상된 쿼리 성능을 제공하기 위해 활성 지역 복제를 사용할 수도 있습니다.
+업무 중단이 발생할 경우 데이터베이스 복구를 위해 데이터베이스 백업을 사용하는 것 외에도 [활성 지역 복제](sql-database-geo-replication-overview.md) 를 사용하여 선택한 지역에서 최대&4;개의 읽기 가능한 보조 데이터베이스가 유지되도록 데이터베이스를 구성할 수 있습니다. 이러한 보조 데이터베이스는 비동기 복제 메커니즘을 사용하여 주 데이터베이스와 동기화된 상태를 유지합니다. 이 기능은 데이터 센터 가동 중단 또는 응용 프로그램 업그레이드 기간에 업무 중단을 방지하기 위해 사용됩니다. 지리적으로 분산된 사용자에게 읽기 전용 쿼리에 대한 향상된 쿼리 성능을 제공하기 위해 활성 지역 복제를 사용할 수도 있습니다.
 
 주 데이터베이스가 예기치 않게 오프라인 상태가 되거나 유지 관리 작업을 위해 오프라인 상태로 전환해야 할 경우 보조 데이터베이스를 빠르게 주 데이터베이스로 승격하고(장애 조치(faiilover)라고도 함) 새로 승격된 주 데이터베이스에 연결하도록 응용 프로그램을 구성할 수 있습니다. 계획된 장애 조치를 사용할 경우 데이터는 손실되지 않습니다. 계획되지 않은 장애 조치를 사용하는 경우 비동기 복제의 특성으로 인해 아주 최근에 발생한 트랜잭션에 대해 약간의 데이터 손실이 발생합니다. 장애 조치(failover) 후, 계획에 따라 또는 데이터 센터가 다시 온라인 상태가 될 때 장애 복구(failback)를 수행할 수 있습니다. 모든 경우에 사용자는 적은 양의 가동 중지 시간을 경험하며 다시 연결해야 합니다. 
 
@@ -73,11 +73,11 @@ SQL 데이터베이스는 데이터 손실로부터 비즈니스를 보호하기
 * 중요 업무용입니다.
 * 24시간 이상의 가동 중지 시간을 허용하지 않는 SLA(서비스 수준 약정)가 있습니다.
 * 가동 중지는 재무적 책임을 유발합니다.
-* 데이터 변경 속도가 높고 1시간에 해당하는 데이터 손실은 허용할 수 없는 수준입니다.
+* 데이터 변경 속도가 높고&1;시간에 해당하는 데이터 손실은 허용할 수 없는 수준입니다.
 * 활성 지역 복제를 사용할 때 발생하는 추가적인 비용이 잠재적인 재무적 책임과 연계된 비즈니스 손실보다 낮습니다.
 
 >
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>사용자 또는 응용 프로그램 오류 발생 이후 데이터베이스 복구
@@ -158,6 +158,6 @@ Azure 포털 또는 PowerShell을 사용하여 삭제된 데이터베이스를 �
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

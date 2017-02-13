@@ -1,19 +1,23 @@
 ---
-title: Python과 함께 Service Bus 토픽을 사용하는 방법 | Microsoft Docs
-description: Python에서 Azure Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다.
-services: service-bus
+title: "Python과 함께 Service Bus 토픽을 사용하는 방법 | Microsoft Docs"
+description: "Python에서 Azure Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다."
+services: service-bus-messaging
 documentationcenter: python
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 86fa1e1cc5db31bdbec216e1c1f20c2b07cf68d9
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>서비스 버스 토픽 및 구독을 사용하는 방법
@@ -41,7 +45,7 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-[Azure Portal][]에서 SAS 키 이름 값 및 키 값을 가져올 수 있습니다.
+[Azure Portal][Azure Portal]에서 SAS 키 이름 값 및 키 값을 가져올 수 있습니다.
 
 ```
 bus_service.create_topic('mytopic')
@@ -65,7 +69,7 @@ bus_service.create_topic('mytopic', topic_options)
 > 
 > 
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
 **MatchAll** 필터는 새 구독을 만들 때 필터를 지정하지 않은 경우 사용되는 기본 필터입니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 'AllMessages'라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
 
 ```
@@ -123,7 +127,7 @@ for i in range(5):
     bus_service.send_topic_message('mytopic', msg)
 ```
 
-Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다. 할당량에 대한 자세한 내용은 [Service Bus 할당량][Service Bus 할당량]을 참조하세요.
+Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다. Service Bus의 할당량에 대한 자세한 내용은 [Service Bus 할당량][Service Bus 할당량]을 참조하세요.
 
 ## <a name="receive-messages-from-a-subscription"></a>구독에서 메시지 받기
 **ServiceBusService** 개체의 **receive\_subscription\_message** 메서드를 사용하여 구독에서 메시지를 받습니다.
@@ -154,7 +158,7 @@ msg.delete()
 응용 프로그램이 메시지를 처리한 후 **delete** 메서드가 호출되기 전에 크래시되는 경우, 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 **최소 한 번 이상 처리**라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지되는 메시지의 **MessageId** 속성을 사용합니다.
 
 ## <a name="delete-topics-and-subscriptions"></a>토픽 및 구독 삭제
-토픽과 구독은 영구적이므로, [Azure Portal][] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 다음 예제에서는 이름이 `mytopic`인 토픽을 삭제하는 방법을 보여 줍니다.
+토픽과 구독은 영구적이므로, [Azure Portal][Azure Portal] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 다음 예제에서는 이름이 `mytopic`인 토픽을 삭제하는 방법을 보여 줍니다.
 
 ```
 bus_service.delete_topic('mytopic')
@@ -169,10 +173,10 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 ## <a name="next-steps"></a>다음 단계
 이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.
 
-* [큐, 토픽 및 구독][]을 참조하세요.
-* [SqlFilter.SqlExpression][SqlFilter.SqlExpression]에 대한 참조
+* [큐, 토믹 및 구독][큐, 토믹 및 구독]을 참조하세요.
+* [SqlFilter.SqlExpression][SqlFilter.SqlExpression]에 대한 참조.
 
-[Azure 포털]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Python Azure 패키지]: https://pypi.python.org/pypi/azure  
 [큐, 토믹 및 구독]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
@@ -180,6 +184,6 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

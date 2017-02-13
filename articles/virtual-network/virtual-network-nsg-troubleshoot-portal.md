@@ -1,13 +1,13 @@
 ---
-title: 네트워크 보안 그룹 문제 해결 - 포털 | Microsoft Docs
-description: Azure Portal을 사용하여 Azure Resource Manager 배포 모델에서 네트워크 보안 그룹 문제를 해결하는 방법에 알아봅니다.
+title: "네트워크 보안 그룹 문제 해결 - 포털 | Microsoft Docs"
+description: "Azure Portal을 사용하여 Azure Resource Manager 배포 모델에서 네트워크 보안 그룹 문제를 해결하는 방법에 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3216868d867f4c840a610c45855d22575ded609c
+
 
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Azure Portal을 사용하여 네트워크 보안 그룹 문제 해결
@@ -105,7 +109,7 @@ VM 트래픽 흐름이 특정 NIC에 대해 영향을 받으면 다음 단계를
    > 
 4. NIC 및 서브넷에 연결된 NSG에 대한 규칙만 직접 편집할 수 있습니다. 방법을 알아보려면 이 문서의 **가상 컴퓨터에 대한 유효 보안 규칙 보기** 섹션, 8단계를 읽어보세요.
 
-## <a name="view-effective-security-rules-for-a-network-security-group-(nsg)"></a>NSG(네트워크 보안 그룹)에 대한 유효 보안 규칙 보기
+## <a name="view-effective-security-rules-for-a-network-security-group-nsg"></a>NSG(네트워크 보안 그룹)에 대한 유효 보안 규칙 보기
 NSG 규칙을 수정할 경우 추가되는 규칙이 특정 VM에 미치는 영향을 검토하려고 할 수 있습니다. 지정된 NSG 블레이드에서 컨텍스트를 전환하지 않고도, 지정된 NSG가 적용되는 모든 NIC에 대한 유효 보안 규칙의 전체 목록을 볼 수 있습니다. NSG 내의 유효 규칙 문제를 해결하려면 다음 단계를 완료합니다.
 
 1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
@@ -145,6 +149,9 @@ NSG 규칙을 수정할 경우 추가되는 규칙이 특정 VM에 미치는 영
 * 유효 보안 규칙은 VM의 NIC 및/또는 서브넷에 연결된 NSG가 있을 때만 표시됩니다. 
 * NIC 또는 서브넷과 연결된 NSG가 없고 VM에 할당된 공용 IP 주소가 있는 경우 모든 포트가 인바운드 및 아웃바운드 액세스를 위해 열립니다. VM에 공용 IP 주소가 있을 때는 NIC 또는 서브넷에 NSG를 적용하는 것이 강력하게 권장됩니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

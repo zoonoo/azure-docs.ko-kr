@@ -16,8 +16,8 @@ ms.workload: powerbi
 ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
+ms.sourcegitcommit: 49ca55f435239611350045cca31b6c2a9ca140e1
+ms.openlocfilehash: 602509d5dc977e8d559bc7f504bfab3d077829fa
 
 
 ---
@@ -41,7 +41,7 @@ Azure 포털을 사용하여 **작업 영역 컬렉션** 을 빌드하는 단계
    
    ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. **데이터 + 분석**에서 **Power BI Embedded**를 클릭합니다.
-4. **만들기 블레이드**에서 필요한 정보를 입력합니다. **가격 책정**이 경우 [Power BI Embedded 가격](http://go.microsoft.com/fwlink/?LinkID=760527)을 참조하세요.
+4. **워크스페이스 컬렉션 블레이드**에서 필요한 정보를 입력합니다. **가격 책정**이 경우 [Power BI Embedded 가격](http://go.microsoft.com/fwlink/?LinkID=760527)을 참조하세요.
    
    ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. **만들기**를 클릭합니다.
@@ -109,6 +109,6 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

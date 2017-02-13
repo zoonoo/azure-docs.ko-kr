@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 01/06/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 16af0b801cd6955a8edc88aae5dd5199f4f2a713
+ms.sourcegitcommit: d5d86a0f7177b9a1e96e50a3e3e7d1f5800974bf
+ms.openlocfilehash: 427d5d7ed43f19611e99705dab33a0c80a8bf9f9
 
 
 ---
@@ -31,6 +31,7 @@ Microsoft Monitoring Agent를 사용하여 OMS 서비스에 연결하고 등록�
 | \*.ods.opinsights.azure.com |443 |예 |
 | \*.oms.opinsights.azure.com |443 |예 |
 | \*.blob.core.windows.net |443 |예 |
+| \*.azure-automation.net |443 |예 |
 | ods.systemcenteradvisor.com |443 | |
 
 제어판을 사용하여 Microsoft 모니터링 에이전트에 대한 프록시 설정을 구성하려면 다음 절차를 사용할 수 있습니다. 각 서버에 대한 절차를 사용해야 합니다. 많은 서버를 구성해야 하는 경우, 스크립트를 사용하여 보다 쉽게 이 프로세스를 자동화할 수 있습니다. 그럴 경우 다음 절차 [스크립트를 사용하여 Microsoft 모니터링 에이전트에 대한 프록시 설정을 구성하려면](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script)을 참조하세요.
@@ -105,6 +106,7 @@ Operations Manager 에이전트가 OMS 서비스와 통신하려면, Operations 
 | data.systemcenteradvisor.com |443 | |
 | ods.systemcenteradvisor.com |443 | |
 | \*.ods.opinsights.azure.com |443 |예 |
+| \*.azure-automation.net |443 |예 |
 
 <br>
 OMS 및 Operations Manager 콘솔 리소스와 포트 목록은 다음과 같습니다.<br>
@@ -131,45 +133,46 @@ Operations Manager 관리 그룹을 OMS 서비스에 등록하려면 다음 절�
 ### <a name="to-configure-the-proxy-server-in-the-operations-manager-console"></a>Operations Manager 콘솔에서 프록시 서버를 구성하려면
 1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
 2. **Operational Insights**를 확장하고 **Operational Insights 연결**을 선택합니다.<br>  
-    ![Operations Manager OMS 연결](./media/log-analytics-proxy-firewall/proxy-om01.png)
+   ![Operations Manager OMS 연결](./media/log-analytics-proxy-firewall/proxy-om01.png)
 3. OMS 연결 보기에서 **프록시 서버 구성**을 클릭합니다.<br>  
-    ![Operations Manager OMS 연결 프록시 서버 구성](./media/log-analytics-proxy-firewall/proxy-om02.png)
+   ![Operations Manager OMS 연결 프록시 서버 구성](./media/log-analytics-proxy-firewall/proxy-om02.png)
 4. Operational Insights 설정 마법사: 프록시 서버에서 **프록시 서버를 사용하여 Operational Insights 웹 서비스에 액세스**를 선택하고 포트 번호와 함께 URL을 입력합니다(예: **http://myproxy:80**).<br>  
-    ![Operations Manager OMS 프록시 주소](./media/log-analytics-proxy-firewall/proxy-om03.png)
+   ![Operations Manager OMS 프록시 주소](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 ### <a name="to-specify-credentials-if-the-proxy-server-requires-authentication"></a>프록시 서버에 인증이 필요한 경우 자격 증명을 지정하려면
  프록시 서버 자격 증명 및 설정은 OMS에 보고하는 관리 대상 컴퓨터에 전파해야 합니다. 이 서버는 *Microsoft System Center Advisor 모니터링 서버 그룹*에 있어야 합니다. 자격 증명은 그룹에 있는 각 서버의 레지스트리에 암호화됩니다.
 
 1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
 2. **RunAs 구성**에서 **프로필**을 선택합니다.
-3. **프로필 프록시로 시스템 센터 관리자 실행** 프로필을 엽니다.  
-    ![시스템 센터 관리자 실행 프록시 프로필의 이미지](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
-4. 실행 프로필 마법사에서 **추가** 를 클릭하여 실행 계정을 사용합니다. 새 실행 계정을 만들거나 기존 계정을 사용할 수 있습니다. 이 계정에는 프록시 서버를 통과할 수 있는 권한이 있어야 합니다.  
-    ![실행 프로필 마법사의 이미지](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
-5. 관리할 계정을 설정하려면, **선택한 클래스, 그룹 또는 개체** 를 선택하여 개체 검색 상자를 엽니다.  
-    ![실행 프로필 마법사의 이미지](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
-6. **Microsoft System Center Advisor 모니터링 서버 그룹**을 검색한 다음 선택합니다.  
-    ![개체 검색 상자의 이미지](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
-7. **확인** 을 클릭하여 계정으로 실행 추가 상자를 닫습니다.  
-    ![실행 프로필 마법사의 이미지](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
-8. 마법사를 완료하고 변경 내용을 저장합니다.  
-    ![프로필로 실행 마법사의 이미지](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
+3. **프로필 프록시로 시스템 센터 관리자 실행** 프로필을 엽니다.<br>  
+   ![시스템 센터 관리자 실행 프록시 프로필의 이미지](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
+4. 실행 프로필 마법사에서 **추가** 를 클릭하여 실행 계정을 사용합니다. 새 실행 계정을 만들거나 기존 계정을 사용할 수 있습니다. 이 계정에는 프록시 서버를 통과할 수 있는 권한이 있어야 합니다.<br>   
+   ![실행 프로필 마법사의 이미지](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
+5. 관리할 계정을 설정하려면, **선택한 클래스, 그룹 또는 개체** 를 선택하여 개체 검색 상자를 엽니다.<br>  
+   ![실행 프로필 마법사의 이미지](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
+6. **Microsoft System Center Advisor 모니터링 서버 그룹**을 검색한 다음 선택합니다.<br>  
+   ![개체 검색 상자의 이미지](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
+7. **확인** 을 클릭하여 계정으로 실행 추가 상자를 닫습니다.<br>  
+   ![실행 프로필 마법사의 이미지](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
+8. 마법사를 완료하고 변경 내용을 저장합니다.<br>  
+   ![프로필로 실행 마법사의 이미지](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
 
 ### <a name="to-validate-that-oms-management-packs-are-downloaded"></a>OMS 관리 팩이 다운로드되었는지 확인하려면
-OMS에 솔루션을 추가한 경우 Operations Manager 콘솔의 **관리**아래에 관리 팩으로 표시됩니다. *System Center Advisor* 을 검색하여 신속하게 찾습니다.  
-    ![관리 팩 다운로드됨](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png) 또는 Operations Manager 관리 서버에서 다음 Windows PowerShell 명령을 사용하여 OMS 관리 팩을 확인할 수 있습니다.
+OMS에 솔루션을 추가한 경우 Operations Manager 콘솔의 **관리**아래에 관리 팩으로 표시됩니다. *System Center Advisor* 을 검색하여 신속하게 찾습니다.<br>  
+   ![관리 팩 다운로드](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)  <br>  
+또한 Operations Manager 관리 서버에서 다음 Windows PowerShell 명령을 사용하여 OMS 관리 팩을 확인할 수 있습니다.
 
-    ```
+   ```  
     Get-ScomManagementPack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
-    ```
+   ```  
 
 ### <a name="to-validate-that-operations-manager-is-sending-data-to-the-oms-service"></a>Operations Manager에서 OMS 서비스로 데이터를 보내고 있는지 확인하려면
 1. Operations Manager 관리 서버에서 성능 모니터(perfmon.exe)를 열고 **성능 모니터**를 선택합니다.
 2. **추가**를 클릭하고 **상태 서비스 관리 그룹**을 선택합니다.
-3. **HTTP**로 시작하는 모든 카운터를 추가합니다.  
-    ![카운터 추가](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
-4. Operations Manager 구성이 적절한 경우 OMS에서 추가한 관리 팩 및 구성한 로그 수집 정책에 따라 이벤트 및 기타 데이터 항목에 대한 상태 서비스 관리 카운터 활동이 표시됩니다.  
-    ![성능 모니터 표시 활동](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
+3. **HTTP**로 시작하는 모든 카운터를 추가합니다.<br>  
+   ![카운터 추가](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
+4. Operations Manager 구성이 적절한 경우 OMS에서 추가한 관리 팩 및 구성한 로그 수집 정책에 따라 이벤트 및 기타 데이터 항목에 대한 상태 서비스 관리 카운터 활동이 표시됩니다.<br>  
+   ![성능 모니터 표시 활동](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
 
 ## <a name="next-steps"></a>다음 단계
 * [솔루션 갤러리에서 Log Analytics 솔루션을 추가](log-analytics-add-solutions.md) 하여 기능을 추가하고 데이터를 수집합니다.
@@ -177,6 +180,6 @@ OMS에 솔루션을 추가한 경우 Operations Manager 콘솔의 **관리**아�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 6a8779a18ee330427efdf13419dc674fcddcc2fc
-ms.openlocfilehash: 1f3fd47db507f2cdb4fb822004efe365a2991b03
+ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
+ms.openlocfilehash: 20ffa261ef17847a665e7c83defeb19e9029fb63
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 1f3fd47db507f2cdb4fb822004efe365a2991b03
 
 Azure Site Recovery 서비스를 시작합니다.
 
-Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에 기여하는 Azure 서비스로 클라우드(Azure) 또는 보조 데이터 센터에 대한 온-프레미스 물리적 서버 및 가상 컴퓨터의 복제를 조정합니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다.  [Azure Site Recovery란?](site-recovery-overview.md)
+Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에 기여하는 Azure 서비스로 클라우드(Azure) 또는 보조 데이터 센터에 대한 온-프레미스 물리적 서버 및 가상 컴퓨터의 복제를 조정합니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다. [Azure Site Recovery란?](site-recovery-overview.md)
 
 이 문서에서는 Azure Portal에서 Azure Site Recovery를 사용하여 Azure에 온-프레미스 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 복제하는 방법을 설명합니다.
 
@@ -60,7 +60,7 @@ Azure에는 리소스를 만들고 작업하는 Azure Resource Manager와 클래
 이 문서에서는 새 기능 및 간소화된 배포 환경을 제공하는 Azure Portal에서 배포하는 방법을 설명합니다. 기존 자격 증명 모음을 유지하기 위해 클래식 포털을 사용할 수 있습니다. 클래식 포털을 사용하여 새 자격 증명 모음을 만들 수 없습니다. 
 
 
-## <a name="site-recovery-in-your-business"></a>사용자 비즈니스에서 Site Recovery
+## <a name="site-recovery-in-your-business"></a>사용자 비즈니스에서 사이트 복구
 조직에서는 계획된 중단 또는 불의의 중지 시간에 앱 및 데이터를 실행 중이고 가용 상태로 유지하고 가능한 신속히 정상적인 작업 상태로 복귀하기 위한 BCDR 전략이 필요합니다. 수행할 수 있는 Site Recovery는 다음과 같습니다.
 
 * VMware VM 및 물리적 서버에서 실행되는 비즈니스 워크로드에 오프사이트 보호를 제공합니다.
@@ -93,7 +93,7 @@ Azure에서 다음 항목이 필요합니다.
 
 | **구성 요소** | **요구 사항** |
 | --- | --- |
-| **Azure 계정** |[Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/) . |
+| **Azure 계정** |[Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. 사이트 복구 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/). |
 | **Azure 저장소** |복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 생성됩니다. <br/><br/>데이터를 저장하려면 Recovery Services 자격 증명 모음과 동일한 지역에 표준 또는 Premium Storage 계정이 있어야 합니다.<br/><br/>LRS 또는 GRS 저장소 계정을 사용할 수 있습니다. 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우에 데이터를 복원할 수 있도록 GRS를 사용하는 것이 좋습니다. [자세히 알아보세요](../storage/storage-redundancy.md)을 확인하세요.<br/><br/> [Premium Storage](../storage/storage-premium-storage.md)는 IO를 많이 사용하는 워크로드를 호스트하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 가상 컴퓨터에 일반적으로 사용됩니다.<br/><br/> 프리미엄 계정을 사용하여 복제된 데이터를 저장하려는 경우 온-프레미스 데이터에 대한 지속적인 변화를 캡처하는 복제 로그를 저장하는 표준 저장소 계정이 필요할 수도 있습니다.<br/><br/> **제한 사항**: Azure Portal에서 만든 저장소 계정은 리소스 그룹 간에 이동할 수 없습니다.<br/><br/> **제한 사항**: 인도 중부 및 인도 남부의 Premium Storage 계정에 대한 복제는 현재 지원되지 않습니다.<br/><br/> [Azure Storage에 대해 자세히 알아보세요](../storage/storage-introduction.md). |
 | **Azure 네트워크** |장애 조치(Failover) 발생 시 Azure VM에서 연결할 Azure 가상 네트워크가 필요합니다. Azure 가상 네트워크는 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다. |
 | **Azure로부터 장애 복구** |Azure VM으로 임시 프로세스 서버를 설정해야 합니다. 장애 복구(failback)가 준비되면 이를 만들고 장애 복구가 완료된 후 삭제할 수 있습니다.<br/><br/> 장애 복구(failback)하려면 Azure 네트워크에서 온-프레미스 사이트로의 VPN 연결(또는 Azure ExpressRoute)이 필요합니다. |
@@ -118,7 +118,7 @@ Azure에서 다음 항목이 필요합니다.
 ## <a name="replicated-machine-prerequisites"></a>복제된 컴퓨터 필수 조건
 | **구성 요소** | **요구 사항** |
 | --- | --- |
-| **온-프레미스 VMware VM** | 복제된 VM에 VMware 도구가 설치되어 있고 실행 중이어야 합니다.<br/><br/> VM은 Azure VM을 만드는 [Azure 필수 조건](site-recovery-best-practices.md#azure-virtual-machine-requirements)에 부합해야 합니다.<br/><br/> 보호되는 컴퓨터의 개별 디스크 용량이 1023GB 이하여야 합니다. VM은 최대 64개의 디스크(따라서 최대 64TB)를 포함할 수 있습니다. <br/><br/>구성 요소 설치를 위해 설치 드라이브에 최소 2GB의 사용 가능한 공간이 있어야 합니다.<br/><br/>**제한 사항**: 암호화된 디스크로 VM을 보호하는 것은 지원되지 않습니다.<br/><br/>**제한 사항**: 공유 디스크 게스트 클러스터는 지원되지 않습니다.<br/><br/>다중 VM 일관성을 사용하려면 VM의 로컬 방화벽에서 **포트 20004**가 열려 있어야 합니다.<br/><br/>UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅을 사용하는 컴퓨터는 지원되지 않습니다.<br/><br/>컴퓨터 이름은 1-63자(문자, 숫자 및 하이픈)를 포함해야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터에 대한 복제를 활성화한 후 Azure 이름을 수정할 수 있습니다.<br/><br/>원본 VM에 NIC 팀이 있는 경우 Azure에 장애 조치 후 단일 NIC로 변환됩니다.<br/><br/>보호된 가상 컴퓨터에 iSCSI 디스크가 있는 경우 VM이 Azure에 장애 조치될 때 Site Recovery는 보호된 VM iSCSI 디스크를 VHD 파일로 변환합니다. Azure VM에서 iSCSI 대상에 연결할 수 있는 경우 이 대상에 연결되며 기본적으로 두 개의 디스크(Azure VM의 VHD 디스크 및 원본 iSCSI 디스크)가 표시됩니다. 이 경우 Azure VM에 표시되는 iSCSI 대상의 연결을 끊어야 합니다. |
+| **온-프레미스 VMware VM** | 복제된 VM에 VMware 도구가 설치되어 있고 실행 중이어야 합니다.<br/><br/> VM은 Azure VM을 만드는 [Azure 필수 조건](site-recovery-best-practices.md#azure-virtual-machine-requirements)에 부합해야 합니다.<br/><br/>보호되는 컴퓨터의 개별 디스크 용량이 1023GB 이하여야 합니다. VM은 최대 64개의 디스크(따라서 최대 64TB)를 포함할 수 있습니다. <br/><br/>구성 요소 설치를 위해 설치 드라이브에 최소 2GB의 사용 가능한 공간이 있어야 합니다.<br/><br/>**제한 사항**: 암호화된 디스크로 VM을 보호하는 것은 지원되지 않습니다.<br/><br/>**제한 사항**: 공유 디스크 게스트 클러스터는 지원되지 않습니다.<br/><br/>다중 VM 일관성을 사용하려면 VM의 로컬 방화벽에서 **포트 20004**가 열려 있어야 합니다.<br/><br/>UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅을 사용하는 컴퓨터는 지원되지 않습니다.<br/><br/>컴퓨터 이름은 1-63자(문자, 숫자 및 하이픈)를 포함해야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터에 대한 복제를 활성화한 후 Azure 이름을 수정할 수 있습니다.<br/><br/>원본 VM에 NIC 팀이 있는 경우 Azure에 장애 조치 후 단일 NIC로 변환됩니다.<br/><br/>보호된 가상 컴퓨터에 iSCSI 디스크가 있는 경우 VM이 Azure에 장애 조치될 때 Site Recovery는 보호된 VM iSCSI 디스크를 VHD 파일로 변환합니다. Azure VM에서 iSCSI 대상에 연결할 수 있는 경우 이 대상에 연결되며 기본적으로 두 개의 디스크(Azure VM의 VHD 디스크 및 원본 iSCSI 디스크)가 표시됩니다. 이 경우 Azure VM에 표시되는 iSCSI 대상의 연결을 끊어야 합니다. |
 | **Windows 컴퓨터(물리적 또는 VMware)** | 컴퓨터에서 지원되는 64비트 운영 체제(Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2 SP1 이상)를 실행해야 합니다.<br/><br/> 운영 체제는 C:\ 드라이브에 설치해야 합니다. OS 디스크는 동적이 아닌 Windows 기본 디스크여야 합니다. 데이터 디스크는 동적일 수 있습니다.<br/><br/>Site Recovery에서는 RDM 디스크를 사용한 VM을 지원합니다. 원래 원본 VM과 RDM 디스크를 사용할 수 있는 경우 Site Recovery에서는 장애 복구(failback) 중에 RDM 디스크를 다시 사용합니다. 사용할 수 없는 경우 장애 복구(failback) 동안 Site Recovery가 각 디스크에 대한 새 VMDK 파일을 만듭니다. |
 | **Linux 컴퓨터**(물리적 또는 VMware) | 지원되는 64비트 운영 체제가 필요합니다. Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3), SUSE Linux Enterprise Server 11 SP3을 실행하는 Red Hat Enterprise Linux 6.7,7.1,7.2, Centos 6.5, 6.6,6.7,7.0,7.1,7.2, Oracle Enterprise Linux 6.4, 6.5.<br/><br/>다음 저장소의 Linux 컴퓨터에 대해서만 보호를 사용할 수 있습니다.<br/><br/>장애 조치(Failover) 후에 보안 셸 클라이언트(ssh)를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려는 경우 보호된 컴퓨터의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되었는지, 그리고 방화벽 규칙에서 ssh 연결을 허용하는지 확인합니다.<br/><br/>호스트 이름, 마운트 지점, 장치 이름 및 Linux 시스템 경로와 파일 이름(예: /etc/; /usr)에는 영어만 사용해야 합니다.<br/><br/>보호는 다음 저장소가 포함된 Linux 컴퓨터에만 사용할 수 있습니다. 파일 시스템(EXT3, ETX4, ReiserFS, XFS), Multipath 소프트웨어 장치 매퍼(다중 경로), 볼륨 관리자: LVM2. HP CCISS 컨트롤러 저장소가 있는 물리적 서버는 지원되지 않습니다. ReiserFS 파일 시스템은 SUSE Linux Enterprise Server 11 SP3에서만 지원됩니다.<br/><br/>Site Recovery에서는 RDM 디스크를 사용한 VM을 지원합니다.  Linux에 대한 장애 복구(failback) 중에는 사이트 복구에서 RDM 디스크를 다시 사용하지 않습니다. 대신 각 해당 RDM 디스크에 대 해 새 VMDK 파일을 만듭니다.<br/><br/>VMware의 VM 구성 매개 변수에서 disk.enableUUID=true로 설정합니다. 없는 경우 항목을 만듭니다. 올바르게 탑재할 수 있도록 VMDK에 일관성 있는 UUID를 제공해야 합니다. 이 설정을 추가하면 장애 복구(failback) 동안 전체 복제가 아닌 델타 변경 내용만 온-프레미스로 다시 전송됩니다. |
 | **모바일 서비스** | **Windows**: Windows를 실행하는 VM에 모바일 서비스를 자동으로 푸시하려면 프로세스 서버가 푸시 설치를 수행할 수 있도록 관리자 계정(Windows 컴퓨터의 로컬 관리자)을 제공해야 합니다.<br/><br/>**Linux**: Linux를 실행하는 VM에 모바일 서비스를 자동으로 푸시하려면 프로세스 서버에서 푸시 설치를 수행하는 데 사용할 수 있는 계정을 만들어야 합니다.<br/><br/> 기본적으로 컴퓨터의 모든 디스크는 복제됩니다. [복제에서 디스크를 제외하려면](#exclude-disks-from-replication) 복제를 사용하도록 설정하기 전에 컴퓨터에 모바일 서비스를 수동으로 설치해야 합니다.<br/> |
@@ -376,8 +376,8 @@ Site Recovery는 원본 환경, 사이트 복구 구성 요소, 네트워킹 및
 | **구성 요소** | **세부 정보** |
 | --- | --- | --- |
 | **복제** |**일일 최대 변경률**—보호된 컴퓨터는 하나의 프로세스 서버만 사용할 수 있으며 단일 프로세스 서버는 최대 2TB의 일일 최대 변경률을 처리할 수 있습니다. 따라서 2TB는 보호되는 컴퓨터에 대해 지원되는 최대 일일 데이터 변경률입니다.<br/><br/> **최대 처리량**—복제된 컴퓨터는 Azure에서 하나의 저장소 계정에 속할 수 있습니다. 표준 저장소 계정은 초당 최대 20,000개의 요청을 처리할 수 있으며 원본 컴퓨터 간에 IOPS 수를 20,000으로 유지하는 것이 좋습니다 예를 들어 원본 컴퓨터의 디스크가 5개이고 각 디스크가 원본에서 120 IOPS(8K 크기)를 생성할 경우 Azure 내에서 디스크당 IOPS 한도인 500을 초과하지 않습니다. 필요한 저장소 계정 수 = 총 원본 IOPS/20000. |
-| **구성 서버** |구성 서버는 보호된 컴퓨터에서 실행되는 모든 워크로드에 대한 일일 변경률 용량을 처리할 수 있어야 하며 데이터를 Azure storage로 지속적으로 복제할 만큼 충분한 대역폭을 보유해야 합니다.<br/><br/>  가장 좋은 방법은 구성 서버가 보호할 컴퓨터와 동일한 네트워크 및 LAN 세그먼트에 있는 것입니다. 다른 네트워크에 있을 수 있지만 보호할 컴퓨터에서 L3 네트워크를 볼 수 있어야 합니다.<br/><br/>  구성 서버에 대한 크기 권장 사항이 아래 표에 요약되어 있습니다. |
-| **프로세스 서버** |첫 번째 프로세스 서버는 기본적으로 구성 서버에 설치됩니다. 사용자 환경의 크기를 조정하는 추가 프로세스 서버를 배포할 수 있습니다. 다음 사항에 유의하세요.<br/><br/>  프로세스 서버는 보호된 원본 컴퓨터에서 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화한 후 Azure로 전송합니다. 프로세스 서버 컴퓨터에는 이러한 작업을 수행할 충분한 리소스가 있어야 합니다.<br/><br/> 프로세스 서버는 디스크 기반 캐시를 사용합니다. 네트워크 병목 현상 또는 중단이 발생하는 경우 저장된 데이터 변경을 처리할 수 있도록 600GB 이상의 별도의 캐시 디스크를 사용하는 것이 좋습니다. |
+| **구성 서버** |구성 서버는 보호된 컴퓨터에서 실행되는 모든 워크로드에 대한 일일 변경률 용량을 처리할 수 있어야 하며 데이터를 Azure storage로 지속적으로 복제할 만큼 충분한 대역폭을 보유해야 합니다.<br/><br/> 가장 좋은 방법은 구성 서버가 보호할 컴퓨터와 동일한 네트워크 및 LAN 세그먼트에 있는 것입니다. 다른 네트워크에 있을 수 있지만 보호할 컴퓨터에서 L3 네트워크를 볼 수 있어야 합니다.<br/><br/> 구성 서버에 대한 크기 권장 사항이 아래 표에 요약되어 있습니다. |
+| **프로세스 서버** |첫 번째 프로세스 서버는 기본적으로 구성 서버에 설치됩니다. 사용자 환경의 크기를 조정하는 추가 프로세스 서버를 배포할 수 있습니다. 다음 사항에 유의하세요.<br/><br/> 프로세스 서버는 보호된 원본 컴퓨터에서 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화한 후 Azure로 전송합니다. 프로세스 서버 컴퓨터에는 이러한 작업을 수행할 충분한 리소스가 있어야 합니다.<br/><br/> 프로세스 서버는 디스크 기반 캐시를 사용합니다. 네트워크 병목 현상 또는 중단이 발생하는 경우 저장된 데이터 변경을 처리할 수 있도록 600GB 이상의 별도의 캐시 디스크를 사용하는 것이 좋습니다. |
 
 ### <a name="size-recommendations-for-the-configuration-server"></a>구성 서버에 대한 크기 권장 사항
 | **CPU** | **메모리** | **캐시 디스크 크기** | **데이터 변경률** | **보호된 컴퓨터** |
@@ -577,8 +577,9 @@ VMware 가상 컴퓨터를 복제하는 경우 다음 사항에 유의하세요.
 * 이미 모바일 서비스가 설치된 디스크만 제외할 수 있습니다. 모바일 서비스는 복제가 사용하도록 설정된 후 푸시 메커니즘을 사용해야만 설치되기 때문에 [모바일 서비스를 수동으로 설치](#install-the-mobility-service-manually) 해야 합니다.
 * 기본 디스크만 복제에서 제외할 수 있습니다. OS 또는 동적 디스크를 제외할 수 없습니다.
 * 복제를 사용하도록 설정한 후 복제에 대해 디스크를 추가 또는 제거할 수 없습니다. 디스크를 추가하거나 제외하려는 경우 컴퓨터에 대한 보호를 사용하지 않도록 설정한 다음 다시 사용하도록 설정해야 합니다.
-* 응용 프로그램 작동에 필요한 디스크를 제외하면 Azure로 장애 조치(failover) 후 복제된 응용 프로그램이 실행될 수 있도록 디스크를 Azure에 수동으로 만들어야 합니다. 또는 Azure Automation을 복구 계획에 통합하여 컴퓨터의 장애 조치(failover) 동안 디스크를 만들 수 있습니다.
-* Azure에서 수동으로 만드는 디스크는 장애 복구(failback)됩니다. 예를 들어 3개의 디스크를 장애 조치(failover)하고 Azure에서 직접 2개를 만든 경우 5개 모두 장애 복구(failback)됩니다. 수동으로 만든 디스크는 장애 복구(failback)에서 제외할 수 없습니다.
+* 응용 프로그램 작동에 필요한 디스크를 제외하면 Azure로 장애 조치(failover) 후 복제된 응용 프로그램이 실행될 수 있도록 디스크를 Azure에 수동으로 만들어야 합니다. 또는 Azure 자동화를 복구 계획에 통합하여 컴퓨터의 장애 조치(failover) 동안 디스크를 만들 수 있습니다.
+* Window VM: Azure에서 수동으로 만드는 디스크는 장애 복구(failback)가 되지 않습니다. 예를 들어 디스크 3장을 장애 조치하고 2장을 직접 Azure VM에서 만든다면 장애 조치된 3장의 디스크만이 다시 장애 복구됩니다. 장애 복구 또는 On-prem에서 Azure로 다시 보호 중인 수동으로 만든 디스크를 포함할 수 없습니다.
+* Linux VM: Azure에서 수동으로 만드는 디스크는 장애 복구(failback)됩니다. 예를 들어 3개의 디스크를 장애 조치(failover)하고 Azure에서 직접 2개를 만든 경우 5개 모두 장애 복구(failback)됩니다. 수동으로 만든 디스크는 장애 복구(failback)에서 제외할 수 없습니다.
 
 **이제 다음과 같이 복제를 활성화합니다.**
 
@@ -603,7 +604,7 @@ VMware 가상 컴퓨터를 복제하는 경우 다음 사항에 유의하세요.
 9. **Virtual Machines** > **가상 컴퓨터 선택**에서 복제하려는 각 컴퓨터를 클릭하여 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 후 **OK**를 클릭합니다.
 
     ![복제 활성화](./media/site-recovery-vmware-to-azure/enable-replication5.png)
-10.  **속성** > **속성 구성**에서 프로세스 서버가 자동으로 컴퓨터에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다. 기본적으로 모든 디스크가 복제됩니다. **모든 디스크** 를 클릭하고 복제하지 않으려는 디스크를 지웁니다. 그런 후 **OK**를 클릭합니다. 나중에 추가 속성을 설정할 수 있습니다.
+10. **속성** > **속성 구성**에서 프로세스 서버가 자동으로 컴퓨터에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다. 기본적으로 모든 디스크가 복제됩니다. **모든 디스크** 를 클릭하고 복제하지 않으려는 디스크를 지웁니다. 그런 후 **OK**를 클릭합니다. 나중에 추가 속성을 설정할 수 있습니다.
 
     ![복제 활성화](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 11. **복제 설정** > **복제 설정 구성**에서 올바른 복제 정책이 선택되어 있는지 확인합니다. **설정** > **복제 정책** > 정책 이름 > **설정 편집**에서 복제 정책을 수정할 수 있습니다. 정책에 적용하는 변경 내용은 복제 및 새 컴퓨터에 적용됩니다.
@@ -815,6 +816,6 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

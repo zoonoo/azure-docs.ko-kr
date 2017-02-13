@@ -1,5 +1,5 @@
 ---
-title: "첫 번째 웹앱에 기능 추가"
+title: "첫 번째 웹앱에 기능 추가 | Microsoft Docs"
 description: "몇 분 안에 첫 번째 웹앱에 멋진 기능 추가"
 services: app-service\web
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b2c501b6e048d569ebf43b8f40d6b08f687ab624
-ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
+ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
+ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
 
 
 ---
@@ -52,9 +52,9 @@ ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
     성공적으로 변경되면 친숙한 메시지와 함께 알림 벨이 녹색으로 바뀝니다.
 6. 앱의 포털 블레이드로 돌아가서 **URL** 링크(또는 메뉴 모음의 **찾아보기**)를 클릭합니다. 링크는 HTTP 주소입니다.  
     ![인증 - URL로 이동](./media/app-service-web-get-started/aad-login-browse-click.png)  
-     하지만 새 탭에서 앱을 열면 일단 URL 상자가 여러 차례 리디렉션되고 HTTPS 주소가 있는 앱에서 완료됩니다. Azure 구독에 이미 로그인되어 있고, 앱에 자동으로 인증되어 있는 것을 볼 수 있습니다.  
+    하지만 새 탭에서 앱을 열면 일단 URL 상자가 여러 차례 리디렉션되고 HTTPS 주소가 있는 앱에서 완료됩니다. Azure 구독에 이미 로그인되어 있고, 앱에 자동으로 인증되어 있는 것을 볼 수 있습니다.  
     ![인증 - 로그인](./media/app-service-web-get-started/aad-login-browse-http-postclick.png)  
-     따라서 이제 다른 브라우저에서 인증되지 않은 세션을 열면 동일한 URL로 이동하는 경우 로그인 화면을 볼 수 있습니다.  
+    따라서 이제 다른 브라우저에서 인증되지 않은 세션을 열면 동일한 URL로 이동하는 경우 로그인 화면을 볼 수 있습니다.  
     <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
     Azure Active Directory를 사용하여 작업을 완료하지 못한 경우 기본 디렉터리에는 Azure AD 사용자가 없을 수 있습니다. 이 경우 아마도 여기에 있는 유일한 계정은 Azure 구독의 Microsoft 계정입니다. 따라서 이전에 동일한 버전에서 앱에 자동으로 로그인된 것입니다.
    이 로그인 페이지에서도 해당 Microsoft 계정을 사용하여 로그인할 수 있습니다.
@@ -128,7 +128,7 @@ ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
 
 축하합니다. 이제 경고가 생겼습니다.
 
-이 경고 설정은 5분마다 CPU 사용률을 확인합니다. 사용률이 90%를 초과하면 권한이 있는 사용자와 함께 전자 메일 경고를 받게 됩니다. 경고를 받을 권한이 있는 모든 사용자를 보려면 앱의 포털 블레이드로 돌아가서 **액세스** 단추를 클릭합니다.  
+이 경고 설정은&5;분마다 CPU 사용률을 확인합니다. 사용률이 90%를 초과하면 권한이 있는 사용자와 함께 전자 메일 경고를 받게 됩니다. 경고를 받을 권한이 있는 모든 사용자를 보려면 앱의 포털 블레이드로 돌아가서 **액세스** 단추를 클릭합니다.  
 ![경고를 받는 사람 확인](./media/app-service-web-get-started/alert-rbac.png)
 
 **구독 관리자**는 이미 앱의 **소유자**임을 확인할 수 있습니다. Azure 구독(예: 평가판 구독)의 계정 관리자인 경우도 이 그룹에 포함됩니다. Azure 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
@@ -157,6 +157,6 @@ ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

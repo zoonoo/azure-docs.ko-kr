@@ -1,13 +1,13 @@
 ---
-title: 논리 앱에 지연 추가 | Microsoft Docs
-description: 지연 및 다음 기간까지 지연 동작에 대한 개요와 Azure 논리 앱에서 이를 사용하는 방법을 설명합니다.
-services: ''
-documentationcenter: ''
+title: "논리 앱에 지연 추가 | Microsoft Docs"
+description: "지연 및 다음 기간까지 지연 동작에 대한 개요와 Azure 논리 앱에서 이를 사용하는 방법을 설명합니다."
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 915f48bf-3bd8-4656-be73-91a941d0afcd
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e4281c70dc0edd45ff485c64a499291b23ad51b7
+
 
 ---
-# 지연 및 다음 기간까지 지연 동작 시작
+# <a name="get-started-with-the-delay-and-delay-until-actions"></a>지연 및 다음 기간까지 지연 동작 시작
 지연 및 다음 기간까지 지연 동작을 사용하여 워크플로 시나리오를 완료할 수 있습니다.
 
 예를 들어 다음을 수행할 수 있습니다.
@@ -27,25 +31,26 @@ ms.author: jehollan
 
 논리 앱에서 지연 동작 사용을 시작하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
-## 지연 작업 사용
+## <a name="use-the-delay-actions"></a>지연 작업 사용
 동작은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다](connectors-overview.md).
 
 논리 앱에서 지연 단계는 사용하는 방법의 예제 시퀀스는 다음과 같습니다.
 
-1. 트리거를 추가한 후 **새 단계**를 클릭하여 동작을 추가합니다.
-2. **delay**를 검색하여 지연 동작을 불러옵니다. 이 예제에서는 **지연**을 선택합니다.
+1. 트리거를 추가한 후 **새 단계** 를 클릭하여 동작을 추가합니다.
+2. **delay** 를 검색하여 지연 동작을 불러옵니다. 이 예제에서는 **지연**을 선택합니다.
    
     ![지연 작업](./media/connectors-native-delay/using-action-1.png)
 3. 동작 속성을 완료하여 지연을 구성합니다.
    
     ![지연 구성](./media/connectors-native-delay/using-action-2.png)
-4. **저장**을 클릭하여 논리 앱을 게시하고 활성화합니다.
+4. **저장** 을 클릭하여 논리 앱을 게시하고 활성화합니다.
 
-## 작업 세부 정보
+## <a name="action-details"></a>작업 세부 정보
 되풀이 트리거에는 구성할 수 있는 다음과 같은 속성이 있습니다.
 
-### 지연 동작
-이 동작은 특정 시간 간격 동안 실행을 지연합니다. *는 필수 필드임을 의미합니다.
+### <a name="delay-action"></a>지연 동작
+이 동작은 특정 시간 간격 동안 실행을 지연합니다.
+*는 필수 필드임을 의미합니다.
 
 | 표시 이름 | 속성 이름 | 설명 |
 | --- | --- | --- |
@@ -54,8 +59,9 @@ ms.author: jehollan
 
 <br>
 
-### 다음 기간까지 지연 동작
-이 동작은 지정된 날짜/시간까지 실행을 지연합니다. *는 필수 필드임을 의미합니다.
+### <a name="delay-until-action"></a>다음 기간까지 지연 동작
+이 동작은 지정된 날짜/시간까지 실행을 지연합니다.
+*는 필수 필드임을 의미합니다.
 
 | 표시 이름 | 속성 이름 | 설명 |
 | --- | --- | --- |
@@ -65,7 +71,12 @@ ms.author: jehollan
 
 <br>
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

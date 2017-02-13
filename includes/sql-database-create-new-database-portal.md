@@ -8,7 +8,7 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## 새 Azure SQL 데이터베이스 만들기
+## <a name="create-a-new-azure-sql-database"></a>새 Azure SQL 데이터베이스 만들기
 Azure 포털에서 다음 단계를 사용하여 새로운 또는 기존 Azure SQL 데이터베이스 논리 서버에 새 Azure SQL 데이터베이스를 만듭니다.
 
 1. 연결되어 있지 않은 경우 [Azure Portal](http://portal.azure.com)에 연결합니다.
@@ -18,7 +18,7 @@ Azure 포털에서 다음 단계를 사용하여 새로운 또는 기존 Azure S
 3. **SQL Database(새 데이터베이스)**를 클릭합니다.
    
      ![새 데이터베이스](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
-4. **만들기**를 클릭하여 SQL Database 서비스에 새 데이터베이스를 만듭니다.
+4. **만들기** 를 클릭하여 SQL Database 서비스에 새 데이터베이스를 만듭니다.
    
      ![새 데이터베이스](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
 5. 다음 서버 속성에 대한 값을 제공합니다.
@@ -33,7 +33,7 @@ Azure 포털에서 다음 단계를 사용하여 새로운 또는 기존 Azure S
    * 가격 책정 계층: 시작하려면 기본값 S0을 사용합니다.
    * 데이터 정렬: 빈 데이터베이스를 선택한 경우에만 적용합니다.
      
-        ![New database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
+        ![새 데이터베이스](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
 6. **만들기**를 클릭합니다. 알림 영역에서 배포가 시작된 것을 확인할 수 있습니다.
    
     ![새 데이터베이스](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
@@ -41,4 +41,8 @@ Azure 포털에서 다음 단계를 사용하여 새로운 또는 기존 Azure S
    
      ![새 데이터베이스](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

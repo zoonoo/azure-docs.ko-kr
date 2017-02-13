@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 01/15/2016-->
 
-#### Azure 클래식 포털에서 업데이트 1.2를 설치하려면
+#### <a name="to-install-update-12-from-the-azure-classic-portal"></a>Azure 클래식 포털에서 업데이트 1.2를 설치하려면
 1. StorSimple 서비스 페이지에서 장치를 선택합니다. **장치** > **유지 관리**로 이동합니다.
 2. 페이지 아래쪽에서 **업데이트 검색**을 클릭합니다. 사용 가능한 업데이트를 검색하는 작업이 만들어질 수 있습니다. 작업이 성공적으로 완료되면 알림이 표시됩니다.
 3. 동일한 페이지의 **소프트웨어 업데이트** 섹션에 사용할 수 있는 새 소프트웨어 업데이트가 보입니다. 장치에 업데이트 1.2를 적용하기 전에 릴리스 정보를 검토하는 것이 좋습니다.
@@ -36,21 +36,25 @@
     ![업데이트 작업 만들기](./media/storsimple-install-update-via-portal/InstallUpdate12_44M.png)
    
     그런 다음 업데이트가 장치에 적용됩니다.
-9. 업데이트 작업의 진행률을 모니터링하려면 **작업 보기**를 클릭합니다. **작업** 페이지에서 업데이트 진행률을 볼 수 있습니다.
+9. 업데이트 작업의 진행률을 모니터링하려면 **작업 보기**를 클릭합니다. **작업** 페이지에서 업데이트 진행률을 볼 수 있습니다. 
    
     ![업데이트 작업 진행률](./media/storsimple-install-update-via-portal/InstallUpdate12_5M.png)
 10. 업데이트를 완료하는 데 몇 시간이 걸릴 수 있습니다. 언제든지 작업의 세부 정보를 볼 수 있습니다.
     
     ![업데이트 작업 세부 정보](./media/storsimple-install-update-via-portal/InstallUpdate12_6M.png)
 11. 작업이 완료되면 **유지 관리** 페이지로 이동하여 **소프트웨어 업데이트**로 스크롤합니다.
-12. 장치가 **StorSimple 8000 시리즈 업데이트 1.2(6.3.9600.17584)**를 실행하고 있는지 확인합니다. **마지막 업데이트 날짜**도 수정해야 합니다.
+12. 장치가 **StorSimple 8000 시리즈 업데이트 1.2(6.3.9600.17584)**를 실행하고 있는지 확인합니다. **마지막 업데이트 날짜** 도 수정해야 합니다.
     
     ![유지 관리 페이지](./media/storsimple-install-update-via-portal/InstallUpdate12_10M.png)
 13. 이제 유지 관리 모드 업데이트가 제공되는 것을 확인할 수 있습니다. 이러한 업데이트는 작업 중단 업데이트이므로 장치 가동 중지 시간이 발생할 수 있으며, 장치의 Windows PowerShell 인터페이스를 통해서만 적용할 수 있습니다. StorSimple용 Windows PowerShell을 통해 이러한 업데이트를 설치하려면 [유지 관리 모드 업데이트 설치](../articles/storsimple/storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple)의 지침을 따르세요.
 
 > [!NOTE]
-> 특정 인스턴스에서는 유지 관리 모드 업데이트가 장치에 성공적으로 적용된 후 유지 관리 모드 업데이트를 사용할 수 있음을 나타내는 메시지가 최대 24시간 동안 표시될 수 있습니다.
+> 특정 인스턴스에서는 유지 관리 모드 업데이트가 장치에 성공적으로 적용된 후 유지 관리 모드 업데이트를 사용할 수 있음을 나타내는 메시지가 최대 24시간 동안 표시될 수 있습니다.  
 > 
 > 
 
-<!---HONumber=AcomDC_0121_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

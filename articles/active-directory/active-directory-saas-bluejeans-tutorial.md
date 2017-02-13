@@ -35,7 +35,7 @@ ms.openlocfilehash: 00f00d91e54d35fb9009a3e927dfc8833cd7571e
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-bluejeans-tutorial/IC785860.png "시나리오")
+![시나리오](./media/active-directory-saas-bluejeans-tutorial/IC785860.png "Scenario")
 
 ## <a name="enabling-the-application-integration-for-bluejeans"></a>BlueJeans에 응용 프로그램 통합 사용
 이 섹션은 BlueJeans에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -47,16 +47,16 @@ ms.openlocfilehash: 00f00d91e54d35fb9009a3e927dfc8833cd7571e
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-   ![응용 프로그램](./media/active-directory-saas-bluejeans-tutorial/IC700994.png "응용 프로그램")
+   ![응용 프로그램](./media/active-directory-saas-bluejeans-tutorial/IC700994.png "Applications")
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-   ![응용 프로그램 추가](./media/active-directory-saas-bluejeans-tutorial/IC749321.png "응용 프로그램 추가")
+   ![응용 프로그램 추가](./media/active-directory-saas-bluejeans-tutorial/IC749321.png "Add application")
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-bluejeans-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-bluejeans-tutorial/IC749322.png "Add an application from gallerry")
 6. **검색 상자**에 **BlueJeans**를 입력합니다.
    
-   ![응용 프로그램 갤러리](./media/active-directory-saas-bluejeans-tutorial/IC785861.png "응용 프로그램 갤러리")
+   ![응용 프로그램 갤러리](./media/active-directory-saas-bluejeans-tutorial/IC785861.png "Application Gallery")
 7. 결과 창에서 **BlueJeans**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
    ![BlueJeans](./media/active-directory-saas-bluejeans-tutorial/IC785862.png "BlueJeans")
@@ -68,29 +68,29 @@ ms.openlocfilehash: 00f00d91e54d35fb9009a3e927dfc8833cd7571e
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **BlueJeans** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-bluejeans-tutorial/IC785863.png "Single Sign-On 구성")
+   ![Single Sign-On 구성](./media/active-directory-saas-bluejeans-tutorial/IC785863.png "Configure single sign-on")
 2. **BlueJeans에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Single Sign-On 구성")
+   ![Single Sign-On 구성](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configure Single Sign-On")
 3. **앱 URL 구성** 페이지의 **BlueJeans 로그온 URL** 텍스트 상자에 "*https://company.BlueJeans.com*" 패턴을 사용하여 URL을 입력하고 **다음**을 클릭합니다.
    
-   ![앱 URL 구성](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "앱 URL 구성")
+   ![앱 URL 구성](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configure App URL")
 4. **BlueJeans에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-bluejeans-tutorial/IC785866.png "Single Sign-On 구성")
+   ![Single Sign-on 구성](./media/active-directory-saas-bluejeans-tutorial/IC785866.png "Configure Single Sign-On")
 5. 다른 웹 브라우저 창에서 **BlueJeans** 회사 사이트에 관리자로 로그인합니다.
 6. **관리자 \> 그룹 설정 \> 보안**으로 이동합니다.
    
-   ![관리자](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "관리자")
+   ![관리자](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Admin")
 7. **보안** 섹션에서 다음 단계를 수행합니다.
    
-   ![SAML Single Sign-On](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "SAML Single Sign-On")
+   ![SAML Single Sign On](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "SAML Single Sign On")
    
    1. **SAML Single Sign On**을 선택합니다.
    2. **자동 프로비전닝 사용**을 선택합니다.
 8. 다음 단계로 이동합니다.
    
-   ![인증서 경로](./media/active-directory-saas-bluejeans-tutorial/IC785870.png "인증서 경로")
+   ![인증서 경로](./media/active-directory-saas-bluejeans-tutorial/IC785870.png "Certificate Path")
    
    1. **파일 선택**을 클릭한 다음 다운로드한 인증서를 업로드합니다.
    2. Azure 클래식 포털의 **BlueJeans에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **로그인 URL** 텍스트 상자에 붙여넣습니다.
@@ -98,14 +98,14 @@ ms.openlocfilehash: 00f00d91e54d35fb9009a3e927dfc8833cd7571e
    4. Azure 클래식 포털의 **BlueJeans에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 9. 다음 단계로 이동합니다.
    
-   ![변경 내용 저장](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "변경 내용 저장")
+   ![변경 내용 저장](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Save Changes")
    
    1. **사용자 ID** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**을 입력합니다.
    2. **전자 메일** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**을 입력합니다.
    3. **변경 내용 저장**을 클릭합니다.
 10. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
     
-    ![Single Sign-On 구성](./media/active-directory-saas-bluejeans-tutorial/IC785876.png "Single Sign-On 구성")
+    ![Single Sign-on 구성](./media/active-directory-saas-bluejeans-tutorial/IC785876.png "Configure Single Sign-On")
     
     ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 
@@ -116,7 +116,7 @@ BlueJeans의 경우 프로비전은 수동 작업입니다.
 1. **BlueJeans** 회사 사이트에 관리자 권한으로 로그인합니다.
 2. **관리자 \> 사용자 관리 \> 사용자 추가**로 이동합니다.
    
-   ![관리자](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "관리자")
+   ![관리자](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Admin")
    
    > [!IMPORTANT]
    > **사용자 추가** 탭은 **보안 탭**, **자동 프로비전닝 사용**이 선택되지 않은 경우에만 사용할 수 있습니다.
@@ -124,7 +124,7 @@ BlueJeans의 경우 프로비전은 수동 작업입니다.
    > 
 3. **사용자 추가** 섹션에서 다음 단계를 수행합니다.
    
-   ![사용자 추가](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "사용자 추가")
+   ![사용자 추가](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "Add User")
    
    1. 관련된 텍스트 상자에 프로비전하려는 유효한 AAD 계정의 **BlueJeans 사용자 이름**, **전자 메일 주소**, **BlueJeans 모임 ID**, **중재자 암호**, **전체 이름**, **회사**를 입력합니다.
    2. **사용자 추가**를 클릭합니다.
@@ -141,10 +141,10 @@ BlueJeans의 경우 프로비전은 수동 작업입니다.
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **BlueJeans** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-   ![사용자 할당](./media/active-directory-saas-bluejeans-tutorial/IC785887.png "사용자 할당")
+   ![사용자 할당](./media/active-directory-saas-bluejeans-tutorial/IC785887.png "Assign Users")
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-   ![예](./media/active-directory-saas-bluejeans-tutorial/IC767830.png "예")
+   ![예](./media/active-directory-saas-bluejeans-tutorial/IC767830.png "Yes")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 

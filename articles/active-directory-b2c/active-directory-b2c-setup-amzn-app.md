@@ -51,6 +51,6 @@ Azure Active Directory(Azure AD) B2C에서 Amazon을 ID 공급자로 사용하�
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

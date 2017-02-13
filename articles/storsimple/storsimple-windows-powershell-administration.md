@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 11/18/2016
 ms.author: alkohli@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: d07d1c838d99d0de0c5b62aaf42330b447df102c
-ms.openlocfilehash: 2000ee9d88dc0f2f0f9046b1ef6b3d2a104e7d6b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 562e20d274079d221360d45302ff288190c1cd6e
 
 
 ---
@@ -34,7 +34,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 장치를 관리�
 
 > [!NOTE]
 > * StorSimple용 Windows PowerShell cmdlet을 사용하면 직렬 콘솔에서 또는 Windows PowerShell 원격을 통해 원격으로 StorSimple 장치를 관리할 수 있습니다. 이 인터페이스에서 사용할 수 있는 개별 cmdlet에 대한 자세한 내용은 [StorSimple용 Windows PowerShell에 대한 cmdlet 참조](https://technet.microsoft.com/library/dn688168.aspx)를 참조하세요.
-> * Azure PowerShell StorSimple cmdlet은 명령줄에서 StorSimple 서비스 수준 및 마이그레이션 작업을 자동화할 수 있게 해주는 다른 cmdlet 컬렉션입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [Azure StorSimplecmdlet 참조](https://msdn.microsoft.com/library/azure/dn920427.aspx)를 참조하세요.
+> * Azure PowerShell StorSimple cmdlet은 명령줄에서 StorSimple 서비스 수준 및 마이그레이션 작업을 자동화할 수 있게 해주는 다른 cmdlet 컬렉션입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [Azure StorSimplecmdlet 참조](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple)를 참조하세요.
 > 
 > 
 
@@ -144,7 +144,7 @@ StorSimple용 Windows PowerShell에 연결하는 방법을 결정하는 경우 �
 | 유지 관리 모드 업데이트 및 핫픽스 설치 |[장치 업데이트](storsimple-update-device.md) |
 | 유지 관리 모드 시작  </br>유지 관리 모드 종료 |[StorSimple 장치 모드](storsimple-device-modes.md) |
 | 지원 패키지 만들기</br>지원 패키지 암호 해독 및 편집 |[지원 패키지 만들기 및 관리](storsimple-create-manage-support-package.md) |
-| 지원 세션 시작</br> |[StorSimple용 Windows PowerShell에서 지원 세션 시작](/storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple) |
+| 지원 세션 시작</br> |[StorSimple용 Windows PowerShell에서 지원 세션 시작](storsimple-create-manage-support-package.md#manually-create-a-support-package) |
 
 ## <a name="get-help-in-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell에서 도움말 보기
 StorSimple용 Windows PowerShell에서 cmdlet 도움말을 사용할 수 있습니다. 시스템의 도움말을 업데이트하는 데 사용할 수 있는 이 도움말의 온라인 최신 버전도 제공됩니다.
@@ -178,6 +178,6 @@ Windows PowerShell 인터페이스에서 도움말을 쉽게 업데이트할 수
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

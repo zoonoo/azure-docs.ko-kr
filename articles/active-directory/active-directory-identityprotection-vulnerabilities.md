@@ -25,7 +25,7 @@ ms.openlocfilehash: f526af67a94ce0cab61591d9250f4742b1ede579
 취약점은 공격자에 의해 악용될 수 있는 환경의 단점입니다. 이러한 취약성을 해결하여 조직에서 보안 상태를 개선하고 공격자가 이러한 취약성을 악용하지 않도록 방지하는 것이 좋습니다.
 
 
-![취약성](./media/active-directory-identityprotection-vulnerabilities/101.png "취약성")
+![취약성](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilities")
 
 
 

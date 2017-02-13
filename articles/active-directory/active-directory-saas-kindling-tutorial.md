@@ -273,6 +273,6 @@ Kindling은 Just-In-Time 프로비전을 지원합니다. 이미 [Azure AD Singl
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

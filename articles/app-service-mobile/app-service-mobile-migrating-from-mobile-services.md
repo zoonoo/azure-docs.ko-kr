@@ -129,7 +129,7 @@ PublishSettings 파일이 컴퓨터에 다운로드됩니다.  일반적으로 �
 1. Visual Studio 및 Azure 모바일 서비스 프로젝트를 엽니다.
 2. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...**를 선택합니다.
 3. **가져오기**를 클릭합니다.
-4. **찾아보기**를 클릭하고 다운로드한 게시 설정 파일을 선택합니다.   **확인**
+4. **찾아보기**를 클릭하고 다운로드한 게시 설정 파일을 선택합니다.  **확인**
 5. **연결 유효성 검사**를 클릭하여 게시 설정이 작동하는지 확인합니다.
 6. **게시**를 클릭하여 사이트를 게시합니다.
 
@@ -373,7 +373,7 @@ Traffic Manager 프로필을 만들면 프로필에 마이그레이션된 모바
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[App Service 가격 책정]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[앱 서비스 가격]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [자동 크기 조정]: ../app-service-web/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md

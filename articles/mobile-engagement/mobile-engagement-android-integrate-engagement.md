@@ -1,12 +1,12 @@
 ---
-title: Azure Mobile Engagement Android SDK 통합
-description: Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차
+title: "Azure Mobile Engagement Android SDK 통합"
+description: "Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: a5487793-1a12-4f6c-a1cf-587c5a671e6b
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,9 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 09c5c2333748eeca3d6e93b62810d62c8a3e53a1
+
 
 ---
-# Android에서 Engagement를 통합하는 방법
+# <a name="how-to-integrate-engagement-on-android"></a>Android에서 Engagement를 통합하는 방법
 > [!div class="op_single_selector"]
 > * [Windows 범용](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -34,17 +38,15 @@ ms.author: piyushjo
 
 다음 단계를 통해 사용자, 세션, 작업, 크래시 및 기술과 관련된 모든 통계를 계산하는 데 필요한 로그의 보고서를 활성화할 수 있습니다. 이벤트, 오류, 작업 등의 기타 통계는 응용 프로그램별로 다르므로, 해당 통계를 계산하는 데 필요한 로그 보고는 Engagement API를 사용하여 수동으로 수행해야 합니다. 관련 설명은 [Android에서 고급 Mobile Engagement 태깅 API를 사용하는 방법](mobile-engagement-android-use-engagement-api.md)을 참조하세요.
 
-## Android 프로젝트에 Engagement SDK 및 서비스 포함
+## <a name="embed-the-engagement-sdk-and-service-into-your-android-project"></a>Android 프로젝트에 Engagement SDK 및 서비스 포함
 [여기](https://aka.ms/vq9mfn)에서 Android SDK를 다운로드합니다. `mobile-engagement-VERSION.jar`을 가져와서 Android 프로젝트의 폴더에 넣습니다(`libs` 폴더가 아직 존재하지 않는 경우 생성).
 
 > [!IMPORTANT]
 > ProGuard로 응용 프로그램 패키지를 빌드하는 경우 일부 클래스를 유지해야 합니다. 다음 구성 코드 조각을 사용할 수 있습니다.
 > 
-> -keep public class * extends android.os.IInterface
-> -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
+> -keep public class * extends android.os.IInterface -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
 > 
-> <methods>;
-> }
+> <methods>; }
 > 
 > 
 
@@ -70,7 +72,7 @@ ms.author: piyushjo
 * `<Your application name>`은(는) 응용 프로그램의 이름으로 바꿉니다.
 
 > [!TIP]
-> `android:label` 특성을 통해 휴대폰의 "서비스 실행 중" 화면에서 최종 사용자에게 표시될 참여 서비스의 이름을 선택할 수 있습니다. 이 특성을 `"<Your application name>Service"`(예: `"AcmeFunGameService"`)(으)로 설정하는 것이 좋습니다.
+>  `android:label` 특성을 통해 휴대폰의 "서비스 실행 중" 화면에서 최종 사용자에게 표시될 참여 서비스의 이름을 선택할 수 있습니다. 이 특성을 `"<Your application name>Service"`(예: `"AcmeFunGameService"`)(으)로 설정하는 것이 좋습니다.
 > 
 > 
 
@@ -95,8 +97,8 @@ ms.author: piyushjo
 
 또한 `Application`을(를) 확장하는 대신 `EngagementApplication`을(를) 확장할 수도 있습니다. 콜백 `Application.onCreate()`은(는) 프로세스 검사를 수행하고 현재 프로세스가 Engagement 서비스를 호스트하는 프로세스가 아닌 경우에만 `Application.onApplicationProcessCreate()`을(를) 호출합니다. 그리고 다른 콜백에 대해서도 동일한 규칙이 적용됩니다.
 
-## 기본 보고
-### 권장 방법: `Activity` 클래스 오버로드
+## <a name="basic-reporting"></a>기본 보고
+### <a name="recommended-method-overload-your-activity-classes"></a>권장 방법: `Activity` 클래스 오버로드
 Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산하는 데 필요한 모든 로그의 보고서를 활성화하려면 모든 `*Activity` 하위 클래스가 해당 `Engagement*Activity` 클래스에서 상속하도록 설정해야 합니다. 예를 들어 레거시 작업이 `ListActivity`을(를) 확장하는 경우 `EngagementListActivity`을(를) 확장하도록 합니다.
 
 **Engagement 사용 안 함:**
@@ -140,7 +142,7 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
 
 이러한 클래스는 `src` 폴더에서 찾을 수 있으며 프로젝트에 복사할 수 있습니다. 또한 클래스는 **JavaDoc**에도 있습니다.
 
-### 대체 방법: `startActivity()` 및 `endActivity()` 수동 호출
+### <a name="alternate-method-call-startactivity-and-endactivity-manually"></a>대체 방법: `startActivity()` 및 `endActivity()` 수동 호출
 `Activity` 클래스를 오버로드할 수 없거나 오버로드하지 않으려는 경우 `EngagementAgent`의 메서드를 직접 호출하여 작업을 시작하고 종료할 수 있습니다.
 
 > [!IMPORTANT]
@@ -170,15 +172,15 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
 
 이 예제는 `EngagementActivity` 클래스 및 해당 변형과 매우 비슷합니다. 해당 소스 코드는 `src` 폴더에 제공되어 있습니다.
 
-## 테스트
+## <a name="test"></a>테스트
 이제 에뮬레이터와 장치에서 모바일 앱을 실행하고 모니터 탭에서 세션을 등록하는지 확인하여 통합을 확인하세요.
 
 다음 섹션은 선택 사항입니다.
 
-## 위치 보고
+## <a name="location-reporting"></a>위치 보고
 위치가 보고되도록 하려는 경우 몇 줄의 구성을 `<application>` 태그와 `</application>` 태그 사이에 추가해야 합니다.
 
-### 지연 영역 위치 보고
+### <a name="lazy-area-location-reporting"></a>지연 영역 위치 보고
 지연 영역 위치 보고를 통해 국가, 지역 및 장치와 연결된 위치를 보고할 수 있습니다. 이러한 유형의 위치 보고에서는 네트워크 위치(셀 ID 또는 WIFI 기반)만 사용합니다. 장치 영역은 세션당 한번 이하로 보고됩니다. GPS는 전혀 사용되지 않으므로 이러한 위치 보고는 배터리에 거의 영향을 미치지 않습니다.
 
 보고된 영역은 사용자, 세션, 이벤트 및 오류에 대한 지리적 통계를 계산 하는 데 사용됩니다. 이 영역은 도달률 캠페인의 기준으로도 사용할 수 있습니다.
@@ -194,12 +196,12 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
 
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
-또는 응용 프로그램에서 이미 사용하고 있는 경우 ``ACCESS_FINE_LOCATION``을 계속 사용할 수 있습니다.
+또는 응용 프로그램에서 이미 사용하고 있는 경우 ``ACCESS_FINE_LOCATION`` 을 계속 사용할 수 있습니다.
 
-### 실시간 위치 보고
+### <a name="real-time-location-reporting"></a>실시간 위치 보고
 실시간 위치 보고를 통해 장치와 연결된 위도와 경도를 보고할 수 있습니다. 기본적으로 이 유형의 위치 보고에서는 네트워크 위치(셀 ID 또는 WIFI 기반)만 사용하고, 보고는 응용 프로그램이 포그라운드로 실행될 때(즉, 세션 중)만 활성화됩니다.
 
-실시간 위치는 통계를 계산하는 데 사용되지 *않습니다*. 유일한 용도는 도달률 캠페인에서 실시간 지리적 펜스 <Reach-Audience-geofencing> 사용을 허용하는 것입니다.
+실시간 위치는 통계를 계산하는 데 사용되지 *않습니다* . 유일한 용도는 도달률 캠페인에서 실시간 지리적 펜스 \<Reach-Audience-geofencing\> 사용을 허용하는 것입니다.
 
 실시간 위치 보고를 사용하도록 설정하려면 이 절차의 앞에서 설명한 구성을 사용하여 수행할 수 있습니다.
 
@@ -212,9 +214,9 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
 
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
-또는 응용 프로그램에서 이미 사용하고 있는 경우 ``ACCESS_FINE_LOCATION``을 계속 사용할 수 있습니다.
+또는 응용 프로그램에서 이미 사용하고 있는 경우 ``ACCESS_FINE_LOCATION`` 을 계속 사용할 수 있습니다.
 
-#### GPS 기반 보고
+#### <a name="gps-based-reporting"></a>GPS 기반 보고
 기본적으로 실시간 위치 보고에서는 네트워크 기반 위치만 사용합니다. 훨씬 더 정밀한 GPS 기반 위치의 사용을 설정하려면 구성 개체를 사용합니다.
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -227,7 +229,7 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
 
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
-#### 백그라운드 보고
+#### <a name="background-reporting"></a>백그라운드 보고
 기본적으로 실시간 위치 보고는 응용 프로그램이 포그라운드로 실행되는 경우(즉, 세션 중)에만 활성 상태입니다. 백그라운드에서도 보고를 활성화하려면 구성 개체를 사용합니다.
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -254,7 +256,7 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
 
             <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-### Android M 권한
+### <a name="android-m-permissions"></a>Android M 권한
 Android M부터는 일부 권한이 런타임 시 관리되며 사용자 승인이 필요합니다.
 
 Android API Level 23을 대상으로 하는 경우 새 앱 설치에 대해서는 기본적으로 런타임 권한이 해제됩니다. 그렇지 않으면 기본적으로 활성화됩니다.
@@ -265,7 +267,7 @@ Mobile Engagement의 컨텍스트에서 런타임 시 승인이 필요한 권한
 
 * `ACCESS_COARSE_LOCATION`
 * `ACCESS_FINE_LOCATION`
-* `WRITE_EXTERNAL_STORAGE`(이에 대한 Android API Level 23을 대상으로 할 때만 해당)
+* `WRITE_EXTERNAL_STORAGE` (이에 대한 Android API Level 23을 대상으로 할 때만 해당)
 
 외부 저장소는 도달률 큰 그림 기능에만 사용됩니다. 사용자에게 이 권한을 요청하는 것이 번거롭다고 생각되는 경우, 큰 그림 기능을 사용하지 않는 비용으로 Mobile Engagement에 대해서만 사용하는 경우 권한을 제거할 수 있습니다.
 
@@ -310,36 +312,36 @@ Mobile Engagement의 컨텍스트에서 런타임 시 승인이 필요한 권한
         getEngagementAgent().refreshPermissions();
     }
 
-## 고급 보고
+## <a name="advanced-reporting"></a>고급 보고
 필요에 따라 응용 프로그램 관련 이벤트, 오류 및 작업을 보고하려는 경우 `EngagementAgent` 클래스의 메서드를 통해 Engagement API를 사용해야 합니다. `EngagementAgent.getInstance()` 정적 메서드를 호출하여 이 클래스의 개체를 검색할 수 있습니다.
 
 Engagement API는 모든 Engagement의 고급 기능 사용을 허용하며 Android의 Engagement API 사용 방법(및 `EngagementAgent` 클래스의 기술 문서)에 자세히 설명되어 있습니다.
 
-## 고급 구성(AndroidManifest.xml의)
-### 절전 모드 해제 잠금
+## <a name="advanced-configuration-in-androidmanifestxml"></a>고급 구성(AndroidManifest.xml의)
+### <a name="wake-locks"></a>절전 모드 해제 잠금
 Wifi를 사용하는 경우 또는 화면이 꺼져 있을 때 실시간으로 통계를 보내려면 다음과 같은 선택적 권한을 추가합니다.
 
             <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
-### 충돌 보고서
+### <a name="crash-report"></a>충돌 보고서
 크래시 보고를 비활성화하려는 경우 `<application>` 태그와 `</application>` 태그 사이에 다음을 추가합니다.
 
             <meta-data android:name="engagement:reportCrash" android:value="false"/>
 
-### 버스트 임계값
+### <a name="burst-threshold"></a>버스트 임계값
 기본적으로 Engagement 서비스는 로그를 실시간으로 보고합니다. 응용 프로그램이 로그를 매우 자주 보고하는 경우 로그를 버퍼링한 후 정기적으로 한 번에 모두 보고하는 것이 좋습니다. 이를 "버스트 모드"라고 합니다. 그렇게 하려면 `<application>` 태그와 `</application>` 태그 사이에 다음을 추가합니다.
 
             <meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
 
 버스트 모드를 사용하는 경우 배터리 수명은 약간 길어지지만 Engagement 모니터에 영향을 주게 됩니다. 모든 세션 및 작업 기간이 버스트 임계값으로 반올림되므로 버스트 임계값보다 짧은 세션과 작업은 표시되지 않을 수도 있습니다. 30000(30초) 이하의 버스트 임계값을 사용하는 것이 좋습니다.
 
-### 세션 시간 제한
+### <a name="session-timeout"></a>세션 시간 제한
 기본적으로 세션은 마지막 작업(일반적으로 홈 또는 뒤로 키를 누르거나, 휴대폰을 유휴로 설정하거나, 다른 응용 프로그램으로 이동함으로써 발생)의 종료 10초 후에 종료됩니다. 그러면 사용자가 응용 프로그램을 종료하고 빠르게 응용 프로그램으로 돌아갈 때(이미지를 선택하거나 알림을 확인하는 등의 작업을 통해)마다 세션 분할을 피할 수 있습니다. 이 매개 변수를 수정할 수도 있습니다. 그렇게 하려면 `<application>` 태그와 `</application>` 태그 사이에 다음을 추가합니다.
 
             <meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
 
-## 로그 보고 사용 안 함
-### 메서드 호출 사용
+## <a name="disable-log-reporting"></a>로그 보고 사용 안 함
+### <a name="using-a-method-call"></a>메서드 호출 사용
 Engagement에서 로그 전송을 중지하려면 다음을 호출할 수 있습니다.
 
             EngagementAgent.getInstance(context).setEnabled(false);
@@ -350,7 +352,7 @@ Engagement에서 로그 전송을 중지하려면 다음을 호출할 수 있습
 
 또한 `true`(으)로 동일한 함수를 호출하여 로그 보고를 다시 활성화할 수 있습니다.
 
-### 고유한 `PreferenceActivity`에서 통합
+### <a name="integration-in-your-own-preferenceactivity"></a>고유한 `PreferenceActivity`
 이 함수를 호출하지 않고 기존 `PreferenceActivity`에서 직접 이 설정을 통합할 수 있습니다.
 
 다음과 같이 `AndroidManifest.xml` 파일의 기본 설정 파일을(원하는 모드에서) `application meta-data`와(과) 함께 사용하도록 Engagement를 구성할 수 있습니다.
@@ -371,7 +373,7 @@ Engagement는 이 설정을 관리하기 위한 기본 설정 파일 내에서 �
                   android:name="engagement:agent:settings:mode"
                   android:value="0" />
 
-이제 다음과 같은 기본 설정 레이아웃에서 `CheckBoxPreference`을(를) 추가할 수 있습니다.
+이제 다음과 같은 기본 설정 레이아웃에서 `CheckBoxPreference` 을(를) 추가할 수 있습니다.
 
             <CheckBoxPreference
               android:key="engagement:enabled"
@@ -381,6 +383,10 @@ Engagement는 이 설정을 관리하기 위한 기본 설정 파일 내에서 �
               android:summaryOff="Engagement is disabled." />
 
 <!-- URLs. -->
-[Device API]: http://go.microsoft.com/?linkid=9876094
+[장치 API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

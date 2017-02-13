@@ -16,15 +16,16 @@ ms.topic: article
 ms.date: 07/25/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: ca3993ef2cead2c38c09e2a7bceacadc7007834e
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 5d08c629fc6e94b43b73c74d8485f6aee695cf4a
 
 
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2012-r2"></a>클래식 배포 모델을 사용하여 만든, Windows Server 2012 R2를 실행하는 가상 컴퓨터에 MySQL 설치
 [MySQL](http://www.mysql.com) 은 인기 있는 오픈 소스 SQL 데이터베이스입니다. 이 자습서에서는 Windows Server 2012 R2를 실행하는 가상 컴퓨터에 MySQL Server로 커뮤니티 버전의 MySQL 5.6.23을 설치하고 실행하는 방법을 보여 줍니다. Linux에서 MySQL을 설치하는 방법에 대한 지침은 [Azure에 MySQL을 설치하는 방법](virtual-machines-linux-mysql-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 ## <a name="create-a-virtual-machine-running-windows-server-2012-r2"></a>Windows Server 2012 R2를 실행하는 가상 컴퓨터 만들기
 Windows Server 2012 R2를 실행하는 VM이 아직 없는 경우 이 [자습서](virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 사용하여 가상 컴퓨터를 만들 수 있습니다. 
@@ -119,6 +120,6 @@ MySQL 실행에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

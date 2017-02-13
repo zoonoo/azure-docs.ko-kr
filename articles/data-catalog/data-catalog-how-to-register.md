@@ -1,25 +1,29 @@
 ---
-title: 데이터 원본을 등록하는 방법 | Microsoft Docs
-description: 등록 중에 추출된 메타데이터 필드를 포함하여 Azure Data Catalog에 데이터 원본을 등록하는 방법을 강조하는 방법 문서입니다.
+title: "데이터 원본을 등록하는 방법 | Microsoft Docs"
+description: "등록 중에 추출된 메타데이터 필드를 포함하여 Azure Data Catalog에 데이터 원본을 등록하는 방법을 강조하는 방법 문서입니다."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 25c2b279487f099a0e688621e63faaa4ed265e6e
+
 
 ---
 # <a name="how-to-register-data-sources"></a>데이터 원본을 등록하는 방법
 ## <a name="introduction"></a>소개
-**Microsoft Azure 데이터 카탈로그**는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 **Azure 데이터 카탈로그**는 사람들이 데이터 원본을 검색하고 이해하고 사용하도록 도우면서 조직의 기존 데이터로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다. **Azure 데이터 카탈로그**를 통해 데이터 원본을 검색할 수 있도록 하는 첫 단계는 데이터 원본을 등록하는 것입니다.
+**Microsoft Azure 데이터 카탈로그** 는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 **Azure 데이터 카탈로그**는 사람들이 데이터 원본을 검색하고 이해하고 사용하도록 도우면서 조직의 기존 데이터로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다. **Azure 데이터 카탈로그**를 통해 데이터 원본을 검색할 수 있도록 하는 첫 단계는 데이터 원본을 등록하는 것입니다.
 
 ## <a name="registering-data-sources"></a>데이터 원본 등록
 등록은 데이터 원본에서 메타데이터를 추출하여 **Azure 데이터 카탈로그** 서비스로 데이터를 복사하는 프로세스입니다. 데이터는 현재 상주하는 위치에 남으면서 현재 시스템의 정책 및 관리자의 제어 하에 유지됩니다.
@@ -50,8 +54,8 @@ ms.author: maroche
 
 > [!NOTE]
 > 다수의 열을 포함하는 넓은 테이블은 미리 보기의 레코드가 20개 미만이 될 수 있습니다.
-> 
-> 
+>
+>
 
 ## <a name="including-data-profiles"></a>데이터 프로필 포함
 미리 보기 포함처럼 **Azure 데이터 카탈로그**의 데이터 원본에 대한 사용자 검색에 대해 유용한 컨텍스트를 제공하며 데이터 프로필 포함을 통해 검색된 데이터 소스를 더욱 쉽게 이해할 수도 있습니다.
@@ -67,8 +71,8 @@ ms.author: maroche
 
 > [!NOTE]
 > 텍스트 및 날짜 열은 해당 데이터 프로필의 평균 또는 표준 편차 통계에 포함되지 않습니다.
-> 
-> 
+>
+>
 
 ## <a name="updating-registrations"></a>등록 업데이트
 데이터 원본을 등록하면 등록 과정에서 추출된 선택적인 미리 보기와 메타데이터를 사용하여 **Azure 데이터 카탈로그**에서 검색이 가능해집니다. 카탈로그에서 데이터 원본을 업데이트해야 하는 경우(예: 개체 스키마가 변경되었거나 원래 제외되었던 테이블을 포함시켜야 하거나 사용자가 미리 보기에 포함된 데이터를 업데이트하려는 경우)에는 데이터 원본 등록 도구를 다시 실행할 수 있습니다.
@@ -81,6 +85,8 @@ ms.author: maroche
 ## <a name="see-also"></a>참고 항목
 * [Azure 데이터 카탈로그 시작](data-catalog-get-started.md) 자습서.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

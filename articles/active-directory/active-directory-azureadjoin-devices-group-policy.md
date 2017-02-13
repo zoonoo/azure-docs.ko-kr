@@ -1,13 +1,13 @@
 ---
-title: Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결 | Microsoft Docs
-description: 관리자가 기업 네트워크에 도메인이 가입되도록 장치를 활성화하는 그룹 정책을 구성할 수 있는 방법에 대해 설명합니다.
+title: "Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결 | Microsoft Docs"
+description: "관리자가 기업 네트워크에 도메인이 가입되도록 장치를 활성화하는 그룹 정책을 구성할 수 있는 방법에 대해 설명합니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 2ff29f3e-5325-4f43-9baa-6ae8d6bad3e3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0e211d13e41526157f6ade960b86f31dfdfd54e1
+
 
 ---
 # <a name="connect-domain-joined-devices-to-azure-ad-for-windows-10-experiences"></a>Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결
@@ -50,10 +54,10 @@ PKI 배포 요구 사항에 대한 대안으로 다음을 수행할 수 있습�
 * Passport 시나리오를 위한 Technical Preview용 System Center Configuration Manager 버전 1509
 
 ## <a name="deployment-instructions"></a>배포 지침
-### <a name="step-1:-deploy-azure-active-directory-connect"></a>1단계: Azure Active Directory Connect 배포
+### <a name="step-1-deploy-azure-active-directory-connect"></a>1단계: Azure Active Directory Connect 배포
 Azure AD Connect를 사용하면 컴퓨터 온-프레미스를 클라우드에서 장치 개체로 프로비전할 수 있습니다. Azure AD Connect를 배포하려면 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md#install-azure-ad-connect)문서에서 "Azure AD Connect 설치"를 참조하세요.
 
-* [Azure AD Connect를 위한 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)(Express 설치 아님)를 수행한 경우 이 단계 뒷부분에 있는 **온-프레미스 Active Directory에 서비스 연결점 만들기**절차를 따라야 합니다.
+* [Azure AD Connect를 위한 사용자 지정 설치](connect/active-directory-aadconnect-get-started-custom.md)(Express 설치 아님)를 수행한 경우 이 단계 뒷부분에 있는 **온-프레미스 Active Directory에 서비스 연결점 만들기**절차를 따라야 합니다.
 * Azure AD Connect를 설치하기 전에 Azure AD를 사용하여 페더레이션된 구성이 있는 경우(예: 이전에 AD FS(Active Directory Federation Services)를 배포한 경우) 이 단계 뒷부분에 있는 **AD FS 클레임 규칙 구성** 을 따라야 합니다.
 
 #### <a name="create-a-service-connection-point-in-on-premises-active-directory"></a>온-프레미스 Active Directory에 서비스 연결점 만들기
@@ -117,7 +121,7 @@ AD FS 서버(또는 AD FS 서버에 연결된 세션)에서 다음 PowerShell �
 > 
 > 
 
-### <a name="step-2:-configure-automatic-device-registration-via-group-policy-in-active-directory"></a>2단계: Active Directory에서 그룹 정책을 통해 자동 장치 등록 구성
+### <a name="step-2-configure-automatic-device-registration-via-group-policy-in-active-directory"></a>2단계: Active Directory에서 그룹 정책을 통해 자동 장치 등록 구성
 Active Directory의 그룹 정책을 사용하여 Windows 10 도메인 가입 장치를 Azure AD에 자동으로 등록하도록 구성할 수 있습니다.
 
 > [!NOTE]
@@ -137,6 +141,9 @@ Active Directory의 그룹 정책을 사용하여 Windows 10 도메인 가입 �
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

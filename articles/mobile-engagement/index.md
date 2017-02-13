@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "모바일 앱 사용량과 실시간 사용자 구분에 대한 정보를 가져오는 방법 및 컨텍스트 인식 푸시 알림과 앱 내 메시징을 사용하도록 설정하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: c9f8493eb39f0c519825cdaa1c06bbb24b0f478f
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 37f08d8a03845b86d382d4c0b49b58f633cc1b0c
 
 ---
 # <a name="mobile-engagement-documentation"></a>Mobile Engagement 설명서
 
-Azure Mobile Engagement는 데이터 기반 통찰력을 앱 사용, 사용자 분석에 제공하고 푸시 알림 및 앱 내 메시징을 가능하게 하는 SaaS(Software-as-a-Service) 사용자 참여 플랫폼입니다.
+Mobile Engagement를 사용하여 모바일 앱의 사용량, 보존 및 경제적 가치 창출을 증가시키는 방법에 대해 알아봅니다. 자습서, SDK 및 기타 설명서에서는 앱 사용량과 실시간 사용자 구분에 대한 정보를 가져오는 방법 및 컨텍스트 인식 푸시 알림과 앱 내 메시징을 사용하도록 설정하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -194,17 +195,10 @@ Azure Mobile Engagement는 데이터 기반 통찰력을 앱 사용, 사용자 �
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/mobile-engagement.pdf">
-        <div class="img"></div>
-        <div class="text">
-Azure Mobile Engagement 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: d7e51bee4b9ec4441a080004f938cdc609fd1250
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e4e8cf878d08aab41426fcebe1c43d7a9a97b57d
 
 
 ---
@@ -294,7 +294,7 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 실행 오류가 발생하는 경우 오류를 설명하는 출력도 이 로그 파일에 포함됩니다. 이러한 로그에 제공되는 정보는 발생할 수 있는 스크립트 문제를 디버그할 때 유용합니다.
 
 ## <a name="see-also"></a>참고 항목
-* [스크립트 작업을 사용해서 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]
+* [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]
 * [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]
 * [HDInsight 클러스터에서 R 설치 및 사용][hdinsight-r-scripts]
 * [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)
@@ -311,6 +311,6 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

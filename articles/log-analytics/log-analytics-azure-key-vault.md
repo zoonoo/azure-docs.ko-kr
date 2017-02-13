@@ -1,12 +1,12 @@
 ---
-title: Log Analytics의 Azure Key Vault 솔루션 | Microsoft Docs
-description: Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault 로그를 검토할 수 있습니다.
+title: "Log Analytics의 Azure Key Vault 솔루션 | Microsoft Docs"
+description: "Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault 로그를 검토할 수 있습니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 90ef2d32a00744decdb5a50ae1f707820e87f513
+
 
 ---
-# <a name="azure-key-vault-(preview)-solution-in-log-analytics"></a>Log Analytics의 Azure Key Vault(Preview) 솔루션
+# <a name="azure-key-vault-preview-solution-in-log-analytics"></a>Log Analytics의 Azure Key Vault(Preview) 솔루션
 > [!NOTE]
 > [Preview 솔루션](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features)입니다.
 > 
@@ -96,6 +100,9 @@ Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../key-va
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 Azure Key Vault 데이터를 확인합니다.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: d0cae49b3d45be153daf53cd3ff352e25c447ed1
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 7618f94574fd02d29a55ccbe8723a0228ad64f7f
 
 
 ---
@@ -49,11 +49,11 @@ ms.openlocfilehash: d0cae49b3d45be153daf53cd3ff352e25c447ed1
   이 문서는 Azure 서비스의 인덱스이며 재해 복구 지침 및 설계 지침에 대한 연결을 제공합니다.
 * [개요: SQL Database를 통한 클라우드 무중단 업무 방식 및 데이터베이스 재해 복구](../sql-database/sql-database-business-continuity.md) -
   이 문서에서는 Azure SQL 데이터베이스를 사용할 수 있습니다. 백업 및 복원 전략에 주로 집중합니다. 클라우드 서비스에서 Azure SQL 데이터베이스를 사용하는 경우 이 문서 및 관련된 리소스를 검토해야 합니다.
-* [Azure Virtual Machines에서 SQL Server의 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) -
+* [Azure Virtual Machines에서 SQL Server의 고가용성 및 재해 복구](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) -
   이 문서는 IaaS(Infrastructure-as-a-Service)를 사용하여 데이터베이스 서비스를 호스트하는 경우 탐색할 수 있는 가용성 옵션을 설명합니다. AlwaysOn 가용성 그룹, 데이터베이스 미러링, 로그 전달 및 백업/복원에 대해 설명합니다. 여러 자습서에는 이러한 기술을 사용하는 방법을 보여 줍니다.
 * [Azure Cloud Services에서 대규모 서비스를 설계하는 모범 사례](https://azure.microsoft.com//blog/best-practices-for-designing-large-scale-services-on-windows-azure/) -
   이 문서는 확장성이 뛰어난 클라우드 아키텍처의 개발을 집중 설명하니다. 확장성을 개선하기 위해 사용하는 대부분의 기술은 가용성도 개선합니다. 또한 응용 프로그램이 부하가 증가한 상태에서 확장할 수 없으면 확장성은 가용성 문제가 됩니다.
-* [Azure Virtual Machines에서 SQL Server 백업 및 복원](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) -
+* [Azure Virtual Machines에서 SQL Server 백업 및 복원](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md) -
   이 문서는 Azure 가상 컴퓨터에서 실행되는 Microsoft SQL Server를 백업하고 복원하는 방법에 대한 기술 지침을 제공합니다.
 * [Failsafe: 복원력 있는 클라우드 아키텍처 지침](https://channel9.msdn.com/Series/FailSafe) -
   이 문서는 복원력 있는 클라우드 아키텍처를 구축하기 위한 지침, Microsoft의 기술에 해당 아키텍처를 구현하기 위한 지침 및 특정 시나리오에 이러한 아키텍처를 구현하기 위한 작성 방버을 제공합니다.
@@ -66,6 +66,6 @@ ms.openlocfilehash: d0cae49b3d45be153daf53cd3ff352e25c447ed1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

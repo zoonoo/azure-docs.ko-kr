@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6b50b1c0522db3efe3bb5a10fd978dfaa41e2987
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 2fbbfd3d221ef2f6bce302ed169eddf5a8b0d73e
 
 
 ---
@@ -30,11 +30,13 @@ WebHCat(이전의 Templeton)을 사용하여 HDInsight를 사용하는 경우 �
 ## <a name="modifying-configuration"></a>구성 수정
 > [!IMPORTANT]
 > 구성된 최대값을 초과하기 때문에 이 문서에 나열된 몇몇 오류가 발생합니다. 해결 단계에서 값을 변경할 수 있음을 언급하면, 다음 중 하나를 사용하여 변경해야 합니다.
-> 
-> 
+
 
 * **Windows** 클러스터: 클러스터를 만드는 동안 값을 구성하려면 스크립트 동작을 사용합니다. 자세한 내용은 [스크립트 동작 개발](hdinsight-hadoop-script-actions.md)을 참조하세요.
 * **Linux** 클러스터: Ambari(웹 또는 REST API)를 사용하여 값을 수정합니다. 자세한 내용은 [Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)
+
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ### <a name="default-configuration"></a>기본 구성
 다음은 WebHCat 성능에 영향을 주거나 이 값을 초과하는 경우 오류가 발생할 수 있는 기본 구성 값입니다.
@@ -65,7 +67,7 @@ WebHCat(이전의 Templeton)을 사용하여 HDInsight를 사용하는 경우 �
 | 원인 | 해결 방법 |
 | --- | --- |
 | 작업 세부 정보는 작업 기록 클리너에서  정리됩니다. |작업 기록에 대한 기본 보존 기간은 7일입니다. `mapreduce.jobhistory.max-age-ms`을 수정하여 변경할 수 있습니다. 자세한 내용은 [구성 수정](#modifying-configuration) 을 참조하세요. |
-| 장애 조치때문에 작업이 중단되었습니다. |최대 2분 동안 작업 제출을 다시 시도하세요. |
+| 장애 조치때문에 작업이 중단되었습니다. |최대&2;분 동안 작업 제출을 다시 시도하세요. |
 | 잘못된 작업 ID가 사용되었습니다. |작업이 올바른지 확인하세요. |
 
 ## <a name="bad-gateway"></a>나쁜 게이트웨이
@@ -86,6 +88,6 @@ WebHCat(이전의 Templeton)을 사용하여 HDInsight를 사용하는 경우 �
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

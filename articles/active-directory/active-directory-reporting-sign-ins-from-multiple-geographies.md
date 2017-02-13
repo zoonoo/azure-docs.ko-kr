@@ -1,12 +1,12 @@
 ---
-title: 여러 지역에서의 로그인
-description: 한 사용자의 두 로그인이 각각 다른 지역에서 시작된 것으로 보이고 로그인 간격이 사용자가 두 지역 간에 이동하기에는 불가능한 시간임을 나타내는 보고서입니다.
+title: "여러 지역에서의 로그인"
+description: "한 사용자의 두 로그인이 각각 다른 지역에서 시작된 것으로 보이고 로그인 간격이 사용자가 두 지역 간에 이동하기에는 불가능한 시간임을 나타내는 보고서입니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: SSalahAhmed
 manager: gchander
-editor: ''
-
+editor: 
+ms.assetid: 79259c8a-2388-4747-b41e-c07434ea9a02
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1de57f64692ade442f9ef8d1e3b587ffee35d7cf
+
 
 ---
-# 여러 지역에서의 로그인
+# <a name="sign-ins-from-multiple-geographies"></a>여러 지역에서의 로그인
 한 사용자의 두 로그인이 각각 다른 지역에서 시작된 것으로 보이고 로그인 간격이 사용자가 두 지역 간에 이동하기에는 불가능한 시간인 경우 해당 사용자의 모든 성공적인 로그인이 이 보고서에 포함됩니다. 가능한 원인은 다음과 같습니다.
 
 * 사용자가 다른 사용자와 암호를 공유하고 있는 경우
@@ -29,4 +33,9 @@ ms.author: saah;kenhoff
 
 ![여러 지역에서의 로그인](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-<!---HONumber=AcomDC_0309_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

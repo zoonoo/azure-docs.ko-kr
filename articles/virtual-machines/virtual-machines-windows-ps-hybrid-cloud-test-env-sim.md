@@ -1,23 +1,27 @@
 ---
-title: 시뮬레이션된 하이브리드 클라우드 테스트 환경 | Microsoft Docs
-description: Azure 가상 네트워크 두 개와 VNet 간 연결을 사용하여 IT 전문가 또는 개발 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만들어봅니다.
+title: "시뮬레이션된 하이브리드 클라우드 테스트 환경 | Microsoft Docs"
+description: "Azure 가상 네트워크 두 개와 VNet 간 연결을 사용하여 IT 전문가 또는 개발 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만들어봅니다."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: JoeDavies-MSFT
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: ca5bf294-8172-44a9-8fed-d6f38d345364
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 09/30/2016
 ms.author: josephd
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 1322af70f643bcc191e3d69fe4a174adc9cd7e8d
+
 
 ---
-# 테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정
+# <a name="set-up-a-simulated-hybrid-cloud-environment-for-testing"></a>테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정
 이 문서에서는 두 개의 Azure 가상 네트워크를 사용하여 Microsoft Azure에서 시뮬레이션된 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
@@ -39,7 +43,7 @@ ms.author: josephd
 1. TestLab 가상 네트워크 구성
 2. 크로스-프레미스 가상 네트워크 만들기
 3. VNet 간 VPN 연결 만들기
-4. DC2 구성
+4. DC2 구성 
 
 이 구성에는 Azure 구독이 필요합니다. MSDN 또는 Visual Studio 구독이 있는 경우에는 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
@@ -48,8 +52,8 @@ ms.author: josephd
 > 
 > 
 
-## 1단계: TestLab 가상 네트워크 구성
-[기본 구성 테스트 환경](https://technet.microsoft.com/library/mt771177.aspx) 항목에 설명된 지침을 사용하여 TestLab이라는 Azure 가상 네트워크에서 DC1, APP1 및 CLIENT1 컴퓨터를 구성합니다.
+## <a name="phase-1-configure-the-testlab-virtual-network"></a>1단계: TestLab 가상 네트워크 구성
+[기본 구성 테스트 환경](https://technet.microsoft.com/library/mt771177.aspx) 항목에 설명된 지침을 사용하여 TestLab이라는 Azure 가상 네트워크에서 DC1, APP1 및 CLIENT1 컴퓨터를 구성합니다. 
 
 다음으로 Azure PowerShell 프롬프트를 시작합니다.
 
@@ -92,7 +96,7 @@ Azure 구독을 설정합니다. 1단계에서 기본 구성을 빌드하는 데
 
 새 게이트웨이를 만드는 데 20분 이상 걸릴 수 있습니다.
 
-로컬 컴퓨터의 Azure 포털에서 CORP\\User1 자격 증명을 사용하여 DC1에 연결합니다. 컴퓨터 및 사용자가 해당 로컬 도메인 컨트롤러를 사용하여 인증할 수 있도록 CORP 도메인을 구성하려면 DC1에서 관리자 수준 Windows PowerShell 명령 프롬프트의 다음 명령을 실행합니다.
+로컬 컴퓨터의 Azure 포털에서 CORP\User1 자격 증명을 사용하여 DC1에 연결합니다. 컴퓨터 및 사용자가 해당 로컬 도메인 컨트롤러를 사용하여 인증할 수 있도록 CORP 도메인을 구성하려면 DC1에서 관리자 수준 Windows PowerShell 명령 프롬프트의 다음 명령을 실행합니다.
 
     New-ADReplicationSite -Name "TestLab" 
     New-ADReplicationSite -Name "TestVNET"
@@ -103,7 +107,7 @@ Azure 구독을 설정합니다. 1단계에서 기본 구성을 빌드하는 데
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph1.png)
 
-## 2단계: TestVNET 가상 네트워크 만들기
+## <a name="phase-2-create-the-testvnet-virtual-network"></a>2단계: TestVNET 가상 네트워크 만들기
 먼저 TestVNET 가상 네트워크를 만들고 네트워크 보안 그룹으로 보호합니다.
 
     $rgName="<name of the resource group that you used for your TestLab virtual network>"
@@ -130,8 +134,8 @@ Azure 구독을 설정합니다. 1단계에서 기본 구성을 빌드하는 데
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph2.png)
 
-## 3단계: VNet 간 연결 만들기
-먼저 네트워크 또는 보안 관리자에서 임의로 암호화된 강력한 32자의 미리 공유한 키를 얻습니다. 또는 [IPsec 미리 공유한 키에 대한 임의 문자열 만들기](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx)에서 정보를 사용하여 미리 공유한 키를 얻습니다.
+## <a name="phase-3-create-the-vnet-to-vnet-connection"></a>3단계: VNet 간 연결 만들기
+먼저 네트워크 또는 보안 관리자에서 임의로 암호화된 강력한 32자의 미리 공유한 키를 얻습니다. 또는 [IPsec 미리 공유한 키에 대한 임의 문자열 만들기](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) 에서 정보를 사용하여 미리 공유한 키를 얻습니다.
 
 그리고 나서 다음 명령을 사용하여 VNet 간 VPN 연결을 만듭니다. 이를 완료하려면 다소 시간이 걸릴 수 있습니다.
 
@@ -147,7 +151,7 @@ Azure 구독을 설정합니다. 1단계에서 기본 구성을 빌드하는 데
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph3.png)
 
-## 4단계: DC2 구성
+## <a name="phase-4-configure-dc2"></a>4단계: DC2 구성
 먼저 DC2에 가상 컴퓨터를 만듭니다. 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
     $rgName="<your resource group name>"
@@ -195,22 +199,27 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.4에서 성공적인 회신 4�
     Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
     Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName "corp.contoso.com" -InstallDns:$true -DatabasePath "F:\NTDS" -LogPath "F:\Logs" -SysvolPath "F:\SYSVOL"
 
-CORP\\User1 암호와 DSRM(디렉터리 서비스 복원 모드) 암호를 둘 다 제공하고 DC2를 다시 시작하라는 메시지가 표시됩니다.
+CORP\User1 암호와 DSRM(디렉터리 서비스 복원 모드) 암호를 둘 다 제공하고 DC2를 다시 시작하라는 메시지가 표시됩니다.
 
 TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이 DNS 서버를 사용하도록 TestVNET 가상 네트워크를 구성해야 합니다.
 
 1. Azure 포털의 왼쪽 창에서 가상 네트워크 아이콘을 클릭한 다음 **TestVNET**을 클릭합니다.
 2. **설정** 탭에서 **DNS 서버**를 클릭합니다.
 3. **주 DNS 서버**에서 10.0.0.4를 **192.168.0.4**로 바꿔 입력합니다.
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 
-다음은 현재 구성입니다.
+다음은 현재 구성입니다. 
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
 
 이제 시뮬레이션된 하이브리드 클라우드 환경을 테스트할 준비가 완료되었습니다.
 
-## 다음 단계
-* 이 환경에서 [웹 기반 LOB(기간 업무) 응용 프로그램](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md)을 설정합니다.
+## <a name="next-step"></a>다음 단계
+* 이 환경에서 [웹 기반 LOB(기간 업무) 응용 프로그램](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 설정합니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

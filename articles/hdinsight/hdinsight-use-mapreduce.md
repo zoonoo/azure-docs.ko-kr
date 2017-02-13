@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b72443c0ca60196535ac093a6ac03df456f776ea
-ms.openlocfilehash: 068cd703d0d06206b3caa72e765dbe51b819ff17
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: ab40eb8b53e2e685be52d24ecf2c32b193b12b85
 
 
 ---
@@ -163,10 +163,13 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 
 | **사용 기능**... | **...다음을 수행합니다** | ... **클러스터 운영 체제** | ... **클라이언트 운영 체제** |
 |:--- |:--- |:--- |:--- |
-| [SSH](hdinsight-hadoop-use-mapreduce-ssh.md) | **SSH** |Linux |Linux, Unix, Mac OS X, 또는 Windows |
-| [Curl](hdinsight-hadoop-use-mapreduce-curl.md) | **REST** |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
-| [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) | **Windows PowerShell** |Linux 또는or Windows |Windows |
-| [원격 데스크톱](hdinsight-hadoop-use-mapreduce-remote-desktop.md) | **원격 데스크톱** |Windows |Windows |
+| [SSH](hdinsight-hadoop-use-mapreduce-ssh.md) |**SSH** |Linux |Linux, Unix, Mac OS X, 또는 Windows |
+| [Curl](hdinsight-hadoop-use-mapreduce-curl.md) |**REST** |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
+| [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |**Windows PowerShell** |Linux 또는or Windows |Windows |
+| [원격 데스크톱](hdinsight-hadoop-use-mapreduce-remote-desktop.md) |**원격 데스크톱** |Windows |Windows |
+
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
 
@@ -181,18 +184,18 @@ MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-개발-mapreduce-작업]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-samples]: hdinsight-run-samples.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-[powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

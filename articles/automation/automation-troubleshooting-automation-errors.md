@@ -1,31 +1,31 @@
 ---
-title: "Azure Automation 오류 처리 | Microsoft Docs"
-description: "이 문서에서는 일반적인 Azure 자동화 오류를 해결하는 기본 오류 처리 단계를 제공합니다."
+title: "Azure 자동화 문제 해결 | Microsoft Docs"
+description: "이 문서에서는 일반적인 Azure 자동화 오류 해결을 도와줄정보를 제공합니다."
 services: automation
 documentationcenter: 
 author: mgoedtel
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
-keywords: "자동화 오류, 오류 처리"
+keywords: "자동화 오류, 문제 해결, 문제"
 ms.assetid: 5f3cfe61-70b0-4e9c-b892-d02daaeee07d
 ms.service: automation
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 12/12/2016
 ms.author: sngun; v-reagie
 translationtype: Human Translation
-ms.sourcegitcommit: a9e855afcf9da703efd6653b19d9cc8e406f8bd3
-ms.openlocfilehash: 0c7e2373a4c3dc5fe878f0761586665bc4fc0a7a
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: f5db3c68122185eabb2168d9be582c3e0b17f9ff
 
 
 ---
-# <a name="error-handling-tips-for-common-azure-automation-errors"></a>일반적인 Azure 자동화 오류에 대한 오류 처리 팁
-이 문서에서는 발생할 수 있는 몇 가지 일반적인 Azure 자동화 오류를 설명하고 사용할 수 있는 오류 처리 단계를 제안합니다.
+# <a name="troubleshoot-azure-automation"></a>Azure 자동화 문제 해결 
+이 문서에서는 Azure 자동화에서 발생할 수 있는 일반적인 문제 해결 도움말을 제공하고 가능한 문제 해결 방법을 제시합니다.
 
-## <a name="troubleshoot-authentication-errors-when-working-with-azure-automation-runbooks"></a>Azure 자동화 Runbook을 사용할 때 인증 오류 해결
+## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Azure 자동화 Runbook을 사용할 때 인증 오류
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>시나리오: Azure 계정 로그인에 실패
 **오류:** Add-AzureAccount 또는 Login-AzureRmAccount cmdlet을 사용하면 "Unknown_user_type: 알 수 없는 사용자 유형" 오류가 수신됩니다.
 
@@ -61,16 +61,16 @@ ms.openlocfilehash: 0c7e2373a4c3dc5fe878f0761586665bc4fc0a7a
 
 **오류 원인:** Azure 계정에서 Multi-Factor Authentication을 사용하면 Azure Active Directory 사용자를 사용하여 Azure에 인증할 수 없습니다.  그 대신 인증서 또는 서비스 주체를 사용하여 Azure에 인증해야 합니다.
 
-**문제 해결 팁:** Azure 서비스 관리 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../resource-group-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../resource-group-authenticate-service-principal.md)을 참조하세요.
+**문제 해결 팁:** Azure 서비스 관리 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../azure-resource-manager/resource-group-authenticate-service-principal.md)을 참조하세요.
 
-## <a name="troubleshoot-common-errors-when-working-with-runbooks"></a>Runbook을 사용할 때 발생하는 일반적인 오류 해결
+## <a name="common-errors-when-working-with-runbooks"></a>Runbook을 사용할 때 발생하는 일반적인 오류
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>시나리오: 역직렬화된 개체로 인해 Runbook 실패
 **오류:** "``<ParameterName>`` 매개 변수를 바인딩할 수 없습니다. 역직렬화된 형식 ``<ParameterType>``의 ``<ParameterType>`` 값을 ``<ParameterType>`` 형식으로 변환할 수 없습니다." 오류와 함께 Runbook이 실패합니다.
 
 **오류 원인:** Runbook이 PowerShell 워크플로인 경우 워크플로가 일시 중단되더라도 Runbook 상태를 유지하기 위해 복합 개체를 역직렬화된 형식으로 저장합니다.  
 
 **문제 해결 팁:**  
- 다음 세 가지 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
+다음 세 가지 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
 
 1. 한 cmdlet에서 다른 cmdlet으로 복합 개체를 파이핑하는 경우 이러한 cmdlet을 InlineScript에 래핑합니다.  
 2. 개체 전체를 전달하지 말고 복합 개체에서 필요한 이름 또는 값만 전달합니다.  
@@ -105,7 +105,7 @@ ms.openlocfilehash: 0c7e2373a4c3dc5fe878f0761586665bc4fc0a7a
 
 **문제 해결 팁:** 이 문제를 방지하기 위한 문서화된 해결 방법은 워크플로에서 검사점을 사용하는 것입니다.  자세한 내용은 [PowerShell 워크플로 학습](automation-powershell-workflow.md#checkpoints)을 참조하세요.  "공평 분배" 및 검사점에 대한 자세한 설명은 [Runbook에서 검사점 사용](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/) 블로그 문서에서 확인 수 있습니다.
 
-## <a name="troubleshoot-common-errors-when-importing-modules"></a>모듈을 가져올 때 발생하는 일반적인 오류 해결
+## <a name="common-errors-when-importing-modules"></a>모듈을 가져올 때 발생하는 일반적인 오류
 ### <a name="scenario-module-fails-to-import-or-cmdlets-cant-be-executed-after-importing"></a>시나리오: 모듈이 가져오기를 실패하거나 가져오기를 실행한 후 cmdlet을 실행할 수 없음
 **오류:** 모듈이 가져오기를 실패하거나 성공하더라도 cmdlet이 추출되지 않습니다.
 
@@ -117,14 +117,14 @@ ms.openlocfilehash: 0c7e2373a4c3dc5fe878f0761586665bc4fc0a7a
 * **New-AzureRmAutomationModule** cmdlet이 모듈 업로드에 사용되고 있으며, 사용자가 공개적으로 액세스 가능한 URL을 사용하여 저장소 전체 경로를 입력하거나 모듈을 로드하지 않았습니다.  
 
 **문제 해결 팁:**  
- 다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.  
+다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.  
 
 * 모듈이 다음 형식을 따르는지 확인합니다.  
   ModuleName.Zip **->** 모듈 이름 또는 버전 번호 **->** (ModuleName.psm1, ModuleName.psd1)
 * .Psd1 파일을 열고 모듈에 종속성이 있는지 확인합니다.  종속성이 있으면 이러한 모듈을 자동화 계정에 업로드합니다.  
 * 모듈 폴더에 참조되는 .dll이 있는지 확인합니다.  
 
-## <a name="troubleshoot-common-errors-when-working-with-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성)으로 작업하는 경우 일반적인 오류 문제 해결
+## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성)으로 작업하는 경우 일반적인 오류 문제
 ### <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a>시나리오: 노드는 "찾을 수 없음" 오류로 실패한 상태
 **오류:** 노드에는 "유효한 구성 ``<guid>``를 찾을 수 없기 때문에 https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction 서버에서 작업을 가져오려는 시도가 실패함"이라는 오류를 포함하는 **실패** 상태의 보고서가 있습니다.
 
@@ -144,7 +144,7 @@ ms.openlocfilehash: 0c7e2373a4c3dc5fe878f0761586665bc4fc0a7a
 **오류 원인:** DSC 구성에서 **Node** 키워드 다음에 오는 식이 $null로 계산되는 경우 노드 구성이 생성되지 않습니다.    
 
 **문제 해결 팁:**  
- 다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.  
+다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.  
 
 * 구성 정의에서 **Node** 키워드 옆의 식이 $null로 계산되지 않는지 확인합니다.  
 * 구성을 컴파일할 때 ConfigurationData를 전달하는 경우 [ConfigurationData](automation-dsc-compile.md#configurationdata)에서 구성에 필요한 값을 전달해야 합니다.
@@ -166,15 +166,15 @@ ms.openlocfilehash: 0c7e2373a4c3dc5fe878f0761586665bc4fc0a7a
 * 적절한 **ConfigurationData**에 전달하여 구성에서 언급한 각 노드의 구성에 대해 **PSDscAllowPlainTextPassword**를 true로 설정하도록 합니다. 자세한 내용은 [Azure 자동화 DSC의 자산](automation-dsc-compile.md#assets)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-위의 문제 해결 단계를 수행했으며 본 문서와 관련하여 추가 도움이 필요한 경우
+위의 문제 해결 단계를 수행해도 답을 찾을 수 없는 경우 아래의 추가 지원 옵션을 검토할 수 있습니다.
 
-* Azure 전문가에게 도움을 받으세요.  [MSDN Azure 또는 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)
+* Azure 전문가에게 도움을 받으세요. [MSDN Azure 또는 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에 문제를 제출하세요.
 * Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **기술 및 대금 청구 지원**에서 **지원 받기**를 클릭합니다.
 * Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 [스크립트 센터](https://azure.microsoft.com/documentation/scripts/) 에 스크립트 요청을 게시하세요.
 * Azure 자동화에 대한 의견이나 기능 요청이 있으면 [사용자 의견](https://feedback.azure.com/forums/34192--general-feedback)에 게시하세요.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

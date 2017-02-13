@@ -1,5 +1,5 @@
 ---
-title: "SQL 데이터베이스로 SQL Server 데이터베이스 마이그레이션 | Microsoft Docs"
+title: "Azure SQL Database로 SQL Server 데이터베이스 마이그레이션 | Microsoft Docs"
 description: "클라우드에서 Azure SQL 데이터베이스로 온-프레미스 SQL Server 데이터베이스를 마이그레이션하는 방법을 알아봅니다. 데이터베이스 마이그레이션 도구를 사용하여 데이터베이스 마이그레이션 전에 호환성을 테스트합니다."
 keywords: "데이터베이스 마이그레이션, SQL Server 데이터베이스 마이그레이션, 데이터베이스 마이그레이션 도구, 데이터베이스 마이그레이션, SQL 데이터베이스 마이그레이션"
 services: sql-database
@@ -17,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 0e3e2d24196158b9bfc737cd0be0b797b636841b
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 61fb027dfdd5830d87fe4fcfff57f685db71475e
 
 
 ---
@@ -118,6 +118,6 @@ SQL Server는 이러한 각 작업을 수행하는 여러 방법을 제공합니
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

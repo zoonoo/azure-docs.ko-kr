@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: a607ab6bf73f59f55109f9ee60ab69aa15d74db3
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3a5131323f438109d94137cb4f577054ec13227f
 
 
 ---
@@ -36,10 +36,10 @@ ms.openlocfilehash: a607ab6bf73f59f55109f9ee60ab69aa15d74db3
 
 이 문서의 모든 샘플 코드는 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](http://aka.ms/search-dotnet-howto)를 참조하세요.
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Azure 검색 서비스의 관리 API 키 식별
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure 검색 서비스의 관리 API 키 식별
 Azure 검색 서비스를 프로비전했다면 .NET SDK를 사용하여 서비스 끝점에 대한 요청을 실행할 준비가 거의 된 것입니다. 먼저 프로비전한 검색 서비스에 대해 생성된 관리 API 키 중 하나가 있어야 합니다. .NET SDK는 서비스에 대한 모든 요청에 대해 이 API 키를 전송합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
-1. 서비스의 API 키를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인해야 합니다.
+1. 서비스의 API 키를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure 검색 서비스의 블레이드로 이동합니다.
 3. "키" 아이콘을 클릭합니다.
 
@@ -52,7 +52,7 @@ Azure 검색 서비스를 프로비전했다면 .NET SDK를 사용하여 서비�
 
 <a name="CreateSearchServiceClient"></a>
 
-## <a name="ii-create-an-instance-of-the-searchserviceclient-class"></a>II. SearchServiceClient 클래스의 인스턴스 만들기
+## <a name="create-an-instance-of-the-searchserviceclient-class"></a>SearchServiceClient 클래스의 인스턴스 만들기
 Azure 검색 .NET SDK 사용을 시작하려면 `SearchServiceClient` 클래스의 인스턴스를 만들어야 합니다. 이 클래스에는 몇 가지 생성자가 있습니다. 검색 서비스 이름과 `SearchCredentials` 개체를 매개 변수로 사용할 생성자입니다. `SearchCredentials` 는 API 키를 래핑합니다.
 
 아래 코드에서는 응용 프로그램의 구성 파일(`app.config` 또는 `web.config`)에 저장된 API 키와 검색 서비스 이름을 사용하여 새 `SearchServiceClient`를 만듭니다.
@@ -73,7 +73,7 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 <a name="DefineIndex"></a>
 
-## <a name="iii-define-your-azure-search-index"></a>III. Azure Search 인덱스를 정의합니다.
+## <a name="define-your-azure-search-index"></a>Azure Search 인덱스를 정의합니다.
 `Indexes.Create` 메서드에 대한 단일 호출이 인덱스를 만듭니다. 이 메서드는 Azure 검색 인덱스를 정의하는 `Index` 개체를 매개 변수로 사용합니다. 다음과 같이 `Index` 개체를 만들고 초기화해야 합니다.
 
 1. `Index` 개체의 `Name` 속성을 인덱스의 이름으로 설정합니다.
@@ -156,7 +156,7 @@ var definition = new Index()
 };
 ```
 
-## <a name="iv-create-the-index"></a>IV. 인덱스 만들기
+## <a name="create-the-index"></a>인덱스 만들기
 `Index` 개체를 초기화한 후에는 `SearchServiceClient` 개체에서 `Indexes.Create`를 호출하여 간단히 인덱스를 만들 수 있습니다.
 
 ```csharp
@@ -176,12 +176,12 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-## <a name="next"></a>다음
+## <a name="next-steps"></a>다음 단계
 Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 [콘텐츠를 인덱스에 업로드](search-what-is-data-import.md) 할 준비가 되었습니다.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -111,7 +111,7 @@
 6. 다음 명령을 사용하여 *ifcfg-eth0:0* 파일을 편집합니다.
 
     ```bash
-    vi ifcfg-eth1
+    vi ifcfg-eth0:0
     ```
 
 7. 다음 명령을 사용하여 이 파일에서 장치 이름을 적절히 변경합니다(이 경우 *eth0:0* ).
@@ -131,7 +131,7 @@
 
     ```bash
     /etc/init.d/network restart
-    Ipconfig
+    ifconfig
     ```
 
     반환된 목록에서 추가한 IP 주소 *eth0:0*이 표시되어야 합니다.

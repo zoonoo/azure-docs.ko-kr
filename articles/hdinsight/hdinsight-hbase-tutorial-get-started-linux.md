@@ -1,5 +1,5 @@
 ---
-title: "HBase 자습서: Hadoop에서 Linux 기반 HBase 클러스터 시작 | Microsoft Docs"
+title: "Azure HDInsight에서 HBase 시작 | Microsoft Docs"
 description: "HDInsight에서 Hadoop을 통해 Apache HBase 사용을 시작하려면 이 HBase 자습서를 따르세요. HBase 셸에서 테이블을 만들고 Hive를 사용하여 쿼리합니다."
 keywords: "apache hbase, hbase, hbase 셸, hbase 자습서"
 services: hdinsight
@@ -13,16 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/23/2016
+ms.date: 01/19/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
-ms.openlocfilehash: 81cdadcd7200f20274c2851eda8677078b8b505c
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: a5b9d93ee6c358338dda3702453341591e54b707
 
 
 ---
-# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linux-based-hadoop-in-hdinsight"></a>HBase 자습서: HDInsight에서 Linux 기반 Hadoop을 통해 Apache HBase 사용 시작
-[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
+# <a name="hbase-tutorial-get-started-using-apache-hbase-in-hdinsight"></a>HBase 자습서: HDInsight에서 Apache HBase 사용 시작
 
 HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hive를 사용하여 테이블을 쿼리하는 방법에 대해 알아봅니다. 일반 HBase 정보는 [HDInsight HBase 개요][hdinsight-hbase-overview]를 참조하세요.
 
@@ -207,7 +206,7 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
         -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
         -H "Accept: application/json" \
         -H "Content-Type: application/json" \
-        -d "{\"Row\":{\"key\":\"MTAwMA==\",\"Cell\":{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}}}" \
+        -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
         -v
    
     -d 스위치에 지정된 값을 base64로 인코딩해야 합니다.  예제에서:
@@ -286,6 +285,6 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

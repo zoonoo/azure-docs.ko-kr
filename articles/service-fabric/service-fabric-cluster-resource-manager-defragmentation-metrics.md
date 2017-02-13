@@ -1,12 +1,12 @@
 ---
-title: Azure 서비스 패브릭에서 메트릭의 조각 모음 | Microsoft Docs
-description: 서비스 패브릭에서 메트릭에 대한 전략으로써 조각 모음 또는 압축 사용의 개요
+title: "Azure Service Fabric에서 메트릭의 조각 모음 | Microsoft Docs"
+description: "서비스 패브릭에서 메트릭에 대한 전략으로써 조각 모음 또는 압축 사용의 개요"
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
 ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/19/2016
 ms.author: masnider
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 68183597e19347f10a0ffe24a418dbcac409cb14
+
 
 ---
-# 서비스 패브릭에서 부하 및 메트릭의 조각 모음
+# <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>서비스 패브릭에서 부하 및 메트릭의 조각 모음
 서비스 패브릭 클러스터 리소스 관리자는 클러스터의 모든 노드가 동일하게 활용되도록 하는 부하 분산 측면에서 균형 조정과 주로 관련이 있습니다. 지정된 실패가 지정된 작업의 많은 부분을 사용하지 않도록 하기 때문에 오류를 극복하는 측면에서 일반적으로 가장 안전하고 스마트한 레이아웃입니다. 서비스 패브릭 클러스터 리소스 관리자는 조각 모음이라는 다른 전략을 지원합니다. 조각 모음은 일반적으로 클러스터 전체에 걸쳐 메트릭의 사용률을 배분하려는 대신 실제로 통합하려고 하는 것을 의미합니다. 이 방식은 일반적인 전략을 뒤집는 것입니다. 지정된 메트릭의 메트릭 부하에 대한 평균 표준 편차 최소화를 토대로 클러스터를 최적화하는 대신, 편차 증가에 대한 최적화를 시작합니다. 그러나 이 전략을 선택하는 이유는 무엇인가요?
 
 물론 클러스터의 노드 간에 부하를 균등하게 분배한 경우 노드에서 제공해야 하는 리소스의 일부를 사용하게 됩니다. 보통 문제가 되지는 않지만 일부 워크로드는 매우 큰 서비스를 만들고 대부분의 노드를 사용합니다. 노드 리소스의 75%~95%가 단일 서비스 인스턴스 또는 복제본에 전용으로 사용될 수 있습니다. 따라서 큰 문제가 되지는 않지만 서비스 생성 시에 큰 워크로드를 위한 공간 확보 및 실행에 대한 설정을 위해 클러스터를 다시 구성해야 하지만 그동안 해당 워크로드가 클러스터에서 예약될 때까지 대기해야 한다는 점을 클러스터 Resource Manager가 감지합니다.
@@ -29,7 +33,7 @@ ms.author: masnider
 
 ![분산된 클러스터 및 조각 모음 클러스터 비교][Image1]
 
-## 조각 모음 장점 및 단점
+## <a name="defragmentation-pros-and-cons"></a>조각 모음 장점 및 단점
 그러면 다른 개념적 절충은 무엇입니까? 조각 모음 메트릭을 설정하기 전에 워크로드를 철저하게 측정하는 것이 좋습니다. 다음은 생각해 볼 사항을 간단한 테이블로 보여줍니다.
 
 | 조각 모음 장점 | 조각 모음 단점 |
@@ -40,7 +44,7 @@ ms.author: masnider
 
 동일한 클러스터에서 조각 모음 및 일반 메트릭을 혼합할 수 있습니다. 또한 리소스 관리자는 나머지를 확산하려는 동안 가능한 많은 조각 모음 메트릭을 통합하는 레이아웃을 얻도록 최선을 다할 것입니다. 얻을 수 있는 정확한 결과는 조각 모음 메트릭의 수, 해당 가중치, 현재 부하 등에 비교되는 메트릭 분산의 수에 따라 달라집니다.
 
-## 조각 모음 메트릭 구성
+## <a name="configuring-defragmentation-metrics"></a>조각 모음 메트릭 구성
 조각 모음 메트릭을 구성하는 작업은 클러스터에서 전역적인 의사 결정이며 개별 메트릭은 조각 모음에서 선택될 수 있습니다.
 
 ClusterManifest.xml:
@@ -52,10 +56,14 @@ ClusterManifest.xml:
 </Section>
 ```
 
-## 다음 단계
-* 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)하는 이 문서를 확인하세요.
-* 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.
+## <a name="next-steps"></a>다음 단계
+* 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)
+* 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png
+[Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

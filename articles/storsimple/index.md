@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "온-프레미스 장치 및 Azure 클라우드 저장소 간의 저장소 태스크를 관리하는 통합된 저장소 솔루션인 Azure StorSimple을 사용하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 42f5ac0bae68b967378b5e1a090f3b17e4efad20
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c3523cfef54f6084326b913d548449f4a9b646a9
 
 ---
 #<a name="storsimple-documentation"></a>StorSimple 설명서
 
-StorSimple 및 Microsoft Azure는 Azure를 사용한 고유한 통합형 기본 저장소 보관 및 재해 복구 솔루션을 온-프레미스 저장소의 확장으로 제공합니다. StorSimple 솔루션을 배포하고 관리하는 방법을 알아봅니다.
+온-프레미스 장치 및 Azure 클라우드 저장소 간의 저장소 태스크를 관리하는 통합된 저장소 솔루션인 Azure StorSimple을 사용하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 저장소 관리, 위치 독립적인 백업 및 재해 복구를 설정하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -137,16 +138,10 @@ StorSimple 및 Microsoft Azure는 Azure를 사용한 고유한 통합형 기본 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storsimple.pdf">
-        <div class="img"></div>
-        <div class="text">
-StorSimple 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 
