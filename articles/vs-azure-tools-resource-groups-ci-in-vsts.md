@@ -199,6 +199,6 @@ Azure Resource Manager 및 Azure 리소스 그룹에 대한 자세한 내용은 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

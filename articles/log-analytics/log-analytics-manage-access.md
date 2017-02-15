@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 01/06/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b78199a672528c475f4f299faaf6406089e95d01
+ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
+ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
 
 
 ---
@@ -60,7 +60,7 @@ Azure Portal에서 작업 영역에 대한 세부 정보를 볼 수 있습니다
 
 #### <a name="view-workspace-information-the-azure-portal"></a>Azure Portal에서 작업 영역 정보 보기
 
-1. [Azure 포털](https://portal.azure.com) 에 아직 로그인하지 않은 경우 Azure 구독을 사용하여 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 아직 로그인하지 않은 경우 Azure 구독을 사용하여 로그인합니다.
 2. **허브** 메뉴에서 **추가 서비스**를 클릭하고 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 목록이 입력에 따라 필터링됩니다. **Log Analytics**를 클릭합니다.  
     ![Azure 허브](./media/log-analytics-manage-access/hub.png)  
 3. Log Analytics 구독 블레이드에서 작업 영역을 선택합니다.
@@ -242,6 +242,24 @@ Azure 구독이 연결된 기업 등록에 대한 Azure 통화 커밋이 있는 
 6. Azure 포털에서 보기를 새로 고치면, 선택한 플랜에 따라 **가격 책정 계층**이 업데이트된 것을 볼 수 있습니다.  
     ![업데이트된 요금제](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
+## <a name="change-how-long-log-analytics-stores-data"></a>Log Analytics의 데이터 저장 기간 변경
+
+무료 가격 책정 계층에서 Log Analytics는 데이터를 7일 동안 사용할 수 있도록 합니다.
+표준 가격 책정 계층에서 Log Analytics는 데이터를 30일 동안 사용할 수 있도록 합니다.
+프리미엄 가격 책정 계층에서 Log Analytics는 데이터를 365일 동안 사용할 수 있도록 합니다.
+독립 실행형 및 OMS 가격 책정 계층에서 Log Analytics는 데이터를 31일 동안 사용할 수 있도록 합니다.
+
+독립 실행형 및 OMS 가격 책정 계층을 사용하는 경우 데이터를 최대 2년(730일) 동안 유지할 수 있습니다. 기본값인 31일보다 오래 저장된 데이터는 데이터 보존 요금이 발생합니다. 가격 책정에 대한 자세한 내용은 [초과 요금](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
+
+데이터 보존 기간을 변경하려면:
+
+1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
+2. **Log Analytics**를 찾아서 선택합니다.
+3. 기존 작업 영역 목록이 표시됩니다. 작업 영역을 선택합니다.  
+4. 작업 영역 블레이드의 **일반**에서 **보존**을 클릭합니다.  
+5. 슬라이더를 사용하여 보존 일 수를 늘리거나 줄인 다음 **저장**
+![보존 변경](./media/log-analytics-manage-access/manage-access-change-retention01.png)을 클릭합니다.
+
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>작업 영역의 Azure Active Directory 조직 변경
 
 작업 영역의 Azure Active Directory 조직을 변경할 수 있습니다. Azure Active Directory 조직을 변경하면 해당 디렉터리의 사용자 및 그룹을 작업 영역에 추가할 수 있습니다.
@@ -275,6 +293,6 @@ Log Analytics 작업 영역을 삭제하면 30일 내에 작업 영역과 관련
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

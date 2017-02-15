@@ -1,13 +1,13 @@
 ---
-title: HDInsight에서 Apache Hive로 Twitter 데이터 분석 | Microsoft Docs
-description: Python을 사용하여 특정 키워드를 포함한 트윗을 저장하고, HDInsight에서 Hive 및 Hadoop을 사용하여 원시 Twitter 데이터를 검색 가능한 Hive 테이블로 변환하는 방법을 알아봅니다.
+title: "HDInsight에서 Apache Hive로 Twitter 데이터 분석 | Microsoft 문서"
+description: "Python을 사용하여 특정 키워드를 포함한 트윗을 저장하고, HDInsight에서 Hive 및 Hadoop을 사용하여 원시 Twitter 데이터를 검색 가능한 Hive 테이블로 변환하는 방법을 알아봅니다."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 660524509b523ae2edb72cb8c80d75437730c119
+
 
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>HDInsight에서 Hive를 사용하여 Twitter 데이터 분석
@@ -61,7 +65,7 @@ Twitter를 사용하여 [각 트윗에 대한 데이터](https://dev.twitter.com
 > 
 
 ### <a name="download-tweets"></a>트윗 다운로드
-다음 Python 코드는 Twitter에서 10,000개의 트윗을 다운로드하고 __tweets.txt__라는 파일에 저장합니다.
+다음 Python 코드는 Twitter에서 10,000개의 트윗을 다운로드하고 **tweets.txt**라는 파일에 저장합니다.
 
 > [!NOTE]
 > 다음 단계는 Python이 이미 설치되어 있으므로 HDInsight 클러스터에서 수행됩니다.
@@ -94,10 +98,10 @@ Twitter를 사용하여 [각 트윗에 대한 데이터](https://dev.twitter.com
    > Tweepy v3.2.0은 트윗을 처리할 때 발생할 수 있는 [오류](https://github.com/tweepy/tweepy/issues/576) 를 방지하기 위해 사용됩니다.
    > 
    > 
-4. 다음 명령을 사용하여 __gettweets.py__라는 새 파일을 만듭니다.
+4. 다음 명령을 사용하여 **gettweets.py**라는 새 파일을 만듭니다.
    
         nano gettweets.py
-5. 다음을 **gettweets.py** 파일의 콘텐츠로 사용합니다. **consumer\_secret**, **consumer\_key**, **access/\_token** 및 __access\_token\_secret__의 자리 표시자 정보를 Twitter 응용 프로그램의 정보로 바꿉니다.
+5. 다음을 **gettweets.py** 파일의 콘텐츠로 사용합니다. **consumer\_secret**, **consumer\_key**, **access/\_token** 및 **access\_token\_secret**의 자리 표시자 정보를 Twitter 응용 프로그램의 정보로 바꿉니다.
    
         #!/usr/bin/python
    
@@ -150,7 +154,7 @@ Twitter를 사용하여 [각 트윗에 대한 데이터](https://dev.twitter.com
         twitterStream = Stream(auth, listener())
         #Filter for these topics
         twitterStream.filter(track=["azure","cloud","hdinsight"])
-6. **Ctrl + X**, __Y__를 차례로 사용하여 파일을 저장합니다.
+6. **Ctrl + X**, **Y**를 차례로 사용하여 파일을 저장합니다.
 7. 다음 명령을 사용하여 파일을 실행하고 트윗을 다운로드합니다.
    
         python gettweets.py
@@ -231,7 +235,7 @@ WASB(HDInsight에서 사용하는 분산 파일 시스템)에 데이터를 업�
             concat(substr (get_json_object(json_response, '$.created_at'),1,10),' ',
             substr (get_json_object(json_response, '$.created_at'),27,4)),
             substr (get_json_object(json_response, '$.created_at'),27,4),
-            case substr (get_json_object(json_response, '$.created_at'),5,3)
+            case substr (get_json_object(json_response,    '$.created_at'),5,3)
                 when "Jan" then "01"
                 when "Feb" then "02"
                 when "Mar" then "03"
@@ -280,7 +284,7 @@ WASB(HDInsight에서 사용하는 분산 파일 시스템)에 데이터를 업�
             get_json_object(json_response, '$.user.profile_image_url'),
             json_response
         WHERE (length(json_response) > 500);
-2. **Ctrl + X**, __Y__를 차례로 누르고 파일을 저장합니다.
+2. **Ctrl + X**, **Y**를 차례로 누르고 파일을 저장합니다.
 3. 다음 명령을 사용하여 파일에 포함된 HiveQL을 실행합니다.
    
         beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql
@@ -312,6 +316,6 @@ WASB(HDInsight에서 사용하는 분산 파일 시스템)에 데이터를 업�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

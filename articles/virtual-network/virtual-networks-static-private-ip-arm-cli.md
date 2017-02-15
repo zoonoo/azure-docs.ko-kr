@@ -1,13 +1,13 @@
 ---
-title: CLI를 사용하여 ARM 모드에서 정적 개인 IP를 설정하는 방법 | Microsoft Docs
-description: 정적 IP(DIP) 및 CLI를 사용하여 ARM 모드에서 관리 방법 이해
+title: "CLI를 사용하여 ARM 모드에서 정적 개인 IP를 설정하는 방법 | Microsoft Docs"
+description: "정적 IP(DIP) 및 CLI를 사용하여 ARM 모드에서 관리 방법 이해"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,25 +15,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 782f4260b00fed11921da97fed8a98452f91ba08
+
 
 ---
-# Azure CLI에서 정적 개인 IP 주소를 설정하는 방법
+# <a name="how-to-set-a-static-private-ip-address-in-azure-cli"></a>Azure CLI에서 정적 개인 IP 주소를 설정하는 방법
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 정적 개인 IP 주소를 관리](virtual-networks-static-private-ip-classic-cli.md)할 수도 있습니다.
+이 문서에서는 Resource Manager 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 정적 개인 IP 주소를 관리](virtual-networks-static-private-ip-classic-cli.md)할 수도 있습니다.
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 아래 샘플 Azure CLI 명령에는 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [vnet 만들기](virtual-networks-create-vnet-arm-cli.md)에 설명된 테스트 환경을 구축합니다.
 
-## VM을 만들 때 정적 개인 IP 주소를 지정하는 방법
+## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>VM을 만들 때 정적 개인 IP 주소를 지정하는 방법
 *192.168.1.101*의 정적 개인 IP 주소를 사용하여 *TestVNet*이라는 VNet의 *FrontEnd* 서브넷에 *DNS01*이라는 VM을 만들려면 다음 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
    
         azure config mode arm
@@ -41,7 +45,7 @@ ms.author: jdial
     예상 출력:
    
         info:    New mode is arm
-3. **azure network public-ip create**를 실행하여 VM에 대한 공용 IP를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
+3. **azure network public-ip create** 를 실행하여 VM에 대한 공용 IP를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
    
         azure network public-ip create -g TestRG -n TestPIP -l centralus
    
@@ -121,7 +125,7 @@ ms.author: jdial
    * **-F(또는 --vnet-name)**. VM이 만들어지는 VNet의 이름입니다.
    * **-j(또는 --vnet-subnet-name)**. VM이 만들어지는 서브넷의 이름입니다.
 
-## VM의 정적 개인 IP 주소 정보를 검색하는 방법
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>VM의 정적 개인 IP 주소 정보를 검색하는 방법
 위의 스크립트로 만든 VM에 대한 정적 개인 IP 주소 정보를 보려면 다음 Azure CLI 명령을 실행하고 *Private IP alloc-method* 및 *Private IP address*에 대한 값을 확인합니다.
 
     azure vm show -g TestRG -n DNS01
@@ -174,7 +178,7 @@ ms.author: jdial
     data:            Public IP address       :40.122.213.159
     info:    vm show command OK
 
-## VM에서 정적 개인 IP 주소를 제거하는 방법
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>VM에서 정적 개인 IP 주소를 제거하는 방법
 리소스 관리자에 대한 Azure CLI의 NIC에서는 정적 개인 IP 주소를 제거할 수 없습니다. 동적 IP를 사용하는 새 NIC를 만들고 VM에서 이전 NIC를 제거한 후 새 NIC를 VM에 추가해야 합니다. 위의 int eh 명령에 사용된 VM에 대한 NIC를 변경하려면 다음 단계를 따르세요.
 
 1. **azure network nic create** 명령을 실행하여 동적 IP 할당을 사용하여 새 NIC를 만듭니다. 이번에는 IP 주소를 지정할 필요가 없음을 알 수 있습니다.
@@ -224,7 +228,7 @@ ms.author: jdial
         + Deleting network interface "TestNIC"
         info:    network nic delete command OK
 
-## 기존 VM에 정적 개인 IP 주소를 추가하는 방법
+## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>기존 VM에 정적 개인 IP 주소를 추가하는 방법
 위의 스크립트를 사용하여 만든 teh VM에 사용된 NIC에 정적 개인 IP 주소를 추가하려면 다음 명령을 실행합니다.
 
     azure network nic set -g TestRG -n TestNIC2 -a 192.168.1.101
@@ -252,9 +256,14 @@ ms.author: jdial
     data:
     info:    network nic set command OK
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [예약된 공용 IP](virtual-networks-reserved-public-ip.md) 주소에 대해 알아봅니다.
 * [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소에 대해 알아봅니다.
 * [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

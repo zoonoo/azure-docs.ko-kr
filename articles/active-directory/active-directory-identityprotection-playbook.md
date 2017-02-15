@@ -6,13 +6,14 @@ keywords: "Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프
 documentationcenter: 
 author: MarkusVi
 manager: femila
+editor: 
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 11/11/2016
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
@@ -130,7 +131,7 @@ Azure Active Directory ID 보호:
 10. 이제 둘 다 **보통** 위험 이벤트이기 때문에 알 수 없는 위치 또는 익명 IP 위험 이벤트를 시뮬레이트하여 위험 기반 조건부 액세스를 테스트할 수 있습니다.
 
 
-![플레이 북](./media/active-directory-identityprotection-playbook/200.png "플레이 북")
+![플레이 북](./media/active-directory-identityprotection-playbook/200.png "Playbook")
 
 
 ## <a name="see-also"></a>참고 항목

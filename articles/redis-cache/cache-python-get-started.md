@@ -1,6 +1,6 @@
 ---
 title: "Azure Redis Cache를 Python과 함께 사용하는 방법 | Microsoft 문서"
-description: "Python을 사용하여 Azure Redis Cache를 시작합니다."
+description: "Python을 사용하여 Azure Redis Cache 시작"
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 08/16/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6d1a948cd9b0b2b8b50ba04579de5455e7a44730
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: ac73ab86ba17df9b71a4f07776fef0f4c6e687e8
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: 6d1a948cd9b0b2b8b50ba04579de5455e7a44730
 ## <a name="retrieve-the-host-name-and-access-keys"></a>호스트 이름 및 액세스 키 검색
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="enable-the-nonssl-endpoint"></a>비 SSL 끝점 사용
+## <a name="enable-the-non-ssl-endpoint"></a>비 SSL 끝점 사용
 일부 Redis 클라이언트는 SSL을 지원하지 않으며 기본적으로 [새 Azure Redis Cache 인스턴스에 대해 비 SSL 포트는 사용되지 않습니다](cache-configure.md#access-ports). 이 문서 작성 당시 [redis-py](https://github.com/andymccurdy/redis-py) 클라이언트는 SSL을 지원하지 않습니다. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
@@ -64,6 +64,6 @@ ms.openlocfilehash: 6d1a948cd9b0b2b8b50ba04579de5455e7a44730
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

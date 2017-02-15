@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Key Vault를 사용하여 클라우드 리소스, 앱 및 솔루션에 액세스하고 암호화하는 키를 만들고 유지 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 09d20c4c035a072d78118cb0e2184773f4642c81
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
 
 ---
 # <a name="key-vault-documentation"></a>Key Vault 설명서
 
-Azure Key Vault는 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Key Vault를 사용하여, 키와 비밀(예: 인증 키, 저장소 계정 키, 데이터 암호화 키, PFX 파일 및 암호)을 암호화에 하드웨어 보안 모듈(HSM)로 보호된 키를 사용합니다. 추가된 보증을 위해, HSM에서 키를 생성하거나 가져올 수 있습니다.
+Azure Key Vault를 사용하여 클라우드 응용 프로그램 및 서비스에서 사용하는 암호화 키 및 암호를 보호하고 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 리소스 및 솔루션에 액세스하고 암호화하는 키를 만들고 유지 관리하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -127,7 +128,7 @@ Azure Key Vault는 클라우드 응용 프로그램 및 서비스에서 사용�
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.keyvault">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.keyvault">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest">Node.JS</a></p>
                         <p><a href="/java/api/com.microsoft.azure.keyvault">Java</a></p>
                     </div>
                 </div>
@@ -150,16 +151,9 @@ Azure Key Vault는 클라우드 응용 프로그램 및 서비스에서 사용�
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/key-vault.pdf">
-        <div class="img"></div>
-        <div class="text">
-Key Vault 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

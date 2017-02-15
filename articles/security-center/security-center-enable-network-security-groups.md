@@ -1,33 +1,38 @@
 ---
-title: Azure 보안 센터의 네트워크 보안 그룹 활성화 | Microsoft Docs
-description: 이 문서에서는 Azure 보안 센터 권장 사항 **네트워크 보안 그룹 활성화**를 구현하는 방법을 보여 줍니다.
+title: "Azure Security Center의 네트워크 보안 그룹 활성화 | Microsoft Docs"
+description: "이 문서에서는 Azure 보안 센터 권장 사항 **네트워크 보안 그룹 활성화**를 구현하는 방법을 보여 줍니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: f53ed853-ffaf-4530-a019-1906ba6f341b
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/29/2016
+ms.date: 11/01/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 72dcf86c50c6a393ae065e5b487cb99f5701a5dc
+
 
 ---
-# Azure 보안 센터의 네트워크 보안 그룹 활성화
-Azure 보안 센터는 아직 활성화되지 않은 경우 NSG(네트워크 보안 그룹)를 활성화하는 것을 권장합니다. NSG는 ACL(액세스 제어 목록)의 가상 네트워크에 VM 인스턴스에 대한 허용 또는 거부 네트워크 트래픽 규칙의 목록을 포함합니다. NSG는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다. 또한 개별 VM에 대한 트래픽은 해당 VM에 직접 NSG를 연결하여 추가로 제한할 수 있습니다. 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
+# <a name="enable-network-security-groups-in-azure-security-center"></a>Azure 보안 센터의 네트워크 보안 그룹 활성화
+Azure 보안 센터는 아직 활성화되지 않은 경우 NSG(네트워크 보안 그룹)를 활성화하는 것을 권장합니다. NSG는 ACL(액세스 제어 목록)의 가상 네트워크에 VM 인스턴스에 대한 허용 또는 거부 네트워크 트래픽 규칙의 목록을 포함합니다. NSG는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다. 또한 개별 VM에 대한 트래픽은 해당 VM에 직접 NSG를 연결하여 추가로 제한할 수 있습니다. 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
 
 NSG를 활성화하지 않은 경우 보안 센터는 서브넷에서 네트워크 보안 그룹 활성화 및 가상 컴퓨터에서 네트워크 보안 그룹 활성화라는 두 가지 권장 사항을 제시합니다. NSG를 적용할 수준, 서브넷 또는 VM을 선택합니다.
 
 > [!NOTE]
-> 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
+> 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  단계별 가이드는 아닙니다.
 > 
 > 
 
-## 권장 사항 구현
-1. **권장 사항** 블레이드의 서브넷 또는 가상 컴퓨터에서 **네트워크 보안 그룹 활성화**를 선택합니다. ![네트워크 보안 그룹 활성화][1]
+## <a name="implement-the-recommendation"></a>권장 사항 구현
+1. **권장 사항** 블레이드의 서브넷 또는 가상 컴퓨터에서 **네트워크 보안 그룹 활성화**를 선택합니다.
+   ![네트워크 보안 그룹 활성화][1]
 2. 이렇게 하면 선택한 권장 사항에 따라 서브넷 또는 가상 컴퓨터에 대한 **누락된 네트워크 보안 그룹 구성** 블레이드가 열립니다. NSG를 구성할 서브넷 또는 가상 컴퓨터를 선택합니다.
    
    ![서브넷에 대한 NSG 구성][2]
@@ -37,9 +42,9 @@ NSG를 활성화하지 않은 경우 보안 센터는 서브넷에서 네트워�
    
    ![네트워크 보안 그룹 선택][4]
 
-새 NSG를 만드는 경우 [Azure 포털을 사용하여 NSG를 관리하는 방법](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)의 단계에 따라 NSG를 만들고 보안 규칙을 설정합니다.
+새 NSG를 만드는 경우 [Azure 포털을 사용하여 NSG를 관리하는 방법](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) 의 단계에 따라 NSG를 만들고 보안 규칙을 설정합니다.
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 이 문서에서는 보안 센터 권장 사항 서브넷 또는 가상 컴퓨터에 대한 "네트워크 보안 그룹 활성화"를 구현하는 방법을 보여 주었습니다. NSG 활성화에 대한 자세한 내용은 다음을 참조하세요.
 
 * [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
@@ -57,8 +62,12 @@ NSG를 활성화하지 않은 경우 보안 센터는 서브넷에서 네트워�
 
 <!--Image references-->
 [1]: ./media/security-center-enable-nsg/enable-nsg.png
-[2]: ./media/security-center-enable-nsg/configure-nsg-for-subnet.png
+[2]:./media/security-center-enable-nsg/configure-nsg-for-subnet.png
 [3]: ./media/security-center-enable-nsg/configure-nsg-for-vm.png
 [4]: ./media/security-center-enable-nsg/choose-nsg.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -3,8 +3,8 @@ title: "Ruby에서 Blob Storage(개체 저장소)를 사용하는 방법 | Micro
 description: "Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
 services: storage
 documentationcenter: ruby
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: e2fe4c45-27b0-4d15-b3fb-e7eb574db717
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: b6eb8c68402a18a66f9d227a1a835bcee81f73cc
-ms.openlocfilehash: 78d07dbcd11692fc29518a29c64507940971bc6a
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: cc42e6629c256d1fe6e5b082c88ebb2497484318
 
 
 ---
@@ -51,7 +51,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 require "azure"
 ```
 
-## <a name="setup-an-azure-storage-connection"></a>Azure 저장소 연결 설정
+## <a name="set-up-an-azure-storage-connection"></a>Azure Storage 연결 설정
 Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS_KEY** 환경 변수를 읽고 Azure Storage 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않으면 **Azure::Blob::BlobService** 를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
 
 ```ruby
@@ -64,15 +64,15 @@ Azure 포털의 클래식 또는 Resource Manager 저장소 계정에서 이러�
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 사용하려는 저장소 계정으로 이동합니다.
 3. 오른쪽의 설정 블레이드에서 **액세스 키**를 클릭합니다.
-4. 나타나는 액세스 키 블레이드에 액세스 키 1 및 액세스 키 2가 표시되어 있습니다. 이 둘 중 하나를 사용할 수 있습니다. 
-5. 복사 아이콘을 클릭하여 키를 클립보드에 복사합니다. 
+4. 나타나는 액세스 키 블레이드에 액세스 키 1 및 액세스 키 2가 표시되어 있습니다. 이 둘 중 하나를 사용할 수 있습니다.
+5. 복사 아이콘을 클릭하여 키를 클립보드에 복사합니다.
 
 클래식 Azure 포털의 클래식 저장소 계정에서 이러한 값을 가져오려면
 
 1. [클래식 Azure 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. 사용하려는 저장소 계정으로 이동합니다.
 3. 탐색 창 아래쪽에서 **액세스 키 관리** 를 클릭합니다.
-4. 팝업 대화 상자에 저장소 계정 이름, 기본 액세스 키 및 보조 액세스 키가 표시됩니다. 액세스 키의 경우 기본 액세스 키 또는 보조 액세스 키를 사용할 수 있습니다. 
+4. 팝업 대화 상자에 저장소 계정 이름, 기본 액세스 키 및 보조 액세스 키가 표시됩니다. 액세스 키의 경우 기본 액세스 키 또는 보조 액세스 키를 사용할 수 있습니다.
 5. 복사 아이콘을 클릭하여 키를 클립보드에 복사합니다.
 
 ## <a name="create-a-container"></a>컨테이너 만들기
@@ -100,7 +100,7 @@ container = azure_blob_service.create_container("test-container",
     :public_access_level => "<public access level>")
 ```
 
-**:public\_access\_level** 옵션에 유효한 값은 다음과 같습니다.
+유효한 **:public\_access\_level** 옵션 값은 다음과 같습니다.
 
 * **blob:** 컨테이너 및 blob 데이터에 대한 전체 공용 읽기 액세스 권한을 지정합니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 저장소 계정 내에서 컨테이너를 열거할 수는 없습니다.
 * **컨테이너:** blob에 대한 공용 읽기 액세스 권한을 지정합니다. 이 컨테이너 내의 Blob 데이터는 익명 요청을 통해 읽을 수 있으나 컨테이너 데이터는 읽을 수 없습니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 없습니다.
@@ -168,6 +168,6 @@ azure_blob_service.delete_blob(container.name, "image-blob")
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

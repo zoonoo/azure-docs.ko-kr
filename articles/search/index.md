@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "작업 모니터링을 포함하는 강력한 검색 기능을 사용자 지정 웹 또는 모바일 응용 프로그램에 추가하는 방법에 대해 알아봅니다. API, 참조 및 기타 설명서입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 8a89b85795c0707d7fda9480c53db4a3469560d7
-ms.openlocfilehash: 324584a63e6f76b9a2aed98d11f2a66fefac69c3
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c99d4b8d8db7739f615d566afa4617221b1c34a0
 
 ---
 # <a name="azure-search-documentation"></a>Azure Search 설명서
@@ -132,8 +132,8 @@ ms.openlocfilehash: 324584a63e6f76b9a2aed98d11f2a66fefac69c3
                     <div class="cardText">
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET 관리</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.search">Java</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET(관리)</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python(관리)</a></p>
                    </div>
                 </div>
             </div>
@@ -154,13 +154,7 @@ ms.openlocfilehash: 324584a63e6f76b9a2aed98d11f2a66fefac69c3
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
-        <div class="img"></div>
-        <div class="text">
-Azure Search 설명서 다운로드 </div>
-    </a>
-</div>
+
 
 
 

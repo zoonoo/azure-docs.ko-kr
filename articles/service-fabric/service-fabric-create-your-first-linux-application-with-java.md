@@ -147,6 +147,6 @@ Service Fabric 템플릿은 Eclipse를 통해 트리거할 수 있는 응용 프
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

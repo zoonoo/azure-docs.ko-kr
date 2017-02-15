@@ -2,6 +2,7 @@
 ## [DocumentDB가 무엇인가요?](documentdb-introduction.md)
 ## [핵심 개념](documentdb-resources.md)
 ## [글로벌 분포](documentdb-distribute-data-globally.md)
+## [NoSQL TCO 분석](https://aka.ms/documentdb-tco-paper)
 ## 시나리오
 ### [일반 사용 예](documentdb-use-cases.md)
 ### [DocumentDB를 사용하여 소셜 네트워크 디자인](documentdb-social-media-apps.md)
@@ -10,6 +11,7 @@
 ## 첫 번째 앱 작성
 ### [.NET 콘솔 앱](documentdb-get-started.md)
 ### [.NET 코어 콘솔 앱](documentdb-dotnetcore-get-started.md)
+### [Java 콘솔 앱](documentdb-java-get-started.md)
 ### [Node.js 콘솔 앱](documentdb-nodejs-get-started.md)
 ### [C++ 콘솔 앱](documentdb-cpp-get-started.md)
 ## 웹앱 만들기
@@ -24,7 +26,6 @@
 # 방법
 
 ## 계획
-### [Storage 및 성능](documentdb-manage.md)
 ### [분할 및 크기 조정](documentdb-partition-data.md)
 ### [일관성](documentdb-consistency-levels.md)
 ### [NoSQL과 SQL](documentdb-nosql-vs-sql.md)
@@ -34,13 +35,12 @@
 ### [데이터 모델링](documentdb-modeling-data.md)
 ### [지리 공간적 데이터 사용](documentdb-geospatial.md)
 ### [여러 지역용으로 개발](documentdb-developing-with-multiple-regions.md)
+### [지역별 장애 조치](documentdb-regional-failovers.md)
 ### [자동으로 데이터 만료](documentdb-time-to-live.md)
 ### [인덱스 사용자 지정](documentdb-indexing-policies.md)
 ### [데이터에 안전하게 액세스](documentdb-secure-access-to-data.md)
 ### [백업 및 복원](documentdb-online-backup-and-restore.md)
 ### [성능 수준](documentdb-performance-levels.md)
-### [리소스 할당량](documentdb-limits.md)
-### [할당량 증가](documentdb-increase-limits.md)
 ### [요청 단위](documentdb-request-units.md)
 ### Azure CLI
 #### [계정 만들기](documentdb-automation-resource-manager-cli.md)
@@ -55,6 +55,9 @@
 ### [변경 피드로 변경 내용 추적](documentdb-change-feed.md)
 ### [성능 테스트](documentdb-performance-testing.md)
 ### [성능 팁](documentdb-performance-tips.md)
+### 모범 사례
+#### [다중 마스터 설치](documentdb-multi-region-writers.md)
+#### [DateTimes](documentdb-working-with-dates.md)
 
 ## MongoDB에 대한 DocumentDB 지원 사용
 ### [MongoDB에 대한 프로토콜 지원](documentdb-protocol-mongodb.md)
@@ -79,10 +82,10 @@
 
 ## 통합
 ### [Azure App Service로 웹 사이트 배포](documentdb-create-documentdb-website.md)
-### [Logic Apps를 통한 응용 프로그램 로깅](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Logic Apps를 통한 응용 프로그램 로깅](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Azure Functions에 바인딩](../azure-functions/functions-bindings-documentdb.md)
 ### [Hadoop으로 데이터 분석](documentdb-run-hadoop-with-hdinsight.md)
-### [Azure Search와의 통합](documentdb-search-indexer.md)
+### [Azure Search와의 통합](../search/search-howto-index-documentdb.md)
 ### [Azure Data Factory를 사용하여 데이터 이동](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Azure Stream Analytics로 실시간 데이터 분석](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Logic Apps로 알림 받기](documentdb-change-notification.md)
@@ -120,6 +123,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

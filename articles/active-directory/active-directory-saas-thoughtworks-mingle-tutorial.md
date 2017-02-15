@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2016
+ms.date: 12/06/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6318f2fad781118b0f2c364d1cbc2b686f46a95e
+ms.sourcegitcommit: 49352a5e8255468bbc54c02e0cd9242d49002dbd
+ms.openlocfilehash: 6a9a1cf616531de1d0b8194bc0e6c186acc27008
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: 6318f2fad781118b0f2c364d1cbc2b686f46a95e
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785150.png "Scenario")
+![시나리오](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785150.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-thoughtworks-mingle"></a>Thoughtworks Mingle에 응용 프로그램 통합 사용
 이 섹션은 Thoughtworks Mingle에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -41,23 +41,29 @@ ms.openlocfilehash: 6318f2fad781118b0f2c364d1cbc2b686f46a95e
 ### <a name="to-enable-the-application-integration-for-thoughtworks-mingle-perform-the-following-steps"></a>Thoughtworks Mingle에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
-   ![Active Directory](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC700993.png "Active Directory")
+    ![Active Directory](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC700993.png "Active Directory")
+
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-   ![응용 프로그램](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC700994.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC700994.png "응용 프로그램")
+
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-   ![응용 프로그램 추가](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC749321.png "Add application")
+    ![응용 프로그램 추가](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC749321.png "응용 프로그램 추가")
+
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC749322.png "Add an application from gallerry")
+    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
+
 6. **검색 상자**에 **thoughtworks mingle**을 입력합니다.
    
-   ![응용 프로그램 갤러리](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785151.png "Application Gallery")
+    ![응용 프로그램 갤러리](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785151.png "응용 프로그램 갤러리")
+
 7. 결과 창에서 **Thoughtworks Mingle**을 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
-   ![thoughtworks mingle](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785152.png "Thoughtworks Mingle")
+    ![Thoughtworks Mingle](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785152.png "Thoughtworks Mingle")
 
 ## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Huddle에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
@@ -66,29 +72,37 @@ ms.openlocfilehash: 6318f2fad781118b0f2c364d1cbc2b686f46a95e
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **Thoughtworks Mingle** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Single Sign-On 구성")
+
 2. **Thoughtworks Mingle에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "Single Sign-On 구성")
+
 3. **앱 URL 구성** 페이지의 **Thoughtworks Mingle 테넌트 URL** 텍스트 상자에 "*http://company.mingle.thoughtworks.com*" 패턴을 사용하여 URL을 입력하고 **다음**을 클릭합니다.
    
-   ![앱 URL 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785155.png "Configure App URL")
+    ![앱 URL 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785155.png "앱 URL 구성")
+
 4. **Thoughtworks Mingle의 Single Sign-On 구성** 페이지에서 메타데이터 다운로드를 클릭한 다음 컴퓨터에 메타데이터 파일을 저장합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785156.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785156.png "Single Sign-On 구성")
+
 5. **Thoughtworks Mingle** 회사 사이트에 관리자 권한으로 로그인합니다.
+
 6. **관리자** 탭을 클릭하고 **SSO 구성**을 클릭합니다.
    
-   ![SSO 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785157.png "SSO Config")
+    ![SSO 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785157.png "SSO 구성")
+
 7. **SSO 구성** 섹션에서 다음 단계를 수행합니다.
    
-   ![SSO 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785158.png "SSO Config")
+    ![SSO 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785158.png "SSO 구성")
    
-   1. 메타데이터 파일을 업로드하려면 **파일 선택**을 클릭합니다.
-   2. **변경 내용 저장**을 클릭합니다.
+    a. 메타데이터 파일을 업로드하려면 **파일 선택**을 클릭합니다.
+   
+    b. **변경 내용 저장**을 클릭합니다.
+
 8. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785159.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785159.png "Single Sign-On 구성")
 
 ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 AAD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 이름을 사용하여 Thoughtworks Mingle 응용 프로그램에 프로비전되어야 합니다.  
@@ -96,22 +110,28 @@ Thoughtworks Mingle의 경우 프로비전은 수동 작업입니다.
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>사용자 프로비저닝을 구성하려면
 1. Thoughtworks Mingle 회사 사이트에 관리자 권한으로 로그인합니다.
+
 2. **프로필**을 클릭합니다.
    
-   ![첫 번째 프로젝트](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785160.png "Your First Project")
+    ![첫 번째 프로젝트](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785160.png "첫 번째 프로젝트")
+
 3. **관리자** 탭을 클릭하고 **사용자**를 클릭합니다.
    
-   ![사용자](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785161.png "Users")
+    ![사용자](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785161.png "사용자")
+
 4. **새 사용자**를 클릭합니다.
    
-   ![새 사용자](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785162.png "New User")
+    ![새 사용자](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785162.png "새 사용자")
+
 5. **새 사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-   ![새 사용자](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785163.png "New User")
+    ![새 사용자](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785163.png "새 사용자")
    
-   1. 관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **로그인 이름**, **표시 이름**, **암호 선택**, **암호 확인**을 입력합니다.
-   2. **사용자 유형**으로 **전체 사용자**를 선택합니다.
-   3. **이 프로필 만들기**를 클릭합니다.
+    a. 관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **로그인 이름**, **표시 이름**, **암호 선택**, **암호 확인**을 입력합니다.
+   
+    b. **사용자 유형**으로 **전체 사용자**를 선택합니다.
+   
+    c. **이 프로필 만들기**를 클릭합니다.
 
 > [!NOTE]
 > 다른 Thoughtworks Mingle 사용자 계정 생성 도구 또는 Thoughtworks Mingle이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수도 있습니다.
@@ -123,18 +143,20 @@ Thoughtworks Mingle의 경우 프로비전은 수동 작업입니다.
 
 ### <a name="to-assign-users-to-thoughtworks-mingle-perform-the-following-steps"></a>Thoughtworks Mingle에 사용자를 할당하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
+
 2. **Thoughtworks Mingle** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-   ![사용자 할당](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785164.png "Assign Users")
+    ![사용자 할당](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785164.png "사용자 할당")
+
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-   ![예](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC767830.png "Yes")
+    ![예](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

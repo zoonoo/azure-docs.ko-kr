@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
 ms.service: sql-database
-ms.custom: app development case study; app development
+ms.custom: app development case study
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da2e3e4f9a33860141d94352fd2e657b14b0d03d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 7137d38e4e9fef7dfaa309ad81cfed94d547a393
 
 
 ---
@@ -65,7 +65,7 @@ SMART by GEP 응용 프로그램의 핵심에는 엔터프라이즈 조달 관�
 
 GEP는 Azure SQL 데이터베이스에 기본적으로 제공되는 내결함성 기능 때문에 온-프레미스에서 효율적으로 엔지니어링할 수 있는 것보다 훨씬 더 큰 재해 복구 기능을 자동으로 갖추게 되었습니다. GEP는 여러 다른 지리적 지역에서 읽을 수 있는 여러 활성 온라인 보조 복제본(Always On 가용성 그룹)과 함께 Azure SQL 데이터베이스의 활성 지역 복제 기능을 사용하여 고가용성 쌍을 형성합니다. 지역에 걸쳐 SMART by GEP 데이터를 복제하는 것은 전체 지역에서 재해가 발생할 경우 GEP가 최소 RPO(복구 지점 목표) 및 RTO(복구 시간 목표)를 사용하여 고객 데이터를 쉽게 복구할 수 있음을 의미합니다.
 
-각 SMART by GEP 고객에게는 두 개의 Azure SQL 데이터베이스 인스턴스가 있습니다. 하나는 OLTP(온라인 트랜잭션 처리)용이고 다른 하나는 분석용입니다(예: 고객 지출 및 보고서 분석). Azure SQL 데이터베이스의 탄력적 데이터베이스 풀을 사용하여 GEP는 수천 개의 데이터베이스를 전역적으로 쉽게 관리하여 예측할 수 없는 데이터베이스 리소스 요구를 처리할 수 있습니다. 탄력적 풀은 GEP가 비용을 제어하면서 과다한 프로비전 또는 부족한 프로비전 없이 필요에 따라 고객 데이터베이스 규모를 조정할 수 있도록 합니다. 또한 PaaS 서비스이기 때문에 GEP는 자동 업그레이드를 통해 새로운 Azure SQL 데이터베이스 기능을 얻게 됩니다.
+각 SMART by GEP 고객에게는 두 개의 Azure SQL 데이터베이스 인스턴스가 있습니다. 하나는 OLTP(온라인 트랜잭션 처리)용이고 다른 하나는 분석용입니다(예: 고객 지출 및 보고서 분석). Azure SQL Database의 탄력적 풀을 사용하여 GEP는 수천 개의 데이터베이스를 전역적으로 쉽게 관리하여 예측할 수 없는 데이터베이스 리소스 요구를 처리할 수 있습니다. 탄력적 풀은 GEP가 비용을 제어하면서 과다한 프로비전 또는 부족한 프로비전 없이 필요에 따라 고객 데이터베이스 규모를 조정할 수 있도록 합니다. 또한 PaaS 서비스이기 때문에 GEP는 자동 업그레이드를 통해 새로운 Azure SQL 데이터베이스 기능을 얻게 됩니다.
 
 ## <a name="unstructured-and-semi-structured-data"></a>비구조화된 데이터 및 반구조화된 데이터
 그러나 일부 SMART by GEP 고객 데이터에는 덜 엄격하게 구조화된 저장소가 필요합니다. 이러한 데이터 유형의 경우, GEP는 Azure Blob 저장소, Azure 테이블 저장소 및 Azure Redis Cache를 사용합니다. Azure Blob 저장소는 SMART by GEP 사용자가 응용 프로그램에 업로드하는 모든 첨부 파일을 보관합니다. SMART by GEP는 CSS 스타일시트 및 JavaScript 파일과 같은 정적 콘텐츠도 여기에 저장합니다.
@@ -78,7 +78,7 @@ Azure ACS(액세스 제어 서비스)는 SMART by GEP 사용자에게 소프트�
 일단 로그인된 고객은 SMART by GEP에서 올바른 비즈니스 리소스에 액세스할 수 있습니다. GEP는 Azure 트래픽 관리자를 사용하여 고객의 모바일 장치 및 브라우저 세션에서 발생하는 요청을 리디렉션하고 부하를 분산합니다.
 
 ## <a name="other-azure-services"></a>기타 Azure 서비스
-GEP는 다양한 Azure 서비스를 사용하여 고객에 요구에 응답할 수 있는 SMART by GEP를 구현합니다. GEP는 Azure 클라우드 서비스(웹 및 작업자 역할)를 사용하여 응용 프로그램 프레젠테이션 및 보안 비즈니스 논리 서비스를 호스트합니다. 클라우드 서비스는 개발자가 온-프레미스 데이터 센터를 사용할 때 필요한 것보다 훨씬 짧은 시간 안에 IT 부서의 도움 없이 IAC(infrastructure as code)를 관리하고 새로운 SMART by GEP 응용 프로그램을 배포할 수 있도록 합니다. GEP 개발자는 클라우드 서비스 스테이징 환경을 사용하여 현재 프로덕션 배포에 영향을 주지 않고 새 릴리스를 테스트할 수 있습니다. 일단 테스트가 끝나면 GEP는 Azure 클라우드 서비스의 VIP 교환 기능을 사용하여 1분 안에 스테이징 코드를 프로덕션 슬롯으로 이동할 수 있으므로 배포에 따른 가동 중지가 감소됩니다.
+GEP는 다양한 Azure 서비스를 사용하여 고객에 요구에 응답할 수 있는 SMART by GEP를 구현합니다. GEP는 Azure 클라우드 서비스(웹 및 작업자 역할)를 사용하여 응용 프로그램 프레젠테이션 및 보안 비즈니스 논리 서비스를 호스트합니다. 클라우드 서비스는 개발자가 온-프레미스 데이터 센터를 사용할 때 필요한 것보다 훨씬 짧은 시간 안에 IT 부서의 도움 없이 IAC(infrastructure as code)를 관리하고 새로운 SMART by GEP 응용 프로그램을 배포할 수 있도록 합니다. GEP 개발자는 클라우드 서비스 스테이징 환경을 사용하여 현재 프로덕션 배포에 영향을 주지 않고 새 릴리스를 테스트할 수 있습니다. 일단 테스트가 끝나면 GEP는 Azure 클라우드 서비스의 VIP 교환 기능을 사용하여&1;분 안에 스테이징 코드를 프로덕션 슬롯으로 이동할 수 있으므로 배포에 따른 가동 중지가 감소됩니다.
 
 응용 프로그램 대기 시간을 줄이기 위해 GEP는 Azure CDN(콘텐츠 배달 네트워크)을 사용하여 Azure Blob 저장소(예: CSS 및 JavaScript 파일)에 저장된 정적 콘텐츠를 사용자에게 가까운 Edge 서버에 추가합니다. GEP는 Azure 서비스 버스를 사용하여 느슨한 결합 및 비동기 통신을 통해 게시-구독부터 부분적인 CQRS(Command Query Responsive Segregation) 및 계층형 아키텍처에 이르는 응용 프로그램-아키텍처 패턴을 지원합니다. GEP는 Azure 미디어 서비스를 사용하여 고객 지원 서비스를 개선합니다. GEP는 Azure 미디어 서비스에서 사용자 지원 비디오를 쉽게 게시할 수 있다는 사실을 알게 되었습니다. 이러한 비디오는 일반적인 사용자 질문에 답변하므로 GEP의 고객 지원 담당자의 지원 업무 부담을 덜어주면서 SMART by GEP 사용자 만족도를 높이는 데 도움이 됩니다.
 
@@ -93,7 +93,7 @@ GEP는 다양한 Azure 서비스를 사용하여 고객에 요구에 응답할 �
 > 
 
 ## <a name="expand-customer-satisfaction-without-expanding-it"></a>IT 확장 없이 고객 만족도 강화
-온-프레미스 데이터 센터에서 Azure로 마이그레이션하고 Azure 플랫폼에서 SMART by GEP를 완전히 새로 구축하였기 때문에 GEP는 해당 인프라 또는 IT 직원을 확장할 필요 없이 확장성과 유연성을 강화할 수 있게 되었습니다. 실제로 이 회사는 4년 넘게 IT 리소스를 추가하지 않았습니다. Azure의 편리한 PaaS 모델을 통해 GEP는 공급업체 지원 및 운영 관리 비용을 절감할 수 있었습니다. 결과적으로, GEP는 소프트웨어 개발에 리소스를 투입할 수 있게 되었습니다. 클라우드에서 개발을 진행하면서 GEP 개발자들은 IT 부서와의 조정 작업에 시간을 투자하거나 온-프레미스 라이선스 요구를 걱정하지 않고 새 아이디어를 빠르게 테스트할 수 있게 되었습니다. Azure SQL 데이터베이스는 GEP가 고객에게 뛰어난 서비스와 성능을 제공할 수 있도록 지원합니다.
+온-프레미스 데이터 센터에서 Azure로 마이그레이션하고 Azure 플랫폼에서 SMART by GEP를 완전히 새로 구축하였기 때문에 GEP는 해당 인프라 또는 IT 직원을 확장할 필요 없이 확장성과 유연성을 강화할 수 있게 되었습니다. 실제로 이 회사는&4;년 넘게 IT 리소스를 추가하지 않았습니다. Azure의 편리한 PaaS 모델을 통해 GEP는 공급업체 지원 및 운영 관리 비용을 절감할 수 있었습니다. 결과적으로, GEP는 소프트웨어 개발에 리소스를 투입할 수 있게 되었습니다. 클라우드에서 개발을 진행하면서 GEP 개발자들은 IT 부서와의 조정 작업에 시간을 투자하거나 온-프레미스 라이선스 요구를 걱정하지 않고 새 아이디어를 빠르게 테스트할 수 있게 되었습니다. Azure SQL 데이터베이스는 GEP가 고객에게 뛰어난 서비스와 성능을 제공할 수 있도록 지원합니다.
 
 ## <a name="more-information"></a>자세한 정보
 * GEP 홈페이지: [GEP](http://www.gep.com)
@@ -107,6 +107,6 @@ GEP는 다양한 Azure 서비스를 사용하여 고객에 요구에 응답할 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

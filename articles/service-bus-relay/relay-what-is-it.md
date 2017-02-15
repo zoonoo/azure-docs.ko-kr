@@ -66,6 +66,6 @@ WCF 릴레이는 전체 .NET Framework(NETFX) 및 WCF를 위해 작동합니다.
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

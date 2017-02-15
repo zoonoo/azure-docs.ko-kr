@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "클라우드에 있는 서비스 및 데이터의 배포 요구 사항에 맞게 Azure 서비스에서 보안 옵션을 사용자 지정하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: d06c292b36ef6dd6bd4f858603debfe93d498cb6
-ms.openlocfilehash: 622e8ccb62538110991c4f882ada9014ea03ffb4
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 349a83224dd154cf81f641cac33baa020adc0b77
 
 ---
 # <a name="security-documentation"></a>Security 설명서
 
-Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위한 시설에서 응용 프로그램에 이르는 인프라를 설계하며 비즈니스의 보안 요구 사항을 충족하는 신뢰할 수 있는 기반을 제공합니다. 또한 Azure는 다양하게 구성 가능한 보안 옵션 및 제어 능력을 제공하므로 배포에 대한 고유한 요구 사항에 맞게 보안을 사용자 지정할 수 있습니다.
+Azure 보안을 사용하여 클라우드에서 서비스 및 데이터를 보호하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서를 통해 배포 요구 사항에 맞게 Azure 서비스에서 보안 옵션을 사용자 지정할 수 있습니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -104,16 +105,10 @@ Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위�
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security.pdf">
-        <div class="img"></div>
-        <div class="text">
-Security 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

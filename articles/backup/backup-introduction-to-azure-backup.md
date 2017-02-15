@@ -1,10 +1,10 @@
 ---
 title: "Azure Backup이란? | Microsoft Docs"
-description: "Azure Backup 및 Recovery Services를 사용하여 Windows Server, Windows 클라이언트 컴퓨터, System Center DPM 서버 및 Azure 가상 컴퓨터에서 데이터와 응용 프로그램을 백업 및 복원할 수 있습니다."
+description: "Azure Backup 및 Recovery Services를 사용하여 Windows Server, Windows 컴퓨터, System Center DPM 서버 및 Azure 가상 컴퓨터에서 데이터와 응용 프로그램을 백업 및 복원할 수 있습니다."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "백업 및 복원; 복구 서비스; 백업 솔루션"
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/7/2016
+ms.date: 1/4/2017
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 9de8032bc69b054d5d13857159ff994f505497a6
-ms.openlocfilehash: 08e7d4402ad52835d193b2083e3c9b2776e0332e
+ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
+ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
 
 
 ---
@@ -53,8 +53,8 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 | 구성 요소 | 이점 | 제한 | 보호 대상 | 백업 저장 위치 |
 | --- | --- | --- | --- | --- |
 | Azure Backup(MARS) 에이전트 |<li>실제 또는 가상 Windows OS에 있는 파일 및 폴더를 백업함(온-프레미스 또는 Azure에 VM 배치 가능)<li>별도의 백업 서버가 필요하지 않음 |<li>매일 3회 백업 <li>응용 프로그램 인식 안 함. 파일, 폴더, 볼륨 수준 복원만 지원 <li>  Linux 지원 안 함 |<li>파일 <li>폴더 |Azure Backup 자격 증명 모음 |
-| System Center DPM |<li>VSS(앱 인식 스냅숏)<li>백업을 가져올 때 충분한 유연성<li>복구 세분성(모두)<li>Azure Backup 자격 증명 모음 사용 가능<li>Hyper-V 및 VMware VM에 대한 Linux 지원 <li>DPM 2012 R2를 사용하여 VMware VM 보호 |Oracle 워크로드는 백업할 수 없음|<li>파일 <li>폴더<li> 볼륨 <li>VM<li> 응용 프로그램<li> 워크로드 |<li>Azure Backup 자격 증명 모음<li> 로컬 연결된 디스크<li>  테이프(온-프레미스 전용) |
-| Azure Backup 서버 |<li>VSS(앱 인식 스냅숏)<li>백업을 가져올 때 충분한 유연성<li>복구 세분성(모두)<li>Azure Backup 자격 증명 모음 사용 가능<li>Linux 지원(Hyper-V에서 호스트되는 경우)<li>DPM 2012 R2를 사용하여 VMware VM 보호<li>System Center 라이선스 필요하지 않음 |<li>Oracle 워크로드는 백업할 수 없음<li>항상 라이브 Azure 구독 필요<li>테이프 백업 지원 안 함 |<li>파일 <li>폴더<li> 볼륨 <li>VM<li> 응용 프로그램<li> 워크로드 |<li>Azure Backup 자격 증명 모음<li> 로컬 연결된 디스크 |
+| System Center DPM |<li>VSS(응용 프로그램 인식 스냅숏)<li>백업을 가져올 때 충분한 유연성<li>복구 세분성(모두)<li>Azure Backup 자격 증명 모음 사용 가능<li>Hyper-V 및 VMware VM에 대한 Linux 지원 <li>DPM 2012 R2를 사용하여 VMware VM 백업 및 복원 |Oracle 워크로드는 백업할 수 없음|<li>파일 <li>폴더<li> 볼륨 <li>VM<li> 응용 프로그램<li> 워크로드 |<li>Azure Backup 자격 증명 모음<li> 로컬 연결된 디스크<li>  테이프(온-프레미스 전용) |
+| Azure Backup 서버 |<li>VSS(앱 인식 스냅숏)<li>백업을 가져올 때 충분한 유연성<li>복구 세분성(모두)<li>Azure Backup 자격 증명 모음 사용 가능<li>Hyper-V 및 VMware VM에 대한 Linux 지원<li>VMware VM 백업 및 복원 <li>System Center 라이선스 필요하지 않음 |<li>Oracle 워크로드는 백업할 수 없음<li>항상 라이브 Azure 구독 필요<li>테이프 백업 지원 안 함 |<li>파일 <li>폴더<li> 볼륨 <li>VM<li> 응용 프로그램<li> 워크로드 |<li>Azure Backup 자격 증명 모음<li> 로컬 연결된 디스크 |
 | Azure IaaS VM 백업 |<li>Windows/Linux용 기본 백업<li>특정 에이전트 설치할 필요 없음<li>백업 인프라가 필요 없는 패브릭 수준 백업 |<li>하루 한 번 VM 백업 <li>디스크 수준에서만 VM 복원<li>온-프레미스 백업 불가능 |<li>VM <li>모든 디스크(PowerShell 사용) |<p>Azure 자격 증명 모음</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>각 구성 요소에 대한 배포 시나리오는 무엇입니까?
@@ -234,6 +234,6 @@ Windows Server에서 데이터를 보호하거나 Azure에서 VM(가상 컴퓨�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

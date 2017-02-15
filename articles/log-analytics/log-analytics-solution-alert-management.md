@@ -1,22 +1,26 @@
 ---
-title: OMS(Operations Management Suite)의 경고 관리 솔루션 | Microsoft Docs
-description: Log Analytics의 경고 관리 솔루션을 사용하여 환경의 모든 경고를 분석할 수 있습니다.  OMS 내에서 생성된 경고를 통합하는 것 외에도 연결된 SCOM(System Center Operations Manager) 관리 그룹에서 Log Analytics로 경고를 가져옵니다.
+title: "OMS(Operations Management Suite)의 경고 관리 솔루션 | Microsoft Docs"
+description: "Log Analytics의 경고 관리 솔루션을 사용하여 환경의 모든 경고를 분석할 수 있습니다.  OMS 내에서 생성된 경고를 통합하는 것 외에도 연결된 SCOM(System Center Operations Manager) 관리 그룹에서 Log Analytics로 경고를 가져옵니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2caa3118785fab6919dd088e440bf3483a77bd69
+
 
 ---
-# <a name="alert-management-solution-in-operations-management-suite-(oms)"></a>OMS(Operations Management Suite)의 경고 관리 솔루션
+# <a name="alert-management-solution-in-operations-management-suite-oms"></a>OMS(Operations Management Suite)의 경고 관리 솔루션
 ![경고 관리 아이콘](media/log-analytics-solution-alert-management/icon.png) 경고 관리 솔루션을 사용하여 환경의 모든 경고를 분석할 수 있습니다.  OMS 내에서 생성된 경고를 통합하는 것 외에도 연결된 SCOM(System Center Operations Manager) 관리 그룹에서 Log Analytics로 경고를 가져옵니다.  여러 관리 그룹을 가진 환경의 경우 경고 관리 솔루션은 모든 관리 그룹 전체에 걸쳐 경고의 통합된 뷰를 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -115,6 +119,9 @@ Log Analytics로 전송됩니다.
 ## <a name="next-steps"></a>다음 단계
 * Log Analytics에서 경고 생성에 대한 자세한 내용은 [Log Analytics의 경고](log-analytics-alerts.md) 에 관하여 알아보세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

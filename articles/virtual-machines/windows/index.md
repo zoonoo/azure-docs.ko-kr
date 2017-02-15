@@ -1,13 +1,26 @@
 ---
 layout: LandingPage
+description: "Windows 가상 컴퓨터를 만드는 방법에 대해 알아봅니다. 설명서를 통해 클라우드에서 가상 컴퓨터 컴퓨팅 환경을 계획, 배포 및 관리할 수 있습니다."
+title: "Windows용 Azure Virtual Machines 설명서, 자습서 및 API 참조 | Microsoft Docs"
+services: virtual-machines
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: cd8dfa8b436cd165b3438a1823a571feebb0f4f4
-ms.openlocfilehash: 0a2b4c08e5da4d9c16e12f33c5f1a3f9ae863498
+ms.sourcegitcommit: c3b5f79fe9ee312b5f45eff460b43224b9c254fe
+ms.openlocfilehash: 927fb368a7d0e0c7c996a591dfe8536ea3509164
+
 
 ---
-#<a name="windows-virtual-machines-documentation"></a>Windows Virtual Machines 설명서
+# <a name="windows-virtual-machines-documentation"></a>Windows Virtual Machines 설명서
 
-Azure Virtual Machines(VM)는 Azure에서 제공하는 여러 유형의 확장성 있는 주문형 컴퓨팅 리소스 중 하나입니다. 일반적으로 컴퓨팅 환경에서 다른 선택 옵션에서 제공하는 것보다 더 많이 제어해야 하는 경우에 가상 컴퓨터를 선택합니다. Azure VM은 가상 컴퓨터를 실행하는 실제 하드웨어를 구입 및 유지 관리하지 않고도 가상화의 유연성을 제공합니다. VM에서 실행되는 소프트웨어의 구성, 패치 및 설치에 대한 제어를 유지합니다.
+Windows 가상 컴퓨터를 만드는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서를 통해 클라우드에서 가상 컴퓨터 컴퓨팅 환경을 계획, 배포 및 관리할 수 있습니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -127,7 +140,7 @@ Azure Virtual Machines(VM)는 Azure에서 제공하는 여러 유형의 확장�
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
                         <p><a href="/java/api">Java</a></p>
-                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.js</a></p>
+                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.JS</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>
@@ -148,16 +161,10 @@ Azure Virtual Machines(VM)는 Azure에서 제공하는 여러 유형의 확장�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/windows.pdf">
-        <div class="img"></div>
-        <div class="text">
-Windows Virtual Machine 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

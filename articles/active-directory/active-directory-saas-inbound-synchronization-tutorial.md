@@ -1,11 +1,11 @@
 ---
-title: '자습서: 인바운드 동기화를 위한 Workday 구성 | Microsoft Docs'
-description: Azure Active Directory에서 인바운드 동기화를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다.
+title: "자습서: 인바운드 동기화를 위한 Workday 구성 | Microsoft Docs"
+description: "Azure Active Directory에서 인바운드 동기화를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 8fe96f0a-f142-4d66-b53d-3ac3eb41a661
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7f45241e96df7e0381d775afc9a5cfa36fca49c4
+
 
 ---
-# <a name="tutorial:-configuring-workday-for-inbound-synchronization"></a>자습서: 인바운드 동기화를 위한 Workday 구성
+# <a name="tutorial-configuring-workday-for-inbound-synchronization"></a>자습서: 인바운드 동기화를 위한 Workday 구성
 > [!NOTE]
 > Azure AD(Active Directory) Premium은 Azure AD의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다.    
 > 중국의 21Vianet에서 운영하는 Microsoft Azure 서비스는 현재 Azure AD Premium을 지원하지 않습니다.    
@@ -41,7 +45,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-workday"></a>Workday에 응용 프로그램 통합 사용
 이 섹션에서는 Workday에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명합니다.    
 
-### <a name="to-enable-the-application-integration-for-workday,-perform-the-following-steps:"></a>Workday에 응용 프로그램 통합을 사용하도록 설정하려면
+### <a name="to-enable-the-application-integration-for-workday-perform-the-following-steps"></a>Workday에 응용 프로그램 통합을 사용하도록 설정하려면
 1. Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.    
    
    ![Active Directory](./media/active-directory-saas-inbound-synchronization-tutorial/IC700993.png "Active Directory")  
@@ -138,7 +142,7 @@ ms.author: jeedes
 ## <a name="configuring-user-import-in-microsoft-azure-ad"></a>Microsoft Azure AD에서 사용자 가져오기 구성
 이 섹션에서는 Workday에서 사람들을 가져오기 위해 Microsoft Azure AD를 구성하는 방법을 설명합니다.    
 
-### <a name="to-configure-user-import-in-microsoft-azure-ad,-perform-the-following-steps:"></a>Microsoft Azure AD에서 사용자 가져오기를 구성하려면 다음 단계를 수행합니다.
+### <a name="to-configure-user-import-in-microsoft-azure-ad-perform-the-following-steps"></a>Microsoft Azure AD에서 사용자 가져오기를 구성하려면 다음 단계를 수행합니다.
 1. **Workday** 응용 프로그램 통합 페이지에서 **사용자 가져오기 구성**을 클릭하여 **프로비저닝 구성** 대화 상자를 엽니다.    
 2. **설정 및 관리자 자격 증명** 페이지에서 다음 단계를 수행하고 다음을 클릭합니다.    
    
@@ -159,6 +163,9 @@ ms.author: jeedes
 
 이제 **사용자** 섹션으로 이동하여 Workday 사용자를 가져왔는지 확인할 수 있습니다.    
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

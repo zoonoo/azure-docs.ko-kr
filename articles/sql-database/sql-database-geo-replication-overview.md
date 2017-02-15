@@ -1,23 +1,28 @@
 ---
-title: Azure SQL 데이터베이스에 대한 활성 지역 복제
-description: 활성 지역 복제를 사용하면 Azure 데이터 센터 중에서 데이터베이스의 복제본을 4개 설정할 수 있습니다.
+title: "Azure SQL 데이터베이스에 대한 활성 지역 복제"
+description: "활성 지역 복제를 사용하면 Azure 데이터 센터 중에서 데이터베이스의 복제본을 4개 설정할 수 있습니다."
 services: sql-database
 documentationcenter: na
-author: stevestein
+author: anosov1960
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 2a29f657-82fb-4283-9a83-e14a144bfd93
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/26/2016
-ms.author: sstein
+ms.author: sashan
+translationtype: Human Translation
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
+
 
 ---
-# <a name="overview:-sql-database-active-geo-replication"></a>개요: SQL 데이터베이스 활성 지역 복제
-활성 지역 복제를 사용하면 동일하거나 다른 데이터 센터 위치(하위 지역)에 최대 4개의 읽기 기능한 보조 데이터베이스를 구성할 수 있습니다. 데이터 센터 정전 또는 주 데이터베이스에 연결하지 못하는 경우 쿼리 및 장애 조치(failover)에 보조 데이터베이스를 사용할 수 있습니다.
+# <a name="overview-sql-database-active-geo-replication"></a>개요: SQL 데이터베이스 활성 지역 복제
+활성 지역 복제를 사용하면 동일하거나 다른 데이터 센터 위치(하위 지역)에 최대&4;개의 읽기 기능한 보조 데이터베이스를 구성할 수 있습니다. 데이터 센터 정전 또는 주 데이터베이스에 연결하지 못하는 경우 쿼리 및 장애 조치(failover)에 보조 데이터베이스를 사용할 수 있습니다. 활성 지역 복제는 동일한 구독 내에 있는 데이터베이스 간에 수행되어야 합니다.
 
 > [!NOTE]
 > 현재 활성 지역 복제(읽기 가능한 보조)는 모든 서비스 계층에 있는 모든 데이터베이스에 대해 사용 가능합니다. 2017년 4월부로 읽을 수 없는 보조 유형은 사용 중지되며 기존의 읽을 수 없는 데이터베이스는 읽을 수 있는 보조 데이터베이스로 자동으로 업그레이드됩니다.
@@ -46,7 +51,7 @@ ms.author: sstein
 
 장애 조치(failover) 후에는 새로운 주 데이터베이스에서 서버 및 데이터베이스의 인증 요구 사항이 구성되어 있는지 확인합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
 
-활성 지역 복제 기능은 매커니즘을 구현하여 동일한 Microsoft Azure 지역이나 다른 지역(지역 중복)에서 데이터베이스 중복을 제공합니다. 활성 지역 복제는 데이터베이스에서 커밋된 트랜잭션을 서로 다른 서버의 최대 4개의 데이터베이스 복사본으로 비동기적으로 복제하고 격리를 위해 RCSI(읽기 커밋된 스냅숏 격리)를 사용합니다. 활성 지역 복제가 구성되면 지정된 서버에 보조 데이터베이스가 생성됩니다. 원본 데이터베이스는 주 데이터베이스가 됩니다. 주 데이터베이스는 커밋된 트랜잭션을 각 보조 데이터베이스로 비동기적으로 복제합니다. 전체 트랜잭션만 복제됩니다. 지정된 지점에서 보조 데이터베이스는 주 데이터베이스보다 약간 뒤에 있을 수 있는 반면 보조 데이터는 절대 부분 트랜잭션을 갖지 않습니다. 특정 RPO 데이터를 [비즈니스 연속성 개요](sql-database-business-continuity.md)에서 찾을 수 있습니다.
+활성 지역 복제 기능은 매커니즘을 구현하여 동일한 Microsoft Azure 지역이나 다른 지역(지역 중복)에서 데이터베이스 중복을 제공합니다. 활성 지역 복제는 데이터베이스에서 커밋된 트랜잭션을 서로 다른 서버의 최대&4;개의 데이터베이스 복사본으로 비동기적으로 복제하고 격리를 위해 RCSI(읽기 커밋된 스냅숏 격리)를 사용합니다. 활성 지역 복제가 구성되면 지정된 서버에 보조 데이터베이스가 생성됩니다. 원본 데이터베이스는 주 데이터베이스가 됩니다. 주 데이터베이스는 커밋된 트랜잭션을 각 보조 데이터베이스로 비동기적으로 복제합니다. 전체 트랜잭션만 복제됩니다. 지정된 지점에서 보조 데이터베이스는 주 데이터베이스보다 약간 뒤에 있을 수 있는 반면 보조 데이터는 절대 부분 트랜잭션을 갖지 않습니다. 특정 RPO 데이터를 [비즈니스 연속성 개요](sql-database-business-continuity.md)에서 찾을 수 있습니다.
 
 활성 지역 복제의 주요 이점 중 하나는 복구 시간이 짧은 데이터베이스 수준 재해 복구 솔루션을 제공한다는 것입니다. 다른 지역의 서버에 보조 데이터베이스를 배치하면 응용 프로그램의 복원력이 극대화됩니다. 지역 간 중복을 사용하면 자연 재해, 치명적인 사람의 실수 또는 악의적 행동으로 인해 데이터 센터의 일부 또는 전체가 영구적으로 손실되더라도 응용 프로그램을 복구할 수 있습니다. 다음 그림은 미국 중북부 지역에 주 데이터베이스, 미국 중남부 지역에 보조 데이터베이스가 구성된 활성 지역 복제의 예입니다.
 
@@ -73,7 +78,7 @@ ms.author: sstein
 > 
 > 
 
-* **탄력적 풀 데이터베이스의 활성 지역 복제**: 모든 탄력적 데이터베이스 풀의 모든 데이터베이스에 대해 활성 지역 복제를 구성할 수 있습니다. 보조 데이터베이스는 또 다른 탄력적 데이터베이스 풀에 있어도 됩니다. 일반 데이터베이스의 경우 서비스 계층이 같은 한, 보조 데이터베이스가 탄력적 데이터베이스 풀일 수 있고 그 반대도 가능합니다. 
+* **탄력적 풀 데이터베이스의 활성 지역 복제**: 모든 탄력적 풀의 모든 데이터베이스에 대해 활성 지역 복제를 구성할 수 있습니다. 보조 데이터베이스는 또 다른 탄력적 풀에 있어도 됩니다. 일반 데이터베이스의 경우 서비스 계층이 같은 한, 보조 데이터베이스가 탄력적 풀일 수 있고 그 반대도 가능합니다. 
 * **보조 데이터베이스에서 구성 가능한 성능 수준**: 보조 데이터베이스는 주 데이터베이스보다 낮은 성능 수준에서 만들 수 있습니다. 동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 데이터베이스 쓰기 활동이 많은 응용 프로그램에는 이 방법을 권장하지 않습니다. 복제 지연이 증가하고, 그로 인해 장애 조치(failover) 후 후속 데이터 손실의 위험이 높기 때문입니다. 뿐만 아니라 장애 조치(failover) 후 새로운 주 데이터베이스가 더 높은 성능 수준으로 업그레이드될 때까지 응용 프로그램 성능이 영향을 받습니다. Azure Portal의 로그 IO 백분율 차트는 복제 부하를 유지하는 데 필요한 보조 데이터베이스의 최소 성능 수준을 예상하는 데 유용하게 사용할 수 있습니다. 예를 들어 주 데이터베이스가 P6(1000 DTU)이면 해당 로그 IO 백분율은 50%이고 보조 데이터베이스는 최소한 P4(500 DTU) 이상이어야 합니다. [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 또는 [ys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) 데이터베이스 뷰를 사용하여 로그 IO 데이터를 검색할 수도 있습니다.  SQL Database 성능 수준에 대한 자세한 내용은 [SQL Database 옵션 및 성능](sql-database-service-tiers.md)을 참조하세요. 
 * **사용자 제어 장애 조치(failover) 및 장애 복구**: 보조 데이터베이스는 응용 프로그램 또는 사용자에 의해 언제든지 주 데이터베이스 역할로 전환될 수 있습니다. 실제로 가동이 중단되면 보조 데이터베이스를 즉시 주 데이터베이스로 승격하는 "계획되지 않음" 옵션을 사용해야 합니다. 중지된 주 데이터베이스가 복구되어 작동 가능한 상태가 되면 시스템에서는 복구된 주 데이터베이스를 자동으로 보조 데이터베이스로 표시하고 새로운 주 데이터베이스와 함께 최신 상태로 전환합니다. 주 데이터베이스가 가장 최근의 변경 사항을 보조 데이터베이스로 복제하기 전에 중단될 경우 비동기 복제의 특성상 계획되지 않은 장애 조치(failover)가 진행되는 동안 소량의 데이터가 손실될 수 있습니다. 보조 데이터베이스가 여러 개 있는 주 데이터베이스가 중단되면 시스템에서 사용자의 개입 없이 자동으로 복제 관계를 다시 구성하고 남아 있는 보조 데이터베이스를 새로 승격되는 주 데이터베이스에 연결합니다. 장애 조치(failover)를 일으킨 작동 중단 상황이 완화된 후에는 응용 프로그램을 주 지역으로 반환하는 것이 바람직할 수 있습니다. 장애 조치(failover)를 수행하려면 “계획됨” 옵션을 사용하여 명령을 호출해야 합니다. 
 * **자격 증명과 방화벽 규칙의 동기화 유지**: 지역에서 복제된 데이터베이스에 [데이터베이스 방화벽 규칙](sql-database-firewall-configure.md)을 사용할 것을 권장합니다. 데이터베이스 방화벽 규칙을 데이터베이스와 함께 복제하면 모든 보조 데이터베이스가 주 데이터베이스와 동일한 방화벽 규칙을 갖기 때문입니다. 이렇게 하면 고객이 주 데이터베이스 및 보조 데이터베이스를 호스팅하는 서버에서 수동으로 방화벽 규칙을 구성하고 유지 관리할 필요가 없습니다. 마찬가지로, 데이터 액세스에 [포함된 데이터베이스 사용자](sql-database-manage-logins.md)를 사용하면 주 데이터베이스와 보조 데이터베이스의 사용자 자격 증명이 항상 똑같기 때문에 장애 조치(failover) 시에 로그인과 암호가 불일치하여 중단되는 일이 없습니다. [Azure Active Directory](../active-directory/active-directory-whatis.md)가 추가되면서 고객은 주 데이터베이스 및 보조 데이터베이스에 대한 사용자 액세스를 관리할 수 있으므로 데이터베이스의 자격 증명을 모두 관리할 필요가 없습니다.
@@ -97,7 +102,7 @@ ms.author: sstein
 * **Azure Resource Manager API 및 역할 기반 보안**: 활성 지역 복제는 [Azure Resource Manager 기반 PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt163571.aspx)을 포함하여 관리용 [Azure Resource Manager API](sql-database-geo-replication-powershell.md)를 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현하는 방법에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 > [!NOTE]
-> 활성 지역 복제의 여러 새로운 기능은 [Azure Resource Manager](../resource-group-overview.md) 기반 [Azure SQL REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) 및 [Azure SQL Database PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)에서만 지원됩니다. 이전 버전과의 호환성을 위해 (클래식) REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) 및 [Azure SQL Database(클래식) cmdlet](https://msdn.microsoft.com/library/azure/dn546723.aspx)이 지원되므로 Azure Resource Manager 기반 API를 사용하는 것이 좋습니다. 
+> 활성 지역 복제의 여러 새로운 기능은 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 기반 [Azure SQL REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) 및 [Azure SQL Database PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)에서만 지원됩니다. 이전 버전과의 호환성을 위해 (클래식) REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) 및 [Azure SQL Database(클래식) cmdlet](https://msdn.microsoft.com/library/azure/dn546723.aspx)이 지원되므로 Azure Resource Manager 기반 API를 사용하는 것이 좋습니다. 
 > 
 > 
 
@@ -141,6 +146,9 @@ ms.author: sstein
 * 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)를 참조하세요.
 * 새로운 주 서버 및 데이터베이스의 인증 요구 사항에 대해 알아보려면 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

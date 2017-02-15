@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "스케줄러를 사용하여 응용 프로그램 작업 반복 및 일상적인 유지 관리와 같은 작업을 예약하고 호출하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: ee469905e6b1f55def062c1d7291bde47a5518ea
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 008c96351a252737178c9e45e92de3f0106a2a2b
 
 ---
 # <a name="scheduler-documentation"></a>Scheduler 설명서
 
-Azure Scheduler를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다.  그런 다음 해당 작업을 예약하고 자동으로 실행합니다.  그러면 Scheduler에서 작업 실행 결과 기록을 볼 수 있도록 유지 관리합니다.
+스케줄러를 사용하여 클라우드에서 반복 작업을 예약하고 자동으로 호출하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 응용 프로그램 반복 작업 및 일상적인 유지 관리와 같은 작업을 예약하고 모니터링하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -96,15 +97,10 @@ Azure Scheduler를 사용하면 클라우드에서 실행할 작업을 선언적
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scheduler 설명서 다운로드 </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,39 +1,44 @@
 ---
-title: PowerShell cmdlet을 사용하여 가상 컴퓨터 크기 집합 만들기 | Microsoft Docs
-description: Azure PowerShell cmdlet을 사용하여 첫 번째 Azure 가상 컴퓨터 규모 집합 생성 및 관리 시작하기
+title: "PowerShell cmdlet을 사용하여 가상 컴퓨터 크기 집합 만들기 | Microsoft Docs"
+description: "Azure PowerShell cmdlet을 사용하여 첫 번째 Azure 가상 컴퓨터 규모 집합 생성 및 관리 시작하기"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: danielsollondon
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 430d9d64-1f35-48f0-a4fd-9b69910ffa59
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2016
+ms.date: 09/29/2016
 ms.author: danielsollondon
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 14f83c6753ce37639b1b2f78a4c632f1d69f585d
+
 
 ---
-# PowerShell cmdlet을 사용하여 가상 컴퓨터 크기 집합 만들기
+# <a name="creating-virtual-machine-scale-sets-using-powershell-cmdlets"></a>PowerShell cmdlet을 사용하여 가상 컴퓨터 크기 집합 만들기
 VMSS(가상 컴퓨터 크기 집합)를 만드는 방법에 대한 예제입니다. 이 예제에서는 모두 연결된 네트워킹 및 저장소가 있는 세 가지 노드의 VMSS를 만듭니다.
 
-## 첫 번째 단계
-최신 Azure PowerShell 모듈이 설치되어 있는지 확인합니다. 이 모듈에는 VMSS를 만들고 유지 관리하는 데 필요한 PowerShell commandlet이 포함되어 있습니다. 사용 가능한 최신 Azure 모듈을 보려면 [여기](http://aka.ms/webpi-azps)의 명령줄 도구로 이동하세요.
+## <a name="first-steps"></a>첫 번째 단계
+최신 Azure PowerShell 모듈이 설치되어 있는지 확인합니다. 이 모듈에는 VMSS를 만들고 유지 관리하는 데 필요한 PowerShell commandlet이 포함되어 있습니다.
+사용 가능한 최신 Azure 모듈을 보려면 [여기](http://aka.ms/webpi-azps)의 명령줄 도구로 이동하세요.
 
-VMSS 관련 commandlet을 찾으려면 검색 문자열 *VMSS*를 사용하세요.
+VMSS 관련 commandlet을 찾으려면 검색 문자열 \*VMSS\*를 사용하세요.
 
-## VMSS 만들기
-##### 리소스 그룹 만들기
+## <a name="creating-a-vmss"></a>VMSS 만들기
+##### <a name="create-resource-group"></a>리소스 그룹 만들기
 ```
 $loc = 'westus';
 $rgname = 'mynewrgwu';
   New-AzureRmResourceGroup -Name $rgname -Location $loc -Force;
 ```
 
-##### 저장소 계정 만들기
+##### <a name="create-storage-account"></a>저장소 계정 만들기
 저장소 계정 유형/이름을 설정합니다.
 
 ```
@@ -44,23 +49,23 @@ $stotype = 'Standard_LRS';
 $stoaccount = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stoname;
 ```
 
-#### 네트워킹 만들기(VNET/서브넷)
-##### 서브넷 사양
+#### <a name="create-networking-vnet--subnet"></a>네트워킹 만들기(VNET/서브넷)
+##### <a name="subnet-specification"></a>서브넷 사양
 ```
 $subnetName = 'websubnet'
   $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.0.0/24";
 ```
 
-##### VNET 사양
+##### <a name="vnet-specification"></a>VNET 사양
 ```
-$vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -DnsServer "10.1.1.1" -Subnet $subnet;
+$vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
 
 #In this case below we assume the new subnet is the only one, note difference if you have one already or have adjusted this code to more than one subnet.
 $subnetId = $vnet.Subnets[0].Id;
 ```
 
-##### 외부 액세스를 허용하도록 공용 IP 리소스 만들기
+##### <a name="create-public-ip-resource-to-allow-external-access"></a>외부 액세스를 허용하도록 공용 IP 리소스 만들기
 이는 부하 분산 장치에 바인딩됩니다.
 
 ```
@@ -68,7 +73,7 @@ $pubip = New-AzureRmPublicIpAddress -Force -Name ('pubip' + $rgname) -ResourceGr
 $pubip = Get-AzureRmPublicIpAddress -Name ('pubip' + $rgname) -ResourceGroupName $rgname;
 ```
 
-##### 부하 분산 장치 만들기 및 구성
+##### <a name="create-and-configure-load-balancer"></a>부하 분산 장치 만들기 및 구성
 ```
 $frontendName = 'fe' + $rgname
 $backendAddressPoolName = 'bepool' + $rgname
@@ -81,7 +86,7 @@ $lbName = 'vmsslb' + $rgname
 $frontend = New-AzureRmLoadBalancerFrontendIpConfig -Name $frontendName -PublicIpAddress $pubip
 ```
 
-##### 부하 분산 장치 구성
+##### <a name="configure-load-balancer"></a>부하 분산 장치 구성
 백 엔드 주소 풀 구성을 만듭니다. 이는 VMSS에 있는 VM의 NIC에서 공유됩니다.
 
 ```
@@ -131,7 +136,7 @@ LB 설정을 확인하고 부하 분산 포트 구성을 확인합니다. VMSS�
 $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
-##### VMSS 구성 및 만들기
+##### <a name="configure-and-create-vmss"></a>VMSS 구성 및 만들기
 이 인프라 예제에서는 VMSS에서 웹 트래픽 분산 및 확장을 설정하는 방법을 보여 주지만 여기에 지정된 VM 이미지에는 웹 서비스가 설치되어 있지 않습니다.
 
 ```
@@ -164,9 +169,6 @@ $ipCfg = New-AzureRmVmssIPConfig -Name 'nic' `
 -LoadBalancerInboundNatPoolsId $actualLb.InboundNatPools[0].Id `
 -LoadBalancerBackendAddressPoolsId $actualLb.BackendAddressPools[0].Id `
 -SubnetId $subnetId;
-
-$ipCfg.LoadBalancerBackendAddressPools.Add($actualLb.BackendAddressPools[0].Id);
-$ipCfg.LoadBalancerInboundNatPools.Add($actualLb.InboundNatPools[0].Id);
 ```
 
 VMSS 구성 만들기
@@ -198,4 +200,8 @@ VM1 : pubipmynewrgwu.westus.cloudapp.azure.com:3361
 VM2 : pubipmynewrgwu.westus.cloudapp.azure.com:3362
 ```
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Machine Learning 모델을 통한 실험에서 조작 가능한 웹 서비스까지의 진행 과정 | Microsoft Docs
-description: Azure Machine Learning 모델을 통해 개발 실험에서 조작 가능한 웹 서비스까지 진행하는 메커니즘을 간략히 살펴봅니다.
+title: "Machine Learning 모델을 통한 실험에서 조작 가능한 웹 서비스까지의 진행 과정 | Microsoft Docs"
+description: "Azure Machine Learning 모델을 통해 개발 실험에서 조작 가능한 웹 서비스까지 진행하는 메커니즘을 간략히 살펴봅니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 452cfc0f35810ffa6bdd8c36f8f5e0cf0814e563
+
 
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning 모델을 통한 실험에서 조작 가능한 웹 서비스까지의 진행 과정
@@ -40,7 +44,7 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 ## <a name="developing-and-deploying-a-predictive-web-service"></a>예측 웹 서비스 개발 및 배포
 다음은 일반적인 솔루션에서 기계 학습 스튜디오를 사용하여 개발 및 배포하는 데 따르는 단계입니다.
 
-![배포 흐름](media\\machine-learning-model-progression-experiment-to-web-service\\model-stages-from-experiment-to-web-service.png)
+![배포 흐름](media/machine-learning-model-progression-experiment-to-web-service/model-stages-from-experiment-to-web-service.png)
 
 *그림 1 - 일반적인 예측 분석 모델의 단계*
 
@@ -68,13 +72,13 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 ### <a name="the-web-service"></a>웹 서비스
 예측 실험이 준비되었으면 서비스를 기존 웹 서비스 또는 Azure Resource Manager에 기반한 새 웹 서비스로 배포할 수 있습니다. 모델을 *기존 Machine Learning 웹 서비스*로 배포하여 조작하려면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]**를 선택합니다. *새 Machine Learning 웹 서비스*를 배포하려면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]**를 선택합니다. 이제 사용자가 웹 서비스 REST API를 통해 데이터를 모델로 전송하고 그 결과를 다시 받을 수 있습니다. 자세한 내용은 [Machine Learning 실험에서 배포된 Azure Machine Learning 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
-## <a name="the-non-typical-case:-creating-a-non-predictive-web-service"></a>비일반적 경우: 비예측 웹 서비스 만들기
+## <a name="the-non-typical-case-creating-a-non-predictive-web-service"></a>비일반적 경우: 비예측 웹 서비스 만들기
 실험에서 예측 분석 모델을 학습하지 않은 경우 학습 실험 및 점수 매기기 실험을 모두 만들 필요가 없습니다. 하나의 실험만 있으며 이 실험을 웹 서비스로 배포할 수 있습니다. Machine Learning Studio에서는 사용한 모듈을 분석하여 예측 모델이 실험에 포함되는지를 감지합니다.
 
 실험을 반복한 후 만족한 경우:
 
 1. **웹 서비스 설정**을 클릭하고 **재학습 웹 서비스**를 선택합니다. 입력 및 출력 노드가 자동으로 추가됩니다.
-2. **실행**을 클릭합니다.
+2.  **실행**을 클릭합니다.
 3. **웹 서비스 배포**를 클릭하고 배포하려는 환경에 따라 **웹 서비스 배포[기존]** 또는 **웹 서비스 배포[신규]**를 선택합니다.
 
 이제 웹 서비스가 배포되고 예측 웹 서비스처럼 액세스하고 관리할 수 있습니다.
@@ -115,6 +119,9 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 * [기계 학습 자습서: Azure 기계 학습 스튜디오에서 첫 번째 실험 만들기](machine-learning-create-experiment.md)
 * [연습: Azure Machine Learning의 신용 위험 평가에 대한 예측 분석 솔루션 개발](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

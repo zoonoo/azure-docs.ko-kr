@@ -3,8 +3,8 @@ title: "Node.js에서 Azure Table Storage를 사용하는 방법 | Microsoft Doc
 description: "Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다."
 services: storage
 documentationcenter: nodejs
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/31/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: ebdf57782671b3e42fa0a8baac0bb478119f509e
-ms.openlocfilehash: ecdfa7c5af2741c95d8d927636a7075dd2107185
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 4935223f572e0ed3188195c23f7e9f692fb170af
 
 
 ---
@@ -59,9 +59,11 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 ### <a name="import-the-package"></a>패키지 가져오기
 응용 프로그램에서 아래 코드를 **server.js** 파일의 맨 위에 추가합니다.
+
 ```nodejs
-    var azure = require('azure-storage');
+var azure = require('azure-storage');
 ```
+
 ## <a name="set-up-an-azure-storage-connection"></a>Azure 저장소 연결 설정
 Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure Storage 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다.
 
@@ -69,35 +71,45 @@ Azure 웹 사이트의 [Azure Portal](https://portal.azure.com)에서 환경 변
 
 ## <a name="create-a-table"></a>테이블 만들기
 다음 코드는 **TableService** 개체를 만든 다음 이 개체를 사용하여 새 테이블을 만듭니다. **server.js**의 위쪽에 다음을 추가합니다.
+
 ```nodejs
-    var tableSvc = azure.createTableService();
+var tableSvc = azure.createTableService();
 ```
+
 **createTableIfNotExists** 를 호출하면 지정된 이름을 사용하는 테이블이 없는 경우 새 테이블을 만듭니다. 다음 예제에서는 'mytable'이라는 새 테이블(없는 경우)을 만듭니다.
+
 ```nodejs
-    tableSvc.createTableIfNotExists('mytable', function(error, result, response){
-      if(!error){
-        // Table exists or created
-      }
-    });
+tableSvc.createTableIfNotExists('mytable', function(error, result, response){
+  if(!error){
+    // Table exists or created
+  }
+});
 ```
+
 새 테이블이 만들어지면 `result.created`는 `true`가 되고, 테이블이 이미 있으면 `false`가 됩니다. `response` 에는 요청에 대한 정보가 포함됩니다.
 
 ### <a name="filters"></a>필터
 **TableService**를 사용하여 수행되는 작업에 선택적 필터링 작업을 적용할 수 있습니다. 필터링 작업은 로깅, 자동 재시도 등을 포함할 수 있습니다. 필터는 시그니쳐가 있는 메서드를 구현하는 개체입니다.
+
 ```nodejs
-    function handle (requestOptions, next)
+function handle (requestOptions, next)
 ```
+
 요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 "next"를 호출해야 합니다.
+
 ```nodejs
-    function (returnObject, finalCallback, next)
+function (returnObject, finalCallback, next)
 ```
+
 이 콜백에서 returnObject(서버에 요청 응답 반환)를 처리한 후 콜백은 next(있는 경우)를 호출하여 다른 필터를 계속 처리하거나 finalCallback을 호출하여 서비스 호출을 종료해야 합니다.
 
 Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **ExponentialRetryPolicyFilter** 및 **LinearRetryPolicyFilter**가 포함되어 있습니다. 다음은 **ExponentialRetryPolicyFilter**를 사용하는 **TableService** 개체를 만듭니다.
+
 ```nodejs
-    var retryOperations = new azure.ExponentialRetryPolicyFilter();
-    var tableSvc = azure.createTableService().withFilter(retryOperations);
+var retryOperations = new azure.ExponentialRetryPolicyFilter();
+var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
+
 ## <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
 엔터티를 추가하려면 먼저 엔터티 속성을 정의하는 개체를 만듭니다. 모든 엔터티에는 엔터티의 고유 식별자인 **PartitionKey**와 **RowKey**를 포함해야 합니다.
 
@@ -107,43 +119,51 @@ Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **Exponen
 **PartitionKey**와 **RowKey**는 모두 문자열 값이어야 합니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/library/azure/dd179338.aspx)를 참조하세요.
 
 다음은 엔터티를 정의하는 경우의 예입니다. **dueDate**는 **Edm.DateTime** 형식으로 정의됩니다. 유형 지정은 선택적이며 지정하지 않을 경우 유형이 유추됩니다.
+
 ```nodejs
-    var task = {
-      PartitionKey: {'_':'hometasks'},
-      RowKey: {'_': '1'},
-      description: {'_':'take out the trash'},
-      dueDate: {'_':new Date(2015, 6, 20), '$':'Edm.DateTime'}
-    };
+var task = {
+  PartitionKey: {'_':'hometasks'},
+  RowKey: {'_': '1'},
+  description: {'_':'take out the trash'},
+  dueDate: {'_':new Date(2015, 6, 20), '$':'Edm.DateTime'}
+};
 ```
+
 > [!NOTE]
 > 각 레코드에는 엔터티가 삽입되거나 업데이트될 경우 Azure에서 설정되는 **Timestamp** 필드도 있습니다.
 >
 >
 
 **entityGenerator** 를 사용하여 엔터티를 만들 수도 있습니다. 다음 예에서는 **entityGenerator**를 사용하여 같은 작업 엔터티를 만듭니다.
+
 ```nodejs
-    var entGen = azure.TableUtilities.entityGenerator;
-    var task = {
-      PartitionKey: entGen.String('hometasks'),
-      RowKey: entGen.String('1'),
-      description: entGen.String('take out the trash'),
-      dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
-    };
+var entGen = azure.TableUtilities.entityGenerator;
+var task = {
+  PartitionKey: entGen.String('hometasks'),
+  RowKey: entGen.String('1'),
+  description: entGen.String('take out the trash'),
+  dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
+};
 ```
+
 테이블에 엔터티를 추가하려면 엔터티 개체를 **insertEntity** 메서드에 전달합니다.
+
 ```nodejs
-    tableSvc.insertEntity('mytable',task, function (error, result, response) {
-      if(!error){
-        // Entity inserted
-      }
-    });
+tableSvc.insertEntity('mytable',task, function (error, result, response) {
+  if(!error){
+    // Entity inserted
+  }
+});
 ```
+
 작업에 성공할 경우 `result` 값에는 삽입한 레코드의 [ETag](http://en.wikipedia.org/wiki/HTTP_ETag)가 포함되고 `response` 값에는 작업에 대한 정보가 포함됩니다.
 
 예제 응답:
+
 ```nodejs
-    { '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
+{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 ```
+
 > [!NOTE]
 > 기본적으로 **insertEntity**는 삽입된 엔터티를 `response` 정보의 일부로 반환하지 않습니다. 이 엔터티에서 다른 작업을 수행할 계획이거나 정보를 캐시하고 싶은 경우 `result`의 일부로 반환하면 유용합니다. 다음과 같이 **echoContent** 를 사용하도록 설정하면 됩니다.
 >
@@ -160,13 +180,15 @@ Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **Exponen
 * **insertOrMergeEntity** - 새 속성 값을 기존 항목에 병합하여 기존 엔터티를 업데이트합니다. 엔터티가 없는 경우 새 엔터티를 삽입합니다.
 
 다음 예제에서는 **replaceEntity**를 사용하여 엔터티를 업데이트하는 방법을 설명합니다.
+
 ```nodejs
-    tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
-      if(!error) {
-        // Entity updated
-      }
-    });
+tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
+  if(!error) {
+    // Entity updated
+  }
+});
 ```
+
 > [!NOTE]
 > 기본적으로는 엔터티를 업데이트할 때 업데이트할 데이터를 다른 프로세서에서 이전에 수정했는지 확인하지 않습니다. 동시 업데이트를 지원하려면:
 >
@@ -187,31 +209,33 @@ Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **Exponen
 서버에서 원자성 처리를 수행하도록 여러 작업을 일괄적으로 제출하는 것이 좋은 경우도 있습니다. 이렇게 하려면 **TableBatch** 클래스를 사용하여 배치를 만든 다음 **TableService**의 **executeBatch** 메서드를 사용하여 일괄 처리 작업을 수행합니다.
 
  다음 예제에서는 두 엔터티를 일괄적으로 제출하는 방법을 보여 줍니다.
+
 ```nodejs
-    var task1 = {
-      PartitionKey: {'_':'hometasks'},
-      RowKey: {'_': '1'},
-      description: {'_':'Take out the trash'},
-      dueDate: {'_':new Date(2015, 6, 20)}
-    };
-    var task2 = {
-      PartitionKey: {'_':'hometasks'},
-      RowKey: {'_': '2'},
-      description: {'_':'Wash the dishes'},
-      dueDate: {'_':new Date(2015, 6, 20)}
-    };
+var task1 = {
+  PartitionKey: {'_':'hometasks'},
+  RowKey: {'_': '1'},
+  description: {'_':'Take out the trash'},
+  dueDate: {'_':new Date(2015, 6, 20)}
+};
+var task2 = {
+  PartitionKey: {'_':'hometasks'},
+  RowKey: {'_': '2'},
+  description: {'_':'Wash the dishes'},
+  dueDate: {'_':new Date(2015, 6, 20)}
+};
 
-    var batch = new azure.TableBatch();
+var batch = new azure.TableBatch();
 
-    batch.insertEntity(task1, {echoContent: true});
-    batch.insertEntity(task2, {echoContent: true});
+batch.insertEntity(task1, {echoContent: true});
+batch.insertEntity(task2, {echoContent: true});
 
-    tableSvc.executeBatch('mytable', batch, function (error, result, response) {
-      if(!error) {
-        // Batch completed
-      }
-    });
+tableSvc.executeBatch('mytable', batch, function (error, result, response) {
+  if(!error) {
+    // Batch completed
+  }
+});
 ```
+
 일괄 처리 작업에 성공할 경우 `result` 값에는 일괄 처리의 각 작업에 대한 정보가 포함됩니다.
 
 ### <a name="work-with-batched-operations"></a>일괄 처리 작업
@@ -225,13 +249,15 @@ Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **Exponen
 
 ## <a name="retrieve-an-entity-by-key"></a>키를 통해 엔터티 검색
 **PartitionKey** 및 **RowKey**를 기준으로 특정 엔터티를 반환하려면 **retrieveEntity** 메서드를 사용합니다.
+
 ```nodejs
-    tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
-      if(!error){
-        // result contains the entity
-      }
-    });
+tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
+  if(!error){
+    // result contains the entity
+  }
+});
 ```
+
 이 작업이 완료되면 `result` 에 엔터티가 포함됩니다.
 
 ## <a name="query-a-set-of-entities"></a>엔터티 집합 쿼리
@@ -244,45 +270,53 @@ Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **Exponen
   * **or** - `or` where 조건입니다.
 * **top** - 가져올 항목의 수입니다.
 
-다음 예에서는 PartitionKey가 'hometasks'인 상위 5개의 항목을 반환하는 쿼리를 구성합니다.
+다음 예에서는 PartitionKey가 'hometasks'인 상위&5;개의 항목을 반환하는 쿼리를 구성합니다.
+
 ```nodejs
-    var query = new azure.TableQuery()
-      .top(5)
-      .where('PartitionKey eq ?', 'hometasks');
+var query = new azure.TableQuery()
+  .top(5)
+  .where('PartitionKey eq ?', 'hometasks');
 ```
+
 **select** 가 사용되지 않았기 때문에 모든 필드가 반환됩니다. 테이블에 대해 쿼리를 수행하려면 **queryEntities**를 사용합니다. 다음 예에서는 이 쿼리를 사용하여 'mytable'에서 엔터티를 반환합니다.
+
 ```nodejs
-    tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
-      if(!error) {
-        // query was successful
-      }
-    });
+tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
+  if(!error) {
+    // query was successful
+  }
+});
 ```
+
 성공할 경우에는 `result.entries` 값에는 쿼리와 일치하는 엔터티의 배열이 포함됩니다. 쿼리에서 엔터티를 모두 반환할 수 없는 경우 `result.continuationToken` 이*null* 이 아닌 값이 되므로 **queryEntities** 의 세 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다. 초기 쿼리의 경우 세 번째 매개 변수에 *null* 을 사용합니다.
 
 ### <a name="query-a-subset-of-entity-properties"></a>엔터티 속성 하위 집합 쿼리
 테이블 쿼리에서는 엔터티에서 일부 필드만 검색할 수 있습니다.
 따라서 대역폭이 줄어들며 특히 큰 엔터티의 경우 쿼리 성능이 향상될 수 있습니다. **select** 절을 사용하여 반환할 필드의 이름을 전달합니다. 예를 들어 다음 쿼리에서는 **description** 및 **dueDate** 필드만 반환합니다.
+
 ```nodejs
-    var query = new azure.TableQuery()
-      .select(['description', 'dueDate'])
-      .top(5)
-      .where('PartitionKey eq ?', 'hometasks');
+var query = new azure.TableQuery()
+  .select(['description', 'dueDate'])
+  .top(5)
+  .where('PartitionKey eq ?', 'hometasks');
 ```
+
 ## <a name="delete-an-entity"></a>엔터티 삭제
 파티션 및 행 키를 사용하여 엔터티를 삭제할 수 있습니다. 이 예제에서 **task1** 개체는 삭제할 엔터티의 **RowKey** 및 **PartitionKey** 값을 포함합니다. 그런 다음 개체는 **deleteEntity** 메서드에 전달됩니다.
-```nodejs
-    var task = {
-      PartitionKey: {'_':'hometasks'},
-      RowKey: {'_': '1'}
-    };
 
-    tableSvc.deleteEntity('mytable', task, function(error, response){
-      if(!error) {
-        // Entity deleted
-      }
-    });
+```nodejs
+var task = {
+  PartitionKey: {'_':'hometasks'},
+  RowKey: {'_': '1'}
+};
+
+tableSvc.deleteEntity('mytable', task, function(error, response){
+  if(!error) {
+    // Entity deleted
+  }
+});
 ```
+
 > [!NOTE]
 > 항목을 삭제할 때 항목이 다른 프로세스에서 수정되지 않았는지 확인할 수 있도록 ETag를 사용하는 것이 좋습니다. ETag 사용 방법에 대한 자세한 내용은 [엔터티 업데이트](#update-an-entity) 를 참조하세요.
 >
@@ -290,13 +324,15 @@ Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **Exponen
 
 ## <a name="delete-a-table"></a>테이블 삭제
 다음 코드는 저장소 계정에서 테이블을 삭제합니다.
+
 ```nodejs
-    tableSvc.deleteTable('mytable', function(error, response){
-        if(!error){
-            // Table deleted
-        }
-    });
+tableSvc.deleteTable('mytable', function(error, response){
+    if(!error){
+        // Table deleted
+    }
+});
 ```
+
 테이블이 있는지 확실하지 않은 경우에는 **deleteTableIfExists**를 사용합니다.
 
 ## <a name="use-continuation-tokens"></a>연속토큰 사용
@@ -333,96 +369,106 @@ SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하�
 클라우드 기반 서비스와 같이 신뢰할 수 있는 응용 프로그램에서는 **TableService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고, 이를 모바일 앱과 같은 신뢰할 수 없거나 신뢰가 약한 응용 프로그램에 제공합니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
 
 다음 예에서는 SAS 소유자가 테이블을 쿼리('r')할 수 있도록 허용하며 만든 후 100분이 지나면 만료되는 새 공유 액세스 정책을 생성합니다.
+
 ```nodejs
-    var startDate = new Date();
-    var expiryDate = new Date(startDate);
-    expiryDate.setMinutes(startDate.getMinutes() + 100);
-    startDate.setMinutes(startDate.getMinutes() - 100);
+var startDate = new Date();
+var expiryDate = new Date(startDate);
+expiryDate.setMinutes(startDate.getMinutes() + 100);
+startDate.setMinutes(startDate.getMinutes() - 100);
 
-    var sharedAccessPolicy = {
-      AccessPolicy: {
-        Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
-        Start: startDate,
-        Expiry: expiryDate
-      },
-    };
+var sharedAccessPolicy = {
+  AccessPolicy: {
+    Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
+    Start: startDate,
+    Expiry: expiryDate
+  },
+};
 
-    var tableSAS = tableSvc.generateSharedAccessSignature('mytable', sharedAccessPolicy);
-    var host = tableSvc.host;
+var tableSAS = tableSvc.generateSharedAccessSignature('mytable', sharedAccessPolicy);
+var host = tableSvc.host;
 ```
+
 SAS 소유자가 테이블에 액세스할 때 필요하므로 호스트 정보도 제공해야 합니다.
 
 그러고 나면 클라이언트 응용 프로그램에서 **TableServiceWithSAS** 에 SAS를 사용하여 테이블에 대한 작업을 수행합니다. 다음 예에서는 테이블을 연결하고 쿼리를 수행합니다.
-```nodejs
-    var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
-    var query = azure.TableQuery()
-      .where('PartitionKey eq ?', 'hometasks');
 
-    sharedTableService.queryEntities(query, null, function(error, result, response) {
-      if(!error) {
-        // result contains the entities
-      }
-    });
+```nodejs
+var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
+var query = azure.TableQuery()
+  .where('PartitionKey eq ?', 'hometasks');
+
+sharedTableService.queryEntities(query, null, function(error, result, response) {
+  if(!error) {
+    // result contains the entities
+  }
+});
 ```
+
 SAS가 쿼리 액세스만으로 생성되었기 때문에 엔터티를 삽입, 업데이트 또는 삭제하려고 하면 오류가 반환됩니다.
 
 ### <a name="access-control-lists"></a>액세스 제어 목록
 ACL(액세스 제어 목록)을 사용하여 SAS에 액세스 정책을 설정할 수도 있습니다. 이 방법은 여러 클라이언트에서 테이블에 액세스하게 하면서 각 클라이언트에 서로 다른 액세스 정책을 제공하려는 경우에 유용합니다.
 
 ACL은 각 정책에 ID가 연결된 액세스 정책 배열을 사용하여 구현됩니다. 다음 예에서는 'user1'와 'user2'에 대해 하나씩, 두 개의 정책을 정의합니다.
+
 ```nodejs
-    var sharedAccessPolicy = {
-      user1: {
-        Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
-        Start: startDate,
-        Expiry: expiryDate
-      },
-      user2: {
-        Permissions: azure.TableUtilities.SharedAccessPermissions.ADD,
-        Start: startDate,
-        Expiry: expiryDate
-      }
-    };
+var sharedAccessPolicy = {
+  user1: {
+    Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
+    Start: startDate,
+    Expiry: expiryDate
+  },
+  user2: {
+    Permissions: azure.TableUtilities.SharedAccessPermissions.ADD,
+    Start: startDate,
+    Expiry: expiryDate
+  }
+};
 ```
+
 다음 예제에서는 **hometasks** 테이블의 현재 ACL을 가져온 다음 **setTableAcl**을 사용하여 새 정책을 추가합니다. 이 접근 방식을 통해 다음을 수행할 수 있습니다.
+
 ```nodejs
-    var extend = require('extend');
-    tableSvc.getTableAcl('hometasks', function(error, result, response) {
-    if(!error){
-        var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
-        tableSvc.setTableAcl('hometasks', newSignedIdentifiers, function(error, result, response){
-          if(!error){
-            // ACL set
-          }
-        });
+var extend = require('extend');
+tableSvc.getTableAcl('hometasks', function(error, result, response) {
+if(!error){
+    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
+    tableSvc.setTableAcl('hometasks', newSignedIdentifiers, function(error, result, response){
+      if(!error){
+        // ACL set
       }
     });
+  }
+});
 ```
+
 ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습니다. 다음 예에서는 'user2'에 대해 새 SAS를 만듭니다.
+
 ```nodejs
-    tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
+tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
+
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure 저장소 팀 블로그][Azure 저장소 팀 블로그]
-* GitHub에서 [Azure Storage SDK for Node][Azure Storage SDK for Node] 리포지토리
+* [Azure Storage 팀 블로그][Azure Storage Team Blog]
+* GitHub의 [Azure Storage SDK for Node][Azure Storage SDK for Node] 리포지토리
 * [Node.js 개발자 센터](/develop/nodejs/)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [OData.org]: http://www.odata.org/
-[REST API 사용]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure 포털]: portal.azure.com
+[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[Azure portal]: portal.azure.com
 
-[Node.js 클라우드 서비스]: ../cloud-services-nodejs-develop-deploy-app.md
-[Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
-[WebMatrix를 사용하는 웹 사이트]: ../web-sites-nodejs-use-webmatrix.md
-[저장소를 포함한 Node.js 클라우드 서비스]: ../storage-nodejs-use-table-storage-cloud-service-app.md
+[Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+[Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
 [Azure Table Service를 사용하는 Node.js 웹앱]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
-[Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: ../web-sites-nodejs-develop-deploy-mac.md
+[Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

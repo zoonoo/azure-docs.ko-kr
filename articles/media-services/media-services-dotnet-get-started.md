@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/26/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
-ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: e7ac4b87370b5a9fa3a063ba02a1171e6830e075
 
 
 ---
@@ -42,22 +42,10 @@ ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
 
 <a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
-전체 모델은 [여기](https://media.windows.net/API/$metadata?api-version=2.14)서 볼 수 있습니다 .  
+전체 모델은 [여기](https://media.windows.net/API/$metadata?api-version=2.15)서 볼 수 있습니다 .  
 
-## <a name="what-youll-learn"></a>학습할 내용
 
-이 자습서에서는 다음 태스크의 수행 방법을 보여 줍니다.
-
-1. Azure 포털을 사용하여 미디어 서비스 계정 만들기
-2. Azure Portal을 사용하여 스트리밍 끝점 구성
-3. Visual Studio 프로젝트 만들기 및 구성
-4. 미디어 서비스 계정에 연결합니다.
-5. 새 자산을 만들고 비디오 파일을 업로드합니다.
-6. 원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다.
-7. 자산 게시, 스트리밍 및 점진적 다운로드를 위한 URL 가져오기
-8. 콘텐츠를 재생하여 테스트합니다.
-
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * 이 자습서를 완료하려면 Azure 계정이 필요합니다.
@@ -88,39 +76,31 @@ ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
    6. 계정 배포 진행 상태를 보려면 **대시보드에 고정** 을 선택합니다.
 4. 양식 맨 아래에 있는 **만들기** 를 클릭합니다.
 
-    계정이 만들어지면 상태가 **실행 중**으로 변경됩니다.
+    계정이 성공적으로 만들어지면 개요 페이지가 로드됩니다. 스트리밍 끝점 테이블에서 계정은 **중지됨** 상태에서 기본 스트리밍 끝점을 가집니다.
+
+    >[!NOTE]
+    >AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
 
     ![미디어 서비스 설정](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
     AMS 계정을 관리(예: 비디오 업로드, 자산 인코딩, 작업 진행 상태 모니터링)하려면 **설정** 창을 사용합니다.
 
-## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Azure Portal을 사용하여 스트리밍 끝점 구성
-Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나는 클라이언트에 적응 비트 전송률 스트리밍을 통해 비디오를 제공하는 것입니다. Media Services에서 지원하는 적응 비트 전송률 스트리밍은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH입니다.
+## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Azure Portal을 사용하여 스트리밍 끝점 시작
 
-Media Services는 적응 비트 전송률 MP4 인코딩 콘텐츠를 Media Services에서 적시에 지원되는 각 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)의 다시 패키징된 버전을 저장하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다.
+Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 적응 비트 전송률 스트리밍을 통해 비디오를 제공하는 것입니다. Media Services는 적응 비트 전송률 MP4 인코딩 콘텐츠를 Media Services에서 적시에 지원되는 각 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)의 사전 패키징된 버전을 저장하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다.
 
-동적 패키징을 이용하려면 다음을 수행해야 합니다.
+>[!NOTE]
+>AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
 
-* mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다(인코딩 단계는 이 자습서의 뒷부분에서 설명).  
-* 콘텐츠를 배달하는 출발점이 될 *스트리밍 끝점* 에 하나 이상의 스트리밍 단위를 만듭니다. 아래 단계는 스트리밍 단위의 수를 변경하는 방법을 보여 줍니다.
+스트리밍 끝점을 시작하려면 다음을 수행합니다.
 
-동적 패키징에서는 단일 저장소 형식으로 파일을 저장하고 비용을 지불하기만 하면 됩니다. 그러면 미디어 서비스가 클라이언트의 요청에 따라 적절한 응답을 빌드 및 제공합니다.
+1. 설정 창에서 스트리밍 끝점을 클릭합니다. 
+2. 기본 스트리밍 끝점을 클릭합니다. 
 
-스트리밍 예약 단위의 수를 만들고 변경하려면 다음을 수행합니다.
+    기본 스트리밍 끝점 세부 정보 창이 나타납니다.
 
-1. **설정** 창에서 **스트리밍 끝점**을 클릭합니다.
-2. 기본 스트리밍 끝점을 클릭합니다.
-
-    **기본 스트리밍 끝점 세부 정보** 창이 나타납니다.
-3. 스트리밍 단위 수를 지정하려면 **스트리밍 단위** 슬라이더를 밉니다.
-
-    ![스트리밍 단위](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. **저장** 단추를 클릭하여 변경 내용을 저장합니다.
-
-   > [!NOTE]
-   > 새 단위를 할당하는 작업은 완료하는 데 최대 20분까지 소요될 수 있습니다.
-   >
-   >
+3. 시작 아이콘을 클릭합니다.
+4. 저장 단추를 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
@@ -258,15 +238,12 @@ Program 클래스에 다음 메서드를 추가합니다.
 
 앞에서 언급한 대로, Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나는 적응 비트 전송률 스트리밍을 클라이언트에 제공하는 것입니다. Media Services는 적응 비트 전송률 MP4 파일을 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG DASH 형식 중 하나로 동적 패키징합니다.
 
-동적 패키징을 이용하려면 다음을 수행해야 합니다.
-
-* mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩하거나 트랜스코딩합니다.  
-* 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점에 하나 이상의 스트리밍 단위를 구성합니다.
+동적 패키징을 활용하려면 mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩하거나 트랜스코딩해야 합니다.  
 
 다음 코드는 인코딩 작업을 제출하는 방법을 보여 줍니다. 이 작업에는 **미디어 인코더 표준**을 사용하여 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 트랜스코딩하도록 지정하는 한 가지 태스크가 포함됩니다. 이 코드는 작업을 제출하고 완료될 때까지 기다립니다.
 
-인코딩 작업이 완료되면 자산을 게시한 다음 MP4 파일을 스트리밍하거나 점진적으로 다운로드할 수 있습니다.
-
+작업이 완료되면 자산을 스트리밍하거나 트랜스코딩 결과로 생성된 MP4 파일을 점진적으로 다운로드할 수 있습니다.
+ 
 Program 클래스에 다음 메서드를 추가합니다.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -467,6 +444,6 @@ MPEG DASH
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

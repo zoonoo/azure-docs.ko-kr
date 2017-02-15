@@ -19,10 +19,10 @@
 ### [소스 제어 통합](automation-source-control-integration.md)
 ## Runbook 자동화
 ### [Runbook 시작](automation-starting-a-runbook.md)
-### [웹 호출에서 Runbook 시작](automation-webhooks.md)
-### [Runbook 예약](automation-scheduling-a-runbook.md)
+### [웹후크에서 Runbook 시작](automation-webhooks.md)
 ### [데이터 센터에서 Runbook 실행](automation-hybrid-runbook-worker.md)
 ### [Runbook 입력 매개 변수](automation-runbook-input-parameters.md)
+### [그래픽 Runbook에서 오류 처리](automation-runbook-graphical-error-handling.md)
 ### [Runbook 작업 추적](automation-runbook-execution.md)
 ### [Runbook 설정 변경](automation-runbook-settings.md)
 ### [Azure Automation 데이터 관리](automation-managing-data.md)
@@ -59,7 +59,7 @@
 ### [Automation 계정 이동](automation-migrate-account-subscription.md)
 ## 문제 해결
 ### [일반적인 오류 해결](automation-troubleshooting-automation-errors.md)
-### [Runbook 작업이 일시 중단됨](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
+### [Hybrid Runbook Worker 문제 해결](automation-troubleshooting-hybrid-runbook-worker.md)
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell(클래식)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
@@ -78,6 +78,6 @@
 ## [Automation 소개 비디오](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

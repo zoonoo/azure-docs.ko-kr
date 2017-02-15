@@ -3,7 +3,7 @@ title: "Azure 배치의 작업 및 태스크 지속성 | Microsoft Docs"
 description: "Azure Storage를 배치 태스크 및 작업 출력의 영구 저장소로 사용하고 이 보관된 출력을 Azure 포털에서 표시하도록 설정하는 방법을 알아봅니다."
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/07/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98b05c208f196b0f79dc0c2a7cc174fe9d797501
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 1ae4ee2e8728ac8bcbc1dc528eb76d11a2f3d8a3
 
 
 ---
@@ -74,7 +74,7 @@ ms.openlocfilehash: 98b05c208f196b0f79dc0c2a7cc174fe9d797501
 > 
 
 ### <a name="create-storage-container"></a>저장소 컨테이너 만들기
-태스크에서 저장소에 출력을 보관하려면 먼저 출력을 업로드할 Blob 저장소 컨테이너를 만들어야 합니다. 이 작업을 수행하려면 [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]를 호출합니다. 이 확장 메서드는 [CloudStorageAccount][net_cloudstorageaccount] 개체를 매개 변수로 가져와 이 문서의 뒷부분에 설명된 검색 방법 및 Azure Portal에서 해당 콘텐츠를 검색할 수 있는 방식으로 명명된 컨테이너를 만듭니다.
+태스크에서 저장소에 출력을 보관하려면 먼저 출력을 업로드할 Blob 저장소 컨테이너를 만들어야 합니다. [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]를 호출하여 이 작업을 수행합니다. 이 확장 메서드는 [CloudStorageAccount][net_cloudstorageaccount] 개체를 매개 변수로 가져와 이 문서의 뒷부분에 설명된 검색 방법 및 Azure Portal에서 해당 콘텐츠를 검색할 수 있는 방식으로 명명된 컨테이너를 만듭니다.
 
 일반적으로 클라이언트 응용 프로그램, 즉 풀, 작업 및 태스크를 만드는 응용 프로그램에 이 코드를 배치합니다.
 
@@ -92,7 +92,7 @@ await job.PrepareOutputStorageAsync(linkedStorageAccount);
 ```
 
 ### <a name="store-task-outputs"></a>태스크 출력 저장
-Blob 저장소에 컨테이너를 준비했으므로 이제 태스크에서 파일 규칙 라이브러리에 있는 [TaskOutputStorage][net_taskoutputstorage] 클래스를 사용하여 컨테이너에 출력을 저장할 수 있습니다.
+Blob Storage에 컨테이너를 준비했으므로 이제 태스크에서 파일 규칙 라이브러리에 있는 [TaskOutputStorage][net_taskoutputstorage] 클래스를 사용하여 컨테이너에 출력을 저장할 수 있습니다.
 
 태스크 코드에서 먼저 [TaskOutputStorage][net_taskoutputstorage] 개체를 만든 다음 태스크가 해당 작업을 완료하면 [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] 메서드를 호출하여 Azure Storage에 출력을 저장합니다.
 
@@ -204,7 +204,7 @@ Azure Portal에서는 [Azure 배치 파일 규칙 추가 정보][github_file_con
 ### <a name="view-outputs-in-the-portal"></a>포털에서 출력 보기
 Azure Portal에서 태스크 출력 및 로그를 보려면 관심 있는 출력의 태스크로 이동하여 **저장된 출력 파일** 또는 **저장된 로그**를 클릭합니다. 이 이미지는 ID가 "007"인 태스크에 대한 **저장된 출력 파일** 을 보여 줍니다.
 
-![Azure 포털의 태스크 출력 블레이드][2]
+![Azure Portal의 태스크 출력 블레이드][2]
 
 ## <a name="code-sample"></a>코드 샘플
 [PersistOutputs][github_persistoutputs] 샘플 프로젝트는 GitHub의 [Azure 배치 코드 샘플][github_samples] 중 하나입니다. 이 Visual Studio 2015 솔루션은 Azure 배치 파일 규칙 라이브러리를 사용하여 영구 저장소에 태스크 출력을 보관하는 방법을 보여 줍니다. 샘플을 실행하려면 다음 단계를 수행합니다.
@@ -251,6 +251,6 @@ Azure Portal에서 태스크 출력 및 로그를 보려면 관심 있는 출력
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

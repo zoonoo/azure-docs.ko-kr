@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2016
-ms.author: aguilaaj
+ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6cca62c7245304bf49b47c1548aa3352b7c2a76e
+ms.sourcegitcommit: 45fd461defc00c5dc018496b85b8bf85614f03dd
+ms.openlocfilehash: 0037b9e28b20c9a85f810cba45aa5b4cbcf6ab6b
 
 
 ---
@@ -57,9 +57,9 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 미리 구성된 Azure 스트림 분석 작업 변경 외에도 Azure 포털을 사용하여 새 작업을 추가하거나 기존 작업에 새 쿼리를 추가할 수 있습니다.
 
 ## <a name="customizing-devices"></a>장치 사용자 지정
-가장 일반적인 확장 작업 중 하나는 시나리오와 관련된 장치를 사용하는 것입니다. 장치를 사용하는 여러 방법이 있습니다. 이 방법은 해당 시나리오에 맞게 시뮬레이션된 장치를 변경하거나 [IoT 장치 SDK][IoT 장치 SDK]를 사용하여 솔루션에 대한 실제 장치에 연결하는 것이 포함됩니다.
+가장 일반적인 확장 작업 중 하나는 시나리오와 관련된 장치를 사용하는 것입니다. 장치를 사용하는 여러 방법이 있습니다. 이 방법은 해당 시나리오에 맞게 시뮬레이션된 장치를 변경하거나 [IoT 장치 SDK][IoT Device SDK] 를 사용하여 솔루션에 대한 실제 장치에 연결하는 것이 포함됩니다.
 
-미리 구성된 원격 모니터링 솔루션에 장치를 추가하기 위한 단계별 가이드는 [Iot Suite 연결 장치](iot-suite-connecting-devices.md) 및 미리 구성된 원격 모니터링 솔루션과 함께 사용하도록 디자인된 [원격 모니터링 C SDK 샘플](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring)을 참조하세요.
+미리 구성된 원격 모니터링 솔루션에 장치를 추가하기 위한 단계별 가이드는 [Iot Suite 연결 장치](iot-suite-connecting-devices.md) 및 미리 구성된 원격 모니터링 솔루션과 함께 사용하도록 디자인된 [원격 모니터링 C SDK 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring)을 참조하세요.
 
 ### <a name="creating-your-own-simulated-device"></a>고유한 시뮬레이션된 장치 만들기
 .NET 시뮬레이터는 원격 모니터링 솔루션 소스 코드(위 참조)에 포함되어 있습니다. 이 시뮬레이터는 솔루션의 일부로 프로비전되었으며 다른 메타데이터, 원격 분석을 보내거나 다른 명령에 응답하도록 변경될 수 있습니다.
@@ -127,7 +127,7 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 9. 업데이트한 .json 파일을 저장합니다. 기존 파일을 덮어쓰면 됩니다.
 10. Azure 관리 포털 페이지 아래쪽에서 **매니페스트 관리**와 **매니페스트 업로드**를 차례로 클릭하여 이전 단계에서 저장한 .json 파일을 업로드합니다.
 11. 이제 **관리** 및 **읽기 전용** 역할이 응용 프로그램에 추가되었습니다.
-12. 이러한 역할 중 하나를 디렉터리의 사용자에게 할당하려면 [azureiotsuite.com 사이트의 사용 권한][lnk-permissions]을 참조하세요.
+12. 이러한 역할 중 하나를 디렉터리의 사용자에게 할당하려면 [azureiotsuite.com 사이트의 권한][lnk-permissions]을 참조하세요.
 
 ## <a name="feedback"></a>사용자 의견
 이 문서에서 포함했으면 하는 사용자 지정이 있나요? [사용자 의견](https://feedback.azure.com/forums/321918-azure-iot)에 기능 제안을 추가하거나 이 문서에 대한 의견을 아래쪽에 입력해 주시기 바랍니다. 
@@ -135,7 +135,7 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 ## <a name="next-steps"></a>다음 단계
 미리 구성된 솔루션을 사용자 지정하기 위한 옵션에 대한 자세한 내용은 다음을 참조하세요.
 
-* [미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 Logic App 연결][lnk-logicapp]
+* [미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 논리 앱 연결][lnk-logicapp]
 * [원격 모니터링 사전 구성 솔루션으로 동적 원격 분석 사용][lnk-dynamic]
 * [미리 구성된 원격 모니터링 솔루션의 장치 정보 메타데이터][lnk-devinfo]
 
@@ -143,7 +143,7 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 [lnk-dynamic]: iot-suite-dynamic-telemetry.md
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
-[IoT 장치 SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
+[IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-dashboard-controller]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/Controllers/DashboardController.cs#L27
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
@@ -153,6 +153,6 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

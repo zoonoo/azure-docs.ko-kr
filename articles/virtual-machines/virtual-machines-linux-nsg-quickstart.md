@@ -1,6 +1,6 @@
 ---
-title: "Linux VM에 대한 포트 및 끝점 열기 | Microsoft Docs"
-description: "Azure Resource Manager 배포 모드 및 Azure CLI를 사용하여 Linux VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기"
+title: "Azure에서 Linux VM에 대한 포트 및 끝점 열기 | Microsoft Docs"
+description: "Azure Resource Manager 배포 모델 및 Azure CLI 2.0(미리 보기)을 사용하여 Linux VM에 대한 포트를 열고 끝점을 만드는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -12,55 +12,59 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5dd20630580f09049c88ffd9107f7fa8e8e43816
-ms.openlocfilehash: 0e5e7b2c0637db3d20cbe2e6f00a23cb9d7fb51f
+ms.sourcegitcommit: e4512dd4d818b1c7bea7e858a397728ce48a5362
+ms.openlocfilehash: 40f399c339e31d9d008230449d7f559ae01afba3
 
 
 ---
 # <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 대한 끝점 및 포트 열기
-서브넷 또는 VM 네트워크 인터페이스에서 네트워크 필터를 만들어, Azure에서 VM(가상 컴퓨터)에 대한 포트를 열거나 끝점을 만듭니다. 인바운드 및 아웃바운드 트래픽을 모두 제어하는 이러한 필터를 트래픽을 수신하는 리소스에 연결된 네트워크 보안 그룹에 배치합니다. 포트 80에서 웹 트래픽의 일반적인 예제를 사용해 보겠습니다.
+서브넷 또는 VM 네트워크 인터페이스에서 네트워크 필터를 만들어, Azure에서 VM(가상 컴퓨터)에 대한 포트를 열거나 끝점을 만듭니다. 인바운드 및 아웃바운드 트래픽을 모두 제어하는 이러한 필터를 트래픽을 수신하는 리소스에 연결된 네트워크 보안 그룹에 배치합니다. 포트 80에서 웹 트래픽의 일반적인 예제를 사용해 보겠습니다. 이 문서에서는 Azure CLI 2.0(Preview)을 사용하여 VM에 포트를 여는 방법을 보여 줍니다.
+
+
+## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
+다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
+
+- [Azure CLI 1.0](virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 클래식 및 리소스 관리 배포 모델용 CLI
+- [Azure CLI 2.0(미리 보기)](#quick-commands) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
+
 
 ## <a name="quick-commands"></a>빠른 명령
-네트워크 보안 그룹과 규칙을 만들려면 [Azure CLI](../xplat-cli-install.md)가 설치되어 있어야 하고 다음과 같은 Resource Manager 모드를 사용해야 합니다.
+네트워크 보안 그룹 및 규칙을 만들려면 최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인해야 합니다.
+
+다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `myNetworkSecurityGroup` 및 `myVnet`이 포함됩니다.
+
+[az network nsg create](/cli/azure/network/nsg#create)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 `westus` 위치에 `myNetworkSecurityGroup`이라는 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli
-azure config mode arm
-```
-
-다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `myNetworkSecurityGroup` 및 `myVnet`가 포함됩니다.
-
-고유한 이름 및 위치를 적절히 입력하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 `WestUS` 위치에 `myNetworkSecurityGroup`이라는 네트워크 보안 그룹을 만듭니다.
-
-```azurecli
-azure network nsg create --resource-group myResourceGroup --location westus \
+az network nsg create --resource-group myResourceGroup --location westus \
     --name myNetworkSecurityGroup
 ```
 
-웹 서버에 대한 HTTP 트래픽을 허용하는 규칙을 추가하거나 SSH 액세스 또는 데이터베이스 연결 등 사용자 고유의 시나리오에 맞게 조정합니다. 다음 예제에서는 80 포트에서 TCP 트래픽을 허용하도록 `myNetworkSecurityGroupRule`이라는 규칙을 만듭니다.
+[az network nsg rule create](/cli/azure/network/nsg/rule#create)을 사용하여 웹 서버에 대한 HTTP 트래픽을 허용하는 규칙을 추가하거나 SSH 액세스 또는 데이터베이스 연결 등 사용자 고유의 시나리오에 맞게 조정합니다. 다음 예제에서는 포트 80의 TCP 트래픽을 허용하도록 `myNetworkSecurityGroupRule`이라는 규칙을 만듭니다.
 
 ```azurecli
-azure network nsg rule create --resource-group myResourceGroup \
+az network nsg rule create --resource-group myResourceGroup \
     --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
     --protocol tcp --direction inbound --priority 1000 \
-    --destination-port-range 80 --access allow
+    --source-address-prefix '*' --source-port-range '*' \
+    --destination-address-prefix '*' --destination-port-range 80 --access allow
 ```
 
-네트워크 보안 그룹을 VM의 네트워크 인터페이스(NIC)에 연결합니다. 다음 예제에서는 `myNic`라는 기존 NIC를 `myNetworkSecurityGroup`이라는 네트워크 보안 그룹에 연결합니다.
+[az network nic update](/cli/azure/network/nic#update)를 사용하여 네트워크 보안 그룹을 VM의 NIC(네트워크 인터페이스)에 연결합니다. 다음 예제에서는 `myNic`라는 기존 NIC를 `myNetworkSecurityGroup`이라는 네트워크 보안 그룹에 연결합니다.
 
 ```azurecli
-azure network nic set --resource-group myResourceGroup \
-    --network-security-group-name myNetworkSecurityGroup --name myNic
+az network nic update --resource-group myResourceGroup --name myNic \
+    --network-security-group myNetworkSecurityGroup
 ```
 
-또는 네트워크 보안 그룹을 단일 VM의 네트워크 인터페이스가 아니라 가상 네트워크 서브넷에 연결할 수 있습니다. 다음 예제에서는 `myVnet` 가상 네트워크에서 `mySubnet`이라는 기존 서브넷을 `myNetworkSecurityGroup`이라는 네트워크 보안 그룹에 연결합니다.
+또는 [az network vnet subnet update](/cli/azure/network/vnet/subnet#update)를 사용하여 네트워크 보안 그룹을 단일 VM의 네트워크 인터페이스가 아니라 가상 네트워크 서브넷에 연결할 수 있습니다. 다음 예제에서는 `myVnet` 가상 네트워크에서 `mySubnet`이라는 기존 서브넷을 `myNetworkSecurityGroup`이라는 네트워크 보안 그룹에 연결합니다.
 
 ```azurecli
-azure network vnet subnet set --resource-group myResourceGroup \
-    --network-security-group-name myNetworkSecurityGroup \
-    --vnet-name myVnet --name mySubnet
+az network vnet subnet update --resource-group myResourceGroup \
+    --vnet-name myVnet --name mySubnet --network-security-group myNetworkSecurityGroup
 ```
 
 ## <a name="more-information-on-network-security-groups"></a>네트워크 보안 그룹에 대한 자세한 정보
@@ -80,6 +84,6 @@ azure network vnet subnet set --resource-group myResourceGroup \
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure Mobile Engagement Android SDK 통합
-description: Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차
+title: "Azure Mobile Engagement Android SDK 통합"
+description: "Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 6e71afc6-b3ed-4b39-8cf1-c8024454d579
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,9 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7f47772a16dc38c5b9b4751b22b99938e26cc1e0
+
 
 ---
-# SDK 콘텐츠
+# <a name="sdk-content"></a>SDK 콘텐츠
 이 문서에서는 SDK 보관 파일의 콘텐츠를 소개 및 설명합니다.
 
 `mobile-engagement-VERSION.jar`
@@ -47,4 +51,9 @@ ms.author: piyushjo
 
 다른 파일은 소프트웨어 라이선스의 복사본입니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

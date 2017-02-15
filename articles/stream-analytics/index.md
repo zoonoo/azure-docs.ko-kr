@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "완전히 관리되는 이벤트 처리를 사용하여 클라우드에서 IoT 분석을 실행하는 방법에 대해 알아봅니다. 응용 프로그램, 센서, 장치 등에서 실시간으로 데이터를 분석합니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: c57faa7c307420bb92bec2f661e6739a7cfca7ee
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
 
 ---
 
 # <a name="stream-analytics-documentation"></a>Stream Analytics 설명서
 
-Azure Stream Analytics는 데이터에서 깊이 있는 통찰력의 잠금을 해제할 수 있도록 완전히 관리된 실시간 이벤트 처리 엔진입니다.  Stream Analytics는 손쉽게 장치, 센서, 웹 사이트, 소셜 미디어, 응용 프로그램, 인프라 시스템 등에서 데이터 스트리밍을 실시간으로 분석 계산하도록 설정합니다.
+완전히 관리되는 이벤트 처리 엔진인 Stream Analytics를 사용하여 클라우드에서 사물 인터넷(IoT) 분석을 실행하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 응용 프로그램, 센서, 장치, 소셜 미디어 등에서 실시간으로 데이터를 분석하는 방법을 보여 줍니다. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -161,16 +162,10 @@ Azure Stream Analytics는 데이터에서 깊이 있는 통찰력의 잠금을 �
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Stream Analytics 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

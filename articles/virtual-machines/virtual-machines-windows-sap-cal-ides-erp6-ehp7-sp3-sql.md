@@ -1,14 +1,14 @@
 ---
-title: Microsoft Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포 | Microsoft Docs
-description: Microsoft Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
+title: "Microsoft Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포 | Microsoft Docs"
+description: "Microsoft Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: hermanndms
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-keywords: ''
-
+keywords: 
+ms.assetid: 626c1523-1026-478f-bd8a-22c83b869231
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,12 +16,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 75e2508aa942067fb84d34cf00f3f9f953f1573e
+
 
 ---
-# Microsoft Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
+# <a name="deploying-sap-ides-ehp7-sp3-for-sap-erp-60-on-microsoft-azure"></a>Microsoft Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
 이 문서에서는 SAP 클라우드 어플라이언스 라이브러리 3.0을 통해 Microsoft Azure에서 SQL Server 및 Windows OS와 함께 실행되는 SAP IDES를 배포하는 방법을 설명합니다. 스크린샷은 프로세스를 단계별로 보여줍니다. 목록의 다른 솔루션 배포는 프로세스 관점에서 동일한 방식으로 작동합니다. 서로 다른 솔루션을 선택하면 됩니다.
 
-SAP 클라우드 어플라이언스 라이브러리(SAP CAL)를 시작하려면 [여기](https://cal.sap.com/)로 이동합니다. 새로운 [SAP 클라우드 어플라이언스 라이브러리 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience)에 대한 정보를 제공하는 SAP의 블로그가 있습니다.
+SAP 클라우드 어플라이언스 라이브러리(SAP CAL)를 시작하려면 [여기](https://cal.sap.com/)로 이동합니다. 새로운 [SAP 클라우드 어플라이언스 라이브러리 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience)에 대한 정보를 제공하는 SAP의 블로그가 있습니다. 
 
 다음 스크린샷은 Microsoft Azure에 SAP IDES를 배포하는 방법을 단계별로 보여줍니다. 이 과정은 다른 솔루션과 동일한 방식으로 작동합니다.
 
@@ -43,7 +47,8 @@ SAP 클라우드 어플라이언스 라이브러리(SAP CAL)를 시작하려면 
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic7.jpg)
 
-구독 중 하나를 선택한 후 "관리 인증서"를 선택하면 새 Azure Resource Manager 모델에 대해 "서비스 보안 주체"를 사용하는 새로운 개념이 있다는 내용이 설명됩니다. 이 모델에 대해 SAP CAL이 아직 도입되지 않았으며 관리 인증서를 작동하려면 여전히 "클래식" 모델과 이전 Azure 포털이 필요합니다.
+구독 중 하나를 선택한 후 "관리 인증서"를 선택하면 새 Azure Resource Manager 모델에 대해 "서비스 보안 주체"를 사용하는 새로운 개념이 있다는 내용이 설명됩니다.
+이 모델에 대해 SAP CAL이 아직 도입되지 않았으며 관리 인증서를 작동하려면 여전히 "클래식" 모델과 이전 Azure 포털이 필요합니다.
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic4.jpg)
 
@@ -63,7 +68,8 @@ SAP 클라우드 어플라이언스 라이브러리(SAP CAL)를 시작하려면 
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic10.jpg)
 
-계정 설정 후 배포할 솔루션을 선택하고 인스턴스를 만들어야 합니다. "기본" 모드에서는 매우 간단합니다. 인스턴스 이름을 입력하고 Azure 지역을 선택하며 솔루션에 대한 마스터 암호를 정의합니다.
+계정 설정 후 배포할 솔루션을 선택하고 인스턴스를 만들어야 합니다.
+"기본" 모드에서는 매우 간단합니다. 인스턴스 이름을 입력하고 Azure 지역을 선택하며 솔루션에 대한 마스터 암호를 정의합니다.
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic11.jpg)
 
@@ -79,10 +85,16 @@ Azure 포털에서 가상 컴퓨터가 SAP CAL에 지정된 것과 동일한 인
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic14.jpg)
 
-이제 SAP CAL 포털에서 연결 단추를 통해 솔루션에 연결할 수 있습니다. 솔루션에 사용할 모든 기본 자격 증명을 설명하는 사용자 가이드에 대한 링크가 작은 대화 상자에 포함되어 있습니다. [여기](https://caldocs.hana.ondemand.com/caldocs/help/Getting_Started_Guide_IDES607MSSQL.pdf)는 IDES 솔루션에 대한 가이드로 연결되는 링크입니다.
+이제 SAP CAL 포털에서 연결 단추를 통해 솔루션에 연결할 수 있습니다. 솔루션에 사용할 모든 기본 자격 증명을 설명하는 사용자 가이드에 대한 링크가 작은 대화 상자에 포함되어 있습니다.
+[여기](https://caldocs.hana.ondemand.com/caldocs/help/Getting_Started_Guide_IDES607MSSQL.pdf) 는 IDES 솔루션에 대한 가이드로 연결되는 링크입니다.
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
 
 또 다른 옵션은 Windows VM에 로그인하고 예를 들어 미리 구성된 SAP GUI를 시작하는 것입니다.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

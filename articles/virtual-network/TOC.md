@@ -77,6 +77,8 @@
 #### 여러 IP 주소
 ##### [Azure 포털](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
+##### [템플릿](virtual-network-multiple-ip-addresses-template.md)
 
 ### 연결 시나리오
 #### [가상 네트워크(VNet)에서 VNet으로](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -108,15 +110,17 @@
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [로그](virtual-network-nsg-manage-log.md)
-#### 문제 해결
-##### [포털](virtual-network-nsg-troubleshoot-portal.md)
-##### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
-### 문제 해결 경로
-#### [포털](virtual-network-routes-troubleshoot-portal.md)
-#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### 가상 컴퓨터
 #### [호스트 이름 보기 및 수정](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [다른 서브넷으로 VM 이동](virtual-networks-move-vm-role-to-subnet.md)
+
+## 문제 해결
+### 네트워크 보안 그룹
+#### [포털](virtual-network-nsg-troubleshoot-portal.md)
+#### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
+### 경로
+#### [포털](virtual-network-routes-troubleshoot-portal.md)
+#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 
 # 참조
 ## [PowerShell(리소스 관리자)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
@@ -143,6 +147,6 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

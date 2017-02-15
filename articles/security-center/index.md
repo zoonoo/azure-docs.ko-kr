@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Azure 리소스에 대한 보안 모니터링 및 정책 관리를 설정하는 방법에 대해 알아봅니다. 자습서, REST API, 참조 및 기타 설명서입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 4488a052681c0c146bf6efaf44f8ecebc400fecc
-ms.openlocfilehash: 92eb080a7234cb25a5560127edadfafeafc0253a
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 5600b20d3c04547e2002a779fde70769bb6a5e59
 
 ---
 # <a name="security-center-documentation"></a>Security Center 설명서
@@ -85,13 +85,7 @@ Security Center를 사용하여 Azure 리소스에 대한 가시성을 얻고 �
     </li>
 </ul>   
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
-        <div class="img"></div>
-        <div class="text">
-Security Center 설명서 다운로드 </div>
-    </a>
-</div>
+
 
 
 

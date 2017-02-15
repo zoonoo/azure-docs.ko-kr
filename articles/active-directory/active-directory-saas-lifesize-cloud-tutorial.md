@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Lifesize Cloud | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Lifesize Cloud.
+title: "자습서: Lifesize Cloud와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory와 Lifesize Cloud 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 75fab335-fdcd-4066-b42c-cc738fcb6513
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,249 +14,253 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: faa41c24c08a1e4f47b448210d882269c4c5a742
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-lifesize-cloud"></a>Tutorial: Azure Active Directory integration with Lifesize Cloud
-In this tutorial, you learn how to integrate Lifesize Cloud with Azure Active Directory (Azure AD).
+# <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>자습서: Lifesize Cloud와 Azure Active Directory 통합
+이 자습서에서는 Azure AD(Azure Active Directory)와 Lifesize Cloud를 통합하는 방법에 대해 알아봅니다.
 
-Integrating Lifesize Cloud with Azure AD provides you with the following benefits:
+Lifesize Cloud를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-* You can control in Azure AD who has access to Lifesize Cloud
-* You can enable your users to automatically get signed-on to Lifesize Cloud (Single Sign-On) with their Azure AD accounts
-* You can manage your accounts in one central location - the Azure classic portal
+* Lifesize Cloud에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
+* 사용자가 해당 Azure AD 계정으로 Lifesize Cloud에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
+* 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
-## <a name="prerequisites"></a>Prerequisites
-To configure Azure AD integration with Lifesize Cloud, you need the following items:
+## <a name="prerequisites"></a>필수 조건
+Lifesize Cloud와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
-* An Azure AD subscription
-* A Lifesize Cloud single-sign on enabled subscription
+* Azure AD 구독
+* Lifesize Cloud Single Sign-On이 설정된 구독
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+> 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 > 
 > 
 
-To test the steps in this tutorial, you should follow these recommendations:
+이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
-* You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
-## <a name="scenario-description"></a>Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment.
+## <a name="scenario-description"></a>시나리오 설명
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
 
-The scenario outlined in this tutorial consists of two main building blocks:
+이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-1. Adding Lifesize Cloud from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. 갤러리에서 Lifesize Cloud 추가
+2. Azure AD Single Sign-on 구성 및 테스트
 
-## <a name="adding-lifesize-cloud-from-the-gallery"></a>Adding Lifesize Cloud from the gallery
-To configure the integration of Lifesize Cloud into Azure AD, you need to add Lifesize Cloud from the gallery to your list of managed SaaS apps.
+## <a name="adding-lifesize-cloud-from-the-gallery"></a>갤러리에서 Lifesize Cloud 추가
+Lifesize Cloud와 Azure AD의 통합을 구성하려면 갤러리의 Lifesize Cloud를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-**To add Lifesize Cloud from the gallery, perform the following steps:**
+**갤러리에서 Lifesize Cloud를 추가하려면 다음 단계를 수행합니다.**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
     ![Active Directory][1]
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![Applications][2]
-4. Click **Add** at the bottom of the page.
+    ![응용 프로그램][2]
+4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-    ![Applications][3]
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+    ![응용 프로그램][3]
+5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-    ![Applications][4]
-6. In the search box, type **Lifesize Cloud**.
+    ![응용 프로그램][4]
+6. 검색 상자에 **Lifesize Cloud**를 입력합니다.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_01.png)
-7. In the results pane, select **Lifesize Cloud**, and then click **Complete** to add the application.
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_01.png)
+7. 결과 창에서 **Lifesize Cloud**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_02.png)
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Lifesize Cloud based on a test user called "Britta Simon".
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
+이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Lifesize Cloud에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Lifesize Cloud is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Lifesize Cloud needs to be established.
+Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Lifesize Cloud 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Lifesize Cloud의 관련 사용자 간에 연결이 형성되어야 합니다.
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Lifesize Cloud.
+이 연결 관계는 Azure AD의 **사용자 이름** 값을 Lifesize Cloud의 **Username** 값으로 할당하여 설정합니다.
 
-To configure and test Azure AD single sign-on with Lifesize Cloud, you need to complete the following building blocks:
+Lifesize Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Lifesize Cloud test user](#creating-a-lifesize-cloud-test-user)** - to have a counterpart of Britta Simon in Lifesize Cloud that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+3. **[Lifesize Cloud 테스트 사용자 만들기](#creating-a-lifesize-cloud-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Lifesize Cloud에 만듭니다.
+4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Lifesize Cloud application.
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
+이 섹션에서는 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Lifesize Cloud 응용 프로그램에서 Single Sign-On을 구성합니다.
 
-**To configure Azure AD single sign-on with Lifesize Cloud, perform the following steps:**
+**Lifesize Cloud에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. In the classic portal, on the **Lifesize Cloud** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. 클래식 포털의 **Lifesize Cloud** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    ![Configure Single Sign-On][6] 
-2. On the **How would you like users to sign on to Lifesize Cloud** page, select **Azure AD Single Sign-On**, and then click **Next**.
+    ![Single Sign-on 구성][6] 
+2. **Lifesize Cloud에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_03.png) 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+    ![Single Sign-on 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_03.png) 
+3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_04.png) 
+    ![Single Sign-On 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_04.png) 
    
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Lifesize Cloud application using the following pattern: **https://login.lifesizecloud.com/ls/?acs**.
+    a. **로그온 URL** 텍스트 상자에 다음 **https://login.lifesizecloud.com/ls/?acs** 패턴을 사용하여 사용자가 Lifesize Cloud 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
    
-    b. click **Next**
-4. On the **Configure single sign-on at Lifesize Cloud** page, perform the following steps:
+    b. click **다음**
+4. **Lifesize Cloud의 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_05.png)
+    ![Single Sign-on 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_05.png)
    
-    a. Click **Download certificate**, and then save the file on your computer.
+    a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. Click **Next**.
-5. To get SSO configured for your application, login into the Lifesize Cloud application with Admin privileges.
-6. In the top right corner click on your name and then click on the **Advance Settings**
+    b. **다음**을 클릭합니다.
+5. 응용 프로그램에 대해 구성된 SSO를 가져오려면 관리자 권한으로 Lifesize Cloud 응용 프로그램에 로그인합니다.
+6. 페이지의 오른쪽 위 모서리에 있는 사용자 이름을 클릭하고 **고급 설정**을 클릭합니다.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
-7. In the Advance Settings now click on the **SSO Configuration** link. This will open the SSO Configuration page for your instance.
+    ![Single Sign-on 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+7. 고급 설정에서 이제 **SSO 구성** 링크를 클릭합니다. 현재 인스턴스에 대한 SSO 구성 페이지가 열립니다.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
-8. Now configure the following values in the SSO configuration UI.    
+    ![Single Sign-On 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+8. 이제 SSO 구성 UI에서 다음 값을 구성합니다.    
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
    
-    • Copy the value of Issuer URL from Azure AD and paste that in **Identity Provider Issuer** textbox.
+    • Azure AD에서 발급자 URL 값을 복사하여 **ID 공급자 발급자** 텍스트 상자에 붙여넣습니다.
    
-    • Copy the value of Remote Login URL from Azure AD and paste that in **Login URL** textbox.
+    • Azure AD에서 원격 로그인 URL 값을 복사하여 **로그인 URL** 텍스트 상자에 붙여넣습니다.
    
-    • Open the downloaded certificate in notepad and copy the content of certificate, excluding the Begin Certificate and End Certificate lines, paste this in the **X.509 Certificate** textbox.
+    • 다운로드한 인증서를 메모장에서 열고 인증서 내용(Begin Certificate 및 End Certificate 줄 제외)을 복사하여 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
    
-    • In the SAML Attribute mapping for the **First Name** text box enter the value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
+    • **이름**에 대한 SAML 특성 매핑 텍스트 상자에 값을 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**으로 입력합니다.
    
-    • In the SAML Attribute mapping for the **Last Name** text box enter the value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
+    • **성**에 대한 SAML 특성 매핑 텍스트 상자에 값을 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**으로 입력합니다.
    
-    • In the SAML Attribute mapping for the **Email** text box enter the value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**
-9. To check the configuration you can click on the **Test** button.
+    • **전자 메일**에 대한 SAML 특성 매핑 텍스트 상자에 값을 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**로 입력합니다.
+9. 구성을 확인하려면 **테스트** 단추를 클릭합니다.
    
    > [!NOTE]
-   > For successful testing you need to complete the configuration wizard in Azure AD and also provide access to users or groups who can perform the test.
+   > 테스트에 성공하려면 Azure AD에서 구성 마법사를 완료하고 테스트를 수행할 수 있는 사용자 또는 그룹에 대한 액세스를 제공해야 합니다.
    > 
    > 
-10. Enable the SSO by checking on the **Enable SSO** button.
-11. Now click on the **Update** button so that all the settings are saved. This will generate the RelayState value. Copy the RelayState value which is generated in the text box. We will need this value in the next steps.
-12. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+10. **SSO 사용** 단추를 선택하여 SSO를 사용하도록 설정합니다.
+11. 이제 모든 설정을 저장할 수 있도록 **업데이트** 단추를 클릭합니다. 그러면 RelayState 값이 생성됩니다. 텍스트 상자에 생성된 RelayState 값을 복사합니다. 다음 단계에서 이 값이 필요합니다.
+12. 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
     
     ![Azure AD Single Sign-On][10]
-13. On the **Single sign-on confirmation** page, click **Complete**.  
+13. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.  
     
     ![Azure AD Single Sign-On][11]
-14. Now login into the Azure Management Portal **https://portal.azure.com** using the admin credentials
-15. Click on **More Services** link in the left navigation pane
+14. 이제 관리자 자격 증명을 사용하여 Azure 관리 포털(**https://portal.azure.com**)에 로그인합니다.
+15. 왼쪽 탐색 창에서 **더 많은 서비스**를 클릭합니다.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_09.png)
-16. Search for Azure Active Directory and Click on the **Azure Active Directory** Link
+    ![Single Sign-On 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_09.png)
+16. Azure Active Directory를 검색하고 **Azure Active Directory** 링크를 클릭합니다.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_10.png)
-17. You will find all your SaaS applications under the **Enterprise Applications** button.
+    ![Single Sign-on 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_10.png)
+17. **엔터프라이즈 응용 프로그램** 단추 아래에서 모든 SaaS 응용 프로그램을 찾을 수 있습니다.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_11.png)
-18. Now click on **All Applications** link in the next blade
+    ![Single Sign-on 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_11.png)
+18. 이제 다음 블레이드에서 **모든 응용 프로그램** 링크를 클릭합니다.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_12.png)
-19. Search for Lifesize application for which you want to setup the RelayState. 
+    ![Single Sign-on 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_12.png)
+19. RelayState를 설정할 Lifesize 응용 프로그램을 검색합니다. 
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_13.png)
-20. Now Click **Single sign-on** link in the blade
+    ![Single Sign-on 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_13.png)
+20. 이제 블레이드에서 **Single sign-on** 링크를 클릭합니다.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_14.png)
-21. You will see the **Show advanced URL settings** check box. Click the check box.
+    ![Single Sign-On 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_14.png)
+21. **고급 URL 설정 표시** 확인란이 표시됩니다. 확인란을 선택합니다.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_15.png)
-22. Now configure the RelayState for the application, which you see in the Lifesize application SSO configuration page. 
+    ![Single Sign-on 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_15.png)
+22. 이제 Lifesize 응용 프로그램 SSO 구성 페이지에 표시된 응용 프로그램에 대한 RelayState를 구성합니다. 
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_16.png)
-23. Save the settings.
+    ![Single Sign-on 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_16.png)
+23. 설정을 저장합니다.
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+이 섹션에서는 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-![Create Azure AD User][20]
+![Azure AD 사용자 만들기][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_09.png) 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To display the list of users, in the menu on the top, click **Users**.
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_09.png) 
+2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_03.png) 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_03.png) 
+4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_04.png) 
-5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_05.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_04.png) 
+5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서  ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_05.png) 단계를 수행합니다. 
    
-    a. As Type Of User, select New user in your organization.
+    a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
    
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
    
-    c. Click **Next**.
-6. On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_06.png) 
+    c. **다음**을 클릭합니다.
+6. **사용자 프로필** 대화 상자 페이지에서 ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_06.png) 단계를 수행합니다. 
    
-   a. In the **First Name** textbox, type **Britta**.  
+   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
    
-   d. In the **Role** list, select **User**.
+   d. **역할** 목록에서 **사용자**를 선택합니다.
    
-   e. Click **Next**.
-7. On the **Get temporary password** dialog page, click **create**.
+   e. **다음**을 클릭합니다.
+7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_07.png) 
-8. On the **Get temporary password** dialog page, perform the following steps:
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_07.png) 
+8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_08.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_08.png) 
    
-    a. Write down the value of the **New Password**.
+    a. **새 암호**값을 적어둡니다.
    
-    b. Click **Complete**.   
+    b. **완료**를 클릭합니다.   
 
-### <a name="creating-an-lifesize-cloud-test-user"></a>Creating an Lifesize Cloud test user
-In this section, you create a user called Britta Simon in Lifesize Cloud. Lifesize cloud does support automatic user provisioning. After successful authentication at Azure AD, the user will be automatically provisioned in the application. 
+### <a name="creating-an-lifesize-cloud-test-user"></a>Lifesize Cloud 테스트 사용자 만들기
+이 섹션에서는 Lifesize Cloud에서 Britta Simon이라는 사용자를 만듭니다. Lifesize Cloud는 자동 사용자 프로비전을 지원하지 않습니다. Azure AD에서 인증에 성공한 사용자는 응용 프로그램에서 자동으로 프로비전됩니다. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Lifesize Cloud.
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Lifesize Cloud에 대한 액세스 권한을 부여합니다.
 
-![Assign User][200] 
+![사용자 할당][200] 
 
-**To assign Britta Simon to Lifesize Cloud, perform the following steps:**
+**Britta Simon을 Lifesize Cloud에 할당하려면 다음 단계를 수행합니다.**
 
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![Assign User][201] 
-2. In the applications list, select **Lifesize Cloud**.
+    ![사용자 할당][201] 
+2. 응용 프로그램 목록에서 **Lifesize Cloud**를 선택합니다.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_50.png) 
-3. In the menu on the top, click **Users**.
+    ![Single Sign-on 구성](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_50.png) 
+3. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
    
-    ![Assign User][203]
-4. In the Users list, select **Britta Simon**.
-5. In the toolbar on the bottom, click **Assign**.
+    ![사용자 할당][203]
+4. 사용자 목록에서 **Britta Simon**을 선택합니다.
+5. 아래쪽 도구 모음에서 **할당**을 클릭합니다.
    
-    ![Assign User][205]
+    ![사용자 할당][205]
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
+이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-When you click the Lifesize Cloud tile in the Access Panel, you should get automatically signed-on to your Lifesize Cloud application.
+액세스 패널에서 Lifesize Cloud 타일을 클릭하면 Lifesize Cloud 응용 프로그램에 자동으로 로그온됩니다.
 
-## <a name="additional-resources"></a>Additional resources
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+## <a name="additional-resources"></a>추가 리소스
+* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -278,6 +282,6 @@ When you click the Lifesize Cloud tile in the Access Panel, you should get autom
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

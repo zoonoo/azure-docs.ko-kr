@@ -1,11 +1,11 @@
 ---
-title: '자습서: SAP HANA Cloud Platform과 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory에서 SAP HANA Cloud Platform을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다.
+title: "자습서: SAP HANA Cloud Platform과 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory에서 SAP HANA Cloud Platform을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dae115c597e3a86c954eafcdd322954774fd55a5
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-sap-hana-cloud-platform"></a>자습서: SAP HANA Cloud Platform과 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-sap-hana-cloud-platform"></a>자습서: SAP HANA Cloud Platform과 Azure Active Directory 통합
 이 자습서는 Azure 및 SAP HANA Cloud Platform의 통합을 보여 주기 위한 것입니다.  
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -41,7 +45,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-sap-hana-cloud-platform"></a>SAP HANA Cloud Platform에 응용 프로그램 통합 사용
 이 섹션은 SAP HANA Cloud Platform에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
-### <a name="to-enable-the-application-integration-for-sap-hana-cloud-platform,-perform-the-following-steps:"></a>SAP HANA Cloud Platform에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+### <a name="to-enable-the-application-integration-for-sap-hana-cloud-platform-perform-the-following-steps"></a>SAP HANA Cloud Platform에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 1. Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
    ![Active Directory](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700993.png "Active Directory")
@@ -68,7 +72,7 @@ ms.author: jeedes
 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 SAP HANA Cloud Platform 테넌트에 업로드해야 합니다.  
 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **SAP HANA Cloud Platform** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configure single sign-on")
@@ -164,7 +168,7 @@ ms.author: jeedes
 ## <a name="assigning-a-role-to-a-user"></a>사용자에게 역할 할당
 Azure AD 사용자가 SAP HANA Cloud Platform으로 로그를 사용하려면, SAP HANA Cloud Platform에서 역할을 할당해야 합니다.
 
-### <a name="to-assign-a-role-to-a-user,-perform-the-following-steps:"></a>사용자에게 역할을 할당하려면 다음 단계를 수행합니다.
+### <a name="to-assign-a-role-to-a-user-perform-the-following-steps"></a>사용자에게 역할을 할당하려면 다음 단계를 수행합니다.
 1. **SAP HANA Cloud Platform** cockpit에 로그인합니다.
 2. 다음 단계를 수행합니다.
    
@@ -179,7 +183,7 @@ Azure AD 사용자가 SAP HANA Cloud Platform으로 로그를 사용하려면, S
 ## <a name="assigning-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
-### <a name="to-assign-users-to-sap-hana-cloud-platform,-perform-the-following-steps:"></a>SAP HANA Cloud Platform에 사용자를 할당하려면 다음 단계를 수행합니다.
+### <a name="to-assign-users-to-sap-hana-cloud-platform-perform-the-following-steps"></a>SAP HANA Cloud Platform에 사용자를 할당하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **SAP HANA Cloud Platform** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
@@ -190,6 +194,9 @@ Azure AD 사용자가 SAP HANA Cloud Platform으로 로그를 사용하려면, S
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

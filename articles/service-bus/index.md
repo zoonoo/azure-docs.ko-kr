@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "온-프레미스 및 클라우드 환경에서 응용 프로그램 및 서비스를 연결하는 메시징을 설정하는 방법에 대해 알아봅니다.  자습서, 비디오, API 참조 등입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 0ecc51f19240ecfa49852ed1eafcf78d1227af16
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: fe4c303bb0e944e5abb26f8baa394d0df71240a5
 
 ---
 #<a name="service-bus-documentation"></a>Service Bus 설명서
 
-Service Bus에서는 온-프레미스 솔루션을 클라우드에 연결할 수 있는 릴레이된 통신과 엔터프라이즈 메시징을 사용하여 클라우드 사용 통신을 제공합니다. 
+Service Bus를 사용하여 온-프레미스 및 클라우드 환경에 연결하는 방법에 대해 알아봅니다. 자습서, 비디오, API 참조 및 기타 설명서에서는 응용 프로그램과 서비스 간의 클라우드 메시징을 설정하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -225,7 +226,7 @@ Service Bus에서는 온-프레미스 솔루션을 클라우드에 연결할 수
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>다른</h3>
+                        <h3>기타</h3>
                         <p><a href="/dotnet/api/">관리되는 참조 API</a></p>
                    </div>
                 </div>
@@ -234,16 +235,10 @@ Service Bus에서는 온-프레미스 솔루션을 클라우드에 연결할 수
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-bus.pdf">
-        <div class="img"></div>
-        <div class="text">
-Service Bus 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

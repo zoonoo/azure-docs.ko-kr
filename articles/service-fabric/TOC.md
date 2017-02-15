@@ -4,6 +4,7 @@
 ## [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
 ## [아키텍처](service-fabric-architecture.md)
 ## [용어](service-fabric-technical-overview.md)
+## [콘텐츠 로드맵](service-fabric-content-roadmap.md)
 
 # 시작
 ## 개발 환경 설정
@@ -18,17 +19,23 @@
 
 # 방법
 ## 응용 프로그램 빌드
+### [패턴 및 시나리오](service-fabric-patterns-and-scenarios.md)
 ### 기본 사항
 #### [프로그래밍 모델](service-fabric-choose-framework.md)
 #### [응용 프로그램 모델](service-fabric-application-model.md)
 #### [서비스 통신](service-fabric-connect-and-communicate-with-services.md)
+#### [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md)
 #### [도구](service-fabric-manage-application-in-visual-studio.md)
-#### [디버그](service-fabric-debugging-your-application.md)
+#### 디버그
+##### [VS에서 C# 서비스 디버그](service-fabric-debugging-your-application.md)
+##### [Eclipse에서 Java 서비스 디버그](service-fabric-debugging-your-application-java.md)
 #### 모니터링 및 진단
 ##### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ##### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-#### [응용 프로그램에 대한 보안 정책 구성](service-fabric-application-runas-security.md)
-#### [여러 환경에 대한 응용 프로그램 구성](service-fabric-manage-multiple-environment-app-configuration.md)
+#### [응용 프로그램 비밀 관리](service-fabric-application-secret-management.md)  
+#### [응용 프로그램에 대한 보안 정책 구성](service-fabric-application-runas-security.md)  
+#### [여러 환경에 대한 응용 프로그램 구성](service-fabric-manage-multiple-environment-app-configuration.md)  
+#### [일반적인 오류 및 예외](service-fabric-errors-and-exceptions.md) 
 
 ### 신뢰할 수 있는 서비스 응용 프로그램
 #### [개요](service-fabric-reliable-services-introduction.md)
@@ -36,12 +43,14 @@
 ##### [Windows에서 C#](service-fabric-reliable-services-quick-start.md)
 ##### [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
 #### [아키텍처](service-fabric-reliable-services-platform-architecture.md)
+#### [Reliable Services 수명 주기](service-fabric-reliable-services-lifecycle.md)
 #### [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)
 #### [신뢰할 수 있는 컬렉션 사용](service-fabric-work-with-reliable-collections.md)
 #### [구성](service-fabric-reliable-services-configuration.md)
 #### [Notifications](service-fabric-reliable-services-notifications.md)
 #### [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
 #### [Reliable Services와 통신](service-fabric-reliable-services-communication.md)
+#### [Reliable Services와 보안 통신](service-fabric-reliable-services-secure-communication.md)
 ##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
 ##### [원격 서비스](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
@@ -62,6 +71,7 @@
 #### [상태 관리](service-fabric-reliable-actors-state-management.md)
 #### [상태 제공자 구성](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [형식 직렬화](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+#### [통신 설정 구성](service-fabric-reliable-actors-fabrictransportsettings.md) 
 
 ### 게스트 실행 가능 응용 프로그램
 #### [게스트 실행 파일 배포](service-fabric-deploy-existing-app.md)
@@ -84,6 +94,7 @@
 #### [용량 계획](service-fabric-cluster-capacity.md)
 #### [클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 #### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
+#### [Azure CLI를 사용하여 클러스터 관리](service-fabric-azure-cli.md) 
 #### [보안](service-fabric-cluster-security.md)
 #### [재해 복구](service-fabric-disaster-recovery.md)
 
@@ -97,15 +108,19 @@
 #### [클러스터 삭제](service-fabric-cluster-delete.md)
 #### [액세스 제어](service-fabric-cluster-security-roles.md)
 #### [클러스터 구성](service-fabric-cluster-fabric-settings.md)
+#### [클러스터 인증서 추가 또는 롤오버](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Party 클러스터 무료 체험](http://aka.ms/tryservicefabric)
 
 ### 독립 실행형 클러스터
 #### [독립 실행형 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
+#### [Azure Virtual Machines에서 독립 실행형 클러스터 만들기](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [클러스터의 크기 조정](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [클러스터 업그레이드](service-fabric-cluster-upgrade-windows-server.md)
 #### [클러스터에 보안 적용](service-fabric-windows-cluster-x509-security.md)
 #### [액세스 제어](service-fabric-cluster-security-roles.md)
 #### [클러스터 구성](service-fabric-cluster-manifest.md)
+#### [인증서를 사용하여 클러스터 보안](service-fabric-windows-cluster-x509-security.md)  
+#### [Windows 보안을 사용하여 클러스터 보안](service-fabric-windows-cluster-windows-security.md) 
 
 ## 클러스터 리소스 관리 및 오케스트레이션
 ### [클러스터 Resource Manager 개요](service-fabric-cluster-resource-manager-introduction.md)
@@ -137,7 +152,6 @@
 ### [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
 ### [응용 프로그램 업그레이드에서 데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
 ### [응용 프로그램 업그레이드 고급 토픽](service-fabric-application-upgrade-advanced.md)
-### [REST 기반 응용 프로그램 수명 주기 샘플](service-fabric-rest-based-application-lifecycle-sample.md)
 
 ## 응용 프로그램 및 클러스터 상태 검사
 ### [Service Fabric 상태 모니터링](service-fabric-health-introduction.md)
@@ -153,7 +167,7 @@
 ### Azure 진단 로그
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [Service Fabric 응용 프로그램 추적](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+### [서비스 프로세스에서 로그 수집](service-fabric-diagnostic-collect-logs-without-an-agent.md)
 ### [Reliable Actors의 진단](service-fabric-reliable-actors-diagnostics.md)
 ### [상태 저장 Reliable Services의 진단](service-fabric-reliable-services-diagnostics.md)
 ### [로컬 클러스터 문제 해결](service-fabric-troubleshoot-local-cluster-setup.md)
@@ -174,6 +188,7 @@
 #### [워크로드 중](service-fabric-testability-workload-tests.md)
 #### [데이터 손실을 호출하여](service-fabric-use-data-loss-api.md)
 #### [테스트 시나리오 사용](service-fabric-testability-scenarios.md)
+#### [노드 전환 API 소개](service-fabric-node-transition-apis.md)
 ### [응용 프로그램 부하 테스트](service-fabric-vso-load-test.md)
 
 # 참조
@@ -183,6 +198,8 @@
 ## [REST (영문)](/rest/api/servicefabric)
 
 # 리소스
+## [Service Fabric에 대한 일반적인 질문](service-fabric-common-questions.md)
+## [Service Fabric 지원 옵션](service-fabric-support.md)
 ## [샘플 코드](http://aka.ms/servicefabricsamples)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/service-fabric/)

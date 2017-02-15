@@ -1,20 +1,24 @@
 ---
-title: 'DocumentDB 디자인 패턴: 소셜 미디어 앱 | Microsoft Docs'
-description: DocumentDB 및 기타 Azure 서비스의 저장소 유연성을 활용하여 소셜 네트워크에 대한 디자인 패턴을 알아봅니다.
-keywords: 소셜 미디어 앱
+title: "DocumentDB 디자인 패턴: 소셜 미디어 앱 | Microsoft Docs"
+description: "DocumentDB 및 기타 Azure 서비스의 저장소 유연성을 활용하여 소셜 네트워크에 대한 디자인 패턴을 알아봅니다."
+keywords: "소셜 미디어 앱"
 services: documentdb
 author: ealsur
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/09/2016
 ms.author: mimig
+translationtype: Human Translation
+ms.sourcegitcommit: d9f6c8c73cb7803547053ec495812f993eb44c43
+ms.openlocfilehash: b2f8683be1dea938cba84766efe32287eeebb712
+
 
 ---
 # <a name="going-social-with-documentdb"></a>DocumentDB를 사용하여 소셜 네트워크 디자인
@@ -104,7 +108,7 @@ Azure DocumentDB는 모든 속성이 자체 [자동 인덱싱](documentdb-indexi
 
 이 동일한 기술을 사용하여 궁극적으로 일관된 환경을 만들어 게시물에 대한 평점 및 좋아요를 지연된 방식으로 처리할 수 있습니다.
 
-팔로워는 더 복잡합니다. DocumentDB는 문서의 최대 크기를 512Kb로 제한하므로 다음 구조를 사용하여 팔로워를 저장하는 방법을 고려할 수 있습니다.
+팔로워는 더 복잡합니다. DocumentDB에는 최대 문서 크기 제한이 있으며 크기가 큰 문서의 읽기/쓰기는 응용 프로그램의 확장성에 영향을 줄 수 있습니다. 다음 구조를 사용하여 팔로워를 저장하는 방법을 고려할 수 있습니다.
 
     {
         "id":"234d-sd23-rrf2-552d",
@@ -117,7 +121,7 @@ Azure DocumentDB는 모든 속성이 자체 [자동 인덱싱](documentdb-indexi
         ]
     }
 
-이 방식은 수천 명의 팔로워를 지닌 사용자에게 적합하지만 일부 유명인이 랭크에 조인하면 결국 이 접근 방식은 문서 크기 용량이 부족합니다.
+이 방식은 수천 명의 팔로워를 지닌 사용자에게 적합하지만 일부 유명인이 랭크에 조인하면 결국 이 접근 방식은 큰 문서에 도달해 문서 크기 용량이 부족하게 될 수 있습니다.
 
 이 문제를 해결하기 위해 혼합된 접근 방식을 사용할 수 있습니다. 사용자 통계 문서의 일부로 팔로워의 수를 저장할 수 있습니다.
 
@@ -131,7 +135,7 @@ Azure DocumentDB는 모든 속성이 자체 [자동 인덱싱](documentdb-indexi
 
 또한 팔로워의 실제 그래프는 간단한 "A 다음에 B"를 저장하고 검색하도록 허용하는 [확장](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) 을 사용하여 Azure 저장소 테이블에 저장할 수 있습니다. 이렇게 Azure 저장소 테이블에 대한 정확한 팔로워 목록(필요한 경우)을 검색하는 프로세스를 삭제할 수 있지만 단축 번호 조회의 경우 DocumentDB를 계속 사용합니다.
 
-## <a name="the-“ladder”-pattern-and-data-duplication"></a>"사다리" 패턴 및 데이터 중복
+## <a name="the-ladder-pattern-and-data-duplication"></a>"사다리" 패턴 및 데이터 중복
 게시물을 참조하는 JSON 문서에서 볼 수 있듯이 하나의 사용자가 여러 번 발생합니다. 이는 이러한 역정규화가 주어진 경우 사용자를 나태는 정보가 여러 곳에 표시될 수 있음을 의미합니다.
 
 데이터 중복이 발생하도록 둔 것은 더 빠른 쿼리를 허용하기 위해서입니다. 그 부작용으로 인한 문제는 일부 작업으로 인해 사용자의 데이터가 변경된 경우 해당 사용자가 지금까지 수행한 모든 활동을 찾아서 모두 업데이트해야 한다는 점입니다. 그다지 실용적으로 들리지 않죠, 그렇죠?
@@ -227,6 +231,9 @@ Azure 검색에 대한 자세한 내용은 [Hitchhiker의 검색 가이드](http
 
 또는 [DocumentDB 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 수행하여 DocumentDB에 대해 자세히 알아보세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

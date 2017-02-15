@@ -3,7 +3,7 @@ title: "Azure 배치 풀에서 자동으로 계산 노드 크기 조정 | Micros
 description: "클라우드 풀에서 자동 크기 조정을 사용하면 풀의 계산 노드 수를 동적으로 조정합니다."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
@@ -13,22 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
 ms.date: 10/14/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2c142291b48210014597b9c0efbe1e0f2886fdf
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 75cb029e61006636de91e945404e38fd6d955697
 
 
 ---
 # <a name="automatically-scale-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀에서 자동으로 계산 노드 크기 조정
 자동 크기 조정으로 Azure 배치 서비스에서는 정의한 매개 변수에 따라 풀에서 계산 노드를 동적으로 추가하거나 제거할 수 있습니다. 응용 프로그램에서 사용되는 계산 능력의 양을 자동으로 조정하여 시간과 비용을 잠재적으로 절약하고 작업의 작업 수요가 증가하면 노드를 추가하고 감소될 때 제거합니다.
 
-[배치.NET](batch-dotnet-get-started.md) 라이브러리의 [PoolOperations.EnableAutoScale][net_enableautoscale] 메서드와 같이 정의한 *자동 크기 조정 수식*을 연결하여 계산 노드의 풀에서 자동 크기 조정을 사용하도록 설정할 수 있습니다. 그러면 배치 서비스는 이 수식을 사용하여 워크로드를 실행하는 데 필요한 계산 노드의 수를 결정합니다. 배치는 주기적으로 수집되는 서비스 메트릭 데이터 샘플에 응답하고 풀의 계산 노드 수를 수식에 따라 구성 가능한 간격으로 조정합니다.
+[Batch .NET](batch-dotnet-get-started.md) 라이브러리의 [PoolOperations.EnableAutoScale][net_enableautoscale] 메서드와 같이 정의한 *자동 크기 조정 수식*을 연결하여 계산 노드의 풀에서 자동 크기 조정을 사용하도록 설정할 수 있습니다. 그러면 배치 서비스는 이 수식을 사용하여 워크로드를 실행하는 데 필요한 계산 노드의 수를 결정합니다. 배치는 주기적으로 수집되는 서비스 메트릭 데이터 샘플에 응답하고 풀의 계산 노드 수를 수식에 따라 구성 가능한 간격으로 조정합니다.
 
 풀이 만들어질 때 또는 기존 풀에서 자동 크기 조정을 사용하도록 설정할 수 있습니다. "자동 크기 조정"이 활성화된 풀의 기존 수식을 변경할 수도 있습니다. 배치는 자동 크기 조정 실행의 상태를 모니터링할 뿐만 아니라 수식을 풀에 할당하기 전에 평가하는 기능을 제공합니다.
 
 ## <a name="automatic-scaling-formulas"></a>자동 크기 조정 수식
-자동 크기 조정 수식은 하나 이상의 문을 포함하고 풀의 [autoScaleFormula][rest_autoscaleformula] 요소(배치 REST) 또는 [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] 속성(배치 .NET)에 할당되도록 정의한 문자열 값입니다. 풀에 할당할 경우 배치 서비스는 처리할 다음 간격을 위해 풀에 계산 노드의 대상 수를 결정하는 수식을 사용합니다(간격은 나중에 자세히 설명함). 이 수식 문자열의 크기는 8KB를 초과할 수 없으며, 세미콜론으로 구분된 구문을 100개까지 포함할 수 있으며 줄 바꿈과 주석을 포함할 수 있습니다.
+자동 크기 조정 수식은 하나 이상의 문을 포함하고 풀의 [autoScaleFormula][rest_autoscaleformula] 요소(Batch REST) 또는 [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] 속성(Batch .NET)에 할당된 것으로 정의된 문자열 값입니다. 풀에 할당할 경우 배치 서비스는 처리할 다음 간격을 위해 풀에 계산 노드의 대상 수를 결정하는 수식을 사용합니다(간격은 나중에 자세히 설명함). 이 수식 문자열의 크기는 8KB를 초과할 수 없으며, 세미콜론으로 구분된 구문을 100개까지 포함할 수 있으며 줄 바꿈과 주석을 포함할 수 있습니다.
 
 배치 크기 자동 조정 "언어"를 사용할 때 자동 크기 조정 수식을 고려할 수 있습니다. 수식 문은 자유 형식이고 서비스가 정의한 변수(배치 서비스에 의해 정의된 변수) 및 사용자가 정의한 변수(사용자가 정의한 변수)를 포함할 수 있습니다. 기본 제공 형식, 연산자 및 함수를 사용하여 이러한 값에 다양한 작업을 수행할 수 있습니다. 예를 들어 문은 다음과 같은 형태일 수 있습니다.
 
@@ -138,8 +138,8 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 | doubleVec *operator* doubleVec |+, -, *, / |doubleVec |
 | timeinterval *operator* double |*, / |timeinterval |
 | timeinterval *operator* timeinterval |+, - |timeinterval |
-| timeinterval *operator* timestamp |+ | timestamp |
-| timestamp *operator* timeinterval |+ | timestamp |
+| timeinterval *operator* timestamp |+ |timestamp |
+| timestamp *operator* timeinterval |+ |timestamp |
 | timestamp *operator* timestamp |- |timeinterval |
 | *operator*double |-, ! |double |
 | *operator*timeinterval |- |timeinterval |
@@ -149,7 +149,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 | timeinterval *operator* timeinterval |<, <=, ==, >=, >, != |double |
 | double *operator* double |&&, &#124;&#124; |double |
 
-3항 연산자(`double ? statement1 : statement2`)가 있는 이중 연산자를 테스트할 경우 0이 아님이 **true**이고 0은 **false**입니다.
+3항 연산자(`double ? statement1 : statement2`)가 있는 이중 연산자를 테스트할 경우&0;이 아님이 **true**이고&0;은 **false**입니다.
 
 ## <a name="functions"></a>함수
 이러한 미리 정의된 **함수** 는 자동 크기 조정 수식을 정의하는 데 사용할 수 있습니다.
@@ -173,8 +173,8 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 | std(doubleVecList) |double |doubleVecList에 있는 값의 샘플 표준 편차를 반환합니다. |
 | stop() | |자동 크기 조정 식의 평가를 중지합니다. |
 | sum(doubleVecList) |double |doubleVecList에 있는 모든 구성 요소의 합계를 반환합니다. |
-| time(string dateTime="") | timestamp |매개 변수가 전달되지 않는 경우 현재 시간의 타임스탬프 또는 매개 변수가 전달되는 경우 dateTime 문자열의 타임스탬프를 반환합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다. |
-| val(doubleVec v, double i) |double |시작 인덱스가 0인 벡터 v의 위치 i 요소 값을 반환합니다. |
+| time(string dateTime="") |timestamp |매개 변수가 전달되지 않는 경우 현재 시간의 타임스탬프 또는 매개 변수가 전달되는 경우 dateTime 문자열의 타임스탬프를 반환합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다. |
+| val(doubleVec v, double i) |double |시작 인덱스가&0;인 벡터 v의 위치 i 요소 값을 반환합니다. |
 
 위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예:
 
@@ -183,7 +183,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 *doubleVecList* 값은 평가 전 단일 *doubleVec*로 변환됩니다. 예를 들어 `v = [1,2,3]`의 경우 `avg(v)` 호출은 `avg(1,2,3)` 호출과 동일합니다. `avg(v, 7)` 호출은 `avg(1,2,3,7)` 호출과 동일합니다.
 
 ## <a name="a-namegetsampledataaobtain-sample-data"></a><a name="getsampledata"></a>샘플 데이터 가져오기
-자동 크기 조정 수식은 배치 서비스에서 제공한 메트릭 데이터(샘플)에서 작동합니다. 수식은 서비스에서 가져온 값에 따라 풀 크기를 늘리거나 줄입니다. 위에 설명한 서비스에 정의 변수는 해당 개체에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 개체입니다. 예를 들어, 다음 식은 최근 5분 동안의 CPU 사용률을 얻기 위한 요청을 보여 줍니다.
+자동 크기 조정 수식은 배치 서비스에서 제공한 메트릭 데이터(샘플)에서 작동합니다. 수식은 서비스에서 가져온 값에 따라 풀 크기를 늘리거나 줄입니다. 위에 설명한 서비스에 정의 변수는 해당 개체에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 개체입니다. 예를 들어, 다음 식은 최근&5;분 동안의 CPU 사용률을 얻기 위한 요청을 보여 줍니다.
 
 ```
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
@@ -234,7 +234,7 @@ $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
 ```
 
-또한 샘플 가용성에서 이전에 언급한 지연 시간으로 인해 1분 이상인 돌아보기 시작 시간으로 시간 범위를 지정하는 것이 중요합니다. 이 샘플이 시스템을 통해 전파되는 데 1분 정도가 걸리기 때문에 `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` 범위에 있는 샘플은 사용할 수 없는 경우가 많습니다. 다시 `GetSample()` 라는 백분율 매개 변수를 사용하여 특정 샘플 비율 요구 사항을 강제할 수 있습니다.
+또한 샘플 가용성에서 이전에 언급한 지연 시간으로 인해&1;분 이상인 돌아보기 시작 시간으로 시간 범위를 지정하는 것이 중요합니다. 이 샘플이 시스템을 통해 전파되는 데 1분 정도가 걸리기 때문에 `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` 범위에 있는 샘플은 사용할 수 없는 경우가 많습니다. 다시 `GetSample()` 라는 백분율 매개 변수를 사용하여 특정 샘플 비율 요구 사항을 강제할 수 있습니다.
 
 > [!IMPORTANT]
 > **자동 크기 조정 수식에서 `GetSample(1)`에*만* 의존하지 않는 것이 **아주 좋습니다****. 즉, `GetSample(1)` 가 기본적으로 배치 서비스에 "경과한 시간에 관계 없이 마지막 샘플을 제공하도록" 요구하기 때문입니다. 이 샘플은 단일 샘플이고 오래된 샘플이기 때문에 최근 작업 또는 리소스 상태의 큰 그림을 나타내지 않을 수 있습니다. `GetSample(1)`을 사용하는 경우 큰 문의 일부이며 수식이 사용하는 유일한 데이터 지점이 아니도록 주의합니다.
@@ -342,7 +342,7 @@ $TargetDedicated = min(400, $totalNodes)
 
 * [계정에 풀 추가](https://msdn.microsoft.com/library/azure/dn820174.aspx): 풀을 만들 때 REST API 요청에 `enableAutoScale` 및 `autoScaleFormula` 요소를 지정하여 자동 크기 조정을 구성합니다.
 
-다음 코드 조각은 [배치.NET][net_api] 라이브러리를 사용하여 자동 크기 조정 가능한 풀을 만듭니다. 풀의 자동 크기 조정 수식에서 대상 노드 수는 월요일에는 5로, 그 외 다른 요일에는 1로 설정됩니다. [자동 크기 조정 간격](#automatic-scaling-interval)은 30분으로 설정됩니다. 이 코드 조각과 이 문서의 다른 C# 코드 조각에서 "myBatchClient"는 [BatchClient][net_batchclient]의 적절히 초기화된 인스턴스입니다.
+다음 코드 조각은 [Batch .NET][net_api] 라이브러리를 사용하여 자동 크기 조정 가능한 풀을 만듭니다. 풀의 자동 크기 조정 수식에서 대상 노드 수는 월요일에는 5로, 그 외 다른 요일에는 1로 설정됩니다. [자동 크기 조정 간격](#automatic-scaling-interval)은 30분으로 설정됩니다. 여기와 이 문서의 다른 C# 코드 조각에서 "myBatchClient"는 [BatchClient][net_batchclient]의 적절히 초기화된 인스턴스입니다.
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
@@ -355,28 +355,28 @@ pool.Commit();
 배치 REST API 및 .NET SDK 외에도 [배치 SDK](batch-technical-overview.md#batch-development-apis), [배치 PowerShell cmdlet](batch-powershell-cmdlets-get-started.md) 및 [배치 CLI](batch-cli-get-started.md) 중 하나를 통해 자동 크기 조정을 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 자동 크기 조정 가능한 풀을 만들 때 `targetDedicated` 매개 변수는 지정하지 **않아야** 합니다. 또한 자동 크기 조정 가능한 풀의 크기를 수동으로 조정하려면(예: [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool] 사용) 먼저 풀에서 자동 크기 조정을 **사용하지 않도록** 설정한 후에 풀의 크기를 조정해야 합니다.
+> 자동 크기 조정 가능한 풀을 만들 때 `targetDedicated` 매개 변수는 지정하지 **않아야** 합니다. 또한 자동 크기 조정 사용 풀의 크기를 수동으로 조정하려는 경우(예: [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]을 사용하여) 먼저 풀에서 자동 크기 조정을 **사용하지 않도록** 다음 풀의 크기를 조정해야 합니다.
 > 
 > 
 
 ### <a name="automatic-scaling-interval"></a>자동 크기 조정 간격
 기본적으로 배치 서비스는 자동 크기 조정 수식에 따라 풀의 크기를 **15분**마다 조정합니다. 그러나 다음 풀 속성을 사용하여 이 간격은 구성할 수 있습니다.
 
-* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval](배치.NET)
-* [autoScaleEvaluationInterval][rest_autoscaleinterval](REST API)
+* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
+* [autoScaleEvaluationInterval][rest_autoscaleinterval] (REST API)
 
 최소 간격은 5분이고 최대 간격은 168시간입니다. 이 범위 밖의 간격이 지정되면 배치 서비스는 잘못된 요청(400) 오류를 반환합니다.
 
 > [!NOTE]
-> 자동 크기 조정은 현재 1분 미만의 변경 내용에 응답하지 않지만 워크로드를 실행하면 점차적으로 풀의 크기를 조정합니다.
+> 자동 크기 조정은 현재&1;분 미만의 변경 내용에 응답하지 않지만 워크로드를 실행하면 점차적으로 풀의 크기를 조정합니다.
 > 
 > 
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>기존 풀에서 자동 크기 조정 사용
 *targetDedicated* 매개 변수를 사용하여 설정된 수의 계산 노드를 포함한 풀을 이미 만든 경우에는 풀에서 자동 크기 조정을 계속 사용할 수 있습니다. 각 배치 SDK에서는 다음과 같은 "자동 크기 조정 사용" 작업을 제공합니다.
 
-* [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale](배치.NET)
-* [풀에서 자동 크기 조정 사용][rest_enableautoscale](REST API)
+* [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale] (Batch .NET)
+* [풀에서 자동 크기 조정 사용][rest_enableautoscale] (REST API)
 
 기존 풀에서 자동 크기 조정을 사용하도록 설정하면 다음과 같이 적용됩니다.
 
@@ -391,7 +391,7 @@ pool.Commit();
 > 
 > 
 
-이 C# 코드 조각에서 다음과 같이 [배치.NET][net_api] 라이브러리를 사용하여 기존 풀에서 자동 크기 조정을 사용하도록 설정합니다.
+이 C# 코드 조각에서 다음과 같이 [Batch .NET][net_api] 라이브러리를 사용하여 기존 풀에서 자동 크기 조정을 사용하도록 설정합니다.
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
@@ -405,7 +405,7 @@ myBatchClient.PoolOperations.EnableAutoScale(
 ```
 
 ### <a name="update-an-autoscale-formula"></a>자동 크기 조정 수식 업데이트
-기존 자동 크기 조정 사용 가능한 풀에서 수식을 *업데이트*하려면 동일한 "자동 크기 조정 사용" 요청을 사용합니다(예: 배치.NET의 [EnableAutoScale][net_enableautoscale] 사용). 특별한 "자동 크기 조정 업데이트" 작업은 없습니다. 예를 들어 다음 코드가 실행될 때 이미 "myexistingpool"에서 자동 크기 조정을 사용하도록 설정되어 있으면 자동 크기 조정 수식이 `myNewFormula`와 같은 내용으로 바뀝니다.
+기존 자동 크기 조정 사용 가능한 풀에서 수식을 *업데이트*하려면 동일한 "자동 크기 조정 사용" 요청을 사용합니다(예: Batch .NET의 [EnableAutoScale][net_enableautoscale] 사용). 특별한 "자동 크기 조정 업데이트" 작업은 없습니다. 예를 들어 다음 코드가 실행될 때 이미 "myexistingpool"에서 자동 크기 조정을 사용하도록 설정되어 있으면 자동 크기 조정 수식이 `myNewFormula`와 같은 내용으로 바뀝니다.
 
 ```csharp
 myBatchClient.PoolOperations.EnableAutoScale(
@@ -434,7 +434,7 @@ myBatchClient.PoolOperations.EnableAutoScale(
   
     이 REST API 요청에서 풀 ID는 URI에 지정하고, 자동 크기 조정 수식은 요청 본문의 *autoScaleFormula* 요소에 지정합니다. 작업 응답에는 수식과 관련이 있을 수 있는 오류 정보가 포함됩니다.
 
-이 [배치.NET][net_api] 코드 조각에서 수식은 [CloudPool][net_cloudpool]에 적용하기 전에 평가됩니다. 풀에서 자동 크기 조정을 사용할 수 없으면 먼저 풀에서 이 기능을 사용할 수 있도록 설정해야 합니다.
+이 [Batch .NET][net_api] 코드 조각에서 수식은 [CloudPool][net_cloudpool]에 적용하기 전에 평가됩니다. 풀에서 자동 크기 조정을 사용할 수 없으면 먼저 풀에서 이 기능을 사용할 수 있도록 설정해야 합니다.
 
 ```csharp
 // First obtain a reference to an existing pool
@@ -582,7 +582,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>예제3: 병렬 작업에 대한 회계
-작업의 수에 따라 풀 크기를 조정하는 또 다른 예입니다. 또한 이 수식은 풀에 대해 설정된 [MaxTasksPerComputeNode][net_maxtasks] 값을 고려합니다. [병렬 작업 실행](batch-parallel-node-tasks.md) 이 풀에서 사용된 경우에 특히 유용합니다.
+작업의 수에 따라 풀 크기를 조정하는 또 다른 예입니다. 이 수식은 또한 풀에 대해 설정된 [MaxTasksPerComputeNode][net_maxtasks] 값을 고려합니다. [병렬 작업 실행](batch-parallel-node-tasks.md) 이 풀에서 사용된 경우에 특히 유용합니다.
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
@@ -607,11 +607,11 @@ $NodeDeallocationOption = taskcompletion;
 
 다음 코드 조각의 수식은 다음과 같습니다.
 
-* 초기 풀 크기를 4 노드로 설정합니다.
+* 초기 풀 크기를&4; 노드로 설정합니다.
 * 풀의 수명 주기의 처음 10분 이내에는 풀 크기를 조정하지 않습니다.
 * 10분 후 지난 60분 이내에 실행 중이고 활성화된 작업 수의 최대값을 가져옵니다.
   * 두 값이 모두 0이면(마지막 60분 동안 실행 중이거나 활성화된 작업이 없었음을 나타냄) 풀 크기가 0입니다.
-  * 값 중 하나가 0보다 큰 경우 변경되지 않습니다.
+  * 값 중 하나가&0;보다 큰 경우 변경되지 않습니다.
 
 ```csharp
 string now = DateTime.UtcNow.ToString("r");
@@ -646,6 +646,6 @@ string formula = string.Format(@"
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

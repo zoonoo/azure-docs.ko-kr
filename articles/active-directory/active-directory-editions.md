@@ -387,6 +387,6 @@ Azure AD는 Free, Basic 및 Premium(P1 및 P2) 버전의 일반 기능 외에도
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

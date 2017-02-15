@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "앱에 Power BI 데이터 시각화 및 대화형 보고서를 포함하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 531e3606330a55563ae77d18d5fd270d799d6d30
-ms.openlocfilehash: 08270fca90bb74f166c94e0f4acc406bca936eb8
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c18bbb0b1e40d03be35c7d6375bb7520f0e0d4e4
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded 설명서
@@ -129,13 +129,6 @@ Power BI embedded를 사용하여 응용 프로그램에 데이터 시각화 및
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/power-bi-embedded.pdf">
-        <div class="img"></div>
-        <div class="text">
-Power BI Embedded 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 

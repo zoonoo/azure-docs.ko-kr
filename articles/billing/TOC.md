@@ -1,7 +1,5 @@
-# 시작
-## [무료 계정 만들기](https://azure.microsoft.com/free/)
+# [시작](billing-getting-started.md)
 ## [Office 365 계정을 사용하여 등록](../billing-use-existing-office-365-account-azure-subscription.md)
-## [구독 가격 책정](https://azure.microsoft.com/pricing/)
 ## [지원되는 국가 및 통화](../billing-countries-and-currencies.md)
 ## [한도 및 할당량](../azure-subscription-service-limits.md)
 ## [질문과 대답](../billing-subscription-faq.md)
@@ -17,7 +15,7 @@
 ### [구독 소유권 이전](../billing-subscription-transfer.md)
 ### [사용 해제된 구독 다시 활성화](../billing-subscription-become-disable.md)
 ### [무료 구독에서 업그레이드](../billing-upgrade-azure-subscription.md)
-### [다른 구독으로 전환](../billing-how-to-switch-azure-offer.md)
+### [구독 제안 전환](../billing-how-to-switch-azure-offer.md)
 ### [구독 취소](../billing-how-to-cancel-azure-subscription.md)
 ## 계정 관리
 ### [프로필 편집](../billing-how-to-change-azure-account-profile.md)
@@ -37,6 +35,6 @@
 # 리소스
 ## [지원에 문의](../billing-how-to-create-billing-support-ticket.md)
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

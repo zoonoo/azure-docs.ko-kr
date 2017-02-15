@@ -70,6 +70,6 @@ Azure Active Directory의 도메인 이름에 대한 대부분의 관리 작업�
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

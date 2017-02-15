@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3ffeeb2e96510342abb0c0f8718273f41729cc2d
+ms.sourcegitcommit: 5137ccfd2c809fe17cc7fdf06941ebd797288d81
+ms.openlocfilehash: 496c3c1cc0f203a58a6f81476393b369e6a76215
 
 
 ---
 # <a name="tutorial-get-started-with-azure-data-lake-analytics-u-sql-language"></a>자습서: Azure 데이터 레이크 분석 U-SQL 언어 시작
-U-SQL은 모든 규모의 데이터를 처리하도록 SQL의 장점을 사용자 코드의 표현력과 결합하는 언어입니다. U-SQL의 확장 가능한 분산 쿼리 기능을 통해 저장소 및 Azure SQL 데이터베이스와 같은 관계형 저장소의 데이터를 효율적으로 분석할 수 있습니다.  이를 통해, 읽기에 스키마를 적용하여 구조화되지 않은 데이터를 처리하고, 사용자 지정 논리 및 UDF를 삽입하고, 대규모 실행 방법을 정교하게 세분화하여 제어할 수 있도록 확장성을 포함할 수 있습니다. U-SQL의 디자인 원리에 대해 자세히 알아보려면 [Visual Studio 블로그 게시물](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)을 참조하세요.
+U-SQL은 모든 규모의 데이터를 처리하도록 SQL의 장점을 사용자 코드의 표현력과 결합하는 언어입니다. U-SQL의 확장성 있는 분산 쿼리 기능을 통해 Azure SQL Database와 같은 관계형 저장소의 데이터를 효율적으로 분석할 수 있습니다.  이를 통해, 읽기에 스키마를 적용하여 구조화되지 않은 데이터를 처리하고, 사용자 지정 논리 및 UDF를 삽입하고, 대규모 실행 방법을 정교하게 세분화하여 제어할 수 있도록 확장성을 포함할 수 있습니다. U-SQL의 디자인 원리에 대해 자세히 알아보려면 [Visual Studio 블로그 게시물](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)을 참조하세요.
 
 ANSI SQL 또는 T-SQL과 일부 다른 점이 있습니다. 예를 들어, 키워드(예: SELECT)는 대문자여야 합니다.
 
@@ -31,7 +31,7 @@ select 절 내부의 식 언어 및 형식 시스템이며 조건자 등이 C#�
 자세한 내용은 [U-SQL 참조](http://go.microsoft.com/fwlink/p/?LinkId=691348)를 참조하세요.
 
 ### <a name="prerequisites"></a>필수 조건
-[자습서: Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 완료해야 합니다.
+[자습서: Visual Studio용 Data Lake Tools를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 완료하세요.
 
 자습서에서 다음 U-SQL 스크립트를 사용하여 데이터 레이크 분석 작업을 실행했습니다.
 
@@ -151,7 +151,7 @@ WHERE 절에는 [C# 부울 식](https://msdn.microsoft.com/library/6a71f45d.aspx
 ## <a name="aggregate-rowsets"></a>집계 행 집합
 U-SQL에는 개발자에게 친숙한 **ORDER BY**, **GROUP BY** 및 집계가 제공됩니다.
 
-다음 쿼리는 지역 당 총 기간을 알아내고 최장 기간 5개를 순서대로 출력합니다.
+다음 쿼리는 지역 당 총 기간을 알아내고 최장 기간 다섯 개를 순서대로 출력합니다.
 
 U-SQL 행 집합은 다음 쿼리를 위해 이 순서를 유지하지 않습니다. 따라서 출력 순서를 정하려면 아래와 같이 OUTPUT 문에 ORDER BY를 추가해야 합니다.
 
@@ -404,7 +404,7 @@ U-SQL은 데이터베이스 및 스키마 컨텍스트에서 데이터를 사용
 * [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
 * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
 * [Azure 데이터 레이크 분석 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)
-* [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Azure 포털을 사용하여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## <a name="let-us-know-what-you-think"></a>의견 제시
 * [기능 요청 제출](http://aka.ms/adlafeedback)
@@ -414,6 +414,6 @@ U-SQL은 데이터베이스 및 스키마 컨텍스트에서 데이터를 사용
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

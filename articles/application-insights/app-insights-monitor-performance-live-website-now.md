@@ -14,21 +14,21 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: 5159e7fc47d320d52eb7b94b5775158a3f09c769
+ms.sourcegitcommit: ee9ebc23ce805bb4665669077a4d3fddf4c43e32
+ms.openlocfilehash: a190b1990a4ae4e7ad52cc1a7e802c8002522917
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights를 사용한 런타임 시 웹앱 계측
-*Application Insights는 미리 보기 상태입니다.*
 
-코드를 수정하거나 다시 배포할 필요 없이 Visual Studio Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. 앱이 온-프레미스 IIS 서버로 호스팅되는 경우 상태 모니터를 설치합니다. 또는 앱이 Azure 웹앱이거나 Azure VM에서 실행되는 경우 Application Insights 확장을 설치할 수 있습니다. ([라이브 J2EE 웹앱](app-insights-java-live.md) 및 [Azure Cloud Services](app-insights-cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.)
+
+코드를 수정하거나 다시 배포할 필요 없이 Azure Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. 앱이 온-프레미스 IIS 서버로 호스팅되는 경우 상태 모니터를 설치합니다. 또는 앱이 Azure 웹앱이거나 Azure VM에서 실행되는 경우 Application Insights 확장을 설치할 수 있습니다. ([라이브 J2EE 웹앱](app-insights-java-live.md) 및 [Azure Cloud Services](app-insights-cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.)
 
 ![예제 차트](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
 Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 경로가 있습니다.
 
-* **빌드 시간:** 웹앱 코드에 [Application Insights SDK][greenbrown]을 추가합니다.
+* **빌드 시간:** 웹앱 코드에 [Application Insights SDK를 추가][greenbrown]합니다.
 * **실행 시간:** 코드를 다시 빌드하거나 다시 작성하지 않고 아래 설명된 대로 서버에서 웹앱을 계측합니다.
 * **모두:** 웹앱 코드에 SDK를 빌드하고 런타임 확장도 적용합니다. 두 옵션의 좋은 점을 선택합니다.
 
@@ -38,9 +38,9 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
 | --- | --- | --- |
 | 요청 및 예외 |예 |예 |
 | [자세한 예외 정보](app-insights-asp-net-exceptions.md) | |예 |
-| [종속성 진단](app-insights-asp-net-dependencies.md) |.NET 4.6+의 경우 |예 |
-| [시스템 성능 카운터](app-insights-performance-counters.md) | |Azure 웹앱이 아닌 IIS 또는 Azure 클라우드 서비스의 경우 |
-| [사용자 지정 원격 분석에 대한 API][api] |예 | |
+| [종속성 진단](app-insights-asp-net-dependencies.md) |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
+| [시스템 성능 카운터](app-insights-performance-counters.md) |예 |예 |
+| [사용자 지정 원격 분석에 대 한 API][api] |예 | |
 | [추적 로그 통합](app-insights-asp-net-trace-logs.md) |예 | |
 | [페이지 보기 및 사용자 데이터](app-insights-javascript.md) |예 | |
 | 코드를 다시 빌드할 필요 없음 |아니요 | |
@@ -55,29 +55,23 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
 
 ### <a name="if-your-app-is-hosted-on-your-iis-server"></a>앱이 IIS 서버에서 호스팅되는 경우
 1. IIS 웹 서버에서 관리자 자격 증명으로 로그인합니다.
-2. [상태 모니터 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=506648)를 다운로드하고 실행합니다.
-3. 설치 마법사에서 Microsoft Azure에 로그인합니다.
-
-    ![Microsoft 계정 자격 증명으로 Azure에 로그인합니다.](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
-
-    *연결 오류? [문제 해결](#troubleshooting)을 참조하세요.*
-4. 모니터링할 설치되어 있는 웹 응용 프로그램 또는 웹 사이트를 선택한 다음, Application Insights 포털의 결과를 볼 리소스를 구성합니다.
+2. [상태 모니터 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=506648)를 다운로드하고 실행합니다.  
+3. 모니터링할 설치되어 있는 웹 응용 프로그램 또는 웹 사이트를 선택한 다음, Application Insights 포털의 결과를 볼 리소스를 구성합니다. Microsoft Azure에 로그인해야 합니다.
 
     ![앱과 리소스를 선택합니다.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
-    일반적으로 새 리소스 및 [리소스 그룹][역할]을 구성하도록 선택합니다.
+    일반적으로 새 리소스 및 [리소스 그룹][roles]을 구성하도록 선택합니다.
 
-    그렇지 않으면 사이트에 대해 [웹 테스트][가용성] 또는 [웹 클라이언트 모니터링][클라이언트]을 이미 설정한 경우 기존 리소스를 사용합니다.
-5. IIS를 다시 시작합니다.
+    그렇지 않으면 사이트에 대해 [웹 테스트][availability] 또는 [웹 클라이언트 모니터링][client]을 이미 설정한 경우 기존 리소스를 사용합니다.
+4. IIS를 다시 시작합니다.
 
     ![대화 상자의 위쪽에 있는 다시 시작을 선택합니다.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
     웹 서비스가 잠시 중단됩니다.
-6. ApplicationInsights.config가 모니터링할 웹앱에 삽입되었습니다.
+5. ApplicationInsights.config가 모니터링할 웹앱에 삽입되었습니다.
 
     ![웹앱의 코드 파일과 함께 .config 파일을 찾습니다.](./media/app-insights-monitor-performance-live-website-now/appinsights-034-aiconfig.png)
-
-   web.config에 대한 변경 내용이 몇 가지 있습니다.
+   
 
 #### <a name="want-to-reconfigure-later"></a>나중에 다시 구성하시겠습니까?
 마법사를 완료한 다음 원할 때마다 에이전트를 다시 구성할 수 있습니다. 에이전트를 설치했지만 초기 설정과 몇 가지 문제가 있는 경우에도 이를 사용할 수 있습니다.
@@ -105,7 +99,7 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
 ![종속성](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
 
 ## <a name="performance-counters"></a>성능 카운터
-(Azure 웹앱용이 아님) 개요 블레이드에서 서버를 클릭하여 CPU 선점 및 메모리 사용과 같은 서버 성능 카운터의 차트를 확인합니다.
+개요 블레이드에서 서버를 클릭하여 CPU 선점 및 메모리 사용과 같은 서버 성능 카운터의 차트를 확인합니다.
 
 다수의 서버 인스턴스가 있는 경우 차트를 편집하여 역할 인스턴스별로 그룹화하는 것이 좋습니다.
 
@@ -137,7 +131,7 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
   * IIS 관리자에서 응용 프로그램 풀을 선택하고 **고급 설정**을 연 다음 **프로세스 모델**에서 ID를 확인합니다.
   * 컴퓨터 관리 제어판에서 성능 모니터 사용자 그룹에 이 ID를 추가합니다.
 * 서버에 MMA/SCOM이 설치된 경우 일부 버전이 충돌할 수 있습니다. SCOm과 상태 모니터를 제거한 다음 최신 버전을 다시 설치하세요.
-* [문제 해결][qna]를 참조하세요.
+* [문제 해결][qna]을 참조하세요.
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 Server에서 Application Insights 상태 모니터에 대한 OS 지원:
@@ -146,10 +140,11 @@ Server에서 Application Insights 상태 모니터에 대한 OS 지원:
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
-최신 SP 및 .NET Framework 4.0, 4.5 포함
+최신 SP 및 .NET Framework 4.5 포함
 
-클라이언트 쪽 Windows 7, 8, 8.1에서, 역시 .NET Framework 4.0, 4.5 포함
+클라이언트 쪽 Windows 7, 8, 8.1 및 10에서, 역시 .NET Framework 4.5 포함
 
 IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 
@@ -214,24 +209,24 @@ IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지�
 * 서버에 최신 Application Insights SDK를 다운로드합니다.
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>다음 단계
-* [웹 테스트][가용성]을 만들어 사이트가 라이브 상태로 유지되도록 합니다.
-* [이벤트 및 로그][진단을 검색]하여 문제를 진단할 수 있습니다.
-* [웹 클라이언트 원격 분석][사용을 추가]하여 웹 페이지 코드에서 예외를 확인하고 추적 호출을 삽입합니다.
-* [Application Insights SDK를 웹 서비스 코드][greendown에 추가]하여 서버 코드에 추적 및 로그 호출을 삽입할 수 있도록 합니다.
+* [웹 테스트를 만들어][availability] 사이트가 라이브 상태로 유지되고 있는지 확인합니다.
+* [이벤트 및 로그를 검색][diagnostic]하여 문제를 진단할 수 있습니다.
+* [웹 클라이언트 원격 분석을 추가][usage]하여 웹 페이지 코드에서 예외를 확인하고 추적 호출을 삽입합니다.
+* [Application Insights SDK를 웹 서비스 코드에 추가][greenbrown]하여 서버 코드에 추적 및 로그 호출을 삽입할 수 있도록 합니다.
 
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
-[클라이언트]: app-insights-javascript.md
+[client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
-[역할]: app-insights-resources-roles-access-control.md
+[roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
