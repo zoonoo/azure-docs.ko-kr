@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: e266bf691f91381e6eed8138acd5baef44d88b57
+ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
+ms.openlocfilehash: 1915201480f57c5f132e13bb5ce4283fbea975fe
 
 
 ---
@@ -31,7 +31,7 @@ Azure 포털을 사용하여 데이터 레이크 분석 작업의 문제를 해�
 
 * **데이터 레이크 분석 작업 프로세스에 대한 기본 지식**. [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)을 참조하세요.
 * **데이터 레이크 분석 계정**. [Azure Portal을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account)을 참조하세요.
-* **기본 데이터 레이크 저장소 계정에 샘플 데이터 복사**.   [원본 데이터 준비](data-lake-analytics-get-started-portal.md#prepare-source-data)
+* **기본 데이터 레이크 저장소 계정에 샘플 데이터 복사**.  [원본 데이터 준비](data-lake-analytics-get-started-portal.md#prepare-source-data)
 
 ## <a name="submit-a-data-lake-analytics-job"></a>데이터 레이크 분석 작업 제출
 이제 잘못된 원본 파일 이름을 사용하여 U-SQL 작업 이름을 만듭니다.  
@@ -105,6 +105,6 @@ Azure 포털을 사용하여 데이터 레이크 분석 작업의 문제를 해�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

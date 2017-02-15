@@ -44,7 +44,7 @@
 ### [Azure Blob Storage 인덱서](search-howto-indexing-azure-blob-storage.md)
 ### [Azure Table Storage 인덱서](search-howto-indexing-azure-tables.md)
 ### [Azure SQL 인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Azure DocumentDB 인덱서](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
+### [Azure DocumentDB 인덱서](search-howto-index-documentdb.md)
 ### [인덱스 CSV blob](search-howto-index-csv-blobs.md)
 ### [인덱스 JSON blob](search-howto-index-json-blobs.md)
 ### [Azure VM에서 SQL Server에 대한 인덱서 연결 구성](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
@@ -61,14 +61,13 @@
 
 # 참조
 ## [.NET](/dotnet/api/microsoft.azure.search)
-## [.NET 관리](/dotnet/api/microsoft.azure.management.search)
-## [Java](/java/api/com.microsoft.azure.management.search)
+## [.NET(관리)](/dotnet/api/microsoft.azure.management.search)
+## [Python(관리)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST (영문)](/rest/api/searchservice)
 ## [REST(관리)](/rest/api/searchmanagement)
 
 # 리소스
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=search)
-## Search API 사용
 ## [API 버전](search-api-versions.md)
 ## [서비스 REST(미리 보기)](search-api-2015-02-28-preview.md)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/search/)
@@ -87,6 +86,6 @@
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

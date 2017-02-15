@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/28/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 267b281c33049e65e82a5e5b2453ff1a80983453
-ms.openlocfilehash: 744e5a093cb99463224d42a69711f41f6132a2ee
+ms.sourcegitcommit: e82cc23dac2b765ee3dc8ae2eb1e4f7f2e49675a
+ms.openlocfilehash: 9e7dbb2b218796e3484bee05c6026c801c7780b7
 
 
 ---
@@ -32,11 +32,11 @@ ms.openlocfilehash: 744e5a093cb99463224d42a69711f41f6132a2ee
 | API |HTTPS를 통한 REST API |HTTP/HTTPS를 통한 REST API |
 | 서버 쪽 API |[WebHDFS 호환 REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob 저장소 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Hadoop 파일 시스템 클라이언트 |예 |예 |
-| 데이터 작업 - 인증 | [Azure Active Directory ID](../active-directory/active-directory-authentication-scenarios.md) |공유 비밀 기반 - [계정 액세스 키](../storage/storage-create-storage-account.md#manage-your-storage-account) 및 [공유 액세스 서명 키](../storage/storage-dotnet-shared-access-signature-part-1.md) |
+| 데이터 작업 - 인증 |[Azure Active Directory ID](../active-directory/active-directory-authentication-scenarios.md) |공유 비밀 기반 - [계정 액세스 키](../storage/storage-create-storage-account.md#manage-your-storage-account) 및 [공유 액세스 서명 키](../storage/storage-dotnet-shared-access-signature-part-1.md) |
 | 데이터 작업 - 인증 프로토콜 |OAuth 2.0. 호출은 Azure Active Directory가 발급한 유효한 JWT(JSON Web Token)를 포함해야 함 |해시 기반 메시지 인증 코드(HMAC)입니다. 호출은 HTTP 요청 일부를 통해 Base64 인코딩된 SHA-256 해시를 포함해야 합니다. |
 | 데이터 작업 - 인증 |POSIX 액세스 제어 목록(ACL)입니다.  Azure Active Directory ID에 따른 ACL은 파일 및 폴더 수준에서 설정할 수 있습니다. |계정 수준 인증의 경우 - [계정 액세스 키](../storage/storage-create-storage-account.md#manage-your-storage-account) 사용.<br>계정, 컨테이너 또는 Blob 권한 부여의 경우 - [공유 액세스 서명 키](../storage/storage-dotnet-shared-access-signature-part-1.md) 사용. |
 | 데이터 작업 - 감사 |사용 가능. 자세한 내용은 [여기](data-lake-store-diagnostic-logs.md) 를 참조하세요. |사용 가능 |
-| 미사용 암호화 데이터 |투명한, 서버 쪽(출시 예정)<ul><li>서비스 관리 키 사용</li><li>Azure KeyVault의 고객 관리 키 사용</li></ul> |<ul><li>투명한, 서버 쪽</li> <ul><li>서비스 관리 키 사용</li><li>Azure KeyVault의 고객 관리 키 사용(출시 예정)</li></ul><li>클라이언트 쪽 암호화</li></ul> |
+| 미사용 암호화 데이터 |투명한, 서버 쪽 <ul><li>서비스 관리 키 사용</li><li>Azure KeyVault의 고객 관리 키 사용</li></ul> |<ul><li>투명한, 서버 쪽</li> <ul><li>서비스 관리 키 사용</li><li>Azure KeyVault의 고객 관리 키 사용(출시 예정)</li></ul><li>클라이언트 쪽 암호화</li></ul> |
 | 관리 작업(예: 계정 만들기) |[역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md) ) |[역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md) ) |
 | 개발자 SDK |.NET, Java, Node.js |.NET, Java, Python, Node.js, c + +, Ruby |
 | 분석 워크로드 성능 |병렬 분석 워크로드에 대해 최적화된 성능입니다. 높은 처리량 및 IOPS. |분석 워크로드에 대해 최적화되지 않음 |
@@ -53,6 +53,6 @@ ms.openlocfilehash: 744e5a093cb99463224d42a69711f41f6132a2ee
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

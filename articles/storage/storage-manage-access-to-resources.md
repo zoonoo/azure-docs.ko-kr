@@ -3,8 +3,8 @@ title: "컨테이너 및 Blob에 대한 익명의 읽기 액세스 권한 관리
 description: "컨테이너와 Blob에서 익명 액세스를 사용하도록 설정하는 방법 및 프로그래밍 방식으로 액세스하는 방법을 알아봅니다."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c43677749a80506221a5992d215eddab48cd69c8
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 4fe41c3aabf5e6d9ae899cea0b9f9b6c9c305cf0
 
 
 ---
@@ -37,7 +37,7 @@ ms.openlocfilehash: c43677749a80506221a5992d215eddab48cd69c8
 
 다음과 같은 방법으로 컨테이너 권한을 설정할 수 있습니다.
 
-* [Azure 포털](https://portal.azure.com)의 경우.
+* [Azure 포털](https://portal.azure.com)
 * 프로그래밍 방식으로 저장소 클라이언트 라이브러리 또는 REST API 사용
 * PowerShell 사용 Azure PowerShell에서 컨테이너 권한을 설정하는 방법에 관해 알아보려면 [Azure Storage와 Azure PowerShell 사용](storage-powershell-guide-full.md#how-to-manage-azure-blobs)을 참조하세요.
 
@@ -48,7 +48,7 @@ ms.openlocfilehash: c43677749a80506221a5992d215eddab48cd69c8
 2. 목록에서 컨테이너 이름을 선택합니다. 이름을 클릭하면 선택한 컨테이너의 blob가 표시됩니다.
 3. 도구 모음에서 **액세스 정책** 을 선택합니다.
 4. 아래 스크린샷과 같이 **액세스 유형** 필드에서 원하는 권한 수준을 선택합니다.
-   
+
     ![컨테이너 메타데이터 편집 대화 상자](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### <a name="setting-container-permissions-programmatically-using-net"></a>.NET을 사용하여 프로그래밍 방식으로 컨테이너 권한 설정
@@ -156,6 +156,6 @@ public static void DownloadBlobAnonymously()
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

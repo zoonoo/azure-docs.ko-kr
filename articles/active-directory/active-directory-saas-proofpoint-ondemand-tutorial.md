@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Proofpoint on Demand | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Proofpoint on Demand.
+title: "자습서: Proofpoint on Demand와 Azure Active Directory 통합 | Microsoft Docs"
+description: "Azure Active Directory 및 Proofpoint on Demand 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 773e7f7d-ec31-411b-860d-6a6633335d43
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,202 +14,193 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5c6129050dacf098fa60439175b91b3a2d219182
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-proofpoint-on-demand"></a>Tutorial: Azure Active Directory integration with Proofpoint on Demand
-In this tutorial, you learn how to integrate Proofpoint on Demand with Azure Active Directory (Azure AD).
+# <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>자습서: Proofpoint on Demand와 Azure Active Directory 통합
+이 자습서에서는 Azure AD(Azure Active Directory)와 Proofpoint on Demand를 통합하는 방법에 대해 알아봅니다.
 
-Integrating Proofpoint on Demand with Azure AD provides you with the following benefits:
+Proofpoint on Demand를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-* You can control in Azure AD who has access to Proofpoint on Demand
-* You can enable your users to automatically get signed-on to Proofpoint on Demand (Single Sign-On) with their Azure AD accounts
-* You can manage your accounts in one central location - the Azure classic portal
+* Proofpoint on Demand에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
+* 사용자가 해당 Azure AD 계정으로 Proofpoint on Demand에 자동으로 로그온(Single Sign-on 또는 SSO)되도록 설정할 수 있습니다.
+* 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)를 참조하세요.
 
-## <a name="prerequisites"></a>Prerequisites
-To configure Azure AD integration with Proofpoint on Demand, you need the following items:
+## <a name="prerequisites"></a>필수 조건
+Proofpoint on Demand와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-* An Azure AD subscription
-* A Proofpoint on Demand single-sign on enabled subscription
+* Azure AD 구독
+* Proofpoint on Demand Single Sign-On 구독
 
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-> 
-> 
+이 자습서의 단계를 테스트하려면 다음 권장 사항을 따릅니다.
 
-To test the steps in this tutorial, you should follow these recommendations:
+* 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마십시오.
+* Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
-* You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+## <a name="scenario-description"></a>시나리오 설명
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
 
-## <a name="scenario-description"></a>Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment.
+이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-The scenario outlined in this tutorial consists of two main building blocks:
+1. 갤러리에서 Proofpoint on Demand를 추가합니다.
+2. Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-1. Adding Proofpoint on Demand from the gallery
-2. Configuring and testing Azure AD single sign-on
+## <a name="add-proofpoint-on-demand-from-the-gallery"></a>갤러리에서 Proofpoint on Demand 추가
+Proofpoint on Demand의 Azure AD 통합을 구성하려면 갤러리의 Proofpoint on Demand를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-## <a name="adding-proofpoint-on-demand-from-the-gallery"></a>Adding Proofpoint on Demand from the gallery
-To configure the integration of Proofpoint on Demand into Azure AD, you need to add Proofpoint on Demand from the gallery to your list of managed SaaS apps.
+1. Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+   
+    ![Active Directory 아이콘][1]
+2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+   
+    ![응용 프로그램 메뉴 항목][2]
+4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.
+   
+    ![추가 단추][3]
+5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+   
+    ![갤러리에서 응용 프로그램 추가 선택][4]
+6. 검색 상자에 **Proofpoint on Demand**를 입력합니다.
+   
+    !["Proofpoint on Demand"를 입력하는 상자](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_01.png)
+7. 결과 창에서 **Proofpoint on Demand**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 
-**To add Proofpoint on Demand from the gallery, perform the following steps:**
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+이 섹션에서는 Britta Simon이라는 테스트 사용자를 기반으로 Proofpoint on Demand에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-   
-    ![Active Directory][1]
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-   
-    ![Applications][2]
-4. Click **Add** at the bottom of the page.
-   
-    ![Applications][3]
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-   
-    ![Applications][4]
-6. In the search box, type **Proofpoint on Demand**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_01.png)
-7. In the results pane, select **Proofpoint on Demand**, and then click **Complete** to add the application.
+Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Proofpoint on Demand 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Proofpoint on Demand의 관련 사용자 간에 연결이 형성되어야 합니다.
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Proofpoint on Demand based on a test user called "Britta Simon".
+이 연결 관계는 Azure AD의 **사용자 이름** 값을 Proofpoint on Demand의 **Username** 값으로 할당하여 설정합니다.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Proofpoint on Demand is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Proofpoint on Demand needs to be established.
+Proofpoint on Demand에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 절차를 완료합니다.
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Proofpoint on Demand.
+1. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on), 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. [Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user), Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+3. [Proofpoint on Demand 테스트 사용자 만들기](#creating-a-proofpoint-ondemand-test-user), Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Proofpoint on Demand에 만듭니다.
+4. [Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user), Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. [Single Sign-On 테스트](#testing-single-sign-on), 구성이 작동하는지 확인합니다.
 
-To configure and test Azure AD single sign-on with Proofpoint on Demand, you need to complete the following building blocks:
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
+이 섹션에서는 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Proofpoint on Demand 응용 프로그램에서 Single Sign-On을 구성합니다.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Proofpoint on Demand test user](#creating-a-proofpoint-ondemand-test-user)** - to have a counterpart of Britta Simon in Proofpoint on Demand that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. Azure 클래식 포털의 **Proofpoint on Demand** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+   
+    ![“Single Sign-On 구성” 단추][6]
+2. **Proofpoint on Demand에 대한 사용자 로그온 방법 선택** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+   
+    ![“Microsoft Azure AD Single Sign-On” 옵션 단추](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_03.png)
+3. **앱 설정 구성** 페이지에서 다음 단계를 수행합니다.
+   
+    ![입력된 상자가 있는 "앱 설정 구성" 페이지](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_04.png)
+   
+    a. **로그온 URL** 상자에 사용자가 Proofpoint on Demand 응용 프로그램에 로그인하는 URL을 입력합니다. 다음 패턴 **https://\<hostname\>.pphosted.com/ppssamlsp_hostname**을 사용합니다.
+   
+    b. **식별자** 상자에 다음 패턴 **https://\<hostname/>.pphosted.com/ppssamlsp**를 사용하여 URL을 입력합니다.
+   
+    c. **회신 URL** 상자에 다음 패턴 **https://\<hostname/>.pphosted.com:portnumber/v1/samlauth/samlconsumer**를 사용하여 URL을 입력합니다.
+   
+    d. **다음**을 클릭합니다.
+4. **Proofpoint on Demand에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
+   
+    !["인증서 다운로드" 단추가 있는 "Proofpoint on Demand에서 Single Sign-On 구성" 페이지](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_05.png)
+   
+    a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
+   
+    b. **Next**를 클릭합니다.
+5. 응용 프로그램에 대해 구성된 SSO를 얻으려면 Proofpoint on Demand 지원 팀에 문의하고 다음을 제공하세요.
+   
+    • 다운로드한 인증서
+   
+    • 엔터티 ID
+   
+    • SAML SSO URL
+6. 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
+   
+    ![Single Sign-On을 구성했는지 확인하는 확인란][10]
+7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.  
+   
+    ![확인 페이지][11]
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Proofpoint on Demand application.
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+이 섹션에서는 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-**To configure Azure AD single sign-on with Proofpoint on Demand, perform the following steps:**
+![사용자 목록의 테스트 사용자][20]
 
-1. In the classic portal, on the **Proofpoint on Demand** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
-    ![Configure Single Sign-On][6] 
-2. On the **How would you like users to sign on to Proofpoint on Demand** page, select **Azure AD Single Sign-On**, and then click **Next**.
+    ![Active Directory 아이콘](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_09.png)
+2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_03.png) 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+    ![사용자 메뉴 항목](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_03.png)
+4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_04.png) 
+    ![사용자 추가 단추](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_04.png)
+5. **이 사용자에 대해 알리기** 페이지에서 다음 단계  ![입력된 상자가 있는 "이 사용자에 대해 알리기" 페이지](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png)를 수행 합니다.
    
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Proofpoint on Demand application using the following pattern: **https://\<hostname\>.pphosted.com/ppssamlsp_hostname**.
+    a. **사용자 유형** 상자에서 **조직의 새 사용자**를 선택합니다.
    
-    b. In the **Identifier** textbox type the URL using the following pattern: **https://\<hostname/>.pphosted.com/ppssamlsp**
+    b. **사용자 이름** 상자에 **BrittaSimon**을 입력합니다.
    
-    c. In the **Reply URL** textbox type the URL using the following pattern: **https://\<hostname/>.pphosted.com:portnumber/v1/samlauth/samlconsumer**
+    c. **다음**을 클릭합니다.
+6. **사용자 프로필** 페이지에서 다음 단계 ![입력된 상자가 있는 "사용자 프로필" 페이지](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_06.png)를 수행합니다.
    
-    d. click **Next**
-4. On the **Configure single sign-on at Proofpoint on Demand** page, perform the following steps:
+   a. **이름** 상자에 **Britta**를 입력합니다.  
    
-    ![Configure Single Sign-On](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_05.png)
+   b. **성** 상자에 **Simon**을 입력합니다.
    
-    a. Click **Download certificate**, and then save the file on your computer.
+   c. **표시 이름** 상자에 **Britta Simon**을 입력합니다.
    
-    b. Click **Next**.
-5. To get SSO configured for your application, contact Proofpoint on Demand support team and provide them with the following:
+   d. **역할** 목록에서 **사용자**를 선택합니다.
    
-    • The downloaded **certificate**
+   e. **다음**을 클릭합니다.
+7. **임시 암호 가져오기** 페이지에서 **만들기**를 클릭합니다.
    
-    • The **Entity ID**
+    ![임시 암호를 만들기 위한 단추](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_07.png)
+8. **임시 암호 가져오기** 페이지에서 다음 단계를 수행합니다.
    
-    • The **SAML SSO URL**
-6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+    ![암호 정보가 있는 "임시 암호 가져오기" 페이지](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_08.png)
    
-    ![Azure AD Single Sign-On][10]
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+    a. **새 암호** 상자의 값을 적어둡니다.
    
-    ![Azure AD Single Sign-On][11]
+    b. **완료**를 클릭합니다.   
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+### <a name="create-a-proofpoint-on-demand-test-user"></a>Proofpoint on Demand 테스트 사용자 만들기
+이 섹션에서는 Proofpoint on Demand에서 Britta Simon이라는 사용자를 만듭니다. Proofpoint on Demand 지원 팀과 함께 Proofpoint on Demand 플랫폼에 사용자를 추가하세요.
 
-![Create Azure AD User][20]
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Proofpoint on Demand에 대한 액세스 권한을 부여합니다.
 
-**To create a test user in Azure AD, perform the following steps:**
+![직접 메서드를 통해 활성화된 액세스를 보여 주는 사용자 정보][200]
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_09.png) 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To display the list of users, in the menu on the top, click **Users**.
+    ![응용 프로그램 메뉴 항목][201]
+2. 응용 프로그램 목록에서 **Proofpoint on Demand**를 선택합니다.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_03.png) 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+    ![Proofpoint on Demand가 선택된 응용 프로그램 목록](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_50.png)
+3. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_04.png) 
-5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png) 
+    ![사용자 메뉴 항목][203]
+4. 사용자 목록에서 **Britta Simon**을 선택합니다.
+5. 아래쪽 도구 모음에서 **할당**을 클릭합니다.
    
-    a. As Type Of User, select New user in your organization.
-   
-    b. In the User Name **textbox**, type **BrittaSimon**.
-   
-    c. Click **Next**.
-6. On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_06.png) 
-   
-   a. In the **First Name** textbox, type **Britta**.  
-   
-   b. In the **Last Name** textbox, type, **Simon**.
-   
-   c. In the **Display Name** textbox, type **Britta Simon**.
-   
-   d. In the **Role** list, select **User**.
-   
-   e. Click **Next**.
-7. On the **Get temporary password** dialog page, click **create**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_07.png) 
-8. On the **Get temporary password** dialog page, perform the following steps:
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_08.png) 
-   
-    a. Write down the value of the **New Password**.
-   
-    b. Click **Complete**.   
+    ![할당 단추][205]
 
-### <a name="creating-an-proofpoint-on-demand-test-user"></a>Creating an Proofpoint on Demand test user
-In this section, you create a user called Britta Simon in Proofpoint on Demand. Please work with Proofpoint on Demand support team to add the users in the Proofpoint on Demand platform.
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트
+이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Proofpoint on Demand.
+액세스 패널에서 **Proofpoint on Demand** 타일을 클릭하면 Proofpoint on Demand 응용 프로그램에 자동으로 로그인되어야 합니다.
 
-![Assign User][200] 
-
-**To assign Britta Simon to Proofpoint on Demand, perform the following steps:**
-
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-   
-    ![Assign User][201] 
-2. In the applications list, select **Proofpoint on Demand**.
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_50.png) 
-3. In the menu on the top, click **Users**.
-   
-    ![Assign User][203]
-4. In the Users list, select **Britta Simon**.
-5. In the toolbar on the bottom, click **Assign**.
-   
-    ![Assign User][205]
-
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Proofpoint on Demand tile in the Access Panel, you should get automatically signed-on to your Proofpoint on Demand application.
-
-## <a name="additional-resources"></a>Additional resources
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+## <a name="additional-resources"></a>추가 리소스
+* [Azure Active Directory를 사용하여 SaaS 앱을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -231,6 +222,6 @@ When you click the Proofpoint on Demand tile in the Access Panel, you should get
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

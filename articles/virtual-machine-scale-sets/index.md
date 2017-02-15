@@ -1,13 +1,25 @@
 ---
 layout: LandingPage
+description: "가상 컴퓨터 크기 집합을 사용하여 큰 계산, 빅 데이터 및 컨테이너화된 솔루션용 자동 크기 조정 Windows 또는 Linux VM을 만드는 방법에 대해 알아봅니다."
+title: "Azure Virtual Machines Scale Sets 설명서, 자습서 및 API 참조 | Microsoft Docs"
+services: virtual-machine-scale-sets
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machine-scale-sets
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: ace473bea761bd5219a3ca7facdf681dea04a7ff
+ms.sourcegitcommit: 7b2af8e58e050100b1778d977dabe25538b84cfe
+ms.openlocfilehash: 3bb6307cee24c80cbf8d621a49d2304d9b9b5c99
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Virtual Machine Scale Sets 설명서
 
-Virtual Machine Scale Sets는 동일한 VM 집합을 배포하고 관리하는데 사용할 수 있는 Azure Compute 리소스입니다.  모든 VM은 동일하게 구성되었으며 VM 크기 집합은 true 자동 크기 조정을 지원하도록 디자인되었고 VM의 사전 프로비저닝이 필요하지 않습니다. 이렇게 하면 빅 컴퓨팅, 빅 데이터 및 컨테이너화된 작업을 대상으로 하는 대규모 서비스를 손쉽게 만들 수 있습니다.
+가상 컴퓨터 크기 집합을 사용하여 동일한 일련의 자동 크기 조정 Windows 또는 Linux VM을 배포하고 관리하는 방법에 대해 알아봅니다. 설명서에서는 크기 집합을 사용하여 큰 계산, 빅 데이터 및 컨테이너화된 솔루션을 대상으로 하는 서비스를 지원하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,16 +110,10 @@ Virtual Machine Scale Sets는 동일한 VM 집합을 배포하고 관리하는�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machine-scale-sets.pdf">
-        <div class="img"></div>
-        <div class="text">
-Virtual Machine Scale Sets 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

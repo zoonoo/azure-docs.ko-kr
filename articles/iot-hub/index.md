@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모니터링, 제어하는 방법에 대해 알아봅니다. 자습서, API, 참조, 비디오 및 기타 설명서입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 62cc285a4dc0b85f364a6306e3fc4b0727c439db
-ms.openlocfilehash: 4a165d2f3e4447d2490296a76934cba98b9dcd79
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
 
 ---
 #<a name="iot-hub-documentation"></a>IoT Hub 설명서
 
-Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다.  또한 장치 연결에 대한 광범위한 모니터링을 제공하고 가장 인기 있는 언어 및 플랫폼에 대한 장치 라이브러리를 포함합니다. 
+IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모니터링, 제어하는 방법에 대해 알아봅니다. 자습서, API 참조, 비디오 및 기타 설명서를 통해 IoT 장치와 솔루션 백 엔드 간의 안정적인 양방향 통신을 배포할 수 있습니다. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -126,7 +127,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안�
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET(서비스)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET(장치)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java(서비스)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">.NET(서비스)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.iothub">Java(장치)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDK</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway SDK</a></p>
@@ -141,9 +142,10 @@ Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안�
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p><a href="/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">REST API(리소스 공급자 )</a></p>
-                        <p><a href="/rest/api/iothub/device-identities-rest">REST API(장치 ID)</a></p>
-                        <p><a href="/rest/api/iothub/device-messaging-rest-apis">REST API(장치 메시징)</a></p>
+                        <p><a href="/rest/api/iothub/iothubresource">REST(리소스 공급자)</a></p>
+                        <p><a href="/rest/api/iothub/deviceapi">REST(장치 ID)</a></p>
+                        <p><a href="/rest/api/iothub/httpruntime">REST(장치 메시징)</a></p>
+                        <p><a href="/rest/api/iothub/jobapi">REST(작업)</a></p>
                     </div>
                 </div>
             </div>
@@ -151,16 +153,10 @@ Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
-        <div class="img"></div>
-        <div class="text">
-IoT Hub 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

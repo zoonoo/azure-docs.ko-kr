@@ -1,12 +1,12 @@
 ---
-title: Azure 클래식 배포 모델을 사용하여 Azure 백업 자격 증명 모음 및 서버 관리 | Microsoft Docs
-description: 이 자습서를 사용하여 Azure 백업 저장소 및 서버를 관리하는 방법을 알아봅니다.
+title: "Azure 클래식 배포 모델을 사용하여 Azure 백업 자격 증명 모음 및 서버 관리 | Microsoft Docs"
+description: "이 자습서를 사용하여 Azure 백업 저장소 및 서버를 관리하는 방법을 알아봅니다."
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: markgalioto
 manager: jwhit
 editor: tysonn
-
+ms.assetid: f175eb12-0905-437f-91fd-eaee03ab6e81
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark;markgal
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
+
 
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 Azure 백업 자격 증명 모음 및 서버 관리
@@ -26,8 +30,6 @@ ms.author: jimpark;markgal
 이 문서에서는 Azure 클래식 포털 및 Microsoft Azure 백업 에이전트를 통해 사용할 수 있는 백업 관리 작업의 개요를 찾을 수 있습니다.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-리소스 관리자 배포 모델.
 
 ## <a name="management-portal-tasks"></a>관리 포털 작업
 1. [관리 포털](https://manage.windowsazure.com)에 로그인합니다.
@@ -188,8 +190,11 @@ Azure 백업 에이전트는 데이터 전송 중에 네트워크 대역폭이 �
 ## <a name="next-steps"></a>다음 단계
 * [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
 * Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](backup-introduction-to-azure-backup.md)
-* [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+*  [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

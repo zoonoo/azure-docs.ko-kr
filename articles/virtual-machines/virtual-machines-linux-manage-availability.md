@@ -21,6 +21,7 @@ ms.openlocfilehash: 3c305ed5b1ba35088983050f4a5c0ac56ab3888b
 
 
 ---
+
 # <a name="manage-the-availability-of-virtual-machines"></a>가상 컴퓨터의 가용성 관리
 Azure에서 여러 가상 컴퓨터를 설정하고 관리하여 Linux 응용 프로그램의 고가용성을 유지하는 방법에 대해 알아봅니다. [Windows 가상 컴퓨터의 가용성을 관리](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다.
 

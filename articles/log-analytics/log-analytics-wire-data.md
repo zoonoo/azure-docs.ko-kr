@@ -1,19 +1,23 @@
 ---
-title: Log Analytics에서 실시간 데이터 솔루션 | Microsoft Docs
-description: 실시간 데이터는 Operations Manager 및 Windows 연결 에이전트를 포함하여 OMS 에이전트 컴퓨터에서 통합된 네트워크 및 성능 데이터입니다. 네트워크 데이터는 데이터를 상호 연결할 수 있도록 로그 데이터와 결합됩니다.
+title: "Log Analytics에서 실시간 데이터 솔루션 | Microsoft Docs"
+description: "실시간 데이터는 Operations Manager 및 Windows 연결 에이전트를 포함하여 OMS 에이전트 컴퓨터에서 통합된 네트워크 및 성능 데이터입니다. 네트워크 데이터는 데이터를 상호 연결할 수 있도록 로그 데이터와 결합됩니다."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
+
 
 ---
 # <a name="wire-data-solution-in-log-analytics"></a>Log Analytics에서 실시간 데이터 솔루션
@@ -21,8 +25,8 @@ ms.author: banders
 
 > [!NOTE]
 > 실시간 데이터 솔루션은 현재 작업 영역에 추가할 수 없습니다. 이미 실시간 데이터 솔루션이 사용하도록 설정된 고객은 계속해서 실시간 데이터 솔루션을 사용할 수 있습니다.
-> 
-> 
+>
+>
 
 기본적으로 OMS는 Windows에 기본 제공된 카운터에서 CPU, 메모리, 디스크 및 네트워크 성능 데이터에 대해 기록된 데이터를 수집합니다. 컴퓨터에 사용되는 서브넷 및 응용 프로그램 수준 프로토콜을 포함하여 네트워크 및 기타 데이터 수집이 에이전트별로 실시간으로 이루어집니다. 로그 탭의 설정 페이지에서 다른 성능 카운터를 추가할 수 있습니다.
 
@@ -76,7 +80,7 @@ ms.author: banders
 2. **일반 WireData 쿼리** 목록에서 **프로세스별 네트워크 트래픽의 양(바이트)**을 클릭하여 반환된 프로세스 목록을 표시합니다.
     ![wiredata 쿼리](./media/log-analytics-wire-data/oms-wiredata-01.png)
 3. 프로세스 목록이 보기에 너무 길면 다음과 유사하게 검색 쿼리를 수정할 수 있습니다.
-   
+
     ```
     Type WireData | measure count() by ProcessName | where AggregatedValue <40
     ```
@@ -85,24 +89,26 @@ ms.author: banders
 4. 목록에 반환된 데이터를 사용하여 명명된 프로세스를 클릭합니다. 이 예제에서는 DancingPigs.exe를 클릭했습니다. 아래에 표시된 결과는 다양한 프로토콜을 통한 아웃바운드 통신과 같은 네트워크 트래픽의 유형을 설명합니다.
     ![명명된 프로세스를 보여 주는 wiredata 결과](./media/log-analytics-wire-data/oms-wiredata-03.png)
 5. 보안 및 감사 솔루션이 설치되었으므로 검색 쿼리를 IN 및 DISTINCT 검색 쿼리 연산자로 수정하여 동일한 ProcessName 필드 값이 있는 보안 이벤트에 프로브할 수 있습니다. 실시간 데이터 및 기타 솔루션 로그가 동일한 형식의 값을 포함하는 경우 이 작업을 수행할 수 있습니다. 검색 쿼리를 다음과 같이 수정합니다.
-   
+
     ```
     Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName}
     ```    
-   
+
     ![결합된 데이터를 보여 주는 wiredata 결과](./media/log-analytics-wire-data/oms-wiredata-04.png)
 6. 위의 결과에는 계정 정보가 표시된 것을 알 수 있습니다. 이제 다음과 같은 쿼리로 검색 쿼리를 구체화하여 프로세스에 보안 및 감사 데이터를 보여 주는 계정이 얼마나 자주 사용되었는지 파악할 수 있습니다.        
-   
+
     ```
     Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName} | measure count() by Account
     ```
-   
+
     ![계정 데이터를 보여 주는 wiredata 결과](./media/log-analytics-wire-data/oms-wiredata-05.png)
 
 ## <a name="next-steps"></a>다음 단계
 * [로그를 검색](log-analytics-log-searches.md) 하여 자세한 실시간 데이터 검색 레코드를 볼 수 있습니다.
 * 데이터 수집 빈도와 Operations Manager 에이전트에 대해 컬렉션 속성을 수정하는 방법에 대한 추가 정보는 Dan의 [Operations Management Suite 로그 검색에서 실시간 데이터 사용 블로그 게시물](http://blogs.msdn.com/b/dmuscett/archive/2015/09/09/using-wire-data-in-operations-management-suite.aspx) 을 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

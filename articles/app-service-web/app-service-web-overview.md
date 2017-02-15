@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/28/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: 69f3bd4759e879c6f3b55d8126f34e8ebf4be52d
+ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
+ms.openlocfilehash: a8fb8f7d338fa2f33b8fe6565f119e0be6419f41
 
 
 ---
@@ -58,13 +58,25 @@ Web Apps을 사용할 수 있는 일반적인 응용 프로그램 시나리오�
 Azure는 앱 서비스의 웹앱 뿐만 아니라 웹 사이트와 웹 응용 프로그램 호스팅에 사용할 수 있는 다른 서비스를 제공합니다. 대부분의 시나리오의 경우 웹앱을 사용하는 것이 좋습니다.  마이크로 서비스 아키텍처의 경우 [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric)을 사용하는 것이 좋으며 코드가 실행되는 VM을 보다 자세히 제어해야 하는 경우 [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)를 사용합니다. 이러한 Azure 서비스 중에서 하나를 선택하는 방법에 대한 자세한 내용은 [Azure 앱 서비스, 가상 컴퓨터, 서비스 패브릭 및 클라우드 서비스 비교](choose-web-site-cloud-service-vm.md)를 참조하세요.
 
 ## <a name="getting-started"></a>시작
-앱 서비스에서 새 웹앱으로 샘플 코드를 배포하여 시작하려면 [5분 내에 Azure에 첫 번째 웹앱 배포](app-service-web-get-started.md) 자습서를 따르세요. 무료 Azure 계정이 필요합니다.
+App Service의 새 웹앱에 샘플 코드를 배포하여 시작하려면 다음 드롭다운 상자의 자습서 중 하나를 수행합니다. 무료 Azure 계정이 필요합니다.
 
-Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. 여기서 App Service의 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> [!div class="op_single_selector"]
+> * [5분 내 Azure에 첫 번째 HTML 사이트 배포](app-service-web-get-started-html-cli-nodejs.md)
+> * [5분 내 Azure에 첫 번째 ASP.NET 웹앱 배포](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [5분 내 Azure에 첫 번째 PHP 웹앱 배포](app-service-web-get-started-php-cli-nodejs.md)
+> * [5분 내 Azure에 첫 번째 Node.js 웹앱 배포](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [5분 내 Azure에 첫 번째 Python 웹앱 배포](app-service-web-get-started-python-cli-nodejs.md)
+> * [5분 내 Azure에 첫 번째 Java 웹앱 배포](app-service-web-get-started-java.md)
+> 
+> 
+
+> [!NOTE]
+> Azure 계정 없이 [App Service를 체험](http://go.microsoft.com/fwlink/?LinkId=523751)할 수 있습니다. 시작 앱을 만들고 최대 한 시간 동안 해당 앱을 사용하여 재생합니다. -- 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> 
+> 
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

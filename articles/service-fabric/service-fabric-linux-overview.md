@@ -1,12 +1,12 @@
 ---
-title: Linux의 Azure 서비스 패브릭 | Microsoft Docs
-description: Service Fabric 클러스터는 Linux 및 Java를 지원하므로 Linux에서 Java 및 C#으로 작성된 Service Fabric 응용 프로그램을 배포 및 호스트할 수 있습니다.
+title: "Linux의 Azure Service Fabric | Microsoft Docs"
+description: "Service Fabric 클러스터는 Linux 및 Java를 지원하므로 Linux에서 Java 및 C#으로 작성된 Service Fabric 응용 프로그램을 배포 및 호스트할 수 있습니다."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 459afade-145d-4ee6-b72b-ddf380ccd1bf
 ms.service: service-fabric
 ms.devlang: Java
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2016
 ms.author: SubramaR
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f52903801c53a50d149fe8732bf514194aae0478
+
 
 ---
 # <a name="service-fabric-on-linux"></a>Linux의 서비스 패브릭
@@ -21,7 +25,7 @@ Linux의 서비스 패브릭 미리 보기를 사용하면 Windows에서와 마�
 
 Linux의 서비스 패브릭은 Windows의 서비스 패브릭과 개념적으로 동일합니다(OS 사양 및 프로그래밍 언어 지원 제외). 따라서 대부분의 [기존 설명서](http://aka.ms/servicefabricdocs) 를 통해 이 기술을 익힐 수 있습니다.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Service-Fabric-Linux-Preview/player]
+> [!비디오 https://channel9.msdn.com/Blogs/Windows-Azure/Service-Fabric-Linux-Preview/player]
 > 
 > 
 
@@ -33,6 +37,7 @@ Linux의 서비스 패브릭은 Windows의 서비스 패브릭과 개념적으�
 > 
 > 
 
+
 ## <a name="supported-tooling"></a>지원되는 도구
 미리 보기는 Azure CLI를 통해 클러스터와의 상호 작용을 지원합니다. Java 개발자를 위해 Linux 및 OSX에서 지원되는 Eclipse에 Eclipse 및 Yeoman과의 통합이 제공됩니다. OSX 통합은 Vagrant를 통해 내부에서 Linux VM을 사용합니다. C# 개발자를 위해 Yeoman과의 통합이 응용 프로그램 템플릿을 생성하도록 제공됩니다.
 
@@ -42,6 +47,9 @@ Linux의 서비스 패브릭은 Windows의 서비스 패브릭과 개념적으�
 3. [OSX에서 개발 환경 준비](service-fabric-get-started-mac.md)
 4. [Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-java.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

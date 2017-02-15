@@ -165,7 +165,7 @@ QPS(초당 쿼리 수)를 높이거나 고가용성을 구현하려면 복제본
 ## <a name="best-practices-on-scale-and-deployment-video"></a>규모 및 배포에 대한 모범 사례(비디오)
 이 30분 분량의 비디오는 지역으로 분산된 워크로드를 포함한 고급 배포 시나리오에 대한 모범 사례를 검토합니다. 동일한 내용을 다루는 도움말 페이지는 [Azure Search에서 성능 및 최적화](search-performance-optimization.md) 를 참조할 수도 있습니다.
 
-> [!비디오 https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
+> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
 > 
 > 
 

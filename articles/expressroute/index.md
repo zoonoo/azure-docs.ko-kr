@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
+description: "온-프레미스 인프라 또는 공동 시설의 Microsoft 클라우드 서비스에 개인 ExpressRoute 연결을 구성하고 관리하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 551759d87b6c697aa1f28810fe32815aec66f269
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
 
 ---
 #<a name="expressroute-documentation"></a>ExpressRoute 설명서
 
-Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다.
-
+ExpressRoute를 사용하여 온-프레미스 인프라 또는 공동 시설의 Microsoft 클라우드 서비스에 빠른 개인 연결을 설정하는 방법에 대해 알아봅니다. 자습서, REST API 및 기타 설명서를 통해 ExpressRoute 회로를 구성하고 관리할 수 있습니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,16 +98,10 @@ Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 전�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
-        <div class="img"></div>
-        <div class="text">
-ExpressRoute 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -139,12 +139,15 @@
 
 ### [앱에 대한 원격 액세스 제공](active-directory-application-proxy-get-started.md)
 #### [앱 프록시 사용](active-directory-application-proxy-enable.md)
-#### [앱 게시](active-directory-application-proxy-publish.md)
+#### 앱 게시
+##### [Azure Portal](application-proxy-publish-azure-portal.md)
+##### [클래식 포털](active-directory-application-proxy-publish.md)
 #### 별도 네트워크에 게시
 ##### [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [클래식 포털](active-directory-application-proxy-connectors.md)
 #### [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)
 #### [Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
+##### [Azure 포털](application-proxy-sso-azure-portal.md)
 #### [클레임 인식 앱](active-directory-application-proxy-claims-aware-apps.md)
 #### [네이티브 클라이언트 앱](active-directory-application-proxy-native-client.md)
 #### [조건부 액세스](active-directory-application-proxy-conditional-access.md)
@@ -212,7 +215,7 @@
 #### [CSV 파일 형식](active-directory-b2b-references-csv-file-format.md)
 #### [사용자 개체](active-directory-b2b-references-external-user-object-attribute-changes.md)
 #### [사용자 토큰](active-directory-b2b-references-external-user-token-format.md)
-### [Azure AD Connect를 사용하여 온-프레미스 ID 통합](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+### [Azure AD Connect를 사용하여 온-프레미스 ID 통합](./connect/active-directory-aadconnect.md)
 
 
 ## 리소스에 대한 액세스 위임
@@ -237,12 +240,12 @@
 ## ID 보안
 ### [Azure AD ID 보호](active-directory-identityprotection.md)
 #### [사용](active-directory-identityprotection-enable.md)
-#### [로그인 환경](active-directory-identityprotection-flows.md)
-#### [사용자 차단 해제](active-directory-identityprotection-unblock-howto.md)
 #### [취약점 감지](active-directory-identityprotection-vulnerabilities.md)
-#### [위험 이벤트 유형](active-directory-identityprotection-risk-events-types.md)
-#### [위험 이벤트 시뮬레이션](active-directory-identityprotection-playbook.md)
+#### [위험 이벤트](active-directory-identity-protection-risk-events.md)
 #### [Notifications](active-directory-identityprotection-notifications.md)
+#### [로그인 환경](active-directory-identityprotection-flows.md)
+#### [위험 이벤트 시뮬레이션](active-directory-identityprotection-playbook.md)
+#### [사용자 차단 해제](active-directory-identityprotection-unblock-howto.md)
 #### [용어](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
@@ -284,7 +287,8 @@
 
 # 관련 항목
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+## [Azure AD Connect](./connect/active-directory-aadconnect.md)
+## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [개발자용 Azure AD](./develop/active-directory-how-to-integrate.md)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
@@ -297,6 +301,6 @@
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

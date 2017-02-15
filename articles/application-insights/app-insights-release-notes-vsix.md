@@ -1,44 +1,48 @@
 ---
-title: 개발자 분석용 Visual Studio 확장에 대한 릴리스 정보
-description: 개발자 분석용 Visual Studio Tools의 최신 업데이트.
+title: "개발자 분석용 Visual Studio 확장에 대한 릴리스 정보"
+description: "개발자 분석용 Visual Studio Tools의 최신 업데이트."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: acearun
 manager: douge
-
+ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2016
-ms.author: acearun
+ms.author: aruna
+translationtype: Human Translation
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: 73e9c2bdc8e7851f8de8bcddb0babeb732d8ce15
+
 
 ---
-# 개발자 분석 도구에 대한 릴리스 정보
+# <a name="release-notes-for-developer-analytics-tools"></a>개발자 분석 도구에 대한 릴리스 정보
 새로운 기능: Visual Studio에서 Application Insights 및 HockeyApp 분석
 
-## 버전 7.0
-### Visual Studio Application Insights Trends
-Visual Studio Application Insights는 시간이 지남에 따라 앱의 작동 방식을 분석하는 데 도움을 주는 Visual Studio의 새로운 도구입니다. 시작하려면 **Application Insights** 도구 모음 단추 또는 Application Insights 검색 창에서 **원격 분석 추세 탐색**을 선택합니다. 또는 **보기** 메뉴에서 **다른 창**을 클릭한 다음 **Application Insights Trends**를 클릭합니다. 시작하려면 일반적인 5개의 쿼리 중 하나를 선택합니다. 원격 분석 유형, 시간 범위 및 기타 속성에 따라 서로 다른 데이터 집합을 분석할 수 있습니다. 데이터에서 잘못된 부분을 찾으려면 **유형 보기** 드롭다운 목록에서 비정상 옵션 중 하나를 선택합니다. 창의 아래쪽에서 필터링 옵션을 사용하면 쉽게 원격 분석의 특정 하위 집합을 쉽게 찾을 수 있습니다.
+## <a name="version-70"></a>버전 7.0
+### <a name="azure-application-insights-trends"></a>Azure Application Insights 추세
+Azure Application Insights는 시간이 지남에 따라 앱의 작동 방식을 분석하는 데 도움을 주는 Visual Studio의 새로운 도구입니다. 시작하려면 **Application Insights** 도구 모음 단추 또는 Application Insights 검색 창에서 **원격 분석 추세 탐색**을 선택합니다. 또는 **보기** 메뉴에서 **다른 창**을 클릭한 다음 **Application Insights 추세**를 클릭합니다. 시작하려면 일반적인 5개의 쿼리 중 하나를 선택합니다. 원격 분석 유형, 시간 범위 및 기타 속성에 따라 서로 다른 데이터 집합을 분석할 수 있습니다. 데이터에서 잘못된 부분을 찾으려면 **유형 보기** 드롭다운 목록에서 비정상 옵션 중 하나를 선택합니다. 창의 아래쪽에서 필터링 옵션을 사용하면 쉽게 원격 분석의 특정 하위 집합을 쉽게 찾을 수 있습니다.
 
-![Application Insights Trends](./media/app-insights-release-notes-vsix/Trends.PNG)
+![Application Insights Trends](./media/app-insights-release-notes-vsix/Trends.png)
 
-### CodeLens의 예외
+### <a name="exceptions-in-codelens"></a>CodeLens의 예외
 예외 원격 분석은 이제 CodeLens에 표시됩니다. 프로젝트를 Application Insights 서비스에 연결한 경우 지난 24시간 동안 프로덕션의 각 메서드에서 발생한 예외 수가 표시됩니다. CodeLens에서 검색 또는 추세로 이동하여 예외를 자세히 조사할 수 있습니다.
 
 ![CodeLens의 예외](./media/app-insights-release-notes-vsix/ExceptionsCodeLens.png)
 
-### ASP.NET Core 지원
+### <a name="aspnet-core-support"></a>ASP.NET Core 지원
 Application Insights는 이제 Visual Studio에서 ASP.NET Core RC2 프로젝트를 지원합니다. 다음 스크린 샷처럼 **새 프로젝트** 대화 상자에서 새 ASP.NET Core RC2 프로젝트에 Application Insights를 추가할 수 있습니다. 또는 기존 프로젝트에 추가하고 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Application Insights 원격 분석 추가**를 클릭할 수 있습니다.
 
-![ASP.NET Core 지원](./media/app-insights-release-notes-vsix/NetCoreSupport.PNG)
+![ASP.NET Core 지원](./media/app-insights-release-notes-vsix/NetCoreSupport.png)
 
 ASP.NET 5 RC1과 ASP.NET Core RC2 프로젝트는 진단 도구 창에서 새 지원이 제공됩니다. PC에서 로컬로 디버깅하는 동안 ASP.NET 앱에서 요청 및 예외 등의 Application Insights 이벤트를 볼 수 있습니다. 각 이벤트에서 **검색**을 클릭하면 자세한 정보를 살펴볼 수 있습니다.
 
-![진단 도구 지원](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
+![진단 도구 지원](./media/app-insights-release-notes-vsix/DiagnosticTools.png)
 
-### 유니버설 Windows 앱용 HockeyApp
+### <a name="hockeyapp-for-universal-windows-apps"></a>유니버설 Windows 앱용 HockeyApp
 베타 분포 및 사용자 의견 외에도 HockeyApp에서은 유니버설 Windows 앱에 기호화된 충돌 보고를 제공합니다. HockeyApp SDK를 쉽게 추가할 수 있게 되었습니다. 유니버설 Windows 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Hockey 앱 - 충돌 분석 사용**을 클릭합니다. 그러면 SDK를 설치하고, 충돌 컬렉션을 설정하며 HockeyApp 서비스에 앱을 업로드하지 않고 클라우드에서 HockeyApp 리소스를 모두 프로비전합니다.
 
 다른 새 기능:
@@ -48,14 +52,14 @@ ASP.NET 5 RC1과 ASP.NET Core RC2 프로젝트는 진단 도구 창에서 새 �
 * HockeyApp 로그인 환경도 개선했습니다.
 * 진단 도구에 예외에 대한 프로덕션 원격 분석 정보가 표시됩니다.
 
-## 버전 5.2
+## <a name="version-52"></a>버전 5.2
 Visual Studio에 HockeyApp 시나리오가 도입되었음을 알려 드립니다. 첫 번째 통합은 Visual Studio 내에서 유니버설 Windows 앱과 Windows Forms 앱의 베타 배포판 내에 있습니다.
 
 베타 배포판을 통해 이전 버전의 앱을 HockeyApp에 업로드하여 선택한 일부 그룹의 고객 또는 테스터에게 배포할 수 있습니다. 베타 배포판은 HockeyApp 크래시 수집 및 사용자 의견 기능과 함께 광범위한 릴리스에 앞서 앱에 대한 소중한 정보를 제공할 수 있습니다. 낮은 앱 평가, 부정적인 피드백 등 향후 문제를 회피하거나 최소화할 수 있도록 앱과 관련된 문제를 해결하기 위해 이 정보를 사용할 수 있습니다.
 
 Visual Studio 내에서 베타 배포판의 빌드를 업로드하는 것이 얼마나 간단한지 알아보세요.
 
-### 범용 Windows 앱
+### <a name="universal-windows-apps"></a>범용 Windows 앱
 이제 유니버셜 Windows 앱 프로젝트 노드의 상황에 맞는 메뉴에 HockeyApp으로 빌드를 업로드하는 옵션이 포함되어 있습니다.
 
 ![유니버설 Windows 앱의 프로젝트 상황에 맞는 메뉴](./media/app-insights-release-notes-vsix/UniversalContextMenu.png)
@@ -78,9 +82,9 @@ HockeyApp 포털에서 다양한 방법으로 응용 프로그램을 관리할 �
 
 ![HockeyApp 포털](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
 
-앱 관리에 대한 자세한 내용은 [HockeyApp 기술 자료](http://support.hockeyapp.net/kb/app-management-2)를 참조하세요.
+앱 관리에 대한 자세한 내용은 [HockeyApp 기술 자료](http://support.hockeyapp.net/kb/app-management-2) 를 참조하세요.
 
-### Windows Forms 앱
+### <a name="windows-forms-apps"></a>Windows Forms 앱
 Windows Form 프로젝트 노드의 상황에 맞는 메뉴에는 이제 HockeyApp으로 빌드를 업로드하는 옵션이 포함되어 있습니다.
 
 ![Windows Forms 앱의 프로젝트 상황에 맞는 메뉴](./media/app-insights-release-notes-vsix/WinFormContextMenu.png)
@@ -95,27 +99,29 @@ Windows Form 프로젝트 노드의 상황에 맞는 메뉴에는 이제 HockeyA
 
 그만큼 간단합니다. 사용해 보시고 의견을 알려 주시기 바랍니다.
 
-## 버전 4.3
-### 로컬 디버그 세션에서 원격 분석 검색
+## <a name="version-43"></a>버전 4.3
+### <a name="search-telemetry-from-local-debug-sessions"></a>로컬 디버그 세션에서 원격 분석 검색
 이 릴리스에서는 이제 Visual Studio 디버그 세션에서 생성되는 Application Insights 원격 분석을 검색할 수 있습니다. 이전에 Application Insights에 앱을 등록한 경우에만 검색을 사용할 수 있습니다. 이제 앱이 로컬 원격 분석을 검색하도록 하기 위해 Application Insights SDK만 설치하면 됩니다.
 
 Application Insights SDK를 사용하는 ASP.NET 응용 프로그램이 있는 경우 다음 단계를 따라 검색을 사용합니다.
 
 1. 응용 프로그램을 디버그합니다.
 2. 다음 방법 중 하나를 통해 Application Insights 검색을 엽니다.
-   * **보기** 메뉴에서 **다른 창**을 클릭한 다음 **Application Insights Search**를 클릭합니다.
+   * **보기** 메뉴에서 **다른 창**을 클릭한 다음 **Application Insights 검색**을 클릭합니다.
    * **Application Insights** 도구 모음 단추를 클릭합니다.
-   * 솔루션 탐색기에서 **ApplicationInsights.config**를 확장한 다음 **디버그 세션 원격 분석 검색**를 클릭합니다.
+   * 솔루션 탐색기에서 **ApplicationInsights.config**를 확장한 다음 **디버그 세션 원격 분석 검색**을 클릭합니다.
 3. Application Insights에 등록하지 않은 경우 디버그 세션 원격 분석 모드에서 검색 창이 열립니다.
 4. **검색** 아이콘을 클릭하여 로컬 원격 분석을 확인합니다.
 
 ![업로드 완료](./media/app-insights-release-notes-vsix/LocalSearch.png)
 
-## 버전 4.2
-이 릴리스에서는 이벤트의 컨텍스트에서 데이터 검색을 더 쉽게 할 수 있는 기능, 더 많은 데이터 이벤트에서 코드로 이동할 수 있는 기능, 그리고 간편하게 로깅 데이터를 Application Insights에 보내는 환경을 추가했습니다. 이 확장은 매월 업데이트 됩니다. 의견이나 기능 요청이 있는 경우 aidevtools@microsoft.com(으)로 보내세요.
+## <a name="version-42"></a>버전 4.2
+이 릴리스에서는 이벤트의 컨텍스트에서 데이터 검색을 더 쉽게 할 수 있는 기능, 더 많은 데이터 이벤트에서 코드로 이동할 수 있는 기능, 그리고 간편하게 로깅 데이터를 Application Insights에 보내는 환경을 추가했습니다. 이 확장은 매월 업데이트 됩니다. 의견이나 기능 요청이 있는 경우 aidevtools@microsoft.com으로 보내세요.
 
-### 무클릭 로깅 환경
-Log4net, NLog, System.Diagnostics.Tracing을 이미 사용 중인 경우, 모든 추적을 Application Insights로 이동할 필요가 없습니다. 이 릴리스에서는 Application Insights 로깅 어댑터를 일반 구성 환경과 통합했습니다. 이미 이러한 로깅 프레임워크 중 하나를 구성한 경우 이를 가져오는 방법에 대해 설명된 다음 섹션을 참조하세요. **Application Insights를 이미 추가한 경우:**
+### <a name="no-click-logging-experience"></a>무클릭 로깅 환경
+Log4net, NLog, System.Diagnostics.Tracing을 이미 사용 중인 경우, 모든 추적을 Application Insights로 이동할 필요가 없습니다. 이 릴리스에서는 Application Insights 로깅 어댑터를 일반 구성 환경과 통합했습니다.
+이미 이러한 로깅 프레임워크 중 하나를 구성한 경우 이를 가져오는 방법에 대해 설명된 다음 섹션을 참조하세요.
+**Application Insights를 이미 추가한 경우:**
 
 1. 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **Application Insights**를 클릭한 다음, **Application Insights 구성**을 클릭합니다. 구성 창에서 올바른 어댑터를 추가하기 위해 옵션을 확인해야 합니다.
 2. 또는 솔루션을 빌드할 때 화면 오른쪽 위에 표시되는 팝업을 참고하고 **구성**을 클릭합니다.
@@ -126,30 +132,30 @@ Log4net, NLog, System.Diagnostics.Tracing을 이미 사용 중인 경우, 모든
 
 ![추적](./media/app-insights-release-notes-vsix/Traces.png)
 
-### 원격 분석 이벤트 속성을 내보내는 코드로 이동 또는 찾기
+### <a name="jump-to-or-find-the-code-where-the-telemetry-event-property-is-emitted"></a>원격 분석 이벤트 속성을 내보내는 코드로 이동 또는 찾기
 새 릴리스에서는 사용자가 이벤트 세부 정보의 값을 클릭하면 현재 열려 있는 솔루션에서 일치하는 문자열을 검색할 수 있습니다. 아래와 같이 Visual Studio "결과 찾기" 목록에 결과가 표시됩니다.
 
 ![일치 항목 찾기](./media/app-insights-release-notes-vsix/FindMatch.png)
 
-### 로그인하지 않은 경우 새로운 검색 창
+### <a name="new-search-window-for-when-you-are-not-signed-in"></a>로그인하지 않은 경우 새로운 검색 창
 앱이 프로덕션에 있을 때 데이터를 검색할 수 있도록 도와주는 Application Insights 검색 창의 모양을 개선했습니다.
 
 ![검색 창](./media/app-insights-release-notes-vsix/SearchWindow.png)
 
-### 이벤트와 연결된 모든 원격 분석 이벤트를 볼 수 있음
+### <a name="see-all-telemetry-events-associated-with-the-event"></a>이벤트와 연결된 모든 원격 분석 이벤트를 볼 수 있음
 사용자가 보고 있는 원격 분석 이벤트와 관련된 모든 데이터에 대해 미리 정의된 쿼리와 함께 새 탭을 이벤트 세부 정보 탭 옆에 추가했습니다. 예를 들어 요청에는 **작업 ID**라는 필드가 있습니다. 이 요청에 연결된 모든 이벤트에는 **작업 ID**에 대해 동일한 값이 있습니다. 작업에서 요청을 처리하는 동안 예외가 발생한 경우 예외에는 요청을 쉽게 찾을 수 있도록 동일한 작업 ID가 제공됩니다. 요청을 확인하는 동안, **이 작업에 대한 모든 원격 분석**을 클릭하면 새 검색 결과를 표시하는 새 탭이 열립니다.
 
 ![관련 항목](./media/app-insights-release-notes-vsix/RelatedItems.png)
 
-### 검색 기록 앞으로 및 뒤로 이동
+### <a name="forward-and-back-history-in-search"></a>검색 기록 앞으로 및 뒤로 이동
 이제 검색 결과를 앞뒤로 이동할 수 있습니다.
 
 ![뒤로 이동](./media/app-insights-release-notes-vsix/GoBAck.png)
 
-## 버전 4.1
+## <a name="version-41"></a>버전 4.1
 이 릴리스에는 새로운 기능과 업데이트가 많습니다. 이 릴리스를 설치하려면 업데이트 1을 설치해야 합니다.
 
-### 예외에서 소스 코드의 메서드로 이동
+### <a name="jump-from-an-exception-to-method-in-source-code"></a>예외에서 소스 코드의 메서드로 이동
 이제 Application Insights 검색 창의 프로덕션 앱에서 예외가 보이면 예외가 발생하는 코드의 메서드로 바로 이동할 수 있습니다. 올바른 프로젝트를 로드만 하면 Application Insights가 나머지를 알아서 수행합니다! (Application Insights 검색 창에 대한 자세한 내용은 다음 섹션의 버전 4.0에 대한 릴리스 정보를 참조하세요.)
 
 작동 원리 솔루션이 열리지 않는 경우에도 Applications Insights 검색을 사용할 수 있습니다. 스택 추적 영역에 정보 메시지를 표시되고 스택 추적의 많은 항목을 사용할 수 없습니다.
@@ -160,35 +166,41 @@ Log4net, NLog, System.Diagnostics.Tracing을 이미 사용 중인 경우, 모든
 
 ![예외 세부 정보 클릭](./media/app-insights-release-notes-vsix/jumptocode.png)
 
-### 솔루션 탐색기의 검색 환경에 대한 새 진입점
+### <a name="new-entry-points-to-the-search-experience-in-solution-explorer"></a>솔루션 탐색기의 검색 환경에 대한 새 진입점
 이제 검색 솔루션 탐색기를 통해 액세스할 수 있습니다.
 
 ![솔루션 탐색기에서 검색](./media/app-insights-release-notes-vsix/searchentry.png)
 
-### 게시가 완료될 때 완료 표시
+### <a name="displays-a-notification-when-publish-is-completed"></a>게시가 완료될 때 완료 표시
 프로젝트를 온라인에 게시하면 팝업 대화 상자가 표시되므로 프로덕션에서 Application Insights 데이터를 볼 수 있습니다.
 
 ![게시 완료 알림](./media/app-insights-release-notes-vsix/publishtoast.png)
 
-## 버전 4.0
-### Visual Studio 내에서 Application Insights 데이터 검색
+## <a name="version-40"></a>버전 4.0
+### <a name="search-application-insights-data-from-within-visual-studio"></a>Visual Studio 내에서 Application Insights 데이터 검색
 Application Insights 포털의 검색 기능처럼, 이제 Visual Studio에서 이벤트 형식, 속성 값 및 텍스트를 필터링하고 검색한 다음 개별 이벤트를 검사할 수 있습니다.
 
 ![검색 창](./media/app-insights-release-notes-vsix/search.png)
 
-### 진단 도구에서 로컬 컴퓨터로부터 들어오는 데이터 참조
+### <a name="see-data-coming-from-your-local-computer-in-diagnostic-tools"></a>진단 도구에서 로컬 컴퓨터로부터 들어오는 데이터 참조
 Visual Studio 진단 도구 페이지에서 다른 디버깅 데이터 외에도 원격 분석을 볼 수 있습니다. ASP.NET 4.5만 지원됩니다.
 
 ![진단 도구 페이지](./media/app-insights-release-notes-vsix/diagtools.png)
 
-### Azure에 로그인하지 않고도 프로젝트에 SDK 추가
+### <a name="add-the-sdk-to-your-project-without-signing-in-to-azure"></a>Azure에 로그인하지 않고도 프로젝트에 SDK 추가
 **새 프로젝트 대화 상자** 또는 프로젝트 상황에 맞는 메뉴에서 Application Insights 패키지를 프로젝트에 추가하기 위해 더 이상 Azure에 로그인할 필요가 없습니다. 로그인하면 이전과 마찬가지로 SDK가 설치되고 포털에 원격 분석을 보내도록 구성됩니다. 로그인하지 않으면 SDK가 프로젝트에 추가되고 진단 허브에 대한 원격 분석을 생성합니다. 원하는 경우 나중에 구성할 수 있습니다.
 
 ![새 프로젝트 대화 상자](./media/app-insights-release-notes-vsix/newproject.png)
 
-### 장치 지원
-*Connect();* 2015에서 장치에 대한 모바일 개발자 환경인 HockeyApp를 [발표](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/)했습니다. HockeyApp을 사용하면 테스터에 베타 빌드를 배포하고 앱에서 모든 충돌을 수집하고 분석하며 고객으로부터 직접 의견을 수집할 수 있습니다. HockeyApp은 iOS, Android, Windows 또는 Xamarin, Cordova, Unity와 같은 플랫폼 간 솔루션 등 빌드를 위해 선택한 플랫폼에 관계 없이 모든 플랫폼 상의 앱을 지원합니다.
+### <a name="device-support"></a>장치 지원
+*Connect();* 2015에서 장치에 대한 모바일 개발자 환경인 HockeyApp를 [발표](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) 했습니다. HockeyApp을 사용하면 테스터에 베타 빌드를 배포하고 앱에서 모든 충돌을 수집하고 분석하며 고객으로부터 직접 의견을 수집할 수 있습니다.
+HockeyApp은 iOS, Android, Windows 또는 Xamarin, Cordova, Unity와 같은 플랫폼 간 솔루션 등 빌드를 위해 선택한 플랫폼에 관계 없이 모든 플랫폼 상의 앱을 지원합니다.
 
-향후 Application Insights 확장 릴리스에서는 HockeyApp과 Visual Studio 간에 보다 통합된 환경을 도입할 예정입니다. 지금은 NuGet 참조를 추가하기만 하면 HockeyApp을 시작할 수 있습니다. 자세한 내용은 [문서](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone)를 참조하세요.
+향후 Application Insights 확장 릴리스에서는 HockeyApp과 Visual Studio 간에 보다 통합된 환경을 도입할 예정입니다. 지금은 NuGet 참조를 추가하기만 하면 HockeyApp을 시작할 수 있습니다. 자세한 내용은 [문서](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) 를 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

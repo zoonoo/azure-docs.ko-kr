@@ -101,7 +101,7 @@ Azure 포털에서 MySQL 데이터베이스를 만들려면 다음을 수행합�
 3. 이제 개발 서버를 실행합니다.
    
         php artisan serve
-4. 브라우저에서 http://localhost:8000으로 이동하고 표시된 것처럼 새 사용자를 등록합니다.
+4. 브라우저에서 http://localhost:8000 으로 이동하고 표시된 것처럼 새 사용자를 등록합니다.
    
     ![Azure에서 MySQL 데이터베이스에 연결 - 사용자 등록](./media/store-php-create-mysql-database/connect-db-2-development-server.png)
    

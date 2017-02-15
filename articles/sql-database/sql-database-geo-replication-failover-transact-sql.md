@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 5eb2d256-025d-4f5a-99d4-17f702b37f14
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 08/29/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1c471d2218433d5b10bab658814709f78a29d94d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 473d6195acf7867c3dd1348ff8644d0c3a26f986
 
 
 ---
@@ -49,7 +49,7 @@ ms.openlocfilehash: 1c471d2218433d5b10bab658814709f78a29d94d
 1. 복제를 보조 데이터베이스로 플러시될 모든 미해결 트랜잭션을 초래하고 모든 새 트랜잭션을 차단하는 동기 모드로 일시적으로 전환
 2. 지역에서 복제 파트너 관계에서 두 데이터베이스의 역할을 전환합니다.  
 
-이 순서는 두 데이터베이스가 역할이 전환되기 전에 동기화됨을 보장하므로 데이터 손실이 발생하지 않습니다. 역할이 전환되는 동안 두 데이터베이스를 모두 사용할 수 없는 (0-25초의 순서로) 짧은 기간이 있습니다. 주 데이터베이스에 여러 개의 보조 데이터베이스가 있는 경우 이 명령을 사용하면 새로운 주 데이터베이스에 연결할 다른 보조 데이터베이스가 자동으로 다시 구성됩니다.  전체 작업은 정상적인 상황에서 완료하는데 1분 미만이 걸려야 합니다. 자세한 내용은 [ALTER DATABASE(Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 및 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
+이 순서는 두 데이터베이스가 역할이 전환되기 전에 동기화됨을 보장하므로 데이터 손실이 발생하지 않습니다. 역할이 전환되는 동안 두 데이터베이스를 모두 사용할 수 없는 (0-25초의 순서로) 짧은 기간이 있습니다. 주 데이터베이스에 여러 개의 보조 데이터베이스가 있는 경우 이 명령을 사용하면 새로운 주 데이터베이스에 연결할 다른 보조 데이터베이스가 자동으로 다시 구성됩니다.  전체 작업은 정상적인 상황에서 완료하는데&1;분 미만이 걸려야 합니다. 자세한 내용은 [ALTER DATABASE(Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 및 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 
 계획된 장애 조치를 시작하려면 다음 단계를 사용합니다.
 
@@ -93,12 +93,12 @@ ms.openlocfilehash: 1c471d2218433d5b10bab658814709f78a29d94d
 * 사전 및 사후 복구 단계를 비롯한 활성 지역 복제를 사용하고 재해 복구 훈련을 수행하여 재해 후에 복구하는 방법을 알아보려면 [재해 복구](sql-database-disaster-recovery.md)
 * 활성 지역 복제에 대한 Sasha Nosov의 블로그 게시물은 [새로운 지역에서 복제 기능에 대한 주요 내용](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 * 활성 지역 복제를 사용하여 클라우드 응용 프로그램을 설계하는 방법에 대한 자세한 내용은 [지역에서 복제를 사용하여 무중단 업무 방식에 사용 가능하도록 클라우드 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-* 탄력적 데이터베이스 풀에서 활성 지역 복제를 사용하는 방법에 대한 자세한 내용은 [탄력적 풀 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
+* 탄력적 풀의 활성 지역 복제 사용에 대한 자세한 내용은 [탄력적 풀 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
 * 무중단 업무 방식에 대한 개략적 정보는 [무중단 업무 방식 개요](sql-database-business-continuity.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

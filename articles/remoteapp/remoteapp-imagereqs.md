@@ -1,31 +1,34 @@
-
 ---
-title: Azure RemoteApp 이미지 요구 사항 | Microsoft Docs
-description: RemoteApp과 함께 사용할 이미지를 만들기 위한 요구 사항 알아보기
+title: "Azure RemoteApp 이미지 요구 사항 | Microsoft Docs"
+description: "RemoteApp과 함께 사용할 이미지를 만들기 위한 요구 사항 알아보기"
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 7cbb90f4-6dc9-462c-a429-088cdb57414e
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: a37804025cbd298ef2b98c84b5cc59c0cba07dd9
+
 
 ---
-# Azure RemoteApp 이미지에 대한 요구 사항
+# <a name="requirements-for-azure-remoteapp-images"></a>Azure RemoteApp 이미지에 대한 요구 사항
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
 Azure RemoteApp은 Windows Server 2012 R2 이미지를 사용하여 사용자와 공유할 모든 프로그램을 호스트합니다. 사용자 지정 이미지를 만들려면, 기존 이미지로 시작하거나 [새 이미지를 만듭니다](remoteapp-create-custom-image.md).
 
 > [!TIP]
-> Azure RemoteApp 구독에서 사용자가 고유의 템플릿 이미지를 만드는데 사용할 수 있는 Azure VM 갤러리의 Windows Server 2012 R2 이미지에 액세스할 수 있다는 사실을 아십니까? [확인하십시오](remoteapp-image-on-azurevm.md).
+> Azure RemoteApp 구독에서 사용자가 고유의 템플릿 이미지를 만드는데 사용할 수 있는 Azure VM 갤러리의 Windows Server 2012 R2 이미지에 액세스할 수 있다는 사실을 아십니까? [확인하십시오](remoteapp-image-on-azurevm.md).  
 > 
 > 
 
@@ -41,11 +44,16 @@ Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요�
 * 디스크는 MBR(마스터 부트 레코드) 파티션 스타일을 사용하여 초기화해야 합니다. GPT(GUID 파티션 테이블) 파티션 스타일은 지원되지 않습니다.
 * VHD는 Windows Server 2012 R2의 단일 설치를 포함해야 합니다. 여러 볼륨을 포함할 수 있지만 한 볼륨만 Windows의 설치를 포함합니다.
 * RDSH(원격 데스크톱 세션 호스트) 역할 및 데스크톱 경험 기능을 설치해야 합니다.
-* 원격 데스크톱 연결 브로커 역할은 설치하면 *안 됩니다*.
+* 원격 데스크톱 연결 브로커 역할은 설치하면 *안 됩니다* .
 * EFS(파일 시스템 암호화)를 사용하지 않도록 설정해야 합니다.
-* 이미지에 **/oobe /generalize /shutdown** 매개 변수를 사용하여 sysprep을 실행해야 합니다. **/mode:vm** 매개 변수는 사용하지 마세요.
+* 이미지는 **/oobe /generalize /shutdown** 매개 변수를 사용하여 SYSPREPed가 되어야 합니다. **/mode:vm** 매개 변수는 사용하지 마세요.
 * 스냅숏 체인으로부터의 VHD 업로드는 지원되지 않습니다.
 
-Azure RemoteApp에 대한 이미지 만들기에 대한 자세한 내용은 [Azure RemoteApp 이미지 만들기](remoteapp-imageoptions.md)를 참조하세요.
+Azure RemoteApp에 대한 이미지 만들기에 대한 자세한 내용은 [Azure RemoteApp 이미지 만들기](remoteapp-imageoptions.md) 를 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

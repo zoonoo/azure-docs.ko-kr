@@ -34,6 +34,9 @@
 ## [DNS 영역 및 레코드 보호](dns-protect-zones-recordsets.md)
 ## [.NET SDK를 사용하여 DNS 작업 자동화](dns-sdk.md)
 
+## 문제 해결
+### [문제 해결 가이드](dns-troubleshoot.md)
+
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
 ## [Azure CLI 2.0(미리 보기)](/cli/azure/network/dns)

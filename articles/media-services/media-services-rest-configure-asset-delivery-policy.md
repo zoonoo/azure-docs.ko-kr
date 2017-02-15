@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8e5b098c7cd1de5b06809787ac61393e45d17eab
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: edb4ba7a855583cd00051cb4f4edae3a13cdd496
 
 
 ---
@@ -38,9 +38,9 @@ ms.openlocfilehash: 8e5b098c7cd1de5b06809787ac61393e45d17eab
 
 저장소에서 암호화된 자산을 배달하려는 경우 자산의 배달 정책을 구성해야 합니다. 자산을 스트리밍하기 전에 스트리밍 서버가 저장소 암호화를 제거하고 지정된 배달 정책을 사용하여 콘텐츠를 스트리밍합니다. 예를 들어 표준 AES 봉투 암호화 키로 암호화된 자산을 배달하려면 정책 유형을 **DynamicEnvelopeEncryption**으로 설정해야 합니다. 저장소 암호화를 제거하고 암호화되지 않은 자산을 스트리밍하려면 정책 유형을 **NoDynamicEncryption**으로 설정하세요. 이러한 정책 유형을 구성 하는 방법을 보여주는 예제입니다.
 
-사용자가 자산 배달 정책을 구성하는 방법에 따라 다음 스트리밍 프로토콜을 동적으로 패키지하고, 동적으로 암호화하고 스트림할 수 있습니다(부드러운 스트리밍, HLS, MPEG DASH 및 HDS 스트림).
+사용자가 자산 배달 정책을 구성하는 방법에 따라 다음 스트리밍 프로토콜을 동적으로 패키지하고, 동적으로 암호화하고 스트림할 수 있습니다(부드러운 스트리밍, HLS 및 MPEG DASH 스트림).
 
-다음 목록에서는 부드러운 스트리밍, HLS, DASH, HDS 등의 프로토콜을 스트리밍할 때 사용하는 형식을 보여 줍니다.
+다음 목록에서는 부드러운 스트리밍, HLS, DASH 등의 프로토콜을 스트리밍할 때 사용하는 형식을 보여 줍니다.
 
 부드러운 스트리밍:
 
@@ -54,9 +54,6 @@ MPEG DASH
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-HDS
-
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
 자산을 게시하고 스트리밍 URL을 작성하는 방법은 [스트리밍 URL 작성](media-services-deliver-streaming-content.md)을 참조하세요.
 
@@ -232,7 +229,7 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 
 
 ### <a name="link-asset-with-asset-delivery-policy"></a>자산을 자산 배달 정책과 연결
- [자산을 자산 배달 정책과 연결](#link_asset_with_asset_delivery_policy)
+[자산을 자산 배달 정책과 연결](#link_asset_with_asset_delivery_policy)
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 자산 배달 정책
 ### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>CommonEncryption 형식의 콘텐츠 키를 만들고 자산에 연결
@@ -275,7 +272,7 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
 > 
 
 ### <a name="link-asset-with-asset-delivery-policy"></a>자산을 자산 배달 정책과 연결
- [자산을 자산 배달 정책과 연결](#link_asset_with_asset_delivery_policy)
+[자산을 자산 배달 정책과 연결](#link_asset_with_asset_delivery_policy)
 
 ## <a name="a-idtypesatypes-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>AssetDeliveryPolicy를 정의할 때 사용되는 형식
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
@@ -304,11 +301,6 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
         /// Apple HTTP Live Streaming protocol.
         /// </summary>
         HLS = 0x4,
-
-        /// <summary>
-        /// Adobe HTTP Dynamic Streaming (HDS)
-        /// </summary>
-        Hds = 0x8,
 
         /// <summary>
         /// Include all protocols.
@@ -441,6 +433,6 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

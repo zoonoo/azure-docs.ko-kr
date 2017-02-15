@@ -3,7 +3,7 @@ title: "Azure Batch 진단 로깅 | Microsoft Docs"
 description: "풀, 작업 등과 같은 Azure Batch 계정 리소스에 대해 진단 로그 이벤트를 기록 및 분석합니다."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: e14e611d-12cd-4671-91dc-bc506dc853e5
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 10/12/2016
-ms.author: marsma
+ms.date: 01/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2c66486f9716ed8ac093685b10e9294beb43c381
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: f1aa23d2865ec8401a59b2370c8157d2458c60f7
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 2c66486f9716ed8ac093685b10e9294beb43c381
   배치 진단 로그를 유지하려면 Azure가 로드를 저장하는 Azure Storage 계정을 만들어야 합니다. 배치 계정에 [진단 로깅을 사용](#enable-diagnostic-logging)할 때 이 저장소 계정을 지정합니다. 로그 수집을 사용할 때 지정하는 저장소 계정은 [응용 프로그램 패키지](batch-application-packages.md) 및 [작업 출력 지속성](batch-task-output.md) 문서에서 설명한 연결된 저장소 계정과는 다릅니다.
   
   > [!WARNING]
-  > Azure Storage 계정에 저장된 데이터에 대해 요금이 **청구**됩니다. 여기에는 이 문서에서 논의하는 진단 로그가 포함됩니다.  [로그 보존 정책](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)을 설계할 때는 이 점을 염두에 둡니다.
+  > Azure Storage 계정에 저장된 데이터에 대해 요금이 **청구**됩니다. 여기에는 이 문서에서 논의하는 진단 로그가 포함됩니다. [로그 보존 정책](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)을 설계할 때는 이 점을 염두에 둡니다.
   > 
   > 
 
@@ -108,6 +108,6 @@ Azure Storage 계정에 진단 로그를 저장하는 것 외에도 [Azure Event
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

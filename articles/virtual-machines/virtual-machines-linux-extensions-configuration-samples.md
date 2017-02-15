@@ -1,13 +1,13 @@
 ---
-title: Linux VM 확장에 대한 샘플 구성 | Microsoft Docs
-description: Linux VM용 확장을 사용하여 템플릿을 작성하기 위한 샘플 구성
+title: "Linux VM 확장에 대한 샘플 구성 | Microsoft Docs"
+description: "Linux VM용 확장을 사용하여 템플릿을 작성하기 위한 샘플 구성"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: kundanap
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 4f50e6b2-fce0-41ef-823d-df433957601a
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2016
 ms.author: kundanap
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 7f08d711a7d45c48fab5aab272b0446cff61e163
+
 
 ---
 # <a name="linux-vm-extension-configuration-samples"></a>Linux VM 확장 구성 샘플
 > [!div class="op_single_selector"]
-> * [PowerShell - 템플릿](virtual-machines-windows-extensions-configuration-samples.md)
-> * [CLI - 템플릿](virtual-machines-linux-extensions-configuration-samples.md)
+> * [PowerShell - 템플릿](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [CLI - 템플릿](virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -28,13 +32,13 @@ ms.author: kundanap
 
 이 문서에서는 Linux VM에 대해 Azure VM 확장을 구성하기 위한 샘플 구성을 제공합니다.
 
-이러한 확장에 대해 자세히 알아보려면 [Azure VM 확장 개요](virtual-machines-windows-extensions-features.md)
+이러한 확장에 대해 자세히 알아보려면 [Azure VM 확장 개요](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-확장 템플릿 작성에 대해 자세히 알아보려면 [확장 템플릿 작성](virtual-machines-windows-extensions-authoring-templates.md)
+확장 템플릿 작성에 대해 자세히 알아보려면 [확장 템플릿 작성](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 이 문서에서는 일부 Linux 확장에 대해 예상되는 구성 값을 나열합니다.
 
-## <a name="sample-template-snippet-for-vm-extensions."></a>VM 확장에 대한 샘플 템플릿 코드 조각
+## <a name="sample-template-snippet-for-vm-extensions"></a>VM 확장에 대한 샘플 템플릿 코드 조각
 확장을 배포하기 위한 템플릿 코드 조각은 다음과 같습니다.
 
       {
@@ -55,7 +59,7 @@ ms.author: kundanap
       }
       }
 
-## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>VM 규모 집합에서 VM 확장에 대한 샘플 템플릿 코드 조각
+## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets"></a>VM 규모 집합에서 VM 확장에 대한 샘플 템플릿 코드 조각
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
           ....
@@ -90,7 +94,7 @@ ms.author: kundanap
             }
           }
 
-### <a name="customscript-extension-for-linux."></a>Linux용 CustomScript 확장
+### <a name="customscript-extension-for-linux"></a>Linux용 CustomScript 확장
     {
         "publisher": " Microsoft.Azure.Extensions",
         "type": "CustomScript",
@@ -127,7 +131,7 @@ ms.author: kundanap
           }
         }
 
-### <a name="vm-access-extension-(password-reset)"></a>VM Access 확장(암호 재설정)
+### <a name="vm-access-extension-password-reset"></a>VM Access 확장(암호 재설정)
 업데이트된 스키마는 [VMAccessForLinux 설명서](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
@@ -217,6 +221,9 @@ ms.author: kundanap
 
 [Linux VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

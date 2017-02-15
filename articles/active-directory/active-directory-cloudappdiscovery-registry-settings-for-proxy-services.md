@@ -1,18 +1,22 @@
 ---
-title: 프록시 서비스용 클라우드 앱 검색 레지스트리 설정 | Microsoft Docs
-description: 이 항목의 목표는 클라우드 앱 검색 에이전트를 실행하는 컴퓨터에 필요한 포트를 설정하기 위해 수행해야 하는 단계를 제공하는 것입니다.
+title: "프록시 서비스용 클라우드 앱 검색 레지스트리 설정 | Microsoft Docs"
+description: "이 항목의 목표는 클라우드 앱 검색 에이전트를 실행하는 컴퓨터에 필요한 포트를 설정하기 위해 수행해야 하는 단계를 제공하는 것입니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-
+ms.assetid: 8d78e925-e331-40ba-904a-e4ef14260cac
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 01/11/2017
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: be013882339bca88600e678ae7905b96ac94d0d9
+
 
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>프록시 서비스용 클라우드 앱 검색 레지스트리 설정
@@ -46,6 +50,9 @@ ms.author: markusvi
 
 * [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md) 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

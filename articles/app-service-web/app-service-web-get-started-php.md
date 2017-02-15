@@ -1,6 +1,6 @@
 ---
-title: "5분 내에 Azure에 첫 번째 PHP 웹앱 배포 | Microsoft Docs"
-description: "샘플 앱을 배포하여 App Service에서 웹앱을 실행하는 작업이 얼마나 쉬운지 알아봅니다. 실제 개발을 신속하게 수행하기 시작하고 즉시 결과를 봅니다."
+title: "5분 내 Azure에 첫 번째 PHP 웹앱 배포(CLI 2.0 미리 보기) | Microsoft Docs"
+description: "샘플 PHP 앱을 배포하여 App Service에서 웹앱을 실행하는 작업이 얼마나 쉬운지 알아봅니다. 실제 개발을 신속하게 수행하기 시작하고 즉시 결과를 봅니다."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -12,15 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 2c31f12bdef63405245f43a48537a02b040248a1
+ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
+ms.openlocfilehash: 2e793ff8f2ced11365a340dab62ed019e6c37e4d
 
 
 ---
-# <a name="deploy-your-first-php-web-app-to-azure-in-five-minutes"></a>5분 내에 Azure에 첫 번째 PHP 웹앱 배포
+# <a name="deploy-your-first-php-web-app-to-azure-in-five-minutes-cli-20-preview"></a>5분 내 Azure에 첫 번째 PHP 웹앱 배포(CLI 2.0 미리 보기)
+
+> [!div class="op_single_selector"]
+> * [첫 번째 HTML 사이트](app-service-web-get-started-html.md)
+> * [첫 번째 .NET 앱](app-service-web-get-started-dotnet.md)
+> * [첫 번째 PHP 앱](app-service-web-get-started-php.md)
+> * [첫 번째 Node.js 앱](app-service-web-get-started-nodejs.md)
+> * [첫 번째 Python 앱](app-service-web-get-started-python.md)
+> * [첫 번째 Java 앱](app-service-web-get-started-java.md)
+> 
+> 
+
 이 자습서를 통해 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 첫 번째 PHP 웹앱을 배포합니다.
 App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/learning-paths/appservice-mobileapps/) 및 [API 앱](../app-service-api/app-service-api-apps-why-best-platform.md)을 만들 수 있습니다.
 
@@ -31,9 +42,18 @@ App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/le
 * 프로덕션 환경에서 라이브로 코드 실행을 참조하세요.
 * [Git 커밋을 푸시](https://git-scm.com/docs/git-push)하는 것과 똑같은 방식으로 웹앱을 업데이트합니다.
 
+[!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
+
+## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
+
+다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
+
+- [Azure CLI 1.0](app-service-web-get-started-php-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI
+- [Azure CLI 2.0(미리 보기)](app-service-web-get-started-php.md) - 리소스 관리 배포 모델용 차세대 CLI
+
 ## <a name="prerequisites"></a>필수 조건
 * [Git](http://www.git-scm.com/downloads)
-* [Azure CLI](../xplat-cli-install.md).
+* [Azure CLI 2.0 미리 보기](/cli/azure/install-az-cli2)
 * Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 
 > [!NOTE]
@@ -44,34 +64,57 @@ App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/le
 ## <a name="deploy-a-php-web-app"></a>PHP 웹앱 배포
 1. 새 Windows 명령 프롬프트, PowerShell 창, Linux 셸 또는 OS X 터미널을 엽니다. `git --version` 및 `azure --version`를 실행하여 Git 및 Azure CLI가 컴퓨터에 설치되어 있는지 확인합니다.
    
-    ![Azure에서 첫 번째 웹앱에 CLI 도구가 설치되는지를 테스트합니다.](./media/app-service-web-get-started/1-test-tools.png)
+    ![Azure에서 첫 번째 웹앱에 CLI 도구가 설치되는지를 테스트합니다.](./media/app-service-web-get-started-languages/1-test-tools-2.0.png)
    
     도구를 설치하지 않은 경우 다운로드 링크는 [필수 구성 요소](#Prerequisites) 를 참조하세요.
 2. 다음과 같이 Azure에 로그인합니다.
    
-        azure login
+        az login
    
     로그인 프로세스를 계속하려면 도움말 메시지를 따릅니다.
    
-    ![Azure에 로그인하여 첫 번째 웹앱을 만듭니다.](./media/app-service-web-get-started/3-azure-login.png)
-3. Azure CLI를 ASM 모드로 변경한 다음 App Service에 대한 배포 사용자를 설정합니다. 나중에 자격 증명을 사용하여 코드를 배포합니다.
+    ![Azure에 로그인하여 첫 번째 웹앱을 만듭니다.](./media/app-service-web-get-started-languages/3-azure-login-2.0.png)
+
+3. App Service의 배포 사용자를 설정합니다. 나중에 이러한 자격 증명을 사용하여 코드를 배포합니다.
    
-        azure config mode asm
-        azure site deployment user set --username <username> --pass <password>
-4. 작업 디렉터리(`CD`)를 변경하고 샘플 앱을 다음과 같이 복제합니다.
+        az appservice web deployment user set --user-name <username> --password <password>
+
+3. 새 [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 이 첫 번째 App Service 자습서의 경우 무엇인지 몰라도 됩니다.
+
+        az group create --location "<location>" --name my-first-app-group
+
+    `<location>`에 사용할 수 있는 가능한 값을 보려면 `az appservice list-locations` CLI 명령을 사용합니다.
+
+3. 새로운 "무료" [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)을 만듭니다. 이 첫 번째 App Service 자습서의 경우 이 계획에서 웹앱에 대한 요금이 부과되지 않습니다.
+
+        az appservice plan create --name my-free-appservice-plan --resource-group my-first-app-group --sku FREE
+
+4. `<app_name>`에 고유한 이름이 있는 새 웹앱을 만듭니다.
+
+        az appservice web create --name <app_name> --resource-group my-first-app-group --plan my-free-appservice-plan
+
+4. 다음으로 배포하려는 샘플 PHP 코드를 가져옵니다. 작업 디렉터리(`CD`)를 변경하고 샘플 앱을 다음과 같이 복제합니다.
    
+        cd <working_directory>
         git clone https://github.com/Azure-Samples/app-service-web-php-get-started.git
+
 5. 샘플 앱의 리포지토리로 변경합니다. 예:
    
         cd app-service-web-php-get-started
-6. 고유한 앱 이름과 이전에 구성한 배포 사용자를 사용하여 Azure에서 App Service 응용 프로그램 리소스를 만듭니다. 대화 상자가 나타나면 원하는 지역의 수를 지정합니다.
+5. 다음 명령을 사용하여 App Service 웹앱에 대한 로컬 Git 배포를 구성합니다.
+
+        az appservice web source-control config-local-git --name <app_name> --resource-group my-first-app-group
+
+    다음과 같이 JSON 출력을 받게 됩니다. 즉, 원격 Git 리포지토리가 구성되게 됩니다.
+
+        {
+        "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
+        }
+
+6. JSON의 URL을 로컬 리포지토리의 Git 원격으로 추가합니다(간단히 `azure`라고 함).
+
+        git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
    
-        azure site create <app_name> --git --gitusername <username>
-   
-    ![Azure에서 첫 번째 웹앱에 Azure 리소스를 만듭니다.](./media/app-service-web-get-started-languages/php-site-create.png)
-   
-    이제 Azure에서 앱이 생성되었습니다. 또한, 현재 디렉터리가 Git 초기화되어 새로운 앱 서비스 앱에 Git 원격으로 연결됩니다.
-    앱 URL(http://&lt;app_name>.azurewebsites.net)을 검색하면 기본 HTML 페이지를 볼 수 있지만 지금은 이 URL에서 사용자 고유의 코드를 가져옵니다.
 7. Git로 코드를 푸시하듯이 새 Azure 앱에 샘플 코드를 배포합니다. 메시지가 표시되면 이전에 구성한 암호를 사용합니다.
    
         git push azure master
@@ -112,6 +155,6 @@ Azure에서 라이브로 실행 중인 앱을 보려면 리포지토리의 디�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

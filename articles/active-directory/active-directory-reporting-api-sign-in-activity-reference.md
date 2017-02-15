@@ -184,6 +184,6 @@ loginStatus에는 0 - 성공, 1 - 오류라는 두 개의 옵션이 있습니다
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

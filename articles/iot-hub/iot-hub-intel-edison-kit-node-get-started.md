@@ -40,21 +40,21 @@ ms.openlocfilehash: 61f14728d5b985815b64b2c13c7f0df42e4de485
 
 *예상 완료 시간: 30분*
 
-[장치 구성][configure-your-device]으로 이동.
+[장치 구성][configure-your-device]으로 이동
 
 ### <a name="get-the-tools"></a>도구 얻기
 Intel Edison의 첫 번째 응용 프로그램을 빌드 및 배포하기 위한 도구 및 소프트웨어를 다운로드합니다.
 
 *예상 완료 시간: 20분* 
 
-[도구 얻기][get-the-tools]로 이동합니다.
+[도구 얻기][get-the-tools]로 이동
 
 ### <a name="create-and-deploy-the-blink-application"></a>깜박임 응용 프로그램 만들기 및 배포
-Github에서 샘플 깜박임 응용 프로그램을 복제하고, gulp를 사용하여 이 응용 프로그램을 Intel Edison 보드에 배포합니다. 이 샘플 응용 프로그램은 보드에 연결된 LED를 2초마다 깜박이게 합니다.
+Github에서 샘플 깜박임 응용 프로그램을 복제하고, gulp를 사용하여 이 응용 프로그램을 Intel Edison 보드에 배포합니다. 이 샘플 응용 프로그램은 보드에 연결된 LED를&2;초마다 깜박이게 합니다.
 
 *예상 완료 시간: 5분*  
 
-[깜박임 응용 프로그램 만들기 및 배포][create-and-deploy-the-blink-application]로 이동.
+[깜박임 응용 프로그램 만들기 및 배포][create-and-deploy-the-blink-application]로 이동
 
 ## <a name="lesson-2-create-your-iot-hub"></a>단원 2: IoT hub 만들기
 ![단원 2 종단간 다이어그램](media/iot-hub-intel-edison-lessons/e2e-lesson2.png)
@@ -68,14 +68,14 @@ Azure 명령줄 인터페이스(Azure CLI) 설치.
 
 *예상 완료 시간: 10분*  
 
-[Azure 도구 얻기][get-azure-tools]로 이동.
+[Azure 도구 얻기][get-azure-tools]로 이동
 
 ### <a name="create-your-iot-hub-and-register-intel-edison"></a>IoT Hub 만들기 및 Intel Edison 등록
 리소스 그룹을 만들고, 첫 번째 Azure IoT Hub를 프로비전하며, Azure CLI를 사용하여 첫 번째 장치를 IoT Hub에 추가합니다.
 
 *예상 완료 시간: 10분*  
 
-[IoT Hub 만들기 및 Intel Edison 등록](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)으로 이동.
+[IoT Hub 만들기 및 Intel Edison 등록](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)으로 이동
 
 ## <a name="lesson-3-send-device-to-cloud-messages"></a>단원 3: 장치-클라우드 메시지 보내기
 ![단원 3 종단간 다이어그램](media/iot-hub-intel-edison-lessons/e2e-lesson3.png)
@@ -89,21 +89,21 @@ Azure Resource Manager 템플릿을 사용하여 Azure 함수 앱 및 Azure Stor
 
 *예상 완료 시간: 10분*  
 
-[Azure 함수 앱 및 Azure Storage 계정 만들기][create-an-azure-function-app-and-azure-storage-account]로 이동.
+[Azure 함수 앱 및 Azure Storage 계정 만들기][create-an-azure-function-app-and-azure-storage-account]로 이동
 
 ### <a name="run-a-sample-application-to-send-device-to-cloud-messages"></a>샘플 응용 프로그램을 실행하여 장치-클라우드 메시지 보내기
 IoT Hub에 메시지를 보내는 샘플 응용 프로그램을 Intel Edison 장치에 배포 및 실행합니다.
 
 *예상 완료 시간: 10분*  
 
-[샘플 응용 프로그램을 실행하여 장치-클라우드 메시지 보내기][send-device-to-cloud-messages]로 이동.
+[샘플 응용 프로그램을 실행하여 장치-클라우드 메시지 보내기][send-device-to-cloud-messages]로 이동
 
 ### <a name="read-messages-persisted-in-azure-storage"></a>Azure Storage에 유지되는 메시지 읽기
 장치-클라우드 메시지가 Azure Storage에 기록될 때 해당 메시지를 모니터링합니다.
 
 *예상 완료 시간: 5분*  
 
-[Azure Storage에 유지되는 메시지 읽기][read-messages-persisted-in-azure-storage]로 이동.
+[Azure Storage에 유지되는 메시지 읽기][read-messages-persisted-in-azure-storage]로 이동
 
 ## <a name="lesson-4-send-cloud-to-device-messages"></a>단원 4: 클라우드-장치 메시지 보내기
 ![단원 4 종단간 다이어그램](media/iot-hub-intel-edison-lessons/e2e-lesson4.png)
@@ -117,14 +117,14 @@ IoT Hub에 메시지를 보내는 샘플 응용 프로그램을 Intel Edison 장
 
 *예상 완료 시간: 10분*  
 
-[샘플 응용 프로그램을 실행하여 클라우드-장치 메시지 받기][receive-cloud-to-device-messages]로 이동.
+[샘플 응용 프로그램을 실행하여 클라우드-장치 메시지 받기][receive-cloud-to-device-messages]로 이동
 
 ### <a name="optional-section-change-the-on-and-off-behavior-of-the-led"></a>선택적인 섹션: LED 켜기 및 끄기 동작 변경
 LED의 켜기 및 끄기 동작을 변경하도록 메시지를 사용자 지정합니다.
 
 *예상 완료 시간: 10분*  
 
-[선택적인 섹션: LED 켜기 및 끄기 동작 변경][change-the-on-and-off-behavior-of-the-led]으로 이동.
+[선택적인 섹션: LED 켜기 및 끄기 동작 변경][change-the-on-and-off-behavior-of-the-led]으로 이동
 
 ## <a name="troubleshooting"></a>문제 해결
 단원을 진행하는 동안 문제가 발생하면 [문제 해결][troubleshooting] 문서에서 솔루션을 찾습니다.

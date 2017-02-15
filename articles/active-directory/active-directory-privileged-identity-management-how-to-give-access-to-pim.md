@@ -1,12 +1,12 @@
 ---
-title: PIM에 대한 액세스 권한을 제공하는 방법 | Microsoft Docs
-description: PIM을 관리할 수 있도록 Azure Active Directory Privileged Identity Management 확장을 사용하여 사용자에 역할을 추가하는 방법을 알아봅니다.
+title: "PIM에 대한 액세스 권한을 제공하는 방법 | Microsoft Docs"
+description: "PIM을 관리할 수 있도록 Azure Active Directory Privileged Identity Management 확장을 사용하여 사용자에 역할을 추가하는 방법을 알아봅니다."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d4c53b53-2b37-41e6-813c-96ec08a1c897
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/22/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 42273f2e20be65cc794d078fb4c3ba4585d2aa79
+
 
 ---
 # <a name="how-to-give-access-to-manage-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management를 관리하기 위해 액세스 권한을 제공하는 방법
@@ -40,7 +44,7 @@ ms.author: kgremban
    * 다른 사람에게 새 역할을 할당할 때마다 자동으로 해당 역할을 활성화할 자격이 있는 것으로 설정됩니다. 영구적으로 역할에 지정하려면 목록에서 사용자를 클릭합니다. 사용자 정보 메뉴에서 **make perm** (영구 지정)을 선택합니다.
 6. 사용자에게 [Azure AD Privileged Identity Management 시작](active-directory-privileged-identity-management-getting-started.md)링크를 보냅니다.
 
-## <a name="remove-another-user's-access-rights-for-managing-pim"></a>PIM 관리에 대한 다른 사용자의 액세스 권한 제거
+## <a name="remove-another-users-access-rights-for-managing-pim"></a>PIM 관리에 대한 다른 사용자의 액세스 권한 제거
 권한 있는 역할 관리자 역할에서 사용자를 제거하기 전에 항상 두 명의 사용자가 이 역할에 할당되어 있는지 확인합니다.
 
 1. PIM 대시보드에서 역할 **권한 있는 역할 관리자**를 클릭합니다.  현재 해당 역할 상태인 사용자 목록이 표시됩니다.
@@ -59,6 +63,6 @@ ms.author: kgremban
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

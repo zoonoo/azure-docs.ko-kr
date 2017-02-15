@@ -1,12 +1,12 @@
 ---
-title: Azure 리소스 그룹 프로젝트 배포 스크립트 개요 | Microsoft Docs
-description: Azure 리소스 그룹 배포 프로젝트에서 PowerShell 스크립트가 작동하는 방식을 설명합니다.
+title: "Azure 리소스 그룹 프로젝트 배포 스크립트 개요 | Microsoft Docs"
+description: "Azure 리소스 그룹 배포 프로젝트에서 PowerShell 스크립트가 작동하는 방식을 설명합니다."
 services: visual-studio-online
 documentationcenter: na
 author: tfitzmac
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: fecfb74f-363f-4cc8-9743-36e5ddd879c0
 ms.service: azure-resource-manager
 ms.devlang: multiple
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2016
 ms.author: tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 078c0116eb1b70dd8d15c49343dce91fbdd96944
+
 
 ---
-# Azure 리소스 그룹 프로젝트 배포 스크립트 개요
-Azure 리소스 그룹 배포 프로젝트는 Azure에 파일 및 기타 아티팩트를 스테이징하고 배포하는 데 도움이 됩니다. Visual Studio에서 Azure 리소스 관리자 배포 프로젝트를 만드는 경우, **Deploy-AzureResourceGroup.ps1**이라고 하는 PowerShell 스크립트가 프로젝트에 추가됩니다. 이 문서는 이 스크립트가 수행하는 작업 및 Visual Studio 내부 및 외부에서 스크립트를 실행하는 방법을 자세히 설명합니다.
+# <a name="overview-of-the-azure-resource-group-project-deployment-script"></a>Azure 리소스 그룹 프로젝트 배포 스크립트 개요
+Azure 리소스 그룹 배포 프로젝트는 Azure에 파일 및 기타 아티팩트를 스테이징하고 배포하는 데 도움이 됩니다. Visual Studio에서 Azure 리소스 관리자 배포 프로젝트를 만드는 경우, **Deploy-AzureResourceGroup.ps1** 이라고 하는 PowerShell 스크립트가 프로젝트에 추가됩니다. 이 문서는 이 스크립트가 수행하는 작업 및 Visual Studio 내부 및 외부에서 스크립트를 실행하는 방법을 자세히 설명합니다.
 
-## 스크립트가 수행하는 작업
+## <a name="what-does-the-script-do"></a>스크립트가 수행하는 작업
 Deploy-AzureResourceGroup.ps1 스크립트는 배포 워크플로에 중요한 두 가지 작업을 수행합니다.
 
 * 템플릿 배포에 필요한 파일 또는 아티팩트 업로드
@@ -27,9 +31,9 @@ Deploy-AzureResourceGroup.ps1 스크립트는 배포 워크플로에 중요한 �
 
 스크립트의 첫 번째 부분은 배포를 위해 파일 및 아티팩트를 업로드하고 스크립트의 마지막 cmdlet은 템플릿을 실제로 배포합니다. 예를 들어, 스크립트를 통해 가상 컴퓨터를 구성해야 하는 경우 배포 스크립트는 우선 구성 스크립트를 Azure 저장소 계정으로 안전하게 업로드합니다. 이렇게 하면 Azure 리소스 관리자는 프로비전 중에 가상 컴퓨터를 구성할 수 있습니다.
 
-모든 템플릿 배포에 대해 업로드가 필요한 별도의 아티팩트가 있는 것은 아니기 때문에 *uploadArtifacts*라고 하는 스위치 매개 변수가 평가됩니다. 아티팩트를 업로드해야 하는 경우에는 스크립트를 호출할 때 *uploadArtifacts* 스위치를 설정합니다. 기본 템플릿 파일 및 매개 변수 파일은 업로드할 필요가 없습니다. 구성 스크립트, 중첩 배포 템플릿, 응용 프로그램 파일과 같은 기타 파일만 업로드할 필요가 있습니다.
+모든 템플릿 배포에 대해 업로드가 필요한 별도의 아티팩트가 있는 것은 아니기 때문에 *uploadArtifacts* 라고 하는 스위치 매개 변수가 평가됩니다. 아티팩트를 업로드해야 하는 경우에는 스크립트를 호출할 때 *uploadArtifacts* 스위치를 설정합니다. 기본 템플릿 파일 및 매개 변수 파일은 업로드할 필요가 없습니다. 구성 스크립트, 중첩 배포 템플릿, 응용 프로그램 파일과 같은 기타 파일만 업로드할 필요가 있습니다.
 
-## 스크립트 상세 설명
+## <a name="detailed-script-description"></a>스크립트 상세 설명
 다음은 Deploy-AzureResourceGroup.ps1 Azure PowerShell 스크립트의 선택 섹션이 수행하는 작업에 대한 설명입니다.
 
 > [!NOTE]
@@ -71,12 +75,12 @@ Deploy-AzureResourceGroup.ps1 스크립트는 배포 워크플로에 중요한 �
 2. 아티팩트를 Azure에 업로드해야 하는지 확인합니다. 아니면, 11단계로 건너뜁니다. 그렇지 않으면, 다음 단계를 수행합니다.
 3. 상대 경로 변수를 절대 경로로 변환합니다. 예를 들어, `..\Tools\AzCopy.exe`와 같은 경로를 `C:\YourFolder\Tools\AzCopy.exe`로 변경합니다. *ArtifactsLocationName* 및*ArtifactsLocationSasTokenName* 변수를 null로 초기화합니다. *ArtifactsLocation* 및 *SaSToken*은 템플릿에 대한 매개 변수가 될 수 있습니다. 매개 변수 파일을 읽은 후에 값이 null이면 스크립트는 그에 해당하는 값을 생성합니다.
    
-   Azure 도구는 템플릿에 *\_artifactsLocation* 및 *\_artifactsLocationSasToken* 매개 변수 값을 사용하여 아티팩트를 관리합니다. PowerShell 스크립트가 이러한 이름의 매개 변수를 발견했지만 매개 변수 값이 제공되어 있지 않으면, 스크립트는 아티팩트를 업로드하고 해당 매개 변수에 적절한 값을 반환합니다. 그 후 `@OptionsParameters`를 통해 cmdlet에 전달합니다.
+   Azure 도구는 템플릿에 *_artifactsLocation* 및 *_artifactsLocationSasToken* 매개 변수 값을 사용하여 아티팩트를 관리합니다. PowerShell 스크립트가 이러한 이름의 매개 변수를 발견했지만 매개 변수 값이 제공되어 있지 않으면, 스크립트는 아티팩트를 업로드하고 해당 매개 변수에 적절한 값을 반환합니다. 그 후 `@OptionsParameters`를 통해 cmdlet에 전달합니다.
    
    | 변수 | 설명 |
    | --- | --- |
    | ArtifactsLocationName |Azure 아티팩트가 위치하는 경로입니다. |
-   | ArtifactsLocationSasTokenName |서비스 버스 인증을 위해 스크립트에 의해 사용되는 SAS(공유 액세스 서명) 토큰 이름입니다. 자세한 내용은 [서비스 버스에서 공유 액세스 서명 인증](service-bus-messaging/service-bus-shared-access-signature-authentication.md)을 참조하세요. |
+   | ArtifactsLocationSasTokenName |서비스 버스 인증을 위해 스크립트에 의해 사용되는 SAS(공유 액세스 서명) 토큰 이름입니다. 자세한 내용은 [서비스 버스에서 공유 액세스 서명 인증](service-bus-messaging/service-bus-shared-access-signature-authentication.md) 을 참조하세요. |
    
    ```
    if ($UploadArtifacts) {
@@ -91,7 +95,7 @@ Deploy-AzureResourceGroup.ps1 스크립트는 배포 워크플로에 중요한 �
    $OptionalParameters.Add($ArtifactsLocationName, $null)
    $OptionalParameters.Add($ArtifactsLocationSasTokenName, $null)
    ```
-4. 이 섹션은 <app name>.parameters.json 파일(“매개 변수 파일”이라고 함)에 이름이 **parameters**인 부모 노드가 있는지(`else` 블록 내에)를 확인합니다. 그렇지 않으면, 부모 노드가 없는 것입니다. 두 가지 형식 중 하나가 허용됩니다.
+4. 이 섹션은 <app name>.parameters.json 파일(“매개 변수 파일”이라고 함)에 이름이 **parameters`else`인 부모 노드가 있는지(** 블록 내에)를 확인합니다. 그렇지 않으면, 부모 노드가 없는 것입니다. 두 가지 형식 중 하나가 허용됩니다.
    
    ```
    if ($JsonParameters -eq $null) {
@@ -101,7 +105,7 @@ Deploy-AzureResourceGroup.ps1 스크립트는 배포 워크플로에 중요한 �
          $JsonParameters = $JsonContent.parameters
      }
    ```
-5. JSON 매개 변수 컬렉션을 반복합니다. *\_artifactsLocation* 또는 *\_artifactsLocationSasToken*에 매개 변수 값이 할당된 경우에는 해당 값에 *$OptionalParameters* 매개 변수를 설정합니다. 이렇게 하면 사용자가 제공한 매개 변수 값을 스크립트가 의도치 않게 덮어쓰는 것을 방지합니다.
+5. JSON 매개 변수 컬렉션을 반복합니다. *_artifactsLocation* 또는 *_artifactsLocationSasToken*에 매개 변수 값이 할당된 경우에는 해당 값에 *$OptionalParameters* 매개 변수를 설정합니다. 이렇게 하면 사용자가 제공한 매개 변수 값을 스크립트가 의도치 않게 덮어쓰는 것을 방지합니다.
    
    ```
    $JsonParameters | Get-Member -Type NoteProperty | ForEach-Object {
@@ -140,7 +144,7 @@ Deploy-AzureResourceGroup.ps1 스크립트는 배포 워크플로에 중요한 �
      $OptionalParameters[$ArtifactsLocationName] = $ArtifactsLocation
    }
    ```
-9. **AzCopy** 유틸리티(Azure 리소스 그룹 배포 프로젝트의 **Tools** 폴더에 포함된)를 사용하여 로컬 저장소 계정의 모든 파일을 온라인 Azure 저장소 계정으로 복사합니다. 이 단계에 실패하면 필요한 아티팩트 없이 배포에 성공할 가능성이 낮으므로 스크립트를 종료합니다.
+9. **AzCopy** 유틸리티(Azure 리소스 그룹 배포 프로젝트의 **Tools** 폴더에 포함된)를 사용하여 로컬 저장소 계정의 모든 파일을 온라인 Azure Storage 계정으로 복사합니다. 이 단계에 실패하면 필요한 아티팩트 없이 배포에 성공할 가능성이 낮으므로 스크립트를 종료합니다.
    
    ```
    # Use AzCopy to copy files from the local storage drop path to the storage account container
@@ -178,12 +182,12 @@ Deploy-AzureResourceGroup.ps1 스크립트는 배포 워크플로에 중요한 �
          -Force -Verbose
      ```
 
-## 리소스 그룹 배포
-### Visual Studio에서 리소스 그룹 배포
-1. Azure 리소스 그룹 프로젝트의 바로 가기 메뉴에서 **배포** > **새 배포**를 선택합니다.
+## <a name="deploy-the-resource-group"></a>리소스 그룹 배포
+### <a name="to-deploy-the-resource-group-in-visual-studio"></a>Visual Studio에서 리소스 그룹 배포
+1. Azure 리소스 그룹 프로젝트의 바로 가기 메뉴에서 **배포** > **새 배포**)입니다.
    
     ![][0]
-2. **리소스 그룹에 배포** 대화 상자의 드롭다운 목록 상자에서 배포할 기존 리소스 그룹을 선택하거나 **&lt;새로 만들기…&gt;**를 선택하여 새 리소스 그룹을 만듭니다.
+2. **리소스 그룹에 배포** 대화 상자의 드롭다운 목록 상자에서 배포할 기존 리소스 그룹을 선택하거나 **&lt;새로 만들기…&gt;** 를 선택하여 새 리소스 그룹을 만듭니다.
    
     ![][1]
 3. 메시지가 표시되면 **리소스 그룹 만들기** 대화 상자에 리소스 그룹 이름 및 위치를 입력한 후 **만들기** 단추를 선택합니다.
@@ -203,25 +207,25 @@ Deploy-AzureResourceGroup.ps1 스크립트는 배포 워크플로에 중요한 �
    
     배포 스크립트(Deploy-AzureResourceGroup.ps1)가 실행되고 템플릿이 아티팩트와 함께 Azure에 배포됩니다.
 
-### PowerShell을 사용하여 리소스 그룹 배포
+### <a name="to-deploy-the-resource-group-by-using-powershell"></a>PowerShell을 사용하여 리소스 그룹 배포
 Visual Studio 배포 명령 및 UI를 사용하지 않고 스크립트를 실행하려면 스크립트의 바로 가기 메뉴에서 **PowerShell ISE로 열기**를 선택합니다.
 
 ![][5]
 
-## 명령 배포 예제
-### 기본값을 사용하여 배포
+## <a name="command-deployment-examples"></a>명령 배포 예제
+### <a name="deploy-using-default-values"></a>기본값을 사용하여 배포
 이 예제는 기본 매개 변수 값을 사용하여 스크립트를 실행하는 방법을 보여줍니다. (위치 매개 변수에는 기본값이 없으므로, 사용자가 값을 제공해야 합니다.)
 
 `.\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation eastus`
 
-### 기본값을 재정의하는 배포
+### <a name="deploy-overriding-the-default-values"></a>기본값을 재정의하는 배포
 이 예제는 기본값과 다른 템플릿 및 매개 변수 파일을 배포하는 스크립트를 실행하는 방법을 보여줍니다.
 
 ```
 .\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation eastus –TemplateFile ..\templates\AnotherTemplate.json –TemplateParametersFile ..\templates\AnotherTemplate.parameters.json
 ```
 
-### 스테이징을 위해 UploadArtifacts를 사용하여 배포
+### <a name="deploy-using-uploadartifacts-for-staging"></a>스테이징을 위해 UploadArtifacts를 사용하여 배포
 이 예제는 릴리스 폴더의 아티팩트를 업로드하고 기본값이 아닌 템플릿을 배포하는 스크립트를 실행하는 방법을 보여줍니다.
 
 ```
@@ -234,8 +238,8 @@ Visual Studio 배포 명령 및 UI를 사용하지 않고 스크립트를 실행
 $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.ps1 -StorageAccountName 'mystorage' -StorageAccountResourceGroupName 'Default-Storage-EastUS' -ResourceGroupName 'myResourceGroup' -ResourceGroupLocation 'eastus' -TemplateFile '..\templates\windowsvirtualmachine.json' -TemplateParametersFile '..\templates\windowsvirtualmachine.parameters.json' -UploadArtifacts -ArtifactStagingDirectory $(Build.StagingDirectory)
 ```
 
-## 다음 단계
-[Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하여 Azure 리소스 관리자에 대해 자세히 알아봅니다.
+## <a name="next-steps"></a>다음 단계
+[Azure Resource Manager 개요](azure-resource-manager/resource-group-overview.md)를 참조하여 Azure Resource Manager에 대해 자세히 알아봅니다.
 
 Azure 리소스 그룹 프로젝트를 사용한 더 많은 예는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)의 [Azure 리소스 배포 및 관리](https://github.com/Microsoft/HealthClinic.biz/wiki/Deploy-and-manage-Azure-resources)를 참조하세요. HealthClinic.biz 데모에서 더 빠른 시작은 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
 
@@ -246,4 +250,8 @@ Azure 리소스 그룹 프로젝트를 사용한 더 많은 예는 [HealthClinic
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 12/08/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fea73e15543b2d0284c94118e01415870b5396ff
+ms.sourcegitcommit: aba17fb9f7a07b4d67092875a119ab463da5d273
+ms.openlocfilehash: ffd85e1df173fdbc392339cd169281c1ae3fbb5d
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: fea73e15543b2d0284c94118e01415870b5396ff
 > 
 
 ## <a name="set-up-powershell"></a>PowerShell 설정
-아직 PowerShell이 컴퓨터에서 실행되도록 설정하지 않았으면 지금 설정합니다. 자세한 내용은 [PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md) 을 참조하세요.
+아직 PowerShell이 컴퓨터에서 실행되도록 설정하지 않았으면 지금 설정합니다. 자세한 내용은 [PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 
 ## <a name="examples-in-this-article"></a>이 문서의 예
 문서의 예에서는 Azure Monitor cmdlet을 사용하는 방법을 보여 줍니다. [Azure Monitor(Insights) Cmdlet](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx)에서 Azure Monitor PowerShell cmdlet의 전체 목록을 살펴볼 수도 있습니다.
@@ -54,7 +54,7 @@ Set-AzureRmContext -SubscriptionId <subscriptionid>
 ```
 
 
-## <a name="retrieve-audit-logs-for-a-subscription"></a>구독에 대한 감사 로그 검색
+## <a name="retrieve-activity-log-for-a-subscription"></a>구독에 대한 활동 로그 검색
 `Get-AzureRmLog` cmdlet을 사용합니다.  다음은 몇 가지 일반적인 예입니다.
 
 이 날짜/시간부터 현재까지의 로그 항목을 가져옵니다.
@@ -96,7 +96,7 @@ Get-AzureRmLog -MaxEvents 1000
 `Get-AzureRmLog` 명령은 여러 다른 매개 변수를 지원합니다. 자세한 내용은 `Get-AzureRmLog` 참조를 확인하세요.
 
 > [!NOTE]
-> `Get-AzureRmLog` 명령은 15일 간의 기록만 제공합니다. **-MaxEvents** 매개 변수를 사용하면 15일 이후의 N개 이벤트를 쿼리할 수 있습니다. 15일이 지난 이벤트에 액세스하려면 REST API 또는 SDK(SDK를 사용하는 C# 샘플)을 사용합니다. **StartTime**을 포함하지 않으면 **EndTime**에서 1시간을 뺀 값이 기본값입니다. **EndTime**을 포함하지 않으면 현재 시간이 기본값입니다. 모든 시간은 UTC입니다.
+> `Get-AzureRmLog` 명령은 15일 간의 기록만 제공합니다. **-MaxEvents** 매개 변수를 사용하면 15일 이후의 N개 이벤트를 쿼리할 수 있습니다. 15일이 지난 이벤트에 액세스하려면 REST API 또는 SDK(SDK를 사용하는 C# 샘플)을 사용합니다. **StartTime**을 포함하지 않으면 **EndTime**에서&1;시간을 뺀 값이 기본값입니다. **EndTime**을 포함하지 않으면 현재 시간이 기본값입니다. 모든 시간은 UTC입니다.
 > 
 > 
 
@@ -190,7 +190,7 @@ Get-AzureRmAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 
 ### <a name="alert-on-activity-log-event"></a>활동 로그 이벤트에 대한 경고
 > [!NOTE]
-> 이 기능은 아직 미리 보기 버전입니다.
+> 이 기능은 미리 보기이며 나중에 제거될 예정입니다(대체됩니다).
 > 
 > 
 
@@ -356,7 +356,7 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ## <a name="configure-diagnostics-logs"></a>진단 로그 구성
-여러 Azure 서비스는 Azure 네트워크 보안 그룹, 소프트웨어 부하 분산 장치, 키 자격 증명 모음, Azure 검색 서비스, 논리 앱을 포함하여 추가 로그 및 원격 분석을 제공하며, Azure 저장소 계정에 데이터를 저장하도록 로그를 구성할 수 있습니다. 이 작업은 리소스 수준에서만 수행할 수 있으며 저장소 계정이 진단 설정이 구성되는 대상 리소스와 같은 지역에 있어야 합니다.
+여러 Azure 서비스는 Azure Storage 계정에 데이터를 저장하고, 이벤트 허브에 보내거나 OMS 로그 분석 작업 영역에 보낼 수 있도록 구성된 추가 로그와 원격 분석을 제공합니다. 이 작업은 리소스 수준에서만 수행할 수 있으며 저장소 계정 또는 이벤트 허브가 진단 설정이 구성되는 대상 리소스와 같은 지역에 있어야 합니다.
 
 ### <a name="get-diagnostic-setting"></a>진단 설정 가져오기
 ```PowerShell
@@ -387,8 +387,21 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
+이벤트 허브에 대한 진단 설정 활성화
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
+```
+
+OMS에 대한 진단 설정 활성화
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId 76d785fd-d1ce-4f50-8ca3-858fc819ca0f -Enabled $true
+
+```
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO2-->
 
 

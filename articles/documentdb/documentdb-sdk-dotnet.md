@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 12/09/2016
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 5e182811adc29ae00d40355bb4813c30eb0b904c
-ms.openlocfilehash: 1a4a2ed7cd2b8cfe3ed328c696cd6ba4d2cc03bc
+ms.sourcegitcommit: efd154811ebbcf2170ffb001344a954be72b1d92
+ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
 
 
 ---
@@ -50,10 +50,14 @@ ms.openlocfilehash: 1a4a2ed7cd2b8cfe3ed328c696cd6ba4d2cc03bc
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
-> [!IMPORTANT]
-> 버전 1.9.2 릴리스부터 분할된 컬렉션을 쿼리할 때 System.NotSupportedException이 나타날 수 있습니다. 이 오류를 방지하려면 호스트 프로세스가 64비트여야 합니다. 실행 가능한 프로젝트의 경우 빌드 탭의 프로젝트 속성 창에서 "32비트 선호" 옵션의 선택을 취소하면 됩니다.
-> 
-> 
+
+### <a name="a-name11101110httpswwwnugetorgpackagesmicrosoftazuredocumentdb1110"></a><a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
+* 컬랙션 내 문서의 [피드 변경](documentdb-change-feed.md) 프로세스에 대한 새 클래스 및 메서드 지원
+* 파티션 간 쿼리 연속 및 파티션 간 쿼리에 대한 일부 성능 향상 지원
+* CreateDatabaseIfNotExistsAsync 및 CreateDocumentCollectionIfNotExistsAsync 메서드 추가
+* 시스템 함수에 대한 LINQ 지원: IsDefined, IsNull 및 IsPrimitive
+* project.json 도구를 포함한 프로젝트의 NuGet 패키지를 사용할 때 Microsoft.Azure.Documents.ServiceInterop.dll 및 DocumentDB.Spatial.Sql.dll 어셈블리가 자동으로 응용 프로그램의 휴지통에 들어가는 현상 수정
+* 시나리오를 디버깅하는 데 도움이 될 수 있는 클라이언트 쪽 ETW 추적 내보내기 지원
 
 ### <a name="a-name11001100httpswwwnugetorgpackagesmicrosoftazuredocumentdb1100"></a><a name="1.10.0"/>[1.10.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.10.0)
 * 분할된 컬렉션에 대한 직접 연결 지원이 추가되었습니다.
@@ -179,7 +183,7 @@ ms.openlocfilehash: 1a4a2ed7cd2b8cfe3ed328c696cd6ba4d2cc03bc
 ### <a name="a-name09x-preview09x-previewhttpswwwnugetorgpackagesmicrosoftazuredocumentsclient"></a><a name="0.9.x-preview"/>[0.9.x-preview](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
 * Preview SDK[사용되지 않음]
 
-## <a name="release-retirement-dates"></a>릴리스 및 사용 중지 날짜
+## <a name="release--retirement-dates"></a>릴리스 및 사용 중지 날짜
 Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다.
 
 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다. 
@@ -195,6 +199,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.11.0](#1.11.0) |2016년 12월 8일 |--- |
 | [1.10.0](#1.10.0) |2016년 9월 27일 |--- |
 | [1.9.5](#1.9.5) |2016년 9월 1일 |--- |
 | [1.9.4](#1.9.4) |2016년 8월 24일 |--- |
@@ -231,6 +236,6 @@ DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](http
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

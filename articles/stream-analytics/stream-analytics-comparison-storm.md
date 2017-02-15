@@ -1,28 +1,32 @@
 ---
-title: '분석 플랫폼: Apache Storm과 스트림 분석 비교 | Microsoft Docs'
-description: Apache Storm과 Azure 스트림 분석 비교를 사용하여 클라우드 분석 플랫폼 선택에 대한 지침을 확인하세요. 기능 및 차이점을 이해하세요.
-keywords: 분석 플랫폼, 클라우드 분석 플랫폼, storm 비교
+title: "분석 플랫폼: Apache Storm과 Stream Analytics 비교 | Microsoft Docs"
+description: "Apache Storm과 Azure Stream Analytics 비교를 사용하여 클라우드 분석 플랫폼 선택에 대한 지침을 확인하세요. 기능 및 차이점을 이해하세요."
+keywords: "분석 플랫폼, 클라우드 분석 플랫폼, storm 비교"
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 528266346733fff72113104d585540d75512b3a6
+
 
 ---
-# <a name="help-choosing-a-streaming-analytics-platform:-apache-storm-comparison-to-azure-stream-analytics"></a>스트리밍 분석 플랫폼 선택 도움말: Apache Storm과 Azure 스트림 분석 비교
-Apache Storm과 Azure 스트림 분석 비교를 사용하여 클라우드 분석 플랫폼 선택에 대한 참고 자료를 확인하세요. Azure HDInsight 기반의 관리 서비스로써 스트림 분석과 Apache Storm이 제공하는 가치 제안을 이해하면 비즈니스에 적합한 솔루션을 선택할 수 있습니다.
+# <a name="help-choosing-a-streaming-analytics-platform-apache-storm-comparison-to-azure-stream-analytics"></a>스트리밍 분석 플랫폼 선택 도움말: Apache Storm과 Azure Stream Analytics 비교
+Apache Storm과 Azure Stream Analytics 비교를 사용하여 클라우드 분석 플랫폼 선택에 대한 참고 자료를 확인하세요. Azure HDInsight 기반의 관리 서비스로써 Stream Analytics과 Apache Storm이 제공하는 가치 제안을 이해하면 비즈니스에 적합한 솔루션을 선택할 수 있습니다.
 
 두 분석 플랫폼 모두 PaaS 솔루션의 이점을 제공하지만, 서로 구분되는 몇 가지 고유한 기능이 있습니다. 목표를 달성하는 데 필요한 솔루션을 올바르게 선택할 수 있도록 아래에 이러한 서비스의 기능과 제한 사항이 설명되어 있습니다.
 
-## <a name="storm-comparison-to-stream-analytics:-general-features"></a>Storm과 스트림 분석 비교: 일반 기능
+## <a name="storm-comparison-to-stream-analytics-general-features"></a>Storm과 Stream Analytics 비교: 일반 기능
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -50,7 +54,7 @@ Apache Storm과 Azure 스트림 분석 비교를 사용하여 클라우드 분�
             </td>
             <td width="204" valign="top">
                 <p>
-아니요, Azure 스트림 분석은 Microsoft 등록 제품입니다.
+아니요, Azure Stream Analytics은 Microsoft 등록 제품입니다.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -82,7 +86,7 @@ Apache Storm과 Azure 스트림 분석 비교를 사용하여 클라우드 분�
             </td>
             <td width="204" valign="top">
                 <p>
-하드웨어 요구 사항이 없습니다. Azure 스트림 분석은  인스턴스 Azure 서비스 입니다.
+하드웨어 요구 사항이 없습니다. Azure Stream Analytics은  인스턴스 Azure 서비스 입니다.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -99,7 +103,7 @@ Apache Storm과 Azure 스트림 분석 비교를 사용하여 클라우드 분�
             </td>
             <td width="204" valign="top">
                 <p>
-Azure 스트림 분석을 사용하여 고객은 스트리밍 작업을  배포하고 모니터링합니다.
+Azure Stream Analytics을 사용하여 고객은 스트리밍 작업을  배포하고 모니터링합니다.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -116,7 +120,7 @@ HDInsight의 Apache Storm을 사용하여 고객은 다중 Storm 작업과 다�
             </td>
             <td width="204" valign="top">
                 <p>
-스트림 분석은 처리되는 데이터 볼륨 및 스트리밍 단위(작업이 실행되는 시간 당)의 수에 따라 가격이 책정됩니다.
+Stream Analytics은 처리되는 데이터 볼륨 및 스트리밍 단위(작업이 실행되는 시간 당)의 수에 따라 가격이 책정됩니다.
                 </p>
                 <p>
                     <a href="http://azure.microsoft.com/en-us/pricing/details/stream-analytics/">자세한 가격 정보는 여기를 참조하세요.</a>
@@ -212,7 +216,7 @@ NET 사용자용 Visual Studio를 통해 개발, 디버깅 및 모니터링 환�
             </td>
             <td width="204" valign="top">
                 <p>
-스트림 분석은 디버깅 방식으로 기본 작업 상태 작업 로그를 제공하지만 예를 들어 자세한 정보 표시 모드로그에 무엇이/얼마나 포함되는지에 대한 유연성을 제공하지 않습니다.
+Stream Analytics은 디버깅 방식으로 기본 작업 상태 작업 로그를 제공하지만 예를 들어 자세한 정보 표시 모드로그에 무엇이/얼마나 포함되는지에 대한 유연성을 제공하지 않습니다.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -246,7 +250,7 @@ C#, Java 또는 사용자가 선택한 언어로 UDF를 작성할 수 있습니�
             </td>
             <td width="204" valign="top">
                 <p>
-스트림 분석에 확장 가능한 코드에 대한 지원은 없습니다.
+Stream Analytics에 확장 가능한 코드에 대한 지원은 없습니다.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -335,7 +339,7 @@ C#, Java 또는 사용자가 선택한 언어로 UDF를 작성할 수 있습니�
             </td>
             <td width="204" valign="top">
                 <p>
-스트림 분석에는 UTF-8 데이터 형식 을 사용해야 합니다.
+Stream Analytics에는 UTF-8 데이터 형식 을 사용해야 합니다.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -584,6 +588,6 @@ Storm Bolt를 통해 사용할 수 있습니다.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

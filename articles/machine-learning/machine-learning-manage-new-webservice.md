@@ -1,19 +1,23 @@
 ---
-title: Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리 | Microsoft Docs
-description: Azure 기계 학습 작업 영역에 대한 액세스를 관리하고, ML API 웹 서비스를 배포 및 관리합니다.
+title: "Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리 | Microsoft Docs"
+description: "Azure 기계 학습 작업 영역에 대한 액세스를 관리하고, ML API 웹 서비스를 배포 및 관리합니다."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3b04aa7406f44130deb4f12c856b459369301449
+
 
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리
@@ -22,7 +26,7 @@ Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Le
 Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다음과 같습니다.
 
 * 웹 서비스가 사용되는 방식을 모니터링합니다
-* 설명을 구성하고, 웹 서비스 키 및 저장소 계정 키를 업데이트하며(새 서비스에만 해당), 로깅을 사용하도록 설정하고(기존 서비스에만 해당), 샘플 데이터를 사용하거나 사용하지 않도록 설정합니다.
+* 설명을 구성하고, 웹 서비스 키 및 저장소 계정 키를 업데이트하며(새 서비스에만 해당), 로깅을 사용하도록 설정하고, 샘플 데이터를 사용하거나 사용하지 않도록 설정합니다.
 * 웹 서비스를 삭제합니다.
 * 청구 계획을 만들거나 삭제하거나 업데이트합니다(새 서비스에만 해당).
 * 끝점을 추가하거나 삭제 합니다(기존 서비스에만 해당).
@@ -171,6 +175,9 @@ Machine Learning Studio의 작업 영역에 액세스할 수 있는 계정을 �
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

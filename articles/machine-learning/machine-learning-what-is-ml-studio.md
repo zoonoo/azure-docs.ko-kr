@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/09/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a5bcc177d298aecd9fd474bd15fc0331b26e887
+ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
+ms.openlocfilehash: b8115f1fb72b0ba89fd0c8afa3358878a0fab92b
 
 
 ---
@@ -33,25 +33,30 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 
 **Azure 기계 학습 스튜디오** 에서는 예측 분석 모델을 간편하게 빌드, 테스트, 반복할 수 있는 대화형 시각적 작업 영역을 제공합니다. ***데이터 집합***과 분석 ***모듈***을 대화형 캔버스로 끌어서 놓고 함께 연결하여 ***실험***을 생성하고 Machine Learning 스튜디오에서 실행합니다. 모델 디자인을 반복하려면 실험을 편집하고 필요에 따라 복사본을 저장하고 실험을 다시 실행합니다. 준비가 되면 ***학습 실험***을 ***예측 실험***으로 변환한 다음 다른 사용자가 모델에 액세스할 수 있도록 ***웹 서비스***로 게시할 수 있습니다.
 
-> [!TIP]
-> 기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요 다이어그램](machine-learning-studio-overview-diagram.md)을 참조하세요.
-> 
-> 
-
 프로그래밍이 필요하지 않고 데이터 집합과 모듈을 시각적으로 연결하면 예측 분석 모델을 구성할 수 있습니다.
+
+> [!TIP]
+> 기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요](machine-learning-studio-overview-diagram.md)를 참조하세요.
+> 
+> 
 
 ![Azure 기계 학습 스튜디오 다이어그램: 실험을 만들고, 여러 원본에 대한 데이터 읽고, 점수 데이터를 쓰고, 모델을 작성합니다.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>기계 학습 스튜디오 시작
 [기계 학습 스튜디오](https://studio.azureml.net) 를 처음 시작하면 **홈** 페이지가 표시됩니다. 여기에서 설명서, 동영상, 웹 세미나를 보고 다른 유용한 리소스를 찾을 수 있습니다.
 
-위쪽에 **홈**(여기서 시작), **스튜디오** 및 **갤러리** 탭이 있습니다.
+왼쪽 위 메뉴를 클릭합니다. ![메뉴](media/machine-learning-what-is-ml-studio/menu.png) 몇 가지 옵션이 표시됩니다.
 
-### <a name="studio"></a>스튜디오
-**스튜디오** 탭을 클릭하면 Microsoft 계정이나 회사 또는 학교 계정을 사용하여 로그인하라는 메시지가 표시됩니다. 로그인하면 왼쪽에 다음과 같은 탭이 표시됩니다.
+### <a name="cortana-intelligence"></a>Cortana Intelligence
+**Cortana Intelligence**를 클릭하면 [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite)의 홈페이지로 이동합니다. Cortana Intelligence Suite은 데이터를 지능형 작업으로 변환할 수 있는 완전히 관리되는 빅 데이터 및 고급 분석 제품군입니다. 고객 사례를 포함한 전체 설명서에 대한 Suite 홈 페이지를 참조하세요.
+
+### <a name="azure-machine-learning"></a>Azure 기계 학습
+여기에 시작한 페이지인 **홈**과 **Studio**, 두 가지 옵션이 있습니다.
+
+**Studio**를 클릭하여 **Azure Machine Learning Studio**로 이동합니다. 먼저 Microsoft 계정이나 회사 또는 학교 계정을 사용하여 로그인하라는 메시지가 표시됩니다. 로그인하면 왼쪽에 다음과 같은 탭이 표시됩니다.
 
 * **프로젝트** - 단일 프로젝트를 나타내는 실험, 데이터 집합, notebooks 및 기타 리소스의 컬렉션입니다.
-* **실험** - 만들고 실행하고 초안으로 저장한 실험입니다.
+* **실험** - 만들고 실행하거나 초안으로 저장한 실험입니다.
 * **웹 서비스** - 실험에서 배포한 웹 서비스입니다.
 * **노트북** - 사용자가 만든 Jupyter 노트북입니다.
 * **데이터 집합** - 스튜디오로 업로드한 데이터 집합입니다.
@@ -59,7 +64,7 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 * **설정** - 계정과 리소스를 구성하는 데 사용할 수 있는 설정 모음입니다.
 
 ### <a name="gallery"></a>갤러리
-**갤러리** 탭을 클릭하면 Cortana Intelligence 갤러리로 이동하게 됩니다. 갤러리는 데이터 과학자 및 개발자 커뮤니티가 Cortana Intelligence Suite의 구성 요소를 사용하여 만든 솔루션을 공유할 수 있는 곳입니다.
+**갤러리** 탭을 클릭하면 **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**로 이동하게 됩니다. 갤러리는 데이터 과학자 및 개발자 커뮤니티가 Cortana Intelligence Suite의 구성 요소를 사용하여 만든 솔루션을 공유하는 곳입니다.
 
 갤러리에 대한 자세한 내용은 [Cortana Intelligence 갤러리의 솔루션 공유 및 검색](machine-learning-gallery-how-to-use-contribute-publish.md)을 참조하세요.
 
@@ -95,7 +100,7 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 * [ARFF로 변환][convert-to-arff] - .NET 직렬화된 데이터 집합을 ARFF(Attribute-Relation File Format) 형식으로 변환합니다.
 * [기본 통계 계산][elementary-statistics] - 평균, 표준 편차 등의 기본 통계를 계산합니다.
 * [선형 회귀][linear-regression] - 온라인 기울기 하강 기반 선형 회귀 모델을 만듭니다.
-* [모델 점수 매기기][score-model] -학습된 분류 또는 회귀 모델의 점수를 매깁니다.
+* [모델 점수 매기기][score-model] - 학습된 분류 또는 회귀 모델의 점수를 매깁니다.
 
 실험을 빌드할 때 캔버스의 왼쪽에서 사용할 수 있는 모듈의 목록에서 선택할 수 있습니다.  
 
@@ -116,6 +121,6 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

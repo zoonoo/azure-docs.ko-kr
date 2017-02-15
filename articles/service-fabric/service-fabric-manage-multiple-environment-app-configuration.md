@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/01/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8cbeaaf6bfba41bbf52f26aa0e408b7b1ac9405e
+ms.sourcegitcommit: cd256c403cc8094a135157cdc69dbdd3971978ca
+ms.openlocfilehash: 9f8a898f265bc27fc47ea2e3d00d123f3f47dad6
 
 
 ---
@@ -31,6 +31,7 @@ ms.openlocfilehash: 8cbeaaf6bfba41bbf52f26aa0e408b7b1ac9405e
 ### <a name="default-services"></a>기본 서비스
 서비스 패브릭 응용 프로그램은 서비스 인스턴스의 컬렉션으로 이루어 집니다. 빈 응용 프로그램을 만들고 모든 서비스 인스턴스를 동적으로 만들 수 있지만 응용 프로그램 인스턴스화될 때 대부분의 응용 프로그램에는 항상 만들 수 있는 핵심 서비스 집합이 있습니다. 이 서비스를 "기본 서비스" 라고 합니다. 예비 대괄호에 포함된 환경 단위 구성에 대한 자리 표시자와 함께 응용 프로그램 매니페스트에서 지정됩니다.
 
+```xml
     <DefaultServices>
         <Service Name="Stateful1">
             <StatefulService
@@ -46,14 +47,17 @@ ms.openlocfilehash: 8cbeaaf6bfba41bbf52f26aa0e408b7b1ac9405e
         </StatefulService>
     </Service>
   </DefaultServices>
+```
 
 각각의 명명된 매개 변수는 응용 프로그램 매니페스트의 매개 변수 요소 내에서 정의되어야 합니다.
 
+```xml
     <Parameters>
         <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
         <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
         <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
     </Parameters>
+```
 
 DefaultValue 특성은 지정된 환경에 보다 구체적인 매개 변수가 없는 경우 사용될 값을 지정합니다.
 
@@ -67,12 +71,14 @@ DefaultValue 특성은 지정된 환경에 보다 구체적인 매개 변수가 
 
 `Stateful1` 서비스에 대한 Config\Settings.xml 파일에 다음 설정이 있다고 가정합니다.
 
+```xml
     <Section Name="MyConfigSection">
       <Parameter Name="MaxQueueSize" Value="25" />
     </Section>
-
+```
 특정 응용 프로그램/환경 쌍에 대해 이 값을 재정의하려면 응용 프로그램 매니페스트에서 서비스 매니페스트를 가져올 때 `ConfigOverride` 을 만듭니다.
 
+```xml
     <ConfigOverrides>
      <ConfigOverride Name="Config">
         <Settings>
@@ -82,7 +88,7 @@ DefaultValue 특성은 지정된 환경에 보다 구체적인 매개 변수가 
         </Settings>
      </ConfigOverride>
   </ConfigOverrides>
-
+```
 이 매개 변수는 위에 표시된 대로 환경에서 구성될 수 있습니다. 매개 변수 섹션에서 해당 매개 변수를 선언하고 응용 프로그램 매개 변수 파일에서 환경 특정 값을 지정하여 수행할 수 있습니다.
 
 > [!NOTE]
@@ -93,6 +99,7 @@ DefaultValue 특성은 지정된 환경에 보다 구체적인 매개 변수가 
 ### <a name="application-parameter-files"></a>응용 프로그램 매개 변수 파일
 서비스 패브릭 응용 프로그램 프로젝트는 하나 이상의 응용 프로그램 매개 변수 파일을 포함할 수 있습니다. 각각은 응용 프로그램 매니페스트에서 정의된 매개 변수에 특정 값을 정의합니다.
 
+```xml
     <!-- ApplicationParameters\Local.xml -->
 
     <Application Name="fabric:/Application1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -102,7 +109,7 @@ DefaultValue 특성은 지정된 환경에 보다 구체적인 매개 변수가 
             <Parameter Name="Stateful1_TargetReplicaSetSize" Value="3" />
         </Parameters>
     </Application>
-
+```
 기본적으로 새 응용 프로그램은 Local.1Node.xml, Local.5Node.xml 및 Cloud.xml라는 세 응용 프로그램 매개 변수 파일을 포함합니다.
 
 ![솔루션 탐색기에서 응용 프로그램 매개 변수 파일][app-parameters-solution-explorer]
@@ -134,6 +141,6 @@ Visual Studio에서 응용 프로그램을 게시하는 경우 사용 가능한 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -93,28 +93,30 @@ Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 �
 
 다음 예제에서는 'dig'을 사용하여 DNS 영역에 할당된 이름 서버를 사용하는 contoso.com 도메인을 쿼리합니다. 영역의 올바른 값으로 대체해야 합니다.
 
-     > dig @ns1-01.azure-dns.com contoso.com
-     
-     <<>> DiG 9.10.2-P2 <<>> @ns1-01.azure-dns.com contoso.com
-    (1 server found)
-    global options: +cmd
-     Got answer:
-    ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 60963
-     flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
-     WARNING: recursion requested but not available
+```
+  > dig @ns1-01.azure-dns.com contoso.com
+  
+  <<>> DiG 9.10.2-P2 <<>> @ns1-01.azure-dns.com contoso.com
+(1 server found)
+global options: +cmd
+  Got answer:
+->>HEADER<<- opcode: QUERY, status: NOERROR, id: 60963
+  flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+  WARNING: recursion requested but not available
 
-     OPT PSEUDOSECTION:
-     EDNS: version: 0, flags:; udp: 4000
-      QUESTION SECTION:
-    contoso.com.                        IN      A
+  OPT PSEUDOSECTION:
+  EDNS: version: 0, flags:; udp: 4000
+  QUESTION SECTION:
+contoso.com.                        IN      A
 
-     AUTHORITY SECTION:
-    contoso.com.         3600     IN      SOA     ns1-01.azure-dns.com. azuredns-hostmaster.microsoft.com. 1 3600 300 2419200 300
+  AUTHORITY SECTION:
+contoso.com.         3600     IN      SOA     ns1-01.azure-dns.com. azuredns-hostmaster.microsoft.com. 1 3600 300 2419200 300
 
-    Query time: 93 msec
-    SERVER: 208.76.47.5#53(208.76.47.5)
-    WHEN: Tue Jul 21 16:04:51 Pacific Daylight Time 2015
-    MSG SIZE  rcvd: 120
+Query time: 93 msec
+SERVER: 208.76.47.5#53(208.76.47.5)
+WHEN: Tue Jul 21 16:04:51 Pacific Daylight Time 2015
+MSG SIZE  rcvd: 120
+```
 
 ## <a name="next-steps"></a>다음 단계
 

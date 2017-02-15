@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/22/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 357e149121d4cd9b56dd17e7a7429b11e4f192db
-ms.openlocfilehash: f30e31a11ee08601b1c1d8db84031c8db5a15a71
+ms.sourcegitcommit: e651c6f081c14044602c1dc8f8e6d34ffddbf4ea
+ms.openlocfilehash: 7ce4151189eb6aaba3509878fb2e18d04f0c3e59
 
 
 ---
@@ -58,18 +58,20 @@ Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux �
 ### <a name="example"></a>예
 다음 JSON는 Linux 기반 주문형 HDInsight 연결된 서비스를 정의합니다. Data Factory 서비스는 데이터 조각을 처리하는 경우 **Linux 기반** HDInsight 클러스터를 자동으로 만듭니다. 
 
-    {
-        "name": "HDInsightOnDemandLinkedService",
-        "properties": {
-            "type": "HDInsightOnDemand",
-            "typeProperties": {
-                "clusterSize": 4,
-                "timeToLive": "00:05:00",
-                "osType": "linux",
-                "linkedServiceName": "StorageLinkedService"
-            }
+```json
+{
+    "name": "HDInsightOnDemandLinkedService",
+    "properties": {
+        "type": "HDInsightOnDemand",
+        "typeProperties": {
+            "clusterSize": 4,
+            "timeToLive": "00:05:00",
+            "osType": "linux",
+            "linkedServiceName": "StorageLinkedService"
         }
     }
+}
+```
 
 Windows 기반 HDInsight 클러스터를 사용하려면 **osType**을 **windows**로 설정하거나 기본값(windows)으로 속성을 사용하지 않습니다.  
 
@@ -93,10 +95,13 @@ Windows 기반 HDInsight 클러스터를 사용하려면 **osType**을 **windows
 | hcatalogLinkedServiceName |HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 Azure SQL Database를 metastore로 사용하여 만들어집니다. |아니요 |
 
 #### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON 예제
-    "additionalLinkedServiceNames": [
-        "otherLinkedServiceName1",
-        "otherLinkedServiceName2"
-      ]
+
+```json
+"additionalLinkedServiceNames": [
+    "otherLinkedServiceName1",
+    "otherLinkedServiceName2"
+  ]
+```
 
 ### <a name="advanced-properties"></a>고급 속성
 또한 주문형 HDInsight 클러스터의 세부적인 구성에 다음 속성을 지정할 수 있습니다.
@@ -112,39 +117,42 @@ Windows 기반 HDInsight 클러스터를 사용하려면 **osType**을 **windows
 | stormConfiguration |HDInsight 클러스터에 대한 Storm 구성 매개 변수(storm-site.xml)를 지정합니다. |아니요 |
 | yarnConfiguration |HDInsight 클러스터에 대한 Yarn 구성 매개 변수(yarn-site.xml)를 지정합니다. |아니요 |
 
-#### <a name="example-on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>예제 - 고급 속성을 포함하는 주문형 HDInsight 클러스터 구성
-    {
-      "name": " HDInsightOnDemandLinkedService",
-      "properties": {
-        "type": "HDInsightOnDemand",
-        "typeProperties": {
-          "clusterSize": 16,
-          "timeToLive": "01:30:00",
-          "linkedServiceName": "adfods1",
-          "coreConfiguration": {
-            "templeton.mapper.memory.mb": "5000"
-          },
-          "hiveConfiguration": {
-            "templeton.mapper.memory.mb": "5000"
-          },
-          "mapReduceConfiguration": {
-            "mapreduce.reduce.java.opts": "-Xmx4000m",
-            "mapreduce.map.java.opts": "-Xmx4000m",
-            "mapreduce.map.memory.mb": "5000",
-            "mapreduce.reduce.memory.mb": "5000",
-            "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
-          },
-          "yarnConfiguration": {
-            "yarn.app.mapreduce.am.resource.mb": "5000",
-            "mapreduce.map.memory.mb": "5000"
-          },
-          "additionalLinkedServiceNames": [
-            "datafeeds",
-            "adobedatafeed"
-          ]
-        }
-      }
+#### <a name="example--on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>예제 - 고급 속성을 포함하는 주문형 HDInsight 클러스터 구성
+
+```json
+{
+  "name": " HDInsightOnDemandLinkedService",
+  "properties": {
+    "type": "HDInsightOnDemand",
+    "typeProperties": {
+      "clusterSize": 16,
+      "timeToLive": "01:30:00",
+      "linkedServiceName": "adfods1",
+      "coreConfiguration": {
+        "templeton.mapper.memory.mb": "5000"
+      },
+      "hiveConfiguration": {
+        "templeton.mapper.memory.mb": "5000"
+      },
+      "mapReduceConfiguration": {
+        "mapreduce.reduce.java.opts": "-Xmx4000m",
+        "mapreduce.map.java.opts": "-Xmx4000m",
+        "mapreduce.map.memory.mb": "5000",
+        "mapreduce.reduce.memory.mb": "5000",
+        "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
+      },
+      "yarnConfiguration": {
+        "yarn.app.mapreduce.am.resource.mb": "5000",
+        "mapreduce.map.memory.mb": "5000"
+      },
+      "additionalLinkedServiceNames": [
+        "datafeeds",
+        "adobedatafeed"
+      ]
     }
+  }
+}
+```
 
 ### <a name="node-sizes"></a>노드 크기
 다음 속성을 사용하여 헤드, 데이터 및 Zookeeper 노드의 크기를 지정할 수 있습니다. 
@@ -156,12 +164,14 @@ Windows 기반 HDInsight 클러스터를 사용하려면 **osType**을 **windows
 | zookeeperNodeSize |Zookeeper 노드의 크기를 지정합니다. 기본값은 Standard_D3입니다. |아니요 |
 
 #### <a name="specifying-node-sizes"></a>노드 크기 지정
-위의 속성에 대해 지정해야 하는 문자열 값은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-linux-sizes.md#size-tables?toc=%2fazure%2fdata-factory%2ftoc.json) 문서를 참조하세요. 값은 이 문서에서 참조된 **Cmdlet 및 API**를 준수해야 합니다. 이 문서에서 볼 수 있는 것처럼 크게(기본값) 크기의 데이터 노드는 메모리가 7GB이므로 시나리오에 맞지 않을 수 있습니다. 
+위의 속성에 대해 지정해야 하는 문자열 값은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fdata-factory%2ftoc.json#size-tables) 문서를 참조하세요. 값은 이 문서에서 참조된 **Cmdlet 및 API**를 준수해야 합니다. 이 문서에서 볼 수 있는 것처럼 크게(기본값) 크기의 데이터 노드는 메모리가 7GB이므로 시나리오에 맞지 않을 수 있습니다. 
 
 D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 headNodeSize 및 dataNodeSize 속성에 대한 값으로 **Standard_D4**를 지정해야 합니다. 
 
-    "headNodeSize": "Standard_D4",    
-    "dataNodeSize": "Standard_D4",
+```json
+"headNodeSize": "Standard_D4",    
+"dataNodeSize": "Standard_D4",
+```
 
 이러한 속성에 잘못된 값을 지정하는 경우 다음과 같은 오류가 발생할 수 있습니다. **오류:** 클러스터를 만들지 못했습니다. 예외: 클러스터 만들기 작업을 완료할 수 없습니다. 작업이 실패했습니다. 오류 코드는 '400'입니다. 클러스터의 상태가 '오류'로 남아 있습니다. 메시지: 'PreClusterCreationValidationFailure'. 이 오류가 발생하면 위 문서의 표에서 **Cmdlet 및 API** 이름을 사용하고 있는지 확인합니다.  
 
@@ -178,18 +188,21 @@ D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 headNodeS
 Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사용하는 사용자 고유의 HDInsight 클러스터를 등록할 수 있습니다.
 
 ### <a name="example"></a>예
-    {
-      "name": "HDInsightLinkedService",
-      "properties": {
-        "type": "HDInsight",
-        "typeProperties": {
-          "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
-          "userName": "admin",
-          "password": "<password>",
-          "linkedServiceName": "MyHDInsightStoragelinkedService"
-        }
-      }
+
+```json
+{
+  "name": "HDInsightLinkedService",
+  "properties": {
+    "type": "HDInsight",
+    "typeProperties": {
+      "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
+      "userName": "admin",
+      "password": "<password>",
+      "linkedServiceName": "MyHDInsightStoragelinkedService"
     }
+  }
+}
+```
 
 ### <a name="properties"></a>속성
 | 속성 | 설명 | 필수 |
@@ -210,27 +223,34 @@ Azure 배치 서비스가 처음이라면 다음 항목을 참조하십시오.
 * [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet을 사용하여 Azure 배치 풀을 만듭니다.
 
 ### <a name="example"></a>예
-    {
-      "name": "AzureBatchLinkedService",
-      "properties": {
-        "type": "AzureBatch",
-        "typeProperties": {
-          "accountName": "<Azure Batch account name>",
-          "accessKey": "<Azure Batch account key>",
-          "poolName": "<Azure Batch pool name>",
-          "linkedServiceName": "<Specify associated storage linked service reference here>"
-        }
-      }
+
+```json
+{
+  "name": "AzureBatchLinkedService",
+  "properties": {
+    "type": "AzureBatch",
+    "typeProperties": {
+      "accountName": "<Azure Batch account name>",
+      "accessKey": "<Azure Batch account key>",
+      "poolName": "<Azure Batch pool name>",
+      "linkedServiceName": "<Specify associated storage linked service reference here>"
     }
+  }
+}
+```
 
 **accountName** 속성의 배치 계정의 이름에 "**.<region name**"을 추가합니다. 예제:
 
-            "accountName": "mybatchaccount.eastus"
+```json
+"accountName": "mybatchaccount.eastus"
+```
 
 다른 옵션은 아래와 같이 batchUri 끝점을 제공합니다.  
 
-            "accountName": "adfteam",
-            "batchUri": "https://eastus.batch.azure.com",
+```json
+"accountName": "adfteam",
+"batchUri": "https://eastus.batch.azure.com",
+```
 
 ### <a name="properties"></a>속성
 | 속성 | 설명 | 필수 |
@@ -245,16 +265,19 @@ Azure 배치 서비스가 처음이라면 다음 항목을 참조하십시오.
 Azure 컴퓨터 학습 연결된 서비스를 만들어 데이터 팩토리에 끝점을 매기는 기계 학습 일괄 처리를 등록합니다.
 
 ### <a name="example"></a>예
-    {
-      "name": "AzureMLLinkedService",
-      "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-          "mlEndpoint": "https://[batch scoring endpoint]/jobs",
-          "apiKey": "<apikey>"
-        }
-      }
+
+```json
+{
+  "name": "AzureMLLinkedService",
+  "properties": {
+    "type": "AzureML",
+    "typeProperties": {
+      "mlEndpoint": "https://[batch scoring endpoint]/jobs",
+      "apiKey": "<apikey>"
     }
+  }
+}
+```
 
 ### <a name="properties"></a>속성
 | 속성 | 설명 | 필수 |
@@ -268,21 +291,22 @@ Azure 컴퓨터 학습 연결된 서비스를 만들어 데이터 팩토리에 �
 
 다음 예제에서는 Azure 데이터 레이크 분석 연결된 서비스에 JSON 정의를 제공합니다.
 
-    {
-        "name": "AzureDataLakeAnalyticsLinkedService",
-        "properties": {
-            "type": "AzureDataLakeAnalytics",
-            "typeProperties": {
-                "accountName": "adftestaccount",
-                "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
-                "authorization": "<authcode>",
-                "sessionId": "<session ID>",
-                "subscriptionId": "<subscription id>",
-                "resourceGroupName": "<resource group name>"
-            }
+```json
+{
+    "name": "AzureDataLakeAnalyticsLinkedService",
+    "properties": {
+        "type": "AzureDataLakeAnalytics",
+        "typeProperties": {
+            "accountName": "adftestaccount",
+            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+            "authorization": "<authcode>",
+            "sessionId": "<session ID>",
+            "subscriptionId": "<subscription id>",
+            "resourceGroupName": "<resource group name>"
         }
     }
-
+}
+```
 
 다음 표에는 JSON 정의에서 사용하는 JSON 속성이 나와 있습니다.
 
@@ -301,35 +325,38 @@ Azure 컴퓨터 학습 연결된 서비스를 만들어 데이터 팩토리에 �
 | 사용자 유형 | 다음 시간 후에 만료 |
 |:--- |:--- |
 | Azure Active Directory에서 관리되지 않는 사용자 계정((@hotmail.com,, @live.com, 등) |12시간 |
-| AAD(Azure Active Directory)에서 관리되는 사용자 계정 |마지막 조각이 실행된 후 14일 <br/><br/>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일 |
+| AAD(Azure Active Directory)에서 관리되는 사용자 계정 |마지막 조각이 실행된 후&14;일 <br/><br/>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일 |
 
 이 오류를 방지/해결하려면 **토큰이 만료**될 때 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 sessionId 및 권한 부여 속성의 값을 생성할 수도 있습니다. 
 
 ### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>프로그래밍 방식으로 sessionId와 권한 부여 값을 생성하려면
 다음 코드는 **sessionId** 및 **authorization** 값을 생성합니다.  
 
-    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
-        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+```CSharp
+
+if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+    linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+{
+    AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+    WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+    string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+    AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+    if (azureDataLakeStoreProperties != null)
     {
-        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
-
-        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
-        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-
-        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
-        if (azureDataLakeStoreProperties != null)
-        {
-            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
-            azureDataLakeStoreProperties.Authorization = authorization;
-        }
-
-        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
-        if (azureDataLakeAnalyticsProperties != null)
-        {
-            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
-            azureDataLakeAnalyticsProperties.Authorization = authorization;
-        }
+        azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+        azureDataLakeStoreProperties.Authorization = authorization;
     }
+
+    AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+    if (azureDataLakeAnalyticsProperties != null)
+    {
+        azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+        azureDataLakeAnalyticsProperties.Authorization = authorization;
+    }
+}
+```
 
 코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. WindowsFormsWebAuthenticationDialog 클래스의 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll에 대한 참조를 추가해야 합니다. 
 
@@ -345,6 +372,6 @@ SQL Server 연결된 서비스를 만들고 [저장 프로시저 활동](data-fa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

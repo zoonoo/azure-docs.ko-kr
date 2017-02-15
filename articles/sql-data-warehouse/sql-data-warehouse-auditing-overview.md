@@ -1,12 +1,12 @@
 ---
-title: Azure SQL Data Warehouse 감사 | Microsoft Docs
-description: Azure SQL 데이터 웨어하우스 감사 시작
+title: "Azure SQL Data Warehouse 감사 | Microsoft Docs"
+description: "Azure SQL 데이터 웨어하우스 감사 시작"
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: ronortloff
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 0e6af148-b218-4b43-bb5f-907917d20330
 ms.service: sql-data-warehouse
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bd892d5f15a8d95664ef0666cd35e434e773bbce
+
 
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스 감사
@@ -31,7 +35,7 @@ SQL Data Warehouse 감사를 사용하면 Azure Storage 계정의 감사 로그�
 * [데이터베이스에 대한 감사 설정]
 * [감사 로그 및 보고서 분석]
 
-## <a name="a-idsubheading1aazure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Azure SQL 데이터 웨어하우스 데이터베이스 감사 기본 사항
+## <a name="a-idsubheading-1aazure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Azure SQL 데이터 웨어하우스 데이터베이스 감사 기본 사항
 SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니다.
 
 * **유지** 합니다. 감사할 데이터베이스 동작의 범주를 정의할 수 있습니다.
@@ -58,7 +62,7 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 
 감사를 설정하기 전에 ["하위 클라이언트"](sql-data-warehouse-auditing-downlevel-clients.md)를 사용 중인지 여부를 점검합니다.
 
-## <a name="a-idsubheading2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>데이터베이스에 대한 감사 설정
+## <a name="a-idsubheading-2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>데이터베이스에 대한 감사 설정
 1. <a href="https://portal.azure.com" target="_blank">Azure 포털</a>을 시작합니다.
 2. 감사할 SQL 데이터 웨어하우스 데이터베이스 / SQL Server의 구성 블레이드로 이동합니다. 맨 위의 **설정**을 클릭한 다음 블레이드 설정에서 **감사**를 선택합니다.
    
@@ -77,7 +81,7 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 8. 데이터베이스에 대한 감사를 구성하는 경우 클라이언트의 연결 문자열을 변경하여 데이터 감사가 바르게 캡처되는지 확인해야 합니다. [연결 문자열에서 서버 FDQN 수정](sql-data-warehouse-auditing-downlevel-clients.md) 항목에서 하위 클라이언트 연결을 확인합니다.
 9. **확인**을 클릭합니다.
 
-## <a name="a-idsubheading3analyze-audit-logs-and-reportsa"></a><a id="subheading-3">감사 로그 및 보고서 분석</a>
+## <a name="a-idsubheading-3analyze-audit-logs-and-reportsa"></a><a id="subheading-3">감사 로그 및 보고서 분석</a>
 감사 로그는 설치 중에 선택한 Azure 저장소 계정의 **SQLDBAuditLogs** 접두사가 포함된 저장소 테이블의 컬렉션에 집계됩니다. <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure 저장소 탐색기</a>와 같은 도구를 사용하여 로그 파일을 볼 수 있습니다.
 
 미리 구성된 대시보드 보고서 템플릿은 로그 데이터를 빠르게 분석하는 데 도움이 되는 <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">다운로드 가능 Excel 스프레드시트</a>로 사용할 수 있습니다. 감사 로그에 템플릿을 사용하려면 Excel 2013 이상과 파워 쿼리가 필요하며 이러한 프로그램은 <a href="http://www.microsoft.com/download/details.aspx?id=39379">여기</a>서 다운로드할 수 있습니다.
@@ -88,10 +92,10 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 
 ![][5]
 
-## <a name="a-idsubheading4practices-for-usage-in-productiona"></a><a id="subheading-4">프로덕션에서 사용하기 위한 연습</a>
+## <a name="a-idsubheading-4practices-for-usage-in-productiona"></a><a id="subheading-4">프로덕션에서 사용하기 위한 연습</a>
 이 섹션의 설명에서는 위의 화면 캡처를 참조합니다. <a href="https://portal.azure.com" target="_blank">Azure 포털</a> 또는 <a href= "https://manage.windowsazure.com/" target="_bank">기존 Azure 클래식 포털</a>을 사용할 수 있습니다.
 
-## <a name="a-idsubheading5astorage-key-regeneration"></a><a id="subheading-5"></a>저장소 키 다시 생성
+## <a name="a-idsubheading-5astorage-key-regeneration"></a><a id="subheading-5"></a>저장소 키 다시 생성
 프로덕션에서는 저장소 키를 정기적으로 새로 고칩니다. 키를 새로 고칠 때 정책을 다시 저장해야 합니다. 프로세스는 다음과 같습니다.
 
 1. 감사 구성 블레이드(위에 나온 감사 설정 섹션의 설명 참조) **저장소 액세스 키**를 *기본*에서 *보조*로 전환하고 **저장**을 클릭합니다.
@@ -100,7 +104,7 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 3. 감사 구성 블레이드로 돌아가서 **저장소 액세스 키**를 *보조*에서 *기본*으로 전환하고 **저장**을 누릅니다.
 4. 저장소 UI로 돌아와서 **보조 선택키** 를 *다시 생성* 합니다(다음 키 새로 고침 주기를 위한 준비).
 
-## <a name="a-idsubheading6aautomation"></a><a id="subheading-6"></a>자동화
+## <a name="a-idsubheading-6aautomation"></a><a id="subheading-6"></a>자동화
 Azure SQL 데이터베이스에서 감사를 구성하는 데 사용할 수 있는 여러 가지 PowerShell cmdlet이 있습니다. 감사 cmdlet에 액세스하려면 Azure 리소스 관리자 모드에서 PowerShell을 실행해야 합니다.
 
 > [!NOTE]
@@ -128,6 +132,6 @@ Azure 리소스 관리자 모드에서 `Get-Command *AzureSql*` 을 실행하여
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

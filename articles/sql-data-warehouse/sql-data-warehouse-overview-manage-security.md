@@ -112,6 +112,6 @@ Azure SQL Data Warehouse TDE(투명한 데이터 암호화)는 미사용 데이�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

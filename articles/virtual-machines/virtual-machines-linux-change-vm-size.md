@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2016
-ms.author: mikewasson
+ms.author: mwasson
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 0032c330288ea37508c919b50a41a5e58fc28e90
+ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
+ms.openlocfilehash: 788efb5d1cbbd5fd20096c54ca702b99eb2b5a18
 
 
 ---
@@ -47,7 +47,7 @@ VM의 크기를 조정하려면 다음 단계를 수행합니다.
    
     이 과정에서 VM이 다시 시작됩니다. 다시 시작한 후 기존의 OS 및 데이터 디스크는 다시 매핑됩니다. 임시 디스크에 있는 모든 내용이 손실됩니다.
    
-    `--enable-boot-diagnostics` 옵션을 사용하면 [부팅 진단][boot-diagnostics]으로 시작과 관련된 모든 오류를 기록할 수 있습니다.
+    `--enable-boot-diagnostics` 옵션을 사용하면 [진단 부팅][boot-diagnostics]으로 시작과 관련된 모든 오류를 기록할 수 있습니다.
 3. 그러지 않고 원하는 크기가 나열되지 않은 경우에는 다음 명령을 실행하여 VM의 할당을 취소하고 크기를 조정한 다음 VM을 다시 시작합니다.
    
     ```azurecli
@@ -75,6 +75,6 @@ VM의 크기를 조정하려면 다음 단계를 수행합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

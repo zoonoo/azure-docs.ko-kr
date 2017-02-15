@@ -1,6 +1,6 @@
 ---
-title: "T-SQL을 사용하는 Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙 | Microsoft Docs"
-description: "Azure SQL 데이터베이스에 액세스하는 IP 주소에 대한 방화벽을 구성하는 방법을 알아봅니다."
+title: "T-SQL: Azure SQL Database 방화벽 규칙 | Microsoft Docs"
+description: "Transact-SQL을 사용하여 Azure SQL 데이터베이스에 액세스하는 IP 주소에 대한 서버 수준 및 데이터베이스 수준 방화벽 규칙을 구성하는 방법에 대해 알아봅니다."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a49bc9cd8fb50dcc753fbb04bf7f2d96cf79f3ab
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
 
 
 ---
@@ -94,6 +94,6 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

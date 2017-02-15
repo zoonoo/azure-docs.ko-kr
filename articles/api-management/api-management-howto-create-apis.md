@@ -1,36 +1,40 @@
 ---
-title: Azure API 관리에서 API를 만드는 방법
-description: Azure API 관리에서 API를 만들고 구성하는 방법에 대해 알아봅니다.
+title: "Azure API 관리에서 API를 만드는 방법"
+description: "Azure API 관리에서 API를 만들고 구성하는 방법에 대해 알아봅니다."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 14c20da4-f29f-4b28-bec7-3d4c50b734da
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 67e0007c7a40cf59609b1030b7f0ddbee90fa237
+
 
 ---
-# Azure API 관리에서 API를 만드는 방법
+# <a name="how-to-create-apis-in-azure-api-management"></a>Azure API 관리에서 API를 만드는 방법
 API 관리에서 API는 클라이언트 응용 프로그램이 호출할 수 있는 작업 집합을 나타냅니다. 새 API가 게시자 포털에서 생성되고 필요한 작업이 추가됩니다. 작업이 추가되면 API가 제품에 추가되므로, 이 API를 게시할 수 있습니다. API가 게시되면 개발자가 구독하고 사용할 수 있습니다.
 
 이 가이드에서는 프로세스의 첫 번째 단계인 API 관리에서 새 API를 만들고 구성하는 방법을 보여 줍니다. 작업 추가 및 제품 게시에 대한 자세한 내용은 [API에 작업을 추가하는 방법][API에 작업을 추가하는 방법] 및 [제품을 만들고 게시하는 방법][제품을 만들고 게시하는 방법]을 참조하세요.
 
 ## <a name="create-new-api"> </a>새 API 만들기
-게시자 포털에서 API를 만들고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다.
+게시자 포털에서 API를 만들고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure Portal에서 **게시자 포털**을 클릭합니다.
 
 ![게시자 포털][api-management-management-console]
 
-> 아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][Azure API 관리 시작] 자습서의 [API 관리 서비스 인스턴스 만들기][API 관리 서비스 인스턴스 만들기]를 참조하세요.
+> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][API 관리 서비스 인스턴스 만들기] 자습서에서 [API Management 서비스 인스턴스 만들기][API Management 서비스 인스턴스 만들기]를 참조하세요.
 > 
 > 
 
-왼쪽의 **API 관리** 메뉴에서 **API**를 클릭한 다음 **API 추가**를 클릭합니다.
+왼쪽의 **API Management** 메뉴에서 **API**를 클릭한 다음 **API 추가**를 클릭합니다.
 
 ![API 만들기][api-management-create-api]
 
@@ -40,10 +44,10 @@ API 관리에서 API는 클라이언트 응용 프로그램이 호출할 수 있
 
 새 API를 구성하는 데 다음 필드가 사용됩니다.
 
-* **Web API 이름**은 API를 설명하는 고유한 이름을 제공합니다. 개발자 및 게시자 포털에 표시됩니다.
-* **웹 서비스 URL**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다.
-* **Web API URL 접미사**는 API 관리 서비스의 기준 URL에 추가됩니다. 기본 URL은 API 관리 서비스 인스턴스에서 호스트되는 모든 API에 공통으로 사용됩니다. API 관리는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.
-* **Web API URL 구성표**는 API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. 기본적으로 HTTPS가 지정됩니다.
+* **Web API 이름** 은 API를 설명하는 고유한 이름을 제공합니다. 개발자 및 게시자 포털에 표시됩니다.
+* **웹 서비스 URL** 은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다.
+* **Web API URL 접미사** 는 API 관리 서비스의 기준 URL에 추가됩니다. 기본 URL은 API 관리 서비스 인스턴스에서 호스트되는 모든 API에 공통으로 사용됩니다. API 관리는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.
+* **Web API URL 구성표** 는 API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. 기본적으로 HTTPS가 지정됩니다.
 * 이 새로운 API를 제품에 선택적으로 추가하려면 **제품(선택 사항)** 드롭다운 목록을 클릭하고 제품을 선택합니다. 이 단계는 여러 제품에 API 추가를 여러 번 반복할 수 있습니다.
 
 원하는 값이 구성되면 **저장**을 클릭합니다. 새 API가 만들어지면 API에 대한 요약 페이지가 게시자 포털에 표시됩니다.
@@ -61,7 +65,7 @@ API를 구현하는 백엔드 서비스에 대해 게이트웨이 인증을 구�
 
 ![기본 인증 설정][api-management-api-settings-credentials]
 
-**저장**을 클릭하여 API 설정에 대한 변경 내용을 저장합니다.
+**저장** 을 클릭하여 API 설정에 대한 변경 내용을 저장합니다.
 
 ## <a name="next-steps"> </a>다음 단계
 API를 만들고 설정을 구성한 후 다음 단계는 API에 작업을 추가하고, 제품에 API를 추가하고, 개발자가 사용할 수 있도록 게시하는 것입니다. 자세한 내용은 다음 문서를 참조하세요.
@@ -77,18 +81,22 @@ API를 만들고 설정을 구성한 후 다음 단계는 API에 작업을 추�
 [api-management-api-summary]: ./media/api-management-howto-create-apis/api-management-api-summary.png
 [api-management-echo-operations]: ./media/api-management-howto-create-apis/api-management-echo-operations.png
 
-[What is an API?]: #what-is-api
-[Create a new API]: #create-new-api
-[Configure API settings]: #configure-api-settings
-[Configure API operations]: #configure-api-operations
-[Next steps]: #next-steps
+[API란?]: #what-is-api
+[새 API 만들기]: #create-new-api
+[API 설정 구성]: #configure-api-settings
+[API 작업 구성]: #configure-api-operations
+[다음 단계]: #next-steps
 
 [API에 작업을 추가하는 방법]: api-management-howto-add-operations.md
 [제품을 만들고 게시하는 방법]: api-management-howto-add-products.md
 
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
-[Azure API 관리 시작]: api-management-get-started.md#create-service-instance
+[API Management 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
 [Azure API 관리에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법]: api-management-howto-mutual-certificates.md
 [Azure API 관리에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법]: api-management-howto-oauth2.md
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

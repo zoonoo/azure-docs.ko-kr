@@ -37,11 +37,11 @@ ms.openlocfilehash: e2deed13106db9467eef181f25a0a226034df5a2
 
 다음 샘플은 다음과 같은 내용을 보여 줍니다.
 
-1.  [AzureSearch](#azure-search-linked-service-properties) 형식의 연결된 서비스
-2.  [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties)형식의 연결된 서비스
-3.  [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
-4.  [AzureSearchIndex](#azure-search-index-dataset-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
-4.  [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) 및 [AzureSearchIndexSink](#azure-search-index-sink-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
+1.    [AzureSearch](#azure-search-linked-service-properties) 형식의 연결된 서비스
+2.    [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties)형식의 연결된 서비스
+3.    [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
+4.    [AzureSearchIndex](#azure-search-index-dataset-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
+4.    [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) 및 [AzureSearchIndexSink](#azure-search-index-sink-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
 
 이 샘플은 온-프레미스 SQL Server 데이터베이스에서 Azure 검색 인덱스로 1시간마다 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -52,13 +52,13 @@ ms.openlocfilehash: e2deed13106db9467eef181f25a0a226034df5a2
 ```JSON
 {
     "name": "AzureSearchLinkedService",
-    "properties": {
+       "properties": {
         "type": "AzureSearch",
-        "typeProperties": {
+           "typeProperties": {
             "url": "https://<service>.search.windows.net",
             "key": "<AdminKey>"
         }
-    }
+       }
 }
 ```
 
@@ -118,7 +118,7 @@ ms.openlocfilehash: e2deed13106db9467eef181f25a0a226034df5a2
     "properties": {
         "type": "AzureSearchIndex",
         "linkedServiceName": "AzureSearchLinkedService",
-        "typeProperties" : {
+         "typeProperties" : {
             "indexName": "products",
         },
         "availability": {
@@ -330,6 +330,6 @@ Datetime 및 Datetimeoffset의 경우 사용자 지정 Datetime 문자열의 구
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

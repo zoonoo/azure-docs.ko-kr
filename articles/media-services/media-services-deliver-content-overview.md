@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/07/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0af1ca64301e2fb0a3af30e1da8b5d5277f14146
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 42428d9456c5ea00192a981265bd50263cbf66ba
 
 
 ---
@@ -26,18 +26,18 @@ ms.openlocfilehash: 0af1ca64301e2fb0a3af30e1da8b5d5277f14146
 이 목표를 위해 다음을 수행할 수 있습니다.
 
 * 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다. 이렇게 하면 품질 및 네트워크 상태가 관리됩니다.
-* Microsoft Azure 미디어 서비스 [동적 패키징](media-services-dynamic-packaging-overview.md) 을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징합니다. 이렇게 하면 여러 장치의 스트리밍이 관리됩니다. 미디어 서비스에서 지원하는 적응 비트 전송률 스트리밍 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG-DASH 및 HDS(Adobe PrimeTime/Access 정식 사용자만 해당)입니다.
+* Microsoft Azure 미디어 서비스 [동적 패키징](media-services-dynamic-packaging-overview.md) 을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징합니다. 이렇게 하면 여러 장치의 스트리밍이 관리됩니다. Media Services에서 지원하는 적응 비트 전송률 스트리밍은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH입니다.
 
 이 문서에서는 중요한 콘텐츠 배달 개념에 대해 간략하게 설명합니다.
 
 알려진 문제를 확인하려면 [알려진 문제](media-services-deliver-content-overview.md#known-issues)를 참조하세요.
 
 ## <a name="dynamic-packaging"></a>동적 패키징
-미디어 서비스가 제공하는 동적 패키징을 사용하여 적응 비트 전송률 MP4 또는 부드러운 스트리밍 인코딩 콘텐츠를 미디어 서비스에서 지원되는 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍, HDS)으로 다시 패키지하지 않고도 배달할 수 있습니다. 동적 패키징을 사용하여 콘텐츠를 전달하는 것이 좋습니다.
+미디어 서비스가 제공하는 동적 패키징을 사용하여 적응 비트 전송률 MP4 또는 부드러운 스트리밍 인코딩 콘텐츠를 미디어 서비스에서 지원되는 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)으로 다시 패키지하지 않고도 배달할 수 있습니다. 동적 패키징을 사용하여 콘텐츠를 전달하는 것이 좋습니다.
 
 동적 패키징을 이용하려면 다음을 수행해야 합니다.
 
-* 중 2층(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩합니다.
+* 중&2;층(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩합니다.
 * 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점에 하나 이상의 주문형 스트리밍 단위를 구성합니다. 자세한 내용은 [주문형 스트리밍 예약 단위를 확장하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
 
 동적 패키징을 사용하여 단일 저장소 형식으로 파일을 저장하고 요금을 지불할 수 있습니다. 미디어 서비스는 사용자의 요청에 따라 적절한 응답을 빌드하고 제공합니다.
@@ -73,7 +73,7 @@ ms.openlocfilehash: 0af1ca64301e2fb0a3af30e1da8b5d5277f14146
 로케이터를 만들 때 Azure Storage의 필수 저장소 및 전파 프로세스로 인해 30초간 지연될 수 있습니다.
 
 ## <a name="adaptive-streaming"></a>적응 스트리밍
-적응 비트 전송률 기술에서는 비디오 플레이어 응용 프로그램이 네트워크 상태를 확인하고 여러 가지 비트 전송률 중에서 선택할 수 있습니다. 네트워크 통신 성능이 저하되면 클라이언트에서 더 낮은 비트 전송률을 선택하여 더 낮은 비디오 품질로 비디오를 계속 재생하도록 할 수 있습니다. 네트워크 상태가 향상되면 클라이언트에서 더 높은 비트 전송률로 전환하여 향상된 비디오 품질을 제공할 수 있습니다. Azure 미디어 서비스에서 지원하는 적응 비트 전송률 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG-DASH 및 HDS입니다.
+적응 비트 전송률 기술에서는 비디오 플레이어 응용 프로그램이 네트워크 상태를 확인하고 여러 가지 비트 전송률 중에서 선택할 수 있습니다. 네트워크 통신 성능이 저하되면 클라이언트에서 더 낮은 비트 전송률을 선택하여 더 낮은 비디오 품질로 비디오를 계속 재생하도록 할 수 있습니다. 네트워크 상태가 향상되면 클라이언트에서 더 높은 비트 전송률로 전환하여 향상된 비디오 품질을 제공할 수 있습니다. Azure 미디어 서비스에서 지원하는 적응 비트 전송률 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH입니다.
 
 사용자에게 스트리밍 URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 스트리밍할 콘텐츠를 포함하는 자산에 대한 기본 경로가 제공됩니다. 그러나 이 콘텐츠를 스트리밍하려면 나중에 이 경로를 수정해야 합니다. 스트리밍 매니페스트 파일에 대한 전체 URL을 생성하려면 로케이터의 경로 값과 매니페스트(filename.ism) 파일 이름을 연결해야 합니다. 그런 다음 로케이터 경로에 **/Manifest** 및 적절한 형식(필요한 경우)을 추가합니다.
 
@@ -120,11 +120,6 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=fmp4-v20)
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
-
-### <a name="hds-for-adobe-primetimeaccess-licensees-only"></a>HDS(Adobe PrimeTime/Access 정식 사용자만 해당)
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
-
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
 
 ## <a name="progressive-download"></a>점진적 다운로드
 점진적 다운로드를 사용하면 전체 파일이 다운로드되기 전에 미디어 재생을 시작할 수 있습니다. .ism*(ismv, isma, ismt, ismc) 파일을 점진적으로 다운로드할 수 없습니다.
@@ -189,6 +184,6 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

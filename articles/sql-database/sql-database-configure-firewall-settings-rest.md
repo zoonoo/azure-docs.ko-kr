@@ -1,6 +1,6 @@
 ---
-title: "REST API를 사용하는 Azure SQL Database 서버 수준 방화벽 규칙 | Microsoft Docs"
-description: "Azure SQL 데이터베이스에 액세스하는 IP 주소에 대한 방화벽을 구성하는 방법을 알아봅니다."
+title: "REST API: Azure SQL Database 서버 수준 방화벽 규칙 | Microsoft Docs"
+description: "REST API를 사용하여 Azure SQL 데이터베이스에 액세스하는 IP 주소에 대한 서버 수준 방화벽 규칙을 구성하는 방법에 대해 알아봅니다."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
-ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 6ac9bdf34e8cf0a8ca8e06ae3ed6cd2dd1cf408b
 
 
 ---
@@ -91,6 +91,6 @@ Transact-SQL을 사용하여 서버 수준 및 데이터베이스 수준 방화�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

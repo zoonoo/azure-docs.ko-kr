@@ -1,19 +1,23 @@
 ---
-title: Azure Site Recovery를 사용한 Hyper-V 복제 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 성공적으로 설치, 구성 및 관리하는 데 도움이 되는 기술 개념을 이해합니다.
+title: "Azure Site Recovery를 사용한 Hyper-V 복제 | Microsoft Docs"
+description: "이 문서에서는 Azure Site Recovery를 성공적으로 설치, 구성 및 관리하는 데 도움이 되는 기술 개념을 이해합니다."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: Rajani-Janaki-Ram
 manager: mkjain
-editor: ''
-
+editor: 
+ms.assetid: 97916915-1379-47df-8369-12ddf022c4da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/12/2016
+ms.date: 01/19/2017
 ms.author: rajanaki
+translationtype: Human Translation
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: b49771ff1e29aeb6ec582c21061085504705991b
+
 
 ---
 # <a name="hyper-v-replication-with-azure-site-recovery"></a>Azure Site Recovery를 사용한 Hyper-V 복제
@@ -43,7 +47,7 @@ Azure Portal 또는 온-프레미스의 가상 컴퓨터를 보호한 후에 **�
 
 초기 복제를 마친 후에는 **가상 컴퓨터에 대한 보호 완료** 작업이 네트워크 및 복제 후 설정을 구성합니다. 초기 복제가 진행되는 동안:
 
-* 디스크에 대한 모든 변경은 추적됩니다. 
+* 디스크에 대한 모든 변경은 추적됩니다.
 * 스냅숏 및 HRL(Hyper-V 복제 로그) 파일에 대해 추가적인 디스크 공간이 소비됩니다.
 
 초기 복제가 완료되면, Hyper-V VM 스냅숏이 삭제됩니다. 이러한 삭제는 초기 복제 후 데이터 변경을 부모 디스크에 병합합니다.
@@ -55,7 +59,7 @@ Hyper-V 복제본 복제 엔진의 일부인 Hyper-V 복제본 복제 추적기�
 
 복제를 위해 구성된 각 디스크에는 연결된 HRL 파일이 있습니다. 이 로그는 초기 복제가 완료된 후 고객의 저장소 계정으로 전송됩니다. 로그가 Azure로 전송 중인 경우 주 디스크의 변경 내용은 같은 디렉터리의 다른 로그 파일에 추적됩니다.
 
-초기 복제 또는 델타 복제 중에 [가상 컴퓨터에 대한 복제 상태 모니터링](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machine)에 설명된 것처럼 VM 보기에서 VM 복제 상태를 모니터링할 수 있습니다.  
+초기 복제 또는 델타 복제 중에 [가상 컴퓨터에 대한 복제 상태 모니터링](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines)에 설명된 것처럼 VM 보기에서 VM 복제 상태를 모니터링할 수 있습니다.  
 
 ### <a name="resynchronization"></a>다시 동기화
 델타 복제가 실패하고 전체 초기 복제가 네트워크 대역폭 또는 시간적인 면에서 비용이 많이 드는 경우 가상 컴퓨터는 다시 동기화하도록 표시됩니다. 예를 들어 HRL 파일 크기가 총 디스크 크기의 50%까지 누적되는 경우 가상 컴퓨터는 다시 동기화하도록 표시됩니다. 다시 동기화는 원본 및 대상 가상 컴퓨터 디스크의 체크섬을 계산하고 차이만 전송하여 네트워크를 통해 전송되는 데이터 양을 최소화합니다.
@@ -81,9 +85,11 @@ Hyper-V 복제본 복제 엔진의 일부인 Hyper-V 복제본 복제 추적기�
 
 ## <a name="other-references"></a>기타 참조
 * [VMware, VMM, Hyper-V 및 물리적 사이트를 위한 보호 모니터링 및 문제 해결](site-recovery-monitoring-and-troubleshooting.md)
-* [Microsoft 지원을 위한 연락](site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
-* [일반적인 Azure Site Recovery 오류 및 해결 방법](site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
+* [Microsoft 지원을 위한 연락](site-recovery-monitoring-and-troubleshooting.md#reach-out-for-microsoft-support)
+* [일반적인 Azure Site Recovery 오류 및 해결 방법](site-recovery-monitoring-and-troubleshooting.md#common-azure-site-recovery-errors-and-their-resolutions)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,34 +1,39 @@
 ---
-title: Azure 보안 센터에서 OS 버전 업데이트 | Microsoft Docs
-description: 이 문서에서는 Azure 보안 센터 권장 사항 **OS 버전 업데이트**를 구현하는 방법을 보여 줍니다.
+title: "Azure Security Center에서 OS 버전 업데이트 | Microsoft Docs"
+description: "이 문서에서는 Azure 보안 센터 권장 사항 **OS 버전 업데이트**를 구현하는 방법을 보여 줍니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: aa372492-ecdb-4368-8fdd-d8ed31e216ee
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/29/2016
+ms.date: 11/01/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ce0d178914907750e5da59f223a4b1e04b9bb6fb
+
 
 ---
-# Azure 보안 센터에서 OS 버전 업데이트
-클라우드 서비스의 가상 컴퓨터(VM)의 경우 Azure 보안 센터는 사용 가능한 최신 버전이 있는 경우 운영 체제(OS) 업데이트를 권장합니다. 프로덕션 슬롯에서 실행되는 클라우드 서비스 웹 및 작업자 역할만 모니터링됩니다.
+# <a name="update-os-version-in-azure-security-center"></a>Azure 보안 센터에서 OS 버전 업데이트
+클라우드 서비스의 가상 컴퓨터(VM)의 경우 Azure 보안 센터는 사용 가능한 최신 버전이 있는 경우 운영 체제(OS) 업데이트를 권장합니다.  프로덕션 슬롯에서 실행되는 클라우드 서비스 웹 및 작업자 역할만 모니터링됩니다.
 
 > [!NOTE]
-> 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
+> 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  단계별 가이드는 아닙니다.
 > 
 > 
 
-## 권장 사항 구현
-1. **권장 사항** 블레이드에서 **OS 버전 업데이트**를 선택합니다. ![OS 버전 업데이트][1]
-2. 이렇게 하면 **OS 버전 업데이트** 블레이드가 열립니다. 이 블레이드의 단계를 따라 OS 버전을 업데이트합니다.
+## <a name="implement-the-recommendation"></a>권장 사항 구현
+1. **권장 사항** 블레이드에서 **OS 버전 업데이트**를 선택합니다.
+   ![OS 버전 업데이트][1]
+2. 이렇게 하면 **OS 버전 업데이트**블레이드가 열립니다. 이 블레이드의 단계를 따라 OS 버전을 업데이트합니다.
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 이 문서에서는 보안 센터 권장 사항 "OS 버전 업데이트"를 구현하는 방법을 보여 주었습니다. 클라우드 서비스 및 클라우드 서비스에 대한 OS 버전 업데이트에 대한 자세한 내용은 다음을 참조하세요.
 
 * [클라우드 서비스 개요](../cloud-services/cloud-services-choose-me.md)
@@ -48,4 +53,8 @@ ms.author: terrylan
 <!--Image references-->
 [1]: ./media/security-center-update-os-version/update-os-version.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

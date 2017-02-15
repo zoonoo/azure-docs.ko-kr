@@ -7,12 +7,13 @@
 # 시작
 
 ## Web Apps
-### [.NET](web-sites-dotnet-get-started.md)
-### [Node.JS](app-service-web-nodejs-get-started.md)
-### [Python](web-sites-python-ptvs-django-mysql.md)
-### [Java](web-sites-java-get-started.md)
+### [HTML](app-service-web-get-started-html.md)
+### [.NET](app-service-web-get-started-dotnet.md)
+### [Node.JS](app-service-web-get-started-nodejs.md)
+### [Python](app-service-web-get-started-python.md)
+### [Java](app-service-web-get-started-java.md)
 ### [마켓플레이스 앱](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-php-get-started.md)   
+### [PHP](app-service-web-get-started-php.md)   
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,11 +61,12 @@
 ### [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### ASP.NET 앱
-#### [5분 내에 Azure에 첫 번째 .NET 웹앱 배포](app-service-web-get-started-dotnet.md)
+#### [Visual Studio를 사용하여 Azure에서 ASP.NET 앱 만들기](web-sites-dotnet-get-started.md)
 #### [ASP.NET Web API를 사용한 REST 서비스 만들기](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Visual Studio 코드에서 5 ASP.NET 웹앱 만들기](web-sites-create-web-app-using-vscode.md)
 
 ### Node.js 앱
+#### [App Service용 Node.js 개발](app-service-web-nodejs-get-started.md)
 #### [Node.js 웹앱 만들기](web-sites-nodejs-develop-deploy-mac.md)
 #### [Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 만들기](web-sites-nodejs-chat-app-socketio.md)
 #### [Web Apps에서 io.js를 사용하는 방법](web-sites-nodejs-iojs.md)
@@ -72,14 +74,13 @@
 #### [WebMatrix를 사용하여 빌드 및 배포](web-sites-nodejs-use-webmatrix.md)
 
 ### PHP 앱
-#### [5분 내에 Azure에 첫 번째 PHP 웹앱 배포](app-service-web-get-started-php.md)
+#### [App Service용 PHP 앱 개발](app-service-web-php-get-started.md) 
 #### [Git를 사용하여 PHP-SQL 웹앱 만들기 및 배포](web-sites-php-sql-database-deploy-use-git.md)
 #### [Azure App Service에서 WordPress 웹앱 만들기](web-sites-php-web-site-gallery.md)
 #### [Azure에서 MySQL 데이터베이스 만들기 및 연결](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Azure App Service의 엔터프라이즈급 WordPress](web-sites-php-enterprise-wordpress.md)
 
 ### Java 앱
-#### [5분 내에 Azure에 첫 번째 Java 웹앱 배포](web-sites-java-get-started.md)
 #### Hello World 앱 만들기
 ##### [Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
 ##### [IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)

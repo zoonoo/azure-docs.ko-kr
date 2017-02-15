@@ -29,6 +29,13 @@
 ### [서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)
 ### [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)
 
+## 성능
+### [Azure Data Lake Store에 대한 성능 조정 지침](data-lake-store-performance-tuning-guidance.md)
+### [HDInsight의 Spark 및 Azure Data Lake Store에 대한 성능 조정 지침](data-lake-store-performance-tuning-spark.md)
+### [HDInsight의 Hive 및 Azure Data Lake Store에 대한 성능 조정 지침](data-lake-store-performance-tuning-hive.md)
+### [HDInsight의 MapReduce 및 Azure Data Lake Store에 대한 성능 조정 지침](data-lake-store-performance-tuning-mapreduce.md)
+### [HDInsight의 Storm 및 Azure Data Lake Store에 대한 성능 조정 지침](data-lake-store-performance-tuning-storm.md)
+
 ## Azure 서비스와의 통합
 ### [Azure VNET의 Vm에서 액세스](data-lake-store-connectivity-from-vnets.md)
 ### [Data Lake Analytics와 함께 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
@@ -64,6 +71,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

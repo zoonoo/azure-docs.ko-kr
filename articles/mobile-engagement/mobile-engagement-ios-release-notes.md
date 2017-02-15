@@ -12,20 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/13/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ecb08e940fca3daba2968b138417a563afccd127
+ms.sourcegitcommit: da3ef06433d2336159d0ae96f12019fd80dc5d07
+ms.openlocfilehash: 6b32e81bb6a714bd0c479c48d6982af4bcc0683d
 
 
 ---
 # <a name="azure-mobile-engagement-ios-sdk-release-notes"></a>Azure Mobile Engagement iOS SDK 릴리스 정보
+## <a name="401-12132016"></a>4.0.1 (12/13/2016)
+* 백그라운드에서 로그 전달을 개선하였습니다.
+
 ## <a name="400-09122016"></a>4.0.0(09/12/2016)
 * iOS 10 장치에서 알림이 작동하지 않는 문제를 해결했습니다.
 * XCode 7은 더 이상 사용되지 않습니다.
 
-## <a name="324-06302016"></a>3.2.4(2016년 6월 30일)
+## <a name="324-06302016"></a>3.2.4(2016년&6;월&30;일)
 * 기술 로그 및 기타 로그 간 집계를 수정했습니다.
 
 ## <a name="323-06072016"></a>3.2.3(06/07/2016)
@@ -71,6 +74,6 @@ ms.openlocfilehash: ecb08e940fca3daba2968b138417a563afccd127
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

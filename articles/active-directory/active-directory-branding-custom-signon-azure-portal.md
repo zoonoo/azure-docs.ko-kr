@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -45,10 +45,10 @@ https://outlook.com/**contoso**.com 또는 https://mail.**contoso**.com과 같�
 > [!NOTE]
 > * 도메인 이름은 브랜딩을 구성한 Azure 포털의 **도메인** 부분에서 "활성"으로 표시되어야 합니다. 자세한 내용은 [사용자 지정 도메인 이름 추가](active-directory-domains-add-azure-portal.md)를 참조하세요.
 > * 로그인 페이지 브랜딩은 Microsoft의 소비자 로그인 페이지에 적용되지 않습니다. Microsoft 계정으로 로그인한 사용자는 Azure AD에서 렌더링하는 브랜드가 지정된 사용자 타일 목록을 볼 수 있지만 조직의 브랜딩이 Microsoft 계정 로그인 페이지에 적용되지는 않습니다.
-> 
-> 
+>
+>
 
-로그인 페이지의 **로그인 유지** 확인란은 사용자가 브라우저를 닫았다가 다시 열 때 로그인 상태를 유지할 수 있도록 합니다. 
+로그인 페이지의 **로그인 유지** 확인란은 사용자가 브라우저를 닫았다가 다시 열 때 로그인 상태를 유지할 수 있도록 합니다.
 
    ![로그인 유지](./media/active-directory-branding-custom-signon-azure-portal/01.png)
 
@@ -57,22 +57,22 @@ https://outlook.com/**contoso**.com 또는 https://mail.**contoso**.com과 같�
 
    ![로그인 유지](./media/active-directory-branding-custom-signon-azure-portal/02.png)
 
-확인란을 숨기려면 이 설정을 **예**로 구성합니다. 
+확인란을 숨기려면 이 설정을 **예**로 구성합니다.
 
 > [!NOTE]
 > SharePoint Online과 Office 2010의 일부 기능은 이 확인란을 선택할 수 있는 사용자에 따라 달라집니다. 이 설정을 숨겨짐으로 구성하면 사용자에게 로그인을 요청하는 예상치 못한 메시지가 추가로 표시될 수 있습니다.
-> 
-> 
+>
+>
 
 **디렉터리에 회사 브랜딩을 추가하려면**
 
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 2. **더 많은 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음 **Enter**를 선택합니다.
-   
+
    ![사용자 관리 열기](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
 3. **사용자 및 그룹** 블레이드에서 **회사 브랜딩**을 선택합니다.
 4. **사용자 및 그룹 - 회사 브랜딩** 블레이드에서 **편집** 명령을 선택합니다.
-   
+
     ![사용자 지정 브랜딩 편집](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
 5. 사용자 지정할 요소를 수정합니다. 모든 요소는 선택 사항입니다.
 6. **Save**를 클릭합니다.
@@ -84,7 +84,6 @@ https://outlook.com/**contoso**.com 또는 https://mail.**contoso**.com과 같�
 
 
 
-
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

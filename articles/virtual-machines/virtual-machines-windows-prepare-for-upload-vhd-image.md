@@ -1,13 +1,13 @@
 ---
-title: Azure에 업로드할 Windows VHD 준비 | Microsoft Docs
-description: Azure에 업로드하기 전에 Windows VHD를 준비하기 위한 권장 방법
+title: "Azure에 업로드할 Windows VHD 준비 | Microsoft Docs"
+description: "Azure에 업로드하기 전에 Windows VHD를 준비하기 위한 권장 방법"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: genlin
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2016
 ms.author: glimoli;genli
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 98aa7935322c873a9de6414090daab2e04ea19fe
+
 
 ---
 # <a name="prepare-a-windows-vhd-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 준비
@@ -224,7 +228,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
    ```
 
 ## <a name="additional-windows-configuration-steps"></a>추가 Windows 구성 단계
-1. `winmgmt /verifyrepository` 를 실행하여 WMI(Windows Management Instrumentation) 리포지토리가 일관된지 확인합니다. 리포지토리가 손상된 경우 [이 블로그 게시물](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not)을 참조하세요.
+1. `winmgmt /verifyrepository` 를 실행하여 WMI(Windows Management Instrumentation) 리포지토리가 일관되는지 확인합니다. 리포지토리가 손상된 경우 [이 블로그 게시물](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not)을 참조하세요.
 2. BCD(부팅 구성 데이터) 설정이 다음과 일치하는지 확인합니다.
    
    ```
@@ -241,7 +245,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
    bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
    ```
 3. TCP 패킷을 분석하는 소프트웨어와 같은 추가 전송 드라이버 인터페이스 필터를 모두 제거합니다.
-4. 디스크가 정상 상태이고 일관된지 확인하려면 `CHKDSK /f` 명령을 실행합니다.
+4. 디스크가 정상 상태이고 일관되는지 확인하려면 `CHKDSK /f` 명령을 실행합니다.
 5. 실제 구성 요소 또는 다른 가상화 기술과 관련된 다른 타사 소프트웨어 및 드라이버를 제거합니다.
 6. 타사 응용 프로그램이 포트 3389를 사용하지 않는지 확인합니다. 이 포트는 Azure의 RDP 서비스에 사용됩니다. `netstat -anob` 응용 프로그램에서 사용하는 포트를 확인할 수 있습니다.
 7. 업로드하려는 Windows VHD가 도메인 컨트롤러인 경우 [이러한 추가 단계](https://support.microsoft.com/kb/2904015) 를 수행하여 디스크를 준비합니다.
@@ -265,8 +269,8 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
    * [KB2904100](https://support.microsoft.com/kb/2904100) Windows에서 디스크 입/출력을 수행하는 동안 시스템이 중지됨 <a id="step23"></a>
 2. 여러 컴퓨터에 배포할 이미지를 만들려는 경우 Azure에 VHD를 업로드하기 전에 `sysprep` 을 실행하여 이미지를 일반화해야 합니다. 특수화된 VHD를 사용하여 `sysprep` 을 실행할 필요는 없습니다. 일반화된 이미지를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
    
-   * [Resource Manager 배포 모델을 사용하여 기존 Azure VM에서 VM 이미지 만들기](virtual-machines-windows-capture-image.md)
-   * [클래식 배포 모델을 사용하여 기존 Azure VM에서 VM 이미지 만들기](virtual-machines-windows-classic-capture-image.md)
+   * [Resource Manager 배포 모델을 사용하여 기존 Azure VM에서 VM 이미지 만들기](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+   * [클래식 배포 모델을 사용하여 기존 Azure VM에서 VM 이미지 만들기](virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
    * [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 ## <a name="suggested-extra-configurations"></a>제안되는 추가 구성
@@ -293,8 +297,11 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
     ```
 
 ## <a name="next-steps"></a>다음 단계
-* [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](virtual-machines-windows-upload-image.md)
+* [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

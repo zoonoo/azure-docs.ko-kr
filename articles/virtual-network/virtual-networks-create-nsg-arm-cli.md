@@ -1,13 +1,13 @@
 ---
-title: Azure CLI를 사용하여 ARM 모드에서 NSG를 만드는 방법 | Microsoft Docs
-description: Azure CLI를 사용하여 ARM에서 NSG를 만들고 배포하는 방법을 알아봅니다.
+title: "Azure CLI를 사용하여 ARM 모드에서 NSG를 만드는 방법 | Microsoft Docs"
+description: "Azure CLI를 사용하여 ARM에서 NSG를 만들고 배포하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,25 +15,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d740926f6e372e46001b5a093c7fb25b47bc4f36
+
 
 ---
-# Azure CLI에서 NSG를 만드는 방법
+# <a name="how-to-create-nsgs-in-the-azure-cli"></a>Azure CLI에서 NSG를 만드는 방법
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-classic-cli.md) 수도 있습니다.
+이 문서에서는 Resource Manager 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-classic-cli.md)수도 있습니다.
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-아래 샘플 Azure CLI 명령에는 위의 시나리오를 기반으로 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [이 템플릿](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd)을 배포하여 테스트 환경을 구축하고 **Azure에 배포**를 클릭한 다음 필요한 경우 기본 매개 변수 값을 바꾸고 포털의 지침을 따릅니다.
+아래 샘플  Azure CLI 명령에는 위의 시나리오를 기반으로 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [이 템플릿](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd)을 배포하여 테스트 환경을 구축하고 **Azure에 배포**를 클릭한 다음 필요한 경우 기본 매개 변수 값을 바꾸고 포털의 지침을 따릅니다.
 
-## 프런트 엔드 서브넷에 대한 NSG를 만드는 방법
-위의 시나리오에 따라 *NSG-FrontEnd*라는 NSG를 만들려면 다음 단계를 따르세요.
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>프런트 엔드 서브넷에 대한 NSG를 만드는 방법
+위의 시나리오에 따라 *NSG-FrontEnd* 라는 NSG를 만들려면 다음 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
    
         azure config mode arm
@@ -67,7 +71,7 @@ ms.author: jdial
         data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500   
         info:    network nsg create command OK
    
-    매개 변수:
+    매개 변수
    
    * **-g(또는 --resource-group)**. NSG가 만들어지는 리소스 그룹의 이름입니다. 이 시나리오에서는 *TestRG*입니다.
    * **-l(또는 --location)**. 새 NSG를 만들 Azure 지역입니다. 이 시나리오에서는 *westus*입니다.
@@ -98,7 +102,7 @@ ms.author: jdial
         data:    Priority                        : 100
         info:    network nsg rule create command OK
    
-    매개 변수:
+    매개 변수
    
    * **-a(또는 --nsg-name)**. 규칙이 만들어질 NSG의 이름입니다. 이 시나리오에서는 *NSG-FrontEnd*입니다.
    * **-n(또는 --name)**. 새 규칙의 이름입니다. 이 시나리오에서는 *rdp-rule*입니다.
@@ -160,8 +164,8 @@ ms.author: jdial
         data:    
         info:    network vnet subnet set command OK
 
-## 백 엔드 서브넷에 대한 NSG를 만드는 방법
-위의 시나리오에 따라 *NSG-BackEnd*라는 NSG를 만들려면 다음 단계를 따르세요.
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>백 엔드 서브넷에 대한 NSG를 만드는 방법
+위의 시나리오에 따라 *NSG-BackEnd* 라는 NSG를 만들려면 다음 단계를 따르세요.
 
 1. **azure network nsg create** 명령을 실행하여 NSG를 만듭니다.
    
@@ -263,4 +267,9 @@ ms.author: jdial
         data:    
         info:    network vnet subnet set command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 01/03/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 22156a9f3c5a57e10cad96661f50531b309c3a04
-ms.openlocfilehash: a25d394e83d7945f0ea50de1fc65a68a96190a34
+ms.sourcegitcommit: 425637599df40ac3be23984785e4f3292d72978d
+ms.openlocfilehash: 7c7a300b620b1e7bd0cd1b816e575f2d57fee80a
 
 
 ---
@@ -28,28 +28,32 @@ ms.openlocfilehash: a25d394e83d7945f0ea50de1fc65a68a96190a34
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
 ## <a name="choose-the-vm-image-from-the-marketplace"></a>마켓플레이스에서 VM 이미지를 선택합니다.
-Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, 해당 이미지는 Azure가 제공하는 여러 이미지 중 하나일 뿐입니다. 선택할 수 있는 이미지는 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 [MSDN 구독자](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)에 사용할 수 있습니다.
+Windows Server 2016 Datacenter 이미지를 예로 사용할 것이지만, 해당 이미지는 Azure가 제공하는 여러 이미지 중 하나일 뿐입니다. 선택할 수 있는 이미지는 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 [MSDN 구독자](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)에 사용할 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 허브 메뉴에서 **새로 만들기** > **계산** > **Windows Server 2012 R2 Datacenter**를 클릭합니다.
+2. 왼쪽 위에서 시작하여 **새로 만들기** > **계산** > **Windows Server 2016 Datacenter**를 클릭합니다.
    
     ![포털에서 사용할 수 있는 Azure VM 이미지를 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
-3. **Windows Server 2012 R2 Datacenter** 블레이드의 **배포 모델 선택**에서 **Resource Manager**가 선택되어 있는지 확인합니다. **만들기**를 클릭합니다.
+3. **Windows Server 2016 Datacenter** 블레이드의 **배포 모델 선택**에서 **Resource Manager**가 선택되어 있는지 확인합니다. **만들기**를 클릭합니다.
    
     ![VM에 선택할 배포 모델을 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
 ## <a name="create-the-windows-virtual-machine"></a>Windows 가상 컴퓨터 만들기
 이미지를 선택한 후에 기본 설정을 사용하여 신속하게 가상 컴퓨터를 만들 수 있습니다.
 
-1. **기본 사항** 블레이드에서 가상 컴퓨터의 **이름**을 입력합니다. 이름은 1-15자 길이여야 하며 특수 문자를 포함할 수 없습니다.
-2. **사용자 이름** 및 VM에서 로컬 계정을 만드는 데 사용할 강력한 **암호**를 입력합니다. 로컬 계정은 VM에 로그온하고 VM을 관리하는 데 사용됩니다. 
+1. **기본 사항** 블레이드에서 가상 컴퓨터의 **이름**을 입력합니다. 이 예제에서 *HeroVM*은 가상 컴퓨터의 이름입니다. 이름은 1-15자 길이여야 하며 특수 문자를 포함할 수 없습니다.
+2. **사용자 이름** 및 VM에서 로컬 계정을 만드는 데 사용할 강력한 **암호**를 입력합니다. 로컬 계정은 VM에 로그온하고 VM을 관리하는 데 사용됩니다. 이 예제에서 *azureuser*는 사용자 이름입니다.
    
     암호는 8-123자 길이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자 등 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다. 자세한 내용은 [사용자 이름 및 암호 요구 사항](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요.
-3. 기존 [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)을 선택하거나 새 리소스 그룹의 이름을 입력합니다. **미국 서부**와 같이 Azure 데이터 센터의 **위치**를 입력합니다. 
+
+3. 기존 [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)을 선택하거나 새 리소스 그룹의 이름을 입력합니다. 이 예제에서 *HeroVMRG*는 리소스 그룹의 이름입니다.
+
+4. Azure 데이터 센터 **위치**를 선택합니다. 이 예제에서 *미국 동부**는 위치입니다. 
+
 4. 완료되면 **확인** 을 클릭하여 다음 섹션을 진행합니다. 
    
     ![Azure VM을 구성하기 위한 **기본 사항** 블레이드에서 설정을 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-5. VM [크기](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 선택하고 **선택** 을 클릭하여 진행합니다. 
+5. VM [크기](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 선택하고 **선택** 을 클릭하여 진행합니다. 이 예제에서 *DS1_V2 표준*은 VM 크기입니다.
    
     ![선택할 수 있는 Azure VM 크기를 보여 주는 크기 블레이드의 스크린샷](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 6. **설정** 블레이드에서 저장소 및 네트워크 옵션을 변경할 수 있습니다. 이 자습서에서는 기본 설정을 적용합니다. 지원하는 가상 컴퓨터 크기를 선택한 경우 **디스크 유형**에서 **프리미엄(SSD)**을 선택하여 Azure Premium Storage를 사용해 볼 수 있습니다. 변경 작업이 완료되면 **확인**을 클릭합니다.
@@ -58,10 +62,10 @@ Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, �
 7. **요약** 을 클릭하여 선택 사항을 검토합니다. **유효성 검사 통과함** 메시지가 표시되면 **확인**을 클릭합니다.
    
     ![Azure VM에 대한 구성 선택 항목을 보여주는 요약 페이지의 스크린샷](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
-8. Azure에서 가상 컴퓨터를 만드는 동안 허브 메뉴의 **Virtual Machines** 에서 진행 상황을 추적할 수 있습니다. 
+8. Azure에서 가상 컴퓨터를 만드는 동안 왼쪽의 **Virtual Machines**를 클릭하여 진행 상황을 추적할 수 있습니다. VM을 만들면 상태가 **실행**으로 변경됩니다.
 
 ## <a name="connect-to-the-virtual-machine-and-sign-on"></a>가상 컴퓨터에 연결 및 로그온
-1. 허브 메뉴에서 **Virtual Machines**를 클릭합니다.
+1. 왼쪽에서 **Virtual Machines**를 클릭합니다.
 2. 목록에서 가상 컴퓨터를 선택합니다.
 3. 가상 컴퓨터 블레이드에서 **연결**을 클릭합니다. 컴퓨터에 연결하는 바로 가기와 같은 원격 데스크톱 프로토콜 파일(.rdp 파일)을 만들고 다운로드합니다. 쉽게 액세스할 수 있도록 바탕 화면에 파일을 저장 수 있습니다. **열어서** VM에 연결합니다.
    
@@ -95,6 +99,6 @@ Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

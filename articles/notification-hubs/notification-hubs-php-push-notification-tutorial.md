@@ -1,12 +1,12 @@
 ---
-title: How to use Notification Hubs with PHP
-description: Learn how to use Azure Notification Hubs from a PHP back-end.
+title: "PHP에서 알림 허브를 사용하는 방법"
+description: "PHP 백 엔드에서 Azure 알림 허브를 사용하는 방법에 대해 알아봅니다."
 services: notification-hubs
-documentationcenter: ''
+documentationcenter: 
 author: ysxu
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: php
@@ -14,44 +14,48 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c81ab9004bf71007395d2545c4e44b07c865aa9d
+
 
 ---
-# <a name="how-to-use-notification-hubs-from-php"></a>How to use Notification Hubs from PHP
+# <a name="how-to-use-notification-hubs-from-php"></a>PHP에서 알림 허브를 사용하는 방법
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-You can access all Notification Hubs features from a Java/PHP/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx).
+MSDN 항목 [알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.aspx)에 설명된 대로 알림 허브 REST 인터페이스를 사용하여 Java/PHP/Ruby 백 엔드에서 모든 알림 허브 기능에 액세스할 수 있습니다.
 
-In this topic we show how to:
+이 항목에서는 다음 방법을 보여 줍니다.
 
-* Build a REST client for Notification Hubs features in PHP;
-* Follow the [Get started tutorial](notification-hubs-ios-apple-push-notification-apns-get-started.md) for your mobile platform of choice, implementing the back-end portion in PHP.
+* PHP에서 알림 허브 기능에 대한 REST 클라이언트를 빌드하는 방법
+* 선택한 모바일 플랫폼에 대한 [시작 자습서](notification-hubs-ios-apple-push-notification-apns-get-started.md) 에 따라 PHP에서 백 엔드 부분을 구현합니다.
 
-## <a name="client-interface"></a>Client interface
-The main client interface can provide the same methods that are available in the [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), this will allow you to directly translate all the tutorials and samples currently available on this site, and contributed by the community on the internet.
+## <a name="client-interface"></a>클라이언트 인터페이스
+기본 클라이언트 인터페이스에서는 [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx)에서 제공되는 것과 같은 메서드를 제공할 수 있습니다. 이 인터페이스를 사용하여 현재 이 사이트에서 사용할 수 있고 인터넷의 커뮤니티에서 제공되는 모든 자습서와 샘플을 직접 변환할 수 있습니다.
 
-You can find all the code available in the [PHP REST wrapper sample].
+[PHP REST 래퍼 샘플]에서 사용할 수 있는 모든 코드를 찾을 수 있습니다.
 
-For example, to create a client:
+예를 들어 클라이언트를 만들려면 다음을 수행합니다.
 
-    $hub = new NotificationHub("connection string", "hubname"); 
+    $hub = new NotificationHub("connection string", "hubname");    
 
-To send an iOS native notification:
+iOS 기본 알림을 보내려면 다음을 수행합니다.
 
     $notification = new Notification("apple", '{"aps":{"alert": "Hello!"}}');
     $hub->sendNotification($notification, null);
 
-## <a name="implementation"></a>Implementation
-If you did not already, please follow our [Get started tutorial] up to the last section where you have to implement the back-end.
-Also, if you want you can use the code from the [PHP REST wrapper sample] and go directly to the [Complete the tutorial](#complete-tutorial) section.
+## <a name="implementation"></a>구현
+아직 하지 않았으면 백 엔드를 구현해야 하는 [시작 자습서] 의 마지막 섹션까지 수행하세요.
+필요하면 [PHP REST 래퍼 샘플]에서 코드를 사용하고 직접 [자습서 완료](#complete-tutorial) 섹션으로 이동할 수도 있습니다.
 
-All the details to implement a full REST wrapper can be found on [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). In this section we will describe the PHP implementation of the main steps required to access Notification Hubs REST endpoints:
+전체 REST 래퍼를 구현하는 방법에 대한 자세한 내용은 [MSDN](http://msdn.microsoft.com/library/dn530746.aspx)을 참조하세요. 이 섹션에서는 알림 허브 REST 끝점에 액세스하는 데 필요한 기본 단계의 PHP 구현에 대해 설명합니다.
 
-1. Parse the connection string
-2. Generate the authorization token
-3. Perform the HTTP call
+1. 연결 문자열 구문 분석
+2. 인증 토큰 생성
+3. HTTP 호출 수행
 
-### <a name="parse-the-connection-string"></a>Parse the connection string
-Here is the main class implementing the client, whose constructor that parses the connection string:
+### <a name="parse-the-connection-string"></a>연결 문자열 구문 분석
+연결 문자열을 구문 분석하는 생성자가 포함된 클라이언트를 구현하는 기본 클래스는 다음과 같습니다.
 
     class NotificationHub {
         const API_VERSION = "?api-version=2013-10";
@@ -86,9 +90,9 @@ Here is the main class implementing the client, whose constructor that parses th
     }
 
 
-### <a name="create-security-token"></a>Create security token
-The details of the security token creation are available [here](http://msdn.microsoft.com/library/dn495627.aspx).
-The following method has to be added to the **NotificationHub** class to create the token based on the URI of the current request and the credentials extracted from the connection string.
+### <a name="create-security-token"></a>보안 토큰 만들기
+보안 토큰 만들기에 대한 자세한 내용은 [여기](http://msdn.microsoft.com/library/dn495627.aspx)를 참조하세요.
+현재 요청의 URI 및 연결 문자열에서 추출된 자격 증명에 따라 토큰을 만들려면 **NotificationHub** 클래스에 다음 메서드를 추가해야 합니다.
 
     private function generateSasToken($uri) {
         $targetUri = strtolower(rawurlencode(strtolower($uri)));
@@ -106,8 +110,8 @@ The following method has to be added to the **NotificationHub** class to create 
         return $token;
     }
 
-### <a name="send-a-notification"></a>Send a notification
-First, let us define a class representing a notification.
+### <a name="send-a-notification"></a>알림 보내기
+먼저 알림을 나타내는 클래스를 정의합니다.
 
     class Notification {
         public $format;
@@ -128,11 +132,11 @@ First, let us define a class representing a notification.
         }
     }
 
-This class is a container for a native notification body, or a set of properties on case of a template notification, and a set of headers which contains format (native platform or template) and platform-specific properties (like Apple expiration property and WNS headers).
+이 클래스는 기본 알림 본문(또는 템플릿 알림의 경우 속성 집합) 및 형식(기본 플랫폼 또는 템플릿)과 플랫폼 특정 속성(예: Apple 만료 속성 및 WNS 헤더)이 포함된 헤더 집합에 대한 컨테이너입니다.
 
-Please refer to the [Notification Hubs REST APIs documentation](http://msdn.microsoft.com/library/dn495827.aspx) and the specific notification platforms' formats for all the options available.
+모든 사용할 수 있는 옵션은 [알림 허브 REST API 설명서](http://msdn.microsoft.com/library/dn495827.aspx) 및 특정 알림 플랫폼의 형식을 참조하세요.
 
-Armed with this class, we can now write the send notification methods inside of the **NotificationHub** class.
+이제 이 클래스를 사용하여 **NotificationHub** 클래스 내부에서 알림 보내기 메서드를 쓸 수 있습니다.
 
     public function sendNotification($notification, $tagsOrTagExpression="") {
         if (is_array($tagsOrTagExpression)) {
@@ -191,18 +195,18 @@ Armed with this class, we can now write the send notification methods inside of 
         }
     } 
 
-The above methods send an HTTP POST request to the /messages endpoint of your notification hub, with the correct body and headers to send the notification.
+위의 메서드는 알림을 보내기 위한 올바른 본문과 헤더가 있는 알림 허브의 /messages 끝점으로 HTTP POST 요청을 보냅니다.
 
-## <a name="<a-name="complete-tutorial"></a>complete-the-tutorial"></a><a name="complete-tutorial"></a>Complete the tutorial
-Now you can complete the Get Started tutorial by sending the notification from a PHP back-end.
+## <a name="a-namecomplete-tutorialacomplete-the-tutorial"></a><a name="complete-tutorial"></a>자습서 완료
+이제 PHP 백 엔드에서 알림을 보내 시작 자습서를 완료할 수 있습니다.
 
-Initialize your Notification Hubs client (substitute the connection string and hub name as instructed in the [Get started tutorial]):
+알림 허브 클라이언트를 초기화합니다( [시작 자습서]에 설명된 대로 연결 문자열 및 허브 이름 대체).
 
-    $hub = new NotificationHub("connection string", "hubname"); 
+    $hub = new NotificationHub("connection string", "hubname");    
 
-Then add the send code depending on your target mobile platform.
+그리고 대상 모바일 플랫폼에 따라 보내기 코드를 추가합니다.
 
-### <a name="windows-store-and-windows-phone-8.1-(non-silverlight)"></a>Windows Store and Windows Phone 8.1 (non-Silverlight)
+### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows 스토어 및 Windows Phone 8.1(비 Silverlight)
     $toast = '<toast><visual><binding template="ToastText01"><text id="1">Hello from PHP!</text></binding></visual></toast>';
     $notification = new Notification("windows", $toast);
     $notification->headers[] = 'X-WNS-Type: wns/toast';
@@ -218,7 +222,7 @@ Then add the send code depending on your target mobile platform.
     $notification = new Notification("gcm", $message);
     $hub->sendNotification($notification, null);
 
-### <a name="windows-phone-8.0-and-8.1-silverlight"></a>Windows Phone 8.0 and 8.1 Silverlight
+### <a name="windows-phone-80-and-81-silverlight"></a>Windows Phone 8.0 및 8.1 Silverlight
     $toast = '<?xml version="1.0" encoding="utf-8"?>' .
                 '<wp:Notification xmlns:wp="WPNotification">' .
                    '<wp:Toast>' .
@@ -236,23 +240,23 @@ Then add the send code depending on your target mobile platform.
     $notification = new Notification("adm", $message);
     $hub->sendNotification($notification, null);
 
-Running your PHP code should produce now a notification appearing on your target device.
+이제 PHP 코드를 실행하면 대상 장치에 나타나는 알림이 생성되어야 합니다.
 
-## <a name="next-steps"></a>Next Steps
-In this topic we showed how to create a simple Java REST client for Notification Hubs. From here you can:
+## <a name="next-steps"></a>다음 단계
+이 항목에서는 알림 허브에 대한 단순한 Java REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.
 
-* Download the full [PHP REST wrapper sample], which contains all the code above.
-* Continue learning about Notification Hubs tagging feature in the [Breaking News tutorial]
-* Learn about pushing notifications to individual users in [Notify Users tutorial]
+* 위의 모든 코드가 포함된 전체 [PHP REST 래퍼 샘플]을 다운로드합니다.
+* [속보 자습서]에서 알림 허브 태그 지정 기능에 대해 계속 알아봅니다.
+* [사용자에게 알림 자습서]에서 개별 사용자에게 알림을 게시하는 방법을 알아봅니다.
 
-For more information, see also the [PHP Developer Center](/develop/php/).
+자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
-[PHP REST wrapper sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-
-
+[PHP REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
+[시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

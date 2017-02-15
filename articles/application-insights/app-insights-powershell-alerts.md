@@ -1,26 +1,35 @@
 ---
-title: PowerShell을 사용하여 Application Insights에서 경고 설정
-description: Application Insights의 구성을 자동화하여 메트릭 변경 사항에 대한 전자 메일을 받습니다.
+title: "PowerShell을 사용하여 Application Insights에서 경고 설정 | Microsoft Docs"
+description: "Application Insights의 구성을 자동화하여 메트릭 변경 사항에 대한 전자 메일을 받습니다."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2016
+ms.date: 10/31/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
+ms.openlocfilehash: ff5e7721e2cdf2f8b034f714b6b58642efcb6368
+
 
 ---
-# PowerShell을 사용하여 Application Insights에서 경고 설정
-[Visual Studio Application Insights](app-insights-overview.md)에서 [경고](app-insights-alerts.md)의 구성을 자동화할 수 있습니다.
+# <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell을 사용하여 Application Insights에서 경고 설정
+[Application Insights](app-insights-overview.md)에서 [경고](app-insights-alerts.md)의 구성을 자동화할 수 있습니다.
 
 또한 [webhook를 설정하여 경고에 대한 응답을 자동화](../monitoring-and-diagnostics/insights-webhooks-alerts.md)할 수 있습니다.
 
-## 일 회 설정
+> [!NOTE]
+> 리소스와 경고를 동시에 만들려면 [Azure Resource Manager 템플릿을 사용](app-insights-powershell.md)하는 것이 좋습니다.
+>
+>
+
+## <a name="one-time-setup"></a>일 회 설정
 아직 Azure 구독에서 PowerShell을 사용한 적이 없을 경우:
 
 스크립트를 실행하려는 컴퓨터에 Azure Powershell 모듈을 설치합니다.
@@ -28,20 +37,19 @@ ms.author: awills
 * [Microsoft 웹 플랫폼 설치 관리자(v5 이상)](http://www.microsoft.com/web/downloads/platform.aspx)를 설치합니다.
 * 이를 사용하여 Microsoft Azure Powershell을 설치합니다.
 
-## Azure에 연결
+## <a name="connect-to-azure"></a>Azure에 연결
 Azure PowerShell을 시작하고 [구독에 연결](../powershell-install-configure.md)합니다.
 
 ```PowerShell
 
     Add-AzureAccount
-    Switch-AzureMode AzureResourceManager
 ```
 
 
-## 경고 받기
-    Get-AlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+## <a name="get-alerts"></a>경고 받기
+    Get-AzureAlertRmRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
-## 경고 추가
+## <a name="add-alert"></a>경고 추가
     Add-AlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
@@ -51,12 +59,12 @@ Azure PowerShell을 시작하고 [구독에 연결](../powershell-install-config
      -WindowSize {HH:MM:SS}  `
      [-SendEmailToServiceOwners] `
      [-CustomEmails "EMAIL1@X.COM","EMAIL2@Y.COM" ] `
-     -Location "East US"
+     -Location "East US" // must be East US at present
      -RuleType Metric
 
 
 
-## 예 1
+## <a name="example-1"></a>예 1
 HTTP 요청에 대한 서버의 응답이 5분 이상 평균 1초보다 느린 경우 전자 메일로 알립니다. Application Insights 리소스의 이름이 IceCreamWebApp이며 리소스 그룹 Fabrikam 내에 있습니다. 제가 Azure 구독의 소유자입니다.
 
 GUID는 구독 ID입니다(응용 프로그램의 계측 키 아님).
@@ -72,7 +80,7 @@ GUID는 구독 ID입니다(응용 프로그램의 계측 키 아님).
      -SendEmailToServiceOwners `
      -Location "East US" -RuleType Metric
 
-## 예 2
+## <a name="example-2"></a>예 2
 [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric)을 사용하여 "salesPerHour"라는 메트릭을 보고하는 응용 프로그램이 있습니다. 24시간 이상 평균 "salesPerHour"가 100 미만으로 떨어지는 경우 동료에게 전자 메일을 보냅니다.
 
     Add-AlertRule -Name "poor sales" `
@@ -86,9 +94,9 @@ GUID는 구독 ID입니다(응용 프로그램의 계측 키 아님).
      -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
      -Location "East US" -RuleType Metric
 
-TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개 변수](app-insights-api-custom-events-metrics.md#properties)를 사용하여 보고된 메트릭에도 동일한 규칙을 사용할 수 있습니다.
+TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개 변수](app-insights-api-custom-events-metrics.md#properties) 를 사용하여 보고된 메트릭에도 동일한 규칙을 사용할 수 있습니다.
 
-## 메트릭 이름
+## <a name="metric-names"></a>메트릭 이름
 | 메트릭 이름 | 화면 이름 | 설명 |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |브라우저 예외 |브라우저에서 발생한 확인할 수 없는 예외의 개수입니다. |
@@ -119,17 +127,21 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 | 메트릭 그룹 | 수집기 모듈 |
 | --- | --- |
 | basicExceptionBrowser,<br/>clientPerformance,<br/>view |[브라우저 JavaScript](app-insights-javascript.md) |
-| performanceCounter |[성능](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3) |
-| remoteDependencyFailed |[종속성](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1) |
-| request,<br/>requestFailed |[서버 요청](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2) |
+| performanceCounter |[성능](app-insights-configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[종속성](app-insights-configuration-with-applicationinsights-config.md) |
+| request,<br/>requestFailed |[서버 요청](app-insights-configuration-with-applicationinsights-config.md) |
 
-## Webhook
+## <a name="webhooks"></a>Webhook
 [경고에 대한 응답을 자동화](../monitoring-and-diagnostics/insights-webhooks-alerts.md)할 수 있습니다. 경고가 발생한 경우 Azure에서 사용자가 선택한 웹 주소를 호출합니다.
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 * [Application Insights를 구성하는 스크립트](app-insights-powershell-script-create-resource.md)
 * [서식 파일에서 Application Insights 및 웹 테스트 리소스 만들기](app-insights-powershell.md)
 * [Application Insights에 Microsoft Azure 진단 결합 자동화](app-insights-powershell-azure-diagnostics.md)
 * [경고에 대한 응답 자동화](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

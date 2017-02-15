@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: "Notification Hubs를 통해 백 엔드에서 모바일 장치에 푸시 알림을 전송하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: b40dd058986a3dbe47709776a27ac949d3c4c491
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c99636cdb412f1144f2dbe078379b89b6841bd9b
 
 ---
 #<a name="notification-hubs-documentation"></a>Notification Hubs 설명서
 
-Azure Notification Hubs는 백 엔드(클라우드 또는 온-프레미스)에서 모바일 플랫폼으로 모바일 푸시 알림을 보낼 수 있는 사용하기 쉽고 확장된 다중 플랫폼 푸시 인프라를 제공합니다.
-
-Notification Hubs를 사용하면 쉽게 다양한 PNS(플랫폼 알림 시스템) 세부 정보를 요약하여 플랫폼 간 개인 설정된 푸시 알림을 보낼 수 있습니다. 한 번의 API 호출로 어떤 장치에서나 개별 사용자 또는 수백만 명의 사용자가 포함된 전체 고객 세그먼트를 대상으로 지정할 수 있습니다.
+신속하게 수백만 개의 메시지를 보내기 위한 확장 가능한 다중 플랫폼 푸시 알림 엔진인 Notification Hubs를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 백 엔드에서 모바일 장치에 푸시 알림을 설정하고 보내는 방법을 보여 줍니다. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -202,16 +201,10 @@ Notification Hubs를 사용하면 쉽게 다양한 PNS(플랫폼 알림 시스�
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/notification-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-Notification Hubs 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

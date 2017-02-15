@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 01/10/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
-ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
+ms.sourcegitcommit: b0694222548e39718f6626c1b1666584445f8398
+ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
 
 **리소스 보안 상태** 타일에서 리소스 보안 상태를 모니터링할 수 있습니다. 아래 예제와 같이 높거나 보통 수준의 심각도이며 주의가 필요한 여러 문제를 확인할 수 있습니다. 활성화된 보안 정책은 모니터링되는 컨트롤 유형에 영향을 줍니다.
 
-![리소스 보안 상태 타일](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
+![리소스 보안 상태 타일](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
 
 보안 센터에서 보안 업데이트가 누락된 VM 또는 [네트워크 보안 그룹](/virtual-network/virtual-networks-nsg.md)에 속하지 않은 서브넷과 같이 조치가 필요한 취약점을 확인한 경우 이 타일에서 해당 보안 상태를 나열합니다.
 
@@ -169,7 +169,8 @@ ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
 이 블레이드의 아래 부분에는 위에서 설명한 것과 비슷한 해당 VM에 대한 권장 사항이 있습니다. 권장 사항을 클릭하여 필요한 보안 제어 또는 구성을 자세히 알아보거나 적용할 수 있습니다.
 
 ### <a name="monitor-data"></a>데이터 모니터링
-**리소스 보안 상태** 타일에서 **데이터**를 클릭할 때 SQL 및 저장소에 대한 권장 사항이 포함된 **데이터 리소스** 블레이드가 열립니다. 또한 데이터베이스의 일반 성능 상태에 대한 [권장 사항](security-center-sql-service-recommendations.md)이 있습니다. 저장소 암호화에 대한 자세한 내용은 Azure Security Center에서 Azure Storage 계정에 대한 암호화 사용을 참고하세요.
+
+**리소스 보안 상태** 타일에서 **SQL 및 데이터**를 클릭할 때 SQL 및 저장소에 대한 권장 사항이 포함된 **데이터 리소스** 블레이드가 열립니다. 또한 데이터베이스의 일반 성능 상태에 대한 [권장 사항](security-center-sql-service-recommendations.md)이 있습니다. 저장소 암호화에 대한 자세한 내용은 [Azure Security Center에서 Azure Storage 계정에 대한 암호화 사용](security-center-enable-encryption-for-storage-account.md)을 참고하세요.
 
 ![데이터 리소스](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
@@ -217,6 +218,6 @@ ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

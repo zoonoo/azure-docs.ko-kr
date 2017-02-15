@@ -226,6 +226,6 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

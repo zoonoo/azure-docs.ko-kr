@@ -1,53 +1,58 @@
 ---
-title: .NET 및 AMQP 1.0을 사용한 서비스 버스 | Microsoft Docs
-description: AMQP를 사용하여 .NET에서 서비스 버스 사용
-services: service-bus
+title: ".NET 및 AMQP 1.0을 사용한 Service Bus | Microsoft Docs"
+description: "AMQP를 사용하여 .NET에서 Azure Service Bus 사용"
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 01/13/2017
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 220b0f6212268a44226edefa4afc5671306ff295
+ms.openlocfilehash: 9d2ff3ff50aebc3e25f553a86ca13d8a9fe7400c
+
 
 ---
-# <a name="using-service-bus-from-.net-with-amqp-1.0"></a>AMQP 1.0을 사용하여 .NET에서 서비스 버스 사용
-[!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
+# <a name="using-service-bus-from-net-with-amqp-10"></a>AMQP 1.0을 사용하여 .NET에서 서비스 버스 사용
 
 ## <a name="downloading-the-service-bus-sdk"></a>서비스 버스 SDK 다운로드
 AMQP 1.0 지원은 서비스 버스 SDK 버전 2.1 이상에서 이용할 수 있습니다. [NuGet][NuGet]에서 Service Bus 비트를 다운로드하여 최신 버전이 있는지 확인할 수 있습니다.
 
-## <a name="configuring-.net-applications-to-use-amqp-1.0"></a>AMQP 1.0을 사용하여 .NET 응용 프로그램 구성
+## <a name="configuring-net-applications-to-use-amqp-10"></a>AMQP 1.0을 사용하여 .NET 응용 프로그램 구성
 기본적으로 서비스 버스 .NET 클라이언트 라이브러리는 전용 SOAP 기반 프로토콜을 사용하여 서비스 버스 서비스와 통신합니다. 기본 프로토콜 대신 AMQP 1.0을 사용하려면 다음 섹션에서 설명한 대로 서비스 버스 연결 문자열에서 이를 명시적으로 구성해야 합니다. AMQP 1.0을 사용하는 경우 이러한 변경 사항 외에는 응용 프로그램 코드가 변경되지 않습니다.
 
 현재 릴리스에는 AMQP 사용 시 지원되지 않는 몇 가지 API 기능이 있습니다. 지원되지 않는 이러한 기능은 뒤에 나오는 [지원되지 않는 기능, 제한 및 동작 차이](#unsupported-features-restrictions-and-behavioral-differences) 섹션에 나열되어 있습니다. AMQP를 사용하는 경우 몇 가지 고급 구성 설정도 다른 의미를 가집니다.
 
-### <a name="configuration-using-app.config"></a>App.config를 사용한 구성
+### <a name="configuration-using-appconfig"></a>App.config를 사용한 구성
 응용 프로그램에서는 App.config 구성 파일을 사용하여 설정을 저장하는 것이 바람직합니다. Service Bus 응용 프로그램의 경우 App.config를 사용하여 Service Bus **ConnectionString** 값에 대한 설정을 저장할 수 있습니다. 샘플 App.config 파일은 다음과 같습니다.
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <configuration>
-        <appSettings>
-            <add key="Microsoft.ServiceBus.ConnectionString"
-                 value="Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp" />
-        </appSettings>
-    </configuration>
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <appSettings>
+        <add key="Microsoft.ServiceBus.ConnectionString"
+             value="Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp" />
+    </appSettings>
+</configuration>
+```
 
 `Microsoft.ServiceBus.ConnectionString` 설정의 값은 서비스 버스에 대한 연결을 구성하는 데 사용되는 서비스 버스 연결 문자열입니다. 형식은 다음과 같습니다.
 
-    Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
+`Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
-여기서 `[namespace]` 및 `SharedAccessKey`은(는) [Azure Portal][]에서 가져옵니다. 자세한 내용은 [Service Bus 큐 시작][Service Bus 큐 시작]을 참조하세요.
+여기서 `[namespace]` 및 `SharedAccessKey`는 [Azure Portal][Azure portal]에서 가져옵니다. 자세한 내용은 [Service Bus 큐 시작][Get started with Service Bus queues]을 참조하세요.
 
-AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 문자열을 추가합니다. 이 표기는 AMQP 1.0을 사용하여 서비스 버스에 연결하도록 클라이언트 라이브러리를 알립니다.
+AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 문자열을 추가합니다. 이 표기는 클라이언트 라이브러리가 AMQP 1.0을 사용하여 Service Bus에 연결하도록 지시합니다.
 
 ## <a name="message-serialization"></a>메시지 직렬화
-기본 프로토콜을 사용하는 경우 .NET 클라이언트 라이브러리의 기본 직렬화 동작은 [DataContractSerializer][DataContractSerializer] 형식을 사용하여 클라이언트 라이브러리와 Service Bus 서비스 간의 전송에 대한 [BrokeredMessage][BrokeredMessage] 인스턴스를 직렬화하는 것입니다. AMQP 전송 모드를 사용하는 경우 클라이언트 라이브러리는 [broker 저장 메시지][BrokeredMessage]를 AMQP 메시지로 직렬화에 대해 AMQP 형식 시스템을 사용합니다. 이 직렬화를 통해 서비스 버스에 액세스하기 위해 JMS API를 사용하는 Java 응용 프로그램과 같은 다른 플랫폼에서 잠재적으로 실행하는 응용 프로그램 수신을 통해 메시지를 수신하고 해석합니다.
+기본 프로토콜을 사용하는 경우 .NET 클라이언트 라이브러리의 기본 직렬화 동작은 [DataContractSerializer][DataContractSerializer] 형식을 사용하여 클라이언트 라이브러리와 Service Bus 서비스 간의 전송에 대한 [BrokeredMessage][BrokeredMessage] 인스턴스를 직렬화하는 것입니다. AMQP 전송 모드를 사용하는 경우 클라이언트 라이브러리는 [broker 저장 메시지][BrokeredMessage]를 AMQP 메시지로 직렬화하는 데 AMQP 형식 시스템을 사용합니다. 이 직렬화를 통해 서비스 버스에 액세스하기 위해 JMS API를 사용하는 Java 응용 프로그램과 같은 다른 플랫폼에서 잠재적으로 실행하는 응용 프로그램 수신을 통해 메시지를 수신하고 해석합니다.
 
 [BrokeredMessage][BrokeredMessage] 인스턴스를 생성하는 경우 .NET 개체를 매개 변수로 생성자에게 제공하여 메시지의 본문으로 처리할 수 있습니다. AMQP 기본 형식으로 매핑할 수 있는 개체의 경우 본문은 AMQP 데이터 유형으로 직렬화됩니다. 개체를 AMQP 기본 형식으로 직접 매핑할 수 없는 경우 즉, 응용 프로그램에서 정의된 사용자 지정 형식이며 개체는 [DataContractSerializer][DataContractSerializer]를 사용하여 직렬화되고 직렬화된 바이트는 AMQP 데이터 메시지로 전송됩니다.
 
@@ -87,7 +92,7 @@ AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 �
 | Datetimeoffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
-## <a name="unsupported-features,-restrictions,-and-behavioral-differences"></a>지원되지 않는 기능, 제한 및 동작 차이
+## <a name="unsupported-features-restrictions-and-behavioral-differences"></a>지원되지 않는 기능, 제한 및 동작 차이
 서비스 버스 .NET API의 다음 기능은 현재 AMQP 사용 시 지원되지 않습니다.
 
 * 트랜잭션
@@ -97,14 +102,15 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
 
 * [OperationTimeout][OperationTimeout] 속성은 무시됩니다.
 * `MessageReceiver.Receive(TimeSpan.Zero)`은(는) `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`(으)로 구현됩니다.
+* 잠금 토큰으로 메시지를 완료하는 작업은 처음에 메시지를 받은 메시지 수신기에서만 수행할 수 있습니다.
 
 ## <a name="controlling-amqp-protocol-settings"></a>AMQP 프로토콜 설정 제어
-.NET API는 AMQP 프로토콜의 동작을 제어하기 위해 여러 설정을 노출합니다.
+[.NET API](https://docs.microsoft.com/dotnet/api/)는 AMQP 프로토콜의 동작을 제어하기 위해 여러 설정을 노출합니다.
 
-* **MessageReceiver.PrefetchCount**: 링크에 적용되는 초기 크레딧을 제어합니다. 기본값은 0입니다.
-* **MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize**: 연결 열기 시간 시 협상 동안 제공되는 최대 AMQP 프레임 크기를 제어합니다. 기본값은 65,536바이트입니다.
-* **MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval**: 전송을 배치로 사용 가능한 경우 이 값은 배치 전송을 위한 최대 지연을 결정합니다. 기본적으로 발신자/수신자를 상속합니다. 개별 발신자/수신자는 기본값 20 밀리초를 재정의할 수 있습니다.
-* **MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity**: AMQP 연결이 SSL 연결을 통해 설정되는지 여부를 제어합니다. 기본값은 **true**입니다.
+* **[MessageReceiver.PrefetchCount](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: 링크에 적용되는 초기 크레딧을 제어합니다. 기본값은 0입니다.
+* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: 연결 열기 시간 시 협상 동안 제공되는 최대 AMQP 프레임 크기를 제어합니다. 기본값은 65,536바이트입니다.
+* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: 전송을 배치로 사용 가능한 경우 이 값은 배치 전송을 위한 최대 지연을 결정합니다. 기본적으로 발신자/수신자를 상속합니다. 개별 발신자/수신자는 기본값 20 밀리초를 재정의할 수 있습니다.
+* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: AMQP 연결이 SSL 연결을 통해 설정되는지 여부를 제어합니다. 기본값은 **true**입니다.
 
 ## <a name="next-steps"></a>다음 단계
 자세히 알아볼 준비가 되셨습니까? 다음 링크를 방문하세요.
@@ -113,19 +119,19 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
 * [Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]
 * [Windows Server용 Service Bus의 AMQP]
 
-[Service Bus 큐 시작]: service-bus-dotnet-get-started-with-queues.md
-[DataContractSerializer]: https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx
-[BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-[Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://msdn.microsoft.com/library/azure/jj657638.aspx
-[Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)]: https://msdn.microsoft.com/library/azure/jj657703.aspx
-[OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
+[Get started with Service Bus queues]: service-bus-dotnet-get-started-with-queues.md
+[DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
+[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
+[OperationTimeout]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-[Azure 포털]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Service Bus AMQP 개요]: service-bus-amqp-overview.md
 [Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server용 Service Bus의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Jan17_HO2-->
 
 

@@ -59,7 +59,7 @@
 ### [테이블 디자인 가이드](storage-table-design-guide.md)
 ### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## 파일 사용
-### [개요](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
+### [개요](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Azure 파일 문제 해결](storage-troubleshoot-file-connection-problems.md)
 ### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## 가상 컴퓨터 디스크 사용
@@ -75,13 +75,17 @@
 ### [성능 및 확장성 검사 목록](storage-performance-checklist.md)
 ### [동시성](storage-concurrency.md)
 ## 개발
-### [샘플](storage-samples.md)
+### 샘플
+#### [.NET](storage-samples-dotnet.md)
+#### [Java](storage-samples-java.md)
+### [RA-GRS를 사용하여 HA 앱 디자인](storage-designing-ha-apps-with-ragrs.md)
 ### [연결 문자열 구성](storage-configure-connection-string.md)
 ### [저장소 에뮬레이터 사용](storage-use-emulator.md)
 ### [속성 및 메타데이터 설정 및 검색](storage-properties-metadata.md)
 ## 관리
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI](storage-azure-cli.md)
+### [Azure CLI 2.0(미리 보기)](storage-azure-cli.md)
+### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## 보안
 ### [보안 지침](storage-security-guide.md)
@@ -149,7 +153,7 @@
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
 ### [리소스 관리자](/dotnet/api/microsoft.azure.management.storage)
-### [데이터 이동](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
+### [데이터 이동](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Blob, 큐, 테이블 및 파일](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](/java/api/)
 ## [Node.JS](http://azure.github.io/azure-storage-node)
@@ -159,7 +163,7 @@
 ## [iOS](https://github.com/Azure/azure-storage-ios)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST (영문)
-### [Blob, 큐, 테이블 및 파일](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Blob, 큐, 테이블 및 파일](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 ### [리소스 공급자](/rest/api/storagerp)
 ### [가져오기/내보내기](/rest/api/storageimportexport)
 
@@ -182,7 +186,7 @@
 ### [저장소 탐색기(미리 보기)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [저장소 탐색기(미리 보기)를 사용하여 Blob 관리](../vs-azure-tools-storage-explorer-blobs.md)
 
-## Nuget 패키지
+## NuGet 패키지
 ### [.NET용 Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
 ### [Azure Storage 데이터 이동 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 ### [Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
@@ -201,6 +205,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

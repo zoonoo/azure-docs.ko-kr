@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -35,11 +35,11 @@ ms.openlocfilehash: fece49df6a35f09ee73bb4b9ec4c33a0529a9f59
 
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 2. **더 많은 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음 **Enter**를 선택합니다.
-   
+
    ![사용자 관리 열기](./media/active-directory-branding-localize-azure-portal/user-management.png)
 3. **사용자 및 그룹** 블레이드에서 **회사 브랜딩**을 선택합니다.
 4. **사용자 및 그룹 - 회사 브랜딩** 블레이드에서 **언어 추가** 명령을 선택합니다.
-   
+
     ![언어별 브랜딩 요소 추가](./media/active-directory-branding-localize-azure-portal/add-language.png)
 5. 사용자 지정할 요소를 수정합니다. 모든 요소는 선택 사항입니다.
 6. **Save**를 클릭합니다.
@@ -48,7 +48,6 @@ ms.openlocfilehash: fece49df6a35f09ee73bb4b9ec4c33a0529a9f59
 
 ## <a name="next-steps"></a>다음 단계
 [로그인 페이지에 회사 브랜딩 추가](active-directory-branding-custom-signon-azure-portal.md)
-
 
 
 

@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 1/6/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b7e47a469127d2a06aa1be07f46ef04a2c23d351
+ms.sourcegitcommit: f408e65abcb92308a19a37816c206d822e932f24
+ms.openlocfilehash: 18fccf1ce6b4d2a6fa46e6db9e1a38eb998b9d64
 
 
 ---
-# <a name="expressroute-prerequisites-checklist"></a>Express 경로 필수 구성 요소 및 검사 목록
-Express 경로를 사용하여 Microsoft 클라우드 서비스에 연결하려면 아래 섹션에 나열된 다음 요구 사항을 충족하는지 확인해야 합니다.
+# <a name="expressroute-prerequisites--checklist"></a>Express 경로 필수 구성 요소 및 검사 목록
+ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 다음 섹션에 나열된 다음 요구 사항을 충족하는지 확인해야 합니다.
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Azure 계정
-* 유효한 활성 Microsoft Azure 계정 Express 경로 회로를 설정해야 합니다. ExpressRoute 회로는 Azure 구독 내의 리소스입니다. Azure 구독은 Office 365 서비스 및 CRM online과 같은 Azure가 아닌 Microsoft 클라우드 서비스에 연결이 제한된 경우더라도 필요합니다.
+* 유효한 활성 Microsoft Azure 계정 ExpressRoute 회로를 설정하려면 이 계정이 필요합니다. ExpressRoute 회로는 Azure 구독 내의 리소스입니다. Azure 구독은 Office 365 서비스 및 CRM online과 같은 Azure가 아닌 Microsoft 클라우드 서비스에 연결이 제한된 경우더라도 필요합니다.
 * 활성 Office 365 구독(Office 365 서비스를 사용하는 경우). 자세한 내용은 이 문서의 [Office 365 특정 요구 사항](#office-365-specific-requirements) 섹션을 참조하세요.
 
 ## <a name="connectivity-provider"></a>연결 공급자
@@ -38,10 +38,10 @@ Express 경로를 사용하여 Microsoft 클라우드 서비스에 연결하려�
 * **라우팅**: Microsoft 클라우드에 연결하는 방법에 따라 사용자와 공급자는 [라우팅 도메인](expressroute-circuit-peerings.md)에 대한 BGP 세션을 설정 및 관리해야 합니다. 일부 이더넷 연결 공급자 또는 클라우드 Exchange 공급자는 가치 추가 서비스로 BGP 관리를 제공할 수 있습니다.
 * **NAT**: Microsoft만 Microsoft 피어링을 통해 공용 IP 주소를 허용합니다. 온-프레미스 네트워크에서 개인 IP 주소를 사용하는 경우 사용자 또는 공급자는 [NAT를 사용](expressroute-nat.md)하여 개인 IP 주소를 공용 IP 주소로 번역해야 합니다.
 * **QoS**: 비즈니스용 Skype에는 차별화된 QoS 처리를 필요로 하는 다양한 서비스(예: 음성, 비디오, 텍스트)가 있습니다. 사용자와 공급자는 [QoS 요구 사항](expressroute-qos.md)을 따라야 합니다.
-* **네트워크 보안**: Express 경로를 통해 Microsoft 클라우드에 연결할 때 [네트워크 보안](../best-practices-network-security.md) 을 고려해야 합니다.
+* **네트워크 보안**: ExpressRoute를 통해 Microsoft 클라우드에 연결할 때 [네트워크 보안](../best-practices-network-security.md)을 고려합니다.
 
 ## <a name="office-365"></a>Office 365
-Express 경로에서 Office 365를 사용하도록 설정하려는 경우 Office 365 요구 사항에 대한 자세한 내용은 다음 문서를 검토하세요.
+ExpressRoute에서 Office 365를 사용하도록 설정하려는 경우 Office 365 요구 사항에 대한 자세한 내용은 다음 문서를 검토합니다.
 
 * [Office 365용 ExpressRoute 개요](https://support.office.com/en-us/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
 * [Office 365용 ExpressRoute로 라우팅](https://support.office.com/en-us/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
@@ -49,9 +49,10 @@ Express 경로에서 Office 365를 사용하도록 설정하려는 경우 Office
 * [Office 365에 대한 네트워크 계획 및 성능 조정](https://support.office.com/en-us/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
 * [네트워크 대역폭 계산기 및 도구](https://support.office.com/en-us/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
 * [온-프레미스 환경과 Office 365 통합](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
+* [Office 365 고급 교육 비디오의 ExpressRoute](https://channel9.msdn.com/series/aer/)
 
 ## <a name="crm-online"></a>CRM Online
-Express 경로에서 CRM Online을 사용하도록 설정하려는 경우 CRM Online에 대한 자세한 내용은 다음 문서를 검토하세요.
+ExpressRoute에서 CRM Online을 사용하도록 설정하려는 경우 CRM Online에 대한 자세한 내용은 다음 문서를 검토합니다.
 
 * [CRM Online URLs](https://support.microsoft.com/kb/2655102) 및 [IP 주소 범위](https://support.microsoft.com/kb/2728473)
 
@@ -67,6 +68,6 @@ Express 경로에서 CRM Online을 사용하도록 설정하려는 경우 CRM On
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

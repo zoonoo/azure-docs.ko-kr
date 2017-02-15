@@ -15,25 +15,25 @@ ms.workload: infrastructure
 ms.date: 09/26/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2bd363e3c22f4cf4daf2e0fa352fd4a131d1675f
-ms.openlocfilehash: 89db2c9f388b8a5496a306ba0a152ab57481ea50
+ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
+ms.openlocfilehash: 70592ac773aced0bfcec5c7418a6dc53555fab33
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)을 사용하여 Linux VM 만들기
+# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Azure CLI 2.0 미리 보기(az.py)를 사용하여 Linux VM 만들기
 이 문서에서는 Azure CLI 2.0(미리 보기)을 사용하는 [az vm create](/cli/azure/vm#create) 명령을 사용하여 Azure에서 Linux 가상 컴퓨터(VM)를 신속하게 배포하는 방법을 보여 줍니다. 
 
 > [!NOTE] 
-> Azure CLI 2.0 미리 보기는 차세대 다중 플랫폼 CLI입니다. 사용해 보고 [GitHub 프로젝트 페이지](https://github.com/Azure/azure-cli)에 의견을 제시해 주세요.
+> Azure CLI 2.0 미리 보기는 차세대 다중 플랫폼 CLI입니다. [사용해 보세요!](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)
 >
-> 이 문서의 나머지는 기존 Azure CLI를 사용합니다. CLI 2.0 미리 보기가 아닌 기존 Azure CLI를 사용하여 VM을 만들려면 [Azure CLI를 사용하여 VM 만들기](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+> 이 문서의 나머지는 기존 Azure CLI를 사용합니다. CLI 2.0 미리 보기가 아니라 기존 Azure CLI 1.0을 사용하여 VM을 만들려면 [Azure CLI를 사용하여 VM 만들기](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 VM을 만들려면 다음이 필요합니다. 
 
 * Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))
-* Azure 계정에 로그인하기 위해 설치된 [Azure CLI 버전  2.0(미리 보기)](https://github.com/Azure/azure-cli#installation)
-* ([az login](/cli/azure/#login) 입력)
+* [Azure CLI v. 2.0(미리 보기)](/cli/azure/install-az-cli2)가 설치됨
+* Azure 계정에 로그인([az login](/cli/azure/#login) 입력)
 
 ([Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 Linux VM을 신속히 배포할 수도 있습니다.)
 
@@ -41,10 +41,10 @@ VM을 만들려면 다음이 필요합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-먼저 [az resource group create](/cli/azure/resource/group#create)를 입력하여 배포된 모든 리소스를 포함하는 리소스 그룹을 만듭니다.
+먼저 [az group create](/cli/azure/group#create)를 입력하여 배포된 모든 리소스를 포함하는 리소스 그룹을 만듭니다.
 
 ```azurecli
-az resource group create -n myResourceGroup -l westus
+az group create -n myResourceGroup -l westus
 ```
 
 출력은 다음과 같이 표시됩니다(원하는 경우 다른 `--output` 옵션을 선택할 수 있음).
@@ -127,6 +127,6 @@ bin  boot  dev  etc  home  initrd.img  lib  lib64  lost+found  media  mnt  opt  
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

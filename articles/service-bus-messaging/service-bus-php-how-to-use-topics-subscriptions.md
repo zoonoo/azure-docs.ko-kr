@@ -1,19 +1,23 @@
 ---
-title: PHP와 함께 Service Bus 토픽을 사용하는 방법 | Microsoft Docs
-description: Azure에서 PHP와 함께 Service Bus 토픽을 사용하는 방법에 대해 알아봅니다.
-services: service-bus
+title: "PHP와 함께 Service Bus 토픽을 사용하는 방법 | Microsoft Docs"
+description: "Azure에서 PHP와 함께 Service Bus 토픽을 사용하는 방법에 대해 알아봅니다."
+services: service-bus-messaging
 documentationcenter: php
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: faaa4bbd-f6ef-42ff-aca7-fc4353976449
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 05/10/2016
+ms.date: 10/14/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c1d58e912f3b08c0eeff3724658301e8c6b28be5
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>서비스 버스 토픽 및 구독을 사용하는 방법
@@ -39,7 +43,7 @@ Azure Blob service에 액세스하는 PHP 응용 프로그램을 만드는 데 �
 ## <a name="configure-your-application-to-use-service-bus"></a>서비스 버스를 사용하도록 응용 프로그램 구성
 서비스 버스 API를 사용하려면 다음을 수행합니다.
 
-1. [require_once][require-once] 문을 사용하여 자동 로더 파일 참조
+1. [require-once][require-once] 문을 사용하여 자동 로더 파일 참조
 2. 사용할 수 있는 모든 클래스 참조
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServiceBusService** 클래스를 참조하는 방법을 보여 줍니다.
@@ -57,7 +61,7 @@ use WindowsAzure\Common\ServicesBuilder;
 다음 예제에서 `require_once` 문은 항상 표시되지만 예제를 실행하는 데 필요한 클래스만 참조됩니다.
 
 ## <a name="set-up-a-service-bus-connection"></a>서비스 버스 연결 설정
-Azure 서비스 버스 클라이언트를 인스턴스화하려면 먼저 다음 형식의 유효한 연결 문자열이 있어야 합니다.
+Service Bus 클라이언트를 인스턴스화하려면 먼저 다음 형식의 유효한 연결 문자열이 있어야 합니다.
 
 ```
 Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]
@@ -99,7 +103,7 @@ use WindowsAzure\ServiceBus\Models\TopicInfo;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {       
+try    {        
     // Create topic.
     $topicInfo = new TopicInfo("mytopic");
     $serviceBusRestProxy->createTopic($topicInfo);
@@ -135,7 +139,7 @@ use WindowsAzure\ServiceBus\Models\SubscriptionInfo;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     // Create subscription.
     $subscriptionInfo = new SubscriptionInfo("mysubscription");
     $serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
@@ -201,7 +205,7 @@ use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     // Create message.
     $message = new BrokeredMessage();
     $message->setBody("my message");
@@ -235,7 +239,7 @@ for($i = 0; $i < 5; $i++){
 }
 ```
 
-Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 토픽 크기의 상한은 5GB입니다. 할당량에 대한 자세한 내용은 [Service Bus 할당량][Service Bus 할당량]을 참조하세요.
+Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 토픽 크기의 상한은 5GB입니다. Service Bus의 할당량에 대한 자세한 내용은 [Service Bus 할당량][Service Bus 할당량]을 참조하세요.
 
 ## <a name="receive-messages-from-a-subscription"></a>구독에서 메시지 받기
 구독에서 메시지를 받는 최선의 방법은 **ServiceBusRestProxy->receiveSubscriptionMessage** 메서드를 사용하는 것입니다. 받은 메시지는 **ReceiveAndDelete**(기본값) 및 **PeekLock**의 두 가지 모드로 작동할 수 있습니다.
@@ -256,7 +260,7 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     // Set receive mode to PeekLock (default is ReceiveAndDelete)
     $options = new ReceiveMessageOptions();
     $options->setPeekLock();
@@ -307,7 +311,7 @@ use WindowsAzure\Common\ServiceException;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {       
+try    {        
     // Delete topic.
     $serviceBusRestProxy->deleteTopic("mytopic");
 }
@@ -328,15 +332,15 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
 
 ## <a name="next-steps"></a>다음 단계
-지금까지 Service Bus 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 [큐, 토픽 및 구독][]을 참조하세요.
+지금까지 Service Bus 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 [큐, 토픽 및 구독][큐, 토픽 및 구독]을 참조하세요.
 
-[큐, 토믹 및 구독]: service-bus-queues-topics-subscriptions.md
+[큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
 [sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [require-once]: http://php.net/require_once
 [Service Bus 할당량]: service-bus-quotas.md
 
 
 
-<!---HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

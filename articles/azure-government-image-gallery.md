@@ -179,7 +179,7 @@ Microsoft Azure Government Marketplace는 공용 Azure Portal과 유사한 환�
 | SUSE |SUSE Linux Enterprise Server 12 SP1 |Microsoft Azure의 SUSE Linux Enterprise Server에서 프로덕션 작업 부하를 안심하고 실행하세요. 서비스 수준이 보장되며 SUSE 및 Microsoft 엔지니어의 도움을... |Linux |30GB |
 | SUSE |SUSE Linux Enterprise Server 12 SP1 |Microsoft Azure의 SUSE Linux Enterprise Server에서 프로덕션 작업 부하를 안심하고 실행하세요. 서비스 수준이 보장되며 SUSE 및 Microsoft 엔지니어의 도움을... |Linux |30GB |
 | SUSE |SUSE Linux Enterprise Server 11 SP4 |Microsoft Azure의 SUSE Linux Enterprise Server에서 프로덕션 작업 부하를 안심하고 실행하세요. 서비스 수준이 보장되며 SUSE 및 Microsoft 엔지니어의 도움을... |Linux |30GB |
-| SUSE |openSUSE Leap 42.1 |안정적이고 혁신적이며 재미있습니다. 도구 및 절차에 있어서 1년에 걸친 개선 노력과 수 많은 시간 동안의 개발, 패키징 및 테스트를 거쳐 최상의 성능을 제공하는 안정적인 릴리스를 출시했습니다... |Linux |30GB |
+| SUSE |openSUSE Leap 42.1 |안정적이고 혁신적이며 재미있습니다. 도구 및 절차에 있어서&1;년에 걸친 개선 노력과 수 많은 시간 동안의 개발, 패키징 및 테스트를 거쳐 최상의 성능을 제공하는 안정적인 릴리스를 출시했습니다... |Linux |30GB |
 | SUSE |SAP 클라우드 어플라이언스 라이브러리용 SUSE Linux Enterprise Server 11 SP4 |SAP 클라우드 어플라이언스 라이브러리용 SUSE Linux Enterprise Server 11 SP4 SAP 이미지는 SAP의 클라우드 어플라이언스 라이브러리용 기본 이미지입니다. SAP 클라우드 어플라이언스 라이브러리를 배포할 때 자동으로 사용합니다... |Linux |30GB |
 | SUSE |SUSE Linux Enterprise Server 12 SP1 |Microsoft Azure의 SUSE Linux Enterprise Server에서 프로덕션 작업 부하를 안심하고 실행하세요. 서비스 수준이 보장되며 SUSE 및 Microsoft 엔지니어의 도움을... |Linux |30GB |
 | SUSE |SUSE Linux Enterprise Server 11 SP4 |Microsoft Azure의 SUSE Linux Enterprise Server에서 프로덕션 작업 부하를 안심하고 실행하세요. 서비스 수준이 보장되며 SUSE 및 Microsoft 엔지니어의 도움을... |Linux |30GB |

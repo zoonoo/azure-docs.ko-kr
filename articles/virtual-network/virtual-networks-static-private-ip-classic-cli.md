@@ -1,13 +1,13 @@
 ---
-title: CLI를 사용하여 클래식 모드에서 정적 개인 IP를 설정하는 방법 | Microsoft Docs
-description: 정적 개인 IP(DIP) 및 CLI를 사용하여 클래식 모드에서 관리 방법 이해
+title: "CLI를 사용하여 클래식 모드에서 정적 개인 IP를 설정하는 방법 | Microsoft Docs"
+description: "정적 개인 IP(DIP) 및 CLI를 사용하여 클래식 모드에서 관리 방법 이해"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 70da85679c6e594278803fb073665a6eeab7df34
+
 
 ---
-# Azure CLI에서 정적 개인 IP 주소(클래식)를 설정하는 방법
+# <a name="how-to-set-a-static-private-ip-address-classic-in-azure-cli"></a>Azure CLI에서 정적 개인 IP 주소(클래식)를 설정하는 방법
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -28,10 +32,10 @@ ms.author: jdial
 
 아래 샘플 Azure CLI 명령에는 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [vnet 만들기](virtual-networks-create-vnet-classic-cli.md)에 설명된 테스트 환경을 구축합니다.
 
-## VM을 만들 때 정적 개인 IP 주소를 지정하는 방법
+## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>VM을 만들 때 정적 개인 IP 주소를 지정하는 방법
 위의 시나리오를 기반으로 *TestService*라는 새 클라우드 서비스에 *DNS01*이라는 VM을 만들려면 다음 단계를 수행합니다.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. **azure service create** 명령을 실행하여 클라우드 서비스를 만듭니다.
    
         azure service create TestService --location uscentral
@@ -63,14 +67,14 @@ ms.author: jdial
    
    * **-l(또는 --location)**. VM을 만들 Azure 지역입니다. 이 시나리오에서는 *centralus*입니다.
    * **-n(또는 --vm-name)**. 만들 VM의 이름입니다.
-   * **-w(또는 --virtual-network-name)**. VM이 만들어지는 VNet의 이름입니다.
+   * **-w(또는 --virtual-network-name)**. VM이 만들어지는 VNet의 이름입니다. 
    * **-S(또는 --static-ip)**. VM에 대한 정적 개인 IP 주소입니다.
    * **TestService**. VM이 만들어지는 클라우드 서비스의 이름입니다.
-   * **bd507d3a70934695bc2128e3e5a255ba\_\_RightImage-Windows-2012R2-x64-v14.2**. VM을 만드는 데 사용한 이미지입니다.
+   * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. VM을 만드는 데 사용한 이미지입니다.
    * **adminuser**. Windows VM에 대한 로컬 관리자입니다.
    * **AdminP@ssw0rd**. Windows VM에 대한 로컬 관리자 암호입니다.
 
-## VM의 정적 개인 IP 주소 정보를 검색하는 방법
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>VM의 정적 개인 IP 주소 정보를 검색하는 방법
 위의 스크립트로 만든 VM에 대한 정적 개인 IP 주소 정보를 보려면 다음 Azure CLI 명령을 실행하고 *Network StaticIP*에 대한 값을 확인합니다.
 
     azure vm static-ip show DNS01
@@ -82,7 +86,7 @@ ms.author: jdial
     data:    Network StaticIP "192.168.1.101"
     info:    vm static-ip show command OK
 
-## VM에서 정적 개인 IP 주소를 제거하는 방법
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>VM에서 정적 개인 IP 주소를 제거하는 방법
 위의 스크립트에서 VM에 추가된 정적 개인 IP 주소를 제거하려면 다음 Azure CLI 명령을 실행합니다.
 
     azure vm static-ip remove DNS01
@@ -95,7 +99,7 @@ ms.author: jdial
     info:    Updating network configuration
     info:    vm static-ip remove command OK
 
-## 기존 VM에 정적 개인 IP를 추가하는 방법
+## <a name="how-to-add-a-static-private-ip-to-an-existing-vm"></a>기존 VM에 정적 개인 IP를 추가하는 방법
 위의 스크립트를 사용하여 만든 VM에 정적 개인 IP 주소를 추가하려면 다음 명령을 실행합니다.
 
     azure vm static-ip set DNS01 192.168.1.101
@@ -109,9 +113,14 @@ ms.author: jdial
     info:    Updating network configuration
     info:    vm static-ip set command OK
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [예약된 공용 IP](virtual-networks-reserved-public-ip.md) 주소에 대해 알아봅니다.
 * [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소에 대해 알아봅니다.
 * [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
